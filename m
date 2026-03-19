@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8E4109190D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526921091904
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 18:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kt+R8rdhnMH0JxLkvpX/7AhCeFXaCuhgwgruVNrcyX4=; b=t/bZBurQbB1gB2xWomcQk+FWbl
-	Z4vQj3tH5dyE1WEDD4rJuOos+tuW2oVyL3CychcM8sWb24bc0cXeGu6WuB9xIDoqlwDU9dAS5bE7w
-	ACizPMyjBMKHgffHvZlxboXs8tWPawJ7s8RTPO4DQM53CQPDiLw0KIW5ZJSt0ETQHUMRmuxULAm+K
-	Plw6ooB73gkJd5vBVPPWXf+Wb7mHH68c1vy0ToY3EVClAvte2FYH9q3KoeTuZVt/1i+omVVO9xXFJ
-	k+WeB1+slBCSUj0ENrl4XnBEDj3QLL2jsIrZaODlcNBOXTFpTZYITusRoDqyrMf8+J1ksjzRM29tp
-	Lu63GFjw==;
+	bh=hsRjlpj8112gDvVfzgcWIwNrv5kQelDCvuBWHshniGY=; b=eN8nk2uzikHlHI3tNFAd6VIaT7
+	MpKfpGx4/4pOC1PUKvvz7K4jSXwqL3KV88lDQGxqUPhx1wdKP81khi4HwaS29oeqr5r4zsNFLINI4
+	QAOXoUs0gbcNNgaH5NIS0HC0cTZA38eq82ZoN59qsndS2vs7sc/WoJV8fFhZBPn0KhbQaxoXKGrNM
+	jOx00Pk32QTFeyGIRlvHMknaxhUj8iO3mOzs++NCUMiE2iaOokrvdOioLdvok2AB9X3C/13uV6nIf
+	khYFjqnwKd/zmXkKkHannmqVhc6pI42YVnWSidnvwzLG0/YUy8tPvWnVb+AebEKhnSWQ8h/Bpi23l
+	aRG1WS0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IJi-0000000BNKk-1Izs;
+	id 1w3IJi-0000000BNLI-2WhP;
 	Thu, 19 Mar 2026 18:41:58 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3IJd-0000000BNGl-1MZ5
+	id 1w3IJf-0000000BNHs-0Lik
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 18:41:54 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-485392de558so8362935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 11:41:52 -0700 (PDT)
+	Thu, 19 Mar 2026 18:41:56 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-486b96760easo14049755e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 11:41:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773945711; x=1774550511; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773945713; x=1774550513; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Kt+R8rdhnMH0JxLkvpX/7AhCeFXaCuhgwgruVNrcyX4=;
-        b=TkKabaHoZwCxOhcHmBNv40wGGVYZxykUSn5mw8HWdWBvswN2vi38F+kRfoRScwGYEh
-         VAi7KA9FamriHZ1Ncqx8n2kdNY40pZSx9L1g0MEVPNFuWbURxn10lLLQgJQwiW8erqr1
-         w7Q9syLymSVdIWX/JtOpefymDiRielpZwpoaX9VbteVEGgg8i+kUUS0gXzqRiRTO1QT8
-         Zrl1uo8rfEehKIAzHHyzrQOS7kXa7iE+FjhYl9pLOVQjhRhWFmEId3YXvN1ULmqnCUCx
-         e8SSZOPcELcU25KK20aAI9QQVnLoPE7qAC1/8bE6aFUumMyKHKQuxcM18mYrEsKo6PoF
-         yNxQ==
+        bh=hsRjlpj8112gDvVfzgcWIwNrv5kQelDCvuBWHshniGY=;
+        b=LHeCtBLeg0s3bs7d39+EAoNfCRPFvIHYqxbx+oaRsXCRW/K7SCdGHIekXzoKTB71iL
+         OmSqHi47NpFQIH1Bukp8FvwhrZJ8RJNXXKktbm6R5PPXQ5kkZx2qPE7R0IWD+mYLG+6y
+         UfgVUtWvStSiNNxLX14950gxn6uuxC1zYvpMNMlDuFTgwiHyOJdajdCP3k8ktr8fPYkf
+         Huc1qP2n2jdJGbC7HG5YnGBLWf1rkgosEgB6Z+JEEQyghOnXXmKH1HuIl0In3wQZMENb
+         FM0iDPmJ87BxFX/1y6X8/ZODLZKeEI7M3YSR0kx063pPQVi5bmhxXAttjuuPhSH1hH8j
+         9u7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773945711; x=1774550511;
+        d=1e100.net; s=20251104; t=1773945713; x=1774550513;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Kt+R8rdhnMH0JxLkvpX/7AhCeFXaCuhgwgruVNrcyX4=;
-        b=kSD2K/BDnHBLB850RcZk8EZau8ezTF6VyJBZJBTSf34gSRamZnOTTXnoTfiFcVOm8o
-         +LwnozOWEhUQf+K/dXw9f7khzlCJB7FZrSabXPAVxuO6RugPoKySzYWCfuaNI5DHb0kF
-         k6FBkB4pjqTcGk1CkUsEo3PMy9sePvEGwjoVFgdn6SCDaSbhmniF3yI7sC3eZU0PJM05
-         KES+4h8QHSrdcxWPGts3riABklownm0t+3b+ptHlUZ16b5CvRyK50R7e60LH5OzkhYO6
-         zNDL9dzRqPQyqCtJZmhDl72MQyo9TjBAMG3KKLULJWyAfzIoBX9d4JV09sn64PUrD4Cd
-         Qz+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVmF0Gw+Af81eCTTPLAB6nW1S57ty/8jQnz9ciFHQFgv6k91i+lyBoFac8itqFDD5O04qO4eaj8Tj8YIDZT8Y4O@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWhyAhh5ytpSARsSphjMLw3QzoR4x71L5ZdhDNuWRLbaG3eaXd
-	Qmmgl1IY3GeD7O0qXg/iYbP7MQhsbvga9ZUBj24YnP3n51n/F12CgEqv
-X-Gm-Gg: ATEYQzzKyyeGwYs70oAOpcMiUzm74hOdUPY9kHFhHMyk+A0OMwaRK5NOcg8hYW8HrZh
-	/M0fSRhCsBYi+9wKUJfmB7Yn7wroO3FHeUQ8r0Orj+KmJ40N7r+jBy3/yuXsi2UKK7XM5pp08v+
-	Qyg/INUiU0XTxszKxrEnvlXXPqjx0fG3+Sc/7WXnFk1+LXPZw/uKHiwckSE5nmdo9kd13/5LCWr
-	dQDQADbwQTxVPzUiVxgNNMjTwdFdk64paqWCVOuMtqg/ab80I1ur3D10ImHF772JBvgzppfFOBb
-	FhzjWO6LDz+iexmhWdRgK4wHNrKZWZVUVO07acSM9+lQMDD/mijHkKWCFRO+TyaWz5rwzx+ItcA
-	y6rmBeZ73QIG6ECnLzrhL1cQdx6q+MzXTJlZlwWVJTu4JJoFbw81EI0orTm1hEWygkYb0hi0jcr
-	eIXNIX2/2+moUQngSIbtSrLJ0VMjGkrU/c1TkwIhpu0NRcoDg1GVHOlN3Abfy0iviwNvjTI+/7V
-	d/ldV7a2HaIcnwdHWsQyNm6zgP8fDsLfhHHh5EfyEcCYD9UwA==
-X-Received: by 2002:a05:600c:3b07:b0:47e:e2eb:bc22 with SMTP id 5b1f17b1804b1-486febb59acmr2852815e9.5.1773945710872;
-        Thu, 19 Mar 2026 11:41:50 -0700 (PDT)
+        bh=hsRjlpj8112gDvVfzgcWIwNrv5kQelDCvuBWHshniGY=;
+        b=o+aOn3LMwsbHJSQBgYNbpuQsKH8+2ENBwGPIRBqwc1sSz4gkj+uhAmaV+0nU0m5iYK
+         7kqcRCddxkMhtq6ZpDbR3GEHyX7NWKr5XTh6TD4K0zzPIBY9hbgnpbqtGzL2h6hhUyOc
+         9B9vheroW1CZI9UXy5VN9MjFFakXjcXP0AKFD+0ljrObD3JHj9BcyLUR1InXtgAEiOnD
+         lGZ3empQRkqnVOAZads81uqJoHAKpNXVLPJfm+2912U0xcY3226njkADc/gaEvyAd3zW
+         1IyCFF7eQM3XRKMKpeGlfNpGZ2KXf8wF8RWsk8LpKH2RQ8jtwhFLHVSpq/xrgwtuwM4R
+         WxUA==
+X-Forwarded-Encrypted: i=1; AJvYcCX5BpHzKzktEeqJflQXQ1pIN2jkxkfA7T5wcnluzK5bRLhQDuJdUyHrUwvo1XqZvIQSUHwXNCxVcT92V/VRLdbE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAUcss9wx4NYC2CnCOJTUotwmjSJmjkOTpMpT7s07mACN/8CmT
+	9fAnnnwI+fXWZTWsPfFPVyjM1DM5XRjSSP0uWuhD2SJ6j1dAKH9wdkI3
+X-Gm-Gg: ATEYQzxbM5D0e90adkTu3SNTxTfYB/u8Efh42ukEUvKpQ1tXeP//6VRO15tnsQh4AGD
+	VFFHb6zuJ4hrtOIDBHofCvr/NpreLN8EgUx2UygDFH3Wln20kgbCb7G6Owkhe2t4xKxEsbpw2kN
+	QfwyX0pyGAJzVF9vF6tbmWZqPFgRLXGziorQ9nc36QyZKGyY5MiMjKt7nLSZpdoMin/onOztlmj
+	H0URINS9qAt8cV975GXxcmG3T4K7EtRtTyl75J0xyr6mlS47VMTDFvPa/IsFQFqXbfQKZgOoBT7
+	1/uLAVdtvoS8n+X2LnIr6CMfaNV2pVjSskQHVb7nlcZarrQOsMSt5CzcHk5HeGlym5HUJgqmj3w
+	HMnj6JD4t1p8QWUxCBaxiUdqOaOxmaWbeH1MJviuvdLvqzG/WmjnUCklpW6akQfrZovpyQ1XUA9
+	kW7CesD7kvSnARjVFL8b6Jq2hnj2pF78Drn8VikYNR8NrfkzEG4wEqOQ32sBv2gktCFrlWLtpXo
+	ibftv9s/TT8JK/lBn3wDbdDIM3ydUQckQBHqkg=
+X-Received: by 2002:a05:600c:4750:b0:485:3812:36dc with SMTP id 5b1f17b1804b1-486fedbd0bbmr2722735e9.9.1773945713116;
+        Thu, 19 Mar 2026 11:41:53 -0700 (PDT)
 Received: from Lord-Beerus.station (net-188-152-100-94.cust.dsl.teletu.it. [188.152.100.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f8b1fe65sm77289195e9.5.2026.03.19.11.41.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486f8b1fe65sm77289195e9.5.2026.03.19.11.41.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 11:41:50 -0700 (PDT)
+        Thu, 19 Mar 2026 11:41:52 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v4 01/11] arm64: dts: freescale: imx8mm-var-som: Move UART4 description to Symphony
-Date: Thu, 19 Mar 2026 19:40:21 +0100
-Message-ID: <d3fbc6a0d5782e86a2294f28786b415a7b072d19.1773944896.git.stefano.r@variscite.com>
+Subject: [PATCH v4 03/11] arm64: dts: freescale: imx8mm-var-som: Update FEC support with MaxLinear PHY
+Date: Thu, 19 Mar 2026 19:40:23 +0100
+Message-ID: <7f26d7a437b76a60475fa5373803eeb2bea125b0.1773944896.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1773944896.git.stefano.r@variscite.com>
 References: <cover.1773944896.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_114153_380793_96B4B2A2 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20260319_114155_160466_A5CAEAFB 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,113 +112,151 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-The VAR-SOM-MX8MM module does not provide an onboard debug console.
-UART4 is routed and exposed only on the Symphony carrier board, while
-custom carrier designs may choose to expose a different UART.
+Update the FEC Ethernet controller on the i.MX8MM VAR-SOM to match the
+latest SOM hardware revision using the integrated MaxLinear MXL86110 PHY.
 
-Move the UART4 node from the SOM device tree to the
-imx8mm-var-som-symphony.dts, keeping the SOM dtsi limited to hardware
-present on the module itself.
+Add the PHY VDDIO supply regulator, adjust reset timings and add a
+pinctrl sleep state for low-power operation.
+
+The PHY LED signals originate on the SOM, but the actual LEDs are part
+of the carrier implementation (RJ45 connector). Move the LED
+configuration to the Symphony carrier device tree, matching the
+evaluation board LED wiring.
+
+Wake-on-LAN via magic packet is not supported at the VAR-SOM level and
+is therefore not enabled in the SOM device tree nor in the official
+evaluation carrier board configuration (symphony).
+Designs requiring WoL support may enable it in their own carrier-specific
+device trees if properly integrated at the hardware level.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v3->v4:
- - 
+ - Remove wrong enet reset gpio hog
 
 v2->v3:
  - 
 
 v1->v2:
- - 
+ - Moved phy LED configurations to symphony dts
 
- .../dts/freescale/imx8mm-var-som-symphony.dts  | 18 ++++++++++++++++++
- .../boot/dts/freescale/imx8mm-var-som.dtsi     | 18 ------------------
- 2 files changed, 18 insertions(+), 18 deletions(-)
+ .../dts/freescale/imx8mm-var-som-symphony.dts | 20 +++++++++-
+ .../boot/dts/freescale/imx8mm-var-som.dtsi    | 39 +++++++++++++++++--
+ 2 files changed, 55 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-index affbc67c2ef6..819707e6f3bf 100644
+index 819707e6f3bf..9f4e004f0a37 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
 +++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-@@ -11,6 +11,10 @@ / {
- 	model = "Variscite VAR-SOM-MX8MM Symphony evaluation board";
- 	compatible = "variscite,var-som-mx8mm-symphony", "variscite,var-som-mx8mm", "fsl,imx8mm";
+@@ -5,6 +5,7 @@
  
-+	chosen {
-+		stdout-path = &uart4;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -156,6 +160,13 @@ &uart3 {
- 	status = "okay";
+ /dts-v1/;
+ 
++#include <dt-bindings/leds/common.h>
+ #include "imx8mm-var-som.dtsi"
+ 
+ / {
+@@ -71,7 +72,24 @@ led {
  };
  
-+/* Console */
-+&uart4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart4>;
-+	status = "okay";
-+};
+ &ethphy {
+-	reset-gpios = <&pca9534 5 GPIO_ACTIVE_HIGH>;
++	leds {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
- &usbotg1 {
- 	disable-over-current;
- 	extcon = <&extcon_usbotg1>, <&extcon_usbotg1>;
-@@ -251,4 +262,11 @@ MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX	0x140
- 			MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX	0x140
- 		>;
- 	};
++		led@0 {
++			reg = <0>;
++			color = <LED_COLOR_ID_YELLOW>;
++			function = LED_FUNCTION_LAN;
++			linux,default-trigger = "netdev";
++		};
 +
-+	pinctrl_uart4: uart4grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_UART4_RXD_UART4_DCE_RX	0x140
-+			MX8MM_IOMUXC_UART4_TXD_UART4_DCE_TX	0x140
-+		>;
++		led@1 {
++			reg = <1>;
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_LAN;
++			linux,default-trigger = "netdev";
++		};
 +	};
  };
+ 
+ &i2c2 {
 diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-index 190bde4edcd7..b6560c03639e 100644
+index da3c7332ec34..24924ee1e8c7 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-@@ -9,10 +9,6 @@
- / {
- 	model = "Variscite VAR-SOM-MX8MM module";
- 
--	chosen {
--		stdout-path = &uart4;
--	};
--
- 	memory@40000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x40000000 0 0x80000000>;
-@@ -274,13 +270,6 @@ &uart2 {
- 	status = "okay";
+@@ -24,6 +24,13 @@ reg_eth_phy: regulator-eth-phy {
+ 		gpio = <&gpio2 9 GPIO_ACTIVE_HIGH>;
+ 		enable-active-high;
+ 	};
++
++	reg_phy_vddio: regulator-phy-vddio {
++		compatible = "regulator-fixed";
++		regulator-name = "vddio-1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
  };
  
--/* Console */
--&uart4 {
+ &A53_0 {
+@@ -99,12 +106,17 @@ touchscreen@0 {
+ };
+ 
+ &fec1 {
 -	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart4>;
--	status = "okay";
--};
--
- &usbotg1 {
- 	dr_mode = "otg";
- 	usb-role-switch;
-@@ -418,13 +407,6 @@ MX8MM_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B	0x140
++	pinctrl-names = "default", "sleep";
+ 	pinctrl-0 = <&pinctrl_fec1>;
++	pinctrl-1 = <&pinctrl_fec1_sleep>;
++	/*
++	 * The required RGMII TX and RX 2ns delays are implemented directly
++	 * in hardware via passive delay elements on the SOM PCB.
++	 * No delay configuration is needed in software via PHY driver.
++	 */
+ 	phy-mode = "rgmii";
+ 	phy-handle = <&ethphy>;
+ 	phy-supply = <&reg_eth_phy>;
+-	fsl,magic-packet;
+ 	status = "okay";
+ 
+ 	mdio {
+@@ -116,7 +128,8 @@ ethphy: ethernet-phy@4 {
+ 			reg = <4>;
+ 			reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+ 			reset-assert-us = <10000>;
+-			reset-deassert-us = <10000>;
++			reset-deassert-us = <100000>;
++			vddio-supply = <&reg_phy_vddio>;
+ 		};
+ 	};
+ };
+@@ -366,6 +379,26 @@ MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x19
  		>;
  	};
  
--	pinctrl_uart4: uart4grp {
--		fsl,pins = <
--			MX8MM_IOMUXC_UART4_RXD_UART4_DCE_RX	0x140
--			MX8MM_IOMUXC_UART4_TXD_UART4_DCE_TX	0x140
--		>;
--	};
--
- 	pinctrl_usdhc1: usdhc1grp {
++	pinctrl_fec1_sleep: fec1sleepgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ENET_MDC_GPIO1_IO16		0x120
++			MX8MM_IOMUXC_ENET_MDIO_GPIO1_IO17		0x120
++			MX8MM_IOMUXC_ENET_TD3_GPIO1_IO18		0x120
++			MX8MM_IOMUXC_ENET_TD2_GPIO1_IO19		0x120
++			MX8MM_IOMUXC_ENET_TD1_GPIO1_IO20		0x120
++			MX8MM_IOMUXC_ENET_TD0_GPIO1_IO21		0x120
++			MX8MM_IOMUXC_ENET_RD3_GPIO1_IO29		0x120
++			MX8MM_IOMUXC_ENET_RD2_GPIO1_IO28		0x120
++			MX8MM_IOMUXC_ENET_RD1_GPIO1_IO27		0x120
++			MX8MM_IOMUXC_ENET_RD0_GPIO1_IO26		0x120
++			MX8MM_IOMUXC_ENET_TXC_GPIO1_IO23		0x120
++			MX8MM_IOMUXC_ENET_RXC_GPIO1_IO25		0x120
++			MX8MM_IOMUXC_ENET_RX_CTL_GPIO1_IO24		0x120
++			MX8MM_IOMUXC_ENET_TX_CTL_GPIO1_IO22		0x120
++			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x100
++		>;
++	};
++
+ 	pinctrl_i2c1: i2c1grp {
  		fsl,pins = <
- 			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK		0x190
+ 			MX8MM_IOMUXC_I2C1_SCL_I2C1_SCL			0x400001c3
 -- 
 2.47.3
 
