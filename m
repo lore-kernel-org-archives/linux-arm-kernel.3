@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F721091930
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 23:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E988109192F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 23:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKUVlIfc0qkwHuqbrR8sv7WbUFqet8dqF98h+KSc2Ws=; b=D1KAAJMzHUHjWdG1HW08/zWup1
-	hkz103HG7D2uIR78rRglccgdi6RgBXlR+JaSGgIrb0R03BkvIFvn2RUxv1mzoFhgTNUIzCRyNL/kV
-	A7teQQGp8jMn9qnYw0VG8iS6vQnVGfu7fV0WuPn5KVC1XU0kpfSTjhZZAWSU+tnhpw9og3uEA0hY9
-	xZTvjO/iWSOUZDsMxZPUpfrrueYBeF25AU796jvBot39CkEGvEkzkYwZkaDxYiAMKT/q4HBXouqPg
-	ZmwyyYQpp5m61xTmv7ieNdUYaGIEPYv3Bxu+ID5C3d4N3L06yuujYR+4SDg62tcEIVFIC3NLSiaZP
-	/BjvsKrA==;
+	bh=kgG+2MmHlKqkaMtTERli4hGif+DR7fuf4MsPFq2n3tc=; b=aIhfcpSsE5gsxNoT/dHVSNWI8p
+	eBajgp+3wqpI9OajPiL9hLFTmpUYWqy0OgLw0GXBQuZ9b8PPfqNTvb793RcwwxLM4ZqXWfbZtgqeh
+	7cW3X1zBxqerlFExji8M6Osu5TImYFaSkBQYQ1tDciJ192tzjlZcmNMyqLDvqJlRG6xZPQsOPltgk
+	PXr8AhqpnRPNFH5C+EP+Ob+4ID5lccOHlpfH1TDbio94MoWVdmvwwWQHHzmOhm5cxN0uXnzA7A4ZL
+	MA4O64muclQm5rDSvPoC+43M8jsQlZMQdjHw2G6lZ/eaiEimYLvL4vha1CsLs+dmIl5I30srSSItQ
+	Edtljszw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3MUn-0000000BmGE-1ajY;
-	Thu, 19 Mar 2026 23:09:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3Mhr-0000000Bn5D-0Ym8;
+	Thu, 19 Mar 2026 23:23:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3MUk-0000000BmFt-1Ivv
+	id 1w3Mhp-0000000Bn4Y-0HZS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 23:09:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD8DD40838;
-	Thu, 19 Mar 2026 23:09:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6710C19424;
-	Thu, 19 Mar 2026 23:09:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773961777;
-	bh=+j3zMyv1kxkRvoPAXUMnrI8opptFe1VkIiWcvT9/Kjc=;
+	Thu, 19 Mar 2026 23:23:10 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5CFEA2D5;
+	Fri, 20 Mar 2026 00:21:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1773962513;
+	bh=O1yGe/x9bPDoJuw8MAlkhNqRUV1/8GInglDR04iBELc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P0gfAE1ZAXC9c867TKb2BGxFt6eYxeBZFxR7WyaQMtcGfpnCBy2eEUsk7tHP6eKPI
-	 MW1Rp1+HWE2KgX8Gtq4v6m060MSF0dsjTNhUUtER0TVRRA8qei7+2tRgjF1ITUka92
-	 gTrd7abcd1KJUlHy329Diby5edoHkIQCLndZy3av6UVndoqbsZC8YBOWwJHfuAgI6l
-	 Ood2kUt+XCZDWeE19mSGJyxP/Xt10LcUlpB9iegiCOKlcdlPy6FQmEs7hBh1Wqf3Hg
-	 Hd6gHrqL0KI6DR+y5V6fzksmSD8om5LR33MJc4//Z2C8WAZlrQK7RqtSPbYmgUuXL+
-	 urWI6B4cKLGGw==
-Date: Fri, 20 Mar 2026 00:09:32 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, Stefan Eichenberger <eichest@gmail.com>, 
-	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"stefan.eichenberger@toradex.com" <stefan.eichenberger@toradex.com>, Francesco Dolcini <francesco.dolcini@toradex.com>, 
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated after last
- read
-Message-ID: <abyBxAvJcMshvB7G@zenone.zhora.eu>
-References: <20260218150940.131354-1-eichest@gmail.com>
- <20260218150940.131354-3-eichest@gmail.com>
- <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
- <aZXq4gn4xhInQQlq@eichest-laptop>
- <aaamYByn9dZEIBWb@eichest-laptop>
- <aacECsJ6O8QjHsUa@lizhi-Precision-Tower-5810>
- <PAWPR04MB9960F0118ACC092BCAAB0142E87CA@PAWPR04MB9960.eurprd04.prod.outlook.com>
+	b=JwUnumPqh3rA/7TrbDGF0mIB6W4NUe9XMLh8sb4leVTJaEzcWsPh5EaM00kmUEdc2
+	 yDVcaD1p9XUpHYjMyruS7uybEUSlGMIrL1EPKqd9dGVruqpoxCadzJRRc94zVqWAMt
+	 XoRZ8qlmuFMuCkU8reiNa8vtF3LBpS7sM4xwS/NY=
+Date: Fri, 20 Mar 2026 01:23:05 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 2/5] media: imx8mq-mipi-csi2: Use
+ devm_clk_bulk_get_all() to fetch clocks
+Message-ID: <20260319232305.GA967713@killaraus.ideasonboard.com>
+References: <20251205-csi2_imx8ulp-v10-0-190cdadb20a3@nxp.com>
+ <20251205-csi2_imx8ulp-v10-2-190cdadb20a3@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <PAWPR04MB9960F0118ACC092BCAAB0142E87CA@PAWPR04MB9960.eurprd04.prod.outlook.com>
+In-Reply-To: <20251205-csi2_imx8ulp-v10-2-190cdadb20a3@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_160938_398706_922EF8BA 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20260319_162309_268212_8C930628 
+X-CRM114-Status: GOOD (  25.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +80,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Hi Guoniu,
 
-> > > > > > When reading from the I2DR register, right after releasing the
-> > > > > > bus by clearing MSTA and MTX, the I2C controller might still
-> > > > > > generate an additional clock cycle which can cause devices to
-> > > > > > misbehave. Ensure to
-> > > > >
-> > > > > Do you means SCL have additional toggle? You capture waveform?
-> > > > >
-> > > >
-> > > > Yes exactly. We were able to capture the waveform when the issue
-> > > > happens. It doesn't always happen though, it depends on how much
-> > > > time passes between clearing MSTA and MTX and reading from I2DR.
-> > > >
-> > > > If you want to see the waveform, I uploaded it to our server:
-> > > > https://share.toradex.com/dwnhcrl6b9toib6
-> > > > You can see the additional clock at the right end, after "0x17 + NAK".
-> > >
-> > > Have you had a chance to look at the waveform? Do you have any
-> > > concerns about the proposed solution?
-> > 
-> > I am fine. Add carlos, who did many work about I2C.
-> > 
-> > Frank
-> 
-> Hi, 
-> 
-> Just review this series, looks this series patch make this fix for the limitation[1] safer:
-> "It must generate STOP before read I2DR to prevent controller from generating another clock cycle".
-> 
-> Previous patch[2] has done this to avoid the limitation. However according to the waveform, I2C controller still generated an additional clock cycle sometime.
-> 
-> The key of patch is ensure to read the last bytes after the bus is not busy anymore to avoid this another clock cycle.So these patches are fine to me also.
-> 
-> [1] 054b62d9f25c ("i2c: imx: fix the i2c bus hang issue when do repeat restart")
-> [2] 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
+Thank you for the patch.
 
-Sorry, I'm not understanding your point here. Are you suggesting
-to change the Fixes tag to [1]?
+On Fri, Dec 05, 2025 at 05:07:44PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+> 
+> Use devm_clk_bulk_get_all() helper to simplify clock handle code.
+> 
+> No functional changes intended.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 55 ++++++++++-----------------
+>  1 file changed, 20 insertions(+), 35 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> index 371b4e81328c107269f89da23818ab0abd0179da..0e3a41cd35edfefc51b5631e2c36fd76e3e14d83 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -71,21 +71,6 @@ enum {
+>  	ST_SUSPENDED	= 4,
+>  };
+>  
+> -enum imx8mq_mipi_csi_clk {
+> -	CSI2_CLK_CORE,
+> -	CSI2_CLK_ESC,
+> -	CSI2_CLK_UI,
+> -	CSI2_NUM_CLKS,
+> -};
+> -
+> -static const char * const imx8mq_mipi_csi_clk_id[CSI2_NUM_CLKS] = {
+> -	[CSI2_CLK_CORE] = "core",
+> -	[CSI2_CLK_ESC] = "esc",
+> -	[CSI2_CLK_UI] = "ui",
+> -};
+> -
+> -#define CSI2_NUM_CLKS	ARRAY_SIZE(imx8mq_mipi_csi_clk_id)
+> -
+>  struct imx8mq_plat_data {
+>  	int (*enable)(struct csi_state *state, u32 hs_settle);
+>  	void (*disable)(struct csi_state *state);
+> @@ -111,7 +96,9 @@ struct csi_state {
+>  	struct device *dev;
+>  	const struct imx8mq_plat_data *pdata;
+>  	void __iomem *regs;
+> -	struct clk_bulk_data clks[CSI2_NUM_CLKS];
+> +	struct clk_bulk_data *clks;
+> +	struct clk *esc_clk;
+> +	u32 num_clks;
+>  	struct reset_control *rst;
+>  	struct regulator *mipi_phy_regulator;
+>  
+> @@ -384,24 +371,16 @@ static void imx8mq_mipi_csi_set_params(struct csi_state *state)
+>  			      CSI2RX_SEND_LEVEL);
+>  }
+>  
+> -static int imx8mq_mipi_csi_clk_enable(struct csi_state *state)
+> -{
+> -	return clk_bulk_prepare_enable(CSI2_NUM_CLKS, state->clks);
+> -}
+> -
+> -static void imx8mq_mipi_csi_clk_disable(struct csi_state *state)
+> -{
+> -	clk_bulk_disable_unprepare(CSI2_NUM_CLKS, state->clks);
+> -}
+> -
+> -static int imx8mq_mipi_csi_clk_get(struct csi_state *state)
+> +static struct clk *find_esc_clk(struct csi_state *state)
 
-Thanks,
-Andi
+imx8mq_mipi_csi_find_esc_clk().
+
+>  {
+>  	unsigned int i;
+>  
+> -	for (i = 0; i < CSI2_NUM_CLKS; i++)
+> -		state->clks[i].id = imx8mq_mipi_csi_clk_id[i];
+> +	for (i = 0; i < state->num_clks; i++) {
+> +		if (!strcmp(state->clks[i].id, "esc"))
+> +			return state->clks[i].clk;
+> +	}
+>  
+> -	return devm_clk_bulk_get(state->dev, CSI2_NUM_CLKS, state->clks);
+> +	return ERR_PTR(-ENODEV);
+>  }
+>  
+>  static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
+> @@ -456,7 +435,7 @@ static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
+>  	 * documentation recommends picking a value away from the boundaries.
+>  	 * Let's pick the average.
+>  	 */
+> -	esc_clk_rate = clk_get_rate(state->clks[CSI2_CLK_ESC].clk);
+> +	esc_clk_rate = clk_get_rate(state->esc_clk);
+>  	if (!esc_clk_rate) {
+>  		dev_err(state->dev, "Could not get esc clock rate.\n");
+>  		return -EINVAL;
+> @@ -783,7 +762,7 @@ static void imx8mq_mipi_csi_pm_suspend(struct device *dev)
+>  
+>  	if (state->state & ST_POWERED) {
+>  		imx8mq_mipi_csi_stop_stream(state);
+> -		imx8mq_mipi_csi_clk_disable(state);
+> +		clk_bulk_disable_unprepare(state->num_clks, state->clks);
+>  		state->state &= ~ST_POWERED;
+>  	}
+>  
+> @@ -801,7 +780,7 @@ static int imx8mq_mipi_csi_pm_resume(struct device *dev)
+>  
+>  	if (!(state->state & ST_POWERED)) {
+>  		state->state |= ST_POWERED;
+> -		ret = imx8mq_mipi_csi_clk_enable(state);
+> +		ret = clk_bulk_prepare_enable(state->num_clks, state->clks);
+>  	}
+>  	if (state->state & ST_STREAMING) {
+>  		sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+> @@ -1027,9 +1006,15 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
+>  	if (IS_ERR(state->regs))
+>  		return PTR_ERR(state->regs);
+>  
+> -	ret = imx8mq_mipi_csi_clk_get(state);
+> +	ret = devm_clk_bulk_get_all(dev, &state->clks);
+>  	if (ret < 0)
+> -		return ret;
+> +		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+> +
+> +	state->num_clks = ret;
+> +
+> +	state->esc_clk = find_esc_clk(state);
+> +	if (IS_ERR(state->esc_clk))
+> +		return dev_err_probe(dev, PTR_ERR(state->esc_clk), "Couldn't find esc clock\n");
+
+This could be line-wrapped.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+I can make those small changes when applying if there's no other need to
+submit a new version.
+
+>  
+>  	platform_set_drvdata(pdev, &state->sd);
+>  
+> 
+
+-- 
+Regards,
+
+Laurent Pinchart
 
