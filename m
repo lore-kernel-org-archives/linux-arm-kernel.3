@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186941090240
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D32109023F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 15:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dL4coGiwfAfRSjt87RU0cQMNlEEpIyhIT1wj2P9pOJ8=; b=jtCGbHP1Wrr7YcWGl4C/hT66vy
-	qE/zKyuV6DN8lEfA1NHrnfb3CMZJ6teOKKMxrbh3Kls2i6m2mBDTgXliZIIh8IqjTJom/3ibFZphu
-	ibuatXdZkGsP5KP++64OMx1uteq9vBCJk2HNcnnMYEkGWNkuTILA5FfAMZzro1RzMDWEVqELpldlj
-	4UjoOF2h2kOIb45EU9OUwrpia6lvhSocSaaGXVpq35N7pbZzdEA6XMz5ME3WAZUHXG7BkrkMnLCPc
-	KXhUi8i6zMHICXs42QuyKMcZOk2NUjLIVd5E7Zaxv/Ki7+wtF9Vm68pjbEmg//ELAcS9HGJwmsKHH
-	uzvVOZOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OwgWNwuqPFxUg7+dzX7DZnorsa23LOlHczwFd1Nf1ww=; b=aJiTKjTFGMR00kMstE5kDlcY1n
+	EfrlFjuaPV61QwQHoDRCXTONcsf/Dajrs39jeKR9cyzv3KSOKyzfn/PVV5hCrmbsoiLsPsXLmit+s
+	mr0A6KnLEPA189fdnTwqvWqT1CUQyXwdlKQJG7ZQxPeV4V7Ykhh1pAnduvlHa+8p+yUgyPBWo4brR
+	VBT2qTLPR22jJf9GEilH2bs2CeBsXh2ef0aYGpA8amdenyDOV0hUpXJneXm1z1dsd1fqVuTyjk00r
+	oHlSfgfYPq3uM68IhHbliM1bDrGSokxp/m2cqckClMvI8QED6C2B0z3/wlIjft8Yv01P2B43fareF
+	MvzrwciA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FAf-0000000Atxg-1P6Q;
-	Thu, 19 Mar 2026 15:20:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3FAd-0000000Atwc-0BsM
+	id 1w3FAx-0000000Au2o-2koD;
+	Thu, 19 Mar 2026 15:20:43 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3FAv-0000000Au1l-3Tqi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 15:20:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CA131A25;
-	Thu, 19 Mar 2026 08:20:15 -0700 (PDT)
-Received: from [10.1.35.24] (e122027.cambridge.arm.com [10.1.35.24])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 557F43F778;
-	Thu, 19 Mar 2026 08:20:17 -0700 (PDT)
-Message-ID: <a1779d7a-1680-483f-be6c-791ac4d219e1@arm.com>
-Date: Thu, 19 Mar 2026 15:20:15 +0000
+	Thu, 19 Mar 2026 15:20:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description;
+	bh=OwgWNwuqPFxUg7+dzX7DZnorsa23LOlHczwFd1Nf1ww=; b=aA6npBLrX9UBbGwEkoA46cwmYd
+	aoWCb5LXwbZrWnVZZTuRMOf7i6uDKHj8vcleWqlYpr373wmO/H13d9gAfpc2frkTZZZ/gSwOnqQn+
+	gJEnQZoGfAR64JCaS7Nw0ike8jKcqMwWa0+0yUTuNoCw+OuthUBGf6/xAs4WszszhwG/QBZJea0Wj
+	pKRixTfHrkZIWXUlYhQ6DWdAeaeBy9Gz1EJ/D75uRRqYO0yBV9mNdg8CojyNblQUI7z1CDpM0huGq
+	VW+4VEL3oACJZ+E1GsFK+1AIdU35H1endgEqFqGSN5EIumnDu/tEQLZBfLt2PlUXMfHF0oLVbO+iP
+	xeOuep5A==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <leitao@debian.org>)
+	id 1w3FAn-004WKu-Jq; Thu, 19 Mar 2026 15:20:32 +0000
+Date: Thu, 19 Mar 2026 08:20:27 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>, oss@malat.biz
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	paulmck@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: arm64: pseudo NMI bootconfig question
+Message-ID: <abwTJBj80oX_T8xt@gmail.com>
+References: <rs4igmsjrm6r2aio4nbe5jos3vcqk2u4bjhltjwtj2pn3cquip@kv3grgec7qrb>
+ <20251113133403.308046d2df1c97ba7dcd2388@kernel.org>
+ <wqzhgeu5vlkeuomajvy7vf3x4gf3fsnzmczmkswvjo7xdyzzbo@6uqjqftbzgot>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 10/48] arm64: RMI: Ensure that the RMM has GPT entries
- for memory
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-11-steven.price@arm.com>
- <b83d601c-c4a0-4e6b-aae0-e49f02e67e30@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <b83d601c-c4a0-4e6b-aae0-e49f02e67e30@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <wqzhgeu5vlkeuomajvy7vf3x4gf3fsnzmczmkswvjo7xdyzzbo@6uqjqftbzgot>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_082023_177098_EE02EBB2 
-X-CRM114-Status: GOOD (  37.95  )
+X-CRM114-CacheID: sfid-20260319_082041_868537_779C5933 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,204 +76,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2026 10:31, Suzuki K Poulose wrote:
-> Hi Steven
-> 
-> On 18/03/2026 15:53, Steven Price wrote:
->> The RMM may not be tracking all the memory of the system at boot. Create
-> 
-> Looks good to me. Please find some suggestions below.
-> 
-> 
-> May be add a bit more context here :
-> 
-> RMM maintains the state of all the granules in the System to make sure
-> that the host is abiding by the rules. This state can be maintained at
-> different granularity - per PAGE (TRACKING_FINE) or per region (COARSE),
-> where the "region size" depends on the underlying "RMI_GRANULE_SIZE".
-> The state of the "tracked area" must be the same. This implies, we may
-> need to have "FINE" tracking for DRAM, so that we can start delegating
-> PAGEs. For now, we only support RMM with statically carved out memory
-> for tracking FINE granularity for the tracking regions. We will extend
-> the support for modifying the TRACKING region in the future.
-> 
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space (think of this as Block mappings in the page tables). But
-> if we change the "PAS" of a granule in the block mapping, we may need
-> to create L1 tables to track the PAS at the finer granularity. For now
-> we only support a system where the L1 GPTs are created at boot time
-> and dynamic GPT support will be added later.
+hello Masami,
 
-Thanks for the wording - that does indeed make things clearer. SRO
-support will effectively enable the "future" items.
+On Thu, Nov 13, 2025 at 02:37:22AM -0800, Breno Leitao wrote:
+> On Thu, Nov 13, 2025 at 01:34:03PM +0900, Masami Hiramatsu wrote:
+>
+> Another possible solution would be to load bootconfig earlier in the
+> boot process so that early parameters can be defined within bootconfig.
+> Petr suggested this approach some time back, but it doesn't appear to
+> have made it upstream.
+>
+> https://lore.kernel.org/all/20231123194106.08f5832f558fe806b1fd8098@kernel.org/
+>
+> I'm not fully up to speed on the details of this change, so I want to
+> ask directly: Would Petr's approach—allowing early parameters to be set
+> via bootconfig make sense from a bootconfig design perspective?
 
->> the necessary tracking state and GPTs within the RMM so that all boot
->> memory can be delegated to the RMM as needed during runtime.
->>
->> Note: support is currently missing for SROs which means that if the RMM
->> needs memory donating this will fail (and render CCA unusable in Linux).
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> New patch for v13
->> ---
->>   arch/arm64/kvm/rmi.c | 89 ++++++++++++++++++++++++++++++++++++++++++++
->>   1 file changed, 89 insertions(+)
->>
->> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->> index 9590dff9a2c1..80aedc85e94a 100644
->> --- a/arch/arm64/kvm/rmi.c
->> +++ b/arch/arm64/kvm/rmi.c
->> @@ -4,6 +4,7 @@
->>    */
->>     #include <linux/kvm_host.h>
->> +#include <linux/memblock.h>
->>     #include <asm/kvm_pgtable.h>
->>   #include <asm/rmi_cmds.h>
->> @@ -56,6 +57,18 @@ static int rmi_check_version(void)
->>       return 0;
->>   }
->>   +/*
->> + * These are the 'default' sizes when passing 0 as the
->> tracking_region_size.
->> + * TODO: Support other granule sizes
->> + */
->> +#ifdef CONFIG_PAGE_SIZE_4KB
->> +#define RMM_GRANULE_TRACKING_SIZE    SZ_1G
->> +#elif defined(CONFIG_PAGE_SIZE_16KB)
->> +#define RMM_GRANULE_TRACKING_SIZE    SZ_32M
->> +#elif defined(CONFIG_PAGE_SIZE_64KB)
->> +#define RMM_GRANULE_TRACKING_SIZE    SZ_512M
->> +#endif
->> +
-> 
-> Probably this should be made a Kconfig option, like the VA_BITS we have
-> today for each page size.
-
-Yes that's probably a good option - note that for 4k page size there is
-only the one option in the spec. So this is only relevant for 16K/64K.
-
-Thanks for the other comment suggestions below (and in the other email)
-- all good points.
+Would it be worthwhile for me to take Petr's patch, update it to the
+current codebase, address any issues, and verify that it resolves the
+problem described above? If so, would you be open to reviewing and
+potentially accepting such a patch?
 
 Thanks,
-Steve
-
->>   static int rmi_configure(void)
->>   {
->>       struct rmm_config *config __free(free_page) = NULL;
->> @@ -95,6 +108,80 @@ static int rmi_configure(void)
->>       return 0;
->>   }
->>   +static int rmi_verify_memory_tracking(phys_addr_t start,
->> phys_addr_t end)
-> 
-> Could we add a comment what we are trying to do here ?
-> 
-> /*
->  * Make sure the area is tracked by RMM at FINE granularity.
->  * We do not support changing the TRACKING yet. This will
->  * be added in the future.
->  */
-> 
-> 
->> +{
->> +    start = ALIGN_DOWN(start, RMM_GRANULE_TRACKING_SIZE);
->> +    end = ALIGN(end, RMM_GRANULE_TRACKING_SIZE);
->> +
->> +    while (start < end) {
->> +        unsigned long ret, category, state;
->> +
->> +        ret = rmi_granule_tracking_get(start, &category, &state);
->> +        if (ret != RMI_SUCCESS ||
->> +            state != RMI_TRACKING_FINE ||
->> +            category != RMI_MEM_CATEGORY_CONVENTIONAL) {
->> +            /* TODO: Set granule tracking in this case */
->> +            kvm_err("Granule tracking for region isn't fine/
->> conventional: %llx",
->> +                start);
->> +            return -ENODEV;
->> +        }
->> +        start += RMM_GRANULE_TRACKING_SIZE;
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->> +static unsigned long rmi_l0gpt_size(void)
->> +{
->> +    return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
->> +                      rmm_feat_reg1));
->> +}
->> +
->> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
->> +{
->> +    unsigned long l0gpt_sz = rmi_l0gpt_size();
->> +
->> +    start = ALIGN_DOWN(start, l0gpt_sz);
->> +    end = ALIGN(end, l0gpt_sz);
->> +
->> +    while (start < end) {
->> +        int ret = rmi_gpt_l1_create(start);
-> 
-> How about adding a comment here explaining why we look for RMI_ERROR_GPT ?
-> 
-> 
->>
->         /*
->          * Make sure the L1 GPT tables are created for the region.
->          * RMI_ERROR_GPT indicates the L1 table exists.
->          */
->  +
->> +        if (ret && ret != RMI_ERROR_GPT) {
-> 
-> 
->> +            /*
->> +             * FIXME: Handle SRO so that memory can be donated for
->> +             * the tables.
->> +             */
->> +            kvm_err("GPT Level1 table missing for %llx\n", start);
->> +            return -ENOMEM;
->> +        }
->> +        start += l0gpt_sz;
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->> +static int rmi_init_metadata(void)
->> +{
->> +    phys_addr_t start, end;
->> +    const struct memblock_region *r;
->> +
->> +    for_each_mem_region(r) {
->> +        int ret;
->> +
->> +        start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
->> +        end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
->> +        ret = rmi_verify_memory_tracking(start, end);
->> +        if (ret)
->> +            return ret;
->> +        ret = rmi_create_gpts(start, end);
->> +        if (ret)
->> +            return ret;
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->>   static int rmm_check_features(void)
->>   {
->>       if (kvm_lpa2_is_enabled() && !
->> rmi_has_feature(RMI_FEATURE_REGISTER_0_LPA2)) {
->> @@ -120,6 +207,8 @@ void kvm_init_rmi(void)
->>           return;
->>       if (rmi_configure())
->>           return;
->> +    if (rmi_init_metadata())
->> +        return;
->>         /* Future patch will enable static branch kvm_rmi_is_available */
->>   }
-> 
-
+--breno
 
