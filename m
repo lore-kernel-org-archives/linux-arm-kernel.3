@@ -4,123 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8674D108E1DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DC5108E1DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 10:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHOAXXZ/eo+gGOneXEPPxRZItUraHv3c0j7lWTUMNnM=; b=fokVbS9m8+P9Ju2j2Q/qmaQSzP
-	aih23qCvCFFJrhwXaGZFyS5wwJa/foy4yWS7nW4Ka3NFuZ8q1EnQO6QKNdSpsB/LLBltDWuNF5ShX
-	ZL+38odCtarbFac1UuviV3APX3vZpzD7rZLd9Zh2kctDmXCYCS+orjAijsKPvekKceDLUFHlXxWFM
-	26liIum6oalEADgW68Et8QxygpkzdJP6crWvDZ5B/qnz8H+EWjzHnvZq/Ox5ZgBfdN1bQsYdLRefY
-	yoibwouwCn/THWbsfVQOOjo28mWvYh8coQoaqpy0hrE5yOy50iealAL92kw7Pt0UqIYGzCdQgRbGU
-	8rtmOiSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DyXjqbgaOSMpFYbEabsQrw+iVoF/+Hpowo1MyHNJEg=; b=MY98eyJ9r+I9beiOf+chI7gH6c
+	mIPB9kKAo/ckI5hreKV2T4Xt7w+p/k6nxVbt77sdIEqU4U8/ttkkVJW5CFjzdWz4U3RfTOpaKRlbV
+	CbYnCFUkHAtQhHafOVv2IH68RVFt3pA32TXKTY+A07ynuW9xko78Q1fa0DhTluQHWLiGhJje9GQbT
+	trIB9Z/TcfWBaXB8s18GFgaVDDcp5ADblSgwHJNvjbEGsbHBsBJ0/aq3zkfvuHFLHtReiha0KUykD
+	PbeghMewMXHqcL7TNQkwkCpFaRGOSeyVSv5X9yl8d9vuAHphORNvOJivsMt4i2dkj6O8aVfHiuWlP
+	/QgL2p3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Afs-0000000AQ2z-0cHK;
-	Thu, 19 Mar 2026 10:32:20 +0000
-Received: from mail-westeuropeazon11010029.outbound.protection.outlook.com ([52.101.69.29] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w3AgK-0000000AQ9g-0kuY;
+	Thu, 19 Mar 2026 10:32:48 +0000
+Received: from mail-swedencentralazon11013027.outbound.protection.outlook.com ([52.101.83.27] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Afp-0000000AQ2G-0sYo
+	id 1w3AgG-0000000AQ83-2YS8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 10:32:18 +0000
+	Thu, 19 Mar 2026 10:32:46 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=my9B7Wd0/G7H7Fju/h7+stn9v4CGIC+fI8BoLtOQIxsVBSbFQPDgoYvPb7GpBnxPnUzwVOA2upzyM6ASoRL0KFGjSP26rGelkBOJOoBOl1uk5tGLOIAypnjXethUuNk8AJQkmSa+wFzomHeepqPNtreqm7rZEjcVjA/s8Wheaw48000FnSTqSdB1nzWuqDmdwSKkJgQey7pnf3lqUK3jduaqx5qVfOrJpwZl8MF7pTlme0iau0F3AjYxg/D1e4MC7Bo4oIoBcFen0RZbej26YZIvnjZwJw6kcULYxFEMNt7xmCX9YGmWPy2RV0TR7JrZvGjhXI64JCNnkdjW6KA3vQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3DyXjqbgaOSMpFYbEabsQrw+iVoF/+Hpowo1MyHNJEg=;
+ b=Eoc9ywqiiY/Lm1o2M3gr+QGuErcpl2qPo74ho+gbDGbyxxQi45NvkfoaSWRmwPocGdUEvszOtR1NMTlTK2iIX7d17rBUo58d4uhTgBgQlE7Oy7zLi0KJAE0E3zGlT/btmankVSPQcOiOtgn2UeKdUWtnY/xyc9iAY3hfmDmzjxta9iQ1Qp33fQsOJl8lk/wMuSaV7267hd6SXMtYRZfZCsohSCOPEtT1SMVjNMLDS2Dd3ljY5bfOPGzvldjTLJQp6l3hfObVZmHaa7NtuCQZLevNzp7rDif9Xvk+5YYbzxR0uSQebULlWC6uSobsi/CvxQGVXJ5xqQHjwsOvc/T40A==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3DyXjqbgaOSMpFYbEabsQrw+iVoF/+Hpowo1MyHNJEg=;
+ b=GfN41JyoBT7uiTCvVgf+4IGDj0C0S8CjCzeN0tDw106WA57zfXH2H/LmSP3F3mKmu0ZodueHxuOg1mPSTo/1sOehzNJ/X5Fw2QTNus1v3ORISsERe8nL9LUKHzn9P0pl/p2xvyRbgIoJ01IjWgJdmU0Rw5kabbrVHf18dzJA/Hw=
+Received: from DU7P191CA0010.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:54e::35)
+ by GVXPR08MB10497.eurprd08.prod.outlook.com (2603:10a6:150:156::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
+ 2026 10:32:34 +0000
+Received: from DB5PEPF00014B93.eurprd02.prod.outlook.com
+ (2603:10a6:10:54e:cafe::c6) by DU7P191CA0010.outlook.office365.com
+ (2603:10a6:10:54e::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Thu,
+ 19 Mar 2026 10:32:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B93.mail.protection.outlook.com (10.167.8.231) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
+ via Frontend Transport; Thu, 19 Mar 2026 10:32:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C87/IlIQ/FEYUvXgJQBKweZw/0us3aYqyuXSaKVw1HJcEsm4G4TLm9hj+rYIPODcilYQ61EEt8uTfCJp9CTKPZ8I1m03ldWmPXI18DWvcu8osFQ5T8xDEOTAQ1XNuZva26pMbFmOHNzvgEIFyllTxbwRF5Z6+u5PBDK9uVCiXa+4yKJLO49DAQvgQoKZETI2YKLRuRKUsEqiIDX9RZlbC0Ah0HptNF842CttMt/qsGpyf1zejj9SscUT6kopTXjOev7ihREL3ziHtmifc/jvro1UllxC4TMRfamLUjWfEUsab8ebr+x9LvClvSOq+1PhiX+/aIk5eXHXfP609zeYDg==
+ b=c//YHMBo6WvXMkaG86Y1SFpT1jy1kUbgKSPRiLEuDhwXRDgWbia3R34YtF8rPLcYFHm50GytE9WYrguWxx/U+avLpwNZ5uiwJK/31s/EYsYSvu4gFmrpyMVec1bX7JaI/oDJ+JsrQuSgLkVMty+mpGo51dahneZzXVTkB9T/zDnMYcwpr3wl6aoL4VFyqDgWdvU2VK63s9KVQdHQvgGX7pALnusgLMvclpGO5lBZ00wsWKNz6iw2SIyE39tFwQ2+pnzbz3T8ITRwChL6qPxCkRFMrWlhdjBt6pf8lF2kWaTJ/9GDFFcSZ5uJ/Fb4o6RcMHYgVq6iORQdrnd9sJwrQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YHOAXXZ/eo+gGOneXEPPxRZItUraHv3c0j7lWTUMNnM=;
- b=ntIlwI9A8xG+Rs9Fh5mSG5NBJVLFwdn7L0Innr3hkS+2ddQinpunFgIwnLRKbH9ZXkjnQbSHSZXblTkl9b7I0rLug4hBCoiVMwLvLLPqrplT5gMlenlog1c8PV6WXPeYv5KMdBLCK7brdJFl6+ZqK6n/JVuYpbAmXees+GlZoKlJb4pjxp7DDMCLzSBiUcdlEfTHlYRJ7qmMmocg+iAwXpIBG9xHOE1bs3AURVyw9ksM208skG7/vsvBv0aj2JiVUjMdIV8zQYBLcQq5a12Ubs/7fahLw26Sf0iZ9ba8zf36CHCXP1ZSyqD7/q5N62bK9NjbUQ6o8vx6BlVyoblL8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+ bh=3DyXjqbgaOSMpFYbEabsQrw+iVoF/+Hpowo1MyHNJEg=;
+ b=byocRSNDpa3LBKvFqxO+cUiYYXPHrZWmtLnaqYuMdpZKaVSuxjEBSH4QicmMAKXRoy+jbydDqUS0e2z4B9a1GqsIJrFEUyAN4pafLDLPsBGFxLYf97M12KqsOxmp503eg75SGCNtVE51mUV9tsjIVQfuzsMDv1Xj+giHhB0SF8YQCA2J4nAiQ2Y6tY9eTzfoXaa5ERmq5PPOefePK+PTg38ooo7FYlEB8/kQoSDO2kp4Oit7FO6JF9XvwR1z4q8NJ8x8tf9FFHA8753Mygyy6zw3ORKpV864qGcj3kIuuFNRK/rU9/LlZ56sI7v2PIhJqZ+T5KrBxFfFUsNzHE0TVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YHOAXXZ/eo+gGOneXEPPxRZItUraHv3c0j7lWTUMNnM=;
- b=axCQwfodDxLORO+5uFLO7+qUEDYS9GsBeN9XbMeqjYty9f7ep3Bea/QfQmJIN6dEzV2U2WOM+AubPUWYl1zKBfWLh7/3UBxYVdz3T9QX2GzfBF21k2ZH1zQndhRtpcQqxewfdALhubKWYaUagCgAjEisoEQW4LETZHEFTVilh6a/c0bTJZaadKivkMgt/iztjO7zn0/0eDWRQ3oSY2PIm3d7UWA4/lBTwhgzBbEL/wUqcO/yHgIYjqHXu5SQGBmgOy02IWQDt4VQZamJzgHRT52kVczyRVEZ15RT7VuXqQizAKXic7Im+Wz+o51lmVlV/9UNFbDW/tYvZpyVKMDWPw==
-Received: from DB9PR05CA0026.eurprd05.prod.outlook.com (2603:10a6:10:1da::31)
- by DB8PR10MB3468.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:13f::21) with
+ bh=3DyXjqbgaOSMpFYbEabsQrw+iVoF/+Hpowo1MyHNJEg=;
+ b=GfN41JyoBT7uiTCvVgf+4IGDj0C0S8CjCzeN0tDw106WA57zfXH2H/LmSP3F3mKmu0ZodueHxuOg1mPSTo/1sOehzNJ/X5Fw2QTNus1v3ORISsERe8nL9LUKHzn9P0pl/p2xvyRbgIoJ01IjWgJdmU0Rw5kabbrVHf18dzJA/Hw=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by AM8PR08MB6500.eurprd08.prod.outlook.com (2603:10a6:20b:361::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 10:32:07 +0000
-Received: from DU2PEPF0001E9C0.eurprd03.prod.outlook.com
- (2603:10a6:10:1da:cafe::52) by DB9PR05CA0026.outlook.office365.com
- (2603:10a6:10:1da::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Thu,
- 19 Mar 2026 10:32:07 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU2PEPF0001E9C0.mail.protection.outlook.com (10.167.8.69) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 10:32:07 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
- 2026 11:34:17 +0100
-Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 19 Mar
- 2026 11:31:57 +0100
-Message-ID: <420953af-6a12-4277-8c31-062db01f78cc@foss.st.com>
-Date: Thu, 19 Mar 2026 11:31:55 +0100
-MIME-Version: 1.0
+ 2026 10:31:30 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
+ 10:31:29 +0000
+Message-ID: <b83d601c-c4a0-4e6b-aae0-e49f02e67e30@arm.com>
+Date: Thu, 19 Mar 2026 10:31:28 +0000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 2/6] dt-bindings: remoteproc: Add STM32 TEE-controlled
- rproc binding
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Jens Wiklander <jens.wiklander@linaro.org>,
-	"Rob Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-remoteproc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <op-tee@lists.trustedfirmware.org>,
-	<devicetree@vger.kernel.org>
-References: <20260317180329.1207625-1-arnaud.pouliquen@foss.st.com>
- <20260317180329.1207625-3-arnaud.pouliquen@foss.st.com>
- <20260319-glistening-ultramarine-ibis-1eb3d6@quoll>
+Subject: Re: [PATCH v13 10/48] arm64: RMI: Ensure that the RMM has GPT entries
+ for memory
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-11-steven.price@arm.com>
 Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-In-Reply-To: <20260319-glistening-ultramarine-ibis-1eb3d6@quoll>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260318155413.793430-11-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.127]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9C0:EE_|DB8PR10MB3468:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1873009d-6059-41e0-1583-08de85a2c532
+X-ClientProxiedBy: PR1P264CA0187.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:34d::16) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AM8PR08MB6500:EE_|DB5PEPF00014B93:EE_|GVXPR08MB10497:EE_
+X-MS-Office365-Filtering-Correlation-Id: baaa154a-684f-48f7-d165-08de85a2d545
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|7416014|22082099003|56012099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: QWve+BY+x6HpGenr6j1IPHEwbGyMsTXUTtmBtypDjBJORcN8rLudvsKqJV4yb9yc5UfyalqfHyMgieaRZjNmEQbbdu27LFv0DxxkYH353WFESUes9/m0apUhHAy8skVCFDHEwNleTENYKQf2S6GxOzm0VTfdRlbi2H7xcQLH+7ZP7OszlsilkhyQbnphhtK+QwIKlA04qql9dLxqqYyzeFPpXisN+OYakpJoaraD/+BIOxKj5VlDnitWWutXTCTcl5j4zk8DIKhjWouSd0wx6lgA/Bsc7XGV2nxUlACZKOGMuxzhw2zEBzhrTU9pGfjr6zsHPPyoiH8p49IBcM/mkUR64k/GVkDX+MwtvGeLaScGAsDttIeKE0T04M7fkpiLnoaBLKVS1yOAKjCk3DjKrMT1mUh7Iil7fSt38eq4CL2KGcnb6dsOV1nM13P28Deg8AQNFPfOdDPhatD3GzKCbYvk4DhiZ7dtrFxEgr9F9DhDKSZSo4EmVN1w4wHCmB56ceUX3dLr0cdtyefVPQU5bXW96NH90SFcVqUv2isa1y9343FYC6XJFa3E2u7ncsXTuviTGiUSbix1hxKhGVEQESeZC6kKQZPWoKSJ2QpiXuPrcchXukMn9wuwEbVPxa6LLJchQscimgFBL7yExkQVXbyAdp0QJGadmWrW/JzH/kfKZVMrxUjV0ri3NEyTqcP2ummuCeNewJStCozjP4CXIXH1IkAmF1a6h6pOMNwyHQg=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(7416014)(22082099003)(56012099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info-Original: oksYoeqgRKY9m61PgjY6TNe41WdBK0o2kksnXVcksOKlgLLuN+4QtbGFDGTTDV7iLDTldPUPWcXIn+uTcQ/SWZhauYmT26evLvlBjpttSrvS0x62ic04LIZliHTqtgyNCuiChmXtR/KLyqcHKaDUImIoofeMB4PVgst5g0N5PrrPmwKhJ6lr99R91/CI7TPqJeaPNFVKnbn6L/5GGv/Ttsd3cksW3PDkhBgzT1B99jBQmK8u7YfOxdOQLsr0RnmKQAZrKhiNgttOlT9ryIcSlQap5CcNUS2NPPq1Vb4irTJWC2mFkLdmv29vTTDfY0V+tf7vbEj68ytI2rL6lcxlTdIHzNRBe2gvgEmFTDbjzflhmYny5JkizzaobVl3Jq7ZdHproXL08ebpWoKbLgY4MaA3/i4sRYuBXJQOkGNfFv1Am5KT8l0byHMVSm4EsnNjty/PKoxH+kfXMDouhWqJnfSbL8UaOOBz2sfzgPgk23rDD6i4+Eh8hyMlwgMaRkdyPUIUW8GGGg7SRpgrvjqLZoFzHDzTuEiFwNdslN1aZ6OTu899/zXC2B3JP9JwJjpFWlIF1iY6jykygnQ9DMwydQxLG4eaGWlyt5Xd31RQTjvsqw9Cw+pyo7EAqQIXGJUIgzcSgb5KxJIa67F0xWAmMLWhU0Sq0ecgr53E37pAiP+UbesmpBYnadAsD+qpPZ6HJ2cS3t2HcB2CSjs+P1wjBYetw/RXoYdy0ZjJ6OV0iSA=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: Dbtn4jGHnBqOk58j5yQWYv3D+46VOdkQhQIfEJVHYPEE3eoFYPwhLBup9nsO0H7IHO5MZgw1k3VS6iEUtwVgAG39oJqqbQb9cG0nXzp7nv4si7qqksIuk5qNxf1M8Pnivs/r/u2+VyYAblDbEQmkU6txj1DYmfChOwJMSg7oAduSzE0zB+XFYohfhow5A+hTtlrOWPReRs1jhCpi80Q8mg9c1dHftuB/6xk15RVR+NksyG+xzEMP7misB0DvxIb3NYBfMDS43z/rQ1xs4f7/mqKYCHCqUeJT27IDOdsIH8qaZtSN2geFL3m7u6nlEPhGXJTUpdPVFVn/1dnwnmaa2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6500
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B93.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 9abe1695-0077-4884-64cb-08de85a2aebc
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|14060799003|35042699022|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: khiZCl4rvNQ36740eRBkvZk4yr38D5Shx0c8sahig0VouWCDFSBPKgk1mUlFRC4tJRn33oiAObmFKL68iGSTOQfqq93hE6VyReo2igaHkAPWsRcwYTxStPpZgG2Di4yRrsmdX4A5IZU5/D+EgHBxSI411quyJr5Misu2SkeTGFl1O80PQQy8yT2bzkxt+DV7DRgE4Lu8jdGduNPaPPlH6rTnnybQdgJ+IAW17pQNOoJBpQ8XZ4VpqZAYeMIcjic938Y8IKoYHnvwLA5sXTt9/682siCcOcKlNWKVGA5syKO45xJdiX7Hcp1t7dVj070XHSOynCt+D5q3tpDVWAlnMfEOjvI91h/qz8TdcjULJxXtGEnsTLz9dLkYh8sm7iHeryt6vT/fsqR4TBGOP6TsNPyOG8CxQsAJxnEia0p5F0PbdiQMIAi8pXtZ90aibnwth4k6ABp1RUeFFgzHSs8tcdTxKYmIe9f9HqQD0Cs6M9BfsNfImDrh+a+yQLJLUMIduQotzGXFtkEx0WjW0nybA90KgQyjV0dH9AafwPr/Bvhbc7D3eZFRcysvOxvpZA/95//U37X7/o2DL3aMQtremsW9UEAhc+gbQCxh02IqL2lnu53aCYm98+NcJamd16a0QZB8yHzeyCEnnvTOGNJFfv7DV9u5Nwuc1FIaVxmT56MIz3+KzhgoyZXXwWyJ2Rb/phF5/CWcNnWjZI1zfmSxo9YMmgaiv/MrKEVoQ3flDMQHvK4dl8g6U8Newkp/IjnQC1vMARXlp2Pu7n+F9NkVgg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(14060799003)(35042699022)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 25QiXcyWSsmb06IhMXt9SGF2GQvEYvbJ7X8KPPARfLYoL5bn5rqP4ITp/zfyHYiDK+tPUrxwxLvwc6XKxBvXI9J87TzJ1c5kqmX3cEyH17gHXiA1cW1M7AbvXk1PfhkldYM78W72/MhSt9XjnUq8ZHc2ly7hh4ds0UoaFzy4baA76c8MDK+9Ljr4CpOPrflg7Fe8/C0dFMe8xvGUtI7zAxQqoUvr/O395C7J4q97sKAHaR0cFYt2W1nTuReXYEsjFgSj1RKW1w9BSPvdnjxwdiny/kIsUhPzlqE35IjjmJ96LeeXZyy2/mUIdfmqVP0tV2QLlqyVCM/N0/CS0xDFyyUoBnZjZBPmXU2DfmMhEykN/Ho1nSEULt3+eovX0WzNtbLa6ekCXoYIfM9D5L2xxOa6gpm6WPqy49ixiq3xub69b4fF/Way1X3clFMEYCIQ
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 10:32:07.1602
+X-MS-Exchange-AntiSpam-MessageData-0: 3O3zeu//JUYuH2OkZs/Dn5drTzOvC5iWmrZg/Kl1boi2GIvUbNzG77CLLr+rfxPzE3iEu2gaCGoLjFnJp3cNCks9L/1sM3pJiADsPfht+RXpdhvedWTFyZjnygw96VSz7iXJi+JKPrYH4GLo7ZhyC3kZrYwrCJ37Fy7PWW8awSO3zAWPIZHR/WFWHa3lyGE+710ovIfqi7ZllAAZJspyyqfFo3RWzEjOFpvMHuF62V9yOYMImpmD4a2g9aCJF7EWa0ZkAJcwlzmToP7+81LSuCQS9Wdt6FfBpRv6urZjjG+5kJvohLxF6rZ82G7O86IXPfOyoF3iv3LwPZ8AGBcwSEhpqiRVLFyE9lBYB0hiGm7f4ay0eeBj86OybdiaWlpQiBh0OpFIEFO4XXVGVfhr8HVXez4teSlPcL4ebz8+Wj0ESDrTg+sg1K3SkkDKM3VF
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 10:32:34.1283
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1873009d-6059-41e0-1583-08de85a2c532
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C0.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: baaa154a-684f-48f7-d165-08de85a2d545
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B93.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3468
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10497
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_033217_586890_E3139FA7 
-X-CRM114-Status: GOOD (  31.09  )
+X-CRM114-CacheID: sfid-20260319_033244_817797_7F5BDF8F 
+X-CRM114-Status: GOOD (  30.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,219 +166,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof,
+Hi Steven
+
+On 18/03/2026 15:53, Steven Price wrote:
+> The RMM may not be tracking all the memory of the system at boot. Create
+
+Looks good to me. Please find some suggestions below.
 
 
-On 3/19/26 09:06, Krzysztof Kozlowski wrote:
-> On Tue, Mar 17, 2026 at 07:03:23PM +0100, Arnaud Pouliquen wrote:
->> Add a Device Tree binding for the STM32 remote processor controlled
->> via a Trusted Application running in OP-TEE.
->> This binding describes the interface and properties required for STM32MP
->> remoteproc instances managed by the TEE rproc service, including a
->> linkage to the TEE backend through the property "rproc-tee-phandle".
->>
->> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
->> ---
->> V21 updates:
->> - the m4 node is no more declared as a child of the optee-rproc node
->> - "rproc-tee-phandle" property is introduced to reference the optee-rproc
->> ---
->>   .../remoteproc/st,stm32-rproc-tee.yaml        | 108 ++++++++++++++++++
->>   1 file changed, 108 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml
->> new file mode 100644
->> index 000000000000..ca4dd1c8e7b0
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc-tee.yaml
->> @@ -0,0 +1,108 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/remoteproc/st,stm32-rproc-tee.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: STMicroelectronics STM32 remote processor controlled via TEE
->> +
->> +maintainers:
->> +  - Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
->> +
->> +description: |
->> +  STM32MP remote processor controlled by a Trusted Application
->> +  running in OP-TEE. This node is a child of the TEE remoteproc service
->> +  (UUID 80a4c275-0a47-4905-8285-1486a9771a08) and exposes a remoteproc
->> +  instance managed by the Linux remoteproc core via the TEE rproc service.
->> +
->> +  Firmware loading, authentication and remote processor start/stop are managed
->> +  by the TEE application. The STM32-specific driver handles platform resources
->> +  such as the mailboxes and reserved-memory.
->> +
->> +properties:
->> +  compatible:
->> +    const: st,stm32mp1-m4-tee
-> 
-> Drop "tee", it suggests that compatible is tied to implementation of FW
-> you put there.
+May be add a bit more context here :
 
-The "st,stm32mp1-m4" compatible string already exists in 
-drivers/remoteproc/stm32_rproc.c, and "st,stm32mp1-m4-tee" compatible is 
-upstreamed in OP-TEE.
+RMM maintains the state of all the granules in the System to make sure
+that the host is abiding by the rules. This state can be maintained at
+different granularity - per PAGE (TRACKING_FINE) or per region (COARSE),
+where the "region size" depends on the underlying "RMI_GRANULE_SIZE".
+The state of the "tracked area" must be the same. This implies, we may
+need to have "FINE" tracking for DRAM, so that we can start delegating
+PAGEs. For now, we only support RMM with statically carved out memory
+for tracking FINE granularity for the tracking regions. We will extend
+the support for modifying the TRACKING region in the future.
 
-Notice that I have also the stm32mp2 SoC to upstream expecting to have 
-similar compatible:
-- st,stm32mp1-m33
-- st,stm32mp2-m33-tee
-
-Depending on the compatible string, the hardware behavior changes.
-With the "xxxx-tee" compatible, OP-TEE also manages the isolation of 
-remote processor resources (memory, clock reset, peripherals).
-Without the "xxxx-tee" compatible, OP-TEE have to ensure that the Linux
-has the good access right to manage the remote processor.
-
-For instance if st,stm32mp1-m4-tee is set instead of st,stm32mp1-m4, on
-linux side
-- only memory regions used for IPC should be declared
-- memory regions containing the remote firmware must not be declared as 
-not accessible by the Linux ( managed by OP-TEE).
-- resets must not be declared ( managed by OP-TEE)
-
-You probably don't remember, as it was a long time ago, but we already 
-discussed this point with Rob[1].
-[1] https://lkml.org/lkml/2024/1/18/100
-
-Do it still reasonable to you and Rob or should we find an alternative?
+Similarly, the firmware may create L0 GPT entries describing the total
+address space (think of this as Block mappings in the page tables). But
+if we change the "PAS" of a granule in the block mapping, we may need
+to create L1 tables to track the PAS at the finer granularity. For now
+we only support a system where the L1 GPTs are created at boot time
+and dynamic GPT support will be added later.
 
 
-Thanks and Regards,
 
-Arnaud
+> the necessary tracking state and GPTs within the RMM so that all boot
+> memory can be delegated to the RMM as needed during runtime.
+> 
+> Note: support is currently missing for SROs which means that if the RMM
+> needs memory donating this will fail (and render CCA unusable in Linux).
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> New patch for v13
+> ---
+>   arch/arm64/kvm/rmi.c | 89 ++++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 89 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 9590dff9a2c1..80aedc85e94a 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -4,6 +4,7 @@
+>    */
+>   
+>   #include <linux/kvm_host.h>
+> +#include <linux/memblock.h>
+>   
+>   #include <asm/kvm_pgtable.h>
+>   #include <asm/rmi_cmds.h>
+> @@ -56,6 +57,18 @@ static int rmi_check_version(void)
+>   	return 0;
+>   }
+>   
+> +/*
+> + * These are the 'default' sizes when passing 0 as the tracking_region_size.
+> + * TODO: Support other granule sizes
+> + */
+> +#ifdef CONFIG_PAGE_SIZE_4KB
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
+> +#elif defined(CONFIG_PAGE_SIZE_16KB)
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
+> +#elif defined(CONFIG_PAGE_SIZE_64KB)
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
+> +#endif
+> +
 
-> 
->> +
->> +  reg:
->> +    description: |
-> 
-> Do not need '|' unless you need to preserve formatting.
-> 
->> +      Remote processor identifier used by the TEE service. The <0> value
->> +      in the example denotes a single instance with ID 0.
->> +    maxItems: 1
->> +
->> +  mboxes:
->> +    description: |
->> +      Mailbox channels used for rpmsg/virtio functionality and processor
->> +      shutdown.
->> +    maxItems: 3
->> +
->> +  mbox-names:
->> +    items:
->> +      - const: vq0
->> +      - const: vq1
->> +      - const: shutdown
->> +
->> +  memory-region:
->> +    description: |
->> +      List of phandles to reserved-memory nodes describing the memory layout
->> +      for the interprocessors communication.
-> 
-> Drop description. You miss maxItems, though.
-> 
->> +
->> +  interrupts:
->> +    description: |
-> 
-> Same comments...
-> 
->> +      Optional watchdog / status interrupt line used to detect crashes
->> +      and optionally wake up the system.
->> +    maxItems: 1
->> +
->> +  st,auto-boot:
->> +    type: boolean
->> +    description: |
->> +      If present, the remote processor will be automatically started by
->> +      the remoteproc core at boot.
-> 
-> That's policy, not DT property.
-> 
->> +
->> +  wakeup-source:
->> +    type: boolean
->> +    description: |
->> +      Indicates that the watchdog interrupt can be used as a wakeup source.
->> +
->> +  rproc-tee-phandle:
-> 
-> Missing vendor prefix, drop phandle. You do not say that "st,auto-boot"
-> is "st,auto-boot-boolean"
-> 
->> +    description: |
->> +      Phandle to the remote processor backend node and its identifier. This property
->> +      is used to link the TEE remoteproc service to the remote processor instance
->> +      it controls. The value is a phandle reference to the remote processor node,
->> +      followed by a cell specifying the remote processor identifier used by the TEE.
->> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> 
-> Missing constraints.
-> 
-> I also do not understand which bus node this is being child, if not
-> remote proc.
-> 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - rproc-tee-phandle
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    firmware {
->> +        tee_rproc: optee-rproc {
->> +            compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
->> +        };
->> +    };
-> 
-> Drop
-> 
->> +
->> +    m4: m4@0 {
-> 
-> Drop unused label.
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-> If you cannot find a name matching your device, please check in kernel
-> sources for similar cases or you can grow the spec (via pull request to
-> DT spec repo).
-> 
-> e.g. mcu, because m4 feels like given model (Cortex M4?).
-> 
->> +      compatible = "st,stm32mp1-m4-tee";
->> +      reg = <0 0>;
->> +
->> +      mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>;
->> +      mbox-names = "vq0", "vq1", "shutdown";
->> +
->> +      memory-region = <&vdev0vring0>, <&m_ipc_shm>, <&mcuram2>,
->> +                      <&vdev0vring1>, <&vdev0buffer>, <&retram>;
->> +
->> +      interrupt-parent = <&exti>;
->> +      interrupts = <68 1>;
->> +
->> +      rproc-tee-phandle = <&tee_rproc 0>;
->> +      st,auto-boot;
->> +      wakeup-source;
->> +
->> +      status = "okay";
-> 
-> Drop
-> 
-> Best regards,
-> Krzysztof
-> 
+Probably this should be made a Kconfig option, like the VA_BITS we have 
+today for each page size.
+
+>   static int rmi_configure(void)
+>   {
+>   	struct rmm_config *config __free(free_page) = NULL;
+> @@ -95,6 +108,80 @@ static int rmi_configure(void)
+>   	return 0;
+>   }
+>   
+> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
+
+Could we add a comment what we are trying to do here ?
+
+/*
+  * Make sure the area is tracked by RMM at FINE granularity.
+  * We do not support changing the TRACKING yet. This will
+  * be added in the future.
+  */
+
+
+> +{
+> +	start = ALIGN_DOWN(start, RMM_GRANULE_TRACKING_SIZE);
+> +	end = ALIGN(end, RMM_GRANULE_TRACKING_SIZE);
+> +
+> +	while (start < end) {
+> +		unsigned long ret, category, state;
+> +
+> +		ret = rmi_granule_tracking_get(start, &category, &state);
+> +		if (ret != RMI_SUCCESS ||
+> +		    state != RMI_TRACKING_FINE ||
+> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
+> +			/* TODO: Set granule tracking in this case */
+> +			kvm_err("Granule tracking for region isn't fine/conventional: %llx",
+> +				start);
+> +			return -ENODEV;
+> +		}
+> +		start += RMM_GRANULE_TRACKING_SIZE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static unsigned long rmi_l0gpt_size(void)
+> +{
+> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
+> +				      rmm_feat_reg1));
+> +}
+> +
+> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
+> +{
+> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
+> +
+> +	start = ALIGN_DOWN(start, l0gpt_sz);
+> +	end = ALIGN(end, l0gpt_sz);
+> +
+> +	while (start < end) {
+> +		int ret = rmi_gpt_l1_create(start);
+
+How about adding a comment here explaining why we look for RMI_ERROR_GPT ?
+
+
+>
+		/*
+		 * Make sure the L1 GPT tables are created for the region.
+		 * RMI_ERROR_GPT indicates the L1 table exists.
+		 */
+  +
+> +		if (ret && ret != RMI_ERROR_GPT) {
+
+
+> +			/*
+> +			 * FIXME: Handle SRO so that memory can be donated for
+> +			 * the tables.
+> +			 */
+> +			kvm_err("GPT Level1 table missing for %llx\n", start);
+> +			return -ENOMEM;
+> +		}
+> +		start += l0gpt_sz;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_init_metadata(void)
+> +{
+> +	phys_addr_t start, end;
+> +	const struct memblock_region *r;
+> +
+> +	for_each_mem_region(r) {
+> +		int ret;
+> +
+> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
+> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
+> +		ret = rmi_verify_memory_tracking(start, end);
+> +		if (ret)
+> +			return ret;
+> +		ret = rmi_create_gpts(start, end);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static int rmm_check_features(void)
+>   {
+>   	if (kvm_lpa2_is_enabled() && !rmi_has_feature(RMI_FEATURE_REGISTER_0_LPA2)) {
+> @@ -120,6 +207,8 @@ void kvm_init_rmi(void)
+>   		return;
+>   	if (rmi_configure())
+>   		return;
+> +	if (rmi_init_metadata())
+> +		return;
+>   
+>   	/* Future patch will enable static branch kvm_rmi_is_available */
+>   }
 
 
