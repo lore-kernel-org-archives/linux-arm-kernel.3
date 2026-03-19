@@ -4,146 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C301090234
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C280B1090234
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMHek7d6iTVXSxlCY9E8QudTZtReEVOg++LkgoQOuqc=; b=sud1vYkFBGUt92pKE6ksvO/ZRY
-	euEmpBU5XxDXJ6bHIuNseGAaDP7lRPVqu76gk/TUstcmD9eQw5FB7Kjue3aXTm91PoXSk6FwscZfL
-	6jvpyxnIf7WGB5DpTIrgjLfqFXtcrZsUChpaBHkGLcd9dnFelm0Vz+/UC2UDmt8stebjKEDxoPYWT
-	KaEq4JMAJQCJ4yTi4hXVkfbwAsonK0AcdATx4JKoRjXjXTgOIV6oaQmE/oaP3xWRjKBebxSh2YRhx
-	T34cqN6+1PLBNkyhObAKMJZHPeWWlnxHwd2gI4vhzmNWGJGJMRik8QNBxrTt1eH7HrGWKlxvhNbR7
-	xes2HZRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/hhn8rezeXE36o+RcqUQPfPx7XQWWc9UoTEjHiRuHEc=; b=VOcn8bevt316T5cms1OJAdEced
+	h136EyKT2mH6cd16WreaZ6UrLREARsd4KRSgERY+XsmryF75/EoT50hmHUU0Mm2nk1GaQiE9A/HZz
+	kxTMYUN2XKTQLiLm2xKT3jxwx5nsDCrtkypI6HBtMVN2QTG9wvocAsHTjWiEhhaKjBigoY0U3CcG4
+	Z/VsUSJkKf0iaYsarU+jXXFIyr+AkSIPcFN3XZ5AIz3ovR8hVEyS5u1K3VmOJAW24FVsxsvctIgFZ
+	BM0mV0EfEY9n68eIdQAksp0L0SYJM3oLGTct/V6oYq2CfiCZbRiMBa2tPmaPNFZu0hDM2fvNEkyUl
+	y+vo5yvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3E9J-0000000Al6m-3oh3;
-	Thu, 19 Mar 2026 14:14:57 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3E9H-0000000Al5N-3rfL
+	id 1w3EB2-0000000AlVr-1Pln;
+	Thu, 19 Mar 2026 14:16:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3EAz-0000000AlVW-14ex
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 14:14:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GfT7SgUzHraYkhuGrobA7wFugSQ2gZNSS+taMp0ZL7Nq6rjDFS+K2rXhD1sOHcJcREv7CPT8alE3wgG/aSb350AhwcvuMPi/hWinL6KSSjL42rbxGlgFu445UvIA233YELLjacuBCpJceFl9be/rvIM4ADXqPRCLG7ZpCYMSc/bldAkjw5cvUqngaFgO/RD+KXfAW0OvtpYqVoxH8jpiPyD21nLXkwb1VNvYixfNIPPPtmpe5aHu06Fli72GbK0awbWNjYXAsqQUXw+YyTxskIYkZdPGxB+KHhzBt8V9HBHTSrTBbRLppZyKghFVAMWXevWXwfrqRDDqy0WYKeC59w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IMHek7d6iTVXSxlCY9E8QudTZtReEVOg++LkgoQOuqc=;
- b=uD1gZU94CJVL4+YLI5GPkRpTrgB/8aJD3bCbwgXsfQV2krbmmBMS/BURgKR0Yq9P5j3a1IsyEQlUs4666XWk6kVYdWLFtwLIZbFYHN0UXFSq0JSYTue0Om5J0Lf3hI88q8aRkekQkyF383MMR7Icn0B2omdpPdzbeTM7uPcoonS4HgKznY8vYC3S2NyFycSdFUpRbUPhn/hbjRPiJ9lA56TwziJTEAPSIe8wbI4cyK+TkqwCelyM8eetLWpG8aGd+EVWsDG9DZNhMMXOXwgBodArpoajRduoV3RoKzpclYCHMc2iXnZFg/T039+esihvjLHTRTfOlXC94rq0IxEN6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IMHek7d6iTVXSxlCY9E8QudTZtReEVOg++LkgoQOuqc=;
- b=uIfYou96PD34RR2Kb+2FOvvWyL4ifcTZVXwf6vKoT/gAyzNpkWdoh0//2+An0zX8ZF2xtTyR8Fsgr3A8Qc1vHJeXw/GditYWu9LWDqmPruUWRFT26o7ToSNlzFVQHdFVyFOLOsml63V1Nid8noPg22fKLrRu4u6egNQgJuXve09ZVo9+6s6yuUOcb2vsQQ+oPANLWHYTF1vq4Kjl/q0fkcFZvGHywBmVXoVvEGGeO612hctPH2bem30NB7gP6Ali0xtQNsn583RscXXBO/fDCZhz+7MZqqdU0x5nd5z2RObz3zVaBruV6rsYD5hK+av8EtkmP3pZlYhG+GrQKWXfxg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by DBAPR04MB7464.eurprd04.prod.outlook.com (2603:10a6:10:1a8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Thu, 19 Mar
- 2026 14:14:49 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9723.018; Thu, 19 Mar 2026
- 14:14:47 +0000
-Message-ID: <742c748b-8096-49a3-b1a4-3a8507f6f55d@oss.nxp.com>
-Date: Thu, 19 Mar 2026 16:14:46 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] can: flexcan: Add NXP S32N79 SoC support
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
- Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>
-References: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
- <20260319-orca-of-legal-science-88e67d-mkl@pengutronix.de>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <20260319-orca-of-legal-science-88e67d-mkl@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P189CA0042.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::20) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	Thu, 19 Mar 2026 14:16:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD07E1A25;
+	Thu, 19 Mar 2026 07:16:31 -0700 (PDT)
+Received: from [192.168.178.23] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A5133F7BD;
+	Thu, 19 Mar 2026 07:16:35 -0700 (PDT)
+Message-ID: <dd275884-665b-46ca-a72a-c32aa189fc25@arm.com>
+Date: Thu, 19 Mar 2026 15:16:33 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|DBAPR04MB7464:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c2abb21-1481-4b27-4bb7-08de85c1e061
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003|83080400003;
-X-Microsoft-Antispam-Message-Info: KhDPs6HoDSMgJwfIzdF/mRwH5j0Gd0CJe3esCj3JEUyr1DFLLJIAOoXCc9QyjWDQvYpJD4ctsPaGBCK2N6U5lni0u1ExduDamKtV48ASprbWzJocfdIaTaG3R4MwAStu5AU5YMrniajlh8kBEUi3gtBhSw/I4NBZhg1BsmACozv/jBF7PVojyUKgTdkYcn4eTP8WChF5jZV5ekKU4MvgIiXxH4K0EWWxHg6lMQtlA/4U2Qig1A4E/OHuJbRsZ/o/CK9r6ftztUE2zjJkdyLWhcFxAdaKNrhyDoPUCM5yxUSwYUvaI15bWzCU7XFX+rzNd92697s9A5mFy3o+OH2hiBViDArShQ8UwO4zHahdjyRzSHNElmSP85XRQJykW6tEt0ILSa4LRPqWSqMvWxn7Ryumd6bQAz2FjDYvWpmgZ8iXcvMTNkNK6XnCcwt9pDR9eNHMTFuIp5v7YwTtD+LHZt34fGAIxyGYzICOQjNybUMmVFJk70wM3phO2/5D+cSB463EJY3kFQW1EqPEBEFFeizJZMtdOItiXvLgbjOd5elbqhd1hIWFgtv+S/9CXdthl5wB85d1tfcvAb6+dKeB7A+gIC5O/yR1gX9YCRe0DttjCqHxU/RGH5hKQOGzBDoHx19d5BhxbzFb9f5v///HTJLMhH9bxZA1rQuQWLOIm9igoun+3dFJ35tnug8n8t44UW8/wWXTdBvLXLoMmmpdESQsifsKyeDauWZI3vWAWy0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003)(83080400003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U09ENW5FQzVlbGozQysrTXo4dVlpUGNZamVpUFpyMzROcXE0bjdnZEFQdkx4?=
- =?utf-8?B?MTZNVzB4cnNiUk1nRjJOMk5waGFlOEp2QWlCY044QzRNRXZ0V3d4VlJoS1Jo?=
- =?utf-8?B?QkxBdUtQWGpYYnZ4UjVHQlNaQ1ZtYjh0NkxxTkoyaVF6cFg5K2VYbEVsaXRX?=
- =?utf-8?B?KzJZSHREcnF2UzZUd1A2a1dXczlBcmtJb1FydmRUdUg3UVQzVnNuRzFScDlp?=
- =?utf-8?B?U2ZPUDZWM3VUQ01td0Z5cWxhUlYvN0FVOWo3QWdpY2xQTC9xdFVkL3BMVHFT?=
- =?utf-8?B?TUxWNlpVVmJ3a0dVSTQ4Y0tmUW5nTFg1dytTVFV1bktoajdCYkNXUzQ3bVBw?=
- =?utf-8?B?bEVzZVBLQURpRkdocFI4ei9McEVRaFJqT0ozdit5aHBBdDFZM3ROVytjTG9r?=
- =?utf-8?B?Z2JNNWlxYkRRc2VSanM0dTVHQUR4VC91ajhQWUtMNzh6WVgrWmdqeGYwVTRK?=
- =?utf-8?B?M2NiMmhyTWpFRzJQa2NPUnBSM1JGeU45WDBSNXFmcnFoYnh2Q0xvUExhcTJJ?=
- =?utf-8?B?UWp3ZHZKNEtkeEErU2p6Z3pqb2dSUjZSV0ZLc291a20veUczWnBEaUJFOEdi?=
- =?utf-8?B?c3lIUSt0dU9ja2hYSm9IQmFQSDZJU2gyd1pnZzdlcGtkeDRSa2JZeWVjUlI5?=
- =?utf-8?B?RW5NMWZ6MVNnWjZNRzNSeXVvbmxacHhkb0RxR3RMcHhiOHg0bFovcEVhc2Vk?=
- =?utf-8?B?TGsveFhrVlNqVitERGtWUkt0YkRtNzRIQXZFdHl2c0Z6aHJiQW1YQzgvd3RV?=
- =?utf-8?B?NzlTcGRFSU41Sy90dFpOR3MxZks0VURqSkwvUzltVHdYYlVaN240Mm1aRXNx?=
- =?utf-8?B?TE50T0NEMHgya1RkQ2JUQjVCQm9jQ211MnR2TjJVMjI3TTROUkk2R25OUW1h?=
- =?utf-8?B?WmlRN0pscW41cTV5dWtoSGVRUGRobWlGS3NiMEo5WENwL3Y0NGdCZDVZYzgr?=
- =?utf-8?B?RGlyVVFFbzFvaUU2cDdTVzVzc25XYU91RmtzWXM5c0crUmdHZXB0b3cxek5M?=
- =?utf-8?B?alYrakEzbzhlbEVkUERsQlN3RlUrdlUzTkZkS3RFZVNWdUFIYkRaYWlKL0pz?=
- =?utf-8?B?M1p3cHJDazlzaVlyKzhLbmxtc08zL1pnd083N3BRTFlhang0RDk5ZHdBbmNo?=
- =?utf-8?B?anlRL1BOUWhnZlRYYzVObGJUNTlmKzk4OWZ2Y05OYTlYZVBMc1lOSk5MVUI2?=
- =?utf-8?B?R3IrL3ZvbzdVbmwyd2NIVTVOL3o4QmlXbmQvVkdNU3pkYklMOUlQc0FZV1V0?=
- =?utf-8?B?emFWVGFJRmJtcFRxa2ZySGpQazV3OXVYOE9xcFdHOEVkL2o1cHpkWE1OcW5k?=
- =?utf-8?B?ZGN4VWdGSGVwUWtaZVlMUkVncE1oaG1DcmxGcEN1OFozWDh5bkdPUFhmQm1i?=
- =?utf-8?B?Ulp0MkhFdTRlUEkzNlUyUkFFaDdLK0FhUnlyU0NNVy96b0VnMnlVWXJTZklH?=
- =?utf-8?B?NUlWbmMyajlIZ29VcENxKzJiT3FEdGR3czVCbFFTVjNlUG5TZmw2d0J0NHNp?=
- =?utf-8?B?QWg5SFk0Z1FzeDdreTRwU1lxbmJFaUQzSFNadFRUN3ltOE5FeUdXeWthNHpI?=
- =?utf-8?B?NlFoNmF4MW5vRTNzWjNDSkxTdFl5ME1ObW52ZFpscmc1UEdzSEhibm1wWk1T?=
- =?utf-8?B?LzA0WXlrRFhLVVFicUh5R1BhUVR5bWZaY21ab2FlZmdiNnZXV1hrRjhxUFVY?=
- =?utf-8?B?NE55SFROSEg5SWJlVXJzaFFlRU9DQjVPY3lHWVdxeHJ4N2EwZ1EzOUtidk13?=
- =?utf-8?B?UlZQQ2MveXpsWFcxK0V4UE9rR0hhNUNHM29uN1hRbjM5Y3F3Vkd5elVHS09U?=
- =?utf-8?B?NlVNZkhPRXV6WWJIbWZ2K2txRmUybC9qa1FqYWw3L0xrNEx0di9lQ0lxYjNk?=
- =?utf-8?B?VVVScElOYjZHMTJqbHFrN1JxQUZlZTExdzh1Z0RKcFdENUxtdUpDeWYydjVu?=
- =?utf-8?B?THpsd0oxV3hZWEM5d0xRcXBzZUZCSzVnOThMU1FiM1lsK2ZvY3VCazMrR2Mz?=
- =?utf-8?B?NXhsajY1OHNldlJabWNtdHZlaGc1SXo5Ym1QM1dEZlAycHFXYkJBRHkvNXJS?=
- =?utf-8?B?SEc4N0pDa1V3bnBFVEpJWDlLS3Zlc3VENmppdHhQWXpsbm0vQjhXY1lmK01T?=
- =?utf-8?B?eitVcFo0TlRqUlFPQ3UyckpRN1d1eHlDUWNEbnc3WVR2cGowc2MzeWtlSEJ1?=
- =?utf-8?B?YkpnVmR4UEo2anloOGVoVjRlcUZPdkRoYjVNazU4Z0w5dlJmS1V0aERTMHJH?=
- =?utf-8?B?Vi9LVGJiNkxiK3p5QWM3a0E4YUZjTFpjMTRQbmNqWGw4eUpWOU1PY0xCa1Bh?=
- =?utf-8?B?bDlEZkhqWWFuckdhVktXRmF2NEVBODAxNjRSalA0bHhaWWFETGxlYkNDUXY1?=
- =?utf-8?Q?wBTiOxsb5UJ/0hEU=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c2abb21-1481-4b27-4bb7-08de85c1e061
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 14:14:47.5748
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e7R/gOK42Fi3qrPJ7CCUkMe169044EjsGZWYVybM+Z2HcibaeGMY6JpeulXSdrk3xp3j1jRt8O7h1A2xdXV0Wy4oUoBDD6dwbj8yxvV5Q5c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7464
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] pinctrl: sunxi: fix gpiochip_lock_as_irq() failure
+ when pinmux is unknown
+To: wens@kernel.org, Linus Walleij <linusw@kernel.org>,
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260314-rc2-boot-hang-v3-1-0b48221181a9@mmpsystems.pl>
+ <CAD++jLnVNT=_rrykAx82RE8SeBsBBdN6gFMcDUYwYj0KOpF0Ug@mail.gmail.com>
+ <CAGb2v64mBzT0_4a5qfDFVzSgZQkmkyi0TLz9qLWVtUnsG47TwA@mail.gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CAGb2v64mBzT0_4a5qfDFVzSgZQkmkyi0TLz9qLWVtUnsG47TwA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_071455_968013_DC0E1392 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20260319_071641_339628_7296F66A 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,77 +70,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/2026 1:56 PM, Marc Kleine-Budde wrote:
-> On 19.03.2026 10:40:27, Ciprian Costea wrote:
->> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Hi,
+
+On 3/19/26 15:06, Chen-Yu Tsai wrote:
+> On Thu, Mar 19, 2026 at 9:46 PM Linus Walleij <linusw@kernel.org> wrote:
 >>
->> This patch series adds FlexCAN support for the NXP S32N79 SoC.
+>> On Sat, Mar 14, 2026 at 9:10 AM Michal Piekos
+>> <michal.piekos@mmpsystems.pl> wrote:
 >>
->> The S32N79 is an automotive-grade processor from NXP with multiple
->> FlexCAN instances. The FlexCAN IP integration on S32N79 differs from
->> other SoCs in the interrupt routing - it uses two separate interrupt
->> lines:
->>    - one interrupt for mailboxes 0-127
->>    - one interrupt for bus error detection and device state changes
+>>> Fixes kernel hang during boot due to inability to set up IRQ on AXP313a.
+>>>
+>>> The issue is caused by gpiochip_lock_as_irq() which is failing when gpio
+>>> is in unitialized state.
+>>>
+>>> Solution is to set pinmux to GPIO INPUT in
+>>> sunxi_pinctrl_irq_request_resources() if it wasn't initialized
+>>> earlier.
+>>>
+>>> Tested on Orange Pi Zero 3.
+>>>
+>>> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+>>> Suggested-by: Chen-Yu Tsai <wens@kernel.org>
 >>
->> The CAN controllers are connected through an irqsteer interrupt
->> controller in the RCU (Resource Control Unit) domain.
->>
->> This series:
->>    1. Adds dt-bindings documentation for S32N79 FlexCAN
->>    2. Introduces FLEXCAN_QUIRK_IRQ_BERR to handle the two-interrupt
->>       configuration
->>    3. Adds S32N79 device data and compatible string to the driver
->>    4. Adds FlexCAN device tree nodes for S32N79 SoC
->>    5. Enables FlexCAN devices on the S32N79-RDB board
->>
->> Tested on S32N79-RDB board with CAN and CAN FD communication.
+>> Should this have a Fixes: tag and should it be applied as an urgent fix?
 > 
-> I think DTS changes go into a separate series.
+> Fixes: 01e10d0272b9 ("pinctrl: sunxi: Implement gpiochip::get_direction()")
 > 
-
-Hi Marc,
-
-I added the devicetree list to this thread.
-
-> Please also have a look at the AI review:
+>> Tag for stable?
 > 
-> https://sashiko.dev/#/patchset/20260318092215.23505-1-ciprianmarian.costea%40oss.nxp.com
+> The original patch wasn't tagged for stable. And it doesn't seem like it
+> was auto picked.
 > 
-> Especially on patch#3.
+>> Also: is there consensus with Andre that this is the way to proceed?
 > 
-> I think we should split the main IRQ handler into 3 parts, message buff,
-> bus error and state change.
+> As Andre mentioned, the mux value for "disabled" is different between
+> generations. So we likely need to make the value part of
+> |struct sunxi_pinctrl_desc|.
+
+There is already the SUNXI_PINCTRL_NEW_REG_LAYOUT flag, which describes 
+exactly that: the new layout increased the bit field to 4 bits, moving 
+the HiZ value to 0xf.
+But it's just a flag passed to sunxi_pinctrl_init_with_flags(), not 
+stored in desc, and not available during runtime. Which is what I tried 
+to fix for my A733 series:
+https://lore.kernel.org/linux-arm-kernel/20250821004232.8134-3-andre.przywara@arm.com/
+
+So maybe we can cherry-pick just this patch, then check for that flag?
+
+Cheers,
+Andre
+
 > 
-> regards,
-> Marc
+> Michal, can you respin a version so that we can get this fixed in the
+> same release?
 > 
-
-Thanks for pointing to the AI review.
-
-It raises two concerns:
-
-1. Duplicate event processing (can be addressed by splitting the handler
-as you've suggested).
-
-This is a pre-existing issue affecting S32G2 (NR_IRQ_3 with 4 IRQ lines
-to the same handler) and MCF5441X (3 IRQ lines on the same handler).
-I'll include this as a preparatory patch in the next version of the series.
-
-2. Concurrent skb_irq_queue access (pre-existing, separate scope)
-
-The __skb_queue_add_sort() calls on offload->skb_irq_queue are lockless.
-When the mb and esr handlers run concurrently on different CPUs, both
-can manipulate the list simultaneously.
-This is a valid concern, but it's also pre-existing.
-
-The fix requires changes in CAN core's rx-offload.c rather than in
-flexcan, so I think it would be better handled in a separate series.
-
-Would you agree ?
-
-Best regards,
-Ciprian
-
+> 
+> ChenYu
+> 
 
 
