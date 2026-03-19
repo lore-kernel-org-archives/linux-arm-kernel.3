@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC731090235
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A071090237
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 14:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=65z6Tyqya3VubKpei8i2yaKdRdWgzPDsb6xh4tjKDnk=; b=v6/6xSB9KExzZgR+P65ta8sElW
-	R8uvpZKsi9uru4EEq+iSMX0GAOZwoKril0tG6orsIrhRQO1WijwNpVUHm6UlNftHBlVTsr0qsbxxI
-	I3wna5Iq9fH54gbyA+FEkJdaa7hts5ZTWi08VV67vCyZPstQoPBXoeUmwiRnW3r+7zpFknIF0sb1o
-	nw1tPho1pyJOCfdp//e9mH8o8BeqPhrBFvpnn9dCRBq/hfDV2oi4mU1wDeGaWq3SUFhreVDJIsycJ
-	6DIR6jcn5sseeSwXoCElRAUebsv0FGq3lGds/ce/eZk3MAAiMXq3DJtXAmeg/JerDUjtTkVUgQNvA
-	32nx/XUQ==;
+	bh=P9IV3pBn5WR9OH8LIvrhT0vOLSuf2+qShNRhV5Iw0pI=; b=JvhgK3musGew2Q5iJyrfk/e7Gf
+	f27jW/R3w3e//Ri0QdFKBEmbW77GAFEtAj+BNyoDrBiLm6pTvRmdE8edea4LaB9voi3FnPW03YPGX
+	HnH+iHnoMZHzOrUhblixc6QcxqUob7BR74IrjfROtnZKXDw7iiauvI5uM+ABqAjLZ5tsMrFtyAm4k
+	qbLst2yrUlwbzGSjP/Mhpod/sYYNn0vei4ZJ+HvtnU9+j9LLv9JePM6QeKv+OTKvY3TR9Lf4WscSU
+	gguDmtNgpKGtTrHLZSU3JSmgmnIg6uL9FiP20nbi3h2R7B5r4VYAUu+kDLhZIjtdXYwM6ZVdMSOqM
+	L7ze5H2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EWA-0000000AojT-1x0F;
-	Thu, 19 Mar 2026 14:38:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3EaP-0000000ApB9-3YAP;
+	Thu, 19 Mar 2026 14:42:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3EW8-0000000AojD-3qbA;
-	Thu, 19 Mar 2026 14:38:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4190760054;
-	Thu, 19 Mar 2026 14:38:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BF48C19424;
-	Thu, 19 Mar 2026 14:38:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773931112;
-	bh=xVDCvmHcqvISvprP7lO7W6ddF7WUVJ7W2Df/HLSX/ok=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r2kuo2AK5XKO3e1cpuhsJqbCb932nj+lOW/XRoTa5IcwOsYufpH27/bdev1IWsa1u
-	 06RQxeQl/XeWFQgYAWyGwcW5uMHorjRHwCOYXGGMdK/H0mukpftjtUsvYkwmn3yiAc
-	 WYOMz4kGTBIc2VNAKd/AEq7K/U7FFGzBaAY3bVzq/lvRzUn9/3mNktUBWDHKNyClte
-	 e/ZljoGXAcB0WQ/oNTRV2y2l47eqZ+AS7p4psAhMwF017vRcEWhUqAk79CkKh1WPMf
-	 4aBY8Jhk7/iXZhtfBoeGcrpQQfT8t5vpZ5igasBjHvm57milfLFqCtehtwcTcSAJ4m
-	 CuiVgcEZPVTYQ==
-Date: Thu, 19 Mar 2026 14:38:25 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/9] media: dt-bindings: add rockchip rk3588 vicap
-Message-ID: <20260319-unrobed-simile-1c1393962ff9@spud>
-References: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
- <20250430-rk3588-vicap-v2-2-77de5ee9048e@collabora.com>
- <20260318-mumbo-lumber-b550932a5423@spud>
- <d9a9be92-7439-4899-8be2-adf7f0490790@collabora.com>
+	id 1w3EaO-0000000ApB0-2T78
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 19 Mar 2026 14:42:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=P9IV3pBn5WR9OH8LIvrhT0vOLSuf2+qShNRhV5Iw0pI=; b=iGXizaLzpVOZFRhubAXPv49/8W
+	1YwCtYLD6sn8tViFyOQ/94pNBZ66TI5SaKjYomWYjzvZagSdWyQieSq9/Gs/6oRLd+tfOyGY9O2j+
+	AFGs85CHm8dFGBDxc3T+FAXMuJKftUEoWNGO+sym6zKtpnRrBDERWf29dVUqtDQYMX+cEXT3Tapxf
+	JWQ98b8vqsbybR+AJOhU5BQT6wIbvMKPwEB15PYBX4HrmrdWu7QssA+C9Tb6TL+r8r0Wy7ZjRqYkW
+	nzd8o9iHkfNzZecIA9c4XZBKhc1kHww+v3bWdLD6rHFj3asMfl+WeEoajwaPjQ72YvQwGE0WYKCUg
+	jyoXGlwA==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3EaL-0000000DjAt-0xIY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Mar 2026 14:42:55 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w3EaB-0000ga-PD; Thu, 19 Mar 2026 15:42:43 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w3EaB-0015no-0w;
+	Thu, 19 Mar 2026 15:42:43 +0100
+Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id DC6AB5085C9;
+	Thu, 19 Mar 2026 14:42:42 +0000 (UTC)
+Date: Thu, 19 Mar 2026 15:42:42 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
+	Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
+	Eric Chanudet <echanude@redhat.com>
+Subject: Re: [PATCH v2 0/5] can: flexcan: Add NXP S32N79 SoC support
+Message-ID: <20260319-asparagus-taipan-of-sufficiency-fcf4de-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <20260319094032.427697-1-ciprianmarian.costea@oss.nxp.com>
+ <20260319-orca-of-legal-science-88e67d-mkl@pengutronix.de>
+ <742c748b-8096-49a3-b1a4-3a8507f6f55d@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gs5QsPffFgv1KN45"
+	protocol="application/pgp-signature"; boundary="x2iosansca2ri4jm"
 Content-Disposition: inline
-In-Reply-To: <d9a9be92-7439-4899-8be2-adf7f0490790@collabora.com>
+In-Reply-To: <742c748b-8096-49a3-b1a4-3a8507f6f55d@oss.nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_144253_314985_849B53A7 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +104,73 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---gs5QsPffFgv1KN45
-Content-Type: text/plain; charset=us-ascii
+--x2iosansca2ri4jm
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 0/5] can: flexcan: Add NXP S32N79 SoC support
+MIME-Version: 1.0
 
-On Thu, Mar 19, 2026 at 09:04:06AM +0100, Michael Riesch wrote:
-> Hi Conor,
->=20
-> On 3/18/26 18:52, Conor Dooley wrote:
-> > [...]
-> >> =20
-> >>    resets:
-> >> -    items:
-> >> -      - description: ARST
-> >> -      - description: HRST
-> >> -      - description: DRST
-> >> -      - description: PRST
-> >> -      - description: IRST
-> >> +    minItems: 5
-> >> +    maxItems: 9
-> >> =20
-> >>    reset-names:
-> >> -    items:
-> >> -      - const: arst
-> >> -      - const: hrst
-> >> -      - const: drst
-> >> -      - const: prst
-> >> -      - const: irst
-> >> +    minItems: 5
-> >> +    maxItems: 9
-> >=20
-> >> +allOf:
-> >> +  - if:
-> >> +      properties:
-> >> +        compatible:
-> >> +          contains:
-> >> +            const: rockchip,rk3568-vicap
-> >> +    then:
-> >> +      properties:
-> >> +        clocks:
-> >> +          minItems: 4
-> >> +          maxItems: 4
-> >=20
-> > Anything here that repeats the outermost constraint should be dropped,
-> > so no minItems here..
->=20
-> I already took a look at similar VICAPs (e.g., R3576) that will have
-> more clocks. This is way I left this one in here.
->=20
-> But I guess I will remove it and add it again when e.g. RK3576 VICAP
-> support is added.
->=20
-> >> [...]
-> >=20
-> >> +
-> >> +        reset-names:
-> >> +          items:
-> >> +            - const: arst
-> >> +            - const: hrst
-> >> +            - const: drst
-> >> +            - const: irst0
-> >=20
-> > Were you willing to reuse "irst" for the 0th irst, all the repetition
-> > wouldn't be needed. I assume it represents the reset for the port at
-> > address 0, so it wouldn't even be a different meaning on each device.
->=20
-> Not quite I think. "{a,h,d}rst" are the same on all variants, then there
-> is "prst" and "irst" on RK3568 and "irst{0-5}" on RK3588. So I thought
-> that writing it out explicitly for each variant is more readable (even
-> though it may need a few characters more).
+On 19.03.2026 16:14:46, Ciprian Marian Costea wrote:
+> > Please also have a look at the AI review:
+> >
+> > https://sashiko.dev/#/patchset/20260318092215.23505-1-ciprianmarian.cos=
+tea%40oss.nxp.com
+> >
+> > Especially on patch#3.
+> >
+> > I think we should split the main IRQ handler into 3 parts, message buff,
+> > bus error and state change.
 
+> Thanks for pointing to the AI review.
+>
+> It raises two concerns:
+>
+> 1. Duplicate event processing (can be addressed by splitting the handler
+> as you've suggested).
+>
+> This is a pre-existing issue affecting S32G2 (NR_IRQ_3 with 4 IRQ lines
+> to the same handler) and MCF5441X (3 IRQ lines on the same handler).
+> I'll include this as a preparatory patch in the next version of the serie=
+s.
 
-Ah right, I didn't see the prst one somehow. Ignore me so.
+Thanks. Until the S32G2 was added multiple IRQ handlers was a niche
+problem. But now it's relevant.
 
---gs5QsPffFgv1KN45
+> 2. Concurrent skb_irq_queue access (pre-existing, separate scope)
+>
+> The __skb_queue_add_sort() calls on offload->skb_irq_queue are lockless.
+> When the mb and esr handlers run concurrently on different CPUs, both
+> can manipulate the list simultaneously.
+> This is a valid concern, but it's also pre-existing.
+>
+> The fix requires changes in CAN core's rx-offload.c rather than in
+> flexcan, so I think it would be better handled in a separate series.
+>
+> Would you agree ?
+
+ACK
+
+One option is to make struct can_rx_offload::skb_irq_queue per CPU.
+
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--x2iosansca2ri4jm
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCabwKYQAKCRB4tDGHoIJi
-0vI1AP9iqd2CvDCVFRnFVh5XA4+IKjf2bhkzQrjtjDQ4SFrupAEA+VRt+iWztoun
-oOwvNknPS9jj2rDN9dV2GlO7x5HP/wU=
-=of5J
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCabwLYAAKCRDMOmT6rpmt
+0nL/AP4hauOOQHt8J4Raz4k3XL6AkFpJksPkVshPoYgYCYYbHwEA/m2fRk+vD+FQ
+N4xipgWJpMlSE+VrRksDVTDxb+1Acw4=
+=/RY/
 -----END PGP SIGNATURE-----
 
---gs5QsPffFgv1KN45--
+--x2iosansca2ri4jm--
 
