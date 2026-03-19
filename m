@@ -4,115 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAF9107526F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD30107526F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Mar 2026 07:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkwqRp+r1pO9GjEC7DF+o4HAN8OxnNgGfkuyUapb/F4=; b=2jzPvnxj2NM3G0iEDuD3NpJwBI
-	XR6YcGLQ1RtsyMbr8NsnOf+AmZv8QCReq4Hbn0lX2Ou45uwei8zmSuZFG5Ml2rUgI9TFHN2S8GIhm
-	J+hR+0RFNuBJvbr7a1wnkY9akS+Gb1MV4Aj2xBRoGBKkHz25gCZd/SOUteMqc3gfaSG2wT1rnufk9
-	QFVcVaXKTWaMd55akA1YrqJ4WXZS0BzTiEh2/6HCratsGYPI1D+bTZ+oza9rQN+lSE8N/yrKndz4R
-	lCKeM5OHTz6S9yuRyfzpOJ6J4CIUv5zDwtA0PzDva3kfYM8lyLwNAbkamWCUKJG13Z7XnCRn9evFg
-	kWFbwMtQ==;
+	bh=4r6wkkKWx0HfcJZH7gXeKF9oJ6zCw/C5ilURSEcdU7I=; b=NhXbRJghNE7HNibXjVgO8Y3mWw
+	jjySOFYMTmZt9na1ICcH5wEEJyWKMxwEFW76O1b3n5QklAPdBfJwTUh4qPvwTSIkh7ONkXuzRusvd
+	lC7T1n3ICPzCwK08Hy44mgf8sDsPmZRUW9F2Mp44LwgTpXRIs8YWS6m+I4MvjrlNGgM0/RX/5K++t
+	3CPHCyrkiNB/SN3yXw6GBGeN/SyQn0YnVqUbSFrOcBnkWRHSvYD6W8DZx1TG8Zg6e7IVb8y9Ex6uP
+	1PgS9XrChhLVYCdTteCkJF+bD+ea9NljkjiVmX/fp75Hr5I5B44DwtVIYFoQTTpRVxmb3A9upg1qp
+	iM43ofEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37v8-0000000A9oO-3hm5;
-	Thu, 19 Mar 2026 07:35:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w37uu-0000000A9eb-0S6Q;
+	Thu, 19 Mar 2026 07:35:40 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w37uu-0000000A9eQ-2IzS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Mar 2026 07:35:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A753740719;
-	Thu, 19 Mar 2026 07:35:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2405EC19424;
-	Thu, 19 Mar 2026 07:35:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773905738;
-	bh=uOcmZzh8d0O0DH5CbztsLp28CPyWd3JOtYbCAi4uwVo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M8Zx0AuJEuSPkF07I/Ib4o3GDx/OLKcdDOkXqcU3T5+YDru7awKHBAqruc4v19NBh
-	 StSU8ZRucJPgwNH8201LF0ej6+1EMiJCIXBoEXMJf8a6TfGzE/bP8WQp1JHd8ZUAla
-	 qwYYfHpAfH/3vdfi0eIJt+O942Vv75P+thTYrqRSZ6L91LYZz6mHODG1A2ccSWgEYY
-	 bqL1Iui6q718lMcZmN7DmkKE7LQ1DYM4IiCXQm24u4Fy+HNwLFoseaAULcYVaiq8dq
-	 AViedRoS1YAVrRPNKDoQWeYzJ7ckZJNJwTjnWAX1cpdGwr/cgWENs/A/ENjyYgFEWo
-	 SD20UDN3q8nZw==
-Message-ID: <ed0067ce-7cb1-4d73-98f4-c5ad663577b4@kernel.org>
-Date: Thu, 19 Mar 2026 08:35:30 +0100
+	id 1w37uo-0000000A9dZ-0L3E;
+	Thu, 19 Mar 2026 07:35:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=4r6wkkKWx0HfcJZH7gXeKF9oJ6zCw/C5ilURSEcdU7I=; b=uwrJgdvTORo4qzGFqhYJPzdZoC
+	CWTTbblOUmAwdARII6xfeQ29OyPc/OIAj3gutJ0aQZJCNCHxmqiGnj+PrUo+e17910ch6o72eJJll
+	drKO7nz5qKun1oSUp/3knYurVsdu95tijcVd+4+IXn2h6NVeO7OPsik+mNTQ7kgHoUrnjlXuupBbm
+	DXex4Ot8m2p88zWdPNAWme+zoldSWOdR5TQ8EFSbHt1+YCnpz0HiS7cU7ywzDTgOPlGyTdazQpw1R
+	xI2UNt1H9+rMBcllBADRR2pgT8dbYAUavQ+Y4UJhCocArgVmqMWUYpY5XaMAZvD9bNjAIR5Z4AbxT
+	iW362vVA==;
+Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w37ul-00000005k06-15ie;
+	Thu, 19 Mar 2026 07:35:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=superkali.me; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4r6wkkKWx0HfcJZH7gXeKF9oJ6zCw/C5ilURSEcdU7I=; b=NYiXBJIEH+T+2g8hYewFkM9BDA
+	O8NdlkcreHW0y3YCQ5IrlXicy9+WNEMURIjspR8BhZUYHhPnUMFkvPhA0XMbsF12IR0cjQFaVt72/
+	rGq3KvUGxISB+2xilHnmNrM89c8oLGzxYgEkvoEzBqNTFng81gEYfr1G6YMbG5+y92Vf7M1Hm7eOh
+	VR/eMOTs6PN/rAbImC1MAnRHP4KHUPFV6XBrfTCoJ9vKkomrMAcTNAncyIjtFzYzqFIgmWx/vbu5v
+	jr5zq6nXHlj1riLO6TnNdyd6nWKkQ6LSF3KIu7+Pf79HslyyNbuCnbTihjY8Fy5KlviERPcJJKFxa
+	6o26tT5Q==;
+Received: from [109.52.2.233] (port=10095 helo=mac.lan)
+	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.1)
+	(envelope-from <hello@superkali.me>)
+	id 1w37tP-0000000DgEs-2phc;
+	Thu, 19 Mar 2026 08:34:05 +0100
+From: Daniele Briguglio <hello@superkali.me>
+Date: Thu, 19 Mar 2026 08:33:59 +0100
+Subject: [PATCH v2 1/3] dt-bindings: clock: rockchip,rk3588-cru: add I2S
+ MCLK output to IO clock IDs
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: request contpte-sized folios for exec memory
-To: Usama Arif <usama.arif@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, ryan.roberts@arm.com
-Cc: ajd@linux.ibm.com, anshuman.khandual@arm.com, apopple@nvidia.com,
- baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
- catalin.marinas@arm.com, dev.jain@arm.com, jack@suse.cz, kees@kernel.org,
- kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- lorenzo.stoakes@oracle.com, npache@redhat.com, rmclure@linux.ibm.com,
- Al Viro <viro@zeniv.linux.org.uk>, will@kernel.org, willy@infradead.org,
- ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- kernel-team@meta.com
-References: <20260310145406.3073394-1-usama.arif@linux.dev>
- <20260310145406.3073394-2-usama.arif@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260310145406.3073394-2-usama.arif@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260319-rk3588-mclk-gate-grf-v2-1-c4c8daab0762@superkali.me>
+References: <20260319-rk3588-mclk-gate-grf-v2-0-c4c8daab0762@superkali.me>
+In-Reply-To: <20260319-rk3588-mclk-gate-grf-v2-0-c4c8daab0762@superkali.me>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Daniele Briguglio <hello@superkali.me>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773905640; l=975;
+ i=hello@superkali.me; s=20260316; h=from:subject:message-id;
+ bh=s/jc/s6Rzr1Mg/JbVnbKEPF1NVKRtlMfsACn6kbFdKc=;
+ b=1jo5TKoywLPX8VEd6ybg8rA7NdSpML9127iS51mq8dWB4mhGkrFI8KjxZTGl32BmLMwh//X8y
+ +XL5WnEh++1DPdxfHGQ0DeMYWHqoEMOAKPrOu72abkvOuEQ2Vijmsev
+X-Developer-Key: i=hello@superkali.me; a=ed25519;
+ pk=5tynRWQdL93CDcapJ73FkcCRY2PeBOJOIAoIhRig53U=
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - superkali.me
+X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
+X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_003541_081645_C07E3739 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260319_073531_343612_D4F042FF 
+X-CRM114-Status: UNSURE (   5.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,44 +114,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/10/26 15:51, Usama Arif wrote:
-> exec_folio_order() was introduced [1] to request readahead of executable
-> file-backed pages at an arch-preferred folio order, so that the hardware
-> can coalesce contiguous PTEs into fewer iTLB entries (contpte).
-> 
-> The current implementation uses ilog2(SZ_64K >> PAGE_SHIFT), which
-> requests 64K folios. This is optimal for 4K base pages (where CONT_PTES
-> = 16, contpte size = 64K), but suboptimal for 16K and 64K base pages:
-> 
-> Page size | Before (order) | After (order) | contpte
-> ----------|----------------|---------------|--------
-> 4K        | 4 (64K)        | 4 (64K)       | Yes (unchanged)
-> 16K       | 2 (64K)        | 7 (2M)        | Yes (new)
-> 64K       | 0 (64K)        | 5 (2M)        | Yes (new)
-> 
-> For 16K pages, CONT_PTES = 128 and the contpte size is 2M (order 7).
-> For 64K pages, CONT_PTES = 32 and the contpte size is 2M (order 5).
-> 
-> Use ilog2(CONT_PTES) instead, which directly evaluates to contpte-aligned
-> order for all page sizes.
-> 
-> The worst-case waste is bounded to one folio (up to 2MB - 64KB)
-> at the end of the file, since page_cache_ra_order() reduces the folio
-> order near EOF to avoid allocating past i_size.
+Add clock identifiers for the four I2S MCLK output to IO gate clocks
+on RK3588, needed by board DTS files where the codec requires MCLK
+from the SoC on an external IO pin.
 
-So, if you have a smallish text segment in a larger file, we'd always
-try to allocate 2M on 16k/64k?
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Daniele Briguglio <hello@superkali.me>
+---
+ include/dt-bindings/clock/rockchip,rk3588-cru.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-That feels wrong.
-
-Asking the other way around: why not also use 2M on a 4k system and end
-up with a PMD?
-
-And no, I don't think we should default to that, just emphasizing my
-point that *maybe* we really want to consider mapping (vma) size as well.
+diff --git a/include/dt-bindings/clock/rockchip,rk3588-cru.h b/include/dt-bindings/clock/rockchip,rk3588-cru.h
+index 0c7d3ca2d5bc..7528034cff56 100644
+--- a/include/dt-bindings/clock/rockchip,rk3588-cru.h
++++ b/include/dt-bindings/clock/rockchip,rk3588-cru.h
+@@ -734,6 +734,10 @@
+ #define PCLK_AV1_PRE			719
+ #define HCLK_SDIO_PRE			720
+ #define PCLK_VO1GRF			721
++#define I2S0_8CH_MCLKOUT_TO_IO		722
++#define I2S1_8CH_MCLKOUT_TO_IO		723
++#define I2S2_2CH_MCLKOUT_TO_IO		724
++#define I2S3_2CH_MCLKOUT_TO_IO		725
+ 
+ /* scmi-clocks indices */
+ 
 
 -- 
-Cheers,
+2.53.0
 
-David
 
