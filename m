@@ -4,106 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE61108B8E1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049EA108B8E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+tMuQ6+ijkmWkAGrmAOavH6O40L35Xsog9Lz1Jw6Bk=; b=jiBJOFdTtn3CknkyE85K7gF0es
-	+0Vr91gFULP9Igb7jh43Y1N1UtmEo+GCvPQtoi851I8TVgyZrXNFDbBPJaklEJ588CzcfuKqLauGY
-	npDRzq2eNL/a0Q5zkfdWtmz6u6WnDxnOuEJwcbgfsUaRtRlb1Ko3w66gf5/a4ao+QdxfFlclL1h0r
-	Ge/MbwV3nuFVWT2NqwwtQAvm/vjfVpGv94qR7PTF209pFbLND89PLf6gIAzQR68MS9WmaFNcKtAI4
-	zdQrJXkUyqEbMkbFMvF9OGZ2iOoYybSU//G8AU1N/LtH7voFxF1GfxigGqgo5A+Ism3U5insbonQh
-	l9TB3Bew==;
+	bh=iAm2bmEp+JAg2qfDtNL07kuDx1TZE+b0/OOYKhnw49U=; b=IGVMfihg+cmt9F8IVR5uKI0S8a
+	J83ZE5fip+QEErAUrWJKCzi1VjLXeGCMgpgLnwvDQ2jSt9pYfayGYpvSE0ufCJ+Yop/25AyJg4WZ6
+	d3E3/R3tefYBmY4QoxxRJ7ye86vlc78F8nYzOjmwRcgL6za/fD8jfWTKnoYiO3On8kOKw7UnnRI2J
+	MHjEXDqf1kQWOGRvJYKVRzIbBFzPBpyLWdQKB7QBZV2GS4bo2iuMIf70sgnIG/aoaaWRqVr8de2dM
+	gCj50AzKEaVs9nf+5cMgaubfltF315Nyo8KWB5d25cEJMFKma/iABuR9vIs5Uf5w8H1MRSkyoedcy
+	sP76kG8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WJk-0000000CUfK-05AP;
-	Fri, 20 Mar 2026 09:38:56 +0000
-Received: from mail-japanwestazon11022135.outbound.protection.outlook.com ([40.107.75.135] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1w3WK9-0000000CUlt-3wJS;
+	Fri, 20 Mar 2026 09:39:21 +0000
+Received: from mail-vk1-f178.google.com ([209.85.221.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WJh-0000000CUeT-2Sib
+	id 1w3WK6-0000000CUkT-3zcM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 09:38:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aZL2a9/Z8uZyLXfzADx7aoqIkP6uBI3nV5weg4RjXaT0CARaPvjsQ6kyatjfScylsObmqsa0pWER/cEAWTa9Hxay9ygpa/gT4eVW4J4cdKEUMbcSZDoYtSutnlo8D3suerhcnEBnCD0ZEGU1bWjXMdP2hM6y4x+h8nXHNVwEH5rUvqFpW1rf9sWXyE1sKfX1x2WrP9cQ6/CzGnnyg1mQIwtEc9pTt+rY/oxG9PUEtXTowC0UAdvVGAUlpwy+hmGDhQHTbNX7LS0I2gJxYjhZ4QXskXqlaqeXiFRoGYHqLt/Cqb+/ErepwCGg4AANnHn28F3iuWjfYluzMuQ8BIZJVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A+tMuQ6+ijkmWkAGrmAOavH6O40L35Xsog9Lz1Jw6Bk=;
- b=r6zmc9R4vA2DQSVklY75z+gsSwEv08gnlC5QtdRatamff/0u+3DgexDi/b6acSRJpUgEJEsk+2kr3QFJ61RDm+XPsCUDVSuDiBT/zB4fhk7RVcUAj+6cMQgqZzoZDI5qc7UTvdTBpIOwuXX2KTCv6v+vfmHAihozzUrmVns75m5nm0v1c8d7eVl52oxm4bAfLVaVkfbNVnyJL1N4rBHrbW05Iaj8llEb6FPn3p5uyEVr/3ovLgFEJCBU1wPmTK71vbAqJjY850RZPzaDEKkspT3aJNldPe0OfxkVsO/qbhf3FidiQTuUDv2iJM1m4Oef7jWbS0l5c/QR3Cj3hv/UDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2P153CA0025.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::12) by
- PUZPR06MB5556.apcprd06.prod.outlook.com (2603:1096:301:e9::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9700.22; Fri, 20 Mar 2026 09:38:44 +0000
-Received: from SG2PEPF000B66CD.apcprd03.prod.outlook.com
- (2603:1096:4:c7:cafe::22) by SG2P153CA0025.outlook.office365.com
- (2603:1096:4:c7::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.13 via Frontend Transport; Fri,
- 20 Mar 2026 09:38:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CD.mail.protection.outlook.com (10.167.240.27) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Fri, 20 Mar 2026 09:38:42 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 5B5814126F83;
-	Fri, 20 Mar 2026 17:38:42 +0800 (CST)
-Date: Fri, 20 Mar 2026 17:38:41 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jun Guo <jun.guo@cixtech.com>, fugang.duan@cixtech.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
-	ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
-	Frank.Li@kernel.org, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic
- and combined IRQ topologies
-Message-ID: <ab0VoTut0u4f7EVr@nchen-desktop>
-References: <20260319101723.246539-1-jun.guo@cixtech.com>
- <20260319101723.246539-2-jun.guo@cixtech.com>
- <20260320-vengeful-violet-cockle-382580@quoll>
+	Fri, 20 Mar 2026 09:39:21 +0000
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-56739adfa1aso1153244e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 02:39:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773999557; x=1774604357;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iAm2bmEp+JAg2qfDtNL07kuDx1TZE+b0/OOYKhnw49U=;
+        b=aw7T8tilKnOP65Acxd3syQSwJbkR8QMuhEOGUgrz4tlK+T+9RpfgVgfANKlCnzJEnv
+         bNBRo2iXTTY2Xq1HTZFaOnOnRM01kr/d65jvuU51MMmIE2BO0G1nVv27Qb/+n4kqyyzH
+         DHU0qW+FojIIW6n3QmNPwa5/xORzDZic9cky5cQJ70tI+/MINN5bgmtiRhPOQUctd1cF
+         JmiMPXyk0fk+1AZ7R3K6PK+KXdFgczsl23alYCLUUVwkahPi6tZwtULVmwiDHh7qMOMa
+         ZiAe7DBDoIu1HMjatKLMNyx4+g2nf77A0MZycK8qfbYeoqtcGMJfEPBcVjjNNbOBgqcZ
+         YdMA==
+X-Forwarded-Encrypted: i=1; AJvYcCVkmmElrnKkjgPv46AUZnz7HQfMzZBcKAtxvoEt7iHeAEHzjmxoOz+qIxG3Br2iFIDhFAsMrpDt0+baYtt3fXgR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9y0eIHHA5LQvTyhrwqDk9rNCt3XezNP0UYdivaUBjr71uPnn1
+	OXISbX7tslNNoHtN753mt7JA6E+huuxEa4GGi5cqb8vouIkjyAWyZJD5KC6K4cbVwdk=
+X-Gm-Gg: ATEYQzxvrXPtosim7Z1oUQDymXUk1jmKGismX0utUXm70oSh50pifAlaVQNeyCaShZx
+	elRmvoGrjphCQLQCiV+09VdoZ8N1JDesq5q7mQZDEGooBkp7MU0n0vaByMofyUfv+nXfZQGGXxP
+	NcuuTXnTB7jN4qkz8OEX6mGZ75gyj5h52hWHyP5S3tCbQJ/Gdqha53uH75Ag6st8kjr8d3f69DR
+	vzoEjaXSZbF6/qwaipYVLIF6Ik4aUvFMdh8UsNvzMgUICcMyDG9EhqsjqPji3biYY+1GXpfCFO2
+	sditcQ+mn0Z0GuHDv/qHYptmRxtzSar5RGnNL5FOezxn/ozCuYGog3G/EYPBiGHej/EABLvNYlr
+	b9tnZyW4wg6cXV1cv1lX+YjKiEgN6lpPdmIjJGGHdqOUsm+mczLf+MxdZG7DiSLz1zk4mrOaev9
+	7WUP8k+eFyOfCfBARcGg/mdGibV0ZphfFgGAKOimgyZid4uf3ihz9Ypaq71ITG
+X-Received: by 2002:a05:6122:65a0:b0:56b:815c:961d with SMTP id 71dfb90a1353d-56cde34bd05mr1204470e0c.5.1773999557526;
+        Fri, 20 Mar 2026 02:39:17 -0700 (PDT)
+Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com. [209.85.222.52])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56cddb94eaasm1289207e0c.8.2026.03.20.02.39.16
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Mar 2026 02:39:16 -0700 (PDT)
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-94dd7178d63so854840241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 02:39:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX3+VQm+Iwh9jocXRbE0j5q+SzXeVDjesUlzzLuEF+b6JCFn/cSAAIe6tQSQrlo7LiIbz/D1Ke1EpnPDIo/Eu0K@lists.infradead.org
+X-Received: by 2002:a05:6102:508d:b0:5fe:af0c:79f5 with SMTP id
+ ada2fe7eead31-602aea8c68dmr1453044137.5.1773999556502; Fri, 20 Mar 2026
+ 02:39:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260320-vengeful-violet-cockle-382580@quoll>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CD:EE_|PUZPR06MB5556:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc518283-91c1-4f85-5a2f-08de866479eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|7416014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: OgHYZwojVLXi5GrMG5iwRvMU31kbnXqjNv14ij9OxMCjg+Tg2TV/PTEOav9Sxt0fU1Y6xSHXN28uwtRTxi7THGeDlk3DKNvVXPsuI2dk05YUo4dSfhQTI47LGwsNjbnfTdVqO4iSXz30oIfSgK1V5zy57gCiApdWqQ81DsxXMGf0M4A2t1Qdw8LL3rkN4aR4rpSkonQI9Y3lSXrVvBUy+oKT+KbULQ7Yb3JIvVmMb2qchWhBg9sZ7J/6Yv2pT8s6jc1Tt2JkGMKy69Sk89aF0c0OKguoFJswoYk1yYeWBN5EWSlc+WZIYyUO8CxNJ6hteP7CLTaHvxxL3tlMggcod7aWH0BYWR40tuJILjPT40m/1FJrW9CEj5gxZjX4bl8Ao993hL1ExR3z316XHJQTD6h8prDCs5KchqYfJAEP9k/eZATh10SuTo2X7Mz/DPR2uHSOgQoezs79OI2DabPMnoxEq1NyH6WCXhXSsHQfOn/ha7uha2jT+Hm0mgw1oMfeO7VGCNXqpe2IIGZ0q7WUsOBKS1w6k0BpQXIEy5IB70o9q33QLN3mEW4gGTliieXgMX4+ZBFOpm1JENOkHzLuYKM4u40eNWrnnX5SMDGAPqRjgDL/Mp78cKAgez1ygeFGNJ3LBxlCZ3RYbyQfcJ6SPwo3AA5aq1gdtYbVy7upm+b89BLaM6Wsr1fkEQ+YNycB5E5sgtfkIDjuMvnh2XJtF02PCP0GBsKUx8DZzuLdZg68djPbX/t8Gf8F//mfQTF83UWbPkcBZk2XaxDvMzULPg==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: uTudb2ZJsafzrlw6fFZ5JtRo/biQTGgJCqsOKo8HcWR6eoULSaW17TgLG6zBYedSfhkaK/lMrHYpWkwcY2Qf7Jd8xs3M/10Egpx3Z9ycQ25kt7ESY5O7MkVt7IzfmYg8TzGOkALM7LZG7dXInSog9ZHnCy+Prx/4AnoYPZhquu2JVyndxbWordGjZ/aWCrSNveR7EVv+YhzBHDmm1aor27GgaviJf3tXMuFsb/k3YmMN1qKxpd9vhCwF3i1LCnVnw60p7DUjtr1PppED8jZ5+Os/xWrWcPTQulAHPQ7685CSLVMe5zoUXZ7uQIrGxz+QtS5sxnkUte25lXE/DKCiR1CGmnNdH1C3Ee7PzhuNbj45tGwpU/42NTRMAZkcGeytfuUh/Ock6ufZ3SQAZe2Z7aEks+kp+vK6x6q3jwKbg3dPSwcZu33sJuXttCqrdtGT
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 09:38:42.9806
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc518283-91c1-4f85-5a2f-08de866479eb
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CD.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5556
+References: <20260303132305.438657-1-ulf.hansson@linaro.org>
+In-Reply-To: <20260303132305.438657-1-ulf.hansson@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 20 Mar 2026 10:39:05 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXJEHU9aBO-b7LAPbpiQA01uqj1s_cqTD8WVg+n+tWQJg@mail.gmail.com>
+X-Gm-Features: AaiRm51rurRvs8htKwZeARKRHyof35mEZc1epCRF91aoxz-Fdur6_Mz5Vy-LZAw
+Message-ID: <CAMuHMdXJEHU9aBO-b7LAPbpiQA01uqj1s_cqTD8WVg+n+tWQJg@mail.gmail.com>
+Subject: Re: [PATCH 0/9] driver core / pmdomain: Add support for fined grained sync_state
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_023853_634280_933867F6 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20260320_023920_235594_9CC9326D 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,92 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-03-20 10:12:53, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
-> 
-> On Thu, Mar 19, 2026 at 06:17:21PM +0800, Jun Guo wrote:
-> > Update the DMA-350 DT binding to match the current driver behavior.
-> >
-> > Allow both:
-> > - "arm,dma-350" as the generic compatible, and
-> > - "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
-> >
-> > Also document interrupt topology variants supported by hardware
-> > integration:
-> > - one combined interrupt for all channels, or
-> > - one interrupt per channel (up to 8 channels).
-> >
-> > This patch is Assisted-by: Cursor: GPT-5.3 Codex.
-> 
-> Wrong tag, please read carefully the guideline before using LLM tools.
-> 
+Hi Ulf,
 
-Hi Krzysztof,
+On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> Since the introduction [1] of the common sync_state support for pmdomains
+> (genpd), we have encountered a lot of various interesting problems. In most
+> cases the new behaviour of genpd triggered some weird platform specific bugs.
+>
+> That said, in LPC in Tokyo me and Saravana hosted a session to walk through the
+> remaining limitations that we have found for genpd's sync state support. In
+> particular, we discussed the problems we have for the so-called onecell power
+> domain providers, where a single provider typically provides multiple
+> independent power domains, all with their own set of consumers.
+>
+> In these cases, the generic sync_state mechanism with fw_devlink isn't fine
+> grained enough, as we end up waiting for all consumers for all power domains
+> before the ->sync_callback gets called for the supplier/provider. In other
+> words, we may end up keeping unused power domains powered-on, for no good
+> reasons.
+>
+> The series intends to fix this problem. Please have a look at the commit
+> messages for more details.
 
-It is the trade off for coding-assistants.rst suggestion and
-passing checkpatch.pl. Currently, checkpatch.pl reports the
-error for tag without email address. So we choose to add tag
-description at patch context.
+Thanks for your series!
 
-Peter
+I gave it a try on various R-Car and R/SH-Mobile platforms, and all
+PM Domains are handled fine.
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-> >
-> > Signed-off-by: Jun Guo <jun.guo@cixtech.com>
-> > Link: https://lore.kernel.org/r/20251216123026.3519923-2-jun.guo@cixtech.com
-> 
-> What does this express? Changelog link? Then keep it in the changelog
-> --- part.
-> 
-> 
-> > ---
-> >  .../devicetree/bindings/dma/arm,dma-350.yaml  | 31 +++++++++++++------
-> >  1 file changed, 21 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-> > index 429f682f15d8..3639ce0d5054 100644
-> > --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-> > +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-> > @@ -14,7 +14,11 @@ allOf:
-> >
-> >  properties:
-> >    compatible:
-> > -    const: arm,dma-350
-> > +    oneOf:
-> > +      - const: arm,dma-350
-> > +      - items:
-> > +          - const: cix,sky1-dma-350
-> > +          - const: arm,dma-350
-> >
-> >    reg:
-> >      items:
-> > @@ -22,15 +26,22 @@ properties:
-> >
-> >    interrupts:
-> >      minItems: 1
-> > -    items:
-> > -      - description: Channel 0 interrupt
-> > -      - description: Channel 1 interrupt
-> > -      - description: Channel 2 interrupt
-> > -      - description: Channel 3 interrupt
-> > -      - description: Channel 4 interrupt
-> > -      - description: Channel 5 interrupt
-> > -      - description: Channel 6 interrupt
-> > -      - description: Channel 7 interrupt
-> > +    maxItems: 8
-> > +    description: |
-> > +      The DMA controller may be configured with separate interrupts for each channel,
-> > +      or with a single combined interrupt for all channels, depending on the SoC integration.
-> 
-> And more important - you must review the LLM microslop output before
-> posting and adjust it to Linux kernel coding style. Don't send
-> unredacted tool output.
-> 
-> Best regards,
-> Krzysztof
-> 
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-Best regards,
-Peter
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
