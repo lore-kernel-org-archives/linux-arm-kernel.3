@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B56108B8F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84893108B8F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3D1quXe5qk7PQDdd6d34BRnWIV3Fq6CvCxgOKw7t4LQ=; b=oUpnF5ksaRKplusXQwHpo6VJNH
-	XHvxXETC97wn35kOGnQC6qel0Ph2mO0l8r1RVYDanTx2FsAk68n66VC7yzDl/++wdpkGLiYRDzLlN
-	+ujG8KA5DU1L2mnwecA/N/uaAZo690EJuj0jQXbjfVHPatQQBMALm7B0gmMfWHAXh4souYQsaPTQN
-	CwxcVNQ6vUqn5gfxFrl3p+Xul6qYOFMXgmelcT7yjOE6T032OzYIwcl7SK7U5EI+qq3q7TyiklHqN
-	xVwgAe1royXxBpuZqKfLMjODTA7r4Ed1bfs557zDjiL+Rh7L6XQJ1yu4/b09W3wSrYz1ldxFMZWEs
-	Et7yj3ag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hR/3Iy9Wlowf1KzCMFQLQDZRWz2rtZK8yylHv0B+bZY=; b=pOcxNQSnpZ6ImKID0vTF2gF1W6
+	8JGkF5iU1iBVpCBYaWFQRaQHD8C+SuuzK6hsEGdLo4+6fgLLJOxrFJCJY9EozFTQgkTsUU+1obqrw
+	aKGQ1qqe+MNrPTKihQl88RDNRf1YwNY9vrGjXt/7zSRQpmnyKalick9PhKra4rDDpvLT31LrWfWmz
+	VRmp0pzgUE43vusbENZEkLMFLefgD9l6MMyAfNgbrFQbbKDOqglR5Y6HUbQks1IRbco8k4RrS2CpJ
+	GEkdOyzU+WAXIF4dhz5z22wYO6g5InFAInQNyPXTRceKjUcwO9PVi+uDDk4oXWU76Izc+Q5W7ycIU
+	4Bp/r60w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XYu-0000000Cexk-1aAy;
-	Fri, 20 Mar 2026 10:58:40 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1w3XZ4-0000000Cf3O-3pgK;
+	Fri, 20 Mar 2026 10:58:50 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XYr-0000000Cew4-0mRi
+	id 1w3XYu-0000000Cexg-25tD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:58:38 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ad21f437eeso16192355ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:58:36 -0700 (PDT)
+	Fri, 20 Mar 2026 10:58:42 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2b04d051664so14820235ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:58:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774004316; x=1774609116; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3D1quXe5qk7PQDdd6d34BRnWIV3Fq6CvCxgOKw7t4LQ=;
-        b=V53vYMGioOj0PeQLVov4sUZgEnRMowpa7g+rHpBO+lWMFNWT1q4JaGn//L59q4DzVB
-         pDiOpLAp6E4yCq33xdjjpg3yeT993Cle525kojMKjdcL9LytLNjClfElvXsOmI0VkvM+
-         ZlNokzpe3a6lLljxpE7y0VJmH6gUsbLp1wnSZT984VplWeXi+kUSop9MoJLcOG3+7NTp
-         tCSUpaf/+l9a6jNE8AgaF5Y3KVf9yEkBvRuIJS/nYqIh5i4k7Xk+z4SxWE5Vo5N1RcM4
-         4khOPjJ+cdmfk1W3EC3tk2wONt3q5FZ9XOs03UyDmQ6M3DgRgHcbNdfMYA96iagF6wj4
-         ToVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774004316; x=1774609116;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1774004320; x=1774609120; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3D1quXe5qk7PQDdd6d34BRnWIV3Fq6CvCxgOKw7t4LQ=;
-        b=TcTq15uAFHS0NtkcDCio8kbIjH4JfZDWljlUOyBytoDqrkMwY9SsMGsaEHM7yCdpzZ
-         P4uzeY9yP4wTUhI/B7Bsp0pXSh2Y9YXQcpnijYZ9DK8rg154izT7CyuuoZFl/3eGs5WP
-         6eLT+468FeLl0FBk0gWaW6NyiFsC2k2DtDm19+I0dxiw+1TM/3op0oKa+VBn7NtrmfVJ
-         gftmW6klj9ZqvQ7sEKm5//zeMQHhpVDQ1KpgCzjuCz8RhQ9EvACjA/0Dt+Vn/aBqcfT9
-         7tWSpEnJig0GaGQLi45aOsBhoV021KtAPjMDT1WV8Wmr4XmUA29riSQVwkxejLHNFWVE
-         1GiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX8cjYBq4EYEfHRiHn4qFgkmU+QHN4qpM79srB0Z7LX2DHaI/kwfEFwlW9it5YBcT8HTo1EDp6Dy05rMbdnBJIi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrTjQAwwgZomitFwv5jG/xEvSKd4XyQVBeSJ+9Nn/9cKW4KhTt
-	UgsvT4BE4R5rBQmCHi4ZgCFRm5kJ7iampzMO5g9OqDlKJpR72I64lclw
-X-Gm-Gg: ATEYQzzP/vCZndPtrFP3AHhccqA2CkuiDWdN9DLsVvc6FY2UyZ3GRlwR9VF+rr4clp3
-	D/nghci9mf/yY60y02NqlP6Kw1v9R0Gb9CyshAWZmIrIEeIiBfSoXZnQlUKccS1bq/aAid5g7LT
-	3Sg0Uz5cd0cAO4ITvQGoOoN4FlxeaQQ4nWbIrSbEc5U221Ltr7fp3BZOJ6Tt5xY/HSMM18tT2e5
-	A2+d0pMS0HuwUEdDrW3MefdGoMrjnINAL5omdwJJ6uRLUTr4UZg1b17KXunrs+bhs061igW03xp
-	gh6CsUM1iLomHvTiLQk/nbcRvjyE/tNdp9BS73oJCLzThf7092PJDs+1nQ330cQUhxglW3w8Vf4
-	X/2B0nSFRHHkcF9uM48ux5J5yV3fw2o2p0UC5TVRyyGopGRjNw4bhROXVIJFqbrdPQ6wLy91WjL
-	AqqvebPV1VT4pA877epH7L0/poWiHaXSPYAEc7lmbw6AFX/rkFSH2K0DRhCU7x95YLgNOhSuVQE
-	E6ndfs=
-X-Received: by 2002:a17:902:fc43:b0:2ae:5628:a180 with SMTP id d9443c01a7336-2b0772186bamr52147315ad.25.1774004315676;
-        Fri, 20 Mar 2026 03:58:35 -0700 (PDT)
+        bh=hR/3Iy9Wlowf1KzCMFQLQDZRWz2rtZK8yylHv0B+bZY=;
+        b=LyeL/ZWcaC9ErB5JvzLdhueHd7Nt1K8XRbxn+Ul3QakWSbRcrCWONbtfOiwh8cV8aA
+         06GoiehqsVTZNUFGM2b1Ce7WSGRfyycdv9DiaGxWdwcBN9RHeA24GFHcDUUZZb9jWWWg
+         /nwelk0OliBTP9tlG7SDJuR1hTzsivKJLZ+tqhsRE2IntUNeX6kHrdflZR9jYNJkptC9
+         8a274phbJEZ4NFq5+i26m20xKiFLgH4pTRy2WyNoev8symkraebUfGmIMkfLqRH2/JYt
+         KPs0DTFQgXRph/z5vNsviSJmZY7LngVuSnyEAhlrd/f9PY4V19WkTZPVzLZV6I68/wia
+         9Eow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774004320; x=1774609120;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=hR/3Iy9Wlowf1KzCMFQLQDZRWz2rtZK8yylHv0B+bZY=;
+        b=X4jmqZKnkenmuZcAmZ11CYcWJz0wFqEpmcfMJSVOm2ytE3YDJydi8954tKuPfauExS
+         T3PyARXGo9BZwwK6jopIcgPtDPdxEVseOfN3gpW4MVktMtGfp6gQ6etIfLFoDSAm13Yv
+         ovQPbAicJ2jaQC23knSKV8jvHXCKgZHbZZIpY6vm7zIgiNRI40SRCvxC91sinTA9+Taz
+         OWQs+xUDVl9H74TRAd1GzmlPUJ2Uc/q7bnj7eYZly6GBxFuo9e420I3eLHakFjo9je2e
+         Uy1xl3y2uyiDGGBsWzqgjne/Qua2QXKVKc8pwDhp+WaVcV5BAYlIvNo6otVGwPhgkcHy
+         EWfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOf74GRdzBdr2A0kIoa+xk30Mq8WL9IXNhVYOm+OuEe5eXM8n+BUCdws2RxhtUgbNRy6H1nxOZUziVoxzBo5Ra@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEPSdp1KGGVd9rKCpaoLiHE3gQh960bm8zS/uJTSrTqvPsXL0l
+	HhlH7vejxHdYrlMaFmPqlwab/ZyhtPYF4S5/n+WzSVzwTsrn41SoZQw8
+X-Gm-Gg: ATEYQzykxEv5JrU/quJ3EuWrciOKBCF+kFy8Kpszpqfh6G4uqlRhAN4XbBenU4TJ8GS
+	O2gSc4LQKHDjDu9tBpWN275SUokAAIGqC1IDCcJ+O3/FtMD6KmufNmAgBm1PYw9T4cqrp/8b4w0
+	yqg/997W23q6y0TNqwDwfO0LuTWHnK4dKwWqxc9tkMQ5cfL9FB1+Nx+FjrdYYAsrJcixOzbdQU6
+	HjCRiLJOPD39/Xf8sdeKChhrM5VLWlNrRrRTQ2zAl58g5j3x5AYxJJfu2JuGe+jBEzYUPAXB2H+
+	vR2STspjtSk0fLouBcipc6wZi5914tA0G7gZuPbNhLPedyQFuiPEk+zipamAj4XT9epvFdpoWZO
+	EzJRoXGpmb2kzFkM5lSSycIsWJ9MoTGo/BhvuDSRZ9ygG6cnq8M/96e4g8uKpnu9mO1jrzv/yXJ
+	3IoDWl3NWwhGsADNAfTj/4M00pduCDD2nLSkOz7sYLzV1EEKafkbmicPr57EWyNRXbe7ACa6ANm
+	Iehr6M=
+X-Received: by 2002:a17:902:c950:b0:2b0:60f1:de58 with SMTP id d9443c01a7336-2b0827d1a18mr23865375ad.45.1774004319672;
+        Fri, 20 Mar 2026 03:58:39 -0700 (PDT)
 Received: from buffalo-ssd.taila54753.ts.net (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516eacsm25636405ad.15.2026.03.20.03.58.33
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516eacsm25636405ad.15.2026.03.20.03.58.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 03:58:35 -0700 (PDT)
+        Fri, 20 Mar 2026 03:58:39 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -81,15 +82,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH v3 0/2] Add initial support for Lenovo YOGA Tablet 10 (Wi-Fi)
-Date: Fri, 20 Mar 2026 19:58:20 +0900
-Message-ID: <20260320105822.447337-1-akkun11.open@gmail.com>
+Subject: [PATCH v3 2/2] arm: dts: mediatek: mt6589: add basic support for Lenovo B8000-F
+Date: Fri, 20 Mar 2026 19:58:22 +0900
+Message-ID: <20260320105822.447337-3-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260320105822.447337-1-akkun11.open@gmail.com>
+References: <20260320105822.447337-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_035837_229377_44A3D2E0 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20260320_035840_545694_846D5DCB 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +107,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series of patches adds basic support to
-Lenovo YOGA Tablet 10 (Wi-Fi).
+Lenovo YOGA Tablet 10 (Wi-Fi) - B8000-F is a tablet from the "blade"
+product family. It is powered by MediaTek MT8125 SoC, (a tablet variant
+of MT6589), and features 1GB of RAM.
 
-Like v2, schema validation still reports errors in mt6589.dtsi,
-but this series does not aim to fix those pre-existing issues.
+The "blade" family consists of several variants based on screen size
+and connectivity:
+- YOGA Tablet 8 (8"): B6000-F (Wi-Fi), B6000-H/HV (3G)
+- YOGA Tablet 10 (10"): B8000-F (Wi-Fi), B8000-H (3G)
 
-Changes in v3:
-- Add "Acked-by" to dt-binding
-- Remove "mt6589-lenovo-blade.dtsi"
+This patch adds basic support, including a simple-framebuffer that
+uses the panel already initialized by the bootloader.
+
+While many parts of this Device Tree are expected to be common across
+other "blade" family boards, they are kept within the B8000-F specific
+file for now as it is the only supported device.
+
+Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+---
+Changes in v3
 - Drop UART node
+  It was probably correct, but I'm not sure and haven't tested it
+  so I removed it.
+- Remove "mt6589-lenovo-blade.dtsi"
+  There are currently no plans to add support for variants other
+  than b8000-f, and the Device Tree is also small and there is no point
+  in dividing it, so I deleted it and merged it
+  into "mt6589-lenovo-b8000-f.dts"
 
-Akari Tsuyukusa (2):
-  dt-bindings: arm: mediatek: Add Lenovo YOGA Tablet 10 (Wi-Fi)
-  arm: dts: mediatek: mt6589: add basic support for Lenovo B8000-F
-
- .../devicetree/bindings/arm/mediatek.yaml     |  1 +
  arch/arm/boot/dts/mediatek/Makefile           |  1 +
  .../dts/mediatek/mt6589-lenovo-b8000-f.dts    | 40 +++++++++++++++++++
- 3 files changed, 42 insertions(+)
+ 2 files changed, 41 insertions(+)
  create mode 100644 arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
 
+diff --git a/arch/arm/boot/dts/mediatek/Makefile b/arch/arm/boot/dts/mediatek/Makefile
+index 37c4cded0eae..b67b94b7cbd0 100644
+--- a/arch/arm/boot/dts/mediatek/Makefile
++++ b/arch/arm/boot/dts/mediatek/Makefile
+@@ -8,6 +8,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += \
+ 	mt6582-prestigio-pmt5008-3g.dtb \
+ 	mt6589-aquaris5.dtb \
+ 	mt6589-fairphone-fp1.dtb \
++	mt6589-lenovo-b8000-f.dtb \
+ 	mt6592-evb.dtb \
+ 	mt7623a-rfb-emmc.dtb \
+ 	mt7623a-rfb-nand.dtb \
+diff --git a/arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts b/arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
+new file mode 100644
+index 000000000000..b1f622ecf6fd
+--- /dev/null
++++ b/arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/*
++ * Copyright (c) 2026 Akari Tsuyukusa <akkun11.open@gmail.com>
++ */
++
++/dts-v1/;
++#include "mt6589.dtsi"
++
++/ {
++	model = "Lenovo YOGA Tablet 10 (Wi-Fi)";
++	compatible = "lenovo,b8000-f", "mediatek,mt6589";
++
++	chosen {
++		framebuffer0: framebuffer@bf600000 {
++			compatible = "simple-framebuffer";
++			memory-region = <&framebuffer_reserved>;
++			width = <1280>;
++			height = <800>;
++			stride = <(1280 * 2)>;
++			format = "r5g6b5";
++		};
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x40000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		ranges;
++
++		framebuffer_reserved: memory@bf600000{
++			reg = <0xbf600000 0xa00000>;
++			no-map;
++		};
++	};
++};
 -- 
 2.53.0
 
