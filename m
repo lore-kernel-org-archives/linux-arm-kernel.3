@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACF810987B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C86310987B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Az6gClnSnQ8RxIwpwc72dRxBvEVtZ9+6YP9Xv0iblKI=; b=mOCVOv2slxCIQLHmeN8mKS5egy
-	hl4RKSs6pbwUqecNnZ1QZVn9jS5JRd3rJSvBY68e1ncMrkjbB3OGOSrZAh+WQ05bCLG8yHE62qhym
-	Ya9+ikNs8WVpLsXGob0Ltj13HfYEmmaS+0h+DgjnjAahIk07YnrE3qIi1i+7Vt9xQbxYSbFkR2uw1
-	I4BI9ZP2KPgsGywsdtEpEVV/8sFf+QuqbcUiN5vVM+ys9RQ4Lq6GoEV7HJYpedRhXgl1MAG7GULQy
-	RfbWsprYYHR24GCfj8i1HJhaJkbBwbd4lgZ1uRdY1wUhylIq21G+Apr6tSXnxWFO+JmZYEjYuJeqJ
-	SFkslpEA==;
+	bh=aFMbYLcQ88OLBsB+fu1da0z95QDjjdhj0Q3/2+x4dgQ=; b=JMStEAuGm2aVSiVYvkwkZVgTR8
+	56hlAlRRqxk3sI3ZnWTj5BzFI5G/wEnoAVDLIQQUDqhgEUoMFT4PxHGUb/hEgot2C4uA1o88WzqIU
+	IkfVlwIcyjxTY9ZBkA+KBIrSPGvDzv0kYez3SJuan1tuiTqIAG/o9XiPse3tCzMCfQrHp3STIc23r
+	/+dg1Lm51xwS/Zalaa2uf2Skb3aCPIxZQv9LrzBab7tVusGC4niZA6q9PVNDUu9U4Mujbbxv+1QsR
+	Df99J53qvV82HJXXfQBp460oSztxzFbJEAsVi8OBrG93Jbyv7Ke28T43zmKsX1UYdD53UNPpPBkVK
+	lFVb6exA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3d0M-0000000DBNu-1Rgp;
-	Fri, 20 Mar 2026 16:47:22 +0000
+	id 1w3d0Q-0000000DBQL-38Z5;
+	Fri, 20 Mar 2026 16:47:26 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3d0J-0000000DBMi-44OP
+	id 1w3d0O-0000000DBOc-1Urz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:47:21 +0000
+	Fri, 20 Mar 2026 16:47:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Az6gClnSnQ8RxIwpwc72dRxBvEVtZ9+6YP9Xv0iblKI=; b=YWjHKvrhkkOBk4yQEyCntMOlFU
-	2Kf5FC6Go90A3Kdex5kZX7lwckqHksaMQMFME4XRxZDu0U3Ma1v1bKbbQw/s2rgO6TPWnb0PT+b7s
-	w5mKjUZ/s+vq+QBWZLMjV9C+OwKN2tM083JKNRt3EXTNjGJR5nhjYJ15KgNhWXDsxO5q1zFt8cU5Y
-	7vu9ZcjITmuWLSbggVSBVhGVkFif3jxGXfHKIFLQqG08UnaCP4xo8Jdn5HO92WQPBEYe/Zlj7sqW0
-	g04K4qwZ+cHD6lKN1QTpNQYildx8FIMTXCJIw8T9028QPHB6WGoFNXDAteX4E0TLuQweYmhSOz7BJ
-	dmwJ4ZlA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36256 helo=rmk-PC.armlinux.org.uk)
+	bh=aFMbYLcQ88OLBsB+fu1da0z95QDjjdhj0Q3/2+x4dgQ=; b=wPNEA45KAB8qFb0nJDQLWPYTc5
+	ZrTF8jacEhT3/4fQCcECpP+bIlYDzSRgfYTJG6YnZm/sEJiWXoYpJZHtUIo9JlWGeMJVWRCoskEdQ
+	9Ew4cLa/PtMtOahkL6R/+F2kd+HR7iKU7FKt228/Gf77f2Jjn3qMfzm6FOr/4u3GgSm1u28ccVUKz
+	dfVUyJNO9sORQWrYbhr2BiTosoCbbbqhB1OSRZvQNv0TqyDDNerpjevnI+ja7mzyG943KcleCXba6
+	84TpMNct+cgWixtwmzSaBus4Pqry46m6HsaGghpP3WncNtAI8LR/4QAVm36aZoNIqLRdZeH0OKUl/
+	tw+vZO/g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36260 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w3d0C-000000006LG-3Eu3;
-	Fri, 20 Mar 2026 16:47:12 +0000
+	id 1w3d0H-000000006LT-40Ly;
+	Fri, 20 Mar 2026 16:47:18 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w3d0C-0000000DfLj-0BLb;
-	Fri, 20 Mar 2026 16:47:12 +0000
+	id 1w3d0H-0000000DfLp-0gIx;
+	Fri, 20 Mar 2026 16:47:17 +0000
 In-Reply-To: <ab15_JvLGFtUH_3x@shell.armlinux.org.uk>
 References: <ab15_JvLGFtUH_3x@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -62,17 +62,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 1/6] net: stmmac: move stmmac_xmit() skb head
- handling
+Subject: [PATCH net-next 2/6] net: stmmac: move first xmit descriptor SARC and
+ TBS config
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w3d0C-0000000DfLj-0BLb@rmk-PC.armlinux.org.uk>
-Date: Fri, 20 Mar 2026 16:47:12 +0000
+Message-Id: <E1w3d0H-0000000DfLp-0gIx@rmk-PC.armlinux.org.uk>
+Date: Fri, 20 Mar 2026 16:47:17 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_094720_009688_1A03FD6B 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20260320_094724_421012_162C1CC2 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,110 +87,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The skb head buffer handling is delayed in stmmac_xmit() until after
-the skb fragments have been populated into the descriptors. The reason
-is this code used to set the OWN bit on the first descriptor, which
-then allows the TX DMA to process the first and subsequent descriptors.
-However, as of commit 579a25a854d4 ("net: stmmac: Initial support for
-TBS") this is now separated, but the comments weren't updated.
-
-Move the code populating the first descriptor along side the jumbo code
-which also populates the first descriptor. This gives a consistent
-location where we populate the descriptor(s) for the SKB head.
+Move the first transmit descriptor's SARC and TBS configuration
+alongside the code which populates the first descriptor, which helps
+to keep all the code specific to that descriptor together.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 63 +++++++++----------
- 1 file changed, 30 insertions(+), 33 deletions(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 5062537f79e9..0586ab13cc48 100644
+index 0586ab13cc48..3d94f632fca6 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4770,6 +4770,33 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		entry = stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
- 		if (unlikely(entry < 0) && (entry != -EINVAL))
- 			goto dma_map_err;
-+	} else {
-+		bool last_segment = (nfrags == 0);
-+
-+		dma_addr = dma_map_single(priv->device, skb->data,
-+					  nopaged_len, DMA_TO_DEVICE);
-+		if (dma_mapping_error(priv->device, dma_addr))
-+			goto dma_map_err;
-+
-+		stmmac_set_tx_skb_dma_entry(tx_q, first_entry, dma_addr,
-+					    nopaged_len, false);
-+
-+		stmmac_set_desc_addr(priv, first_desc, dma_addr);
-+
-+		if (last_segment)
-+			stmmac_set_tx_dma_last_segment(tx_q, first_entry);
-+
-+		if (unlikely((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) &&
-+			     priv->hwts_tx_en)) {
-+			/* declare that device is doing timestamping */
-+			skb_shinfo(skb)->tx_flags |= SKBTX_IN_PROGRESS;
-+			stmmac_enable_tx_timestamp(priv, first_desc);
-+		}
-+
-+		/* Prepare the first descriptor without setting the OWN bit */
-+		stmmac_prepare_tx_desc(priv, first_desc, 1, nopaged_len,
-+				       csum_insertion, priv->descriptor_mode,
-+				       0, last_segment, skb->len);
+@@ -4799,6 +4799,16 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 				       0, last_segment, skb->len);
  	}
  
++	if (priv->sarc_type)
++		stmmac_set_desc_sarc(priv, first_desc, priv->sarc_type);
++
++	if (tx_q->tbs & STMMAC_TBS_EN) {
++		struct timespec64 ts = ns_to_timespec64(skb->tstamp);
++
++		tbs_desc = &tx_q->dma_entx[first_entry];
++		stmmac_set_desc_tbs(priv, tbs_desc, ts.tv_sec, ts.tv_nsec);
++	}
++
  	for (i = 0; i < nfrags; i++) {
-@@ -4861,39 +4888,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	if (priv->sarc_type)
- 		stmmac_set_desc_sarc(priv, first_desc, priv->sarc_type);
+ 		const skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
+ 		unsigned int frag_size = skb_frag_size(frag);
+@@ -4885,16 +4895,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		u64_stats_inc(&txq_stats->q.tx_set_ic_bit);
+ 	u64_stats_update_end(&txq_stats->q_syncp);
  
--	/* Ready to fill the first descriptor and set the OWN bit w/o any
--	 * problems because all the descriptors are actually ready to be
--	 * passed to the DMA engine.
--	 */
--	if (likely(!is_jumbo)) {
--		bool last_segment = (nfrags == 0);
+-	if (priv->sarc_type)
+-		stmmac_set_desc_sarc(priv, first_desc, priv->sarc_type);
 -
--		dma_addr = dma_map_single(priv->device, skb->data,
--					  nopaged_len, DMA_TO_DEVICE);
--		if (dma_mapping_error(priv->device, dma_addr))
--			goto dma_map_err;
+-	if (tx_q->tbs & STMMAC_TBS_EN) {
+-		struct timespec64 ts = ns_to_timespec64(skb->tstamp);
 -
--		stmmac_set_tx_skb_dma_entry(tx_q, first_entry, dma_addr,
--					    nopaged_len, false);
--
--		stmmac_set_desc_addr(priv, first_desc, dma_addr);
--
--		if (last_segment)
--			stmmac_set_tx_dma_last_segment(tx_q, first_entry);
--
--		if (unlikely((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) &&
--			     priv->hwts_tx_en)) {
--			/* declare that device is doing timestamping */
--			skb_shinfo(skb)->tx_flags |= SKBTX_IN_PROGRESS;
--			stmmac_enable_tx_timestamp(priv, first_desc);
--		}
--
--		/* Prepare the first descriptor setting the OWN bit too */
--		stmmac_prepare_tx_desc(priv, first_desc, 1, nopaged_len,
--				       csum_insertion, priv->descriptor_mode,
--				       0, last_segment, skb->len);
+-		tbs_desc = &tx_q->dma_entx[first_entry];
+-		stmmac_set_desc_tbs(priv, tbs_desc, ts.tv_sec, ts.tv_nsec);
 -	}
 -
- 	if (tx_q->tbs & STMMAC_TBS_EN) {
- 		struct timespec64 ts = ns_to_timespec64(skb->tstamp);
- 
-@@ -4901,6 +4895,9 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		stmmac_set_desc_tbs(priv, tbs_desc, ts.tv_sec, ts.tv_nsec);
- 	}
- 
-+	/* Set the OWN bit on the first descriptor now that all descriptors
-+	 * for this skb are populated.
-+	 */
- 	stmmac_set_tx_owner(priv, first_desc);
- 
- 	netdev_tx_sent_queue(netdev_get_tx_queue(dev, queue), skb->len);
+ 	/* Set the OWN bit on the first descriptor now that all descriptors
+ 	 * for this skb are populated.
+ 	 */
 -- 
 2.47.3
 
