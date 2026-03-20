@@ -4,121 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF493108B8E8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5EB108B8E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j0DtKeMa4Pd2GvQ/CpXa+k2INvnblUOKZ0/9dT+1/Co=; b=K6oMpIywu5RVXyYs2GvduwB+/d
-	HC6DdhYrZHp9Y+dUgBmI9QDuUF9cgSpBOoVekfqFU/tpYocy08CWpfiazOPGDnwa39ZJSeX1X+GJh
-	uLd3+wA7K7wnP4WEjAo5013XMACw2/yUOJnaVrx9SAp2SN1YeBrIOvUe9ukgYvteRw1VmbdSGuYV2
-	pvAITiq7x4nvrYjqPkPTwYzQs89vjD9RMOPqeim/pFtDCrWfy6Ala2Od9oF1FJfKGmehnq4srZS2R
-	KjCbP4IwQ8cIquYwfrPTtnFfq0BCxhSSgxurmQyv9wp4iJ/BPMBmmJj+o8OPYtX55teSDHtor08qg
-	R1aGzPFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p3gudBldHiO9irSnVwm2j95EhgFlXZixCDHw3KgOJUQ=; b=UkrMLiNjeBAmOQl6EHJrNNRTAP
+	BB190agJ/24Byt7ik4Gf66vUU2Iw5JuXguNUlqg4PRiRMub3JClU20yHMpi0EcPVAA5QZD1n+sFOH
+	FR2LsNNGf7yO8dohvtYhcZM/uxKztTJXBaSutjK/pSHe1C8nMsz3ETIxGVWqjV0K/uqqS2CF8YuMd
+	pbVnNR32emnisIA+2anWxQI+uGnKIz1E5rHpq6iiJ8IiB2qTcNfPags/V4kfq9zo/uOYLvJB1DB5t
+	Wa4eKzxckFz+a5ie5dhzk+D+ir1qN00B+H7goupMR3G8uYYPT2F1M4sjRrBsB2VGrpGsUpnRNzdTt
+	4xHcT52g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Wmp-0000000CYKd-0TL5;
-	Fri, 20 Mar 2026 10:08:59 +0000
+	id 1w3Wpw-0000000CYZl-1i7P;
+	Fri, 20 Mar 2026 10:12:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Wmn-0000000CYKL-2JUo
+	id 1w3Wpu-0000000CYZd-2yh5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 10:08:57 +0000
+	Fri, 20 Mar 2026 10:12:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=j0DtKeMa4Pd2GvQ/CpXa+k2INvnblUOKZ0/9dT+1/Co=; b=UplXdX27l8hx8ufh2Cq4lJRfUQ
-	tdCmXS3Er47G9sSMIuqX6RriC8h1q9dKHd/02tkhU9UYdnPvdO2e2iIQqVaUiNL/r2JEPh7c2U1So
-	DfMbmHiNxi30RrmaKzJJZ4v/p6kiu+EyYAy7SHAszO6CDw9H1SZmBxJdj6hrRmgDhJ043CyC+ch/Z
-	SV4IX1UUHVJsmDqPixRbFfFYC6QJxwTchHoXmXIPkiXtM5Ew4eddwi3J0pbCp4rlL3krsNtGLBZFw
-	1EYbOA7upPA89iT73NB5niUvtnkqMgkp04muuGA+AZlkpnNeLdERE3OfxvcwpQI8NYduZXRjBZNvu
-	jNBgS4hQ==;
-Received: from mail-japaneastazon11023131.outbound.protection.outlook.com ([52.101.127.131] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=p3gudBldHiO9irSnVwm2j95EhgFlXZixCDHw3KgOJUQ=; b=L6RaCxQhIg6Syao9rri7O66MEP
+	IH7T/u5/Q/1vnv8Alu6Xa/RAmlarGJTpUhcVQpOXo+4YTSt8fvDQGVT0ZLHCdWhEItbQfzhCTqkLC
+	V5dK19uSypQPd0Y6+XhqWrrJ/pjsasKd4xv70Ge5a3fL+xAfOfOEpccPy8DEpFhu/d+xBIXBTjJeD
+	RwUIyisQsuobZfuBgIPD0LCqQl2mk9OutThr+bmIca1qjRkJ2ts0j2K9urOhKihpSPsV1ge8UDY5a
+	Ei1ybmTCYyQgNgNQygpd85o1Pn4FFxLF8r2ze6wBLBJ7Y8clSHSGfIg0FMO8h0DqLc0LzmYTvOJH5
+	b3PyKOcQ==;
+Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WmZ-0000000FIJp-1RLd
+	id 1w3Wpr-0000000FIcr-2JkZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:08:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VtdOC124/vT2qEnNFPtUkCs9uwWD5S5wapOzSoC8BIABarjjHOTvjTz6X7m22LLc88y68EIHAb5pXQt/LNGHR7A3wcBeKGW7mPBIxDI1C/565sJ8xPwmXKzNkyT2qoRe4Q1tLJ0LMJ8UmqbBMQ+NXI9+G6wYpdIMwBaDTBY/It46ogFmjhX5G6mGbfh8JeIxomQZjEQq+IhU98eyjOKXit+R9IHDgSwdSxxrPlPo+rWRf3AtZX41KYGjnzANgit7/SHelDlMm8bQbOsq+d38kf2mBsG9r7ecbgWluCBTnBjJCKhPWByvrTZcIS2NhyI/aXTjkqv1O69w6s0fE/3K0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j0DtKeMa4Pd2GvQ/CpXa+k2INvnblUOKZ0/9dT+1/Co=;
- b=mfJwiCePlYQq4cVGf9VIwX/JdsiUz5Q2JB2ZE2Iqv8i68/IaO+udC+uNEtmlUSlGB2dsAG9ZCS0UXlhElZn7UPH4VejCvG5wlqdBKY+1tnrLp7Hw6K0/9xCMj1Nz9a5TVExaW9H/pIXvKtdMMn8N4MT+gy8sZC+EIZu/AD48iE746lMbepxNERgGosX6Hv7zi/O8mOiXEwB4jkbk3rEWcBy4EKHFlQAK7i8ZkcQdbAP1L0oAsy1KOz0ISdrtL02fcanJgTHcGuBG4EQ8ulKZjT586NApeX2aeBm0Jfzn3HGjWhUGPuhGfNdVBFJeJBkSYAiGIm7f+PK0Xj06qx2bPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR06CA0236.apcprd06.prod.outlook.com (2603:1096:4:ac::20) by
- SEZPR06MB6254.apcprd06.prod.outlook.com (2603:1096:101:f1::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19; Fri, 20 Mar 2026 10:08:23 +0000
-Received: from OSA0EPF000000C6.apcprd02.prod.outlook.com
- (2603:1096:4:ac:cafe::76) by SG2PR06CA0236.outlook.office365.com
- (2603:1096:4:ac::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.20 via Frontend Transport; Fri,
- 20 Mar 2026 10:08:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C6.mail.protection.outlook.com (10.167.240.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Fri, 20 Mar 2026 10:08:21 +0000
-Received: from [172.20.96.43] (unknown [172.20.96.43])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 173EA40A5A01;
-	Fri, 20 Mar 2026 18:08:19 +0800 (CST)
-Message-ID: <6d8520b6-04cf-4c57-939d-9baa5ec04360@cixtech.com>
-Date: Fri, 20 Mar 2026 18:08:18 +0800
+	Fri, 20 Mar 2026 10:12:09 +0000
+Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-64ad79dfb6eso2560375d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:12:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774001525; cv=none;
+        d=google.com; s=arc-20240605;
+        b=POqlUMk+75oGMjx8yfF46yVPlFenX/qVroFjYsY748ITVdEJ3YbXscgTMzO/j1QwRm
+         scDkGSK1DlCqNC8QF4Le7WESCSzxIgLDdOciaiumUCqcNjnjNIDx1JFKS3QmrJA3Qcl3
+         jmHT7YN9jTTqmtGY/4baYYAjVgi0qk59ka3hMlmcQsjvYVDWgMFHzgMEHLSvXw0HEanF
+         K85rNnAERgCx2ZkKQrMhJilqvoifcf9kOviXv9m4gQ/F4GaaWwuYDhswkXWQzlDlzFg8
+         BqdX1KHwEhBLGpfWKRuZ58+hol/waGsQfH4bsf+K5W7aZGfO/TFvAcKyziO6qWR0u+xO
+         myZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=p3gudBldHiO9irSnVwm2j95EhgFlXZixCDHw3KgOJUQ=;
+        fh=5cg11eqc2d06diYLk/XqZzToo383QmsMIwrNJwN6lvQ=;
+        b=eh7WWLH1dKXnKOMm3w+iT1ajP13sz5cqzmPk72kcmcvJII9FgkGXlhM10Mx5j80hmy
+         YOqtMCQBNS+W7uD98+CuCTvBNjAXaFu88RVobX+DrX1oarMxfmi8yDCGwyUfjXLSdTsg
+         in2sPAQOArBNo5u8l2wfoRROdgxOAEpHwBZz+XK9YjZKNM0K4lLsiwB0rZJrrymRbXZF
+         QjdDXw2fSu03ot1uBESTXudIYAyGfgv22QT3BIQgHU7XN4ATvljb5vs+KTJI3TyJSXv8
+         H50PT3wyqxo+zJ8oV/hj3VRMz1CjRshR5MCW1nFs+IKksXETXHjTfHc6EzF99qTthYz8
+         xIwA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774001525; x=1774606325; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=p3gudBldHiO9irSnVwm2j95EhgFlXZixCDHw3KgOJUQ=;
+        b=VaEoaIa9uIn9WAm6zNTd0YmTmwTB89T52j5HUCSbA1hXk5/2IgZHAZ+MwjO6piMcog
+         FKYXv1LrSOw+B0PJkjVBSZSGZ65BvlxX9sAzBgOtNILkOXUyyJ/xqlPunniPU+Uy2bnA
+         dqUL7mNTt6xhsh/OGAG5BxzKoTcKgUPljcxrFbILUM0CQEs/DAD/2qhQfG+s0hzAD3aC
+         8ossOsyco60ZLfahd2A4gYprWapH45mOeOGqt32uWKQ0H0Su9ITfWGci5soUicEjAXvQ
+         FtKE30PxIu/HXGZptd6PSPCom4POkZYGpkoKqedzlY3HXeqQ2yC6kAfVg88u8jD+YLB0
+         uKUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774001525; x=1774606325;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p3gudBldHiO9irSnVwm2j95EhgFlXZixCDHw3KgOJUQ=;
+        b=cOgWBCp1Y+cHBcaYCwz1YdlHVI3yH5HF0Jv06N0SBhzsMIYYsTXaQMLqTsVZEaYiEu
+         TrR4yrOB+omCA2JVaHzSOrH/c38+il+FgKHxrcnIu8RPmH+aAXAPvhVC10Q3ZDNAzWW6
+         ycjZrLqbYvtq9hr3oRo4xwUi2FDfWDYNGmcHB9bCqNKNjy0D1UpiML0ZyDqK8zVGtPN2
+         FHSm8UsyV/n2cHJ8G+XOoU7189jqO838GazdHwSimqn2eCzff5+cNf04sUe+SIeQxpjZ
+         UECoPXeeRclGVw0Lz8J/lpjwKlpWSNqKWDAlNLsnu+0XOLAYiW/E/RodRSVRa/TULqf8
+         WMkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWZvdKXxfKnChNWuMSOeE4Y8s/UFG9FCCLXZEDXUzcK7wmvDcPctVyh3oflNVxBmA6lWh3kDaXY/Awr5uhFqSzC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8lve7YoiM6G6wg6tghBEvwpCPVnPQUeqVd4MtFag9h8zCLrkp
+	ndLbCk0hINTGFQKfzEEVZf9c6WBWQI7lkP0kzvvDWcUqYqJWxnzKoyVaS7obwguPgku+A9rSoRC
+	tj6IHQlr+HGYZkT/JoCn7kuPBAi8G6kEbcxbtzR6dsQ==
+X-Gm-Gg: ATEYQzwdaTkUyLs9yB9i3F6ogRVHbjW4AL1ZqXTTT4P3O3EPYHSTlkcjjQTQbP1TeYT
+	RoDbdGOzrueEzDShPovsf/klZjqWOEKTOliK1nq7H8uTiyxxz/E5cNHeixu9nmnBX1Rcn53efdh
+	cBptw6molg6NoMK1hQFZWvtkgd4D2W/R8D2ZLUkDzu0XvzT8wpSPUhsQ5uNjE7NAPVZ/sCCEzP3
+	azapygfkM8GXlGFqoIc0WVn6wS5lprurfvQOtwx7mHQ7yAP/83uxGRCuADZITnMteZGb4CkUz0E
+	DHp7OnvH0TAMiSa2Mo0=
+X-Received: by 2002:a05:690e:144d:b0:64c:b242:496c with SMTP id
+ 956f58d0204a3-64eaa6988f1mr2475533d50.13.1774001524902; Fri, 20 Mar 2026
+ 03:12:04 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: dts: cix: add DT nodes for DMA
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
- ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
- Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260319101723.246539-1-jun.guo@cixtech.com>
- <20260319101723.246539-4-jun.guo@cixtech.com>
- <20260320-attentive-turtle-of-perfection-c38ed3@quoll>
-Content-Language: en-US
-From: Jun Guo <jun.guo@cixtech.com>
-In-Reply-To: <20260320-attentive-turtle-of-perfection-c38ed3@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C6:EE_|SEZPR06MB6254:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f64f3cf-62d5-4153-1066-08de86689e03
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|82310400026|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: oj2SfV11l/ndXC/2ev76MB0r4+Y3WpyB5pj8G0OsVcJQxkE1obZl6/QHZaE18hFHtW8+9FYQB11qEJQ4wVpCbNgKt1WNNpQLAcM0ThDyJpDZJAsPQC5QmWnNXz3cBLWOlnqgIrnn0/Hqv/u9vn7rGrpES4iWiVqTusyouYnqS4ZsXOvAFiKNJZ3Q2qxZDWZfZ1Q4crolDbQjOvnUA9ZJ8pMCjP+bMIMIhsmVlomXK3uhy9B8/UWiQrMeys2+d1Oa1JKcL6DsZ8UmSta2v13fqnIIcmgb/QZgYdSOThJaDUaz9s8qHEY3JHcvGalfQqLRlYs44cZJtnGpUVztYAzz88R3kSBTlTdOC9eh4xNh1IEGyi4lJC2fnEWJiqGRPQz+9/05sAYZq7YfmTMR/7i7IdaUY4S9tBGu+e96jpb1IgQg68sTcbBdotExD24ipUcI1nLuwyUZ20Yi4vC3TNlS6RleHUo0nKqXBpaftHpcfDz1+xWbtKpMSyQ1X8bHvc0V9mPPQhtKJyyHQi0TN+wOXdeckRQp6DMFxL9PafA3ywI/tTbwRZ04en/Zba21Ok+6RY22QywK5eQp4UIXjdXKmYOk/VAFAeI5/vmkVmjq5fh6yR0jwPhgF/7dEYTtQXhUDFDiz6DfRQkoNbPhoA3naEuYVz2N9zIKedvqNC8/Rld12JYCQx9MhljRsmEmRcxKt1RDJIFSZNo7xKq68JbBo5nros+f2uRPRfLgi1fjtVIVnkBw4PsyYrpwCUBUMhO8T6IlusQepNY5C6O2GDp19w==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(82310400026)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: W9BzTzyH8wLqphb445SousjOp6TKwvFAPw8enGQo5PfI6/9caizQ4Sajf8XCVn5ekiGhLykfK8zQfarHtsAfx0yra63dADTUxjcIIu29u0R8gyZ4tAtNB4PUfrZSy1oDSNPMw7FX6OjeRomxKjtLG2O57FtvlMmQWqUwsFRi/pgYXojBn3ZiWaY1+5Pz2Of+o6xohcVbVAxpMxnLIASGxWLEtEDqXLY4qch5rfQ3r6iPExRR5pjFtPP7tUL7C1hreagoXPueoIsfgvhdBmRS7aBRv1n10RuDxRfVXppQY3QIMSU4GjciNQibcCjqRAdPmE5vTLCIc5mylWJ+xUP4nfdvrilKUyrTAFTdKbrfUhYEak4yAlfRqywaErQK96do7IXjOXntRFZHrDPvjUanJG/ZFX0qyLouv3sdDMBJlpwpoWUZDxaHb/7sexoOs3kE
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 10:08:21.4928
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f64f3cf-62d5-4153-1066-08de86689e03
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C6.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6254
+References: <20260303132305.438657-1-ulf.hansson@linaro.org>
+ <20260303132305.438657-5-ulf.hansson@linaro.org> <CAMuHMdVZknduohmhed4dFBtXuSEowmfCJ=C8HeuCGXsCsvFyWQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdVZknduohmhed4dFBtXuSEowmfCJ=C8HeuCGXsCsvFyWQ@mail.gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 20 Mar 2026 11:11:27 +0100
+X-Gm-Features: AaiRm52guPM-55vQzjTo7JwQb-uKMa_ExbmU7uDj3JnKhw50rAvhtqkz3duhqS4
+Message-ID: <CAPDyKFqBj9qm3Q1zGAgCZhs8m_FG-rXrgO8tQPcSJ8jmaxnHKw@mail.gmail.com>
+Subject: Re: [PATCH 4/9] pmdomain: core: Add initial fine grained sync_state support
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_100852_882960_AACFF497 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260320_101207_730801_7DBEC890 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,28 +138,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 20 Mar 2026 at 10:29, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Ulf,
+>
+> Thanks for your patch!
+>
+> On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> > A onecell (#power-domain-cells = <1 or 2>; in DT) power domain provider
+> > typically provides multiple independent power domains, each with their own
+> > corresponding consumers. In these cases we have to wait for all consumers
+> > for all the provided power domains before the ->sync_state() callback gets
+> > called for the supplier.
+> >
+> > In a first step to improve this, let's implement support for fine grained
+> > sync_state support a per genpd basis by using the ->queue_sync_state()
+>
+> ... support on a ...
+>
+> > callback. To take step by step, let's initially limit the improvement to
+> > the internal genpd provider driver and to its corresponding genpd devices
+> > for onecell providers.
+> >
+> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+>
+> > --- a/drivers/pmdomain/core.c
+> > +++ b/drivers/pmdomain/core.c
+>
+> > +static void genpd_queue_sync_state(struct device *dev)
+> > +{
+> > +       struct device_node *np = dev->of_node;
+> > +       struct device_link *link;
+> > +
+> > +       if (!genpd_should_wait_for_consumer(np))
+> > +               return;
+> > +
+> > +       list_for_each_entry(link, &dev->links.consumers, s_node) {
+> > +               struct device *consumer = link->consumer;
+> > +
+> > +               pr_info("%s:%s con=%s\n", __func__, dev_name(dev),
+> > +                       dev_name(consumer));
+>
+> pr_debug? Or better, dev_dbg(), so you don't have to add dev_name(dev)
+> explicitly.
+>
+> However, the printed provider name is again the name of the first
+> domain.  This is incorrect for all but the first domain of a onecell
+> genpd provider, and thus confusing.
 
+I agree, I think we should drop the print. In fact, this is a
+left-over from my debugging, I didn't intend for it to be part of the
+submission.
 
-On 3/20/2026 5:13 PM, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
-> 
-> On Thu, Mar 19, 2026 at 06:17:23PM +0800, Jun Guo wrote:
->> Add the device tree node for the dma controller of the CIX SKY1 SoC.
->>
->> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
->> Link: https://lore.kernel.org/r/20251216123026.3519923-4-jun.guo@cixtech.com
-> 
-> How useful is this link? It points to exactly same code, so what does it
-> tell?
-> 
-> Drop all Links from your patches and read the docs how they are used.
-> 
-Thank you for the reminder. I will fix these links in the next version
-of the patch.
-> Best regards,
-> Krzysztof
-> 
+Although, perhaps there is a need for pr_debug/dev_dbg somewhere, but
+I think we can better add those in separate patches on top instead.
 
-Best regards,
-Jun
+>
+> > +
+> > +               if (!device_link_test(link, DL_FLAG_MANAGED))
+> > +                       continue;
+> > +
+> > +               if (link->status == DL_STATE_ACTIVE)
+> > +                       continue;
+> > +
+> > +               if (!consumer->of_node)
+> > +                       continue;
+> > +
+> > +               /*
+> > +                * A consumer device has not been probed yet. Let's parse its
+> > +                * device node for the power-domains property, to find out the
+> > +                * genpds it may belong to and then prevent sync state for them.
+> > +                */
+> > +               genpd_parse_for_consumer(np, consumer->of_node);
+> > +       }
+> > +
+> > +       _genpd_queue_sync_state(np);
+> > +}
+> > +
+> >  static void genpd_sync_state(struct device *dev)
+> >  {
+> >         return of_genpd_sync_state(dev->of_node);
+>
+
+Thanks for reviewing!
+
+Kind regards
+Uffe
 
