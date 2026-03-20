@@ -4,89 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50451098784
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448411098781
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MdghUPigXgAiN4GE/7Na10kf5cTjIUitM3/aJKcENXs=; b=sNXsRnlc3yy/g7EwXCC66Z6ofp
-	4lB68QKzI87P8XdxK/kTRHwcR1wqgBFD66RgcLc3v66BGmFpZeI1VFCY/SBpAISEiGDAn58cIUb3u
-	RJvf13LdFoVT5CuMPan2nEQH+g0o50kvvIpYPjGPYOeGYlaYuB7jKOCw/2V7hqOCuJ3OFVa8pSUkl
-	XF7TwParoAQY50ITj67Ea3kTBEaHwcceP6HoFsS9TlGWf74Ta7zwtwFrVAqKw6i0ALWL/dtrI6+rr
-	bErTgIafHHBhNJ7wrk8JhvCMgcWC/mAMcjxPerSCAHk0/eu4pLo3aHsLLuZuJiDKIrr7nR166VlgR
-	bwViJ3Hw==;
+	bh=Nebg+7WRoDRGl0vSeri1ZAsjMkX9tJhEqOj+V1Ki/O4=; b=JKpY56IRuZ8dWuVpJ8aE9yMJVJ
+	DQsJp1inabHbknsh2f7PhMvXN+Mm4TY+EKNBEyN5rgOtN/QMnp1ODypQogojOsFcJpxLwjnTqrpSH
+	zexU9ASWGGR/po3y3SJ5b1oUY97wEErukSVa1xISh8K2pl9tIciduSY4qlzJGuQ4uZSj4o2y+Plou
+	Yi8zYwE65CqRrrFcOY/2ruDGDZN7mRqLMlc8mSPpdc9Q2I343y/p5yxPX91+OCJZck33LSBSA3nlF
+	bYcAZ0z38/nzH2ZG/81lZFA/50zUs9jbHjCJByRw1xgmDAfhuThk3J/UPkkHuJo1FLqfbA31s93DW
+	v/VbTUuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a8u-0000000CsX5-2skb;
-	Fri, 20 Mar 2026 13:44:00 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a8q-0000000CsTv-1AVJ
+	id 1w3aE4-0000000Ct8M-0Z2Y;
+	Fri, 20 Mar 2026 13:49:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3aE1-0000000Ct7v-1qxY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 13:43:59 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260320134346epoutp02be9fa1f8c8b243abaf17574f9fc7507f~ekIpHsU7_1088610886epoutp02c
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 13:43:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260320134346epoutp02be9fa1f8c8b243abaf17574f9fc7507f~ekIpHsU7_1088610886epoutp02c
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774014226;
-	bh=MdghUPigXgAiN4GE/7Na10kf5cTjIUitM3/aJKcENXs=;
-	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
-	b=QMxTm4lEL7LZwvqdO42KN7MlalX8KctIsCp9gZSqSSV2pANF0+Yh6LLoJub9iL0o2
-	 nae4/1W/8Mh6B9VZhHy/VmdDNUWLsxZz04BqlPe5ugW026eyFmX5nNA/yuzBcKCBLN
-	 PNHu7Kfvhymk5NQgBqeVtw59EsbKiFI2hzedtuyE=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260320134345epcas5p4d620667c0fa53957456ee6ab431b74be~ekIoV4r-j2223622236epcas5p4C;
-	Fri, 20 Mar 2026 13:43:45 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.86]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4fckL86bmPz3hhT3; Fri, 20 Mar
-	2026 13:43:44 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260320134344epcas5p2a47663a9878904f47ac842e234b5d3b1~ekImvLOVo1040510405epcas5p20;
-	Fri, 20 Mar 2026 13:43:44 +0000 (GMT)
-Received: from [107.122.11.51] (unknown [107.122.11.51]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260320134340epsmtip1d05d29f64a4175bad458c87c0cf02519~ekIjPQ7Rf0949609496epsmtip1f;
-	Fri, 20 Mar 2026 13:43:39 +0000 (GMT)
-Message-ID: <981ab856-9c79-4e08-9906-a81ec298a688@samsung.com>
-Date: Fri, 20 Mar 2026 19:13:37 +0530
+	Fri, 20 Mar 2026 13:49:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0F4D165C;
+	Fri, 20 Mar 2026 06:49:08 -0700 (PDT)
+Received: from [10.57.83.197] (unknown [10.57.83.197])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D652A3F778;
+	Fri, 20 Mar 2026 06:49:12 -0700 (PDT)
+Message-ID: <53a12f3e-3dfd-42e5-910c-5ed97e20e14a@arm.com>
+Date: Fri, 20 Mar 2026 14:48:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Kanchan Joshi <joshi.k@samsung.com>
-Subject: Re: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
-To: hmi.jeon@samsung.com, "kbusch@kernel.org" <kbusch@kernel.org>,
-	"axboe@kernel.dk" <axboe@kernel.dk>
-Cc: "sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
-	"neal@gompa.dev" <neal@gompa.dev>, "hch@lst.de" <hch@lst.de>,
-	"sagi@grimberg.me" <sagi@grimberg.me>, "justin.tee@broadcom.com"
-	<justin.tee@broadcom.com>, "nareshgottumukkala83@gmail.com"
-	<nareshgottumukkala83@gmail.com>, "paul.ely@broadcom.com"
-	<paul.ely@broadcom.com>, "kch@nvidia.com" <kch@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
-	<linux-nvme@lists.infradead.org>, "asahi@lists.linux.dev"
-	<asahi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] pinctrl: sunxi: fix gpiochip_lock_as_irq() failure
+ when pinmux is unknown
+To: Michal Piekos <michal.piekos@mmpsystems.pl>,
+ Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260319-rc2-boot-hang-v5-0-092834a882b1@mmpsystems.pl>
+ <20260319-rc2-boot-hang-v5-2-092834a882b1@mmpsystems.pl>
 Content-Language: en-US
-In-Reply-To: <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260320134344epcas5p2a47663a9878904f47ac842e234b5d3b1
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
-References: <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
-	<20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260319-rc2-boot-hang-v5-2-092834a882b1@mmpsystems.pl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_064356_991910_95AC3A72 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260320_064917_635379_6BC9003A 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +69,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/20/2026 10:51 AM, 전민식 wrote:
-> diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-> index b78ba239c8ea..ad0363f7e681 100644
-> --- a/drivers/nvme/host/pci.c
-> +++ b/drivers/nvme/host/pci.c
-> @@ -1376,10 +1376,6 @@ static blk_status_t nvme_prep_rq(struct request *req)
->   	iod->meta_total_len = 0;
->   	iod->nr_dma_vecs = 0;
+Hi Michal,
+
+On 3/19/26 18:19, Michal Piekos wrote:
+> Fixes kernel hang during boot due to inability to set up IRQ on AXP313a.
+> 
+> The issue is caused by gpiochip_lock_as_irq() which is failing when gpio
+> is in uninitialized state.
+> 
+> Solution is to set pinmux to GPIO INPUT in
+> sunxi_pinctrl_irq_request_resources() if it wasn't initialized
+> earlier.
+> 
+> Tested on Orange Pi Zero 3.
+> 
+> Fixes: 01e10d0272b9 ("pinctrl: sunxi: Implement gpiochip::get_direction()")
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.c | 21 +++++++++++++++++++--
+>   drivers/pinctrl/sunxi/pinctrl-sunxi.h |  2 ++
+>   2 files changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> index 685b79fc0bf8..e3aa2b70aa7d 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -1092,15 +1092,32 @@ static int sunxi_pinctrl_irq_request_resources(struct irq_data *d)
+>   {
+>   	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+>   	struct sunxi_desc_function *func;
+> +	unsigned int offset;
+> +	u32 reg, shift, mask;
+> +	u8 muxval;
+>   	int ret;
+> +	u8 disabled_mux;
+
+Iff you are going to respin, maybe use the inverted Christmas tree 
+style, and group the u8 variables.
+
 >   
-> -	ret = nvme_setup_cmd(req->q->queuedata, req);
-> -	if (ret)
-> -		return ret;
-> -
->   	if (blk_rq_nr_phys_segments(req)) {
->   		ret = nvme_map_data(req);
->   		if (ret)
-> @@ -1418,6 +1414,10 @@ static blk_status_t nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
->   	if (unlikely(!test_bit(NVMEQ_ENABLED, &nvmeq->flags)))
->   		return BLK_STS_IOERR;
+>   	func = sunxi_pinctrl_desc_find_function_by_pin(pctl,
+>   					pctl->irq_array[d->hwirq], "irq");
+>   	if (!func)
+>   		return -EINVAL;
 >   
-> +	ret = nvme_setup_cmd(req->q->queuedata, req);
-> +	if (ret)
-> +		return ret;
+> -	ret = gpiochip_lock_as_irq(pctl->chip,
+> -			pctl->irq_array[d->hwirq] - pctl->desc->pin_base);
+> +	offset = pctl->irq_array[d->hwirq] - pctl->desc->pin_base;
+> +	sunxi_mux_reg(pctl, offset, &reg, &shift, &mask);
+> +	muxval = (readl(pctl->membase + reg) & mask) >> shift;
 > +
->   	if (unlikely(!nvme_check_ready(&dev->ctrl, req, true)))
->   		return nvme_fail_nonready_command(&dev->ctrl, req);
+> +	/* Change muxing to GPIO INPUT mode if at reset value */
+> +	if (pctl->flags & SUNXI_PINCTRL_NEW_REG_LAYOUT)
+> +		disabled_mux = SUN4I_FUNC_DISABLED_NEW;
+> +	else
+> +		disabled_mux = SUN4I_FUNC_DISABLED_OLD;
+> +	
+> +	if (muxval == disabled_mux)
 
-The intent is to improve the observability in case controller was not 
-ready, but the patch may need rework so that it does not cause the 
-memory leak for this scenario.
+There is whitespace damage in three of the four lines above.
+Maybe this can be fixed up while applying?
 
-Currently nvme_prep_rq() calls nvme_setup_cmd(), and in case failure 
-occurs after that, it also does explicit cleanup with 
-nvme_cleanup_cmd(). For discard request, this cleanup involves freeing 
-memory that was allocated.
+The patch still feels a bit arbitrary, and looking at the definition of 
+SUN4I_FUNC_IRQ below we probably need another rework, but if that fixes 
+the issues observed, we should take it now:
 
-This patch moves nvme_setup_cmd() to caller (i.e. nvme_queue_rq), checks 
-for controller not being ready and asks block-layer to retry without 
-ever freeing the resource.
+(with the w/s damage fixed:)
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> +		sunxi_pmx_set(pctl->pctl_dev, pctl->irq_array[d->hwirq],
+> +			      SUN4I_FUNC_INPUT);
+> +
+> +	ret = gpiochip_lock_as_irq(pctl->chip, offset);
+>   	if (ret) {
+>   		dev_err(pctl->dev, "unable to lock HW IRQ %lu for IRQ\n",
+>   			irqd_to_hwirq(d));
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> index 22bffac1c3f0..0daf7600e2fb 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> @@ -86,6 +86,8 @@
+>   
+>   #define SUN4I_FUNC_INPUT	0
+>   #define SUN4I_FUNC_IRQ		6
+> +#define SUN4I_FUNC_DISABLED_OLD 7
+> +#define SUN4I_FUNC_DISABLED_NEW 15
+>   
+>   #define SUNXI_PINCTRL_VARIANT_MASK	GENMASK(7, 0)
+>   #define SUNXI_PINCTRL_NEW_REG_LAYOUT	BIT(8)
+> 
+
 
