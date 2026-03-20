@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979E4109317A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB50D1093177
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bsX7j3IsBCAR2JvcHeowKyby9MbV8ivPuVe631jWpdc=; b=cu8p6x5ufWncIBiH16mgEaxwH/
-	s2gUOIIgrv0AVlzpfoOrUK7isD0I7alEShpY6ECv2AAELMp8DUweCON4BwASidzQPW05I4v4rsfYP
-	RhGqhCxS8JnWtVBkubMyJuL/hmRVqCWLAnocwv9swkGvPUrG13x2phdS+ZoJGtjRPCh9IrufQLTni
-	ZleZ5mi/W0a+kpTOP4MLUfHyW9dkUqorT4jXzca+kY99DtpyztxLMcZmq6zg8iCNui9VBVK5rXQ0M
-	7mFXgN6LMm27/89Ov3MIkr/7nkdl1oviheDAUuCrOFD394yXBg+JC+H6iV9m79EKMn1mvwjHoQBx8
-	1ZRbIvTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q0aEFjmO68x0AQyUqXMqLJQg16Xp9sae1YCC3c5dfiQ=; b=Ke2Dxx3U4mJ8bKoE6zWcSWjwXa
+	O4QtKujsS5RbA42Okh2NNNqk3a/oFWM7ZAj9tlIPctwksS75UIUIUj/iaTR+nxwdhh8AkuVWCdbIP
+	NMFVlD9SXxQi2jWd2SFYq32hnC+9/P5XhIJ97YnO9NVqSXoHAFNuM0RPYiLrzIaICETBeegPK0chb
+	bAiKiHg4nnXAiq/eXyT2nwaKJPGviUcw6uvcFdAhot8Vp8jWkIPjO3/cwj7n2JPY3qJLMLBTTru+7
+	4q0rGGYmUtZbU2y7yONH6jZe7L4TWfGM6QEeEXtkXHNPiTxk57tKKABogBAQkONm0WsBI/sM30vJo
+	njyyDvPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3TE5-0000000CATO-04To;
-	Fri, 20 Mar 2026 06:20:53 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1w3TI0-0000000CAgy-26e7;
+	Fri, 20 Mar 2026 06:24:57 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3TE1-0000000CAT2-2QLS
+	id 1w3THx-0000000CAgP-0mMH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 06:20:50 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-2ab46931cf1so22927735ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 23:20:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773987648; x=1774592448; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bsX7j3IsBCAR2JvcHeowKyby9MbV8ivPuVe631jWpdc=;
-        b=UZ4SnBqC1JkDpzh5sTweQC7kajTkmY8GMogdjnBLc+i4fuEMfun7S7tkpjBgENT24i
-         jXxmvbnzI19yWeFC0guk+1IEV1HSrJnGk2NHlGYbrgcLuO/9tdjmjq0LHh3p2ovmpnKY
-         +tInfIiKv4hYTTFyZjouyBCmQOQ5MYY1fmM4mDWHsRRgbdFktaGagTA+wF6LGRS7d/39
-         z9R9Y09B+83MsUy/NDS1GLuPiM9bBXg2cWBms1uRhu6LLLOvgtYHEH7HxtpAj4Avwo0J
-         js6NO4eXkWhp9+XFxXEsuS53RtX7lyskJoGJ3TbAEzh669DVxm/hlUs7g4KvTRyZOj05
-         zEyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773987648; x=1774592448;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bsX7j3IsBCAR2JvcHeowKyby9MbV8ivPuVe631jWpdc=;
-        b=npHiPJlWnFC8M1o/CqeJkQYAIVT0qch+qSS7x+jvyqA1OIR1PukUe739CXx7twe41z
-         XHLQSWhSBt2Z088F6RKYJHIb0I5AW6cAJM7E6bz8QCbtT7S1n6Kqb8dkMd3WmkdOHqs0
-         SCXckm31t6oF61SAuMq1gPXi//SAAO94Q9pYnnjCqPPNASMmioCO/EyuxDAdroAD97F7
-         7It0UsTeMUkideEGbdt7ercO+CjxDYv+Q1GyCt2owpNiGD65hIvI/xcXQooXLQgdf/62
-         FJql/5tonxela5B78cxhm8cqU7mNk7vNQ/phgkKrPv7nbXmE7tMdfXY+LJMYxocsGPRL
-         KnOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVSuf3RR5rnvtBR72fsfMIKikbxMKTkaFbgDembCS9yppF6VFV8OtzlGB4Pi7mqOyIsKyC+u42uKljvjyqnsVB7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBTJ4Z7mcB3S3teX/mSzSTHFF//+oWvMS8AJ3cob2HqYVLODhJ
-	Wwf7k+uouzMRTfylXJ0l2OF+MBwmZB5pcYVfvsokCCupP4aocuQyAqQ8
-X-Gm-Gg: ATEYQzz7T2My3RRxqmdTtm/qWvfXYBQbC2Y1v3MjzDixJVr4fR0xmPStY4NCYRvOgA2
-	ZFKTt2OtiJRocUpKUbv/FsoFKih0drYnftTeCO62rnvmOm77y6WhcSrRZdIGA9IiWyL5AyEDvoW
-	1zzBay21w0f2tRbTeIhkmXBlzocBOpemBurKhWuf1yeKgwE8pY9oIlvS/2Jt3WuWFpCaUJFR4TR
-	uU2RS10f9tqc4h6zZ1xRst7kIafWMTlmiDXoYjI0Obvt2tHJRNjWzJV/zhEVgjNJnMMHyQTeQz0
-	1nTrzrSocfkpDlOQZSxmsDY0MosL66la+AGhd9czdrEQYKW1jcqsgwtwnxPbVeAxsqP1S/pcXdz
-	sUIPXBV59iDsI84wSLpqEVb9fyi1eA6T8FqpyEVpI70zhry+ugL4VGJHVqXh+DcGDtrcPqdimWn
-	+zZlu1ZnepLnkDUu6eXvo2KUXZSFC7roTkPWkoqL2xbfKPqA==
-X-Received: by 2002:a17:903:1a2e:b0:2ae:cd8c:bd04 with SMTP id d9443c01a7336-2b077165dabmr46941965ad.10.1773987648287;
-        Thu, 19 Mar 2026 23:20:48 -0700 (PDT)
-Received: from XP-PC-yangg9.xiaopeng.local ([98.98.112.219])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0836554acsm14418715ad.51.2026.03.19.23.20.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 23:20:47 -0700 (PDT)
-From: yangg9 <cohenyang511@gmail.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	yangg9@xiaopeng.com,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	vladimir.oltean@nxp.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: close reset IRQ window and avoid double free
-Date: Fri, 20 Mar 2026 14:19:55 +0800
-Message-ID: <20260320061955.833785-1-cohenyang511@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 20 Mar 2026 06:24:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773987893; x=1805523893;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0vgzhEI33fyynNHIHp2T6/dOm22GR1qOZib6VKCjuRc=;
+  b=RdU8U0U/9oaZlKvAixDZxMGz4KjlgaIjXW3zHmc0R2fL2433aG8BwvvK
+   f7EPjwaaXKuRqnOkcUJEM7cn7SLRb/v4h1G/qy2w3vM/6d7n78RUdOa60
+   tzO/Wi6kpEViqF1AyeFTVkAX2fKS9gDBb90xfjvK5dNmQUpsxIIy+FSyN
+   NyfA44dtJUozOGAyI98UAG7Raumas3GT77wSoVxqzZEzoaBzGAGNSqLCL
+   FbvIwmvjHlOZ6r8WIuBdrmphF0FlGQo3v7rI43r59l4InoU/pIpPuPnHn
+   f3O3Fuvthufepyf89N4DFJO5v85duy5+OjTx5W0sbIBdclrb2PHgQ/CGR
+   g==;
+X-CSE-ConnectionGUID: fHQk0ZlRSNGFSqwfvVmhYA==
+X-CSE-MsgGUID: B6cVq5dUSJm4XMd5jNoxMw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11734"; a="100526659"
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="100526659"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 23:24:53 -0700
+X-CSE-ConnectionGUID: z+0j/YTkRES49580rEmOGw==
+X-CSE-MsgGUID: XEtK4EqCQnGlCLqXZqzRTA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="219032758"
+Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
+  by fmviesa010.fm.intel.com with ESMTP; 19 Mar 2026 23:24:48 -0700
+Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w3THX-0000000023j-2m3T;
+	Fri, 20 Mar 2026 06:24:31 +0000
+Date: Fri, 20 Mar 2026 14:23:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ahmed Tiba <ahmed.tiba@arm.com>, linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-cxl@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Ahmed Tiba <ahmed.tiba@arm.com>,
+	Michael.Zhao2@arm.com, robh@kernel.org,
+	linux-arm-kernel@lists.infradead.org, Dmitry.Lamerov@arm.com,
+	rafael@kernel.org, conor@kernel.org, will@kernel.org, bp@alien8.de,
+	catalin.marinas@arm.com, krzk+dt@kernel.org,
+	linux-doc@vger.kernel.org, mchehab+huawei@kernel.org,
+	tony.luck@intel.com
+Subject: Re: [PATCH v3 06/10] ACPI: APEI: GHES: move CXL CPER helpers
+Message-ID: <202603201429.rbHMPOvC-lkp@intel.com>
+References: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-6-48e6a1c249ef@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-6-48e6a1c249ef@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_232049_627642_27AF6AA9 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20260319_232453_258109_5AF3DEE9 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,54 +94,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: yangg9 <yangg9@xiaopeng.com>
+Hi Ahmed,
 
-During reset, stmmac_reset_subtask() used to set STMMAC_DOWN before IRQs
-were freed in __stmmac_release(). That leaves a window where interrupts can
-still fire after the device is marked down, which may lead to interrupt
-storms while the interface is transitioning.
+kernel test robot noticed the following build warnings:
 
-Move stmmac_free_irq() earlier in the reset flow, before setting
-STMMAC_DOWN, so the reset path no longer has that interrupt window.
+[auto build test WARNING on 2d1373e4246da3b58e1df058374ed6b101804e07]
 
-Since IRQs are now released in stmmac_reset_subtask(), guard IRQ release in
-__stmmac_release() with STMMAC_DOWN to avoid a second free_irq() during the
-same reset sequence.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ahmed-Tiba/ACPI-APEI-GHES-share-macros-via-a-private-header/20260319-115432
+base:   2d1373e4246da3b58e1df058374ed6b101804e07
+patch link:    https://lore.kernel.org/r/20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-6-48e6a1c249ef%40arm.com
+patch subject: [PATCH v3 06/10] ACPI: APEI: GHES: move CXL CPER helpers
+config: x86_64-randconfig-122-20260320 (https://download.01.org/0day-ci/archive/20260320/202603201429.rbHMPOvC-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+sparse: v0.6.5-rc1
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260320/202603201429.rbHMPOvC-lkp@intel.com/reproduce)
 
-This removes the interrupt-storm window in reset and prevents double IRQ
-release.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603201429.rbHMPOvC-lkp@intel.com/
 
-Signed-off-by: yangg9 <yangg9@xiaopeng.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+sparse warnings: (new ones prefixed by >>)
+>> drivers/acpi/apei/ghes_cper.c:391:1: sparse: sparse: symbol 'cxl_cper_fifo' was not declared. Should it be static?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 124d7a00f9f0..99b661379d9c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4212,8 +4212,9 @@ static void __stmmac_release(struct net_device *dev)
- 
- 	netif_tx_disable(dev);
- 
--	/* Free the IRQ lines */
--	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
-+	/* In reset flow IRQs can be freed before dev_close(). */
-+	if (!test_bit(STMMAC_DOWN, &priv->state))
-+		stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
- 
- 	/* Stop TX/RX DMA and clear the descriptors */
- 	stmmac_stop_all_dma(priv);
-@@ -7331,6 +7332,8 @@ static void stmmac_reset_subtask(struct stmmac_priv *priv)
- 	while (test_and_set_bit(STMMAC_RESETING, &priv->state))
- 		usleep_range(1000, 2000);
- 
-+	stmmac_free_irq(priv->dev, REQ_IRQ_ERR_ALL, 0);
-+
- 	set_bit(STMMAC_DOWN, &priv->state);
- 	dev_close(priv->dev);
- 	dev_open(priv->dev, NULL);
+vim +/cxl_cper_fifo +391 drivers/acpi/apei/ghes_cper.c
+
+   388	
+   389	/* Room for 8 entries for each of the 4 event log queues */
+   390	#define CXL_CPER_FIFO_DEPTH 32
+ > 391	DEFINE_KFIFO(cxl_cper_fifo, struct cxl_cper_work_data, CXL_CPER_FIFO_DEPTH);
+   392	
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
