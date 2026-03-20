@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FDF1093177
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 05:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954F3109317D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 05:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyqCuHeJ4yoYJ7QJNk7Gc77s/EmQgwDzAwFECpYA+P0=; b=xmilVrqwpSZb4JNudGIthA2SzX
-	wJSnbnDPWkBzZX83jtFB5+xMbxfckAz2xVuBhikFVHcGYTIT8arMWt+THJr6hRoZySxJWCCYyYw92
-	GjOnKp9ZRmwxFa6jod0Bu2s2AQ3R6NwoXjNABDKtIhKT9BT2gruMeyzFv5p2szc4ZYX53zk0q2NGF
-	9783wW9wLlGdMu6XMvTU8xjnpgiHjQhEhNhDrZQHMCE7sz2TWCmiC+H/r2FmGzUDc31T8GM0UuyLh
-	cy++mWDt+lMAy/iKqlq42B9r/oPjSwjOzOu6yUlIRnUCP0YDpKi3go19l9HR2eZXSJCn9UzVaFCfc
-	I+MwJ67Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z4nB0/r5SHjucr91NuXd8v1nM0CvlhwLCD09C5ajWTY=; b=E/TnuZjtMqbKze
+	aWHKeiOGlM1WZ7JyuspaEujsPi7LbD/Q1DqgkvLpBtvq9vuOR3T51NYSDAdFrKIvnidlXRlk8tbsg
+	wbNvlC4tsfbvNBvJGp94uC7hGEwnpEvKlOMPvE6ieGboCmpXc6lmKhImcug2SsmdT3BImSYolGWnV
+	xLU6pMFqqpZQSsXELF1sBgmaKktM4l0KVY822vnhmgMdAComVs0AC96QXqs2/N2uUjWPXEeWC4OD6
+	0QuIPDz0ci6F3eOgLDkSeZ/NbThQblPAd0FIsQ/IhC91aFjyjv1nR5bl+1EKVLuKuB6w9cpcwVcRx
+	8Vf9/MxBuZPL/iFuJEUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SM9-0000000C6OP-28a4;
-	Fri, 20 Mar 2026 05:25:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w3ShF-0000000C70N-2w8m;
+	Fri, 20 Mar 2026 05:46:57 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SM7-0000000C6Nc-0gjU;
-	Fri, 20 Mar 2026 05:25:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43EF341B34;
-	Fri, 20 Mar 2026 05:25:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF02BC4CEF7;
-	Fri, 20 Mar 2026 05:25:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773984305;
-	bh=zaGWASU9+JAdJi4fUavTf9Khqp16CUkVbyblJANVq4s=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=XgJ4/xi591n6pjBVAauY6nfQ+8bDXa+YT7ICN+1HiuoTPZznzj7jHrkfdJWoiVCaq
-	 jwRc1YsTzudfLWScxQbeWsWVO0uMNun2ngs9u8KC2/kIz1kv/XHMD19H0xDX/6v9KI
-	 QfZnsWhwELFwoiiuzXhW+Yqxgkj1NRKi+vOCa8LqDFdsvGFfeN0CtRLEw9mVIGXHrp
-	 gCB05pIYSEtqvSmWi+O1hROa4Wy5YPRHhw9qFYiCouBqt/7AL5GGN5QqcX1sVnuHWD
-	 Wx1rxErjwOAyeIm2x/SUP2zIwsgVE9bp5pDysUNK+F+wFQp1OnXhFpzUlXGR1gZ4gM
-	 2vbFUmShVRQDg==
-Date: Fri, 20 Mar 2026 00:25:04 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1w3ShC-0000000C6zr-3D8n
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 05:46:56 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 20 Mar
+ 2026 13:46:40 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 20 Mar 2026 13:46:40 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v3 0/4] iio: adc: aspeed: Reserve battery sensing channel
+ for on-demand use
+Date: Fri, 20 Mar 2026 13:46:34 +0800
+Message-ID: <20260320-adc-v3-0-bc0eac04ef7c@aspeedtech.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Bjorn Andersson <andersson@kernel.org>, linux-mediatek@lists.infradead.org, 
- Hailong Fan <Hailong.Fan@mediatek.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>, 
- Huayu Zong <huayu.Zong@mediatek.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>
-To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
-In-Reply-To: <20260320032014.13608-2-xiangzhi.tang@mediatek.com>
-References: <20260320032014.13608-1-xiangzhi.tang@mediatek.com>
- <20260320032014.13608-2-xiangzhi.tang@mediatek.com>
-Message-Id: <177398430412.27959.15021574635894371072.robh@kernel.org>
-Subject: Re: [PATCH v3 1/6] dt-bindings: remoteproc: Add VCP support for
- mt8196
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADrfvGkC/2WOzQ6CMBAGX4X07Jr+0QZPvofxsG1X6UEgLWk0h
+ He34EXjcb7sTHZhmVKkzE7NwhKVmOM4VFCHhvkehztBDJWZ5NJwJRRg8KBt5zg63jkkVi+nRLf
+ 43CuXa+U+5nlMrz1axLb++kWAAIuSgtPUGqPPmCeiMJPvj358sC1S5LdoPqIEDlJo26IUtj7wJ
+ 67r+ga7Q9mr1AAAAA==
+X-Change-ID: 20260313-adc-479b0ab09bae
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<morris_mao@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, "Andy
+ Shevchenko" <andriy.shevchenko@linux.intel.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1773985600; l=2152;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=TuilmV9/QzS9Wjm/LIGeDhedU/2KmdQqlz/9Y9KoZr4=;
+ b=LbKiP2Kc8E1Fpt+3uxQU7NuAph6xcpB/odQpch9STV5VWWptSOotZFKoCADnPVt+cJG7cwYLY
+ bcsmoyHe63PArOvCX/wlP91mZYrX2/VK/goV5PGSQy6WSgh59UGBuGh
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_222507_267868_F6AD9A84 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260319_224654_838674_567E77F9 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +81,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+For controllers with battery sensing capability (AST2600/AST2700), the last
+channel uses a different circuit design optimized for battery voltage
+measurement. This channel should not be enabled by default along with other
+channels to avoid potential interference and power efficiency issues.
 
-On Fri, 20 Mar 2026 11:18:03 +0800, Xiangzhi Tang wrote:
-> Add the new binding document for MediaTek Video Companion
-> Processor(VCP) on MediaTek mt8196.
-> 
-> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
-> ---
->  .../remoteproc/mediatek,mt8196-vcp.yaml       | 161 ++++++++++++++++++
->  1 file changed, 161 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
-> 
+Changes made:
+- Introduce aspeed_adc_get_active_channels() to return the number of
+  channels that should be enabled by default
+- For battery sensing capable controllers, exclude the last channel
+  from the default channel enable mask
+- Enable the battery sensing channel only when explicitly accessed
+  via read_raw()
+- Replace hardcoded channel numbers with ASPEED_ADC_BATTERY_CHANNEL macro
+- Add helper functions for cleaner channel management
 
-My bot found errors running 'make dt_binding_check' on your patch:
+This ensures optimal power efficiency for normal ADC operations while
+maintaining full functionality when battery sensing is needed.
 
-yamllint warnings/errors:
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+Changes in v3:
+- Simplify channel mask helper as suggested by Andy
+- Use FIELD_MODIFY() when updating ADC channel field instead of open-coded OR
+- Move unrelated blank line change to the previous patch
+- Replace mdelay(1) with fsleep(1000) since the delay is in sleepable context
+- Fix comment typo ("adc" -> "ADC")
+- Link to v2: https://lore.kernel.org/r/20260316-adc-v2-0-21475a217b09@aspeedtech.com
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml: patternProperties:^vcp@[a-f0-9]+$:properties:mtk,vcp-core-twohart: 'anyOf' conditional failed, one must be fixed:
-	'description' is a dependency of '$ref'
-	'/schemas/types.yaml#/definitions/uint32' does not match '^#\\/(definitions|\\$defs)\\/'
-		hint: A vendor property can have a $ref to a a $defs schema
-	hint: Vendor specific properties must have a type and description unless they have a defined, common suffix.
-	from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml
-Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dts:26:18: fatal error: dt-bindings/power/mt8196-power.h: No such file or directory
-   26 |         #include <dt-bindings/power/mt8196-power.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1614: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+Changes in v2:
+- Split the changes into a series of patches for better clarity and
+review
+- Link to v1: https://lore.kernel.org/r/20260313-adc-v1-1-7a2edb4e5664@aspeedtech.com
 
-doc reference errors (make refcheckdocs):
+---
+Billy Tsai (4):
+      iio: adc: Add battery channel definition for ADC
+      iio: adc: Enable multiple consecutive channels based on model data
+      iio: adc: aspeed: Replace mdelay() with fsleep() for ADC stabilization delay
+      iio: adc: aspeed: Reserve battery sensing channel for on-demand use
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260320032014.13608-2-xiangzhi.tang@mediatek.com
+ drivers/iio/adc/aspeed_adc.c | 68 +++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 57 insertions(+), 11 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260313-adc-479b0ab09bae
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
 
 
