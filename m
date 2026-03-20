@@ -4,64 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD02E1088E6E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C021088E6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wl+hswGMyhOsfsrcMnneu3FC4Xs9Gx7WqKBlGOEGmO0=; b=vkh/jNhvsdV5Tnu/6asnUuW9CN
-	APYTborG1R9jNe/9pwOnbMYfL7zVddZg5F5mM+xfkd3D658wVHjdgGHIHyxgmsAjfn+FGjzNiEJ1/
-	XF3k48LffUGPzoE9mFP9T4M20isRIJ9rDL28kJMfsL/A9DlulA0I3aIlDEcENLdujtqpy5kE22Nd8
-	11fciphK9HPLQPSIvM0z8fZCkC7rmu/N9hsC4iR6dwSFhad75l5RG+39RYIeYzcAcWMVK579WRWVp
-	v+9UWdn7ULHJ0CxA7AuVpuDFp2iuwD19bkmt/y50kqN/hMCCxPcaYErKhF/RmRvciRh06OCC+BN64
-	xXvtK9+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UjWzodMHHiPQ8qpM8gCAfjVpQOUkrpvH4qFscxhdfJE=; b=AiC99+EDTDDCqyW7svb97VDRiC
+	enWltKAI+5W5hvQW1oXPg4u2AyHx7mscDbh7S9OzmgJ1OqBbNqfYfCG8CD5CmuV3YN3MssQT8CR6D
+	eccrStWu+Dj/+laRUDHnDgEf+NULWwL7Ub3u2DkBk+qsarMwsLKghyuAeWKP6RC0a16lL1f7GV3B8
+	vAeRZUz/6jCf0KkD5MNkT1qjOC3UjVxE6owxQYEgJluaZM1b0inzgxRCNF89hMizrPN6UtZZNbOb7
+	qXG79/u9oFf+sf9wXATYXYXrWdMJlNUeQkpPpjx0HAlEGUPBOoMzag6UtjYK8dCg3xguqKabGOEQR
+	AtZfFGQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3W6W-0000000CTJc-0Tcf;
-	Fri, 20 Mar 2026 09:25:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3W6z-0000000CTPD-2yKp;
+	Fri, 20 Mar 2026 09:25:45 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3W6V-0000000CTJL-1PT5
+	id 1w3W6x-0000000CTNI-0UyF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 09:25:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 984B560127;
-	Fri, 20 Mar 2026 09:25:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF0EEC4CEF7;
-	Fri, 20 Mar 2026 09:25:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773998714;
-	bh=hytdCJvyRmCwOZPRrZqiCYUso9HSoG5TaaQC5t9D8f8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=icQhL9S/Q5ILqqXlrUeozeOHXjb/GuPv/wHRchDoxgIv25tlaovbaH2PdqeloTdb9
-	 3i4JCMmJe9Ui0z/BtvEMISDKEQUmE5fa5bjrZ4E1a2zx8jYbChwzmDbjE8HBJjz5i5
-	 THy7f206/poUIYlud6rfmz+zpiPgMMeKqcZyGd852o49RFhzCe6vS0+cltyGY5iOBj
-	 zar98h6W6ZUcE6R1Q85cOiOZ+GqolTPmKAPiZYXu3yIDI1lIxv8T3TRTYsk5UfIV4c
-	 1b09b/KZQfza6Tt4Y7D2ezW7qMr+juQ7pmYHv9Qz1nksN8MEuCrHwPTc6a/LPzIkTU
-	 YmMtFdqil6vYA==
-Date: Fri, 20 Mar 2026 10:25:11 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Marek Vasut <marex@nabladev.com>, 
-	Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>, Stefan Agner <stefan@agner.ch>, Liu Ying <victor.liu@nxp.com>, 
-	Simona Vetter <simona@ffwll.ch>, imx@lists.linux.dev, Fabio Estevam <festevam@gmail.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-Message-ID: <20260320-amiable-hairy-bullfinch-28bfda@houat>
-References: <m3ms04caaj.fsf@t19.piap.pl>
- <32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
- <m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
+	Fri, 20 Mar 2026 09:25:44 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-78fc4425b6bso18208557b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 02:25:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773998741; cv=none;
+        d=google.com; s=arc-20240605;
+        b=doKOhZo/xjMGGspOCUSEzDkb5LSs58+dEz8brpqXSXNXbAlmvw3ZMW08J9bo5x2mJ7
+         3bVIg97bJ4dyzplzle9mgksEY/+PmwW5mv7vt6/tCdVoFEdA3f37v58v1VrWhWhUtYmS
+         pyVbdWKESaewnqizkWGanCDtgy2oWBOWSgKstLWBiljNY3SqlRfbMAIk3BRKoWvtFzEb
+         uPBcsRZxNDCbQC2mDJIigVgukjE+MD+JcJq57A/UIaiNVy38fa4gM77XD489iRON0iDF
+         /MgLKBnU9aRNDTJ3FFVaAQ64kWk7CP8xWD3at2QKebZRtioebhAvA9uYfQ5AVnNvjVTy
+         T1rQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UjWzodMHHiPQ8qpM8gCAfjVpQOUkrpvH4qFscxhdfJE=;
+        fh=vUgUAWJnYUFstlSoD0qJe+GjxFWQJe1/7bjxoR3PmLU=;
+        b=Laq/V9js5Lt88BwFFG997huU2dww8DcwU5fnQAYcizjUeA9zYBFpU+QX6v9NJwh3OG
+         vIvI91upX4Tgca6HN+IMTS7KY7eGZqrrVv6HRVHHotfpfdxCeyB7zpGBf5wzf2BtdZjL
+         1/kaK113ZbR8TSkkwWJAGAK5O7Zg+uBx42znGUlI+NMBupb1XIfUlBQsRG26wEqGYt0L
+         5xwJtg74pppl9LO9bSN+rJf0O57VPUwzaPGMeP6sn42N6n/ifaIa4tjAvvKlGRH92jMN
+         L/I6EcIPDvM+E5bnLVu4bNRsFUiLZ26KsBF1tjuVtrGTlh58A09Y3bjt40V7dDKFwoTM
+         52WQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1773998741; x=1774603541; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UjWzodMHHiPQ8qpM8gCAfjVpQOUkrpvH4qFscxhdfJE=;
+        b=JBugrMbg+mDygVZAXskJeFXIfiSHNemlYLdLf4cpjPZJxT3Tz6kiRXToDGTdl+jTkv
+         dhN1ZnrwsYBJOXfbOlaRYU0aYua98jJcrw67GIPIabWO3LBUbNVqxvip9EKBlP/0RtPH
+         86D38LABLTbDBxjzZbO3WvG7ZT7wTUyrh/O0BM8J/yjJuJcfp2CNyOXL7FnWq0EsAUUC
+         EYCMVrTn1J5Pl+9Ve2MYM9bW/wghAdesgMKLT4D2oo6ps9NBxn3fPEHwkNgH8fODewnU
+         LFwmFTNzqNWr+TFNWLtQ7XHEF40VF+KGXJqz89nZ6i8WqgqFwj2wmAvyh8fYLHet3TaM
+         HQxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773998741; x=1774603541;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UjWzodMHHiPQ8qpM8gCAfjVpQOUkrpvH4qFscxhdfJE=;
+        b=EdFfmVgG+h2Moh5qwKHjKDR96ManShFFKdfeb1Pkcmd3e9rmcihzgU4u6nGWGgahOI
+         DuxZGXhdkoCf7rSv6DTGuclLMQuLL7rSubJ3CcV5ODRI79mcEOIV0/Cmj5uQJ5tYENQw
+         3jx3zehT5myeyjhwS3QNszXpmw2cBQ1BxuxR1V+Nyrv8bEBV2Loc2KJle9WNDY8/cdJV
+         D4EtH7VXnseEtHXyY9oNeK2GsGuh9eRDDlpH3l6pnC6863UgNambvLS7moQK0MozHgvD
+         d41y1JxKy9zYL9SHEUjzUq2YYV9h15l+rpJdQ0XW1CjalMU5y96UVgZJYUyHiWeP5bnA
+         eVGA==
+X-Forwarded-Encrypted: i=1; AJvYcCVZ71zlG+n3zvGuKf1G4xzuVEXaurQErQrCr1WcucVq3fEJgQqBOH7x7AZ4KL2fAUALyo+ahF1fzZ+hFPQio0le@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV20DlMGefwoqmGVIqTFGFUB6RERBwNQ0QBVhzmtRG9YTErM2V
+	eMHuRruVysLWZapAuu4wJ+pp6qtXBC8DPelzqm9dvy0wlZJYQJ5IDkGAbCs1mlgCqEu9tYNqScU
+	xK76wZVPnYw8FAnj022q7VxeUIN8eu0M=
+X-Gm-Gg: ATEYQzxUPUKtvLf+LzP0QfKoMo/o0gC/LGKFxDxcli34KdsMb4lqAUL9ZI78zw7tPAy
+	/fSIxDYe2W48B1/JMWLWuzcxDC6Vd1j1niRaLX93L3P1Fhlu/x89a82p7RYyQjbpBFHuHdjd4Yw
+	mRmfYFTsdrT3ImRcICztW2HAJdYwOUB/VmjA6dJYQFZgqUKS87BNFnTU9LGcow8W0mdeF5GgObH
+	tgLHzOSmD/r0VWZJbkxRQ5JLoKBb3OKfmV4bj2QcNrdJFKn2yih8oHSmQZMRDb2PS1nNVkeRTkN
+	ZzqzZlpWk3HtQleW
+X-Received: by 2002:a05:690c:3181:b0:798:7498:4ae4 with SMTP id
+ 00721157ae682-79a90c21cd0mr21006217b3.53.1773998741596; Fri, 20 Mar 2026
+ 02:25:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="kqtw7ezuuh3ww2w4"
-Content-Disposition: inline
-In-Reply-To: <m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
+References: <20260319032649.337812-1-dqfext@gmail.com> <20260320091910.GA2048760@horms.kernel.org>
+In-Reply-To: <20260320091910.GA2048760@horms.kernel.org>
+From: Qingfang Deng <dqfext@gmail.com>
+Date: Fri, 20 Mar 2026 17:25:29 +0800
+X-Gm-Features: AaiRm51UgkKJTce5m7yOHpFLNBuXksPYXf9B03a4b3Hvrvl-JqUwcOrWd9BIh_4
+Message-ID: <CALW65jb_4WjSGZyp7ruX1b=DvpkL6HyeNfvAyuBzNYizQaHJdg@mail.gmail.com>
+Subject: Re: [PATCH net] net: airoha: add RCU lock around dev_fill_forward_path
+To: Simon Horman <horms@kernel.org>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Pablo Neira Ayuso <pablo@netfilter.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_022543_161033_3F0AC7C8 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +120,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 20, 2026 at 5:19=E2=80=AFPM Simon Horman <horms@kernel.org> wro=
+te:
+> I understand from the patch description that the problem didn't manifest
+> until this merge commit. But nonetheless I don't think using
+> a merge commit in the Fixes tag is the best approach. For one thing,
+> it seems somewhat difficult to use effectively to guide backporting.
+>
+> I would suggest using the flowtable commit as the fixes tag:
+>
+> Fixes: a8bdd935d1dd ("net: airoha: Add wlan flowtable TX offload")
+>
+> Or perhaps fixes tags for both a8bdd935d1dd and 0417adf367a0.
+>
+> Flagged by AI generated code review, which also suggested citing a8bdd935=
+d1dd.
 
---kqtw7ezuuh3ww2w4
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-MIME-Version: 1.0
-
-On Fri, Mar 20, 2026 at 09:04:17AM +0100, Marco Felsch wrote:
-> On 26-03-20, Marek Vasut wrote:
-> > On 3/19/26 12:45 PM, Krzysztof Ha=C5=82asa wrote:
-> > > Running (and terminating) Weston on i.MX8MP sometimes produced black
-> > > or grey screens. The LCDIF3 INT_STATUS_D0 register showed a FIFO unde=
-rrun:
-> > >=20
-> > > 32FC6024: 1000002
-> > >=20
-> > > The PANIC0_THRES register was set to:
-> > >=20
-> > > 32FC6238:  AA0154
-> > >=20
-> > > which apparently meant low =3D 2736 bytes (0xAA * 16 + 16), high =3D =
-5456 bytes
-> > > (0x154 * 16 + 16).
-> > >=20
-> > > With this patch (based on NXP's driver) the watermarks are only 16 by=
-tes
-> > > higher (register values increased by 1) and the underruns are gone.
-> > >=20
-> > > Tested on Solidrun Hummingboard Mate with a 1080p60 HDMI display.
-> > >=20
-> > > Signed-off-by: Krzysztof Ha=C5=82asa <khalasa@piap.pl>
-> > >=20
-> > > --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > > +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > > @@ -353,8 +353,8 @@ static void lcdif_enable_controller(struct lcdif_=
-drm_private *lcdif)
-> > >   	u32 reg;
-> > >   	/* Set FIFO Panic watermarks, low 1/3, high 2/3 . */
-> > > -	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, 1 * PANIC0_THRES_MAX / 3) |
-> > > -	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, 2 * PANIC0_THRES_MAX / 3),
-> > > +	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, DIV_ROUND_UP(1 * PANIC0_TH=
-RES_MAX, 3)) |
-> > > +	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, DIV_ROUND_UP(2 * PANIC0_T=
-HRES_MAX, 3)),
-> >=20
-> > I am starting to wonder, whether this should be configurable in DT, bec=
-ause
-> > it seems there might be users that need to tweak the watermarks one way=
- or
-> > the other for different video outputs ?
->=20
-> +1 to provide a override mechanism via DT.
-
-If this is related to the output resolution, the DT is the last place
-you should deal with this.
-
-Maxime
-
---kqtw7ezuuh3ww2w4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCab0SdgAKCRAnX84Zoj2+
-dmj8AX0fLuO62vmJI+ySHByc+XZ8s3q4zviMe03MY5pK5cTsFHhJcFrOeMWaRAGv
-9SSJUCgBfRDumumJyxKSS5n1QS/g5KofFiU8leZjI7jjZE73tL3qBmVQuuVtlQvX
-A3w8KjXclw==
-=0nyw
------END PGP SIGNATURE-----
-
---kqtw7ezuuh3ww2w4--
+Okay, I'll update the tag in v2.
 
