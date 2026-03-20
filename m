@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E95210987A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0390D10987A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q9VxrVQqj6WsyhY3kXh1GbETWCx9twtRh9wzfVXYYzw=; b=UT+7DapIeYuG2G68hBBjygguvV
-	QR9EXXJj/BD9zMrGoCNvRkKWjM7wp4pkJAiwMJ8lWshihz91C2VHL1qXnY4L6Yd2Z/gWNvCQ3JVOy
-	WtLKN1lKoROuX6v43sjlMTyguaNwTVPZd8jdS8ZuoQCA/asOa5Tt8cOIZMfp4txRD6u9AoS18SxPU
-	5yg/NGHqo3wKnae1kR8nxG/rjbi3pXBI9HeNAOonHCQvjA9xqMi4h2SjfNHTg+CobmnVPCEeX/ROp
-	uuVuKtrMwMEBfMSBDNytqsjFHu7W3NcrB4LU8JYwiAKlu+nm5/PYEbTDw8LT2kOW0sJnkz8ic09Rm
-	+Mb1A/Vw==;
+	bh=zaSMeHUWrNv6lV4/RH0yCzsLckeRYl1Z0R5ip4BFPfs=; b=ov+RMTwMw2avkDSeXtfCPqTatA
+	6XtQrwRZUDuOGZX8vaRW2+2GqhbYba1CJvfFlQLyGh/YTi2BYkAl11xnW+5i9BkbjRIfJVUZ9cWXW
+	zUj4HPHzvhFVQ45ueOdqEAXEboZoO8kEZ0nhGWWQLhROLq4hEiGShyyiVd9oNVA2dB5xPuG8v54ZK
+	t5lyNrGBRQK+qGifXaKjpW647P5BJXT7xZeTxkjcDgA74jx5kBLyUi0tnb+WXnQBJozsb/N9z+5hJ
+	UbckgGq4YgbMiAHunQ3c/p0WtV3Dju3xECYpOX5GXmAhd4+rM4hSk9m4C1bPwagFBhhDs8PvLCRUe
+	p3k1zfrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3cax-0000000D71z-1CJ9;
-	Fri, 20 Mar 2026 16:21:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w3cgB-0000000D7M8-1QAe;
+	Fri, 20 Mar 2026 16:26:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3cat-0000000D71A-14aj
+	id 1w3cg9-0000000D7Lq-0w7x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:21:05 +0000
+	Fri, 20 Mar 2026 16:26:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82AB1409DF;
-	Fri, 20 Mar 2026 16:21:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2FEC4CEF7;
-	Fri, 20 Mar 2026 16:21:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EDA96183E;
+	Fri, 20 Mar 2026 16:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F00E1C19425;
+	Fri, 20 Mar 2026 16:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774023662;
-	bh=+ciHTwA8hlwQ9krVflfBU1d5rdERqV3tp1llx+tmXMU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tdqC8LUNyhF65dZO5kd7xU2IJlq5wuXZ1/VYmnrNDo+yrOaFDaEWr9j9A9ProQE+J
-	 iMiliTM3Qldme1+AR6VsjSLloUn/Isv0PyDNDvIFci3Gr3i6yeAV3mgvuFOZB47Zku
-	 92SQwK82Z33Mfkyh8gKLra3KUxeI700vYmNBlmKa18LXk9/xfqJCGKcoAlYqdmjZ8I
-	 0eoHlLX6uc5EyGY2mu9zPAZyDpQGDIZERlenevYVpdLbia4dYhFsrCVH76nJHNy4ZT
-	 JwVmdwS+dYQVDNgq4JJXh4dkNfQxP93NbiSg4liako32SRi/eiF+ch06KyMAA/X/7P
-	 jGBMWax/iNC9g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w3caq-0000000455R-04zT;
-	Fri, 20 Mar 2026 16:21:00 +0000
-Date: Fri, 20 Mar 2026 16:20:59 +0000
-Message-ID: <864ima5v6c.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
+	s=k20201202; t=1774023958;
+	bh=U1lim8GSAm4P+qOIyro4CtRSGIEA4QfvF64eRKV8uxE=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=tChveoyf8Rqdh3DNG80JMjEo4ZDEWj1AITGKe1S14pOJIhfq7m+8JpWSDkv8G/mjH
+	 tliTLOpaPNoIvqfTRVsmC+MpwXRPfwdoc+kwrPoOE+BGZx7FGDjbjUcOIPkAdY6kVe
+	 d7FDVeR3U/V5ttryOnqUYvjcEH4WYKuXnqJutNkWa/fPOsMUZVyPx12ZsO0Fak5moy
+	 KTj7qKlKkrWvcVBVT8grm3m9YG9zRemFADwFnVgcmxt8PhKb8UHpX4Aokt3a3BXNcS
+	 k7QHMqUBJvDsMZhHwkHyyjImctg2SLK1STV4KmaVaj0+YC8qtpABjY/YiSvloiZM7f
+	 q3mRIhMKTJPyg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D017380820D;
+	Fri, 20 Mar 2026 16:25:49 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc5
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <ab1GQXqkgL61wARW@willie-the-truck>
+References: <ab1GQXqkgL61wARW@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <ab1GQXqkgL61wARW@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: 8c6e9b60f5c7985a9fe41320556a92d7a33451df
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 165160265e4be3a6639dd4ea5ca0953a858e2156
+Message-Id: <177402394803.2556506.9218806196382078104.pr-tracker-bot@kernel.org>
+Date: Fri, 20 Mar 2026 16:25:48 +0000
 To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v3 25/36] KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
-In-Reply-To: <20260305144351.17071-26-will@kernel.org>
-References: <20260305144351.17071-1-will@kernel.org>
-	<20260305144351.17071-26-will@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, smostafa@google.com, alexandru.elisei@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_092103_782620_1C1373BA 
-X-CRM114-Status: GOOD (  16.18  )
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Mar 2026 14:43:38 +0000,
-Will Deacon <will@kernel.org> wrote:
-> 
-> Host kernel accesses to pages that are inaccessible at stage-2 result in
-> the injection of a translation fault, which is fatal unless an exception
-> table fixup is registered for the faulting PC (e.g. for user access
-> routines). This is undesirable, since a get_user_pages() call could be
-> used to obtain a reference to a donated page and then a subsequent
-> access via a kernel mapping would lead to a panic().
-> 
-> Rework the spurious fault handler so that stage-2 faults injected back
-> into the host result in the target page being forcefully reclaimed when
-> no exception table fixup handler is registered.
+The pull request you sent on Fri, 20 Mar 2026 13:06:09 +0000:
 
-Is there any reason why you prefer the 'inject fault' followed by
-'gimme that page' dance over a more direct 'unconditionally reclaim
-the page on the back of the fault'?
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-I can't figure out what would go wrong in the latter approach, as you
-always have an opportunity to inject a (fatal) fault if you can't
-safely reclaim the page.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/165160265e4be3a6639dd4ea5ca0953a858e2156
 
-Thanks,
-
-	M.
+Thank you!
 
 -- 
-Without deviation from the norm, progress is not possible.
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
