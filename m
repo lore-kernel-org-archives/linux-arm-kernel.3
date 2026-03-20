@@ -4,94 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E7B1098792
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CF51098792
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aE5NS2sVAN6gNknaAEWjlDcbr30NEPUj8rvRruurI5Q=; b=OPRlZHVU63Jw6DXwQYBe4UDDYm
-	lUITU7Z067CCIreG2JTq2730gpb4HOxLFaQ3Op49aLLa/dR7veC13OuoodrGGdW8j9rZtu32llT7r
-	lZ1BOgadNc7pr3NlQ2IhL/ztzR8bPWt9L6XlRt9Lv2m/bkVc4JplkbdYMUVS0tlFrBqEF/sQxjzis
-	hHLyMIvwt2zcKVLmiLXr+G271b/TjgaMsLW+qB5dVv3eM3DfMVEd5Zs9hAjlPyEc2R4BbAvubl6Mb
-	wxoK5xfU9yaQNkwKkeDT6vqmQ1ahFqSb03wAC+8emL6GhXBWMRjCaaAdpBA61nJ9+qWMAG6jS6OJS
-	w6mOA5PA==;
+	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=; b=NL0/X8aGX34fpHBYf39LWz/tEN
+	n4QhrGWeHU9S96+AcbV3OKMOvVbXT1b4OqnCnks1jhUfesITD2z5w7KfAgwNvXDbNsMyS+kzlHOIi
+	oFZsvjLfkKbOIdo8MePksy3CgJTo1LcQO18sFPLSLooarQZNdvXviSeCQokZvOxf+FAfTqzI6/qLh
+	YsHiC0NHjE30F52VRMSIr9X2Fi+en2GZljzI3fIUqSiu43hvUerVJYH1/5Uh5KCdqvYORNOtE2YHB
+	hbf24g5BDU5T01o56aQSKu+mXiJamL9/eUu0/sNLAwyblneIM4RT1/5XDy+1RhC582+w2ufNuS0XY
+	lU3G/1TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3b3E-0000000CxCU-2Tou;
-	Fri, 20 Mar 2026 14:42:12 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1w3b3Q-0000000CxFo-1oLs;
+	Fri, 20 Mar 2026 14:42:24 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3b3B-0000000CxBp-3vrn
+	id 1w3b3O-0000000CxER-1LQV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 14:42:11 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-48569636800so73245e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 07:42:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774017727; x=1774622527; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aE5NS2sVAN6gNknaAEWjlDcbr30NEPUj8rvRruurI5Q=;
-        b=GWV13DPx4B66ErSGJMr4Nl9bUQTAjga+nnozyb6LDOV00laHFyDbYRFq8oIHD9aoq0
-         sHl9b6ssK9hD5Sa15VRwG3HvXWGUmdJwPW+eZ3h4aVKTY45+p2sDDXSG8h6WUcG5ew1c
-         /J3J/8WBU5sN70CADf/zO2luZiXuPl3nNpqcL68d3KWg/NRfc2Yt4/sMBQRFqq/e6/DN
-         f0lQEJModsIRUl9M7ESMXcA7Mj0Ye6bMmwgQA3fFSgqqAO7Gxmq9H15/VnflQ9dLynvC
-         5LitROYSeVQwKipUQxz/74nfg5HH5x9VT2iGh4NIOhE+0WLyVyPDMhK+nSlG1kLuJc3f
-         5GuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774017727; x=1774622527;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aE5NS2sVAN6gNknaAEWjlDcbr30NEPUj8rvRruurI5Q=;
-        b=DLmCe6523n5fVuQKsvC71b3CkOgFg7NIKEf2dfOcI6XB2ZZ4TvWMWw+THKeAgsAIfq
-         BCFEuGe9OgWgUj1YWuo+sIbvww3h609sRp2/Abvrdtt92flhp7Sc8WG0RMq3tvs+xDKe
-         +Evvr0dCsj5CuaMWgyGUbJ3Yax1+RCo9mYyLcUVV6mvFHT2dkSaOHS1tJfSg2f2ZoRWz
-         or5e5Ew07U/jkJ+TGgeW7r4vLhzh0Psu930+p8CiTwsbnaxKLpAxrUhXP23VXnM7tvm0
-         Nh//G0UhDrV5Ho217F/hR1fMjZEtRE1K2uyGrWAdM6/GiwiP4M94bWN0ejoYKCbvHIBv
-         YfVA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYSTCZrFDo7aVprglm3OJ5zwjGXuUH/A67GJPw6pFFws+py5w1e9QPzMs8jRshi+JjQIRS9u16DU1v1f9BpD+t@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP1Y0ZyU+bqMbXAE9qNr7ULnRwCMN1A3XxMW+K+KM/QCYFAuGp
-	fGT6GJDSfAFLu0NPpIV0acx8HVX7mvsX5nBylo17qM3lOMwRkqX02g89E6EwkPNkqQ==
-X-Gm-Gg: ATEYQzweTUj/T8qJZE0R8m+CtXNaxqLh7LthfF1I1SJpjQhtBQ2YD6Y6xXKQ1m0+WsY
-	+MfdwTYztJ2E1F0OKEjrWAs9fX4OXSwoUMk58F1gaI4SLH+pLimCGhxMxP4CkJkQcDu3LKHDyOm
-	S1cshEHGvea35JwLbaBZaWU+jDnsfSig8VeorKRPVZ+Z0APn51UVTM5GdLbE+ms4RZQdZD5F9Uv
-	u9FTAzZTfHG4oixkHCG9PBvc/8lZgw4v5zDKG6iVuIt2iKhxIBlvZRJ5cn+poZsN84pIE6oWH8M
-	ncDeXVHIeJ0oQ/e5o7kem7ejKhnzlgcBrkYmeBxdOYgszSS9f6O7ULCncqtMzKzzb8ds5H0gfKj
-	LoLllDlOlKblhFTCqg3YANnEIfL2NxWlQeRBeNKkfucbjQJ+8r3P/CAMa+4bXTPkP1WAWNjH9Qs
-	F+36RVvK2ty5kbCIbETHt9elUCEsHa23pEc78zobn+zrO0BJ6htyT1650zjWE9/5st/WDVjIfMl
-	b3maA==
-X-Received: by 2002:a05:600c:8a0a:20b0:485:32b7:5b87 with SMTP id 5b1f17b1804b1-486fea7d654mr701725e9.14.1774017726610;
-        Fri, 20 Mar 2026 07:42:06 -0700 (PDT)
-Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486fe6d9896sm78072995e9.2.2026.03.20.07.42.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 07:42:06 -0700 (PDT)
-Date: Fri, 20 Mar 2026 14:42:02 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, catalin.marinas@arm.com,
-	dbrazdil@google.com, joey.gouly@arm.com, kees@kernel.org,
-	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
-	perlarsen@google.com, qperret@google.com, rananta@google.com,
-	smostafa@google.com, suzuki.poulose@arm.com, tglx@kernel.org,
-	vdonnefort@google.com, bgrzesik@google.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [RFC PATCH 00/14] KVM: ITS hardening for pKVM
-Message-ID: <ab1cuhrTu-UOTOzm@google.com>
-References: <20260310124933.830025-1-sebastianene@google.com>
- <CA+EHjTw3iQnTjKhMn6NP=R9JszitP9KAt0qU=Gdg0kwdcDvYsA@mail.gmail.com>
+	Fri, 20 Mar 2026 14:42:23 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 1B6CF5BDDF;
+	Fri, 20 Mar 2026 14:42:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1774017740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
+	b=K9P8c5j5NeE3nZT/QeFabtQCdAeEYNOJe7rdWMgMxX1SH7CydbSDGlxgTCvA2I0pZecwdL
+	I3oDatS8dZeW9UBb146AJjojdUWy9sSHRw79fN1yTzX88OjkcbBe1Y+0qh/nxxzLWsMCu9
+	81FS/l6Xf071zw5l8JlHwKsuVjtdo0s=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1774017740;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
+	b=HH6SxvqtwWwEXfookhSTKVEw/oisE53rm0nNzkZHFPQLSeoTUAeN5hsZDe2gOFBdg2jwsi
+	BlujbfenUIb3vOAg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=K9P8c5j5;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=HH6Sxvqt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1774017740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
+	b=K9P8c5j5NeE3nZT/QeFabtQCdAeEYNOJe7rdWMgMxX1SH7CydbSDGlxgTCvA2I0pZecwdL
+	I3oDatS8dZeW9UBb146AJjojdUWy9sSHRw79fN1yTzX88OjkcbBe1Y+0qh/nxxzLWsMCu9
+	81FS/l6Xf071zw5l8JlHwKsuVjtdo0s=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1774017740;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
+	b=HH6SxvqtwWwEXfookhSTKVEw/oisE53rm0nNzkZHFPQLSeoTUAeN5hsZDe2gOFBdg2jwsi
+	BlujbfenUIb3vOAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0AC7042853;
+	Fri, 20 Mar 2026 14:42:20 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 3KonAsxcvWnxRwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 20 Mar 2026 14:42:20 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id BDC32A0A81; Fri, 20 Mar 2026 15:42:15 +0100 (CET)
+Date: Fri, 20 Mar 2026 15:42:15 +0100
+From: Jan Kara <jack@suse.cz>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
+	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
+	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
+	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, lorenzo.stoakes@oracle.com, 
+	mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
+	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@quack3, ziy@nvidia.com, hannes@cmpxchg.org, 
+	kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v2 2/4] mm: replace exec_folio_order() with generic
+ preferred_exec_order()
+Message-ID: <k45xs6btmt62uerbglqe665jozrtkeoklu4rek6odgxjdj63ni@ftw6ef3ug33x>
+References: <20260320140315.979307-1-usama.arif@linux.dev>
+ <20260320140315.979307-3-usama.arif@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTw3iQnTjKhMn6NP=R9JszitP9KAt0qU=Gdg0kwdcDvYsA@mail.gmail.com>
+In-Reply-To: <20260320140315.979307-3-usama.arif@linux.dev>
+X-Spamd-Result: default: False [-4.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_THREE(0.00)[3];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RL7pfqg7h1m44jupjp7nguhfec)];
+	MISSING_XM_UA(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.com:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,linux.dev:email]
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 1B6CF5BDDF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_074210_165151_16DC4CE4 
-X-CRM114-Status: GOOD (  75.36  )
+X-CRM114-CacheID: sfid-20260320_074222_568721_9E3E1392 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,349 +150,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 05:56:22PM +0000, Fuad Tabba wrote:
+On Fri 20-03-26 06:58:52, Usama Arif wrote:
+> Replace the arch-specific exec_folio_order() hook with a generic
+> preferred_exec_order() that dynamically computes the readahead folio
+> order for executable memory. It targets min(PMD_ORDER, 2M) as the
+> maximum, which optimally gives the right answer for contpte (arm64),
+> PMD mapping (x86, arm64 4K), and architectures with smaller PMDs
+> (s390 1M). It adapts at runtime based on:
+> 
+> - VMA size: caps the order so folios fit within the mapping
+> - Memory pressure: steps down the order when the local node's free
+>   memory is below the high watermark for the requested order
+> 
+> This avoids over-allocating on memory-constrained systems while still
+> requesting the optimal order when memory is plentiful.
+> 
+> Since exec_folio_order() is no longer needed, remove the arm64
+> definition and the generic default from pgtable.h.
+> 
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+...
+> +static unsigned int preferred_exec_order(struct vm_area_struct *vma)
+> +{
+> +	int order;
+> +	unsigned long vma_len = vma_pages(vma);
+> +	struct zone *zone;
+> +	gfp_t gfp;
+> +
+> +	if (!IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
+> +		return 0;
+> +
+> +	/* Cap at min(PMD_ORDER, 2M) */
+> +	order = min(HPAGE_PMD_ORDER, ilog2(SZ_2M >> PAGE_SHIFT));
+> +
+> +	/* Don't request folios larger than the VMA */
+> +	order = min(order, ilog2(vma_len));
 
-Hi,
+Hum, as far as I'm checking page_cache_ra_order() used in
+do_sync_mmap_readahead(), ra->order is the preferred order but it will be
+trimmed down to fit both within the file and within ra->size. And ra->size
+is set for the readahead to fit within the vma so I don't think any order
+trimming based on vma length is needed in this place?
 
-> Hi Sebastian,
-> 
-> On Tue, 10 Mar 2026 at 12:49, Sebastian Ene <sebastianene@google.com> wrote:
-> >
-> > This series introduces the necessary machinery to perform trap & emulate
-> > on device access in pKVM. Furthermore, it hardens the GIC/ITS controller to
-> > prevent an attacker from tampering with the hypervisor protected memory
-> > through this device.
-> >
-> > In pKVM, the host kernel is initially trusted to manage the boot process but
-> > its permissions are revoked once KVM initializes. The GIC/ITS device is
-> > configured before the kernel deprivileges itself. Once the hypervisor
-> > becomes available, sanitize the accesses to the ITS controller by
-> > trapping and emulating certain registers and by shadowing some memory
-> > structures used by the ITS.
-> >
-> > This is required because the ITS can issue transactions on the memory
-> > bus *directly*, without having an SMMU in front of it, which makes it
-> > an interesting target for crossing the hypervisor-established privilege
-> > boundary.
-> >
-> >
-> > Patch overview
-> > ==============
-> >
-> > The first patch is re-used from Mostafa's series[1] which brings SMMU-v3
-> > support to pKVM.
-> >
-> > [1] https://lore.kernel.org/linux-iommu/20251117184815.1027271-1-smostafa@google.com/#r
-> >
-> > Some of the infrastructure built in that series might intersect and we
-> > agreed to converge on some changes. The patches [1 - 3] allow unmapping
-> > devices from the host address space and installing a handler to trap
-> > accesses from the host. While executing in the handler, enough context
-> > has to be given from mem-abort to perform the emulation of the device
-> > such as: the offset, the access size, direction of the write and private
-> > related data specific to the device.
-> > The unmapping of the device from the host address space is performed
-> > after the host deprivilege (during _kvm_host_prot_finalize call).
-> >
-> > The 4th patch looks up the ITS node from the device tree and adds it to
-> > an array of unmapped devices. It install a handler that forwards all the
-> > MMIO request to mediate the host access inside the emulation layer and
-> > to prevent breaking ITS functionality.
-> >
-> > The 5th patch changes the GIC/ITS driver to exposes two new methods
-> > which will be called from the KVM layer to setup the shadow state and
-> > to take the appropriate locks. This one is the most intrusive as it
-> > changes the current GIC/ITS driver. I tried to avoid creating a
-> > dependency with KVM to keep the GIC driver agnostic of the virtualization
-> > layer but I am happy to explore other options as well.
-> > To avoid re-programming the ITS device with new shadow structures after
-> > pKVM is ready, I exposed two functions to change the
-> > pointers inside the driver for the following structures:
-> > - the command queue points to a newly allocated queue
-> > - the GITS_BASER<n> tables configured with an indirect layout have the
-> >   first layer shadowed and they point to a new memory region
-> 
-> We used the term shadow for the hyp version of structs in an early
-> pKVM patch series, but after a bit of discussion, we refer to it as
-> the hypervisor state [1]. So please use this terminology instead of
-> shadow.
-> 
-> [1] https://lore.kernel.org/all/YthwzIS18mutjGhN@google.com/
+> +	/* Step down under memory pressure */
+> +	gfp = mapping_gfp_mask(vma->vm_file->f_mapping);
+> +	zone = first_zones_zonelist(node_zonelist(numa_node_id(), gfp),
+> +				    gfp_zone(gfp), NULL)->zone;
+> +	if (zone) {
+> +		while (order > 0 &&
+> +		       !zone_watermark_ok(zone, order,
+> +					  high_wmark_pages(zone), 0, 0))
+> +			order--;
+> +	}
 
-I think it makes sense to call it shadow in the context you pointed out.
-In my context it doesn't make sense because the original structures are
-manipulated by the hypervisor while the host only interacts with a copy
-(eg. thus the shadow naming).
+It looks wrong for this logic to be here. Trimming order based on memory
+pressure makes sense (and we've already got reports that on memory limited
+devices large order folios in the page cache have too big memory overhead
+so we'll likely need to handle that for page cache allocations in general)
+but IMHO it belongs to page_cache_ra_order() or some other common place
+like that.
 
-If you disagreee maybe we can call it a copy, I have no strong feelings
-about this.
-
-> 
-> > Patch 6 adds the entry point into the emulation setup and sets up the
-> > shadow command queue. It adds some helper macros to define the offset
-> > register and the associate action that we want to execute in the
-> > emulation. It also unmaps the state passed from the host kernel
-> > to prevent it from playing nasty games later on. The patch
-> > traps accesses to CWRITER register and copies the commands from the
-> > host command queue to the shadow command queue.
-> >
-> > Patch 7 prevents the host from directly accessing the first layer of the
-> > indirect tables held in GITS_BASER<n>. It also prevents the host from
-> > directly accesssing the last layer of the Device Table (since the entries
-> > in this table hold the address of the ITT table) and of the vPE Table
-> > (since the vPE table entries hold the address of the virtual LPI pending
-> > table.
-> >
-> > Patches [8-10] sanitize the commands sent to the ITS and their
-> > arguments.
-> >
-> > Patches [11-13] restrict the access of the host to certain registers
-> > and prevent undefined behaviour. Prevent the host from re-programming
-> > the tables held in the GITS_BASER register.
-> >
-> > The last patch introduces an hvc to setup the ITS emulation and calls
-> > into the ITS driver to setup the shadow state.
-> >
-> >
-> > Design
-> > ======
-> >
-> >
-> > 1. Command queue shadowing
-> >
-> > The ITS hardware supports a command queue which is programmed by the driver
-> > in the GITS_CBASER register. To inform the hardware that a new command
-> > has been added, the driver updates an index into the GITS_CWRITER
-> 
-> It updates a base address offset, but that's probably what you meant.
-> 
-> > register. The driver then reads the GITS_CREADR register to see if the
-> > command was processed or if the queue is stalled.
-> >
-> > To create a new command, the emulation layer mirrors the behavior
-> > as following:
-> >  (i) The host ITS driver creates a command in the shadow queue:
-> >         its_allocate_entry() -> builder()
-> >  (ii) Notifies the hardware that a new command is available:
-> >         its_post_commands()
-> >  (iii) Hypervisor traps the write to GITS_CWRITER:
-> >         handle_host_mem_abort() -> handle_host_mmio_trap() ->
-> >             pkvm_handle_gic_emulation()
-> >  (iv) Hypervisor copies the command from the host command queue
-> >       to the original queue which is not accessible to the host.
-> >       It parses the command and updates the hardware write.
-> >
-> > The driver allocates space for the original command queue and programs
-> > the hardware (GITS_CWRITER). When pKVM becomes available, the driver
-> 
-> You mean GITS_CBASER, right?
-> 
-> > allocates a new (shadow) queue and replaces its original pointer to
-> > the queue with this new one. This is to prevent a malicious host from
-> > tampering with the commands sent to the ITS hardware.
-> >
-> > The entry point of our emulation shares the memory of the newly
-> > allocated queue with the hypervisor and donates the memory of the
-> > original queue to make it inaccesible to the host.
-> >
-> >
-> > 2. Indirect tables first level shadowing
-> >
-> > The ITS hardware supports indirection to minimize the space required to
-> > accommodate large tables (eg. deviceId space used to index the Device Table
-> > is quite sparse). This is a 2-level indirection, with entries from the
-> > first table pointing to a second table.
-> >
-> > An attacker in control of the host can insert an address that points to
-> > the hypervisor protected memory in the first level table and then use
-> > subsequent ITS commands to write to this memory (MAPD).
-> >
-> > To shadow this tables, we rely on the driver to allocate space for it
-> > and we copy the original content from the table into the copy. When
-> > pKVM becomes available we switch the pointers that hold the orginal
-> > tables to point to the copy.
-> > To keep the tables from the hypervisor in sync with what the host
-> > has, we update the tables when commands are sent to the ITS.
-> >
-> >
-> > 3. Hiding the last layer of the Device Table and vPE Table from the host
-> >
-> > An attacker in control of the host kernel can alter the content of these
-> > tables directly (the Arm IHI 0069H.b spec says that is undefined behavior
-> > if entries are created by software). Normally these entries are created in
-> > response of commands sent to the ITS.
-> 
-> nit: unpredictable behavior. Undefined usually refers to instructions.
->
-
-Ack, will update.
-
-> >
-> > A Device Table entry that has the following structure:
-> >
-> > type DeviceTableEntry is (
-> >         boolean Valid,
-> >         Address ITT_base,
-> >         bits(5) ITT_size
-> > )
-> 
-> Be careful, this might be true for a specific GIC implementation,
-> e.g., Arm CoreLink GIC-600, but according to the spec (5.2) the
-> formats of the tables in system memory are IMPLEMENTATION DEFINED. If
-> the format is relevant to us, then we verify specific GIC
-> implementation via GITS_IIDR. If the series depends on this, then we
-> must decide what to do in case the specific implementation does not
-> match what we expect.
-> 
-> > This can be maliciously created by an attacker and the ITT_base can be
-> > pointed to hypervisor protected memory. The MAPTI command can then be
-> > used to write over the ITT_base with an ITE entry.
-> 
-> You mean it writes to the memory addressed by ITT_base, rather than
-> writes over the ITT_base itself.
-> 
-> > Similarly a vCPU Table entry has the following structure:
-> >
-> > type VCPUTableEntry is (
-> >         boolean Valid,
-> >         bits(32) RDbase,
-> >         Address VPT_base,
-> >         bits(5) VPT_size
-> > )
-> >
-> > VPT_base can be pointed to hypervisor protected memory and then a
-> > command can be used to raise interrupts and set the corresponding
-> > bit. This would give a 1-bit write primitive so is not "as generous"
-> > as the others.
-> >
-> >
-> > Notes
-> > =====
-> >
-> >
-> > Performance impact is expected with this as the emulation dance is not
-> > cost free.
-> > I haven't implemented any ITS quirks in the emulation and I don't know
-> > whether we will need it ? (some hardware needs explicit dcache flushing
-> > ITS_FLAGS_CMDQ_NEEDS_FLUSHING).
-> 
-> It's not a quirk. We should handle this in the next respin, because
-> cache maintenance of the command queue is an explicit architectural
-> requirement depending on how the hardware is integrated and
-> configured.
-> 
-> According to the spec, the cacheability attributes of the ITS command
-> queue are strictly governed by the InnerCache and OuterCache fields of
-> the GITS_CBASER register. These fields can be configured for various
-> memory types, including Device-nGnRnE or Normal Non-cacheable.
-> 
-> Because pKVM now takes responsibility for physically writing the
-> command packets into the true hardware queue, the hypervisor must obey
-> the cacheability attributes programmed into the physical GITS_CBASER.
-> 
-> If the software provisions GITS_CBASER as Non-cacheable, the
-> hypervisor must perform explicit data cache maintenance (such as DC
-> CVAU or DC CVAC) after copying the commands to the shadow queue. If
-> you don't implement this, the physical ITS hardware (acting as a
-> non-coherent bus master) will read stale memory, which will inevitably
-> lead to queue stalls or the ITS executing garbage commands.
-> 
-> Since we are shielding the physical queue from the host, we inherit
-> the host's responsibility to manage its cache coherency based on the
-> GITS_CBASER configuration.
-> 
-
-Right, this will complicate the series a bit. I used the term 'quirk'
-because this is how the driver refers to it.
-
-> > Please note that Redistributors trapping hasn't been addressed at all in
-> > this series and the solution is not sufficient but this can be extended
-> > afterwards.
-> > The current series has been tested with Qemu (-machine
-> > virt,virtualization=true,gic-version=4) and with Pixel 10.
-> 
-> It would be helpful to mention that this is based on Linux 7.0-rc3
-> (applied cleanly, and confirmed with you offline).
-> 
-> Also, it would be helpful if you could share how to tested this
-> series, and how we could reproduce your tests.
->
-
-I created a simple driver that registers for MSIs and probed it after
-boot complete and observed all the commands sent to the ITS being
-handled by the hypervisor.
-
-[   60.196235] lpi_test: loading out-of-tree module taints kernel.
-[   60.210751] lpi-test-driver test_node: >> probe lpi-test
-[   60.212649] [ITS][CMD] >> 0x8
-[   60.214780] lpi-test-driver test_node: lpi_test_probe linux lpi irq:
-39
-[   60.215810] lpi-test-driver test_node: lpi_test_probe linux lpi irq:
-40
-[   60.216870] [ITS][CMD] >> 0xa
-[   60.217297] [ITS][CMD] >> 0x5
-[   60.217889] lpi-test-driver test_node: >> msi address_high 0x0,
-address_lo 0x8090040, address 0x8090040, data 0x0
-[   60.219168] [ITS][CMD] >> 0xc
-[   60.219576] [ITS][CMD] >> 0x5
-[   60.220874] [ITS][CMD] >> 0xa
-[   60.221292] [ITS][CMD] >> 0x5
-[   60.221771] lpi-test-driver test_node: >> msi address_high 0x0,
-address_lo 0x8090040, address 0x8090040, data 0x1
-[   60.223091] [ITS][CMD] >> 0xc
-[   60.223405] [ITS][CMD] >> 0x5
-[   60.224482] lpi-test-driver test_node: >> probe complete
-
-> Thanks,
-> /fuad
-> 
-> 
-
-Thanks,
-Sebastian
-
-> >
-> >
-> > Thanks,
-> > Sebastian E.
-> >
-> > Mostafa Saleh (1):
-> >   KVM: arm64: Donate MMIO to the hypervisor
-> >
-> > Sebastian Ene (13):
-> >   KVM: arm64: Track host-unmapped MMIO regions in a static array
-> >   KVM: arm64: Support host MMIO trap handlers for unmapped devices
-> >   KVM: arm64: Mediate host access to GIC/ITS MMIO via unmapping
-> >   irqchip/gic-v3-its: Prepare shadow structures for KVM host deprivilege
-> >   KVM: arm64: Add infrastructure for ITS emulation setup
-> >   KVM: arm64: Restrict host access to the ITS tables
-> >   KVM: arm64: Trap & emulate the ITS MAPD command
-> >   KVM: arm64: Trap & emulate the ITS VMAPP command
-> >   KVM: arm64: Trap & emulate the ITS MAPC command
-> >   KVM: arm64: Restrict host updates to GITS_CTLR
-> >   KVM: arm64: Restrict host updates to GITS_CBASER
-> >   KVM: arm64 Restrict host updates to GITS_BASER
-> >   KVM: arm64: Implement HVC interface for ITS emulation setup
-> >
-> >  arch/arm64/include/asm/kvm_arm.h              |   3 +
-> >  arch/arm64/include/asm/kvm_asm.h              |   1 +
-> >  arch/arm64/include/asm/kvm_pkvm.h             |  20 +
-> >  arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  17 +
-> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   2 +
-> >  arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
-> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  14 +
-> >  arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 653 ++++++++++++++++++
-> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 134 ++++
-> >  arch/arm64/kvm/hyp/nvhe/setup.c               |  28 +
-> >  arch/arm64/kvm/hyp/pgtable.c                  |   9 +-
-> >  arch/arm64/kvm/pkvm.c                         |  60 ++
-> >  drivers/irqchip/irq-gic-v3-its.c              | 177 ++++-
-> >  include/linux/irqchip/arm-gic-v3.h            |  36 +
-> >  14 files changed, 1126 insertions(+), 31 deletions(-)
-> >  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
-> >  create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
-> >
-> > --
-> > 2.53.0.473.g4a7958ca14-goog
-> >
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
