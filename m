@@ -4,138 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CF51098792
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6C3109878A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=; b=NL0/X8aGX34fpHBYf39LWz/tEN
-	n4QhrGWeHU9S96+AcbV3OKMOvVbXT1b4OqnCnks1jhUfesITD2z5w7KfAgwNvXDbNsMyS+kzlHOIi
-	oFZsvjLfkKbOIdo8MePksy3CgJTo1LcQO18sFPLSLooarQZNdvXviSeCQokZvOxf+FAfTqzI6/qLh
-	YsHiC0NHjE30F52VRMSIr9X2Fi+en2GZljzI3fIUqSiu43hvUerVJYH1/5Uh5KCdqvYORNOtE2YHB
-	hbf24g5BDU5T01o56aQSKu+mXiJamL9/eUu0/sNLAwyblneIM4RT1/5XDy+1RhC582+w2ufNuS0XY
-	lU3G/1TA==;
+	bh=xEq0lkHiWlfzRjTk9tAbY2BUU4eS/9QAmtJ8rJpta60=; b=J1Avz5Nt8XDN1zXvzaCU1KXuge
+	oUxdEUe68agNXD5KAlhgFrgTG30hFNNyH46d8XQsfoCKvDaU4G2zMzOvqMu50A4kSTsgUodInFhzm
+	U+WsSCffsOA88sU5cHJhuY0E0y9n0/PudlDFKVenIcaxq3/RGyMVXIt45pK4h8ZlkmMGwOPJdQ+HD
+	mPf2tDrYvwZ54y+FAeQpRMSEwzdCXp3rbaeU/bPHDNG2Ash8FKUVPFnJSaxNvwEmZWO/9xAtVme1x
+	u/Iz+mOrD8LPWZ5huFXZE6dBKEtDPwlYH8p9tbSgnRZOofOkWMMwnda1gnuhbiAx2j7r9qwADtESs
+	FV2fmY4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3b3Q-0000000CxFo-1oLs;
-	Fri, 20 Mar 2026 14:42:24 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1w3bBH-0000000CxlU-3Yrn;
+	Fri, 20 Mar 2026 14:50:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3b3O-0000000CxER-1LQV
+	id 1w3bBF-0000000Cxky-0tXt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 14:42:23 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 1B6CF5BDDF;
-	Fri, 20 Mar 2026 14:42:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1774017740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
-	b=K9P8c5j5NeE3nZT/QeFabtQCdAeEYNOJe7rdWMgMxX1SH7CydbSDGlxgTCvA2I0pZecwdL
-	I3oDatS8dZeW9UBb146AJjojdUWy9sSHRw79fN1yTzX88OjkcbBe1Y+0qh/nxxzLWsMCu9
-	81FS/l6Xf071zw5l8JlHwKsuVjtdo0s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1774017740;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
-	b=HH6SxvqtwWwEXfookhSTKVEw/oisE53rm0nNzkZHFPQLSeoTUAeN5hsZDe2gOFBdg2jwsi
-	BlujbfenUIb3vOAg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=K9P8c5j5;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=HH6Sxvqt
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1774017740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
-	b=K9P8c5j5NeE3nZT/QeFabtQCdAeEYNOJe7rdWMgMxX1SH7CydbSDGlxgTCvA2I0pZecwdL
-	I3oDatS8dZeW9UBb146AJjojdUWy9sSHRw79fN1yTzX88OjkcbBe1Y+0qh/nxxzLWsMCu9
-	81FS/l6Xf071zw5l8JlHwKsuVjtdo0s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1774017740;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P9VUzKgMf5hNdrzdVMsfw7bOId+n7lQuC+5prwGhXeY=;
-	b=HH6SxvqtwWwEXfookhSTKVEw/oisE53rm0nNzkZHFPQLSeoTUAeN5hsZDe2gOFBdg2jwsi
-	BlujbfenUIb3vOAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0AC7042853;
-	Fri, 20 Mar 2026 14:42:20 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 3KonAsxcvWnxRwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 20 Mar 2026 14:42:20 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id BDC32A0A81; Fri, 20 Mar 2026 15:42:15 +0100 (CET)
-Date: Fri, 20 Mar 2026 15:42:15 +0100
-From: Jan Kara <jack@suse.cz>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
-	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
-	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
-	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
-	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
-	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, lorenzo.stoakes@oracle.com, 
-	mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
-	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
-	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@quack3, ziy@nvidia.com, hannes@cmpxchg.org, 
-	kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v2 2/4] mm: replace exec_folio_order() with generic
- preferred_exec_order()
-Message-ID: <k45xs6btmt62uerbglqe665jozrtkeoklu4rek6odgxjdj63ni@ftw6ef3ug33x>
-References: <20260320140315.979307-1-usama.arif@linux.dev>
- <20260320140315.979307-3-usama.arif@linux.dev>
+	Fri, 20 Mar 2026 14:50:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A2CF143C5F;
+	Fri, 20 Mar 2026 14:50:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3FC3C19425;
+	Fri, 20 Mar 2026 14:50:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774018227;
+	bh=xEq0lkHiWlfzRjTk9tAbY2BUU4eS/9QAmtJ8rJpta60=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X8PyEklXlRJu+UqDu9GCKeEZJfQdaZQ3fRzearO8/+biLOD5xVHtfvWxJ83UTPeTm
+	 e3vfw/zpLxQpWpcuCfR/Ot1WDWP6YV6P0j3HqTUX9hXJDnxljg+GIn6pFEgBlqPe8i
+	 GMJJKLqjV2etuZF+CCXEUaMFnWJKgxzzldDO9rHQdo0vESuUDXw8L/GJAGpYHk44bO
+	 v+KchtE9yiJAOELCm8qR2BhmbUSSPoviK0FF2OWgY2BSP9ciCloM3FwE+nPW9lzSdZ
+	 x/jvOIcgKEl/RfsbNMEDvoNAJ3xRPleQRcLWO2w2X9XMw0kVjdrM4NhhMMcXvtgYAV
+	 VoCq4zNKjnF3Q==
+Date: Fri, 20 Mar 2026 15:50:24 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Janne Grunau <j@jannau.net>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
+	Linus Walleij <linusw@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
+	Andi Shyti <andi.shyti@kernel.org>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org
+Subject: Re: [PATCH 7/9] dt-bindings: pwm: apple,s5l-fpwm: Add t8122
+ compatible
+Message-ID: <ab1d82Y9dGzstkgy@monoceros>
+References: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
+ <20260320-apple-m3-initial-devicetrees-v1-7-5842e1e393a8@jannau.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pshe747cvhfvjhsk"
 Content-Disposition: inline
-In-Reply-To: <20260320140315.979307-3-usama.arif@linux.dev>
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_COUNT_THREE(0.00)[3];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RL7pfqg7h1m44jupjp7nguhfec)];
-	MISSING_XM_UA(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.com:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,linux.dev:email]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 1B6CF5BDDF
+In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-7-5842e1e393a8@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_074222_568721_9E3E1392 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20260320_075029_295649_CB307194 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,68 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 20-03-26 06:58:52, Usama Arif wrote:
-> Replace the arch-specific exec_folio_order() hook with a generic
-> preferred_exec_order() that dynamically computes the readahead folio
-> order for executable memory. It targets min(PMD_ORDER, 2M) as the
-> maximum, which optimally gives the right answer for contpte (arm64),
-> PMD mapping (x86, arm64 4K), and architectures with smaller PMDs
-> (s390 1M). It adapts at runtime based on:
-> 
-> - VMA size: caps the order so folios fit within the mapping
-> - Memory pressure: steps down the order when the local node's free
->   memory is below the high watermark for the requested order
-> 
-> This avoids over-allocating on memory-constrained systems while still
-> requesting the optimal order when memory is plentiful.
-> 
-> Since exec_folio_order() is no longer needed, remove the arm64
-> definition and the generic default from pgtable.h.
-> 
-> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-...
-> +static unsigned int preferred_exec_order(struct vm_area_struct *vma)
-> +{
-> +	int order;
-> +	unsigned long vma_len = vma_pages(vma);
-> +	struct zone *zone;
-> +	gfp_t gfp;
-> +
-> +	if (!IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
-> +		return 0;
-> +
-> +	/* Cap at min(PMD_ORDER, 2M) */
-> +	order = min(HPAGE_PMD_ORDER, ilog2(SZ_2M >> PAGE_SHIFT));
-> +
-> +	/* Don't request folios larger than the VMA */
-> +	order = min(order, ilog2(vma_len));
 
-Hum, as far as I'm checking page_cache_ra_order() used in
-do_sync_mmap_readahead(), ra->order is the preferred order but it will be
-trimmed down to fit both within the file and within ra->size. And ra->size
-is set for the readahead to fit within the vma so I don't think any order
-trimming based on vma length is needed in this place?
+--pshe747cvhfvjhsk
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 7/9] dt-bindings: pwm: apple,s5l-fpwm: Add t8122
+ compatible
+MIME-Version: 1.0
 
-> +	/* Step down under memory pressure */
-> +	gfp = mapping_gfp_mask(vma->vm_file->f_mapping);
-> +	zone = first_zones_zonelist(node_zonelist(numa_node_id(), gfp),
-> +				    gfp_zone(gfp), NULL)->zone;
-> +	if (zone) {
-> +		while (order > 0 &&
-> +		       !zone_watermark_ok(zone, order,
-> +					  high_wmark_pages(zone), 0, 0))
-> +			order--;
-> +	}
+Hello,
 
-It looks wrong for this logic to be here. Trimming order based on memory
-pressure makes sense (and we've already got reports that on memory limited
-devices large order folios in the page cache have too big memory overhead
-so we'll likely need to handle that for page cache allocations in general)
-but IMHO it belongs to page_cache_ra_order() or some other common place
-like that.
+On Fri, Mar 20, 2026 at 01:23:25PM +0100, Janne Grunau wrote:
+> The PWM controller on the Apple silicon t8122 (M3) SoC is compatible
+> with the existing driver. Add "apple,t8122-fpwm" as SoC specific
+> compatible under "apple,s5l-fpwm" used by the driver.
+>=20
+> Signed-off-by: Janne Grunau <j@jannau.net>
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+You didn't say what the merge plan is here. I assume they should all go
+in together via arm-soc?
+
+If so:
+
+Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
+
+Best regards
+Uwe
+
+--pshe747cvhfvjhsk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmm9Xq4ACgkQj4D7WH0S
+/k7iZQf/VTQKMp3e1OfZ1SAfsbTIm7E2kaGDHWHFtIVuX45NMEsa5s60N6D2/j0T
+nwX7JnD1CLlsDCLGR9s3H/iTHHlfdmptcfT2+I8ViUMDZ5driYxpysuUMnyDfzMe
+aQbUtV3SRsRzD35HLuiLV06UIUXEiwt1aeBCZRlzfmWsi14Or0IPcHY/D1lPnVvT
+bLrFxHXIfECSWwXcuFekr+Iu7h5iM5EuUiJ7JcaPW4G/K0a+mL8s5LbV69kGF9Lb
+2y+ow+PAdQbmSY9swQuO17set/frraA/XfgUV5DmB+QDwXZ/r927lMNIbdsfTPuk
+woJH3T+AOnP7z2Su0xKexD40E0FiBA==
+=kFFv
+-----END PGP SIGNATURE-----
+
+--pshe747cvhfvjhsk--
 
