@@ -4,88 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5B61099B25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A1B1099B25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9gGuiyQLPdmvv2/7LJRMDUMWYouWFgZfsnWMBTd7W4=; b=n0AOY/qV9IepwH7iQFQzKdrKPk
-	iExQSpEHy3I6uJ7EgR9VwUcNeCGIUrTe3G5Eb/HmIC+wA+oIvsjioKUKAQRtTJ0dw6kPgMtjFeeID
-	paq2gf3+ToF8qZW5VbsGyf0pHk2oBnYjJ+tLSDC8LpGVoJMeu0NXLLhy6MyhYADfAHevVfVdw6zBG
-	saKxINjgT7jAfyEv7vZAwlOPOpFUQImn2dn7Q/Txfx1oLXdPvpxgXkXnrbvKWPasMx8sh4fpHwlwT
-	RIJAl8Tlvy0ct+PzUKcpzRZBlPKUX+AuTqRK9uTY55yAaAbGFgpIrJByDkZKwzn9SVJh+KfBcFx6Y
-	EOH8TJJg==;
+	bh=ahNTPAefQMpYMnBF9fjbq40PKYiHzlPr//dFmraZ1KU=; b=UJq8LWTbYSh7qJ3Y87nizzD0yK
+	CGLN9HF+wizQEXMf5yvRbP2SKr1zAFLLuw/jVvAQ0ip2HmIYtzD9VOryYRghvoM6pAxz9qtGZUZdo
+	NNM3xtiqZqFLozQdhQcvls6uil8ygDI/tHMUoXk8VZEWE3x9svKs2LXFwNjALzTUUi79TjVZxZWZm
+	nL3Cw5QiiybR0Cmk2cdycw/PejAcCePz0PKz54N26x6akjcG1j3UxFQ7h6RU3eOg4eaL/i+JSsp8I
+	Y+LvsURJPDm9FRb4KA2nF8Ye7VcAgfXxP+ETSjxFa926L7D9a3flmLD0rGvLtLEgLfeIqrSOw8AYE
+	laokYT/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dMl-0000000DDLP-0hYL;
-	Fri, 20 Mar 2026 17:10:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3dO7-0000000DDan-2gDr;
+	Fri, 20 Mar 2026 17:11:55 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dMf-0000000DDKw-1unw;
-	Fri, 20 Mar 2026 17:10:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B220843249;
-	Fri, 20 Mar 2026 17:10:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 920B9C19425;
-	Fri, 20 Mar 2026 17:10:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774026624;
-	bh=r+p0YZoMVI7AcM9fsFhpiDTl7RR8STO6srhIbYMdrEs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bXKnbe/ZTMZYKmKswyp7UUNW73CC8ocNdqBGJpBjO2IEcg9klGYzKBTbn7wS6145o
-	 bDx6yp6E9EoRlfZ1nChN/6xzDyc02EPnVKbzAT5MkJBM1x9r0U7ISiFB9ZK42TeeEV
-	 NPQS0N+PInTeLONogYKmUybb5i5U5KXxX1g3XFI6v4Zk+gmrInpHhro/V78ZwgDZBl
-	 PDIKv//vs1fkzlQQJXNTgc0NCf5mfA5lg8S5iRTjU72SybGYa8zUxK1T+5C/DsgByO
-	 n+gWOBmyWdE+bwHdB8VdEbJ4rsjPU2AaNHeRHUcpRTiT8ZcyJgwkIBZUDTaCXbxgBy
-	 oLeo5Gj5w1IGw==
-Message-ID: <e3ecf76a-4490-415d-9d52-dae478ad43d7@kernel.org>
-Date: Fri, 20 Mar 2026 18:10:14 +0100
+	id 1w3dO5-0000000DDa0-0QQm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 17:11:54 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-35b905a05a8so1168815a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 10:11:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hev-cc.20230601.gappssmtp.com; s=20230601; t=1774026712; x=1774631512; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ahNTPAefQMpYMnBF9fjbq40PKYiHzlPr//dFmraZ1KU=;
+        b=tDgzKCnloqVApD1Wq9SGg3g9H6crEW7iCJUDwlBdsuCanY6VTDdlGMgq4/YiWw1axA
+         pYyZIwonLVOTtWyPBHbDLmRN6zn4QxJk7mlE6eeNaCluGoeahrdLgpXHrKgQFVD+/mHA
+         RaBl24X5JLg3exABtqIxGaHFjfq6beh8If18Jzy8qMyl32iOFOooGcsbO//xjTjczDym
+         As17mcYmEvCe2pyUZwVu0UnXrL2KQxwiebtoLbI4X/8rZ4zugnUFSRuHINFXDhInzXQL
+         WBEqCH84TlHS2Ig4cKAxVy1d3R/oWwlzkH/8crXb2yCiQumevrcrQsz99avKPivRYser
+         L1hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774026712; x=1774631512;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ahNTPAefQMpYMnBF9fjbq40PKYiHzlPr//dFmraZ1KU=;
+        b=AaDo/9jfAZ95JyQvNaymkM1yqDg2hPCVtoFFZOQaoZ3XNe+xx7fv3psJ4OaB2tiZfY
+         HdKlKOj6Vt/8ASFhJzSgcS8OHlgV+/A0BQEfrGa3t2bV6vb3iy+OwJiEMJByVaLHXSe9
+         +aqfnIwa+hoWMSfNqcowzZamKCeTVLfUj2DTIxkMhapfkapwypyHko/pi/zqYSeAqaMk
+         bQz1AgD8gfjDffNx0HTrYIprL3nuxBVyaPZRbd8Z6iJkDy3vX9tIwULVxN6Z+gR2z6YX
+         H3QbJn7bTmQf+13Vyf8ZnlBA+q/ILta3fXu8uw8ZrbIJg+qvV9oGYDV5Cz70u4Eyt4q/
+         lOMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKfniTGlQHgEvGkivZVJR558zzTq/TNpoQGNYHRr3CvUlOuQN/TPdKVt2kkYA7d3d+8UKMwi3qSL92jEOOkImx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvKTMMjj3sJHj7vNJvwQsTr92Ugu2nSTAp3WS3KwitOW29jMr7
+	76yCdLdNjK7DJ1c20uhTaBOJl/dmDyShpJmKNeYb+d174GbZkiotrSBwvxkxEiYtDos=
+X-Gm-Gg: ATEYQzz0/HUuJ6K2E2k7jl86hyxSLCsOESuEABlq49iFTSAsmjuHBsrhPX0szE1k6+6
+	Tpf6N5K5BQtP859xN8ri2b+ioaicVAadBiMgpmVpTpg+jO6nn6kev0P1mdyM3bVe2SnhOxTH3ME
+	eavc6k8O+bfN+VEMoAX6HzFKTSzDnQsMyXipFQ/tdWTHjVYUsaqx6IVLtOmT1hOjp4qQm/QIMti
+	p1ZtN5EtfutcvdYWStMmewew2R0ccOyaM5gvaHFTDVUV48p9M2+U/3/KCGikYIYcVSWgQY+MkTy
+	Rilllr5E5B1Q/rpSrMIpNO8uBOC4L/tOErQabPxPCEyQncmHJBaMrSgiiHHTA1OM+iiepKFfKHu
+	sK+UAtzbUrSxr/X/9z5/9MSS4dDOTP3A5xqTHuFmpQM5/LCho2RP4rohkoBr79qibIKEY4vejkG
+	0A
+X-Received: by 2002:a17:90b:5108:b0:35b:9cd5:232e with SMTP id 98e67ed59e1d1-35bd2ce4493mr3220503a91.29.1774026712038;
+        Fri, 20 Mar 2026 10:11:52 -0700 (PDT)
+Received: from gpc ([2400:8902:e002:ded5:78c1:8178:95c1:6ca3])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc5ff7056sm6018617a91.4.2026.03.20.10.11.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Mar 2026 10:11:51 -0700 (PDT)
+From: WANG Rui <r@hev.cc>
+To: david@kernel.org,
+	usama.arif@linux.dev
+Cc: baolin.wang@linux.alibaba.com,
+	brauner@kernel.org,
+	jack@suse.cz,
+	kees@kernel.org,
+	lance.yang@linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	r@hev.cc,
+	ryan.roberts@arm.com,
+	viro@zeniv.linux.org.uk,
+	willy@infradead.org,
+	Liam.Howlett@oracle.com,
+	ajd@linux.ibm.com,
+	akpm@linux-foundation.org,
+	apopple@nvidia.com,
+	baohua@kernel.org,
+	catalin.marinas@arm.com,
+	dev.jain@arm.com,
+	kevin.brodsky@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	lorenzo.stoakes@oracle.com,
+	mhocko@suse.com,
+	npache@redhat.com,
+	pasha.tatashin@soleen.com,
+	rmclure@linux.ibm.com,
+	rppt@kernel.org,
+	surenb@google.com,
+	vbabka@kernel.org
+Subject: Re: [PATCH v5] binfmt_elf: Align eligible read-only PT_LOAD segments to PMD_SIZE for THP
+Date: Sat, 21 Mar 2026 01:11:14 +0800
+Message-ID: <20260320171115.93235-1-r@hev.cc>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <024d2480-df23-4c2c-9f2a-1c4a130f71b1@kernel.org>
+References: <024d2480-df23-4c2c-9f2a-1c4a130f71b1@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/16] mm: various small mmap_prepare cleanups
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Bodo Stroesser <bostroesser@gmail.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
- <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- Ryan Roberts <ryan.roberts@arm.com>
-References: <cover.1773944114.git.ljs@kernel.org>
- <498a579bfbcbb8b0e4a9c39243b4454347f03a46.1773944114.git.ljs@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <498a579bfbcbb8b0e4a9c39243b4454347f03a46.1773944114.git.ljs@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_101027_220166_B1546673 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20260320_101153_397671_A7B8EE25 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +127,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/19/26 19:23, Lorenzo Stoakes (Oracle) wrote:
-> Rather than passing arbitrary fields, pass a vm_area_desc pointer to mmap
-> prepare functions to mmap prepare, and an action and vma pointer to mmap
-> complete in order to put all the action-specific logic in the function
-> actually doing the work.
-> 
-> Additionally, allow mmap prepare functions to return an error so we can
-> error out as soon as possible if there is something logically incorrect in
-> the input.
-> 
-> Update remap_pfn_range_prepare() to properly check the input range for the
-> CoW case.
-> 
-> Also remove io_remap_pfn_range_complete(), as we can simply set up the
-> fields correctly in io_remap_pfn_range_prepare() and use
-> remap_pfn_range_complete() for this.
-> 
-> While we're here, make remap_pfn_range_prepare_vma() a little neater, and
-> pass mmap_action directly to call_action_complete().
-> 
-> Then, update compat_vma_mmap() to perform its logic directly, as
-> __compat_vma_map() is not used by anything so we don't need to export it.
-> 
-> Also update compat_vma_mmap() to use vfs_mmap_prepare() rather than
-> calling the mmap_prepare op directly.
-> 
-> Finally, update the VMA userland tests to reflect the changes.
-> 
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+>> Thanks! Also adding Ryan who did the exec_folio_order() work for ARM,
+>> and also raised good concerns in [1]
+>>
+>> The problem is not just alignment for elf, we need to fix more things like
+>> mmap heuristics [2] and how unmapped areas are gotten [3].
+>
+> I agree, ideally, that would all be tackled in one go.
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+From Usama’s v2 [1], it looks like we may be operating under slightly
+different assumptions. His approach seems to key off page cache
+characteristics when deciding segment alignment, while my patch is more
+about proactively making things THP-friendly so that more code can end
+up backed by large mappings. That helps in cases where a segment size is
+just over a large mapping boundary.
 
+Maybe what we really need here is to make sure the virtual address is
+properly aligned, while avoiding overly aggressive alignment (e.g. capping
+it at something like 32M, which is fairly common across architectures).
+Beyond that, we can just leave it to THP in “always” mode. THP already has
+its own heuristics to decide whether collapsing into large pages makes sense.
+
+It also looks like this approach would work fine with Usama’s cont-pte
+mappings. If so, would it make sense to implement [1] along these lines
+instead?
+
+[1] https://lore.kernel.org/linux-fsdevel/20260320140315.979307-4-usama.arif@linux.dev
+
+Thanks,
+Rui
 
