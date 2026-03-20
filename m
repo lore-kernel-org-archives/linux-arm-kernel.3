@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4ED108B8E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A6B108B8E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ckWzpMVeCGxXo30SWMHFDxsehsfkK1rEaxq5cxMVKcg=; b=0obqpFHnawvnCJy8zByrjTEags
-	jtxrflkw2Nw1UwP4yC4LwyfgYjV7BCIvy2QMQ/K+qMT42FW0ijOvKcGOSsjUHKWoPH97yr3axtxOQ
-	GHBvDcvbdjOJjsMSZ7bJAPd//PR1D2NW0l7n6w61fjHDdlp2/HRtRS9yzFtsJ9LSqP9Ja1Sm4ViMd
-	FpgwsfRSsSycBfTfFqno+BoXN7Hfjst3QoQ6QR4UWAogozb2phY5jvVlr6JfRtHegZaUAGKqECFLn
-	i3cQb5b+1VFkZH67I1zNx3Vs5iHmyR/D+vrJRBOgMzEHmYwFwmgbpUUlMOdvnAAOOhx8bxvlKdACI
-	D3c053eA==;
+	bh=2djRzGxo/w0Pk8HdZ192MqTOy4jR3OP8w85Wj/CP3ks=; b=ajpS4HKWX6/eMZjVdTp7jL2g+g
+	aERwXQp1QHfrkF/o/r3S3RRfZpSnctVsj5qHqgyZpzPCKRI4MvNdom+W3Atqc5z1N0Yp8lU+o5BTM
+	TgzGwvDBphXz1xinXqZu1cZ1YTf0BYBs8CS9VMTxd1N6yE4Bl0tybbUnH9LDn7dxCnPyhO5xqO29D
+	zE9qAKh49klYGH+r0I56V9WlQQUnkDk69qd+SZFW6bfxe3xTVXx9hMrlblh/BEL1eOXXb8X+hTZwT
+	LKY0Pqr0LGLT2vNtuNHI8i9Cj3spRNu4Euhw0c7DzLKyD9m2klluP3EXx3quDbDvOJov82iV22CqQ
+	eiWI1RCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WMn-0000000CVAq-0OQV;
-	Fri, 20 Mar 2026 09:42:05 +0000
+	id 1w3WNy-0000000CVTB-07wX;
+	Fri, 20 Mar 2026 09:43:18 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WMh-0000000CV9G-0UP6;
-	Fri, 20 Mar 2026 09:41:59 +0000
+	id 1w3WNw-0000000CVSl-17Ye
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 09:43:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F5166013A;
-	Fri, 20 Mar 2026 09:41:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF1CC4CEF7;
-	Fri, 20 Mar 2026 09:41:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 58AA360128;
+	Fri, 20 Mar 2026 09:43:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1637C4CEF7;
+	Fri, 20 Mar 2026 09:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773999718;
-	bh=ckWzpMVeCGxXo30SWMHFDxsehsfkK1rEaxq5cxMVKcg=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=ivCdHj3ntFH+Sac9HPqm5LR0LjZGK2HSPNqEV9O9bLGHfodlv/vZ32LNGEh1Jv9cb
-	 4henxpgrf5U1tN/UdnHbHqwdVs5YWrfyfzFeYCvRyjWmDlE2guUYCN+nQMgk9AJarR
-	 V3nOoe090NgVPa4A631abWxSYMUX3GP0oVd3mtjdMxEpXSrpzXHFec7sUL6gxVgncj
-	 b4aMx7JO7CXqFogW8C8Bx6p/dAaVwfr9UWeGMO87A8u03APwbTOF/aTQy9Yn6zi4Mb
-	 qMywdLrLBcQfbgQlYwa9nTLTrtAEzK9RalXKPNLTQboHZ52pZQvFI0OZAwSptufcYs
-	 19INlCSyhCOcQ==
-Message-ID: <311d143b-cc78-465e-9be2-0a9a0a33ea0b@kernel.org>
-Date: Fri, 20 Mar 2026 10:41:48 +0100
+	s=k20201202; t=1773999795;
+	bh=LGaR6GPOk5SailN1wRqWinD2lG2BGyV7O5WycxM4hV4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FDMm4Oo2V+4znzOH/u6VbAtqPM30WwQ0sz+mVb9r5rFUx7S5MWDHAZo/EckB624gJ
+	 AWTNeIjNR23R54w3eOu78OB3s+lDQUB9E3qGdspf5mCPL7WghGTgiYGan6mj6QRGN5
+	 rDByZoSTU1rdIcF8oVyQyof+VpLcw263LJdwG5wMWzUc4/oDhmkBvAbGprY0YUPjtf
+	 yuzDYswieQay26OmA4AjC19npBmjYvxtEdxc24yU0tZdBRgJ8qactntLBaBcXnBiaC
+	 onOkHI33ubm6Q+i56JXpeIa5VQ5GfoNewIW8/EjEEKMyHqu7XG6CNVMQc9HbiucnI0
+	 hAKYC0mrSwQsw==
+Message-ID: <41254f6c-3ce3-4566-acf4-f0bf764565f3@kernel.org>
+Date: Fri, 20 Mar 2026 10:43:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] dt-bindings: display: rockchip: analogix-dp:
- Expand clock-names "hclk" for the third clock
+Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic and
+ combined IRQ topologies
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: Jun Guo <jun.guo@cixtech.com>, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
+ ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
+ Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260319101723.246539-1-jun.guo@cixtech.com>
+ <20260319101723.246539-2-jun.guo@cixtech.com>
+ <20260320-vengeful-violet-cockle-382580@quoll>
+ <ab0VoTut0u4f7EVr@nchen-desktop>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- alchark@gmail.com, cristian.ciocaltea@collabora.com,
- sebastian.reichel@collabora.com, kever.yang@rock-chips.com,
- heiko.stuebner@cherry.de, tomeu@tomeuvizoso.net, amadeus@jmu.edu.cn,
- michael.riesch@collabora.com, didi.debian@cknow.org,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260319104031.1986946-1-damon.ding@rock-chips.com>
- <20260319104031.1986946-2-damon.ding@rock-chips.com>
- <20260320-amusing-magnetic-harrier-20cc40@quoll>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -111,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260320-amusing-magnetic-harrier-20cc40@quoll>
+In-Reply-To: <ab0VoTut0u4f7EVr@nchen-desktop>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,27 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2026 10:19, Krzysztof Kozlowski wrote:
-> On Thu, Mar 19, 2026 at 06:40:23PM +0800, Damon Ding wrote:
->> The RK3588 eDP controller needs the video datapath clock "hclk" to work
->> well. Previously, it works without explicitly adding this clock because
->> the 'rockchip,vo-grf = <&vo1_grf>' property implicitly enables HCLK_VO1.
+On 20/03/2026 10:38, Peter Chen wrote:
+> On 26-03-20 10:12:53, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL
 >>
->> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add support for RK3588")
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> ---
+>> On Thu, Mar 19, 2026 at 06:17:21PM +0800, Jun Guo wrote:
+>>> Update the DMA-350 DT binding to match the current driver behavior.
+>>>
+>>> Allow both:
+>>> - "arm,dma-350" as the generic compatible, and
+>>> - "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
+>>>
+>>> Also document interrupt topology variants supported by hardware
+>>> integration:
+>>> - one combined interrupt for all channels, or
+>>> - one interrupt per channel (up to 8 channels).
+>>>
+>>> This patch is Assisted-by: Cursor: GPT-5.3 Codex.
+>>
+>> Wrong tag, please read carefully the guideline before using LLM tools.
+>>
+> 
+> Hi Krzysztof,
+> 
+> It is the trade off for coding-assistants.rst suggestion and
+> passing checkpatch.pl. Currently, checkpatch.pl reports the
+> error for tag without email address. So we choose to add tag
+> description at patch context.
 
-BTW, all your patches (this and previous set... actually, everything you
-ever sent IIRC) end up marked as spam. I don't see anything in the
-headers pointing to the issue. There is no score assigned and
-DMARC+SPF+DKIM pass.
-
-However it seems you are using @rock-chips.com and SMTP server 163.com,
-so maybe that difference. Or maybe it is rock-chips lack of DMARC policy
-(p=none dis=none)?
-
-Regardless of the reason, if you do not ever receive answers from
-people, it is likely that is the reason.
+You still have to use correct tag. You ignored rest of the email
+message, so I assume you agree that you should not send LLM microslop?
 
 Best regards,
 Krzysztof
