@@ -4,111 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95559108B8ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF327108B8EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jhAADc+0DZbRNH4kx2Gi4+kamUCIz0KqMXCfR+opDIg=; b=IsVvDLPmcz6eFGTQvMsY+uDGqj
-	mSrB9XYcApPe+Hans14beXFYp9x97OznasLgJh/2RmBw8LDWf+942D+aC/NK3i0UKadpGmz6/nVhi
-	QwF36k49qmw8qFt9wcSIPpExMuav9uN5/82SNfVctn2wwbW8q8XakY2r2CsApBjHiJbWsbX4bE4l/
-	5KXHoGCxOeNdzW/Kqjch3YBOvUbybM3k2C+/a6u4avp7VaI7xJaSsEzs8hHsIIO8zBhGbLObSZNuu
-	PBmPpyd8O8gDPCniIyk8k9tbWj9HF7vaXUWv7F/X1GwMaByMEeWeWua8pgCgrdXG9+kt0HSG/nbxp
-	285koEGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=42S9Zc8zQdE2oZlKF6aOyPN6ur8T2ksopV/AJdiTx0A=; b=V9TDP+OFVfnzG8THRiefPFKMXz
+	kxd6oI/MBCw0xSkgcvUwGMljZ91Hl64JWmB9/Mu8WZ9/PqNGIwouru2lmbsUMKrKXM8r+c+TfIhpJ
+	PAwMIdxeS3dMNVutob5TRjoAmN5szKOQ/zVjYOuN/eadHayh2wGwTMlPKtRT6STMPSLBXPXrs+UHl
+	ZYApsOau5rjvM1hGz9L3AL4add2qhsAuwcxEmiH16jkYFF5vZIn0JLWpSLPnIrVSCHPb9e+Nr+HAe
+	vOPdXC1dCydApzSfzrW+1cMhMXDLjtkeSWtfLmLnK1xxpwN5Snhnks3noJ37a2VF6aNU85Rg3ThBo
+	u+gqOWDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XEb-0000000CcrQ-3MCX;
-	Fri, 20 Mar 2026 10:37:41 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w3XFf-0000000Ccyh-0eTi;
+	Fri, 20 Mar 2026 10:38:47 +0000
+Received: from mail-francecentralazon11013055.outbound.protection.outlook.com ([40.107.162.55] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XEZ-0000000CcqL-1DZC
+	id 1w3XFb-0000000Ccy2-0rVg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:37:40 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7F4858D4;
-	Fri, 20 Mar 2026 11:36:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774002981;
-	bh=jhAADc+0DZbRNH4kx2Gi4+kamUCIz0KqMXCfR+opDIg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JjFRgCgN9dD+l5Vc4eqEV2UKMnHjtJJgb/3BvLx1Jdvy6ScgS5ZJkd9Y6S5ezpay7
-	 mG4PcnVV6QrbNZ/fKb6tVXA5XwSNGir8fa3tepsmPPGCWjCqSfcRJKLyOfN3PJcOv4
-	 QBaerBIixrI9bCnSBVF3TnsKVBsGQdm/aEFjek0E=
-Message-ID: <67120b18-8763-4b93-b89f-7f919f38e08e@ideasonboard.com>
-Date: Fri, 20 Mar 2026 12:37:31 +0200
-MIME-Version: 1.0
+	Fri, 20 Mar 2026 10:38:45 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=G3jSveoQBSEktiKj1r579lsAvDw7v6/x9OjZ7Lj2VI0d7cJ8wpMjESSSReIF88R0gtBX8nOhpQztzTKWgEykP1EpSFW0/lytODBh2VKqW0bWNXz58dhqlxWv60Z3p8WOmYFEIMNTxXCQhkIrO+xkRkQbWZlBZooMKlFeHmSelmphMPHNYpjGyx1GW/AQf4+ViRc6204JqGYBy2kmXzlIA/1vnZOS0My9SiVCAVhFJrq34Odp/VaYbv0PI3mGqHHEmtXIPD000ip2hDuJz/n5Q1YuZvcB/dnvLF9S0jUu7FS+XXHGABYoBDSbd19CXEIcLtktIdhNy9z3mnJiKiEJzA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=42S9Zc8zQdE2oZlKF6aOyPN6ur8T2ksopV/AJdiTx0A=;
+ b=ovHLM/PZS0RPwtCeUr11lyWlqyNQmMzg3A6LDplWhuP2G3UVBARlNIZS3ztQsdnisxe9FWCp9tiM2W1DUMQSa2HVpMjhVpfcmt8bXNwaxW+jpuVpOzv9CnKrzYbKIcBwVc1qIPu90hulyspBEPBqVYV/xgyvcWmD+7TVu9YdAmhnHTtR6Kuw/j1Y3+B4eoWm7hdMBsrhuaNnKPFEYq96apnGE0IJDthliypwtug2VMka9gNUfHvCf38xb8xjvuZCPhY144Ysd6h/osTQOwFW8GIaMxwR+32Stib5MFfMikjuBXIOMnPmlJ6dhNC8gxS3AGBHBGBjucHoBdA3QjA2wg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=42S9Zc8zQdE2oZlKF6aOyPN6ur8T2ksopV/AJdiTx0A=;
+ b=JqQsjaxwxquKer+Boeu5RXIgdhcpmPBrbiyt5GoEYiEhBc9A5mO984y77IclKo3c6131NMgQe5pWS9pdRWOWldmj41b27JqWEZKD45YVd+BaRYNTp94hRM0O6CeOD1lXsVQYJt9ZDIlALNp5hP6hmA/vE/uIDmoxoX3S97laQPE=
+Received: from DU2PR04CA0356.eurprd04.prod.outlook.com (2603:10a6:10:2b4::14)
+ by AM0PR08MB11703.eurprd08.prod.outlook.com (2603:10a6:20b:743::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
+ 2026 10:38:33 +0000
+Received: from DU6PEPF0000B61E.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b4:cafe::f8) by DU2PR04CA0356.outlook.office365.com
+ (2603:10a6:10:2b4::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via Frontend Transport; Fri,
+ 20 Mar 2026 10:38:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000B61E.mail.protection.outlook.com (10.167.8.133) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
+ via Frontend Transport; Fri, 20 Mar 2026 10:38:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n+xSQX4sTCm/QPrO7Iu5ExX4oJGqQ0p88wxyRKuc63cU658obb8wskG1YDqqxmYJ9JhbGLEaxvruBZPmD27ixfgZHJVM1tc95cKxKexc7L1lNJeOernrEV0T69eI5Gb8tTh5VoQ0XHv7V9zmqJmzmj00xryD82xq9F9ZLnhatqhFiR8w9zXhBTLmYn5EDelv5Uaq+F8Wqv0lU/HxASIbFFwjLrwb92mWiVy64eyC70D4JwDEdC4QK/yE93sBn8U2ygLeTLqpA3mG2vs1+f1MZF2q4oZ9VOb0aH+dFqz7PKe+4KYaBGJgLk/HS6IZzPGo0Qr2RVKk2FFf03MTHkX/aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=42S9Zc8zQdE2oZlKF6aOyPN6ur8T2ksopV/AJdiTx0A=;
+ b=Sy/qVzopJn7yR51NKoS2/daG9NhjUCnfK+SCoEhFF8WWeUzBxyZgSaN8eiRehFZwxlIajmzRMtqZP+nXNkIFpgqqSS/tZBRCjEW1B9oaqyurqlRndO2YZw7aeF6KoKe1Yj373HEQfBQzhjJAGkLALdw4p8boDAJ9OmOpWEtwyVdk4O50ZaVkTmjictyVxuvOHSQLJSXTndrg/OecPwuRLCJdOWnFnQDGBSv8YLODI2ZqadQrHh7nODgFqMFSvnDls7hftXfSM5KgmPAoh9u4dvSUu3I55VQGyKztky9tIWDY95wzelMp3BT2pOpq44VsV/0xd1MSoBOXx5TkpQUk/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=42S9Zc8zQdE2oZlKF6aOyPN6ur8T2ksopV/AJdiTx0A=;
+ b=JqQsjaxwxquKer+Boeu5RXIgdhcpmPBrbiyt5GoEYiEhBc9A5mO984y77IclKo3c6131NMgQe5pWS9pdRWOWldmj41b27JqWEZKD45YVd+BaRYNTp94hRM0O6CeOD1lXsVQYJt9ZDIlALNp5hP6hmA/vE/uIDmoxoX3S97laQPE=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by GVXPR08MB7872.eurprd08.prod.outlook.com (2603:10a6:150:16::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
+ 2026 10:37:24 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
+ 10:37:24 +0000
+Message-ID: <db905c7e-0a47-4f12-b1ff-dce55e0584ed@arm.com>
+Date: Fri, 20 Mar 2026 10:37:23 +0000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
-To: Simon Ser <contact@emersion.fr>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Pekka Paalanen <ppaalanen@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-References: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com>
- <20260128-xilinx-formats-v8-2-9ea8adb70269@ideasonboard.com>
- <K_oXHqtPM_1bdhpMkkQMreIZ9OFfJVpHO3GV_wzmK_PvjQEw4Qz3IMBhGDNVQllkLg_GQeMGyOi6wpIFaRjrNkHubTwWQm-wqvKYTi6zEA0=@emersion.fr>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Subject: Re: [PATCH v13 15/48] arm64: RMI: RTT tear down
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-16-steven.price@arm.com>
 Content-Language: en-US
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <K_oXHqtPM_1bdhpMkkQMreIZ9OFfJVpHO3GV_wzmK_PvjQEw4Qz3IMBhGDNVQllkLg_GQeMGyOi6wpIFaRjrNkHubTwWQm-wqvKYTi6zEA0=@emersion.fr>
-Content-Type: text/plain; charset=UTF-8
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260318155413.793430-16-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0340.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:d::16) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|GVXPR08MB7872:EE_|DU6PEPF0000B61E:EE_|AM0PR08MB11703:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c3740f5-e617-4806-2d84-08de866cd5e1
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: eV/9NjeuKswdoP7V1QDRyMyP8CtVQxSAnayUokPPX6PIiWjaa4szUb+aduzsR9Bt0Y/F4aGFeLg9T0BxxspsxyLBigmP73oWgTuOjxG+xB96dEFFcuW8t79RZZUtpuD7/dnu7WmkfLpOnOU3EkTJP3HxRaHRATc3XbvOSI+WLeUoHqD6qvl6x4EUlsnIMtAHt7DE9LZ95B9FNDja16wTDhOAhKhfx7H6ZlySuv+zZ9ydsZaNmNCEP6OAX1zOfmIj3Kj7UBRhJE8Emd4HWr/A2/rQizGJ2Q7tzYMWJYi3w/J6jiK1ah+yJT2tyDQMLYSDpVZ9vmopY/MDwEjlorNbGcZhcp+oveXUD3nNc+2Mh9bZrygu8eZlmwiqVlr0saKNKzmPjHXMcPPbRpCo+m0eSjZH50TOm5I/CkfriMn9EIfm7RM3qoOlDQ4j4t81Qy/kB72mirO+Z9qqES82euxIq6FpybIcp6pnCotUSKBxrMz+li+XmrdKN2nDUtnsJ3oi3ZKlDgDHMHUfJW1/7tzZHeLBl7apjl6VkgA12YiXqhW0xg/IFDZ4UFPQ8bZcRR+yyrmoSqiJK0nC7pNlnkmDLMXjWqDyzWD4jRJElCHkE+QA+atnySmQJMjIZqRpjfZIuHSdjjgpn8p7kGp2a+/xaTbMKnj8nOTFlLJlIWnsXFDKssiAR4ZgccPIx12GymGrApGjl06v6YWvIjY0jqYOahe4b3RyDC6wEbO2T3wvEdk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: UHrSt43Y0rn4Sm4eQondqNIvhwy4Pr7yTM3NhJfCtEbh5AHX6u2NFcQN7ablnr4nlom5bnoBuc8/CibTDdtqixplcKWRoM7ni5gEP16Gi803ZBf9FyQV0RsUPfbDDYVweDmk3uzW3F03pn6+otH0VZTNViEQ6OJ6B6VvBeBxZPKuLjkTwIEiYCdVITjczKkLz+BCzsC+aUApATcXQhkFleOmdu7mYPKhWSGerulwb6Esc5uKPp4FdV5VFFt/Ljaqm5ghrUfWNlEc4GyTihc0/L1ACOqiFqMHXSkqrAHsioFUkfbSSUlNEZOpnyw73kU1SdJvDIHQ47p4rTjnmrf+0A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB7872
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B61E.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: f561228d-92f2-4fa7-7429-08de866cacc2
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700016|7416014|82310400026|14060799003|35042699022|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: bD1pbR1/XLfV29Tdt+93qcC7oFWFTx99UX5yWnrk9ELAmKSCqesXSv9WFGmjpYaB+d2hZXGKnfRhFzZYv7oc3ndD/2Gfyela6XK6/uIl+nl2Vecf5H9aOjPTzUrQQ7azOYunL9+BNd0ygROv64ScWMPhAVclsg/QwS04IqRgmT1WiLwMdDeyFGYHq0DdvP5vtilhtBp/WnmatynhYGKb8yvtf1hk44lH6P0v9Ud+6vi8YkyH3lnVwzHyUimSg8uJmdLfAxtduN5odV8b3gUWZ743svwmGNUCdcDCXewhLw3hTCDcRd8PQNQ0G2t9xW/ZMkymbKO9jG8SVG8q+iM22M9jHIKZKD/nMuDagUI7IBYGbyyGauAPuuQCeIGKipgbVf/fYiRpa5bhljnd+qVdOEUKdvfSSyel2HC/pOGLPW9OR/luXAlc7JN6hjah2sp8fHSL3r8pl5+eEMvUWwHeHXBtrWI51q5i1opO1rA26L/fM1Hu0MUbpAIFqEtjv+XEjgEckmbgBJWS4pJfT49QQNycoSQ5Rc8hPitZ3SJ9zuDQyDjbx6J+qwkVuLh4/4eEPQKXsdUeqT3/RzyRgfSdJWywbOlkNAi8dG6Swm/tHrGvS7EIb901spS1zXj/jB2y2O2xef+KFsMcRSwk0Sqw44a4taV3gFF8BV6EeY03rxVnZLa8DDM6p99eOVZ1Px42Os0Ji71CcVVXBRrlDMxum4+WY5COnZG4kGZkr2/xmIJ9UwupbCy0BU6W+nNK7ArpHbc0/+Zt7p8Kh0iGyt++uA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(7416014)(82310400026)(14060799003)(35042699022)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 0cxKtVQj+OuvuLUTVI/5L3A5Ssbu0ts6qcIyYOOwoS+0t5+Jo9NCf2HJ+5OfNFLVURn+rwLh0d3QyqhGzfPDUMs7cHIcBTjJjhnrRj8zaTiE+NsyReUrjvj7mDwCd1VeN/40VVB+vjTZ1vDwM7izB3yk2WBBSZNDcLHtMFOGFsH00WkLR5VGTZWl30d/HCsuKauLEft/A8gYhbpOnvX0MuundZsOfQqdN78xw+EzG4uuRNs9UorjvOwLTSIINXKKX9iCA/9PVhQtGfrjaevCDZ1u6AbPPicTUNOfVLaTblezkSrSRvoQ7SPsUoECxxUkK5mREpqeP29JJkVw9soFLYfUzAoq1x1lWn07/5yFH/eXVPoPT0NS88Yn35Akg//x/V7Ci1zgkBuGfFreaZ/VLMkqM+IG7A8vbA6NHEvZ8TEN9TMvTEW2n9JFNk21k53W
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 10:38:33.4913
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c3740f5-e617-4806-2d84-08de866cd5e1
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61E.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR08MB11703
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_033739_659745_DE3E54CE 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260320_033843_498581_9562CE3A 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,39 +165,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon, Dave,
+On 18/03/2026 15:53, Steven Price wrote:
+> The RMM owns the stage 2 page tables for a realm, and KVM must request
+> that the RMM creates/destroys entries as necessary. The physical pages
+> to store the page tables are delegated to the realm as required, and can
+> be undelegated when no longer used.
+> 
+> Creating new RTTs is the easy part, tearing down is a little more
+> tricky. The result of realm_rtt_destroy() can be used to effectively
+> walk the tree and destroy the entries (undelegating pages that were
+> given to the realm).
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v12:
+>   * Simplify some functions now we know RMM page size is the same as the
+>     host's.
+> Changes since v11:
+>   * Moved some code from earlier in the series to this one so that it's
+>     added when it's first used.
+> Changes since v10:
+>   * RME->RMI rename.
+>   * Some code to handle freeing stage 2 PGD moved into this patch where
+>     it belongs.
+> Changes since v9:
+>   * Add a comment clarifying that root level RTTs are not destroyed until
+>     after the RD is destroyed.
+> Changes since v8:
+>   * Introduce free_rtt() wrapper which calls free_delegated_granule()
+>     followed by kvm_account_pgtable_pages(). This makes it clear where an
+>     RTT is being freed rather than just a delegated granule.
+> Changes since v6:
+>   * Move rme_rtt_level_mapsize() and supporting defines from kvm_rme.h
+>     into rme.c as they are only used in that file.
+> Changes since v5:
+>   * Rename some RME_xxx defines to do with page sizes as RMM_xxx - they are
+>     a property of the RMM specification not the RME architecture.
+> Changes since v2:
+>   * Moved {alloc,free}_delegated_page() and ensure_spare_page() to a
+>     later patch when they are actually used.
+>   * Some simplifications now rmi_xxx() functions allow NULL as an output
+>     parameter.
+>   * Improved comments and code layout.
+> ---
+>   arch/arm64/include/asm/kvm_rmi.h |   7 ++
+>   arch/arm64/kvm/mmu.c             |  15 +++-
+>   arch/arm64/kvm/rmi.c             | 145 +++++++++++++++++++++++++++++++
+>   3 files changed, 166 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 0ada525af18f..16a297f3091a 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -68,5 +68,12 @@ u32 kvm_realm_ipa_limit(void);
+>   
+>   int kvm_init_realm_vm(struct kvm *kvm);
+>   void kvm_destroy_realm(struct kvm *kvm);
+> +void kvm_realm_destroy_rtts(struct kvm *kvm);
+> +
+> +static inline bool kvm_realm_is_private_address(struct realm *realm,
+> +						unsigned long addr)
+> +{
+> +	return !(addr & BIT(realm->ia_bits - 1));
+> +}
+>   
+>   #endif /* __ASM_KVM_RMI_H */
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 9dc242c3b9c8..41152abf55b2 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1098,10 +1098,23 @@ void stage2_unmap_vm(struct kvm *kvm)
+>   void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>   {
+>   	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> -	struct kvm_pgtable *pgt = NULL;
+> +	struct kvm_pgtable *pgt;
+>   
+>   	write_lock(&kvm->mmu_lock);
+>   	pgt = mmu->pgt;
+> +	if (kvm_is_realm(kvm) &&
+> +	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+> +	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
+> +		write_unlock(&kvm->mmu_lock);
+> +		kvm_realm_destroy_rtts(kvm);
+> +
+> +		/*
+> +		 * The PGD pages can be reclaimed only after the realm (RD) is
+> +		 * destroyed. We call this again from kvm_destroy_realm() after
+> +		 * the RD is destroyed.
+> +		 */
+> +		return;
+> +	}
+>   	if (pgt) {
+>   		mmu->pgd_phys = 0;
+>   		mmu->pgt = NULL;
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 700b8c935d29..1fd2c18f7381 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -15,6 +15,19 @@
+>   static unsigned long rmm_feat_reg0;
+>   static unsigned long rmm_feat_reg1;
+>  
 
-On 19/03/2026 17:15, Simon Ser wrote:
-> What is the difference between DRM_FORMAT_XV15 and DRM_FORMAT_P030?
+-->
 
-Good question. I thought the Cr & Cb are swapped between those formats.
+> +#define RMM_RTT_BLOCK_LEVEL	2
+...
+> +
+> +#define RMM_L2_BLOCK_SIZE	PMD_SIZE
 
-The VC4 driver uses HVS_PIXEL_ORDER_XYCBCR define, and the comment in
-drm_fourcc.h starts with "YCbCr420". So, CbCr. But then the comments
-then continue with CrCb.
+<--
 
-XV15/20 isn't super clear either, starting with "YCrCb" but then "Cb:Cr
-plane".
+Unused ? Even better we could use PMD_SIZE directly if at all we need
+it, as we are using PAGE_SIZE
 
-The components in the plane descriptions look identical though, hinting
-they are the same. So to be sure, I tested it:
 
-I had test pattern support for XV15/20 in pykms, which I can test on a
-Xilinx board. P030 is a bit more difficult, as on RPi5 it requires
-DRM_FORMAT_MOD_BROADCOM_SAND128. But with a linear -> SAND128 converter,
-I was able to test linear NV12 converted to NV12+SAND128 and shown on
-the screen (just for reference), and similarly linear XV15 ->
-P030+SAND128. And, indeed, the linear XV15 test pattern shows correctly
-on screen when converted to SAND128. So afaics XV15 is indeed identical
-to P030, and I can drop XV15.
+minor nit: Also, may be we can have a generic name for the 
+RMM_RTT_MAX_LEVEL ? This applies to all page tables ?
 
-This then brings up the question about XV20. That format doesn't exist
-yet, but should it then be named similarly to P030? However, I have no
-idea what P030 means, so I don't know what a 2x1 subsampled P030 would
-be called...
+I see we have KVM_PGTALBE_LAST_LEVEL, may be we could use that ?
 
-Thoughts/ideas? Or just keep XV20?
 
- Tomi
+> +
+> +static inline unsigned long rmi_rtt_level_mapsize(int level)
+> +{
+> +	if (WARN_ON(level > RMM_RTT_MAX_LEVEL))
+> +		return PAGE_SIZE;
+> +
+> +	return (1UL << ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
+> +}
+> +
+>   static bool rmi_has_feature(unsigned long feature)
+>   {
+>   	return !!u64_get_bits(rmm_feat_reg0, feature);
+> @@ -189,6 +202,11 @@ u32 kvm_realm_ipa_limit(void)
+>   	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+>   }
+>   
+> +static int get_start_level(struct realm *realm)
+> +{
+> +	return 4 - stage2_pgtable_levels(realm->ia_bits);
+> +}
+> +
+>   static int undelegate_range(phys_addr_t phys, unsigned long size)
+>   {
+>   	unsigned long ret;
+> @@ -223,6 +241,131 @@ static int free_delegated_page(phys_addr_t phys)
+>   	return 0;
+>   }
+>   
+> +static void free_rtt(phys_addr_t phys)
+> +{
+> +	if (free_delegated_page(phys))
+> +		return;
+> +
+> +	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+> +}
+
+
+How about a comment here for the function below ?
+
+Something like :
+
+/*
+  * realm_rtt_destroy: Destroy an RTT at @level for @addr.
+  *
+  * Returns - Result of the RMI_RTT_DESTROY call, additionally :
+  *  @out_rtt  : RTT granule, if the RTT was destroyed.
+  *  @next_addr: IPA corresponding to the next possible valid Table entry
+  *		we can target.
+  */
+> +
+> +static int realm_rtt_destroy(struct realm *realm, unsigned long addr,
+> +			     int level, phys_addr_t *rtt_granule,
+> +			     unsigned long *next_addr)
+> +{
+> +	unsigned long out_rtt;
+> +	int ret;
+> +
+> +	ret = rmi_rtt_destroy(virt_to_phys(realm->rd), addr, level,
+> +			      &out_rtt, next_addr);
+> +
+> +	*rtt_granule = out_rtt;
+> +
+> +	return ret;
+> +}
+> +
+> +static int realm_tear_down_rtt_level(struct realm *realm, int level,
+> +				     unsigned long start, unsigned long end)
+> +{
+> +	ssize_t map_size;
+> +	unsigned long addr, next_addr;
+> +
+> +	if (WARN_ON(level > RMM_RTT_MAX_LEVEL))
+> +		return -EINVAL;
+> +
+> +	map_size = rmi_rtt_level_mapsize(level - 1);
+> +
+> +	for (addr = start; addr < end; addr = next_addr) {
+> +		phys_addr_t rtt_granule;
+> +		int ret;
+> +		unsigned long align_addr = ALIGN(addr, map_size);
+> +
+> +		next_addr = ALIGN(addr + 1, map_size);
+> +
+> +		if (next_addr > end || align_addr != addr) {
+> +			/*
+> +			 * The target range is smaller than what this level
+> +			 * covers, recurse deeper.
+> +			 */
+> +			ret = realm_tear_down_rtt_level(realm,
+> +							level + 1,
+> +							addr,
+> +							min(next_addr, end));
+> +			if (ret)
+> +				return ret;
+> +			continue;
+> +		}
+> +
+> +		ret = realm_rtt_destroy(realm, addr, level,
+> +					&rtt_granule, &next_addr);
+> +
+> +		switch (RMI_RETURN_STATUS(ret)) {
+> +		case RMI_SUCCESS:
+> +			free_rtt(rtt_granule);
+> +			break;
+> +		case RMI_ERROR_RTT:
+> +			if (next_addr > addr) {
+> +				/* Missing RTT, skip */
+> +				break;
+> +			}
+> +			/*
+> +			 * We tear down the RTT range for the full IPA
+> +			 * space, after everything is unmapped. Also we
+> +			 * descend down only if we cannot tear down a
+> +			 * top level RTT. Thus RMM must be able to walk
+> +			 * to the requested level. e.g., a block mapping
+> +			 * exists at L1 or L2.
+> +			 */
+> +			if (WARN_ON(RMI_RETURN_INDEX(ret) != level))
+> +				return -EBUSY;
+> +			if (WARN_ON(level == RMM_RTT_MAX_LEVEL))
+> +				return -EBUSY;
+> +
+> +			/*
+> +			 * The table has active entries in it, recurse deeper
+> +			 * and tear down the RTTs.
+> +			 */
+> +			next_addr = ALIGN(addr + 1, map_size);
+> +			ret = realm_tear_down_rtt_level(realm,
+> +							level + 1,
+> +							addr,
+> +							next_addr);
+> +			if (ret)
+> +				return ret;
+> +			/*
+> +			 * Now that the child RTTs are destroyed,
+> +			 * retry at this level.
+> +			 */
+> +			next_addr = addr;
+> +			break;
+> +		default:
+> +			WARN_ON(1);
+> +			return -ENXIO;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int realm_tear_down_rtt_range(struct realm *realm,
+> +				     unsigned long start, unsigned long end)
+> +{
+> +	/*
+> +	 * Root level RTTs can only be destroyed after the RD is destroyed. So
+> +	 * tear down everything below the root level
+> +	 */
+> +	return realm_tear_down_rtt_level(realm, get_start_level(realm) + 1,
+> +					 start, end);
+> +}
+> +
+> +void kvm_realm_destroy_rtts(struct kvm *kvm)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	unsigned int ia_bits = realm->ia_bits;
+> +
+> +	WARN_ON(realm_tear_down_rtt_range(realm, 0, (1UL << ia_bits)));
+
+AFAICS, we already WARN_ON() in all the cases where the
+realm_tear_down_rtt_range() fails, so may be we can skip this
+WARN_ON here ?
+
+Suzuki
+
+> +}
+> +
+>   void kvm_destroy_realm(struct kvm *kvm)
+>   {
+>   	struct realm *realm = &kvm->arch.realm;
+> @@ -246,6 +389,8 @@ void kvm_destroy_realm(struct kvm *kvm)
+>   	if (realm->rd) {
+>   		phys_addr_t rd_phys = virt_to_phys(realm->rd);
+>   
+> +		kvm_realm_destroy_rtts(kvm);
+> +
+>   		if (WARN_ON(rmi_realm_destroy(rd_phys)))
+>   			return;
+>   		free_delegated_page(rd_phys);
 
 
