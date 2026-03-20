@@ -4,115 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CE01098782
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4160D1098782
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wk5S/NjC4u0xUL6oomLxP9g3uOp7kISttmV1Dk/7kAk=; b=JMUiUu/pWH8uYR8tnpP1H6YxKo
-	oSawRvtrgkLBoraIWJfC6rFfYLI9xnr65SS3tBYQiYQOoS6NyHYk5P0DPn+K2pNwRjLwSx8zv+EPQ
-	cF6g1wCPsYs6zDOcmTAprPmImTN8E9RGMGRDk0Lijw34nrFJXxTOyc2FAmBew7Un/q109HmMOfA0P
-	LT1h4f19RXU6L8ATmd4BE6diJw+APnRwqIRn39OZRO/E02KwreRw39Yiyxt0Us8I+E3byZzTcNSfs
-	FuEe1DVBav5ONNpeB0ipGkrsycObGtEs8bvm5jhCpBhy3GUThXawmg6K6qhR1HMjc9ilAWZimrCem
-	voYSummg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=feDe8HW1W8DysZTnYHAgiAddexYRgDVJYHAg/cE6S/c=; b=WExYeFt/tb7hFcB03o9fozSLm1
+	H1w5m5yaOguv4F7NHamTCBoUxz3D05HgAqKMHrD6idGA1AWT79OjkuFKYVNiPI1b8lt56KvcjDYc0
+	TYmqEa73P+Oi/GEASuaDPzyM/OCzKWFuhIsmHD9DEeoYOGFPNorkSgSa2TKWysPBO2/HUWTOhNe7i
+	gQNFvTaiws+o583Dc3kJLLEsdbThCHfnjAxgVgsawabUEiMLHf0y09mos3XPEqjwMM6yTXHVmOIEV
+	1juu94QF6Q/QYHEUnE33yyacoGJlDZYV6l9VNJFrknFfgH4iefAv1BkPhS+n2J0pHTGZbRB25bt/1
+	lv61SWrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a1D-0000000CrWk-3TOG;
-	Fri, 20 Mar 2026 13:36:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3a1c-0000000Crc4-2BMO;
+	Fri, 20 Mar 2026 13:36:28 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a1C-0000000CrWA-0KZS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 13:36:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wk5S/NjC4u0xUL6oomLxP9g3uOp7kISttmV1Dk/7kAk=; b=G4ONngOLTkJx/M7rIlMOd7S5EL
-	ZNDtLweiHnGo0ZigItDGnRNe6ADr1SWiIPcLzF0AN2UxVdgNlnK09CZp5MWKNIAZxnFTQNMl1qGvG
-	GYL5qqPyRTrkw3XaG0XYpcP2IZsFg2RMLpVZs5wadH2LYUTar7CIm8JP38hjuGqg/5HemrZkcq/2r
-	RU6Jqqe1hOHvg388LxRhkpXeVzppYwZxMJPVT6Aw4fDnKbFI/t/Be+A1j01+WEWU6+rMfOrsJSYaN
-	VUjNw5Yxt4bTtzOLI5JRN0SFZoKKWNzXtJf8lIP/1/AqeoVIAfjpFb6vAJReN2UGBU1w6mCida2zY
-	ckNeO6PQ==;
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a18-0000000FdTA-16vB
+	id 1w3a1Z-0000000Crap-0QMV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 13:36:00 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-40efc77933fso360535fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 06:35:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1774013756; x=1774618556; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wk5S/NjC4u0xUL6oomLxP9g3uOp7kISttmV1Dk/7kAk=;
-        b=qAcC7XsKkFlz2ClXlvAo7agpXXN3WzghrjzZHFpA0ePE8TQY56spXh5naORaFe5Vx9
-         8ligVVbeYYn6/lPrIfohpQ9NnF5293igzWL6g3pa0OhQRhS+d+vC1xiL0153piShME03
-         OuZh0FHHdnXTOHal2GYzxYhdpPVcMh6Eqhx0+upscDtGgeHikuabKDeS83L4tDOM6OCl
-         OscQfSBE98z0LsCrrpd+Q3FK74HTDoKxPYrU0CJAOi+Zw/iEYHE1TAdNE8AYonrSEeQ8
-         LpgBCRzLnaAN/1hzTNdpqz68x60txpEes1egRx5CN0gEab3xs+/qydonUeNuolrAsJ4n
-         ZdLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774013756; x=1774618556;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wk5S/NjC4u0xUL6oomLxP9g3uOp7kISttmV1Dk/7kAk=;
-        b=OSHhk+4LdCkTdN95YC0dIwuU3QmMOas//BfDyLsz+KDIhAz/i6STi8PGTe5dlKDRyC
-         yJUIbKfwq+uY6si1zxOLNm/mJ+JKLrANNmn/pbA9TLJyBgKT2LNFwVgHWsX4MSQvohl8
-         qHNEkxP6CZpqmxFlikh5SjOFrZ1kY6/Ji4LUcUJg/Ml6NdJ3xH4Mg4U7ZwZSduxU9Z7m
-         d0MziTkZw8BlFBu08f3FVl/B3LLtEvfLPqpXpUX6Ta6HvDQY0uFdF6EuhBD491Z7sqVu
-         6VDLvxfBJZL10dbi3KHWsXI8P6ww5ibvcpoDK5P1TpdqhOm2aZigbwjU6JtVL7DockUM
-         L/Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCXxEBKGYdkNYPGgHGK5kgt3nL5izWheigCHbX5akibwd15qhwvuuDJjEhQR4gqnecblyIgpnQUND4KN6lpW6ILl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8Eu2kg/eoRaZBXYgzAqjoOUO38LvGkj6Dc6+RSeeYBtVjteUt
-	P2JZCm94GbgHd7qsKqO9R8C/D2yqyL+usyYJTgMmNKHgGN7lrj/6Cp67Ab+YowSVOPo=
-X-Gm-Gg: ATEYQzy8AQYtdUxyumg/3a40YXghQaSEp0ldS6XJfHdwBegF5wRnMTB/QpBpHCTOG9U
-	ec9GpO01cP0i/G+a8yroAn7nNhpMMjYl14muiUpNgWghyOlw6Pw5nDajDB/0AFwm2/fTyu8oJ0R
-	ZFQodfH3g6TViwSm75HvziH41Ol2tZ2eG9S44cMEXaOOkgIAEf/MikuT+cazzSwQkzpcEkAiMqc
-	Db6fVuc2e1g6QOmMqsVwu9oZNZsDhtDq8j/GmNzxXg3S+SjtcgKJIOL1oRvC8Gip++nAMMd39Da
-	4Vmf432bG17OcGH5AvysK3QTC+LVnFSCnR9ELuS6yoiWX18VVY1bJD0/4jElfTUCPkiz0tsrQXF
-	bPU6fKJ1aL3mufq4fib33f6zZZvz7vjgu9vYwHZc4WuXWnTgQnKotxuuuOJYPla15wu/4wIiucO
-	iQmd32An74eMPLV5sVt3mbFpgLdg2wMKrF+3sEFtTeVUT29ZOPe7nwQKOOC5G1rQ6VDSH2LE4=
-X-Received: by 2002:a05:6870:e9aa:b0:417:23f2:6d77 with SMTP id 586e51a60fabf-41c10fd1b74mr1962084fac.16.1774013755741;
-        Fri, 20 Mar 2026 06:35:55 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:6a3c:6fc:3be2:208d? ([2600:8803:e7e4:500:6a3c:6fc:3be2:208d])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-41c1497485esm2142629fac.8.2026.03.20.06.35.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Mar 2026 06:35:55 -0700 (PDT)
-Message-ID: <9124e760-6e9e-4621-b684-071dbb271635@baylibre.com>
-Date: Fri, 20 Mar 2026 08:35:54 -0500
+	Fri, 20 Mar 2026 13:36:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f9CxcHjVxW6BIICyL0XvAC+1MF0yf8foJmOj4k2sorHOYkEIUOwxiE+iL+/ydJMY3psJ0CA7makCbHSopxqOX/vqN7oBle8qiMFPGsfALUAJOhcmdEhyuCMxAc5M149wIsOOEbz1yDddEGcYRq5Ay3yoyGtYfetcWtuJqytqdIjMwI/yCaOqJzMKob+DUmuTgkyIY52BW8YlqezUMZwaAO6CTHZMclPq3Xr5eJYrYSR1vXozi0ZLUbZKSkQqNrKBhdI6F482JPZ02jz2Nexx9E0o9mJ26R0mj951+iijhNdvx27AhDDLQ09l1sAxMeW+uc+S9LCl3R4Zns5EO4t+3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=feDe8HW1W8DysZTnYHAgiAddexYRgDVJYHAg/cE6S/c=;
+ b=FoU03FU575lqK+p54praafG4BLLvtgRKPy5Mv0I+0eTdFki15W920vM0yTrLELK7tzGLUGCIU9o/ivuiy+yc/QlkQlIrOzULEO+eBw1b3AxZdgoSJytAZhL4gZMZ4qBcl+okCnHERobW/+rtCQmQ25NnO7rW+YyRNh4HORmIb9eV23cAbdHetnTcRFKemdxCPPQdCzEHGKb/XmhvvVZ8K7OyvaEADlX/UOBnGMyTge5qpK8gI74Pw24ruEu83ccOOCzkrGfR3qR0xYEaakbynxX3ZuNEwpeC3xnAaxSAl1Ci4GBaq9zUcUv8RjOtWumPJr4LHuKZjanVkGr7SZG22Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=feDe8HW1W8DysZTnYHAgiAddexYRgDVJYHAg/cE6S/c=;
+ b=F+ehEIYUKcPO3pax01ZBb3afftB5uNBkZOjSbh8v6lOpJSZZUrJJ3ZahfrvqBCawZF4apjj8Q/cSzkvGN4+rTVGgJlRVaWF1JH8YtB2CwX71ZzadzTn5eM86G+ku7QikCjiWgCxM6/2Y5KAXqzQQzC+884linRGl5J6PgVn4kdG2ta7L5bBndgDAuxZ/ybmnUqV3LgEINwj+gBDUHNr9shChtjlL+NW2K/p8uM2R2kDPW+AIE8RtirKivENFBy7Wn9Cc3D06+dGN4nMQB8BK4tQn5VaRq5O2RAKbyfKvA9LiYR9ano3Vz8EB68I/OYsmnXyBt8APdLMTlzZja7GxTw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by VI1PR04MB6781.eurprd04.prod.outlook.com (2603:10a6:803:13d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
+ 2026 13:36:16 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9723.022; Fri, 20 Mar 2026
+ 13:36:06 +0000
+Date: Fri, 20 Mar 2026 15:52:01 +0200
+From: Florin Leotescu <florin.leotescu@oss.nxp.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	daniel.baluta@nxp.com, viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
+Subject: Re: [RFC PATCH v3 0/2] hwmon: emc2305: Support configurable fan PWM
+ at shutdown
+Message-ID: <ab1RAT6cEYqeHrgD@ro-kernel-workstation>
+References: <20260312144325.1311314-1-florin.leotescu@oss.nxp.com>
+ <a3ec42e5-d151-4d54-9625-fffeb0399431@roeck-us.net>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a3ec42e5-d151-4d54-9625-fffeb0399431@roeck-us.net>
+X-ClientProxiedBy: AM0P190CA0013.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::23) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: mediatek: add device-tree for Genio
- 720-EVK board
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
- <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
- <c2618423-2466-47bb-a8cf-7c849e7e231e@baylibre.com>
- <7d1e52c0b9c3a6d30e9db617b9bcfa23ed9046b5.camel@collabora.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <7d1e52c0b9c3a6d30e9db617b9bcfa23ed9046b5.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|VI1PR04MB6781:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00ec8aa5-fffc-46cd-88a0-08de8685a349
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|83080400003|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: bQ21bjYKHY3XCZebpk1T4/Xse0RB2u51KKlBjgfJ4Otc0Oe6GkrJdGP73MWxgidyNNg8UuB2OLXq6i9BfLgMZWtLhpKmyBtnx/39kyhassIqGe7MyDE6AB3RU4VlQU/0vXRNRpMGvurXy44juXDlZO9omCWbnZlhDD0DE2jUYLd2t3lzjvQx79p0RYPr9Iv+7WPlds1ebLwQQd2MM1eBxFqqxE5k9tHe8pKtJjTa9sS+hxCRBOsaoybp794h1mJ8BwBiWH2UQFYYarPr8ae8c6+CMvWp12Yn9AW/g6iTYu6GL9O7OEPkWZ9QBP4/RTTW90i5EGNdyIm47LXhHOff+iZxOJWOw67JrnrUFv5XlLuTPsvZCKmCuqweS13aNqAC/Q4XYAwoStdeCHmpa/WE/iWyUvR+EXFiuVS6+SdbI8ADaLW2lNjJ45RocQn5DmG5vcyJHf2f+tL4/UTmQeheD/wQtpKYZ4NkBRqkddPgddXywRM+SB9mw/eq5/9uwZcXNYwEq9jl/NHJf4/U2LWGCpjhYAEyRcdIN2ej4eaIx7dNIJmxhC5k7qPMy0fnt8+f5xl6VHOSR5tLcDvdwok+Kfz1K6PHMq5ge5XuhH/mpLyWsOSGZk2kNVmsYIBrS06E1KMj5bJwK8jPKROAgxGirxwJrWmS9R0uRyTGnTjaKdCAGUQBaFFVA+R+c69UPKBlkNvFFnelqN+jRRnQBedlsY6CdQ/LJZEztMKfYZSab6k=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(83080400003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9xNi33y+1QDYL+aRboGPvW8LJUcOwCTlDmtKJycQzkfQWAejmQVp9Bd/2LVM?=
+ =?us-ascii?Q?ZewB1C1uikg2QZmB+02FUNGtxm0dV/U3zWB7tcPNCRBQgoRHxoKv8SWKSNQF?=
+ =?us-ascii?Q?qhQHXubVYYThFfUd87TuvtSKnVr0PJIrwt7R+MEJHhDqTOkz3wovlcB2WJ1Q?=
+ =?us-ascii?Q?EXMukvq29H/N0zVhut0IwICCFMqQV5BWJN3h/+J7Euh90oYWfY+vs+CHjabf?=
+ =?us-ascii?Q?IogTxw0JfK2HmvAZ1S3CyyVTfUPjl2kO2BjKujx1CjLaK21aDFZQoX7d9aP+?=
+ =?us-ascii?Q?NA2Y5Vcr5Pef9mfb5WTqp9XhdAP4d3xrO2w/WRfRSOx1FfbK5PjWx1pdlxQ2?=
+ =?us-ascii?Q?SPpY1voG6mYCckqt/C66MJi72/NuwLB3+IDhpsY3/e4g9qTlMdINqcj8GzrO?=
+ =?us-ascii?Q?cdcQF5zarfw4v/Wf7SohjZwQZGRSAcFqpV9agioaY9tIdasvl0Jv73Yy1E89?=
+ =?us-ascii?Q?NHWingz1CjOzFL+eEYWc6D3Xo7EPLRF9sWSzZPnAAQvi3SwXtxPmPi58YIos?=
+ =?us-ascii?Q?bFwvoZnr6FRyRHekMQwjrYu2XwumtasKs8mBA9IAFp5MIc9JybNO/Zet04wB?=
+ =?us-ascii?Q?3c/p6LNFjcZOWw6NSWdr2z5zd5D+OS+L87GAAPVkoBEZokbT71gilMP6bpXp?=
+ =?us-ascii?Q?2FB8ekpICnLYUXFusz3e+8Rtnxs0ysLk6ETMxA/Ui6uaSjfpu5JQlo/TackM?=
+ =?us-ascii?Q?nDqV4lXlEvrjLHyf93o6rhZCcSlYwb7dM/8s3Xw7KWo/isYS1v5Ks8wMcIAp?=
+ =?us-ascii?Q?Fv6dZPKcE+ZTpAwXayBLpnaRo541216WyrSJnEazuqqSl3RmlkD+AthDeKEH?=
+ =?us-ascii?Q?eyylp/NyVOByAuRHixfLuQRai0ibcINAfGMgO4WlZRb6PaKGcgmCfkm61Wiu?=
+ =?us-ascii?Q?yZrVDksV4+0fQDXjN3Z2xLC7BTXuG+l5ODF9qaDlsuYfTjbtXsuaYceqdpJl?=
+ =?us-ascii?Q?Frh1mRzcCSVA+5Q1la6J59aK/ooRkV0V/AzHRHQyfl0KqIltmHOORaDwUbqn?=
+ =?us-ascii?Q?8kQHyiZRKpUNlUdbYSsX/o97dJOsF2luz0C4nHxFy85RIRLHB3KFnq4lcGLL?=
+ =?us-ascii?Q?YtMaeZr3yPhNMgtAkSyo1ddg9mtTbFQ9cBJ4oDwu+0/X5eulrIGCYBfI1Y63?=
+ =?us-ascii?Q?gpke3yaJGhPxrJPaDJbfBIvOIM1GESN+x+y7Z3E4QWUKMnkNkTsfhwCUqx7Q?=
+ =?us-ascii?Q?qtILxTGK+j8CW2aPJDVmssVQxcGHJBsqbvV5/RnI9tUqNC4TUtvI0wZ55Xox?=
+ =?us-ascii?Q?e2OJjX0EXXD2CPbIUSRh6kEiYtEXSqNLv6qFdGEwshuG2ZHj5FRbMBiJZR3N?=
+ =?us-ascii?Q?Sxp6xOcmrzNSKiMnymRxe43juO6/VnCsta+vE5N2w3zt4JcKVOrWSVCm0l49?=
+ =?us-ascii?Q?UEhf8eFgpO9ID5CSja2iRhCpcw0AjLHF8Dn/fNlfAtrdHguEmNMTJx5MPS2G?=
+ =?us-ascii?Q?PWs/A13SuLqvQrC7jy1h1wgH2NzT1W+oeGYL+Uh696HzQnVdsggmN8Vawut2?=
+ =?us-ascii?Q?zrDAbUganiKiz4A/jcgavSiCTgvmeXih/sUkVR3PGjqst0ykwcr5naJ9w1LG?=
+ =?us-ascii?Q?FXhnZ8SFZVkAgNMIsz+9h7a24zkQQYb4/X3FB9CvNiXPpkN+NscV64pRcgK6?=
+ =?us-ascii?Q?ybi1FjrmnMfMXT6+gRD/0F5XwfAaFWzZjQUHFYO68X7AGUnjidzMVZrd7YCv?=
+ =?us-ascii?Q?veUvT19ekR6mW9crvbeeKOgY/o1IjDYetVLcXJqtt7tme/6jQsX/FAFb/EjH?=
+ =?us-ascii?Q?x8amfM0T1A=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00ec8aa5-fffc-46cd-88a0-08de8685a349
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 13:36:06.3857
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P6htDhDGkGFQ6+IS1tsP9t4W0W6/4dMmK74U1LakPY+rTetoeI0JBtpd6DSXbp+UyHSwRxaCym38JdQRYX/H9g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6781
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_133558_444357_6E77F38C 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20260320_063625_152144_47E479A0 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,189 +144,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 7:37 AM, Louis-Alexis Eyraud wrote:
-> Hi David,
+On Tue, Mar 17, 2026 at 09:17:21AM -0700, Guenter Roeck wrote:
+> On 3/12/26 07:43, florin.leotescu@oss.nxp.com wrote:
+> > From: Florin Leotescu <florin.leotescu@nxp.com>
+> > 
+> > This series adds support for configuring the fan PWM duty cycle applied
+> > during system shutdown for the EMC2305 fan controller.
+> > 
+> > Some platforms require fans to transition to a predefined safe state
+> > during shutdown or reboot handoff until firmware or the next boot stage
+> > reconfigures the controller.
+> > 
+> > The new optional Device Tree property "fan-shutdown-percent" allows the
+> > shutdown PWM duty cycle to be configured per fan output.
+> > 
+> > Changes in v3:
+> > - Rebased on current upstream
+> > - Dropped already upstreamed of_node_put(child) fix
+> > Changes in v2:
+> > - Address feedback from Guenter Roeck
+> > - Make shutdown behavior configurable via Device Tree
+> > - Add optional fan-shutdown-percent property
+> > - Apply shutdown PWM only for channels defining the property
+> > 
+> > Florin Leotescu (2):
+> >    dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
+> >    hwmon: emc2305: Support configurable fan PWM at shutdown
+> > 
+> >   .../bindings/hwmon/microchip,emc2305.yaml     |  8 +++++
+> >   drivers/hwmon/emc2305.c                       | 34 +++++++++++++++++++
+> >   2 files changed, 42 insertions(+)
+> > 
+> AI review of series is here:
 > 
-> On Thu, 2026-03-12 at 19:26 -0500, David Lechner wrote:
->> On 12/3/25 7:59 AM, Louis-Alexis Eyraud wrote:
->>> Add support for MediaTek MT8189 SoC and its variants, and a device-
->>> tree
->>> for the basic hardware enablement of the Genio 720-EVK board, based
->>> on
->>> MT8391 SoC.
->>>
->>
->> ...
->>
->>> +	mmc0_default_pins: mmc0-default-pins {
->>> +		pins-clk {
->>> +			pinmux = <PINMUX_GPIO162__FUNC_MSDC0_CLK>;
->>> +			drive-strength = <6>;
->>> +			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
->>> +		};
->>> +
->>> +		pins-cmd-dat {
->>> +			pinmux =
->>> <PINMUX_GPIO166__FUNC_MSDC0_DAT0>,
->>> +				
->>> <PINMUX_GPIO165__FUNC_MSDC0_DAT1>,
->>> +				
->>> <PINMUX_GPIO164__FUNC_MSDC0_DAT2>,
->>> +				
->>> <PINMUX_GPIO163__FUNC_MSDC0_DAT3>,
->>> +				
->>> <PINMUX_GPIO159__FUNC_MSDC0_DAT4>,
->>> +				
->>> <PINMUX_GPIO158__FUNC_MSDC0_DAT5>,
->>> +				
->>> <PINMUX_GPIO157__FUNC_MSDC0_DAT6>,
->>> +				
->>> <PINMUX_GPIO156__FUNC_MSDC0_DAT7>,
->>> +				 <PINMUX_GPIO161__FUNC_MSDC0_CMD>;
->>> +			input-enable;
->>> +			drive-strength = <6>;
->>> +			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
->>> +		};
->>
->> Should we also have pins-ds here to match mmc0-uhs-pins?
->>
-> The data strobe pin is only used for the HS modes, that is why it is
-> only declared for uhs state.
-> No other mediatek board devicetrees have it for default state too, so I
-> don't think it is needed here.
+> https://sashiko.dev/#/patchset/20260312144325.1311314-1-florin.leotescu%40oss.nxp.com
 > 
->>> +
->>> +		pins-rst {
->>> +			pinmux =
->>> <PINMUX_GPIO160__FUNC_MSDC0_RSTB>;
->>> +			drive-strength = <6>;
->>> +			bias-pull-up = <MTK_PUPD_SET_R1R0_00>;
->>> +		};
->>> +	};
->>> +
->>> +	mmc0_uhs_pins: mmc0-uhs-pins {
->>> +		pins-clk {
->>> +			pinmux = <PINMUX_GPIO162__FUNC_MSDC0_CLK>;
->>> +			drive-strength = <8>;
->>> +			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
->>> +		};
->>> +
->>> +		pins-cmd-dat {
->>> +			pinmux =
->>> <PINMUX_GPIO166__FUNC_MSDC0_DAT0>,
->>> +				
->>> <PINMUX_GPIO165__FUNC_MSDC0_DAT1>,
->>> +				
->>> <PINMUX_GPIO164__FUNC_MSDC0_DAT2>,
->>> +				
->>> <PINMUX_GPIO163__FUNC_MSDC0_DAT3>,
->>> +				
->>> <PINMUX_GPIO159__FUNC_MSDC0_DAT4>,
->>> +				
->>> <PINMUX_GPIO158__FUNC_MSDC0_DAT5>,
->>> +				
->>> <PINMUX_GPIO157__FUNC_MSDC0_DAT6>,
->>> +				
->>> <PINMUX_GPIO156__FUNC_MSDC0_DAT7>,
->>> +				 <PINMUX_GPIO161__FUNC_MSDC0_CMD>;
->>> +			input-enable;
->>> +			drive-strength = <8>;
->>> +			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
->>> +		};
->>> +
->>> +		pins-ds {
->>> +			pinmux = <PINMUX_GPIO167__FUNC_MSDC0_DSL>;
->>> +			drive-strength = <8>;
->>> +			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
->>> +		};
->>> +
->>> +		pins-rst {
->>> +			pinmux =
->>> <PINMUX_GPIO160__FUNC_MSDC0_RSTB>;
->>> +			bias-pull-up = <MTK_PUPD_SET_R1R0_00>;
->>> +		};
->>> +	};
->>> +
->>> +	mmc1_default_pins: mmc1-default-pins {
->>> +		pins-clk {
->>> +			pinmux = <PINMUX_GPIO169__FUNC_MSDC1_CLK>;
->>> +			drive-strength = <6>;
->>> +			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
->>> +		};
->>> +
->>> +		pins-cmd-dat {
->>> +			pinmux =
->>> <PINMUX_GPIO170__FUNC_MSDC1_DAT0>,
->>> +				
->>> <PINMUX_GPIO171__FUNC_MSDC1_DAT1>,
->>> +				
->>> <PINMUX_GPIO172__FUNC_MSDC1_DAT2>,
->>> +				
->>> <PINMUX_GPIO173__FUNC_MSDC1_DAT3>,
->>> +				 <PINMUX_GPIO168__FUNC_MSDC1_CMD>;
->>> +			input-enable;
->>> +			drive-strength = <6>;
->>> +			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
->>> +		};
->>> +
->>> +		pins-insert {
->>> +			pinmux = <PINMUX_GPIO2__FUNC_GPIO2>;
->>> +			bias-pull-up;
->>> +		};
->>> +	};
->>> +
->>> +	mmc1_uhs_pins: mmc1-uhs-pins {
->>> +		pins-clk {
->>> +			pinmux = <PINMUX_GPIO169__FUNC_MSDC1_CLK>;
->>> +			drive-strength = <8>;
->>> +			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
->>> +		};
->>> +
->>> +		pins-cmd-dat {
->>> +			pinmux =
->>> <PINMUX_GPIO170__FUNC_MSDC1_DAT0>,
->>> +				
->>> <PINMUX_GPIO171__FUNC_MSDC1_DAT1>,
->>> +				
->>> <PINMUX_GPIO172__FUNC_MSDC1_DAT2>,
->>> +				
->>> <PINMUX_GPIO173__FUNC_MSDC1_DAT3>,
->>> +				 <PINMUX_GPIO168__FUNC_MSDC1_CMD>;
->>> +			input-enable;
->>> +			drive-strength = <8>;
->>> +			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
->>> +		};
->>
->> Don't we also need pins-insert here? (to match mmc1-default-pins)
->>
-> From what I've found, it was done this way for other board devicetrees
-> to avoid possible reconfiguration happen for the card detection pin
-> while switching to UHS and causing a switch failure.
-> Also, what you declare in pinmux nodes is how the pin configuration
-> should change in a specific mode and you declare only what changes, and
-> not what stay the same.
-> 
->> I was having trouble with the CD input pin not working in U-Boot
->> until I added it.
-> I checked and debugged this on my board and did not get that kind of
-> issue, whether this pin config is not present for uhs state or if I add
-> it. 
-> When inserting my sd card or when I boot with it already inserted, the
-> mtk-sd driver first sets the pinctrl state to default before switching
-> to ufs. The GPIO02 pin config is also OK in both states.
-> The mt8189 pinctrl driver seems to apply a default config for this pin
-> that is the same as the one that is set here.
-> 
-> There might be u-boot particularities that could explain it fixes your
-> issue.
-> 
-> Regards,
-> Louis-Alexis
->>
->>> +	};
->>> +
+> Please take a look.
+>
+Hi Guenter,
 
-Thanks for having a look at this and taking the time to explain. I will
-see what I can do to fix it in U-Boot.
+Thanks for pointing this out.
+You're right, since the pwm_shutdown array is zero-initialized by devm_kzalloc,
+the channels that are not explicitly configured, will be treated as valid
+and written as 0 during shutdown. I'll fix it in next revision.
 
+> Thanks,
+> Guenter
+> 
 
