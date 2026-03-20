@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182E61093181
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFA51093180
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 07:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YEgOavc24y3yXgmY3844+Rp4FHSMH9wftfFqZIYfiP8=; b=YSZikV3n4tn/Gq7YcvcEfOQ6O3
-	gXNCN0QMHD/cmjBR7bcoLZAAKk6CaweqIb+ChgDQ1wXE6loCjFJuQVFSNMHl/KFyPMkmOtgAI5USq
-	G87/fDQU2kGCmxiSAXagvWudxpJRsEcOk2pK3CwzmzVZz2Y0l7X8MX3KtTSn1lcOrh/oJ1vS+VJog
-	d/6bdF6D9epDjePkuOSwPCPOlc4hlwvwxzk48/Hoi2E6sxR1CqXB+FNfTkj8o0+jkpQYwOHkKv+/L
-	3gZzg0JqyO1cQ0o5n27NeCMleqDUOnVFuxpHazpypI8R7iRmqxYux7vb5bQYj4wVeOR/nr7iTRwVv
-	35nzBujQ==;
+	bh=DNOjcTvj4j7Sb7uRKbeUh7QO1/N1P457msM++fZ/8k0=; b=OtoRhcsY1GAoruDSlvW++HEo4f
+	0QyjFERADanLMV9Cfxt4+EcZdm6soDp1MD+gDZgMEsPCsBTaoqVRMRzJxjEFr7EsNdwiAeeuppDBx
+	W2gO3gdG7/ttNQ3Cp+GT8N+lvsmUFfEnHwJRGnMSk4StDTWreBwPiqLG3nrGNLBWEUD5XNPoGKCkA
+	aMqf5sVTjl8gP8cvXmDwj5NIgx2V35gVjMuCdCcFtGPTbaiv89hlydZri5HMDiEkOf+K61K7/F9TQ
+	5ODyopd8vYb3OOyUYSNyIpN2TyewHQ0C3pG/7DJyMEOtxwjLfuFINLtlKn0IgdF2noJHZDz3OxSlL
+	cCuE/DFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3UCX-0000000CF1g-05IT;
+	id 1w3UCX-0000000CF2O-2W3p;
 	Fri, 20 Mar 2026 07:23:21 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3UCR-0000000CExm-2nmp
+	id 1w3UCU-0000000CEzN-1xi7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 07:23:17 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ad617d5b80so10789385ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 00:23:15 -0700 (PDT)
+	Fri, 20 Mar 2026 07:23:19 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c70fb6aa323so679045a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 00:23:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773991395; x=1774596195; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1773991397; x=1774596197; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YEgOavc24y3yXgmY3844+Rp4FHSMH9wftfFqZIYfiP8=;
-        b=iKY+bPCmcU/gpUbziMwvAj0eA1x0t14xyFok32K7P9sYxmNyWkBbIBMbaWdEqNL+EU
-         JxZ3enobiSCapNSktUrd61MZjTMfMYB6ZSKwW9HG3kqJSqapq+AbQ6zErmNLkIuuHKY7
-         1HVjP7XBzuFkZn3scVQOck+4E/nLaCdQJHqvE=
+        bh=DNOjcTvj4j7Sb7uRKbeUh7QO1/N1P457msM++fZ/8k0=;
+        b=L41PKltFpcp6w/8ll3nRf7x/N74YliTtz9L1rZEHERkbICDZOKf/ZrCtq/kapLcCoB
+         t23lpqVIFtG4gn9LaTKyz3LsT9ixqspfZaQsBto74ELbDb+XaKhN939ehx3rzd6zmoD6
+         Nmrlm7Qri0WPn32kWcF1tHtXB2ysCjFuauEXQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773991395; x=1774596195;
+        d=1e100.net; s=20251104; t=1773991397; x=1774596197;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=YEgOavc24y3yXgmY3844+Rp4FHSMH9wftfFqZIYfiP8=;
-        b=D/+02xdu+JKZsLGcAxu1rN8+IzlNicm4Zj+B52NbzmjrD0eYOJeuiifWhORfaVhSFa
-         sfcM9SUqrIdc+GmT0ilI9eaPzL/a+KRMD2g6+ndHJExBAneVh47mLfgA4rydQhMtm5ld
-         OCeghHhGYqf/NRwJiZyJPwyYZR1+1euUIZfVRbPLtyTGEuEhhyc76U9eEtBU0K1iCloQ
-         mewt/Xob0EIZnolLtre9oRZBajVbqtLhGKp713Y2xww//it1XnZqG4Q6m6NDp0sCA1oQ
-         /Kl+CxwjMWDBaPFwJza7fuhdxDTCqemGYrz72VO/RH4O0wqGqaduiPYpySI1apaT26H9
-         fXDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVDYUhkNEMUvA/uNgQmCYyaFa7kzw1qc5d/AEJ/qnJgcB7YD1Aiy+L/a557uxG38oiZI9DmULoe1dAoeCbPvOXm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4HXJm0yRZUJFV3NTttkL04ZDrGWv5Tm30MBlGZt5R1ZCT2Z/5
-	TWlKRVHMC8PL5io3MsBGzJ9ENNpPckBqdQrOtkS5D509F/WQNLsRdPLGWFdDtMoCww==
-X-Gm-Gg: ATEYQzzl1C7ShVq/wW7OzrdBHqTF3yk0d9H4M2tIgxuzN4cmOSdlwW0RwWsNt113EU7
-	MjXdeHzgBfWKpHKXhNwg7QTyJ8WYcJsnZJf2XdgYYjHI0SQXx4jptfeK8sjNNjEpZ4GVIVuTYmK
-	Pz11iDcbuhN7bBPxdY7LFihrRauutttyT5KZ9YdVFQeJ2VtT3nvDVgmP1Tj0qWfbHgbOEuoRepE
-	+j8U/aJOthr0bFYFoATeogrC5kN094PBcMtjsy5Px6zucGI6Tc9osr6z4/C5UlFGKHA1StjhXhV
-	d/THsE4vGZkMzvgQYlS1ka2iD8raHBnb6pOhrMxk3QlpHP0nRYytS1QDkVMB0U1Qw+2il+0Gt5+
-	gF6wyT2zrChzRX7GNPO+lBSNxLl+jpe9ROVm2vyAAPFvSl7JI/f94rq9XZozv3JtDKci8LUoXET
-	pw/QFWxuZG7A6ItYfDxWohNiepONdJVu0IJvcOL4dma0aXPCeilZKbMIhl/hDwGSa+y2B2pUUgA
-	qmFbFBO
-X-Received: by 2002:a17:902:f690:b0:2ae:803e:6c0d with SMTP id d9443c01a7336-2b082764904mr20104645ad.19.1773991394782;
-        Fri, 20 Mar 2026 00:23:14 -0700 (PDT)
+        bh=DNOjcTvj4j7Sb7uRKbeUh7QO1/N1P457msM++fZ/8k0=;
+        b=cPEGKhVI5UiKGAOf4evoGz/Seshdf3i95XwXsUxqtMoq+GdY36O90UTzCVZktA3O/T
+         UQnKubW9eKjG7AS9PcLSXpcg3AJDFA+gHI28NZIzq4ukM+MwqRqpXxUcc4z6PKxR8BG1
+         UmOMtBST4yCVnxYHqYkOVaVtOiV6ZkBbhNCtY2kw7cMprIe3h2zVpAPoOMAIJBDb4eSb
+         hgCxrcdOAGs4DyooHFrULbK/qwXyp7d/yAjzHKh8TPo5QPNmJp9tA29YJ/5xkR7TWwNr
+         6anSeBnnJu3xso8pv6/CmMI+bd5Jqjq44EkGuwoJneqEl8reSQaAlLsRYHbs8K6y0vcx
+         2WPA==
+X-Forwarded-Encrypted: i=1; AJvYcCX/uc6YWn0TwvyDg4NKq6Q/QFyPJ96MB59b+Xy8XV5bhvGJYXpFxRnrxfy8qZJrtqgsNQMBmzbdv7yRS50uu/jH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBw4LxUTWaJxoSAgpwNsNNowrKyNqUPh3Idl6UimyqedFCQr8W
+	b88R55MrKZid3wA7QHjOTMmrIy7/8YJaiDUBoxjhSG0kwQxqAWRd+pm3G2qDYJzNlw==
+X-Gm-Gg: ATEYQzzjhcL9Pqwdih0BQe5vj1EuIzqTLnJWQFAJL5QUM5+sXNsx1zgAh5e0FPnme8M
+	euKHRDqjIgMvrP6ihUuF+XdD2mpJubt9EE2AmKHEAg5CF64J3+4rJptDg6o72Vtf0jt6CbCCBPl
+	xxJ7bYVdrNP+XP9a7mvTeDcaNWLXSokPfOQjSKaREqcRuLmfC1TFZL8aRE1Ibkigu6j71GUqmfq
+	4s23YxzLz4dpC/KWpK/ziZCvi3aow4JQLj3SCVUxXB+j28ntlGe+u6hjMHcq4bK008grkMyOvGA
+	UmhQZ/GLwLjrXIQi6Q2jUgyIODDRIbfm95yk+XJUwDaYi7JXTtK7l+41kXUafuyyC8wfJFvHJsx
+	qi7+caJmDsFrGroM6JXW2wMVxrfxWtPv3/W58CP8P9HC+JA9fzU2Q+GcZ/SQybeo/wrMRLe9Dl4
+	mR15AtWievS4Z0xD8DJcI1dIPyWbPRIsgvw0ULFwXwnKsuz8IykqtFDXOv+qNrmARZIWz79rmOz
+	1aClgDp
+X-Received: by 2002:a17:902:f709:b0:2b0:4eeb:f80a with SMTP id d9443c01a7336-2b082769c57mr17180045ad.29.1773991397165;
+        Fri, 20 Mar 2026 00:23:17 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:9cdf:e932:6f2f:c654])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516b96sm16728365ad.7.2026.03.20.00.23.12
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516b96sm16728365ad.7.2026.03.20.00.23.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 00:23:14 -0700 (PDT)
+        Fri, 20 Mar 2026 00:23:16 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Mark Brown <broonie@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>,
@@ -79,17 +79,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH 1/2] regulator: dt-bindings: mt6315: Add regulator supplies
-Date: Fri, 20 Mar 2026 15:23:00 +0800
-Message-ID: <20260320072302.2402489-2-wenst@chromium.org>
+Subject: [PATCH 2/2] regulator: mt6315: Add regulator supplies
+Date: Fri, 20 Mar 2026 15:23:01 +0800
+Message-ID: <20260320072302.2402489-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.959.g497ff81fa9-goog
 In-Reply-To: <20260320072302.2402489-1-wenst@chromium.org>
 References: <20260320072302.2402489-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_002315_711703_2FF1FB6C 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260320_002318_521595_F2478675 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,44 +107,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The MT6315 family of PMICs has 4 buck regulators. Each regulator has a
 separate supply.
 
-Add these supplies to the device tree binding.
+Add these supplies to the driver.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- .../bindings/regulator/mt6315-regulator.yaml        | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/regulator/mt6315-regulator.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/regulator/mt6315-regulator.yaml b/Documentation/devicetree/bindings/regulator/mt6315-regulator.yaml
-index fa6743bb269d..ba99a0d02bc7 100644
---- a/Documentation/devicetree/bindings/regulator/mt6315-regulator.yaml
-+++ b/Documentation/devicetree/bindings/regulator/mt6315-regulator.yaml
-@@ -29,6 +29,16 @@ properties:
-     type: object
-     description: List of regulators and its properties
+diff --git a/drivers/regulator/mt6315-regulator.c b/drivers/regulator/mt6315-regulator.c
+index d3f93aae0fc5..231e64fb0596 100644
+--- a/drivers/regulator/mt6315-regulator.c
++++ b/drivers/regulator/mt6315-regulator.c
+@@ -31,10 +31,11 @@ struct mt6315_chip {
+ 	struct regmap *regmap;
+ };
  
-+    properties:
-+      pvdd1-supply:
-+        description: Supply for vbuck1
-+      pvdd2-supply:
-+        description: Supply for vbuck2
-+      pvdd3-supply:
-+        description: Supply for vbuck3
-+      pvdd4-supply:
-+        description: Supply for vbuck4
-+
-     patternProperties:
-       "^vbuck[1-4]$":
-         type: object
-@@ -51,6 +61,9 @@ examples:
-       reg = <0x6 0>;
+-#define MT_BUCK(_name, _bid, _vsel)				\
++#define MT_BUCK(_name, _bid, _supply, _vsel)			\
+ [_bid] = {							\
+ 	.desc = {						\
+ 		.name = _name,					\
++		.supply_name = _supply,				\
+ 		.of_match = of_match_ptr(_name),		\
+ 		.regulators_node = "regulators",		\
+ 		.ops = &mt6315_volt_range_ops,			\
+@@ -190,10 +191,10 @@ static const struct regulator_ops mt6315_volt_range_ops = {
+ };
  
-       regulators {
-+        pvdd1-supply = <&pp4200_z2>;
-+        pvdd3-supply = <&pp4200_z2>;
-+
-         vbuck1 {
-           regulator-min-microvolt = <300000>;
-           regulator-max-microvolt = <1193750>;
+ static const struct mt6315_regulator_info mt6315_regulators[MT6315_VBUCK_MAX] = {
+-	MT_BUCK("vbuck1", MT6315_VBUCK1, MT6315_BUCK_TOP_ELR0),
+-	MT_BUCK("vbuck2", MT6315_VBUCK2, MT6315_BUCK_TOP_ELR2),
+-	MT_BUCK("vbuck3", MT6315_VBUCK3, MT6315_BUCK_TOP_ELR4),
+-	MT_BUCK("vbuck4", MT6315_VBUCK4, MT6315_BUCK_TOP_ELR6),
++	MT_BUCK("vbuck1", MT6315_VBUCK1, "pvdd1", MT6315_BUCK_TOP_ELR0),
++	MT_BUCK("vbuck2", MT6315_VBUCK2, "pvdd2", MT6315_BUCK_TOP_ELR2),
++	MT_BUCK("vbuck3", MT6315_VBUCK3, "pvdd3", MT6315_BUCK_TOP_ELR4),
++	MT_BUCK("vbuck4", MT6315_VBUCK4, "pvdd4", MT6315_BUCK_TOP_ELR6),
+ };
+ 
+ static const struct regmap_config mt6315_regmap_config = {
 -- 
 2.53.0.959.g497ff81fa9-goog
 
