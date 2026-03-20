@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF8B10987A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E435F10987A8
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uKqEXbFdAAk+J2G0I1kNux1p5BaSys7NUGRndphu9ig=; b=eVhPpacAoZk8rkBS5bnDJv2bbn
-	H6nJPtgSSI/7pq7B4HzUeKCxrEMg8Q6dbme9dgS2ZtnVlONeBKXXoX49zLGQfekZ2F/OnLrHmnkHK
-	hPvocrdIwTUn8DmhKlVhoskqajD/TlvahPMbuSznLFKAw3waTjuisNIdUCVlah4eVK9h2ucySBZAb
-	v3O50LCWKtI6uynHptWCm3DmsVPIlNpZ159kESNevavCiz2jC7X2T1OZyysLaEqA74YJE2IMzqET1
-	lqmNB4qDbLATZwRrB5ziEC/62PW0WhY1njekl1endZj6Oon8dry+00OuxsOxgGgxMoTt/vuM05A8z
-	aaAenzcA==;
+	bh=vF1ecRTeN12mvoeY72tKd6qTWkUUgB+OAEdvvPMpjZk=; b=lRSTyUGlyD1DZWpnNnhrZOMlpe
+	GnzyMrLjHiC2D00W8B1EZhJqTPXLEVuabLLpFaFEKyeFOblPaX7xU1ZczSFZ9Pu1nHUuSIxpbhnWB
+	m6xlWkTzZ7NgFUfWXd2NuwDOQT99gJ2oUKjNeaM0MHwSfBexNgNhk12cSIqidBZzGqdaeR7EK6Wt5
+	M01CUsqm0azQcFWmRtCB069hVcX9lgS+e96urcH1pGf875nZmZekvPngJeWHjSSyjwoDbnUBgAf/t
+	kzREMGkM3vzvKLnSGA4vfLJQvKaRZgvZilMQIKHdi394h48GMkNSE3xSct4wUH4Ihg5Pf+7dY2wSn
+	AitmxX1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ciN-0000000D8gk-2SY2;
-	Fri, 20 Mar 2026 16:28:47 +0000
+	id 1w3ciO-0000000D8hx-335c;
+	Fri, 20 Mar 2026 16:28:48 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3chp-0000000D88V-2e50
+	id 1w3chy-0000000D8JZ-1pj6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:28:13 +0000
+	Fri, 20 Mar 2026 16:28:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC3D260141;
-	Fri, 20 Mar 2026 16:28:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2050CC4CEF7;
-	Fri, 20 Mar 2026 16:28:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D89B60142;
+	Fri, 20 Mar 2026 16:28:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83FD7C2BCAF;
+	Fri, 20 Mar 2026 16:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774024092;
-	bh=wxvIbslsFOe+8OR1tP24GsCg3PyWA7sUK7uSel4Swqg=;
+	s=k20201202; t=1774024101;
+	bh=pmYtpOxkhTjqRgGaAdFbUe+w3uLXCN7Sf0CtbEDxy8k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KM/M8DbMI4cQ51n4PrNKbVDyepwp+XaKiCX9TL8p3egLC7ajUeVHSRCHBv1xZYxZ4
-	 IbyvpfmTRNYivbC9qTEMn2ReWq360mbwcoZ03g0Hktfl89CWBfjmxyGzkCuqZWEkFI
-	 XSQAd0rZeeJy8masn23VpfsooUbxy6raFOIA53Zr1xnqfc+GeunlSQCqXGgdsf+TIC
-	 oI61Kj29xVzn90u/8R3OvE9xjVFn+4ziqUDXQX5nxfL/wuyrmHgVSnO8q5lU7Tib2g
-	 59de87igWktKY/xlNasqJ6UTmZVJjvq5voBnndn/G8KQv8+9jnjZ0pUBBgNFv6J5BM
-	 0AwUUvi9yZOTQ==
+	b=XXskUXJpKATeGmtvitsgPaTOhTUu5xmAeLwf4Rv2975NoU4vV23dp2mdYGXScbmg4
+	 dPtANbDCjddD/YNGwgzLMWhMi44Ty1P87hJfryUIO1qODAn1eHmURB8ARD0Ns3HKw8
+	 hyrmeXuU5QjbC6hT3c7/q2ReDUd8h1MXU+VQX11/xiXIIHs6DuLk1Zznx1Lu/xL7my
+	 gcDafOtz+OuvBxlkK1PQY+8w5uXP57lLbkqiCqJG2g7sSPQmi+yc63TS0VU0/wYRh9
+	 mxXcRMZVlNup+GovhLVEUapSR2A1eEnJcgJxmKAWF59YTtgFNFHcO1OOZ0+U+RLTiA
+	 35USEatx6KnCA==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 20 Mar 2026 17:27:23 +0100
-Subject: [PATCH v2 16/20] drm/atomic: Drop private obj state allocation
+Date: Fri, 20 Mar 2026 17:27:26 +0100
+Subject: [PATCH v2 19/20] drm/tidss: Convert to atomic_create_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-drm-mode-config-init-v2-16-c63f1134e76c@kernel.org>
+Message-Id: <20260320-drm-mode-config-init-v2-19-c63f1134e76c@kernel.org>
 References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
 In-Reply-To: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,12 +79,12 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  Maxime Ripard <mripard@kernel.org>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1451; i=mripard@kernel.org;
- h=from:subject:message-id; bh=wxvIbslsFOe+8OR1tP24GsCg3PyWA7sUK7uSel4Swqg=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJl7S7OCbn+8dc39U0vJg8nZdpOvO65nua8bUaB9Xsdgx
- an1HDofO6ayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBEJu9lrE/7u5hT4pqPR+CX
- DSvU3YPkVm/5zxB2IY49sG8ai108mxnvQ4sngRl7pq59dVhh0dv4j4x1VrNOKB+e4/Rn2UV7jp4
- i24dPW7TF5fcKCOTOXRVc4yN5pdPkZXkJ53R+1tZ7YlOcVvcAAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3205; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=pmYtpOxkhTjqRgGaAdFbUe+w3uLXCN7Sf0CtbEDxy8k=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJl7S3MOJ1UVPcx5/V/NscVk9ew/F+9cjj96jOPPZQlhj
+ 5PX97du65jKwiDMySArpsjyRCbs9PL2xVUO9it/wMxhZQIZwsDFKQATCT3LWGd8TpE5ds5KybS3
+ BZ83Ligt7trfsMhq138za5PYvrUSDq91u1nMyrbw3/SM28edkjb9IGPDY7VWBl6REM2Nq9isSwr
+ 84me5aAltmcgye8OFH2bpL6c/vyNh1zpFQ1RbnEfx7jSPIzcA
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -101,49 +101,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that drm_dev_register() calls drm_mode_config_create_state() for
-every modeset driver, the private obj states will be initialized at
-driver registration automatically if they haven't already.
+Our driver uses reset to create the various object states, but only
+calls the helper that allocate a new state. They are thus strictly
+equivalent to the new atomic_create_state helpers, so let's switch to
+these.
 
-Thus, the explicit initial allocation we have in
-drm_atomic_private_obj_init() is now redundant, and we can remove it.
-
+Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/drm_atomic.c | 7 -------
- 1 file changed, 7 deletions(-)
+ drivers/gpu/drm/tidss/tidss_crtc.c  | 17 +++++++----------
+ drivers/gpu/drm/tidss/tidss_plane.c |  2 +-
+ 2 files changed, 8 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-index 5aa3f9f0620bd155dd53023e6c76e3883ffaadef..3bd52602fe307a1b82a3b68d82b458e1da8a4f6d 100644
---- a/drivers/gpu/drm/drm_atomic.c
-+++ b/drivers/gpu/drm/drm_atomic.c
-@@ -995,25 +995,18 @@ static void drm_atomic_plane_print_state(struct drm_printer *p,
-  */
- int drm_atomic_private_obj_init(struct drm_device *dev,
- 				struct drm_private_obj *obj,
- 				const struct drm_private_state_funcs *funcs)
- {
--	struct drm_private_state *state;
- 	memset(obj, 0, sizeof(*obj));
+diff --git a/drivers/gpu/drm/tidss/tidss_crtc.c b/drivers/gpu/drm/tidss/tidss_crtc.c
+index a31c21c5f855ac8a94089dd3908e2510193b7d67..66e3d161c60bc14b2982cff4cdd43030d4086798 100644
+--- a/drivers/gpu/drm/tidss/tidss_crtc.c
++++ b/drivers/gpu/drm/tidss/tidss_crtc.c
+@@ -355,24 +355,21 @@ static void tidss_crtc_destroy_state(struct drm_crtc *crtc,
  
- 	drm_modeset_lock_init(&obj->lock);
- 
- 	obj->dev = dev;
- 	obj->funcs = funcs;
- 	list_add_tail(&obj->head, &dev->mode_config.privobj_list);
- 
--	state = obj->funcs->atomic_create_state(obj);
--	if (IS_ERR(state))
--		return PTR_ERR(state);
--
--	obj->state = state;
--
- 	return 0;
+ 	__drm_atomic_helper_crtc_destroy_state(&tstate->base);
+ 	kfree(tstate);
  }
- EXPORT_SYMBOL(drm_atomic_private_obj_init);
  
- /**
+-static void tidss_crtc_reset(struct drm_crtc *crtc)
++static struct drm_crtc_state *tidss_crtc_create_state(struct drm_crtc *crtc)
+ {
+ 	struct tidss_crtc_state *tstate;
+ 
+-	if (crtc->state)
+-		tidss_crtc_destroy_state(crtc, crtc->state);
+-
+ 	tstate = kzalloc_obj(*tstate);
+-	if (!tstate) {
+-		crtc->state = NULL;
+-		return;
+-	}
++	if (!tstate)
++		return ERR_PTR(-ENOMEM);
+ 
+-	__drm_atomic_helper_crtc_reset(crtc, &tstate->base);
++	__drm_atomic_helper_crtc_create_state(crtc, &tstate->base);
++
++	return &tstate->base;
+ }
+ 
+ static struct drm_crtc_state *tidss_crtc_duplicate_state(struct drm_crtc *crtc)
+ {
+ 	struct tidss_crtc_state *state, *current_state;
+@@ -403,14 +400,14 @@ static void tidss_crtc_destroy(struct drm_crtc *crtc)
+ 	drm_crtc_cleanup(crtc);
+ 	kfree(tcrtc);
+ }
+ 
+ static const struct drm_crtc_funcs tidss_crtc_funcs = {
+-	.reset = tidss_crtc_reset,
+ 	.destroy = tidss_crtc_destroy,
+ 	.set_config = drm_atomic_helper_set_config,
+ 	.page_flip = drm_atomic_helper_page_flip,
++	.atomic_create_state = tidss_crtc_create_state,
+ 	.atomic_duplicate_state = tidss_crtc_duplicate_state,
+ 	.atomic_destroy_state = tidss_crtc_destroy_state,
+ 	.enable_vblank = tidss_crtc_enable_vblank,
+ 	.disable_vblank = tidss_crtc_disable_vblank,
+ };
+diff --git a/drivers/gpu/drm/tidss/tidss_plane.c b/drivers/gpu/drm/tidss/tidss_plane.c
+index aaa02c851c595aa3781ec2e6741af1999092aa40..518498d4576528a0ec59fd03cf27a87b1b3f1e6e 100644
+--- a/drivers/gpu/drm/tidss/tidss_plane.c
++++ b/drivers/gpu/drm/tidss/tidss_plane.c
+@@ -176,12 +176,12 @@ static const struct drm_plane_helper_funcs tidss_primary_plane_helper_funcs = {
+ };
+ 
+ static const struct drm_plane_funcs tidss_plane_funcs = {
+ 	.update_plane = drm_atomic_helper_update_plane,
+ 	.disable_plane = drm_atomic_helper_disable_plane,
+-	.reset = drm_atomic_helper_plane_reset,
+ 	.destroy = drm_plane_destroy,
++	.atomic_create_state = drm_atomic_helper_plane_create_state,
+ 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_plane_destroy_state,
+ };
+ 
+ struct tidss_plane *tidss_plane_create(struct tidss_device *tidss,
 
 -- 
 2.53.0
