@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0571098787
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D151C1098787
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=txsLO2jkdNhN6oBkuArfXNgiBSygoSMNA3GUMB3p1q0=; b=M23ilo9MXSl63+WzhVxwDrdd7k
-	+KXmF9MDVrHTx2dVvWmFqeyPAPzs4zrz1DM7cpJZ99V98YDNBx8dmzXakfBKAsQbE/wjNnw+EVLZW
-	Vbs75sH0nJcdUx/wgnUIFgYMPxOo9pmj099cEORjzzpA6D/W8Kmx1X4AoN02bbqj1rwqevTLsoCgA
-	UwEbmaZG8vKXRoVFD8nqIRM/U4d6OaTqs9PuL5UWX20Jg4vvt9GddH6TgwKR33VgRZnIG5RbSNcfN
-	2RizNmxEgoz8dXdeQG0xeKyYtAW5vnCYcbFbpU1+H83KY2aygwcI595wMIeW1xVznKIiYBm15VMUw
-	XoS/kgBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hWgkyHieI+lx6uZjlbxnNfikaImkXlaHPtGyHRNFVhw=; b=MQDvQloBiXqK/l+ahqdLBskhXR
+	jNlaRhNZ/PGVIA3MJPAmlbcnvklrVDV5s8e6ioFpdD1BtK9Ky+8VfkbY8ON1MkRSD1L4VPhDmWuaz
+	0B5vXFzZWBk2X/ACkOedvUQsqTM8Sfp5czXCod2QMrfjRnIDpXTL3BkrJU1YFRcxIZInsEj7ppbU+
+	z+s7pbr9rRakMf5GK14fgQGYzhOp++egEQ3jhvGyr0pYCOCzcvDnqlhZERzeCu2bjIUPmnG2Y6+bL
+	jccXOFpD0THbEfJJX+KRgZ7GW96ae5JvOrn+szI/pyg6aMkyMbhosNaHXZDxKCI3mD2q8IVzDwRDr
+	1X2clLbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aPX-0000000Cu32-36rt;
-	Fri, 20 Mar 2026 14:01:11 +0000
-Received: from mail-oa1-f51.google.com ([209.85.160.51])
+	id 1w3aUs-0000000CuJf-2Fgs;
+	Fri, 20 Mar 2026 14:06:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aPU-0000000Cu2c-37rC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 14:01:11 +0000
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-41c0aae84e5so699387fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 07:01:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774015266; x=1774620066;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=txsLO2jkdNhN6oBkuArfXNgiBSygoSMNA3GUMB3p1q0=;
-        b=cF0TtwTjr7ZM1jmHD7XFXv4nqJUmJszGFqm1lnb/N8DjMZuwgcjMCiY/0vjUmFlcUN
-         Un1b+w0+3r+CXMEzNs5Ecou/hByMLwS8wdLzZMktgxKsOv1sxNoOOQeDFqSgJRKSA3m3
-         8xjX3pB7JB/Mzy3FYupHx7MnNRBZZyUhLwFmzHsYrxylW6B3fT/EJRiLrKGE+UWCuTAI
-         z+hRqnXaznOipTs1nif2ugBhb+0XG58dbHkqySNls27Qn9gTo0QRaXOp5HvEnsXPqEG7
-         WAShQX2X6y8X1LHs11OKhLaE0MvJO4ITOvuAz8pVlSm8ADXqOWP264xVeYhOh4mXwTCU
-         7+wg==
-X-Forwarded-Encrypted: i=1; AJvYcCX7U2ciAGe88fQP5PdPjX5goILomdZIHA+FIY5CqAUs7G/xcfU3r495Aod7XWXyjFVFECMBfIUEQ3j9Utt6WPqY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxhzawpj0vX8RmjE+LDfME/sLwKiajDtrKQRgSJg6X/1M/UXjyZ
-	akd0X48y6RKvgWvfs4A7qgneoyNU2I+QW05u7CpOMNr5nh4KPEuWR8TanDr5x+mN
-X-Gm-Gg: ATEYQzyEltTHe0RLJzuEL7gcZ4z34hsify66WHzCRhvYm1sWNoUq2+RBFZphyN5Crzj
-	o1M/lbdyTnmDrFmASN4uetSJPkTZakvHfB4aEfYmHQyUcIDipghI7zugXEwQv2JJRANMDbwNXgQ
-	gIhEeawlCGfRNZXRSVYbZ/Z7vDFvCJPwYn1evjGzVvS+lm8NcnezmacKF3/y15K4rsDaO+q0G7t
-	N9C7ULWIl+K2BRHFEM0X5kALMd8tnZzuQzBQ0XcmEPBaiExhubT4X3NN8HKkuKyALTBteyqpL0U
-	oCLDRzTuT3kOLX73hlZXS5gNXMBJefqZqb8E8b0lgOySXU+DRdd6OYuwtBy89Mvvsfn+tfsFk8W
-	xknlSvBC/Mg1qSxD5lEb67+fcdsdlCKlgCyBFfV2PUjfXF2zCju8knoFgP4RJIHCnoMirTirJP4
-	dgto2rVxccaHOb9ZM72pNvrt+SsKAPSIdWYjONl9+8faFjHL76+2KIpgGTdGLAqqT8fNlHUjRg/
-	xHHxGHgpR1dUcYqWhlDXWWo+s6gV7AckOlwhCA8kR1oJTAhcPTl/fhyTGFsO1gj9iP4uPnsp7Bd
-	rM6w9AP7
-X-Received: by 2002:a05:6870:250:b0:417:5c29:acdb with SMTP id 586e51a60fabf-41c10f8dd32mr2080018fac.4.1774015265456;
-        Fri, 20 Mar 2026 07:01:05 -0700 (PDT)
-Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com. [209.85.210.50])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-41c14e45213sm1944497fac.18.2026.03.20.07.01.03
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Mar 2026 07:01:04 -0700 (PDT)
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-7d4c383f2fcso1616602a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 07:01:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU2/HzHIy14VllOQgb5yuiA7gOVNxmOolyOLtOjpS2v0LeTJi1JVKRDqaVZBYzyXqyub4W/ylVS4Hi+7yXfof57@lists.infradead.org
-X-Received: by 2002:a05:6830:67c5:b0:7d7:d15a:ce8e with SMTP id
- 46e09a7af769-7d7eb04feffmr2015751a34.32.1774015263260; Fri, 20 Mar 2026
- 07:01:03 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
-In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
-From: Neal Gompa <neal@gompa.dev>
-Date: Fri, 20 Mar 2026 10:00:26 -0400
-X-Gmail-Original-Message-ID: <CAEg-Je9b1VujkHCVdXowQs+BXA0+DL=6sdoP0wuSYpau4T31XQ@mail.gmail.com>
-X-Gm-Features: AaiRm53Q86Nf9dVOSTKn0cYEE4xmDvp3jUYoCfYFj-SX9hFNk_weUYFVfwHr6Ok
-Message-ID: <CAEg-Je9b1VujkHCVdXowQs+BXA0+DL=6sdoP0wuSYpau4T31XQ@mail.gmail.com>
-Subject: Re: [PATCH 0/9] Initial Apple silicon M3 device trees and dt-bindings
-To: Janne Grunau <j@jannau.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Sven Peter <sven@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Linus Walleij <linusw@kernel.org>, 
-	Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Sasha Finkelstein <fnkl.kernel@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, Michael Reeves <michael.reeves077@gmail.com>
+	id 1w3aUp-0000000CuJH-1Ye3;
+	Fri, 20 Mar 2026 14:06:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774015588; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Wr9FbiYdbxLUWCL9K7rYZTrOQKOpu9kK+amZrXcg3V/3dA7MhRwi4q1dMjrnhbO9vp/iDphZtG4QPo4ZSFQ4WPedmabCfwULB+KEu29IwZimOWorIWFqFBOgI/YbAxrtwFi4jbqkkkoTPkor7e+mZh90+AS548pTVG0fSxpeqCE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1774015588; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hWgkyHieI+lx6uZjlbxnNfikaImkXlaHPtGyHRNFVhw=; 
+	b=Up3hbl2VH50Vli4WhIUpalEprB++a4eLM18qmYa2MNfb03rVZHHVoaHqRh2nB9m688S1QWByjhR0Chot7vWBAsSgY9mjFFE54Yh+B9qXwUVTLrmjW6JPovTRxnAWX2w+JhoNW+GOYAN4KDthE5y5Y39OoStSjxsqh/TCYpCdVKQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774015588;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=hWgkyHieI+lx6uZjlbxnNfikaImkXlaHPtGyHRNFVhw=;
+	b=PvQmJThlSKXxXoG1gYCgwyJkw7EO+zihVPm2ShJ1cr5TIwG4J9X+MS8i7xC+VXJe
+	Rysi6qqqX55sU2Ko0WlJB5cz8Bp/TsX2GEYn76k7suOZ476X9SvrRVi981QUk5Ue/B8
+	XUVEz+j0SttDunBcKfkhFVt1iZq4hWEt00ubfBBU=
+Received: by mx.zohomail.com with SMTPS id 1774015585746684.6715664799156;
+	Fri, 20 Mar 2026 07:06:25 -0700 (PDT)
+Message-ID: <32a03f60a50fc0fc3e9a3b5bfb2c06ce694054cf.camel@collabora.com>
+Subject: Re: [PATCH 3/4] arm64: dts: mediatek: add device-tree for Genio
+ 720-EVK board
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: David Lechner <dlechner@baylibre.com>, Greg Kroah-Hartman	
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Rob
+ Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley	 <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean
+ Wang <sean.wang@mediatek.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Fri, 20 Mar 2026 15:06:20 +0100
+In-Reply-To: <23778b52-9aa2-49fc-946b-e858b99fc3c9@baylibre.com>
+References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
+	 <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
+	 <23778b52-9aa2-49fc-946b-e858b99fc3c9@baylibre.com>
+Organization: Collabora Ltd
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_070108_811236_16672DF2 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20260320_070639_460834_CBC49C8E 
+X-CRM114-Status: GOOD (  30.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +87,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 8:23=E2=80=AFAM Janne Grunau <j@jannau.net> wrote:
->
-> Hej,
->
-> This series adds initial device trees for M3 Apple silicon devices. The
-> device trees contain only a minimal set of hardware not going much
-> beyond the minimum required for booting kernel and initramfs and
-> verify via serial console that the hardware and drivers work.
-> The hardware with the exception of the interrupt controller is
-> compatible with the M1 and M2 SoCs and the existing drivers.
-> Changes for the interrupt controller were sent separately in [1] and are
-> picked up and in linux-next. The device trees pass make dtbs_check with
-> the apple,aic2 dt-bindings change from that series.
->
-> Link: https://lore.kernel.org/asahi/20260223-irq-apple-aic3-v3-0-2b732807=
-6b8d@jannau.net/ [1]
->
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> ---
-> Janne Grunau (9):
->       dt-bindings: arm: cpus: Add Apple M3 CPU core compatibles
->       dt-bindings: arm: apple: apple,pmgr: Add t8122 compatible
->       dt-bindings: power: apple,pmgr-pwrstate: Add t8122 compatible
->       dt-bindings: watchdog: apple,wdt: Add t8122 compatible
->       dt-bindings: pinctrl: apple,pinctrl: Add t8122 compatible
->       dt-bindings: i2c: apple,i2c: Add t8122 compatible
->       dt-bindings: pwm: apple,s5l-fpwm: Add t8122 compatible
->       dt-bindings: arm: apple: Add M3 based devices
->       arm64: dts: apple: Initial t8122 (M3) device trees
->
->  Documentation/devicetree/bindings/arm/apple.yaml   |   18 +
->  .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |    4 +-
->  Documentation/devicetree/bindings/arm/cpus.yaml    |    2 +
->  .../devicetree/bindings/i2c/apple,i2c.yaml         |    4 +-
->  .../devicetree/bindings/pinctrl/apple,pinctrl.yaml |    4 +-
->  .../bindings/power/apple,pmgr-pwrstate.yaml        |    4 +-
->  .../devicetree/bindings/pwm/apple,s5l-fpwm.yaml    |    1 +
->  .../devicetree/bindings/watchdog/apple,wdt.yaml    |    4 +-
->  arch/arm64/boot/dts/apple/Makefile                 |    5 +
->  arch/arm64/boot/dts/apple/t8122-j433.dts           |   19 +
->  arch/arm64/boot/dts/apple/t8122-j434.dts           |   19 +
->  arch/arm64/boot/dts/apple/t8122-j504.dts           |   37 +
->  arch/arm64/boot/dts/apple/t8122-j613.dts           |   35 +
->  arch/arm64/boot/dts/apple/t8122-j615.dts           |   35 +
->  arch/arm64/boot/dts/apple/t8122-jxxx.dtsi          |   48 +
->  arch/arm64/boot/dts/apple/t8122-pmgr.dtsi          | 1149 ++++++++++++++=
-++++++
->  arch/arm64/boot/dts/apple/t8122-usbpd-i2c.dtsi     |   32 +
->  arch/arm64/boot/dts/apple/t8122.dtsi               |  444 ++++++++
->  18 files changed, 1859 insertions(+), 5 deletions(-)
-> ---
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-> change-id: 20260319-apple-m3-initial-devicetrees-5c546ad977a2
->
+Hi David,
 
-LGTM.
+On Thu, 2026-02-19 at 18:09 -0600, David Lechner wrote:
+> On 12/3/25 7:59 AM, Louis-Alexis Eyraud wrote:
+> > Add support for MediaTek MT8189 SoC and its variants, and a device-
+> > tree
+> > for the basic hardware enablement of the Genio 720-EVK board, based
+> > on
+> > MT8391 SoC.
+> >=20
+> > MT8391 SoC is a variant of MT8189 SoC with a difference for the Arm
+> > Cortex-A78 CPU core maximum frequency (2.6 Ghz for MT8391, 3 Ghz
+> > for
+> > MT8189). MT8391 hardware register maps are identical to MT8189.
+> >=20
+> > The Genio 720-EVK board has following features:
+> > =C2=A0 - MT8391 SoC
+> > =C2=A0 - MT6365 PMIC
+>=20
+> Is MT6365 PMIC ...
+>=20
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8391-genio-common.dtsi
+> > b/arch/arm64/boot/dts/mediatek/mt8391-genio-common.dtsi
+> > new file mode 100644
+> > index
+> > 0000000000000000000000000000000000000000..744641916952111a4b389cf6a
+> > dbd27c429b6eff2
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8391-genio-common.dtsi
+> > @@ -0,0 +1,555 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +/*
+> > + * Copyright (c) 2025 Collabora Ltd.
+> > + * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> > + */
+> > +
+> > +#include "mt6359.dtsi"
+>=20
+> ... really 100% identical to MT6359 PMIC?
+>=20
+I did not find any info in the LKML archives if this topic was
+discussed in the past.
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
+The MT6365 PMIC seems to be more a rebranded MT6359P.
+They have the exact same buck converter and LDOs, and features.
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+There are several boards based on MT8370, MT8390 and MT8395 SoC that
+integrate the MT6365 PMIC and whose devicetree, present in upstream,
+use the mt6359.dtsi for this PMIC support:
+ - Mediatek Genio 1200 EVK
+ - Mediatek Genio 700 EVK
+ - Mediatek Genio 510 EVK
+ - Radxa NIO-12L
+Probably a couple more.
+
+The Genio 1200 EVK board devicetree was the first one that used
+"mediatek,mt6359" compatible for this PMIC.
+
+As far as I know, there is no known compatibility issue.
+The MT6359 regulator kernel driver, in particular, does recognise it as
+MT6359P (same identifier) and the MT6365 datasheet shows it has the
+same register layout from what I compared for the buck and ldos.
+
+So 100% identical? I cannot say it for sure but I don't have any info
+telling otherwise.
+
+> Asking because I'm working on this in U-Boot and would be helpful
+> to know that this is correct. Would probably be a good idea to
+> mention
+> it in the commit message too to show this is intentional.
+>=20
+>=20
+> And I wonder if it would be a good idea to add a compatible with
+> fallback
+> just to be sure.
+>=20
+> &pmic {
+> 	compatible =3D "mediatek,mt6365", "mediatek,mt6359";
+> };
+
+You're right.=C2=A0
+That's make sense to document a proper compatibility in the dt-bindings
+and use it the devicetree, not only for pmic node but also but its
+subdevices (auxadc, codec, regulator, rtc, pmic-keys).
+
+As the Genio 720 EVK is not the only board concerned,=C2=A0it would be
+better that I send another series to do such cleanup, for instance one
+that adds a new mt6365.dtsi before using it (instead of mt6359.dtsi) in
+the Genio 720 EVK devicetree.
+
+Regards,
+Louis-Alexis
 
