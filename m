@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0EC7109318F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BA71093190
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8BTqnTP+MmFfu7yIevMNTcW0CwEuW3w6MEJfZCoELY=; b=Uggm2TQbU5P1UeKzwxJeEBqIbK
-	XHRHvuMw+N1drzAc4W06rfX/roid/Za3Hj9ClhTIfd9FCR29TWRAAsYhSMuqNc5H2UCoo/JywzXFi
-	0A1A5Vp1FK/Y/KuJTecfmzDJCcHH5cHBorzC74m1O7oSy69/CdYQ7hSYqEDKAJQvax6Q+seX1FVUz
-	VTnC/2p8jItYdQCqrVCNGUHMv3jfCgVHQYcJ4SqvkG5ByVNoF4Velbng4wzjAQwwacnAsYFWI7Tvc
-	KF/1gaxIF8a384H5ZUnIUvU5N2a2WPQHT6uGem+A+Wo/LVySo4TrI9ot5YZc7W5haMJ/gIr+ilyJy
-	dMQbdsRQ==;
+	bh=5fCSFArSeRGuw+2+Xzv9uC9S50Pu154s6zyJ30lpqjc=; b=qxwrpLAlsQqsb7n9oXq+3RbyTP
+	DxzvugbzEqf4Dnh77LTsWpEgyN/13BnMoONpsgDssPpsOWHi/yA4qOQBtEsPjS9IC7Se0JTsXGB5P
+	9HfmLRi16Zl9d+pQOF20U8isQ6Mkl3Prxpd1j1o8D1X1TgVISjP4E75fUOA6W1rmXoIAIX6LYtaY6
+	AiQp268XNMBqVdFfcNBhES2Sr5d0KvIDCUBiIoIAGSs2o48o5DXMFysJdCJ2ZaZgYi7obuFaEXD9s
+	1DaM2jtBYBAA9OgtjW/MzhgLyM3dg/MLBNuFxkI6VP4EbM+fJzoJ1kOYPQEi4hblcR6Ye5tTeYUpx
+	6sYPsVaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VSx-0000000CNss-0sZb;
-	Fri, 20 Mar 2026 08:44:23 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1w3VSy-0000000CNum-13GR;
+	Fri, 20 Mar 2026 08:44:24 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VSl-0000000CNhh-2IdC
+	id 1w3VSo-0000000CNkZ-01sQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 08:44:12 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b0484a6de4so7610355ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 01:44:11 -0700 (PDT)
+	Fri, 20 Mar 2026 08:44:15 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c742d4df00cso663860a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 01:44:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773996251; x=1774601051; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1773996253; x=1774601053; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Z8BTqnTP+MmFfu7yIevMNTcW0CwEuW3w6MEJfZCoELY=;
-        b=XLgob3F76upCl1tjijDBqBzoY855dIDDLVoj44w/OYbQwssfj2xZXT1GI5/97KwJZr
-         6IueFXkepu/SUP6xewm6LsGp9F8EndIEX7blDeOdY3QYfbdol+az0T0+LewPkhHAhBc4
-         YvdUgQjJv47YVBpdMtvWSvmmKw8jnGBzFh5CI=
+        bh=5fCSFArSeRGuw+2+Xzv9uC9S50Pu154s6zyJ30lpqjc=;
+        b=KfnCLuKoMEFaafWiD/vHuB0gfrVD2CqNmfZUVtCv+7z7lcEMauj0vFjQW/1fBgF/Uo
+         rVv9Yjvk1m5azUI+Sh9iP3UTfGi/ppM+bx8YcotdbOs9jMk6Ze/K22brHe6otwYHPuIg
+         foc5sR2SEGDHk/+c+VyENDliEuyNj+z+AK9dU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773996251; x=1774601051;
+        d=1e100.net; s=20251104; t=1773996253; x=1774601053;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Z8BTqnTP+MmFfu7yIevMNTcW0CwEuW3w6MEJfZCoELY=;
-        b=Xda3FeEXw8DHe3pWYRvsIaNPl8gCNRMNK+y2P+IMm7Ze1933a1ASLmCPZo2UbejVUD
-         5uZXV978RoOwsmh2xFw1vyIeAUbKr/mGZHRADWalL5ioa7O7IVKcGUgRTCUC84pU7uVQ
-         cS+kodPdBiKBpINORUCyi5mCF+h9xAxr2F/mI2H7eGysk3MYF2Gh35RyFIWOJuTsjBmq
-         mb+2EZLFM2TKc3DDxCQfq9UQ5b8QNOq1GvELVVDORSJx4dN+qHZ8vpkU/gVDgBS3RM2b
-         mc2J+zDxX/oDDa5LOnCoMUNbMv4SJTUn1B0QIRXiH9rT4dt9jxbcd/Y9mcEtuv5aoXdB
-         oxaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUixdsuejPiXm3eWuQBc9fdGAJ1DWMx6YOPL+F7Wyn7g9uTZcOFLFzv9jrhk3UTiz/H59WRy+bPNpfPo+Xcgn2x@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfEt9vIDQkhQRONIKcpt9YHd6u+lD1i8MYA8IQG49mo0LVviJ3
-	jKYude8LJN3ehq3AQug8WV2e0LjExcEMq4H7iUePmuDNdf6Yy4XPPWob1N3KJ0tI5w==
-X-Gm-Gg: ATEYQzxoWS0alMYjv2x68qNrI8kB2wkALwCsZu2vv/aGURGgvnFxP1duTMHY0SuNWO6
-	hXp4Mjbi0f/Gm4GneDV/0QRxtmIDUZHA7VgP3KB0zGEdKPvlxXuiVP9iZKo9gNxHYPJj2Ho34f+
-	XWlZbRNNih+JzDjvaTcJnXk0ZOA8YkQiJr3oueOWX9y/ViH+uJGGmrcff25dc+2eydMMZKASkuQ
-	JN4nyt29N37AA1mf2ZhIeAHutxWZHwT3tVJ5dfL8iFJGwIxdnqxXB7N/DZXdBW/IoxweH3WLg0s
-	FbOakEymK67cRvClwj95039QINNGEpEowtbGtOpL+FQDv+1kBmzZehICbto28ay6gijx9kNhi0d
-	C0ZT/toLZhCgvvLy75e05xa2S8PkoDzLtRrzXAe2ST25We4Tv1CnjiC2K+ttLzW2PSQCD49Irzh
-	FvLLaxZpxpA1CWFDhiF5k0c7aw6D29GvehcxlvQR5xWhcsCkrbeRykA2n/G3tTUCHp5RMLgWgd4
-	4wK4Y69
-X-Received: by 2002:a17:903:244d:b0:2ae:ceb0:d5f0 with SMTP id d9443c01a7336-2b08280221bmr18950125ad.47.1773996250947;
-        Fri, 20 Mar 2026 01:44:10 -0700 (PDT)
+        bh=5fCSFArSeRGuw+2+Xzv9uC9S50Pu154s6zyJ30lpqjc=;
+        b=NN+g79ub7QVbxLUFvQ5BPmE6h+MoaTrc1AsLzPsorVNkvsKw2b3xwFKxCXc791Fp59
+         0dER1jBGp4bMj7zjJz7yefa8MbJwXFxM5ccN+9UMtb6fr6jLe4K58nHHr2073yRmxOOe
+         PchyRXN2Svj4HhEc23DPxwKE/H7oRwc8OGYPM77u9KVHY3wK3aTYFg3lLjO2ijybnoXC
+         hQPRoDOMkxYOOQocUTV7VFWNcawVPrkDhU+8++UAw/JMa0WMEobdVvRKrj6ls1m2UZNn
+         qkshGuR7E/BZ/ngIJt/LuhJgjpsxQtGT4WZYKOOI/WvDJxD/pTVseTSHCXAZBBeKoNkd
+         /86Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVZNTFh7XvrodG1zu8AUn2N02DftNV/upYox7NE1EnQSa4aqYU3lTYgRI+EkC4a/gdNWEArWy/tbD93AastzNL7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yycndk8Dn+rL59HmlFP/l1qq0vBklpEoB8us4JVf9TMXDxDi6QB
+	eSt6OnQaiYE+wYXWg3cO1srYRD43kgZzXaH/PXANGJTvYyGOMcY98rW2Gqt4PFPg8A==
+X-Gm-Gg: ATEYQzxvQKsc9D2uBhhtI56sH21/+h/xOIbd4B2CFqZJ6UettJntxTSCNDjMt231wsd
+	OHUHkE18qE8EpXwNYe5klPjAFWfrrDekMFvoDC7IPXipGobsQ0IQi7PuIKEWeZ6/YMPHptkxWWN
+	cT4q7HFLMeX9Ahbef9Pttclp8c74Rnzt/MGQDEEohYuZusLQD3/jPYHLWT8tsjlOGhUfRWO+ePU
+	ajywTnG0wV5YeJ44iEfGAelnMcQ9+ko2UKC8JnP/9FEPdzvqXiRW9YFojbHFQEJhDosTVhwrawg
+	qZxKm7L5WTVH4Z089KTnXla61ku2IgSoKyYwM85RaSkojt6UyBuRu5ky/XRQNWumn3KudF3ndou
+	h4I1u4IRVsX22X0pe0Ayqf0p3OLy2gQTf/31fU4g7NhQNH+UDn8Mb5Vopozac7ZjSyTES09ITVy
+	uyeS3q5iQkeYwRCdensPxY6vVU7DtZUgAHrhtPZI75OLCiT02g3SSZgMVQORXw6BbX9ZukC4viy
+	mwjhfoK
+X-Received: by 2002:a17:902:f683:b0:2b0:5722:f89 with SMTP id d9443c01a7336-2b077143206mr55106235ad.7.1773996253228;
+        Fri, 20 Mar 2026 01:44:13 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:9cdf:e932:6f2f:c654])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0836a3066sm14917905ad.75.2026.03.20.01.44.08
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0836a3066sm14917905ad.75.2026.03.20.01.44.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 01:44:10 -0700 (PDT)
+        Fri, 20 Mar 2026 01:44:12 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -75,17 +75,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 05/13] arm64: dts: mediatek: mt8192-asurada: Add supplies for ChromeOS EC regulators
-Date: Fri, 20 Mar 2026 16:43:37 +0800
-Message-ID: <20260320084351.2461060-6-wenst@chromium.org>
+Subject: [PATCH 06/13] arm64: dts: mediatek: mt8192-asurada: Add CPU power supplies
+Date: Fri, 20 Mar 2026 16:43:38 +0800
+Message-ID: <20260320084351.2461060-7-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.959.g497ff81fa9-goog
 In-Reply-To: <20260320084351.2461060-1-wenst@chromium.org>
 References: <20260320084351.2461060-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_014411_595063_2651E00F 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260320_014414_042729_BD1D3748 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +100,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ChromeOS Embedded Controller exposes two regulators to the system in
-the MT8192 Asurada design. Both these regulators also have power inputs.
+The device tree for the MT8192 Asurada is missing power supplies for all
+the CPU cores.
 
-Add supplies for these two regulators.
+Add supplies to the CPU cores. The big and little clusters each have
+their own regulator.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ .../boot/dts/mediatek/mt8192-asurada.dtsi     | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi b/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi
-index 318903b112a3..f4c8c3aa7a57 100644
+index f4c8c3aa7a57..143f7f4161a8 100644
 --- a/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi
-@@ -1535,6 +1535,7 @@ mt6360_ldo3_reg: regulator@0 {
- 			reg = <0>;
- 			regulator-min-microvolt = <1800000>;
- 			regulator-max-microvolt = <3300000>;
-+			vin-supply = <&pp4200_g>;
- 		};
+@@ -299,6 +299,38 @@ &afe {
+ 	memory-region = <&afe_dma_mem>;
+ };
  
- 		mt6360_ldo5_reg: regulator@1 {
-@@ -1542,6 +1543,7 @@ mt6360_ldo5_reg: regulator@1 {
- 			reg = <1>;
- 			regulator-min-microvolt = <3300000>;
- 			regulator-max-microvolt = <3300000>;
-+			vin-supply = <&pp4200_g>;
- 		};
- 
- 		typec {
++&cpu0 {
++	cpu-supply = <&mt6315_6_vbuck3>;
++};
++
++&cpu1 {
++	cpu-supply = <&mt6315_6_vbuck3>;
++};
++
++&cpu2 {
++	cpu-supply = <&mt6315_6_vbuck3>;
++};
++
++&cpu3 {
++	cpu-supply = <&mt6315_6_vbuck3>;
++};
++
++&cpu4 {
++	cpu-supply = <&mt6315_6_vbuck1>;
++};
++
++&cpu5 {
++	cpu-supply = <&mt6315_6_vbuck1>;
++};
++
++&cpu6 {
++	cpu-supply = <&mt6315_6_vbuck1>;
++};
++
++&cpu7 {
++	cpu-supply = <&mt6315_6_vbuck1>;
++};
++
+ &dpi0 {
+ 	pinctrl-names = "sleep", "default";
+ 	pinctrl-0 = <&dpi_pin_default>;
 -- 
 2.53.0.959.g497ff81fa9-goog
 
