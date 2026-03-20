@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE44108B91B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 12:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59718108B91B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 12:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=; b=Z8+knRzCjb8Wv5Sd32Gsq6eyOZ
-	tltpwXPRWv9SlpsreyYlKoNYOq3PBj1WjhYPgGQIRJR6earZ1C26TxRVpTzGATWru7QoJuz1h/fQe
-	vgSQcHXiVVzDq0bM3u6hfDVjAwiAfCoW2OVvb5dXgNEnwd7KrTprqT83UJZ2BpKNJ5D/bf5YMWtTj
-	BIMX3NUTVgpVM88QzcvKHg4sZfCscGGw0bycLGeijscvDtzg54YVlIwPKbO+QXHWT44NksuI1P7mq
-	ffb72g2Sal5RjRDIaXXPFrwT8rzKUBy2H2J6wIsC7n2CcyJeP7i7ZYw/CFJCo0OSkWEZSoFVRgQwx
-	rdsXKOKQ==;
+	bh=hi0mA+HGeXq3cy1bE1/QSc//1G5W/HPFmreiN3opnmc=; b=F6boZnNxVJxHIaq6kzfHBt9KQb
+	qQmA6sIWeUN/3sjb/Kh12q3TYMXMer5D3oxyzdnkG89kS7PJs04TTNlT24X3S6/iJBfqildYDCaQL
+	nfzqwnS7348eADxxBb+IhN43VIX80COMKX3XTJ4x8JXDa4Ulejec5GXff9aIWY9xSBsVPcFGzmPjU
+	L0watGTViuedhNbNEQyGvklZ5FITQKMElRINXQ0pR+sVpdytjVCDxFobZqWkw+irb8ACwMmmFe7Kh
+	EJwkvNGqrK/RISF5OIt7uEca32t0Wv1trc5iFeVGk0B2hk/mT+rfEPNy1rO/LioE5wka+jc4JElDv
+	1nGrdALQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Z76-0000000CnU3-1hpB;
-	Fri, 20 Mar 2026 12:38:04 +0000
+	id 1w3Z7K-0000000CnWn-42ox;
+	Fri, 20 Mar 2026 12:38:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Z75-0000000CnTm-0Kaz;
-	Fri, 20 Mar 2026 12:38:03 +0000
+	id 1w3Z7K-0000000CnWc-0iWt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 20 Mar 2026 12:38:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=; b=puhKdIlsS+hxV1GD5cRckAohUt
-	zrKLYUBSX0sUQtV7V3RvcqSKkutvhOwAK1T1FLC+iwo4kD3paVov1KenAY/7fBMcGFgNAK3kqIIYq
-	PvEvf5C8xaYsKhIIdw9Kg6R2zG7cnByjXQS3nDXJYo0Njer8piGmeFxA+iWdCkrJGNm8wa2oF1DnH
-	ORzbLL2UNrTH2vp25mdblhbCwJ484S8J5VP4HqNMmXkGhzbjdoiOeOcTboHC1TGiH3G+3BGJKFL9S
-	brl1DoJ34CF4IILzlqrM8JUCZRwjCwsBxS3/hFLRhK2i4KbCDrISCjUg4DJL6QNN/jWnQOK7YVYZD
-	9ZOCnMzQ==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hi0mA+HGeXq3cy1bE1/QSc//1G5W/HPFmreiN3opnmc=; b=czABLbN5Z9g3YWKuj+vVoAy4Ok
+	W/b9XIi400A3wJiX2G0+nezMvR9HnURbHCWV2RFUp+v8uGUqHR0rYD4M2+nBfTGQNKpj2NS/Ofx0g
+	owUfcMweHZCaETC30wfRVO+1xqqCMeTktsZ22dKdPdz9s9z24TvY0DOP6MthmGAowBrRKuC9nc7bm
+	SRBTq8XJ/I59HmJ3OuyCjr6xEAW72KxUi9yXdjbyWtTdq3Dm46USvAH6QvFcn3vFpuS/21cpdr+hH
+	PlwOu6x8Vz/ghsG6FOY6xIU/0YsIxfQuwyQrSzMU9Lh6+CPJdkgl3KUMRXhkFVwsuH633g4DwXAfE
+	Kn0Lbipw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Z70-0000000FXX3-2kAW;
-	Fri, 20 Mar 2026 12:38:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774010260; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=IT1X9lb4WgUGJ3f4XpNl+vAjgAOPfWmZtyaaQKBpOo2bNLHnO9li7xmwGPEbed71lTevrox//bZlixs9FBN984eFZczlLYEM4WIULVmra1p5kiJbeAzfeyaR3+9EpM0+dc1mexIHEIAzsE50Y8+8xHLrb5luj3cIqEG8eGjs9mI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774010260; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=; 
-	b=Tsh96p4MSAWs8lU7Vew0vYe69xpMVDUqTfLNPkQxKXS7edfUihiwAkVxJsh6V2PjjTIFmHWRckkaLg3KPfr2zN/wj6TGiLnVmVVE3OEwGJpeGVr0bM3yUl2z+AMzLlmilxMkVicIdJ8D63CkdTyYkufWFK4xto01O3+6AAcgmkY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774010260;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=;
-	b=RMZiiDIujKB48XWmRkT8/L3xbYeJXdVQivCo4d7Qs0QuywxwSHnMQR7y/b0N3xrR
-	b9y6YbIP2cjgyLxJurJpjJI/qT5PPCyiSKM9WMUe5/C1Pp8JlZ7laavjWFqnWiFkAab
-	CZPFmG7wrmgmXQjUjPqdC844jhQy+mmiq2f4tV/s=
-Received: by mx.zohomail.com with SMTPS id 1774010258810384.6051275065198;
-	Fri, 20 Mar 2026 05:37:38 -0700 (PDT)
-Message-ID: <7d1e52c0b9c3a6d30e9db617b9bcfa23ed9046b5.camel@collabora.com>
-Subject: Re: [PATCH 3/4] arm64: dts: mediatek: add device-tree for Genio
- 720-EVK board
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: David Lechner <dlechner@baylibre.com>, Greg Kroah-Hartman	
- <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Rob
- Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean
- Wang <sean.wang@mediatek.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
-	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Fri, 20 Mar 2026 13:37:33 +0100
-In-Reply-To: <c2618423-2466-47bb-a8cf-7c849e7e231e@baylibre.com>
-References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
-	 <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
-	 <c2618423-2466-47bb-a8cf-7c849e7e231e@baylibre.com>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
-MIME-Version: 1.0
-X-ZohoMailClient: External
+	id 1w3Z7G-0000000FXY2-3iqV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 12:38:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BC4BF44477;
+	Fri, 20 Mar 2026 12:38:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F4B4C4CEF7;
+	Fri, 20 Mar 2026 12:38:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774010290;
+	bh=XhWi8VwgsfjjRoCMiPUJUQrZvTCDyjHFM7V9NE2mOAE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gGYp3YkqT9C4A8gq+qoKdAp5ixgpz8FkIXi+Lt8mxoCqhR3BTxO48vCsMGiwkzTFC
+	 2teTyIKIHYC8zd2ZKHSurN6WEaWED5IPGIowV+mmxlxI3VJUjKzNBe7ZFw6na0G7qX
+	 1ZtJYmQ3bcogbrVfAUmy7xI+osUMru930dMtKMcFPB2CHIHXfCaKwqxWRq9cqdcMKx
+	 Jr3nL+xzul2CgabW3ZqfG8CTPpDS6ftSrDRwGPoCZX4/ANIt+EWdGVS4WtcqpvVvAe
+	 3rOF/A0uHonQfkyUXzC2OXSxaJU1Mjdwa1QHDH/5s4Z8ja2uBVzeLWiIvBbAuiPluw
+	 T0j/sllAsF0Hg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w3Z7A-000000040pr-1FCf;
+	Fri, 20 Mar 2026 12:38:08 +0000
+Date: Fri, 20 Mar 2026 12:38:07 +0000
+Message-ID: <867br665hs.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v3 11/36] KVM: arm64: Introduce __pkvm_host_donate_guest()
+In-Reply-To: <20260305144351.17071-12-will@kernel.org>
+References: <20260305144351.17071-1-will@kernel.org>
+	<20260305144351.17071-12-will@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, smostafa@google.com, alexandru.elisei@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_123759_157154_00BEE683 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20260320_123815_360400_3C9CE697 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,184 +109,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+On Thu, 05 Mar 2026 14:43:24 +0000,
+Will Deacon <will@kernel.org> wrote:
+> 
+> In preparation for supporting protected VMs, whose memory pages are
+> isolated from the host, introduce a new pKVM hypercall to allow the
+> donation of pages to a guest.
+> 
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_asm.h              |  1 +
+>  arch/arm64/include/asm/kvm_pgtable.h          |  2 +-
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 ++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 21 +++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 30 +++++++++++++++++++
+>  5 files changed, 55 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index df6b661701b6..dfc6625c8269 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -79,6 +79,7 @@ enum __kvm_host_smccc_func {
+>  	/* Hypercalls that are available only when pKVM has finalised. */
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_host_donate_guest,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_relax_perms_guest,
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index c201168f2857..b6f7595c4979 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -100,7 +100,7 @@ typedef u64 kvm_pte_t;
+>  					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
+>  
+>  #define KVM_INVALID_PTE_OWNER_MASK	GENMASK(9, 2)
+> -#define KVM_MAX_OWNER_ID		1
+> +#define KVM_MAX_OWNER_ID		3
+>  
+>  /*
+>   * Used to indicate a pte for which a 'break-before-make' sequence is in
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index 5f9d56754e39..9c0cc53d1dc9 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -28,6 +28,7 @@ enum pkvm_component_id {
+>  	PKVM_ID_HOST,
+>  	PKVM_ID_HYP,
+>  	PKVM_ID_FFA,
+> +	PKVM_ID_GUEST,
 
-On Thu, 2026-03-12 at 19:26 -0500, David Lechner wrote:
-> On 12/3/25 7:59 AM, Louis-Alexis Eyraud wrote:
-> > Add support for MediaTek MT8189 SoC and its variants, and a device-
-> > tree
-> > for the basic hardware enablement of the Genio 720-EVK board, based
-> > on
-> > MT8391 SoC.
-> >=20
->=20
-> ...
->=20
-> > +	mmc0_default_pins: mmc0-default-pins {
-> > +		pins-clk {
-> > +			pinmux =3D <PINMUX_GPIO162__FUNC_MSDC0_CLK>;
-> > +			drive-strength =3D <6>;
-> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
-> > +		};
-> > +
-> > +		pins-cmd-dat {
-> > +			pinmux =3D
-> > <PINMUX_GPIO166__FUNC_MSDC0_DAT0>,
-> > +			=09
-> > <PINMUX_GPIO165__FUNC_MSDC0_DAT1>,
-> > +			=09
-> > <PINMUX_GPIO164__FUNC_MSDC0_DAT2>,
-> > +			=09
-> > <PINMUX_GPIO163__FUNC_MSDC0_DAT3>,
-> > +			=09
-> > <PINMUX_GPIO159__FUNC_MSDC0_DAT4>,
-> > +			=09
-> > <PINMUX_GPIO158__FUNC_MSDC0_DAT5>,
-> > +			=09
-> > <PINMUX_GPIO157__FUNC_MSDC0_DAT6>,
-> > +			=09
-> > <PINMUX_GPIO156__FUNC_MSDC0_DAT7>,
-> > +				 <PINMUX_GPIO161__FUNC_MSDC0_CMD>;
-> > +			input-enable;
-> > +			drive-strength =3D <6>;
-> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
-> > +		};
->=20
-> Should we also have pins-ds here to match mmc0-uhs-pins?
->=20
-The data strobe pin is only used for the HS modes, that is why it is
-only declared for uhs state.
-No other mediatek board devicetrees have it for default state too, so I
-don't think it is needed here.
+Is KVM_MAX_OWNER_ID being set to 3 related to PKVM_ID_GUEST being
+introduced? If so, wouldn't it be better to define one in terms of the
+other?
 
-> > +
-> > +		pins-rst {
-> > +			pinmux =3D
-> > <PINMUX_GPIO160__FUNC_MSDC0_RSTB>;
-> > +			drive-strength =3D <6>;
-> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_00>;
-> > +		};
-> > +	};
-> > +
-> > +	mmc0_uhs_pins: mmc0-uhs-pins {
-> > +		pins-clk {
-> > +			pinmux =3D <PINMUX_GPIO162__FUNC_MSDC0_CLK>;
-> > +			drive-strength =3D <8>;
-> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
-> > +		};
-> > +
-> > +		pins-cmd-dat {
-> > +			pinmux =3D
-> > <PINMUX_GPIO166__FUNC_MSDC0_DAT0>,
-> > +			=09
-> > <PINMUX_GPIO165__FUNC_MSDC0_DAT1>,
-> > +			=09
-> > <PINMUX_GPIO164__FUNC_MSDC0_DAT2>,
-> > +			=09
-> > <PINMUX_GPIO163__FUNC_MSDC0_DAT3>,
-> > +			=09
-> > <PINMUX_GPIO159__FUNC_MSDC0_DAT4>,
-> > +			=09
-> > <PINMUX_GPIO158__FUNC_MSDC0_DAT5>,
-> > +			=09
-> > <PINMUX_GPIO157__FUNC_MSDC0_DAT6>,
-> > +			=09
-> > <PINMUX_GPIO156__FUNC_MSDC0_DAT7>,
-> > +				 <PINMUX_GPIO161__FUNC_MSDC0_CMD>;
-> > +			input-enable;
-> > +			drive-strength =3D <8>;
-> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
-> > +		};
-> > +
-> > +		pins-ds {
-> > +			pinmux =3D <PINMUX_GPIO167__FUNC_MSDC0_DSL>;
-> > +			drive-strength =3D <8>;
-> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
-> > +		};
-> > +
-> > +		pins-rst {
-> > +			pinmux =3D
-> > <PINMUX_GPIO160__FUNC_MSDC0_RSTB>;
-> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_00>;
-> > +		};
-> > +	};
-> > +
-> > +	mmc1_default_pins: mmc1-default-pins {
-> > +		pins-clk {
-> > +			pinmux =3D <PINMUX_GPIO169__FUNC_MSDC1_CLK>;
-> > +			drive-strength =3D <6>;
-> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
-> > +		};
-> > +
-> > +		pins-cmd-dat {
-> > +			pinmux =3D
-> > <PINMUX_GPIO170__FUNC_MSDC1_DAT0>,
-> > +			=09
-> > <PINMUX_GPIO171__FUNC_MSDC1_DAT1>,
-> > +			=09
-> > <PINMUX_GPIO172__FUNC_MSDC1_DAT2>,
-> > +			=09
-> > <PINMUX_GPIO173__FUNC_MSDC1_DAT3>,
-> > +				 <PINMUX_GPIO168__FUNC_MSDC1_CMD>;
-> > +			input-enable;
-> > +			drive-strength =3D <6>;
-> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
-> > +		};
-> > +
-> > +		pins-insert {
-> > +			pinmux =3D <PINMUX_GPIO2__FUNC_GPIO2>;
-> > +			bias-pull-up;
-> > +		};
-> > +	};
-> > +
-> > +	mmc1_uhs_pins: mmc1-uhs-pins {
-> > +		pins-clk {
-> > +			pinmux =3D <PINMUX_GPIO169__FUNC_MSDC1_CLK>;
-> > +			drive-strength =3D <8>;
-> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
-> > +		};
-> > +
-> > +		pins-cmd-dat {
-> > +			pinmux =3D
-> > <PINMUX_GPIO170__FUNC_MSDC1_DAT0>,
-> > +			=09
-> > <PINMUX_GPIO171__FUNC_MSDC1_DAT1>,
-> > +			=09
-> > <PINMUX_GPIO172__FUNC_MSDC1_DAT2>,
-> > +			=09
-> > <PINMUX_GPIO173__FUNC_MSDC1_DAT3>,
-> > +				 <PINMUX_GPIO168__FUNC_MSDC1_CMD>;
-> > +			input-enable;
-> > +			drive-strength =3D <8>;
-> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
-> > +		};
->=20
-> Don't we also need pins-insert here? (to match mmc1-default-pins)
->=20
-From what I've found, it was done this way for other board devicetrees
-to avoid possible reconfiguration happen for the card detection pin
-while switching to UHS and causing a switch failure.
-Also, what you declare in pinmux nodes is how the pin configuration
-should change in a specific mode and you declare only what changes, and
-not what stay the same.
+Also, this includes PKVM_ID_FFA as a valid ID, while it wasn't
+included until now. Is that expected?
 
-> I was having trouble with the CD input pin not working in U-Boot
-> until I added it.
-I checked and debugged this on my board and did not get that kind of
-issue, whether this pin config is not present for uhs state or if I add
-it.=20
-When inserting my sd card or when I boot with it already inserted, the
-mtk-sd driver first sets the pinctrl state to default before switching
-to ufs. The GPIO02 pin config is also OK in both states.
-The mt8189 pinctrl driver seems to apply a default config for this pin
-that is the same as the one that is set here.
+Thanks,
 
-There might be u-boot particularities that could explain it fixes your
-issue.
+	M.
 
-Regards,
-Louis-Alexis
->=20
-> > +	};
-> > +
+-- 
+Without deviation from the norm, progress is not possible.
 
