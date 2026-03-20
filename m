@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7057D108B8F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B56108B8F1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tFuqEw7uEaxrVCM0c2XUrmdxZJJpRpZ/5YMe+0gkds=; b=1QnnNIrQmgsVxaX/QrjIHudxCs
-	AZGq0BjATxeO5yyF2P6Txh8CigzyURhuLoC5NFSwtkd1qt+6snh5/OscFR19IAKfiTaaKUMZqaeRr
-	RzwwgWtXngWssYYJazDPTqWJrL/H8mu9rTyNcuj/6Ge/e5YD+bYa2prSWbafhyBsWCO/8LDxQwG2c
-	mCD4ezIyuiAktYKO9bPmtVn2kpi3OkpzGPUaTPIdua+IkKEDlcT5vD8AXKKhf4zQlNtDKkoCWBEEP
-	6fB4GpNeyGskHikDd483VGvYVyrpiCTqAoIZIeX8HAwbt17/CujVjb57d2B/ucqsymsufCDIHMIr2
-	tsqUNOoQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3D1quXe5qk7PQDdd6d34BRnWIV3Fq6CvCxgOKw7t4LQ=; b=oUpnF5ksaRKplusXQwHpo6VJNH
+	XHvxXETC97wn35kOGnQC6qel0Ph2mO0l8r1RVYDanTx2FsAk68n66VC7yzDl/++wdpkGLiYRDzLlN
+	+ujG8KA5DU1L2mnwecA/N/uaAZo690EJuj0jQXbjfVHPatQQBMALm7B0gmMfWHAXh4souYQsaPTQN
+	CwxcVNQ6vUqn5gfxFrl3p+Xul6qYOFMXgmelcT7yjOE6T032OzYIwcl7SK7U5EI+qq3q7TyiklHqN
+	xVwgAe1royXxBpuZqKfLMjODTA7r4Ed1bfs557zDjiL+Rh7L6XQJ1yu4/b09W3wSrYz1ldxFMZWEs
+	Et7yj3ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XYu-0000000CeyN-2xaP;
+	id 1w3XYu-0000000Cexk-1aAy;
 	Fri, 20 Mar 2026 10:58:40 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XYs-0000000CewY-2Elu
+	id 1w3XYr-0000000Cew4-0mRi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:58:39 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2addb31945aso11555405ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:58:38 -0700 (PDT)
+	Fri, 20 Mar 2026 10:58:38 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ad21f437eeso16192355ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:58:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774004318; x=1774609118; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8tFuqEw7uEaxrVCM0c2XUrmdxZJJpRpZ/5YMe+0gkds=;
-        b=CTg6Rg8hOn+Az6rbC5ts+roy0HGq8RLIcALRXIjzlOFSRvzUppO33PPtpZ83aYJrm2
-         cu7tyrE6U7zSocz1mlreO3alNU4x0zWgJC/9NRTMKqnZp6riMIFBupq9RpiZ9jF1ehBI
-         6zPQfglQqVWzxJNypn2fuGYADOIzvai4BNV8/lKMKkY6F3jjSp+vEw7fMBIQDZUELmmB
-         ALwdjo+7Hhhnvz+0GaZBX/oiW4L+iw5gPplVxVQa4D1eTcpYqnVwjgb4xhzH5Q7ySl6M
-         z6laf6E2iHGKTZxxOg9wPWfwUjcaP3fRRn7B1oA0YXh33UkLZvRwxqDr+d4LKkoUO5Z5
-         TGNg==
+        d=gmail.com; s=20230601; t=1774004316; x=1774609116; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3D1quXe5qk7PQDdd6d34BRnWIV3Fq6CvCxgOKw7t4LQ=;
+        b=V53vYMGioOj0PeQLVov4sUZgEnRMowpa7g+rHpBO+lWMFNWT1q4JaGn//L59q4DzVB
+         pDiOpLAp6E4yCq33xdjjpg3yeT993Cle525kojMKjdcL9LytLNjClfElvXsOmI0VkvM+
+         ZlNokzpe3a6lLljxpE7y0VJmH6gUsbLp1wnSZT984VplWeXi+kUSop9MoJLcOG3+7NTp
+         tCSUpaf/+l9a6jNE8AgaF5Y3KVf9yEkBvRuIJS/nYqIh5i4k7Xk+z4SxWE5Vo5N1RcM4
+         4khOPjJ+cdmfk1W3EC3tk2wONt3q5FZ9XOs03UyDmQ6M3DgRgHcbNdfMYA96iagF6wj4
+         ToVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774004318; x=1774609118;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8tFuqEw7uEaxrVCM0c2XUrmdxZJJpRpZ/5YMe+0gkds=;
-        b=g10R4ROI5WoZXc/Oypefa8dGXWhAxgLm3UtCzYDiov7supv0RjLQe5TPbo1Icy9wtI
-         CCzeTmoB00e1dPHOa8HympwUJp/RxW9yM2vpMg9ZghDSqnHaIpRN+Ao6eXu/vbfvzMg6
-         EH4+vFSyhx8tE3l5irC0Qjyh+bS0aWlFMQZspCYc+l7MtJLR7nStjFPUS6IljJ79habA
-         hrV1d4imnyp1iJNnLMAzWLGiAdT0K3gJ+vGvToKC1Qh59wAizxhmoNV+9hGGsrEUad0D
-         Gpll76QD5UQp8hPIaYAgzP3hDYVZMWY/NcmwAitBzytf5EgrSpPaVi+a0XhQFCPGDf2N
-         xinQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVi7GZnGEnftWf8ylbkGuNNwZIg3A79/3G+GI8vzN2T/sI5i5i+X/SKwgv1ry+cwOz6sKlgtDrXgU7VfeJ9LV0C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8+EwNf7SGi+mp3+CYLI15z5hlqm+Kh07ohH7zILoMKZhmubXl
-	LQ+rz4pLdJOPZbUk77Zkx19G+fwH1e3hUkZB3k6bOsTdVk4fBRW6/1NQ
-X-Gm-Gg: ATEYQzwGITT1aHsuCqirWHA+4hOKtGint67JTNwTPFILaVtZNWx9fp+u3P/jQY56dVd
-	iZkAXNXjvygRTab56ZYxuXrZuLy4bchZV8O+8whEabny8d6q165JG1HVibk2h/yP7Oiyy8TbwUi
-	lo/qb27cN3FKF69vJeHmhbx26KhC5iOUK70KNUFK8m5vMrPjj+Z9toK5ccVF3E61IppELF7mfYa
-	zCI8qOYTvA3evcRhfos1171m8cO04cKEAkcTe8lDdV/fpJhw1t3/zzLLbgLLhYOlaHQjsgdKd8x
-	OaTmfpmFAAoT3oA9kEIptHIX9yGtE1JiVsptM5MqwN5ZaOVkKV9SAhrXGRncwXkZuIYMnhvdyGw
-	vyZabUT/zCiZra9p3QmdpSMwR9A0krOWsU8zIIHb+yRBbUS7hr77EsmdimMEdF46fddYsBEPOWn
-	9J2wjv/FwRfTPWpYS7tcfIdN362/OIsw5rBKMlK3T8dB4MvZU976ok5ycJlXWbUOonRTnkbRYAS
-	kDsplLFeYQZXWJ5mQ==
-X-Received: by 2002:a17:903:244b:b0:2ae:567f:fd7f with SMTP id d9443c01a7336-2b0827e926bmr23836145ad.53.1774004317735;
-        Fri, 20 Mar 2026 03:58:37 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774004316; x=1774609116;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3D1quXe5qk7PQDdd6d34BRnWIV3Fq6CvCxgOKw7t4LQ=;
+        b=TcTq15uAFHS0NtkcDCio8kbIjH4JfZDWljlUOyBytoDqrkMwY9SsMGsaEHM7yCdpzZ
+         P4uzeY9yP4wTUhI/B7Bsp0pXSh2Y9YXQcpnijYZ9DK8rg154izT7CyuuoZFl/3eGs5WP
+         6eLT+468FeLl0FBk0gWaW6NyiFsC2k2DtDm19+I0dxiw+1TM/3op0oKa+VBn7NtrmfVJ
+         gftmW6klj9ZqvQ7sEKm5//zeMQHhpVDQ1KpgCzjuCz8RhQ9EvACjA/0Dt+Vn/aBqcfT9
+         7tWSpEnJig0GaGQLi45aOsBhoV021KtAPjMDT1WV8Wmr4XmUA29riSQVwkxejLHNFWVE
+         1GiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX8cjYBq4EYEfHRiHn4qFgkmU+QHN4qpM79srB0Z7LX2DHaI/kwfEFwlW9it5YBcT8HTo1EDp6Dy05rMbdnBJIi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrTjQAwwgZomitFwv5jG/xEvSKd4XyQVBeSJ+9Nn/9cKW4KhTt
+	UgsvT4BE4R5rBQmCHi4ZgCFRm5kJ7iampzMO5g9OqDlKJpR72I64lclw
+X-Gm-Gg: ATEYQzzP/vCZndPtrFP3AHhccqA2CkuiDWdN9DLsVvc6FY2UyZ3GRlwR9VF+rr4clp3
+	D/nghci9mf/yY60y02NqlP6Kw1v9R0Gb9CyshAWZmIrIEeIiBfSoXZnQlUKccS1bq/aAid5g7LT
+	3Sg0Uz5cd0cAO4ITvQGoOoN4FlxeaQQ4nWbIrSbEc5U221Ltr7fp3BZOJ6Tt5xY/HSMM18tT2e5
+	A2+d0pMS0HuwUEdDrW3MefdGoMrjnINAL5omdwJJ6uRLUTr4UZg1b17KXunrs+bhs061igW03xp
+	gh6CsUM1iLomHvTiLQk/nbcRvjyE/tNdp9BS73oJCLzThf7092PJDs+1nQ330cQUhxglW3w8Vf4
+	X/2B0nSFRHHkcF9uM48ux5J5yV3fw2o2p0UC5TVRyyGopGRjNw4bhROXVIJFqbrdPQ6wLy91WjL
+	AqqvebPV1VT4pA877epH7L0/poWiHaXSPYAEc7lmbw6AFX/rkFSH2K0DRhCU7x95YLgNOhSuVQE
+	E6ndfs=
+X-Received: by 2002:a17:902:fc43:b0:2ae:5628:a180 with SMTP id d9443c01a7336-2b0772186bamr52147315ad.25.1774004315676;
+        Fri, 20 Mar 2026 03:58:35 -0700 (PDT)
 Received: from buffalo-ssd.taila54753.ts.net (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516eacsm25636405ad.15.2026.03.20.03.58.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516eacsm25636405ad.15.2026.03.20.03.58.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 03:58:37 -0700 (PDT)
+        Fri, 20 Mar 2026 03:58:35 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -81,20 +80,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v3 1/2] dt-bindings: arm: mediatek: Add Lenovo YOGA Tablet 10 (Wi-Fi)
-Date: Fri, 20 Mar 2026 19:58:21 +0900
-Message-ID: <20260320105822.447337-2-akkun11.open@gmail.com>
+	Akari Tsuyukusa <akkun11.open@gmail.com>
+Subject: [PATCH v3 0/2] Add initial support for Lenovo YOGA Tablet 10 (Wi-Fi)
+Date: Fri, 20 Mar 2026 19:58:20 +0900
+Message-ID: <20260320105822.447337-1-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260320105822.447337-1-akkun11.open@gmail.com>
-References: <20260320105822.447337-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_035838_571456_3D5299B4 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260320_035837_229377_44A3D2E0 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an entry for Lenovo YOGA Tablet 10 (Wi-Fi) tablet board,
-named b8000-f.
+This series of patches adds basic support to
+Lenovo YOGA Tablet 10 (Wi-Fi).
 
-It belongs to Lenovo's "blade" product family, a codename found in the
-stock Android "ro.product.board" property (e.g., "blade10_row_wifi" for
-B8000-F and "blade8_row_3gdata" for B6000-H).
+Like v2, schema validation still reports errors in mt6589.dtsi,
+but this series does not aim to fix those pre-existing issues.
 
-The "blade" family includes several variants with different screen sizes
-and connectivity:
+Changes in v3:
+- Add "Acked-by" to dt-binding
+- Remove "mt6589-lenovo-blade.dtsi"
+- Drop UART node
 
-YOGA Tablet 8 (8-inch display)
-B6000-F  : Wi-Fi
-B6000-H  : Wi-Fi + 3G (Data only)
-B6000-HV : Wi-Fi + 3G (Voice)
+Akari Tsuyukusa (2):
+  dt-bindings: arm: mediatek: Add Lenovo YOGA Tablet 10 (Wi-Fi)
+  arm: dts: mediatek: mt6589: add basic support for Lenovo B8000-F
 
-YOGA Tablet 10 (10-inch display)
-B8000-F  : Wi-Fi
-B8000-H  : Wi-Fi + 3G (Data only)
+ .../devicetree/bindings/arm/mediatek.yaml     |  1 +
+ arch/arm/boot/dts/mediatek/Makefile           |  1 +
+ .../dts/mediatek/mt6589-lenovo-b8000-f.dts    | 40 +++++++++++++++++++
+ 3 files changed, 42 insertions(+)
+ create mode 100644 arch/arm/boot/dts/mediatek/mt6589-lenovo-b8000-f.dts
 
-These devices feature 1GB of RAM and powered by MediaTek MT8125 or MT8389
-SoC. Since these SoCs are tablet-oriented variants of MT6589,
-they are grouped under the "mediatek,mt6589" compatible string.
-
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
-No changes from v2, so added Acked-by received in v2.
-
- Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
-index 382d0eb4d0af..ab3c5b1152f0 100644
---- a/Documentation/devicetree/bindings/arm/mediatek.yaml
-+++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
-@@ -44,6 +44,7 @@ properties:
-       - items:
-           - enum:
-               - fairphone,fp1
-+              - lenovo,b8000-f
-               - mundoreader,bq-aquaris5
-           - const: mediatek,mt6589
-       - items:
 -- 
 2.53.0
 
