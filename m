@@ -4,51 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFA7109879E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA461098797
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yt5wp0JccOgYV+FeGV4XCmx8mb18x/E0K2lKU+wkM+o=; b=p9m8NC14Meq8lwiSeZUtZcoaWQ
-	B/03dzz2d7kmfPgL0FmRzxHMaa7t37s8bN3uSJo9VVeSyhIMzDtzI4SpusT4AvuBXA1kfbFiyMXMA
-	A/i3kY0W8+/BQIhq6B6VaWonUK/xbR6e5gmlYLAZJOeJ5i1ih32rtpDPTK8IeEqnhTkuVymLB27Hj
-	E1/JgMkkjGw+nLKKs5IB+zQwcsMcBisS9jlVwNJqXZIXyRyShcEqwrE8dbBGK/cQlnx7VZbQlwQCk
-	rRxMAeuYp4O8JPawKh1+GjzF8uwaArcc2udaNCwKUXJeDqwsZWhwCT86vD1AZEuFIRo8UzNVdtI42
-	RhhiD4KQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LC8/Krjsz/8eMfvmK5q2jyfb9Doz50BbBIjca4omGxs=; b=3eYSU7f4ow2I76c4LuN7pDfhVb
+	mgxQOZgcWctFgq34MAbUdaFsEHeZwf5nApX4QRv8TNh4E+LvGUh27ftj6Mrcxg+J0xwNmmYfLMqvm
+	euBRVAW1sqfSteG6trrJX6TuiSHV/1k7YJfl+4XpoX4qdkvxbaE+1ckSKLAFvrhO2/SFCtV8lu1m7
+	rdWtEjXcxRpj+RwS9KtJ+MkglgWwtbIgL6jg/bElxclL1WBfbiFXl2Wopb6vk/pLTc8Vs0ks8uiRL
+	MqwEqtWP0q9A9WNyJWdJVFSw/GMZojUfUlEh6lJdbF56CZ2WNxzsmBBkQcGXAEER9UtKfl/3pkv9S
+	7GSVLcRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bue-0000000D2oa-2UhP;
-	Fri, 20 Mar 2026 15:37:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3buc-0000000D2oA-0rtK
+	id 1w3bvL-0000000D2vP-1tw6;
+	Fri, 20 Mar 2026 15:38:07 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3bvJ-0000000D2ue-028V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 15:37:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5D01165C;
-	Fri, 20 Mar 2026 08:37:14 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C57A3F7BD;
-	Fri, 20 Mar 2026 08:37:19 -0700 (PDT)
-Date: Fri, 20 Mar 2026 15:37:17 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-Message-ID: <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com>
- <87eclek0mb.ffs@tglx>
+	Fri, 20 Mar 2026 15:38:06 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-486507134e4so25747655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 08:38:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774021083; x=1774625883; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LC8/Krjsz/8eMfvmK5q2jyfb9Doz50BbBIjca4omGxs=;
+        b=TMdsGmpufOfQL3uYzsf12khsKZeFXDYmkGnKgApwOpsborEaF1+UO9GnLVQ81Tyv80
+         ktLrCHJBga7fHAjmDkU55fzOXlERg+1MKv4SJRsKQTP3IcTSR5KS6Om9rzfMk+af4xee
+         ITt1YilyqbeN0tAddQaUkoZi5Qp2LfYCAHLI+fZnRL8iVjMHq3hL6zmgmnTgxJrZKe95
+         29W3lC5OA0/nrmdgpAeVgOkZKxaInVAS9+ZlnLc3lnyiLTcZFCuHPC6+pArh/aXVybyU
+         p4vRpN8q+wZPVhgb74pVrLuThsWwMEzfxTosh68uqH/J+6ReMhzpkGcTDhTmUqKVSjgf
+         sj/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774021083; x=1774625883;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LC8/Krjsz/8eMfvmK5q2jyfb9Doz50BbBIjca4omGxs=;
+        b=DHqkJMnz6aHerD53P5cu2sure999nsSGFuaZyqB1IBm9aGLUYKDrXg1QvJaLDwqjcr
+         VNodKgL+7nV5tIgte9XCAjNHK+wc2JdVBAk6rs5IUxchLi852bmZoTHNBa9/mr/XjGk0
+         97w9aahKXx2yFNDmVT3P12p8WYCqD/bxP93AjlHS9bp/Iq006l5LDDhPlm6E46+SUjpb
+         jWEthZXrPd4GZcB+IxfHzxef/t5+ZDPk60LI4M5cgYZhQjmb8jdSx/Nod1TG50J5qPWD
+         ASxjQ5uqCdug6mDCIeGtQ5eYNHnGvWWEdIl4GflLe/fGFOv/Xnmm4pAMI7H2TsbNG5e4
+         4VCA==
+X-Forwarded-Encrypted: i=1; AJvYcCXPuOOIqPLZxjdTvwsyCRFAyOFAzkP7syElpf5QvMN6NQioZMGZr8LLRlUlYlME5/MarEIJVhgGXxAql6VN+/1w@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOVXyyxYiL4RYLlH3uWK0rp5ZnxsiXnK8uFbeiGCM6LBAVXlX0
+	UiGomXkeMzZ/TsN6/4/FjoEpUBGv27AMdz2BrbBZfKvhAvcG2KmGVLrM
+X-Gm-Gg: ATEYQzzLaP1lXdeAmvJfbI3zyflg3cEQHD7F4IQwjgp6CeBD1+H0lXkIQqmz/bp/W/p
+	cv23CK8y61HaQ67lDkgWwZuc/++GbeIihwXLlP3uAto9tvZ66iA28e+rQyAfsFHH9g6hddGZVFr
+	h0FEnNhq6x/iq6isWu8w8MlUO44JYG05jDLPsIPhRUHyCBbbZwTaVmwHxz36thUzaMhXA2v/XSF
+	+6mnSO3D3mMmLa75sBilq8E20EwoFij/VXeWa+aLHTe9W0d1Ls/H6BKFeu8IolEokyOBoM8GwUB
+	ExwFCmptR8DSQC4h3mfZ9yzqHNs8DMZQhWbgePyZWpNgdRtRuOU7dgT9/Ki/IvSQF1e1vQIl7qD
+	OZzzr6SMjLpJlAtJt5zHB6ftCKzGEXTempurdzI5S9wH9cIZ8v47Ie0HssU9AAIGx6Vx2DR4p9H
+	1h8oU13yGVV6S0DLFGFwY=
+X-Received: by 2002:a05:600c:8508:b0:485:3b00:f92e with SMTP id 5b1f17b1804b1-486fedab7dbmr51111835e9.2.1774021082580;
+        Fri, 20 Mar 2026 08:38:02 -0700 (PDT)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486ff19d387sm18532675e9.17.2026.03.20.08.38.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Mar 2026 08:38:01 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: dri-devel@lists.freedesktop.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 RESEND] drm/mediatek: dsi: Store driver data before invoking mipi_dsi_host_register
+Date: Fri, 20 Mar 2026 15:37:37 +0000
+Message-ID: <20260320153753.25450-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87eclek0mb.ffs@tglx>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_083722_350366_8038F48B 
-X-CRM114-Status: GOOD (  49.37  )
+X-CRM114-CacheID: sfid-20260320_083805_072350_C9D75B27 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,230 +102,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 03:59:40PM +0100, Thomas Gleixner wrote:
-> On Fri, Mar 20 2026 at 11:30, Mark Rutland wrote:
-> > 4) When 'pseudo-NMI' is used, Linux masks interrupts via a combination
-> >    of DAIF and the 'PMR' priority mask register. At entry and exit,
-> >    interrupts must be masked via DAIF, but most kernel code will
-> >    mask/unmask regular interrupts using PMR (e.g. in local_irq_save()
-> >    and local_irq_restore()).
-> >
-> >    This requires more complicated transitions at entry and exit. Early
-> >    during entry or late during return, interrupts are masked via DAIF,
-> >    and kernel code which manipulates PMR to mask/unmask interrupts will
-> >    not function correctly in this state.
-> >
-> >    This also requires fairly complicated management of DAIF and PMR when
-> >    handling interrupts, and arm64 has special logic to avoid preempting
-> >    from pseudo-NMIs which currently lives in
-> >    arch_irqentry_exit_need_resched().
-> 
-> Why are you routing NMI like exceptions through irqentry_enter() and
-> irqentry_exit() in the first place? That's just wrong.
+The call to mipi_dsi_host_register triggers a callback to mtk_dsi_bind,
+which uses dev_get_drvdata to retrieve the mtk_dsi struct, so this
+structure needs to be stored inside the driver data before invoking it.
 
-Sorry, the above was not clear, and some of this logic is gunk that has
-been carried over unnnecessarily from our old exception handling flow.
+As drvdata is currently uninitialized it leads to a crash when
+registering the DSI DRM encoder right after acquiring
+the mode_config.idr_mutex, blocking all subsequent DRM operations.
 
-The issue with pseudo-NMI is that it uses the same exception as regular
-interrupts, but we don't know whether we have a pseudo-NMI until we
-acknowledge the event at the irqchip level. When a pseudo-NMI is taken,
-there are two possibilities:
+Fixes the following crash during mediatek-drm probe (tested on Xiaomi
+Smart Clock x04g):
 
-(1) The pseudo-NMI is taken from a context where interrupts were
-    *disabled*. The entry code immediately knows it must be a
-    pseudo-NMI, and we call irqentry_nmi_{enter,exit}(), NOT
-    irqentry_{enter,exit}(), treating it as an NMI.
+Unable to handle kernel NULL pointer dereference at virtual address
+ 0000000000000040
+[...]
+Modules linked in: mediatek_drm(+) drm_display_helper cec drm_client_lib
+ drm_dma_helper drm_kms_helper panel_simple
+[...]
+Call trace:
+ drm_mode_object_add+0x58/0x98 (P)
+ __drm_encoder_init+0x48/0x140
+ drm_encoder_init+0x6c/0xa0
+ drm_simple_encoder_init+0x20/0x34 [drm_kms_helper]
+ mtk_dsi_bind+0x34/0x13c [mediatek_drm]
+ component_bind_all+0x120/0x280
+ mtk_drm_bind+0x284/0x67c [mediatek_drm]
+ try_to_bring_up_aggregate_device+0x23c/0x320
+ __component_add+0xa4/0x198
+ component_add+0x14/0x20
+ mtk_dsi_host_attach+0x78/0x100 [mediatek_drm]
+ mipi_dsi_attach+0x2c/0x50
+ panel_simple_dsi_probe+0x4c/0x9c [panel_simple]
+ mipi_dsi_drv_probe+0x1c/0x28
+ really_probe+0xc0/0x3dc
+ __driver_probe_device+0x80/0x160
+ driver_probe_device+0x40/0x120
+ __device_attach_driver+0xbc/0x17c
+ bus_for_each_drv+0x88/0xf0
+ __device_attach+0x9c/0x1cc
+ device_initial_probe+0x54/0x60
+ bus_probe_device+0x34/0xa0
+ device_add+0x5b0/0x800
+ mipi_dsi_device_register_full+0xdc/0x16c
+ mipi_dsi_host_register+0xc4/0x17c
+ mtk_dsi_probe+0x10c/0x260 [mediatek_drm]
+ platform_probe+0x5c/0xa4
+ really_probe+0xc0/0x3dc
+ __driver_probe_device+0x80/0x160
+ driver_probe_device+0x40/0x120
+ __driver_attach+0xc8/0x1f8
+ bus_for_each_dev+0x7c/0xe0
+ driver_attach+0x24/0x30
+ bus_add_driver+0x11c/0x240
+ driver_register+0x68/0x130
+ __platform_register_drivers+0x64/0x160
+ mtk_drm_init+0x24/0x1000 [mediatek_drm]
+ do_one_initcall+0x60/0x1d0
+ do_init_module+0x54/0x240
+ load_module+0x1838/0x1dc0
+ init_module_from_file+0xd8/0xf0
+ __arm64_sys_finit_module+0x1b4/0x428
+ invoke_syscall.constprop.0+0x48/0xc8
+ do_el0_svc+0x3c/0xb8
+ el0_svc+0x34/0xe8
+ el0t_64_sync_handler+0xa0/0xe4
+ el0t_64_sync+0x198/0x19c
+Code: 52800022 941004ab 2a0003f3 37f80040 (29005a80)
+---[ end trace 0000000000000000 ]---
 
+Fixes: e4732b590a77 ("drm/mediatek: dsi: Register DSI host after acquiring clocks and PHY")
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+---
+v3: Also initialize irq_wait_queue before calling platform_set_drvdata
+v2: Added Fixes tag
 
-(2) The pseudo-NMI was taken from a context where interrupts were
-    *enabled*. The entry code doesn't know whether it's a pseudo-NMI or
-    a regular interrupt, so it calls irqentry_{enter,exit}(), and then
-    within that we'll call nmi_{enter,exit}() to transiently enter NMI
-    context.
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-I realise this is crazy. I would love to delete pseudo-NMI.
-Unfortunately people are using it.
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index d7726091819c..acee2227275b 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -1232,6 +1232,11 @@ static int mtk_dsi_probe(struct platform_device *pdev)
+ 
+ 	dsi->host.ops = &mtk_dsi_ops;
+ 	dsi->host.dev = dev;
++
++	init_waitqueue_head(&dsi->irq_wait_queue);
++
++	platform_set_drvdata(pdev, dsi);
++
+ 	ret = mipi_dsi_host_register(&dsi->host);
+ 	if (ret < 0)
+ 		return dev_err_probe(dev, ret, "Failed to register DSI host\n");
+@@ -1243,10 +1248,6 @@ static int mtk_dsi_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n");
+ 	}
+ 
+-	init_waitqueue_head(&dsi->irq_wait_queue);
+-
+-	platform_set_drvdata(pdev, dsi);
+-
+ 	dsi->bridge.of_node = dev->of_node;
+ 	dsi->bridge.type = DRM_MODE_CONNECTOR_DSI;
+ 
+-- 
+2.43.0
 
-Putting aside the nesting here, I think it's fine to preempt upon return
-from case (2), and we can delete the logic to avoid preempting.
-
-> > 5) Most kernel code runs with all exceptions unmasked. When scheduling,
-> >    only interrupts should be masked (by PMR pseudo-NMI is used, and by
-> >    DAIF otherwise).
-> >
-> > For most exceptions, arm64's entry code has a sequence similar to that
-> > of el1_abort(), which is used for faults:
-> >
-> > | static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
-> > | {
-> > |         unsigned long far = read_sysreg(far_el1);
-> > |         irqentry_state_t state;
-> > |
-> > |         state = enter_from_kernel_mode(regs);
-> > |         local_daif_inherit(regs);
-> > |         do_mem_abort(far, esr, regs);
-> > |         local_daif_mask();
-> > |         exit_to_kernel_mode(regs, state);
-> > | }
-> >
-> > ... where enter_from_kernel_mode() and exit_to_kernel_mode() are
-> > wrappers around irqentry_enter() and irqentry_exit() which perform
-> > additional arm64-specific entry/exit logic.
-> >
-> > Currently, the generic irq entry code will attempt to preempt from any
-> > exception under irqentry_exit() where interrupts were unmasked in the
-> > original context. As arm64's entry code will have already masked
-> > exceptions via DAIF, this results in the problems described above.
-> 
-> See below.
-> 
-> > Fix this by opting out of preemption in irqentry_exit(), and restoring
-> > arm64's old behaivour of explicitly preempting when returning from IRQ
-> > or FIQ, before calling exit_to_kernel_mode() / irqentry_exit(). This
-> > ensures that preemption occurs when only interrupts are masked, and
-> > where that masking is compatible with most kernel code (e.g. using PMR
-> > when pseudo-NMI is in use).
-> 
-> My gut feeling tells me that there is a fundamental design flaw
-> somewhere and the below is papering over it.
-> 
-> > @@ -497,6 +497,8 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
-> >  	do_interrupt_handler(regs, handler);
-> >  	irq_exit_rcu();
-> >  
-> > +	irqentry_exit_cond_resched();
-> > +
-> >  	exit_to_kernel_mode(regs, state);
-> >  }
-> >  static void noinstr el1_interrupt(struct pt_regs *regs,
-> > diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> > index 9ef63e4147913..af9cae1f225e3 100644
-> > --- a/kernel/entry/common.c
-> > +++ b/kernel/entry/common.c
-> > @@ -235,8 +235,10 @@ noinstr void irqentry_exit(struct pt_regs *regs, irqentry_state_t state)
-> >  		}
-> >  
-> >  		instrumentation_begin();
-> > -		if (IS_ENABLED(CONFIG_PREEMPTION))
-> > +		if (IS_ENABLED(CONFIG_PREEMPTION) &&
-> > +		    !IS_ENABLED(CONFIG_ARCH_HAS_OWN_IRQ_PREEMPTION)) {
-> 
-> These 'But my architecture is sooo special' switches cause immediate review
-> nausea and just confirm that there is a fundamental flaw somewhere else.
-> 
-> >  			irqentry_exit_cond_resched();
-> 
-> Let's look at how this is supposed to work. I'm just looking at
-> irqentry_enter()/exit() and not the NMI variant.
-> 
-> Interrupt/exception is raised
-> 
->   1) low level architecture specific entry code does all the magic state
->      saving, setup etc.
-> 
->   2) irqentry_enter() is invoked
-> 
->       - checks for user mode or kernel mode entry
-> 
->       - handles RCU on enter from user and if kernel entry hits the idle
->         task
-> 
->       - Sets up lockdep, tracing, kminsanity
-> 
->   3) the interrupt/exception handler is invoked
-> 
->   4) irqentry_exit() is invoked
-> 
->       - handles exit to user and exit to kernel
-> 
->       - exit to user handles the TIF and other pending work, which can
->         schedule and then prepares for return
-> 
->       - exit to kernel
-> 
->         When interrupt were disabled on entry, it just handles RCU and
->         returns.
-> 
->         When enabled on entry, it checks whether RCU was watching on
->         entry or not. If not it tells RCU that the interrupt nesting is
->         done and returns. When RCU was watching it can schedule
->  
->   5) Undoes #1 so that it can return to the originally interrupted
->      context.
-> 
-> That means at the point where irqentry_entry() is invoked, the
-> architecture side should have made sure that everything is set up for
-> the kernel to operate until irqentry_exit() returns.
-
-Ok. I think you're saying I should try:
-
-* At entry, *before* irqentry_enter():
-  - unmask everything EXCEPT regular interrupts.
-  - fix up all the necessary state.
-
-* At exception exit, *after* irqentry_exit():
-  - mask everything.
-  - fix up all the necessary state.
-
-... right?
-
-> Looking at your example:
-> 
-> > | static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
-> > | {
-> > |         unsigned long far = read_sysreg(far_el1);
-> > |         irqentry_state_t state;
-> > |
-> > |         state = enter_from_kernel_mode(regs);
-> > |         local_daif_inherit(regs);
-> > |         do_mem_abort(far, esr, regs);
-> > |         local_daif_mask();
-> > |         exit_to_kernel_mode(regs, state);
-> 
-> and the paragraph right below that:
-> 
-> > Currently, the generic irq entry code will attempt to preempt from any
-> > exception under irqentry_exit() where interrupts were unmasked in the
-> > original context. As arm64's entry code will have already masked
-> > exceptions via DAIF, this results in the problems described above.
-> 
-> To me this looks like your ordering is wrong. Why are you doing the DAIF
-> inherit _after_ irqentry_enter() and the mask _before_ irqentry_exit()?
-
-As above, I can go look at reworking this. 
-
-For context, we do it this way today for several reasons, including:
-
-(1) Because some of the arch-specific bits (such as checking the TFSR
-    for MTE) in enter_from_kernel_mode() and exit_to_kernel_mode() need
-    to be done while RCU is watching, etc, but needs other exceptions
-    masked. I can look at reworking that.
-
-(2) To minimize the number of times we have to write to things like
-    DAIF, as that can be expensive.
-
-(3) To simplify the management of things like DAIF, so that we don't
-    have several points in time at which we need to inherit different
-    pieces of state.
-
-(4) Historical, as that's the flow we had in assembly, and prior to the
-    move to generic irq entry.
-
-> I might be missing something, but this smells more than fishy.
-> 
-> As no other architecture has that problem I'm pretty sure that the
-> problem is not in the way how the generic code was designed. Why?
-
-Hey, I'm not saying the generic entry code is wrong, just that there's a
-mismatch between it and what would be optimal for arm64.
-
-> Because your architecture is _not_ sooo special! :)
-
-I think it's pretty special, but not necessarily in the same sense. ;)
-
-Mark.
 
