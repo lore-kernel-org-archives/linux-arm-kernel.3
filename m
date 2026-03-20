@@ -4,59 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 811D61098787
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AC61098788
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/GtZL4sQUVfbfQ8o3Jwyp1Zb/OVT68tzwK+0wJfnpY=; b=xOORfec7LQrLkMcQRjc908tq7y
-	UOijkWHWSQLmMAy2ax+BfMGvxOJvFrhgP6r6RUwqrIdN0Xp1QTOOBbZbH0lj4wv60b4Xm4lf+gBQ6
-	pixA+syySMY0kcELQ2fHgdsipxl2k4+er5C6eJnuh8mEd/RubYuoD6etpS2SpkOl0X/ysGBQOv9k3
-	/W//wSF2aaMPgLQRvkDsDQoli2OK9hs+cukaea600uPNDPLIaFG3umTfsNtZzDnW8Vk5i/6jaJaoH
-	Z9SaS0w+nY24t3wIpeZQph3BuLOJIf/S0b87pIJtUGneW3SN4ZKGSQ9LWuvHT7CSEnHX2PeHOUVUz
-	zZPTgk+w==;
+	bh=zgY6jfJC4I6lO/ZNgUgQPgQbvfgbEiK5mwVmPbXvrBQ=; b=amfwdSHI75UF+NdmpDcb6C10Ak
+	gFhJ2IVOvacAqok3kUJ0QYTt1uqsb9VmfDPpibAx0hXsnX3qFiPDB8gly5ksMOU6bYvv2cELrrdhl
+	nZYLGDli/PmPFpktnG7kuyGlur8MIivJUaianNo9f/swJj4fuoX+MCgx69PJwFyoHgSKTvKI/Qb7m
+	dVpyYMKMl1uGCflgnvMA2RZLYyL3/NbSyu6uoANrNu+h3zIsQNEBvSO8JJUKHhYc+T+8Bvej4FJau
+	R4X0HylLLd7I5emTVhLbDDIj4hVg7Qhb6crOCERUr9xXYh4xjPkqwtlP2u4Y/SHuxjgVjbYUhPL0c
+	2wpXu8ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aZT-0000000CuhY-16Bk;
-	Fri, 20 Mar 2026 14:11:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w3agf-0000000CvIL-2WFS;
+	Fri, 20 Mar 2026 14:18:53 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aZR-0000000CuhC-2ozQ
+	id 1w3agc-0000000CvH2-0n7k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 14:11:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11D0F438B1;
-	Fri, 20 Mar 2026 14:11:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133C8C4CEF7;
-	Fri, 20 Mar 2026 14:11:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774015884;
-	bh=DtYG15RsitNgOn8gCMEp+c82f1w8goXvTJLV/Xl83+0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=fCBNXFMuw5c2+MRveuqhNrTyEDessp+rC+4oDFNo9uw3cl2EGe0YfrWR1kzv4WhqA
-	 3ymWXown23VuL1mle9pxvJzk5hDNc8VhMdio6okbhRFjusDm/p+bKk4qk0Y7W+5/G7
-	 53/fMio1oVmjktM8GQEG6BZYwtKbaUdvIYKp4pmuaRf58+aLnBWJGULVeNzvjVbJx+
-	 6MFMxMuflD0vVNy0hYCv8YLt+Bwk+KavbXxzqxd0h9tIhm7xCMyan8jaxEDuc26O2B
-	 8P0RWk6hGAEznr8r3NN3bi3Mds1QXzgHeA102l1wAjiMj9resnxrFPCUwx7YQ6hNVf
-	 0AumKlSRgz7sg==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-In-Reply-To: <20260320130433.GV3738786@noisy.programming.kicks-ass.net>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com>
- <20260320130433.GV3738786@noisy.programming.kicks-ass.net>
-Date: Fri, 20 Mar 2026 15:11:20 +0100
-Message-ID: <87h5qak2uv.ffs@tglx>
+	Fri, 20 Mar 2026 14:18:51 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id F04414D277;
+	Fri, 20 Mar 2026 14:18:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1774016326; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgY6jfJC4I6lO/ZNgUgQPgQbvfgbEiK5mwVmPbXvrBQ=;
+	b=qlm/XzM8k7qpds2rq9lDHrqs/Z/wFeov19N9OPFrQBDs2mREGY40jdCVHyR4gD01EXn4uV
+	2I4PcIGDRnDJx0A98NMeV8DmjjBs/edU2vsVF9BpGT5v7O+4KFjtKXpR/+gsaLyBW7AhR3
+	8oA5M+wtYz1Xf/Xr9CD/H86P1jEs7IM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1774016326;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgY6jfJC4I6lO/ZNgUgQPgQbvfgbEiK5mwVmPbXvrBQ=;
+	b=sJ2pv+05ecVbycZvzjP2XbL3oTqMmNo2hFgO7Iqq68GwzKxJKh2Oi4vMMozaeb557KPToW
+	C0iXBJzrR9cyE/Ag==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1774016326; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgY6jfJC4I6lO/ZNgUgQPgQbvfgbEiK5mwVmPbXvrBQ=;
+	b=qlm/XzM8k7qpds2rq9lDHrqs/Z/wFeov19N9OPFrQBDs2mREGY40jdCVHyR4gD01EXn4uV
+	2I4PcIGDRnDJx0A98NMeV8DmjjBs/edU2vsVF9BpGT5v7O+4KFjtKXpR/+gsaLyBW7AhR3
+	8oA5M+wtYz1Xf/Xr9CD/H86P1jEs7IM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1774016326;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgY6jfJC4I6lO/ZNgUgQPgQbvfgbEiK5mwVmPbXvrBQ=;
+	b=sJ2pv+05ecVbycZvzjP2XbL3oTqMmNo2hFgO7Iqq68GwzKxJKh2Oi4vMMozaeb557KPToW
+	C0iXBJzrR9cyE/Ag==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E116D4283D;
+	Fri, 20 Mar 2026 14:18:45 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 2O/uNkVXvWmRMAAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 20 Mar 2026 14:18:45 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 99B39A0A81; Fri, 20 Mar 2026 15:18:45 +0100 (CET)
+Date: Fri, 20 Mar 2026 15:18:45 +0100
+From: Jan Kara <jack@suse.cz>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
+	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
+	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
+	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, lorenzo.stoakes@oracle.com, 
+	mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com, 
+	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
+	Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@quack3, ziy@nvidia.com, hannes@cmpxchg.org, 
+	kas@kernel.org, shakeel.butt@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v2 1/4] mm: bypass mmap_miss heuristic for VM_EXEC
+ readahead
+Message-ID: <er6pfnbasao53shfs3vwznosqy4k74tjh4lxcegzwgdaweahdu@vgkhrdrhv5oe>
+References: <20260320140315.979307-1-usama.arif@linux.dev>
+ <20260320140315.979307-2-usama.arif@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260320140315.979307-2-usama.arif@linux.dev>
+X-Spamd-Result: default: False [-3.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	R_RATELIMIT(0.00)[to_ip_from(RLx3ed8f7q4e9s3nf3mrauhj48)];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo,linux.dev:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_071125_754607_E913D7BB 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20260320_071850_440102_DFDD4248 
+X-CRM114-Status: GOOD (  27.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,109 +137,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20 2026 at 14:04, Peter Zijlstra wrote:
-> On Fri, Mar 20, 2026 at 11:30:25AM +0000, Mark Rutland wrote:
->> Thomas, Peter, I have a couple of things I'd like to check:
->> 
->> (1) The generic irq entry code will preempt from any exception (e.g. a
->>     synchronous fault) where interrupts were unmasked in the original
->>     context. Is that intentional/necessary, or was that just the way the
->>     x86 code happened to be implemented?
->> 
->>     I assume that it'd be fine if arm64 only preempted from true
->>     interrupts, but if that was intentional/necessary I can go rework
->>     this.
->
-> So NMI-from-kernel must not trigger resched IIRC. There is some code
-> that relies on this somewhere. And on x86 many of those synchronous
-> exceptions are marked as NMI, since they can happen with IRQs disabled
-> inside locks etc.
->
-> But for the rest I don't think we care particularly. Notably page-fault
-> will already schedule itself when possible (faults leading to IO and
-> blocking).
+On Fri 20-03-26 06:58:51, Usama Arif wrote:
+> The mmap_miss counter in do_sync_mmap_readahead() tracks whether
+> readahead is useful for mmap'd file access. It is incremented by 1 on
+> every page cache miss in do_sync_mmap_readahead(), and decremented in
+> two places:
+> 
+>   - filemap_map_pages(): decremented by N for each of N pages
+>     successfully mapped via fault-around (pages found already in cache,
+>     evidence readahead was useful). Only pages not in the workingset
+>     count as hits.
+> 
+>   - do_async_mmap_readahead(): decremented by 1 when a page with
+>     PG_readahead is found in cache.
+> 
+> When the counter exceeds MMAP_LOTSAMISS (100), all readahead is
+> disabled, including the targeted VM_EXEC readahead [1] that requests
+> large folio orders for contpte mapping.
+> 
+> On arm64 with 64K base pages, both decrement paths are inactive:
+> 
+>   1. filemap_map_pages() is never called because fault_around_pages
+>      (65536 >> PAGE_SHIFT = 1) disables should_fault_around(), which
+>      requires fault_around_pages > 1. With only 1 page in the
+>      fault-around window, there is nothing "around" to map.
+> 
+>   2. do_async_mmap_readahead() never fires for exec mappings because
+>      exec readahead sets async_size = 0, so no PG_readahead markers
+>      are placed.
+> 
+> With no decrements, mmap_miss monotonically increases past
+> MMAP_LOTSAMISS after 100 page faults, disabling all subsequent
+> exec readahead.
+> 
+> Fix this by excluding VM_EXEC VMAs from the mmap_miss logic, similar
+> to how VM_SEQ_READ is already excluded. The exec readahead path is
+> targeted (one folio at the fault location, async_size=0), not
+> speculative prefetch, so the mmap_miss heuristic designed to throttle
+> wasteful speculative readahead should not apply to it.
+> 
+> [1] https://lore.kernel.org/all/20250430145920.3748738-6-ryan.roberts@arm.com/
+> 
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
 
-Right. In general we allow preemption on any interrupt, trap and exception
-when:
+Looks good to me. Feel free to add:
 
-  1) the interrupted context had interrupts enabled
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-  2) RCU was watching in the original context
+								Honza
 
-This _is_ intentional as there is no reason to defer preemption in such
-a case. The RT people might get upset if you do so.
-
-NMI like exceptions, which are not allowed to schedule, should therefore
-never go through irqentry_irq_entry() and irqentry_irq_exit().
-
-irqentry_nmi_enter() and irqentry_nmi_exit() exist for a technical
-reason and are not just of decorative nature. :)
-
->> (2) The generic irq entry code only preempts when RCU was watching in
->>     the original context. IIUC that's just to avoid preempting from the
->>     idle thread. Is it functionally necessary to avoid that, or is that
->>     just an optimization?
->> 
->>     I'm asking because historically arm64 didn't check that, and I
->>     haven't bothered checking here. I don't know whether we have a
->>     latent functional bug.
->
-> Like I told you on IRC, I *think* this is just an optimization, since if
-> you hit idle, the idle loop will take care of scheduling. But I can't
-> quite remember the details here, and wish we'd have written a sensible
-> comment at that spot.
-
-There is one, but it's obviously not detailed enough.
-
-> Other places where RCU isn't watching are userspace and KVM. The first
-> isn't relevant because this is return-to-kernel, and the second I'm not
-> sure about.
->
-> Thomas, can you remember?
-
-Yes. It's not an optimization. It's a correctness issue.
-
-If the interrupted context is RCU idle then you have to carefully go
-back to that context. So that the context can tell RCU it is done with
-the idle state and RCU has to pay attention again. Otherwise all of this
-becomes imbalanced.
-
-This is about context-level nesting:
-
-        ...
-L1.A    ct_cpuidle_enter();
-
-                        -> interrupt
- L2.A                           ct_irq_enter();
-                                ...             // Set NEED_RESCHED
- L2.B                           ct_irq_exit();
-                               
-        ...
-L1.B    ct_cpuidle_exit();
-
-Scheduling between #L2.B and #L1.B makes RCU rightfully upset. Think
-about it this way:
-
-L1.A    preempt_disable();
-L2.A    local_bh_disable();
-        ..
-L2.B    local_bh_enable();
-        if (need_resched())
-           schedule();
-L1.B    preempt_enable();
-
-RCU is not any different. For context-level nesting of any kind the only
-valid order is:
-
-   L1.A -> L2.A -> L2.B -> L1.B
-
-Pretty obvious if you actually think about it, no?
-
-Thanks,
-
-        tglx
+> ---
+>  mm/filemap.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index 6cd7974d4adab..7d89c6b384cc4 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3331,7 +3331,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  		}
+>  	}
+>  
+> -	if (!(vm_flags & VM_SEQ_READ)) {
+> +	if (!(vm_flags & (VM_SEQ_READ | VM_EXEC))) {
+>  		/* Avoid banging the cache line if not needed */
+>  		mmap_miss = READ_ONCE(ra->mmap_miss);
+>  		if (mmap_miss < MMAP_LOTSAMISS * 10)
+> -- 
+> 2.52.0
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
