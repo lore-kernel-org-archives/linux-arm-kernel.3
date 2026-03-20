@@ -4,95 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311871098797
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB901098796
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n+6917AKy85ED59+Qx+OnszYcZiLLVdHxeZpo7ufA5w=; b=WJOQlUUMSEutsITdjncChaGF7h
-	KARiGzXCdoIMIw11usq7Kp4WSIDoWFHK6E5GXnbCdhTAQfCZZM66SIYaz5Ye8kIIUUCxv9xSsdNgH
-	yAnCfebLOpdY1CfhH6Fx/JrTJFlXUEpdASILzMRhYRdAu4v9HEFafF1R2i79eJRXEg7E2afPcuNHw
-	ugHlFeUbIteK9JxQ5t621PL04Wh4h0VR9zaFeTZPGTOMhbjN5APnUc+obzv9m/vrwp7OxT8oyw3a4
-	+Wvo0nsxmZf/Bjla6JD9/bZBV5kRND9lfzB85MKe4RMICYRwkLqp0c+cqlbxFRd2uP8WoMojYiQyX
-	16cQaFdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cllGIOLczCOQ9rNUzM20y9HnRtTuNo8JOVU9ZRZRTqc=; b=wRffIaIq5sgnoTZE97fPD8BcFi
+	7HdQ5sR1PdvJqV59EhcS71pXLrt4waL9mphrXq076MTaV3pst+mTG2FGlc5jD1mdr+AtPK4La1/7y
+	C8fJyglPZ3+mZH0yom7n+5eeTP5RyGxDL6xR7d3QKr2sdFvA8iy/dXQ4hKzjHKZO4EBaSduXLUwen
+	vvKsUyWnTKBg22GIgVkH5UnuRT0qF8fZOnBlTqfy/9GLNvfr07KAx7ZBE6VvCFQcWvM+Cg5BIfupl
+	Ppl4HR3gFgJ64lqvZKWefDUKVGBux8coQbL1MMNAI5mR1TXFPvwBR4/wgGMz5r4a01cPt9XO4uMQa
+	jca5Z6gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bVd-0000000D0jo-3DMF;
-	Fri, 20 Mar 2026 15:11:33 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1w3bYV-0000000D0zF-3IgE;
+	Fri, 20 Mar 2026 15:14:31 +0000
+Received: from mail-westeuropeazon11011055.outbound.protection.outlook.com ([52.101.70.55] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bVa-0000000D0ij-3R9R
+	id 1w3bYT-0000000D0yj-3wxa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 15:11:32 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6628cc1bd69so8880a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 08:11:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774019489; x=1774624289; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n+6917AKy85ED59+Qx+OnszYcZiLLVdHxeZpo7ufA5w=;
-        b=eYfcItU55JZwTzgvzHp1fRlVXBWkUhZTqTOfs5OZPVhhN8DUhuZPmUY/seoFN1H+Ww
-         pgFWLS7mLZAl3U63KCsNSL7U4E+9bnThcyyG6OxlUQ8HlsVsDzAZXBytq7uHyF/YkiNQ
-         yaeL6Rg3Mfzt9NSJX1/b8gOCvuu+Hp8hWSnBU3X+W4vKSKZaKFoucA5EqjMztAu0JbFf
-         mRa8gFIP34OeRgcp8EqKDVRoSqHXEWhzBnJdI9cPxai0hfRivKtrGuWQAgdRXFw3GNvp
-         Uy6U84s+fHlUlkqn1dWMFtBby1oqijID2Z1JbEGkpgwHIj0eEFRTW4h2v0WmAMAQlCyA
-         fE8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774019489; x=1774624289;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n+6917AKy85ED59+Qx+OnszYcZiLLVdHxeZpo7ufA5w=;
-        b=VUpR/v3+FJo2UM9RB9dQa80hI8i25TF88DsordTZEkYm+EH41c4Z+3mlhQ1EiAJHbO
-         h1jbXpZEb/RWREB6hDdSKqG1Zdaw8M4qTXw5sX792wmQ24bXKgiwwueAeNNQK19SIErh
-         uJiBLvJzUoROqidRvlme+SAwPLnawt8vd+nbOiV/1U+OkLVn5ntceIqAev/mrqEt3GcU
-         f6WS7QhdXcjbLkK9Zx7X4ktcO13tfXDXrUyGVPjc23TTfCidrb0RncDmcmMGFHhfMV24
-         4lCH6u+3VdNiOg5gDhxN26RkJweN2WxCNQ0Kvy+8YMXBSmGWIBFxEp+AnETB0zR610eq
-         mPtA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+r2S6ePN577SYXxc0LRmCVkEUgG2O6uyLFXTi0tUDHLErd6FHKA1YMlUeqNoQal3q8VtqkDqE94mRGJ4zO60Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeacrXxlAGA+pT5EjmVd6ZTES4j4pIbiHQRSj4DCoBUv+nFoCI
-	ODj+JVgFkdFZ6gooXtoSxCGMIWA74ZbWS/Af3Aa3U/jgoD1nw3CT1iOiRv41rBnLnw==
-X-Gm-Gg: ATEYQzzTI/pFxBotKIsD6N+vhRNJ8szlvHRZ37LAX9VJ2hTfLigB/dRRoqEP64ffPjb
-	2u16snj1e9NY2meF2QdgypY9vglGFxXoiMImuulGFH8CwfrEXsJXzspNEAsHQn9QzCyCrf3ZjKv
-	0mGV48EIDQDWv0BoVPdunTvrZIzzpspdlBW22m5OKEJ5XKG4eLIr3luKJLVetwA9niKSdh0PFTE
-	Qhi4s2+vmO+KmCs5UezFDY81vIaFdDJGrbHNkkEdKkbawXrUgRXXBYPr9sPvtah8UALfNWsk6I7
-	gR98fUJp8qTWZZ6tY+Ba3MaEBh97pjlFzmofpKDcQ3VXDFyan04wQtZ2OO7F7Pgq6gI9QNfQuB4
-	792XI1PM6Km/wPR8q9jtgv+30ney4VmFmeRbCxxbgukCcuPjeX8mTQjnI3p54EjaZWmWJj1Cu0W
-	aujqFevoRiRIxC/zjuk0mXUxGXsY2HK9NCQBh1IIg3DXegr/NPCU7UNzSdrLxX3XDtesQ=
-X-Received: by 2002:aa7:c145:0:b0:665:17ce:4acb with SMTP id 4fb4d7f45d1cf-668cf308958mr49011a12.4.1774019488260;
-        Fri, 20 Mar 2026 08:11:28 -0700 (PDT)
-Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48700658441sm74243705e9.4.2026.03.20.08.11.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 08:11:27 -0700 (PDT)
-Date: Fri, 20 Mar 2026 15:11:24 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, catalin.marinas@arm.com,
-	dbrazdil@google.com, joey.gouly@arm.com, kees@kernel.org,
-	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
-	perlarsen@google.com, qperret@google.com, rananta@google.com,
-	smostafa@google.com, suzuki.poulose@arm.com, tglx@kernel.org,
-	vdonnefort@google.com, bgrzesik@google.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH 05/14] irqchip/gic-v3-its: Prepare shadow structures for
- KVM host deprivilege
-Message-ID: <ab1jnHvmIeh0PExw@google.com>
-References: <20260310124933.830025-1-sebastianene@google.com>
- <20260310124933.830025-6-sebastianene@google.com>
- <CA+EHjTyG-rUp1M_4a=adBwqhAJ=JuHL5GaLmMBSi5o1ycaSu3A@mail.gmail.com>
+	Fri, 20 Mar 2026 15:14:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w5xvcK8EYmRUJCXHwYRqKu6oQDIGQSH6VQQ0OKg33Me+Ksy5DAww3sRcZjQijOr3NUOLZN4tq+H/I36RxvTXn4YYraHbIFLcUcczyAXnUP4AcB5zchsODWS/+k+CCH2u8Cnme3tuFr7OqNa0ooprSABBfr5hlc/e3p935u/vw+HcSBAfxFgigOqbmFHBq/u4bpl53IPqASWAOAUkdau50oEwcSWU900taloUXQNbzVm+GufnqvgbYLvhHUrUfyrvdJecuLNtGEoQs0O2gWYsAhOCIRjoq6fFIjNkwkaS7Q3cjRsPoeEwgVDhmv1cdfi0T2n6ZKK82aJDYLSMECdNiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cllGIOLczCOQ9rNUzM20y9HnRtTuNo8JOVU9ZRZRTqc=;
+ b=DiZJwzxV6EB0s0OZEcsnnRkLASNJq6DIWAsSzBX8oxbiw78svVu8B6YWY346O0+08uSjKlQR1EE+p9jjq9cGynsYpvy9kQ47LqbYJrdQqrvyLUdw5ybgX6febT1I9tqCYYKBjUIdRkie3vkN9onDswDQpxLGv4NiDlLgTZvCPkHz5HKaRqzobPSV0MMYQMYzlDbzmA4cj28Vjde2Ls2wbuviaMoRVtZAfnY95ltjapv+xExjvbs4FGLrWZt6w95xWrfP4+hFgdvbvM/ze4nxiooQlrrOqnY0gz3H/97kvgHf8i3bP1Nt/PfAzZndI3RDD8fQJ6hK6QKK60qngHx8Ng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cllGIOLczCOQ9rNUzM20y9HnRtTuNo8JOVU9ZRZRTqc=;
+ b=iRE8nAfOOsQ0wvHVLBPovNDZR2zE53jDsSMCCNToGzEkwXSbETy2X+87Y5JA7L7mV4tfSOZ6T5lB7nVH7HO8PsNEddDydNl4mDDgAvdLAsJgr8u46FRptnUIJrv35oXEvXVo5gcW/FpRa+Gq3fE2exodCgYfMDHQOAWn8ZpEk4aTBHFXGakCuSOTgBYH2Bd/we87UK29XDKSz5f7AB8bAHyoXzOjwkOxibvQ6tkb95CvycO/zya578G/74KvN8I50z3PwyiJvXjwcgzxVpiWosHgvAQHV5g6APCFO2OTWhiCJ0waOKXQTs7YnNtEFeyJuyzDS2ZgfNnajWIX7Snthg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by GV1PR04MB10630.eurprd04.prod.outlook.com (2603:10a6:150:212::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
+ 2026 15:14:14 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9723.022; Fri, 20 Mar 2026
+ 15:14:13 +0000
+From: florin.leotescu@oss.nxp.com
+To: Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>,
+	linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: daniel.baluta@nxp.com,
+	viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	festevam@gmail.com,
+	Florin Leotescu <florin.leotescu@nxp.com>
+Subject: [PATCH v4 0/2] hwmon: emc2305: Support configurable fan PWM at shutdown
+Date: Fri, 20 Mar 2026 17:29:57 +0200
+Message-Id: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR2P281CA0032.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:14::19) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTyG-rUp1M_4a=adBwqhAJ=JuHL5GaLmMBSi5o1ycaSu3A@mail.gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|GV1PR04MB10630:EE_
+X-MS-Office365-Filtering-Correlation-Id: e68077bf-5057-4355-9343-08de869357ea
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: kFz+VbiYzVyH9EHpWhkBpEdFfoSX/xgeBQhaBYstNjuQoLiutfBjFnp55PIpCekFAN0+Q1V1MHhz6JTmgN0COBknH8+xFH776AAQR+aP/elof68iTvhdptq47kTyjkdtkLfZN5j/7yzkW5c4HeJ//FH634W5TyktykuBDnPckhZdFExrUpkhnisY0FU/Gy0p8Fg+eLDp5cw2CGl4GOzZ0ZtJlJpQg7H0GMN5iA4ZY2IhKPRsLy25MDf1RjUdonqID0uhmG4M0EbzB4+VbGpX6dwcekK695YLfEX0x89+6azUj/osISH0IFByqlfcPVnGm5GqK/RB+eQykyey5CF1/1/dbeNVM8g7tJuz2MoAkAo05tAl3M3RR8OqDXvZLzx5vor0yrK4i0HFskNJgOJ9ds5I2TDJpYj6qMHyeb9x8inRVBXrxh0deVsOEhwX9/xEet7lL5iFsvVW3C34EnBZ2GJ+yI8rYo/J7ig51GHtMfFN1V1HYCp2yz5WNVM+hKBtJM6fJHp9HedoXs9t3mK0SdZaj3YO0uOASdWyzxhiiICaMdkW8yXpiIWAk+URDlKF/2CanPao8tnMKnu241KkMktGDVXLPxaYpXVEOc7QVg2mZK3nIM/TCdd5eY+Ec4RDXK4+M+dYSgKw1JxHjbJ6Liw/mINoMLII/Eif8WGoEwa9t+MkzK826MBd/m4PUDipxswnT+TEAnVffViBma1aUX6MNHgE2x6rJ7lfaInEFd4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?RDiawvOQYzSKoy0qIDhIQNBrW8ITR1ZIM696zQHCtGLmP9GNiGzUrte7ID?=
+ =?iso-8859-1?Q?UYdXolmOkQ4reDfH2jxuGdjF+59phIaDINl2u7uf+FEOPQeUCQFdpntW5h?=
+ =?iso-8859-1?Q?Q8/ADGU3AdZuazVne2Jm55F+RRiqeGIigKEzd70TzS5P9CifNC81CWkVlo?=
+ =?iso-8859-1?Q?PJ2JWFBcrV5efImnTAW04pZhAWmCkwp0v6AbThAB+z2cJmqMYMFc5si2Uv?=
+ =?iso-8859-1?Q?Q786siQQTkrsSdmdpKqg50Y6Pc5TqhLl+EAH4hElYShAalbRj+YixfDyDX?=
+ =?iso-8859-1?Q?FuqAiw8izJqGhm3AqADFBnN3IKuEMxFQCxAZ6i/YalTzd6764MqyXhk/Gq?=
+ =?iso-8859-1?Q?DbJgr+KuCQh7iUruD3H/vZYO0Y/x8i19U92C2m7u0FYzpE0qn4ifzBgnvF?=
+ =?iso-8859-1?Q?JgC2pjkk7JKD7iPUHA84fciyMCAlk5lNe/wZXhDojpiV++a4Xs7T9vQyC4?=
+ =?iso-8859-1?Q?uofyQu/T67di65gvz616ozxLWViI1jkIredlzY0OQESIUR3BSHPQ34RUuG?=
+ =?iso-8859-1?Q?pUftQSHXU82iy02BXChOvHI0qai2N/CCGtGMLvYsNjkco4OftEc5WZ4wv6?=
+ =?iso-8859-1?Q?XY7CXYSm0oUAQoG6NsQHXyeuCy5dBThmtVIlffwrvaJFUZFbuU36nMJyrP?=
+ =?iso-8859-1?Q?f6GZvey1CXx5M1rtp136LUoSHWTSKeZfnthw85PCRbctT+MkseA6uWQPhP?=
+ =?iso-8859-1?Q?wPAbnIbooFHAO+QH9aACZpKgeHWWStDaR80LMfXSPdySZftBlzCsRHCu8h?=
+ =?iso-8859-1?Q?WbQJIHpc+4UV7qvoGOPVrAk8BtRkuwho0eBRygXxrKnVb0xk8dIdCQPpXH?=
+ =?iso-8859-1?Q?VWv/iTaCl/GBixte9x4IDoFXA7bktGekJeJoeMIClvY88sjSZG7v3JHxgv?=
+ =?iso-8859-1?Q?Z36600Oi5mAvFwB4NyVUEpxrzLkWRGeMKsOQnX9MkfmRPHwni63giqaULP?=
+ =?iso-8859-1?Q?ZV1xXPVK97Hj5Kq6GLzwo8aCu9E3TeN9OoLupTR0iLyO3s3TY/eNZ/J0Iv?=
+ =?iso-8859-1?Q?5Eldgkx/wQUNae3LP1PaqNKq+yT2EloawRZrqO4oxEKGv4j/5DHieEeXim?=
+ =?iso-8859-1?Q?ZzrkoazcUQ2qT7fwGSa7tOkItdO6hRcJ2OxuUop5zPITNbGSlcRjGDqqVu?=
+ =?iso-8859-1?Q?xea0hY8mfwUE9R6hYSEDGlVa0zEwG9NmR5foJT9+ZHMiluGv6kf49mfQkG?=
+ =?iso-8859-1?Q?+XfB4lIlHrr9zlzW+2RLb4iGnRTvP/fuRdknah9exs4TsUE6FkV2KJnn01?=
+ =?iso-8859-1?Q?erS5fUlFJv4FoPhbmP8bUl2AOkaC9EpcgeKG0PYMkdj+uqNTLRqaGUE4ps?=
+ =?iso-8859-1?Q?3jjpZmBj/BuKv99IdVm1hyKK4zLlXxx7nVV5ChI/CnLlvGbRHmNA7NL080?=
+ =?iso-8859-1?Q?iTT3TaJBJdfc7/pL40bgUpxpR8MGdAav3zMGBBeP8R7yhzH0Q1IGkGJdDb?=
+ =?iso-8859-1?Q?LibGEaPglTXUcM6oHAJUJhCADWRIvq+K/mCRKvErdVBrwiTrRiqHgWIRyA?=
+ =?iso-8859-1?Q?TlRrULWHfOyoX9zJ39IntvYaVcNVWnLb+HbSgnJHLmKE9dYgy7IhSVugTY?=
+ =?iso-8859-1?Q?t5X6TyZbXpGzzeNPDAdm30VtL2oyF4s5Ie4JUXEmlugtDvVctdAulArEvN?=
+ =?iso-8859-1?Q?mDNlflEiFVOz26zdpdHG2nAKT/TW+vNw7b5V+fD/jpEmSXDWN3EiBVRQZJ?=
+ =?iso-8859-1?Q?CuLW/lVFieeT1EuNYgq30jQVCCgXiBuA51FpB1cXsoIuNK5dyOHUjX1L8D?=
+ =?iso-8859-1?Q?bygO046T9EbBKs9Mjp82Q9ard4AF7pWyFVDPAaR6MBHkAn/Gvmdi7VbujW?=
+ =?iso-8859-1?Q?AGtV9HEElQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e68077bf-5057-4355-9343-08de869357ea
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 15:14:13.0424
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jjVI0oWuW1sBbHUMEF0otCawz8b/0DojGN0ghxM1rla31MRoR/V2maY9nK9bBxP+f6OBIMmKQswfsmv0aBeiww==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10630
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_081130_917176_37549CD0 
-X-CRM114-Status: GOOD (  48.81  )
+X-CRM114-CacheID: sfid-20260320_081429_989716_B6CB20B8 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,332 +149,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 11:26:04AM +0000, Fuad Tabba wrote:
+From: Florin Leotescu <florin.leotescu@nxp.com>
 
-Hi Fuad,
+This series adds support for configuring the fan PWM duty cycle applied
+during system shutdown for the EMC2305 fan controller.
 
-> Hi Sebastian,
-> 
-> On Tue, 10 Mar 2026 at 12:49, Sebastian Ene <sebastianene@google.com> wrote:
-> >
-> > Expose two helper functions to support emulated ITS in the hypervisor.
-> > These allow the KVM layer to notify the driver when hypervisor
-> > initialization is complete.
-> > The caller is expected to use the functions as follows:
-> > 1. its_start_deprivilege(): Acquire the ITS locks.
-> > 2. on_each_cpu(_kvm_host_prot_finalize, ...): Finalizes pKVM init
-> > 3. its_end_deprivilege(): Shadow the ITS structures, invoke the KVM
-> >    callback, and release locks.
-> > Specifically, this shadows the ITS command queue and the 1st level
-> > indirect tables. These shadow buffers will be used by the driver after
-> > host deprivilege, while the hypervisor unmaps and takes ownership of the
-> > original structures.
-> 
-> Just a note again on preferring not to use the "shadow" terminology. I
-> thought about it a bit more, since these are not at the host, perhaps
-> "proxy" is a better term, to convey that the host is writing to a
-> middle-man buffer.
-> 
-> Another term is "staging," which is common in DMA: the host "stages"
-> the commands here, and EL2 "commits" them to the hardware.
+Some platforms require fans to transition to a predefined safe state
+during shutdown or reboot handoff until firmware or the next boot stage
+reconfigures the controller.
 
-Sure, happy to use one of the two indicated ones.
+The new optional Device Tree property "fan-shutdown-percent" allows the
+shutdown PWM duty cycle to be configured per fan output.
 
-> 
-> >
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > ---
-> >  drivers/irqchip/irq-gic-v3-its.c   | 165 +++++++++++++++++++++++++++--
-> >  include/linux/irqchip/arm-gic-v3.h |  24 +++++
-> >  2 files changed, 178 insertions(+), 11 deletions(-)
-> >
-> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> > index 291d7668cc8d..278dbc56f962 100644
-> > --- a/drivers/irqchip/irq-gic-v3-its.c
-> > +++ b/drivers/irqchip/irq-gic-v3-its.c
-> > @@ -78,17 +78,6 @@ struct its_collection {
-> >         u16                     col_id;
-> >  };
-> >
-> > -/*
-> > - * The ITS_BASER structure - contains memory information, cached
-> > - * value of BASER register configuration and ITS page size.
-> > - */
-> > -struct its_baser {
-> > -       void            *base;
-> > -       u64             val;
-> > -       u32             order;
-> > -       u32             psz;
-> > -};
-> > -
-> >  struct its_device;
-> >
-> >  /*
-> > @@ -5232,6 +5221,160 @@ static int __init its_compute_its_list_map(struct its_node *its)
-> >         return its_number;
-> >  }
-> >
-> > +static void its_free_shadow_tables(struct its_shadow_tables *shadow)
-> > +{
-> > +       int i;
-> > +
-> > +       if (shadow->cmd_shadow)
-> > +               its_free_pages(shadow->cmd_shadow, get_order(ITS_CMD_QUEUE_SZ));
-> > +
-> > +       for (i = 0; i < GITS_BASER_NR_REGS; i++) {
-> > +               if (!shadow->tables[i].shadow)
-> > +                       continue;
-> > +
-> > +               its_free_pages(shadow->tables[i].shadow, 0);
-> > +       }
-> > +
-> > +       its_free_pages(shadow, 0);
-> > +}
-> > +
-> > +static struct its_shadow_tables *its_get_shadow_tables(struct its_node *its)
-> > +{
-> > +       void *page;
-> > +       struct its_shadow_tables *shadow;
-> > +       int i;
-> 
-> Prefer RCT declarations.
-> 
-> > +
-> > +       page = its_alloc_pages_node(its->numa_node, GFP_KERNEL | __GFP_ZERO, 0);
-> 
-> This is called with the raw_spin_lock_irqsave held, and GFP_KERNEL can
-> sleep. You have one of two options, either use GFP_ATOMIC, but that's
-> more likely to fail. The alternative is to move this to
-> its_start_deprivilege(), before any lock is held.
-> 
+Changes in v4:
+- Initialize pwm_shudown array to EMC2305_PWM_SHUTDOWN_UNSET in probe,
+  to avoid treating unconfigured channels as valid and written 0
+  during shutdown
+Changes in v3:
+- Rebased on current upstream
+- Dropped already upstreamed of_node_put(child) fix
+Changes in v2:
+- Address feedback from Guenter Roeck
+- Make shutdown behavior configurable via Device Tree
+- Add optional fan-shutdown-percent property
+- Apply shutdown PWM only for channels defining the property
 
-Thanks, I will try to move the allocation before the lock.
+Florin Leotescu (2):
+  dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
+  hwmon: emc2305: Support configurable fan PWM at shutdown
 
-> > +       if (!page)
-> > +               return NULL;
-> > +
-> > +       shadow = (void *)page_address(page);
-> > +       page = its_alloc_pages_node(its->numa_node,
-> > +                                   GFP_KERNEL | __GFP_ZERO,
-> > +                                   get_order(ITS_CMD_QUEUE_SZ));
-> > +       if (!page)
-> > +               goto err_alloc_shadow;
-> > +
-> > +       shadow->cmd_shadow = page_address(page);
-> > +       shadow->cmdq_len = ITS_CMD_QUEUE_SZ;
-> > +       shadow->cmd_original = its->cmd_base;
-> > +
-> > +       memcpy(shadow->tables, its->tables, sizeof(struct its_baser) * GITS_BASER_NR_REGS);
-> > +
-> > +       for (i = 0; i < GITS_BASER_NR_REGS; i++) {
-> > +               if (!(shadow->tables[i].val & GITS_BASER_VALID))
-> > +                       continue;
-> > +
-> > +               if (!(shadow->tables[i].val & GITS_BASER_INDIRECT))
-> > +                       continue;
-> > +
-> > +               page = its_alloc_pages_node(its->numa_node,
-> > +                                           GFP_KERNEL | __GFP_ZERO,
-> > +                                           shadow->tables[i].order);
-> > +               if (!page)
-> > +                       goto err_alloc_shadow;
-> > +
-> > +               shadow->tables[i].shadow = page_address(page);
-> > +
-> > +               memcpy(shadow->tables[i].shadow, shadow->tables[i].base,
-> > +                      PAGE_ORDER_TO_SIZE(shadow->tables[i].order));
-> > +       }
-> > +
-> > +       return shadow;
-> > +
-> > +err_alloc_shadow:
-> > +       its_free_shadow_tables(shadow);
-> > +       return NULL;
-> > +}
-> > +
-> > +void *its_start_depriviledge(void)
-> 
-> Typo here and elsewhere in this patch:
-> 
-> s/depriviledge/deprivilege/g
-> 
-> This is particularly important because it also appears in exported
-> symbols as well (later in this patch).
->
+ .../bindings/hwmon/microchip,emc2305.yaml     |  8 +++++
+ drivers/hwmon/emc2305.c                       | 35 +++++++++++++++++++
+ 2 files changed, 43 insertions(+)
 
-Ack, will fix this.
+-- 
+2.34.1
 
-> > +{
-> > +       struct its_node *its;
-> > +       int num_nodes = 0, i = 0;
-> > +       unsigned long *flags;
-> 
-> RCT declaration order, and please untagle them, i.e., don't declare
-> the num_nodes and the iterator in the same line.
->
-
-Ack,
-
-> > +
-> > +       raw_spin_lock(&its_lock);
-> > +       list_for_each_entry(its, &its_nodes, entry) {
-> > +               num_nodes++;
-> > +       }
-> > +
-> > +       flags = kzalloc(num_nodes * sizeof(unsigned long), GFP_KERNEL_ACCOUNT);
-> 
-> Same as the other allocation. This can sleep. I think that for this as
-> well, it's better to move it before lock acquisition. Even if you use
-> a different allocator, it's still better to keep the critical section
-> short.
-> 
-> > +       if (!flags) {
-> > +               raw_spin_unlock(&its_lock);
-> > +               return NULL;
-> > +       }
-> > +
-> > +       list_for_each_entry(its, &its_nodes, entry) {
-> > +               raw_spin_lock_irqsave(&its->lock, flags[i++]);
-> > +       }
-> > +
-> > +       return flags;
-> > +}
-> > +EXPORT_SYMBOL_GPL(its_start_depriviledge);
-> > +
-> > +static int its_switch_to_shadow_locked(struct its_node *its, its_init_emulate init_emulate_cb)
-> > +{
-> > +       struct its_shadow_tables *hyp_shadow, shadow;
-> > +       int i, ret;
-> > +       u64 baser, baser_phys;
-> > +
-> > +       hyp_shadow = its_get_shadow_tables(its);
-> > +       if (!hyp_shadow)
-> > +               return -ENOMEM;
-> > +
-> > +       memcpy(&shadow, hyp_shadow, sizeof(shadow));
-> > +       ret = init_emulate_cb(its->phys_base, hyp_shadow);
-> 
-> You are performing this callback with the lock held and local
-> interrupts disabled. The hvc call is byitself expensive, especially
-> since it's going to do stage-2 manipulations.
-> 
-> You should decouple the synchronous pointer swapping (which must be
-> locked) from the hypervisor notification (which can be done outside
-> the lock). Instead of executing the callback inside the critical
-> section, its_end_deprivilege should:
-> - Lock everything.
-> - Perform the pointer swaps in the host driver structures.
-> - Save the hyp_shadow pointers to a temporary array.
-> - Unlock everything.
-
-I am afraid you can't do that because you can have dropped commands &
-timeouts between these two steps. The driver might put commands in the
-swapped queue and they will timeout.
-
-> - Loop through the temporary array and call the KVM cb to notify EL2.
-> 
-> You should probably split this patch into two. The first patch would
-> implement the freeze/unfreeze locking mechanism, and the second would
-> swap the driver's internal memory pointers to the shadow structures,
-> and invoke the KVM callback to lock down the real hardware.
-> 
-> Cheers,
-> /fuad
-> 
-
-Thanks,
-Sebastian
-
-> > +       if (ret) {
-> > +               its_free_shadow_tables(hyp_shadow);
-> > +               return ret;
-> > +       }
-> > +
-> > +       /* Switch the driver command queue to use the shadow and save the original */
-> > +       its->cmd_write = (its->cmd_write - its->cmd_base) +
-> > +               (struct its_cmd_block *)shadow.cmd_shadow;
-> > +       its->cmd_base = shadow.cmd_shadow;
-> > +
-> > +       /* Shadow the first level of the indirect tables */
-> > +       for (i = 0; i < GITS_BASER_NR_REGS; i++) {
-> > +               baser = shadow.tables[i].val;
-> > +
-> > +               if (!shadow.tables[i].shadow)
-> > +                       continue;
-> > +
-> > +               baser_phys = virt_to_phys(shadow.tables[i].shadow);
-> > +               if (IS_ENABLED(CONFIG_ARM64_64K_PAGES) && (baser_phys >> 48))
-> > +                       baser_phys = GITS_BASER_PHYS_52_to_48(baser_phys);
-> > +
-> > +               its->tables[i].val &= ~GENMASK(47, 12);
-> > +               its->tables[i].val |= baser_phys;
-> > +               its->tables[i].base = shadow.tables[i].shadow;
-> > +       }
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +int its_end_depriviledge(int ret_pkvm_finalize, unsigned long *flags, its_init_emulate cb)
-> > +{
-> > +       struct its_node *its;
-> > +       int i = 0, ret = 0;
-> > +
-> > +       if (!flags || !cb)
-> > +               return -EINVAL;
-> > +
-> > +       list_for_each_entry(its, &its_nodes, entry) {
-> > +               if (!ret_pkvm_finalize && !ret)
-> > +                       ret = its_switch_to_shadow_locked(its, cb);
-> > +
-> > +               raw_spin_unlock_irqrestore(&its->lock, flags[i++]);
-> > +       }
-> > +
-> > +       kfree(flags);
-> > +       raw_spin_unlock(&its_lock);
-> > +
-> > +       return ret;
-> > +}
-> > +EXPORT_SYMBOL_GPL(its_end_depriviledge);
-> > +
-> >  static int __init its_probe_one(struct its_node *its)
-> >  {
-> >         u64 baser, tmp;
-> > diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-> > index 0225121f3013..40457a4375d4 100644
-> > --- a/include/linux/irqchip/arm-gic-v3.h
-> > +++ b/include/linux/irqchip/arm-gic-v3.h
-> > @@ -657,6 +657,30 @@ static inline bool gic_enable_sre(void)
-> >         return !!(val & ICC_SRE_EL1_SRE);
-> >  }
-> >
-> > +/*
-> > + * The ITS_BASER structure - contains memory information, cached
-> > + * value of BASER register configuration and ITS page size.
-> > + */
-> > +struct its_baser {
-> > +       void            *base;
-> > +       void            *shadow;
-> > +       u64             val;
-> > +       u32             order;
-> > +       u32             psz;
-> > +};
-> > +
-> > +struct its_shadow_tables {
-> > +       struct its_baser        tables[GITS_BASER_NR_REGS];
-> > +       void                    *cmd_shadow;
-> > +       void                    *cmd_original;
-> > +       size_t                  cmdq_len;
-> > +};
-> > +
-> > +typedef int (*its_init_emulate)(phys_addr_t its_phys_base, struct its_shadow_tables *shadow);
-> > +
-> > +void *its_start_depriviledge(void);
-> > +int its_end_depriviledge(int ret, unsigned long *flags, its_init_emulate cb);
-> > +
-> >  #endif
-> >
-> >  #endif
-> > --
-> > 2.53.0.473.g4a7958ca14-goog
-> >
 
