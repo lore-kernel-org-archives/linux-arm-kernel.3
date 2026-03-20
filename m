@@ -4,109 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3691098782
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7441098783
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z87oM4MXH90Eg7Vov2hVgw8H7BD72Dgu6sBEIXkrz4M=; b=VwqGACjt4WH6hwgWJbGrQGigPq
-	eDuBEwWwyqr3rZWDpCK98YAbqsjeLWpCEVBnDS0m/dKWsUM6Wxb8xmehQ7JJGkxnGhWN/csVUbVtW
-	N6xoMO2wNFbpdB0Ss/NkKAkgTT9Iz9k/n6SWmTHmPRx3W6hbJmz6vX+CmOy2KRoE3qwZZIom1ByzV
-	WtBD3vPFq39fZKfLV8+sty52Eygzm/KlXwNtXHL6Jv0DUYBbtGUPImrTb50VsybKfhxK95Wr85LZI
-	9JX3nZ6Th4SMSf2VIibFo6L7AFBINVJhbjrZYYMzs0Ohel5Oc7rvIuLSb99atqB9ZHJYhCXB+0oLx
-	vW7W+u3A==;
+	bh=aQESvT/YL3z67ur3K9umwMWGp663lLjzF2AnKuf+BjA=; b=xLtlyV0ujCdcYGAWsfbvoicAkU
+	gi0A3sNPs9x17uf5R+RuumWN1XfAvjzshrJ4XtfkmQrWgc0pZDxBlgISocJ7RRf/tlxx5m9PPt9cf
+	GIsS51ti2/YElQPSZjA2tyPNltYhy8iu2O0nPQmSACr3rtk8Bp4dFndh+o+76Y9/XAOgpqmf+64ZD
+	qmWO2VyQcRK6+zMXi3PMRnJYWD/wY+x0AaqF6N5ep9BZ2RX+IzwZQswW5k1bEYQXzjahApGOOC2zO
+	xsx37he9MDyGVfhgYPdxVLScBajAGx2PzKu3IF2H87Jq11cPpeept2CXd3D+XrNg3hoM5h2ak16v7
+	2tLPTcSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Zea-0000000Cpkl-14vl;
-	Fri, 20 Mar 2026 13:12:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3Zm8-0000000CqQC-0pQf;
+	Fri, 20 Mar 2026 13:20:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ZeZ-0000000CpkX-01PS
+	id 1w3Zm6-0000000CqQ2-3EdG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 20 Mar 2026 13:20:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Sender:References:In-Reply-To:Subject:Cc:To:
+	From:Reply-To:Content-ID:Content-Description;
+	bh=aQESvT/YL3z67ur3K9umwMWGp663lLjzF2AnKuf+BjA=; b=UQ/z5Evo0xogMAjtNOpgxoIaZK
+	taZak5t+KrfvAsg51ksk1oDuaCmm6QzmTjTxyFAigl7Spn9gXvB2qHrvFCnjv7jRy9hlEFVUAO+M7
+	iCW6/4qXwlCQacDUYfCwnD1H3bbk4aureKbK4TZCC7/WfYzWqoWug2vypYHUdrTYK4jx4RxM93wO+
+	zeFcN9jIfgHhD4/N3HdQOEOc+J74y64VV3i7ANQoNZBbXkPXhMv27AYYT0jM3145mWzZZh31VsSLe
+	UupLJt/2VhprC0pHkACYcXLxCpzov430qBrXaCKo3VeGF60PpBh+SatI7ZXoL578ilEmYqxeflyYg
+	VxuUcxvA==;
+Received: from [195.187.100.5] (helo=ni.piap.pl)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Zm3-0000000FbbI-1gRy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 13:12:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E9E761858;
-	Fri, 20 Mar 2026 13:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E89C4CEF7;
-	Fri, 20 Mar 2026 13:12:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774012357;
-	bh=BQrrSqpfQC+fHq9hcnPDqiLAeM80XfBs/NvJMvamCB4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fyy2/Ky2LAr3RA2uT9/EFp8QzZSW3o9Hk04TjT8zETDne6iUiZ2epbcH8SagVb4gB
-	 siEj5W9SGml5ZxOTUgG9AK3tze/k+Idy/XRYu6gD0BF9LedEySFzDtRokRZEHadIyA
-	 o5GgMfo6wnX+ZHnXdQgAD8QFD/pYFGDAvqR1t5BqYNKejfdX0hkPfq3EIIO5VKFmJn
-	 bCbIrv/HZNwg/HgyVstdWVN+igiTizAomNpoKldRcXTvJFn9uyAmT79HvhToBpF0xB
-	 8VrEFQXm/uifOVTAPa9dL5GM70dIogDiMUzAQsI6aTgPVB1o+NIf6Rj/d7b1m3pnzP
-	 ukWSKqK0FFayA==
-Message-ID: <21ef18ef-a6e8-41a1-8280-73ee058fdc74@kernel.org>
-Date: Fri, 20 Mar 2026 14:12:27 +0100
+	Fri, 20 Mar 2026 13:20:25 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id 655BEC3EEAC9;
+	Fri, 20 Mar 2026 14:20:16 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 655BEC3EEAC9
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Marco Felsch <m.felsch@pengutronix.de>,  Marek Vasut
+ <marex@nabladev.com>,  Stefan Agner <stefan@agner.ch>,  Liu Ying
+ <victor.liu@nxp.com>,  Simona Vetter <simona@ffwll.ch>,
+  imx@lists.linux.dev,  Fabio Estevam <festevam@gmail.com>,  Pengutronix
+ Kernel Team <kernel@pengutronix.de>,  Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>,  Sascha Hauer
+ <s.hauer@pengutronix.de>,  Frank Li <Frank.Li@nxp.com>,
+  linux-kernel@vger.kernel.org,  dri-devel@lists.freedesktop.org,  Thomas
+ Zimmermann <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
+In-Reply-To: <20260320-amiable-hairy-bullfinch-28bfda@houat> (Maxime Ripard's
+	message of "Fri, 20 Mar 2026 10:25:11 +0100")
+References: <m3ms04caaj.fsf@t19.piap.pl>
+	<32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
+	<m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
+	<20260320-amiable-hairy-bullfinch-28bfda@houat>
+Date: Fri, 20 Mar 2026 14:20:15 +0100
+Message-ID: <m3a4w2d4ds.fsf@t19.piap.pl>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic and
- combined IRQ topologies
-To: Jun Guo <jun.guo@cixtech.com>
-Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
- ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
- Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260319101723.246539-1-jun.guo@cixtech.com>
- <20260319101723.246539-2-jun.guo@cixtech.com>
- <20260320-vengeful-violet-cockle-382580@quoll>
- <40fc5cb7-a5f2-4b86-8dba-1b39e1ea0da4@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <40fc5cb7-a5f2-4b86-8dba-1b39e1ea0da4@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_132023_577015_24429EAD 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,32 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2026 11:28, Jun Guo wrote:
->>> +    description: |
->>> +      The DMA controller may be configured with separate interrupts for each channel,
->>> +      or with a single combined interrupt for all channels, depending on the SoC integration.
->>
->> And more important - you must review the LLM microslop output before
->> posting and adjust it to Linux kernel coding style. Don't send
->> unredacted tool output.
->>
-> Actually, this part of the description was not AI-generated. However, 
-> I’d like to confirm the issue you mentioned: are you saying that this 
-> description is written too verbosely?
-> Then, do you think there are still issues with the revised version?
->    interrupts:
->      minItems: 1
->      maxItems: 8
->      description:
->        Either one interrupt per channel (8 interrupts), or one
->        combined interrupt for all channels.
+Maxime Ripard <mripard@kernel.org> writes:
 
-No, it is not wrapped according to Linux coding style.
+>> > > -	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, 1 * PANIC0_THRES_MAX / 3)=
+ |
+>> > > -	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, 2 * PANIC0_THRES_MAX / 3=
+),
+>> > > +	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, DIV_ROUND_UP(1 * PANIC0_T=
+HRES_MAX, 3)) |
+>> > > +	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, DIV_ROUND_UP(2 * PANIC0_=
+THRES_MAX, 3)),
 
-Please wrap code according to the preferred limit expressed in Kernel
-coding style (checkpatch is not a coding style description, but only a
-tool).  However don't wrap blindly (see Kernel coding style).
+> If this is related to the output resolution, the DT is the last place
+> you should deal with this.
 
-Best regards,
-Krzysztof
+Well... just tested (v6.19 + patch) with 2160p30 and, surprise surprise,
+it doesn't work for like 10% of the time. I.e., the display may freeze
+at weston start and/or shutdown time, but otherwise works:
+
+v6.19 (frozen screen while starting weston, same display, the patch
+applied):
+32FC6000:        2        2        2        2
+32FC6010: 80000000  8700F00  12800B0   480008
+32FC6020:    A0058  1000007        0
+32FC6030:        1        1
+32FC6200:  8700F00            223C00 EF000000
+32FC6210:        0 89000000                 1
+32FC6220:        0        0        0        0
+32FC6230:        0        0   AB0155
+
+OTOH NXP's 6.6.23 works all the time:
+NCP v6.6.23 (a different i.MX8MP):
+32FC6000:        A        A        A        A
+32FC6010: 80000000  8700F00  12800B0   480008
+32FC6020:    A0058    10005        0
+32FC6030:        1        1
+32FC6200:  8700F00            A23C00 97C00000
+32FC6210:        0 89000000                 1
+32FC6220:        0        0        0        0
+32FC6230:        0        0   AB0155
+
+32FC600x 2 vs. A is pixel clock inversion.
+32FC6208 is config P_SIZE, T_SIZE + pitch.
+
+More tests after weekend.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
