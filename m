@@ -4,153 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177681098787
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 811D61098787
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grrNrlauWqqo2k87L/PWn+f80TOA00jsjWZtSsudBWY=; b=0nHpYWEu16aGFDkhPxcNZmFzJI
-	cPMv5LtUSCJSmXZr2xc3efeDm8SGcGNQYBRzrEhc3714nm9sBApOn66qppLvRzQ20g5ih+KA2FSOy
-	nyP/vQIBjieCQL6gJlMGgm9iv8AuCvVHitzN3edXb8trefJ2j2nX3Lmgc3DJjNeATeweJ91ZsRNF+
-	E72vvwSReGISmQM8CQlAF0fYZ0L046hvxgRYG2q89UoVROmW3LY5+hyw1NWGs+Sn5MSna+54KaBO6
-	w2JblK2MIhKg4mqIiDQ8JRTdW1NNVycuCW7N84t5Uy3+tTcQprobfU91419hjUd1W1XbYo4wU35Oe
-	BOCQdxFQ==;
+	bh=B/GtZL4sQUVfbfQ8o3Jwyp1Zb/OVT68tzwK+0wJfnpY=; b=xOORfec7LQrLkMcQRjc908tq7y
+	UOijkWHWSQLmMAy2ax+BfMGvxOJvFrhgP6r6RUwqrIdN0Xp1QTOOBbZbH0lj4wv60b4Xm4lf+gBQ6
+	pixA+syySMY0kcELQ2fHgdsipxl2k4+er5C6eJnuh8mEd/RubYuoD6etpS2SpkOl0X/ysGBQOv9k3
+	/W//wSF2aaMPgLQRvkDsDQoli2OK9hs+cukaea600uPNDPLIaFG3umTfsNtZzDnW8Vk5i/6jaJaoH
+	Z9SaS0w+nY24t3wIpeZQph3BuLOJIf/S0b87pIJtUGneW3SN4ZKGSQ9LWuvHT7CSEnHX2PeHOUVUz
+	zZPTgk+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aY4-0000000CuYg-1N8c;
-	Fri, 20 Mar 2026 14:10:00 +0000
-Received: from mail-northeuropeazon11011010.outbound.protection.outlook.com ([52.101.65.10] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w3aZT-0000000CuhY-16Bk;
+	Fri, 20 Mar 2026 14:11:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aY1-0000000CuYI-2Lft
+	id 1w3aZR-0000000CuhC-2ozQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 14:09:59 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Am3/WimByQ62dn/nzvh0qhiTEnXU3SD1qmZBIIr7OsAn3egxf6bba28bu4bUgJFfnJrgoMwRl5XDhONNFenRd96gY/GzldfnaH0nbMEwB1jOZKl+Wln5ZOunOCYUb9M2Q4LDiumIiHUksD/KYbso7fjd7t1ca+cPxGAP57MuOYVySPtXdd4PqcIQdXOtRKiq1IBnisLgfW1L4gDj80O6tyH/cK+YR0QiGk4j0PV30Jbz2XdTrs+deQbsU7JWY3QMpxVWb6bTHp+g6R5I0KpTtZJcmaj0MK7y9rprHuqX4UBTTR43oUBmXXxC+NdyK2uTexzsfsZnJJVcVIOeLgP+1g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=grrNrlauWqqo2k87L/PWn+f80TOA00jsjWZtSsudBWY=;
- b=dSXViHX8yOY5JyRW+5TBkrymYgmpb536wPQBtZ1YJAe+v4uRCxhZw0CFrqVmCIv71Rzs4Py6giujwQm9i+T+TsEA4i+VtzkYS+J2zCEj1jxICSH6zCwZr+XT5rO938fBMJpR2i43BFeZNpc3q4KEgTlusHlmwI+mtThB0EW0YpGopZlo3d6Yk/Ialk/Am9ZMA9iglNwgDejqIRX8cWeUsV5elTijUuaOV7SGXOkm/ypjd+NG3FY6Rc3Wp+d3kd33Jl4QSqoja78WA21QHpKUSS35JbKPnXhqKyoHmWX5OTcnKVYJ6OblsTmp0VuJjkcqmdwMfsjXfxdpY23Yi6tYLA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=grrNrlauWqqo2k87L/PWn+f80TOA00jsjWZtSsudBWY=;
- b=oQMMOE4Ji9RxvBYQdz3hB6poHXii9dQzvGOAPqUxDhdAc3G4+D94IYeAZfEKwHdpJi75cF8zuc2yzMDvlwIO9Ji9v/4bSL//Uds6YJB9BWj0S8jhj2cjGcM6YPPZV0nwAiOkELq3EhhUB1mkA/DvctDTyIDiFOQeAImRzR2K9LY=
-Received: from DU2PR04CA0059.eurprd04.prod.outlook.com (2603:10a6:10:234::34)
- by GVXPR08MB11544.eurprd08.prod.outlook.com (2603:10a6:150:2e3::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
- 2026 14:09:46 +0000
-Received: from DU6PEPF0000A7DF.eurprd02.prod.outlook.com
- (2603:10a6:10:234:cafe::a0) by DU2PR04CA0059.outlook.office365.com
- (2603:10a6:10:234::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Fri,
- 20 Mar 2026 14:09:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000A7DF.mail.protection.outlook.com (10.167.8.36) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via
- Frontend Transport; Fri, 20 Mar 2026 14:09:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RCPhovLw1QnUTGUzsTBElQ2Zu4wSNyursmOp0n78suidBtMNNdVlW6J7b1s5gGjdYHo80tmeAhhSntlUyvpyQHpTCLvU26g0dgAeYq9Vk6CfEM13Ucfl73UgMfNXH/0y78If2luMGQa3tKsKMpPbZVWu2KZihjdkslKypwy/lF9Uf3yQ8o4zF3bHNKBraRxJZ61Oy5Z1OmpD87E1z12AXb6WvL3WaW0S4H3YkBufQFH3Eg3RjLHAYSoiyExKU7d3Qe6/y7lBE5nOnYOxZ6pdgTgCyA+RKlmop4OmXEKIFk7TqCsVb6O1yq9yCzc5uYFm1ghyhUz7tvm6xcEkBt/bXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=grrNrlauWqqo2k87L/PWn+f80TOA00jsjWZtSsudBWY=;
- b=IPDyeNM6vNk+pJM/8Zo9QgBk6QdAyWPgIiD1V4975kziTZTSP3aXMzjCsLgJHJQTittT29rFOb/ZDH8eSPMotQma3gK+Brnp3l8jNJTPSD5BmNwuhz7KLJ/hOAJBPqZggHSZt47xqPSFHLKg3OpS/2ZYaBX7n9Zh/2d2WHlyT+2UTjlfTnEx7D07ORY6iUsDSor5qvaW3/d616O3UegD+ai0aHW4hsqi5vKDn4HRW77ZtuJeOLUeJ3JcDMSb1OIGH1/XycnZDfZPnrWyXuizN6m4sy3zAOi2y8bnzUmtdfJ416xNjJ92GRaxDMN09qp0ukAbnW7HtzRXU5/7T08KEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=grrNrlauWqqo2k87L/PWn+f80TOA00jsjWZtSsudBWY=;
- b=oQMMOE4Ji9RxvBYQdz3hB6poHXii9dQzvGOAPqUxDhdAc3G4+D94IYeAZfEKwHdpJi75cF8zuc2yzMDvlwIO9Ji9v/4bSL//Uds6YJB9BWj0S8jhj2cjGcM6YPPZV0nwAiOkELq3EhhUB1mkA/DvctDTyIDiFOQeAImRzR2K9LY=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by PA6PR08MB11586.eurprd08.prod.outlook.com (2603:10a6:102:525::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
- 2026 14:08:41 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
- 14:08:41 +0000
-Message-ID: <8929a008-0991-4e3c-98a1-f00af47dd0ff@arm.com>
-Date: Fri, 20 Mar 2026 14:08:39 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 20/48] arm64: RMI: Handle realm enter/exit
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-21-steven.price@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260318155413.793430-21-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0246.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:371::13) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	Fri, 20 Mar 2026 14:11:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 11D0F438B1;
+	Fri, 20 Mar 2026 14:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133C8C4CEF7;
+	Fri, 20 Mar 2026 14:11:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774015884;
+	bh=DtYG15RsitNgOn8gCMEp+c82f1w8goXvTJLV/Xl83+0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=fCBNXFMuw5c2+MRveuqhNrTyEDessp+rC+4oDFNo9uw3cl2EGe0YfrWR1kzv4WhqA
+	 3ymWXown23VuL1mle9pxvJzk5hDNc8VhMdio6okbhRFjusDm/p+bKk4qk0Y7W+5/G7
+	 53/fMio1oVmjktM8GQEG6BZYwtKbaUdvIYKp4pmuaRf58+aLnBWJGULVeNzvjVbJx+
+	 6MFMxMuflD0vVNy0hYCv8YLt+Bwk+KavbXxzqxd0h9tIhm7xCMyan8jaxEDuc26O2B
+	 8P0RWk6hGAEznr8r3NN3bi3Mds1QXzgHeA102l1wAjiMj9resnxrFPCUwx7YQ6hNVf
+	 0AumKlSRgz7sg==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
+ masking
+In-Reply-To: <20260320130433.GV3738786@noisy.programming.kicks-ass.net>
+References: <20260320113026.3219620-1-mark.rutland@arm.com>
+ <20260320113026.3219620-2-mark.rutland@arm.com>
+ <20260320130433.GV3738786@noisy.programming.kicks-ass.net>
+Date: Fri, 20 Mar 2026 15:11:20 +0100
+Message-ID: <87h5qak2uv.ffs@tglx>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|PA6PR08MB11586:EE_|DU6PEPF0000A7DF:EE_|GVXPR08MB11544:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44f708a3-96d4-434e-9094-08de868a571f
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: ePl+gn/C1WcvmnfOJEvDDsPwz30iMh2xICM9C3wfjR1Zj7fQhPOxmfS7XthC9Rc4vISETctg/tnTqXKruBV4BpXf92BquxIDbhG/4Pxk9T6MNKwNQcKH7xhcMBNHaD1qxRUbAhB47lCDkdPY5rPfvhIpBlagxIBYO8bug2qcLGt3NXFHeXcrpRgHTFz5KEA2tvJRjnj0y0E66b4rg524pL7cIL8vRLkrHAZEjBsJuSpbRAFJ/OE4KkXmplBj+9lSePhjusIvgrX5hqrWHnxjYNh4qwyAfU1F3I6psYIHmmdxatn9npj3r+s3p3Z/Y3LlkJvLFPyiPs+fzOFpVkEae5qnU5RVtvnvktBA9pq57ihLDYv96BumvI8wu+W8BLqJxX/CfCvWZaGzfiDuBpjb+ASnOpnSvqplaFPHqqh1cAAUL3RMeJwAZ6DDqfcGkZIjOCWcjXA1EQEsbQHhngi19Y6bp0ORCd4L11d3Hvd/vYJLg6/XxED/rUUo6hzvG3ZCcnk1oGqv4cbR/SS5Jzsh7hlPge1nOkTq3mTxKYqHAH3bJTeC4CY2h7SH/JYf/y7mmmMmpaEPSRf5+nFnhXOeuEvf/R7fgm4ASTd02l2kCYmSWNep0zehZRCIjyEhgEpPfncKhof/C8qUO3vpIm15N7nNmLYWGd7D/wSX8SgvBLaBofFKxd2O0yxpakUfV+Pt7fji4lqbhdwjIZqdDLxrZ2Bg2uimdgdkdAircaFx0Qs=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: b+SG6ZYQ68PvZCmrQ6Q5sYzfgmZjtINOu/lV6jdC235ah2rzruM/Kvi1zw21/bf+1brgJXIeItpUrwrSCyZ4moKf90qode++mKYK/0Leffia5pNZrXnQoAz5LU1sDp9xzMir4EY05f4PHonMuvO7lY2c7ZUla382RxkuJkLWzflxS7aVxI053fWywC45o1m8p+8UWi47kvcajvFJWIYLLxToZKMH5ciPMXdPxI54yJ8kDHkJ7DKR7sdqc7xqRr6+1XQfXTY9EmEb5xrtSHjOlZ81sKfFTQxysP/ySht1PqaxPcMt+pSHCHJg1d1yWr72tszuTTPCC2a9+niVxON1uQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR08MB11586
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7DF.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 5e85d8e0-d337-45ec-9e36-08de868a3067
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|35042699022|14060799003|36860700016|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: KESgNGsLIzCIsw3xTtcx1icQ+59bCkoG7jk/7UC+CLj99r7yNl7cq1vCTV5i9Vajd/VRSHQQ+ypYsfDs/dB73kzfRdT1otEW8d1H9Z7AoupZ/lBVXgidf8ZU3A2wUKeKtzCD3FU5PksYqvUBdbv105wU+Jh7+EaDfycG/COi/lwFhwnDc3vlOHzo5T7dnLgzvpHCHHIS4epp69/4m7cAIiDH41Im+32dGjyH8c8IoVSI4vwIMLb0cqApls6kgJYT0Fd5li7Z28g8ozCaVgGHYy1FFF9i+iamxEdwNkIcvTfbBGOpjioWEfiT0thVgy2rtmqLjdt+imiXAdIfYzbfgYKdIuM+LPesulQhsOW1B4rcqMZV5atwd9CIjXur6Kv1P2EOk1NO+CRPQVRx0mwe6QZfxkHTpikC/nth9b0X5nAaUBX1ZeI+ic/L+ddtK6oOxTGgOz5tW4/26mzdRySUS5lWymHkAbZASgAtsjtk1sbC8VR6zHxJg+uT3Yh3c1WsNt002wGI2M/VDJ7Tqi/XT+d140j3IonEeggXu8HVx7tvvM4TEHZGtl/GZo9BoLIBtUK1z1hvsAIL4F9UMigirDs3JNRECs8FUAoMFIFL9QUtHT5cq+k8E+TBD+bRG714tIXg/arMaaMnoGwqV68KgRRYsaxSPydAgJb92qJTMCZtLzBFeyzkjV7eteRJqtuRPxDk3zrvN6taZ59TlcioIq7rtauHRsX6YVisMV9goO4mc5UnTiZOyS/jk5shmgMhafq4dvxTaz1BfLSrklQ8UQ==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(35042699022)(14060799003)(36860700016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: zHUCymPge8+o7qMzVXSAQbFBdjC7+3JNIjtBix/evdjZxOLFMLx4KYupuvTuDBOg3l/edKLDczUO6qWK391cSE/MyWZ4OV9+ODhbH2Om0QZ6tsSWq/hwWQRyBa7/q1Ga2kgeg+pe1CyRQDAyh8bjQoNNlLdmROJJpfs+FU8ReeKBCnuKC8qLco09O/UoEApqERPjMkxnCG2N0kIxVQjvMsS+3owNFLraJZjrJ1XlnvXXatoiKU6OhuDdzoArIOk7v0YaNCEDCdtPJ31hnUBwyjLPUpGJ6yR2SvaHzORBvdtkzZSsVJaQsTXyaKsdq2jKCM/pujYHVFKyI7mzFRvN9rAVo8g5SrTtu8DGVoKPwOKicj5jS6zA+9ggyOWFgGY1AGesMWq1Nqh8PpgcH4qbq5bH53aAhHlI8n9jnLeJXq+dHvGA3Kf2Tm5Em5j6W1lM
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 14:09:45.7384
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44f708a3-96d4-434e-9094-08de868a571f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DF.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11544
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_070957_882882_4C98CF0C 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20260320_071125_754607_E913D7BB 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,427 +68,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 15:53, Steven Price wrote:
-> Entering a realm is done using a SMC call to the RMM. On exit the
-> exit-codes need to be handled slightly differently to the normal KVM
-> path so define our own functions for realm enter/exit and hook them
-> in if the guest is a realm guest.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v12:
->   * Call guest_state_{enter,exit}_irqoff() around rmi_rec_enter().
->   * Add handling of the IRQ exception case where IRQs need to be briefly
->     enabled before exiting guest timing.
-> Changes since v8:
->   * Introduce kvm_rec_pre_enter() called before entering an atomic
->     section to handle operations that might require memory allocation
->     (specifically completing a RIPAS change introduced in a later patch).
->   * Updates to align with upstream changes to hpfar_el2 which now (ab)uses
->     HPFAR_EL2_NS as a valid flag.
->   * Fix exit reason when racing with PSCI shutdown to return
->     KVM_EXIT_SHUTDOWN rather than KVM_EXIT_UNKNOWN.
-> Changes since v7:
->   * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
->     been read (although that can never happen in the current code). Tidy
->     up the condition to handle any future refactoring.
-> Changes since v6:
->   * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
->     vcpu to the error.
->   * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
->     this exit type.
->   * Split code handling a RIPAS change triggered by the guest to the
->     following patch.
-> Changes since v5:
->   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
->     change on next entry rather than immediately on the exit. This allows
->     the VMM to 'reject' a RIPAS change by refusing to continue
->     scheduling.
-> Changes since v4:
->   * Rename handle_rme_exit() to handle_rec_exit()
->   * Move the loop to copy registers into the REC enter structure from the
->     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
->     where the handler exits to user space and user space wants to modify
->     the GPRS.
->   * Some code rearrangement in rec_exit_ripas_change().
-> Changes since v2:
->   * realm_set_ipa_state() now provides an output parameter for the
->     top_iap that was changed. Use this to signal the VMM with the correct
->     range that has been transitioned.
->   * Adapt to previous patch changes.
-> ---
->   arch/arm64/include/asm/kvm_rmi.h |   4 +
->   arch/arm64/kvm/Makefile          |   2 +-
->   arch/arm64/kvm/arm.c             |  26 ++++-
->   arch/arm64/kvm/rmi-exit.c        | 178 +++++++++++++++++++++++++++++++
->   arch/arm64/kvm/rmi.c             |  43 ++++++++
->   5 files changed, 247 insertions(+), 6 deletions(-)
->   create mode 100644 arch/arm64/kvm/rmi-exit.c
-> 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index 4e2c61e71a38..7bec3a3976e7 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -92,6 +92,10 @@ void kvm_destroy_realm(struct kvm *kvm);
->   void kvm_realm_destroy_rtts(struct kvm *kvm);
->   void kvm_destroy_rec(struct kvm_vcpu *vcpu);
->   
-> +int kvm_rec_enter(struct kvm_vcpu *vcpu);
-> +int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
-> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
-> +
->   static inline bool kvm_realm_is_private_address(struct realm *realm,
->   						unsigned long addr)
->   {
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index e17c4077d8e7..4b103bcbe760 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
->   kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->   	 inject_fault.o va_layout.o handle_exit.o config.o \
->   	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
-> -	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o \
-> +	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o rmi-exit.o \
->   	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
->   	 vgic/vgic.o vgic/vgic-init.o \
->   	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 45eff4c41cde..badb94b398bc 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1311,6 +1311,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   		if (ret > 0)
->   			ret = check_vcpu_requests(vcpu);
->   
-> +		if (ret > 0 && vcpu_is_rec(vcpu))
-> +			ret = kvm_rec_pre_enter(vcpu);
-> +
->   		/*
->   		 * Preparing the interrupts to be injected also
->   		 * involves poking the GIC, which must be done in a
-> @@ -1358,7 +1361,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   		trace_kvm_entry(*vcpu_pc(vcpu));
->   		guest_timing_enter_irqoff();
->   
-> -		ret = kvm_arm_vcpu_enter_exit(vcpu);
-> +		if (vcpu_is_rec(vcpu))
-> +			ret = kvm_rec_enter(vcpu);
-> +		else
-> +			ret = kvm_arm_vcpu_enter_exit(vcpu);
->   
->   		vcpu->mode = OUTSIDE_GUEST_MODE;
->   		vcpu->stat.exits++;
-> @@ -1404,7 +1410,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   		 * context synchronization event) is necessary to ensure that
->   		 * pending interrupts are taken.
->   		 */
-> -		if (ARM_EXCEPTION_CODE(ret) == ARM_EXCEPTION_IRQ) {
-> +		if (ARM_EXCEPTION_CODE(ret) == ARM_EXCEPTION_IRQ ||
-> +		    (vcpu_is_rec(vcpu) &&
-> +		     vcpu->arch.rec.run->exit.exit_reason == RMI_EXIT_IRQ)) {
->   			local_irq_enable();
->   			isb();
->   			local_irq_disable();
-> @@ -1416,8 +1424,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   
->   		trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu), *vcpu_pc(vcpu));
->   
-> -		/* Exit types that need handling before we can be preempted */
-> -		handle_exit_early(vcpu, ret);
-> +		if (!vcpu_is_rec(vcpu)) {
-> +			/*
-> +			 * Exit types that need handling before we can be
-> +			 * preempted
-> +			 */
-> +			handle_exit_early(vcpu, ret);
-> +		}
->   
->   		kvm_nested_sync_hwstate(vcpu);
->   
-> @@ -1442,7 +1455,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->   			ret = ARM_EXCEPTION_IL;
->   		}
->   
-> -		ret = handle_exit(vcpu, ret);
-> +		if (vcpu_is_rec(vcpu))
-> +			ret = handle_rec_exit(vcpu, ret);
-> +		else
-> +			ret = handle_exit(vcpu, ret);
->   	}
->   
->   	/* Tell userspace about in-kernel device output levels */
-> diff --git a/arch/arm64/kvm/rmi-exit.c b/arch/arm64/kvm/rmi-exit.c
-> new file mode 100644
-> index 000000000000..f5701153dec0
-> --- /dev/null
-> +++ b/arch/arm64/kvm/rmi-exit.c
-> @@ -0,0 +1,178 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2023 ARM Ltd.
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +#include <kvm/arm_hypercalls.h>
-> +#include <kvm/arm_psci.h>
-> +
-> +#include <asm/rmi_smc.h>
-> +#include <asm/kvm_emulate.h>
-> +#include <asm/kvm_rmi.h>
-> +#include <asm/kvm_mmu.h>
-> +
-> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
-> +
-> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
-> +		 rec->run->exit.esr);
-> +	return -ENXIO;
-> +}
-> +
-> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
-> +{
-> +	return kvm_handle_guest_abort(vcpu);
-> +}
-> +
-> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
-> +		 rec->run->exit.esr);
-> +	return -ENXIO;
-> +}
-> +
-> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
-> +	int rt = kvm_vcpu_sys_get_rt(vcpu);
-> +	bool is_write = !(esr & 1);
-> +	int ret;
-> +
-> +	if (is_write)
-> +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
+On Fri, Mar 20 2026 at 14:04, Peter Zijlstra wrote:
+> On Fri, Mar 20, 2026 at 11:30:25AM +0000, Mark Rutland wrote:
+>> Thomas, Peter, I have a couple of things I'd like to check:
+>> 
+>> (1) The generic irq entry code will preempt from any exception (e.g. a
+>>     synchronous fault) where interrupts were unmasked in the original
+>>     context. Is that intentional/necessary, or was that just the way the
+>>     x86 code happened to be implemented?
+>> 
+>>     I assume that it'd be fine if arm64 only preempted from true
+>>     interrupts, but if that was intentional/necessary I can go rework
+>>     this.
+>
+> So NMI-from-kernel must not trigger resched IIRC. There is some code
+> that relies on this somewhere. And on x86 many of those synchronous
+> exceptions are marked as NMI, since they can happen with IRQs disabled
+> inside locks etc.
+>
+> But for the rest I don't think we care particularly. Notably page-fault
+> will already schedule itself when possible (faults leading to IO and
+> blocking).
 
-The RMM has been fixed to indicate the correct value in ESR_ELx_SRT. So
-this could be :
-		vcpu_set_reg(vcpu, rt, rec->run->ext.gprs[rt]); ?
+Right. In general we allow preemption on any interrupt, trap and exception
+when:
 
-> +
-> +	ret = kvm_handle_sys_reg(vcpu);
-> +	if (!is_write)
-> +		rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
+  1) the interrupted context had interrupts enabled
 
-Same here ^
+  2) RCU was watching in the original context
 
-> +
-> +	return ret;
-> +}
-> +
-> +static exit_handler_fn rec_exit_handlers[] = {
-> +	[0 ... ESR_ELx_EC_MAX]	= rec_exit_reason_notimpl,
-> +	[ESR_ELx_EC_SYS64]	= rec_exit_sys_reg,
-> +	[ESR_ELx_EC_DABT_LOW]	= rec_exit_sync_dabt,
-> +	[ESR_ELx_EC_IABT_LOW]	= rec_exit_sync_iabt
-> +};
-> +
-> +static int rec_exit_psci(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	int i;
-> +
-> +	for (i = 0; i < REC_RUN_GPRS; i++)
-> +		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
-> +
-> +	return kvm_smccc_call_handler(vcpu);
-> +}
-> +
-> +static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct realm *realm = &kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long base = rec->run->exit.ripas_base;
-> +	unsigned long top = rec->run->exit.ripas_top;
-> +	unsigned long ripas = rec->run->exit.ripas_value;
-> +
-> +	if (!kvm_realm_is_private_address(realm, base) ||
-> +	    !kvm_realm_is_private_address(realm, top - 1)) {
-> +		vcpu_err(vcpu, "Invalid RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
-> +			 base, top, ripas);
-> +		/* Set RMI_REJECT bit */
-> +		rec->run->enter.flags = REC_ENTER_FLAG_RIPAS_RESPONSE;
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Exit to VMM, the actual RIPAS change is done on next entry */
-> +	kvm_prepare_memory_fault_exit(vcpu, base, top - base, false, false,
-> +				      ripas == RMI_RAM);
-> +
-> +	/*
-> +	 * KVM_EXIT_MEMORY_FAULT requires an return code of -EFAULT, see the
-> +	 * API documentation
-> +	 */
-> +	return -EFAULT;
-> +}
-> +
-> +static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	__vcpu_assign_sys_reg(vcpu, CNTV_CTL_EL0, rec->run->exit.cntv_ctl);
-> +	__vcpu_assign_sys_reg(vcpu, CNTV_CVAL_EL0, rec->run->exit.cntv_cval);
-> +	__vcpu_assign_sys_reg(vcpu, CNTP_CTL_EL0, rec->run->exit.cntp_ctl);
-> +	__vcpu_assign_sys_reg(vcpu, CNTP_CVAL_EL0, rec->run->exit.cntp_cval);
-> +
-> +	kvm_realm_timers_update(vcpu);
-> +}
-> +
-> +/*
-> + * Return > 0 to return to guest, < 0 on error, 0 (and set exit_reason) on
-> + * proper exit to userspace.
-> + */
-> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	u8 esr_ec = ESR_ELx_EC(rec->run->exit.esr);
-> +	unsigned long status, index;
-> +
-> +	status = RMI_RETURN_STATUS(rec_run_ret);
-> +	index = RMI_RETURN_INDEX(rec_run_ret);
-> +
-> +	/*
-> +	 * If a PSCI_SYSTEM_OFF request raced with a vcpu executing, we might
-> +	 * see the following status code and index indicating an attempt to run
-> +	 * a REC when the RD state is SYSTEM_OFF.  In this case, we just need to
-> +	 * return to user space which can deal with the system event or will try
-> +	 * to run the KVM VCPU again, at which point we will no longer attempt
-> +	 * to enter the Realm because we will have a sleep request pending on
-> +	 * the VCPU as a result of KVM's PSCI handling.
-> +	 */
-> +	if (status == RMI_ERROR_REALM && index == 1) {
-> +		vcpu->run->exit_reason = KVM_EXIT_SHUTDOWN;
-> +		return 0;
-> +	}
-> +
-> +	if (rec_run_ret)
-> +		return -ENXIO;
-> +
-> +	vcpu->arch.fault.esr_el2 = rec->run->exit.esr;
+This _is_ intentional as there is no reason to defer preemption in such
+a case. The RT people might get upset if you do so.
 
-Even ESR_EL2 is only valid when the exit reason is RMI_EXIT_SYNC or 
-RMI_EXIT_SERROR.
-Doing this unconditional copying is fine, as long as we don't consume
-the esr_el2 in exit handling without consulting the exit reason, which
-may not be available to the rest of the KVM. It may be safer to set it
-to 0 ?
+NMI like exceptions, which are not allowed to schedule, should therefore
+never go through irqentry_irq_entry() and irqentry_irq_exit().
 
+irqentry_nmi_enter() and irqentry_nmi_exit() exist for a technical
+reason and are not just of decorative nature. :)
 
-> +	vcpu->arch.fault.far_el2 = rec->run->exit.far;
-> +	/* HPFAR_EL2 is only valid for RMI_EXIT_SYNC */
-> +	vcpu->arch.fault.hpfar_el2 = 0;
-> +
-> +	update_arch_timer_irq_lines(vcpu);
-> +
-> +	/* Reset the emulation flags for the next run of the REC */
-> +	rec->run->enter.flags = 0;
-> +
-> +	switch (rec->run->exit.exit_reason) {
-> +	case RMI_EXIT_SYNC:
-> +		/*
-> +		 * HPFAR_EL2_NS is hijacked to indicate a valid HPFAR value,
-> +		 * see __get_fault_info()
-> +		 */
-> +		vcpu->arch.fault.hpfar_el2 = rec->run->exit.hpfar | HPFAR_EL2_NS;
-> +		return rec_exit_handlers[esr_ec](vcpu);
-> +	case RMI_EXIT_IRQ:
-> +	case RMI_EXIT_FIQ:
-> +		return 1;
-> +	case RMI_EXIT_PSCI:
-> +		return rec_exit_psci(vcpu);
-> +	case RMI_EXIT_RIPAS_CHANGE:
-> +		return rec_exit_ripas_change(vcpu);
+>> (2) The generic irq entry code only preempts when RCU was watching in
+>>     the original context. IIUC that's just to avoid preempting from the
+>>     idle thread. Is it functionally necessary to avoid that, or is that
+>>     just an optimization?
+>> 
+>>     I'm asking because historically arm64 didn't check that, and I
+>>     haven't bothered checking here. I don't know whether we have a
+>>     latent functional bug.
+>
+> Like I told you on IRC, I *think* this is just an optimization, since if
+> you hit idle, the idle loop will take care of scheduling. But I can't
+> quite remember the details here, and wish we'd have written a sensible
+> comment at that spot.
 
-RMI_EXIT_SERROR is missing in the list above.
+There is one, but it's obviously not detailed enough.
 
-> +	}
-> +
-> +	kvm_pr_unimpl("Unsupported exit reason: %u\n",
-> +		      rec->run->exit.exit_reason);
+> Other places where RCU isn't watching are userspace and KVM. The first
+> isn't relevant because this is return-to-kernel, and the second I'm not
+> sure about.
+>
+> Thomas, can you remember?
 
+Yes. It's not an optimization. It's a correctness issue.
 
+If the interrupted context is RCU idle then you have to carefully go
+back to that context. So that the context can tell RCU it is done with
+the idle state and RCU has to pay attention again. Otherwise all of this
+becomes imbalanced.
 
-> +	vcpu->run->exit_reason = KVM_EXIT_INTERNAL_ERROR;
-> +	return 0;
-> +}
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index 6daf14c4b413..ee8aab098117 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -394,6 +394,49 @@ static int realm_ensure_created(struct kvm *kvm)
->   	return -ENXIO;
->   }
->   
-> +/*
-> + * kvm_rec_pre_enter - Complete operations before entering a REC
-> + *
-> + * Some operations require work to be completed before entering a realm. That
-> + * work may require memory allocation so cannot be done in the kvm_rec_enter()
-> + * call.
-> + *
-> + * Return: 1 if we should enter the guest
-> + *	   0 if we should exit to userspace
-> + *	   < 0 if we should exit to userspace, where the return value indicates
-> + *	   an error
-> + */
-> +int kvm_rec_pre_enter(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
-> +		return -EINVAL;
-> +
-> +	switch (rec->run->exit.exit_reason) {
-> +	case RMI_EXIT_HOST_CALL:
-> +	case RMI_EXIT_PSCI:
-> +		for (int i = 0; i < REC_RUN_GPRS; i++)
-> +			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
-> +		break;
-> +	}
-> +
-> +	return 1;
-> +}
-> +
-> +int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	int ret;
-> +
-> +	guest_state_enter_irqoff();
-> +	ret = rmi_rec_enter(virt_to_phys(rec->rec_page),
-> +			    virt_to_phys(rec->run));
+This is about context-level nesting:
 
-In the normal VM case, we try to fixup some of the exits (e.g., GIC 
-CPUIF register accesses) which may be applicable to Realms. Do we
-need such fixups here ? Given the cost of world switch, it is
-debatable whether it matters or not.
+        ...
+L1.A    ct_cpuidle_enter();
 
-Suzuki
-> +	guest_state_exit_irqoff();
-> +
-> +	return ret;
-> +}
-> +
->   static void free_rec_aux(struct page **aux_pages,
->   			 unsigned int num_aux)
->   {
+                        -> interrupt
+ L2.A                           ct_irq_enter();
+                                ...             // Set NEED_RESCHED
+ L2.B                           ct_irq_exit();
+                               
+        ...
+L1.B    ct_cpuidle_exit();
 
+Scheduling between #L2.B and #L1.B makes RCU rightfully upset. Think
+about it this way:
+
+L1.A    preempt_disable();
+L2.A    local_bh_disable();
+        ..
+L2.B    local_bh_enable();
+        if (need_resched())
+           schedule();
+L1.B    preempt_enable();
+
+RCU is not any different. For context-level nesting of any kind the only
+valid order is:
+
+   L1.A -> L2.A -> L2.B -> L1.B
+
+Pretty obvious if you actually think about it, no?
+
+Thanks,
+
+        tglx
 
