@@ -4,115 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB6D1099B41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868331099B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXxuQ24FqzoAKF907nAmIWTd8J/1fw9cSv99fr9M97Y=; b=lquUG/9B0SsBB5lQMvMaG9lRxm
-	F+NKQuv9Hc5893GejwLtDW105d/Urek4Yo4e4leUs6Gjgr6beeHs3XeKXPRgs8HESjh7yLrg5eRnB
-	D9ZYSEFoxKWp6lKW7uVrhRr5QGNS0Jeiac2sUGh0FykZ1Ud2qsgV/Cq+GVQ6W5i/FX/U38S/X/rwk
-	ElPLly0AUXxc59MpdgEUtfN2HjJG7R2JQunkYWuHNg6Qm3e0VNWVTsYgfPoVBZXwb+qxEBRDcQeHI
-	6JwTMWwzEqscLqMKEjlaF59Zr2Dl7PXL7ng1TQOeA6hQBNtGzQ9UeHTxMtcf2lKrE7BoFnfZ4hhV2
-	j0jVQv1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1VMhOKyPBEf3aTohtQ65jH5H1m4Yp06O5AHFbxCR8NQ=; b=igezpXxECSL1KzOqt0Uf2fseWP
+	mzwWPsiuFb9x+0oRS/o9fv6bsRSb7yojn0nTU7daf21c4IXbvWoaDg+uCcJhJCp+wDpwGb3aSqb0f
+	kKybTYiCRN+RSbXEqueK5E4zMsPmhB51qm+S6qMFs1MyCFxPLrgRRwl1UR72f8WaCt7boUUD3t0J8
+	/lodg99wJ/zyx205C52vuaAIaDtuUmbIxrLjaCx/HasvujEDKF08zZr9cEUolcC6GLuAxzUGyapYs
+	JzJv2OwarHbn0UG6GBcvwVDwdqBYcdkMzeQhcHEstt/pvoiWmXCNZTypmOjmi1F6Oc9go7If0dFWM
+	EqZ33yBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hBy-0000000Db4e-2YsO;
-	Fri, 20 Mar 2026 21:15:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3hG3-0000000DblI-0Vdn;
+	Fri, 20 Mar 2026 21:19:51 +0000
+Received: from lpdvsmtp10.broadcom.com ([192.19.144.205] helo=relay.smtp-ext.broadcom.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hBu-0000000Db3B-2rND
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 21:15:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZXxuQ24FqzoAKF907nAmIWTd8J/1fw9cSv99fr9M97Y=; b=XIPrDj32TlLbGD492jAFyNN5fb
-	ezXAEEENFOIVZ3HstgLuoT7ACMAZReI3em7ijro4kiqTBODbHZShOLLTOEt7aaOu2nU5dGWJ+xuCY
-	M/7MtxjgwI8TxPNSz2eKQcezvtsES1rXQA+KrY8VJS8Y2rBD4hknWKDAVF/wCERNlWbZOVnVbBQvV
-	rj8kkeM5QXg03qMC8ngur0LTHbdG/Rj1Pic041ZvMyaXqmfMiGzI7rgI94MpBehnbD1HH3N8o0GRF
-	zvs1QiUNbGAKWbkcFeDJNxFKR7V0a5jQ31pSx1JsD970ttK+9r14CR04kE0pXG2VwOzzL08C1rHv1
-	58DqusXA==;
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hBm-0000000GUTj-2HnO
+	id 1w3hG0-0000000Dbkd-14T9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 21:15:32 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-43b4f48c47cso815335f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 14:15:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774041324; x=1774646124; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZXxuQ24FqzoAKF907nAmIWTd8J/1fw9cSv99fr9M97Y=;
-        b=R63Tb/1NXeRHowJkvEEVplKuIxPqI3ban01IEpXVWoFP4E6CZIksMZFOv2Y70o5FIM
-         MTSpEwgODE5RnprAhvBm9neTtZcjcCN5rSO1FAuDABc+ReMJVY7eqIKV4WJTyh/79JU0
-         1qfnRfmAUGNsXuvKC8jnwS1ZqYPI7iSrUtb6wx2JxvQxxAN5Pq19EO+dL6MKc9f706oB
-         CsqVpzk6XkqVGl44BC1jiT5kZoB1xjgvhVQrikBZqN5WX7K1lzKbLHI9CGDgNEKQDO22
-         bqULNR+enbdNfWCrYD0D19r9TGnPLPDuyeyfPXWiQciN5eJe0w5+c1MuUoo0ph3yb3lF
-         DHww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774041324; x=1774646124;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZXxuQ24FqzoAKF907nAmIWTd8J/1fw9cSv99fr9M97Y=;
-        b=Rxp49lITav8N3rI9JUhs6BhQK2qiX9y/RJYO1vjw72N+76S5bEsci9qqfEbL6dSknf
-         JdFYNJ2J16r2mKOCLKaqVzPgDdQ+dImU4hBOnYTSEUnK/8YMh+H9ITH3IOTnjsfYh2Xs
-         r8ExU4ZhWF8EIKQ1P/t5RBfckNpay+x3sAI5emw2CB2m3/BH32S0aKLno5MyktRkTSyN
-         QJK74EOX2K3g/rRIvegMat4yeMHuJbRTyMjVHX6VfQQcHlgigzqvDzQzXXx14MmEJfpj
-         E5/Es9BdACaoG2mXqI9GaQqYwc2fcNA2Dt7wf2tPgCFl4G6VCr64CbUqVifqc9FL7wBZ
-         usGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/zTBW5F6eJVf9i5qC6awBcmaSNqJjNba+E7WPRrtummusT/1QRVSjpfkGlnVi5dK8NKNkR+4wf0BQniOAD44Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw52OIRsHABfWmSPxqvCCx9BuvAFnZjGkNvMk/F8Nzi2+J5Lhwh
-	iIu90gyGQjHcNBU1wp1jAo5uj6NUqsiX6h83iCciysMRpw1BY855SuxvxkdmOe+CCMQ=
-X-Gm-Gg: ATEYQzyJw5atZVCO51NIndE+swrxSaubjFvDueDmYtWlNlCrLua95fXHUl48eV8/Xor
-	8jn0/hbsZA+3BdwT/Z9emqdq5xFbn0IkMkTqxmtYjUIglUl65Tx0kYMBs4YTuEW4d0E/fCr0R/m
-	bf62TGL8X3bDaS+By7USvkxBYCPJfiAIVlHCOe+Ij7v4rnXaXxIMmFYcSoyT0OZUNVf4OffcudO
-	XOCWUHBZYumWjlfhbd+W66QZFxvwJ8oDp/m66egRBGkCHQwzamL178taI1YTe4F7gvmW6B+5EEW
-	OM/iuWjRru9pGtrzjJEm3BqrKn17R0oVARjl8EWsp1iY/kKtuYJtXSumHrm4a31aVhh7NxWQWjT
-	AMe0EMCZgucB1ZS9avjkH714xBQV8zRumYSBryo3WBAsKkct5kYRkGjbhbkXBEa5Q/amPk1tHcx
-	Q1rdgwcmLGM4BE8jRN349fZMP62xXJafAggHoa6y1nF1uQjphwPdGLGO1TiTo7EcUk3ZYcAU9Ee
-	23R9Pt8I9BQ50I=
-X-Received: by 2002:a05:6000:2dc7:b0:439:b811:11de with SMTP id ffacd0b85a97d-43b6424312cmr7695087f8f.7.1774041323743;
-        Fri, 20 Mar 2026 14:15:23 -0700 (PDT)
-Received: from [127.0.1.1] ([94.4.193.72])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b64703c27sm9702401f8f.18.2026.03.20.14.15.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 14:15:23 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Fri, 20 Mar 2026 21:15:17 +0000
-Subject: [PATCH 5/5] arm64: dts: exynos850: Add ap2apm mailbox
+	Fri, 20 Mar 2026 21:19:49 +0000
+Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id A4580C00081D;
+	Fri, 20 Mar 2026 14:19:46 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com A4580C00081D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1774041586;
+	bh=Gq2xqQqrmftpT57FeNDWL0jS4zcLO2bwhEOeokCs5hU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=pCV8zefZWs6nQ8qbbp1PMF1+RrOToJ1ctst8SnXQXzOwdfi66zcRP/OKLvsuX1nhc
+	 gNWrYPjzL8EGkttfebarnWYEhmu0cZkLUdIMwhjHva0CnbPoyupwLAgWcAWowBPdgT
+	 p78HDblCqKZZWhAEHToVb7nEFCbfQGTBM4aJdS4Q=
+Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id AAA6DAE80;
+	Fri, 20 Mar 2026 17:19:43 -0400 (EDT)
+From: "Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	jitendra.vegiraju@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	richardcochran@gmail.com,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	rmk+kernel@armlinux.org.uk,
+	rohan.g.thomas@altera.com,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org,
+	sdf@fomichev.me,
+	me@ziyao.cc,
+	siyanteng@cqsoftware.com.cn,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	weishangjuan@eswincomputing.com,
+	wens@kernel.org,
+	vladimir.oltean@nxp.com,
+	lizhi2@eswincomputing.com,
+	boon.khai.ng@altera.com,
+	maxime.chevallier@bootlin.com,
+	chenchuangyu@xiaomi.com,
+	yangtiezhu@loongson.cn,
+	ovidiu.panait.rb@renesas.com,
+	chenhuacai@kernel.org,
+	florian.fainelli@broadcom.com,
+	quic_abchauha@quicinc.com
+Subject: [PATCH net-next v8 0/5] net: stmmac: Add PCI driver support for BCM8958x
+Date: Fri, 20 Mar 2026 14:19:15 -0700
+Message-ID: <20260320211921.1202058-1-jitendra.vegiraju@broadcom.com>
+X-Mailer: git-send-email 2.45.4
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-exynos850-ap2apm-mailbox-v1-5-983eb3f296fc@linaro.org>
-References: <20260320-exynos850-ap2apm-mailbox-v1-0-983eb3f296fc@linaro.org>
-In-Reply-To: <20260320-exynos850-ap2apm-mailbox-v1-0-983eb3f296fc@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Sam Protsenko <semen.protsenko@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alexey Klimov <alexey.klimov@linaro.org>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_211530_477295_2AF03EF2 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260320_141948_461933_2DD0634D 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,36 +106,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add mailbox node that describes AP-to-APM mailbox, that can be
-used for communicating with APM co-processor on Exynos850 SoCs.
+From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
 
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- arch/arm64/boot/dts/exynos/exynos850.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+This patchset adds basic PCI ethernet device driver support for Broadcom
+BCM8958x Automotive Ethernet switch SoC devices.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index cb55015c8dce..fcb665ccc7ae 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -298,6 +298,15 @@ cmu_apm: clock-controller@11800000 {
- 			clock-names = "oscclk", "dout_clkcmu_apm_bus";
- 		};
- 
-+		ap2apm_mailbox: mailbox@11900000 {
-+			compatible = "samsung,exynos850-mbox";
-+			reg = <0x11900000 0x1000>;
-+			clocks = <&cmu_apm CLK_GOUT_MAILBOX_APM_AP_PCLK>;
-+			clock-names = "pclk";
-+			interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
-+			#mbox-cells = <0>;
-+		};
-+
- 		cmu_cmgp: clock-controller@11c00000 {
- 			compatible = "samsung,exynos850-cmu-cmgp";
- 			reg = <0x11c00000 0x8000>;
+This SoC device has PCIe ethernet MAC attached to an integrated ethernet
+switch using XGMII interface. The PCIe ethernet controller is presented to
+the Linux host as PCI network device.
+Management of integrated ethernet switch on this SoC is not handled via
+the PCIe interface.
+
+The following block diagram gives an overview of the application.
+             +=================================+
+             |       Host CPU/Linux            |
+             +=================================+
+                        || PCIe
+                        ||
+        +==========================================+
+        |           +--------------+               |
+        |           | PCIE Endpoint|               |
+        |           | Ethernet     |               |
+        |           | Controller   |               |
+        |           |   DMA        |               |
+        |           +--------------+               |
+        |           |   MAC        |   BCM8958X    |
+        |           +--------------+   SoC         |
+        |               || XGMII                   |
+        |               ||                         |
+        |           +--------------+               |
+        |           | Ethernet     |               |
+        |           | switch       |               |
+        |           +--------------+               |
+        |             || || || ||                  |
+        +==========================================+
+                      || || || || More external interfaces
+
+The MAC block on BCM8958x is based on Synopsis XGMAC 4.00a core. This
+MAC IP introduces new DMA architecture called Hyper-DMA for virtualization
+scalability.
+
+Driver functionality specific to new MAC (DW25GMAC) is implemented in
+new file dw25gmac.c.
+
+v7->v8:
+   Addressed review comments from v7.
+   Patch2:
+       Add a helper function with common code for three setup functions
+       in dwxgmac2_core.c (Russell King).
+   Patch4:
+       Use stmmac_plat_dat_alloc() to allocate memory for
+       :plat_stmmacenet_data: (Russell King).
+       Changed few bool variable initialization to bool types in
+       dwxgmac_brcm_default_data().
+   Patch5:
+       Make use of plat->init, plat->exit handlers to cleanup
+       probe function error handling path (Russell King).
+       Use managed API to free irq vectors.
+v6->v7:
+   Minor changes to v6 patchset adapting to recent changes net-next.
+   Patch1:
+       Make use of the core_type variable for MAC core identification.
+       Define enum value DWMAC_CORE_25GMAC and discard previous proposal to
+       add new variables in struct plat_stmmacenet_data.
+   Patch2:
+       Updated patch to latest net-next branch code base.
+   Patch3:
+       Modified hwif entry matching to use core_type DWMAC_CORE_25GMAC.
+   Patch4:
+       Adapted glue driver to match recent stmmac core changes.
+       Changed susped/resume functionality to use common framework.
+   https://lore.kernel.org/netdev/20260313222206.778760-1-jitendra.vegiraju@broadcom.com/
+v5->v6:
+   Change summary to address comments/suggestions by Serge Semin.
+   Patch1:
+     Removed the complexity of hdma mapping in previous patch series and
+     use static DMA mapping.
+     Renamed plat_stmmacenet_data::snps_dev_id as dev_id and moved to
+     the beginning of the struct.
+   Patch2:
+     Added dw25gmac_get_hw_feature() for dw25gmac.
+     Use static one-to-one VDMA-TC-PDMA mapping.
+   Patch4:
+     Remove usage of plat_stmmacenet_data::msi_*_vec variables for
+     interrupt vector initialization.
+     Change phy_interface type to XGMII.
+     Cleanup unused macros.
+   https://lore.kernel.org/netdev/20241018205332.525595-1-jitendra.vegiraju@broadcom.com/
+
+v4->v5:
+   Summary of changes in this patch series:
+   As suggested by Serge Semin, defined common setup function for dw25gmac.
+   To accommodate early adopter DW25GMAC used in BCM8958x device, provide
+   a mechanism to override snps_id and snps_dev_id used for driver entry
+   matching in hwif.c
+
+   Patch1:
+     Added plat_stmmacenet_data::snps_id,snps_dev_id fields - Serge Semin
+   Patch2:
+     Define common setup function for dw25gmac_setup() - Serge Semin
+     Support DW25GMAC IPs with varying VDMA/PDMA count - Abhishek Chauhan
+     Allocate and initialize hdma mapping configuration data dynamically
+     based on device's VDMA/PDMA feature capabilities in dw25gmac_setup().
+     Spelling errors in commit log, lower case 0x for hex -Amit Singh Tomar
+   Patch3:
+     Glue support in hwif.c for DW25GMAC in hwif.c - Serge Semin
+     Provide an option to override snps_id and snps_dev_id when the device
+     reports version info not conformant with driver's expectations as is
+     the case with BCM8958x device. - Serge Semin
+   Patch4:
+     Remove setup function in the glue driver - Serge Semin
+     Remove unnecessary calls pci_enable_device() and pci_set_master()
+     in dwxgmac_brcm_pci_resume() - Jakub Kicinski
+     Merge variable definitions to single line - Amit Singh Tomar
+    https://lore.kernel.org/netdev/20240904054815.1341712-1-jitendra.vegiraju@broadcom.com/
+   
+v3->v4:
+   Based on Serge's questions, received a confirmation from Synopsys that
+   the MAC IP is indeed the new 25GMAC design.
+   Renamed all references of XGMAC4 to 25GMAC.
+   The patch series is rearranged slightly as follows.
+   Patch1 (new): Define HDMA mapping data structure in kernel's stmmac.h
+   Patch2 (v3 Patch1): Adds dma_ops for dw25gmac in stmmac core
+       Renamed new files dwxgmac4.* to dw25gmac.* - Serge Semin
+       Defined new Synopsis version and device id macros for DW25GMAC.
+       Converted bit operations to FIELD_PREP macros - Russell King
+       Moved hwif.h to this patch, Sparse flagged warning - Simon Horman
+       Defined macros for hardcoded values TDPS etc - Serge Semin
+       Read number of PDMAs/VDMAs from hardware - Serge Semin
+   Patch3 (v3 Patch2): Hooks in hardware interface handling for dw25gmac
+       Resolved user_version quirks questions - Serge, Russell, Andrew
+       Added new stmmac_hw entry for DW25GMAC. - Serge
+       Added logic to override synopsis_dev_id by glue driver.
+   Patch4 (v3 Patch3): Adds PCI driver for BCM8958x device
+       Define bitmmap macros for hardcoded values - Andrew Lunn
+       Added per device software node - Andrew Lunn
+   Patch5(new/split): Adds BCM8958x driver to build system
+   https://lore.kernel.org/netdev/20240814221818.2612484-1-jitendra.vegiraju@broadcom.com/
+
+v2->v3:
+   Addressed v2 comments from Andrew, Jakub, Russel and Simon.
+   Based on suggestion by Russel and Andrew, added software node to create
+   phylink in fixed-link mode.
+   Moved dwxgmac4 specific functions to new files dwxgmac4.c and dwxgmac4.h
+   in stmmac core module.
+   Reorganized the code to use the existing glue logic support for xgmac in
+   hwif.c and override ops functions for dwxgmac4 specific functions.
+   The patch is split into three parts.
+     Patch#1 Adds dma_ops for dwxgmac4 in stmmac core
+     Patch#2 Hooks in the hardware interface handling for dwxgmac4
+     Patch#3 Adds PCI driver for BCM8958x device
+   https://lore.kernel.org/netdev/20240802031822.1862030-1-jitendra.vegiraju@broadcom.com/
+
+v1->v2:
+   Minor fixes to address coding style issues.
+   Sent v2 too soon by mistake, without waiting for review comments.
+   Received feedback on this version.
+   https://lore.kernel.org/netdev/20240511015924.41457-1-jitendra.vegiraju@broadcom.com/
+
+v1:  
+   https://lore.kernel.org/netdev/20240510000331.154486-1-jitendra.vegiraju@broadcom.com/
+
+Jitendra Vegiraju (6):
+  Add 25GMAC core type to dwmac_core_type enum
+  Add DW25GMAC support in stmmac core driver
+  Integrate dw25gmac into hwif handling
+  Add PCI driver support for BCM8958x
+  Fix error handling in probe function.
+  Add BCM8958x driver to build system
+
+ MAINTAINERS                                   |   8 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  12 +-
+ .../net/ethernet/stmicro/stmmac/dw25gmac.c    | 161 +++++++
+ .../net/ethernet/stmicro/stmmac/dw25gmac.h    |  92 ++++
+ .../net/ethernet/stmicro/stmmac/dwmac-brcm.c  | 445 ++++++++++++++++++
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |   1 +
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   |  59 ++-
+ .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    |  51 ++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    |  20 +
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |   1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |  35 ++
+ include/linux/stmmac.h                        |   1 +
+ 14 files changed, 876 insertions(+), 24 deletions(-)
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dw25gmac.h
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
 
 -- 
-2.51.0
+2.34.1
 
 
