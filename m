@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AB91093179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 05:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FDF1093177
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 05:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Type:Content-Transfer-Encoding:Date:Message-ID:CC:To:From:Subject:
-	Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=JxQ7E6F74uxBXrdFidaGlt2hT0tYDUqE1zgU7CkwdSI=; b=L5gLKtzkcPUVRSfogbauJJ7QyD
-	6Q4AxrbfJOiahdEZoNo5fur+O69DoTQUu9FJC7yY6mBpGqWRpw8B11JQ8M2cWxlO/RQKDHK8lJMhK
-	XKGpE4bjRGE8B7anFvsEbHPTuUg5xQEfdCDZDnM6JC+RAxeO9BG29m4tSj3G3ZDuE/VmqwW6Y0Q0X
-	pZ4AFBI8Zox1gy+zs/WFo6EoT2ylJno+YVdlbcLQsikDbNcaediguo9qqry8oAqCOIAYPwYDmcToc
-	6D1z+Wj9pcIXTyMM6GvFm71JYuS6mNDWOQWdOle9hxpcv7p4UUMeShvr4cECYa9m96+pTywLL/1AH
-	VQQl5k8g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yyqCuHeJ4yoYJ7QJNk7Gc77s/EmQgwDzAwFECpYA+P0=; b=xmilVrqwpSZb4JNudGIthA2SzX
+	wJSnbnDPWkBzZX83jtFB5+xMbxfckAz2xVuBhikFVHcGYTIT8arMWt+THJr6hRoZySxJWCCYyYw92
+	GjOnKp9ZRmwxFa6jod0Bu2s2AQ3R6NwoXjNABDKtIhKT9BT2gruMeyzFv5p2szc4ZYX53zk0q2NGF
+	9783wW9wLlGdMu6XMvTU8xjnpgiHjQhEhNhDrZQHMCE7sz2TWCmiC+H/r2FmGzUDc31T8GM0UuyLh
+	cy++mWDt+lMAy/iKqlq42B9r/oPjSwjOzOu6yUlIRnUCP0YDpKi3go19l9HR2eZXSJCn9UzVaFCfc
+	I+MwJ67Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SIS-0000000C62t-2PAO;
-	Fri, 20 Mar 2026 05:21:20 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1w3SM9-0000000C6OP-28a4;
+	Fri, 20 Mar 2026 05:25:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SII-0000000C61F-3DfO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 05:21:18 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260320052102epoutp04cf81ae3eeb4703019c28548e8af50ed0~edRsi4aG70129101291epoutp04P
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 05:21:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260320052102epoutp04cf81ae3eeb4703019c28548e8af50ed0~edRsi4aG70129101291epoutp04P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1773984062;
-	bh=JxQ7E6F74uxBXrdFidaGlt2hT0tYDUqE1zgU7CkwdSI=;
-	h=Subject:Reply-To:From:To:CC:Date:References:From;
-	b=FRp/O6Bw4gYbxIYxd1SvWpFdWWLjFsz1bE2c5E1obVaxhf3HwUBwa1x+O4clUgDKy
-	 o609i5mJPIEFuPXEi3fviJcz039fgMfxWEYrgLKsB1f2SdzktUtbrVdd7/xmSsmZrv
-	 3VhpyAoQ1bqUD0vKaD9i/B9QCkJUP4iVFNkA4ZYc=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20260320052102epcas2p1bad6bc6c6805325c5d09c69067ba6274~edRsHPBob1038710387epcas2p1E;
-	Fri, 20 Mar 2026 05:21:02 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.38.210]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4fcWB54z77z3hhTB; Fri, 20 Mar
-	2026 05:21:01 +0000 (GMT)
-Mime-Version: 1.0
-Subject: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
-From: =?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
-To: "kbusch@kernel.org" <kbusch@kernel.org>, "axboe@kernel.dk"
-	<axboe@kernel.dk>
-CC: "sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
-	"neal@gompa.dev" <neal@gompa.dev>, "hch@lst.de" <hch@lst.de>,
-	"sagi@grimberg.me" <sagi@grimberg.me>, "justin.tee@broadcom.com"
-	<justin.tee@broadcom.com>, "nareshgottumukkala83@gmail.com"
-	<nareshgottumukkala83@gmail.com>, "paul.ely@broadcom.com"
-	<paul.ely@broadcom.com>, "kch@nvidia.com" <kch@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
-	<linux-nvme@lists.infradead.org>, "asahi@lists.linux.dev"
-	<asahi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, =?UTF-8?B?7KCE66+87Iud?=
-	<hmi.jeon@samsung.com>
-X-Priority: 3
-X-Content-Kind-Code: NORMAL
-X-CPGS-Detection: blocking_info_exchange
-X-Drm-Type: N,general
-X-Msg-Generator: Mail
-X-Msg-Type: PERSONAL
-X-Reply-Demand: N
-Message-ID: <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
-Date: Fri, 20 Mar 2026 14:21:01 +0900
-X-CMS-MailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
-Content-Transfer-Encoding: 7bit
+	id 1w3SM7-0000000C6Nc-0gjU;
+	Fri, 20 Mar 2026 05:25:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 43EF341B34;
+	Fri, 20 Mar 2026 05:25:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF02BC4CEF7;
+	Fri, 20 Mar 2026 05:25:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773984305;
+	bh=zaGWASU9+JAdJi4fUavTf9Khqp16CUkVbyblJANVq4s=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=XgJ4/xi591n6pjBVAauY6nfQ+8bDXa+YT7ICN+1HiuoTPZznzj7jHrkfdJWoiVCaq
+	 jwRc1YsTzudfLWScxQbeWsWVO0uMNun2ngs9u8KC2/kIz1kv/XHMD19H0xDX/6v9KI
+	 QfZnsWhwELFwoiiuzXhW+Yqxgkj1NRKi+vOCa8LqDFdsvGFfeN0CtRLEw9mVIGXHrp
+	 gCB05pIYSEtqvSmWi+O1hROa4Wy5YPRHhw9qFYiCouBqt/7AL5GGN5QqcX1sVnuHWD
+	 Wx1rxErjwOAyeIm2x/SUP2zIwsgVE9bp5pDysUNK+F+wFQp1OnXhFpzUlXGR1gZ4gM
+	 2vbFUmShVRQDg==
+Date: Fri, 20 Mar 2026 00:25:04 -0500
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-223,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
-References: <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Bjorn Andersson <andersson@kernel.org>, linux-mediatek@lists.infradead.org, 
+ Hailong Fan <Hailong.Fan@mediatek.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>, 
+ Huayu Zong <huayu.Zong@mediatek.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+In-Reply-To: <20260320032014.13608-2-xiangzhi.tang@mediatek.com>
+References: <20260320032014.13608-1-xiangzhi.tang@mediatek.com>
+ <20260320032014.13608-2-xiangzhi.tang@mediatek.com>
+Message-Id: <177398430412.27959.15021574635894371072.robh@kernel.org>
+Subject: Re: [PATCH v3 1/6] dt-bindings: remoteproc: Add VCP support for
+ mt8196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_222113_869064_9A40A4A7 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20260319_222507_267868_F6AD9A84 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,184 +78,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: hmi.jeon@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From e54937be5ca0a2b38fffe6611c360625dc0a8903 Mon Sep 17 00:00:00 2001
-From: Minsik Jeon <hmi.jeon@samsung.com>
-Date: Fri, 20 Mar 2026 14:48:07 +0900
-Subject: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
 
-we were checking host_pathing_error before calling nvme_setup_cmd().
-This is caused the command setup to be skipped entirely when a pathing
-error occurred, making it impossible to trace the nvme command via
-trace_cmd nvme_complete_rq().
+On Fri, 20 Mar 2026 11:18:03 +0800, Xiangzhi Tang wrote:
+> Add the new binding document for MediaTek Video Companion
+> Processor(VCP) on MediaTek mt8196.
+> 
+> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+> ---
+>  .../remoteproc/mediatek,mt8196-vcp.yaml       | 161 ++++++++++++++++++
+>  1 file changed, 161 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
+> 
 
-As a result, when nvme_complete_rq() logged a completion with cmdid=0,
-it was impossible to correlate the completion with the nvme command
-request.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-This patch reorders the logic to first call nvme_setup_cmd(), then
-perform the host_pathing_error check.
+yamllint warnings/errors:
 
-Co-authored-by: Beomsoo Kim <beomsooo.kim@samsung.com>
-Co-authored-by: Eunsoo Lee <euns212.lee@samsung.com>
-Co-authored-by: Steven Seungcheol Lee <sc108.lee@samsung.com>
-Signed-off-by: Minsik Jeon <hmi.jeon@samsung.com>
----
- drivers/nvme/host/apple.c  | 6 +++---
- drivers/nvme/host/fc.c     | 8 ++++----
- drivers/nvme/host/pci.c    | 8 ++++----
- drivers/nvme/host/rdma.c   | 8 ++++----
- drivers/nvme/host/tcp.c    | 8 ++++----
- drivers/nvme/target/loop.c | 6 +++---
- 6 files changed, 22 insertions(+), 22 deletions(-)
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml: patternProperties:^vcp@[a-f0-9]+$:properties:mtk,vcp-core-twohart: 'anyOf' conditional failed, one must be fixed:
+	'description' is a dependency of '$ref'
+	'/schemas/types.yaml#/definitions/uint32' does not match '^#\\/(definitions|\\$defs)\\/'
+		hint: A vendor property can have a $ref to a a $defs schema
+	hint: Vendor specific properties must have a type and description unless they have a defined, common suffix.
+	from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml
+Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dts:26:18: fatal error: dt-bindings/power/mt8196-power.h: No such file or directory
+   26 |         #include <dt-bindings/power/mt8196-power.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1614: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index ed61b97fde59..2a28c992d024 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -783,13 +783,13 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
- 	if (unlikely(!READ_ONCE(q->enabled)))
- 		return BLK_STS_IOERR;
- 
--	if (!nvme_check_ready(&anv->ctrl, req, true))
--		return nvme_fail_nonready_command(&anv->ctrl, req);
--
- 	ret = nvme_setup_cmd(ns, req);
- 	if (ret)
- 		return ret;
- 
-+	if (!nvme_check_ready(&anv->ctrl, req, true))
-+		return nvme_fail_nonready_command(&anv->ctrl, req);
-+
- 	if (blk_rq_nr_phys_segments(req)) {
- 		ret = apple_nvme_map_data(anv, req, cmnd);
- 		if (ret)
-diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
-index e1bb4707183c..8ea37102a836 100644
---- a/drivers/nvme/host/fc.c
-+++ b/drivers/nvme/host/fc.c
-@@ -2762,14 +2762,14 @@ nvme_fc_queue_rq(struct blk_mq_hw_ctx *hctx,
- 	u32 data_len;
- 	blk_status_t ret;
- 
--	if (ctrl->rport->remoteport.port_state != FC_OBJSTATE_ONLINE ||
--	    !nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
--		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
--
- 	ret = nvme_setup_cmd(ns, rq);
- 	if (ret)
- 		return ret;
- 
-+	if (ctrl->rport->remoteport.port_state != FC_OBJSTATE_ONLINE ||
-+	    !nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
-+		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
-+
- 	/*
- 	 * nvme core doesn't quite treat the rq opaquely. Commands such
- 	 * as WRITE ZEROES will return a non-zero rq payload_bytes yet
-diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-index b78ba239c8ea..ad0363f7e681 100644
---- a/drivers/nvme/host/pci.c
-+++ b/drivers/nvme/host/pci.c
-@@ -1376,10 +1376,6 @@ static blk_status_t nvme_prep_rq(struct request *req)
- 	iod->meta_total_len = 0;
- 	iod->nr_dma_vecs = 0;
- 
--	ret = nvme_setup_cmd(req->q->queuedata, req);
--	if (ret)
--		return ret;
--
- 	if (blk_rq_nr_phys_segments(req)) {
- 		ret = nvme_map_data(req);
- 		if (ret)
-@@ -1418,6 +1414,10 @@ static blk_status_t nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
- 	if (unlikely(!test_bit(NVMEQ_ENABLED, &nvmeq->flags)))
- 		return BLK_STS_IOERR;
- 
-+	ret = nvme_setup_cmd(req->q->queuedata, req);
-+	if (ret)
-+		return ret;
-+
- 	if (unlikely(!nvme_check_ready(&dev->ctrl, req, true)))
- 		return nvme_fail_nonready_command(&dev->ctrl, req);
- 
-diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
-index 57111139e84f..96248d81237e 100644
---- a/drivers/nvme/host/rdma.c
-+++ b/drivers/nvme/host/rdma.c
-@@ -2005,6 +2005,10 @@ static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
- 
- 	WARN_ON_ONCE(rq->tag < 0);
- 
-+	ret = nvme_setup_cmd(ns, rq);
-+	if (ret)
-+		return ret;
-+
- 	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
- 		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
- 
-@@ -2020,10 +2024,6 @@ static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
- 	ib_dma_sync_single_for_cpu(dev, sqe->dma,
- 			sizeof(struct nvme_command), DMA_TO_DEVICE);
- 
--	ret = nvme_setup_cmd(ns, rq);
--	if (ret)
--		goto unmap_qe;
--
- 	nvme_start_request(rq);
- 
- 	if (IS_ENABLED(CONFIG_BLK_DEV_INTEGRITY) &&
-diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
-index 243dab830dc8..1a3640e81b8f 100644
---- a/drivers/nvme/host/tcp.c
-+++ b/drivers/nvme/host/tcp.c
-@@ -2705,10 +2705,6 @@ static blk_status_t nvme_tcp_setup_cmd_pdu(struct nvme_ns *ns,
- 	u8 hdgst = nvme_tcp_hdgst_len(queue), ddgst = 0;
- 	blk_status_t ret;
- 
--	ret = nvme_setup_cmd(ns, rq);
--	if (ret)
--		return ret;
--
- 	req->state = NVME_TCP_SEND_CMD_PDU;
- 	req->status = cpu_to_le16(NVME_SC_SUCCESS);
- 	req->offset = 0;
-@@ -2768,6 +2764,10 @@ static blk_status_t nvme_tcp_queue_rq(struct blk_mq_hw_ctx *hctx,
- 	bool queue_ready = test_bit(NVME_TCP_Q_LIVE, &queue->flags);
- 	blk_status_t ret;
- 
-+	ret = nvme_setup_cmd(ns, rq);
-+	if (ret)
-+		return ret;
-+
- 	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
- 		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
- 
-diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
-index 4b3f4f11928d..475b532d08e8 100644
---- a/drivers/nvme/target/loop.c
-+++ b/drivers/nvme/target/loop.c
-@@ -140,13 +140,13 @@ static blk_status_t nvme_loop_queue_rq(struct blk_mq_hw_ctx *hctx,
- 	bool queue_ready = test_bit(NVME_LOOP_Q_LIVE, &queue->flags);
- 	blk_status_t ret;
- 
--	if (!nvme_check_ready(&queue->ctrl->ctrl, req, queue_ready))
--		return nvme_fail_nonready_command(&queue->ctrl->ctrl, req);
--
- 	ret = nvme_setup_cmd(ns, req);
- 	if (ret)
- 		return ret;
- 
-+	if (!nvme_check_ready(&queue->ctrl->ctrl, req, queue_ready))
-+		return nvme_fail_nonready_command(&queue->ctrl->ctrl, req);
-+
- 	nvme_start_request(req);
- 	iod->cmd.common.flags |= NVME_CMD_SGL_METABUF;
- 	iod->req.port = queue->ctrl->port;
--- 
-2.52.0
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260320032014.13608-2-xiangzhi.tang@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
