@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45EC2109316E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 04:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDF61093179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 04:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=; b=Up+6xzFqsZ9gljqXNhad0qzKqZ
-	1uB56ck2UJlqBR2yFyDYCCnYS0SxtFeblI7Nlh6SwwiWT+McfI7dq99YWIshZZAl61gic3mWo5UVB
-	STXoo9/a+GVz9DUvwZsRfJ0qcYQdlyTyUUJkDQIRnmFwhbe2jh7J0GSAjk/a/8xQQLMfYv+Lg/XTi
-	2+x5hrrazaMOobRcGI1RJ9CSdi/77f9IMK4b1SI3Fz4e92hjlWSvmSZfaPupmdHB9cm9Eis4Cp3mk
-	a+OuyU+LRR56ossPs8NuWz9cCHmlO10s2Gc5K7TCWeRwu5R7HsMZZ4WlRCek5FhDLjtSAre4InJF2
-	ISlSKPhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NJMOvmuyxnPDgD6UKl/Wo25LJql6LgrNjqbSF6tqdFA=; b=a7PIBB/C4iZjmF+sh35WbOz4Ye
+	01P3bx/Sueh9uDvqLQJDNDgRvnSy+97Ywd/9nl2mMkWIe2FuvtzGCKPUZhpqoNFZI9uY2qd7DKWaF
+	osxS3geJHkfteWNEpIn34qUJ2fcYHMKTIc7yFtVd7OcgSM/VJoR5FtQJ5yom6vrRAGrbR7gr0TogD
+	8jC4nAkgK4wTWaagUrw1TvHVUpXoRnxFUttWxagEwPuVTWZsB5mU5lSr7QqGo/7Cre+WSpAswmQMa
+	0xErgLFJEU2ic9ERst8xDCs8mr6fMgnccLicJ80VHmOc82s5JiOwuaUj8to9fjXI4yknWklYSMS7A
+	5Ti6bNqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3R6j-0000000C2pI-2HOs;
-	Fri, 20 Mar 2026 04:05:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3RM9-0000000C3lq-44dD;
+	Fri, 20 Mar 2026 04:21:05 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3R6h-0000000C2p0-2kZz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 04:05:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=; b=oPwcZKgT3fXHmMXYS2Q6c9RHya
-	XHOh6MpSyb5T8wyLWZVbzOlvlYWjTwAnVqZsT4yZVlAjvoSdtE/ssfIq7w895L7SN515UDBczrMmH
-	0qlDSEtcOKuc0v7WHA5qpB5xJUzTOlyycbQHhTue2jkerlKmK87YLxS3W9VVCw8s9uUq2+Ftp6PnW
-	hpPw24U0WmsprOyLPPwf5yIkLHIcQOMttSVLXON2uI9ToaSnJ9BjnhdPqIvoZr0Ch6sOlRsrmHiwh
-	tNlWeNuihhnNJY2BTNakX6EJhyeom0M/5+TLgRkKFpPe0w1Ke0qLN+4AhadePFZqYkkEUzz+amoSf
-	uJX9QPBA==;
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3R6e-0000000EtIt-0Q0Q
+	id 1w3RM4-0000000C3lU-2P32
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 04:05:06 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2aae4816912so1303045ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 21:05:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773979502; x=1774584302; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=;
-        b=TJWatcFWHYxzJhEzoToD7wuHCw/dNqmJRIaEjwq9aTr0MqlK0C5e3njlaW/fbgI4Gg
-         BEtROwdgYSLV8Jxbn3Uf1WSOlmKOCxygbLX2tu39VHQbBKTZKLnH/Uzx0JGhZMijoDIu
-         OztR3Hvi/athNDPlKg/Hn0wW9sxOQS5cqa/X/JEcYvbSnD/dquq32AkxsMz/KrS04iK3
-         EAZ3aXlFQ6Ii5NAG64sYg29TLjZYg+KGQ226Om2QcaqGxvPnnkKGkqwd3YD6HRP3U1oq
-         X1IiKwuOy6lsj+FHZDxfrs1hrk6ZO2Ni9ze4jX0mhoWkSzFCS6X1IFNlr2Zd9cM12Nfc
-         CCEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773979502; x=1774584302;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bi+cpYb6Vg0VXFOuregCJb6MTqBCf/daXiAT548yjY0=;
-        b=m4GX0afUx2lwk2HvnUtYowbsPkfgZCOa86ELWrs1vBXgSDwhux8r3f9WJmK+0YvK0D
-         Ej2hFk5F2RY2WSYQtU8YvbqquRBZ+lFQf+34I+tO1IexoGCBVgs3tOdlqU9VWu2CkYgU
-         YLLCF90sfFodsFLDZrgOqSlWBzRxAZ9wGgrkQDPJhnXlzeouz24qG4rpBVi6CDuYNcO1
-         wBFe0afANHRd/EpQYmOS3ycylZ4pv92R1Fu/2FV2L8cSGz1101vJ0/hFmUuBrYLuJ/vk
-         pvDZKlUL39ZLw9C8FQIwkD/S0OiSgXlV6K74WWujLGNWHwyA+imc+w7D7930Vn56p2aM
-         SYBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLg4ZG7aNtRhrHXFnTAvlmb+chexBoIqUqrOOiYLqak/1ErqIMjjlgRJvlQvLofgMFvjWVrttZhSsLZZX1Tley@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys7W3nrcMcrnrcw3dU/s+Tbui9fxCr2ZLCWK0x2XUdiASUn4Db
-	jbaJtVKPM9rlZQkb/mYU6lrS/zYdhwimluQWwLEfTsw4MRXm4GVHadMqQEVY/mIF
-X-Gm-Gg: ATEYQzws/hF/EGhqa6NRfHUa5TpAK0bIS9VWBLYOoOFwFln8Y0fLnmeYhEnrMw9D8f/
-	Fgyol00VDq651EpQmAy3Ww/su09x7LuwVpamcAYPn2pCbql3EzxhSoGCwovtTzqqXH17hrmxllD
-	TxUZpG2axxRojSKHKFtCQOWRp3Vzo7uOeZ5d+8jqEcCoDxUrGPIzVVoP33sIFaVqchyC6m/zcKy
-	utdOmnt+7wLk5G98WE8ZckpZOZh9YVahsKbkNaTsTbF0e9HcvngVDBLvK3ggy3aOZofXlCvAiWb
-	2iMFYOLwLg3kRXz4VEDa2LuM89PlWg4vRcz8Gyx6U0lzMfsiEPF7+dIk1MwRRp3ZLsBU4CopXuo
-	vyVoe2i0rB1AZAImoDysOmiPpMyntFF3jEJuUKks1c3ur4biydGEmamzHozO2uGdg9SOo2fiPNd
-	1BUxTaQzFQg3JaYcVlzJibeQ7AmemWEE75zj6DwhExFjo8J6+dK1F6Buw=
-X-Received: by 2002:a17:902:e74b:b0:2b0:7531:b61e with SMTP id d9443c01a7336-2b0827c2095mr13747205ad.41.1773979501693;
-        Thu, 19 Mar 2026 21:05:01 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516ae1sm7212905ad.13.2026.03.19.21.05.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 21:05:01 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-stm32@st-md-mailman.stormreply.com
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-kernel@vger.kernel.org (open list:IRQCHIP DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
-Subject: [PATCH] irqchip/stm32-exti: Use kzalloc_flex
-Date: Thu, 19 Mar 2026 21:04:43 -0700
-Message-ID: <20260320040443.46038-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 20 Mar 2026 04:21:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1773980460; x=1805516460;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OHnX7uZBV92R01nqYlUueQh+SwiiSpGawFPFVc+X9Ac=;
+  b=eRjQ9wy30ZF12NWjEjhyyQb6tF7WMuJGiVD7hnTrKyneR/XLX8G+IBZ4
+   zVP0SeLNBqEQXYUJB0c4yTyN8lXHhbzzj62cSpfT03JXlUNiqTZBo47g+
+   nMSTb5aezG2KCHU3Rla9xY43lqxXyKK8mx4qVo/sutlajir5isOo5WvSN
+   XbCknb35ZdvRgO2mmynzYgKIuPTTPHD8Vns8RxebPJHYY6PSH3Y04jeOO
+   I3XrsJp/DJkscgJnYKJJORu7CXs+oy0RbDbD9DI2yC5o0IqUaMXDcr0hM
+   zTO7LUjDJkOBx+4RvkJiLA5N/Qade+/3E1s5uOlYMXKJ/ZS2IN6sGOCAg
+   w==;
+X-CSE-ConnectionGUID: 2DEqLwipQw273pehBZriaQ==
+X-CSE-MsgGUID: 10Nu6X/7Rw2wCzs4U0os6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11734"; a="77670262"
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="77670262"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 21:20:56 -0700
+X-CSE-ConnectionGUID: f2vicg65TU+omWmZ32VWkg==
+X-CSE-MsgGUID: Kgb03j0VRrWGSeCxQZ27jw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="220549657"
+Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 19 Mar 2026 21:20:53 -0700
+Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w3RLn-000000001wf-2k5k;
+	Fri, 20 Mar 2026 04:20:45 +0000
+Date: Fri, 20 Mar 2026 12:19:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: aspeedyh <yh_chung@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org, maciej.lawniczak@intel.com,
+	aspeedyh <yh_chung@aspeedtech.com>
+Subject: Re: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
+Message-ID: <202603201234.n0spXcAN-lkp@intel.com>
+References: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_040504_334660_1EFCC56F 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260319_212100_655959_0F0A818C 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,66 +95,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplifies allocations by using a flexible array member in these structs.
-No need for a second kfree.
+Hi aspeedyh,
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/irqchip/irq-stm32-exti.c | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/irqchip/irq-stm32-exti.c b/drivers/irqchip/irq-stm32-exti.c
-index 5fdf335acb46..144120cadfa0 100644
---- a/drivers/irqchip/irq-stm32-exti.c
-+++ b/drivers/irqchip/irq-stm32-exti.c
-@@ -45,8 +45,8 @@ struct stm32_exti_chip_data {
- struct stm32_exti_host_data {
- 	void __iomem *base;
- 	struct device *dev;
--	struct stm32_exti_chip_data *chips_data;
- 	const struct stm32_exti_drv_data *drv_data;
-+	struct stm32_exti_chip_data chips_data[];
- };
- 
- static const struct stm32_exti_bank stm32f4xx_exti_b1 = {
-@@ -269,26 +269,20 @@ stm32_exti_host_data *stm32_exti_host_init(const struct stm32_exti_drv_data *dd,
- {
- 	struct stm32_exti_host_data *host_data;
- 
--	host_data = kzalloc_obj(*host_data);
-+	host_data = kzalloc_flex(*host_data, chips_data, dd->bank_nr);
- 	if (!host_data)
- 		return NULL;
- 
- 	host_data->drv_data = dd;
--	host_data->chips_data = kzalloc_objs(struct stm32_exti_chip_data,
--					     dd->bank_nr);
--	if (!host_data->chips_data)
--		goto free_host_data;
- 
- 	host_data->base = of_iomap(node, 0);
- 	if (!host_data->base) {
- 		pr_err("%pOF: Unable to map registers\n", node);
--		goto free_chips_data;
-+		goto free_host_data;
- 	}
- 
- 	return host_data;
- 
--free_chips_data:
--	kfree(host_data->chips_data);
- free_host_data:
- 	kfree(host_data);
- 
-@@ -389,7 +383,6 @@ static int __init stm32_exti_init(const struct stm32_exti_drv_data *drv_data,
- 	irq_domain_remove(domain);
- out_unmap:
- 	iounmap(host_data->base);
--	kfree(host_data->chips_data);
- 	kfree(host_data);
- 	return ret;
- }
+[auto build test ERROR on 0257f64bdac7fdca30fa3cae0df8b9ecbec7733a]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/aspeedyh/dt-bindings-soc-aspeed-Add-AST2600-eSPI-controller/20260315-101647
+base:   0257f64bdac7fdca30fa3cae0df8b9ecbec7733a
+patch link:    https://lore.kernel.org/r/20260313-upstream_espi-v1-5-9504428e1f43%40aspeedtech.com
+patch subject: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
+config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20260320/202603201234.n0spXcAN-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260320/202603201234.n0spXcAN-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603201234.n0spXcAN-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/soc/aspeed/espi/ast2600-espi.c:137:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
+                  ^
+   drivers/soc/aspeed/espi/ast2600-espi.c:172:28: warning: variable 'flash' set but not used [-Wunused-but-set-variable]
+           struct aspeed_espi_flash *flash;
+                                     ^
+>> drivers/soc/aspeed/espi/ast2600-espi.c:194:13: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
+                      ^
+   drivers/soc/aspeed/espi/ast2600-espi.c:243:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           reg = FIELD_PREP(ESPI_FLASH_TX_CTRL_CYC, cyc) |
+                 ^
+   1 warning and 3 errors generated.
+
+
+vim +/FIELD_PREP +137 drivers/soc/aspeed/espi/ast2600-espi.c
+
+   111	
+   112	static void ast2600_espi_flash_reset(struct aspeed_espi *espi)
+   113	{
+   114		struct aspeed_espi_flash *flash;
+   115		u32 reg;
+   116	
+   117		flash = &espi->flash;
+   118	
+   119		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
+   120		writel(ESPI_INT_STS_FLASH, espi->regs + ESPI_INT_STS);
+   121	
+   122		reg = readl(espi->regs + ESPI_CTRL);
+   123		reg &= ~(ESPI_CTRL_FLASH_TX_SW_RST
+   124			 | ESPI_CTRL_FLASH_RX_SW_RST
+   125			 | ESPI_CTRL_FLASH_TX_DMA_EN
+   126			 | ESPI_CTRL_FLASH_RX_DMA_EN
+   127			 | ESPI_CTRL_FLASH_SW_RDY);
+   128		writel(reg, espi->regs + ESPI_CTRL);
+   129	
+   130		udelay(1);
+   131	
+   132		reg |= (ESPI_CTRL_FLASH_TX_SW_RST | ESPI_CTRL_FLASH_RX_SW_RST);
+   133		writel(reg, espi->regs + ESPI_CTRL);
+   134	
+   135		flash->tafs.mode = TAFS_MODE_SW;
+   136		reg = readl(espi->regs + ESPI_CTRL) & ~ESPI_CTRL_FLASH_TAFS_MODE;
+ > 137		reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
+   138		writel(reg, espi->regs + ESPI_CTRL);
+   139	
+   140		if (flash->dma.enable) {
+   141			writel(flash->dma.tx_addr, espi->regs + ESPI_FLASH_TX_DMA);
+   142			writel(flash->dma.rx_addr, espi->regs + ESPI_FLASH_RX_DMA);
+   143	
+   144			reg = readl(espi->regs + ESPI_CTRL)
+   145			      | ESPI_CTRL_FLASH_TX_DMA_EN
+   146			      | ESPI_CTRL_FLASH_RX_DMA_EN;
+   147			writel(reg, espi->regs + ESPI_CTRL);
+   148		}
+   149	
+   150		writel(ESPI_INT_EN_FLASH_RX_CMPLT, espi->regs + ESPI_INT_EN);
+   151	
+   152		reg = readl(espi->regs + ESPI_CTRL) | ESPI_CTRL_FLASH_SW_RDY;
+   153		writel(reg, espi->regs + ESPI_CTRL);
+   154	}
+   155	
+   156	int ast2600_espi_flash_probe(struct aspeed_espi *espi)
+   157	{
+   158		u32 regs;
+   159	
+   160		regs = readl(espi->regs + ESPI_STS);
+   161		if (regs & (ESPI_STS_FLASH_TX_BUSY | ESPI_STS_FLASH_RX_BUSY)) {
+   162			dev_warn(espi->dev, "eSPI flash channel is busy, deferring...\n");
+   163			return -EPROBE_DEFER;
+   164		}
+   165	
+   166		ast2600_espi_flash_reset(espi);
+   167		return 0;
+   168	}
+   169	
+   170	int ast2600_espi_flash_remove(struct aspeed_espi *espi)
+   171	{
+   172		struct aspeed_espi_flash *flash;
+   173		u32 reg;
+   174	
+   175		flash = &espi->flash;
+   176	
+   177		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
+   178	
+   179		reg = readl(espi->regs + ESPI_CTRL);
+   180		reg &= ~(ESPI_CTRL_FLASH_TX_DMA_EN
+   181			 | ESPI_CTRL_FLASH_RX_DMA_EN
+   182			 | ESPI_CTRL_FLASH_SW_RDY);
+   183		writel(reg, espi->regs + ESPI_CTRL);
+   184	
+   185		return 0;
+   186	}
+   187	
+   188	int ast2600_espi_flash_get_hdr(struct aspeed_espi *espi,
+   189				       struct espi_comm_hdr *hdr)
+   190	{
+   191		u32 reg, len;
+   192	
+   193		reg = readl(espi->regs + ESPI_FLASH_RX_CTRL);
+ > 194		hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
+   195		hdr->tag = FIELD_GET(ESPI_FLASH_RX_CTRL_TAG, reg);
+   196		len = FIELD_GET(ESPI_FLASH_RX_CTRL_LEN, reg);
+   197		hdr->len_h = (len >> 8) & 0xff;
+   198		hdr->len_l = len & 0xff;
+   199	
+   200		return 0;
+   201	}
+   202	
+
 -- 
-2.53.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
