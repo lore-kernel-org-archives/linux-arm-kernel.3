@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEDA1093163
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 01:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04EB91093168
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 01:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bAmWcdCiH9lLtnS2U2ZUpEOewOgNAFdw+r99r/h58FU=; b=aQ4s5IQS7A0vBd3dYM3zZyRQ0T
-	4wm2oNHetEftEvjGVL+4yALL0QOT1hlR2KBCil4W+nD0AGvSvltx5GqP8z1L71IoNXaodxpoVB4nn
-	/8vVE4JrP1vyPms4jPsQKvs+KWAGqSEBPh7/MiAPRkMtfTeUmChxsa7+W4AcCsl+cQXhnbX7eCgGg
-	xZm//UDa5AlQZPfv7gLZbrhdt/sMCtMbNtLeKR/lDek0pscBHa2ATW5iO1XRq84CDaX/uVGYixdIu
-	xFWqkoepzX0lxjo4nK/c/KA9Q5vG6UPyOTIG4yzRCzuDvxFiT3QUd4NBbTpMgj7p7v56SpWuifWHw
-	ipT+cTTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=saO61grf/k5/OebR2lbzWJwfHGFajXWSYI/qsd3idQ0=; b=juDfPg5CcCJQOVMW91NfpcqLqa
+	EOITn+jnAligafyxM/qkIfMc4T5Fn2jsmsp7DNHKJJCboDdklTrapqjm5zazYkMNLUnhHW/iha35K
+	kLD74i8bOSP20FWm7JdY7YTu5EoE/hS2a+mZ32NnrViFNJvqNRuaTnDno98a+2C2rGwAQB2JSL5WM
+	9U5+gtzsDi4mryq+hK9tgFduLaweQ2sa07G4IORzHs5YnnSGkGzUtVJnZ7LFgjfL6CJJFkpRzIt7D
+	jdIW/Vy3x/rUNSsvnIi7SYRaSooyyzxQyp2DYKVnJeuv19AGNiPAJFPKNhGA1+qfZSzhqMYfvMCvh
+	iyQ7MkDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3OYO-0000000Bsky-15ZX;
-	Fri, 20 Mar 2026 01:21:32 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1w3Oyj-0000000BtWs-2lAM;
+	Fri, 20 Mar 2026 01:48:45 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3OYL-0000000Bskc-0u4G
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 01:21:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773969690; x=1805505690;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XfTGDv25Z3qgeprzxEF26+kpxwk1t5LiUTyWdHyppS0=;
-  b=OtibbFK9TeGOmQSGEX/jwRNnxCDxNl3KK5LsQ9q61w+o3WxIvP41S6Vb
-   6BpT09opVGIKUATjLA3AtEgz/mZVpLaEXBTzFoKdL8I6Wva64oblHKnY8
-   7QIoOdG3DsYJMzAX+SRYWxEhFx5m6rHDW+chBwzFe/oiC82Po0GyKbMeg
-   vubblabexyNSshpo/oFDKb/6w633cU7a7QnZrzXw11LLSx22dgNJ9oqn5
-   0uJaA8l+F6juajjBX3EJx+spkhi5S3YNSr9JcZ3U07yjZR9Liqao/NUIa
-   RQpMdeZAVdJr65j1n5l62CIGV3RZADfQ3NDPm+8te9pquIzW2IXQ+6K7o
-   A==;
-X-CSE-ConnectionGUID: JsWdaB40Q9+XZHYYsJhU5w==
-X-CSE-MsgGUID: AVxa9XWPQi+HmUKjsBTW8A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11734"; a="75239486"
-X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
-   d="scan'208";a="75239486"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 18:21:29 -0700
-X-CSE-ConnectionGUID: FcsPf0prRRq0/qxuc/nEAw==
-X-CSE-MsgGUID: clM0ws1ASKSMHzES+rX23A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
-   d="scan'208";a="227614597"
-Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
-  by orviesa004.jf.intel.com with ESMTP; 19 Mar 2026 18:21:25 -0700
-Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w3OUi-000000001qC-3MVc;
-	Fri, 20 Mar 2026 01:18:54 +0000
-Date: Fri, 20 Mar 2026 09:17:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: aspeedyh <yh_chung@aspeedtech.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	maciej.lawniczak@intel.com, aspeedyh <yh_chung@aspeedtech.com>
-Subject: Re: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
-Message-ID: <202603200904.M00MLkjz-lkp@intel.com>
-References: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
+	id 1w3Oyf-0000000BtVe-3QQi;
+	Fri, 20 Mar 2026 01:48:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=saO61grf/k5/OebR2lbzWJwfHGFajXWSYI/qsd3idQ0=; b=X
+	SJtvk0337ssZS4gm+XLZn5XIp5LN7BF6ZFnFHfoR5UjIZSBar4wUfARXbBHpHCnV
+	EbiPqonUimOi82Du4p6kw+JgvL2ZydPmV71KZ38ca3xo9Pff9X/wr69zvTwkH+p8
+	H5yj6igoljzr4oKV4Jo1lwFerJqaexkyBz13tgSaIc=
+Received: from andyshrk$163.com ( [121.15.173.1] ) by
+ ajax-webmail-wmsvr-40-139 (Coremail) ; Fri, 20 Mar 2026 09:48:01 +0800
+ (CST)
+X-Originating-IP: [121.15.173.1]
+Date: Fri, 20 Mar 2026 09:48:01 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
+Cc: "Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Daniel Stone" <daniels@collabora.com>,
+	"Alexey Charkov" <alchark@gmail.com>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:[PATCH RFC] drm/rockchip: vop2: Add clock rate mode check
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20260217-vop2-clk-rate-check-v1-1-989b569119ba@collabora.com>
+References: <20260217-vop2-clk-rate-check-v1-1-989b569119ba@collabora.com>
+X-CM-CTRLMSGS: OYyBGHBsdXM9MTc3Mzk3MTI4MDUyN19jZjA5MGZlZjI5MGY2YmFkNjFjZDJmM
+ zBhZjM5YTZlYw==
+X-NTES-SC: AL_Qu2cAfWcvkoj5yebZekfmUgWjuw/WsG1v/Ul1YBSP556jBHo0zsHXGFdAGTXyuCXOw2pnDqtVwls2vpHcbBEQ545i0bGBkbtWAylaYn/5M+hwQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
+Message-ID: <1528d788.186b.19d08ed974c.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: iygvCgD3345Rp7xpgSR9AA--.3209W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxhGH5Wm8p1EwegAA3c
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_182129_341414_97E2248E 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20260319_184842_745570_28BE0223 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,137 +85,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi aspeedyh,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 0257f64bdac7fdca30fa3cae0df8b9ecbec7733a]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/aspeedyh/dt-bindings-soc-aspeed-Add-AST2600-eSPI-controller/20260315-101647
-base:   0257f64bdac7fdca30fa3cae0df8b9ecbec7733a
-patch link:    https://lore.kernel.org/r/20260313-upstream_espi-v1-5-9504428e1f43%40aspeedtech.com
-patch subject: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
-config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20260320/202603200904.M00MLkjz-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260320/202603200904.M00MLkjz-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603200904.M00MLkjz-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/soc/aspeed/espi/ast2600-espi.c: In function 'ast2600_espi_flash_reset':
->> drivers/soc/aspeed/espi/ast2600-espi.c:137:16: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     137 |         reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
-         |                ^~~~~~~~~~
-   drivers/soc/aspeed/espi/ast2600-espi.c: In function 'ast2600_espi_flash_remove':
-   drivers/soc/aspeed/espi/ast2600-espi.c:172:35: warning: variable 'flash' set but not used [-Wunused-but-set-variable]
-     172 |         struct aspeed_espi_flash *flash;
-         |                                   ^~~~~
-   drivers/soc/aspeed/espi/ast2600-espi.c: In function 'ast2600_espi_flash_get_hdr':
->> drivers/soc/aspeed/espi/ast2600-espi.c:194:20: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
-     194 |         hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
-         |                    ^~~~~~~~~
-
-
-vim +/FIELD_PREP +137 drivers/soc/aspeed/espi/ast2600-espi.c
-
-   111	
-   112	static void ast2600_espi_flash_reset(struct aspeed_espi *espi)
-   113	{
-   114		struct aspeed_espi_flash *flash;
-   115		u32 reg;
-   116	
-   117		flash = &espi->flash;
-   118	
-   119		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
-   120		writel(ESPI_INT_STS_FLASH, espi->regs + ESPI_INT_STS);
-   121	
-   122		reg = readl(espi->regs + ESPI_CTRL);
-   123		reg &= ~(ESPI_CTRL_FLASH_TX_SW_RST
-   124			 | ESPI_CTRL_FLASH_RX_SW_RST
-   125			 | ESPI_CTRL_FLASH_TX_DMA_EN
-   126			 | ESPI_CTRL_FLASH_RX_DMA_EN
-   127			 | ESPI_CTRL_FLASH_SW_RDY);
-   128		writel(reg, espi->regs + ESPI_CTRL);
-   129	
-   130		udelay(1);
-   131	
-   132		reg |= (ESPI_CTRL_FLASH_TX_SW_RST | ESPI_CTRL_FLASH_RX_SW_RST);
-   133		writel(reg, espi->regs + ESPI_CTRL);
-   134	
-   135		flash->tafs.mode = TAFS_MODE_SW;
-   136		reg = readl(espi->regs + ESPI_CTRL) & ~ESPI_CTRL_FLASH_TAFS_MODE;
- > 137		reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
-   138		writel(reg, espi->regs + ESPI_CTRL);
-   139	
-   140		if (flash->dma.enable) {
-   141			writel(flash->dma.tx_addr, espi->regs + ESPI_FLASH_TX_DMA);
-   142			writel(flash->dma.rx_addr, espi->regs + ESPI_FLASH_RX_DMA);
-   143	
-   144			reg = readl(espi->regs + ESPI_CTRL)
-   145			      | ESPI_CTRL_FLASH_TX_DMA_EN
-   146			      | ESPI_CTRL_FLASH_RX_DMA_EN;
-   147			writel(reg, espi->regs + ESPI_CTRL);
-   148		}
-   149	
-   150		writel(ESPI_INT_EN_FLASH_RX_CMPLT, espi->regs + ESPI_INT_EN);
-   151	
-   152		reg = readl(espi->regs + ESPI_CTRL) | ESPI_CTRL_FLASH_SW_RDY;
-   153		writel(reg, espi->regs + ESPI_CTRL);
-   154	}
-   155	
-   156	int ast2600_espi_flash_probe(struct aspeed_espi *espi)
-   157	{
-   158		u32 regs;
-   159	
-   160		regs = readl(espi->regs + ESPI_STS);
-   161		if (regs & (ESPI_STS_FLASH_TX_BUSY | ESPI_STS_FLASH_RX_BUSY)) {
-   162			dev_warn(espi->dev, "eSPI flash channel is busy, deferring...\n");
-   163			return -EPROBE_DEFER;
-   164		}
-   165	
-   166		ast2600_espi_flash_reset(espi);
-   167		return 0;
-   168	}
-   169	
-   170	int ast2600_espi_flash_remove(struct aspeed_espi *espi)
-   171	{
-   172		struct aspeed_espi_flash *flash;
-   173		u32 reg;
-   174	
-   175		flash = &espi->flash;
-   176	
-   177		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
-   178	
-   179		reg = readl(espi->regs + ESPI_CTRL);
-   180		reg &= ~(ESPI_CTRL_FLASH_TX_DMA_EN
-   181			 | ESPI_CTRL_FLASH_RX_DMA_EN
-   182			 | ESPI_CTRL_FLASH_SW_RDY);
-   183		writel(reg, espi->regs + ESPI_CTRL);
-   184	
-   185		return 0;
-   186	}
-   187	
-   188	int ast2600_espi_flash_get_hdr(struct aspeed_espi *espi,
-   189				       struct espi_comm_hdr *hdr)
-   190	{
-   191		u32 reg, len;
-   192	
-   193		reg = readl(espi->regs + ESPI_FLASH_RX_CTRL);
- > 194		hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
-   195		hdr->tag = FIELD_GET(ESPI_FLASH_RX_CTRL_TAG, reg);
-   196		len = FIELD_GET(ESPI_FLASH_RX_CTRL_LEN, reg);
-   197		hdr->len_h = (len >> 8) & 0xff;
-   198		hdr->len_l = len & 0xff;
-   199	
-   200		return 0;
-   201	}
-   202	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+CgpIZWxsbyBTZWJhc3RpYW4sCgpBdCAyMDI2LTAyLTE4IDAwOjA4OjQ1LCAiU2ViYXN0aWFuIFJl
+aWNoZWwiIDxzZWJhc3RpYW4ucmVpY2hlbEBjb2xsYWJvcmEuY29tPiB3cm90ZToKPlRoZSBkaXNw
+bGF5IG1pZ2h0IG9mZmVyIG1vZGVzLCB3aGljaCBleGNlZWQgdGhlIG1heGltdW0gY2xvY2sgcmF0
+ZSBvZiBhCj52aWRlbyBvdXRwdXQuIFRoaXMgdXN1YWxseSBoYXBwZW5zIGZvciBkaXNwbGF5cyB0
+aGF0IG9mZmVyIHJlZnJlc2ggcmF0ZXMKPmFib3ZlIDYwIEh6LiBUaGlzIHJlc3VsdHMgaW4gbm8g
+cGljdHVyZSBiZWluZyBkaXNwbGF5ZWQgd2l0aG91dCBtYW51YWwKPmludGVydmVudGlvbi4gRml4
+IHRoaXMgYnkgdGVhY2hpbmcgdGhlIGRyaXZlciBhYm91dCB0aGUgbWF4aW11bQo+YWNoaWV2YWJs
+ZSBjbG9jayByYXRlcy4KPgo+U2lnbmVkLW9mZi1ieTogU2ViYXN0aWFuIFJlaWNoZWwgPHNlYmFz
+dGlhbi5yZWljaGVsQGNvbGxhYm9yYS5jb20+Cj4tLS0KPkkndmUgdGFrZW4gdGhlIG1heC4gY2xv
+Y2sgcmF0ZSBpbmZvcm1hdGlvbiBmcm9tIHRoZSB2aWRlbyBvdXRwdXQKPmluZm9ybWF0aW9uIG9m
+IHRoZSBSSzM1NjgvUkszNTg4L1JLMzU3NiBkYXRhc2hlZXRzLiBUaGUgcmVhbCBtYXguIGNsb2Nr
+Cj5yYXRlcyBzaG91bGQgYmUgYWJvdmUgdGhvc2UgdG8gdGFrZSBibGFuayB0aW1lcyBpbnRvIGFj
+Y291bnQuIEkgaGF2ZW4ndAo+Zm91bmQgdGhlIHByb3BlciBpbmZvcm1hdGlvbiBzb3VyY2UgZm9y
+IHRoaXMuIEkgaG9wZSBBbmR5IGNhbiBoZWxwIG91dC4KPi0tLQo+IGRyaXZlcnMvZ3B1L2RybS9y
+b2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgIDMgKysrCj4gZHJpdmVycy9ncHUvZHJtL3Jv
+Y2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmggfCAgMSArCj4gZHJpdmVycy9ncHUvZHJtL3JvY2tj
+aGlwL3JvY2tjaGlwX3ZvcDJfcmVnLmMgfCAxMCArKysrKysrKysrCj4gMyBmaWxlcyBjaGFuZ2Vk
+LCAxNCBpbnNlcnRpb25zKCspCj4KPmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2No
+aXAvcm9ja2NoaXBfZHJtX3ZvcDIuYyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hp
+cF9kcm1fdm9wMi5jCj5pbmRleCBlYzNiNGZkZTEwZGIuLjEwNTE0MThlNWZmZiAxMDA2NDQKPi0t
+LSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jCj4rKysgYi9k
+cml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYwo+QEAgLTE0MzQsNiAr
+MTQzNCw5IEBAIHN0YXRpYyBlbnVtIGRybV9tb2RlX3N0YXR1cyB2b3AyX2NydGNfbW9kZV92YWxp
+ZChzdHJ1Y3QgZHJtX2NydGMgKmNydGMsCj4gCWlmIChtb2RlLT5oZGlzcGxheSA+IHZwLT5kYXRh
+LT5tYXhfb3V0cHV0LndpZHRoKQo+IAkJcmV0dXJuIE1PREVfQkFEX0hWQUxVRTsKPiAKPisJaWYg
+KG1vZGUtPmNsb2NrID4gdnAtPmRhdGEtPm1heF9jbG9ja19yYXRlIC8gMTAwMCkKPisJCXJldHVy
+biBNT0RFX0NMT0NLX0hJR0g7Cj4rCj4gCXJldHVybiBNT0RFX09LOwo+IH0KPiAKPmRpZmYgLS1n
+aXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuaCBiL2RyaXZl
+cnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5oCj5pbmRleCA5MTI0MTkxODk5
+YmEuLjQyZDcwNDI2YmYwOCAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9y
+b2NrY2hpcF9kcm1fdm9wMi5oCj4rKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2No
+aXBfZHJtX3ZvcDIuaAo+QEAgLTIyNSw2ICsyMjUsNyBAQCBzdHJ1Y3Qgdm9wMl92aWRlb19wb3J0
+X2RhdGEgewo+IAl1MTYgZ2FtbWFfbHV0X2xlbjsKPiAJdTE2IGN1YmljX2x1dF9sZW47Cj4gCXN0
+cnVjdCB2b3BfcmVjdCBtYXhfb3V0cHV0Owo+Kwl1MzIgbWF4X2Nsb2NrX3JhdGU7Cj4gCWNvbnN0
+IHU4IHByZV9zY2FuX21heF9kbHlbNF07Cj4gCXVuc2lnbmVkIGludCBvZmZzZXQ7Cj4gCS8qKgo+
+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF92b3AyX3JlZy5j
+IGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX3ZvcDJfcmVnLmMKPmluZGV4IGYz
+OTUwZTg0NzZhNy4uOGJlMmNmMGM0N2I2IDEwMDY0NAo+LS0tIGEvZHJpdmVycy9ncHUvZHJtL3Jv
+Y2tjaGlwL3JvY2tjaGlwX3ZvcDJfcmVnLmMKPisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
+cC9yb2NrY2hpcF92b3AyX3JlZy5jCj5AQCAtNTU5LDE4ICs1NTksMjEgQEAgc3RhdGljIGNvbnN0
+IHN0cnVjdCB2b3AyX3ZpZGVvX3BvcnRfZGF0YSByazM1Njhfdm9wX3ZpZGVvX3BvcnRzW10gPSB7
+Cj4gCQkuZ2FtbWFfbHV0X2xlbiA9IDEwMjQsCj4gCQkuY3ViaWNfbHV0X2xlbiA9IDkgKiA5ICog
+OSwKPiAJCS5tYXhfb3V0cHV0ID0geyA0MDk2LCAyMzA0IH0sCj4rCQkubWF4X2Nsb2NrX3JhdGUg
+PSA0MDk2ICogMjMwNCAqIDYwLCAgICAgICAgICAgCgogICAgICAgICAgICAgICA2MDAwMDAwMDAg
+TUhaCgo+IAkJLnByZV9zY2FuX21heF9kbHkgPSB7IDY5LCA1MywgNTMsIDQyIH0sCj4gCQkub2Zm
+c2V0ID0gMHhjMDAsCj4gCX0sIHsKPiAJCS5pZCA9IDEsCj4gCQkuZ2FtbWFfbHV0X2xlbiA9IDEw
+MjQsCj4gCQkubWF4X291dHB1dCA9IHsgMjA0OCwgMTUzNiB9LAo+KwkJLm1heF9jbG9ja19yYXRl
+ID0gMjA0OCAqIDE1MzYgKiA2MCwKCiAgICAgICAgICAgICAgICAyMDAwMDAwMDAgTWh6Cj4gCQku
+cHJlX3NjYW5fbWF4X2RseSA9IHsgNDAsIDQwLCA0MCwgNDAgfSwKPiAJCS5vZmZzZXQgPSAweGQw
+MCwKPiAJfSwgewo+IAkJLmlkID0gMiwKPiAJCS5nYW1tYV9sdXRfbGVuID0gMTAyNCwKPiAJCS5t
+YXhfb3V0cHV0ID0geyAxOTIwLCAxMDgwIH0sCj4rCQkubWF4X2Nsb2NrX3JhdGUgPSAxOTIwICog
+MTA4MCAqIDYwLAogICAgICAgICAgICAgICAgIDE1MDAwMDAwMCBIegoKPiAJCS5wcmVfc2Nhbl9t
+YXhfZGx5ID0geyA0MCwgNDAsIDQwLCA0MCB9LAo+IAkJLm9mZnNldCA9IDB4ZTAwLAo+IAl9LAo+
+QEAgLTc3NSw2ICs3NzgsNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IHZvcDJfdmlkZW9fcG9ydF9k
+YXRhIHJrMzU3Nl92b3BfdmlkZW9fcG9ydHNbXSA9IHsKPiAJCS5nYW1tYV9sdXRfbGVuID0gMTAy
+NCwKPiAJCS5jdWJpY19sdXRfbGVuID0gOSAqIDkgKiA5LCAvKiA5eDl4OSAqLwo+IAkJLm1heF9v
+dXRwdXQgPSB7IDQwOTYsIDIzMDQgfSwKPisJCS5tYXhfY2xvY2tfcmF0ZSA9IDQwOTYgKiAyMzA0
+ICogMTIwLAogICAgICAgICAgICAgICAgNjAwMDAwMDAwTWh6Cgo+IAkJLyogd2luIGxheWVyX21p
+eCBoZHIgICovCj4gCQkucHJlX3NjYW5fbWF4X2RseSA9IHsgMTAsIDgsIDIsIDAgfSwKPiAJCS5v
+ZmZzZXQgPSAweGMwMCwKPkBAIC03ODUsNiArNzg5LDcgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCB2
+b3AyX3ZpZGVvX3BvcnRfZGF0YSByazM1NzZfdm9wX3ZpZGVvX3BvcnRzW10gPSB7Cj4gCQkuZ2Ft
+bWFfbHV0X2xlbiA9IDEwMjQsCj4gCQkuY3ViaWNfbHV0X2xlbiA9IDcyOSwgLyogOXg5eDkgKi8K
+PiAJCS5tYXhfb3V0cHV0ID0geyAyNTYwLCAxNjAwIH0sCj4rCQkubWF4X2Nsb2NrX3JhdGUgPSAy
+NTYwICogMTYwMCAqIDYwLAoKICAgICAgICAgICAgICAgICAzMDAwMDAwMDAgTWh6CgoKPiAJCS8q
+IHdpbiBsYXllcl9taXggaGRyICAqLwo+IAkJLnByZV9zY2FuX21heF9kbHkgPSB7IDEwLCA2LCAw
+LCAwIH0sCj4gCQkub2Zmc2V0ID0gMHhkMDAsCj5AQCAtNzkzLDYgKzc5OCw3IEBAIHN0YXRpYyBj
+b25zdCBzdHJ1Y3Qgdm9wMl92aWRlb19wb3J0X2RhdGEgcmszNTc2X3ZvcF92aWRlb19wb3J0c1td
+ID0gewo+IAkJLmlkID0gMiwKPiAJCS5nYW1tYV9sdXRfbGVuID0gMTAyNCwKPiAJCS5tYXhfb3V0
+cHV0ID0geyAxOTIwLCAxMDgwIH0sCj4rCQkubWF4X2Nsb2NrX3JhdGUgPSAxOTIwICogMTA4MCAq
+IDYwLAoKICAgICAgICAgICAgICAgIDE1MDAwMDAwMCBNaHoKCj4gCQkvKiB3aW4gbGF5ZXJfbWl4
+IGhkciAgKi8KPiAJCS5wcmVfc2Nhbl9tYXhfZGx5ID0geyAxMCwgNiwgMCwgMCB9LAo+IAkJLm9m
+ZnNldCA9IDB4ZTAwLAo+QEAgLTEwNjEsNiArMTA2Nyw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3Qg
+dm9wMl92aWRlb19wb3J0X2RhdGEgcmszNTg4X3ZvcF92aWRlb19wb3J0c1tdID0gewo+IAkJLmdh
+bW1hX2x1dF9sZW4gPSAxMDI0LAo+IAkJLmN1YmljX2x1dF9sZW4gPSA5ICogOSAqIDksIC8qIDl4
+OXg5ICovCj4gCQkubWF4X291dHB1dCA9IHsgNDA5NiwgMjMwNCB9LAo+KwkJLm1heF9jbG9ja19y
+YXRlID0gNzY4MCAqIDQzMjAgKiA2MCwKICAgICAgICAgICAgICAgICA2MDAgMDAwMDAwIE1oegoK
+CiAgICAgICAgICAgICBGb3IgYWxsIGN1cnJlbnQgcGxhdGZvcm1zLCB0aGUgbWF4aW11bSBkY2xr
+IGlucHV0IHN1cHBvcnRlZCBieSBWT1AgaXMgNjAwIE1Iei4gCiAgICBUaGUgdHJpY2t5IHBhcnQg
+aXMgdGhhdCB3aGVuIHdlIG5lZWQgdG8gZGlzcGxheSBhIHJlc29sdXRpb24gaGlnaGVyIHRoYW4g
+NEtANjAsIGV2ZW4gdGhvdWdoCiAgICB0aGUgcmVxdWlyZWQgZGNsayBleGNlZWRzIDYwMCBNSHos
+IFZPUCBpbnRlcm5hbGx5IHByb2Nlc3NlcyAyIG9yIDQgcGl4ZWxzIHBlciBjbG9jayBjeWNsZSB0
+bwogICAgb3V0cHV0IGEgaGlnaGVyIHJlc29sdXRpb24gdXNpbmcgYSBsb3dlciBkY2xrLiBUaGVy
+ZWZvcmUsIGV2ZW4gd2hlbiBvdXRwdXR0aW5nIGFuIDhLQDYwIHJlc29sdXRpb24sCiAgICBDUlUg
+b25seSBuZWVkcyB0byBwcm92aWRlIFZPUCB3aXRoIGEgZGNsayBvZiA1OTQgTUh6LiBUaGlzIGlz
+IHdoYXQgdGhlIHJrMzU4OF9jYWxjX2NydV9jZmcgZnVuY3Rpb24gZG9lcy4KCj4gCQkvKiBoZHIy
+c2RyIHNkcjJoZHIgaGRyMmhkciBzZHIyc2RyICovCj4gCQkucHJlX3NjYW5fbWF4X2RseSA9IHsg
+NzYsIDY1LCA2NSwgNTQgfSwKPiAJCS5vZmZzZXQgPSAweGMwMCwKPkBAIC0xMDcwLDYgKzEwNzcs
+NyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IHZvcDJfdmlkZW9fcG9ydF9kYXRhIHJrMzU4OF92b3Bf
+dmlkZW9fcG9ydHNbXSA9IHsKPiAJCS5nYW1tYV9sdXRfbGVuID0gMTAyNCwKPiAJCS5jdWJpY19s
+dXRfbGVuID0gNzI5LCAvKiA5eDl4OSAqLwo+IAkJLm1heF9vdXRwdXQgPSB7IDQwOTYsIDIzMDQg
+fSwKPisJCS5tYXhfY2xvY2tfcmF0ZSA9IDQwOTYgKiAyMzA0ICogNjAsCiAgICAgICAgICAgICAg
+ICA2MDAgMDAwMDAwIE1oego+IAkJLnByZV9zY2FuX21heF9kbHkgPSB7IDc2LCA2NSwgNjUsIDU0
+IH0sCj4gCQkub2Zmc2V0ID0gMHhkMDAsCj4gCX0sIHsKPkBAIC0xMDc4LDEyICsxMDg2LDE0IEBA
+IHN0YXRpYyBjb25zdCBzdHJ1Y3Qgdm9wMl92aWRlb19wb3J0X2RhdGEgcmszNTg4X3ZvcF92aWRl
+b19wb3J0c1tdID0gewo+IAkJLmdhbW1hX2x1dF9sZW4gPSAxMDI0LAo+IAkJLmN1YmljX2x1dF9s
+ZW4gPSAxNyAqIDE3ICogMTcsIC8qIDE3eDE3eDE3ICovCj4gCQkubWF4X291dHB1dCA9IHsgNDA5
+NiwgMjMwNCB9LAo+KwkJLm1heF9jbG9ja19yYXRlID0gNDA5NiAqIDIzMDQgKiA2MCwKICAgICAg
+ICAgICAgICAgICA2MDAgMDAwMDAwIE1oego+IAkJLnByZV9zY2FuX21heF9kbHkgPSB7IDUyLCA1
+MiwgNTIsIDUyIH0sCj4gCQkub2Zmc2V0ID0gMHhlMDAsCj4gCX0sIHsKPiAJCS5pZCA9IDMsCj4g
+CQkuZ2FtbWFfbHV0X2xlbiA9IDEwMjQsCj4gCQkubWF4X291dHB1dCA9IHsgMjA0OCwgMTUzNiB9
+LAo+KwkJLm1heF9jbG9ja19yYXRlID0gMTkyMCAqIDEwODAgKiA2MCwKCiAgICAgICAgICAgICAg
+ICAxNTAgMDAwMDAwIE1oego+IAkJLnByZV9zY2FuX21heF9kbHkgPSB7IDUyLCA1MiwgNTIsIDUy
+IH0sCj4gCQkub2Zmc2V0ID0gMHhmMDAsCj4gCX0sCj4KPi0tLQo+YmFzZS1jb21taXQ6IDk3MDI5
+Njk5Nzg2OTVkOWE2OTlhMWYzNDc3MTU4MGNkYmIxNTNiMzMKPmNoYW5nZS1pZDogMjAyNjAyMTct
+dm9wMi1jbGstcmF0ZS1jaGVjay0yNjgyNjk3NzhjYWMKPgo+QmVzdCByZWdhcmRzLAo+LS0gCj5T
+ZWJhc3RpYW4gUmVpY2hlbCA8c2ViYXN0aWFuLnJlaWNoZWxAY29sbGFib3JhLmNvbT4K
 
