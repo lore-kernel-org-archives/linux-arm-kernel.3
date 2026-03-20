@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1571109318E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722C61093190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=izBpg3f4YsX+0N/YH8T17Ma2BiNyBCvm7Snr6+pnP1s=; b=Gr26M/g1StgTNGTqWpgGkyL4zK
-	toqJitofvg+pVYTtA3q0oQKC0P/WzYZ3oka59TwCRrVSgaLIm9dFyXbrWHEw3p8HinqQ53HTORh9q
-	a/tbnrnw3IodeKuaPUmJloqmcylKVGnThP57MeHErxIOSi6zg5eNSWEnT9f0J/sO32FcdeDeY/Glk
-	uLmSSAjDgeTXez0rYqFaH1ZgmTfXLYsTNNu+Q68Ojvo21ebOaZ5jYhvMnJPmtw9Rzve+Z0PFXEp4c
-	eDQQTYr9f5UuDMmJkUmmzcfBUc0GmPUrmZ2+xq4todCtW84cWmzjoC8fVwdHJIpUgHbMbtOpeS3rb
-	qXMJg+Yw==;
+	bh=AdXfxC/dMZXX17/zwTi6UCgqHDsi56vsTD2od6WtMDA=; b=U/Qul1FIczNZvtXX8RldGBxPLZ
+	4Fr55SsExWY7BzBSO8UuuUZZuSdIqnW6nPNXerE20bycHdme1X4blrWs0c9y55LbNZE6T67JApiAh
+	BQRm8DCYWT8gnbinGjWaTapyGWGAWdmdhxG3KB50wUJh0VSj7mzR4ERjwtlckLzTS/6aoaIEd7RUK
+	+ZHl9J5BLzdP9Wo/1WODqKIlXNr27qfHC+xT2T9qaToQergYGjB+hYwZptXHa2ji9G8lpTgXTiFmS
+	rQ1cLHIX3ZwGXcVOic+rDyW/gEpsX2zMt68O+gJ6gEme3KKLo2Xq6Cy+b1+VoMuYh3emQ0Iy4JGbv
+	rQlUjZXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VYG-0000000CPc7-3WLz;
-	Fri, 20 Mar 2026 08:49:52 +0000
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	id 1w3Vez-0000000CQ5g-0jxC;
+	Fri, 20 Mar 2026 08:56:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VYF-0000000CPaS-0Zn5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 08:49:52 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1773996588;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=izBpg3f4YsX+0N/YH8T17Ma2BiNyBCvm7Snr6+pnP1s=;
-	b=a6B8WhbCKhlkLZh25B+fJjUtDE+V8ipFSZHjbFSa9r9aV1THdd8ZfgOXQEW/TkU81tEbTK
-	nUiuJzojPI6m77qrVliMsB6Gv6mxGyT+xhYB8K8Ct+mdxq8v/1wDKUmYjpO03K9fzcmQD1
-	/PGidZXC+LvLp30mGIaS9Be1fSQ8GpE=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Colin Ian King <colin.i.king@gmail.com>,
-	Kees Cook <kees@kernel.org>,
-	=?UTF-8?q?Maxime=20M=C3=A9r=C3=A9?= <maxime.mere@foss.st.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Thorsten Blum <thorsten.blum@linux.dev>
-Cc: linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] crypto: stm32 - use list_first_entry_or_null to simplify cryp_find_dev
-Date: Fri, 20 Mar 2026 09:49:14 +0100
-Message-ID: <20260320084914.7180-4-thorsten.blum@linux.dev>
-In-Reply-To: <20260320084914.7180-3-thorsten.blum@linux.dev>
-References: <20260320084914.7180-3-thorsten.blum@linux.dev>
+	id 1w3Vew-0000000CQ49-2369;
+	Fri, 20 Mar 2026 08:56:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773997003;
+	bh=2xo0ML235ABXW/CQP4Ky6ewJNiBSyEYkOwlyRrA3YTE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Hsr/1rBoPuEuoE4lyU2jnsbbtkfrALPLDbjpwVSV8r6wMvf8jZZ8xiwp9gVFrnb3y
+	 rA9V9yG2oBq2ysJ37mC6UQzfoVvkdKxmV9JMUh6+O8CBszWEdnBc51YF3s+K9iW0Gs
+	 oU1E4nQ3CqYX7reSoKvYbqsxbP5MfVLLxpXf65f4XHenCtziqYFXqeRywIwf3DXikn
+	 Df0iBBU/Q6un1+Co59Sa+2M7eWYrpqLLOcfJM8D0zVakrNupP8ctkuxUW6rxWgwmKX
+	 SDiZVXximvEKryF5HHQvOnWeaaPpCKaiFPqHaWdvIlnZ8OFNfN+/TVl523/jyx3eEu
+	 udOJ+IxXzmiiw==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 70E1717E10F4;
+	Fri, 20 Mar 2026 09:56:43 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: arm-soc <arm@kernel.org>,
+	soc <soc@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com
+Subject: [GIT,PULL,2/2] MediaTek ARM32 Device Tree updates for v7.1
+Date: Fri, 20 Mar 2026 09:56:39 +0100
+Message-ID: <20260320085641.15843-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
+References: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1158; i=thorsten.blum@linux.dev; h=from:subject; bh=fS46rTjiGgSzi3MWcwcXeXN0mlGqe7jt3cqh8IomgFk=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJl7uYRvdnaf6P13MGC5mZTXtuU8Nc1+4ffmGp9k0f7Ep cxpcfF0RykLgxgXg6yYIsuDWT9m+JbWVG4yidgJM4eVCWQIAxenAExkmRAjw1edX79VZN9LTwt8 PNfnxL534ucuMNledLWqFPI+sV7nuD0jw76v8x3OP13QstZjSl2moWvhoVAX90W8d/dcffy1vG0 yKxcA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_014951_327090_16603728 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260320_015646_669883_737D60B9 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use list_first_entry_or_null() to simplify stm32_cryp_find_dev() and
-remove the now-unused local variable 'struct stm32_cryp *tmp'.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/crypto/stm32/stm32-cryp.c | 16 +++++-----------
- 1 file changed, 5 insertions(+), 11 deletions(-)
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-diff --git a/drivers/crypto/stm32/stm32-cryp.c b/drivers/crypto/stm32/stm32-cryp.c
-index 3c9b3f679461..b79877099942 100644
---- a/drivers/crypto/stm32/stm32-cryp.c
-+++ b/drivers/crypto/stm32/stm32-cryp.c
-@@ -361,19 +361,13 @@ static int stm32_cryp_it_start(struct stm32_cryp *cryp);
- 
- static struct stm32_cryp *stm32_cryp_find_dev(struct stm32_cryp_ctx *ctx)
- {
--	struct stm32_cryp *tmp, *cryp = NULL;
-+	struct stm32_cryp *cryp;
- 
- 	spin_lock_bh(&cryp_list.lock);
--	if (!ctx->cryp) {
--		list_for_each_entry(tmp, &cryp_list.dev_list, list) {
--			cryp = tmp;
--			break;
--		}
--		ctx->cryp = cryp;
--	} else {
--		cryp = ctx->cryp;
--	}
--
-+	if (!ctx->cryp)
-+		ctx->cryp = list_first_entry_or_null(&cryp_list.dev_list,
-+						     struct stm32_cryp, list);
-+	cryp = ctx->cryp;
- 	spin_unlock_bh(&cryp_list.lock);
- 
- 	return cryp;
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts32-for-v7.1
+
+for you to fetch changes up to 5978ff33cc6f0988388a2830dc5cd2ea4e81f36a:
+
+  ARM: dts: mediatek: mt7623: fix efuse fallback compatible (2026-02-24 10:34:47 +0100)
+
+----------------------------------------------------------------
+MediaTek ARM32 Device Tree Updates
+
+This adds a single commit fixing a dtbs_check validation error
+by changing the fallback compatible of the efuse node to the
+correct one in MT7623.
+
+----------------------------------------------------------------
+Rafał Miłecki (1):
+      ARM: dts: mediatek: mt7623: fix efuse fallback compatible
+
+ arch/arm/boot/dts/mediatek/mt7623.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 
