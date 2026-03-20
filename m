@@ -4,132 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4160D1098782
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:36:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB7A1098782
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feDe8HW1W8DysZTnYHAgiAddexYRgDVJYHAg/cE6S/c=; b=WExYeFt/tb7hFcB03o9fozSLm1
-	H1w5m5yaOguv4F7NHamTCBoUxz3D05HgAqKMHrD6idGA1AWT79OjkuFKYVNiPI1b8lt56KvcjDYc0
-	TYmqEa73P+Oi/GEASuaDPzyM/OCzKWFuhIsmHD9DEeoYOGFPNorkSgSa2TKWysPBO2/HUWTOhNe7i
-	gQNFvTaiws+o583Dc3kJLLEsdbThCHfnjAxgVgsawabUEiMLHf0y09mos3XPEqjwMM6yTXHVmOIEV
-	1juu94QF6Q/QYHEUnE33yyacoGJlDZYV6l9VNJFrknFfgH4iefAv1BkPhS+n2J0pHTGZbRB25bt/1
-	lv61SWrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a3oCvWwktJOka9q2aoujsHbZ4rvoudf3Wlq8RAfXnIk=; b=nyQXAeOjH4GFx0i+BGXVK9MXYc
+	+yR8qOEsBYdFMRT5vxvzhNkSzHoCsQRsn2Ebj8hoJXPjkrD78xOaafaU56/MbLJ6ufAV6F7Xu15xM
+	B0D2J8Rt5DHOD0nLsM9vNtrXysM8ylZ+vroOovVhzyWxr8scW+vNGDqAnkDQ60nFAJnzbreKIHqG0
+	RF0fBSVmlklX4rQtHyTgQh7H9/bCgUQ9xDEEhWO05G8U9q86xbEXrG5Ezg9EX5L+zGiCohut2bCL0
+	iwf7dEcZHeaM8c75KyjVc4t5VaRvOQtpYPeHHAW8xlYwK6Gs7fpubDMfGKAKo49T5LEMluJupw3yk
+	dws+hSig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a1c-0000000Crc4-2BMO;
-	Fri, 20 Mar 2026 13:36:28 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w3a5E-0000000CrtV-45pK;
+	Fri, 20 Mar 2026 13:40:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3a1Z-0000000Crap-0QMV
+	id 1w3a5D-0000000Crt6-0FWF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 13:36:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f9CxcHjVxW6BIICyL0XvAC+1MF0yf8foJmOj4k2sorHOYkEIUOwxiE+iL+/ydJMY3psJ0CA7makCbHSopxqOX/vqN7oBle8qiMFPGsfALUAJOhcmdEhyuCMxAc5M149wIsOOEbz1yDddEGcYRq5Ay3yoyGtYfetcWtuJqytqdIjMwI/yCaOqJzMKob+DUmuTgkyIY52BW8YlqezUMZwaAO6CTHZMclPq3Xr5eJYrYSR1vXozi0ZLUbZKSkQqNrKBhdI6F482JPZ02jz2Nexx9E0o9mJ26R0mj951+iijhNdvx27AhDDLQ09l1sAxMeW+uc+S9LCl3R4Zns5EO4t+3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=feDe8HW1W8DysZTnYHAgiAddexYRgDVJYHAg/cE6S/c=;
- b=FoU03FU575lqK+p54praafG4BLLvtgRKPy5Mv0I+0eTdFki15W920vM0yTrLELK7tzGLUGCIU9o/ivuiy+yc/QlkQlIrOzULEO+eBw1b3AxZdgoSJytAZhL4gZMZ4qBcl+okCnHERobW/+rtCQmQ25NnO7rW+YyRNh4HORmIb9eV23cAbdHetnTcRFKemdxCPPQdCzEHGKb/XmhvvVZ8K7OyvaEADlX/UOBnGMyTge5qpK8gI74Pw24ruEu83ccOOCzkrGfR3qR0xYEaakbynxX3ZuNEwpeC3xnAaxSAl1Ci4GBaq9zUcUv8RjOtWumPJr4LHuKZjanVkGr7SZG22Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=feDe8HW1W8DysZTnYHAgiAddexYRgDVJYHAg/cE6S/c=;
- b=F+ehEIYUKcPO3pax01ZBb3afftB5uNBkZOjSbh8v6lOpJSZZUrJJ3ZahfrvqBCawZF4apjj8Q/cSzkvGN4+rTVGgJlRVaWF1JH8YtB2CwX71ZzadzTn5eM86G+ku7QikCjiWgCxM6/2Y5KAXqzQQzC+884linRGl5J6PgVn4kdG2ta7L5bBndgDAuxZ/ybmnUqV3LgEINwj+gBDUHNr9shChtjlL+NW2K/p8uM2R2kDPW+AIE8RtirKivENFBy7Wn9Cc3D06+dGN4nMQB8BK4tQn5VaRq5O2RAKbyfKvA9LiYR9ano3Vz8EB68I/OYsmnXyBt8APdLMTlzZja7GxTw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by VI1PR04MB6781.eurprd04.prod.outlook.com (2603:10a6:803:13d::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
- 2026 13:36:16 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9723.022; Fri, 20 Mar 2026
- 13:36:06 +0000
-Date: Fri, 20 Mar 2026 15:52:01 +0200
-From: Florin Leotescu <florin.leotescu@oss.nxp.com>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, viorel.suman@nxp.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-Subject: Re: [RFC PATCH v3 0/2] hwmon: emc2305: Support configurable fan PWM
- at shutdown
-Message-ID: <ab1RAT6cEYqeHrgD@ro-kernel-workstation>
-References: <20260312144325.1311314-1-florin.leotescu@oss.nxp.com>
- <a3ec42e5-d151-4d54-9625-fffeb0399431@roeck-us.net>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a3ec42e5-d151-4d54-9625-fffeb0399431@roeck-us.net>
-X-ClientProxiedBy: AM0P190CA0013.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:208:190::23) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
+	Fri, 20 Mar 2026 13:40:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 717C642A1E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 13:40:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50EF2C2BCB4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 13:40:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774014010;
+	bh=a3oCvWwktJOka9q2aoujsHbZ4rvoudf3Wlq8RAfXnIk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pSbWswNCG1U+am53GXN61FyyVrA/NHtY2WmM4qZpgNbTT6uGcwitK1NnB7MwESUoz
+	 W9CkAlCshbYKtU98OnBIEvmyp5Og2nNApzud/zbsoQPr+BIv+EoAfzeiSj4f7101yB
+	 yi5IVR91Yw1b8BXPExgaxxl0QEYCKs+X+YZr+TL3jlrrjtXbyuj0Ae1daXsXO7YKCA
+	 1wosZczUwO8m71FISeB4O6YdO710eNq5XjHIZoMh+ZOOm+2BthPag38s3FyQ9vndi8
+	 UlfVeLWsGJxxtENegHwZY6Tylflz8jpybEIE4oOGD1CONDbsMgO3e0EM16y86HP3F1
+	 PQcwJ4y6Ydntg==
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-64aedd812baso2190305d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 06:40:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVhvTxPlECg0Za1fV+W97l5lfux1bz3Xp6z53j6DYpQU58Agpu+0TJjLguasQfBfQzE5MjypmwV84DGIh4dIc1k@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNWDKjMidDFZtZrt+J7iMQsaf5c6CbNaqDvhuMe+Vx9PDU4C7K
+	o9deOLTGlBqoN/MD15zvgSE9XX2/97FdHucWlZ7cGKxK7pKSaGtpebMaGF/0q/xPTAX8o9eyUbR
+	dokBt6YNdnYNAokyFvV3ZVFamz1RXt60=
+X-Received: by 2002:a05:690c:f14:b0:79a:6f11:3ac8 with SMTP id
+ 00721157ae682-79a90ba015dmr30839247b3.29.1774014009652; Fri, 20 Mar 2026
+ 06:40:09 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|VI1PR04MB6781:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00ec8aa5-fffc-46cd-88a0-08de8685a349
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|376014|83080400003|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: bQ21bjYKHY3XCZebpk1T4/Xse0RB2u51KKlBjgfJ4Otc0Oe6GkrJdGP73MWxgidyNNg8UuB2OLXq6i9BfLgMZWtLhpKmyBtnx/39kyhassIqGe7MyDE6AB3RU4VlQU/0vXRNRpMGvurXy44juXDlZO9omCWbnZlhDD0DE2jUYLd2t3lzjvQx79p0RYPr9Iv+7WPlds1ebLwQQd2MM1eBxFqqxE5k9tHe8pKtJjTa9sS+hxCRBOsaoybp794h1mJ8BwBiWH2UQFYYarPr8ae8c6+CMvWp12Yn9AW/g6iTYu6GL9O7OEPkWZ9QBP4/RTTW90i5EGNdyIm47LXhHOff+iZxOJWOw67JrnrUFv5XlLuTPsvZCKmCuqweS13aNqAC/Q4XYAwoStdeCHmpa/WE/iWyUvR+EXFiuVS6+SdbI8ADaLW2lNjJ45RocQn5DmG5vcyJHf2f+tL4/UTmQeheD/wQtpKYZ4NkBRqkddPgddXywRM+SB9mw/eq5/9uwZcXNYwEq9jl/NHJf4/U2LWGCpjhYAEyRcdIN2ej4eaIx7dNIJmxhC5k7qPMy0fnt8+f5xl6VHOSR5tLcDvdwok+Kfz1K6PHMq5ge5XuhH/mpLyWsOSGZk2kNVmsYIBrS06E1KMj5bJwK8jPKROAgxGirxwJrWmS9R0uRyTGnTjaKdCAGUQBaFFVA+R+c69UPKBlkNvFFnelqN+jRRnQBedlsY6CdQ/LJZEztMKfYZSab6k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(376014)(83080400003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9xNi33y+1QDYL+aRboGPvW8LJUcOwCTlDmtKJycQzkfQWAejmQVp9Bd/2LVM?=
- =?us-ascii?Q?ZewB1C1uikg2QZmB+02FUNGtxm0dV/U3zWB7tcPNCRBQgoRHxoKv8SWKSNQF?=
- =?us-ascii?Q?qhQHXubVYYThFfUd87TuvtSKnVr0PJIrwt7R+MEJHhDqTOkz3wovlcB2WJ1Q?=
- =?us-ascii?Q?EXMukvq29H/N0zVhut0IwICCFMqQV5BWJN3h/+J7Euh90oYWfY+vs+CHjabf?=
- =?us-ascii?Q?IogTxw0JfK2HmvAZ1S3CyyVTfUPjl2kO2BjKujx1CjLaK21aDFZQoX7d9aP+?=
- =?us-ascii?Q?NA2Y5Vcr5Pef9mfb5WTqp9XhdAP4d3xrO2w/WRfRSOx1FfbK5PjWx1pdlxQ2?=
- =?us-ascii?Q?SPpY1voG6mYCckqt/C66MJi72/NuwLB3+IDhpsY3/e4g9qTlMdINqcj8GzrO?=
- =?us-ascii?Q?cdcQF5zarfw4v/Wf7SohjZwQZGRSAcFqpV9agioaY9tIdasvl0Jv73Yy1E89?=
- =?us-ascii?Q?NHWingz1CjOzFL+eEYWc6D3Xo7EPLRF9sWSzZPnAAQvi3SwXtxPmPi58YIos?=
- =?us-ascii?Q?bFwvoZnr6FRyRHekMQwjrYu2XwumtasKs8mBA9IAFp5MIc9JybNO/Zet04wB?=
- =?us-ascii?Q?3c/p6LNFjcZOWw6NSWdr2z5zd5D+OS+L87GAAPVkoBEZokbT71gilMP6bpXp?=
- =?us-ascii?Q?2FB8ekpICnLYUXFusz3e+8Rtnxs0ysLk6ETMxA/Ui6uaSjfpu5JQlo/TackM?=
- =?us-ascii?Q?nDqV4lXlEvrjLHyf93o6rhZCcSlYwb7dM/8s3Xw7KWo/isYS1v5Ks8wMcIAp?=
- =?us-ascii?Q?Fv6dZPKcE+ZTpAwXayBLpnaRo541216WyrSJnEazuqqSl3RmlkD+AthDeKEH?=
- =?us-ascii?Q?eyylp/NyVOByAuRHixfLuQRai0ibcINAfGMgO4WlZRb6PaKGcgmCfkm61Wiu?=
- =?us-ascii?Q?yZrVDksV4+0fQDXjN3Z2xLC7BTXuG+l5ODF9qaDlsuYfTjbtXsuaYceqdpJl?=
- =?us-ascii?Q?Frh1mRzcCSVA+5Q1la6J59aK/ooRkV0V/AzHRHQyfl0KqIltmHOORaDwUbqn?=
- =?us-ascii?Q?8kQHyiZRKpUNlUdbYSsX/o97dJOsF2luz0C4nHxFy85RIRLHB3KFnq4lcGLL?=
- =?us-ascii?Q?YtMaeZr3yPhNMgtAkSyo1ddg9mtTbFQ9cBJ4oDwu+0/X5eulrIGCYBfI1Y63?=
- =?us-ascii?Q?gpke3yaJGhPxrJPaDJbfBIvOIM1GESN+x+y7Z3E4QWUKMnkNkTsfhwCUqx7Q?=
- =?us-ascii?Q?qtILxTGK+j8CW2aPJDVmssVQxcGHJBsqbvV5/RnI9tUqNC4TUtvI0wZ55Xox?=
- =?us-ascii?Q?e2OJjX0EXXD2CPbIUSRh6kEiYtEXSqNLv6qFdGEwshuG2ZHj5FRbMBiJZR3N?=
- =?us-ascii?Q?Sxp6xOcmrzNSKiMnymRxe43juO6/VnCsta+vE5N2w3zt4JcKVOrWSVCm0l49?=
- =?us-ascii?Q?UEhf8eFgpO9ID5CSja2iRhCpcw0AjLHF8Dn/fNlfAtrdHguEmNMTJx5MPS2G?=
- =?us-ascii?Q?PWs/A13SuLqvQrC7jy1h1wgH2NzT1W+oeGYL+Uh696HzQnVdsggmN8Vawut2?=
- =?us-ascii?Q?zrDAbUganiKiz4A/jcgavSiCTgvmeXih/sUkVR3PGjqst0ykwcr5naJ9w1LG?=
- =?us-ascii?Q?FXhnZ8SFZVkAgNMIsz+9h7a24zkQQYb4/X3FB9CvNiXPpkN+NscV64pRcgK6?=
- =?us-ascii?Q?ybi1FjrmnMfMXT6+gRD/0F5XwfAaFWzZjQUHFYO68X7AGUnjidzMVZrd7YCv?=
- =?us-ascii?Q?veUvT19ekR6mW9crvbeeKOgY/o1IjDYetVLcXJqtt7tme/6jQsX/FAFb/EjH?=
- =?us-ascii?Q?x8amfM0T1A=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00ec8aa5-fffc-46cd-88a0-08de8685a349
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 13:36:06.3857
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: P6htDhDGkGFQ6+IS1tsP9t4W0W6/4dMmK74U1LakPY+rTetoeI0JBtpd6DSXbp+UyHSwRxaCym38JdQRYX/H9g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6781
+References: <20260320015323.36383-1-rosenp@gmail.com>
+In-Reply-To: <20260320015323.36383-1-rosenp@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 20 Mar 2026 14:39:58 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmSs_zr+VjOFDcWeWd8k2fvW4D_=AB21sOzFDNeRfY77w@mail.gmail.com>
+X-Gm-Features: AaiRm51td7xH5-vHG8a3FglHGrwjolWTDZvQoaQMPmI-u_KtaEKBB-jCCe9iV-Q
+Message-ID: <CAD++jLmSs_zr+VjOFDcWeWd8k2fvW4D_=AB21sOzFDNeRfY77w@mail.gmail.com>
+Subject: Re: [PATCHv2] gpio: msc313: remove kcalloc
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-gpio@vger.kernel.org, Daniel Palmer <daniel@thingy.jp>, 
+	Romain Perier <romain.perier@gmail.com>, Bartosz Golaszewski <brgl@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	"moderated list:ARM/MStar/Sigmastar Armv7 SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_063625_152144_47E479A0 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260320_064011_140885_EBAF7366 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,51 +87,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 09:17:21AM -0700, Guenter Roeck wrote:
-> On 3/12/26 07:43, florin.leotescu@oss.nxp.com wrote:
-> > From: Florin Leotescu <florin.leotescu@nxp.com>
-> > 
-> > This series adds support for configuring the fan PWM duty cycle applied
-> > during system shutdown for the EMC2305 fan controller.
-> > 
-> > Some platforms require fans to transition to a predefined safe state
-> > during shutdown or reboot handoff until firmware or the next boot stage
-> > reconfigures the controller.
-> > 
-> > The new optional Device Tree property "fan-shutdown-percent" allows the
-> > shutdown PWM duty cycle to be configured per fan output.
-> > 
-> > Changes in v3:
-> > - Rebased on current upstream
-> > - Dropped already upstreamed of_node_put(child) fix
-> > Changes in v2:
-> > - Address feedback from Guenter Roeck
-> > - Make shutdown behavior configurable via Device Tree
-> > - Add optional fan-shutdown-percent property
-> > - Apply shutdown PWM only for channels defining the property
-> > 
-> > Florin Leotescu (2):
-> >    dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
-> >    hwmon: emc2305: Support configurable fan PWM at shutdown
-> > 
-> >   .../bindings/hwmon/microchip,emc2305.yaml     |  8 +++++
-> >   drivers/hwmon/emc2305.c                       | 34 +++++++++++++++++++
-> >   2 files changed, 42 insertions(+)
-> > 
-> AI review of series is here:
-> 
-> https://sashiko.dev/#/patchset/20260312144325.1311314-1-florin.leotescu%40oss.nxp.com
-> 
-> Please take a look.
+On Fri, Mar 20, 2026 at 2:53=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wrot=
+e:
+
+> Use a flexible array member to combine kzalloc and kcalloc.
 >
-Hi Guenter,
+> Add an extra counting member to support __counted_by.
+>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Thanks for pointing this out.
-You're right, since the pwm_shutdown array is zero-initialized by devm_kzalloc,
-the channels that are not explicitly configured, will be treated as valid
-and written as 0 during shutdown. I'll fix it in next revision.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-> Thanks,
-> Guenter
-> 
+Yours,
+Linus Walleij
 
