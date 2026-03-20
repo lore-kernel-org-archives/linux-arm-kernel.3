@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD2B108B8ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B3F108B8E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hJSEOOAhj/r6zguq6KmRPCSMSABE64v2gT/NO93bRjA=; b=hxHQC2jKvq/hsH
-	Sdt2BMKy2kfWvka+rQd6Vv4atnND3O1Syq4HB8FD6KGsFV/Dw8k+MFNuYTfIgyKLEC/IF4feSCEmU
-	Qsi9wMkMkIqj9VI6zTnEvEhDOTLtVhvY5DumS6X70wvjUxpg2M083Fja+Xw1QBZzxL3T/qSZPvKDj
-	9WHhDc037Cs89tGEfsCQg+IfeoZ/I9i96Myr3AVEvCV0LnxEiGnut0fVBR6uezzNLoTkpq4R9JWrs
-	Ew1GZfPa09BQIUQanExirzY/+bCdubmJamsrdFunW3h8KFVmDZ/2oKDLEv0eEEQ8+Pqs7pt7Y8uey
-	vJvYePJxN7O3/YV0+FSA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6ReFRWMNlcAIzygaQHDIHcvAfK0/APpypoLdcs/3JIQ=; b=yxbJbSXHD02AsJsSNHF1L0vHx4
+	DCatNCtAD8oc3nV2PX0ZJuYX8OzDXkc7XEgH9Fmedx9hyZvCq9duPpy3aiaPa07d6nCzk/14r6+tZ
+	DxiaxLLxq4zJ6tJmsygqlOxZ8+ned/E67LL0TPH+yrIH5/DGtFMrVaPTQrva+tlYYtBESWhRJCEgV
+	MXiyLyTVFztgnFXiQu2/nJHrQVxE1Bntd95ZzhAcwh7ovGyYc/MMcUCT5KjyEguDB2NZTZiMB98kk
+	1QsiAxpO2dGp9s562cEQ6ju75bkaoMn5wvXkAXKTvoi/MNn/Rqyl0IO6sqlhjc3a6BPqNAeeEjaUu
+	np18QmBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XIC-0000000CdNp-0c4G;
-	Fri, 20 Mar 2026 10:41:24 +0000
+	id 1w3XIN-0000000CdSA-3nNB;
+	Fri, 20 Mar 2026 10:41:35 +0000
 Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XI8-0000000CdLa-32d2
+	id 1w3XIA-0000000CdLf-0MRK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:41:23 +0000
+	Fri, 20 Mar 2026 10:41:24 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=hJSEOOAhj/r6zguq6KmRPCSMSABE64v2gT/NO93bRjA=;
-	b=e0Dh+JkqNoMciVayHgin+0LjX4MpNFT6ER7rvoJu8i5SDzMhl/mWV/OtIMBdH/Nphhbfv/77p
-	yVR4oRwD8pdUgqzsTDx1bv44cl23ZK1qW5wxLNk/xtNYX3d1Bw3uHxmgCgX7ILsrASKvrRFlQJK
-	P5z3C70+WVwiTHfY8wJuhn0=
+	bh=6ReFRWMNlcAIzygaQHDIHcvAfK0/APpypoLdcs/3JIQ=;
+	b=OIhmm4cVECm6pCD5T5U4YorHv8ATbzN2X3DExx/zGE49puRUxFGQHuCiFEhiLBDnRJgAMdyyQ
+	gmfoc0kiaRUXurBARvkaKdu6r42BwjnKaK00xZbNWyceytpd07ZhygecRBEmLKKKYI7U0HWs4jG
+	4ZEquaKeLcZY35DezR59zIA=
 Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fcf8X1bpKzLlTD;
-	Fri, 20 Mar 2026 18:35:08 +0800 (CST)
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4fcf8h5fdKzLlTD;
+	Fri, 20 Mar 2026 18:35:16 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id F356840565;
-	Fri, 20 Mar 2026 18:41:09 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 889FE40565;
+	Fri, 20 Mar 2026 18:41:18 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 20 Mar
- 2026 18:41:07 +0800
+ 2026 18:41:16 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
 	<kernel@xen0n.name>, <hca@linux.ibm.com>, <gor@linux.ibm.com>,
@@ -61,10 +61,12 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
 	<linux-s390@vger.kernel.org>, <linux-arch@vger.kernel.org>,
 	<linux-kselftest@vger.kernel.org>
-Subject: [PATCH v14 0/4] arm64: Use generic TIF bits for common thread flags
-Date: Fri, 20 Mar 2026 18:42:18 +0800
-Message-ID: <20260320104222.1381274-1-ruanjinjie@huawei.com>
+Subject: [PATCH v14 4/4] selftests: sud_test: Support aarch64
+Date: Fri, 20 Mar 2026 18:42:22 +0800
+Message-ID: <20260320104222.1381274-5-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260320104222.1381274-1-ruanjinjie@huawei.com>
+References: <20260320104222.1381274-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -72,8 +74,9 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_034121_492357_71E396B8 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260320_034122_494109_CD1DE6D1 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,119 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series use generic TIF bits for common thread flags and add
-Syscall User Dispatch (SUD) testcase support for AArch64. So we can
-enables RSEQ optimizations for arm64.
+From: kemal <kmal@cock.li>
 
-These patches follow the foundational series (v13 resend 1-10, "arm64:
-entry: Convert to Generic Entry") and are intended for the next cycle or
-an immutable branch based on v7.0-rc1.
+Support aarch64 to test "Syscall User Dispatch" feature with
+sud_test selftest testcase.
 
-Changes in v14:
-- Split into two patch sets as Linus Walleij suggested, this is the second
-  patch set.
-- Remove TIF_FREEZE for arm64.
-- Add Signed-off-by and test results for sud_benchmark.
-- Collect Reviewed-by and Acked-by.
-- Link to v13 resend: https://lore.kernel.org/all/20260317082020.737779-15-ruanjinjie@huawei.com/
+On qemu-kvm machine, the sud_benchmark test results are as below:
 
-Changes in v13 resend:
-- Fix exit_to_user_mode_prepare_legacy() issues.
-- Also move TIF_SINGLESTEP to generic TIF infrastructure for loongarch.
-- Use generic TIF bits for arm64 and moving TIF_SINGLESTEP to
-  generic TIF for related architectures separately.
-- Refactor syscall_trace_enter/exit() to accept flags and Use
-  syscall_get_nr() helper separately.
-- Tested with slice_test for rseq optimizations.
-- Add acked-by.
-- Link to v13: https://lore.kernel.org/all/20260313094738.3985794-1-ruanjinjie@huawei.com/
+	# ./sud_benchmark
+	Calibrating test set to last ~5 seconds...
+	test iterations = 24500000
+	Avg syscall time 208ns.
+	Enabling syscall trapping.
+	Caught sys_1c2
+	trapped_call_count 1, native_call_count 0.
+	Avg syscall time 213ns.
+	Interception overhead: 2.5% (+5ns).
 
-Changes in v13:
-- Rebased on v7.0-rc3, so drop the firt applied arm64 patch.
-- Use generic TIF bits to enables RSEQ optimization.
-- Update most of the commit message to make it more clear.
-- Link to v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Signed-off-by: kemal <kmal@cock.li>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ tools/testing/selftests/syscall_user_dispatch/sud_benchmark.c | 2 +-
+ tools/testing/selftests/syscall_user_dispatch/sud_test.c      | 4 ++++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-Changes in v12:
-- Rebased on "sched/core", so remove the four generic entry patches.
-- Move "Expand secure_computing() in place" and
-  "Use syscall_get_arguments() helper" patch forward, which will group all
-  non-functional cleanups at the front.
-- Adjust the explanation for moving rseq_syscall() before
-  audit_syscall_exit().
-- Link to v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
-
-Changes in v11:
-- Remove unused syscall in syscall_trace_enter().
-- Update and provide a detailed explanation of the differences after
-  moving rseq_syscall() before audit_syscall_exit().
-- Rebased on arm64 (for-next/entry), and remove the first applied 3 patchs.
-- syscall_exit_to_user_mode_work() for arch reuse instead of adding
-  new syscall_exit_to_user_mode_work_prepare() helper.
-- Link to v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
-
-Changes in v10:
-- Rebased on v6.19-rc1, rename syscall_exit_to_user_mode_prepare() to
-  syscall_exit_to_user_mode_work_prepare() to avoid conflict.
-- Also inline syscall_trace_enter().
-- Support aarch64 for sud_benchmark.
-- Update and correct the commit message.
-- Add Reviewed-by.
-- Link to v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
-
-Changes in v9:
-- Move "Return early for ptrace_report_syscall_entry() error" patch ahead
-  to make it not introduce a regression.
-- Not check _TIF_SECCOMP/SYSCALL_EMU for syscall_exit_work() in
-  a separate patch.
-- Do not report_syscall_exit() for PTRACE_SYSEMU_SINGLESTEP in a separate
-  patch.
-- Add two performance patch to improve the arm64 performance.
-- Add Reviewed-by.
-- Link to v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
-
-Changes in v8:
-- Rename "report_syscall_enter()" to "report_syscall_entry()".
-- Add ptrace_save_reg() to avoid duplication.
-- Remove unused _TIF_WORK_MASK in a standalone patch.
-- Align syscall_trace_enter() return value with the generic version.
-- Use "scno" instead of regs->syscallno in el0_svc_common().
-- Move rseq_syscall() ahead in a standalone patch to clarify it clearly.
-- Rename "syscall_trace_exit()" to "syscall_exit_work()".
-- Keep the goto in el0_svc_common().
-- No argument was passed to __secure_computing() and check -1 not -1L.
-- Remove "Add has_syscall_work() helper" patch.
-- Move "Add syscall_exit_to_user_mode_prepare() helper" patch later.
-- Add miss header for asm/entry-common.h.
-- Update the implementation of arch_syscall_is_vdso_sigreturn().
-- Add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP | SYSCALL_EMU"
-  to keep the behaviour unchanged.
-- Add more testcases test.
-- Add Reviewed-by.
-- Update the commit message.
-- Link to v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
-
-Jinjie Ruan (3):
-  s390: Rename TIF_SINGLE_STEP to TIF_SINGLESTEP
-  asm-generic: Move TIF_SINGLESTEP to generic TIF bits
-  arm64: Use generic TIF bits for common thread flags
-
-kemal (1):
-  selftests: sud_test: Support aarch64
-
- arch/arm64/Kconfig                            |  1 +
- arch/arm64/include/asm/thread_info.h          | 61 ++++++++-----------
- arch/loongarch/include/asm/thread_info.h      | 11 ++--
- arch/s390/include/asm/thread_info.h           |  7 +--
- arch/s390/kernel/process.c                    |  2 +-
- arch/s390/kernel/ptrace.c                     | 20 +++---
- arch/s390/kernel/signal.c                     |  6 +-
- arch/x86/include/asm/thread_info.h            |  6 +-
- include/asm-generic/thread_info_tif.h         |  5 ++
- .../syscall_user_dispatch/sud_benchmark.c     |  2 +-
- .../syscall_user_dispatch/sud_test.c          |  4 ++
- 11 files changed, 61 insertions(+), 64 deletions(-)
-
+diff --git a/tools/testing/selftests/syscall_user_dispatch/sud_benchmark.c b/tools/testing/selftests/syscall_user_dispatch/sud_benchmark.c
+index 073a03702ff5..6059abe75cb3 100644
+--- a/tools/testing/selftests/syscall_user_dispatch/sud_benchmark.c
++++ b/tools/testing/selftests/syscall_user_dispatch/sud_benchmark.c
+@@ -41,7 +41,7 @@
+  * out of the box, but don't enable them until they support syscall user
+  * dispatch.
+  */
+-#if defined(__x86_64__) || defined(__i386__)
++#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
+ #define TEST_BLOCKED_RETURN
+ #endif
+ 
+diff --git a/tools/testing/selftests/syscall_user_dispatch/sud_test.c b/tools/testing/selftests/syscall_user_dispatch/sud_test.c
+index b855c6000287..3ffea2f4a66d 100644
+--- a/tools/testing/selftests/syscall_user_dispatch/sud_test.c
++++ b/tools/testing/selftests/syscall_user_dispatch/sud_test.c
+@@ -192,6 +192,10 @@ static void handle_sigsys(int sig, siginfo_t *info, void *ucontext)
+ 	((ucontext_t *)ucontext)->uc_mcontext.__gregs[REG_A0] =
+ 			((ucontext_t *)ucontext)->uc_mcontext.__gregs[REG_A7];
+ #endif
++#ifdef __aarch64__
++	((ucontext_t *)ucontext)->uc_mcontext.regs[0] = (unsigned int)
++			((ucontext_t *)ucontext)->uc_mcontext.regs[8];
++#endif
+ }
+ 
+ int setup_sigsys_handler(void)
 -- 
 2.34.1
 
