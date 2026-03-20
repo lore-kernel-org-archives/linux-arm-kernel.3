@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB6E10987A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D4810987A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2F8g3RQzaMv1x1Al7qlXdh9hQ92OTI2S1ZLkWtCxmg=; b=450uvgyHU23CzoGbPtvl3RHI9R
-	RcSa8Mi511vsJUJiM6Uw0B1OhWcxP9qmc8JyvRFBlXVBwThUn/uTQbMPMf9bB/pdw+W81e59hyBUn
-	H+MQS1FWzS0kmNaHtnC7Dd9xiIRixJUPuLXiCb1bkcQmLzV1G25A7xlpYaK2v5DgvpSyJ7bEX5cY2
-	+2K9NgljM36FtEhq9O19zG9WGBwogLweNSHWvwOGBGYZQiNiX4iKbft+uvGM3KoIlqY7crQTcoEnn
-	8iWcu7xQO/oWdoyTH6byofjBO6dpHZqSMSgGbzgRz+Vtjz3ybID/AJFinZJvjbyG3TomzxYljrCG6
-	Szhnmtzw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UykbfPx0T/uvS/kSb1s/PetPmir62/KsdaEHZUZIMOY=; b=pwH6xbhuOK4WEAfFoUB+ui7xM1
+	uHE+PxR/UWpJdqBCaHUeB4LLgY2q6hiXy52Xd9KiwLBdf2eXehlUAN8jGhMryXfqqYyh27L45shnW
+	ucRqF54/v56pMCmgLvkvHvqMmjEafQZG/4p9hC1wpkh6BAib5kx/vRUn32fXpuEuz01Vz1SAIzCu5
+	gRvnqjDvEP4MqkQbqRpubeV37QdQ2t8ighnhgLP4HgClg93vxBtJNbAr3ozp/+l+y4RVtE6tU1eIT
+	gH7vjITMevW5grJvpMC7AnaieyROugIldHRTRY+ZvjNvQtSsG5DCsw2c8nm6iBtKK8wuoY8ulPQQU
+	zh3LAGRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3cgX-0000000D7Oq-2hV6;
-	Fri, 20 Mar 2026 16:26:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3cgW-0000000D7OG-1BZ2
+	id 1w3cgh-0000000D7Ra-3xQC;
+	Fri, 20 Mar 2026 16:27:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3cgf-0000000D7Qx-1bVS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:26:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1027040742;
-	Fri, 20 Mar 2026 16:26:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59AE4C4CEF7;
-	Fri, 20 Mar 2026 16:26:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774024010;
-	bh=Mu8K4ltMOyKtrO/vxTH8fzGT8sDL87bCwkqPs4n7qOg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=EOd4dzPuRgAqJ6y5qEw7hANCw4SsZCxWvA62ZwvbcM253aRrtFH9DQLykfNTuAUeB
-	 S8chSM/Hk44/IL0m/oycPdR3ttyYAVE495stCFIcEqB/B7XcshyCZZS9H/mJ0rjsY9
-	 8bc1WpiJlwJFuuDX3lTXKz80s7bHG/LWy+dO4fDhbeziUM6wSJVhQqtlJu6dZlMm1m
-	 sQF85HTtdMERsicOUm2zbh/hbLUtlbUuH8hBS+khQi1j85CAr+w3zmvIzTzGn3eqOj
-	 eucvOxYam1nT++j1UzHcqnqwXHxBWd9rV1aYEZj78EGg8O8mdcYEwHTWTOzwZK1C7x
-	 w7gb9ZhpHRuJw==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-In-Reply-To: <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com> <87eclek0mb.ffs@tglx>
- <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com>
-Date: Fri, 20 Mar 2026 17:26:47 +0100
-Message-ID: <87341ujwl4.ffs@tglx>
+	Fri, 20 Mar 2026 16:27:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1089C165C;
+	Fri, 20 Mar 2026 09:26:54 -0700 (PDT)
+Received: from [10.1.29.20] (e122027.cambridge.arm.com [10.1.29.20])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D4B43F7BD;
+	Fri, 20 Mar 2026 09:26:55 -0700 (PDT)
+Message-ID: <11294a4a-f6db-4c63-a8eb-f8d56d9b8a85@arm.com>
+Date: Fri, 20 Mar 2026 16:26:53 +0000
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 17/48] arm64: RMI: Allocate/free RECs to match vCPUs
+To: Wei-Lin Chang <weilin.chang@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-18-steven.price@arm.com>
+ <c4u3bivkm2a4w6jtjt6uuas2nfyeisgpir4ati3irbs5oboo2u@belozcancqh5>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <c4u3bivkm2a4w6jtjt6uuas2nfyeisgpir4ati3irbs5oboo2u@belozcancqh5>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_092652_373921_30E03E5F 
-X-CRM114-Status: GOOD (  42.12  )
+X-CRM114-CacheID: sfid-20260320_092701_510285_C079C1F7 
+X-CRM114-Status: GOOD (  35.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,174 +76,420 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20 2026 at 15:37, Mark Rutland wrote:
-> On Fri, Mar 20, 2026 at 03:59:40PM +0100, Thomas Gleixner wrote:
->> Why are you routing NMI like exceptions through irqentry_enter() and
->> irqentry_exit() in the first place? That's just wrong.
->
-> Sorry, the above was not clear, and some of this logic is gunk that has
-> been carried over unnnecessarily from our old exception handling flow.
->
-> The issue with pseudo-NMI is that it uses the same exception as regular
-> interrupts, but we don't know whether we have a pseudo-NMI until we
-> acknowledge the event at the irqchip level. When a pseudo-NMI is taken,
-> there are two possibilities:
->
-> (1) The pseudo-NMI is taken from a context where interrupts were
->     *disabled*. The entry code immediately knows it must be a
->     pseudo-NMI, and we call irqentry_nmi_{enter,exit}(), NOT
->     irqentry_{enter,exit}(), treating it as an NMI.
->
->
-> (2) The pseudo-NMI was taken from a context where interrupts were
->     *enabled*. The entry code doesn't know whether it's a pseudo-NMI or
->     a regular interrupt, so it calls irqentry_{enter,exit}(), and then
->     within that we'll call nmi_{enter,exit}() to transiently enter NMI
->     context.
->
-> I realise this is crazy. I would love to delete pseudo-NMI.
-> Unfortunately people are using it.
+On 19/03/2026 18:10, Wei-Lin Chang wrote:
+> On Wed, Mar 18, 2026 at 03:53:41PM +0000, Steven Price wrote:
+>> The RMM maintains a data structure known as the Realm Execution Context
+>> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
+>> virtual CPUs. KVM must delegate memory and request the structures are
+>> created when vCPUs are created, and suitably tear down on destruction.
+>>
+>> RECs must also be supplied with addition pages - auxiliary (or AUX)
+>> granules - for storing the larger registers state (e.g. for SVE). The
+>> number of AUX granules for a REC depends on the parameters with which
+>> the Realm was created - the RMM makes this information available via the
+>> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor (RD).
+>>
+>> Note that only some of register state for the REC can be set by KVM, the
+>> rest is defined by the RMM (zeroed). The register state then cannot be
+>> changed by KVM after the REC is created (except when the guest
+>> explicitly requests this e.g. by performing a PSCI call).
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v12:
+>>  * Use the new range-based delegation RMI.
+>> Changes since v11:
+>>  * Remove the KVM_ARM_VCPU_REC feature. User space no longer needs to
+>>    configure each VCPU separately, RECs are created on the first VCPU
+>>    run of the guest.
+>> Changes since v9:
+>>  * Size the aux_pages array according to the PAGE_SIZE of the host.
+>> Changes since v7:
+>>  * Add comment explaining the aux_pages array.
+>>  * Rename "undeleted_failed" variable to "should_free" to avoid a
+>>    confusing double negative.
+>> Changes since v6:
+>>  * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
+>>    realm guest.
+>>  * Support host page size being larger than RMM's granule size when
+>>    allocating/freeing aux granules.
+>> Changes since v5:
+>>  * Separate the concept of vcpu_is_rec() and
+>>    kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
+>>    the indication that the VCPU is a REC.
+>> Changes since v2:
+>>  * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
+>> ---
+>>  arch/arm64/include/asm/kvm_emulate.h |   2 +-
+>>  arch/arm64/include/asm/kvm_host.h    |   3 +
+>>  arch/arm64/include/asm/kvm_rmi.h     |  21 +++
+>>  arch/arm64/kvm/arm.c                 |  10 +-
+>>  arch/arm64/kvm/reset.c               |   1 +
+>>  arch/arm64/kvm/rmi.c                 | 196 +++++++++++++++++++++++++++
+>>  6 files changed, 230 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+>> index 39310d9b4e16..d194d91fbc2a 100644
+>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>> @@ -708,7 +708,7 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
+>>  
+>>  static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>>  {
+>> -	return false;
+>> +	return kvm_is_realm(vcpu->kvm);
+>>  }
+>>  
+>>  #endif /* __ARM64_KVM_EMULATE_H__ */
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>> index 9267a2f2d65b..64304848aad4 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -924,6 +924,9 @@ struct kvm_vcpu_arch {
+>>  
+>>  	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
+>>  	struct vncr_tlb	*vncr_tlb;
+>> +
+>> +	/* Realm meta data */
+>> +	struct realm_rec rec;
+>>  };
+>>  
+>>  /*
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+>> index 6c13847480f7..4e2c61e71a38 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -63,6 +63,26 @@ struct realm {
+>>  	unsigned int ia_bits;
+>>  };
+>>  
+>> +/**
+>> + * struct realm_rec - Additional per VCPU data for a Realm
+>> + *
+>> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
+>> + * @rec_page: Kernel VA of the RMM's private page for this REC
+>> + * @aux_pages: Additional pages private to the RMM for this REC
+>> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
+>> + */
+>> +struct realm_rec {
+>> +	unsigned long mpidr;
+>> +	void *rec_page;
+>> +	/*
+>> +	 * REC_PARAMS_AUX_GRANULES is the maximum number of 4K granules that
+>> +	 * the RMM can require. The array is sized to be large enough for the
+>> +	 * maximum number of host sized pages that could be required.
+>> +	 */
+>> +	struct page *aux_pages[(REC_PARAMS_AUX_GRANULES * SZ_4K) >> PAGE_SHIFT];
+>> +	struct rec_run *run;
+>> +};
+>> +
+>>  void kvm_init_rmi(void);
+>>  u32 kvm_realm_ipa_limit(void);
+>>  
+>> @@ -70,6 +90,7 @@ int kvm_init_realm_vm(struct kvm *kvm);
+>>  int kvm_activate_realm(struct kvm *kvm);
+>>  void kvm_destroy_realm(struct kvm *kvm);
+>>  void kvm_realm_destroy_rtts(struct kvm *kvm);
+>> +void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>>  
+>>  static inline bool kvm_realm_is_private_address(struct realm *realm,
+>>  						unsigned long addr)
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index c8e51ed009c0..8c50ebd9fba0 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -575,6 +575,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+>>  	/* Force users to call KVM_ARM_VCPU_INIT */
+>>  	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
+>>  
+>> +	vcpu->arch.rec.mpidr = INVALID_HWID;
+>> +
+>>  	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
+>>  
+>>  	/* Set up the timer */
+>> @@ -1549,7 +1551,7 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
+>>  	return -EINVAL;
+>>  }
+>>  
+>> -static unsigned long system_supported_vcpu_features(void)
+>> +static unsigned long system_supported_vcpu_features(struct kvm *kvm)
+>>  {
+>>  	unsigned long features = KVM_VCPU_VALID_FEATURES;
+>>  
+>> @@ -1587,7 +1589,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>>  			return -ENOENT;
+>>  	}
+>>  
+>> -	if (features & ~system_supported_vcpu_features())
+>> +	if (features & ~system_supported_vcpu_features(vcpu->kvm))
+> 
+> Hi,
+> 
+> Are these two hunks superfluous?
 
-What is it used for?
-
-> Putting aside the nesting here, I think it's fine to preempt upon return
-> from case (2), and we can delete the logic to avoid preempting.
-
-Correct.
-
->> 
->> That means at the point where irqentry_entry() is invoked, the
->> architecture side should have made sure that everything is set up for
->> the kernel to operate until irqentry_exit() returns.
->
-> Ok. I think you're saying I should try:
->
-> * At entry, *before* irqentry_enter():
->   - unmask everything EXCEPT regular interrupts.
->   - fix up all the necessary state.
->
-> * At exception exit, *after* irqentry_exit():
->   - mask everything.
->   - fix up all the necessary state.
->
-> ... right?
-
-Yes.
-
->> Looking at your example:
->> 
->> > | static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
->> > | {
->> > |         unsigned long far = read_sysreg(far_el1);
->> > |         irqentry_state_t state;
->> > |
->> > |         state = enter_from_kernel_mode(regs);
->> > |         local_daif_inherit(regs);
->> > |         do_mem_abort(far, esr, regs);
->> > |         local_daif_mask();
->> > |         exit_to_kernel_mode(regs, state);
->> 
->> and the paragraph right below that:
->> 
->> > Currently, the generic irq entry code will attempt to preempt from any
->> > exception under irqentry_exit() where interrupts were unmasked in the
->> > original context. As arm64's entry code will have already masked
->> > exceptions via DAIF, this results in the problems described above.
->> 
->> To me this looks like your ordering is wrong. Why are you doing the DAIF
->> inherit _after_ irqentry_enter() and the mask _before_ irqentry_exit()?
->
-> As above, I can go look at reworking this. 
->
-> For context, we do it this way today for several reasons, including:
->
-> (1) Because some of the arch-specific bits (such as checking the TFSR
->     for MTE) in enter_from_kernel_mode() and exit_to_kernel_mode() need
->     to be done while RCU is watching, etc, but needs other exceptions
->     masked. I can look at reworking that.
-
-Something like the below should do that for you. If you need more than
-regs, then you can either stick something on your stack frame or we go
-and extend irqentry_enter()/exit() with an additional argument which
-allows you to hand some exception/interrupt specific cookie in. The core
-code would just hand it through to arch_irqenter_enter/exit_rcu() along
-with @regs. That cookie might be data or even a function pointer. The
-core does not have to know about it.
-
-> (2) To minimize the number of times we have to write to things like
->     DAIF, as that can be expensive.
->
-> (3) To simplify the management of things like DAIF, so that we don't
->     have several points in time at which we need to inherit different
->     pieces of state.
-
-The above should cover your #2/3 too, no?
-
-> (4) Historical, as that's the flow we had in assembly, and prior to the
->     move to generic irq entry.
-
-No comment :)
-
->> I might be missing something, but this smells more than fishy.
->> 
->> As no other architecture has that problem I'm pretty sure that the
->> problem is not in the way how the generic code was designed. Why?
->
-> Hey, I'm not saying the generic entry code is wrong, just that there's a
-> mismatch between it and what would be optimal for arm64.
->
->> Because your architecture is _not_ sooo special! :)
->
-> I think it's pretty special, but not necessarily in the same sense. ;)
-
-Hehehe.
+Ah, yes that's left over from a previous version - thanks for spotting.
 
 Thanks,
+Steve
 
-        tglx
----        
---- a/kernel/entry/common.c
-+++ b/kernel/entry/common.c
-@@ -149,6 +149,7 @@ noinstr irqentry_state_t irqentry_enter(
- 		instrumentation_begin();
- 		kmsan_unpoison_entry_regs(regs);
- 		trace_hardirqs_off_finish();
-+		arch_irqentry_enter_rcu(regs);
- 		instrumentation_end();
- 
- 		ret.exit_rcu = true;
-@@ -166,6 +167,7 @@ noinstr irqentry_state_t irqentry_enter(
- 	kmsan_unpoison_entry_regs(regs);
- 	rcu_irq_enter_check_tick();
- 	trace_hardirqs_off_finish();
-+	arch_irqentry_enter_rcu(regs);
- 	instrumentation_end();
- 
- 	return ret;
-@@ -225,6 +227,7 @@ noinstr void irqentry_exit(struct pt_reg
- 		 */
- 		if (state.exit_rcu) {
- 			instrumentation_begin();
-+			arch_irqentry_exit_rcu(regs);
- 			hrtimer_rearm_deferred();
- 			/* Tell the tracer that IRET will enable interrupts */
- 			trace_hardirqs_on_prepare();
-@@ -239,11 +242,13 @@ noinstr void irqentry_exit(struct pt_reg
- 		if (IS_ENABLED(CONFIG_PREEMPTION))
- 			irqentry_exit_cond_resched();
- 
-+		arch_irqentry_exit_rcu(regs);
- 		hrtimer_rearm_deferred();
- 		/* Covers both tracing and lockdep */
- 		trace_hardirqs_on();
- 		instrumentation_end();
- 	} else {
-+		arch_irqentry_exit_rcu(regs);
- 		/*
- 		 * IRQ flags state is correct already. Just tell RCU if it
- 		 * was not watching on entry.
+> Thanks,
+> Wei-Lin Chang
+> 
+>>  		return -EINVAL;
+>>  
+>>  	/*
+>> @@ -1609,6 +1611,10 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>>  	if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
+>>  		return -EINVAL;
+>>  
+>> +	/* Realms are incompatible with AArch32 */
+>> +	if (vcpu_is_rec(vcpu))
+>> +		return -EINVAL;
+>> +
+>>  	return 0;
+>>  }
+>>  
+>> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+>> index 959532422d3a..4bbf58892928 100644
+>> --- a/arch/arm64/kvm/reset.c
+>> +++ b/arch/arm64/kvm/reset.c
+>> @@ -161,6 +161,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+>>  	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+>>  	kfree(vcpu->arch.vncr_tlb);
+>>  	kfree(vcpu->arch.ccsidr);
+>> +	kvm_destroy_rec(vcpu);
+>>  }
+>>  
+>>  static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index 937fababf960..6daf14c4b413 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -207,6 +207,28 @@ static int get_start_level(struct realm *realm)
+>>  	return 4 - stage2_pgtable_levels(realm->ia_bits);
+>>  }
+>>  
+>> +static int delegate_range(phys_addr_t phys, unsigned long size)
+>> +{
+>> +	unsigned long ret;
+>> +	unsigned long top = phys + size;
+>> +	unsigned long out_top;
+>> +
+>> +	while (phys < top) {
+>> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
+>> +		if (ret == RMI_SUCCESS)
+>> +			phys = out_top;
+>> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
+>> +			return ret;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int delegate_page(phys_addr_t phys)
+>> +{
+>> +	return delegate_range(phys, PAGE_SIZE);
+>> +}
+>> +
+>>  static int undelegate_range(phys_addr_t phys, unsigned long size)
+>>  {
+>>  	unsigned long ret;
+>> @@ -372,9 +394,177 @@ static int realm_ensure_created(struct kvm *kvm)
+>>  	return -ENXIO;
+>>  }
+>>  
+>> +static void free_rec_aux(struct page **aux_pages,
+>> +			 unsigned int num_aux)
+>> +{
+>> +	unsigned int i;
+>> +	unsigned int page_count = 0;
+>> +
+>> +	for (i = 0; i < num_aux; i++) {
+>> +		struct page *aux_page = aux_pages[page_count++];
+>> +		phys_addr_t aux_page_phys = page_to_phys(aux_page);
+>> +
+>> +		if (!WARN_ON(undelegate_page(aux_page_phys)))
+>> +			__free_page(aux_page);
+>> +		aux_page_phys += PAGE_SIZE;
+>> +	}
+>> +}
+>> +
+>> +static int alloc_rec_aux(struct page **aux_pages,
+>> +			 u64 *aux_phys_pages,
+>> +			 unsigned int num_aux)
+>> +{
+>> +	struct page *aux_page;
+>> +	unsigned int i;
+>> +	int ret;
+>> +
+>> +	for (i = 0; i < num_aux; i++) {
+>> +		phys_addr_t aux_page_phys;
+>> +
+>> +		aux_page = alloc_page(GFP_KERNEL);
+>> +		if (!aux_page) {
+>> +			ret = -ENOMEM;
+>> +			goto out_err;
+>> +		}
+>> +
+>> +		aux_page_phys = page_to_phys(aux_page);
+>> +		if (delegate_page(aux_page_phys)) {
+>> +			ret = -ENXIO;
+>> +			goto err_undelegate;
+>> +		}
+>> +		aux_phys_pages[i] = aux_page_phys;
+>> +		aux_pages[i] = aux_page;
+>> +	}
+>> +
+>> +	return 0;
+>> +err_undelegate:
+>> +	while (i > 0) {
+>> +		i--;
+>> +		if (WARN_ON(undelegate_page(aux_phys_pages[i]))) {
+>> +			/* Leak the page if the undelegate fails */
+>> +			goto out_err;
+>> +		}
+>> +	}
+>> +	__free_page(aux_page);
+>> +out_err:
+>> +	free_rec_aux(aux_pages, i);
+>> +	return ret;
+>> +}
+>> +
+>> +static int kvm_create_rec(struct kvm_vcpu *vcpu)
+>> +{
+>> +	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
+>> +	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
+>> +	struct realm *realm = &vcpu->kvm->arch.realm;
+>> +	struct realm_rec *rec = &vcpu->arch.rec;
+>> +	unsigned long rec_page_phys;
+>> +	struct rec_params *params;
+>> +	int r, i;
+>> +
+>> +	if (rec->run)
+>> +		return -EBUSY;
+>> +
+>> +	/*
+>> +	 * The RMM will report PSCI v1.0 to Realms and the KVM_ARM_VCPU_PSCI_0_2
+>> +	 * flag covers v0.2 and onwards.
+>> +	 */
+>> +	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
+>> +		return -EINVAL;
+>> +
+>> +	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
+>> +	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
+>> +
+>> +	params = (struct rec_params *)get_zeroed_page(GFP_KERNEL);
+>> +	rec->rec_page = (void *)__get_free_page(GFP_KERNEL);
+>> +	rec->run = (void *)get_zeroed_page(GFP_KERNEL);
+>> +	if (!params || !rec->rec_page || !rec->run) {
+>> +		r = -ENOMEM;
+>> +		goto out_free_pages;
+>> +	}
+>> +
+>> +	for (i = 0; i < ARRAY_SIZE(params->gprs); i++)
+>> +		params->gprs[i] = vcpu_regs->regs[i];
+>> +
+>> +	params->pc = vcpu_regs->pc;
+>> +
+>> +	if (vcpu->vcpu_id == 0)
+>> +		params->flags |= REC_PARAMS_FLAG_RUNNABLE;
+>> +
+>> +	rec_page_phys = virt_to_phys(rec->rec_page);
+>> +
+>> +	if (delegate_page(rec_page_phys)) {
+>> +		r = -ENXIO;
+>> +		goto out_free_pages;
+>> +	}
+>> +
+>> +	r = alloc_rec_aux(rec->aux_pages, params->aux, realm->num_aux);
+>> +	if (r)
+>> +		goto out_undelegate_rmm_rec;
+>> +
+>> +	params->num_rec_aux = realm->num_aux;
+>> +	params->mpidr = mpidr;
+>> +
+>> +	if (rmi_rec_create(virt_to_phys(realm->rd),
+>> +			   rec_page_phys,
+>> +			   virt_to_phys(params))) {
+>> +		r = -ENXIO;
+>> +		goto out_free_rec_aux;
+>> +	}
+>> +
+>> +	rec->mpidr = mpidr;
+>> +
+>> +	free_page((unsigned long)params);
+>> +	return 0;
+>> +
+>> +out_free_rec_aux:
+>> +	free_rec_aux(rec->aux_pages, realm->num_aux);
+>> +out_undelegate_rmm_rec:
+>> +	if (WARN_ON(undelegate_page(rec_page_phys)))
+>> +		rec->rec_page = NULL;
+>> +out_free_pages:
+>> +	free_page((unsigned long)rec->run);
+>> +	free_page((unsigned long)rec->rec_page);
+>> +	free_page((unsigned long)params);
+>> +	rec->run = NULL;
+>> +	return r;
+>> +}
+>> +
+>> +void kvm_destroy_rec(struct kvm_vcpu *vcpu)
+>> +{
+>> +	struct realm *realm = &vcpu->kvm->arch.realm;
+>> +	struct realm_rec *rec = &vcpu->arch.rec;
+>> +	unsigned long rec_page_phys;
+>> +
+>> +	if (!vcpu_is_rec(vcpu))
+>> +		return;
+>> +
+>> +	if (!rec->run) {
+>> +		/* Nothing to do if the VCPU hasn't been finalized */
+>> +		return;
+>> +	}
+>> +
+>> +	free_page((unsigned long)rec->run);
+>> +
+>> +	rec_page_phys = virt_to_phys(rec->rec_page);
+>> +
+>> +	/*
+>> +	 * The REC and any AUX pages cannot be reclaimed until the REC is
+>> +	 * destroyed. So if the REC destroy fails then the REC page and any AUX
+>> +	 * pages will be leaked.
+>> +	 */
+>> +	if (WARN_ON(rmi_rec_destroy(rec_page_phys)))
+>> +		return;
+>> +
+>> +	free_rec_aux(rec->aux_pages, realm->num_aux);
+>> +
+>> +	free_delegated_page(rec_page_phys);
+>> +}
+>> +
+>>  int kvm_activate_realm(struct kvm *kvm)
+>>  {
+>>  	struct realm *realm = &kvm->arch.realm;
+>> +	struct kvm_vcpu *vcpu;
+>> +	unsigned long i;
+>>  	int ret;
+>>  
+>>  	if (kvm_realm_state(kvm) >= REALM_STATE_ACTIVE)
+>> @@ -397,6 +587,12 @@ int kvm_activate_realm(struct kvm *kvm)
+>>  	/* Mark state as dead in case we fail */
+>>  	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
+>>  
+>> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+>> +		ret = kvm_create_rec(vcpu);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>>  	ret = rmi_realm_activate(virt_to_phys(realm->rd));
+>>  	if (ret)
+>>  		return -ENXIO;
+>> -- 
+>> 2.43.0
+>>
+
 
