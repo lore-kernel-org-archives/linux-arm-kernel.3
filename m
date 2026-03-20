@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAED91098782
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BC6109878D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 14:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OThQKp893LphSr3Eh3o12D7pythV7l0TMffC5k3P0g8=; b=bVshHrHcEYDGDVjdG7X4u8uXra
-	+DMuogthVzVs2J2X92X66HUUyvQ1jIBohIN2V9NyYKBi5FVackC5oN9TVfvfoGqJLG4Q9wspaa9s4
-	46M/LwVW1WoJu84yb4ZHra1H01zRT/bx2Cvp1bL1LKlWW1Rj4TfKCYxsJOpQ7OTEgD5+48+u6kuol
-	HHikqMizC4Hm3rgApdMFQWhm2RVZISW44RB3KPPz3jjSu8ca+HmuMr40VSzVxWoE4DSoDlqMufYho
-	BjAIi4CjZKDhBlc0c51zYeooZD82WZBbocq/1wZ0j2nDrJe5gIsSvGZ1CUd1VBKZAnJDZRO52+mlv
-	qAMTXmbw==;
+	bh=5VKdw+yKwau3ZpdTOpfP1S0YqtMPTBn1RCFHO+88xgM=; b=lH8VI7bv56HUIm340HhrZJnA+1
+	XOqSLz/1i9PtDQqSjabOE+wxCZY0sKvJDXjY2E9V2GoO4ZHkq2xMEOTPHeIWTSvEhcWdWiSqJn1+V
+	p68TN5tazrBjawPQeaAB+18RLG3CXzI70Sf1cdgVDkVzkYC/2Q4t0CBix8AxRM5Q4LCzUKMfxii3J
+	ToCv7U6KT+RoiQNf86wntqRXFxumO2NHevPZShy90js7KKTPKMaRA5JXMV/iXJyWvPkBzcukpK6S0
+	8MYfeyT2injOXSVGrL2xt3UdAXxiI+yU21k2LYL3J964b4AFxG88Ul3XvlCSOVKS3X+6ghM2h5Kph
+	IPOR4N9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aoT-0000000CwEZ-0VI7;
-	Fri, 20 Mar 2026 14:26:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3b2m-0000000Cx9a-14vk;
+	Fri, 20 Mar 2026 14:41:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3aoR-0000000CwEE-3n4n
+	id 1w3b2j-0000000Cx9D-3NVY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 14:26:56 +0000
+	Fri, 20 Mar 2026 14:41:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA20161863;
-	Fri, 20 Mar 2026 14:26:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52EACC4CEF7;
-	Fri, 20 Mar 2026 14:26:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E54440655;
+	Fri, 20 Mar 2026 14:41:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A0D4C4AF09;
+	Fri, 20 Mar 2026 14:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774016814;
-	bh=0A3E8OFKs0O9ILXNdXWvmGC5H7JP8qHQNC5ofyYrUPM=;
+	s=k20201202; t=1774017699;
+	bh=MleXr4rMQyGrNTxmnpL0OE9WPCRqySChIwPXxidm8Ck=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pvKHz0yvaHt7yXjkgycz+Mh6vQI/FtlyH5zkdPe9fX8OLgpxBlJQ+5g688D+xo4EB
-	 boPXgnXBIjx2PLKFFLWfBG6a5n9Ns9bNfoevs8tWypTGgAd3KAoHwG83XxmbWlaPe8
-	 bJ6QZ/1X68mtWRbF15uCLRJEvTgQyBFMN6GbJ2pBi24hV4MSwKhP9ahYm+o/adWidK
-	 PYiWp4ea9WFVfanPvEiTHxIbXvqOB+0m/1mSkVGAbCUEA1s/2X1H2YmvMKZWxmQyYO
-	 BsPLYHdkfsFYIbYp84qoTr0XMh1fv3ZInf9WC/ZUvCultXNbBT9Gc0CFSa1sRYBJd/
-	 Ix8mMA137gMTA==
+	b=gq6vlD79vHeXVLRrDSlXpFcIaooTe1gQEOS9G+vxKvB2xy/bu2aGuVdke+R9e8cct
+	 gLy//h1i4t9ddNZMYOlmc1/4aXgQ8Z7FmHVwn2mdODtHHcYUjBUDbvhC5UARRGm6Xn
+	 yMZfTO8i2GcnFL2GQJCnRV8gGdhTSXK9baASFvgiZ8aNpA3QM0TiPaHnDHTdYoyJmq
+	 S6qXxWNTAIn1dhkOlXGJ7q/K581rghQ5yEGMnJA/hr4jFldOVfptbcSIX4US+jjLdN
+	 OBHD9BbCCiwpMZ4QFY49wHolDjfohcQxZA5uC1Ot6bF5RFRc2esOwDAcl5aOANLhFb
+	 yTM9ihfiAVljQ==
 Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 3ED2FF40068;
-	Fri, 20 Mar 2026 10:26:52 -0400 (EDT)
+	by mailfauth.phl.internal (Postfix) with ESMTP id 58B0CF4006A;
+	Fri, 20 Mar 2026 10:41:37 -0400 (EDT)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Fri, 20 Mar 2026 10:26:52 -0400
-X-ME-Sender: <xms:LFm9aeSBuUCrHINfbPMjDM5NOuwsec15zikcAYsd_e1YaxhM5GSKdg>
-    <xme:LFm9afc4eZo5eHohZD66T-vSSuX-HZ3oMZf64h09IN15YVDqSmzUpbAwr8xmufPZy
-    m9xB9-AseZUQRroFN4BU8VtHYnUlMWxjWrbe7T-cDTYDk72t7X1_pfN>
-X-ME-Received: <xmr:LFm9aXcQ62hYHa5fAZpD3wct0dWtIrMStLzszKWngoHcqbAciXOgrBpktvbA_w>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefuddtudegucetufdoteggodetrf
+  by phl-compute-01.internal (MEProxy); Fri, 20 Mar 2026 10:41:37 -0400
+X-ME-Sender: <xms:oVy9aVSEswKdaaR8aGXLwLX9Mrnm1MTZr6GqsIHJQZjvsPwvM2DHSQ>
+    <xme:oVy9aRC1LkmFVQAmC4-0l8Aubu1iP6kXsJbODn6SSK7JpWTvPvq51uBxVY95aeKtt
+    lYrDg-DyfGiq5DDzQ8FI1sffcI6lwvAPvFYwgrIKNBh54VbK2PZfw0>
+X-ME-Received: <xmr:oVy9aYfWs9mAA8ehLGvEZl9-PdQX0bTxs20Hn9jARCmhuwrlwqffoRjCwII-dA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefuddtudejucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomhepmfhirhihlhcu
@@ -68,15 +68,15 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefuddtudegucetufdote
     thhopehlihhnuhigqdhmmheskhhvrggtkhdrohhrghdprhgtphhtthhopehrsehhvghvrd
     gttgdprhgtphhtthhopehjrggtkhesshhushgvrdgtiidprhgtphhtthhopegrjhgusehl
     ihhnuhigrdhisghmrdgtohhm
-X-ME-Proxy: <xmx:LFm9aWJL-Ss4VdQh9OttEJlT8Zf4nVQblfCHB4NkuN0R0ulAXU5f5Q>
-    <xmx:LFm9ad2S784Cw2CLErVJ-CsAKIS3XDTHQ04Fl2vvan8jvQZHTc5XSA>
-    <xmx:LFm9acrITVLMbY1A7gbnjs8AZ8JtpLketSqNd9lSaUs7Gf9fzI0muw>
-    <xmx:LFm9aVq2Y2vgmS6pQU4GVPJtd_34daD2fwzbHPhe5kJTjNutWkIeWA>
-    <xmx:LFm9aTzlGZD1DjptI-AgFUkbuM-4axTLedVlLdmnC_tWJRhkBKwYAZUf>
+X-ME-Proxy: <xmx:oVy9aZ4PfLz1Ly6pHlacfHEwjHAP5YtItZ7H2jIC6jrP07jYH_qfsA>
+    <xmx:oVy9afdMIA-OHh05bUUKj1s-fmi2GZwD1EfHX8oIHJ9RTxOriHAjjA>
+    <xmx:oVy9aYNrQtOYagLdKvAlD3DnuEvEOtvGa2jmiWvOANLHXkLOix9QzQ>
+    <xmx:oVy9abHde3Ce_3zuX6me7rTAicDjXXRpGwtLXbtdiJUGMqLuD6hcQQ>
+    <xmx:oVy9abbdy3hceuMozJKr_dvhhLy8WJo_jua5CnWxzHG0f4dc8nfLQK4A>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 20 Mar 2026 10:26:49 -0400 (EDT)
-Date: Fri, 20 Mar 2026 14:26:43 +0000
+ 20 Mar 2026 10:41:34 -0400 (EDT)
+Date: Fri, 20 Mar 2026 14:41:30 +0000
 From: Kiryl Shutsemau <kas@kernel.org>
 To: Usama Arif <usama.arif@linux.dev>
 Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
@@ -90,15 +90,18 @@ Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
 	rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, vbabka@kernel.org, 
 	Al Viro <viro@zeniv.linux.org.uk>, wilts@infradead.org, ziy@nvidia.com, hannes@cmpxchg.org, 
 	shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v2 1/4] mm: bypass mmap_miss heuristic for VM_EXEC
- readahead
-Message-ID: <ab1Y5fLNJ466kK-7@thinkstation>
+Subject: Re: [PATCH v2 2/4] mm: replace exec_folio_order() with generic
+ preferred_exec_order()
+Message-ID: <ab1ZopAY7JCUOYvr@thinkstation>
 References: <20260320140315.979307-1-usama.arif@linux.dev>
- <20260320140315.979307-2-usama.arif@linux.dev>
+ <20260320140315.979307-3-usama.arif@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260320140315.979307-2-usama.arif@linux.dev>
+In-Reply-To: <20260320140315.979307-3-usama.arif@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_074141_883574_DCC7926D 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,27 +116,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 06:58:51AM -0700, Usama Arif wrote:
-> diff --git a/mm/filemap.c b/mm/filemap.c
-> index 6cd7974d4adab..7d89c6b384cc4 100644
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -3331,7 +3331,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->  		}
->  	}
->  
-> -	if (!(vm_flags & VM_SEQ_READ)) {
-> +	if (!(vm_flags & (VM_SEQ_READ | VM_EXEC))) {
+On Fri, Mar 20, 2026 at 06:58:52AM -0700, Usama Arif wrote:
+> + *   allocations when memory is tight.
+> + */
+> +static unsigned int preferred_exec_order(struct vm_area_struct *vma)
+> +{
+> +	int order;
+> +	unsigned long vma_len = vma_pages(vma);
+> +	struct zone *zone;
+> +	gfp_t gfp;
+> +
+> +	if (!IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
+> +		return 0;
+> +
+> +	/* Cap at min(PMD_ORDER, 2M) */
+> +	order = min(HPAGE_PMD_ORDER, ilog2(SZ_2M >> PAGE_SHIFT));
+> +
+> +	/* Don't request folios larger than the VMA */
+> +	order = min(order, ilog2(vma_len));
+> +
+> +	/* Step down under memory pressure */
+> +	gfp = mapping_gfp_mask(vma->vm_file->f_mapping);
+> +	zone = first_zones_zonelist(node_zonelist(numa_node_id(), gfp),
+> +				    gfp_zone(gfp), NULL)->zone;
+> +	if (zone) {
+> +		while (order > 0 &&
+> +		       !zone_watermark_ok(zone, order,
+> +					  high_wmark_pages(zone), 0, 0))
+> +			order--;
+> +	}
 
-Strictly speaking the fact that the file mapped as executable doesn't
-mean we are serving instruction fetch page fault.
+Eww. That's overkill and layering violation.
 
-FAULT_FLAG_INSTRUCTION would be the signal, but it is only provided by
-handful of architectures.
-
-VM_EXEC is good enough proxy.
-
-Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+If we need something like this, it has to be do within page allocator:
+an allocation interface that takes a range (or mask) of acceptable
+order.
 
 -- 
   Kiryl Shutsemau / Kirill A. Shutemov
