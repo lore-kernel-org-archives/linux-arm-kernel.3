@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2071093177
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9373C1093177
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Hv4QPBia2TeSq1sGjiT/CarT8jJCkRHdgN7+rXyT7Y=; b=A39d0Btd/NpBQw9naL3sQnrPjR
-	uwFjgha0ts6/7RaHQssymla8n1oZi5WlJx74qaxwPwZdsjRN+7utruR6NBZadfVnOnC4/ddtJjfq1
-	QfuP1fUyp0rUvO2KpYuzrWKLM58kPZ1tf3mvLGhwYuawdflPy4n3l4WB1+rA6aoOpo8+g+AC2Om/O
-	lHKDbkUi3P9DhJplZqWH3zAwxFGRM8ZoxqsvrNSEI1ZzjI61YoZo+cWo1Jctm5K7nyKDvQ4L+WBlw
-	IZx0V8qW+DZqn5vVeD1GSmiI/x17ukmOR9QUEh6TuSWPoYjpS6Kx7ngMqvAXBGoi5KQ+OPjdm7luF
-	Shboyurw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QnI07nqauyeMf8KUCQnVxha1FzVss2BIx+GgFpCzv64=; b=YmcEz/xXJ4EAi+DFJMi0ulNJ0c
+	I1wxQHH3XWPWZorNB0bZPrQrHxz+yQaZp/G+CEkx1SfikLzxhbkZNNK7VHGixncEEUUPX4htinBq4
+	bAN3zLza41gPQvvnBPrqPXFN4BmFdew4Kbf4ClVIiF66k5QxW8WXqj2sgXrdFQxSJwSy+914CpJOj
+	6cYOCRKTSdNmjQbUyoTDhk4oeATmPEwCgEdP3BGaqD/zNylP37RHCoWzTESPgrlve/G5mn45F8LY0
+	7CBAC4hYWl1qOmEWTUNcimGIHxwsahiojvN1wY0POFWME/OxMvQEiFPuNZF6a9mNASYbdiwTwGIv9
+	WYQ3K5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SuE-0000000C8Bm-0BRG;
-	Fri, 20 Mar 2026 06:00:22 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Stu-0000000C7n4-43q6;
-	Fri, 20 Mar 2026 06:00:04 +0000
-X-UUID: 06c4b1a4242211f19e7563141e833ce8-20260319
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5Hv4QPBia2TeSq1sGjiT/CarT8jJCkRHdgN7+rXyT7Y=;
-	b=ESrGgqXxogcwEfWhAgkDLjpAImglIvbcC3P4Ch9sPNkmv8szLVKqJmsRAJO5cebeeVCLSFjfb/yxjVnR9VyBrtnaZc40aKGtUy71pT77vKnDca5BaqxSLcAYfvCx+VoraLoyFS3ld6B6JC0mhDPdhttACkTs0ZojMhCz5aIWfaY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:cdd1c2e1-239a-4b67-b438-6ef1dce4b5cd,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:42d2efd4-060f-4ecc-9ee0-121eeeb4a682,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 06c4b1a4242211f19e7563141e833ce8-20260319
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1574813577; Thu, 19 Mar 2026 22:59:58 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 20 Mar 2026 13:59:55 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 20 Mar 2026 13:59:54 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
-Subject: [PATCH v8 9/9] media: mediatek: encoder: Add MT8189 encoder compatible data
-Date: Fri, 20 Mar 2026 13:59:40 +0800
-Message-ID: <20260320055940.15961-10-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260320055940.15961-1-kyrie.wu@mediatek.com>
-References: <20260320055940.15961-1-kyrie.wu@mediatek.com>
+	id 1w3Swv-0000000C8qZ-47d5;
+	Fri, 20 Mar 2026 06:03:09 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Swu-0000000C8qE-1LUj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 06:03:09 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 32DBF20B710C;
+	Thu, 19 Mar 2026 23:03:07 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 32DBF20B710C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1773986587;
+	bh=QnI07nqauyeMf8KUCQnVxha1FzVss2BIx+GgFpCzv64=;
+	h=From:To:Subject:Date:From;
+	b=XwtFf2ZTPIXKQt2FyQf2oyd8mk5VBQlZkcUXcn4+xLFeH2yiibY1ofJFIhPWWaQQU
+	 YP50uM/49uXwSJDQs284PweqsSrPdf7GRaxWO92otnUZN8IHz1sgHl7mbC9S3WP04z
+	 byoIqNuPUY2jnDHontBZsKM/05fxQjdDBLTjOwc4=
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+To: ptsm@linux.microsoft.com,
+	michal.simek@amd.com,
+	jay.buddhabhatti@amd.com,
+	marco.crivellari@suse.com,
+	tejas.patel@xilinx.com,
+	rajan.vaja@xilinx.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] soc: xilinx: Fix race condition in event registration
+Date: Thu, 19 Mar 2026 23:03:06 -0700
+Message-ID: <20260320060306.1540928-1-ptsm@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_230003_036183_ADA7030F 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260319_230308_414409_BF2174A4 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,47 +70,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add MT8189 compatible data to initialize platform data for encoder.
+The zynqmp_power driver registers handlers for suspend and subsystem
+restart events using register_event(). However, the work structures
+(zynqmp_pm_init_suspend_work and zynqmp_pm_init_restart_work) used by
+these handlers were allocated and initialized after the registration
+call.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+This created a race window where, if the firmware triggered an event
+immediately after registration but before allocation, the callback
+(suspend_event_callback or subsystem_restart_event_callback) would
+dereference a NULL pointer in work_pending(), leading to a crash.
+
+Fix this by allocating and initializing the work structures before
+registering the events.
+
+Fixes: fcf544ac6439 ("soc: xilinx: Add cb event for subsystem restart")
+Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 ---
- .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/soc/xilinx/zynqmp_power.c | 43 ++++++++++++-------------------
+ 1 file changed, 17 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index 23e47f462f49..16d75680d1e9 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -469,6 +469,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
- 	.set_dma_bit_mask = true,
- };
- 
-+static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
-+	.venc_model_num = 8189,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+};
+diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/zynqmp_power.c
+index 9085db1b480a..9dd938bd01d8 100644
+--- a/drivers/soc/xilinx/zynqmp_power.c
++++ b/drivers/soc/xilinx/zynqmp_power.c
+@@ -303,18 +303,18 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
+ 	 * is not available to use) or -ENODEV(Xilinx Event Manager not compiled),
+ 	 * then use ipi-mailbox or interrupt method.
+ 	 */
++	zynqmp_pm_init_suspend_work = devm_kzalloc(&pdev->dev,
++						   sizeof(struct zynqmp_pm_work_struct),
++						   GFP_KERNEL);
++	if (!zynqmp_pm_init_suspend_work)
++		return -ENOMEM;
 +
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -479,6 +492,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
- 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
-+	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
++	INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
++		  zynqmp_pm_init_suspend_work_fn);
++
+ 	ret = register_event(&pdev->dev, PM_INIT_SUSPEND_CB, 0, 0, false,
+ 			     suspend_event_callback);
+ 	if (!ret) {
+-		zynqmp_pm_init_suspend_work = devm_kzalloc(&pdev->dev,
+-							   sizeof(struct zynqmp_pm_work_struct),
+-							   GFP_KERNEL);
+-		if (!zynqmp_pm_init_suspend_work)
+-			return -ENOMEM;
+-
+-		INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
+-			  zynqmp_pm_init_suspend_work_fn);
+-
+ 		ret = zynqmp_pm_get_family_info(&pm_family_code);
+ 		if (ret < 0)
+ 			return ret;
+@@ -326,14 +326,6 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
+ 		else
+ 			return -ENODEV;
+ 
+-		ret = register_event(&pdev->dev, PM_NOTIFY_CB, node_id, EVENT_SUBSYSTEM_RESTART,
+-				     false, subsystem_restart_event_callback);
+-		if (ret) {
+-			dev_err(&pdev->dev, "Failed to Register with Xilinx Event manager %d\n",
+-				ret);
+-			return ret;
+-		}
+-
+ 		zynqmp_pm_init_restart_work = devm_kzalloc(&pdev->dev,
+ 							   sizeof(struct zynqmp_pm_work_struct),
+ 							   GFP_KERNEL);
+@@ -342,19 +334,18 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
+ 
+ 		INIT_WORK(&zynqmp_pm_init_restart_work->callback_work,
+ 			  zynqmp_pm_subsystem_restart_work_fn);
++
++		ret = register_event(&pdev->dev, PM_NOTIFY_CB, node_id, EVENT_SUBSYSTEM_RESTART,
++				     false, subsystem_restart_event_callback);
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to Register with Xilinx Event manager %d\n",
++				ret);
++			return ret;
++		}
+ 	} else if (ret != -EACCES && ret != -ENODEV) {
+ 		dev_err(&pdev->dev, "Failed to Register with Xilinx Event manager %d\n", ret);
+ 		return ret;
+ 	} else if (of_property_present(pdev->dev.of_node, "mboxes")) {
+-		zynqmp_pm_init_suspend_work =
+-			devm_kzalloc(&pdev->dev,
+-				     sizeof(struct zynqmp_pm_work_struct),
+-				     GFP_KERNEL);
+-		if (!zynqmp_pm_init_suspend_work)
+-			return -ENOMEM;
+-
+-		INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
+-			  zynqmp_pm_init_suspend_work_fn);
+ 		client = devm_kzalloc(&pdev->dev, sizeof(*client), GFP_KERNEL);
+ 		if (!client)
+ 			return -ENOMEM;
 -- 
-2.45.2
+2.49.0
 
 
