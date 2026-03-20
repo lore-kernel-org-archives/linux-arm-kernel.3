@@ -4,130 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A9B1093190
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2781093191
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZDyoDZPgupWuqSHPZkR65QkAEOI/30zeYbV1NGkuWFQ=; b=Pbm9krKR5sTxXenoua/pL78Lru
-	hqm4yvNrUjdUB4cUCNoJlgtt97mj+kPEBRhKzInHaxD/Wp6yNUO/jNUd4yvjiS0weKSS0vSytadO8
-	8fAS91ZtBWyI233Z3UKtfsUiGSc64O2YoSqeHP7oT78bhgU3b2ZzHo2eJMNhAQZh8n3r7HFSSnbUW
-	mA+ijvBboaVICi21MnFs2Nj75VUa+T0+UhSjgy85UQVUAM6k+4l+bvtLywN3MO7eNK/8K9oB+g7K3
-	+jQsEysnl9OwsvyTAip1SO8Q4nMDlLXICALXW/6AZ6h+2VFvkVrQTRzassLB8MycZjpswsPWikRiL
-	znvMJeNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tAWPpMYxT/8uhqK5D14bRQubhtHZvgDqhLxvLqb+jv8=; b=wf/7MPjjk7REle8JlFFXoJuTKZ
+	Wxbj/jv3GWNE6ww8VzeTC70Q7xI0FbhWaMzEf1Y5RgWBei6NHJki2cjjKJo4Wvrfe1+k1WQmD9Gfp
+	lL0sUs4LqBmwTUgbmh34NvSen0G74OMOhgTJPgNnySVsehM4xCcZNiaNV3XOVbEdzdXMuFZClzQRy
+	ZRKQX9Bp16k/u2CjvNSQFKRRW5xG4lpTai5bSdZO8uFUd7IgVvR5L9eRz7RIWnqCOdLsJ3zGr5e0x
+	WMELNuUndvHwzsNqUlIwIalZEPd3CupuYTCEf4KoyDpmjMrAeJVVGxHOIYTZKJVu1nStW622tg630
+	zjRQOe3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Vkc-0000000CQnc-3WOk;
-	Fri, 20 Mar 2026 09:02:40 +0000
-Received: from mail-swedencentralazon11013044.outbound.protection.outlook.com ([52.101.83.44] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w3VmJ-0000000CQxq-1qAR;
+	Fri, 20 Mar 2026 09:04:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Vka-0000000CQma-3wEt
+	id 1w3VmI-0000000CQxj-1gtx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 09:02:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xHDF1aYlqMjd6Kyw0WRJCQDRwrndoE91sl27k5Rfo5pzZEkBj74X70xi+2f8s2aVKLRlcBrEStfs9Kx79RRSVPsPdqABP97e2hgzINOkbUaLtpxHoE8sb7qx8FndMo0xWQTQ061/GmdefVCwdSWnqz5NujwSW+B8U8DHis5s/Zi1cH3Www2A+ZbTUdLu1s+VSwBpE3FaFaUm2YfaK1B+b+KPD32tRdJirjkCvD6gldTyCXEN/q8HXZ7JEbGpePKfrT7gHpM5Y3M50MQZ7zuM6bluqxekGdiIluFxz9m8w/9VNNkGaO5vGNxaWpr5Sf8GmT9AHxZwpATf4W4DfNBnnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZDyoDZPgupWuqSHPZkR65QkAEOI/30zeYbV1NGkuWFQ=;
- b=DuWxJ8lTISZPXiXgL1FoWse2q3X9LOOVf44WyFeTKW2GWnfdiH80zAdrj0K467fCe36tFED9GfcjNqK//xH3ofvOQbPdcKDpWVvOvCmowF2x2pCB0Rd6kmYdxe7hnGsth3RMAr8DrvW2mioVE7W6kB+lM76kMf+A9vRpbxe1iSGb0T9wf2v6D8IVVd+LNv1F2mhIhCPhgKdRiOYBB3tb1d1AfZqRnplUTT2ycV80PVPu1UeXgQQPlA9aG0l3fPN7sQHIvpseSeSTx73joxFKV118edzNK+LTu43793WoXYL1WYGQO9ejvpPAy3gxXYy/zwK9BklVxFQjd8yXTRiDkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZDyoDZPgupWuqSHPZkR65QkAEOI/30zeYbV1NGkuWFQ=;
- b=cG6/tsnZrA6CEW3eNJzQgeeraUAhbLrhnf4ahtv13Fy7Ez6FwHoc9SoRiRGIZT9rG0oDx7NDDWsdR8XgW4S09m1dSmL18yRTot4nuDRxUKes6GKPYNRVnMbULbUZhSCR2lhmI1B7uqnYglIBwy9IfjEBvTHScE/xP0AmLrKezONc42VsEaY7nD7yt79oVPMEPTU0iEXoBdwAL2dxmSle3UVrng9FFx7SvU/yvPP4LmFCMm9mNERV1Q2nABeoNyHmcjWMxNsBS2tSeoVlVvI9m3qIZ1K2Vlj8UF/GYr/ZfrqMSG9gttAIg2JLo5B5JW0gCTbkXSpBsrCvS8QOOcUSbg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AS8PR04MB8964.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.22; Fri, 20 Mar
- 2026 09:02:17 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
- 09:02:31 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	hongxing.zhu@nxp.com
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2] arm64: dts: imx8mp-evk: Disable PCIe bus in the default dts
-Date: Fri, 20 Mar 2026 17:03:53 +0800
-Message-Id: <20260320090353.1483418-1-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0032.apcprd02.prod.outlook.com
- (2603:1096:4:195::12) To VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13)
+	Fri, 20 Mar 2026 09:04:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C79F6013A;
+	Fri, 20 Mar 2026 09:04:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4994C4CEF7;
+	Fri, 20 Mar 2026 09:04:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773997461;
+	bh=xUkj9g/+sF9hLqzuMN/RQEM4VIjN8lYjJ0chPrZqsI0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=B13IVhIdYsDkKyGIkMxVS9c/MB3na1dxWmD0JTg3kt1A0lhM0cflQ92WWV6Js5LeS
+	 mHe13DWUJR5o+yDFAZOCmxw3i0bPJlOJgVHJ/QPFovh12DIRNBnKacZWOcVoKB8qOo
+	 jMCWFi/p6eYXV0bK0XOZLgLgLAuFIsYAKcaxfUybbTZBT+wEoUdWaAeBLsoHCRBqiL
+	 eBccbPQBi8UjNZolplSiY0MmlMnURPDpu97rlfs2uurYNAkoP8m4/OWEvKLm1SvvcT
+	 D+KqgdsoGOXFxyKvjEcc+NeDCPpo99dSE0Ac67ihP1IHS04RJ/SEcHdk0hC0lKmzDw
+	 nJWpyCes5UvTg==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>, linux-stm32@st-md-mailman.stormreply.com
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, "open list:IRQCHIP DRIVERS"
+ <linux-kernel@vger.kernel.org>, "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] irqchip/stm32-exti: Use kzalloc_flex
+In-Reply-To: <20260320040443.46038-1-rosenp@gmail.com>
+References: <20260320040443.46038-1-rosenp@gmail.com>
+Date: Fri, 20 Mar 2026 10:04:18 +0100
+Message-ID: <87cy0ylvn1.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AS8PR04MB8964:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2123427-6c33-45af-54e6-08de865f6b75
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 4S5l+WcBlXvXLY8dO4UbVA3d+jvu0sYYQ/vqYmfcXOWJkmH6Nu5gBq4Rpdbt/AhVZfyjSVj+EeokpCKRnNb5vzPmm+cou1HMmQZ/Fwe1AFa/nht+2K9o3WIexXBMXR9hDJKX81iTHg+Dihaqg79e967gp6N60GNW+XDI2bIt8gsOV8X2kUhXAoYR3S/DEEGAmkA70wlEugvJj368B2PoTD7eZK7pwak+A83rgUFW4uFPLOpY0p45RA2htmprX4QEKQcGj09G3v1PmmaHLa3Qyq7E5i8/LAQvaFpnO8Q5Lxfk051ij4o6bYL/mnyzHX5Sq9ZbugCcPG/HvOk8KLR1cVy9JNzCZBUG2R5SkmcGdfT/RaJOtwQFhGjb5HFAko1hlOK2bGPBHHptWwLwEWssvMv0GVqkXu007NywbrrucHdApUgaI8nWEiJtrtMpNM7HdIhManw0GenP+lDJKFrSiikeuiiPjqThOa6oSWoGvXPjqc7wkeZtRSiFnFLocTD2U/PGk6jbLgIr8/VAs8PdBiq0y/PQf0JbGlAYD8ddJMA2EnWJsV8C2UlingJKrLgc+LcGR8dyIZCOHZ/NQR5kAwYiS3hI/3YF7zKjvXquHSepLCTKrGbPsQF26fsmne8G/bmtNEQcns52snxfkqXtvcJXFCQCqRG/bJv9ufWG8wLAotubYi4Ct0B1awQ5IdXoPk/OJSnPf/gDLHJdfBkEPCX8uv0QgGrXyoE0QKlQBb8p2F6m00D4RrxHUmAoXB+qXld9yCzJFq78uuxZXl1BhT+haSUQOxo3iwGfrFyXPYI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?beDQG4jiLCfdPWB8oOte5qwz5LLrR+eKzDLrBw9L/YpuAOmmo4ljvPIi4Rdx?=
- =?us-ascii?Q?wM3E9L+Y2xkf1rXeWtAyN388LX7ln3TqubIota/pa/vX7L1EMLQ5IosinfVW?=
- =?us-ascii?Q?mkQbcglnQaA3tBmGd45KESGwKAzFa4z/2ZoVJ8vLoVxhJ5Ps6cOVJD3CAoXf?=
- =?us-ascii?Q?mg6csDYTwwOear9xBeHkCvSznpfiHuj0GKEjoAoHb8jN1OTMRjf5lMBc4h0A?=
- =?us-ascii?Q?SbmjeBP75n7LOl3A4O1eha/BIVRuCdLmBZQJ/iFTGKxhiHLQjMcfniBRd3HX?=
- =?us-ascii?Q?7jTFrn+3/phc7Fkah/92Toi5MkkqUvRs40/kyaKjECWqKs2DmOZxgjA5YGKU?=
- =?us-ascii?Q?VCP3bz6ZQCk7Zrq9bwq40mkKiHHtCv6nAmBQJb7rPAd4Er9tqMcxiYgl9Jw6?=
- =?us-ascii?Q?gl0eVu/tWo0aybddyesmWAEXtx8wei/Rk46TR0WofnYuBI6TLWJz05hJp4YG?=
- =?us-ascii?Q?0Qx1dBmhbH1LqQtCZr0bfa97fp6ZM81DQZf80ECDHBza7Z/bnen3LbD27V92?=
- =?us-ascii?Q?ZTL2iUKSSy6iL4FbiZcd8+vvDwaOWnu2HWbHNBQog0ntv50+htFmPWK/UCrB?=
- =?us-ascii?Q?Dp4gIHO5gEwtQHfuyd5HY52o2Hbs6LwX9NvlSmRmyKvtX1a7KvUACtBV1vtS?=
- =?us-ascii?Q?gqrZ/pE1Gt581Q/alMgsO1xe59e+fIaPGzG8DrapElMOOO9O7hwYoCnjNf1G?=
- =?us-ascii?Q?uIC/BbQ8Zt8FIZSS4LfXhwkD3m0bqxFTMyk6moKMyNaz1nT4pMWLMAvFDaud?=
- =?us-ascii?Q?D+bz5GyGKjLfIyAqsCchr6uZ0sTdsHBEPRgbg7gHE31XKenIWEqvKp6PwKC9?=
- =?us-ascii?Q?CeUTB7VA25KnZfHBAz6Bu/HMjtBdeo8d+EkwggGrz8eYG04uazsLROc1wvY2?=
- =?us-ascii?Q?OdrWfft6ubqYgWla2bNFwl4rR9Rx2AUIX+lzH4pHXXDRpLeEBx1UX1KtJOsM?=
- =?us-ascii?Q?kL+ubJAfNocAa8azkNyT5dGrwcVd9jpJ5BMpdM4DlE3HqGMMX1bLjLvGgIAd?=
- =?us-ascii?Q?7XVedPl9lUFBG4ovDM/wXdzdEOXWl869MTisUlgTTxioBWlVqzefKpU4c148?=
- =?us-ascii?Q?xufH1BWhznXU6KNMO8JXhszdXl4r266AllV5Akw4/sgSw/oViaSYVpmrd3oJ?=
- =?us-ascii?Q?11l1EL23AqC3hS3taUj47OtNVeq876omOQmc6I+N2+nCRxzQiPNrt7xArZl/?=
- =?us-ascii?Q?PjPD52G/IwrsoC2ChSIKXxZP/zpyu7MHmScAmZlNrWwUoCcqhBBvahW6/5WR?=
- =?us-ascii?Q?MlAmhRG4hBPdv1bRanl4XLzAmy4iPqRr8A7ztWB2JU1GNJUO8iclPQmlWUvU?=
- =?us-ascii?Q?uql0P1ec8M9JlpPrUFf/ZeUlE0XR1nlHlolQnSu1CFbtvGgX4clBzKiCmezm?=
- =?us-ascii?Q?d3zbL//J4Ip7cEZYH9Snr1fNC3tXdA4/+oFym6IePCFDPqplr+bkXST3HmQn?=
- =?us-ascii?Q?wzLaGpmtVRLRCPsnrxq9NFARSrq1DtmACIFSGfTWumHGBPwxQmvmMs+L45EZ?=
- =?us-ascii?Q?i0BpOh0P/e9S//HoHhu9RNjQDHxK6QXMH5+pXHwJU38cHkWEirqTatnFCjmt?=
- =?us-ascii?Q?YDRqFnh+H4Z5EVf1jSou1glQSeZQjhVf5dQLmhlc0kGyMjw9izQkFWShA4DU?=
- =?us-ascii?Q?lbyDxM6mqs3QXxw5Tm4SBQs8a06AfbrqsgMthaj7bzQam6iB58FpyLArb1Rw?=
- =?us-ascii?Q?Qf1rLYZ5m+2dImpBQg4/2grXQlWG5td4dwNVD+msNKcV3NHqekEYrfJ88M4p?=
- =?us-ascii?Q?CJtg2Zrz3w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2123427-6c33-45af-54e6-08de865f6b75
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 09:02:31.7565
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Qhjuef7VkUI/eEqUCm36FXQMCmeq7dKYtxue0o8BJPD0W/d+ACOkCmK4WN+wrxLHuSBTfMaN8tOottUzh2Qslw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8964
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_020236_983033_82A9B94C 
-X-CRM114-Status: GOOD (  15.07  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,97 +69,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Disable the PCIe bus in the default device tree to avoid shared
-regulator conflicts between SDIO and PCIe buses. The non-deterministic
-probe order between these two buses can break the PCIe initialization
-sequence, causing PCIe devices to fail detection intermittently.
+On Thu, Mar 19 2026 at 21:04, Rosen Penev wrote:
 
-On i.MX8MP EVK board, the M.2 connector is physically wired to both
-USDHC1 and PCIe0, however the out-of-box module is SDIO IW612 WiFi, so
-enable the SDIO WiFi in the default imx8mp-evk.dts, and provide a
-separate device tree overlay (imx8mp-evk-pcie.dtso) to enable the PCIe
-bus when needed.
+This is not a new submission. It's either V3 or a resend of V2. Please
+follow the documented process.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
-Chanegs in V2:
-1. Improve the commit message to clarify SDIO WiFi is the out-of-box module on
-   i.MX8MP EVK board.
----
- arch/arm64/boot/dts/freescale/Makefile        |  4 +++-
- .../boot/dts/freescale/imx8mp-evk-pcie.dtso   | 19 +++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  4 ++--
- 3 files changed, 24 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
+Also this still applies:
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 780682258e71..107ca270ef32 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -333,12 +333,14 @@ imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-
- imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtbo
- imx8mp-evk-lvds1-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds1-imx-lvds-hdmi.dtbo
- imx8mp-evk-mx8-dlvds-lcd1-dtbs += imx8mp-evk.dtb imx8mp-evk-mx8-dlvds-lcd1.dtbo
--imx8mp-evk-pcie-ep-dtbs += imx8mp-evk.dtb imx-pcie0-ep.dtbo
-+imx8mp-evk-pcie-dtbs := imx8mp-evk.dtb imx8mp-evk-pcie.dtbo
-+imx8mp-evk-pcie-ep-dtbs += imx8mp-evk-pcie.dtb imx-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds0-imx-lvds-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-lvds1-imx-lvds-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-mx8-dlvds-lcd1.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-pcie.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-pcie-ep.dtb
- 
- imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33-dtbs += imx8mp-tqma8mpql-mba8mpxl.dtb imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
-new file mode 100644
-index 000000000000..4f6546d442bf
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&pcie_phy {
-+	status = "okay";
-+};
-+
-+&pcie0 {
-+	status = "okay";
-+};
-+
-+&usdhc1 {
-+	status = "disabled";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index aedc09937716..f09335e6388d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -763,7 +763,7 @@ &pcie_phy {
- 	fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
- 	clocks = <&pcie0_refclk>;
- 	clock-names = "ref";
--	status = "okay";
-+	status = "disabled";
- };
- 
- &pcie0 {
-@@ -773,7 +773,7 @@ &pcie0 {
- 	vpcie-supply = <&reg_pcie0>;
- 	vpcie3v3aux-supply = <&reg_pcie0>;
- 	supports-clkreq;
--	status = "okay";
-+	status = "disabled";
- };
- 
- &pcie0_ep {
--- 
-2.37.1
+     https://lore.kernel.org/87ms0erbx4.ffs@tglx
 
+> Simplifies allocations by using a flexible array member in these structs.
+
+Simplify ...
+
+> No need for a second kfree.
+
+That's redundant information and can be seen from the patch. No?
+
+Thanks,
+
+        tglx
 
