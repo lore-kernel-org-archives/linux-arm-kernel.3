@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299131093188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B201093188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l0ilgx0xyMp7X9gWaw2IrK0zdXLdb+KGTOoAmT+gWtU=; b=DcwmtQiDHy7LhRbQLbDbugUql0
-	xJ6cgz2/RaVLw+i2zA1n/Lh48PfelJBXKsHJzpa0C9guIHNdjMqIpXyWccyp09H73NYeX8n2tU/CG
-	v/AAdhzIXLlCPZt+rxcaWY7690ODurVw9uopOFIC1Iiy3iwfVDfMpg6Cfdpax90ZSv/3bwL6oqLiW
-	ZzrfaWHp30jVREuCC7VO+4ZDjwMj96lUbrx0ziks62uKbWmJYlxibJmpQkeZGxnAoRTGOjy7f7TzP
-	QVRet4adyXKUJjEjEHlbxPPdpWwE9GMARtTJu6Dw1C+etaquMozIc6MIMckwBI7YJy8zW8H8XPa1U
-	KLSHWNCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sumwIp/XON9Oe/8GbTUYhjYsBC/wMmcXux1j23O296g=; b=k5IgSFoQmPHElqFdZl/GYn4idH
+	s9bB0ZFUUEO4O86n3jO/NK1pPjoo7AoGD1HPKj/wCtmRSVJycF/h3DB3S+KJE2mqXrsLR7o4zj7dA
+	UVwUnLM3AqynrdrJE6fMtiByHQwk8j9MT6wQtgjGGPyUiFYJFNT2voJ9dS6wwVXZaaayt/pL7qavl
+	M0Mza0qfGp6Me8S4NEWLvIJ5RpNHyxQjcBK7wOoS06hmnoVR6Ok8moRRJsASTRm4JXPDAg0sb4flO
+	IVBtzouXVjUUoAhgHFFCzDtodlPvFZ/vIODU2s9Dd1WI2Siyn40kNeutWg4xmyKt691v+GvOSZDWf
+	Mo9UF/Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VCn-0000000CLPB-4AcG;
-	Fri, 20 Mar 2026 08:27:41 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1w3VCx-0000000CLRE-1CWG;
+	Fri, 20 Mar 2026 08:27:51 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VCk-0000000CLOs-3i3E
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 08:27:40 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=l0ilgx0xyMp7X9gWaw2IrK0zdXLdb+KGTOoAmT+gWtU=;
-	b=FojeOfqbqP4/nonn1s0YSltg4mW9Y6kdJGqrsHisoozUTqeZDSEQ98KH2Lb1z1meWcHG8mTVU
-	SSlO2lKcIS5UCubrzaWvm7xcZj6p6bj+FaMG/cJWk7pQwABzmpdaWXZd8dLoQFfO5M7I1iiZHdo
-	7isB74vdKlTx5IIxVn6iCLc=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fcbCQ5jcHz1prLJ;
-	Fri, 20 Mar 2026 16:22:26 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id C7966404AD;
-	Fri, 20 Mar 2026 16:27:29 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 20 Mar
- 2026 16:27:28 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<kees@kernel.org>, <maz@kernel.org>, <ada.coupriediaz@arm.com>,
-	<smostafa@google.com>, <leitao@debian.org>, <mrigendra.chaubey@gmail.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH] arm64: traps: Add a macro to simplify the condition codes check
-Date: Fri, 20 Mar 2026 16:28:46 +0800
-Message-ID: <20260320082846.1235016-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1w3VCu-0000000CLQ1-21c8;
+	Fri, 20 Mar 2026 08:27:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1773995264;
+	bh=jzXGL4RFxsipEaOfoGH4eaQWYGkAqlUCFQ+ktI+lCQY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nDhEa0G6i1GHYmuNE+Pr+aYMGbgbyL/5Oo8oC7K80jjluZX+jQvf/6snlTggWU2Ib
+	 SlXeSDrxv7BvfwW5HB/iV4DnEYWrTz9xGh6ELhN7f57+oz2/FlL2m+hSOGkm5Bv9Fj
+	 AzgyRkVgVm0oN3PdaFIWZvMY3Dg7EtAJdHBugx6OlrGUgslqtvete5/NMmwwNHW+vp
+	 NIIDGxlAXbG8cxiaRoqVoW0Z1jGTuO0pRPlwLIWQ3Z1KrfQM10As/H0SnCGP+hYrA6
+	 UrH5khIMTFnYxt+mJUoLUD6JqV3fROp07rUVtaPszPBX7X4/vP+xojJ3U17qT7Zq7Q
+	 hx24mj1aOhmZg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5818117E0EF1;
+	Fri, 20 Mar 2026 09:27:44 +0100 (CET)
+Message-ID: <fa4d8347-e662-485b-b2b7-278a469176e8@collabora.com>
+Date: Fri, 20 Mar 2026 09:27:43 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: mmc: mtk-sd: add mediatek,mt8183-mmc
+ fallback to mediatek,mt8189-mmc
+To: David Lechner <dlechner@baylibre.com>,
+ Chaotian Jing <chaotian.jing@mediatek.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Wenbin Mei <wenbin.mei@mediatek.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260319-mtk-mmc-mt8189-compatible-v1-1-fb7ef2186c92@baylibre.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260319-mtk-mmc-mt8189-compatible-v1-1-fb7ef2186c92@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_012739_607133_A79557DA 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260320_012748_679004_93FA5929 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +82,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DEFINE_COND_CHECK macro to define the simple __check_* functions
-to simplify the condition codes check.
+Il 19/03/26 21:36, David Lechner ha scritto:
+> Change mediatek,mt8189-mmc to include mediatek,mt8183-mmc as a fallback
+> compatible.
+> 
+> This has been tested using U-Boot and the MMC is still working using the
+> mediatek,mt8183-mmc fallback compatible, so they seem to be compatible
+> enough. And there are no upstream users of mediatek,mt8189-mmc yet, so
+> this should not be a breaking change.
 
-No functional changes.
+Devicetree describes hardware. This hardware IP is *not* compatible with the one
+found in MT8183, as it is a different revision.
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/kernel/traps.c | 59 ++++++++++-----------------------------
- 1 file changed, 15 insertions(+), 44 deletions(-)
+Luck wants that there weren't too many breaking changes, and that whatever does
+change may need some more bits to activate before breaking, but describing this
+as compatible with MT8183 is wrong, because ... it's not.
 
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 914282016069..6216fe9e8e42 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -49,45 +49,21 @@
- #include <asm/system_misc.h>
- #include <asm/sysreg.h>
- 
--static bool __kprobes __check_eq(unsigned long pstate)
--{
--	return (pstate & PSR_Z_BIT) != 0;
--}
--
--static bool __kprobes __check_ne(unsigned long pstate)
--{
--	return (pstate & PSR_Z_BIT) == 0;
--}
--
--static bool __kprobes __check_cs(unsigned long pstate)
--{
--	return (pstate & PSR_C_BIT) != 0;
--}
--
--static bool __kprobes __check_cc(unsigned long pstate)
--{
--	return (pstate & PSR_C_BIT) == 0;
--}
--
--static bool __kprobes __check_mi(unsigned long pstate)
--{
--	return (pstate & PSR_N_BIT) != 0;
--}
--
--static bool __kprobes __check_pl(unsigned long pstate)
--{
--	return (pstate & PSR_N_BIT) == 0;
--}
--
--static bool __kprobes __check_vs(unsigned long pstate)
--{
--	return (pstate & PSR_V_BIT) != 0;
--}
--
--static bool __kprobes __check_vc(unsigned long pstate)
--{
--	return (pstate & PSR_V_BIT) == 0;
--}
-+#define DEFINE_COND_CHECK(name, flag, expected)			\
-+static bool __kprobes __check_##name(unsigned long pstate)	\
-+{								\
-+	return ((pstate & (flag)) != 0) == (expected);		\
-+}
-+
-+DEFINE_COND_CHECK(eq, PSR_Z_BIT, true)
-+DEFINE_COND_CHECK(ne, PSR_Z_BIT, false)
-+DEFINE_COND_CHECK(cs, PSR_C_BIT, true)
-+DEFINE_COND_CHECK(cc, PSR_C_BIT, false)
-+DEFINE_COND_CHECK(mi, PSR_N_BIT, true)
-+DEFINE_COND_CHECK(pl, PSR_N_BIT, false)
-+DEFINE_COND_CHECK(vs, PSR_V_BIT, true)
-+DEFINE_COND_CHECK(vc, PSR_V_BIT, false)
-+DEFINE_COND_CHECK(al, 0, false)		/* Always true */
- 
- static bool __kprobes __check_hi(unsigned long pstate)
- {
-@@ -131,11 +107,6 @@ static bool __kprobes __check_le(unsigned long pstate)
- 	return (temp & PSR_N_BIT) != 0;
- }
- 
--static bool __kprobes __check_al(unsigned long pstate)
--{
--	return true;
--}
--
- /*
-  * Note that the ARMv8 ARM calls condition code 0b1111 "nv", but states that
-  * it behaves identically to 0b1110 ("al").
--- 
-2.34.1
+Sorry, but... NACK.
+
+Regards,
+Angelo
+
+> 
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> ---
+>   Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> index eb3755bdfdf7..9160e449aeb9 100644
+> --- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> @@ -25,7 +25,6 @@ properties:
+>             - mediatek,mt8135-mmc
+>             - mediatek,mt8173-mmc
+>             - mediatek,mt8183-mmc
+> -          - mediatek,mt8189-mmc
+>             - mediatek,mt8196-mmc
+>             - mediatek,mt8516-mmc
+>         - items:
+> @@ -36,6 +35,7 @@ properties:
+>                 - mediatek,mt6893-mmc
+>                 - mediatek,mt8186-mmc
+>                 - mediatek,mt8188-mmc
+> +              - mediatek,mt8189-mmc
+>                 - mediatek,mt8192-mmc
+>                 - mediatek,mt8195-mmc
+>                 - mediatek,mt8365-mmc
+> 
+> ---
+> base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+> change-id: 20260319-mtk-mmc-mt8189-compatible-a62da7c5dd7e
+> 
+> Best regards,
+> --
+> David Lechner <dlechner@baylibre.com>
+> 
+
 
 
