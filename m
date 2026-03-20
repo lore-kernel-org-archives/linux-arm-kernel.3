@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E625E1093162
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 00:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4BB1093168
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 00:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1L+cT9PIWnK2qrU2G4YbxYVvFtjeCrnH/bE+eJRwQVg=; b=vHoCqB9Hj7Cf7ew1MCTnR5OS18
-	0pm3xwppf546rAKYH2MENvUIa/mSkGzMDDydp3avrwvimrIqxn8MKbu9xGKO1PaENRcbYXQxy0Eg1
-	BWYouoF9ySPv+26uZdT6zbR53Fg7MjbqdIf0bua940UepjmTO79IAD7OkjwoBrPeNmG441b4Xq6fu
-	1g1oCSaK/7zNkA2kLreNEE5idTFicvmJu5HH2Otxx2Vupznq91EHR+ugSF17tWQniaaz9aHxUqJma
-	7XQ/mDpFlMJlsZiEk8TfOw9x4Zp03kWVvas+TiGODbFy3JJVx0LtxyLp2n8rwmdLN+B2Az7U/po15
-	/6vRr2bg==;
+	bh=BJlZGGB+Kf+oU3WoaFWMxzkg+k35aMYCOGXErlkC5Sg=; b=XYZRJYUcj/bI9uqAL8GZjFpVJ2
+	F/me2EP5yNU36tJpNV7ZL/duRkRBO1JGlmMdIfqgdeJwPMJXzPpP+1/RkWw39FxBbMoCgGTzizcXY
+	Oq8yYiwnpE7ybhpQ5PJJw5lWjQRuaFIPLLbuf9HE1eKISJjRiuHxYifzAcKZQ+P5nAAk3NXErJ8VJ
+	ZxI1La2xWbEBPiVWFqn1MGj8xuPN2+to85BAMunyCZtxD0stYJBnyLuZI+Q8Vk6AvG32lDIMr2OjO
+	kDY+rtP3z4RPBG6Dw4ehCTyVwPfAUMdmtWBJVclq2ZdiGhSGxa81XV7/Yuzp3wkhj1l3gKwhYAh2O
+	+drB/NHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Nkz-0000000BqH3-0jnV;
-	Fri, 20 Mar 2026 00:30:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3O0F-0000000BqkI-2LQR;
+	Fri, 20 Mar 2026 00:46:15 +0000
+Received: from mail-m3271.qiye.163.com ([220.197.32.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Nky-0000000BqGp-1cDn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 00:30:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62D9A60097;
-	Fri, 20 Mar 2026 00:30:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 176A8C19424;
-	Fri, 20 Mar 2026 00:30:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1773966627;
-	bh=e00VxEjfVLHb2cCGEacgmrXQHfHXzKuxaGfyE9rbWAc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ddiSyLJn/161inpllbDVZpBtaV3o7frFGCIuu8taIPumvJfxkZQMTuAv62oRuAywm
-	 DebB73JLuYuB5TumObxCIOcfSy8yD0kVCzgrRFqYBwz9o4xhHNDIqTGQPkvg51++Ht
-	 ieXj3bT8VoNTwwLJ/wA/hVes/F/kbUYheRDKKkbaUkGbxFnvDcyyYDIfufoTeh3g+R
-	 Mgwf2Eta3Brk6/F972blvl4qZv1z5O/AFfnLjZqKuJ9tNn8H0+eVNqug2fdgGpySyP
-	 vi/ZOpa7gEdGdtFjzLQgw4g1ErwTOf0a2R0L7v07VRK5wnsgdbL6ynmY0j0eAEXunE
-	 Vml8NhhcvmCUQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02E8A39302F6;
-	Fri, 20 Mar 2026 00:30:19 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1w3O0C-0000000Bqja-2OzZ;
+	Fri, 20 Mar 2026 00:46:14 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 379fb6a1c;
+	Fri, 20 Mar 2026 08:46:03 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	alchark@gmail.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	kever.yang@rock-chips.com,
+	heiko.stuebner@cherry.de,
+	tomeu@tomeuvizoso.net,
+	amadeus@jmu.edu.cn,
+	michael.riesch@collabora.com,
+	didi.debian@cknow.org,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v2 9/9] drm/rockchip: analogix_dp: Add support for RK3576
+Date: Fri, 20 Mar 2026 08:45:54 +0800
+Message-Id: <20260320004554.2006299-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260319104031.1986946-1-damon.ding@rock-chips.com>
+References: <20260319104031.1986946-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/5] net: stmmac: descriptor cleanups part 2
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177396661753.1861152.5017426942573909830.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Mar 2026 00:30:17 +0000
-References: <abruRQpjLyMkoUEP@shell.armlinux.org.uk>
-In-Reply-To: <abruRQpjLyMkoUEP@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- pabeni@redhat.com
+X-HM-Tid: 0a9d08b4d9b503a3kunm0869f81f3ef49d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU1MHVYeSR1PTRpKQkgdTE9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=A94g5DAxzpP3dS+mdrwytDwBYvZ+mejK16StuGK02aOmMF1VmDWCK5HDsW844X+0brlaSH5lmMsmC30LtTSsuZB2HP2RHiQEtFK/dRp6csdvJESft+d8gmM/wOi2s/fXhEqhsVwR/vKK0oXQxdf3E8Kv3Olgb9U1cdKIniL+1NE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=BJlZGGB+Kf+oU3WoaFWMxzkg+k35aMYCOGXErlkC5Sg=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260319_174613_166194_0AF8B635 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +102,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+RK3576 integrates the Analogix eDP 1.3 TX controller IP and the HDMI/eDP
+TX Combo PHY based on a Samsung IP block - both of which are the same as
+those on RK3588.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The patch currently adds only the basic support, specifically RGB output
+up to 4K@60Hz, without the tests for audio, PSR and other eDP 1.3 specific
+features.
 
-On Wed, 18 Mar 2026 18:26:13 +0000 you wrote:
-> Part 2 of the stmmac descriptor cleanups.
-> 
-> - rename "priv->mode" to be more descriptive, and do the same in
->   function arguments.
-> - simplify descriptor allocation/initialisation/freeing
-> - use more descriptive local variable names in stmmac_xmit()
-> - STMMAC_GET_ENTRY() doesn't get an entry, it moves to the next one.
->   Describe this in the macro name.
-> 
-> [...]
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Here is the summary with links:
-  - [net-next,1/5] net: stmmac: rename "mode" to "descriptor_mode"
-    https://git.kernel.org/netdev/net-next/c/1939749ce92d
-  - [net-next,2/5] net: stmmac: more mode -> descriptor_mode renames
-    https://git.kernel.org/netdev/net-next/c/33be7846e4be
-  - [net-next,3/5] net: stmmac: simplify DMA descriptor allocation/init/freeing
-    https://git.kernel.org/netdev/net-next/c/e73b19baa3b1
-  - [net-next,4/5] net: stmmac: use more descriptive names in stmmac_xmit()
-    https://git.kernel.org/netdev/net-next/c/b4df951549dd
-  - [net-next,5/5] net: stmmac: rename STMMAC_GET_ENTRY() -> STMMAC_NEXT_ENTRY()
-    https://git.kernel.org/netdev/net-next/c/6b4286e05508
+-----
 
-You are awesome, thank you!
+Changes in v2:
+- Split out a separate patch to enable the "hclk" clock.
+- Add Reviewed-by tag.
+---
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index aa01ede4945e..942f81edddfa 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -520,6 +520,14 @@ static const struct rockchip_dp_chip_data rk3288_dp[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static const struct rockchip_dp_chip_data rk3576_edp[] = {
++	{
++		.chip_type = RK3576_EDP,
++		.reg = 0x27dc0000,
++	},
++	{ /* sentinel */ }
++};
++
+ static const struct rockchip_dp_chip_data rk3588_edp[] = {
+ 	{
+ 		.edp_mode = GRF_REG_FIELD(0x0000, 0, 0),
+@@ -537,6 +545,7 @@ static const struct rockchip_dp_chip_data rk3588_edp[] = {
+ static const struct of_device_id rockchip_dp_dt_ids[] = {
+ 	{.compatible = "rockchip,rk3288-dp", .data = &rk3288_dp },
+ 	{.compatible = "rockchip,rk3399-edp", .data = &rk3399_edp },
++	{.compatible = "rockchip,rk3576-edp", .data = &rk3576_edp },
+ 	{.compatible = "rockchip,rk3588-edp", .data = &rk3588_edp },
+ 	{}
+ };
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.34.1
 
 
