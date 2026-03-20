@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A9A910987B6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD82110987B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVj6+jshPU/yjuO8X+vQGIhhTpPJ5OYUeBCvCZEk0JM=; b=vFBCDbDRC91FJsKf9qBa3TjJGM
-	3iWTHvy7OauV2L2ZeBmpJCaeS69xiRCUUPO3P2PY79QSPCRxxsB5/xYj/S53HeqJIUe9+UrZfI/rd
-	RnkC9QTHHVMw0XXx7o4E1paTaDSs1R7JTl+wuJCesAhU+pOgUKw/+IHXGgTpum1LACu2JbT3H+dqj
-	y+gD9eMgVmhODfqHYc6C65PKODF7V9EOrCiFxH84ws+MzVcLw8uknTUbrON9LgLVtOxeJTn7GEao9
-	WtSZGRiF2vHtqzQBw7O8JM9jkBcQMqpE3OJ56Q6+jyntgKWcfzdXL6+DHV1Ww6ptxxhJ+Z3HTJ+TN
-	2+Ml5osw==;
+	bh=B4OKw+hOY0jIL9kpXUDDhRwNMSMaoji/u8Maz5+z6OQ=; b=RDir3xJ08l14Qr7g++NDVw4Cpc
+	UHVJUUYbK8IRrNeieunMwg4KsmUhRqJ6aMYWoTgkq4zEDadcAIzYOZwU9uGkRQYAIg2agNxJIB2n1
+	0rNJPvGHA+VQGcN9Qt2FK0Cusx/QqxjzjM3ai9iRIHupRJh8eeUSuicsIZGbavjj0h/yzZRbXkx+r
+	HbDrUbd1h/RHOs13HL5GEvIjinBYzU4dfB1AK8nKyH/xfZEyft7QSY6AcADEqa2DqX56JTu0c8Xpm
+	OT8u+VG0361CKukApWv9q95X3pvpgIfPjfEIjpvR3GXUgQ0TqMv6c6kE0B7WOLNT0QasVSJ5oKdPs
+	YKPXxSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3d0g-0000000DBaj-3vIi;
+	id 1w3d0g-0000000DBa4-27bx;
 	Fri, 20 Mar 2026 16:47:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3d0c-0000000DBWK-3Dov
+	id 1w3d0a-0000000DBUf-3h5E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:47:39 +0000
+	Fri, 20 Mar 2026 16:47:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23EA0434FC;
-	Fri, 20 Mar 2026 16:47:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0B59C4CEF7;
-	Fri, 20 Mar 2026 16:47:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3373F42CBD;
+	Fri, 20 Mar 2026 16:47:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF44AC4CEF7;
+	Fri, 20 Mar 2026 16:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774025258;
-	bh=sK9Je7eEOHO0wb9I2WtylwKv1pOI57lliw+dQ40lnJo=;
+	s=k20201202; t=1774025256;
+	bh=MyZDEC4YA2XUVdCFPz/d1D9B38/FSwdqJVLDQRdEA5o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=O/zzqxqk9VqjAANVq7YDdiaokLbu44P5/67s5HUnm/t8DTYF3xkcrspcDP2VXspvp
-	 o3+lHsw326285W/ymwngxI1IszpKN5dgfSCmvWQRruAqMauEH12zK4oz3Qvvv0VPGk
-	 p0eYTW2Ha7L4nPsqNqQpj4ibJfgQM6n/IjD0PotT+Jyi+uZu5xK/7EGiNCv96oEESs
-	 27Hqm6XrZSCWcm4L/HZ8ZHnDR4BCFZO0R/yolmi2IjQY4RH8os2TPMGpDbg5udvDMZ
-	 fb08XC5LBsQw7YxYzA7bozLDJ43h7bAI9wn7jeisuw+bAspHfpZ64ycwQWQHpJG9f7
-	 uRtu+aevcJ/Eg==
+	b=OISUcGy1sFHRTsHjircV7QmS8szmkxU1QAwSH7YXs41U4R2Hhz9H4YK1G8YVmSAnR
+	 BJySdaPPw31dEuF3cmEDdSxIvu7ojrwOHn0bKgeV1xUD3AZ4VDDVlzg8NaqkAxbFzD
+	 CDHPvS9ciB3Kx36J+STgqedpS9pL9aqIjsvnhjdFM+y3gBLfzpT0PsE2lDpbC79lY3
+	 hoPjTVMgonxxyTqMMsFXepGWLNQSTO3RPMcVniHOzBjqwPfemZ60jRJOEQbdIKOw4t
+	 NkYktN8FVXWdQ914SrrEOpINGmbH/57DrSFMUV7Wf/yjm6nMX/3Gf+AgtJCRf4hClj
+	 NQG/vGqF28snQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Fri, 20 Mar 2026 11:47:16 -0500
-Subject: [PATCH 3/5] arm64: dts: arm/corstone1000: Move cpu nodes
+Date: Fri, 20 Mar 2026 11:47:14 -0500
+Subject: [PATCH 1/5] dt-bindings: arm,corstone1000: Add
+ "arm,corstone1000-a320-fvp"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-dt-corstone1000-a320-v1-3-a549dfcfe8da@kernel.org>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260320-dt-corstone1000-a320-v1-1-a549dfcfe8da@kernel.org>
 References: <20260320-dt-corstone1000-a320-v1-0-a549dfcfe8da@kernel.org>
 In-Reply-To: <20260320-dt-corstone1000-a320-v1-0-a549dfcfe8da@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +63,8 @@ Cc: Frazer Carsley <frazer.carsley@arm.com>,
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_094738_864604_F9E24052 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20260320_094736_967478_632B0D93 
+X-CRM114-Status: UNSURE (   8.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,132 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation to add a new Corstone-1000 variation with different CPUs,
-move the CPU nodes into the specific platforms and out of the common
-corstone1000.dtsi.
+The Arm Corstone1000-A320 is a variation of the Corstone1000 with
+Cortex-A320 cores and an Ethos-U85 NPU. An FVP for the platform is
+available here[1].
+
+[1] https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/IoT%20FVPs
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/boot/dts/arm/corstone1000-fvp.dts  | 54 ++++++++++++++++-----------
- arch/arm64/boot/dts/arm/corstone1000-mps3.dts | 13 +++++++
- arch/arm64/boot/dts/arm/corstone1000.dtsi     | 13 -------
- 3 files changed, 45 insertions(+), 35 deletions(-)
+ .../devicetree/bindings/arm/arm,corstone1000.yaml         | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
-index 66ba6b027193..e479c79c1ea7 100644
---- a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
-+++ b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
-@@ -48,30 +48,40 @@ sdmmc1: mmc@50000000 {
- 		clocks = <&smbclk>, <&refclk100mhz>;
- 		clock-names = "smclk", "apb_pclk";
- 	};
--};
-+	cpus: cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
+diff --git a/Documentation/devicetree/bindings/arm/arm,corstone1000.yaml b/Documentation/devicetree/bindings/arm/arm,corstone1000.yaml
+index cff1cdaadb13..48ab3356e383 100644
+--- a/Documentation/devicetree/bindings/arm/arm,corstone1000.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,corstone1000.yaml
+@@ -15,11 +15,11 @@ description: |+
+   provides a flexible compute architecture that combines Cortex‑A and Cortex‑M
+   processors.
  
--&cpus {
--	cpu1: cpu@1 {
--		device_type = "cpu";
--		compatible = "arm,cortex-a35";
--		reg = <0x1>;
--		enable-method = "psci";
--		next-level-cache = <&L2_0>;
--	};
-+		cpu: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0 0>;
-+			enable-method = "psci";
-+			next-level-cache = <&L2_0>;
-+		};
+-  Support for Cortex‑A32, Cortex‑A35 and Cortex‑A53 processors. Two expansion
+-  systems for M-Class (or other) processors for adding sensors, connectivity,
+-  video, audio and machine learning at the edge System and security IPs to build
+-  a secure SoC for a range of rich IoT applications, for example gateways, smart
+-  cameras and embedded systems.
++  Support for Cortex‑A32, Cortex‑A35, Cortex‑A53 and Cortex-A320 processors.
++  Two expansion systems for M-Class (or other) processors for adding sensors,
++  connectivity, video, audio and machine learning at the edge System and
++  security IPs to build a secure SoC for a range of rich IoT applications, for
++  example gateways, smart cameras and embedded systems.
  
--	cpu2: cpu@2 {
--		device_type = "cpu";
--		compatible = "arm,cortex-a35";
--		reg = <0x2>;
--		enable-method = "psci";
--		next-level-cache = <&L2_0>;
--	};
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0 0x1>;
-+			enable-method = "psci";
-+			next-level-cache = <&L2_0>;
-+		};
-+
-+		cpu2: cpu@2 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0 0x2>;
-+			enable-method = "psci";
-+			next-level-cache = <&L2_0>;
-+		};
+   Integrated Secure Enclave providing hardware Root of Trust and supporting
+   seamless integration of the optional CryptoCell™-312 cryptographic
+@@ -39,6 +39,11 @@ properties:
+           implementation of this system. See ARM ecosystems FVP's.
+         items:
+           - const: arm,corstone1000-fvp
++      - description: Corstone1000-A320 FVP is the Fixed Virtual Platform
++          implementation of this system with Cortex-A320 cores and Ethos-U85
++          NPU. See ARM ecosystems FVP's.
++        items:
++          - const: arm,corstone1000-a320-fvp
  
--	cpu3: cpu@3 {
--		device_type = "cpu";
--		compatible = "arm,cortex-a35";
--		reg = <0x3>;
--		enable-method = "psci";
--		next-level-cache = <&L2_0>;
-+		cpu3: cpu@3 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0 0x3>;
-+			enable-method = "psci";
-+			next-level-cache = <&L2_0>;
-+		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/arm/corstone1000-mps3.dts b/arch/arm64/boot/dts/arm/corstone1000-mps3.dts
-index 10d265be0c02..adcfaf7c55b8 100644
---- a/arch/arm64/boot/dts/arm/corstone1000-mps3.dts
-+++ b/arch/arm64/boot/dts/arm/corstone1000-mps3.dts
-@@ -13,6 +13,19 @@ / {
- 	model = "ARM Corstone1000 FPGA MPS3 board";
- 	compatible = "arm,corstone1000-mps3";
+ additionalProperties: true
  
-+	cpus: cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		cpu: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0 0>;
-+			enable-method = "psci";
-+			next-level-cache = <&L2_0>;
-+		};
-+	};
-+
- 	smsc: ethernet@4010000 {
- 		compatible = "smsc,lan9220", "smsc,lan9115";
- 		reg = <0x40100000 0x10000>;
-diff --git a/arch/arm64/boot/dts/arm/corstone1000.dtsi b/arch/arm64/boot/dts/arm/corstone1000.dtsi
-index f35a5c96f3da..4d57dc197918 100644
---- a/arch/arm64/boot/dts/arm/corstone1000.dtsi
-+++ b/arch/arm64/boot/dts/arm/corstone1000.dtsi
-@@ -21,19 +21,6 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
--	cpus: cpus {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		cpu: cpu@0 {
--			device_type = "cpu";
--			compatible = "arm,cortex-a35";
--			reg = <0>;
--			enable-method = "psci";
--			next-level-cache = <&L2_0>;
--		};
--	};
--
- 	memory@88200000 {
- 		device_type = "memory";
- 		reg = <0x88200000 0x77e00000>;
 
 -- 
 2.51.0
