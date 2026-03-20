@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B341D1091937
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 00:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699101093163
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 00:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MzlIIY7b66i4fIFyZ2+UWe+HudSTmQ+Ey/SWxXk4aRw=; b=VajTcqTVl636iyZ8671Yco6WgW
-	l075Odw61LXji6hxJu+0ADKjOYMrUIkivqFDKzGToFtTV1TJuYTIUKrbm00b++L2LNEpIKTT9yRW0
-	SaOsHqBxVnMEbQtyCoS2U+Cr8fWbyvlXtZ3V/vNJya7b6GaymhilPO3v4nmNgLEBAh9w+QqEzmfdd
-	NESKqif2sWmrjtPggmig1JyKV91CoYKVDMRevOwzjzEKSijuW5WL1ww9ZcUeGXBMBJkJ0mLFL/zyO
-	3xMQd6hyvJ8VCCjRm5cwNA+C7vYTH44aKuhVRW+AFF7qcOtsqkD/SMtkkYB0VQlDvvmvlTA47yU+F
-	yf59b7FA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mmO+t93uysIUQnRasphSpij7YbHaR8RBQm7HKwGHz58=; b=NnhMrStFUupNvC+Vi+dTHQuFzz
+	iSbg1ei0m5NTOBKO4IFRCs9/YHNoC89DyFxjEeFBMc7iXcemrs7UTp4i3jzdrqjqZbx8m2bAdaAJ8
+	S2I6+GiGbXgm7nH7vUrA4iE5lkHad+9nLVgU10MTv0MqKYmgciWVOKET+C/FAeVaJGQdqdwNxtT/X
+	8JhBlXzpyeBQaJ5aLvnbla2XBpAMxl7EwcYmFrTAPyQw0Ew3eAtbiVBpAxcuqq/6Qh6qOsog74ybk
+	RZuKoRIOC54QkeWEUKsH6HrRXmms0Ym++MAvDLAzC3ldkBu47dMZiz7IKKkR8yfrtNna3jbxDlPPY
+	eGTRJ9UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Naw-0000000BphX-2ypa;
-	Fri, 20 Mar 2026 00:20:06 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1w3NkH-0000000BqB5-1MfO;
+	Fri, 20 Mar 2026 00:29:45 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Nau-0000000Bph8-0RfG
+	id 1w3NkF-0000000BqAf-27dc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 00:20:05 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-64ad8435f46so129267d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:20:03 -0700 (PDT)
+	Fri, 20 Mar 2026 00:29:44 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b8f97c626aaso237563166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 17:29:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773966581; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VdvbqySgI8wGFWA5casaT4DxWKdIeKa4PzCz6plY1dM25V4aJLw5G7PX5kFbag3l+O
+         Stkkry3w4M4kUgj42IbNFnm3OcHyESGWoCdnYv8EcNukeBameg0MwqFj5NWUJo3oHDrK
+         0BZq4MwvYhLZJ2We+Ls6romPqlz/iHYqRfG4IdViGIYn1GKAiO9Sr8XmJikwz8s8YAwr
+         yLFgnToKqjyPRMjYfR2rIxBZhwETt8TUFARvVnCaeupKwosc2x4+AEubAI0XkCP0ZSzX
+         l0ilo/bt4hsP6XHn2vRPGnaZ9/5PbXD9ZNgZs+VtVYLkx0G8nvepsHjzjRFdtF9oySR8
+         CQbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mmO+t93uysIUQnRasphSpij7YbHaR8RBQm7HKwGHz58=;
+        fh=AyCDoeEZpDhTbPFAxbhXDa8aVJaCN1MEyZHCg2eHJqo=;
+        b=QGLTU2CWxnmwYti3EE5hpRg4dcIjoYQ0rorS0PKhPvLHbTZZg/xmYGvYAKs1Kd4mmR
+         QwOKd7eJ3vTZ0MGct/CNDlf1FwxGBe1cXwm9i7O/c0Z68+nVrz0VfLlJxkqcIp7BPuw2
+         J4Mm0t+4gnsRiuiypPqOVHP62SJbUf51XZW/lBUZEu4PtCm+4kiOqoTskgfu5KkCQgJA
+         1jlxaSew4sWOxxGzn9PiUKzKv85KUS3sIIRmy4qTb9xMiC1u6k6difTyNWaihSd8H/PU
+         D0qewFdPtC9GLDnfB1JC61/k8LZJgByTfDFkKU2CQlgZAGJBpdR69WrDDWejtCC5n0ot
+         DMdQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773966002; x=1774570802; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MzlIIY7b66i4fIFyZ2+UWe+HudSTmQ+Ey/SWxXk4aRw=;
-        b=Vkrknc9b3AMz2hG/6ieyeEGs6SVgugEy6Rm28H5uEvVk1vNYcMlNwHeFkKjuQ9MVH1
-         +fL5BXOWfJrjQJiRbg7C48wwYkIhIe9islL8LlvfxZgnsvPWF3JgHwlDXPpA/12MyUQ2
-         zeIxW1zoIhxghKRaRZSOhkWGO9sCCWkE2VDPgTEgTglyydPGYWcxnbgLi3OMlV4pVjy3
-         K/OpMqLI+G70cUnUC1G18c4wlkb0ZG4DzJwZkw6xWae9X8ZVp+lbYGpUAp0oZ1xp/TCt
-         5WSE3Gy8Tt3Wj5T0An35Isyi4V+xjPpFktT58Gsa1Y4dhXWkgbWVyJAj7Yd7Em88fkEf
-         wE3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773966002; x=1774570802;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1773966581; x=1774571381; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MzlIIY7b66i4fIFyZ2+UWe+HudSTmQ+Ey/SWxXk4aRw=;
-        b=j6vwZcfoewtRlZcmQ0XGTA5DTmHlNj1B62beHeMR94ZM5iPiwd6/l6nzLQYly6Cxgu
-         5D7oUgHNAwFAOQjgjlA06Klax7JbPkdufz9qOGSP78eCQvLaNRx93VxIBSZTq8dkV1pe
-         u3pZvMMmkntRlRWM10lQDz2XMPUjrVtlnUYyeAHpRJCMXfkegkKkXinFUSfgWF3lp/pU
-         VIWbupomWqXzVqDaUWqxZnZV3Qzp/xPYpR6mjNw6d+44gN+Vb8DCOL7VKTQnx3nSKj3i
-         QIvBxQPfkAKN/EOrsmpJqcMnB0n7V8gBJLqeFHX2acGLS+wu/TWSwc0nXc+bcUn+aB7U
-         rBdw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3jQV29RmyIyuumDi1WzVVGqhnt0mPwRnP0UhRuNpuq0xJ27Wh+m3vVoC0ughXN4+XM30vUioNMQ2NoC3G2H0Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMQIdHNC54sC0efeWGrctc0u+v85y0d0O1wF5ru1dZgrraNdpk
-	2LOYhVav34Fc59/i4rATildQ1GW94Z5+/hjVRf5BJQdz+/YneKOfhR5+
-X-Gm-Gg: ATEYQzx46ZgzexyMvcFIw4cjxEIA18l/4JZBgDKw9uw9cr0Cv5nMOGag9V4kdXGOfjV
-	EdIpAhkqykPJoMNQ1lFqUZ9I9mPn4mMj2xLoNQsHKO3FlUQ81qR5ZzX0CTovj5bpIPRFv32F9iO
-	Z4LPxCmNJo8WO9dhBw0CbBh+RpNNmRiUL9TvolNiEQuqnqF7Lt9DigmD2p8erYzrZYKfBLrPerX
-	siXjU1ojZ8dVnzqz30hdrILnWrGjPvT2LqpMrSkyDnMCGBfxED8WYnMWe19n4IDs0C5AF+bgAlM
-	HYeQN48I4ke845uCWWO+epZwtTN30kixTmgHmMqw+6s/F4PNWq0jb7t0f6Z4BrgGFvhayHyOaA/
-	Ntjq1Y9g5SdkVgZBffmGbRxYcojf1iXIZ31lQj4e8P7a700XTX1mjh/6Gd67fd/ceYPT2z8drmj
-	Q8DbVia5xRWROWdkgZun7QKs0bFjEvaY9+Jk6U8gCDdIsbzm4+ochhEow=
-X-Received: by 2002:a05:690c:e3c6:b0:79a:65af:7f4d with SMTP id 00721157ae682-79a90aaea1dmr13698267b3.1.1773966002555;
-        Thu, 19 Mar 2026 17:20:02 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79a903a294fsm6866627b3.8.2026.03.19.17.20.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 17:20:01 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2] media: nxp: imx8-isi: remove kzalloc_objs
-Date: Thu, 19 Mar 2026 17:19:43 -0700
-Message-ID: <20260320001943.19443-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=mmO+t93uysIUQnRasphSpij7YbHaR8RBQm7HKwGHz58=;
+        b=h60Xf9+JXS9ULiG5fsTYDgOCS7rmD+o7e50zTeB0/7Y2CIcxzXoYsDSPbb7PnzA37c
+         TOgS9CfPu9a1uusoebkVQVOzvSt84ImmDDKvri5n911C1A005BHOoohFgk3aPn1misn7
+         zQ2kRSsJVBsdTAuJFW7T0xSrWnMBu0sHyfw/pkykfdwGd1q7S/ma0oCHEJUPeBwNJCZ9
+         vMrKKjaMwS3vFi6aMeWICvlQYyyrFuCCmlVlH8qDPIH0b+cEuI/QG5gwM5QaMdhMyFEH
+         vPZkOJ/zz0m3AHrxiM+faG9vNsZFT3N0+QwRne8iboqsI4Rz32XJcNC9vpLY0c6j2ikr
+         ct+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773966581; x=1774571381;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mmO+t93uysIUQnRasphSpij7YbHaR8RBQm7HKwGHz58=;
+        b=cZZ5f33LyFR3PlbMbfPA7Bv8pKmaX0YMmQ2q7+W+/FIbS/r8Rbl6mLkslWNGAEk8Hv
+         z8iylf44sMaAo3qrxyYoxhbxwk6+ZL9g3rz+09+NWreMPtpjVN5Z2l8VY4dPx7ENMC1K
+         USyKCL/ctC3vsvxD2iygB9m5IEArRxibmfUiO2aCtjPlgf8xEwZ3PgdsiPL6NBiIWeNU
+         FgEFnmFSQiBlVjrTWlSgN3tU2q+SnhF89YInxjAZ62S9AMY7qcqKZkzEaREMZASUkdDH
+         HUfyGoPog+fTK4qZJ9JAn3RURK5fV3VNsW0GbWZNwgv/mni1asXibsxLImCzEQkjz5ci
+         XVBg==
+X-Forwarded-Encrypted: i=1; AJvYcCWF9LOK6RBiSkaeWHBwi+MXKXhDXQeDBreyQbB18KTS88tTtjb6uqouLyOrq7I01+tm+KZ9lkgZS8XuJnE7yi0j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIiYBCOoluWb7mTOL95I9NcKH65ltFiF1OTJNaG0K1ncay7PQU
+	5Q62EhAXVsrO0CeyqseR7AaIDYS9kLsH/Qxc4jebprrPOr5aN7+tpzI0eGuTJTETCP54Y9vQJib
+	VbthPyZ9mNzdklqfU7BzDdlcOWgIqtJs=
+X-Gm-Gg: ATEYQzxSYdRIKz+sTcOCVtJuyab/ubcklyH85GL3L8C2An7iCNbqzGHmevBiuoWRDAJ
+	EXVCymxUy6jlSZowtsJELYAo/qi+z4qgyL50e7rl+9dL/6CIrpwwrh/H5QJu1xYnF6QdMxp20uV
+	X5q+heR45heCJxxNbW9bh6SA5grdvoa5Ov4GacpwVKY5KOWcsW82nIY2aBQRIS1kmlycWt1QEOk
+	x5dswEFf6siqQXzPjIGoVyJIMHDmWRRupJsoSxTX6UW3in1n7bAQmAKUAAXOeZIE2Gz9Sjyuj6K
+	fN8614yBry349FkgXe62BDSgzWDYL80LA8Ngma+g8g+/pVPVyJdgQQKeqhhJ/itCi9eZqE+PuOS
+	Z5HlSNg==
+X-Received: by 2002:a17:907:158a:b0:b98:2c44:6631 with SMTP id
+ a640c23a62f3a-b982f21dc70mr52496266b.14.1773966580568; Thu, 19 Mar 2026
+ 17:29:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260319035324.269905-1-rosenp@gmail.com> <20260319035324.269905-5-rosenp@gmail.com>
+In-Reply-To: <20260319035324.269905-5-rosenp@gmail.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Thu, 19 Mar 2026 17:29:29 -0700
+X-Gm-Features: AaiRm52y_H768PUYbKYHVrWJJ0cq-GGpc2lSjEGUNMPhbPJYWHIKZIGgwgV5x3g
+Message-ID: <CAKxU2N8Vb3D0oEGPzOqvwsXSVLhJtxh=5xrd6qq-Yj2X8Rt5Rw@mail.gmail.com>
+Subject: Re: [PATCH 4/6] ARM: dts: BCM5301X: EA9200: add wifi definitions
+To: devicetree@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Hauke Mehrtens <hauke@hauke-m.de>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_172004_155704_813E3704 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260319_172943_581865_7F2F6953 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +121,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to combine allocations.
-
-It looks like pipes never gets freed anywhere. Meaning this effectively
-fixes a memory leak.
-
-Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: add fixes tag, fix typo, and move pdata assignment to original
- place.
- drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 10 ++++------
- drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  3 ++-
- 2 files changed, 6 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-index 16392420903a..8d8ee1b3076b 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-@@ -459,24 +459,22 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
-
- static int mxc_isi_probe(struct platform_device *pdev)
- {
-+	const struct mxc_isi_plat_data *pdata;
- 	struct device *dev = &pdev->dev;
- 	struct mxc_isi_dev *isi;
- 	unsigned int dma_size;
- 	unsigned int i;
- 	int ret = 0;
-
--	isi = devm_kzalloc(dev, sizeof(*isi), GFP_KERNEL);
-+	pdata = of_device_get_match_data(dev);
-+	isi = devm_kzalloc(dev, struct_size(isi, pipes, pdata->num_channels), GFP_KERNEL);
- 	if (!isi)
- 		return -ENOMEM;
-
- 	isi->dev = dev;
- 	platform_set_drvdata(pdev, isi);
-
--	isi->pdata = of_device_get_match_data(dev);
--
--	isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
--	if (!isi->pipes)
--		return -ENOMEM;
-+	isi->pdata = pdata;
-
- 	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
- 	if (isi->num_clks < 0)
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-index 3cbd35305af0..99532efa4e41 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-@@ -286,7 +286,6 @@ struct mxc_isi_dev {
- 	struct regmap			*gasket;
-
- 	struct mxc_isi_crossbar		crossbar;
--	struct mxc_isi_pipe		*pipes;
- 	struct mxc_isi_m2m		m2m;
-
- 	struct media_device		media_dev;
-@@ -294,6 +293,8 @@ struct mxc_isi_dev {
- 	struct v4l2_async_notifier	notifier;
-
- 	struct dentry			*debugfs_root;
-+
-+	struct mxc_isi_pipe		pipes[];
- };
-
- extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
---
-2.53.0
-
+On Wed, Mar 18, 2026 at 8:53=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wrot=
+e:
+>
+> brcm,ccode-map and ieee80211-freq-limit are needed to be specified on
+> some of them for proper operation.
+>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  .../dts/broadcom/bcm4709-linksys-ea9200.dts   | 50 +++++++++++++++++++
+>  1 file changed, 50 insertions(+)
+>
+> diff --git a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts b/arch=
+/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+> index 617fb55bc52f..7b1363aa1144 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+> +++ b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+> @@ -93,6 +93,56 @@ led-3 {
+>         };
+>  };
+>
+> +&pcie_bridge0 {
+> +       pcie@0,0 {
+> +               device_type =3D "pci';
+> +               reg =3D <0x0000 0 0 0 0>;
+> +               bus-range =3D <0x01 0xff>;
+> +
+> +               #address-cells =3D <3>;
+> +               #size-cells =3D <2>;
+> +               ranges;
+> +
+> +               pcie@1,0 {
+> +                       device_type =3D "pci';
+There are typos here. "pci' vs "pci". Should I resend?
+> +                       reg =3D <0x800 0 0 0 0>;
+> +
+> +                       #address-cells =3D <3>;
+> +                       #size-cells =3D <2>;
+> +
+> +                       wifi@0,0 {
+> +                               compatible =3D "brcm,bcm4366-fmac", "brcm=
+,bcm4329-fmac";
+> +                               reg =3D <0x0000 0 0 0 0>;
+> +                               ieee80211-freq-limit =3D <5170000 5250000=
+>;
+> +                               brcm,ccode-map =3D "JP-JP-78", "US-Q2-86"=
+;
+> +                       };
+> +               };
+> +
+> +               pcie@2,0 {
+> +                       device_type =3D "pci';
+> +                       reg =3D <0x1000 0 0 0 0>;
+> +
+> +                       #address-cells =3D <3>;
+> +                       #size-cells =3D <2>;
+> +
+> +                       wifi@0,0 {
+> +                               compatible =3D "brcm,bcm4366-fmac", "brcm=
+,bcm4329-fmac";
+> +                               reg =3D <0x0000 0 0 0 0>;
+> +                               brcm,ccode-map =3D "JP-JP-78", "US-Q2-86"=
+;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&pcie_bridge1 {
+> +       wifi@0,0 {
+> +               compatible =3D "brcm,bcm4366-fmac", "brcm,bcm4329-fmac";
+> +               reg =3D <0x0000 0 0 0 0>;
+> +               ieee80211-freq-limit =3D <5735000 5835000>;
+> +               brcm,ccode-map =3D "JP-JP-78", "US-Q2-86";
+> +       };
+> +};
+> +
+>  &usb3_phy {
+>         status =3D "okay";
+>  };
+> --
+> 2.53.0
+>
 
