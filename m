@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDF61093179
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 04:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AB91093179
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 05:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJMOvmuyxnPDgD6UKl/Wo25LJql6LgrNjqbSF6tqdFA=; b=a7PIBB/C4iZjmF+sh35WbOz4Ye
-	01P3bx/Sueh9uDvqLQJDNDgRvnSy+97Ywd/9nl2mMkWIe2FuvtzGCKPUZhpqoNFZI9uY2qd7DKWaF
-	osxS3geJHkfteWNEpIn34qUJ2fcYHMKTIc7yFtVd7OcgSM/VJoR5FtQJ5yom6vrRAGrbR7gr0TogD
-	8jC4nAkgK4wTWaagUrw1TvHVUpXoRnxFUttWxagEwPuVTWZsB5mU5lSr7QqGo/7Cre+WSpAswmQMa
-	0xErgLFJEU2ic9ERst8xDCs8mr6fMgnccLicJ80VHmOc82s5JiOwuaUj8to9fjXI4yknWklYSMS7A
-	5Ti6bNqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:CC:To:From:Subject:
+	Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=JxQ7E6F74uxBXrdFidaGlt2hT0tYDUqE1zgU7CkwdSI=; b=L5gLKtzkcPUVRSfogbauJJ7QyD
+	6Q4AxrbfJOiahdEZoNo5fur+O69DoTQUu9FJC7yY6mBpGqWRpw8B11JQ8M2cWxlO/RQKDHK8lJMhK
+	XKGpE4bjRGE8B7anFvsEbHPTuUg5xQEfdCDZDnM6JC+RAxeO9BG29m4tSj3G3ZDuE/VmqwW6Y0Q0X
+	pZ4AFBI8Zox1gy+zs/WFo6EoT2ylJno+YVdlbcLQsikDbNcaediguo9qqry8oAqCOIAYPwYDmcToc
+	6D1z+Wj9pcIXTyMM6GvFm71JYuS6mNDWOQWdOle9hxpcv7p4UUMeShvr4cECYa9m96+pTywLL/1AH
+	VQQl5k8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3RM9-0000000C3lq-44dD;
-	Fri, 20 Mar 2026 04:21:05 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1w3SIS-0000000C62t-2PAO;
+	Fri, 20 Mar 2026 05:21:20 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3RM4-0000000C3lU-2P32
+	id 1w3SII-0000000C61F-3DfO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 04:21:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1773980460; x=1805516460;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OHnX7uZBV92R01nqYlUueQh+SwiiSpGawFPFVc+X9Ac=;
-  b=eRjQ9wy30ZF12NWjEjhyyQb6tF7WMuJGiVD7hnTrKyneR/XLX8G+IBZ4
-   zVP0SeLNBqEQXYUJB0c4yTyN8lXHhbzzj62cSpfT03JXlUNiqTZBo47g+
-   nMSTb5aezG2KCHU3Rla9xY43lqxXyKK8mx4qVo/sutlajir5isOo5WvSN
-   XbCknb35ZdvRgO2mmynzYgKIuPTTPHD8Vns8RxebPJHYY6PSH3Y04jeOO
-   I3XrsJp/DJkscgJnYKJJORu7CXs+oy0RbDbD9DI2yC5o0IqUaMXDcr0hM
-   zTO7LUjDJkOBx+4RvkJiLA5N/Qade+/3E1s5uOlYMXKJ/ZS2IN6sGOCAg
-   w==;
-X-CSE-ConnectionGUID: 2DEqLwipQw273pehBZriaQ==
-X-CSE-MsgGUID: 10Nu6X/7Rw2wCzs4U0os6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11734"; a="77670262"
-X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
-   d="scan'208";a="77670262"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Mar 2026 21:20:56 -0700
-X-CSE-ConnectionGUID: f2vicg65TU+omWmZ32VWkg==
-X-CSE-MsgGUID: Kgb03j0VRrWGSeCxQZ27jw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
-   d="scan'208";a="220549657"
-Received: from lkp-server02.sh.intel.com (HELO a51c2a36b9df) ([10.239.97.151])
-  by fmviesa008.fm.intel.com with ESMTP; 19 Mar 2026 21:20:53 -0700
-Received: from kbuild by a51c2a36b9df with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w3RLn-000000001wf-2k5k;
-	Fri, 20 Mar 2026 04:20:45 +0000
-Date: Fri, 20 Mar 2026 12:19:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: aspeedyh <yh_chung@aspeedtech.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org, maciej.lawniczak@intel.com,
-	aspeedyh <yh_chung@aspeedtech.com>
-Subject: Re: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
-Message-ID: <202603201234.n0spXcAN-lkp@intel.com>
-References: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
+	Fri, 20 Mar 2026 05:21:18 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260320052102epoutp04cf81ae3eeb4703019c28548e8af50ed0~edRsi4aG70129101291epoutp04P
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 05:21:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260320052102epoutp04cf81ae3eeb4703019c28548e8af50ed0~edRsi4aG70129101291epoutp04P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1773984062;
+	bh=JxQ7E6F74uxBXrdFidaGlt2hT0tYDUqE1zgU7CkwdSI=;
+	h=Subject:Reply-To:From:To:CC:Date:References:From;
+	b=FRp/O6Bw4gYbxIYxd1SvWpFdWWLjFsz1bE2c5E1obVaxhf3HwUBwa1x+O4clUgDKy
+	 o609i5mJPIEFuPXEi3fviJcz039fgMfxWEYrgLKsB1f2SdzktUtbrVdd7/xmSsmZrv
+	 3VhpyAoQ1bqUD0vKaD9i/B9QCkJUP4iVFNkA4ZYc=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260320052102epcas2p1bad6bc6c6805325c5d09c69067ba6274~edRsHPBob1038710387epcas2p1E;
+	Fri, 20 Mar 2026 05:21:02 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.38.210]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4fcWB54z77z3hhTB; Fri, 20 Mar
+	2026 05:21:01 +0000 (GMT)
+Mime-Version: 1.0
+Subject: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
+From: =?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+To: "kbusch@kernel.org" <kbusch@kernel.org>, "axboe@kernel.dk"
+	<axboe@kernel.dk>
+CC: "sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
+	"neal@gompa.dev" <neal@gompa.dev>, "hch@lst.de" <hch@lst.de>,
+	"sagi@grimberg.me" <sagi@grimberg.me>, "justin.tee@broadcom.com"
+	<justin.tee@broadcom.com>, "nareshgottumukkala83@gmail.com"
+	<nareshgottumukkala83@gmail.com>, "paul.ely@broadcom.com"
+	<paul.ely@broadcom.com>, "kch@nvidia.com" <kch@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
+	<linux-nvme@lists.infradead.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, =?UTF-8?B?7KCE66+87Iud?=
+	<hmi.jeon@samsung.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+X-CPGS-Detection: blocking_info_exchange
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
+Date: Fri, 20 Mar 2026 14:21:01 +0900
+X-CMS-MailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-223,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
+References: <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_212100_655959_0F0A818C 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260319_222113_869064_9A40A4A7 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,141 +94,184 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: hmi.jeon@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi aspeedyh,
+From e54937be5ca0a2b38fffe6611c360625dc0a8903 Mon Sep 17 00:00:00 2001
+From: Minsik Jeon <hmi.jeon@samsung.com>
+Date: Fri, 20 Mar 2026 14:48:07 +0900
+Subject: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
 
-kernel test robot noticed the following build errors:
+we were checking host_pathing_error before calling nvme_setup_cmd().
+This is caused the command setup to be skipped entirely when a pathing
+error occurred, making it impossible to trace the nvme command via
+trace_cmd nvme_complete_rq().
 
-[auto build test ERROR on 0257f64bdac7fdca30fa3cae0df8b9ecbec7733a]
+As a result, when nvme_complete_rq() logged a completion with cmdid=0,
+it was impossible to correlate the completion with the nvme command
+request.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/aspeedyh/dt-bindings-soc-aspeed-Add-AST2600-eSPI-controller/20260315-101647
-base:   0257f64bdac7fdca30fa3cae0df8b9ecbec7733a
-patch link:    https://lore.kernel.org/r/20260313-upstream_espi-v1-5-9504428e1f43%40aspeedtech.com
-patch subject: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
-config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20260320/202603201234.n0spXcAN-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260320/202603201234.n0spXcAN-lkp@intel.com/reproduce)
+This patch reorders the logic to first call nvme_setup_cmd(), then
+perform the host_pathing_error check.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603201234.n0spXcAN-lkp@intel.com/
+Co-authored-by: Beomsoo Kim <beomsooo.kim@samsung.com>
+Co-authored-by: Eunsoo Lee <euns212.lee@samsung.com>
+Co-authored-by: Steven Seungcheol Lee <sc108.lee@samsung.com>
+Signed-off-by: Minsik Jeon <hmi.jeon@samsung.com>
+---
+ drivers/nvme/host/apple.c  | 6 +++---
+ drivers/nvme/host/fc.c     | 8 ++++----
+ drivers/nvme/host/pci.c    | 8 ++++----
+ drivers/nvme/host/rdma.c   | 8 ++++----
+ drivers/nvme/host/tcp.c    | 8 ++++----
+ drivers/nvme/target/loop.c | 6 +++---
+ 6 files changed, 22 insertions(+), 22 deletions(-)
 
-All errors (new ones prefixed by >>):
-
->> drivers/soc/aspeed/espi/ast2600-espi.c:137:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
-                  ^
-   drivers/soc/aspeed/espi/ast2600-espi.c:172:28: warning: variable 'flash' set but not used [-Wunused-but-set-variable]
-           struct aspeed_espi_flash *flash;
-                                     ^
->> drivers/soc/aspeed/espi/ast2600-espi.c:194:13: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
-                      ^
-   drivers/soc/aspeed/espi/ast2600-espi.c:243:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           reg = FIELD_PREP(ESPI_FLASH_TX_CTRL_CYC, cyc) |
-                 ^
-   1 warning and 3 errors generated.
-
-
-vim +/FIELD_PREP +137 drivers/soc/aspeed/espi/ast2600-espi.c
-
-   111	
-   112	static void ast2600_espi_flash_reset(struct aspeed_espi *espi)
-   113	{
-   114		struct aspeed_espi_flash *flash;
-   115		u32 reg;
-   116	
-   117		flash = &espi->flash;
-   118	
-   119		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
-   120		writel(ESPI_INT_STS_FLASH, espi->regs + ESPI_INT_STS);
-   121	
-   122		reg = readl(espi->regs + ESPI_CTRL);
-   123		reg &= ~(ESPI_CTRL_FLASH_TX_SW_RST
-   124			 | ESPI_CTRL_FLASH_RX_SW_RST
-   125			 | ESPI_CTRL_FLASH_TX_DMA_EN
-   126			 | ESPI_CTRL_FLASH_RX_DMA_EN
-   127			 | ESPI_CTRL_FLASH_SW_RDY);
-   128		writel(reg, espi->regs + ESPI_CTRL);
-   129	
-   130		udelay(1);
-   131	
-   132		reg |= (ESPI_CTRL_FLASH_TX_SW_RST | ESPI_CTRL_FLASH_RX_SW_RST);
-   133		writel(reg, espi->regs + ESPI_CTRL);
-   134	
-   135		flash->tafs.mode = TAFS_MODE_SW;
-   136		reg = readl(espi->regs + ESPI_CTRL) & ~ESPI_CTRL_FLASH_TAFS_MODE;
- > 137		reg |= FIELD_PREP(ESPI_CTRL_FLASH_TAFS_MODE, flash->tafs.mode);
-   138		writel(reg, espi->regs + ESPI_CTRL);
-   139	
-   140		if (flash->dma.enable) {
-   141			writel(flash->dma.tx_addr, espi->regs + ESPI_FLASH_TX_DMA);
-   142			writel(flash->dma.rx_addr, espi->regs + ESPI_FLASH_RX_DMA);
-   143	
-   144			reg = readl(espi->regs + ESPI_CTRL)
-   145			      | ESPI_CTRL_FLASH_TX_DMA_EN
-   146			      | ESPI_CTRL_FLASH_RX_DMA_EN;
-   147			writel(reg, espi->regs + ESPI_CTRL);
-   148		}
-   149	
-   150		writel(ESPI_INT_EN_FLASH_RX_CMPLT, espi->regs + ESPI_INT_EN);
-   151	
-   152		reg = readl(espi->regs + ESPI_CTRL) | ESPI_CTRL_FLASH_SW_RDY;
-   153		writel(reg, espi->regs + ESPI_CTRL);
-   154	}
-   155	
-   156	int ast2600_espi_flash_probe(struct aspeed_espi *espi)
-   157	{
-   158		u32 regs;
-   159	
-   160		regs = readl(espi->regs + ESPI_STS);
-   161		if (regs & (ESPI_STS_FLASH_TX_BUSY | ESPI_STS_FLASH_RX_BUSY)) {
-   162			dev_warn(espi->dev, "eSPI flash channel is busy, deferring...\n");
-   163			return -EPROBE_DEFER;
-   164		}
-   165	
-   166		ast2600_espi_flash_reset(espi);
-   167		return 0;
-   168	}
-   169	
-   170	int ast2600_espi_flash_remove(struct aspeed_espi *espi)
-   171	{
-   172		struct aspeed_espi_flash *flash;
-   173		u32 reg;
-   174	
-   175		flash = &espi->flash;
-   176	
-   177		writel(ESPI_INT_EN_FLASH, espi->regs + ESPI_INT_EN_CLR);
-   178	
-   179		reg = readl(espi->regs + ESPI_CTRL);
-   180		reg &= ~(ESPI_CTRL_FLASH_TX_DMA_EN
-   181			 | ESPI_CTRL_FLASH_RX_DMA_EN
-   182			 | ESPI_CTRL_FLASH_SW_RDY);
-   183		writel(reg, espi->regs + ESPI_CTRL);
-   184	
-   185		return 0;
-   186	}
-   187	
-   188	int ast2600_espi_flash_get_hdr(struct aspeed_espi *espi,
-   189				       struct espi_comm_hdr *hdr)
-   190	{
-   191		u32 reg, len;
-   192	
-   193		reg = readl(espi->regs + ESPI_FLASH_RX_CTRL);
- > 194		hdr->cyc = FIELD_GET(ESPI_FLASH_RX_CTRL_CYC, reg);
-   195		hdr->tag = FIELD_GET(ESPI_FLASH_RX_CTRL_TAG, reg);
-   196		len = FIELD_GET(ESPI_FLASH_RX_CTRL_LEN, reg);
-   197		hdr->len_h = (len >> 8) & 0xff;
-   198		hdr->len_l = len & 0xff;
-   199	
-   200		return 0;
-   201	}
-   202	
-
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index ed61b97fde59..2a28c992d024 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -783,13 +783,13 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	if (unlikely(!READ_ONCE(q->enabled)))
+ 		return BLK_STS_IOERR;
+ 
+-	if (!nvme_check_ready(&anv->ctrl, req, true))
+-		return nvme_fail_nonready_command(&anv->ctrl, req);
+-
+ 	ret = nvme_setup_cmd(ns, req);
+ 	if (ret)
+ 		return ret;
+ 
++	if (!nvme_check_ready(&anv->ctrl, req, true))
++		return nvme_fail_nonready_command(&anv->ctrl, req);
++
+ 	if (blk_rq_nr_phys_segments(req)) {
+ 		ret = apple_nvme_map_data(anv, req, cmnd);
+ 		if (ret)
+diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
+index e1bb4707183c..8ea37102a836 100644
+--- a/drivers/nvme/host/fc.c
++++ b/drivers/nvme/host/fc.c
+@@ -2762,14 +2762,14 @@ nvme_fc_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	u32 data_len;
+ 	blk_status_t ret;
+ 
+-	if (ctrl->rport->remoteport.port_state != FC_OBJSTATE_ONLINE ||
+-	    !nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+-		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+-
+ 	ret = nvme_setup_cmd(ns, rq);
+ 	if (ret)
+ 		return ret;
+ 
++	if (ctrl->rport->remoteport.port_state != FC_OBJSTATE_ONLINE ||
++	    !nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
++		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
++
+ 	/*
+ 	 * nvme core doesn't quite treat the rq opaquely. Commands such
+ 	 * as WRITE ZEROES will return a non-zero rq payload_bytes yet
+diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
+index b78ba239c8ea..ad0363f7e681 100644
+--- a/drivers/nvme/host/pci.c
++++ b/drivers/nvme/host/pci.c
+@@ -1376,10 +1376,6 @@ static blk_status_t nvme_prep_rq(struct request *req)
+ 	iod->meta_total_len = 0;
+ 	iod->nr_dma_vecs = 0;
+ 
+-	ret = nvme_setup_cmd(req->q->queuedata, req);
+-	if (ret)
+-		return ret;
+-
+ 	if (blk_rq_nr_phys_segments(req)) {
+ 		ret = nvme_map_data(req);
+ 		if (ret)
+@@ -1418,6 +1414,10 @@ static blk_status_t nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	if (unlikely(!test_bit(NVMEQ_ENABLED, &nvmeq->flags)))
+ 		return BLK_STS_IOERR;
+ 
++	ret = nvme_setup_cmd(req->q->queuedata, req);
++	if (ret)
++		return ret;
++
+ 	if (unlikely(!nvme_check_ready(&dev->ctrl, req, true)))
+ 		return nvme_fail_nonready_command(&dev->ctrl, req);
+ 
+diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
+index 57111139e84f..96248d81237e 100644
+--- a/drivers/nvme/host/rdma.c
++++ b/drivers/nvme/host/rdma.c
+@@ -2005,6 +2005,10 @@ static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 
+ 	WARN_ON_ONCE(rq->tag < 0);
+ 
++	ret = nvme_setup_cmd(ns, rq);
++	if (ret)
++		return ret;
++
+ 	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+ 		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+ 
+@@ -2020,10 +2024,6 @@ static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	ib_dma_sync_single_for_cpu(dev, sqe->dma,
+ 			sizeof(struct nvme_command), DMA_TO_DEVICE);
+ 
+-	ret = nvme_setup_cmd(ns, rq);
+-	if (ret)
+-		goto unmap_qe;
+-
+ 	nvme_start_request(rq);
+ 
+ 	if (IS_ENABLED(CONFIG_BLK_DEV_INTEGRITY) &&
+diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
+index 243dab830dc8..1a3640e81b8f 100644
+--- a/drivers/nvme/host/tcp.c
++++ b/drivers/nvme/host/tcp.c
+@@ -2705,10 +2705,6 @@ static blk_status_t nvme_tcp_setup_cmd_pdu(struct nvme_ns *ns,
+ 	u8 hdgst = nvme_tcp_hdgst_len(queue), ddgst = 0;
+ 	blk_status_t ret;
+ 
+-	ret = nvme_setup_cmd(ns, rq);
+-	if (ret)
+-		return ret;
+-
+ 	req->state = NVME_TCP_SEND_CMD_PDU;
+ 	req->status = cpu_to_le16(NVME_SC_SUCCESS);
+ 	req->offset = 0;
+@@ -2768,6 +2764,10 @@ static blk_status_t nvme_tcp_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	bool queue_ready = test_bit(NVME_TCP_Q_LIVE, &queue->flags);
+ 	blk_status_t ret;
+ 
++	ret = nvme_setup_cmd(ns, rq);
++	if (ret)
++		return ret;
++
+ 	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+ 		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+ 
+diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
+index 4b3f4f11928d..475b532d08e8 100644
+--- a/drivers/nvme/target/loop.c
++++ b/drivers/nvme/target/loop.c
+@@ -140,13 +140,13 @@ static blk_status_t nvme_loop_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	bool queue_ready = test_bit(NVME_LOOP_Q_LIVE, &queue->flags);
+ 	blk_status_t ret;
+ 
+-	if (!nvme_check_ready(&queue->ctrl->ctrl, req, queue_ready))
+-		return nvme_fail_nonready_command(&queue->ctrl->ctrl, req);
+-
+ 	ret = nvme_setup_cmd(ns, req);
+ 	if (ret)
+ 		return ret;
+ 
++	if (!nvme_check_ready(&queue->ctrl->ctrl, req, queue_ready))
++		return nvme_fail_nonready_command(&queue->ctrl->ctrl, req);
++
+ 	nvme_start_request(req);
+ 	iod->cmd.common.flags |= NVME_CMD_SGL_METABUF;
+ 	iod->req.port = queue->ctrl->port;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.52.0
+
 
