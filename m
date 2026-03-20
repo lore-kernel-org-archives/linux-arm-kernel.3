@@ -4,98 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149211093177
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADEED109317A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i1iz6MeksNNtIcxd9ic1iSI1CofBBNW6rOw3XqGitRw=; b=XhG28q4sDJkjoVzeXB6SK2/nSz
-	myEVC6zKZU+WSmnW8bOBnEeVR9wIB7CVm1yEvsQNIwD/ufH48JeYQz87lb4ef7hq4HhLuborlwZ3N
-	U0g1BhpTad6mFY+caVwnOX0qNG5UMALc42zFm2TnfLW5DB+thwOPkPW9cb5r5GPY1UPE7LyIvgn0D
-	EnrxG1KW7TXBx5/F95vl6b0OCzxZ4oDkX2O8LLyDpeP4J6rOhQ0Na8wTVwtl/ZzTLsKEygbDuowJf
-	wTvI6CNVYQbsdDRFZ765BR/1xxgiaro9BS7m+f6xx9vm49Abu1rUZWSm9tHf0rjI8Tos1eQYSYtEY
-	/fltv/kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LrOtzMw2+de7wpo67yzpaTqKR6CvbAx9ble4nNHKaw4=; b=XWp1aCZStOj3aGx4IJfT26vcyQ
+	xILHn/DsRy8GSfWx16YNSa5jJuBL8psQxCah4QmTrj2LleSH6darvkvTbebKkCryc+AGfuOKBapn2
+	uS7QY1lzRV2n8RvYoxvXJQuqH83psCTJuCJImmhdu3h30OnfvvwOIpcMOKiJKFRyANdt6uXaNEVz3
+	gIle+c8VAtUomlk0dqJkxpD/i4GrHvdZ55ZfZBEO/XPN1pTcpJgpdy7WgizZNNj28iHRPT8rffCtz
+	SEoFs8dkypVTVegvILQboVYg5ZHkCebb4BDiSeKTKkVllnXbjnk3LfwrGBeVevyjrZislTr8BiUN9
+	mRpxsuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3T62-0000000C9Tu-0bOz;
-	Fri, 20 Mar 2026 06:12:34 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1w3T9z-0000000CA70-0FrV;
+	Fri, 20 Mar 2026 06:16:39 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3T5z-0000000C9TY-4A2c
+	id 1w3T9v-0000000CA5D-1fYE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 06:12:33 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c736261ee8dso598401a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 23:12:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1773987150; x=1774591950; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i1iz6MeksNNtIcxd9ic1iSI1CofBBNW6rOw3XqGitRw=;
-        b=Q7JNn/lof3oAp5rBFlp7PQ+6EhQ5vAFHm5DVOOxqOyImX2B7R1dQfJ1c3g7mzybR/L
-         ucmfN82HuopTjhL6bPkNkPdEiT9094H6C4r3+/7wpNGtA/mQhF0yH8LrjOlX0nPzWm8A
-         waz8rkeW1za6dhT8o6aMbNzTtD0lML8/erbg6HriHJOl2Jj6JikMY7yVYI8X+t98AKT5
-         eWLNg4TQgGs35h02cOwdBDnbztMbou/3D5IuisQ3mYYkIeVbvF1HhOhV4GXqe76grAtR
-         fNDhqBlYuPlCiYnXnwuWlCg0ZLNjDMeY3nSUXCkpfD4NYfTFX2m1HJ4Ko8VOQmS2Y0zy
-         eWdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773987150; x=1774591950;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=i1iz6MeksNNtIcxd9ic1iSI1CofBBNW6rOw3XqGitRw=;
-        b=epN9lO3g/glhRU0EtKGDR9agVOzGiikNed5BvsVuGMJJSxWrI+zXwTcpbGWTZo7Len
-         feLO2zwvKomVOshTfQaOHyGSfjpwsYnFdAYhWoOIZnLh4gpijEIQLRAx9DvAAQ+x8/GI
-         OXp9ekTRHoV3Igl9fBjk0YnRTXzeEOvjTwXtaPX3cssWYw//TtpQvPItI5pSLGpbFOp9
-         d56rmUKsfDc1OozrG1Ya4jiIcsfgAlzT43L3b/sYIdocvaBFrDYn90/XMZRjkpfBBvrA
-         tUbLyJaElCLHWrfK0IKrHRqQzkyAZ9YqJQly4r+7hOjjNPbyt/71WhP14KoFFkdB3Nzv
-         tz9A==
-X-Forwarded-Encrypted: i=1; AJvYcCUtELgEmhz7mGBVWXlkKxoIL316XHHExM08+WwaBfGeKXP15in3PiF4xgr2ScnUhHc5/YMhrCzNtd8pUkZINkdD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR2JMnKT/RNlOzy078rzKBHSfawhqqNH8tBChECJTi9bxiTfOB
-	HxLFWqFDHZbcd5BgRxHOz3KyCpcHbpIEwBB6sVSS3NcQZDTx2F3oit4M8XOvxcmc/Wg=
-X-Gm-Gg: ATEYQzyS2JyEizY1pVFlrzT6oPUctY+NMuppsoE6odhsYpe3Ema0RkMnaAzOBzGIadA
-	PgmP299ADjNYEzWVud32iWjQZdkKJL1lIKLaio6UR0oFSDQIGn0be/5f4gOe/oyJBkdQojw/vl8
-	RbsVN58tKIyU+wzTj3PGdHDZbCSUQbFN9XSyGErextKdv/xee9xFrj68d+mev4lmq3gMqjeZhzq
-	EVoCUBlog5jhCddyKqBNOFUAXng7FqXpEOT5Slg8syQZ3qgm2CNWcO6aCv2lmJucmbSxdy0bbg8
-	cnHM8nTh6sxnZAkOltj/9petl57ylqd4WZX9Sp+rCRIsfkDkjERNFqhxYQE9UWVMe9+Hb3RZMel
-	cd6iBkuGGcY8ys/KRH6oksgPFo+ykg0/7SqdLcWdi71cFUExwPG2sZkFMJnLsEceKcPvabQVHCu
-	UcO0WDj5MOXY7f1h71HmoB73zQfIXE3Q3aBbGRchEbc0ueCrw=
-X-Received: by 2002:a05:6a20:7f9f:b0:398:b178:a53f with SMTP id adf61e73a8af0-39bceb427b1mr1734963637.40.1773987150278;
-        Thu, 19 Mar 2026 23:12:30 -0700 (PDT)
-Received: from smtpclient.apple ([50.47.115.214])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b0409f409sm968942b3a.31.2026.03.19.23.12.29
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Mar 2026 23:12:29 -0700 (PDT)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.400.21\))
-Subject: Re: [PATCH v12 0/7] i2c: xiic: use generic device property accessors
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <20260223-i2c-xiic-v12-0-b6c9ce4e4f3c@nexthop.ai>
-Date: Thu, 19 Mar 2026 23:12:19 -0700
-Cc: Michal Simek <michal.simek@amd.com>,
- Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org,
- Andrew Lunn <andrew@lunn.ch>,
- Jonathan Cameron <jonathan.cameron@huawei.com>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <FC244FF4-29CA-4A3A-8E58-C6CDB05A248D@nexthop.ai>
-References: <20260223-i2c-xiic-v12-0-b6c9ce4e4f3c@nexthop.ai>
-To: abdurrahman@nexthop.ai
-X-Mailer: Apple Mail (2.3864.400.21)
+	Fri, 20 Mar 2026 06:16:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LB42ONhYZW47eI8RxmK8bAa/kS5MxMuse6wXoxeOzmc0nN0fJ3gvkXmGK0j77fzVSAEJiI+poYhkuI8O5JzTVZQGfoFk/keQm4ASoUmFnUUS8fUahZc/wN1ZVitOWAa/M3eVhwEkrkyZshINEWOiBLk4eTbbBDscB3tFQ0INOjJd4drOdMLgTA5T61LbYWmH7oId5EtvdQx0Ovd4qNdRjUW/q16atbHIvHTPHzthi4whTPInRJBiUrd5J/In1jm9Nw7QgcgxCAHdVdP8CyXJKWmlqVwsAnWrVGstSkO7dCoYXgyZ3fQKJjEngsnDxrk58k8pLrN4u6ASrAv6x0yH+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LrOtzMw2+de7wpo67yzpaTqKR6CvbAx9ble4nNHKaw4=;
+ b=TLxHN+0cK48cJ6/EabMZrjdQwh75+rQfrg71N7Xc48aRMW2ft59php35tvlF91yW/rQPCi4MgZVDZk6iM/6fh6kou1hTj/TH1WSFUTFO0pi3xfnVO9VytLFqPhX+Vw3wGpZahnIwpKlqGKM8mcMwmUPkjouZbF8ZgmMRVcSZ/K0JTse9Eqwja44eHUVI1B0d2c2dgtX31UdaDrEtZxbx2UOvW/vmYm17x5Gy3njFfG1LMYGTHi0F9FLbs+Uaml9zAuIYkqjtz83+SEhyn9c5+Dnochy9PiY8jzEuxkS5DzRE/YP4l6E+NSmwxt+X1uK/9W3FSqFo/7cFgsvdJAfZFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LrOtzMw2+de7wpo67yzpaTqKR6CvbAx9ble4nNHKaw4=;
+ b=WjEMfCSqDP1HXnPNGOgjcCR6AzMo2B3xva6LgtiMpbh1yK20ZU4VVJFMyqevtLEakVXhTgF4NNE0iLcnzfhe7blQVVlEhu76dHyHjLV9ecHZxi85K4AcpBTHYLqnPEEobJWVAXWKzcVTxPDeDA55Kbn6h9FPdNXx7T5E6LJTlnYiFqq0rc386PEXZ6WeDBelJTRxaqCcSSblIatHw545LjoSISEQlIKD//Hru9aHJTjH0MzmotUzpDVVVTrTjfghYuVffBoNO1WT9HXa+zmGjEPE5ypLNbho7nxan5a+V7zlSAh+ef5TSnk31HIOpmekKbQzqrrvoL/ZqfC0qZTr4A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GVXPR04MB10586.eurprd04.prod.outlook.com (2603:10a6:150:21f::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
+ 2026 06:16:13 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
+ 06:16:25 +0000
+Date: Fri, 20 Mar 2026 14:18:31 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Joy Zou <joy.zou@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: add i.MX91 9x9 QSB basic
+ support
+Message-ID: <abzmpBHDRrsd/Mvr@shlinux89>
+References: <20260319-b4-imx91-qsb-dts-v1-0-2eedc01d8af0@nxp.com>
+ <20260319-b4-imx91-qsb-dts-v1-2-2eedc01d8af0@nxp.com>
+ <4124e5ae-52a2-405c-a02d-7a1f48aa2b57@lunn.ch>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4124e5ae-52a2-405c-a02d-7a1f48aa2b57@lunn.ch>
+X-ClientProxiedBy: MA5PR01CA0204.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b0::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10586:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb3c7e36-8b28-430c-39ab-08de864836cf
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|7416014|376014|38350700014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: xPRpbXj3ovyIo2jblpBGRWhxdurrfmFrLU6FCnFYioN0KV1m56IqDc0EPUPt74F9P6XmxfhyerD5l9mkfoN5oPY2zVgNab1aj/lh32SfYryb8SDo3b/Pp790lLYqDOE6T6ATlJgKbFMgEUzBrvUxq3Fo7ZbGr9PIu1Sutanhx8uNL1+UAP/a6qUSBfx+s6R9jKGq8+lV0iOiHq4obroDE/w4CgMAJhO/+jP4XLL/8YHkVwKL99zT7WVOH0TRF9/IfDp96lSNqQ3XC17thQVDDpvGZgiuGMgTFlztfWjKWys91ykJKPW3jrMD9+SLuDYlP2xuRPb2+QKkjauf0FpzkK+sjcr9wEvIBTKkZcFw+dA/kOBxoQj/piTpFlkYxvQRmCURS8CY/YOt+SU7cY1diVS+fWkn4aF8hg3/NYqK3s93ZnZeSc9lG6hMXhwZhNS/qQyJnaN6hZzjRbojYR13hKWqESsy+8YuVV/Bd/pGyOpCyDMGnkcCgOoE0aDsFuoPgC8Ua2g/mAq/sp/fv7vgAS4DNP0gE7sT3Oj4PKsjxx6SeQOXScUsSSSPBRaSpG72zWnbdxkogbAK/flnnDPm5hpJW6AIyFp5MRgRXjizzo4q3fTAVOzISfU+8ULUkTVHJwvRxGTO61X/D/cZ6PhmiZMk9W5ufnfR0eeG0Se0OCnfBkoeTYDBI8d3V/3evFmIgRNwfudhRi2OZGKDGDzH77EPmuzKdHdIkESdj3HgWeNIypBYIwkNDTNzWVRkLHVEWyzklYPggDsSWpVopoYmwoyTxNtIkOOc3pwU0DBDxcA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8V9Z8JDwJMiJhtARpvb5jM7hY7sZ0DQZlz0zHFquuxBPRc/eVxDjoYToawtz?=
+ =?us-ascii?Q?r71owDaXCzowdFRu6vSl7Ia8xSOcQw8X5zUCQcIQCO7F9ruH30a+LF56K4Jf?=
+ =?us-ascii?Q?em+HP41bPhw6XkKa/nBzZbPd41cDqd0tmsAm4WhhsB4PjYZ1aRWvgEv+AHqd?=
+ =?us-ascii?Q?wmYv8GIGk4Uez99F/nY9E8v2ucUNPxUcEtqginT7Q4TJm52Jk5unAz5ZLojW?=
+ =?us-ascii?Q?afZVCp0WbwCRJ5FbUByHLZ6/axmlOzLJ4Utx7BPSOdjOtvM2wVke1fk1fcrV?=
+ =?us-ascii?Q?xq/olo/16b8Vgw4gyUhzv31esfDpbIRwGMhh1qmqQYIjLJD/fl4yN4fiVoJe?=
+ =?us-ascii?Q?Cii0/0nW63E7y/auvaoh1BwnPAIN67Udsl73Y5Nu9OS9o8r4k5vRMXNp3msn?=
+ =?us-ascii?Q?Dx9VnqF0CG3PTV7U4EH3mrYebE1kxnnY324yPdMA+M0FJPpugFOYIwFHJLh7?=
+ =?us-ascii?Q?VSbm9JcyLng7gDezCG4cvwm3bS3emzReaGCmW7kVXcYPE3S5gjzGgjwTzfdv?=
+ =?us-ascii?Q?yZjZQ2i7FvMtsJqef3NXTHjsrLVZNGzETfSnaalbmidx19+JCftTAE92mIwy?=
+ =?us-ascii?Q?sJVURH0olPRDuOgkdi7UoHmmV++cGdpFmziMVgImnqZeypTPXgzG7v7PCYjc?=
+ =?us-ascii?Q?EuPK6pDStxqkNjqaYIvPkwMe5CUd+NSjFbDtu3EvD8bbxpxZxkqy9+q+uYtT?=
+ =?us-ascii?Q?C6oUAzBPw0SSeyDiKE/659hgML1oQXGyUY77sCuOm+Du4qAVbrcU8SY2uQ1w?=
+ =?us-ascii?Q?9YqHG9s6hKq7nzDIgbwOLWNBZbBf/Y0WtPkP2tms2BgdioGe0TyQj4eniBPK?=
+ =?us-ascii?Q?OzPcRbDo0e8SETZrbItoQeCtVAtz1TnpaJcsFynyY4MhvUft72B/WttmgExy?=
+ =?us-ascii?Q?qfJCejfvpXzBaICAO7qxXCJug65dMxArlqO/XsiVypRPNLZgZHmnNHw/f75G?=
+ =?us-ascii?Q?6OWzmwrVotFEn1GXkEztXv2YoHn3R6zto5d3tWkL6gQh2c37pbn53BJ1pGgh?=
+ =?us-ascii?Q?JpwJEA1SEfDPTzC5q0Ek8UayYTjFhqT72rS3EemOnB3JMz88yTaHru8qNJok?=
+ =?us-ascii?Q?U4pnJ/jIcYiur7QZq29TCDnE+yspM+L30jnuKUaj1KefSFhSAXZAgacaAFPS?=
+ =?us-ascii?Q?Morxqe/FoZ/b/t7YKMHhqF/zqKDFPXmjkjpOAwOg8pBQg2TzSHGsLcb9u8M7?=
+ =?us-ascii?Q?fZOjgvi0YD6JyRPVvjhZbhSmDAi4IQIrh7tRi+1Eyx1wGs0klqVWkxWyTtdK?=
+ =?us-ascii?Q?9jf5q8qlj4YWTaSisHhdZJialjHpoiKF8SIXg1J2VbIax6kHx73GcaXV08yi?=
+ =?us-ascii?Q?zOUihXKgwZtg1qyJ7czuU70fUKkeUQ64kUbL32vz7vwRCB9PU4eYjUssgcfI?=
+ =?us-ascii?Q?MGohkFRD4jEMWnhKb5JKvzH8GocsMlZreUC8tpj3VnhPzDYd2LXzR433pSqr?=
+ =?us-ascii?Q?HVIKrkVe4DXzhBcCZqQu4BVsYrsntvH4qajhaRxSRaJI9+ktB/l81ajQcqAs?=
+ =?us-ascii?Q?dV5ucIfF1cIJ0+UV3kBytlnAQ4yU3jlC87aMm9OohxiO+GXH1dxkhfteWifj?=
+ =?us-ascii?Q?C5kwGdf8ztcl0I4vc1khcQUHocVNYkPi3sGJTZVs/usjwZYfCbev+z1Y5lPn?=
+ =?us-ascii?Q?mjmMlBl5ZnBmgsAWeH2qNZdkA6jT0VhlugtPwiwzQaCoqgEG0WCGaJG0m7Jk?=
+ =?us-ascii?Q?dTjr5cDEnbSFQAcv5rPTFSXJr3+TCzZhe7An3vcnVGb0D++HRTbWnysRy8Vt?=
+ =?us-ascii?Q?ugpToP+E4A=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb3c7e36-8b28-430c-39ab-08de864836cf
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 06:16:25.1032
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ur6uJoJMnI+TUoSjL7SVC34YcId6g3oHRY4MEyNkdRgptyDoq6LM5/bK2V7DN1hR+N1zWZ25QwXkmXe1mnBKcQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10586
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_231232_066112_5ED684FF 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20260319_231635_446761_B75F4BD2 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,130 +148,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
+On Thu, Mar 19, 2026 at 04:43:40PM +0100, Andrew Lunn wrote:
+>> +&eqos {
+>> +	phy-handle = <&ethphy1>;
+>> +	phy-mode = "rgmii-id";
+>> +	pinctrl-0 = <&pinctrl_eqos>;
+>> +	pinctrl-names = "default";
+>> +	status = "okay";
+>> +
+>> +	mdio {
+>> +		compatible = "snps,dwmac-mdio";
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +		clock-frequency = <5000000>;
+>
+>Is that a valid property for "snps,dwmac-mdio"?
 
-I'm just following up on this patch series (v12) aimed at updating the =
-xiic
-driver to use generic device property accessors.
+It is a valid property in 
+Documentation/devicetree/bindings/net/mdio.yaml
 
-I addressed the feedback from Krzysztof and Andy in this version. Do you
-have any updates or further comments on this series? I am happy to make
-any necessary changes.
+Regards
+Peng
 
-Thank you,
-Abdurrahman
-
-Link to patchwork: =
-https://patchwork.ozlabs.org/project/linux-i2c/list/?series=3D493003
-
-> On Feb 23, 2026, at 7:59=E2=80=AFAM, Abdurrahman Hussain via B4 Relay =
-<devnull+abdurrahman.nexthop.ai@kernel.org> wrote:
->=20
-> - Switch to generic device property accessors.
-> - Switch to managed devm_ functions to simplify error handling.
-> - General cleanups.
-> - Skip clock setup on non-OF systems where clock is not specified via
-> firmware.
->=20
-> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-> ---
-> Changes in v12:
-> - Reworded the patch 3 description as suggested by Krzysztof.
-> - Added fwnode to patch 3 as suggested by Andy.
-> - Used fwnode added in patch 3 in patch 7 as suggested by Andy.
-> - Link to v11: =
-https://lore.kernel.org/r/20260213-i2c-xiic-v11-0-5d18aea11bde@nexthop.ai
->=20
-> Changes in v11:
-> - Cosmetic change to return 0 in patch 1.
-> - Remove pm_runtime_dont_use_autosuspend() in patch 1.
-> - Link to v10: =
-https://lore.kernel.org/r/20260204-i2c-xiic-v10-0-c2b996425235@nexthop.ai
->=20
-> Changes in v10:
-> - Moved dev_dbg() change from patch 4 to patch 5.
-> - Reworded description in patch 6.
-> - Addressed Andy's comment in patch 7 (&pdev->dev -> dev).
-> - Link to v9: =
-https://lore.kernel.org/r/20260202-i2c-xiic-v9-0-ce4695f5267d@nexthop.ai
->=20
-> Changes in v9:
-> - Fix an issue found by the test robot in the cleanup patch.
-> - Reworded the clock change description.
-> - Add a patch to switch to i2c_add_numbered_adapter().
-> - Link to v8: =
-https://lore.kernel.org/r/20260201-i2c-xiic-v8-0-deb2dd158d1a@nexthop.ai
->=20
-> Changes in v8:
-> - Made the clock change the last patch in the series.
-> - Reworded the clock change description.
-> - Changed dev->fwnode to dev_fwnode(dev).
-> - Link to v7: =
-https://lore.kernel.org/r/20260129-i2c-xiic-v7-0-727e434897ef@nexthop.ai
->=20
-> Changes in v7:
-> - Drop the dt-bindings patch.
-> - Skip clock setup on non-OF systems.
-> - Minor commit body rewording.
-> - Applied code-review trailers with `b4 trailers -u`
-> - Link to v6: =
-https://lore.kernel.org/r/20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai
->=20
-> Changes in v6:
-> - Cosmetic changes to address the comments.
-> - Added a patch to use resource format specifier in debug log.
-> - Link to v5: =
-https://lore.kernel.org/r/20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai
->=20
-> Changes in v5:
-> - Reorder the cosmetic patch to be the last in the series.
-> - Added a documentation patch to describe the optional clock.
-> - Minor commit body rewording.
-> - Link to v4: =
-https://lore.kernel.org/r/20260123-i2c-xiic-v4-0-4a3eba3510ce@nexthop.ai
->=20
-> Changes in v4:
-> - Reorder the cosmetic patch to be the first in the series.
-> - Amend the mutex_init patch to also switch to the managed pm_runtime_
->  variant.
-> - Link to v3: =
-https://lore.kernel.org/r/20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai
->=20
-> Changes in v3:
-> - Reorder the "optional clock" patch to be the first in the series.=20
-> - Add a patch to switch to devm_mutex_init().
-> - Remove dup message in error path.
-> - Cosmetic: use temporary dev variable.
-> - Link to v2: =
-https://lore.kernel.org/r/20260122-i2c-xiic-v2-0-134f5d743e8b@nexthop.ai
->=20
-> Changes in v2:
-> - Split the patch into two independent changes.
-> - Added struct device *dev at the top of probe() and remove() to =
-re-use.
-> - Switched to device_set_node(...)
->=20
-> ---
-> Abdurrahman Hussain (7):
->      i2c: xiic: switch to devres managed APIs
->      i2c: xiic: remove duplicate error message
->      i2c: xiic: switch to generic device property accessors
->      i2c: xiic: cosmetic cleanup
->      i2c: xiic: cosmetic: use resource format specifier in debug log
->      i2c: xiic: use numbered adapter registration
->      i2c: xiic: skip input clock setup on non-OF systems
->=20
-> drivers/i2c/busses/i2c-xiic.c | 97 =
-+++++++++++++++++++------------------------
-> 1 file changed, 42 insertions(+), 55 deletions(-)
-> ---
-> base-commit: 37a93dd5c49b5fda807fd204edf2547c3493319c
-> change-id: 20260122-i2c-xiic-3ba89ff5ea93
->=20
-> Best regards,
-> --=20
-> Abdurrahman Hussain <abdurrahman@nexthop.ai>
->=20
->=20
-
+>
+>~/linux/drivers/net/ethernet/stmicro/stmmac$ grep  clock-frequency *
+>~/linux/drivers/net/ethernet/stmicro/stmmac$ 
+>
+>	Andrew
 
