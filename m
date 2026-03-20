@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6329E1099B41
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848DF1099B40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qt5xrlKi+MsoO8dSNBxoJh+cxtGEXQO6ihNdPcS8wqQ=; b=m7jj8NRrAtPUXMn+arvbeS2u82
-	eTRhTWyKrvmjRg6b/uFfRSE6v3t7RoIvkzyIQQgpSf2i06IH8phWPrbupRiLKuNPsOG9Y2gOu5uE1
-	VffgCQ9yn5wi7nCEtnEH3RC+pAj8VI2QRZxtXmB4uMXuw3il34A7FjE290dW5v6M/oxFWiFrh/c8+
-	g5T6pfCfQKbf5fpva3RTIC8xCZ7YeHb3hMSP4sKHvwD8dnRQcbKwNhFpOkf6FhozlxvznkcJgpRi1
-	IojwM8DQF/dK6Xs8tUFiL5laeVg05YkAldcMUveB0EXsbKJMGk8j8tHeWrrBhXrrPLmeJaF38NmQa
-	RrZy3++g==;
+	bh=T49qL0HGrnbYIpVdO5mePRM8nuu1rEpsHgwxsmb6OnA=; b=aYMqcoThkfsWXO9ODooPbapacE
+	Kjk3enCGPrd6X+6FcMUryJ1fXszgyRKYJZFI24UwvhXA41WGhz/ymFGf+tN06nYt6s4z+WS15jX3s
+	g02WJKuvLu9Xtk4jDUS9CngNG9UtK6dpI04Io9TElUn7IFI1FMfScJrF2zT6+wNeBmyxEPuh0qkK+
+	5xCLlKqOX9mlr39W+jadXLPi+ZO2fS4dXMl8ISl5iL6ril64rJj1XkPOJ8VMu0i8pFBkDKnrdB9av
+	76PVb/i/s8nsEA3aarC4Ifa1XvEPBnyHufpea1Nc5tL6zCB7T40SxhDvNG83o25oDRV2+69eTmF+k
+	0JzjSaWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hGO-0000000Dbuk-1jYU;
-	Fri, 20 Mar 2026 21:20:12 +0000
-Received: from lpdvsmtp09.broadcom.com ([192.19.166.228] helo=relay.smtp-ext.broadcom.com)
+	id 1w3hHw-0000000DcMA-3Hw3;
+	Fri, 20 Mar 2026 21:21:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hGF-0000000Dbpq-08xK
+	id 1w3hHt-0000000DcLV-0n9R
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 20 Mar 2026 21:21:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=T49qL0HGrnbYIpVdO5mePRM8nuu1rEpsHgwxsmb6OnA=; b=TVEE+LV6hrBgoue/7f2INATuVa
+	vp7hKcvFTa72axf3s3/wQ4ngbarOifiwm9O5gGdGnYgbkiNeWowZGJ4QF202k6OBqq3IGNFAi+7OV
+	P30b2HfcB7qJLBrvnppDPkKHeOwwsSnaoHsrAQHWO+WAhBk/Y42y+CcxgGrWheFXGlzWKIqzXtPPy
+	ozh7k7AZPwgd8zmllHReilVjI3CS1C3J8zdpuo8gLL5bAmOhP0/FCxAN6M4ezgG1YGzvXdvS8ohpy
+	ORfyd2uSXw48niU0nEN19g7EXP42C4Jhy+2tSny/Cq2JoWrWncLe+7xqBZvfABI2BKpv8XT7uSvyY
+	3L7gpHMA==;
+Received: from lpdvsmtp11.broadcom.com ([192.19.166.231] helo=relay.smtp-ext.broadcom.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3hGQ-0000000GV7H-0xt2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 21:20:04 +0000
+	Fri, 20 Mar 2026 21:21:41 +0000
 Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 922ABC05AE44;
-	Fri, 20 Mar 2026 14:20:02 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 922ABC05AE44
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B1F1DC0017F3;
+	Fri, 20 Mar 2026 14:20:05 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B1F1DC0017F3
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1774041602;
-	bh=aZJWZChcHQriYj94KKlegTaH8Blqvbr+O8JNgv3EGt4=;
+	s=dkimrelay; t=1774041605;
+	bh=zN4dslV6Zxx5Z3smcDyjIRq0uqjSqffHvQQbZlwmYuY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CgctF/jZkVlUSumC82D5Onn44q+x64d8oSUKFsALOlQsXr74TWf7+tcls0fXZPS/5
-	 mnGT3IP9a4H/+9wZUaLwBis5XHF51ZwLInidkUsAeIjmy0n6sS9PML3oX1RWypGvx6
-	 30wIxu4JzTYNFT7354Zj1Atq1p2ieBsKKoOSPXso=
+	b=upHD9kEqFdaugDS2A9zgdf5u8GPsL2vZGU7PTa+kuYgkasB43jPL6uRUUbOJ7HGN4
+	 cH1t4wrkR0VviW/8Z+zV+F3zAv5jyCJsVz0RWI74nRAcHIeYtEjRO3OGHCsZv47NBZ
+	 rwKTZg3kQfNBs6UteckaKJvYb8JRh1MYfEc2ziDs=
 Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id 5585FAE81;
-	Fri, 20 Mar 2026 17:19:59 -0400 (EDT)
+	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id 81537AE80;
+	Fri, 20 Mar 2026 17:20:02 -0400 (EDT)
 From: "Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
 To: netdev@vger.kernel.org
 Cc: alexandre.torgue@foss.st.com,
@@ -82,19 +97,18 @@ Cc: alexandre.torgue@foss.st.com,
 	ovidiu.panait.rb@renesas.com,
 	chenhuacai@kernel.org,
 	florian.fainelli@broadcom.com,
-	quic_abchauha@quicinc.com,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH net-next v8 5/6] Fix error handling in probe function.
-Date: Fri, 20 Mar 2026 14:19:20 -0700
-Message-ID: <20260320211921.1202058-6-jitendra.vegiraju@broadcom.com>
+	quic_abchauha@quicinc.com
+Subject: [PATCH net-next v8 6/6] Add BCM8958x driver to build system
+Date: Fri, 20 Mar 2026 14:19:21 -0700
+Message-ID: <20260320211921.1202058-7-jitendra.vegiraju@broadcom.com>
 X-Mailer: git-send-email 2.45.4
 In-Reply-To: <20260320211921.1202058-1-jitendra.vegiraju@broadcom.com>
 References: <20260320211921.1202058-1-jitendra.vegiraju@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_142003_100611_38C9117D 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260320_212113_130131_2BD7B634 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,244 +125,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
 
-Software node created in probe function is not being cleaned up if
-the probe function returns an error.
-The stmmac core provides mechanism to handle this error condition
-with plat->init, plat->exit helper functions.
-Move glue driver's initialization code to plat->init function.
-If the probe function returns an error, plat->exit function is
-called. Handle any glue driver level cleanup in the plat->exit
-handler.
-Use devm_add_action_or_reset() to register a callback to free
-irq vectors automatically, simplifying error handling in probe().
+Add PCI driver for BCM8958x to the linux build system and
+update MAINTAINERS file.
 
-Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
 Signed-off-by: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-brcm.c  | 164 ++++++++++--------
- 1 file changed, 90 insertions(+), 74 deletions(-)
+ MAINTAINERS                                  |  8 ++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig  | 11 +++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Makefile |  1 +
+ 3 files changed, 20 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
-index 3a00452c0aa6..9103e9cf38f1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
-@@ -218,6 +218,13 @@ static void brcm_config_misc_regs(struct pci_dev *pdev,
- 		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
- }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a09bf30a057d..9ca631fe78f1 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -5120,6 +5120,14 @@ N:	brcmstb
+ N:	bcm7038
+ N:	bcm7120
  
-+static void brcm_free_irq_vectors(void *data)
-+{
-+	struct pci_dev *pdev = data;
++BROADCOM BCM8958X ETHERNET DRIVER
++M:	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
++R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
++L:	netdev@vger.kernel.org
++S:	Maintained
++F:	drivers/net/ethernet/stmicro/stmmac/dw25gmac.*
++F:	drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
 +
-+	pci_free_irq_vectors(pdev);
-+}
-+
- static int brcm_config_multi_msi(struct pci_dev *pdev,
- 				 struct plat_stmmacenet_data *plat,
- 				 struct stmmac_resources *res)
-@@ -251,9 +258,87 @@ static int brcm_config_multi_msi(struct pci_dev *pdev,
- 	plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
- 	plat->flags |= STMMAC_FLAG_TSO_EN;
- 	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+
-+	return devm_add_action_or_reset(&pdev->dev,
-+					brcm_free_irq_vectors, pdev);
-+}
-+
-+static int brcm_drv_init(struct device *dev, void *bsp_priv)
-+{
-+	struct brcm_priv_data *brcm_priv = (struct brcm_priv_data *)bsp_priv;
-+	struct pci_dev *pdev = to_pci_dev(dev);
-+	int rx_offset;
-+	int tx_offset;
-+	int vector;
-+	int ret;
-+
-+	/* This device is directly attached to the switch chip internal to the
-+	 * SoC using XGMII interface. Since no MDIO is present, register
-+	 * fixed-link software_node to create phylink.
-+	 */
-+	ret = software_node_register_node_group(brcm_swnodes);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to register software_node\n");
-+	device_set_node(dev, software_node_fwnode(&parent_swnode));
-+
-+	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LOW,
-+			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LO_VALUE);
-+	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HIGH,
-+			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HI_VALUE);
-+
-+	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_OFFSET,
-+		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_VALUE);
-+	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_OFFSET,
-+		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_VALUE);
-+
-+	/* SBD Interrupt */
-+	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_OFFSET,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_VALUE);
-+	/* EP_DOORBELL Interrupt */
-+	misc_iowrite(brcm_priv,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_OFFSET,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_VALUE);
-+	/* EP_H0 Interrupt */
-+	misc_iowrite(brcm_priv,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_OFFSET,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_VALUE);
-+	/* EP_H1 Interrupt */
-+	misc_iowrite(brcm_priv,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_OFFSET,
-+		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_VALUE);
-+
-+	rx_offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_RX0_PF0_OFFSET;
-+	tx_offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_TX0_PF0_OFFSET;
-+	vector = BRCM_XGMAC_MSI_RX_VECTOR_START;
-+	for (int i = 0; i < BRCM_MAX_DMA_CHANNEL_PAIRS; i++) {
-+		/* RX Interrupt */
-+		misc_iowrite(brcm_priv, rx_offset, vector++);
-+		/* TX Interrupt */
-+		misc_iowrite(brcm_priv, tx_offset, vector++);
-+		rx_offset += 4;
-+		tx_offset += 4;
-+	}
-+
-+	/* Enable Switch Link */
-+	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MII_CTRL_OFFSET,
-+		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX |
-+		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX |
-+		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
-+	/* Enable MSI-X */
-+	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_PCIESS_CTRL_OFFSET,
-+		     XGMAC_PCIE_MISC_PCIESS_CTRL_EN_MSI_MSIX);
- 	return 0;
- }
+ BROADCOM BCMBCA ARM ARCHITECTURE
+ M:	William Zhang <william.zhang@broadcom.com>
+ M:	Anand Gore <anand.gore@broadcom.com>
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index d3a6ab7383fc..94ab9f13d542 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -386,6 +386,17 @@ config DWMAC_LOONGSON
+ 	  This selects the LOONGSON PCI bus support for the stmmac driver,
+ 	  Support for ethernet controller on Loongson-2K1000 SoC and LS7A1000 bridge.
  
-+static void brcm_drv_exit_cleanup(struct device *dev, void *bsp_priv)
-+{
-+	struct pci_dev *pdev = to_pci_dev(dev);
++config DWMAC_BRCM
++	tristate "Broadcom XGMAC support"
++	depends on STMMAC_ETH && PCI
++	depends on COMMON_CLK
++	select STMMAC_LIBPCI
++	help
++	  Support for ethernet controllers on Broadcom BCM8958x SoCs.
++	  This selects Broadcom XGMAC specific PCI bus support for the
++	  stmmac driver. This driver provides the glue layer on top of the
++	  stmmac driver required for the Broadcom BCM8958x SoC devices.
 +
-+	device_set_node(&pdev->dev, NULL);
-+	software_node_unregister_node_group(brcm_swnodes);
-+}
-+
- static int brcm_pci_resume(struct device *dev, void *bsp_priv)
- {
- 	struct pci_dev *pdev = to_pci_dev(dev);
-@@ -272,9 +357,6 @@ static int dwxgmac_brcm_pci_probe(struct pci_dev *pdev,
- 	struct brcm_priv_data *brcm_priv;
- 	struct stmmac_resources res;
- 	struct device *dev;
--	int rx_offset;
--	int tx_offset;
--	int vector;
- 	int ret;
- 
- 	dev = &pdev->dev;
-@@ -291,13 +373,6 @@ static int dwxgmac_brcm_pci_probe(struct pci_dev *pdev,
- 	if (!plat->axi)
- 		return -ENOMEM;
- 
--	/* This device is directly attached to the switch chip internal to the
--	 * SoC using XGMII interface. Since no MDIO is present, register
--	 * fixed-link software_node to create phylink.
--	 */
--	software_node_register_node_group(brcm_swnodes);
--	device_set_node(dev, software_node_fwnode(&parent_swnode));
--
- 	/* Disable D3COLD as our device does not support it */
- 	pci_d3cold_disable(pdev);
- 
-@@ -324,6 +399,8 @@ static int dwxgmac_brcm_pci_probe(struct pci_dev *pdev,
- 	res.addr += BRCM_XGMAC_IOMEM_CFG_REG_OFFSET;
- 	brcm_priv->xgmac_regs = res.addr;
- 
-+	plat->init		= brcm_drv_init;
-+	plat->exit		= brcm_drv_exit_cleanup;
- 	plat->suspend		= stmmac_pci_plat_suspend;
- 	plat->resume		= brcm_pci_resume;
- 	plat->bsp_priv = brcm_priv;
-@@ -332,78 +409,17 @@ static int dwxgmac_brcm_pci_probe(struct pci_dev *pdev,
- 	if (ret)
- 		return ret;
- 
--	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LOW,
--			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LO_VALUE);
--	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HIGH,
--			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HI_VALUE);
--
--	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_OFFSET,
--		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_VALUE);
--	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_OFFSET,
--		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_VALUE);
--
--	/* SBD Interrupt */
--	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_OFFSET,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_VALUE);
--	/* EP_DOORBELL Interrupt */
--	misc_iowrite(brcm_priv,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_OFFSET,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_VALUE);
--	/* EP_H0 Interrupt */
--	misc_iowrite(brcm_priv,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_OFFSET,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_VALUE);
--	/* EP_H1 Interrupt */
--	misc_iowrite(brcm_priv,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_OFFSET,
--		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_VALUE);
--
--	rx_offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_RX0_PF0_OFFSET;
--	tx_offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_TX0_PF0_OFFSET;
--	vector = BRCM_XGMAC_MSI_RX_VECTOR_START;
--	for (int i = 0; i < BRCM_MAX_DMA_CHANNEL_PAIRS; i++) {
--		/* RX Interrupt */
--		misc_iowrite(brcm_priv, rx_offset, vector++);
--		/* TX Interrupt */
--		misc_iowrite(brcm_priv, tx_offset, vector++);
--		rx_offset += 4;
--		tx_offset += 4;
--	}
--
--	/* Enable Switch Link */
--	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MII_CTRL_OFFSET,
--		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX |
--		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX |
--		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
--	/* Enable MSI-X */
--	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_PCIESS_CTRL_OFFSET,
--		     XGMAC_PCIE_MISC_PCIESS_CTRL_EN_MSI_MSIX);
--
- 	ret = brcm_config_multi_msi(pdev, plat, &res);
--	if (ret) {
--		dev_err(&pdev->dev,
--			"%s: ERROR: failed to enable IRQ\n", __func__);
--		goto err_disable_msi;
--	}
--
--	ret = stmmac_dvr_probe(&pdev->dev, plat, &res);
- 	if (ret)
--		goto err_disable_msi;
--
--	return ret;
--
--err_disable_msi:
--	pci_free_irq_vectors(pdev);
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to configure IRQ\n");
- 
--	return ret;
-+	return stmmac_dvr_probe(&pdev->dev, plat, &res);
- }
- 
- static void dwxgmac_brcm_pci_remove(struct pci_dev *pdev)
- {
- 	stmmac_dvr_remove(&pdev->dev);
--	pci_free_irq_vectors(pdev);
--	device_set_node(&pdev->dev, NULL);
--	software_node_unregister_node_group(brcm_swnodes);
- }
- 
- static const struct pci_device_id dwxgmac_brcm_id_table[] = {
+ config DWMAC_MOTORCOMM
+ 	tristate "Motorcomm PCI DWMAC support"
+ 	depends on PCI
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+index a99bb0dfe5ab..a50a1bb04b0c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Makefile
++++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+@@ -50,4 +50,5 @@ obj-$(CONFIG_STMMAC_PCI)	+= stmmac-pci.o
+ obj-$(CONFIG_DWMAC_INTEL)	+= dwmac-intel.o
+ obj-$(CONFIG_DWMAC_LOONGSON)	+= dwmac-loongson.o
+ obj-$(CONFIG_DWMAC_MOTORCOMM)	+= dwmac-motorcomm.o
++obj-$(CONFIG_DWMAC_BRCM)       += dwmac-brcm.o
+ stmmac-pci-objs:= stmmac_pci.o
 -- 
 2.34.1
 
