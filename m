@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B8E1093168
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 03:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCC11093174
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 03:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmgQjpi/wNR8vyPtSzI1GJMpPUcUdQy/qqk6xGPKFFE=; b=5EizzSK4CrxOrT8buGxTIf0fcs
-	/JYXu8q0MvW1vYeT/5COZJGb5JHJtXVXxGOX2M1K6j1NYD8QmcDTIMiilnrXWw5dLzEaGj8sLG2Y2
-	k13puGWpK54KndVUy0eqpA+HFs3KwtXtz6gsnZKhV9JJ0WFgEhOchOOeN5rurFFhfzOePWlPNdDf3
-	K8fgHIcsylEwlbgQjWdLCVYNJ8YYWZjQdTVvqokgURVWUkteIquhfEtw3+RUNjeJ0itgfa4AISwKW
-	zc+GuzgndN1gHzSZTRnV3FGoAGhw2jt/8jkSbiAaspg/D8mokwpk1jJk6mVxX01lk7DTI67Q4AbPV
-	7sIGf6fw==;
+	bh=WnALF2XoA7CLU3lEShYH0fiVckTzWi6axE6z0Ueuug4=; b=gdYoQSL6qbz7aIjHQdwff8L0Lf
+	CmA0mdCniAIRL4MWLfhHnYSgDZuaxGL6uM4sg7/gPNQ+Jz4aemJcufG+Ub06eZFa4Rf8IFRt6H1XH
+	aRJonHpof+dI3JY1Lt38byWMfAhdvh+0L6MjJUp7ufTleBTMT9MXJ6ngTjSjO1blaPxi4WOQ+gDcP
+	GETGKvd2MNGnLCFXs5U/XBV9Qg2ndk43Lf+fKV+I8fntN+DQZdZfxRPWo1hK/ek7n0XXaOjjmheKA
+	9vTj4Dq1pJ7R38vctsjPvzgaqm9559274GDMyY6cZdM6JQKh3UNtn5wWlkjIdWlgCNg5rJj6MNabc
+	sZ0X/ofQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QQK-0000000BzzS-0ss3;
-	Fri, 20 Mar 2026 03:21:20 +0000
+	id 1w3QQH-0000000Bzw1-1vDE;
+	Fri, 20 Mar 2026 03:21:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QQ9-0000000Bzqu-3fbG;
-	Fri, 20 Mar 2026 03:21:10 +0000
+	id 1w3QQ7-0000000Bzo8-3jUP;
+	Fri, 20 Mar 2026 03:21:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vmgQjpi/wNR8vyPtSzI1GJMpPUcUdQy/qqk6xGPKFFE=; b=a41eb5rrQCvHy0fUzTeKoCvHX5
-	ldZ5YeKt6Dgx3wzxvkayfxx6BKVKywK0f3Q/u9IAa+yNQz1m70bVsNwoKoCwUIszM+9s1KRbDcicY
-	NWuiRIAEm0ILBb2yg4/9dl5/XhZkjwMBdm9yR9Dg/McaT0l/roe2TAYaLCnYmOVHSaOSw3OTP8UHp
-	6HnPVVO1P8tyfiM6JdWg4o20MuPB7FRRZM/df7eLwYL3Dtv5TNMYattC7EHgwpsgpqOFES6cTOGGP
-	a6VqlnmFK0uKymMUIA5wmF9Zj/R31NmnE46TxZwVkP1hcZ+j1+sSdsrqNTOF0mqbONOiOFMTbLMD1
-	6NXbUdAg==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	bh=WnALF2XoA7CLU3lEShYH0fiVckTzWi6axE6z0Ueuug4=; b=LXyG3tJE+tLGB3ugSQF9DJQlAj
+	WO8iKvCwEPOCyM010LITVqm3RnO+G/yJqRPF3nb9kX/gFXkfm6aMKS3Xwux57bGzpJCjxARfWtmlH
+	5+pKyRdbnsI6Jr7Rmlwad9Rv01I93dZx7x4SSotGZ/39y1GGfJ7iZ5CuJ8q2EG2KD6Pulm2+glEoV
+	5G10aArB4h/O0UkORmWxUfd0A7XC5z6Jab4fMv67HclVkYzINmgX6wML1VY0BvEQ0zrL81SBLHxYV
+	zE/PCvJKLnJzgdsryzgifGwwbyWMIfkRgAIVDMYFsHrfhnqwP9AF4QowFTa9AHhMtNtn2BIVX8lZg
+	hEGV3jQA==;
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3QQ6-0000000Er30-0VTg;
-	Fri, 20 Mar 2026 03:21:08 +0000
-X-UUID: d071a5b4240b11f19e7563141e833ce8-20260319
+	id 1w3QQ3-0000000EqzU-2lI8;
+	Fri, 20 Mar 2026 03:21:06 +0000
+X-UUID: cf5644f0240b11f1a6de359d7043e138-20260319
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=vmgQjpi/wNR8vyPtSzI1GJMpPUcUdQy/qqk6xGPKFFE=;
-	b=gXcUR/1+5lS76oySxPkgX7hmrOBwLQp5sQ80hvlY7euT1q6AeqiGmCROw9tKhVdtZTaN6J9T8XmRpMa9HLLbGq9wHHfoXhx/smqmmYrHMIQYDxDiCXeuAjebiFlQRNoXupftu86AFoM8u59Xzek4T6oz7B0vLiKkxCeAa8faArk=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=WnALF2XoA7CLU3lEShYH0fiVckTzWi6axE6z0Ueuug4=;
+	b=GDqx7vXceTKWCt7xDOhTq4XEVAmCwZ4yr6LThtWjoFwQGcdELgAnRZK2WeMqPFSQq0BS4GkT7jU7Vt/E4mZjM+arGKJBvhxD6AqWTW9by8Ol5s0F110MGaou/l3z/SsQKwN+tqXfb3h0+QvFL4ggKvXdZ9eZeKKAcgzzbSGLO8E=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:c631aa95-a0ff-4ffa-bb56-ee73bc9d55f9,IP:0,U
+X-CID-O-INFO: VERSION:1.3.12,REQID:4109a7ed-dacd-47f9-8031-b0eda8d50f15,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:0a1bb54c-9183-487b-8624-e74f2dd98990,B
+X-CID-META: VersionHash:e7bac3a,CLOUDID:038fe916-aa6b-4b2e-be76-373ef1a42b04,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
 	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -56,34 +56,34 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d071a5b4240b11f19e7563141e833ce8-20260319
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+X-UUID: cf5644f0240b11f1a6de359d7043e138-20260319
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
 	(envelope-from <xiangzhi.tang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1134033578; Thu, 19 Mar 2026 20:20:58 -0700
+	with ESMTP id 1429274260; Thu, 19 Mar 2026 20:20:56 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 20 Mar 2026 11:20:55 +0800
+ 15.2.2562.29; Fri, 20 Mar 2026 11:20:53 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 20 Mar 2026 11:20:54 +0800
+ 15.2.2562.29 via Frontend Transport; Fri, 20 Mar 2026 11:20:52 +0800
 From: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
 To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
 	<angelogioacchino.delregno@collabora.com>, Xiangzhi Tang
 	<Xiangzhi.Tang@mediatek.com>
 CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Hailong Fan
-	<Hailong.Fan@mediatek.com>, Huayu Zong <huayu.Zong@mediatek.com>, Xiangzhi
- Tang <xiangzhi.tang@mediatek.com>
-Subject: [PATCH v3 4/6] remoteproc: mediatek: Add VCP ipi-mbox init driver
-Date: Fri, 20 Mar 2026 11:18:06 +0800
-Message-ID: <20260320032014.13608-5-xiangzhi.tang@mediatek.com>
+	<Hailong.Fan@mediatek.com>, Huayu Zong <huayu.Zong@mediatek.com>, "Xiangzhi
+ Tang" <xiangzhi.tang@mediatek.com>
+Subject: [PATCH v3 2/6] remoteproc: Mediatek: Add VCP remoteproc driver
+Date: Fri, 20 Mar 2026 11:18:04 +0800
+Message-ID: <20260320032014.13608-3-xiangzhi.tang@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260320032014.13608-1-xiangzhi.tang@mediatek.com>
 References: <20260320032014.13608-1-xiangzhi.tang@mediatek.com>
@@ -91,8 +91,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_032106_648047_C7B0A272 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20260320_032104_324820_58399374 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,310 +107,1252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add VCP ipi-mbox init driver.
+1.Support rproc mechanism to load vcm firmware from filesystem
+2.Support SMC services to request ATF to setting vcp boot sequence
 
 Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
 ---
- drivers/remoteproc/Kconfig                |  2 +
- drivers/remoteproc/mtk_vcp_rproc.c        | 98 +++++++++++++++++++++++
- drivers/remoteproc/mtk_vcp_rproc.h        |  6 ++
- include/linux/remoteproc/mtk_vcp_public.h | 55 +++++++++++++
- 4 files changed, 161 insertions(+)
+ drivers/remoteproc/Kconfig                |  10 +
+ drivers/remoteproc/Makefile               |   3 +
+ drivers/remoteproc/mtk_vcp_common.c       | 461 ++++++++++++++++++++++
+ drivers/remoteproc/mtk_vcp_common.h       | 217 ++++++++++
+ drivers/remoteproc/mtk_vcp_rproc.c        | 325 +++++++++++++++
+ drivers/remoteproc/mtk_vcp_rproc.h        |  69 ++++
+ include/linux/remoteproc/mtk_vcp_public.h |  78 ++++
+ include/linux/soc/mediatek/mtk_sip_svc.h  |   2 +
+ 8 files changed, 1165 insertions(+)
+ create mode 100644 drivers/remoteproc/mtk_vcp_common.c
+ create mode 100644 drivers/remoteproc/mtk_vcp_common.h
+ create mode 100644 drivers/remoteproc/mtk_vcp_rproc.c
+ create mode 100644 drivers/remoteproc/mtk_vcp_rproc.h
+ create mode 100644 include/linux/remoteproc/mtk_vcp_public.h
 
 diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
-index 93827f6fd3c5..54b416db0c0b 100644
+index ee54436fea5a..93827f6fd3c5 100644
 --- a/drivers/remoteproc/Kconfig
 +++ b/drivers/remoteproc/Kconfig
-@@ -70,6 +70,8 @@ config MTK_VCP_RPROC
- 	tristate "MediaTek VCP support"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
- 	depends on ARCH_DMA_ADDR_T_64BIT
-+	select MTK_VCP_IPC
-+	select MTK_VCP_MBOX
- 	help
- 	  Say y here to support MediaTek's Video Companion Processor (VCP) via
- 	  the remote processor framework.
-diff --git a/drivers/remoteproc/mtk_vcp_rproc.c b/drivers/remoteproc/mtk_vcp_rproc.c
-index bcb5f3786cf7..6e0fecef72ce 100644
---- a/drivers/remoteproc/mtk_vcp_rproc.c
-+++ b/drivers/remoteproc/mtk_vcp_rproc.c
-@@ -5,6 +5,7 @@
+@@ -66,6 +66,16 @@ config MTK_SCP
  
- #include <linux/device.h>
- #include <linux/module.h>
-+#include <linux/iopoll.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_platform.h>
-@@ -54,6 +55,18 @@ void vcp_put(struct mtk_vcp_device *vcp)
- }
- EXPORT_SYMBOL_GPL(vcp_put);
+ 	  It's safe to say N here.
  
-+/**
-+ * vcp_get_ipidev() - get a vcp ipi device struct to reference vcp ipi.
-+ *
-+ * @vcp: mtk_vcp_device structure from vcp_get().
-+ *
-+ **/
-+struct mtk_ipi_device *vcp_get_ipidev(struct mtk_vcp_device *vcp)
-+{
-+	return vcp->ipi_dev;
-+}
-+EXPORT_SYMBOL_GPL(vcp_get_ipidev);
++config MTK_VCP_RPROC
++	tristate "MediaTek VCP support"
++	depends on ARCH_MEDIATEK || COMPILE_TEST
++	depends on ARCH_DMA_ADDR_T_64BIT
++	help
++	  Say y here to support MediaTek's Video Companion Processor (VCP) via
++	  the remote processor framework.
 +
- static int mtk_vcp_start(struct rproc *rproc)
- {
- 	struct mtk_vcp_device *vcp = (struct mtk_vcp_device *)rproc->priv;
-@@ -93,6 +106,34 @@ static const struct rproc_ops mtk_vcp_ops = {
- 	.stop		= mtk_vcp_stop,
- };
- 
-+static int vcp_ipi_mbox_init(struct mtk_vcp_device *vcp)
++	  It's safe to say N here.
++
+ config OMAP_REMOTEPROC
+ 	tristate "OMAP remoteproc support"
+ 	depends on ARCH_OMAP4 || SOC_OMAP5 || SOC_DRA7XX
+diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
+index 1c7598b8475d..ad48d85c5019 100644
+--- a/drivers/remoteproc/Makefile
++++ b/drivers/remoteproc/Makefile
+@@ -15,6 +15,9 @@ obj-$(CONFIG_IMX_REMOTEPROC)		+= imx_rproc.o
+ obj-$(CONFIG_IMX_DSP_REMOTEPROC)	+= imx_dsp_rproc.o
+ obj-$(CONFIG_INGENIC_VPU_RPROC)		+= ingenic_rproc.o
+ obj-$(CONFIG_MTK_SCP)			+= mtk_scp.o mtk_scp_ipi.o
++obj-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp.o
++mtk_vcp-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp_rproc.o
++mtk_vcp-$(CONFIG_MTK_VCP_RPROC)		+= mtk_vcp_common.o
+ obj-$(CONFIG_OMAP_REMOTEPROC)		+= omap_remoteproc.o
+ obj-$(CONFIG_WKUP_M3_RPROC)		+= wkup_m3_rproc.o
+ obj-$(CONFIG_DA8XX_REMOTEPROC)		+= da8xx_remoteproc.o
+diff --git a/drivers/remoteproc/mtk_vcp_common.c b/drivers/remoteproc/mtk_vcp_common.c
+new file mode 100644
+index 000000000000..97ea8099912d
+--- /dev/null
++++ b/drivers/remoteproc/mtk_vcp_common.c
+@@ -0,0 +1,461 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2025 MediaTek Corporation. All rights reserved.
++ */
++
++#include <linux/device.h>
++#include <linux/delay.h>
++#include <linux/dma-buf.h>
++#include <linux/dma-heap.h>
++#include <linux/dma-mapping.h>
++#include <linux/fs.h>
++#include <linux/interrupt.h>
++#include <linux/iommu.h>
++#include <linux/iopoll.h>
++#include <linux/kernel.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_fdt.h>
++#include <linux/of_reserved_mem.h>
++#include <linux/slab.h>
++#include <uapi/linux/dma-heap.h>
++
++#include "mtk_vcp_common.h"
++#include "mtk_vcp_rproc.h"
++
++phys_addr_t vcp_get_reserve_mem_phys(struct mtk_vcp_device *vcp,
++				     enum vcp_reserve_mem_id id)
 +{
-+	struct mtk_vcp_ipc *vcp_ipc;
-+	struct platform_device *pdev;
++	if (id >= 0 && id < NUMS_MEM_ID)
++		return vcp->vcp_cluster->vcp_memory_tb[id].phys;
++
++	return 0;
++}
++
++dma_addr_t vcp_get_reserve_mem_iova(struct mtk_vcp_device *vcp,
++				    enum vcp_reserve_mem_id id)
++{
++	if (id >= 0 && id < NUMS_MEM_ID)
++		return vcp->vcp_cluster->vcp_memory_tb[id].iova;
++
++	return 0;
++}
++
++void __iomem *vcp_get_reserve_mem_virt(struct mtk_vcp_device *vcp,
++				       enum vcp_reserve_mem_id id)
++{
++	if (id >= 0 && id < NUMS_MEM_ID)
++		return vcp->vcp_cluster->vcp_memory_tb[id].virt;
++
++	return NULL;
++}
++
++size_t vcp_get_reserve_mem_size(struct mtk_vcp_device *vcp,
++				enum vcp_reserve_mem_id id)
++{
++	if (id >= 0 && id < NUMS_MEM_ID)
++		return vcp->vcp_cluster->vcp_memory_tb[id].size;
++
++	return 0;
++}
++
++void __iomem *vcp_get_internal_sram_virt(struct mtk_vcp_device *vcp)
++{
++	return vcp->vcp_cluster->sram_base;
++}
++
++int vcp_reserve_memory_init(struct mtk_vcp_device *vcp)
++{
++	struct device_node *rmem_node;
++	struct resource res;
++	struct iommu_domain *domain;
++	void __iomem *share_memory_virt;
++	void __iomem *rtos_memory_virt;
++	phys_addr_t mblock_phys;
++	phys_addr_t share_memory_phys;
++	dma_addr_t share_memory_iova;
++	size_t mblock_size;
++	size_t share_memory_size;
++	enum vcp_reserve_mem_id id;
++	u32 offset;
 +	int ret;
 +
-+	pdev = platform_device_register_data(vcp->dev, "mtk-vcp-ipc",
-+					     PLATFORM_DEVID_NONE,
-+					     vcp->platdata->ipc_data,
-+					     sizeof(struct mtk_mbox_table));
-+	if (IS_ERR(pdev))
-+		return dev_err_probe(vcp->dev, PTR_ERR(pdev), "ipc_data register failed\n");
++	rmem_node = of_parse_phandle(vcp->dev->of_node, "memory-region", 0);
++	if (!rmem_node)
++		return dev_err_probe(vcp->dev, -ENODEV, "No reserved memory-region found.\n");
 +
-+	ret = read_poll_timeout_atomic(dev_get_drvdata,
-+				       vcp_ipc, vcp_ipc,
-+				       USEC_PER_MSEC,
-+				       VCP_IPI_DEV_READY_TIMEOUT * USEC_PER_MSEC,
-+				       false, &pdev->dev);
++	ret = of_address_to_resource(rmem_node, 0, &res);
 +	if (ret)
-+		return dev_err_probe(vcp->dev, -EPROBE_DEFER, "get vcp_ipc drvdata failed\n");
++		return dev_err_probe(vcp->dev, ret, "failed to parse reserved memory\n");
 +
-+	ret = mtk_vcp_ipc_device_register(vcp->ipi_dev, VCP_IPI_COUNT, vcp_ipc);
++	mblock_phys = (phys_addr_t)res.start;
++	mblock_size = (size_t)resource_size(&res);
++
++	offset = 0;
++	for (id = 0; id < NUMS_MEM_ID; id++) {
++		vcp->vcp_cluster->vcp_memory_tb[id].phys = mblock_phys + offset;
++		vcp->vcp_cluster->vcp_memory_tb[id].size = vcp->platdata->memory_tb[id].size;
++		offset += vcp->vcp_cluster->vcp_memory_tb[id].size;
++	}
++	if (offset > mblock_size)
++		return dev_err_probe(vcp->dev, -EINVAL, "No enough reserved memory to alloc");
++
++	share_memory_size = offset - vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].size;
++	share_memory_phys = vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].phys +
++			    vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].size;
++
++	rtos_memory_virt = devm_ioremap(vcp->dev,
++					vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].phys,
++					vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].size);
++	domain = iommu_get_domain_for_dev(vcp->dev);
++	ret = iommu_map(domain, vcp->platdata->rtos_static_iova,
++			vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].phys,
++			vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].size,
++			IOMMU_READ | IOMMU_WRITE | IOMMU_PRIV, GFP_KERNEL);
 +	if (ret)
-+		dev_err_probe(vcp->dev, ret, "ipi_dev register failed, ret %d\n", ret);
++		return dev_err_probe(vcp->dev, ret, "iommu map failed\n");
++
++	vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].virt = rtos_memory_virt;
++	vcp->vcp_cluster->vcp_memory_tb[VCP_RTOS_MEM_ID].iova = vcp->platdata->rtos_static_iova;
++
++	ret = dma_set_mask_and_coherent(vcp->dev, DMA_BIT_MASK(DMA_MAX_MASK_BIT));
++	if (ret)
++		return dev_err_probe(vcp->dev, ret, "64-bit DMA enable failed\n");
++
++	if (!vcp->dev->dma_parms) {
++		vcp->dev->dma_parms = devm_kzalloc(vcp->dev,
++						   sizeof(*vcp->dev->dma_parms),
++						   GFP_KERNEL);
++		if (vcp->dev->dma_parms)
++			dma_set_max_seg_size(vcp->dev, (u32)DMA_BIT_MASK(33));
++		else
++			return dev_err_probe(vcp->dev, -EINVAL, "Failed to set DMA parms\n");
++	}
++	share_memory_virt = dma_alloc_coherent(vcp->dev,
++					       share_memory_size,
++					       &share_memory_iova,
++					       GFP_KERNEL);
++	if (!share_memory_virt)
++		return dev_err_probe(vcp->dev, -EINVAL, "dma_alloc_coherent failed\n");
++
++	offset = 0;
++	for (id = VCP_RTOS_MEM_ID + 1; id < NUMS_MEM_ID; id++)  {
++		vcp->vcp_cluster->vcp_memory_tb[id].phys = share_memory_phys + offset;
++		vcp->vcp_cluster->vcp_memory_tb[id].iova = share_memory_iova + offset;
++		vcp->vcp_cluster->vcp_memory_tb[id].virt = share_memory_virt + offset;
++		offset += (u32)vcp->vcp_cluster->vcp_memory_tb[id].size;
++	}
++
++	vcp->vcp_cluster->share_mem_iova = share_memory_iova;
++	vcp->vcp_cluster->share_mem_size = share_memory_size;
++
++	return 0;
++}
++
++int wait_core_hart_shutdown(struct mtk_vcp_device *vcp,
++			    enum vcp_core_id core_id)
++{
++	u32 hart0;
++	u32 hart1;
++	bool twohart_support;
++	int ret;
++
++	twohart_support = vcp->vcp_cluster->twohart[core_id];
++
++	switch (core_id) {
++	case VCP_ID:
++		ret = readl_poll_timeout(vcp->vcp_cluster->cfg + VCP_C0_GPR5_H0_REBOOT,
++					 hart0, (hart0 & CORE_RDY_TO_REBOOT),
++					 USEC_PER_MSEC,
++					 CORE_HART_SHUTDOWN_TIMEOUT_MS * USEC_PER_MSEC);
++		if (ret) {
++			dev_err(vcp->dev, "VCP_ID hart0 shutdown timeout\n");
++			return ret;
++		}
++
++		if (twohart_support) {
++			ret = readl_poll_timeout(vcp->vcp_cluster->cfg + VCP_C0_GPR6_H1_REBOOT,
++						 hart1, (hart1 & CORE_RDY_TO_REBOOT),
++						 USEC_PER_MSEC,
++						 CORE_HART_SHUTDOWN_TIMEOUT_MS * USEC_PER_MSEC);
++			if (ret) {
++				dev_err(vcp->dev, "VCP_ID hart1 shutdown timeout\n");
++				return ret;
++			}
++		}
++		break;
++	case MMUP_ID:
++		ret = readl_poll_timeout(vcp->vcp_cluster->cfg + VCP_C1_GPR5_H0_REBOOT,
++					 hart0, (hart0 & CORE_RDY_TO_REBOOT),
++					 USEC_PER_MSEC,
++					 CORE_HART_SHUTDOWN_TIMEOUT_MS * USEC_PER_MSEC);
++		if (ret) {
++			dev_err(vcp->dev, "MMUP_ID hart0 shutdown timeout\n");
++			return ret;
++		}
++
++		if (twohart_support) {
++			ret = readl_poll_timeout(vcp->vcp_cluster->cfg + VCP_C1_GPR6_H1_REBOOT,
++						 hart1, (hart1 & CORE_RDY_TO_REBOOT),
++						 USEC_PER_MSEC,
++						 CORE_HART_SHUTDOWN_TIMEOUT_MS * USEC_PER_MSEC);
++			if (ret) {
++				dev_err(vcp->dev, "MMUP_ID hart1 shutdown timeout\n");
++				return ret;
++			}
++		}
++		break;
++	default:
++		ret = -EINVAL;
++		dev_err(vcp->dev, "%s(), No Support core id\n", __func__);
++		break;
++	}
 +
 +	return ret;
 +}
 +
- static int vcp_multi_core_init(struct platform_device *pdev,
- 			       struct mtk_vcp_of_cluster *vcp_cluster,
- 			       enum vcp_core_id core_id)
-@@ -138,7 +179,9 @@ static struct mtk_vcp_device *vcp_rproc_init(struct platform_device *pdev,
- 	vcp->dev = dev;
- 	vcp->ops = &vcp_of_data->ops;
- 	vcp->platdata = &vcp_of_data->platdata;
-+	vcp->ipi_ops = vcp_of_data->platdata.ipi_ops;
- 	vcp->vcp_cluster = vcp_cluster;
-+	vcp->ipi_dev = &vcp_cluster->vcp_ipidev;
- 
- 	rproc->auto_boot = vcp_of_data->platdata.auto_boot;
- 	rproc->sysfs_read_only = vcp_of_data->platdata.sysfs_read_only;
-@@ -166,6 +209,10 @@ static struct mtk_vcp_device *vcp_rproc_init(struct platform_device *pdev,
- 	if (ret)
- 		return ERR_PTR(dev_err_probe(dev, ret, "vcp_wdt_irq_init failed\n"));
- 
-+	ret = vcp_ipi_mbox_init(vcp);
++int reset_vcp(struct mtk_vcp_device *vcp)
++{
++	struct arm_smccc_res res;
++
++	if (vcp->vcp_cluster->core_nums > MMUP_ID) {
++		writel((u32)VCP_PACK_IOVA(vcp->vcp_cluster->share_mem_iova),
++		       vcp->vcp_cluster->cfg + VCP_C1_GPR1_DRAM_RESV_ADDR);
++		writel((u32)vcp->vcp_cluster->share_mem_size,
++		       vcp->vcp_cluster->cfg + VCP_C1_GPR2_DRAM_RESV_SIZE);
++
++		arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++			      MTK_TINYSYS_MMUP_KERNEL_OP_RESET_RELEASE,
++			      1, 0, 0, 0, 0, 0, &res);
++	}
++
++	writel((u32)VCP_PACK_IOVA(vcp->vcp_cluster->share_mem_iova),
++	       vcp->vcp_cluster->cfg + VCP_C0_GPR1_DRAM_RESV_ADDR);
++	writel((u32)vcp->vcp_cluster->share_mem_size,
++	       vcp->vcp_cluster->cfg + VCP_C0_GPR2_DRAM_RESV_SIZE);
++
++	arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++		      MTK_TINYSYS_VCP_KERNEL_OP_RESET_RELEASE,
++		      1, 0, 0, 0, 0, 0, &res);
++
++	return 0;
++}
++
++static size_t load_part_binary(void __iomem *image_buf,
++			       const u8 *fw_src,
++			       size_t size,
++			       const char *part_bin_name)
++{
++	const u8 *fw_ptr = fw_src;
++	u32 offset;
++	u32 align_size;
++	const struct mtk_vcp_img_hdr *img_hdr_info;
++
++	if (!fw_src || !image_buf || size < VCP_IMAGE_HEADER_SIZE)
++		return 0;
++
++	offset = 0;
++	while (offset < size) {
++		img_hdr_info = (const struct mtk_vcp_img_hdr *)(fw_ptr + offset);
++		align_size = round_up(img_hdr_info->dsz, ALIGN_16);
++		offset += VCP_IMAGE_HEADER_SIZE;
++		if (img_hdr_info->magic != VCM_IMAGE_MAGIC ||
++		    strncmp(img_hdr_info->name, part_bin_name, VCM_IMAGE_NAME_MAXSZ - 1)) {
++			offset += align_size;
++		} else {
++			memcpy_toio(image_buf, fw_ptr + offset, img_hdr_info->dsz);
++			offset += align_size;
++			return img_hdr_info->dsz;
++		}
++	}
++
++	return 0;
++}
++
++static int load_vcp_bin(const u8 *fw_src,
++			size_t size,
++			void __iomem *img_buf_va,
++			phys_addr_t img_buf_pa,
++			dma_addr_t img_buf_iova,
++			struct mtk_vcp_device *vcp)
++{
++	u32 fw_size;
++	u32 dram_img_size;
++	u32 dram_backup_img_offset;
++	struct vcp_region_info_st vcp_region_info = {};
++	struct arm_smccc_res res;
++
++	fw_size = load_part_binary(vcp->vcp_cluster->sram_base +
++				   vcp->vcp_cluster->sram_offset[VCP_ID],
++				   fw_src, size, VCP_HFRP_PART_NAME);
++	if (!fw_size) {
++		dev_err(vcp->dev, "load %s failed\n", VCP_HFRP_PART_NAME);
++		return -EINVAL;
++	}
++
++	dram_img_size = load_part_binary(img_buf_va + VCP_DRAM_IMG_OFFSET,
++					 fw_src, size, VCP_HFRP_DRAM_PART_NAME);
++	if (!dram_img_size) {
++		dev_err(vcp->dev, "load %s failed\n", VCP_HFRP_DRAM_PART_NAME);
++		return -EINVAL;
++	}
++
++	vcp_region_info.struct_size = sizeof(struct vcp_region_info_st);
++
++	dram_backup_img_offset = VCP_DRAM_IMG_OFFSET + round_up(dram_img_size, ALIGN_1024);
++
++	vcp_region_info.ap_dram_start = VCP_PACK_IOVA(img_buf_iova + VCP_DRAM_IMG_OFFSET);
++	vcp_region_info.ap_dram_backup_start = VCP_PACK_IOVA(img_buf_iova + dram_backup_img_offset);
++	vcp_region_info.ap_dram_size = dram_img_size;
++
++	vcp_region_info.l2tcm_offset = vcp->vcp_cluster->sram_offset[MMUP_ID];
++
++	memcpy_toio(vcp->vcp_cluster->sram_base +
++		    vcp->vcp_cluster->sram_offset[VCP_ID] + REGION_OFFSET,
++		    &vcp_region_info, sizeof(vcp_region_info));
++
++	arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++		      MTK_TINYSYS_MMUP_KERNEL_OP_SET_L2TCM_OFFSET,
++		      vcp->vcp_cluster->sram_offset[MMUP_ID],
++		      0, 0, 0, 0, 0, &res);
++
++	return 0;
++}
++
++static int load_mmup_bin(const u8 *fw_src,
++			 size_t size,
++			 void __iomem *img_buf_va,
++			 phys_addr_t img_buf_pa,
++			 dma_addr_t img_buf_iova,
++			 struct mtk_vcp_device *vcp)
++{
++	u32 fw_size;
++	u32 dram_img_size;
++	u32 dram_backup_img_offset;
++	struct vcp_region_info_st vcp_region_info = {};
++	struct arm_smccc_res res;
++
++	fw_size = load_part_binary(vcp->vcp_cluster->sram_base +
++				   vcp->vcp_cluster->sram_offset[MMUP_ID],
++				   fw_src, size, VCP_MMUP_PART_NAME);
++	if (!fw_size) {
++		dev_err(vcp->dev, "load %s failed\n", VCP_MMUP_PART_NAME);
++		return -EINVAL;
++	}
++
++	dram_img_size = load_part_binary(img_buf_va + MMUP_DRAM_IMG_OFFSET, fw_src, size,
++					 VCP_MMUP_DRAM_PART_NAME);
++	if (!dram_img_size) {
++		dev_err(vcp->dev, "load %s failed\n", VCP_MMUP_DRAM_PART_NAME);
++		return -EINVAL;
++	}
++
++	vcp_region_info.struct_size = sizeof(struct vcp_region_info_st);
++
++	dram_backup_img_offset = MMUP_DRAM_IMG_OFFSET + round_up(dram_img_size, ALIGN_1024);
++	vcp_region_info.ap_dram_start = VCP_PACK_IOVA(img_buf_iova + MMUP_DRAM_IMG_OFFSET);
++	vcp_region_info.ap_dram_backup_start = VCP_PACK_IOVA(img_buf_iova + dram_backup_img_offset);
++	vcp_region_info.ap_dram_size = dram_img_size;
++
++	memcpy_toio(vcp->vcp_cluster->sram_base +
++		    vcp->vcp_cluster->sram_offset[MMUP_ID] + REGION_OFFSET,
++		    &vcp_region_info, sizeof(vcp_region_info));
++
++	arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++		      MTK_TINYSYS_MMUP_KERNEL_OP_SET_FW_SIZE,
++		      fw_size, 0, 0, 0, 0, 0, &res);
++
++	return 0;
++}
++
++int mtk_vcp_load(struct rproc *rproc, const struct firmware *fw)
++{
++	struct arm_smccc_res res;
++	struct mtk_vcp_device *vcp = (struct mtk_vcp_device *)rproc->priv;
++	dma_addr_t img_buf_iova;
++	phys_addr_t img_buf_phys;
++	void __iomem *img_buf_va;
++	int ret;
++
++	if (!vcp) {
++		dev_err(vcp->dev, "vcp device is no exist!\n");
++		return -EINVAL;
++	}
++
++	if (fw->size < VCP_IMAGE_HEADER_SIZE ||
++	    fw->size > vcp->ops->vcp_get_mem_size(vcp, VCP_RTOS_MEM_ID)) {
++		dev_err(vcp->dev, "firmware is oversize/undersize\n");
++		return -EINVAL;
++	}
++
++	writel(0x1, vcp->vcp_cluster->cfg_core + VCP_R_CORE0_SW_RSTN_SET);
++	writel(0x1, vcp->vcp_cluster->cfg_core + VCP_R_CORE1_SW_RSTN_SET);
++
++	memset_io(vcp->vcp_cluster->sram_base, 0, vcp->vcp_cluster->sram_size);
++
++	img_buf_iova = vcp->ops->vcp_get_mem_iova(vcp, VCP_RTOS_MEM_ID);
++	img_buf_phys = vcp->ops->vcp_get_mem_phys(vcp, VCP_RTOS_MEM_ID);
++	img_buf_va = vcp->ops->vcp_get_mem_virt(vcp, VCP_RTOS_MEM_ID);
++
++	arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++		      MTK_TINYSYS_VCP_KERNEL_OP_COLD_BOOT_VCP,
++		      0, 0, 0, 0, 0, 0, &res);
++
++	ret = load_vcp_bin(fw->data, fw->size,
++			   img_buf_va, img_buf_phys,
++			   img_buf_iova, vcp);
++	if (ret) {
++		dev_err(vcp->dev, "load vcp bin failed\n");
++		return -EINVAL;
++	}
++
++	ret = load_mmup_bin(fw->data, fw->size,
++			    img_buf_va, img_buf_phys,
++			    img_buf_iova, vcp);
++	if (ret) {
++		dev_err(vcp->dev, "load mmup bin failed\n");
++		return -EINVAL;
++	}
++
++	return ret;
++}
++
++static irqreturn_t vcp_irq_handler(int irq, void *priv)
++{
++	u32 reg0, reg1;
++	struct mtk_vcp_device *vcp = priv;
++
++	disable_irq_nosync(irq);
++
++	reg0 = readl(vcp->vcp_cluster->cfg_core + R_CORE0_WDT_IRQ);
++	reg1 = vcp->vcp_cluster->core_nums > VCP_ID ?
++	       readl(vcp->vcp_cluster->cfg_core + R_CORE1_WDT_IRQ) : 0;
++
++	if (reg0)
++		writel(B_WDT_IRQ, vcp->vcp_cluster->cfg_core + R_CORE0_WDT_IRQ);
++	if (reg1)
++		writel(B_WDT_IRQ, vcp->vcp_cluster->cfg_core + R_CORE1_WDT_IRQ);
++
++	if (reg0 || reg1)
++		return IRQ_HANDLED;
++
++	return IRQ_NONE;
++}
++
++int vcp_wdt_irq_init(struct mtk_vcp_device *vcp)
++{
++	int ret;
++
++	ret = devm_request_irq(vcp->dev, platform_get_irq(vcp->pdev, 0),
++			       vcp_irq_handler, IRQF_ONESHOT,
++			       vcp->pdev->name, vcp);
 +	if (ret)
-+		return ERR_PTR(dev_err_probe(dev, ret, "vcp_ipi_mbox_init failed\n"));
++		dev_err_probe(vcp->dev, ret, "failed to request wdt irq\n");
 +
- 	pm_runtime_get_sync(dev);
- 
- 	return vcp;
-@@ -284,6 +331,55 @@ static struct mtk_vcp_reserved_mem_table mt8196_memory_tb[NUMS_MEM_ID] = {
- 	{ .memory_id = MMQOS_MEM_ID,        .size = 0x1000 },
- };
- 
-+static struct mtk_mbox_table mt8196_ipc_tb = {
-+	.send_table = {
-+		{ .msg_size = 18, .ipi_id =  0, .mbox_id = 0 },
++	return ret;
++}
 +
-+		{ .msg_size =  8, .ipi_id = 15, .mbox_id = 1 },
-+		{ .msg_size = 18, .ipi_id = 16, .mbox_id = 1 },
-+		{ .msg_size =  2, .ipi_id =  9, .mbox_id = 1 },
++MODULE_AUTHOR("Xiangzhi Tang <xiangzhi.tang@mediatek.com>");
++MODULE_DESCRIPTION("MTK VCP Controller");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/remoteproc/mtk_vcp_common.h b/drivers/remoteproc/mtk_vcp_common.h
+new file mode 100644
+index 000000000000..d048757c955a
+--- /dev/null
++++ b/drivers/remoteproc/mtk_vcp_common.h
+@@ -0,0 +1,217 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ */
 +
-+		{ .msg_size = 18, .ipi_id = 11, .mbox_id = 2 },
-+		{ .msg_size =  2, .ipi_id =  2, .mbox_id = 2 },
-+		{ .msg_size =  3, .ipi_id =  3, .mbox_id = 2 },
-+		{ .msg_size =  2, .ipi_id = 32, .mbox_id = 2 },
++#ifndef __MTK_VCP_COMMON_H
++#define __MTK_VCP_COMMON_H
 +
-+		{ .msg_size =  2, .ipi_id = 33, .mbox_id = 3 },
-+		{ .msg_size =  2, .ipi_id = 13, .mbox_id = 3 },
-+		{ .msg_size =  2, .ipi_id = 35, .mbox_id = 3 },
++#include <linux/arm-smccc.h>
++#include <linux/bitops.h>
++#include <linux/firmware.h>
++#include <linux/soc/mediatek/mtk_sip_svc.h>
++#include <linux/remoteproc/mtk_vcp_public.h>
 +
-+		{ .msg_size =  2, .ipi_id = 20, .mbox_id = 4 },
-+		{ .msg_size =  3, .ipi_id = 21, .mbox_id = 4 },
-+		{ .msg_size =  2, .ipi_id = 23, .mbox_id = 4 }
-+	},
-+	.recv_table = {
-+		{ .recv_opt = 0, .msg_size = 18, .ipi_id =  1, .mbox_id = 0 },
++/* VCP timeout definition */
++#define CORE_HART_SHUTDOWN_TIMEOUT_MS 10
 +
-+		{ .recv_opt = 1, .msg_size =  8, .ipi_id = 15, .mbox_id = 1 },
-+		{ .recv_opt = 0, .msg_size = 18, .ipi_id = 17, .mbox_id = 1 },
-+		{ .recv_opt = 0, .msg_size =  2, .ipi_id = 10, .mbox_id = 1 },
++/* VCP platform definition */
++#define DMA_MAX_MASK_BIT 33
 +
-+		{ .recv_opt = 0, .msg_size = 18, .ipi_id = 12, .mbox_id = 2 },
-+		{ .recv_opt = 0, .msg_size =  1, .ipi_id =  5, .mbox_id = 2 },
-+		{ .recv_opt = 1, .msg_size =  1, .ipi_id =  2, .mbox_id = 2 },
++/* VCP load image definition */
++#define VCM_IMAGE_MAGIC             (0x58881688)
++#define VCM_IMAGE_NAME_MAXSZ        (32)
++#define VCP_IMAGE_HEADER_SIZE       (0x200)
 +
-+		{ .recv_opt = 0, .msg_size =  2, .ipi_id = 34, .mbox_id = 3 },
-+		{ .recv_opt = 0, .msg_size =  2, .ipi_id = 14, .mbox_id = 3 },
++#define VCP_DRAM_IMG_OFFSET         (0x200000)
++#define MMUP_DRAM_IMG_OFFSET        (0x1200000)
 +
-+		{ .recv_opt = 0, .msg_size =  1, .ipi_id = 26, .mbox_id = 4 },
-+		{ .recv_opt = 1, .msg_size =  1, .ipi_id = 20, .mbox_id = 4 }
-+	},
-+	.recv_count = 11,
-+	.send_count = 14,
++#define REGION_OFFSET               (0x4)
++#define ALIGN_1024                  (1024)
++#define ALIGN_16                    (16)
++#define VCP_HFRP_PART_NAME          "tinysys-vcp-RV55_A"
++#define VCP_MMUP_PART_NAME          "tinysys-mmup-RV33_A"
++#define VCP_HFRP_DRAM_PART_NAME     "tinysys-vcp-RV55_A_dram"
++#define VCP_MMUP_DRAM_PART_NAME     "tinysys-mmup-RV33_A_dram"
++
++/* VCP memory iove pack convert definition */
++#define VCP_PACK_IOVA(addr)     ((uint32_t)((addr) | (((uint64_t)(addr) >> 32) & 0xF)))
++#define VCP_UNPACK_IOVA(addr)   \
++	((uint64_t)(addr & 0xFFFFFFF0) | (((uint64_t)(addr) & 0xF) << 32))
++
++/* VCP cfg_core register offset definition */
++#define VCP_R_CORE0_SW_RSTN_SET         (0x0004)
++#define VCP_R_CORE1_SW_RSTN_SET         (0x000C)
++#define R_GIPC_IN_SET                   (0x0028)
++#define R_GIPC_IN_CLR                   (0x002C)
++#define GIPC_MMUP_SHUT                  BIT(10)
++#define GIPC_VCP_HART0_SHUT             BIT(14)
++#define B_GIPC4_SETCLR_3                BIT(19)
++#define R_CORE0_WDT_IRQ                 (0x0050)
++#define R_CORE1_WDT_IRQ                 (0x0054)
++#define B_WDT_IRQ                       BIT(0)
++#define AP_R_GPR2                       (0x0068)
++#define B_CORE0_SUSPEND                 BIT(0)
++#define B_CORE0_RESUME                  BIT(1)
++#define AP_R_GPR3                       (0x006C)
++#define B_CORE1_SUSPEND                 BIT(0)
++#define B_CORE1_RESUME                  BIT(1)
++
++/* VCP cfg register offset definition */
++#define R_CORE0_STATUS                  (0x6070)
++#define B_CORE_GATED                    BIT(0)
++#define B_HART0_HALT                    BIT(1)
++#define B_HART1_HALT                    BIT(2)
++#define B_CORE_AXIS_BUSY                BIT(4)
++#define R_CORE1_STATUS                  (0x9070)
++#define VCP_C0_GPR0_SUSPEND_RESUME      (0x6040)
++#define VCP_C0_GPR1_DRAM_RESV_ADDR      (0x6044)
++#define VCP_C0_GPR2_DRAM_RESV_SIZE      (0x6048)
++#define VCP_C0_GPR3_DRAM_RESV_LOGGER    (0x604C)
++#define VCP_C0_GPR5_H0_REBOOT           (0x6054)
++#define CORE_RDY_TO_REBOOT              (0x0034)
++#define VCP_C0_GPR6_H1_REBOOT           (0x6058)
++#define VCP_C1_GPR0_SUSPEND_RESUME      (0x9040)
++#define VCP_C1_GPR1_DRAM_RESV_ADDR      (0x9044)
++#define VCP_C1_GPR2_DRAM_RESV_SIZE      (0x9048)
++#define VCP_C1_GPR3_DRAM_RESV_LOGGER    (0x904C)
++#define VCP_C1_GPR5_H0_REBOOT           (0x9054)
++#define VCP_C1_GPR6_H1_REBOOT           (0x9058)
++
++/* VCP cfg_sec register offset definition */
++#define R_GPR2_SEC                      (0x0008)
++#define MMUP_AP_SUSPEND                 BIT(0)
++#define R_GPR3_SEC                      (0x000C)
++#define VCP_AP_SUSPEND                  BIT(0)
++
++enum vcp_core_id {
++	VCP_ID = 0,
++	MMUP_ID,
++	VCP_CORE_TOTAL,
 +};
 +
-+static struct mtk_vcp_ipi_ops mt8196_vcp_ipi_ops = {
-+	.ipi_send = mtk_vcp_ipc_send,
-+	.ipi_send_compl = mtk_vcp_ipc_send_compl,
-+	.ipi_register = mtk_vcp_mbox_ipc_register,
-+	.ipi_unregister = mtk_vcp_mbox_ipc_unregister,
++enum mtk_tinysys_vcp_kernel_op {
++	MTK_TINYSYS_VCP_KERNEL_OP_RESET_SET = 0,
++	MTK_TINYSYS_VCP_KERNEL_OP_RESET_RELEASE,
++	MTK_TINYSYS_VCP_KERNEL_OP_COLD_BOOT_VCP,
++	MTK_TINYSYS_MMUP_KERNEL_OP_RESET_SET,
++	MTK_TINYSYS_MMUP_KERNEL_OP_RESET_RELEASE,
++	MTK_TINYSYS_MMUP_KERNEL_OP_SET_L2TCM_OFFSET,
++	MTK_TINYSYS_MMUP_KERNEL_OP_SET_FW_SIZE,
++	MTK_TINYSYS_MMUP_KERNEL_OP_COLD_BOOT_MMUP,
++	MTK_TINYSYS_VCP_KERNEL_OP_NUM,
 +};
 +
- static const struct mtk_vcp_of_data mt8196_of_data = {
- 	.ops = {
- 		.vcp_get_mem_phys = vcp_get_reserve_mem_phys,
-@@ -296,6 +392,8 @@ static const struct mtk_vcp_of_data mt8196_of_data = {
- 		.auto_boot = true,
- 		.sysfs_read_only = true,
- 		.rtos_static_iova = 0x180600000,
-+		.ipc_data = &mt8196_ipc_tb,
-+		.ipi_ops = &mt8196_vcp_ipi_ops,
- 		.feature_tb = mt8196_feature_tb,
- 		.memory_tb = mt8196_memory_tb,
- 		.fw_name = "mediatek/mt8196/vcp.img",
++/**
++ * struct mtk_vcp_img_hdr - mtk image header format.
++ *
++ * @magic: mtk vcp image magic id
++ * @dsz: mtk vcp image part binary size
++ * @name: mtk vcp image part binary parttion name
++ */
++struct mtk_vcp_img_hdr {
++	u32 magic;
++	u32 dsz;
++	char name[VCM_IMAGE_NAME_MAXSZ];
++};
++
++/**
++ * struct mtk_vcp_feature_table - feature table structure definition.
++ *
++ * @feature_id: feature id
++ * @core_id: feature using vcp core id
++ */
++struct mtk_vcp_feature_table {
++	enum vcp_feature_id feature_id;
++	enum vcp_core_id core_id;
++};
++
++/**
++ * struct mtk_vcp_reserved_mem_table - memory table structure definition.
++ *
++ * @memory_id: memory_id id
++ * @size: predistribution memory size
++ */
++struct mtk_vcp_reserved_mem_table {
++	enum vcp_reserve_mem_id memory_id;
++	size_t size;
++};
++
++/**
++ * struct vcp_reserve_mblock - vcp reserved memory structure.
++ *
++ * @vcp_reserve_mem_id: reserved memory id
++ * @phys: reserved memory phy addr
++ * @iova: reserved memory dma map addr
++ * @virt: reserved memory CPU virt addr
++ * @size: reserved memory size
++ */
++struct vcp_reserve_mblock {
++	enum vcp_reserve_mem_id num;
++	phys_addr_t phys;
++	dma_addr_t iova;
++	void __iomem *virt;
++	size_t size;
++};
++
++/**
++ * struct vcp_region_info_st - config vcp image info sync to vcp bootloader.
++ *
++ * @ap_loader_start: config vcp bootloader to copy loader start addr
++ * @ap_loader_size: config vcp bootloader to copy loader size
++ * @ap_firmware_start: config vcp bootloader to copy firmware start addr
++ * @ap_firmware_size: config vcp bootloader to copy firmware size
++ * @ap_dram_start: config vcp run dram binary start addr
++ * @ap_dram_size: config vcp run dram binary size
++ * @ap_dram_backup_start: config vcp backup dram binary start addr
++ * @struct_size: vcp image region info structure size
++ * @l2tcm_offset: vcp two core using l2sram layout
++ * @TaskContext_ptr: vcp task context ptr for debug
++ * @vcpctl: - vcp control info
++ * @regdump_start: regdump start addr for debug
++ * @regdump_size: regdump size for debug
++ * @ap_params_start: params start addr
++ * @sramlog_buf_offset: sramlog_buf_offset for debug
++ * @sramlog_end_idx_offset: sramlog_end_idx_offset for debug
++ * @sramlog_buf_maxlen: sramlog_buf_maxlen for debug
++ * @ap_loader_start_pa: config vcp bootloader for loader start pa
++ * @coredump_offset: coredump_offset offset for debug
++ * @coredump_dram_offset: coredump_dram_offset offset for debug
++ */
++struct vcp_region_info_st {
++	u32 ap_loader_start;
++	u32 ap_loader_size;
++	u32 ap_firmware_start;
++	u32 ap_firmware_size;
++	u32 ap_dram_start;
++	u32 ap_dram_size;
++	u32 ap_dram_backup_start;
++	u32 struct_size;
++	u32 l2tcm_offset;
++	u32 TaskContext_ptr;
++	u32 vcpctl;
++	u32 regdump_start;
++	u32 regdump_size;
++	u32 ap_params_start;
++	u32 sramlog_buf_offset;
++	u32 sramlog_end_idx_offset;
++	u32 sramlog_buf_maxlen;
++	u32 ap_loader_start_pa;
++	u32 coredump_offset;
++	u32 coredump_dram_offset;
++};
++
++int vcp_reserve_memory_init(struct mtk_vcp_device *vcp);
++phys_addr_t vcp_get_reserve_mem_phys(struct mtk_vcp_device *vcp, enum vcp_reserve_mem_id id);
++dma_addr_t vcp_get_reserve_mem_iova(struct mtk_vcp_device *vcp, enum vcp_reserve_mem_id id);
++size_t vcp_get_reserve_mem_size(struct mtk_vcp_device *vcp, enum vcp_reserve_mem_id id);
++void __iomem *vcp_get_reserve_mem_virt(struct mtk_vcp_device *vcp, enum vcp_reserve_mem_id id);
++void __iomem *vcp_get_internal_sram_virt(struct mtk_vcp_device *vcp);
++
++int reset_vcp(struct mtk_vcp_device *vcp);
++int mtk_vcp_load(struct rproc *rproc, const struct firmware *fw);
++
++int vcp_wdt_irq_init(struct mtk_vcp_device *vcp);
++
++int wait_core_hart_shutdown(struct mtk_vcp_device *vcp, enum vcp_core_id core_id);
++#endif
+diff --git a/drivers/remoteproc/mtk_vcp_rproc.c b/drivers/remoteproc/mtk_vcp_rproc.c
+new file mode 100644
+index 000000000000..bcb5f3786cf7
+--- /dev/null
++++ b/drivers/remoteproc/mtk_vcp_rproc.c
+@@ -0,0 +1,325 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2025 MediaTek Corporation. All rights reserved.
++ */
++
++#include <linux/device.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/remoteproc.h>
++
++#include "mtk_vcp_common.h"
++#include "mtk_vcp_rproc.h"
++#include "remoteproc_internal.h"
++
++/**
++ * vcp_get() - get a reference to VCP.
++ *
++ * @pdev: the platform device of the module requesting VCP platform
++ *        device for using VCP API.
++ *
++ * Return: Return NULL if failed.  otherwise reference to VCP.
++ **/
++struct mtk_vcp_device *vcp_get(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *vcp_node;
++	struct platform_device *vcp_pdev;
++
++	vcp_node = of_parse_phandle(dev->of_node, "mediatek,vcp", 0);
++	if (!vcp_node) {
++		dev_err(dev, "can't get VCP node\n");
++		return NULL;
++	}
++
++	vcp_pdev = of_find_device_by_node(vcp_node);
++	of_node_put(vcp_node);
++
++	if (WARN_ON(!vcp_pdev)) {
++		dev_err(dev, "VCP pdev failed\n");
++		return NULL;
++	}
++
++	return platform_get_drvdata(vcp_pdev);
++}
++EXPORT_SYMBOL_GPL(vcp_get);
++
++void vcp_put(struct mtk_vcp_device *vcp)
++{
++	put_device(vcp->dev);
++}
++EXPORT_SYMBOL_GPL(vcp_put);
++
++static int mtk_vcp_start(struct rproc *rproc)
++{
++	struct mtk_vcp_device *vcp = (struct mtk_vcp_device *)rproc->priv;
++	struct arm_smccc_res res;
++
++	/* core 0 */
++	arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++		      MTK_TINYSYS_VCP_KERNEL_OP_RESET_SET,
++		      1, 0, 0, 0, 0, 0, &res);
++
++	/* core 1 */
++	arm_smccc_smc(MTK_SIP_TINYSYS_VCP_CONTROL,
++		      MTK_TINYSYS_MMUP_KERNEL_OP_RESET_SET,
++		      1, 0, 0, 0, 0, 0, &res);
++
++	ret = reset_vcp(vcp);
++	if (ret)
++		dev_err(vcp->dev, "bootup fail\n");
++	else
++		dev_info(vcp->dev, "bootup successfully\n");
++
++	return ret;
++}
++
++static int mtk_vcp_stop(struct rproc *rproc)
++{
++	struct mtk_vcp_device *vcp = (struct mtk_vcp_device *)rproc->priv;
++
++	vcp_A_deregister_feature(vcp, RTOS_FEATURE_ID);
++
++	return 0;
++}
++
++static const struct rproc_ops mtk_vcp_ops = {
++	.load		= mtk_vcp_load,
++	.start		= mtk_vcp_start,
++	.stop		= mtk_vcp_stop,
++};
++
++static int vcp_multi_core_init(struct platform_device *pdev,
++			       struct mtk_vcp_of_cluster *vcp_cluster,
++			       enum vcp_core_id core_id)
++{
++	int ret;
++
++	ret = of_property_read_u32(pdev->dev.of_node, "mtk,vcp-core-twohart",
++				   &vcp_cluster->twohart[core_id]);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "get twohart property failed\n");
++
++	ret = of_property_read_u32(pdev->dev.of_node, "mtk,core-sram-offset",
++				   &vcp_cluster->sram_offset[core_id]);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "get sram-offset property failed\n");
++
++	return ret;
++}
++
++static struct mtk_vcp_device *vcp_rproc_init(struct platform_device *pdev,
++					     struct mtk_vcp_of_cluster *vcp_cluster)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev_of_node(dev);
++	struct device_node *child;
++	struct platform_device *cpdev;
++	struct mtk_vcp_device *vcp;
++	struct rproc *rproc;
++	const struct mtk_vcp_of_data *vcp_of_data;
++	u32 core_id;
++	int ret;
++
++	vcp_of_data = of_device_get_match_data(dev);
++	rproc = devm_rproc_alloc(dev, np->name, &mtk_vcp_ops,
++				 vcp_of_data->platdata.fw_name,
++				 sizeof(struct mtk_vcp_device));
++	if (!rproc)
++		return ERR_PTR(dev_err_probe(dev, -ENOMEM, "allocate remoteproc failed\n"));
++
++	vcp  = rproc->priv;
++	vcp->rproc = rproc;
++	vcp->pdev = pdev;
++	vcp->dev = dev;
++	vcp->ops = &vcp_of_data->ops;
++	vcp->platdata = &vcp_of_data->platdata;
++	vcp->vcp_cluster = vcp_cluster;
++
++	rproc->auto_boot = vcp_of_data->platdata.auto_boot;
++	rproc->sysfs_read_only = vcp_of_data->platdata.sysfs_read_only;
++	platform_set_drvdata(pdev, vcp);
++
++	ret = vcp_reserve_memory_init(vcp);
++	if (ret)
++		return ERR_PTR(dev_err_probe(dev, ret, "reserve memory failed\n"));
++
++	core_id = 0;
++	for_each_available_child_of_node(np, child) {
++		if (of_device_is_compatible(child, "mediatek,vcp-core")) {
++			cpdev = of_find_device_by_node(child);
++			if (!cpdev) {
++				of_node_put(child);
++				return ERR_PTR(dev_err_probe(dev, -ENODEV, "Not child node\n"));
++			}
++			ret = vcp_multi_core_init(cpdev, vcp_cluster, core_id);
++			core_id++;
++		}
++	}
++	vcp->vcp_cluster->core_nums = core_id;
++
++	ret = vcp_wdt_irq_init(vcp);
++	if (ret)
++		return ERR_PTR(dev_err_probe(dev, ret, "vcp_wdt_irq_init failed\n"));
++
++	pm_runtime_get_sync(dev);
++
++	return vcp;
++}
++
++static int vcp_cluster_init(struct platform_device *pdev,
++			    struct mtk_vcp_of_cluster *vcp_cluster)
++{
++	struct mtk_vcp_device *vcp;
++	int ret;
++
++	vcp = vcp_rproc_init(pdev, vcp_cluster);
++	if (IS_ERR(vcp))
++		return dev_err_probe(vcp->dev, PTR_ERR(vcp), "vcp_rproc_init failed\n");
++
++	ret = rproc_add(vcp->rproc);
++	if (ret) {
++		rproc_del(vcp->rproc);
++		return dev_err_probe(vcp->dev, ret, "Failed to add rproc\n");
++	}
++
++	return ret;
++}
++
++static int vcp_device_probe(struct platform_device *pdev)
++{
++	struct resource *res;
++	struct device *dev = &pdev->dev;
++	struct mtk_vcp_of_cluster *vcp_cluster;
++	int ret;
++
++	pm_runtime_enable(dev);
++
++	vcp_cluster = devm_kzalloc(dev, sizeof(*vcp_cluster), GFP_KERNEL);
++	if (!vcp_cluster)
++		return dev_err_probe(dev, -ENOMEM, "allocate resource failed\n");
++
++	vcp_cluster->cfg = devm_platform_ioremap_resource_byname(pdev, "cfg");
++	if (IS_ERR(vcp_cluster->cfg))
++		return dev_err_probe(dev, PTR_ERR(vcp_cluster->cfg),
++				     "Failed to parse and map cfg memory\n");
++
++	vcp_cluster->cfg_sec = devm_platform_ioremap_resource_byname(pdev, "cfg_sec");
++	if (IS_ERR(vcp_cluster->cfg_sec))
++		return dev_err_probe(dev, PTR_ERR(vcp_cluster->cfg_sec),
++				     "Failed to parse and map cfg_sec memory\n");
++
++	vcp_cluster->cfg_core = devm_platform_ioremap_resource_byname(pdev, "cfg_core");
++	if (IS_ERR(vcp_cluster->cfg_core))
++		return dev_err_probe(dev, PTR_ERR(vcp_cluster->cfg_core),
++				     "Failed to parse and map cfg_core memory\n");
++
++	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "sram");
++	vcp_cluster->sram_base = devm_ioremap_resource(dev, res);
++	if (IS_ERR(vcp_cluster->sram_base))
++		return dev_err_probe(dev, PTR_ERR(vcp_cluster->sram_base),
++				     "Failed to parse and map sram memory\n");
++	vcp_cluster->sram_size = (u32)resource_size(res);
++
++	ret = devm_of_platform_populate(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to populate platform devices\n");
++
++	ret = vcp_cluster_init(pdev, vcp_cluster);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static void vcp_device_remove(struct platform_device *pdev)
++{
++	struct mtk_vcp_device *vcp = platform_get_drvdata(pdev);
++
++	pm_runtime_disable(&pdev->dev);
++
++	rproc_del(vcp->rproc);
++}
++
++static void vcp_device_shutdown(struct platform_device *pdev)
++{
++	struct mtk_vcp_device *vcp = platform_get_drvdata(pdev);
++	int ret;
++
++	writel(GIPC_VCP_HART0_SHUT, vcp->vcp_cluster->cfg_core + R_GIPC_IN_SET);
++	ret = wait_core_hart_shutdown(vcp, VCP_ID);
++	if (ret)
++		dev_err(&pdev->dev, "wait VCP_ID core hart shutdown timeout\n");
++
++	if (vcp->vcp_cluster->core_nums > MMUP_ID) {
++		writel(GIPC_MMUP_SHUT, vcp->vcp_cluster->cfg_core + R_GIPC_IN_SET);
++		ret = wait_core_hart_shutdown(vcp, MMUP_ID);
++		if (ret)
++			dev_err(&pdev->dev, "wait MMUP_ID core hart shutdown timeout\n");
++	}
++}
++
++static struct mtk_vcp_feature_table mt8196_feature_tb[NUM_FEATURE_ID] = {
++	{ .feature_id = RTOS_FEATURE_ID,        .core_id = VCP_CORE_TOTAL },
++	{ .feature_id = VDEC_FEATURE_ID,        .core_id = VCP_ID },
++	{ .feature_id = VENC_FEATURE_ID,        .core_id = VCP_ID },
++	{ .feature_id = MMDVFS_MMUP_FEATURE_ID, .core_id = MMUP_ID },
++	{ .feature_id = MMDVFS_VCP_FEATURE_ID,  .core_id = VCP_ID },
++	{ .feature_id = MMDEBUG_FEATURE_ID,     .core_id = MMUP_ID },
++	{ .feature_id = VMM_FEATURE_ID,         .core_id = MMUP_ID },
++	{ .feature_id = VDISP_FEATURE_ID,       .core_id = MMUP_ID },
++	{ .feature_id = MMQOS_FEATURE_ID,       .core_id = VCP_ID },
++};
++
++static struct mtk_vcp_reserved_mem_table mt8196_memory_tb[NUMS_MEM_ID] = {
++	{ .memory_id = VCP_RTOS_MEM_ID,     .size = 0x1a00000 },
++	{ .memory_id = VDEC_MEM_ID,         .size = 0x30000 },
++	{ .memory_id = VENC_MEM_ID,         .size = 0x12000 },
++	{ .memory_id = MMDVFS_VCP_MEM_ID,   .size = 0x1000 },
++	{ .memory_id = MMDVFS_MMUP_MEM_ID,  .size = 0x1000 },
++	{ .memory_id = MMQOS_MEM_ID,        .size = 0x1000 },
++};
++
++static const struct mtk_vcp_of_data mt8196_of_data = {
++	.ops = {
++		.vcp_get_mem_phys = vcp_get_reserve_mem_phys,
++		.vcp_get_mem_iova = vcp_get_reserve_mem_iova,
++		.vcp_get_mem_virt = vcp_get_reserve_mem_virt,
++		.vcp_get_mem_size = vcp_get_reserve_mem_size,
++		.vcp_get_sram_virt = vcp_get_internal_sram_virt,
++	},
++	.platdata = {
++		.auto_boot = true,
++		.sysfs_read_only = true,
++		.rtos_static_iova = 0x180600000,
++		.feature_tb = mt8196_feature_tb,
++		.memory_tb = mt8196_memory_tb,
++		.fw_name = "mediatek/mt8196/vcp.img",
++	},
++};
++
++static const struct of_device_id mtk_vcp_of_match[] = {
++	{ .compatible = "mediatek,mt8196-vcp", .data = &mt8196_of_data},
++	{}
++};
++MODULE_DEVICE_TABLE(of, mtk_vcp_of_match);
++
++static struct platform_driver mtk_vcp_device = {
++	.probe = vcp_device_probe,
++	.remove_new = vcp_device_remove,
++	.shutdown = vcp_device_shutdown,
++	.driver = {
++		.name = "mtk-vcp",
++		.of_match_table = mtk_vcp_of_match,
++	},
++};
++
++module_platform_driver(mtk_vcp_device);
++
++MODULE_AUTHOR("Xiangzhi Tang <xiangzhi.tang@mediatek.com>");
++MODULE_DESCRIPTION("MTK VCP Controller");
++MODULE_LICENSE("GPL");
 diff --git a/drivers/remoteproc/mtk_vcp_rproc.h b/drivers/remoteproc/mtk_vcp_rproc.h
-index 11ce0f6d562b..ff3e67fc2611 100644
---- a/drivers/remoteproc/mtk_vcp_rproc.h
+new file mode 100644
+index 000000000000..11ce0f6d562b
+--- /dev/null
 +++ b/drivers/remoteproc/mtk_vcp_rproc.h
-@@ -21,6 +21,7 @@
-  * @sram_offset: core sram memory layout
-  * @share_mem_iova: shared memory iova base
-  * @share_mem_size: shared memory size
-+ * @vcp_ipidev: struct mtk_ipi_device
-  * @vcp_memory_tb: vcp memory allocated table
-  */
- struct mtk_vcp_of_cluster {
-@@ -34,6 +35,7 @@ struct mtk_vcp_of_cluster {
- 	u32 sram_offset[VCP_CORE_TOTAL];
- 	dma_addr_t share_mem_iova;
- 	size_t share_mem_size;
-+	struct mtk_ipi_device vcp_ipidev;
- 	struct vcp_reserve_mblock vcp_memory_tb[NUMS_MEM_ID];
- };
- 
-@@ -43,6 +45,8 @@ struct mtk_vcp_of_cluster {
-  * @auto_boot: rproc auto_boot flag
-  * @sysfs_read_only: rproc sysfs_read_only flag
-  * @rtos_static_iova: vcp dram binary static map iova
-+ * @mtk_mbox_table: mtk_mbox_table structure
-+ * @mtk_vcp_ipi_ops: vcp ipi api ops structure
-  * @feature_tb: vcp feature table structure
-  * @memory_tb: vcp memory table structure
-  * @fw_name: vcp image name and path
-@@ -51,6 +55,8 @@ struct mtk_vcp_platdata {
- 	bool auto_boot;
- 	bool sysfs_read_only;
- 	dma_addr_t rtos_static_iova;
-+	struct mtk_mbox_table *ipc_data;
-+	struct mtk_vcp_ipi_ops *ipi_ops;
- 	struct mtk_vcp_feature_table *feature_tb;
- 	struct mtk_vcp_reserved_mem_table *memory_tb;
- 	char *fw_name;
+@@ -0,0 +1,69 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ */
++
++#ifndef __MTK_VCP_RPROC_H__
++#define __MTK_VCP_RPROC_H__
++
++#include <linux/remoteproc/mtk_vcp_public.h>
++
++/*
++ * struct mtk_vcp_of_cluster - vcp cluster priv data.
++ *
++ * @sram_base: sram_base get from dtb
++ * @cfg: cfg register get from dtb
++ * @cfg_sec: cfg_sec register get from dtb
++ * @cfg_core: cfg_core register get from dtb
++ * @sram_size: total sram size get from dtb
++ * @core_nums: total core numbers get from dtb
++ * @twohart: core weo hart support flag
++ * @sram_offset: core sram memory layout
++ * @share_mem_iova: shared memory iova base
++ * @share_mem_size: shared memory size
++ * @vcp_memory_tb: vcp memory allocated table
++ */
++struct mtk_vcp_of_cluster {
++	void __iomem *sram_base;
++	void __iomem *cfg;
++	void __iomem *cfg_sec;
++	void __iomem *cfg_core;
++	u32 sram_size;
++	u32 core_nums;
++	u32 twohart[VCP_CORE_TOTAL];
++	u32 sram_offset[VCP_CORE_TOTAL];
++	dma_addr_t share_mem_iova;
++	size_t share_mem_size;
++	struct vcp_reserve_mblock vcp_memory_tb[NUMS_MEM_ID];
++};
++
++/**
++ * struct mtk_vcp_platdata - vcp platform priv data.
++ *
++ * @auto_boot: rproc auto_boot flag
++ * @sysfs_read_only: rproc sysfs_read_only flag
++ * @rtos_static_iova: vcp dram binary static map iova
++ * @feature_tb: vcp feature table structure
++ * @memory_tb: vcp memory table structure
++ * @fw_name: vcp image name and path
++ */
++struct mtk_vcp_platdata {
++	bool auto_boot;
++	bool sysfs_read_only;
++	dma_addr_t rtos_static_iova;
++	struct mtk_vcp_feature_table *feature_tb;
++	struct mtk_vcp_reserved_mem_table *memory_tb;
++	char *fw_name;
++};
++
++/**
++ * struct mtk_vcp_of_data - const vcp device data.
++ *
++ * @mtk_vcp_ops: mtk_vcp_ops structure
++ * @mtk_vcp_platdata: mtk_vcp_platdata structure
++ */
++struct mtk_vcp_of_data {
++	const struct mtk_vcp_ops ops;
++	const struct mtk_vcp_platdata platdata;
++};
++#endif
 diff --git a/include/linux/remoteproc/mtk_vcp_public.h b/include/linux/remoteproc/mtk_vcp_public.h
-index 3bbc2055f9f8..58ba4b8bb023 100644
---- a/include/linux/remoteproc/mtk_vcp_public.h
+new file mode 100644
+index 000000000000..3bbc2055f9f8
+--- /dev/null
 +++ b/include/linux/remoteproc/mtk_vcp_public.h
-@@ -7,8 +7,18 @@
- #define __MTK_VCP_PUBLIC_H__
- 
- #include <linux/platform_device.h>
-+#include <linux/firmware/mediatek/mtk-vcp-ipc.h>
- #include <linux/remoteproc.h>
- 
-+#define VCP_SYNC_TIMEOUT_MS             (50)
+@@ -0,0 +1,78 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ */
 +
-+enum vcp_notify_event {
-+	VCP_EVENT_READY = 0,
-+	VCP_EVENT_STOP,
-+	VCP_EVENT_SUSPEND,
-+	VCP_EVENT_RESUME,
++#ifndef __MTK_VCP_PUBLIC_H__
++#define __MTK_VCP_PUBLIC_H__
++
++#include <linux/platform_device.h>
++#include <linux/remoteproc.h>
++
++enum vcp_reserve_mem_id {
++	VCP_RTOS_MEM_ID,
++	VDEC_MEM_ID,
++	VENC_MEM_ID,
++	MMDVFS_VCP_MEM_ID,
++	MMDVFS_MMUP_MEM_ID,
++	MMQOS_MEM_ID,
++	NUMS_MEM_ID,
 +};
 +
- enum vcp_reserve_mem_id {
- 	VCP_RTOS_MEM_ID,
- 	VDEC_MEM_ID,
-@@ -36,15 +46,59 @@ enum vcp_feature_id {
- 	NUM_FEATURE_ID,
- };
- 
-+enum {
-+	IPI_OUT_VDEC_1                 =  0,
-+	IPI_IN_VDEC_1                  =  1,
-+	IPI_OUT_C_SLEEP_0              =  2,
-+	IPI_OUT_TEST_0                 =  3,
-+	IPI_IN_VCP_READY_0             =  5,
-+	IPI_OUT_MMDVFS_VCP             =  9,
-+	IPI_IN_MMDVFS_VCP              = 10,
-+	IPI_OUT_MMQOS                  = 11,
-+	IPI_IN_MMQOS                   = 12,
-+	IPI_OUT_MMDEBUG                = 13,
-+	IPI_IN_MMDEBUG                 = 14,
-+	IPI_OUT_C_VCP_HWVOTER_DEBUG    = 15,
-+	IPI_OUT_VENC_0                 = 16,
-+	IPI_IN_VENC_0                  = 17,
-+	IPI_OUT_C_SLEEP_1              = 20,
-+	IPI_OUT_TEST_1                 = 21,
-+	IPI_OUT_LOGGER_CTRL_0          = 22,
-+	IPI_OUT_VCPCTL_1               = 23,
-+	IPI_IN_LOGGER_CTRL_0           = 25,
-+	IPI_IN_VCP_READY_1             = 26,
-+	IPI_OUT_LOGGER_CTRL_1          = 30,
-+	IPI_IN_LOGGER_CTRL_1           = 31,
-+	IPI_OUT_VCPCTL_0               = 32,
-+	IPI_OUT_MMDVFS_MMUP            = 33,
-+	IPI_IN_MMDVFS_MMUP             = 34,
-+	IPI_OUT_VDISP                  = 35,
-+	VCP_IPI_COUNT,
-+	VCP_IPI_NS_SERVICE             = 0xff,
-+	VCP_IPI_NS_SERVICE_COUNT       = 0x100,
++enum vcp_feature_id {
++	RTOS_FEATURE_ID,
++	VDEC_FEATURE_ID,
++	VENC_FEATURE_ID,
++	GCE_FEATURE_ID,
++	MMDVFS_MMUP_FEATURE_ID,
++	MMDVFS_VCP_FEATURE_ID,
++	MMQOS_FEATURE_ID,
++	MMDEBUG_FEATURE_ID,
++	HWCCF_FEATURE_ID,
++	HWCCF_DEBUG_FEATURE_ID,
++	IMGSYS_FEATURE_ID,
++	VDISP_FEATURE_ID,
++	VMM_FEATURE_ID,
++	NUM_FEATURE_ID,
 +};
 +
- struct mtk_vcp_device {
- 	struct platform_device *pdev;
- 	struct device *dev;
- 	struct rproc *rproc;
-+	struct mtk_ipi_device *ipi_dev;
- 	struct mtk_vcp_of_cluster *vcp_cluster;
-+	const struct mtk_vcp_ipi_ops *ipi_ops;
- 	const struct mtk_vcp_ops *ops;
- 	const struct mtk_vcp_platdata *platdata;
- };
- 
-+struct mtk_vcp_ipi_ops {
-+	int (*ipi_send)(struct mtk_ipi_device *ipidev, u32 ipi_id,
-+			void *data, u32 len);
-+	int (*ipi_send_compl)(struct mtk_ipi_device *ipidev, u32 ipi_id,
-+			      void *data, u32 len, u32 timeout_ms);
-+	int (*ipi_register)(struct mtk_ipi_device *ipidev, int ipi_id,
-+			    mbox_pin_cb_t cb, void *prdata, void *msg);
-+	int (*ipi_unregister)(struct mtk_ipi_device *ipidev, int ipi_id);
++struct mtk_vcp_device {
++	struct platform_device *pdev;
++	struct device *dev;
++	struct rproc *rproc;
++	struct mtk_vcp_of_cluster *vcp_cluster;
++	const struct mtk_vcp_ops *ops;
++	const struct mtk_vcp_platdata *platdata;
 +};
 +
- struct mtk_vcp_ops {
- 	phys_addr_t (*vcp_get_mem_phys)(struct mtk_vcp_device *vcp,
- 					enum vcp_reserve_mem_id id);
-@@ -59,6 +113,7 @@ struct mtk_vcp_ops {
++struct mtk_vcp_ops {
++	phys_addr_t (*vcp_get_mem_phys)(struct mtk_vcp_device *vcp,
++					enum vcp_reserve_mem_id id);
++	dma_addr_t (*vcp_get_mem_iova)(struct mtk_vcp_device *vcp,
++				       enum vcp_reserve_mem_id id);
++	void __iomem *(*vcp_get_mem_virt)(struct mtk_vcp_device *vcp,
++					  enum vcp_reserve_mem_id id);
++	size_t (*vcp_get_mem_size)(struct mtk_vcp_device *vcp,
++				   enum vcp_reserve_mem_id id);
++	void __iomem *(*vcp_get_sram_virt)(struct mtk_vcp_device *vcp);
++};
++
++struct mtk_vcp_device *vcp_get(struct platform_device *pdev);
++void vcp_put(struct mtk_vcp_device *vcp);
++
++/*
++ * These inline functions are intended for user drivers that are loaded
++ * earlier than the VCP driver, or for built-in drivers that cannot access
++ * the symbols of VCP module.
++ */
++static inline struct mtk_vcp_device *mtk_vcp_get_by_phandle(phandle phandle)
++{
++	struct rproc *rproc = NULL;
++
++	rproc = rproc_get_by_phandle(phandle);
++	if (IS_ERR_OR_NULL(rproc))
++		return NULL;
++
++	return rproc->priv;
++}
++#endif
+diff --git a/include/linux/soc/mediatek/mtk_sip_svc.h b/include/linux/soc/mediatek/mtk_sip_svc.h
+index abe24a73ee19..e59fadc8cbee 100644
+--- a/include/linux/soc/mediatek/mtk_sip_svc.h
++++ b/include/linux/soc/mediatek/mtk_sip_svc.h
+@@ -28,4 +28,6 @@
+ /* IOMMU related SMC call */
+ #define MTK_SIP_KERNEL_IOMMU_CONTROL	MTK_SIP_SMC_CMD(0x514)
  
- struct mtk_vcp_device *vcp_get(struct platform_device *pdev);
- void vcp_put(struct mtk_vcp_device *vcp);
-+struct mtk_ipi_device *vcp_get_ipidev(struct mtk_vcp_device *vcp);
- 
- /*
-  * These inline functions are intended for user drivers that are loaded
++#define MTK_SIP_TINYSYS_VCP_CONTROL	MTK_SIP_SMC_CMD(0x52C)
++
+ #endif
 -- 
 2.46.0
 
