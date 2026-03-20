@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE48108B8E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AED108B8EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Ubfpy0omjh51CGKZzwx3F1ou75EpzWl9yzYjvqmUBk=; b=HP6ZYYCCwUTzYCzc/rEmryS8Ot
-	9ORG+3y9rNf5I6pTF2Xdm05F7XuFAUhJ2ctflU0bO8n+/g84EimsjqdQhGvhrW+UjFNk3EJcKRjQ/
-	1ZSxxaI6Z0JVNgX+y0kQgv92xLq2qiLW0peUX8lnYTbsMQ5lgKGUs1c0TYZjjtD6Ny5SQhAl4aBpS
-	ueX5Bdu9gTmnRIoiFIjPgG4DHXmpfwET+mqff+PiPLh1gEhQbW0Woch7KLTakbQ0ox2AhBlUYC/t2
-	Y60L31A10SRsC2XerR0kETNDVq/DvrPXiLAk6gaMzHfDt/LZSBRZGmMMi/aT5nK+1rwcTa1CPBlj9
-	JN5hpFmQ==;
+	bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=; b=maLj16Nl01BRZVgm5D23dmXfRi
+	c+LgTgL+Ycjepa2Z/pU6YyaCdr9Ef2LH4lugUVlEnlGJVIxzwN+CfrPyONLa1X/xx1TiRYA4ALY9B
+	oqm68cg+icsM63XKHADgUQ7LTjonfAiJYjuBtDUNOhMNQSTHTkCZFthIhPHEFvVdx7XpVs6s2jzi2
+	5QXsRZDbbAadpieEvLrMZnzlFk/npwmQvPgKd8+jDYwIRntW6EWi6a9eVE8YZONdlQusbTuAY+7z+
+	ZfBExpK3tla7wV4pI6R5cBmPenSMdIbfQNgE+vkM2FWpmA1jcNxau5iyBZUscEykDbUV6L6k0HnZs
+	Wu7YObBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Wqx-0000000CYiV-48U4;
-	Fri, 20 Mar 2026 10:13:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3WsE-0000000CYyj-1vFs;
+	Fri, 20 Mar 2026 10:14:34 +0000
+Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Wqw-0000000CYhl-0uBq
+	id 1w3WsC-0000000CYwV-14B5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:13:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2286D444AF;
-	Fri, 20 Mar 2026 10:13:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51B85C4CEF7;
-	Fri, 20 Mar 2026 10:13:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774001593;
-	bh=ZwbBNSo83pouV3Csn61jySfToNOWWduestB2AflPyUo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WTNi6hTAzEaVkOpmWbokSZiVnOZViao7GhgHx8v9+wKEVCMjO3EkeZDUzLkV2XJX4
-	 sOk49OqTj3PZ4+N8wrtzhU/HyNwSjNDyGwxP72C622Gqu/7T7T0Cg5dq0XzmVII/sc
-	 VHPFwg1TYWnZoWR4PPwxysLqRXxC9N79GE36ZiEpkfetuxzLY070fsUpsIB2RnQhBW
-	 qO+AgiQJzCbh+paJPRAS+5SVaB4bHDYDSBmcHHayxwxhwpiLuOmdWQAFPj8n4VuyHF
-	 ooF22AzSVLDyvdOAk9UpNswGdjkV/vhVtwJHxK5yK9+/MpAXpYlPgvOGq2WIL8WVOM
-	 QxTL5wYpm7Ecg==
-Date: Fri, 20 Mar 2026 11:13:08 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] arm64: suspend: Remove forcing error from suspend
- finisher
-Message-ID: <ab0dtAC+bPtc9gdT@lpieralisi>
-References: <20260316-suspend_ret-v1-1-1a30b110bb7d@oss.qualcomm.com>
- <20260319-tiny-coucal-of-tranquility-ce0bd4@sudeepholla>
- <20260319-ruddy-fierce-honeybee-8fc7b9@sudeepholla>
+	Fri, 20 Mar 2026 10:14:33 +0000
+Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-64ea73e7b60so1210946d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:14:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774001671; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Fwrd+0f9YpHvXZJal425b5euIJreVGrbZI/VPijXjYtVOkQFeAFLNVEp2bhAkVGhHZ
+         r0hOruDkmeFViD7bKEnvCqpoDrr3PMJQ33i2qoJcixwMX2Fi2qgzZs26qH0pbKfnD9/h
+         Q1fgD4oawU4lPLBRGWbBY+oPEpZhg16bUZHDDmuIGhhTI9uXhvL7Xqh0SoFqPgId8XTV
+         xvdt4ZLATvhRQ2KPsOvVBFpO5Ajjya7fN2B4hmSR7eQukmib/wMrDQuLLxY48lu7jMi+
+         Z4tJj3GLQ0qPKlSiAAHKZGiLYMlQ1pE8lfWYpom0G9pCEMVUJ0V/NrYqKP1RuBAOHoWr
+         1YWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=;
+        fh=RTt0o534KA8TKUn1YMjGxhinHLM7Dqvt3ns2HMnKMHE=;
+        b=fgTuqLHHOqhwHsW7KM9Wr1Sw809712lAlU5fc9dv11kkiZ3UpCrYkIpSFsZk7owpqg
+         8f9B9QYgGR2MZYbGv6Z8A9Y2a0WO/F/OtMeWJiBwF2ZE0gf5aEQWuf1IK9r4JxeJ96cS
+         hzPGp5w5e5NnBqgXSM1vgTa9Eu8ELB/kzumTtBqHWS35Ihx5AvN3jlxEyOGRTk+PYoX2
+         Cj6QdF3ng2tWJ0WkP21gEmq6V0kdwXfvB5uG5ttq+BiQ0NSVQiL6Kg//ehWY5/rx5j84
+         ByK73FIbatAASJ0peXrqIXCbkklBVkEAOprkoQChQcCEEdWoNcdnyn5ItFK1HD2m/Pkq
+         gDeg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774001671; x=1774606471; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=;
+        b=FFfUCcdpYsqPb5fn8z+YBiVn8G63tcGAWjUh9z0/DlJUIitfKlf4xgcTjo+bjXqSPE
+         kRKUBBDhwgvbF2AQP7a8+xE010UHZBnTaPtdB59xiHtPa4BMQDzZP5RX22sUQRYrJB6r
+         btYUI1ObN2yAJRK4gsopof9Hyo8NEGMxBZaX8e2AnBANJj0OfAj0TFYyj567Yb0iZszu
+         VqV5CeqCx3FrLGHTMVLh3EUBaNl77YWmVDfv/PnaFA3GFc32lfx70uVdreKVFjCg3OT1
+         naIuHgOiBctUh5wgO4Lw7c5zn2CfxpGaTDbqrNDYH9n7tLdXz7NESM805j5lsQdjXLJC
+         OAtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774001671; x=1774606471;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=;
+        b=R3XWD3e4VB7LFB8KIUrTRM/pGioBkPH2wq+8JPsWIcujfwbyWw/gxm3Og7VWh9w/RA
+         ikNgM7cLOh2s5rPvH9MYYg/yu9Pyc7XHhQBucLbM6GuvCQ9vNBrTaz7IH08VBGi/XuB3
+         Gte61q9iZjbokOB8TBvKkv4MAE5NJAHxusv5nSUjmhDbiF3IrwTWBYj/0eFXl7tgihJu
+         e7lC32ZbL+TGiwxc5JAHHm+bR2z6CvZBLC67+OxJ5IYB6dGEMIrnoG8lHNfBdt7Ztuz4
+         FfF68S5l4gKhpxSi2vG4TXN+Dil+FZl2BR3X553Ws3eCAki0pS2dgglSFk8uaWrRExON
+         wntQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUWhMohXg4+dkHZN4+m/zTmRXBwyKmJcgYThw3OXFnoYbmeoXENF4qVxaX/KLhrZzwVZOW7ZACr93TPK6rQCY7Q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0gQmc3EVyzrG9JFd25Tfntj63yjcOIdYyd2+0W+Q7CgG0VqQ/
+	NPpunvE+DNcUaJ1TOwGtz65ANYEUwbcn41IGg0aAMKivcaggvbFBDU4+QmhRw7zLHDKCoNxllFK
+	PdHpZJRQmXVmSAE+84INLdu7r6b9zzS+7hW51RtHmbw==
+X-Gm-Gg: ATEYQzx5m0ZztPXC/1N4W0+PTaIALoHSEp9qQE+XxMf5lOHZ21XYsAeyYuG0bOa9t02
+	rUbt9nDUOWnvCU2hMcvnb060Ia33jLFm+LMkBhslyvlX5qOnfSXctuaIBXGYDcsx7eiDuNWRsFT
+	iT0+3TisjY+nPioYDhn2d6uffte4ICQNwHiq2B0hgK9a7bRtuEjyy0qk93qlNyMvLyIKm1gLFi2
+	goOZvLBGSUkzF3oN2eKNW0EnaO+Xun1JK9mO6pVFmlM/8KbzYsOhUI0jq0SPPkJb9bWdZeKSumA
+	WLSz+CaX
+X-Received: by 2002:a53:e194:0:b0:64e:a737:e1a5 with SMTP id
+ 956f58d0204a3-64eaa797212mr1811888d50.42.1774001670649; Fri, 20 Mar 2026
+ 03:14:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260319-ruddy-fierce-honeybee-8fc7b9@sudeepholla>
+References: <20260303132305.438657-1-ulf.hansson@linaro.org>
+ <20260303132305.438657-10-ulf.hansson@linaro.org> <CAMuHMdUK+xePxZc-OXRfDmvQ1v4q5d=HQ9c9aNqUg7gPAMxUAA@mail.gmail.com>
+In-Reply-To: <CAMuHMdUK+xePxZc-OXRfDmvQ1v4q5d=HQ9c9aNqUg7gPAMxUAA@mail.gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 20 Mar 2026 11:13:52 +0100
+X-Gm-Features: AQROBzDEPtBNxBgLrC26LFH5ugvz8cl4PrBkxdBc0GOrtjibvOSI_WOUepnh6GQ
+Message-ID: <CAPDyKFoYhvTrSXZqrcsbgNTAMZsnwy8WHr=5=n58fNLrEUxdfQ@mail.gmail.com>
+Subject: Re: [PATCH 9/9] pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_031314_309432_D455B781 
-X-CRM114-Status: GOOD (  46.96  )
+X-CRM114-CacheID: sfid-20260320_031432_307596_236EA3DD 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,110 +123,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 04:52:18PM +0000, Sudeep Holla wrote:
-> On Thu, Mar 19, 2026 at 03:14:01PM +0000, Sudeep Holla wrote:
-> > On Mon, Mar 16, 2026 at 02:18:18PM +0530, Maulik Shah wrote:
-> > > Successful cpu_suspend() may not always want to return to cpu_resume() to
-> > > save the work and latency involved.
-> > > 
-> > > consider a scenario,
-> > > 
-> > > when single physical CPU (pCPU) is used on different virtual machines (VMs)
-> > > as virtual CPUs (vCPUs). VM-x's vCPU can request a powerdown state after
-> > > saving the context by invoking __cpu_suspend_enter() whereas VM-y's vCPU is
-> > > requesting a shallower than powerdown state. The hypervisor aggregates to a
-> > > non powerdown state for pCPU. A wakeup event for VM-x's vCPU may want to
-> > > resume the execution at the same place instead of jumping to cpu_resume()
-> > > as the HW never reached till powerdown state which would have lost the
-> > > context.
-> > > 
-> > 
-> > Though I don't fully understand the intention/use-case for presenting the
-> > VMs with powerdown states ....
-> > 
-> > > While the vCPU of VM-x had latency impact of saving the context in suspend
-> > > entry path but having the return to same place saves the latency to restore
-> > > the context in resume path.
-> > > 
-> > 
-> > I understand the exit-latency aspect, though the register set involved is not
-> > very large unless the driver notifier list is sizable on some platforms. This
-> > is typically the case in Platform Coordinated mode.
-> > 
-> > > consider another scenario,
-> > > 
-> > > Newer CPUs include a feature called “powerdown abandon”. The feature is
-> > > based on the observation that events like GIC wakeups have a high
-> > > likelihood of happening while the CPU is in the middle of its powerdown
-> > > sequence (at wfi). Older CPUs will powerdown and immediately power back
-> > > up when this happens. The newer CPUs will “give up” mid way through if
-> > > no context has been lost yet. This is possible as the powerdown operation
-> > > is lengthy and a large part of it does not lose context [1].
-> > > 
-> > 
-> > When you say "large part" above, do you mean that none of the CPU context, as
-> > visible to software, is lost? Otherwise, we would need to discuss that "large
-> > part" in more detail. From the kernel point of view, this is a simple boolean:
-> > context is either lost or retained. Anything in between is not valid, as we do
-> > not support partial context loss.
-> > 
-> > > As the wakeup arrived after SW powerdown is done but before HW is fully
-> > > powered down. From SW view this is still a successful entry to suspend
-> > > and since the HW did not loose the context there is no reason to return at
-> > > entry address cpu_resume() to restore the context.
-> > > 
-> > 
-> > Yes, that may be worth considering from an optimization perspective. However,
-> > if the hardware aborts the transition, then returning success regardless of the
-> > software state should still be counted as a failure. That would keep the
-> > cpuidle entry statistics more accurate than returning success. And it is
-> > a failure as the OS expected to enter that powerdown state but there was
-> > as H/W abort.
-> > 
-> > > Remove forcing the failure at kernel if the execution does not resume at
-> > > cpu_resume() as kernel has no reason to treat such returns as failures
-> > > when the firmware has already filled in return as success.
-> > > 
-> > 
-> > This is not possible with the current PSCI spec:
-> > "Powerdown states do not return on success because restart is through the
-> > entry point address at wakeup."
-> > 
-> 
-> OK, my bad. Sorry for that.
-> For some reason, I read "do not return" as "must not return".
-> 
-> The spec allows this:
->   |  The caller must not assume that a powerdown request will return using the
->   |  specified entry point address. The powerdown request might not complete due,
->   |  for example, to pending interrupts. It is also possible that, because of
->   |  coordination with other cores, the actual state entered is shallower
->   |  than the one requested. Because of this it is possible for an
->   |  implementation to downgrade the powerdown state request to a standby
->   |  state. In the case of a downgrade to standby, the implementation
->   |  returns at the instruction following the PSCI call, at the Exception
->   |  level of the caller, instead of returning by the specified entry point
->   |  address. The return code in this case is SUCCESS. In the case of an
->   |  early return due to a pending wakeup event, the implementation can
->   |  return at the next instruction, with a return code of SUCCESS, or
->   |  resume at the specified entry point address
-> 
-> So we need to dig and check if there was any reason for returning "NOT
-> SUPPORTED" when the call returned success.
+On Fri, 20 Mar 2026 at 10:37, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Ulf,
+>
+> Thanks for your patch!
+>
+> On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> > Due to the new fine grained sync_state support for onecell genpd provider
+> > drivers, we should no longer need use the legacy behaviour. Therefore,
+> > let's drop GENPD_FLAG_NO_STAY_ON.
+> >
+> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+>
+> Rmobile-sysc is not a onecell provider, and thus never needed this flag.
 
-Because we have no clue whatsoever about what happened. We need to get
-back to the cpu_suspend() caller and either say "we entered state X instead
-of Y" or report a failure (because an interrupted power down sequence *is* a
-failure for Linux - unless we want to make things up), we just can't know so
-to me the code seems good as it is (we can debate about the error code, yes
-but the gist does not change).
+I see, thanks for clarifying. I will update the commit message to
+reflect this properly.
 
-Is that we want to tell CPUidle that entering the state was successful even if
-the power down sequence was interrupted or the state demoted ? That's
-tantamount to lying IMO and would skew the power stats, no ?
+> Regardless:
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+>
 
-Let me know, I am just trying to understand this patch's goal.
+Thanks!
 
-Thanks,
-Lorenzo
+Kind regards
+Uffe
 
