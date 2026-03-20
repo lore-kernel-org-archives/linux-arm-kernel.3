@@ -4,111 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AED108B8EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDB0108B8EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=; b=maLj16Nl01BRZVgm5D23dmXfRi
-	c+LgTgL+Ycjepa2Z/pU6YyaCdr9Ef2LH4lugUVlEnlGJVIxzwN+CfrPyONLa1X/xx1TiRYA4ALY9B
-	oqm68cg+icsM63XKHADgUQ7LTjonfAiJYjuBtDUNOhMNQSTHTkCZFthIhPHEFvVdx7XpVs6s2jzi2
-	5QXsRZDbbAadpieEvLrMZnzlFk/npwmQvPgKd8+jDYwIRntW6EWi6a9eVE8YZONdlQusbTuAY+7z+
-	ZfBExpK3tla7wV4pI6R5cBmPenSMdIbfQNgE+vkM2FWpmA1jcNxau5iyBZUscEykDbUV6L6k0HnZs
-	Wu7YObBA==;
+	bh=yA/ZUMIOO9B2dYwhWxGB0bwnGaA3YTXVMCz1BzpIZuA=; b=j72AqT2bMf1E2yw2PHkRh4T33y
+	ob35Z8AtxEsp/sazWyogzFPEVnRGfavAcCQxRZxq2jH3N5F7URuZugJaKNdOV5dPqgM3KsjxVCk4E
+	gLIoiuYHDOV8aCBBG6pv7rqhkABmWJFUZzZqJi3JUjquSlYIJ/26yBfEEQPr6tmFvu8ne+vuL9y9q
+	jLWebnfjQuCLCECyoFQ7QO23/miECnRVPM/JdSHlmEuvWi6GYD+S1UpuLGwl0WzKqwCBkikad2syu
+	otVdO+EtrZZkfJkZp4Xxoz+rLost32eszVUM6wfwPv1likzXs3jPWGogky8gvvtzqDup8LqQ3yTci
+	ghya9aIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WsE-0000000CYyj-1vFs;
-	Fri, 20 Mar 2026 10:14:34 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1w3Wtw-0000000CZN4-3sMo;
+	Fri, 20 Mar 2026 10:16:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WsC-0000000CYwV-14B5
+	id 1w3Wtu-0000000CZM0-3ArI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:14:33 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-64ea73e7b60so1210946d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 03:14:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774001671; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Fwrd+0f9YpHvXZJal425b5euIJreVGrbZI/VPijXjYtVOkQFeAFLNVEp2bhAkVGhHZ
-         r0hOruDkmeFViD7bKEnvCqpoDrr3PMJQ33i2qoJcixwMX2Fi2qgzZs26qH0pbKfnD9/h
-         Q1fgD4oawU4lPLBRGWbBY+oPEpZhg16bUZHDDmuIGhhTI9uXhvL7Xqh0SoFqPgId8XTV
-         xvdt4ZLATvhRQ2KPsOvVBFpO5Ajjya7fN2B4hmSR7eQukmib/wMrDQuLLxY48lu7jMi+
-         Z4tJj3GLQ0qPKlSiAAHKZGiLYMlQ1pE8lfWYpom0G9pCEMVUJ0V/NrYqKP1RuBAOHoWr
-         1YWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=;
-        fh=RTt0o534KA8TKUn1YMjGxhinHLM7Dqvt3ns2HMnKMHE=;
-        b=fgTuqLHHOqhwHsW7KM9Wr1Sw809712lAlU5fc9dv11kkiZ3UpCrYkIpSFsZk7owpqg
-         8f9B9QYgGR2MZYbGv6Z8A9Y2a0WO/F/OtMeWJiBwF2ZE0gf5aEQWuf1IK9r4JxeJ96cS
-         hzPGp5w5e5NnBqgXSM1vgTa9Eu8ELB/kzumTtBqHWS35Ihx5AvN3jlxEyOGRTk+PYoX2
-         Cj6QdF3ng2tWJ0WkP21gEmq6V0kdwXfvB5uG5ttq+BiQ0NSVQiL6Kg//ehWY5/rx5j84
-         ByK73FIbatAASJ0peXrqIXCbkklBVkEAOprkoQChQcCEEdWoNcdnyn5ItFK1HD2m/Pkq
-         gDeg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774001671; x=1774606471; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=;
-        b=FFfUCcdpYsqPb5fn8z+YBiVn8G63tcGAWjUh9z0/DlJUIitfKlf4xgcTjo+bjXqSPE
-         kRKUBBDhwgvbF2AQP7a8+xE010UHZBnTaPtdB59xiHtPa4BMQDzZP5RX22sUQRYrJB6r
-         btYUI1ObN2yAJRK4gsopof9Hyo8NEGMxBZaX8e2AnBANJj0OfAj0TFYyj567Yb0iZszu
-         VqV5CeqCx3FrLGHTMVLh3EUBaNl77YWmVDfv/PnaFA3GFc32lfx70uVdreKVFjCg3OT1
-         naIuHgOiBctUh5wgO4Lw7c5zn2CfxpGaTDbqrNDYH9n7tLdXz7NESM805j5lsQdjXLJC
-         OAtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774001671; x=1774606471;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uWUs24f4YfJBpA8kqLFbnD7g02+y5LbUXPOXVNIvPYM=;
-        b=R3XWD3e4VB7LFB8KIUrTRM/pGioBkPH2wq+8JPsWIcujfwbyWw/gxm3Og7VWh9w/RA
-         ikNgM7cLOh2s5rPvH9MYYg/yu9Pyc7XHhQBucLbM6GuvCQ9vNBrTaz7IH08VBGi/XuB3
-         Gte61q9iZjbokOB8TBvKkv4MAE5NJAHxusv5nSUjmhDbiF3IrwTWBYj/0eFXl7tgihJu
-         e7lC32ZbL+TGiwxc5JAHHm+bR2z6CvZBLC67+OxJ5IYB6dGEMIrnoG8lHNfBdt7Ztuz4
-         FfF68S5l4gKhpxSi2vG4TXN+Dil+FZl2BR3X553Ws3eCAki0pS2dgglSFk8uaWrRExON
-         wntQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUWhMohXg4+dkHZN4+m/zTmRXBwyKmJcgYThw3OXFnoYbmeoXENF4qVxaX/KLhrZzwVZOW7ZACr93TPK6rQCY7Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0gQmc3EVyzrG9JFd25Tfntj63yjcOIdYyd2+0W+Q7CgG0VqQ/
-	NPpunvE+DNcUaJ1TOwGtz65ANYEUwbcn41IGg0aAMKivcaggvbFBDU4+QmhRw7zLHDKCoNxllFK
-	PdHpZJRQmXVmSAE+84INLdu7r6b9zzS+7hW51RtHmbw==
-X-Gm-Gg: ATEYQzx5m0ZztPXC/1N4W0+PTaIALoHSEp9qQE+XxMf5lOHZ21XYsAeyYuG0bOa9t02
-	rUbt9nDUOWnvCU2hMcvnb060Ia33jLFm+LMkBhslyvlX5qOnfSXctuaIBXGYDcsx7eiDuNWRsFT
-	iT0+3TisjY+nPioYDhn2d6uffte4ICQNwHiq2B0hgK9a7bRtuEjyy0qk93qlNyMvLyIKm1gLFi2
-	goOZvLBGSUkzF3oN2eKNW0EnaO+Xun1JK9mO6pVFmlM/8KbzYsOhUI0jq0SPPkJb9bWdZeKSumA
-	WLSz+CaX
-X-Received: by 2002:a53:e194:0:b0:64e:a737:e1a5 with SMTP id
- 956f58d0204a3-64eaa797212mr1811888d50.42.1774001670649; Fri, 20 Mar 2026
- 03:14:30 -0700 (PDT)
+	Fri, 20 Mar 2026 10:16:20 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CAD2B8D4;
+	Fri, 20 Mar 2026 11:15:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774001702;
+	bh=4tf3lo69WL/dl89+RrtD2T1YsCauaHjQmmzMHQKmpw4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bjcH4c2h8SnvGzAtxtqtIVEAj4ouyVJmWt6aTY+bb3ZSey/hvCi1q8kBTqUvV5PjZ
+	 SvzqMTOdRzAwinRWOXs5qf0+FmATjElfFRLzjx8o/RDbZf6hkeUyQzHI5AvnMdZGly
+	 iPC9uT3cnsFeykIERcT3GZvunj4xTkNCBNyIAo28=
+Date: Fri, 20 Mar 2026 12:16:14 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-media@vger.kernel.org, linux-hardening@vger.kernel.org,
+	gustavoars@kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
+Message-ID: <20260320101614.GA950194@killaraus.ideasonboard.com>
+References: <20260306044536.149204-1-rosenp@gmail.com>
+ <20260319220901.GD950375@killaraus.ideasonboard.com>
+ <CAKxU2N856yYXURRf3td-_RCpe9hyX=zAy3qtD3ki23RjgO+a4Q@mail.gmail.com>
+ <20260320005737.GE950244@killaraus.ideasonboard.com>
+ <CAKxU2N81WEMkAPOVRHUORWodc21oW7wqvUJYVhd3uBJdLxRW4w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260303132305.438657-1-ulf.hansson@linaro.org>
- <20260303132305.438657-10-ulf.hansson@linaro.org> <CAMuHMdUK+xePxZc-OXRfDmvQ1v4q5d=HQ9c9aNqUg7gPAMxUAA@mail.gmail.com>
-In-Reply-To: <CAMuHMdUK+xePxZc-OXRfDmvQ1v4q5d=HQ9c9aNqUg7gPAMxUAA@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 20 Mar 2026 11:13:52 +0100
-X-Gm-Features: AQROBzDEPtBNxBgLrC26LFH5ugvz8cl4PrBkxdBc0GOrtjibvOSI_WOUepnh6GQ
-Message-ID: <CAPDyKFoYhvTrSXZqrcsbgNTAMZsnwy8WHr=5=n58fNLrEUxdfQ@mail.gmail.com>
-Subject: Re: [PATCH 9/9] pmdomain: renesas: rmobile-sysc: Drop GENPD_FLAG_NO_STAY_ON
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Saravana Kannan <saravanak@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-pm@vger.kernel.org, 
-	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAKxU2N81WEMkAPOVRHUORWodc21oW7wqvUJYVhd3uBJdLxRW4w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_031432_307596_236EA3DD 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260320_031619_081872_0BDDF5C2 
+X-CRM114-Status: GOOD (  35.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,30 +77,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Mar 2026 at 10:37, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Ulf,
->
-> Thanks for your patch!
->
-> On Tue, 3 Mar 2026 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > Due to the new fine grained sync_state support for onecell genpd provider
-> > drivers, we should no longer need use the legacy behaviour. Therefore,
-> > let's drop GENPD_FLAG_NO_STAY_ON.
+On Thu, Mar 19, 2026 at 06:06:07PM -0700, Rosen Penev wrote:
+> On Thu, Mar 19, 2026 at 5:57 PM Laurent Pinchart wrote:
+> > On Thu, Mar 19, 2026 at 05:11:22PM -0700, Rosen Penev wrote:
+> > > On Thu, Mar 19, 2026 at 3:09 PM Laurent Pinchart wrote:
+> > > > On Thu, Mar 05, 2026 at 08:45:36PM -0800, Rosen Penev wrote:
+> > > > > Use a flexible arraay member to combine allocations.
+> > > > >
+> > > > > It looks like pipes never gets freed anywhere. Meaning this effectively
+> > > > > fixes a memory leak.
+> > > > >
+> > > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > > > > ---
+> > > > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 11 ++++-------
+> > > > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  3 ++-
+> > > > >  2 files changed, 6 insertions(+), 8 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > index 16392420903a..657ffecc4d7e 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > @@ -459,25 +459,21 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
+> > > > >
+> > > > >  static int mxc_isi_probe(struct platform_device *pdev)
+> > > > >  {
+> > > > > +     const struct mxc_isi_plat_data *pdata;
+> > > > >       struct device *dev = &pdev->dev;
+> > > > >       struct mxc_isi_dev *isi;
+> > > > >       unsigned int dma_size;
+> > > > >       unsigned int i;
+> > > > >       int ret = 0;
+> > > > >
+> > > > > -     isi = devm_kzalloc(dev, sizeof(*isi), GFP_KERNEL);
+> > > > > +     pdata = of_device_get_match_data(dev);
+> > > > > +     isi = devm_kzalloc(dev, struct_size(isi, pipes, pdata->num_channels), GFP_KERNEL);
+> > > > >       if (!isi)
+> > > > >               return -ENOMEM;
+> > > > >
+> > > > >       isi->dev = dev;
+> > > > >       platform_set_drvdata(pdev, isi);
+> > > > >
+> > > > > -     isi->pdata = of_device_get_match_data(dev);
+> > > >
+> > > > I'd keep
+> > > >
+> > > >         isi->pdata = pdata;
+> > > >
+> > > > here and not below.
+> > >
+> > > Sure
+> > >
+> > > > > -
+> > > > > -     isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
+> > > >
+> > > > Wouldn't it be simpler to just replace this with devm_kcalloc() ?
+> > >
+> > > That would only make sense if pipes remained a pointer. A flex array
+> > > member allows combining allocations since it doesn't take up extra
+> > > space.
 > >
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
->
-> Rmobile-sysc is not a onecell provider, and thus never needed this flag.
+> > Yes, I understand that. My point was that with devm_kzalloc() here you
+> > won't need to change the mxc_isi_dev structure. The leak fix will be a
+> > one-liner patch.
+> 
+> Leak fix is not the point of the patch to be fair.
 
-I see, thanks for clarifying. I will update the commit message to
-reflect this properly.
+If I understand correctly, your main point is to combine two
+allocations.
 
-> Regardless:
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
->
+I don't liek this much in this specific case. mxc_isi_dev is the
+top-level driver structure. As part of all the data it stores, there
+is a pointer to a dynamically-allocated array, and the current
+implementation happens to not have any other dynamically allocated
+member. That is however not an intrinsic property of the mxc_isi_dev
+structure. Treating pipes as a flex arrat within mxc_isi_dev won't scale
+to a second similar member, and there's no reason to treat pipes in a
+special way. I prefer fixing the leak and avoiding the flex array.
 
-Thanks!
+> > > Technically kzalloc_flex is simpler but I assume a devm version of
+> > > that will be handled in another treewide commit.
+> > > >
+> > > >         isi->pipes = devm_kcalloc(dev, isi->pdata->num_channels,
+> > > >                                   sizeof(isi->pipes[0]), GFP_KERNEL);
+> > > >
+> > > > No other change would be needed.
+> > >
+> > > With a flex array member, that's a compile time error, which I use as
+> > > a hint to complete the conversion.
+> > >
+> > > > > -     if (!isi->pipes)
+> > > > > -             return -ENOMEM;
+> > > > > -
+> > > > >       isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
+> > > > >       if (isi->num_clks < 0)
+> > > > >               return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
+> > > > > @@ -487,6 +483,7 @@ static int mxc_isi_probe(struct platform_device *pdev)
+> > > > >               return dev_err_probe(dev, PTR_ERR(isi->regs),
+> > > > >                                    "Failed to get ISI register map\n");
+> > > > >
+> > > > > +     isi->pdata = pdata;
+> > > > >       if (isi->pdata->gasket_ops) {
+> > > > >               isi->gasket = syscon_regmap_lookup_by_phandle(dev->of_node,
+> > > > >                                                             "fsl,blk-ctrl");
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > index 3cbd35305af0..99532efa4e41 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > @@ -286,7 +286,6 @@ struct mxc_isi_dev {
+> > > > >       struct regmap                   *gasket;
+> > > > >
+> > > > >       struct mxc_isi_crossbar         crossbar;
+> > > > > -     struct mxc_isi_pipe             *pipes;
+> > > > >       struct mxc_isi_m2m              m2m;
+> > > > >
+> > > > >       struct media_device             media_dev;
+> > > > > @@ -294,6 +293,8 @@ struct mxc_isi_dev {
+> > > > >       struct v4l2_async_notifier      notifier;
+> > > > >
+> > > > >       struct dentry                   *debugfs_root;
+> > > > > +
+> > > > > +     struct mxc_isi_pipe             pipes[];
+> > > > >  };
+> > > > >
+> > > > >  extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
 
-Kind regards
-Uffe
+-- 
+Regards,
+
+Laurent Pinchart
 
