@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936971098797
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F7A109879F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rsOcFr/Bl9fl1dnqVMRZe6uz90kv+tWLSgzvUmwnkoA=; b=t2W8cppaVCgw1O
-	wuVZezRimzauZKnb0LItpiioWkTDq+4uucWm6seiXeV6EMIOvGQT7PgLI1Bib6plY/iajwpcOBWBr
-	7WKmwbrP2rJJKT6I9WFG2yZZ99bhI36XEd3xnLTeiH7LbJwwoDcqCRgvARoHp5AJZZmy7QcQ1E9zB
-	nx4rPoLaal7DRED8UyaXruoLITnajiGJvzyMKma0pYa0LAx5UMf1jV1Dty7TlyXGsm3kXrNyK8/sO
-	PJPeuTLlPBdnpniro+C1lqjnb0kt4qaUgS0Jg5O+sjapL/zGLHkdbrvSGWF/gbO8+FKTRKgF8UNG2
-	I5P8HiHgKj4YV2SPRakw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iSU9d+Wrgg2F2KJbG+F9qFbyNLQaAw0pZ/wYphwwj80=; b=DmJa7fNlYdygmv66fUKa09408f
+	p9fYNd8saqPKjdhy1Og1HtcgavPEIaV80G2IbrdNAx6uGDmd+9E2NNwl4cI0yL1KjlyfBuVQywP10
+	8OcxxUNmPaN+ALXE/orghrUIVpQn6tm6x0DiMZDRV4N9h6j5ETqhvKw4a4gkDd9OhRkE6jPhnS4he
+	Z0IEb6knI63TxNKcDusfxwY29TgdNTbr5fOFZmjQ7yD49FxezI5TzxKnWJhREvBbaTJW/q77Dldi6
+	c6qziWu92h1rmSBEilkkCp9YY6YtF9rHsZNa8If61IeejUxzuVCNQCmaFRtLETObF2tEnMHXPzNYc
+	mWeKr3cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3c4T-0000000D3kc-1WlB;
-	Fri, 20 Mar 2026 15:47:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3c4X-0000000D3mX-49bf;
+	Fri, 20 Mar 2026 15:47:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3c4R-0000000D3kR-378B
+	id 1w3c4U-0000000D3ko-4A7s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 15:47:31 +0000
+	Fri, 20 Mar 2026 15:47:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D413460053;
-	Fri, 20 Mar 2026 15:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FA22C4CEF7;
-	Fri, 20 Mar 2026 15:47:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D25F444E5;
+	Fri, 20 Mar 2026 15:47:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0843C4CEF7;
+	Fri, 20 Mar 2026 15:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774021650;
-	bh=Lt4/5y3+/31j2dAtzeh/Kjy+BZaAyeF/UFlh1nnETzY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=ASp/Zq4JyGXW/tzoC8Ddp4cSwH37zsYGRVRGH3PwSLipRGr4Re5mZsYC5H31fYCTo
-	 X1BGMDoZxBYBgKwyX/oYCjKlHSE1oxrStuaBpREDpW/Sgv3QJPPeYmWODh7GC9tvwy
-	 HuWJcybDmK/Bw2Mi6b5b312YMaVA3M7BfVWNevRGtUHWImTvLlNi210mjNLILqXU9b
-	 yh9+crGv+dUdS+8jwSKAjD6o3ESHNn4RudEW+evqZEjhjyzSB4aYxWYdZJQC6tNskl
-	 iZpG63sdzPLp+Qi4rnCXD/7ejYISAh0zHnMSlsNIcO/L+y4VrAqPlQ9wHjgrm96VvL
-	 kNbT99QjRn1kg==
+	s=k20201202; t=1774021653;
+	bh=1YCIRlzvccz0o7Yp+gHCS/xf6jY6fB4+9eaW9ZuF5O4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fw7pKAYbdzdWgsBoGLn/pE6Ky0mApfADe597sxloct0VOLhkI6uh0fFrtmAFtzsvI
+	 HzFWVHbS57a07mg68mDVkUrtYJuHVqb1LOtP0FG5BibtgDa+Hv6ycW7NqQPYQ4PplY
+	 KjQ/chDNGqFnJxnXbZhXnpAAk1MOHP3VsB7gTyTEty6k/vNpKMM/STuF536sGo4p67
+	 vmlDJvA+z9Ivh/EtHR+/Nyi6A1oUQUEs2EoGYzVSqv/iKwV679D7u4xGvPzYfFzk/N
+	 PRBVcGvsZOl1dblC0NMrCOfsaGZk61pZ9dA1is8mEWLWVf9h+lJeWiv4pZTNkstELp
+	 HqZL2Du4kc4iw==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH v8 0/2] arm64/sve: Performance improvements with SVE state
- saving
-Date: Fri, 20 Mar 2026 15:44:13 +0000
-Message-Id: <20260320-arm64-sve-trap-mitigation-v8-0-8bf116c8e360@kernel.org>
+Date: Fri, 20 Mar 2026 15:44:15 +0000
+Subject: [PATCH v8 2/2] arm64/sve: Disable TIF_SVE on syscall once per
+ second
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAE1rvWkC/43SzWrDMAwH8FcpPs/Dlj9k97T3GDu4sdKarUlxQ
- tgoefcphS2MQNjxL9BPSOguBqqFBnE83EWlqQyl7ziEp4NoLqk7kyyZswAFRgWFMtWrt3KYSI4
- 13eS1jOWcRu6SQEjgvWmCjYL7b5Xa8vmwX984X8ow9vXrMWrSS/U/6qSlljkCUdYZgnMv71Q7+
- nju61ks7AQrFbXZo4ApfcrUtiaARr2hzC+l9T5lmLKIsYlM2WA2lP2hrNIAe5RlyllSGUMyieK
- Gcitllduj3LIg+JbAaUftdkG/Ug7iHuWZakAZPJFPDeUNhSuFRu1RyBQ6x+9h+PoZ/1DzPH8DY
- l9sBIUCAAA=
-X-Change-ID: 20230807-arm64-sve-trap-mitigation-2e7e2663c849
+Message-Id: <20260320-arm64-sve-trap-mitigation-v8-2-8bf116c8e360@kernel.org>
+References: <20260320-arm64-sve-trap-mitigation-v8-0-8bf116c8e360@kernel.org>
+In-Reply-To: <20260320-arm64-sve-trap-mitigation-v8-0-8bf116c8e360@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>
 Cc: Mark Rutland <Mark.Rutland@arm.com>, 
  Ryan Roberts <Ryan.Roberts@arm.com>, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-db13a
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4820; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Lt4/5y3+/31j2dAtzeh/Kjy+BZaAyeF/UFlh1nnETzY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpvWwOqvCIeBXhWe0hsz80VMzJcuVEAi8bC1XQC
- bWVFta1TwaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCab1sDgAKCRAk1otyXVSH
- 0ERxB/9ReuFtgpSHl+ZwtSNTt4bXMufL/RGiwbOAlfut4lyX0DlZ16Xv2Mg8bnaSde7uyFB/TEN
- cK2h5782KRWzmJ30ulPnM2C7ipE2gl1FB6ZbBRzhwirIIjSBoEec6/cCGD5UcqIchiOIxcSSDnO
- 3ky9teJDNMG9ed+1r67ycTuLHDGzqXjC40JtBGLFyikVYKRxtm46ioen9HI+Sdnsj18mIyul8Co
- jNBQZu7EiPcEGFiNi55rUFtSozZE9qUI8S2N3w4M521fmSYwY3MOiAO5rgbTIr0dWyxVfsK1ZVu
- L97tZgA9jRa0vfJKVG18pv/B6IQkyBQLoiItYvuwkiT6sKwI
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2697; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=1YCIRlzvccz0o7Yp+gHCS/xf6jY6fB4+9eaW9ZuF5O4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpvWwQk8La/rwzGdEW7tZNW+j6qERjnRYi476yP
+ rk1yBlp0FWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCab1sEAAKCRAk1otyXVSH
+ 0MnwB/9dJOh5WieStSHuudcz4Jesfz699a5guOYhmjrXqQQ+enriUxPl9v2T2rcWwGUeqpym4rJ
+ SkERTDGcBtrXGlZZDIrZGc4lnJozjkF9qgfizi9lonA2GzedSsmnk3T3QW2mv9Zi1vVwAFItsA4
+ bBSjfAPof/llpQcZVf66CoPSDzhf9frhTDaq7vK/iJotuqhO52UpEcF22nktMuHXOWH0hdUEaVW
+ UYyOmT2JnfRAoHCI25c6GjI5vCvbfvmRcs1D+c/SgxeIc5WecZOh2AQc7tNeQqq6nPXpE+maPHA
+ 8AXtLJ/MF9EB115m/dk6p48f8w1XYCeDKNMP7WN66TARLEI8
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_084735_083928_C9FFF3B7 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,106 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series aims to improve our handling of SVE access traps and state
-clearing.  As SVE deployment progresses both hardware and software
-actively using SVE is becoming more common.  When a task is using SVE it
-faces additional costs, the floating point state we must track is larger
-and our syscall ABI requires that the extra state is cleared on every
-syscall.  Users have measured these overheads and raised concerns about
-them.
+Our syscall ABI requires that when performing a syscall the portions of
+the Z registers not shared with the V registers, the P and FFR registers
+are reset to 0.  Since we have no way of monitoring EL0 SVE usage this
+is implemented by changing the in register values on every syscall for
+tasks which have SVE enabled, for systems with 128 bit SVE vector
+lengths this has been benchmarked as a 6% overhead.
 
-We can avoid these costs by reenabling SVE access traps and falling back
-to FPSIMD only mode but if we do this too often for tasks that are
-actively using SVE the cost of the access traps becomes prohibitive.
-Currently we attempt to balance the tradeoffs here by starting tasks
-with SVE disabled, enabling it on first use and then turning it off if
-we need to load state from memory while the task is in a syscall.  This
-means that CPU bound tasks that do not regularly do blocking syscalls
-will rarely drop SVE while tasks that use a lot of SVE but do block in
-syscalls (eg, due to network or user interaction) will be much more
-likely to do and hence incur SVE access traps.
+We currently support disabling SVE for userspace tasks when loading the
+floating point state from memory during a syscall, allowing tasks that
+use SVE infrequently to avoid this overhead, but this may not help CPU
+bound tasks if they are not fortunate enough to block or be scheduled
+during a syscall.  This is done whenever the state is loaded from a
+second after the last time the task generate a SVE access trap.
 
-I did some instrumentation which counted the number of SVE access traps
-and the number of times we loaded FPSIMD only register state for each task.
-Testing with Debian Bookworm this showed that during boot the overwhelming
-majority of tasks triggered another SVE access trap more than 50% of the
-time after loading FPSIMD only state with a substantial number near 100%,
-though some programs had a very small number of SVE accesses most likely
-from the dynamic linker. There were few tasks in the range 5-45%, most
-tasks either used SVE frequently or used it only a tiny proportion of
-times. As expected older distributions which do not have the SVE
-performance work available showed no SVE usage in general applications.
+Extend this mechanism to also apply during syscall entry, disabling SVE
+instead of flushing the live registers when we perform a syscall a
+second after the last time a SVE access trap was taken.  This adds an
+additional memory access and branch for tasks using SVE and means that
+CPU bound tasks actively using SVE will take extra SVE access traps (at
+most one per second) but will allows CPU bound tasks that infrequently
+use SVE to avoid the overhead of flushing the registers on syscall.
 
-For tasks with minimal SVE usage benchmarking with fp-pidbench on a
-system with 128 bit SVE shows an approximately 6% overhead on syscalls
-from having used SVE in the task, the overhead should be greater on a
-system with 256 bit SVE since the Z registers must be flushed as well as
-the P and FFR registers.
+On a system with 128 bit SVE vectors fp-pidbench shows a roughly 4.5%
+improvement compared to baseline after having used SVE, for a roughly
+0.4% overhead when SVE is used between each syscall.  Obviously this is
+very much a microbenchmark.
 
-The two patches here move to using a time based heuristic to decide when
-to reenable the SVE access trap, doing so after a second.  This means
-that tasks actively using SVE which block in syscalls should see reduced
-or similar numbers of access traps, while CPU bound tasks that rarely
-use SVE will see the SVE syscall overhead removed after running for
-approximately a second, confirmed via fp-pidbench.
-
-The benchmarking here is all very much microbenchmarks so there are
-obviously some concerns on the system level impacts in actual use.
+This is purely a performance optimisation, there should be no functional
+change.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v8:
-- Rebase onto v7.0-rc3.
-- Add some benchmarking info from physical systems.
-- Add second patch that helps processes that stay on the CPU drop
-  TIF_SVE.
-- Link to v7: https://lore.kernel.org/r/20240730-arm64-sve-trap-mitigation-v7-1-755e7e31bdd7@kernel.org
+ arch/arm64/kernel/entry-common.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-Changes in v7:
-- Rebase onto v6.11-rc1.
-- Only flush the predicate registers when loading FPSIMD state, Z will
-  be flushed by loading the V registers.
-- Link to v6: https://lore.kernel.org/r/20240529-arm64-sve-trap-mitigation-v6-1-c2037be6aced@kernel.org
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 3625797e9ee8..a7b7ec66f084 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -234,8 +234,18 @@ static inline void fpsimd_syscall_enter(void)
+ 	if (test_thread_flag(TIF_SVE)) {
+ 		unsigned int sve_vq_minus_one;
+ 
+-		sve_vq_minus_one = sve_vq_from_vl(task_get_sve_vl(current)) - 1;
+-		sve_flush_live(true, sve_vq_minus_one);
++		/*
++		 * Ensure that tasks that don't block in a syscall
++		 * also get a chance to drop TIF_SVE.
++		 */
++		if (unlikely(time_after(jiffies,
++					current->thread.sve_timeout))) {
++			clear_thread_flag(TIF_SVE);
++			sve_user_disable();
++		} else {
++			sve_vq_minus_one = sve_vq_from_vl(task_get_sve_vl(current)) - 1;
++			sve_flush_live(true, sve_vq_minus_one);
++		}
+ 	}
+ 
+ 	/*
 
-Changes in v6:
-- Rebase onto v6.10-rc1.
-- Link to v5: https://lore.kernel.org/r/20240405-arm64-sve-trap-mitigation-v5-1-126fe2515ef1@kernel.org
-
-Changes in v5:
-- Rebase onto v6.9-rc1.
-- Use a timeout rather than number of state loads to decide when to
-  reenable traps.
-- Link to v4: https://lore.kernel.org/r/20240122-arm64-sve-trap-mitigation-v4-1-54e0d78a3ae9@kernel.org
-
-Changes in v4:
-- Rebase onto v6.8-rc1.
-- Link to v3: https://lore.kernel.org/r/20231113-arm64-sve-trap-mitigation-v3-1-4779c9382483@kernel.org
-
-Changes in v3:
-- Rebase onto v6.7-rc1.
-- Link to v2: https://lore.kernel.org/r/20230913-arm64-sve-trap-mitigation-v2-1-1bdeff382171@kernel.org
-
-Changes in v2:
-- Rebase onto v6.6-rc1.
-- Link to v1: https://lore.kernel.org/r/20230807-arm64-sve-trap-mitigation-v1-1-d92eed1d2855@kernel.org
-
----
-Mark Brown (2):
-      arm64/fpsimd: Suppress SVE access traps when loading FPSIMD state
-      arm64/sve: Disable TIF_SVE on syscall once per second
-
- arch/arm64/include/asm/fpsimd.h    |  1 +
- arch/arm64/include/asm/processor.h |  1 +
- arch/arm64/kernel/entry-common.c   | 14 ++++++++++--
- arch/arm64/kernel/entry-fpsimd.S   | 15 +++++++++++++
- arch/arm64/kernel/fpsimd.c         | 46 +++++++++++++++++++++++++++++++++-----
- 5 files changed, 70 insertions(+), 7 deletions(-)
----
-base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
-change-id: 20230807-arm64-sve-trap-mitigation-2e7e2663c849
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.47.3
 
 
