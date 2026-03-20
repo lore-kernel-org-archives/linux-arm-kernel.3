@@ -4,108 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7603108B8ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234FB108B8E9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jdq6kd2e/QetCN5+0KvkNKA9+Xu9sw78ttZMSbDkXn0=; b=CxyugFA/tr4hB9KDHongbBMCHG
-	bB9j6sZs5e79enXHeVh3hk88jTNk7x9JA2See+WDWCe9hoSJNjxdoGFGieYTNYzPHoirTqg0D1S9A
-	rCACWpu6pnTMD+MPuz4IkPUml+grfyLyX6xxk6tlRE8lYp7L2O4IMLdMFIev6SMixoMBNJ89XzJ2q
-	QBbGXuuekluPJk+EtSG5DTP6cdVlX1pPzjmGrvzVZOxtWvnaz/0SVdRHGCc5AUomGIc8fTexA2V7R
-	mbWBacNG7blnGsS62XbEjyngoObQoghFUi2uE8JUDuFjmZ7OfrMJdUlGcqlgmHhh2WQVWpp4gp6tc
-	shXZLtMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+QqAXd2vpQ8qISDA9ynM6KZSRW1nNUGkKU4X69DBcWc=; b=dZ2NPCgHyfmu7IQs3MMajsUZmu
+	GkRPVzTTPD2KmJppOe3++55ZCFWwOK5pU3YuzZJm9RGXDCZIGLVzyDkfzx+b/uqFpHGzxCMCPn7dZ
+	/f7fbHbDZhhBZptDNAYVW5CugGNCodXg5Q2pU6RlLa1D7EtfWRU12IJpRLqCySp548NExGna+QlHu
+	Wyjugw2iQ4Qf1zFaWkazR0YtmU/c71ByORUHFCnXKl3XE8UuQH3naIC3FRM890f/WPfmYGIvzfYus
+	ZkXcTRMx6dv0WW21oCyDvaivRM8btpZZkmIh2tUqsnCeIr/9jkSqM2RwFefZU/xqi5MD+fgPAbEog
+	WXHdacHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3X68-0000000CbZ7-0O38;
-	Fri, 20 Mar 2026 10:28:56 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1w3X8v-0000000CboN-474S;
+	Fri, 20 Mar 2026 10:31:50 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3X65-0000000CbY0-1voD
+	id 1w3X8t-0000000Cbo2-1vL7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:28:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TM0A8LpiCf99z9wijj/+OvjPRbLzpXKriqKlNUDDOKssDbNI/vKOA3kpGe/MV1w68f5xkkOP9vX2Z70+LeZrfIYBgHh3Dkb0HStox29999I43Z0gLTxNOrTY8x+nrf2GgKNrK3QZUJLorfeJjyDW6kEIyMGDCEBverpa3fXmL5tzwMjTnKSDgkzJRxeuzIK0xbox8nvc08I0nXTdm51Pqpifq0zvYpLD7vrmg7/jqf9HyzIaYDSfXMDMt1AnbDfwD4jZEA7UriUrjwNySlNLSKPAif2IjgWMHQSvszjd3Zc6U+s/fV+qcgXvYoHaOj0gKQmQj1Jwl558/dHNxYhRGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jdq6kd2e/QetCN5+0KvkNKA9+Xu9sw78ttZMSbDkXn0=;
- b=FSLbhg9z3AwZL2/l0piHGMl0EBtXjnq3DA2/18VCY7yzuaqTxuTxULRi8rowAu27QAwJPoFjBBvh/jeZ3NvVuAK3U+2X6TV/mBM0uMnD6smPVeZ93UbdGQbKY4p14mf4OtuwdfOHzT8xeZq+y2ywn2MHCY2oqkunw0NvXZuvL2SQw9BCcB39leVib8Xo+AIhSfuFNeE7J7H3JGEfaGsbctUMWARLdow0wsfN0XKxfooGBjt6JM1mGUIUi2ZbUrkATI9NjxMd0C1SXhE7rDqqYXEvmeeB885hY8v6nAsjC7DXw3dZfuamD/4a4brjXrY9pVmfV9r1Iz6RYxlkkSUQDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR02CA0017.apcprd02.prod.outlook.com (2603:1096:4:194::17)
- by TY2PPF5221563AF.apcprd06.prod.outlook.com (2603:1096:408::78e) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
- 2026 10:28:36 +0000
-Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
- (2603:1096:4:194:cafe::e6) by SI2PR02CA0017.outlook.office365.com
- (2603:1096:4:194::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Fri,
- 20 Mar 2026 10:28:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Fri, 20 Mar 2026 10:28:35 +0000
-Received: from [172.20.96.43] (unknown [172.20.96.43])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 747374126F82;
-	Fri, 20 Mar 2026 18:28:34 +0800 (CST)
-Message-ID: <40fc5cb7-a5f2-4b86-8dba-1b39e1ea0da4@cixtech.com>
-Date: Fri, 20 Mar 2026 18:28:34 +0800
+	Fri, 20 Mar 2026 10:31:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774002707; x=1805538707;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FuyuF6cs3y/UPu3j5OaECQ1GK3ebCt60+TAC0A5pjBI=;
+  b=gZUsMpFlalYMWJja53aHCNm51bUWJgkfp+A4HAqKWOwCk+OlGo+YYEw+
+   A4JWhyP0poFvMc1/4CiaWQ+bqE5BMNM4D/DoLnsRJu1Ije4jftR2b+b/q
+   oBqXPzvH9Juj8ip3IiL61gRJJtLDacAGsLo2GnCy3LbrZfENF9kHgdalN
+   EmFmJmbipd/KB+kZimx7+Vx2iQQNI/nqAYHI0rn2sRBEFZm6wi1iFc1qE
+   zW51l48PfYgBWGCvtIq8KRg6M+GFB5fuYDcbmB5HgyIRmNvTn0arBuGbp
+   C51zggFIABM0Hjt6Bs8GUMp7Et3jEwXawelarWkapCAic3xC3E98g19ho
+   g==;
+X-CSE-ConnectionGUID: GSGQ+XWDT5G+tLv4sJAS/g==
+X-CSE-MsgGUID: qznzMl7+SQWsA2DcIO8eug==
+X-IronPort-AV: E=McAfee;i="6800,10657,11734"; a="74100943"
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="74100943"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2026 03:31:47 -0700
+X-CSE-ConnectionGUID: cEr5vsElS/SoNYs1tc2rkw==
+X-CSE-MsgGUID: mbnQAE46S0y+yWubfuve9A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="218618516"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.40])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2026 03:31:43 -0700
+Date: Fri, 20 Mar 2026 12:31:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	morris_mao@aspeedtech.com
+Subject: Re: [PATCH v3 3/4] iio: adc: aspeed: Replace mdelay() with fsleep()
+ for ADC stabilization delay
+Message-ID: <ab0iDUp6t2LuGlAA@ashevche-desk.local>
+References: <20260320-adc-v3-0-bc0eac04ef7c@aspeedtech.com>
+ <20260320-adc-v3-3-bc0eac04ef7c@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic and
- combined IRQ topologies
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
- ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
- Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260319101723.246539-1-jun.guo@cixtech.com>
- <20260319101723.246539-2-jun.guo@cixtech.com>
- <20260320-vengeful-violet-cockle-382580@quoll>
-Content-Language: en-US
-From: Jun Guo <jun.guo@cixtech.com>
-In-Reply-To: <20260320-vengeful-violet-cockle-382580@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|TY2PPF5221563AF:EE_
-X-MS-Office365-Filtering-Correlation-Id: c10e4ae6-3009-4e9f-f4c5-08de866b71aa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700016|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: r8sFFwBC6ObsQSPen90pyXg8xIQGpKGIkl7aquw4le+dsEl7JPKMcJW4UcKHfWarzwb2EqyADmskws9IVrRqD4JM9se6NV2Ibn9+xsrYMF9eMKBozaqWaZ/p8l//31ExE/ASyymSWfx9DQAB5vTgv8/qHKOQ5hw63GEECAZIVYnLHQapbHh5u5DjRHqquAXL/OkmumDvaD8XZ6bwA2Pf4gZQ9R+fI4vI/J/iqvq+FRf48qGLjj19WbDLhrd0u1h2/0LtE3yG982Q5uikP139+n+2/tmreRmKza1BBDvz4FeZQfbRskIDAUoqbsXfTJKmwXDXtS+9IeIey0LHXHcYG+xab1YAwPjSYa/fzfqUFBsYAqphSjtpYlFCs/FGoiSCLlcb8Z+xnTqs1m418oNrg1rzCUkbIivLltEDyskqEnniYnAQKYM+6RYmgr5F9A90GvVSHa3cRSpPdYhRLlPj870F1YJepmzya1fVtcRbBSUosLiMzOZxog4ScN8yK5hsKUulkAyTHFxPd3koWozIAN13ONkD0w6QFue/aLmSDJsV+XAjL8N1YxWqgqAFbZ5YRHkPcxCdqzqJELcVNdyfLe66LO1sgxdrOxohVGlAwyUA1ARL0ggmalpdIg909hzjWUs8PHvOUAxsl1qWqR7jF9Ho6bjkYDD5nAS8zgNvVwHinEU5fNFEOArRN6/fSGGRCJFO4mrC9YS3UeIKfw3WGgMeT35kvW/gpuLVKanXR21DFJHfQ5ZPWsJRu2HFpt+HmXd0GqDEnuRaNbkk48a0mg==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: E6l3c1EjVdaJIuCi15i5a6s7o1qEdRuzJQClsUjlDLIdOFesxZIWCZoHwxKmFhOCb0YgcjerF1aX9schm6gMuIzjXq+eHcoYxEGWeCAfio+gvf0dwHQeU+bITRN1nNbo+bgOH++yg3DudUI9rnpayl7ii2EzpGaekiUk+7VvKhD7MqIOrff8BoVBcrltf3aHHa1H7/MVnCQ5csVxy1TZDJOOlB3pfiQNEmg5En9WZVS+1K8zSYJk30Atjvrq6gun0F3oLvjI/UL/6oEWZOZw6QKvKk5Fo5FjucdRN59+tpW1+ITbhcbtuGTuxpUDC16KkoosgncX7Q+rx4NfjiY+4V5CgyT8D7V1pr0JRNN/rHlw4/xsINyWMWg5KLdZ4KxHT0I553okHfIiCRUULOWq+wHFzUk+17R8CRPus0HDoguda3PU0pchDaFTOtqTJTrp
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 10:28:35.8137
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c10e4ae6-3009-4e9f-f4c5-08de866b71aa
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF5221563AF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260320-adc-v3-3-bc0eac04ef7c@aspeedtech.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_032853_499376_0AF4D4AB 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20260320_033147_508122_CE32CAE1 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,96 +94,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 20, 2026 at 01:46:37PM +0800, Billy Tsai wrote:
+> The ADC stabilization delays in compensation mode and battery sensing
+> mode do not require atomic context. Using mdelay() here results in
+> unnecessary busy waiting.
+> 
+> Replace mdelay(1) with fsleep(1000) to allow the scheduler to run other
+> tasks while waiting for the ADC to stabilize.
+> 
+> Also fix a minor typo in the comment ("adc" -> "ADC").
 
+> Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-On 3/20/2026 5:12 PM, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
-> 
-> On Thu, Mar 19, 2026 at 06:17:21PM +0800, Jun Guo wrote:
->> Update the DMA-350 DT binding to match the current driver behavior.
->>
->> Allow both:
->> - "arm,dma-350" as the generic compatible, and
->> - "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
->>
->> Also document interrupt topology variants supported by hardware
->> integration:
->> - one combined interrupt for all channels, or
->> - one interrupt per channel (up to 8 channels).
->>
->> This patch is Assisted-by: Cursor: GPT-5.3 Codex.
-> 
-> Wrong tag, please read carefully the guideline before using LLM tools.
-Okay. I will temporarily disregard the check patch warnings in the next 
-version and correct the format of the AI-generated tag.
+I haven't suggested the idea, I only suggested to use fsleep() for the purpose.
 
-> 
->>
->> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
->> Link: https://lore.kernel.org/r/20251216123026.3519923-2-jun.guo@cixtech.com
-> 
-> What does this express? Changelog link? Then keep it in the changelog
-> --- part.
-Okay, I'll address this in the next version of the patch.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> 
-> 
->> ---
->>   .../devicetree/bindings/dma/arm,dma-350.yaml  | 31 +++++++++++++------
->>   1 file changed, 21 insertions(+), 10 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
->> index 429f682f15d8..3639ce0d5054 100644
->> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
->> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
->> @@ -14,7 +14,11 @@ allOf:
->>
->>   properties:
->>     compatible:
->> -    const: arm,dma-350
->> +    oneOf:
->> +      - const: arm,dma-350
->> +      - items:
->> +          - const: cix,sky1-dma-350
->> +          - const: arm,dma-350
->>
->>     reg:
->>       items:
->> @@ -22,15 +26,22 @@ properties:
->>
->>     interrupts:
->>       minItems: 1
->> -    items:
->> -      - description: Channel 0 interrupt
->> -      - description: Channel 1 interrupt
->> -      - description: Channel 2 interrupt
->> -      - description: Channel 3 interrupt
->> -      - description: Channel 4 interrupt
->> -      - description: Channel 5 interrupt
->> -      - description: Channel 6 interrupt
->> -      - description: Channel 7 interrupt
->> +    maxItems: 8
->> +    description: |
->> +      The DMA controller may be configured with separate interrupts for each channel,
->> +      or with a single combined interrupt for all channels, depending on the SoC integration.
-> 
-> And more important - you must review the LLM microslop output before
-> posting and adjust it to Linux kernel coding style. Don't send
-> unredacted tool output.
-> 
-Actually, this part of the description was not AI-generated. However, 
-I’d like to confirm the issue you mentioned: are you saying that this 
-description is written too verbosely?
-Then, do you think there are still issues with the revised version?
-   interrupts:
-     minItems: 1
-     maxItems: 8
-     description:
-       Either one interrupt per channel (8 interrupts), or one
-       combined interrupt for all channels.
-
-> Best regards,
-> Krzysztof
-> 
 
 
