@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060A31099B32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 19:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C312D1099B35
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 19:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LR5TRJDu25+CrE37x06vwLgFtRqwfJZKgPjD2juAXCE=; b=f4Qtx08LAk/0COavP7YrIUWSkl
-	ZWg0CtVQGPkAgeIYXcoIQzIzrJaj34I3p1uyISm7FguBgFB7cojRuplcwzsrJoqQ/PvsRYQwXTOX6
-	eix9WnP3Ruxt1jyQ8OsRwbcFmKKSOn0X+k3hJBN+WV7QoggdoD6w/Fia7+vR41M3gq7Bv8iu+qeSw
-	lV26MLsfs+/68j0IrCCU22cDDsNfsyl0vSeXHvcZPFyuAJl1qIiGi7VtCuK/el7W9ZhvDpnLL0wfD
-	stjaL9cyqwg8IKPAMeKUZL73PgUPbHxSAQh1xM/WsUGZLGxLY3OICcuvohKaqfId4DYAYGjZ5lmgx
-	wtJxDvsQ==;
+	bh=1KUMzaHoZavGkamzjqu0b/lFInv7uzGM6OvNKnkcurQ=; b=Lo0kCy5htDvzAVfmQohcBolqaw
+	6skqoFKGmdoIkhQ2nUSd3gl5jCMELcsV2RPed7p4Xy2/w9Y8/aiODO89cf0qhQXhnbeA8LzV3WWyh
+	qI0hJGrk3Q2bLEMZJMSxprvWWW7ws97i/Hl6TLriMzM5ExPxpsFZBamIu5sKSLFlF44+yobcZDEuF
+	XOFnsxy09KRCLsCDFPErSoulVdZBhkwsLuJNHsrjjmQ580awXRYm8oZ6QQ0rDJj28F+LJRVfTUN3T
+	mNxnygB1/P4ziQwJ7IR/cQV0jeMrWze5p5Xk55PWyHlzIsPd41//1zgnLsnUlx69osshFQuqmXt32
+	rzfPfmAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3fCb-0000000DPw0-2xTH;
-	Fri, 20 Mar 2026 19:08:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3fDI-0000000DQ0H-1KVH;
+	Fri, 20 Mar 2026 19:08:52 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3fCZ-0000000DPvf-0ZWA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 19:08:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E5C94096C;
-	Fri, 20 Mar 2026 19:08:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 664ECC4CEF7;
-	Fri, 20 Mar 2026 19:08:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774033686;
-	bh=hubpgunOKqXmTqXQCt/h6pUXQ4Vod13YMoCr7vvGoG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GC4yGqB4yeYqXeADGrpxx0K2f3j7IwHZKEMV6bj+hzupr9ZLkVHkBaEhxlFI9bb0N
-	 Ecv9rW0Uz7rzFnG/FJnyRR7uM6nQsgsJNJDSBZLkg3Sh0BEc/gTN+KMP0g0ozp/aFd
-	 Q4k+i5T5O/HSJ0sJGazw1Iqav/y0hX/9/ulyIv2+QccmEAy1dxwO87IccNcTcEKjnw
-	 XAuhnywnhv8nvcK49cY1+i0uhzU9KIhGFp17Z7pseM+K6tZ9rRZH5/030eHux9VDlN
-	 kETmXrocVeO4Iq0WTrJ/X/LIaX2cp2SnmNvtqB5kTv0BXigwzldI5yapq0/ct3/S4M
-	 MctZs3GyFuQIw==
-Date: Fri, 20 Mar 2026 12:08:06 -0700
-From: Kees Cook <kees@kernel.org>
-To: Bill Wendling <morbo@google.com>
-Cc: linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Gogul Balakrishnan <bgogul@google.com>,
-	Arman Hasanzadeh <armanihm@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	codemender-patching+linux@google.com
-Subject: Re: [PATCH] KVM: arm64: vgic: Annotate struct vgic_dist with
- __counted_by_ptr
-Message-ID: <202603201158.4EF7FCFF7@keescook>
-References: <20260319015418.2871262-1-morbo@google.com>
+	id 1w3fDE-0000000DPzb-3VhM;
+	Fri, 20 Mar 2026 19:08:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774033729; x=1805569729;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=7WNZM6g9R3CLfh6cWhvFwVZyrccgJ4B0ROAyC9BBclU=;
+  b=hsnPl9PuA4ePLELW2nWJeNM/4paj/mzgLVQBsvlULuU/q5oQ3iq4qora
+   PattH3FuLG8s5ez6rPi/oX+vUUKqLhtYXaOTEkvnnqlRfUGYikbfI8bHN
+   9Rgl25CF12t7BkS4+ckqJeiCtsKpvIRECel3Lyh1WLgZ+4BcpghHKbBft
+   IM8GSdFGWIpahpe7b3A3lgqUhOCH7XKJlR6cxDV8WFzhb85wqYN1uYjOc
+   ihv+wUEUXXiL4corzrc7ztB185GfTLe9gwY5G/O5NO8DTpTFWJz+iOfKQ
+   6/Xcp6ioyHpjS6WFjFQBvsgi2yTfGcmilzp/uwB6+nvWZZ838PjLFB7hr
+   w==;
+X-CSE-ConnectionGUID: bSASFQRnS7GIPyn6Nx8nFg==
+X-CSE-MsgGUID: zw8zW2xFSLKUv3Yz0xvURA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11735"; a="74829516"
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="74829516"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2026 12:08:48 -0700
+X-CSE-ConnectionGUID: rrwaT2HISvqx5APreFqssA==
+X-CSE-MsgGUID: oniAF6+OTwupmekwYzMoCw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,130,1770624000"; 
+   d="scan'208";a="223404640"
+Received: from lkp-server02.sh.intel.com (HELO ef9b23065726) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 20 Mar 2026 12:08:43 -0700
+Received: from kbuild by ef9b23065726 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w3fBq-0000000006z-2ufW;
+	Fri, 20 Mar 2026 19:07:47 +0000
+Date: Sat, 21 Mar 2026 03:06:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nora Schiffer <nora.schiffer@ew.tq-group.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org, Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: Re: [PATCH 6/7] net: ethernet: ti: am65-cpsw: add support for J722S
+ SoC family
+Message-ID: <202603210254.ABl6TQWc-lkp@intel.com>
+References: <4cc3dd9fab460d35215c8f97496b9ae16c5bcb22.1773751309.git.nora.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260319015418.2871262-1-morbo@google.com>
+In-Reply-To: <4cc3dd9fab460d35215c8f97496b9ae16c5bcb22.1773751309.git.nora.schiffer@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_120807_241165_DB8CD169 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20260320_120848_936830_AC60093B 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,136 +101,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 01:54:10AM +0000, Bill Wendling wrote:
-> Add the __counted_by_ptr attribute to the spis pointer field in struct
-> vgic_dist. This pointer field points to an array of struct vgic_irq
-> elements, and the number of elements is tracked by the nr_spis field
-> within the same structure.
-> 
-> The nr_spis field is initialized in vgic_init() (or earlier via
-> userspace) before the spis array is allocated in kvm_vgic_dist_init().
-> The nr_spis value remains constant during the lifetime of the spis
-> allocation, making it a suitable counter for the array.
+Hi Nora,
 
-This one eluded me briefly, but yeah:
+kernel test robot noticed the following build errors:
 
-int vgic_init(struct kvm *kvm)
-{
-        struct vgic_dist *dist = &kvm->arch.vgic;
-	...
-        /* freeze the number of spis */
-        if (!dist->nr_spis)
-                dist->nr_spis = VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on net-next/main net/main linus/master v7.0-rc4 next-20260319]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-        ret = kvm_vgic_dist_init(kvm, dist->nr_spis);
+url:    https://github.com/intel-lab-lkp/linux/commits/Nora-Schiffer/dt-bindings-phy-ti-phy-j721e-wiz-Add-ti-j722s-wiz-10g-compatible/20260320-033344
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/4cc3dd9fab460d35215c8f97496b9ae16c5bcb22.1773751309.git.nora.schiffer%40ew.tq-group.com
+patch subject: [PATCH 6/7] net: ethernet: ti: am65-cpsw: add support for J722S SoC family
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260321/202603210254.ABl6TQWc-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260321/202603210254.ABl6TQWc-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603210254.ABl6TQWc-lkp@intel.com/
 
+All errors (new ones prefixed by >>):
 
-static int kvm_vgic_dist_init(struct kvm *kvm, unsigned int nr_spis)
-{
-        struct vgic_dist *dist = &kvm->arch.vgic;
-	...
-        dist->spis = kzalloc_objs(struct vgic_irq, nr_spis, GFP_KERNEL_ACCOUNT);
-
-
-It seems weird that nr_spis is passed to kvm_vgic_dist_init at all:
-there's only 1 caller, and the value is stored in dist->nr_spis
-(available through kvm) immediately before the call. For readability,
-I'd almost prefer to see:
+   drivers/net/ethernet/ti/am65-cpsw-nuss.c:762:9: warning: cast to smaller integer type 'enum am65_cpsw_tx_buf_type' from 'void *' [-Wvoid-pointer-to-enum-cast]
+     762 |         return (enum am65_cpsw_tx_buf_type)k3_cppi_desc_pool_desc_info(tx_chn->desc_pool,
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     763 |                                                                        desc_idx);
+         |                                                                        ~~~~~~~~~
+>> drivers/net/ethernet/ti/am65-cpsw-nuss.c:3470:47: error: use of undeclared identifier 'AM64_CPSW_QUIRK_CUT_THRU'
+    3470 |         .quirks = AM64_CPSW_QUIRK_DMA_RX_TDOWN_IRQ | AM64_CPSW_QUIRK_CUT_THRU,
+         |                                                      ^
+   1 warning and 1 error generated.
 
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 9b3091ad868c..9e6ca2f04581 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -190,16 +190,15 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- /**
-  * kvm_vgic_dist_init: initialize the dist data structures
-  * @kvm: kvm struct pointer
-- * @nr_spis: number of spis, frozen by caller
-  */
--static int kvm_vgic_dist_init(struct kvm *kvm, unsigned int nr_spis)
-+static int kvm_vgic_dist_init(struct kvm *kvm)
- {
- 	struct vgic_dist *dist = &kvm->arch.vgic;
- 	struct kvm_vcpu *vcpu0 = kvm_get_vcpu(kvm, 0);
- 	int i;
- 
- 	dist->active_spis = (atomic_t)ATOMIC_INIT(0);
--	dist->spis = kzalloc_objs(struct vgic_irq, nr_spis, GFP_KERNEL_ACCOUNT);
-+	dist->spis = kzalloc_objs(struct vgic_irq, dist->nr_spis, GFP_KERNEL_ACCOUNT);
- 	if (!dist->spis)
- 		return  -ENOMEM;
- 
-@@ -211,7 +210,7 @@ static int kvm_vgic_dist_init(struct kvm *kvm, unsigned int nr_spis)
- 	 * require prior initialization in case of a virtual GICv3 or trigger
- 	 * initialization when using a virtual GICv2.
- 	 */
--	for (i = 0; i < nr_spis; i++) {
-+	for (i = 0; i < dist->nr_spis; i++) {
- 		struct vgic_irq *irq = &dist->spis[i];
- 
- 		irq->intid = i + VGIC_NR_PRIVATE_IRQS;
-@@ -401,7 +400,7 @@ int vgic_init(struct kvm *kvm)
- 	if (!dist->nr_spis)
- 		dist->nr_spis = VGIC_NR_IRQS_LEGACY - VGIC_NR_PRIVATE_IRQS;
- 
--	ret = kvm_vgic_dist_init(kvm, dist->nr_spis);
-+	ret = kvm_vgic_dist_init(kvm);
- 	if (ret)
- 		goto out;
- 
+vim +/AM64_CPSW_QUIRK_CUT_THRU +3470 drivers/net/ethernet/ti/am65-cpsw-nuss.c
 
-
-The other question I'd have (which isn't related to this patch
-specifically) is if dist->spis is guaranteed to be NULL before
-kvm_vgic_dist_init() is called.
-
-Regardless:
-
-Reviewed-by: Kees Cook <kees@kernel.org>
-
--Kees
-
-> 
-> This patch was generated by CodeMender and reviewed by Bill Wendling.
-> Tested with the KVM selftests.
-> 
-> Signed-off-by: Bill Wendling <morbo@google.com>
-> ---
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Joey Gouly <joey.gouly@arm.com>
-> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Cc: Zenghui Yu <yuzenghui@huawei.com>
-> Cc: Gogul Balakrishnan <bgogul@google.com>
-> Cc: Arman Hasanzadeh <armanihm@google.com>
-> Cc: Kees Cook <kees@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: kvmarm@lists.linux.dev
-> Cc: linux-kernel@vger.kernel.org
-> Cc: codemender-patching+linux@google.com
-> ---
->  include/kvm/arm_vgic.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-> index f2eafc65bbf4..1cca87623d92 100644
-> --- a/include/kvm/arm_vgic.h
-> +++ b/include/kvm/arm_vgic.h
-> @@ -284,7 +284,7 @@ struct vgic_dist {
->  	/* Wants SGIs without active state */
->  	bool			nassgireq;
->  
-> -	struct vgic_irq		*spis;
-> +	struct vgic_irq		*spis __counted_by_ptr(nr_spis);
->  
->  	struct vgic_io_device	dist_iodev;
->  	struct vgic_io_device	cpuif_iodev;
-> -- 
-> 2.53.0.851.ga537e3e6e9-goog
-> 
+  3468	
+  3469	static const struct am65_cpsw_pdata j722s_cpswxg_pdata = {
+> 3470		.quirks = AM64_CPSW_QUIRK_DMA_RX_TDOWN_IRQ | AM64_CPSW_QUIRK_CUT_THRU,
+  3471		.ale_dev_id = "am64-cpswxg",
+  3472		.fdqring_mode = K3_RINGACC_RING_MODE_RING,
+  3473		.extra_modes = BIT(PHY_INTERFACE_MODE_SGMII),
+  3474	};
+  3475	
 
 -- 
-Kees Cook
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
