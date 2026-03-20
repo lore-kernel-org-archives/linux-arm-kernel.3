@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CC910987A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF8B10987A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+lRjeseEmbME1DibNGtEYVyPjFoXkYvBpdAOlSHfX0=; b=U0UJvfztxpixvqNlSi0jL2EEKm
-	bZiydWw6mg7Um/+1qItXATWOmbDZPqjuk90ZcPU8GvxTA9Xm8WAcF+IyyekrovJUJ/7rmze+IT+/A
-	Bra2XC3PjQAHW/RtYeWE0UXXNB5lD/oCu6d2PN1goVCbKvcJST2awoSkU6E6P0qy9z9aTHgxeewHR
-	h/LVPutGq4nVhaG+w0NwDCF/kA5c5BoHgiF6tSlPlrJ+VOT2gftMond35+NBvnjqQAsuMHjmdv9uf
-	XqWLsxEKWGWTPlIX0fUkOi8OxfADcbmlEmxjOTWtp7dDoIu3UIPx4X1NYB4KrGGP/zREjGQT0/Zks
-	htSs94mQ==;
+	bh=uKqEXbFdAAk+J2G0I1kNux1p5BaSys7NUGRndphu9ig=; b=eVhPpacAoZk8rkBS5bnDJv2bbn
+	H6nJPtgSSI/7pq7B4HzUeKCxrEMg8Q6dbme9dgS2ZtnVlONeBKXXoX49zLGQfekZ2F/OnLrHmnkHK
+	hPvocrdIwTUn8DmhKlVhoskqajD/TlvahPMbuSznLFKAw3waTjuisNIdUCVlah4eVK9h2ucySBZAb
+	v3O50LCWKtI6uynHptWCm3DmsVPIlNpZ159kESNevavCiz2jC7X2T1OZyysLaEqA74YJE2IMzqET1
+	lqmNB4qDbLATZwRrB5ziEC/62PW0WhY1njekl1endZj6Oon8dry+00OuxsOxgGgxMoTt/vuM05A8z
+	aaAenzcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ciO-0000000D8hL-0N22;
-	Fri, 20 Mar 2026 16:28:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3ciN-0000000D8gk-2SY2;
+	Fri, 20 Mar 2026 16:28:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3chs-0000000D8Bi-08VA
+	id 1w3chp-0000000D88V-2e50
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:28:19 +0000
+	Fri, 20 Mar 2026 16:28:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8BBD042D58;
-	Fri, 20 Mar 2026 16:28:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE695C2BC87;
-	Fri, 20 Mar 2026 16:28:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EC3D260141;
+	Fri, 20 Mar 2026 16:28:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2050CC4CEF7;
+	Fri, 20 Mar 2026 16:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774024095;
-	bh=jrOhK6ywzWa7h0Q8vD7bhuiyhE6TZdHxkM63E2sT2zs=;
+	s=k20201202; t=1774024092;
+	bh=wxvIbslsFOe+8OR1tP24GsCg3PyWA7sUK7uSel4Swqg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Vno/VdoO68EmlRZ+dVSxEkhau93ukVFgRb1T7DhihSfMQMCWHY3c8QVOXOSUpsqdg
-	 8GDI2OEiIqi21P2F9SauDfpL5c5z0UQ9ED6JNSHaPAFgDEK6deMwE9VjbnzoPzJB5p
-	 Sq1Pokx6aeStRFRCElmDuHLioEdfhDb8OJ9mvZKashx4vXR6jPydlAcTjXbI8+P4gF
-	 zhgxlcOyxvQILHPLAQq2RmlhMBh/RKKxLNp/rEZfVp7e64C2v6xWHUSpQV/dJaMZr9
-	 N8RtO0UEejCP2zdsQ6iKCI+QTUNPV8PKCtRWG4zXeHbOgbXQWZFstvjcaj/b+qG0nk
-	 sfvy2BkILTAlg==
+	b=KM/M8DbMI4cQ51n4PrNKbVDyepwp+XaKiCX9TL8p3egLC7ajUeVHSRCHBv1xZYxZ4
+	 IbyvpfmTRNYivbC9qTEMn2ReWq360mbwcoZ03g0Hktfl89CWBfjmxyGzkCuqZWEkFI
+	 XSQAd0rZeeJy8masn23VpfsooUbxy6raFOIA53Zr1xnqfc+GeunlSQCqXGgdsf+TIC
+	 oI61Kj29xVzn90u/8R3OvE9xjVFn+4ziqUDXQX5nxfL/wuyrmHgVSnO8q5lU7Tib2g
+	 59de87igWktKY/xlNasqJ6UTmZVJjvq5voBnndn/G8KQv8+9jnjZ0pUBBgNFv6J5BM
+	 0AwUUvi9yZOTQ==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 20 Mar 2026 17:27:24 +0100
-Subject: [PATCH v2 17/20] drm/drv: Drop drm_mode_config_reset() from our
- skeleton
+Date: Fri, 20 Mar 2026 17:27:23 +0100
+Subject: [PATCH v2 16/20] drm/atomic: Drop private obj state allocation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-drm-mode-config-init-v2-17-c63f1134e76c@kernel.org>
+Message-Id: <20260320-drm-mode-config-init-v2-16-c63f1134e76c@kernel.org>
 References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
 In-Reply-To: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -77,20 +76,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=918; i=mripard@kernel.org;
- h=from:subject:message-id; bh=jrOhK6ywzWa7h0Q8vD7bhuiyhE6TZdHxkM63E2sT2zs=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJl7S7Nf1Fg1PZu0LOj1M8dJ+7kUKp6ozDzwz965RfB0a
- 3PwzRsqHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAiGq6M9bU+sfkHUn66RRVe
- 1TMMZjlzf3VFe6BmnuByviqrkHsr58tHPHK6/cqPy2eerG9l4I46xoYVO5d+nxu51GhFzb3+C7z
- 8m7bcXF3zg+9B0bZZJmtebRf8v0nvbcWSnqqUq1Kn559InToLAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1451; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=wxvIbslsFOe+8OR1tP24GsCg3PyWA7sUK7uSel4Swqg=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJl7S7OCbn+8dc39U0vJg8nZdpOvO65nua8bUaB9Xsdgx
+ an1HDofO6ayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBEJu9lrE/7u5hT4pqPR+CX
+ DSvU3YPkVm/5zxB2IY49sG8ai108mxnvQ4sngRl7pq59dVhh0dv4j4x1VrNOKB+e4/Rn2UV7jp4
+ i24dPW7TF5fcKCOTOXRVc4yN5pdPkZXkJ53R+1tZ7YlOcVvcAAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_092816_180165_3870E307 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +101,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have drm_mode_config_create_state() to create the initial
-state called as part of drm_dev_register(), we can stop recommending
-calling drm_mode_config_reset() to perform that initialization in our
-skeleton.
+Now that drm_dev_register() calls drm_mode_config_create_state() for
+every modeset driver, the private obj states will be initialized at
+driver registration automatically if they haven't already.
 
+Thus, the explicit initial allocation we have in
+drm_atomic_private_obj_init() is now redundant, and we can remove it.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/drm_drv.c | 2 --
- 1 file changed, 2 deletions(-)
+ drivers/gpu/drm/drm_atomic.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
-index 820106d56ab399a39cac56d98662b5ddbcae8ded..83752725f7c63364880225ec1083f19bd00ddcef 100644
---- a/drivers/gpu/drm/drm_drv.c
-+++ b/drivers/gpu/drm/drm_drv.c
-@@ -339,12 +339,10 @@ void drm_minor_release(struct drm_minor *minor)
-  *
-  *		// Further setup, display pipeline etc
-  *
-  *		platform_set_drvdata(pdev, drm);
-  *
-- *		drm_mode_config_reset(drm);
-- *
-  *		ret = drm_dev_register(drm);
-  *		if (ret)
-  *			return ret;
-  *
-  *		drm_fbdev_{...}_setup(drm, 32);
+diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+index 5aa3f9f0620bd155dd53023e6c76e3883ffaadef..3bd52602fe307a1b82a3b68d82b458e1da8a4f6d 100644
+--- a/drivers/gpu/drm/drm_atomic.c
++++ b/drivers/gpu/drm/drm_atomic.c
+@@ -995,25 +995,18 @@ static void drm_atomic_plane_print_state(struct drm_printer *p,
+  */
+ int drm_atomic_private_obj_init(struct drm_device *dev,
+ 				struct drm_private_obj *obj,
+ 				const struct drm_private_state_funcs *funcs)
+ {
+-	struct drm_private_state *state;
+ 	memset(obj, 0, sizeof(*obj));
+ 
+ 	drm_modeset_lock_init(&obj->lock);
+ 
+ 	obj->dev = dev;
+ 	obj->funcs = funcs;
+ 	list_add_tail(&obj->head, &dev->mode_config.privobj_list);
+ 
+-	state = obj->funcs->atomic_create_state(obj);
+-	if (IS_ERR(state))
+-		return PTR_ERR(state);
+-
+-	obj->state = state;
+-
+ 	return 0;
+ }
+ EXPORT_SYMBOL(drm_atomic_private_obj_init);
+ 
+ /**
 
 -- 
 2.53.0
