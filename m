@@ -4,57 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C77910987A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F57310987A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VO3KQwErN6a/5y3075wzx4bzJ4JCxAb4hsQRTMaKKpU=; b=tu1WIyMQPmmAtY
-	WwfKQLxwhdSjD7AQbtZlNhRGPZv8f+o5i9kjRybLBaVTh3ZaaqltFE9Lp0CWvgqXr07+L8pEu9aWV
-	uokqoZAMaoOkODp1iCyFhRH1ZUFxxPogP8FcOHspPXZ8zCpJC3hdrHdDZULIy4hZpOTZnVA+J4nEk
-	cm3LHsKpfjyh3pniav3n8KdfSYx9DISmvicyGFS2tnjgjxZzOKNFlUW0d867h7DL9GVpVfGajcFW2
-	gNpCfd8omxgEYH1gxdd9+5SoEXzhf2DPw1mRviP6Dy6WRpa8KPdi7zbu8SI69MErPMnGuQF/ygHfA
-	3z1nNY+uhY9s/Px6/dSw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+0nzKHd4TEOVW1JhMBjHJxIJizZLuJd8rMvZvuy+jLM=; b=rTztLbOxSYy2no37hJdEE4G8HG
+	GAhVC9W52Y8R+t6/k4mzNuWRrNlUvClNDDccr6ev/akNUnxsn6aUJtS6QwNgGDv4tu5zY7smgmFu2
+	GihkDO5I6ixIBtinWphpilJnvlpJnq66qasKeUQu5T0/EkyMqrOt/jEdu2SV2FPKJNjigu5DDoQZP
+	GGCRAso1YOlV5gLKWTGrwyLjR080LU7UYHASEX5Tjj9laeiE7oStKhYtNxgToa0DnNd4b2DZZCDDY
+	A/7Uvl/DPZHqob5j+MdhUIwzZo3REJ1g4A3aavHUSxkZ6DImSh/9AQeHXgclAhZnz7NZCQDv+znmc
+	vVoUuRTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ch7-0000000D7Zq-3Dmn;
-	Fri, 20 Mar 2026 16:27:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3chD-0000000D7cP-0IFy;
+	Fri, 20 Mar 2026 16:27:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ch6-0000000D7ZM-2PBJ
+	id 1w3ch9-0000000D7aO-0Jle
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:27:29 +0000
+	Fri, 20 Mar 2026 16:27:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A979760130;
-	Fri, 20 Mar 2026 16:27:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D21B9C4CEF7;
-	Fri, 20 Mar 2026 16:27:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6781B6015B;
+	Fri, 20 Mar 2026 16:27:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93F5BC2BC87;
+	Fri, 20 Mar 2026 16:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774024047;
-	bh=tVGzG2OoAve6wdaEm6yQngdh47mMTYpnqYs26HoJiNs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=lqm+YStX5mvlt9/t3+JcPdjEZF9aZVQbBV98Nbb4Z1n/8nd/dUIwZ5L+iuTF2Zz9v
-	 L18yH8q16XltXwTEvnjJPLgUAQ2Lvm1hqjJkCM6HE7cSLsu4RmDYA96eZUFUh+WFHQ
-	 Ku6EHuDAfr6LcLOND7f2hr33dT7PGfRiVHmvZatzstK14iDXEYFioEKZT2tyjx7Ior
-	 fUJTD6izzSi/AZy7ebw9aqjqJufLtX4ZR0a0C8Pi52o1o4Vl08v0+tFBbjGbc/eTRu
-	 gnJdmEQqm0jOyVHnvfMZB/tnHD7/GS9hQwPeUKpjriN38MgcIMT8iVtGjD6PBHMeUz
-	 RJj5P/G5C5AHQ==
+	s=k20201202; t=1774024050;
+	bh=lNZetqlAlYsCQ3l8SXsI36D+xpB6Any31LXspuuaXTY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Ri/l4I5G4LL3GavyOmxNz9RMdGVF7KmPJP+UamcEAbb9MFzJPhczb9G6vD0i0kXmh
+	 1OcFjDxKZHEE6mUTjbGmTdo6nqeMbC+YFl6CHx8HrMAyvkbXxiaFbhRrNBHbsvpSVN
+	 mSgvaD78N0ox/V5NCMWqPeZpTp2l19Jw+RcsCuBCXanC+AorwkZNt3RNMVi53GwCr1
+	 yftkUn/wsQ/wmsgnh7ES2o4S/Z9a/K6Mu9vHwlxIPuZxxJVEthKnE8V2yKOyFTuHzn
+	 Qb5P8Xy2eV/YZQEsHgWz/occy5+r+I71AOHJ8bIPLsSezBI5TjmShjAmcnHoRkmdZH
+	 M9QvbbU+HVOsQ==
 From: Maxime Ripard <mripard@kernel.org>
-Subject: [PATCH v2 00/20] drm/atomic: Rework initial state allocation
-Date: Fri, 20 Mar 2026 17:27:07 +0100
-Message-Id: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+Date: Fri, 20 Mar 2026 17:27:08 +0100
+Subject: [PATCH v2 01/20] drm/colorop: Fix typos in the doc
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32PsW7DMAxEf8XgXBaSHFepp/xHkUG2aYdtLaWUK
- qQI/O+VlaVTJ+JI8N3dHSIJU4S+uYNQ5sjBF2GeGhgvzi+EPBUNRpkX1WqFk6y4holwDH7mBdl
- zQk167sxgD92koLxehWa+Vezb+aGFvr4LPT2WMLi4I9aVU99UJscRPd0S7lao2jLhb4oSSplOK
- 3WsGa7C2SXCMLyjUKSEjjQZe9DKWNfnDnbjC8cU5KfWy7o6/98kaywXsu2rHY+kx/n0QeLp8zn
- IAudt234BvXY1zjIBAAA=
-X-Change-ID: 20260310-drm-mode-config-init-1e1f52b745d0
+Message-Id: <20260320-drm-mode-config-init-v2-1-c63f1134e76c@kernel.org>
+References: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
+In-Reply-To: <20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
  Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
@@ -80,16 +76,14 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+ Maxime Ripard <mripard@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4691; i=mripard@kernel.org;
- h=from:subject:message-id; bh=tVGzG2OoAve6wdaEm6yQngdh47mMTYpnqYs26HoJiNs=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJl7S5PvXGyV/PqC5WJcaIH+/K4C7WX5y4odH2/+/a4qc
- 2Wl/Oz2jqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRmZaMdbYqLyv/yF1oPtwl
- of93y4yavyuXrxMSTq56Z3OwdJno2YpVIrIWqt7HTt1iVQ5vnbeRl7Hh+aWuo3IuK0rCXjJUv82
- ReWqjGlvrMWfmpOMp9h015YvU+iK93hl5FPt4Fm/+dU/v9DMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2296; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=lNZetqlAlYsCQ3l8SXsI36D+xpB6Any31LXspuuaXTY=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDJl7S1O+FtmvStxgxlMUbJckrn03YslMh3OF18JKTyoEB
+ s6ftelmx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZjIVgXGhg3n7gq/ij3rd/Tu
+ urtp1w5r6zT+0a3k0zlj09aaLzdtxaVbBtM1O+NKXv9h2zRt0Yev5Yw1fO8b3IO6MwyiHQqVLfX
+ EPk/brPs90+sC28yNVyISO3dV8/Mu0V61VfNy31d/jx8L/z8HAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -106,101 +100,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+In the documentation of drm_colorop introduced by commit cfc27680ee20
+("drm/colorop: Introduce new drm_colorop mode object"), the
+documentation of __drm_colorop_state_reset() and __drm_colorop_reset()
+were mentioning CRTC when they really meant colorop, probably due to
+copy and paste.
 
-This series started from my work on the hardware state readout[1], and
-more specifically a discussion with Thomas[2].
-
-This series expands the work that has been merged recently to make
-drm_private_obj and drm_private_state allocation a bit more consistent
-and ended up creating a new atomic_create_state callback to allocate a
-new state with no side effect.
-
-The first patches are a documentation of the existing behaviour and some
-random cleanups.
-
-Then, we add the new atomic_create_state callback to every other DRM
-object. Next, we leverage those new callbacks to create a new helper,
-drm_mode_config_create_state() to create the initial state for all the
-objects of a driver.
-
-Finally, we hook that new helper in drm_dev_register and start
-converting a few drivers.
-
-This was tested on a TI SK-AM62, with the tidss driver.
-
-Let me know what you think,
-Maxime
-
-1: https://lore.kernel.org/dri-devel/20250902-drm-state-readout-v1-0-14ad5315da3f@kernel.org/
-2: https://lore.kernel.org/dri-devel/5920ffe5-b6b1-484b-b320-332b9eb9db82@suse.de/
-
+Fixes: cfc27680ee20 ("drm/colorop: Introduce new drm_colorop mode object")
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
-Changes in v2:
-- Change the _state_reset function names to _state_init
-- Change the colorop too
-- Various doc improvements
-- Link to v1: https://lore.kernel.org/r/20260310-drm-mode-config-init-v1-0-de7397c8e1cf@kernel.org
+ drivers/gpu/drm/drm_colorop.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
----
-Maxime Ripard (20):
-      drm/colorop: Fix typos in the doc
-      drm/atomic: Drop drm_private_state.obj assignment from create_state
-      drm/mode-config: Mention drm_mode_config_reset() culprits
-      drm/colorop: Rename __drm_colorop_state_reset()
-      drm/colorop: Create drm_atomic_helper_colorop_create_state()
-      drm/atomic-state-helper: Fix __drm_atomic_helper_plane_reset() doc typo
-      drm/atomic-state-helper: Rename __drm_atomic_helper_plane_state_reset()
-      drm/plane: Add new atomic_create_state callback
-      drm/atomic-state-helper: Rename __drm_atomic_helper_crtc_state_reset()
-      drm/crtc: Add new atomic_create_state callback
-      drm/atomic-state-helper: Rename __drm_atomic_helper_connector_state_reset()
-      drm/hdmi: Rename __drm_atomic_helper_connector_hdmi_reset()
-      drm/connector: Add new atomic_create_state callback
-      drm/mode-config: Create drm_mode_config_create_state()
-      drm/drv: Call drm_mode_config_create_state() by default
-      drm/atomic: Drop private obj state allocation
-      drm/drv: Drop drm_mode_config_reset() from our skeleton
-      drm/tidss: Drop call to drm_mode_config_reset at probe time
-      drm/tidss: Convert to atomic_create_state
-      drm/bridge_connector: Convert to atomic_create_state
+diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
+index 566816e3c6f0c7d172534966fcfe56982e6505f3..373cd0ddb8fd4478874509ed12c95451c1f66203 100644
+--- a/drivers/gpu/drm/drm_colorop.c
++++ b/drivers/gpu/drm/drm_colorop.c
+@@ -503,11 +503,11 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
+  * __drm_colorop_state_reset - resets colorop state to default values
+  * @colorop_state: atomic colorop state, must not be NULL
+  * @colorop: colorop object, must not be NULL
+  *
+  * Initializes the newly allocated @colorop_state with default
+- * values. This is useful for drivers that subclass the CRTC state.
++ * values. This is useful for drivers that subclass the colorop state.
+  */
+ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
+ 				      struct drm_colorop *colorop)
+ {
+ 	u64 val;
+@@ -526,14 +526,14 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
+ /**
+  * __drm_colorop_reset - reset state on colorop
+  * @colorop: drm colorop
+  * @colorop_state: colorop state to assign
+  *
+- * Initializes the newly allocated @colorop_state and assigns it to
+- * the &drm_crtc->state pointer of @colorop, usually required when
+- * initializing the drivers or when called from the &drm_colorop_funcs.reset
+- * hook.
++ * Initializes the newly allocated @colorop_state and assigns it to the
++ * &drm_colorop->state pointer of @colorop, usually required when
++ * initializing the drivers or when called from the
++ * &drm_colorop_funcs.reset hook.
+  *
+  * This is useful for drivers that subclass the colorop state.
+  */
+ static void __drm_colorop_reset(struct drm_colorop *colorop,
+ 				struct drm_colorop_state *colorop_state)
 
- drivers/gpu/drm/display/drm_bridge_connector.c     |  17 ++-
- drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  14 +-
- drivers/gpu/drm/drm_atomic.c                       |  19 +--
- drivers/gpu/drm/drm_atomic_state_helper.c          | 170 ++++++++++++++++++---
- drivers/gpu/drm/drm_colorop.c                      |  41 +++--
- drivers/gpu/drm/drm_drv.c                          |   6 +-
- drivers/gpu/drm/drm_mode_config.c                  | 154 ++++++++++++++++++-
- drivers/gpu/drm/i915/display/intel_crtc.c          |   2 +-
- drivers/gpu/drm/i915/display/intel_plane.c         |   2 +-
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
- drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c |   2 +-
- drivers/gpu/drm/tidss/tidss_crtc.c                 |  17 +--
- drivers/gpu/drm/tidss/tidss_drv.c                  |   2 -
- drivers/gpu/drm/tidss/tidss_kms.c                  |   2 -
- drivers/gpu/drm/tidss/tidss_plane.c                |   2 +-
- drivers/gpu/drm/vc4/vc4_hdmi.c                     |   2 +-
- include/drm/display/drm_hdmi_state_helper.h        |   4 +-
- include/drm/drm_atomic_state_helper.h              |  18 ++-
- include/drm/drm_colorop.h                          |   2 +
- include/drm/drm_connector.h                        |  13 ++
- include/drm/drm_crtc.h                             |  13 ++
- include/drm/drm_mode_config.h                      |   1 +
- include/drm/drm_plane.h                            |  13 ++
- 23 files changed, 441 insertions(+), 77 deletions(-)
----
-base-commit: cd5c40f745f10f082f75520ebc9deae3ea37b185
-change-id: 20260310-drm-mode-config-init-1e1f52b745d0
-prerequisite-change-id: 20251008-drm-private-obj-reset-ae1e2741027a:v5
-prerequisite-patch-id: 9684f0ca4b16455c1340409561e8fb32f98b327a
-prerequisite-patch-id: e177eb92b269436a94d7ef603d44436799be7469
-prerequisite-patch-id: fef6d20ab33358c1db6cd9d21aa8ec0990cae758
-prerequisite-patch-id: 2dcc96d43f34d8f6237829ed29d0087c092954d1
-
-Best regards,
 -- 
-Maxime Ripard <mripard@kernel.org>
+2.53.0
 
 
