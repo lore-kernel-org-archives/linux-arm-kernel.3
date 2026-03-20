@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A78108B8E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E21F108B8ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ob+IZvhkIha5DTBe/HV7/KpWvsF/0JXOGJlTDavxCws=; b=3LsOg+w1nMB9z/sbifKPLA2Fya
-	3hFBgGrXf3Z0gVbgxCQNrNcguL4zc0L61xuFandgscbFlDj4dUz/9ECou6bD0zr+0D/4oH35jnpMd
-	lA4nwork1QawTpKLdo88hysT3FEyaW2M6/GVyrBEyppFKNZP+ZMvVApIVbF+YSzbfVrAIj1pTAi9l
-	pPJJr9s0JaGPaVuNI6n6alnm1MjYa8Vj7V5FZm222gEXE6aM8jm13ziTE+c1bjFpeAlco4O+b/6el
-	iYYGfjhkV1UrZaiOg1wAy/mnRlUkLTmeDs8cJF9frtvp+PoDqegHxbBTrmSIu88B4mcZPwxzLvINM
-	OMW4qu3w==;
+	bh=rl66oOZ9dra82J7CjNCHzOpuoOwvMztRV6mr5JP3oB8=; b=1H1EeSn443OWhQnU/+aLSuY9+a
+	YUJE2N1judvcPFQYAqDAm1KI/JdEK04WbtJ7zohS4EkoS4LhCe0bH3578eJfWUl/PqnUNWXV8T4Oq
+	pHRAtI+rPu3uQhPAcAqSlzqy59SLxcocZ/wYb6u09RzmGGrPhz/9FnSMFpMU9etldTmKs3lJw0oA6
+	h7JJm8QAb6fDABr/LfySVGAWjJoGo0+W1Fai/yKtYijcV9tkj9sfLXjeIxoJ58j4ZH8udkPsKK5jG
+	VjtCec3U7GpoZ86TJCeebkVsIwmkc0IAvImeBe0R2BoMLqZ867xWXuaOMH9L/pGh11n+1ZO52cBav
+	nBitG1rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XCG-0000000Cc9v-0ayx;
-	Fri, 20 Mar 2026 10:35:16 +0000
+	id 1w3XCL-0000000CcDV-0vjg;
+	Fri, 20 Mar 2026 10:35:21 +0000
 Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XCA-0000000Cc4b-3WXS;
-	Fri, 20 Mar 2026 10:35:12 +0000
+	id 1w3XCE-0000000Cc4u-3BfP;
+	Fri, 20 Mar 2026 10:35:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=superkali.me; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Ob+IZvhkIha5DTBe/HV7/KpWvsF/0JXOGJlTDavxCws=; b=ms1v4Gk5fJjt5tUCjPL4TCWeBT
-	O2YctRvPsU1HkWdJg5EQ7f71SnMCSjhzJ3LPL4k9xFo5+3CV4L82W1XEw1sg6w7dFtoiv61l4m4Yx
-	wsjXEauOD0N0e25hOXc+oIH2fpXBHV/4ablG6K380ZKuYf5LmUK83ibH23D693p+acnxCgN086i0U
-	M4repuVfPJd0wNhaH68PsYvt1NW4Ler7cijv/6EJVQpeuzwQLDWC5nxUh4vUHpYhEOpYwrNkkANXe
-	KwQnVIVtg9FcVmVnn2HpPGqbdXVPS2SOp5sZ4kveksMuHFR9SvMDf+Qz8ums72BwCSEBs0wDphL8/
-	GYfHpd8w==;
+	bh=rl66oOZ9dra82J7CjNCHzOpuoOwvMztRV6mr5JP3oB8=; b=XxW3jZEPWdVk9ikWPNHNrTOgFZ
+	1aELcnb5rU9+1TJfxHoOJ2MauByVKpoV1jAuZiRwVtQX3LRpwoMMzx1jaqWNb4o8bVMoOPiNMVrFK
+	QQBcI6im6XDHi0c3D9kSxRJYX72b/A4ff91zwAhM3Ees+GGOtgxZYedcd1Dc6M75BvAmDkmS6bWhj
+	aLeQDvcZRtp0TXvSzh8c660p/zp8c9HPMryINfE2ijyCGpF7SUu7V5uzEcfoWAGd1CbYyPUlxbXpn
+	6ENG+KbMHbggI1G5vguEcGjmuoAASbDtK/nmme/ljehYETD1/0aBiX5bbKE3jsg04Z8rvPyNkNwzr
+	nc1sfAyg==;
 Received: from [2a0d:52c0:500f:0:89f2:a47:418d:affd] (port=53820 helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
 	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.1)
 	(envelope-from <hello@superkali.me>)
-	id 1w3XBW-00000005JXw-1WAm;
-	Fri, 20 Mar 2026 11:34:27 +0100
+	id 1w3XBa-00000005JXw-0bOu;
+	Fri, 20 Mar 2026 11:34:31 +0100
 From: Daniele Briguglio <hello@superkali.me>
-Date: Fri, 20 Mar 2026 11:34:14 +0100
-Subject: [PATCH v3 2/4] clk: rockchip: allow grf_type_sys lookup in
- aux_grf_table
+Date: Fri, 20 Mar 2026 11:34:15 +0100
+Subject: [PATCH v3 3/4] soc: rockchip: rk3588: add SYS_GRF SOC_CON6
+ register offset
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-rk3588-mclk-gate-grf-v3-2-980338eacd2c@superkali.me>
+Message-Id: <20260320-rk3588-mclk-gate-grf-v3-3-980338eacd2c@superkali.me>
 References: <20260320-rk3588-mclk-gate-grf-v3-0-980338eacd2c@superkali.me>
 In-Reply-To: <20260320-rk3588-mclk-gate-grf-v3-0-980338eacd2c@superkali.me>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -63,11 +63,11 @@ Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Daniele Briguglio <hello@superkali.me>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774002854; l=1708;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774002854; l=753;
  i=hello@superkali.me; s=20260316; h=from:subject:message-id;
- bh=WL4AZHxfBGBXO8GMVo8sFDi5dqnXuP+ssvyAyb87JKI=;
- b=OmOmt2iWriL7TqxPVLJaGDFEHhSk73NWzFr6M7ELjJJb+ystBb0yvMxsqdrXuv81P7PUahUZS
- 8CaZutVbw1DAMH0ffPzeNYnUcUXYXCx2tHzsYAA6OR8aaSynrPbJB81
+ bh=UQEiDKSJXeYPDA3RGeG+ndD97rbfufDLqHqwaCQMuJQ=;
+ b=reSZXzfaoxAP4k38LsL5bDJzFTgYbqnd77dmCRG75jULCNmy4BUCYDALolqYXGWvOCeYmOafL
+ PNAi7o1x/SZCJ0g6Wi1FwlK47jrQBuuYxeNCcA4T4UQHxH/7vzCCUQA
 X-Developer-Key: i=hello@superkali.me; a=ed25519;
  pk=5tynRWQdL93CDcapJ73FkcCRY2PeBOJOIAoIhRig53U=
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -81,8 +81,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_033511_045694_F884E269 
-X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-CacheID: sfid-20260320_033514_956429_AC25DD66 
+X-CRM114-Status: UNSURE (   5.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,43 +98,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the grf_type_sys exclusion from the auxiliary GRF table lookup
-in rockchip_clk_register_branches(). Previously, branches with
-grf_type_sys always used ctx->grf directly, bypassing the aux_grf_table.
+Add the RK3588_SYSGRF_SOC_CON6 register offset to the RK3588 GRF
+header. This register contains the I2S MCLK output to IO gate bits,
+needed by the clock driver.
 
-This is a problem on SoCs like RK3588 where ctx->grf points to the
-PHP_GRF (set via the CRU's rockchip,grf phandle), but GATE_GRF clock
-entries need to access the SYS_GRF instead.
-
-With this change, grf_type_sys branches first check the aux_grf_table,
-and fall back to ctx->grf if no entry is found. This is backwards
-compatible: on SoCs that do not register grf_type_sys in the
-aux_grf_table, the behavior is unchanged.
-
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Daniele Briguglio <hello@superkali.me>
 ---
- drivers/clk/rockchip/clk.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ include/soc/rockchip/rk3588_grf.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
-index e8b3b0b9a4f8..911e6b610618 100644
---- a/drivers/clk/rockchip/clk.c
-+++ b/drivers/clk/rockchip/clk.c
-@@ -509,10 +509,9 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
- 		clk = NULL;
+diff --git a/include/soc/rockchip/rk3588_grf.h b/include/soc/rockchip/rk3588_grf.h
+index 02a7b2432d99..db0092fc66ad 100644
+--- a/include/soc/rockchip/rk3588_grf.h
++++ b/include/soc/rockchip/rk3588_grf.h
+@@ -19,4 +19,6 @@
+ /* Whether the LPDDR5 is in 2:1 (= 0) or 4:1 (= 1) CKR a.k.a. DQS mode */
+ #define RK3588_PMUGRF_OS_REG6_LP5_CKR			BIT(0)
  
- 		/* for GRF-dependent branches, choose the right grf first */
--		if ((list->branch_type == branch_grf_mux ||
--		     list->branch_type == branch_grf_gate ||
--		     list->branch_type == branch_grf_mmc) &&
--		    list->grf_type != grf_type_sys) {
-+		if (list->branch_type == branch_grf_mux ||
-+		    list->branch_type == branch_grf_gate ||
-+		    list->branch_type == branch_grf_mmc) {
- 			hash_for_each_possible(ctx->aux_grf_table, agrf, node, list->grf_type) {
- 				if (agrf->type == list->grf_type) {
- 					grf = agrf->grf;
++#define RK3588_SYSGRF_SOC_CON6			0x0318
++
+ #endif /* __SOC_RK3588_GRF_H */
 
 -- 
 2.53.0
