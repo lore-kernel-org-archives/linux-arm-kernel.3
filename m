@@ -4,116 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9754D10987A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EC0109879E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MmXHGaQzfs+IJLxwCsEE0bxv5XGFAsVai52fKs2Msxw=; b=pLqcQAxpGiTKmd2XpNQb3uOZJ0
-	9NoQuPaaFNWRFGLZ0nbAN2/5OJyh8/XQJlSVP7N8WR9hSjgvhwHHVHA2jAfkCXFOuHVMbu1m3I7SX
-	kvxMTfOLmG3c1HRcXsEM9jco30OwUcovFzn3yq9tgzwiHkc9lRyNnnjrfHkvWJjxkclda+d34vPw6
-	icB22TcxM4BqiWW6Frm+IgTcNBZd1qTjHlLe6Z0Rp/uX0J5Evns3n5r69aFyggQE+VF18eV//t43X
-	x7/stG+o9zX3E9tjITkCS9O7I1KiV0OFSTOKuCpri0XgYoCAlO60htMlU9Frfs3Dofq89b6R5U/5R
-	Tcm2E4gw==;
+	bh=+yR+PJRH6YRQjmehaNaFji/dJk7afbiF4tpa4os7oYg=; b=boASYNXDRK02mopManrjyHSND8
+	cjFPzIFcvvvmuf2YBQbsbYTcFOlLHkPd8R28xmRy1PL1xtGxoRXf/Oy5bIrh1tF5K7HDue+KvUlKJ
+	dYbCTI0G06XSWUY+YoWjyipF/PQJ4RAR88rEgpVsFjkqq4ZG3RiE/Zw+PClc/2mBS7dEEZFbO7wJS
+	6VlUv86bQRON6mYZcSAPSeKFy6sA++jUT24gNjPYxUb9+MZ1ICgNg44zMdSvFv8RFiP58w/kuQ8Gs
+	WY8PGrsFOxTEVeSzyHPNkGm7i3+46FSrCyJAi4/iIJ1TQ2HliOVzEJ8DhGAyJveDy3zZMHnF1tyK8
+	Zm9CkE5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3cMV-0000000D5YX-0qK9;
-	Fri, 20 Mar 2026 16:06:11 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3cMS-0000000D5Xp-3W3B
+	id 1w3cOB-0000000D5lL-2lCs;
+	Fri, 20 Mar 2026 16:07:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3cO9-0000000D5ky-0yrW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:06:10 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2addb31945aso13754335ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 09:06:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hev-cc.20230601.gappssmtp.com; s=20230601; t=1774022768; x=1774627568; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MmXHGaQzfs+IJLxwCsEE0bxv5XGFAsVai52fKs2Msxw=;
-        b=SeJQJUyQLjzRcCt4XU3HIAw3ECK9F1RAc+OGpcjou8OCoOoDsiqEQMeb/fcWQZgZG6
-         dHXitMJeD10R5kLLnMAfwyh+VSrWcDNUIRQ3u5aiZoXhfo3mD83Tl8GxhA7uF5OcqK2P
-         em0g6BQM+oYsykBwpOk5eKzd8yW0Eu+OuMHoTAAQ4PTD3Yg3B8KGIzrsqtmT5Qi9jMXN
-         b5qqY81phpHyT5JV2004cwMfFO/wfZVgbPy4SvbTma3uvCijsr7Qqu/dYTqSzkl8Hmvq
-         6EUQUnAmJt9/VLE7YhFrl+ns2vguLyfXt1kqQTxicpOtBhjfeaGG/YoQsXQz395OYmJd
-         uX1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774022768; x=1774627568;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=MmXHGaQzfs+IJLxwCsEE0bxv5XGFAsVai52fKs2Msxw=;
-        b=SXXEy2OARdmQVFm360ait01ZyCIbvS6yfTuwR8WDTQZBDhFOE1bckjH8gMa9JYyGsJ
-         55uin8ITd/BZLQe/c51RZUeelrevz/CQPxGSlgeFwdXbLUJuF2fv7KoaMvgKcPl7yfsk
-         QJ7Vsoc50Wm4h05fer8kAVAYFYBrfTM8MQLu6XSEi6GwisL6j7EROmwZ928JuyHpOyoX
-         khyV3CB7fR9oZgfQrkKFoTRJVkcCzkN2JdCvJ5fUeDwC3g7XVV9FG5nKJ83vJtx4C6SH
-         WLbKf2vRr2mBUg2jMZTNnI97V4H2tV/L0j2VNDVTeSgDx4ElXIvEcRI56fRSvu6Hbaua
-         pmeA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzTSZN69I7yj4uRWLyNz/D2r21bL8CiUTGgviXRQg8byM9BfIGmWWjmuhBKtt8Q4daa7FTZzymmzRRagJwcuFm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNDjO45jtD/MQRr20+8h3lVKH6Ex9zd0lK9alT4pXynsRkEhWU
-	xOQe/OCLVYsxdgLmxQaA6BMVChR8ue/JjRYEYqYPz5u5Eonmu7jL5j+byxvoPd+yWRg=
-X-Gm-Gg: ATEYQzznaOqm31dKRvHNKW56lH1bnkYTqOa4dB2wlPJeoSom5ZGvoJfI5m61OrTf76x
-	8moxS6HggnbBxRvzHzA53zmAPFzypqgZCfLnsOjT/5nRf0V3fR6nL1KWKlijLGkXyX4vaaurPyR
-	KcWptHCsD9civHPb3H71uF2HMbR2W0QQN2D80hgInxTjCznyJO5fCRLAz7eMdzZJp2pUfn9nssf
-	NL6XNfEXq3/vW/7AtAUS4QzsAUipJW0IKsq8qjaL3d8uw/yOQ7ARqPuNMflgR+4t7C+etvBS4O6
-	NrvCJ0njyCMUc53HVLFudjDOoTTkJXXZvcee7WxsD1Fe+dUzHqlnAoUOLhES9E37yc5oJGeDOjw
-	4rtwl2rZqtEU2vJQGLZGS1C+jQZ9lEWgymzytGEfjwuQ4kQDq7KsCHz38NvoWk+xZruoClPx9pj
-	ge
-X-Received: by 2002:a17:903:22d1:b0:2b0:6e8f:8e85 with SMTP id d9443c01a7336-2b0826d73e8mr36730865ad.5.1774022767505;
-        Fri, 20 Mar 2026 09:06:07 -0700 (PDT)
-Received: from gpc ([2400:8902:e002:ded5:78c1:8178:95c1:6ca3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083656b51sm32785625ad.54.2026.03.20.09.06.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 09:06:06 -0700 (PDT)
-From: WANG Rui <r@hev.cc>
-To: usama.arif@linux.dev
-Cc: Liam.Howlett@oracle.com,
-	ajd@linux.ibm.com,
-	akpm@linux-foundation.org,
-	apopple@nvidia.com,
-	baohua@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	brauner@kernel.org,
-	catalin.marinas@arm.com,
-	david@kernel.org,
-	dev.jain@arm.com,
-	jack@suse.cz,
-	kees@kernel.org,
-	kevin.brodsky@arm.com,
-	lance.yang@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.l,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com,
-	mhocko@suse.com,
-	npache@redhat.com,
-	pasha.tatashin@soleen.com,
-	r@hev.cc,
-	rmclure@linux.ibm.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	surenb@google.com,
-	vbabka@kernel.org,
-	viro@zeniv.linux.org.uk,
-	willy@infradead.org
-Subject: Re: [PATCH v2 3/4] elf: align ET_DYN base to max folio size for PTE coalescing
-Date: Sat, 21 Mar 2026 00:05:18 +0800
-Message-ID: <20260320160519.80962-1-r@hev.cc>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260320140315.979307-4-usama.arif@linux.dev>
-References: <20260320140315.979307-4-usama.arif@linux.dev>
+	Fri, 20 Mar 2026 16:07:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59EDB165C;
+	Fri, 20 Mar 2026 09:07:44 -0700 (PDT)
+Received: from [10.1.29.20] (e122027.cambridge.arm.com [10.1.29.20])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD4F83F7BD;
+	Fri, 20 Mar 2026 09:07:45 -0700 (PDT)
+Message-ID: <e3942a6c-ac55-4833-b63f-5ebdfd96ca31@arm.com>
+Date: Fri, 20 Mar 2026 16:07:43 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 12/48] arm64: RMI: Basic infrastructure for creating a
+ realm.
+To: Wei-Lin Chang <weilin.chang@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-13-steven.price@arm.com>
+ <izfo7i46qpfdhakm6hcr4klig5kt3kokwh5onxkxl2a6imsvvu@2k6kfovd66kk>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <izfo7i46qpfdhakm6hcr4klig5kt3kokwh5onxkxl2a6imsvvu@2k6kfovd66kk>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_090609_132853_0F16032E 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20260320_090753_358471_F4410A8F 
+X-CRM114-Status: GOOD (  31.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,105 +80,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Usama,
+On 19/03/2026 17:17, Wei-Lin Chang wrote:
+> On Wed, Mar 18, 2026 at 03:53:36PM +0000, Steven Price wrote:
+>> Introduce the skeleton functions for creating and destroying a realm.
+>> The IPA size requested is checked against what the RMM supports.
+>>
+>> The actual work of constructing the realm will be added in future
+>> patches.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v12:
+>>  * Drop the RMM_PAGE_{SHIFT,SIZE} defines - the RMM is now configured to
+>>    be the same as the host's page size.
+>>  * Rework delegate/undelegate functions to use the new RMI range based
+>>    operations.
+>> Changes since v11:
+>>  * Major rework to drop the realm configuration and make the
+>>    construction of realms implicit rather than driven by the VMM
+>>    directly.
+>>  * The code to create RDs, handle VMIDs etc is moved to later patches.
+>> Changes since v10:
+>>  * Rename from RME to RMI.
+>>  * Move the stage2 cleanup to a later patch.
+>> Changes since v9:
+>>  * Avoid walking the stage 2 page tables when destroying the realm -
+>>    the real ones are not accessible to the non-secure world, and the RMM
+>>    may leave junk in the physical pages when returning them.
+>>  * Fix an error path in realm_create_rd() to actually return an error value.
+>> Changes since v8:
+>>  * Fix free_delegated_granule() to not call kvm_account_pgtable_pages();
+>>    a separate wrapper will be introduced in a later patch to deal with
+>>    RTTs.
+>>  * Minor code cleanups following review.
+>> Changes since v7:
+>>  * Minor code cleanup following Gavin's review.
+>> Changes since v6:
+>>  * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
+>>    host page size to be larger than 4k while still communicating with an
+>>    RMM which uses 4k granules.
+>> Changes since v5:
+>>  * Introduce free_delegated_granule() to replace many
+>>    undelegate/free_page() instances and centralise the comment on
+>>    leaking when the undelegate fails.
+>>  * Several other minor improvements suggested by reviews - thanks for
+>>    the feedback!
+>> Changes since v2:
+>>  * Improved commit description.
+>>  * Improved return failures for rmi_check_version().
+>>  * Clear contents of PGD after it has been undelegated in case the RMM
+>>    left stale data.
+>>  * Minor changes to reflect changes in previous patches.
+>> ---
+>>  arch/arm64/include/asm/kvm_emulate.h |  5 ++
+>>  arch/arm64/include/asm/kvm_rmi.h     | 16 +++++
+>>  arch/arm64/kvm/arm.c                 | 12 ++++
+>>  arch/arm64/kvm/mmu.c                 | 11 +++-
+>>  arch/arm64/kvm/rmi.c                 | 88 ++++++++++++++++++++++++++++
+>>  5 files changed, 129 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+>> index f38b50151ce8..39310d9b4e16 100644
+>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>> @@ -701,6 +701,11 @@ static inline enum realm_state kvm_realm_state(struct kvm *kvm)
+>>  	return READ_ONCE(kvm->arch.realm.state);
+>>  }
+>>  
+>> +static inline bool kvm_realm_is_created(struct kvm *kvm)
+>> +{
+>> +	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
+>> +}
+>> +
+>>  static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>>  {
+>>  	return false;
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+>> index 3506f50b05cd..0ada525af18f 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -6,6 +6,8 @@
+>>  #ifndef __ASM_KVM_RMI_H
+>>  #define __ASM_KVM_RMI_H
+>>  
+>> +#include <asm/rmi_smc.h>
+>> +
+>>  /**
+>>   * enum realm_state - State of a Realm
+>>   */
+>> @@ -46,11 +48,25 @@ enum realm_state {
+>>   * struct realm - Additional per VM data for a Realm
+>>   *
+>>   * @state: The lifetime state machine for the realm
+>> + * @rd: Kernel mapping of the Realm Descriptor (RD)
+>> + * @params: Parameters for the RMI_REALM_CREATE command
+>> + * @num_aux: The number of auxiliary pages required by the RMM
+>> + * @ia_bits: Number of valid Input Address bits in the IPA
+>>   */
+>>  struct realm {
+>>  	enum realm_state state;
+>> +
+>> +	void *rd;
+>> +	struct realm_params *params;
+>> +
+>> +	unsigned long num_aux;
+>> +	unsigned int ia_bits;
+>>  };
+>>  
+>>  void kvm_init_rmi(void);
+>> +u32 kvm_realm_ipa_limit(void);
+>> +
+>> +int kvm_init_realm_vm(struct kvm *kvm);
+>> +void kvm_destroy_realm(struct kvm *kvm);
+> 
+> Hi,
+> 
+> Sorry I missed one nit: perhaps call this kvm_init_realm()? So these two
+> look like a pair. There are also no realm_vm in other function names.
 
-On Fri, Mar 20, 2026 at 10:04 PM Usama Arif <usama.arif@linux.dev> wrote:
-> diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
-> index 8e89cc5b28200..042af81766fcd 100644
-> --- a/fs/binfmt_elf.c
-> +++ b/fs/binfmt_elf.c
-> @@ -49,6 +49,7 @@
->  #include <uapi/linux/rseq.h>
->  #include <asm/param.h>
->  #include <asm/page.h>
-> +#include <linux/pagemap.h>
->
->  #ifndef ELF_COMPAT
->  #define ELF_COMPAT 0
-> @@ -488,19 +489,51 @@ static int elf_read(struct file *file, void *buf, size_t len, loff_t pos)
->         return 0;
->  }
->
-> -static unsigned long maximum_alignment(struct elf_phdr *cmds, int nr)
-> +static unsigned long maximum_alignment(struct elf_phdr *cmds, int nr,
-> +                                      struct file *filp)
->  {
->         unsigned long alignment = 0;
-> +       unsigned long max_folio_size = PAGE_SIZE;
->         int i;
->
-> +       if (filp && filp->f_mapping)
-> +               max_folio_size = mapping_max_folio_size(filp->f_mapping);
-
-From experiments (with 16K base pages), mapping_max_folio_size() appears to
-depend on the filesystem. It returns 8M on ext4, while on btrfs it always
-falls back to PAGE_SIZE (it seems CONFIG_BTRFS_EXPERIMENTAL=y may change this).
-This looks overly conservative and ends up missing practical optimization
-opportunities.
-
-> +
->         for (i = 0; i < nr; i++) {
->                 if (cmds[i].p_type == PT_LOAD) {
->                         unsigned long p_align = cmds[i].p_align;
-> +                       unsigned long size;
->
->                         /* skip non-power of two alignments as invalid */
->                         if (!is_power_of_2(p_align))
->                                 continue;
->                         alignment = max(alignment, p_align);
-> +
-> +                       /*
-> +                        * Try to align the binary to the largest folio
-> +                        * size that the page cache supports, so the
-> +                        * hardware can coalesce PTEs (e.g. arm64
-> +                        * contpte) or use PMD mappings for large folios.
-> +                        *
-> +                        * Use the largest power-of-2 that fits within
-> +                        * the segment size, capped by what the page
-> +                        * cache will allocate. Only align when the
-> +                        * segment's virtual address and file offset are
-> +                        * already aligned to the folio size, as
-> +                        * misalignment would prevent coalescing anyway.
-> +                        *
-> +                        * The segment size check avoids reducing ASLR
-> +                        * entropy for small binaries that cannot
-> +                        * benefit.
-> +                        */
-> +                       if (!cmds[i].p_filesz)
-> +                               continue;
-> +                       size = rounddown_pow_of_two(cmds[i].p_filesz);
-> +                       size = min(size, max_folio_size);
-> +                       if (size > PAGE_SIZE &&
-> +                           IS_ALIGNED(cmds[i].p_vaddr, size) &&
-> +                           IS_ALIGNED(cmds[i].p_offset, size))
-> +                               alignment = max(alignment, size);
-
-In my patch [1], by aligning eligible segments to PMD_SIZE, THP can quickly
-collapse them into large mappings with minimal warmup. That doesn’t happen
-with the current behavior. I think allowing a reasonably sized PMD (say <= 32M)
-is worth considering. All we really need here is to ensure virtual address
-alignment. The rest can be left to THP under always, which can decide whether
-to collapse or not based on memory pressure and other factors.
-
-[1] https://lore.kernel.org/linux-fsdevel/20260313005211.882831-1-r@hev.cc
-
->                 }
->         }
->
-> @@ -1104,7 +1137,8 @@ static int load_elf_binary(struct linux_binprm *bprm)
->                         }
->
->                         /* Calculate any requested alignment. */
-> -                       alignment = maximum_alignment(elf_phdata, elf_ex->e_phnum);
-> +                       alignment = maximum_alignment(elf_phdata, elf_ex->e_phnum,
-> +                                                     bprm->file);
->
->                         /**
->                          * DOC: PIE handling
-> --
-> 2.52.0
->
+Makes sense, thanks for the suggestion.
 
 Thanks,
-Rui
+Steve
+
+> Thanks,
+> Wei-Lin Chang
+> 
+>>  
+>>  #endif /* __ASM_KVM_RMI_H */
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 274d7866efdc..9b17bdfaf0c2 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -253,6 +253,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>>  
+>>  	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
+>>  
+>> +	/* Initialise the realm bits after the generic bits are enabled */
+>> +	if (kvm_is_realm(kvm)) {
+>> +		ret = kvm_init_realm_vm(kvm);
+>> +		if (ret)
+>> +			goto err_free_cpumask;
+>> +	}
+>> +
+>>  	return 0;
+>>  
+>>  err_free_cpumask:
+>> @@ -312,6 +319,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>>  	kvm_unshare_hyp(kvm, kvm + 1);
+>>  
+>>  	kvm_arm_teardown_hypercalls(kvm);
+>> +	if (kvm_is_realm(kvm))
+>> +		kvm_destroy_realm(kvm);
+>>  }
+>>  
+>>  static bool kvm_has_full_ptr_auth(void)
+>> @@ -473,6 +482,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>>  		else
+>>  			r = kvm_supports_cacheable_pfnmap();
+>>  		break;
+>> +	case KVM_CAP_ARM_RMI:
+>> +		r = static_key_enabled(&kvm_rmi_is_available);
+>> +		break;
+>>  
+>>  	default:
+>>  		r = 0;
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 070a01e53fcb..d6094b60c4ce 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -872,12 +872,16 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
+>>  	.icache_inval_pou	= invalidate_icache_guest_page,
+>>  };
+>>  
+>> -static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
+>> +static int kvm_init_ipa_range(struct kvm *kvm,
+>> +			      struct kvm_s2_mmu *mmu, unsigned long type)
+>>  {
+>>  	u32 kvm_ipa_limit = get_kvm_ipa_limit();
+>>  	u64 mmfr0, mmfr1;
+>>  	u32 phys_shift;
+>>  
+>> +	if (kvm_is_realm(kvm))
+>> +		kvm_ipa_limit = kvm_realm_ipa_limit();
+>> +
+>>  	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+>>  		return -EINVAL;
+>>  
+>> @@ -974,7 +978,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>>  		return -EINVAL;
+>>  	}
+>>  
+>> -	err = kvm_init_ipa_range(mmu, type);
+>> +	err = kvm_init_ipa_range(kvm, mmu, type);
+>>  	if (err)
+>>  		return err;
+>>  
+>> @@ -1113,7 +1117,8 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>>  	write_unlock(&kvm->mmu_lock);
+>>  
+>>  	if (pgt) {
+>> -		kvm_stage2_destroy(pgt);
+>> +		if (!kvm_is_realm(kvm))
+>> +			kvm_stage2_destroy(pgt);
+>>  		kfree(pgt);
+>>  	}
+>>  }
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index 80aedc85e94a..700b8c935d29 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -6,6 +6,8 @@
+>>  #include <linux/kvm_host.h>
+>>  #include <linux/memblock.h>
+>>  
+>> +#include <asm/kvm_emulate.h>
+>> +#include <asm/kvm_mmu.h>
+>>  #include <asm/kvm_pgtable.h>
+>>  #include <asm/rmi_cmds.h>
+>>  #include <asm/virt.h>
+>> @@ -182,6 +184,92 @@ static int rmi_init_metadata(void)
+>>  	return 0;
+>>  }
+>>  
+>> +u32 kvm_realm_ipa_limit(void)
+>> +{
+>> +	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+>> +}
+>> +
+>> +static int undelegate_range(phys_addr_t phys, unsigned long size)
+>> +{
+>> +	unsigned long ret;
+>> +	unsigned long top = phys + size;
+>> +	unsigned long out_top;
+>> +
+>> +	while (phys < top) {
+>> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
+>> +		if (ret == RMI_SUCCESS)
+>> +			phys = out_top;
+>> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
+>> +			return ret;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int undelegate_page(phys_addr_t phys)
+>> +{
+>> +	return undelegate_range(phys, PAGE_SIZE);
+>> +}
+>> +
+>> +static int free_delegated_page(phys_addr_t phys)
+>> +{
+>> +	if (WARN_ON(undelegate_page(phys))) {
+>> +		/* Undelegate failed: leak the page */
+>> +		return -EBUSY;
+>> +	}
+>> +
+>> +	free_page((unsigned long)phys_to_virt(phys));
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +void kvm_destroy_realm(struct kvm *kvm)
+>> +{
+>> +	struct realm *realm = &kvm->arch.realm;
+>> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+>> +
+>> +	write_lock(&kvm->mmu_lock);
+>> +	kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
+>> +			       BIT(realm->ia_bits - 1), true);
+>> +	write_unlock(&kvm->mmu_lock);
+>> +
+>> +	if (realm->params) {
+>> +		free_page((unsigned long)realm->params);
+>> +		realm->params = NULL;
+>> +	}
+>> +
+>> +	if (!kvm_realm_is_created(kvm))
+>> +		return;
+>> +
+>> +	WRITE_ONCE(realm->state, REALM_STATE_DYING);
+>> +
+>> +	if (realm->rd) {
+>> +		phys_addr_t rd_phys = virt_to_phys(realm->rd);
+>> +
+>> +		if (WARN_ON(rmi_realm_destroy(rd_phys)))
+>> +			return;
+>> +		free_delegated_page(rd_phys);
+>> +		realm->rd = NULL;
+>> +	}
+>> +
+>> +	if (WARN_ON(undelegate_range(kvm->arch.mmu.pgd_phys, pgd_size)))
+>> +		return;
+>> +
+>> +	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
+>> +
+>> +	/* Now that the Realm is destroyed, free the entry level RTTs */
+>> +	kvm_free_stage2_pgd(&kvm->arch.mmu);
+>> +}
+>> +
+>> +int kvm_init_realm_vm(struct kvm *kvm)
+>> +{
+>> +	kvm->arch.realm.params = (void *)get_zeroed_page(GFP_KERNEL);
+>> +
+>> +	if (!kvm->arch.realm.params)
+>> +		return -ENOMEM;
+>> +	return 0;
+>> +}
+>> +
+>>  static int rmm_check_features(void)
+>>  {
+>>  	if (kvm_lpa2_is_enabled() && !rmi_has_feature(RMI_FEATURE_REGISTER_0_LPA2)) {
+>> -- 
+>> 2.43.0
+>>
+
 
