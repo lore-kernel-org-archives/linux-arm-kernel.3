@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9373C1093177
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D921093177
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QnI07nqauyeMf8KUCQnVxha1FzVss2BIx+GgFpCzv64=; b=YmcEz/xXJ4EAi+DFJMi0ulNJ0c
-	I1wxQHH3XWPWZorNB0bZPrQrHxz+yQaZp/G+CEkx1SfikLzxhbkZNNK7VHGixncEEUUPX4htinBq4
-	bAN3zLza41gPQvvnBPrqPXFN4BmFdew4Kbf4ClVIiF66k5QxW8WXqj2sgXrdFQxSJwSy+914CpJOj
-	6cYOCRKTSdNmjQbUyoTDhk4oeATmPEwCgEdP3BGaqD/zNylP37RHCoWzTESPgrlve/G5mn45F8LY0
-	7CBAC4hYWl1qOmEWTUNcimGIHxwsahiojvN1wY0POFWME/OxMvQEiFPuNZF6a9mNASYbdiwTwGIv9
-	WYQ3K5WA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VXInfPSwAGRRtB+ybyzTEt3gvSIjjBC1jeS0/7UiiIY=; b=b3V8QDFyxyDiGXYJhVoXvbtazM
+	BmHo7UfTxqbQLVZVhuk1DwltjPPsuQPINF/zyZzeXu8qc5BbesFD/npsIysdbhURpDR4Byf1zGPiJ
+	d2QJsDGpKuB6V0/L55iMHG8rvQNliZj0CFeIp8brVfTye/LlJCUCE/yIUkAUuIrxP7pPza1r/9Lvd
+	qQ1ihhMnqJphRe7oWrtavG7AyzlTu1I1WbXwp6EMw92CuhS7+k3h5yCgcABf+mCMJlGrAvoLRkUqz
+	yFvRzPjtcoDOH8iy4n0YFb337ppA2YVot7nfLwNzGU/vhZ0/nDroRdmG92UcuTzjE9RsV20B/mpOw
+	fovi/jAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Swv-0000000C8qZ-47d5;
-	Fri, 20 Mar 2026 06:03:09 +0000
+	id 1w3SyW-0000000C8yK-1YLB;
+	Fri, 20 Mar 2026 06:04:48 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Swu-0000000C8qE-1LUj
+	id 1w3SyU-0000000C8xz-1VXe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 06:03:09 +0000
+	Fri, 20 Mar 2026 06:04:47 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 32DBF20B710C;
-	Thu, 19 Mar 2026 23:03:07 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 32DBF20B710C
+	by linux.microsoft.com (Postfix) with ESMTPSA id EF2D620B710C;
+	Thu, 19 Mar 2026 23:04:45 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EF2D620B710C
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1773986587;
-	bh=QnI07nqauyeMf8KUCQnVxha1FzVss2BIx+GgFpCzv64=;
-	h=From:To:Subject:Date:From;
-	b=XwtFf2ZTPIXKQt2FyQf2oyd8mk5VBQlZkcUXcn4+xLFeH2yiibY1ofJFIhPWWaQQU
-	 YP50uM/49uXwSJDQs284PweqsSrPdf7GRaxWO92otnUZN8IHz1sgHl7mbC9S3WP04z
-	 byoIqNuPUY2jnDHontBZsKM/05fxQjdDBLTjOwc4=
+	s=default; t=1773986686;
+	bh=VXInfPSwAGRRtB+ybyzTEt3gvSIjjBC1jeS0/7UiiIY=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=nMvAdZMxtQl+dV2uHFrQSvxOd+oIf5Ub6RKPhxigQaMLVUaA+2ku3AGTFCSn71c8l
+	 heKqlvvO+IS4cY3dGVNhZtf0vHQw0NYZ/SJeujdGlgOWeQ2Dxu6G6/nr5ms9LgJTzY
+	 kPbTV6NDUwT78PruzFOCuPK58PHa0e4KOZ3DvcuI=
 From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 To: ptsm@linux.microsoft.com,
 	michal.simek@amd.com,
 	jay.buddhabhatti@amd.com,
 	marco.crivellari@suse.com,
-	tejas.patel@xilinx.com,
-	rajan.vaja@xilinx.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] soc: xilinx: Fix race condition in event registration
-Date: Thu, 19 Mar 2026 23:03:06 -0700
-Message-ID: <20260320060306.1540928-1-ptsm@linux.microsoft.com>
+Subject: [PATCH v2 2/2] soc: xilinx: Shutdown and free rx mailbox channel
+Date: Thu, 19 Mar 2026 23:04:45 -0700
+Message-ID: <20260320060445.1541017-1-ptsm@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260320060306.1540928-1-ptsm@linux.microsoft.com>
+References: <20260320060306.1540928-1-ptsm@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_230308_414409_BF2174A4 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260319_230446_430853_3A5B6381 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,101 +70,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The zynqmp_power driver registers handlers for suspend and subsystem
-restart events using register_event(). However, the work structures
-(zynqmp_pm_init_suspend_work and zynqmp_pm_init_restart_work) used by
-these handlers were allocated and initialized after the registration
-call.
+A mbox rx channel is requested using mbox_request_channel_byname() in
+probe. In remove callback, the rx mailbox channel is cleaned up when the
+rx_chan is NULL due to incorrect condition check. The mailbox channel is
+not shutdown and it can receive messages even after the device removal.
+This leads to use after free. Also the channel resources are not freed.
+Fix this by checking the rx_chan correctly.
 
-This created a race window where, if the firmware triggered an event
-immediately after registration but before allocation, the callback
-(suspend_event_callback or subsystem_restart_event_callback) would
-dereference a NULL pointer in work_pending(), leading to a crash.
-
-Fix this by allocating and initializing the work structures before
-registering the events.
-
-Fixes: fcf544ac6439 ("soc: xilinx: Add cb event for subsystem restart")
+Fixes: ffdbae28d9d1a ("drivers: soc: xilinx: Use mailbox IPI callback")
 Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 ---
- drivers/soc/xilinx/zynqmp_power.c | 43 ++++++++++++-------------------
- 1 file changed, 17 insertions(+), 26 deletions(-)
+ drivers/soc/xilinx/zynqmp_power.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/zynqmp_power.c
-index 9085db1b480a..9dd938bd01d8 100644
+index 9dd938bd01d8..370e61ac47d8 100644
 --- a/drivers/soc/xilinx/zynqmp_power.c
 +++ b/drivers/soc/xilinx/zynqmp_power.c
-@@ -303,18 +303,18 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
- 	 * is not available to use) or -ENODEV(Xilinx Event Manager not compiled),
- 	 * then use ipi-mailbox or interrupt method.
- 	 */
-+	zynqmp_pm_init_suspend_work = devm_kzalloc(&pdev->dev,
-+						   sizeof(struct zynqmp_pm_work_struct),
-+						   GFP_KERNEL);
-+	if (!zynqmp_pm_init_suspend_work)
-+		return -ENOMEM;
-+
-+	INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
-+		  zynqmp_pm_init_suspend_work_fn);
-+
- 	ret = register_event(&pdev->dev, PM_INIT_SUSPEND_CB, 0, 0, false,
- 			     suspend_event_callback);
- 	if (!ret) {
--		zynqmp_pm_init_suspend_work = devm_kzalloc(&pdev->dev,
--							   sizeof(struct zynqmp_pm_work_struct),
--							   GFP_KERNEL);
--		if (!zynqmp_pm_init_suspend_work)
--			return -ENOMEM;
--
--		INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
--			  zynqmp_pm_init_suspend_work_fn);
--
- 		ret = zynqmp_pm_get_family_info(&pm_family_code);
- 		if (ret < 0)
- 			return ret;
-@@ -326,14 +326,6 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
- 		else
- 			return -ENODEV;
+@@ -389,8 +389,10 @@ static void zynqmp_pm_remove(struct platform_device *pdev)
+ {
+ 	sysfs_remove_file(&pdev->dev.kobj, &dev_attr_suspend_mode.attr);
  
--		ret = register_event(&pdev->dev, PM_NOTIFY_CB, node_id, EVENT_SUBSYSTEM_RESTART,
--				     false, subsystem_restart_event_callback);
--		if (ret) {
--			dev_err(&pdev->dev, "Failed to Register with Xilinx Event manager %d\n",
--				ret);
--			return ret;
--		}
--
- 		zynqmp_pm_init_restart_work = devm_kzalloc(&pdev->dev,
- 							   sizeof(struct zynqmp_pm_work_struct),
- 							   GFP_KERNEL);
-@@ -342,19 +334,18 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
+-	if (!rx_chan)
++	if (rx_chan) {
+ 		mbox_free_channel(rx_chan);
++		rx_chan = NULL;
++	}
+ }
  
- 		INIT_WORK(&zynqmp_pm_init_restart_work->callback_work,
- 			  zynqmp_pm_subsystem_restart_work_fn);
-+
-+		ret = register_event(&pdev->dev, PM_NOTIFY_CB, node_id, EVENT_SUBSYSTEM_RESTART,
-+				     false, subsystem_restart_event_callback);
-+		if (ret) {
-+			dev_err(&pdev->dev, "Failed to Register with Xilinx Event manager %d\n",
-+				ret);
-+			return ret;
-+		}
- 	} else if (ret != -EACCES && ret != -ENODEV) {
- 		dev_err(&pdev->dev, "Failed to Register with Xilinx Event manager %d\n", ret);
- 		return ret;
- 	} else if (of_property_present(pdev->dev.of_node, "mboxes")) {
--		zynqmp_pm_init_suspend_work =
--			devm_kzalloc(&pdev->dev,
--				     sizeof(struct zynqmp_pm_work_struct),
--				     GFP_KERNEL);
--		if (!zynqmp_pm_init_suspend_work)
--			return -ENOMEM;
--
--		INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
--			  zynqmp_pm_init_suspend_work_fn);
- 		client = devm_kzalloc(&pdev->dev, sizeof(*client), GFP_KERNEL);
- 		if (!client)
- 			return -ENOMEM;
+ static const struct of_device_id pm_of_match[] = {
 -- 
 2.49.0
 
