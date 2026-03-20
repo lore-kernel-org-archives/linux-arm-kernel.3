@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEDF1098799
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E86109879B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SUq07e3tFWu2Wbyc9JeCz4a/3cK7LZxQl7ZYp+SCWtw=; b=ZJE8f8AR6XpfWTbyBB55XgUjvs
-	l/ZxS8bQBBIWYBYI4Hf3x63taArGMeY5qwvR7NgCFZbm9BF7/JOIuQPVQ9/pv9Rhq69qHzz3w/Pm2
-	hnZ9wGDwI7exUsbXkClUkensc0CivLPx8XrszNkj62Rtaa5UHcA7R0vuFLE2jOerjEwZxyIgwmTu2
-	8JkcScnDovEx5SfjUl+ipDywwHXFFewKcn09rA2e7I+MVZtYqbHm3z/rVAhDspm/FoWenq4f2CQIo
-	DeT7IaPf3ataVd4qEbFbl2fEU5f+3B+NJoy8ZIUDJPqbA/hZ0IxvyIykU1EhFZ7QqoRkNip6ml+zA
-	RO7q4Xbg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XLXcqIVzc+TE7/RYP3TxhjZkuh5oaQY94C3LjN7BMto=; b=zuEKuJWK6usO0t8SQ3L80TU7c7
+	Qmx0jO6d3QcAqSUN0ctUJjf4xKpTxz4dXfpMAn8ZhXhawvQRzM6SPTs0MCApI5RnqOJD227gz3PFw
+	+fu886SpTTUIfULpp8EtLu4wwhmbjVaE09+bAUzgBq1Flv0wQCbMZXaUxK1TomIvP0tOjtnGffm//
+	vx2ziv6HykqOEG0c4rj6twMlffqg6PSnQUUycBCCClEpRbaFV/7F2zS5xEXEx87l/Rje0ODP373b/
+	6HHryjfFn+j1V0vn0Yt/EBT+TTFu/WHdPPiQbj89GOmv7mh2DE8MZtSBe5IDjEUz+U17k8dIThnAu
+	rcS7WiYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3beL-0000000D1qz-3wKv;
-	Fri, 20 Mar 2026 15:20:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3bid-0000000D2KU-1lUr;
+	Fri, 20 Mar 2026 15:24:59 +0000
+Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3beK-0000000D1pM-11Wa;
-	Fri, 20 Mar 2026 15:20:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22EC66184E;
-	Fri, 20 Mar 2026 15:20:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4621C4CEF7;
-	Fri, 20 Mar 2026 15:20:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774020030;
-	bh=vXaAW1fyWcmmS9WVP6WjZrb2DqMl4KjlqcJvvJObNgg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=H/U/68pz8bEM4dKGRPoLvjksgIORU1tb6seRof9WeFwrE2qSx4A2SVgurKHVNg5b+
-	 bLAqnA60e1CfJOXf8LrFtX5Bfv+tpL+AewrHaHI3o1mlDAxrvBjQ1ESqyQL4dIU2qd
-	 ZAPTM+sjXxne4RvjhpZaw2HfFGFWST2rrnF5Nf7FQiL0+HTyFXofPGzvRClkO/fGsM
-	 fRUJCbe1MlQswkC49cMRmSSdvt5u5hT8h3CFnRBj8tZYA5DglgEdDo7wnq5OqtitAn
-	 hW6Mwg77//vta1dZDh/j/a1+6kQyVs1Z/V2Y9kIPJs7A5THpGKNdLlBdttW0jtIA4g
-	 t6/WzAF8iNA2w==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: broadcom: bcm2712-rpi: mark /soc/firmware node as 32-bit
-Date: Fri, 20 Mar 2026 16:20:19 +0100
-Message-Id: <20260320152025.3501473-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	id 1w3biZ-0000000D2Ji-3prH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 15:24:56 +0000
+Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-94a231b285dso1025236241.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 08:24:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1774020294; x=1774625094; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XLXcqIVzc+TE7/RYP3TxhjZkuh5oaQY94C3LjN7BMto=;
+        b=BrXRh4sDIDlSwr/MCeySWjtzoeDITHVjg6C2UPf/h2O+0w2W5n/DOETwGi/yUqxlzX
+         6YFzlzB17NVYbRqeV/Lhk84+1XHtraDuJKvSqR2Q24cT7wf00t54XnzsWp2oi9YJh2Xs
+         uo12+hFnRBqnRLaze7dX6hB5d6NpbvaP0Yx3o=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774020294; x=1774625094;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XLXcqIVzc+TE7/RYP3TxhjZkuh5oaQY94C3LjN7BMto=;
+        b=UZYLpMCaLcKSIM+XSVlwaNhWQ/Kw/95w5nEWDh/gikWKTiaNJIWHX094qzob/gYFJO
+         DYL20bU+Bb6x9hFcu9Gvtp6CDNkJ77qHltIWOHzxF+HvmxT+wcJTqAtTUQ6/T7+QazJF
+         a278KPuBNoqXxOUzeXAU+tz8AOH7utJhx5e/LB7b+QI3u72+w2SfVeyzOHFuIxzooLTs
+         PUG6eY1yfQAbB01ONJJnv6MD3OwZF3LaF+lC8RajAt6vSBjCnRIJXPO34akd3FCTT11t
+         VlchhYqzbWwaW9FEbMlBTxnforLX3+UASZBv2AjzBQWmPzdozEo2z8GPRsuFSdg1omME
+         qgsg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXOUKORZOMHpjlgQ2KMxyMPNp3/G9tnKfra9HmUonHUiPxKizkKR5dl6NQzYs/IBKeRCjXyU56QEGUvkkadY+c@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3P3keIGAPp/+bpDFS0MXp9AVD/pUzMyA8SXkewFFnmZGWXIjr
+	6zgBv3DKXAj69lDwPDBAVHOcO2PrEet4aCxeGGPRJv8Cnne9fMTEr+mJPKp0f+N5i3UGZEc+7IQ
+	KHgw=
+X-Gm-Gg: ATEYQzx3PwoQ9hCZuZ8JltcEShDUBTtkVQOGgEmvniZwM/La//d9HuloLzBrgPhTuq6
+	TNPQpViBmFV4pqv+7HqBj5g5vKqCk9UI/c+k3Fzu8a0EYNj8CZ7GgUtDKx2z9rM3RsoQ+zGUk71
+	Ys963mKRoRkj/BlrbFU3kONrmH2glW0/CVEpzYhbjorYYNdUAMi4RNRDzllED7AVauG0knvdvV3
+	veMlrWik0hyshxFMDLeRTJ63E3DuUXExIL6r/xr6MVgzjkOKHY0bln+iENuRNVN7o04eMKZIbnl
+	12+40XOFK2kQPxwEss2sC0o7r5pv+ACRF5AFiMIMSvDvIb98tW+R+0vKzgeojPzeoXbDObykZwX
+	qxFMBPZTs1+tYOJyHOw32rrxyfha2ohAu+Fe4JIcSzG5fWvaD7s+yphy3SqTg2vwoNhdTfRQeS+
+	rXck19FwBhdNa7gmWYlrMph//KK8qwN9WPBvBbJU35cd4ER0In0nXszS4vDw==
+X-Received: by 2002:a05:6102:508f:b0:5f7:2430:cba with SMTP id ada2fe7eead31-602aeb13e80mr2111354137.12.1774020294141;
+        Fri, 20 Mar 2026 08:24:54 -0700 (PDT)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-602af8539b1sm1268978137.1.2026.03.20.08.24.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Mar 2026 08:24:53 -0700 (PDT)
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-94a231b285dso1025220241.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 08:24:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVwiAb8uem7fQRmLae7Z3a2K+cOuwzt2BzlIQxF+NK2HR+lCotMwOWQX82gPZD8F92CCR31zsn/1rs1LV9XHHQ/@lists.infradead.org
+X-Received: by 2002:a05:6102:2927:b0:5ef:a8da:8b26 with SMTP id
+ ada2fe7eead31-602aed346fbmr1801022137.27.1774020292428; Fri, 20 Mar 2026
+ 08:24:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260320084351.2461060-1-wenst@chromium.org> <20260320084351.2461060-5-wenst@chromium.org>
+In-Reply-To: <20260320084351.2461060-5-wenst@chromium.org>
+From: Fei Shao <fshao@chromium.org>
+Date: Fri, 20 Mar 2026 23:24:16 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nhBnhE2XJRaGfSOSutZGJXfHQujOd1rMbhOfAwGQa0ZrA@mail.gmail.com>
+X-Gm-Features: AaiRm52mZwCR4AEeTV_75B0alA5w3n6BBFefcUDCvgduPyrlTgwEFUngOeWKn9E
+Message-ID: <CAC=S1nhBnhE2XJRaGfSOSutZGJXfHQujOd1rMbhOfAwGQa0ZrA@mail.gmail.com>
+Subject: Re: [PATCH 04/13] arm64: dts: mediatek: mt8192-asurada: Add MT6315
+ PMIC supplies
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_082455_954113_11C34E9F 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +108,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Fri, Mar 20, 2026 at 4:44=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
+>
+> There are two MT6315 PMICs in the MT8192 Asurada design. One has two
+> outputs ganged together and two outputs unused. The other has three
+> outputs ganged together, and one left independent.
+>
+> Add supplies for all the used regulators. In the case of ganged outputs,
+> add the supply for just the first output.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+>  arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi b/arch/arm6=
+4/boot/dts/mediatek/mt8192-asurada.dtsi
+> index d16634e9f342..318903b112a3 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi
+> @@ -175,6 +175,17 @@ pp3300_wlan: regulator-3v3-wlan {
+>                 gpio =3D <&pio 143 GPIO_ACTIVE_HIGH>;
+>         };
+>
+> +       /* system wide switching 4.2V power rail */
+> +       pp4200_g: regulator-4v2-g {
+> +               compatible =3D "regulator-fixed";
+> +               regulator-name =3D "pp5000_a";
 
-Moving /soc/firmware to /soc/firmware/rpi-firmware resulted in a build
-time warning:
+This should be pp4200_g.
 
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi:200.4-15: Warning (dma_ranges_format): /soc@107c000000/firmware/rpi-firmware:dma-ranges: empty "dma-ranges" property but its #address-cells (1) differs from /soc@107c000000/firmware (2)
+Regards,
+Fei
 
-The problem is that while both /soc and /soc/firmware/rpi-firmware are
-limited to 32-bit DMA and MMIO addressing, the intermediate /soc/firmware
-now gets the default 64-bit addressing, which requires an explicit
-translation of the DMA addresses of its 32-bit children.
-
-Mark this one as 32-bit as well for simplicity. Note that this does limit
-any other kind of firmware to 32-bit address translation as well, which
-might not be ideal in case any of it runs in 64-bit mode. A better solution
-may be to move it out of /soc altogether.
-
-Fixes: e3b22edda733 ("arm64: dts: broadcom: bcm2712-rpi: Move the firmware node down 1 level")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-I'm a bit confused by the changelog test of the e3b22edda733 commit,
-which does not appear to match what it actually does. Maybe the intention
-was to move /soc/firmware to /firmware/rpi-firmware instead of
-/soc/firmware/rpi-firmware? This would also require an explict
-dma address translation though.
----
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-index eddaf72c4e73..c3e71e6aaff6 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-@@ -191,6 +191,10 @@ wifi: wifi@1 {
- 
- &soc {
- 	firmware {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		dma-ranges;
-+
- 		firmware: rpi-firmware {
- 			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
- 			#address-cells = <1>;
--- 
-2.39.5
-
+> +               regulator-always-on;
+> +               regulator-boot-on;
+> +               regulator-min-microvolt =3D <4200000>;
+> +               regulator-max-microvolt =3D <4200000>;
+> +               vin-supply =3D <&ppvar_sys>;
+> +       };
+> +
+>         /* system wide switching 5.0V power rail */
+>         pp5000_a: regulator-5v0-a {
+>                 compatible =3D "regulator-fixed";
 
