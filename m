@@ -4,55 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28953109318E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40691093188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbDVFjolLGX3QRmdSUPmSQ/KW7YhxkrqDIk5QadA5dk=; b=39EgEfNZ+jGlvnBZbVfoWLTl+M
-	hXaUtVwlXF2OJSWUMolzuHJmMzKVcCLRYmX59BO8pVnnqMTMiBpLik+zRkgd9B39gIy9NuLtkV7WX
-	xCOuNIA16H3L54S3z/ownf80WbzlOeKkmnKhEmxZOKTnk8ELa9cWBKuoKpLvIEe1KauQK0hAhPw0i
-	Bdn7z/KAi9U5FEuVzAxaeStnqKqLo860Ovpn0chlFn0fN/y72rZYEAYY/40pV+kX7nxL9M+lVj/FD
-	ArOalBaa8BE2B6VHwkiK957AiE98eX5NYkcSizdQwPbTi5/ME0+7PD1v2vkBLHB0enLEZRihAAh82
-	4ypSlf7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z7Ypq/2sdtjtXxITYYiW9Wy8T7mWGhBOO/q+BwqcWKs=; b=2cU21yLf9+i7BmcrRHM8QibSYz
+	D0V5CedNNOkqAoAMCjyNNZbMo8ypHUF67c/Ne6qJ+qIIxYb9oFFsK1smUYfBHvLn0LiN9vzr30K/g
+	mGOl7du+hMIh1SMWwOiLeIiVPUgPaQwVZV+H/sCJ9uPSOo/G2ijE9kp2hnZdEXTRkr4NrK1a9vANa
+	FbGchZmdMepBD592TrMmRO7tJG7nzeXj95OZMFuJu4W6vO57U1aPUYg6qkFYDa1gJCO2OT6F488/O
+	T+MppyoLBI0XkLM+J64RTQ1S4QmRTwxxzJX0WYTxNbZ1TbsPrLIGpR41/bDwxy45GohEFH7xPTOg/
+	brVlbO/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VX4-0000000CPJo-13v2;
-	Fri, 20 Mar 2026 08:48:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w3VYB-0000000CPZJ-07op;
+	Fri, 20 Mar 2026 08:49:47 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VX1-0000000CPJI-09GT;
-	Fri, 20 Mar 2026 08:48:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ZbDVFjolLGX3QRmdSUPmSQ/KW7YhxkrqDIk5QadA5dk=; b=ICG+lqrbkJBPFYv1OGnP9Miu3d
-	NaIyEx6PVQH8VVHU9O4VNSprLyhEfZDoEcH3+OdOfo7tgVqLWRO05gCbEs+VViGZzRPOfrpWGFFvu
-	ri+hGv9EwejACBCAtQUSD73xYCrFkd0eEIVBbGCwUNKcsxj0JrpurMeWAZmh0xmbR+vt7DKEF7ybG
-	2OUR9ANCKMt1tXIc+X0r2/63Nbqd2dPw2272RNrCGaftYGPNWa21DiYGzVf5Nh/qJ7RP9vee9AoEx
-	vY36tOpj8+/pbDgvtFSuYt0z/bH788AQbe3KFmAzDtNhK9h9yuwmgtxAccZFTcrzESgBnc1Dr89p+
-	9/S9wM5w==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org, MidG971 <midgy971@gmail.com>
-Cc: shawn.lin@rock-chips.com, jonas@kwiboo.se,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- MidG971 <midgy971@gmail.com>
-Subject: Re: [PATCH v4] arm64: dts: rockchip: rock-3b: Model PI6C20100 as
- gated-fixed-clock
-Date: Fri, 20 Mar 2026 09:48:25 +0100
-Message-ID: <2053182.usQuhbGJ8B@phil>
-In-Reply-To: <20260319145120.99833-1-midgy971@gmail.com>
-References: <20260304132957.684616-1-midgy971@gmail.com>
- <20260319145120.99833-1-midgy971@gmail.com>
+	id 1w3VY8-0000000CPXv-0w78
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 08:49:46 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1773996579;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Z7Ypq/2sdtjtXxITYYiW9Wy8T7mWGhBOO/q+BwqcWKs=;
+	b=igP/iLuKjQb5/GqbtIEiStlLNTdSw1sdmJBmW4o+d9qOmvRrmBSnP+zsMUvY6ndY9pDmtt
+	lMIEO4cR0aGZOQLAPMsf99nj6gR8WewWwaLB9s76fbgNNj0iUKO7Jx28EAqaigVd1sYPxV
+	0jWpD2C457eFQhV8eqF9unouRQLz/yI=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>
+Cc: linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] crypto: stm32 - use list_first_entry_or_null to simplify hash_find_dev
+Date: Fri, 20 Mar 2026 09:49:13 +0100
+Message-ID: <20260320084914.7180-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1185; i=thorsten.blum@linux.dev; h=from:subject; bh=ahib7IbYp2cDCXT6vLdkvKmi5k8RioCG9oaxaS8HxBU=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJl7ubhEMrm+KV0QmBve+uPYg++nWuft8vd82rPT0k74f Ms9rYXSHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRyWcY/tmG7/wYGXHYUuD8 g+s2r5ZMYQyZdLPx9KQfG+4/r97lE2zK8E/lUdvNwOS/W2f//2h69O0ZzrNLDDyv+LqtLk9y6/b uy+cBAA==
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_014835_099717_D4E3A655 
-X-CRM114-Status: GOOD (  22.40  )
+X-CRM114-CacheID: sfid-20260320_014945_404178_0AAD7F85 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,115 +73,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 19. M=C3=A4rz 2026, 15:51:20 Mitteleurop=C3=A4ische Normalze=
-it schrieb MidG971:
-> The Radxa ROCK 3B uses a PI6C20100 PCIe reference clock buffer to
-> provide a 100MHz reference clock to the PCIe 3.0 PHY and controllers.
-> This chip is currently modeled only as a fixed regulator
-> (vcc3v3_pi6c_03), with no clock output representation.
->=20
-> The PI6C20100 is a clock generator, not a power supply. Model it
-> properly as a gated-fixed-clock, following the pattern established
-> for the Rock 5 ITX and other boards with similar PCIe clock buffer
-> chips.
->=20
-> The regulator node is kept as-is since it controls the power supply
-> to the PI6C20100 chip via GPIO0_D4. The new gated-fixed-clock node
-> references this regulator as its vdd-supply and provides a proper
-> 100MHz clock output. The pcie3x2 node is updated to include the
-> pipe and reference clocks, matching the approach used in
-> rk3588-rock-5-itx.dts.
->=20
-> Assisted-by: Claude:claude-3-opus
-> Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
-> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+Use list_first_entry_or_null() to simplify stm32_hash_find_dev() and
+remove the now-unused local variable 'struct stm32_hash_dev *tmp'.
 
-Sorry for having to bring up the process again, but the patch
-author should match the Signed-off-by line.
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/crypto/stm32/stm32-hash.c | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
 
-You can update the patch author with something like:
-  git commit --author=3D"Midgy BALON <midgy971@gmail.com>" --amend
-
-Also is the last name always "UPPER CASE" in your region?
-
-Thanks a lot for staying on this
-Heiko
-
-
-> ---
->=20
-> Changes since v3 [1]:
->  - Add Reviewed-by from Shawn Lin
->=20
-> Changes since v2 [2]:
->  - Fix AI attribution: use Assisted-by tag instead of Signed-off-by (Shaw=
-n)
->  - Add missing pipe clock (CLK_PCIE30X2_PIPE_DFT) to pcie3x2 clocks
->    override (Shawn, referencing David's patch [3])
->=20
-> Changes since v1 [4]:
->  - Drop phy-supply approach entirely (Jonas, Shawn)
->  - Model PI6C20100 as gated-fixed-clock instead
->  - Wire reference clock to pcie3x2 controller
->  - Follow pattern from rk3588-rock-5-itx.dts
->=20
-> [1] https://lore.kernel.org/linux-rockchip/20260304132957.684616-1-midgy9=
-71@gmail.com/
-> [2] https://lore.kernel.org/linux-rockchip/20260304132957.684616-1-midgy9=
-71@gmail.com/
-> [3] https://lore.kernel.org/linux-rockchip/d981fa84-bd05-ac9d-98ca-89ee47=
-177829@rock-chips.com/T/#m6a8289609e6a60691d3c06358b6322c7aa5e43d1
-> [4] https://lore.kernel.org/linux-rockchip/20260213151452.535527-1-midgy9=
-71@gmail.com/
->=20
->  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 21 +++++++++++++++++++=
-+-
->  1 file changed, 20 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64=
-/boot/dts/rockchip/rk3568-rock-3b.dts
-> index c5f67dd6dfd9..1a2b3c4d5e6f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-> @@ -56,7 +56,16 @@
->  		};
->  	};
->=20
-> -	/* pi6c pcie clock generator */
-> +	/* PI6C20100 PCIe reference clock buffer (100MHz) */
-> +	pcie30_refclk: pcie-clock-generator {
-> +		compatible =3D "gated-fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <100000000>;
-> +		clock-output-names =3D "pcie30_refclk";
-> +		vdd-supply =3D <&vcc3v3_pi6c_03>;
-> +	};
-> +
-> +	/* PI6C20100 power supply - active-high GPIO0_D4 */
->  	vcc3v3_pi6c_03: regulator-3v3-vcc-pi6c-03 {
->  		compatible =3D "regulator-fixed";
->  		enable-active-high;
-> @@ -553,6 +562,15 @@
->  };
->=20
->  &pcie3x2 {
-> +	clocks =3D <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,
-> +		 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,
-> +		 <&cru CLK_PCIE30X2_AUX_NDFT>,
-> +		 <&cru CLK_PCIE30X2_PIPE_DFT>,
-> +		 <&pcie30_refclk>;
-> +	clock-names =3D "aclk_mst", "aclk_slv",
-> +		      "aclk_dbi", "pclk", "aux",
-> +		      "pipe", "ref";
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&pcie30x2m1_pins>;
->  	reset-gpios =3D <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;
-> --
-> 2.39.5
->=20
->=20
-
-
-
-
+diff --git a/drivers/crypto/stm32/stm32-hash.c b/drivers/crypto/stm32/stm32-hash.c
+index d60147a7594e..dada5951082c 100644
+--- a/drivers/crypto/stm32/stm32-hash.c
++++ b/drivers/crypto/stm32/stm32-hash.c
+@@ -792,19 +792,13 @@ static int stm32_hash_dma_send(struct stm32_hash_dev *hdev)
+ 
+ static struct stm32_hash_dev *stm32_hash_find_dev(struct stm32_hash_ctx *ctx)
+ {
+-	struct stm32_hash_dev *hdev = NULL, *tmp;
++	struct stm32_hash_dev *hdev;
+ 
+ 	spin_lock_bh(&stm32_hash.lock);
+-	if (!ctx->hdev) {
+-		list_for_each_entry(tmp, &stm32_hash.dev_list, list) {
+-			hdev = tmp;
+-			break;
+-		}
+-		ctx->hdev = hdev;
+-	} else {
+-		hdev = ctx->hdev;
+-	}
+-
++	if (!ctx->hdev)
++		ctx->hdev = list_first_entry_or_null(&stm32_hash.dev_list,
++						     struct stm32_hash_dev, list);
++	hdev = ctx->hdev;
+ 	spin_unlock_bh(&stm32_hash.lock);
+ 
+ 	return hdev;
 
