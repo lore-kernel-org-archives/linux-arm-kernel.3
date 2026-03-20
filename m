@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 024471099B34
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596411099B33
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FTItNTH+46j9vveNWrgJI7CVsXzZYge2hV1Ne2zXr1w=; b=SZMVFlio1wdF6f7GdsUbmlEmKM
-	oRVHIZtMDRBvH4j2N6wK7c5XnkI4Xt7Pw6C2ttA0p7bNdYTaLTMK7dDOWT7x66601Jrr7CzPty8j1
-	HUKa2MsXwQri1rh41RMoswxAG4uGahmCU0QScxXoI3s3p1TwqHs2sbXHBusAAof9v99aVHHZ/0Kxj
-	g/LVfa1D9riuAMqtMFa4sxC9hpilLVR/1rCagViUj/snyRHpfqLVqPHDDElmpWllVZctsTnS5VWPm
-	0XpWY0S1RPqDxethTC8klayMg168/3paiZwExNPjQ7oepbqVea/k/VozEvIYz4jHlETgJu0FeqnbQ
-	VizlOsYg==;
+	bh=BipT2IOurPmhRTOEED4PF36ve4NgBNunhc/FLL7mRz8=; b=b/QdLSnoYWVZNHq0HkqD8jTOhV
+	dqwm+Bsr35mnG9EXsG88O7q2No6CS/jxnP3l8Z0sUUxwXH4vis+c6E/781hvJYzDKXcFlYP5CV9tA
+	EmRZpRmoX2Ojpphz4Ak0hm80h1thJ2kzur/3pPS/fWTCAzTvH/zCnPwzZrKlkshJY2SAtPbbzh4yX
+	OK4B3qDdkSCunvlez3q1FQl5pX7JOtBMAwalRG5NyvJXUzchrP1jNW7AKK4xE5vi9gcrPEpmETQW/
+	5CV3wUo6v3+4pinhjPCS6Fr8S8So/kl0BSnS55OzDJuyh/lOP4DzmWb7XIb7hBWHmdnSVGtqTylF/
+	qTBOnFeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dsg-0000000DHzF-0aPF;
-	Fri, 20 Mar 2026 17:43:30 +0000
+	id 1w3dsf-0000000DHy1-1yxn;
+	Fri, 20 Mar 2026 17:43:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dsZ-0000000DHtW-37zL
+	id 1w3dsV-0000000DHqx-1BjC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 17:43:24 +0000
+	Fri, 20 Mar 2026 17:43:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A92DE165C;
-	Fri, 20 Mar 2026 10:43:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F85A165C;
+	Fri, 20 Mar 2026 10:43:12 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2E043FA1F;
-	Fri, 20 Mar 2026 10:43:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C5713FA1F;
+	Fri, 20 Mar 2026 10:43:16 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 20 Mar 2026 17:42:50 +0000
-Subject: [PATCH v7 08/20] coresight: syscfg: Use spinlock to protect active
- variables
+Date: Fri, 20 Mar 2026 17:42:48 +0000
+Subject: [PATCH v7 06/20] coresight: etm4x: Hook CPU PM callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-arm_coresight_path_power_management_improvement-v7-8-327ddd36b58b@arm.com>
+Message-Id: <20260320-arm_coresight_path_power_management_improvement-v7-6-327ddd36b58b@arm.com>
 References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
 In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -54,16 +53,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774028583; l=4107;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774028583; l=4204;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=FkrNmZnzTErcdUDiUtWca4XTOb1sXTwlSoDF7cf90nk=;
- b=Aly/eVU2fmX1JEoSmE7G8o2TnPylcz70N5pz2ackFIiDMhG3LeUJxYnpCDRXzLYANMRoeEllp
- Ey2+0JH0k0kBRXOA+3eq7QOTz42sUOhjcc0F+Sf8QW8wQkBZbfbeITi
+ bh=nKaV5lYUBNjn5eS5yPfw83324En5tXo7BdkUrv0QxQ8=;
+ b=iWxc+KqC0CLxjZ0EbcGkxhrz3cY+lCnCeSLzZzPtnppIqPAU9nlmWtY3g4RqH+VaAFxVtqlv6
+ d4o0+JkyzOjBjL0MJih0mkgjUNYbUGStodct+p8hjdmusE6qlp+fqn2
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_104323_881120_084FF945 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20260320_104319_418553_F3061D9B 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +77,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To support dynamically enabling and disabling the CoreSight path during
-CPU idle, cscfg_config_sysfs_get_active_cfg() may be called by the ETM
-driver in an atomic context. However, the function currently acquires a
-mutex, which is a sleepable lock, and this is not allowed in atomic
-context.
+Hook the CPU save and restore callbacks when the self-hosted state is
+enabled (pm_save_enable == PARAM_PM_SAVE_SELF_HOSTED) so they can be
+invoked by the core layer.
 
-To make cscfg_config_sysfs_get_active_cfg() called in the idle flow,
-replace the mutex with a raw spinlock to protect the active
-variables.
+The CPU PM notifier in the ETMv4 driver is no longer needed, remove it
+along with its registration and unregistration code.
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-syscfg.c | 21 ++++++++++++---------
- drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
- 2 files changed, 14 insertions(+), 9 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 57 +++++-----------------
+ 1 file changed, 11 insertions(+), 46 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index d7f5037953d6ba7fb7f83a8012a1abc5ffd0a147..3b77e4da6b6b3cfc0aa687c0280c8ee5118e286b 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -957,15 +957,18 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
- 
- 	cfg_hash = (unsigned long)config_desc->event_ea->var;
- 
-+	raw_spin_lock(&cscfg_mgr->spinlock);
-+
- 	if (activate) {
- 		/* cannot be a current active value to activate this */
- 		if (cscfg_mgr->sysfs_active_config) {
- 			err = -EBUSY;
--			goto exit_unlock;
-+		} else {
-+			err = _cscfg_activate_config(cfg_hash);
-+			if (!err)
-+				cscfg_mgr->sysfs_active_config = cfg_hash;
- 		}
--		err = _cscfg_activate_config(cfg_hash);
--		if (!err)
--			cscfg_mgr->sysfs_active_config = cfg_hash;
-+
- 	} else {
- 		/* disable if matching current value */
- 		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
-@@ -975,7 +978,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
- 			err = -EINVAL;
- 	}
- 
--exit_unlock:
-+	raw_spin_unlock(&cscfg_mgr->spinlock);
-+
- 	mutex_unlock(&cscfg_mutex);
- 	return err;
- }
-@@ -983,9 +987,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
- /* set the sysfs preset value */
- void cscfg_config_sysfs_set_preset(int preset)
- {
--	mutex_lock(&cscfg_mutex);
-+	guard(raw_spinlock)(&cscfg_mgr->spinlock);
- 	cscfg_mgr->sysfs_active_preset = preset;
--	mutex_unlock(&cscfg_mutex);
- }
- 
- /*
-@@ -994,10 +997,9 @@ void cscfg_config_sysfs_set_preset(int preset)
-  */
- void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
- {
--	mutex_lock(&cscfg_mutex);
-+	guard(raw_spinlock)(&cscfg_mgr->spinlock);
- 	*preset = cscfg_mgr->sysfs_active_preset;
- 	*cfg_hash = cscfg_mgr->sysfs_active_config;
--	mutex_unlock(&cscfg_mutex);
- }
- EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
- 
-@@ -1201,6 +1203,7 @@ static int cscfg_create_device(void)
- 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
- 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
- 	cscfg_mgr->load_state = CSCFG_NONE;
-+	raw_spin_lock_init(&cscfg_mgr->spinlock);
- 
- 	/* setup the device */
- 	dev = cscfg_device();
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
-index 66e2db890d8203853a0c3c907b48aa66dd8014e6..f52aba4608dadc1c7666e0e28c9b43dc1c33d1eb 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.h
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.h
-@@ -42,6 +42,7 @@ enum cscfg_load_ops {
-  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
-  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
-  * @load_state:		A multi-stage load/unload operation is in progress.
-+ * @spinlock:		Exclusive access sysfs_active_* variables.
-  */
- struct cscfg_manager {
- 	struct device dev;
-@@ -54,6 +55,7 @@ struct cscfg_manager {
- 	u32 sysfs_active_config;
- 	int sysfs_active_preset;
- 	enum cscfg_load_ops load_state;
-+	raw_spinlock_t spinlock;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 66a8058098376264d3f8c5815763a75ebffb352e..6ed0ee95c78c24bcb6c636d9ebf2ae463c748b22 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1200,7 +1200,7 @@ static const struct coresight_ops_source etm4_source_ops = {
+ 	.pause_perf	= etm4_pause_perf,
  };
  
- /* get reference to dev in cscfg_manager */
+-static const struct coresight_ops etm4_cs_ops = {
++static struct coresight_ops etm4_cs_ops = {
+ 	.trace_id	= coresight_etm_get_trace_id,
+ 	.source_ops	= &etm4_source_ops,
+ };
+@@ -2000,8 +2000,9 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ 	return ret;
+ }
+ 
+-static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
++static int etm4_cpu_save(struct coresight_device *csdev)
+ {
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	int ret = 0;
+ 
+ 	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
+@@ -2117,8 +2118,10 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 	etm4_cs_lock(drvdata, csa);
+ }
+ 
+-static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
++static void etm4_cpu_restore(struct coresight_device *csdev)
+ {
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++
+ 	if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
+ 		return;
+ 
+@@ -2126,55 +2129,17 @@ static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 		__etm4_cpu_restore(drvdata);
+ }
+ 
+-static int etm4_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+-			      void *v)
+-{
+-	struct etmv4_drvdata *drvdata;
+-	unsigned int cpu = smp_processor_id();
+-
+-	if (!etmdrvdata[cpu])
+-		return NOTIFY_OK;
+-
+-	drvdata = etmdrvdata[cpu];
+-
+-	if (WARN_ON_ONCE(drvdata->cpu != cpu))
+-		return NOTIFY_BAD;
+-
+-	switch (cmd) {
+-	case CPU_PM_ENTER:
+-		if (etm4_cpu_save(drvdata))
+-			return NOTIFY_BAD;
+-		break;
+-	case CPU_PM_EXIT:
+-	case CPU_PM_ENTER_FAILED:
+-		etm4_cpu_restore(drvdata);
+-		break;
+-	default:
+-		return NOTIFY_DONE;
+-	}
+-
+-	return NOTIFY_OK;
+-}
+-
+-static struct notifier_block etm4_cpu_pm_nb = {
+-	.notifier_call = etm4_cpu_pm_notify,
+-};
+-
+ /* Setup PM. Deals with error conditions and counts */
+ static int __init etm4_pm_setup(void)
+ {
+ 	int ret;
+ 
+-	ret = cpu_pm_register_notifier(&etm4_cpu_pm_nb);
+-	if (ret)
+-		return ret;
+-
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+ 					"arm/coresight4:starting",
+ 					etm4_starting_cpu, etm4_dying_cpu);
+ 
+ 	if (ret)
+-		goto unregister_notifier;
++		return ret;
+ 
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+ 					"arm/coresight4:online",
+@@ -2188,15 +2153,11 @@ static int __init etm4_pm_setup(void)
+ 
+ 	/* failed dyn state - remove others */
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+-
+-unregister_notifier:
+-	cpu_pm_unregister_notifier(&etm4_cpu_pm_nb);
+ 	return ret;
+ }
+ 
+ static void etm4_pm_clear(void)
+ {
+-	cpu_pm_unregister_notifier(&etm4_cpu_pm_nb);
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	if (hp_online) {
+ 		cpuhp_remove_state_nocalls(hp_online);
+@@ -2308,6 +2269,10 @@ static int etm4_probe(struct device *dev)
+ 				sizeof(struct etmv4_save_state), GFP_KERNEL);
+ 		if (!drvdata->save_state)
+ 			return -ENOMEM;
++
++		/* Setup CPU PM callbacks */
++		etm4_cs_ops.pm_save_disable = etm4_cpu_save;
++		etm4_cs_ops.pm_restore_enable = etm4_cpu_restore;
+ 	}
+ 
+ 	raw_spin_lock_init(&drvdata->spinlock);
 
 -- 
 2.34.1
