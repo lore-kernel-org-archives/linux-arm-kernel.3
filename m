@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE941099B2D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA501099B2F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+YZBG5es5IrNys4EfQ04k6/YfCygjbkTB/CFHAOJ0Y=; b=1GsEdedkJWkhtI0J9w87DZ8NTQ
-	6yLv8RMxEsu5YrA6ZWWWbFUMXp5mjkZxQrH9el7u+hmFPS82G5f9RwDVQEAxTzRZYcknlLA2N150y
-	xayuP3xMwfyAQUma6uibkiYaeWEOt8kr3WoZgIfEGGYmk5ls9oJgSszDtBN7ZrrWqXJFgzyyDo87l
-	DGW9FR7aSdBjQIGBf4MJ5ZjtqHmjXPOfaEyZoXzAUYuLDW2pkAAeUd0kgCqT+zuX6AiJh+x+SLPgW
-	gd3dywyoEDuCES0x5qw776lzor0Bt+GFeT54SrHLSGWOr8hRSivdLflnkL5pvtTkiXcJIXFl4edlB
-	8BT6P2sA==;
+	bh=FGSJE0ZPFE1xUC5g5IUhUsUpobEUy1y2NFsXxyzxKmg=; b=OcYrmglil3ux+HWwV5WfzHQU69
+	J1SbqvZcADN65A2P30CGJ7w2R8IRpIEDiAumCK2k5FRb+HptK87J/7fFGuGIF3CdYjqvVw//3o5+p
+	YmnEAV8MrE/HaVmBl4RcM67EyVSm0njq1QCtBzaObDI9oDoOSGBmQMa8MepkMsqTOT2wv7BHbb5r2
+	ekJqGohAsFJTK/z3eUm9VptRldHiQlUEx2Z6H8fJ5wYwpPkSp6Q7BGSfss7WIp9RRC7iZx0ysRUvh
+	+coBl+6x+KjSiavI8yRz75ZsoqvfuFy2J5gH5NaEJ4lg4OyOZhhFjY4T16KY5YFkjeavtbga4qFmp
+	DZEAOdUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dcd-0000000DFEf-2GT7;
+	id 1w3dcd-0000000DFEJ-0YlR;
 	Fri, 20 Mar 2026 17:26:55 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+Received: from lpdvsmtp11.broadcom.com ([192.19.166.231] helo=relay.smtp-ext.broadcom.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dcV-0000000DFC3-1zsE
+	id 1w3dcN-0000000DF7V-1sjb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 17:26:54 +0000
+	Fri, 20 Mar 2026 17:26:42 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 8772FC000813;
-	Fri, 20 Mar 2026 10:26:46 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 8772FC000813
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 063C9C000521;
+	Fri, 20 Mar 2026 10:26:39 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 063C9C000521
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1774027606;
-	bh=nE/vW2D+wEn7UJ/6B88/Ij7aHIhwCj42B79kzM0zOss=;
+	s=dkimrelay; t=1774027599;
+	bh=CAkhobZtIrJyZadDckNSUKGZW5goFXvrVC1AR7eRkK8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=beyFpBvH7wwfdJXoJ+/OfeEcCfM93BpTzuQewv5hJkXaYQYVejGuonarhbde6OAJo
-	 s7eJAX1J8My511QRCyuUg616CfNz6Bdb4rWL9oe8+fructPPo3TJeGMXq2pfoxyXSE
-	 wFTKS2SANVdjMgz9kp8oWma9kChTEP+vJqRvRB1k=
+	b=Q9r511Tgw76h/nrigG0AUGnNBIf67HKpsvlyTgF3Cz1qZxCKO2prPEY9UET7mRH9j
+	 b60ZlhZ7C55/IKvECoK/3zQBeQBvx/SKalmoS7IiXWsXIQCXbmo/fIAUSrj++jiyNT
+	 0BkOx4SqjJP9ft4icCuULA63XQ9o7xAJWL1scTh4=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 2A959A83;
-	Fri, 20 Mar 2026 10:26:46 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D1392A83;
+	Fri, 20 Mar 2026 10:26:38 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Rosen Penev <rosenp@gmail.com>,
@@ -56,17 +56,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
 	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 6/6] ARM: dts: BCM5301X: EA9200: set MAC from nvram
-Date: Fri, 20 Mar 2026 10:26:45 -0700
-Message-ID: <20260320172645.3072323-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH 5/6] ARM: dts: BCM5301X: EA9200: specify partitions
+Date: Fri, 20 Mar 2026 10:26:38 -0700
+Message-ID: <20260320172638.3072237-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260319035324.269905-7-rosenp@gmail.com>
-References: <20260319035324.269905-1-rosenp@gmail.com> <20260319035324.269905-7-rosenp@gmail.com>
+In-Reply-To: <20260319035324.269905-6-rosenp@gmail.com>
+References: <20260319035324.269905-1-rosenp@gmail.com> <20260319035324.269905-6-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_102649_015766_ABC75ABC 
-X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-CacheID: sfid-20260320_102641_477364_3D1DDAED 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,10 +84,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Wed, 18 Mar 2026 20:53:24 -0700, Rosen Penev <rosenp@gmail.com> wrote:
-> Especially needed for the WAN port, which is part of the switch and
-> inherits the MAC from GMAC2. Added extra definitions for the wifi
-> interfaces to make everything clear.
+On Wed, 18 Mar 2026 20:53:23 -0700, Rosen Penev <rosenp@gmail.com> wrote:
+> Some are needed to be specified so that linksys,ns-firmware works
+> properly.
 > 
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
