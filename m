@@ -4,141 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F390108B917
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 12:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE44108B91B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 12:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GYqjfLR1sGmdN5nx+/QoLQ9h4IQngwOkMWYVIgZh6x4=; b=r99t/P3E+4UkfAIRUWrKxvXIB0
-	zJH4PFlgMf7YAsi/chWjeD6Jvx03zZXOgafvHO4pV/82Q6w1WmQAZWNwwRI0Rp6mgznnDgSMHt9gH
-	+WgsbuPJzm8RWM/gfWzXBUZWpF8TDRYTFdWuklJTE+d9KKjZjTsrKIBIQIevDoNIaNcxYRjZsQ4Zb
-	wJoEMyh0CDM+kt+nltPCnEBPdBpkIro7jZt0L5GEe8SSEtkPntwtiUXfHSn+UvdIccZ0TVMtLok50
-	s1MJk9qlAwtKPEFlUi00/J+7XlNa/O/pDn9fEbYhNEwBU1I8OqARdBQl9e5SZorwwY8LoMmJcjuH4
-	m9cg71+g==;
+	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=; b=Z8+knRzCjb8Wv5Sd32Gsq6eyOZ
+	tltpwXPRWv9SlpsreyYlKoNYOq3PBj1WjhYPgGQIRJR6earZ1C26TxRVpTzGATWru7QoJuz1h/fQe
+	vgSQcHXiVVzDq0bM3u6hfDVjAwiAfCoW2OVvb5dXgNEnwd7KrTprqT83UJZ2BpKNJ5D/bf5YMWtTj
+	BIMX3NUTVgpVM88QzcvKHg4sZfCscGGw0bycLGeijscvDtzg54YVlIwPKbO+QXHWT44NksuI1P7mq
+	ffb72g2Sal5RjRDIaXXPFrwT8rzKUBy2H2J6wIsC7n2CcyJeP7i7ZYw/CFJCo0OSkWEZSoFVRgQwx
+	rdsXKOKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3YwO-0000000CmFZ-0Gx2;
-	Fri, 20 Mar 2026 12:27:00 +0000
-Received: from mail-francecentralazon11013067.outbound.protection.outlook.com ([40.107.162.67] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1w3Z76-0000000CnU3-1hpB;
+	Fri, 20 Mar 2026 12:38:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3YwD-0000000Cm7J-2uvL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 12:26:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KEAJOGUd0f5O6vcAPF2wzKHvJqO/esPG1SITUvdpb2kxF55eNcL7bHb151ekwDOnWviLbnob0NFtR5X6AZGVbLAbs6SgQsNmosLEtiI8qZJEvtMKcq8tWulyG+wt9XI/odwZfpeJZJukYUAP2wTfJVgrit94GaG61VFe9O2WcyBswQ8e+Zt8FNT+n2PCYUUphe1yTfMduhkf1/CI/tLb1DOB0D51vaH3+O2dKmMIrdtcfjBwzbqBxGNl17c/I32SjECH16bXDlqsgY7U/jTAxO7e8Y/nm8FXBT7997lcH+wD+qb6uc6KbyFFBQsme8FECKz8S65lhMnPwniSGnWx7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GYqjfLR1sGmdN5nx+/QoLQ9h4IQngwOkMWYVIgZh6x4=;
- b=dIVhhfG5Qjktj9sU9MAWoVfCfIShh9qpOAOfc7CvkL9u9/0vK/ClXmNj1cpuXooM1NEanBUsyW0Sum29etGnY+R3g1xXSXeNM6DZjHCjcrv0X9EF+Ud2UMazl9u2J1unFyXmrGtgMzgK/oIxkUpBtHq+8AMN8O9M4y7tNnxBXiOcJUz5Y45HyS5ya3yttA8KpvehqLmtjUip86TNuvPe+QQb548U9p1D5DosNcA28wopqgWB3fYB6erI7MM2Oamg8yNfNR8io2ZqeVfrjiB5vh38X2P8FKwBVYTJddCBIJa5ZNCbD0Xp8rtW1Fxm0gpS4KGEaU2fnGCiGiAeB4kzHw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GYqjfLR1sGmdN5nx+/QoLQ9h4IQngwOkMWYVIgZh6x4=;
- b=NC9HdRRRvvxL1zQsw+T7fJnbDrJA8uT4H7M5G2WzZXgQymj4NgqMExesn+xbWrauqYNfes2GH0oPF1dYZjkLjQ9UHgrSDAypwPeb+8Z2gEKp1BQLP2LvSyVMKcSxnHqFL9qW96pdB3o0F5KICsWwsxE6CoVXj5EEEsKPDbmcZQZD7aapoAlWeUJK0DjZP2Id50SQtEW0h7aXdfUl7iLtm8IflRpqH7WrqDWdD5VoITDMkSYGetbODpXJMZsF5Mmon3MSY2rRXMopxTJXmQZArKDgMU9SLhQR9QHidm34vWrgBqNcFh/8hSod+RMAP6o3YmFh+7ituchs631HmsNhmg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM8PR04MB7331.eurprd04.prod.outlook.com (2603:10a6:20b:1c7::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
- 2026 12:26:26 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
- 12:26:42 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Fri, 20 Mar 2026 20:27:54 +0800
-Subject: [PATCH v2 6/7] arm64: dts: imx943-evk: Add fan node and enable
- active cooling on A55
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-imx943-dts-v1-v2-6-e6eba6b3a837@nxp.com>
-References: <20260320-imx943-dts-v1-v2-0-e6eba6b3a837@nxp.com>
-In-Reply-To: <20260320-imx943-dts-v1-v2-0-e6eba6b3a837@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, Florin Leotescu <florin.leotescu@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SI2PR04CA0013.apcprd04.prod.outlook.com
- (2603:1096:4:197::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1w3Z75-0000000CnTm-0Kaz;
+	Fri, 20 Mar 2026 12:38:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=; b=puhKdIlsS+hxV1GD5cRckAohUt
+	zrKLYUBSX0sUQtV7V3RvcqSKkutvhOwAK1T1FLC+iwo4kD3paVov1KenAY/7fBMcGFgNAK3kqIIYq
+	PvEvf5C8xaYsKhIIdw9Kg6R2zG7cnByjXQS3nDXJYo0Njer8piGmeFxA+iWdCkrJGNm8wa2oF1DnH
+	ORzbLL2UNrTH2vp25mdblhbCwJ484S8J5VP4HqNMmXkGhzbjdoiOeOcTboHC1TGiH3G+3BGJKFL9S
+	brl1DoJ34CF4IILzlqrM8JUCZRwjCwsBxS3/hFLRhK2i4KbCDrISCjUg4DJL6QNN/jWnQOK7YVYZD
+	9ZOCnMzQ==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3Z70-0000000FXX3-2kAW;
+	Fri, 20 Mar 2026 12:38:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774010260; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IT1X9lb4WgUGJ3f4XpNl+vAjgAOPfWmZtyaaQKBpOo2bNLHnO9li7xmwGPEbed71lTevrox//bZlixs9FBN984eFZczlLYEM4WIULVmra1p5kiJbeAzfeyaR3+9EpM0+dc1mexIHEIAzsE50Y8+8xHLrb5luj3cIqEG8eGjs9mI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1774010260; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=; 
+	b=Tsh96p4MSAWs8lU7Vew0vYe69xpMVDUqTfLNPkQxKXS7edfUihiwAkVxJsh6V2PjjTIFmHWRckkaLg3KPfr2zN/wj6TGiLnVmVVE3OEwGJpeGVr0bM3yUl2z+AMzLlmilxMkVicIdJ8D63CkdTyYkufWFK4xto01O3+6AAcgmkY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774010260;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=eqvJd/tLOchy3iTRcrdUAE7UOOBzOUBXPqr7730FrsU=;
+	b=RMZiiDIujKB48XWmRkT8/L3xbYeJXdVQivCo4d7Qs0QuywxwSHnMQR7y/b0N3xrR
+	b9y6YbIP2cjgyLxJurJpjJI/qT5PPCyiSKM9WMUe5/C1Pp8JlZ7laavjWFqnWiFkAab
+	CZPFmG7wrmgmXQjUjPqdC844jhQy+mmiq2f4tV/s=
+Received: by mx.zohomail.com with SMTPS id 1774010258810384.6051275065198;
+	Fri, 20 Mar 2026 05:37:38 -0700 (PDT)
+Message-ID: <7d1e52c0b9c3a6d30e9db617b9bcfa23ed9046b5.camel@collabora.com>
+Subject: Re: [PATCH 3/4] arm64: dts: mediatek: add device-tree for Genio
+ 720-EVK board
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: David Lechner <dlechner@baylibre.com>, Greg Kroah-Hartman	
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Rob
+ Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley	 <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean
+ Wang <sean.wang@mediatek.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Fri, 20 Mar 2026 13:37:33 +0100
+In-Reply-To: <c2618423-2466-47bb-a8cf-7c849e7e231e@baylibre.com>
+References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
+	 <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
+	 <c2618423-2466-47bb-a8cf-7c849e7e231e@baylibre.com>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM8PR04MB7331:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9adf37b-5605-4c00-85a3-08de867bf16e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|7416014|376014|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: iS6Gl0wwv36A60fbie9pos8mjAznUNOqqYuHMT+1cvdPEUaw7OyN3GEOjYcYBXr0ptzH2Q4EaRZtQcrZv5GaTxQOmTXwVLvjHpSznwDR7Zgy8Te6/uuvmj60L5C4qnBHwX/CQma5H5stc3GEHeJY8CkgThAo4prK4vHdqMtjvjwIdmobALF/0AY+j7OfwtbigDlo3eCckusnnK+qQCY12J5q9k7X307dPtSGe77SDoLwPTxLgrIfVu6B+xXyVYwSnqIn5bf2BZpGZR1NL2gWYcsjwLQOe4y3XBN9MqqPCLL0xgxBFeXmVIJWtdqdFhV74eAWT7qj8Qx1PrB6qPlVfDMW26B3W7De5I6e+J7W7rj7PaGEdOrSZJ784YG7mJedW1oohQr60ndJkKDjipALiTXw0ajqK5INvxlCswyVmPaKKkRxntA5EMi5VZYeNOz7WTnpbr8Frn7GWkJOApwR84vAXUd3N0gE8eJu5sxqduEG8ilW4xEVxZtrCGGDMM8tPgkHM40wGfElWp2TqYDZF1vVZVsLWs4Qm4wbr1s1zqBN4Dtyo4PxwhrWF5gpKwfKdoW8TYfAZh2xCR3XSkQSaPom8t6ODm3vpkAJGnCmTRISBOea+M53GFmY5wsnwr351JPtVGH5kaY1fPboGjN9OXSSjBM2RPtOEqNtFF11XR5b6fX+NixSX/mZEb5u4CT0eoVuDB5/n4QIVTdIW1100QjhxVwJRG4XYCULoSu/Q8sClH8m5VNLnuavK44ltahiyrqGKAikY+TWT8avC1mZb6g90Ue/FEAOpSwwNf3AMDI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(7416014)(376014)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZjhvblYzc1pOZ2hCMTJXQzBhaXkvaFh5SHlDRi9zT1FiUkJYa3VvNGFCZVB5?=
- =?utf-8?B?Q1VCY1NhblM4aG1MNDk4anVCazhnNmRhcnVaZ1k1aWlwUTI4Um85OFZOc2RC?=
- =?utf-8?B?cStOQzViV0xNMG40UG5NNmxUZ0s0RGJ6ZlZ1Ynd1dnkvbHZxb0VxRDBOWWZq?=
- =?utf-8?B?Z3ozTGg1cFQxcDBLWlBGbHRqNVoxWmVKQlltV044aVVPTHJnVTYzT2Z0aGd3?=
- =?utf-8?B?VUN4OXZGWGNIU3Zkc2JSTEZMbXh0UERpVWFYRTZKTTlydDFkaXFMUjZRbnFw?=
- =?utf-8?B?T2w0WGVOTVE5TTlvTXlyUE15UlVEbmxWTTJwTmdURjZsUlgvSGZ6Y3g2ODJE?=
- =?utf-8?B?VHM5Umo0T2FMTWhjWlF1emRNaXFvcklySk9NUC84RzNlclZtRTdUdzNHWStB?=
- =?utf-8?B?Y0gwZ1B2azRJOWZTd0tJK3lwR0NaNzFXMUdYTXlra1h4MmpxRDBHNmY0QkZx?=
- =?utf-8?B?aW5TRzRzcmRMNE5idCtUUW05S2w0SGF0cHVwT1BoL2NRZWNZMUxuUURCcG9C?=
- =?utf-8?B?R0NCNEQ4TlEzMEFuQ2RvRkNlOEpBUzlJQmUzOEtlSDBTMHdUb0lXUmRFMCt4?=
- =?utf-8?B?Q3JvU0JKUFRYRHBPT3RxVG4yVHA2c3c5Mkw0aXE5ZGFDRE1WaCsyNzV1djJQ?=
- =?utf-8?B?ZW1TNW84OGtOUTl3NGpOR2I5MmFqRUI2M1Rvc0xTN3NUTTY1YlpBQ3lndXJk?=
- =?utf-8?B?MTc1dkRZVWg1UG1DZElEUElFRU9SWTVsQmk3QUd2TS9ZWGdqd2JhOEF1Q1JW?=
- =?utf-8?B?UjZhNEY0QnVHVDdIdGxxU1BlVTlESmhzTXRya3hkTFZzbFZwVFZndGVZaDZx?=
- =?utf-8?B?bUNvMmFlSDEyc042UUp0QVpnMmpWaWVNUlRsWmFqWGdMY25UODB6MHpOamlZ?=
- =?utf-8?B?NWdjWjk3MkhoRHZQUlZkd1pvTTdPUlNWNis1dnJ6d0tUZUViVFp5Sm5kbDlj?=
- =?utf-8?B?bTY3emFBYXRqTzFEeng3RlhhS0xuSFYvQmxrNTduYkR6WG1QZTR5bERYWGZH?=
- =?utf-8?B?cjRNZm9GbWNCWWdaWXNEempJUEp0dU14eldFTGMrOUs4ZTdVYTNMaWJSc0ZF?=
- =?utf-8?B?RkNrWFlyUFVjWW9nTHVnajFLdUxTcE90TFBHdFFFRE0ydGJ0ejZDS2loWEpi?=
- =?utf-8?B?KzhqdlhJTEMxdGNnT3pZUGU2RTNYM0NmOWZpRXhZUXAzeWtiOG9VYlkzMlZY?=
- =?utf-8?B?bTdyVkJXaFNqMUhSNDA3dEdwN0JpNlpiNUJVMWd4NzRyUW5tMmkzWDhWME5M?=
- =?utf-8?B?RHlXL2FXTWhhUWk1bmZCVEViTTBtQW9mU0RYRnJxdysyQWNyNC9QQlFxNStL?=
- =?utf-8?B?aTdRaENzRnEwT2wvem1zQy9CR3VweE9rNUo3R0oraXh3TFhTYmM2L3J4Z1l0?=
- =?utf-8?B?SjlGWis5QmZLSnZVS3Npd2ZLSXYzOHY1UVcweFd3amlqQ2lvdVE1WUc2YmU0?=
- =?utf-8?B?bHNYb0IvWFF2OVFFQ2lCaENLaG5LMnB3bFdWQ0JLUkdWSThSZ1lmUGc1eWY5?=
- =?utf-8?B?TC9sakVpRFdKcnROSUNzV3NHSnZrVHJRU3VNUUczM3N4Rk5sNkZqNUljQTZy?=
- =?utf-8?B?R1VkZTBoM1BGUGJTU2pTbW5hUmlVYjR1YmEzVWFCSjZoWm0zczJocEM1Y3hX?=
- =?utf-8?B?WWQ5cEsxc2NaaDBRRnpNYWFpNUxlOVBrR21CRzhEV0RsRHhvYzFIeXFXVUFv?=
- =?utf-8?B?Qmw5SUltVDQrQ0d3YkhaVHNKYktESzhCdFMxS1dlSDFaLzhRcnZ6dkFnMGhU?=
- =?utf-8?B?SHhacHBRTWJwWWVhRFFuaDdvOWw2dkZydXlSYjJjcHhmSnV3SWdDUEJKWUhF?=
- =?utf-8?B?MStqRG1TM29OSW1UQ1JTK1lVTDBYVnRxTFpHQkFRSDlQMTIveWRxYlUzb1o5?=
- =?utf-8?B?dVNMcWdCZWpsL29wYSt3bmhKVFNtV1lhYWhENGJJcXhsYUJTZEJNaHI0bmNN?=
- =?utf-8?B?T0xFVXNYMFNXTWNodVpZb0txVENnTVEwYTJiTjVJSDBxSjRHdzlWZkdGRm0v?=
- =?utf-8?B?K2czZi80US9wVjNWQkFtbkhsdTdsL2RoQUNjTmVyVytJVzhtdEwzRHp1N1E4?=
- =?utf-8?B?WjNWRUJXZk4ySEFwRHJWOHd1RW9yaGFxcXI2Z1pHSDZZU1ZxTVZlbmVhWFhV?=
- =?utf-8?B?RU5nOU83dlM5L1FRY2hsWTJoUE9CNitnZVpIQTAwS0tIU1dMSHdyTkMwLzRN?=
- =?utf-8?B?dE9xQVFEMGp2T1UzSm1CN25mMDM2Rm5pbGhWZWZlLzNpTkZDMHMrUy9uQlRo?=
- =?utf-8?B?Q0VxWHQ0aFhQeVg3THk1d1AvbGlJQXEwQjlZRUZ1bEZsTURJc29Db0tmdEtY?=
- =?utf-8?B?UXhGdmg0Z0xpTW5qbHg0L1pybyt5aDZ6cktyQldXcWRMQjQ0dTVWUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9adf37b-5605-4c00-85a3-08de867bf16e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 12:26:42.4802
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jszx5JX9S0zDGv2OA2+0p2ki74HgJ7x6wEiVyXLP12Cu0NKGz0nku/BmTslClvWK3Cy6BV0E8zK4HTVX7egYgA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7331
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_052649_744334_456C2197 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260320_123759_157154_00BEE683 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,99 +101,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
+Hi David,
 
-Add pwm fan node and use it for A55 cooling.
+On Thu, 2026-03-12 at 19:26 -0500, David Lechner wrote:
+> On 12/3/25 7:59 AM, Louis-Alexis Eyraud wrote:
+> > Add support for MediaTek MT8189 SoC and its variants, and a device-
+> > tree
+> > for the basic hardware enablement of the Genio 720-EVK board, based
+> > on
+> > MT8391 SoC.
+> >=20
+>=20
+> ...
+>=20
+> > +	mmc0_default_pins: mmc0-default-pins {
+> > +		pins-clk {
+> > +			pinmux =3D <PINMUX_GPIO162__FUNC_MSDC0_CLK>;
+> > +			drive-strength =3D <6>;
+> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
+> > +		};
+> > +
+> > +		pins-cmd-dat {
+> > +			pinmux =3D
+> > <PINMUX_GPIO166__FUNC_MSDC0_DAT0>,
+> > +			=09
+> > <PINMUX_GPIO165__FUNC_MSDC0_DAT1>,
+> > +			=09
+> > <PINMUX_GPIO164__FUNC_MSDC0_DAT2>,
+> > +			=09
+> > <PINMUX_GPIO163__FUNC_MSDC0_DAT3>,
+> > +			=09
+> > <PINMUX_GPIO159__FUNC_MSDC0_DAT4>,
+> > +			=09
+> > <PINMUX_GPIO158__FUNC_MSDC0_DAT5>,
+> > +			=09
+> > <PINMUX_GPIO157__FUNC_MSDC0_DAT6>,
+> > +			=09
+> > <PINMUX_GPIO156__FUNC_MSDC0_DAT7>,
+> > +				 <PINMUX_GPIO161__FUNC_MSDC0_CMD>;
+> > +			input-enable;
+> > +			drive-strength =3D <6>;
+> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
+> > +		};
+>=20
+> Should we also have pins-ds here to match mmc0-uhs-pins?
+>=20
+The data strobe pin is only used for the HS modes, that is why it is
+only declared for uhs state.
+No other mediatek board devicetrees have it for default state too, so I
+don't think it is needed here.
 
-Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 56 ++++++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+> > +
+> > +		pins-rst {
+> > +			pinmux =3D
+> > <PINMUX_GPIO160__FUNC_MSDC0_RSTB>;
+> > +			drive-strength =3D <6>;
+> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_00>;
+> > +		};
+> > +	};
+> > +
+> > +	mmc0_uhs_pins: mmc0-uhs-pins {
+> > +		pins-clk {
+> > +			pinmux =3D <PINMUX_GPIO162__FUNC_MSDC0_CLK>;
+> > +			drive-strength =3D <8>;
+> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
+> > +		};
+> > +
+> > +		pins-cmd-dat {
+> > +			pinmux =3D
+> > <PINMUX_GPIO166__FUNC_MSDC0_DAT0>,
+> > +			=09
+> > <PINMUX_GPIO165__FUNC_MSDC0_DAT1>,
+> > +			=09
+> > <PINMUX_GPIO164__FUNC_MSDC0_DAT2>,
+> > +			=09
+> > <PINMUX_GPIO163__FUNC_MSDC0_DAT3>,
+> > +			=09
+> > <PINMUX_GPIO159__FUNC_MSDC0_DAT4>,
+> > +			=09
+> > <PINMUX_GPIO158__FUNC_MSDC0_DAT5>,
+> > +			=09
+> > <PINMUX_GPIO157__FUNC_MSDC0_DAT6>,
+> > +			=09
+> > <PINMUX_GPIO156__FUNC_MSDC0_DAT7>,
+> > +				 <PINMUX_GPIO161__FUNC_MSDC0_CMD>;
+> > +			input-enable;
+> > +			drive-strength =3D <8>;
+> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
+> > +		};
+> > +
+> > +		pins-ds {
+> > +			pinmux =3D <PINMUX_GPIO167__FUNC_MSDC0_DSL>;
+> > +			drive-strength =3D <8>;
+> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
+> > +		};
+> > +
+> > +		pins-rst {
+> > +			pinmux =3D
+> > <PINMUX_GPIO160__FUNC_MSDC0_RSTB>;
+> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_00>;
+> > +		};
+> > +	};
+> > +
+> > +	mmc1_default_pins: mmc1-default-pins {
+> > +		pins-clk {
+> > +			pinmux =3D <PINMUX_GPIO169__FUNC_MSDC1_CLK>;
+> > +			drive-strength =3D <6>;
+> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
+> > +		};
+> > +
+> > +		pins-cmd-dat {
+> > +			pinmux =3D
+> > <PINMUX_GPIO170__FUNC_MSDC1_DAT0>,
+> > +			=09
+> > <PINMUX_GPIO171__FUNC_MSDC1_DAT1>,
+> > +			=09
+> > <PINMUX_GPIO172__FUNC_MSDC1_DAT2>,
+> > +			=09
+> > <PINMUX_GPIO173__FUNC_MSDC1_DAT3>,
+> > +				 <PINMUX_GPIO168__FUNC_MSDC1_CMD>;
+> > +			input-enable;
+> > +			drive-strength =3D <6>;
+> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
+> > +		};
+> > +
+> > +		pins-insert {
+> > +			pinmux =3D <PINMUX_GPIO2__FUNC_GPIO2>;
+> > +			bias-pull-up;
+> > +		};
+> > +	};
+> > +
+> > +	mmc1_uhs_pins: mmc1-uhs-pins {
+> > +		pins-clk {
+> > +			pinmux =3D <PINMUX_GPIO169__FUNC_MSDC1_CLK>;
+> > +			drive-strength =3D <8>;
+> > +			bias-pull-down =3D <MTK_PUPD_SET_R1R0_10>;
+> > +		};
+> > +
+> > +		pins-cmd-dat {
+> > +			pinmux =3D
+> > <PINMUX_GPIO170__FUNC_MSDC1_DAT0>,
+> > +			=09
+> > <PINMUX_GPIO171__FUNC_MSDC1_DAT1>,
+> > +			=09
+> > <PINMUX_GPIO172__FUNC_MSDC1_DAT2>,
+> > +			=09
+> > <PINMUX_GPIO173__FUNC_MSDC1_DAT3>,
+> > +				 <PINMUX_GPIO168__FUNC_MSDC1_CMD>;
+> > +			input-enable;
+> > +			drive-strength =3D <8>;
+> > +			bias-pull-up =3D <MTK_PUPD_SET_R1R0_01>;
+> > +		};
+>=20
+> Don't we also need pins-insert here? (to match mmc1-default-pins)
+>=20
+From what I've found, it was done this way for other board devicetrees
+to avoid possible reconfiguration happen for the card detection pin
+while switching to UHS and causing a switch failure.
+Also, what you declare in pinmux nodes is how the pin configuration
+should change in a specific mode and you declare only what changes, and
+not what stay the same.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index ec728efbe15cf0b97deade68445b23528325b082..7125c7fc6e32999fd279b9d01af0b210d1ab843d 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -7,6 +7,7 @@
- 
- #include "imx943.dtsi"
- #include <dt-bindings/usb/pd.h>
-+#include <dt-bindings/pwm/pwm.h>
- 
- #define BRD_SM_CTRL_BT_WAKE		0x8000  /*!< PCAL6416A-3 */
- #define BRD_SM_CTRL_SD3_WAKE		0x8001  /*!< PCAL6416A-4 */
-@@ -314,6 +315,20 @@ i2c@4 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 
-+			fan_controller: pwm@2f {
-+				compatible = "microchip,emc2301", "microchip,emc2305";
-+				reg = <0x2f>;
-+				#pwm-cells = <3>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				fan0: fan@0 {
-+					reg = <0x0>;
-+					pwms = <&fan_controller 26000 1 PWM_POLARITY_INVERTED>;
-+					#cooling-cells = <2>;
-+				};
-+			};
-+
- 			wm8962: codec@1a {
- 				compatible = "wlf,wm8962";
- 				reg = <0x1a>;
-@@ -892,6 +907,47 @@ BRD_SM_CTRL_PCIE2_WAKE		1
- 			BRD_SM_CTRL_BUTTON		1>;
- };
- 
-+&thermal_zones {
-+	a55-thermal {
-+		trips {
-+			atrip2: trip2 {
-+				temperature = <55000>;
-+				hysteresis = <2000>;
-+				type = "active";
-+			};
-+
-+			atrip3: trip3 {
-+				temperature = <65000>;
-+				hysteresis = <2000>;
-+				type = "active";
-+			};
-+
-+			atrip4: trip4 {
-+				temperature = <75000>;
-+				hysteresis = <2000>;
-+				type = "active";
-+			};
-+		};
-+
-+		cooling-maps {
-+			map1 {
-+				trip = <&atrip2>;
-+				cooling-device = <&fan0 4 6>;
-+			};
-+
-+			map2 {
-+				trip = <&atrip3>;
-+				cooling-device = <&fan0 6 8>;
-+			};
-+
-+			map3 {
-+				trip = <&atrip4>;
-+				cooling-device = <&fan0 8 10>;
-+			};
-+		};
-+	};
-+};
-+
- &usb2 {
- 	dr_mode = "otg";
- 	disable-over-current;
+> I was having trouble with the CD input pin not working in U-Boot
+> until I added it.
+I checked and debugged this on my board and did not get that kind of
+issue, whether this pin config is not present for uhs state or if I add
+it.=20
+When inserting my sd card or when I boot with it already inserted, the
+mtk-sd driver first sets the pinctrl state to default before switching
+to ufs. The GPIO02 pin config is also OK in both states.
+The mt8189 pinctrl driver seems to apply a default config for this pin
+that is the same as the one that is set here.
 
--- 
-2.37.1
+There might be u-boot particularities that could explain it fixes your
+issue.
 
+Regards,
+Louis-Alexis
+>=20
+> > +	};
+> > +
 
