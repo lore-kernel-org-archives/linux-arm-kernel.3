@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D921093177
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1911093177
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXInfPSwAGRRtB+ybyzTEt3gvSIjjBC1jeS0/7UiiIY=; b=b3V8QDFyxyDiGXYJhVoXvbtazM
-	BmHo7UfTxqbQLVZVhuk1DwltjPPsuQPINF/zyZzeXu8qc5BbesFD/npsIysdbhURpDR4Byf1zGPiJ
-	d2QJsDGpKuB6V0/L55iMHG8rvQNliZj0CFeIp8brVfTye/LlJCUCE/yIUkAUuIrxP7pPza1r/9Lvd
-	qQ1ihhMnqJphRe7oWrtavG7AyzlTu1I1WbXwp6EMw92CuhS7+k3h5yCgcABf+mCMJlGrAvoLRkUqz
-	yFvRzPjtcoDOH8iy4n0YFb337ppA2YVot7nfLwNzGU/vhZ0/nDroRdmG92UcuTzjE9RsV20B/mpOw
-	fovi/jAA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PIzdafjN7WCYYuCQALUYYZgX3e21Tqrr/6yaH1Xmd4=; b=fNHC3XvzeOC3iRoJx/WrOtEv/i
+	wv/8ILglKa5nR3TnLqoQkE1gqH3toLvaueGhFgzjdHKiWGt4WOQGH+tHSIxTDU+/a/0DRR9/fly4y
+	aOunar5DvUsSMyThNhhiovSth+6B45e5MVDr50K7WqKNdlA8nsCDn83ocb4sV0L8SEZvpkh2f+uD7
+	MlEvLYKC7ZEZPFw5xzZPJ3f/BUlLcnwwHmbeOLkB1ysSMZtOnsS4cujqn5A+QoLf6UQu8TBA9jEHm
+	X/M7lZJkX6q0bPxyIKIHwP9bP1LbcJBeyMlJQxns8SGtU4gF3mYjLfPVhn1Zwoo3Pp+PJwsFULgQ0
+	DbBYySRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SyW-0000000C8yK-1YLB;
-	Fri, 20 Mar 2026 06:04:48 +0000
+	id 1w3T0I-0000000C96s-3pv7;
+	Fri, 20 Mar 2026 06:06:38 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3SyU-0000000C8xz-1VXe
+	id 1w3T0G-0000000C96X-1yTN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 06:04:47 +0000
-Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id EF2D620B710C;
-	Thu, 19 Mar 2026 23:04:45 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EF2D620B710C
+	Fri, 20 Mar 2026 06:06:37 +0000
+Received: from [10.94.176.97] (unknown [4.194.122.162])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A8F9920B710C;
+	Thu, 19 Mar 2026 23:06:33 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A8F9920B710C
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1773986686;
-	bh=VXInfPSwAGRRtB+ybyzTEt3gvSIjjBC1jeS0/7UiiIY=;
-	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=nMvAdZMxtQl+dV2uHFrQSvxOd+oIf5Ub6RKPhxigQaMLVUaA+2ku3AGTFCSn71c8l
-	 heKqlvvO+IS4cY3dGVNhZtf0vHQw0NYZ/SJeujdGlgOWeQ2Dxu6G6/nr5ms9LgJTzY
-	 kPbTV6NDUwT78PruzFOCuPK58PHa0e4KOZ3DvcuI=
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-To: ptsm@linux.microsoft.com,
-	michal.simek@amd.com,
-	jay.buddhabhatti@amd.com,
-	marco.crivellari@suse.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] soc: xilinx: Shutdown and free rx mailbox channel
-Date: Thu, 19 Mar 2026 23:04:45 -0700
-Message-ID: <20260320060445.1541017-1-ptsm@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260320060306.1540928-1-ptsm@linux.microsoft.com>
-References: <20260320060306.1540928-1-ptsm@linux.microsoft.com>
+	s=default; t=1773986795;
+	bh=6PIzdafjN7WCYYuCQALUYYZgX3e21Tqrr/6yaH1Xmd4=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=EJV3r3BkpE7aJTbBal2JjdirNnfl+n5AorOuHd2tLfUqLlnVv3mB/PUltJStlToSY
+	 hxXjfdZNbFf0eOyEE4zBh7bWcKM5LeEZPjI5/EroW/dpHHbbQYh7AhnGCvfvu5rKEM
+	 WiXs/OKebvVAVI8IDwqCuXPW7HEa/Ufut6tr72uQ=
+Message-ID: <ea83916c-36cd-4d73-af14-a80565984064@linux.microsoft.com>
+Date: Fri, 20 Mar 2026 11:36:31 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] soc: xilinx: Shutdown and free rx mailbox channel
+To: Michal Simek <michal.simek@amd.com>, jay.buddhabhatti@amd.com,
+ marco.crivellari@suse.com, tejas.patel@xilinx.com, rajan.vaja@xilinx.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260317133517.1324319-1-ptsm@linux.microsoft.com>
+ <20260317143643.1329013-1-ptsm@linux.microsoft.com>
+ <fa75334e-6cce-4a6e-8072-132b8823deb9@amd.com>
+Content-Language: en-US
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+In-Reply-To: <fa75334e-6cce-4a6e-8072-132b8823deb9@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_230446_430853_3A5B6381 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260319_230636_842197_A56ABDD6 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,36 +71,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A mbox rx channel is requested using mbox_request_channel_byname() in
-probe. In remove callback, the rx mailbox channel is cleaned up when the
-rx_chan is NULL due to incorrect condition check. The mailbox channel is
-not shutdown and it can receive messages even after the device removal.
-This leads to use after free. Also the channel resources are not freed.
-Fix this by checking the rx_chan correctly.
 
-Fixes: ffdbae28d9d1a ("drivers: soc: xilinx: Use mailbox IPI callback")
-Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
----
- drivers/soc/xilinx/zynqmp_power.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/zynqmp_power.c
-index 9dd938bd01d8..370e61ac47d8 100644
---- a/drivers/soc/xilinx/zynqmp_power.c
-+++ b/drivers/soc/xilinx/zynqmp_power.c
-@@ -389,8 +389,10 @@ static void zynqmp_pm_remove(struct platform_device *pdev)
- {
- 	sysfs_remove_file(&pdev->dev.kobj, &dev_attr_suspend_mode.attr);
- 
--	if (!rx_chan)
-+	if (rx_chan) {
- 		mbox_free_channel(rx_chan);
-+		rx_chan = NULL;
-+	}
- }
- 
- static const struct of_device_id pm_of_match[] = {
--- 
-2.49.0
+On 18-03-2026 21:36, Michal Simek wrote:
+> 
+> 
+> On 3/17/26 15:36, Prasanna Kumar T S M wrote:
+>> [Some people who received this message don't often get email from 
+>> ptsm@linux.microsoft.com. Learn why this is important at https:// 
+>> aka.ms/LearnAboutSenderIdentification ]
+>>
+>> A mbox rx channel is requested using mbox_request_channel_byname() in
+>> probe. In remove callback, the rx mailbox channel is cleaned up when the
+>> rx_chan is NULL due to incorrect condition check. The mailbox channel is
+>> not shutdown and it can receive messages even after the device removal.
+>> This leads to use after free. Also the channel resources are not freed.
+>> Fix this by checking the rx_chan correctly.
+>>
+>> Fixes: ffdbae28d9d1 ("drivers: soc: xilinx: Use mailbox IPI callback")
+>> Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+>> ---
+>>   drivers/soc/xilinx/zynqmp_power.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/ 
+>> zynqmp_power.c
+>> index aa35b63b45a3..5086c1e6797e 100644
+>> --- a/drivers/soc/xilinx/zynqmp_power.c
+>> +++ b/drivers/soc/xilinx/zynqmp_power.c
+>> @@ -398,7 +398,7 @@ static void zynqmp_pm_remove(struct 
+>> platform_device *pdev)
+>>   {
+>>          sysfs_remove_file(&pdev->dev.kobj, &dev_attr_suspend_mode.attr);
+>>
+>> -       if (!rx_chan)
+>> +       if (rx_chan)
+>>                  mbox_free_channel(rx_chan);
+> 
+> 
+> Please also clear that global variable because when the driver is re- 
+> bound there will be old reference to rx_chan which shouldn't be there.
+> 
+>           if (rx_chan) {
+>                   mbox_free_channel(rx_chan);
+>                   rx_chan = NULL;
+>           }
+> 
+> And please send both patches as one thread.
+> 
+> Thanks,
+> Michal
 
+Hi Michal,
+
+Thanks for the review. Sent v2.
+
+Thanks,
+Prasanna
 
