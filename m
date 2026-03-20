@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CA71099B32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3560E1099B31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 18:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWkKoVAEpPTbhlQcGao02ZYKop/ZGqIz8O7PUwO5+Xk=; b=BVxf8lqrUNT3foKEW9qpi17jMi
-	JbEaLfrS0gXrLhOxmyzDz6/t6bJDezb3AH/bmQUxGmfBCORl6G+kem2zWfaXVMlqe0kwKrOzJaxNG
-	crldJZFd/5Yd02A7QEp+bnA7xkGvVFeVMM3NhM0CuYq0iUi3hzY8DcPyVLFv0mQSihbkhggJTFd0x
-	SU2U/JPksSvmmSczxNu9Yw/4pCiKQY07gom0M8cZzjZeafFltSGVSKMua7Eqf/iGFJ/GOrdezZmfV
-	sCyGIOfkz+6b/0PdiFQywxo56GHMkpqAamzLTSpkqMzGtTKAQMx5tIbEu6egSHKek6f+XE/lQV2fe
-	XmBziz7g==;
+	bh=dOImJrUkUKlV54kYlUoWr0DMizxiC/9V3pmZXpcZjrc=; b=hy40wtLSFdcBnCeYdCHn5h7vmj
+	3v069D6ayNEWJbVpsPsnzbjQ4U/FiQoLqNqq8WhoAbT5GrDR8PlyvexJ1Ju6FSZhv2MOVDI7r0gSM
+	ZBAZVqAFEgtjXtyOibygktLBwvRPFJOeEhAgKuOFf0GyFV8XTMsM1EiOGHSRPXhhOyEafPnGbYDD/
+	tVsJ+YYRvFHa9xb0vBSEI3vpcEE7AMXGdIXFWz46PN6/G2bN/CCb2zmxkkSm8UnV6Zb3mHRFTe7zc
+	c+HJrBUZz+L4s5Wpq+BU+oUlnIIjzdf0wUpph+FsJBJ0b9M1lOHMBZ4ZV1qNPr/iqhKbWQeUUGA+p
+	73diSwjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3e7o-0000000DL1t-11KR;
-	Fri, 20 Mar 2026 17:59:08 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1w3e9S-0000000DLCS-2QTi;
+	Fri, 20 Mar 2026 18:00:50 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3e7l-0000000DL16-2Vby
+	id 1w3e98-0000000DLAZ-2yq9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 17:59:06 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8cfc40e4158so190082985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 10:59:05 -0700 (PDT)
+	Fri, 20 Mar 2026 18:00:48 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-89c4468686dso23978456d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 11:00:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1774029544; x=1774634344; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1774029629; x=1774634429; darn=lists.infradead.org;
         h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
          :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=DWkKoVAEpPTbhlQcGao02ZYKop/ZGqIz8O7PUwO5+Xk=;
-        b=iswrOe3PGMyz9D6fkPxjBguthEGLR256Yg1KRd4Dadg2EKk4ryBo9KXsiH4qkVWclQ
-         KAgukkV4jUzkxE6ArDC0Cr2GDEWyk4JclqsPg1vSoYviAU3byikcMjlpr5utQp4Am4PP
-         E+DSvWKPn/b6Klm0m9pozmgV67K7B7oHELJTzdiiY3DlITpi5hAeC+F0ZmWCX5DTjzw9
-         leLYzj1qEXPFTZo5VU6AhN8IGa+KJSZ0xq+UIDLI8viYxNfvJ2u5wNzzUVNJsCENgM72
-         AdhXLUMc76o+gPsrWEObDKyLQzmeBIaPAnKDSCX4gXeaTkLf0TY+h/rAmnrC41poqN9r
-         DJkA==
+        bh=dOImJrUkUKlV54kYlUoWr0DMizxiC/9V3pmZXpcZjrc=;
+        b=nd+u+X9y9eT75CLhi7Ho73HupEnRVH0VKjSRYkmG4pS6KGOkiBTH8AYdjOIM2nfObb
+         GScI/cjp9wPgx7mxIRunfZYSdRI+lP2u+oauI4mnNj1kOuPsMx+258de4/729QpTxVaW
+         kFGwgV/TML68CksKaCTNC5vhubhfGYdWl3Dh7KHAFn2xvP7TK8JzmvsMz42JXKrH7wE+
+         HQl0+VfYyEZ4XWC5zEHiVp2iwXmLlR5w+HcBFbsQWMYFymSriT1TsAlaTWfR38Wd8zhx
+         xp99uhbItDUc2vFYiwffrNAGlSCy90L81+TnUOIV0qEn+Z54RtDBosQIo5G4BYw7g4ZC
+         BdnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774029544; x=1774634344;
+        d=1e100.net; s=20251104; t=1774029629; x=1774634429;
         h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
          :subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=DWkKoVAEpPTbhlQcGao02ZYKop/ZGqIz8O7PUwO5+Xk=;
-        b=nn8xmZnnEPqVvZm3NXed++RZSGbdzrZsa6oqQr/BYUgJu/WlvWiAay/24hsuK6bNkx
-         1jDlEffNDY6DImj+rcz1z7Ak+jy2KnY73S+5T9zxEP6kVvoFJvsj2Um+KRifEnOq82h4
-         Xs26/ujo7iuSsxZWbUZGge9WS1wCSAMcXVYhqZ6T1ShKwg+Quyggzut5eri5Ez5K5VQi
-         yXok8ehJz4ugZ4A1Kh5DmUW008qXNnvyEThIH/M53e799tNu26GTi1Iq82jQQ7/w2u3W
-         MdyccImTSTWrW4wx9+LGiFt7zYhUoarbCNnvEZSlC9DYebW+R0UdAJYlSRd5D5Ih1APv
-         C0vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUEug18+WTbcrsi/i+0Z4hICJfT7q1G697LZsXz3ycRcruTHqb4ZG7L9W5/ERyLPctq+WOKSaBuA7evzR09nNrR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzpeybe3LxcRTmHS2/uE/r4Fu7z2Gn1rhbxFpugSpwmZsPaD93s
-	O94I6xp8ONDtfqaTgs4io04YfusxPdgHbVUX1BL7cuspT/i5iXsAmCSq9wO1UnxjisSzkoZoHxg
-	rqYLOEGOL2g==
-X-Gm-Gg: ATEYQzzkgZIjpFOUtzNWGiFQNP4R1GsPz5K7T9oaoKrw7LKZ7DLcjmhCEwrv9dwLFKp
-	8eVOL6MqBLS7YZfBCdaoBhIEqSiYfof/j/S5VDBqr9MU5injWJ9Il+7xNaoHFlTQGjr27Y7ujnr
-	qYRnj6FP0SJYSuGcjpsZfDhCxECGdb0BaxUqnE1/R2Ig8MkKPoWEHNKx1Sgx6gc/8AfCmGa1j8n
-	w+mO72S1x0x9MkrN4oHVFqK+09fxxJfoIlAOCxzjqh6RH6yBwMMUvWNbyijGeeMu3hODPHKTHQY
-	L4kAlYjEtisoAR9fzXkdG9hnmuU6CqobSZwGZeMjdR8cDtMUQC0L8yPjJTNYKh8fKou/GpKvrae
-	YNWeHQjetwi3dUMV+a0QA0En6R60WzTlCi65l4pFTlIK5LR2JfXqcTXZ8BPwyfKE3nvbaGDDzbe
-	l+sTO9iLEcw3zYFQRvVu8P9eWvJWHa
-X-Received: by 2002:a05:620a:4110:b0:8cf:c77f:f4e2 with SMTP id af79cd13be357-8cfc7f86b0cmr579713085a.67.1774029544140;
-        Fri, 20 Mar 2026 10:59:04 -0700 (PDT)
+        bh=dOImJrUkUKlV54kYlUoWr0DMizxiC/9V3pmZXpcZjrc=;
+        b=TSUv6/zbEa8KvzkbUDWwglvzhhORe6J4mKMvhKZ7gPzX+8fOV2mhHeBE74muV1Refq
+         TjVuyfRG4uxUv4RIjUuSeNBQ3wU7yA9/84DFf3fQioFXX8rglkXZ8sOxqVM3bLjKjqnL
+         qLphQNSZpx3rf+SnQsBmvmYJpyp2i76m7PtqsQ1NufTclICL8zHtdS7a/MYgGXfmXL2S
+         WOPfZVHIWI3zj4l3nkhDFtCkRzvUHiQEcDEDI727Ky7RJkXX1rwYY4CzH5tW0i5SwD5z
+         5NOHScQM92lSb9ucvJGq1avsqPhuWQgkeBZdaBtkk0CJHSHq9fXlExLymQUbXTDJGJtp
+         fIOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUm0eSYaYmzOodtvwYG9DLTxusVzz6V9oiCtF3F8UjjFNsRSLTL9O1pXAq3Xnm8OG30zjGJlt1CuviZOcBDe52f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxpu8O+oAgeBB0gjKG0iJpRlmYnadRBASnbHvIUhHPSa93gEs9B
+	GJ7K3YDfnNVfeU7EzILCT8o6ynRHdVtegrVbMlBIPYUzasB0cp+8H8LfA5F7beHAh7k=
+X-Gm-Gg: ATEYQzzSA9eJVjqVai/fsRoMJfn4S60yffuK+53CSxOsI7j6FmP0FZ6ZtGZAMhFBR0r
+	7jFv1YkvGKul8ezI47CSi5haLygZMvxGA23sQDl6LbhqBaN3COyrteBpc2Y1a1ejbSN4w2qWa+b
+	A03ETkNpud8Q+RaWFykrGZzpxrbK76u+gJJlcVu9FfV9jfkiwV3cxwv4qk31V/WtVBunXhs7Axp
+	jJGUGGWDzO0Njma30lB8ZMvWfR6j/u3Up8MUmpP4NI6pT+lGpCoDFedJe/z2n29InTuH8K6cfMl
+	4TE3Zk/U7E+UOLu4y2n/kxx2QSVYCNbltwGV3lOa0mDw9AwXevp+5PasD60giGhsuge/Wwtvh9r
+	p4V9PB9gwRIaTwdn+Fwz184sN5PqdKJ8Cjv05qkav7v9esm70Fge14ZkJ8/VVWKSJS7l6f34cRs
+	rawYQeWSQkDzPaDKgEY2xtO8h6cOsMRqsZ261daeg=
+X-Received: by 2002:a05:6214:4901:b0:89c:637a:6c6 with SMTP id 6a1803df08f44-89c859cbd8emr55207966d6.1.1774029629014;
+        Fri, 20 Mar 2026 11:00:29 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:11:b76d::5ac? ([2606:6d00:11:b76d::5ac])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cfc90e2d27sm233119785a.43.2026.03.20.10.59.02
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89c850f5fe4sm26026506d6.0.2026.03.20.11.00.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 10:59:03 -0700 (PDT)
-Message-ID: <46d7ccd7500771bf66f830040b3e306785866ea8.camel@ndufresne.ca>
-Subject: Re: [PATCH v3 19/27] media: rockchip: rga: support external iommus
+        Fri, 20 Mar 2026 11:00:28 -0700 (PDT)
+Message-ID: <ec72d63c642542dc7a8689c429b497f72c68d000.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 21/27] media: rockchip: rga: remove size from
+ rga_frame
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
 	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
@@ -81,17 +81,17 @@ To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
 Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Fri, 20 Mar 2026 13:59:02 -0400
-In-Reply-To: <20260127-spu-rga3-v3-19-77b273067beb@pengutronix.de>
+Date: Fri, 20 Mar 2026 14:00:25 -0400
+In-Reply-To: <20260127-spu-rga3-v3-21-77b273067beb@pengutronix.de>
 References: <20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de>
-	 <20260127-spu-rga3-v3-19-77b273067beb@pengutronix.de>
+	 <20260127-spu-rga3-v3-21-77b273067beb@pengutronix.de>
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-GSvc32jDQd071V5aC8lf"
+	protocol="application/pgp-signature"; boundary="=-GDTWC7SvKf3bxqpQNbJL"
 User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_105905_659973_FA3558A4 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20260320_110030_892113_E74A8D9F 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,197 +107,117 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-GSvc32jDQd071V5aC8lf
+--=-GDTWC7SvKf3bxqpQNbJL
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 Le mardi 27 janvier 2026 =C3=A0 15:39 +0100, Sven P=C3=BCschel a =C3=A9crit=
 =C2=A0:
-> In preparation for the RGA3 add support for external iommus. This is a
-> transition step to just disable the RGA2 specific mmu table setup code.
->=20
-> Currently a simple rga_hw struct field is used to set the internal iommu.
-> But to handle the case of more sophisticated detection mechanisms
-> (e.g. check for an iommu property in the device tree), it is abstracted
-> by an inline function.
+> The size member is only used for the mmu page table mapping.
+> Therefore avoid storing the value and instead only calculate it
+> in place. This also avoids the calculation entirely when an external
+> iommu is used.
 >=20
 > Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
 > ---
-> =C2=A0drivers/media/platform/rockchip/rga/rga-buf.c | 31 ++++++++++++++++=
-++--------
-> -
-> =C2=A0drivers/media/platform/rockchip/rga/rga-hw.c=C2=A0 |=C2=A0 1 +
+> =C2=A0drivers/media/platform/rockchip/rga/rga-buf.c | 6 +++++-
 > =C2=A0drivers/media/platform/rockchip/rga/rga.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
- 11 ++++++++--
+ 8 ++------
 > =C2=A0drivers/media/platform/rockchip/rga/rga.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 6 ++++++
-> =C2=A04 files changed, 37 insertions(+), 12 deletions(-)
+ 1 -
+> =C2=A03 files changed, 7 insertions(+), 8 deletions(-)
 >=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c
-> b/drivers/media/platform/rockchip/rga/rga-buf.c
-> index bc349d0a46365..4e82ca1a5e8d9 100644
+> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/medi=
+a/platform/rockchip/rga/rga-buf.c
+> index 4e82ca1a5e8d9..c0cc885ba58a8 100644
 > --- a/drivers/media/platform/rockchip/rga/rga-buf.c
 > +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
-> @@ -12,6 +12,7 @@
-> =C2=A0#include <media/v4l2-ioctl.h>
-> =C2=A0#include <media/v4l2-mem2mem.h>
-> =C2=A0#include <media/videobuf2-dma-sg.h>
-> +#include <media/videobuf2-dma-contig.h>
-> =C2=A0#include <media/videobuf2-v4l2.h>
+> @@ -79,6 +79,8 @@ static int rga_buf_init(struct vb2_buffer *vb)
+> =C2=A0	struct rockchip_rga *rga =3D ctx->rga;
+> =C2=A0	struct rga_frame *f =3D rga_get_frame(ctx, vb->vb2_queue->type);
+> =C2=A0	size_t n_desc =3D 0;
+> +	u32 size =3D 0;
+> +	u8 i;
 > =C2=A0
-> =C2=A0#include "rga.h"
-> @@ -82,6 +83,9 @@ static int rga_buf_init(struct vb2_buffer *vb)
 > =C2=A0	if (IS_ERR(f))
 > =C2=A0		return PTR_ERR(f);
+> @@ -86,7 +88,9 @@ static int rga_buf_init(struct vb2_buffer *vb)
+> =C2=A0	if (!rga_has_internal_iommu(rga))
+> =C2=A0		return 0;
 > =C2=A0
-> +	if (!rga_has_internal_iommu(rga))
-> +		return 0;
-> +
-> =C2=A0	n_desc =3D DIV_ROUND_UP(f->size, PAGE_SIZE);
+> -	n_desc =3D DIV_ROUND_UP(f->size, PAGE_SIZE);
+> +	for (i =3D 0; i < f->pix.num_planes; i++)
+> +		size +=3D f->pix.plane_fmt[i].sizeimage;
+> +	n_desc =3D DIV_ROUND_UP(size, PAGE_SIZE);
 > =C2=A0
 > =C2=A0	rbuf->n_desc =3D n_desc;
-> @@ -136,17 +140,21 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
-> =C2=A0	for (i =3D 0; i < vb->num_planes; i++) {
-> =C2=A0		vb2_set_plane_payload(vb, i, f->pix.plane_fmt[i].sizeimage);
-> =C2=A0
-> -		/* Create local MMU table for RGA */
-> -		n_desc =3D fill_descriptors(&rbuf->dma_desc[curr_desc],
-> -					=C2=A0 rbuf->n_desc - curr_desc,
-> -					=C2=A0 vb2_dma_sg_plane_desc(vb, i));
-> -		if (n_desc < 0) {
-> -			v4l2_err(&ctx->rga->v4l2_dev,
-> -				 "Failed to map video buffer to RGA\n");
-> -			return n_desc;
-> +		if (rga_has_internal_iommu(ctx->rga)) {
-> +			/* Create local MMU table for RGA */
-> +			n_desc =3D fill_descriptors(&rbuf->dma_desc[curr_desc],
-> +						=C2=A0 rbuf->n_desc - curr_desc,
-> +						=C2=A0 vb2_dma_sg_plane_desc(vb,
-> i));
-> +			if (n_desc < 0) {
-> +				v4l2_err(&ctx->rga->v4l2_dev,
-> +					 "Failed to map video buffer to
-> RGA\n");
-> +				return n_desc;
-> +			}
-> +			dma_addrs[i] =3D curr_desc << PAGE_SHIFT;
-> +			curr_desc +=3D n_desc;
-> +		} else {
-> +			dma_addrs[i] =3D vb2_dma_contig_plane_dma_addr(vb, i);
-> =C2=A0		}
-> -		dma_addrs[i] =3D curr_desc << PAGE_SHIFT;
-> -		curr_desc +=3D n_desc;
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	/* Fill the remaining planes */
-> @@ -176,6 +184,9 @@ static void rga_buf_cleanup(struct vb2_buffer *vb)
-> =C2=A0	struct rga_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue);
-> =C2=A0	struct rockchip_rga *rga =3D ctx->rga;
-> =C2=A0
-> +	if (!rga_has_internal_iommu(rga))
-> +		return;
-> +
-> =C2=A0	dma_free_coherent(rga->dev, rbuf->n_desc * sizeof(*rbuf->dma_desc)=
-,
-> =C2=A0			=C2=A0 rbuf->dma_desc, rbuf->dma_desc_pa);
-> =C2=A0}
-> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c
-> b/drivers/media/platform/rockchip/rga/rga-hw.c
-> index bf4a86a640ec5..2013b59701d12 100644
-> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
-> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-> @@ -577,6 +577,7 @@ static struct rga_fmt formats[] =3D {
-> =C2=A0
-> =C2=A0const struct rga_hw rga2_hw =3D {
-> =C2=A0	.card_type =3D "rga2",
-> +	.has_internal_iommu =3D true,
-> =C2=A0	.formats =3D formats,
-> =C2=A0	.num_formats =3D ARRAY_SIZE(formats),
-> =C2=A0	.cmdbuf_size =3D RGA_CMDBUF_SIZE,
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c
-> b/drivers/media/platform/rockchip/rga/rga.c
-> index f33e2288dab6f..b13ff8d7c572c 100644
+> =C2=A0	rbuf->dma_desc =3D dma_alloc_coherent(rga->dev,
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
+atform/rockchip/rga/rga.c
+> index b2ee59235d1e3..59463c7f26b6f 100644
 > --- a/drivers/media/platform/rockchip/rga/rga.c
 > +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -23,6 +23,7 @@
-> =C2=A0#include <media/v4l2-ioctl.h>
-> =C2=A0#include <media/v4l2-mem2mem.h>
-> =C2=A0#include <media/videobuf2-dma-sg.h>
-> +#include <media/videobuf2-dma-contig.h>
-> =C2=A0#include <media/videobuf2-v4l2.h>
+> @@ -221,7 +221,6 @@ static int rga_open(struct file *file)
+> =C2=A0	};
 > =C2=A0
-> =C2=A0#include "rga.h"
-> @@ -95,7 +96,10 @@ queue_init(void *priv, struct vb2_queue *src_vq, struc=
-t
-> vb2_queue *dst_vq)
-> =C2=A0	src_vq->io_modes =3D VB2_MMAP | VB2_DMABUF;
-> =C2=A0	src_vq->drv_priv =3D ctx;
-> =C2=A0	src_vq->ops =3D &rga_qops;
-> -	src_vq->mem_ops =3D &vb2_dma_sg_memops;
-> +	if (rga_has_internal_iommu(ctx->rga))
-> +		src_vq->mem_ops =3D &vb2_dma_sg_memops;
-> +	else
-> +		src_vq->mem_ops =3D &vb2_dma_contig_memops;
-> =C2=A0	src_vq->gfp_flags =3D __GFP_DMA32;
-> =C2=A0	src_vq->buf_struct_size =3D sizeof(struct rga_vb_buffer);
-> =C2=A0	src_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
-> @@ -110,7 +114,10 @@ queue_init(void *priv, struct vb2_queue *src_vq, str=
-uct
-> vb2_queue *dst_vq)
-> =C2=A0	dst_vq->io_modes =3D VB2_MMAP | VB2_DMABUF;
-> =C2=A0	dst_vq->drv_priv =3D ctx;
-> =C2=A0	dst_vq->ops =3D &rga_qops;
-> -	dst_vq->mem_ops =3D &vb2_dma_sg_memops;
-> +	if (rga_has_internal_iommu(ctx->rga))
-> +		dst_vq->mem_ops =3D &vb2_dma_sg_memops;
-> +	else
-> +		dst_vq->mem_ops =3D &vb2_dma_contig_memops;
-> =C2=A0	dst_vq->gfp_flags =3D __GFP_DMA32;
-> =C2=A0	dst_vq->buf_struct_size =3D sizeof(struct rga_vb_buffer);
-> =C2=A0	dst_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h
-> b/drivers/media/platform/rockchip/rga/rga.h
-> index 025b1df594e9a..95fa7fd1c509a 100644
+> =C2=A0	def_frame.stride =3D (def_width * def_frame.fmt->depth) >> 3;
+> -	def_frame.size =3D def_frame.stride * def_height;
+> =C2=A0
+> =C2=A0	ctx =3D kzalloc(sizeof(*ctx), GFP_KERNEL);
+> =C2=A0	if (!ctx)
+> @@ -459,9 +458,6 @@ static int vidioc_s_fmt(struct file *file, void *priv=
+, struct v4l2_format *f)
+> =C2=A0	frm =3D rga_get_frame(ctx, f->type);
+> =C2=A0	if (IS_ERR(frm))
+> =C2=A0		return PTR_ERR(frm);
+> -	frm->size =3D 0;
+> -	for (i =3D 0; i < pix_fmt->num_planes; i++)
+> -		frm->size +=3D pix_fmt->plane_fmt[i].sizeimage;
+> =C2=A0	frm->fmt =3D rga_fmt_find(rga, pix_fmt->pixelformat);
+> =C2=A0	frm->stride =3D pix_fmt->plane_fmt[0].bytesperline;
+> =C2=A0
+> @@ -485,10 +481,10 @@ static int vidioc_s_fmt(struct file *file, void *pr=
+iv, struct v4l2_format *f)
+> =C2=A0	frm->pix =3D *pix_fmt;
+> =C2=A0
+> =C2=A0	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+> -		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
+> +		 "[%s] fmt - %p4cc %dx%d (stride %d)\n",
+> =C2=A0		=C2=A0 V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+> =C2=A0		=C2=A0 &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
+> -		=C2=A0 frm->stride, frm->size);
+> +		=C2=A0 frm->stride);
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < pix_fmt->num_planes; i++) {
+> =C2=A0		v4l2_dbg(debug, 1, &rga->v4l2_dev,
+> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/pl=
+atform/rockchip/rga/rga.h
+> index 95fa7fd1c509a..2838fc7785f72 100644
 > --- a/drivers/media/platform/rockchip/rga/rga.h
 > +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -146,6 +146,7 @@ static inline void rga_mod(struct rockchip_rga *rga, =
-u32
-> reg, u32 val, u32 mask)
+> @@ -34,7 +34,6 @@ struct rga_frame {
 > =C2=A0
-> =C2=A0struct rga_hw {
-> =C2=A0	const char *card_type;
-> +	bool has_internal_iommu;
-> =C2=A0	struct rga_fmt *formats;
-> =C2=A0	u32 num_formats;
-> =C2=A0	size_t cmdbuf_size;
-> @@ -161,6 +162,11 @@ struct rga_hw {
-> =C2=A0	void (*get_version)(struct rockchip_rga *rga);
+> =C2=A0	/* Variables that can calculated once and reused */
+> =C2=A0	u32 stride;
+> -	u32 size;
 > =C2=A0};
 > =C2=A0
-> +static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga=
-)
-> +{
-> +	return rga->hw->has_internal_iommu;
-> +}
-> +
-> =C2=A0extern const struct rga_hw rga2_hw;
-> =C2=A0
-> =C2=A0#endif
+> =C2=A0struct rga_dma_desc {
 
---=-GSvc32jDQd071V5aC8lf
+--=-GDTWC7SvKf3bxqpQNbJL
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCab2K5gAKCRDZQZRRKWBy
-9BfxAP9HitbV0tE91+TsUII6EawZfO2n00kNhSwOcuYpTi+2HgD/YMHoY2wU9gZ2
-za+IWdj6j8GuSEbo6yXP/lEI/rjmEgk=
-=xHfo
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCab2LOQAKCRDZQZRRKWBy
+9F3LAPwI3WnRibEc84bDS/7rFozW7TiB3JyYqH0VfP/vvwfGhQD/WMZ6ofBluvak
+WKPGIwexm/UWVC6O9rorql75w7VrVgk=
+=y8bZ
 -----END PGP SIGNATURE-----
 
---=-GSvc32jDQd071V5aC8lf--
+--=-GDTWC7SvKf3bxqpQNbJL--
 
