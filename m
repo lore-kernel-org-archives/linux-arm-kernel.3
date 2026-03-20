@@ -4,78 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF401108B8E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9233108B8ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQRxl8+V7APrPF6IB7WuntndiBCPObSNOxgtxIZ+t7M=; b=HpvKaBscrMgJIQBYoYgJegZTfX
-	kxjeM7F8DG6tv0OHpxoc8hbKuD+PIoiGas/ux+SxDwwsHEcQIyqIzcGR9SqS1T3NXc5h7Z9eGeKnD
-	U+UiLSXa5Xhf6g5jhYp+FAcjsmMuqTKQMrdGLL5F43tTFZvJzFZdsSwFGApU0K5RYP+MZU8nse4hf
-	yVwYKZ8LOcEbt6HuG5StJaaG8NTAZjyWodmYoqk8I3ipi5hWMo1nvwXpWuHwRAMGLfV79llzLm8XU
-	2l2AAKn2oq1mB92ASFtyZPIVB+TjQbt1+8AOFiSmDvuIsn8tz+94WuFJIYmD97/xGJbk5rtIwLGwp
-	D8YVl2Eg==;
+	bh=z6XuWjcI3nmt56P4Z/OlHY2F06Tk6ESEFAsK10+/ZxY=; b=EDvv2R7VYA1f5w/LPTpBXsLD3k
+	HNw1u1HiH10Kpv5NZzSxKGLXpPuBFwDfPu0lT3ine9SkvDW3l2iEtDlLz//dUy9mJCqT4xxfQ290Y
+	W2cGonlJ18Tn6qgEZ7I64xUC4ac3yojw5Ip5tTBA8201RUkf/KsZpEBm3kmnG92SgeJ+UjqfS00y5
+	OeuI8M5+hCR+MbIBFb1koAMWgPbgWyQGHyrATcc9Mh0smIwYakEpqn9IF0rLbhMyzSz/mqGYQ8/JR
+	dBXL7RNjP7C0GIakrT8dEegyjSDXjOrjWy2D1R9kYc8mecePoEWxAQi9uY+dzB0pw9Bz3BjSIMW0S
+	nHzwxyVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XIP-0000000CdTA-22kM;
-	Fri, 20 Mar 2026 10:41:37 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1w3XJM-0000000CdlF-1ioq;
+	Fri, 20 Mar 2026 10:42:36 +0000
+Received: from mail-japaneastazon11022096.outbound.protection.outlook.com ([52.101.126.96] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3XIA-0000000CdLm-34be
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:41:24 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KQRxl8+V7APrPF6IB7WuntndiBCPObSNOxgtxIZ+t7M=;
-	b=Tqf9Mew444B6VWE6vjqK3UBhRKqh7e9tF3eNWxw/4k+DVm1uUN03eYaPAvB2aylPUpgjyMh5+
-	U/iLejGu8mM5ptkePK42A5lW7p+NzR301dgLLUuzYu9dD1bv+gsEZkIqqrQD/XGE5a1+KAgsCHu
-	5J2OmEzWPLbolLeqNv53aPs=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fcf9G1hFPz12LF9;
-	Fri, 20 Mar 2026 18:35:46 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6D06340567;
-	Fri, 20 Mar 2026 18:41:16 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 20 Mar
- 2026 18:41:14 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
-	<kernel@xen0n.name>, <hca@linux.ibm.com>, <gor@linux.ibm.com>,
-	<agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>, <svens@linux.ibm.com>,
-	<oleg@redhat.com>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <arnd@arndb.de>,
-	<shuah@kernel.org>, <kevin.brodsky@arm.com>, <ruanjinjie@huawei.com>,
-	<yeoreum.yun@arm.com>, <anshuman.khandual@arm.com>, <thuth@redhat.com>,
-	<ryan.roberts@arm.com>, <mark.rutland@arm.com>, <song@kernel.org>,
-	<ziyao@disroot.org>, <linusw@kernel.org>,
-	<schuster.simon@siemens-energy.com>, <jremus@linux.ibm.com>,
-	<akpm@linux-foundation.org>, <mathieu.desnoyers@efficios.com>,
-	<kmal@cock.li>, <dvyukov@google.com>, <reddybalavignesh9979@gmail.com>,
-	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-s390@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-Subject: [PATCH v14 3/4] arm64: Use generic TIF bits for common thread flags
-Date: Fri, 20 Mar 2026 18:42:21 +0800
-Message-ID: <20260320104222.1381274-4-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260320104222.1381274-1-ruanjinjie@huawei.com>
-References: <20260320104222.1381274-1-ruanjinjie@huawei.com>
+	id 1w3XJI-0000000Cdia-1l9x;
+	Fri, 20 Mar 2026 10:42:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KVIyd4EgmgBTMPpKQ1IMftMSxxQd3p2MGxAhSFcuKoziSD/w2qa6fHru0C+ydMOB62rjTtsjpKa9+lLPqKv87a/GXB0+1nsxww2Yl1v2ifGKIXIPBUhxvJ1rGszmMkryVJTeNpJVh52SWK2+et8Bn0Cnk9jQw7JIvFBlIiYVzuZZkrBbllI2nYBCgXnKPsMOBDGDYuu/am5Ak7Vo8De2vL8JJwhpTDCJLkKHT9p3dwgkHhJN7NXTz5e+pOXZlmL5Wkc34Jnfqqvql7ThpuSjtDs+hbI2KRG0Lh1h+VYZ5PLd37WykaIqadXMZc1i2Y58CS9WEQMLiwvZc/qqWIP60A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z6XuWjcI3nmt56P4Z/OlHY2F06Tk6ESEFAsK10+/ZxY=;
+ b=lFSPadsiba/YU2X2LTWRJfQPDOp8q7kLGb+cHhkSFQUzTLln0Bth10dKlA7ce0C6C9qZ/xsxwed+5l0Ogh4zRvlrPN/kE3K9aeMntSy7AcepHwpk6MUshS3fW3Kloi+hHQB4CUwmdsP/hK/sfk996EnLlnQ1/t2zJJQbzHOxh6hmOEobtx6Fd9SJLJbLpzrGB5yA4sUAxDuUVpd8CuuBGIxSxkXfzqcAqlJUX5BWnzZ0yeg8rXaYk4gOZvm2WW7XjbZcBmxjxalmWjRyn99X2+Kq5BwEr0nDhSd/qMmxYtQZapdFsL0/1HZjYdKetGN6Dg1UHghkfJeQGMfFS8tNyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z6XuWjcI3nmt56P4Z/OlHY2F06Tk6ESEFAsK10+/ZxY=;
+ b=JWxHvtpvsd6pYnr/HIbBYcT51mtBSywvXNIsHsBL1XIXe/r7Mj4JBgqfVr+LPFFnG39B5Uv0zbcI99XRvGIaHyO0bXvIbRXo4YhGQbT6vlRTZ6UCE3jE+cwyfpEFmgyQ31Y0n6iuR5BJVeJKLkofK7gp6tJjRa/2BNaEhEJ4LgqaPARLgon3l3Ii2JQPK2PDc38XlgfVNZ5J2W8tMvqkGak2/0SJW7CsZGQfJVv+Cow9Q8ZLfIIPQKghNX2GHnj0esd9O2pOl1UK8eqB66uMWY9XVPfr8Lwkudb2o0P2nBAdKQ14M5sBrijXL/mPvGBpEvdPqE546jkqMBWOcgZu0w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by SEYPR03MB9756.apcprd03.prod.outlook.com (2603:1096:101:304::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
+ 2026 10:42:19 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e%5]) with mapi id 15.20.9723.019; Fri, 20 Mar 2026
+ 10:42:19 +0000
+Message-ID: <86e2c106-1e58-4e1d-bdc0-ab1252f70489@amlogic.com>
+Date: Fri, 20 Mar 2026 18:42:23 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 5/8] clk: amlogic: Add A5 clock peripherals controller
+ driver
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman
+ <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260108-a5-clk-v5-0-9a69fc1ef00a@amlogic.com>
+ <20260108-a5-clk-v5-5-9a69fc1ef00a@amlogic.com>
+ <1jecnsr1eg.fsf@starbuckisacylon.baylibre.com>
+ <ea7e209d-cd30-4d93-9deb-104aaf7c92eb@amlogic.com>
+ <1jbjipviky.fsf@starbuckisacylon.baylibre.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <1jbjipviky.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR01CA0154.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::34) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEYPR03MB9756:EE_
+X-MS-Office365-Filtering-Correlation-Id: 20c4b0a4-7485-4b85-404c-08de866d5c6b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: p8mH9a8twS/csM4B/46hzPyfSnOsYao0NTrrqhRp+HAsXGIGqZ/YUmLeWyAPlAgJXNZFYAnwQz1uT+Ko0C1Yjf4nRF5LLkqTEn8PHOtoEltb7ClBiWpXw2zs8238qwpYqSU/XGShl6glWbvmnEAmu3sGuEGhqtsyoDQj2pfQ7IUUeOi3DRandOevdRO3LgSX1L0Lmtw5jIjflHrACd/Z/PY4drOP6MvO9cV4v+vqMNMeJcazeHD99+0kWw23Q6DOby8wfvbcNJQVP3I45D9TY5uKwhOPI4J5JOZensvwFtYh5gKzeZAHr5oPIJRxETNQuRB6whE2/F/2Q5Ktmj747LmcJncq8NEbmppMYyU0BmLKNH12PVpMSAj3e7gdYhjOLJtHEpSR2l934FH7imdZ6GfwJy+m7Cvu0dZdpJ/hhz9nEUg8d8DwBhGB36hkWD0klhIR1e0AkCo0x1QG98FAM7c+Y831TM3Nr5SsVvcvhE91cI96ohgM450uI9v1cJN3CF+Ojx3T0KRHDfBvGHWCywb0FeDrgGRqLdIGrqI5EbIvCsyXwsmyyVDT1/ak22K2wMHqsXoW+myGIWx2e++ScbKvHewhk2Kx7zL34+Va2rVS8j4voLjJD2l9sB/uoWvRxSIq0XklvVO2AcZXDYY+BOzr2AFAmch9aGnlrIhaIswQIOySTUUBQS804h0g0ZgEGEUJ/LC2h/g4xzMMKSCixa6aqQ2pmfJ8S/RmMPL6ZVkVerzZMqV3Tumjy1b1jHWf
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmRsV2NNVXBETUE4RWpLcDFrNGIvci9oNUx5bmZvaG4yTkk2UzFVZUtNVUxU?=
+ =?utf-8?B?eDIyZzhya1ZnUjJVOExBVnYyczVyaDN4bUVZVEVHZ3RiSUV3RXdLYUxQODJR?=
+ =?utf-8?B?cjhFUWlEWVBkajlqV0NtWi90UDhmSEw5WlhVNzRLNXFDR2xsRnBxL2t0eHN3?=
+ =?utf-8?B?TjdZZS9nOUdDSVVrcnVJYkwrMm45dHo5anQvWUVTTHFHUmJ0U2hzcnRFR0ls?=
+ =?utf-8?B?eFFZWXIzUGx5S21mNnhtN1pUbzAxWDQremlid292SU54cE5WWGExODE4aXNU?=
+ =?utf-8?B?U2dxaURteU9oSmMrSlJQL0JkVXMzc2VrWlY3RzF6Nno1bGpkOVl0dEtQN0ly?=
+ =?utf-8?B?UE5JSEpsY2cvVytOT1QvclJGN2pLRjFFSmQyNWt6OWF1NFF4OFZFZEt2LzNp?=
+ =?utf-8?B?Uk9GWGt4WWhrcGZ1dHhXc1RrQmlsaXBRWUlFaXVUWU1WNXFZcWNMd24vWDBN?=
+ =?utf-8?B?T3dBUUw2c0krdXlNemdrMWNBdVdDNU9FZW1sakdlQ3k1azFWc2hNTkoyT3lX?=
+ =?utf-8?B?aUVLcU9DZllHYVlFV1dIek9ERW9WWnBNZ2ZzWFBpL2o2ZWJ1NzYzZ004MklF?=
+ =?utf-8?B?NGNQdFBTM2VaOXg2M0lwYWV1QkRXaGh6WGZwRFRadDBrcFRGUmVYV2hsK0Mr?=
+ =?utf-8?B?VFdIK0lXNWx0MmxudTE0ZUpqMTAvSDlLU0RWRFlTS09LamREcTFBN3orejBq?=
+ =?utf-8?B?LzQ0NUpMZ2laS2hIb0M3Njhuc21IWHZleHRxaWxlSmJIUjQwaXNjRVVVUVRD?=
+ =?utf-8?B?ZjhqZGNqZU1kUFB6djQ2dk1JRzM3Y2tSKzBpbmYvRTZaT1BEMlhLeXgrN3M5?=
+ =?utf-8?B?anVZMHJRKzN1ZENUSTdIVmZLUG5Oczk4Z2tvemlCVVpVQm5iRmJ6bHVyeUdW?=
+ =?utf-8?B?UTdhSDlKd3d2OGt3WUNTREdyWFRUZW5yK1FyT1liUlVpYUV3K3gvOEFEeUxR?=
+ =?utf-8?B?clhBYmV3YWNwbEtRV2VYN3ozWksvbUNyQ3JNOEp0VXd6Vk1LeXBqbFZMMUw0?=
+ =?utf-8?B?Z2Y5TGNSODlYMVg0d2dKZ1pBTTdXS3BsV3pCN1JROERjTGxyWnJmdGlWM284?=
+ =?utf-8?B?ZUZaOUVmUjRNQXdlY2hYT2o4elI3WFBqY1VPWGpyQUU3MDFvaktqdHZTWC9a?=
+ =?utf-8?B?OWdrbklzYUxKY1NKUzFWUW9sSCtjYVl2VzJwZ3RNL1JVN1ZMNStGSmlqNGVG?=
+ =?utf-8?B?WjQ4RUgyRUh6bDZwSnBTRFhXOEJ0djdPQytFV0UwOTNrQW9XZTNWMlBkakgz?=
+ =?utf-8?B?Mm05dk5nQmJUMTEyeTN4dk1WYUZWSTd0NG0wd056UFNXN2FSQlptVXVEdDlz?=
+ =?utf-8?B?ZjFzUW8zTHZ3aDltK1pRb0dIRTErNWc2K1RpUnkvRHlKN3hHM2R2c2NaRXNB?=
+ =?utf-8?B?d3dlSHlPN0VBYkc1TitEcFNwZmRvQmVsVTdNTjZtZ0ZGU2QwQmdocWM5RlNt?=
+ =?utf-8?B?VHBoa3dEM1lnd3gxSmJvMzROWGhjcnN3TWFKOEtTcEs5WWZpb051SzJaT3Fp?=
+ =?utf-8?B?SGUvQlU2YlUzS0ZFd0VqdldZbEZTQVlSOG9YdHF1NUJwUlo5M080RkkzWlIv?=
+ =?utf-8?B?L3A4aVJhcUIwODdLRC9kT2hrNVNSemF0QVRoYytDR3VnelRtc05DcGxHKzFq?=
+ =?utf-8?B?enA0RE02Qm9QMFZza1FOcmMwdHJsaGlDMVdqUEVvaU5ia0V4ZGNjOTZzb2hm?=
+ =?utf-8?B?Wk5Ta0VuZUZrelFLMTkxQkQ5SVIzalFVS3BNUGlPM2dSeXBWV0JraWEzZHRF?=
+ =?utf-8?B?VEM0N1RCbUtNaEJGcGZqbElTMXY5V2tLK0JLRlRVREcvbzFUdHo5dlp1YitY?=
+ =?utf-8?B?UTNUMFUrUnJINXZETlZoSWYySjVrYzVWeTBIckVibGE0cDRtcko3VVBxR3Y2?=
+ =?utf-8?B?QUFETXd6akEvZWxYN0tXRGNjeFJIUGtPOTVsWXJTN01uZjdSK1VGQ2diN2tW?=
+ =?utf-8?B?Y1RWRmFpQmxFSWYzZC84bjJoeCtWZjNpR0lobWNQTTFUZGVXV3h3eU5jMTZV?=
+ =?utf-8?B?RW02SXdLYkgyY01HcWV0UE9QSnNBdjRET0FaYzNyOHI1eGVsVisrbVh1UTRQ?=
+ =?utf-8?B?c1JsWmVFMVhEQkRtZ3d6MkNKdHpyL3dTT082RVdFb2pqNjNFSkFxY0V1cmlW?=
+ =?utf-8?B?TXYzNk9GMHgxaEtHZkpNcEVJcmR2VmtqanFOQU9hMnM3MFBkeTlSeDJVeUMy?=
+ =?utf-8?B?NWk0SDJSSkY4a1pKamQ4QXJjSUhEZTQxUnliZDV3aGpxM1dNYXhxWGNTNjdu?=
+ =?utf-8?B?R3ZzK2ZkOGh6ZjBjV0hEVWZLZWJKRVBJWnJNaTE0bk1Ybk5seTdMcWRwWVF2?=
+ =?utf-8?B?ZndNZklBbDVHNkFydkUxbzJtSW9pUlhIYndSbGp3YUdLYkxtcDg0QT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 20c4b0a4-7485-4b85-404c-08de866d5c6b
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 10:42:19.4588
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xkHo5XNznPg9+sFo2ILbA2/L7UyA8iCtW1iASQRAwctE8ccZnKLvtrbD0H1ejYlYw+W7k4JuTXvU+LHEvqo8DQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB9756
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_034123_192835_C636A540 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260320_034232_477285_EF4C455F 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,116 +158,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the generic TIF bits defined in <asm-generic/thread_info_tif.h> for
-standard thread flags (TIF_SIGPENDING, TIF_NEED_RESCHED, TIF_NOTIFY_RESUME,
-TIF_RESTORE_SIGMASK, TIF_SINGLESTEP, etc.) instead of defining
-them locally.
+Hi Jerome,
 
-Arm64-specific bits (TIF_FOREIGN_FPSTATE, TIF_MTE_ASYNC_FAULT, TIF_SVE,
-TIF_SSBD, etc.) are renumbered to start at bit 16 to avoid conflicts.
 
-This enables RSEQ optimizations which require CONFIG_HAVE_GENERIC_TIF_BITS
-combined with the generic entry infrastructure (already used by arm64).
+>>>> +#define A5_COMP_SEL(_name, _reg, _shift, _mask, _pdata, _table) \
+>>>> +     MESON_COMP_SEL(a5_, _name, _reg, _shift, _mask, _pdata, _table, 0, 0)
+>>>> +
+>>>> +#define A5_COMP_DIV(_name, _reg, _shift, _width) \
+>>>> +     MESON_COMP_DIV(a5_, _name, _reg, _shift, _width, 0, CLK_SET_RATE_PARENT)
+>>>> +
+>>>> +#define A5_COMP_GATE(_name, _reg, _bit, _iflags) \
+>>>> +     MESON_COMP_GATE(a5_, _name, _reg, _bit, CLK_SET_RATE_PARENT | (_iflags))
+>>>> +
+>>> At the top. like C3 and T7
+>>
+>> Except for A5_COMP_SEL, which differs slightly from T7 due to the
+>> additional "_table" parameter, the other macros are consistent with T7.
+>>
+>> I also asked for your feedback on this in V4 and received your
+>> confirmation. Is there anything here that still needs to be updated?
+> 
+> Reviewing these long patches takes time. I tend to stop reviewing when I
+> noticed some feedback was ignored, especially when it is recurrent
+> problem. I've told you that already. It is up to you to make sure you are
+> not missing anything before re-submitting if you don't want to waste time.
+> 
 
-By the way, remove TIF_FREEZE because this flag became unused since
-commit d88e4cb67197 ("freezer: remove now unused TIF_FREEZE").
+It has been nearly two months since I sent out the V6 version [1], and I 
+haven't received your feedback. I'm not sure whether this is because you 
+still have concerns about this part of the change?
 
-Cc: Thomas Gleixner <tglx@kernel.org>
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/Kconfig                   |  1 +
- arch/arm64/include/asm/thread_info.h | 61 ++++++++++++----------------
- 2 files changed, 27 insertions(+), 35 deletions(-)
+This approach was already confirmed by you in V4 [2], and I also 
+explained it there. There has been no change to this part in V6 compared 
+to V5.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 96fef01598be..33cf901fb1a0 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -224,6 +224,7 @@ config ARM64
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_BUILDTIME_MCOUNT_SORT
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
-+	select HAVE_GENERIC_TIF_BITS
- 	select HAVE_GUP_FAST
- 	select HAVE_FTRACE_GRAPH_FUNC
- 	select HAVE_FUNCTION_TRACER
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index f89a15dc6ad5..57c37b05b961 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -58,42 +58,33 @@ void arch_setup_new_exec(void);
- 
- #endif
- 
--#define TIF_SIGPENDING		0	/* signal pending */
--#define TIF_NEED_RESCHED	1	/* rescheduling necessary */
--#define TIF_NEED_RESCHED_LAZY	2	/* Lazy rescheduling needed */
--#define TIF_NOTIFY_RESUME	3	/* callback before returning to user */
--#define TIF_FOREIGN_FPSTATE	4	/* CPU's FP state is not current's */
--#define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
--#define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
--#define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
--#define TIF_PATCH_PENDING	13	/* pending live patching update */
--#define TIF_MEMDIE		18	/* is terminating due to OOM killer */
--#define TIF_FREEZE		19
--#define TIF_RESTORE_SIGMASK	20
--#define TIF_SINGLESTEP		21
--#define TIF_32BIT		22	/* 32bit process */
--#define TIF_SVE			23	/* Scalable Vector Extension in use */
--#define TIF_SVE_VL_INHERIT	24	/* Inherit SVE vl_onexec across exec */
--#define TIF_SSBD		25	/* Wants SSB mitigation */
--#define TIF_TAGGED_ADDR		26	/* Allow tagged user addresses */
--#define TIF_SME			27	/* SME in use */
--#define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
--#define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
--#define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
--#define TIF_LAZY_MMU_PENDING	31	/* Ops pending for lazy mmu mode exit */
-+/*
-+ * Tell the generic TIF infrastructure which bits arm64 supports
-+ */
-+#define HAVE_TIF_NEED_RESCHED_LAZY
-+#define HAVE_TIF_RESTORE_SIGMASK
-+#define HAVE_TIF_SINGLESTEP
-+
-+#include <asm-generic/thread_info_tif.h>
-+
-+#define TIF_FOREIGN_FPSTATE	16	/* CPU's FP state is not current's */
-+#define TIF_MTE_ASYNC_FAULT	17	/* MTE Asynchronous Tag Check Fault */
-+#define TIF_32BIT		18      /* 32bit process */
-+#define TIF_SVE			19	/* Scalable Vector Extension in use */
-+#define TIF_SVE_VL_INHERIT	20	/* Inherit SVE vl_onexec across exec */
-+#define TIF_SSBD		21	/* Wants SSB mitigation */
-+#define TIF_TAGGED_ADDR		22	/* Allow tagged user addresses */
-+#define TIF_SME			23	/* SME in use */
-+#define TIF_SME_VL_INHERIT	24	/* Inherit SME vl_onexec across exec */
-+#define TIF_KERNEL_FPSTATE	25	/* Task is in a kernel mode FPSIMD section */
-+#define TIF_TSC_SIGSEGV		26	/* SIGSEGV on counter-timer access */
-+#define TIF_LAZY_MMU_PENDING	27	/* Ops pending for lazy mmu mode exit */
- 
--#define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
--#define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
--#define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
--#define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
--#define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
--#define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
--#define _TIF_UPROBE		(1 << TIF_UPROBE)
--#define _TIF_32BIT		(1 << TIF_32BIT)
--#define _TIF_SVE		(1 << TIF_SVE)
--#define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
--#define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
--#define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
-+#define _TIF_FOREIGN_FPSTATE	BIT(TIF_FOREIGN_FPSTATE)
-+#define _TIF_32BIT		BIT(TIF_32BIT)
-+#define _TIF_SVE		BIT(TIF_SVE)
-+#define _TIF_MTE_ASYNC_FAULT	BIT(TIF_MTE_ASYNC_FAULT)
-+#define _TIF_TSC_SIGSEGV	BIT(TIF_TSC_SIGSEGV)
- 
- #ifdef CONFIG_SHADOW_CALL_STACK
- #define INIT_SCS							\
--- 
-2.34.1
+This email is not intended to rush you, but just to confirm. If there 
+are no objections, please feel free to ignore this message. If you do 
+have any concerns, please let me know.
+
+[1] 
+https://lore.kernel.org/all/20260123-a5-clk-v6-0-6d3bbf0ec1ea@amlogic.com/
+[2] 
+https://lore.kernel.org/all/1jldice808.fsf@starbuckisacylon.baylibre.com/
+
+>>
+>> [...]
+> 
+> --
+> Jerome
 
 
