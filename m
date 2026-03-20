@@ -4,90 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1F71093168
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 01:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5801093163
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 02:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OzPny3OBUeeBpt9cG0P/e54tGjxk7eLdlTFpb0o1yU8=; b=USno4KNb4GFb/hflHVZ1MOEvNb
-	1qv+6HxzjnVDAeDALrnquZJs7bDN/awLYC01/zZEDdG/1VR6lZG8RZHHXkjExgvkC7TXZZPb9WQ2w
-	9sEpw+q9RAu+jVe/HlziLm2nQt0AYdJhOBALnZKxo3zqRzujjPukfVtTC/zjrltrZu2EQ3ShTBAaO
-	tyLQyROWZZcaLAO9TrpnxTKjQ+nUr797S5DC7uFzhrOnH5rqgKBg6PGtrsNWK3yux0QN/RuO7WlVG
-	jeUIfFk5gOPMZJ4JrvjruK1aPk+SLDnczRUB3+Sdk+TpR4246BmCJYWU5ctexdEqb/lAqBCmeAUrz
-	N1h610Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3M4lbtCV/zptjjiUD80aUnZqWeLCISm2Skx3ooiD6rY=; b=LGoCGlcPMmAHRbqm1lrA5dib1S
+	HcHxeAriIWjjJnDNpJun3c/DrkBpNxyV6Xt3RKqoKDzgTZroh8hChqnqQSXPifiO4Qm1MTaDOKRjZ
+	7W8oONZKhwmzvhPlaMQW2LcBENVlLahDtJWrbwMf2vgARJfUrxC5a6kndNArQUfr5W6Pmpb7gBaJn
+	ZrbkIzUITjls5ReVGH2kGFE/XNi+aqckSyanLHlh6++w2NDnSKgqNQ4ZHSfs3RlOCbqjur9dYZnTr
+	Z844ANrp7STk4nAVCi/zTQVRcEzjrtEpoREnoAeyxOdqPPoa/OC1+pBqOm0nKArO/gket07/inZn9
+	+RctVHhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3P3Z-0000000Btlk-3VRZ;
-	Fri, 20 Mar 2026 01:53:45 +0000
-Received: from mail-yx1-xb12d.google.com ([2607:f8b0:4864:20::b12d])
+	id 1w3PE3-0000000Bu6U-47A2;
+	Fri, 20 Mar 2026 02:04:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3P3X-0000000BtlP-25Sy
+	id 1w3PE0-0000000Bu5k-3zM9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 01:53:44 +0000
-Received: by mail-yx1-xb12d.google.com with SMTP id 956f58d0204a3-64ad79dfb7cso2073372d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 18:53:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773971622; x=1774576422; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OzPny3OBUeeBpt9cG0P/e54tGjxk7eLdlTFpb0o1yU8=;
-        b=JRtwU54x6KK/WihwRUU9qTpvgDEzN9L1cpysyanTkfukl+Ri+lgK+e3jnIFWuSlasX
-         FGNPl+Q1QDwdhfy83kUqDcj4paKKJvW0Jta9EKU/XaEziD/DqcP2j8uY/DgS6UOrVIMe
-         e4FwDl7Fc5gx4vRzRyEiIbeuQRAjN+AlC5VlnM3VYSGCFTQ6tRLS2jQZRlwmMVm77FRh
-         EhTxKHqI+wXMA+wrnxfeQHHe2YY7zJhkjHEN+Rzl5UQ6ypctRWBN6EVcY7qTs1QwbcMw
-         ma9ZtwATcv5Fi2K5KlwEPsft0BfExYznxI4z2rrVX3x7C5d5KWXwtsVzz4zHZCUI4sSK
-         Swgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773971622; x=1774576422;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OzPny3OBUeeBpt9cG0P/e54tGjxk7eLdlTFpb0o1yU8=;
-        b=LdXPXsRIsMNtIzw0jsV6BspUcB2gKrI/2GGpopLhpnIBtQV0Zm541keU16alakia3O
-         H5m5EAUOzJnGLJOVdExPkTefcKes7Th/z3N1m+b/aBV+wNVFyn/l0pRTXoCiUuy1tX2B
-         dkba4aaHJ9wOFFWHBbgL8N3cT4tEXeAgrFuEoHAO/Aqf2hXycUBZwRF8uONy/k55CmBG
-         XlairpUevvdS6o9rkYAy/m3wo0JTsMICfx804CNf9LDbQJ7P8qgd78XhOLpfqO/JmnZ3
-         Xt5FsVYGPwXTxuRo2VGIBf6dAAHgJ1o83wPdqJhdoTlthKEq53YNdkpCMS6s8bUtyXnG
-         zM8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWXY/RtG55mEawHG6vD6gRGfXZF/f4eDfDcqaiEAJuPKRCS1hSCXH3ir16kR7gqbC3En97LHFX5a09OonANosUD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza/xYtPCUl6ZbnUB5bsU2PKiEYuPIR99++02xMdD2HThoXD4Jo
-	h/t1k1C61Z9cdgpPZ1gf5r+nVSZhhUa6al7x5RNr2Eb3KXtziZcZaALC
-X-Gm-Gg: ATEYQzxZxTCgyVTocI+sPV7wKsdQMMvLt+dsO6RaNymXjsXFM8PKReXuwFN4N0m++OQ
-	GLduzQoXeUHmIiZPXAQuC69RMERenlJ8EXqJAFdg6Dm8RdbleZTZD/X5reWoVuyCY78VcYRU0c5
-	uqUH3hyMS2+9g57V1gcP88RmCdJN4SpWtrI15r5tja3a/oSCf486tmqe+iWlKk9MB9rcXGsQlXZ
-	PN1xMBrED+xr3JKSnrVWisD8gZNy+GLDdTLlZm+TnLT6w3FIPwUQlAd/eFp2IPPDyaue88XYGq7
-	GJDVElUOAZNLWnBOH/gZn2dwA3laB97lyQgJKpGkGc+bAgz0vtYtsqGEtIpS65xYzKXP51Q72iw
-	rdq0oPLMVMIX+e0rtg8iZlNUqBsuaKQohlLzSH0fW6x25UalSkP38ovDkMwxDs8162tnySgMufx
-	TwzVK6Nctf9/IP9CqbH7mrRXD68lDlQRNAYMoGxecmrFmFoe2KwHvXHuM=
-X-Received: by 2002:a05:690c:d83:b0:79a:38a2:d8cf with SMTP id 00721157ae682-79a90aea249mr15668467b3.17.1773971622283;
-        Thu, 19 Mar 2026 18:53:42 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-79a90214024sm8378917b3.0.2026.03.19.18.53.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Mar 2026 18:53:41 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-gpio@vger.kernel.org
-Cc: Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/MStar/Sigmastar Armv7 SoC support),
-	linux-kernel@vger.kernel.org (open list),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCHv2] gpio: msc313: remove kcalloc
-Date: Thu, 19 Mar 2026 18:53:23 -0700
-Message-ID: <20260320015323.36383-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 20 Mar 2026 02:04:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zr41vd2G3l5rR8IhdDH6J6wFxaZb/shHMXPxzijWVRA7Qev2a8WLIJOYDyUvoLnUX9qoAN7I5SNE9Z7qSsQNEH85rmZBBUBn/sz7sL124HW5KPeFqw8CFLgYB0jqpGCBdbcxLIbq7iBY8crKE2Tb6XSrT/WVq8LV8oi0pe8M/7aJTcbroiAsCmGRb+d/fEdaLEE5Jz3CJCe78Vbma3bDf2Jg9D5DmRZC9OyZoYspUeEA/JO5bOcQiZ8l2ZwHKh7ePW4iXc3LC+5pngyEvNS4VX2vmA2obOG0f9J+6Kt/H5yQM5nwEkRVT6sPvTtLtI1jEwKF+A/4/+lgnNsJId++KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3M4lbtCV/zptjjiUD80aUnZqWeLCISm2Skx3ooiD6rY=;
+ b=N8/eVSgrslGoulBOWbRkUo8P9yjDx7IMVDaVkVbOfbIZH6ccowp03v8/0BX1PLK9ZP1L25xCxlA2tMtHX+Q6aeSZUPNn8WWpNf+ACusE3HJyzfeBF7xE3X+I1In/zP03LIwHj3wgSR0J4/AQK2Q9uFdoocZevj0lANdx4s+Bicug1Pxmhw8z/FbS51HcQWJW7DR67nwQFdTht/YT8S5YCbR2RBsfsCnFi1MqUmwVIPYV3W73MMeVpg/vzZa0KD9tjOh1EYD0g2fM8tecMlIc4/baxZxALvjNQbxl4IjKBnvEfb77R80yH+sbzmRSaqcgsYtFLbejFvLZttdahgH7+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3M4lbtCV/zptjjiUD80aUnZqWeLCISm2Skx3ooiD6rY=;
+ b=XPpt/HSAoTCsWjUaNLgyST4sXURH3Z1G78iebaKccCl2vX7Vuc8tw5lSE8mXNacHL/zKWmGW9dO7XhQFS35Tl9wXKliSgRPLAtJymi/R3VzJ2IAYLvegAlCYf3htFo2MMm8I8Uwy+GVp+6RbmiZhHYM14oJ/7lKX0ujziW91rGojAh+DS1b5fMuLOWVdP0iPdQvdRS+UxNkUlev2i3Mx+zPj3C77yTI+k2u4rioZmaRr6+0KB3UObBMQyzKuW6Apx8bB10e1DFrKFc1iX39AqXiOnBknj70+qTkShrw3xLsWUcMPi4JDhB/TJ6YfQko3JOyLd0C1p1jIMB+bKU+Vxg==
+Received: from PAWPR04MB9960.eurprd04.prod.outlook.com (2603:10a6:102:38b::5)
+ by DU4PR04MB12111.eurprd04.prod.outlook.com (2603:10a6:10:63e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
+ 2026 02:04:22 +0000
+Received: from PAWPR04MB9960.eurprd04.prod.outlook.com
+ ([fe80::566f:3659:511:76cf]) by PAWPR04MB9960.eurprd04.prod.outlook.com
+ ([fe80::566f:3659:511:76cf%5]) with mapi id 15.20.9723.022; Fri, 20 Mar 2026
+ 02:04:22 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: Frank Li <frank.li@nxp.com>, Stefan Eichenberger <eichest@gmail.com>,
+	"o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "stefan.eichenberger@toradex.com"
+	<stefan.eichenberger@toradex.com>, Francesco Dolcini
+	<francesco.dolcini@toradex.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [EXT] Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated
+ after last read
+Thread-Topic: [EXT] Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated
+ after last read
+Thread-Index: AQHcqyXwBHUr+bUJrUuXl+mBxXWLd7WdqYeAgBjrEACAAC+/kA==
+Date: Fri, 20 Mar 2026 02:04:22 +0000
+Message-ID: <PAWPR04MB9960D02AE0E9D0FFF53D2E82E84CA@PAWPR04MB9960.eurprd04.prod.outlook.com>
+References: <20260218150940.131354-1-eichest@gmail.com>
+ <20260218150940.131354-3-eichest@gmail.com>
+ <aZXoTGK_v3L4pc-E@lizhi-Precision-Tower-5810>
+ <aZXq4gn4xhInQQlq@eichest-laptop> <aaamYByn9dZEIBWb@eichest-laptop>
+ <aacECsJ6O8QjHsUa@lizhi-Precision-Tower-5810>
+ <PAWPR04MB9960F0118ACC092BCAAB0142E87CA@PAWPR04MB9960.eurprd04.prod.outlook.com>
+ <abyBxAvJcMshvB7G@zenone.zhora.eu>
+In-Reply-To: <abyBxAvJcMshvB7G@zenone.zhora.eu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAWPR04MB9960:EE_|DU4PR04MB12111:EE_
+x-ms-office365-filtering-correlation-id: a02860f4-7e0a-4c52-9b47-08de8625010a
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|7416014|366016|376014|1800799024|38070700021|18002099003|22082099003|56012099003;
+x-microsoft-antispam-message-info: Yc7Orjqu1Bt/29sOMaKqfRYVNByJWKJxpWUrD15VWA+AOWf+3FxiT+cwmglzRho5tbnyNZBZQOJAzCibCX0Qz2ypZdcHFo1ndwNFDFl7yhjv0aRQnO1drz6nwbldagBgHGjMERIgESHaHs+Clx4uxhPMIqeu8dz9BBkOZLRUW7gw05Cl8kKLKJz2dYIJ3tQCwdj5PHNQClmYssEQE4pp93nTIqKAifO54gcg+F132/zbK454FayNaELfwGBHJTxySh0xpKhdcaforK4aBuBb36Pc6zTUzt5+HQ/dPP+bXsUwPpyqfq8heyPlwTwlq7ahRWf2JWEIjadG6GGD1sEsRtjnuzoXYj2sKOyLvxb4B43oYHxWEK8wrYuVwOLTmAVmMkK2KN9lJ7p17hHXbslq1qRpGuK6UL6rpZ7+zt5OvdMdVPx2vRBRZ7Yg8OVQF2BL4Si/VqIhtOKzj1/X9JFg2yEwSsuFICu+b9anU1GPFQt9I7uJzOGTMmXhBwZXv9+lcHljeXE+y1TEMQc1J66qZ31s6x8LL3MbfZ6QoSoRhfjHj6HiKzgudQaXdI/dGj1CRCm4XByFjUTpu91rV5yYaI9ZsLvv+WFPORcwazIXSh/iPg4PahfqXjHp2NVcBsNXxZkBmeIWj43J+7AeebNJ9fYAztKRqRemAEYHCk6jRiuwqXpql/fp55IInlqnihRS+0oaFxJe73pZm+DgWHNfZ0NiLgrR9c4g/53Q1MkklMY=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR04MB9960.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(366016)(376014)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?8ydNrWAAAzoSeKKBwmJyCIQPIgdc1efMMpCbxfRXEwuQI3AcFEYsRTJxZvlA?=
+ =?us-ascii?Q?LVb3kWCSf5E7GzsFmaKV93qfTilZvGqyDP6sYdVGyLB4QymMuuxsKcN/J3gG?=
+ =?us-ascii?Q?HROzC5Rd1jZzhkQYviTVdxbHg/cALAxyw+qC6Y0//5ua1KZdC6mDiygamwkN?=
+ =?us-ascii?Q?r7eoZYeHnUhc5nFNPiQzWY13vRghsba4No79f9DQMB9ofUO2ieImuYT+SN/s?=
+ =?us-ascii?Q?+AvCNiK5qT6m+iaG2lwzl/ozQJ9v88RWipItWo1wx57s0cQ2I6BPQ34nOXQh?=
+ =?us-ascii?Q?ituFLbkUvWcnQ05Bw943OWJUqe7Q4ukicxMJpBeqpXn1g6x+c7YAuqUQ5/wP?=
+ =?us-ascii?Q?v/MOi1zcHSC1AYb1lAyYSlKZaxd5I0OZRC0RNx9OPhdyX8oX7Kv+8iiD//mP?=
+ =?us-ascii?Q?Yc9WZOaKL89v/ROlcrOaGQKStKn6A4XQP+LrmyNMgavKnyJjyF+iVjuyRZrJ?=
+ =?us-ascii?Q?bKFVhNOzggaqNXF4Bbsng58Zf8GKDsM9Xog2V8TpWuX+GIm1GfVCIxfTosuK?=
+ =?us-ascii?Q?rA18XcDNNQZjAuf7eh7tct0X8kVSzpybRBkARENgsIvVUmlr+lk9i4oa2GjE?=
+ =?us-ascii?Q?HhKqlc8Yb53NCBTUzqtSAdvXFusLpYbpgyOg7KBWn40ENUxG26ltK/2Wm/pK?=
+ =?us-ascii?Q?q0PxHdPnXL5CHB4h46L+6uPXw6YpG8NLsWxWIcm3UYmqp54jCoejKgEROaN+?=
+ =?us-ascii?Q?+G9Mt5K7eDJuRfr950PpU2BaSIOVdg/lZwxAv16m4We5FwV4GWCnqchSZOnl?=
+ =?us-ascii?Q?uQ9Pdxg3Hc7eGQz72KfVGjv0ObmUU+Ufa6EcsmhUDY/ORq/QY/iPvq6BLRUU?=
+ =?us-ascii?Q?5js/s1KhLoqtbwI8OvTFaspgMSsPpsonbkIPOIP5I1U9jK9fgWjY1RdwTefL?=
+ =?us-ascii?Q?Puk9pHcSbvKh3zg627lOUoeVP93WjXftEEE7vnaKkOnyO23xBpFXKSBTqIG3?=
+ =?us-ascii?Q?bLxIibLabJYU48c7YZDNxb4DJNypbjB64bgGSUhCOSWmCR2V8fdMvphjg/gk?=
+ =?us-ascii?Q?PEivtT23IgFrDNCX+3GuP1xHzeV0TS+aSg1Bxa0isXbeICyuKf8nOOKHNnGI?=
+ =?us-ascii?Q?PfqHABGWJITu7XlFUlGRSTc0OPjvlZc4RDm93RWFtOtS5Br7AOb+Det7X82O?=
+ =?us-ascii?Q?9GW690kwdvQeIRGD6EtfuJjX3b1pjp9o0tEnlXQPhE7vHQrtrOPswseXfzcI?=
+ =?us-ascii?Q?6GEyJ2Qjhwn1EIZI8RmxRP2R/egNAK2T7WaBRDc8662cvheyLAHDZ8naDG3F?=
+ =?us-ascii?Q?wWhwgKMLqA5wziATYYyYFpd4acBYoYCnQDxpnTy5wQy5sl1ZKH9KKo0kJvcQ?=
+ =?us-ascii?Q?p/beK8ZSsYlvzITIpGFaHzFAugFvJAgYj8IEhawQlUJ9xgNvkWL5vZVjEfCN?=
+ =?us-ascii?Q?PIFduE43RyTQ2JaZf6lvu+ODE+F14jZ9LZFBLrVTzaln2VMzGqXP19YFd5HP?=
+ =?us-ascii?Q?az8OrbpTPppheFBnUfvRXJIjsbyhDO2Xbco/sP3nAvJg+oCjjNIJ23JR+0tb?=
+ =?us-ascii?Q?3NzCzxk9I0DtgL3BehpE6Xwn2ycnXWi5XhvC0vMwcuF5nr952qBNEMVj1lb3?=
+ =?us-ascii?Q?sYERvFB0TcSDiHyt7qeXFNSM1jae0C2ooERbSuZsGyojoPG2OWwtAhNChMJT?=
+ =?us-ascii?Q?/gJdAt2wOhMLvN2xlYmqPAdtIoffNen7M8FO4y/57Bwq9BXHQourZlu/cwcW?=
+ =?us-ascii?Q?zFSOqCqlnKEv3nUqpRsgfz26jrbiqe+nM6I+84S+dP4JjVm9?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAWPR04MB9960.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a02860f4-7e0a-4c52-9b47-08de8625010a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Mar 2026 02:04:22.2479
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: IZNGN4OM1806n5JR0Lfy5qTGlyxWVL3w7MvwpOhGrgsMb94fjYZ/ZG5L/iRMPBJDukl9zkDI7LyMSJDNnPxgGA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_185343_565575_5BF7023C 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20260319_190433_009924_74CBC124 
+X-CRM114-Status: GOOD (  31.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +154,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to combine kzalloc and kcalloc.
 
-Add an extra counting member to support __counted_by.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: add __counted_by.
- drivers/gpio/gpio-msc313.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+> -----Original Message-----
+> From: Andi Shyti <andi.shyti@kernel.org>
+> Sent: Friday, March 20, 2026 7:10 AM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: Frank Li <frank.li@nxp.com>; Stefan Eichenberger <eichest@gmail.com>;
+> o.rempel@pengutronix.de; kernel@pengutronix.de; s.hauer@pengutronix.de;
+> festevam@gmail.com; stefan.eichenberger@toradex.com; Francesco Dolcini
+> <francesco.dolcini@toradex.com>; linux-i2c@vger.kernel.org;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
+> linux-kernel@vger.kernel.org; stable@vger.kernel.org
+> Subject: [EXT] Re: [PATCH v1 2/2] i2c: imx: ensure no clock is generated =
+after
+> last read
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report
+> this email' button
+>=20
+>=20
+> Hi Carlos,
+>=20
+> > > > > > > When reading from the I2DR register, right after releasing
+> > > > > > > the bus by clearing MSTA and MTX, the I2C controller might
+> > > > > > > still generate an additional clock cycle which can cause
+> > > > > > > devices to misbehave. Ensure to
+> > > > > >
+> > > > > > Do you means SCL have additional toggle? You capture waveform?
+> > > > > >
+> > > > >
+> > > > > Yes exactly. We were able to capture the waveform when the issue
+> > > > > happens. It doesn't always happen though, it depends on how much
+> > > > > time passes between clearing MSTA and MTX and reading from I2DR.
+> > > > >
+> > > > > If you want to see the waveform, I uploaded it to our server:
+> > > > > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%
+> > > > >
+> 2Fshare.toradex.com%2Fdwnhcrl6b9toib6&data=3D05%7C02%7Ccarlos.song
+> > > > > %40nxp.com%7C9567b791c35345a75eba08de860c9954%7C686ea1d
+> 3bc2b4c6f
+> > > > >
+> a92cd99c5c301635%7C0%7C0%7C639095585800985569%7CUnknown%7CT
+> WFpbG
+> > > > >
+> Zsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMi
+> > > > >
+> IsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DAK6DGztAek
+> > > > > 8Dq0M8G98PO%2F68UhcwfJPxsLSJQZ4jumE%3D&reserved=3D0
+> > > > > You can see the additional clock at the right end, after "0x17 + =
+NAK".
+> > > >
+> > > > Have you had a chance to look at the waveform? Do you have any
+> > > > concerns about the proposed solution?
+> > >
+> > > I am fine. Add carlos, who did many work about I2C.
+> > >
+> > > Frank
+> >
+> > Hi,
+> >
+> > Just review this series, looks this series patch make this fix for the =
+limitation[1]
+> safer:
+> > "It must generate STOP before read I2DR to prevent controller from
+> generating another clock cycle".
+> >
+> > Previous patch[2] has done this to avoid the limitation. However accord=
+ing to
+> the waveform, I2C controller still generated an additional clock cycle
+> sometime.
+> >
+> > The key of patch is ensure to read the last bytes after the bus is not =
+busy
+> anymore to avoid this another clock cycle.So these patches are fine to me=
+ also.
+> >
+> > [1] 054b62d9f25c ("i2c: imx: fix the i2c bus hang issue when do repeat
+> > restart") [2] 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma
+> > mode")
+>=20
+> Sorry, I'm not understanding your point here. Are you suggesting to chang=
+e the
+> Fixes tag to [1]?
+>=20
 
-diff --git a/drivers/gpio/gpio-msc313.c b/drivers/gpio/gpio-msc313.c
-index 7345afdc78de..2accf3446cd9 100644
---- a/drivers/gpio/gpio-msc313.c
-+++ b/drivers/gpio/gpio-msc313.c
-@@ -483,7 +483,8 @@ MSC313_GPIO_CHIPDATA(ssd20xd);
- struct msc313_gpio {
- 	void __iomem *base;
- 	const struct msc313_gpio_data *gpio_data;
--	u8 *saved;
-+	int nr_saved;
-+	u8 saved[] __counted_by(nr_saved);
- };
+Hi, Andi
 
- static int msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
-@@ -631,16 +632,13 @@ static int msc313_gpio_probe(struct platform_device *pdev)
- 	if (!parent_domain)
- 		return -ENODEV;
+No, don't need to do anything, . I agreed with this patch totally, it is re=
+asonable.
 
--	gpio = devm_kzalloc(dev, sizeof(*gpio), GFP_KERNEL);
-+	gpio = devm_kzalloc(dev, struct_size(gpio, saved, match_data->num), GFP_KERNEL);
- 	if (!gpio)
- 		return -ENOMEM;
-
-+	gpio->nr_saved = match_data->num;
- 	gpio->gpio_data = match_data;
-
--	gpio->saved = devm_kcalloc(dev, gpio->gpio_data->num, sizeof(*gpio->saved), GFP_KERNEL);
--	if (!gpio->saved)
--		return -ENOMEM;
--
- 	gpio->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(gpio->base))
- 		return PTR_ERR(gpio->base);
---
-2.53.0
+> Thanks,
+> Andi
 
 
