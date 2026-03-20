@@ -4,49 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D751099B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A591099B31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t78sF+h3NHuwrZpMWJEJuzcWo+6gr+FTUJ6jVUfHaWQ=; b=2aovmeiVl1tiZV
-	w51dUSpf758IJDkMXR4yECiV3iv8ofLZto3i8eK3sUnmZtws1mVxK4rWzatqFdwbWp1D3XfCYInMh
-	kdEJU3Mu0t7pU6nNKXsdaoRn51c3Q7bKdIZj8QmqxWJDtRbD/dc+2cKfZEoK01Btaf/BydQ9h+KDJ
-	ZOpqQPQDGnmXjRa1H8sJ/3SCBGBihb9aUTE9OTSoHSLOza8BRl0sjioOBuuwJd2EB7kw/C72+/j/y
-	33FweTbzWra2/mWn3Q/dPeqzcdHel+QAf1FvviqZz6E5+qjkyi+dIPzXPzRvJx2uTER0ax/6oAC6h
-	kbGVf2WFLwlgxhOdHngQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v6h8GXzyIzLBJ82zp/jApKpAufRJCbYzX1nYWFf4i6E=; b=j4p+RQ8WqUWYN4cyZ6wxu5fLW+
+	gY/9BQFHmE29CUkT6WFbwY+4WjS5iLwqFkdV9QKNNgmViE5JgxjIKGwGy6kGyDdM/MXIqkqxWKlre
+	eB2+AO9xCtY+0uXZIa9nrgVmFc5FiAkVN0uNiVibBwOY1uKzs7X3QNq7XM2YlcejmLKIcIGa/L9za
+	G7wPZRTzXrgR/PAS+PDKYz5E3AS9GTtPCgrt/xifNFlSFOavV53b3GTQOVkFyFTJ8zIu+hZDUy5vh
+	rDeX6AeFXu0cH/ucM1uXhqRK89oyltYQexkRypfw60MESa0vBJuyUMmbUWIlBTFzc2/Okpn6YqmRN
+	5kcGR5DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dsK-0000000DHkN-3DxO;
-	Fri, 20 Mar 2026 17:43:08 +0000
+	id 1w3dsR-0000000DHnr-1tgn;
+	Fri, 20 Mar 2026 17:43:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dsI-0000000DHjb-2S8k
+	id 1w3dsM-0000000DHlX-1eoR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 17:43:08 +0000
+	Fri, 20 Mar 2026 17:43:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81E071596;
-	Fri, 20 Mar 2026 10:42:59 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A80383FA1F;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C53F01682;
 	Fri, 20 Mar 2026 10:43:03 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F179C3FA1F;
+	Fri, 20 Mar 2026 10:43:07 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v7 00/20] CoreSight: Refactor power management for
- CoreSight path
-Date: Fri, 20 Mar 2026 17:42:42 +0000
-Message-Id: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
+Date: Fri, 20 Mar 2026 17:42:44 +0000
+Subject: [PATCH v7 02/20] coresight: Remove .cpu_id() callback from source
+ ops
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABOHvWkC/53OQW7DIBAF0KtErEs12IDjrHqPqkJjM9gsMBZYJ
- FXku5dYqpQu0938Wbz/7yxT8pTZ5XRniYrPPi41dG8nNs64TMS9rZk10CghQHJMwYwxUfbTvJk
- Vt9ms8UrJBFxwokDLZnxYUyzHzS0OstfanZszsKquiZy/HY2fXzXPPm8xfR8Dinx8/99VJAfeW
- jkMqDvZQf9RhfcxBvZoKupJF/3ruqq600JhCwItDH91/atraEG9ruuqk3OdVrYRAp+27/v+Axu
- EwduoAQAA
-X-Change-ID: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
+Message-Id: <20260320-arm_coresight_path_power_management_improvement-v7-2-327ddd36b58b@arm.com>
+References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
+In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
  Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
@@ -56,18 +52,18 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>
+ Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774028583; l=4322;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774028583; l=6906;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=SYVjHHt8Mf/r3rASy5Rz/OV+66R9UH2Rf4/e6Fhqmf0=;
- b=Uilq/vZ3coHLKW2O/aWaz1nIfMOqRqDgiJrqn+He+kUVDjkjlg0ZZ3N6B6QDQ1TBFmzYDrAF5
- HDHsZ2UnkukB0DRHCkFpERBLBQ8lvptFoDO3kmd/xNIqflf2yI8+1Hh
+ bh=dQ84sMURcRCSt3G74liotn8SKpOpK2YFBXsSIUPXyMk=;
+ b=1kWOImQj70giDQ2BAAzruSoDouVHeDZ1GDaFWiMVlcMgRjE9xIDMwpip0pkAFLzIoMW+YH47N
+ vGtiAFWqcodBp0oz73ITGulx4eQ7OiFo4V9gGur7+XT13oYrLbtxPXc
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_104306_714199_17FF5372 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260320_104312_198098_82CF225F 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +78,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series focuses on CoreSight path power management.  The changes can
-be divided into four parts for review:
+The CPU ID can be fetched directly from the coresight_device structure,
+so the .cpu_id() callback is no longer needed.
 
-  Patches 01~07: Refactor the CPU idle flow with moving common code into
-                 the CoreSight core layer.
-  Patches 08~15: Refactor path enabling and disabling with range, add
-                 path control during CPU idle.
-  Patches 16~17: Support the sink (TRBE) control during CPU idle.
-  Patches 18~20: Move the CPU hotplug flow into the coresight core layer
-                 and simplify the code.
-
-This series is rebased on the coresight-next branch and has been verified
-on Juno-r2 (ETM + ETR) and FVP RevC (ETE + TRBE).
-
----
-Changes in v7:
-- Added a flag in coresight_desc to indicate CPU bound device (Suzuki).
-- Used coresight_mutex to protect per-CPU source pointer (Suzuki).
-- Added a spinlock for exclusive access per-CPU source pointer (Suzuki).
-- Dropped .pm_is_needed() callback (Suzuki).
-- Supported range in path enabling / disabling (Suzuki).
-- Gathered test and review tags (Levi / James).
-- Link to v6: https://lore.kernel.org/r/20260305-arm_coresight_path_power_management_improvement-v6-0-eff765d211a9@arm.com
-
-Changes in v6:
-- Rebase on the latest coresight-next branch.
-- Always save and restore TRBE context during idle (Will).
-- Use get_cpu() / put_cpu() when set the per CPU source pointer.
-- Link to v5: https://lore.kernel.org/r/20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com
-
-Changes in v5:
-- Set the per-CPU source pointer on target CPU (Suzuki).
-- Reused existed enable/disable buffer functions in TRBE callbacks
-  (James).
-- Refactored refcount for source devices in SysFS mode.
-- Released path in cpu-hotplug off flow to avoid memory leak.
-- Updated ETMv3 driver when move common code into core layer.
-- Rebased on the latest coresight-next branch.
-- Link to v4: https://lore.kernel.org/r/20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com
+Remove the .cpu_id() callback from source ops and update callers
+accordingly.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
-
 ---
-Leo Yan (19):
-      coresight: Populate CPU ID into coresight_device
-      coresight: Remove .cpu_id() callback from source ops
-      coresight: sysfs: Validate CPU online status for per-CPU sources
-      coresight: Move per-CPU source pointer to core layer
-      coresight: Register CPU PM notifier in core layer
-      coresight: etm4x: Hook CPU PM callbacks
-      coresight: etm4x: Remove redundant condition checks in save and restore
-      coresight: syscfg: Use spinlock to protect active variables
-      coresight: Introduce coresight_enable_source() helper
-      coresight: Save active path for system tracers
-      coresight: etm4x: Set active path on target CPU
-      coresight: etm3x: Set active path on target CPU
-      coresight: sysfs: Use source's path pointer for path control
-      coresight: Control path with range
-      coresight: Control path during CPU idle
-      coresight: Add PM callbacks for sink device
-      coresight: sysfs: Increment refcount only for system tracers
-      coresight: Take hotplug lock in enable_source_store() for Sysfs mode
-      coresight: Move CPU hotplug callbacks to core layer
+ drivers/hwtracing/coresight/coresight-core.c       | 8 ++++----
+ drivers/hwtracing/coresight/coresight-etm-perf.c   | 2 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 8 --------
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 8 --------
+ drivers/hwtracing/coresight/coresight-sysfs.c      | 4 ++--
+ include/linux/coresight.h                          | 3 ---
+ 6 files changed, 7 insertions(+), 26 deletions(-)
 
-Yabin Cui (1):
-      coresight: trbe: Save and restore state across CPU low power state
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 4a246fb6bff0a75cf12995bd00a9adefb93839ec..5639c8a2124d97148525c3267dacd86510da7a20 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -787,7 +787,7 @@ static int _coresight_build_path(struct coresight_device *csdev,
+ 		goto out;
+ 
+ 	if (coresight_is_percpu_source(csdev) && coresight_is_percpu_sink(sink) &&
+-	    sink == per_cpu(csdev_sink, source_ops(csdev)->cpu_id(csdev))) {
++	    sink == per_cpu(csdev_sink, csdev->cpu)) {
+ 		if (_coresight_build_path(sink, source, sink, path) == 0) {
+ 			found = true;
+ 			goto out;
+@@ -1014,7 +1014,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
+ 	/* look for a default sink if we have not found for this device */
+ 	if (!csdev->def_sink) {
+ 		if (coresight_is_percpu_source(csdev))
+-			csdev->def_sink = per_cpu(csdev_sink, source_ops(csdev)->cpu_id(csdev));
++			csdev->def_sink = per_cpu(csdev_sink, csdev->cpu);
+ 		if (!csdev->def_sink)
+ 			csdev->def_sink = coresight_find_sink(csdev, &depth);
+ 	}
+@@ -1733,10 +1733,10 @@ int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode
+ {
+ 	int cpu, trace_id;
+ 
+-	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE || !source_ops(csdev)->cpu_id)
++	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE)
+ 		return -EINVAL;
+ 
+-	cpu = source_ops(csdev)->cpu_id(csdev);
++	cpu = csdev->cpu;
+ 	switch (mode) {
+ 	case CS_MODE_SYSFS:
+ 		trace_id = coresight_trace_id_get_cpu_id(cpu);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f85dedf89a3f9e85d568ca4c320fa6fa6d9059ff..cae6738e9906c35d291e4b0f3feae37306b95c06 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -824,7 +824,7 @@ static void etm_addr_filters_sync(struct perf_event *event)
+ int etm_perf_symlink(struct coresight_device *csdev, bool link)
+ {
+ 	char entry[sizeof("cpu9999999")];
+-	int ret = 0, cpu = source_ops(csdev)->cpu_id(csdev);
++	int ret = 0, cpu = csdev->cpu;
+ 	struct device *pmu_dev = etm_pmu.dev;
+ 	struct device *cs_dev = &csdev->dev;
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+index eb665db1a37d9970f7f55395c0aa23b98a7f3118..ab47f69e923fb191b48b82367dce465c79b3a93d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+@@ -466,13 +466,6 @@ static void etm_enable_sysfs_smp_call(void *info)
+ 		coresight_set_mode(csdev, CS_MODE_DISABLED);
+ }
+ 
+-static int etm_cpu_id(struct coresight_device *csdev)
+-{
+-	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	return drvdata->cpu;
+-}
+-
+ void etm_release_trace_id(struct etm_drvdata *drvdata)
+ {
+ 	coresight_trace_id_put_cpu_id(drvdata->cpu);
+@@ -684,7 +677,6 @@ static void etm_disable(struct coresight_device *csdev,
+ }
+ 
+ static const struct coresight_ops_source etm_source_ops = {
+-	.cpu_id		= etm_cpu_id,
+ 	.enable		= etm_enable,
+ 	.disable	= etm_disable,
+ };
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index b1e0254a534027d7ede8591e56be28745d0b9974..66a8058098376264d3f8c5815763a75ebffb352e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -227,13 +227,6 @@ static void etm4_cs_unlock(struct etmv4_drvdata *drvdata,
+ 		CS_UNLOCK(csa->base);
+ }
+ 
+-static int etm4_cpu_id(struct coresight_device *csdev)
+-{
+-	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	return drvdata->cpu;
+-}
+-
+ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+ {
+ 	coresight_trace_id_put_cpu_id(drvdata->cpu);
+@@ -1201,7 +1194,6 @@ static void etm4_pause_perf(struct coresight_device *csdev)
+ }
+ 
+ static const struct coresight_ops_source etm4_source_ops = {
+-	.cpu_id		= etm4_cpu_id,
+ 	.enable		= etm4_enable,
+ 	.disable	= etm4_disable,
+ 	.resume_perf	= etm4_resume_perf,
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index d2a6ed8bcc74d64dccc735463f14790b4e80d101..3b1e7152dd108408d837c404ce607ba511ca14a6 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -232,7 +232,7 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
+ 		 * be a single session per tracer (when working from sysFS)
+ 		 * a per-cpu variable will do just fine.
+ 		 */
+-		cpu = source_ops(csdev)->cpu_id(csdev);
++		cpu = csdev->cpu;
+ 		per_cpu(tracer_path, cpu) = path;
+ 		break;
+ 	case CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE:
+@@ -282,7 +282,7 @@ void coresight_disable_sysfs(struct coresight_device *csdev)
+ 
+ 	switch (csdev->subtype.source_subtype) {
+ 	case CORESIGHT_DEV_SUBTYPE_SOURCE_PROC:
+-		cpu = source_ops(csdev)->cpu_id(csdev);
++		cpu = csdev->cpu;
+ 		path = per_cpu(tracer_path, cpu);
+ 		per_cpu(tracer_path, cpu) = NULL;
+ 		break;
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 9d85e15337bc7e339695df18bcd5dac291d44916..0f53c692109964de01da06e7210b7788e7f59f36 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -395,15 +395,12 @@ struct coresight_ops_link {
+ /**
+  * struct coresight_ops_source - basic operations for a source
+  * Operations available for sources.
+- * @cpu_id:	returns the value of the CPU number this component
+- *		is associated to.
+  * @enable:	enables tracing for a source.
+  * @disable:	disables tracing for a source.
+  * @resume_perf: resumes tracing for a source in perf session.
+  * @pause_perf:	pauses tracing for a source in perf session.
+  */
+ struct coresight_ops_source {
+-	int (*cpu_id)(struct coresight_device *csdev);
+ 	int (*enable)(struct coresight_device *csdev, struct perf_event *event,
+ 		      enum cs_mode mode, struct coresight_path *path);
+ 	void (*disable)(struct coresight_device *csdev,
 
- drivers/hwtracing/coresight/coresight-catu.c       |   2 +-
- drivers/hwtracing/coresight/coresight-core.c       | 377 +++++++++++++++++++--
- drivers/hwtracing/coresight/coresight-cti-core.c   |   9 +-
- drivers/hwtracing/coresight/coresight-etm-perf.c   |  25 +-
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  73 +---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 154 ++-------
- drivers/hwtracing/coresight/coresight-priv.h       |   4 +
- drivers/hwtracing/coresight/coresight-syscfg.c     |  21 +-
- drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
- drivers/hwtracing/coresight/coresight-sysfs.c      | 126 +++----
- drivers/hwtracing/coresight/coresight-trbe.c       |  61 +++-
- include/linux/coresight.h                          |  15 +-
- 12 files changed, 546 insertions(+), 323 deletions(-)
----
-base-commit: a90863095f84f6d17c49716e4e2212d28a6b25b5
-change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
-
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
