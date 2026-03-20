@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387951098796
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEDF1098799
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZOHGPk5doVf5PlHGyevPKUA2fqHQSdmXOjKYw+Hc8ik=; b=lBXGPfa0ZvOCtctEqRDtAXBfrZ
-	sP+ayFpMTFvJtDWSL2YgTdynuP0tnbJbY86kef6ilpUMNvjdCPirKm2YojX0wA4nAvoKnK1pATRKn
-	etKNpZ3IM5LUl+dN91Gx8q2iqzC5luNRZKryJqtmkTuLjcZglsWrG/JPVm5iGas7japOEfy1q406U
-	rqz51zHO2JQKgPvP6pdGR0pZqkY/kgCS/446i/goDGlbAej69sVgQxBL6iXes2G4lotFJ3/Xkiuza
-	QwpuLrMJs1IAHL/2gde3xg32692nKbk9q/sWD4D/JtuKcXlzplCKG0UyGbg5vW1JFFpxO5vgY6F6E
-	nM+YqYWQ==;
+	bh=SUq07e3tFWu2Wbyc9JeCz4a/3cK7LZxQl7ZYp+SCWtw=; b=ZJE8f8AR6XpfWTbyBB55XgUjvs
+	l/ZxS8bQBBIWYBYI4Hf3x63taArGMeY5qwvR7NgCFZbm9BF7/JOIuQPVQ9/pv9Rhq69qHzz3w/Pm2
+	hnZ9wGDwI7exUsbXkClUkensc0CivLPx8XrszNkj62Rtaa5UHcA7R0vuFLE2jOerjEwZxyIgwmTu2
+	8JkcScnDovEx5SfjUl+ipDywwHXFFewKcn09rA2e7I+MVZtYqbHm3z/rVAhDspm/FoWenq4f2CQIo
+	DeT7IaPf3ataVd4qEbFbl2fEU5f+3B+NJoy8ZIUDJPqbA/hZ0IxvyIykU1EhFZ7QqoRkNip6ml+zA
+	RO7q4Xbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bZk-0000000D1Ia-3OzH;
-	Fri, 20 Mar 2026 15:15:48 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1w3beL-0000000D1qz-3wKv;
+	Fri, 20 Mar 2026 15:20:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bZj-0000000D1Hm-0fQd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 15:15:48 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-35a1cc6e478so1434415a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 08:15:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774019745; x=1774624545; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZOHGPk5doVf5PlHGyevPKUA2fqHQSdmXOjKYw+Hc8ik=;
-        b=LkYn/AQb/hcN1/8iezR42M/8RPXEaZhpnuyMIXguwkDtqdS+Hj5Ryc5UGrrqthfSWD
-         itvfgxuUfvxbNx4gzEJNnRU/xGQjXofhzkkPc/C5IBtxaV3F2FrISunwhbosl4JYKIbw
-         H1kjlqIR3NXKMQR4iWw12M03E7PPROY+AZQ2T6UKrnw6SfZZGOdS2Kgii6UJ2cOI4YIm
-         dmwAIJCKaBC284xzczbOVzVnvFa5MKmbvv3tlaXeFIKbIl3csnUxd/bp8/XDxBX5cFNN
-         tH/iR0PsGAC7UofbG6Gy3Yn9onCzQsqQ4rTE00XzDBCd2JXi6qiaU/fDNR8/wRWyWnWP
-         DdVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774019745; x=1774624545;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZOHGPk5doVf5PlHGyevPKUA2fqHQSdmXOjKYw+Hc8ik=;
-        b=TShGc+lExkYeUIwXgEoM+u3TzqUUzsFUL4elDZVAqXjod6zMkz3o631vAFctIvtnVS
-         uiz6iAGESeSVEjpiCBN5g/u8ePYVhSDwkR0y0rmeatForLC57/Yt07J3k8tl7ktz8jgC
-         w1T9ikPGKWTrI87VlkW8sqs6wvLE+xHeooZz8wpW3JOYY0RnsjfgFjeWZtDM5HnIi7kP
-         DKcFL2km6LbUj06WPTRFffMOR4piMZ4DoDmduF0UbTFghBTfoI6Hxxj1dKIPdt+HMIkI
-         WTj2+/7qAI/93tFbiWVOWBm8IAxfJr/tzA+0FPpSDheCuT4MlR9aNkvOB3PjYpRkuFJn
-         1FYQ==
-X-Gm-Message-State: AOJu0YzZaeyHt3dO3qHKYXXYc1EG0jmRNrHQoKS131c4kjFdsl+01jJB
-	qS4G+MwFmN/bPcBNhRlxvedZKhGmECO27FlnhA2FqEHfA7IhnIRwrvW5A/c4Xw==
-X-Gm-Gg: ATEYQzzb7ysvukw5LY9ptvypvE08/dXj9jXScJ4ecpqfe5SttsI+pYCGm3wNszMXIqY
-	G7oERGCDWkjUi4hbDFs1cyklUwGgObtd9MRRKpRO9satfwfsJvylzlRga7usY5SKxQ3xMhVb7Zi
-	gjfl8HQ3rgRdlJ5T68OPK9TOQdcalBA/TZ49pmyTUCv1nD7gEPWi5vqCh1Dfudxj+sAHwv2aaJH
-	kGeOYwXXLMCIgGyGucOKSk/CWIpnVDmOs4eTRrnzNkH+qBVRAPhmMIeORXCk6CSNwBqeQ3or7zR
-	NcErhMfCbc/fgLPB5aA5pojWhaIT5PH5eUBl8SBVnRj+u+Zmk+m7XGOu2axAfczbcqRaU74R4r2
-	A9OPote5u80KsET5IyAjGMDdpl6iDh9i9u4y7flmfkJqqMH7fOAOkMIP0WaDp32nJMerhNC6Fui
-	8KN05uR4YD4D/YxC54JPGNdmV40g==
-X-Received: by 2002:a17:90b:5603:b0:359:2d1c:9206 with SMTP id 98e67ed59e1d1-35bd2d35149mr2773896a91.33.1774019744963;
-        Fri, 20 Mar 2026 08:15:44 -0700 (PDT)
-Received: from Vivobook.. ([2401:e180:88b2:f091:d2bd:d651:8e5e:9b62])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bd3eb4bf5sm2284699a91.4.2026.03.20.08.15.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 08:15:44 -0700 (PDT)
-From: Yu-Chun Lin <eleanor15x@gmail.com>
-To: linusw@kernel.org,
-	laurent.pinchart@ideasonboard.com,
-	matt.porter@linaro.org,
-	syin@broadcom.com,
-	csd@broadcom.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH v2] pinctrl: abx500: Fix type of 'argument' variable
-Date: Fri, 20 Mar 2026 23:15:06 +0800
-Message-Id: <20260320151506.10679-1-eleanor15x@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1w3beK-0000000D1pM-11Wa;
+	Fri, 20 Mar 2026 15:20:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 22EC66184E;
+	Fri, 20 Mar 2026 15:20:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4621C4CEF7;
+	Fri, 20 Mar 2026 15:20:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774020030;
+	bh=vXaAW1fyWcmmS9WVP6WjZrb2DqMl4KjlqcJvvJObNgg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=H/U/68pz8bEM4dKGRPoLvjksgIORU1tb6seRof9WeFwrE2qSx4A2SVgurKHVNg5b+
+	 bLAqnA60e1CfJOXf8LrFtX5Bfv+tpL+AewrHaHI3o1mlDAxrvBjQ1ESqyQL4dIU2qd
+	 ZAPTM+sjXxne4RvjhpZaw2HfFGFWST2rrnF5Nf7FQiL0+HTyFXofPGzvRClkO/fGsM
+	 fRUJCbe1MlQswkC49cMRmSSdvt5u5hT8h3CFnRBj8tZYA5DglgEdDo7wnq5OqtitAn
+	 hW6Mwg77//vta1dZDh/j/a1+6kQyVs1Z/V2Y9kIPJs7A5THpGKNdLlBdttW0jtIA4g
+	 t6/WzAF8iNA2w==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	"Ivan T. Ivanov" <iivanov@suse.de>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: broadcom: bcm2712-rpi: mark /soc/firmware node as 32-bit
+Date: Fri, 20 Mar 2026 16:20:19 +0100
+Message-Id: <20260320152025.3501473-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_081547_228306_8ED26416 
-X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +76,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The argument variable is assigned the return value of
-pinconf_to_config_argument(), which returns a u32. Change its type from
-enum pin_config_param to unsigned int to correctly store the configuration
-argument.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Fixes: 03b054e9696c ("pinctrl: Pass all configs to driver on pin_config_set()")
-Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
----
-Changes in v2:
-- Rebased on the latest mainline to fix the recipient list.
-- Updated the variable type to match the commit message.
----
- drivers/pinctrl/nomadik/pinctrl-abx500.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Moving /soc/firmware to /soc/firmware/rpi-firmware resulted in a build
+time warning:
 
-diff --git a/drivers/pinctrl/nomadik/pinctrl-abx500.c b/drivers/pinctrl/nomadik/pinctrl-abx500.c
-index fc7ebeda8440..858fbaebcf8e 100644
---- a/drivers/pinctrl/nomadik/pinctrl-abx500.c
-+++ b/drivers/pinctrl/nomadik/pinctrl-abx500.c
-@@ -852,7 +852,7 @@ static int abx500_pin_config_set(struct pinctrl_dev *pctldev,
- 	int ret = -EINVAL;
- 	int i;
- 	enum pin_config_param param;
--	enum pin_config_param argument;
-+	unsigned int argument;
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi:200.4-15: Warning (dma_ranges_format): /soc@107c000000/firmware/rpi-firmware:dma-ranges: empty "dma-ranges" property but its #address-cells (1) differs from /soc@107c000000/firmware (2)
+
+The problem is that while both /soc and /soc/firmware/rpi-firmware are
+limited to 32-bit DMA and MMIO addressing, the intermediate /soc/firmware
+now gets the default 64-bit addressing, which requires an explicit
+translation of the DMA addresses of its 32-bit children.
+
+Mark this one as 32-bit as well for simplicity. Note that this does limit
+any other kind of firmware to 32-bit address translation as well, which
+might not be ideal in case any of it runs in 64-bit mode. A better solution
+may be to move it out of /soc altogether.
+
+Fixes: e3b22edda733 ("arm64: dts: broadcom: bcm2712-rpi: Move the firmware node down 1 level")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+I'm a bit confused by the changelog test of the e3b22edda733 commit,
+which does not appear to match what it actually does. Maybe the intention
+was to move /soc/firmware to /firmware/rpi-firmware instead of
+/soc/firmware/rpi-firmware? This would also require an explict
+dma address translation though.
+---
+ arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+index eddaf72c4e73..c3e71e6aaff6 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+@@ -191,6 +191,10 @@ wifi: wifi@1 {
  
- 	for (i = 0; i < num_configs; i++) {
- 		param = pinconf_to_config_param(configs[i]);
+ &soc {
+ 	firmware {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		dma-ranges;
++
+ 		firmware: rpi-firmware {
+ 			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+ 			#address-cells = <1>;
 -- 
-2.34.1
+2.39.5
 
 
