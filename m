@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4BB1093168
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 00:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C0B1093168
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 00:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJlZGGB+Kf+oU3WoaFWMxzkg+k35aMYCOGXErlkC5Sg=; b=XYZRJYUcj/bI9uqAL8GZjFpVJ2
-	F/me2EP5yNU36tJpNV7ZL/duRkRBO1JGlmMdIfqgdeJwPMJXzPpP+1/RkWw39FxBbMoCgGTzizcXY
-	Oq8yYiwnpE7ybhpQ5PJJw5lWjQRuaFIPLLbuf9HE1eKISJjRiuHxYifzAcKZQ+P5nAAk3NXErJ8VJ
-	ZxI1La2xWbEBPiVWFqn1MGj8xuPN2+to85BAMunyCZtxD0stYJBnyLuZI+Q8Vk6AvG32lDIMr2OjO
-	kDY+rtP3z4RPBG6Dw4ehCTyVwPfAUMdmtWBJVclq2ZdiGhSGxa81XV7/Yuzp3wkhj1l3gKwhYAh2O
-	+drB/NHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iXAkAkdW2iT6leT7C2EkD4xlA+svRt0NTncGhgLvK7k=; b=2uLHC5P1FVNB2OmDjDjvgG72zl
+	RjfLzZH8DqmyKjB4JWLLzwFg02Ujt8KXLD31vawzv6CCgNbpHDedGl8GjleZuLLq9hIIj3NchYvnh
+	5+qxWsUmnYePYBg1eaGtrcr9vHWVRSUC3I8B6Hnc7wEP5n/3DN8kbLRM5iMrm5zlFw7YQhAr6oA3N
+	/Z/nvcbe35p+Xtnm9x/nUykrZg3qLVWBZKizl87i5KjEZ1XBSvQtyYKs8j4T3TH0zclQVgEMf/Y2N
+	7RIiHAXb3j6sE9spyxqXZ11m+3KQkrIs5rB7FnARueFAQbkxixi0s5hRJDx8ZUJqtDi1skxGxE9Mg
+	m8hORAQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3O0F-0000000BqkI-2LQR;
-	Fri, 20 Mar 2026 00:46:15 +0000
-Received: from mail-m3271.qiye.163.com ([220.197.32.71])
+	id 1w3OBM-0000000Br8x-2g9w;
+	Fri, 20 Mar 2026 00:57:44 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3O0C-0000000Bqja-2OzZ;
-	Fri, 20 Mar 2026 00:46:14 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 379fb6a1c;
-	Fri, 20 Mar 2026 08:46:03 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com,
-	alchark@gmail.com,
-	cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com,
-	kever.yang@rock-chips.com,
-	heiko.stuebner@cherry.de,
-	tomeu@tomeuvizoso.net,
-	amadeus@jmu.edu.cn,
-	michael.riesch@collabora.com,
-	didi.debian@cknow.org,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v2 9/9] drm/rockchip: analogix_dp: Add support for RK3576
-Date: Fri, 20 Mar 2026 08:45:54 +0800
-Message-Id: <20260320004554.2006299-1-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260319104031.1986946-1-damon.ding@rock-chips.com>
-References: <20260319104031.1986946-1-damon.ding@rock-chips.com>
+	id 1w3OBJ-0000000Br8U-49dE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 00:57:43 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 6DD0E225;
+	Fri, 20 Mar 2026 01:56:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1773968185;
+	bh=DhRreVzDDL6zUZ/XfczFGuyPFoaL3ycKNfl/GFeR3Fg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dr0YK3ChQpuDUcfBzzB8f0DhyEhuELuztpfMjKc8Q9esI+ZiYBJJSnY7mdzyVhZt5
+	 CzoF7Tsk9+7GSfrOrTT8pJAwycxXoOtC127Y9Qb/lZZQF4luYoQNze/XzDnMj8msWc
+	 9LWthG/qstJzFI0UMuq0eoWIZTzNVspaKrgXf0C4=
+Date: Fri, 20 Mar 2026 02:57:37 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-media@vger.kernel.org, linux-hardening@vger.kernel.org,
+	gustavoars@kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
+Message-ID: <20260320005737.GE950244@killaraus.ideasonboard.com>
+References: <20260306044536.149204-1-rosenp@gmail.com>
+ <20260319220901.GD950375@killaraus.ideasonboard.com>
+ <CAKxU2N856yYXURRf3td-_RCpe9hyX=zAy3qtD3ki23RjgO+a4Q@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d08b4d9b503a3kunm0869f81f3ef49d
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU1MHVYeSR1PTRpKQkgdTE9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=A94g5DAxzpP3dS+mdrwytDwBYvZ+mejK16StuGK02aOmMF1VmDWCK5HDsW844X+0brlaSH5lmMsmC30LtTSsuZB2HP2RHiQEtFK/dRp6csdvJESft+d8gmM/wOi2s/fXhEqhsVwR/vKK0oXQxdf3E8Kv3Olgb9U1cdKIniL+1NE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=BJlZGGB+Kf+oU3WoaFWMxzkg+k35aMYCOGXErlkC5Sg=;
-	h=date:mime-version:subject:message-id:from;
+In-Reply-To: <CAKxU2N856yYXURRf3td-_RCpe9hyX=zAy3qtD3ki23RjgO+a4Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_174613_166194_0AF8B635 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260319_175742_180318_F29D2A13 
+X-CRM114-Status: GOOD (  28.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +75,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3576 integrates the Analogix eDP 1.3 TX controller IP and the HDMI/eDP
-TX Combo PHY based on a Samsung IP block - both of which are the same as
-those on RK3588.
+On Thu, Mar 19, 2026 at 05:11:22PM -0700, Rosen Penev wrote:
+> On Thu, Mar 19, 2026 at 3:09 PM Laurent Pinchart wrote:
+> > On Thu, Mar 05, 2026 at 08:45:36PM -0800, Rosen Penev wrote:
+> > > Use a flexible arraay member to combine allocations.
+> > >
+> > > It looks like pipes never gets freed anywhere. Meaning this effectively
+> > > fixes a memory leak.
+> > >
+> > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > > ---
+> > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 11 ++++-------
+> > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  3 ++-
+> > >  2 files changed, 6 insertions(+), 8 deletions(-)
+> > >
+> > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > index 16392420903a..657ffecc4d7e 100644
+> > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > @@ -459,25 +459,21 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
+> > >
+> > >  static int mxc_isi_probe(struct platform_device *pdev)
+> > >  {
+> > > +     const struct mxc_isi_plat_data *pdata;
+> > >       struct device *dev = &pdev->dev;
+> > >       struct mxc_isi_dev *isi;
+> > >       unsigned int dma_size;
+> > >       unsigned int i;
+> > >       int ret = 0;
+> > >
+> > > -     isi = devm_kzalloc(dev, sizeof(*isi), GFP_KERNEL);
+> > > +     pdata = of_device_get_match_data(dev);
+> > > +     isi = devm_kzalloc(dev, struct_size(isi, pipes, pdata->num_channels), GFP_KERNEL);
+> > >       if (!isi)
+> > >               return -ENOMEM;
+> > >
+> > >       isi->dev = dev;
+> > >       platform_set_drvdata(pdev, isi);
+> > >
+> > > -     isi->pdata = of_device_get_match_data(dev);
+> >
+> > I'd keep
+> >
+> >         isi->pdata = pdata;
+> >
+> > here and not below.
+> 
+> Sure
+> 
+> > > -
+> > > -     isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
+> >
+> > Wouldn't it be simpler to just replace this with devm_kcalloc() ?
+> 
+> That would only make sense if pipes remained a pointer. A flex array
+> member allows combining allocations since it doesn't take up extra
+> space.
 
-The patch currently adds only the basic support, specifically RGB output
-up to 4K@60Hz, without the tests for audio, PSR and other eDP 1.3 specific
-features.
+Yes, I understand that. My point was that with devm_kzalloc() here you
+won't need to change the mxc_isi_dev structure. The leak fix will be a
+one-liner patch.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Technically kzalloc_flex is simpler but I assume a devm version of
+> that will be handled in another treewide commit.
+> >
+> >         isi->pipes = devm_kcalloc(dev, isi->pdata->num_channels,
+> >                                   sizeof(isi->pipes[0]), GFP_KERNEL);
+> >
+> > No other change would be needed.
+> 
+> With a flex array member, that's a compile time error, which I use as
+> a hint to complete the conversion.
+> 
+> > > -     if (!isi->pipes)
+> > > -             return -ENOMEM;
+> > > -
+> > >       isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
+> > >       if (isi->num_clks < 0)
+> > >               return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
+> > > @@ -487,6 +483,7 @@ static int mxc_isi_probe(struct platform_device *pdev)
+> > >               return dev_err_probe(dev, PTR_ERR(isi->regs),
+> > >                                    "Failed to get ISI register map\n");
+> > >
+> > > +     isi->pdata = pdata;
+> > >       if (isi->pdata->gasket_ops) {
+> > >               isi->gasket = syscon_regmap_lookup_by_phandle(dev->of_node,
+> > >                                                             "fsl,blk-ctrl");
+> > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > index 3cbd35305af0..99532efa4e41 100644
+> > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > @@ -286,7 +286,6 @@ struct mxc_isi_dev {
+> > >       struct regmap                   *gasket;
+> > >
+> > >       struct mxc_isi_crossbar         crossbar;
+> > > -     struct mxc_isi_pipe             *pipes;
+> > >       struct mxc_isi_m2m              m2m;
+> > >
+> > >       struct media_device             media_dev;
+> > > @@ -294,6 +293,8 @@ struct mxc_isi_dev {
+> > >       struct v4l2_async_notifier      notifier;
+> > >
+> > >       struct dentry                   *debugfs_root;
+> > > +
+> > > +     struct mxc_isi_pipe             pipes[];
+> > >  };
+> > >
+> > >  extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
 
------
-
-Changes in v2:
-- Split out a separate patch to enable the "hclk" clock.
-- Add Reviewed-by tag.
----
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index aa01ede4945e..942f81edddfa 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -520,6 +520,14 @@ static const struct rockchip_dp_chip_data rk3288_dp[] = {
- 	{ /* sentinel */ }
- };
- 
-+static const struct rockchip_dp_chip_data rk3576_edp[] = {
-+	{
-+		.chip_type = RK3576_EDP,
-+		.reg = 0x27dc0000,
-+	},
-+	{ /* sentinel */ }
-+};
-+
- static const struct rockchip_dp_chip_data rk3588_edp[] = {
- 	{
- 		.edp_mode = GRF_REG_FIELD(0x0000, 0, 0),
-@@ -537,6 +545,7 @@ static const struct rockchip_dp_chip_data rk3588_edp[] = {
- static const struct of_device_id rockchip_dp_dt_ids[] = {
- 	{.compatible = "rockchip,rk3288-dp", .data = &rk3288_dp },
- 	{.compatible = "rockchip,rk3399-edp", .data = &rk3399_edp },
-+	{.compatible = "rockchip,rk3576-edp", .data = &rk3576_edp },
- 	{.compatible = "rockchip,rk3588-edp", .data = &rk3588_edp },
- 	{}
- };
 -- 
-2.34.1
+Regards,
 
+Laurent Pinchart
 
