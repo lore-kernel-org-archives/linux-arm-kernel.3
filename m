@@ -4,153 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BE7109317A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9E3109317D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 07:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TROLToLzc8fMhOmIb1+tkvl2R2fwYVTIiUsJcgoRJxI=; b=ACZA63eQODlJd/pRZ9HosqDLac
-	mABbASxu00r9sFKTYN3VamneQMSJM3qdKZVEX8WQdtCqAzq3O5gAyNTy9d/2xgqhQziIH8t21T8ts
-	zjSRO7Plkq7jY2T+gQ3rUgbEt5ePmrUkneofxZaqd9tz31Uw/5gqn8gj3PvusOUpnzpb2AX3QCw4i
-	QtakJfqSadiRTzwB1QsFxqUbq3+JQ69pnptNB5OREPJwqLOHxwsZ6VBcK1x7yFQTznZUv76JP53dC
-	fNdYjLNNOGVAtz8HBByvLx26DS5b9uStxLfcn38lc3G8s/z4A2DKpTK2jnyp9JTu9zwhzVB3OC3Gh
-	Da8fzfuQ==;
+	bh=RFYhT+op7r1uuVGfqk/L96fvzJnE+/lErmqGUzlnw3A=; b=HeNUg+U2K0M9g74VTUWjzxAqpW
+	7RxEsoQ+6efZ2/LQuJ61BJP8WrsZlbM5K8i2N2VlzjUmOLOEjqjvSZrneWJ7Ua/GuajiHzhVwYWdi
+	OCiLfHQZWfA6ZDsb8Jnglv/lXwl8ioUbbJvr8Q2Wygd9z7sbzQpT3ekQShWtS07EOms/NtBSgFX6A
+	WZslnKsqr+zaOpqSZA2s9p7Y3gwain1K7eR5AhDyiLX8lGpvgqyHxSSl5KriSovY6BXuODefWNKHi
+	usmUA1QN11/Q5v8NwYwCTNTvXI0x6Qyu8Ky4MIfOW72v0FM/khib1JvUiWfj8UiWZLOexjccN19x+
+	1ACdK8Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Tl5-0000000CCiz-34x8;
-	Fri, 20 Mar 2026 06:54:59 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w3U4c-0000000CDXx-23M5;
+	Fri, 20 Mar 2026 07:15:10 +0000
+Received: from mail-japaneastazon11022139.outbound.protection.outlook.com ([52.101.126.139] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Tky-0000000CChE-3wEl
+	id 1w3U4a-0000000CDX2-2XJ1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 06:54:54 +0000
+	Fri, 20 Mar 2026 07:15:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gqs8WWtxluivlOTkumDU1hjMYesF+iUJUrRaWX6LWNe99fe3WG1FORf9/eRsWd+VEBf0mTVUjCpUI5AZPq6EXKq/J8qBHZw5Ox/vCJP4xcsr3WEcrP/FvFoecMd8WM6qXAGRbUm7HPtiDUjXECB2xEmzQ3TzRzSeHw/ihehthMc2Q/pW9Zw6RwPo3AGukPhGP2ZsJIAv8Eie3q4sTs2aci4yBlLrEUFDmr973N/hdWrYYUtGn73+JSmGARTr+64xj8ntfsDQ+U5Yez199EoWRsVxprn8bJyPtZuM9AfYHAajCM9YpA+RhJ3n/d753d5g0ZMxpcjU20Lel3pJGt/d4A==
+ b=yev4y3jMHc1fF5uHZ1JuJXdtH9IxN19l5TRQt1NtzXjXKE5LV5raChDsHo3iKj+6a0M/PZa7ShcT5sRhlxJLdKS4zWpybcFSUnXX9VbPEtbuCBoYBjgC+6DRTsytw5jsyfTTRr1F4go/vP0GjGGMRdS5Ssm03o376lT8HjuPPuba1gx7cxURo3hXLnazDgpuiZVPm8vflOAjz9VxjXUAM0jqAJ0tNsEYiIv6cRy++e8VuAcaCEMZ4FyD44v7dg3SeevwVpvWHK43kQvSYInnIWbmqwTmgWJztDmbEhR+giNovXXFGHWobN2jrNn1878iFSj8S/VbUpUxz5ewczLvXA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TROLToLzc8fMhOmIb1+tkvl2R2fwYVTIiUsJcgoRJxI=;
- b=yebphTNgt2fttpYD4f0TgJkPFAyv2vxr9zLbXP+aXAfd/jejNDWxe+SPcFaIfoZxX7qf4Irw81GfJXzkFXM6iSyJsfOwVk6XMzjik5VVADXnKJhuuuOuvaLW4xqoMUPypTP0ZLSkOpHYszoLTGJT7r8Le7hGI14L02/h2GZ5bVgDFosUpMNLIP28ArNvETCoZWIw8hovjg5KVJMFYjBlmgm0wlHa69wlJE/H9+P77vpWzhrvM1N2nCbotIeIYaAS4e5KDCeJmUjGtC8z1y7HsIA/IthabuBomCsoO1wCByOHLc4aqj7XqU98JXhDrrDad96HECk/zoAw+GMmbWicYw==
+ bh=RFYhT+op7r1uuVGfqk/L96fvzJnE+/lErmqGUzlnw3A=;
+ b=gY8PIHLA+MTNtOtqi8nOrIRgtxKJiFpXQqe7A4Jed5rGegZZ6o0fILFdnUdMyJ+nTN18OG4kdQYvaf7v0Aq0BBrpGroTNoM+9eqp4JpLJMqoUnAlg/NjJqYLgyDzMdWuDrrM6+bpP6jJfzUDCTrK5DAGhPpQ3qVTBWlnghcmZQgh9cVgp94oZAYAHjrMGrj4iIK+XrQ7JiIzXQgvB+qJI4ilr+VDtfElAb1bYMkf+W0O97HhN0nTZ3RYX1RU9LO0oBQoikPz6uMTKOAb4k/nr9dTsHY/rQhkUGy2bjhjODw9nxlJ33zknSlafow5HpiUDHXrfe0DU63as2+snMoZMg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TROLToLzc8fMhOmIb1+tkvl2R2fwYVTIiUsJcgoRJxI=;
- b=dPcXWmVwLI6ZiHM3j+O0YNBpefUyJat4+LvFiEBPr+yK7eQlr5YvbHyR/bg3CyW0nkuCP7tYiqhRrgk6EFe9TsmQW2s9a1lAorlMYTnXfRuYC7ed7pNH1HbmWmjbEj6qCqskFjRvuQe0jjYkCTdZAG+w9gMTgSyd+P9NioYg8UgXYwzx3Ltp0PZRJnO/4WVM22xATVdHnz7SFL5HClcefiaB2ge+HO5SGnjBgzoMLlOQ0hbvqYoAemMhvdMT/ywrwW9qDJtCbjLqdeAePOc5XjxD9djij2ysW3GKW/34Kzjhnw4I7VG4qIAvWzLOck8yc6f20FLn6C/d8PHq8J+n+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by GVUPR04MB12196.eurprd04.prod.outlook.com (2603:10a6:150:33b::6) with
+ bh=RFYhT+op7r1uuVGfqk/L96fvzJnE+/lErmqGUzlnw3A=;
+ b=d1YFm8mHnpAgs4lOfVdTxGEGOV6U33fsYhCwEkcXf49AQfjOkZYs/MlVt+HaBpVm5SkVN2E/V/KRTtegXh34i94VMSRM/yx9oREzm+iJiIEtAeWrwLvUjK33Uq+xYXtuyidR2JvsSaYh3fAItfRqgkeUiYKvkmLB5mIrubDWtDtg2SL+VQSUttBSOc86wBeoDDYO+aXu75MY0PLBZUwjV05yVLquTmFhB1CDIzCNyCM20Apii8l9n7KCwAw2zTQ4VBcghJeaMSjmkAxtxIXYbMb7T7ZsO/4XpHsbb0hRZhXbwNwRiLZvVcJ7YzLo99+9fLvZKrWXqsgmkePwQ2L+4A==
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
+ by SI3PR06MB8684.apcprd06.prod.outlook.com (2603:1096:4:2a6::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
- 2026 06:40:30 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
- 06:40:38 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Fri, 20 Mar 2026 14:42:01 +0800
-Subject: [PATCH v3 1/2] media: nxp: imx8-isi: Reduce minimum queued buffers
- from 2 to 0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-isi_min_buffers-v3-1-66e0fabccca3@oss.nxp.com>
-References: <20260320-isi_min_buffers-v3-0-66e0fabccca3@oss.nxp.com>
-In-Reply-To: <20260320-isi_min_buffers-v3-0-66e0fabccca3@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Stefan Riedmueller <s.riedmueller@phytec.de>, 
- Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexi Birlinger <alexi.birlinger@nxp.com>, 
- Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773988967; l=1816;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=zs6w3SBlfQzFIcT7ZNKa6hYJoWu8arqkIqMkknU8Ktg=;
- b=r6AVwAaJdtmfT5lqa2LV4I/AnlcPtbxTvhlXCLGzekUaL+hmumxkroVNtJ1FPvDdUqZLkzyOa
- crjV0rMsdEyCglkwyfuY53sKWmb0xtBxO+w83ddgJ+emLl+Ea5X/I6M
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: MA5P287CA0005.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:176::14) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+ 2026 07:15:00 +0000
+Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::92af:c9d9:8779:d19]) by OSQPR06MB7252.apcprd06.prod.outlook.com
+ ([fe80::92af:c9d9:8779:d19%4]) with mapi id 15.20.9700.022; Fri, 20 Mar 2026
+ 07:15:00 +0000
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus
+ Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Andrew Jeffery <andrew@aj.id.au>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+Subject: Re: [PATCH v4 2/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Thread-Topic: [PATCH v4 2/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
+Thread-Index: AQHcrWasfLNWtX5/y0SkB1cDA4lWiLWi5wYAgAkqVmqACwRrwg==
+Date: Fri, 20 Mar 2026 07:15:00 +0000
+Message-ID: <OSQPR06MB72522FADFC47F158B5E27AFE8B4CA@OSQPR06MB7252.apcprd06.prod.outlook.com>
+References: <20260306-upstream_pinctrl-v4-0-ad4e8ab8b489@aspeedtech.com>
+ <20260306-upstream_pinctrl-v4-2-ad4e8ab8b489@aspeedtech.com>
+ <20260307-weightless-quirky-spoonbill-dacd89@quoll>
+ <OSQPR06MB72521BCD9B380D43E3E3590D8B45A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+In-Reply-To: <OSQPR06MB72521BCD9B380D43E3E3590D8B45A@OSQPR06MB7252.apcprd06.prod.outlook.com>
+Accept-Language: en-US, zh-TW
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|SI3PR06MB8684:EE_
+x-ms-office365-filtering-correlation-id: 796fcd23-c4bf-4bcf-f8f5-08de8650666b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|18002099003|22082099003|56012099003|38070700021;
+x-microsoft-antispam-message-info: RxEz/qbO0Q07TvyYLX50DCy78iQx2pnhB8cJf21eym/x1qWda4UzUSNpAK0WvzScCia6KKv7SiZO+lrl+fAhGBm8jCUNDyfgiOmt1Hn700uNgByjQfk8My+SUAhonHAj/vU3eB+5vCfZKX3Bq3Ykn6OfVJPSuMlAF7O3WdBT6FXS4v3LuKG94Pf35OMiqMBtJD42ZBV/oaHHKOunJWPwxoLbbxLm2g+jacEe2P/Jp6V7R/RueQ2r+4VpVocB7RQB4EYqSMOAwICJxsvd9I6QY4q7NFKrUGe5q+iM2a/E1sIAoNNT8DMYRv7R2F6r82kHzLdiFYanRWFcH5AxbGwV//2mMivavGmpRYz4/nLAIBx4j5MP1rlDcFeyZb99OLXM9+DqOsns0wtTrqNSz/Haolo88Le9/4D+kOngYhrBuFZk9LjK6fIaKd1S60YI+9Lx8U8eWLYa18eDbuB8y/ZO+eOcWhspqL9bg8lqgl2tHBMp/KiYHCeM6BSOF2i0XPPFafwc4B+KriJnka9kl3ajZnm4EPHg9ir9uQrKR4wbNEE/a4obSb7BSmvg2bDEbAEsk6hTITOzxmv5sufIdu9kULHzBNuUsVMEEX/gMiVgDQGj5EAnSxcBXPgiPatZHFV3y9OoQpwinA7HVoO3oy/5CzTJ5h34fQLGCcat7RXqAGyosfLnQc+oPZqKU9SWrQz5GGbIBQC3Oo0qlNRf55qFwoq/ROAqxFKC0MP3HdPWVd5Bs4icxFzNpvBunhL8To+l2QwEg9FfwMNu2EnYxDj6YI3x3X1nfubSv1hvmlNirGI=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(18002099003)(22082099003)(56012099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?HMByKg4jmUEpImdh0yjAdg7aKuEz2Prxg5wTXg3gUvWYH75iQj1wfgL4cA?=
+ =?iso-8859-1?Q?7VhT6S6tVUffhTONgoCu2IkUi7OfaCRGdJf4+UPHw3zP803bkOki0NgMDl?=
+ =?iso-8859-1?Q?ddbnZf3kicr9UWl7B+L5l+YGTFvqOUN7RjMw6TJGyX1Xsi9kTMX2p0OsaY?=
+ =?iso-8859-1?Q?NqE/QU6iSCsYeOzzDHvsApzH0GUFmMFXBbLJsip9C6kd1vcC31HTBCtBzW?=
+ =?iso-8859-1?Q?MQXxLiinztWXaj7sMF99mmrqK3I2eDvH7++QpTo7UyLvH5x28gbhJpPlOi?=
+ =?iso-8859-1?Q?JalDl572KwlF7uzVFR9JrdGPxo1cPug9xYVvzLfzFfqjgVtcJD1CY0UA86?=
+ =?iso-8859-1?Q?SM6iNjVL19+66QEEr39cN7365Lg8YIHbRXQ/2KEp3HwgyKKggMwnTkrOGT?=
+ =?iso-8859-1?Q?b4noDY7Q5Mgg2ksqCBQdB1RJCa4HiRAaIyloskkYzCy7kXfOVQbgiTBIxX?=
+ =?iso-8859-1?Q?N9KMhiRqrxklNQqFpZzGwBNBUmLayYYpA5eiRqcd0sidA9Vdxlvqk2Ewsv?=
+ =?iso-8859-1?Q?uYHF6/VehMPsbrS6WMjQCqA9jy7IQtMhPWplt7fY+TWrKfdYUNRCdG+Yxm?=
+ =?iso-8859-1?Q?6ntcrdH1Bu2PgqDCnyDnLuV0EZVjlWtO8qpmzgrFMnA8vybXAjf313UqIs?=
+ =?iso-8859-1?Q?WXSTM0w6zLjKOcvyKmBlpvEoz+ptTrDbXmGDBkOrwbeJ0ZfgF5SRB8hKRz?=
+ =?iso-8859-1?Q?DbvVsqJMgb73zTibmc5N4wrPI1UjxinlVELXYrTNzURjKMCSmuKchLBZN/?=
+ =?iso-8859-1?Q?nxt1ICGcpxnpL0EdHfVAGGPm/CQ0ix67G/FhT1wJeaOXr8T1Oa4J244cGq?=
+ =?iso-8859-1?Q?jbeAVMYRpJ5DPD/e8jSXE868dsO/SLZukR1/RYxOM6jqkQ8bIned/JZsU0?=
+ =?iso-8859-1?Q?1tRLNOXf3Bbp3eVgkHUVOrn4vDMUwxzb1odaHQQbG99LVBoZGSY5SP/sbT?=
+ =?iso-8859-1?Q?8QCbEaCJiY6byElpFTQt5tS+bST2PxpeoKJ24VFXwdJDsQhu9lg+U+AITv?=
+ =?iso-8859-1?Q?GSuYQJIMchXUgT85B2oSVH9VjJdrw+m0m+X46LtNJzyhHp2XmDJ4r8aR2b?=
+ =?iso-8859-1?Q?7waZDZY93SVVUK5YtvuxE0cvHhvhcgTdQCHT7AN4kryBkR4ySTMls1CSd0?=
+ =?iso-8859-1?Q?kJ/Mx4tJbQGtHl4ohr1c+LcofyG/BVPrkVBz+FgWUDsI6spCtMiHxDwyTo?=
+ =?iso-8859-1?Q?wBQaqgfIdWN8chjdJS9kitcr68vQSHzSqvODE1ZrPyO4YO1mrCzF0ULi0U?=
+ =?iso-8859-1?Q?IMqRLv1n+5/oAgMEbaEIBWpdEOHbbgPEpdIs4+YMgDG3iNf4RfXSrxl2hh?=
+ =?iso-8859-1?Q?qJ55P1psFJ0tmqAjlE4HnYf7QW2g7GZXoMByQKO9U0+8JWuTgt60CSNHrD?=
+ =?iso-8859-1?Q?rOHNH1QI5q4ZYPB2bjVSTiv/aNteke9bFOrE3T4Gr9jJqVajjC47JTeGup?=
+ =?iso-8859-1?Q?aQ91i8Jzw75cDH67v7IpdnY+zSUWepRNsVBk37iAmmFB3xpevZXOmDPX8P?=
+ =?iso-8859-1?Q?57rd7lkL6uAbcpDVVAdS47ijxDFsYCI0tGgEge17CilnubrMcHdtu6CBJR?=
+ =?iso-8859-1?Q?1XpmVYoCxkSr2f/DqzNTe1DFeV8wm4wKfTU1rFg9myKzcTUGQr7sBf4Bxl?=
+ =?iso-8859-1?Q?fGRqW/zdPcJIaZ2T1Gjsz2usFvP9Qb1fRifQMnGXTyhantSMjeczfcOomw?=
+ =?iso-8859-1?Q?AxTfzJs7K8ph5cZa9IFnXU0DB7p+fNvWOvbfkR6CTE0cnCSwy+HcoZnd6N?=
+ =?iso-8859-1?Q?JyUN4wTWLwh2a6kAVoKvKaTBjin6y5EoxhsvqlS+8ZoPiMlgba528iEXhf?=
+ =?iso-8859-1?Q?qeBnNFMplQ=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|GVUPR04MB12196:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83049651-cec7-4a40-efc1-08de864b9902
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: w570USuNisLy4Lsmy1RlcSPbgC+w+bxE8+p/qNpvvjKm62wYPHVtYY5QkrATSdkUTTDG1VereOb8xx9SYsn/nXwboR0fM7dlRkq5HFNwszXqJ9yp0zRZ7BRur5wTZdS8hHXeBnhnUgvruf7viGbDdxi9rHZLZX6o4F/xcafDawmx6ygJ0/LSxJ4p9pDTQH8i9GDs7F2k45JOQHEtVd2K3mGFzayAGyS12PZh4NHZuPjSNo6pxAFhNKynSaxWzyQbR3/f3Z5Y5/5OV9NlTQfp1f6qDj86xUJrZM+d4BGmbSXfDFENCP4KcQ9Il5hj1fisnPBchmIYM0PYIrXXxzXHofkbElp+zu9dEls469XKYbnnZlMsG6xRKsKw2ccGL7Q5LEZUF5FfULgw+Qv9TmmQqPXY0xrvOPFcqHHDwQGafqVGGSGah0ReSQoc4iRTN+fM40Ocudw3MSAXWBjSt2k6vR6JNPCA2QraZFepP7djjeWBCWG23RvupYMKVcO9omLwL1eA2HHFfDonrOd4LOMj9uVHulh5c4KlWTcC++D4/gVlklDJHVz3d1g9S6ZY7IOAISmQIVqru7xJBR+IDhZRQi3HPS6Iza1KeKDJ4b4iB7rU1CoBRjdVpQWdQVQiLRP2J1EGS/fl5WpIKt6qupMCb/7J9QOOD7+yWDomUEmvTPwTvrXb6OF6LgBXqEfyVqQ/kxtwP8MEnocTRnxiUrQJJOmZ4fvyaWh+/bD7Tas7J+ZFYspWuWGTR7FoHbGwFX6O
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?alJvbi9XNzdWMXFXNXNPb0hlNmg3SmJQcWs2YlFlcWVTMUJ4S3NsK1pzdnV5?=
- =?utf-8?B?eDZBRFE2K2FOdnk5b2hzMlhBeDZpNEpRanNmdmVYcG9UditQYmNqZGJDS3ZF?=
- =?utf-8?B?SWhseWI4L09RZGZMVEFERWZJV3RkR2Vrcjk0Sk52SmhNZVU0eVoyM2JjM1Uy?=
- =?utf-8?B?Uk9xbFBDaWxSd3pORGxTbEsyZ0NtRDlETktieVZzNTQwTENiM0oxclFydUZT?=
- =?utf-8?B?YmtlVDFQOS8vOG1VaWJWeTRzZUFyMWxXaXQzMnBQZTFpRjlnenVkcjZ3NHhp?=
- =?utf-8?B?ZTZ6aFltd3pabWtaSVQzcjhEVkJwWnVlV2loVmJ1K2M1Rm1sdUxaaVk4TUl1?=
- =?utf-8?B?aDFTR08rRnVsNE5YYW53bjMyQUpaODQ2SUNIalB4U2lsUDM1ZTM1MUlzemhw?=
- =?utf-8?B?TlBuSnBOcU93OUptWk5uanNRellKSTE5Uit3b3BEazF5UjMyUzlLc1FhdVRJ?=
- =?utf-8?B?ajhmNmJKNXBsTmxxYkJZUGtkMk90N1UxUUJVNkhpTVlHMXhsVlZFeEd1eklZ?=
- =?utf-8?B?VFFObzlWbDA1ZUNTOHRpWk5ITUJUZHkxT3NQb3ZxL2pjZnZPVU5reEp2a2I3?=
- =?utf-8?B?RnhXYmNJbjFVUHM3NHpNNGVRMWxHRUYxem9iTldHckFBOUlkY2xYOHBEZm12?=
- =?utf-8?B?aVh3czQ0cmFZaDlFWkhVTUQ4WVFFWXJpODV0em9WSWt1eW9HRGkwSWRFd1U1?=
- =?utf-8?B?L2ZOTTk2TGNVNzEzWHM5aVRIaFErN3h2NDVXbHpMRk04WG1pZU1PK2FjYjVF?=
- =?utf-8?B?UlZpbGZoZVY5RThQZmswbTFQcGMwL0FzYktkc05pK3hrZUcwdU81OG1WSlNa?=
- =?utf-8?B?dmpKNi85QThvMjV4c0wyY0ZRQkpMa2NmSzUrTEtWRi8yZWo5TCtRb3dEeDNR?=
- =?utf-8?B?eWRzSGZsT1k2SnBuOVB3UGNDTTlEWHRqVmN3TncyTmtxQ0o5bDl1dG1CVWJZ?=
- =?utf-8?B?cnhFRFc2Z0dPajFjV3JmMnZQY0VEV0tzUEtTajQ0OXdNbVVZTFhqaXl6bjV2?=
- =?utf-8?B?K2xIcDFEM2NSd3F5a0Rza0xLRmNCRVN2L3lhdEJpQktQWlJyN1ZZYVM4YUJH?=
- =?utf-8?B?NTdlVHkxSFlNZ1NGYXpoZU5yblZETkU1VkJUOGswcWFlNHcvZUtDN0MvcjJN?=
- =?utf-8?B?U29oak1GaTU3UE4rRkhabzhGNElUMGQveTBJSThseURJWU00VENXY1pYTVhk?=
- =?utf-8?B?TW1sUHR1N1pGdjZ3QnNCSjlWRGVnT0l1eEZWaklSQjlxZjRPSllmcVZOTDRw?=
- =?utf-8?B?dW1mcVJJYVdpdlZ3NldJTGhxUy9IckdpUnBtRHZjMWFQZTJZaEtURDFGM3hX?=
- =?utf-8?B?YzJYU1IrSi8zWEJQcVVaUkRwVFpFS1pJNHMwUzB3NWhFaG80YVJzSXcvand0?=
- =?utf-8?B?aVhzdUtUYkl2MGFqODRSUkdEY0RDcmhaK09MTzcrSmFVamd4cTlGZDRGMjNS?=
- =?utf-8?B?N3ZBM1krMURKVWlNcHVCNEluMmdId1JvYmhVWVJOV0cvZGJDYnYzeDBlRXB4?=
- =?utf-8?B?NG1tcStRMEpnTndjVHFibFhadzRBcTVoTkV3WmtnNXQvWTJERkthcVdkZkMv?=
- =?utf-8?B?NjduVXlBOTRvVU9xejR2UCtCVlRTRkhJU3BPbExFNTBpM3NUZUhwQ3hJRlc1?=
- =?utf-8?B?dWRjbVh4YlNkaXZCOFM3azJLVG5IWWVuOUhWMXQvbnlySlV6VStKWlArOWpX?=
- =?utf-8?B?UTI1RnFnYU03bEk5SnY5NzdOdDZZc3V0ZUlOd1pmWEMrOVNWMElPc2tlR28v?=
- =?utf-8?B?emRXdEN5VEFXK0dxUDZMbk4vL1BtcElxSHk5RzlpSHBUK1A1V2VVRGpkODZ2?=
- =?utf-8?B?RGlBZTEvb0N0S0lpc3I3OXF5aWRxKzUyeVpGTnB3emFrSFVOazVBWE5qWGQ4?=
- =?utf-8?B?NFY2K295Mkc2cVhHdGRpeVJ6cFVUWE9ZWEdCYzBUbVB2MDl3KzdLOW1BcnJP?=
- =?utf-8?B?UUE4SlhDM3BTR3g0Rlk4YmZDWmpOUWJQcHRoSzduV0xzdFdPa1h3Mno4ckxE?=
- =?utf-8?B?bEppWldJSG9oc2N2WTN3bGNWdmhOS1FORnovR1lqSjIyZXN5LzEwVjdvbWpp?=
- =?utf-8?B?QXJ5ZTd5NUh3aFBTTUNVdWt3Q1RYSldWL2JuL01CRUVDRlJOSzA2bzF1SnNw?=
- =?utf-8?B?SEg5ZEp2eWprWW9DcjVWbENlY25NYndsZlVLcjJKN1VsMHZCTlYvbWJkc0xU?=
- =?utf-8?B?SDk0TXlsRmduWDB0ZTVWZFg4eUJNUnNITTBVeVJIOFJMdjdXVEIvTC9BRGVq?=
- =?utf-8?B?QkhPdGxiMFNMVEk2aEpYREROYmVJZFF1b2g2TmlZUUwwbThvaVhEWG55cmJM?=
- =?utf-8?B?cG5lMXh1eFQ2NWlhWEExdHA4ODR1OThYbjR6Z0hvQVJVUHZZNnI4Zz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83049651-cec7-4a40-efc1-08de864b9902
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-OriginatorOrg: aspeedtech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 06:40:38.2215
+X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 796fcd23-c4bf-4bcf-f8f5-08de8650666b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Mar 2026 07:15:00.6909
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BaFwK/aLmNagwgb0JXOKxv8ZqUrnkoPOBEBSt/lBCA4r2+YycG+efhKihxbTqjRiJRyhnsbhWRr9vicmTZk1bg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVUPR04MB12196
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: SLu8g6XYOrbY/yEI/6b22UGmDakFO6ZRFtBvovZdieXmCsSqlVgWsVU39MEuFXGTmC7GqDLxn6CypX+SYEsy+mkLG4sfogKTx15APSwIY6Y=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI3PR06MB8684
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_235452_973391_00CD9824 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260320_001508_764087_211F76C9 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,49 +156,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
-
-Fix a hang issue when capturing a single frame with applications like cam
-in libcamera. It would hang waiting for the driver to complete the buffer,
-but streaming never starts because min_queued_buffers was set to 2.
-
-The ISI module uses a ping-pong buffer mechanism that requires two buffers
-to be programmed at all times. However, when fewer than 2 user buffers are
-available, the driver use internal discard buffers to fill the remaining
-slot(s). Reduce minimum queued buffers from 2 to 0 allows streaming to
-start without any queued buffers.
-
-Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
-Changes in v3:
-- Add Rb tag from Laurent Pinchart
-
-Changes in v2:
-- Reduce min_queued_buffers from 2 to 0 suggested by Jacopo Mondi
-  https://lore.kernel.org/linux-media/20260311-isi_min_buffers-v1-0-c9299d6e8ae6@nxp.com/T/#mcd4b7dcc218a02e2f218ba2c83b947ccefd9308b
-- Add fix tag
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-index 13682bf6e9f8..1be3a728f32f 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-@@ -1410,7 +1410,7 @@ int mxc_isi_video_register(struct mxc_isi_pipe *pipe,
- 	q->mem_ops = &vb2_dma_contig_memops;
- 	q->buf_struct_size = sizeof(struct mxc_isi_buffer);
- 	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
--	q->min_queued_buffers = 2;
-+	q->min_queued_buffers = 0;
- 	q->lock = &video->lock;
- 	q->dev = pipe->isi->dev;
- 
-
--- 
-2.34.1
-
+...=0A=
+=0A=
+> What remains unclear is how best to model the secondary and tertiary=0A=
+> service processor control blocks (SSP/TSP) and the PCI control region.=0A=
+> The SSP and TSP controls consume reserved memory regions used to=0A=
+> configure the processors' address spaces, while the PCI control region=0A=
+> contains the VGA scratch registers used to communicate host display=0A=
+> ownership.=0A=
+=0A=
+> The p2a and smp-ram features are supported on earlier generations=0A=
+> but are not present on AST2700, and should be disabled in the binding=0A=
+> for the AST2700 as you suggested.=0A=
+=0A=
+Hi Krzysztof,=0A=
+=0A=
+Following up on my previous email, I've reworked the AST2700 SCU0=0A=
+binding to better reflect the hardware capabilities and address the=0A=
+issues discussed.=0A=
+=0A=
+In particular:=0A=
+- Restrict p2a-control and smp-memram for AST2700, as these features=0A=
+  are not present.=0A=
+- Add SSP/TSP address mapping support using memory-region and=0A=
+  memory-region-names.=0A=
+- Rework the example so it reflects the AST2700 SCU0 layout and validates=
+=0A=
+  against the binding schema.=0A=
+=0A=
+I wanted to share the current binding update for feedback.=0A=
+=0A=
+Below is the current SCU0 binding diff:=0A=
+=0A=
+diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml =
+b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml=0A=
+index a87f31fce019..86e560876cf2 100644=0A=
+--- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml=0A=
++++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml=0A=
+@@ -46,6 +46,9 @@ properties:=0A=
+   '#reset-cells':=0A=
+     const: 1=0A=
+ =0A=
++  memory-region: true=0A=
++  memory-region-names: true=0A=
++=0A=
+ patternProperties:=0A=
+   '^p2a-control@[0-9a-f]+$':=0A=
+     description: >=0A=
+@@ -87,6 +90,7 @@ patternProperties:=0A=
+             - aspeed,ast2400-pinctrl=0A=
+             - aspeed,ast2500-pinctrl=0A=
+             - aspeed,ast2600-pinctrl=0A=
++            - aspeed,ast2700-soc0-pinctrl=0A=
+ =0A=
+     required:=0A=
+       - compatible=0A=
+@@ -156,6 +160,42 @@ required:=0A=
+   - '#clock-cells'=0A=
+   - '#reset-cells'=0A=
+ =0A=
++allOf:=0A=
++  - if:=0A=
++      properties:=0A=
++        compatible:=0A=
++          contains:=0A=
++            anyOf:=0A=
++              - const: aspeed,ast2700-scu0=0A=
++              - const: aspeed,ast2700-scu1=0A=
++    then:=0A=
++      patternProperties:=0A=
++        '^p2a-control@[0-9a-f]+$': false=0A=
++        '^smp-memram@[0-9a-f]+$': false=0A=
++=0A=
++  - if:=0A=
++      properties:=0A=
++        compatible:=0A=
++          contains:=0A=
++            const: aspeed,ast2700-scu0=0A=
++    then:=0A=
++      properties:=0A=
++        memory-region:=0A=
++          items:=0A=
++            - description: Region mapped through the first SSP address win=
+dow.=0A=
++            - description: Region mapped through the second SSP address wi=
+ndow.=0A=
++            - description: Region mapped through the TSP address window.=
+=0A=
++=0A=
++        memory-region-names:=0A=
++          items:=0A=
++            - const: ssp-0=0A=
++            - const: ssp-1=0A=
++            - const: tsp=0A=
++    else:=0A=
++      properties:=0A=
++        memory-region: false=0A=
++        memory-region-names: false=0A=
++=0A=
+ additionalProperties: false=0A=
+ =0A=
+ examples:=0A=
+@@ -180,4 +220,81 @@ examples:=0A=
+             reg =3D <0x7c 0x4>, <0x150 0x8>;=0A=
+         };=0A=
+     };=0A=
++=0A=
++  - |=0A=
++    / {=0A=
++        #address-cells =3D <2>;=0A=
++        #size-cells =3D <2>;=0A=
++=0A=
++        reserved-memory {=0A=
++            #address-cells =3D <2>;=0A=
++            #size-cells =3D <2>;=0A=
++            ranges;=0A=
++=0A=
++            ssp_region_0: memory@90000000 {=0A=
++                reg =3D <0x4 0x00000000 0x0 0x01000000>;=0A=
++                no-map;=0A=
++            };=0A=
++=0A=
++            ssp_region_1: memory@91000000 {=0A=
++                reg =3D <0x4 0x01000000 0x0 0x01000000>;=0A=
++                no-map;=0A=
++            };=0A=
++=0A=
++            tsp_region: memory@92000000 {=0A=
++                reg =3D <0x4 0x02000000 0x0 0x01000000>;=0A=
++                no-map;=0A=
++            };=0A=
++        };=0A=
++=0A=
++        bus {=0A=
++            #address-cells =3D <2>;=0A=
++            #size-cells =3D <2>;=0A=
++=0A=
++            syscon@12c02000 {=0A=
++                compatible =3D "aspeed,ast2700-scu0", "syscon", "simple-mf=
+d";=0A=
++                reg =3D <0 0x12c02000 0 0x1000>;=0A=
++                ranges =3D <0x0 0x0 0x12c02000 0x1000>;=0A=
++                #address-cells =3D <1>;=0A=
++                #size-cells =3D <1>;=0A=
++                #clock-cells =3D <1>;=0A=
++                #reset-cells =3D <1>;=0A=
++=0A=
++                memory-region =3D <&ssp_region_0>, <&ssp_region_1>,=0A=
++                                <&tsp_region>;=0A=
++                memory-region-names =3D "ssp-0", "ssp-1", "tsp";=0A=
++=0A=
++                silicon-id@0 {=0A=
++                    compatible =3D "aspeed,ast2700-silicon-id", "aspeed,si=
+licon-id";=0A=
++                    reg =3D <0x0 0x4>;=0A=
++                };=0A=
++=0A=
++                interrupt-controller@1b0 {=0A=
++                    compatible =3D "aspeed,ast2700-scu-ic0";=0A=
++                    reg =3D <0x1b0 0x4>;=0A=
++                    #interrupt-cells =3D <1>;=0A=
++                    interrupts-extended =3D <&intc0 97>;=0A=
++                    interrupt-controller;=0A=
++                };=0A=
++=0A=
++                interrupt-controller@1e0 {=0A=
++                    compatible =3D "aspeed,ast2700-scu-ic1";=0A=
++                    reg =3D <0x1e0 0x4>;=0A=
++                    #interrupt-cells =3D <1>;=0A=
++                    interrupts-extended =3D <&intc0 98>;=0A=
++                    interrupt-controller;=0A=
++                };=0A=
++=0A=
++                pinctrl@400 {=0A=
++                    compatible =3D "aspeed,ast2700-soc0-pinctrl";=0A=
++                    reg =3D <0x400 0x318>;=0A=
++                    emmc-state {=0A=
++                        function =3D "EMMC";=0A=
++                        groups =3D "EMMCG1";=0A=
++                    };=0A=
++                };=0A=
++            };=0A=
++        };=0A=
++    };=0A=
++=0A=
+ ...=0A=
+=0A=
+One additional question regarding the example: Since the AST2700 SCU0=0A=
+node is not significantly different from previous generations and the=0A=
+example mostly uses standard properties, do you think keeping this=0A=
+additional example is useful, or would you prefer to keep the binding=0A=
+minimal?=0A=
+=0A=
+Thanks=0A=
+Billy Tsai=0A=
 
