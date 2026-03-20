@@ -4,88 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 341311099B30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 363361099B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v0z5q5BkScD0Vv0DWxEkIMwRkHxRdQhd9pZjMXjr2l4=; b=L2rMXJKI6nM82eW9zx2GBaRks6
-	Wc6AoSc+XjC125xBBrmjDKXcQhtzugUdPRmW3hKo7dodY9DzowMCsENzFOOa9Tcm31CcZ93XV+Weq
-	8DEo/yEP7cv/smdt7K97CLazTibKvmTLbW46UNC/vJ98yDfSfmeoR4oKWfBKfzB1p4+axyWc4qZUF
-	oRBaDy7gKY423DDehxfXDEYJbvrYf9TUjlc7tR9ogGlXoDf8YEq5hg+zLgNFCQ1gnD4KutkWHylae
-	BF6GBsSqFqBERHUrWfjNyzhqPktIBcsmhFj2CzFFfDSu+94XX2d+IKvA11u68SF1BoPWb6NHOkfhb
-	DVvubJCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fQFYVJlRe1oBH7q6MuxKAf35Jb0tQ494FakvV5sn5wE=; b=hJaQcv7Pn94Eg3ncOQVlLctawM
+	h7faJLYjqIWEY9eGs4X0fodgDlmwXOZ0/2oXL4RFTkv32b5ykh2N2MzMVQgGqiScTCKFIWPfFXIN2
+	/toZEsPfmVqwfNkVL7XeO4wgyN22TjKVdHWKKMTlwTLAdjpMTt4B6EefaoEO2SYCJMFx5isp5lnoG
+	gMYqN1JQWI+CBDc621sgGYrs1v+gnfgmzJ8yeTQjkCC91YiPzXn42B/LXzLY/rrSQds9JYo1A5X6G
+	YxuXQ5u7ewzl0qh3sNDFL6/aoC9c5XkaaEX/l4NTORfJPf7cgeNcKb3Wdwakgnw3UKnK99q7BJyNN
+	ydJBC4hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3h51-0000000DaaD-3Hy2;
-	Fri, 20 Mar 2026 21:08:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3hBn-0000000Db1H-1b6S;
+	Fri, 20 Mar 2026 21:15:27 +0000
+Received: from mail-wr1-f51.google.com ([209.85.221.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3h4y-0000000DaZz-3jvg;
-	Fri, 20 Mar 2026 21:08:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BF0F760126;
-	Fri, 20 Mar 2026 21:08:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84E28C4CEF7;
-	Fri, 20 Mar 2026 21:08:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774040903;
-	bh=u0zdmPIhkicnjjaekGwGuaSnl24uNp/SD6pTY4tTyoI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qC8HBmDJbc3QTlANvhaLjcn0O5ay5GqzDEvYHXsOkZQejTAbOkx+bkEo+ki3/IcqS
-	 2zxeTAiPAA/ZnIrs1vWkKIH1qQM6hWWWHXeyTtkY/GTcJVwCwrNv3c5QnInC7yBUEZ
-	 Emq3X5gGUqXLf66MStAVqC5m2WCTfSbnlpAHXDlhTtb1Ap6h4AtLg1EuCVIYnM3U2k
-	 9XYMGV8lFcVQ3Ofo63x/aFk8UD8Gt0FgB8ThIniVMGJGtCnjMclwn9hpHtv2VORGXx
-	 vrpZQBmOIITR6wCUusRaEbZoc8REFtZupMT7Shny3yqCThx6DNBFOpK9/XXBVuE7o9
-	 ZHBuzLHK9WgAw==
-Date: Fri, 20 Mar 2026 14:08:12 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Bodo Stroesser <bostroesser@gmail.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH v3 15/16] mm: add mmap_action_map_kernel_pages[_full]()
-Message-ID: <20260320210812.GA3988975@ax162>
-References: <cover.1773944114.git.ljs@kernel.org>
- <54ff3670662e10a66ce0c1a13c0ae93b99a5f201.1773944114.git.ljs@kernel.org>
+	id 1w3hBg-0000000Db0G-3hp8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 21:15:22 +0000
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-439cd6b09f8so1799503f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 14:15:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774041318; x=1774646118; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fQFYVJlRe1oBH7q6MuxKAf35Jb0tQ494FakvV5sn5wE=;
+        b=GElmGJ982zxwPydBeg1wh5phwlkRPqvSdv0eD5WzFKpUUFWIlqnnsW0p7PkeFnzJ0a
+         UzyvivEY4ZeHojFiWVZjaq092gufcQW8eiePwB9XgzPF1qVX4S/MvYqcWjZevAfORx5N
+         sBSF4zhcJoQkbZNeKVRj6pq3/PkDYNHFy5tuOAvQzBjNdXG3lsOYoXF45YO8MkGsU2VI
+         IRdtf8i4ntaWUylco4UydrHEACRaWgj++kx5ZLf+tsjCLJ2uQRYezx3sOk+9RDHikOSu
+         A9fDkxyQP+wGpMjVZ5Kr7rpVsyDhBqWlcGdyU8Y/p8x8MMCY8s9Ckxt603Ni/0pYZe9t
+         gWGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774041318; x=1774646118;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=fQFYVJlRe1oBH7q6MuxKAf35Jb0tQ494FakvV5sn5wE=;
+        b=mv2Iut9E8+vdGDLdmYL/B2k7bfM+6MINnEGfFnQqmUe7dFSN6WEXQlrRjhnEGJKJ3L
+         EapQun2iU4FOofA7UrJRhfV5fdC6K4iSbTwPkMzeF2vlk0PFjMu05M6nzil7dFrfNaes
+         y2JEdWoQ9AEzQXMuczt1hZ7C0jKgM9VR+S8LEYNAee2FE9AvPFM1J4gb6Njk8nPOyhHj
+         t/nIfUgF4y6zn0FOH0d+fSk1B3YxoUo7Ge+JLrPaGe6lrzQJ0m+2syfqLvFHp1ToXlFp
+         EkeIUnycwf8aEK3L75aEJlSv8C1+1dWTvqczH4DNvpuUhT1nLdC+H2XXnPgZRodX9BhU
+         icuA==
+X-Forwarded-Encrypted: i=1; AJvYcCVo5cjr1ntML3YVBb7EpY+LEzDwFCtP7PyjsIW/ZhUT0qBrGHXB3OEkO5g2DOlT5DLY6D6DdvuZeGxJ18nlTPp5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJcVtCgDGp0dpkZbeFxEfit5JgqHiK/iHtr28DpcQ5i1DrKuRL
+	rY19f3fG6O+VfEAV5av8RBhgcXU+EU/GUVy9YJudlt11tCnlxLxnKie5R69bBnpTaUg=
+X-Gm-Gg: ATEYQzx2wXidomf8y+Ph5bhTBVu9UMFIrNvAzrRZC2TviHcBV9AA8iRsb0o5TnshHa4
+	Y4uqQXR5LvUCPUy7CQM5yHtzwvdPvHivgoGO0ZN7PqduMAV0Yh5eSu7Jn+hrhdTPut6utrUywLO
+	hfB5P72t7v0VHScgcmj3ioCoNt5OUD/V8McHpwxHmNinGfPJSAHH5giyFB/LzGKCuRl4qmgcEtG
+	+kooYLTPWQKatf660rAcOPEfQjJxAoV9wNIWw9DBYdoCBDf7k1zJCT0VlC8RlogROFz+A6NHxrv
+	0krI9d34HwkUvKGMGKYYXFSaO4pw3E67SKfyafb/zhyF6SmFyWr773WY3o6A441hEd9Y6vF1SWs
+	jOlLEwXloJBEttTYfT0/EYZn881yHnF793ynrNUFg+J4Yxcy08T4Y1PaYTzB+EOXAcCROVcGs0L
+	EDaVN0duUb9jsHm1YuJ4I5D5tkpSwXFxeb93y5ypv4ePmVqFpHcSI+v4hFWlWxhPktHqu6PfHBR
+	NSmo+DSi6SetPbpN6gQDAiG6Q==
+X-Received: by 2002:a05:6000:18a6:b0:439:bdba:56be with SMTP id ffacd0b85a97d-43b6424067dmr8157374f8f.10.1774041318039;
+        Fri, 20 Mar 2026 14:15:18 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.193.72])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b64703c27sm9702401f8f.18.2026.03.20.14.15.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Mar 2026 14:15:17 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Date: Fri, 20 Mar 2026 21:15:13 +0000
+Subject: [PATCH 1/5] dt-bindings: clock: exynos850: Add APM_AP MAILBOX
+ clock
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <54ff3670662e10a66ce0c1a13c0ae93b99a5f201.1773944114.git.ljs@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260320-exynos850-ap2apm-mailbox-v1-1-983eb3f296fc@linaro.org>
+References: <20260320-exynos850-ap2apm-mailbox-v1-0-983eb3f296fc@linaro.org>
+In-Reply-To: <20260320-exynos850-ap2apm-mailbox-v1-0-983eb3f296fc@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Alexey Klimov <alexey.klimov@linaro.org>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_141520_945747_7E3E5834 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,92 +113,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+Add a constant for APM-to-AP mailbox clock. This clock is needed
+to access this mailbox registers.
 
-On Thu, Mar 19, 2026 at 06:23:39PM +0000, Lorenzo Stoakes (Oracle) wrote:
-> A user can invoke mmap_action_map_kernel_pages() to specify that the
-> mapping should map kernel pages starting from desc->start of a specified
-> number of pages specified in an array.
-> 
-> In order to implement this, adjust mmap_action_prepare() to be able to
-> return an error code, as it makes sense to assert that the specified
-> parameters are valid as quickly as possible as well as updating the VMA
-> flags to include VMA_MIXEDMAP_BIT as necessary.
-> 
-> This provides an mmap_prepare equivalent of vm_insert_pages().  We
-> additionally update the existing vm_insert_pages() code to use
-> range_in_vma() and add a new range_in_vma_desc() helper function for the
-> mmap_prepare case, sharing the code between the two in range_is_subset().
-> 
-> We add both mmap_action_map_kernel_pages() and
-> mmap_action_map_kernel_pages_full() to allow for both partial and full VMA
-> mappings.
-> 
-> We update the documentation to reflect the new features.
-> 
-> Finally, we update the VMA tests accordingly to reflect the changes.
-> 
-> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-...
-> diff --git a/mm/util.c b/mm/util.c
-> index 8cf59267a9ac..682d0d24e1c6 100644
-> --- a/mm/util.c
-> +++ b/mm/util.c
-> @@ -1446,6 +1446,8 @@ int mmap_action_prepare(struct vm_area_desc *desc)
->  		return io_remap_pfn_range_prepare(desc);
->  	case MMAP_SIMPLE_IO_REMAP:
->  		return simple_ioremap_prepare(desc);
-> +	case MMAP_MAP_KERNEL_PAGES:
-> +		return map_kernel_pages_prepare(desc);
->  	}
->  
->  	WARN_ON_ONCE(1);
-> @@ -1476,6 +1478,9 @@ int mmap_action_complete(struct vm_area_struct *vma,
->  	case MMAP_REMAP_PFN:
->  		err = remap_pfn_range_complete(vma, action);
->  		break;
-> +	case MMAP_MAP_KERNEL_PAGES:
-> +		err = map_kernel_pages_complete(vma, action);
-> +		break;
->  	case MMAP_IO_REMAP_PFN:
->  	case MMAP_SIMPLE_IO_REMAP:
->  		/* Should have been delegated. */
-> @@ -1497,6 +1502,7 @@ int mmap_action_prepare(struct vm_area_desc *desc)
->  	case MMAP_REMAP_PFN:
->  	case MMAP_IO_REMAP_PFN:
->  	case MMAP_SIMPLE_IO_REMAP:
-> +	case MMAP_MAP_KERNEL_PAGES:
->  		WARN_ON_ONCE(1); /* nommu cannot handle these. */
->  		break;
->  	}
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+ include/dt-bindings/clock/exynos850.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-Not sure if it has been reported/addressed yet but it looks like
-mmap_action_complete() was missed here, as pointed out by clang:
-
-  $ make -skj"$(nproc)" ARCH=arm LLVM=1 mrproper allnoconfig mm/util.o
-  mm/util.c:1520:10: warning: enumeration value 'MMAP_MAP_KERNEL_PAGES' not handled in switch [-Wswitch]
-   1520 |         switch (action->type) {
-        |                 ^~~~~~~~~~~~
-
-I assume
-
-diff --git a/mm/util.c b/mm/util.c
-index 682d0d24e1c6..c41c119a5a74 100644
---- a/mm/util.c
-+++ b/mm/util.c
-@@ -1523,6 +1523,7 @@ int mmap_action_complete(struct vm_area_struct *vma,
- 	case MMAP_REMAP_PFN:
- 	case MMAP_IO_REMAP_PFN:
- 	case MMAP_SIMPLE_IO_REMAP:
-+	case MMAP_MAP_KERNEL_PAGES:
- 		WARN_ON_ONCE(1); /* nommu cannot handle this. */
+diff --git a/include/dt-bindings/clock/exynos850.h b/include/dt-bindings/clock/exynos850.h
+index 80dacda57229..95285589615a 100644
+--- a/include/dt-bindings/clock/exynos850.h
++++ b/include/dt-bindings/clock/exynos850.h
+@@ -126,6 +126,7 @@
+ #define CLK_GOUT_GPIO_ALIVE_PCLK	22
+ #define CLK_GOUT_PMU_ALIVE_PCLK		23
+ #define CLK_GOUT_SYSREG_APM_PCLK	24
++#define CLK_GOUT_MAILBOX_APM_AP_PCLK	25
  
- 		err = -EINVAL;
---
+ /* CMU_AUD */
+ #define CLK_DOUT_AUD_AUDIF		1
 
-should be the fix?
+-- 
+2.51.0
 
-Cheers,
-Nathan
 
