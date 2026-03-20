@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8081093178
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 05:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B9B109317A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 06:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/77siN4XvlP7psojX88EZkW/Muy1TQhKbaSr1khUiHU=; b=NdYtfX2OxRmx6UulhrLATwja6L
-	Q6+EwXkffeOpjuiM1GWxIYrl24OHrwglrnX6w3UuqtN3QmznJ5mMGJZRG29hScNiaosfuWv+luYGz
-	iVFD1RGNmBw1psVSRyDtc6nzEH8W2pcbh+ODreTKjP6eELSJG4fv90EGkwIVdncH6OWCYCriw+rsX
-	O+jwBIyltOfp+T2A8ll/Z6OGE9T59MyQ63eBwUZw4GU/SqtU4OvfW/p6uIjaYYC2UmQbpHuUV+yp+
-	GyR8pw9LqgAa2EpLQAEjrP8TJyvjq8dhZ96fMHq6KwOlkJOR4uhkkWkld3wRNxw+hAjlAxjwsyULV
-	LG2c8H8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PYvG3A9bhcpcCBRSGioZeJBjwhbqKSxm5F0PwaNR9Wc=; b=BFDOMR02J3j8JWiMal/nvGgJ6K
+	qPvj//hQCpKvTiX2JuE80sXK9iOyYdw7g/ZmSm7hSy6yVEqvUFicEQ8XSp72OczaKZdtxRUDRcKbi
+	IPPv3ukiwFU5GjcpugJ+in8iVP2lSgzZ94Z3JaGziROBmLNLh9A+R/DVeY+hkpGMj/ZPTNgtMIzIt
+	XNgSSQWcL/3HbhWQJmx68SH4TDo01C5LEar2ujQZYW3x+wX7JRFuUehhmizyfjXYgCr3aPNTJm5UH
+	l+uR+Vk8y9zlq4mNZxotvqAlWCvQt6CIhKnXWjQVPWrIrh9CDvBK0QjmMFwCVFqm7KMjQ0tp6t9XP
+	PZl7nzBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ShX-0000000C77p-1oQC;
-	Fri, 20 Mar 2026 05:47:15 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1w3Stm-0000000C7iD-436Q;
+	Fri, 20 Mar 2026 05:59:54 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ShJ-0000000C6zr-30G1
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 05:47:02 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 20 Mar
- 2026 13:46:40 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 20 Mar 2026 13:46:40 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Fri, 20 Mar 2026 13:46:38 +0800
-Subject: [PATCH v3 4/4] iio: adc: aspeed: Reserve battery sensing channel
- for on-demand use
+	id 1w3Stk-0000000C7gX-04bd;
+	Fri, 20 Mar 2026 05:59:53 +0000
+X-UUID: 007f79fa242211f1a6de359d7043e138-20260319
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PYvG3A9bhcpcCBRSGioZeJBjwhbqKSxm5F0PwaNR9Wc=;
+	b=Qu18c3p50oU8iJ2uh0BSGXe1SmzE7ltaX6kSw9++82kMUaxpEPaYIHt4G5XuEn9jQgXkAv/ygpaXrsfva7GoSc0JuFzLKi984FoL7O3DZf5ens9RzOTsvI9i/aFYJ1VmqrKusclNQXZ07k9BPJ2ODWYWbgYtWL/h00Po/JFbss4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:e3a37cdd-715f-4957-b868-c0dd1a2c8a2b,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:bfd1efd4-060f-4ecc-9ee0-121eeeb4a682,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 007f79fa242211f1a6de359d7043e138-20260319
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1929085951; Thu, 19 Mar 2026 22:59:48 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 20 Mar 2026 13:59:45 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 20 Mar 2026 13:59:44 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
+ Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
+	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Subject: [PATCH v8 1/9] dt-bindings: media: mediatek: decoder: Add MT8189 mediatek,vcodec-decoder
+Date: Fri, 20 Mar 2026 13:59:32 +0800
+Message-ID: <20260320055940.15961-2-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20260320055940.15961-1-kyrie.wu@mediatek.com>
+References: <20260320055940.15961-1-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260320-adc-v3-4-bc0eac04ef7c@aspeedtech.com>
-References: <20260320-adc-v3-0-bc0eac04ef7c@aspeedtech.com>
-In-Reply-To: <20260320-adc-v3-0-bc0eac04ef7c@aspeedtech.com>
-To: Jonathan Cameron <jic23@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>
-CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<morris_mao@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1773985600; l=3092;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=/PC/NyBFthLGN9cW7uymrG04TM1B2jgffJp1BtJPzvk=;
- b=RB0NDy13+uaIk/DhgVlJNMyfDOujB1yWJsODg/DzzJixBX0EPQO4bj3PrRMZ6FyO9JwEA9sjk
- oZj077hCYySDDdpXtifv5kTKDBB2UvkJ3EWbmhtBLqw2kADoQ7YRzNB
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_224701_765579_7C30CE42 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260319_225952_071465_B856AA9B 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,83 +96,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For controllers with battery sensing capability (AST2600/AST2700), the
-last channel uses a different circuit design optimized for battery
-voltage measurement. This channel should not be enabled by default
-along with other channels to avoid potential interference and power
-efficiency issues.
-This ensures optimal power efficiency for normal ADC operations while
-maintaining full functionality when battery sensing is needed.
+Add compatible for video decoder on MT8189 platform. Compared with
+former ICs, the MT8189 decoder use iommu to instead of smmu, and
+use scp architecture, the frequency is only 406MHZ, and cannot reach
+more than 700MHZ. It uses only one clock. At the same time, the decoder
+supports the vp9 decoding protocol for the first time in single IC.
 
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- drivers/iio/adc/aspeed_adc.c | 34 +++++++++++++++++++++++++++++-----
- 1 file changed, 29 insertions(+), 5 deletions(-)
+ .../bindings/media/mediatek,vcodec-subdev-decoder.yaml       | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
-index a1a6296d3003..b3dee172adbf 100644
---- a/drivers/iio/adc/aspeed_adc.c
-+++ b/drivers/iio/adc/aspeed_adc.c
-@@ -138,6 +138,13 @@ static inline u32 aspeed_adc_channels_mask(unsigned int num_channels)
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+index 74e1d88d3056..ee2bbbdb2d50 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+@@ -75,6 +75,7 @@ properties:
+       - mediatek,mt8192-vcodec-dec
+       - mediatek,mt8186-vcodec-dec
+       - mediatek,mt8188-vcodec-dec
++      - mediatek,mt8189-vcodec-dec
+       - mediatek,mt8195-vcodec-dec
+       - mediatek,mt8196-vcodec-dec
  
- static inline unsigned int aspeed_adc_get_active_channels(const struct aspeed_adc_data *data)
- {
-+	/*
-+	 * For controllers with battery sensing capability, the last channel
-+	 * is reserved for battery sensing and should not be included in
-+	 * normal channel operations.
-+	 */
-+	if (data->model_data->bat_sense_sup)
-+		return data->model_data->num_channels - 1;
- 	return data->model_data->num_channels;
- }
+@@ -132,11 +133,11 @@ patternProperties:
+           Refer to bindings/iommu/mediatek,iommu.yaml.
  
-@@ -305,9 +312,26 @@ static int aspeed_adc_read_raw(struct iio_dev *indio_dev,
+       clocks:
+-        minItems: 4
++        minItems: 1
+         maxItems: 5
  
- 	switch (mask) {
- 	case IIO_CHAN_INFO_RAW:
-+		adc_engine_control_reg_val = readl(data->base + ASPEED_REG_ENGINE_CONTROL);
-+		/*
-+		 * For battery sensing capable controllers, we need to enable
-+		 * the specific channel before reading. This is required because
-+		 * the battery channel may not be enabled by default.
-+		 */
-+		if (data->model_data->bat_sense_sup &&
-+		    chan->channel == ASPEED_ADC_BATTERY_CHANNEL) {
-+			u32 ctrl_reg = adc_engine_control_reg_val & ~ASPEED_ADC_CTRL_CHANNEL;
-+
-+			ctrl_reg |= ASPEED_ADC_CTRL_CHANNEL_ENABLE(chan->channel);
-+			writel(ctrl_reg, data->base + ASPEED_REG_ENGINE_CONTROL);
-+			/*
-+			 * After enable a new channel need to wait some time for ADC stable
-+			 * Experiment result is 1ms.
-+			 */
-+			fsleep(1000);
-+		}
-+
- 		if (data->battery_sensing && chan->channel == ASPEED_ADC_BATTERY_CHANNEL) {
--			adc_engine_control_reg_val =
--				readl(data->base + ASPEED_REG_ENGINE_CONTROL);
- 			writel(adc_engine_control_reg_val |
- 				       FIELD_PREP(ASPEED_ADC_CH7_MODE,
- 						  ASPEED_ADC_CH7_BAT) |
-@@ -321,11 +345,11 @@ static int aspeed_adc_read_raw(struct iio_dev *indio_dev,
- 			*val = readw(data->base + chan->address);
- 			*val = (*val * data->battery_mode_gain.mult) /
- 			       data->battery_mode_gain.div;
--			/* Restore control register value */
--			writel(adc_engine_control_reg_val,
--			       data->base + ASPEED_REG_ENGINE_CONTROL);
- 		} else
- 			*val = readw(data->base + chan->address);
-+		/* Restore control register value */
-+		writel(adc_engine_control_reg_val,
-+				data->base + ASPEED_REG_ENGINE_CONTROL);
- 		return IIO_VAL_INT;
+       clock-names:
+-        minItems: 4
++        minItems: 1
+         maxItems: 5
  
- 	case IIO_CHAN_INFO_OFFSET:
-
+       assigned-clocks:
 -- 
-2.34.1
+2.45.2
 
 
