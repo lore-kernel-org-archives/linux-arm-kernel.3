@@ -4,106 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A91108B8E1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EA1108B8E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WGLNtDekxRKXdox7mzxK6y/EsZgDuny9HQCCHc8BUNw=; b=4ootOTPWHnCwTduN/+cqm9//6z
-	1eoRQRe61IqBntgsvfjBpysfd866pyUXz2/NG1UyzMwvMjpOv3G2+98phtc7j060Jq+7c2Qb0hMnC
-	2fwDxGQu9j1w5fNo2HKO+FisbzmVjga7hfcezdFERac5Ck+7Kvw+UivZRvz5Oh6Ewu46IofYjQjyH
-	yW+OizFr7xaejiSkwVmkpNhAoFT/X4sJdNVVIS7beVV6yV3c33+IjqWsIN7r+zBEF9wopBPLrVTDH
-	QnmY2smQdYXvpgcm0lTZsg2eY0K4sYW5EK4xsHftyKQF2ym59leb67SmVEw75qM25TJ/HPxMFeIs8
-	CYIa9wrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iy63dmoltGmUwNx2nY0NtZLZomMmc30YoMrmVvfdb00=; b=b/A14cpS+imvM2v/Gg29cmviJk
+	J/X5ePjSK3xEBwjlPkLk+/0pELhxJat9OH/Edj4HQg+RIsVSpl3rDeDO+8qKo1QCO/o1uecKfPArm
+	zk1OISNHIM6fgRPzqVQFMNqyqfYH7jy3PzUBtum+9Z6OkueSEGH7Xsmp+4/9fyVOcJyrdr0JRMT/U
+	0m7EXeGjuTz4KkLeW4PWogCHoC/xRtXuJ5E7ZHYIQQT+aVQGo2iDc//g812WTxKHnJyuHBx7C5/RX
+	tYVZakCvJI+8D384JY54eo5ObmHVj6+dHDr6gBajVuJMpl3hO0Xh5WhTOf6RbtpSem4Omu+FoHPRX
+	rz9taq3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WOE-0000000CVZJ-1iSh;
-	Fri, 20 Mar 2026 09:43:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3WOj-0000000CVie-3BJK;
+	Fri, 20 Mar 2026 09:44:05 +0000
+Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WOB-0000000CVX9-0qm6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 09:43:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=WGLNtDekxRKXdox7mzxK6y/EsZgDuny9HQCCHc8BUNw=; b=WusF8axAt5mFzrXG8jiFWI/wYr
-	dB6HqcXS55dvrB3fmKqugTOabUgIurJpb9mfor4irdPid9xc1C4Jo2D0g9a7fNpDK+3qu57MUpuRb
-	B/8kW1BDmgDIGxYeS/KBG1rkLr7jBKm2sxliLhd1wvs86Yz1MoiPW7fjp2UGnXV3J90Lwa+XaKKgp
-	Nx166Tp/hJMq/int+XXGUETTmXiEitcAP7oRzJBXzIKGQ4bjldON5VLFUa/0DQ5hs5W1hQwbRhYqP
-	zCkxm+jUDGk725G0xCJKoTBEj3VY8Fj0EI5Qy2+Av2LYzV7ziMQuV6gl/9VGPZ6ozxyp2PQrWCy3f
-	AMGB84nQ==;
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3WO7-0000000FFpl-1mXz
+	id 1w3WOg-0000000CVh8-44MA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 09:43:29 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4870206f73bso950885e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 02:43:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773999806; x=1774604606; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WGLNtDekxRKXdox7mzxK6y/EsZgDuny9HQCCHc8BUNw=;
-        b=mA1tWNhlIg0gYyE5bk11WlZeAp6oa6lPuWoL9s2kPHS2BRzN4X04EUqf/AYXgA+dJJ
-         nYgws9crrCiLASaBTJI9XIGt7RVMw5Hp4VhR32h4xvzQ8QuPkwfEcYa/hpZsmNrMOqm/
-         Sigkd1jMrrE/Txj57/c3W0m5hlJcNSFZPw45yt6piqBWAskO8r4CRageZRAY6RUsKw3J
-         pVy2JzzKPlRO+AjlFzkSpEFKOzHionyKs9HLQtppPBrcgKcGs37DZ0Z620w/ojC1qGQn
-         aPq7xzI6HU/q3sVrsZse0YJUiozwrfn4LLUEUoVJcV1lesFNnkiMWnpsqqVJ1ZKg3Fh3
-         QdyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773999806; x=1774604606;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WGLNtDekxRKXdox7mzxK6y/EsZgDuny9HQCCHc8BUNw=;
-        b=TBZfvHqYAKYPyYYSbq4edRcf2L0G3AbRAZ8FXLQbBWm/pk3eTiS89sUG9vxrtzes/P
-         MUCgKfRpregCcjpM3CtsCIZ2pNrmZEpnNL7TBris0O9mVJowQQQANBqGDA/IqwuV6vb+
-         mt55fTm5Lxu5OehJx3ZFncC3OO91zYXZYinekNDQH92nbyEy3qEe11Dr4c0ac973386O
-         XyAXfh2TRs+NngU1p7bnYMELLUJ9ObpcEVDaSXJk7qVgYIpNgBdwIRAZkmOMhk28dFXV
-         bRK0Xx8qy1X0LDABbOJ+KW2DmpCi4T2mvv13VlA46hS+0BW+D54PCFKmtAa9+BAf+XAm
-         2J8g==
-X-Forwarded-Encrypted: i=1; AJvYcCX1SvSg6Mkwh5mv4U+oWNiWt0XqLvFVdQnMOw6QVkruHGuAoGtTjD4On9oqHy86+5xi1AQSjnJXCUv5fSuMLy3+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPSbWplxTZ72wmZfqybfBJtd1DJorE7xzQvTUsaj0hCnqVEApv
-	r23+C2CQ1WN6W0fVRwULPIT1+BVt6UHw3QKbJMogG29yobHWjp8iSvhsgkzAsAEkmfA=
-X-Gm-Gg: ATEYQzxf+ZIuv/m2c0tPGSfgWLK0kAaew0IpTbsbSX8Fz0BY76HGrItUUbhxffknBGZ
-	jZFnIXLlY9lI7Z+ojZGRzgjBEr3StHgya5YJ9gVLFHsnmc5UKyW+37J+2qAeADX9GODVHa1xzzX
-	1otNJfTro1k0PXjz4mtfMt/ufqTCvpyIuvJN9nYi7BaROkdDn8+iPbrp/KD7Y1gBU4ztyvfYprw
-	8mPM5vRXBrCM8PNwMO8oNhfbQzOFrMTvhy+l3Pe4OYiuNz5si1l8lKQNnyn4wDJIMiqCkC3Xi3F
-	hcvtymGjX42HTu6YBtBbhCdwHt0Jn5sX7I2Qf5MP0nS3LGpoiQuIDZgyIQz4bXZS1slcl5dl4w7
-	bHhgE9UMI3ZfFxQ4xd0FQtytXrOcFnRKbgjJPIRyz5+E643oBUYjev+oleYX0K8lBL3xjU5IUr2
-	4WH7aUfW3nq03R0lzERQUftMUKE12Tixim5wXMyg==
-X-Received: by 2002:a05:600c:1c0a:b0:486:fbc8:8dee with SMTP id 5b1f17b1804b1-486fee2dc56mr30563635e9.33.1773999805228;
-        Fri, 20 Mar 2026 02:43:25 -0700 (PDT)
-Received: from debian.levillagebyca.com ([213.152.28.84])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486fd9845a2sm114372145e9.6.2026.03.20.02.43.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 02:43:24 -0700 (PDT)
-From: MidG971 <midgy971@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: heiko@sntech.de,
-	shawn.lin@rock-chips.com,
-	jonas@kwiboo.se,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Midgy BALON <midgy971@gmail.com>
-Subject: [PATCH v5] arm64: dts: rockchip: rock-3b: Model PI6C20100 as
- gated-fixed-clock
-Date: Fri, 20 Mar 2026 10:44:41 +0100
-Message-Id: <20260320094441.128263-1-midgy971@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <2053182.usQuhbGJ8B@phil>
-References: <2053182.usQuhbGJ8B@phil>
+	Fri, 20 Mar 2026 09:44:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JI4bVDxe4pD5BMhQzQJqXH5QS9MfeKdF8ppJ/GNso64/G5wC+WSj19FpQOofyuPt2oXQxphYVYGNgxDpT8nM2yiGkyQZZkFFasMyJCgdlyplO14guf7D2GdD2GO8KyajUlSBK36GTfWbG2gw1EpPodP5KltLlAjuLcdFd42UmTyXOMw6VyDsffh3qEmuLT9BxXSjkFwHYl0z0ojRTxO45Ilk13vtC/x/RC81UXB9nn6mndOEWdq18Us0yrHtEzgKfXM1Xg1xCF/+zuq3WgrT4dZr6DA66hd+zU6ij9jdUpkp1M9QH/5Gt78naV3+cfjIpBB2KWh/bHtvW3eesQ0Xkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Iy63dmoltGmUwNx2nY0NtZLZomMmc30YoMrmVvfdb00=;
+ b=MlvTSGQNP/ZVG/dSWddZEewwe9eHlBlWFCBikzuQ5tlyC+g0EAibnw7Bk7q/BZ+M1UN9b9ILYT+uq3xJDQ2hHPPGOkIhl1MG9e9K9z03LkvYLEOoCtSLzKhCquE9hewM3FKFvDFaV1lWe/9XmMjrupQC3Wr60aPq+wJg3kdboFX4zfJD2wrqstffT+2PLJ3xRd6/707JuGtzrSaZ275NEkDGCYazTW8eO2iDZnQ3re7Q6ne88hoxuMi/LPNqmaeR1E5IJ8qB5H29AGy/UQXphq2JUSMk6obvSxQasqIqqWHr/VHPGJSueP3V9ylcPXQs6YeUFo2FQNeKbguoo+7HTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Iy63dmoltGmUwNx2nY0NtZLZomMmc30YoMrmVvfdb00=;
+ b=CtAW1rrpTh6VMhLRgL9ub9Lc5AKD7gk3Vgume3rxFlGzGBUAmCQD6iyiIIZaVZGLWnpViqLlHsXiV39gQ7Amh+jwakw0tjziwdDsCluz40IMtqCfcFNVkxqaVF3nLdDpcS7FhUb/1y6wEokLD5i2H6PwlnbcN7nUwHv+7C/TiRddCGp4335/UN0v9CTpxEsVqm1W6EtMutUYdktmyTu7tN8WqYliE5PPc64dw7mAYMDdjiL4Ut7d74IKUHSkNcKXLHgvOjFWxF6hOBhFHRo5n/Xh8BlW3LXlaj76GP0nuFn2xr2ijmSDNPS1VKQxANWhiai3I7QEC/IcR5q3wb4nCg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by DB8PR04MB6827.eurprd04.prod.outlook.com (2603:10a6:10:f8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.22; Fri, 20 Mar
+ 2026 09:43:46 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.018; Fri, 20 Mar 2026
+ 09:43:55 +0000
+Message-ID: <3e1a3f07-8c0c-4757-afd2-b9e6574a6274@oss.nxp.com>
+Date: Fri, 20 Mar 2026 11:46:53 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: imx-rproc: Introduce
+ fsl,reset-vector-mask
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
+ <20260312-imx943-rproc-v1-1-3e66596592a8@nxp.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260312-imx943-rproc-v1-1-3e66596592a8@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0013.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c8::6) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|DB8PR04MB6827:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3e90384-bbc7-49d4-7510-08de86653385
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|366016|921020|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: OkUs+KqbDKsFFV5pjDiudbvE/aTQMoQMioJUEPveN5rvr/v7RKyD0ixuX/YavnwGsXFfvfmv5HJCmRl/cLZEidfldg+1CWfnzhb85QyXc9UlCRZcDlh31CUVm/eKoxhgEhVkbPj5bjdII8w+SVkKxqGIcOQVojjMBVW0dLte9ZZxGW9Jx9/dN93dbNcZ3aEkARrXIE5CMytR2DbO1mUtU+sCUQ8PlUjugtUhVAkb+5JwKLg0wNRuoKa5Fd4T8gsRwxd1LcB5tSPxiAGtD6zSe8xHotIb6NpNfBU1z/FtuXTJl8szZBLwRHqSvBlMmcGlqmWQ0GPgYkOdcafVwZAJMYGInCfNBEiXOezJ9/VW4T/8Eo+L23LBUDJucSL105+N/GuagGuPxeF/Jq0Rcbeitm48/5/jiT5c897v26ClzQM4iFrO83NtqtQjpJcgRIhCocrmw8XXTPf2+TDOg7ENf9D8Y1ZNn9Q9zMwPRHddNrA9mNrVZ0Ym8B7/ZWAvElnIEvqSApSSPH6osX5TPnOC7+ORr7kLcmKYsONpscw/MnIQjCeNXxoE+huycZn1fJQiPmTkkrViejSlvgojypjkkkinZWlBK2mHL+3YhJFo7xCfRAE3FpeSEeTyK8qIVpi7qbKW+oRSTu3va7Xe+3GG62eYlksKmhuphcfLKfAbcs9vHy60+2y7KnyAxyFTwiEiYANui5mW2zZVRGDJ8YDgeajHhZvM4yq90zgJhh/SZ03pvJe6QAKaS6SA33bTuqbAzLpvrsMNwXs/zGdxkShnSw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(366016)(921020)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cTI4TS94bzRoU0xHcVEwSjRDNkd3Myt4N3RpKzhVajc2MFhkY2hCYlZwRWw3?=
+ =?utf-8?B?T2xxWndHbHpiMDlVS05CUW9jOStsYVU3eFRjeEkzcU5DTVNJK21ZSGl0bzBV?=
+ =?utf-8?B?R2gvVWRzRGxYbFFxSE1PWFBsTTVyeFNuQ2lJUm92dEJsSGtJdWQ0TEUxRWZ6?=
+ =?utf-8?B?V1NuVFBEd1E1MW12QVVrd3NncXYrR292bjFicW1aZFhUTFgvVzBObHp4WEVz?=
+ =?utf-8?B?WlY2UU5TRGJRSVVnOFFCdVcyYXU2dEtwUVJYRnNVNzN3Qnl0NTFxanBybmFl?=
+ =?utf-8?B?dDZzRk5qUjdZeUJ6bzVvREU5TVJaNDNQRXc2NUVDSmJTZFErd2hUV1huVS9C?=
+ =?utf-8?B?Z21HOXRCRHd0eG53WlFaelRzdC9ZWG94RXN2ZFZCdElicEEySnRHUWZ0N21M?=
+ =?utf-8?B?aENaQmVGbHBtdmhVQ01KMHdTUmk0L0c5dDBmVFZpdGlNSXNGTDVKRitEbDZY?=
+ =?utf-8?B?Tnd4ZENndlVmb08xQlF6dms1TGxyQXNTYzkzZGwva1MxNEVZenhxcEhRb2xD?=
+ =?utf-8?B?SHNPTXNtdU5zNWVCNDk2UUZaSnl0T0NGSVBJcW1KcDVFRzF0eUtURDZQQnBI?=
+ =?utf-8?B?SU5jMVppNzh0TXFITWNrbWtqMkExMWd4Y2x5cWN4RGFCazR0ak1hdDJBbk11?=
+ =?utf-8?B?MlF4dFNyS2lVZU1BbWxoQ0IyNTFEQUZUUTBudzUwZnMxR1dEMWlFWVNJbTdX?=
+ =?utf-8?B?cnVtRnYzeDdTeHpDdThVMnY3K0ZjOVJFQ2d5Zzk2L0o3a3JnUGUraE1OQXhR?=
+ =?utf-8?B?TnAzMDJmK05kR1RSRnpBUDhKTVdwcktjVUEwRHNJMVJDdC84VGFlUUwvSk53?=
+ =?utf-8?B?L3h5cTIybTY4dzVxdVFBVi9zZ3FrbFNkdUg3TWV5NDdROGU5RVQ1Q1lHWXU4?=
+ =?utf-8?B?UVd0SWVyVFFPMXhnZFlNY1JiOTdGSUJrUC9nYTZPY3c5UjU0RWIxdnc0T0Jl?=
+ =?utf-8?B?WXpRUG13NHI2dUo0TE5paEd1MkhDTEdjd1RzMFM2empNWmU2eGhmZE9VTE94?=
+ =?utf-8?B?c1MrcVdDT29LNkc1SWh2Y2dDSW5SY3ppdEMzSHlyd2g1aGE1VkJhbkQ4ZGc2?=
+ =?utf-8?B?N3BOdDAvNFhIbWhBcnJWSnlZOTVkb2c2aENMc1pueTUwcklGa2F0bFhHMlFS?=
+ =?utf-8?B?djNSK3E1VkczSXdyRzM2bHpOcEN5STJGVHJyUjByeVRYNFRFVXJhYVFRVGE0?=
+ =?utf-8?B?eEl2akNYcW1ZelkxTVhPNnpNbnNlUGJhM0xycTNxajBieGRZbm5KMnM0K1pj?=
+ =?utf-8?B?VkhjT0NtdmhaNzZYWU5EWFkvdEZNdHV4MnhKNkJXSkllOVdLV3NwekdhbWlJ?=
+ =?utf-8?B?VkkreXRmUVovQWpCRkFtOVBXdFZ5SjhlZVBFdTJmOU45UHlWSmlGK1djNmgv?=
+ =?utf-8?B?c2o4dmg0ektQblpWRGptT09RUE81aGhmRjlBQU9xVTF1UzM1SGhIaE5ZUFRU?=
+ =?utf-8?B?ekFYT0xLTm9NMWVTTnd2Yld6elMrcTRkSlBUSStnVXVMaURHODlwL3NsakFq?=
+ =?utf-8?B?ZzBQVVJFcVVIMVZGSzk5Uk5mcVJMSjl2eHR3ZVk4ZStYeHd5d3hWb1kzNFVa?=
+ =?utf-8?B?elJtREFoY0xheEUrOG9jNmh0RmRoc1RlcDQzYnJlZjlEL3pWVW4rbm5HSjJy?=
+ =?utf-8?B?Q2cyT1hhUHRJbHgyMzJyN3hnN2dVa250LzJlREp0azRISGNCOHBUdVNPcjg5?=
+ =?utf-8?B?NnBWMVFGQVU3Vk44NWczL0Q0K0xUU2Z4SE1tMW5CRW0yU25DSVdXVzlzemVp?=
+ =?utf-8?B?VUx5bURFVDE2aHJKT1RNNWZUVm4rQVBtQVowajJLdGovUENjZ2JKTmdqZUZF?=
+ =?utf-8?B?OWp0TGtBaDM2WFM1ZklXR044em5UVjNVQStGS3hDbHlwek1tYURqRk5veG4x?=
+ =?utf-8?B?ZnhJNTdNdXFnZllCbjdta1RXbGpySDJreEpXNVVVS3cwUzExdjlDTUM1UzlW?=
+ =?utf-8?B?VmJqY0FrQVJWUjNaUHV2M3ZuZnpQbFVOU3QwQjZYYWtYK0lPaWlKYWtleFpv?=
+ =?utf-8?B?Y2VqNmh1Nk9yRk9tb0ZLYVNjZkVIeUdvMjZBOTl1a3NyWXFnZndwbjFubnpQ?=
+ =?utf-8?B?TitUMVVHdTMva2tWRzc5VC9wMmVDREVwY0tudGJLWS96YkJxR0FLNGJCU2Iz?=
+ =?utf-8?B?QjVjRlBQMW9OVnRNMnppTHZuQzVTcmZQNkFGNzlwOVFqWWxvelU1RWJmdFJW?=
+ =?utf-8?B?YnhpT1p0OTRXMG1YWnkzanlZcitSUW83YzNIRjQxNld2azUrSG1UaUk0bm43?=
+ =?utf-8?B?Uk5hb1Y0NEVQRjBmTWNEUmFPcGpJZklQSXFJK2V0TDdNMzc0OEJCRWdnVTJt?=
+ =?utf-8?B?ckpqY2x1T2xLaEdmamVOQXdRcmQySmpsK2JOWkIrZzc3bjlHRHVjZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3e90384-bbc7-49d4-7510-08de86653385
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 09:43:54.9890
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3bHqDE/7PM5JwrSfIIUX20jUaTZr0wkuz8Xznj7uzAaSBinaqC6bAqCPkqYSJNS5b/fJKPGXu6Aqo80N+WQF+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6827
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_094327_829196_26310959 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260320_024403_011681_74F3A7E3 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,100 +158,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Midgy BALON <midgy971@gmail.com>=0D
+On 3/12/26 14:36, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Cortex-M[7,33] processors use a fixed reset vector table format:
+>
+>   0x00  Initial SP value
+>   0x04  Reset vector
+>   0x08  NMI
+>   0x0C  ...
+>   ...
+>   IRQ[n]
+>
+> In ELF images, the corresponding layout is:
+>
+> reset_vectors:  --> hardware reset address
+>         .word __stack_end__
+>         .word Reset_Handler
+>         .word NMI_Handler
+>         .word HardFault_Handler
+>         ...
+>         .word UART_IRQHandler
+>         .word SPI_IRQHandler
+>         ...
+>
+> Reset_Handler:  --> ELF entry point address
+>         ...
+>
+> The hardware fetches the first two words from reset_vectors and populates
+> SP with __stack_end__ and PC with Reset_Handler. Execution proceeds from
+> Reset_Handler.
+>
+> However, the ELF entry point does not always match the hardware reset
+> address. For example, on i.MX94 CM33S:
+>
+>   ELF entry point:           0x0ffc211d
+>   CM33S hardware reset base: 0x0ffc0000
+>
+> To derive the correct hardware reset address, the unused lower bits must
+> be masked off. The boot code should apply a SoC‑specific mask before
+> programming the reset address registers, e.g.:
+>
+>   reset_address = entry & reset-vector-mask
 
-The Radxa ROCK 3B uses a PI6C20100 PCIe reference clock buffer to=0D
-provide a 100MHz reference clock to the PCIe 3.0 PHY and controllers.=0D
-This chip is currently modeled only as a fixed regulator=0D
-(vcc3v3_pi6c_03), with no clock output representation.=0D
-=0D
-The PI6C20100 is a clock generator, not a power supply. Model it=0D
-properly as a gated-fixed-clock, following the pattern established=0D
-for the Rock 5 ITX and other boards with similar PCIe clock buffer=0D
-chips.=0D
-=0D
-The regulator node is kept as-is since it controls the power supply=0D
-to the PI6C20100 chip via GPIO0_D4. The new gated-fixed-clock node=0D
-references this regulator as its vdd-supply and provides a proper=0D
-100MHz clock output. The pcie3x2 node is updated to include the=0D
-pipe and reference clocks, matching the approach used in=0D
-rk3588-rock-5-itx.dts.=0D
-=0D
-Assisted-by: Claude:claude-3-opus=0D
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>=0D
-Signed-off-by: Midgy BALON <midgy971@gmail.com>=0D
----=0D
-=0D
-Changes since v4:=0D
- - Fix From: line to match Signed-off-by (Heiko)=0D
-=0D
-Changes since v3 [1]:=0D
- - Add Reviewed-by from Shawn Lin=0D
-=0D
-Changes since v2 [2]:=0D
- - Fix AI attribution: use Assisted-by tag instead of Signed-off-by (Shawn)=
-=0D
- - Add missing pipe clock (CLK_PCIE30X2_PIPE_DFT) to pcie3x2 clocks=0D
-   override (Shawn, referencing David's patch [3])=0D
-=0D
-Changes since v1 [4]:=0D
- - Drop phy-supply approach entirely (Jonas, Shawn)=0D
- - Model PI6C20100 as gated-fixed-clock instead=0D
- - Wire reference clock to pcie3x2 controller=0D
- - Follow pattern from rk3588-rock-5-itx.dts=0D
-=0D
-[1] https://lore.kernel.org/linux-rockchip/20260304132957.684616-1-midgy971=
-@gmail.com/=0D
-[2] https://lore.kernel.org/linux-rockchip/20260304132957.684616-1-midgy971=
-@gmail.com/=0D
-[3] https://lore.kernel.org/linux-rockchip/d981fa84-bd05-ac9d-98ca-89ee4717=
-7829@rock-chips.com/T/#m6a8289609e6a60691d3c06358b6322c7aa5e43d1=0D
-[4] https://lore.kernel.org/linux-rockchip/20260213151452.535527-1-midgy971=
-@gmail.com/=0D
-=0D
- arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 21 ++++++++++++++++++++-=
-=0D
- 1 file changed, 20 insertions(+), 1 deletion(-)=0D
-=0D
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/b=
-oot/dts/rockchip/rk3568-rock-3b.dts=0D
-index c5f67dd6dfd9..1a2b3c4d5e6f 100644=0D
---- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts=0D
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts=0D
-@@ -56,7 +56,16 @@=0D
- 		};=0D
- 	};=0D
-=0D
--	/* pi6c pcie clock generator */=0D
-+	/* PI6C20100 PCIe reference clock buffer (100MHz) */=0D
-+	pcie30_refclk: pcie-clock-generator {=0D
-+		compatible =3D "gated-fixed-clock";=0D
-+		#clock-cells =3D <0>;=0D
-+		clock-frequency =3D <100000000>;=0D
-+		clock-output-names =3D "pcie30_refclk";=0D
-+		vdd-supply =3D <&vcc3v3_pi6c_03>;=0D
-+	};=0D
-+=0D
-+	/* PI6C20100 power supply - active-high GPIO0_D4 */=0D
- 	vcc3v3_pi6c_03: regulator-3v3-vcc-pi6c-03 {=0D
- 		compatible =3D "regulator-fixed";=0D
- 		enable-active-high;=0D
-@@ -553,6 +562,15 @@=0D
- };=0D
-=0D
- &pcie3x2 {=0D
-+	clocks =3D <&cru ACLK_PCIE30X2_MST>, <&cru ACLK_PCIE30X2_SLV>,=0D
-+		 <&cru ACLK_PCIE30X2_DBI>, <&cru PCLK_PCIE30X2>,=0D
-+		 <&cru CLK_PCIE30X2_AUX_NDFT>,=0D
-+		 <&cru CLK_PCIE30X2_PIPE_DFT>,=0D
-+		 <&pcie30_refclk>;=0D
-+	clock-names =3D "aclk_mst", "aclk_slv",=0D
-+		      "aclk_dbi", "pclk", "aux",=0D
-+		      "pipe", "ref";=0D
- 	pinctrl-names =3D "default";=0D
- 	pinctrl-0 =3D <&pcie30x2m1_pins>;=0D
- 	reset-gpios =3D <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;=0D
---=0D
-2.39.5=0D
-=0D
+
+What do you think about this idea:
+
+Use fsl,reset-vector-base instead of a mask. It could happen that for example
+
+a CM7 instance has explicit requirements to boot from TCM but the entry point is in DRAM.
+Then masking won't help.
+
+fsl,reset-vector-base is always fixed hardware integration dependent and you can always
+
+specify it in DT.
+
+
 
