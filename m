@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA1D109318E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6691093190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 09:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RlAzh8T8X0ef9M9pZy6A2eE4kmAZH64axmE5NTkQeEQ=; b=CvtMTn0XB+rrT8whe6eFnUb12Y
-	+7SKSWpyAhama0GdFUrVTABQ0/WwgQ9piwNctCGWOPSX24jqJTpSPcvqFQtc9uKybuKo7BnRpuIP1
-	4aU9+70KPbFGjrJEOanFP116J3K0S96GadxCQPpM3BUO35BxUiGU9KqYOURyqOqGrFAbAj8OwjTKo
-	69x8GVBJJNe3IbkdRIv5g0LUL2BNBk/tnX2qLwobfe2yXEyctN5NVUiXREyFdZoicALWQSgpa3emU
-	4/w9dpVm37b5UM3ahJYCHcaI61gHakJxsGnzX0PW95v4ncAzW1bmX46N3YOhw7lidqAEqlGVotl58
-	njZdHT3Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/EzzzB7mXemwPTEFUoDOoHRU8+g191RnG/BxIGAEyB4=; b=hgALZH93H+lkIbmyUkvmKuNLtt
+	i6zWYzwBCbiIHQPut9NnXjdsvM+BShkbSPpcphNciitFq5yDELt9yIzQWmNat5M9f87CzEoFuoMg3
+	C/wn+EKSsRUmGvxNZ17wRJYin044gjgYdW//OLyoW83iJMDiravx9Xzi2iCv9SKqrJg3qqcVMT63+
+	O3mVjWdFdhJg7nKLycyyV56aEa3BwiXi2Q4atOTVCUG2zqeI1YlUAK8PYhZpyXktmogfm53vsvQbb
+	66QJy6fVjjwiYPRfo+X6ydtsbbwh805uV2Z3/1xcyrmzg4ywbS7DzuE3VZFiwiHYVDPyTeHqbzjMJ
+	ger6xKGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Vey-0000000CQ5R-2Vbj;
-	Fri, 20 Mar 2026 08:56:48 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w3VjP-0000000CQZl-1JUq;
+	Fri, 20 Mar 2026 09:01:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Vev-0000000CQ3y-3VWM;
-	Fri, 20 Mar 2026 08:56:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1773997003;
-	bh=d5TuVyzZ4iCBi+cC9SKF08Ri6z4AIiK4Nzg0TIGS7ok=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dYGIumSM+3ZOB6sSqjF4UvWYlWt6hVt4k8WP0qYJrWS9pxE8h4vCU/U/NMB7vI/8j
-	 C0qcNRk2Rw1zUKh7EPpoug+N9kvUKdW59yMU6Wk5J69aaI6VO8XaAa73ok0fUWCjzZ
-	 vxGCEh9nO1GUUlqZkfZI0tBujztC8zf2iY5uv3d6191Z/m6RXNK0Walk/v6+Van+Uw
-	 WJenovldaZORJ0nMxXLD9+iZVLDTXVAMhvvVAItycA7pDbjiuabfT+OKPwGlSdGwMm
-	 SQclTjSFC0m5J9WQlUrSsBsEvoaU5/H1+OghE0KjyQsjP/gY2TFrvB+KsRWlR5pNuE
-	 XRC1vaDSOf4MA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 044CD17E0FA3;
-	Fri, 20 Mar 2026 09:56:42 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: arm-soc <arm@kernel.org>,
-	soc <soc@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com
-Subject: [GIT,PULL,1/2] MediaTek ARM64 Device Tree updates for v7.1
-Date: Fri, 20 Mar 2026 09:56:38 +0100
-Message-ID: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.53.0
+	id 1w3VjO-0000000CQZc-30Qw;
+	Fri, 20 Mar 2026 09:01:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2761960121;
+	Fri, 20 Mar 2026 09:01:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72FF9C4CEF7;
+	Fri, 20 Mar 2026 09:01:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1773997281;
+	bh=5GVbrkqvwjM4Ne5AGx30GWD5XiB0JYg79pqjtzHsEpk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Al0LidPGMav72xVgo6alfEcKwV0jwUIxJ6hEAxXbv3L8NUEANR5+LFfaM0p1PDNJd
+	 PIatf/ihvqBYZuT419jNdtUOo8mYoiYBrzfVEZ7OS+1OOo/4D5MyGQZsXcn4jJZfS+
+	 d7NHcNprR0BNa+E884SS34FSkCQL7UEM3qAGxfPPTy/SDYFDR6xKYe4FIlZyQ6pNey
+	 ytOdOro0QOp1PAL8Rj0jejmHMlcjAlfEV8XvgOTaP7qtXrHqksQxwc3zRt1o+C7iSU
+	 CODa2AqITC11DYX7C6X/HXi9ImdyigjtiRJ8KkRsnwRTOLIz8Z2eYm98r7WIUO5Mow
+	 T+owEFNHMyXDg==
+Message-ID: <3914dc80-8a65-4efe-a390-379e26221afd@kernel.org>
+Date: Fri, 20 Mar 2026 10:01:16 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/6] dt-bindings: remoteproc: Add VCP support for
+ mt8196
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Hailong Fan <Hailong.Fan@mediatek.com>, Huayu Zong <huayu.Zong@mediatek.com>
+References: <20260320032014.13608-1-xiangzhi.tang@mediatek.com>
+ <20260320032014.13608-2-xiangzhi.tang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260320032014.13608-2-xiangzhi.tang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_015646_031374_1C0B8CA2 
-X-CRM114-Status: GOOD (  11.15  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,90 +122,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+On 20/03/2026 04:18, Xiangzhi Tang wrote:
+> Add the new binding document for MediaTek Video Companion
+> Processor(VCP) on MediaTek mt8196.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+This wasn't tested/checked, so only limited review. Please do not send
+untested code.
 
-are available in the Git repository at:
+...
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v7.1
+> +  mboxes:
+> +    maxItems: 5
 
-for you to fetch changes up to 820ed0c1a13c5fafb36232538d793f99a0986ef3:
+You need to list the items
 
-  arm64: dts: mediatek: mt7986a: Fix gpio-ranges pin count (2026-03-12 13:32:17 +0100)
+> +
+> +  mbox-names:
+> +    maxItems: 5
 
-----------------------------------------------------------------
-MediaTek ARM64 DeviceTree updates
+You need to list the items. Open any binding - there is no such syntax
+alone, right?
 
-This adds fixes and improvements for already supported devices.
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  iommus:
+> +    description:
+> +      Using MediaTek iommu to apply larb ports for Multimedia Memory
+> +      Management Unit and address translation
+> +      Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  "^vcp@[a-f0-9]+$":
+> +    type: object
+> +    description:
+> +      The MediaTek VCP integrated to SoC might be a multi-core version.
+> +      The other cores are represented as child nodes of the boot core.
+> +      There are some integration differences for the IP like the usage of
+> +      address translator for translating SoC bus addresses into address
+> +      space for the processor.
+> +
+> +      The SRAM are shared by all cores, each VCP core only using a piece
+> +      SRAM memory. The power of SRAM should be enabled before booting VCP cores.
+> +      The size of SRAM are varied on differnt SoCs.
+> +
+> +      The VCP cores has differences on different SoCs to support for
+> +      Hart.
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - mediatek,vcp-core
+> +
+> +      reg:
+> +        description: The base address and size of SRAM.
+> +        maxItems: 1
+> +
+> +      reg-names:
+> +        const: sram
+> +
+> +      mtk,vcp-core-twohart:
 
-In particular:
- - The gpio-ranges pin could was fixed in MT6795, MT7981B, and
-   MT7986A SoCs, as the very last GPIO was unusable; Even though
-   anyway unused, this fixes the hardware description.
- - Model string fixes for Bananapi BPI-R4 Pro 4E/8X: now the
-   correct model is shown.
- - The MT6359 PMIC gets disambiguation for two default regulator
-   names, mainly fixing issues seen on U-Boot, but also making
-   the regulators visually distinguishable in a summary...!
- - Aliases for eMMC/SD controllers added in MT8365 EVK board,
-   MT8395 Radxa NIO-12L and Genio 1200 for consistency
- - Fixes to the MediaTek AUDSYS devicetree binding
+There is no such company or prefix as mtk. You already received feedback
+for this.
 
-....and honorable mention goes to:
- - MT8195 Cherry Chromebooks get their WiFi on PCI Express and
-   Bluetooth on USB described with the proper power supplies now
-   tied to the correct devices (USB VBUS and PCIE3v3): this is
-   now described almost perfectly, or at least links the right
-   resources in the right places.
-   This is also done as a preparation for when the M.2 E-Key
-   connector binding will be upstreamed.
- - MT8195 Cherry Dojo gets its M.2 M-Key slot correctly described
-   with the new pcie-m2-m-connector binding.
 
-----------------------------------------------------------------
-Akari Tsuyukusa (3):
-      arm64: dts: mediatek: mt6795: Fix gpio-ranges pin count
-      arm64: dts: mediatek: mt7981b: Fix gpio-ranges pin count
-      arm64: dts: mediatek: mt7986a: Fix gpio-ranges pin count
+> +        enum: [0, 1]
+> +        $ref: /schemas/types.yaml#/definitions/uint32
 
-Chen-Yu Tsai (3):
-      arm64: dts: mediatek: mt8195-cherry: Disable xhci1 completely
-      arm64: dts: mediatek: mt8195-cherry: add WiFi PCIe and BT USB power supplies
-      arm64: dts: mediatek: mt8195-cherry-dojo: Describe M.2 M-key NVMe slot
+What is the point of this property?
 
-David Lechner (1):
-      arm64: dts: mediatek: mt6359: give regulators unique names
 
-Frank Wunderlich (1):
-      arm64: dts: mediatek: mt7988a-bpi-r4pro: fix model string
-
-Louis-Alexis Eyraud (4):
-      arm64: dts: mediatek: mt8395-genio-common: add mmc aliases
-      arm64: dts: mediatek: mt8395-radxa-nio-12l: add mmc aliases
-      arm64: dts: mediatek: mt8365-evk: add mmc aliases
-      dt-bindings: arm: mediatek: audsys: fix formatting issues
-
-Luca Leonardo Scorcia (1):
-      arm64: dts: mt8167: Reorder nodes according to mmio address
-
-Nícolas F. R. A. Prado (1):
-      arm64: dts: mediatek: mt8365: Describe infracfg-nao as a pure syscon
-
- Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml | 63 ++++++++++++++++++++++-----------------------
- arch/arm64/boot/dts/mediatek/mt6359.dtsi                            |  4 +--
- arch/arm64/boot/dts/mediatek/mt6795.dtsi                            |  2 +-
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi                           |  2 +-
- arch/arm64/boot/dts/mediatek/mt7986a.dtsi                           |  2 +-
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro-4e.dts     |  2 +-
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro-8x.dts     |  2 +-
- arch/arm64/boot/dts/mediatek/mt8167.dtsi                            | 68 ++++++++++++++++++++++++-------------------------
- arch/arm64/boot/dts/mediatek/mt8195-cherry-dojo-r1.dts              | 38 +++++++++++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi                     | 58 ++++++++++++++++++++++++++---------------
- arch/arm64/boot/dts/mediatek/mt8365-evk.dts                         |  4 ++-
- arch/arm64/boot/dts/mediatek/mt8365.dtsi                            |  5 ++--
- arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi               |  4 ++-
- arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts               |  4 ++-
- 14 files changed, 158 insertions(+), 100 deletions(-)
-
+Best regards,
+Krzysztof
 
