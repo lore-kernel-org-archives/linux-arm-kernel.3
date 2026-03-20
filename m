@@ -4,139 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E6201098797
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387951098796
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWSdgW+wnKlyKMAhPxD8SdOyOpwC4w5O3NUQJUIZBSw=; b=SuoDTvjEgvzZOWqX3cWnq5S/Mw
-	1F8NZM0fErJR6xhPSEJfJNawU0mOsqiF1N5eRcIzd17QeA0B+ArKMCaRpxQ6DV3dswowWCfXLhQbX
-	Jb9xauw4owq9uMMpyA7zFZzudyBxZyas5cq6XxCpPXDqemYjNf84t3qE828jCVaWcRPxR597K6yRm
-	sWbuMGtqzsGjQb26QBnncgz0gO+5/H9Ird+SSmyj+tGuggMvgaXVCu7XI3z1sHe2COg2wI4co6Uum
-	WLcvxuDH1WFjbPOsbeUsTSmHY22Xe9+O3QARdyAHtzbkY3Dz3W7SZWSrIlshZH/MiN80jkmNIqvCg
-	EVxyAzFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZOHGPk5doVf5PlHGyevPKUA2fqHQSdmXOjKYw+Hc8ik=; b=lBXGPfa0ZvOCtctEqRDtAXBfrZ
+	sP+ayFpMTFvJtDWSL2YgTdynuP0tnbJbY86kef6ilpUMNvjdCPirKm2YojX0wA4nAvoKnK1pATRKn
+	etKNpZ3IM5LUl+dN91Gx8q2iqzC5luNRZKryJqtmkTuLjcZglsWrG/JPVm5iGas7japOEfy1q406U
+	rqz51zHO2JQKgPvP6pdGR0pZqkY/kgCS/446i/goDGlbAej69sVgQxBL6iXes2G4lotFJ3/Xkiuza
+	QwpuLrMJs1IAHL/2gde3xg32692nKbk9q/sWD4D/JtuKcXlzplCKG0UyGbg5vW1JFFpxO5vgY6F6E
+	nM+YqYWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bYa-0000000D10x-0RdI;
-	Fri, 20 Mar 2026 15:14:36 +0000
-Received: from mail-westeuropeazon11011055.outbound.protection.outlook.com ([52.101.70.55] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1w3bZk-0000000D1Ia-3OzH;
+	Fri, 20 Mar 2026 15:15:48 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bYV-0000000D0yj-2DAF
+	id 1w3bZj-0000000D1Hm-0fQd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 15:14:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j6S3XsFxzuNTTmjbCdQaYZfE8DJBtKFtrLlEvUtfmebrntGqNVVPYWIiFvoFFy7LJXKwrhOZyHbr5gEHsUVW80sHZXStf1ZvTcHNCEBj3W687S4/U9ekcPGMX6bsf7btslSMrBXWzjOaB47kKt58TnHuHzmx5WReHJ6NaY6GM+BqRHE9MswiktVxSSgH3r6MubwUyd1PkB+7S/LagZkkVmKoqij5sUL6CVMMkzHGw4m0/mkgP6b+2kzs4g7rIrpl5pR+jbdrLtEZHz+cp0BlsOyhfXIB7f1oN2WhSq9oZ/2KNum+JXtO1n9MW5sY2PcGXzhN+DqzRaHWsn4vzNX6ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KWSdgW+wnKlyKMAhPxD8SdOyOpwC4w5O3NUQJUIZBSw=;
- b=EaEDecygpHl+WcydpO571JZsyt61MvwL3ZvTa2l9en2k43FrsB+/QsuZ7yMoy/+XkY6BcxZDYog3lttMVUpnvlQxsNQ66d1jgp4I6olstV5mNKD4UgQ6p3/LbqmkTvd/KcgTAFPiHa0G8KZ4BlPfWOq/e4Vzt6UHrBO6E01BxT9bW2nQMcA4c6nN94s7R9qRSy7Vs/WaF+IInT2wQqcUsaMIVEyJLOYhxa4naIlE4zRKIdXuOko1kERFOQl2rOgH5eW1qxbid9tojLnUb81dWA0mAeBGhL/2YyPV/6i9oT3mQDbGZ9vYlmRjy2mIhEW6KjOZexELmfUPjgI7AbAr4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KWSdgW+wnKlyKMAhPxD8SdOyOpwC4w5O3NUQJUIZBSw=;
- b=Z2XSTOUFW5JXI9EzDXVlScZ9mP6qLiDTsjBUFaMn0FILxxQUVeJ0V/trp0lOG3zvBCyZR1xwCkF47KfoRxWMvGBq2rcAH1n9mPFzwuE9z36JMzgZKeoJRADXrsedBnHHf7AmJMFI0tGQVWoR89BLOtHUJqt+2vMUr57tmxXjRW1ByzWG36fj2V8KW0UhXBy8bpoZ0gyONyVqsV0B3HsupEBNYJyMB4k8Qq77urppH9VKeyg681TsH+YZmjfxYyot6V86geoDz/21c8zzdAVRiSlv45Sxb6/BU1LGXPtfbbrYeTc3s+0Z9hi0FhUKziFwTnMsOFY7d9rtoShUoWOJEg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by GV1PR04MB10630.eurprd04.prod.outlook.com (2603:10a6:150:212::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Fri, 20 Mar
- 2026 15:14:16 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::93f5:4ff3:2f4c:183a%6]) with mapi id 15.20.9723.022; Fri, 20 Mar 2026
- 15:14:15 +0000
-From: florin.leotescu@oss.nxp.com
-To: Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: daniel.baluta@nxp.com,
-	viorel.suman@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	festevam@gmail.com,
-	Florin Leotescu <florin.leotescu@nxp.com>
-Subject: [PATCH v4 1/2] dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
-Date: Fri, 20 Mar 2026 17:29:58 +0200
-Message-Id: <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
+	Fri, 20 Mar 2026 15:15:48 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-35a1cc6e478so1434415a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 08:15:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774019745; x=1774624545; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZOHGPk5doVf5PlHGyevPKUA2fqHQSdmXOjKYw+Hc8ik=;
+        b=LkYn/AQb/hcN1/8iezR42M/8RPXEaZhpnuyMIXguwkDtqdS+Hj5Ryc5UGrrqthfSWD
+         itvfgxuUfvxbNx4gzEJNnRU/xGQjXofhzkkPc/C5IBtxaV3F2FrISunwhbosl4JYKIbw
+         H1kjlqIR3NXKMQR4iWw12M03E7PPROY+AZQ2T6UKrnw6SfZZGOdS2Kgii6UJ2cOI4YIm
+         dmwAIJCKaBC284xzczbOVzVnvFa5MKmbvv3tlaXeFIKbIl3csnUxd/bp8/XDxBX5cFNN
+         tH/iR0PsGAC7UofbG6Gy3Yn9onCzQsqQ4rTE00XzDBCd2JXi6qiaU/fDNR8/wRWyWnWP
+         DdVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774019745; x=1774624545;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZOHGPk5doVf5PlHGyevPKUA2fqHQSdmXOjKYw+Hc8ik=;
+        b=TShGc+lExkYeUIwXgEoM+u3TzqUUzsFUL4elDZVAqXjod6zMkz3o631vAFctIvtnVS
+         uiz6iAGESeSVEjpiCBN5g/u8ePYVhSDwkR0y0rmeatForLC57/Yt07J3k8tl7ktz8jgC
+         w1T9ikPGKWTrI87VlkW8sqs6wvLE+xHeooZz8wpW3JOYY0RnsjfgFjeWZtDM5HnIi7kP
+         DKcFL2km6LbUj06WPTRFffMOR4piMZ4DoDmduF0UbTFghBTfoI6Hxxj1dKIPdt+HMIkI
+         WTj2+/7qAI/93tFbiWVOWBm8IAxfJr/tzA+0FPpSDheCuT4MlR9aNkvOB3PjYpRkuFJn
+         1FYQ==
+X-Gm-Message-State: AOJu0YzZaeyHt3dO3qHKYXXYc1EG0jmRNrHQoKS131c4kjFdsl+01jJB
+	qS4G+MwFmN/bPcBNhRlxvedZKhGmECO27FlnhA2FqEHfA7IhnIRwrvW5A/c4Xw==
+X-Gm-Gg: ATEYQzzb7ysvukw5LY9ptvypvE08/dXj9jXScJ4ecpqfe5SttsI+pYCGm3wNszMXIqY
+	G7oERGCDWkjUi4hbDFs1cyklUwGgObtd9MRRKpRO9satfwfsJvylzlRga7usY5SKxQ3xMhVb7Zi
+	gjfl8HQ3rgRdlJ5T68OPK9TOQdcalBA/TZ49pmyTUCv1nD7gEPWi5vqCh1Dfudxj+sAHwv2aaJH
+	kGeOYwXXLMCIgGyGucOKSk/CWIpnVDmOs4eTRrnzNkH+qBVRAPhmMIeORXCk6CSNwBqeQ3or7zR
+	NcErhMfCbc/fgLPB5aA5pojWhaIT5PH5eUBl8SBVnRj+u+Zmk+m7XGOu2axAfczbcqRaU74R4r2
+	A9OPote5u80KsET5IyAjGMDdpl6iDh9i9u4y7flmfkJqqMH7fOAOkMIP0WaDp32nJMerhNC6Fui
+	8KN05uR4YD4D/YxC54JPGNdmV40g==
+X-Received: by 2002:a17:90b:5603:b0:359:2d1c:9206 with SMTP id 98e67ed59e1d1-35bd2d35149mr2773896a91.33.1774019744963;
+        Fri, 20 Mar 2026 08:15:44 -0700 (PDT)
+Received: from Vivobook.. ([2401:e180:88b2:f091:d2bd:d651:8e5e:9b62])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bd3eb4bf5sm2284699a91.4.2026.03.20.08.15.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Mar 2026 08:15:44 -0700 (PDT)
+From: Yu-Chun Lin <eleanor15x@gmail.com>
+To: linusw@kernel.org,
+	laurent.pinchart@ideasonboard.com,
+	matt.porter@linaro.org,
+	syin@broadcom.com,
+	csd@broadcom.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: [PATCH v2] pinctrl: abx500: Fix type of 'argument' variable
+Date: Fri, 20 Mar 2026 23:15:06 +0800
+Message-Id: <20260320151506.10679-1-eleanor15x@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
-References: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0263.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e8::10) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|GV1PR04MB10630:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6f304004-3207-4109-ec33-08de86935996
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: n10qsh5Wt34cRWai1GQEw2KcC+ZK5Rj8hUIZE9v7rt3aYo1FpPwUTFpsZ56mbDbaWCef1SrU6IQnVEiYmegGhU1f34mF970bGz0UBsByV0x+jywu086wfcehuUmo3Q+nqI2nMhCuFsYsbhT2HW2caxxoLQMfiBhkC4r7MG752OTxZ7sMAkwq6eIHR+1fyW5bktUf4I0uduXxIQVudKS0ea04yEISTuw9hTwjytFVBsMBAAF2V7/oWx7i/G53nUrjNG31LdhfRpkNhUwSBynI3FaBt+6SZYoiwjjGnOb6GvwcmQ/vjMB8MuumlgQ7ZVJuo927PjMgvau/MnCsIKT28XT1Oi/jr5sQlWyKq559g0+feSTf4Kto59W9Xwy0OINBzeHnU7VqInjgqBlpH3cKAgB2NC16lPM4PsM3bhTjTH8mmvQHbZ5Zq6BOR2U8cKLx7ckqULZ5m/Y2iSQjaSG+Y5tTXJdeHKdI3OxkIDlSa6LEP14bNoZOG1b1OX0O2xk63U7GTm5EUwB/Ievu5hdGSSz6xRlgFbHrdhMMjvmRvbe8WBtBBEBuxzVuJ+Xse5osofMHa7gAlhhjIjVcthdzzoBh3WaotVuntY0aG1k8nLBN+cQNvlmxHOCBoVSFBmM4yFL1D6KFFX9+tZe0ZaNFD0eIogoHvg5XCJcpsa5RsmovDkFrq1w1VarH9h5WvpzJZGRq2O9ZHI3LvbTizO5mnOe4hvMy9iW0IsfhyE3/HFU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?Hxfc4Jo1mH+sFair/NibICmFkvvoJbllCYenBp049W4V2yC42GCb9WCen6?=
- =?iso-8859-1?Q?Iyz2x5xDm651UesD6ssn4KfTwEflVDnKg23EqGcD0ViywnF++8OmrvbluJ?=
- =?iso-8859-1?Q?jr3ToxtAuHmWn+i8ypBIyPU0BwRmqbx7YwkYbeItDLIxelfAEzxhKgAk6D?=
- =?iso-8859-1?Q?Tu1EdS3+VzpUmFxWEQUAQFGzO9DlsLHd4H0Ty2vr1K1IUh/RwW/VXvOAxz?=
- =?iso-8859-1?Q?Sfk7jnQeBxe+vRz/Kmjt94n5vM/Aj8CelJiHz2OgNKMVf9y3fbbMVRBaxy?=
- =?iso-8859-1?Q?lPk5NbQLrBo+kjHZeoUoqIUBD+0Ppz1pikO1OYsUkKwfy98zVxB5qIT4cy?=
- =?iso-8859-1?Q?eGGjFm0m12sR2dy+9mVTraEGtvJGSOIhrRcBW2jBJ7dKRWJGnvZQZAv4g7?=
- =?iso-8859-1?Q?X58NN7wPHxNg2Wlia+mYD/z261nRZ5DJwMay/qsrJc5cM17zjILuO4aHhY?=
- =?iso-8859-1?Q?/7bsQ694COkhz4Aj88orK6G4Pfl8lAMd+jLwE63FmfdX4nN3shMRim3nsy?=
- =?iso-8859-1?Q?10bcSrYu95jfi+jsiMwkg1n7Lf7xvlPBRUIiXfqtZQFByIaaaWrAwxHumx?=
- =?iso-8859-1?Q?n43uzC4/vxVlPUvMU/8q75PzYAgcGwqAO6U/npY/N2p8alBT5XJnipVg0a?=
- =?iso-8859-1?Q?lysba5FpgVP1MmpCknz+4Dhg1fFopL2rIsGZBIB9mfnIZdUb4+3St7qJ9K?=
- =?iso-8859-1?Q?D5XNSEH0eB8512562nlkzZpkGQP7YYvUsvJUuIEfSfK3UUHADuJNc9opGn?=
- =?iso-8859-1?Q?Vf21fpJ7R9dWsvtq1gQM+pu7xl0uZ/7vsclVw1srnO8k6aWsyfXVluM4bd?=
- =?iso-8859-1?Q?/oZZ7OOb4tsQSSErvZNT6Kb0iNirZVozhapi6fs6YERyFJM/NDFRegvL+T?=
- =?iso-8859-1?Q?Sp8Ks7bNpT6yuwZFcz6ITMz+EaeMypq26o+USMlUB4iX7duFF+/w7w7D8K?=
- =?iso-8859-1?Q?Feojo2sYeHQfgxo74tJMW0wKZvnnSAAYR3UZSEH2nUfmzwiyUIzB8jHZeD?=
- =?iso-8859-1?Q?ss0t+T+Pg6HGoryu7QnsdqDiAtCXv9fR9fkwcWE37JSr1LGScm1wu9cKTo?=
- =?iso-8859-1?Q?0P3SGjer4fT05vc+Kg8siINlTQTeAFlYS0zi/K97htzeW3KWJQvOeSNQKA?=
- =?iso-8859-1?Q?psPKCCwUlNQRkwuYz6QwxOQ4XjIaSWquMOnpOWXnCp7ULpTvzJlNNEcJ+E?=
- =?iso-8859-1?Q?sNr4c6UL1x3G3LcU3YtRzOOimtgfKNV0q/3dPcUkgRRCZt4kI45tIofmNM?=
- =?iso-8859-1?Q?Z8Cv4EgYzP4wePjutnAO+SlwPu9IgpYlxVEW/1aAK8gfAe4sl4x+o1ia6C?=
- =?iso-8859-1?Q?nJtZsDnxDTyvRo/0uKSJOW2fycgcYHmzYCwdjhhZLFI5sMkplgd4bs4Sni?=
- =?iso-8859-1?Q?yhjzT36mfMAPCXJVDzGf2tNjPfjPW4Ed2SyTy3XtIHFnTFtKFXseHOWEPC?=
- =?iso-8859-1?Q?ssh95ifLxRHjQ7KlUh2jSgNLCrT/3rzq0GQfdslnOOPgxLuwiwoBaUptLR?=
- =?iso-8859-1?Q?FOM56nqeU5x4NB5D9D0uUoIcBTp3mjUQrtoAgIf2Z4a8MujAWMZai+RBHs?=
- =?iso-8859-1?Q?BA3dMILPullfMtT+pW8WEvWCLpQu9k0yFeJbLWGT9KMyzBTWEoayOssDtZ?=
- =?iso-8859-1?Q?AwsKFi0J8GOWh6oHjc7L4JRYup7cuNYJBKPHAeadnB8y4f2D9L4OPYtElw?=
- =?iso-8859-1?Q?X/P38LyPknWA0EYYv+QvmUebeePNyxhCBvEy4M26ueWNm11JgY+9O0nBnA?=
- =?iso-8859-1?Q?+KcXPGGOwkDJm2TO9KAEdA2cmZA3VEQiCioghyxOuykAnX1ehKewJMoUqf?=
- =?iso-8859-1?Q?5c5/BlEL2Q=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f304004-3207-4109-ec33-08de86935996
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 15:14:15.6840
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1nX7kMgGM5nkLyvVlV8+CW2w9Y6z7sJd43YC3n+95+02/MbUV7FnktrBolH70cULts+qnGdeHJvHmQ8cd3o+Mg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10630
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_081431_588337_236EC857 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260320_081547_228306_8ED26416 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,53 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
+The argument variable is assigned the return value of
+pinconf_to_config_argument(), which returns a u32. Change its type from
+enum pin_config_param to unsigned int to correctly store the configuration
+argument.
 
-The EMC2305 fan controller supports multiple independent PWM fan
-outputs. Some systems require fans to enter a defined safe state
-during system shutdown or reboot handoff, until firmware or the next
-boot stage reconfigures the controller.
-
-Add an optional "fan-shutdown-percent" property to fan child nodes
-allowing the shutdown fan speed to be configured per fan output.
-
-Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
+Fixes: 03b054e9696c ("pinctrl: Pass all configs to driver on pin_config_set()")
+Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
 ---
- .../devicetree/bindings/hwmon/microchip,emc2305.yaml      | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes in v2:
+- Rebased on the latest mainline to fix the recipient list.
+- Updated the variable type to match the commit message.
+---
+ drivers/pinctrl/nomadik/pinctrl-abx500.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-index d3f06ebc19fa..7bcadfab9fc4 100644
---- a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-+++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-@@ -54,6 +54,12 @@ patternProperties:
-           The fan number used to determine the associated PWM channel.
-         maxItems: 1
+diff --git a/drivers/pinctrl/nomadik/pinctrl-abx500.c b/drivers/pinctrl/nomadik/pinctrl-abx500.c
+index fc7ebeda8440..858fbaebcf8e 100644
+--- a/drivers/pinctrl/nomadik/pinctrl-abx500.c
++++ b/drivers/pinctrl/nomadik/pinctrl-abx500.c
+@@ -852,7 +852,7 @@ static int abx500_pin_config_set(struct pinctrl_dev *pctldev,
+ 	int ret = -EINVAL;
+ 	int i;
+ 	enum pin_config_param param;
+-	enum pin_config_param argument;
++	unsigned int argument;
  
-+      fan-shutdown-percent:
-+        description:
-+          Fan RPM in percent set during shutdown.
-+        minimum: 0
-+        maximum: 100
-+
-     required:
-       - reg
- 
-@@ -80,12 +86,14 @@ examples:
-             fan@0 {
-                 reg = <0x0>;
-                 pwms = <&fan_controller 26000 PWM_POLARITY_INVERTED 1>;
-+                fan-shutdown-percent = <100>;
-                 #cooling-cells = <2>;
-             };
- 
-             fan@1 {
-                 reg = <0x1>;
-                 pwms = <&fan_controller 26000 0 1>;
-+                fan-shutdown-percent = <50>;
-                 #cooling-cells = <2>;
-             };
- 
+ 	for (i = 0; i < num_configs; i++) {
+ 		param = pinconf_to_config_param(configs[i]);
 -- 
 2.34.1
 
