@@ -4,111 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848DF1099B40
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A761099B30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 21:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T49qL0HGrnbYIpVdO5mePRM8nuu1rEpsHgwxsmb6OnA=; b=aYMqcoThkfsWXO9ODooPbapacE
-	Kjk3enCGPrd6X+6FcMUryJ1fXszgyRKYJZFI24UwvhXA41WGhz/ymFGf+tN06nYt6s4z+WS15jX3s
-	g02WJKuvLu9Xtk4jDUS9CngNG9UtK6dpI04Io9TElUn7IFI1FMfScJrF2zT6+wNeBmyxEPuh0qkK+
-	5xCLlKqOX9mlr39W+jadXLPi+ZO2fS4dXMl8ISl5iL6ril64rJj1XkPOJ8VMu0i8pFBkDKnrdB9av
-	76PVb/i/s8nsEA3aarC4Ifa1XvEPBnyHufpea1Nc5tL6zCB7T40SxhDvNG83o25oDRV2+69eTmF+k
-	0JzjSaWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jAQDQ2Ijn2JafmoVVhu9OwhIlf/ITjKAIPoy10A798Y=; b=pl9vo3bSSXBEjMSrEute/iyQp1
+	Pt4ZC1QsKpxaQ5lR6QaX/lq082HPGsc+9alcyIw1JEgnpyWXB5WoPrkzgSjG+JLtG9QgrqFH1oGrR
+	RocluV7ZSYTHPXChD63GVR+aXtw0BepNTFKfAwlKpnzbgjrY46nyPQa5LDvoFeUqV52nuX/E2FPwt
+	le8vbQJ6rycQwBGZiLUmpeudGALZiC8J26Fz/LoLjzNeJ3yWdk2PF/an/Quq5TMpwJTTu+zVUUQRJ
+	RRSdg5vTHbA1LimTCWQzP/Q0Snj/EQpJaD50JPVILi1EZC0XXzCxvb6Hhy3AxmoEkVm0Z8siJdyCL
+	85av5k2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hHw-0000000DcMA-3Hw3;
-	Fri, 20 Mar 2026 21:21:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3hK7-0000000DcVX-1FbZ;
+	Fri, 20 Mar 2026 21:24:03 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hHt-0000000DcLV-0n9R
+	id 1w3hK6-0000000DcVQ-18VG
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 21:21:47 +0000
+	Fri, 20 Mar 2026 21:24:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=T49qL0HGrnbYIpVdO5mePRM8nuu1rEpsHgwxsmb6OnA=; b=TVEE+LV6hrBgoue/7f2INATuVa
-	vp7hKcvFTa72axf3s3/wQ4ngbarOifiwm9O5gGdGnYgbkiNeWowZGJ4QF202k6OBqq3IGNFAi+7OV
-	P30b2HfcB7qJLBrvnppDPkKHeOwwsSnaoHsrAQHWO+WAhBk/Y42y+CcxgGrWheFXGlzWKIqzXtPPy
-	ozh7k7AZPwgd8zmllHReilVjI3CS1C3J8zdpuo8gLL5bAmOhP0/FCxAN6M4ezgG1YGzvXdvS8ohpy
-	ORfyd2uSXw48niU0nEN19g7EXP42C4Jhy+2tSny/Cq2JoWrWncLe+7xqBZvfABI2BKpv8XT7uSvyY
-	3L7gpHMA==;
-Received: from lpdvsmtp11.broadcom.com ([192.19.166.231] helo=relay.smtp-ext.broadcom.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3hGQ-0000000GV7H-0xt2
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jAQDQ2Ijn2JafmoVVhu9OwhIlf/ITjKAIPoy10A798Y=; b=gvySCkfG7KTbQFQYuzA/3suteH
+	Zq68jJLBCbqZW6nb1TEEvHGaWl5013TDpAk6GmIMZopUEuCIS6Egat3PFuxUYCeAiFLDbpjp8sMpy
+	fM/ltZdgRNAqXkDK/p1Xw1rz7xyZoSVHGPevC8+1hj/36+Aem5qEqUrz4jTK6DlYawSWXSTVbzeWd
+	uz/qzN2NCRiMl3R50+AlHoeRC7a0wSF9ioURNkbXtRhTEdWxrureNCQzTI6KhGIk7dWGJzYavOTCo
+	OY1jogCjtCUvle9xj1ZbFZl5regfkuAtnmV8lHwhZTkATYvKZqjFKvC76Tz7OsNwn0KLnA7JD5wGN
+	DMtsPaNg==;
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3hK2-00000008OXV-3uk5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 21:21:41 +0000
-Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B1F1DC0017F3;
-	Fri, 20 Mar 2026 14:20:05 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B1F1DC0017F3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1774041605;
-	bh=zN4dslV6Zxx5Z3smcDyjIRq0uqjSqffHvQQbZlwmYuY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=upHD9kEqFdaugDS2A9zgdf5u8GPsL2vZGU7PTa+kuYgkasB43jPL6uRUUbOJ7HGN4
-	 cH1t4wrkR0VviW/8Z+zV+F3zAv5jyCJsVz0RWI74nRAcHIeYtEjRO3OGHCsZv47NBZ
-	 rwKTZg3kQfNBs6UteckaKJvYb8JRh1MYfEc2ziDs=
-Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id 81537AE80;
-	Fri, 20 Mar 2026 17:20:02 -0400 (EDT)
-From: "Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	jitendra.vegiraju@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	richardcochran@gmail.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	rmk+kernel@armlinux.org.uk,
-	rohan.g.thomas@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Fri, 20 Mar 2026 21:24:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=jAQD
+	Q2Ijn2JafmoVVhu9OwhIlf/ITjKAIPoy10A798Y=; b=L8Fp4irv4LycvmIlOZ3f
+	WUViDiZxJrvz9m7VzpNUdk3cGXX0Aeo61n8EJTCw0K9+d4I/PGRtkPig7GSaosp7
+	bgCmcWipGxQUCT61C2BVKByrJpsvoyQJybJFDLrHrFcLUNYrBeldQUxr7vS4E8Io
+	ZMjTN6EKxsAC2rIo4e1LljfH8CFRnthH8/r0fy6OTvUxV0PYxA3dNYXY+mRTrCrD
+	P47+wuBlLfRS7EjA7UzMZJvbX1rs/j5hoFr8G0GP51EuX/irog4Dh5BtP6aW2HR2
+	WZ62n6T/enlZrq/cuxNwPlea9aiK2HPz3Cengtv1RPKmWK1wN4xsWoZ5kH7ybTLN
+	Ag==
+Received: (qmail 1700375 invoked from network); 20 Mar 2026 22:23:53 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Mar 2026 22:23:53 +0100
+X-UD-Smtp-Session: l3s3148p1@2XBHTXtNHLEujnsL
+Date: Fri, 20 Mar 2026 22:23:52 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Robert Foss <rfoss@kernel.org>, Todor Tomov <todor.too@gmail.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	linux-i2c@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org,
-	sdf@fomichev.me,
-	me@ziyao.cc,
-	siyanteng@cqsoftware.com.cn,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	weishangjuan@eswincomputing.com,
-	wens@kernel.org,
-	vladimir.oltean@nxp.com,
-	lizhi2@eswincomputing.com,
-	boon.khai.ng@altera.com,
-	maxime.chevallier@bootlin.com,
-	chenchuangyu@xiaomi.com,
-	yangtiezhu@loongson.cn,
-	ovidiu.panait.rb@renesas.com,
-	chenhuacai@kernel.org,
-	florian.fainelli@broadcom.com,
-	quic_abchauha@quicinc.com
-Subject: [PATCH net-next v8 6/6] Add BCM8958x driver to build system
-Date: Fri, 20 Mar 2026 14:19:21 -0700
-Message-ID: <20260320211921.1202058-7-jitendra.vegiraju@broadcom.com>
-X-Mailer: git-send-email 2.45.4
-In-Reply-To: <20260320211921.1202058-1-jitendra.vegiraju@broadcom.com>
-References: <20260320211921.1202058-1-jitendra.vegiraju@broadcom.com>
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v6 1/5] dt-bindings: i2c: qcom-cci: Document sm6150
+ compatible
+Message-ID: <ab266KF-8ll2TKxm@shikoro>
+References: <20260305-sm6150_evk-v6-0-38ce4360d5e0@oss.qualcomm.com>
+ <20260305-sm6150_evk-v6-1-38ce4360d5e0@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305-sm6150_evk-v6-1-38ce4360d5e0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_212113_130131_2BD7B634 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260320_212359_050282_265AF764 
+X-CRM114-Status: UNSURE (   5.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,70 +103,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+On Thu, Mar 05, 2026 at 05:48:12PM +0800, Wenmeng Liu wrote:
+> Add the sm6150 CCI device string compatible.
+> 
+> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+> Acked-by: Andi Shyti <andi.shyti@kernel.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
 
-Add PCI driver for BCM8958x to the linux build system and
-update MAINTAINERS file.
-
-Signed-off-by: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
----
- MAINTAINERS                                  |  8 ++++++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig  | 11 +++++++++++
- drivers/net/ethernet/stmicro/stmmac/Makefile |  1 +
- 3 files changed, 20 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a09bf30a057d..9ca631fe78f1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5120,6 +5120,14 @@ N:	brcmstb
- N:	bcm7038
- N:	bcm7120
- 
-+BROADCOM BCM8958X ETHERNET DRIVER
-+M:	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-+R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	drivers/net/ethernet/stmicro/stmmac/dw25gmac.*
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
-+
- BROADCOM BCMBCA ARM ARCHITECTURE
- M:	William Zhang <william.zhang@broadcom.com>
- M:	Anand Gore <anand.gore@broadcom.com>
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index d3a6ab7383fc..94ab9f13d542 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -386,6 +386,17 @@ config DWMAC_LOONGSON
- 	  This selects the LOONGSON PCI bus support for the stmmac driver,
- 	  Support for ethernet controller on Loongson-2K1000 SoC and LS7A1000 bridge.
- 
-+config DWMAC_BRCM
-+	tristate "Broadcom XGMAC support"
-+	depends on STMMAC_ETH && PCI
-+	depends on COMMON_CLK
-+	select STMMAC_LIBPCI
-+	help
-+	  Support for ethernet controllers on Broadcom BCM8958x SoCs.
-+	  This selects Broadcom XGMAC specific PCI bus support for the
-+	  stmmac driver. This driver provides the glue layer on top of the
-+	  stmmac driver required for the Broadcom BCM8958x SoC devices.
-+
- config DWMAC_MOTORCOMM
- 	tristate "Motorcomm PCI DWMAC support"
- 	depends on PCI
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index a99bb0dfe5ab..a50a1bb04b0c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -50,4 +50,5 @@ obj-$(CONFIG_STMMAC_PCI)	+= stmmac-pci.o
- obj-$(CONFIG_DWMAC_INTEL)	+= dwmac-intel.o
- obj-$(CONFIG_DWMAC_LOONGSON)	+= dwmac-loongson.o
- obj-$(CONFIG_DWMAC_MOTORCOMM)	+= dwmac-motorcomm.o
-+obj-$(CONFIG_DWMAC_BRCM)       += dwmac-brcm.o
- stmmac-pci-objs:= stmmac_pci.o
--- 
-2.34.1
+Applied to for-next, thanks!
 
 
