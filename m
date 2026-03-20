@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700A61098783
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91BC1098782
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fLLFjsvRlpzhP+3Wz85TDLwtJtc8fpi1Gf2qGKkrHqs=; b=lWRGimWL2QmX7F6a4NxBsjPGKk
-	hSyv7YcyBbwYHgl3neeXESd4ciGItOIzcKUoVmVEr+ic7y8C7vGVQUCLcSYa3Bif9l3I44CE4yunu
-	zg7mLjL1yfIlu5EquSjzkiGJV50Jcm5frLWYhnYoLT0B+LlYP8cAKhr55ifxU6pc2am1S254lWA5x
-	gyCdK1eQCoCT9xWeNUIywaIihS8qucUglfwC2c88N1qhO2UzAf3URpfuz5OjXZrxWJ8DCWTbdxe6B
-	XebBN+3Kjn4xQHyzxEh22IXXGy9Mh3Pqtnov5YCwTXibp1NUHEYjsz8N8IaQDnm7irby1qRZM0olH
-	JQklTbjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FwjGYHLhzXrIB52sblJq6ltbcXGB6eiIAIejM/JliF0=; b=bmHF5j4mv9voYgIMneY/Z7Z0ks
+	ulZ1yJZE2IVrx/LxKPgtv1VoPmYQ+G6Jm+UpI+KrjGSYz1zVHpxFRNCT4zHUn1I3tl8IjhT2fVISy
+	B0BiK+uxaVQvKgBtdz737v/S3Rwqr6J1Wfvd+TXH7Cfr1wUv6kKtJHDsKrPf1yHU1wdzhYLKdjHWC
+	yNdDXQKMsSx/OaAf39DjjJGDQk7wOkyvnunlkEPUseQgsA/+xTFwgG3cQPHPmCqjLDSeVgERGORr8
+	zBdPJPOCs6up4TgbEVIxMZ7IxmdQaLGVYBIqzBYgUfGlIoss0eYKYdI2ugFZwRDT283r3OfuEe8Ai
+	RixM/MOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ZWo-0000000CpBT-43iY;
-	Fri, 20 Mar 2026 13:04:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3ZYO-0000000CpLd-1SAc;
+	Fri, 20 Mar 2026 13:06:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ZWo-0000000CpBH-0wSm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 13:04:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=fLLFjsvRlpzhP+3Wz85TDLwtJtc8fpi1Gf2qGKkrHqs=; b=SvyBwp5ApwHiEK8M0YI3p19AUM
-	zphXuCAn1AoMIGi1mV0g2H3OTWbWx+bo2el6YPv60Zns2J5GeeQcF0/3nTcjmhS+ddus99B+HNF72
-	snVp8nqsN6yTiK4gz7I74Z2XKLHqKumX/pAWEDBfYnuDBKiwa86hrKfy1c/yIs39PojKnNxifW5Xz
-	n+45VOys0vR92zfE0ZW+BQvtWAFkOOaj4Khx+kqbFo7+R41/My7JFhsbCc+RsiYaC8NHeaFpyARdP
-	PehOnfNDPsLjKVtWdK3bvOUQVkhvAvyPkhCulN20yNvVKuBy5p2NiP8modfC3yEAlsBq8273DHk94
-	I+6jpzZg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ZWl-0000000FZwe-1OqY;
-	Fri, 20 Mar 2026 13:04:35 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 587203004F8; Fri, 20 Mar 2026 14:04:33 +0100 (CET)
-Date: Fri, 20 Mar 2026 14:04:33 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-Message-ID: <20260320130433.GV3738786@noisy.programming.kicks-ass.net>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com>
+	id 1w3ZYM-0000000CpLI-1HFJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Mar 2026 13:06:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0765F406A6;
+	Fri, 20 Mar 2026 13:06:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86BFC4CEF7;
+	Fri, 20 Mar 2026 13:06:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774011973;
+	bh=8pSAPusabmjMrU3euuXusTDZ4rSCYKcfvAegWoDM180=;
+	h=Date:From:To:Cc:Subject:From;
+	b=kHDjTxzLLqG1g85GidUr37DBvulxgiZUZLxnuxiswU/wyYnm3T6dCj3hVoskiQ5uY
+	 UTrXtEBvZeOBjFL7UWjt62P2RsjOwDer39+KqkPtHGNNe8ytZ2eh3AtforVhmLDnY/
+	 TnTj3uUNrf0oS7WoJQWukeRKinOIZiNRk2nX/foXU+ROQHZq+2iWRL8dFUchIFtATH
+	 k4r4ZOyXeNK9W36OE/OXCk5VG5H8CVXM7ZBBbUkkhatfAc/F9fFCuHdbHy1MSvPQhb
+	 ezWXhDQ2J0lerSyPJllRshKBi4bu/eOUpAJ5PE0kB1jcM8JcjT+DwlUSGT5zJ2W8BM
+	 r/RhxwjOYZKyw==
+Date: Fri, 20 Mar 2026 13:06:09 +0000
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc5
+Message-ID: <ab1GQXqkgL61wARW@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260320113026.3219620-2-mark.rutland@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260320_060614_363531_14CF76B0 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,49 +66,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, tglx@kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 11:30:25AM +0000, Mark Rutland wrote:
+Hi Linus,
 
-> Thomas, Peter, I have a couple of things I'd like to check:
-> 
-> (1) The generic irq entry code will preempt from any exception (e.g. a
->     synchronous fault) where interrupts were unmasked in the original
->     context. Is that intentional/necessary, or was that just the way the
->     x86 code happened to be implemented?
-> 
->     I assume that it'd be fine if arm64 only preempted from true
->     interrupts, but if that was intentional/necessary I can go rework
->     this.
+Please pull these arm64 fixes for -rc5. There's a small crop of fixes
+for the MPAM resctrl driver, a fix for SCS/PAC patching with the AMDGPU
+driver and a page-table fix for realms running with 52-bit physical
+addresses.
 
-So NMI-from-kernel must not trigger resched IIRC. There is some code
-that relies on this somewhere. And on x86 many of those synchronous
-exceptions are marked as NMI, since they can happen with IRQs disabled
-inside locks etc.
+Summary in the tag.
 
-But for the rest I don't think we care particularly. Notably page-fault
-will already schedule itself when possible (faults leading to IO and
-blocking).
+Cheers,
 
-> (2) The generic irq entry code only preempts when RCU was watching in
->     the original context. IIUC that's just to avoid preempting from the
->     idle thread. Is it functionally necessary to avoid that, or is that
->     just an optimization?
-> 
->     I'm asking because historically arm64 didn't check that, and I
->     haven't bothered checking here. I don't know whether we have a
->     latent functional bug.
+Will
 
-Like I told you on IRC, I *think* this is just an optimization, since if
-you hit idle, the idle loop will take care of scheduling. But I can't
-quite remember the details here, and wish we'd have written a sensible
-comment at that spot.
+--->8
 
-Other places where RCU isn't watching are userspace and KVM. The first
-isn't relevant because this is return-to-kernel, and the second I'm not
-sure about.
+The following changes since commit d87c828daa7ead9763416f75cc416496969cf1dc:
 
-Thomas, can you remember?
+  selftest/arm64: Fix sve2p1_sigill() to hwcap test (2026-03-06 11:54:26 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to 8c6e9b60f5c7985a9fe41320556a92d7a33451df:
+
+  arm64: realm: Fix PTE_NS_SHARED for 52bit PA support (2026-03-19 12:46:05 +0000)
+
+----------------------------------------------------------------
+arm64 fixes for -rc5
+
+- Fix DWARF parsing for SCS/PAC patching to work with very large modules
+  (such as the amdgpu driver).
+
+- Fixes to the mpam resctrl driver.
+
+- Fix broken handling of 52-bit physical addresses when sharing memory
+  from within a realm.
+
+----------------------------------------------------------------
+Ben Horgan (2):
+      arm_mpam: Fix null pointer dereference when restoring bandwidth counters
+      arm_mpam: Disable preemption when making accesses to fake MSC in kunit test
+
+Krzysztof Kozlowski (1):
+      arm_mpam: Force __iomem casts
+
+Pepper Gray (1):
+      arm64/scs: Fix handling of advance_loc4
+
+Suzuki K Poulose (1):
+      arm64: realm: Fix PTE_NS_SHARED for 52bit PA support
+
+ arch/arm64/kernel/pi/patch-scs.c    |  8 ++++++++
+ arch/arm64/kernel/rsi.c             |  3 ++-
+ drivers/resctrl/mpam_devices.c      |  2 ++
+ drivers/resctrl/test_mpam_devices.c | 22 +++++++++++++++-------
+ 4 files changed, 27 insertions(+), 8 deletions(-)
 
