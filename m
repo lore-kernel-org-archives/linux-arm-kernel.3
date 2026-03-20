@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414EA10987A9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DC210987A9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 16:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZ2KERFjyyQf8dxQP/UdKYTPcwvV1gn7poLNdNWhNwc=; b=HxVosC5zns2rU6KffyjD+bzvyI
-	En2WNZKXKrsbVkfCwdnzYGm9+Kx1pgPnoVOXLO31+Vhu5M2euQjH4L6/GalWxjSuEvAdOAD6KiETr
-	nn32Cyy0qL+8BWSt3TS9OYAVOSNjfkeEbCzujMDIWvBoKviBL2Y3i6qo50+IMwObHvXpHUOMkTc2D
-	rPI7GrlRxvlFQhC8XZWLVkPWMJwdqRuXZG+TlL9y6Fa+E61z19hG+e6Sre+kP1zK1RlV+uZSj627U
-	+AeQTvbtJewiAd1067KiKn6AYzbwGT3H/WO0/wjq2W3qCQjJDac3eJL96V1nWTit5mOJTuLXDoQNL
-	8EUI5+3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6E9BtR9nb+vdawdXLEWrvR70DSk9gZH7D7f5tboMx0A=; b=Mdz112HbN16zV1
+	YIq3VJ8X8yCYs+UKEn7j42CJ9c2WNTBAKs6jMFhrNZrU8QLdcxHLPy1eadywXQbjq4zudTML8vJpp
+	mBHVFfsgByglY3IFXQV5OehFbPuBzDZC5dgPbe5HwNTwAx4CTlXWer7IvNSGN/XbeQuuGAti9hZMd
+	5NaKTksu2q/2tcFouEB0WexykPXDYTQCIY5xdNwARiw81qybeOpBuncKB+U04F2R0H6X65VqcUtJg
+	x+6cJfqgytyBje9k9BbuZ2s5j+SXukFGRAyVgiYtwfnTCnT4JYZveEwMMyd25E8DOln+hS6pi6iYb
+	sog/I/JYttfArOjoiovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3d0a-0000000DBUk-1V8D;
-	Fri, 20 Mar 2026 16:47:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w3d0f-0000000DBZ0-2oZg;
+	Fri, 20 Mar 2026 16:47:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3d0Y-0000000DBT5-18Wv
+	id 1w3d0a-0000000DBUN-17ks
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 16:47:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=eZ2KERFjyyQf8dxQP/UdKYTPcwvV1gn7poLNdNWhNwc=; b=RokbSFW1YJaX5DndiPpnSPZipq
-	nvI5JqJpgi4FGAoenz7kBeFm5T8xsfWEvrKGq2BQ5vRSa7zqyut9pEqx5fF6h4VfjvfgUTb0aIcO8
-	AwPi+xPfVhV19p9rsf9eZAHiOR0xTl5K4YesEAHm8dVd1EYblLAqvPqbomVuI5vtSWipJzjhDEp0R
-	ccZqXDTrG0AlehxC/dxivmMJO48y1pHwarH0iNajxZGl0KKecUFOoedjmt5yjrTi4029LeXREtiH+
-	c9ueZOdtsKIRvQFdw0DlJO96d/gpEhjvutmJeNLAwJySINj0WlHBjLMVNRhr3fjUzwu8NZIhjM72S
-	t3xiNjmg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34054 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w3d0S-000000006M2-27Lp;
-	Fri, 20 Mar 2026 16:47:28 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w3d0R-0000000DfM1-1itN;
-	Fri, 20 Mar 2026 16:47:27 +0000
-In-Reply-To: <ab15_JvLGFtUH_3x@shell.armlinux.org.uk>
-References: <ab15_JvLGFtUH_3x@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 4/6] net: stmmac: move stmmac_xmit() initial variable
- init
+	Fri, 20 Mar 2026 16:47:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5E96260053;
+	Fri, 20 Mar 2026 16:47:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E66E7C4CEF7;
+	Fri, 20 Mar 2026 16:47:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774025255;
+	bh=FgOYDvJZfSmo7EDTl4VOVx7cZ1LLI5/WXtiITqbbNbs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=E8ZbO74RyubCUNIUTKFcy/XPlKXvlamHwIAWkIUIFCUydanD4e2aSVITu1a4uqcOt
+	 slSq8HEzMhMlSYbiuQ8xCbpnbAfHR8jIASNU46/G8px3nPqXk8XyrMVMzPjsTxIi0h
+	 g6eQnCBMTtP2hWO8BlKGZUuTLo7TXV6THO+IUYyg/PBUHDeVOh14jTjnk5Jb82JlYR
+	 4O7HF0Ek+lP2R2O6Rql9DDKwUaaWBOtxuEPU7BF54cLcoD8URbR5LG8Hjf3wHPU0LE
+	 OxRe2EfRNRvkzuRrLWCH40YpDInWRDyhU8JpeAAGkmQPU9vljs1bNtVUFibnO6NIkb
+	 +EVSv4g5h4Rjg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH 0/5] arm64: dts: Add Corstone1000-A320 platform
+Date: Fri, 20 Mar 2026 11:47:13 -0500
+Message-Id: <20260320-dt-corstone1000-a320-v1-0-a549dfcfe8da@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w3d0R-0000000DfM1-1itN@rmk-PC.armlinux.org.uk>
-Date: Fri, 20 Mar 2026 16:47:27 +0000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_094734_310556_733B5247 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABF6vWkC/4WNQQ6CMBBFr0Jm7ZiZEjS48h6ERUsHaDStmRKiI
+ dzdygVcvp///t8giwbJcKs2UFlDDikW4FMFw2zjJBh8YTBkLsSmRr/gkDQvKQoTEdraEPqhsVd
+ ruRmdQFFfKmN4H7NdX3gORdDP8bLyL/0zuDISEjvvnWlLs70/RKM8z0kn6Pd9/wJgslL1uQAAA
+ A==
+X-Change-ID: 20260123-dt-corstone1000-a320-dc5a7aa15fbe
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Frazer Carsley <frazer.carsley@arm.com>, 
+ Hugues Kamba Mpiana <hugues.kambampiana@arm.com>, 
+ Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move tx_q, first_tx and txq_stats just before their first use.
+The Corstone1000-A320 is a new Corstone1000 variation with Cortex-A320 
+cores and an Ethos-U85 NPU. This series adds the new compatible strings, 
+restructures the .dtsi files to handle the common parts, and then adds 
+the new Corstone1000-A320 FVP platform.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Rob Herring (Arm) (5):
+      dt-bindings: arm,corstone1000: Add "arm,corstone1000-a320-fvp"
+      dt-bindings: npu: arm,ethos: Add "arm,corstone1000-ethos-u85"
+      arm64: dts: arm/corstone1000: Move cpu nodes
+      arm64: dts: arm/corstone1000: Move FVP peripherals to separate .dtsi
+      arm64: dts: arm/corstone1000: Add corstone-1000-a320
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index d5e28ecf9fb4..95da2940cc3d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4692,10 +4692,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 	dma_addr_t dma_addr;
- 	u32 sdu_len;
- 
--	tx_q = &priv->dma_conf.tx_queue[queue];
--	txq_stats = &priv->xstats.txq_stats[queue];
--	first_tx = tx_q->cur_tx;
--
- 	if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
- 		stmmac_stop_sw_lpi(priv);
- 
-@@ -4732,6 +4728,9 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		return NETDEV_TX_BUSY;
- 	}
- 
-+	tx_q = &priv->dma_conf.tx_queue[queue];
-+	first_tx = tx_q->cur_tx;
-+
- 	/* Check if VLAN can be inserted by HW */
- 	has_vlan = stmmac_vlan_insert(priv, skb, tx_q);
- 
-@@ -4889,6 +4888,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
- 	}
- 
-+	txq_stats = &priv->xstats.txq_stats[queue];
- 	u64_stats_update_begin(&txq_stats->q_syncp);
- 	u64_stats_add(&txq_stats->q.tx_bytes, skb->len);
- 	if (set_ic)
--- 
-2.47.3
+ .../devicetree/bindings/arm/arm,corstone1000.yaml  | 15 ++--
+ .../devicetree/bindings/npu/arm,ethos.yaml         |  2 +-
+ arch/arm64/boot/dts/arm/Makefile                   |  1 +
+ arch/arm64/boot/dts/arm/corstone1000-a320-fvp.dts  | 15 ++++
+ arch/arm64/boot/dts/arm/corstone1000-a320.dtsi     | 91 ++++++++++++++++++++
+ arch/arm64/boot/dts/arm/corstone1000-fvp.dts       | 96 ++++++++--------------
+ ...{corstone1000-fvp.dts => corstone1000-fvp.dtsi} | 33 --------
+ arch/arm64/boot/dts/arm/corstone1000-mps3.dts      | 13 +++
+ arch/arm64/boot/dts/arm/corstone1000.dtsi          | 13 ---
+ 9 files changed, 167 insertions(+), 112 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260123-dt-corstone1000-a320-dc5a7aa15fbe
+
+Best regards,
+--  
+Rob Herring (Arm) <robh@kernel.org>
 
 
