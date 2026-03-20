@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F2B1093187
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B6F109318D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 08:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iLEs0e2qJIlqfw8fHUZzPP3Wzmar5tmvZs6TyzNUS+A=; b=swog3Cr4ECqfEghMt/GNb2gNWB
-	mtW89rlBuw+k2hiB3DM6Ec+ospAjTr8P6qnimdhJfnDE0LwuCY18H41w9zU96nDyECKu9tJ8L/Oa4
-	FUWkPUtU+mECLZ4EfkXptB9NdVOiBqnylDVKn88DPNXm4L9ezFHbuLnMKOg82aY+BnChykK6YfkDh
-	nhcZF3nG9ll/CDVhcDmMIyGwFnwVKhOUTREPj9SzlMMc36H5/4svDYSVRt+gy/wwszqyDHIoH/Jpb
-	Ql1hvLcmHYvLi6DBFadEkvPNd/QmAMw/IE9NTV05jfYOv8J7d7j8eODSYribYJz1W4Ugzi1zoQDz9
-	NfwB1c6A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nh7FB2+tAnbHPiN9V6sKTsvc+IqdTYaE8U3Ar9OxWRk=; b=euBcI8VsRKQyHv6Gj+IOlX+LWl
+	7rcfznsdzKMyaAcv8WaD24d2Z7C3joE9Wjuid4WjqGoFiiXe/D9mxoA3KEIJnWM10e4416ySXAmJS
+	OMOis8jWRoQuFGo/ryXltiBABikyjlR/3aLM0NITDMSftoL4eudOoUrBuDZIMrqkHj4wOSoRIM07D
+	Wxdd+r2a6hqrafK/HN+/Zx388PkglISMyVPYIugnjAncKoo4h0v7x/N0S20Q24d9+Kzf05plUzpou
+	7JWd9KUtO5mxfoD9TGA/MGFl9inDQC+4jYTK9tywBQUSAiq8HWuA/IamlBPK7hsV/zrKyE8lvlt+Y
+	gdCMoQSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VHI-0000000CMFT-0wdi;
-	Fri, 20 Mar 2026 08:32:20 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1w3VHM-0000000CMJ0-3IPq;
+	Fri, 20 Mar 2026 08:32:24 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3VHF-0000000CMEN-3kbW
+	id 1w3VHI-0000000CMG0-3b3G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 08:32:18 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-82c2239140aso5392b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 01:32:17 -0700 (PDT)
+	Fri, 20 Mar 2026 08:32:21 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8299f1ca894so1125201b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 01:32:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1773995537; x=1774600337; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iLEs0e2qJIlqfw8fHUZzPP3Wzmar5tmvZs6TyzNUS+A=;
-        b=bG8Xrf0Fib6X1XsyLjbd2DWcxvxprbG9r6jYrUHkyC15w3GrKFc7goSWWOz3tZ+Cmo
-         d0nAKbbbz6q/3oMPaXx7XWhNDQQndKaIIzmm1oIsec0tcCSRbpx6y9r8Xn9zcZaLeL3Y
-         IV9zpEytA9OqO0ryr93WDFskecCC9tIhIfaDE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773995537; x=1774600337;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1773995540; x=1774600340; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iLEs0e2qJIlqfw8fHUZzPP3Wzmar5tmvZs6TyzNUS+A=;
-        b=pSEssQMYGx4l27Kg4Wcr3tq8doyhYemTyqIFuxds7c59Nyj1AQ6hvrbnaezLGLHDUf
-         5ZLE2ceym1RoUl2mrnGllYxVlcoil9CxgucymaLkLKQOTNUdig06Q2A91i57P4nWvUnw
-         cLNWf8fvMg4TFEjkJHBRNfC7IR8IWOmrVV0AkVKdNMQpJsg4vGpUrXiErecKWEJwbLlK
-         XTOR/0dW7ccRsXcpL+vJ9Se3OKIu1R8FFnuhg6dA9X7yVBU3/DSafEQTF8TQPT83idCM
-         x/85VHb/w5d8+HN45x2fcU54Uws+myQSWCU9oTLrzchyQLDJ0WVrCPphrECvaMW1Kf56
-         rLfg==
-X-Forwarded-Encrypted: i=1; AJvYcCWcDcZZrQk1OoTDysoM0/TmwfiGCyj4CWGFteA4svn9MTYqulWnj5yAawrMX0iW/cjrgZaTxhVtHs3e0WYbHunR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5qXIpFjYRLpgIrvAsmyngNcC6r7/PQaPiG/CDMd8nHwLNHUWp
-	zBJfTVpW0kdRDtUGg/7J8bMqzXS1wjc6fXg78gA/TLIB5vcFWJhNznyv3HzyMd1NQQ==
-X-Gm-Gg: ATEYQzyitCB8Uask32E8ldYDpMw7rp6EPgPVKee8PO1SuVN5ZgZkWhhNheiMTmPxXuu
-	PdOLvotOp2hdwPh6BMTr1BIknn6eGEX7KRVPWfLXFo0ifoC1yb91o9X7yYTPI3zlaUb61A6wbWw
-	8r0SEWN80l1n7CQxthnwQbLxZHEuA9kkLX74e0vvtXHwp+xBc4fy3eRZIP7ovQkz7f5bo6rfoXT
-	2FeguOo+Qxm+vYp64OjY0oNXnUGMxSnRXL4A9UJ0jJSwa7VpmwlZoVg668Ld4byILiqnhxEpu3A
-	TQYuFktEAlizyf1vIfrsct47lem2PrzgLGAfOcP/xV5h1OZpMPjv+VcaSgRK/HfndALDxkNlfVK
-	nKiohIWjNImgfvcobvS8a7BZBiNkkPpeRKBy72Ro6p8BsXc521PKQ5NdlSEP8uI0Uo+ZSGo8lN7
-	8KbXpIGjyJkYtkuTDvSmzP0b1T5Z4xQS6HIeqArK7JyyLDjtgcpVRFF9tkhqwRSaVx5JypR0VNh
-	4X05qqJIpz2+UucDOI=
-X-Received: by 2002:a05:6a00:1a89:b0:829:9fa3:5c8b with SMTP id d2e1a72fcca58-82a8c3b91fdmr1755152b3a.55.1773995536642;
-        Fri, 20 Mar 2026 01:32:16 -0700 (PDT)
+        bh=Nh7FB2+tAnbHPiN9V6sKTsvc+IqdTYaE8U3Ar9OxWRk=;
+        b=F/Vn5vp4qTnFYj3HVEAdcxgLOk2TYuWvT39oGhYf2nf7YBhy0sDWFoYjcnmrFJakYZ
+         8EWNlJPwDzNW+NjrbVmPSU2kGc/wuKKoDjy8UsKhmG5spemXDyQYVlZLvOmztT7lnEUs
+         Y3hmTE/vUB4MPMRAi/3QHkwrVXTAV/piCr6Bc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1773995540; x=1774600340;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Nh7FB2+tAnbHPiN9V6sKTsvc+IqdTYaE8U3Ar9OxWRk=;
+        b=W2mBatUaCGDPG9M5E3Yd6nS8Lvv1AmcXoOauT4id569uoiRRU7VJ0OIz1gjUhn7JQp
+         48Y0MOzizjcQrMAI1nZxvLf68WKLFhR/2YGFkWlRhJZ/Hq7oPAK4DPl00ZUe6YU+MWKp
+         LxHWCsmqbthtrg3g0HmR9txOKzDfQ3cprbDRG6m7Mwp9byzsb61vCcLhl/fTG+4DpxnG
+         gmdm13u7lVD8BmKiZwSKJboKf1SuElVhi/D3n6OTY6ukJCTRBJlaqQYfSrHeLlfoxdni
+         nKxNF8cboXegBzQ7X2bHP9e4vfbjfv673trWjBXODf5N+OkJ6iH5qeJt3MTzO2SINVvk
+         U6zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWaOteJT9vZLM6gJdCBfJhbgc8lPm5ujPfP9iD17NdfZ9i7iVAgVAXMg6UxLAFItW04VfNuSHbwDiEunHtlMHEh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzbl+TF9mRmQTt7r9ObxystNwnRq6BFJFKIZYOIsCAwwmR4US+M
+	XzKrjyc5WkLvNXj1OGZjCuQGtEzWPT9arY/oq2VNrA8kf/dqkGS1qEYD1pjV7KB/YQ==
+X-Gm-Gg: ATEYQzzPZdIL0VgJvJ183kT0kTdUwmApGmD4euyIJT6oB5SDBAFA9aFXjL9yCbUWhm2
+	EDY2TrCQMNinrXtfO/fa+UJBoy9Twxm30q5L/hbMdddxo4RkdR0P032irLcyi22TThcNOevgBx0
+	lvcm+qYW3slpcocanMsWAOpkV5i5Lk4cayz+w1BuAKsj7TvGyFAUtwVl/aEELyXyot6mVPOoC3m
+	Rbe8Uh5KJgfMK7WadGtqPuEx7tpaIWGok4QABtvi2jsOqhvfVzb8KWzp0h4ZywqdUUTTHVjc19/
+	kOLJwzCRJbb9gNmHt806tLq+tkF+lwdHDn/w1IErr1nUmJG24XVIe5rlcrVU5nTALLgbDuGP5Ol
+	w3NNQlgSf8Bz0AFWTsCXPj/Zl83taXV2U4v95PL9vH6ZqlLT3kCl8ueNCTDWumdztMLaFcW05mg
+	2qEm3BiQHpoM2a8lTlN3VzXyYmisA84L4WYawtwdS6zINxI4CLDtp2w70NAeL9rOVMLGCaiFk3l
+	boQSy3i
+X-Received: by 2002:a05:6a00:299b:b0:82a:f02:7355 with SMTP id d2e1a72fcca58-82a8c35c866mr1756086b3a.32.1773995540176;
+        Fri, 20 Mar 2026 01:32:20 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:9cdf:e932:6f2f:c654])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b040debf9sm1408816b3a.47.2026.03.20.01.32.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b040debf9sm1408816b3a.47.2026.03.20.01.32.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 01:32:16 -0700 (PDT)
+        Fri, 20 Mar 2026 01:32:19 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Mark Brown <broonie@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>,
@@ -81,15 +82,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	chrome-platform@lists.linux.dev
-Subject: [PATCH 0/2] regulator: cros-ec: cleanup and add supplies
-Date: Fri, 20 Mar 2026 16:31:31 +0800
-Message-ID: <20260320083135.2455444-1-wenst@chromium.org>
+Subject: [PATCH 1/2] regulator: dt-bindings: cros-ec: Add regulator supply
+Date: Fri, 20 Mar 2026 16:31:32 +0800
+Message-ID: <20260320083135.2455444-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.959.g497ff81fa9-goog
+In-Reply-To: <20260320083135.2455444-1-wenst@chromium.org>
+References: <20260320083135.2455444-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_013217_923579_6403DB3E 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260320_013220_900275_5D7043AD 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,39 +107,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Even a regulator remotely controlled by the EC will have a power supply
+input.
 
-This series is part of a broader collection of regulator related
-cleanups for MediaTek Chromebooks. This one covers the regulators
-exposed by the ChromeOS Embedded Controller.
+Add a property to describe the power supply input.
 
-Patch 1 adds the names of the power supply inputs to the binding.
-
-Patch 2 adds the supply names from the DT binding change in patch 1
-to the regulator descriptions in the driver. This patch has a
-checkpatch.pl warnings, but I wonder if it's because the context size
-for checking complex macros is not large enough.
-
-Device tree changes will be sent separately. The goal is to get the
-regulator tree as complete as possible. This includes adding supply
-names to other regulator DT bindings, and adding all the supply links
-to the existing DTs.
-
-Please have a look.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (2):
-  regulator: dt-bindings: cros-ec: Add regulator supply
-  regulator: cros-ec: Add regulator supply
-
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
  .../bindings/regulator/google,cros-ec-regulator.yaml          | 4 ++++
- drivers/regulator/cros-ec-regulator.c                         | 1 +
- 2 files changed, 5 insertions(+)
+ 1 file changed, 4 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/regulator/google,cros-ec-regulator.yaml b/Documentation/devicetree/bindings/regulator/google,cros-ec-regulator.yaml
+index 5a6491a81fda..c2bafbc1e9e1 100644
+--- a/Documentation/devicetree/bindings/regulator/google,cros-ec-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/google,cros-ec-regulator.yaml
+@@ -24,6 +24,9 @@ properties:
+     maxItems: 1
+     description: Identifier for the voltage regulator to ChromeOS EC.
+ 
++  vin-supply:
++    description: Input supply phandle
++
+ required:
+   - compatible
+   - reg
+@@ -48,6 +51,7 @@ examples:
+                 regulator-min-microvolt = <1800000>;
+                 regulator-max-microvolt = <3300000>;
+                 reg = <0>;
++                vin-supply = <&pp4200_s5>;
+             };
+         };
+     };
 -- 
 2.53.0.959.g497ff81fa9-goog
 
