@@ -4,111 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930F5109316C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 01:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CE51093163
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 01:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9SqJxw/G3C8Z+MfgxLYlgt9ClPmc6gVykGItWwhh0uU=; b=MV/ixj8UAj70u0kNa/HzRhsc9H
-	8Fn7R8pPCQuvXvVI6f6Jw4CE7AdtDoSTEg5LXcK1IGTsaD4xe6TraxtB9ZFywcgCAM50Nd1A83vdl
-	19WTatDGaAzHRKVIQOgQ+0sZpFPl94OW94PGevwSQ03gIR9XqmutuFCA+AHF9v8tqLbh1tjbdWCDJ
-	bT5JrHRYFQjPDIeASb1AHmTh0NQZclpSW1ZfkO9ZT1XvrAnfcjmTmV4I3MoNGcHsrjIh73t8fp+aF
-	IW+oOW52kcFKl2urmfoA93yqwSD3E90B+UB9HtD/r/BdnXnFNfkdgqv158TPuQJRtbQvIA9pptUMV
-	GRjpd3Jw==;
+	bh=ayGFwySZHs4z9NIt8eLhyZLQX64EBLltnUs8BhPc48Y=; b=KhrrkWhVDOAh5Lz9pgy2OJ9WMY
+	VYJMielkdtujEhQf4YFECDzfGjIajdobPZb6JOS673qcB/2ZtJC4j419ul+gss5HibY4ohDfwlmXO
+	meI7Ih6ARwQDyaTXYVX7HxXKF1Pq6Rh/HeVVx03GBS/qCiN391UzetlWXkR6YAjWjeyNxWIQkOnrt
+	tNSRRUAPGbDO5IxWGnt34qaVfSlfX+9n3tpWsmzO821TwtQ2fRArn0LpBLbumQ/no2Ld7Suspnoj1
+	rthJFQPJ0RI6Wl2kl9pfdvnnbtAQ3/2d5dZggbGRNbsrwXE6gkqBRzY1Df9CTAFYF6tnPxuoJJRO7
+	w+xysN3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3OJk-0000000BrhP-2KJ3;
-	Fri, 20 Mar 2026 01:06:24 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1w3OPJ-0000000Bs1h-3tqO;
+	Fri, 20 Mar 2026 01:12:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3OJi-0000000Brgp-1aoT
+	id 1w3OPH-0000000Bs1V-3VLJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 20 Mar 2026 01:12:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ayGFwySZHs4z9NIt8eLhyZLQX64EBLltnUs8BhPc48Y=; b=MA97By4FX+LaS4VdAbdAA6nS8S
+	aVQpzJEsX/qfE5DzX9F+gE9wOXbdyFXX81STDrF5T+KSOPj6MbOoY3tVzjExGslDnHflgB3yemGOz
+	svFL00auD0T3IKjRNppRqwrs3e+GbVVgubTvwGG6fxcGlLJpTMhci/OKCHgt8Tf8Q+eQf0+6A3nkC
+	pjiWonUfBykQ2MckcaUzRmHOdb9mprQbeFCfjEwaII3IXiESkDtiXxs/ceZnKrx3T/gud3/RL9tM/
+	mvi25FoclFi/RDncLNUI01ItfzqlKvODlDwGNFEOy40CSe6ki6sxhGauJ5rjndEkX87tjSjvbPcIR
+	nhedgitw==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3OPC-0000000Ejz5-2ijM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 01:06:23 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b941762394aso164104566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 18:06:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1773968780; cv=none;
+	Fri, 20 Mar 2026 01:12:05 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-486fe2024a9so609875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Mar 2026 18:12:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1773969120; cv=none;
         d=google.com; s=arc-20240605;
-        b=Awb6WnyPOP6thE6KAKY9VJy7im0l7NN/UkrzRdIC0ToOG47aEUjsAI8jCnypwR9tGY
-         AZ4EqunVjvFFh3C6qIXYWasBr5i8swPCzkGIZW6k9G33oJd5gjc5KkzLLlB3xjLVCDXW
-         BeAK7Lr/2QAqm7Kyt9E83odpDvHZLR34lnbI2/NHp89VsS9SxTAYDVA/1zL10VkF+o16
-         uHN3hrvjS9095lP1j78nGmEynciebrQFz6DeZpvYTDfxhMOuBZemCKPijWgakr2Zc62f
-         6e9sBZqj1nrx18aAmAh80llsM3gku1Zqr3u4qJrS8Vk7Wql51DCbVlUgOW+dxfYJIrnn
-         kL5g==
+        b=lBIenm5PaA4AGlKFwR33oCW2HQ42wmD4g70X/+x2j0k+IWLUj6iLVUMTtIETO8TDNC
+         rvBsz9Sg0hoIURkxh7+mmcg60/LSDJGApfXGOtSPZH8rAxjMqAzUAYG4imGKdS6OJYmy
+         3wlE3oV4TOCOrXswlBnduY6hM4eynv6Sb2LImiXNe1QjWXUghUm4gO3g+AfWneSFIwwj
+         8ydxVHBnHdRBnoVXZMGkiVowoaoCVwUK2RW1+nhS3fHZZVFUhTQJtX7Ga2fg0JaH6hng
+         OAGItYhKVS5uRtrFc9nvBIbaY501aL8B9s3ypmTAvqRatmsrzsXsgubPzDNad5EGYyFJ
+         tmeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=9SqJxw/G3C8Z+MfgxLYlgt9ClPmc6gVykGItWwhh0uU=;
-        fh=c2alwXNOtd9QdiDsyIyPZTVZ3xWtcXERtDEK2Dz05P8=;
-        b=Yo3QuuMbXsM+vuAC1BX/LuT0wmR2N4XW2G7/V7N5PAoFsJYFqqwuAESv8/QKE+QgUA
-         0wCZYcSbVZjhT3EHX9w0e8izJHW5X0fHLTbTzJUzXtjMwhKdwkI1+WQ5c97R7RWC5xfS
-         OKiJfQcpD1n2nXxisQgf7cNGxIeRpA0ow600a6K5Hhz8q8gjgDf4heJ/3Xdk28L0GOUc
-         rqz3yzuUaJmu9bct17cdI62Vu1iuDwOBPyiGKIFCCXk4gJfrZS2CDpdmn6+QbRQWe7/B
-         aLCiMybuH1wttQAbKVHEhWT46R1bZ7c69KEK7bKN2thxjKt9nV5/7pjbwU+m/2WbJCB8
-         cmPg==;
+        bh=ayGFwySZHs4z9NIt8eLhyZLQX64EBLltnUs8BhPc48Y=;
+        fh=Qm2J8QkH2UpG0Tmw7KSdsTkMzoCwRnJHbfq7f80hBAo=;
+        b=ZQp8rSs02dFT6darflIgdPPParxR8L1N+dD/JiosIm+f10Ql55geCdgp1VsrSeqgcT
+         sode3Vrmn+nBr4qj1jGR7oPWB9ZGMupjMfuhL7NJkCwrRukp9fTfD3OdewonivZW3/9o
+         gCUxt7+RUANaFNt5aG3e5oEJ5rpAs0jbSDjGNEd++7ZBgT5VyhSoK+LCHey+Xb901Bqy
+         4XFAoTiI6Yh0NR8YcUoDxFBiR+t08HxCYpZVbgcByfPfE70fYBocc2qbog8jXxbPntTn
+         7mXMa5MhQMl8ksVaOT/NTfU7lHIUDdoR2PCeZ9pStGUMYEJsO2NhgNwCgHrTgjjnNO3B
+         X4PA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1773968780; x=1774573580; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1773969120; x=1774573920; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9SqJxw/G3C8Z+MfgxLYlgt9ClPmc6gVykGItWwhh0uU=;
-        b=TTpsx/FScCQljd3D0u9ljX1xD8kPP7FAhSPcW/+MZzZ+8lIsXFo1dO4cUts87yioWU
-         UIfJcGhwJYPm0q9251k002XK+NRzVQ1kgT5omGctKcRPdQ7IGosEW1QWnbu0JMOYd6oj
-         7254gfrdoUM8U9p2iHD0TWwn5GlV8aX/wQdWx0w80wZoL8hMsy5CFF7lEgkTBwNYb7x7
-         sql5VJewTE3joVCarKnDNUkRaaFmTxjO5egMJqD0IlXEyAetnSdCHgHDgASIELIMw2Bp
-         lZzTfDWE/GjWn0X3Iwj20FetcKjy3CVS3POsMN4f2LZ6vjv2E2EkbMUPFceVVAsZ5Qup
-         hFWQ==
+        bh=ayGFwySZHs4z9NIt8eLhyZLQX64EBLltnUs8BhPc48Y=;
+        b=BUQ81l9awK66ZAysVVYxHaX8dqUg3GQ2DLrOUuaQKGPPrgHHecZtwxeShDgSbAd7Fy
+         0VodvmxAlMSiylNKmJWSSr+sUeCUUzgcXOuOr7ITQZniPZzKBv3+xhwUXMnk+sBeHdKp
+         L6jC8zC7E0sHv+KXuMvLTqA5AfzIhWBo3NMyfRU4ZFFGKOYk/aj8y+STBigdifJXbDKx
+         THWv/8T5hoe+fcg7n7hSchlftOMraGlo9tjVtPPISB8BDDb3xyBen9ZYsNQLYpYahKzv
+         71pq5DRMDHs9qzJB9prckbU6B+jq7KDkDdfcx2rzjpsBTZFqOIYgE/anMDw344yQQHbg
+         7llw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1773968780; x=1774573580;
+        d=1e100.net; s=20251104; t=1773969120; x=1774573920;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=9SqJxw/G3C8Z+MfgxLYlgt9ClPmc6gVykGItWwhh0uU=;
-        b=Xlg0XYNsb4SBy55Dgy149eMHg2Kb8JZbniHvW1IRdMtjc65c74AFAqagdpi+IIxf7u
-         MbOrJZH6HjzDCEXuP1ZhE5BZWyM2hLXguivCtR6Im1T/E/m6hvxxxaxhrYUrj8NrcDuB
-         s+YhpjlOmWccsErFex+q1JzNk5wopXKzNIz85fpjTdxPycoFb7LXrY/npRCT/BngTW4C
-         BqaUboQx4D1CjVF75csj2/e0FGyEzq7fM2Lici74YxBaBRMdLn9MH6Uq/9J6Vcw8OTdL
-         66xRy78gRJfTf/9XVe8eD1yHIpm3zNSvwbkn2+/nY9d75ilbq6a7HtUXLQi5fdOojhKI
-         Guag==
-X-Forwarded-Encrypted: i=1; AJvYcCWwbK7h9taUzH03u1ISvx3Hij0JAhYaBX0qYFq5hNCrIBCZIqf2n8yszwsxKThha6s8Dz+Lpw+BXgiF+laBkwWz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPQKxTf/QRFbYQ6V+x/gztWruw2VErBKU0gTrstqRk3oozPq2l
-	9m71zB6boyIsmEFTIDNlEPg7yJnmz/erb+pOSn3b2I4sE78w27i2mnWJeJxPT4lJDgZe9HV8zNe
-	R7krozlVG/oU4MMW9YPIJTSm8EHr5+p4=
-X-Gm-Gg: ATEYQzyYwVUYE+jF/FORN2Wff9NoYtkb34Pcz3GxuRFCMMambgQzP6Ydr57tN2IwIKJ
-	UFs/dhLnIM5KSwDzN2PkuHvCdzg7EReRS9VUOYza+ofOdDruHwgSq3H7oLPhtCEb3z2+FNEn5M9
-	lQXU5mG14FA+y9jpgHKtG++qDZt9XZ8OyM68X5NujDKc7huadsjOFZF5323i5WKnRICjFVJMhCU
-	4J6Jtuk9ROyyMOCLXv0EP9U3SWBpy5UfkyOtDa3ebVMR8g9x5qv9f9xwWgrMwq3j+CbaSrty/0b
-	ubPZ3u7F27QaUF/5nFojjXWcWGnDRCeEil4rdwFCFKlU+ZRqCfFivKi+X6XOS7BXpdGuok4SRcT
-	0vD/x6w==
-X-Received: by 2002:a17:907:8d85:b0:b97:f1a8:ecb7 with SMTP id
- a640c23a62f3a-b982f20c0b2mr81117866b.25.1773968779976; Thu, 19 Mar 2026
- 18:06:19 -0700 (PDT)
+        bh=ayGFwySZHs4z9NIt8eLhyZLQX64EBLltnUs8BhPc48Y=;
+        b=jCc7ZOc5VW9lkHUsF0HIOhp7rB33DiiM1bFH7lghCD26VrqDrbzVBXmWHCWE/ub6eF
+         KjXLH8hNwjpxaRLXU7gPlKotoI5dd2SqO+DQYHBK8/Sj+9ZHRfumb2283fsJg9U0ikCP
+         Apy1jl13loleRXlC0xuMUeoabbbBfhfrK/R/LHhpfPrE6wSS7mptavRsCmuLAxLAVjRy
+         Wi7WOHJWmpkr7KqB9708/2Y2ZxDfrEnOwrwP/wQ6RarmpM5UAiy4HENIfT0kuAixatyk
+         OmGDTRolwqhZzS/36D0vjra6EQ997pAu9HlG6pRkWHspdHN7DBxYFM21q1Sm8b84oY9Q
+         GrvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUV4lSh68gY6vx0kExQ1PIeKK2mBg/GILWG7r9cZpVtKUyqa29VeX/iIDRJ+Jxm3d24K6/dn0GntI/SKIJIGqHq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQ9yZ7qq6751ag8qf8BfgXl+2SOZBdzDQVMiEoAq6mHhC9obTO
+	ZtM6T+hoLKUYP/YtRhCsaoz7Zwdg2BKmk+lnpOmjv38ULaVw8edlxvmyWgyXyqeO/vHqVhtmzWQ
+	VUl+HIpN/2JVEDDOK3c8NAk21uU1m7lVvA/gwqXY=
+X-Gm-Gg: ATEYQzy0YSZv8tg0Gwm7VrdZddnDwM3twMMwFtVeHKAnrp8OfN4j8Xlh6A/vQq7c86P
+	ZnttnAox0DpXfxsgqeasN0IAV0yMfYn0s5ylzjefFC9KOpLkuJmXOCL9RTVuKUsBWByMwms+Rgf
+	WdQmAMsG4lvS0WX0xsM/giiEMS6ILg0yJrLaZhvxWDX7n1GiMpTf4QAfBOwsVW7Gi2+SRNJ8oHw
+	IKM55ET4AexnDSVfIg09vOx06RfgrTzXQE2d6qAotHXXGW/Ta0wVojNX0lHjiw4kGSVZ9cnNEEF
+	H2tENNSkSpNviMvCkuAqZAw+vV1jAwUiBO+EOEMi
+X-Received: by 2002:a05:600c:c167:b0:486:fc94:d8f2 with SMTP id
+ 5b1f17b1804b1-486fedbc066mr17394635e9.14.1773969119695; Thu, 19 Mar 2026
+ 18:11:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260306044536.149204-1-rosenp@gmail.com> <20260319220901.GD950375@killaraus.ideasonboard.com>
- <CAKxU2N856yYXURRf3td-_RCpe9hyX=zAy3qtD3ki23RjgO+a4Q@mail.gmail.com> <20260320005737.GE950244@killaraus.ideasonboard.com>
-In-Reply-To: <20260320005737.GE950244@killaraus.ideasonboard.com>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Thu, 19 Mar 2026 18:06:07 -0700
-X-Gm-Features: AaiRm53rx05Tqdc9FwzZoPf5XXpIJZUGAo0qoy3HNuWTkbHSxfZxEG9QI9aaaDs
-Message-ID: <CAKxU2N81WEMkAPOVRHUORWodc21oW7wqvUJYVhd3uBJdLxRW4w@mail.gmail.com>
-Subject: Re: [PATCH] media: nxp: imx8-isi: remove kzalloc_objs
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	gustavoars@kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
+References: <20260319184031.8596-1-CFSworks@gmail.com> <20260319184031.8596-2-CFSworks@gmail.com>
+ <abxxyHVXp6QpPue5@shell.armlinux.org.uk>
+In-Reply-To: <abxxyHVXp6QpPue5@shell.armlinux.org.uk>
+From: Sam Edwards <cfsworks@gmail.com>
+Date: Thu, 19 Mar 2026 18:11:47 -0700
+X-Gm-Features: AaiRm50mRwjPccV1Lpd9XuZSBHTAzYDUmTRqARu72YFqm9lh9utWbuv6pvfVHYE
+Message-ID: <CAH5Ym4htit49autJb8E=eatof23YK3qomVBCsXZi2cFR6CyViQ@mail.gmail.com>
+Subject: Re: [PATCH net v2 1/2] net: stmmac: Prevent NULL deref when RX memory exhausted
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	Baruch Siach <baruch@tkos.co.il>, Serge Semin <fancer.lancer@gmail.com>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260319_180622_456951_A3DD932F 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20260320_011203_919316_54AC76B8 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,132 +137,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 5:57=E2=80=AFPM Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
+On Thu, Mar 19, 2026 at 2:59=E2=80=AFPM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+
+Hi Russell,
+
+> Isn't the limit equivalent to:
 >
-> On Thu, Mar 19, 2026 at 05:11:22PM -0700, Rosen Penev wrote:
-> > On Thu, Mar 19, 2026 at 3:09=E2=80=AFPM Laurent Pinchart wrote:
-> > > On Thu, Mar 05, 2026 at 08:45:36PM -0800, Rosen Penev wrote:
-> > > > Use a flexible arraay member to combine allocations.
-> > > >
-> > > > It looks like pipes never gets freed anywhere. Meaning this effecti=
-vely
-> > > > fixes a memory leak.
-> > > >
-> > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > > ---
-> > > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 11 ++++-----=
---
-> > > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h |  3 ++-
-> > > >  2 files changed, 6 insertions(+), 8 deletions(-)
-> > > >
-> > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/=
-drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > index 16392420903a..657ffecc4d7e 100644
-> > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > @@ -459,25 +459,21 @@ static const struct dev_pm_ops mxc_isi_pm_ops=
- =3D {
-> > > >
-> > > >  static int mxc_isi_probe(struct platform_device *pdev)
-> > > >  {
-> > > > +     const struct mxc_isi_plat_data *pdata;
-> > > >       struct device *dev =3D &pdev->dev;
-> > > >       struct mxc_isi_dev *isi;
-> > > >       unsigned int dma_size;
-> > > >       unsigned int i;
-> > > >       int ret =3D 0;
-> > > >
-> > > > -     isi =3D devm_kzalloc(dev, sizeof(*isi), GFP_KERNEL);
-> > > > +     pdata =3D of_device_get_match_data(dev);
-> > > > +     isi =3D devm_kzalloc(dev, struct_size(isi, pipes, pdata->num_=
-channels), GFP_KERNEL);
-> > > >       if (!isi)
-> > > >               return -ENOMEM;
-> > > >
-> > > >       isi->dev =3D dev;
-> > > >       platform_set_drvdata(pdev, isi);
-> > > >
-> > > > -     isi->pdata =3D of_device_get_match_data(dev);
-> > >
-> > > I'd keep
-> > >
-> > >         isi->pdata =3D pdata;
-> > >
-> > > here and not below.
-> >
-> > Sure
-> >
-> > > > -
-> > > > -     isi->pipes =3D kzalloc_objs(isi->pipes[0], isi->pdata->num_ch=
-annels);
-> > >
-> > > Wouldn't it be simpler to just replace this with devm_kcalloc() ?
-> >
-> > That would only make sense if pipes remained a pointer. A flex array
-> > member allows combining allocations since it doesn't take up extra
-> > space.
+>         space =3D CIRC_SPACE(rx_q->cur_rx, rx_q->dirty_rx,
+>                            priv->dma_conf.dma_rx_size);
+>         limit =3D min_t(unsigned int, space, limit);
 >
-> Yes, I understand that. My point was that with devm_kzalloc() here you
-> won't need to change the mxc_isi_dev structure. The leak fix will be a
-> one-liner patch.
-Leak fix is not the point of the patch to be fair.
->
-> > Technically kzalloc_flex is simpler but I assume a devm version of
-> > that will be handled in another treewide commit.
-> > >
-> > >         isi->pipes =3D devm_kcalloc(dev, isi->pdata->num_channels,
-> > >                                   sizeof(isi->pipes[0]), GFP_KERNEL);
-> > >
-> > > No other change would be needed.
-> >
-> > With a flex array member, that's a compile time error, which I use as
-> > a hint to complete the conversion.
-> >
-> > > > -     if (!isi->pipes)
-> > > > -             return -ENOMEM;
-> > > > -
-> > > >       isi->num_clks =3D devm_clk_bulk_get_all(dev, &isi->clks);
-> > > >       if (isi->num_clks < 0)
-> > > >               return dev_err_probe(dev, isi->num_clks, "Failed to g=
-et clocks\n");
-> > > > @@ -487,6 +483,7 @@ static int mxc_isi_probe(struct platform_device=
- *pdev)
-> > > >               return dev_err_probe(dev, PTR_ERR(isi->regs),
-> > > >                                    "Failed to get ISI register map\=
-n");
-> > > >
-> > > > +     isi->pdata =3D pdata;
-> > > >       if (isi->pdata->gasket_ops) {
-> > > >               isi->gasket =3D syscon_regmap_lookup_by_phandle(dev->=
-of_node,
-> > > >                                                             "fsl,bl=
-k-ctrl");
-> > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/=
-drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > index 3cbd35305af0..99532efa4e41 100644
-> > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > @@ -286,7 +286,6 @@ struct mxc_isi_dev {
-> > > >       struct regmap                   *gasket;
-> > > >
-> > > >       struct mxc_isi_crossbar         crossbar;
-> > > > -     struct mxc_isi_pipe             *pipes;
-> > > >       struct mxc_isi_m2m              m2m;
-> > > >
-> > > >       struct media_device             media_dev;
-> > > > @@ -294,6 +293,8 @@ struct mxc_isi_dev {
-> > > >       struct v4l2_async_notifier      notifier;
-> > > >
-> > > >       struct dentry                   *debugfs_root;
-> > > > +
-> > > > +     struct mxc_isi_pipe             pipes[];
-> > > >  };
-> > > >
-> > > >  extern const struct mxc_gasket_ops mxc_imx8_gasket_ops;
->
-> --
-> Regards,
->
-> Laurent Pinchart
+
+I had to think about the edge cases for a few minutes -- yes, you're
+right. However...
+
+> (Think of the "full" and "empty" cases as "space" which can be
+> consumed to provide entries for the refiller to action.)
+
+...this seems like a double negative: We're looking at the ring from
+the refiller's perspective (i.e. considering "dirty" the meaningful
+state), and *then* looking at the "unused space" (i.e. "not dirty").
+If I used it, I'd at least add a comment explaining that CIRC_SPACE
+is, counterintuitively, not measuring "space."
+
+After the bugs are fixed, I'll follow up with a net-next patch [1]
+that removes the `min` altogether and makes the loop check for 'dirty'
+directly, so my focus here is "minimal, obviously correct" and not
+necessarily "tidiest." Would it be acceptable if I simplify
+stmmac_rx_dirty() to use CIRC_CNT() then, instead of using
+CIRC_SPACE() now?
+
+> I think the same applies for patch 2 - when the above returns zero
+> it means we have no entries in the ring that aren't due for refill.
+
+I'm not completely satisfied with the `stmmac_rx_dirty() =3D=3D
+dma_rx_size - 1` expression either. One might argue we should keep
+trying until dirty=3D=3D0, because tolerating *any* dirtiness risks not
+having enough buffers for the next traffic burst, causing avoidable rx
+drops. But that's a discussion for patch 2. :)
+
+> Have you checked whether stmmac_rx_zc() also buggy in this respect?
+
+I skimmed it. I saw that it checks the return status of
+stmmac_rx_refill_zc() and on failure, returns the NAPI budget to keep
+polling -- which told me that the ZC author(s) at least considered
+these problems.
+
+Looking at it more thoroughly now, there are a few code smells around
+the unconditional `dirty =3D 0;`, and `dirty` being used as the "budget"
+for stmmac_rx_refill_zc() (why have a budget at all then?) so it looks
+like something's there, but it's a separate bug if so.
+
+Best,
+Sam
+
+[1] https://lore.kernel.org/netdev/20260316021009.262358-4-CFSworks@gmail.c=
+om/
 
