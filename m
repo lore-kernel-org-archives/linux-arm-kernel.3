@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D115B109879E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936971098797
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 15:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35EoSgbbhAMpHfUa5IEUpJhv+RfkkFYAmzR+GISPIcg=; b=XVSF6Pl1aDz73/KXUMQNKL0nq6
-	/Bf6sUBJnQqFau9j/2qhFLjA/guVlPXOj+cvHtvit3Yr0rOVFd11FVPHS0OKblAXfb4SzGsgN+V41
-	vV11/qbqAqBRHvQ/pBMfFBHIklFZX53GKLim3oYDEdim+abRRHeKEk7IHYRS1uB1hr2mVnD7UcZ4i
-	OZ64UE9kKjAmGXNTTzu0s2LNdDDAZhf+P8POyQ0ZpfjAa0p+FAZnzh7I+bSIefncORHvwh/lmaTsv
-	60ALInoUX2efFJnkje60FhvVNOI+cRhRRWqggqtReZD0FZl/ReBkzIMzqfJqsrNK58LNczqAAHE78
-	Qi/6zLsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rsOcFr/Bl9fl1dnqVMRZe6uz90kv+tWLSgzvUmwnkoA=; b=t2W8cppaVCgw1O
+	wuVZezRimzauZKnb0LItpiioWkTDq+4uucWm6seiXeV6EMIOvGQT7PgLI1Bib6plY/iajwpcOBWBr
+	7WKmwbrP2rJJKT6I9WFG2yZZ99bhI36XEd3xnLTeiH7LbJwwoDcqCRgvARoHp5AJZZmy7QcQ1E9zB
+	nx4rPoLaal7DRED8UyaXruoLITnajiGJvzyMKma0pYa0LAx5UMf1jV1Dty7TlyXGsm3kXrNyK8/sO
+	PJPeuTLlPBdnpniro+C1lqjnb0kt4qaUgS0Jg5O+sjapL/zGLHkdbrvSGWF/gbO8+FKTRKgF8UNG2
+	I5P8HiHgKj4YV2SPRakw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bzA-0000000D3Mo-2l3m;
-	Fri, 20 Mar 2026 15:42:04 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w3c4T-0000000D3kc-1WlB;
+	Fri, 20 Mar 2026 15:47:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3bz8-0000000D3LC-05ek
+	id 1w3c4R-0000000D3kR-378B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 15:42:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=35EoSgbbhAMpHfUa5IEUpJhv+RfkkFYAmzR+GISPIcg=; b=aKpzz2F9dfiCBQHrtsBiS6N5tr
-	g4AtNbwdyt0kzsS3C8LNah+XiY2waqV3n75UtiNdsrPY+8V8SUt0ve15lkf81AhMfdlneyApQNzLO
-	+7YVv0QsgBW3IPWsC8LjsWqMbIZ8FZkKj0SuaDd0E7tfHP382wqwEh51JRPBfdyfvGXDU7NIcw55X
-	wMi4ScybbCncHBruRK68hWArWkJfuRJqGBkV6PxWfK3d3Q1XsYX4yWnIRy6U8iSa2g9TdABcXb5zm
-	FoI3M28F/A1BFrIT6e4X2OqE2TjHihLdD4S1juYeY6lBrzrZHB8Q1nNeUd16WTB/CvX49nTlTyuaH
-	cHSshQGQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51948)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w3bys-000000006Eh-2XKC;
-	Fri, 20 Mar 2026 15:41:46 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w3byo-000000000wF-1R2i;
-	Fri, 20 Mar 2026 15:41:42 +0000
-Date: Fri, 20 Mar 2026 15:41:42 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: yangg9 <cohenyang511@gmail.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	kuba@kernel.org, yangg9@xiaopeng.com, edumazet@google.com,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, maxime.chevallier@bootlin.com,
-	vladimir.oltean@nxp.com, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: close reset IRQ window and avoid double free
-Message-ID: <ab1qthMmffkAKVQ8@shell.armlinux.org.uk>
-References: <20260320061955.833785-1-cohenyang511@gmail.com>
+	Fri, 20 Mar 2026 15:47:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D413460053;
+	Fri, 20 Mar 2026 15:47:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FA22C4CEF7;
+	Fri, 20 Mar 2026 15:47:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774021650;
+	bh=Lt4/5y3+/31j2dAtzeh/Kjy+BZaAyeF/UFlh1nnETzY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ASp/Zq4JyGXW/tzoC8Ddp4cSwH37zsYGRVRGH3PwSLipRGr4Re5mZsYC5H31fYCTo
+	 X1BGMDoZxBYBgKwyX/oYCjKlHSE1oxrStuaBpREDpW/Sgv3QJPPeYmWODh7GC9tvwy
+	 HuWJcybDmK/Bw2Mi6b5b312YMaVA3M7BfVWNevRGtUHWImTvLlNi210mjNLILqXU9b
+	 yh9+crGv+dUdS+8jwSKAjD6o3ESHNn4RudEW+evqZEjhjyzSB4aYxWYdZJQC6tNskl
+	 iZpG63sdzPLp+Qi4rnCXD/7ejYISAh0zHnMSlsNIcO/L+y4VrAqPlQ9wHjgrm96VvL
+	 kNbT99QjRn1kg==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v8 0/2] arm64/sve: Performance improvements with SVE state
+ saving
+Date: Fri, 20 Mar 2026 15:44:13 +0000
+Message-Id: <20260320-arm64-sve-trap-mitigation-v8-0-8bf116c8e360@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260320061955.833785-1-cohenyang511@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_084202_060634_68224798 
-X-CRM114-Status: GOOD (  16.74  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE1rvWkC/43SzWrDMAwH8FcpPs/Dlj9k97T3GDu4sdKarUlxQ
+ tgoefcphS2MQNjxL9BPSOguBqqFBnE83EWlqQyl7ziEp4NoLqk7kyyZswAFRgWFMtWrt3KYSI4
+ 13eS1jOWcRu6SQEjgvWmCjYL7b5Xa8vmwX984X8ow9vXrMWrSS/U/6qSlljkCUdYZgnMv71Q7+
+ nju61ks7AQrFbXZo4ApfcrUtiaARr2hzC+l9T5lmLKIsYlM2WA2lP2hrNIAe5RlyllSGUMyieK
+ Gcitllduj3LIg+JbAaUftdkG/Ug7iHuWZakAZPJFPDeUNhSuFRu1RyBQ6x+9h+PoZ/1DzPH8DY
+ l9sBIUCAAA=
+X-Change-ID: 20230807-arm64-sve-trap-mitigation-2e7e2663c849
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <Mark.Rutland@arm.com>, 
+ Ryan Roberts <Ryan.Roberts@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-db13a
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4820; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Lt4/5y3+/31j2dAtzeh/Kjy+BZaAyeF/UFlh1nnETzY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpvWwOqvCIeBXhWe0hsz80VMzJcuVEAi8bC1XQC
+ bWVFta1TwaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCab1sDgAKCRAk1otyXVSH
+ 0ERxB/9ReuFtgpSHl+ZwtSNTt4bXMufL/RGiwbOAlfut4lyX0DlZ16Xv2Mg8bnaSde7uyFB/TEN
+ cK2h5782KRWzmJ30ulPnM2C7ipE2gl1FB6ZbBRzhwirIIjSBoEec6/cCGD5UcqIchiOIxcSSDnO
+ 3ky9teJDNMG9ed+1r67ycTuLHDGzqXjC40JtBGLFyikVYKRxtm46ioen9HI+Sdnsj18mIyul8Co
+ jNBQZu7EiPcEGFiNi55rUFtSozZE9qUI8S2N3w4M521fmSYwY3MOiAO5rgbTIr0dWyxVfsK1ZVu
+ L97tZgA9jRa0vfJKVG18pv/B6IQkyBQLoiItYvuwkiT6sKwI
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +88,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 02:19:55PM +0800, yangg9 wrote:
-> From: yangg9 <yangg9@xiaopeng.com>
-> 
-> During reset, stmmac_reset_subtask() used to set STMMAC_DOWN before IRQs
-> were freed in __stmmac_release(). That leaves a window where interrupts can
-> still fire after the device is marked down, which may lead to interrupt
-> storms while the interface is transitioning.
-> 
-> Move stmmac_free_irq() earlier in the reset flow, before setting
-> STMMAC_DOWN, so the reset path no longer has that interrupt window.
-> 
-> Since IRQs are now released in stmmac_reset_subtask(), guard IRQ release in
-> __stmmac_release() with STMMAC_DOWN to avoid a second free_irq() during the
-> same reset sequence.
-> 
-> This removes the interrupt-storm window in reset and prevents double IRQ
-> release.
+This series aims to improve our handling of SVE access traps and state
+clearing.  As SVE deployment progresses both hardware and software
+actively using SVE is becoming more common.  When a task is using SVE it
+faces additional costs, the floating point state we must track is larger
+and our syscall ABI requires that the extra state is cleared on every
+syscall.  Users have measured these overheads and raised concerns about
+them.
 
-So, some points that need to be raised:
+We can avoid these costs by reenabling SVE access traps and falling back
+to FPSIMD only mode but if we do this too often for tasks that are
+actively using SVE the cost of the access traps becomes prohibitive.
+Currently we attempt to balance the tradeoffs here by starting tasks
+with SVE disabled, enabling it on first use and then turning it off if
+we need to load state from memory while the task is in a syscall.  This
+means that CPU bound tasks that do not regularly do blocking syscalls
+will rarely drop SVE while tasks that use a lot of SVE but do block in
+syscalls (eg, due to network or user interaction) will be much more
+likely to do and hence incur SVE access traps.
 
-- What is the point of STMMAC_DOWN?
+I did some instrumentation which counted the number of SVE access traps
+and the number of times we loaded FPSIMD only register state for each task.
+Testing with Debian Bookworm this showed that during boot the overwhelming
+majority of tasks triggered another SVE access trap more than 50% of the
+time after loading FPSIMD only state with a substantial number near 100%,
+though some programs had a very small number of SVE accesses most likely
+from the dynamic linker. There were few tasks in the range 5-45%, most
+tasks either used SVE frequently or used it only a tiny proportion of
+times. As expected older distributions which do not have the SVE
+performance work available showed no SVE usage in general applications.
 
-STMMAC_DOWN isn't set when the interface is administratively brought
-down, the only place where this flag is set is in
-stmmac_reset_subtask() and later cleared.
+For tasks with minimal SVE usage benchmarking with fp-pidbench on a
+system with 128 bit SVE shows an approximately 6% overhead on syscalls
+from having used SVE in the task, the overhead should be greater on a
+system with 256 bit SVE since the Z registers must be flushed as well as
+the P and FFR registers.
 
-The flag appears to prevent stmmac_service_event_schedule() queueing
-the service task while it's still operating, but STMMAC_SERVICE_SCHED
-already does that.
+The two patches here move to using a time based heuristic to decide when
+to reenable the SVE access trap, doing so after a second.  This means
+that tasks actively using SVE which block in syscalls should see reduced
+or similar numbers of access traps, while CPU bound tasks that rarely
+use SVE will see the SVE syscall overhead removed after running for
+approximately a second, confirmed via fp-pidbench.
 
-It also prevents interrupts being serviced, which causes your
-interrupt storm. However, does this matter? Surely stmmac_release()
-can already cope with the interrupt handlers being active, since
-taking an interface administratively down involves interacting with
-it in an active state - when a packet may be received.
+The benchmarking here is all very much microbenchmarks so there are
+obviously some concerns on the system level impacts in actual use.
 
-It's also used in stmmac_xdp_xmit() and stmmac_xsk_wakeup() to block
-further processing in those paths. However, for stmmac_xsk_wakeup()
-the only path which calls stmmac_service_event_schedule() is
-stmmac_global_err() which nautily calls netif_carrier_off() behind
-phylink's back, which will corrupt phylink's state and lead to
-phylink API calls being made in weird orders to the driver (this
-needs to die.) However, stmmac_xsk_wakeup() checks whether the
-carrier is on as well, which is a duplicate check.
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v8:
+- Rebase onto v7.0-rc3.
+- Add some benchmarking info from physical systems.
+- Add second patch that helps processes that stay on the CPU drop
+  TIF_SVE.
+- Link to v7: https://lore.kernel.org/r/20240730-arm64-sve-trap-mitigation-v7-1-755e7e31bdd7@kernel.org
 
-So, here's the question: do we need to test STMMAC_DOWN in the
-interrupt handlers at all? Can we delete those tests? As you seem
-to have a way of triggering the reset subtask, please try removing
-those tests from the interrupt handlers, thus simplifying the code
-rather than trying a more complex solution.
+Changes in v7:
+- Rebase onto v6.11-rc1.
+- Only flush the predicate registers when loading FPSIMD state, Z will
+  be flushed by loading the V registers.
+- Link to v6: https://lore.kernel.org/r/20240529-arm64-sve-trap-mitigation-v6-1-c2037be6aced@kernel.org
 
-Thanks.
+Changes in v6:
+- Rebase onto v6.10-rc1.
+- Link to v5: https://lore.kernel.org/r/20240405-arm64-sve-trap-mitigation-v5-1-126fe2515ef1@kernel.org
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Changes in v5:
+- Rebase onto v6.9-rc1.
+- Use a timeout rather than number of state loads to decide when to
+  reenable traps.
+- Link to v4: https://lore.kernel.org/r/20240122-arm64-sve-trap-mitigation-v4-1-54e0d78a3ae9@kernel.org
+
+Changes in v4:
+- Rebase onto v6.8-rc1.
+- Link to v3: https://lore.kernel.org/r/20231113-arm64-sve-trap-mitigation-v3-1-4779c9382483@kernel.org
+
+Changes in v3:
+- Rebase onto v6.7-rc1.
+- Link to v2: https://lore.kernel.org/r/20230913-arm64-sve-trap-mitigation-v2-1-1bdeff382171@kernel.org
+
+Changes in v2:
+- Rebase onto v6.6-rc1.
+- Link to v1: https://lore.kernel.org/r/20230807-arm64-sve-trap-mitigation-v1-1-d92eed1d2855@kernel.org
+
+---
+Mark Brown (2):
+      arm64/fpsimd: Suppress SVE access traps when loading FPSIMD state
+      arm64/sve: Disable TIF_SVE on syscall once per second
+
+ arch/arm64/include/asm/fpsimd.h    |  1 +
+ arch/arm64/include/asm/processor.h |  1 +
+ arch/arm64/kernel/entry-common.c   | 14 ++++++++++--
+ arch/arm64/kernel/entry-fpsimd.S   | 15 +++++++++++++
+ arch/arm64/kernel/fpsimd.c         | 46 +++++++++++++++++++++++++++++++++-----
+ 5 files changed, 70 insertions(+), 7 deletions(-)
+---
+base-commit: 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681
+change-id: 20230807-arm64-sve-trap-mitigation-2e7e2663c849
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
+
 
