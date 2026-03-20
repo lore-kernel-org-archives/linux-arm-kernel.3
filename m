@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7441098783
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3211098783
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 13:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQESvT/YL3z67ur3K9umwMWGp663lLjzF2AnKuf+BjA=; b=xLtlyV0ujCdcYGAWsfbvoicAkU
-	gi0A3sNPs9x17uf5R+RuumWN1XfAvjzshrJ4XtfkmQrWgc0pZDxBlgISocJ7RRf/tlxx5m9PPt9cf
-	GIsS51ti2/YElQPSZjA2tyPNltYhy8iu2O0nPQmSACr3rtk8Bp4dFndh+o+76Y9/XAOgpqmf+64ZD
-	qmWO2VyQcRK6+zMXi3PMRnJYWD/wY+x0AaqF6N5ep9BZ2RX+IzwZQswW5k1bEYQXzjahApGOOC2zO
-	xsx37he9MDyGVfhgYPdxVLScBajAGx2PzKu3IF2H87Jq11cPpeept2CXd3D+XrNg3hoM5h2ak16v7
-	2tLPTcSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FBITFUKETR6kz3c8uVzJrLWuAsTcCgfJMJ/ulsWhExc=; b=g5BfWoi+QVK76ykUt91AN+lovO
+	zkywSU5J0kwwZq6tETSYV0aXcjqWbn7KGNHpF2CJnyU+i3KjBd4r3JzXXwI4AXZcgoVy5ZwPe2I5b
+	14iffxda2AlsoFt1LrilQgeWb/tf1//zha8sTPRqQqVlGDDy2JpYEhR7mFwVs7pNqOh640GAU2P/K
+	Yw+zCG2+TueWcJQnFC2mJyqcDP6IWpHlvro/OAJXWdx7HK7IkVERW+GPOQqL/H0s+a+n58/TpwDhF
+	zJVUoPXrKVDs427U3aIckNhLFmdu5IanaMd4pbC2ditPxNMi8UR6/wYHzvQvs5sxfOOxECyio/k6j
+	antsMHlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Zm8-0000000CqQC-0pQf;
-	Fri, 20 Mar 2026 13:20:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w3ZoB-0000000Cqed-2a9H;
+	Fri, 20 Mar 2026 13:22:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Zm6-0000000CqQ2-3EdG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Mar 2026 13:20:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Sender:References:In-Reply-To:Subject:Cc:To:
-	From:Reply-To:Content-ID:Content-Description;
-	bh=aQESvT/YL3z67ur3K9umwMWGp663lLjzF2AnKuf+BjA=; b=UQ/z5Evo0xogMAjtNOpgxoIaZK
-	taZak5t+KrfvAsg51ksk1oDuaCmm6QzmTjTxyFAigl7Spn9gXvB2qHrvFCnjv7jRy9hlEFVUAO+M7
-	iCW6/4qXwlCQacDUYfCwnD1H3bbk4aureKbK4TZCC7/WfYzWqoWug2vypYHUdrTYK4jx4RxM93wO+
-	zeFcN9jIfgHhD4/N3HdQOEOc+J74y64VV3i7ANQoNZBbXkPXhMv27AYYT0jM3145mWzZZh31VsSLe
-	UupLJt/2VhprC0pHkACYcXLxCpzov430qBrXaCKo3VeGF60PpBh+SatI7ZXoL578ilEmYqxeflyYg
-	VxuUcxvA==;
-Received: from [195.187.100.5] (helo=ni.piap.pl)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3Zm3-0000000FbbI-1gRy
+	id 1w3Zo8-0000000CqeH-3oCU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 13:20:25 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 655BEC3EEAC9;
-	Fri, 20 Mar 2026 14:20:16 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 655BEC3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Marco Felsch <m.felsch@pengutronix.de>,  Marek Vasut
- <marex@nabladev.com>,  Stefan Agner <stefan@agner.ch>,  Liu Ying
- <victor.liu@nxp.com>,  Simona Vetter <simona@ffwll.ch>,
-  imx@lists.linux.dev,  Fabio Estevam <festevam@gmail.com>,  Pengutronix
- Kernel Team <kernel@pengutronix.de>,  Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>,  Sascha Hauer
- <s.hauer@pengutronix.de>,  Frank Li <Frank.Li@nxp.com>,
-  linux-kernel@vger.kernel.org,  dri-devel@lists.freedesktop.org,  Thomas
- Zimmermann <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-In-Reply-To: <20260320-amiable-hairy-bullfinch-28bfda@houat> (Maxime Ripard's
-	message of "Fri, 20 Mar 2026 10:25:11 +0100")
-References: <m3ms04caaj.fsf@t19.piap.pl>
-	<32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
-	<m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
-	<20260320-amiable-hairy-bullfinch-28bfda@houat>
-Date: Fri, 20 Mar 2026 14:20:15 +0100
-Message-ID: <m3a4w2d4ds.fsf@t19.piap.pl>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+	Fri, 20 Mar 2026 13:22:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C26F43AB9;
+	Fri, 20 Mar 2026 13:22:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D15C2BCAF;
+	Fri, 20 Mar 2026 13:22:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774012952;
+	bh=BcV3og0I5CJQeCvxPF/A1gWhnvr/YTgHtENHeDqrmAY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aqqzvMIBR67EuO+KJZzRQKjkSMJDrKADavZhu1382snD9UMxRz/UKBWw6Q5vDawUJ
+	 tKhQleY0V1ptRCu8o03/3m4kI4D2lWCIkRfPZs3azyiJds1ysbd2ml8O1a9rCG5lF3
+	 1v96W5UZz91rWvuxgYLjiiq9K/kP92U8Zb7Ytz4hmK3jdm5AvKZzWlaauCswSGLAdL
+	 U0MQDyh4lI7D8+HfHlNhacEJ6aqSIakCqr/+BplCn64iF0qKjXsjM0uZthjI6URBii
+	 /INN9FZVO+oTNLzip5O8PyzJ8bAM1s0UglbWRqb6PViPRdsUREhcGxANQ79L+NPooi
+	 W669C4JqUnbJg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w3Zo5-000000041g9-3lAx;
+	Fri, 20 Mar 2026 13:22:30 +0000
+Date: Fri, 20 Mar 2026 13:22:29 +0000
+Message-ID: <865x6q63fu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v3 30/36] KVM: arm64: Allow userspace to create protected VMs when pKVM is enabled
+In-Reply-To: <20260305144351.17071-31-will@kernel.org>
+References: <20260305144351.17071-1-will@kernel.org>
+	<20260305144351.17071-31-will@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, smostafa@google.com, alexandru.elisei@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_132023_577015_24429EAD 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260320_062232_990113_087CDEEB 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +94,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maxime Ripard <mripard@kernel.org> writes:
+On Thu, 05 Mar 2026 14:43:43 +0000,
+Will Deacon <will@kernel.org> wrote:
+> 
+> Introduce a new VM type for KVM/arm64 to allow userspace to request the
+> creation of a "protected VM" when the host has booted with pKVM enabled.
+> 
+> For now, this depends on CONFIG_EXPERT and results in a taint on first
+> use as many aspects of a protected VM are not yet protected!
+> 
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_pkvm.h |  2 +-
+>  arch/arm64/kvm/Kconfig            | 10 ++++++++++
+>  arch/arm64/kvm/arm.c              |  8 +++++++-
+>  arch/arm64/kvm/mmu.c              |  3 ---
+>  arch/arm64/kvm/pkvm.c             | 11 ++++++++++-
+>  include/uapi/linux/kvm.h          |  5 +++++
+>  6 files changed, 33 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 7041e398fb4c..2954b311128c 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -17,7 +17,7 @@
+>  
+>  #define HYP_MEMBLOCK_REGIONS 128
+>  
+> -int pkvm_init_host_vm(struct kvm *kvm);
+> +int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
+>  int pkvm_create_hyp_vm(struct kvm *kvm);
+>  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+>  void pkvm_destroy_hyp_vm(struct kvm *kvm);
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 7d1f22fd490b..e71f7fb6e89a 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -82,4 +82,14 @@ config PTDUMP_STAGE2_DEBUGFS
+>  
+>  	  If in doubt, say N.
+>  
+> +config PROTECTED_VM_UAPI
+> +	bool "Expose protected VMs to userspace (experimental)"
+> +	depends on KVM && EXPERT
+> +	help
+> +	  Say Y here to enable experimental (i.e. in development)
+> +	  support for creating protected virtual machines using KVM's
+> +	  KVM_CREATE_VM ioctl() when booted with pKVM enabled.
+> +
+> +	  Unless you are a KVM developer, say N.
+> +
 
->> > > -	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, 1 * PANIC0_THRES_MAX / 3)=
- |
->> > > -	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, 2 * PANIC0_THRES_MAX / 3=
-),
->> > > +	writel(FIELD_PREP(PANIC0_THRES_LOW_MASK, DIV_ROUND_UP(1 * PANIC0_T=
-HRES_MAX, 3)) |
->> > > +	       FIELD_PREP(PANIC0_THRES_HIGH_MASK, DIV_ROUND_UP(2 * PANIC0_=
-THRES_MAX, 3)),
+Let me once more express my lack of appetite for config options.
+Protected more is already gated by a command-line option, and requires
+active buy-in from the user.
 
-> If this is related to the output resolution, the DT is the last place
-> you should deal with this.
+Nested support is in the same "not quite finished" state, and yet
+isn't hidden behind a configuration symbol.
 
-Well... just tested (v6.19 + patch) with 2160p30 and, surprise surprise,
-it doesn't work for like 10% of the time. I.e., the display may freeze
-at weston start and/or shutdown time, but otherwise works:
+Taint the kernel if you want, but I'd rather we don't add extra config
+options for this. Documenting the "experimental" aspect of upstream
+pKVM should be enough.
 
-v6.19 (frozen screen while starting weston, same display, the patch
-applied):
-32FC6000:        2        2        2        2
-32FC6010: 80000000  8700F00  12800B0   480008
-32FC6020:    A0058  1000007        0
-32FC6030:        1        1
-32FC6200:  8700F00            223C00 EF000000
-32FC6210:        0 89000000                 1
-32FC6220:        0        0        0        0
-32FC6230:        0        0   AB0155
+Thanks,
 
-OTOH NXP's 6.6.23 works all the time:
-NCP v6.6.23 (a different i.MX8MP):
-32FC6000:        A        A        A        A
-32FC6010: 80000000  8700F00  12800B0   480008
-32FC6020:    A0058    10005        0
-32FC6030:        1        1
-32FC6200:  8700F00            A23C00 97C00000
-32FC6210:        0 89000000                 1
-32FC6220:        0        0        0        0
-32FC6230:        0        0   AB0155
+	M.
 
-32FC600x 2 vs. A is pixel clock inversion.
-32FC6208 is config P_SIZE, T_SIZE + pitch.
-
-More tests after weekend.
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+-- 
+Without deviation from the norm, progress is not possible.
 
