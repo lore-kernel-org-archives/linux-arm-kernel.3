@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E021099B32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11251099B31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AkFgqHG6WW6Ec78BKCCuWM1RtGnO8J2wvWTGoWcrzvs=; b=SwoBCQzw0cqMA1wqkHGSslRd6B
-	cDbQ0ZT62U0aGUZ5AjloddDUXiui6LQZwL6nBPqkfrSRJXereQFSwEP9gWtdNFxFffKnBwznx/ALe
-	so/JWqDm+CsOU1jok3hvz7/zVmt3qMUg490qQqfYYegW1Uj0mhoVE6Q1T7L7Hy5yb+KxKD5x37Zbt
-	JXJp6s6hnHJ1nMjrqI/DszEnujXoYiA0PLKo/Bz0lJp7wif0XtKNr2rUTl8qPFqLW3TO05To6qXmO
-	7W51MHsiqkqslaXJu0xQaGKxxJOzDthSHCjkcGZQ1JOVY2+qzvOULjskedpdTQuudq9fukV7nKDHS
-	Ptx5QzcQ==;
+	bh=zGsmby+yKUjzUNCvhm4boSVhmkNEXyH7VTVA58e1R+A=; b=b9vl+hbTuwfBylYOAEmV/Q3iqE
+	vd25uUr7SyYUQilbo68QRyr+cPtPMxhfWZBORtwsQjWsrgMq6iGi3XRzvBMQ2sC86uzgrTATqvxS1
+	u/Rk2s2f8N5q5bbx3C0eD1QFnuq+NOolNGGKt1wOz0d6j6CZVG+P6iu4ET7Df9/5LBEpkaorVnkh0
+	TKuT6Pmk4UdeDoAIeyeHW6jhjlC/Md8iOYXmEY1XjqM8Gu6ooVING8qKv7a0NxSxVrXk/M4uwVhGY
+	qbLzyS2atFgq/AujGerCmDp3PMxU/RCq2LA3MKMNt9P6zGolggqdzyTy0l99G0GJWEXBo3vA1/t9a
+	C9QQsCiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dtG-0000000DIYK-1i7d;
-	Fri, 20 Mar 2026 17:44:06 +0000
+	id 1w3dtI-0000000DIag-1fia;
+	Fri, 20 Mar 2026 17:44:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dsw-0000000DIFa-2wQI
+	id 1w3dsz-0000000DIH5-0mni
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 17:43:49 +0000
+	Fri, 20 Mar 2026 17:43:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4452E1596;
-	Fri, 20 Mar 2026 10:43:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 632FB165C;
+	Fri, 20 Mar 2026 10:43:42 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BF583FA1F;
-	Fri, 20 Mar 2026 10:43:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E8683FA1F;
+	Fri, 20 Mar 2026 10:43:46 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 20 Mar 2026 17:43:01 +0000
-Subject: [PATCH v7 19/20] coresight: Take hotplug lock in
- enable_source_store() for Sysfs mode
+Date: Fri, 20 Mar 2026 17:43:02 +0000
+Subject: [PATCH v7 20/20] coresight: Move CPU hotplug callbacks to core
+ layer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260320-arm_coresight_path_power_management_improvement-v7-19-327ddd36b58b@arm.com>
+Message-Id: <20260320-arm_coresight_path_power_management_improvement-v7-20-327ddd36b58b@arm.com>
 References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
 In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,18 +52,18 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>
+ Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774028583; l=4708;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774028583; l=6710;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=Ahsime3q/ylDm8Hk9QXY3Cnl7xaEPrJv5XtB2Eqk2kY=;
- b=1OIjXmbmAUnxPW/TP3yw/p8jUuiW/ChHtVkiFdc354YM7zN+CHsyPatdzcorH+9V5agrtHp81
- pJZb179Ug8HBsPudgEipWedSjEQtww06Vki3DIw9/WDoW3cjX3QvchB
+ bh=r44f/shfDf1NM7fTSQSe/Pa3qq7m/AG83CNquo/g6Fc=;
+ b=N4PLAFRJGf5h9ycxcNw47vEW/SalWf35QeJDKdh+9gKkHOYkafBkLEGbVQJORrb5pGM9A+e/s
+ F3+ImIbzqlrCZLPkgVcbjgxOoRnyzTMKeWmbgjyTMH8+ZU/+bjf6HCh
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_104348_742138_5490FF09 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260320_104349_318405_43E318A3 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +78,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hotplug lock is acquired and released in etm{3|4}_disable_sysfs(),
-which are low-level functions.  This prevents us from a new solution for
-hotplug.
+This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
+The motivation is the core layer can control all components on an
+activated path rather but not only managing tracer in ETMv4 driver.
 
-Firstly, hotplug callbacks cannot invoke etm{3|4}_disable_sysfs() to
-disable the source; otherwise, a deadlock issue occurs.  The reason is
-that, in the hotplug flow, the kernel acquires the hotplug lock before
-calling callbacks.  Subsequently, if coresight_disable_source() is
-invoked and it calls etm{3|4}_disable_sysfs(), the hotplug lock will be
-acquired twice, leading to a double lock issue.
+The perf event layer will disable CoreSight PMU event 'cs_etm' when
+hotplug off a CPU.  That means a perf mode will be always converted to
+disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
+need to handle the Sysfs mode and ignore the perf mode.
 
-Secondly, when hotplugging a CPU on or off, if we want to manipulate all
-components on a path attached to the CPU, we need to maintain atomicity
-for the entire path.  Otherwise, a race condition may occur with users
-setting the same path via the Sysfs knobs, ultimately causing mess
-states in CoreSight components.
+The core layer disables and releases the active path when hotplug-off a
+CPU.  When hotplug-in a CPU, it does not re-enable the path, in this
+case, users need to re-enable the trace via Sysfs interface.
 
-This patch moves the hotplug locking from etm{3|4}_disable_sysfs() into
-enable_source_store().  As a result, when users control the Sysfs knobs,
-the whole flow is protected by hotplug locking, ensuring it is mutual
-exclusive with hotplug callbacks.
-
-Note, the paired function etm{3|4}_enable_sysfs() does not use hotplug
-locking, which is why this patch does not modify it.
-
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 8 --------
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 9 ---------
- drivers/hwtracing/coresight/coresight-sysfs.c      | 7 +++++++
- 3 files changed, 7 insertions(+), 17 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c       | 36 ++++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 40 ----------------------
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 --------------------
+ 3 files changed, 35 insertions(+), 78 deletions(-)
 
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index e0784e8eecedae5a5121c03d6bb29f6a3ab5026f..fd982c4eafc62b10c01b70e0ec3efe4a4add0afe 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1903,13 +1903,47 @@ static struct notifier_block coresight_cpu_pm_nb = {
+ 	.notifier_call = coresight_cpu_pm_notify,
+ };
+ 
++static int coresight_dying_cpu(unsigned int cpu)
++{
++	struct coresight_path *path = coresight_get_local_cpu_path();
++	struct coresight_device *source = coresight_get_source(path);
++
++	if (!path || !source)
++		return 0;
++
++	/*
++	 * The perf event layer will disable PMU events in the CPU hotplug.
++	 * CoreSight driver should never handle the CS_MODE_PERF case.
++	 */
++	if (coresight_get_mode(source) != CS_MODE_SYSFS)
++		return 0;
++
++	coresight_disable_source(source, NULL);
++	coresight_disable_path(path);
++	coresight_release_path(path);
++	return 0;
++}
++
+ static int __init coresight_pm_setup(void)
+ {
+-	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
++	int ret;
++
++	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
++	if (ret)
++		return ret;
++
++	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
++					"arm/coresight-core:starting",
++					NULL, coresight_dying_cpu);
++	if (ret)
++		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
++
++	return ret;
+ }
+ 
+ static void coresight_pm_cleanup(void)
+ {
++	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
+ }
+ 
 diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index c2b8c096cbe9e9759b3d17f019a2d73f59234ac9..c6fe8b25b855a4119110fee4162f55c0154c3d05 100644
+index c6fe8b25b855a4119110fee4162f55c0154c3d05..862ad0786699c41433eae8683406b3c1340a6cb6 100644
 --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -631,13 +631,6 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
+@@ -699,35 +699,6 @@ static int etm_online_cpu(unsigned int cpu)
+ 	return 0;
+ }
+ 
+-static int etm_starting_cpu(unsigned int cpu)
+-{
+-	if (!etmdrvdata[cpu])
+-		return 0;
+-
+-	spin_lock(&etmdrvdata[cpu]->spinlock);
+-	if (!etmdrvdata[cpu]->os_unlock) {
+-		etm_os_unlock(etmdrvdata[cpu]);
+-		etmdrvdata[cpu]->os_unlock = true;
+-	}
+-
+-	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+-		etm_enable_hw(etmdrvdata[cpu]);
+-	spin_unlock(&etmdrvdata[cpu]->spinlock);
+-	return 0;
+-}
+-
+-static int etm_dying_cpu(unsigned int cpu)
+-{
+-	if (!etmdrvdata[cpu])
+-		return 0;
+-
+-	spin_lock(&etmdrvdata[cpu]->spinlock);
+-	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+-		etm_disable_hw(etmdrvdata[cpu]);
+-	spin_unlock(&etmdrvdata[cpu]->spinlock);
+-	return 0;
+-}
+-
+ static bool etm_arch_supported(u8 arch)
  {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	switch (arch) {
+@@ -795,13 +766,6 @@ static int __init etm_hp_setup(void)
+ {
+ 	int ret;
  
--	/*
--	 * Taking hotplug lock here protects from clocks getting disabled
--	 * with tracing being left on (crash scenario) if user disable occurs
--	 * after cpu online mask indicates the cpu is offline but before the
--	 * DYING hotplug callback is serviced by the ETM driver.
--	 */
--	cpus_read_lock();
- 	spin_lock(&drvdata->spinlock);
+-	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+-					"arm/coresight:starting",
+-					etm_starting_cpu, etm_dying_cpu);
+-
+-	if (ret)
+-		return ret;
+-
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+ 					"arm/coresight:online",
+ 					etm_online_cpu, NULL);
+@@ -812,15 +776,11 @@ static int __init etm_hp_setup(void)
+ 		return 0;
+ 	}
  
- 	/*
-@@ -648,7 +641,6 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
- 				 drvdata, 1);
+-	/* failed dyn state - remove others */
+-	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+-
+ 	return ret;
+ }
  
- 	spin_unlock(&drvdata->spinlock);
--	cpus_read_unlock();
- 
- 	/*
- 	 * we only release trace IDs when resetting sysfs.
+ static void etm_hp_clear(void)
+ {
+-	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	if (hp_online) {
+ 		cpuhp_remove_state_nocalls(hp_online);
+ 		hp_online = 0;
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 1f100e8bbcc775a1bdc5f8b27ff15dbcaf030a63..2870c162fdc1c119f05ee5d92c1f6c71aa1cfb5f 100644
+index 2870c162fdc1c119f05ee5d92c1f6c71aa1cfb5f..1d7bfa21d7c205ae1b903bd62bc6d675d0fa949d 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1118,13 +1118,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- {
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+@@ -1834,33 +1834,6 @@ static int etm4_online_cpu(unsigned int cpu)
+ 	return 0;
+ }
  
--	/*
--	 * Taking hotplug lock here protects from clocks getting disabled
--	 * with tracing being left on (crash scenario) if user disable occurs
--	 * after cpu online mask indicates the cpu is offline but before the
--	 * DYING hotplug callback is serviced by the ETM driver.
--	 */
--	cpus_read_lock();
- 	raw_spin_lock(&drvdata->spinlock);
- 
- 	/*
-@@ -1138,8 +1131,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- 
- 	cscfg_csdev_disable_active_config(csdev);
- 
--	cpus_read_unlock();
+-static int etm4_starting_cpu(unsigned int cpu)
+-{
+-	if (!etmdrvdata[cpu])
+-		return 0;
 -
- 	/*
- 	 * we only release trace IDs when resetting sysfs.
- 	 * This permits sysfs users to read the trace ID after the trace
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index 04c1425eb37d69c6feb8e49446fc58ee57a5e82e..c8d45f69072546bc5ae61e22646000cd47530dba 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -305,6 +305,13 @@ static ssize_t enable_source_store(struct device *dev,
- 	if (ret)
- 		return ret;
+-	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+-	if (!etmdrvdata[cpu]->os_unlock)
+-		etm4_os_unlock(etmdrvdata[cpu]);
+-
+-	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+-		etm4_enable_hw(etmdrvdata[cpu]);
+-	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+-	return 0;
+-}
+-
+-static int etm4_dying_cpu(unsigned int cpu)
+-{
+-	if (!etmdrvdata[cpu])
+-		return 0;
+-
+-	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+-	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+-		etm4_disable_hw(etmdrvdata[cpu]);
+-	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+-	return 0;
+-}
+-
+ static int etm4_cpu_save(struct coresight_device *csdev)
+ {
+ 	int i, ret = 0;
+@@ -2110,13 +2083,6 @@ static int __init etm4_pm_setup(void)
+ {
+ 	int ret;
  
-+	/*
-+	 * CoreSight hotplug callbacks in core layer control a activated path
-+	 * from its source to sink. Taking hotplug lock here protects a race
-+	 * condition with hotplug callbacks.
-+	 */
-+	guard(cpus_read_lock)();
-+
- 	if (val) {
- 		ret = coresight_enable_sysfs(csdev);
- 		if (ret)
+-	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+-					"arm/coresight4:starting",
+-					etm4_starting_cpu, etm4_dying_cpu);
+-
+-	if (ret)
+-		return ret;
+-
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+ 					"arm/coresight4:online",
+ 					etm4_online_cpu, NULL);
+@@ -2127,14 +2093,11 @@ static int __init etm4_pm_setup(void)
+ 		return 0;
+ 	}
+ 
+-	/* failed dyn state - remove others */
+-	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	return ret;
+ }
+ 
+ static void etm4_pm_clear(void)
+ {
+-	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	if (hp_online) {
+ 		cpuhp_remove_state_nocalls(hp_online);
+ 		hp_online = 0;
 
 -- 
 2.34.1
