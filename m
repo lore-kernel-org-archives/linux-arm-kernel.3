@@ -4,79 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5B7108B8ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7603108B8ED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 10:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmN3Nn5+/2+wlJPdb9UE+9BhxULvNRbP8Duc4E3NT8w=; b=KZ5Are/Hvo0rk+SZAlZEu0A+Pb
-	fAMgTijjXwxsY5I98YDOj535VFTiMuL72aerbSv9AEVO8Slv/9xck+LJ/GDqP5tpPBBILnks8gsER
-	kg9pG91lem7qIDCitCXGgCr7q+hnl83h2U9hzhNDca4RBEB/0v5olO93KUxj9gs0NaUtTtIwjjpPy
-	fWpwVSwdsGZip8tX+TPFnNagbh+uMMfj6gLo65vMu2CW4NIT18HpAHNEcqfGQzbuUNU2siu3HtJ4k
-	sqU21+b8IfseCDIRSej5aPMMtJzRRFhUsP8yDp8LErLRhZrXhpRzTNPGQhWkFx14a+vokMoNfyiTo
-	peH1FfSw==;
+	bh=Jdq6kd2e/QetCN5+0KvkNKA9+Xu9sw78ttZMSbDkXn0=; b=CxyugFA/tr4hB9KDHongbBMCHG
+	bB9j6sZs5e79enXHeVh3hk88jTNk7x9JA2See+WDWCe9hoSJNjxdoGFGieYTNYzPHoirTqg0D1S9A
+	rCACWpu6pnTMD+MPuz4IkPUml+grfyLyX6xxk6tlRE8lYp7L2O4IMLdMFIev6SMixoMBNJ89XzJ2q
+	QBbGXuuekluPJk+EtSG5DTP6cdVlX1pPzjmGrvzVZOxtWvnaz/0SVdRHGCc5AUomGIc8fTexA2V7R
+	mbWBacNG7blnGsS62XbEjyngoObQoghFUi2uE8JUDuFjmZ7OfrMJdUlGcqlgmHhh2WQVWpp4gp6tc
+	shXZLtMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3X59-0000000CbL4-3e4K;
-	Fri, 20 Mar 2026 10:27:55 +0000
-Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
+	id 1w3X68-0000000CbZ7-0O38;
+	Fri, 20 Mar 2026 10:28:56 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3X56-0000000CbIA-3Ih4
+	id 1w3X65-0000000CbY0-1voD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 10:27:54 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=lmN3Nn5+/2+wlJPdb9UE+9BhxULvNRbP8Duc4E3NT8w=;
-	b=l1qkdEPsha5VnNg/yiR/r0yZnfB6EtFX1UfDqnJBi7o45zR7Vs5LnRd5Lhz2KMksWEvlsxBgg
-	JhyGcZRro6H0711oMRtBYj8NeK4WVZ+C/UwA3JvTC2ANEyy8ebk4wQnuvFI5ox14hSd0OB/7yNc
-	Pg4/E2BDq5KN81n27MzIJBA=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
-	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fcdtW4886zMpPn;
-	Fri, 20 Mar 2026 18:22:59 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4fcdyd5MdkzJ46f6;
-	Fri, 20 Mar 2026 18:26:33 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 98A594056F;
-	Fri, 20 Mar 2026 18:27:34 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 20 Mar
- 2026 10:27:33 +0000
-Date: Fri, 20 Mar 2026 10:27:32 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, Timothy Hayes <Timothy.Hayes@arm.com>, "Suzuki
- Poulose" <Suzuki.Poulose@arm.com>, nd <nd@arm.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, "maz@kernel.org"
-	<maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>
-Subject: Re: [PATCH v6 01/39] KVM: arm64: vgic-v3: Drop userspace write
- sanitization for ID_AA64PFR0.GIC on GICv5
-Message-ID: <20260320102732.000062da@huawei.com>
-In-Reply-To: <88437fc1251f775d51e42d4b5e8318cd7031fa81.camel@arm.com>
-References: <20260317113949.2548118-1-sascha.bischoff@arm.com>
-	<20260317113949.2548118-2-sascha.bischoff@arm.com>
-	<20260319100256.00004de2@huawei.com>
-	<88437fc1251f775d51e42d4b5e8318cd7031fa81.camel@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 20 Mar 2026 10:28:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TM0A8LpiCf99z9wijj/+OvjPRbLzpXKriqKlNUDDOKssDbNI/vKOA3kpGe/MV1w68f5xkkOP9vX2Z70+LeZrfIYBgHh3Dkb0HStox29999I43Z0gLTxNOrTY8x+nrf2GgKNrK3QZUJLorfeJjyDW6kEIyMGDCEBverpa3fXmL5tzwMjTnKSDgkzJRxeuzIK0xbox8nvc08I0nXTdm51Pqpifq0zvYpLD7vrmg7/jqf9HyzIaYDSfXMDMt1AnbDfwD4jZEA7UriUrjwNySlNLSKPAif2IjgWMHQSvszjd3Zc6U+s/fV+qcgXvYoHaOj0gKQmQj1Jwl558/dHNxYhRGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Jdq6kd2e/QetCN5+0KvkNKA9+Xu9sw78ttZMSbDkXn0=;
+ b=FSLbhg9z3AwZL2/l0piHGMl0EBtXjnq3DA2/18VCY7yzuaqTxuTxULRi8rowAu27QAwJPoFjBBvh/jeZ3NvVuAK3U+2X6TV/mBM0uMnD6smPVeZ93UbdGQbKY4p14mf4OtuwdfOHzT8xeZq+y2ywn2MHCY2oqkunw0NvXZuvL2SQw9BCcB39leVib8Xo+AIhSfuFNeE7J7H3JGEfaGsbctUMWARLdow0wsfN0XKxfooGBjt6JM1mGUIUi2ZbUrkATI9NjxMd0C1SXhE7rDqqYXEvmeeB885hY8v6nAsjC7DXw3dZfuamD/4a4brjXrY9pVmfV9r1Iz6RYxlkkSUQDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR02CA0017.apcprd02.prod.outlook.com (2603:1096:4:194::17)
+ by TY2PPF5221563AF.apcprd06.prod.outlook.com (2603:1096:408::78e) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Fri, 20 Mar
+ 2026 10:28:36 +0000
+Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
+ (2603:1096:4:194:cafe::e6) by SI2PR02CA0017.outlook.office365.com
+ (2603:1096:4:194::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9700.27 via Frontend Transport; Fri,
+ 20 Mar 2026 10:28:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Fri, 20 Mar 2026 10:28:35 +0000
+Received: from [172.20.96.43] (unknown [172.20.96.43])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 747374126F82;
+	Fri, 20 Mar 2026 18:28:34 +0800 (CST)
+Message-ID: <40fc5cb7-a5f2-4b86-8dba-1b39e1ea0da4@cixtech.com>
+Date: Fri, 20 Mar 2026 18:28:34 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic and
+ combined IRQ topologies
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
+ ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
+ Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260319101723.246539-1-jun.guo@cixtech.com>
+ <20260319101723.246539-2-jun.guo@cixtech.com>
+ <20260320-vengeful-violet-cockle-382580@quoll>
+Content-Language: en-US
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <20260320-vengeful-violet-cockle-382580@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|TY2PPF5221563AF:EE_
+X-MS-Office365-Filtering-Correlation-Id: c10e4ae6-3009-4e9f-f4c5-08de866b71aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700016|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: r8sFFwBC6ObsQSPen90pyXg8xIQGpKGIkl7aquw4le+dsEl7JPKMcJW4UcKHfWarzwb2EqyADmskws9IVrRqD4JM9se6NV2Ibn9+xsrYMF9eMKBozaqWaZ/p8l//31ExE/ASyymSWfx9DQAB5vTgv8/qHKOQ5hw63GEECAZIVYnLHQapbHh5u5DjRHqquAXL/OkmumDvaD8XZ6bwA2Pf4gZQ9R+fI4vI/J/iqvq+FRf48qGLjj19WbDLhrd0u1h2/0LtE3yG982Q5uikP139+n+2/tmreRmKza1BBDvz4FeZQfbRskIDAUoqbsXfTJKmwXDXtS+9IeIey0LHXHcYG+xab1YAwPjSYa/fzfqUFBsYAqphSjtpYlFCs/FGoiSCLlcb8Z+xnTqs1m418oNrg1rzCUkbIivLltEDyskqEnniYnAQKYM+6RYmgr5F9A90GvVSHa3cRSpPdYhRLlPj870F1YJepmzya1fVtcRbBSUosLiMzOZxog4ScN8yK5hsKUulkAyTHFxPd3koWozIAN13ONkD0w6QFue/aLmSDJsV+XAjL8N1YxWqgqAFbZ5YRHkPcxCdqzqJELcVNdyfLe66LO1sgxdrOxohVGlAwyUA1ARL0ggmalpdIg909hzjWUs8PHvOUAxsl1qWqR7jF9Ho6bjkYDD5nAS8zgNvVwHinEU5fNFEOArRN6/fSGGRCJFO4mrC9YS3UeIKfw3WGgMeT35kvW/gpuLVKanXR21DFJHfQ5ZPWsJRu2HFpt+HmXd0GqDEnuRaNbkk48a0mg==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: E6l3c1EjVdaJIuCi15i5a6s7o1qEdRuzJQClsUjlDLIdOFesxZIWCZoHwxKmFhOCb0YgcjerF1aX9schm6gMuIzjXq+eHcoYxEGWeCAfio+gvf0dwHQeU+bITRN1nNbo+bgOH++yg3DudUI9rnpayl7ii2EzpGaekiUk+7VvKhD7MqIOrff8BoVBcrltf3aHHa1H7/MVnCQ5csVxy1TZDJOOlB3pfiQNEmg5En9WZVS+1K8zSYJk30Atjvrq6gun0F3oLvjI/UL/6oEWZOZw6QKvKk5Fo5FjucdRN59+tpW1+ITbhcbtuGTuxpUDC16KkoosgncX7Q+rx4NfjiY+4V5CgyT8D7V1pr0JRNN/rHlw4/xsINyWMWg5KLdZ4KxHT0I553okHfIiCRUULOWq+wHFzUk+17R8CRPus0HDoguda3PU0pchDaFTOtqTJTrp
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Mar 2026 10:28:35.8137
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c10e4ae6-3009-4e9f-f4c5-08de866b71aa
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF5221563AF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_032753_181710_4E095F27 
-X-CRM114-Status: GOOD (  33.11  )
+X-CRM114-CacheID: sfid-20260320_032853_499376_0AF4D4AB 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,81 +120,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Mar 2026 11:35:32 +0000
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 
-> On Thu, 2026-03-19 at 10:02 +0000, Jonathan Cameron wrote:
-> > On Tue, 17 Mar 2026 11:40:13 +0000
-> > Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> >  =20
-> > > Drop a check that blocked userspace writes to ID_AA64PFR0_EL1 for
-> > > writes that set the GIC field to 0 (NI) on GICv5 hosts. There is no
-> > > such check for GICv3 native systems, and having inconsistent
-> > > behaviour
-> > > both complicates the logic and risks breaking existing userspace
-> > > software that expects to be able to write the register.
-> > >=20
-> > > This means that userspace is now able to create a GICv3 guest on
-> > > GICv5
-> > > hosts, and disable the guest from seeing that it has a GICv3. This =20
-> >=20
-> > Just to clarify this is removing a check on a nonsensical setup?
-> > I'm not against it if that simplifies things but I couldn't quite
-> > parse the description. =20
->=20
-> Effectively, we were being more strict when running with GICv3 on a
-> GICv5 host than when running natively on a GICv3 host. This by itself
-> wasn't too big an issue, but it can cause existing software break if it
-> relies on being able to hide GICv3 this way (for whatever reason...),
-> and somewhat breaks the portability story.
->=20
-> Moreover, we test these sorts of things in the selftests. If a virtual
-> GICv3 is created but then userspace comes along and zeros the feature
-> bits (so, hides the feature), we expect the FGU infrastructure to take
-> over to undef registers/instructions related to that feature. So, in
-> this case, rather than letting userspace hide the virtual GICv3 from
-> the guest, we instead stopped it from hiding it.
->=20
-You have me at self tests of the infrastructure.  That bit I get :)
 
-> Does that make some sort of sense?
->=20
-> Thanks,
-> Sascha
->=20
-> >  =20
-> > > matches the already existing behaviour for GICv3-native VMs.
-> > >=20
-> > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > > ---
-> > > =A0arch/arm64/kvm/sys_regs.c | 8 --------
-> > > =A01 file changed, 8 deletions(-)
-> > >=20
-> > > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > > index 1b4cacb6e918a..4b9f4e5d946b1 100644
-> > > --- a/arch/arm64/kvm/sys_regs.c
-> > > +++ b/arch/arm64/kvm/sys_regs.c
-> > > @@ -2177,14 +2177,6 @@ static int set_id_aa64pfr0_el1(struct
-> > > kvm_vcpu *vcpu,
-> > > =A0	=A0=A0=A0 (vcpu_has_nv(vcpu) && !FIELD_GET(ID_AA64PFR0_EL1_EL2,
-> > > user_val)))
-> > > =A0		return -EINVAL;
-> > > =A0
-> > > -	/*
-> > > -	 * If we are running on a GICv5 host and support
-> > > FEAT_GCIE_LEGACY, then
-> > > -	 * we support GICv3. Fail attempts to do anything but set
-> > > that to IMP.
-> > > -	 */
-> > > -	if (vgic_is_v3_compat(vcpu->kvm) &&
-> > > -	=A0=A0=A0 FIELD_GET(ID_AA64PFR0_EL1_GIC_MASK, user_val) !=3D
-> > > ID_AA64PFR0_EL1_GIC_IMP)
-> > > -		return -EINVAL;
-> > > -
-> > > =A0	return set_id_reg(vcpu, rd, user_val);
-> > > =A0}
-> > > =A0 =20
-> >  =20
->=20
+On 3/20/2026 5:12 PM, Krzysztof Kozlowski wrote:
+> EXTERNAL EMAIL
+> 
+> On Thu, Mar 19, 2026 at 06:17:21PM +0800, Jun Guo wrote:
+>> Update the DMA-350 DT binding to match the current driver behavior.
+>>
+>> Allow both:
+>> - "arm,dma-350" as the generic compatible, and
+>> - "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
+>>
+>> Also document interrupt topology variants supported by hardware
+>> integration:
+>> - one combined interrupt for all channels, or
+>> - one interrupt per channel (up to 8 channels).
+>>
+>> This patch is Assisted-by: Cursor: GPT-5.3 Codex.
+> 
+> Wrong tag, please read carefully the guideline before using LLM tools.
+Okay. I will temporarily disregard the check patch warnings in the next 
+version and correct the format of the AI-generated tag.
+
+> 
+>>
+>> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+>> Link: https://lore.kernel.org/r/20251216123026.3519923-2-jun.guo@cixtech.com
+> 
+> What does this express? Changelog link? Then keep it in the changelog
+> --- part.
+Okay, I'll address this in the next version of the patch.
+
+> 
+> 
+>> ---
+>>   .../devicetree/bindings/dma/arm,dma-350.yaml  | 31 +++++++++++++------
+>>   1 file changed, 21 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+>> index 429f682f15d8..3639ce0d5054 100644
+>> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+>> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+>> @@ -14,7 +14,11 @@ allOf:
+>>
+>>   properties:
+>>     compatible:
+>> -    const: arm,dma-350
+>> +    oneOf:
+>> +      - const: arm,dma-350
+>> +      - items:
+>> +          - const: cix,sky1-dma-350
+>> +          - const: arm,dma-350
+>>
+>>     reg:
+>>       items:
+>> @@ -22,15 +26,22 @@ properties:
+>>
+>>     interrupts:
+>>       minItems: 1
+>> -    items:
+>> -      - description: Channel 0 interrupt
+>> -      - description: Channel 1 interrupt
+>> -      - description: Channel 2 interrupt
+>> -      - description: Channel 3 interrupt
+>> -      - description: Channel 4 interrupt
+>> -      - description: Channel 5 interrupt
+>> -      - description: Channel 6 interrupt
+>> -      - description: Channel 7 interrupt
+>> +    maxItems: 8
+>> +    description: |
+>> +      The DMA controller may be configured with separate interrupts for each channel,
+>> +      or with a single combined interrupt for all channels, depending on the SoC integration.
+> 
+> And more important - you must review the LLM microslop output before
+> posting and adjust it to Linux kernel coding style. Don't send
+> unredacted tool output.
+> 
+Actually, this part of the description was not AI-generated. However, 
+I’d like to confirm the issue you mentioned: are you saying that this 
+description is written too verbosely?
+Then, do you think there are still issues with the revised version?
+   interrupts:
+     minItems: 1
+     maxItems: 8
+     description:
+       Either one interrupt per channel (8 interrupts), or one
+       combined interrupt for all channels.
+
+> Best regards,
+> Krzysztof
+> 
 
 
