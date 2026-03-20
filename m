@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA2A1099B2D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE941099B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Mar 2026 17:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ba1ZIDsmTVZZgWsogbc35CCEP4ZoKqGqLsrV6LiIaIE=; b=TlaGovjm6bMTS0E7G5gjyH6y2D
-	VqobiycK/8ID+tDqGERy17zJ+cb6UrOuwDMjRo8exB4ebWlzcN2NKmH8aphVk33/hJuVhwHviCWh7
-	/HYpBodib34M2Du7Z02afbMo8jpnyLxJesOgkwSYqJlkWJgneIQBM2qDGb+x5kEFD6felARNtiwZO
-	zl281qnpvSMqcBeRYg6f/zr7KaNOQ0mjtZGuvGuxREHaEaRMEO9cG6yR2xLgX6RI49koFjOfQIKjo
-	+FeSzqt2yg6SGiMRHCrNTgCzGSwqd7hyFGk71iccWcT9RrZewHCh4Y5s1g3FB+oB1AfTWyIIr3wqF
-	vzIh0o2g==;
+	bh=r+YZBG5es5IrNys4EfQ04k6/YfCygjbkTB/CFHAOJ0Y=; b=1GsEdedkJWkhtI0J9w87DZ8NTQ
+	6yLv8RMxEsu5YrA6ZWWWbFUMXp5mjkZxQrH9el7u+hmFPS82G5f9RwDVQEAxTzRZYcknlLA2N150y
+	xayuP3xMwfyAQUma6uibkiYaeWEOt8kr3WoZgIfEGGYmk5ls9oJgSszDtBN7ZrrWqXJFgzyyDo87l
+	DGW9FR7aSdBjQIGBf4MJ5ZjtqHmjXPOfaEyZoXzAUYuLDW2pkAAeUd0kgCqT+zuX6AiJh+x+SLPgW
+	gd3dywyoEDuCES0x5qw776lzor0Bt+GFeT54SrHLSGWOr8hRSivdLflnkL5pvtTkiXcJIXFl4edlB
+	8BT6P2sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dcR-0000000DF9W-06gY;
-	Fri, 20 Mar 2026 17:26:43 +0000
-Received: from lpdvsmtp09.broadcom.com ([192.19.166.228] helo=relay.smtp-ext.broadcom.com)
+	id 1w3dcd-0000000DFEf-2GT7;
+	Fri, 20 Mar 2026 17:26:55 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3dc7-0000000DF4C-49Mk
+	id 1w3dcV-0000000DFC3-1zsE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Mar 2026 17:26:25 +0000
+	Fri, 20 Mar 2026 17:26:54 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 851C0C0000E0;
-	Fri, 20 Mar 2026 10:26:23 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 851C0C0000E0
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 8772FC000813;
+	Fri, 20 Mar 2026 10:26:46 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 8772FC000813
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1774027583;
-	bh=QzSerOQE3YcWTbMDw2emPRtzfM/jMtTOQUibYR9tuJw=;
+	s=dkimrelay; t=1774027606;
+	bh=nE/vW2D+wEn7UJ/6B88/Ij7aHIhwCj42B79kzM0zOss=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BW4e4/Jg92KCz83wbaVY4tqZ5V1wZtGDoEVwK3SnhprvUF2VbbGyIVuBtIdqZ1SEM
-	 v/XnEEMCUsj4cvIu8Xa9fF/0CZs34eT4F9dwYNsgjvLhZoNHHS0nSgW7CdUWGRPOSq
-	 NMRr8v+Cg9cgxt5iTAO7ZrJ1DNX1mpaR+UvO7cuI=
+	b=beyFpBvH7wwfdJXoJ+/OfeEcCfM93BpTzuQewv5hJkXaYQYVejGuonarhbde6OAJo
+	 s7eJAX1J8My511QRCyuUg616CfNz6Bdb4rWL9oe8+fructPPo3TJeGMXq2pfoxyXSE
+	 wFTKS2SANVdjMgz9kp8oWma9kChTEP+vJqRvRB1k=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 5C534A83;
-	Fri, 20 Mar 2026 10:26:23 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 2A959A83;
+	Fri, 20 Mar 2026 10:26:46 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Rosen Penev <rosenp@gmail.com>,
@@ -56,17 +56,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
 	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/6] ARM: dts: BCM5301X: EA9200: add wifi definitions
-Date: Fri, 20 Mar 2026 10:26:23 -0700
-Message-ID: <20260320172623.3072147-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH 6/6] ARM: dts: BCM5301X: EA9200: set MAC from nvram
+Date: Fri, 20 Mar 2026 10:26:45 -0700
+Message-ID: <20260320172645.3072323-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260319035324.269905-5-rosenp@gmail.com>
-References: <20260319035324.269905-1-rosenp@gmail.com> <20260319035324.269905-5-rosenp@gmail.com>
+In-Reply-To: <20260319035324.269905-7-rosenp@gmail.com>
+References: <20260319035324.269905-1-rosenp@gmail.com> <20260319035324.269905-7-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_102624_087056_91E48D52 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20260320_102649_015766_ABC75ABC 
+X-CRM114-Status: UNSURE (   8.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,9 +84,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Wed, 18 Mar 2026 20:53:22 -0700, Rosen Penev <rosenp@gmail.com> wrote:
-> brcm,ccode-map and ieee80211-freq-limit are needed to be specified on
-> some of them for proper operation.
+On Wed, 18 Mar 2026 20:53:24 -0700, Rosen Penev <rosenp@gmail.com> wrote:
+> Especially needed for the WAN port, which is part of the switch and
+> inherits the MAC from GMAC2. Added extra definitions for the wifi
+> interfaces to make everything clear.
 > 
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
