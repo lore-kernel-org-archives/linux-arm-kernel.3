@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BBB1094462
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 07:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77E01094462
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 07:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
 	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLm4IQklaR2CNzE4LbjmpJTUb6cmIq5AyTVgjPiZhVY=; b=FvhsTii/zmlRD4E+NtXpmiTPJj
-	VNLIaq/b1XONSsmssohVwKLQ7CZVHPNE3Wpv7lsQDEG0RkH92K4q/vOIN3RKUvB/YPwGmXsKFW8WO
-	e9usYW5veUGexj7sMFYbxYc3opxrsZe+i2CpB9+6CNjCqA8ZnyZsxrBVdXOO1ASOC16csTxoz+05b
-	m/lXOrA9LjALyGvxMk3kTelUcd37XQWnYG9qJtNNm0MCGET7w7zjx+NasRRrVQ8KIbAMZcNRdc6li
-	2Gm3ZVjypsWZaPphUxycHyW7MnRERTH8ZTIquCo8amfVml+9JQyeP8pQlvmu4tOTK8p4+nRpjpYMG
-	vlDLbnqQ==;
+	bh=GXIrZ2JeBYt7lvRrjXt7T5FwWusy32QKCFn/6PrHSYY=; b=IhFq19JzolS3jAEgY3FT0KrSGy
+	ALRJ3JUiJkCrursP41Ysr2mQU/DXGC3XcErgOkM8YFb7Hdofh2RhwP4CLliX02LIwwA5WPz4L2yba
+	t3X+zNnXSnB57R4iZ7a5i+SoAPXFzb6W76VRCI/LbqLWTr62G11P7V0//cZsW8ozPIoCclz2hcUMs
+	fdU7nzdULIgX/kIyLRtq0zgINbVzEVYVkQJN6EznqvROjJzlEX8PBCOr3b+7JS7qcZiWrQozSTkNk
+	jd3E+i0Z26tNQQoVneAVkR85C3ENoJEzHJSg/Bu4zd0h1B/+uKzGfYG6cDXadvO7Y5SiwVmsNXM3T
+	9IlT4ELQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3r8e-0000000EDLy-2i0y;
-	Sat, 21 Mar 2026 07:52:52 +0000
-Received: from mail-106121.protonmail.ch ([79.135.106.121])
+	id 1w3r8j-0000000EDPd-0x7j;
+	Sat, 21 Mar 2026 07:52:57 +0000
+Received: from mail-244116.protonmail.ch ([109.224.244.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3r8b-0000000EDJu-2rYv;
-	Sat, 21 Mar 2026 07:52:50 +0000
+	id 1w3r8h-0000000EDMc-0cO3
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Mar 2026 07:52:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1774079566; x=1774338766;
-	bh=mLm4IQklaR2CNzE4LbjmpJTUb6cmIq5AyTVgjPiZhVY=;
+	s=protonmail3; t=1774079571; x=1774338771;
+	bh=GXIrZ2JeBYt7lvRrjXt7T5FwWusy32QKCFn/6PrHSYY=;
 	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
 	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
 	 Message-ID:BIMI-Selector;
-	b=XPXkikj8IpWjPX7MVtBUExpGnBHGAstPtti7YrLKhyyZx7sDO8MMO37eewdl48rdh
-	 MM7JjFYLRwI8Px3M1ky0CsrPNSpJdVgpHTxHCW7l7AYI96of4upRgmM8yMcfqETCU8
-	 XrOmQP0ER4bFcrAo1tsgYR/w9PKEvSL+vxBQX7yoH4IvtLS7wRrN/JfRa+cqMwJqOv
-	 JfhzN0bjhhRoA9L9WPdL+x9tYGU58dxZ1JAjlCxarMHeqJM9atQm2XnV4upaM8R0SA
-	 puEyZaaFehsdrFxyv4ZfGE7jQ3JAes13TIpvZ+nA4k3AolgbYfcPIj91tLl3gaBhZM
-	 NYCvKjz79s3OQ==
-Date: Sat, 21 Mar 2026 07:52:41 +0000
+	b=jB/Sy4aFU4bYROKDZO6trbv16jvGwLbuXAMSwKZvdgBKyG+jDhoKqIcvCX4vnWIPM
+	 zdzANg6OAY201s7xjeU2ILkSpRhaI7PkTEy5slXkTPGN1hmvIieFEdjr5g5k0X/Zhb
+	 ORElhunBjYRfiSSLVJn5xZbhNe5TM9FYhrai1mrdIlXw5NqLDm0PXydM43dz45Rs2n
+	 bA8zVphKpaalPxNoemc/U5wL4wrJcS18Q7HHcsbIhdvBvDvAw8uVgHY2hXInVF8R6i
+	 H/GutRBI5DVec8rxlAVi4yJztLacvy7mTtUvj573ud9cpALMSi/Y+0ocAbc73urT8Y
+	 obCIZFCA5jRNA==
+Date: Sat, 21 Mar 2026 07:52:47 +0000
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, Jeffrey Hugo <jeffrey.l.hugo@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 From: Alexander Koskovich <akoskovich@pm.me>
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Alexander Koskovich <akoskovich@pm.me>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: [PATCH v4 3/5] drm/msm/dsi: rename MSM8998 DSI version from V2_2_0 to V2_0_0
-Message-ID: <20260321-dsi-rgb101010-support-v4-3-eb28ecebbfe8@pm.me>
+Subject: [PATCH v4 4/5] drm/msm/dsi: add DSI version >= comparison helper
+Message-ID: <20260321-dsi-rgb101010-support-v4-4-eb28ecebbfe8@pm.me>
 In-Reply-To: <20260321-dsi-rgb101010-support-v4-0-eb28ecebbfe8@pm.me>
 References: <20260321-dsi-rgb101010-support-v4-0-eb28ecebbfe8@pm.me>
 Feedback-ID: 37836894:user:proton
-X-Pm-Message-ID: fb72f00d21089d2803bafd3ccd004359c89df5c6
+X-Pm-Message-ID: 2b0c9cedaf796717b0cb0c1a53938aef4991d5a7
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_005249_882255_984CBBCF 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20260321_005255_343214_A2EF82AB 
+X-CRM114-Status: UNSURE (   7.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,55 +70,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MSM8998 DSI controller is v2.0.0 as stated in commit 7b8c9e203039
-("drm/msm/dsi: Add support for MSM8998 DSI controller"). The value was
-always correct just the name was wrong.
+Add a helper for checking if the DSI hardware version is greater
+than or equal to a given version, for use in a future change.
 
-Rename and reorder to maintain version sorting.
-
-Fixes: 7b8c9e203039 ("drm/msm/dsi: Add support for MSM8998 DSI controller")
 Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
 ---
- drivers/gpu/drm/msm/dsi/dsi_cfg.c | 4 ++--
- drivers/gpu/drm/msm/dsi/dsi_cfg.h | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/msm/dsi/dsi_host.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.c b/drivers/gpu/drm/msm/dsi/ds=
-i_cfg.c
-index bd3c51c350e7..da3fe6824495 100644
---- a/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-+++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.c
-@@ -317,10 +317,10 @@ static const struct msm_dsi_cfg_handler dsi_cfg_handl=
-ers[] =3D {
- =09=09&msm8996_dsi_cfg, &msm_dsi_6g_host_ops},
- =09{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V1_4_2,
- =09=09&msm8976_dsi_cfg, &msm_dsi_6g_host_ops},
-+=09{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_0_0,
-+=09=09&msm8998_dsi_cfg, &msm_dsi_6g_v2_host_ops},
- =09{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_1_0,
- =09=09&sdm660_dsi_cfg, &msm_dsi_6g_v2_host_ops},
--=09{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_2_0,
--=09=09&msm8998_dsi_cfg, &msm_dsi_6g_v2_host_ops},
- =09{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_2_1,
- =09=09&sdm845_dsi_cfg, &msm_dsi_6g_v2_host_ops},
- =09{MSM_DSI_VER_MAJOR_6G, MSM_DSI_6G_VER_MINOR_V2_3_0,
-diff --git a/drivers/gpu/drm/msm/dsi/dsi_cfg.h b/drivers/gpu/drm/msm/dsi/ds=
-i_cfg.h
-index 5dc812028bd5..ccf06679608e 100644
---- a/drivers/gpu/drm/msm/dsi/dsi_cfg.h
-+++ b/drivers/gpu/drm/msm/dsi/dsi_cfg.h
-@@ -19,8 +19,8 @@
- #define MSM_DSI_6G_VER_MINOR_V1_3_1=090x10030001
- #define MSM_DSI_6G_VER_MINOR_V1_4_1=090x10040001
- #define MSM_DSI_6G_VER_MINOR_V1_4_2=090x10040002
-+#define MSM_DSI_6G_VER_MINOR_V2_0_0=090x20000000
- #define MSM_DSI_6G_VER_MINOR_V2_1_0=090x20010000
--#define MSM_DSI_6G_VER_MINOR_V2_2_0=090x20000000
- #define MSM_DSI_6G_VER_MINOR_V2_2_1=090x20020001
- #define MSM_DSI_6G_VER_MINOR_V2_3_0=090x20030000
- #define MSM_DSI_6G_VER_MINOR_V2_3_1=090x20030001
+diff --git a/drivers/gpu/drm/msm/dsi/dsi_host.c b/drivers/gpu/drm/msm/dsi/d=
+si_host.c
+index db6da99375a1..b55ffe2fdec3 100644
+--- a/drivers/gpu/drm/msm/dsi/dsi_host.c
++++ b/drivers/gpu/drm/msm/dsi/dsi_host.c
+@@ -782,13 +782,21 @@ static void dsi_ctrl_disable(struct msm_dsi_host *msm=
+_host)
+ =09dsi_write(msm_host, REG_DSI_CTRL, 0);
+ }
+=20
++static bool msm_dsi_host_version_geq(struct msm_dsi_host *msm_host,
++=09=09=09=09    u32 major, u32 minor)
++{
++=09return msm_host->cfg_hnd->major > major ||
++=09       (msm_host->cfg_hnd->major =3D=3D major &&
++=09       msm_host->cfg_hnd->minor >=3D minor);
++}
++
+ bool msm_dsi_host_is_wide_bus_enabled(struct mipi_dsi_host *host)
+ {
+ =09struct msm_dsi_host *msm_host =3D to_msm_dsi_host(host);
+=20
+ =09return msm_host->dsc &&
+-=09=09(msm_host->cfg_hnd->major =3D=3D MSM_DSI_VER_MAJOR_6G &&
+-=09=09 msm_host->cfg_hnd->minor >=3D MSM_DSI_6G_VER_MINOR_V2_5_0);
++=09=09msm_dsi_host_version_geq(msm_host, MSM_DSI_VER_MAJOR_6G,
++=09=09=09=09=09MSM_DSI_6G_VER_MINOR_V2_5_0);
+ }
+=20
+ static void dsi_ctrl_enable(struct msm_dsi_host *msm_host,
 
 --=20
 2.53.0
