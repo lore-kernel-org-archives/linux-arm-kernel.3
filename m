@@ -4,110 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E461094468
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 10:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 629831094468
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 10:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g8Bqo58DKGqNdJlC0LhH+nJmcSzZVWPMzLSPnTaSCaQ=; b=qWE/U3ZwxHDrsHvo94uxwy44eL
-	Sg1qbcJfZF5dTRKMS0i5jPIQYdzlan8Kscmh+DNoVN9ss6cnT3bjhSTtP83nNvVsdVlljJ8fLt03M
-	PxdR/GSIqST52EIGA69vgyFh4nlzMHOweKjIRLO/owUVyq0lqhNG0xnyiV4p/KyCr9LR+orex8qTs
-	OEjWT7h2ztdZLAKXbAf7aVPwlaQtVk8jIGV0sUblk/rCoEV+8TZxa5hvRzDyuUFsP3/HYrp7Keh6T
-	OC1inGEaQ/73CrgnsRRV89MMklzy2euxKwLe+/oW4WQf5aH9VuJHajXajsP2anRJMs1lh1+cS7SSo
-	bmqYQCvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vxcTJFOmewD2GhiVVB+6YPckSGMQdPbVx332O/W6xHg=; b=Xe5dMV1bkuBAimn1hu6MUtYZD3
+	FONR6dTUtQEPvgCf1IaaOfwAYzbSoB/hFv8UJZI/m6L2p2JtearQv0uYvkE+iVZ9dIntyGgJrPXqq
+	0pPt72dXrkIqhqFPGkh0AiuI6svjkmtHq32GlMwiK60aS8TH2KQUaLe4HcjYTqctsLJEjjm21Y4Bk
+	shaZRZ7M3NX32K0zob+K7Jjuq39Rhmj3cFAVrBia5So5qDqqcBtPgAqeeCvyAUOzHXp6Xn9rkiozA
+	zuS8JRRxaVQykSHZkxXzVn0D7qliEMREarxgyqgCjUExPv8XbdU3g87eIIK1bsfU2ytYctjvFEcbh
+	PUpYmCFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3tEF-0000000EKYm-0MxA;
-	Sat, 21 Mar 2026 10:06:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3tKf-0000000EKtm-2JzS;
+	Sat, 21 Mar 2026 10:13:25 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3tED-0000000EKYW-0LgR
+	id 1w3tKc-0000000EKtG-2hZz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 10:06:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CE57600C4;
-	Sat, 21 Mar 2026 10:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB79C19421;
-	Sat, 21 Mar 2026 10:06:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774087574;
-	bh=1JiRAkky77EAuKJsymXB57qFuCw8Hldvj3a0B0xUn04=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C9EX2WiZJ9GsJZNVK1nZTpqU4oaNjCBYhxOp+V6yfhRHwwMRSqAdbghLNXeEIIbVN
-	 Gv1Nx0mJOLdwpyNCzVlwWtBkulijDRTBIO2EjVlBwZdEPmE6UH4+uwPiM3JIFaK+0+
-	 aWpUllwJeJ9baGXJAAHPdOTLM9lmE0A1cCFVyX4aLUMDtU6p7SrQPxKFiXstcHeUGK
-	 HUcIytOVxeOO7lCwyJcnQGPh9ilY0EijAzMwXH3sHgWKAUkhqFT1u+3vp1vfx6T+Fc
-	 ywcUt87AX6Jfys7n0LXu7gcKGzmJ1Lb8vEzRxmRG/Xn5uOYy/VVMEGtDPRkYPPM1ER
-	 NH4jQfqV8u2zg==
-Message-ID: <8e561d9f-a382-41d0-9771-417441b58ca1@kernel.org>
-Date: Sat, 21 Mar 2026 11:06:09 +0100
+	Sat, 21 Mar 2026 10:13:24 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-486fe655187so19051935e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Mar 2026 03:13:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774088000; x=1774692800; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vxcTJFOmewD2GhiVVB+6YPckSGMQdPbVx332O/W6xHg=;
+        b=tD9i9mo6jH2L6cwBH9C2BoUMdoGFtwP5kqgYPgiDn8i3n6gln5/tD/ZothB6lRjDBf
+         NZ61se/JFgTk8n1xhiw3Da/mpzEMsRb/tChHHmuzZLKeb9dvx6P2DofiLSJOsveSy+j2
+         +OU95wX08nkH/pQ026dgr2WWDRfT4qqmv/bnsj7X4vml6zG8bhH1I3UolZxu6Jkm6GxL
+         91/Rp0bf9Q8MTncayy/liNT0zFrzVDahPEwZ00657YeKLwilpAjTEiV+bjjsk5roNg9d
+         UH3lsPTzv/zA5tCVXt+1jjwto2CaJk1+lI6uNwia1drR944Nj0QVf598vaEOdKmmc2Nx
+         psBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774088000; x=1774692800;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vxcTJFOmewD2GhiVVB+6YPckSGMQdPbVx332O/W6xHg=;
+        b=cz5XATrhRulLSYd7keoqzR4zrCRXIV2gd5YDfdXzP4rcj4TfNCUq2mRCISi631nunp
+         DMezieuaBMZeWAex7PPixcnf3lpPq+IVwpdfsw96WufM8usyUoliKSM4NjLaRJpM3/P+
+         Z4uqhRSTJlor7EoGHejoZqZ7n2TMEd9aupzdgKDB6szW80g5nPp9AqQbepVRVxzoSK0n
+         FsLpwEhyl5rMhW/F2i9qbX7VNJlWBHFid+YWgaBisunWFOVL9qd7LBHDt3pP//z5jglN
+         AjFr7npp4afpWA6ZNyr3xDrnBnuFKIiibREEqd1u5tRWtejuD5CB6vunEAelosDGdgGh
+         E9Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCWS/TayDdZBEzgoKOr//stNN40CqXJj2cUA7lzpRyWc2+IbHXqaW4vyIa/Kn/TotJDTo6BbZSk7drldVk3F2Hpc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfRQVrdwnyLD6EYzgsgKYoQASenHR5UVB/umrj4BGZh3o0EtsY
+	cJTc1KYqkQ4wEC7Vmk7Zttc978HyAinQxxGP5eyLY3Xh9U4M5XioMTC7ZSsSYqQfkQLXv8x038k
+	AGxm/
+X-Gm-Gg: ATEYQzysBKiX0d4cdNmr+cjjn1tJHmm9vI8dzQovzQ3NBN63TQW//NfKLYmi9zrht7P
+	RmSB6wSwGyhh/bDcCaiw7U2zjqxnjgT+80vgdCfDJuru+EH0r1Xe4Qn4FJmTPemrVsvVxaFzPdJ
+	Z+/xKQCJL9kRHeWjRdDROJY5CmdMFThfLU+T6wsVTEY5ycjlR9ToBU0lvAAnzUJmMSWrEO0WwY8
+	KB6jmOerp0tB8zd0TWZoG3x6DvzBLgJ+ZnMIaUiDmkCv+DB0qeWdirBkOMCtIuxRWQ3wHfi1ZLk
+	lkxpwMXvmYXdrWnUlReAjVSkSFZFnl5KKvkyeRmudSbszjbqAghmEUhb+HuMsmclD0nGP6nNhk8
+	jbrLyU0UO9pBAMt9R/w2QNa8DZovLolebhL8klUM+v7i+m5/Cee7AWIihIeIru5ixqs/QrwFu0I
+	og350r4Ragrf/99dh+bDZQHTC/INOj
+X-Received: by 2002:a05:600c:3490:b0:487:300:d9ca with SMTP id 5b1f17b1804b1-4870300db54mr39007055e9.31.1774088000252;
+        Sat, 21 Mar 2026 03:13:20 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-487031790fdsm68147015e9.3.2026.03.21.03.13.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Mar 2026 03:13:19 -0700 (PDT)
+Date: Sat, 21 Mar 2026 13:13:16 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Linus Walleij <linusw@kernel.org>,
+	AKASHI Takahiro <akashi.tkhro@gmail.com>
+Cc: arm-scmi@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Dan Carpenter <dan.carpenter@linaro.og>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH v5 0/7] gpio: introduce a gpio driver for SCMI
+Message-ID: <cover.1774087290.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: npu: arm,ethos: Add
- "arm,corstone1000-ethos-u85"
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Frazer Carsley <frazer.carsley@arm.com>,
- Hugues Kamba Mpiana <hugues.kambampiana@arm.com>,
- Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260320-dt-corstone1000-a320-v1-0-a549dfcfe8da@kernel.org>
- <20260320-dt-corstone1000-a320-v1-2-a549dfcfe8da@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260320-dt-corstone1000-a320-v1-2-a549dfcfe8da@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260321_031322_721163_B6EF2315 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,17 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2026 17:47, Rob Herring (Arm) wrote:
-> The Corstone-1000-A320 platform contains an Ethos-U85 NPU. Add a
-> specific compatible for it.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  Documentation/devicetree/bindings/npu/arm,ethos.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+This basically abandons my earlier attempts and goes back to Takahiro
+Akashi's driver.  Here is the link to Takahiro's patchset:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+https://lore.kernel.org/all/20231005025843.508689-1-takahiro.akashi@linaro.org/
 
-Best regards,
-Krzysztof
+v5: Addresses Andy's cleanups to the driver.
+    Adrresses Krzysztof's comments about the dt spec file.
+    And almost all the subsystem prefixes were wrong.
+
+v4: Addressed Andy's comments about kernel-doc
+    Addressed Rob's comments on the spec file
+
+v3: Forward ported Takahiro's patches and added some fixes ups to make
+    it work on current kernels.
+
+AKASHI Takahiro (3):
+  pinctrl: introduce pinctrl_gpio_get_config()
+  gpio: dt-bindings: Add bindings for pinctrl based generic gpio driver
+  gpio: gpio-by-pinctrl: add pinctrl based generic GPIO driver
+
+Dan Carpenter (4):
+  pinctrl: scmi: Add SCMI_PIN_INPUT_VALUE
+  pinctrl: scmi: Delete PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS support
+  pinctrl: scmi: ignore PIN_CONFIG_PERSIST_STATE
+  firmware: arm_scmi: Allow PINCTRL_REQUEST to return EOPNOTSUPP
+
+ .../bindings/gpio/pin-control-gpio.yaml       |  59 ++++++++++
+ drivers/firmware/arm_scmi/pinctrl.c           |   2 +
+ drivers/gpio/Kconfig                          |  13 +++
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-by-pinctrl.c                | 101 ++++++++++++++++++
+ drivers/pinctrl/core.c                        |  31 ++++++
+ drivers/pinctrl/pinctrl-scmi.c                |  46 +++++---
+ include/linux/pinctrl/consumer.h              |   9 ++
+ 8 files changed, 249 insertions(+), 13 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/gpio/pin-control-gpio.yaml
+ create mode 100644 drivers/gpio/gpio-by-pinctrl.c
+
+-- 
+2.51.0
+
 
