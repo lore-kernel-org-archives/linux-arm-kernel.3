@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DB41094461
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 08:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54371094461
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 08:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAYI36BuyLNtFwWJ/mVzmo5kO6+XzauuqvOp/jdB/BM=; b=PvY6jGNeVoHxS39Re/UEeW1ZS+
-	iLx/LbWp0aEJdOWGeRP4ekiMrpvLm0CNaGA5cajOuxDUKqxSUXJ75Af4viWgel+IS+bBXcKmrGnMI
-	HYSvO69dOEHWJZOq2nqNvLclY+uCbaYreEODb8bzoLRRN5qnavT804fcQL7ZnhBfIcj91tsfzzmmi
-	84J5OqrqtC+zjvHjTtb1FbYBY/g9wS1YSsUVUpjrDql8AVP4MOKUWQOIjpIRudPOIWSclQZeVJU2Z
-	SBmG/wZ/caCAMa5Pk4y1502XPJjwokA+VJJ9DwBKY6XANVHoQILPQ3HupmJn0tv7O9P9DxSqrcfCO
-	Ytdbxe9A==;
+	bh=ew4b6Du8jBihJbSUcGCASA7OYqEMzJLSf09+YdWVI+4=; b=ciOv68T/5OnSxEKSIJeF+7eb5A
+	Gqbx6pAvEdsWZ8vP41cLp6ABrUl2J1ySGJYHhGXeebcwWhcy2dsvZS2PBHRCHP56Ir8xmxRMu8wiV
+	MgC5BaC9NzEO2G+hbSxj7DrNTSYbwbLJ5PxKsBJ/SG74oTx3or20lOLgveom7RO2Y0i6CXonRdxzN
+	D6dLzW4l9BNaEwRajGowr7B0x105fw4860JkAAEOCO6BhasqZZUDXRlJ1ivRtPiNNz3Z9zq8Ub5OQ
+	8y1/d7pDIsAXbHj63Ouh0p4Dw+bPukHTThgObltSZm97uQiDv4Egf8ElCKpgv3VOsjfiyY5+e8rzU
+	Lkr4zlnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3rzp-0000000EH8h-294T;
-	Sat, 21 Mar 2026 08:47:49 +0000
+	id 1w3s13-0000000EHEm-3eqg;
+	Sat, 21 Mar 2026 08:49:05 +0000
 Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3rzm-0000000EH8I-03jK
+	id 1w3s10-0000000EHE7-3GmR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 08:47:47 +0000
+	Sat, 21 Mar 2026 08:49:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=GAYI36BuyLNtFwWJ/mVzmo5kO6+XzauuqvOp/jdB/BM=; 
-	b=hGZtU65aSlNzhszzUX62kqapg82S8od4wk2niylkubjcIWYINWO6v7Im/SD6cOWxnS4OUD3/oLV
-	PxmzOXyOq1iH6gAaaQuky4RtTEO6AvJDK/JK7igpJjz6iRiCGPnoj8fzp+0rJuswEJ2t1MGOC/v0h
-	K+XnS8WsFi6VVOYIY+7gek2ZM49hTW9/TvU2kLYa8J0qWWoaNIHau62a5DQm0ebfooGTO3vsdi/pC
-	HtmQ8YPH5poAWvKBK8+FGtQix/IcN5eAncL1fotSvXL5VhSRrYpT69wpZB2IKYJCousVCE9ZU1Wp7
-	3bDQhC2y2QQOXwzvceDhIbCL5xEc9xVQ7y4Q==;
+	from:content-type:reply-to; bh=ew4b6Du8jBihJbSUcGCASA7OYqEMzJLSf09+YdWVI+4=; 
+	b=GC99Jqvew+yJLRJmskcV3lWozHTbHv773XQ+SSaciYMxP947kvzh3cyI8IswooJIKWZzdxd97U1
+	MaQpcMJUZ+zqTlrrx2rpgvpjSzFxPybWp3yBHbenAfzFiPNhOeavWKVfxKE9DssWtZSm0kaPFTx7W
+	AJSHHEF+xqxjOZME6wwwqIkPR8GlShpPe1W+8xcRGwSRh2krAkQg0p7Qc93D9Zn75I3PiaWF9y52p
+	8HJf7jcUaN/Q4BBJ+E9FER+QC96arhT4P8+E2B36ZemO6q6pt71RAlUy75TIdo0hYUumFIC2IEMbn
+	PXXSN+LFBLINlCGujps7lNUkSuXdWO4J/zzQ==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1w3rzJ-00GJ8e-0s;
-	Sat, 21 Mar 2026 16:47:18 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 21 Mar 2026 17:47:17 +0900
-Date: Sat, 21 Mar 2026 17:47:17 +0900
+	id 1w3s0k-00GJAG-22;
+	Sat, 21 Mar 2026 16:48:47 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 21 Mar 2026 17:48:46 +0900
+Date: Sat, 21 Mar 2026 17:48:46 +0900
 From: Herbert Xu <herbert@gondor.apana.org.au>
 To: Thorsten Blum <thorsten.blum@linux.dev>
 Cc: "David S. Miller" <davem@davemloft.net>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Cyrille Pitchen <cyrille.pitchen@atmel.com>, stable@vger.kernel.org,
+	Cyrille Pitchen <cyrille.pitchen@atmel.com>,
 	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-aes - Fix 3-page memory leak in
- atmel_aes_buff_cleanup
-Message-ID: <ab5bFYWKvBakbESr@gondor.apana.org.au>
-References: <20260311020733.250288-3-thorsten.blum@linux.dev>
+Subject: Re: [PATCH] crypto: atmel-aes - guard unregister on error in
+ atmel_aes_register_algs
+Message-ID: <ab5bbqzl-EeKqf7t@gondor.apana.org.au>
+References: <20260311113927.305633-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260311020733.250288-3-thorsten.blum@linux.dev>
+In-Reply-To: <20260311113927.305633-3-thorsten.blum@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_014746_057265_8AA1BFB5 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260321_014902_817229_5E42917C 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +76,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 03:07:35AM +0100, Thorsten Blum wrote:
-> atmel_aes_buff_init() allocates 4 pages using __get_free_pages() with
-> ATMEL_AES_BUFFER_ORDER, but atmel_aes_buff_cleanup() frees only the
-> first page using free_page(), leaking the remaining 3 pages. Use
-> free_pages() with ATMEL_AES_BUFFER_ORDER to fix the memory leak.
+On Wed, Mar 11, 2026 at 12:39:28PM +0100, Thorsten Blum wrote:
+> Ensure the device supports XTS and GCM with 'has_xts' and 'has_gcm'
+> before unregistering algorithms when XTS or authenc registration fails,
+> which would trigger a WARN in crypto_unregister_alg().
 > 
-> Fixes: bbe628ed897d ("crypto: atmel-aes - improve performances of data transfer")
-> Cc: stable@vger.kernel.org
+> Currently, with the capabilities defined in atmel_aes_get_cap(), this
+> bug cannot happen because all devices that support XTS and authenc also
+> support GCM, but the error handling should still be correct regardless
+> of hardware capabilities.
+> 
+> Fixes: d52db5188a87 ("crypto: atmel-aes - add support to the XTS mode")
 > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 > ---
->  drivers/crypto/atmel-aes.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/crypto/atmel-aes.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 
 Patch applied.  Thanks.
 -- 
