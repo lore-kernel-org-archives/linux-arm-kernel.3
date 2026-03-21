@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6ADA109446A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 11:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047AC109446E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 11:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gg7YVbSVy3+FORRExU0U3qKxK2+QtOdJvlvtvdE4Fmo=; b=1/LA53o84vMI8mIKZGN7Duqc24
-	9NsRAsIbBsw5ulg+CdSCyjQfVO9nQqIwTrBE00sScU3/vNFR5MI79hapK1Zx6RvJWmwmpt4uJLN4m
-	oQAKE18XDjObnBb97MUSmLJs891nD8Q8ET0S0io9sK2QEWOwhD3ZRRRVBAYSclAoqVgj5SkHvNeE2
-	QGPqxbgfFeUe3QO9LLVttmfgj1jMEDqvWxr4EO2AB93Soa0kx08kRFNA9EdoK7fjX71BweAS/zQmn
-	96dnX17XK/DVfSm6cj9XyFQVgq4qsWhPwdCSnW04nNxvHT6dYOs4gu9a96Go3WgrFH6U4iF5yHK96
-	IjBqkfdg==;
+	bh=NXsAympkrLh/Y6UG6lKSkBRWX4lQc8KJDnqB0wQH9Js=; b=dRgwJR/YVC/FGoIaNiO70k1ssU
+	DiRY5ody7OCJxqvajnAU2G6jzYbvv1aqpirhg3NtYtgIgFACs54Jju1xhoID6wZ7ToeCRZ1i8B6RM
+	k3pWyueg1Q1rI7FC4huYNQVWcoLmmt2caPLWeVDghPWS56q6UhJDReKNNgyRVUyy2ul0KgXZkVrhW
+	bofyJXhFfRPUUJY+UHefT/qNqJbuzyTAyMu5F/nHCv/CxPYt4FktfGqiFRjjs3vUrP+w+i33v8j45
+	Sy8+xVT1ez9IfXEJsezHhwvkALGPMn50ThVfIZ9mW6VBcEndQIMUV0+A51djb/omK0vuZE2lVSLHZ
+	seOiDgBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3u9J-0000000EOBb-0Mbi;
-	Sat, 21 Mar 2026 11:05:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3uC2-0000000EONW-3mOR;
+	Sat, 21 Mar 2026 11:08:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3u9H-0000000EOBE-1QZa;
-	Sat, 21 Mar 2026 11:05:44 +0000
+	id 1w3uBU-0000000EOM5-1p8a;
+	Sat, 21 Mar 2026 11:08:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A55A640E1A;
-	Sat, 21 Mar 2026 11:05:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD6AC19421;
-	Sat, 21 Mar 2026 11:05:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A33E843F23;
+	Sat, 21 Mar 2026 11:07:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE45CC2BC87;
+	Sat, 21 Mar 2026 11:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774091142;
-	bh=mBvxoIxzZG+Y4MzcvY50ieLVvBcDyo7uxtSR7f3+gVk=;
+	s=k20201202; t=1774091279;
+	bh=XFKXQYD2kqtkA+jmGE+zutnLx77qCWoy1ZMLmExRUQk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pUnrJYzeTmlJr2A2znJ+jBRgkd6Ud8fcYUm5SYotmIEUEFEQIgOdbsdr18XQbJru/
-	 2IAD8wIVZs/x+dxoS+SSpHISEhNhane6U+m8+H9kA/yjvuKBv+VRN+vlrPTowzBSw8
-	 xhig17EeljZAKuRQhR5bZ948B9wY15k+3NUkNup40M2HF/bypATPRRPKACB2t7WOrA
-	 e2LpxkdgSQhHj4clFObf6w4F1vowVWq3GrEg/e4s3vc0F4esjNNWk12D6Rwm80HVcB
-	 zj66aHYWKBGvWrGS0eK6er4P7LfGgx0QissV2Pi0Ikz+9k3ihhgiQoCPEmY+Sugoke
-	 7IyAaYuidsjKg==
-Date: Sat, 21 Mar 2026 12:05:38 +0100
+	b=oDtl0JbhwyGaTS3tJOgb0IKjl9F5z6iruceht5j7MrEqf/WDtASl5vIFDFdhhi6wy
+	 mx6FlXOv6WoUNY00PAN0egRVBn6DTS4beAbAzrUj9S+HDrXsc/52+Zl4/Nv26Dx5Sk
+	 Ati9hJBG/oYm1bF2Wd5oy70ILDx3jGEp3LS9ozEykAmudpNfHYhPvoSBbW96cfVulM
+	 OpZNP+u7zcx1cgecAXRkHgxuzQ017T02RE3lmBQY3ixVoqt9GGgscR3bwdaYz2QztQ
+	 OCVRbLj59KRKIjBe3s/MUeaR6JU9Cb755/WSzVuYDJcr1mjXVWwlKo+ToVhLlEyk8b
+	 d1FeKlu7wEuPA==
+Date: Sat, 21 Mar 2026 12:07:56 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Rockchip dts64 changes for 7.1 #1
-Message-ID: <20260321-discerning-beautiful-honeybee-cebb5f@quoll>
-References: <13966995.uLZWGnKmhe@phil>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
+Subject: Re: [GIT,PULL,1/2] MediaTek ARM64 Device Tree updates for v7.1
+Message-ID: <20260321-aspiring-real-foxhound-4a18e7@quoll>
+References: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <13966995.uLZWGnKmhe@phil>
+In-Reply-To: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_040543_426350_EB79E214 
-X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-CacheID: sfid-20260321_040801_501745_0B63B6A9 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,15 +71,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 14, 2026 at 07:45:34PM +0100, Heiko Stuebner wrote:
-> Hi soc maintainers,
+On Fri, Mar 20, 2026 at 09:56:38AM +0100, AngeloGioacchino Del Regno wrote:
+> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 > 
-> please find below Rockchip DT changes for the merge-window for 7.1 .
+>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 > 
-> So far only arm64 changes :-)
+> are available in the Git repository at:
 > 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v7.1
+> 
+> for you to fetch changes up to 820ed0c1a13c5fafb36232538d793f99a0986ef3:
+> 
+>   arm64: dts: mediatek: mt7986a: Fix gpio-ranges pin count (2026-03-12 13:32:17 +0100)
 
-Thanks, applied
+Days in linux-next:
+----------------------------------------
+ 0 | +++ (3)
+
+With 0 days in next, you cannot really react on any bug reports.
+
+Please send pull requests for next releast with code being in the next
+for at least few next releases.
 
 Best regards,
 Krzysztof
