@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EFC1094471
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 13:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D801094471
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 13:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BODd0zrQTtQ2EVDGUzJPSylEhK+yTzVCUDSdTfTCQ+o=; b=ak8dCCgawbEk6Uk9eRt5rhDS63
-	cCv4qN02rx6dDXuQ6qsMSqdpCnKRn/S461z6WfeeKbFFnKyc9UxySfQgoZSYUcJh5xK9SFqG09pH1
-	mQ3ojN2pa4ZRdpMtYulJrQxnpCPOBeHacAdlmsygpcLE8zge0MtAKOq17PCWWZFInU8rc4mO5afoF
-	BpMNxAR7OMm3qFMn/dRH5LfpgH2kR6vZ9DzvKhOIOl3tpbu6krGUZTX0Mlk3NgKFX8R34OHfb52WO
-	MtkiXoe/1pN47VGR/u3UIsAZNyHQDTNPFlFyabOQtsm35IU3+ltGZXSJL/NN3s1LsuWezddfsa+1y
-	/XKFPlHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ch/HEZzPJMmQEe3oXDemPO0ZtC9xlqINo7y2KSmP0vA=; b=GqGpO5OAip1na+V008mQlGyuHy
+	oohMF5mjeBTaejHQSLO2ZlvZm3BvecTAyqffn9CfX6Bfd5CU9oRw+VsIXOnNlNoEk1cP1FkRsJjsg
+	QtV7pyosKF3fQmyO/ij/wT2hqDGsZg29hTHk3Ww3sDQsK9YlJ9+Jzeh34ofY55wiR3IF2T5tw7wiW
+	PmoQPTbSBa6Z8bg39flp1YJODo1WiNEYn9bohExgGcthp9N8sBVus1vGyyQih+wqzlEiTXYZlWXmi
+	4OGbVPuAwFEjkoYiz4JhMOkqe9zN4il6hlgKWUftjFrPxerUB5CzzPncWuVXuN6rssnnVelfly9TA
+	R+TbITEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3w5I-0000000ETsk-1q8o;
-	Sat, 21 Mar 2026 13:09:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w3wBo-0000000EUPr-2M18;
+	Sat, 21 Mar 2026 13:16:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3w5G-0000000ETsK-0FaM;
-	Sat, 21 Mar 2026 13:09:43 +0000
+	id 1w3wBm-0000000EUPl-1TgU
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Mar 2026 13:16:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F3BDD40C00;
-	Sat, 21 Mar 2026 13:09:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F69C19421;
-	Sat, 21 Mar 2026 13:09:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E2D8600AE;
+	Sat, 21 Mar 2026 13:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71EEEC19421;
+	Sat, 21 Mar 2026 13:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774098576;
-	bh=dTmt0CpKQWFrPI2bQR7wWvu2/uBaYz30e6vvB7xr+D4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NK1XDnNX7jKHvW9R9uT9CawmULfhovJZTIsIzwrqu89k7RbHmtbLxRgVlsnfjBbLm
-	 5sbcnMcJ6Ju6k2OgkqJ5TW6KaxRp3IbBgbIKDdod92fGhFfDJX3z9SDKwKgsHWbA8T
-	 ty5z2wQy6LzmhDipnAo9DkNwFzsZwXFNsvLoV2XpZZtFybY3ZwbsEINecHQ5pB2qju
-	 2FjoZ6TVBuRsdOYXGn4hpU3jfdlC410nH9+P5o9/Q4Eh3aXM7OGI33RNEZ6HEfGsGl
-	 FJVrEwj2lrrgh7FWe7QrqkefL2+xyZQc32SQw3Ad1OSX1DxItD7KC63/gVFq8aBDmN
-	 y/T1WPiT2KgZw==
-Date: Sat, 21 Mar 2026 14:09:34 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Rework the code flow in
- airoha_remove() and in airoha_probe() error path
-Message-ID: <ab6YjhbSbUNt_KR4@lore-desk>
-References: <20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org>
- <20260321094429.GW74886@horms.kernel.org>
+	s=k20201202; t=1774098985;
+	bh=FTUy3SHKisCSb3aVqdeTnX/ivZtExz6zz8qPUm9jZFA=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
+	b=fSS+0sA46I8TT2FNYNz+7ucPrPbu6XF6GOWjkK47X5/SqdAZi/gMKmPhodXWuRIxW
+	 a4QlWXfJTX8+POg0uoNaILMjiVzmdhyFA/L0z8iHkyzgrZ2Y8zTnxxfXtFXWLcJyU4
+	 RrFXm9PVtZ+2SSuDWa7XzOC1l7u6YrYwKyfFOS27te4xP7M/gyUNIc0HIu4NeS4fb+
+	 u351MoOJwF8/SUvmYLVQOnZKFJUasnLjJJ+jIO1RsxXzF5bHmKHNWteK+WeeUwzplo
+	 +AThnUbM/25aEkHIf25gHVjL6atlO8WVUUdKfG9V9iY/OldbQxPCZ0nmtKCOL48rtA
+	 LEVK+1to6q9gg==
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EZz7n3wwzIYEdEN2"
-Content-Disposition: inline
-In-Reply-To: <20260321094429.GW74886@horms.kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_060942_120259_C87C892B 
-X-CRM114-Status: GOOD (  21.24  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v8 02/10] dt-bindings: power: samsung: add
+ google,gs101-pd
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org
+In-Reply-To: <20260318-gs101-pd-v8-2-241523460b10@linaro.org>
+References: <20260318-gs101-pd-v8-0-241523460b10@linaro.org>
+ <20260318-gs101-pd-v8-2-241523460b10@linaro.org>
+Date: Sat, 21 Mar 2026 14:16:13 +0100
+Message-Id: <177409897339.266364.69715997034739052.b4-review@b4>
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=946; i=krzk@kernel.org;
+ h=from:subject:message-id; bh=FTUy3SHKisCSb3aVqdeTnX/ivZtExz6zz8qPUm9jZFA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpvpoiSSVkjLgy+SPAun4vTdN6OjGAsY6EB1ZHD
+ a/yLk/mBQSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCab6aIgAKCRDBN2bmhouD
+ 12I5EACGV7PuLKZQwhTb6sv7cuMAGpNxYPttAYk1fa3JuZf2DQrLoCZiMeMHAb9pjUjCTpP8MCC
+ 0LYU1XsM/segNP1fyf9F6aYqD7haLQ0QnnHxjLANXMIexqbT1g2fgNVs0AZPmt7aQEo14uo5Trj
+ gCIRI3XSpcnFhANTHs5LIAAW9+dxSL9BrB4We/UhCs0KXUXpOHoj9T8TuEnVwg0XOQCMuqyoF8Y
+ E4IBX5L7dCHRo2q3n2LCqu3t58LLSAONSw7muGnUYOb8XCY1ZEuhIecmRc0L1Wl538Eb01srRVN
+ N0p+f2xEPn5dM9CEiQ4utoHGz9WlhAmW1wczajWbrtX1WaiRlYFcfUaJ/mCFq6XQY4sReRxqQDp
+ us2FKUBML+eNvHGNlOC53oqsL/eROHlc5FeF8RTLywO2j0SpxxABxKGI55oW6HYA+KtiAWEwyZ9
+ oS7zeuzbzZAPKwRr51LvIpC7kyTXsNB8u5X0vPgFXP+XNQEwmtEeineZlzefnMdJan7kBvA2ZL7
+ Lixmwi+ddWCt0ouetwLDUK089QwGjlSzvoQEGAjOFGC87X5ifUWVKmbKVvUG5sth9TFAXC/BP1V
+ pVUM5gFgroprj4u6Xjt9Q6Jzh2WnqQ8GyPgLNR90cYlcP6M5C0+PcMod64+39rpmQrI5Glg5sGj
+ Qo1PihFPLFdbd2g==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,72 +96,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 18 Mar 2026 15:27:47 +0000, André Draszik <andre.draszik@linaro.org> wrote:
+> diff --git a/Documentation/devicetree/bindings/power/pd-samsung.yaml b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+> index 9c2c51133457..3f1a2dc17862 100644
+> --- a/Documentation/devicetree/bindings/power/pd-samsung.yaml
+> +++ b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+> @@ -44,11 +45,28 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  samsung,dtzpc:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Distributed TrustZone Protection Control (DTZPC) node.
 
---EZz7n3wwzIYEdEN2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+For what purpose?
 
-On Mar 21, Simon Horman wrote:
-> On Fri, Mar 20, 2026 at 09:42:28AM +0100, Lorenzo Bianconi wrote:
-> > As suggested by Simon in [0], rework the code flow in airoha_remove()
-> > and in the airoha_probe() error path in order to rely on a more common
-> > approach un-registering configured net-devices first and destroying the
-> > hw resources at the end of the code.
-> > Introduce airoha_qdma_cleanup routine to release QDMA resources.
-> >=20
-> > [0] https://lore.kernel.org/netdev/20251214-airoha-fix-dev-registration=
--v1-1-860e027ad4c6@kernel.org/
-> >=20
-> > Suggested-by: Simon Horman <horms@kernel.org>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 82 ++++++++++++++++++------=
---------
-> >  1 file changed, 47 insertions(+), 35 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
->=20
-> ...
->=20
-> > @@ -3028,7 +3044,7 @@ static int airoha_probe(struct platform_device *p=
-dev)
-> > =20
-> >  	err =3D airoha_hw_init(pdev, eth);
-> >  	if (err)
-> > -		goto error_hw_cleanup;
-> > +		return err;
->=20
-> Hi Lorenzo,
->=20
-> AI generated review warns that eth->napi_dev is leaked here.
-> And that does seem to be the case.
+Your patchset is organized in odd way - first patch for me, then not for
+me, then again two patches for me. Please keep it consistent. Or better,
+decouple since there are no dependencies according to cover letter.
 
-Hi Simon,
+Best regards,
+Krzysztof
 
-right. I will fix it in v2.
-
-Regards,
-Lorenzo
-
->=20
-> > =20
-> >  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
-> >  		airoha_qdma_start_napi(&eth->qdma[i]);
->=20
-> ...
-
---EZz7n3wwzIYEdEN2
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCab6YjgAKCRA6cBh0uS2t
-rNf6AP9KP6eC4+MHzMb7WFbxq92nj5wfHEpgj5oEBa1ehx8vawEAiqgEov1K4lLS
-0i3wDxbABgh92m891ZGxsVx+2UzXcgU=
-=SzaX
------END PGP SIGNATURE-----
-
---EZz7n3wwzIYEdEN2--
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
