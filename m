@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194471094462
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FD21094462
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=axv3BgBRbqvyaJt7PEeuj4WrzEzWKVKYZXG8EooCNSg=; b=teqJKx1z4vw2pJUyav+QAjLd3l
-	wTEaOPNfGafKZAgJa+lDN6baK247kTMSNglk4YeJqSUGyXAYrBq9DdquxEW1Ho/RelFc4uY1Xe6ln
-	nFd4xshI+nc41r0H/MjYJFkiuzCx1yWu6D1oEq4VXTaH7KGeiGhe8T+8HHv9McOX3ZQuNHkioOH6r
-	CG0tvfzpfGm1rDmv8jQGVaCsKJAVupO269AF18WJQNrZxHHuj/qgiuUrNcvhU1BNFggNrJgqwL2S/
-	En7AyN7i3Cwb7mQXwfg2iJn66rQyVEO7JFN7PtA8RjmaYaZrrqBCClMQrryDhALdOGwvela+vQAMU
-	8wnqCnIQ==;
+	bh=lMe5RCjjMGqOJUPF+lkMyEjZGgM4DLVRiFp4XoWGDyA=; b=0i76e5ot5c+ePVU7c3tyxcxL9U
+	dd3m7qhfcbTmMzaJGOG72V/ka/6G36tprPpel/bilm6lTZ3zXF7f+0UiH/nMvRxvmZ2YqGXGRFYtD
+	3h1FpJ1G4jGBX5JIW/0m69Eq5UAeYRddMvdwqJyhZYXfSMCvB10EqcbxTtpiv1w1BwYa4cdn2exp/
+	GtPmjgalsOJWM01ekjPC/T0Y2C3QZQvGmQ+Je638FgXbYbez7PANnWqFJtkuxpcWzsPEx/yK5Nu1D
+	qpJCbnHiUuw8GMIDog9ziY/u2SouIM6/qikx8Zk1QZjyPS/86squ5lsoyp8xvs0u4ud9kOY7Z+ZiN
+	Bc5aPGDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3snh-0000000EJXt-0lPs;
-	Sat, 21 Mar 2026 09:39:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w3ssn-0000000EJlk-48zf;
+	Sat, 21 Mar 2026 09:44:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3sne-0000000EJXT-0akw
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 09:39:19 +0000
+	id 1w3ssl-0000000EJlM-2edT;
+	Sat, 21 Mar 2026 09:44:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AE7C14407B;
-	Sat, 21 Mar 2026 09:39:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83A26C19421;
-	Sat, 21 Mar 2026 09:39:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 49712432B1;
+	Sat, 21 Mar 2026 09:44:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7FBC19421;
+	Sat, 21 Mar 2026 09:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774085956;
-	bh=YleNNae8eogG4HxU4906z9SPmXMwZWM8S1qJzHGepA8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LQeaQ+0jp33hxuGxNMh6vzDgUd2h4ZPsdKCn5JaL/YAprQkReWi0J0MHPMqssSxe9
-	 pscKJQ85gLhvKZSBqBi41l4RI36t2SoSEmluF120xAyv5coxyR07/4UrYIg/L26Uxj
-	 qJOlCDF0LZDE729AQd6xJeqeJO6MMFMFowDmvUK1TMKZCv+l5FoAONYxgQHI2/i+5P
-	 p5hoz6EUXRRwZXCZ2bgfSy1zH5pJ8JzWUoiUY38ulrBlJO38RAFNY3UEhIpfdpd22O
-	 w/8UXAF3/ABbUk/iCdgSRV2CC1WdZtuamh8jfYWl3wzBVRhwg5lY/ojftoidhVqWQk
-	 sVwkafbFuGpiw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w3sna-00000004HLO-0QZd;
-	Sat, 21 Mar 2026 09:39:14 +0000
-Date: Sat, 21 Mar 2026 09:39:13 +0000
-Message-ID: <87fr5tcyim.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev,
+	s=k20201202; t=1774086274;
+	bh=+FyqSc/pT33KY//yXjdAJJt7KUdidRtWT5vfO6X7t40=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C7MPmnONJGYhKLNLCg2y3r/vaAIZxMwCKMd6yxn0EDfWwdr+uWJtaJocW38EfJAOH
+	 qhNTELdffSsnTIgargdhVflFxFw04UupLpGb2xdtkax5SPmj19CQHFoZoUfXE+ZY3k
+	 LpzisNLS8QtRbkv8YJfFo01y/iwpv7fDmtfHLUY05x6j/kHRMOpZeFvvgcGF9UJou+
+	 W+tFhsZsjPrDCEgTeKcnaEw+PRG9WgdOO4hFZK7U/bQljZLoScC2Eo7NdY6PtU781E
+	 +cZMIR4bnOnOfvmo0KwJ9lcnDaxN4SUOVCKrHRvGzfPSnQtwPgKfuwoG/ihBH36iV+
+	 zaF5UMf0A1hMw==
+Date: Sat, 21 Mar 2026 09:44:29 +0000
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v3 25/36] KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
-In-Reply-To: <864ima5v6c.wl-maz@kernel.org>
-References: <20260305144351.17071-1-will@kernel.org>
-	<20260305144351.17071-26-will@kernel.org>
-	<864ima5v6c.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, smostafa@google.com, alexandru.elisei@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Rework the code flow in
+ airoha_remove() and in airoha_probe() error path
+Message-ID: <20260321094429.GW74886@horms.kernel.org>
+References: <20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_023918_224712_5B2ED40D 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20260321_024435_695268_0D5FE571 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +75,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Mar 2026 16:20:59 +0000,
-Marc Zyngier <maz@kernel.org> wrote:
+On Fri, Mar 20, 2026 at 09:42:28AM +0100, Lorenzo Bianconi wrote:
+> As suggested by Simon in [0], rework the code flow in airoha_remove()
+> and in the airoha_probe() error path in order to rely on a more common
+> approach un-registering configured net-devices first and destroying the
+> hw resources at the end of the code.
+> Introduce airoha_qdma_cleanup routine to release QDMA resources.
 > 
-> On Thu, 05 Mar 2026 14:43:38 +0000,
-> Will Deacon <will@kernel.org> wrote:
-> > 
-> > Host kernel accesses to pages that are inaccessible at stage-2 result in
-> > the injection of a translation fault, which is fatal unless an exception
-> > table fixup is registered for the faulting PC (e.g. for user access
-> > routines). This is undesirable, since a get_user_pages() call could be
-> > used to obtain a reference to a donated page and then a subsequent
-> > access via a kernel mapping would lead to a panic().
-> > 
-> > Rework the spurious fault handler so that stage-2 faults injected back
-> > into the host result in the target page being forcefully reclaimed when
-> > no exception table fixup handler is registered.
+> [0] https://lore.kernel.org/netdev/20251214-airoha-fix-dev-registration-v1-1-860e027ad4c6@kernel.org/
 > 
-> Is there any reason why you prefer the 'inject fault' followed by
-> 'gimme that page' dance over a more direct 'unconditionally reclaim
-> the page on the back of the fault'?
+> Suggested-by: Simon Horman <horms@kernel.org>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 82 ++++++++++++++++++--------------
+>  1 file changed, 47 insertions(+), 35 deletions(-)
 > 
-> I can't figure out what would go wrong in the latter approach, as you
-> always have an opportunity to inject a (fatal) fault if you can't
-> safely reclaim the page.
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
 
-To be clear, the reason I'm asking this is that with RME (whether
-that's with the dreaded CCA or something else), injecting a fault into
-the host would involve EL3, and I don't trust EL3 to do that. There is
-also the small detail that the fault syndrome is not strictly
-architectural, meaning that EL3 would have to learn a pKVM-specific
-behaviour.
+...
 
-But EL3 should be able to report a GPC fault to RL-EL2, which then
-could act the exact same way as pKVM, unmapping, clearing and
-releasing the page.
+> @@ -3028,7 +3044,7 @@ static int airoha_probe(struct platform_device *pdev)
+>  
+>  	err = airoha_hw_init(pdev, eth);
+>  	if (err)
+> -		goto error_hw_cleanup;
+> +		return err;
 
-Thoughts?
+Hi Lorenzo,
 
-	M.
+AI generated review warns that eth->napi_dev is leaked here.
+And that does seem to be the case.
 
--- 
-Jazz isn't dead. It just smells funny.
+>  
+>  	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+>  		airoha_qdma_start_napi(&eth->qdma[i]);
+
+...
 
