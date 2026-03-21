@@ -4,104 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D3F108B8FF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 03:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CE6108B8FF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 03:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yp2bQCIN6SdlVFDmFrc8gqOv2aBq8p8X7VsVcJSkLBw=; b=x+In1OPqsctHPBiaF5wp6RY0Gn
-	8XKXP2pNGW3z/XUvktmD1P7wbWLgmCztfzreeuBdLm0t1tgQ6i41RZ1Y8YSHOJbgcDkGhqMHFGPYY
-	A2ddOS7b7hKEOzkUupJmF3MBG+gtAz0ClKGMtMWtqeZXqlPwIRJ6oA1CcpjDL2ERj4GhTdBlv/Ohx
-	xqPfWFuk+bjSyWcinwqItVVxJn4At9u6CWRPE+hUp9rxqC10kTn3CTYIXOECGzHdRlk7EX52g5b1V
-	u9J9Z8duvzlVD7NjHTbEGgVvk1QTYhjFgq3XEMapmWzXran2eNRfR9DJ5/G7tsEBX4An81A+RI55m
-	mpo5OUhQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lrf38SGeQgWRI8VBvILQ9iCq2EKMByfyij1bjFBr21s=; b=PZzw43GtZXlWgf4m82FowOcelO
+	vt2pFSUHT023PceRIxM+C6WBRc3/RYJpXNcwwvxVCTgmh55EZ7hgfWh3zqv250u+6yU6yp9+j0pbT
+	2w8c5dOvugn+yR9C5h7hJ0Yb/N6GlKwMOgwuXzoZSkwuKFxhnftFjNsxUO8qKRRjTK6IoMQzyNtCf
+	zeT52zWRhHy+wCJyqRP6KLPY4OSPsz8D4IGQfRqNiI+1sHfZ4cnpfazR98A7q1RlqEW6CrzJImfxg
+	5BQP2yoIieToTZk1L0517KRlZi8aD8/L/rzZOwQcZaCSNgEfbNlXtxEYRY7t7J/Qu/wG7jYeuN1fc
+	+NsvYlXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3mjX-0000000DwoR-1PQQ;
-	Sat, 21 Mar 2026 03:10:39 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w3mk2-0000000DwvI-2F8I;
+	Sat, 21 Mar 2026 03:11:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3mjS-0000000DwnM-3XRl;
-	Sat, 21 Mar 2026 03:10:36 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62L0h0uS3205498;
-	Sat, 21 Mar 2026 03:10:24 GMT
+	id 1w3mjz-0000000DwuA-0iqj;
+	Sat, 21 Mar 2026 03:11:09 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62L1Ggvn050675;
+	Sat, 21 Mar 2026 03:10:37 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=yp2bQCIN6SdlVFDmFrc8gqOv2aBq8p8X7Vs
-	VcJSkLBw=; b=p8w5rKJF2L3ysH7AK4L8F39KZLDv/hZkH0COtam5/c7QiddtzSN
-	jGcijPiunywH+6qIB93UHG9I2Nx9qET6FD0TeDRNhOi5jgl5uc7D6I5GUGyucehY
-	eoCgi9YrLoyyyuH1wFUFY9eKiLrzVpHDMaU61N178UXu16K1ai+Tm7TPa2m8EvJ1
-	shyWjW2lCX+LsyubcwnJQKFOTazyh/1byrXDqHUcmlYDybCQbeP/OhCbGsbmW3YR
-	re/+LzHk8Yb2QVXRQKT+s083D/Pi3i2+06sCApK3Ms8LVmMiT7u4GjoPpQpLRWjp
-	ge8vQYC1zkqLiryKIWR4HQ74GKWYKCQ0ppg==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d1h1e060a-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=Lrf38SGeQgW
+	RI8VBvILQ9iCq2EKMByfyij1bjFBr21s=; b=IWkC8bjFj4TrXyO+oDwNDXFH29/
+	fkFldMJdfpnaUbdGsuCqec2zzm7LzemmxSc8BEDTLIzJp547gi1NkquGYu9pMUMf
+	N9VlBMz59/t2utuXgJB0WcSvw4DgrV/6cyicQY1L0r4ITNffFuWnlf296/O3BtUZ
+	KWfKec191GOhqKvl7j8f8PyU2bJnJxq/Va0H7900pCKGw70PkkGvb0VGN7ZZ15/P
+	N/+8PcoDZURRXAcsZoINapA+vQVhBsa50fmc1irEASOMKMkbNpT5EiK6POWJBbUt
+	xB4KtuF9pscUOPmTx2DhDseF0V9NzrEI37Q0TSJVR9gykZkdF37YnzkzKpg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d1evr0cby-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 21 Mar 2026 03:10:24 +0000 (GMT)
-Received: from pps.filterd (NALASPPMTA05.qualcomm.com [127.0.0.1])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 62L3ANL0030418;
-	Sat, 21 Mar 2026 03:10:23 GMT
+	Sat, 21 Mar 2026 03:10:37 +0000 (GMT)
+Received: from pps.filterd (NALASPPMTA01.qualcomm.com [127.0.0.1])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 62L3AacW029147;
+	Sat, 21 Mar 2026 03:10:36 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
-	by NALASPPMTA05.qualcomm.com (PPS) with ESMTPS id 4d0spy9ct6-1
+	by NALASPPMTA01.qualcomm.com (PPS) with ESMTPS id 4d0tph0xwr-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 21 Mar 2026 03:10:23 +0000
-Received: from NALASPPMTA05.qualcomm.com (NALASPPMTA05.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 62L3ANoG030412;
-	Sat, 21 Mar 2026 03:10:23 GMT
+	Sat, 21 Mar 2026 03:10:36 +0000
+Received: from NALASPPMTA01.qualcomm.com (NALASPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 62L3AZux029139;
+	Sat, 21 Mar 2026 03:10:36 GMT
 Received: from hu-devc-lv-u22-c.qualcomm.com (hu-cang-lv.qualcomm.com [10.81.25.255])
-	by NALASPPMTA05.qualcomm.com (PPS) with ESMTPS id 62L3AN4R030411
+	by NALASPPMTA01.qualcomm.com (PPS) with ESMTPS id 62L3AZpv029135
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 21 Mar 2026 03:10:23 +0000
+	Sat, 21 Mar 2026 03:10:35 +0000
 Received: by hu-devc-lv-u22-c.qualcomm.com (Postfix, from userid 359480)
-	id 2BFD65A8; Fri, 20 Mar 2026 20:10:23 -0700 (PDT)
+	id 90C0B5A8; Fri, 20 Mar 2026 20:10:35 -0700 (PDT)
 From: Can Guo <can.guo@oss.qualcomm.com>
 To: avri.altman@wdc.com, bvanassche@acm.org, beanhuo@micron.com,
         peter.wang@mediatek.com, martin.petersen@oracle.com, mani@kernel.org
 Cc: linux-scsi@vger.kernel.org, Can Guo <can.guo@oss.qualcomm.com>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+        Ajay Neeli <ajay.neeli@amd.com>,
+        Peter Griffin <peter.griffin@linaro.org>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Chaotian Jing <chaotian.jing@mediatek.com>,
+        Stanley Jhu <chu.stanley@gmail.com>, Orson Zhai <orsonzhai@gmail.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        Chunyan Zhang <zhang.lyra@gmail.com>,
         Matthias Brugger <matthias.bgg@gmail.com>,
         AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support:Keyword:mediatek),
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
-        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
-Subject: [PATCH v4 00/12] scsi: ufs: Add TX Equalization support for UFS 5.0
-Date: Fri, 20 Mar 2026 20:10:09 -0700
-Message-Id: <20260321031021.1722459-1-can.guo@oss.qualcomm.com>
+        "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
+        Adrian Hunter <adrian.hunter@intel.com>,
+        Archana Patni <archana.patni@intel.com>,
+        linux-kernel@vger.kernel.org (open list),
+        linux-samsung-soc@vger.kernel.org (open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+        linux-mediatek@lists.infradead.org (moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
+        linux-arm-msm@vger.kernel.org (open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...)
+Subject: [PATCH v4 01/12] scsi: ufs: core: Introduce a new ufshcd vops negotiate_pwr_mode()
+Date: Fri, 20 Mar 2026 20:10:10 -0700
+Message-Id: <20260321031021.1722459-2-can.guo@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260321031021.1722459-1-can.guo@oss.qualcomm.com>
+References: <20260321031021.1722459-1-can.guo@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QCInternal: smtphost
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: RNredeJEGjGm8QlhkrYS2LnDtxA4skVW
-X-Authority-Analysis: v=2.4 cv=epXSD4pX c=1 sm=1 tr=0 ts=69be0c20 cx=c_pps
+X-Proofpoint-ORIG-GUID: iRWD2egEx7r7PBfgORhlyCMt4Nkqx0Uv
+X-Authority-Analysis: v=2.4 cv=Xur3+FF9 c=1 sm=1 tr=0 ts=69be0c2d cx=c_pps
  a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=eoimf2acIAo5FJnRuUoq:22 a=ZyePWOR3t2h397M-7AgA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIxMDAyMyBTYWx0ZWRfXyPBvO1sSeNc5
- nguI2X8AL8zttmShSVaGvr6iCSyuHZ1VoXIxxSHtDupVcuu5G8UyU5RAuK5yc+FlpWyfTIGPJTw
- /WDQo1Z5w3mdUolQumUnEknJ2Ja3V0MmU4LIdfuupsX79x/gTifY/h6+GJl3KzcTqG5wQuWDy5J
- 9gpw1Emnh3IZe8ldFPEgUNA1rqYYYXDDCoRCCYVyUwiU8cvo2VUwyPWCEIwpVXXvNdDhNUKkmgg
- l+WkwU3TnHufSNESw3KpHmb6C43QBhVEYsq/gXhn1UApwF3eErZtV+LB5bTGV+vhhTHtYHNZT8R
- TtgoQlxe1YnAv9pW9GAXTLVSHYB1ryOs/J11hrvMfz80KRFBL8uu50ef7L/iftaSF1la/FL/zyz
- F4wj81JrL9Irxw2gZBUY+I+b9f/YegWmDRUC93vTYFN+KOycyGsSgAA0WGoCFkZzcax46zqS9ZV
- O4tZ2En5rIIbhGKyyZg==
-X-Proofpoint-GUID: RNredeJEGjGm8QlhkrYS2LnDtxA4skVW
+ a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8 a=X2XqvsTP97Ls3wiON34A:9
+X-Proofpoint-GUID: iRWD2egEx7r7PBfgORhlyCMt4Nkqx0Uv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIxMDAyNCBTYWx0ZWRfX2Ji1DfzDJ9Su
+ p/YPNFSbf6kADockxVNgRpBG76/L/BWYV2pvbSSHU35XyzmwFsUR1RwY28QAId4utqqRvlrvloh
+ sJQG1pw+7g64fswx3/ch+r4I5v8ZW5LO6BTx+KWRPqoyd8suo5zkNxWo/4xJSCcUxRntMNbzMM4
+ /UpEm4U0V9PSOCEEMmaK38fZSAxwuHBIGrgXMlUWYkuvidhwqc0SceTgxGZkQPQH3K/IcwH+VYV
+ XzGjeWBSHnkKlZ78dtDDHBS8VmO3rAF/dBw1d72RmFtKl5YQ6oCVmR6TD2Qlf87siD0wOAXLH4Z
+ E3jqViZwNAu1Bb0cF2YHzIcaiI5jHs8EBhN2S4qmqKN432x8Bj3tbfNGsOWf2KNLQ4n/SCB+K/E
+ vCMv2bgWcqQ0sRLzmMiEQwx4n/40yd3XYFt2/0uQZDcm4XNgkxfo+/TzugGLFmFaSV+/FCuGZbh
+ Ctj9HVlhd/jDNricl2A==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-21_01,2026-03-20_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603210023
+ priorityscore=1501 impostorscore=0 lowpriorityscore=0 clxscore=1015
+ phishscore=0 malwarescore=0 bulkscore=0 spamscore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603210024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_201034_891328_14786102 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20260320_201108_102508_E1F161F1 
+X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,214 +134,571 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Most vendor specific implemenations of vops pwr_change_notify(PRE_CHANGE)
+are fulfilling two things at once:
+- Vendor specific target power mode negotiation
+- Vendor specific power mode change preparation
 
-The UFS v5.0 and UFSHCI v5.0 standards have published, introducing support
-for HS-G6 (46.6 Gbps per lane) through the new UniPro V3.0 interconnect
-layer and M-PHY V6.0 physical layer specifications. To achieve reliable
-operation at these higher speeds, UniPro V3.0 introduces TX Equalization
-and Pre-Coding mechanisms that are essential for signal integrity.
+When TX Equalization is added into consideration, before power mode change
+to a target power mode, TX Equalization Training (EQTR) needs be done for
+that target power mode. In addition, UFSHCI spec requires to start TX EQTR
+from HS-G1 (the most reliable High Speed Gear).
 
-This patch series implements TX Equalization support in the UFS core
-driver as specified in UFSHCI v5.0, along with the necessary vendor
-operations and a reference implementation for Qualcomm UFS host
-controllers.
+Adding TX EQTR before pwr_change_notify(PRE_CHANGE) is not applicable
+because we don't know the negotiated power mode yet.
 
-Background
-==========
+Adding TX EQTR post pwr_change_notify(PRE_CHANGE) is inappropriate
+because pwr_change_notify(PRE_CHANGE) has finished preparation for a power
+mode change to negotiated power mode, yet we are changing power mode to
+HS-G1 for TX EQTR.
 
-TX Equalization is a signal conditioning technique that compensates for
-channel impairments at high data rates (HS-G4 through HS-G6). It works
-by adjusting two key parameters:
+Add a new vops negotiate_pwr_mode() so that vendor specific power mode
+negotiation can be fulfilled in its vendor specific implementations.
+Later on, TX EQTR can be added post vops negotiate_pwr_mode() and before
+vops pwr_change_notify(PRE_CHANGE).
 
-- PreShoot: Pre-emphasis applied before the main signal transition
-- DeEmphasis: De-emphasis applied after the main signal transition
+Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
+---
+ drivers/ufs/core/ufshcd-priv.h     | 14 +++++-
+ drivers/ufs/core/ufshcd.c          | 70 ++++++++++++++++++++++++------
+ drivers/ufs/host/ufs-amd-versal2.c |  3 --
+ drivers/ufs/host/ufs-exynos.c      | 34 +++++++--------
+ drivers/ufs/host/ufs-hisi.c        | 23 +++++-----
+ drivers/ufs/host/ufs-mediatek.c    | 40 ++++++++---------
+ drivers/ufs/host/ufs-qcom.c        | 24 +++++-----
+ drivers/ufs/host/ufs-sprd.c        |  3 --
+ drivers/ufs/host/ufshcd-pci.c      |  6 +--
+ include/ufs/ufshcd.h               | 17 +++++---
+ 10 files changed, 143 insertions(+), 91 deletions(-)
 
-UniPro V3.0 defines TX Equalization Training (EQTR) procedure to
-automatically discover optimal TX Equalization settings. The EQTR
-procedure:
-
-1. Starts from the most reliable link state (HS-G1)
-2. Iterates through all possible PreShoot and DeEmphasis combinations
-3. Evaluates signal quality using Figure of Merit (FOM) measurements
-4. Selects the best settings for both host and device TX lanes
-
-For HS-G6, Pre-Coding is also introduced to further improve signal
-quality. Pre-Coding must be enabled on both transmitter and receiver
-when the RX_FOM indicates it is required.
-
-Implementation Overview
-=======================
-
-The implementation follows the UFSHCI v5.0 specification and consists of:
-
-Core Infrastructure (Patches 1-6):
-- New vops callback negotiate_pwr_mode() to allow vendors to negotiate
-  power mode parameters before applying TX Equalization settings
-- Support for HS-G6 gear enumeration
-- Complete TX EQTR procedure implementation in ufs-txeq.c
-- Debugfs interface for TX Equalization parameter inspection and manual
-  retraining
-- Module parameters for adaptive TX Equalization control
-
-Qualcomm Implementation (Patches 7-11):
-- PHY-specific configurations for TX EQTR procedure
-- Vendor-specific FOM measurement support
-- TX Equalization settings application
-- Enable TX Equalization for HW version 0x7 and onwards
-
-The implementation is designed to be vendor-agnostic, with platform-
-specific details handled through the vops callbacks. Other vendors can
-add support by implementing the three new vops:
-
-- tx_eqtr_notify(): Called before/after TX EQTR for vendor setup
-- apply_tx_eqtr_settings(): Apply vendor-specific PHY configurations
-- get_rx_fom(): Retrieve vendor-specific FOM measurements if needed
-
-Module Parameters
-=================
-
-The implementation provides several module parameters for flexibility:
-
-- use_adaptive_txeq: Enable/disable adaptive TX Equalization (default: false)
-- adaptive_txeq_gear: Minimum gear for adaptive TX EQ (default: HS-G6)
-- use_txeq_presets: Use only the 8 standaird presets (default: false)
-- txeq_presets_selected[]: Select specific presets for EQTR
-
-Testing
-=======
-
-This patch series has been tested on Qualcomm platforms with UFS 5.0
-devices, validating:
-
-- Successful TX EQTR completion for HS-G6
-- Proper FOM evaluation and optimal settings selection
-- Pre-Coding enablement for HS-G6
-- Power mode changes with TX Equalization settings applied
-- Report of TX Equalization settings via debugfs entries
-- Report of TX EQTR histories via debug entries (see next section)
-- Re-training TX Equalization via debugfs entry
-
-Example of TX EQTR history
-==========================
-
-# cat /sys/kernel/debug/ufshcd/*ufshcd*/tx_eq_hs_gear6/device_tx_eqtr_record
-Device TX EQTR record summary -
-Target Power Mode: HS-G6, Rate-B
-Most recent record index: 2
-Most recent record timestamp: 219573378 us
-
-TX Lane 0 FOM - PreShoot\DeEmphasis
-\       0        1        2        3        4        5        6        7
-0      50       70       65        -        -        -        -        x
-1       x        x        x        x        x        x        x        x
-2     100       90       70        -        -        -        -        x
-3       x        x        x        x        x        x        x        x
-4      95       90        -        -        -        -        -        x
-5       -        -        -        -        -        -        -        x
-6       x        x        x        x        x        x        x        x
-7       x        x        x        x        x        x        x        x
-
-TX Lane 1 FOM - PreShoot\DeEmphasis
-\       0        1        2        3        4        5        6        7
-0      50       70       60        -        -        -        -        x
-1       x        x        x        x        x        x        x        x
-2     100       80       65        -        -        -        -        x
-3       x        x        x        x        x        x        x        x
-4      95       85        -        -        -        -        -        x
-5       -        -        -        -        -        -        -        x
-6       x        x        x        x        x        x        x        x
-7       x        x        x        x        x        x        x        x
-
-Patch Structure
-===============
-
-Patches 1-3: Preparatory changes for power mode negotiation and HS-G6
-Patch 4: Core TX Equalization and EQTR implementation
-Patches 5-7: Debugfs support for TX Equalization
-Patches 8-12: Qualcomm vendor implementation
-
-Next
-====
-
-One more series has been developed to enhance TX Equalization support,
-which will be submitted for review after this series is accepted:
-
-- Provide board specific (static) TX Equalization settings from DTS
-- Parse static TX Equalization settings from DTS if provided
-- Apply static TX Equalization settings if use_adaptive_txeq is disabled
-- Add support for UFS v5.0 attributes qTxEQGnSettings & wTxEQGnSettingsExt
-- Enable persistent storage and retrieval of optimal TX Equalization settings
-
-v3 -> v4:
-1. Incorporated comments from Bart and Peter.
-2. In patch 1, removed redundant checks on dev_req_params
-3. In patch 1, moved error prints out of vops negotiate_pwr_mode()
-4. In patch 1, removed vops implemenation ufs_versal2_negotiate_pwr_mode(),
-   sprd_ufs_negotiate_pwr_mode() and ufs_intel_lkf_negotiate_pwr_mode() as
-   they are simply doing memcpy().
-5. In patch 3, initialize UFS_HS_GEAR_MAX as UFS_HS_G6. 
-6. In patch 4, adjusted places where UFS_HS_GEAR_MAX is used.
-7. In patch 4, defined inline func ufs_hs_rate_to_str() instead of macro.
-8. In patch 4, changed default value of use_txeq_presets to 'false'.
-8. In patch 4, optimized ufshcd_tx_eq_params and ufshcd_tx_eq_settings.
-9. In patch 4, optimized memory usage of ufshcd_tx_eq_params.
-10. In patch 5, updated places which use fields in ufshcd_tx_eq_params.
-11. In patch 7, used 'retrain' instead of 'refresh'.
-12. In patch 10, introduced a few macros.
-
-v2 -> v3:
-1. Incorporated comments from Bart, Bean and Mani.
-2. In patch 4, made ufshcd_config_pwr_mode() ignore TX EQTR error.
-3. Added patch 6 to introduce helpers to pause/resume command processing.
-4. In patch 7, changed debugfs entry to 'tx_eq_ctrl' and used 'refresh'
-   as input to trigger TX Equalization refreshing.
-5. In patch 7, renamed ufshcd_retrain_tx_eq() to ufshcd_refresh_tx_eq().
-6. Fixed typos and coding style issues.
-
-v1 -> v2:
-1. Incorporated Bart's comments.
-2. Fixed typos and coding style issues.
-3. Added enum ufshcd_pmc_policy and use enum instead of boolen parameter.
-4. Updated TX Equalization debugfs entries structure.
-5. Extracted ufshcd_pause/resume_command_processing() in ufshcd.c.
-6. Updated sequence in Qualcomm's vops get_rx_fom() implementation.
-
-Can Guo (12):
-  scsi: ufs: core: Introduce a new ufshcd vops negotiate_pwr_mode()
-  scsi: ufs: core: Pass force_pmc to ufshcd_config_pwr_mode() as a
-    parameter
-  scsi: ufs: core: Add UFS_HS_G6 and UFS_HS_GEAR_MAX to enum
-    ufs_hs_gear_tag
-  scsi: ufs: core: Add support for TX Equalization
-  scsi: ufs: core: Add debugfs entries for TX Equalization params
-  scsi: ufs: core: Add helpers to pause and resume command processing
-  scsi: ufs: core: Add support to retrain TX Equalization via debugfs
-  scsi: ufs: ufs-qcom: Fixup PAM-4 TX L0_L1_L2_L3 adaptation pattern
-    length
-  scsi: ufs: ufs-qcom: Implement vops tx_eqtr_notify()
-  scsi: ufs: ufs-qcom: Implement vops get_rx_fom()
-  scsi: ufs: ufs-qcom: Implement vops apply_tx_eqtr_settings()
-  scsi: ufs: ufs-qcom: Enable TX Equalization
-
- drivers/ufs/core/Makefile          |    2 +-
- drivers/ufs/core/ufs-debugfs.c     |  290 +++++++
- drivers/ufs/core/ufs-txeq.c        | 1303 ++++++++++++++++++++++++++++
- drivers/ufs/core/ufshcd-priv.h     |   59 +-
- drivers/ufs/core/ufshcd.c          |  192 +++-
- drivers/ufs/host/ufs-amd-versal2.c |    3 -
- drivers/ufs/host/ufs-exynos.c      |   34 +-
- drivers/ufs/host/ufs-hisi.c        |   23 +-
- drivers/ufs/host/ufs-mediatek.c    |   40 +-
- drivers/ufs/host/ufs-qcom.c        |  591 ++++++++++++-
- drivers/ufs/host/ufs-qcom.h        |   42 +
- drivers/ufs/host/ufs-sprd.c        |    3 -
- drivers/ufs/host/ufshcd-pci.c      |    7 +-
- include/ufs/ufshcd.h               |  174 +++-
- include/ufs/unipro.h               |  141 ++-
- 15 files changed, 2789 insertions(+), 115 deletions(-)
- create mode 100644 drivers/ufs/core/ufs-txeq.c
-
+diff --git a/drivers/ufs/core/ufshcd-priv.h b/drivers/ufs/core/ufshcd-priv.h
+index 7d6d19361af9..3b6958d9297a 100644
+--- a/drivers/ufs/core/ufshcd-priv.h
++++ b/drivers/ufs/core/ufshcd-priv.h
+@@ -167,14 +167,24 @@ static inline int ufshcd_vops_link_startup_notify(struct ufs_hba *hba,
+ 	return 0;
+ }
+ 
++static inline int ufshcd_vops_negotiate_pwr_mode(struct ufs_hba *hba,
++						 const struct ufs_pa_layer_attr *dev_max_params,
++						 struct ufs_pa_layer_attr *dev_req_params)
++{
++	if (hba->vops && hba->vops->negotiate_pwr_mode)
++		return hba->vops->negotiate_pwr_mode(hba, dev_max_params,
++					dev_req_params);
++
++	return -ENOTSUPP;
++}
++
+ static inline int ufshcd_vops_pwr_change_notify(struct ufs_hba *hba,
+ 				enum ufs_notify_change_status status,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	if (hba->vops && hba->vops->pwr_change_notify)
+ 		return hba->vops->pwr_change_notify(hba, status,
+-					dev_max_params, dev_req_params);
++					dev_req_params);
+ 
+ 	return -ENOTSUPP;
+ }
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 8349fe2090db..91b5d5b02d22 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -335,8 +335,6 @@ static void ufshcd_suspend_clkscaling(struct ufs_hba *hba);
+ static int ufshcd_scale_clks(struct ufs_hba *hba, unsigned long freq,
+ 			     bool scale_up);
+ static irqreturn_t ufshcd_intr(int irq, void *__hba);
+-static int ufshcd_change_power_mode(struct ufs_hba *hba,
+-			     struct ufs_pa_layer_attr *pwr_mode);
+ static int ufshcd_setup_hba_vreg(struct ufs_hba *hba, bool on);
+ static int ufshcd_setup_vreg(struct ufs_hba *hba, bool on);
+ static inline int ufshcd_config_vreg_hpm(struct ufs_hba *hba,
+@@ -4662,8 +4660,26 @@ static int ufshcd_get_max_pwr_mode(struct ufs_hba *hba)
+ 	return 0;
+ }
+ 
+-static int ufshcd_change_power_mode(struct ufs_hba *hba,
+-			     struct ufs_pa_layer_attr *pwr_mode)
++/**
++ * ufshcd_dme_change_power_mode() - UniPro DME Power Mode change sequence
++ * @hba: per-adapter instance
++ * @pwr_mode: pointer to the target power mode (gear/lane) attributes
++ *
++ * This function handles the low-level DME (Device Management Entity)
++ * configuration required to transition the UFS link to a new power mode. It
++ * performs the following steps:
++ * 1. Checks if the requested mode matches the current state.
++ * 2. Sets M-PHY and UniPro attributes including Gear (PA_RXGEAR/TXGEAR),
++ *    Lanes, Termination, and HS Series (PA_HSSERIES).
++ * 3. Configures default UniPro timeout values (DL_FC0, etc.) unless
++ *    explicitly skipped via quirks.
++ * 4. Triggers the actual hardware mode change via ufshcd_uic_change_pwr_mode().
++ * 5. Updates the HBA's cached power information on success.
++ *
++ * Return: 0 on success, non-zero error code on failure.
++ */
++static int ufshcd_dme_change_power_mode(struct ufs_hba *hba,
++					struct ufs_pa_layer_attr *pwr_mode)
+ {
+ 	int ret;
+ 
+@@ -4747,6 +4763,34 @@ static int ufshcd_change_power_mode(struct ufs_hba *hba,
+ 	return ret;
+ }
+ 
++/**
++ * ufshcd_change_power_mode() - Change UFS Link Power Mode
++ * @hba: per-adapter instance
++ * @pwr_mode: pointer to the target power mode (gear/lane) attributes
++ *
++ * This function handles the high-level sequence for changing the UFS link
++ * power mode. It triggers vendor-specific pre-change notification,
++ * executes the DME (Device Management Entity) power mode change sequence,
++ * and, upon success, triggers vendor-specific post-change notification.
++ *
++ * Return: 0 on success, non-zero error code on failure.
++ */
++int ufshcd_change_power_mode(struct ufs_hba *hba,
++			     struct ufs_pa_layer_attr *pwr_mode)
++{
++	int ret;
++
++	ufshcd_vops_pwr_change_notify(hba, PRE_CHANGE, pwr_mode);
++
++	ret = ufshcd_dme_change_power_mode(hba, pwr_mode);
++
++	if (!ret)
++		ufshcd_vops_pwr_change_notify(hba, POST_CHANGE, pwr_mode);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(ufshcd_change_power_mode);
++
+ /**
+  * ufshcd_config_pwr_mode - configure a new power mode
+  * @hba: per-adapter instance
+@@ -4760,19 +4804,17 @@ int ufshcd_config_pwr_mode(struct ufs_hba *hba,
+ 	struct ufs_pa_layer_attr final_params = { 0 };
+ 	int ret;
+ 
+-	ret = ufshcd_vops_pwr_change_notify(hba, PRE_CHANGE,
+-					desired_pwr_mode, &final_params);
++	ret = ufshcd_vops_negotiate_pwr_mode(hba, desired_pwr_mode,
++					     &final_params);
++	if (ret) {
++		if (ret != -ENOTSUPP)
++			dev_err(hba->dev, "Failed to negotiate power mode: %d, use desired as is\n",
++				ret);
+ 
+-	if (ret)
+ 		memcpy(&final_params, desired_pwr_mode, sizeof(final_params));
++	}
+ 
+-	ret = ufshcd_change_power_mode(hba, &final_params);
+-
+-	if (!ret)
+-		ufshcd_vops_pwr_change_notify(hba, POST_CHANGE, NULL,
+-					&final_params);
+-
+-	return ret;
++	return ufshcd_change_power_mode(hba, &final_params);
+ }
+ EXPORT_SYMBOL_GPL(ufshcd_config_pwr_mode);
+ 
+diff --git a/drivers/ufs/host/ufs-amd-versal2.c b/drivers/ufs/host/ufs-amd-versal2.c
+index 40543db621a1..52031b7256fd 100644
+--- a/drivers/ufs/host/ufs-amd-versal2.c
++++ b/drivers/ufs/host/ufs-amd-versal2.c
+@@ -443,7 +443,6 @@ static int ufs_versal2_phy_ratesel(struct ufs_hba *hba, u32 activelanes, u32 rx_
+ }
+ 
+ static int ufs_versal2_pwr_change_notify(struct ufs_hba *hba, enum ufs_notify_change_status status,
+-					 const struct ufs_pa_layer_attr *dev_max_params,
+ 					 struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	struct ufs_versal2_host *host = ufshcd_get_variant(hba);
+@@ -451,8 +450,6 @@ static int ufs_versal2_pwr_change_notify(struct ufs_hba *hba, enum ufs_notify_ch
+ 	int ret = 0;
+ 
+ 	if (status == PRE_CHANGE) {
+-		memcpy(dev_req_params, dev_max_params, sizeof(struct ufs_pa_layer_attr));
+-
+ 		/* If it is not a calibrated part, switch PWRMODE to SLOW_MODE */
+ 		if (!host->attcompval0 && !host->attcompval1 && !host->ctlecompval0 &&
+ 		    !host->ctlecompval1) {
+diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
+index 76fee3a79c77..77a6c8e44485 100644
+--- a/drivers/ufs/host/ufs-exynos.c
++++ b/drivers/ufs/host/ufs-exynos.c
+@@ -818,12 +818,10 @@ static u32 exynos_ufs_get_hs_gear(struct ufs_hba *hba)
+ }
+ 
+ static int exynos_ufs_pre_pwr_mode(struct ufs_hba *hba,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
+ 	struct phy *generic_phy = ufs->phy;
+-	struct ufs_host_params host_params;
+ 	int ret;
+ 
+ 	if (!dev_req_params) {
+@@ -832,18 +830,6 @@ static int exynos_ufs_pre_pwr_mode(struct ufs_hba *hba,
+ 		goto out;
+ 	}
+ 
+-	ufshcd_init_host_params(&host_params);
+-
+-	/* This driver only support symmetric gear setting e.g. hs_tx_gear == hs_rx_gear */
+-	host_params.hs_tx_gear = exynos_ufs_get_hs_gear(hba);
+-	host_params.hs_rx_gear = exynos_ufs_get_hs_gear(hba);
+-
+-	ret = ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
+-	if (ret) {
+-		pr_err("%s: failed to determine capabilities\n", __func__);
+-		goto out;
+-	}
+-
+ 	if (ufs->drv_data->pre_pwr_change)
+ 		ufs->drv_data->pre_pwr_change(ufs, dev_req_params);
+ 
+@@ -1677,17 +1663,30 @@ static int exynos_ufs_link_startup_notify(struct ufs_hba *hba,
+ 	return ret;
+ }
+ 
++static int exynos_ufs_negotiate_pwr_mode(struct ufs_hba *hba,
++					 const struct ufs_pa_layer_attr *dev_max_params,
++					 struct ufs_pa_layer_attr *dev_req_params)
++{
++	struct ufs_host_params host_params;
++
++	ufshcd_init_host_params(&host_params);
++
++	/* This driver only support symmetric gear setting e.g. hs_tx_gear == hs_rx_gear */
++	host_params.hs_tx_gear = exynos_ufs_get_hs_gear(hba);
++	host_params.hs_rx_gear = exynos_ufs_get_hs_gear(hba);
++
++	return ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
++}
++
+ static int exynos_ufs_pwr_change_notify(struct ufs_hba *hba,
+ 				enum ufs_notify_change_status status,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	int ret = 0;
+ 
+ 	switch (status) {
+ 	case PRE_CHANGE:
+-		ret = exynos_ufs_pre_pwr_mode(hba, dev_max_params,
+-					      dev_req_params);
++		ret = exynos_ufs_pre_pwr_mode(hba, dev_req_params);
+ 		break;
+ 	case POST_CHANGE:
+ 		ret = exynos_ufs_post_pwr_mode(hba, dev_req_params);
+@@ -2015,6 +2014,7 @@ static const struct ufs_hba_variant_ops ufs_hba_exynos_ops = {
+ 	.exit				= exynos_ufs_exit,
+ 	.hce_enable_notify		= exynos_ufs_hce_enable_notify,
+ 	.link_startup_notify		= exynos_ufs_link_startup_notify,
++	.negotiate_pwr_mode		= exynos_ufs_negotiate_pwr_mode,
+ 	.pwr_change_notify		= exynos_ufs_pwr_change_notify,
+ 	.setup_clocks			= exynos_ufs_setup_clocks,
+ 	.setup_xfer_req			= exynos_ufs_specify_nexus_t_xfer_req,
+diff --git a/drivers/ufs/host/ufs-hisi.c b/drivers/ufs/host/ufs-hisi.c
+index 6f2e6bf31225..993e20ac211d 100644
+--- a/drivers/ufs/host/ufs-hisi.c
++++ b/drivers/ufs/host/ufs-hisi.c
+@@ -298,6 +298,17 @@ static void ufs_hisi_set_dev_cap(struct ufs_host_params *host_params)
+ 	ufshcd_init_host_params(host_params);
+ }
+ 
++static int ufs_hisi_negotiate_pwr_mode(struct ufs_hba *hba,
++				       const struct ufs_pa_layer_attr *dev_max_params,
++				       struct ufs_pa_layer_attr *dev_req_params)
++{
++	struct ufs_host_params host_params;
++
++	ufs_hisi_set_dev_cap(&host_params);
++
++	return ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
++}
++
+ static void ufs_hisi_pwr_change_pre_change(struct ufs_hba *hba)
+ {
+ 	struct ufs_hisi_host *host = ufshcd_get_variant(hba);
+@@ -362,10 +373,8 @@ static void ufs_hisi_pwr_change_pre_change(struct ufs_hba *hba)
+ 
+ static int ufs_hisi_pwr_change_notify(struct ufs_hba *hba,
+ 				enum ufs_notify_change_status status,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+-	struct ufs_host_params host_params;
+ 	int ret = 0;
+ 
+ 	if (!dev_req_params) {
+@@ -377,14 +386,6 @@ static int ufs_hisi_pwr_change_notify(struct ufs_hba *hba,
+ 
+ 	switch (status) {
+ 	case PRE_CHANGE:
+-		ufs_hisi_set_dev_cap(&host_params);
+-		ret = ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
+-		if (ret) {
+-			dev_err(hba->dev,
+-			    "%s: failed to determine capabilities\n", __func__);
+-			goto out;
+-		}
+-
+ 		ufs_hisi_pwr_change_pre_change(hba);
+ 		break;
+ 	case POST_CHANGE:
+@@ -543,6 +544,7 @@ static const struct ufs_hba_variant_ops ufs_hba_hi3660_vops = {
+ 	.name = "hi3660",
+ 	.init = ufs_hi3660_init,
+ 	.link_startup_notify = ufs_hisi_link_startup_notify,
++	.negotiate_pwr_mode = ufs_hisi_negotiate_pwr_mode,
+ 	.pwr_change_notify = ufs_hisi_pwr_change_notify,
+ 	.suspend = ufs_hisi_suspend,
+ 	.resume = ufs_hisi_resume,
+@@ -552,6 +554,7 @@ static const struct ufs_hba_variant_ops ufs_hba_hi3670_vops = {
+ 	.name = "hi3670",
+ 	.init = ufs_hi3670_init,
+ 	.link_startup_notify = ufs_hisi_link_startup_notify,
++	.negotiate_pwr_mode = ufs_hisi_negotiate_pwr_mode,
+ 	.pwr_change_notify = ufs_hisi_pwr_change_notify,
+ 	.suspend = ufs_hisi_suspend,
+ 	.resume = ufs_hisi_resume,
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 05892b9ac528..7b45cf0428af 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -1317,6 +1317,23 @@ static int ufs_mtk_init(struct ufs_hba *hba)
+ 	return err;
+ }
+ 
++static int ufs_mtk_negotiate_pwr_mode(struct ufs_hba *hba,
++				      const struct ufs_pa_layer_attr *dev_max_params,
++				      struct ufs_pa_layer_attr *dev_req_params)
++{
++	struct ufs_host_params host_params;
++
++	ufshcd_init_host_params(&host_params);
++	host_params.hs_rx_gear = UFS_HS_G5;
++	host_params.hs_tx_gear = UFS_HS_G5;
++
++	if (dev_max_params->pwr_rx == SLOW_MODE ||
++	    dev_max_params->pwr_tx == SLOW_MODE)
++		host_params.desired_working_mode = UFS_PWM_MODE;
++
++	return ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
++}
++
+ static bool ufs_mtk_pmc_via_fastauto(struct ufs_hba *hba,
+ 				     struct ufs_pa_layer_attr *dev_req_params)
+ {
+@@ -1372,26 +1389,10 @@ static void ufs_mtk_adjust_sync_length(struct ufs_hba *hba)
+ }
+ 
+ static int ufs_mtk_pre_pwr_change(struct ufs_hba *hba,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+-	struct ufs_host_params host_params;
+-	int ret;
+-
+-	ufshcd_init_host_params(&host_params);
+-	host_params.hs_rx_gear = UFS_HS_G5;
+-	host_params.hs_tx_gear = UFS_HS_G5;
+-
+-	if (dev_max_params->pwr_rx == SLOW_MODE ||
+-	    dev_max_params->pwr_tx == SLOW_MODE)
+-		host_params.desired_working_mode = UFS_PWM_MODE;
+-
+-	ret = ufshcd_negotiate_pwr_params(&host_params, dev_max_params, dev_req_params);
+-	if (ret) {
+-		pr_info("%s: failed to determine capabilities\n",
+-			__func__);
+-	}
++	int ret = 0;
+ 
+ 	if (ufs_mtk_pmc_via_fastauto(hba, dev_req_params)) {
+ 		ufs_mtk_adjust_sync_length(hba);
+@@ -1503,7 +1504,6 @@ static int ufs_mtk_auto_hibern8_disable(struct ufs_hba *hba)
+ 
+ static int ufs_mtk_pwr_change_notify(struct ufs_hba *hba,
+ 				enum ufs_notify_change_status stage,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	int ret = 0;
+@@ -1515,8 +1515,7 @@ static int ufs_mtk_pwr_change_notify(struct ufs_hba *hba,
+ 			reg = ufshcd_readl(hba, REG_AUTO_HIBERNATE_IDLE_TIMER);
+ 			ufs_mtk_auto_hibern8_disable(hba);
+ 		}
+-		ret = ufs_mtk_pre_pwr_change(hba, dev_max_params,
+-					     dev_req_params);
++		ret = ufs_mtk_pre_pwr_change(hba, dev_req_params);
+ 		break;
+ 	case POST_CHANGE:
+ 		if (ufshcd_is_auto_hibern8_supported(hba))
+@@ -2318,6 +2317,7 @@ static const struct ufs_hba_variant_ops ufs_hba_mtk_vops = {
+ 	.setup_clocks        = ufs_mtk_setup_clocks,
+ 	.hce_enable_notify   = ufs_mtk_hce_enable_notify,
+ 	.link_startup_notify = ufs_mtk_link_startup_notify,
++	.negotiate_pwr_mode  = ufs_mtk_negotiate_pwr_mode,
+ 	.pwr_change_notify   = ufs_mtk_pwr_change_notify,
+ 	.apply_dev_quirks    = ufs_mtk_apply_dev_quirks,
+ 	.fixup_dev_quirks    = ufs_mtk_fixup_dev_quirks,
+diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+index 375fd24ba458..cdc769886e82 100644
+--- a/drivers/ufs/host/ufs-qcom.c
++++ b/drivers/ufs/host/ufs-qcom.c
+@@ -966,13 +966,21 @@ static void ufs_qcom_set_tx_hs_equalizer(struct ufs_hba *hba, u32 gear, u32 tx_l
+ 	}
+ }
+ 
+-static int ufs_qcom_pwr_change_notify(struct ufs_hba *hba,
+-				enum ufs_notify_change_status status,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+-				struct ufs_pa_layer_attr *dev_req_params)
++static int ufs_qcom_negotiate_pwr_mode(struct ufs_hba *hba,
++				       const struct ufs_pa_layer_attr *dev_max_params,
++				       struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+ 	struct ufs_host_params *host_params = &host->host_params;
++
++	return ufshcd_negotiate_pwr_params(host_params, dev_max_params, dev_req_params);
++}
++
++static int ufs_qcom_pwr_change_notify(struct ufs_hba *hba,
++				      enum ufs_notify_change_status status,
++				      struct ufs_pa_layer_attr *dev_req_params)
++{
++	struct ufs_qcom_host *host = ufshcd_get_variant(hba);
+ 	int ret = 0;
+ 
+ 	if (!dev_req_params) {
+@@ -982,13 +990,6 @@ static int ufs_qcom_pwr_change_notify(struct ufs_hba *hba,
+ 
+ 	switch (status) {
+ 	case PRE_CHANGE:
+-		ret = ufshcd_negotiate_pwr_params(host_params, dev_max_params, dev_req_params);
+-		if (ret) {
+-			dev_err(hba->dev, "%s: failed to determine capabilities\n",
+-					__func__);
+-			return ret;
+-		}
+-
+ 		/*
+ 		 * During UFS driver probe, always update the PHY gear to match the negotiated
+ 		 * gear, so that, if quirk UFSHCD_QUIRK_REINIT_AFTER_MAX_GEAR_SWITCH is enabled,
+@@ -2341,6 +2342,7 @@ static const struct ufs_hba_variant_ops ufs_hba_qcom_vops = {
+ 	.setup_clocks           = ufs_qcom_setup_clocks,
+ 	.hce_enable_notify      = ufs_qcom_hce_enable_notify,
+ 	.link_startup_notify    = ufs_qcom_link_startup_notify,
++	.negotiate_pwr_mode	= ufs_qcom_negotiate_pwr_mode,
+ 	.pwr_change_notify	= ufs_qcom_pwr_change_notify,
+ 	.apply_dev_quirks	= ufs_qcom_apply_dev_quirks,
+ 	.fixup_dev_quirks       = ufs_qcom_fixup_dev_quirks,
+diff --git a/drivers/ufs/host/ufs-sprd.c b/drivers/ufs/host/ufs-sprd.c
+index 65bd8fb96b99..a5e8c591bead 100644
+--- a/drivers/ufs/host/ufs-sprd.c
++++ b/drivers/ufs/host/ufs-sprd.c
+@@ -161,14 +161,11 @@ static int ufs_sprd_common_init(struct ufs_hba *hba)
+ 
+ static int sprd_ufs_pwr_change_notify(struct ufs_hba *hba,
+ 				enum ufs_notify_change_status status,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	struct ufs_sprd_host *host = ufshcd_get_variant(hba);
+ 
+ 	if (status == PRE_CHANGE) {
+-		memcpy(dev_req_params, dev_max_params,
+-			sizeof(struct ufs_pa_layer_attr));
+ 		if (host->unipro_ver >= UFS_UNIPRO_VER_1_8)
+ 			ufshcd_dme_configure_adapt(hba, dev_req_params->gear_tx,
+ 						   PA_INITIAL_ADAPT);
+diff --git a/drivers/ufs/host/ufshcd-pci.c b/drivers/ufs/host/ufshcd-pci.c
+index 5f65dfad1a71..8a4f2381a32e 100644
+--- a/drivers/ufs/host/ufshcd-pci.c
++++ b/drivers/ufs/host/ufshcd-pci.c
+@@ -145,7 +145,7 @@ static int ufs_intel_set_lanes(struct ufs_hba *hba, u32 lanes)
+ 
+ 	pwr_info.lane_rx = lanes;
+ 	pwr_info.lane_tx = lanes;
+-	ret = ufshcd_config_pwr_mode(hba, &pwr_info);
++	ret = ufshcd_change_power_mode(hba, &pwr_info);
+ 	if (ret)
+ 		dev_err(hba->dev, "%s: Setting %u lanes, err = %d\n",
+ 			__func__, lanes, ret);
+@@ -154,17 +154,15 @@ static int ufs_intel_set_lanes(struct ufs_hba *hba, u32 lanes)
+ 
+ static int ufs_intel_lkf_pwr_change_notify(struct ufs_hba *hba,
+ 				enum ufs_notify_change_status status,
+-				const struct ufs_pa_layer_attr *dev_max_params,
+ 				struct ufs_pa_layer_attr *dev_req_params)
+ {
+ 	int err = 0;
+ 
+ 	switch (status) {
+ 	case PRE_CHANGE:
+-		if (ufshcd_is_hs_mode(dev_max_params) &&
++		if (ufshcd_is_hs_mode(dev_req_params) &&
+ 		    (hba->pwr_info.lane_rx != 2 || hba->pwr_info.lane_tx != 2))
+ 			ufs_intel_set_lanes(hba, 2);
+-		memcpy(dev_req_params, dev_max_params, sizeof(*dev_req_params));
+ 		break;
+ 	case POST_CHANGE:
+ 		if (ufshcd_is_hs_mode(dev_req_params)) {
+diff --git a/include/ufs/ufshcd.h b/include/ufs/ufshcd.h
+index 8563b6648976..51c2555bea73 100644
+--- a/include/ufs/ufshcd.h
++++ b/include/ufs/ufshcd.h
+@@ -302,11 +302,10 @@ struct ufs_pwr_mode_info {
+  *                     variant specific Uni-Pro initialization.
+  * @link_startup_notify: called before and after Link startup is carried out
+  *                       to allow variant specific Uni-Pro initialization.
++ * @negotiate_pwr_mode: called to negotiate power mode.
+  * @pwr_change_notify: called before and after a power mode change
+  *			is carried out to allow vendor spesific capabilities
+- *			to be set. PRE_CHANGE can modify final_params based
+- *			on desired_pwr_mode, but POST_CHANGE must not alter
+- *			the final_params parameter
++ *			to be set.
+  * @setup_xfer_req: called before any transfer request is issued
+  *                  to set some things
+  * @setup_task_mgmt: called before any task management request is issued
+@@ -347,10 +346,12 @@ struct ufs_hba_variant_ops {
+ 				     enum ufs_notify_change_status);
+ 	int	(*link_startup_notify)(struct ufs_hba *,
+ 				       enum ufs_notify_change_status);
+-	int	(*pwr_change_notify)(struct ufs_hba *,
+-			enum ufs_notify_change_status status,
+-			const struct ufs_pa_layer_attr *desired_pwr_mode,
+-			struct ufs_pa_layer_attr *final_params);
++	int	(*negotiate_pwr_mode)(struct ufs_hba *hba,
++				      const struct ufs_pa_layer_attr *desired_pwr_mode,
++				      struct ufs_pa_layer_attr *final_params);
++	int	(*pwr_change_notify)(struct ufs_hba *hba,
++				     enum ufs_notify_change_status status,
++				     struct ufs_pa_layer_attr *final_params);
+ 	void	(*setup_xfer_req)(struct ufs_hba *hba, int tag,
+ 				  bool is_scsi_cmd);
+ 	void	(*setup_task_mgmt)(struct ufs_hba *, int, u8);
+@@ -1361,6 +1362,8 @@ extern int ufshcd_dme_set_attr(struct ufs_hba *hba, u32 attr_sel,
+ 			       u8 attr_set, u32 mib_val, u8 peer);
+ extern int ufshcd_dme_get_attr(struct ufs_hba *hba, u32 attr_sel,
+ 			       u32 *mib_val, u8 peer);
++extern int ufshcd_change_power_mode(struct ufs_hba *hba,
++				    struct ufs_pa_layer_attr *pwr_mode);
+ extern int ufshcd_config_pwr_mode(struct ufs_hba *hba,
+ 			struct ufs_pa_layer_attr *desired_pwr_mode);
+ extern int ufshcd_uic_change_pwr_mode(struct ufs_hba *hba, u8 mode);
 -- 
 2.34.1
 
