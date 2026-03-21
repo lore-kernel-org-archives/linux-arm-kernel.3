@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14691094463
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:38:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194471094462
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFpg1mbZW3Ctniu50/V4S1EGhLRWMwZR4yXu0pZ0YM0=; b=LCVrjFLjbLdT8BbGlXIKYr50d0
-	RPdBC21Me3KQVVPZvqLV0WqWqLfOSWtQ+97qmmuXR4kXYFXWpTUhobIKsyQyByDVRMhAnf1fg6uhu
-	6wiVcXBeQWFqg7G9k5IAk56YnNTwRlyZjXjt34T2fRawR/R5ePyJ4CPXjTuUty89bv+7wna1p/bxu
-	gGrvFtyDh1HUIuhpluhp82pih8Qniv/2fLWSwEl+DhKvoEow9ZQkVNgL00RRbP+VLUF7k1/iqitVH
-	BSld5+Dy/aVlXpnPl5b14ZSQd9dcDi7B9k+/ce5wKpzVdpZCie0qUbggb60nQReHX91wlI1BdmGGi
-	0rw5AjVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=axv3BgBRbqvyaJt7PEeuj4WrzEzWKVKYZXG8EooCNSg=; b=teqJKx1z4vw2pJUyav+QAjLd3l
+	wTEaOPNfGafKZAgJa+lDN6baK247kTMSNglk4YeJqSUGyXAYrBq9DdquxEW1Ho/RelFc4uY1Xe6ln
+	nFd4xshI+nc41r0H/MjYJFkiuzCx1yWu6D1oEq4VXTaH7KGeiGhe8T+8HHv9McOX3ZQuNHkioOH6r
+	CG0tvfzpfGm1rDmv8jQGVaCsKJAVupO269AF18WJQNrZxHHuj/qgiuUrNcvhU1BNFggNrJgqwL2S/
+	En7AyN7i3Cwb7mQXwfg2iJn66rQyVEO7JFN7PtA8RjmaYaZrrqBCClMQrryDhALdOGwvela+vQAMU
+	8wnqCnIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3smU-0000000EJPQ-1CGv;
-	Sat, 21 Mar 2026 09:38:06 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1w3snh-0000000EJXt-0lPs;
+	Sat, 21 Mar 2026 09:39:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3smR-0000000EJOI-2rAb
+	id 1w3sne-0000000EJXT-0akw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 09:38:04 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43b5bded412so1493285f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Mar 2026 02:38:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774085881; x=1774690681; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=CFpg1mbZW3Ctniu50/V4S1EGhLRWMwZR4yXu0pZ0YM0=;
-        b=MyknmDCIj+qJFMNIeO1j74rXO8XwVkTe1jlELM5LyzqKU+pVOotN9KiE7Ly0ifqeHG
-         zORhtmG63vcZFnMyvUIeTd0OQO6Gwqa+o0mHxxljGidPopHKI7uEAobbHA9322/9tDjv
-         wr+BDTLdMyE2bM74O2+TiTcr4ol5pDlqZRV1rV9x091ITgrebIK7OGjCHQVOFh5kBDrh
-         oZ5zO113wBnIR3z0w+H/Q4CmYuMVMpvc2MB7Rm6aC78fTPZF3M5KUOSulDP9AGC0BqBk
-         77sO76pljmoDpYvjTRJPfdRwmpIKit9yn+bj7imqR4IeH/Y0+Jf/bwOkL0cZMgGMy8CW
-         cLew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774085881; x=1774690681;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CFpg1mbZW3Ctniu50/V4S1EGhLRWMwZR4yXu0pZ0YM0=;
-        b=Tunmy1EJRqjJjzJMDfIJw+ijym5jOwNklSfHj6WK9m927gGbd6n/ogaUtRt0KMV3CH
-         Kwnw+3v6OWSQWePlFhi1V+N+kJL0q/e1KeHRTbyO68TopKcMcO8wBETqTs9tE1XrBfNX
-         8EwezVregh6tPBDK5sgdN3gF84j6/CZpm3bQrnDp3HxLx3yfGLQdLjjjjTdcccRWm41e
-         okcY5TfeQn7uBM2H3pwTTVXu+0hCqQeYkw3EPD0YMiuhF1sTh0+5KCX/DsIB+jJaTBX5
-         nv/util7guYjac3TUwRCs8w8tkcSQMs3Kn0x6B0+PQQgajjqK2fcpAVpNO4BkJQgVVup
-         6W9A==
-X-Forwarded-Encrypted: i=1; AJvYcCX4cX+jyKPSClfZRUk4pUsWLxQMeSqmh6zNauttxTAnjoU4c3Y0Me3+TsbO/xUf19hvOtw3jOtqkq0ag29EwIN9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHpADHxkFGQyrsrnN/nb8mAXpYTHWgTAJQUcX3P7dciqXycl/5
-	ZlFcpgVEjYK4SMCFtqJBwcXs51c8QsB1GCyuXNv/Ohc3KO43MGzdIRatgJYFvo6g7dM=
-X-Gm-Gg: ATEYQzxs8L4Tfb0c2JwnLChusiDgQ9Z3o16idVqKjDeo/1XEUpkRqCYoXmsTFWLdOtZ
-	a/aPntIJv0BSNrGAhRlSSaGcTmIuqGAlcd+selN4JSDc84Yy8Q7Oaup2BM+GJDJ4bLQIYxM+FV+
-	ROyR0hEKq/AeDyEVcg/IipltgtPxcUEsDJvCVgjBs9LRokVXnyMBwEoF9AGvU8drAmVq96OLEN/
-	OiXCQGdbey5LFgwDsVeslnM5xycekGstST7x0LG+Rai/3CtNgl75RPLs1+RXD2R2LZx28jJRgyo
-	qT2wScb6h/R2+WAWG+fjVBWjWQeqIt96uPBsjq/UVVMkEPZicpUWAVsyKVMaKdhqxyzkKj4wiNr
-	UqAyAr8Bf/LBYahX1cbihCf709PR33nj9QcYJ5W51hz77R7jJaJ2lUbb/6Ulr8xREE8hBbGDOj4
-	rHBz8ThnEWR5Qk3178vBI5gC119DkQ4oxSYslp/UzRMW3O9btNcnjFY50VCuKHPOeTOHm46KoXk
-	L9G1aJ/Umg3uUSRAny2XWU=
-X-Received: by 2002:a05:6000:4021:b0:439:b1c3:84c8 with SMTP id ffacd0b85a97d-43b6423bc21mr10398940f8f.21.1774085880444;
-        Sat, 21 Mar 2026 02:38:00 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:81c2:60b3:ff00:9a5e? ([2a01:e0a:106d:1080:81c2:60b3:ff00:9a5e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b64717e97sm13770100f8f.35.2026.03.21.02.37.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Mar 2026 02:37:59 -0700 (PDT)
-Message-ID: <8462ee30-7e58-46ae-97f4-bc208dd40f27@linaro.org>
-Date: Sat, 21 Mar 2026 10:37:55 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/5] drm/meson: handle RGB101010 in format switches
-To: Alexander Koskovich <akoskovich@pm.me>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Jeffrey Hugo <jeffrey.l.hugo@gmail.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20260321-dsi-rgb101010-support-v4-0-eb28ecebbfe8@pm.me>
- <20260321-dsi-rgb101010-support-v4-2-eb28ecebbfe8@pm.me>
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Content-Language: en-GB
-In-Reply-To: <20260321-dsi-rgb101010-support-v4-2-eb28ecebbfe8@pm.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Sat, 21 Mar 2026 09:39:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE7C14407B;
+	Sat, 21 Mar 2026 09:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83A26C19421;
+	Sat, 21 Mar 2026 09:39:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774085956;
+	bh=YleNNae8eogG4HxU4906z9SPmXMwZWM8S1qJzHGepA8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LQeaQ+0jp33hxuGxNMh6vzDgUd2h4ZPsdKCn5JaL/YAprQkReWi0J0MHPMqssSxe9
+	 pscKJQ85gLhvKZSBqBi41l4RI36t2SoSEmluF120xAyv5coxyR07/4UrYIg/L26Uxj
+	 qJOlCDF0LZDE729AQd6xJeqeJO6MMFMFowDmvUK1TMKZCv+l5FoAONYxgQHI2/i+5P
+	 p5hoz6EUXRRwZXCZ2bgfSy1zH5pJ8JzWUoiUY38ulrBlJO38RAFNY3UEhIpfdpd22O
+	 w/8UXAF3/ABbUk/iCdgSRV2CC1WdZtuamh8jfYWl3wzBVRhwg5lY/ojftoidhVqWQk
+	 sVwkafbFuGpiw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w3sna-00000004HLO-0QZd;
+	Sat, 21 Mar 2026 09:39:14 +0000
+Date: Sat, 21 Mar 2026 09:39:13 +0000
+Message-ID: <87fr5tcyim.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v3 25/36] KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+In-Reply-To: <864ima5v6c.wl-maz@kernel.org>
+References: <20260305144351.17071-1-will@kernel.org>
+	<20260305144351.17071-26-will@kernel.org>
+	<864ima5v6c.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, smostafa@google.com, alexandru.elisei@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_023803_740473_5CFFC940 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260321_023918_224712_5B2ED40D 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,36 +95,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 21/03/2026 à 08:52, Alexander Koskovich a écrit :
-> Add RGB101010 to the unsupported format cases to fix -Wswitch warnings
-> introduced by the addition of the new pixel format.
+On Fri, 20 Mar 2026 16:20:59 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
-> ---
->   drivers/gpu/drm/meson/meson_dw_mipi_dsi.c | 2 ++
->   1 file changed, 2 insertions(+)
+> On Thu, 05 Mar 2026 14:43:38 +0000,
+> Will Deacon <will@kernel.org> wrote:
+> > 
+> > Host kernel accesses to pages that are inaccessible at stage-2 result in
+> > the injection of a translation fault, which is fatal unless an exception
+> > table fixup is registered for the faulting PC (e.g. for user access
+> > routines). This is undesirable, since a get_user_pages() call could be
+> > used to obtain a reference to a donated page and then a subsequent
+> > access via a kernel mapping would lead to a panic().
+> > 
+> > Rework the spurious fault handler so that stage-2 faults injected back
+> > into the host result in the target page being forcefully reclaimed when
+> > no exception table fixup handler is registered.
 > 
-> diff --git a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
-> index 66c73c512b0e..59fc0083d318 100644
-> --- a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
-> +++ b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
-> @@ -119,6 +119,7 @@ static int dw_mipi_dsi_phy_init(void *priv_data)
->   		dpi_data_format = DPI_COLOR_18BIT_CFG_2;
->   		venc_data_width = VENC_IN_COLOR_18B;
->   		break;
-> +	case MIPI_DSI_FMT_RGB101010:
->   	case MIPI_DSI_FMT_RGB666_PACKED:
->   	case MIPI_DSI_FMT_RGB565:
->   		return -EINVAL;
-> @@ -232,6 +233,7 @@ static int meson_dw_mipi_dsi_host_attach(void *priv_data,
->   		break;
->   	case MIPI_DSI_FMT_RGB666:
->   		break;
-> +	case MIPI_DSI_FMT_RGB101010:
->   	case MIPI_DSI_FMT_RGB666_PACKED:
->   	case MIPI_DSI_FMT_RGB565:
->   		dev_err(mipi_dsi->dev, "invalid pixel format %d\n", device->format);
+> Is there any reason why you prefer the 'inject fault' followed by
+> 'gimme that page' dance over a more direct 'unconditionally reclaim
+> the page on the back of the fault'?
 > 
+> I can't figure out what would go wrong in the latter approach, as you
+> always have an opportunity to inject a (fatal) fault if you can't
+> safely reclaim the page.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+To be clear, the reason I'm asking this is that with RME (whether
+that's with the dreaded CCA or something else), injecting a fault into
+the host would involve EL3, and I don't trust EL3 to do that. There is
+also the small detail that the fault syndrome is not strictly
+architectural, meaning that EL3 would have to learn a pKVM-specific
+behaviour.
+
+But EL3 should be able to report a GPC fault to RL-EL2, which then
+could act the exact same way as pKVM, unmapping, clearing and
+releasing the page.
+
+Thoughts?
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
