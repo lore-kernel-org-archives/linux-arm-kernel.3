@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94D5109446E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 11:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F37B109446A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 11:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oOotOs/ctlIraeRmjW/9DsRhuEEOxJU6EA0pVyPeSiY=; b=bBbKMaekxbyx9nYKme+Z9+bBGb
-	42bYFkqv14OfMUVksSGSdncDPGtZqw/m+pdWQHJHUfAniu05I3kER44KzqanzbK21R78WLoPtigpF
-	arj/mDP4jAxk8TSwnmjUCdYI2j6Cwjtjcwd2u9EwjrLuM8dxtpEkKqOBbgCsDGE9p3ZjzuJF5JAzC
-	WcYDVHDBVhJ3FlYQN0w0vPEO9DTAhwMqsDX1vc5MpcOaHwMRiorHQRHYJJh3Dzalvh/dyIIdoswB0
-	JnKa4hSzv/xB+YDJY7shi6fcKa3aJ/AUIvQpD7c2zA4IaPKlpPuIxDU7JjOhLtfIAqSYhm5b92459
-	FR8qH8ow==;
+	bh=UgY+bZ2Pi6QuHNfOxNlG1hBhelRVpcsVVWMlo73lQbk=; b=hsa92+6pFfdG2o/cBmWZcyjMUa
+	vWDJPDvhc0Ot1d30YJkyxUlXeRoPqmoa1jCCvMxvKs1wwVH3cT7oSI8FAu8C8Ckzjl1wN34Vk/I28
+	syzSh3fzwNHDjFEwdGUCYGJkCtAZvRucoVal0yN2qEmpy+mgiiVLQKR+64ozwBoqJm1G/3V1r9ds3
+	b5SW8/ppMnNRurM9OOmmM5RGndrnp7fzjsPx2QwP1GmwgYghUjqryIGfYujZr2+7X8tysu40sTMVR
+	fseQfiEDbQHqan0+wcHEYJvEITlbQrMX97/+M6LUK5Yf3npAeosMVY6oL0fsusnTj+H1l+kIiZmDu
+	rXRHCvow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3u4c-0000000ENhc-0WFa;
-	Sat, 21 Mar 2026 11:00:54 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1w3u5Z-0000000ENwa-21zG;
+	Sat, 21 Mar 2026 11:01:53 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3u4V-0000000ENdm-1by3
+	id 1w3u5W-0000000ENrm-376M
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 11:00:52 +0000
+	Sat, 21 Mar 2026 11:01:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=smail.nju.edu.cn;
-	s=iohv2404; t=1774090792;
-	bh=oOotOs/ctlIraeRmjW/9DsRhuEEOxJU6EA0pVyPeSiY=;
+	s=iohv2404; t=1774090807;
+	bh=UgY+bZ2Pi6QuHNfOxNlG1hBhelRVpcsVVWMlo73lQbk=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=CAGvFGT/Zq2UVK/hw1uDrDuhYd1y9RsMqTXg5s1j0KEg3RKBBG/57oUeW3XIZI2Y0
-	 q3YlkPE+SFuURYsWhmSH9POl0HqduiQSA1S6QX35/beA7CZfx6sxBcbQO53LKmuwYa
-	 dElwGqK7yhMDk8MZZ1j5URQQbF1nnuSnstEUiNkM=
-X-QQ-mid: zesmtpsz5t1774090788t795305cb
-X-QQ-Originating-IP: Xmmk9C+dJ5H3lxuXwZB/lw75AEOGTDP2jMQu+s+hbMM=
+	b=YKEIMMMsqaHQmUWA1d2Mub/qnFrOHbhzPWfuS/Wi7+J0sYHAi+CAKsj2YZvg4ONvK
+	 8miT1wRCcG/AXZ8IQCBQ/lv33764yc4IMLxNdosu20AURLS5l7t4s7N5uiqEw6JMlW
+	 2q6rQwgTxIYlmmUNeKrwGsbahxZnRTDbL+pQBVso=
+X-QQ-mid: esmtpgz13t1774090799t5668526a
+X-QQ-Originating-IP: ZrdkgHjjMhQNONcsOHs5GV8Jhia1x2+PRCdOqvj8ShE=
 Received: from localhost.localdomain ( [116.172.93.199])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 21 Mar 2026 18:59:45 +0800 (CST)
+	id ; Sat, 21 Mar 2026 18:59:56 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 16498299433407112095
-EX-QQ-RecipientCnt: 12
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4747820319854510971
+EX-QQ-RecipientCnt: 14
 From: Kexin Sun <kexinsun@smail.nju.edu.cn>
-To: daniel@zonque.org,
-	haojian.zhuang@gmail.com,
-	robert.jarzmik@free.fr,
-	broonie@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
+To: richard.genoud@bootlin.com,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
 Cc: julia.lawall@inria.fr,
 	xutong.ma@inria.fr,
 	kexinsun@smail.nju.edu.cn,
 	yunbolyu@smu.edu.sg,
 	ratnadiraw@smu.edu.sg
-Subject: [PATCH] spi: pxa2xx: update outdated reference to pump_transfers()
-Date: Sat, 21 Mar 2026 18:59:45 +0800
-Message-Id: <20260321105945.8224-1-kexinsun@smail.nju.edu.cn>
+Subject: [PATCH] tty: atmel_serial: update outdated reference to atmel_tasklet_func()
+Date: Sat, 21 Mar 2026 18:59:56 +0800
+Message-Id: <20260321105956.8401-1-kexinsun@smail.nju.edu.cn>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:smail.nju.edu.cn:qybglogicsvrgz:qybglogicsvrgz5b-0
-X-QQ-XMAILINFO: NhVJZi/nXXk/yRjx5B8AAaBaG8FIvfYi+lXTyhFNz+DKWPW8jhUS7Cy4
-	XHyB1cBwRoiBQLPTo4i6TuvwGj/Bv2MHemo/5fWwbbDwVoKzHATC8s7HNcipHIQ6/ugKakY
-	kYJHV+suRjTJmKCh5O02AFvSiaDHp+3g3xLLagr/uRFAkFbNPRqvlVL2ivOVWX8j/0hLabO
-	v0zF9M7ahoAUXkmV+ZRptyT9tAX2PzCj8k4xOXwkBGXDHe3GRMiS00kaoU/6oNca6P9fTz0
-	MXLUJn4VCVwcUIAAELdBmD73RYXc8Cw/10LhbiIhBhuYv5f9ZUiGnTQ+O1hioglCwDzGIk7
-	zSYg0Zr2cd28/Ddul6S/Qw7HMTnuEUrSiQVC12ebYQl+KL3gnd/mVe9VULVczT/iHX1CzW7
-	XqqoR3sLY9HMUA2CRymPUUe0EvgOH28J77GUST/rWWZi33Ao/K2/Vzkbf2gHVxGsNZrZkZE
-	xL7J1Bxh6JqG3lcSthDdbmSajFNHpihEXhkvRfGnlFKiIZc+b/2Obc1mYgYpcf+izLpeZBg
-	yJj5vlW1mNeYy0l8g4x5FBmmVONMCyQXj6pM4pGvYabdMeipOlRiK507xF6+RkVQaS4oseC
-	BgYE2X2t524cq+P1940gGCIdpmGImZjeLq/MQ8fHFo4ZUVmlUy4g3PgDOEGCjaPzEjY38Hl
-	xW7nSKX7yLO7Y31kv2aobyoeG6la00TmVn0UpTVcFLiTwQoeJ7YZOX/8PE3JD6yUUtD7n4U
-	ixAtFor6a6Q3xVHZCh/6rPMOAlBfBRYMQl9huF1bgLQAAqev1sNthnKDYaYf7oEvWACJxMK
-	X/DiCrd+TMNQF7ySgp23sBJg5VQLdGyX+GWlN+AZd4nnCRS39KwY/PCC2QWsgs9ltycO5xn
-	Bekogp/oxc7o+/Y8nqztsHVeELMWl6SJXo12hl4K8fWKuR8TR3zfP0Sgi6W8wVulgmF462L
-	+RfAb26bFQ6hTa4938ObAdhM9SeIFr2eyAdKDi5w9mxAYiY1oC0mgJZaW9lnOhfYSk0TAbG
-	GvCMBZY4VfLXk3CjcC6BHUFEVqiCUJGIS2eBxV7n3mV94Y5Qw12idrIQDtbjYvcaxbmeuNm
-	+8+kcR3ju9q
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+Feedback-ID: esmtpgz:smail.nju.edu.cn:qybglogicsvrgz:qybglogicsvrgz5b-0
+X-QQ-XMAILINFO: Nug9j1wRJ1f1Elj023aqJE2KafR74f7Jn9shFAujVoTzDqB3uojZpI/O
+	jK1yMDTq7fZdrOqVHhwLM0w+PDaLbXxO3xcfQ+KNExLFLBu9AOAACXsY14V2BBs6yqKvBoc
+	y7lAmHNobr31HcrzvvswKHYDBobLgqnX0qo7ih4gkNb5Cr/NPHKQR00/Otvz/QqhSeXlbYT
+	okDmQy+RTspW2f7ZEda0SzJunu9M7IDSc2IR//Jy80PAOOPVDjZJL+pkP6VN6V94NF/oNXk
+	r/hdwNPnhjfzyxAb+NKveo4ONtIrY0AeDh7zX2onEoG9JRLWZos6uqbM4Er5Jv9eOkriC3A
+	rmF5BU6J315VLbbP5uQvOCzPCx3xSqBbWQ0e7MzT1zN1gpwE0GajvGh2Dj1Oeqa3WyPzkcl
+	eOz7ApA6oRybmN0ZW1rGvAXN6A0gqIhJpqPD/011E0QF2rN/b/dGm54cyxufENql4jAH9Vj
+	Hysg9+R0UShuBD7Z3ACcf4lq3Os2SmwutXjrSW9zVrBkVbMLDfF3SbzO9SvXR7oWhJC2d/4
+	TbJxBwXcYarG5tX9UWhSkZQ4mCtpT6Hw45VHdXDxE4QB/Kwtpmnp6o/MQlnPiRrQiKHnRj0
+	TiQw8MheoHwoh9kMP6oM+EQXtg2a/oItOpilhlmg1d74k3wp3OXapxT9UyXTh0tfiYcS+sx
+	tkQBFRQ+FvPKCaDuFnSVA5jpKJdaw4WwEM4EdDnWQEFktJpt4F3JIWvjzO75ssi2GuXE8gU
+	K31C5P77nv+01GYXALpSUCvPbzOnJo3bhPEpu2HI6dAj7vp6osgavDNFV1tcKXED7NlZhIP
+	KqoU+FwzHSlWhChGLPtZK6zFBehZkrk0irDmjy+sknrmOgUXwxRd4oP7jzzJ5Fd4vxkh/sE
+	q2wpEWUlJnIuZo932fmnO1RB2ltB0QSBWlE/t91DhHcRzCoV3E8TerHMBo3KmiZKfQ7/Sdh
+	Ktuc/pWutbAYym5EaeJlqSiIWdT3MWUvSFEASsXptx1x4diBhfNBirUReaeJbIc1i/1laLv
+	2jC4MhXETLdZrqT2OPdU13qTlugZsdNycFH4CSCMvmbK0TqmZRKfp2myQdWhMvQ65JKJLxG
+	4vvc5lx1qE6w4+HfDidClecV9mWZqOkzg==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_040047_908585_6F4022BE 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260321_040151_133467_C2E60BAC 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function pump_transfers() was split into
-pxa2xx_spi_transfer_one(), pxa2xx_spi_handle_err() and
-pxa2xx_spi_set_cs() in commit d5898e19c0d7 ("spi: pxa2xx: Use
-core message processing loop").  The comment in
-pxa2xx_spi_dma_transfer_complete() still warns about concurrent
-calls to pump_transfers(), but the actual operation protected by
-dma_running is now spi_finalize_current_transfer().  Update the
-reference.
+The modem-status comparison that used irq_status_prev was
+moved from atmel_tasklet_func() into atmel_handle_status() in
+commit 2c7af5ba65cf ("tty: serial: atmel: rework interrupt and
+wakeup handling").  atmel_tasklet_func() itself was later split
+into atmel_tasklet_rx_func() and atmel_tasklet_tx_func() in
+commit 00e8e65870cc ("tty/serial: atmel: split tx and rx
+paths").  Update the comment to reference
+atmel_handle_status(), which now performs the comparison.
 
 Assisted-by: unnamed:deepseek-v3.2 coccinelle
 Signed-off-by: Kexin Sun <kexinsun@smail.nju.edu.cn>
 ---
- drivers/spi/spi-pxa2xx-dma.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/tty/serial/atmel_serial.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-pxa2xx-dma.c b/drivers/spi/spi-pxa2xx-dma.c
-index 08cb6e96ac94..c94d1d192e74 100644
---- a/drivers/spi/spi-pxa2xx-dma.c
-+++ b/drivers/spi/spi-pxa2xx-dma.c
-@@ -29,9 +29,9 @@ static void pxa2xx_spi_dma_transfer_complete(struct driver_data *drv_data,
+diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+index 08dd8f887956..5d8c1cfc1c60 100644
+--- a/drivers/tty/serial/atmel_serial.c
++++ b/drivers/tty/serial/atmel_serial.c
+@@ -1927,7 +1927,7 @@ static int atmel_startup(struct uart_port *port)
+ 		atmel_uart_writel(port, ATMEL_US_FMR, fmr);
+ 	}
+ 
+-	/* Save current CSR for comparison in atmel_tasklet_func() */
++	/* Save current CSR for comparison in atmel_handle_status() */
+ 	atmel_port->irq_status_prev = atmel_uart_readl(port, ATMEL_US_CSR);
  
  	/*
- 	 * It is possible that one CPU is handling ROR interrupt and other
--	 * just gets DMA completion. Calling pump_transfers() twice for the
--	 * same transfer leads to problems thus we prevent concurrent calls
--	 * by using dma_running.
-+	 * just gets DMA completion. Calling spi_finalize_current_transfer()
-+	 * twice for the same transfer leads to problems thus we prevent
-+	 * concurrent calls by using dma_running.
- 	 */
- 	if (atomic_dec_and_test(&drv_data->dma_running)) {
- 		/*
 -- 
 2.25.1
 
