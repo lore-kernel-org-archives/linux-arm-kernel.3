@@ -4,76 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F961094469
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125651094468
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 10:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HitJbzjas+KfUrPcCDuf0UwbI/I62/jjnuy4KwI9kLY=; b=ImJ2f/8SWyPDapWqETHW/D9z4L
-	4Kyf0IX9lmqCcQvtz6jzudh6h21zGNK/oLb3xU3jzKf6sZtbPSFBTyGa/15j//g6VGNOXysVBI95z
-	8OTmJEQdp6pI9cyT5gn8q6Z0pYQHgxv8WUoe4kNrseA1Le959OfDCS29FXVyYWY556ZlEWPV91Idc
-	7Fxc1lcXBkR6rj+uVyWTW5q9cZnsB3yJJa4alK1fNLOdPrwYB5AomIytu2HObuQQZ4TmpNXEYt7du
-	5ZJmoRipytAt5vUi1dZrq0Wgb45XmJAaAw91E+OJCkE0ZE0vTXRQyyDuJamCKdjBF7cJAfum8IRKM
-	n91iz7iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bc/mSPzYVfKKaFx+mxMMZ3z7TR2kpRYxytqtrH5EHIc=; b=1MGxIuw+GYqiFvGqEQVE8Xx3wL
+	TZHIwEY7vrgi62VysAVbo9Va3SXefe5WZ7Rc+NacW7joAm2pek0QIcyNzlROEwyxrikEUNjXg+x4g
+	nExuLawjo+4KHnNbaqwGVt4qf3sWVKxgBjl6XMt6+d0wyl+uPF+uysPBVTXrEQ6IP3TWLeF3RZemA
+	LJDhAvJcvOei9DG3brp+oa5O/bJR2B5ZKairZnDvZ8s5ZU14HVEHMg6iIWy0+LRL4LGolOym1evDY
+	twy+9y0myxjMgdO51GrWCgbYRSMZSiXxhNWZbn55O39Q7AZBBSDPlb3gwVOXLeu38F7Lcm9wq6GSk
+	TAq4Y2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3syl-0000000EK0o-0L2E;
-	Sat, 21 Mar 2026 09:50:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w3tDV-0000000EKUH-35p6;
+	Sat, 21 Mar 2026 10:06:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3syi-0000000EK0H-489t
+	id 1w3tDU-0000000EKTm-0ft9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 09:50:45 +0000
+	Sat, 21 Mar 2026 10:06:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0615660054;
-	Sat, 21 Mar 2026 09:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BA18C19421;
-	Sat, 21 Mar 2026 09:50:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 437A460097;
+	Sat, 21 Mar 2026 10:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D269C19421;
+	Sat, 21 Mar 2026 10:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774086643;
-	bh=qs3TCWGvQruI/5DUYonWWgyA8ES0ViDDBusaYu/KPF0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mk3qGu5VzNe0jJLvSMTRmS9VuJULgrEjY7K0D3bidu2+2FOeQgBLzV0iYZEyrMBId
-	 e/618FMhe2KlLY9WkPoOw2OrYUsWi5R1rTec6wRE4dZlL7iQIblOy+f07Lg8yLq0Ug
-	 3KRuK2bEH6qFfABkT/bNKl+e661byoFOegc07Jdo7YsWvsy7fyVdl+7lP8O54Y2wFV
-	 8PwMxQHBxrI/T/4gQRv1VPVgT17zxAv7jv5+yyFGcpbd0/8wFxpXtNBpdaJP4xb+b8
-	 oANOM4bzVS97uoLJiCRpkSlZCo7IXuq7FErZp6dqkD9K+aD8038F+Aj9aQp6CY/DFE
-	 AqesgyyUHjmrQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w3syf-00000004HQy-0BIw;
-	Sat, 21 Mar 2026 09:50:41 +0000
-Date: Sat, 21 Mar 2026 09:50:40 +0000
-Message-ID: <87ecldcxzj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Joey Gouly <joey.gouly@arm.com>, Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH 09/17] KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
-In-Reply-To: <CA+EHjTwbxTHr_fzSFD38cG4ZMj6XKr3L=o+=8T13XDQF0n6Raw@mail.gmail.com>
-References: <20260316175451.1866175-1-maz@kernel.org>
-	<20260316175451.1866175-10-maz@kernel.org>
-	<20260318142215.GB3915656@e124191.cambridge.arm.com>
-	<CA+EHjTwbxTHr_fzSFD38cG4ZMj6XKr3L=o+=8T13XDQF0n6Raw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1774087559;
+	bh=YVbOa1et//kxg6sD6c1cEVHkFutOAJ7fD03qPnyBHGU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OC58XMi2JkU8GKfpLgzwTl1loQcwGihE955dS8PNXAiziYm2uhT+NBRgmj9mBIM5C
+	 aO4pYExW+/CZt443E3gCwamnWICF33UPin8oXDfysOlsZiSxWjhFlFI3Nw98TDcXG4
+	 DtqEpat0SJdHQLPoelCKESXoBB7bvOgJNA4qQUFMTMrGnjlzhkqlGV8UgcAw+3yPMF
+	 zCBPjZmKTY2cJevX25C2x0I2o2qGkvQhXU2LBO/JY2htUm6ec+CfeGoTzYyIXXLFIT
+	 ttDAyTQkx+XEGIOgwi62yLA+qi+Ba1HUP6oHM2OIvQ+KKZpBOYNPwdXF0oqnhH6g5k
+	 pSoCWPpCDXgwg==
+Message-ID: <9b375cb4-7446-40e2-99ce-84ea54e6e8ec@kernel.org>
+Date: Sat, 21 Mar 2026 11:05:52 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: arm,corstone1000: Add
+ "arm,corstone1000-a320-fvp"
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Frazer Carsley <frazer.carsley@arm.com>,
+ Hugues Kamba Mpiana <hugues.kambampiana@arm.com>,
+ Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260320-dt-corstone1000-a320-v1-0-a549dfcfe8da@kernel.org>
+ <20260320-dt-corstone1000-a320-v1-1-a549dfcfe8da@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260320-dt-corstone1000-a320-v1-1-a549dfcfe8da@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Mar 2026 16:14:19 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On 20/03/2026 17:47, Rob Herring (Arm) wrote:
+> The Arm Corstone1000-A320 is a variation of the Corstone1000 with
+> Cortex-A320 cores and an Ethos-U85 NPU. An FVP for the platform is
+> available here[1].
 > 
-> Hi Joey,
+> [1] https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/IoT%20FVPs
 > 
-> First, thanks for the reviews and the comments on my series. You're
-> right about my changes wrongly editing "page". I wanted it to be as
-> mechanical as possible to make it easy to review, but it ended up
-> being too mechanical.
-> 
-> <snip>
-> 
-> > > -     /* Mark the fault->page dirty only if the fault is handled successfully */
-> > > -     if (fault->writable && !ret)
-> > > -             mark_page_dirty_in_slot(kvm, s2fd->memslot, get_canonical_gfn(s2fd, fault));
-> > > +     /* Mark the page dirty only if the fault is handled successfully */
-> > > +     if (fault->writable && !ret) {
-> > > +             phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
-> > > +             ipa &= ~(mapping_size - 1);
-> > > +             mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
-> >
-> > I don't understand this change, why do we need to mask stuff now?
-> 
-> Let me see if _I_ understand it (Marc, please correct me if I'm wrong).
-> 
-> Before this patch, fault->gfn and fault->vma_pagesize were mutable,
-> and transparent_hugepage_adjust() modified both directly. In addition
-> to this being confusing (which gfn is this: the host /canonical or the
-> nested one?), it made it more difficult to separate the logic.
-> 
-> So, to mark a dirty page, it did this:
-> -             mark_page_dirty_in_slot(kvm, s2fd->memslot,
-> get_canonical_gfn(s2fd, fault));
-> 
-> which relied on the old struct fault to calculate the canonical gfn
-> using the (magically) THP adjusted fault->vma_pagesize.
-> 
-> Now that fault (or s2vi, its successor in this case) isn't mutable, we
-> need to get the canonical gfn using the host mapping size.
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
 
-It's exactly that, and it is slightly clearer if you look at how
-mapping_size is updated:
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-	mapping_size = transparent_hugepage_adjust(kvm, s2fd->memslot,
-						   s2fd->hva, &fault->pfn,
-						   &gfn);
-
-The faulting IPA is represented by 'gfn', and gets correctly updated
-by the helper. But that doesn't adjust the 'canonical' IPA, which is
-used for any memslot related update.
-
-So if we need to call into mark_page_dirty_in_slot(), we really need
-to pick the base of the region we are actually marking dirty, hence
-the masking of the bottom bits.
-
-Does this make sense? This is one of the area where the constification
-results in slightly more complicated code, as we can't update things
-in place anymore.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Best regards,
+Krzysztof
 
