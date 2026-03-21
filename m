@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 422A61094471
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 13:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EFC1094471
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 13:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2pOfx6LcTM6r5Uzsv/uzaQdstnz3I+Un7k53SZvG88=; b=C64gkTE8HkjQtGmrO4oVZdsLlu
-	3aUZy3dpo8lH6axZQFUTO8tmLWeIqmwo6ooCVsKEDrO/1Opvg2O/efbb5eBu+IgLOmZZ0TjBOjv3G
-	nMW2VoahIgUbgykpiTI/389expcj3XUEAudYs/avaF+mLlIV6qqBRA8/pqyVWot12pXVtgXQehq4f
-	qO/zrV8sXdEYT9DZRUXXiGMntOBHIxbvbC27Q+IamML3ZSHeZAx6zM31fY8Fsb6eiIXJsopKyx8cg
-	gsncCJ2/7djIzwJZdBN9QJho4H76o4zVi6tFHX93kWHMQ5oNMcNAokeHlaUcBSNFk+CbVt8n5sEp9
-	Peihfjaw==;
+	bh=BODd0zrQTtQ2EVDGUzJPSylEhK+yTzVCUDSdTfTCQ+o=; b=ak8dCCgawbEk6Uk9eRt5rhDS63
+	cCv4qN02rx6dDXuQ6qsMSqdpCnKRn/S461z6WfeeKbFFnKyc9UxySfQgoZSYUcJh5xK9SFqG09pH1
+	mQ3ojN2pa4ZRdpMtYulJrQxnpCPOBeHacAdlmsygpcLE8zge0MtAKOq17PCWWZFInU8rc4mO5afoF
+	BpMNxAR7OMm3qFMn/dRH5LfpgH2kR6vZ9DzvKhOIOl3tpbu6krGUZTX0Mlk3NgKFX8R34OHfb52WO
+	MtkiXoe/1pN47VGR/u3UIsAZNyHQDTNPFlFyabOQtsm35IU3+ltGZXSJL/NN3s1LsuWezddfsa+1y
+	/XKFPlHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3w0Y-0000000ETeP-0jJr;
-	Sat, 21 Mar 2026 13:04:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3w0V-0000000ETe5-1AK8
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 13:04:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2660A1596;
-	Sat, 21 Mar 2026 06:04:37 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 444DB3F7BD;
-	Sat, 21 Mar 2026 06:04:38 -0700 (PDT)
-Date: Sat, 21 Mar 2026 13:04:31 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v13 15/48] arm64: RMI: RTT tear down
-Message-ID: <5chegrtlkmet4n5u53wmjbpyflul2dy5o6lpevvxo3hycvyszx@3ogzwuvsbvr3>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-16-steven.price@arm.com>
- <knluksqra3k56kjisorhids7lm6hzqqqp7s4kq47cribh66hos@ctatngbv263v>
- <ef49030f-1ee7-4473-acc7-c8900acb977d@arm.com>
+	id 1w3w5I-0000000ETsk-1q8o;
+	Sat, 21 Mar 2026 13:09:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w3w5G-0000000ETsK-0FaM;
+	Sat, 21 Mar 2026 13:09:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F3BDD40C00;
+	Sat, 21 Mar 2026 13:09:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F69C19421;
+	Sat, 21 Mar 2026 13:09:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774098576;
+	bh=dTmt0CpKQWFrPI2bQR7wWvu2/uBaYz30e6vvB7xr+D4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NK1XDnNX7jKHvW9R9uT9CawmULfhovJZTIsIzwrqu89k7RbHmtbLxRgVlsnfjBbLm
+	 5sbcnMcJ6Ju6k2OgkqJ5TW6KaxRp3IbBgbIKDdod92fGhFfDJX3z9SDKwKgsHWbA8T
+	 ty5z2wQy6LzmhDipnAo9DkNwFzsZwXFNsvLoV2XpZZtFybY3ZwbsEINecHQ5pB2qju
+	 2FjoZ6TVBuRsdOYXGn4hpU3jfdlC410nH9+P5o9/Q4Eh3aXM7OGI33RNEZ6HEfGsGl
+	 FJVrEwj2lrrgh7FWe7QrqkefL2+xyZQc32SQw3Ad1OSX1DxItD7KC63/gVFq8aBDmN
+	 y/T1WPiT2KgZw==
+Date: Sat, 21 Mar 2026 14:09:34 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Rework the code flow in
+ airoha_remove() and in airoha_probe() error path
+Message-ID: <ab6YjhbSbUNt_KR4@lore-desk>
+References: <20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org>
+ <20260321094429.GW74886@horms.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EZz7n3wwzIYEdEN2"
 Content-Disposition: inline
-In-Reply-To: <ef49030f-1ee7-4473-acc7-c8900acb977d@arm.com>
+In-Reply-To: <20260321094429.GW74886@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_060447_446578_44BD7121 
-X-CRM114-Status: GOOD (  60.55  )
+X-CRM114-CacheID: sfid-20260321_060942_120259_C87C892B 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,401 +77,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 04:12:48PM +0000, Steven Price wrote:
-> On 19/03/2026 17:35, Wei-Lin Chang wrote:
-> > On Wed, Mar 18, 2026 at 03:53:39PM +0000, Steven Price wrote:
-> >> The RMM owns the stage 2 page tables for a realm, and KVM must request
-> >> that the RMM creates/destroys entries as necessary. The physical pages
-> >> to store the page tables are delegated to the realm as required, and can
-> >> be undelegated when no longer used.
-> >>
-> >> Creating new RTTs is the easy part, tearing down is a little more
-> >> tricky. The result of realm_rtt_destroy() can be used to effectively
-> >> walk the tree and destroy the entries (undelegating pages that were
-> >> given to the realm).
-> >>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> Changes since v12:
-> >>  * Simplify some functions now we know RMM page size is the same as the
-> >>    host's.
-> >> Changes since v11:
-> >>  * Moved some code from earlier in the series to this one so that it's
-> >>    added when it's first used.
-> >> Changes since v10:
-> >>  * RME->RMI rename.
-> >>  * Some code to handle freeing stage 2 PGD moved into this patch where
-> >>    it belongs.
-> >> Changes since v9:
-> >>  * Add a comment clarifying that root level RTTs are not destroyed until
-> >>    after the RD is destroyed.
-> >> Changes since v8:
-> >>  * Introduce free_rtt() wrapper which calls free_delegated_granule()
-> >>    followed by kvm_account_pgtable_pages(). This makes it clear where an
-> >>    RTT is being freed rather than just a delegated granule.
-> >> Changes since v6:
-> >>  * Move rme_rtt_level_mapsize() and supporting defines from kvm_rme.h
-> >>    into rme.c as they are only used in that file.
-> >> Changes since v5:
-> >>  * Rename some RME_xxx defines to do with page sizes as RMM_xxx - they are
-> >>    a property of the RMM specification not the RME architecture.
-> >> Changes since v2:
-> >>  * Moved {alloc,free}_delegated_page() and ensure_spare_page() to a
-> >>    later patch when they are actually used.
-> >>  * Some simplifications now rmi_xxx() functions allow NULL as an output
-> >>    parameter.
-> >>  * Improved comments and code layout.
-> >> ---
-> >>  arch/arm64/include/asm/kvm_rmi.h |   7 ++
-> >>  arch/arm64/kvm/mmu.c             |  15 +++-
-> >>  arch/arm64/kvm/rmi.c             | 145 +++++++++++++++++++++++++++++++
-> >>  3 files changed, 166 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> >> index 0ada525af18f..16a297f3091a 100644
-> >> --- a/arch/arm64/include/asm/kvm_rmi.h
-> >> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> >> @@ -68,5 +68,12 @@ u32 kvm_realm_ipa_limit(void);
-> >>  
-> >>  int kvm_init_realm_vm(struct kvm *kvm);
-> >>  void kvm_destroy_realm(struct kvm *kvm);
-> >> +void kvm_realm_destroy_rtts(struct kvm *kvm);
-> >> +
-> >> +static inline bool kvm_realm_is_private_address(struct realm *realm,
-> >> +						unsigned long addr)
-> >> +{
-> >> +	return !(addr & BIT(realm->ia_bits - 1));
-> >> +}
-> >>  
-> >>  #endif /* __ASM_KVM_RMI_H */
-> >> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> >> index 9dc242c3b9c8..41152abf55b2 100644
-> >> --- a/arch/arm64/kvm/mmu.c
-> >> +++ b/arch/arm64/kvm/mmu.c
-> >> @@ -1098,10 +1098,23 @@ void stage2_unmap_vm(struct kvm *kvm)
-> >>  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
-> >>  {
-> >>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-> >> -	struct kvm_pgtable *pgt = NULL;
-> >> +	struct kvm_pgtable *pgt;
-> >>  
-> >>  	write_lock(&kvm->mmu_lock);
-> >>  	pgt = mmu->pgt;
-> >> +	if (kvm_is_realm(kvm) &&
-> >> +	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
-> >> +	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
-> >> +		write_unlock(&kvm->mmu_lock);
-> >> +		kvm_realm_destroy_rtts(kvm);
-> >> +
-> >> +		/*
-> >> +		 * The PGD pages can be reclaimed only after the realm (RD) is
-> >> +		 * destroyed. We call this again from kvm_destroy_realm() after
-> >> +		 * the RD is destroyed.
-> >> +		 */
-> >> +		return;
-> >> +	}
-> > 
-> > Hi,
-> > 
-> > I see that kvm_free_stage2_pgd() will be called twice:
-> > 
-> > kvm_destroy_vm()
-> >   mmu_notifier_unregister()
-> >     kvm_mmu_notifier_release()
-> >       kvm_flush_shadow_all()
-> >         kvm_arch_flush_shadow_all()
-> >           kvm_uninit_stage2_mmu()
-> >             kvm_free_stage2_pgd()
-> >   kvm_arch_destroy_vm()
-> >     kvm_destroy_realm()
-> >       kvm_free_stage2_pgd()
-> > 
-> > At the first call the realm state is REALM_STATE_ACTIVE, at the second
-> > it is REALM_STATE_DEAD. Reading the comment added to
-> > kvm_free_stage2_pgd() here, does it mean this function is called twice
-> > on purpose? If so do you think it's better to extract this and create
-> > another function instead, then use kvm_is_realm() to choose which to
-> > run? I think it is confusing to have this function run twice for a
-> > realm.
-> 
-> So the issue here is that the RMM requires we do things in a different
-> order to a normal VM. For a realm the PGD cannot be destroyed until the
-> realm itself is destroyed - the RMM revent the host undelegating them.
-> 
-> So the first call cannot actually do the free - this is the
-> REALM_STATE_ACTIVE case.
-> 
-> In kvm_destroy_realm() we tear down the actual realm and undelegate the
-> granules. We then need to actually free the PGD - the "obvious" way of
-> doing that is calling kvm_free_stage2_pgd() as that handles the KVM
-> intricacies - e.g. updating the mmu object.
-> 
-> I'm not sure how to structure the code better without causing
-> duplication - I don't want another copy of the cleanup from
-> kvm_free_stage2_pgd() in a CCA specific file because it will most likely
-> get out of sync with the normal VM case. There is a comment added
-> explaining "we call this again" which I hoped would make it less confusing.
-> 
 
-Oh, I see, thanks for letting me know!
+--EZz7n3wwzIYEdEN2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-During this I found in the first call of kvm_free_stage2_pgd() it's doing
-kvm_stage2_unmap_range() and kvm_realm_destroy_rtts(), but they are also
-called in kvm_destroy_realm(), is that intentional?
-If they can be called at kvm_destroy_realm() time, could we just not do
-kvm_free_stage2_pgd() in kvm_uninit_stage2_mmu() for realms?
-And if they should be called in kvm_free_stage2_pgd(), could we refactor
-it to something like:
-(just showing the idea, didn't try compiling or anything)
+On Mar 21, Simon Horman wrote:
+> On Fri, Mar 20, 2026 at 09:42:28AM +0100, Lorenzo Bianconi wrote:
+> > As suggested by Simon in [0], rework the code flow in airoha_remove()
+> > and in the airoha_probe() error path in order to rely on a more common
+> > approach un-registering configured net-devices first and destroying the
+> > hw resources at the end of the code.
+> > Introduce airoha_qdma_cleanup routine to release QDMA resources.
+> >=20
+> > [0] https://lore.kernel.org/netdev/20251214-airoha-fix-dev-registration=
+-v1-1-860e027ad4c6@kernel.org/
+> >=20
+> > Suggested-by: Simon Horman <horms@kernel.org>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >  drivers/net/ethernet/airoha/airoha_eth.c | 82 ++++++++++++++++++------=
+--------
+> >  1 file changed, 47 insertions(+), 35 deletions(-)
+> >=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+>=20
+> ...
+>=20
+> > @@ -3028,7 +3044,7 @@ static int airoha_probe(struct platform_device *p=
+dev)
+> > =20
+> >  	err =3D airoha_hw_init(pdev, eth);
+> >  	if (err)
+> > -		goto error_hw_cleanup;
+> > +		return err;
+>=20
+> Hi Lorenzo,
+>=20
+> AI generated review warns that eth->napi_dev is leaked here.
+> And that does seem to be the case.
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 7d7caab8f573..280d2bef8492 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1030,9 +1030,25 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
- 	return err;
- }
- 
-+static void kvm_realm_uninit_stage2(struct kvm_s2_mmu *mmu)
-+{
-+	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-+	struct realm *realm = &kvm->arch.realm;
-+
-+	WARN_ON(kvm_realm_state(kvm) != REALM_STATE_ACTIVE);
-+	write_lock(&kvm->mmu_lock);
-+	kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
-+	write_unlock(&kvm->mmu_lock);
-+	kvm_realm_destroy_rtts(kvm);
-+}
-+
- void kvm_uninit_stage2_mmu(struct kvm *kvm)
- {
--	kvm_free_stage2_pgd(&kvm->arch.mmu);
-+	if (kvm_is_realm(kvm))
-+		kvm_realm_uninit_stage2(&kvm->arch.mmu);
-+	else
-+		kvm_free_stage2_pgd(&kvm->arch.mmu);
-+
- 	kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
- }
- 
-@@ -1117,22 +1133,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
- 
- 	write_lock(&kvm->mmu_lock);
- 	pgt = mmu->pgt;
--	if (kvm_is_realm(kvm) &&
--	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
--	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
--		struct realm *realm = &kvm->arch.realm;
--
--		kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
--		write_unlock(&kvm->mmu_lock);
--		kvm_realm_destroy_rtts(kvm);
- 
--		/*
--		 * The PGD pages can be reclaimed only after the realm (RD) is
--		 * destroyed. We call this again from kvm_destroy_realm() after
--		 * the RD is destroyed.
--		 */
--		return;
--	}
- 	if (pgt) {
- 		mmu->pgd_phys = 0;
- 		mmu->pgt = NULL;
+Hi Simon,
 
-Sorry if I missed anything!
+right. I will fix it in v2.
 
-Thanks,
-Wei-Lin Chang
+Regards,
+Lorenzo
 
-> Thanks,
-> Steve
-> 
-> > Thanks,
-> > Wei-Lin Chang
-> > 
-> >>  	if (pgt) {
-> >>  		mmu->pgd_phys = 0;
-> >>  		mmu->pgt = NULL;
-> >> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> >> index 700b8c935d29..1fd2c18f7381 100644
-> >> --- a/arch/arm64/kvm/rmi.c
-> >> +++ b/arch/arm64/kvm/rmi.c
-> >> @@ -15,6 +15,19 @@
-> >>  static unsigned long rmm_feat_reg0;
-> >>  static unsigned long rmm_feat_reg1;
-> >>  
-> >> +#define RMM_RTT_BLOCK_LEVEL	2
-> >> +#define RMM_RTT_MAX_LEVEL	3
-> >> +
-> >> +#define RMM_L2_BLOCK_SIZE	PMD_SIZE
-> >> +
-> >> +static inline unsigned long rmi_rtt_level_mapsize(int level)
-> >> +{
-> >> +	if (WARN_ON(level > RMM_RTT_MAX_LEVEL))
-> >> +		return PAGE_SIZE;
-> >> +
-> >> +	return (1UL << ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
-> >> +}
-> >> +
-> >>  static bool rmi_has_feature(unsigned long feature)
-> >>  {
-> >>  	return !!u64_get_bits(rmm_feat_reg0, feature);
-> >> @@ -189,6 +202,11 @@ u32 kvm_realm_ipa_limit(void)
-> >>  	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
-> >>  }
-> >>  
-> >> +static int get_start_level(struct realm *realm)
-> >> +{
-> >> +	return 4 - stage2_pgtable_levels(realm->ia_bits);
-> >> +}
-> >> +
-> >>  static int undelegate_range(phys_addr_t phys, unsigned long size)
-> >>  {
-> >>  	unsigned long ret;
-> >> @@ -223,6 +241,131 @@ static int free_delegated_page(phys_addr_t phys)
-> >>  	return 0;
-> >>  }
-> >>  
-> >> +static void free_rtt(phys_addr_t phys)
-> >> +{
-> >> +	if (free_delegated_page(phys))
-> >> +		return;
-> >> +
-> >> +	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
-> >> +}
-> >> +
-> >> +static int realm_rtt_destroy(struct realm *realm, unsigned long addr,
-> >> +			     int level, phys_addr_t *rtt_granule,
-> >> +			     unsigned long *next_addr)
-> >> +{
-> >> +	unsigned long out_rtt;
-> >> +	int ret;
-> >> +
-> >> +	ret = rmi_rtt_destroy(virt_to_phys(realm->rd), addr, level,
-> >> +			      &out_rtt, next_addr);
-> >> +
-> >> +	*rtt_granule = out_rtt;
-> >> +
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +static int realm_tear_down_rtt_level(struct realm *realm, int level,
-> >> +				     unsigned long start, unsigned long end)
-> >> +{
-> >> +	ssize_t map_size;
-> >> +	unsigned long addr, next_addr;
-> >> +
-> >> +	if (WARN_ON(level > RMM_RTT_MAX_LEVEL))
-> >> +		return -EINVAL;
-> >> +
-> >> +	map_size = rmi_rtt_level_mapsize(level - 1);
-> >> +
-> >> +	for (addr = start; addr < end; addr = next_addr) {
-> >> +		phys_addr_t rtt_granule;
-> >> +		int ret;
-> >> +		unsigned long align_addr = ALIGN(addr, map_size);
-> >> +
-> >> +		next_addr = ALIGN(addr + 1, map_size);
-> >> +
-> >> +		if (next_addr > end || align_addr != addr) {
-> >> +			/*
-> >> +			 * The target range is smaller than what this level
-> >> +			 * covers, recurse deeper.
-> >> +			 */
-> >> +			ret = realm_tear_down_rtt_level(realm,
-> >> +							level + 1,
-> >> +							addr,
-> >> +							min(next_addr, end));
-> >> +			if (ret)
-> >> +				return ret;
-> >> +			continue;
-> >> +		}
-> >> +
-> >> +		ret = realm_rtt_destroy(realm, addr, level,
-> >> +					&rtt_granule, &next_addr);
-> >> +
-> >> +		switch (RMI_RETURN_STATUS(ret)) {
-> >> +		case RMI_SUCCESS:
-> >> +			free_rtt(rtt_granule);
-> >> +			break;
-> >> +		case RMI_ERROR_RTT:
-> >> +			if (next_addr > addr) {
-> >> +				/* Missing RTT, skip */
-> >> +				break;
-> >> +			}
-> >> +			/*
-> >> +			 * We tear down the RTT range for the full IPA
-> >> +			 * space, after everything is unmapped. Also we
-> >> +			 * descend down only if we cannot tear down a
-> >> +			 * top level RTT. Thus RMM must be able to walk
-> >> +			 * to the requested level. e.g., a block mapping
-> >> +			 * exists at L1 or L2.
-> >> +			 */
-> >> +			if (WARN_ON(RMI_RETURN_INDEX(ret) != level))
-> >> +				return -EBUSY;
-> >> +			if (WARN_ON(level == RMM_RTT_MAX_LEVEL))
-> >> +				return -EBUSY;
-> >> +
-> >> +			/*
-> >> +			 * The table has active entries in it, recurse deeper
-> >> +			 * and tear down the RTTs.
-> >> +			 */
-> >> +			next_addr = ALIGN(addr + 1, map_size);
-> >> +			ret = realm_tear_down_rtt_level(realm,
-> >> +							level + 1,
-> >> +							addr,
-> >> +							next_addr);
-> >> +			if (ret)
-> >> +				return ret;
-> >> +			/*
-> >> +			 * Now that the child RTTs are destroyed,
-> >> +			 * retry at this level.
-> >> +			 */
-> >> +			next_addr = addr;
-> >> +			break;
-> >> +		default:
-> >> +			WARN_ON(1);
-> >> +			return -ENXIO;
-> >> +		}
-> >> +	}
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static int realm_tear_down_rtt_range(struct realm *realm,
-> >> +				     unsigned long start, unsigned long end)
-> >> +{
-> >> +	/*
-> >> +	 * Root level RTTs can only be destroyed after the RD is destroyed. So
-> >> +	 * tear down everything below the root level
-> >> +	 */
-> >> +	return realm_tear_down_rtt_level(realm, get_start_level(realm) + 1,
-> >> +					 start, end);
-> >> +}
-> >> +
-> >> +void kvm_realm_destroy_rtts(struct kvm *kvm)
-> >> +{
-> >> +	struct realm *realm = &kvm->arch.realm;
-> >> +	unsigned int ia_bits = realm->ia_bits;
-> >> +
-> >> +	WARN_ON(realm_tear_down_rtt_range(realm, 0, (1UL << ia_bits)));
-> >> +}
-> >> +
-> >>  void kvm_destroy_realm(struct kvm *kvm)
-> >>  {
-> >>  	struct realm *realm = &kvm->arch.realm;
-> >> @@ -246,6 +389,8 @@ void kvm_destroy_realm(struct kvm *kvm)
-> >>  	if (realm->rd) {
-> >>  		phys_addr_t rd_phys = virt_to_phys(realm->rd);
-> >>  
-> >> +		kvm_realm_destroy_rtts(kvm);
-> >> +
-> >>  		if (WARN_ON(rmi_realm_destroy(rd_phys)))
-> >>  			return;
-> >>  		free_delegated_page(rd_phys);
-> >> -- 
-> >> 2.43.0
-> >>
-> 
+>=20
+> > =20
+> >  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
+> >  		airoha_qdma_start_napi(&eth->qdma[i]);
+>=20
+> ...
+
+--EZz7n3wwzIYEdEN2
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCab6YjgAKCRA6cBh0uS2t
+rNf6AP9KP6eC4+MHzMb7WFbxq92nj5wfHEpgj5oEBa1ehx8vawEAiqgEov1K4lLS
+0i3wDxbABgh92m891ZGxsVx+2UzXcgU=
+=SzaX
+-----END PGP SIGNATURE-----
+
+--EZz7n3wwzIYEdEN2--
 
