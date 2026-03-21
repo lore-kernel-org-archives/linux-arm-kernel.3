@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512D31094486
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 15:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F801094486
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 16:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sG4XhuqDJEdIQMND5WpkEc5bLbq0ERYW/OUxAG8RzSw=; b=M93ce0WCJE8PsFk1wM3Rj20Pix
-	qpMu2AWkzGIypR+y4xBibjHHrJIo5hVYYUNBeMtHk2kmYbZ2AciYIlLt6rFf9rhgP79w6DVGOdfyK
-	k2kArTTZFeYe1REeT+C2wZ3eqKJmaJKHXXqQs4rcP4O+faBZ6GrOrLSWRcaucgwW20wt+ZUqqaUyi
-	BZMldgPcze4i8tjf46Y8mSnPGbkTDvGE54/FyoYPxsNKIBfQdZ9rkeONswe016tZVhOPfjZ+zi8o3
-	Fr5td9H7I+eFVSHTB0ax+IokCJ/DDjbTRXx/JzsyGzokgOixJfotq8siAuvCAs3Jr1eubB5Lr7UR8
-	HsFFM7qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gyLPzHFjpcZvY5yUbkGLDxlWa/8E3W4swHcKJUzvh/4=; b=TGAWoijnSweZ5TvzCJb5eL5PRO
+	BZiIT0AlFuHqDW/WoOc742yM9Ww4NDioFaHeINVjIOJ8CMFzFPIKzG6u/uij5Iz5j6CoXzSVQp1gq
+	OXZH/ly+tupcEj7dMydtlflDg6Nbo5noIMM1Uv6MFuN+tonCl3JqJTX4McAfFKCPb7nYiuW2i1qNJ
+	ud/z/pCNUnLR72PQRe6ezShYBq6gi40EMcJuwmaNSqSwjPzxzw9sM5m7FLLCnHltu6B6MCgwQ25/y
+	dKc7yws3WibjCowgxFXOP1Qt8G2KAjeragl0YPTshxhKaoth2SoopJI7o2i5ZN9u5C6F7pstxvjBg
+	6WPhSeoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ybz-0000000EcCx-3gqc;
-	Sat, 21 Mar 2026 15:51:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w3ypk-0000000EcgG-0o2r;
+	Sat, 21 Mar 2026 16:05:52 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3yby-0000000EcCn-1P19
+	id 1w3ypf-0000000Ecfs-2qlb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 15:51:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F1EA60097;
-	Sat, 21 Mar 2026 15:51:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C045C19421;
-	Sat, 21 Mar 2026 15:51:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774108297;
-	bh=iJK6gXRLy8snWp9xWdLSHDh/M81apV4w9OBDnP6so3c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S615ZWhJmxbdpU+bgacRtU8dgRb16UnPmsyiRB3L6XZW+D+RcW/f/dzvmE92oVsXX
-	 do7A2ayfRyx3Gx2wPKf31th8IWvMlFRWxVAhgzm8t2cYvWYEg1Pe5kQZVY3Sfd4Iuq
-	 9fwlxfE9ycpiUsNH2c4xej/TemgNxyF+fctZdo35/e8YaGAbKOCobDHUymeNrfykPc
-	 SJ5ZD23GsrUVCNhXe7K1tVkg7HrXSmETfmXQWi1eTU/ZLBxoSLPYxPjQH5iAZjT/JC
-	 mAHEQOoLvWi07QJYHamGlARrG2vRz6P0MP6FVjMLXL68o8a+fiJGHB3t7n5nChdg4o
-	 6RHej1iQmb4dg==
-Date: Sat, 21 Mar 2026 15:51:27 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Billy Tsai <billy_tsai@aspeedtech.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, morris_mao@aspeedtech.com
-Subject: Re: [PATCH v3 4/4] iio: adc: aspeed: Reserve battery sensing
- channel for on-demand use
-Message-ID: <20260321155127.3e63fa47@jic23-huawei>
-In-Reply-To: <ab0ifBMNuY4BwqA5@ashevche-desk.local>
-References: <20260320-adc-v3-0-bc0eac04ef7c@aspeedtech.com>
-	<20260320-adc-v3-4-bc0eac04ef7c@aspeedtech.com>
-	<ab0ifBMNuY4BwqA5@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	Sat, 21 Mar 2026 16:05:50 +0000
+Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id 28CC91F9AE;
+	Sat, 21 Mar 2026 17:05:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1774109139;
+	bh=gyLPzHFjpcZvY5yUbkGLDxlWa/8E3W4swHcKJUzvh/4=; h=From:To:Subject;
+	b=BWh1uIUtTNVHairbLOoWq2TpO/GD603aoSYt0EJD0EEFiM5TkQ5xAMLNNVA0zWnjn
+	 5z3eYZylaqjpKA6kk/zl87ICTt+UJHdVXBF02vm7YE3FNP+EleJC/dQzrryzsxO+Ud
+	 XEI62VQJ67EU6dxy5k94g1kFm/sLT1edfRpXvqG4SJ9MNx/dnTKmHYSR3mbA0O/AUs
+	 hVWNmjvQT+ioEPgx27JBW7tuQvLR9AKh+rbm9xt/C0pUcZSHrZfoGS7pPIXd9/BvU1
+	 qtBnJWPWe2ojsMbzsQ7VSAHxWGKvXZmTPkCqhlwHSesIvaViCqPvq+danB+PM1wRMY
+	 fCxIAeNqj3PqQ==
+Date: Sat, 21 Mar 2026 17:05:34 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: Re: [PATCH 2/3] arm64: dts: freescale: add initial device tree for
+ TQMa93xx/MBa93xxLA-MINI
+Message-ID: <20260321160534.GA6345@francesco-nb>
+References: <20260317111704.1075938-1-alexander.stein@ew.tq-group.com>
+ <20260317111704.1075938-3-alexander.stein@ew.tq-group.com>
+ <abwBoB29cns28PWl@lizhi-Precision-Tower-5810>
+ <3410122.44csPzL39Z@steina-w>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3410122.44csPzL39Z@steina-w>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260321_090548_769015_47684DC7 
+X-CRM114-Status: UNSURE (   7.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +82,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Mar 2026 12:33:32 +0200
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+On Thu, Mar 19, 2026 at 03:20:30PM +0100, Alexander Stein wrote:
+> Am Donnerstag, 19. März 2026, 15:01:04 CET schrieb Frank Li:
+> > iomux is not necessary at last one.
+> AFAIK iomux being the last node is/was a common pattern for imx based platforms.
 
-> On Fri, Mar 20, 2026 at 01:46:38PM +0800, Billy Tsai wrote:
-> > For controllers with battery sensing capability (AST2600/AST2700), the
-> > last channel uses a different circuit design optimized for battery
-> > voltage measurement. This channel should not be enabled by default
-> > along with other channels to avoid potential interference and power
-> > efficiency issues.
-> > This ensures optimal power efficiency for normal ADC operations while
-> > maintaining full functionality when battery sensing is needed.  
-> 
-> 
-> ...
-> 
-> > +			/*
-> > +			 * After enable a new channel need to wait some time for ADC stable  
-> 
-> Missed period at the end. And you probably wanted to say
-> "...for ADC to stabilize."
-Tweaked and tidied up line wrap.
+Correct, same understanding here.
 
-Series applied to the togreg branch of iio.git.
-
-thanks,
-
-Jonathan
-
-> 
-> > +			 * Experiment result is 1ms.
-> > +			 */
-> > +			fsleep(1000);
-> > +		}  
-> 
+Francesco
 
 
