@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9333F1093175
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 04:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4CC1093170
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 04:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Qts8RjInx1Nk0zgLAjF2IcRbaPeYHKOLbTsLuUx8e0=; b=HYsA61GYiLCIOyTuNBpjnasYJC
-	Ya09ISG2tGl4rCD4AMl2Y1AVcIa2uNJk72wQs6U8W73C3hoqaYoyDt0hVWJAQtHgpiqWkLg87W6QM
-	XNbiKOcXgjqwwjcdMc1kMev9NeepRE1eqt7ZPCGosvDhPlkyIZhjAcEpAidNjsBXg8dFoYhWTVSwS
-	MhwFz8vV8iJiuTCeu4UumO2dh4WYs/+pE00V4RUwhJ3BDviqQXxOqwHvcdiMmB1P0ycWjMsYUenQD
-	rB/vF4l0oOGWspixCFLiYIDOi8E/Miswsh0rfjMxcrgQaZLeBbuJE84jFC8YR/NDJHU7rggutyOLa
-	V8QaKdKQ==;
+	bh=EzjjYA6bvjLVGFNv4Cb4ITWFkePAME6jeVXu1eKv65k=; b=CC2MwG4t24TKO71nYMDdDjlpyj
+	RF4TcEktJrs2SkyhnCYMQ50GgSctTMtgocJvZmXcg/DBkHS+Gn4/8WesRlO2Zb3M1qdfvpKwndObV
+	QlH5HDXzLAWyaDtYcqAfR8CPZY4SQnzsECzuDaK1761Rx2k81xa6F152N7f9ibwfpuaJA8JFMQPp0
+	h1k0V8q7f7FLcrNSeAQSHvpURKMBEg6xsaynVNgS8w0QCCtAE+9HZgCPY+F5H+mHxopC0nNQ1GTup
+	bmEyy6J3Tm+kzWdMm1/yJPbMgQjgUJmMxG9S6vrFG05Yt4ymKpvRtPX5Apw02VgvZr9Fz8zITjmz+
+	LYeQlFNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3nhJ-0000000Dzei-1ZXO;
-	Sat, 21 Mar 2026 04:12:25 +0000
+	id 1w3nhe-0000000E026-34a8;
+	Sat, 21 Mar 2026 04:12:46 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ngv-0000000DzOh-1nDb;
-	Sat, 21 Mar 2026 04:12:04 +0000
+	id 1w3ngw-0000000DzQC-2tks;
+	Sat, 21 Mar 2026 04:12:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6EF48445A7;
-	Sat, 21 Mar 2026 04:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3B14C2BCB0;
-	Sat, 21 Mar 2026 04:11:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 247944465F;
+	Sat, 21 Mar 2026 04:12:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B34E8C2BCB3;
+	Sat, 21 Mar 2026 04:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774066320;
-	bh=ISGb1p1EnAl61OClJO3seFMf8e7Em96WE4VOWrgXJG8=;
+	s=k20201202; t=1774066322;
+	bh=Z7X3CEAgl3dXN2F8cAlFv5bwr0TXDZ0BzcoXhcL/Vrg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ljbCHigAO8gUeyW/IWepPsEodEtYwrR2zZ3CY3Afgozil6/xOszL/DIbm/T9+MYzm
-	 cD03d7LT+UYayrS/FidOkdzl0CLdyp72B4t1gaRPZKkBbaNT8jREJC9E+UEaCh3cbq
-	 BfMbAFovwpfvE7vxwK2PPPrhCDhF6jUYL5UhHW7FtZ9qquhz8ITWBIUB4dwcX7BsCB
-	 PwYtpgYq1eM9rxWHG+NeR6CbR9ahO6TDbzZo6oevTnh7hqC0PvRY8eRh1tpokmClfo
-	 O4dhr0h5v0cHqoA2/16zvz4RM1uUIhmls6nh8N3Rp6jolNHVMY1AoS4zI1/BWLNHc4
-	 N02rAOCn2N4TA==
+	b=mLg2c8EbUZGZV7Eej4tzRai+I4sdo2DDkwL00k5pj7z+Jl6xHe281kSPAtTsbhN2X
+	 AW8LVDq/ARj0QCu4t4SjYw3K7LI0tHiXbUtem7U6LcQnEQ7imxZXpEyrPHkKaGhZzS
+	 u66jNXD30u1xUjboE1bjXDAj+HzhAolFEcjhj8xGXGwm0yanFN3xibRDb4fnoQsBL+
+	 vnXWpN6aPHEn/48hjaokhu481ab3KrKEpynO6fdKjZef5gi0dsszYcZVOKpCxt3mi/
+	 /z27r9OTCPVgyg7pw7x0uBMA//YZl9ro9uDNkxqzKxEcZIUEJ5nVsjGyKB5jYwyTrH
+	 wLx0SjaNAhMkg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 05/12] lib/crypto: tests: Add KUnit tests for SM3
-Date: Fri, 20 Mar 2026 21:09:28 -0700
-Message-ID: <20260321040935.410034-6-ebiggers@kernel.org>
+Subject: [PATCH 09/12] lib/crypto: x86/sm3: Migrate optimized code into library
+Date: Fri, 20 Mar 2026 21:09:32 -0700
+Message-ID: <20260321040935.410034-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260321040935.410034-1-ebiggers@kernel.org>
 References: <20260321040935.410034-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_211201_537054_7821C41D 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260320_211202_830323_2895AC5A 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,370 +77,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a KUnit test suite for the SM3 library.  It closely mirrors the test
-suites for the other cryptographic hash functions.  The actual test and
-benchmark logic is already in hash-test-template.h; this just wires it
-up for SM3 in the usual way.
+Instead of exposing the x86-optimized SM3 code via an x86-specific
+crypto_shash algorithm, instead just implement the sm3_blocks() library
+function.  This is much simpler, it makes the SM3 library functions be
+x86-optimized, and it fixes the longstanding issue where the
+x86-optimized SM3 code was disabled by default.  SM3 still remains
+available through crypto_shash, but individual architectures no longer
+need to handle it.
+
+Tweak the prototype of sm3_transform_avx() to match what the library
+expects, including changing the block count to size_t.  Note that the
+assembly code actually already treated this argument as size_t.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/.kunitconfig             |   1 +
- lib/crypto/tests/Kconfig            |   9 ++
- lib/crypto/tests/Makefile           |   1 +
- lib/crypto/tests/sm3-testvecs.h     | 231 ++++++++++++++++++++++++++++
- lib/crypto/tests/sm3_kunit.c        |  31 ++++
- scripts/crypto/gen-hash-testvecs.py |   3 +
- 6 files changed, 276 insertions(+)
- create mode 100644 lib/crypto/tests/sm3-testvecs.h
- create mode 100644 lib/crypto/tests/sm3_kunit.c
+ arch/x86/crypto/Kconfig                       |  13 ---
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/sm3_avx_glue.c                | 100 ------------------
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/Makefile                           |   1 +
+ .../crypto/x86}/sm3-avx-asm_64.S              |  13 ++-
+ lib/crypto/x86/sm3.h                          |  39 +++++++
+ 7 files changed, 47 insertions(+), 123 deletions(-)
+ delete mode 100644 arch/x86/crypto/sm3_avx_glue.c
+ rename {arch/x86/crypto => lib/crypto/x86}/sm3-avx-asm_64.S (98%)
+ create mode 100644 lib/crypto/x86/sm3.h
 
-diff --git a/lib/crypto/.kunitconfig b/lib/crypto/.kunitconfig
-index 63a592731d1d..61f880859526 100644
---- a/lib/crypto/.kunitconfig
-+++ b/lib/crypto/.kunitconfig
-@@ -13,5 +13,6 @@ CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST=y
- CONFIG_CRYPTO_LIB_POLYVAL_KUNIT_TEST=y
- CONFIG_CRYPTO_LIB_SHA1_KUNIT_TEST=y
- CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST=y
- CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST=y
- CONFIG_CRYPTO_LIB_SHA3_KUNIT_TEST=y
-+CONFIG_CRYPTO_LIB_SM3_KUNIT_TEST=y
-diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
-index 42e1770e1883..72d445a7eac5 100644
---- a/lib/crypto/tests/Kconfig
-+++ b/lib/crypto/tests/Kconfig
-@@ -114,10 +114,18 @@ config CRYPTO_LIB_SHA3_KUNIT_TEST
- 	help
- 	  KUnit tests for the SHA3 cryptographic hash and XOF functions,
- 	  including SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and
- 	  SHAKE256.
+diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
+index 7fb2319a0916..617494bd019f 100644
+--- a/arch/x86/crypto/Kconfig
++++ b/arch/x86/crypto/Kconfig
+@@ -329,23 +329,10 @@ config CRYPTO_AEGIS128_AESNI_SSE2
  
-+config CRYPTO_LIB_SM3_KUNIT_TEST
-+	tristate "KUnit tests for SM3" if !KUNIT_ALL_TESTS
-+	depends on KUNIT && CRYPTO_LIB_SM3
-+	default KUNIT_ALL_TESTS
-+	select CRYPTO_LIB_BENCHMARK_VISIBLE
-+	help
-+	  KUnit tests for the SM3 cryptographic hash function.
-+
- config CRYPTO_LIB_ENABLE_ALL_FOR_KUNIT
- 	tristate "Enable all crypto library code for KUnit tests"
- 	depends on KUNIT
- 	select CRYPTO_LIB_AES_CBC_MACS
- 	select CRYPTO_LIB_BLAKE2B
-@@ -129,10 +137,11 @@ config CRYPTO_LIB_ENABLE_ALL_FOR_KUNIT
- 	select CRYPTO_LIB_POLYVAL
- 	select CRYPTO_LIB_SHA1
- 	select CRYPTO_LIB_SHA256
- 	select CRYPTO_LIB_SHA512
- 	select CRYPTO_LIB_SHA3
-+	select CRYPTO_LIB_SM3
- 	help
- 	  Enable all the crypto library code that has KUnit tests.
+ 	  Architecture: x86_64 using:
+ 	  - AES-NI (AES New Instructions)
+ 	  - SSE4.1 (Streaming SIMD Extensions 4.1)
  
- 	  Enable this only if you'd like to test all the crypto library code,
- 	  even code that wouldn't otherwise need to be built.
-diff --git a/lib/crypto/tests/Makefile b/lib/crypto/tests/Makefile
-index f864e0ffbee4..88920fbc4324 100644
---- a/lib/crypto/tests/Makefile
-+++ b/lib/crypto/tests/Makefile
-@@ -11,5 +11,6 @@ obj-$(CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST) += poly1305_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_POLYVAL_KUNIT_TEST) += polyval_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA1_KUNIT_TEST) += sha1_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST) += sha224_kunit.o sha256_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST) += sha384_kunit.o sha512_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA3_KUNIT_TEST) += sha3_kunit.o
-+obj-$(CONFIG_CRYPTO_LIB_SM3_KUNIT_TEST) += sm3_kunit.o
-diff --git a/lib/crypto/tests/sm3-testvecs.h b/lib/crypto/tests/sm3-testvecs.h
+-config CRYPTO_SM3_AVX_X86_64
+-	tristate "Hash functions: SM3 (AVX)"
+-	depends on 64BIT
+-	select CRYPTO_HASH
+-	select CRYPTO_LIB_SM3
+-	help
+-	  SM3 secure hash function as defined by OSCCA GM/T 0004-2012 SM3
+-
+-	  Architecture: x86_64 using:
+-	  - AVX (Advanced Vector Extensions)
+-
+-	  If unsure, say N.
+-
+ config CRYPTO_GHASH_CLMUL_NI_INTEL
+ 	tristate "Hash functions: GHASH (CLMUL-NI)"
+ 	depends on 64BIT
+ 	select CRYPTO_CRYPTD
+ 	help
+diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
+index b21ad0978c52..9420b9ff51da 100644
+--- a/arch/x86/crypto/Makefile
++++ b/arch/x86/crypto/Makefile
+@@ -51,13 +51,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-ctr-avx-x86_64.o \
+ 			       aes-xts-avx-x86_64.o
+ 
+ obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
+ ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
+ 
+-obj-$(CONFIG_CRYPTO_SM3_AVX_X86_64) += sm3-avx-x86_64.o
+-sm3-avx-x86_64-y := sm3-avx-asm_64.o sm3_avx_glue.o
+-
+ obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX_X86_64) += sm4-aesni-avx-x86_64.o
+ sm4-aesni-avx-x86_64-y := sm4-aesni-avx-asm_64.o sm4_aesni_avx_glue.o
+ 
+ obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX2_X86_64) += sm4-aesni-avx2-x86_64.o
+ sm4-aesni-avx2-x86_64-y := sm4-aesni-avx2-asm_64.o sm4_aesni_avx2_glue.o
+diff --git a/arch/x86/crypto/sm3_avx_glue.c b/arch/x86/crypto/sm3_avx_glue.c
+deleted file mode 100644
+index 6e8c42b9dc8e..000000000000
+--- a/arch/x86/crypto/sm3_avx_glue.c
++++ /dev/null
+@@ -1,100 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-or-later */
+-/*
+- * SM3 Secure Hash Algorithm, AVX assembler accelerated.
+- * specified in: https://datatracker.ietf.org/doc/html/draft-sca-cfrg-sm3-02
+- *
+- * Copyright (C) 2021 Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
+- */
+-
+-#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+-
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/simd.h>
+-#include <crypto/sm3.h>
+-#include <crypto/sm3_base.h>
+-#include <linux/cpufeature.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-asmlinkage void sm3_transform_avx(struct sm3_state *state,
+-			const u8 *data, int nblocks);
+-
+-static int sm3_avx_update(struct shash_desc *desc, const u8 *data,
+-			 unsigned int len)
+-{
+-	int remain;
+-
+-	/*
+-	 * Make sure struct sm3_state begins directly with the SM3
+-	 * 256-bit internal state, as this is what the asm functions expect.
+-	 */
+-	BUILD_BUG_ON(offsetof(struct sm3_state, state) != 0);
+-
+-	kernel_fpu_begin();
+-	remain = sm3_base_do_update_blocks(desc, data, len, sm3_transform_avx);
+-	kernel_fpu_end();
+-	return remain;
+-}
+-
+-static int sm3_avx_finup(struct shash_desc *desc, const u8 *data,
+-		      unsigned int len, u8 *out)
+-{
+-	kernel_fpu_begin();
+-	sm3_base_do_finup(desc, data, len, sm3_transform_avx);
+-	kernel_fpu_end();
+-	return sm3_base_finish(desc, out);
+-}
+-
+-static struct shash_alg sm3_avx_alg = {
+-	.digestsize	=	SM3_DIGEST_SIZE,
+-	.init		=	sm3_base_init,
+-	.update		=	sm3_avx_update,
+-	.finup		=	sm3_avx_finup,
+-	.descsize	=	SM3_STATE_SIZE,
+-	.base		=	{
+-		.cra_name	=	"sm3",
+-		.cra_driver_name =	"sm3-avx",
+-		.cra_priority	=	300,
+-		.cra_flags	 =	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SM3_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-};
+-
+-static int __init sm3_avx_mod_init(void)
+-{
+-	const char *feature_name;
+-
+-	if (!boot_cpu_has(X86_FEATURE_AVX)) {
+-		pr_info("AVX instruction are not detected.\n");
+-		return -ENODEV;
+-	}
+-
+-	if (!boot_cpu_has(X86_FEATURE_BMI2)) {
+-		pr_info("BMI2 instruction are not detected.\n");
+-		return -ENODEV;
+-	}
+-
+-	if (!cpu_has_xfeatures(XFEATURE_MASK_SSE | XFEATURE_MASK_YMM,
+-				&feature_name)) {
+-		pr_info("CPU feature '%s' is not supported.\n", feature_name);
+-		return -ENODEV;
+-	}
+-
+-	return crypto_register_shash(&sm3_avx_alg);
+-}
+-
+-static void __exit sm3_avx_mod_exit(void)
+-{
+-	crypto_unregister_shash(&sm3_avx_alg);
+-}
+-
+-module_init(sm3_avx_mod_init);
+-module_exit(sm3_avx_mod_exit);
+-
+-MODULE_LICENSE("GPL v2");
+-MODULE_AUTHOR("Tianjia Zhang <tianjia.zhang@linux.alibaba.com>");
+-MODULE_DESCRIPTION("SM3 Secure Hash Algorithm, AVX assembler accelerated");
+-MODULE_ALIAS_CRYPTO("sm3");
+-MODULE_ALIAS_CRYPTO("sm3-avx");
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index b714f9cbd368..2824bfb0e30d 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -275,9 +275,10 @@ config CRYPTO_LIB_SM3_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_SM3 && !UML
+ 	default y if ARM64
+ 	default y if RISCV && 64BIT && TOOLCHAIN_HAS_VECTOR_CRYPTO && \
+ 		     RISCV_EFFICIENT_VECTOR_UNALIGNED_ACCESS
++	default y if X86_64
+ 
+ source "lib/crypto/tests/Kconfig"
+ 
+ endmenu
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index 3019e6cbb10d..308ec3e93b54 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -354,10 +354,11 @@ libsm3-y := sm3.o
+ ifeq ($(CONFIG_CRYPTO_LIB_SM3_ARCH),y)
+ CFLAGS_sm3.o += -I$(src)/$(SRCARCH)
+ libsm3-$(CONFIG_ARM64) += arm64/sm3-ce-core.o \
+ 			  arm64/sm3-neon-core.o
+ libsm3-$(CONFIG_RISCV) += riscv/sm3-riscv64-zvksh-zvkb.o
++libsm3-$(CONFIG_X86) += x86/sm3-avx-asm_64.o
+ endif # CONFIG_CRYPTO_LIB_SM3_ARCH
+ 
+ ################################################################################
+ 
+ obj-$(CONFIG_MPILIB) += mpi/
+diff --git a/arch/x86/crypto/sm3-avx-asm_64.S b/lib/crypto/x86/sm3-avx-asm_64.S
+similarity index 98%
+rename from arch/x86/crypto/sm3-avx-asm_64.S
+rename to lib/crypto/x86/sm3-avx-asm_64.S
+index 503bab450a91..a1925b136010 100644
+--- a/arch/x86/crypto/sm3-avx-asm_64.S
++++ b/lib/crypto/x86/sm3-avx-asm_64.S
+@@ -10,14 +10,13 @@
+ /* Based on SM3 AES/BMI2 accelerated work by libgcrypt at:
+  *  https://gnupg.org/software/libgcrypt/index.html
+  */
+ 
+ #include <linux/linkage.h>
+-#include <linux/cfi_types.h>
+ #include <asm/frame.h>
+ 
+-/* Context structure */
++/* State structure */
+ 
+ #define state_h0 0
+ #define state_h1 4
+ #define state_h2 8
+ #define state_h3 12
+@@ -323,17 +322,17 @@
+ .text
+ 
+ /*
+  * Transform nblocks*64 bytes (nblocks*16 32-bit words) at DATA.
+  *
+- * void sm3_transform_avx(struct sm3_state *state,
+- *                        const u8 *data, int nblocks);
++ * void sm3_transform_avx(struct sm3_block_state *state,
++ *                        const u8 *data, size_t nblocks);
+  */
+-SYM_TYPED_FUNC_START(sm3_transform_avx)
++SYM_FUNC_START(sm3_transform_avx)
+ 	/* input:
+-	 *	%rdi: ctx, CTX
+-	 *	%rsi: data (64*nblks bytes)
++	 *	%rdi: state
++	 *	%rsi: data
+ 	 *	%rdx: nblocks
+ 	 */
+ 	vzeroupper;
+ 
+ 	pushq %rbp;
+diff --git a/lib/crypto/x86/sm3.h b/lib/crypto/x86/sm3.h
 new file mode 100644
-index 000000000000..5e788c29f487
+index 000000000000..3834780f2f6a
 --- /dev/null
-+++ b/lib/crypto/tests/sm3-testvecs.h
-@@ -0,0 +1,231 @@
++++ b/lib/crypto/x86/sm3.h
+@@ -0,0 +1,39 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py sm3 */
-+
-+static const struct {
-+	size_t data_len;
-+	u8 digest[SM3_DIGEST_SIZE];
-+} hash_testvecs[] = {
-+	{
-+		.data_len = 0,
-+		.digest = {
-+			0x1a, 0xb2, 0x1d, 0x83, 0x55, 0xcf, 0xa1, 0x7f,
-+			0x8e, 0x61, 0x19, 0x48, 0x31, 0xe8, 0x1a, 0x8f,
-+			0x22, 0xbe, 0xc8, 0xc7, 0x28, 0xfe, 0xfb, 0x74,
-+			0x7e, 0xd0, 0x35, 0xeb, 0x50, 0x82, 0xaa, 0x2b,
-+		},
-+	},
-+	{
-+		.data_len = 1,
-+		.digest = {
-+			0xb6, 0x22, 0x2c, 0x39, 0xdc, 0x14, 0x9a, 0xee,
-+			0x01, 0x9a, 0xcb, 0x0d, 0xe6, 0xc6, 0x75, 0x6e,
-+			0x8f, 0x18, 0x7b, 0x0e, 0xe8, 0x98, 0x61, 0x71,
-+			0x2b, 0xd8, 0x38, 0xa9, 0xee, 0x2c, 0x1e, 0x93,
-+		},
-+	},
-+	{
-+		.data_len = 2,
-+		.digest = {
-+			0x62, 0x0c, 0x66, 0x77, 0x67, 0x28, 0x74, 0x8a,
-+			0xe3, 0x64, 0xea, 0x44, 0x6a, 0x3f, 0x34, 0x61,
-+			0x55, 0xc5, 0xaa, 0xb2, 0x6c, 0x67, 0x97, 0x68,
-+			0x68, 0xae, 0x4d, 0x64, 0xa8, 0xb6, 0x72, 0x3e,
-+		},
-+	},
-+	{
-+		.data_len = 3,
-+		.digest = {
-+			0x71, 0xd4, 0x63, 0xb1, 0xfa, 0x27, 0xc7, 0xae,
-+			0x65, 0xed, 0x5c, 0x93, 0x70, 0xe0, 0x09, 0x34,
-+			0x2f, 0x42, 0xe6, 0x71, 0x16, 0x8e, 0x90, 0x90,
-+			0x9a, 0xdd, 0xa6, 0x44, 0x66, 0x71, 0x18, 0xf9,
-+		},
-+	},
-+	{
-+		.data_len = 16,
-+		.digest = {
-+			0x79, 0x0b, 0x68, 0xb5, 0x41, 0xc1, 0x97, 0xa0,
-+			0x50, 0xe6, 0x93, 0x70, 0xf6, 0x98, 0x49, 0xea,
-+			0x92, 0xc9, 0xd0, 0xb1, 0x46, 0xbd, 0x4a, 0x0c,
-+			0x8e, 0xe8, 0xf3, 0xe4, 0x8f, 0x90, 0x33, 0x3c,
-+		},
-+	},
-+	{
-+		.data_len = 32,
-+		.digest = {
-+			0x32, 0x9f, 0xa3, 0x18, 0x18, 0x45, 0xe0, 0x28,
-+			0xd3, 0xa4, 0x41, 0x3a, 0x25, 0x62, 0x9c, 0x95,
-+			0xab, 0xfe, 0x02, 0xe0, 0x37, 0x7d, 0x3c, 0xc4,
-+			0xce, 0x69, 0x57, 0x5a, 0x07, 0x0e, 0xb9, 0xf5,
-+		},
-+	},
-+	{
-+		.data_len = 48,
-+		.digest = {
-+			0x0c, 0xcf, 0x7c, 0x48, 0x44, 0xa0, 0xb0, 0x8d,
-+			0xdf, 0xbe, 0x22, 0x14, 0x7e, 0xd4, 0xc3, 0x8d,
-+			0x6a, 0x23, 0xfc, 0x44, 0x0e, 0x0f, 0xde, 0xa5,
-+			0x7c, 0x8b, 0xc4, 0x8b, 0xab, 0x8c, 0x87, 0x41,
-+		},
-+	},
-+	{
-+		.data_len = 49,
-+		.digest = {
-+			0xb3, 0x76, 0x8b, 0x19, 0xf9, 0x10, 0xa9, 0x56,
-+			0x4f, 0xce, 0x27, 0xaa, 0x65, 0x96, 0xe5, 0xdb,
-+			0x90, 0x9b, 0x92, 0xcd, 0x32, 0x0d, 0x16, 0xac,
-+			0xf8, 0xd0, 0x66, 0x62, 0x10, 0xf0, 0x44, 0xdf,
-+		},
-+	},
-+	{
-+		.data_len = 63,
-+		.digest = {
-+			0x07, 0xc9, 0x45, 0x65, 0x9f, 0x68, 0x75, 0xc3,
-+			0x74, 0xb2, 0x3b, 0x0c, 0x97, 0x05, 0xd3, 0x13,
-+			0xc0, 0xb6, 0x21, 0xed, 0xf6, 0x10, 0x7a, 0xed,
-+			0xec, 0xd8, 0x10, 0x29, 0xbf, 0x7a, 0x78, 0x37,
-+		},
-+	},
-+	{
-+		.data_len = 64,
-+		.digest = {
-+			0x3e, 0x69, 0x18, 0x45, 0xd8, 0x25, 0x6f, 0x44,
-+			0xc0, 0x02, 0xe5, 0xcf, 0xcd, 0x94, 0x42, 0xa9,
-+			0xd5, 0x12, 0x62, 0x10, 0x15, 0xa0, 0xf9, 0x16,
-+			0x19, 0x2d, 0x8d, 0x63, 0x31, 0xf2, 0x2f, 0x36,
-+		},
-+	},
-+	{
-+		.data_len = 65,
-+		.digest = {
-+			0x6b, 0x3e, 0xc0, 0x20, 0xb7, 0x74, 0x30, 0xa0,
-+			0xc6, 0x5c, 0xee, 0xbe, 0xdc, 0xe6, 0xe5, 0x4f,
-+			0x3c, 0x61, 0x8d, 0x91, 0xac, 0x31, 0x4b, 0x2a,
-+			0xdf, 0x1c, 0xef, 0x24, 0xdc, 0x0a, 0x10, 0xe8,
-+		},
-+	},
-+	{
-+		.data_len = 127,
-+		.digest = {
-+			0xab, 0xd6, 0xa1, 0xbf, 0x39, 0x43, 0x75, 0xda,
-+			0xbf, 0xc7, 0x22, 0xcc, 0x4e, 0xfc, 0xe4, 0x42,
-+			0x6d, 0x1b, 0x87, 0x25, 0x64, 0x7f, 0x88, 0xf7,
-+			0xc3, 0x0a, 0x0a, 0x4c, 0xd6, 0xa7, 0x68, 0xae,
-+		},
-+	},
-+	{
-+		.data_len = 128,
-+		.digest = {
-+			0x1b, 0x70, 0xd4, 0x5f, 0x6c, 0xe4, 0x2d, 0x58,
-+			0x2d, 0x0f, 0x9a, 0x12, 0x34, 0xbb, 0x5e, 0x38,
-+			0xd8, 0x1f, 0x6a, 0x46, 0x8a, 0xef, 0xdb, 0x68,
-+			0x18, 0x62, 0xbb, 0x85, 0xfc, 0xc4, 0x6e, 0x2e,
-+		},
-+	},
-+	{
-+		.data_len = 129,
-+		.digest = {
-+			0x33, 0x62, 0xba, 0xa7, 0x4a, 0xbc, 0xd7, 0x7b,
-+			0xd4, 0x67, 0x6d, 0x3e, 0xea, 0xe8, 0xb0, 0x64,
-+			0x0d, 0xf3, 0xae, 0x1d, 0x52, 0x24, 0x11, 0x9f,
-+			0xda, 0xa9, 0x7f, 0xd5, 0x22, 0x1a, 0xde, 0x8a,
-+		},
-+	},
-+	{
-+		.data_len = 256,
-+		.digest = {
-+			0x70, 0xa8, 0xa6, 0x2b, 0xfb, 0x1f, 0x3b, 0x5a,
-+			0xcc, 0x71, 0x76, 0x9e, 0x25, 0x4c, 0xfa, 0x8f,
-+			0x39, 0x4a, 0x21, 0x8a, 0x9d, 0x74, 0x8d, 0x2c,
-+			0x31, 0xa5, 0xb5, 0xff, 0x30, 0xc1, 0x14, 0xc4,
-+		},
-+	},
-+	{
-+		.data_len = 511,
-+		.digest = {
-+			0x39, 0xd0, 0x8c, 0x5f, 0xfc, 0x36, 0xc2, 0x7c,
-+			0xdb, 0x8b, 0x2e, 0xdc, 0x9d, 0x1b, 0xd1, 0xba,
-+			0x9b, 0x52, 0x6b, 0x35, 0x46, 0x46, 0x75, 0x73,
-+			0xe5, 0x62, 0x96, 0x6e, 0xf3, 0xba, 0xd9, 0x19,
-+		},
-+	},
-+	{
-+		.data_len = 513,
-+		.digest = {
-+			0x76, 0xa0, 0x3d, 0xa2, 0x5f, 0xd4, 0xa6, 0xbe,
-+			0x6b, 0xdb, 0xed, 0x14, 0x9e, 0xa8, 0x15, 0x77,
-+			0xa9, 0x38, 0x30, 0x6b, 0x68, 0xfa, 0xb6, 0xe2,
-+			0x93, 0x19, 0x24, 0x72, 0x67, 0x20, 0x72, 0xc3,
-+		},
-+	},
-+	{
-+		.data_len = 1000,
-+		.digest = {
-+			0x16, 0xbc, 0x33, 0x77, 0x0b, 0xcf, 0x93, 0x5e,
-+			0xec, 0x7d, 0x8d, 0x3c, 0xae, 0xd9, 0x75, 0xdf,
-+			0x46, 0x24, 0x17, 0x7e, 0x03, 0x88, 0xf2, 0x75,
-+			0xa9, 0x18, 0xa6, 0x1c, 0x7a, 0x74, 0x0d, 0xf3,
-+		},
-+	},
-+	{
-+		.data_len = 3333,
-+		.digest = {
-+			0xdb, 0x54, 0x89, 0xe7, 0x1c, 0x50, 0xf2, 0xbf,
-+			0xde, 0x3a, 0xbf, 0x5b, 0xee, 0x5a, 0x46, 0x62,
-+			0x20, 0xb1, 0x80, 0x48, 0xac, 0x56, 0x33, 0xb3,
-+			0xbb, 0x3f, 0xfa, 0x02, 0xc6, 0x43, 0xb5, 0x8c,
-+		},
-+	},
-+	{
-+		.data_len = 4096,
-+		.digest = {
-+			0xdf, 0x0d, 0xed, 0x3b, 0x8f, 0xea, 0x81, 0xfd,
-+			0xd6, 0x34, 0xae, 0x74, 0x24, 0x3a, 0x15, 0x38,
-+			0xe7, 0xcf, 0x45, 0x7e, 0x8f, 0xf5, 0x50, 0x6c,
-+			0xaa, 0x27, 0x23, 0x92, 0x6d, 0xab, 0x3b, 0xde,
-+		},
-+	},
-+	{
-+		.data_len = 4128,
-+		.digest = {
-+			0x6a, 0xbd, 0x56, 0x5a, 0xf1, 0xc6, 0x40, 0x4d,
-+			0xf3, 0x50, 0x77, 0x87, 0x86, 0x63, 0x1b, 0x4d,
-+			0x21, 0x99, 0x96, 0xad, 0x24, 0x62, 0xce, 0xc0,
-+			0x3e, 0xb7, 0x35, 0x52, 0x56, 0x0e, 0x55, 0x85,
-+		},
-+	},
-+	{
-+		.data_len = 4160,
-+		.digest = {
-+			0x5b, 0xc1, 0x1f, 0x25, 0x43, 0xa3, 0x1c, 0xa0,
-+			0x8c, 0xfc, 0x41, 0xf1, 0xcc, 0xb3, 0x95, 0x95,
-+			0xe0, 0xb9, 0xd3, 0x29, 0xf4, 0x08, 0x31, 0x47,
-+			0x6d, 0x09, 0xa8, 0x2e, 0xa5, 0xf4, 0xf1, 0x8d,
-+		},
-+	},
-+	{
-+		.data_len = 4224,
-+		.digest = {
-+			0xec, 0x56, 0x1e, 0xa6, 0x1f, 0xb2, 0x87, 0xb2,
-+			0x7e, 0x15, 0xd6, 0x30, 0x08, 0x74, 0xb0, 0x48,
-+			0x90, 0x2a, 0xbe, 0x2f, 0x80, 0x3a, 0x88, 0xcc,
-+			0xd7, 0xc5, 0x87, 0x8c, 0x04, 0xef, 0x78, 0x71,
-+		},
-+	},
-+	{
-+		.data_len = 16384,
-+		.digest = {
-+			0xe7, 0xb8, 0x84, 0x20, 0xff, 0xd5, 0x53, 0xe6,
-+			0x14, 0x31, 0x12, 0x75, 0xb7, 0x9a, 0x4f, 0x63,
-+			0x63, 0x00, 0xfe, 0x2c, 0x54, 0xee, 0x06, 0xfc,
-+			0x12, 0x16, 0xe5, 0xdc, 0xa4, 0x40, 0x62, 0x12,
-+		},
-+	},
-+};
-+
-+static const u8 hash_testvec_consolidated[SM3_DIGEST_SIZE] = {
-+	0xe6, 0x58, 0xd4, 0x8e, 0x74, 0x92, 0xdf, 0xfe,
-+	0x58, 0x05, 0xe5, 0x29, 0x83, 0xfb, 0xb7, 0x51,
-+	0x7e, 0x66, 0x0c, 0x49, 0x3e, 0x11, 0x7e, 0x9b,
-+	0xb1, 0x83, 0x3a, 0xa6, 0xb0, 0x3c, 0xf5, 0xe0,
-+};
-diff --git a/lib/crypto/tests/sm3_kunit.c b/lib/crypto/tests/sm3_kunit.c
-new file mode 100644
-index 000000000000..dc8136acdff6
---- /dev/null
-+++ b/lib/crypto/tests/sm3_kunit.c
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
++ * SM3 optimized for x86_64
++ *
 + * Copyright 2026 Google LLC
 + */
-+#include <crypto/sm3.h>
-+#include "sm3-testvecs.h"
++#include <asm/fpu/api.h>
++#include <linux/static_call.h>
 +
-+#define HASH sm3
-+#define HASH_CTX sm3_ctx
-+#define HASH_SIZE SM3_DIGEST_SIZE
-+#define HASH_INIT sm3_init
-+#define HASH_UPDATE sm3_update
-+#define HASH_FINAL sm3_final
-+#include "hash-test-template.h"
++asmlinkage void sm3_transform_avx(struct sm3_block_state *state,
++				  const u8 *data, size_t nblocks);
 +
-+static struct kunit_case sm3_test_cases[] = {
-+	HASH_KUNIT_CASES,
-+	KUNIT_CASE(benchmark_hash),
-+	{},
-+};
++static void sm3_blocks_avx(struct sm3_block_state *state,
++			   const u8 *data, size_t nblocks)
++{
++	if (likely(irq_fpu_usable())) {
++		kernel_fpu_begin();
++		sm3_transform_avx(state, data, nblocks);
++		kernel_fpu_end();
++	} else {
++		sm3_blocks_generic(state, data, nblocks);
++	}
++}
 +
-+static struct kunit_suite sm3_test_suite = {
-+	.name = "sm3",
-+	.test_cases = sm3_test_cases,
-+	.suite_init = hash_suite_init,
-+	.suite_exit = hash_suite_exit,
-+};
-+kunit_test_suite(sm3_test_suite);
++DEFINE_STATIC_CALL(sm3_blocks_x86, sm3_blocks_generic);
 +
-+MODULE_DESCRIPTION("KUnit tests and benchmark for SM3");
-+MODULE_LICENSE("GPL");
-diff --git a/scripts/crypto/gen-hash-testvecs.py b/scripts/crypto/gen-hash-testvecs.py
-index 34b7c48f3456..37fdbc52b2c1 100755
---- a/scripts/crypto/gen-hash-testvecs.py
-+++ b/scripts/crypto/gen-hash-testvecs.py
-@@ -293,8 +293,11 @@ elif alg == 'sha3':
-     print('/* SHA3-256 test vectors */')
-     gen_unkeyed_testvecs('sha3-256')
-     print()
-     print('/* SHAKE test vectors */')
-     gen_additional_sha3_testvecs()
-+elif alg == 'sm3':
-+    gen_unkeyed_testvecs(alg)
-+    # Kernel doesn't implement HMAC-SM3 library functions yet.
- else:
-     gen_unkeyed_testvecs(alg)
-     gen_hmac_testvecs(alg)
++static void sm3_blocks(struct sm3_block_state *state,
++		       const u8 *data, size_t nblocks)
++{
++	static_call(sm3_blocks_x86)(state, data, nblocks);
++}
++
++#define sm3_mod_init_arch sm3_mod_init_arch
++static void sm3_mod_init_arch(void)
++{
++	if (boot_cpu_has(X86_FEATURE_AVX) && boot_cpu_has(X86_FEATURE_BMI2) &&
++	    cpu_has_xfeatures(XFEATURE_MASK_SSE | XFEATURE_MASK_YMM, NULL))
++		static_call_update(sm3_blocks_x86, sm3_blocks_avx);
++}
 -- 
 2.53.0
 
