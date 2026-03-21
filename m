@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FE71094474
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 14:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206AC1094464
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 14:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFdEgLKBQwl/qBMdiHVw8eCe65OPPezRSACDbsiut88=; b=SXwRl+8HlhWijQ4kFjGQfIiG0S
-	PjLk24+WSCU2Ns7/dSF2v+/m+ka58WL4gr7ekKBB6wseIaEUw09gSHADqRzZsHrJeoaT9ZhaZ43OV
-	O7k40zrcKytpUzJ6aX86nueaJVxIWGhGdQXlBkiatu61ulFOZ1vHm39YN8wOjHqAYTBBk3JcvErVw
-	tVyn5xuSxxFfBxk95oyBvY23/0AZtdDaoIVFEX0FQDIv/MAzxZpLLVl/7p7ZvM/y9ydSn/ELcSnLD
-	R+Syf7BUiLc/ZQ+d8kBRyls1XBXMU5sLliHvsq8piOzlSuz6Vi0xdDO7SeLiBk7uK7SOnKwzsx6BC
-	iqf+HJuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eJDHmNEPgxTWHgpZgrvXmhNERd6v5/eB1as32nDeqeQ=; b=R3yewN5a+NotWTO2/dQ5JIM60v
+	Amd7HfeUni7YNHcsxg1j7EEnbufK7GANCPsp1cM6KFYkLpo0Po5Yum/GGHlh6Qx3sKsQCEXS+rei/
+	EBuc3ZkWLqa5/Op4lZbxBkM1laqKTo0dpAcLLiIarGdtnh96pxtSKCdsq12QeckpCCWdC/TEGVzCb
+	myqV91j4BAOnCZdpxm95GVbmI6PtF0USQKqH4TG6IqvPZWBtVdfN/LAxcDrzfDjBNZDid/7Q6wVyA
+	8zyALt7iMR2k7dFqXt505TUveKyGLmOtgHjudf2UGri1ZRSXZtUXxj1RHbZsgSLePaCgAvDPUHn29
+	mLl5YApQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3xCp-0000000EXNu-0rT8;
-	Sat, 21 Mar 2026 14:21:35 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1w3xWb-0000000EY6A-2dwy;
+	Sat, 21 Mar 2026 14:42:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3xCn-0000000EXNb-1uaa
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 14:21:34 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ad617d5b80so18578345ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Mar 2026 07:21:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hev-cc.20230601.gappssmtp.com; s=20230601; t=1774102892; x=1774707692; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FFdEgLKBQwl/qBMdiHVw8eCe65OPPezRSACDbsiut88=;
-        b=1Bpy4wBndGqKogc40Y8XueTOwpt150WNvXv/polHPpoSbOPPQaiyo7fr9m02G7wZfZ
-         0IrYQziHs/JP5GMOzwA6J0h+P02oq9q5w1yLuZ+o1goQPY0r4TEQoxyk5kuogVpngHUt
-         +QDFLRYYeok+bIuF17zqYEoSfv67SGIccHNFuQVmIGnz331SeKxKVF/5CznWa+uXxGlz
-         Kk9sEWkWINGb2DMQmUjjtIeJpEOYoqReM1JoNQQW0QdcXLG/3i9ok5d284uBhbx4lC8H
-         EFzVOBwMndPscGapjGoMzrBmt4aUEU3AiugS9coHx9HM361DGbwf1X5jrSOyx9X/ee9D
-         j5Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774102892; x=1774707692;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=FFdEgLKBQwl/qBMdiHVw8eCe65OPPezRSACDbsiut88=;
-        b=CwzdClmPhYyyAwwmRBqk4zgH1AdfRAvzWPg5mx83k1PdnPaPeGb2pz/lrSvfh5dmBS
-         MIuoK05Y2doJBm5yZu43mRh2ysQPrS7NjrtNClUF+noGs65h5EGJxzBgtYf3Ytl02YES
-         9RLTlOZoAnxmDfERHYccIV6Mk7hyJGU7wg4PGJsIs0LQeciMdNDlaRnyz9Wxsj8c0W6m
-         aTTxn2mPDuPHvlJT9sQM1RZh2Qs+HbGBCLqkV/DBRfoCoIz36OCslS3CNgyCBJj1ptPM
-         SgLdn1Pj081kiqfD6nfBFMB672Ejr6nQa/ruOUjZZM5TTcxAGud16tq7PoohBQouGG1S
-         3DyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXsGpuincw2rdQ2/PhxQU2uBMEStrbt2PxNdSZvCsIVgVbSE1yfRwHP8/iD/pcYFmRsWVV03cfQdpKn7t1izm3D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxte4tsjPF/wDI+B693PGhMps0QhOsUw0vIf0wf5YKtk4Tppe7I
-	hZEcluRb7WmkcoCzc2J+WeMVUkm6ooz2AXKX3KmY2PTUp/JotEYLQC2PMx8cBaImsmE=
-X-Gm-Gg: ATEYQzysnNXJBWFg64RSuBjrNyL/fvGCJeOnqQYDKLsZVDfD/n5x7bgA38efc+88MaY
-	qYPJySKXeVY7x4j5pnylU2U31raSodiey3CJVfepwQNhYnOHa5MXt9VAJNXFE4RAn3nY/GAlJrC
-	KEd/snyB0506OPL+IZ+XcGvHdWCJieXPyDi1HY/OiV2YlYxQuCE+RUcquQ3iNTlw5McKMCud3Zv
-	etx/eKqZEB8v5JkNBvbStxCCgzxCr35n2wYeJ4m3H/6Abhcl/f6yct8xx411vjs2xgJiPNcIL22
-	bn8VpSJxmd55nEK+A9cMDjblOissrFVBG+6M8UdyEg6SgsO1NfcernVDdHn5G02bVxs/syHvKC7
-	HBZHtnDfTJS2vcJcqOlOCybGEnxFr9OZUa3nnTioMK8EwA0obGhM1KQECznMW4L4rWBF+F+/PDc
-	j0
-X-Received: by 2002:a17:902:eccb:b0:2b0:8106:f3ad with SMTP id d9443c01a7336-2b0827c7f52mr60674775ad.29.1774102892319;
-        Sat, 21 Mar 2026 07:21:32 -0700 (PDT)
-Received: from gpc ([2400:8902:e002:ded5:78c1:8178:95c1:6ca3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083656df5sm70621765ad.44.2026.03.21.07.21.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Mar 2026 07:21:31 -0700 (PDT)
-From: WANG Rui <r@hev.cc>
-To: david@kernel.org,
-	usama.arif@linux.dev,
-	willy@infradead.org,
-	baolin.wang@linux.alibaba.com
-Cc: r@hev.cc,
-	Liam.Howlett@oracle.com,
-	ajd@linux.ibm.com,
-	akpm@linux-foundation.org,
-	apopple@nvidia.com,
-	baohua@kernel.org,
-	brauner@kernel.org,
-	catalin.marinas@arm.com,
-	dev.jain@arm.com,
-	jack@suse.cz,
-	kees@kernel.org,
-	kevin.brodsky@arm.com,
-	lance.yang@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com,
-	mhocko@suse.com,
-	npache@redhat.com,
-	pasha.tatashin@soleen.com,
-	rmclure@linux.ibm.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	surenb@google.com,
-	vbabka@kernel.org,
-	viro@zeniv.linux.org.uk
-Subject: Re: [PATCH v5] binfmt_elf: Align eligible read-only PT_LOAD segments to PMD_SIZE for THP
-Date: Sat, 21 Mar 2026 22:21:19 +0800
-Message-ID: <20260321142119.102525-1-r@hev.cc>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260320171115.93235-1-r@hev.cc>
-References: <20260320171115.93235-1-r@hev.cc>
+	id 1w3xWa-0000000EY5t-1fSo;
+	Sat, 21 Mar 2026 14:42:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E11F60103;
+	Sat, 21 Mar 2026 14:41:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19BBC19421;
+	Sat, 21 Mar 2026 14:41:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774104119;
+	bh=ObYld9zxOf6gTfGXzgKx7yFASQiWGAHw3Ikee/ABTwE=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ILV3TUUIr7ndjs9F0yQRz4drfu7tdZJuJwE6Z0Si0AUcUO9TEizrQcWeREYKsD5h1
+	 tJwlaSSSoUAfoF3mQJByQwESStrnna+vHCRaT13NAWx9zJYWLguuHcvz1Mj3Z7sDz5
+	 2BYqHs4r8N0TcWzCju46/0z/vuNENF4zevW+2uGdlXPXl0VX5lgoMvaKUEhjbadJ0B
+	 k9fZK4KGKt2oQB7X8Jf3/IxdP2B1Mjbz7R1pdauk3VQEC3VDqhdUeEkweFfKEYi5lG
+	 F8Vvxu+jJJNpqQSiCaICtou6otCNZLPGd6C5X2pcEiyCbqru3lHRSJomn2x2s6y298
+	 NR3ZIg5+GkR9g==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sat, 21 Mar 2026 15:41:44 +0100
+Subject: [PATCH net-next v2] net: airoha: Rework the code flow in
+ airoha_remove() and in airoha_probe() error path
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_072133_619361_E6CE2783 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260321-airoha-remove-rework-v2-1-16c7bade5fe5@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NTQ6CMBCFr2Jm7Zj+gBBX3sOwaOgAE7Q1U1Ixh
+ LvbcABXL19e3vc2SCRMCW6nDYQyJ46hgDmfoJ9cGAnZFwajzFVZo9CxxMmh0CtmKvGJMmNrW1t
+ XlW/q1kOZvoUGXg/tAwItGGhdoCvNxGmJ8j3+sj76/+qsUaPzRENDtld6uM8kgZ6XKCN0+77/A
+ LfZdOLDAAAA
+X-Change-ID: 20260320-airoha-remove-rework-8383544d758d
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,43 +75,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One clarification regarding my earlier comment about compatibility with
-cont-pte.
+As suggested by Simon in [0], rework the code flow in airoha_remove()
+and in the airoha_probe() error path in order to rely on a more common
+approach un-registering configured net-devices first and destroying the
+hw resources at the end of the code.
+Introduce airoha_qdma_cleanup routine to release QDMA resources.
 
-What I meant there is that the alignment logic in my patch does work for
-systems with 4K and 16K base pages, where the PMD size remains within a
-practical range. In those configurations, providing PMD-level alignment
-already creates the conditions needed for both THP collapse and cont-pte
-coalescing.
+[0] https://lore.kernel.org/netdev/20251214-airoha-fix-dev-registration-v1-1-860e027ad4c6@kernel.org/
 
-This does not fully extend to 64K base page systems. There the PMD size
-can be quite large (e.g. 512M), which exceeds the 32M cap used in my
-patch, so PMD-sized alignment may not be achievable in practice.
+Suggested-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- Fix eth->napi_dev leak if airoha_hw_init() fails in airoha_probe()
+- Link to v1: https://lore.kernel.org/r/20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 76 ++++++++++++++++++--------------
+ 1 file changed, 44 insertions(+), 32 deletions(-)
 
-One way to structure this could be to treat alignment in a layered manner.
-My patch focuses on establishing a reliable PMD-level alignment baseline
-so that THP has the opportunity to form large mappings where it is practical.
-On top of that, Usama's work can further improve behavior at smaller
-granularities, for example by enabling cont-pte mappings when PMD alignment
-is not feasible.
-
- 			/* skip non-power of two alignments as invalid */
- 			if (!is_power_of_2(p_align))
- 				continue;
-
-			if (p_align < PMD_SIZE && should_align_to_pmd(&cmds[i]))
-				p_align = PMD_SIZE;
-+			else if (p_align < CONT_PTE_SIZE && should_align_to_cont_pte(&cmds[i]))
-+				p_align = CONT_PTE_SIZE;
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 961325da833b27eee31dfa03be26dfc82071097e..82e53c60f561f6314fbf201ba8bc8711e40edc68 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1368,6 +1368,33 @@ static int airoha_qdma_init(struct platform_device *pdev,
+ 	return airoha_qdma_hw_init(qdma);
+ }
  
- 			alignment = max(alignment, p_align);
- 		}
++static void airoha_qdma_cleanup(struct airoha_qdma *qdma)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
++		if (!qdma->q_rx[i].ndesc)
++			continue;
++
++		netif_napi_del(&qdma->q_rx[i].napi);
++		airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
++		if (qdma->q_rx[i].page_pool) {
++			page_pool_destroy(qdma->q_rx[i].page_pool);
++			qdma->q_rx[i].page_pool = NULL;
++		}
++	}
++
++	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
++		netif_napi_del(&qdma->q_tx_irq[i].napi);
++
++	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
++		if (!qdma->q_tx[i].ndesc)
++			continue;
++
++		airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
++	}
++}
++
+ static int airoha_hw_init(struct platform_device *pdev,
+ 			  struct airoha_eth *eth)
+ {
+@@ -1395,41 +1422,30 @@ static int airoha_hw_init(struct platform_device *pdev,
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
+ 		err = airoha_qdma_init(pdev, eth, &eth->qdma[i]);
+ 		if (err)
+-			return err;
++			goto error;
  	}
+ 
+ 	err = airoha_ppe_init(eth);
+ 	if (err)
+-		return err;
++		goto error;
+ 
+ 	set_bit(DEV_STATE_INITIALIZED, &eth->state);
+ 
+ 	return 0;
++error:
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++		airoha_qdma_cleanup(&eth->qdma[i]);
++
++	return err;
+ }
+ 
+-static void airoha_hw_cleanup(struct airoha_qdma *qdma)
++static void airoha_hw_cleanup(struct airoha_eth *eth)
+ {
+ 	int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+-		if (!qdma->q_rx[i].ndesc)
+-			continue;
+-
+-		netif_napi_del(&qdma->q_rx[i].napi);
+-		airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
+-		if (qdma->q_rx[i].page_pool)
+-			page_pool_destroy(qdma->q_rx[i].page_pool);
+-	}
+-
+-	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
+-		netif_napi_del(&qdma->q_tx_irq[i].napi);
+-
+-	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
+-		if (!qdma->q_tx[i].ndesc)
+-			continue;
+-
+-		airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
+-	}
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++		airoha_qdma_cleanup(&eth->qdma[i]);
++	airoha_ppe_deinit(eth);
+ }
+ 
+ static void airoha_qdma_start_napi(struct airoha_qdma *qdma)
+@@ -3012,7 +3028,7 @@ static int airoha_probe(struct platform_device *pdev)
+ 
+ 	err = airoha_hw_init(pdev, eth);
+ 	if (err)
+-		goto error_hw_cleanup;
++		goto error_netdev_free;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_start_napi(&eth->qdma[i]);
+@@ -3040,10 +3056,6 @@ static int airoha_probe(struct platform_device *pdev)
+ error_napi_stop:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_stop_napi(&eth->qdma[i]);
+-	airoha_ppe_deinit(eth);
+-error_hw_cleanup:
+-	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+-		airoha_hw_cleanup(&eth->qdma[i]);
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+@@ -3055,6 +3067,8 @@ static int airoha_probe(struct platform_device *pdev)
+ 			unregister_netdev(port->dev);
+ 		airoha_metadata_dst_free(port);
+ 	}
++	airoha_hw_cleanup(eth);
++error_netdev_free:
+ 	free_netdev(eth->napi_dev);
+ 	platform_set_drvdata(pdev, NULL);
+ 
+@@ -3066,10 +3080,8 @@ static void airoha_remove(struct platform_device *pdev)
+ 	struct airoha_eth *eth = platform_get_drvdata(pdev);
+ 	int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_stop_napi(&eth->qdma[i]);
+-		airoha_hw_cleanup(&eth->qdma[i]);
+-	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+@@ -3080,9 +3092,9 @@ static void airoha_remove(struct platform_device *pdev)
+ 		unregister_netdev(port->dev);
+ 		airoha_metadata_dst_free(port);
+ 	}
+-	free_netdev(eth->napi_dev);
++	airoha_hw_cleanup(eth);
+ 
+-	airoha_ppe_deinit(eth);
++	free_netdev(eth->napi_dev);
+ 	platform_set_drvdata(pdev, NULL);
+ }
+ 
 
-With that separation of roles, the two approaches complement each other,
-and we can get the benefit of both without changing the core alignment
-policy in binfmt_elf.
+---
+base-commit: fb78a629b4f0eb399b413f6c093a3da177b3a4eb
+change-id: 20260320-airoha-remove-rework-8383544d758d
 
-Thanks,
-Rui
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
