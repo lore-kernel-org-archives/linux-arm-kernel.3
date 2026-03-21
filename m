@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30301094461
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 08:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B181094462
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 08:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6lLfd9L/Zuw0qkOt33z5tgbUKKSdLyNy1U4BYFM1Vg=; b=RLjzVouyhnyVWad7k7kO/RXWwW
-	EGK1ed24VCYWjCvOTP9qZhQRecUDX4DF0cLfWtq48/nQrQ5uPNxiRqQES+5IrMuljUDbZv2ecfgbF
-	/ctKsBjDamPMA87j154Og6xC3N60QeL8UxiyMrG664IbE3Ub97rMWIga9IZBRmQDHMGPrtRpmD8Eh
-	iGaFCY/lt63anS2Knc6gjdXAvXx6ByqIwF+NLoJZJv3EVPQgHbdZJXSZy9moiCT+TxAvUUkClhg2J
-	et4Q8zZh70lDgQ7rFITj0hYwOsNQG9xw/jLIFWhOIPsvAj7BFXYSXktzuiUwBXcJ3+j6ZP+DqXvRL
-	PuGMa0aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wVPHZ0qhk2hvSe4RCcrdoleb98jg/DeDk3TAOOniT7o=; b=EUnOKgjzeAmbmLfXeilo8dd2ND
+	U1TwPkYEIq/fP4THOTv8907qwC4Pq1LYoW2eNfAxRbKiASi5mYIg1J439j2rEbC+SYgaTgpRqbh4T
+	B/vJakKXF1xVdxEqbsUFXocma/vR5Dr/x+Tdx1T2QE+GB1CFMDYf9Bt5usDilE+AST+CuSU/9VBIN
+	HmGyy4+cfNcWfQCDHRlZoIYk2wJ/Ee5uorJWow2IWCOUnHyvNyp0RaNRCN+22DrM2CrEI0hTdUMfo
+	/ouRsz+QmcqyN0D7zdU7dtTKReHltplRjvB5pc95Pbjpw3dBP85UfVpb2Zb+h2cRyrWueyuqYn+tO
+	BCCmiC7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3rZm-0000000EG1w-2KpS;
-	Sat, 21 Mar 2026 08:20:54 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1w3ra2-0000000EG4Z-2knX;
+	Sat, 21 Mar 2026 08:21:10 +0000
+Received: from mail-japaneastazon11023091.outbound.protection.outlook.com ([52.101.127.91] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3rZi-0000000EG0l-1s1x;
-	Sat, 21 Mar 2026 08:20:52 +0000
-Received: from gentoo.org (165.145.0.85.dynamic.cust.swisscom.net [85.0.145.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: amadio)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id AA137342017;
-	Sat, 21 Mar 2026 08:20:41 +0000 (UTC)
-Date: Sat, 21 Mar 2026 09:20:38 +0100
-From: Guilherme Amadio <amadio@gentoo.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Namhyung Kim <namhyung@kernel.org>, 9erthalion6@gmail.com,
-	acme@kernel.org, adrian.hunter@intel.com, alex@ghiti.fr,
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com,
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
-	blakejones@google.com, ctshao@google.com,
-	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
-	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
-	leo.yan@linux.dev, libunwind-devel@nongnu.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org,
-	pjw@kernel.org, shimin.guo@skydio.com, tglozar@redhat.com,
-	tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
-Subject: Re: [PATCH v2 0/8] perf libunwind multiple remote support
-Message-ID: <ab5U1oyGcgfIpA7p@gentoo.org>
-References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
- <20260305221927.3237145-1-irogers@google.com>
- <abxs-2rozL1tBEO1@google.com>
- <CAP-5=fVEKifx7VZJAsoPFguMPipW66k-06vgb9iE2oO6GxSxdw@mail.gmail.com>
+	id 1w3rZq-0000000EG2X-1wvN
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Mar 2026 08:20:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o+ME1Li0KoAFTdzDjg9EDhDKRrLNoubh8FBRgL4Rs3X42T/u/xod3nXgYDGpcA+dekWLG66OtkiEXAZShdTtvDg9AxcONBwXtWYYGBqSy13GjmOc5Pui4aFbOzMPFA+ekp8h+qvx2fMYh44AEX8jtQ4429c20qR6dRePs7aHedGygIwxJhqx1Cqj/aqOSWOmmazJ5y/HsDaJvVv8HZoRFzTyXaY9P/QgR/9WlDsIIlYgIkIEDIaqE8nZft8rIQy7DyVqTrhAuGuBGg35mnxddsR+NSCEIZsZiYiW+o8tzxIWCi9/uCbn4ZcYTOsUYa9AEwg3fUlxOxwyy/i8qeprZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wVPHZ0qhk2hvSe4RCcrdoleb98jg/DeDk3TAOOniT7o=;
+ b=BES5qeIvIYe1lnYV4T1Tn/6QHxhIcPDowkkpNxDEZxb5CC/SJNu8rVi8D77xFh3S5EPDe4mMeZGzowvCTrMI3TTCQtxiGRgA97VCJaTDuglPGyQRY+8NimfemrrE/TE7NHEFY3EwV7t3ei5yvpkN8gnJdTm2IeLJUEIzIixAS1DSeZC6QxSSD0FhsKh7Ddnxk8UGsMthrKLUK9sTMh7VMCCJlQNyiCggOyngDfH3Tq2iZVSTQ1m15M+Xk8ok/1jjg/f8pLjNVtTyHoz9MyxgSpdlQU1pt4e/si8s0vdbq+jnN/+3tdnJ77eqnlCYGXp5EuSTCFft6qAl9VBnrwoxTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PS2PR02CA0079.apcprd02.prod.outlook.com (2603:1096:300:5c::19)
+ by KUYPR06MB8748.apcprd06.prod.outlook.com (2603:1096:d10:91::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Sat, 21 Mar
+ 2026 08:20:52 +0000
+Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
+ (2603:1096:300:5c:cafe::e3) by PS2PR02CA0079.outlook.office365.com
+ (2603:1096:300:5c::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.23 via Frontend Transport; Sat,
+ 21 Mar 2026 08:20:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Sat, 21 Mar 2026 08:20:50 +0000
+Received: from [192.168.129.151] (unknown [192.168.129.151])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 07CFC40A5A01;
+	Sat, 21 Mar 2026 16:20:49 +0800 (CST)
+Message-ID: <1ecfa7f7-63ad-48a7-b033-b51ecee61e0b@cixtech.com>
+Date: Sat, 21 Mar 2026 16:20:49 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic and
+ combined IRQ topologies
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
+ ychuang3@nuvoton.com, schung@nuvoton.com, robin.murphy@arm.com,
+ Frank.Li@kernel.org, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260319101723.246539-1-jun.guo@cixtech.com>
+ <20260319101723.246539-2-jun.guo@cixtech.com>
+ <20260320-vengeful-violet-cockle-382580@quoll>
+ <40fc5cb7-a5f2-4b86-8dba-1b39e1ea0da4@cixtech.com>
+ <21ef18ef-a6e8-41a1-8280-73ee058fdc74@kernel.org>
+Content-Language: en-US
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <21ef18ef-a6e8-41a1-8280-73ee058fdc74@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fVEKifx7VZJAsoPFguMPipW66k-06vgb9iE2oO6GxSxdw@mail.gmail.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|KUYPR06MB8748:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3828906d-c524-47b5-1167-08de8722c373
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: e/l9aLjihfCIqFIoh+chNazOB9bVvwg6fpi8lRLqxKJs6IuPkVDhR5Mi1/oSs8mxYzwl/TFm1D7E4TyoSMhJbHEP8feO/8Fe6W6jwfyT3CrsNQNc6sFrLLK+jqYipNlshx54fA3hC+KCw1kKlaK+G1DV4mk6FnJgDm8EZ9rwMhti4daKaRD1RdAOLn2s2YvIWHEtF2P1QYExdM60HU3LZBuJFNTHYVGY2tJy3vQ3Z/Ql8/a3S3OSWmMOneCapYN3sDqHBaagnrspnB7nW+xyoxl7P+WkAltXkFjLhO3RJPMKQ4WF+rvFX+j80BESBuWLGlcOgsD4AYZpwE4duTN0R0gAci4MK7700sRXrPX2d3K5B3D+HhoyalxgSJejDywDYcaHDMWarA+90SAdwFM6trNd16wv3U1dKKY4cNapnpOc34b6uKWeGDwVq6K9cxBQpeI2I0kpj7ITz6PqNgwmUmRgWYDYkonF8AsmV8JoXpoqJOWvJ8pxJRU9uurevWEfOKIrOb50Q+vrvAd6MOQq5n0MVtGhCjfdvAFyamLsEVq5BUAt2tApIgTRuQ8VIOtX58pDQ6aIMlGMeiyMTNbHczQzcpsbilZDBHW7jhIx8e737TbiWOuv6SV/v2mF0XXi0uT2yFWNhr0QJ/vtQa2wcSvkxXazgJ2uVrTCsrAn+uEd2Ls6XPnwnzHLdW9TMRaCMJ/60dj5o6Kx2/W4l4cHnLvfspW5m2zA/z0yBO6DtDhdYnweNOUQlSettoQkiZ6ytDQvgZbmEKzY4TI72LJNeQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: T04CD9DVNhSBpBPyaO4QliqJWm6oITxL1f5AEuHybqO7o06qlrPnlueZVqmZoALlga28Jh7GTGxBbv0IPi5BgNOwEurQXHrjBcA5HtcyspogeUyistdOsFov0e1rYSvw+OgweNmI6OvnyveagG2ju0iBUKlvIzWmEl95kqhhjSKl8Wf/gsrNUiULHdWdtXOqYQYUE205DHwVVCyyh68wOWfvOox7QTX0oTXdcM5C+OoHLUV/PBuCf+BNDzWDsJqxYtecsfkul1oGHPgSGDfYPXpenTvWtpYRj39vQltycZiFI/cT4SgZxwOUwdGzL+XtEFPH9vwuZXUsPOnlRNtoQvOjB5/LlTEs9PA+kA/vwxUHKYDVX54nvo6M2iJ8BIFoJqX7F0MuFl/DWXFI8wO4WQDMC0bKds5j2Ox9X+OOMAVxrYvgr2P//P7K/jYW7uEv
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Mar 2026 08:20:50.8792
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3828906d-c524-47b5-1167-08de8722c373
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB83.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUYPR06MB8748
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_012051_230247_107D456F 
-X-CRM114-Status: GOOD (  39.78  )
+X-CRM114-CacheID: sfid-20260321_012058_558621_22BF49F0 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,213 +122,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 08:06:42PM -0700, Ian Rogers wrote:
-> On Thu, Mar 19, 2026 at 2:39 PM Namhyung Kim <namhyung@kernel.org> wrote:
-> >
-> > Hi Ian,
-> >
-> > On Thu, Mar 05, 2026 at 02:19:19PM -0800, Ian Rogers wrote:
-> > > Fix the libunwind build for when libdw and libunwind are feature
-> > > detected, currently failing with a duplicate symbol.
-> > >
-> > > Refactor the libunwind support so that whenever a remote target is
-> > > available, perf functions using the ELF machine can use that remote
-> > > target regardless of what the host/local machine is. Migrate existing
-> > > libunwind supported architectures like powerpc, arm64 and loongarch so
-> > > that they can work in a cross-architecture way. Add support for
-> > > RISC-V. Make the code more regular in function names, etc. and avoid
-> > > including a C-file. This increases the lines of code. It is similar in
-> > > style to the unwind-libdw implementation. It is hoped that the more
-> > > uniform nature of the code with help with refactoring the perf
-> > > registers for SIMD/APX support.
-> > >
-> > > Aside from local host testing these patches are under tested, in part
-> > > as I'm failing to see how to build libunwind with support for multiple
-> > > remote targets. Please could I get help in testing.
-> >
-> > It seems libunwind project is not actively maintained.  Assuming libdw
-> > unwinding is performant enough, we may want to get rid of libunwind
-> > support.
+
+
+On 3/20/2026 9:12 PM, Krzysztof Kozlowski wrote:
+> EXTERNAL EMAIL
 > 
-> Guilherme, is it true that libunwind is built into perf with Gentoo?
-
-Hi Ian, libunwind support is an optional feature, which is not enabled
-by default. Users can turn it on via a USE flag:
-
-https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-util/perf/perf-6.19.ebuild#n88
-
-The full list of USE flags is here:
-https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-util/perf/perf-6.19.ebuild#n38
-the ones marked with a + in front are enabled by default.
-
-Personally, I enable everything when installing:
-~ $ perf version --build-options
-perf version 6.19
-                   aio: [ on  ]  # HAVE_AIO_SUPPORT
-                   bpf: [ on  ]  # HAVE_LIBBPF_SUPPORT
-         bpf_skeletons: [ on  ]  # HAVE_BPF_SKEL
-            debuginfod: [ on  ]  # HAVE_DEBUGINFOD_SUPPORT
-                 dwarf: [ on  ]  # HAVE_LIBDW_SUPPORT
-    dwarf_getlocations: [ on  ]  # HAVE_LIBDW_SUPPORT
-          dwarf-unwind: [ on  ]  # HAVE_DWARF_UNWIND_SUPPORT
-                libbfd: [ OFF ]  # HAVE_LIBBFD_SUPPORT ( tip: Deprecated, license incompatibility, use BUILD_NONDISTRO=1 and install binutils-dev[el] )
-        libbpf-strings: [ on  ]  # HAVE_LIBBPF_STRINGS_SUPPORT
-           libcapstone: [ on  ]  # HAVE_LIBCAPSTONE_SUPPORT
-    libdw-dwarf-unwind: [ on  ]  # HAVE_LIBDW_SUPPORT
-                libelf: [ on  ]  # HAVE_LIBELF_SUPPORT
-               libLLVM: [ on  ]  # HAVE_LIBLLVM_SUPPORT
-               libnuma: [ on  ]  # HAVE_LIBNUMA_SUPPORT
-            libopencsd: [ OFF ]  # HAVE_CSTRACE_SUPPORT
-               libperl: [ on  ]  # HAVE_LIBPERL_SUPPORT
-               libpfm4: [ on  ]  # HAVE_LIBPFM
-             libpython: [ on  ]  # HAVE_LIBPYTHON_SUPPORT
-              libslang: [ on  ]  # HAVE_SLANG_SUPPORT
-         libtraceevent: [ on  ]  # HAVE_LIBTRACEEVENT
-             libunwind: [ on  ]  # HAVE_LIBUNWIND_SUPPORT
-                  lzma: [ on  ]  # HAVE_LZMA_SUPPORT
-numa_num_possible_cpus: [ on  ]  # HAVE_LIBNUMA_SUPPORT
-                  zlib: [ on  ]  # HAVE_ZLIB_SUPPORT
-                  zstd: [ on  ]  # HAVE_ZSTD_SUPPORT
-
-> The performance fix for unwinding with libdw is in commit
-> 6b2658b3f36a ("perf unwind-libdw: Don't discard loaded ELF/DWARF after
-> every unwind") that is currently only in v7.0-rc[1-4].
+> On 20/03/2026 11:28, Jun Guo wrote:
+>>>> +    description: |
+>>>> +      The DMA controller may be configured with separate interrupts for each channel,
+>>>> +      or with a single combined interrupt for all channels, depending on the SoC integration.
+>>>
+>>> And more important - you must review the LLM microslop output before
+>>> posting and adjust it to Linux kernel coding style. Don't send
+>>> unredacted tool output.
+>>>
+>> Actually, this part of the description was not AI-generated. However,
+>> I’d like to confirm the issue you mentioned: are you saying that this
+>> description is written too verbosely?
+>> Then, do you think there are still issues with the revised version?
+>>     interrupts:
+>>       minItems: 1
+>>       maxItems: 8
+>>       description:
+>>         Either one interrupt per channel (8 interrupts), or one
+>>         combined interrupt for all channels.
 > 
-> In commit 13e17c9ff49119aa ("perf build: Make libunwind opt-in rather
-> than opt-out"), perf made libunwind opt-in rather than opt-out. This
-> change is in v6.13.
+> No, it is not wrapped according to Linux coding style.
 > 
-> LLVM has a libunwind project but LLVM scares me because its library
-> dependencies are so large.
-
-If you have advice on what you'd prefer us (i.e. packagers) to do, I'm
-happy to follow. For example, I've removed BUILD_NONDISTRO=1 from our
-ebuilds some time around 6.17. If the performance fix above applies onto
-6.19 (or is included in 6.19.x for some x), then we can pick that up as
-well.
-
-> Perhaps we should merge these changes and then delete the libunwind
-> support in 2 or 3 releases time. I believe this is closer to how
-> libbpf deprecated the pre-1.0 behaviors. Personally I don't mind if we
-> just delete everything now, but typically we're not that aggressive.
-
-From Gentoo's point of view, it's relatively easy to adapt the ebuild to
-upstream changes. As a user, I care about having reliable stack traces,
-what library is used for that is not as important.
+> Please wrap code according to the preferred limit expressed in Kernel
+> coding style (checkpatch is not a coding style description, but only a
+> tool).  However don't wrap blindly (see Kernel coding style).
+> 
+Thank you for your patience. I have clearly understood your points and 
+will incorporate all of your feedback when revising the V3 version of 
+the patch.
 
 Best regards,
--Guilherme
+Jun
 
-> Thanks,
-> Ian
-> 
-> > Thanks,
-> > Namhyung
-> >
-> > >
-> > > v2: Move two fixes patches to position 1 and 2 in the series. Fix
-> > >     struct naming inconsistency, Andrew Jones
-> > >     <andrew.jones@oss.qualcomm.com>. Fix other inconsistencies and
-> > >     potential non-x86 build issues.
-> > >
-> > > v1: https://lore.kernel.org/lkml/20260224142938.26088-1-irogers@google.com/
-> > >
-> > > Ian Rogers (8):
-> > >   perf unwind: Refactor get_entries to allow dynamic libdw/libunwind
-> > >     selection
-> > >   perf build loongarch: Remove reference to missing file
-> > >   tools build: Deduplicate test-libunwind for different architectures
-> > >   perf build: Be more programmatic when setting up libunwind variables
-> > >   perf unwind-libunwind: Make libunwind register reading cross platform
-> > >   perf unwind-libunwind: Move flush/finish access out of local
-> > >   perf unwind-libunwind: Remove libunwind-local
-> > >   perf unwind-libunwind: Add RISC-V libunwind support
-> > >
-> > >  tools/build/feature/Makefile                  |  38 +-
-> > >  tools/build/feature/test-libunwind-aarch64.c  |  27 -
-> > >  tools/build/feature/test-libunwind-arm.c      |  28 -
-> > >  .../test-libunwind-debug-frame-aarch64.c      |  17 -
-> > >  .../feature/test-libunwind-debug-frame-arm.c  |  17 -
-> > >  .../feature/test-libunwind-debug-frame.c      |   1 -
-> > >  tools/build/feature/test-libunwind-x86.c      |  28 -
-> > >  tools/build/feature/test-libunwind-x86_64.c   |  28 -
-> > >  tools/build/feature/test-libunwind.c          |   1 -
-> > >  tools/perf/Makefile.config                    | 215 ++---
-> > >  tools/perf/arch/arm/util/Build                |   2 -
-> > >  tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
-> > >  tools/perf/arch/arm64/util/Build              |   1 -
-> > >  tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
-> > >  tools/perf/arch/loongarch/util/Build          |   3 -
-> > >  .../arch/loongarch/util/unwind-libunwind.c    |  82 --
-> > >  tools/perf/arch/mips/Build                    |   1 -
-> > >  tools/perf/arch/mips/util/Build               |   1 -
-> > >  tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
-> > >  tools/perf/arch/powerpc/util/Build            |   1 -
-> > >  .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
-> > >  tools/perf/arch/x86/util/Build                |   3 -
-> > >  tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
-> > >  tools/perf/builtin-inject.c                   |   4 +
-> > >  tools/perf/builtin-report.c                   |   4 +
-> > >  tools/perf/builtin-script.c                   |   4 +
-> > >  tools/perf/util/Build                         |   5 +-
-> > >  tools/perf/util/libunwind-arch/Build          |  11 +
-> > >  .../perf/util/libunwind-arch/libunwind-arch.c | 319 +++++++
-> > >  .../perf/util/libunwind-arch/libunwind-arch.h | 296 +++++++
-> > >  .../perf/util/libunwind-arch/libunwind-arm.c  | 290 ++++++
-> > >  .../util/libunwind-arch/libunwind-arm64.c     | 289 ++++++
-> > >  .../perf/util/libunwind-arch/libunwind-i386.c | 312 +++++++
-> > >  .../util/libunwind-arch/libunwind-loongarch.c | 297 +++++++
-> > >  .../perf/util/libunwind-arch/libunwind-mips.c | 299 +++++++
-> > >  .../util/libunwind-arch/libunwind-ppc32.c     | 301 +++++++
-> > >  .../util/libunwind-arch/libunwind-ppc64.c     | 303 +++++++
-> > >  .../util/libunwind-arch/libunwind-riscv.c     | 297 +++++++
-> > >  .../perf/util/libunwind-arch/libunwind-s390.c | 299 +++++++
-> > >  .../util/libunwind-arch/libunwind-x86_64.c    | 320 +++++++
-> > >  tools/perf/util/libunwind/arm64.c             |  40 -
-> > >  tools/perf/util/libunwind/x86_32.c            |  41 -
-> > >  tools/perf/util/maps.c                        |  29 +-
-> > >  tools/perf/util/maps.h                        |   4 +-
-> > >  tools/perf/util/symbol_conf.h                 |  15 +
-> > >  tools/perf/util/thread.c                      |  29 +-
-> > >  tools/perf/util/unwind-libdw.c                |   2 +-
-> > >  tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
-> > >  tools/perf/util/unwind-libunwind.c            | 679 ++++++++++++--
-> > >  tools/perf/util/unwind.c                      | 102 +++
-> > >  tools/perf/util/unwind.h                      |  56 +-
-> > >  51 files changed, 4536 insertions(+), 1733 deletions(-)
-> > >  delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
-> > >  delete mode 100644 tools/build/feature/test-libunwind-arm.c
-> > >  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch64.c
-> > >  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
-> > >  delete mode 100644 tools/build/feature/test-libunwind-x86.c
-> > >  delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
-> > >  delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
-> > >  delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
-> > >  delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
-> > >  delete mode 100644 tools/perf/arch/mips/Build
-> > >  delete mode 100644 tools/perf/arch/mips/util/Build
-> > >  delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
-> > >  delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
-> > >  delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/Build
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.h
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm64.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-i386.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-loongarch.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-mips.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc32.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc64.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-s390.c
-> > >  create mode 100644 tools/perf/util/libunwind-arch/libunwind-x86_64.c
-> > >  delete mode 100644 tools/perf/util/libunwind/arm64.c
-> > >  delete mode 100644 tools/perf/util/libunwind/x86_32.c
-> > >  delete mode 100644 tools/perf/util/unwind-libunwind-local.c
-> > >  create mode 100644 tools/perf/util/unwind.c
-> > >
-> > > --
-> > > 2.53.0.473.g4a7958ca14-goog
-> > >
 
