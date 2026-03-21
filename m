@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FD21094462
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F961094469
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMe5RCjjMGqOJUPF+lkMyEjZGgM4DLVRiFp4XoWGDyA=; b=0i76e5ot5c+ePVU7c3tyxcxL9U
-	dd3m7qhfcbTmMzaJGOG72V/ka/6G36tprPpel/bilm6lTZ3zXF7f+0UiH/nMvRxvmZ2YqGXGRFYtD
-	3h1FpJ1G4jGBX5JIW/0m69Eq5UAeYRddMvdwqJyhZYXfSMCvB10EqcbxTtpiv1w1BwYa4cdn2exp/
-	GtPmjgalsOJWM01ekjPC/T0Y2C3QZQvGmQ+Je638FgXbYbez7PANnWqFJtkuxpcWzsPEx/yK5Nu1D
-	qpJCbnHiUuw8GMIDog9ziY/u2SouIM6/qikx8Zk1QZjyPS/86squ5lsoyp8xvs0u4ud9kOY7Z+ZiN
-	Bc5aPGDg==;
+	bh=HitJbzjas+KfUrPcCDuf0UwbI/I62/jjnuy4KwI9kLY=; b=ImJ2f/8SWyPDapWqETHW/D9z4L
+	4Kyf0IX9lmqCcQvtz6jzudh6h21zGNK/oLb3xU3jzKf6sZtbPSFBTyGa/15j//g6VGNOXysVBI95z
+	8OTmJEQdp6pI9cyT5gn8q6Z0pYQHgxv8WUoe4kNrseA1Le959OfDCS29FXVyYWY556ZlEWPV91Idc
+	7Fxc1lcXBkR6rj+uVyWTW5q9cZnsB3yJJa4alK1fNLOdPrwYB5AomIytu2HObuQQZ4TmpNXEYt7du
+	5ZJmoRipytAt5vUi1dZrq0Wgb45XmJAaAw91E+OJCkE0ZE0vTXRQyyDuJamCKdjBF7cJAfum8IRKM
+	n91iz7iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ssn-0000000EJlk-48zf;
-	Sat, 21 Mar 2026 09:44:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w3syl-0000000EK0o-0L2E;
+	Sat, 21 Mar 2026 09:50:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3ssl-0000000EJlM-2edT;
-	Sat, 21 Mar 2026 09:44:36 +0000
+	id 1w3syi-0000000EK0H-489t
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Mar 2026 09:50:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49712432B1;
-	Sat, 21 Mar 2026 09:44:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7FBC19421;
-	Sat, 21 Mar 2026 09:44:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0615660054;
+	Sat, 21 Mar 2026 09:50:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BA18C19421;
+	Sat, 21 Mar 2026 09:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774086274;
-	bh=+FyqSc/pT33KY//yXjdAJJt7KUdidRtWT5vfO6X7t40=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C7MPmnONJGYhKLNLCg2y3r/vaAIZxMwCKMd6yxn0EDfWwdr+uWJtaJocW38EfJAOH
-	 qhNTELdffSsnTIgargdhVflFxFw04UupLpGb2xdtkax5SPmj19CQHFoZoUfXE+ZY3k
-	 LpzisNLS8QtRbkv8YJfFo01y/iwpv7fDmtfHLUY05x6j/kHRMOpZeFvvgcGF9UJou+
-	 W+tFhsZsjPrDCEgTeKcnaEw+PRG9WgdOO4hFZK7U/bQljZLoScC2Eo7NdY6PtU781E
-	 +cZMIR4bnOnOfvmo0KwJ9lcnDaxN4SUOVCKrHRvGzfPSnQtwPgKfuwoG/ihBH36iV+
-	 zaF5UMf0A1hMw==
-Date: Sat, 21 Mar 2026 09:44:29 +0000
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	s=k20201202; t=1774086643;
+	bh=qs3TCWGvQruI/5DUYonWWgyA8ES0ViDDBusaYu/KPF0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mk3qGu5VzNe0jJLvSMTRmS9VuJULgrEjY7K0D3bidu2+2FOeQgBLzV0iYZEyrMBId
+	 e/618FMhe2KlLY9WkPoOw2OrYUsWi5R1rTec6wRE4dZlL7iQIblOy+f07Lg8yLq0Ug
+	 3KRuK2bEH6qFfABkT/bNKl+e661byoFOegc07Jdo7YsWvsy7fyVdl+7lP8O54Y2wFV
+	 8PwMxQHBxrI/T/4gQRv1VPVgT17zxAv7jv5+yyFGcpbd0/8wFxpXtNBpdaJP4xb+b8
+	 oANOM4bzVS97uoLJiCRpkSlZCo7IXuq7FErZp6dqkD9K+aD8038F+Aj9aQp6CY/DFE
+	 AqesgyyUHjmrQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w3syf-00000004HQy-0BIw;
+	Sat, 21 Mar 2026 09:50:41 +0000
+Date: Sat, 21 Mar 2026 09:50:40 +0000
+Message-ID: <87ecldcxzj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>, Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Rework the code flow in
- airoha_remove() and in airoha_probe() error path
-Message-ID: <20260321094429.GW74886@horms.kernel.org>
-References: <20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260320-airoha-remove-rework-v1-1-adeef7e3c01f@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_024435_695268_0D5FE571 
-X-CRM114-Status: GOOD (  16.21  )
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH 09/17] KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
+In-Reply-To: <CA+EHjTwbxTHr_fzSFD38cG4ZMj6XKr3L=o+=8T13XDQF0n6Raw@mail.gmail.com>
+References: <20260316175451.1866175-1-maz@kernel.org>
+	<20260316175451.1866175-10-maz@kernel.org>
+	<20260318142215.GB3915656@e124191.cambridge.arm.com>
+	<CA+EHjTwbxTHr_fzSFD38cG4ZMj6XKr3L=o+=8T13XDQF0n6Raw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 09:42:28AM +0100, Lorenzo Bianconi wrote:
-> As suggested by Simon in [0], rework the code flow in airoha_remove()
-> and in the airoha_probe() error path in order to rely on a more common
-> approach un-registering configured net-devices first and destroying the
-> hw resources at the end of the code.
-> Introduce airoha_qdma_cleanup routine to release QDMA resources.
+On Wed, 18 Mar 2026 16:14:19 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> [0] https://lore.kernel.org/netdev/20251214-airoha-fix-dev-registration-v1-1-860e027ad4c6@kernel.org/
+> Hi Joey,
 > 
-> Suggested-by: Simon Horman <horms@kernel.org>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 82 ++++++++++++++++++--------------
->  1 file changed, 47 insertions(+), 35 deletions(-)
+> First, thanks for the reviews and the comments on my series. You're
+> right about my changes wrongly editing "page". I wanted it to be as
+> mechanical as possible to make it easy to review, but it ended up
+> being too mechanical.
 > 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> <snip>
+> 
+> > > -     /* Mark the fault->page dirty only if the fault is handled successfully */
+> > > -     if (fault->writable && !ret)
+> > > -             mark_page_dirty_in_slot(kvm, s2fd->memslot, get_canonical_gfn(s2fd, fault));
+> > > +     /* Mark the page dirty only if the fault is handled successfully */
+> > > +     if (fault->writable && !ret) {
+> > > +             phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
+> > > +             ipa &= ~(mapping_size - 1);
+> > > +             mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
+> >
+> > I don't understand this change, why do we need to mask stuff now?
+> 
+> Let me see if _I_ understand it (Marc, please correct me if I'm wrong).
+> 
+> Before this patch, fault->gfn and fault->vma_pagesize were mutable,
+> and transparent_hugepage_adjust() modified both directly. In addition
+> to this being confusing (which gfn is this: the host /canonical or the
+> nested one?), it made it more difficult to separate the logic.
+> 
+> So, to mark a dirty page, it did this:
+> -             mark_page_dirty_in_slot(kvm, s2fd->memslot,
+> get_canonical_gfn(s2fd, fault));
+> 
+> which relied on the old struct fault to calculate the canonical gfn
+> using the (magically) THP adjusted fault->vma_pagesize.
+> 
+> Now that fault (or s2vi, its successor in this case) isn't mutable, we
+> need to get the canonical gfn using the host mapping size.
 
-...
+It's exactly that, and it is slightly clearer if you look at how
+mapping_size is updated:
 
-> @@ -3028,7 +3044,7 @@ static int airoha_probe(struct platform_device *pdev)
->  
->  	err = airoha_hw_init(pdev, eth);
->  	if (err)
-> -		goto error_hw_cleanup;
-> +		return err;
+	mapping_size = transparent_hugepage_adjust(kvm, s2fd->memslot,
+						   s2fd->hva, &fault->pfn,
+						   &gfn);
 
-Hi Lorenzo,
+The faulting IPA is represented by 'gfn', and gets correctly updated
+by the helper. But that doesn't adjust the 'canonical' IPA, which is
+used for any memslot related update.
 
-AI generated review warns that eth->napi_dev is leaked here.
-And that does seem to be the case.
+So if we need to call into mark_page_dirty_in_slot(), we really need
+to pick the base of the region we are actually marking dirty, hence
+the masking of the bottom bits.
 
->  
->  	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
->  		airoha_qdma_start_napi(&eth->qdma[i]);
+Does this make sense? This is one of the area where the constification
+results in slightly more complicated code, as we can't update things
+in place anymore.
 
-...
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
