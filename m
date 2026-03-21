@@ -4,64 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DCA1094461
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 08:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14691094463
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 09:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wS0WrMzGhr3RYR4OPM+ppLpnyCgD9P7LcaGhCjyMees=; b=LJXN+Aa8youevX2o97PsmtwS/2
-	CQEUhCNr35TyWTqLQLiDSYW2urlEbO6X3NytJvDM0MwuRgG9NoqoKu3LFrDiiso7wtZz8p3BiUgiG
-	rU1IhxWTTsMnluWZEW4OGjNYL1AYCGDOmjuFgZUR1O10mjPLJk5mabiWZExNFHI1aSqW9QOHxPLiY
-	G+Kw80uCd4Ft4f9FX4WZOY9A2mRuqgYEdL3jpYu7TvzxerfhilyhREFzlHZb51B5f6MzXAudSfqdd
-	szqJRQJFXxqCJyCG3pCI+YUMtU2QdGdQfpZxIZMvlsFLEKsUe8lFkMOJKt7ItgJ2bRwOnyIj0eI3O
-	dYJDWjyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CFpg1mbZW3Ctniu50/V4S1EGhLRWMwZR4yXu0pZ0YM0=; b=LCVrjFLjbLdT8BbGlXIKYr50d0
+	RPdBC21Me3KQVVPZvqLV0WqWqLfOSWtQ+97qmmuXR4kXYFXWpTUhobIKsyQyByDVRMhAnf1fg6uhu
+	6wiVcXBeQWFqg7G9k5IAk56YnNTwRlyZjXjt34T2fRawR/R5ePyJ4CPXjTuUty89bv+7wna1p/bxu
+	gGrvFtyDh1HUIuhpluhp82pih8Qniv/2fLWSwEl+DhKvoEow9ZQkVNgL00RRbP+VLUF7k1/iqitVH
+	BSld5+Dy/aVlXpnPl5b14ZSQd9dcDi7B9k+/ce5wKpzVdpZCie0qUbggb60nQReHX91wlI1BdmGGi
+	0rw5AjVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3s4C-0000000EHSL-1ckF;
-	Sat, 21 Mar 2026 08:52:20 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1w3smU-0000000EJPQ-1CGv;
+	Sat, 21 Mar 2026 09:38:06 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3s4A-0000000EHRy-2Gsv
+	id 1w3smR-0000000EJOI-2rAb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 08:52:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=wS0WrMzGhr3RYR4OPM+ppLpnyCgD9P7LcaGhCjyMees=; 
-	b=OAxiyj3jP0r59U6yGGHBHijUW2OccXCA2Ra1Svn3utoe+XOpU4sOvtvVey6ChpRoFEwIFTL3eLv
-	oU9gQhujGi8d0YgspStOY3ZPmsPoBaFgfi28YAgVq2NDhRMIsVat6DYssQaXNoXPAQFZtbzhz0VNw
-	gP37hXCLxpTGqe6Ew0KfiR8ELmtHiZc0iibOr5Qr6i5rtcdDDKwykWP+AjwHoOUdWyDatDVphTcSs
-	Nh4ePOzVQufUUbEd98zIlk1NBhYcGXRCrwgA8N3Y4YGlrOwDPKUGMb9ACv8dPGdpuKJ99JVuBb0H1
-	QHwBOta5gc4GwOzuYD6nYDv9jn0NlzhbH5ng==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1w3s3q-00GJFL-1z;
-	Sat, 21 Mar 2026 16:51:59 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 21 Mar 2026 17:51:58 +0900
-Date: Sat, 21 Mar 2026 17:51:58 +0900
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Linus Walleij <linusw@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	stable@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] crypto: atmel-sha204a - Fix potential UAF and memory
- leak in remove path
-Message-ID: <ab5cLh8Dlorf8iPa@gondor.apana.org.au>
-References: <20260314193627.728469-3-thorsten.blum@linux.dev>
+	Sat, 21 Mar 2026 09:38:04 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43b5bded412so1493285f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 21 Mar 2026 02:38:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774085881; x=1774690681; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CFpg1mbZW3Ctniu50/V4S1EGhLRWMwZR4yXu0pZ0YM0=;
+        b=MyknmDCIj+qJFMNIeO1j74rXO8XwVkTe1jlELM5LyzqKU+pVOotN9KiE7Ly0ifqeHG
+         zORhtmG63vcZFnMyvUIeTd0OQO6Gwqa+o0mHxxljGidPopHKI7uEAobbHA9322/9tDjv
+         wr+BDTLdMyE2bM74O2+TiTcr4ol5pDlqZRV1rV9x091ITgrebIK7OGjCHQVOFh5kBDrh
+         oZ5zO113wBnIR3z0w+H/Q4CmYuMVMpvc2MB7Rm6aC78fTPZF3M5KUOSulDP9AGC0BqBk
+         77sO76pljmoDpYvjTRJPfdRwmpIKit9yn+bj7imqR4IeH/Y0+Jf/bwOkL0cZMgGMy8CW
+         cLew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774085881; x=1774690681;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CFpg1mbZW3Ctniu50/V4S1EGhLRWMwZR4yXu0pZ0YM0=;
+        b=Tunmy1EJRqjJjzJMDfIJw+ijym5jOwNklSfHj6WK9m927gGbd6n/ogaUtRt0KMV3CH
+         Kwnw+3v6OWSQWePlFhi1V+N+kJL0q/e1KeHRTbyO68TopKcMcO8wBETqTs9tE1XrBfNX
+         8EwezVregh6tPBDK5sgdN3gF84j6/CZpm3bQrnDp3HxLx3yfGLQdLjjjjTdcccRWm41e
+         okcY5TfeQn7uBM2H3pwTTVXu+0hCqQeYkw3EPD0YMiuhF1sTh0+5KCX/DsIB+jJaTBX5
+         nv/util7guYjac3TUwRCs8w8tkcSQMs3Kn0x6B0+PQQgajjqK2fcpAVpNO4BkJQgVVup
+         6W9A==
+X-Forwarded-Encrypted: i=1; AJvYcCX4cX+jyKPSClfZRUk4pUsWLxQMeSqmh6zNauttxTAnjoU4c3Y0Me3+TsbO/xUf19hvOtw3jOtqkq0ag29EwIN9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHpADHxkFGQyrsrnN/nb8mAXpYTHWgTAJQUcX3P7dciqXycl/5
+	ZlFcpgVEjYK4SMCFtqJBwcXs51c8QsB1GCyuXNv/Ohc3KO43MGzdIRatgJYFvo6g7dM=
+X-Gm-Gg: ATEYQzxs8L4Tfb0c2JwnLChusiDgQ9Z3o16idVqKjDeo/1XEUpkRqCYoXmsTFWLdOtZ
+	a/aPntIJv0BSNrGAhRlSSaGcTmIuqGAlcd+selN4JSDc84Yy8Q7Oaup2BM+GJDJ4bLQIYxM+FV+
+	ROyR0hEKq/AeDyEVcg/IipltgtPxcUEsDJvCVgjBs9LRokVXnyMBwEoF9AGvU8drAmVq96OLEN/
+	OiXCQGdbey5LFgwDsVeslnM5xycekGstST7x0LG+Rai/3CtNgl75RPLs1+RXD2R2LZx28jJRgyo
+	qT2wScb6h/R2+WAWG+fjVBWjWQeqIt96uPBsjq/UVVMkEPZicpUWAVsyKVMaKdhqxyzkKj4wiNr
+	UqAyAr8Bf/LBYahX1cbihCf709PR33nj9QcYJ5W51hz77R7jJaJ2lUbb/6Ulr8xREE8hBbGDOj4
+	rHBz8ThnEWR5Qk3178vBI5gC119DkQ4oxSYslp/UzRMW3O9btNcnjFY50VCuKHPOeTOHm46KoXk
+	L9G1aJ/Umg3uUSRAny2XWU=
+X-Received: by 2002:a05:6000:4021:b0:439:b1c3:84c8 with SMTP id ffacd0b85a97d-43b6423bc21mr10398940f8f.21.1774085880444;
+        Sat, 21 Mar 2026 02:38:00 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:81c2:60b3:ff00:9a5e? ([2a01:e0a:106d:1080:81c2:60b3:ff00:9a5e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b64717e97sm13770100f8f.35.2026.03.21.02.37.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 21 Mar 2026 02:37:59 -0700 (PDT)
+Message-ID: <8462ee30-7e58-46ae-97f4-bc208dd40f27@linaro.org>
+Date: Sat, 21 Mar 2026 10:37:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260314193627.728469-3-thorsten.blum@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/5] drm/meson: handle RGB101010 in format switches
+To: Alexander Koskovich <akoskovich@pm.me>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Jeffrey Hugo <jeffrey.l.hugo@gmail.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260321-dsi-rgb101010-support-v4-0-eb28ecebbfe8@pm.me>
+ <20260321-dsi-rgb101010-support-v4-2-eb28ecebbfe8@pm.me>
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Content-Language: en-GB
+In-Reply-To: <20260321-dsi-rgb101010-support-v4-2-eb28ecebbfe8@pm.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260321_015218_602081_0ACA5A4D 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20260321_023803_740473_5CFFC940 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +113,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 14, 2026 at 08:36:29PM +0100, Thorsten Blum wrote:
-> Unregister the hwrng to prevent new ->read() calls and flush the Atmel
-> I2C workqueue before teardown to prevent a potential UAF if a queued
-> callback runs while the device is being removed.
+Le 21/03/2026 à 08:52, Alexander Koskovich a écrit :
+> Add RGB101010 to the unsupported format cases to fix -Wswitch warnings
+> introduced by the addition of the new pixel format.
 > 
-> Drop the early return to ensure sysfs entries are removed and
-> ->hwrng.priv is freed, preventing a memory leak.
+> Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
+> ---
+>   drivers/gpu/drm/meson/meson_dw_mipi_dsi.c | 2 ++
+>   1 file changed, 2 insertions(+)
 > 
-> Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
-> Changes in v2:
-> - Unregister hwrng to avoid new ->read() calls and then flush the queue
-> - Drop the ->tfm_count check and error logging after flushing (Herbert)
-> - Link to v1: https://lore.kernel.org/lkml/20260221190424.85984-2-thorsten.blum@linux.dev/
-> ---
->  drivers/crypto/atmel-sha204a.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
+> diff --git a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+> index 66c73c512b0e..59fc0083d318 100644
+> --- a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+> +++ b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+> @@ -119,6 +119,7 @@ static int dw_mipi_dsi_phy_init(void *priv_data)
+>   		dpi_data_format = DPI_COLOR_18BIT_CFG_2;
+>   		venc_data_width = VENC_IN_COLOR_18B;
+>   		break;
+> +	case MIPI_DSI_FMT_RGB101010:
+>   	case MIPI_DSI_FMT_RGB666_PACKED:
+>   	case MIPI_DSI_FMT_RGB565:
+>   		return -EINVAL;
+> @@ -232,6 +233,7 @@ static int meson_dw_mipi_dsi_host_attach(void *priv_data,
+>   		break;
+>   	case MIPI_DSI_FMT_RGB666:
+>   		break;
+> +	case MIPI_DSI_FMT_RGB101010:
+>   	case MIPI_DSI_FMT_RGB666_PACKED:
+>   	case MIPI_DSI_FMT_RGB565:
+>   		dev_err(mipi_dsi->dev, "invalid pixel format %d\n", device->format);
+> 
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
