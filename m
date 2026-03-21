@@ -4,95 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 339951099B54
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 06:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C88F1094463
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 07:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kGQQXI1iMDOQW7zjWSA3/NeC4tENFjL25ABxgm3fCbk=; b=vCLc6Gs5H+zCQh9Xaah8U/R8ve
-	PZ1GmLQF7d8ZVx3Sj3iPjdJ4wS+DG+172j4MIKzzLJwtiq2cZgMfs+XqGhEIIXCnfxC3CS2fTEUnJ
-	/jcMo5QKekx/JcJZyr03qyckk/MrE8VDIxO1U3Jy8qv5jR7L79hhivHJeH7cLO/RMt8modO4LZClx
-	Nyvt+JUQdaCn1sFnJL3tWiqbmpUO12rI5sNr9/yQ0PrdXlvBDBIEDRrcQ7UJjqWtr0IOTGF6xfvxb
-	oNDXKnw+GTigZVUa6AaiMI2LnCkasW0JZe5wcua23UItfJQbUQ49sb31DNIRmT9qZ6As0EIoazBcE
-	DrwJom4Q==;
+	bh=zZyEXAraRdvofZfKlb3Jd6OD64XHIstFRuCQeWzCywU=; b=LpixfJBzHMXYErwaNbfoi7I3z7
+	+tWQkJ3XJ6aLM/aN5Q6sbm4ycesy3bI+iuz4VnRh6NDTIklcBBpeCooQm5UudTiLD1ZKxkyzzI/tP
+	37YTkxNixkH6mhPG5OLoGygZpajC1ZODddVMlxf+cyC8gOoOZt1JKA3/l1LIGbcwNRut1TXEC3e1p
+	9ESuWqOnRCAsqudOY5jWqVeL2h9FrHafjXpntfYuACrXPbM1riYjI/zO5930Uec7SSossZL2cK9aD
+	7ygG6Ke+FqXku9mCs1Po8TV+KQVuq2Z6ZneRtmsIXlh59k3nged5P7Hq05fiOEd6aun6l/5ixf6Ld
+	9n0apcZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3qE6-0000000EAhm-47ow;
-	Sat, 21 Mar 2026 06:54:26 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1w3r8J-0000000EDCr-1eoC;
+	Sat, 21 Mar 2026 07:52:31 +0000
+Received: from mail-43101.protonmail.ch ([185.70.43.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3qE0-0000000EAfC-3sNs
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 06:54:23 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c73a12af63cso868468a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Mar 2026 23:54:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774076059; x=1774680859; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kGQQXI1iMDOQW7zjWSA3/NeC4tENFjL25ABxgm3fCbk=;
-        b=bBQ/rwkyS7OCP1XfaKdOzfySUiHbYbcoIgAKRIdAZJzapRiP9p21Xkpp3+fvx2u2w3
-         m4ejgP3c6BMRP8mO2H+3PgXWm0J3iY/SwmqtE5v0ESfu83fOUTpmrfhtu01SRP4S3SoN
-         OulFs0yYsFEEQRaDpoDcsEJQpQdPgr7Nx56ieDeAo8hlhVl9txmOYzUgIaQ6dMoKqzCW
-         E4xi5P6Z7/HY8CZYYyNRbQONUj1Zyspmwz5SeIjog/nfcipBj6A7iQ30P41Iw4jRf54f
-         Fn+MNWV4asxTLah+OOfWtVtjUQHjGzoCHLmAn23YOs7dlxUKJMtUq4lmCOpGY34slShp
-         4dnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774076059; x=1774680859;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kGQQXI1iMDOQW7zjWSA3/NeC4tENFjL25ABxgm3fCbk=;
-        b=Jv8Hb+Lxzhlpn0wP5xSmLF9IdqT2IJTj8+HwZxI9c7gBG3/BAg9Ev1g9/vEk+3H7wG
-         DlR/BSM9vHv7owslKWEX90gjdSwXI+C0/zcO90wKWmjDPP6XgJ8oCXpmFTKwP71ZGw4+
-         OQ7AwgFotYurbZUJMdjlIoPeaDYUx7FbvKhIFwvsZmHvwLSavRQ9DVGSoG+XNwcL4prA
-         fo8gUjusGtPKD+9UXsKtFJLK5h7YRfCm8KvIqVc/5wJm3NxP/ftU7KQi4rkDYqHNokRv
-         qJrodunQn3DTwE3pILMsNft+IZ242Xq24nU7cHmjM1cRJi8iRHiYA9/NEtqa1QCe6Y5c
-         Fmrg==
-X-Forwarded-Encrypted: i=1; AJvYcCV8NaNNr7HIAAnJk+83ca8/9fM4XxRQ9Jm4Tp1pYMWPHNk3nL+SCl3aTnjBnvgmenL1vCWrlGwJ5RzRT0RlZkLU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyuGE7YDZhTD6XdnDTPyzhlAoXefbHu9d883oHD/o7LVNopvmx
-	B198oqGu0q5U6KWDrjh634J8oV04ZEgHxcFBfWou4A0xr2jZyxq7zgio
-X-Gm-Gg: ATEYQzwCoxcMCo2YGwm7Hb7UCxOZUrxrlFpyUYkBoo2+nC2zqBiQ8EsybsLLYnAO2KH
-	CJ/wOFEBrhkxfmoZ3EGyW0WQQdeBHNB9RN0CS0DaKpOvMmiiK1vZMam6gvH6L5smm6Q269ryib7
-	MB7MSApyiAP7ro1oNWw8169mgqrnnj5Isti7ulnRVPYSAKUodfcU4kB4IjXIeiy9QePl6dKfYg5
-	hu+JHKu7WWWgd30OkfQxIfCxiXPEqMKlI9cRyNoOQJCrEmYKa8oUoibNWf2GXrwCsm0OX76AmkF
-	71OgoZxNaTD+TTAuI+SXlcnV2dC+isSR8/wokFcMwhAIa35hPWb24SYRdRITbVn2lWPWzbYJaIP
-	9GsNFZAJk5gEV6J4uuI03L0/r9E3FV+lD36w3q07M3TIOXJbgqn9mZsJe1FP7Jo3ENMNzsXNCQc
-	dE/+sV2PwkSE0Reiy8eC9x
-X-Received: by 2002:a05:6a20:401d:b0:39b:e0f4:322e with SMTP id adf61e73a8af0-39be0f44141mr2372219637.62.1774076058629;
-        Fri, 20 Mar 2026 23:54:18 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.200])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c74456fbfb0sm3188114a12.29.2026.03.20.23.54.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Mar 2026 23:54:17 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Jourdan <mjourdan@baylibre.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>
-Subject: [PATCH v2] media: meson: vdec: Fix memory leak in error path of vdec_open
-Date: Sat, 21 Mar 2026 12:24:06 +0530
-Message-ID: <20260321065408.209723-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	id 1w3r8G-0000000EDCM-0tZN;
+	Sat, 21 Mar 2026 07:52:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1774079535; x=1774338735;
+	bh=zZyEXAraRdvofZfKlb3Jd6OD64XHIstFRuCQeWzCywU=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=aDiEAxedt6XzKqwmdQzA2BVOWLJ0FkYKpC9MNaDnFmGufKGztl9FF144V1NHzLcLA
+	 HtZifqwvXTkK+xNCGkRTwofOnQr6A+naT3S5EaO6K8SuDVCNwkLiFzr8oUoH1ld6j1
+	 YqtsK61L+DMWf/dvSwiWZ6Pvi4IWT7vgrKbbert77OfxTnXMZr3DIWYDFLlP8zeydW
+	 GfxRkN6luN9/EX7NgW5rKGo4cQXwwytBrEvN4EpBksHbQ6xWQkp/t7gAnrhTMeE7QK
+	 zXf2Hss/d5ZFLzYqpTF9j+encWKpfc09SKZrK+nuY9BXV5fFBc+yvWyITEWwCGGkTh
+	 ffkNb5MuV5UEQ==
+Date: Sat, 21 Mar 2026 07:52:10 +0000
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, Jeffrey Hugo <jeffrey.l.hugo@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+From: Alexander Koskovich <akoskovich@pm.me>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Alexander Koskovich <akoskovich@pm.me>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: [PATCH v4 0/5] drm/msm: add RGB101010 pixel format and fix 10-bit DSC timing
+Message-ID: <20260321-dsi-rgb101010-support-v4-0-eb28ecebbfe8@pm.me>
+Feedback-ID: 37836894:user:proton
+X-Pm-Message-ID: 74dfc497e28fabf4fbad012aead299e8d8c69ccd
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260320_235421_137284_3EEC42F5 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20260321_005228_422948_D1114A03 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,98 +66,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vdec_open and vdec_close functions in the Meson VDEC driver failed
-to release several resources, leading to memory leaks and potential
-use-after-free scenarios.
+This series adds support for the RGB101010 (30bpp) pixel format used by som=
+e
+newer panels.
 
-This patch addresses:
-- Missing v4l2_ctrl_handler_free() in both the close path and error
-  exit of the open path, preventing control memory leaks.
-- A leak of the M2M context if vdec_init_ctrls() failed.
+Tested on the BOE BF068MWM-TD0 panel (10 bit DSC) on the Nothing Phone (3a)=
+.
 
-The error labels in vdec_open() have been reordered to ensure a proper
-Last-In-First-Out (LIFO) teardown of all initialized resources.
-
-This was identified via kmemleak:
-unreferenced object 0xffff0000205d6878 (size 8):
-  comm "v4l_id", pid 5289, jiffies 4294938580
-  hex dump (first 8 bytes):
-    40 d2 49 18 00 00 ff ff                          @.I.....
-  backtrace (crc d3204599):
-    kmemleak_alloc+0xc8/0xf0
-    __kvmalloc_node_noprof+0x60c/0x850
-    v4l2_ctrl_handler_init_class+0x1b4/0x2e8 [videodev]
-    vdec_open+0x1f4/0x788 [meson_vdec]
-    v4l2_open+0x144/0x460 [videodev]
-    chrdev_open+0x1ac/0x500
-    do_dentry_open+0x3f0/0xfe8
-    vfs_open+0x68/0x320
-    do_open+0x2d8/0x9a8
-    path_openat+0x1d0/0x4f0
-    do_filp_open+0x190/0x380
-    do_sys_openat2+0xf8/0x1b0
-    __arm64_sys_openat+0x13c/0x1e8
-    invoke_syscall+0xdc/0x268
-    el0_svc_common.constprop.0+0x178/0x258
-    do_el0_svc+0x4c/0x70
-
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
-Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
 ---
-v1: https://lore.kernel.org/all/20260304100557.126488-1-linux.amoon@gmail.com/
-   tried to address the issue reported by Nicolas
-   improve the commit message.
+Changes in v4:
+- Dropped dpu_encoder_phys_vid patch
+  - Needs further discussion and rest of these changes can be independent o=
+f that
+- Pick back up dropped drm_mipi_dsi.h patch (oops)
+- Fix meson driver warning from adding RGB101010 to drm_mipi_dsi.h
+- msm_dsi_host_version_ge -> msm_dsi_host_version_geq
+- Fix msm_dsi_host_version_geq to handle major > major
+- Link to v3: https://lore.kernel.org/r/20260319-dsi-rgb101010-support-v3-0=
+-85b99df2d090@pm.me
+
+Changes in v3:
+- Fix typo for MSM8998 DSI version name (V2_2 -> V_2_0)
+- Add msm_dsi_host_version_is_gt per Konrad and use for RGB101010 check
+- Fix up comment & commit message for video mode DSC INTF timing width chan=
+ge per Neil/Konrad
+- Link to v2: https://lore.kernel.org/r/20260318-dsi-rgb101010-support-v2-0=
+-698b7612eaeb@pm.me
+
+Changes in v2:
+- Only allow RGB101010 if MSM_DSI_6G_VER >=3D V2.1.0
+- Link to v1: https://lore.kernel.org/r/20260318-dsi-rgb101010-support-v1-0=
+-6021eb79e796@pm.me
+
 ---
- drivers/staging/media/meson/vdec/vdec.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Alexander Koskovich (5):
+      drm/mipi-dsi: add RGB101010 pixel format
+      drm/meson: handle RGB101010 in format switches
+      drm/msm/dsi: rename MSM8998 DSI version from V2_2_0 to V2_0_0
+      drm/msm/dsi: add DSI version >=3D comparison helper
+      drm/msm/dsi: Add support for RGB101010 pixel format
 
-diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 4b77ec1af5a76..3a5e4ebe0b34c 100644
---- a/drivers/staging/media/meson/vdec/vdec.c
-+++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -877,7 +877,7 @@ static int vdec_open(struct file *file)
- 	if (IS_ERR(sess->m2m_dev)) {
- 		dev_err(dev, "Fail to v4l2_m2m_init\n");
- 		ret = PTR_ERR(sess->m2m_dev);
--		goto err_free_sess;
-+		goto err_m2m_release;
- 	}
- 
- 	sess->m2m_ctx = v4l2_m2m_ctx_init(sess->m2m_dev, sess, m2m_queue_init);
-@@ -889,7 +889,7 @@ static int vdec_open(struct file *file)
- 
- 	ret = vdec_init_ctrls(sess);
- 	if (ret)
--		goto err_m2m_release;
-+		goto err_m2m_ctx_release;
- 
- 	sess->pixfmt_cap = formats[0].pixfmts_cap[0];
- 	sess->fmt_out = &formats[0];
-@@ -913,9 +913,11 @@ static int vdec_open(struct file *file)
- 
- 	return 0;
- 
-+err_m2m_ctx_release:
-+	v4l2_m2m_ctx_release(sess->m2m_ctx);
- err_m2m_release:
- 	v4l2_m2m_release(sess->m2m_dev);
--err_free_sess:
-+	v4l2_ctrl_handler_free(&sess->ctrl_handler);
- 	kfree(sess);
- 	return ret;
- }
-@@ -926,6 +928,7 @@ static int vdec_close(struct file *file)
- 
- 	v4l2_m2m_ctx_release(sess->m2m_ctx);
- 	v4l2_m2m_release(sess->m2m_dev);
-+	v4l2_ctrl_handler_free(&sess->ctrl_handler);
- 	v4l2_fh_del(&sess->fh, file);
- 	v4l2_fh_exit(&sess->fh);
- 
+ drivers/gpu/drm/meson/meson_dw_mipi_dsi.c     |  2 ++
+ drivers/gpu/drm/msm/dsi/dsi_cfg.c             |  4 ++--
+ drivers/gpu/drm/msm/dsi/dsi_cfg.h             |  2 +-
+ drivers/gpu/drm/msm/dsi/dsi_host.c            | 22 ++++++++++++++++++++--
+ drivers/gpu/drm/msm/registers/display/dsi.xml |  5 ++++-
+ include/drm/drm_mipi_dsi.h                    |  4 ++++
+ 6 files changed, 33 insertions(+), 6 deletions(-)
+---
+base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+change-id: 20260318-dsi-rgb101010-support-4956b1cd8657
 
-base-commit: a0c83177734ab98623795e1ba2cf4b72c23de5e7
--- 
-2.50.1
+Best regards,
+--=20
+Alexander Koskovich <akoskovich@pm.me>
+
 
 
