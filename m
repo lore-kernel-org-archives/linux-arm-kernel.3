@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125651094468
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 10:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E461094468
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Mar 2026 10:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bc/mSPzYVfKKaFx+mxMMZ3z7TR2kpRYxytqtrH5EHIc=; b=1MGxIuw+GYqiFvGqEQVE8Xx3wL
-	TZHIwEY7vrgi62VysAVbo9Va3SXefe5WZ7Rc+NacW7joAm2pek0QIcyNzlROEwyxrikEUNjXg+x4g
-	nExuLawjo+4KHnNbaqwGVt4qf3sWVKxgBjl6XMt6+d0wyl+uPF+uysPBVTXrEQ6IP3TWLeF3RZemA
-	LJDhAvJcvOei9DG3brp+oa5O/bJR2B5ZKairZnDvZ8s5ZU14HVEHMg6iIWy0+LRL4LGolOym1evDY
-	twy+9y0myxjMgdO51GrWCgbYRSMZSiXxhNWZbn55O39Q7AZBBSDPlb3gwVOXLeu38F7Lcm9wq6GSk
-	TAq4Y2UA==;
+	bh=g8Bqo58DKGqNdJlC0LhH+nJmcSzZVWPMzLSPnTaSCaQ=; b=qWE/U3ZwxHDrsHvo94uxwy44eL
+	Sg1qbcJfZF5dTRKMS0i5jPIQYdzlan8Kscmh+DNoVN9ss6cnT3bjhSTtP83nNvVsdVlljJ8fLt03M
+	PxdR/GSIqST52EIGA69vgyFh4nlzMHOweKjIRLO/owUVyq0lqhNG0xnyiV4p/KyCr9LR+orex8qTs
+	OEjWT7h2ztdZLAKXbAf7aVPwlaQtVk8jIGV0sUblk/rCoEV+8TZxa5hvRzDyuUFsP3/HYrp7Keh6T
+	OC1inGEaQ/73CrgnsRRV89MMklzy2euxKwLe+/oW4WQf5aH9VuJHajXajsP2anRJMs1lh1+cS7SSo
+	bmqYQCvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3tDV-0000000EKUH-35p6;
-	Sat, 21 Mar 2026 10:06:01 +0000
+	id 1w3tEF-0000000EKYm-0MxA;
+	Sat, 21 Mar 2026 10:06:47 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w3tDU-0000000EKTm-0ft9
+	id 1w3tED-0000000EKYW-0LgR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Mar 2026 10:06:00 +0000
+	Sat, 21 Mar 2026 10:06:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 437A460097;
-	Sat, 21 Mar 2026 10:05:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D269C19421;
-	Sat, 21 Mar 2026 10:05:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7CE57600C4;
+	Sat, 21 Mar 2026 10:06:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB79C19421;
+	Sat, 21 Mar 2026 10:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774087559;
-	bh=YVbOa1et//kxg6sD6c1cEVHkFutOAJ7fD03qPnyBHGU=;
+	s=k20201202; t=1774087574;
+	bh=1JiRAkky77EAuKJsymXB57qFuCw8Hldvj3a0B0xUn04=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OC58XMi2JkU8GKfpLgzwTl1loQcwGihE955dS8PNXAiziYm2uhT+NBRgmj9mBIM5C
-	 aO4pYExW+/CZt443E3gCwamnWICF33UPin8oXDfysOlsZiSxWjhFlFI3Nw98TDcXG4
-	 DtqEpat0SJdHQLPoelCKESXoBB7bvOgJNA4qQUFMTMrGnjlzhkqlGV8UgcAw+3yPMF
-	 zCBPjZmKTY2cJevX25C2x0I2o2qGkvQhXU2LBO/JY2htUm6ec+CfeGoTzYyIXXLFIT
-	 ttDAyTQkx+XEGIOgwi62yLA+qi+Ba1HUP6oHM2OIvQ+KKZpBOYNPwdXF0oqnhH6g5k
-	 pSoCWPpCDXgwg==
-Message-ID: <9b375cb4-7446-40e2-99ce-84ea54e6e8ec@kernel.org>
-Date: Sat, 21 Mar 2026 11:05:52 +0100
+	b=C9EX2WiZJ9GsJZNVK1nZTpqU4oaNjCBYhxOp+V6yfhRHwwMRSqAdbghLNXeEIIbVN
+	 Gv1Nx0mJOLdwpyNCzVlwWtBkulijDRTBIO2EjVlBwZdEPmE6UH4+uwPiM3JIFaK+0+
+	 aWpUllwJeJ9baGXJAAHPdOTLM9lmE0A1cCFVyX4aLUMDtU6p7SrQPxKFiXstcHeUGK
+	 HUcIytOVxeOO7lCwyJcnQGPh9ilY0EijAzMwXH3sHgWKAUkhqFT1u+3vp1vfx6T+Fc
+	 ywcUt87AX6Jfys7n0LXu7gcKGzmJ1Lb8vEzRxmRG/Xn5uOYy/VVMEGtDPRkYPPM1ER
+	 NH4jQfqV8u2zg==
+Message-ID: <8e561d9f-a382-41d0-9771-417441b58ca1@kernel.org>
+Date: Sat, 21 Mar 2026 11:06:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: arm,corstone1000: Add
- "arm,corstone1000-a320-fvp"
+Subject: Re: [PATCH 2/5] dt-bindings: npu: arm,ethos: Add
+ "arm,corstone1000-ethos-u85"
 To: "Rob Herring (Arm)" <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
@@ -59,7 +59,7 @@ Cc: Frazer Carsley <frazer.carsley@arm.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260320-dt-corstone1000-a320-v1-0-a549dfcfe8da@kernel.org>
- <20260320-dt-corstone1000-a320-v1-1-a549dfcfe8da@kernel.org>
+ <20260320-dt-corstone1000-a320-v1-2-a549dfcfe8da@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260320-dt-corstone1000-a320-v1-1-a549dfcfe8da@kernel.org>
+In-Reply-To: <20260320-dt-corstone1000-a320-v1-2-a549dfcfe8da@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,14 +123,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 20/03/2026 17:47, Rob Herring (Arm) wrote:
-> The Arm Corstone1000-A320 is a variation of the Corstone1000 with
-> Cortex-A320 cores and an Ethos-U85 NPU. An FVP for the platform is
-> available here[1].
-> 
-> [1] https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/IoT%20FVPs
+> The Corstone-1000-A320 platform contains an Ethos-U85 NPU. Add a
+> specific compatible for it.
 > 
 > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
+>  Documentation/devicetree/bindings/npu/arm,ethos.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
