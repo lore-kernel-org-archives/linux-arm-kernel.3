@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F06BFC72D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 19:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7D3FC72D4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 19:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SiYymjyqLJQefau8a4gy6w/Vver9WdiGFOPB8YRefA8=; b=xNRazIOZDhoSiuiFK3FuZwUErS
-	DjljuMhmBA24U7C8Xzx9SmgU3OtSqEitT0KVzenMGKz0EkwP8F6DIZtPB9h6g20r0/vf3yuEEurOn
-	0gkuzw8igzWLlbyIpjjiW0RbGXl5Z7Rn2km6vdfl3XgL9Bz890YZim4dilXSlLo9/EM6jYqNu/+FQ
-	bJ3qT9DBl/8NHel7gKl0ZRvIkSV11VMsR3EMutUAuiLG1EzRIgSWV/CvAf7HBFgKfCd+hYjegScew
-	LdGl7GsTXKyNBjtm7ZgnDeakEMb22z81rIHZbiAz9ukuu0XMFpqQwlHrAtKMNpJYs5Dr/oUOplDzq
-	Gpv6sK5A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=irObMARTu7OYKbVotrsF13+CshxCWsyGdlJ7aH8njPs=; b=1OipNnydmuDdKGN105pD4I9ZSt
+	2xpHiPdYpAXObRnTlOg+kvfTMxDzC6KgxWf1a0ZgmlbxOSDbqm88HtpEuV4Ae5UheWZ8NYwCfLrVo
+	CMOZ0tUIpJoTc0s4dTX1D+RiR7rO32yzTkI1g/ZyGBPKPVrxmcdV/WgGhGF/qdx6twr7XoQDrkNk5
+	ap4iQ0pxJPAXBhTbHY6BJ6N1GRH4BcEqhwAkJmx7sDyDYiEHm9vBbM6FwEOhHnl53nGm1SibrR/kz
+	cYriaGWgYu21fz331JDRBKNWZHeamHtYDCE+dzApymPPVbYaZXDCe4nWgD9AwOA4ws2lMZ7SyqzLq
+	myp4/aqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ONR-0000000FbCt-45TO;
-	Sun, 22 Mar 2026 19:22:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4OWT-0000000FbUH-0yGu;
+	Sun, 22 Mar 2026 19:31:41 +0000
+Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ONP-0000000FbC4-3VTP;
-	Sun, 22 Mar 2026 19:22:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1AD89416B0;
-	Sun, 22 Mar 2026 19:22:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 192DCC19424;
-	Sun, 22 Mar 2026 19:22:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774207336;
-	bh=KE0Ehn2v53KTMI2yWR0Gn7GG8ek8iWJ5qKwd+6T9w6w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jFJL0HTlpz2kyveKolahrRLNphDakm+Q0lH8RMUli8M7xc1fwB7R2zBva4trgzUpd
-	 lk8r9iTZ7RK9+n11jpBQXj1Y4rhWoaJvX51FBQNmMEQ4I19oTrOeT5zbF/kKWhqeho
-	 6b4Aq0d6LPYr0Yw97mZL2MZRfOYyM+WWsosZrbssdYmQvnxj51nQJGuT66y6OcCvRw
-	 hNpkBjyo9j85cWcwnilz/5/JIyry8guW3hTlC48UGLFpxvnc67sza+0l5xyMRo4/u6
-	 2FI0aKfs+8mqtv6TmnabtUH0CdEYOwNh97gqsacWIR5/7UbfPNWxkFDoq3gmq13g2s
-	 WMG4aJ4fhX7tQ==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	David Gow <david@davidgow.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	aliceryhl@google.com
-Cc: linux-um@lists.infradead.org,
-	llvm@lists.linux.dev,
+	id 1w4OWN-0000000FbTu-3fMu
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Mar 2026 19:31:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774207890; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=J3cDix5VB1py9kf2wIZuA7ibG4u1c/vG38kcOOlEseCN1Bm03Gt2KdkX9XfA4rMkpnhg7Ko+gIiduMXzJMaeCBdj1xpzmbSudz08qsE0UvyujkUjF7XNAlPP0pl1efDNrRVtWSH2pjQa7MB4I2/e/+3RCjlDdqT/C1mIFCqQyDo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1774207890; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=irObMARTu7OYKbVotrsF13+CshxCWsyGdlJ7aH8njPs=; 
+	b=NPrQ0JLb2tlmxuuaUJ/52d85+soHFXg4Uezmf7Heoj9rfqzvRVxDfO8JTwMCPgQ1tL3r94/6O6Fx+64aPrWOdFZxXX1CxqRItIxRqTDKvAlcFlDTHzbJvdEW9ocVhfDoQF4l5ZE303dAP64HEJGQwl5nuSraxrucbGuIwT20zSk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=trunixcodes@zohomail.com;
+	dmarc=pass header.from=<trunixcodes@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774207890;
+	s=zm2022; d=zohomail.com; i=trunixcodes@zohomail.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=irObMARTu7OYKbVotrsF13+CshxCWsyGdlJ7aH8njPs=;
+	b=bpvhWdoBoEs4ZJAF2cZGbYp9V4iX04t4gWQHfBULkUvZamwk5kM/Dgpq54C6Uc09
+	QpBpuB/oBJ01hOU6LXAW8Xdw6kLqI332DGFrJB+AixFngbJEwMe733mMnuSlsOUc6i3
+	X4YrD8rRHyFO9Y9iv93kGb37fK7CaaNCEh/n8VLo=
+Received: by mx.zohomail.com with SMTPS id 1774207888060202.5064995328131;
+	Sun, 22 Mar 2026 12:31:28 -0700 (PDT)
+From: Ethan Luna <trunixcodes@zohomail.com>
+To: peterhuewe@gmx.de,
+	jarkko@kernel.org
+Cc: jgg@ziepe.ca,
+	nicolas.ferre@microchip.com,
+	claudiu.beznea@tuxon.dev,
+	linux-integrity@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kbuild@vger.kernel.org,
-	a.hindborg@kernel.org,
-	acourbot@nvidia.com,
-	akpm@linux-foundation.org,
-	bjorn3_gh@protonmail.com,
-	boqun.feng@gmail.com,
-	dakr@kernel.org,
-	gary@garyguo.net,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lossin@kernel.org,
-	mark.rutland@arm.com,
-	mmaurer@google.com,
-	nicolas.schier@linux.dev,
-	ojeda@kernel.org,
-	peterz@infradead.org,
-	rust-for-linux@vger.kernel.org,
-	tmgross@umich.edu,
-	urezki@gmail.com,
-	will@kernel.org
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-Date: Sun, 22 Mar 2026 20:21:59 +0100
-Message-ID: <20260322192159.88138-1-ojeda@kernel.org>
-In-Reply-To: <20260203-inline-helpers-v2-0-beb8547a03c9@google.com>
-References: <20260203-inline-helpers-v2-0-beb8547a03c9@google.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] tpm: i2c: atmel: fix block comment formatting
+Date: Sun, 22 Mar 2026 12:30:53 -0700
+Message-ID: <20260322193112.27010-1-trunixcodes@zohomail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Feedback-ID: rr08011227ea8742baf121abc909a485a900003ec67e16a58d3c7f0ec29c376718cc3cd5cf2f6cf5bde7621d:zu08011227862303805a5ef1e3198b1aae0000d0675014352d9e765290464e412216665ef2944e3e8c4eb1a5:rf0801122cb2892a739f674a0a6256272f0000ccfed82642d4b85ccd12da2497b88c075a7e024eaf7995cdc3ecfefdacd4:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_122219_919584_1EBDD355 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20260322_123135_990032_46FBFB94 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,79 +81,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Feb 2026 11:34:07 +0000 Alice Ryhl <aliceryhl@google.com> wrote:
->
-> To get rid of these helper symbols, provide functionality to inline
-> helpers into Rust using llvm-link. This option complements full LTO, by
-> being much cheaper and avoiding incompatibility with BTF.
+Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
+same line as the comment text. This violates the kernel's preferred
+comment style, which requires the closing delimiter to appear on it's
+line.
 
-I have been testing this. I think we can go ahead with it, with a few
-notes.
+Fix the formatting to improve readability and resolve checkpatch
+warnings.
 
-I will reply to a couple other bindings in separate emails to avoid
-spamming people too much.
+Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
+---
+ drivers/char/tpm/tpm_i2c_atmel.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-  - I will mark the Kconfig option as "(EXPERIMENTAL)", since that is
-    what the commit message says and it allows us to be a bit
-    conservative.
+diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
+index 4f229656a8e2..702b3c9191dc 100644
+--- a/drivers/char/tpm/tpm_i2c_atmel.c
++++ b/drivers/char/tpm/tpm_i2c_atmel.c
+@@ -33,7 +33,8 @@ struct priv_data {
+ 	size_t len;
+ 	/* This is the amount we read on the first try. 25 was chosen to fit a
+ 	 * fair number of read responses in the buffer so a 2nd retry can be
+-	 * avoided in small message cases. */
++	 * avoided in small message cases.
++	 */
+ 	u8 buffer[sizeof(struct tpm_header) + 25];
+ };
+ 
+@@ -58,7 +59,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+ 	if (status < 0)
+ 		return status;
+ 
+-	/* The upper layer does not support incomplete sends. */
++	/*
++	 * The upper layer does not support incomplete sends.
++	 */
+ 	if (status != len)
+ 		return -E2BIG;
+ 
+@@ -78,7 +81,8 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+ 
+ 	/* Get the message size from the message header, if we didn't get the
+ 	 * whole message in read_status then we need to re-read the
+-	 * message. */
++	 * message.
++	 */
+ 	expected_len = be32_to_cpu(hdr->length);
+ 	if (expected_len > count)
+ 		return -ENOMEM;
+@@ -113,13 +117,15 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
+ 
+ 	/* The TPM fails the I2C read until it is ready, so we do the entire
+ 	 * transfer here and buffer it locally. This way the common code can
+-	 * properly handle the timeouts. */
++	 * properly handle the timeouts.
++	 */
+ 	priv->len = 0;
+ 	memset(priv->buffer, 0, sizeof(priv->buffer));
+ 
+ 
+ 	/* Once the TPM has completed the command the command remains readable
+-	 * until another command is issued. */
++	 * until another command is issued.
++	 */
+ 	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
+ 	dev_dbg(&chip->dev,
+ 		"%s: sts=%d", __func__, rc);
+@@ -174,7 +180,8 @@ static int i2c_atmel_probe(struct i2c_client *client)
+ 
+ 	/* There is no known way to probe for this device, and all version
+ 	 * information seems to be read via TPM commands. Thus we rely on the
+-	 * TPM startup process in the common code to detect the device. */
++	 * TPM startup process in the common code to detect the device.
++	 */
+ 
+ 	return tpm_chip_register(chip);
+ }
+-- 
+2.53.0
 
-
-  - Clang passes `-Werror=unused-command-line-argument`, which means
-    under arm (i.e. 32-bit) we get:
-
-      clang: error: argument unused during compilation: '-U arm' [-Werror,-Wunused-command-line-argument]
-
-    And under UML I see:
-
-      clang: error: argument unused during compilation: '-I ./arch/um/include/shared' [-Werror,-Wunused-command-line-argument]
-      clang: error: argument unused during compilation: '-I ./arch/x86/um/shared' [-Werror,-Wunused-command-line-argument]
-      clang: error: argument unused during compilation: '-I ./arch/um/include/shared/skas' [-Werror,-Wunused-command-line-argument]
-
-    So we would need e.g. `-Wno-unused-command-line-argument` there
-    close to the `-Wno-override-module` one, unless Kbuild or
-    ClangBuiltLinux thinks it is important to keep it for this case.
-
-    On the other hand, regardless of whether we fix this (and another
-    issue in a separate email found thanks to the UML build), we could
-    instead add `depends on` listing explicitly the architectures where
-    this is going to be actually tested. That way maintainers can decide
-    whether they want to support it when they are ready. Thoughts?
-
-    Cc'ing Nathan, Nicolas, Nick, Bill, Justin, David, UML, ARM.
-
-
-  - If we use the `.bc` extension, we need to add a `.gitignore` for
-    `.bc` files, and an exception for `kernel/time/timeconst.bc`.
-
-    I guess we will not have too many `bc` scripts in the future for
-    that to be a problem. On the other hand, we have the chance to use
-    another extension (either for LLVM bitcode or for `bc` scripts).
-
-    But please let me know on e.g. the Kbuild side if someone has
-    concerns...
-
-
-  - Do we want to have the `cmd_ld_single` step even if the new mode is
-    not enabled? i.e. we are gating the other steps, so we could gate
-    that one too easily, no?
-
-        -       $(cmd_ld_single) \
-        +       $(if $(link_helper),$(cmd_ld_single)) \
-
-        -       $(cmd_ld_single) \
-        +       $(if $(CONFIG_RUST_INLINE_HELPERS),$(cmd_ld_single)) \
-
-    I mean, it only affects `CONFIG_LTO_CLANG` configs, which are on
-    their own experimental as far as I can see, so it is probably fine
-    as it is, but still, while making things unconditional on the caller
-    is good, it is also a behaviour change for configs outside the thing
-    introduced here, so I am asking.
-
-    (We could use something like a `is-rust-object` to do it on the
-    definition side, but I would leave that for later.)
-
-Thanks!
-
-Cheers,
-Miguel
 
