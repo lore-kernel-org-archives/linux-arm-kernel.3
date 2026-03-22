@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C90FC72AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 09:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4DAFC72AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 10:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMLpKkhbJahfZAQ9E3JPvXDUjHThDrC8Y/biDjc3qW0=; b=s189kTdoVOw38vvJQ18cx/hj9U
-	7kIkaqsMlzL4hmB/HsFH/3UkXZ8FcqdBnMedEVTCJW3gx0g4M6jtZiy31GV2aL0DUQqf7AqVdLy8D
-	p/UnFEitWRVsm4wY9eQPKuDGNy9P7SeZpxp026vZi8JYnCXwKyv2C36x/cgNSwl4IaeSLc6neJo4M
-	otWxVhxJecIkVX2/LYSlKJuBGneAUqg+aOjvSu1YetSw8TgPkBDj9yqXn/4OBGRDp2k8KmmIeMoTP
-	tVMj2J/Eqx5Ki9mI3MBybO678tobvSK7KpVc0y+i8Oj2R+1lzXEzMqOnCsDG8smcb6GxepXJslfhR
-	5Yd2Cv4A==;
+	bh=AmdrebQd/Gxt/FhTndpvx1DLOOiDzLJ0qZA+kE9mjLk=; b=seJa5SfjeoAGmt/MVDeMuNJA5s
+	hC4ZFef787zEu2WTwbQ9KO3oVcocQCxQReMnR6JSM7tylN1rKAoE2aLaIXE4otcD5UsOJsWwgJgW9
+	TruuPX8wMfZMn2Gr5CDfiDBwi9+2+gtwl5z9317dKwiVrZBCIN+d+kSznGV+qqhjos+GaMCfTveJm
+	rQMwFl8nvwK9hebpIK17ssmidu6K8D4wzi+Iagnv6+9eUVZpGIdQWdFtY+1UoEEqT/4pU+Silau08
+	LBlbFcoWRhu5nDS11aY3VnecjlrpaQP2YyGOTLIRqvjAvyCq8DHbaZ/V7iH+tqfc92HlY+4vgJSJa
+	BT63piMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4FWr-0000000FEGi-33d0;
-	Sun, 22 Mar 2026 09:55:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4Frd-0000000FF38-2icP;
+	Sun, 22 Mar 2026 10:16:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4FWm-0000000FEGL-2Usw
+	id 1w4Fra-0000000FF2n-46lw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 09:55:28 +0000
+	Sun, 22 Mar 2026 10:16:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E08674434A;
-	Sun, 22 Mar 2026 09:55:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF91C19424;
-	Sun, 22 Mar 2026 09:55:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7177943E29;
+	Sun, 22 Mar 2026 10:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA548C19424;
+	Sun, 22 Mar 2026 10:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774173323;
-	bh=wds4pz1vo4hnU97Ycw1V36BOoaG56UpHueqjDmj507M=;
+	s=k20201202; t=1774174612;
+	bh=po8CNnTkaQpHNLdR0yFceY24ysPtBKZ0S56BW+e5MOw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Glr449GFxMkqC3eb7DHpp2nEiEZn4tkpvQhrQkkZk34f2MhfFTdPAlV/3BHWC2Z5J
-	 9dUvwUIHcPg053EXP5b5/Zcl7f5DeI6n1p7xvBhbr6VbqeW0n1rXi1f/AFgjj4QZ4J
-	 LJRtz7J12UVbR8xQlEdtHYh7nH5ykBNtqczuN9svOO3ABY5ONMtC/WDXBJjIhlfxXe
-	 YLK4L+/l4PGnYe61qmxaTtugHMbSctS7BV/Bk0Zcf7N9pXEZ5vOICsJTECSWXQCJk6
-	 iSTPAl1U+ugBbLtOhNbs3Rs8Bn6HjBdZbd9egZovXr6WhNQT4QiBe/q14SKARvJEJR
-	 PWUp+Gj/0/6qQ==
-Message-ID: <2e43f7e5-09b8-4f95-815c-0954c579a623@kernel.org>
-Date: Sun, 22 Mar 2026 10:55:18 +0100
+	b=hE1w3KiUolvaky3I2jyH23SJbxCpZg2xDQkAuvRw236wK/t8yGIvgxVtJ3rhMqnOw
+	 g3N06F++bLXBiAdoBCvT3P9LPeT11C1TXIhO2xeIEVZW8B6ZDpHkUd85wwRu9Itr3w
+	 HlFjzlUEo9nWeyMlIrdzCjqEZEdo1UpyBOTAjqDwk0hwl9m9dz0vd5ZkncvnRmR5Sc
+	 xgDQM4Rya32OYPCBUrsQe+/tJ0VPx9lNS/OJ2HUADij412RdZySs6mUnndpLainOOF
+	 gZ5Np9lolvvg7SHfBWTZaJQCcIVHWSEZfh1Jg5Bt3iv2MkuHLC76GBWTWJCgSP+XE8
+	 A97JWiU8rt+kw==
+Message-ID: <9b1a9660-3672-4165-b5bb-c7807ce885cc@kernel.org>
+Date: Sun, 22 Mar 2026 11:16:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
- format
-To: David Lechner <dlechner@baylibre.com>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+Subject: Re: [PATCH 08/10] dt-bindings: input: touchscreen: st,stmfts:
+ Introduce STM FTS5
+To: David Heidelberg <david@ixit.cz>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
-References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
- <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
- <20260221-dancing-papaya-wolverine-db8afd@quoll>
- <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
- <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
- <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
- <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
- <05bcc5b7-b3e8-40fb-be70-413c74afcfb1@amd.com>
- <cf749e8c-f141-4367-81ad-827e02273ec5@baylibre.com>
- <6a4e3d95-875f-4c2b-8443-c2f2b19ff166@amd.com>
- <12a06779-cbbb-4dc2-b564-7b9cdff6796b@kernel.org>
- <faa4e46b-1cc6-4bab-b13e-c527a67ec4c4@baylibre.com>
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ phone-devel@vger.kernel.org
+References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
+ <20260301-stmfts5-v1-8-22c458b9ac68@ixit.cz>
+ <qibmsgfttxo6kiaqyjljj6otamqp7okfr4abwpmuo7daanl6qu@ka33zvoz7lte>
+ <4b8c8d8c-d2f3-4938-a451-e8e9524d40c3@ixit.cz>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,12 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <faa4e46b-1cc6-4bab-b13e-c527a67ec4c4@baylibre.com>
+In-Reply-To: <4b8c8d8c-d2f3-4938-a451-e8e9524d40c3@ixit.cz>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_025526_294721_568B1670 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20260322_031655_064243_40863DBF 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,77 +131,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2026 20:07, David Lechner wrote:
-> On 3/19/26 11:49 AM, Krzysztof Kozlowski wrote:
->> On 19/03/2026 16:49, Sai Krishna Potthuri wrote:
->>>>>>>>>>
->>>>>>>>>>> +
->>>>>>>>>>> +$defs:
->>>>>>>>>>
->>>>>>>>>> Why this is a def, not used directly? I see only one usage of this def.
->>>>>>>>>
->>>>>>>>> I am getting the below error if i define the patternProperties directly.
->>>>>>>>> Seems like complex vendor peroperties should be referenced via $ref.
->>>>>>>>> Please suggest if there is any better way to deal this.
->>>>>>>>
->>>>>>>> It is hard to say without seeing the new version of what you wrote.
->>>>>>>
->>>>>>> In v1 series, i created $def and referenced this in xlnx,channels to avoid the error that i mentioned.
->>>>>>
->>>>>> Is the code below the code that causes the error?
->>>>>
->>>>> No, the below code is not creating the error but Krzysztof asked the question on this code,
->>>>> "Why this is a def, not used directly? I see only one usage of this def."
->>>>>
->>>>> I am saying if i don't use the def and use it directly i am seeing the error that i mentioned. So, asking is there any better way to handle this case other than using def.
->>>>
->>>> If you could show us the actual code that is causing the error, then
->>>> we could perhaps spot a mistake or suggest an alternative.
->>
->> Thanks David, I am surprised how many emails we need to exchange just to
->> see the actual code.
->>
->>>
->>> Thanks. Here is the code that is causing the error
->>> ("properties:xlnx,channels:type: 'boolean' was expected").
->>>
->>> xlnx,channels:
->>
->> Device nodes do not have any prefixes. Just take a look at any DTS or
->> any binding.
->>
->> Probably that's the reason, because nothing in this code looks
->> particularly odd. Anyway, please do not come with odd syntax in the code
->> without any explanation, just to make it passing the tests, so for
->> example ignoring the checks we have.
->>
->>
->> Best regards,
->> Krzysztof
+On 15/03/2026 18:09, David Heidelberg wrote:
+> On 01/03/2026 23:40, Dmitry Baryshkov wrote:
 > 
-> Since this is converting existing 12-years-old .txt bindings, I don't
-> think we can "fix" the bindings by dropping the vendor prefix.
+> [...]
+> 
+>>> +    then:
+>>> +      properties:
+>>> +        switch-gpio:
+>>> +          description: Switch between SLPI and AP mode.
+>>
+>> This doesn't sounds like the GPIO on the touchscreen, more like the
+>> external schematic component. If it need sto be turned to one position,
+>> it might be better to use GPIO hog for that.
+> 
+> Right now yes, but the GPIO serves to switching between SLPI and AP mode at 
+> runtime, see [1]
+> 
+> The driver lack supports for SLPI, but at moment when SLPI support lands, we 
+> should be able do something like:
+> 
+> -> device starts, touchscreen works
+> -> screen goes to sleep, but instead of powering off touchscreen, it switches to 
+> SLPI mode
+> -> user taps at touchscreen, device wakes up
+> 
+> Thus I think we need to support this GPIO in the driver.
 
-Indeed. It is being also in the driver. The prefix must stay and this
-oddity must be explained in the commit msg.
-
-Commit msg must explain all the non-obvious, unusual, unexpected odd
-things the patch is doing.
-
-> 
-> I think in cases like this, Rob will usually fix the tooling to ignore
-> this as a special case. (I had a similar case last year on a conversion
-> I did.)
-> 
-> So I think the right thing to do is to not use $def and explain in the
-> commit message why the error is expected (we can't change existing bindings
-> even though they are "wrong" by current standards).
-> 
-> If this was a new binding, we should be using the common adc.yaml for IIO
-> ADCs which already has patterProperties for channels and a bipolar flag.
-> But we are stuck with this vendor-prefixed one here.
-> 
-
+But that's not role of this device. You cannot just hook random GPIOs
+into this device node, just because you want some use-case in the driver.
 
 Best regards,
 Krzysztof
