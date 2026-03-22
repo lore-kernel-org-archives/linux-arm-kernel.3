@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC73FFC72C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 14:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38CFFC72C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 14:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Q3D5UodZCeTWd6dbr4yequOrylCC4hXWkSBxOD/kow=; b=WcC8CYV8KxG15lKWBMv+ghyNL5
-	7SPwFkfsi9HqsS+BOaBdrg46XsoMn36Pr+kkJCN3d26vn/hRtz9v1+kbwrtLW6KwFjpvwSVEA7FYG
-	7rNyzePY74f5k3HACQGeSq8aqhKT+dFoE9ncnJ4oSWyx61PcucqQXRN2bhp+x8xEtgxCZuekLU9/W
-	bga8IMFSrpHHvN13vEqKjcgZvyfn5ji/IDfGlfdYzM6TTVzwcqmVP15Z/HPmR1MNTi4eWTgOpeDUY
-	za+tzn9CWboc6BNo8xNUyGkhPreEPhxdJ2LYb9Rk3uuOTnANrR1+7/5Q+b/yV0HRElMHTjlSHbujx
-	PrWhH+gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6G2SVWO20IBn1PN7dFTFMYYXOJCjUg90dESHj0IaiD0=; b=0n27j1seEi5TZGc8VQFbKzsf9g
+	KHUaj/OWphkhf3HeZ4oPLTVtTSA0bYsL54JNEYqbdp7R3hQcy23JA/rp+m3TKVkrnIabUjdw8u4PA
+	Q2nBVclAYPZ0K3H8SO1+0M+vGpqmSCSD2i917nVe7ewPfb5zoj0okHBcHHN1s0KmvKqCmyPzBMq0s
+	8hhM6Uy9rEzc3ihcRWM6gdaZfIN3bTZIMbtzCtaLHAEpDo33179q5+fvDOdUNn0NZk9vhw4YJxSPk
+	Ih9NVaohsUtkUrEJq/3CZMAXx22NhLPpH/GemTbEkJk3lfBXbNDqr2hHkfpiqOw3Ivc+uxAKxjyDm
+	S9JTha/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Jb8-0000000FPAo-19jb;
-	Sun, 22 Mar 2026 14:16:10 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1w4Jeq-0000000FPLd-14pK;
+	Sun, 22 Mar 2026 14:20:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Jb5-0000000FPAU-2s5B
+	id 1w4Jeo-0000000FPLK-1P4n
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 14:16:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774188967; x=1805724967;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IigGF6U3blVwl7+mttTv8ABlCNI5lUMx+1rU3nKGGxA=;
-  b=Uydeq0/W5NPZOKK6bwS0ZZoosmSOWdnVEsVke2fQ9MDjqff0isLb85OE
-   ElCYvVy3QK2C39upZKNtmInV5kemTDoMXdc4nvRFgcsvypy18uj/MYJfP
-   L3bzY93DGUbebEIP5ufBR2psKH6Wwv5knC16noD/bnbaAF299zyKfrTdu
-   kjqB29Z9YrTQIfF7W7GcksXBdypwG7Tbj7Vquha4qnGSzexM3tf34hKQd
-   zLbffv9GCrF3CGuxpUOLOzOBOdlqyLKNpSLeDX876dRgJTDc0uHBjG981
-   QJMQozmvHTmPaCh+Kij7JWx7khzzZ4I6kUfWmycVeOCBtmPa8elwFCNoy
-   A==;
-X-CSE-ConnectionGUID: SkH9h+/MSRGW0hHaZbkEiQ==
-X-CSE-MsgGUID: wgveC2FGRh+A6s7ES37OEA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11737"; a="62765357"
-X-IronPort-AV: E=Sophos;i="6.23,135,1770624000"; 
-   d="scan'208";a="62765357"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Mar 2026 07:16:05 -0700
-X-CSE-ConnectionGUID: JRLBnVVlSqa6fLyDLAUY4Q==
-X-CSE-MsgGUID: qbzVjqmzRUKzhYMJv9+fAA==
-X-ExtLoop1: 1
-Received: from lkp-server02.sh.intel.com (HELO d7fefbca0d04) ([10.239.97.151])
-  by fmviesa003.fm.intel.com with ESMTP; 22 Mar 2026 07:16:00 -0700
-Received: from kbuild by d7fefbca0d04 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w4Jav-000000002Dx-1Ld7;
-	Sun, 22 Mar 2026 14:15:57 +0000
-Date: Sun, 22 Mar 2026 22:15:01 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexey Klimov <alexey.klimov@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Alexey Klimov <alexey.klimov@linaro.org>
-Subject: Re: [PATCH 4/5] mailbox: exynos: Add support for Exynos850 mailbox
-Message-ID: <202603222239.JTuBxs7K-lkp@intel.com>
-References: <20260320-exynos850-ap2apm-mailbox-v1-4-983eb3f296fc@linaro.org>
+	Sun, 22 Mar 2026 14:19:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C06560128
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 14:19:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC03EC2BCB8
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 14:19:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774189196;
+	bh=pw3Kex2TtkEIr5Hh1UwrWSsRUK78ekd18b80cHZofwQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=BoFzhb5gLlfX688voT++AKnLCgQBqxpwKcGS57Z5P/fBgmKtP5VBs1tLoEDj+jA6F
+	 jXoL1k6bIEAEVg+2M2U2MywBJ3huIrXn0v0FIyzuUGwbweaxlIaVFsrMwsK+hCi24t
+	 Ch0ouWrOdCjWlvNPlw63nE1hhLmFk5nR4Zv92C7qB05u13fVqZED6GcjVH87xPjRhu
+	 fHURr1Sy8joGP3MTrM+qJMtl9NQRi3Kr18wqs0zGn5cjvfN74jURXLcnnyacfeuOJp
+	 zgsuv6BYnOxWmErUnzqoSFYb4xaa+Ko1Zlnaaz83iGYiuYmk9uwodGGj9mOZy0WbKh
+	 N00CNy9zJTEHQ==
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-127380532eeso1365169c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 07:19:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUTVmqkGiWdODJV4V62P6yaU2ybWiSk6QXorH/N9Wt2x3K3MI3wpaj/NcvUkMYRo3Yw6GqYgSFYIF0H+1Z4X6Nk@lists.infradead.org
+X-Gm-Message-State: AOJu0YySPMOnfWG86eKr6vSi+z5WBHJNAJYQu4xjlVlh5rjiV78GlCn8
+	VmSjGV6Jl87AV1xFgaD3S7Ml8hqRXmwDHyFbNDvYocL791W9HXBcVxGC4xMzifNmmXFVVhmoZr5
+	mjMyg5JZqvMKQ3fT/YgfAka/1AkhlFQ==
+X-Received: by 2002:a05:7022:928:b0:128:e016:dd4b with SMTP id
+ a92af1059eb24-12a726e13e4mr4555706c88.37.1774189195957; Sun, 22 Mar 2026
+ 07:19:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260320-exynos850-ap2apm-mailbox-v1-4-983eb3f296fc@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_071607_762313_04104A12 
-X-CRM114-Status: GOOD (  11.16  )
+References: <20260225094047.76780-1-l.scorcia@gmail.com>
+In-Reply-To: <20260225094047.76780-1-l.scorcia@gmail.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Sun, 22 Mar 2026 14:19:43 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_-_k4Fv2H_P6Xt3mT3aqfWHki_Ary3Lt0G6vk_nfqb6OQ@mail.gmail.com>
+X-Gm-Features: AaiRm53TPKDRjcIENz8E-lT6qKe1LyJ0Aic3cDGSTsLZUFPpGAbsnhoMCBgOczA
+Message-ID: <CAAOTY_-_k4Fv2H_P6Xt3mT3aqfWHki_Ary3Lt0G6vk_nfqb6OQ@mail.gmail.com>
+Subject: Re: [PATCH v3] drm/mediatek: dsi: Store driver data before invoking mipi_dsi_host_register
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Alexandre Mergnat <amergnat@baylibre.com>, 
+	CK Hu <ck.hu@mediatek.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +84,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Hi, Luca:
 
-kernel test robot noticed the following build warnings:
+Luca Leonardo Scorcia <l.scorcia@gmail.com> =E6=96=BC 2026=E5=B9=B42=E6=9C=
+=8825=E6=97=A5=E9=80=B1=E4=B8=89 =E4=B8=8A=E5=8D=889:41=E5=AF=AB=E9=81=93=
+=EF=BC=9A
+>
+> The call to mipi_dsi_host_register triggers a callback to mtk_dsi_bind,
+> which uses dev_get_drvdata to retrieve the mtk_dsi struct, so this
+> structure needs to be stored inside the driver data before invoking it.
+>
+> As drvdata is currently uninitialized it leads to a crash when
+> registering the DSI DRM encoder right after acquiring
+> the mode_config.idr_mutex, blocking all subsequent DRM operations.
+>
+> Fixes the following crash during mediatek-drm probe (tested on Xiaomi
+> Smart Clock x04g):
+>
+> Unable to handle kernel NULL pointer dereference at virtual address
+>  0000000000000040
+> [...]
+> Modules linked in: mediatek_drm(+) drm_display_helper cec drm_client_lib
+>  drm_dma_helper drm_kms_helper panel_simple
+> [...]
+> Call trace:
+>  drm_mode_object_add+0x58/0x98 (P)
+>  __drm_encoder_init+0x48/0x140
+>  drm_encoder_init+0x6c/0xa0
+>  drm_simple_encoder_init+0x20/0x34 [drm_kms_helper]
+>  mtk_dsi_bind+0x34/0x13c [mediatek_drm]
+>  component_bind_all+0x120/0x280
+>  mtk_drm_bind+0x284/0x67c [mediatek_drm]
+>  try_to_bring_up_aggregate_device+0x23c/0x320
+>  __component_add+0xa4/0x198
+>  component_add+0x14/0x20
+>  mtk_dsi_host_attach+0x78/0x100 [mediatek_drm]
+>  mipi_dsi_attach+0x2c/0x50
+>  panel_simple_dsi_probe+0x4c/0x9c [panel_simple]
+>  mipi_dsi_drv_probe+0x1c/0x28
+>  really_probe+0xc0/0x3dc
+>  __driver_probe_device+0x80/0x160
+>  driver_probe_device+0x40/0x120
+>  __device_attach_driver+0xbc/0x17c
+>  bus_for_each_drv+0x88/0xf0
+>  __device_attach+0x9c/0x1cc
+>  device_initial_probe+0x54/0x60
+>  bus_probe_device+0x34/0xa0
+>  device_add+0x5b0/0x800
+>  mipi_dsi_device_register_full+0xdc/0x16c
+>  mipi_dsi_host_register+0xc4/0x17c
+>  mtk_dsi_probe+0x10c/0x260 [mediatek_drm]
+>  platform_probe+0x5c/0xa4
+>  really_probe+0xc0/0x3dc
+>  __driver_probe_device+0x80/0x160
+>  driver_probe_device+0x40/0x120
+>  __driver_attach+0xc8/0x1f8
+>  bus_for_each_dev+0x7c/0xe0
+>  driver_attach+0x24/0x30
+>  bus_add_driver+0x11c/0x240
+>  driver_register+0x68/0x130
+>  __platform_register_drivers+0x64/0x160
+>  mtk_drm_init+0x24/0x1000 [mediatek_drm]
+>  do_one_initcall+0x60/0x1d0
+>  do_init_module+0x54/0x240
+>  load_module+0x1838/0x1dc0
+>  init_module_from_file+0xd8/0xf0
+>  __arm64_sys_finit_module+0x1b4/0x428
+>  invoke_syscall.constprop.0+0x48/0xc8
+>  do_el0_svc+0x3c/0xb8
+>  el0_svc+0x34/0xe8
+>  el0t_64_sync_handler+0xa0/0xe4
+>  el0t_64_sync+0x198/0x19c
+> Code: 52800022 941004ab 2a0003f3 37f80040 (29005a80)
+> ---[ end trace 0000000000000000 ]---
 
-[auto build test WARNING on 785f0eb2f85decbe7c1ef9ae922931f0194ffc2e]
+Applied to mediatek-drm-fixes [1], thanks.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Klimov/dt-bindings-clock-exynos850-Add-APM_AP-MAILBOX-clock/20260322-085441
-base:   785f0eb2f85decbe7c1ef9ae922931f0194ffc2e
-patch link:    https://lore.kernel.org/r/20260320-exynos850-ap2apm-mailbox-v1-4-983eb3f296fc%40linaro.org
-patch subject: [PATCH 4/5] mailbox: exynos: Add support for Exynos850 mailbox
-config: x86_64-buildonly-randconfig-004-20260322 (https://download.01.org/0day-ci/archive/20260322/202603222239.JTuBxs7K-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260322/202603222239.JTuBxs7K-lkp@intel.com/reproduce)
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603222239.JTuBxs7K-lkp@intel.com/
+Regards,
+Chun-Kuang.
 
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/mailbox/exynos-mailbox.c:60 struct member 'irq_mask_value' not described in 'exynos_mbox_driver_data'
->> Warning: drivers/mailbox/exynos-mailbox.c:60 struct member 'irq_mask_value' not described in 'exynos_mbox_driver_data'
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+> Fixes: e4732b590a77 ("drm/mediatek: dsi: Register DSI host after acquirin=
+g clocks and PHY")
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> ---
+> v3: Also initialize irq_wait_queue before calling platform_set_drvdata
+> v2: Added Fixes tag
+>
+>  drivers/gpu/drm/mediatek/mtk_dsi.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediate=
+k/mtk_dsi.c
+> index d7726091819c..acee2227275b 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -1232,6 +1232,11 @@ static int mtk_dsi_probe(struct platform_device *p=
+dev)
+>
+>         dsi->host.ops =3D &mtk_dsi_ops;
+>         dsi->host.dev =3D dev;
+> +
+> +       init_waitqueue_head(&dsi->irq_wait_queue);
+> +
+> +       platform_set_drvdata(pdev, dsi);
+> +
+>         ret =3D mipi_dsi_host_register(&dsi->host);
+>         if (ret < 0)
+>                 return dev_err_probe(dev, ret, "Failed to register DSI ho=
+st\n");
+> @@ -1243,10 +1248,6 @@ static int mtk_dsi_probe(struct platform_device *p=
+dev)
+>                 return dev_err_probe(&pdev->dev, ret, "Failed to request =
+DSI irq\n");
+>         }
+>
+> -       init_waitqueue_head(&dsi->irq_wait_queue);
+> -
+> -       platform_set_drvdata(pdev, dsi);
+> -
+>         dsi->bridge.of_node =3D dev->of_node;
+>         dsi->bridge.type =3D DRM_MODE_CONNECTOR_DSI;
+>
+> --
+> 2.43.0
+>
 
