@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4367FC72AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 09:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C90FC72AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 09:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pkRjnBX0JuS73NVASMagu1ozIqW9IjjbaHmcg0ytxC0=; b=UYnLvBgyglhi52p9g4ObrMZ51W
-	6g4IW4qwXYRG4tDgwM00XjIEKg6o4PAaVdbG454vLtsG11POvhqBFt0Z14WGLK9m9Moe0vgFR7gpT
-	icySepJDj8hQaYW1VhmrIFAaAdWeMAdosRrAMfvhD/sjipIu34ktZ6dngNyuJlB4H0FjzOhZM9LZX
-	acgHBXBm1EXwkNfEPGQdCaw9rpGBxKuV9pLroZK6gzwewchnyJeMnRiX7thkX2eNWuE26M13BdknP
-	hdmOTVLxEqimyN3XEeUeKj0kX9ceYxkozGEUWvV5iS98IjWgnVe9q1jMJz0iexZWw4hoh17sNO0am
-	tbsLd78A==;
+	bh=GMLpKkhbJahfZAQ9E3JPvXDUjHThDrC8Y/biDjc3qW0=; b=s189kTdoVOw38vvJQ18cx/hj9U
+	7kIkaqsMlzL4hmB/HsFH/3UkXZ8FcqdBnMedEVTCJW3gx0g4M6jtZiy31GV2aL0DUQqf7AqVdLy8D
+	p/UnFEitWRVsm4wY9eQPKuDGNy9P7SeZpxp026vZi8JYnCXwKyv2C36x/cgNSwl4IaeSLc6neJo4M
+	otWxVhxJecIkVX2/LYSlKJuBGneAUqg+aOjvSu1YetSw8TgPkBDj9yqXn/4OBGRDp2k8KmmIeMoTP
+	tVMj2J/Eqx5Ki9mI3MBybO678tobvSK7KpVc0y+i8Oj2R+1lzXEzMqOnCsDG8smcb6GxepXJslfhR
+	5Yd2Cv4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4FT7-0000000FE3H-2Ffo;
-	Sun, 22 Mar 2026 09:51:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4FWr-0000000FEGi-33d0;
+	Sun, 22 Mar 2026 09:55:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4FT3-0000000FE2q-2hT2
+	id 1w4FWm-0000000FEGL-2Usw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 09:51:36 +0000
+	Sun, 22 Mar 2026 09:55:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87931417F8;
-	Sun, 22 Mar 2026 09:51:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2221C19424;
-	Sun, 22 Mar 2026 09:51:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E08674434A;
+	Sun, 22 Mar 2026 09:55:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF91C19424;
+	Sun, 22 Mar 2026 09:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774173092;
-	bh=tMcHLgHTic5Wi3ojuiCV/sa1gfiN5aekqOPJja5Y1b8=;
+	s=k20201202; t=1774173323;
+	bh=wds4pz1vo4hnU97Ycw1V36BOoaG56UpHueqjDmj507M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c1uASeRsuoihORrgsMjF+2aSMGQAJxGqgyrVRDik6EOzzkk/4IRL4CoZa8J2WyvRF
-	 taSICLBDAWnZicr4CqTNOEv8FqLnj/a9xIk8UqlRNJrEtUak7mYkJjOdfgkPVxCy/0
-	 j6rn7rd35q5xZaks3gbYrrRMxyC8MjijwMG1E4Fvai2QXl+8BiLIU4AK87hrS49oj8
-	 rrSj4PMoeCw9yRu89/slJ2gC+Jyup5arqRUwTBE4MKnARxTfySZ71e+6F09ttheets
-	 yPItxvBy6o8hp9czzjYr9gC/+t/gkYfWj1+FQ6vh8YxHHXzZ3Ngg8KHcqSQDH5Zifa
-	 3NyANxvMo5wXw==
-Message-ID: <5c00033b-28d4-48f6-811d-6e3b54b8fb10@kernel.org>
-Date: Sun, 22 Mar 2026 10:51:27 +0100
+	b=Glr449GFxMkqC3eb7DHpp2nEiEZn4tkpvQhrQkkZk34f2MhfFTdPAlV/3BHWC2Z5J
+	 9dUvwUIHcPg053EXP5b5/Zcl7f5DeI6n1p7xvBhbr6VbqeW0n1rXi1f/AFgjj4QZ4J
+	 LJRtz7J12UVbR8xQlEdtHYh7nH5ykBNtqczuN9svOO3ABY5ONMtC/WDXBJjIhlfxXe
+	 YLK4L+/l4PGnYe61qmxaTtugHMbSctS7BV/Bk0Zcf7N9pXEZ5vOICsJTECSWXQCJk6
+	 iSTPAl1U+ugBbLtOhNbs3Rs8Bn6HjBdZbd9egZovXr6WhNQT4QiBe/q14SKARvJEJR
+	 PWUp+Gj/0/6qQ==
+Message-ID: <2e43f7e5-09b8-4f95-815c-0954c579a623@kernel.org>
+Date: Sun, 22 Mar 2026 10:55:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] mmc: dt-bindings: sdhci-of-aspeed: Add AST2700
- fallback compatibles
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Ryan Chen <ryanchen.aspeed@gmail.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Andrew Jeffery <andrew@aj.id.au>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260317-sdhci-v2-0-39b1f063061b@aspeedtech.com>
- <20260317-sdhci-v2-1-39b1f063061b@aspeedtech.com>
- <20260318-abiding-sloppy-poodle-efd3e5@quoll>
- <TY2PPF5CB9A1BE666DEF10944BBA2A2256BF24EA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <f46bf4fb-b6e5-4238-9c23-c435c4b8e275@kernel.org>
- <TY2PPF5CB9A1BE6E474E78EED4F320F2B30F24EA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <TY2PPF5CB9A1BE63A0E8E056E322866B6F0F24CA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Subject: Re: [PATCH 5/5] dt-bindings: iio: adc: xilinx-xadc: convert to YAML
+ format
+To: David Lechner <dlechner@baylibre.com>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
+References: <20260220053941.611415-1-sai.krishna.potthuri@amd.com>
+ <20260220053941.611415-6-sai.krishna.potthuri@amd.com>
+ <20260221-dancing-papaya-wolverine-db8afd@quoll>
+ <b89933a3-5f25-466c-a2f5-6e231aa12749@amd.com>
+ <21d425bc-9406-401b-9817-7255ba3d31fc@baylibre.com>
+ <e4c9729f-1785-4d10-a337-37b0d26fe30b@amd.com>
+ <f1706ec0-3995-4fdf-a9fb-8e1e688438a7@baylibre.com>
+ <05bcc5b7-b3e8-40fb-be70-413c74afcfb1@amd.com>
+ <cf749e8c-f141-4367-81ad-827e02273ec5@baylibre.com>
+ <6a4e3d95-875f-4c2b-8443-c2f2b19ff166@amd.com>
+ <12a06779-cbbb-4dc2-b564-7b9cdff6796b@kernel.org>
+ <faa4e46b-1cc6-4bab-b13e-c527a67ec4c4@baylibre.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,13 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <TY2PPF5CB9A1BE63A0E8E056E322866B6F0F24CA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+In-Reply-To: <faa4e46b-1cc6-4bab-b13e-c527a67ec4c4@baylibre.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_025133_759115_FD6BC7CE 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260322_025526_294721_568B1670 
+X-CRM114-Status: GOOD (  27.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,29 +133,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2026 09:46, Ryan Chen wrote:
-> Hello Krzysztof,
-> I review https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/example-schema.yaml?h=v7.0-rc1
-> I will do following modify
-> -    enum:
-> -      - aspeed,ast2400-sd-controller
-> -      - aspeed,ast2500-sd-controller
-> -      - aspeed,ast2600-sd-controller
-> +    oneOf:
-> +      - items:
+On 19/03/2026 20:07, David Lechner wrote:
+> On 3/19/26 11:49 AM, Krzysztof Kozlowski wrote:
+>> On 19/03/2026 16:49, Sai Krishna Potthuri wrote:
+>>>>>>>>>>
+>>>>>>>>>>> +
+>>>>>>>>>>> +$defs:
+>>>>>>>>>>
+>>>>>>>>>> Why this is a def, not used directly? I see only one usage of this def.
+>>>>>>>>>
+>>>>>>>>> I am getting the below error if i define the patternProperties directly.
+>>>>>>>>> Seems like complex vendor peroperties should be referenced via $ref.
+>>>>>>>>> Please suggest if there is any better way to deal this.
+>>>>>>>>
+>>>>>>>> It is hard to say without seeing the new version of what you wrote.
+>>>>>>>
+>>>>>>> In v1 series, i created $def and referenced this in xlnx,channels to avoid the error that i mentioned.
+>>>>>>
+>>>>>> Is the code below the code that causes the error?
+>>>>>
+>>>>> No, the below code is not creating the error but Krzysztof asked the question on this code,
+>>>>> "Why this is a def, not used directly? I see only one usage of this def."
+>>>>>
+>>>>> I am saying if i don't use the def and use it directly i am seeing the error that i mentioned. So, asking is there any better way to handle this case other than using def.
+>>>>
+>>>> If you could show us the actual code that is causing the error, then
+>>>> we could perhaps spot a mistake or suggest an alternative.
+>>
+>> Thanks David, I am surprised how many emails we need to exchange just to
+>> see the actual code.
+>>
+>>>
+>>> Thanks. Here is the code that is causing the error
+>>> ("properties:xlnx,channels:type: 'boolean' was expected").
+>>>
+>>> xlnx,channels:
+>>
+>> Device nodes do not have any prefixes. Just take a look at any DTS or
+>> any binding.
+>>
+>> Probably that's the reason, because nothing in this code looks
+>> particularly odd. Anyway, please do not come with odd syntax in the code
+>> without any explanation, just to make it passing the tests, so for
+>> example ignoring the checks we have.
+>>
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> Since this is converting existing 12-years-old .txt bindings, I don't
+> think we can "fix" the bindings by dropping the vendor prefix.
 
-Don't add items here. Was it in original code? No.
+Indeed. It is being also in the driver. The prefix must stay and this
+oddity must be explained in the commit msg.
 
+Commit msg must explain all the non-obvious, unusual, unexpected odd
+things the patch is doing.
 
-> +          - enum:
-> +              - aspeed,ast2400-sd-controller
-> +              - aspeed,ast2500-sd-controller
-> +              - aspeed,ast2600-sd-controller
-> +      - items:
-> +          - const: aspeed,ast2700-sd-controller
-> +          - const: aspeed,ast2600-sd-controller
-> +
-> Thanks the review. 
+> 
+> I think in cases like this, Rob will usually fix the tooling to ignore
+> this as a special case. (I had a similar case last year on a conversion
+> I did.)
+> 
+> So I think the right thing to do is to not use $def and explain in the
+> commit message why the error is expected (we can't change existing bindings
+> even though they are "wrong" by current standards).
+> 
+> If this was a new binding, we should be using the common adc.yaml for IIO
+> ADCs which already has patterProperties for channels and a bipolar flag.
+> But we are stuck with this vendor-prefixed one here.
+> 
 
 
 Best regards,
