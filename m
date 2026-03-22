@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D52FC72C4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 14:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E835FC72C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 14:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmdXwTMByXlQtXyVEuM8ZEQe80RkWuQUj8gRkLjyMOs=; b=c5GFU7kWTL84N+/BHhYvVcnlyb
-	8Y++shfKZbKxRTa5OKt/pUFSUn8sVWufA3B1TZM96fwFAn/+ZiT+TfcKn044aXFgr5lhSIcqvs7mG
-	yTZJeMSXNIwIfVfU1fu+l5Jl56imRKS5WpSFkwi/aAWVbivoEITcQRPgxEJhulo1VXouJwhZ2QSD+
-	cX2skGcifof4uWm9kBZKstTUsrvGdQmPkaXjQg7AGm+t11gMM96nrJ/s9q8cHUL5xdyC5GXEvALwC
-	LjTHLeOhNJ7gAMpZopkFGg/cL1EmCc/n9ysQa7BwTqufp8Q4SsfnjLZRUqsx6oPpKshNe5MArkTow
-	j6DULXng==;
+	bh=6WyenFkskQRviNgIdSNi6d7LvQNFj/WN1yDFKmE61aM=; b=XLDwliusQ0rmjrE8Fd13jQK51r
+	yxZJc8t7TVvxigy4PcCsnRxLrQAB8ckbq1Npcb7iJIXqYFEGqQRfqNPV03zLL5T6CPuZJBhMKEdDt
+	TUZSFLWauVS2YdaflXok+0oMbDf/pUSPE8nnAHbSvyaVX3Xmqn/mTuQzrYZrLy3OxxcbXS2MIkN+i
+	MM6X/enT63T/to+GPrgV5P6yoSNpVsDhJhkQ49XYrJhfjtsUePhs8OdezLeUfs1XLGLxGG+s7XXPy
+	9nLlp3zVRhTr6SrOLoHsb3RMRJ2GnjZ9mrFZZIa49IE/Wst+nXCXEoR7BzD4DCWcGp2UZ0af2uOiW
+	ZVt4vS8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4JMp-0000000FODA-2EkZ;
-	Sun, 22 Mar 2026 14:01:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4JYV-0000000FOYf-3xhi;
+	Sun, 22 Mar 2026 14:13:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4JMn-0000000FOCA-1mDC
+	id 1w4JYV-0000000FOXk-1Mjx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 14:01:22 +0000
+	Sun, 22 Mar 2026 14:13:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E130B44560
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 14:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C573AC2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 14:01:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5BE1C60141
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 14:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F3FCC2BCF7
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 14:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774188080;
-	bh=QmdXwTMByXlQtXyVEuM8ZEQe80RkWuQUj8gRkLjyMOs=;
+	s=k20201202; t=1774188806;
+	bh=6WyenFkskQRviNgIdSNi6d7LvQNFj/WN1yDFKmE61aM=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lrt8fvFazEtLA06IWldGlVlmOQ9mHzsIa5lVgNVMJuSLZls+9ojaALd2yLH9TNEK8
-	 Z9AFdviJ2lH+eG675obsclGgxjJPTRcR4aY9K2wcxIRO4SxtnQE2vD38hUhjmnSxNl
-	 fbIkJfFr85Mi6bC+kRkjnqxWTUvDU0vDN932IWPczz0VpJZdBLSRxu5Xe42qUqrH62
-	 ouH6ScH4hlVLr8Ah+of3+v7WGTtarOykMwhMNii4TFCDP1/dh7cH0Fn36QDbjgMLbj
-	 tVPINM0Fdw6zw+4j9KR5Qak4ZCyu+equOiDjcaEFva7JzaVpWesAogJeJme0DmRoVn
-	 6fJJI4MGAtdWA==
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-2c0e38f3f60so1736291eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 07:01:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWvK4mFEUham6R+PYhoUQL9BYESszOnpzdswgu5RgZuXd3QtmnBCHVoxHu2+upKgwf24OAICwMr+17cgaAnc/Xo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8x6K+M7VjvVxfngSlgiGK5gIIIwUiPpoE+ngbKeboQM2bIsWM
-	PIkrq+vciNTv2ShcvFw3l4fLfX4kcrRC1Zaqxi0jnfJtXWkcZSL1ohy/nPbWw9d9e5Ynygsf3Y3
-	DEbjyaFlxEIjt0hKJRGirVatWZAkE+g==
-X-Received: by 2002:a05:7022:125:b0:119:e569:f875 with SMTP id
- a92af1059eb24-12a72342011mr4458266c88.18.1774188079697; Sun, 22 Mar 2026
- 07:01:19 -0700 (PDT)
+	b=m1JSvO3vBoAW11h+1jUFpD4M3o87pi5WVIS30EG+IpjrhSbVVm0n+a1tBuAfjEvBt
+	 DUqzvAtEE8KJ6CZfJtmKqQq9BVDuNmVeWZsoYGhGiqY+t+Q6RwWFQc5ZQdL1p/KZIY
+	 UFQwKK08jzzYTvqEXZ4Ac8G4DE5xsSYsUXc8IfhWTBw9DfA2DD2C6LLzRNU24IbyFb
+	 lrOIf3a8BJJBT9sBoXhMHNUMb8I5hhEpcoV0xfuwNuKiNcSCrIcGPuQKtmayUZ9HXR
+	 hFKtrSq+WjK11fCbeC076eyEPEXZo0kTu3ZozNAe6J8tQQi2tgc/U6j9xLH40yQ+qZ
+	 AsEOEj7QkGiCQ==
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-127380532eeso1358903c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 07:13:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWuWLb005mgv5/Nb4y1aTcKMU6Wu5IDlxx6CMvEygm8IK8uax8Dp8m5gL+KK0cVOIxCk7Y9PI9IazrnMhM5TyC4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpanRr5of8EJ5bpRAJ0oM25iO/NuutU8Ivmvg6U+g3Ig58qtHJ
+	XFya1FZ4u6oKOfXR4eLx5LRNsCer6L26EV2hdi+JKUJUN59fjFaQdwNBUK8TqE3d3jHYbMxFj9P
+	+tRXcEKyieKpZ2tMveTaUcmBbI0xr0Q==
+X-Received: by 2002:a05:7022:629f:b0:11b:9386:7ecd with SMTP id
+ a92af1059eb24-12a726e3eadmr3908663c88.42.1774188804941; Sun, 22 Mar 2026
+ 07:13:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org> <20260305-drm-rework-color-formats-v3-11-f3935f6db579@kernel.org>
-In-Reply-To: <20260305-drm-rework-color-formats-v3-11-f3935f6db579@kernel.org>
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-0-ef48a517828e@bootlin.com>
+ <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-4-ef48a517828e@bootlin.com>
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-3-v1-4-ef48a517828e@bootlin.com>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Sun, 22 Mar 2026 14:01:07 +0000
-X-Gmail-Original-Message-ID: <CAAOTY__bMYqtVLqYin4sLs1F=-yWoYVj=W0osL_vcwdqCHVACw@mail.gmail.com>
-X-Gm-Features: AaiRm51o2YPhQeYKXw9UtRNG-i4wgZe6wEfJUWBYiwwTcCwjkboilWj5OZVfgGo
-Message-ID: <CAAOTY__bMYqtVLqYin4sLs1F=-yWoYVj=W0osL_vcwdqCHVACw@mail.gmail.com>
-Subject: Re: [PATCH v3 11/14] drm/mediatek: dp: Convert to drm_output_color_format
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+Date: Sun, 22 Mar 2026 14:13:12 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_9PH4yV-mDFZ+mkNRT7R9qoZOtjQhhqmyWjx1LWSu=giw@mail.gmail.com>
+X-Gm-Features: AaiRm5108rX0H_CDRkg1jedFrdyn5bPiHycKlLMUICMJdSqU48gN54_ILYySwo8
+Message-ID: <CAAOTY_9PH4yV-mDFZ+mkNRT7R9qoZOtjQhhqmyWjx1LWSu=giw@mail.gmail.com>
+Subject: Re: [PATCH 4/6] drm/mediatek: mtk_hdmi*: convert to of_drm_find_and_get_bridge()
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
 	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
 	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	Jani Nikula <jani.nikula@intel.com>
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Inki Dae <inki.dae@samsung.com>, 
+	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Hui Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-mediatek@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_070121_678915_7C0CD799 
-X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,28 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maxime Ripard <mripard@kernel.org> =E6=96=BC 2026=E5=B9=B43=E6=9C=885=E6=97=
-=A5=E9=80=B1=E5=9B=9B =E4=B8=8A=E5=8D=889:05=E5=AF=AB=E9=81=93=EF=BC=9A
+Luca Ceresoli <luca.ceresoli@bootlin.com> =E6=96=BC 2026=E5=B9=B41=E6=9C=88=
+7=E6=97=A5=E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=884:22=E5=AF=AB=E9=81=93=EF=BC=
+=9A
 >
-> Now that we introduced a new drm_output_color_format enum to represent
-> what DRM_COLOR_FORMAT_* bits were representing, we can switch to the new
-> enum.
->
-> The main difference is that while DRM_COLOR_FORMAT_ was a bitmask,
-> drm_output_color_format is a proper enum. However, the enum was done is
-> such a way than DRM_COLOR_FORMAT_X =3D BIT(DRM_OUTPUT_COLOR_FORMAT_X) so
-> the transitition is easier.
->
-> The only thing we need to consider is if the original code meant to use
-> that value as a bitmask, in which case we do need to keep the bit shift,
-> or as a discriminant in which case we don't.
+> of_drm_find_bridge() is deprecated. Move to its replacement
+> of_drm_find_and_get_bridge() which gets a bridge reference, and ensure it
+> is put when done by using the drm_bridge::next_bridge pointer.
 
 Acked-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 
 >
-> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-> Acked-by: Jani Nikula <jani.nikula@intel.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > ---
+> 2.52.0
 >
 
