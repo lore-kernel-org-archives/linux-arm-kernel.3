@@ -4,115 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1739FC72AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 10:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5538FC72BE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 12:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L56AsLQJPv7xFX6NRJViSV9Nyw57/OnoRHXM53h4moY=; b=uskrc5gO3Tt9rkDeOL+F1+boLI
-	eizng1wtnpG498RW8fu/I/TYqHJ4JWJczSYQ5UkxsO3atFz+BSwASsLxK/8mMlXxcSSrRC032W4xH
-	xWOwXcXzxMY+kBtzGmeahTXuiOUBMg7bZtu8miZjZFmwymyMUnqvhedZdNnGcH9ZrSNwOALa+Hqti
-	ifb26KNirxxvb+HqRRWC5wSJUYRWvbwh98N8X0y6EPJjytI1/TFd7rnQwKGGscPWLUx2oTyH8iliL
-	Q63dAbgqp4BS3Gi2Fc1GvCCVtB6wsow9/Nv6T8p5gwGpbwJ5gwOYu3F6EOCySO3b0aIKpFiJYdPFt
-	XaMhXRTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zy7Blgxy40soCOuXl92qgOwyt/XcIUx/5IMLBAJKnqc=; b=aLqZFb4vcGNCMoi6EHaqjbdhRa
+	Dzi5TOtt2/cU8fA8Htn20gXmvPOXNR+JomqrxAjfRzrnirTrmDlMEQVM/dqzNzpdTjM/xkJcCc3By
+	asWpPHVtcHr2Tc0JJhCeRlFEqtsqHWuW9en3f6xvfadjbSA0nPJ6QV+3H0K6vwQTUfpK2VWeMSmki
+	3dYOTEQfZgsnybcpspA/h145IC+iIJ4J9YAOf22hDs+cCfWm2VqZqygF6BGOFOLGm+wvblNe7qhdl
+	zSLfyfd8MR2ZYHn6afncLyWLpF0eTz/eGZQT/sqk5na6hSlbIkggWXM2SMWILrOvqt8zwrc+pWLEd
+	MaqM/ZBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4FsK-0000000FF7j-45oV;
-	Sun, 22 Mar 2026 10:17:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4HdW-0000000FIUm-1QNZ;
+	Sun, 22 Mar 2026 12:10:30 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4FsI-0000000FF7J-2JIq
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 10:17:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F3BB6442F5;
-	Sun, 22 Mar 2026 10:17:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 134E2C19424;
-	Sun, 22 Mar 2026 10:17:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774174657;
-	bh=eVpUKNGxn3gmB5z4ZlpgOTqVBddGHzbne695kR2EpmM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UfqSIWk6ebpum2EGHkIN7D11xsyn8h2dTcvYKJ/Ot/IEIjxoCGGf9sCJk8Jh/AOeR
-	 CnlER9j2n+alpZhu/+7jMm3bqIsFBMvRvnhjRSTIiFiZhxhe96mrkXZwTd0PrALZK2
-	 sJlGwpDL6jPFbtFD0Mvpt0AEDR9PPgkv+WY2ad2sCgkvzhGHyaF3J1WpN6dK/pJR1s
-	 yMyVcBpDKD6VAdBRsb0K7v/PUMjABJXxESSvzQ0CvU9sWSCeLuCndcsgWO76kj1GOg
-	 0IsrQqXnnuXgfXHroyzOxE/Ngut8tut2aE2XGVz0rW/fkZVT5dO26JT3AH4Sr3Pt2W
-	 NS2myhnDOEU3g==
-Message-ID: <d60ff766-0dba-442d-af0e-e5ed6709ff52@kernel.org>
-Date: Sun, 22 Mar 2026 11:17:32 +0100
+	id 1w4HdS-0000000FIUK-3G6N;
+	Sun, 22 Mar 2026 12:10:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774181427; x=1805717427;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=FiSORyFIdIZ2F5fDS7mDHv41diJnTp+IxLV9U2/jyKE=;
+  b=mGElnB9r8lpRkD9FB5yOqLLWhw/f49eFpA/laRTGu/f3uEc2vF2jvoTT
+   eWcxugGjFRi2Qh/PgmDzCpR8gGpaGuC9hMiYjxmmdYIJfWRC4J1nuhFUm
+   gN9o7K1A9tOjyrB6OV6w3y8kFoZSZwVVOFv+0ZverMAPJVU8FUi0RrUaR
+   9fWzTNnZFPUhbcxz3t+9stGC4fC0v3r13NOqREadTLlKiZQ5qZjtMs2Up
+   8ML46fClN1EATgZ+sICfUyFDNBgx4q2Sf8+OstnI3z1N7OYwQVGFdhw2k
+   jZK40Yydmy8wByTfpsZGcbQ234UfxPqd/LT4gCNyimb7mEmQWMh8oRLhy
+   w==;
+X-CSE-ConnectionGUID: nExu72dfRp+AUIv7vKDYsw==
+X-CSE-MsgGUID: 5/3MMxSWS6iKcgYORndZdQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11736"; a="75085848"
+X-IronPort-AV: E=Sophos;i="6.23,135,1770624000"; 
+   d="scan'208";a="75085848"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Mar 2026 05:10:24 -0700
+X-CSE-ConnectionGUID: Haa6IgncQm6bgkG0/AV0AQ==
+X-CSE-MsgGUID: OBrAZaQHQzWGFzgXUem91w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,135,1770624000"; 
+   d="scan'208";a="222970651"
+Received: from lkp-server02.sh.intel.com (HELO d7fefbca0d04) ([10.239.97.151])
+  by orviesa010.jf.intel.com with ESMTP; 22 Mar 2026 05:10:20 -0700
+Received: from kbuild by d7fefbca0d04 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w4HdI-0000000026P-1Bti;
+	Sun, 22 Mar 2026 12:10:16 +0000
+Date: Sun, 22 Mar 2026 20:09:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>,
+	"kbusch@kernel.org" <kbusch@kernel.org>,
+	"axboe@kernel.dk" <axboe@kernel.dk>
+Cc: oe-kbuild-all@lists.linux.dev, "sven@kernel.org" <sven@kernel.org>,
+	"j@jannau.net" <j@jannau.net>, "neal@gompa.dev" <neal@gompa.dev>,
+	"hch@lst.de" <hch@lst.de>, "sagi@grimberg.me" <sagi@grimberg.me>,
+	"justin.tee@broadcom.com" <justin.tee@broadcom.com>,
+	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
+	"paul.ely@broadcom.com" <paul.ely@broadcom.com>,
+	"kch@nvidia.com" <kch@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	=?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+Subject: Re: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
+Message-ID: <202603222033.ACImXpPE-lkp@intel.com>
+References: <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH WIP v2 09/11] dt-bindings: input: touchscreen: st,stmfts:
- Introduce STM FTS5
-To: david@ixit.cz, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- phone-devel@vger.kernel.org
-References: <20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz>
- <20260315-stmfts5-v2-9-70bc83ee9591@ixit.cz>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260315-stmfts5-v2-9-70bc83ee9591@ixit.cz>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_031738_638535_84C96E94 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260322_051026_906941_0E0B9164 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,36 +99,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/03/2026 19:52, David Heidelberg via B4 Relay wrote:
-> From: David Heidelberg <david@ixit.cz>
-> 
-> Introduce more recent STM FTS5 touchscreen support.
-> 
-> Signed-off-by: David Heidelberg <david@ixit.cz>
-> ---
->  .../devicetree/bindings/input/touchscreen/st,stmfts.yaml  | 15 ++++++++++++++-
->  1 file changed, 14 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml b/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
-> index 64c4f24ea3dd0..66255893a99fb 100644
-> --- a/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
-> +++ b/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
-> @@ -16,10 +16,23 @@ description:
->  
->  allOf:
->    - $ref: touchscreen.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          const: st,stmfts5
-> +    then:
-> +      properties:
-> +        switch-gpios:
-> +          description: Switch between SLPI and AP mode.
+Hi 전민식,
 
-Do not define properties in if:then: branches. Anyway, not a property of
-this device.
+kernel test robot noticed the following build warnings:
 
-Best regards,
-Krzysztof
+[auto build test WARNING on axboe/for-next]
+[also build test WARNING on linus/master v7.0-rc4 next-20260320]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/nvme-Move-nvme_setup_cmd-before-hot_pathing/20260322-080947
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux.git for-next
+patch link:    https://lore.kernel.org/r/20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6%40epcms2p4
+patch subject: [PATCH] nvme: Move nvme_setup_cmd before hot_pathing
+config: x86_64-rhel-9.4-kunit (https://download.01.org/0day-ci/archive/20260322/202603222033.ACImXpPE-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260322/202603222033.ACImXpPE-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603222033.ACImXpPE-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/nvme/host/rdma.c: In function 'nvme_rdma_queue_rq':
+>> drivers/nvme/host/rdma.c:2067:1: warning: label 'unmap_qe' defined but not used [-Wunused-label]
+    2067 | unmap_qe:
+         | ^~~~~~~~
+
+
+vim +/unmap_qe +2067 drivers/nvme/host/rdma.c
+
+71102307196028 Christoph Hellwig 2016-07-06  1991  
+fc17b6534eb839 Christoph Hellwig 2017-06-03  1992  static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
+71102307196028 Christoph Hellwig 2016-07-06  1993  		const struct blk_mq_queue_data *bd)
+71102307196028 Christoph Hellwig 2016-07-06  1994  {
+71102307196028 Christoph Hellwig 2016-07-06  1995  	struct nvme_ns *ns = hctx->queue->queuedata;
+71102307196028 Christoph Hellwig 2016-07-06  1996  	struct nvme_rdma_queue *queue = hctx->driver_data;
+71102307196028 Christoph Hellwig 2016-07-06  1997  	struct request *rq = bd->rq;
+71102307196028 Christoph Hellwig 2016-07-06  1998  	struct nvme_rdma_request *req = blk_mq_rq_to_pdu(rq);
+71102307196028 Christoph Hellwig 2016-07-06  1999  	struct nvme_rdma_qe *sqe = &req->sqe;
+f4b9e6c90c5725 Keith Busch       2021-03-17  2000  	struct nvme_command *c = nvme_req(rq)->cmd;
+71102307196028 Christoph Hellwig 2016-07-06  2001  	struct ib_device *dev;
+3bc32bb1186cca Christoph Hellwig 2018-06-11  2002  	bool queue_ready = test_bit(NVME_RDMA_Q_LIVE, &queue->flags);
+fc17b6534eb839 Christoph Hellwig 2017-06-03  2003  	blk_status_t ret;
+fc17b6534eb839 Christoph Hellwig 2017-06-03  2004  	int err;
+71102307196028 Christoph Hellwig 2016-07-06  2005  
+71102307196028 Christoph Hellwig 2016-07-06  2006  	WARN_ON_ONCE(rq->tag < 0);
+71102307196028 Christoph Hellwig 2016-07-06  2007  
+ae1c609d185960 전민식            2026-03-20  2008  	ret = nvme_setup_cmd(ns, rq);
+ae1c609d185960 전민식            2026-03-20  2009  	if (ret)
+ae1c609d185960 전민식            2026-03-20  2010  		return ret;
+ae1c609d185960 전민식            2026-03-20  2011  
+a97157440e1e69 Andy Chiu         2021-04-26  2012  	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+a97157440e1e69 Andy Chiu         2021-04-26  2013  		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+553cd9ef82edd8 Christoph Hellwig 2016-11-02  2014  
+71102307196028 Christoph Hellwig 2016-07-06  2015  	dev = queue->device->dev;
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2016  
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2017  	req->sqe.dma = ib_dma_map_single(dev, req->sqe.data,
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2018  					 sizeof(struct nvme_command),
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2019  					 DMA_TO_DEVICE);
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2020  	err = ib_dma_mapping_error(dev, req->sqe.dma);
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2021  	if (unlikely(err))
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2022  		return BLK_STS_RESOURCE;
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2023  
+71102307196028 Christoph Hellwig 2016-07-06  2024  	ib_dma_sync_single_for_cpu(dev, sqe->dma,
+71102307196028 Christoph Hellwig 2016-07-06  2025  			sizeof(struct nvme_command), DMA_TO_DEVICE);
+71102307196028 Christoph Hellwig 2016-07-06  2026  
+6887fc6495f2df Sagi Grimberg     2022-10-03  2027  	nvme_start_request(rq);
+71102307196028 Christoph Hellwig 2016-07-06  2028  
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2029  	if (IS_ENABLED(CONFIG_BLK_DEV_INTEGRITY) &&
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2030  	    queue->pi_support &&
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2031  	    (c->common.opcode == nvme_cmd_write ||
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2032  	     c->common.opcode == nvme_cmd_read) &&
+0372dd4e361717 Daniel Wagner     2023-12-18  2033  	    nvme_ns_has_pi(ns->head))
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2034  		req->use_sig_mr = true;
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2035  	else
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2036  		req->use_sig_mr = false;
+5ec5d3bddc6b91 Max Gurtovoy      2020-05-19  2037  
+fc17b6534eb839 Christoph Hellwig 2017-06-03  2038  	err = nvme_rdma_map_data(queue, rq, c);
+a7b7c7a105a528 Max Gurtovoy      2017-08-14  2039  	if (unlikely(err < 0)) {
+71102307196028 Christoph Hellwig 2016-07-06  2040  		dev_err(queue->ctrl->ctrl.device,
+fc17b6534eb839 Christoph Hellwig 2017-06-03  2041  			     "Failed to map data (%d)\n", err);
+71102307196028 Christoph Hellwig 2016-07-06  2042  		goto err;
+71102307196028 Christoph Hellwig 2016-07-06  2043  	}
+71102307196028 Christoph Hellwig 2016-07-06  2044  
+b4b591c87f2b0f Sagi Grimberg     2017-11-23  2045  	sqe->cqe.done = nvme_rdma_send_done;
+b4b591c87f2b0f Sagi Grimberg     2017-11-23  2046  
+71102307196028 Christoph Hellwig 2016-07-06  2047  	ib_dma_sync_single_for_device(dev, sqe->dma,
+71102307196028 Christoph Hellwig 2016-07-06  2048  			sizeof(struct nvme_command), DMA_TO_DEVICE);
+71102307196028 Christoph Hellwig 2016-07-06  2049  
+fc17b6534eb839 Christoph Hellwig 2017-06-03  2050  	err = nvme_rdma_post_send(queue, sqe, req->sge, req->num_sge,
+f41725bbe16b07 Israel Rukshin    2017-11-26  2051  			req->mr ? &req->reg_wr.wr : NULL);
+16686f3a6c3cd6 Max Gurtovoy      2019-10-13  2052  	if (unlikely(err))
+16686f3a6c3cd6 Max Gurtovoy      2019-10-13  2053  		goto err_unmap;
+71102307196028 Christoph Hellwig 2016-07-06  2054  
+fc17b6534eb839 Christoph Hellwig 2017-06-03  2055  	return BLK_STS_OK;
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2056  
+16686f3a6c3cd6 Max Gurtovoy      2019-10-13  2057  err_unmap:
+16686f3a6c3cd6 Max Gurtovoy      2019-10-13  2058  	nvme_rdma_unmap_data(queue, rq);
+71102307196028 Christoph Hellwig 2016-07-06  2059  err:
+62eca39722fd99 Chao Leng         2021-02-01  2060  	if (err == -EIO)
+62eca39722fd99 Chao Leng         2021-02-01  2061  		ret = nvme_host_path_error(rq);
+62eca39722fd99 Chao Leng         2021-02-01  2062  	else if (err == -ENOMEM || err == -EAGAIN)
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2063  		ret = BLK_STS_RESOURCE;
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2064  	else
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2065  		ret = BLK_STS_IOERR;
+16686f3a6c3cd6 Max Gurtovoy      2019-10-13  2066  	nvme_cleanup_cmd(rq);
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06 @2067  unmap_qe:
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2068  	ib_dma_unmap_single(dev, req->sqe.dma, sizeof(struct nvme_command),
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2069  			    DMA_TO_DEVICE);
+62f99b62e5e3b8 Max Gurtovoy      2019-06-06  2070  	return ret;
+71102307196028 Christoph Hellwig 2016-07-06  2071  }
+71102307196028 Christoph Hellwig 2016-07-06  2072  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
