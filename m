@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7D3FC72D4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 19:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D7AD58CA1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 19:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=irObMARTu7OYKbVotrsF13+CshxCWsyGdlJ7aH8njPs=; b=1OipNnydmuDdKGN105pD4I9ZSt
-	2xpHiPdYpAXObRnTlOg+kvfTMxDzC6KgxWf1a0ZgmlbxOSDbqm88HtpEuV4Ae5UheWZ8NYwCfLrVo
-	CMOZ0tUIpJoTc0s4dTX1D+RiR7rO32yzTkI1g/ZyGBPKPVrxmcdV/WgGhGF/qdx6twr7XoQDrkNk5
-	ap4iQ0pxJPAXBhTbHY6BJ6N1GRH4BcEqhwAkJmx7sDyDYiEHm9vBbM6FwEOhHnl53nGm1SibrR/kz
-	cYriaGWgYu21fz331JDRBKNWZHeamHtYDCE+dzApymPPVbYaZXDCe4nWgD9AwOA4ws2lMZ7SyqzLq
-	myp4/aqg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kdPp+W0A0jpYkd/sH8q/7VCeNvsL6+/RsGobTkgjUSs=; b=3Kfexx155RG3n/D+GaB7CwTBBT
+	JYogASxNWkcBYtwNF+DAdEtvJ6DvIKLeo00ArV58j+omi96AWGr/pOGNTEd7QhiC91ArZOfiRGClL
+	6bXZfFAo3fb7EMYmIrzrwHA+ZkefEe5XHrd9o+BFu7SkTcCk85K5h2FGcGZ9oZM7mvV3rTNR0rNOV
+	Q67/VLUtkkUxOF6WE4NSYJUBi4xx7OJunIJlfPBEZafNfJ6lVZWNkdHFYPhM4e6nHtP+6ba7Nc2iM
+	SKSo8PD2iWyoVrSm+mBlahWcfk1ukL/2DI3PR3j1P1jfHcp05Ft2aqpUnnSFrR60rCg71bWRsyQYc
+	TtWRGASw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4OWT-0000000FbUH-0yGu;
-	Sun, 22 Mar 2026 19:31:41 +0000
-Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
+	id 1w4Oei-0000000Fbkf-0r4u;
+	Sun, 22 Mar 2026 19:40:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4OWN-0000000FbTu-3fMu
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 19:31:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774207890; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=J3cDix5VB1py9kf2wIZuA7ibG4u1c/vG38kcOOlEseCN1Bm03Gt2KdkX9XfA4rMkpnhg7Ko+gIiduMXzJMaeCBdj1xpzmbSudz08qsE0UvyujkUjF7XNAlPP0pl1efDNrRVtWSH2pjQa7MB4I2/e/+3RCjlDdqT/C1mIFCqQyDo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774207890; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=irObMARTu7OYKbVotrsF13+CshxCWsyGdlJ7aH8njPs=; 
-	b=NPrQ0JLb2tlmxuuaUJ/52d85+soHFXg4Uezmf7Heoj9rfqzvRVxDfO8JTwMCPgQ1tL3r94/6O6Fx+64aPrWOdFZxXX1CxqRItIxRqTDKvAlcFlDTHzbJvdEW9ocVhfDoQF4l5ZE303dAP64HEJGQwl5nuSraxrucbGuIwT20zSk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=trunixcodes@zohomail.com;
-	dmarc=pass header.from=<trunixcodes@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774207890;
-	s=zm2022; d=zohomail.com; i=trunixcodes@zohomail.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=irObMARTu7OYKbVotrsF13+CshxCWsyGdlJ7aH8njPs=;
-	b=bpvhWdoBoEs4ZJAF2cZGbYp9V4iX04t4gWQHfBULkUvZamwk5kM/Dgpq54C6Uc09
-	QpBpuB/oBJ01hOU6LXAW8Xdw6kLqI332DGFrJB+AixFngbJEwMe733mMnuSlsOUc6i3
-	X4YrD8rRHyFO9Y9iv93kGb37fK7CaaNCEh/n8VLo=
-Received: by mx.zohomail.com with SMTPS id 1774207888060202.5064995328131;
-	Sun, 22 Mar 2026 12:31:28 -0700 (PDT)
-From: Ethan Luna <trunixcodes@zohomail.com>
-To: peterhuewe@gmx.de,
-	jarkko@kernel.org
-Cc: jgg@ziepe.ca,
-	nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev,
-	linux-integrity@vger.kernel.org,
+	id 1w4Oef-0000000Fbk9-2mFz;
+	Sun, 22 Mar 2026 19:40:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B5F34449F;
+	Sun, 22 Mar 2026 19:40:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 773E3C19424;
+	Sun, 22 Mar 2026 19:39:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774208408;
+	bh=LmSsPswxZJyi7uyr8x6P1FPNjN1VACNlrBgkCkSkAP4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=oLbPcWiIbbxn7OdK2L+WCXVhbxqwQdPh2l75KmHFLZfVu+hn4dywhz3ud4tx6qJl7
+	 7a/Mi90Abm1OGSp1kBwcpD9waRFSX9kZ1r9O+DIdQ+XYgcDIwgHdW68Nj9GYLyNGmf
+	 I4q8LNcPUOQ+lENOSwv36knt9/YDorltIFC5qKtT/R6NhePAJsSRV3B02BJsEc1Cu4
+	 S8acANr+Be+hA9NKIhNcJ5CdalqY+U8Ayjuq1iqAQTSOhugvvvb7705mNARXeJ3EvP
+	 XmfSiLR6esl4sZQwU6w5jNugUfMg2qWrsNHmzi3Vd9sac20+v/tBNdVllME6U7cCHp
+	 E7Z1uW68ZN+qA==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Jean Delvare <khali@linux-fr.org>,
+	ojeda@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	a.hindborg@kernel.org,
+	acourbot@nvidia.com,
+	akpm@linux-foundation.org,
+	aliceryhl@google.com,
+	anton.ivanov@cambridgegreys.com,
+	bjorn3_gh@protonmail.com,
+	boqun.feng@gmail.com,
+	dakr@kernel.org,
+	david@davidgow.net,
+	gary@garyguo.net,
+	johannes@sipsolutions.net,
+	justinstitt@google.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] tpm: i2c: atmel: fix block comment formatting
-Date: Sun, 22 Mar 2026 12:30:53 -0700
-Message-ID: <20260322193112.27010-1-trunixcodes@zohomail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-kbuild@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-um@lists.infradead.org,
+	linux@armlinux.org.uk,
+	llvm@lists.linux.dev,
+	lossin@kernel.org,
+	mark.rutland@arm.com,
+	mmaurer@google.com,
+	morbo@google.com,
+	nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	nicolas.schier@linux.dev,
+	nsc@kernel.org,
+	peterz@infradead.org,
+	richard@nod.at,
+	rust-for-linux@vger.kernel.org,
+	tmgross@umich.edu,
+	urezki@gmail.com,
+	will@kernel.org
+Subject: Re: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+Date: Sun, 22 Mar 2026 20:38:30 +0100
+Message-ID: <20260322193830.89324-1-ojeda@kernel.org>
+In-Reply-To: <20260322192159.88138-1-ojeda@kernel.org>
+References: <20260322192159.88138-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Feedback-ID: rr08011227ea8742baf121abc909a485a900003ec67e16a58d3c7f0ec29c376718cc3cd5cf2f6cf5bde7621d:zu08011227862303805a5ef1e3198b1aae0000d0675014352d9e765290464e412216665ef2944e3e8c4eb1a5:rf0801122cb2892a739f674a0a6256272f0000ccfed82642d4b85ccd12da2497b88c075a7e024eaf7995cdc3ecfefdacd4:ZohoMail
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_123135_990032_46FBFB94 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20260322_124009_743796_CFACC284 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,83 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
-same line as the comment text. This violates the kernel's preferred
-comment style, which requires the closing delimiter to appear on it's
-line.
+On Sun, 22 Mar 2026 20:21:59 +0100 Miguel Ojeda <ojeda@kernel.org> wrote:
+>
+> I will reply to a couple other bindings in separate emails to avoid
+> spamming people too much.
 
-Fix the formatting to improve readability and resolve checkpatch
-warnings.
+In a series of tests, in some cases, I noticed an `objtool` warning for
+x86_64:
 
-Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
----
- drivers/char/tpm/tpm_i2c_atmel.c | 19 +++++++++++++------
- 1 file changed, 13 insertions(+), 6 deletions(-)
+    rust/kernel.o: warning: objtool: _R..._9RegulatorNtB5_8DisabledE3get() is missing an ELF size annotation
+    rust/kernel.o: warning: objtool: _R..._9RegulatorNtB5_7EnabledE3get() is missing an ELF size annotation
 
-diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
-index 4f229656a8e2..702b3c9191dc 100644
---- a/drivers/char/tpm/tpm_i2c_atmel.c
-+++ b/drivers/char/tpm/tpm_i2c_atmel.c
-@@ -33,7 +33,8 @@ struct priv_data {
- 	size_t len;
- 	/* This is the amount we read on the first try. 25 was chosen to fit a
- 	 * fair number of read responses in the buffer so a 2nd retry can be
--	 * avoided in small message cases. */
-+	 * avoided in small message cases.
-+	 */
- 	u8 buffer[sizeof(struct tpm_header) + 25];
- };
- 
-@@ -58,7 +59,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
- 	if (status < 0)
- 		return status;
- 
--	/* The upper layer does not support incomplete sends. */
-+	/*
-+	 * The upper layer does not support incomplete sends.
-+	 */
- 	if (status != len)
- 		return -E2BIG;
- 
-@@ -78,7 +81,8 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
- 
- 	/* Get the message size from the message header, if we didn't get the
- 	 * whole message in read_status then we need to re-read the
--	 * message. */
-+	 * message.
-+	 */
- 	expected_len = be32_to_cpu(hdr->length);
- 	if (expected_len > count)
- 		return -ENOMEM;
-@@ -113,13 +117,15 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
- 
- 	/* The TPM fails the I2C read until it is ready, so we do the entire
- 	 * transfer here and buffer it locally. This way the common code can
--	 * properly handle the timeouts. */
-+	 * properly handle the timeouts.
-+	 */
- 	priv->len = 0;
- 	memset(priv->buffer, 0, sizeof(priv->buffer));
- 
- 
- 	/* Once the TPM has completed the command the command remains readable
--	 * until another command is issued. */
-+	 * until another command is issued.
-+	 */
- 	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
- 	dev_dbg(&chip->dev,
- 		"%s: sts=%d", __func__, rc);
-@@ -174,7 +180,8 @@ static int i2c_atmel_probe(struct i2c_client *client)
- 
- 	/* There is no known way to probe for this device, and all version
- 	 * information seems to be read via TPM commands. Thus we rely on the
--	 * TPM startup process in the common code to detect the device. */
-+	 * TPM startup process in the common code to detect the device.
-+	 */
- 
- 	return tpm_chip_register(chip);
- }
--- 
-2.53.0
+I noticed that it only happened when `CONFIG_REGULATOR` was disabled. It
+seems that we have undefined behavior in `regulator.rs`...
 
+We have `Regulator<Enabled/Disabled>::get()` which calls
+`get_internal()` which calls the `regulator_get()` helper, which returns
+`NULL` when `CONFIG_REGULATOR` is not set. Then the return value is
+passed to `from_err_ptr` which checks `IS_ERR`, which returns false
+(unlike `IS_ERR_OR_NULL`), and thus we return an `Ok(NULL)`, which we
+then pass to `NonNull::new_unchecked`:
+
+    // SAFETY: We can safely trust `inner` to be a pointer to a valid
+    // regulator if `ERR_PTR` was not returned.
+    let inner = unsafe { NonNull::new_unchecked(inner) };
+
+So we should fix that -- it is there since its introduction in commit
+9b614ceada7c ("rust: regulator: add a bare minimum regulator
+abstraction"). How to fix that depends on whether the Rust abstraction
+supposed to work transparently like the C API, I assume.
+
+Now, two improvements I think we should independently do too:
+
+  - The docs on `regulator_get()` don't say it may return `NULL`. It
+    originally that case, but commit be1a50d4eba4 ("regulator: Let
+    drivers know when they use the stub API") changed that without
+    changing the docs.
+
+    I mean, the "docs" are on the real function, but still, one may look
+    into those and not realize the stub does something different.
+
+    The implementation comment on the stub is also a bit contradictory.
+    The original sentence (which still is there) says that nothing
+    should look at the value, but then it goes onto say that drivers may
+    actually look at the value.
+
+  - On the Rust general infrastructure side, we should document more
+    prominently that `from_err_ptr` may return `Ok(NULL)` just fine,
+    since it calls `IS_ERR`. It may be obvious, since `NULL` is not an
+    error value, but still, it could have perhaps prevented this issue.
+
+    We should also include an example to the doctest showing and testing
+    that particular case to drive the point home.
+
+    I can add that as a "good first issue".
+
+Cc'ing Liam, Mark, Daniel, Jean.
+
+I hope that helps.
+
+Cheers,
+Miguel
 
