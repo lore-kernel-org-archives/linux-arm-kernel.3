@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4DAFC72AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 10:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1739FC72AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 10:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AmdrebQd/Gxt/FhTndpvx1DLOOiDzLJ0qZA+kE9mjLk=; b=seJa5SfjeoAGmt/MVDeMuNJA5s
-	hC4ZFef787zEu2WTwbQ9KO3oVcocQCxQReMnR6JSM7tylN1rKAoE2aLaIXE4otcD5UsOJsWwgJgW9
-	TruuPX8wMfZMn2Gr5CDfiDBwi9+2+gtwl5z9317dKwiVrZBCIN+d+kSznGV+qqhjos+GaMCfTveJm
-	rQMwFl8nvwK9hebpIK17ssmidu6K8D4wzi+Iagnv6+9eUVZpGIdQWdFtY+1UoEEqT/4pU+Silau08
-	LBlbFcoWRhu5nDS11aY3VnecjlrpaQP2YyGOTLIRqvjAvyCq8DHbaZ/V7iH+tqfc92HlY+4vgJSJa
-	BT63piMw==;
+	bh=L56AsLQJPv7xFX6NRJViSV9Nyw57/OnoRHXM53h4moY=; b=uskrc5gO3Tt9rkDeOL+F1+boLI
+	eizng1wtnpG498RW8fu/I/TYqHJ4JWJczSYQ5UkxsO3atFz+BSwASsLxK/8mMlXxcSSrRC032W4xH
+	xWOwXcXzxMY+kBtzGmeahTXuiOUBMg7bZtu8miZjZFmwymyMUnqvhedZdNnGcH9ZrSNwOALa+Hqti
+	ifb26KNirxxvb+HqRRWC5wSJUYRWvbwh98N8X0y6EPJjytI1/TFd7rnQwKGGscPWLUx2oTyH8iliL
+	Q63dAbgqp4BS3Gi2Fc1GvCCVtB6wsow9/Nv6T8p5gwGpbwJ5gwOYu3F6EOCySO3b0aIKpFiJYdPFt
+	XaMhXRTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Frd-0000000FF38-2icP;
-	Sun, 22 Mar 2026 10:16:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4FsK-0000000FF7j-45oV;
+	Sun, 22 Mar 2026 10:17:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Fra-0000000FF2n-46lw
+	id 1w4FsI-0000000FF7J-2JIq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 10:16:56 +0000
+	Sun, 22 Mar 2026 10:17:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7177943E29;
-	Sun, 22 Mar 2026 10:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA548C19424;
-	Sun, 22 Mar 2026 10:16:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F3BB6442F5;
+	Sun, 22 Mar 2026 10:17:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 134E2C19424;
+	Sun, 22 Mar 2026 10:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774174612;
-	bh=po8CNnTkaQpHNLdR0yFceY24ysPtBKZ0S56BW+e5MOw=;
+	s=k20201202; t=1774174657;
+	bh=eVpUKNGxn3gmB5z4ZlpgOTqVBddGHzbne695kR2EpmM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hE1w3KiUolvaky3I2jyH23SJbxCpZg2xDQkAuvRw236wK/t8yGIvgxVtJ3rhMqnOw
-	 g3N06F++bLXBiAdoBCvT3P9LPeT11C1TXIhO2xeIEVZW8B6ZDpHkUd85wwRu9Itr3w
-	 HlFjzlUEo9nWeyMlIrdzCjqEZEdo1UpyBOTAjqDwk0hwl9m9dz0vd5ZkncvnRmR5Sc
-	 xgDQM4Rya32OYPCBUrsQe+/tJ0VPx9lNS/OJ2HUADij412RdZySs6mUnndpLainOOF
-	 gZ5Np9lolvvg7SHfBWTZaJQCcIVHWSEZfh1Jg5Bt3iv2MkuHLC76GBWTWJCgSP+XE8
-	 A97JWiU8rt+kw==
-Message-ID: <9b1a9660-3672-4165-b5bb-c7807ce885cc@kernel.org>
-Date: Sun, 22 Mar 2026 11:16:46 +0100
+	b=UfqSIWk6ebpum2EGHkIN7D11xsyn8h2dTcvYKJ/Ot/IEIjxoCGGf9sCJk8Jh/AOeR
+	 CnlER9j2n+alpZhu/+7jMm3bqIsFBMvRvnhjRSTIiFiZhxhe96mrkXZwTd0PrALZK2
+	 sJlGwpDL6jPFbtFD0Mvpt0AEDR9PPgkv+WY2ad2sCgkvzhGHyaF3J1WpN6dK/pJR1s
+	 yMyVcBpDKD6VAdBRsb0K7v/PUMjABJXxESSvzQ0CvU9sWSCeLuCndcsgWO76kj1GOg
+	 0IsrQqXnnuXgfXHroyzOxE/Ngut8tut2aE2XGVz0rW/fkZVT5dO26JT3AH4Sr3Pt2W
+	 NS2myhnDOEU3g==
+Message-ID: <d60ff766-0dba-442d-af0e-e5ed6709ff52@kernel.org>
+Date: Sun, 22 Mar 2026 11:17:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] dt-bindings: input: touchscreen: st,stmfts:
+Subject: Re: [PATCH WIP v2 09/11] dt-bindings: input: touchscreen: st,stmfts:
  Introduce STM FTS5
-To: David Heidelberg <david@ixit.cz>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+To: david@ixit.cz, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
  Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  phone-devel@vger.kernel.org
-References: <20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz>
- <20260301-stmfts5-v1-8-22c458b9ac68@ixit.cz>
- <qibmsgfttxo6kiaqyjljj6otamqp7okfr4abwpmuo7daanl6qu@ka33zvoz7lte>
- <4b8c8d8c-d2f3-4938-a451-e8e9524d40c3@ixit.cz>
+References: <20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz>
+ <20260315-stmfts5-v2-9-70bc83ee9591@ixit.cz>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <4b8c8d8c-d2f3-4938-a451-e8e9524d40c3@ixit.cz>
+In-Reply-To: <20260315-stmfts5-v2-9-70bc83ee9591@ixit.cz>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_031655_064243_40863DBF 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260322_031738_638535_84C96E94 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,35 +127,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/03/2026 18:09, David Heidelberg wrote:
-> On 01/03/2026 23:40, Dmitry Baryshkov wrote:
+On 15/03/2026 19:52, David Heidelberg via B4 Relay wrote:
+> From: David Heidelberg <david@ixit.cz>
 > 
-> [...]
+> Introduce more recent STM FTS5 touchscreen support.
 > 
->>> +    then:
->>> +      properties:
->>> +        switch-gpio:
->>> +          description: Switch between SLPI and AP mode.
->>
->> This doesn't sounds like the GPIO on the touchscreen, more like the
->> external schematic component. If it need sto be turned to one position,
->> it might be better to use GPIO hog for that.
+> Signed-off-by: David Heidelberg <david@ixit.cz>
+> ---
+>  .../devicetree/bindings/input/touchscreen/st,stmfts.yaml  | 15 ++++++++++++++-
+>  1 file changed, 14 insertions(+), 1 deletion(-)
 > 
-> Right now yes, but the GPIO serves to switching between SLPI and AP mode at 
-> runtime, see [1]
-> 
-> The driver lack supports for SLPI, but at moment when SLPI support lands, we 
-> should be able do something like:
-> 
-> -> device starts, touchscreen works
-> -> screen goes to sleep, but instead of powering off touchscreen, it switches to 
-> SLPI mode
-> -> user taps at touchscreen, device wakes up
-> 
-> Thus I think we need to support this GPIO in the driver.
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml b/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
+> index 64c4f24ea3dd0..66255893a99fb 100644
+> --- a/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/st,stmfts.yaml
+> @@ -16,10 +16,23 @@ description:
+>  
+>  allOf:
+>    - $ref: touchscreen.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: st,stmfts5
+> +    then:
+> +      properties:
+> +        switch-gpios:
+> +          description: Switch between SLPI and AP mode.
 
-But that's not role of this device. You cannot just hook random GPIOs
-into this device node, just because you want some use-case in the driver.
+Do not define properties in if:then: branches. Anyway, not a property of
+this device.
 
 Best regards,
 Krzysztof
