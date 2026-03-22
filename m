@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D22DFC72CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 15:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1005AFC72C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 15:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuR+54+tQE6XrGnnBxOq8qWtA7CinZ4OjktX2EB6ezY=; b=exToauen9si893+YWzgk5a6Gde
-	v8vJw2UCqGN0u13JRdkbrGiL2T6dRXD0bHtkwOh8Jciq93yFtBSOWAccWuGvCP6zp7wA9Y4JwEl+S
-	f/EYXlVDoldxvVA+FbMilewzz0jzj92ecbamE1cOrsEdRSj+A9XL4JXn2lbbzkq3GtZqflwNDSHn0
-	PV3/fz2+022eWuXt6mcdWcC0Ma0zi55SdCexNgXKIo1T79Kt3lLAXyuDMvmyDTDRto2SQvK0byEqv
-	4jjsYe1BDIviNBhhp9y1ju5rNQxzy9CAK/bgVAn7+b6drNZQRdljrcsCzFzffMcdqLHBtft3h3qFv
-	8o2voCrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OqfW9F16nML5CsGkJS5mkwUC4wRnRvNmIeLf4MWREbc=; b=L99huibpRxbzptgnGiGf8hhgYo
+	DsNgLts9IKCEuJEv+8//JZ0CQRTjnW1AyM+FzzKEh/n4VvtubGpwC/dO2He0oWN3c2Rfi+XAmjZbZ
+	fK/rWBwYc+MH058ZLmdhCqHB2HE+LuZ1sfG1NJcf5x6tfsX055cCUkALId5mU20doL09a88RY9iTB
+	pbpxREc33I7U1T2o3Y+z6eYftBtQWrSUobHmAtsAaWJmMG9pOsDthf9BEz6nVfAqRIqymFQ/ZHZST
+	zIpoWjjUYLvdC91Q32qQh2crynJEDZpmIaogkA3yBxUwl0Bp/kNkUjvj8KNNtdWsSpcwOzewl5BOD
+	to3JLBJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4KsF-0000000FSin-2BzV;
-	Sun, 22 Mar 2026 15:37:55 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1w4KvP-0000000FSss-07U8;
+	Sun, 22 Mar 2026 15:41:11 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4KsC-0000000FSiL-47ta
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 15:37:54 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-509069a7a7fso796331cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 08:37:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774193871; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TwfmQzBbNk0oxeeWi6jw0O09vAVTLQdtt8LZi+wPSeg9r+bCHN+NNVZlDvwU4cwflq
-         EeuCUg++/d4JwioxA7RR6ABcmEvu9Wv1Pzc8pLYMiuVlqtuOgaUMLHa0u6RKlN7kEa7q
-         xWcp7Xr+ebf/WvUampJSZBdTQ3ykPY9PgEywwIb6al7JIS1DMNxip96/xIXwUQzEBdCw
-         lXt46DjCaxnHBdAXpg/OjmVSnEjwfh8isyPdgEkr1m9rLevGc+VoPNk3YLu3Hcyx4W7J
-         OPd5iz8COBUJ98U3w1hFanOn7nJFrLH9dj+HudveaH5RtnFIGmo3DS4Bo//jnl87tTDz
-         Qvjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=fuR+54+tQE6XrGnnBxOq8qWtA7CinZ4OjktX2EB6ezY=;
-        fh=gTmFPTvPJt1vZXOErf7i4OG3StfZZVPpk+TckzRYIrg=;
-        b=I9EeO9vqgP4kzmFPUjAsE1l8xWn7UcaMCAxh+09vsyFIAMOI7tfQ5+y0peMCRKCTZS
-         PoDcsplB4pN9tAZZ9xHWiXmVWY4rXX4YPmwxceJNLzxKRZ3r+VFn6kFQAkxPu5LS2QM+
-         uFRLSy61mRAVwV2mWvO1sGP9lK37QIYgEM7zjdgfJT/eeqEjR9977JgCMlWJqTtcreJM
-         vcksnVJxzaTVjOgtufnJaWt54zOtYX9gfzzhfaagNZaiQTzgiNvgSvz0fXRFibK2LV96
-         UiUwK0c9Y6q3FG5ZabUFtGgzdxjTLJVQ7DzHDinN0T+++ak3Gq6ArSUjaA46E9tSv2oA
-         WPhQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774193871; x=1774798671; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=fuR+54+tQE6XrGnnBxOq8qWtA7CinZ4OjktX2EB6ezY=;
-        b=aKGAm762hGdrs9piS2ZlQ3gzur3HcZXs2iVszRuyjTj8pLmwsN8Uom27wA+RNru/5P
-         gwAYL9dwyKD5hEVOoXC2ObSrTHdqzi1CeNYPNdn0Hi1p1E2Yj60ZFs2dvJvImPTX/+99
-         FlAIIwMdmStBJgMoexa41Lt0kBvAfeMBwBv3at4TvDjCamuqMXXIIxFl8Oz9QXQN0Uor
-         KoKTNEEpGiWAfcNJnBiJJXdPD5JPUohcA6w/KffyTEU99oKhZ/gjlyPzRDYy9g9m7E3r
-         BiDpXuCWPGZbeWzUxCtzCORg11P5I5xwyHPGFIjFl7gVHZDC0OlFoT5t/Kxq/lU/dnA1
-         0mNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774193871; x=1774798671;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fuR+54+tQE6XrGnnBxOq8qWtA7CinZ4OjktX2EB6ezY=;
-        b=cuyQp0Gtmak1ma4YTAs6YTi9SmcvV/VvsU4g5GCo9aJSpkCw++tplegvpmKeCH+V36
-         YXWJZdzePVoKokJiUP7ZzbwaNyOxlFxCNVJ/CAYmWe1z3yhDdRovOm6riMy4+As5Kapt
-         wJJ/vjz5Ks4UsHr6K74MDJe5+65u6BJVgy3KqwCJJbGjflu+qNlzrXLLr7jdGn+Ur+EK
-         BYV0mIjsxSuafG3caWBTcqZsuyYEhz+pMPkQeqo84wEbT+J5kk8KAaR6SdkkPTvsOXPX
-         QaD37upddcgw6yPZTZ4/wl06LB64sGD5mT/WzAdq2lpend9xZsQeVO+4V3pricmRLA8u
-         1M0g==
-X-Forwarded-Encrypted: i=1; AJvYcCXitfFACFJKPF4pkWplRy9YknwIaoQ4R2WR6P8CNgcphVs40MvwtrEjAiT3fOrI6Xot69CeveHb+PSPfiELuj8U@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXjVtX7Hu6FleZ8zWMKoTzIyg+eibe8zwvR4Vm4eybMu2WaBf5
-	S1UZ29Y3BsywCASUapYSkyMZF20RWUk5VGpPS/ST1aeSwmzS4Sba6Xy7zfLs5RyvJ1J4WC51NCf
-	bq5SfAMdDaqHlcrj5Eg8S9/eUB/BTOsisFb3UpT/0
-X-Gm-Gg: ATEYQzxMwxuCpaNMeD1Vp5CpNX3HZNvTeJrCL19uBBxQPYJ/fp+vf91J+JbjJJ+xS+R
-	z/BgeKltEeH4GK7ONxgsYG1xUyZgsr64QEsZWweNtuEX/523bEhehZK3A9MRnxsHF3fS1yr4MzM
-	A8pViLGG4mWFg8AW5JBOpApDR/adjioqlySeA/SDG5PM36pAORE+k53KKnv70ACleH/n1ODvP9Z
-	iboptUKROm6OMCrOT7vnpTy2gjfezYFRiiRSF8lbDGLvwNhDM39yQBeip9vl3TRSxylJHeYetQt
-	cbpnD8VY
-X-Received: by 2002:a05:622a:2d1:b0:4ff:cb72:7c03 with SMTP id
- d75a77b69052e-50b48062695mr17650241cf.3.1774193871175; Sun, 22 Mar 2026
- 08:37:51 -0700 (PDT)
+	id 1w4KvL-0000000FSs3-0Avp;
+	Sun, 22 Mar 2026 15:41:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1774194064; x=1774798864; i=markus.elfring@web.de;
+	bh=OqfW9F16nML5CsGkJS5mkwUC4wRnRvNmIeLf4MWREbc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=QmSp+aTEP2B2BSY0P97BWIzFRbtCu+/JclRqHING1eHiGQZizScFHj5wEMhLm9t4
+	 aGIlSmtSeiKGUfgN9NgAWScvL6xBSdSp3yC3qj2V1rPbibHoEtC/p4IDNhlvH8KyI
+	 qd8kyXlc/oR3m7+ZMLu30M87Z4lL0fPjldHlPo7V48L1oF9irUreURci4DOtSo/9R
+	 X8FD6vIVVQtognFPx7GOxiDbPnft5UDi0iy14XVg3VJYdPkZ+p7xjTfQMHLQqIVlQ
+	 wzydYY//lzVc3JI4hADA3gtLyDiseVCWzncFqXxSVHx4CHEoV0zkIDeTtl9xiZSq+
+	 jpnM+qVkuStU63rQvA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MY5fd-1w3cOY3gGD-00LWq9; Sun, 22
+ Mar 2026 16:41:03 +0100
+Message-ID: <874c84df-a6eb-4024-b81a-149ff52707ea@web.de>
+Date: Sun, 22 Mar 2026 16:40:59 +0100
 MIME-Version: 1.0
-References: <20260321212419.2803972-1-maz@kernel.org> <20260321212419.2803972-3-maz@kernel.org>
-In-Reply-To: <20260321212419.2803972-3-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Sun, 22 Mar 2026 15:37:14 +0000
-X-Gm-Features: AQROBzCYF63bg2F-Z9cPsy4KXnsrkxV-B-1xhNDq36LfpfgZNex4zdlpfFtoy30
-Message-ID: <CA+EHjTwfVkT4B87jn1Jhko=kf2us-1S4kCzj+stEOAm6ugFeAw@mail.gmail.com>
-Subject: Re: [PATCH 2/5] KVM: arm64: pkvm: Simplify BTI handling on CPU boot
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Mostafa Saleh <smostafa@google.com>, Quentin Perret <qperret@google.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+To: Felix Gu <ustc.gu@gmail.com>, linux-spi@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Dongliang Mu <mudongliangabcd@gmail.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+ Mark Brown <broonie@kernel.org>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+References: <20260322-rockchip-v1-1-fac3f0c6dad8@gmail.com>
+Subject: Re: [PATCH] spi: meson-spicc: Fix double-put in remove path
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260322-rockchip-v1-1-fac3f0c6dad8@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:opnQCVWCscvbiOV5OwJ8v8ayG0MoaW1oTJS5TEpEXOmuIm6N95J
+ Kp0YaEssnsAfpJZ/5Y0KWArfmRvAKJpzD7JxxPN5cUcelWKdaXtNT6aihBekXbyMaT3U5zE
+ BQhsUms2TwZVspqpGHQcBn/1sYMM0A0qlr+bp+2BiGnunpIrwJDC0slCWXk0iKDdw+k0vaW
+ kFqj2XsQklonU8ZzZP9QQ==
+UI-OutboundReport: notjunk:1;M01:P0:gzKSpq4TZgk=;CeKiKjC9n2jDaWjXY2lbs4GAfQ7 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_083753_053756_B8DD51FF 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20260322_084107_872374_9A03B439 
+X-CRM114-Status: UNSURE (   4.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,77 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 21 Mar 2026 at 21:24, Marc Zyngier <maz@kernel.org> wrote:
->
-> In order to perform an indirect branch to kvm_host_psci_cpu_entry()
-> on a BTI-aware system, we first branch to a 'BTI j' landing pad,
-> and from there branch again to the target.
->
-> While this works, this is really not required:
->
-> - BLR works with 'BTI c' and 'PACIASP' as the landing pad
->
-> - Even if LR gets clobbered by BLR, we are going to restore the
->   host's registers, so it is pointless to try and avoid touching
->   LR
->
-> Given the above, drop the veneer and directly call into C code.
-> If we were to come back from it, we'd directly enter the error
-> handler.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> meson_spicc_probe() registers the controller with
+> devm_spi_register_controller(), so teardown already drops the
+> controller reference via devm cleanup.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+Were any source code analysis tools involved here?
 
-Cheers,
-/fuad
 
-> ---
->  arch/arm64/kvm/hyp/nvhe/host.S     | 10 ----------
->  arch/arm64/kvm/hyp/nvhe/hyp-init.S |  9 +++++----
->  2 files changed, 5 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/host.S b/arch/arm64/kvm/hyp/nvhe/host.S
-> index eef15b374abb0..465f6f1dd6414 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/host.S
-> +++ b/arch/arm64/kvm/hyp/nvhe/host.S
-> @@ -291,13 +291,3 @@ SYM_CODE_START(__kvm_hyp_host_forward_smc)
->
->         ret
->  SYM_CODE_END(__kvm_hyp_host_forward_smc)
-> -
-> -/*
-> - * kvm_host_psci_cpu_entry is called through br instruction, which requires
-> - * bti j instruction as compilers (gcc and llvm) doesn't insert bti j for external
-> - * functions, but bti c instead.
-> - */
-> -SYM_CODE_START(kvm_host_psci_cpu_entry)
-> -       bti j
-> -       b __kvm_host_psci_cpu_entry
-> -SYM_CODE_END(kvm_host_psci_cpu_entry)
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> index 5d00bde092010..55e0dce65dc56 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> @@ -213,12 +213,13 @@ SYM_CODE_START_LOCAL(__kvm_hyp_init_cpu)
->         mov     x0, x28
->         bl      ___kvm_hyp_init                 // Clobbers x0..x2
->
-> -       /* Leave idmap. */
-> +       /* Leave idmap -- using BLR is OK, LR is restored from host context */
->         mov     x0, x29
-> -       ldr     x1, =kvm_host_psci_cpu_entry
-> -       br      x1
-> +       ldr     x1, =__kvm_host_psci_cpu_entry
-> +       blr     x1
->
-> -       // The core booted in EL1. KVM cannot be initialized on it.
-> +       // The core booted in EL1, or the C code unexpectedly returned.
-> +       // Either way, KVM cannot be initialized on it.
->  1:     wfe
->         wfi
->         b       1b
-> --
-> 2.47.3
->
+> Calling spi_controller_put() again in meson_spicc_remove()
+> causes a double-put.
+
+Do any contributors care more for another development requirement?
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v7.0-rc4#n94
+
+Regards,
+Markus
 
