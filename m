@@ -4,112 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01EAFEC01AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42922EC01AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=; b=bBQyHAO0i34A7chYOfyAtROkOp
-	+eiwMVAPbDVVvE67jC8XYBmGjQtZGecRSDnKS+ldouI+ghxvaP8lZUtOdCIzZ19BbrSg5bEaGerqq
-	XI057ecKMvhZHBUrzwXTUJRXhU8KwDOHUjn3CHLxNbvRlXnH3fAAX0KNs385dOAgzpUgUkpi9rdGK
-	1uCBfRYqWk8bRWrb+fvQNcj/bzoa6BBHgjMjqsZxEpAK4ohqx2+qwn0KJFy+M07ds/ofa1SDY/VF+
-	Iq/hV1CnsfXCEkB7bSlY5KMtjDVlQ9OMldc46JYkn154JegEoTk0HK9jZdhbOaOvGrGNEdEy9tjrN
-	crtBU/ng==;
+	bh=50lipdLdy0rn0ZzFb+/og0BjrVfYMthBF9lHaKHPaS8=; b=0TGoLI7gZZ3In2z1u5Rm94fC4k
+	OPfC5s4FXr2j60XxtIab/2YFlLZPaxsgKwm7tHYKYQlM3uwZrWDQoC8qrJ+hFa97ZRQ+bYAFXb4Kx
+	pZD2v76VhLCMvZAlWk5XXT1Z7COsITFSoN+8ejzW2w+2pSHTNZNmfzoSPOu5/X5T00ZfirNQby/sn
+	4W2fEd+k7V3kpDWhKC1TPvtnUfHrEmKxdaN48HjbxA8dIKDowlEmekIs4tieDF1QIQWksuCfikCO2
+	KiM8bq+JunAD7XDY+hIn8+Vm4a/stGpFPx/bGOEj4l0lpNX1DPAOVPVACgSRldCSWNHpBjL6Mjjv6
+	RswiM5Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bIp-0000000GLDX-3PRX;
-	Mon, 23 Mar 2026 09:10:27 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.84])
+	id 1w4bLS-0000000GLR2-3rCo;
+	Mon, 23 Mar 2026 09:13:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bIm-0000000GLCZ-3ggt;
-	Mon, 23 Mar 2026 09:10:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774257016; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=fCnQxOjBHWAvciIhvDWKGSu1LEvxeGBq1dtQMwfQ/6WAAJnAx3Yp4cEn/ZabU9x/sM
-    GIgqdDNxbQutsjV8oO8lPOLn0DpOb3Bkoq8I0uKtoF4cqWGt+gTdB6X0ByylvHnf8gUR
-    JMKimUSb+RNCcx2n245u3T+748iW+y08/SRCUhsrhZuz7IWewgetlkXiKpxFeF9OMaWA
-    804UyV/Q/Q9RAubQsnrfP2ieNJ40fkzT5ZJXl/ctRCmY30+9x5QrfVBfPbAKgeoc/nuo
-    dQvcgEg8VW1iU4gK4sOFBovJLylMa5bx9O1TpWqp/V4s5NLxvAvR/ejnFPQbpcDJeibg
-    mPoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1774257016;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=;
-    b=j44P6oh9KjaapEvWeWAxinrm23dGpzGc6zQgz8zReYtOa8RQO1OZtijvbstav8i6TH
-    y+e9aUAZguwnx0WsGDuoMcYVUX5ylEtlgqztFbRc8KybT5ARjQynxC4UA7LeXPElPkqr
-    wC1AVGXoNo/vsaKHiJE9i20B3Kr/VSvUMtPkZT3YFWr79PoMgfshTB8yJamJoNXAdAo4
-    Vks/GHstO1/+Ff+kWLQUyNUbqK03RupBrRmd+PHiMZbqvG03lpDg71c2dg869GrHeBwB
-    7ILalUn4LJCoSg7K30giTEp1xd4ooKQGr/A3zDJpaxAxSuik5QrqD3SdHKefIB1xqfub
-    PxCQ==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1774257016;
-    s=strato-dkim-0002; d=iokpp.de;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=;
-    b=oB5MUOcwnL8wCWZIvUbSF+n2tSmvY2PVB1F2iP1KO29zhSuG8WjCJd7fd9BCHBLaoO
-    hCZji4UZWVbHd/cymJEyO1S+ozjz244YJBfyKb9vafioRhTGzelXhX4OzKC6kK5nhtL4
-    YQR79nLITuX5GloZVPJoO/UpMz3kMEQO92qhPnTcL6pc37pfKMniHYxAQAZfa0t7YL1Z
-    S1L3kuaFutU7wdHOboPeeVPCX/vhOxSEJR9ndUkN4paxKvvTF6X72S4NxJju1E+/ZgG5
-    Z9NH3rqjY80KOT4BKWf7AYDRjw3oVY2qlgM2m1rS0eSuQi0Z8yn0yYbBvO6roGjoWV3Z
-    Vs2w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1774257016;
-    s=strato-dkim-0003; d=iokpp.de;
-    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=;
-    b=OxctGTOoYRuBaiR748PWHh5Zf8TwSpWRVyedcUgy/m2eZ9JYyuKBf0kvDe4ia1Uls5
-    cUNnrJp25Kfa9ukmmCBQ==
-X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSe9tgBDSDt0V0DBslXBtZUxPOub3IZqk"
-Received: from [10.176.235.211]
-    by smtp.strato.de (RZmta 55.0.1 AUTH)
-    with ESMTPSA id z7934522N9ADQJ7
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Mon, 23 Mar 2026 10:10:13 +0100 (CET)
-Message-ID: <d74ef14d2376d6b4ca819eccb4570120f658caeb.camel@iokpp.de>
-Subject: Re: [PATCH v4 01/12] scsi: ufs: core: Introduce a new ufshcd vops
- negotiate_pwr_mode()
-From: Bean Huo <beanhuo@iokpp.de>
-To: Can Guo <can.guo@oss.qualcomm.com>, avri.altman@wdc.com,
- bvanassche@acm.org,  beanhuo@micron.com, peter.wang@mediatek.com,
- martin.petersen@oracle.com,  mani@kernel.org
-Cc: linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Sai Krishna
- Potthuri <sai.krishna.potthuri@amd.com>, Ajay Neeli <ajay.neeli@amd.com>,
- Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski
- <krzk@kernel.org>, Chaotian Jing <chaotian.jing@mediatek.com>, Stanley Jhu
- <chu.stanley@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  "Bao D. Nguyen"
- <quic_nguyenb@quicinc.com>, Adrian Hunter <adrian.hunter@intel.com>,
- Archana Patni <archana.patni@intel.com>, open list
- <linux-kernel@vger.kernel.org>, "open list:UNIVERSAL FLASH STORAGE HOST
- CONTROLLER DRIVER..." <linux-samsung-soc@vger.kernel.org>, "moderated
- list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>, "moderated list:UNIVERSAL FLASH
- STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
- "open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
- <linux-arm-msm@vger.kernel.org>
-Date: Mon, 23 Mar 2026 10:10:12 +0100
-In-Reply-To: <20260321031021.1722459-2-can.guo@oss.qualcomm.com>
-References: <20260321031021.1722459-1-can.guo@oss.qualcomm.com>
-	 <20260321031021.1722459-2-can.guo@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	id 1w4bLR-0000000GLQq-2wNA;
+	Mon, 23 Mar 2026 09:13:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E411D600C4;
+	Mon, 23 Mar 2026 09:13:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06702C4CEF7;
+	Mon, 23 Mar 2026 09:13:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774257188;
+	bh=wzMrqKx3Jtzn/TAs56FycVP5WjxG7mSofPlph6puuTE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=joSxwlspVhKYcgE4zizMzEupkVxH7zBoRt16ItgpGqtktF8hLPrEEOTxfgh4aRR46
+	 H0U9alpLsA83SdovjY4NjT0S8IVfoGCFHfdV08wBojK7QatPitGsHroy+nurmzIUo5
+	 9LTrYrheRCty7XcM5Hdcd35jJVYk4YzX2FwqnAgbFVPaee1S/zk0OOYbb6dWKe54SV
+	 Qejn61X7CFhOqRsAbeUsXpGiEPrzUHGPx8hpLYNbDN7Ghgx9DVL33kddcsAYc4j5Sz
+	 AmCzqaip3eo7Xnd8PbIQkYXGzXvvJm8fegMwy8XoqhfyH8Ytxfa3hUrWvBicIE9Bu0
+	 C1NjdvWhW+Gjw==
+Date: Mon, 23 Mar 2026 09:13:06 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Michael Kelley <mhklinux@outlook.com>
+Cc: Long Li <longli@microsoft.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
+	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
+	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
+	Pedro Falcato <pfalcato@suse.de>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>, 
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>, 
+	"linux-staging@lists.linux.dev" <linux-staging@lists.linux.dev>, "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, 
+	"target-devel@vger.kernel.org" <target-devel@vger.kernel.org>, "linux-afs@lists.infradead.org" <linux-afs@lists.infradead.org>, 
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH v4 18/21] drivers: hv: vmbus: replace deprecated mmap
+ hook with mmap_prepare
+Message-ID: <409ff1b0-43ff-4b1d-ad07-7624e0817640@lucifer.local>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <05467cb62267d750e5c770147517d4df0246cda6.1774045440.git.ljs@kernel.org>
+ <SN6PR02MB41573DF211DA2469D7FFE892D44BA@SN6PR02MB4157.namprd02.prod.outlook.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_021025_250250_702D6C78 
-X-CRM114-Status: GOOD (  10.31  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SN6PR02MB41573DF211DA2469D7FFE892D44BA@SN6PR02MB4157.namprd02.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,36 +90,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-03-20 at 20:10 -0700, Can Guo wrote:
-> Most vendor specific implemenations of vops pwr_change_notify(PRE_CHANGE)
-> are fulfilling two things at once:
-> - Vendor specific target power mode negotiation
-> - Vendor specific power mode change preparation
->=20
-> When TX Equalization is added into consideration, before power mode chang=
-e
-> to a target power mode, TX Equalization Training (EQTR) needs be done for
-> that target power mode. In addition, UFSHCI spec requires to start TX EQT=
-R
-> from HS-G1 (the most reliable High Speed Gear).
->=20
-> Adding TX EQTR before pwr_change_notify(PRE_CHANGE) is not applicable
-> because we don't know the negotiated power mode yet.
->=20
-> Adding TX EQTR post pwr_change_notify(PRE_CHANGE) is inappropriate
-> because pwr_change_notify(PRE_CHANGE) has finished preparation for a powe=
-r
-> mode change to negotiated power mode, yet we are changing power mode to
-> HS-G1 for TX EQTR.
->=20
-> Add a new vops negotiate_pwr_mode() so that vendor specific power mode
-> negotiation can be fulfilled in its vendor specific implementations.
-> Later on, TX EQTR can be added post vops negotiate_pwr_mode() and before
-> vops pwr_change_notify(PRE_CHANGE).
->=20
-> Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
+On Mon, Mar 23, 2026 at 04:16:20AM +0000, Michael Kelley wrote:
+> From: Lorenzo Stoakes (Oracle) <ljs@kernel.org> Sent: Friday, March 20, 2026 3:40 PM
+> >
+> > The f_op->mmap interface is deprecated, so update the vmbus driver to use
+> > its successor, mmap_prepare.
+> >
+> > This updates all callbacks which referenced the function pointer
+> > hv_mmap_ring_buffer to instead reference hv_mmap_prepare_ring_buffer,
+> > utilising the newly introduced compat_set_desc_from_vma() and
+> > __compat_vma_mmap() to be able to implement this change.
+> >
+> > The UIO HV generic driver is the only user of hv_create_ring_sysfs(),
+> > which is the only function which references
+> > vmbus_channel->mmap_prepare_ring_buffer which, in turn, is the only
+> > external interface to hv_mmap_prepare_ring_buffer.
+> >
+> > This patch therefore updates this caller to use mmap_prepare instead,
+> > which also previously used vm_iomap_memory(), so this change replaces it
+> > with its mmap_prepare equivalent, mmap_action_simple_ioremap().
+> >
+> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+> > ---
+> >  drivers/hv/hyperv_vmbus.h    |  4 ++--
+> >  drivers/hv/vmbus_drv.c       | 31 +++++++++++++++++++------------
+> >  drivers/uio/uio_hv_generic.c | 11 ++++++-----
+> >  include/linux/hyperv.h       |  4 ++--
+> >  4 files changed, 29 insertions(+), 21 deletions(-)
+> >
+>
+> There are two mmap() code paths in the Hyper-V UIO code. One path is
+> to mmap() the file descriptor for /dev/uio<n>, and the other is to mmap()
+> the "ring" entry under /sys/devices/vmbus/devices/<uuid>. The former is
+> done by uio_mmap(), and the latter by hv_uio_ring_mmap_prepare().
+>
+> I tested both these paths using a combination of two methods in a
+> x86/x64 VM on Hyper-V:
+>
+> 1) Using the fcopy daemon, which maps the ring buffer for the primary
+> channel and sends/receives messages with the Hyper-V host. This
+> method tests only the 1st path because the fcopy daemon doesn't create
+> any subchannels that would use the "ring" entry.
+>
+> 2) Using a custom-built test program. This program doesn't communicate
+> with the Hyper-V host, but allows mostly verifying both code paths for the
+> primary channel. As a sanity check, it verifies that the two mmaps are
+> mapping the same memory, as expected.
+>
+> As such,
+>
+> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
 
-Looks good to me. Let=E2=80=99s move forward!
+Perfect, thanks so much for this!
 
-Reviewed-by: Bean Huo <beanhuo@micron.com>
+It is tricky for me to test these, beyond fairly exhaustive logical
+confirmation of equivalence, so this is _hugely_ helpful.
+
+>
+> The most robust test would be to run DPDK networking against
+> UIO, as it would communicate with the Hyper-V host and use
+> multiple subchannels that resulting in mmap'ing the "ring"
+> entry under /sys.
+>
+> @Long Li -- I'll leave it to your discretion as to whether you want
+> to test DPDK against these mmap() changes.
+
+Thanks in advance for taking a look on this also!
+
+>
+> I've noted one minor issue below.
+>
+> [snip]
+>
+> --- a/include/linux/hyperv.h
+> +++ b/include/linux/hyperv.h
+> @@ -1015,8 +1015,8 @@ struct vmbus_channel {
+>  	/* The max size of a packet on this channel */
+>  	u32 max_pkt_size;
+>
+> -	/* function to mmap ring buffer memory to the channel's sysfs ring attribute */
+> -	int (*mmap_ring_buffer)(struct vmbus_channel *channel, struct vm_area_struct *vma);
+> +	/* function to mmap_prepare ring buffer memory to the channel's sysfs ring attribute */
+>
+> Changing the comment from "mmap ring buffer" to "mmap_prepare ring buffer"
+> produces awkward wording since "mmap" is used here as a verb.  It might be better
+> to just leave the comment unchanged.
+
+Sure am happy with that of course, I think Sashiko moaned about this but
+it's obviously fine either way.
+
+Andrew - do you mind restoring the comment to its original form above? Thanks!
+
+>
+> Michael
+>
+>
+> +	int (*mmap_prepare_ring_buffer)(struct vmbus_channel *channel, struct vm_area_desc *desc);
+>
+>  	/* boolean to control visibility of sysfs for ring buffer */
+>  	bool ring_sysfs_visible;
+
+Cheers, Lorenzo
 
