@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130F8F483D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A52BBF483DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SwGqJivCZuoQ0QOAqTiwVc7sREI+t8oAui5UzAXnqv8=; b=DLRlC939iXrbTGCjtZhd9NvSZh
-	hdk9yCX3zJocUrfefEzUnUJuLIrujCKvcgTMABgtbX7YErTSaPHPYj+1QON1zbtPHtafQMG2KE8Sz
-	do8RNWZGn10tM9FQ4bwnW5x1oUFGOnD4+ANeVCYx1p/b5FXpi5HeQyhb0x4zk9bYuV/SADdgaDrXj
-	RqC3oGGQHdpFw38DqguQGjnisAon/uaTFR/oSDBZuxDKb3mqxdzhUiQwphWOAwqND2658spp06koi
-	Bo7A02VZS/YxLzwccwcbjvN6tjrlYVJMbAzf9EX10tsFSMoY9qObyYwM5Mfm1LTKQVIhkXC9b2M26
-	R1dNnqxg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0nEuDGOyfGoJsT8R0x4gPYw/7+wtgnLV2D3WgNUbD7s=; b=HI4nRbf1+fhOtZ
+	RZQSW0mPslVHH1sWYukF6B+p3fc4tqRWm/E2vKa0A49AtKBewAsOIgq6Xd3qFuwzpOXorVIpwBBu2
+	BwPBL6TaS0opzqsZ0cbtqVbl4FXkk3vH5IgnNeLI4GYkJkkPTSVv8yzlitcCNOMszyjbshL8urydh
+	D7WxdJZ+s0oxTyy+uMWgVUTSQwIEnnMDzOs+TWclcmSND9yc4oXD0E6qd+Hp7o5m13qJFEg3bpB0A
+	BeYhusIdbkwQD/r/os38legHbqCrhM/PVtqqdFAkQWoK4d2H6k0b4q3fnik+S7j2C2jTyrHwW5gC9
+	+tH+QRFvcObSen5C1qNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jMI-0000000HFbr-02Ah;
+	id 1w4jMI-0000000HFcb-2Zxo;
 	Mon, 23 Mar 2026 17:46:34 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jMF-0000000HFZc-11GJ;
+	id 1w4jMF-0000000HFZa-1qxU;
 	Mon, 23 Mar 2026 17:46:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774287988;
-	bh=NX8PprlBauLw/tHNs9H9iHjyPLMjnL119UcQNvumShw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=owueYsI5uemsLworg5FWjNGbBAjE5KCss5CaIRWyeur9wZoVVbWEG9cFCnRibxfF2
-	 JKfg1HwrfX9o0FrqW7Iy0vr/wM9OaiR8RneIqEc++7q4Pc5mjY5nu8p40dv5uz+7kH
-	 tzzwo1qgBRMpUDjMNueNhe888ZolMQYFaOMnJW54vYS1dCd0SWcCGu0O1tZPmUG5Wu
-	 E+nq5b47vRilgfzyEvxVoGcELmp99JVBIymh0x91gCkRlHA6X65YrKkr+Jlo5Jnsoz
-	 WYynEcrvvf43uiauDS9Ac7yrGnx409quoad+FCprmOl4+XjMNjS6TSeSMT7g6LePPE
-	 zm75eRfirgz+w==
+	s=mail; t=1774287987;
+	bh=szl+N6RGsBFQSv8d9e4tceOIS7qhsrS2cLiAaJycBlw=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Y+hN7D4S7W0S9UmHXIv0FZNO1nnLZLeDTZRN8/IBRDeWpuQYSOrSYSYYj6uDEUMeG
+	 7Czb68DbwHvsS7nVryMeYrG5JK8OaF47otqpmNQdPqHjs5EeFNUCmcJ06SPo1H0fB2
+	 pKzcaVULwL/JJuxSKEj3buhiVNX02IkGK+0GPEpFLXjLVTVnxnF5aeTqO7Z2f3Ua4f
+	 rFyyDJUcKQ54XJKPwg9oD8MNPUMaFxrns5PM8lIqPh0PzTMZixCCKy5CVeBuM9G+Is
+	 8mQBiBMH1TgkxWXho16NaKDrq7xZhYDHmbonDkJUvd6iqeAk70qy/vGc1t3KYkvZM7
+	 tO0gKRytetVcg==
 Received: from localhost (unknown [86.123.23.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 657A117E3F14;
-	Mon, 23 Mar 2026 18:46:28 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A82317E3F13;
+	Mon, 23 Mar 2026 18:46:27 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 23 Mar 2026 19:45:27 +0200
-Subject: [PATCH RESEND v4 1/4] drm/bridge: Add ->detect_ctx hook and
- drm_bridge_detect_ctx()
+Subject: [PATCH RESEND v4 0/4] Add HDMI 2.0 support to DW HDMI QP TX
+Date: Mon, 23 Mar 2026 19:45:26 +0200
+Message-Id: <20260323-dw-hdmi-qp-scramb-v4-0-1d99df84883e@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260323-dw-hdmi-qp-scramb-v4-1-1d99df84883e@collabora.com>
-References: <20260323-dw-hdmi-qp-scramb-v4-0-1d99df84883e@collabora.com>
-In-Reply-To: <20260323-dw-hdmi-qp-scramb-v4-0-1d99df84883e@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -70,8 +67,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  Maud Spierings <maud_spierings@hotmail.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_104631_443527_C2D042EC 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260323_104631_639741_5FF1654E 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,140 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an atomic variant of the ->detect callback and a new helper to call
-the hook while passing an optional drm_modeset_acquire_ctx reference.
+This patch series provides the missing support for high TMDS clock ratio
+and scrambling to DW HDMI QP TX library, required for handling HDMI 2.0
+display modes on RK3576 & RK3588 SoCs.
 
-When both ->detect_ctx and ->detect are defined, the latter is ignored.
-If acquire_ctx is unset, the function takes care of the locking,
-while also handling EDEADLK.
+In order to allow addressing the SCDC status lost on sink disconnects,
+it adds an atomic variant of the drm_bridge_funcs.detect() callback and
+a new drm_bridge_detect_ctx() helper, which is further used in
+drm_bridge_connector to switch to using the ->detect_ctx() hook.
 
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Furthermore, it optimizes HPD event handling in dw_hdmi_qp Rockchip
+platform driver to run the detect cycle on the affected connector only.
+
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/drm_bridge.c | 58 ++++++++++++++++++++++++++++++++++++++++++++
- include/drm/drm_bridge.h     | 30 +++++++++++++++++++++++
- 2 files changed, 88 insertions(+)
+Changes in v4:
+- Fixed conflicts while rebasing onto latest drm-misc-next
+- Link to v3: https://lore.kernel.org/r/20260119-dw-hdmi-qp-scramb-v3-0-bd8611730fc1@collabora.com
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index f8b0333a0a3b..1247573c2100 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -1345,6 +1345,64 @@ drm_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
- }
- EXPORT_SYMBOL_GPL(drm_bridge_detect);
- 
-+/**
-+ * drm_bridge_detect_ctx - check if anything is attached to the bridge output
-+ * @bridge: bridge control structure
-+ * @connector: attached connector
-+ * @ctx: acquire_ctx, or NULL to let this function handle locking
-+ *
-+ * If the bridge supports output detection, as reported by the
-+ * DRM_BRIDGE_OP_DETECT bridge ops flag, call &drm_bridge_funcs.detect_ctx
-+ * or &drm_bridge_funcs.detect for the bridge and return the connection status.
-+ * Otherwise return connector_status_unknown.
-+ *
-+ * When both @ctx and &drm_bridge_funcs.detect_ctx are not set, this helper
-+ * function is equivalent to drm_bridge_detect() above.
-+ *
-+ * RETURNS:
-+ * The detection status on success, or connector_status_unknown if the bridge
-+ * doesn't support output detection.
-+ * If @ctx is set, it might also return -EDEADLK.
-+ */
-+int drm_bridge_detect_ctx(struct drm_bridge *bridge,
-+			  struct drm_connector *connector,
-+			  struct drm_modeset_acquire_ctx *ctx)
-+{
-+	if (!(bridge->ops & DRM_BRIDGE_OP_DETECT))
-+		return connector_status_unknown;
-+
-+	if (bridge->funcs->detect_ctx) {
-+		struct drm_modeset_acquire_ctx br_ctx;
-+		int ret;
-+
-+		if (ctx)
-+			return bridge->funcs->detect_ctx(bridge, connector, ctx);
-+
-+		drm_modeset_acquire_init(&br_ctx, 0);
-+retry:
-+		ret = drm_modeset_lock(&connector->dev->mode_config.connection_mutex,
-+				       &br_ctx);
-+		if (!ret)
-+			ret = bridge->funcs->detect_ctx(bridge, connector, &br_ctx);
-+
-+		if (ret == -EDEADLK) {
-+			drm_modeset_backoff(&br_ctx);
-+			goto retry;
-+		}
-+
-+		if (ret < 0)
-+			ret = connector_status_unknown;
-+
-+		drm_modeset_drop_locks(&br_ctx);
-+		drm_modeset_acquire_fini(&br_ctx);
-+
-+		return ret;
-+	}
-+
-+	return bridge->funcs->detect(bridge, connector);
-+}
-+EXPORT_SYMBOL_GPL(drm_bridge_detect_ctx);
-+
- /**
-  * drm_bridge_get_modes - fill all modes currently valid for the sink into the
-  * @connector
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 4f19f7064ee3..31ef1496fe63 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -547,6 +547,33 @@ struct drm_bridge_funcs {
- 	enum drm_connector_status (*detect)(struct drm_bridge *bridge,
- 					    struct drm_connector *connector);
- 
-+	/**
-+	 * @detect_ctx:
-+	 *
-+	 * Check if anything is attached to the bridge output.
-+	 *
-+	 * This callback is optional, if not implemented the bridge will be
-+	 * considered as always having a component attached to its output.
-+	 * Bridges that implement this callback shall set the
-+	 * DRM_BRIDGE_OP_DETECT flag in their &drm_bridge->ops.
-+	 *
-+	 * This is the atomic version of &drm_bridge_funcs.detect.
-+	 *
-+	 * To avoid races against concurrent connector state updates, the
-+	 * helper libraries always call this with ctx set to a valid context,
-+	 * and &drm_mode_config.connection_mutex will always be locked with
-+	 * the ctx parameter set to this ctx. This allows taking additional
-+	 * locks as required.
-+	 *
-+	 * RETURNS:
-+	 *
-+	 * &drm_connector_status indicating the bridge output status,
-+	 * or the error code returned by drm_modeset_lock(), -EDEADLK.
-+	 */
-+	int (*detect_ctx)(struct drm_bridge *bridge,
-+			  struct drm_connector *connector,
-+			  struct drm_modeset_acquire_ctx *ctx);
-+
- 	/**
- 	 * @get_modes:
- 	 *
-@@ -1542,6 +1569,9 @@ drm_atomic_helper_bridge_propagate_bus_fmt(struct drm_bridge *bridge,
- 
- enum drm_connector_status
- drm_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector);
-+int drm_bridge_detect_ctx(struct drm_bridge *bridge,
-+			  struct drm_connector *connector,
-+			  struct drm_modeset_acquire_ctx *ctx);
- int drm_bridge_get_modes(struct drm_bridge *bridge,
- 			 struct drm_connector *connector);
- const struct drm_edid *drm_bridge_edid_read(struct drm_bridge *bridge,
+Changes in v3:
+- Used drm_bridge_helper_reset_crtc() helper to reset the display
+  pipeline and got rid of some boilerplate code (Maxime)
+- Rebased onto latest drm-misc-next
+- Link to v2: https://lore.kernel.org/r/20260113-dw-hdmi-qp-scramb-v2-0-ae7b2c58d24d@collabora.com
 
+Changes in v2:
+- Collected Tested-by tags from Diederik and Maud
+- Rebased onto latest drm-misc-next
+- Ensured the recently introduced 'no-hpd' support for dealing with
+  unconnected/repurposed/broken HPD pin is limited to HDMI 1.4 rates
+- Link to v1: https://lore.kernel.org/r/20251203-dw-hdmi-qp-scramb-v1-0-836fe7401a69@collabora.com
+
+---
+Cristian Ciocaltea (4):
+      drm/bridge: Add ->detect_ctx hook and drm_bridge_detect_ctx()
+      drm/bridge-connector: Switch to using ->detect_ctx hook
+      drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and scrambling support
+      drm/rockchip: dw_hdmi_qp: Do not send HPD events for all connectors
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 167 ++++++++++++++++++++++---
+ drivers/gpu/drm/display/drm_bridge_connector.c |  73 +++++------
+ drivers/gpu/drm/drm_bridge.c                   |  58 +++++++++
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c |  44 +++----
+ include/drm/drm_bridge.h                       |  30 +++++
+ 5 files changed, 296 insertions(+), 76 deletions(-)
+---
+base-commit: 0dd7a23da214279cfb77b0eb03c38614867524d7
+change-id: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
 -- 
-2.52.0
+Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
 
