@@ -4,66 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A078BF4613C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 21:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D64D58CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 21:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gv7ISimnhseEM70YcQxBz1x71zZDUe8CYuIh4tJLlnI=; b=tv6+zlCdq9bvkAfmnw9JID6waD
-	cghGkmqhw8uB67BS8FjqCuom+GvOU3JZBypzxNexs0hRV3NeoBpBDRsQgKb+WNqLIDvm0WleAqqSh
-	HVK/gsD0h6tcaTom7rx6zmCl8GT/hcFssfJb510/Oo+Qee+PPKI+CY0hTJ/NMmiPosKal3spVS5rN
-	a+yu0DwtSLveuGjtGLwq5FDD3nqvCLnnhTAAibdier2XHszRNmH38dLSu9ecgn7aVSgLkfSvM6KeF
-	tef+eCVlEaVKfRAG3Cc9IBE++bV/qWh7FYQUP0xle3heBsduFC9olgs/HXfR4+27IY5mSSRSKSgog
-	h569DAcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lKibSiaGto2/xLCXJNRfo8lYxMCoZ0ZsNgmqb7Kzbys=; b=uSbt8pqXr6Jbj8JfEwTh5NPVbR
+	QbcrykeaKeXHP0pRPoq13MeW5989gBbZyKBhdOgqcHd9tKlabD6tf3MLN6rfrewatPbJHMlTqWkH5
+	ut3ZjT8PZ2eo/8AggjY2nAe3b3uAcN61rkWGqJpK00zf79G4hnauHVhBtSxAqMS6JxAgWjnBhZ3Y0
+	B34tkKL7yJ0n32KqWTNumO0cP76a4IHKlhJnSokHPPiVp4xZ3Ba9hT1B3X0YAiPy+5yf9fBJfSN0H
+	Oapmnbt2Etcr3p8yOGVu5ztqrUIhdim7NNfC1Wc5JMaUKIYJPPsY5JtEP3j7uKQeOrEGX6FEZeFAt
+	r2NQG3wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4n9V-000000002Mz-48ie;
-	Mon, 23 Mar 2026 21:49:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4nHz-000000002sj-2PIN;
+	Mon, 23 Mar 2026 21:58:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4n9T-000000002MX-2vXs;
-	Mon, 23 Mar 2026 21:49:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06FEF44186;
-	Mon, 23 Mar 2026 21:49:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E23DC4CEF7;
-	Mon, 23 Mar 2026 21:49:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774302574;
-	bh=e2ZhSCx0wJsAx1emJeyO4FU08Tb6VMlBPPL5XXi0V+k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MXR3s6Iie7Hp0vfWKYIxZqEwcifDLvFfeZtG7iRbEA0DhAy6OrFcIRNASgmDu1wES
-	 zn4IB9ubKrtOy0wXus4wPsc0eBevTbJva1lSU9ESfklLjSd5pBNB1nV24Q36di4wYW
-	 0lXP0/FiXiQNTgJjuefwj+TrVnsIet/iqOzKs3Iq+mE+Od+sUt35pv7eHj4n55e+gz
-	 13fLIGiGQyk69OH0znKnUMNM0rDD9dbru0bdVoDvY3E2gfDe4vCze6n6yxC9kUGOMb
-	 kSLEBVcMkyjMZKjC+Q98InaQDpdQcVNO4WZCXfb7pbVZYBqGq7rQw4g31sEWJnyczt
-	 1LJaq/W2VhUWw==
-Date: Mon, 23 Mar 2026 21:49:30 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com,
-	amelie.delaunay@foss.st.com
-Subject: Re: [PATCH v5 15/17] spi: uniphier: Simplify clock handling with
- devm_clk_get_enabled()
-Message-ID: <2f623083-5846-48d4-8c36-e55d663047c0@sirena.org.uk>
-References: <cover.1773885292.git.xiaopei01@kylinos.cn>
- <bcfc4a5191976b2ada9cd4094b61ac67a0ea9da7.1773885292.git.xiaopei01@kylinos.cn>
+	id 1w4nHw-000000002sI-4BAw;
+	Mon, 23 Mar 2026 21:58:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=lKibSiaGto2/xLCXJNRfo8lYxMCoZ0ZsNgmqb7Kzbys=; b=fYnCXAOY8tEejWvoaP03EBSdXk
+	Ih63aNmwLCAvfAx12lE8ySuBFghzfiDa0ujd5Q+Splhfb8oHZraD3qqK/xiYKiXxEXxqHFeKPmgiA
+	wa9R64Dh6sXQKUUQZ4Ls6p1gb9ZhyyDbiJ0rrzW+nLAV8sBikWZAsEnVEY+Fe/3aqbvMXG4wy+Ly1
+	zd0KIX0mi4Msx05CmgIQWyxXqYMbJWLpUauof2nRPhOBXObZlu9foUf+mnh584PYAItbp4rpRko5y
+	tTw9V6HwgaG+cp5M8W2xfp+7JZljbfdE1hTdTrPyKWgaKVZ9Fp9H6cA1HyUv8KpMPtK934NxDBZhE
+	D/F4aSHg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL v2] Rockchip dts fixes for 7.0 #1
+Date: Mon, 23 Mar 2026 22:58:16 +0100
+Message-ID: <5057236.GXAFRqVoOG@phil>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Y/Y2tr05pHZcxD/m"
-Content-Disposition: inline
-In-Reply-To: <bcfc4a5191976b2ada9cd4094b61ac67a0ea9da7.1773885292.git.xiaopei01@kylinos.cn>
-X-Cookie: Advancement in position.
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_144936_279825_DC92BFE8 
-X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-CacheID: sfid-20260323_145821_063780_A7C47EB3 
+X-CRM114-Status: UNSURE (   7.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,45 +63,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi SoC maintainers,
 
---Y/Y2tr05pHZcxD/m
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+As requested by Krzysztof, here is a more condensed PR.
 
-On Thu, Mar 19, 2026 at 10:04:11AM +0800, Pei Xiao wrote:
-> Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for the clock. This removes the need for
-> explicit clock enable and disable calls, as the managed API automatically
-> handles clock disabling on device removal or probe failure.
+Changes in v2 are that I dropped fixes for dt-schema errors and fixes
+for commits introduced not closesly to the current release. These have
+been moved to the current branches.
 
-This breaks an allmodconfig build:
+The Pinebook regression fix actually also is for a commit from august
+last year, but fixes an actively tracked regression, so maybe carries
+a bit more weight.
 
-/build/stage/linux/drivers/spi/spi-uniphier.c: In function =E2=80=98uniphie=
-r_spi_remove=E2=80=99
-:
-/build/stage/linux/drivers/spi/spi-uniphier.c:773:35: error: unused variabl=
-e =E2=80=98pr
-iv=E2=80=99 [-Werror=3Dunused-variable]
-  773 |         struct uniphier_spi_priv *priv =3D spi_controller_get_devda=
-ta(host
-);
-      |                                   ^~~~
 
---Y/Y2tr05pHZcxD/m
-Content-Type: application/pgp-signature; name="signature.asc"
+Please pull
 
------BEGIN PGP SIGNATURE-----
+Thanks
+Heiko
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBtWkACgkQJNaLcl1U
-h9BGOQf+P4qqM5W2u6LtXeZ+RqwAf5bIlruWN7Zu6y+s0RsmbnL8SLo7ezN1P5XA
-CaagW1s3A1znQ+f+UOmPpt7CUIM1lfu4JMWMQEq/cZthfywlxT0GzJCFxfwmIfXc
-CIg28KtEajxKDNgRhc5AUvY+uPwX0bN3q2rUJ/kMcSeopHH61rIVinefkvqchzj3
-FcC4NVtnG1cKpbV/hwswiKs7/f4NPM3PJs/PUgGtrqtvcaylsOcjEkL/tUQN5bHY
-TupvhVwEX8LSCuTL2A0ihBwbZj1FWzwTqmb2nkc+zwDd0wOWosktdz/D4qYx04Ox
-knJf2rx/baCD+1NxJPUJXi0GgY9dkg==
-=IvRp
------END PGP SIGNATURE-----
 
---Y/Y2tr05pHZcxD/m--
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.0-rockchip-dtsfixes1-v2
+
+for you to fetch changes up to 29d1f56c4f3001b7f547123e0a307c009ac717f8:
+
+  Revert "arm64: dts: rockchip: Further describe the WiFi for the Pinebook Pro" (2026-02-22 23:28:06 +0100)
+
+----------------------------------------------------------------
+Revert to fix a regression that breaks Wifi support for a large part
+of Pinebook Pro users (multiple Wifi chipsets).
+
+----------------------------------------------------------------
+Heiko Stuebner (1):
+      Revert "arm64: dts: rockchip: Further describe the WiFi for the Pinebook Pro"
+
+ arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+
+
 
