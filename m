@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB050F46112
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311CDF4610D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OscSA7VX88n3XrL7v79AKQUAYIeU7nasD2rrGASIl8w=; b=PPrdZpES3h/jK4Bji0PoKdIJ/Y
-	A04mFwkS6KrLhoAqevZ+1vdbv+/CPKKk81OPhGNEpHklhE+poaen5P8Q53Qk3S/HwzBCsuQ58xZp2
-	Zw0cYj4bP7uzS+mCOFPNHU9R2tA/diQjT0tiad9BMroiOm+GcDWAdTpk+8SL+7xthiqFs2JC8losU
-	9kmrwx2A44AHeTvA1CTrlhVj9b+fx1tq02e32FuhVeswAr0d84lekQidLP81mVxW7r4ylX9zlKXLz
-	Sjad2wNSMUgFc43wbwZCIf8fzBN37jUhB/obZOvD0fvUwsRXMGbnIlj+q8gTAsiWNXKFC47GIhm4D
-	AMbY9+OQ==;
+	bh=llgxcxL/C1tvB5WXTxbj5qLOo0G+Bs8aGeCNtbHtlY8=; b=YZfCQ6MHDUe2nVm7FWym1hxa5H
+	Vk6Q4vpvK3W9iXxaqMt1W58mxhOMIqZQ3SMJbPOuaM2m2HsAGSUuJe7ml+St7cPuQVG7SiP7Elh0a
+	0x08mEyWkkP8UoHjUkLREOXCn/9BohzzjTyih4+26MJtl6QxZxGANVar+gfvK2zOidYMdvzROTaOl
+	QZOobKwGaK2Bv5jaxAbnFj2gTAgApf0OdLnS2kZ55/04nM+/Yesg0EgrYXloY2WRMdFr4TmyBg0iE
+	GUfL0dVnDVlPttIUq4vaHAA99agjTYuJEUG2t4AC/Ex9cH1U2Kdu8NS6lDB5pHNTvhE6+5AHpOhnf
+	0rKuD0qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fcv-0000000GrXV-2Iax;
-	Mon, 23 Mar 2026 13:47:29 +0000
+	id 1w4fg6-0000000Grka-3Twn;
+	Mon, 23 Mar 2026 13:50:46 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fcu-0000000GrXD-0mE0
+	id 1w4fg6-0000000GrkU-1Xsd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:47:28 +0000
+	Mon, 23 Mar 2026 13:50:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D2B4600AC;
-	Mon, 23 Mar 2026 13:47:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA10C4CEF7;
-	Mon, 23 Mar 2026 13:47:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6B63600C4;
+	Mon, 23 Mar 2026 13:50:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B44C4CEF7;
+	Mon, 23 Mar 2026 13:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774273647;
-	bh=n/BN5CL1WxBMpMxMXTlEGYNKW0+Dt8dFs9PN5GhrPc8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jFqT8tOKxCtEL4bjUYtNwV0kyZpM34BPJ1M7/93ycZ8k+sJjClfRZHcpWmd80cGFW
-	 VQ+Brrjc4Gc68SlSQvKBmgHg63PEeO0YQGlKgHC2+UX4HtnYp1e2xxtx/ihz/NOuv3
-	 WbVIT734BcsAp35mgE/L5VJDSGjJDrM0OfqKuSb03tCMkub76wR9a6AFLDbwkTe1Md
-	 FJE583U1jnwmjBtb8+gl6xbV6x+Py0Rqe12Xh7E46hYf+QJdrYdytiFZKwsQTh1vk+
-	 0HbKVfl068bHzb798Kg3ZmEt9hR1oGxSve/zPag4U0kuT227V/hUPR+WSnLBlQsEcw
-	 Xpet+rWYat6Mw==
-Date: Mon, 23 Mar 2026 13:47:21 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
-Cc: olivier.moysan@foss.st.com, arnaud.pouliquen@foss.st.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	lgirdwood@gmail.com, krzk+dt@kernel.org, robh@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] ASoC: dt-bindings: stm32: Fix incorrect compatible
- string in stm32h7-sai match
-Message-ID: <e4146fbd-3e2e-4d2f-b042-2af006bdfefb@sirena.org.uk>
-References: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qE4q0SY78LU6P2Qu"
-Content-Disposition: inline
-In-Reply-To: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
-X-Cookie: Avoid gunfire in the bathroom tonight.
+	s=k20201202; t=1774273845;
+	bh=0baWZXNjINTZ3z2SxZs2QXw3tAwYKeKFF0/2CnhzC2c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=u0y/GdpE99QHygF9m+wNkdy4t8wCswklFo1dQ5gOCESsWbY98SpCCLRJ3T0pJbmA3
+	 R4XFr8fdSyzCJo45Lhgt0yMOg0Zsu8NyB+0t3AHZmnQTllrtB8UFd2nFjBom5q3j6H
+	 i8HqXaDvQ9eDYrA0px1eb+bKBXlKazZ6lB1mZucueNpyMK5lP2GfuvONa7R570NX+n
+	 qZ0o+0fjFlywoFrw1y4Y6hCz7llzT759NGkbce6e0saJWoxAe16Qbofv866gLk0dda
+	 z/8VyWItC1wfZa+y1kDH8Xogwx6Sd3ge/kYMaIEBLfm29LszQZhBLn7QiiOFCm/Fg6
+	 7+Fh4rR8thsWw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w4fg3-00000004ke5-19cj;
+	Mon, 23 Mar 2026 13:50:43 +0000
+Date: Mon, 23 Mar 2026 13:50:42 +0000
+Message-ID: <86y0ji4pu5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
+In-Reply-To: <3be4971e-31a4-4033-9583-88d7fc96104f@sirena.org.uk>
+References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
+	<20260319154937.3619520-13-sascha.bischoff@arm.com>
+	<3be4971e-31a4-4033-9583-88d7fc96104f@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +93,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 23 Mar 2026 13:37:59 +0000,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> [1  <text/plain; us-ascii (7bit)>]
+> On Thu, Mar 19, 2026 at 03:52:50PM +0000, Sascha Bischoff wrote:
+> > Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
+> > already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
+> > fields. Add sanitisation for the GCIE field, which is set to IMP if
+> > the host supports a GICv5 guest and NI, otherwise.
+> 
+> ...
+> 
+> > All of this extra work is required to make sure that "legacy" GICv3
+> > guests based on QEMU transparently work on compatible GICv5 hosts
+> > without modification.
+> 
+> I'm seeing a regression in -next in set_id_regs on a range of platforms,
+> including physical ones like the Toradex Verdin AM62 and i.MX8MP-EVK,
+> with a GICv3:
 
---qE4q0SY78LU6P2Qu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+What CPUs do these machines have?
 
-On Sat, Mar 21, 2026 at 02:20:11AM +0100, Jihed Chaibi wrote:
-> The conditional block that defines clock constraints for the stm32h7-sai
-> variant references "st,stm32mph7-sai", which does not match any compatible
-> string in the enum. As a result, clock validation for the h7 variant is
-> silently skipped. Correct the compatible string to "st,stm32h7-sai".
+	M.
 
-A web search for stm32mph7 appears to show stm32h7 as the correct part
-number...  ST people, any confirmation here?  Are both valid?
-
---qE4q0SY78LU6P2Qu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBRGgACgkQJNaLcl1U
-h9Ad4gf9FDP7GFBd0VCxZa8UNz10NKWI6UItALUjjjsjEf9mhswPDggnsknBDl2Y
-4w+9nGrTJ1aX9nQUDXAk5ffeZJkk91NB7AwIOTVNqXoduBQZ3SaN/xy79C2JNNEN
-CDIUAvRPa7QIA4bxmHJCA7AttHDuDToBYSGm3TOMJpJqtDZiGBmLckgE9tkMEzDX
-odvwRZL1SHf94AwsDZw5rSV3+xBtGHwSiGcOr419u7dE8MuEZmU/W2/ghdhCHgMx
-cuL7bDPqfruIPaOgiVXK3yoSyOQjs/KqtyOrwIjMoxjLUt8bNUMTkKvbB2udagcV
-P3rXfJ+QMo5MqneyzB7J7DS+1Mjf0g==
-=Zi5l
------END PGP SIGNATURE-----
-
---qE4q0SY78LU6P2Qu--
+-- 
+Without deviation from the norm, progress is not possible.
 
