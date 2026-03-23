@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3825AFC72C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 06:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD11FC72A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 06:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKbSNz1bnQPVRgBTucbuG+mAtDWNAO0AjF15TWaqka0=; b=uYhNJnmGJVyqHRLKWrzhFWrCui
-	yirmtoBCh1ipSp3bU82hKkilvS2lTjLATgbi8ETzZmJVyESnBPJjmCax/5XqoX2krvkb/ndwNhwen
-	gFRckXkL2dug+c2njb9ZlkfKs8aJzZo5rmbFYP8MtQ3YegtXkpNXlO6xyYM2yIGpMP0Gn4ql5PsC+
-	k5rz6L6ZAJIyczX2f/jXZt6J+i7e9UEWb2pvyeolKBCrvBOoRE7RrhUnIpxGcAF4mpJAbxaumuJpP
-	IYJEW7z8OBnorRZlju8M1o91LFgkAFPrMEOjOipUCmQ1iWlINY/zeqtFjlVyhUQ7O8hKv9KQ0Q3TM
-	/nEPKaFw==;
+	bh=cUFvGhq55JONPygTQtBYsqFeVViX1eQUM3HJHzaMYXs=; b=elwOomql0vWXF6F5LHGvbqv55e
+	pX1gD+mFqmVIbq2dpmEbk+5JdmZqxVbDFT6wXCAMoEuXqh0V+pJyiBw0BeoD6cgeRM9pT3VXhAs0v
+	VnTGJ3P5qUB/ApkW1x5gw3YNHl+TJNKRAVrVdMTdFyzVMvVUmlgbccj9SoTIPjVoyITXLwDSnzYrj
+	kAOpNPJGJOd/1FUKJIgXUSwwue6KrU/02XO4N1g2MkOK7xlZ75+GWp5lkom0niwW5vXhBspXJBtEy
+	efzBuNgbilE7Kr9Kk5xoW3n9U+C3IR/QRN5nFiVJ6wlgSxxqibVbxitQ6IAnK83UCbYecwC+QZWQw
+	aHkDV41A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Z9A-0000000G9C2-34k9;
-	Mon, 23 Mar 2026 06:52:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w4ZCS-0000000G9LK-1cIV;
+	Mon, 23 Mar 2026 06:55:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Z97-0000000G9BE-1fyr
+	id 1w4ZCP-0000000G9Kz-2d72
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 06:52:18 +0000
+	Mon, 23 Mar 2026 06:55:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774248736;
+	s=mimecast20190719; t=1774248940;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=NKbSNz1bnQPVRgBTucbuG+mAtDWNAO0AjF15TWaqka0=;
-	b=V/nJVevjj0DjRhK5QX2jhgyM3dwptn26kG3yo2eeALJKzdaaknNAHEepA0RaZ95qqO9C2x
-	A5uBRHFknoOX1FZo2IIP7TjHKcdOLO7Nqj1zCbT5Edh8kuDHKa9CH/FMBia05Ba+4xUv5I
-	8xPhoicGPRgVDEN+qs1r9QzcfByo8gE=
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
- [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=cUFvGhq55JONPygTQtBYsqFeVViX1eQUM3HJHzaMYXs=;
+	b=EYy7KlQB44q3PKDJEekybpFN2E2Bloz8rOgpubo+7Hka6gYNbJo0UOxOvE9MqkZbLpXBGh
+	BuMYClle2y8QKFl0qhLGl3MZHQ6okEScW99VMyaUhYmvQA3sT4YxvINXghvXFJ+Lh1qQLF
+	M9gd5kGl0/b/uVLyEWToaWxJNDHKCmc=
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
+ [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-562-XaMd0g95Pb-JSY3tueIkfw-1; Mon, 23 Mar 2026 02:52:15 -0400
-X-MC-Unique: XaMd0g95Pb-JSY3tueIkfw-1
-X-Mimecast-MFC-AGG-ID: XaMd0g95Pb-JSY3tueIkfw_1774248734
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8297d261a67so1878811b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 23:52:14 -0700 (PDT)
+ us-mta-215-g8vFgc2XMGWKO6iCxLdmDw-1; Mon, 23 Mar 2026 02:55:36 -0400
+X-MC-Unique: g8vFgc2XMGWKO6iCxLdmDw-1
+X-Mimecast-MFC-AGG-ID: g8vFgc2XMGWKO6iCxLdmDw_1774248935
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-bce224720d8so2571516a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 23:55:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774248734; x=1774853534;
+        d=1e100.net; s=20251104; t=1774248935; x=1774853735;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=NKbSNz1bnQPVRgBTucbuG+mAtDWNAO0AjF15TWaqka0=;
-        b=ID3aO4cqpJG55b9oIbtrWdm5Mao9cPpX74S6joxqLHrD4FuFB+q5z0OTVuYzmpljWs
-         yGTPTMgExf7qh51qED0/9kOdjSjWmuXgAsyNGRH2fqn5CP6Kjgk+E/s/gh6QTCx7ebVz
-         8ssHzC/KzdkZCh61iLIfMCMdTd+9VSFQul9edMEMhu2fK2O9vZCguat+Itq0nxJsxwS/
-         IOWhcRWu9Bh31IjFQ1iL9CJjLo6me7kSHzvC6Ayc9BEaf5Vf7i9pF0lDrZEgg5yTKNXo
-         zZnA6DqDP6IcHsz2544PdaU2m3wM/SGhYqLbLJwTc7fjCKAetj3vDhDiRYXnczHpJiiP
-         S1Mg==
-X-Forwarded-Encrypted: i=1; AJvYcCXQeN4qham7Ren3GCqccQIUm3f4JG2yJ7TX/GOXI88wB7ya1p2cuQ3v9XkGVgjZlNNIuMCQQDHAy0tpXAT0J86f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0g+DegE+gUTv1/i94WGlLcvrWw4c13ScQ+waEA+WEwr8zgbVF
-	kn5I4zZdVrTtXeG2cud7U+RyjHasFwzuIeYmS/+/LEXTQNyA7UltEWTpPm3Eiioh91d5HQxLxJ1
-	w/RXtNZmSeSD7DLeqJJoTN3RXNg7PW9iZbW+BJOL8IhQj6geJc3cKPp2dWiXXc7GJTP1pInZAom
-	mM
-X-Gm-Gg: ATEYQzyKrNGYolEXy5AuE8idIQRullSXEvBXo5UEeGGxLk6BN54uH2XT7SgYdBPoChV
-	5JXl2x+pSRxRJL3ePdiRBVQSsSn+Z0JpZE2cBKPa6cZHFte9m93RAXfRimPVE7XYrn/ihLm3pbV
-	QEphxDmVvf6tp589sInQ7ka/dYw/1UdmmkXUazXm9xcUtZqKz0xGh+EJfPUYK0V6v/38TqbmL8q
-	PXXKNz4m8oFXSh71Q/kzUIzHd03cVY0ByYXa+Uv93A/Ey0uTAeb60X/ZFERtrjs8MND7pz5sArc
-	D+FlnypcmEygwHmWG2BFtfGZCh+0pswSIaDHEG78YaI3/4jiPUqSB/sb4ji+enBkiKPB0hkhaRk
-	jJUcLX1M6G88TuPmKiuSKa59bF5QlY2GXPKJvhbDQgmemEi3ajllYTKKfvBvO1Gh+
-X-Received: by 2002:a05:6a00:23d6:b0:82a:14aa:795f with SMTP id d2e1a72fcca58-82a8c35da6amr9132144b3a.35.1774248733769;
-        Sun, 22 Mar 2026 23:52:13 -0700 (PDT)
-X-Received: by 2002:a05:6a00:23d6:b0:82a:14aa:795f with SMTP id d2e1a72fcca58-82a8c35da6amr9132130b3a.35.1774248733349;
-        Sun, 22 Mar 2026 23:52:13 -0700 (PDT)
+        bh=cUFvGhq55JONPygTQtBYsqFeVViX1eQUM3HJHzaMYXs=;
+        b=f9GswLRrT+6ZYN0TkcN/iwnSWBIHJREH7o/hr09ls7uAL/HqPkaFezsERzBWqWPZKs
+         bnqklBNVJrUejMSYdU2CgaBX2T52Fn+l5zvOHSfYxrVPecj3BvScljayOpsQYKKrFRKy
+         /avkVQppPv/mIzVFgrCnmdFE2Cnh6y/qvrXXGlR+lcuDtsYaG7n8QOR6njWLtLDnyCMd
+         i1m8IBds4+vzN4XLJ4kxPrVkZ0/nIQjzmaA7d8YWZMmk2JlH8LX6SPNUHvw8ByBWMpBx
+         P/3angp2GbzWzP9wxtPPAL35O0SUVzjedfCWHAgLh0azO6Pt4m9UmzFAk5zulaln9A+/
+         rPxg==
+X-Forwarded-Encrypted: i=1; AJvYcCWFCS1Do5ktfe7q1XabbMdpUkunPsf3K5SMM48a5UBNVgkMEfVymCdp88tjLbiI+PtCiXy5sw82Y9JZftpoVL7x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5pEEfZ6/lN5QuhbRmgxzte7aeRcF4RrjlpWqXIVErnPbIPPvl
+	BMCzGWW9d6oDabzNyGwEAiHZThu9BIrDziPG15H9QDmIZYrNlDc0SqQPY+6uMkiHmOPAIZGFs5K
+	lYEqwGphYEtgzu39jpTYP/Cb/G05VNyRLLorcworITGtS0oBRRFDRXIWNcj4Frj3OJl36bRfgPH
+	CP
+X-Gm-Gg: ATEYQzyT36gxyRBhPe+7Hd6/i+Ibz43F/bdNqOdlSAQ0ObgGcONi7+WNnLZ+ii4HxNY
+	TKMqY16DOUc1QIDQJonuSfR8VaFdTpkYwATK+8Lkk5xnbiD1uz191TL+eAPRJ/p4ESJyoxLnOxV
+	0rEO7IOsBt1k3xgOImTABPW8IKPqfut0zvY2j70HX5yrMdZN2DvwHIwoYp9c80T4ygFOzEuwtcI
+	MQYTPjS9YYJVRXya9qKo1DL0swpvlKNKpQW4V1PXF3L7JkbE16Iziacfa+ch253y71miNodJSWi
+	5qNS2BW+tSiEJsX0tSvd500Rr12/GU/zR9dtWETOZOGMxPSTr1/17LBizvT0qEnd1XuP4Lwb72Y
+	s8Jymc+hhG41QkdcTDLqbPTFlGx0SpHAj9Vthe3BW2KUsuIqOTk33P6t7ovEINudU
+X-Received: by 2002:a05:6a21:3286:b0:398:7e12:c03b with SMTP id adf61e73a8af0-39bceb41272mr9670979637.44.1774248935563;
+        Sun, 22 Mar 2026 23:55:35 -0700 (PDT)
+X-Received: by 2002:a05:6a21:3286:b0:398:7e12:c03b with SMTP id adf61e73a8af0-39bceb41272mr9670964637.44.1774248935151;
+        Sun, 22 Mar 2026 23:55:35 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b03bbebbfsm9997455b3a.18.2026.03.22.23.51.58
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c743a7ff529sm6924198a12.2.2026.03.22.23.55.20
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Mar 2026 23:52:12 -0700 (PDT)
-Message-ID: <98e46fa1-8e33-4288-9894-e1756da113e2@redhat.com>
-Date: Mon, 23 Mar 2026 16:51:56 +1000
+        Sun, 22 Mar 2026 23:55:34 -0700 (PDT)
+Message-ID: <670cca31-ef2b-4fd8-89ad-221526a07f7e@redhat.com>
+Date: Mon, 23 Mar 2026 16:55:17 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 18/40] arm_mpam: resctrl: Implement helpers to update
- configuration
+Subject: Re: [PATCH v6 19/40] arm_mpam: resctrl: Add plumbing against arm64
+ task and cpu hooks
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -99,18 +99,19 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  zengheng4@huawei.com, linux-doc@vger.kernel.org,
  Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-19-ben.horgan@arm.com>
+ <20260313144617.3420416-20-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-19-ben.horgan@arm.com>
+In-Reply-To: <20260313144617.3420416-20-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: DGGe-NHrRajZfdM1mJwgbTdwJlzHhfltyTN_oopDcXU_1774248734
+X-Mimecast-MFC-PROC-ID: 9DCQDt0GbO6S9LjafVtGwon3sjTv25WyjXfeSguhY-0_1774248935
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_235217_546871_A67FF7BD 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260322_235541_769755_91EED8CC 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,19 +129,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 3/14/26 12:45 AM, Ben Horgan wrote:
 > From: James Morse <james.morse@arm.com>
 > 
-> resctrl has two helpers for updating the configuration.
-> resctrl_arch_update_one() updates a single value, and is used by the
-> software-controller to apply feedback to the bandwidth controls, it has to
-> be called on one of the CPUs in the resctrl:domain.
+> arm64 provides helpers for changing a task's and a cpu's mpam partid/pmg
+> values.
 > 
-> resctrl_arch_update_domains() copies multiple staged configurations, it can
-> be called from anywhere.
-> 
-> Both helpers should update any changes to the underlying hardware.
-> 
-> Implement resctrl_arch_update_domains() to use
-> resctrl_arch_update_one(). Neither need to be called on a specific CPU as
-> the mpam driver will send IPIs as needed.
+> These are used to back a number of resctrl_arch_ functions. Connect them
+> up.
 > 
 > Tested-by: Gavin Shan <gshan@redhat.com>
 > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
@@ -153,17 +146,15 @@ On 3/14/26 12:45 AM, Ben Horgan wrote:
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
-> Changes since rfc:
-> list_for_each_entry -> list_for_each_entry_rcu
-> return 0
-> Restrict scope of local variables
-> 
 > Changes since v2:
-> whitespace fix
+> apostrophes in commit message
 > ---
->   drivers/resctrl/mpam_resctrl.c | 70 ++++++++++++++++++++++++++++++++++
->   1 file changed, 70 insertions(+)
+>   drivers/resctrl/mpam_resctrl.c | 58 ++++++++++++++++++++++++++++++++++
+>   include/linux/arm_mpam.h       |  5 +++
+>   2 files changed, 63 insertions(+)
 > 
+
 Reviewed-by: Gavin Shan <gshan@redhat.com>
+
 
 
