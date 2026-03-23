@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B40F46132
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F3BF4613A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nTSl2OG5DiP4Tzrdin34Md98OgKsXpz3qr2juSxA29Y=; b=cWE/jA6e/NuEYbowiG8mqGDTl4
-	hePmhWtPDoyL2VAV2VKNWINkp+vfRMWIzvQrGIhaXYuoYZfeGcPiSq244O+1t/QMgjKJasKktGl2v
-	CA3566ol7O3zCaa1q8Zr2UdO9Hzxomgj5GP+cbLw0GC6YfU9udQsHPipUXCVL+6/KdangU/YfsAff
-	lbdlIAgq3fk/x/6AOlZdgjXDKeb0XxmYsJZmQ4KZ96W/W+iOXSRRUTFYFj4Lt4f0n24si/GsgIM75
-	10zSTGS1hShHZW6/5MQpAd1+mzRbH2HiiPUKrjcthw6l2MIexIaQNa0DqBgEDQ4RA/ASQ71siBfxw
-	uBwwdkEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Gqyh445RFNhCMpOGQ+ZUm8h8QVvK3gHOuBtceouwcw=; b=2/vqwGIK99GdKFYwWs8eGS9Y7v
+	PGhzyd+66R+FPbWn4XE6fESpV1aE5kP+vUbeRxW23qLbj5IKT6RBLEOxjDQxaRafOwHPLAtrYHC0f
+	yzS+hOL70NujANfOeftzSU8pKu+rWNmc7Up2MtlN4b8UvE+KfH0JCcbDzMmOq46kMTmnp5gLT8nRR
+	/zhKd5yreEIREc9cbW2RqMhcIS+y99ZFuE1nHShXYDOAPBKXtxnbs+AdN1gtTmg3NClIQ05qpeitF
+	WSCiJ6j8CQWwNdmMsCidy6veCgaDYjz7vtP7MIGEHfA56aR0mHtqxcboYM76ywJSAYmkniiNLXT7E
+	JyV+J69g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4glV-0000000GyL6-36eV;
-	Mon, 23 Mar 2026 15:00:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w4gsQ-0000000GyrJ-28p0;
+	Mon, 23 Mar 2026 15:07:34 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4glU-0000000GyKF-1qkZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Mar 2026 15:00:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=nTSl2OG5DiP4Tzrdin34Md98OgKsXpz3qr2juSxA29Y=; b=hVwYpUa5SKuQVzH/wxOFmedbrv
-	nbX6EZLPU+rRySmuyaihCYpb87xtomW+K+sKdxwqILgYk3Se8p4vuselViQYSFRHK82/j4n8PyT0h
-	f9WjcFnevLeHRgyQi5brs6EcfzK24mvN/z1iowSgkAsWrSnpsH7w7Gkf0f5H4szFEmG849QfDaNBz
-	uFXbqdilTCzEo9OeADCQNmenYik5xOmymof6uht7FMyOLd5qqPWbP8FzVH8s+dJEThcbTBY7GxmSp
-	b0LjFsSVKOjCJYyrDL5+Ks1QmLb6N6yboXGMGpyiifyHwPiHqmWjk8ETSYomCLwe3Ec4LlebZ82Km
-	S35m/k4w==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4glQ-00000001n8J-0LBs
+	id 1w4gsM-0000000Gyqr-0WhD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 15:00:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82BDA43615;
-	Mon, 23 Mar 2026 15:00:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2CB2C2BC9E;
-	Mon, 23 Mar 2026 15:00:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774278016;
-	bh=Hv3zAbS8DeLMrQDrPh89cAimDkr9XNvit+xdTh3RoWc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nNdHEjiH4fJldE6ROcEUbFfZ/8o4o/PbBAg79CJYMBezd9MApZMfyHLKMsZeJBjC5
-	 caClkZxB4r3aJixckNrChXGwRsYb4oLgv7JWkNP/L/RbS88nwRUmuG5Yqco0HmSvuq
-	 1vDt1eWOU3h2dQ+ENhu6aMw+2V2lwUYw84LnvRMtUO6NaMh/C4L/v1kgTmOqoa9/59
-	 4m+Ias2QxYpnF63YN7mJjO54WU9JJ69CLFprmJyEas83nDu5jt5V4waXoJ7BnpWHGq
-	 jNOPScYypraXrpEE/8RNXMVuijUX6xBUCJw3y3EeyoJAM9wkT2fX+KwHl4g5ysDlD0
-	 PPcv880wANmig==
-Date: Mon, 23 Mar 2026 15:00:10 +0000
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v3 30/36] KVM: arm64: Allow userspace to create protected
- VMs when pKVM is enabled
-Message-ID: <acFVeqB2P0rKqvBu@willie-the-truck>
-References: <20260305144351.17071-1-will@kernel.org>
- <20260305144351.17071-31-will@kernel.org>
- <865x6q63fu.wl-maz@kernel.org>
+	Mon, 23 Mar 2026 15:07:32 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0CD90C58081;
+	Mon, 23 Mar 2026 15:07:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CAA495FEF6;
+	Mon, 23 Mar 2026 15:07:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B553E10450FC6;
+	Mon, 23 Mar 2026 16:07:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1774278444; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=8Gqyh445RFNhCMpOGQ+ZUm8h8QVvK3gHOuBtceouwcw=;
+	b=pddg8evVZ/u+oX5Z3HmeCu6mTDmmsG29OJWSy/T0XDbuYnmjBZLPs9dQoicD8wTQEK41OY
+	jHJW7mYb14w4rBY+u2mBTdAEJjCRj2Fya6QLbH9wxp2MP40VodcnojcQV20wkC3AjC/qDz
+	TX7gt4mc7IWyc7oHN4/qY2OAf35HyqP8St/OCjjJFCyfFTDE+ZIy3GygwNeGiZIJ+fT1fr
+	3UnNKIWiTjO2JjR/VhVc0LZ33mC3tM4cG1CxcvQcAMW3RxDJfgf1pY+ejG2GGC4a3fZGPA
+	OIauvxitAsKvf+KEGtEAG7hNsY/Oa4ksa9VS8dL06jyIhYeBk8uvilHnAeQcLw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Gabor Juhos <j4g8y7@gmail.com>, Andrew Lunn <andrew@lunn.ch>, Miquel
+ Raynal <miquel.raynal@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
+Subject: Re: [PATCH v3] arm64: dts: marvell: armada-37xx: drop
+ 'marvell,usb-misc-reg' from USB host nodes
+In-Reply-To: <20260319-armada-37xx-drop-usb-misc-reg-v3-1-8585c8a0a8ba@gmail.com>
+References: <20260319-armada-37xx-drop-usb-misc-reg-v3-1-8585c8a0a8ba@gmail.com>
+Date: Mon, 23 Mar 2026 16:07:19 +0100
+Message-ID: <87tsu64mag.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <865x6q63fu.wl-maz@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_150020_467344_181526DF 
-X-CRM114-Status: GOOD (  27.57  )
+X-CRM114-CacheID: sfid-20260323_080730_311983_39C8D9C2 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,77 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 01:22:29PM +0000, Marc Zyngier wrote:
-> On Thu, 05 Mar 2026 14:43:43 +0000,
-> Will Deacon <will@kernel.org> wrote:
-> > 
-> > Introduce a new VM type for KVM/arm64 to allow userspace to request the
-> > creation of a "protected VM" when the host has booted with pKVM enabled.
-> > 
-> > For now, this depends on CONFIG_EXPERT and results in a taint on first
-> > use as many aspects of a protected VM are not yet protected!
-> > 
-> > Signed-off-by: Will Deacon <will@kernel.org>
-> > ---
-> >  arch/arm64/include/asm/kvm_pkvm.h |  2 +-
-> >  arch/arm64/kvm/Kconfig            | 10 ++++++++++
-> >  arch/arm64/kvm/arm.c              |  8 +++++++-
-> >  arch/arm64/kvm/mmu.c              |  3 ---
-> >  arch/arm64/kvm/pkvm.c             | 11 ++++++++++-
-> >  include/uapi/linux/kvm.h          |  5 +++++
-> >  6 files changed, 33 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> > index 7041e398fb4c..2954b311128c 100644
-> > --- a/arch/arm64/include/asm/kvm_pkvm.h
-> > +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> > @@ -17,7 +17,7 @@
-> >  
-> >  #define HYP_MEMBLOCK_REGIONS 128
-> >  
-> > -int pkvm_init_host_vm(struct kvm *kvm);
-> > +int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
-> >  int pkvm_create_hyp_vm(struct kvm *kvm);
-> >  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-> >  void pkvm_destroy_hyp_vm(struct kvm *kvm);
-> > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> > index 7d1f22fd490b..e71f7fb6e89a 100644
-> > --- a/arch/arm64/kvm/Kconfig
-> > +++ b/arch/arm64/kvm/Kconfig
-> > @@ -82,4 +82,14 @@ config PTDUMP_STAGE2_DEBUGFS
-> >  
-> >  	  If in doubt, say N.
-> >  
-> > +config PROTECTED_VM_UAPI
-> > +	bool "Expose protected VMs to userspace (experimental)"
-> > +	depends on KVM && EXPERT
-> > +	help
-> > +	  Say Y here to enable experimental (i.e. in development)
-> > +	  support for creating protected virtual machines using KVM's
-> > +	  KVM_CREATE_VM ioctl() when booted with pKVM enabled.
-> > +
-> > +	  Unless you are a KVM developer, say N.
-> > +
-> 
-> Let me once more express my lack of appetite for config options.
-> Protected more is already gated by a command-line option, and requires
-> active buy-in from the user.
-> 
-> Nested support is in the same "not quite finished" state, and yet
-> isn't hidden behind a configuration symbol.
-> 
-> Taint the kernel if you want, but I'd rather we don't add extra config
-> options for this. Documenting the "experimental" aspect of upstream
-> pKVM should be enough.
+Gabor Juhos <j4g8y7@gmail.com> writes:
 
-Since I _do_ expect the user ABI to evolve (probably becoming stricter)
-as we introduce additional protection to parts of the protected VM
-state, I just went for the full shebang: CONFIG option, cmdline option
-and taint.
+> The 'marvell,usb-misc-reg' property is present both in the EHCI and
+> in the XHCI USB host device nodes, however it is not documented. Thus
+> 'make dtbs_check' produces warnings like these:
+>
+>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,arm=
+ada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-re=
+g' was unexpected)
+>           from schema $id: http://devicetree.org/schemas/usb/generic-xhci=
+.yaml
+>   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,arm=
+ada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-r=
+eg' was unexpected)
+>           from schema $id: http://devicetree.org/schemas/usb/generic-ehci=
+.yaml
+>
+> Apart from the fact that the properties are not documented, those are
+> not even used by any USB host drivers. Due to this, drop the properties
+> in order to get rid of the warnings.
+>
+> Note:
+>
+> With the same name, there is a property used for the Armada 3700 USB
+> UTMI PHYs of which dt-bindings documentation has been added in commit
+> e60958699afa ("dt-bindings: phy: mvebu-utmi: add UTMI PHY bindings").
+>
+> Additionally, the property is handled by the 'phy-mvebu-a3700-utmi'
+> driver since commit cc8b7a0ae866 ("phy: add A3700 UTMI PHY driver").
+>
+> When the nodes of the UTMI PHYs has been added to the SoC dtsi by
+> commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
+> UTMI PHYs"), the properties has been added to the USB host controller
+> nodes also. According to the commit message this was unintentional,
+> however in regard to the USB hosts, neither the respective documentation,
+> nor driver support has been added into the tree since that.
+>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
 
-I tend to agree that having *all* of that is overkill, so if you're
-happy for me to drop the CONFIG option, despite the user ABI not being
-stable, then I'm fine with that.
 
-Will
+Applied on mvebu/dt64
+
+Thanks,
+
+Gregory
+
+
+> ---
+> Changes in v3:
+>   - s/intentional/unintentional/
+>   - add Reviewed-by tag from Miquel
+>   - Link to v2: https://lore.kernel.org/r/20260317-armada-37xx-drop-usb-m=
+isc-reg-v2-1-ddff72114414@gmail.com
+>
+> Changes in v2:
+>   - add Reviewed-by tag from Andrew
+>   - change subject and reword commit message
+>   - Link to v1: https://lore.kernel.org/r/20260304-armada-37xx-drop-usb-m=
+isc-reg-v1-1-800c1b746b7a@gmail.com
+> ---
+>  arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/bo=
+ot/dts/marvell/armada-37xx.dtsi
+> index ea1824f5321fbb32fc4373c08a0d94bca1dc793b..44c47409f8793ae1266303607=
+812ef481edbfbc5 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+> +++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+> @@ -369,7 +369,6 @@ usb3: usb@58000 {
+>  				compatible =3D "marvell,armada3700-xhci",
+>  				"generic-xhci";
+>  				reg =3D <0x58000 0x4000>;
+> -				marvell,usb-misc-reg =3D <&usb32_syscon>;
+>  				interrupts =3D <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+>  				clocks =3D <&sb_periph_clk 12>;
+>  				phys =3D <&comphy0 0>, <&usb2_utmi_otg_phy>;
+> @@ -393,7 +392,6 @@ usb32_syscon: system-controller@5d800 {
+>  			usb2: usb@5e000 {
+>  				compatible =3D "marvell,armada-3700-ehci";
+>  				reg =3D <0x5e000 0x1000>;
+> -				marvell,usb-misc-reg =3D <&usb2_syscon>;
+>  				interrupts =3D <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+>  				phys =3D <&usb2_utmi_host_phy>;
+>  				phy-names =3D "usb";
+>
+> ---
+> base-commit: 98226a594f313442fcba38cefc1df0b6c1691c7e
+> change-id: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
+>
+> Best regards,
+> --=20
+> Gabor Juhos <j4g8y7@gmail.com>
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
