@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E92EC01B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E799EC01B6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HeOyVhFs8c48wmCPR/uJ35gy9GU37yz4FffKYI5yR0M=; b=yUdu+atEj0zs/iI+woqzqe2qSM
-	tHfsRMEQsXT9nyHELC3qagP2UBkj8ppVd/4EVWU14Atjp468Ffhzp/w2Sw52DRyu2I6hIXJHRAYz6
-	TwE4583zZRWz4kXRlyMSYbCNKBexlpbMaJwVsulk+V4hkYus0XdWrWLZdvt0MLcwWY9WBOJrnHy4O
-	aLhLOmTT1kX6KeeWWJqAUH1ppOBKxjWZfjP0nmVf1YX7EzvtyXXmalUhiYXfdglVaGVi0V06mfoHY
-	wqYl9/X3CXx+B40odngd75ko8emW6pj2052LYoSYWVWElWgX55jXNjee/YUPsvaE5qYl4atT/3adT
-	pwd2avVg==;
+	bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=; b=LrfPYiNjzObrtspR/4Qd1j7eo+
+	ZQM1sYnlyN52GfPlZxHQFoEnMSacnT+7yf0+mvsB2KzFI9bQ4XZfeNCBICCCxcZgaYSOsUVHr/lau
+	iW0eGYiOoRI54PfecNllf1VaqbIMtSqaF2b3xd2UE1XFkS9nlsVZarXTSv/S8V88sA2NG2ts3/0ej
+	CkXfS+8n+lhd+0GMwiA8bCnVB+T6P+IS7swMpM6LdoHt3i8RaMQt7+LevIgtCjE6EcGfryyJpmIJ4
+	QKihfJb4rCED3L3AIrcJv30y25m0MgYEgV0EjW0/Cyp26bGdbejuFKuJ3Mxd0OlkcvU5Js5Yv4JqS
+	Sf6pZgdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bli-0000000GOZc-3FwM;
-	Mon, 23 Mar 2026 09:40:18 +0000
-Received: from mail-northeuropeazon11010053.outbound.protection.outlook.com ([52.101.84.53] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w4buC-0000000GP5C-1Uvv;
+	Mon, 23 Mar 2026 09:49:04 +0000
+Received: from mail-norwayeastazon11013062.outbound.protection.outlook.com ([40.107.159.62] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4blf-0000000GOYV-3uXe
+	id 1w4bu8-0000000GP4q-0ed6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 09:40:17 +0000
+	Mon, 23 Mar 2026 09:49:03 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=uYJN32jx3LAW9HwyB+9zlstBE1AFflxAE7H1F1Y3b7Sedz83uL2bQpty9Wp6sS6RMcAvvHHtru0xklWwKkRLSUpchFtoe+pFQVKDU2HL5CkVIRuaR/rJr7dJbPkRpBYlUDncabKP+KOQZ1i92ImjlELE8kFeemuBVfjAKRZZmYl78Xhw805LhE2FI2NpXqwLFi6vuu9AvNe6Y9OhzHS/kGgt5CKC3re9ruRZz9fkwRouR9U34QuV0RDepjBdqlz7y+lZFmvxjh2XX4U0nFpwnmXVZ9SkgSgaefXyQk0n7trTnjPz4sxmbDzcvyQvZGjJH7869N15lxLvbEbeM0E6GA==
+ b=aSlsQd8H5efWgNCMg4/efrAkb1+uFZh9WN6LNe8WkLA+rdax1sypeZFbKLfFGSbzi6SScNMeLwTzZz5NZEHalUcRpt7o5UvQkMqa2EyatLWcm9S0k/JHU31Xi0p9lop9aIQIu2kzIqY9RPA0u1mcO17Q8vjTgI45K6C7c3CT/txRfCeey1/S4Mr4HKhDmgDkuOD8OmbW3s109C7m5zsD506l6VnJFSzZtPSyHXPpBMbsYLXSG9gpNu6m0HU+7umsPAszDA4dHIszx5AOSOLnSrhEPgFYfkvg7CKDlooj3BzLVvO3aYwLz207WDiIQX831wAalRxb/Myra44urIs+iA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HeOyVhFs8c48wmCPR/uJ35gy9GU37yz4FffKYI5yR0M=;
- b=EfZyScuclcMwuZVNxZMT8UtJQ8Bg8jU9E9eeqIdNffykxLbGVyCZwETyCjoK//OZDw1qrIP2rPlpaXCLUP/Pt50D/TNawfr574m0xsEpMvwfbLE7bhXRpgew2ikdDaOJco+JBuOXgt8+QLWT3uX/jkYVMTZ/egw13i88cNdV1vh4SwE4o188xnqXJiuezfCCLqrWnLT+BhcBxy8ZrFpfT7wiZWHzRJTsVgBc7avJEV1WkE0tNayB4FvlfX/w3oOPKfBZ9A5c/dQyUiMgwSyBy5DW2uDbKL5IzFQQgon77Nz0vFphwtX8pdOR9figHw9TbdhABOoc/VvIWJzNZaqyoQ==
+ bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
+ b=jyED2C7j7GCDkxj3TiyytbRtlx4bUEkmuQ3/Fue72R/FYHT8BDn2xauAYK3acSQiIzzsOiG/qACuFf4Jw4fxCxmZIRkhPUOD5xd8aSV8WbrYEnCaThSgsV+EJ/VxoneaePNxiUynVmhlJr1Z9LWBMxhFGCWCx61rF1fmwxX6MkzE29Ev32n8seLIJGvrY03BVtKcDUAbXAb71AzHfbh7Ha9jOcsarZ3GSCi6wGNWfyESat03jtr0M+/0f7Wdlpj5QMOp5GN2ReLrdmIxR2l2LPty0YG5yKlCwXnmdCRp5dJAWgwL5oPvyqKlfwU2Gv1z2NJUlKdjET84lrxccqBXlg==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
  (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
@@ -42,18 +42,18 @@ ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  dmarc=[1,1,header.from=arm.com])
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HeOyVhFs8c48wmCPR/uJ35gy9GU37yz4FffKYI5yR0M=;
- b=QL2Spcddy6N8EMaTMvVgYuFdC8k7upA5Lhc9e5WtqBHfv7nIVhtfcHjkU6GJpFwqUAtzdwx+G75e0PSoRdy0pFkL68szNf42yyZMhlK9rb/jR486hv4PWoVCZKbB7n21Dym5n9Du2EYEpmrINbRiHHUYbjLcTIgkFsttk+V3OwQ=
-Received: from DU2PR04CA0165.eurprd04.prod.outlook.com (2603:10a6:10:2b0::20)
- by DB9PR08MB7495.eurprd08.prod.outlook.com (2603:10a6:10:36c::11) with
+ bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
+ b=dt0zOyrhsGxY3PJzv1GyAsKRdtX8Oovxca0szc7H2fCZuC2di6Bb9wQiy9HHg4EwfFYBFkb6M6Q3/qGJpWY6DcHWqJRhGw91uN3+OiE5DEstcNDkhEC+e3KD8bb3VDRO66ATh9KW8iSJDTXyiGGuD0IsOVzjPAAnsStmoEbO0kI=
+Received: from AS4PR10CA0030.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5d8::11)
+ by GV2PR08MB8368.eurprd08.prod.outlook.com (2603:10a6:150:bb::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Mon, 23 Mar
- 2026 09:40:10 +0000
-Received: from DU2PEPF0001E9C4.eurprd03.prod.outlook.com
- (2603:10a6:10:2b0:cafe::12) by DU2PR04CA0165.outlook.office365.com
- (2603:10a6:10:2b0::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.30; Mon, 23 Mar
+ 2026 09:48:47 +0000
+Received: from AMS1EPF00000091.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d8:cafe::b7) by AS4PR10CA0030.outlook.office365.com
+ (2603:10a6:20b:5d8::11) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Mon,
- 23 Mar 2026 09:40:05 +0000
+ 23 Mar 2026 09:48:46 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
  smtp.mailfrom=arm.com; dkim=pass (signature was verified)
  header.d=arm.com;dmarc=pass action=none header.from=arm.com;
@@ -61,38 +61,39 @@ Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
  4.158.2.129 as permitted sender) receiver=protection.outlook.com;
  client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
 Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF0001E9C4.mail.protection.outlook.com (10.167.8.73) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19 via
- Frontend Transport; Mon, 23 Mar 2026 09:40:09 +0000
+ AMS1EPF00000091.mail.protection.outlook.com (10.167.242.88) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
+ via Frontend Transport; Mon, 23 Mar 2026 09:48:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KAeC49O+8FMMQxPcHLwCT3QHmnYFhZYqK0IlOd0sm2Vo8HlIuQB6ViporEKiTEiha98SHhwMIxkeAJUf4QUuqRKlpVtjWJCz2niwakuRURwRAwAxzxOvHG8uct1zvw3RF5587XNEuAQEwHUKao8Q6FJbiQ0l7qdKHhVu0CAB0Su5W/MYGkwzeTe9VAqSekxXCgPwdROUFl1Xi8U5sMQacqzRVBEpaoC6atRo4nh5xvJKQOC9k6dt15MuxbYU3WRU5SIzvI2LsWZvzw6eCGUXTe2cuIQtYAlvB3k14pek3Keu3SY26fuBfApObO1i7FUYAcxIgrej6JQbQJMBhmk7cg==
+ b=hEPnd01ghXLxWlnHjHZd5+RTVRl3jOlI7wG3Q4e8y7VhoWERjKy7gIWbnAXmtZJfNWvK1K5W+g/prYFKvxZAZVR7rC3ojD7y581hiZmjnkm39+7/XLbDFoMjfPExN6HnjqNEF7GysqLtLKdjQasvUSGZb9/z2VJoSlnTXZ17PmrENP+gg79IDuCKB5LTI7wu0dVr32c+4JGvtqilP3VNs26rT2FlGZNfMKJSksErDJRCQxswfetF+zgSNnQR8VaJdMHlFE99ia38HzpBHUYV+gdoO1UpbOjcPNCjUhAOq/vb0lzU0bUtVIE4ZzGTKByDd0w2EoOgAnsIQqXA/cqlEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HeOyVhFs8c48wmCPR/uJ35gy9GU37yz4FffKYI5yR0M=;
- b=eYnY9GGPD+9p3UY8JHvlR27DewylVUxjm1LjZo3kjAMFT0nhP49PR/o288EKaGTPRh3jVFFlAdcv9HZP9DhHvBWmp0bKoKL7JcSIch2dfNNIJow+GUwxbOWK9UZeU5cS2uTCA5XJS7ifVg5pxkWOUjwRGQuGBKGL/u2JOvBhni7mNNQLH079sUcroCxQBSjeAYw4bhkFmXY/cSTv6fcRgw08cxfW7Um3L1NVnNw7ymx4jVmVVq08kuFrVJK6uGRVS7r3sFSGscjJebzP6StcdelH45A4FBR8nHFEuFjuZUQClB+SaSo/IaJjflnbl95hl5ur9Bo6DGwrBEK+GROgvg==
+ bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
+ b=HJYNmVGujWIa1bhS9aeKRZHG6PW7bkYmDMd9CbkFaxSsIEyV84V71T84w09PXGvYRtkFcYmR3St2SCZg5jQyEVj14vzXGiA9ZSJXS5VyxsNBDM3m+UH8ldGOjDHcMmDxD74zyBkzGbs/9luFnEQRgpv/uu4MVuNkJdcdtsAIczvukYacsN+s3GU5FSylcnFnfCwcv7pf/kgmYrGhNKTZmAtJz4Q9V+UEGUUx8WbRdR6AGQouWn7CiE77H636egb4fcZXoRodVTQEZngXIlXf35E+5dRL+4XcNbKKkQqd3p/oWkpysJsvFx1Ip2gtIHzjieU1u75XO6A7yq1AKUV0JQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
  header.d=arm.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HeOyVhFs8c48wmCPR/uJ35gy9GU37yz4FffKYI5yR0M=;
- b=QL2Spcddy6N8EMaTMvVgYuFdC8k7upA5Lhc9e5WtqBHfv7nIVhtfcHjkU6GJpFwqUAtzdwx+G75e0PSoRdy0pFkL68szNf42yyZMhlK9rb/jR486hv4PWoVCZKbB7n21Dym5n9Du2EYEpmrINbRiHHUYbjLcTIgkFsttk+V3OwQ=
+ bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
+ b=dt0zOyrhsGxY3PJzv1GyAsKRdtX8Oovxca0szc7H2fCZuC2di6Bb9wQiy9HHg4EwfFYBFkb6M6Q3/qGJpWY6DcHWqJRhGw91uN3+OiE5DEstcNDkhEC+e3KD8bb3VDRO66ATh9KW8iSJDTXyiGGuD0IsOVzjPAAnsStmoEbO0kI=
 Authentication-Results-Original: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=arm.com;
 Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by AM8PR08MB6611.eurprd08.prod.outlook.com (2603:10a6:20b:36b::15) with
+ by PAWPR08MB10308.eurprd08.prod.outlook.com (2603:10a6:102:369::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 09:39:06 +0000
+ 2026 09:47:41 +0000
 Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
  ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
  ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.022; Mon, 23 Mar 2026
- 09:39:06 +0000
-Message-ID: <ba936584-54f9-4e72-9bf0-94ea98499df5@arm.com>
-Date: Mon, 23 Mar 2026 09:39:05 +0000
+ 09:47:41 +0000
+Message-ID: <5116b14f-a6a1-45a5-a6b3-94d633b2f58f@arm.com>
+Date: Mon, 23 Mar 2026 09:47:39 +0000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 01/20] coresight: Populate CPU ID into coresight_device
+Subject: Re: [PATCH v7 08/20] coresight: syscfg: Use spinlock to protect
+ active variables
 To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
  James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
  Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
@@ -102,50 +103,50 @@ To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
 References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
- <20260320-arm_coresight_path_power_management_improvement-v7-1-327ddd36b58b@arm.com>
+ <20260320-arm_coresight_path_power_management_improvement-v7-8-327ddd36b58b@arm.com>
 Content-Language: en-US
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-1-327ddd36b58b@arm.com>
+In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-8-327ddd36b58b@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0278.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:373::16) To DU4PR08MB11769.eurprd08.prod.outlook.com
+X-ClientProxiedBy: PA7P264CA0155.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:36c::9) To DU4PR08MB11769.eurprd08.prod.outlook.com
  (2603:10a6:10:644::21)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AM8PR08MB6611:EE_|DU2PEPF0001E9C4:EE_|DB9PR08MB7495:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc5f8ee7-96b7-47f3-7eb4-08de88c02cac
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|PAWPR08MB10308:EE_|AMS1EPF00000091:EE_|GV2PR08MB8368:EE_
+X-MS-Office365-Filtering-Correlation-Id: 483fb0c2-392d-48d0-3bb5-08de88c1615e
 X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
 x-checkrecipientrouted: true
 NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: 4Z1zGRna2ToZJUadb2UfjWis1l0cUKN3wW+LwQxROTZRZaWTlkyqhbhAzOihKY7JWp687pUoygmnk0CcXSNkF9+xS7ynImPAfEZQ+92jnhS7fN2AdKStZBGXCAGQ2ZLPBjSXiM+9KkT+O10igHkzdV/dUmC72F+c8/ljBmdOAJyQMG0DyPI0yU60NGttBF4e3Zq4hm6IJy3Vc5iO6nuqw2fo3gAJfUL0+OCwgR/2KfuMXo38gpR80HKbOZNOeb849dbojKBB0Ir9A/PK6pi3vitAUv4L3qxbYDdeF0wRtLQHyN6L4NHiX50IU7/nW2eSh30P2fqDHJ4aaQ+qvLVyn4zOeVtUgnS11dZ6BgyadXVTotUzmN7G83RFrp2TzCh0J5QXPKuqANZtIneNlaVU6Wo16QQwt1pZo41tWTOtxtxVypK7PnU/o1jrvGjB0GK32gUKl0hLfSFNciJ1BPqKS142B7wXiICGJ/B8mpt/+WNVRwZ5fPTUaf1PNBnjPjp3kABUlPR/yF7Ra86FyAeA0NZf7BZy4JDJ3txV/+alV+KXxQO0HjpzMn8KjDRKyXE2gEmGGibbrEomxJFL8Nl9YFJGxNug1NBfqX8IKY6ZJsUdX/bVfGa9tinRU0FGjOWrr/1GdQyaSFupVf/n4nMWlzW0Gt7qqcR+VpfgynSJxZYjF7QcEU1PMgFIHgNvhiSj31inV4/jNPMHaTide4DanirLz1D7oQnAq90ht2WMN2wFkbHwawJobtIn1R8ICs9yGl4p48Dh+sFYNBjJEW1RQg==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: HKY7sH6XNiB/YxW4CG+3rURfqsWk/KsI05SM8lVRtYjmQVjH+ek6VSkOTlCERpFKT5zmiyrFvLiAuhtxCAi5zSSeroygRMPTIV5B8e5rih9mXAdCZGNQFZeKIDyPK2Zb+/ShxDQQ4G2dBUE0xi6sLq+k2SPyV/Ggkn0Fn3UENL09+4cTV4+c9/V1rpFUHJMzTrodAZKMZ5zy2KsybwG7DmDOm/58GNqtvo9w3SNHpWhmpeSoXTVGH7DSXB+UmUqrINyfbAtk6L2I75S8sC7Sn8fIctv9WxLpSPEImA7KU1p7ZBIjr/q3MC0ko7yi/5tE8urxaV0+kTn6W5swdoh4Dw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6611
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|921020|7053199007|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: YszzM9KzMJVQBtniyFDrxTTlmjx7V+vWuXq6P32N2AEV+buG0D0T7vDshQQIAQYCivSWLlaXDzLGoex9pU5xCkN1d3PtRoTT9BO63qnoW3moozTcS0ZbRXXn5LMUES0UZ24bI6deDlmz/3Whx883Q0pZg4LJRvfVnfJ95xsSFFtA0TT03V5q0gz/eu5qrnJvbRSmyAZDWFqdcxqg3fEPvRaq8lkOuequ5zUrQJoqZRMYR5SkRtjC757xXztZKw3xlQlmAkUOvKOqfZXbxXyZ5MEBZ+MTfG1YXUqpypme0wuLOiyWBIhCES3ukoClm7UkurlK6u6N3UlG5FaKtaKsNIrc5hR/VI1kcE7pITJ5g6WbhhLh2L/Nhyps8aTm1Ps3leJOVG6Cu/YbCZt5kXS6zKdH0K7JKzBSskStEII+lQoIoxO1kP4EDFymY2BNW4FkZXD3DtpLK2416sTmN/HcaOXHZuGR57+vgARldmrX3s+mpO0mG2IEcLMqKXoid0zl+8KZrhCfCco3X7sKu8IFpo4ygeWjs1G/o2BNsiY3r9XMm3v4tU0FRqcSW3AxRrzZQFHKmbiKDhRora+38h7QI9/MiHG4FSZFOt7s0awy3J1wI6oRzaLfePXERCB0IRvA+45BZfZqFbyHB1lJPH7UawMBOgvFF6SlCnHoCzac/rbkr12Gvs3tVCUMRAzIpEtLK0SGUA0vHZW36cVvRyZAtDGoz+ab5YPaK5i1K3SmCYD1cCHruCVBPHg/274cme1e+e5854gufqof3V4JFD5xyA==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(921020)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: I7dZ8SOO19ol3RYSEOnb8kvop+RT/WQTUAygnDGo+CtWGDIXfROksk7khdKucxH0SW8tPna/MvbsOK84cojL995QG0Po0O14Wg4c2ME8lClcX8en3aE9poJWqhGinXNxeZoGZfL68D4FklqPZ6JNu/8HjplwDz6IFOjeh2OSvPPDH9bc9sCOArJrUWerQIlhxFv7yL3b17YklCw9pZzcKivQF6WHqKnf6kYyZDeYAliInF5czmCUSjNT4rW1NOFXliAPmIYsD/0pDqDXsNhwF0zxzIv94FqAjY2JfshcortEhmeIiZhG2/u3rgGF1wQ2WoTZvnnJTgATMznsjBYCKw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10308
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C4.eurprd03.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000091.eurprd05.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3f2c7bd3-cabd-4c71-a810-08de88c00712
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|35042699022|14060799003|1800799024|921020|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: KVpWrdyYdNFsExXtU3fmw8PnriqUE55OuKndT/ijf/9Y6wAVXCEGD76U5xlUdJtiofEp5pUjRBFKvnrcAonmD4zNhUs1/3mefvWWwcbj2HQMO2gfwEhio2WWVOQ1bt+z6iXNSz83w+vhTsgZE3MGvYpO85jlmGwPAPaqNl4Tk9CrwTUEOzOnv+3HDd6LYCgfMy86MZeJ8zsFt4Anec8PIqwDZm/ZA2oZse3RdgI6GwTS8VqQKcVT5SAKcNuKutsdyJtMsUWPCGPJwN5wjWtWefBa2UiBHQLnnUlRzX/bEvU3VYgnHgP9+LsP868JB2vWygThZ6ijF5BPXzjIVfdkv6ZKPvWsnkwa0TuQFHUDDQqIFqXk8SO5lGA9t1nQZKSfrRU1yZUahWK63afv/bZ93nSNLqGGWO0qemlzXqGNpahMzOC2NFTDH1jU0wopXZQ5HP13sP1ffRoeRD/OVeShw0pi9f7gMnXl94ruWidIPVVu/k8Atl1Hz09KK/cNzB50Rn0qXGZy0I/Uf01oqPCOIJF76eg/FBsrMaRADdxn3FcVlQUHEPdy6Mdev8lX73px+nzHxINcAfC7qtoRoXaj3vVHIT5X8xrM/dboV82ChY92MXVMjWMRaCi3YXmXhQAYpvKpmnK4t8XtykFoG4If+z1kLOm1dLvG6oPFhy5DVEtJpVdygC28AxqxDco/1pg/sHxlo/CGy7mihbTBCAjcTeoNHJeZjvFqfelXnnjQHQQ8j5D5Md/dvw2ZyVg3HHFm8VJ/x4882vFMHc4Qt/LsrS5sQLgO1J6nSVzP93prxXYpgoQT972D2fD8y54vHhaM
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(35042699022)(14060799003)(1800799024)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 0f438eac-ac18-49f0-2525-08de88c139ee
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|82310400026|376014|14060799003|36860700016|921020|7053199007|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: IeHKL0UUcVlB8+iUEM93kCsQglkyVZAuR0Sjs3mPwzM38QqjvpImLDKxSI72Knc9gkMlz0YMnv6Hwd6TmaWPaRH+K+EHjgNiqm7BxqD/sU9uWJgtsSVOKqATVmt7e0LfNhIZreDPg0xodXLHr86krCxcYCDAmUc0rgEPeWAkHh7x3nEx4lkfZb9X+JQP+ruYSUkydFuwOiwF6zRMEOLmDG8vnqLbsuEo+gvrexR67bXKjfBhjim8eatOiv35u5x25Nls8xyqDH5ohdZ0GGyEocgpQmfRljR+7IXp76AWjPDyQiswHbk7PqL9+/UvhGneFLCa7YZDV4VsrwjGDzKmKldTXEy16Cs7yAkFyZ4hp0dNq9tcbXAup7gLCS7+KotnpJaAxK4fQHwpLRUX0JWcEv/kHD9KYXzWHJVfmprG7MM3UeUX9Lzg57rQKv+ooGIf3NpGQO4MfEl+KetdQkTBtNgEE65TH7Ti68xryNeAQFWRYY8usNsE9T4gVGV3IBgj1aQGBMs5SaBEdTr7Mh0ZPSWcr3U8c0b4fgJU8AXx0oK11L6Wkjce5PQNyvTgthI5/lQd1O72dPiUFMq0qpb7Of/R/aXW/wxPF05247AG502ba39QIeiHdTSAhIlIt/yR3dZ4YGLCl/SarlIJj3RjLkXP0/WG8FVLyvIRpYUHin9IeaFuMoE6ye+INcTbyp/UtRxE1+Og7ojUA8GTPGCo+t9zxUhgBWkZt1gDt/vj4j4XpCG6c7sNP8+3AfNorsLc8XUjo8FRGLJItnb4u4zh55PD39KpLwHMFdGn6DISWkBkn9bcsqJYlPw8dmeoB+ZZ
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(82310400026)(376014)(14060799003)(36860700016)(921020)(7053199007)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: yii4qfA1YpGPl92A5nWa6ExJihOr3gyyUXIBPVAhUic/AnLUX7EeQI5cK5GFuYioRZiGOO3LinxqdqoiM/qDOQkDY7JjVjVtfxhz0FjtXIZ2gKdNfwmbUd6aqbe0e5wDeiPayx1sYMi0meImAM0SyUV8GZ3mRHyZvcMI25ssB/2nccvTrKzdiVrDSyopxcH/nN+XYnkRYNyUP2KT3EnusPwkomHZsAL5LkBQC0rmNYCUQSvhuEfeCzxQOIRwLX0IJGEAL20HD3oZzS1e8xS7EdyxoIUcx7z/g1KXUtPVA96KI/YYQ47zM3w3+lMW/lq0TTNcVSFqkydOZEvp99Rst9WiU2s4X1gRdTtryRUVfBG5I1j5cICmfF2s1X0LCCQ2EF82By5EP695oCWhsTEOSc34c+bfAjF6VM9Pg/d2yWErY/8GrtmOlEQRZNbNlXBQ
+X-MS-Exchange-AntiSpam-MessageData-0: 3g0f8NrNL7LEFXiwgkULB+hhsmK9sPSEPNIQz/T2afVEqOhdr5eYKTlMa1Rdp5wP/LRe+Xx/JE7ktKsTe3JvHuL8o8ygLvmUjKqG6Zoslc3FasIBIJa3j4Pe6VhFpVEowHbnRkIB0kZsGq531IqaFZ1vxEZOVlGPRqXkIdf1pM3zxYopkC06TRXcb0PTCbSr6V+6i1ez6qL5e3O0TYM6KtSnj5KHqSbm4arDKuJEGSfFqqdhM/AXYj8vYUHKw5dsJIxCVohis7fKElw4N/urSLbwZRqm3KqbmZFKFY+WXlhKBlmlMNT7Ze9ixS12mG78VV2O0g8mXkA+hFLrpAHjKgWfw21wKF2S7tIOU1mTmCmohjPXPvXPyz1MiWPfixwTdVkDFswGh8huUbazB69hPsN/5eKT2aVSiwso5R3lWqajcgFv6gt2YjbS2qv/OGU4
 X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:40:09.6805
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:48:47.5699
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc5f8ee7-96b7-47f3-7eb4-08de88c02cac
+X-MS-Exchange-CrossTenant-Network-Message-Id: 483fb0c2-392d-48d0-3bb5-08de88c1615e
 X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C4.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000091.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB7495
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8368
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_024015_976933_7D3A1934 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260323_024900_360179_D6AF394E 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,52 +162,120 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 20/03/2026 17:42, Leo Yan wrote:
-> Add a new flag CORESIGHT_DESC_CPU_BOUND to indicate components that
-> are CPU bound.  Populate CPU ID into the coresight_device structure;
-> otherwise, set CPU ID to -1 for non CPU bound devices.
+> To support dynamically enabling and disabling the CoreSight path during
+> CPU idle, cscfg_config_sysfs_get_active_cfg() may be called by the ETM
+> driver in an atomic context. However, the function currently acquires a
+> mutex, which is a sleepable lock, and this is not allowed in atomic
+> context.
 > 
-> Use the {0} initializer to clear coresight_desc structures to avoid
-> uninitialized values.
+> To make cscfg_config_sysfs_get_active_cfg() called in the idle flow,
+> replace the mutex with a raw spinlock to protect the active
+> variables.
 > 
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> Tested-by: James Clark <james.clark@linaro.org>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->   drivers/hwtracing/coresight/coresight-catu.c       | 2 +-
->   drivers/hwtracing/coresight/coresight-core.c       | 5 +++++
->   drivers/hwtracing/coresight/coresight-cti-core.c   | 9 ++++++---
->   drivers/hwtracing/coresight/coresight-etm3x-core.c | 2 ++
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 ++
->   drivers/hwtracing/coresight/coresight-trbe.c       | 2 ++
->   include/linux/coresight.h                          | 8 ++++++++
->   7 files changed, 26 insertions(+), 4 deletions(-)
+>   drivers/hwtracing/coresight/coresight-syscfg.c | 21 ++++++++++++---------
+>   drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+>   2 files changed, 14 insertions(+), 9 deletions(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> index ce71dcddfca2558eddd625de58a709b151f2e07e..43abe13995cf3c96e70dcf97856872d70f71345a 100644
-> --- a/drivers/hwtracing/coresight/coresight-catu.c
-> +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> @@ -514,7 +514,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
->   	int ret = 0;
->   	u32 dma_mask;
->   	struct catu_drvdata *drvdata;
-> -	struct coresight_desc catu_desc;
-> +	struct coresight_desc catu_desc = { 0 };
->   	struct coresight_platform_data *pdata = NULL;
->   	void __iomem *base;
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+> index d7f5037953d6ba7fb7f83a8012a1abc5ffd0a147..3b77e4da6b6b3cfc0aa687c0280c8ee5118e286b 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+> @@ -957,15 +957,18 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
 >   
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 46f247f73cf64a97b9353b84ba5b76b991676f5f..4a246fb6bff0a75cf12995bd00a9adefb93839ec 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -1342,6 +1342,11 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
->   	csdev->access = desc->access;
->   	csdev->orphan = true;
+>   	cfg_hash = (unsigned long)config_desc->event_ea->var;
 >   
-> +	if (desc->flags & CORESIGHT_DESC_CPU_BOUND)
-> +		csdev->cpu = desc->cpu;
-> +	else
-> +		csdev->cpu = -1;
+> +	raw_spin_lock(&cscfg_mgr->spinlock);
 > +
-Additionally it may be a good idea to reject drivers that do not set CPU
-for per_cpu_source/per_cpu_sink ? That can be added a separate patch.
+>   	if (activate) {
+>   		/* cannot be a current active value to activate this */
+>   		if (cscfg_mgr->sysfs_active_config) {
+>   			err = -EBUSY;
+> -			goto exit_unlock;
+> +		} else {
+> +			err = _cscfg_activate_config(cfg_hash);
+> +			if (!err)
+> +				cscfg_mgr->sysfs_active_config = cfg_hash;
+>   		}
+> -		err = _cscfg_activate_config(cfg_hash);
+> -		if (!err)
+> -			cscfg_mgr->sysfs_active_config = cfg_hash;
+> +
+>   	} else {
+>   		/* disable if matching current value */
+>   		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
+> @@ -975,7 +978,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+>   			err = -EINVAL;
+>   	}
+>   
+> -exit_unlock:
+> +	raw_spin_unlock(&cscfg_mgr->spinlock);
+> +
+>   	mutex_unlock(&cscfg_mutex);
+>   	return err;
+>   }
+> @@ -983,9 +987,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+>   /* set the sysfs preset value */
+>   void cscfg_config_sysfs_set_preset(int preset)
+>   {
+> -	mutex_lock(&cscfg_mutex);
+> +	guard(raw_spinlock)(&cscfg_mgr->spinlock);
+>   	cscfg_mgr->sysfs_active_preset = preset;
+> -	mutex_unlock(&cscfg_mutex);
+>   }
+>   
+>   /*
+> @@ -994,10 +997,9 @@ void cscfg_config_sysfs_set_preset(int preset)
+>    */
+>   void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
+>   {
+> -	mutex_lock(&cscfg_mutex);
+> +	guard(raw_spinlock)(&cscfg_mgr->spinlock);
+>   	*preset = cscfg_mgr->sysfs_active_preset;
+>   	*cfg_hash = cscfg_mgr->sysfs_active_config;
+> -	mutex_unlock(&cscfg_mutex);
+>   }
+>   EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
+>   
+> @@ -1201,6 +1203,7 @@ static int cscfg_create_device(void)
+>   	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
+>   	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
+>   	cscfg_mgr->load_state = CSCFG_NONE;
+> +	raw_spin_lock_init(&cscfg_mgr->spinlock);
+>   
+>   	/* setup the device */
+>   	dev = cscfg_device();
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
+> index 66e2db890d8203853a0c3c907b48aa66dd8014e6..f52aba4608dadc1c7666e0e28c9b43dc1c33d1eb 100644
+> --- a/drivers/hwtracing/coresight/coresight-syscfg.h
+> +++ b/drivers/hwtracing/coresight/coresight-syscfg.h
+> @@ -42,6 +42,7 @@ enum cscfg_load_ops {
+>    * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
+>    * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
+>    * @load_state:		A multi-stage load/unload operation is in progress.
+> + * @spinlock:		Exclusive access sysfs_active_* variables.
+
+minor nit: s/spinlock/sysfs_store_lock to make it explicit in the code 
+and we don't have to look up what this protects ?
 
 Suzuki
+
+
+>    */
+>   struct cscfg_manager {
+>   	struct device dev;
+> @@ -54,6 +55,7 @@ struct cscfg_manager {
+>   	u32 sysfs_active_config;
+>   	int sysfs_active_preset;
+>   	enum cscfg_load_ops load_state;
+> +	raw_spinlock_t spinlock;
+>   };
+>   
+>   /* get reference to dev in cscfg_manager */
+> 
+
 
