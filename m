@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C91EC01A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 08:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F026CEC01A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 08:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NnWZ2/AkloT/k59JvmaxqDj2TbAZJRlNZyGc0ojSFEI=; b=x7q8Xtdsxdul1euDRqfvQQot93
-	oxpIvp01in/bb8CHNLk5YRQON1QeQgPvsidwXhPHcqiDELUTpN9etsQJ6ShfCWi0PzkEtiivKakQ1
-	3dDDM+XMr+i34dXC1Adg0Vzxxa3nxP4KB/rPx5iLZeoEHPsUOYU6OcMVaNOZJ5NdpGRfStoaTjN1A
-	fOoklzZWdjmX0npKBS44mTfDMz0f2jRxBAuzPZUdf3o8UBa+r1i2NZW+td+Uhyo8oU+qBsmhYWjGS
-	he+4NKhR7Eba9ZxYFyOqmnakuAMtM7PavpeRMH35sLaOa8EAgFbECyjSGoTVMYFcIIK5KWE0Gx+/0
-	Ys7I/YTA==;
+	bh=IZrg3073YvRn5Dp2yAL/QnRBIbaZV1wKQhSYGwFdg0w=; b=a7Kfu9UJEAoGfcuawnjvDlqe8U
+	CA0XvvgmJlV2jW7WYLg1/aTcCCH5e8igrCmD9SBGb0AQ3BOc+EaUwxpoXR3d85Twqsvmj3KFnYgvb
+	E0bV4RgWIp1SZnakDjo+pSvpvPHDBBowm74Q+1zLGgUKZweaLPSw/zoT93nAbpSCix9byP9MI3T+O
+	zazfxVJeXhl2cJLMbGoY7Bw+EWeNcoqnaA1YBFbrKQQl+mozcobsxtXcnlFxV84/f34unXWBSfpT2
+	zIJUSX5xUDWV0qOzzlsp+He3DOb3cTMLk7oWSaANk9T7HexJtnkXqjKpkelphdUCxWhbLD4slKbfT
+	omBuUTPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4asa-0000000GIQO-2jdO;
-	Mon, 23 Mar 2026 08:43:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4av1-0000000GIdS-421V;
+	Mon, 23 Mar 2026 08:45:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4asX-0000000GIQ1-3zAz
+	id 1w4auz-0000000GIbx-2Xq8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 08:43:19 +0000
+	Mon, 23 Mar 2026 08:45:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA37D4357E;
-	Mon, 23 Mar 2026 08:43:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3FF9C4CEF7;
-	Mon, 23 Mar 2026 08:43:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6197D43BCB;
+	Mon, 23 Mar 2026 08:45:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE996C4CEF7;
+	Mon, 23 Mar 2026 08:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774255396;
-	bh=hI/WjybrpXzNAFHT59gckSTLPeS76ZpD3rBAeQW1h9c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DfFJTb2MjyLWtiPK7zTRtKLsbcec9JdUoHG8fssvfSEbZmJXK651jyHFUwT6PvcTH
-	 7B0BYGTKAIC+IxfHSxE2bRmrhGgjxI5P7DKV9cuUaWv3lMSyfm00yqpzBY9EWxldLC
-	 fDW6h6IUy8dCb2Q+X5U96pMm6VGUdXeBDFhxRHTGPrzyYl4ijDoHKkYIRHmcg7Sz0L
-	 rGK348RJoQxwGZqLyVZcOCB0PYyHN3p1O8tGHCvG0E2Fdf4Mk2pL2Z9vS98nBFyy7Y
-	 PfOmkIIn4zSnRjKZHUIryr18QsBRNBI8G3A/VdI4Nv1yXDi+o36A+xG9zkszu+C9Zx
-	 USFEaMiEBXiXA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w4asU-00000004da4-0iGU;
-	Mon, 23 Mar 2026 08:43:14 +0000
-Date: Mon, 23 Mar 2026 08:43:13 +0000
-Message-ID: <861phb542m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Mostafa Saleh <smostafa@google.com>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH 4/5] KVM: arm64: pkvm: Use direct function pointers for cpu_{on,resume}
-In-Reply-To: <CA+EHjTyeuE3aqqmx8Fe4REOM7WstEAp_A0tvMNygPJCLT7V7wQ@mail.gmail.com>
-References: <20260321212419.2803972-1-maz@kernel.org>
-	<20260321212419.2803972-5-maz@kernel.org>
-	<CA+EHjTyeuE3aqqmx8Fe4REOM7WstEAp_A0tvMNygPJCLT7V7wQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, smostafa@google.com, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1774255548;
+	bh=IZrg3073YvRn5Dp2yAL/QnRBIbaZV1wKQhSYGwFdg0w=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=MqZJJ+jEXv66rnW751yqXlW9hMqAGiXOgu5FRwFFx4ERxXcucMsrpn0wmuKJyfre/
+	 z0b2cJa57c4a6Pzy04GpXyRidWJ14kWnKCMRi3eeULZh/K087FrQ0KiP/6lcPknEGs
+	 bjtsxeanA+J5BKE+ZiRQf+wqwO+vFnjITVtnOxoRUQjMDf3IUln1PWB+DJ2vtIiPFc
+	 9VcUX83Ma/9wRdW0/nn2KvTkgW4sQrC6fQR3RDYbnpG9qXCIPoI7NgcxKtqyxs9KqJ
+	 njgU6s/2VapcsTCeQmQ/TjhQZDWpDW+ks0UZn01j5x3HfuNems7N6rLOvemIejM8D6
+	 ur2+jgFfIaHLg==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=bd4a73f9dd4d15328054ccc0b5312fbbd2fc1c943838d1efe8c042901083;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 23 Mar 2026 09:45:37 +0100
+Message-Id: <DHA13HM1GIJW.1E7XCMY349JX7@kernel.org>
+Subject: Re: [PATCH v2 6/7] dt-bindings: watchdog: Drop SMARC-sAM67 support
+Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-hwmon@vger.kernel.org>,
+ <linux-watchdog@vger.kernel.org>, <linux-doc@vger.kernel.org>, "Conor
+ Dooley" <conor.dooley@microchip.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Guenter Roeck" <linux@roeck-us.net>, "Nishanth Menon" <nm@ti.com>,
+ "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Srinivas
+ Kandagatla" <srini@kernel.org>, "Wim Van Sebroeck"
+ <wim@linux-watchdog.org>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah Khan"
+ <skhan@linuxfoundation.org>
+X-Mailer: aerc 0.20.0
+References: <20260302122540.1377444-1-mwalle@kernel.org>
+ <20260302122540.1377444-7-mwalle@kernel.org>
+ <f124b200-09e3-4e73-a100-f47007732e8f@roeck-us.net>
+In-Reply-To: <f124b200-09e3-4e73-a100-f47007732e8f@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_014318_188368_D3F524E7 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20260323_014549_670566_9192C0CF 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,143 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 22 Mar 2026 15:49:50 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Sat, 21 Mar 2026 at 21:24, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > Instead of using a boolean to decide whether a CPU is booting or
-> > resuming, just pass an actual function pointer around.
-> >
-> > This makes the code a bit more straightforward to understand.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/include/asm/kvm_asm.h     |  3 ++-
-> >  arch/arm64/kvm/hyp/nvhe/hyp-init.S   |  9 +++----
-> >  arch/arm64/kvm/hyp/nvhe/psci-relay.c | 39 +++++++++++++++++-----------
-> >  3 files changed, 29 insertions(+), 22 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> > index a1ad12c72ebf1..f4c769857fdfc 100644
-> > --- a/arch/arm64/include/asm/kvm_asm.h
-> > +++ b/arch/arm64/include/asm/kvm_asm.h
-> > @@ -291,7 +291,8 @@ asmlinkage void __noreturn hyp_panic_bad_stack(void);
-> >  asmlinkage void kvm_unexpected_el2_exception(void);
-> >  struct kvm_cpu_context;
-> >  void handle_trap(struct kvm_cpu_context *host_ctxt);
-> > -asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on);
-> > +asmlinkage void __noreturn __kvm_host_psci_cpu_on_entry(void);
-> > +asmlinkage void __noreturn __kvm_host_psci_cpu_resume_entry(void);
-> >  void __noreturn __pkvm_init_finalise(void);
-> >  void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
-> >  void kvm_patch_vector_branch(struct alt_instr *alt,
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> > index 2e80fcbff2dff..64296b31da73d 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-> > @@ -173,7 +173,7 @@ SYM_CODE_END(___kvm_hyp_init)
-> >   * x0: struct kvm_nvhe_init_params PA
-> >   */
-> >  SYM_CODE_START(kvm_hyp_cpu_entry)
-> > -       mov     x1, #1                          // is_cpu_on = true
-> > +       ldr     x29, =__kvm_host_psci_cpu_on_entry
-> >         b       __kvm_hyp_init_cpu
-> >
-> >  /*
-> > @@ -182,11 +182,10 @@ SYM_CODE_START(kvm_hyp_cpu_entry)
-> >   * x0: struct kvm_nvhe_init_params PA
-> >   */
-> >  SYM_CODE_START(kvm_hyp_cpu_resume)
-> > -       mov     x1, #0                          // is_cpu_on = false
-> > +       ldr     x29, =__kvm_host_psci_cpu_resume_entry
-> >
-> >  SYM_INNER_LABEL(__kvm_hyp_init_cpu, SYM_L_LOCAL)
-> >         mov     x28, x0                         // Stash arguments
-> > -       mov     x29, x1
-> >
-> >         /* Check that the core was booted in EL2. */
-> >         mrs     x0, CurrentEL
-> > @@ -204,9 +203,7 @@ SYM_INNER_LABEL(__kvm_hyp_init_cpu, SYM_L_LOCAL)
-> >         bl      ___kvm_hyp_init                 // Clobbers x0..x2
-> >
-> >         /* Leave idmap -- using BLR is OK, LR is restored from host context */
-> > -       mov     x0, x29
-> > -       ldr     x1, =__kvm_host_psci_cpu_entry
-> > -       blr     x1
-> > +       blr     x29
-> >
-> >         // The core booted in EL1, or the C code unexpectedly returned.
-> >         // Either way, KVM cannot be initialized on it.
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> > index c3e196fb8b18f..cc698ceee9c8c 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> > @@ -200,23 +200,12 @@ static int psci_system_suspend(u64 func_id, struct kvm_cpu_context *host_ctxt)
-> >                          __hyp_pa(init_params), 0);
-> >  }
-> >
-> > -asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
-> > +static void __noreturn __kvm_host_psci_cpu_entry(unsigned long pc, unsigned long r0)
-> >  {
-> > -       struct psci_boot_args *boot_args;
-> > -       struct kvm_cpu_context *host_ctxt;
-> > -
-> > -       host_ctxt = host_data_ptr(host_ctxt);
-> > -
-> > -       if (is_cpu_on)
-> > -               boot_args = this_cpu_ptr(&cpu_on_args);
-> > -       else
-> > -               boot_args = this_cpu_ptr(&suspend_args);
-> > -
-> > -       cpu_reg(host_ctxt, 0) = boot_args->r0;
-> > -       write_sysreg_el2(boot_args->pc, SYS_ELR);
-> > +       struct kvm_cpu_context *host_ctxt = host_data_ptr(host_ctxt);
-> >
-> > -       if (is_cpu_on)
-> > -               release_boot_args(boot_args);
-> > +       cpu_reg(host_ctxt, 0) = r0;
-> > +       write_sysreg_el2(pc, SYS_ELR);
-> >
-> >         write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
-> >         write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
-> > @@ -224,6 +213,26 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
-> >         __host_enter(host_ctxt);
-> >  }
-> >
-> > +asmlinkage void __noreturn __kvm_host_psci_cpu_on_entry(void)
-> > +{
-> > +       struct psci_boot_args *boot_args = this_cpu_ptr(&cpu_on_args);
-> > +       unsigned long pc, r0;
-> > +
-> > +       pc = READ_ONCE(boot_args->pc);
-> > +       r0 = READ_ONCE(boot_args->r0);
-> > +
-> > +       release_boot_args(boot_args);
-> > +
-> > +       __kvm_host_psci_cpu_entry(pc, r0);
-> > +}
-> > +
-> > +asmlinkage void __noreturn __kvm_host_psci_cpu_resume_entry(void)
-> > +{
-> > +       struct psci_boot_args *boot_args = this_cpu_ptr(&cpu_on_args);
-> 
-> This should be suspend_args:
-> +     struct psci_boot_args *boot_args = this_cpu_ptr(&suspend_args);
+--bd4a73f9dd4d15328054ccc0b5312fbbd2fc1c943838d1efe8c042901083
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+Hi,
+
+On Mon Mar 2, 2026 at 4:01 PM CET, Guenter Roeck wrote:
+> On 3/2/26 04:24, Michael Walle wrote:
+>> I was just informed that this product is discontinued (without being
+>> ever released to the market). Pull the plug and let's not waste any more
+>> maintainers time and revert commit 354f31e9d2a3 ("dt-bindings: watchdog:
+>> Add SMARC-sAM67 support").
+>>=20
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> Signed-off-by: Michael Walle <mwalle@kernel.org>
 >
+> Reviewed-by: Guenter Roeck <linux@roeck-us.net>
 
-Arghhh! How did I miss that??? Thanks a bunch for spotting it!
+Everything expect this patch was picked up. Guenter, do you want to
+take it, or should it go through the TI SoC queue?
 
-> With this fixed:
-> 
-> Reviewed-by: Fuad Tabba <tabba@google.com>
+Thanks,
+-michael
 
-Thanks again,
+--bd4a73f9dd4d15328054ccc0b5312fbbd2fc1c943838d1efe8c042901083
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	M.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Without deviation from the norm, progress is not possible.
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCacD9sxIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/j8xgF/YE8auGYf7y4fj5Wh1h3SKh5Yl6dpVBAG
+OKsJlsNtaEhDxOMkeG3zYURQ/NqDSjQ+AYCRn1+pOiDB/8sAFVZx1L9i4pZWq3cQ
+Eidq3hJvghVNoQcTlcufj4jMfOPRjSUh4QU=
+=P+gh
+-----END PGP SIGNATURE-----
+
+--bd4a73f9dd4d15328054ccc0b5312fbbd2fc1c943838d1efe8c042901083--
 
