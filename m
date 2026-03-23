@@ -4,121 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59EAEC01C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23761EC01C3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M9SUr+nS+ufjroTrcpJBAW+s0gpj5VOlKY9X2rkPiv0=; b=v+Wp3UCxTFYXkIRSWA+l5OGwqE
-	u7sZtc8/qwYsnjcDFFw3fm5a+zE2qQnXLlGLiuycBP5KaGAqY9KDX4D4K10jTAjpUh1+tZAKFatlC
-	7gWbNTUe+yk263166vRx2ahbcu7M/VdTFdRp3E47Uxv4p/USRGEXmX9hy54v1thgR28gDPwY2mSkB
-	IkIrPd5qnYjDRcWfKgww/VDi0lZ2rYRCX0f3o2t/SPG5uTYgvyOjYDnTc46tcR4YjxYqIq0Tky7qn
-	OINFLd7rXsQ1+boCWuZtKUzpqEXA1Pz5RxuafSZgq2jsspeGsGuqU4kKPcDvNhVVNS42K2i3kV2LM
-	qRAIzRgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qds2uJ32pRLlQJWAzNsHGeIq2mrVMscPUZYgB/FLRhk=; b=rtLy51lg+5hv02MSZywUtjlRf8
+	Bemt8Ehxa5h4FLbNCClE9cbkrsdm/3oPX2Z5zLC0aL8mtpaK1Mr/OqJ9ajIWpqwKFtuaMCXGqFgcE
+	rTgpKOBjvl35ggklCQ1sYup+dYWD60qHCUN3YtaYK6KO/hzC+zWCKjJnKPi0OztRp0bHp6q2Yts0u
+	tcDhtfNS6etbVxR8zK+lhDpAx50m8cyko8AXvD6zSlgvTlIucgswPU6ZA2426h4TXWsMo7Z1WRjwD
+	tg/CBeyRgS3QrXz59tvUul51ZBQkIuUDFFkjDau+9NBrGbC/mP+sDkeGzv9lpAbDFB9HGB3YbrLzg
+	hV1nH4/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cQu-0000000GVNl-3KfR;
-	Mon, 23 Mar 2026 10:22:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w4cV6-0000000GVsM-2QP3;
+	Mon, 23 Mar 2026 10:27:12 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cQt-0000000GVMZ-1Sw2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Mar 2026 10:22:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=M9SUr+nS+ufjroTrcpJBAW+s0gpj5VOlKY9X2rkPiv0=; b=AD4Vm4Q+UmX47pLXp0y1OeI77e
-	uPqS3OPf53NynHXJOOZi1bAn4sAsE3rcpY7rTHpvNHfH5uCmVUwNFGryEZHCsnRMTe/uBShKnzow6
-	kAcBlHWQowq1ACzWbyZNBq418Tjt0xsAAIKfLSBtHM59AKZeAD9clRdBi3WH2ujATY9pv2l/emDi1
-	PIcbB8cN38ATtonwTcs4AL2su4YgKKaMe/5q0KWQk7w1RbMfTuFcNbgt//6OG3qrQ0KeDxuuOLh9/
-	rV9hNfQnVjsvajYgHYcz2UGCUOs2qgTH73umI2gVYAJ40n0qi4EzYcVfAR5UNN+rK/HpaoKB4aGro
-	bxk6cpSg==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cQp-00000001DMx-149P
+	id 1w4cV3-0000000GVrU-41zJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 10:22:49 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62N7tkO21627278;
-	Mon, 23 Mar 2026 10:22:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=M9SUr+nS+ufjroTrcpJBAW+s0gpj5VOlKY9
-	X2rkPiv0=; b=LKoctHhnYyLKuibCM/YGGkKKduQLUKKer8ww5XNt3hSRBD1k2KL
-	VJZvBlBWrrabEvitoxNBbtO6ACGE9OZ/Rh/5J2+VKnBYCT2W5xd+pvFBkR0THMGM
-	jjzxqz+ENtMOxKYls76mFNN5Tznbi+Y77pPv4XMtN+828yr0gWvaoSW4uwStC/51
-	vKF1h+HzTbOfr4QzCjh2NDGN8VZOVOLaMYQl6dpEcw5VnrZnnHIUlEdEnXcUNzH9
-	abDR/AQja0ZKllch0SMUKZJ/LaTMhWa8VnxYDtvNnPcPLFPzcvmmBbW9QkLKqqfZ
-	HFA21PyMDd9ckPDYB6GWKt2r1Se9Vyoc8ig==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d31jc0h6q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Mar 2026 10:22:37 +0000 (GMT)
-Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 62NAMXhG018902;
-	Mon, 23 Mar 2026 10:22:33 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4d1mdm6dn7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Mar 2026 10:22:33 +0000
-Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 62NAMXKj018895;
-	Mon, 23 Mar 2026 10:22:33 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-amakhija-hyd.qualcomm.com [10.213.99.91])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 62NAMXcS018873
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Mar 2026 10:22:33 +0000
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4090850)
-	id 4F6585A1; Mon, 23 Mar 2026 15:52:32 +0530 (+0530)
-From: Ayushi Makhija <quic_amakhija@quicinc.com>
-To: andersson@kernel.org, konrad.dybcio@linaro.org, robh+dt@kernel.org,
-        krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-        dmitry.baryshkov@linaro.org
-Cc: Ayushi Makhija <quic_amakhija@quicinc.com>, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, quic_rajeevny@quicinc.com,
-        quic_vproddut@quicinc.com
-Subject: [PATCH] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage for panel nt37801
-Date: Mon, 23 Mar 2026 15:52:29 +0530
-Message-Id: <20260323102229.1546504-1-quic_amakhija@quicinc.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 23 Mar 2026 10:27:11 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 9257D4D2BA;
+	Mon, 23 Mar 2026 10:27:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1774261626; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qds2uJ32pRLlQJWAzNsHGeIq2mrVMscPUZYgB/FLRhk=;
+	b=trinx4GO6i5sN4372NxLM4qCkPoaMj3kHn/Hhmz4fVIp58zBTue1ljOfnzf6S2A+7CCD68
+	1T+FZ6lbU0b7dsTPRkvLONny46JsvVyg/lVzj5kkijn710li1mJzPVn+DcZoeKfj6nEzKC
+	+6VVDk++EusnvpSCFBb1BRJ+kp24xf8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1774261626;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qds2uJ32pRLlQJWAzNsHGeIq2mrVMscPUZYgB/FLRhk=;
+	b=6/90Tqg4lLELhwZvxNqHMe1fk8jlJRaVsgM+Rn7IbjqqBHkGNsAps03gV0Pf2NYZDHl+6Q
+	gMPbBd9+VSEtksCA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1774261626; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qds2uJ32pRLlQJWAzNsHGeIq2mrVMscPUZYgB/FLRhk=;
+	b=trinx4GO6i5sN4372NxLM4qCkPoaMj3kHn/Hhmz4fVIp58zBTue1ljOfnzf6S2A+7CCD68
+	1T+FZ6lbU0b7dsTPRkvLONny46JsvVyg/lVzj5kkijn710li1mJzPVn+DcZoeKfj6nEzKC
+	+6VVDk++EusnvpSCFBb1BRJ+kp24xf8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1774261626;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qds2uJ32pRLlQJWAzNsHGeIq2mrVMscPUZYgB/FLRhk=;
+	b=6/90Tqg4lLELhwZvxNqHMe1fk8jlJRaVsgM+Rn7IbjqqBHkGNsAps03gV0Pf2NYZDHl+6Q
+	gMPbBd9+VSEtksCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8508F43819;
+	Mon, 23 Mar 2026 10:27:06 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id pt12IHoVwWlGHwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 23 Mar 2026 10:27:06 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 4A3E5A0B2E; Mon, 23 Mar 2026 11:27:06 +0100 (CET)
+Date: Mon, 23 Mar 2026 11:27:06 +0100
+From: Jan Kara <jack@suse.cz>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-api@vger.kernel.org
+Subject: Re: [PATCH 1/3] fs: fix archiecture-specific compat_ftruncate64
+Message-ID: <47ovbvveajcppkfgjc3sqbfzuozmvyivz32fbvwoq444lny6eg@45awkyuwcmrx>
+References: <20260323070205.2939118-1-hch@lst.de>
+ <20260323070205.2939118-2-hch@lst.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=fKc0HJae c=1 sm=1 tr=0 ts=69c1146d cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yOCtJkima9RkubShWh1s:22 a=COk6AnOGAAAA:8 a=Msm59h0HKFRdTJYaiMcA:9
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: joJKW53E4eLwPmDvhvV0V_3oyEQOjswd
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDA4MCBTYWx0ZWRfX4GGElf7bpJR/
- mqJ/6HTWZs2Xr5aY/qeWq5Uv57vx87sOTCuykddgBb72bjnuBaRYx5NC2qkNz3+2D8WNdimqsfn
- NkIhub+d0S6pcfjyWz7zCQXLL0QyeGP3l8l6PhFclAdeAIDePIvb4FcaaIOjRwPr6RXjKYhIW6N
- 2GAyBxesPQzi4D2ng/Z4Q+6ouua2dodOMJNFBT3BOAh5mk14tUfRYgdgNVool/+gXLQYoAgZpbG
- QseVtvFuiseNluevq5LXsJ7XCdZuUy/6YmhgNkkRPcTo4yg/JzGaYwScwVsMaHbyGmhiDw85xQV
- uvsyKcyjPkbpICNwkIKkQB5IuvnfXG6Wi3Plq/WBdHU47bPV5vCnokV5R6xzL2Ioe/BzOKIqf/z
- eWWxV08uqjD4HRiAVJGJJbvIE+GjhYwdwuIw5a3yq2vjyDcxxxcykc3a7nD6xNxr2vjZr7V3z0m
- H2gJqn8EExKuPipHCow==
-X-Proofpoint-ORIG-GUID: joJKW53E4eLwPmDvhvV0V_3oyEQOjswd
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-23_03,2026-03-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
- adultscore=0 bulkscore=0 spamscore=0 suspectscore=0 malwarescore=0
- clxscore=1011 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603230080
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260323070205.2939118-2-hch@lst.de>
+X-Spamd-Result: default: False [-7.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	ARC_NA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	URIBL_BLOCKED(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo,lst.de:email];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_102247_693274_B34C52E9 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260323_032710_322603_13BB8AA2 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,28 +134,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
-VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
+On Mon 23-03-26 08:01:44, Christoph Hellwig wrote:
+> The "small" argument to do_sys_ftruncate indicates if > 32-bit size
+> should be reject, but all the arch-specific compat ftruncate64
+> implementations get this wrong.  Merge do_sys_ftruncate and
+> ksys_ftruncate, replace the integer as boolean small flag with a
+> descriptive one about LFS semantics, and use it correctly in the
+> architecture-specific ftruncate64 implementations.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Fixes: 3dd681d944f6 ("arm64: 32-bit (compat) applications support")
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-Signed-off-by: Ayushi Makhija <quic_amakhija@quicinc.com>
----
- arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Looks good. Feel free to add:
 
-diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-index 3837f6785320..6ba4e69bf377 100644
---- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-+++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-@@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
- 
- 		vreg_l12b_1p8: ldo12 {
- 			regulator-name = "vreg_l12b_1p8";
--			regulator-min-microvolt = <1200000>;
-+			regulator-min-microvolt = <1650000>;
- 			regulator-max-microvolt = <1800000>;
- 			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
- 			regulator-allow-set-load;
+Reviewed-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
+> ---
+>  arch/arm64/kernel/sys32.c       |  2 +-
+>  arch/mips/kernel/linux32.c      |  2 +-
+>  arch/parisc/kernel/sys_parisc.c |  4 ++--
+>  arch/powerpc/kernel/sys_ppc32.c |  2 +-
+>  arch/sparc/kernel/sys_sparc32.c |  2 +-
+>  arch/x86/kernel/sys_ia32.c      |  3 ++-
+>  fs/internal.h                   |  1 -
+>  fs/open.c                       | 12 ++++++------
+>  include/linux/syscalls.h        |  8 ++------
+>  9 files changed, 16 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/sys32.c b/arch/arm64/kernel/sys32.c
+> index 96bcfb907443..12a948f3a504 100644
+> --- a/arch/arm64/kernel/sys32.c
+> +++ b/arch/arm64/kernel/sys32.c
+> @@ -89,7 +89,7 @@ COMPAT_SYSCALL_DEFINE4(aarch32_truncate64, const char __user *, pathname,
+>  COMPAT_SYSCALL_DEFINE4(aarch32_ftruncate64, unsigned int, fd, u32, __pad,
+>  		       arg_u32p(length))
+>  {
+> -	return ksys_ftruncate(fd, arg_u64(length));
+> +	return ksys_ftruncate(fd, arg_u64(length), FTRUNCATE_LFS);
+>  }
+>  
+>  COMPAT_SYSCALL_DEFINE5(aarch32_readahead, int, fd, u32, __pad,
+> diff --git a/arch/mips/kernel/linux32.c b/arch/mips/kernel/linux32.c
+> index a0c0a7a654e9..fe9a787db569 100644
+> --- a/arch/mips/kernel/linux32.c
+> +++ b/arch/mips/kernel/linux32.c
+> @@ -60,7 +60,7 @@ SYSCALL_DEFINE4(32_truncate64, const char __user *, path,
+>  SYSCALL_DEFINE4(32_ftruncate64, unsigned long, fd, unsigned long, __dummy,
+>  	unsigned long, a2, unsigned long, a3)
+>  {
+> -	return ksys_ftruncate(fd, merge_64(a2, a3));
+> +	return ksys_ftruncate(fd, merge_64(a2, a3), FTRUNCATE_LFS);
+>  }
+>  
+>  SYSCALL_DEFINE5(32_llseek, unsigned int, fd, unsigned int, offset_high,
+> diff --git a/arch/parisc/kernel/sys_parisc.c b/arch/parisc/kernel/sys_parisc.c
+> index b2cdbb8a12b1..fcb0d8069139 100644
+> --- a/arch/parisc/kernel/sys_parisc.c
+> +++ b/arch/parisc/kernel/sys_parisc.c
+> @@ -216,7 +216,7 @@ asmlinkage long parisc_truncate64(const char __user * path,
+>  asmlinkage long parisc_ftruncate64(unsigned int fd,
+>  					unsigned int high, unsigned int low)
+>  {
+> -	return ksys_ftruncate(fd, (long)high << 32 | low);
+> +	return ksys_ftruncate(fd, (long)high << 32 | low, FTRUNCATE_LFS);
+>  }
+>  
+>  /* stubs for the benefit of the syscall_table since truncate64 and truncate 
+> @@ -227,7 +227,7 @@ asmlinkage long sys_truncate64(const char __user * path, unsigned long length)
+>  }
+>  asmlinkage long sys_ftruncate64(unsigned int fd, unsigned long length)
+>  {
+> -	return ksys_ftruncate(fd, length);
+> +	return ksys_ftruncate(fd, length, FTRUNCATE_LFS);
+>  }
+>  asmlinkage long sys_fcntl64(unsigned int fd, unsigned int cmd, unsigned long arg)
+>  {
+> diff --git a/arch/powerpc/kernel/sys_ppc32.c b/arch/powerpc/kernel/sys_ppc32.c
+> index d451a8229223..03fa487f2614 100644
+> --- a/arch/powerpc/kernel/sys_ppc32.c
+> +++ b/arch/powerpc/kernel/sys_ppc32.c
+> @@ -101,7 +101,7 @@ PPC32_SYSCALL_DEFINE4(ppc_ftruncate64,
+>  		       unsigned int, fd, u32, reg4,
+>  		       unsigned long, len1, unsigned long, len2)
+>  {
+> -	return ksys_ftruncate(fd, merge_64(len1, len2));
+> +	return ksys_ftruncate(fd, merge_64(len1, len2), FTRUNCATE_LFS);
+>  }
+>  
+>  PPC32_SYSCALL_DEFINE6(ppc32_fadvise64,
+> diff --git a/arch/sparc/kernel/sys_sparc32.c b/arch/sparc/kernel/sys_sparc32.c
+> index f84a02ab6bf9..04432b82b9e3 100644
+> --- a/arch/sparc/kernel/sys_sparc32.c
+> +++ b/arch/sparc/kernel/sys_sparc32.c
+> @@ -58,7 +58,7 @@ COMPAT_SYSCALL_DEFINE3(truncate64, const char __user *, path, u32, high, u32, lo
+>  
+>  COMPAT_SYSCALL_DEFINE3(ftruncate64, unsigned int, fd, u32, high, u32, low)
+>  {
+> -	return ksys_ftruncate(fd, ((u64)high << 32) | low);
+> +	return ksys_ftruncate(fd, ((u64)high << 32) | low, FTRUNCATE_LFS);
+>  }
+>  
+>  static int cp_compat_stat64(struct kstat *stat,
+> diff --git a/arch/x86/kernel/sys_ia32.c b/arch/x86/kernel/sys_ia32.c
+> index 6cf65397d225..610a1c2f4519 100644
+> --- a/arch/x86/kernel/sys_ia32.c
+> +++ b/arch/x86/kernel/sys_ia32.c
+> @@ -61,7 +61,8 @@ SYSCALL_DEFINE3(ia32_truncate64, const char __user *, filename,
+>  SYSCALL_DEFINE3(ia32_ftruncate64, unsigned int, fd,
+>  		unsigned long, offset_low, unsigned long, offset_high)
+>  {
+> -	return ksys_ftruncate(fd, ((loff_t) offset_high << 32) | offset_low);
+> +	return ksys_ftruncate(fd, ((loff_t) offset_high << 32) | offset_low,
+> +			FTRUNCATE_LFS);
+>  }
+>  
+>  /* warning: next two assume little endian */
+> diff --git a/fs/internal.h b/fs/internal.h
+> index cbc384a1aa09..2663823e273a 100644
+> --- a/fs/internal.h
+> +++ b/fs/internal.h
+> @@ -199,7 +199,6 @@ extern int build_open_flags(const struct open_how *how, struct open_flags *op);
+>  struct file *file_close_fd_locked(struct files_struct *files, unsigned fd);
+>  
+>  int do_ftruncate(struct file *file, loff_t length, int small);
+> -int do_sys_ftruncate(unsigned int fd, loff_t length, int small);
+>  int chmod_common(const struct path *path, umode_t mode);
+>  int do_fchownat(int dfd, const char __user *filename, uid_t user, gid_t group,
+>  		int flag);
+> diff --git a/fs/open.c b/fs/open.c
+> index 91f1139591ab..412d0d6fbaa7 100644
+> --- a/fs/open.c
+> +++ b/fs/open.c
+> @@ -197,7 +197,7 @@ int do_ftruncate(struct file *file, loff_t length, int small)
+>  				   ATTR_MTIME | ATTR_CTIME, file);
+>  }
+>  
+> -int do_sys_ftruncate(unsigned int fd, loff_t length, int small)
+> +int ksys_ftruncate(unsigned int fd, loff_t length, unsigned int flags)
+>  {
+>  	if (length < 0)
+>  		return -EINVAL;
+> @@ -205,18 +205,18 @@ int do_sys_ftruncate(unsigned int fd, loff_t length, int small)
+>  	if (fd_empty(f))
+>  		return -EBADF;
+>  
+> -	return do_ftruncate(fd_file(f), length, small);
+> +	return do_ftruncate(fd_file(f), length, !(flags & FTRUNCATE_LFS));
+>  }
+>  
+>  SYSCALL_DEFINE2(ftruncate, unsigned int, fd, off_t, length)
+>  {
+> -	return do_sys_ftruncate(fd, length, 1);
+> +	return ksys_ftruncate(fd, length, 0);
+>  }
+>  
+>  #ifdef CONFIG_COMPAT
+>  COMPAT_SYSCALL_DEFINE2(ftruncate, unsigned int, fd, compat_off_t, length)
+>  {
+> -	return do_sys_ftruncate(fd, length, 1);
+> +	return ksys_ftruncate(fd, length, 0);
+>  }
+>  #endif
+>  
+> @@ -229,7 +229,7 @@ SYSCALL_DEFINE2(truncate64, const char __user *, path, loff_t, length)
+>  
+>  SYSCALL_DEFINE2(ftruncate64, unsigned int, fd, loff_t, length)
+>  {
+> -	return do_sys_ftruncate(fd, length, 0);
+> +	return ksys_ftruncate(fd, length, FTRUNCATE_LFS);
+>  }
+>  #endif /* BITS_PER_LONG == 32 */
+>  
+> @@ -245,7 +245,7 @@ COMPAT_SYSCALL_DEFINE3(truncate64, const char __user *, pathname,
+>  COMPAT_SYSCALL_DEFINE3(ftruncate64, unsigned int, fd,
+>  		       compat_arg_u64_dual(length))
+>  {
+> -	return ksys_ftruncate(fd, compat_arg_u64_glue(length));
+> +	return ksys_ftruncate(fd, compat_arg_u64_glue(length), FTRUNCATE_LFS);
+>  }
+>  #endif
+>  
+> diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+> index 02bd6ddb6278..8787b3511c86 100644
+> --- a/include/linux/syscalls.h
+> +++ b/include/linux/syscalls.h
+> @@ -1283,12 +1283,8 @@ static inline long ksys_lchown(const char __user *filename, uid_t user,
+>  			     AT_SYMLINK_NOFOLLOW);
+>  }
+>  
+> -int do_sys_ftruncate(unsigned int fd, loff_t length, int small);
+> -
+> -static inline long ksys_ftruncate(unsigned int fd, loff_t length)
+> -{
+> -	return do_sys_ftruncate(fd, length, 1);
+> -}
+> +#define FTRUNCATE_LFS	(1u << 0)	/* allow truncating > 32-bit */
+> +int ksys_ftruncate(unsigned int fd, loff_t length, unsigned int flags);
+>  
+>  int do_sys_truncate(const char __user *pathname, loff_t length);
+>  
+> -- 
+> 2.47.3
+> 
 -- 
-2.34.1
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
