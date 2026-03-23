@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F257EC01DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4120EC01DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uIEAZagqD7AfdF72zWY7A1vGgyJGKC7gXYUZkqpjzdM=; b=PllM6UTPYyxJfoZN2dFFSFKXKR
-	PZ48eojPP+uSd5yB/HHDmI+PZwiYRXototugcVMBFl+qRAgrgHUIaWIRemJNl+2tbvMQAvgQBycZd
-	04gD2HHwyoNKD1gnv1K9DjTNDhEtxfX78YGHDPNNgl9XVlf76xHp7Utklf6t2Gw8O1HHEUXKqG43h
-	CC0FlBAfcZN1WiPbyY53F1PjI5ptNGjRH5z3zhvYJ3hQqCgZVvWVAJsuJJSvK1K715YH6u4XKkqFa
-	O7y0ANvJZu8LJ2J9PTiZ/P04nQkHvUnC0Eqnmd01AMBNMJySWQ46a8qgB7eypLmKh8cDqiQYm1Nw0
-	z9deIjRQ==;
+	bh=wEueeY88LbPtOWgSkH/5/A80ruD7NNKfCuSJOl/fcxY=; b=He43nc4a3JG5outPqkveRKe+1Q
+	xvcSB9mRAVmzt1cZOQ/VxkgokR8+/dAMcQP7Mcat7RF7Af43A4ILMh7IsAXCGidfRfz5r1sDgs63E
+	7MEJhZzy3MJO3zhscUvdEfugau7440narJUVi7yP3NeifBIk453LiSzpC9diaB+jea2lZPBac7OwB
+	Jpz7bpaWMUQYm8BgSH1OIT05+m3uavgp2z4HQoIZvvL5xAL35RuUbLxmR0b/FmNXImK5cXLS9OgpC
+	oqI1soVZKjWOJAJ6TnjFkvFoJAtumzzWudf3AkhSaFINJ7xKTLZ8sqffLhbp0WLSP3L1lQ5+dhaPx
+	RP8ZADPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dzj-0000000GfXz-1H6U;
-	Mon, 23 Mar 2026 12:02:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4e0V-0000000Gfe8-38Cd;
+	Mon, 23 Mar 2026 12:03:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dzh-0000000GfXX-1o7N
+	id 1w4e0U-0000000Gfdk-0WOa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 12:02:53 +0000
+	Mon, 23 Mar 2026 12:03:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB030600C4;
-	Mon, 23 Mar 2026 12:02:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46AE8C2BC87;
-	Mon, 23 Mar 2026 12:02:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 470C6600AC;
+	Mon, 23 Mar 2026 12:03:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99302C4CEF7;
+	Mon, 23 Mar 2026 12:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774267372;
-	bh=AGZHTNBx2gUvha3PKcJjoSItuRMnv1LtpEWeHa4dcaY=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=eWRCJCtmT7ESeoSFNeL3DFa3XEPJYZ6z8ZGFLCij2cZrGzJBCyREy3QWxJpUtzyG4
-	 ktUe86QMNYS+nz8aeGztigvbioHEaWVVzq4uljqJ89SmVeSj314DoP5cFkKPrDlRmq
-	 YzwTrL0z4zYLulMF8a+5sRk6F00QoNRRkXKir+qq5dB3rZNNbia4+QQZt1U1abN+Tj
-	 9LePEThcNTFWOu4+FFcMfIqPdbspcU9dsStT81Ow3Mjn6y/GooRGJmvKcEvkuXAJqR
-	 5xkIxthUcH5H3LwG5KZRqv2VsFcn6YAlx4lQ2RjX/FX1YIbnXZ+QBMG9pibLQN3ma9
-	 LAjdn1MWNav4Q==
-Message-ID: <88472f82-6171-4eaa-9a3b-59372c11a9f3@kernel.org>
-Date: Mon, 23 Mar 2026 13:02:47 +0100
+	s=k20201202; t=1774267421;
+	bh=hHXNHWQ6bwow01CB5WB+Sm/qPPgBy5HYnPXNR8T7YUM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FhL2buEkKQo+Z03iumr1WvjeDiOrrceEpXG/DrCXu1biPTIOem9kOWFJp0F9XYVZ3
+	 uiss7AdWAE/4fLEGg2N8kR/MIq0Jb/WNLPkI8ET0eDZaw7ObLHdXcrmdWQvNbUmuUJ
+	 JGXFnSujCJiT7K9S994D60tCXdH/mcre7ifOgvd68GUY5NdhfbYvz80toq2yUjBzS2
+	 Tr5oG80wGA0ALsih1MaVPziVhRA0tQuxAlZtWv8TM5BL/UKQ+vmmnEYFOleH90/Kh7
+	 aFJUw7OA2RCPhgjA/3LiLUjqs4aamvVw/Qy6gMotFxB/9XVdXKeNaBi1i7EhnEQ1AM
+	 yCkJ4+61OZebQ==
+Message-ID: <bb4d7661-0f06-4f74-89f2-09fd4888f166@kernel.org>
+Date: Mon, 23 Mar 2026 13:03:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: dma: arm-dma350: document generic and
- combined IRQ topologies
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 2/3] dma: arm-dma350: support combined IRQ mode with
+ runtime IRQ topology detection
 To: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com,
  fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
@@ -57,8 +56,8 @@ Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
  linux-arm-kernel@lists.infradead.org
 References: <20260323114822.1925869-1-jun.guo@cixtech.com>
- <20260323114822.1925869-2-jun.guo@cixtech.com>
- <64836645-7c54-44bd-a21f-b02e684d3863@kernel.org>
+ <20260323114822.1925869-3-jun.guo@cixtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -103,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <64836645-7c54-44bd-a21f-b02e684d3863@kernel.org>
+In-Reply-To: <20260323114822.1925869-3-jun.guo@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,29 +119,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/03/2026 13:00, Krzysztof Kozlowski wrote:
-> On 23/03/2026 12:48, Jun Guo wrote:
->> Update the DMA-350 DT binding to match the current driver behavior.
->>
->> Allow both:
->> - "arm,dma-350" as the generic compatible, and
->> - "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
->>
->> Also document interrupt topology variants supported by hardware
->> integration:
->> - one combined interrupt for all channels, or
->> - one interrupt per channel (up to 8 channels).
->>
->> Assisted-by: Cursor: GPT-5.3-Codex
-> 
-> There is no space here. Read the docs, I quite insisted on this last
-> time. If you make mistakes in this, I doubt you read the docs thus I
-> doubt you followed the requirements - have actual rights to send it for
-> example.
+On 23/03/2026 12:48, Jun Guo wrote:
+>  
+>  		dch->has_wrap = FIELD_GET(CH_CFG_HAS_WRAP, reg);
+>  		dch->has_trig = FIELD_GET(CH_CFG_HAS_TRIGIN, reg) &
+> @@ -640,6 +752,7 @@ static void d350_remove(struct platform_device *pdev)
+>  }
+>  
+>  static const struct of_device_id d350_of_match[] __maybe_unused = {
+> +	{ .compatible = "cix,sky1-dma-350" },
 
-And you already received that comment:
+Redundant. Drop. Review your LLM generated code...
 
-"Wrong tag, please read carefully the guideline before using LLM tools."
+
+>  	{ .compatible = "arm,dma-350" },
+>  	{}
+>  };
+
 
 Best regards,
 Krzysztof
