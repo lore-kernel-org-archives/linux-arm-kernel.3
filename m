@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655DBEC01D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428C9EC01D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxnppuImLMBgT4VBsGkDuaPUxODcTjjrpyoPcgMsU1k=; b=pOb4yDtf1ZsQ6/IFsL8PMg5UbE
-	CzZBWeWz3doadL2kdlS8IQqRALfW7+qY6SZrvouyGqgEjxPfE/J+Cf8w6O0IxUpqzfZ4EkhWrzXaK
-	71VyFfwsYTUpdKt+xN9PlEkY35PG1HxvcMKBSr3itsbPSUrSv13mtGaqhbWgadq5tieij7Qj2Lh+n
-	Cew18AVjt8okOuJ85lXuHymkBCngeLxDbz5zgEndBPhmrH9zqWWwj0+vvUC1PcgHBZrzhxm82PNPZ
-	BfW/+wt6nqPyMrSE2V5qQQ4ykiju5bHs8nuVPBIGgBi9K0grOgNTBlun64yA21l9UesjanQd5UuBD
-	yqzA9wgA==;
+	bh=QUJUjulURT0vpMbu4RaHS8o5NCexbA+knxvjmiKjiF4=; b=qTQ4TO9UrGWXlWoC+ewkxLDbSc
+	ekdtpWt4sCkOxpMizydxhvbEzAbXsx0ax4KUJTNuOZ09zOYAaXjpUDSGUuYPj3IeeDQsk9k24/JZS
+	UBj9Qt0ETyQaa3FUxeQuq7kFW9pblR9QzDP70Lj82V2FjPRYspfMhmI6968IlUJxigtpODm8Bzqz3
+	UVoctmpXd03kLP1r1H+KNydc0U0LEOTl9oRQhW5EeegP+drC6q+HcIhYBvEFuO/wGr2mipkMwNkZq
+	sVY/xEe2IxuzssTC58Wv9sZR3P20qI7gWbaWxdUc0p3A6qvx/IEu1lGTDCGIRkWpYgXuCwyng/QW7
+	hAlqJLag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4di3-0000000Gdny-2RPC;
-	Mon, 23 Mar 2026 11:44:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4dkc-0000000Ge17-1tnu;
+	Mon, 23 Mar 2026 11:47:18 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4di1-0000000Gdnr-2kaz
+	id 1w4dkZ-0000000Ge0Q-4A75
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 11:44:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96CD36013A;
-	Mon, 23 Mar 2026 11:44:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622CAC4CEF7;
-	Mon, 23 Mar 2026 11:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774266276;
-	bh=aXd296Lm46/RWsbI4I1OOM2FgVG5HdKEPdtKxCcKiSg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gR/RCY7xEISChh9Lrf9qGuhPEZS19LykvA5um6hJZDCEVVMpMFmEesD49v4VS0VeX
-	 7tvtxyMDQ8xUKY4iIhm3sU/C9WMRUdj6Z81Mw6hUi1GQnRCuXsZFys+7kWnJiM8LcH
-	 8qIODBP67hQ9u9z4blHsBR/iyNhx3ikj0My0HbCKCwAfCv1CzXTou3L+pTZAo5icZX
-	 O7F1SyOoy3ailgv1X6DwqsvZtE5mFHC/I3tpfFNVdXE7iSSWu4p62HgxDdHbQH+JxZ
-	 xHniVseYGTA81Swnq7Ya3s5cLs7Yq1ml1dSxfQYULHCaMrleKub1aY5HyQ6V3LTinA
-	 /L+uZAmg1tcww==
-From: Christian Brauner <brauner@kernel.org>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	Alexander Viro <viro@zeniv.linux.org.uk>
-Subject: Re: fix architecture-specific compat_ftruncate64 implementations
-Date: Mon, 23 Mar 2026 12:44:08 +0100
-Message-ID: <20260323-pocht-abberufen-825ffe02281f@brauner>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260323070205.2939118-1-hch@lst.de>
-References: <20260323070205.2939118-1-hch@lst.de>
+	Mon, 23 Mar 2026 11:47:17 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-668e55bd36bso2919286a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 04:47:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774266434; cv=none;
+        d=google.com; s=arc-20240605;
+        b=A37Z2dLFbz1TZmC43Nx5Jw9zxRQ5r6CDxWc+gSMNGnmu/OQONbSErLEJC4742DP1sF
+         H9l9T8AuHjJtT+1P/uuAcu5RKOxsB57AeAmbAexaVTUTT4Y0ysZarMwAcvxtIZCu3ic9
+         AjdKwdlKRHkdVcc9NGFYRzyYi2T+74fXq+Z6Btnqj4IEPiN7tKRKbo3/TjqJvogRl6LY
+         JpvEMPmjjxhDXD2nwrKIR7Y7Pogz7EcAuxKrxHzEOE49m3yyUr1UmwmFtV6OdNRbVEQd
+         JQKMap9LL9paOWc+CIfhwM3isU+z+Vx3ESjFKhAAtI7T3c5U4+6RAwM1KdGnxe5WSXmd
+         ln3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QUJUjulURT0vpMbu4RaHS8o5NCexbA+knxvjmiKjiF4=;
+        fh=CuszovyRpknG3l4FrtcDJO/+vcnlzJU41YjfAFWKjso=;
+        b=XxpcMqa7b3l7Rpqm7f21kgwd3xjl4tOqH6SJGr7MuNF4vhm2ysHT8XY+xQebCQ1uzs
+         jtaCOx3VtkCHlx28QBbxLVTDNuQaq9L8Mg4IBfdSze+QAzE/EzMMaZC4UcQMoBH9F57u
+         egNMtQ8MGaVXA3mvnGtqGfDticZfICOxz4BXU6SMT2PYEW6aMsusckYbI4AzPcLwVjfO
+         IUOH7zqpHFabo1uf8+t5hLJkj05cYfuyKMhC5/jpV6XT6h0QDtYG18g6aX1FB2YzAYxS
+         xdDEW+g3AViu3ot17S+F7hBlIaH6OCIUgYhZtp6WwHnvgF0r8whtgd9hk2oxJKFeHmyE
+         R7Vw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774266434; x=1774871234; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QUJUjulURT0vpMbu4RaHS8o5NCexbA+knxvjmiKjiF4=;
+        b=B42lonyLxXAYdlH+ywZQks8BVouXZFjzqVzqYV5B/1kjy6J1B7S41eEE2JXleCdWeB
+         66B8C5/Waxnt7m3qD7GN0ey9FazaPLh0xSn3dlVcs/1nhfbVeG0Ska0N8BOYZJUTTfYc
+         P6fjAhht63dbjoek8ehwd/SW2UHxUpekDZgCYZHceq55rHugHmgJVlm9wNNjNbrpG7l9
+         E0naec6CxeoSzxjKbrCGfgRi9MSi1d4LpJilaA79TD7PTiRFKVaAU7YHeIyEjpDdMNGb
+         sDc2wCVNx0PxyR3ixyMHm1IiRyKYPZphhidzO70o49RrS22lM8ZuFp375+O3wJ1uZfrG
+         RJ0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774266434; x=1774871234;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=QUJUjulURT0vpMbu4RaHS8o5NCexbA+knxvjmiKjiF4=;
+        b=R+k7zZwkjN1+UpdQISO1TvffKmAoRy65/p5rDeBAj+K79QvS+7gkoos6mq1QVIsp1/
+         psMNI7DWcCdYPWQgOa7tONBi4tacQObwbPNOG5m10YNJ9ipEhRVO5RDlm+Wz+n1tA7g3
+         gzW1jc5bpHVWRgmnpZRCpcoR5Y36hmXbFSvm5nM/DEld8rCqosCU4bFAcQVDahVxwPXr
+         me+xl1HKUbu1B9TGuuK6WkVoH7s8qs6+Sip9ZhkolbJsNbBR/mc5F5PfWBJ5cHxh+BOZ
+         pATGLGOBn8oPjbVu1383gVDwJr/iLB+//YyQArhbEox4yVLA/iTaO3WY3Xc3HGSMoxZ2
+         sO5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUeMDlJK4qhGZz4izs4vP9lYSzlsnuTnAq7pF7xooaZP3Z1wEiDRDD+4Qf/SL3g2L/ElpDtI6DCLYYDPIZ4VjnO@lists.infradead.org
+X-Gm-Message-State: AOJu0YweBbBVepfVUX0b9DO17ecKtlQ8ii7Gi77OeI4s5YLHEldJZC6i
+	vnXlb38HHx7t7nGk7hZra/nzeFBbB9T1Y3ST7BTlFuyJIZxfKFd+6iPjk31gJbKJgH3C8mPci5t
+	zlJh8xuXMLpEFpcQtyyxL+OfiEODzBpE=
+X-Gm-Gg: ATEYQzw0l04HEQFwTGWPhg3llfsXQGfW9mSjzHQR2q0CLjB1IcGDalzp0edSOAZ4Mg7
+	Mp29AsCbmer2ZZnPScGCSzMzwQbFunerO7xs8mlRFe1Xyd/wIDbiZG9WldK5hsFecQrcCUPw00R
+	tm0tczvgyCmi+/+Su2rj2eQVotvBObwIM8kv9B0Ger96j/qwTMjPK6dLsBj41lFli95EBkt5rJf
+	pr2WlSi26icSPwniQKcbdyOvIsD4VHIhN0W1JGxhyFa1Srze4pXi/xsCFnUctt+j73Hcr+QiaMw
+	5Q+LAx/DJbtXIRK5Z5S4rWAI9dvgqrU+8r0yNkJVLmZ+czrAjFMvbYoqga+Sm523e46KtifQ3Kf
+	kxf1ZyCI=
+X-Received: by 2002:a17:907:6b06:b0:b97:f050:d115 with SMTP id
+ a640c23a62f3a-b982f0c310amr932278966b.9.1774266433441; Mon, 23 Mar 2026
+ 04:47:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2179; i=brauner@kernel.org; h=from:subject:message-id; bh=aXd296Lm46/RWsbI4I1OOM2FgVG5HdKEPdtKxCcKiSg=; b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWQeVJ/Ny96b4PNJrzr+9NOiA/8+bLx4YW3lMTVfacWzS 0yOhLLad5SyMIhxMciKKbI4tJuEyy3nqdhslKkBM4eVCWQIAxenAEzkwDmGf1plEULnTrzd+kq7 uMavcddW/zt2IduMvmY9VrKaK9Qs58Lw3/Gk5+XnL/zeeZz4yxfF98j+tsyNy3aT8znSj9yckRz wkh0A
-X-Developer-Key: i=brauner@kernel.org; a=openpgp; fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
-Content-Transfer-Encoding: 8bit
+References: <20260323074505.3853353-1-sai.krishna.potthuri@amd.com>
+ <20260323074505.3853353-4-sai.krishna.potthuri@amd.com> <acEbZ0O3HKrGx0u1@ashevche-desk.local>
+ <8c8fa211-6244-43d3-9350-856301075e2b@amd.com>
+In-Reply-To: <8c8fa211-6244-43d3-9350-856301075e2b@amd.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 23 Mar 2026 13:46:37 +0200
+X-Gm-Features: AaiRm51igNpVP2kCtjt-uVTIXp5cT3pPNV4OvOgkKtoQyGTUIfXrJkbDCsd2ufI
+Message-ID: <CAHp75VdcrfJn=VBnjJbA8QQnstaTay+39bumJiLt796fXsKmTA@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] iio: adc: xilinx-xadc: Add I2C interface support
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"saikrishna12468@gmail.com" <saikrishna12468@gmail.com>, "git (AMD-Xilinx)" <git@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_044716_048549_A901D480 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +126,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Mar 2026 08:01:43 +0100, Christoph Hellwig wrote:
-> this series fixes a really old bug found by code inspection, where the
-> architecture-specific 32-bit compat ftruncate64 implementations enforce
-> the non-LFS file size limit unless opened with O_LARGEFILE.
-> 
-> Diffstat:
->  arch/arm64/kernel/sys32.c       |    2 +-
->  arch/mips/kernel/linux32.c      |    2 +-
->  arch/parisc/kernel/sys_parisc.c |    4 ++--
->  arch/powerpc/kernel/sys_ppc32.c |    2 +-
->  arch/sparc/kernel/sys_sparc32.c |    2 +-
->  arch/x86/kernel/sys_ia32.c      |    3 ++-
->  fs/internal.h                   |    3 +--
->  fs/open.c                       |   40 +++++++++++++++++++---------------------
->  include/linux/syscalls.h        |   16 +++-------------
->  io_uring/truncate.c             |    2 +-
->  10 files changed, 32 insertions(+), 44 deletions(-)
-> 
-> [...]
+On Mon, Mar 23, 2026 at 1:32=E2=80=AFPM Sai Krishna Potthuri
+<sai.krishna.potthuri@amd.com> wrote:
+> > -----Original Message-----
+> > From: Andy Shevchenko <andriy.shevchenko@intel.com>
+> > Sent: Monday, March 23, 2026 4:22 PM
+> > On Mon, Mar 23, 2026 at 01:15:04PM +0530, Sai Krishna Potthuri wrote:
 
-VFS CI: https://github.com/linux-fsdevel/vfs/actions/runs/23425735066
+...
 
-  x86_64 (gcc, debian, ovl-fstests)  pass
-  x86_64 (gcc, debian, selftests)    pass
-  x86_64 (gcc, debian, xfstests)     pass
-  x86_64 (gcc, fedora, ovl-fstests)  pass
-  x86_64 (gcc, fedora, selftests)    pass
-  x86_64 (gcc, fedora, xfstests)     pass
+> > >  int xadc_write_samplerate(struct xadc *xadc, int val)  {
+> > > -   unsigned long clk_rate =3D xadc_get_dclk_rate(xadc);
+> > > +   unsigned long clk_rate;
+> > >     unsigned int div;
+> > >
+> > > +   if (!xadc->ops->get_dclk_rate)
+> > > +           return -EOPNOTSUPP;
+> >
+> > > +   clk_rate =3D xadc_get_dclk_rate(xadc);
+> > > +
+> >
+> > Unneeded blank line.
+> >
+> > Also, don't you asked for options?
+> This callback is defined for all other platforms except I2C.
+> Currently for I2c interface we are not supporting any configuration, it
+> is used only to read the channels.
 
----
+If the callback defined you should use its value and not hardcoded one, rig=
+ht?
 
-Applied to the vfs-7.1.misc branch of the vfs/vfs.git tree.
-Patches in the vfs-7.1.misc branch should appear in linux-next soon.
+> > >     if (!clk_rate)
+> > >             return -EINVAL;
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
-
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.1.misc
-
-[1/3] fs: fix archiecture-specific compat_ftruncate64
-      https://git.kernel.org/vfs/vfs/c/e43dce8a0bc0
-[2/3] fs: pass on FTRUNCATE_* flags to do_truncate
-      https://git.kernel.org/vfs/vfs/c/0924f6b80d4a
-[3/3] fs: remove do_sys_truncate
-      https://git.kernel.org/vfs/vfs/c/e8767a3134ca
+--=20
+With Best Regards,
+Andy Shevchenko
 
