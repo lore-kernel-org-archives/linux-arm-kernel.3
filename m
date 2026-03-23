@@ -4,143 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B8AEC01A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01EAFEC01AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8V6Eom2rViGFebEUish+pLCDRvroG9b1wDJZpMW30s=; b=ApojY8YqdlfspurjOMmb2xyOEl
-	q3Nw+E6x/w06ACOq87D7wT5reH3q+qQeBmDtkQW2vVeV1so5nQK6WCQDf8hQ4IF8ozH82INK7l7Ou
-	CoS44zCAHsf5T8T515i08UiZ7XXlKY6OlW2W4ZSnB450jdj8ChWhVG0Mu83TKMIKm1Vou3LrNFW/x
-	S1+bf6CnFrMc1F1895YZGdyqHwHsvoQSkt/gQ0/AUo2sEghJAs6vmmzNY4NORgpvbSexDBI8sEdct
-	lTr8OjNrjGldxfZzV8M38DeloiSOLgWv5OnQGCMDdPr70fPUruohiTV3JKTMA4tZZNaR9+7KfI6n6
-	CIpiloqw==;
+	bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=; b=bBQyHAO0i34A7chYOfyAtROkOp
+	+eiwMVAPbDVVvE67jC8XYBmGjQtZGecRSDnKS+ldouI+ghxvaP8lZUtOdCIzZ19BbrSg5bEaGerqq
+	XI057ecKMvhZHBUrzwXTUJRXhU8KwDOHUjn3CHLxNbvRlXnH3fAAX0KNs385dOAgzpUgUkpi9rdGK
+	1uCBfRYqWk8bRWrb+fvQNcj/bzoa6BBHgjMjqsZxEpAK4ohqx2+qwn0KJFy+M07ds/ofa1SDY/VF+
+	Iq/hV1CnsfXCEkB7bSlY5KMtjDVlQ9OMldc46JYkn154JegEoTk0HK9jZdhbOaOvGrGNEdEy9tjrN
+	crtBU/ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bGg-0000000GKzF-3Ge1;
-	Mon, 23 Mar 2026 09:08:14 +0000
-Received: from mail-swedencentralazon11013042.outbound.protection.outlook.com ([52.101.83.42] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w4bIp-0000000GLDX-3PRX;
+	Mon, 23 Mar 2026 09:10:27 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bGe-0000000GKy2-0IrC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 09:08:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iK8Ygg7MXZIqsg1u6euaXRheAj/I65oixQiZqGviED4xCcBYlS4Jb48onTpHMcgavSl0H+eqId5HOlq4PZAmIOB5MDdmkoTnkCa7Tle8UZch1PegL0iErzGMlxAIrWLnPgB51k11kGi3YcDqmJi5b0Pugmtk0pSvKjDIz0ZhDggkXkvqBVk1EThQ97eU6/2LPmUwrYSBRJY6lNPk4Xrh0Tk6qTlz8w5e07sAz+i6EPDek6j1ZYfKIrCL7EnN2gWZ8km/LsKzt9dC0XRn/Y1s5bwgHYJAouAsjks+Fc5lGh/a0tO6NhEHv24d/bTa3CRsPnXnTRCaAjzLf1wx+WnoqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r8V6Eom2rViGFebEUish+pLCDRvroG9b1wDJZpMW30s=;
- b=F2jQvHf/hFz8MUUTbt4mrkayqZlQPABWrAHl14tkVIRsgjqw58QhbfqYqmSaE7U6i0pXVdcM06UMM+l6s/CmJVakC5S91w/hgBmRM+g1rla24+HfrnksV9H4jD0Q9riPylWG/vZyOQ03PQeTmZhnjOIy6r0kyufEw4uQbXuI3zNP51kOZeC/CAIxEv6EEkBu1uTKKe9L4O46yfp/ggWs0n+R3Ry7slYPPcIA4gYWff4KGYfcZu4jcjKs+tFkFOpH63l611Ger40slU2l5q99qPp21+PznWiW1qyI0KXHDa9mDelc490XUWSq9LOv9EkZRxKJARoNXXt9XKjf7FEnig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r8V6Eom2rViGFebEUish+pLCDRvroG9b1wDJZpMW30s=;
- b=PvX9g8FskLS7PnVwUOwS+zJyp7IKSxVQT8+tXET/auJZrgkPQCxWjDBG8hWgGD/awrED13Ft1lxTMoSTeK78gn7cVM+whMJ+sCiNJoH8BBIMMBajHdqe/joGcT4345GpoD/aeMVlSpwXdq5cwSrMqLLnCqiIVDhwrWDLj8MO/fFu6CP19BH0hC51lapWMj0T4VELYYnH5kswZ+jsAk8H7btPLhRYf0x+zU6C1A+7EN6xaJrnZ0HmeCGVR7yTqxTHp6y/5yMHkmGoaye2vKPFb3LJ4Ak3TTJvuAyqomI5pSUfg5NkUqrqfPNHgpQJPSyPOS+ZM+OSusmNNGQ1gQBIAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AS8PR04MB8279.eurprd04.prod.outlook.com (2603:10a6:20b:3f8::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 09:07:34 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
- 09:07:53 +0000
-Message-ID: <8a8d2991-cd85-4aed-a7ef-a90b0cd10fbd@oss.nxp.com>
-Date: Mon, 23 Mar 2026 11:10:57 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: hwmon: emc2305: Add
- fan-shutdown-percent property
-To: florin.leotescu@oss.nxp.com, Guenter Roeck <linux@roeck-us.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
- linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: daniel.baluta@nxp.com, viorel.suman@nxp.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-References: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
- <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM0PR02CA0113.eurprd02.prod.outlook.com
- (2603:10a6:20b:28c::10) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	id 1w4bIm-0000000GLCZ-3ggt;
+	Mon, 23 Mar 2026 09:10:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774257016; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=fCnQxOjBHWAvciIhvDWKGSu1LEvxeGBq1dtQMwfQ/6WAAJnAx3Yp4cEn/ZabU9x/sM
+    GIgqdDNxbQutsjV8oO8lPOLn0DpOb3Bkoq8I0uKtoF4cqWGt+gTdB6X0ByylvHnf8gUR
+    JMKimUSb+RNCcx2n245u3T+748iW+y08/SRCUhsrhZuz7IWewgetlkXiKpxFeF9OMaWA
+    804UyV/Q/Q9RAubQsnrfP2ieNJ40fkzT5ZJXl/ctRCmY30+9x5QrfVBfPbAKgeoc/nuo
+    dQvcgEg8VW1iU4gK4sOFBovJLylMa5bx9O1TpWqp/V4s5NLxvAvR/ejnFPQbpcDJeibg
+    mPoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1774257016;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=;
+    b=j44P6oh9KjaapEvWeWAxinrm23dGpzGc6zQgz8zReYtOa8RQO1OZtijvbstav8i6TH
+    y+e9aUAZguwnx0WsGDuoMcYVUX5ylEtlgqztFbRc8KybT5ARjQynxC4UA7LeXPElPkqr
+    wC1AVGXoNo/vsaKHiJE9i20B3Kr/VSvUMtPkZT3YFWr79PoMgfshTB8yJamJoNXAdAo4
+    Vks/GHstO1/+Ff+kWLQUyNUbqK03RupBrRmd+PHiMZbqvG03lpDg71c2dg869GrHeBwB
+    7ILalUn4LJCoSg7K30giTEp1xd4ooKQGr/A3zDJpaxAxSuik5QrqD3SdHKefIB1xqfub
+    PxCQ==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1774257016;
+    s=strato-dkim-0002; d=iokpp.de;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=;
+    b=oB5MUOcwnL8wCWZIvUbSF+n2tSmvY2PVB1F2iP1KO29zhSuG8WjCJd7fd9BCHBLaoO
+    hCZji4UZWVbHd/cymJEyO1S+ozjz244YJBfyKb9vafioRhTGzelXhX4OzKC6kK5nhtL4
+    YQR79nLITuX5GloZVPJoO/UpMz3kMEQO92qhPnTcL6pc37pfKMniHYxAQAZfa0t7YL1Z
+    S1L3kuaFutU7wdHOboPeeVPCX/vhOxSEJR9ndUkN4paxKvvTF6X72S4NxJju1E+/ZgG5
+    Z9NH3rqjY80KOT4BKWf7AYDRjw3oVY2qlgM2m1rS0eSuQi0Z8yn0yYbBvO6roGjoWV3Z
+    Vs2w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1774257016;
+    s=strato-dkim-0003; d=iokpp.de;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=suw9KHLI1LNKkl/PCLrf2qkeUAqtRJBNl4/N/e6MHDw=;
+    b=OxctGTOoYRuBaiR748PWHh5Zf8TwSpWRVyedcUgy/m2eZ9JYyuKBf0kvDe4ia1Uls5
+    cUNnrJp25Kfa9ukmmCBQ==
+X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSe9tgBDSDt0V0DBslXBtZUxPOub3IZqk"
+Received: from [10.176.235.211]
+    by smtp.strato.de (RZmta 55.0.1 AUTH)
+    with ESMTPSA id z7934522N9ADQJ7
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Mon, 23 Mar 2026 10:10:13 +0100 (CET)
+Message-ID: <d74ef14d2376d6b4ca819eccb4570120f658caeb.camel@iokpp.de>
+Subject: Re: [PATCH v4 01/12] scsi: ufs: core: Introduce a new ufshcd vops
+ negotiate_pwr_mode()
+From: Bean Huo <beanhuo@iokpp.de>
+To: Can Guo <can.guo@oss.qualcomm.com>, avri.altman@wdc.com,
+ bvanassche@acm.org,  beanhuo@micron.com, peter.wang@mediatek.com,
+ martin.petersen@oracle.com,  mani@kernel.org
+Cc: linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Sai Krishna
+ Potthuri <sai.krishna.potthuri@amd.com>, Ajay Neeli <ajay.neeli@amd.com>,
+ Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Chaotian Jing <chaotian.jing@mediatek.com>, Stanley Jhu
+ <chu.stanley@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  "Bao D. Nguyen"
+ <quic_nguyenb@quicinc.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Archana Patni <archana.patni@intel.com>, open list
+ <linux-kernel@vger.kernel.org>, "open list:UNIVERSAL FLASH STORAGE HOST
+ CONTROLLER DRIVER..." <linux-samsung-soc@vger.kernel.org>, "moderated
+ list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>, "moderated list:UNIVERSAL FLASH
+ STORAGE HOST CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
+ "open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
+ <linux-arm-msm@vger.kernel.org>
+Date: Mon, 23 Mar 2026 10:10:12 +0100
+In-Reply-To: <20260321031021.1722459-2-can.guo@oss.qualcomm.com>
+References: <20260321031021.1722459-1-can.guo@oss.qualcomm.com>
+	 <20260321031021.1722459-2-can.guo@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB8279:EE_
-X-MS-Office365-Filtering-Correlation-Id: 628f04bc-e26e-48f6-971a-08de88bbaaa0
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|366016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: DGgeiRdkwuWL7gGvKzzP5UOIfJVa7vts/ZvGXKBFxLSYUTj1vvK6aNtFP/gLq8hsAZKXEL7P8rNfITaFGA1iBPjnMMdgCogBByVuzSNtMGXu090RQ6U5lDnlfPjGcUtNQTUf9voeicgf9jRZCKIQaDL+fixjygA3ApoFz8ghbmNkCsm9xLUM0F502nJ79gMR7oxUSh3QluAEcCOScaCIvJi1fJK+OQLopGny/qI4Xp1Q/L/l9NQr1jPLwyUrU4friOCbAEkj8baoYSjjkrJ43ICe442JE3d1oueiMI7fM2Z9gp/cakQ0kPwJG1LUxSKTFzhEa2q72iyY1Krx4ukbMDzMaEWMU89h4QHWY4IBG2zWRPXC43jhXrLGOGAsP4A2BAycyjO2jybnpST0cH/LXzmFrJM7tQx8hvwH/GaMYfoshvEfaf1lPrNOGQ3sv+rzoaJWCCD0m9LFFxuwRziZU/gjJ0Ko2P+2sXMZfMsZoH/v9tmbRMP8KOK3oDG3NKWVHE5XH+YetppafehXw2DIhyPgkb+HRk4K0d5W10JJ/ALJ1PxkAQiiLkXSy8dmF1xg8VHYxBomlDVOBrWMYx2g4IqkT/h0arohaczfdWmgxflRY7Cqu1FaJk0ygildTauzQQM1cWRAYN2p73xI61onlgUpmAZ3xTdWv5Ta6oVPZeV1vUT03ierP7eB8a9+KINcQAT4XXa17Fp5d6pTUfNI6TzAWSjrwxkkVOb7Ow4kgYU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RW9MOHZuMWdTUlVuajF4MlBVV0RCQzNDc1lCampDZ0lxejJGMGdNUVZ2TVM3?=
- =?utf-8?B?MTgveGNWbTZ4UG5aVTVEbzA2YXV1VXFpa0lsQ1FNUkpiWGtxTmFaNHVqMGFX?=
- =?utf-8?B?TExSdG1sM205N2xTdXdZT1BzK2lMcEM4U2dVZ2d2MFhHdmUrbWg0dkZsU2hK?=
- =?utf-8?B?eEREeHlMdlN2SWpZQ0EwWHc0cGs3OE9mOXRPRjg3TXlGMWg0NSt0YVpNY2dR?=
- =?utf-8?B?Y0szRTlWckxZdWFmVnhQeVJYMFlqamZoNmVlYWNxam8wUGFRK3FIeDhFV1A3?=
- =?utf-8?B?dGdBZ0RXbzVyT3pWZzgrV3c4SVFFVk1LTUJoVGhnN1dOb2YrK3E0bW9KSFRu?=
- =?utf-8?B?bVdHK3RtbGE3MUh3d2h2cHNBSVQrVm9VVzN4OHZTbTFtOVJHdXdDZ2J2Mysw?=
- =?utf-8?B?bjJ5aFJaT1VrTVZBWDhKYmdyK3ZPV3hKMDNjNWVuQ2RmTDh5ZE5Bbjk2elpH?=
- =?utf-8?B?SCtuYnpJWjB5MXZSOXlZVTlyWnRUQklSb2xSYkVBaTlPNGVzWFJ4TTk1Ymp0?=
- =?utf-8?B?bGxaTmFsTFpDbllraUVLeWpUY3hFK3hWdUtENS9pN042MjN1RkhlM1FOTWZI?=
- =?utf-8?B?U0pvaW1hTWRMZUc1dFR4bzd0TGJ6UW5nNDNFMXIxTjIyY2RrMU9OaWxVQmcx?=
- =?utf-8?B?WmJZbll4Qk9QNTlHc3FZdmNma1poZTBkMmZieHp2YStMUkR4OWNxd1l5YnJ4?=
- =?utf-8?B?dlQ1QjU2ckJFYXNXeDVvbTlLb2ZaNEJmRlRGZUpWZU5CVTBiWnUyMXpVWGVn?=
- =?utf-8?B?bmx5eVZtalNMQUl0a0xLV0FuMkxZTjI3OHY0WnhvKzZDYWFEazJIaTl5N2pq?=
- =?utf-8?B?ZXJLcnl3M1g0ekJQNkhqM2R2QWhIUGdxMEo2ZUI1L3FoZVY1VFEra3NNRzFJ?=
- =?utf-8?B?RzNNSURkYkd5SW53TjcweUxNclpXU3dXaWV3T0pvVGpCa3ZCZUlRblJDalp6?=
- =?utf-8?B?clhuQjB5UzRWbFpTYzJxOC8wUTNVd2VDbHR5dFoyakZpUFhKVTI5bDgwM01k?=
- =?utf-8?B?Z0tMYzdxNHZwZUUxcHUvYUphRCs3eS83Vy9mTGJaYWtsd0VJUHMva1lRaWFN?=
- =?utf-8?B?NWxzMi84aFpYL1BheVBGUThHTDZUVmhLSlNZeTNhVGQ1bDRvM1Q1elJJQ1Ra?=
- =?utf-8?B?enRZZDBRK3pOemFNVmhLZGFoMEY3MkJIVnluR2hST2E2RThuWVFpOGExOFc3?=
- =?utf-8?B?LzllU0F4RTVOTkRCTW1Ra2hvM1J6NFR3QWRGOXVtY253Vmk2UStMYklvYnZF?=
- =?utf-8?B?M3ZrOWNTaUlXTW9RUU85WDNhc0xTK1lCTjRQdEhjWVdJdUd6K0U3QlVsZnhY?=
- =?utf-8?B?QWNRaEhYQWNudGJFV3FUNVc1RkQrNjR6VVBKZTBDYllqbUY5eGRqT1NZZzFZ?=
- =?utf-8?B?MjR2NW90LzEzVDk0K3FGNjZFVURaSG5lRlNuVnFGUTM5TUhybS8vZ01RdWo5?=
- =?utf-8?B?eWZYYytEMWRNZnp6K3ZSc0FJeURyTHFESmRvSTJ2bFF4bmp5KzNmS2FOMjlS?=
- =?utf-8?B?aHBsWUNDZ211TXRpUHQ1YThFc2w2Yjlxc2d6WDV6TnFHSGszTXEwUXZIOUZ1?=
- =?utf-8?B?NGIxV2ZmRm4xSHVjWHVHZHVIMHVSMUV4MmhGSU1hVlFlc3VtU0c5WmVhZk0x?=
- =?utf-8?B?M0JrVEE4dXJlZ09GbW94VitjQ3dqSjR4NDBYWnhTMlJHRmNPOEd2cXZ4Y0VB?=
- =?utf-8?B?ZzF3S0sybE1LWUNJVWdJcjdCZ3BVdVZucTUvT01maTlXVlZyTXNmQWFmNURP?=
- =?utf-8?B?M0RrQjJRS1YvV1F2S3VzbXZCa0dlVkloSUE0SUszWEhqbXRXbnl5OXFZbFZU?=
- =?utf-8?B?TTkrL2w3d3I4RWZzUlprZzNpYm1GSU9KWnN4MHlQVWNPY3hPL3FvVmFJR0Z6?=
- =?utf-8?B?Ym96REQxcWd4VEVrTzFCa294SEdzVnplR08veHJvT1VRdG55MkpVMEJoMjM2?=
- =?utf-8?B?NG1ESnI1TzZ3KzlzMytJdjgrQURzSXZHSVdhNkZZWjFVMTcwa1o4QithQWFN?=
- =?utf-8?B?NUFuSWpRZ1RQdTd1WVB2V2RJQnBkOGpIU08yQU8rNERrdy9NNUVCSTkrMm1l?=
- =?utf-8?B?ZmNXa3ljbmVjZWY2QmRKekJPWFU0YU1vakp2VmlENDUxa3lWbm5qc0YwTmlZ?=
- =?utf-8?B?NEd5ejdXTGpHOTBHV0RucUhOZXFBWUFLcEVkRGlIN2t0SUZVL09IR0hjdFNt?=
- =?utf-8?B?T29najRtSlMvQUVyTzlBMVBTY3BwMzYwMG41MzJUUW1meVhnVHB4TTdHTzRk?=
- =?utf-8?B?ZFRvZGxKQkpib2hHOVVXVlBNV0dET3k3SXJLRG41ZDlETTQ4Syt2ZE5pTUZq?=
- =?utf-8?B?U2VOYmhXTVp4MktGc3lDNjVNVFZBR3hmdThESHdscS9EaGRlU0FYZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 628f04bc-e26e-48f6-971a-08de88bbaaa0
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:07:53.8179
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gy80enJ1JiJIV/7XvglR1s0QRIJ3ZSczRTaFOFb4MVOxH99O83vRlv99WydkmL7+FWuN11m/aeJlDTnFe0eTVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8279
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_020812_248750_08DF0BBF 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260323_021025_250250_702D6C78 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,46 +124,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 17:29, florin.leotescu@oss.nxp.com wrote:
-> From: Florin Leotescu <florin.leotescu@nxp.com>
->
-> The EMC2305 fan controller supports multiple independent PWM fan
-> outputs. Some systems require fans to enter a defined safe state
-> during system shutdown or reboot handoff, until firmware or the next
-> boot stage reconfigures the controller.
->
-> Add an optional "fan-shutdown-percent" property to fan child nodes
-> allowing the shutdown fan speed to be configured per fan output.
->
-> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
-> ---
->  .../devicetree/bindings/hwmon/microchip,emc2305.yaml      | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-> index d3f06ebc19fa..7bcadfab9fc4 100644
-> --- a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-> +++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-> @@ -54,6 +54,12 @@ patternProperties:
->            The fan number used to determine the associated PWM channel.
->          maxItems: 1
->  
-> +      fan-shutdown-percent:
-> +        description:
-> +          Fan RPM in percent set during shutdown.
-AI review suggests to update description to 'Fan speed percent' or 'PWM duty cycle in percent'. This could be an easy update.
-More important question here is how should we proceed with the following observation:
+On Fri, 2026-03-20 at 20:10 -0700, Can Guo wrote:
+> Most vendor specific implemenations of vops pwr_change_notify(PRE_CHANGE)
+> are fulfilling two things at once:
+> - Vendor specific target power mode negotiation
+> - Vendor specific power mode change preparation
+>=20
+> When TX Equalization is added into consideration, before power mode chang=
+e
+> to a target power mode, TX Equalization Training (EQTR) needs be done for
+> that target power mode. In addition, UFSHCI spec requires to start TX EQT=
+R
+> from HS-G1 (the most reliable High Speed Gear).
+>=20
+> Adding TX EQTR before pwr_change_notify(PRE_CHANGE) is not applicable
+> because we don't know the negotiated power mode yet.
+>=20
+> Adding TX EQTR post pwr_change_notify(PRE_CHANGE) is inappropriate
+> because pwr_change_notify(PRE_CHANGE) has finished preparation for a powe=
+r
+> mode change to negotiated power mode, yet we are changing power mode to
+> HS-G1 for TX EQTR.
+>=20
+> Add a new vops negotiate_pwr_mode() so that vendor specific power mode
+> negotiation can be fulfilled in its vendor specific implementations.
+> Later on, TX EQTR can be added post vops negotiate_pwr_mode() and before
+> vops pwr_change_notify(PRE_CHANGE).
+>=20
+> Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
 
-"fan-shutdown-percent property is already defined identically in pwm-fan.yaml."
+Looks good to me. Let=E2=80=99s move forward!
 
-Guenter, should we move it from pwm-fan.yaml to fan-common.yaml and use it here?
-
-Our initial thought was to add have it merged in microchip,emc2305.yaml as it is now
-
-and then factor it out in fan-common.yaml in a later patch.
-
-
-What do you think?
-
-
+Reviewed-by: Bean Huo <beanhuo@micron.com>
 
