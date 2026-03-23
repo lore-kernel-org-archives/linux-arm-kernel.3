@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCC9F46102
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36AAF46102
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJ0gyR81/1WEFsq5/EEfbiyKSUH/x20GMn/RIAJnyFE=; b=mgz6hrS4kN6d68RaO7NjV2eTQh
-	FdK1bTRXclb7q4JT2Uze3oTF7G1WVmQCSl/cdSq5zWaZ9NEwFL9Fw07x8NeV1IuZU2ts233y/gSVQ
-	L6kNBW76qf8ALn2wbJMLQUDCstQMzKMLBw9dJe4sa74eEZ3C7wBm4eZ1tNvtnmYWPDrr32Ve5rKLF
-	nqHWBoFrJ1EfcxU8YlxJE1STOuu9EHXso9gtnCiUoi+mAOkjlxMPP4zRU8AgKuDISgN+mabu/s8Ke
-	ptA94uzuSBJIJ2nx9hszv9X+vKRrLEQVMGUt+yhuHHukL24KGIMmrHLrTbViayKB2IayodL1uGGVG
-	8+8ZEEvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1d81UGW+g5moJ12QZLJ70AfXTnILA70sV1AIVfxWkPk=; b=CuDS8QyLo3QGp2GlFfQzN2kM10
+	IaSOyDOyjhRe1mUXlxTx7Y+nxMlo5R8NKC1OEzwdIuLP/l1rO3FoohlV/og3NKxFvzbLqDamHgQSz
+	lWJaZoB5PEKO+SEgGAXVZZXFzP8zAdulFIVuu/3x5OR0mW7U98wU5EEl99xjSxdUNLeFqN3TV21Hv
+	q83d0ZW/WJUctXdQudHPOb/+fn/nnDs1C5PBmA7PjKn31GHRf+hyHUi/aqN2MEJu1yDaMDYWDrLxQ
+	pQiA2KXJd59mX4xRC0BLL2pt0+bfcv6CQIPnZ2QVNKqB3+UAU14ZoQnngrrFYHpVccyIUIoVGbuJN
+	e7v2XjKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4enw-0000000GjDa-3T7T;
-	Mon, 23 Mar 2026 12:54:48 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1w4eoN-0000000GjHB-0uMq;
+	Mon, 23 Mar 2026 12:55:15 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ent-0000000GjDB-3SWA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 12:54:47 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id AAAAEC3EEAC9;
-	Mon, 23 Mar 2026 13:54:37 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl AAAAEC3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Maxime Ripard <mripard@kernel.org>,  Marco Felsch
- <m.felsch@pengutronix.de>,  Marek Vasut <marex@nabladev.com>,  Stefan
- Agner <stefan@agner.ch>,  Simona Vetter <simona@ffwll.ch>,
-  <imx@lists.linux.dev>,  Fabio Estevam <festevam@gmail.com>,  Pengutronix
- Kernel Team <kernel@pengutronix.de>,  Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>,  Sascha Hauer
- <s.hauer@pengutronix.de>,  Frank Li <Frank.Li@nxp.com>,
-  <linux-kernel@vger.kernel.org>,  <dri-devel@lists.freedesktop.org>,
-  Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
- <airlied@gmail.com>,  <linux-arm-kernel@lists.infradead.org>,  Lucas Stach
- <l.stach@pengutronix.de>
-Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-In-Reply-To: <ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com> (Liu Ying's
-	message of "Mon, 23 Mar 2026 16:18:55 +0800")
-References: <m3ms04caaj.fsf@t19.piap.pl>
-	<32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
-	<m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
-	<20260320-amiable-hairy-bullfinch-28bfda@houat>
-	<m3a4w2d4ds.fsf@t19.piap.pl>
-	<ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com>
-Date: Mon, 23 Mar 2026 13:54:37 +0100
-Message-ID: <m35x6mpuya.fsf@t19.piap.pl>
+	id 1w4eoK-0000000GjG0-3hWn;
+	Mon, 23 Mar 2026 12:55:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=1d81UGW+g5moJ12QZLJ70AfXTnILA70sV1AIVfxWkPk=; b=jA
+	1fKF6JCm07M3XMCGUuLHhhI9Pu6ECn1GJ3yeUqHNhRkzLmXiEKTE/QlBMy2b+v7qeDJ/Lwc6gzpEd
+	uTbq1XPNawby4AoIaQRDN6D1/Dwq4q51KKQd6nnrU4sc4PnuPzJ60QWKwdET9ZkSy1PsI6j8uUhzN
+	bgmLoRVpwaHE16E=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w4eo2-00CvjR-O0; Mon, 23 Mar 2026 13:54:54 +0100
+Date: Mon, 23 Mar 2026 13:54:54 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, a.hindborg@kernel.org,
+	acourbot@nvidia.com, akpm@linux-foundation.org,
+	aliceryhl@google.com, anton.ivanov@cambridgegreys.com,
+	bjorn3_gh@protonmail.com, boqun.feng@gmail.com, dakr@kernel.org,
+	david@davidgow.net, gary@garyguo.net, johannes@sipsolutions.net,
+	justinstitt@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-um@lists.infradead.org,
+	linux@armlinux.org.uk, llvm@lists.linux.dev, lossin@kernel.org,
+	mark.rutland@arm.com, mmaurer@google.com, morbo@google.com,
+	nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
+	nicolas.schier@linux.dev, nsc@kernel.org, peterz@infradead.org,
+	richard@nod.at, rust-for-linux@vger.kernel.org, tmgross@umich.edu,
+	urezki@gmail.com, will@kernel.org
+Subject: Re: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+Message-ID: <65336ad0-ac37-416f-b6ae-e691e3e375ae@lunn.ch>
+References: <20260322192159.88138-1-ojeda@kernel.org>
+ <20260323000327.111235-1-ojeda@kernel.org>
+ <96287f3a-d245-47cf-b7cb-f821451493d3@lunn.ch>
+ <CANiq72nwSWVDRqm0Vap5j5X5k+Q-wq8okQ9d3KUgZt6M4CpW9g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CANiq72nwSWVDRqm0Vap5j5X5k+Q-wq8okQ9d3KUgZt6M4CpW9g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_055446_024855_78A1DED3 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260323_055512_938476_523B4C46 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liu,
+On Mon, Mar 23, 2026 at 04:24:59AM +0100, Miguel Ojeda wrote:
+> On Mon, Mar 23, 2026 at 4:04 AM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > Rust is already fragmented, because it does not support all
+> > architectures. Do we really want to make it even more fragmented by
+> > having some bindings only work on a subset of the subset of
+> > architectures?
+> 
+> That is not the case. The `depends on` is not about putting them on
+> abstractions, but on this experimental build feature, which is gated
+> on `EXPERT` to begin with, because it uses a fairly exotic approach
+> involving LLVM bitcode, which carries potential pitfalls, like the
+> mismatches on the target string like one of the commit messages
+> mentions, and possibly others.
 
-Liu Ying <victor.liu@nxp.com> writes:
+I'm not sure i follow this.
 
-> If you may use a display mode with low resolution, say 640x480p60, and
-> the issue still happens, then I bet it's not related to the panic
-> threshold settings, but more likely related to KMS detail control seqeunc=
-e.
-> This reminds me that Lucas had a patch series[1] to try to fix the
-> sequence, but it seems that it didn't fix i.MX93 LCDIF according to [2]
-> hence no landing.
+Maybe i should ask a different question.
 
-It seems it depends on resolution: at 1080p60 with the DIV_ROUND_UP
-(thresholds increased by 1) it seems to work fine. At 2160p30 (twice the
-clock) there are frequent underruns. Now with thresholds increased to
-2/4 and 3/4, weston started fine 10/10, while shutdowns were 8/10.
-4/6 and 5/6 made it worse, though.
+You said:
 
-I don't know now. I will try to investigate a bit more tomorrow.
-Perhaps the sequence of register writes could be better, indeed.
+> we
+> may want to start simple with x86_64 and arm64 or similar first.
 
-The following doesn't fix it for me either:
---- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-@@ -358,34 +358,27 @@ static void lcdif_enable_controller(struct lcdif_drm_=
-private *lcdif)
- 	writel(INT_ENABLE_D1_PLANE_PANIC_EN,
- 	       lcdif->base + LCDC_V8_INT_ENABLE_D1);
-=20
--	reg =3D readl(lcdif->base + LCDC_V8_DISP_PARA);
--	reg |=3D DISP_PARA_DISP_ON;
--	writel(reg, lcdif->base + LCDC_V8_DISP_PARA);
--
- 	reg =3D readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
- 	reg |=3D CTRLDESCL0_5_EN;
- 	writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
-+
-+	reg =3D readl(lcdif->base + LCDC_V8_DISP_PARA);
-+	reg |=3D DISP_PARA_DISP_ON;
-+	writel(reg, lcdif->base + LCDC_V8_DISP_PARA);
- }
-=20
+The current proposed code for netlink needs this feature, because it
+needs access to inline C functions. Is the implication, following a
+chain of dependencies, that netlink would only build on x86_64 and
+arm64?
 
---=20
-Krzysztof "Chris" Ha=C5=82asa
+If you want netlink on um, arm32, riscv, loongarch you would need a
+different implementation of the binding?
 
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+And a completely different question. Are there other work in progress
+solutions to allow the use of inline C functions? For networking, in
+particularly MAC and protocol code, anything which needs to access a
+struct sk_buf, a solution to this problem will be required. Do you see
+this "fairly exotic approach" as just a sort term bridge until some
+other "boring approach" is ready?
+
+	Andrew
 
