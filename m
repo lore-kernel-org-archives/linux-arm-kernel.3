@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136CFF483D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3234F483E9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 20:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0irAWwmXTnrA6DZFtnARkmMQCtt3MlBdKCeTWfgkROs=; b=sCtXBSNWFSLgiwqlz0JJS1CSkp
-	Crktd0QsL6MxCrECSzrGprQjG6oy4uNatgSyynrdvbDxb7YmP4kuewVwfN0ucSomA3VnXkHJkI47Z
-	BENd8WFc1q3MWZEIhTwRR2YhMGhZ+gnH0pMW9z8tN/kmMwXcnFS7Q0aKYOIm5ywxI7ysj8Dcws165
-	mjTuO5JTFaX5VSpEofYwDz5N9HSPufXBmFz2taoKALeLBhSwzdpY0zLeiu/hs3NylSkM0+4Vlyyoz
-	Ww21EZ1CqqHxqVYsjAApSC6Je7RCEReWzl4T+4jHNfsfy+diGF4SzoMJ6acmOx305XALWEDTKHg9U
-	x+ZlsASQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eHjmY3uz+RhP2ImOwmCWqApQeZo1zGdRnLnmZ0qQ6L4=; b=jNm8K7ZbKXrRCr34ekFECANX6P
+	K98KrTTopoB+R6tIHEyYfDF0aalnQYh2Gw1778e8Zgsnptx6cBc5oIvnfclhTr94Oq4ieBFk/H/us
+	N0zhyYgPwxWSOtuGOMuCGPKPoWKucRXDM+0ls51Z6lwClMesPaHvDKcQ06BEWOiVefhYBe8IVwCwV
+	gOgblyUdUUNv59iqhQ0DuZk+fB2wHEUolzRKSwUbc1VFyFAtwdJt5/BY2eRUQKCkUkh4zUGY1B/0V
+	79409QVe7z9VjdbFWEVr38eX7KfUxZoBEaBR4vqarhZ3Q7U5nZ2u8OU53MP2HXl36toFoWKQRRK/V
+	V87rBNIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lNx-0000000HWaJ-02i0;
-	Mon, 23 Mar 2026 19:56:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lNu-0000000HWZl-1xHP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 19:56:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4238414BF;
-	Mon, 23 Mar 2026 12:56:14 -0700 (PDT)
-Received: from [10.57.59.110] (unknown [10.57.59.110])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63E533F694;
-	Mon, 23 Mar 2026 12:56:14 -0700 (PDT)
-Message-ID: <1d364f19-7cf4-400b-ad12-6380152e44e5@arm.com>
-Date: Mon, 23 Mar 2026 19:56:10 +0000
+	id 1w4lS4-0000000HWrA-3siM;
+	Mon, 23 Mar 2026 20:00:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4lS3-0000000HWqv-2oFt;
+	Mon, 23 Mar 2026 20:00:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D08E4600CB;
+	Mon, 23 Mar 2026 20:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 475C0C4CEF7;
+	Mon, 23 Mar 2026 20:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774296038;
+	bh=+x9AG17Hp/EBhtYzQohBkV903DY2Vh6iSe2BBxsw5YM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=k5GWk/YUuKdPBeWP84YtTOoDx7rfII8l4iT1yBV9NgYZP2jInEiNUsNQH+ZIy+TLl
+	 8PBfxs681Ew0ZlxDOfoxW1DhbnRm6LEvn7KTAF/ZBaTM+0SUsrC8fWv7LDPV1AK+yz
+	 UXvCmwWOQGyTxzzDW/O96L/vHXzHVoW/M7plyQwV2aLeLfpIUm/VuiZ4XpmHYZr0a5
+	 QJTua9wgXm1AMxQoQHK0DVqvR8syf19HA+LqXHBtHOF0+XxHMBWELgXIwkvM+Hs3LZ
+	 g4qBWXPLGpBKp8CRJ4R3EXR2uD0vKsxUcz/I9T+LDQZTq32N/uGlteB39Otu/cebCU
+	 D5Alz3WNmVYcA==
+Date: Mon, 23 Mar 2026 15:00:37 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andy Yan <andy.yan@rock-chips.com>, kernel@collabora.com,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Frank Wang <frank.wang@rock-chips.com>,
+	Dmitry Baryshkov <lumag@kernel.org>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH v3 01/12] dt-bindings: phy: rockchip-usbdp: add improved
+ ports scheme
+Message-ID: <177429603690.1305360.6710008166136949728.robh@kernel.org>
+References: <20260313-rockchip-usbdp-cleanup-v3-0-3e8fe89a35b5@collabora.com>
+ <20260313-rockchip-usbdp-cleanup-v3-1-3e8fe89a35b5@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings
- correctly
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Jinjiang Tu <tujinjiang@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20260323130317.1737522-1-ryan.roberts@arm.com>
- <20260323130317.1737522-3-ryan.roberts@arm.com>
- <588b2b4f-9cf6-43e5-b0e5-55820c74cbbb@arm.com>
- <e36d3b17-dc66-466e-9446-692592e5d7f2@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <e36d3b17-dc66-466e-9446-692592e5d7f2@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_125622_553117_C468E113 
-X-CRM114-Status: GOOD (  11.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313-rockchip-usbdp-cleanup-v3-1-3e8fe89a35b5@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/03/2026 18:25, Ryan Roberts wrote:
->>> @@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
->>>  	ret = update_range_prot(start, size, set_mask, clear_mask);
->>>  
->>>  	/*
->>> -	 * If the memory is being made valid without changing any other bits
->>> -	 * then a TLBI isn't required as a non-valid entry cannot be cached in
->>> -	 * the TLB.
->>> +	 * If the memory is being switched from present-invalid to valid without
->>> +	 * changing any other bits then a TLBI isn't required as a non-valid
->>> +	 * entry cannot be cached in the TLB.
->>>  	 */
->>> -	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
->>> +	if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
->> It isn't obvious to understand where all those PTE_MAYBE_NG come from if
->> one hasn't realised that PTE_PRESENT_INVALID overlays PTE_NG.
->>
->> Since for this purpose we always set/clear both PTE_VALID and
->> PTE_MAYBE_NG, maybe we could define some macro as PTE_VALID |
->> PTE_MAYBE_NG, as a counterpart to PTE_PRESENT_INVALID?
-> How about:
->
-> #define PTE_PRESENT_VALID_KERNEL	(PTE_VALID | PTE_MAYBE_NG)
->
-> The user space equivalent has NG clear, so important to clarify that this is the
-> kernel value, I think.
 
-Sounds good to me.
+On Fri, 13 Mar 2026 18:57:10 +0100, Sebastian Reichel wrote:
+> Currently the Rockchip USBDP PHY is missing a documented port scheme.
+> Meanwhile upstream RK3588 DTS files are a bit messy and use different
+> port schemes. The upstream USBDP PHY Linux kernel driver does not yet
+> parse the ports at all and thus does not create any implicit ABI either.
+> 
+> But with the current mess it is not possible to properly support USB-C
+> DP AltMode. Thus this introduces a proper port scheme following roughly
+> the ports design of the Qualcomm QMP USB4-USB3-DP PHY controller binding
+> with a slight difference that there is an additional port for the
+> USB-C SBU port as the Rockchip USB-DP PHY also contains the SBU mux.
+> 
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  .../bindings/phy/phy-rockchip-usbdp.yaml           | 23 ++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+> 
 
-- Kevin
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
