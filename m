@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79BDF46111
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49ACF4610F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaglnuEKvmhDHVxPkEiCZE9yt7htk15R7I1mxN0lds0=; b=QXBaaOyexbM6TpeSRIHr/X3XB2
-	VcDEjP7q/6h+2/F/B1sAXzKR+cOz4eBNqLYTmqHezI3y0uFDT7SIm/ftYuTaPltEpqMr1PdkRUAwj
-	ziWnHcKgAWiBN+sQULV8HDRTXxEk1oZFvCcFKpOOPKPNfaaHSw9bknE3g34Oh+VrybTg6sb4aKnAc
-	n25/w9JF7XEtJndv/kJOdsy7+NoEvFS31wSJwqbTLP5tTYwtxNXt5Xt5NjMgqdiO6xw1E+sCtL0re
-	3wO3uNGoZfOFVNGRN90N5mE4VFs7jhz0l4UJnp6OGFvyI8XsTPdJZHatU+88lQ/Ce9nTKw8okThg1
-	JK5a+W8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fn67HXpA7zjDtiRyKaRULlABylDK2UruwZzMMz6sLEw=; b=bk+wz6pQ8YMkGCcnYSrWKRXxtr
+	yftuxqdOg3eezazkNlpKkLA7hNdJ+afrzz+rl9zJIy1jSYPeABPeg2ynTcWEK/mDN/9D6ELkIG6K1
+	aes54g7JXhNe8uY5p6uBvfheBeLKeoDsfSVllw5AbOx0WSvPB6bx2RwlzRFGLM3qLyACHhTSzji9F
+	raH46ECqwueWaNCdWB0lL3MrV0vnEEeWmvS8mrIL2Gpqzb3K74PMXOpw03WY+O997Wn/mkLXyLHJS
+	0zM4EddvbHeSaa85EgGKRSZ9454Ik6TAXxCMUginvhC75JiV2p2JAQn6nDEXaDS/lPOGdgytTWNnz
+	E3l7WiSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fTq-0000000GqIG-3LWS;
-	Mon, 23 Mar 2026 13:38:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4fUI-0000000GqP2-0SBu;
+	Mon, 23 Mar 2026 13:38:34 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fTp-0000000GqHz-2mWm
+	id 1w4fUE-0000000GqOB-3au1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:38:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FA57600C4;
-	Mon, 23 Mar 2026 13:38:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D04FC4CEF7;
-	Mon, 23 Mar 2026 13:38:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774273084;
-	bh=USMzPIu1/1gwLcFqDyGpJPU6fyEk3mOxUeH0qtfA7+4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OU6XHM0UffNDTEB4SvGp5qtXj77lQnim9j70B1Ao/FtqQGkpL+JILHVyU1MoPJY5a
-	 gfpBJjq2mBHAPZq74NqdSN+wdgGM/f56FnhflLgMyj2EcFrPWRtCBQ7su1v/gh231I
-	 9tfs/46j/7w1TUsxkZCCgEUXLBaWWHSBY5OSi6j1Y1v+D00Es5+/h29/vGfRvG5+U1
-	 M+kpRsaJo6ZOmGg+X5uD+a2fXCSK69WJraAal7nkqdX+smv4l6dWcSQ37W+UoVqBrz
-	 3kCBsVmPfJ5bGAOqihh/B0q9cWA9qaCxrfbs0dcySWU/bytIDRnhH7SLTgPn7Jgtdu
-	 Enppi209j2aIQ==
-Date: Mon, 23 Mar 2026 13:37:59 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize
- ID_AA64PFR2_EL1.GCIE
-Message-ID: <3be4971e-31a4-4033-9583-88d7fc96104f@sirena.org.uk>
-References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
- <20260319154937.3619520-13-sascha.bischoff@arm.com>
+	Mon, 23 Mar 2026 13:38:33 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82a7539851fso1663821b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 06:38:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774273109; x=1774877909; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fn67HXpA7zjDtiRyKaRULlABylDK2UruwZzMMz6sLEw=;
+        b=PWRE6P1MqVwHKx4n3dhru57QOhBr0JZojTdH+1fT1uqwpUrG5BJ7zjHDTzJonFBUWA
+         TD/BitNtLOGo1NARGhAi0Ib+fJU38kKAnIxoyBsrBv6KWDa7EJE67kDn/RHUsUZ/SOL2
+         saGi3Uh3v2lypCxwkAdZS7OxPPWHmLiGtBbclyd44QJUFgn0hG9E60sIn4hUPd2UvNOZ
+         S9sjEi63n/72rSLH91Eiduwexrkv1jZgI7p39HvRwkqFm3tgZuMnHbjvKQp4NMHPg44w
+         jmEgp+gfv84qx6qPbZXaOeouLiNQddmX4RrxOjrVAqY6PXHNCq/3CduNvEz6qX04TIRc
+         TYPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774273109; x=1774877909;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fn67HXpA7zjDtiRyKaRULlABylDK2UruwZzMMz6sLEw=;
+        b=InA/yZh1HYMOVJnYwpnkpxkyTGQKw28ZTYKUWOKCzD8N0va3gHIVUvWps+DKFPmoXC
+         aXmZxAP4063WeP6wy50x1K90stGs8MVISD3MxzA0vqJ3uZzySAIXKK5wJEv/rMeZnNvD
+         7+hpqxVeq1WKllvedhVBX9wlvl+ZfrPSOh51pSobXdZiU0Ozfi8scxrb1U7JIQ6V7nTV
+         cen48U+bwnntLsLT25nzE6jJx0y9ml44T4wh7tQI9m8tf2iMYsGu5Qb6pZ+e6jw4I2Jp
+         rwno3zzySxduJMhb8OiEtAqVGVfPTaX7xorpnlGiTAO0OguJFEwvJUxImRm/M1SuUX6k
+         8Ffw==
+X-Forwarded-Encrypted: i=1; AJvYcCXt/TQU6pD9U7bY45J8TZgzu9JZCxtKfy5H2rtgiGwS3W3l8O34/3f0DDpmrsiIe7+1wb1BrsTsyshdoUxOzvqH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4pPpPRS8Ioi3D1DHIVPgWJJ4ZXhBc5wmcL+dkxxiSeRj5cVBZ
+	Da8+pkKW10oOUQ3pNAsXou5vnazlEXlUenVfzmuQfXQ8VnTKEYO2sBLe
+X-Gm-Gg: ATEYQzxikHY37sxHU2/XfpkJ1RF3UpN1ezh7KD6+dGeL2Uzat+aF90Im0AtA1Ecz9rZ
+	hK7xQ3dqPr9uQZ58Lb+fUZ8t5rgCpvs5UnvZadDOrR9O4107ZZ7qGUBtcsyYsaYQtu0MulsydtN
+	5s05UXUDksq4RbPRn9WXmwIX6Zdh1wbkObUV1V/IYQ1tCoHt29o3ccwTQABiTeLjNuDzIxBG/0e
+	2uLO+KWJ3OGtSdrlP2GLu+FQNkkGqGnTU2W0OoBJu44LLl3C5UfPGC9XBjHxJ0EzNP8oCOT6i0y
+	+iXQ6F8aeBXPCK0Aq9BQrVxLVnGOj0S6cFfJBhs5V1zCDAZIMYW3K3qEKsUJf2xYq4y78PA0/mY
+	djpFC25OQkoGSHovNEWMalLkzL5VOK3HcTt9LcvV7YvQsJbjA3AXNA8QZTF+W70Qu/e0dCcQBZ9
+	kacxn1zw2issFmJHi4ktGRAaC9pYf5sXUyATl/Dz3eVuo2t1y4VHytwLRVTDC9iC3BuUAs4qk8B
+	s8=
+X-Received: by 2002:a05:6a00:10d3:b0:7e8:4398:b34f with SMTP id d2e1a72fcca58-82a8c301dacmr11323142b3a.34.1774273109336;
+        Mon, 23 Mar 2026 06:38:29 -0700 (PDT)
+Received: from toolbx.gk.pfsense.com ([103.70.166.143])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b0410b1bdsm12069224b3a.57.2026.03.23.06.38.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 06:38:28 -0700 (PDT)
+From: Gopi Krishna Menon <krishnagopi487@gmail.com>
+To: rafael@kernel.org,
+	daniel.lezcano@kernel.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	vireshk@kernel.org,
+	conor+dt@kernel.org
+Cc: Gopi Krishna Menon <krishnagopi487@gmail.com>,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev,
+	daniel.baluta@nxp.com,
+	simona.toaca@nxp.com,
+	d-gole@ti.com,
+	m-chawdhry@ti.com
+Subject: [PATCH 0/2] dt-bindings: thermal: st,thermal-spear1340: convert to dtschema
+Date: Mon, 23 Mar 2026 19:08:07 +0530
+Message-ID: <20260323133814.14152-1-krishnagopi487@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MlKsc4YS4+0PkdYN"
-Content-Disposition: inline
-In-Reply-To: <20260319154937.3619520-13-sascha.bischoff@arm.com>
-X-Cookie: You will triumph over your enemy.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_063830_891578_079A97A2 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,98 +112,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series converts SPEAr Thermal Sensor bindings to DT schema
+and renames thermal_flags property in spear13xx.dtsi to
+st,thermal-flags to fix the unevaluated property warning in
+st/spear1340-evb.dts.
 
---MlKsc4YS4+0PkdYN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Note:
+* This patch is part of the GSoC2026 application process for device tree bindings conversions
+* https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
 
-On Thu, Mar 19, 2026 at 03:52:50PM +0000, Sascha Bischoff wrote:
-> Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
-> already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
-> fields. Add sanitisation for the GCIE field, which is set to IMP if
-> the host supports a GICv5 guest and NI, otherwise.
 
-...
+Gopi Krishna Menon (2):
+  dt-bindings: thermal: st,thermal-spear1340: convert to dtschema
+  ARM: dts: st: spear: fix dtbs warning on spear thermal sensor
 
-> All of this extra work is required to make sure that "legacy" GICv3
-> guests based on QEMU transparently work on compatible GICv5 hosts
-> without modification.
+ .../bindings/thermal/spear-thermal.txt        | 14 --------
+ .../thermal/st,thermal-spear1340.yaml         | 36 +++++++++++++++++++
+ arch/arm/boot/dts/st/spear13xx.dtsi           |  2 +-
+ 3 files changed, 37 insertions(+), 15 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/thermal/spear-thermal.txt
+ create mode 100644 Documentation/devicetree/bindings/thermal/st,thermal-spear1340.yaml
 
-I'm seeing a regression in -next in set_id_regs on a range of platforms,
-including physical ones like the Toradex Verdin AM62 and i.MX8MP-EVK,
-with a GICv3:
+-- 
+2.52.0
 
-# ok 105 # SKIP MTE capability not supported, nothing to test
-# ==== Test Assertion Failure ====
-#   arm64/set_id_regs.c:651: test_reg_vals[encoding_to_range_idx(uc.args[2])] == uc.args[3]
-#   pid=3573 tid=3573 errno=4 - Interrupted system call
-#      1	0x0000000000403047: test_guest_reg_read at set_id_regs.c:651
-#      2	0x00000000004024cb: main at set_id_regs.c:805
-#      3	0x0000ffff9e85251b: ?? ??:0
-#      4	0x0000ffff9e8525fb: ?? ??:0
-#      5	0x00000000004027af: _start at ??:?
-#   0x1111 != 0x1001111 (test_reg_vals[encoding_to_range_idx(uc.args[2])] != uc.args[3])
-not ok 20 selftests: kvm: set_id_regs # exit=254
-
-Platforms without a GICv3 appear unaffected.
-
-Full log:
-
-   https://lava.sirena.org.uk/scheduler/job/2584795#L4111
-
-bisect log:
-
-# bad: [0ec822710d040a1e4a13be04494dc9f0462f8ba7] Merge branch 'for-linux-next-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
-# good: [0e4f8f1a3d081e834be5fd0a62bdb2554fadd307] Merge tag 'parisc-for-7.0-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/deller/parisc-linux
-# good: [09e70e4f119ff650d24c96161fd2f62ac7e424b0] regmap: Synchronize cache for the page selector
-git bisect start '0ec822710d040a1e4a13be04494dc9f0462f8ba7' '0e4f8f1a3d081e834be5fd0a62bdb2554fadd307' '09e70e4f119ff650d24c96161fd2f62ac7e424b0'
-# test job: [09e70e4f119ff650d24c96161fd2f62ac7e424b0] https://lava.sirena.org.uk/scheduler/job/2565604
-# test job: [0ec822710d040a1e4a13be04494dc9f0462f8ba7] https://lava.sirena.org.uk/scheduler/job/2584795
-# bad: [0ec822710d040a1e4a13be04494dc9f0462f8ba7] Merge branch 'for-linux-next-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
-git bisect bad 0ec822710d040a1e4a13be04494dc9f0462f8ba7
-# test job: [a5d4dfaac4b2810ec2be80d2a9a1facce7dc554d] https://lava.sirena.org.uk/scheduler/job/2584889
-# good: [a5d4dfaac4b2810ec2be80d2a9a1facce7dc554d] Merge branch 'mtd/fixes' of https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git
-git bisect good a5d4dfaac4b2810ec2be80d2a9a1facce7dc554d
-# test job: [d04c0e637ff3323b010804dbfe349fb9c1309253] https://lava.sirena.org.uk/scheduler/job/2585075
-# bad: [d04c0e637ff3323b010804dbfe349fb9c1309253] Merge branch 'dma-mapping-fixes' of https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git
-git bisect bad d04c0e637ff3323b010804dbfe349fb9c1309253
-# test job: [e3d585ed3ff891a00c2284fef4be9cf8581735ab] https://lava.sirena.org.uk/scheduler/job/2585150
-# bad: [e3d585ed3ff891a00c2284fef4be9cf8581735ab] Merge branch kvm-arm64/vgic-v5-ppi into kvmarm-master/next
-git bisect bad e3d585ed3ff891a00c2284fef4be9cf8581735ab
-# test job: [0a9f38bf612b195e04236d366ed9f769ce14cc27] https://lava.sirena.org.uk/scheduler/job/2585330
-# bad: [0a9f38bf612b195e04236d366ed9f769ce14cc27] KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest
-git bisect bad 0a9f38bf612b195e04236d366ed9f769ce14cc27
-# test job: [4d591252bacb2d004b7c7f5db439bfa23b552ee7] https://lava.sirena.org.uk/scheduler/job/2585661
-# bad: [4d591252bacb2d004b7c7f5db439bfa23b552ee7] KVM: arm64: gic-v5: Implement PPI interrupt injection
-git bisect bad 4d591252bacb2d004b7c7f5db439bfa23b552ee7
-# test job: [da92ff15ca4c5b0f75ec1cb3d2e275db2ff2c810] https://lava.sirena.org.uk/scheduler/job/2585906
-# good: [da92ff15ca4c5b0f75ec1cb3d2e275db2ff2c810] KVM: arm64: gic-v5: Add Arm copyright header
-git bisect good da92ff15ca4c5b0f75ec1cb3d2e275db2ff2c810
-# test job: [070543a85adce329672012a1fe35fa48c76e02d5] https://lava.sirena.org.uk/scheduler/job/2586294
-# bad: [070543a85adce329672012a1fe35fa48c76e02d5] KVM: arm64: gic-v5: Trap and emulate ICC_IDR0_EL1 accesses
-git bisect bad 070543a85adce329672012a1fe35fa48c76e02d5
-# test job: [a258a383b91774ac646517ec1003a442964d8946] https://lava.sirena.org.uk/scheduler/job/2586455
-# bad: [a258a383b91774ac646517ec1003a442964d8946] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-git bisect bad a258a383b91774ac646517ec1003a442964d8946
-# test job: [f656807150e3e1c6f76cab918e5adfad6d881d58] https://lava.sirena.org.uk/scheduler/job/2586592
-# good: [f656807150e3e1c6f76cab918e5adfad6d881d58] KVM: arm64: gic-v5: Detect implemented PPIs on boot
-git bisect good f656807150e3e1c6f76cab918e5adfad6d881d58
-# first bad commit: [a258a383b91774ac646517ec1003a442964d8946] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-
---MlKsc4YS4+0PkdYN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBQjYACgkQJNaLcl1U
-h9DTIwf/W12+7bv3l6vdsZYzXz9UkyBV+fFwNob5fA9ESs077+n5J/rLY2sDZ9f4
-5q9rL8PMztjFc01LhDZ20SS96O1fHDMG3zlM5cqT71ydvqYbXxDjeUGDJ2q04mM3
-EpSZWfAePSmWXtfrKNpPyvv/tUixTjBx8L8njZN76ub+6j/G1/JmQLZPzK/p9HMZ
-04F7t6TyjzyTc66+9MWhnOT0YuCoeW0F40l0DGmsCkS4UvUo4ZGWCOgH7dhxB7Sa
-bIwBBg1uQ3slkJSZt4SDENiBbDKVvMrsKD5im8ne4vsZSlzhmxI2YX0RiKRdFtwq
-Qv3jM/t8g0tmkeezGlCcrKRdh+1U4w==
-=ZAl7
------END PGP SIGNATURE-----
-
---MlKsc4YS4+0PkdYN--
 
