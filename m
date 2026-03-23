@@ -4,67 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7094EC01B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73762EC01A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/21AMG6REztdObiQlE9MG0/FkOQCFzrJWCv6e99EOQ=; b=ksVwlAxtgEYPXCEO0EqRUxGsuT
-	H+7BIoIBmbXU/71AD/D2Ulvt/OFUKUE5FWSX+h1+soPsDOKNa+nefkSn3WjWTKo4HdDlN1m/VpBmG
-	aHhmFlgmb0nAB7cNjVad7lWqlaBgWJ38F+aK0YC1hlzwIoKjSy9RHO++dSx2XLKn2R/9yf/uZFnYc
-	9heWMs7pCba/UxggYRwT/gkmEjeD5tDzaRhvoRYaxu9P7g8cNabK18AM2Fhnma12mPfiHGN8h4CZd
-	rjvyFgKflWvt9HVgeSSPjjmOBfon8yto0BxD2vvyoXSZIdqLoAf2cIDRrQwXTmbUD6ORG+7ZF7Gf/
-	OpQSdntg==;
+	bh=s+jDCzfFVcSCOczVJN5BXTEodNMBWvBVBJY65NsYD0A=; b=IJaad7N8XeqIM5FVS2F+l5PEx4
+	goYFIWhTrSlMvxIsXLGaTjIB6i/VP+bUl3sZM09Gh0SCU7vRVgt3B3jZ0dwMqHiw3efSkS0FojmPx
+	EFq5yiA81NK9r8YQp/59I+J7B+YI/xB4lsNr5ZmBxuGQa+ELXggKSwd+IzTl9piSf3VvAig8btKl8
+	tIeCC1cvq4JIpYrN1AouOuSJKGmxFpAj97XQx8PK/XiHOCAcS3dujsrgIkqGN72ZE1mHMYuDYWV1P
+	/J8RlaW69/yvzHqi3S2a/XRbPsVdeIaF3JKvx5fDSVPRMqXkNMTVjz+8FyU3Is8/cu2LNN4d9FdVK
+	2QNXM0Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bgd-0000000GO4R-0sw8;
-	Mon, 23 Mar 2026 09:35:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4biB-0000000GOEA-2m19;
+	Mon, 23 Mar 2026 09:36:39 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bgb-0000000GO4A-3lVk
+	id 1w4bi7-0000000GODH-3Yxq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 09:35:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E314260051;
-	Mon, 23 Mar 2026 09:35:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E831BC2BC9E;
-	Mon, 23 Mar 2026 09:34:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774258500;
-	bh=9DVS4XWePq3fWP8PnNkZL1RiZ3dghTt1ujGUsfLlRmM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tsTpQ8sr9ZfFe23UYvY9gWpEp4pi3UFpdtCDyFUJ0o7LE32Uk5F4vgOPifpRJNFFY
-	 CK9ZxWImSDjq96G80Dpgjk0eEAT1UzCkSckZ+wUTTo1rwZgtfteXTCxy2eS0I0ivmj
-	 8ygvJ5lQwTk+7ZcemwDn0bDWOPeuokFyWfiIT12I7oWKoDelMfxFKX9wgcyrc3iTzg
-	 irjQBVP6hPhFVtkKv3WUp7FzrarlPkf8AngjZPRtaZEgRqxzwurhCueLJQZ5Xd3GHu
-	 BC0AgZQl897EaidI07vuDFoBbIPRr3E5WYLkF4Xsb9fvCiPPNXazkpFoZtGXnjIMCR
-	 P3Le4Kr6zRJRg==
-Date: Mon, 23 Mar 2026 15:04:50 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v13 05/12] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <hohx2judes5c6na4svpah254hqbaf4kbeyu7prwkprfv5dy7hj@26nxwlvb76yp>
-References: <20260317-qcom-qce-cmd-descr-v13-0-0968eb4f8c40@oss.qualcomm.com>
- <20260317-qcom-qce-cmd-descr-v13-5-0968eb4f8c40@oss.qualcomm.com>
+	Mon, 23 Mar 2026 09:36:37 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=AFBhLAAbYv6to9n4meMr/OTCX3qgQ4cqvnFBBD+1a2p+hmJXemldtkobJVimC9/YB0Jgv0gqhPXb79T085n6Qn7f2ELVESWSHXUMi+OKJmt6c+dZMeAz0PvM4GGIicLJ2a/qTAMuwIbdRmFwgk7BQD6a0eUKvRbixE02aFTvPn4FdWc9mT6GUjYRengSg0BuZXz2JrXnVhZiy8SZHPD52CcOfvPAaRnJHpdb84a9x4aGcrN2nhu0h+R2Mr6r7QsQvBkGRPE6ucC5P8RCiwln5WE7aMrZQ+dU2pvenLf3qMRP84BI2lwW5PlrR/3nv0Nm9WoAXfDAeaRnnDL5PvuTcQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s+jDCzfFVcSCOczVJN5BXTEodNMBWvBVBJY65NsYD0A=;
+ b=TKCrjxh8XMXB2Le2jzdesy7CgOThS2i8PhegunxFzCV0ItfO3px4XV6q0qC4N3dwkl/8OlT2bB8jl+1hekIJy0TDHYHCIs7OzSWPT1uP9QmR/W+auq4esKUOA1ltYFu5sfVHTbVE1FUFeJE+bFS16lGIwkesM/8eaYcAW5TsktI7N+wTKniNhiNAKrbsznxPxPiJQPVggsEkGRsCS9lybOJ5dOkEWGaZ27JHVkXJto2fG7noj0OpwUSPSOMZ+UeFC3Tcdd+97wqLz5hhbuQ1PwjdZAPNY+4CDS4Q+kWGvfd/3sJX8jti3+fRxlSQ4o1EDS4EX6+jWZX0mWtLijfo2A==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s+jDCzfFVcSCOczVJN5BXTEodNMBWvBVBJY65NsYD0A=;
+ b=AxF+YIzK3fn/VuST5XwpLFBLLBCxUtA/MAcfLWqYu9gOKpyiPZLGdVpNI3pa8oYfj7bhBfw+EkN+kPyzCCFH4VIPWJ7w29qNuUI9m52qENB3/136zk3xqLyCsGIvz/IjneJtrqWC69quo5Gr8+oohdJbIDikEsZKxmUBCMtRSFY=
+Received: from CWLP123CA0017.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:56::29)
+ by PAXPR08MB6351.eurprd08.prod.outlook.com (2603:10a6:102:df::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.29; Mon, 23 Mar
+ 2026 09:36:26 +0000
+Received: from AMS1EPF0000008F.eurprd05.prod.outlook.com
+ (2603:10a6:401:56:cafe::d7) by CWLP123CA0017.outlook.office365.com
+ (2603:10a6:401:56::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Mon,
+ 23 Mar 2026 09:36:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS1EPF0000008F.mail.protection.outlook.com (10.167.242.86) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
+ via Frontend Transport; Mon, 23 Mar 2026 09:36:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jmIgUGzXhUD+WZ/Giafuqv+dUghcdTWvTMIxk3b+G2NXbTJs8k0ZzJ0WS6InXfu6FYKnxi6eCbnqzVsk6xwfrL/gsjQ0qwTbmahlH4G1rIAJ1bxmEVEv4Y77bpirb/xaQcNqR7NsHoWU/uOEk//TnVwJE+kjhpO5+U6NHilA5Chfl6X0tXmAH4T+lh9/1/Q9Fky9N990XvqiL6rKY8YVc/YWbCjVcvst1SdHobHXvepNO/SXe1zlySA23xGmUerXaWOLSl70W42DNFnhkTAv6GJCgW6f9rySNalhCDZ4CETbYSayVuBRojNY20KelxnXQkTdbB4BfXh1y6+VCx1GhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s+jDCzfFVcSCOczVJN5BXTEodNMBWvBVBJY65NsYD0A=;
+ b=peHD6YN5Tawl0zrfD55FNtaAdQFwCfZoy3+rxJOAyGZcXVwC/UvF/YaRThrnaVeuhhIGxk2X1Bbek79WGDnoMshOdpqEw2vCCYRdj7bAYBLpr34QioQl+nsR9I/qFMBkEKiKQY9FsSEAnxeqkovd78oa9W5QQR41I+Arvyz2oseDkafEUcyyevO4pz9rhFkbIhSzGm2Vnm3DBh4O6TLdY7KOF9vAaHDRpDKUlWZ9opINRkIOp+zmnhxFQFAOjRaVbnCDWsz4JkW5Qc+QxbuqYcMNFWBv9EG2E6nmsJtcPqlE5kLZrgCnDvEALCMgsVCRtLrtUdWSdO6sS7Yk6oSMzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s+jDCzfFVcSCOczVJN5BXTEodNMBWvBVBJY65NsYD0A=;
+ b=AxF+YIzK3fn/VuST5XwpLFBLLBCxUtA/MAcfLWqYu9gOKpyiPZLGdVpNI3pa8oYfj7bhBfw+EkN+kPyzCCFH4VIPWJ7w29qNuUI9m52qENB3/136zk3xqLyCsGIvz/IjneJtrqWC69quo5Gr8+oohdJbIDikEsZKxmUBCMtRSFY=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by GVXPR08MB10863.eurprd08.prod.outlook.com (2603:10a6:150:154::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
+ 2026 09:35:20 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.022; Mon, 23 Mar 2026
+ 09:35:20 +0000
+Message-ID: <20d7d795-235e-4074-b3e1-429e2a024a68@arm.com>
+Date: Mon, 23 Mar 2026 09:35:18 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 01/20] coresight: Populate CPU ID into coresight_device
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
+ <20260320-arm_coresight_path_power_management_improvement-v7-1-327ddd36b58b@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-1-327ddd36b58b@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PAZP264CA0082.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:1fa::14) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260317-qcom-qce-cmd-descr-v13-5-0968eb4f8c40@oss.qualcomm.com>
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|GVXPR08MB10863:EE_|AMS1EPF0000008F:EE_|PAXPR08MB6351:EE_
+X-MS-Office365-Filtering-Correlation-Id: f81ebd04-7263-48ba-150b-08de88bfa7b6
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|921020|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: 8cfWjEWApvYsFumruy7oVuPwmvgTf/MkV7tsxPz3oXg80E8orKGe9ds0i5Xgx+gQ7jwAx9kccj2WYPQ2dgIZN5IPFCgFU/dwOCaOzbfN+EecLopFtz/Xd2pbmT7BSVn6d0zznPK4iD/E9fvtEnLqxZBz3XolEUQcGsnOMkvKxVElJkPBUmvEhLO/GJ5vfy3+LShyxJuU/faSAL5ano62DFsn4AxxGUM8ClW+/vdSlb+MOOd+r9SD8dfSIy2r8eJEKW+ckoqZZZtLd3aPSlGDy4II0+e+yHMcWe4T2vDsk4YHb35JqZvXwqQmm3l3vcfhzXq+4YBSzJ/VaAWpAycoQdtWbbpeIBdhvj0etF06o9XJL0W1IZyW6krW4Uu6+p3k0JZ+ZuwhRtsqkGrGOGz96FhtixvgS0rLcp5kcKWyCtZrD0/NH4vALDXiX6SCKmoLvCBFVhMxkn/Q68dv3yVxkbTfDQY9lM3DyVMmb5ftQQuhcZTOIiigzcsV5jOmnDAqCad77YtzjB0OyNph3ilR040MOacFOi2+9iJGrHcOl50zzO4qX5JWD+rxMPFJeLLTAiXpSYUZSp9tu+dw3TbCAre02l2bcGeLIDIxK4q74gFNvvjw+MAASCAftyUQgjIqhJdj+topmXdkf2lxWJ52hJXgScYKjf+vTaIG9C9DQUHSFVlno2sXogyGqWTnSQhsXzzVjFoh/r1U/CloJiE4YqzI2zYtvFKaXN7CHsePMs87A92skKDUYUvDdxh/lnzu7uLiRhrNh4HoWry2mc2+MA==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(921020)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: n32Wvb0ottZVoceqL5Os2T7R6uuzZk7u6tYtNJzO10aeR0QRX13AARuMwvzVVgxd2ZJO1XOOUazWfkT9MKK+Yl81dgTz4uw/Es/L363OtrATWwQpwH3k2O42H+7ZbEHO0+8b/bD7cwcq896BQmze2hd6xVQmQCKcndVx7ZGcW+C0LEzTKjQv9NS4CuF3400h3YjEzcBRvCs++4PKqjl23MTAcTOg7DIQydzCBnNJmrUwwwi4yOvXE/yvuBBKL0kMC8aBaUZU1xEWI183zdrcy978pqcnUaZ+QlM7YF7e31BdNU9SUkS4E8afDkrNlNL9qg7uVsrZa97DxJ6UqqplbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10863
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF0000008F.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 499b637a-39a1-4dd5-031a-08de88bf7ff3
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|30052699003|35042699022|82310400026|36860700016|376014|1800799024|56012099003|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: 3TBqUMFoBoW8pbvrYLazzadjACHDxLcyQO6Q6vYCjL+ThnCczVghCdYWIzIJZcm2m9Wrwwg4C5DGA5o6g2hPuiDY3DXYjBTNIJOvtyLo9Jr/bZK/V0ZhANJ9Ua21e+gAoEuqzpuG6TDsoQ0R2+lCpVgMCTBgrv09INw50n0YnXTZirvEwFquvOKy/4EJYG50xi66gwuutg7DuA5Q/sscXDLxANMOXt/XiHFIWkTinbcAnMyf1z8FRqSNKRv//7kbjIINeqk1xIyD0weV5ep97tHSUU2eNpNjNQN5uBAq82c4Ec4EkvLEL1T3uVNo3tPFEwM9onVSs61/EWHQCQ5kGmcZ+3Dj4oYDOrLvNB2+FC0oGKDq1duw9HiR3vqCR28MM05DWhkaEIvTNpYFmDbfVe4EN3/jpGXXNObebmO+NuhVjmrvEaCT+cewpOer4TXya77uUkg8HQxqkpadGcZjvle+kL+05F+slRhD642z2vNNhdQGhmJDHPrFfALp/UZM4jRzQyDVGmOIJLnl/l07o8ipVtsNvNm2mytbwfiObwrnIvNpchR94BtzY7bXTv8V1WnV7YZlEHitSKoiJ7H0Y0CiJ3pnyOk7nGUi6c0L0TINIuMWqSLZU/kdPub7teQvA9LiybQwwiolN0wMt3ib5Mq4cRbQCNa44I97Roy3di+RMnaThVSp8FB767HXP+A+JW/QM1w1VG7RjDQdqoyHWlV7YLNMq5vz62FAJPcvdbhhC6PiDxPog5sQx9mVikFFf+bI8p4JX2t9Ei26HOFDMVJgm63vigA4QeFpyZgTXqCnwtHct3UXes7WqdK1oGnO
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(30052699003)(35042699022)(82310400026)(36860700016)(376014)(1800799024)(56012099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 3jlgHHYeoNVJtPr7gU18iSFTzKf3fDNha9zwgZ06R8evSKWOwwhq9cgN8MjNaSaw/ZRMXXyrrXJWm8oMChzZo6xd6dK91YjMpA1RtUCPs6XzdminMtOB1kKHU5ftHSGlx+0V+hBH1ecdxYHy+9oOJ8tQhZu1niiGJ1YQmXeuFcgVtLPl17gTAxPs35OYGhvl074ONOST6foB2HpPqLQmyFu/548LKiVWFJW7d1P0TGQP+Fs7zA/AwhuvRlCgbQuFOVBG9U/fK2R3IX6eWgaO7pyYMfIIbg5yqaiC/jeWj+3HXgsr367HrALowhxCcIKVonWlo5AF2G5Zh6QSf3cm8CX+nUJOtsXcPkIpF16EtJjKVZi61RAW0a39Bj26jQ2lrx+y0ueZcj/Skt05o5+8Xe9onJ2AEGxM5FZh8cHtrAqa1Q3aSz6ebdlYn2E0BJRW
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:36:26.6126
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f81ebd04-7263-48ba-150b-08de88bfa7b6
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000008F.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB6351
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_023635_986837_14C23DCE 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,303 +160,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 03:02:12PM +0100, Bartosz Golaszewski wrote:
-> Add support for BAM pipe locking. To that end: when starting DMA on an RX
-> channel - prepend the existing queue of issued descriptors with an
-> additional "dummy" command descriptor with the LOCK bit set. Once the
-> transaction is done (no more issued descriptors), issue one more dummy
-> descriptor with the UNLOCK bit.
+On 20/03/2026 17:42, Leo Yan wrote:
+> Add a new flag CORESIGHT_DESC_CPU_BOUND to indicate components that
+> are CPU bound.  Populate CPU ID into the coresight_device structure;
+> otherwise, set CPU ID to -1 for non CPU bound devices.
 > 
-> We *must* wait until the transaction is signalled as done because we
-> must not perform any writes into config registers while the engine is
-> busy.
+> Use the {0} initializer to clear coresight_desc structures to avoid
+> uninitialized values.
 > 
-> The dummy writes must be issued into a scratchpad register of the client
-> so provide a mechanism to communicate the right address via descriptor
-> metadata.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-I've left some comments in v12, but looks like you've missed them. Anyhow,
-this version looks good to me as the design looks simple and doesn't warrant
-much change from the client driver other than passing the scratchpad register as
-metadata. I just have some minor comments in this version. 
+...
 
-> ---
->  drivers/dma/qcom/bam_dma.c       | 160 ++++++++++++++++++++++++++++++++++++++-
->  include/linux/dma/qcom_bam_dma.h |   4 +
->  2 files changed, 160 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> index 83491e7c2f17d8c9d12a1a055baea7e3a0a75a53..895286452c8b5e701c1df482095e5fe4a49f4246 100644
-> --- a/drivers/dma/qcom/bam_dma.c
-> +++ b/drivers/dma/qcom/bam_dma.c
-> @@ -28,11 +28,13 @@
->  #include <linux/clk.h>
->  #include <linux/device.h>
->  #include <linux/dma-mapping.h>
-> +#include <linux/dma/qcom_bam_dma.h>
->  #include <linux/dmaengine.h>
->  #include <linux/init.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
->  #include <linux/kernel.h>
-> +#include <linux/lockdep.h>
->  #include <linux/module.h>
->  #include <linux/of_address.h>
->  #include <linux/of_dma.h>
-> @@ -60,6 +62,8 @@ struct bam_desc_hw {
->  #define DESC_FLAG_EOB BIT(13)
->  #define DESC_FLAG_NWD BIT(12)
->  #define DESC_FLAG_CMD BIT(11)
-> +#define DESC_FLAG_LOCK BIT(10)
-> +#define DESC_FLAG_UNLOCK BIT(9)
->  
->  struct bam_async_desc {
->  	struct virt_dma_desc vd;
-> @@ -391,6 +395,14 @@ struct bam_chan {
->  	struct list_head desc_list;
->  
->  	struct list_head node;
+t-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 1511f8eb95afb5b4610b8fbdacc8b174b6b08530..14e35b9660d76e47619cc6026b94929b3bb3e02b 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -1289,6 +1289,8 @@ static void arm_trbe_register_coresight_cpu(struct trbe_drvdata *drvdata, int cp
+>   	desc.ops = &arm_trbe_cs_ops;
+>   	desc.groups = arm_trbe_groups;
+>   	desc.dev = dev;
+> +	desc.cpu = cpu;
+> +	desc.flags = CORESIGHT_DESC_CPU_BOUND;
+>   	trbe_csdev = coresight_register(&desc);
+>   	if (IS_ERR(trbe_csdev))
+>   		goto cpu_clear;
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 2131febebee93d609df1aea8534a10898b600be2..9d85e15337bc7e339695df18bcd5dac291d44916 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -141,6 +141,8 @@ struct csdev_access {
+>   		.base		= (_addr),	\
+>   	})
+>   
+> +#define CORESIGHT_DESC_CPU_BOUND	BIT(0)
 > +
-> +	/* BAM locking infrastructure */
-> +	bool locked;
-> +	phys_addr_t scratchpad_addr;
-> +	struct scatterlist lock_sg;
-> +	struct scatterlist unlock_sg;
-> +	struct bam_cmd_element lock_ce;
-> +	struct bam_cmd_element unlock_ce;
->  };
->  
->  static inline struct bam_chan *to_bam_chan(struct dma_chan *common)
-> @@ -652,6 +664,27 @@ static int bam_slave_config(struct dma_chan *chan,
->  	return 0;
->  }
->  
-> +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
-> +{
-> +	struct bam_chan *bchan = to_bam_chan(desc->chan);
-> +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
-> +	struct bam_desc_metadata *metadata = data;
-> +
-> +	if (!data)
-> +		return -EINVAL;
-> +
-> +	if (!bdata->pipe_lock_supported)
-> +		return -EOPNOTSUPP;
+>   /**
+>    * struct coresight_desc - description of a component required from drivers
+>    * @type:	as defined by @coresight_dev_type.
+> @@ -153,6 +155,8 @@ struct csdev_access {
+>    *		in the component's sysfs sub-directory.
+>    * @name:	name for the coresight device, also shown under sysfs.
+>    * @access:	Describe access to the device
+> + * @flags:	The descritpion flags.
+> + * @cpu:	The CPU this component is affined to.
+>    */
+>   struct coresight_desc {
+>   	enum coresight_dev_type type;
+> @@ -163,6 +167,8 @@ struct coresight_desc {
+>   	const struct attribute_group **groups;
+>   	const char *name;
+>   	struct csdev_access access;
+> +	u32 flags;
+> +	int cpu;
+>   };
+>   
+>   /**
+> @@ -261,6 +267,7 @@ struct coresight_trace_id_map {
+>    *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
+>    *		spinlock.
+>    * @orphan:	true if the component has connections that haven't been linked.
+> + * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
+>    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
+>    *		by writing a 1 to the 'enable_sink' file.  A sink can be
+>    *		activated but not yet enabled.  Enabling for a _sink_ happens
+> @@ -287,6 +294,7 @@ struct coresight_device {
+>   	atomic_t mode;
+>   	int refcnt;
+>   	bool orphan;
+> +	int cpu;
 
-As mentioned in v12, you should return 0 to avoid erroring out the clients if
-pipe lock is not supported.
+super minor nit: Could we keep the bools closer to better pack the 
+structure ? Not that it really matters.
 
-> +
-> +	bchan->scratchpad_addr = metadata->scratchpad_addr;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct dma_descriptor_metadata_ops bam_metadata_ops = {
-> +	.attach = bam_metadata_attach,
-> +};
-> +
->  /**
->   * bam_prep_slave_sg - Prep slave sg transaction
->   *
-> @@ -668,6 +701,7 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
->  	void *context)
->  {
->  	struct bam_chan *bchan = to_bam_chan(chan);
-> +	struct dma_async_tx_descriptor *tx_desc;
->  	struct bam_device *bdev = bchan->bdev;
->  	struct bam_async_desc *async_desc;
->  	struct scatterlist *sg;
-> @@ -723,7 +757,12 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
->  		} while (remainder > 0);
->  	}
->  
-> -	return vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
-> +	tx_desc = vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
-> +	if (!tx_desc)
-> +		return NULL;
-> +
-> +	tx_desc->metadata_ops = &bam_metadata_ops;
-> +	return tx_desc;
->  }
->  
->  /**
-> @@ -1012,13 +1051,115 @@ static void bam_apply_new_config(struct bam_chan *bchan,
->  	bchan->reconfigure = 0;
->  }
->  
-> +static struct bam_async_desc *
-> +bam_make_lock_desc(struct bam_chan *bchan, struct scatterlist *sg,
-> +		   struct bam_cmd_element *ce, unsigned long flag)
-> +{
-> +	struct dma_chan *chan = &bchan->vc.chan;
-> +	struct bam_async_desc *async_desc;
-> +	struct bam_desc_hw *desc;
-> +	struct virt_dma_desc *vd;
-> +	struct virt_dma_chan *vc;
-> +	unsigned int mapped;
-> +	dma_cookie_t cookie;
-> +	int ret;
-> +
-> +	sg_init_table(sg, 1);
-> +
-> +	async_desc = kzalloc_flex(*async_desc, desc, 1, GFP_NOWAIT);
-> +	if (!async_desc) {
-> +		dev_err(bchan->bdev->dev, "failed to allocate the BAM lock descriptor\n");
-> +		return NULL;
-> +	}
-> +
-> +	async_desc->num_desc = 1;
-> +	async_desc->curr_desc = async_desc->desc;
-> +	async_desc->dir = DMA_MEM_TO_DEV;
-> +
-> +	desc = async_desc->desc;
-> +
-> +	bam_prep_ce_le32(ce, bchan->scratchpad_addr, BAM_WRITE_COMMAND, 0);
-> +	sg_set_buf(sg, ce, sizeof(*ce));
-> +
-> +	mapped = dma_map_sg_attrs(chan->slave, sg, 1, DMA_TO_DEVICE, DMA_PREP_CMD);
-> +	if (!mapped) {
-> +		kfree(async_desc);
-> +		return NULL;
-> +	}
-> +
-> +	desc->flags |= cpu_to_le16(DESC_FLAG_CMD | flag);
-> +	desc->addr = sg_dma_address(sg);
-> +	desc->size = sizeof(struct bam_cmd_element);
-> +
-> +	vc = &bchan->vc;
-> +	vd = &async_desc->vd;
-> +
-> +	dma_async_tx_descriptor_init(&vd->tx, &vc->chan);
-> +	vd->tx.flags = DMA_PREP_CMD;
-> +	vd->tx.desc_free = vchan_tx_desc_free;
-> +	vd->tx_result.result = DMA_TRANS_NOERROR;
-> +	vd->tx_result.residue = 0;
-> +
-> +	cookie = dma_cookie_assign(&vd->tx);
-> +	ret = dma_submit_error(cookie);
-> +	if (ret)
-> +		return NULL;
 
-You are leaking async_desc here.
+Otherwise looks good to me
 
-> +
-> +	return async_desc;
-> +}
-> +
-> +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
-> +{
-> +	struct bam_device *bdev = bchan->bdev;
-> +	const struct bam_device_data *bdata = bdev->dev_data;
-> +	struct bam_async_desc *lock_desc;
-> +	struct bam_cmd_element *ce;
-> +	struct scatterlist *sgl;
-> +	unsigned long flag;
-> +
-> +	lockdep_assert_held(&bchan->vc.lock);
-> +
-> +	if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
-> +	    bchan->slave.direction != DMA_MEM_TO_DEV)
-> +		return 0;
-> +
-> +	if (lock) {
-> +		sgl = &bchan->lock_sg;
-> +		ce = &bchan->lock_ce;
-> +		flag = DESC_FLAG_LOCK;
-> +	} else {
-> +		sgl = &bchan->unlock_sg;
-> +		ce = &bchan->unlock_ce;
-> +		flag = DESC_FLAG_UNLOCK;
-> +	}
-> +
-> +	lock_desc = bam_make_lock_desc(bchan, sgl, ce, flag);
-> +	if (!lock_desc)
-> +		return -ENOMEM;
-> +
-> +	if (lock)
-> +		list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> +	else
-> +		list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> +
-> +	bchan->locked = lock;
+Suzuki
 
-What is this flag for?
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void bam_setup_pipe_lock(struct bam_chan *bchan)
-> +{
-> +	if (bam_do_setup_pipe_lock(bchan, true) || bam_do_setup_pipe_lock(bchan, false))
-> +		dev_err(bchan->vc.chan.slave, "Failed to setup BAM pipe lock descriptors");
-> +}
-> +
->  /**
->   * bam_start_dma - start next transaction
->   * @bchan: bam dma channel
->   */
->  static void bam_start_dma(struct bam_chan *bchan)
->  {
-> -	struct virt_dma_desc *vd = vchan_next_desc(&bchan->vc);
-> +	struct virt_dma_desc *vd;
->  	struct bam_device *bdev = bchan->bdev;
->  	struct bam_async_desc *async_desc = NULL;
->  	struct bam_desc_hw *desc;
-> @@ -1030,6 +1171,9 @@ static void bam_start_dma(struct bam_chan *bchan)
->  
->  	lockdep_assert_held(&bchan->vc.lock);
->  
-> +	bam_setup_pipe_lock(bchan);
-> +
-> +	vd = vchan_next_desc(&bchan->vc);
->  	if (!vd)
->  		return;
->  
-> @@ -1157,8 +1301,15 @@ static void bam_issue_pending(struct dma_chan *chan)
->   */
->  static void bam_dma_free_desc(struct virt_dma_desc *vd)
->  {
-> -	struct bam_async_desc *async_desc = container_of(vd,
-> -			struct bam_async_desc, vd);
-> +	struct bam_async_desc *async_desc = container_of(vd, struct bam_async_desc, vd);
-> +	struct bam_desc_hw *desc = async_desc->desc;
-> +	struct dma_chan *chan = vd->tx.chan;
-> +	struct bam_chan *bchan = to_bam_chan(chan);
-> +
-> +	if (le16_to_cpu(desc->flags) & DESC_FLAG_LOCK)
-> +		dma_unmap_sg(chan->slave, &bchan->lock_sg, 1, DMA_TO_DEVICE);
-> +	else if (le16_to_cpu(desc->flags) & DESC_FLAG_UNLOCK)
-> +		dma_unmap_sg(chan->slave, &bchan->unlock_sg, 1, DMA_TO_DEVICE);
->  
->  	kfree(async_desc);
->  }
-> @@ -1350,6 +1501,7 @@ static int bam_dma_probe(struct platform_device *pdev)
->  	bdev->common.device_terminate_all = bam_dma_terminate_all;
->  	bdev->common.device_issue_pending = bam_issue_pending;
->  	bdev->common.device_tx_status = bam_tx_status;
-> +	bdev->common.desc_metadata_modes = DESC_METADATA_CLIENT;
->  	bdev->common.dev = bdev->dev;
->  
->  	ret = dma_async_device_register(&bdev->common);
-> diff --git a/include/linux/dma/qcom_bam_dma.h b/include/linux/dma/qcom_bam_dma.h
-> index 68fc0e643b1b97fe4520d5878daa322b81f4f559..f85e0c72407b5e1a733750ac87bbaba6af6e8c78 100644
-> --- a/include/linux/dma/qcom_bam_dma.h
-> +++ b/include/linux/dma/qcom_bam_dma.h
-> @@ -34,6 +34,10 @@ enum bam_command_type {
->  	BAM_READ_COMMAND,
->  };
->  
-> +struct bam_desc_metadata {
-> +	phys_addr_t scratchpad_addr;
-
-I think it'd be worth adding a comment for this.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
