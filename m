@@ -4,128 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AD3F483E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B735F483E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sELzJR8nuUhFrCssFihsyk+tCoN2kJI4zjv6cs4UL00=; b=yQpUwePbFnu97X83B5S1DwONEj
-	Qn1aYYGh3g7YPBSuiJQIpIIzDV0Gh6yLtEXyQ+gmbqdCzdCTs1K9+XXeo4hK2+hlow9qv3x6Y+G/F
-	80Mm26oKH4xlicSBqlw1ACJe1t4xrY71OZlBGACBFS/asgq6mXchSG+TFnlIDn6Oxqn9AVOdI80+6
-	xa7ZUzB467Ly4Zb7UuJpg6Nhs+LbumrTE8lT0jVjyfLV1VAAaYrkJer3RkZFv90we8JQJZmmPIAB2
-	DMLMWoN5Y5k74CYSDKtHDcvHN22v1IGmxGPRE7qSfszBZ/qB7dYJjqXSSnfKVgHlHyHF87iIF9+Sk
-	FHcFmMlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fYL/eXlpQ0Y3emk7cgWwMjvtgVKbtEgeXwbwH+DCrqc=; b=UQ6mO7Bt7Qst5kW5x1QMtdajbJ
+	Zf+MnyaNbkZblxJGFR7pN3BzYqVBwtJx8Q2mDuDLNku3TskrAKlMRSMh6sHhHvY5dGsuS5xaNWgE8
+	HJT+0RCUdPW6wZRXVFUxbXkCPOggQOeGODVVGfjcQdI9RsLyFxhVQIK73ShKxJev5Cv509YmmSM5q
+	0z8O5WjUCBY7/fXTDKm1QoMVpl2qF1Z/ljkrtT3bxR2BaezTkJPT2dpWs+IyOBvpSotE3TaCVHhXY
+	hx1wdOhevku+It4Cp14jrA7UR0elRBFtxKlC37oRZa1OrMHLIQO6ikfU1wKTBkjFlSU0u6Lq887JZ
+	t23v5vjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kaN-0000000HPbF-0Ldc;
-	Mon, 23 Mar 2026 19:05:11 +0000
-Received: from mail-norwayeastazon11013065.outbound.protection.outlook.com ([40.107.159.65] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w4kcV-0000000HQ0P-3RDn;
+	Mon, 23 Mar 2026 19:07:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kaK-0000000HPam-3zw4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 19:05:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JQvnjwxX+DB78AZkC0luykAqPf+rq/UTELrXctGM0fWRPDR01VsXc63mRh6icZFUFTbCQdJqBmHqGggyxsm31BBkct3hUpQ2bGEXmf5eNhMICCvBhdLybifTGJ7k78qXvGXudYwZSyI+xTZsZogJyFCh5abMRJMNz00lv01sd6pJEe4k3CJH0kb67W4SZEeCMvtERDsJKxCKUjs61+lYJOMVqEF4QFBz+SFH5/I0aLPSOrpmDUPUhYstEXOTtyOyd4whffatPCfTomK+qNAzo00rNyz8FAIdSb+hkconbnmhzmOssny0L5b/pxnQ8rsiJqK8MVKi5vL/WjU1tSzDTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kx/D5anR5ikl9tr6Tog19sQv184r1nnFG0hzhk5U5WE=;
- b=r2TLTTwCvwgk9AC4YinjOgqJi2sMwRqz13LiJcHHfZjyfp7Wqb2CYN2vzJTXbc3PgZiJAv/EHEaTlWEVnNqkwGxkgsgYyTvwfmK2J+lvqFcivQNF3OUzUbkH3UwhXbhl1tvnI9MqcrDmy3llEoEjMebyx9oE+Ao0/4IPGZPg8qJBTgO0os/pKVPqonLuXnH8AAQkw0NNdbbd1iHQFv60TrYC7T0HHYwfRMn5IbFtjpAHUCmeCJRIqBoKTbSWqt5qKPfFh3A+Rc4+K/udLU/EvoblBVSYnJM64HvkJLvhVW7hsHCuLPxfHJq0rJFJsatD09x/6tp8vIF+mkqSbLOcSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kx/D5anR5ikl9tr6Tog19sQv184r1nnFG0hzhk5U5WE=;
- b=EpHMQOjpqvCasg5aM9DJQMCxKINhl+YgzikEHvwE5WAXRksTRephubL8BeywcKoQRCoTWXjVE+LDMxb4C0dQX6b0Hx8Yawg6Gzv040lKcopakvqY9uBMSDJU21O0IFrhMdqVPw+wwosuOET4MkgQyMAkCs5db9ftwFrluvDudcuT2crQser30oE3De0jYAlHWszz/oulDMd7JZIrd9jCWti1yjIy/brKF4yYcemxLzk8gBiRQ43422DpUITERBQrEYbJsuPbZ+GYJAONsgE5sM9/UoIY2++riLCMk12E4hDHek4bc9h6E3kQivGEU1NFn8wZmS3oB8nQBaBaCqz/jg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB9662.eurprd04.prod.outlook.com (2603:10a6:102:260::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Mon, 23 Mar
- 2026 19:05:00 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
- 19:04:57 +0000
-Date: Mon, 23 Mar 2026 15:04:57 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: =?iso-8859-1?Q?Adri=E1n_Garc=EDa?= Casado <adriangarciacasado42@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Haibo Chen <haibo.chen@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-mmc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Subject: Re: [PATCH v6] mmc: sdhci-esdhc-imx: remove redundant mx25 handling
- and consolidate soc data
-Message-ID: <acGO2UGXZXyPI-jS@lizhi-Precision-Tower-5810>
-References: <20260319173832.15543-1-adriangarciacasado42@gmail.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260319173832.15543-1-adriangarciacasado42@gmail.com>
-X-ClientProxiedBy: PH7P223CA0004.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:338::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1w4kcU-0000000HQ08-3npu;
+	Mon, 23 Mar 2026 19:07:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5147860130;
+	Mon, 23 Mar 2026 19:07:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5743C4CEF7;
+	Mon, 23 Mar 2026 19:07:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774292842;
+	bh=k6BhAGxLMFl7NhzH/eXpQ1O6oylKp7QR8k5ui8nFSuY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pp5aJvVLMskMT+uHs+8toanS07SNVmScgY4HSZwxwVtCMSxkqe/cl1nwC+NrDzzL7
+	 EX7lkaLUhURW2iUOMK2TBztiG09AN+WqeLTQR/m+GqX4uBMt+DSW/QT85CC2TZJBOn
+	 zknjGTx9FBb4/d3pnkvTZ8ywMM4I3mHrtZwsB+HNU8G65s3fTS+JjaijntUWGYtUN6
+	 wA6CtKzZ6NXUOFvyP4Y7xjk8taLp51T06KbQ9eV2zvr4guwBNzUU/gWEPQt58Ok7fO
+	 O/rRVxRvASHHvTOEJj65e4zOQZd519YAOO4mwXTXbVIt5dFH1oRisWNyNkAR8pnGH9
+	 ThTjzjl6agDGw==
+Date: Mon, 23 Mar 2026 14:07:21 -0500
+From: Rob Herring <robh@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: interrupt-controller: aspeed: Add
+ AST2700-A2 support
+Message-ID: <20260323190721.GA1013496-robh@kernel.org>
+References: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
+ <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB9662:EE_
-X-MS-Office365-Filtering-Correlation-Id: dae93b39-4cea-4429-dd6b-08de890f1355
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|19092799006|1800799024|366016|38350700014|18002099003|7053199007|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /VHH6/FjaBs31et9+tvkxxHQ54e75Pxs65qbd+91QBh9THQKeMBx1MbTnPd1pqJE6TjcRYS3HhmhKbvLZOIF23K+gBnTpVWkriiUsqwaU+gT4Uyln4CqgcH8/s+S6EczjUD0AkyAOkUfdEoz6KHmMAFascl/iZi8FAhfVS2sgx4IWauMDULVFMU2e6z1Vbfg5iKwSPqyyVejSZDr02+p+w4yu7ugjJKrjvGXWdKme6Ouaintvk/c3UFOzEFASRBerKPYvisOAvo9KP3eW92GXJphX27FZnwY2aqiAwkZMQM6mMmXU5D/FAjlr3Qkiy++h+JwV636o8TsTy1DQin8mZ9YY05I1yasukYVgdR2ZLe9qYlxKFfv2vjSNWF9N9+Ni9RKha/nc36kmL/RlR5ahRLGcQ+OPbJ66zRiLmkfV2Spbh53sFtJWvfG53gOeozl81trf5hpLhi5UQGZ0NUkGKnKicBR5Xuf75w42JyxjGCsjRslD4cG5+Ac/VFH/WWWMeD7f1/+En4hXo7eBVX+THaJr1dLlDoOr3fhfnQU1wd5ey/w+wc+JZ4pGturFYkx9giAdfn/gpfHTMRF992f1pKmhQeKHpS7T8RxCTzvVJfcRH/nH5OS3rM+Coryr7mJygFoUcrsv/iwDJrQTM3Cvlpr2GPYVyykDYjs6IuNEBYDiPOZQlLvzyCGJv2hPYasvrnJEbUXjH/apBtJMK8QPKJfMRpbTpvNbn2LRw3rocmMlp1tUF0tAEcXR7zz2k9XfuTm033X/86etPq2pOhIkTtiIONnHk/WcX7bvsdMiKk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(19092799006)(1800799024)(366016)(38350700014)(18002099003)(7053199007)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?VtmGTAfz5fNmrd28HA3QOaLGRciTcc71DD2i94JBgY449iZ2DZSVTT6tKZ?=
- =?iso-8859-1?Q?ulPKfIlS+W/+SovU1wW08VlZr3lxB+NEBpoD4+9ycBXLmxaJr2Ky5vNLgE?=
- =?iso-8859-1?Q?hnXruyVJaCw5phGZXUTQVG6w8Upg5uy+gVN3HwdDyD7R7JSf73qVThmmpL?=
- =?iso-8859-1?Q?tT+Ac1zEF/BGUY/uacTLg6OB91eLT1NUubf3SJxL75FDs2mNwU3j7UHuF1?=
- =?iso-8859-1?Q?tWny41bt2jDGPecNeNb9xP7gT0DC/PiehlMcIT5JjvLkEwZUlO6F8TxLan?=
- =?iso-8859-1?Q?LRjzOqVAMfHN0OgWlhBONWv2s25sbRpueeTQ9YIw6snE0ktFC8iGmsafge?=
- =?iso-8859-1?Q?59NEsW14LR44t5eCJZSkR29rgTm8FvEgFaAQ2hhOvi70BhNn5llhvmmSJH?=
- =?iso-8859-1?Q?G2mwPFQflfr8qB7EB4BbWaANDDO5b2mShSszb6w3Vut58PMOSR13w8BAxz?=
- =?iso-8859-1?Q?qWrVyHydPTLAc0PfNjqr5NXg9MN4y50D5HIlcUXEt8+2MA/q9woT4DHqSb?=
- =?iso-8859-1?Q?08PfeXpunZoKKTEPCRRfkZxpN505ytdRzzeoI4GsJHCx91NnSlc27MFHc8?=
- =?iso-8859-1?Q?rspSbU74SAVqx2gioE1eBx8kvlnxhqTg092shZkzpZXs/SSKj9LNa2Y1LI?=
- =?iso-8859-1?Q?vKoX31PM+OEquAqt5fQWpjAM/qjNV8NrmRoFMcuvVs9OD5RwFEVPdDUrH4?=
- =?iso-8859-1?Q?syEKuFyRZf8c2xQ5RXMHtngFnKy5bPGY0ITNktTNC2xMutIjkQegGYXbws?=
- =?iso-8859-1?Q?uIbf3KVHxDJy1nt3ASvXEj+tK/jh4cYV/tfzeQ32BP721bQ0TPjjrdTxM1?=
- =?iso-8859-1?Q?HUn2msD2LnVfKXXZ4lUPCiClPTB7HLuymdEOb7D+mYzG9mcN7OGH/brzEj?=
- =?iso-8859-1?Q?372Mu5Iv7u42L9XCCQlL4WM0PwbXywTkl0MkphL+Df0rvEG4wmu8KyH7YL?=
- =?iso-8859-1?Q?/61Pj2mGtZIS7yv9XuX66rdf90Bod+hSepTGrrB2k/KvQZ/tSyS6I+4HeV?=
- =?iso-8859-1?Q?McbFgdboeK0BPUgA5spcezHRY8hPk94rCBj6EujYdUJayX/BZmy9ZCWO1v?=
- =?iso-8859-1?Q?cCFIRs0UntuCxwyBs65/NePSz9+2xC3PXYP0pKuy8JWGAlvAmg1VXdwyNv?=
- =?iso-8859-1?Q?v6G/2GkP3KfUQ9lzWhsanQQ+fiBwVsEru5CNzdgiAHjQq2ib5jXylW2Z7v?=
- =?iso-8859-1?Q?3UxLwR/dP4a4kZaxuYNhoLFT1gRhB7JnMSLw3HpTL/wJJU6VKoK8pXaO99?=
- =?iso-8859-1?Q?jv5SXbe8cT7BB1fkNY1CAMhqoV99tJU5p7O6camXT+YSvZ4w3u5J7pOpv8?=
- =?iso-8859-1?Q?PQPBR95qcUQXw6ivOIbIPWx98GAKZeT5j74+1hYJ5tdQptLKLhGw7wunqd?=
- =?iso-8859-1?Q?QNB5vUef3hrZXnvSLp0OjkyumFgap5F5ClvqTcEvL0FT8xDuYC3HDKf81z?=
- =?iso-8859-1?Q?7wRP5Wz8EzpjKac2wPpJ2AT4n6YpQHscH9wIO1JXwMzseSHhIexTEuAh9u?=
- =?iso-8859-1?Q?ptnp1PGcxNnP4meTRPd4LDq/PZUzT+jcA6y38a1qsxA/gPfY0CnFc6QyvN?=
- =?iso-8859-1?Q?X6LQLmCysRNvS3E2XZsjcPDAx/jsAoXBcgt7Xg3WyfpgeBDqkGdadpOm/g?=
- =?iso-8859-1?Q?0Sd2U7sbbCAkw6c669P1VkygIQB0gRUFtqHVcFwj/0VEL+kUNiWdBfipoH?=
- =?iso-8859-1?Q?x75rs2FKjA+9HEdRCpT+Y4fPa6dTdNDz8ccNmFnV71qDJ5iagPJw3Hv6TB?=
- =?iso-8859-1?Q?15W30J0bcQHaXe3h2Tz3WqOIyAZZXGZ6ErBeZgnhEkSSuVOK8iXzbzwMBX?=
- =?iso-8859-1?Q?0Mqpb3i3NA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dae93b39-4cea-4429-dd6b-08de890f1355
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 19:04:57.6843
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bl2+HdXyRX6JgGe0CnT/z0doowmFch0Jb8GKVEGrxq2+dpPr48uPeUQXBgGpf9JcZnP4Iy+BUL538CHoWEh8XA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9662
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_120509_022484_1A3DFFFF 
-X-CRM114-Status: GOOD (  19.22  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,76 +75,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 06:38:32PM +0100, Adrián García Casado wrote:
-> Remove the is_imx25_esdhc check and redundant mx25-specific handling as it's no longer necessary since the new_soc initialization. Consolidate the drive data structs for imx25/35.
+On Fri, Mar 06, 2026 at 04:07:23PM +0800, Ryan Chen wrote:
+> Introduce a new binding describing the AST2700 interrupt controller
+> architecture implemented in the A2 production silicon.
+> 
+> The AST2700 SoC has undergone multiple silicon revisions (A0, A1, A2)
+> prior to mass production. The interrupt architecture was substantially
+> reworked after the A0 revision for A1, and the A1 design is retained
+> unchanged in the A2 production silicon.
+> 
+> The existing AST2700 interrupt controller binding was written against
+> the pre-production A0 design. That binding does not accurately describe
+> the interrupt hierarchy and routing model present in A1/A2, where
+> interrupts can be routed to multiple processor-local interrupt
+> controllers (Primary Service Processor (PSP) GIC, Secondary Service
+> Processor (SSP)/Tertiary Service Processor (TSP) NVICs, and BootMCU
+> APLIC) depending on the execution context.
 
-wrap commit message at 75 column.
+Unless you intend to maintain both bindings for some period, then you 
+should just squash the removal here. If both are going to be maintained 
+then patch 5 should not be applied yet.
 
-Frank
->
-> Signed-off-by: Adrián García Casado <adriangarciacasado42@gmail.com>
+> 
+> Hardware connectivity between interrupt controllers is expressed using
+> the aspeed,interrupt-ranges property.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> 
 > ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 21 +++++----------------
->  1 file changed, 5 insertions(+), 16 deletions(-)
->
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index a7a5df673b0f6..3dc43f1e517aa 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -256,11 +256,7 @@ struct esdhc_soc_data {
->  	u32 quirks;
->  };
->
-> -static const struct esdhc_soc_data esdhc_imx25_data = {
-> -	.flags = ESDHC_FLAG_ERR004536,
-> -};
-> -
-> -static const struct esdhc_soc_data esdhc_imx35_data = {
-> +static const struct esdhc_soc_data esdhc_imx25_35_data = {
->  	.flags = ESDHC_FLAG_ERR004536,
->  };
->
-> @@ -391,8 +387,8 @@ struct pltfm_imx_data {
->  };
->
->  static const struct of_device_id imx_esdhc_dt_ids[] = {
-> -	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
-> -	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
-> +	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
-> +	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
->  	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
->  	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
->  	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
-> @@ -412,10 +408,6 @@ static const struct of_device_id imx_esdhc_dt_ids[] = {
->  };
->  MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
->
-> -static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
-> -{
-> -	return data->socdata == &esdhc_imx25_data;
-> -}
->
->  static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
->  {
-> @@ -873,11 +865,8 @@ static void esdhc_writeb_le(struct sdhci_host *host, u8 val, int reg)
->  		new_val = val & SDHCI_CTRL_LED;
->  		/* ensure the endianness */
->  		new_val |= ESDHC_HOST_CONTROL_LE;
-> -		/* bits 8&9 are reserved on mx25 */
-> -		if (!is_imx25_esdhc(imx_data)) {
-> -			/* DMA mode bits are shifted */
-> -			new_val |= (val & SDHCI_CTRL_DMA_MASK) << 5;
-> -		}
-> +		/* DMA mode bits are shifted */
-> +		new_val |= (val & SDHCI_CTRL_DMA_MASK) << 5;
->
->  		/*
->  		 * Do not touch buswidth bits here. This is done in
->
-> base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
-> prerequisite-patch-id: bf56dcdce62cb97741b7aa11b04c7a9648fb2d6a
-> prerequisite-patch-id: bb57e0fd9cad8c81bcf7a6389f3cb294bbe1eb52
-> --
-> 2.47.3
->
+> Changes in v2:
+> - Describe AST2700 A0/A1/A2 design evolution.
+> - Drop the redundant '-ic' suffix from compatible strings.
+> - Expand commit message to match the series cover letter context.
+> - fix ascii diagram
+> - remove intc0 label
+> - remove spaces before >
+> - drop intc1 example
+> ---
+>  .../aspeed,ast2700-interrupt.yaml                  | 189 +++++++++++++++++++++
+>  1 file changed, 189 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
+> new file mode 100644
+> index 000000000000..13398ff8be12
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
+> @@ -0,0 +1,189 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-interrupt.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ASPEED AST2700 Interrupt Controllers (INTC0/INTC1)
+> +
+> +description: |
+> +  The ASPEED AST2700 SoC integrates two interrupt controller designs:
+> +
+> +    - INTC0: Primary controller that routes interrupt sources to upstream,
+> +      processor-specific interrupt controllers
+> +
+> +    - INTC1: Secondary controller whose interrupt outputs feed into
+> +      INTC0
+
+Wrap lines at 80 char.
+
+> +
+> +  The SoC contains four processors to which interrupts can be routed:
+> +
+> +    - PSP: Primary Service Processor (Cortex-A35)
+> +    - SSP: Secondary Service Processor (Cortex-M4)
+> +    - TSP: Tertiary Sevice Processor (Cortex-M4)
+> +    - BMCU: Boot MCU (a RISC-V microcontroller)
+> +
+> +  The following diagram illustrates the overall architecture of the
+> +  ASPEED AST2700 interrupt controllers:
+> +
+> +                  +-----------+                +-----------+
+> +                  |   INTC0   |                | INTC1(0)  |
+> +                  +-----------+                +-----------+
+> +                  |   Router  | +-----------+  |   Router  |
+> +                  | out   int | +Peripheral +  | out   int |
+> +  +-----------+   |  0     0  <-+Controllers+  | INTM      | +-----------+
+> +  |PSP GIC  <-|---+  .     .  | +-----------+  |  .     .  <-+Peripheral +
+> +  +-----------+   |  .     .  |                |  .     .  | +Controllers+
+> +  +-----------+   |  .     .  |                |  .     .  | +-----------+
+> +  |SSP NVIC <-|---+  .     .  <----------------+  .     .  |
+> +  +-----------+   |  .     .  |                |  .     .  |
+> +  +-----------+   |  .     .  <--------        |  .     .  |
+> +  |TSP NVIC <-|---+  .     .  |       |    ----+  .     .  |
+> +  +-----------+   |  .     .  |       |    |   |  O     P  |
+> +                  |  .     .  |       |    |   +-----------+
+> +                  |  .     .  <----   |    --------------------
+> +                  |  .     .  |   |   |        +-----------+  |
+> +                  |  M     N  |   |   ---------+  INTC1(1) |  |
+> +                  +-----------+   |            +-----------+  |
+> +                                  |                  .        |
+> +                                  |            +-----------+  |
+> +                                  -------------+  INTC1(N) |  |
+> +                                               +-----------+  |
+> +  +--------------+                                            |
+> +  + BMCU APLIC <-+---------------------------------------------
+> +  +--------------+
+> +
+> +  INTC0 supports:
+> +    - 128 local peripheral interrupt inputs
+> +    - Fan-in from up to three INTC1 instances via banked interrupt lines (INTM)
+> +    - Local peripheral interrupt outputs
+> +    - Merged interrupt outputs
+> +    - Software interrupt outputs (SWINT)
+> +    - Configurable interrupt routes targeting the PSP, SSP, and TSP
+> +
+> +  INTC1 supports:
+> +    - 192 local peripheral interrupt inputs
+> +    - Banked interrupt outputs (INTM, 5 x 6 banks x 32 interrupts per bank)
+> +    - Configurable interrupt routes targeting the PSP, SSP, TSP, and BMCU
+> +
+> +  One INTC1 instance is always present, on the SoC's IO die. A further two
+> +  instances may be attached to the SoC's one INTC0 instance via LTPI (LVDS
+> +  Tunneling Protocol & Interface).
+> +
+> +  Interrupt numbering model
+> +  -------------------------
+> +  The binding uses a controller-local numbering model. Peripheral device
+> +  nodes use the INTCx local interrupt number (hwirq) in their 'interrupts' or
+> +  'interrupts-extended' properties.
+> +
+> +  For AST2700, INTC0 exposes the following (inclusive) input ranges:
+> +
+> +    - 000..479: Independent interrupts
+> +    - 480..489: INTM0-INTM9
+> +    - 490..499: INTM10-INTM19
+> +    - 500..509: INTM20-INTM29
+> +    - 510..519: INTM30-INTM39
+> +    - 520..529: INTM40-INTM49
+> +
+> +  INTC0's (inclusive) output ranges are as follows:
+> +
+> +    - 000..127: 1:1 local peripheral interrupt output to PSP
+> +    - 144..151: Software interrupts from the SSP output to PSP
+> +    - 152..159: Software interrupts from the TSP output to PSP
+> +    - 192..201: INTM0-INTM9 banked outputs to PSP
+> +    - 208..217: INTM30-INTM39 banked outputs to PSP
+> +    - 224..233: INTM40-INTM49 banked outputs to PSP
+> +    - 256..383: 1:1 local peripheral interrupt output to SSP
+> +    - 384..393: INTM10-INTM19 banked outputs to SSP
+> +    - 400..407: Software interrupts from the PSP output to SSP
+> +    - 408..415: Software interrupts from the TSP output to SSP
+> +    - 426..553: 1:1 local peripheral interrupt output to TSP
+> +    - 554..563: INTM20-INTM29 banked outputs to TSP
+> +    - 570..577: Software interrupts from the PSP output to TSP
+> +    - 578..585: Software interrupts from the SSP output to TSP
+> +
+> +  Inputs and outputs for INTC1 instances are context-dependent. However, for the
+> +  first instance of INTC1, the (inclusive) output ranges are:
+> +
+> +    - 00..05: INTM0-INTM5
+> +    - 10..15: INTM10-INTM15
+> +    - 20..25: INTM20-INTM25
+> +    - 30..35: INTM30-INTM35
+> +    - 40..45: INTM40-INTM45
+> +    - 50..50: BootMCU
+> +
+> +maintainers:
+> +  - ryan_chen@aspeedtech.com
+> +  - andrew@codeconstruct.com.au
+
+Name and email address please.
+
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - aspeed,ast2700-intc0
+> +      - aspeed,ast2700-intc1
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 1
+> +    description: Single cell encoding the INTC local interrupt number (hwirq).
+> +
+> +  aspeed,interrupt-ranges:
+> +    description: |
+> +      Describes how ranges of controller output pins are routed to a parent
+> +      interrupt controller.
+> +
+> +      Each range entry is encoded as:
+> +
+> +        <out count phandle parent-specifier...>
+> +
+> +      where:
+> +        - out:     First controller interrupt output index in the range.
+> +        - count:   Number of consecutive controller interrupt outputs and parent
+> +                   interrupt inputs in this range.
+> +        - phandle: Phandle to the parent interrupt controller node.
+> +        - parent-specifier: Interrupt specifier, as defined by the parent
+> +                            interrupt controller binding.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 3
+> +    items:
+> +      description: Range descriptors with a parent interrupt specifier.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupt-controller
+> +  - '#interrupt-cells'
+> +  - aspeed,interrupt-ranges
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    interrupt-controller@12100000 {
+> +        compatible = "aspeed,ast2700-intc0";
+> +        reg = <0x12100000 0x3b00>;
+> +        interrupt-parent = <&gic>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <1>;
+> +
+> +        aspeed,interrupt-ranges =
+> +          <0 128 &gic GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
+> +          <144 8 &gic GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>,
+> +          <152 8 &gic GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
+> +          <192 10 &gic GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+> +          <208 10 &gic GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>,
+> +          <224 10 &gic GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
+> +          <256 128 &ssp_nvic 0 0>,
+> +          <384 10 &ssp_nvic 160 0>,
+> +          <400 8 &ssp_nvic 144 0>,
+> +          <408 8 &ssp_nvic 152 0>,
+> +          <426 128 &tsp_nvic 0 0>,
+> +          <554 10 &tsp_nvic 160 0>,
+> +          <570 8 &tsp_nvic 144 0>,
+> +          <578 8 &tsp_nvic 152 0>;
+> +    };
+> 
+> -- 
+> 2.34.1
+> 
 
