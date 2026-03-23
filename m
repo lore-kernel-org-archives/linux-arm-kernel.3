@@ -4,147 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74008D58CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 22:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8F2F4613F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 22:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnBS5d8Af0kdj4K6dk1dnRPW2O5zdnxrbpuFLKgUYMA=; b=OHWJJJzXwXyu4NtFeFt8Wf1NV8
-	5gbM3YQS6GMyCZrN+0Glkj18OfK1O5lVrbD/x6WBUqCO20OkTpIfjLLseuqdRihulaBTnuTbhA3hl
-	kfrTVKtt0K7auA3zFgBFX14sfxmBI/oEgDc/c+NtMmOomxWEN/WU0lCKgVTI0RKlcPuoQoQKkrQAE
-	6j+qwcxxd0gOp/cotC1A5EQXkH0rEt6lBEwSigOsD/+YaEIwuNCIytAAKtJQU6WGlGTTiQQZbEUG0
-	a3BJ50MWc4l3DoGAawmOZ2uo5uBWRB/AcQVRerA74ogdxCFQB9eX+6M4P+KzN4HNb/i/et4DVtfjx
-	PxO+9p7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TOwEUV/+/IiwRIdM5bNrsbwxqPiiVpPpeKsMREHuJ0s=; b=j0oeayG3Zl/MBdTKANwdc8Ntl9
+	tZOlHYHEnWDEvKu81TybOiQ60D7nqGEOrXgnaEruohlp89GQRvCwBEGyBEnwMHmDv2xVYiB7aYzeg
+	i3zRdnU5R9hOF+BUMACg1auqIz2vjlZ4P4ISIrmQFGYq2P0nYTlYcW8Lfow8Agc1bUpX3nUQs5Hmt
+	ljh14sgtkJprEZRl8Iq6KDqb4U6Zy7oMPSYCtTkzel60Z00asMXLpW75+kZ8tU7/iTzInjpqigcAK
+	yjztJ2OTBIvjP1X3RQz+T1t8+aJCQzzMvy5WxSG/3C/H1RF5ElGm/qTM0agaw7MZIvYwihYaXpFMm
+	tCZRSwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4o3F-000000005wl-1DJH;
-	Mon, 23 Mar 2026 22:47:13 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1w4o5o-0000000068q-1LC5;
+	Mon, 23 Mar 2026 22:49:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4o3C-000000005wK-43Qr
+	id 1w4o5l-0000000068S-3gvf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 22:47:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OA+VUJjvJdeyJiCeRpoBOm0n6XAoqe1E467bAi/UYoNVKyy8h9X22H5aWx/2VJIah/kjS3egCfQB4hlgAZHMyzHqimDIg0twm0GylhV4SEOxg85USaqffmzvgdf5ba+E046lRT7tjglhcVaXpbSv1v51BgkQtKBs/mYmtLJgxCruyERc38/+TPfAoOFWsrw73joNfriXam/a/TZ3KniOC0uXpuNNPA/FCSa72lFvXUY2D8U8490niRfLCz7NhMDJPsr79iIGz46DRTcsukujveUa1OJDfrbFYXexZNUloZQsFD5apJUAZyVYBwjWtvl/5f/UEsaLMK/vVyd88YvVdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XnBS5d8Af0kdj4K6dk1dnRPW2O5zdnxrbpuFLKgUYMA=;
- b=Iv9x+qCLJTz6FTn5l37NbYeZ2lPYzBh+I0z38V5CZEzZvqaI8bCTKxlXoqGWJyhpCo92DYQy3iEyj/M9fOb+khoNNJN9AuwPKSiwLWfidZnUTsrAtLt0BsrHebMJSkUVN2ap06oZODx4l6voFjR+vopI+67Aug9mNTC0vXaTejtkapw4Z9lrSO7Ygc0LnOE8i5vOSlDm1th0wAlhzsF72xQ9XOgeVbMCPOK/BXlEDRGHJjywiUHE6BCnazCkDrX7r8SKISf7g1fRepE+hSxb/hfqYWG3kYnZOH5NE4JnKqnoUFA7wvVlpPVJJoeZVDf27prP0zB84AaivnfDCiSvfA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XnBS5d8Af0kdj4K6dk1dnRPW2O5zdnxrbpuFLKgUYMA=;
- b=HRMyXin16YFN/IRof3gfUlm5iQOcEcp2T20fTtblnOsQRIUTnXUrh3CuBu/r76g6ec9/Q+G0N/eEeF0NgzwntMJlEa4Z2WDPt3A9SapCFu1tLYcdDHVLzO6KzS4D6wKAZY1qwvBosG1YgOphjwpBBRUB96ucFOvG+F1Q7Y+Z9ES/9sfh/lpU2U+cZnyOxKXIaiNkVu1pVchRwXNf2dWoz8UM9miPuQr3qX/8ietc8NHg2pXE6LUCbxG2hjaf+rwvf5Oha2nzg4UCAYweUZMnwkDFMsfCuWmAJNwKuCv1oZLTzfIu3Yt+FsSwKU9k3o6lRIYs6XRGWwYQp5pDhDMX1A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB9392.eurprd04.prod.outlook.com (2603:10a6:102:2ab::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 22:47:06 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
- 22:46:57 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	linux-clk@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/6] TQMa91/TQMa93: display support on MBa91xxCA
-Date: Mon, 23 Mar 2026 18:46:42 -0400
-Message-ID: <177430593061.1453080.768758627598818290.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260313070740.585043-1-alexander.stein@ew.tq-group.com>
-References: <20260313070740.585043-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BYAPR21CA0026.namprd21.prod.outlook.com
- (2603:10b6:a03:114::36) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 23 Mar 2026 22:49:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774306188;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TOwEUV/+/IiwRIdM5bNrsbwxqPiiVpPpeKsMREHuJ0s=;
+	b=ixpDs1u6chAoZKLYc/ziv2JfcaQfCmwhYBn+tNnOmSd8AH0WfqlCHOkJSlobL6iFTwiA82
+	txri1v3sOH0ZcBHn/HCEa/hoiyrp9tD+ttMu/1CmCNnY5aJshUj9bM7h5pkZgimwoxZBvo
+	On+18hZbCv/n0fFtOLbVvyVUU+24j5Y=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-160-scA1H0ZlOheXvlAJAoSxew-1; Mon, 23 Mar 2026 18:49:47 -0400
+X-MC-Unique: scA1H0ZlOheXvlAJAoSxew-1
+X-Mimecast-MFC-AGG-ID: scA1H0ZlOheXvlAJAoSxew_1774306186
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b06b68783dso18906405ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 15:49:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774306186; x=1774910986;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TOwEUV/+/IiwRIdM5bNrsbwxqPiiVpPpeKsMREHuJ0s=;
+        b=knuWvdfV82SfypKuOfgKJH0V7Xep3qz7sfXvhvKOCTYyCM576qH4Boj633icsOe7Od
+         Jw0W9VeGuwgy+HJ0wvLOh4eXS9hwMnmmG5xvNSQg5+EFNKPGlCs/bFLLQTZ1v/ZcKGo6
+         i3CHTXfpCM3v4joDOktX2BPWaI45ITZjY0z9EfJE/x0dPND0ge9YLI/+6Jt71y9Yt5TX
+         OytumpkZ2osbOkygDTEWjBIej58cRp7v6Cn4r9jl6J7luIY2hER/DN5Yx/YOS4I6qMwV
+         4W24BZfU1tARuIt6XnWTem2K5dVmaThyhZeEST9EUjqcOKoDbRNj0wcsJ4cG5e5oKAsu
+         9OIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW9kYXb5QGFKYsAZ4KDJogE0d70OAP9Bks036rMqY/mPWSYOlZ5bWgHfS0xHgE6vvNc1jBzGg6bNEfiNKGqa/nT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw7r+btFw6UZH7omPU6XuBADOUX+yDCk+CAYhxPgYeGCXoDRad
+	mUBeAwTpQEJxJSh7BRwDIEQ+EuC+cLObjt4yEAvAxfoaHKE+LCjE9a3x15ROLQ7RuSkjZCxQB4E
+	aR7VYDHC30SZWhuitZIKIcovIml3HE3io4UbLBDq8GjBh7YFIJ9PKMXJ/37XQLhfEMwvjsddrr2
+	cM
+X-Gm-Gg: ATEYQzwdbBE45FGL8ZmrfQ7/IFG/9/40mbLkylLML2qtGu5RW4zBWGGCtzvxM3OIwql
+	DWMrCW+d7hgZ6oS/H+LPOR9PfT5CJqLWxLw7KU8i8e5wzrije7X13PxzosQB0ML0NAXTrMqGNuo
+	DZcnXC4axU6duQTS3S5CZPy6f8fOSKnrYGHcK53lj/Sj4Vj3K8GjJvw5dvqsT9rFow1h8XOOLmg
+	taUY6WXJWj1qUC6VOZ9Ax3vTsikSqI3ZttJLfMb7ntBRDwyRaNPam6LcUJIPZ4zqQZVvZibL544
+	okGAb+AmuW0oj4y8XbHsgiV/+Akuy++QIsg1sau0igAMcLtyugr2izzMXyU+DygLNd+Wbe/qe1R
+	z7tei3sTOh/V0EzvpQGtcHhoo19Jtcpt2CS6uK+BopqENjWRTEDEUJJLn20NGUdeL
+X-Received: by 2002:a17:902:ce82:b0:2b0:6f20:8044 with SMTP id d9443c01a7336-2b0827e94edmr130458615ad.43.1774306186329;
+        Mon, 23 Mar 2026 15:49:46 -0700 (PDT)
+X-Received: by 2002:a17:902:ce82:b0:2b0:6f20:8044 with SMTP id d9443c01a7336-2b0827e94edmr130458205ad.43.1774306185890;
+        Mon, 23 Mar 2026 15:49:45 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b08369617dsm155881845ad.71.2026.03.23.15.49.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Mar 2026 15:49:45 -0700 (PDT)
+Message-ID: <bd450f1f-05a3-44d6-9bbc-1c48d967baa4@redhat.com>
+Date: Tue, 24 Mar 2026 08:49:29 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB9392:EE_
-X-MS-Office365-Filtering-Correlation-Id: deb7ab1b-9f2d-4cc4-92d4-08de892e1663
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|7416014|376014|1800799024|38350700014|921020|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 2yLYKFW0J3GP7uWZaz12dBvBVfA1bkhK0He6syutoIStrPy5Fp+SlcEs0APA7zFE+ccjRxwvcdP8GdmAEGVYbFOBsHRC1pVDcXcu12CpTLy4SDFQ7NQyL9JfWBiyDV5hsqGIkblLkyzNx+7BNlq5+P1NE1W/b5k67st7IFtNWZZfI1+D+9XP3Du3i9PYPAkN0P2ma0g6or0zrfBjaY+B+MAfHP8j//XAKn7ssUxKXW+8LEEmPpGSqA00CeIRVQX3E8QMCPATy2SJKgFlcFlbYINIFCSSGKejtOPQhXnIqEHb15AFK/eq7XuvGH1uwLo+zfcimMfel8awMib8qqk+w5sNepYPbNEUVilU6Leoh+VNzn6z0Z9LRxspiJPYtHUYskrIFvGAtpbV4/CmHmA5QbHv1KVkcUmx8nlQqmUpY8cqkjvbvAwsviTel4k9pMkdlprYam4kZ3yoGfi9mKMcjjuRePsdvJZiTKCZCwhxfzKQ2zG8R8prlF+jfoP/uzklaJCK+FO9J+kcul72DdRk3xk+mTeozDu1JmRiTcVpLdGMTaOUVqZF8E/jcidRvJAfiuTuDFHkSbMs2libzdogVpZphK09haAYOcsQPjdU22QK0rl23Hre0rC0LQTrcVNJVXcBvrq9ySjB41F63qIYwGtXhtPLqbBqTKdPRTFs5vvJZEriB9jXEiNHweyQVFFHdHR3Jrv41xQa1GcE98WxWsdJQjDTr0Ev1z07NsSw/iFCRUJA0UM07PXJsrcvhFcL+6SiQnQgI+QEW3w4EY7kqc1FDZxQ26APnH7IIJlg4z4DnBACNljILAHfjxzpfRot
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDhncmt5WWFta1hpQkdtaTdwZ0dhRFY0WXVNdEhhYi8vU041dVpOQWx0R2lS?=
- =?utf-8?B?STh5bURsZHloaEVGUnFOd1ZhVHhyWGp2K0E4NlQ1MldMU3lCNGpCcytoRmsy?=
- =?utf-8?B?d0wvd1lmY3kvd1pIVWpWRlZvZzAvOExKRjB4ME9ZUFU4Y2pnMWF6THNwcm1h?=
- =?utf-8?B?Z3h4K3piQy9vNTNDM0RmNFI5eXR5TG9FbVp6bFpMY3I4SjhmWVk1MnY3Mm1a?=
- =?utf-8?B?L0FKY1B1YmllZHN2ME1Oa0ltN0w1UnJZZGFvQkpkcmFOZ1RHTTN2ZS9BajFh?=
- =?utf-8?B?MW4yT3pDYnNNdGVzcWF2R3JlVElwM25UWmo2NnVmZ0F2S01BbDEwYUVqWVkz?=
- =?utf-8?B?a241RHJFUENOYW44cU1OY2ZNdFlvU2R1Q0tzelFHNzJiVXJ0ZitiZWFKQ2dG?=
- =?utf-8?B?a25PeUkxRitlSlVTYnEvb1BZK0lvWTRIeXpZTE5vY3NVeFNKQzBabGlJRitu?=
- =?utf-8?B?VFRqZm15ejJackMyd2RaMUR0UzZ5VTNUQzAzeDdqOFVtL1lhY3BMdmdEN3Fk?=
- =?utf-8?B?aEFkbDE1Mys0aEFWZCsrazhURnNXcGFDc3h4Y3MwSytRY2N6UFgzVFpoOHBu?=
- =?utf-8?B?Q3U4aHBMNXQ4M2N1Y1NrdkMxamxPVkV5cENYbzNNZTNDeVJ2YnVPNVJwanVX?=
- =?utf-8?B?cE1qbUY2WUpFUTNodjFjYk0zYm1GdFR3czVxUlRJVURONmRpMU5qUXpUQWJO?=
- =?utf-8?B?NWdQcEoxRmZRT2d1ZjM3S0owN09seGt0Qmw1dyttdXBVM2ZGMjVNeDhKUHFZ?=
- =?utf-8?B?N21pb1gxcXBGczBJK0FTd2hLZlpNdVFmb053dzF1MENzcDRJWmMzMCtLUmxs?=
- =?utf-8?B?UUhGOCt5RXhMNmtUMTFIYldnemUvNVdLbHVBRmJRMlhZaVJKc3gwWmh4M0JU?=
- =?utf-8?B?REIrakNta0xwRUZneTJWVGYyblB2SVBmL0tuQ3p6azBOWE1JK0R4M0NqQUVP?=
- =?utf-8?B?ZGhwaUhab1dPNjdKTlpBSjR4VkpXZjQ2ODExYjZvU3lucEs3a2RMSzNxUWJV?=
- =?utf-8?B?TDNYRzMwZklSWlprc0RlblF4UkNISTh4UXhhb0xwWE0yZGtSNnY2Nm1MSWxP?=
- =?utf-8?B?dGZyNTRZL0NlOEtBSDcrclpzYWpUUkJ0R3YyMGZnS2hqRHV3c2grdGZhK0hS?=
- =?utf-8?B?czlDamZkSUVDMnZQc1ZrekljWnVJckNSL3E4WitIdUs1NFZlWGlsNkgxaE83?=
- =?utf-8?B?RFFLZDZ2M2FXeU11aUVzOGlLZFdoVk9COENqczFWUUhBN0VrbTJYQXMrclc5?=
- =?utf-8?B?eUhpMEFXL3RCVlVtaFlnRkQ5bk9BUzMwK3J5SlQyNGNqTmtCMy9LbUI4c1J6?=
- =?utf-8?B?UHZCOXE0UVY5OTF4SXV4ZFE0ZXJzalhtTmc4NXpOR2hvdHlQVzF3WFZqMUQv?=
- =?utf-8?B?UmpyWVBVWkdzL0ZMVER3bHRoUnRSSjI3K2h5bHA3MFdoMTN6L1hqaG9PdkdE?=
- =?utf-8?B?cEtpS3M3a3lFNnljQnBBUktrY016VFdhT3pvUmpURXpSOHgzeU4zR3A5NmY2?=
- =?utf-8?B?U3QxeUw0WlNhTXg4N3QxcmlXN2ExbzlVZVdZU3VXVzdLUk1SY1dhdUcwMXda?=
- =?utf-8?B?c3ZKMEVNeUJwNjBqVGxsbWN4bjlmdTRDT1kwWldnNHJEK05MRHZnMU9jZGFE?=
- =?utf-8?B?YnhHUC85OXo2YkpSOS9JaU0wUXp3MUtlWFliNnRlTFNraXlUVDBUTjVkUytl?=
- =?utf-8?B?cTZ4Wll3cy9TQXZJZVg2a2VHcmNTbXdHK0V4dlcrejZ3dXhBQUx5VU9qSlBk?=
- =?utf-8?B?MC9wM0t0S25KMVBVN1d1QmVJY0cxRWNHL29HUHF3bDVUZWs5NGhJQVp2OCtO?=
- =?utf-8?B?SU9MODU0ZERBb3EzaDZ1cDJEZUloTkMyZ2t6TmdFWmJIZmJyUGh3VHRjQ1dG?=
- =?utf-8?B?QTYrajB3WTM3WkpUWW5vV0VxNnR2QjBXeVpJQXkydmtRdldNZ0szUmZMMFA5?=
- =?utf-8?B?MHo0Mkpxc0ZUSVdVczVRR2kzN05DeldJWk9xQk4vTmdNd3ByMEdHTTVqNnhM?=
- =?utf-8?B?Q1FHQjFTTHc4RE9lL0FwVWhIdi95ZC9ycjBqeVp6QitkR0pjNmJwNFhKbExZ?=
- =?utf-8?B?ZHdHRnZNd0xJZkgrQ3BGUzJaeXJ4RnVqWlAzcENoY0tmbXZyR1NvRWF5VlJm?=
- =?utf-8?B?Nnhac3FLSjlnUk1YTVZyWHdBbXlSaW04dksrSVByaEwxdDlrVWVtbHdZM2th?=
- =?utf-8?B?YnFqWUttRFFLNjBXczc2SzZQbzZ1OXBvdTUzaHo1QWdRTUt1YjdSSTZSa1or?=
- =?utf-8?B?b2VZS3lzVjZqYXBaK296Nk9wMkFHYWhsZEZqYURTQ1hadHVoZlBZQUZ0eEVX?=
- =?utf-8?Q?JB6Z9LR122Zn/sKGVg?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: deb7ab1b-9f2d-4cc4-92d4-08de892e1663
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 22:46:57.4263
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1L+30n0fuDlOtj70/tGKjoKDjUTv+/ldkzSblCpWO5o7TaJBseTl8mQAFOeUZdvUf+70TDF3ay17heGMmxQkiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9392
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 22/40] arm_mpam: resctrl: Convert to/from MPAMs
+ fixed-point formats
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260313144617.3420416-1-ben.horgan@arm.com>
+ <20260313144617.3420416-23-ben.horgan@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260313144617.3420416-23-ben.horgan@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EnZcTPpThXnNeewDLR6UG_zTRiSM1ATW72r-sMycl5I_1774306186
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_154711_028626_56A8ADFF 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260323_154950_019729_EC82B18B 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,33 +125,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ben,
 
-On Fri, 13 Mar 2026 08:07:30 +0100, Alexander Stein wrote:
-> this series adds support for parallel and LVDS displays on MBa91xxCA, both for
-> TQMa91 and TQMa93. The parallel display is attached directly, while the LVDS
-> uses an LVDS-Encoder. To actually work it needs the pdfc driver from [1].
->
-> The first two patches add required (Video) PLL configurations to achieve the
-> necessary pixel clocks for both displays.
-> The last 4 patches add the overlays for TQMa91 and TQMa93, although the
-> overlays for TQMa91 use the same overlay for TQMa93.
->
-> [...]
+On 3/14/26 12:45 AM, Ben Horgan wrote:
+> From: Dave Martin <Dave.Martin@arm.com>
+> 
+> MPAM uses a fixed-point formats for some hardware controls.  Resctrl
+> provides the bandwidth controls as a percentage. Add helpers to convert
+> between these.
+> 
+> Ensure bwa_wd is at most 16 to make it clear higher values have no meaning.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v2:
+> Ensure bwa_wd is at most 16 (moved from patch 40: arm_mpam: Generate a
+> configuration for min controls)
+> Expand comments
+> ---
+>   drivers/resctrl/mpam_devices.c |  7 +++++
+>   drivers/resctrl/mpam_resctrl.c | 51 ++++++++++++++++++++++++++++++++++
+>   2 files changed, 58 insertions(+)
+> 
 
-Applied, thanks!
+One nitpick below, but this looks good to me in either way.
 
-[3/6] arm64: dts: imx93-tqma9352-mba91xxca: Add parallel display overlay
-      commit: 57e546efd0948d9b580cb7b8824ea62b16af4cb7
-[4/6] arm64: dts: imx93-tqma9352-mba91xxca: Add LVDS display overlay
-      commit: d6b12b4c49a11baed9b4de98f333f731aab6bf9d
-[5/6] arm64: dts: imx91-tqma9131-mba91xxca: Add parallel display overlay
-      commit: d99156ff8bcb5607c7688dde5a55315ea818b150
-[6/6] arm64: dts: imx91-tqma9131-mba91xxca: Add LVDS display overlay
-      commit: 10d12c22336cc7477142fddbe0b17111797fc68c
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Update commit message by change "This adds" => Add ...
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 0e5e24ef60fe..0c97f7708722 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -713,6 +713,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>   			mpam_set_feature(mpam_feat_mbw_part, props);
+>   
+>   		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
+> +
+> +		/*
+> +		 * The BWA_WD field can represent 0-63, but the control fields it
+> +		 * describes have a maximum of 16 bits.
+> +		 */
+> +		props->bwa_wd = min(props->bwa_wd, 16);
+> +
 
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+16 may deserve a definition for it since it's a constant value and referred
+for multiple times in this patch, if we need to give this series another
+respin :-)
+
+>   		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
+>   			mpam_set_feature(mpam_feat_mbw_max, props);
+>   
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index cab3e9ccb5c7..adaec522c1a1 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -10,6 +10,7 @@
+>   #include <linux/errno.h>
+>   #include <linux/limits.h>
+>   #include <linux/list.h>
+> +#include <linux/math.h>
+>   #include <linux/printk.h>
+>   #include <linux/rculist.h>
+>   #include <linux/resctrl.h>
+> @@ -242,6 +243,56 @@ static bool cache_has_usable_cpor(struct mpam_class *class)
+>   	return class->props.cpbm_wd <= 32;
+>   }
+>   
+> +/*
+> + * Each fixed-point hardware value architecturally represents a range
+> + * of values: the full range 0% - 100% is split contiguously into
+> + * (1 << cprops->bwa_wd) equal bands.
+> + *
+> + * Although the bwa_bwd fields have 6 bits the maximum valid value is 16
+> + * as it reports the width of fields that are at most 16 bits. When
+> + * fewer than 16 bits are valid the least significant bits are
+> + * ignored. The implied binary point is kept between bits 15 and 16 and
+> + * so the valid bits are leftmost.
+> + *
+> + * See ARM IHI0099B.a "MPAM system component specification", Section 9.3,
+> + * "The fixed-point fractional format" for more information.
+> + *
+> + * Find the nearest percentage value to the upper bound of the selected band:
+> + */
+> +static u32 mbw_max_to_percent(u16 mbw_max, struct mpam_props *cprops)
+> +{
+> +	u32 val = mbw_max;
+> +
+> +	val >>= 16 - cprops->bwa_wd;
+> +	val += 1;
+> +	val *= MAX_MBA_BW;
+> +	val = DIV_ROUND_CLOSEST(val, 1 << cprops->bwa_wd);
+> +
+> +	return val;
+> +}
+> +
+> +/*
+> + * Find the band whose upper bound is closest to the specified percentage.
+> + *
+> + * A round-to-nearest policy is followed here as a balanced compromise
+> + * between unexpected under-commit of the resource (where the total of
+> + * a set of resource allocations after conversion is less than the
+> + * expected total, due to rounding of the individual converted
+> + * percentages) and over-commit (where the total of the converted
+> + * allocations is greater than expected).
+> + */
+> +static u16 percent_to_mbw_max(u8 pc, struct mpam_props *cprops)
+> +{
+> +	u32 val = pc;
+> +
+> +	val <<= cprops->bwa_wd;
+> +	val = DIV_ROUND_CLOSEST(val, MAX_MBA_BW);
+> +	val = max(val, 1) - 1;
+> +	val <<= 16 - cprops->bwa_wd;
+> +
+> +	return val;
+> +}
+> +
+>   /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
+>   static void mpam_resctrl_pick_caches(void)
+>   {
+
+Thanks,
+Gavin
+
 
