@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFADF4611B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7ED6F4611B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7TNlMcHJEqX0XG6NyAL6GgjVp8eMQKTfhrmkvsySwM=; b=LXCuDXpPM3rOXWopF/kmdmAtUz
-	+bZIbky8KiR6EPhhpIQE+LvxSTop+JhtXR+k7F8YIH/Jmvs6nY14MPoosfQpgcXlyYwvE0exVNT43
-	IkKeNJCBLhF0+TdHQLXblioCd2S2cdIBPrDOXiGxrNmg3eO/v7V7d6dvffkAQwuP1lyKttj4hiemU
-	U6pLaS+HmV88M5wPJ1FAkU8fQek+lW0xGY+ihaoU2DckZ83LhzUefQhARS+24txq08HvzOXkfZE13
-	4Yc2X90pyq1QhagEAchAFsg+4cjCX/yjYWINJnSsTccYfY7Ay5QDwT4M6gNQsmWBD2ySu5rJaV+DV
-	Oz/1U/mw==;
+	bh=Wgz5UIsacYchyYn/NXziBlVur5a/20XBkzVTOVRSbZI=; b=2+iuAfy6ne1AxK7SW+vbSFr8oi
+	8kz0fhBgmwEJ3oqG3DaU5XDINbeQ/k4ItWI1YYR+y6L8H8IILnwEYdRp5dh/T4QmytuKBeMFl6wcN
+	fL08PlzG5NdD2js2fYdFDmGtyxFQV7sA4bD68Ve8OE6WYoWIRWFp1+6e1lit9RvmNTlTGxDs3gYPu
+	RZPb6r6Bv6igzBaQ2s8juyeIM52l3JYiZrEof2DG2qs3OKD+IRQEZxP/CNYSbaObRxVeNDJk/eJHJ
+	9ckSfKmtT4tw0UDFlH+HEpt8x3TDa9U8+rZXTlxyB+pz6gynoa+j/N4p8p7vhxqVX1ds3xEZohW2k
+	I9q+7RvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fiB-0000000Gs2f-2HIN;
-	Mon, 23 Mar 2026 13:52:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4fjm-0000000GsBN-05zd;
+	Mon, 23 Mar 2026 13:54:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fiA-0000000Gs2W-1OXt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:52:54 +0000
+	id 1w4fjj-0000000GsAw-0s8Y;
+	Mon, 23 Mar 2026 13:54:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC4AE600C4;
-	Mon, 23 Mar 2026 13:52:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD45BC4CEF7;
-	Mon, 23 Mar 2026 13:52:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE47B44075;
+	Mon, 23 Mar 2026 13:54:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5646BC2BC9E;
+	Mon, 23 Mar 2026 13:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774273973;
-	bh=7jiJnoPiC7mzd34UzA0mbtNzWXYVJzwZa57Ijvymt78=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=jiXSiBK1QppgTl6/vLB9H2UV9uQ3VzRFjylVLGRov5URWxPGikF8RYzBU8sU81r1j
-	 e5/aesdfmYjWK28UOhtXO1QjriCaLqRmHYovbKGwUtwFrLAoaWfiwaYikXJ2G6s5hu
-	 x3THcGuYBrqjdziWwQx7E17Ze/NtNvByZh8XoyaTibSuRMZjzlQSHzrDTKdz2CDmRQ
-	 70+wqO3Go3/1cc0ySV4+WofNkpJhabURRMUj7jvvBJGDXRx53GQO71K7+GoWXZARdx
-	 t3cOeG/YoymTlcbBK7d6fJgLghKpFgBblkfGGHk+2iO1UI7iNz58EV6IVsdQagVHkY
-	 eGUXY/Rh7Gbyg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: kernel test robot <lkp@intel.com>, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size
- alignment for shared buffers
-In-Reply-To: <202603092320.JgtItJg0-lkp@intel.com>
-References: <20260309102625.2315725-3-aneesh.kumar@kernel.org>
- <202603092320.JgtItJg0-lkp@intel.com>
-Date: Mon, 23 Mar 2026 19:22:44 +0530
-Message-ID: <yq5ah5q6odoz.fsf@kernel.org>
+	s=k20201202; t=1774274069;
+	bh=2/XBTB87GrlUNJZddLpCGE+4XhXu902RPGnPRLytH2c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m2j0DwAzlmvBKd4e/6HcTL2rh8800PVIc21bjtqQIikh3rCuEvv73eyHeOmtX4S+F
+	 lfpQxfvR0/mQ+1I77YFM7NDAuaibxX/qHgPKB2NKhlgYJkzrO7EHvOCUcDT05WijVo
+	 zUWWhC2v8glwgs2zvu4m2dJCDmg0AASkGfpkpNuOCZ3GvyzIFEJcK3D2/fgsdcgl15
+	 my2EWqLPtptTIxO+td1+qfdyU9vfXS+dfjZBZa6Ts9Ro53GaqHtezbbuw/zJNUui8y
+	 1ml+/hXsulQF09cSECMU3vTl0ML3XAYbEo7BN5hZCC61iDDz5Xm2NewrzMcHDcH3j6
+	 gisCLKTDVfAVQ==
+Date: Mon, 23 Mar 2026 13:54:20 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Jean Delvare <khali@linux-fr.org>, linux-kernel@vger.kernel.org,
+	a.hindborg@kernel.org, acourbot@nvidia.com,
+	akpm@linux-foundation.org, aliceryhl@google.com,
+	anton.ivanov@cambridgegreys.com, bjorn3_gh@protonmail.com,
+	boqun.feng@gmail.com, dakr@kernel.org, david@davidgow.net,
+	gary@garyguo.net, johannes@sipsolutions.net, justinstitt@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	linux-mm@kvack.org, linux-um@lists.infradead.org,
+	linux@armlinux.org.uk, llvm@lists.linux.dev, lossin@kernel.org,
+	mark.rutland@arm.com, mmaurer@google.com, morbo@google.com,
+	nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
+	nicolas.schier@linux.dev, nsc@kernel.org, peterz@infradead.org,
+	richard@nod.at, rust-for-linux@vger.kernel.org, tmgross@umich.edu,
+	urezki@gmail.com, will@kernel.org
+Subject: Re: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+Message-ID: <4fba0163-547e-4099-8b37-5d8429bda6da@sirena.org.uk>
+Mail-Followup-To: Miguel Ojeda <ojeda@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Jean Delvare <khali@linux-fr.org>, linux-kernel@vger.kernel.org,
+	a.hindborg@kernel.org, acourbot@nvidia.com,
+	akpm@linux-foundation.org, aliceryhl@google.com,
+	anton.ivanov@cambridgegreys.com, bjorn3_gh@protonmail.com,
+	boqun.feng@gmail.com, dakr@kernel.org, david@davidgow.net,
+	gary@garyguo.net, johannes@sipsolutions.net, justinstitt@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	linux-mm@kvack.org, linux-um@lists.infradead.org,
+	linux@armlinux.org.uk, llvm@lists.linux.dev, lossin@kernel.org,
+	mark.rutland@arm.com, mmaurer@google.com, morbo@google.com,
+	nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
+	nicolas.schier@linux.dev, nsc@kernel.org, peterz@infradead.org,
+	richard@nod.at, rust-for-linux@vger.kernel.org, tmgross@umich.edu,
+	urezki@gmail.com, will@kernel.org
+References: <20260322192159.88138-1-ojeda@kernel.org>
+ <20260322193830.89324-1-ojeda@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="01f7rP5tz95f7re7"
+Content-Disposition: inline
+In-Reply-To: <20260322193830.89324-1-ojeda@kernel.org>
+X-Cookie: Avoid gunfire in the bathroom tonight.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_065431_306334_879B9E0C 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel test robot <lkp@intel.com> writes:
 
-> Hi Aneesh,
->
-> kernel test robot noticed the following build errors:
->
-> [auto build test ERROR on arm64/for-next/core]
-> [also build test ERROR on tip/irq/core arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v7.0-rc3 next-20260306]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Aneesh-Kumar-K-V-Arm/dma-direct-swiotlb-handle-swiotlb-alloc-free-outside-__dma_direct_alloc_pages/20260309-182834
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-> patch link:    https://lore.kernel.org/r/20260309102625.2315725-3-aneesh.kumar%40kernel.org
-> patch subject: [PATCH v3 2/3] swiotlb: dma: its: Enforce host page-size alignment for shared buffers
-> config: i386-randconfig-012-20260309 (https://download.01.org/0day-ci/archive/20260309/202603092320.JgtItJg0-lkp@intel.com/config)
-> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260309/202603092320.JgtItJg0-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202603092320.JgtItJg0-lkp@intel.com/
->
-> All errors (new ones prefixed by >>):
->
->    In file included from arch/x86/kernel/asm-offsets.c:9:
->    In file included from include/linux/crypto.h:15:
->    In file included from include/linux/completion.h:12:
->    In file included from include/linux/swait.h:7:
->    In file included from include/linux/spinlock.h:59:
->    In file included from include/linux/irqflags.h:18:
->    In file included from arch/x86/include/asm/irqflags.h:5:
->    In file included from arch/x86/include/asm/processor-flags.h:6:
->>> include/linux/mem_encrypt.h:60:9: error: use of undeclared identifier 'PAGE_SIZE'
->       60 |         return PAGE_SIZE;
->          |                ^
->>> include/linux/mem_encrypt.h:66:9: error: call to undeclared function 'ALIGN'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       66 |         return ALIGN(size, mem_decrypt_granule_size());
->          |                ^
->
+--01f7rP5tz95f7re7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Fixed this by including
+On Sun, Mar 22, 2026 at 08:38:30PM +0100, Miguel Ojeda wrote:
 
-modified   include/linux/mem_encrypt.h
-@@ -11,6 +11,8 @@
- #define __MEM_ENCRYPT_H__
- 
- #ifndef __ASSEMBLY__
-+#include <linux/align.h>
-+#include <vdso/page.h>
- 
- #ifdef CONFIG_ARCH_HAS_MEM_ENCRYPT
- 
+>   - The docs on `regulator_get()` don't say it may return `NULL`. It
+>     originally that case, but commit be1a50d4eba4 ("regulator: Let
+>     drivers know when they use the stub API") changed that without
+>     changing the docs.
 
+Callers should never treat NULL any differently to any other non-error
+pointer, this is not a value intended for inspection by users.
 
-Will include this in the next patch update.
+>     The original sentence (which still is there) says that nothing
+>     should look at the value, but then it goes onto say that drivers may
+>     actually look at the value.
 
-The other alternative is to switch that to a macro 
+Having specific handling for NULLs is very much not a preferred
+interface, and most things shouldn't.  The caller should probably have
+it's own !CONFIG_REGULATOR checks rather than using the return value.
 
-modified   include/linux/mem_encrypt.h
-@@ -55,16 +55,10 @@
- #endif
- 
- #ifndef mem_decrypt_granule_size
--static inline size_t mem_decrypt_granule_size(void)
--{
--	return PAGE_SIZE;
--}
-+#define mem_decrypt_granule_size()     PAGE_SIZE
- #endif
- 
--static inline size_t mem_decrypt_align(size_t size)
--{
--	return ALIGN(size, mem_decrypt_granule_size());
--}
-+#define mem_decrypt_align(size)        ALIGN((size), mem_decrypt_granule_size())
- 
+--01f7rP5tz95f7re7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBRgsACgkQJNaLcl1U
+h9C71gf9GpM/jjG7XngTH0kbbP53phsB1+ihdqiu8gRSA2NkhE0CDNEtrjeo8HK+
+YFX9N3jSxdG8Xb07O5JUW+IXTMGCeLvz1uSBXZdXIabxC9f1LMtKTabWh0ZHf713
+HWaiw2tyL04gxzoGRUMOxAdjtJO/AHPk+s6yJ/mQq30LL2Ct3q4SD2EtDeCiBi24
+uVumpIb9BMTfIXF2ygQqJYC2bsstGVbR9LCepYNRWzl6pJ+8qpCwRMNb90/Fc54c
+L2PQmhNC1Q8X3ghZTF3R48f7nMOug5EndZ2txdR3Z3qvY7xacpJH5R55yoodXcVg
+aFFTXPyWGRpSqwmfdF6DFkUEV7QZAQ==
+=T4pk
+-----END PGP SIGNATURE-----
+
+--01f7rP5tz95f7re7--
 
