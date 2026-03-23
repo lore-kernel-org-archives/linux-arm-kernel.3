@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6039DF483E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F051F483E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNOY/10bL1EV7q2Imm4uWe0CYApalti2dt5cIVqYu88=; b=WekMSa/TRS4p0GYmsdAlAlz9td
-	NatmTE+5ioDJ+oZYmuto5WECAnZgKeAcKkgrRJ7mMLarDeY+9n2wpkw0Ejj8/kaU7X75P30Spsi1O
-	pDvl5g2ZzF1I8wQSFxIGF0darSqBd5mdIZXePUmt2Yw2SISsW0Km/1gpIcpXpdHzTbvLfhyoBMZV3
-	/nbmkeYU1NZ1dArgoA1CU915PugqsMNluY3F7XAXTTBVNnLunUThL5XI68vxQGwa6Ro7RpDLF/ci0
-	e2q9Ktm1dI+uCe3WE9V38eK/cCoI4Z39d6bi8ir8Tjjeynx9TeQd/Yq2ZbIa0yXp5vn+h6ZAwW+0f
-	+K2scC4A==;
+	bh=5k6RSNwFusFVmg2TpsnMUo8NPMVbTpvmOvUTn4lfv6I=; b=4VJfqFhJ5JD2AL8wgKRu6oD/n6
+	Nh7M2xBXgD8vlg9Os3NHo+y7bUZCiu9qMemCwwwFFXA1q7O5+SwmnJZmGX4CGf24M4dKQO0X9UBrr
+	vv22Ros+PeEjEF06uF/1ScQoUAVdhR+qOQLQxYpevsuyFl7PcMHrA7MeBGaRJSxhxNEQ69J2Qyign
+	aLtP/mAfAagiD1ggUPMCtjnvLNwWs642rkiW7TJVuQ11aEqYiHojBzcrE7ykKQUcaQKnbQWkqwbRS
+	0bFC/RIdGENMJGSSnMJNc46j7REgmPpQdZoZMM/iW64k+nhXs5alnZDPr94ZNeNMcsSQPogLxdJy3
+	LS1L5wlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4l5i-0000000HSXl-2cGi;
-	Mon, 23 Mar 2026 19:37:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4l6Y-0000000HSho-0J3x;
+	Mon, 23 Mar 2026 19:38:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4l5f-0000000HSWt-2ZB6;
-	Mon, 23 Mar 2026 19:37:32 +0000
+	id 1w4l6W-0000000HShR-41Pf;
+	Mon, 23 Mar 2026 19:38:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34D9A44269;
-	Mon, 23 Mar 2026 19:37:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED6F8C4CEF7;
-	Mon, 23 Mar 2026 19:37:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 03371600AC;
+	Mon, 23 Mar 2026 19:38:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41690C4CEF7;
+	Mon, 23 Mar 2026 19:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774294651;
-	bh=YNOY/10bL1EV7q2Imm4uWe0CYApalti2dt5cIVqYu88=;
+	s=k20201202; t=1774294703;
+	bh=5k6RSNwFusFVmg2TpsnMUo8NPMVbTpvmOvUTn4lfv6I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Wf3lvA+GH/GQJEW785Yo559nDoXleT8uPH40hxJfta5Zz2n/wmJIYAPsSBHWs/par
-	 SNch8HOXTjI3xocXCxzZSyg4lUavveInbw5bpnX89woONwx5Jnf5SnjCkKb8EIVxTC
-	 /IYKO2SYn11ENt2U4n7aSemuvRok2VgCekr2hMFYb0k2z35fOtrp96Q/ziP+wS23k+
-	 U79sYg+3OTnESUCQ95yTcLRiKERECazxOoZqXJCbelhVBDq4DnthtOy28EP8omsGLc
-	 rcwzYGmbU6GqaNp3xmuCIKDuxl+38SyZ/Vkl6dumETkOzvyKagwtqH8ZBYLOAG+vdb
-	 v03QCoJU3zQcQ==
-Date: Mon, 23 Mar 2026 19:37:25 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	van Spriel <arend@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
-	linux-wireless@vger.kernel.org
-Subject: Re: [PATCH v3 8/9] dt-bindings: net: wireless: brcm: Add compatible
- for bcm43752
-Message-ID: <20260323-hardhat-bladder-0c83339de3bd@spud>
-References: <20260323-add-emmc-t7-vim4-v3-0-5159d90a984c@aliel.fr>
- <20260323-add-emmc-t7-vim4-v3-8-5159d90a984c@aliel.fr>
+	b=LtJx5vZfItLXOoIv2kga5F9i7wz0o5NywLE0+aLhO1E55t5TMkI96NfBNZqc2jVMT
+	 BtaNr0OoOktPplwFPUh+RCSqIaPfslO9L8IAwy7GDP0+QfvcRxfqLH/uIWcQuC6e6S
+	 Z2A9rSl+fzdsa7anp1tkHBvZbZffUYam1mpGfkRocvxS0/M/7Qz7vzp5Jg1/2lVXmk
+	 OwLm3fK2uBcTOBtVttDuk1m48jDAVgGwiS8CIB8XckUs7UTUrLFXLTraiH9RDyToIQ
+	 az62ZiAVR5GvkqmLd91uCnhHazvUkL9SIxG/vfvGnJiEZSuSrZsU1r6ieaoTfJRda0
+	 zzkw+HQMQjEng==
+Date: Mon, 23 Mar 2026 19:38:17 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Pei Xiao <xiaopei01@kylinos.cn>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com,
+	amelie.delaunay@foss.st.com
+Subject: Re: [PATCH v5 01/17] spi: axiado: Simplify clock management with
+ devm_clk_get_enabled()
+Message-ID: <8f92f6e7-93aa-48ab-a183-fe8167dcc517@sirena.org.uk>
+References: <cover.1773885292.git.xiaopei01@kylinos.cn>
+ <52f7e0ebd2f0ece71929384444e1ae87506e5e2d.1773885292.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8LJrZXED2O+23fWg"
+	protocol="application/pgp-signature"; boundary="+c7wJ7ToAUTqzySb"
 Content-Disposition: inline
-In-Reply-To: <20260323-add-emmc-t7-vim4-v3-8-5159d90a984c@aliel.fr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_123731_668591_F882AC52 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <52f7e0ebd2f0ece71929384444e1ae87506e5e2d.1773885292.git.xiaopei01@kylinos.cn>
+X-Cookie: The only perfect science is hind-sight.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +76,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---8LJrZXED2O+23fWg
+--+c7wJ7ToAUTqzySb
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Mar 23, 2026 at 10:55:33AM +0100, Ronald Claveau wrote:
-> Add bcm43752 compatible with its bcm4329 compatible fallback.
->=20
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On Thu, Mar 19, 2026 at 10:03:57AM +0800, Pei Xiao wrote:
+> Replace devm_clk_get() followed by clk_prepare_enable() with
+> devm_clk_get_enabled() for both the "pclk" and "ref" clocks. This
+> reduces boilerplate code and error handling, as the managed API
+> automatically disables the clocks when the device is removed or if
+> probe fails.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+This driver is doing runtime management of the clocks via runtime
+suspend/resume so this isn't appropriate.
 
---8LJrZXED2O+23fWg
+--+c7wJ7ToAUTqzySb
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacGWdQAKCRB4tDGHoIJi
-0mLYAQDKVk2X94u3DdOJf1xVZS1DjAAOaqRhxQmCavFb8iljzgD/a7q4+h0ExxYk
-1S35bjSvl2V4D0hADEYDx1qRaOas3QQ=
-=yoc+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBlqgACgkQJNaLcl1U
+h9DQmgf/Rv6RyzoxQRCgDOKHviEvFcZSxzzhE8666qZ63KWQcYY+YwTNXJbCpu6F
+x0bKK7lGdLtMfa+xckYnQ63Jyzkzal9euoPa283BzzUg4Jzn4vYiz/DevoIRnjgd
+skGPBRrD6X/YBuQs7VWlEFxzPi+IyLX17BEviHKisdvJGLoghJxg7udRD4pucCJF
+JStuti+iUJaDCcn+qINXcM+B2fmYF15OoRQyMgxOX+1QNqDRED/d5HEoEw+2kLJE
+XUlbGguhFItn5fOcHck/JTNgrf5Q4RWHAZI2Zfb1TjQW3+tvCPYn1Z2pjhO6v/EQ
+AwiQilSo5Bf7ZptfuMjShkHlrn+DFw==
+=DDAD
 -----END PGP SIGNATURE-----
 
---8LJrZXED2O+23fWg--
+--+c7wJ7ToAUTqzySb--
 
