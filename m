@@ -4,112 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE3BEC01C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C065EEC01CB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+IJUWFVuRtnRrcxOAe+qH0nHesEXlr9bnFCdCu3nBCU=; b=r0aSQxaOfmaZCr3fUyHexBJLs/
-	5yY/TIwFwOIYL+aDnznk26p353lr5324yTAMdjsjTABGOti5PgXFoS8LQRELGYV2Xg9Z+qaML3r4X
-	13SIMmXmesPJJuFsbgxXMGj2FojmfkCvPiXnBlUqhl13DS4/xL8Ac9S+CkAiKVIPBCdGP7BuZzIzx
-	Lsn/+WCWgb1yctVrUOwZP+o0aSfdhg8r6Oh5PV7m4dAmDVRRR/RSWK5d/53j9GPbCT0QeYknQvxYU
-	nwzZ0/WALjiuy+LMDOcZ1QrNSc4xm0fr1w4+ZXZUdj+yNIWMvHR9cDe3dz+WDR8FNB2y83bHK1iCi
-	SONHNIAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HwQxs4oXmQLhSeViZ8fAdCl+dL3kKoR/zcl6bLSQpPY=; b=u330GLwYzNYoKELQqeklGGt4aL
+	zFHXiShfz8xfQNrX5oCm1hK8lgc9cghP3pJxm2VIOmhqtk/TAuCdk9Ug7X/n7C8ZZIhFrEG1G0snv
+	ySh6QZr194gyBPbm+MRAHJXgGzL4vvY+xKT+uOWUHIb4EGZrCqtX408i656Z3nIRMRyrr2r0X9pOF
+	pdg2VCmgkY+jyJ/JXuxLeKr2XYE/jJ0G/4lP3cKf6iGt1jNJirxFXW4/d5GxbTsRrspuQBGxBOJ2Y
+	54yG8v8dg7LoUPFF9tIqWegWG9WrZQ19/fbgo8xhJ7UqIRc+9MevQ/NAMybug8uZ9apaP0Ybve7aS
+	U483EBiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dEq-0000000GbBH-0Qvs;
-	Mon, 23 Mar 2026 11:14:28 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1w4dVs-0000000Gctw-30Gd;
+	Mon, 23 Mar 2026 11:32:04 +0000
+Received: from mail-westus3azon11012035.outbound.protection.outlook.com ([40.107.209.35] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dEn-0000000GbAW-0erT
+	id 1w4dVp-0000000GctX-3jFa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 11:14:26 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a277379151so1824248e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 04:14:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774264462; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HFv8tnW+hgGoIzLe2g8Hx+zilz7qxlTV39AfEOFh5uHnZiPv7IzeI91TLk6VjFTHQv
-         G/tv9OZ38iiDhHPV5a/OZk3cmgienV34Lu0QDK09A1F3YojoCc6orGnp4HxMrj2lPyOG
-         WpuhOGQqS6K8Fd8vklG9cnmyi470VB/c905OSa5HVNEfCJ95S/GiTPK4GRj/fsOW8Md/
-         uMzIWVmKIDeQFKggssXmJ9jpbWNbQvsjD3kiUN9aJJGVQCeHOj4+Jrmk7cdvXdK2ymAK
-         YdDv1B5gmB5xrWPKJ+U0DVL2YU6epUuMptquOppfxAEU7+f7VooJithq7yXqaq12t1GE
-         rPPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+IJUWFVuRtnRrcxOAe+qH0nHesEXlr9bnFCdCu3nBCU=;
-        fh=5w813dBG/5IErWAPwMvGCORVbvc0FDi1jVgYyBStjdQ=;
-        b=ars8KuXHEqB3vg9Q52P/OrIrqMAuV9XcYXjpooKqAef/NoTBIgOdyRT8yU81L/bR/i
-         kMjUWHRYvkjEAY2wouX8brQ9QksM61LukdPfJE1S78zDLG4idXcv2pFJeF/TvIz1qJGf
-         G+8wE1yFVtjr75y1eiU4wEJhj6dAW412+B+jnEs3J8neAjRnitDBlqqmd9ju2kaFh+1H
-         q8BfGQWsP1xtz0MxeJo2cMaCu2rG7GDBO4Ki+CA6Q93Iftv1v30jAUsE6UDCvYrhaPK3
-         /JyZs1LnGpGYacKcnnzIS7GiV1iEbt5jizBxbIL62ELqR7rL4z/zLXHnpTsuaoJbntSj
-         4yIw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774264462; x=1774869262; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+IJUWFVuRtnRrcxOAe+qH0nHesEXlr9bnFCdCu3nBCU=;
-        b=Tqq0ieyL75UfuOVlMyVPJGmrt15WxhlmaCBU6Y+fNiXgmlRV7dzPAY4R0GK8f1Mb51
-         FlQdeR3ckrqrD9zKIC7sE/rFmm3iKIpdaWT5EHT1SAWdCcxStu2ffnyy0EbvbFcsq7aH
-         imV5PcIFZZ6TXSGgbBJ1rvgKcJPWRoKTTH8NitvP3m689bQMcfWMbsfvZeou1FikNo/V
-         4yZGtgdOm1yFFg8eiac1ndVwYSQThNsNOtxj+VRvyw6ZYLRxsMbnDFVinyjqmx8u2eyX
-         Q4X/OCGWBVFZENYu7o3F6wMFbvHn7wvUFdcegql4cBsSq/jNbDaTvXp58nr56VMqJsy9
-         MHBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774264462; x=1774869262;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+IJUWFVuRtnRrcxOAe+qH0nHesEXlr9bnFCdCu3nBCU=;
-        b=COjaG97kXP5nHAUX0a/oq59wkcrTxqXQnp/zUWITmqIypCwmlS16RpqJyL1rnEjCy6
-         c2q5+c9qwR1n65cpKoid/LVFiDAARkYzzGuxTAv69AyMWhCCHVO/lcNKlbNcSNWvk/O/
-         HvJY7fJFqLMZ8YqW737XbXjSDbRmss1UJZzsOtUPsobKtNz6fdBOJ2GNPw9tiUh5r8MJ
-         Yusls6NIaNYVGJIhu4pjmv13V3MbFkmMyrt3S6qikGbpKhlHe459XV9KD/T0k5+KAyaB
-         zHglZHOSSsD1m7AxaqlmXcZvpPKf0ip4x8m1AakKJzZBK3ayq7iYUxcz//MdU+r4+wXL
-         PD6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWllYKWgWdYbQ/vB3a2u34+TnF+Lz+qQSddaeYFUsOaqGDiWxyMBhbPrxFMkv/kA1XZ1hwff2CHtdZeKpIGWFPf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLbLyqFgK/4TAUGdJaf4bzPwMqs2F47ooRrf2gsEJZqEaZVw83
-	AwW++ntWwWBBRKgooHe50KMKB6ORIW2CaTMe7QYf9qRbfOCIuPu9zf3EgRl/DHZ0y67CeZJ+RzG
-	Y1jWowfrBJNBbrF8ioy2C1zTfLKE66QQiYbxyyoPFqQ==
-X-Gm-Gg: ATEYQzyarMl72KzcCJ9prJNpd2BlG6Bx+Jm4h9f18R9qtFlFnOMoZD84nuGV/w0ProJ
-	IiehYB/4IYSKvz2xJwy5jvj2oRjUAKxu33amII5zl8ufu02qSKm1Zt19P/NESpHYF85hQzWUIqB
-	kLp3Kmo4RPPXaS0U4tfbewOgZzdEGOwg7Dv0CNXlWI+igXYgcjYbnoLm4RKnYQp3o0AMVqoQnxp
-	BqezvO97O+fqE4DLklfPWW2HAmlTTr14RqW2upxZJCN4ViQDCKyH5tfq6dFCpxq7gmBmC4xoLrL
-	iIo1cN2O
-X-Received: by 2002:a05:6512:10cf:b0:5a1:2b2b:479d with SMTP id
- 2adb3069b0e04-5a285b6125fmr4577456e87.31.1774264462090; Mon, 23 Mar 2026
- 04:14:22 -0700 (PDT)
+	Mon, 23 Mar 2026 11:32:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MBC7ZKKCI+pZPs6mZVBlWVe+0qLFq1e7ND1ld5CmAYBcIQamr0HXqyC9KCe6iOwgAt81E8st38m8gbxyPBsReUL6iJR5JSU4iXFihBUYKbosvZL0/eSMYloTV2wM1MWpcEdd85fXGT6ql2uvcKSTNTJo7h4yyM93H4fvKbHIJxItWsYQ5GVf+9MOm9RT//lmh0S84ALMSJ4prYzWK5ze/Ec8ZUJWkMrb9qbMBJaNIAqJjJoiFCq9ACpXs6TNdQC0uqRS21ie6+rrmzahL8kqMMqn7ZdhEKDaOJuKFeYeyOXFQaia/HfQJJ+t6sSQZqRy23Uz/srzAkEXOQSSAwmUhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HwQxs4oXmQLhSeViZ8fAdCl+dL3kKoR/zcl6bLSQpPY=;
+ b=rs0rbgrmXcqhtZc4FEnSM7mdiKgae8W7tYHEeLDH1pPfck6Mn/Wlko0YWswLmSzur+o6uesHCbZlwn7Bt5BAzpua4lnOPJ17hJtY6RAYOT56loUyZehPBPPH71o9nphHmBHA0ACDw/vP6UaZQO6TQKSe8SUraHHoPYHXW11/OSdTnesCttyUpggW8354uo5/wfP5OUy8pko+n+MIOZsAk/Wu/yCFFsFJTqdtrJLOQ+OtH4C7330YbmpBbaeHrewGi2VorhVSkPtXMTWDWDKu5LvUJeHfNp8+v7flhbtmtXv7AL/Q9O9Cn0oNMlFiTQdSDFwfXUHe3zA6v0iAl+h8zg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HwQxs4oXmQLhSeViZ8fAdCl+dL3kKoR/zcl6bLSQpPY=;
+ b=GjUiAJDSDJkzFhoHrqe+/gAlE6rufGnAA5TND3u3U66RBIdxvgaTKtuy0Wbw3eD/hCuwqrjnOlq98fWFuB1mz09WYxn7DJz6QDJeZyyraA5bcJVEIipHMas4niTxcLKIMvJHBtDPpNFtC5evAN7yAmGUM6O8LSZTIUaBcrT9qN0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ2PR12MB8690.namprd12.prod.outlook.com (2603:10b6:a03:540::10)
+ by CH3PR12MB9313.namprd12.prod.outlook.com (2603:10b6:610:1ca::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Mon, 23 Mar
+ 2026 11:31:53 +0000
+Received: from SJ2PR12MB8690.namprd12.prod.outlook.com
+ ([fe80::18c4:be41:febf:7e45]) by SJ2PR12MB8690.namprd12.prod.outlook.com
+ ([fe80::18c4:be41:febf:7e45%6]) with mapi id 15.20.9745.012; Mon, 23 Mar 2026
+ 11:31:53 +0000
+Message-ID: <8c8fa211-6244-43d3-9350-856301075e2b@amd.com>
+Date: Mon, 23 Mar 2026 17:01:43 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] iio: adc: xilinx-xadc: Add I2C interface support
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "saikrishna12468@gmail.com" <saikrishna12468@gmail.com>,
+ "git (AMD-Xilinx)" <git@amd.com>
+References: <20260323074505.3853353-1-sai.krishna.potthuri@amd.com>
+ <20260323074505.3853353-4-sai.krishna.potthuri@amd.com>
+ <acEbZ0O3HKrGx0u1@ashevche-desk.local>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <acEbZ0O3HKrGx0u1@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN2PR01CA0129.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:6::14) To SJ2PR12MB8690.namprd12.prod.outlook.com
+ (2603:10b6:a03:540::10)
 MIME-Version: 1.0
-References: <20260318-gs101-pd-v8-0-241523460b10@linaro.org> <177409907930.268981.5882592990447577348.b4-ty@b4>
-In-Reply-To: <177409907930.268981.5882592990447577348.b4-ty@b4>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 23 Mar 2026 12:13:46 +0100
-X-Gm-Features: AQROBzDb0FyhDsEJ4InmRtciuv9Wo1DbFap7YBMqRE1Hh3qfHVm60c1Z9Vi7vPA
-Message-ID: <CAPDyKFoz-sm0pfvn5iSYFY0mrW38vaGRZsFvrVPqsv7BsYxeWQ@mail.gmail.com>
-Subject: Re: (subset) [PATCH v8 00/10] pmdomain: samsung: add support for
- Google GS101
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Juan Yescas <jyescas@google.com>, Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8690:EE_|CH3PR12MB9313:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7083e4b-18ae-4ef0-38eb-08de88cfc80e
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 5uOvckwc3y0aPZMM0ZXjoxGPf+3ymiwzZ8df96jvP/eyW5Sq+XFDtjFiiKcFf92lXDhmAciqLS4ubHUHO0K6ZPNkVOPdM1Z1MJdEBUsaW7ORFbyNYUB6JtM6dvutVisYHKK5T/7D2HqEd0aB7+Sb5WNerdxnd6v3/K0ti7voxIt1Dv7l1EaEghWdEyevDp0DgDwBm4u3RKseKQvJyNsyA+Wf9a3BKD1PBcoa+FNfqUgfK33nbRrJ7EcPqaK+DsBqrlfbL8lCXz1LI2sO7h1QQrQ8duC4pTyuB6Zat4NIjPPDuJKXKz1SQNiqwJ0Q5HxFYbd2ZavcM9z8HpTEDaqbAKiV/Mhbz+Zau4UCWsxRU76brIbsguMNjpUY0EBffIzMXVUCq65EBTLKMXzSWtgUtj16ybYeAnDDvtOrLD/gKpSvj6lY7C1GJcLBdJhQSiwZGquX6h0nRqz3oltKcqE+dRNyjhU+x8J2oi63Q+AbytQm8XG14RpqAepwgPFrL5E5gkGy+lm8NkvTfNdA2jFkcmLNchqOwwXcDTEzUVN6X+25JPoivohIagYaK0q49VOK2NlF49EXygSkNsgUjtdBX3KZMCC9nbiLgWSAcsFfvybz8VdL93vnOFEsY4IzaM9Q7/q1iiZRmZllLkvfrowzcq19OOcNCG+Bl6Xt/IsoOEpi2j2D5XgtBLtf4Iodq8ItHfYjHknCVya/gXra/NrfxQZQaqv57F4iIqNxv/vbbe4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8690.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTltZmsyK1FhbWRGN2dRczdRTXJFQ2pwNGQ2VzdWZUNFdFM0Qmdtb3ROamhU?=
+ =?utf-8?B?Z09HNVc3cTZRbTM2anBhNUdsRHllaks1NHpsS3VHOWhnK3UrYUZ5WWZ0UzBL?=
+ =?utf-8?B?UFhsK2djaHpkbE9xWkdSRkpueE1XTlIyTlNFQUQ3K2UxQkZzSm9HbTh4bEpK?=
+ =?utf-8?B?c1lzUkFJL01pNUlZZktzMGdMUU5vMHBubHhvekh0ZVN6dWFGS0lwcnpMeTVm?=
+ =?utf-8?B?MlpObVdkV0ZVaEpkOGE0Wi91eXZNU1N4YTdxT3p4QzM1ZWlmdzI5RTRxalZN?=
+ =?utf-8?B?Z2xJRkFXOTBNekswWnpFazNISmcyajEzNnJScDFTdWRuK3JWT0NmRld1UEdP?=
+ =?utf-8?B?R1FqVGMrZlJLOGRwS0NkR3kxbUdqaGpKSzBxaDA5Y0IrdE1XaU02U29wUVp4?=
+ =?utf-8?B?N1RLbGc3bXUyVkVsY0c3WTIyWnk1cDdwU0dvb0FpZU5DZ3dpVmZ1WUVVWDJo?=
+ =?utf-8?B?WU8rcmxENlJJb1hFWDdrQTFzOEQ0MzNSUTBhUzhIWVZHZC9VQ3NFT2M0Z09J?=
+ =?utf-8?B?TjJHTTNscWJBcldxY3Jza1dRc3JaSEUvR2h6T0NOakIzblM2bENzMWVuMUZa?=
+ =?utf-8?B?Y0YvN0V5RkwwTjBleTVjamhLVHNHNGYwSXI5bDdBdVdoN3Yvdi9qNjJHTTFQ?=
+ =?utf-8?B?SHF0NXBlR3lZODJSbXlaYkFyOFpTcTlnQXBFRVFKR1pPMzduWXpJTGNndmNy?=
+ =?utf-8?B?bjZsdEJIVFBvczdST1F0cHViK0toSjF4NjBnK1ZsRkhzSU9kY3FaR2V0Sk9F?=
+ =?utf-8?B?bk4vaG94TmdlUENlb1hGVmFnVUVOSDltbS9LcXh0ODF2S2NIYkJoZ2VDd0Er?=
+ =?utf-8?B?bHJYTjloYWY1bDFxaEErOVlJQ3k4T3Q5YjNXbkJvb2lRSCtBRzhsb0paQ3Fo?=
+ =?utf-8?B?ZHVXVlpoZFovYlI1ODRyZ3ozVFZBWStHWjdzZEFlQjFWRk5XZ0FjSW44dktJ?=
+ =?utf-8?B?WHJLZkR5Z01Memg2MHZjdUtHZ1dzU1FKTUNpaTUzb0JkNlBJT2NndVY5WitD?=
+ =?utf-8?B?YUtXaTRmRHdxYVZXRmtXT2txUXFMZTJOelZnYTNTdml4NDgzbDBvOTNYdFVo?=
+ =?utf-8?B?M3YvZ1d3UlZWbkhvMDBDMUxORExRSmVlNUhyeVZaRWNtZDZManZrWjdYK0J5?=
+ =?utf-8?B?Vi9nMzQzYktmaHlHRHFZSURoM0tTQ2l6Ym85V2lxU01na0tKMDJpOVdVbTFJ?=
+ =?utf-8?B?Y2pzaXo3Y2hhRElaenNMaHVIdFNKOWFQQXRCTzJhNmlmYWJwU2xPdVVUN012?=
+ =?utf-8?B?a1JoSkdycUw0d3Y5ZHdJTEFad0RuUys3MlArMUVLdTUvcnVZT0NYdVI3OGJh?=
+ =?utf-8?B?REZiVFdydVJraldIakFNYlE3ODF1QmtzL00ycHArb1VGd3lsY0ZlZDVWa0I4?=
+ =?utf-8?B?dFdRNnFpUlplYUZ0Q3dwbHNQbkRhMXo4SlJLN0ViczI1QUVKTjViUDRBQXV6?=
+ =?utf-8?B?alpQZFFKd1dqTlpSUXRYOFI4TFhzMloxY2Y3RWNuNXBCaEJwTWFreVp6RTBT?=
+ =?utf-8?B?ZnptZW1tNkhrSU80VEEzRkpnck5vRGt6Sk9ZNURTdEtWVFpRZWYvQVhYTEM0?=
+ =?utf-8?B?M2lKNjlYb3lCQlY3STdCaGVzTVI0T2JVdzlhYy96ZFBaZDJDWlUzQ2pzSmxt?=
+ =?utf-8?B?dmJBV2wyY2VNZTh1bTRoMFpFalFsY3lpQ1VkN1puWGJFSkFQanRocWZNMmsy?=
+ =?utf-8?B?ZHUwQzZYY1RnQ1pKOUNzMEZqQTkyd3BqclVKNGQzQmJjejJLVkQ4WGhQLzBQ?=
+ =?utf-8?B?eXp1dXRGNUIydFhwQ3ZZMWg2QVRXaDlNZXRaOTduUFhyZkN5dXk0OUN0bVJ4?=
+ =?utf-8?B?Y0Z0MjB3OTNWQU56S0NlbVF5TS84aEZIdDN1VzhIZ3F3U2UzR1ptNTA0aEt5?=
+ =?utf-8?B?MG9LVVoxZWNoOWlqRHRyaENKaU5TdWQ0eC93cDR1OG9JdWgvUENyWEs1V3hZ?=
+ =?utf-8?B?S0NTYnRadE92NFBocWsvVENYT0dQa1kxSDMvTFlXeEROSWhkYTNpVkNNMDUz?=
+ =?utf-8?B?Y285c0J0RmpxTldabTFhUGxPdmV0VUJNTnJya2RhQjV5bDV0dDAwbW05QUdm?=
+ =?utf-8?B?Rmh5cDBiQ0dlZ2EvRW5lQm1NbHMzQ0xqZnBNbjJPZXBoV1J2aTJibmNtSXV1?=
+ =?utf-8?B?MXQzTThHYThxYnl4eXpxVWw2anRHNlN2ZlpTWlJtK0Fmb0JyV3d0OGxhQTNZ?=
+ =?utf-8?B?ZE5PQ3dMSlU3djBEYjBsTm5uS01NeS8xbGdySUpPYk0xeDVSeVZwYXNVQmND?=
+ =?utf-8?B?RGxqZHdEdnpGeWlxWDEzSDJTbGhoNHVoSFZDVVZDYXF6YWQvOGtpc1AvOEs2?=
+ =?utf-8?B?dzgyVWlOb0RTcXJzUzl5cVVXRmRRZndkbjBjZzdZWDRyd1dwektvUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7083e4b-18ae-4ef0-38eb-08de88cfc80e
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8690.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 11:31:53.3814
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wqcX2NqzeiZTQ0+zBcI5SXMh26AxWJfZ2+YCMydltLRGiB/PS70Axf4wT6b28OWip2jnyTFy9WfN4ZKNNH4aIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9313
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_041425_279667_DD35104D 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20260323_043201_960372_2B3D4743 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,60 +158,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Andy Shevchenko,
 
-On Sat, 21 Mar 2026 at 14:18, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
->
-> On Wed, 18 Mar 2026 15:27:45 +0000, Andr=C3=A9 Draszik wrote:
-> > This series adds support for the power domains on Google GS101.
+> -----Original Message-----
+> From: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Sent: Monday, March 23, 2026 4:22 PM
+> To: Potthuri, Sai Krishna <sai.krishna.potthuri@amd.com>
+> Cc: Jonathan Cameron <jic23@kernel.org>; David Lechner
+> <dlechner@baylibre.com>; Nuno Sa <nuno.sa@analog.com>; Andy
+> Shevchenko <andy@kernel.org>; Simek, Michal <michal.simek@amd.com>;
+> Rob Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>;
+> Conor Dooley <conor+dt@kernel.org>; linux-iio@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org; saikrishna12468@gmail.com; git (AMD-Xilinx)
+> <git@amd.com>
+> Subject: Re: [PATCH v2 3/4] iio: adc: xilinx-xadc: Add I2C interface support
+> 
+> On Mon, Mar 23, 2026 at 01:15:04PM +0530, Sai Krishna Potthuri wrote:
+> > Add I2C interface support for Xilinx System Management Wizard IP along
+> > with the existing AXI memory-mapped interface. This support enables
+> > monitoring the voltage and temperature on UltraScale+ devices where
+> > the System Management Wizard is connected via I2C.
 > >
-> > There are a few differences compared to SoCs already supported by this
-> > driver:
-> > * register access does not work via plain ioremap() / readl() /
-> >   writel().
-> >   Instead, the regmap created by the PMU driver must be used (which
-> >   uses Arm SMCC calls under the hood).
-> > * DTZPC: a call needs to be made before and after power domain off/on,
-> >   to inform the EL3 firmware of the request.
-> > * power domains can and are fed by a regulator rail and therefore
-> >   regulator control needed be implemented.
+> > Key changes:
+> > - Implement 32-bit DRP(Dynamic Reconfiguration Port) packet format as per
+> >   Xilinx PG185 specification.
+> > - Add separate I2C probe with xadc_i2c_of_match_table to handle same
+> >   compatible string("xlnx,system-management-wiz-1.3") on I2C bus.
+> > - Implement delayed version of hardware initialization for I2C interface
+> >   to handle the case where System Management Wizard IP is not ready
+> during
+> >   the I2C probe.
+> > - Add NULL checks for get_dclk_rate callback function in sampling rate
+> >   functions to support interfaces without clock control
+> > - Create separate iio_info structure(xadc_i2c_info) without event
+> >   callbacks for I2C devices
+> > - Add xadc_i2c_transaction() function to handle I2C read/write
+> > operations
+> > - Add XADC_TYPE_US_I2C type to distinguish I2C interface from AXI
+> 
+> ...
+> 
+> > -	if (xadc->ops->type == XADC_TYPE_US)
+> > +	if (xadc->ops->type == XADC_TYPE_US ||
+> > +	    xadc->ops->type == XADC_TYPE_US_I2C)
+> 
+> Can be one line.
+> 
+> >  		return 0;
+> 
+> ...
+> 
+> >  	/* UltraScale has only one ADC and supports only continuous mode
+> */
+> > -	if (xadc->ops->type == XADC_TYPE_US)
+> > +	if (xadc->ops->type == XADC_TYPE_US ||
+> > +	    xadc->ops->type == XADC_TYPE_US_I2C)
+> 
+> 
+> Ditto.
+> 
+> >  		return XADC_CONF1_SEQ_CONTINUOUS;
+> 
+> ...
+> 
+> >  int xadc_write_samplerate(struct xadc *xadc, int val)  {
+> > -	unsigned long clk_rate = xadc_get_dclk_rate(xadc);
+> > +	unsigned long clk_rate;
+> >  	unsigned int div;
 > >
-> > [...]
->
-> Applied, thanks!
->
-> [01/10] dt-bindings: soc: google: add google,gs101-dtzpc
->         https://git.kernel.org/krzk/linux/c/10084aeadadfab72648f6ed1cc78f=
-7cd87b861ba
-> [03/10] dt-bindings: soc: samsung: exynos-pmu: move gs101-pmu into separa=
-te binding
->         https://git.kernel.org/krzk/linux/c/3ec3c42b426fe5e2b48ff19c551de=
-c50bc78788c
-> [04/10] dt-bindings: soc: google: gs101-pmu: allow power domains as child=
-ren
->         https://git.kernel.org/krzk/linux/c/c8229a5160eea145b796f54317d6e=
-659cec9b080
->
-> Best regards,
+> > +	if (!xadc->ops->get_dclk_rate)
+> > +		return -EOPNOTSUPP;
+> 
+> > +	clk_rate = xadc_get_dclk_rate(xadc);
+> > +
+> 
+> Unneeded blank line.
+> 
+> Also, don't you asked for options?
+This callback is defined for all other platforms except I2C.
+Currently for I2c interface we are not supporting any configuration, it
+is used only to read the channels.
 
-Usually I pick up the power-domain related changes for the DT bindings
-and host them via an immutable branch called "dt". If needed, SOC
-maintainers can pull it to apply/test the corresponding DTS changes.
+> 
+> >  	if (!clk_rate)
+> >  		return -EINVAL;
+> 
+> ...
+> 
+> > +	i2c_set_clientdata(client, indio_dev);
+> 
+> Is it used?
+No, will remove this one.
 
-That said, I am open to whatever you think is best here. Perhaps it's
-easier if you can drop the DT patches and provide your acks instead or
-if you can share them via an immutable branch for me to pull?
-
-Kind regards
-Uffe
-
-
-
-
-
-
-> --
-> Krzysztof Kozlowski <krzk@kernel.org>
->
+Regards
+Sai Krishna
 
