@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5952CF46113
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5ACF46112
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6I8HX5OyGwEWzfCYsI9oL102hKAYf5jDgCPpWt76ao=; b=JJ30FvJ2QaMOA+cDotm04Ztn5v
-	v5Jcl/ulCOXfOr76sY3QzHWOl25NtNBlYpumBNv7E/l0MfEZvRrChxTnKXgpS61j0tHNWLHAABnU5
-	sdXLK6yczI8VK2bsjw4tDYGy7z7/nKuaUSi/VAEaKBFdQYCsJnP7ulgB2dS2IHrAPXaoeYt77LAlC
-	FnfwkCsmtj+Obrwt+SO1sh4bFeTslkbHwJfYKjAaDz4rrhj1igBHuVnndWB3L1WnxnczuSLXpqGHs
-	iw8r/TVqZoCgyhgqAEmHJHS8lzC9Eqk6qcBgxJYbuX/tyT7rkD5kuOQOUA7GTGbkyWjfpIthkC//W
-	Z+dKrUjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B/YWoZ3/P7yhoach9i5x35UvO4eHF6OSW5RXxRtkbv8=; b=kAd1ZPpQUH/PAAnPyNqhUf7uPM
+	lNTzSnis2CqPek/GemS7vcTAPGrkiNwB7Yy7uF5M+40KfzNs7YYOfOhxqANRiawtrZEiUe5Msc36q
+	zhSdzgJWhzu4+OJ4Aal+mEE1KYu28fJMBrX2iqVi774EdQXehjQO8cbx4Hh4NDE/TtM3UaXZslV/l
+	ZD8Vm9HORT7AGH3RGvrfs3syiHZgQEPMaVcbw8fjiqbnQPiQdV6hXo3WXuARcp6jlkkapmR4djEkD
+	BrfE3XYsTsg3dodsQAlN6ivUG5aBsxyEimKCR7aMn5GJPjZgY9t3d7W9C8s3iP5hZcliejQocZU8r
+	3qxMhNnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fXs-0000000GrBO-1t82;
-	Mon, 23 Mar 2026 13:42:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4fY9-0000000GrE8-3Cvf;
+	Mon, 23 Mar 2026 13:42:33 +0000
+Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fXq-0000000GrAi-367S
+	id 1w4fY6-0000000GrDK-2Zwe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:42:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5D8A600C4;
-	Mon, 23 Mar 2026 13:42:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8C8C2BC9E;
-	Mon, 23 Mar 2026 13:42:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774273333;
-	bh=ZtPoRCkru0zgzMg1Dtr1KtTXqI/BbXwaUF7s9LHVs9g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QIxB7vn8lilMCHPxPp+kxXTrecdLy1a7i2KTdVl3MMbLYSvrJVTyOCSfscdRkKN33
-	 MCVYxvIfx2UPiEWZASusQSJ0bK67Y3D4sUd1r/Aj1ecHcsFFOROGx+xxJPwRVxhHJQ
-	 hZiyy3CaMLMsRjh81BqYBWMfAGWCPCd+cBjNfZIMrByTtUeRZEllBttXO+yg055goV
-	 XUWcLiHHgMYd5ePrUwlGkcQIW0yKROm7dH9ZoifRjCDabIRhAXPPAeJG4OG7W8zm5k
-	 A934KPuhHN69KZgJbiXYoSEbjW49m/et+1nOeMto3lzz0GYpXBrMAaEonnllPUUEJZ
-	 eFuG/V0t6QoXQ==
-Date: Mon, 23 Mar 2026 19:11:58 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v13 05/12] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <5i4vef45tsr5oquo4kpdnydgnmmciprpzif3do5g5clfx3ny2e@tfjapk6haitq>
-References: <20260317-qcom-qce-cmd-descr-v13-0-0968eb4f8c40@oss.qualcomm.com>
- <20260317-qcom-qce-cmd-descr-v13-5-0968eb4f8c40@oss.qualcomm.com>
- <hohx2judes5c6na4svpah254hqbaf4kbeyu7prwkprfv5dy7hj@26nxwlvb76yp>
- <CAMRc=McostnmVjE=uV=2KA7-dqLvQ2BAJYTXzANacFpPGgS+Sw@mail.gmail.com>
+	Mon, 23 Mar 2026 13:42:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774273332; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YWLMt1BESz0MDJjpIIoY7lbYGoBRIuj33ljFEmeSeZqYLKo3+hKwNjGByRc0GRpOi6C2DOzexIDl7KMjdOLpQagFz8cmWDk8Yp4TWCGCdOF8Z/X+J9sJKeZGvXIp74XfN3Dt+sil0cWQ1HMn35Xh3DC1p3KfKpOqyz4SYx+vhfA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1774273332; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=B/YWoZ3/P7yhoach9i5x35UvO4eHF6OSW5RXxRtkbv8=; 
+	b=c+/0LEkWxn8b+GazaZ0hzWuxWGBF3qSJ4foEfi07WkFvuBVYMXQhYQPBpouXxoMXr1R/usFVFG2fa/0urWGN5n1cPzU9TXZ0BLKLjrKybqevlUC4xDRHNDXCYOvkOVi4y9gQ0OLNrDw2FPLS8u55JoG55tUI4Zp9eYmMOu4WXLU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=trunixcodes@zohomail.com;
+	dmarc=pass header.from=<trunixcodes@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774273332;
+	s=zm2022; d=zohomail.com; i=trunixcodes@zohomail.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=B/YWoZ3/P7yhoach9i5x35UvO4eHF6OSW5RXxRtkbv8=;
+	b=PzeuQvOqP58m2fvoBqtKod2LL54xID/NdzECU7cl/IZ02DOlxfjbzdgcb9ZgGoV8
+	n7D4L1P0ON713IQs3iCAKvcRJx82jzMbvr2wI5VFif5J2Fzq2aEYQmPFVthteyGAv/6
+	+nHUEZMUBY2RIgxQxUJHGyYedmmGiMDcUnuOUVQQ=
+Received: by mx.zohomail.com with SMTPS id 1774273331223815.8540051298768;
+	Mon, 23 Mar 2026 06:42:11 -0700 (PDT)
+From: Ethan Luna <trunixcodes@zohomail.com>
+To: peterhuewe@gmx.de,
+	jarkko@kernel.org
+Cc: jgg@ziepe.ca,
+	nicolas.ferre@microchip.com,
+	claudiu.beznea@tuxon.dev,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] tpm: i2c: atmel: fix block comment formatting
+Date: Mon, 23 Mar 2026 06:40:49 -0700
+Message-ID: <20260323134200.7766-1-trunixcodes@zohomail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=McostnmVjE=uV=2KA7-dqLvQ2BAJYTXzANacFpPGgS+Sw@mail.gmail.com>
+Feedback-ID: rr080112276cb5c677688b0b5d5a8bdc4700000e571217a95e1510df44e1961518088c0ac02099ae0364b407:zu0801122744ffdf8d598da53cf7b50c340000fb9598dcb6b536ab228881c1662b59ba53ed999511fea69f49:rf0801122cf7ce3eb0d7f27411f9ae9099000095ac9992e66c5daedf75e7720fa1c9b1866df24cda0360e94f433d2aafd1:ZohoMail
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_064230_692741_9F622D43 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,166 +81,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 02:36:59PM +0100, Bartosz Golaszewski wrote:
-> On Mon, Mar 23, 2026 at 10:35 AM Manivannan Sadhasivam <mani@kernel.org> wrote:
-> >
-> > On Tue, Mar 17, 2026 at 03:02:12PM +0100, Bartosz Golaszewski wrote:
-> > > Add support for BAM pipe locking. To that end: when starting DMA on an RX
-> > > channel - prepend the existing queue of issued descriptors with an
-> > > additional "dummy" command descriptor with the LOCK bit set. Once the
-> > > transaction is done (no more issued descriptors), issue one more dummy
-> > > descriptor with the UNLOCK bit.
-> >
-> > I've left some comments in v12, but looks like you've missed them.
-> 
-> Sorry for that, as I explained in private, this email did not end up
-> in my inbox and I didn't see it on lore.
-> 
-> > >
-> > > +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
-> > > +{
-> > > +     struct bam_chan *bchan = to_bam_chan(desc->chan);
-> > > +     const struct bam_device_data *bdata = bchan->bdev->dev_data;
-> > > +     struct bam_desc_metadata *metadata = data;
-> > > +
-> > > +     if (!data)
-> > > +             return -EINVAL;
-> > > +
-> > > +     if (!bdata->pipe_lock_supported)
-> > > +             return -EOPNOTSUPP;
-> >
-> > As mentioned in v12, you should return 0 to avoid erroring out the clients if
-> > pipe lock is not supported.
-> >
-> 
-> If the client attaches the scratchpad register then it probably does
-> want to use locking, right? On the other hand, I assume you're
-> thinking about a situation where the client wants locking but BAM does
-> not support it. It's unlikely but ok, I'll change it.
-> 
+Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
+same line as the comment text. This violates the kernel's preferred
+comment style, which requires the closing delimiter to appear on its
+line.
 
-Locking is supported only since v1.4.0. So I was trying to avoid erroring out
-the clients wanting to use DMA on older platforms (pre 1.4.0). I'm not sure if
-such platforms exist, but could be possible.
+Fix the formatting to improve readability and resolve checkpatch
+warnings.
 
-- Mani
+Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
+---
 
-> > >
-> > > +static struct bam_async_desc *
-> > > +bam_make_lock_desc(struct bam_chan *bchan, struct scatterlist *sg,
-> > > +                struct bam_cmd_element *ce, unsigned long flag)
-> > > +{
-> > > +     struct dma_chan *chan = &bchan->vc.chan;
-> > > +     struct bam_async_desc *async_desc;
-> > > +     struct bam_desc_hw *desc;
-> > > +     struct virt_dma_desc *vd;
-> > > +     struct virt_dma_chan *vc;
-> > > +     unsigned int mapped;
-> > > +     dma_cookie_t cookie;
-> > > +     int ret;
-> > > +
-> > > +     sg_init_table(sg, 1);
-> > > +
-> > > +     async_desc = kzalloc_flex(*async_desc, desc, 1, GFP_NOWAIT);
-> > > +     if (!async_desc) {
-> > > +             dev_err(bchan->bdev->dev, "failed to allocate the BAM lock descriptor\n");
-> > > +             return NULL;
-> > > +     }
-> > > +
-> > > +     async_desc->num_desc = 1;
-> > > +     async_desc->curr_desc = async_desc->desc;
-> > > +     async_desc->dir = DMA_MEM_TO_DEV;
-> > > +
-> > > +     desc = async_desc->desc;
-> > > +
-> > > +     bam_prep_ce_le32(ce, bchan->scratchpad_addr, BAM_WRITE_COMMAND, 0);
-> > > +     sg_set_buf(sg, ce, sizeof(*ce));
-> > > +
-> > > +     mapped = dma_map_sg_attrs(chan->slave, sg, 1, DMA_TO_DEVICE, DMA_PREP_CMD);
-> > > +     if (!mapped) {
-> > > +             kfree(async_desc);
-> > > +             return NULL;
-> > > +     }
-> > > +
-> > > +     desc->flags |= cpu_to_le16(DESC_FLAG_CMD | flag);
-> > > +     desc->addr = sg_dma_address(sg);
-> > > +     desc->size = sizeof(struct bam_cmd_element);
-> > > +
-> > > +     vc = &bchan->vc;
-> > > +     vd = &async_desc->vd;
-> > > +
-> > > +     dma_async_tx_descriptor_init(&vd->tx, &vc->chan);
-> > > +     vd->tx.flags = DMA_PREP_CMD;
-> > > +     vd->tx.desc_free = vchan_tx_desc_free;
-> > > +     vd->tx_result.result = DMA_TRANS_NOERROR;
-> > > +     vd->tx_result.residue = 0;
-> > > +
-> > > +     cookie = dma_cookie_assign(&vd->tx);
-> > > +     ret = dma_submit_error(cookie);
-> > > +     if (ret)
-> > > +             return NULL;
-> >
-> > You are leaking async_desc here.
-> >
-> 
-> Yeah, not only that but also should unmap the sg here too. Thanks.
-> 
-> > > +
-> > > +     return async_desc;
-> > > +}
-> > > +
-> > > +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
-> > > +{
-> > > +     struct bam_device *bdev = bchan->bdev;
-> > > +     const struct bam_device_data *bdata = bdev->dev_data;
-> > > +     struct bam_async_desc *lock_desc;
-> > > +     struct bam_cmd_element *ce;
-> > > +     struct scatterlist *sgl;
-> > > +     unsigned long flag;
-> > > +
-> > > +     lockdep_assert_held(&bchan->vc.lock);
-> > > +
-> > > +     if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
-> > > +         bchan->slave.direction != DMA_MEM_TO_DEV)
-> > > +             return 0;
-> > > +
-> > > +     if (lock) {
-> > > +             sgl = &bchan->lock_sg;
-> > > +             ce = &bchan->lock_ce;
-> > > +             flag = DESC_FLAG_LOCK;
-> > > +     } else {
-> > > +             sgl = &bchan->unlock_sg;
-> > > +             ce = &bchan->unlock_ce;
-> > > +             flag = DESC_FLAG_UNLOCK;
-> > > +     }
-> > > +
-> > > +     lock_desc = bam_make_lock_desc(bchan, sgl, ce, flag);
-> > > +     if (!lock_desc)
-> > > +             return -ENOMEM;
-> > > +
-> > > +     if (lock)
-> > > +             list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> > > +     else
-> > > +             list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> > > +
-> > > +     bchan->locked = lock;
-> >
-> > What is this flag for?
-> >
-> 
-> Just a leftover. I'll drop it, thanks.
-> 
-> > >
-> > > +struct bam_desc_metadata {
-> > > +     phys_addr_t scratchpad_addr;
-> >
-> > I think it'd be worth adding a comment for this.
-> >
-> 
-> Will do.
-> 
-> Bart
+V1 -> V2: Fixed block comment formatting consistently across all multi-line comments
 
+v1: https://lore.kernel.org/all/20260322193112.27010-1-trunixcodes@zohomail.com/
+
+ drivers/char/tpm/tpm_i2c_atmel.c | 34 +++++++++++++++++++++-----------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
+index 4f229656a8e2..c3cdc0d6e61c 100644
+--- a/drivers/char/tpm/tpm_i2c_atmel.c
++++ b/drivers/char/tpm/tpm_i2c_atmel.c
+@@ -31,9 +31,11 @@
+ 
+ struct priv_data {
+ 	size_t len;
+-	/* This is the amount we read on the first try. 25 was chosen to fit a
++	/* 
++	 * This is the amount we read on the first try. 25 was chosen to fit a
+ 	 * fair number of read responses in the buffer so a 2nd retry can be
+-	 * avoided in small message cases. */
++	 * avoided in small message cases.
++	 */
+ 	u8 buffer[sizeof(struct tpm_header) + 25];
+ };
+ 
+@@ -58,7 +60,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+ 	if (status < 0)
+ 		return status;
+ 
+-	/* The upper layer does not support incomplete sends. */
++	/*
++	 * The upper layer does not support incomplete sends.
++	 */
+ 	if (status != len)
+ 		return -E2BIG;
+ 
+@@ -76,9 +80,11 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+ 	if (priv->len == 0)
+ 		return -EIO;
+ 
+-	/* Get the message size from the message header, if we didn't get the
++	/* 
++	 * Get the message size from the message header, if we didn't get the
+ 	 * whole message in read_status then we need to re-read the
+-	 * message. */
++	 * message.
++	 */
+ 	expected_len = be32_to_cpu(hdr->length);
+ 	if (expected_len > count)
+ 		return -ENOMEM;
+@@ -111,15 +117,19 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
+ 	struct i2c_client *client = to_i2c_client(chip->dev.parent);
+ 	int rc;
+ 
+-	/* The TPM fails the I2C read until it is ready, so we do the entire
++	/* 
++	 * The TPM fails the I2C read until it is ready, so we do the entire
+ 	 * transfer here and buffer it locally. This way the common code can
+-	 * properly handle the timeouts. */
++	 * properly handle the timeouts.
++	 */
+ 	priv->len = 0;
+ 	memset(priv->buffer, 0, sizeof(priv->buffer));
+ 
+ 
+-	/* Once the TPM has completed the command the command remains readable
+-	 * until another command is issued. */
++	/* 
++	 * Once the TPM has completed the command the command remains readable
++	 * until another command is issued.
++	 */
+ 	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
+ 	dev_dbg(&chip->dev,
+ 		"%s: sts=%d", __func__, rc);
+@@ -172,9 +182,11 @@ static int i2c_atmel_probe(struct i2c_client *client)
+ 
+ 	dev_set_drvdata(&chip->dev, priv);
+ 
+-	/* There is no known way to probe for this device, and all version
++	/* 
++	 * There is no known way to probe for this device, and all version
+ 	 * information seems to be read via TPM commands. Thus we rely on the
+-	 * TPM startup process in the common code to detect the device. */
++	 * TPM startup process in the common code to detect the device.
++	 */
+ 
+ 	return tpm_chip_register(chip);
+ }
 -- 
-மணிவண்ணன் சதாசிவம்
+2.53.0
+
 
