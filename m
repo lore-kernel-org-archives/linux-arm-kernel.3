@@ -4,72 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6577F46101
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F305DF4610F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUs/WH+iF/Mc5fiyurmAjkDuoXeS0bDsbt+XqX2OPxw=; b=ZtgC7cB1iws0cVl2CY9y0kmrOd
-	c699whpP6qmKPOBn5YNdtqaWeMl6MnwJnXtJhNXClh7k3F9YPmoMrmEHU2r87W4Q51/2T2ddIME78
-	RgUydNx4B5NtXLv+ZeTVHEZcu+/O3HQxE5eHrYc2j1lc08OD6CLBys296FoNJleApttz4Hza33T5m
-	2RZ9ypvgMzmpF1aJ9JEOPpE7X3mvS3TeoiaWUlkWZYurimSPsXmzpj0JefOv8coB0GmXEm+tHav4D
-	qSAtFx45xJJp6gM8I8kEqnpLX6dKwhXMcQKriKpFcLqOHB58LyhhYAgKsS0jlHIdcIb7XnrX8JwVT
-	7An+7VRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YiFNqkbATrvOYmK6fhb4vVLx2Sf9B9YrcUlITHTmDS4=; b=z0vSw943X8MG/xcVC4fM+KxDy/
+	PMWun7RR+IZY2fUEi9xG9HEDcJB++SL8wFDboS7VkEqpVGfPrwqz/tugAa7hDMpZIrs593vRY0OOa
+	JhP0sjSx/jz+vNXMVA2xd3+vcvdLEtNRtsrDy0/kSCm83Q/IosODylvb9mMkBFbZK/xJbIE0Zh7bN
+	rXGL3BcRloVYrioLjk6MQI801buR3Ug30XLQVLnWkh03cnh/brbt5q0PeLAdP5EM9MAqIJPohXzXH
+	iCY5OWQWe+HsYGiStHNFoXHUwm9LekxUGciP7vppJspSRi2wNlhA9FiwzFYi+RyIDnxxJ1vQoa4im
+	cdvmNL2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fLs-0000000GpQa-1L05;
-	Mon, 23 Mar 2026 13:29:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4fPs-0000000Gpiw-244a;
+	Mon, 23 Mar 2026 13:34:00 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fLq-0000000GpPm-0PZH
+	id 1w4fPq-0000000GpiE-3PUJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:29:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86FAF4189A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:29:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67CB9C2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:29:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774272589;
-	bh=4ALTHeR/nNtas+TDhmepd92xZJjPlPAcg1f9T5Oy/uk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=BbLaED3CAjWVtLICPIXk7HRfAOzZMYev+4Fa67GGJwgDZUSnf2h7plQi2hxda3A7T
-	 EokkWtXxAJXS9FqEd2y7KVt42JoG9xy5lhq7vJovoRSluYicA6Rub2MW2u4izAbdFO
-	 MQEN3WySzN4LsB7x1pPikZXom4Ye2MBnM+y8ocsZpMmU9w9YxMx+nc1vS+EffMyL4+
-	 32Rkmi4s/6Rlcm44DpRmNcb27ie4AfKcgCNfBtwU25uK6scWTuhl+s0kvEVId0yDvc
-	 jpd0VUCbanej6ji5XvOQtqmxzTCgdAvv3LoAFJz1glK8UyVAPjXttCJASIdfu9WtLi
-	 rfbZz5LTnKhsg==
-Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-64e8c7f5082so3707865d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 06:29:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWW0KEukEgWXxsg2ZEjbqI3RoXz6sq3wDCYlV4qVbaVyeLJkK5g5pXPtPGyOZclZ/LWoOyiWkt5wHRydZaMH7h9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFJiHZxQiB4jbL9OcCMF/xJ3dU+vf740CcP1fObf/EpoYFfwtG
-	o/H1utuvheu3I7345gcLZ5SLoMwhPY3ln6zqTsxXS0aZJ21kK6VeXSdun1AYWvQSBfcYPoEHfvy
-	g9xE62cZDZRdYNobh7blkYqi/8Zer++U=
-X-Received: by 2002:a53:b465:0:b0:64c:cfc8:6baf with SMTP id
- 956f58d0204a3-64eaa6a1fe0mr8465672d50.4.1774272588715; Mon, 23 Mar 2026
- 06:29:48 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260321105940.8143-1-kexinsun@smail.nju.edu.cn>
-In-Reply-To: <20260321105940.8143-1-kexinsun@smail.nju.edu.cn>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 23 Mar 2026 14:29:37 +0100
-X-Gmail-Original-Message-ID: <CAD++jLn9MTbJjLh27U37w_Jj_GEZkaEztdPTk8T0y8ZQxqJ+aw@mail.gmail.com>
-X-Gm-Features: AQROBzA1Eb81EhPJamujnyXMjjtWiy-G55hD9WEFMzQ9Pozas-rkYtdPkHd9Eag
-Message-ID: <CAD++jLn9MTbJjLh27U37w_Jj_GEZkaEztdPTk8T0y8ZQxqJ+aw@mail.gmail.com>
-Subject: Re: [PATCH] spi: pl022: update outdated references to pump_transfers()
-To: Kexin Sun <kexinsun@smail.nju.edu.cn>
-Cc: broonie@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	julia.lawall@inria.fr, xutong.ma@inria.fr, yunbolyu@smu.edu.sg, 
-	ratnadiraw@smu.edu.sg
+	Mon, 23 Mar 2026 13:34:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774272838; x=1805808838;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=ygRXMPNI7Rjp3g8hLEoIc33cuV98oJZB2ImcFVnVV0A=;
+  b=BgyrNHXC28dFqbcmQvO6WaKPt+lEmF8A/JvwDt86zfvT7zlOqFpusIFW
+   4gNFqzLD5S7+O96Gl8STRKJ5MNmdJeWaoygVbMybixzqOF2RsI4lZHXNr
+   uf5szQOo13LJ9Re+2lkHqYvpvFiKRxBgzp1MX+Tst/xQtOy3VZxXVmFhp
+   ehQijems+mBkFDm9u+p0BvmoYuR6F/JOBY6itJsaa5/tkb3d11PmrHOl8
+   2e9+9CF63PLc9Pqb9pX0IoyVJe7f5pBHb/nspJ/op0XM9niIFbgbQiuYo
+   KJYe/O4hsqiuv1GMEvz4F9OD1hvdBkVsaODomvfjeKv7myYukz/l7t85Q
+   w==;
+X-CSE-ConnectionGUID: 7fkKnzDrQGKlv/RTkNrubw==
+X-CSE-MsgGUID: h7B5LGqOTrKcvtqvv5T91g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11737"; a="75240235"
+X-IronPort-AV: E=Sophos;i="6.23,137,1770624000"; 
+   d="scan'208";a="75240235"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Mar 2026 06:33:57 -0700
+X-CSE-ConnectionGUID: xGZWNajCTrGzT46QpDaEZQ==
+X-CSE-MsgGUID: 4EEBf3KeRZyCHvjTC2djJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,137,1770624000"; 
+   d="scan'208";a="224243220"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Mar 2026 06:33:58 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Mon, 23 Mar 2026 06:33:56 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Mon, 23 Mar 2026 06:33:56 -0700
+Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.22) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Mon, 23 Mar 2026 06:33:55 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KANjVXkeg78sCXkXtXQ03Y7UzVrriLx2XW/1Ww8bgxlDbx6Mu6JNnMe+++nokgV66sXejJ689AT8NoTSu/Y3iRp1ERNM4a23cNMMqUknMH8zd/AWgrlI6xdYwTybgoxzKyyjmz4Owqi2UEdCz7qXL/YSnujbkdioZxd+w/65a860UEVnanVnOnH6PzZB7ik5sYiMoR1ReLos00A0153lcAgpq4jwAE3dCPIourSChPmxqaSnXGsH63Js40YnEDxvh0J++bCE14wn13zuoWAV1V+OV0O52u4zYp/y1VGWdZoUuKpGeUhO1rBxAMEksG+mSET1OYhCmh05OUJM0JghBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YiFNqkbATrvOYmK6fhb4vVLx2Sf9B9YrcUlITHTmDS4=;
+ b=hCmi3ZCUMCFGH/OBsR/tm8aV9WWmYwXFYhnvbcJ81jibfB+Rv+Og6pcLiN3sXZt8q9MIHzrCOqTrZ2ieCsaEzmT3AJA5VYkFCwU9ICSJmgg3wZpL2Lv+mIvy4lveDevFOISHStzwG7A4eXaaEiRjSQlOme7xk0MiZDkiIKQWl61s2QB2fK4P8MAJYir9EJOd1pFQVuZgZ99kz4cwKrOFxPUTYaNg+vrnBAo+dGftHajBFEBjaI0iezHNZjT7qkYN/Iz2gOhhvO+OdJ4zEtCvEFBQyYbiHYqLeMXPDS1X6zBOamPt0GR0tDTX86O6VFjcpTgltMyB1/BRjaFyF18Scw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by MW4PR11MB7008.namprd11.prod.outlook.com (2603:10b6:303:227::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Mon, 23 Mar
+ 2026 13:33:52 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%6]) with mapi id 15.20.9745.019; Mon, 23 Mar 2026
+ 13:33:51 +0000
+Message-ID: <3be1a7b7-751d-4c75-828d-62dd0c2bd180@intel.com>
+Date: Mon, 23 Mar 2026 15:33:45 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] mmc: sdhci-of-aspeed: Handle optional controller
+ reset
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, Ulf Hansson <ulf.hansson@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
+	<ryanchen.aspeed@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>
+CC: Andrew Jeffery <andrew@aj.id.au>, <linux-aspeed@lists.ozlabs.org>,
+	<openbmc@lists.ozlabs.org>, <linux-mmc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260323-sdhci-v3-0-93555b8f6411@aspeedtech.com>
+ <20260323-sdhci-v3-2-93555b8f6411@aspeedtech.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260323-sdhci-v3-2-93555b8f6411@aspeedtech.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU7P194CA0008.EURP194.PROD.OUTLOOK.COM
+ (2603:10a6:10:553::25) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|MW4PR11MB7008:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd5d96b7-7cbe-4af4-6bde-08de88e0d19a
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|56012099003|7053199007|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: fRdTnAP7+45Z56FRHip/kGCbvn9i+9xh47G+3Vuy4BYKshHIoY82JhXtLfuMqgTzw0ciQcR78JOjb2dS4bhOiIRxzc2dUbAYTX3hfNoD7oTtV0kTPzxWJt0qiEXN0BW9qjOkK5UDlZwM3Scn7L8a9+bjbo3TUPf9NCFQvhCO56TFG8uPnWe1vtjvzeIihinZy/SlOB1DaILp0swZfUAPgMX1R7ycWTih2q5UMZgsShYAJNkhXhGHhpvuZbd50kQItIR8fDzuR/wuJhFicylIhfSajRhXFh8EfP02Wf+iOXA5ZFrZT7u2kBKdjfD+nTgT+Qgs+77GfbhnF2bXFFT+T4tr6NaBqqtCWJNUt5Y0XY2fF8SxgaYI4KvIZJlHlqu1T04CWod7r9aKQ5wfocy3SjyOKCbE5QSoAzm8tlVbXaR0wBL3xHN4LLNtQWTrK/8nzCQCWcelnOpNXougxUBCtRGDB0yOOQcJtgRDpFebVWsCYfV0x39BtXiOkKIR57h6nzkJ3fRTgyUwPqCrRIvEtEkYdppeOp0iZYFPrtXu17B3WUzVv6sVAGS1q6Kz7sGvuIeZlWgODnftbhupO5FjBmY7q4NnEVPEyN0T9MkgdxiLka20uqlvNo06DR1IWkr+No/BiOfCMpOUtdT/LmqdVToXoOQKuhE/RBXbSGTBkL34/OAbhaeeIqr6bE0ojlFeUj4RGI3p1ZgsXEebvVxiSvIVPR+V3D2636aAJ7guxvI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(56012099003)(7053199007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHlNOWxJOUlLOG1QU2pGMzN3QVdvNE4rRCsxck92OFlWM3JXTkx5b2RZWTlq?=
+ =?utf-8?B?ZHBYaGNJQkJZVkRnQUQ2dldFRDltRTFoSXlMajEvOVhJbFV4QzRPb21kK0hk?=
+ =?utf-8?B?OVRBZHFXaXYrR1hZcjNQKzdidlV6Q0ttYUYvQU50L1RuSkl4ZUFQc0tnTHUx?=
+ =?utf-8?B?SWtNLzZCcGhHUjJGbiswZjZZOUxaWlozeWtMTll2WXdZTUJ6ZDZvSVllR1Ja?=
+ =?utf-8?B?cnF0OVpVMGZaM25DRlhSRDRWa0k3aFRQRTl3WmVaSDcvdjdGWkE1alBvS1FV?=
+ =?utf-8?B?Rm1Bc2J4eGxkcUNNbXExUE1nRzVpaVljdFBwVDdGYWNva09QM281NlppS1FT?=
+ =?utf-8?B?YjVKdGpuQml3TGZ5NVhXR0NKUEV2WTAwdTlhb3p3KzR5QUVaT05rY3pPVVNo?=
+ =?utf-8?B?aXlGVXZuMjdqKzhXaUxhb21iMDExMUNSeG9vcWRhR3VtSWZROXhOL1RCTzY5?=
+ =?utf-8?B?ZUxiU2krbjVOU3QvRWF0NFhMUmdPd1hybDdncWpYM1lLdWdIRTBKU0Z1dGtH?=
+ =?utf-8?B?U3IySXhXVmdIRmNqS0tvZzVtaW9NTStlVkxuUVNkQmV3TEVQTitidVpiSG5V?=
+ =?utf-8?B?cktkY29tVElESG9vMWNnZHI4VStaQkdJQ3NvVFQzbWZ1MDBpcEFjRG9qT2Nx?=
+ =?utf-8?B?SmE1V1Bwbmx0USt3czZsc3ZESFpoaXB2RDZEZUwrbzQxZ0JIa0p0U2VIMlVP?=
+ =?utf-8?B?d0hqcDdzd2Yrd1F1Rzh3SHpTUmxncjYrZmwzNjhoY3pIWllLWWdvQUsvYmd4?=
+ =?utf-8?B?Z1JTNTBhc0RnOWZiUURHMlB0VDlaaGE2eThzVWhwNEhnL0YxdThiVWlTNlRC?=
+ =?utf-8?B?bWlqeEhMclhuVHFKNW4rYVIxMnpkdllrZGN1ZHFzd3lycSsrRlpONitQUEMv?=
+ =?utf-8?B?OUV1ZG9rY2xtZjlGaEhmVlJwT3NDYlhyRVNtZGkvOS9xWFQvRk9ZcEFjY012?=
+ =?utf-8?B?VURKcyt2TVF0VVdJb2o3L01jU2FCOWlZdUE1S3ZkT05jNjRvbFZvMHlXMmJh?=
+ =?utf-8?B?NEtidlFaVGk0Ujl5NzdMZkp1N29KTFc0VFNaR0hhRm92L1lmZ0VPaG5yT0dN?=
+ =?utf-8?B?ZVAxSjZUazBYSnJNdHFQem9sekVnYWpRT3BPM1puaExsb21mTElVTW95K2hD?=
+ =?utf-8?B?K2ZVNVhBTC9GTEdQNkNXTUNFWlpKbjhZdjhhUVdWRWJqdXBCMXJxaGdBRFRy?=
+ =?utf-8?B?MWdaZmhPRXpqUDFvQmtMQlk0RFBlU0dhWnRQbUFGMnQxbHgzcjZtY3FnZFZO?=
+ =?utf-8?B?S05KSlFTVWdIU3hjcTJCd1FKWWNIWitLcnNOeFd0ZWM0Zzk1cjBBeTRPeHlO?=
+ =?utf-8?B?b29tSnlwcHNEU2hPTFRuMzVra0NabUxHbHZzQy9VbkVCK09HUXpiVDVYL08r?=
+ =?utf-8?B?aXB6b0tSYnVWcy9oYnJSdHF5dmtDOE5rUDB4OUxIcWhHUXRGeTVnbW90N3p5?=
+ =?utf-8?B?SUVUQmxDejc5dzA0bXZvbGNzTUUzaVdITk5NYU9UdmwwcEduUDNiTHZUVjNo?=
+ =?utf-8?B?eVhLSDIvay9TcXZueGFlUVpzbHU1ZEE2UjlhME9LbmZyTmpoV3NvZTNWaS9l?=
+ =?utf-8?B?ZlRSTGt1QVZOUGdEbXBnWUp3em56WGE2TDJHakE2TzR3cEZMRVkzUlhDNjV1?=
+ =?utf-8?B?bzRqSHY0cnFmSEl3ZVIzaWt1R0x6bHRHYjRGYnExNnJQUjJqQzZxRzJKWjBR?=
+ =?utf-8?B?VUVWY2J1eElNNzliRkdlMUs2dzhKdjY2eWZNN1Y0QnVwRGUzWmNielFEUWtU?=
+ =?utf-8?B?S29BY3ZFZ3U3cGxHZkRWL0JFSUVEWkFyTnVPa2RKUmRqS3kxbzFVY3ZqcmpU?=
+ =?utf-8?B?RkJPMGwvcWQ1cHhqWHQ3VGxIVkU1czUrZWQzdFliR05Ka2E0ckFWYzFZaURi?=
+ =?utf-8?B?aEtCcDc4OXlQcy92Zm85eTBkNHg4bnIxbENzYTRnd0ZZU0xpa2Y0VFZYWkVw?=
+ =?utf-8?B?UlIzMUhmRGRKbCtIeFk5cmRlUG1OVXpIN3pFNkVoeW9OWXp1dTBnWXlTdzJt?=
+ =?utf-8?B?M0tpTHBpSGl0WWJrTE9QU0tRTnExOUtCTjZadnJMclAwQ25JVDV2L1ZZRjM3?=
+ =?utf-8?B?ekZmaDBoUDdUU0ZPeHUvRFFyVXVhUU1YK3JKbDlwNk5MWjgrRWlvV3Y1bVVO?=
+ =?utf-8?B?TnZnMXVyVnFZbDVNcHZQWWxsTEFhdUZlUE0xbWMyTEFEUDU5UFhhN0FEMkMw?=
+ =?utf-8?B?dk5OT0Q1d3JxZmFTYTRIelZpdzFxWFlXU2lMbzlsRFhkS0kvR1Zod3N2MWU2?=
+ =?utf-8?B?OWoza3RTN2dDai8zdFdwUFU3NytkdzZSQUc3SDNtSmxYSzVuT3NrdldjR3cy?=
+ =?utf-8?B?bVhhNjZCOTI2cG9HN3dPUDJFTVdqYmZ3bUFOdHlKWFRYLzRIbjRWUjlUNS82?=
+ =?utf-8?Q?LGlZYmVTnRS3aOho=3D?=
+X-Exchange-RoutingPolicyChecked: DGMp9MP9bASr472y19GSpXozbpn7gUds1cYMad0pd6zgDqY/573/CnDl7PF6QGaHv/09qRbLPZeF+tMr8pFJNsvp3cksXnyERcc0ka1sbuf0IuUzbP8Lucp8GW6nxHiaQk5WPltJmFNeZJ6cQ47FLSBrXWPJUoxRZIaOERdZsVg9h/9MQhziwUrvnJ3r7g9mwwlrOnY232AgwpmxVd6uri457g3TrFEDc48qVWnTQDs0h417/KzuqkN9U4AZDWOHiWua0KaUfQFCFkWmx9iEdb41LMjKejWWiN8st9BmGh4DTFIQIpFCsN3xj/r6jsTHysFmk0Wl82WLnMdLCGWr7g==
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd5d96b7-7cbe-4af4-6bde-08de88e0d19a
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 13:33:50.6740
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0bVMXG9vQ0kwKWSKtZvrfc/a3dPR858A8mgXWusQ1Ezxd7d1hNDPUlQ2SVT0nsUjB4wa0OFE+SVlN7iciSJ6NA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR11MB7008
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_062950_155732_09A974B5 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260323_063358_927298_7453DA16 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +194,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 21, 2026 at 12:00=E2=80=AFPM Kexin Sun <kexinsun@smail.nju.edu.=
-cn> wrote:
+On 23/03/2026 04:07, Ryan Chen wrote:
+> Get the optional reset line for the ASPEED SD controller during probe by
+> using devm_reset_control_get_optional_exclusive_deasserted().
+> 
+> This allows platforms such as AST2700, which require the SD controller
+> to be taken out of reset before use, to work with the existing driver.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 
-> The pump_transfers tasklet was removed when the driver
-> switched to the SPI core message processing loop in commit
-> 9b2ef250b31d ("spi: spl022: switch to use default
-> spi_transfer_one_message()").  The kdoc of
-> pl022_interrupt_handler() still describes the old flow: scheduling
-> the pump_transfers tasklet, calling giveback(), and flagging
-> STATE_ERROR =E2=80=94 none of which exist in the current code.  Rewrite
-> the kdoc to reflect the current paths, which flag errors via
-> SPI_TRANS_FAIL_IO and call spi_finalize_current_transfer()
-> directly.
->
-> Assisted-by: unnamed:deepseek-v3.2 coccinelle
-> Signed-off-by: Kexin Sun <kexinsun@smail.nju.edu.cn>
+No longer applies to 'next' branch of:
 
-Impressive use of AI and impeccably correctly tagged,
-this is exactly how I want AI-assisted submissions to look.
+	git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/mmc.git
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Fix that and add:
 
-Yours,
-Linus Walleij
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+
+> ---
+> Changes in v2:
+> - use devm_reset_control_get_optional_exclusive_deasserted replace
+>   reset_control_get_optional_exclusive.
+> - add include reset.h
+> ---
+>  drivers/mmc/host/sdhci-of-aspeed.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-of-aspeed.c
+> index ca97b01996b1..8f638ffb55ae 100644
+> --- a/drivers/mmc/host/sdhci-of-aspeed.c
+> +++ b/drivers/mmc/host/sdhci-of-aspeed.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/of.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/reset.h>
+>  #include <linux/spinlock.h>
+>  
+>  #include "sdhci-pltfm.h"
+> @@ -520,6 +521,7 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
+>  
+>  {
+>  	struct device_node *parent, *child;
+> +	struct reset_control *reset;
+>  	struct aspeed_sdc *sdc;
+>  	int ret;
+>  
+> @@ -529,6 +531,10 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
+>  
+>  	spin_lock_init(&sdc->lock);
+>  
+> +	reset = devm_reset_control_get_optional_exclusive_deasserted(&pdev->dev, NULL);
+> +	if (IS_ERR(reset))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(reset), "unable to acquire reset\n");
+> +
+>  	sdc->clk = devm_clk_get(&pdev->dev, NULL);
+>  	if (IS_ERR(sdc->clk))
+>  		return PTR_ERR(sdc->clk);
+> 
+
 
