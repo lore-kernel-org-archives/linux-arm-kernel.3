@@ -4,132 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9629CEC01C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6C7EC01BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ab1W5iDfJ5ZhI+KleEyBGCm8hMtIT7U/8ivEBr2rmg=; b=Rda+9XqGPgnKraOG2qrQt9tlNo
-	WcvrWivtBMXiRGa5lndz63xvonZahxyokQL7JZ7yOGF4wLTNGw2xKZBsj3WxNyiF667KbGVnyAQkq
-	xD22yRaa+jWHOspxlyL/RjtOdSrkKIAF0IySnoT+LVANA6f/R9Bphw0J7BlnEJDRHmr2iV4grCXu0
-	W9ISMMAP4sylPwbX73iWtsx1iyE33mfXJ6S7xKHDkWXauenLSciHTWrpZT+MobJ6LXoEbWEy0uxLH
-	UWPtmst94Qu64L1quqEDF/IMYgEg6w9A4mAG1V7twTYmJcBeCRe23EHiafa+S/tMlVL/grcrBu0fX
-	/+Ih0zMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MROAkRZjcjP9sLd0z9fFYejUCc43AxH+rYW0uoDAsCo=; b=cS0hJP3IUDipVwYJmcFhR8d6Ki
+	J9G8jyDWGVt0hc30HVwCnQk2cgxzSxkh5wsaJoFZuDOdBqjwf70ivU3Ey71FYViJn5b2tTpW1d61d
+	1m+tA+o61/zddaA02pgHukQbi/fz/n76RWEQHKCm99Kg0lQ0inV9TB32z2cVX+XvADmPw0QQBPRb3
+	vR6kAEA8It5ArwBALQt69uT80DBArTrPYcBzpXk2mfBrmxcyXjDLHk5R+BHbOsLC5Pp/F1qZSXaq5
+	YlNVajDu7G0A9XH4A6yOAbQlF9F07Bq1FpzV7SoZgLlguYUFfLNelHW3O7kwcTA2qpPCwFzJklwrM
+	LyOVvhVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cWv-0000000GW3e-2954;
-	Mon, 23 Mar 2026 10:29:05 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1w4cYU-0000000GWCY-44rz;
+	Mon, 23 Mar 2026 10:30:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cWt-0000000GW2z-16lY
+	id 1w4cYR-0000000GWBx-2PoH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 10:29:04 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 421645BDC8;
-	Mon, 23 Mar 2026 10:29:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1774261741; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3Ab1W5iDfJ5ZhI+KleEyBGCm8hMtIT7U/8ivEBr2rmg=;
-	b=lpONrdMyQqW/R8+PKsRCthVwMwzNBq0RFoEGUDoladnMqzPdKfhiuB5QEYRGHFXsoqZbvX
-	t5UREbiTDzejJVl5hepGOtE14DerQXoIlpksctRWAKCjKAqhUlLRaCqZHyXpizWn727r89
-	+ctnvO7HDGmHbMNoD3oDF7eDOd7iO1E=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1774261741;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3Ab1W5iDfJ5ZhI+KleEyBGCm8hMtIT7U/8ivEBr2rmg=;
-	b=FJJXGn4wtBLaGaEBPArhMiYcy5645dhR2+Zssii/2y20lGOHIceoY1P+OJxsRJ7yCBEQX/
-	MjrZpGILZ/Iv4YCA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="zKbNlz/j";
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=wBA7ZXfc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1774261740; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3Ab1W5iDfJ5ZhI+KleEyBGCm8hMtIT7U/8ivEBr2rmg=;
-	b=zKbNlz/jq0hoa1hKAraTGS755e9ZPFHqqoJEQKYHCNRzLU5h9CdZbMrBHvg88k9UJIIdkQ
-	JFhEuWzEaNN1FR/575NeCdfGRQAQL26W3pQ2FgCtHKlGkyyQ8EZ/jsODANadEdrObJYZRq
-	lAYt4//pu/HeGemwLk0iftltMfgEzuE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1774261740;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3Ab1W5iDfJ5ZhI+KleEyBGCm8hMtIT7U/8ivEBr2rmg=;
-	b=wBA7ZXfcM52/N2RW1VdFyUDx3NUsGkGwfXzalxvRw7P1fPmUrDin9nkJFhInK1OnZOTmov
-	P2q8k7ZNlZUniuAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 38D9B4381A;
-	Mon, 23 Mar 2026 10:29:00 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Bj7dDewVwWlaIQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Mon, 23 Mar 2026 10:29:00 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id EDAD2A0B2E; Mon, 23 Mar 2026 11:28:59 +0100 (CET)
-Date: Mon, 23 Mar 2026 11:28:59 +0100
-From: Jan Kara <jack@suse.cz>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-api@vger.kernel.org
-Subject: Re: [PATCH 2/3] fs: pass on FTRUNCATE_* flags to do_truncate
-Message-ID: <xyngoavkugrr3iib3se7pkd4h72tu6iwhmr37ro63qnytlr7s7@g6mspo2kgwzp>
-References: <20260323070205.2939118-1-hch@lst.de>
- <20260323070205.2939118-3-hch@lst.de>
+	Mon, 23 Mar 2026 10:30:40 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62N83iKB1364063
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 10:30:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	MROAkRZjcjP9sLd0z9fFYejUCc43AxH+rYW0uoDAsCo=; b=o8QyRy+c+UA/P3tO
+	V5+b6c5PN7REtH9pSlnDcTkehbuhGo85D5G55B8c0S2boGM0Nj1xDBAq5rJPfk9O
+	VhqhBLCE1KG2SaV6Qv9rIZmyx+EzaguCPjoJlB2ndwUFtr41KRuhRrKiMO6Tp3r9
+	3cqXmR/UljsklQAe/RBAbm4vqPtRu4TP26MQvuwimq++1MTxAhcd4CYo+cRfya/x
+	D3lcBUBYu4iA1jOBWmBqq0I5TqrYKvEIehYMNSo2HIXhRIO9KC2F+RWQtqT7+ZJp
+	/3xtHSn+eQA2va2JafD9ouL9RZ7USemFDG6iKIgm1VJh7Nch4kB+WF7bEFUAFQoQ
+	rDPXqg==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d31p78hsm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 10:30:38 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82c4664f75fso636876b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 03:30:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774261837; x=1774866637; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MROAkRZjcjP9sLd0z9fFYejUCc43AxH+rYW0uoDAsCo=;
+        b=dGeGj+gb+hdIvPc0qhlg02NcmOBMMBJvfjZ/eYPHyX6+c8rm2rdDX0O2ngQrlHndS7
+         kVEJwN5KK4P9IBVr8DRPfkWgPO+1fEfKOW80Y/2zY8qjoWDBgXR/az8KhnwlT4/yCja6
+         a16GSDWG2VvabIw7F9su/KN4sCN1MlW4PX0xbn/JDHA/zYReFk9D6s867r78a0l481g1
+         jnnDGsglwhP211PnzzdrlhZdR7PHresfXDaERSEOSECnEYV83pJ+hU5dmN+YOerehdtk
+         R6SlHlt2CZPYzo0MCRLC0FHfifgLdWNVgOfhHEwVLDaaVqITFBTlUElU2f/m05tr29DI
+         aljA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774261837; x=1774866637;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MROAkRZjcjP9sLd0z9fFYejUCc43AxH+rYW0uoDAsCo=;
+        b=fmgQagJ3NsG46OW6p8W7ewBf6tOQUig00D51swoj0/daMpK58qUGeLqo2j1nsVtEA+
+         UYm4AXfmv9Jsec2rSVXoJr1AHGXlpmNph1Jf9wnmcLUmiVx9Mewf8h/Qufdw+FbC6iXB
+         5w9TSbN8ArWYnQofgHenkYYleCDQJWRJLcF6Ycw4Bz4iKMvRndw0ipmKY2ElcD3vz09U
+         X4pA09h5VA9meC1ArECzSiH2NwZMMA2OU1no2MA06lHaHflMKz8x6rUnQRh88xe25WAw
+         LSCxGoF2Y4fv/EoxnH0jJxQtdUaeDPCU8jPCQvQQVCvmyeyx23K2lFBj0zlhGNwOVo4p
+         NC/g==
+X-Forwarded-Encrypted: i=1; AJvYcCX2Wbl8zEwwse1hq13h3fzqJTYqH6WPE95ePjyHGvyge3kNZXmtVcKkcYXviK6YnGb87BswpZrkw77PDP4qbZ2o@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMkFUHL8lUVtfIym5HKQBFXa5Cwvo50ZY9bjCxWEwfyva12zKh
+	n1ku2Y25dGS+i7LOuqVrOKKsvJ1bHaKZ4+7BrbaD14FhHDdobqa9R4tyXH1t19io7xfDew9eZV1
+	mYX1ha9f4ImLVwk8liER41/6TvJfn3NnAS8Ly9P/85WUlOdeWYrj8Di05qTTbTp4f9yXESLd9SA
+	eW9A==
+X-Gm-Gg: ATEYQzydrInBOCQtSGOVaAp21hGa2DscDEAZpYFO/QOWG6+WxCwOG+p7UINmJB/qJks
+	LH8E1nhXiZlVpY+MfSrJulsOji+1W3ZW/bCKlixzKdwifxnm8RIHYvgxxW4NKb+j1N6CNjS5o4x
+	oxsfTbPUq3KquHLjxB6h949QQY+tNtod2RgZDppK3EXtZumbwzvaPmkGiwPZqlSTHDcYMNU8cF3
+	ZVF6qmmsr9O45vGA7vmngkofeChK1gfQFm1owI+1U8kfgj5+axuKMpLB0TT8bXoGKqWCNBUQ9IO
+	51GFQ3hWC7INLzM7SN0hW0WIovG1OPECKOCwVXNUgmSR6tRjY2EsScqoubSVmhopZolHI5lnzKj
+	dn3NAGCARgtQEWqx5wZZZkDeqVEOXjZ/ycg7L++lLR8biRvXvWTs=
+X-Received: by 2002:a05:6a00:90a9:b0:829:7d1c:29ff with SMTP id d2e1a72fcca58-82a8c3bbe78mr8823401b3a.57.1774261837372;
+        Mon, 23 Mar 2026 03:30:37 -0700 (PDT)
+X-Received: by 2002:a05:6a00:90a9:b0:829:7d1c:29ff with SMTP id d2e1a72fcca58-82a8c3bbe78mr8823381b3a.57.1774261836829;
+        Mon, 23 Mar 2026 03:30:36 -0700 (PDT)
+Received: from [10.217.198.242] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b04222f42sm10764014b3a.61.2026.03.23.03.30.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Mar 2026 03:30:36 -0700 (PDT)
+Message-ID: <0226804b-daea-4d8c-8b68-d3894a5f323e@oss.qualcomm.com>
+Date: Mon, 23 Mar 2026 16:00:33 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260323070205.2939118-3-hch@lst.de>
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	URIBL_BLOCKED(0.00)[suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,lst.de:email,suse.com:email];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.com:email,suse.cz:dkim,suse.cz:email,lst.de:email]
-X-Rspamd-Queue-Id: 421645BDC8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: suspend: Remove forcing error from suspend
+ finisher
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20260316-suspend_ret-v1-1-1a30b110bb7d@oss.qualcomm.com>
+ <20260319-tiny-coucal-of-tranquility-ce0bd4@sudeepholla>
+ <20260319-ruddy-fierce-honeybee-8fc7b9@sudeepholla>
+ <ab0dtAC+bPtc9gdT@lpieralisi>
+Content-Language: en-US
+From: "Maulik Shah (mkshah)" <maulik.shah@oss.qualcomm.com>
+In-Reply-To: <ab0dtAC+bPtc9gdT@lpieralisi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=RMC+3oi+ c=1 sm=1 tr=0 ts=69c1164e cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=xgOq5MlI_ZTffzCLE8EA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-ORIG-GUID: yNyFmkBu66KVrk3QHadUBp2snYZMP7VP
+X-Proofpoint-GUID: yNyFmkBu66KVrk3QHadUBp2snYZMP7VP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDA4MSBTYWx0ZWRfX+dsTD/xkXl+p
+ xezH4BiuXn7Ncy30tdbWctvtayuZ5y1xhuhjif2XAblBCdgk/kRZt6HGC3hSGmoACDZpSyYA0ww
+ KeJkDoD8ozFpSmZfF3Hlo/lSYItWqaA8xAObMVL5XMJqlTqn9e0E5ox18k7NAzsJ21gq0dZTPIs
+ gb9Q8RfNkPNpQdVE95o7Uea4z0zd8bEgRY8MAVrnaEeEHvQmNl66a7w1xXHTu4fKzM1coAU1FRV
+ n0ubz1LZ3h+uVrCDX11I2mYx1g5LgtCa2NzTOdsL3nrySjcUvbnP8QJOyP9lUM69nTBIiBoajFl
+ 7b5H8txWMApZNZNkssQolbsoKc5Qw+CtF3gRB/KlQrupml3cW2w0yNLtcSVjb/mhDik6CayypYV
+ UhCUJ9RpmPcavpZkXl+t7Z/1xjPSAUL1EUHNxgCITK5QH9hA51XL+Y7Y+FY1PtMrQHHLf98qah5
+ GJvSOCqwenszH/HhMbw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-23_03,2026-03-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 lowpriorityscore=0 impostorscore=0
+ priorityscore=1501 bulkscore=0 spamscore=0 adultscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603230081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_032903_467923_B7523DE7 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20260323_033039_741703_C15168EB 
+X-CRM114-Status: GOOD (  40.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,100 +151,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 23-03-26 08:01:45, Christoph Hellwig wrote:
-> Pass the flags one level down to replace the somewhat confusing small
-> argument, and clean up do_truncate as a result.
+
+
+On 3/20/2026 3:43 PM, Lorenzo Pieralisi wrote:
+> On Thu, Mar 19, 2026 at 04:52:18PM +0000, Sudeep Holla wrote:
+>> On Thu, Mar 19, 2026 at 03:14:01PM +0000, Sudeep Holla wrote:
+>>> On Mon, Mar 16, 2026 at 02:18:18PM +0530, Maulik Shah wrote:
+>>>> Successful cpu_suspend() may not always want to return to cpu_resume() to
+>>>> save the work and latency involved.
+>>>>
+>>>> consider a scenario,
+>>>>
+>>>> when single physical CPU (pCPU) is used on different virtual machines (VMs)
+>>>> as virtual CPUs (vCPUs). VM-x's vCPU can request a powerdown state after
+>>>> saving the context by invoking __cpu_suspend_enter() whereas VM-y's vCPU is
+>>>> requesting a shallower than powerdown state. The hypervisor aggregates to a
+>>>> non powerdown state for pCPU. A wakeup event for VM-x's vCPU may want to
+>>>> resume the execution at the same place instead of jumping to cpu_resume()
+>>>> as the HW never reached till powerdown state which would have lost the
+>>>> context.
+>>>>
+>>>
+>>> Though I don't fully understand the intention/use-case for presenting the
+>>> VMs with powerdown states ....
+>>>
+>>>> While the vCPU of VM-x had latency impact of saving the context in suspend
+>>>> entry path but having the return to same place saves the latency to restore
+>>>> the context in resume path.
+>>>>
+>>>
+>>> I understand the exit-latency aspect, though the register set involved is not
+>>> very large unless the driver notifier list is sizable on some platforms. This
+>>> is typically the case in Platform Coordinated mode.
+>>>
+>>>> consider another scenario,
+>>>>
+>>>> Newer CPUs include a feature called “powerdown abandon”. The feature is
+>>>> based on the observation that events like GIC wakeups have a high
+>>>> likelihood of happening while the CPU is in the middle of its powerdown
+>>>> sequence (at wfi). Older CPUs will powerdown and immediately power back
+>>>> up when this happens. The newer CPUs will “give up” mid way through if
+>>>> no context has been lost yet. This is possible as the powerdown operation
+>>>> is lengthy and a large part of it does not lose context [1].
+>>>>
+>>>
+>>> When you say "large part" above, do you mean that none of the CPU context, as
+>>> visible to software, is lost? Otherwise, we would need to discuss that "large
+>>> part" in more detail. From the kernel point of view, this is a simple boolean:
+>>> context is either lost or retained. Anything in between is not valid, as we do
+>>> not support partial context loss.
+>>>
+>>>> As the wakeup arrived after SW powerdown is done but before HW is fully
+>>>> powered down. From SW view this is still a successful entry to suspend
+>>>> and since the HW did not loose the context there is no reason to return at
+>>>> entry address cpu_resume() to restore the context.
+>>>>
+>>>
+>>> Yes, that may be worth considering from an optimization perspective. However,
+>>> if the hardware aborts the transition, then returning success regardless of the
+>>> software state should still be counted as a failure. That would keep the
+>>> cpuidle entry statistics more accurate than returning success. And it is
+>>> a failure as the OS expected to enter that powerdown state but there was
+>>> as H/W abort.
+>>>
+>>>> Remove forcing the failure at kernel if the execution does not resume at
+>>>> cpu_resume() as kernel has no reason to treat such returns as failures
+>>>> when the firmware has already filled in return as success.
+>>>>
+>>>
+>>> This is not possible with the current PSCI spec:
+>>> "Powerdown states do not return on success because restart is through the
+>>> entry point address at wakeup."
+>>>
+>>
+>> OK, my bad. Sorry for that.
+>> For some reason, I read "do not return" as "must not return".
+>>
+>> The spec allows this:
+>>   |  The caller must not assume that a powerdown request will return using the
+>>   |  specified entry point address. The powerdown request might not complete due,
+>>   |  for example, to pending interrupts. It is also possible that, because of
+>>   |  coordination with other cores, the actual state entered is shallower
+>>   |  than the one requested. Because of this it is possible for an
+>>   |  implementation to downgrade the powerdown state request to a standby
+>>   |  state. In the case of a downgrade to standby, the implementation
+>>   |  returns at the instruction following the PSCI call, at the Exception
+>>   |  level of the caller, instead of returning by the specified entry point
+>>   |  address. The return code in this case is SUCCESS. In the case of an
+>>   |  early return due to a pending wakeup event, the implementation can
+>>   |  return at the next instruction, with a return code of SUCCESS, or
+>>   |  resume at the specified entry point address
+>>
+>> So we need to dig and check if there was any reason for returning "NOT
+>> SUPPORTED" when the call returned success.
 > 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-
-Looks good. Feel free to add:
-
-Reviewed-by: Jan Kara <jack@suse.cz>
-
-								Honza
-
-> ---
->  fs/internal.h       |  2 +-
->  fs/open.c           | 22 ++++++++++------------
->  io_uring/truncate.c |  2 +-
->  3 files changed, 12 insertions(+), 14 deletions(-)
+> Because we have no clue whatsoever about what happened. We need to get
+> back to the cpu_suspend() caller and either say "we entered state X instead
+> of Y" or report a failure (because an interrupted power down sequence *is* a
+> failure for Linux - unless we want to make things up), we just can't know so
+> to me the code seems good as it is (we can debate about the error code, yes
+> but the gist does not change).
 > 
-> diff --git a/fs/internal.h b/fs/internal.h
-> index 2663823e273a..52e4c354e7a4 100644
-> --- a/fs/internal.h
-> +++ b/fs/internal.h
-> @@ -198,7 +198,7 @@ extern struct open_how build_open_how(int flags, umode_t mode);
->  extern int build_open_flags(const struct open_how *how, struct open_flags *op);
->  struct file *file_close_fd_locked(struct files_struct *files, unsigned fd);
->  
-> -int do_ftruncate(struct file *file, loff_t length, int small);
-> +int do_ftruncate(struct file *file, loff_t length, unsigned int flags);
->  int chmod_common(const struct path *path, umode_t mode);
->  int do_fchownat(int dfd, const char __user *filename, uid_t user, gid_t group,
->  		int flag);
-> diff --git a/fs/open.c b/fs/open.c
-> index 412d0d6fbaa7..181c1597e73c 100644
-> --- a/fs/open.c
-> +++ b/fs/open.c
-> @@ -161,23 +161,21 @@ COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length
->  }
->  #endif
->  
-> -int do_ftruncate(struct file *file, loff_t length, int small)
-> +int do_ftruncate(struct file *file, loff_t length, unsigned int flags)
->  {
-> -	struct inode *inode;
-> -	struct dentry *dentry;
-> +	struct dentry *dentry = file->f_path.dentry;
-> +	struct inode *inode = dentry->d_inode;
->  	int error;
->  
-> -	/* explicitly opened as large or we are on 64-bit box */
-> -	if (file->f_flags & O_LARGEFILE)
-> -		small = 0;
-> -
-> -	dentry = file->f_path.dentry;
-> -	inode = dentry->d_inode;
->  	if (!S_ISREG(inode->i_mode) || !(file->f_mode & FMODE_WRITE))
->  		return -EINVAL;
->  
-> -	/* Cannot ftruncate over 2^31 bytes without large file support */
-> -	if (small && length > MAX_NON_LFS)
-> +	/*
-> +	 * Cannot ftruncate over 2^31 bytes without large file support, either
-> +	 * through opening with O_LARGEFILE or by using ftruncate64().
-> +	 */
-> +	if (length > MAX_NON_LFS &&
-> +	    !(file->f_flags & O_LARGEFILE) && !(flags & FTRUNCATE_LFS))
->  		return -EINVAL;
->  
->  	/* Check IS_APPEND on real upper inode */
-> @@ -205,7 +203,7 @@ int ksys_ftruncate(unsigned int fd, loff_t length, unsigned int flags)
->  	if (fd_empty(f))
->  		return -EBADF;
->  
-> -	return do_ftruncate(fd_file(f), length, !(flags & FTRUNCATE_LFS));
-> +	return do_ftruncate(fd_file(f), length, flags);
->  }
->  
->  SYSCALL_DEFINE2(ftruncate, unsigned int, fd, off_t, length)
-> diff --git a/io_uring/truncate.c b/io_uring/truncate.c
-> index 487baf23b44e..c88d8bd8d20e 100644
-> --- a/io_uring/truncate.c
-> +++ b/io_uring/truncate.c
-> @@ -41,7 +41,7 @@ int io_ftruncate(struct io_kiocb *req, unsigned int issue_flags)
->  
->  	WARN_ON_ONCE(issue_flags & IO_URING_F_NONBLOCK);
->  
-> -	ret = do_ftruncate(req->file, ft->len, 1);
-> +	ret = do_ftruncate(req->file, ft->len, 0);
->  
->  	io_req_set_res(req, ret, 0);
->  	return IOU_COMPLETE;
-> -- 
-> 2.47.3
+> Is that we want to tell CPUidle that entering the state was successful even if
+> the power down sequence was interrupted or the state demoted ? That's
+> tantamount to lying IMO and would skew the power stats, no ?
+
+In this case, The power down sequence is interrupted in HW, no SW involved here.
+
+when the SW is at "wfi" instruction (last instruction) and the core power down sequence is in progress
+in HW, the wakeup interrupt arrives at the this point (before power down is completed).
+
+Older core would power down and immediately power up back, since power down is completed
+(without staying at power down state) and resume started from reset vector, firmware makes
+jump at entry address and Linux accounted this as "success" and CPUidle increments the "above"
+count seeing the less residency in selected state.
+
+Newer cpus with "powerdown abandon" feature, same is today accounted as failure by Linux and
+"rejected" count in CPUidle would increment just because core did not finish the power down in HW
+and did not resume execution from reset vector / entry address.
+
+In both older/newer cores case, SW reached till last point of execution (wfi() instruction) without
+any aborts/wake ups but one is telling CPUidle a success and other is telling a failure.
+
+For the state demoted part, 
+
+The success filled by firmware along with the return to the same place (instead of entry address) is
+kind of indication that we entered demoted state-X instead of state-Y.
+
+From the spec, platform-coordinated mode power state parameter point,
+
+ | In platform-coordinated mode, the semantic expressed by the caller through the power state parameter is
+ | not a mandatory requirement to enter the specific state. Instead, the power state parameter indicates
+ | the deepest state the caller can tolerate.
+
+Assuming CPU requested deepest power down state-Y which got demoted to shallower retention state-X, such
+demotion are not really a failure as it was not mandatory to enter state-Y, it was only a indication of
+tolerance till state-Y to firmware.
+
+Thanks,
+Maulik
+
 > 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+> Let me know, I am just trying to understand this patch's goal.
+> 
+> Thanks,
+> Lorenzo
+
 
