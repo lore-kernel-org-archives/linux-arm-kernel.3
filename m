@@ -4,113 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BE6D58CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 22:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81274D58CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 22:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OosJNlMHUO2ANcXKlCppT3JjFj+gSM8UPwVPtyNawFc=; b=hUaxLPOfK/ovIHsIreNCcLTnVK
-	9UIEycOe6EKoTbkmAmQnCPbBK3BgKPsFYCGAf3jTub8ZEUxb5hhgXQgKbrnOtonZu7gptQz8g/hzW
-	tAGdfd0zteMVmqXi622LXWk007Ecif7DQdvnNuuVOruthMfq2vG921EuTBNMl8rO5ogL8uTCYLYBj
-	YYQ8YVYuQA7W23xtHVriqRQ6QyyOgFQivXvnDMvxf5pGY/RvD0ZVnet59oAp1KKY6d9wd1OwBxMSf
-	PRByt2RT4u2eBuD4wjfbQUdNDng8DLK80ndKFIwOZP0/EuWLcPu+C/+bog9qhIow3wQF/E6HDndal
-	mer+mUmA==;
+	bh=P2FUlbBkvBLVFdNmaLX9tGhQ46KhUPmEjRBcpuvYzF8=; b=jhDEDBj6pDA/FSCEfetx40iwe8
+	ICk8pNCV9i43pgkvZiovMFMNHllpACbsNixtr+gN1svYl1pfH6xKOq0ojRBtBrYyUSGmAszcPDfB+
+	uF3uJiK3mDmzp+0sSsSkXJ2a4VOLQ/geG/6eNG5YWgNWWRUVIBLj5/Vryq1LFsC/MquTBhZGlsaYX
+	5qnEIUbbuy7hK3Pi8jx62AUQxPxqTtWrnFhHOXZ1+LD0Vv3ocpD2YEXJq3n4IwwPX+JZwYg2UtB17
+	ShBRtBt1Wq2Sm8pNLRBoHEfERmBBf/+367l4xfd/O+XHz7oYu8YTGjYaamwSj3ErhFSTEDBCUyogP
+	10FzRWpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4o9e-000000006Xx-0Me3;
-	Mon, 23 Mar 2026 22:53:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w4oF2-000000006vR-2i5a;
+	Mon, 23 Mar 2026 22:59:24 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4o9b-000000006Xa-15eA
+	id 1w4oEy-000000006v1-192B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 22:53:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774306426;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OosJNlMHUO2ANcXKlCppT3JjFj+gSM8UPwVPtyNawFc=;
-	b=VZLZPmYlskxlCPqLilILH12VzlRLvcWbW2OmwZWfKiQtYZYETP3QxScaVzBHNP+47asI3C
-	j7iUeG78IT2acPOKb/+TNBRslDj8ppRUbsyx7TI1bhNssPvwn0nWw0WNzwTqxKLNKgJD8r
-	kuBqsyoI6SYQK1MqqOfXvqCK95RSIdo=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-550-kHYVanIRObCRwK1WQAhK1A-1; Mon, 23 Mar 2026 18:53:44 -0400
-X-MC-Unique: kHYVanIRObCRwK1WQAhK1A-1
-X-Mimecast-MFC-AGG-ID: kHYVanIRObCRwK1WQAhK1A_1774306424
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82a84f21bf2so15528262b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 15:53:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774306423; x=1774911223;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OosJNlMHUO2ANcXKlCppT3JjFj+gSM8UPwVPtyNawFc=;
-        b=gEat6jlZif7qm5vATxpt3YlnvKt5YVwe7EjJaDmAy9tqNhlb/WLcNhOtAAtxvWBG/n
-         j1nl9dHIDPLM/AAYRUN+0yvXtyL3f7gkdCUaL4rSYFDPSuzLLg4KcHHjBWJtolp5b9c+
-         KhqPqQUjyDf0Ylg97bLe0fSw8k08zzfGAyUF/KPzQWD7+HdPo7rpEtQSnbQMDxuKxrDD
-         Xjs7QuS4FL2wzTWFd/8VghTYrm+qF8/yDdmoVYjYkktwHHLwJ+jLG5zVVxSNUaaPOCd3
-         9QdaCPgMQEHGJzWhletWXOBHOexnCZm/NPSiuFgxL4YDhDBESPWhnCiuNMJJQPlMBPwE
-         gtVw==
-X-Forwarded-Encrypted: i=1; AJvYcCWuly8o3UN8wmiXe78x/+EeOCcc1+AWPoVaM3OCSymoqCFxy99Znxo1qznt2YS2ROUHmycHRaWfqUJ71TGGp5Lf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqbJbwbjKmbFg4+kbGl+d6U82crq3wNlaifyO18IxoPuN8cRuu
-	4HlvuMZDnR0GUGtFG+kG7vIrzjXZ5ocOMq2Zuj7iwYedjg6NBxGhnzQd6Yh6eqY2wkZragRMGd5
-	JPRXrSuJlfPB/Qg+Z7OxX3eogsTAM2S+Ny288/I4LlSSr0LiP2hwSogRyFJ5n1bgRIkmjqwGSVf
-	cX
-X-Gm-Gg: ATEYQzy9/qtfNhtenHcbskVFLAsuCANvr1Z+Ghp5xau0X0bNIz6JNR9UxatTq3DYKeI
-	Cnqu59+X+nK5NFu0AOITxL24KTFkHxaTW5/QHUj8d+Ax+UCcsSDrW6FgX1IXqN/KYZ2vPNROSMM
-	rfZyWPzY3BvWNUCVPndxhsJV/Dhkm0CTGy362PR0acNyurtmTTII9BCdVWex02stRXk0CzFy3TR
-	NIu9Shdj0XlNZRlIC43O5+VekQVOZnVJ3XTdfbnIKd5yomW5yrqp4sKG+me0b4bs3oEsyinOMuS
-	h+LoB0/slp1YPYHwnR7sDOrDaExbfIteNwEDuobcpdvap6L61MzxzTE5Yi5WV39DHw/dbmL+g5r
-	JjPK0mRibeYw0ah0Su7smg003W9kAlm0k3L8Dg0i8KbFll/Es/1vxCc5ylmGSh/o/
-X-Received: by 2002:a05:6a00:99c:b0:827:3ed6:9122 with SMTP id d2e1a72fcca58-82a8c36f76dmr13334449b3a.59.1774306423687;
-        Mon, 23 Mar 2026 15:53:43 -0700 (PDT)
-X-Received: by 2002:a05:6a00:99c:b0:827:3ed6:9122 with SMTP id d2e1a72fcca58-82a8c36f76dmr13334427b3a.59.1774306423314;
-        Mon, 23 Mar 2026 15:53:43 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b03bbebb2sm11341704b3a.14.2026.03.23.15.53.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 15:53:42 -0700 (PDT)
-Message-ID: <f433b310-9bac-404a-9260-e01698e5c621@redhat.com>
-Date: Tue, 24 Mar 2026 08:53:26 +1000
+	Mon, 23 Mar 2026 22:59:22 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260323225914euoutp024236efe9c9730aca3b477503191c21e2~fmpezqAxC2814628146euoutp02J
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 22:59:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260323225914euoutp024236efe9c9730aca3b477503191c21e2~fmpezqAxC2814628146euoutp02J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1774306754;
+	bh=P2FUlbBkvBLVFdNmaLX9tGhQ46KhUPmEjRBcpuvYzF8=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=jYGzTZeZSvGSOJJX3UeovqfeXE/eQUAMlIBHQ8QqNRBO1mZZxzHzrZ7fDQyQsNQcQ
+	 SsxDI6AUQIJfT8xkauSatpu33/EBLbcuOgS4iXqsArlRcOjtRxuyx3Cez3B4B3ZwRA
+	 BB+1lyBzZhcBKRDxlTC3kldXONQ0oV/dE5I0JEW4=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260323225913eucas1p27d37fb261288ce51d50a4a566ba44f7d~fmpd9llab0348903489eucas1p2G;
+	Mon, 23 Mar 2026 22:59:13 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260323225912eusmtip1826bb496df313ad92acb02f2ee6d9af3~fmpctZOkU0832708327eusmtip1M;
+	Mon, 23 Mar 2026 22:59:12 +0000 (GMT)
+Message-ID: <b482be19-d702-40a0-bb05-9198494f17fa@samsung.com>
+Date: Mon, 23 Mar 2026 23:59:11 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 24/40] arm_mpam: resctrl: Wait for cacheinfo to be
- ready
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-25-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-25-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: LfFPb4UY6FGNBSfHPOl5_eNyYrxvT6hpCxpfpMgXDbE_1774306424
-X-Mimecast-Originator: redhat.com
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
+To: Andrei Vagin <avagin@google.com>, Kees Cook <kees@kernel.org>, Andrew
+	Morton <akpm@linux-foundation.org>
+Cc: Cyrill Gorcunov <gorcunov@gmail.com>, Mike Rapoport <rppt@kernel.org>,
+	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org, criu@lists.linux.dev, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, Chen Ridong <chenridong@huawei.com>,
+	Christian Brauner <brauner@kernel.org>, David Hildenbrand
+	<david@kernel.org>, Eric Biederman <ebiederm@xmission.com>, Lorenzo Stoakes
+	<lorenzo.stoakes@oracle.com>, Michal Koutny <mkoutny@suse.com>, Alexander
+	Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20260323175340.3361311-2-avagin@google.com>
 Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260323225913eucas1p27d37fb261288ce51d50a4a566ba44f7d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260323175407eucas1p2de1dfc8a6e319580cbc8a3de8ec3d11e
+X-EPHeader: CA
+X-CMS-RootMailID: 20260323175407eucas1p2de1dfc8a6e319580cbc8a3de8ec3d11e
+References: <20260323175340.3361311-1-avagin@google.com>
+	<CGME20260323175407eucas1p2de1dfc8a6e319580cbc8a3de8ec3d11e@eucas1p2.samsung.com>
+	<20260323175340.3361311-2-avagin@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_155347_372202_081CF7C1 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260323_155921_225353_ABFD53EE 
+X-CRM114-Status: GOOD (  34.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +93,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/14/26 12:46 AM, Ben Horgan wrote:
-> In order to calculate the rmid realloc threshold the size of the cache
-> needs to be known. Cache domains will also be named after the cache id. So
-> that this information can be extracted from cacheinfo we need to wait for
-> it to be ready. The cacheinfo information is populated in device_initcall()
-> so we wait for that.
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> [horgan: split out from another patch]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+On 23.03.2026 18:53, Andrei Vagin wrote:
+> Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
+> AT_HWCAP2, etc.) from a parent process when they have been modified via
+> prctl.
+>
+> To support C/R operations (snapshots, live migration) in heterogeneous
+> clusters, we must ensure that processes utilize CPU features available
+> on all potential target nodes. To solve this, we need to advertise a
+> common feature set across the cluster.
+>
+> This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
+> auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV).  When
+> execve() is called, if the current process has MMF_USER_HWCAP set, the
+> HWCAP values are extracted from the current auxiliary vector and stored
+> in the linux_binprm structure. These values are then used to populate
+> the auxiliary vector of the new process, effectively inheriting the
+> hardware capabilities.
+>
+> The inherited HWCAPs are masked with the hardware capabilities supported
+> by the current kernel to ensure that we don't report more features than
+> actually supported. This is important to avoid unexpected behavior,
+> especially for processes with additional privileges.
+>
+> Reviewed-by: Cyrill Gorcunov <gorcunov@gmail.com>
+> Reviewed-by: Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
+> Signed-off-by: Andrei Vagin <avagin@google.com>
+
+v5 fixed the issue I've observed here:
+
+https://lore.kernel.org/all/aec9c36d-d67a-4b61-9950-57b95afedf75@samsung.com/
+
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+
 > ---
-> This is moved into it's own patch to allow all uses of cacheinfo to be
-> valid when they are introduced.
-> ---
->   drivers/resctrl/mpam_resctrl.c | 19 +++++++++++++++++++
->   1 file changed, 19 insertions(+)
-> 
+>   fs/binfmt_elf.c          | 13 ++++++---
+>   fs/binfmt_elf_fdpic.c    | 13 ++++++---
+>   fs/exec.c                | 62 ++++++++++++++++++++++++++++++++++++++++
+>   include/linux/binfmts.h  | 11 +++++++
+>   include/linux/mm_types.h |  2 ++
+>   kernel/fork.c            |  3 ++
+>   kernel/sys.c             |  5 +++-
+>   7 files changed, 100 insertions(+), 9 deletions(-)
+>
+> diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
+> index fb857faaf0d6..d99db73c76f0 100644
+> --- a/fs/binfmt_elf.c
+> +++ b/fs/binfmt_elf.c
+> @@ -183,6 +183,7 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
+>   	int ei_index;
+>   	const struct cred *cred = current_cred();
+>   	struct vm_area_struct *vma;
+> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
+>   
+>   	/*
+>   	 * In some cases (e.g. Hyper-Threading), we want to avoid L1
+> @@ -247,7 +248,8 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
+>   	 */
+>   	ARCH_DLINFO;
+>   #endif
+> -	NEW_AUX_ENT(AT_HWCAP, ELF_HWCAP);
+> +	NEW_AUX_ENT(AT_HWCAP, user_hwcap ?
+> +			      (bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
+>   	NEW_AUX_ENT(AT_PAGESZ, ELF_EXEC_PAGESIZE);
+>   	NEW_AUX_ENT(AT_CLKTCK, CLOCKS_PER_SEC);
+>   	NEW_AUX_ENT(AT_PHDR, phdr_addr);
+> @@ -265,13 +267,16 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
+>   	NEW_AUX_ENT(AT_SECURE, bprm->secureexec);
+>   	NEW_AUX_ENT(AT_RANDOM, (elf_addr_t)(unsigned long)u_rand_bytes);
+>   #ifdef ELF_HWCAP2
+> -	NEW_AUX_ENT(AT_HWCAP2, ELF_HWCAP2);
+> +	NEW_AUX_ENT(AT_HWCAP2, user_hwcap ?
+> +			       (bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
+>   #endif
+>   #ifdef ELF_HWCAP3
+> -	NEW_AUX_ENT(AT_HWCAP3, ELF_HWCAP3);
+> +	NEW_AUX_ENT(AT_HWCAP3, user_hwcap ?
+> +			       (bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
+>   #endif
+>   #ifdef ELF_HWCAP4
+> -	NEW_AUX_ENT(AT_HWCAP4, ELF_HWCAP4);
+> +	NEW_AUX_ENT(AT_HWCAP4, user_hwcap ?
+> +			       (bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
+>   #endif
+>   	NEW_AUX_ENT(AT_EXECFN, bprm->exec);
+>   	if (k_platform) {
+> diff --git a/fs/binfmt_elf_fdpic.c b/fs/binfmt_elf_fdpic.c
+> index 95b65aab7daa..92c88471455a 100644
+> --- a/fs/binfmt_elf_fdpic.c
+> +++ b/fs/binfmt_elf_fdpic.c
+> @@ -508,6 +508,7 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
+>   	unsigned long flags = 0;
+>   	int ei_index;
+>   	elf_addr_t *elf_info;
+> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
+>   
+>   #ifdef CONFIG_MMU
+>   	/* In some cases (e.g. Hyper-Threading), we want to avoid L1 evictions
+> @@ -629,15 +630,19 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
+>   	 */
+>   	ARCH_DLINFO;
+>   #endif
+> -	NEW_AUX_ENT(AT_HWCAP,	ELF_HWCAP);
+> +	NEW_AUX_ENT(AT_HWCAP,	user_hwcap ?
+> +				(bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
+>   #ifdef ELF_HWCAP2
+> -	NEW_AUX_ENT(AT_HWCAP2,	ELF_HWCAP2);
+> +	NEW_AUX_ENT(AT_HWCAP2,	user_hwcap ?
+> +				(bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
+>   #endif
+>   #ifdef ELF_HWCAP3
+> -	NEW_AUX_ENT(AT_HWCAP3,	ELF_HWCAP3);
+> +	NEW_AUX_ENT(AT_HWCAP3,	user_hwcap ?
+> +				(bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
+>   #endif
+>   #ifdef ELF_HWCAP4
+> -	NEW_AUX_ENT(AT_HWCAP4,	ELF_HWCAP4);
+> +	NEW_AUX_ENT(AT_HWCAP4,	user_hwcap ?
+> +				(bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
+>   #endif
+>   	NEW_AUX_ENT(AT_PAGESZ,	PAGE_SIZE);
+>   	NEW_AUX_ENT(AT_CLKTCK,	CLOCKS_PER_SEC);
+> diff --git a/fs/exec.c b/fs/exec.c
+> index 9ea3a775d51e..1cd7d87a0e79 100644
+> --- a/fs/exec.c
+> +++ b/fs/exec.c
+> @@ -1775,6 +1775,65 @@ static int bprm_execve(struct linux_binprm *bprm)
+>   	return retval;
+>   }
+>   
+> +static void inherit_hwcap(struct linux_binprm *bprm)
+> +{
+> +	struct mm_struct *mm = current->mm;
+> +	bool compat = in_compat_syscall();
+> +	int i, n;
+> +
+> +#ifdef ELF_HWCAP4
+> +	n = 4;
+> +#elif defined(ELF_HWCAP3)
+> +	n = 3;
+> +#elif defined(ELF_HWCAP2)
+> +	n = 2;
+> +#else
+> +	n = 1;
+> +#endif
+> +
+> +	for (i = 0; n && i < AT_VECTOR_SIZE; i += 2) {
+> +		unsigned long type, val;
+> +
+> +		if (!compat) {
+> +			type = mm->saved_auxv[i];
+> +			val = mm->saved_auxv[i + 1];
+> +		} else {
+> +			compat_uptr_t *auxv = (compat_uptr_t *)mm->saved_auxv;
+> +
+> +			type = auxv[i];
+> +			val = auxv[i + 1];
+> +		}
+> +
+> +		switch (type) {
+> +		case AT_NULL:
+> +			goto done;
+> +		case AT_HWCAP:
+> +			bprm->hwcap = val;
+> +			break;
+> +#ifdef ELF_HWCAP2
+> +		case AT_HWCAP2:
+> +			bprm->hwcap2 = val;
+> +			break;
+> +#endif
+> +#ifdef ELF_HWCAP3
+> +		case AT_HWCAP3:
+> +			bprm->hwcap3 = val;
+> +			break;
+> +#endif
+> +#ifdef ELF_HWCAP4
+> +		case AT_HWCAP4:
+> +			bprm->hwcap4 = val;
+> +			break;
+> +#endif
+> +		default:
+> +			continue;
+> +		}
+> +		n--;
+> +	}
+> +done:
+> +	mm_flags_set(MMF_USER_HWCAP, bprm->mm);
+> +}
+> +
+>   static int do_execveat_common(int fd, struct filename *filename,
+>   			      struct user_arg_ptr argv,
+>   			      struct user_arg_ptr envp,
+> @@ -1843,6 +1902,9 @@ static int do_execveat_common(int fd, struct filename *filename,
+>   			     current->comm, bprm->filename);
+>   	}
+>   
+> +	if (mm_flags_test(MMF_USER_HWCAP, current->mm))
+> +		inherit_hwcap(bprm);
+> +
+>   	return bprm_execve(bprm);
+>   }
+>   
+> diff --git a/include/linux/binfmts.h b/include/linux/binfmts.h
+> index 65abd5ab8836..94a3dcf9b1d2 100644
+> --- a/include/linux/binfmts.h
+> +++ b/include/linux/binfmts.h
+> @@ -2,6 +2,7 @@
+>   #ifndef _LINUX_BINFMTS_H
+>   #define _LINUX_BINFMTS_H
+>   
+> +#include <linux/elf.h>
+>   #include <linux/sched.h>
+>   #include <linux/unistd.h>
+>   #include <asm/exec.h>
+> @@ -67,6 +68,16 @@ struct linux_binprm {
+>   	unsigned long exec;
+>   
+>   	struct rlimit rlim_stack; /* Saved RLIMIT_STACK used during exec. */
+> +	unsigned long hwcap;
+> +#ifdef ELF_HWCAP2
+> +	unsigned long hwcap2;
+> +#endif
+> +#ifdef ELF_HWCAP3
+> +	unsigned long hwcap3;
+> +#endif
+> +#ifdef ELF_HWCAP4
+> +	unsigned long hwcap4;
+> +#endif
+>   
+>   	char buf[BINPRM_BUF_SIZE];
+>   } __randomize_layout;
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 3cc8ae722886..62dde645f469 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -1919,6 +1919,8 @@ enum {
+>   #define MMF_TOPDOWN		31	/* mm searches top down by default */
+>   #define MMF_TOPDOWN_MASK	BIT(MMF_TOPDOWN)
+>   
+> +#define MMF_USER_HWCAP		32	/* user-defined HWCAPs */
+> +
+>   #define MMF_INIT_LEGACY_MASK	(MMF_DUMPABLE_MASK | MMF_DUMP_FILTER_MASK |\
+>   				 MMF_DISABLE_THP_MASK | MMF_HAS_MDWE_MASK |\
+>   				 MMF_VM_MERGE_ANY_MASK | MMF_TOPDOWN_MASK)
+> diff --git a/kernel/fork.c b/kernel/fork.c
+> index bc2bf58b93b6..2ac277aa078c 100644
+> --- a/kernel/fork.c
+> +++ b/kernel/fork.c
+> @@ -1105,6 +1105,9 @@ static struct mm_struct *mm_init(struct mm_struct *mm, struct task_struct *p,
+>   
+>   		__mm_flags_overwrite_word(mm, mmf_init_legacy_flags(flags));
+>   		mm->def_flags = current->mm->def_flags & VM_INIT_DEF_MASK;
+> +
+> +		if (mm_flags_test(MMF_USER_HWCAP, current->mm))
+> +			mm_flags_set(MMF_USER_HWCAP, mm);
+>   	} else {
+>   		__mm_flags_overwrite_word(mm, default_dump_filter);
+>   		mm->def_flags = 0;
+> diff --git a/kernel/sys.c b/kernel/sys.c
+> index cdbf8513caf6..e4b0fa2f6845 100644
+> --- a/kernel/sys.c
+> +++ b/kernel/sys.c
+> @@ -2157,8 +2157,10 @@ static int prctl_set_mm_map(int opt, const void __user *addr, unsigned long data
+>   	 * not introduce additional locks here making the kernel
+>   	 * more complex.
+>   	 */
+> -	if (prctl_map.auxv_size)
+> +	if (prctl_map.auxv_size) {
+>   		memcpy(mm->saved_auxv, user_auxv, sizeof(user_auxv));
+> +		mm_flags_set(MMF_USER_HWCAP, mm);
+> +	}
+>   
+>   	mmap_read_unlock(mm);
+>   	return 0;
+> @@ -2190,6 +2192,7 @@ static int prctl_set_auxv(struct mm_struct *mm, unsigned long addr,
+>   
+>   	task_lock(current);
+>   	memcpy(mm->saved_auxv, user_auxv, len);
+> +	mm_flags_set(MMF_USER_HWCAP, mm);
+>   	task_unlock(current);
+>   
+>   	return 0;
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
