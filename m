@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE73EC01A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B95BEC01A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ajZOG7Wv9bQaacjiwdfbf2cIayCuKBgmgNCXU+gOXI=; b=2MfJXEZAhYXyCVWjdUv6BSO5QU
-	I2th2MYWVuO4ZWhjZx42hovtJOf6yrKgwXRd87dtqONFM7RyI2fnfSQoU3iaBT7vG2FMtgZbY3nmF
-	PwjeoATANTAYDIBoFOGdWe5qgQp3zBhWgwED3VNSqP5l8ifYL41pZ2Llm5G3Rm4eo86et78nLpLWm
-	bvj6bzihQfi+/vClbC7+fiKc6D6WvyeZp4xdM85bNYOC2ZhxgWzD+MP+dLMyAJpTZUdGAk3VcFS5B
-	KtBK/K+okfJ254WPv3EhYP4npM+FyduOCHWHW9IK/TqtM2zmncNXdL9E/ioRfn3GobnegaNZ3Ut7v
-	UCy+CL7A==;
+	bh=FSrRbHdXi/ESSIllWcfDoe6S0Vd63YGulx1PIV/SCp0=; b=U5sy8JlwDBKj07UDkPoCEM60t5
+	OMMiVHKkMJg33HWmEMMH7uyHZjYAOH4XG6aGnh1TkEMvhVHi4dVy1CdFKVx7QL3mV6Ux6xhgpEwW6
+	MuwRYtrOnzgMB4FSvakvNjpqHlej7OFc5XcmoJ+RTkTS2E4T2LqQLX5Q4jq6LFp+x72hn17fh6iqj
+	bgz7u939DA6Oj+AxrndHOmdglvIDHTE7sjBBU24TD819iw1k8do4rfhQCnw6s5tA37vlGAz3Zj7vo
+	iVJJh9ELHFNaCPMe9IQO5nPfByy+4njtgYcTQ1OwWgaOMA1AS53NeQa7wvt4iYJKe1WYnfGWOgs94
+	sGlkRkdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a2x-0000000GE8x-2bSM;
-	Mon, 23 Mar 2026 07:49:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4a39-0000000GEGG-2nTG;
+	Mon, 23 Mar 2026 07:50:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a2w-0000000GE8N-0ljb
+	id 1w4a36-0000000GEFA-3WUg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 07:49:58 +0000
+	Mon, 23 Mar 2026 07:50:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BAAA600C4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 857DB4061E;
+	Mon, 23 Mar 2026 07:50:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBBAEC4CEF7;
 	Mon, 23 Mar 2026 07:49:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B693C2BC9E;
-	Mon, 23 Mar 2026 07:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774252197;
-	bh=CusCegPCNb++eRZgEnFYAhQJhnAtG3gjmvQHWQKqyPY=;
+	s=k20201202; t=1774252208;
+	bh=JX9RHWZi5vuFIJLodu0lHA5nrZZIkASHjFmUizN2RBs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B6fPKlxHQgWSYzAKTM8G/WWrhZHeaeNsETUGqkQueGTMK64wv6WfUMzzorQkeopo7
-	 hBHZE+Gqs69UQLXKRy/u5tAt1wOavloqFcv52lzntc3bYHhMnIBwNhwWERo67xoRWs
-	 e+V1fc4IuFsAILvV17/Umo0CswXHiww2G9w5Xmd5bUZ/65HujbklLiPL0z9Ta4QPPB
-	 jXAaAUCkB5sI+cmP91/5BYP+gLzDhZrZBjNKcAP9UvluKbCVPCd5xFSjRu5OWYWMU0
-	 Gk6PiNYwrqh+5Y8Mj243Ec5aEbQi2bt8Ki9ITja32vtDHNFNfgb/1VhVG4vtHkAh/C
-	 1xTA2fQLh15Mg==
+	b=aWVLvFut4f6MYN3wwvVgBsvFdFfwPxFVLIxEnZF2GAp0JQd7HON8/QxygCU2ypG3q
+	 85RF6aLIrLIQls+Z9PC1N5+z9V63pBv8iSd7N325b75nqcJrfzheijh13oNYSPPUHF
+	 7H4UTJH2FCWdxQJdQJ0moQ/robJ3B0VZTNpPoyjWFkZEoeQUN2laq6KQhmOmXfYL+r
+	 ATjY+R2jtWYZYg2H6wmqiRgYcaDRVxYkBHUXg6eZ2dnlzyU+afaaq90pMJbntP0NXj
+	 8kFILSXJOVGHQNzneF/T6HYv7O2tYy9lrUVFuGHfpzFLaD+zWwYbsaZr6rNdr5t1Nb
+	 oKdXVBglapLiQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Potapenko <glider@google.com>,
@@ -92,14 +92,17 @@ Cc: Alexander Potapenko <glider@google.com>,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 6/9] memblock: extract page freeing from free_reserved_area() into a helper
-Date: Mon, 23 Mar 2026 09:48:33 +0200
-Message-ID: <20260323074836.3653702-7-rppt@kernel.org>
+Subject: [PATCH v2 7/9] memblock: make free_reserved_area() update memblock if ARCH_KEEP_MEMBLOCK=y
+Date: Mon, 23 Mar 2026 09:48:34 +0200
+Message-ID: <20260323074836.3653702-8-rppt@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260323074836.3653702-1-rppt@kernel.org>
 References: <20260323074836.3653702-1-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_005008_921026_F9F801FA 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,112 +119,73 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-There are two functions that release pages to the buddy allocator late in
-the boot: free_reserved_area() and memblock_free_late().
+On architectures that keep memblock after boot, freeing of reserved memory
+with free_reserved_area() is paired with an update of memblock arrays,
+usually by a call to memblock_free().
 
-Currently they are using different underlying functionality,
-free_reserved_area() runs each page being freed via free_reserved_page()
-and memblock_free_late() uses memblock_free_pages() -> __free_pages_core(),
-but in the end they both boil down to a loop that frees a range page by
-page.
+Make free_reserved_area() directly update memblock.reserved when
+ARCH_KEEP_MEMBLOCK is enabled.
 
-Extract the loop frees pages from free_reserved_area() into a helper and
-use that helper in memblock_free_late().
+Remove the now-redundant explicit memblock_free() call from
+arm64::free_initmem() and the #ifdef CONFIG_ARCH_KEEP_MEMBLOCK block
+from the generic free_initrd_mem().
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/memblock.c | 55 +++++++++++++++++++++++++++------------------------
- 1 file changed, 29 insertions(+), 26 deletions(-)
+ arch/arm64/mm/init.c | 3 ---
+ init/initramfs.c     | 7 -------
+ mm/memblock.c        | 6 ++++++
+ 3 files changed, 6 insertions(+), 10 deletions(-)
 
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 96711b8578fd..07b17c708702 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -385,9 +385,6 @@ void free_initmem(void)
+ 	WARN_ON(!IS_ALIGNED((unsigned long)lm_init_begin, PAGE_SIZE));
+ 	WARN_ON(!IS_ALIGNED((unsigned long)lm_init_end, PAGE_SIZE));
+ 
+-	/* Delete __init region from memblock.reserved. */
+-	memblock_free(lm_init_begin, lm_init_end - lm_init_begin);
+-
+ 	free_reserved_area(lm_init_begin, lm_init_end,
+ 			   POISON_FREE_INITMEM, "unused kernel");
+ 	/*
+diff --git a/init/initramfs.c b/init/initramfs.c
+index 139baed06589..bca0922b2850 100644
+--- a/init/initramfs.c
++++ b/init/initramfs.c
+@@ -652,13 +652,6 @@ void __init reserve_initrd_mem(void)
+ 
+ void __weak __init free_initrd_mem(unsigned long start, unsigned long end)
+ {
+-#ifdef CONFIG_ARCH_KEEP_MEMBLOCK
+-	unsigned long aligned_start = ALIGN_DOWN(start, PAGE_SIZE);
+-	unsigned long aligned_end = ALIGN(end, PAGE_SIZE);
+-
+-	memblock_free((void *)aligned_start, aligned_end - aligned_start);
+-#endif
+-
+ 	free_reserved_area((void *)start, (void *)end, POISON_FREE_INITMEM,
+ 			"initrd");
+ }
 diff --git a/mm/memblock.c b/mm/memblock.c
-index eb086724802a..ccdf3d225626 100644
+index ccdf3d225626..0ad968c2f2e8 100644
 --- a/mm/memblock.c
 +++ b/mm/memblock.c
-@@ -893,26 +893,12 @@ int __init_memblock memblock_remove(phys_addr_t base, phys_addr_t size)
- 	return memblock_remove_range(&memblock.memory, base, size);
- }
- 
--unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
-+static unsigned long __free_reserved_area(phys_addr_t start, phys_addr_t end,
-+					  int poison)
- {
--	phys_addr_t start_pa, end_pa;
- 	unsigned long pages = 0, pfn;
- 
--	/*
--	 * end is the first address past the region and it may be beyond what
--	 * __pa() or __pa_symbol() can handle.
--	 * Use the address included in the range for the conversion and add
--	 * back 1 afterwards.
--	 */
--	if (__is_kernel((unsigned long)start)) {
--		start_pa = __pa_symbol(start);
--		end_pa = __pa_symbol(end - 1) + 1;
--	} else {
--		start_pa = __pa(start);
--		end_pa = __pa(end - 1) + 1;
--	}
--
--	for_each_valid_pfn(pfn, PFN_UP(start_pa), PFN_DOWN(end_pa)) {
-+	for_each_valid_pfn(pfn, PFN_UP(start), PFN_DOWN(end)) {
- 		struct page *page = pfn_to_page(pfn);
- 		void *direct_map_addr;
- 
-@@ -934,7 +920,29 @@ unsigned long free_reserved_area(void *start, void *end, int poison, const char
- 		free_reserved_page(page);
- 		pages++;
+@@ -942,6 +942,12 @@ unsigned long free_reserved_area(void *start, void *end, int poison, const char
+ 		end_pa = __pa(end - 1) + 1;
  	}
-+	return pages;
-+}
-+
-+unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
-+{
-+	phys_addr_t start_pa, end_pa;
-+	unsigned long pages;
-+
-+	/*
-+	 * end is the first address past the region and it may be beyond what
-+	 * __pa() or __pa_symbol() can handle.
-+	 * Use the address included in the range for the conversion and add back
-+	 * 1 afterwards.
-+	 */
-+	if (__is_kernel((unsigned long)start)) {
-+		start_pa = __pa_symbol(start);
-+		end_pa = __pa_symbol(end - 1) + 1;
-+	} else {
-+		start_pa = __pa(start);
-+		end_pa = __pa(end - 1) + 1;
-+	}
  
-+	pages = __free_reserved_area(start_pa, end_pa, poison);
++	if (IS_ENABLED(CONFIG_ARCH_KEEP_MEMBLOCK)) {
++		if (start_pa < end_pa)
++			memblock_remove_range(&memblock.reserved,
++					      start_pa, end_pa - start_pa);
++	}
++
+ 	pages = __free_reserved_area(start_pa, end_pa, poison);
  	if (pages && s)
  		pr_info("Freeing %s memory: %ldK\n", s, K(pages));
- 
-@@ -1810,20 +1818,15 @@ void *__init __memblock_alloc_or_panic(phys_addr_t size, phys_addr_t align,
-  */
- void __init memblock_free_late(phys_addr_t base, phys_addr_t size)
- {
--	phys_addr_t cursor, end;
-+	phys_addr_t end = base + size - 1;
- 
--	end = base + size - 1;
- 	memblock_dbg("%s: [%pa-%pa] %pS\n",
- 		     __func__, &base, &end, (void *)_RET_IP_);
--	kmemleak_free_part_phys(base, size);
--	cursor = PFN_UP(base);
--	end = PFN_DOWN(base + size);
- 
--	for (; cursor < end; cursor++) {
--		memblock_free_pages(cursor, 0);
--		totalram_pages_inc();
--	}
-+	kmemleak_free_part_phys(base, size);
-+	__free_reserved_area(base, base + size, -1);
- }
-+
- /*
-  * Remaining API functions
-  */
 -- 
 2.53.0
 
