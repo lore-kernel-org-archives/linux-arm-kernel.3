@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7D7F483DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E98F483DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMxInCPRWzotOXJMn2ltFilIAzrwSwjYzhNo9kN9svk=; b=HW1ynoGm/VNEB7d8j6/W807Wqj
-	XgzuhZVVT3z8UHSJHwq/mn9/B5NHtyEhH+GUuwAt4B+U7/MZDEZdstPqsCNvQx1rbHeANXIjUfgHn
-	tMMucVs9ht3zXwTnFl10NjP5K4SCgLX8LuJM4WvxOy8zTe1mFzb6fShtCpbkQ9lgThe/CNyaWNcVg
-	aVEEDpo4S4b7l+ozSHEvmkOhxa+uS8wvg7SwR0rRA0DDBH1lNeuGYZO7K+c5GVthPlcaNNLlKDFrB
-	aN0UyqVNLMMv8xbQbqyuWrtf5Xz3mHEEP/SPM/gQ3CJbVuBB2Quw0XaJaos0VDaOznb9eOBdb5Ohm
-	8+wU36hg==;
+	bh=CbJ7gAHcsIpRWXsOtrEC4Jk9tzqhUEvXGZtyQscLHkQ=; b=wjc8JAU5h7r27XYP5pEOFenA4k
+	S+TYMTj07wlpYSw2a6PZS4Ip2PeiTUTSMXinfKiPA07J1ZWc3GOO3h//rMX7hfGe2YFJpR7g5KtHa
+	U2RpHYbnmEx9mh91+WLmi5CxjMMb7reEA6mMwjNzPK1crPpMpFH4MABYT9pXnIXOdcG2R6adPriHq
+	TK8hlNSg8k0A3ITsf4iG0vl4IRDe6kkFBj5m0EZiR9SpcIeeWaBl2KpM6K1Ysj8zm8aDG0yfn2k/N
+	VwOBZkPUixuZ/5iCjPQhkxG8VRbJ4yUD7Tb/bAw4l4GZ+kpSHltsqaqYhqgA2hTgCP9WdNgyKId5k
+	uEYmAKLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jbm-0000000HIWa-3xqj;
-	Mon, 23 Mar 2026 18:02:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jbk-0000000HIVv-2Ga1
+	id 1w4jj9-0000000HJEf-1isW;
+	Mon, 23 Mar 2026 18:10:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4jj8-0000000HJEV-3c3C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 18:02:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0DC711476;
-	Mon, 23 Mar 2026 11:02:24 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 669563F694;
-	Mon, 23 Mar 2026 11:02:26 -0700 (PDT)
-Date: Mon, 23 Mar 2026 18:02:18 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] firmware: arm_scmi: Lazy clock rates and bound
- iterator fixes
-Message-ID: <acGAKmPkfdmxvMR_@pluto>
-References: <cover.1774283748.git.geert+renesas@glider.be>
+	Mon, 23 Mar 2026 18:10:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 177FB600AC;
+	Mon, 23 Mar 2026 18:10:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B84BC4CEF7;
+	Mon, 23 Mar 2026 18:10:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774289409;
+	bh=uklW9RFr6BYjn6wm/JQpUmhU5aMurNfLbOV16eYldHA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m2e8B3c5Aznp84RxbaTuWUcfASpJ7HuYQYEFpVz6zqnkEzkmS+nRH0bUf3G2IdoxA
+	 QK96J8OM0RHAGM7XCO/06Z+JQ7astlcSz6iwDPMw26jA5dulMDml1bmqr0ib9cW4ic
+	 b78xq3yyBbqpuOyVzWz2HI8RkVvJgnm4E0qbhb7FKfujOeaDtdge9GMP0gopdy4WUc
+	 +QXFaIW79WZvFoKtetnEYU8FMD+yS4tKRLhnMzvS7b2zFVOyvIVw4dyjSSCwQFINWT
+	 L/ojs9wgmTq/tMLFA42i3mgS94wuMPmDeqXulT0+ulJZgPz3aVel9cNQozDIXvfzZY
+	 f9St0ZvuVp9zg==
+Date: Mon, 23 Mar 2026 13:10:08 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Eduard Bostina <egbostina@gmail.com>, daniel.baluta@nxp.com,
+	simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: watchdog: Convert TS-4800 to DT schema
+Message-ID: <20260323181008.GA864363-robh@kernel.org>
+References: <20260323084616.10469-1-egbostina@gmail.com>
+ <20260323084616.10469-2-egbostina@gmail.com>
+ <acFxdiHYjlSOESf_@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1774283748.git.geert+renesas@glider.be>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_110232_613047_1715C84C 
-X-CRM114-Status: GOOD (  16.58  )
+In-Reply-To: <acFxdiHYjlSOESf_@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,70 +80,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 05:56:09PM +0100, Geert Uytterhoeven wrote:
-> 	Hi all,
-
-Hi Geert,
-
+On Mon, Mar 23, 2026 at 12:59:34PM -0400, Frank Li wrote:
+> On Mon, Mar 23, 2026 at 10:46:12AM +0200, Eduard Bostina wrote:
+> > Convert the Technologic Systems TS-4800 watchdog timer bindings
+> > to DT schema.
+> >
+> > Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+> > ---
+> > Note:
+> > * This patch is part of the GSoC2026 application process for device tree bindings conversions
+> > * https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
+> >
+> >  .../watchdog/technologic,ts4800-wdt.yaml      | 46 +++++++++++++++++++
+> >  .../bindings/watchdog/ts4800-wdt.txt          | 25 ----------
+> >  2 files changed, 46 insertions(+), 25 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
+> >  delete mode 100644 Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
+> >
+> > diff --git a/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml b/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
+> > new file mode 100644
+> > index 000000000..cb2066b4b
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
+> > @@ -0,0 +1,46 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/watchdog/technologic,ts4800-wdt.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Technologic Systems TS-4800 Watchdog
+> > +
+> > +maintainers:
+> > +  - Eduard Bostina <egbostina@gmail.com>
+> > +
+> > +allOf:
+> > +  - $ref: watchdog.yaml#
 > 
-> This patch series:
->   - Fixes an out-of-bound access in lazy clock rate handling,
->   - Synchronizes bound-iterator cleanup naming between documentation and
->     code.
+> Move allOf after required incase add if-else branch later.
+> 
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: technologic,ts4800-wdt
+> > +
+> > +  syscon:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > +    items:
+> > +      - items:
+> > +          - description: Phandle to the FPGA's syscon
+> > +          - description: Offset to the watchdog register
+> > +    description: Phandle / integers array that points to the syscon node which
+> > +      describes the FPGA's syscon registers.
+> > +
+> > +required:
+> > +  - compatible
+> > +  - syscon
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    syscon: syscon@b0010000 {
+> > +      compatible = "syscon", "simple-mfd";
+> > +      reg = <0xb0010000 0x3d>;
+> > +      reg-io-width = <2>;
+> > +
+> 
+> Needn't this part. just keep below watchdog node should be enough.
 
-thanks for this !
+Well, the next thing to fix is going to be that this node needs a 
+specific compatible. It doesn't look like there's any other child nodes, 
+so probably want just one schema that defines both nodes.
 
-I was just chasing down exactly the same issue, since it was flagged by
-our CI on a rockchip board (together with some KASAN splat...)...but I had
-still to manage to get my hands directly on that board to start
-debugging properly ... so ...
-
-... very happy that you beat me at this:P !
-
-While waiting for the board and trying to figure out what could cause
-the fatal issue I spotted something more to be rectified in the core of
-the iterators, BUT I dont think it would have solved the issue like your
-fixes.
-
-In a nutshell, it was the possibility of an integer undeflow due to an
-unchecked subtraction between unsigned.
-
----8<---
-commit 65bd4a11333098fbf4c60f3bc59c971be1cd259d (mygitlab/scmi_dev, scmi_dev)
-Author: Cristian Marussi <cristian.marussi@arm.com>
-Date:   Mon Mar 23 08:19:32 2026 +0000
-
-    [TODO] FIX Iterator boundary checking
-    
-    [TODO] FIX Iterator boundary checking
-    
-    Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 8b5f477758a0..562977438e60 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1845,7 +1845,7 @@ static int __scmi_iterator_run(void *iter, unsigned int *start, unsigned int *en
-                if (ret)
-                        return ret;
- 
--               if (st->num_returned > st->max_resources - st->desc_index) {
-+               if (st->num_returned + st->desc_index > st->max_resources) {
-                        dev_err(ph->dev,
-                                "No. of resources can't exceed %d\n",
-                                st->max_resources);
----8<----
-
-Anyway, next dsys I will test all of this with your series, but since my
-original series indeed was on hold now due to these issues AND because still
-lacking clock-MAINTs acks, I am not sure if:
- 
- - we'll merge your fixes into my series while maintaining of course your
-   authorship (instead of applying the series on top)
-
- - Sudeep will still queue any of this for this cycle
-
-Thanks a lot for the debug and fixes to my cr...y stuff :P
-
-Cristian
+Rob
 
