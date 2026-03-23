@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4637BF483D8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AD0F483D8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sHP+Gzf71jjnGaGqTSHeqCrBJS3y254vjovFLGZNq64=; b=AiziQLLi5nD77PAhLkzUIFwojY
-	W4y6ZfcYZpvCknare9BGFgb/pNGYnooFKgJcRo+rD+hgVy6RK43ySjfw1uEWcmJUov7riJIAdPBL2
-	UTnwFgAYkjtr5rX3dGnjW7714g2ECVSBhP9QEnEUuG7giU1oxofLlvcMD20lCTEomcktLmI65zKTg
-	raGzVMRRNFSBQ8WchbY0vhOxmfat4Vs7qBnkuheafOSzDXlm483pOGaLbpqACydH+6XFqZG4TajWP
-	T3DD+YHvQJnOY+AW6Upoa5Q8yzf4bviJbhMXAnfyeSrsk7tNS3miqsBUmPGP6o8KPencwKEgs+eit
-	PDjHRQxQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4MhwMu1s0OtgQS08Pz/aoz5t673UMXEs/l6Jzth2I54=; b=swCV/HY8GoEtWhawMlxcX05k17
+	FHkkUi6VTMvL8/mrTurKXLpDHRt5ZOr7cYC5IeUApuNLDek6iBDoSZSbHsVnjHnciyVxixt913mEE
+	PeFFyGzwu00YbPo3YAhnPXNi70S+FIH9/aC32YUzMUL3QZiF06uO5myIpIMCly/7UQYfe3u0MpeMC
+	5wGcfESoUHdl2vnaCHP5A6MK4krfXWxnok/a8jFvOsBABxobw+VAfxaDGnl39KSZPUy24njdyooth
+	XBNMVcl3l9mm6KW4nywQN+/D/q783qqRyIHBThkXo4d/3/AqMhnMpvEZKH31Qcet0D0zDj5g/eMEm
+	qVCWujjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4j1T-0000000HDvi-1IGc;
-	Mon, 23 Mar 2026 17:25:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4j1R-0000000HDvH-2N4m
+	id 1w4j2G-0000000HE62-2ivc;
+	Mon, 23 Mar 2026 17:25:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4j2D-0000000HE5J-2DBQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 17:25:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BBD72600AC;
-	Mon, 23 Mar 2026 17:25:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14D06C4CEF7;
-	Mon, 23 Mar 2026 17:25:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774286700;
-	bh=8x3XhKTRhj8fiC5KBOLOsXbRYGBoZP9/5mMJZOSNv0c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=mEkhw5uzX8sIiPj3SFwm2P8eG5Ssi5hiPcfCnuLQB7S8lqbqi9BIFzBP+4nra7+OJ
-	 pfYBNM1doj7m8NjEIDuh+mcXAuf4C7YBvED9uKKAExYdxa4L8+zaoEjR1KY37p88xT
-	 Ni2lcBTFjwd8g7bVLdelcxjqGf9BLUCCpz94wBDeyG1yvKKZTm863mTqlzsL6iiir+
-	 98LOh7eu+ySwXmZUn6WvhNcz8Xn1H71sEbBe6tUNKMy4uaEaIi+h/JCYLn3upSYDk3
-	 RETxZMdvOHYxnuw2s70GwvhtRgn755gYV0foTN8sfO+GSOHniaU2K/7bJZ1g8HC7IM
-	 Zgro5kx1tXubQ==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 771605FBE4; Tue, 24 Mar 2026 01:24:57 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Mark Brown <broonie@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ASoC: sun4i-spdif: Make reset control non-optional and check for all errors
-Date: Tue, 24 Mar 2026 01:24:48 +0800
-Message-ID: <20260323172450.1259111-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Mon, 23 Mar 2026 17:25:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B307914BF;
+	Mon, 23 Mar 2026 10:25:41 -0700 (PDT)
+Received: from [10.57.83.179] (unknown [10.57.83.179])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40AD63F694;
+	Mon, 23 Mar 2026 10:25:46 -0700 (PDT)
+Message-ID: <e36d3b17-dc66-466e-9446-692592e5d7f2@arm.com>
+Date: Mon, 23 Mar 2026 17:25:44 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings
+ correctly
+Content-Language: en-GB
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+ <20260323130317.1737522-3-ryan.roberts@arm.com>
+ <588b2b4f-9cf6-43e5-b0e5-55820c74cbbb@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <588b2b4f-9cf6-43e5-b0e5-55820c74cbbb@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_102549_613237_5B917DD7 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,49 +72,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+On 23/03/2026 16:52, Kevin Brodsky wrote:
+> On 23/03/2026 14:03, Ryan Roberts wrote:
+>> [...]
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 358d1dc9a576f..87dfe4c82fa92 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -25,6 +25,11 @@ static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
+>>  {
+>>  	struct page_change_data *masks = walk->private;
+>>  
+>> +	/*
+>> +	 * Some users clear and set bits which alias eachother (e.g. PTE_NG and
+> 
+> Nit: "each other"
+> 
+>> +	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
+>> +	 * first then set.
+>> +	 */
+>>  	val &= ~(pgprot_val(masks->clear_mask));
+>>  	val |= (pgprot_val(masks->set_mask));
+>>  
+>> @@ -36,7 +41,7 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+>>  {
+>>  	pud_t val = pudp_get(pud);
+>>  
+>> -	if (pud_sect(val)) {
+>> +	if (pud_leaf(val)) {
+>>  		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
+>>  			return -EINVAL;
+>>  		val = __pud(set_pageattr_masks(pud_val(val), walk));
+>> @@ -52,7 +57,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+>>  {
+>>  	pmd_t val = pmdp_get(pmd);
+>>  
+>> -	if (pmd_sect(val)) {
+>> +	if (pmd_leaf(val)) {
+>>  		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
+>>  			return -EINVAL;
+>>  		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+>> @@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>>  	ret = update_range_prot(start, size, set_mask, clear_mask);
+>>  
+>>  	/*
+>> -	 * If the memory is being made valid without changing any other bits
+>> -	 * then a TLBI isn't required as a non-valid entry cannot be cached in
+>> -	 * the TLB.
+>> +	 * If the memory is being switched from present-invalid to valid without
+>> +	 * changing any other bits then a TLBI isn't required as a non-valid
+>> +	 * entry cannot be cached in the TLB.
+>>  	 */
+>> -	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
+>> +	if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
+> 
+> It isn't obvious to understand where all those PTE_MAYBE_NG come from if
+> one hasn't realised that PTE_PRESENT_INVALID overlays PTE_NG.
+> 
+> Since for this purpose we always set/clear both PTE_VALID and
+> PTE_MAYBE_NG, maybe we could define some macro as PTE_VALID |
+> PTE_MAYBE_NG, as a counterpart to PTE_PRESENT_INVALID?
 
-The logic around the reset control is weird. The driver already has
-quirks describing which compatible strings require a reset control, but
-the reset control is acquired using the "optional" API. Then any errors
-other than deferred probe are ignored.
+How about:
 
-Instead, switch to the non-optional variant. Also use the deassered
-variant to simplify the code. This also fixes a missing reset assert
-upon removal.
+#define PTE_PRESENT_VALID_KERNEL	(PTE_VALID | PTE_MAYBE_NG)
 
-Last, clean up the error message printing with dev_err_probe().
+The user space equivalent has NG clear, so important to clarify that this is the
+kernel value, I think.
 
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- sound/soc/sunxi/sun4i-spdif.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+Thanks,
+Ryan
 
-diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.c
-index 65de03ca3ad2..c2ec19437cd7 100644
---- a/sound/soc/sunxi/sun4i-spdif.c
-+++ b/sound/soc/sunxi/sun4i-spdif.c
-@@ -712,15 +712,10 @@ static int sun4i_spdif_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, host);
- 
- 	if (quirks->has_reset) {
--		host->rst = devm_reset_control_get_optional_exclusive(&pdev->dev,
--								      NULL);
--		if (PTR_ERR(host->rst) == -EPROBE_DEFER) {
--			ret = -EPROBE_DEFER;
--			dev_err(&pdev->dev, "Failed to get reset: %d\n", ret);
--			return ret;
--		}
--		if (!IS_ERR(host->rst))
--			reset_control_deassert(host->rst);
-+		host->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
-+		if (IS_ERR(host->rst))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(host->rst),
-+					     "Failed to get reset\n");
- 	}
- 
- 	ret = devm_snd_soc_register_component(&pdev->dev,
--- 
-2.47.3
+> 
+> - Kevin
+> 
+>> [...]
 
 
