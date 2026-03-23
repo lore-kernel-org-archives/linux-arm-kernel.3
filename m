@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEB2F483DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4637BF483D8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ODxfnF5Y2pwSOzwqAyPL/19n5GjpOckcssol2+LCgaE=; b=GZs8+gRfNBsb61VOUfkz8lD6Ee
-	SAfaLNzjj3mey+YMkNMQf4v7TPUkSlbZsTMROUCzMDnq4Zr392CgUjU6LXuQWFq8pnBW4pNAX3cRb
-	2hGY+ZmGyf2G7zOY8vBUXEbUBRwC2bKsjDwltgWM2OjQAUcqUzL1tnM7t+HLmMPAvuis7ApViMGol
-	axbffXhjDdElhxtbCAnYVkM5qJ7eI/YhjRQOIAQNNBhh7ZDFIue816JYHDHGeu0R3/7XnTFjmzB2/
-	V/dNFczsM8ty/yV/8NgqXw6fDGz4mLYK9FmDsyu3SwVpBxoRWB0hvltCvuIIkHvw/C7OhBGDqbbt8
-	uiz5d1Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sHP+Gzf71jjnGaGqTSHeqCrBJS3y254vjovFLGZNq64=; b=AiziQLLi5nD77PAhLkzUIFwojY
+	W4y6ZfcYZpvCknare9BGFgb/pNGYnooFKgJcRo+rD+hgVy6RK43ySjfw1uEWcmJUov7riJIAdPBL2
+	UTnwFgAYkjtr5rX3dGnjW7714g2ECVSBhP9QEnEUuG7giU1oxofLlvcMD20lCTEomcktLmI65zKTg
+	raGzVMRRNFSBQ8WchbY0vhOxmfat4Vs7qBnkuheafOSzDXlm483pOGaLbpqACydH+6XFqZG4TajWP
+	T3DD+YHvQJnOY+AW6Upoa5Q8yzf4bviJbhMXAnfyeSrsk7tNS3miqsBUmPGP6o8KPencwKEgs+eit
+	PDjHRQxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4j1I-0000000HDsG-270D;
-	Mon, 23 Mar 2026 17:24:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4j1T-0000000HDvi-1IGc;
+	Mon, 23 Mar 2026 17:25:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4j1F-0000000HDrZ-2DLi;
-	Mon, 23 Mar 2026 17:24:50 +0000
+	id 1w4j1R-0000000HDvH-2N4m
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 17:25:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BFAE4457F;
-	Mon, 23 Mar 2026 17:24:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE3DC4CEF7;
-	Mon, 23 Mar 2026 17:24:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BBD72600AC;
+	Mon, 23 Mar 2026 17:25:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14D06C4CEF7;
+	Mon, 23 Mar 2026 17:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774286688;
-	bh=3b/Pf+efs6DwZxI9LgoT1yaJxrb4aklVz4R/Q630Z94=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=rXPfHXzxduQHADzoMNap8OhCb4omlnhmjF+TLKEANg3hJUcF9KhWLRvAVSdWGsczq
-	 QAJv1Ad14K5pq7/eKchcxy2yyb+VmPkvCTYao8zeoulJQcW0I4t137BXVfJB1zU+fw
-	 KwVcpHBSKhVHjO6LxvWqc5QUhxtpY/LH2unZ/McagPFgp/5q5iMXXc5jWyMkEBrwwz
-	 Sygmx+KEt3pnHptuoTih+PutfpNiA7HU6fhbRMjFTg8vdBLoFGiY7bCDRkldH+a564
-	 iOgjn8QVERZJWKMyHKmiENSkheJk7fEbt6SWvb1crmfhkGUF6Aoi9EpKLvrw14+d9l
-	 kIGzbUsttPoGw==
-Date: Mon, 23 Mar 2026 12:24:45 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
-	Rob Herring <robh@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	s=k20201202; t=1774286700;
+	bh=8x3XhKTRhj8fiC5KBOLOsXbRYGBoZP9/5mMJZOSNv0c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mEkhw5uzX8sIiPj3SFwm2P8eG5Ssi5hiPcfCnuLQB7S8lqbqi9BIFzBP+4nra7+OJ
+	 pfYBNM1doj7m8NjEIDuh+mcXAuf4C7YBvED9uKKAExYdxa4L8+zaoEjR1KY37p88xT
+	 Ni2lcBTFjwd8g7bVLdelcxjqGf9BLUCCpz94wBDeyG1yvKKZTm863mTqlzsL6iiir+
+	 98LOh7eu+ySwXmZUn6WvhNcz8Xn1H71sEbBe6tUNKMy4uaEaIi+h/JCYLn3upSYDk3
+	 RETxZMdvOHYxnuw2s70GwvhtRgn755gYV0foTN8sfO+GSOHniaU2K/7bJZ1g8HC7IM
+	 Zgro5kx1tXubQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 771605FBE4; Tue, 24 Mar 2026 01:24:57 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+	Mark Brown <broonie@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Chen-Yu Tsai <wens@csie.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] PCI: mediatek-gen3: select PCI_PWRCTRL_GENERIC correctly
-Message-ID: <20260323172445.GA880803@bhelgaas>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: sun4i-spdif: Make reset control non-optional and check for all errors
+Date: Tue, 24 Mar 2026 01:24:48 +0800
+Message-ID: <20260323172450.1259111-1-wens@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <wlu2o3hx6yvpzs54mxsf24gmqwwudkixx7aylv4dkey744yify@eufscwyqiyhk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_102449_588057_C0A00B59 
-X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,54 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 05:26:47PM +0530, Manivannan Sadhasivam wrote:
-> On Mon, Mar 23, 2026 at 11:55:06AM +0100, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
-> > 
-> > The PCI_PWRCTRL_SLOT option was renamed to PCI_PWRCTRL_GENERIC, but a new
-> > user showed up using the old name, which caused a build failure when
-> > both conflicting patches are merged:
-> > 
-> > aarch64-linux-ld: drivers/pci/controller/pcie-mediatek-gen3.o: in function `mtk_pcie_remove':
-> > pcie-mediatek-gen3.c:(.text+0x137c): undefined reference to `pci_pwrctrl_power_off_devices'
-> > 
-> > Use the correct symbol as intended originally.
-> > 
-> > Fixes: ff124bbbca1d ("PCI/pwrctrl: generic: Rename pci-pwrctrl-slot as generic")
-> > Fixes: 073a7e1b7bcc ("PCI: mediatek-gen3: Integrate new pwrctrl API")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> 
-> Bjorn, should I squash this fix with 073a7e1b7bcc so that pci/next will build
-> properly?
+From: Chen-Yu Tsai <wens@csie.org>
 
-If you squash this into 073a7e1b7bcc, I think the 0-day bot will
-comlain about the resulting pci/controller/mediatek-gen3 branch
-because it doesn't include ff124bbbca1d.
+The logic around the reset control is weird. The driver already has
+quirks describing which compatible strings require a reset control, but
+the reset control is acquired using the "optional" API. Then any errors
+other than deferred probe are ignored.
 
-I can resolve it by hand when merging pci/controller/mediatek-gen3
-into pci/next.
+Instead, switch to the non-optional variant. Also use the deassered
+variant to simplify the code. This also fixes a missing reset assert
+upon removal.
 
-> > ---
-> >  drivers/pci/controller/Kconfig | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-> > index e72ac6934379..686349e09cd3 100644
-> > --- a/drivers/pci/controller/Kconfig
-> > +++ b/drivers/pci/controller/Kconfig
-> > @@ -222,7 +222,7 @@ config PCIE_MEDIATEK_GEN3
-> >  	depends on ARCH_AIROHA || ARCH_MEDIATEK || COMPILE_TEST
-> >  	depends on PCI_MSI
-> >  	select IRQ_MSI_LIB
-> > -	select PCI_PWRCTRL_SLOT
-> > +	select PCI_PWRCTRL_GENERIC
-> >  	help
-> >  	  Adds support for PCIe Gen3 MAC controller for MediaTek SoCs.
-> >  	  This PCIe controller is compatible with Gen3, Gen2 and Gen1 speed,
-> > -- 
-> > 2.39.5
-> > 
-> 
-> -- 
-> மணிவண்ணன் சதாசிவம்
+Last, clean up the error message printing with dev_err_probe().
+
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+ sound/soc/sunxi/sun4i-spdif.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
+
+diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.c
+index 65de03ca3ad2..c2ec19437cd7 100644
+--- a/sound/soc/sunxi/sun4i-spdif.c
++++ b/sound/soc/sunxi/sun4i-spdif.c
+@@ -712,15 +712,10 @@ static int sun4i_spdif_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, host);
+ 
+ 	if (quirks->has_reset) {
+-		host->rst = devm_reset_control_get_optional_exclusive(&pdev->dev,
+-								      NULL);
+-		if (PTR_ERR(host->rst) == -EPROBE_DEFER) {
+-			ret = -EPROBE_DEFER;
+-			dev_err(&pdev->dev, "Failed to get reset: %d\n", ret);
+-			return ret;
+-		}
+-		if (!IS_ERR(host->rst))
+-			reset_control_deassert(host->rst);
++		host->rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
++		if (IS_ERR(host->rst))
++			return dev_err_probe(&pdev->dev, PTR_ERR(host->rst),
++					     "Failed to get reset\n");
+ 	}
+ 
+ 	ret = devm_snd_soc_register_component(&pdev->dev,
+-- 
+2.47.3
+
 
