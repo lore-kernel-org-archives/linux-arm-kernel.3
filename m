@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E4EF483E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23222F483E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAqS21j+dgn3eq5TXshYqvdvTfTq623T+A9lnyLaExQ=; b=sPbze0L8ZBdzdo4fYstA6m79BL
-	W91HqHoZJqs+W0pfc5PMZUA9JP6ICHM/OMS6d3bA6kpU72r0h/6ZVjO13sFSJXboGTrajlIbIg/ys
-	47FrmjR74Y09wWR/OELzojo7byvcwJdDtu8F66fxweWxDgQ0noqaxj7KYGAC52dkJ1cK9W+ihqZIZ
-	9WdUptWMnX59e1gWvEPsiX6VaCcmHsxVY67FgqxalHvfgRCJQpArGagaRVw6WtjtqnHRNYOQia1jA
-	VAmIKJ2t1iJjjUkD9lv9wYFlfNgKSLaxIE6S3Jl86sjBrmqxIUWDbLHvrlXbxIBKElzShQ4q0Rm7t
-	iTVQq5Hw==;
+	bh=gzukGy0mDvWVfGApXjKmO3IJfjtD14JfhFuTIWdC1qY=; b=Q2g5gHd5oXlbBF0KMyJJDm4tEL
+	AobqL4mFH9QILP7KSO7vJQK7bp/+xKFxcpT9KZhdxmNp+rLooBBDag/e1oRH5n+edjyX1ifrDFqa7
+	eMPuCM3Kaf4Xbqq3MZwcxCndvZD7AY/fcjsONkczhrq+VGOkdZ2BkGc1i63syH+2iO1S3Qwl+e44+
+	mvpw2XrUSHx92HxEw5kiSjHCho7U2wWovcFGSFNDyBiemvAtBcbebtCcDVxWjesNU+raNCCezChFV
+	5TI9StoxTkpw8wbPZ8HLkRryorcX5X7NNqiyETkXgEohDGXZ7I2TSfryV6HQL7c7YvGCqsifmLzd3
+	w4uix7Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kl6-0000000HRGS-3QAM;
-	Mon, 23 Mar 2026 19:16:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4l3e-0000000HSFK-1fVt;
+	Mon, 23 Mar 2026 19:35:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kl5-0000000HRFy-3uKF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 19:16:15 +0000
+	id 1w4l3a-0000000HSEb-2zBE;
+	Mon, 23 Mar 2026 19:35:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51C22600AC;
-	Mon, 23 Mar 2026 19:16:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAF47C4CEF7;
-	Mon, 23 Mar 2026 19:16:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F2C2B41880;
+	Mon, 23 Mar 2026 19:35:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B188C2BC87;
+	Mon, 23 Mar 2026 19:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774293375;
-	bh=1nF+saa90o7U+gCHf9BeJ9mw/K1YHlF0/VNjlIghgx0=;
+	s=k20201202; t=1774294521;
+	bh=i/t8VSKp5b+BL5E8gx+o445vAz2TiAkmdeFV5lM/HPI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WAbsMxnGX6XhQ6Gt8uhiEP+Sqq+4tsZmBGMYHL7dgJVzURomVB0k5/0xkKvMuUe/W
-	 JefAmj5rYWkqvjA+WKe0Y0xqqO2ZwpriXJIfBLrzkmLbDieSO6lPU4rokKsOzsNfqi
-	 LPh2+X2eM3A1/D/7Pdcsa+uqogHfn3mvU3TjU5f+uaiTNoQGvHfqflJwxXawdCS/up
-	 h4uwsPMaXY86j2wL21GVoQPnBzlm7ktQmYKvxnBHsooFLVKhaE2SwKKbV//p8xgkrA
-	 VzNA+rcSOpUuip1FKyuOs+SCYfg6b9sN4aZtS5wFFTGpnjDzPsAY9/B/cwt5g1Iphm
-	 4dFUDAnZY7e/g==
-Date: Mon, 23 Mar 2026 14:16:13 -0500
+	b=i51Umrv24x2wYxi5FuXuoM4znGJSMe8lAkc2oCadrO+TOCZdcoWNwZQS3hzaK9EHJ
+	 ClUdWOK/5H9wMZI/KIvWBToZPSYD0WhseP7jbi1xX/n7VN9UqNB+dr+Ypt1GQk605U
+	 0jJVngIokSRQTaUegoeVm8rqtidwZ9Ci9gA2WWxQV8gkCcskRyuWtAmQmdqT0wAcjW
+	 0ftIvk+zsSaC7MvPl1PcfCyVrU47G2/lE2OStAC6iEp9rts/dhqKRYzc0BRbEr8qKc
+	 nbYd3zFuKJbBJy0yhK5Kt9IuJ/lIGuk5MHdJspVhVqeaVALvdcVyVjkVbsoJpwMzaw
+	 rZA/42lWPwugA==
+Date: Mon, 23 Mar 2026 14:35:20 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	linux-rockchip@lists.infradead.org,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-remoteproc@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	devicetree@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 2/4] dt-bindings: remoteproc: imx-rproc: Support i.MX94
-Message-ID: <177429337280.1109099.6895391728397977603.robh@kernel.org>
-References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
- <20260312-imx943-rproc-v1-2-3e66596592a8@nxp.com>
+	Frank Li <Frank.li@nxp.com>
+Subject: Re: [PATCH v2 1/2] media: dt-bindings: rockchip,rk3568-mipi-csi2:
+ add rk3588 compatible
+Message-ID: <177429451982.1234730.1312051337335309882.robh@kernel.org>
+References: <20260305-rk3588-csi2rx-v2-0-79d01b615486@collabora.com>
+ <20260305-rk3588-csi2rx-v2-1-79d01b615486@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260312-imx943-rproc-v1-2-3e66596592a8@nxp.com>
+In-Reply-To: <20260305-rk3588-csi2rx-v2-1-79d01b615486@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_123522_775328_D971AA57 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,20 +83,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 12 Mar 2026 20:36:57 +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Fri, 13 Mar 2026 12:08:45 +0100, Michael Riesch wrote:
+> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
+> the RK3568.
+> Introduce a list of compatible variants and add the RK3588 variant to
+> it.
 > 
-> Add compatible string for:
->  Cortex-M7 core[0,1] in i.MX94
->  Cortex-M33 Sync core in i.MX94
-> 
-> To i.MX94, Cortex-M7 core0 and core1 have different memory view from
-> Cortex-A55 core, so different compatible string is used.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 > ---
->  Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+>  .../devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml      | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
