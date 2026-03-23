@@ -4,63 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B735F483E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8409DF483E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYL/eXlpQ0Y3emk7cgWwMjvtgVKbtEgeXwbwH+DCrqc=; b=UQ6mO7Bt7Qst5kW5x1QMtdajbJ
-	Zf+MnyaNbkZblxJGFR7pN3BzYqVBwtJx8Q2mDuDLNku3TskrAKlMRSMh6sHhHvY5dGsuS5xaNWgE8
-	HJT+0RCUdPW6wZRXVFUxbXkCPOggQOeGODVVGfjcQdI9RsLyFxhVQIK73ShKxJev5Cv509YmmSM5q
-	0z8O5WjUCBY7/fXTDKm1QoMVpl2qF1Z/ljkrtT3bxR2BaezTkJPT2dpWs+IyOBvpSotE3TaCVHhXY
-	hx1wdOhevku+It4Cp14jrA7UR0elRBFtxKlC37oRZa1OrMHLIQO6ikfU1wKTBkjFlSU0u6Lq887JZ
-	t23v5vjA==;
+	bh=07SDZXFCKqng8eoszyi1QoNcVmTC8ksAU6GAoyt/Ujg=; b=NmZ1g4tKaC20KfxcM5j9L6TBu0
+	kaUbB22em22Wg1Dcj9qzRxdftFeFKTvUMm5VlqMqdmmupgyvHaLr8yfDvfwTRyII9x9E9dZgDkqzD
+	Mi1gA8B216br3YiujROCu3e9iV16K0kBsEbcY8wTzzVpzMmMgFlADInUe6yhiDPz56zji8gilHKpH
+	0mqXof676Q40g3IvYgrmJo0KqSR0HfNir0rcyq86Qu+Q397lw+8og36FF7065qVYPmmDeM7uRid2h
+	cDOjeppK2HVzBsxw184Rt8gLW75GAQQZ2VakmYr+jPNJmLVZJ57IFQahwR4I66cw6ypO7+eJCLUYM
+	gmDhLZcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kcV-0000000HQ0P-3RDn;
-	Mon, 23 Mar 2026 19:07:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4kg1-0000000HQUy-2I0J;
+	Mon, 23 Mar 2026 19:11:01 +0000
+Received: from mail-northeuropeazon11011013.outbound.protection.outlook.com ([52.101.65.13] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kcU-0000000HQ08-3npu;
-	Mon, 23 Mar 2026 19:07:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5147860130;
-	Mon, 23 Mar 2026 19:07:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5743C4CEF7;
-	Mon, 23 Mar 2026 19:07:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774292842;
-	bh=k6BhAGxLMFl7NhzH/eXpQ1O6oylKp7QR8k5ui8nFSuY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pp5aJvVLMskMT+uHs+8toanS07SNVmScgY4HSZwxwVtCMSxkqe/cl1nwC+NrDzzL7
-	 EX7lkaLUhURW2iUOMK2TBztiG09AN+WqeLTQR/m+GqX4uBMt+DSW/QT85CC2TZJBOn
-	 zknjGTx9FBb4/d3pnkvTZ8ywMM4I3mHrtZwsB+HNU8G65s3fTS+JjaijntUWGYtUN6
-	 wA6CtKzZ6NXUOFvyP4Y7xjk8taLp51T06KbQ9eV2zvr4guwBNzUU/gWEPQt58Ok7fO
-	 O/rRVxRvASHHvTOEJj65e4zOQZd519YAOO4mwXTXbVIt5dFH1oRisWNyNkAR8pnGH9
-	 ThTjzjl6agDGw==
-Date: Mon, 23 Mar 2026 14:07:21 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>, linux-kernel@vger.kernel.org,
+	id 1w4kfz-0000000HQUI-0L3Y;
+	Mon, 23 Mar 2026 19:11:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hyvmgVLrzPPAxWOKEKK7KufO7oMeb82GwS487yUHGNW6U79mAVzUcaD+Qi+mEjBfm0wWkKexEgCOpDFhZwxN2313blq+HZTsMWXoTgvfiO9Y9JWnku5a1VXhEG66px0lony+SmbSphyjC4lBQakfLgZdWTqxrHCjzgDC0NSGv/P6XngW4e2lpb/jAX6PDPe+i9i0abgFBoSr+uE2zkDZOzOl922eQB2Um+nkqSe6j6aMJbqHHxDdESUc+dj5J3xjDtFA048j6xiqTwGINb8+GzM6CMJV9dEcC2M5XwxW7Uz0VSy+/CqsvBm89L0ElzFs5C6tb500sgdc+RHn8Mu25g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=07SDZXFCKqng8eoszyi1QoNcVmTC8ksAU6GAoyt/Ujg=;
+ b=ZCCpTdNjbzTsjk3vJzC8TS9Ep42kORlnCRvhXvIjgPiHeVdNwxuE1iyHLTJq6+iXeCjWuW8y9gAjCf0rmKEOPv1HUc12NEwWl4tab9Y3+g5F3mil0otkIDaf4mBYkOJKxPah/4SpRviW62v7jS8BcA5kwWLpfcfOnPiOI9XnwA99AAmtspZ8/5sHBlW2+NilVQygsDoTh4DA1BPQtgD300DAWVVGzMpaX5GhFATlerAOh2dDl7I9bQNxEGknag7DX2ChY8bTSHkATpmYUwOUXhlNfVhGyc/dODMl2dICaCyPEF3w+2U46xJ+D5R6RkEw9qYYSFrAtDdw+ZM8FaG7QQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=07SDZXFCKqng8eoszyi1QoNcVmTC8ksAU6GAoyt/Ujg=;
+ b=hcE6xiNddACfigavzEEv0YsHa9UG+FoMXqXfHtYJb+h0n9+954yMWFTDY4xx2HrQ2lcV7kPGE926acfoC2v4Vgiq5RMJFNIXSyQKj/ATApSgK6mnG/S77Vrm1LyZ8ZGdN8gyGP37ilQixDpjOAtTJb+L2vHP5bcCFa3rhuqDr/7xiOrFis/b4/T3BXxZMjZ3FAAhiucsrPxkI0KHXVUBrzNlzRr+nlMv9+o53/SvX9sRf/pF2TBnHREOp3KaH0iALvNniuDkkbPwUglPzf2iD8PdtrVT+Qas0LqX7O4bR9W6UHzCSSpMyQ7kCFqHK1Oa1dwCUxAoe7LIMjyDO+V1Gg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB7655.eurprd04.prod.outlook.com (2603:10a6:20b:292::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
+ 2026 19:10:46 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 19:10:46 +0000
+Date: Mon, 23 Mar 2026 15:10:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Michael Riesch <michael.riesch@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: interrupt-controller: aspeed: Add
- AST2700-A2 support
-Message-ID: <20260323190721.GA1013496-robh@kernel.org>
-References: <20260306-irqchip-v2-0-f8512c09be63@aspeedtech.com>
- <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
-MIME-Version: 1.0
+	linux-rockchip@lists.infradead.org,
+	Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 0/6] media: synopsys: Add imx93 support
+Message-ID: <acGQNIUKqfh8eWNB@lizhi-Precision-Tower-5810>
+References: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260306-irqchip-v2-1-f8512c09be63@aspeedtech.com>
+In-Reply-To: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
+X-ClientProxiedBy: PH8PR21CA0021.namprd21.prod.outlook.com
+ (2603:10b6:510:2ce::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB7655:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b2a54d2-d9c8-40eb-8276-08de890fe334
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|52116014|366016|19092799006|56012099003|22082099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: aWKzQwjAoQydVFkIWr/vl9nx8a30HsdzkTRmCS58p2sPSxNsEOU6aOuhxDCLt2wtYk45v1kk+6mXf/JKQZLRStiXCP0rvZNe3F4oyVPnVK5tj9w76lysH6lVxcdNAnL15MkTa0W3dKlh02VLCj5vJMEVN7FLpOd0eMb0A81ADsn/W15qvQaLonlI4vMfQ7bfvqOV8IzyaOReg8G85eO94zhJ+pMWoZWFKIUKp0h5NMyH06Gj9RPZY8hLNSO0Bpb0ch4q/Yi5Pjdr9EHcAdO5LZVMjGw08xq2KKcQZFkGASK+foX+smSIi0ENG2E/5D19bu2Kl/ac4yH31P6QRAdc8Ev/wiIJCvaAplQwGVH4DYhsb/EUTTsRkdqWuYw2ocyQcm+HGm88+DQTOcrqZ6V8mI1XOF0fNvNZ/EdYLsiAMvcXKt4GTLCJPhTGte6InKLhj+rvZKcN+rOm4rl/ysdtRO2hJXbUw/1YZKPlhresVdtEXG/RDVRVWivF4SwzF8zr872xampxB9n3uwg51lN9h1p8YTc8PM9TPBdDrHgKPKKfvBQlYyNWjNJKzIbUyUV2fE4AUM8eJYR5v3DjuDTRh2kyZW+61/zKR3YII/9On4SyQLS2AevbamV/XrEDxmhNyZWGGz3j1/obEdN+cV8NVNerESzynQEyPOTfaYdJDxcAxXiAdhhWKcll8YNi3bogEhNmIoPqLHWMgllfvd+YBEOVrSsYv00XVpnganTu5r55OrQBOXls+KHEnFLAKu0nTmzpizyNMpk8GOgkzA/K3QgKgjkTINniVAt9smzQ+hA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(52116014)(366016)(19092799006)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MatWXGa48Rfu/sjHwg8Di4xGs54T6z6beFBYcwM7U0HYhXmNGl0S3S1ssiI/?=
+ =?us-ascii?Q?x8wLg86MRd41iwBH8NVijYwKyOwwLAhwYrZpYjR+7O4tCR7zG+48tJFXKj1+?=
+ =?us-ascii?Q?qiRvH3tjFLOdT1Y/R7MjSc8v5kMkn4+wbYxqMR6WstFEF0vUuJQqkYQmfHCQ?=
+ =?us-ascii?Q?h5jfOIVhhYTiBhujMe1N0HWisTzm5mD4NXm1PprSECrKR36xjRH6J5+38JHm?=
+ =?us-ascii?Q?dEMEeZoGOaLTn94Fh7MPYtHASjmZJBRSjVBD3+0x51Ui7aAh6lZEBZ2M0+4x?=
+ =?us-ascii?Q?d/HQ8/rx/0aQNCS78wKm/RY696V0hUK0SoXJ4A7AsTjHH7orL7nly1eneOp9?=
+ =?us-ascii?Q?wfHN0B+d6yLo9kYI2DbziNJZo/mFI2rLTnT1/OWMK6orBzlRkm6ddY62+lSE?=
+ =?us-ascii?Q?+tOE4eUxssTyk/yS9p3xTNzEKVoeqI0S/5j5TDBFf37eIpFXpvM+Ev1o4qk3?=
+ =?us-ascii?Q?DcV9BUhJ4OWkHyQdEvOVWCs93OmjtfBuq1pe840hcPazNU2SRk6IaGRovf5X?=
+ =?us-ascii?Q?EV1D8Qpf41yF4E/spn9JWztMeTi98/DTzMKcQC2K71vRfKXXIBV3e46FNcPF?=
+ =?us-ascii?Q?+MsXli/GX7NHlPsHAXcN+asyLLSQ2wUdqdtj3Fq49XVrwgRQqvsQJQnB6Z1i?=
+ =?us-ascii?Q?Mm15AjvVZufUQ99SOhxDb9G5HCxHRzqtqXITWTuEz/Hm8GHTPMPMfV5tllnZ?=
+ =?us-ascii?Q?FqxjVPWhJywRBsw0C8+mJ2mNGKuCy2JDNu3sdFktYSvUEX3xseCFFk/XEDZW?=
+ =?us-ascii?Q?YcovuGsb1bbnXASt/zsNlJIyplFyDPxkNaTnH4j9l8glNQfl4B7BRHOAD88Q?=
+ =?us-ascii?Q?+N9Fo6VQECx6aIFNgGZzg0qGjQ6Yl4UiDMePEcTsneTLTZleusCl9xPzDoLG?=
+ =?us-ascii?Q?oqDU31Tw+RX+ff8SBMax1Kn7xtv9BD97x9AZvOkJsdJD78h22C5MJFrzUeyc?=
+ =?us-ascii?Q?30rKOCadl6oomDqRCx81EebwfV6Uh5uVdPJQXo9y9SOM4Wq7JDZhltDcZ6Ro?=
+ =?us-ascii?Q?/lHA7eGHC66l3UBx54FL9+PeT6NQq6h/yySeQ+4qeF36W2I0n26I7PkHsgjo?=
+ =?us-ascii?Q?3NyOaIYXJMrj3wSbRSZyTeAbIaWHUVLVgwnG4rsbGP4f1HhpQBXo243nMfGL?=
+ =?us-ascii?Q?skmSLTePRHMDOZt8uBErxDMESbuMof6sztE4E+tKqArJSLYg/3cIirnIL5jy?=
+ =?us-ascii?Q?sVcShoEOG2H6BjwtBfNun1kbfJr8JSUvlsvf/EcF0EAqHH3BkxmTIaGUSy56?=
+ =?us-ascii?Q?ygOQayCGloJX+QhEDjKjGqeId1lnTLzknRwGFS3NM21Ft0NBsVgRz2pXC+4S?=
+ =?us-ascii?Q?ZJWnRNwhGtJK3l9xvEG9EYn0tCHGvgE3r4tiEcBdnrv/zKG2Vihtb2Sha2T9?=
+ =?us-ascii?Q?/CpzEV4VCUj6fs+1VFNRunpdrAGIw/nYa+E8x64yDHo94m33QevZctIB+thS?=
+ =?us-ascii?Q?4xZVrrtEmgQad8nbcFNryszaWnBpVPz5x1XNQeZF4TAso6uu6ozm03K0Gaby?=
+ =?us-ascii?Q?XBAvJ/s3WH/np7EGJhsvoAGYgYZr8AjMxBzZ7Y4sl27HsFWi6ELIg4kgwy58?=
+ =?us-ascii?Q?pfY9FTcxiXUDmW/kn0Ir1dJWFvAsfE6qvyO1Yzyy3yzLdNSxbVtQJyAe1P5r?=
+ =?us-ascii?Q?JkfdBYCiWV+10Pk+leFy8D4RyEqJVCpfurNkB7W6J4+D91zzDKuZL46ynQlS?=
+ =?us-ascii?Q?SHw/DCh30wQvGvhUj7wGbdYrq7ahRZNiRyjm4waBOXVyhOW85V0ljohnCQxQ?=
+ =?us-ascii?Q?b+szubnH6g=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b2a54d2-d9c8-40eb-8276-08de890fe334
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 19:10:46.4651
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aGWUvLzPkB5xuPg13q2JWOODK/opuSzYKQaaERU+PBgSABNZdKJLDSUuBtSoHevRbR5eSBcyyW35ejCZH6wIEA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7655
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_121059_281190_116E0EDB 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,249 +146,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 04:07:23PM +0800, Ryan Chen wrote:
-> Introduce a new binding describing the AST2700 interrupt controller
-> architecture implemented in the A2 production silicon.
-> 
-> The AST2700 SoC has undergone multiple silicon revisions (A0, A1, A2)
-> prior to mass production. The interrupt architecture was substantially
-> reworked after the A0 revision for A1, and the A1 design is retained
-> unchanged in the A2 production silicon.
-> 
-> The existing AST2700 interrupt controller binding was written against
-> the pre-production A0 design. That binding does not accurately describe
-> the interrupt hierarchy and routing model present in A1/A2, where
-> interrupts can be routed to multiple processor-local interrupt
-> controllers (Primary Service Processor (PSP) GIC, Secondary Service
-> Processor (SSP)/Tertiary Service Processor (TSP) NVICs, and BootMCU
-> APLIC) depending on the execution context.
+On Tue, Feb 10, 2026 at 12:11:07PM -0500, Frank Li wrote:
+> This 3rd time try to support DW CSI2RX support for imx93.
+>
 
-Unless you intend to maintain both bindings for some period, then you 
-should just squash the removal here. If both are going to be maintained 
-then patch 5 should not be applied yet.
+Laurent Pinchart and Sakari Ailus:
 
-> 
-> Hardware connectivity between interrupt controllers is expressed using
-> the aspeed,interrupt-ranges property.
-> 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> 
+	I am not who will take care this patch?
+	original drivers/media/platform/synopsys/dw-mipi-csi2rx.c picked
+by Sakari Ailus
+
+Frank
+
+> 1st: Create new dw csi2 driver
+> https://lore.kernel.org/all/20250701-95_cam-v1-5-c5172bab387b@nxp.com/
+>
+> 2nd: Based on legacy imx6's DW CSI2 constroller.
+> https://lore.kernel.org/imx/20250821-95_cam-v3-0-c9286fbb34b9@nxp.com/
+>
+> Now rockchip create a common DW CSI2RX driver at
+> drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+>
+> This time base on rockchip's implement.
+>
+> i.MX93's version is newer than rockchip one. i.MX6's is more similar with
+> rockchips.
+>
+> But i.MX6 is too old. So start at i.MX93 firstly even it has bigger
+> difference.
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Changes in v2:
-> - Describe AST2700 A0/A1/A2 design evolution.
-> - Drop the redundant '-ic' suffix from compatible strings.
-> - Expand commit message to match the series cover letter context.
-> - fix ascii diagram
-> - remove intc0 label
-> - remove spaces before >
-> - drop intc1 example
+> Frank Li (6):
+>       media: synopsys: use devm_reset_control_get_optional_exclusive()
+>       media: synopsys: only check errors from devm_clk_bulk_get_all()
+>       media: synopsys: implement .get_frame_desc() callback
+>       media: synopsys: use struct dw_mipi_csi2rx_regs to describe register offsets
+>       media: dt-bindings: add NXP i.MX93 compatible string
+>       media: synopsys: add i.MX93 support
+>
+>  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |  47 +++-
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c   | 280 ++++++++++++++++++---
+>  2 files changed, 293 insertions(+), 34 deletions(-)
 > ---
->  .../aspeed,ast2700-interrupt.yaml                  | 189 +++++++++++++++++++++
->  1 file changed, 189 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
-> new file mode 100644
-> index 000000000000..13398ff8be12
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-interrupt.yaml
-> @@ -0,0 +1,189 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-interrupt.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED AST2700 Interrupt Controllers (INTC0/INTC1)
-> +
-> +description: |
-> +  The ASPEED AST2700 SoC integrates two interrupt controller designs:
-> +
-> +    - INTC0: Primary controller that routes interrupt sources to upstream,
-> +      processor-specific interrupt controllers
-> +
-> +    - INTC1: Secondary controller whose interrupt outputs feed into
-> +      INTC0
-
-Wrap lines at 80 char.
-
-> +
-> +  The SoC contains four processors to which interrupts can be routed:
-> +
-> +    - PSP: Primary Service Processor (Cortex-A35)
-> +    - SSP: Secondary Service Processor (Cortex-M4)
-> +    - TSP: Tertiary Sevice Processor (Cortex-M4)
-> +    - BMCU: Boot MCU (a RISC-V microcontroller)
-> +
-> +  The following diagram illustrates the overall architecture of the
-> +  ASPEED AST2700 interrupt controllers:
-> +
-> +                  +-----------+                +-----------+
-> +                  |   INTC0   |                | INTC1(0)  |
-> +                  +-----------+                +-----------+
-> +                  |   Router  | +-----------+  |   Router  |
-> +                  | out   int | +Peripheral +  | out   int |
-> +  +-----------+   |  0     0  <-+Controllers+  | INTM      | +-----------+
-> +  |PSP GIC  <-|---+  .     .  | +-----------+  |  .     .  <-+Peripheral +
-> +  +-----------+   |  .     .  |                |  .     .  | +Controllers+
-> +  +-----------+   |  .     .  |                |  .     .  | +-----------+
-> +  |SSP NVIC <-|---+  .     .  <----------------+  .     .  |
-> +  +-----------+   |  .     .  |                |  .     .  |
-> +  +-----------+   |  .     .  <--------        |  .     .  |
-> +  |TSP NVIC <-|---+  .     .  |       |    ----+  .     .  |
-> +  +-----------+   |  .     .  |       |    |   |  O     P  |
-> +                  |  .     .  |       |    |   +-----------+
-> +                  |  .     .  <----   |    --------------------
-> +                  |  .     .  |   |   |        +-----------+  |
-> +                  |  M     N  |   |   ---------+  INTC1(1) |  |
-> +                  +-----------+   |            +-----------+  |
-> +                                  |                  .        |
-> +                                  |            +-----------+  |
-> +                                  -------------+  INTC1(N) |  |
-> +                                               +-----------+  |
-> +  +--------------+                                            |
-> +  + BMCU APLIC <-+---------------------------------------------
-> +  +--------------+
-> +
-> +  INTC0 supports:
-> +    - 128 local peripheral interrupt inputs
-> +    - Fan-in from up to three INTC1 instances via banked interrupt lines (INTM)
-> +    - Local peripheral interrupt outputs
-> +    - Merged interrupt outputs
-> +    - Software interrupt outputs (SWINT)
-> +    - Configurable interrupt routes targeting the PSP, SSP, and TSP
-> +
-> +  INTC1 supports:
-> +    - 192 local peripheral interrupt inputs
-> +    - Banked interrupt outputs (INTM, 5 x 6 banks x 32 interrupts per bank)
-> +    - Configurable interrupt routes targeting the PSP, SSP, TSP, and BMCU
-> +
-> +  One INTC1 instance is always present, on the SoC's IO die. A further two
-> +  instances may be attached to the SoC's one INTC0 instance via LTPI (LVDS
-> +  Tunneling Protocol & Interface).
-> +
-> +  Interrupt numbering model
-> +  -------------------------
-> +  The binding uses a controller-local numbering model. Peripheral device
-> +  nodes use the INTCx local interrupt number (hwirq) in their 'interrupts' or
-> +  'interrupts-extended' properties.
-> +
-> +  For AST2700, INTC0 exposes the following (inclusive) input ranges:
-> +
-> +    - 000..479: Independent interrupts
-> +    - 480..489: INTM0-INTM9
-> +    - 490..499: INTM10-INTM19
-> +    - 500..509: INTM20-INTM29
-> +    - 510..519: INTM30-INTM39
-> +    - 520..529: INTM40-INTM49
-> +
-> +  INTC0's (inclusive) output ranges are as follows:
-> +
-> +    - 000..127: 1:1 local peripheral interrupt output to PSP
-> +    - 144..151: Software interrupts from the SSP output to PSP
-> +    - 152..159: Software interrupts from the TSP output to PSP
-> +    - 192..201: INTM0-INTM9 banked outputs to PSP
-> +    - 208..217: INTM30-INTM39 banked outputs to PSP
-> +    - 224..233: INTM40-INTM49 banked outputs to PSP
-> +    - 256..383: 1:1 local peripheral interrupt output to SSP
-> +    - 384..393: INTM10-INTM19 banked outputs to SSP
-> +    - 400..407: Software interrupts from the PSP output to SSP
-> +    - 408..415: Software interrupts from the TSP output to SSP
-> +    - 426..553: 1:1 local peripheral interrupt output to TSP
-> +    - 554..563: INTM20-INTM29 banked outputs to TSP
-> +    - 570..577: Software interrupts from the PSP output to TSP
-> +    - 578..585: Software interrupts from the SSP output to TSP
-> +
-> +  Inputs and outputs for INTC1 instances are context-dependent. However, for the
-> +  first instance of INTC1, the (inclusive) output ranges are:
-> +
-> +    - 00..05: INTM0-INTM5
-> +    - 10..15: INTM10-INTM15
-> +    - 20..25: INTM20-INTM25
-> +    - 30..35: INTM30-INTM35
-> +    - 40..45: INTM40-INTM45
-> +    - 50..50: BootMCU
-> +
-> +maintainers:
-> +  - ryan_chen@aspeedtech.com
-> +  - andrew@codeconstruct.com.au
-
-Name and email address please.
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - aspeed,ast2700-intc0
-> +      - aspeed,ast2700-intc1
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  '#interrupt-cells':
-> +    const: 1
-> +    description: Single cell encoding the INTC local interrupt number (hwirq).
-> +
-> +  aspeed,interrupt-ranges:
-> +    description: |
-> +      Describes how ranges of controller output pins are routed to a parent
-> +      interrupt controller.
-> +
-> +      Each range entry is encoded as:
-> +
-> +        <out count phandle parent-specifier...>
-> +
-> +      where:
-> +        - out:     First controller interrupt output index in the range.
-> +        - count:   Number of consecutive controller interrupt outputs and parent
-> +                   interrupt inputs in this range.
-> +        - phandle: Phandle to the parent interrupt controller node.
-> +        - parent-specifier: Interrupt specifier, as defined by the parent
-> +                            interrupt controller binding.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 3
-> +    items:
-> +      description: Range descriptors with a parent interrupt specifier.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - '#interrupt-cells'
-> +  - aspeed,interrupt-ranges
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    interrupt-controller@12100000 {
-> +        compatible = "aspeed,ast2700-intc0";
-> +        reg = <0x12100000 0x3b00>;
-> +        interrupt-parent = <&gic>;
-> +        interrupt-controller;
-> +        #interrupt-cells = <1>;
-> +
-> +        aspeed,interrupt-ranges =
-> +          <0 128 &gic GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>,
-> +          <144 8 &gic GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>,
-> +          <152 8 &gic GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
-> +          <192 10 &gic GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
-> +          <208 10 &gic GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>,
-> +          <224 10 &gic GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
-> +          <256 128 &ssp_nvic 0 0>,
-> +          <384 10 &ssp_nvic 160 0>,
-> +          <400 8 &ssp_nvic 144 0>,
-> +          <408 8 &ssp_nvic 152 0>,
-> +          <426 128 &tsp_nvic 0 0>,
-> +          <554 10 &tsp_nvic 160 0>,
-> +          <570 8 &tsp_nvic 144 0>,
-> +          <578 8 &tsp_nvic 152 0>;
-> +    };
-> 
-> -- 
-> 2.34.1
-> 
+> base-commit: ada3fa02f7a95623b724dfe300fce6f49cc2d75a
+> change-id: 20260128-imx93-dw-csi2-b472ddcb176a
+>
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
+>
 
