@@ -4,63 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD54D58CAF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Mar 2026 23:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15E3D58CAF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 00:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8EbMLVh2mP9UlWkOltGcR8z6D+f9IzuZsVniMSXE/w4=; b=hWN7uW5/QYpFH4THW5Nvdn9+qL
-	oBp4Cb7D1MzK1bBDxA8cY1nS/dAAJiU4gkyJcA0C8G/d42ux3p9JhyxmCiM55vh+YU9+jEYft9P11
-	zQkPLZFLa3ykyvHR0eBuUinVjsG7NIL68fuGFR/ZDBkZGub+QYpg1wKMXWNA1R1DY616YIicW7gEH
-	ij2rEXoxxLknjsb8iSXAZFStDAcVT0hxpr2/M1Do/oBF/alVPO6qxHlHyjW1yy1g8M5zLS6Dlpskb
-	VZCEEFrGoFZYo1b6y08mYNGAldyyIsCSApGJaNHDIU6Qgf/mOZR7xsCnL4uv9vdg/9Q19henc2byS
-	I1eOndMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZ7DOx1G79zRHUhJ9o4JHYL73lqH8FzGVTpS6L90wMc=; b=Y9AXL3TfBC8bkRPvieEquJL8dI
+	jJReZ5eZg5uXGKEtD1mUjeyaAMrA4aZV9/jM4Fx4SyTuS+ly9OIKHp7vPaampyyrwLS6Q4hBcBWka
+	fzMXVpXAdYSiWDlb30+6mDRiZQNUr2AhgJmK7LhAzoBMRbKCx8Qi4jX7Ps0i9oz7fOHD79Qni5hZq
+	vfc/QjiOqv6HTGHCCrkR/ISgNVdLhvAWngxMm6DBW8+RxeBfDqygGa7sZKSu6jBaDqsAXWIgLHCwr
+	c9VETLib0Gif4LizuVhOR8asaoShj3VLbGPNQk5t426yr1Co6h9jQKu+8kDOCEiuw5wRuzXujIzZ+
+	GOEFIK9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Rvr-0000000Fjzx-2YzF;
-	Sun, 22 Mar 2026 23:10:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4Sm4-0000000Flt5-37Pi;
+	Mon, 23 Mar 2026 00:04:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Rvp-0000000Fjzl-3cHs
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Mar 2026 23:10:05 +0000
+	id 1w4Sm4-0000000Flsw-0D1O;
+	Mon, 23 Mar 2026 00:04:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2057060008;
-	Sun, 22 Mar 2026 23:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B6E2C19424;
-	Sun, 22 Mar 2026 23:10:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E9E3A60008;
+	Mon, 23 Mar 2026 00:04:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91BD7C19424;
+	Mon, 23 Mar 2026 00:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774221004;
-	bh=uU/gc7NH6waZjUqKluW+RwGApT2GspyV96WOVgY/dUU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YRITkAg4e52ie5vkQ91//aE+MGP8xDDqT77uMOuDKDad3W6DVicVxCKPuz5dBiD43
-	 z8LFZdzUNoEU7O5EWCyDBSCmBcEakvs7nz08D0mTb1ohxTR2/qinjmJ9Tn11VzBhtS
-	 jvGGeio0HZmZvuAijXR5hSkTINtY6LlFWRsZrhQT1wUcn/XXpoP50UeDXeF0B6ZdQe
-	 Azl64EnW6zlF5B0C2fkZVBtsvCbSBhdJbBYgfD6YGCybKIyJLZptLrlbmg7BX/qP3m
-	 27u+Uh+6h7HHHYOeZtzALs9tAlnHk+0wUI5EC+gc8iWhF+aYl9P3Z/Ml6ejaUbZ49E
-	 KNxP1rt1QA9Fg==
-Date: Sun, 22 Mar 2026 18:10:03 -0500
-From: Rob Herring <robh@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
-	frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
- i.MX943 PCIe compatible strings
-Message-ID: <20260322231003.GA69234-robh@kernel.org>
-References: <20260313083443.2391254-1-hongxing.zhu@nxp.com>
- <20260313083443.2391254-3-hongxing.zhu@nxp.com>
+	s=k20201202; t=1774224241;
+	bh=TIx02c+Ao/gjEr9Xh8zmMJ4cknC+KKpUO0TYsvtJrYU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Qv6JxmleN9/FehBcjvyaVa1MkmaXr4Sv6DcsFlJ96PsdiyVC/3pYc+m9Fwy/RrdSG
+	 k5iZa7SJc1Ft+h6UZKpE7yAG8OVAeY+4bKrG5ag2HU4QV8BqxvEHeMinl3wg76IP19
+	 XbngVTWCPutXEd0vLUj4yiykgEMAB738SKwiuyl2eLDpHKdp6Dn+XZO24604aijCIz
+	 vMZ00TvFd1eEU9/TTw62WquUyTwe31b33w4myELOF078ren7RgnzMj7AwOEOoJK8OO
+	 He1JYHC23hpTrczCRcVKZKDqpyOBK3ynq1rAxPlCOxuKwamlGfrVspQwrE3ZP8XexF
+	 uqm5O+jaQqgSA==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: ojeda@kernel.org
+Cc: a.hindborg@kernel.org,
+	acourbot@nvidia.com,
+	akpm@linux-foundation.org,
+	aliceryhl@google.com,
+	anton.ivanov@cambridgegreys.com,
+	bjorn3_gh@protonmail.com,
+	boqun.feng@gmail.com,
+	dakr@kernel.org,
+	david@davidgow.net,
+	gary@garyguo.net,
+	johannes@sipsolutions.net,
+	justinstitt@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-um@lists.infradead.org,
+	linux@armlinux.org.uk,
+	llvm@lists.linux.dev,
+	lossin@kernel.org,
+	mark.rutland@arm.com,
+	mmaurer@google.com,
+	morbo@google.com,
+	nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	nicolas.schier@linux.dev,
+	nsc@kernel.org,
+	peterz@infradead.org,
+	richard@nod.at,
+	rust-for-linux@vger.kernel.org,
+	tmgross@umich.edu,
+	urezki@gmail.com,
+	will@kernel.org
+Subject: Re: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+Date: Mon, 23 Mar 2026 01:03:27 +0100
+Message-ID: <20260323000327.111235-1-ojeda@kernel.org>
+In-Reply-To: <20260322192159.88138-1-ojeda@kernel.org>
+References: <20260322192159.88138-1-ojeda@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313083443.2391254-3-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +97,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 04:34:40PM +0800, Richard Zhu wrote:
-> Add i.MX94 and i.MX943 PCIe compatible strings and fallback to
-> i.MX95 PCIe compatible string.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
->  .../bindings/pci/fsl,imx6q-pcie-ep.yaml       | 20 +++++++++----
->  .../bindings/pci/fsl,imx6q-pcie.yaml          | 28 ++++++++++++-------
->  2 files changed, 32 insertions(+), 16 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
-> index 0b3526de1d62..b3b1ece6681e 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-ep.yaml
-> @@ -18,12 +18,20 @@ description: |+
->  
->  properties:
->    compatible:
-> -    enum:
-> -      - fsl,imx8mm-pcie-ep
-> -      - fsl,imx8mq-pcie-ep
-> -      - fsl,imx8mp-pcie-ep
-> -      - fsl,imx8q-pcie-ep
-> -      - fsl,imx95-pcie-ep
-> +    oneOf:
-> +      - enum:
-> +          - fsl,imx8mm-pcie-ep
-> +          - fsl,imx8mp-pcie-ep
-> +          - fsl,imx8mq-pcie-ep
-> +          - fsl,imx8q-pcie-ep
+On Sun, 22 Mar 2026 20:21:59 +0100 Miguel Ojeda <ojeda@kernel.org> wrote:
+>
+>     On the other hand, regardless of whether we fix this (and another
+>     issue in a separate email found thanks to the UML build), we could
+>     instead add `depends on` listing explicitly the architectures where
+>     this is going to be actually tested. That way maintainers can decide
+>     whether they want to support it when they are ready. Thoughts?
 
-> +          - fsl,imx94-pcie-ep
-> +          - fsl,imx943-pcie-ep
+Another one for arm 32-bit:
 
-These should be dropped if they are compatible with imx95.
+      LD      .tmp_vmlinux1
+    ld.lld: error: undefined symbol: __aeabi_read_tp
+    >>> referenced by uaccess.rs:349 (rust/kernel/uaccess.rs:349)
+    >>>               samples/rust/rust_misc_device.o:(<rust_misc_device::RustMiscDevice as kernel::miscdevice::MiscDevice>::ioctl) in archive vmlinux.a
+    >>> referenced by uaccess.rs:543 (rust/kernel/uaccess.rs:543)
+    >>>               samples/rust/rust_misc_device.o:(<rust_misc_device::RustMiscDevice as kernel::miscdevice::MiscDevice>::ioctl) in archive vmlinux.a
+    >>> referenced by uaccess.rs:543 (rust/kernel/uaccess.rs:543)
+    >>>               drivers/android/binder/rust_binder_main.o:(rust_binder_main::rust_binder_ioctl) in archive vmlinux.a
+    >>> referenced 36 more times
 
-> +          - fsl,imx95-pcie-ep
-> +      - items:
-> +          - enum:
-> +              - fsl,imx94-pcie-ep
-> +              - fsl,imx943-pcie-ep
-> +          - const: fsl,imx95-pcie-ep
->  
->    clocks:
->      minItems: 3
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index 21dda8066014..fd5f7ff9c4a4 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -21,16 +21,24 @@ description: |+
->  
->  properties:
->    compatible:
-> -    enum:
-> -      - fsl,imx6q-pcie
-> -      - fsl,imx6sx-pcie
-> -      - fsl,imx6qp-pcie
-> -      - fsl,imx7d-pcie
-> -      - fsl,imx8mq-pcie
-> -      - fsl,imx8mm-pcie
-> -      - fsl,imx8mp-pcie
-> -      - fsl,imx95-pcie
-> -      - fsl,imx8q-pcie
-> +    oneOf:
-> +      - enum:
-> +          - fsl,imx6q-pcie
-> +          - fsl,imx6sx-pcie
-> +          - fsl,imx6qp-pcie
-> +          - fsl,imx7d-pcie
-> +          - fsl,imx8mm-pcie
-> +          - fsl,imx8mp-pcie
-> +          - fsl,imx8mq-pcie
-> +          - fsl,imx8q-pcie
-> +          - fsl,imx94-pcie
-> +          - fsl,imx943-pcie
-> +          - fsl,imx95-pcie
-> +      - items:
-> +          - enum:
-> +              - fsl,imx94-pcie
-> +              - fsl,imx943-pcie
-> +          - const: fsl,imx95-pcie
->  
->    clocks:
->      minItems: 3
-> -- 
-> 2.37.1
-> 
+I think this reinforces the case that this is something that arch folks
+should think about case by case, and decide if they want to try -- we
+may want to start simple with x86_64 and arm64 or similar first.
+
+Thanks!
+
+Cheers,
+Miguel
 
