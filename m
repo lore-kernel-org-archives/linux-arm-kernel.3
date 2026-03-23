@@ -4,166 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37D3EC01A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F42EC01A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 08:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOhwyX05mZgHWeVQ67LJ+dMprr7MV7sX2Japjm7LGaU=; b=phdtRbg1MafGEaus8JnDIrxxWF
-	GxRZzHRmnckCTp+JE8cJ8Psi/BcZ+0uzllNpkPqM2x3ABsOwoUHq4WlefFeDUOgIdG4ztOba4loQm
-	V6DQCyAmQZNBHDDzxd7DNmBexBviyq7r3GN55WOospHCycXKxx0hK3jXZxUY/ULSFqrem4BYEl3uE
-	ILnoL0xucezSr4+jPSliDJChDcuddEjFD/GxsP8THArkp0vnWbuw5bwU+ECwo499E8i1TZiGYoNZh
-	UHdEVdHzii86HsZq2feqrndjXNZmJQmrQZvIfDs1lfAFdUXXWrp93fR00dQ+SQJu1jVRqBTc820Mq
-	hzD3ChmQ==;
+	bh=Zocw8FuDkC/LanJ1/4h/CJiS7ZjCNwFDOerkZTo4ZLc=; b=lY20Mfr+Wrmp7N6+m/OgIPuwXu
+	4DJkP+9uW9/cMsCoSuhFPjipURHZMRHqVEaHTE1gb9NcpZq2GEe5BbUb7K6rI03xOqSa1kfPfu423
+	GIkK/vsEJD99jRRQt83JIpJ0hJE8pcZ+GkaiKLP8ut7CsoNFTbFXoUBXoezbGF8ocSLEAvlQvv5qO
+	3hvX09kmuLjdSRgz3ojsFYSX5tN1DRvZe1NpwXfoqc1lkjvWnh15PhS04LXJjBt1KXVyVDUh6JlFS
+	Vaep5HfC24Ryu6l5/PnsPVlM5yXEDr8w+bFFsA55pkQ0egZviMzGvZ1EmZe6/lfNsNFUM3ZKI7F/o
+	kpiZ23Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4aAb-0000000GFT5-45eO;
-	Mon, 23 Mar 2026 07:57:54 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w4aHX-0000000GFo0-1zIs;
+	Mon, 23 Mar 2026 08:05:03 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4aAZ-0000000GFSl-1SAU
+	id 1w4aHU-0000000GFnO-48KG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 07:57:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QIq9wJf/iyG9vdnvtdqhHrQNSKswR0Q0hpVEXHmOniD1vKWY+1uRd4zSrPlyWZ9iGnc3LtvqhVl05C+iUkyhbO25Fdod9c6f2rYslefJlseT9xJbcGO7XxW1bXfC2GFd32AhfpEm+Dfq+osXpoXhDfxpPz/XdKHTPA09uEo8JyAuHNAEcXkBxIla1vJoB+qG119Idbss2tpOnXBIi36g1a7Nf9nPNPMEqokX4MO2IYNV+XLBlwAaF1t3OIFDPP5+yN1vY7wWpSJhdgntybSDscfiNg+r15kpSGTEp2Wv4W/+IdJiO/YgDb4/vi9I4mYnj5Y2Iy/TWQyUtt974ZUJ7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZOhwyX05mZgHWeVQ67LJ+dMprr7MV7sX2Japjm7LGaU=;
- b=SDOj/x6OSafouG8R11PbHgej6YeFuXenItwrLI5+8U4URT+HCu7yYDWE6zXUctrVU4A8sNhOQamqDXZSD5cyTCbzA35aDjCryHn4IzQ+C04PwQ1THoI+NSIH29bpw4ifRj+jXHgR9bp2CS3PmsnxOYVNEvNYP7PA3LIqdne042YpMWUETYYckJACrJOJB6D3PjJzTLqs6eNE1EiAe9vmFouBKwgkvOWfzUIx7kNvA8MD96P//awUIT/z0zGCjKaVoJVopsgu/XfaoGk7QQEW4AJ8IPCl+9FhodBe5nUbOtuaUUSyy5XVvA+sMgC347gXf57T5dGwz9i67WS1BiY1CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZOhwyX05mZgHWeVQ67LJ+dMprr7MV7sX2Japjm7LGaU=;
- b=Ybs4MhBJL4RkkfmZFMi8Uw/z+vkJLVvsy6z8I9P/+aCMRdYfPu0skkXkJD/l9wEXiHAhQ5ArsTurX4wejr/U9fLOZHaCde/L+WG+PQyarjtpCpQvpNqLpInXBBf9f56FJKd9bUg73hL0Xha9kKpGENjdrP71+K8mJSDHNIv2a8Op5XqhELaQ1YC31WxF4eRmUbKy6XdqqRE5tcLEHisg9rmjC4qxzgkpOrb1RAc+S6cJd5G7EOVvn7X2rbvgPtHF1jmcsX8X2cCtJ95g7kfegtJRQ8zTsSvW2lXgeVIJg1GhV/X05zndJG7kYw/omp+ZZll+j31hDrRV9tVelieLHw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by PA4PR04MB7568.eurprd04.prod.outlook.com (2603:10a6:102:f1::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 07:57:12 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.20.9723.018; Mon, 23 Mar 2026
- 07:57:19 +0000
-Message-ID: <5f1b651b-1064-4280-a7e0-b7d66c396cde@oss.nxp.com>
-Date: Mon, 23 Mar 2026 09:57:36 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Aisheng Dong <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Vincent Guittot <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
- <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
- <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
- <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
- <c7a59716-3d53-4787-b4ef-9674c2a4a9b5@kernel.org>
- <3c454da1-d949-4258-87ce-8b545000bf01@app.fastmail.com>
-Content-Language: en-US
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <3c454da1-d949-4258-87ce-8b545000bf01@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4PR10CA0018.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d8::12) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Mon, 23 Mar 2026 08:05:02 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-486fd27754bso30706795e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 01:04:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774253098; x=1774857898; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zocw8FuDkC/LanJ1/4h/CJiS7ZjCNwFDOerkZTo4ZLc=;
+        b=W0YwAo40inzQlOSmY5Fob39tOVYmUhK2W9hR1g/TJ0DW8zw54MLVVFD3N0Hj4no+xp
+         ybTIwQRNtXRRfT084BeGpqwa6VdMC3c+ZQfEALvi06bP1j1DeBxN8PBPTHhD88zIMifB
+         geB2N6DrMMiRPtMEJLmZl3qbwNmD6iLaiGzorpC0JCFAH6+9fkPyz58wPr99ZjgLDQ0a
+         FXvsIWfb42gGOnj3gWPProNGcClYKucarllI+bXtRWkSFLCkuUcsm0637G5dj+VXBHWn
+         xQuasdnIkYL3Zaj/PR8Ko/zDQ4QVa6pLvPzjs4vdlL5UNbbHhCkZXkalz80XcU1lcHQs
+         pdTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774253098; x=1774857898;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Zocw8FuDkC/LanJ1/4h/CJiS7ZjCNwFDOerkZTo4ZLc=;
+        b=E00auod+pI3QaJFOgI/oRpWr9M5fFE5dVYw18pes3weEEqFgiFI1KoBRtuOsrKvoEU
+         B97YrNC1YRUB8hqUakgNw5sAKkEWkhAXeBdFM6AdeSsYTnpPgywgyNiN1+S47rFF8jO6
+         QdLRG4dmIiS59BXFxIIfc1zzVJ1UT1zw7x+lqOr3zzsDDweddj59f/I6kGu15TsZV/4j
+         xgOQA4+EiFvm8a3hXkZc3xbaIUi8G0vCZyWgj6LxNQuOzs2qSolku5ptE0zVKUe8K8Z3
+         KnqSsi1htA/FiasQFOgwyAMbJ2IHf5TcVGg7xxEuGelRqceO/msiKFaY/v0DQrWz7Q1l
+         XRNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZsc+Cm9bCG9Kxfgez/8yo25WPkyYXZF9LUp0BXybi6MlYXHDGGGwprIdOk+sF5Vs8tMbcMW3lFNAH41VX/Ae8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyyru9822UDZKVUQujIJr7BXDJr43sFk70QpLZSse96ZLvN4m/0
+	GfqwuGQeIy/fLVkWvfVW8Jdw2oaq9X8mn6RWc4jTT0l1Kj0KJo6gM0n3
+X-Gm-Gg: ATEYQzxMsyEtPfm3gcdDy+/QtkJFRVb9EIHcd1KSWmWaB+J/WaYoArgvrsG7sy+YZER
+	UDmqK8NzNj0gcIgUgb5/2D1hqv0XAJ6vC3zIj6OrB/eJJM9PC/N1QrAzoCU2NLYTx/dHLuFcQ1H
+	gapSb3DV5mvi8kvuuHJTyFX3KDZtsmSrPhkzslXZ8x8EtTKU5UF0KWf2RwE92Isgen15oS6DdOf
+	VqHAbmNKPX2vfKcbzfeOhyoJsLaBQSgCYwdsn5bPR5O7FA1JIiUnTYlfaCrXP0qe1aAqzMdGmK/
+	LLvZydJNwaAQLtzrQWqcif9IhCwonC55T3AbnOYg8feVhceCVEBMxtRIqNKLXwbV7q/456pUeh0
+	dOPxqDuY8jiKfIhtAVJe2c//ig95naVXVXHpzX7m5BU3T1xi849EscElAR+9Jjk4HEoalxpqIv+
+	pErp71GDHhf9ER21ZqrKHMLG63i0hCbAuAV+7/vsVj1ij1KTm2r3OPm8ZnP5379HxPZbFdM3oYX
+	pB2dWTK
+X-Received: by 2002:a05:600c:4e8e:b0:485:3e6c:aacb with SMTP id 5b1f17b1804b1-486feda8c69mr158012695e9.4.1774253098203;
+        Mon, 23 Mar 2026 01:04:58 -0700 (PDT)
+Received: from jernej-laptop.localnet (178-79-69-125.dynamic.telemach.net. [178.79.69.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486ff19d452sm76320155e9.19.2026.03.23.01.04.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 01:04:57 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: mripard@kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: paulk@sys-base.io, mchehab@kernel.org, gregkh@linuxfoundation.org,
+ wens@kernel.org, samuel@sholland.org, linux-media@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ pengpeng@iscas.ac.cn
+Subject: Re: [PATCH 7/7] media: cedrus: validate HEVC slice reference lists
+Date: Mon, 23 Mar 2026 09:04:56 +0100
+Message-ID: <2402496.ElGaqSPkdT@jernej-laptop>
+In-Reply-To: <20260323070314.42949-1-pengpeng@iscas.ac.cn>
+References: <20260323070314.42949-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|PA4PR04MB7568:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c51d033-7911-4e6c-2ae7-08de88b1cee1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: WHe5lu6vThyN7IOYP7702PMbO8vFmlislpVh8Uc/QmzWdsxnpVG0zQYHQKPl7JrexiJpxKNqrgSyH6moANBrpA8K8/nFHOlGQWkai/iZDlXwwAyvxAahhZ4iBGVsCet7CWBpHb+CK71lR2mQ0wpwtikCxDcF/IKClRxJwASdcUCPbQfTbt7gYKHbF2HnICdZIrETTEOv26vDHbUJuT5bLxLA129KERdFYwSqtDS5MSUnd7s1KL/cDh/YQQhbYYcfcAUkuFzHdg1X4+HKEosq3Ws+Ko9KoVK+wVxg+u0Dor8hIVEvVuZLZiYu2aCVpr2zFyDF8xRbY6fqL+Di6r48jtLlhcBMr1P/TJL7Axy8PHqNcGw81TVV0uNNvgIKD4RC85z1sxBCsR+dBqbJViI/t6k/1RUk9mBiPWim1O8Hh7qlyRNJFOtaq0OQIueZ469in6En/l7WCX/moninlIp9hW1qMvx2f2P8qcOHG99rSeGQ1x1k4HmyuH9Dxn9tAY+Iux+st3iK6gVtu28Z9X62C2UhmE662s/592XRZZDZJhi69Ytcs2gw4ATt84H/bfsYfHs8sG3JFhoZpzfADZsMk39+4Vher6OFGsuL7tHBWeRvFggLJ1LvdxBGgboeV29ezewepddFqzYQsFNWdXNmi9awHMBF6JoedSupNLAoqkiGGuf/HK0sWzpyEPeZ6LGRcSKN7y7ZSQR7zVHB0ZCzTA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWxwbEtwU1RjbHhBMUdveWpvMnJrUmZ0U1NHUkNXbEpCb1JOc3Q2YTFUYkRF?=
- =?utf-8?B?d056WGM1eElGWWY0T1FRT0F2RThlMVFpZWY3RFdvbHRmUVdBb2JGczJySVlj?=
- =?utf-8?B?VHI1TnRuUVlPK1JhS1dEOUx4VnFtV2dOTFAvTENhSU8vZGlQZkRiVDY1RUhF?=
- =?utf-8?B?NHAzZElBbStZbUY5cG5qSFNhbEQza1k5ZFlYQm5ZVjBOZmtIaDI1Y3I1bWZq?=
- =?utf-8?B?T2dwMDVrb0tVK2ZUOC8yQVE4OWtrUUUzU1AySGpXZDZZTCt6R1l1eUdJOWNw?=
- =?utf-8?B?S0pGdzF6NjhqVDVEM29NUDhOL25zaUR6cXp5Z21kZkpRcnBzV0pZOGJkYXVG?=
- =?utf-8?B?OW5NUVdBWlVlbXAwWmJTVG96bWk1dCt2UitQVkJIOUVQQXh4WjBxMVZiS1ZZ?=
- =?utf-8?B?Wm5YRFJHaWR0aENHdTJpYTBDYk4yZWtaQTg3RzBjQXRncDByNVdTM28vVzhj?=
- =?utf-8?B?RlhsVXdWQjJtMGhibW5UeDNoYVl2dGNzZjlZUDFyNlZnYmFuNCtrR0FjbFVY?=
- =?utf-8?B?azE4UzNOMUNBY25QNDJhRlIwMGI2ZXNTek5tZzFkeGgxTkpUSlRCNVBYVkg2?=
- =?utf-8?B?SGNiMGtxcmZ0ZVptbTFSdVhYbitBWnBMbnZ6cTluY1pIenl5VFNRR0p5UHZG?=
- =?utf-8?B?QnJNR3JLdmZpVlJ0OWZPdzY0Um9BNHQ0TlhZaDl3NEk5Snh2T1RzcVl6K3px?=
- =?utf-8?B?UzlVZ0g3SklST0h4dHBkK0lHaFNUTzQxTUtTM01qdUtSTjFhUTB0cVQzNVQr?=
- =?utf-8?B?MTk1Zkg1MkIzMkQ4c1NqQmZWUjBtdHhRdkRIMGdLZUxMeUZvZ1Z2dVoyUFVB?=
- =?utf-8?B?U2lvSzBJQUlXTUhic2hER2dxVmdBVGprblc3amtKeUU3SDJ4SHVhellTTCt5?=
- =?utf-8?B?bTFTUnZVQk5oSlBjWWNjSzdLNytOUENQRjBUUzRqaGcxcjgvakxiZk5sTC9v?=
- =?utf-8?B?NlRzcThQVjNlYUtBVmlnRDdtaldnRGEzdVZCMHNKb3hyd2NIRXRVSHQyczVX?=
- =?utf-8?B?VGlBL1FtSy9UMFo1c2RPdzhINmhja1ZaWkdXajBFSy9QNHZmeDVwRHlpTStv?=
- =?utf-8?B?cmZxQ1M3d1N6bUNBWlJneGR0MmJiMWp6RWdKUGkreFFFbUtBbjNJM2doUStq?=
- =?utf-8?B?OHhHeElORGRsYUwxL1E0czhrN1hSYlJqeEw0ZHlzNVZWb0hBdUcyYUFSbjVV?=
- =?utf-8?B?ZHNMV0FYZmpkaG1md1pKL0JOa1RhK1c5U1hNenk4bDFTdVdKWG1jT1czUndu?=
- =?utf-8?B?cXl3aVBTV2x0WHdQQjcyRzg2RnYyZHpzb2tMYW1PbVlTSlBLbmRBRnlBVWFj?=
- =?utf-8?B?c0xTZ2JSclFDeCs4NU9BKzhxaE9zUHk1Rnp3bm96Wlo0RVFKQ2phdUFlcWlW?=
- =?utf-8?B?djVRa2hSM1c0T0hEeDJXSDFPcys0MzhIU3g2STNxNVFpRFhsTnZnZjdCbjZO?=
- =?utf-8?B?d05DSFYzN01KYWI4L3o4cGNNV2lBclF0cFdzMDIreFBURWpRNWlaWGJUa3JD?=
- =?utf-8?B?dG8xQVQwb1daM1RpRmplc1VnSVcxODRtcUZUN3lNN1d1UG5CVnFEdUdmQ1Vk?=
- =?utf-8?B?a1k0d0psVjRDZ1l4WFViRVNpSFlQUDJ2QVZ3QTFaemloeFBVMVpjTTNRYkd0?=
- =?utf-8?B?MXhkRzNsOVd3eEt6d0xPUTVnQk43bWhZZUx1S25PWTQ0a05MblM1MVBidnZR?=
- =?utf-8?B?ZzdMcjh2YWIxSERJWE1TbVhrYkpDK1pEbnFkK1pFMkNzUTIzM1YxQ3YwUXE2?=
- =?utf-8?B?MVpPTEVIS1drQzJYNTA0QjVYMDh6NUdRY1NLdmRNeDMrMDI5Z08zZEM1bzlh?=
- =?utf-8?B?UC9iTzhrSHBlZ2hyTGxFbzFDRHhiVDVaWC93VWNKaTRDMW8zZjc5U080STR3?=
- =?utf-8?B?WHROMzYzS25ldGpWamlzaG1kL2JWUUF6V3grK2luMDBaQ3JadXQ2YXJXVU9M?=
- =?utf-8?B?Y0RVWHZIT01xb0lzVEd2emVKNVVZbHJuSjR3Nm1EZC9rNi9QYUwzRFY3QjIz?=
- =?utf-8?B?YXhEK1pGZlpjMHl0NHZMbkRBamRaYzJRNnY2NXcxZ1A0TkxUaTR4RUlOZDBX?=
- =?utf-8?B?SEkyU3RURXA3MnlGUGNyZjFoZnJDZXBsTnRDNEJYeHdRR3RnN3pDUlhIUEtG?=
- =?utf-8?B?Z3hoZGNrcW9mcTBDOFZ1NUFyWEh3V2o2SlJzSnpaOFBoSVNPSTFYbXVQemJK?=
- =?utf-8?B?WXpESWJrV2JxY1ZrVkVzZkNWeVpEUEhNRzBYUEYrUDF4dEh0R0xxN3VVR2Vx?=
- =?utf-8?B?MDR5SzRXMWlvbHdJUkRsZlpTYlJsSTROMXJXRCtLSW1mSVlVdlViQVJJTVpQ?=
- =?utf-8?B?dHRBcWZqYWZHdnJHaWhzNHJ5WitNL29neDliOVVJNkpLd0JnbFJ3N1VxSEVj?=
- =?utf-8?Q?yz5D5dFOwZ3kub74IPtEGaUR3IBedbPkt0U0C?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c51d033-7911-4e6c-2ae7-08de88b1cee1
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 07:57:19.7889
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BF9CHxTgDwZBry1MKVcdQJZ/BkuSpOHNj5r2FtnhVmhnBi1RWBfrBk5DbQSbvPwOadXJV7i9BQvfZ5r2JEiDDaBwL3VQALb8/KZwxpKTe/Xzx/ictRVGRY1opeqT3B9L
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7568
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_005751_440272_63E67CD1 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260323_010501_076757_DAD0B9EF 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,68 +102,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/14/2026 9:31 AM, Arnd Bergmann wrote:
-> On Fri, Mar 13, 2026, at 18:10, Krzysztof Kozlowski wrote:
->> On 25/02/2026 10:40, Ghennadi Procopciuc wrote:
->>> On 2/23/2026 3:14 PM, Krzysztof Kozlowski wrote:
->>>>> there are no resources allocated specifically for nodes like
->>>>> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
->>>>> driver and other drivers that read SoC‑specific information from
->>>>> those shared registers.
->>>>>  
->>>>> My alternative is to keep two separate syscon providers for the
->>>>
->>>> You got review already.
->>>>
->>> I still believe that nvmem is a suitable and accurate mechanism for
->>> describing SoC‑specific identification information, as originally
->>> proposed in [0], assuming the necessary adjustments are made.
->>>
->>> More specifically, instead of modeling software-defined cells, the nvmem
->>> layout would describe the actual hardware registers backing this
->>> information. One advantage of this approach is that consumer nodes (for
->>> example PCIe, Ethernet, or other IPs that need SoC identification data)
->>> can reference these registers using the standard nvmem-cells /
->>> nvmem-cell-names mechanism, without introducing custom, per-subsystem
->>> bindings.
->>
->> nvmem is applicable only if this is NVMEM. Information about the soc is
->> not NVMEM, unless this are blow out fuses / efuse. Does not look like,
->> because SoC information is set probably during design phase, not board
->> assembly.
-> 
-> Agreed, nvmem clearly makes no sense here, the patch description
-> appears to accurately describe the MMIO area as hardware registers
-> with a fixed meaning rather than a convention for how the
-> memory is being used.
-> 
-> That said, there is probably room for improvement, since some of
-> the register contents are read-only and could just be accessed
-> by the boot firmware in order to move the information into more
-> regular DT properties instead of defining bindings for drivers
-> to access the information in raw form.
-> 
->     Arnd
+Dne ponedeljek, 23. marec 2026 ob 08:03:14 Srednjeevropski standardni =C4=
+=8Das je Pengpeng Hou napisal(a):
+> Cedrus consumes HEVC slice parameters directly from stateless V4L2
+> controls, but it does not validate the active reference counts or the
+> ref_idx_l0/ref_idx_l1 values before using them in fixed-size 16-entry
+> reference arrays. Oversized counts or indices can therefore walk past
+> the end of those arrays in the HEVC decode path.
+>=20
+> Reject HEVC slice controls whose active reference counts or reference
+> indices exceed V4L2_HEVC_DPB_ENTRIES_NUM_MAX.
+>=20
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-Hi Krzysztof & Arnd,
-
-Assuming we drop the syscon approach entirely, for the SerDes
-presence information we could follow Arnd’s suggestion and have
-it provided by the boot firmware instead of exposing it through SIUL2.
-
-However, SerDes presence is not the only information involved.
-As mentioned in the earlier replies, we also have the PCIe device ID,
-which will be needed once PCIe endpoint support is added.
-
-Would it be acceptable to describe this information in DT, as in
-other existing approaches [1], [2], [3], by adding a device-id
-property to the PCIe node?
- 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/pci/renesas,r9a08g045-pcie.yaml#n130
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/r9a08g045.dtsi#n907
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi#n66
+There is nothing Cedrus specific here. Why not move it to common code?
 
 Best regards,
-Khristine
- 
+Jernej
+
+> ---
+>  drivers/staging/media/sunxi/cedrus/cedrus.c | 22 +++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/stagin=
+g/media/sunxi/cedrus/cedrus.c
+> index 6600245dff0e..d68da1eaa7aa 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+> @@ -77,6 +77,28 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+>  			ctx->bit_depth =3D bit_depth;
+>  			cedrus_reset_cap_format(ctx);
+>  		}
+> +	} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_HEVC_SLICE_PARAMS) {
+> +		const struct v4l2_ctrl_hevc_slice_params *slice =3D ctrl->p_new.p_hevc=
+_slice_params;
+> +		unsigned int i;
+> +
+> +		if (slice->num_ref_idx_l0_active_minus1 >=3D
+> +		    V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
+> +			return -EINVAL;
+> +
+> +		for (i =3D 0; i <=3D slice->num_ref_idx_l0_active_minus1; i++)
+> +			if (slice->ref_idx_l0[i] >=3D V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
+> +				return -EINVAL;
+> +
+> +		if (slice->slice_type =3D=3D V4L2_HEVC_SLICE_TYPE_B) {
+> +			if (slice->num_ref_idx_l1_active_minus1 >=3D
+> +			    V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
+> +				return -EINVAL;
+> +
+> +			for (i =3D 0; i <=3D slice->num_ref_idx_l1_active_minus1; i++)
+> +				if (slice->ref_idx_l1[i] >=3D
+> +				    V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
+> +					return -EINVAL;
+> +		}
+>  	}
+> =20
+>  	return 0;
+>=20
+
+
+
+
 
