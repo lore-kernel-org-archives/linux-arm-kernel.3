@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6509CF46139
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC87F46137
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzLEa3KL5XVk7DKMlxQHZBfsBy0BGZb9ScjlDMpdRtc=; b=xK69PBpERrEygZwBprN5cXbHQU
-	aitqb2LQQUvYCI6W+05tDfproYzF/xp4K69dxuQsvIQaZW9NafAEJhwNFNXil/23E3KRKcFOEK7dp
-	VXdAFnk+ionkph+XkeswXEu6HXyXSnPmXl+R/VWrxb6WIj5OYdThJgAXdi8vKF1s1ymPQ8ui5y2hZ
-	w45UbHCqUT7Jm+jjXDciHSRURFV0zdpJ1MW9Y1PVa99eXe5v98+DbQ1S9Ealp0K7gwzpmDPfYrj39
-	87w+8wC8TY6lWVidPDezNTpLA7Gp5ZQAW3PfLJQN3NsWpDpGijpXydh5r9Gpsp8hzNdTEmHXu9KeU
-	67uhpzjg==;
+	bh=abMc/+RpRXqb6A157XT9WeH6XIAGt3sWmMtm4v19n84=; b=f9Yt5eKPtv3rg89JD2RnSjaTgC
+	uOvamPmZOEFPqH3NCPD5ZUlb3iF+kUQPJRMZbmBXcG/ZlN/f5o3tVMC5HDRGzODV5eSKbMRVsdC95
+	59XONvCSl8WuAlD6p9OP1yrcAxybPQ+XJqX6kYOpTq+HZLMSjI6KXHk3rRk83k3qho1XTckNJDt0c
+	ZNrfGtr9se5bJEf+3N/LUAK+Zdmf3DkYAS4CzF7GltalWrEP0RUi+oYBtODvH1uvhHU8m0j2NyKUd
+	Qa/EfKf3bIWzkDEIQi1TacX6WBi/RZ95ZikEKvLF5RsuEBPCUMpvmN10K6JmYXkBww/5T9XxzEMRe
+	FdNiJ6Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gk2-0000000Gxsx-1FK4;
-	Mon, 23 Mar 2026 14:58:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4gkF-0000000Gxud-2RyZ;
+	Mon, 23 Mar 2026 14:59:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gk1-0000000Gxsq-112B
+	id 1w4gkA-0000000Gxts-3tpv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 14:58:53 +0000
+	Mon, 23 Mar 2026 14:59:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40836600CB;
-	Mon, 23 Mar 2026 14:58:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70A55C2BC9E;
-	Mon, 23 Mar 2026 14:58:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7799B43698;
+	Mon, 23 Mar 2026 14:59:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2356C2BCB1;
+	Mon, 23 Mar 2026 14:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774277901;
-	bh=f8dCaoHE8v13TX7zhudBhLxwnKyjtp2XPdiKUD8OWGE=;
+	s=k20201202; t=1774277942;
+	bh=LPRdzg8aaZAuXnZ8jK5A6DbpFDyp7diOg/t+NXwG7Pc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IHzOAlF5Ymj0Vgg4Oh1oKLaVDPOpYje9/8/qWu57Nft5V+j/b0M8g+Cu2UNVc6R2g
-	 9z51ACWPv4nBFHk3tat/R5aiNl9d6UIGIGIW/DRNqcAJfViMhrS4WoeXWXkeCrJFS3
-	 OVU5yeag7Iq9MfbIWCHBciePzpm3nX0Ep7Zbu7flioBdRslEKuD+Zg2iSXUjp65M66
-	 +u4EeDR8uDD3tEYcKpc+pwswo37xLvEvjYMC+uBe1EPQAXy9u54A2GzLtkBsPJCGOA
-	 HKZqV3VnVcs32rR4WDHocLGDgK4gLNw+YGhBTZjtuF33JfgvEWfVmp8ja2HrD1dXBJ
-	 Y4Nkya3ai0L8Q==
-Date: Mon, 23 Mar 2026 14:58:16 +0000
+	b=hxJjPJ8WCX9THBHg3LzrpsZaffD1n/kXXOubCDQCFgtZFmgPhAPGxNWHRjVWggDv5
+	 OGxsoiLUPjcmNckiTBLEpTPuO2OTvlHCjAHW385ln2fMbRsxwe66wjo0+44H5W5afp
+	 h8pBRCH2zhGkYTPBBznBAe9Bhrmj14pqSuxt6SU+poedO6U9y0eLewkYqNfHU4qhu9
+	 2xnLbaSDyx4Diq4tM940y2kaVr2QsDV7+jGgIye7AasTUGS7Ka6nsohP8nZdLeBzaX
+	 8KuukZJkmbvIZ1o+bG9YC+Z0VEH7oTfFVtcVPQwp661GewzXXt4EplJlcOEtghcKZN
+	 fS5UisRxtWXpA==
+Date: Mon, 23 Mar 2026 14:58:56 +0000
 From: Will Deacon <will@kernel.org>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -54,17 +54,19 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v3 25/36] KVM: arm64: Reclaim faulting page from pKVM in
- spurious fault handler
-Message-ID: <acFVCKZVw77OSiS0@willie-the-truck>
+Subject: Re: [PATCH v3 26/36] KVM: arm64: Return -EFAULT from VCPU_RUN on
+ access to a poisoned pte
+Message-ID: <acFVMCb0pMY7r46_@willie-the-truck>
 References: <20260305144351.17071-1-will@kernel.org>
- <20260305144351.17071-26-will@kernel.org>
- <864ima5v6c.wl-maz@kernel.org>
- <87fr5tcyim.wl-maz@kernel.org>
+ <20260305144351.17071-27-will@kernel.org>
+ <86341u5uhr.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87fr5tcyim.wl-maz@kernel.org>
+In-Reply-To: <86341u5uhr.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_075903_031159_12704707 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,68 +81,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 21, 2026 at 09:39:13AM +0000, Marc Zyngier wrote:
-> On Fri, 20 Mar 2026 16:20:59 +0000,
-> Marc Zyngier <maz@kernel.org> wrote:
-> > 
-> > On Thu, 05 Mar 2026 14:43:38 +0000,
-> > Will Deacon <will@kernel.org> wrote:
-> > > 
-> > > Host kernel accesses to pages that are inaccessible at stage-2 result in
-> > > the injection of a translation fault, which is fatal unless an exception
-> > > table fixup is registered for the faulting PC (e.g. for user access
-> > > routines). This is undesirable, since a get_user_pages() call could be
-> > > used to obtain a reference to a donated page and then a subsequent
-> > > access via a kernel mapping would lead to a panic().
-> > > 
-> > > Rework the spurious fault handler so that stage-2 faults injected back
-> > > into the host result in the target page being forcefully reclaimed when
-> > > no exception table fixup handler is registered.
-> > 
-> > Is there any reason why you prefer the 'inject fault' followed by
-> > 'gimme that page' dance over a more direct 'unconditionally reclaim
-> > the page on the back of the fault'?
-> > 
-> > I can't figure out what would go wrong in the latter approach, as you
-> > always have an opportunity to inject a (fatal) fault if you can't
-> > safely reclaim the page.
+On Fri, Mar 20, 2026 at 04:35:44PM +0000, Marc Zyngier wrote:
+> On Thu, 05 Mar 2026 14:43:39 +0000,
+> Will Deacon <will@kernel.org> wrote:
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 4ff31947579b..7f705f662c40 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -890,6 +890,49 @@ static int get_valid_guest_pte(struct pkvm_hyp_vm *vm, u64 ipa, kvm_pte_t *ptep,
+> >  	return 0;
+> >  }
+> >  
+> > +int __pkvm_vcpu_in_poison_fault(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +{
+> > +	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
+> > +	kvm_pte_t pte;
+> > +	s8 level;
+> > +	u64 ipa;
+> > +	int ret;
+> > +
+> > +	switch (kvm_vcpu_trap_get_class(&hyp_vcpu->vcpu)) {
+> > +	case ESR_ELx_EC_DABT_LOW:
+> > +	case ESR_ELx_EC_IABT_LOW:
+> > +		if (kvm_vcpu_trap_is_translation_fault(&hyp_vcpu->vcpu))
+> > +			break;
+> > +		fallthrough;
+> > +	default:
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	/*
+> > +	 * The host has the faulting IPA when it calls us from the guest
+> > +	 * fault handler but we retrieve it ourselves from the FAR so as
+> > +	 * to avoid exposing an "oracle" that could reveal data access
+> > +	 * patterns of the guest after initial donation of its pages.
+> > +	 */
+> > +	ipa = kvm_vcpu_get_fault_ipa(&hyp_vcpu->vcpu);
+> > +	ipa |= kvm_vcpu_get_hfar(&hyp_vcpu->vcpu) & GENMASK(11, 0);
 > 
-> To be clear, the reason I'm asking this is that with RME (whether
-> that's with the dreaded CCA or something else), injecting a fault into
-> the host would involve EL3, and I don't trust EL3 to do that. There is
-> also the small detail that the fault syndrome is not strictly
-> architectural, meaning that EL3 would have to learn a pKVM-specific
-> behaviour.
->
-> But EL3 should be able to report a GPC fault to RL-EL2, which then
-> could act the exact same way as pKVM, unmapping, clearing and
-> releasing the page.
+> nit: we now have FAR_TO_FIPA_OFFSET() for this.
 
-I wonder if we should try to get this changed/extended, given that it's
-all software? Perhaps RL-EL2 could populate parts of the fault syndrome
-that get injected back into the host?
+Neat, I'll use that. Thanks.
 
-Ideally, we'd run something at RL-EL2 that is tightly-coupled with KVM
-and so we wouldn't need to teach EL3 anything as long as it lets the
-two talk to each other...
+> > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> > index 32294bd21dde..da0a45dab203 100644
+> > --- a/arch/arm64/kvm/pkvm.c
+> > +++ b/arch/arm64/kvm/pkvm.c
+> > @@ -417,10 +417,13 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+> >  			return -EINVAL;
+> >  
+> >  		/*
+> > -		 * We raced with another vCPU.
+> > +		 * We either raced with another vCPU or the guest PTE
+> > +		 * has been poisoned by an erroneous host access.
+> >  		 */
+> > -		if (mapping)
+> > -			return -EAGAIN;
+> > +		if (mapping) {
+> > +			ret = kvm_call_hyp_nvhe(__pkvm_vcpu_in_poison_fault);
+> > +			return ret ? -EFAULT : -EAGAIN;
+> > +		}
+> 
+> I guess this considers that racing against another vcpu is an unlikely
+> situation, because calling back into EL2 and walking the PTs isn't
+> exactly cheap.
 
-> Thoughts?
+Yeah, I wanted to avoid walking the stage-2 page-table at EL2 on every
+fault, so it ends up being deferred to here in the case that we find an
+existing mapping for the faulting IPA.
 
-I think we need to retain the exception injection behaviour, for two
-reasons:
+> I wonder if there is a mechanism we could use to directly return this
+> information to the host at the point of the guest fault. The only
+> things I can figure out would require the PTE to be valid (access or
+> permission faults, for example), and that'd break the "full PTE
+> dedicated to annotations"...
 
-1. The kernel can over-read strings via load_unaligned_zeropad(). If
-   this happens to walk into a protected page, we have to inject a fault
-   so that the exception handler can fix things up. Otherwise, we'd
-   silently poison protected pages due to software-speculative accesses.
+Oh, I see what you mean... using the fault type as a proxy feels like it
+probably won't scale so well if we ever want to use those faults for
+anything else.
 
-2. If the fault comes directly from userspace (e.g. because of an
-   out-of-bounds access or a virtio problem), the fault handler in the
-   kernel will inject a signal back to userspace which can be caught and
-   handled synchronously. I suppose we could require the VMM to make the
-   guest memory PROT_NONE if it wanted to preserve this behaviour
-   (assuming it doesn't break GUP). Still, it feels desirable to report
-   the problem synchronously when we can.
+If we want to optimise the common case, perhaps I could set a flag in
+the host kvm structure (from EL2) when the page is poisoned in
+__pkvm_host_force_reclaim_page_guest() and then check that here? In that
+case, only VMs that have had a page forcefully-reclaimed will issue the
+hypercall. There's a race, but I think it's ok because we'll get -EAGAIN
+and pick up the flag the next time around.
+
+WDYT? It might be premature optimisation, but it also feels do-able?
 
 Will
 
