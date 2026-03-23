@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC457FC72C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FA8FC72A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4orJb2U7jo77rJOM/60B2idHYzibFtexOIXEJjzLmY=; b=jxARhGpAFGlFEetrvchrQ85eZC
-	t8rQny7FQ/Y9cvSpu5xp7Tvvb9UAcMZLaHWJMn8A2gwT38VR0y8V13hF4zfSlMgi1tGThckmGWkYH
-	otaZsbbkraykL90Hr+bI6jTXvVzNsBqsN2dB63uGzwSuLj82fXowtHHjimnnVtdKG98RXco4N0JDn
-	/q25Agr5JGCAr6rcvENG99xopJ58LhlFNf42ijRg+w65U/gVgxxmc6r3Rgt8nWJnjdwpC1DxGEMH2
-	AVOS1CJL1kJw+NLMRutcW1lRgPXfRuvp6PjCkLm4NwNX62gW2G+yyJtDEo2GRFfVT0i9EOhTeqdAA
-	eg6ggjTA==;
+	bh=Wlkrm0myB9P5DBDaclzihXCLak0GcKolkRDqx8ZruQ0=; b=zcgjT0VPKp9TwFW9Vo89aLf87t
+	nirK45/jERBv4bCNM1xBSG5TtN+UwmLieNuNx7DOOO2qadY21GijhzHOYWyc0d6weabilownBOX5X
+	YBZZXQT8OBhnAqVnCByYoiGmAV01s8OY6WWIUvuDAgDbg8MUaH85te0Jf7TrIIEDEMzSj0sjjfKs+
+	eVfoQifTIBQg2CoVzn/f9Z74PZcvrDDdVKbEmKlV+8pERV/xm/6owVQRH9AAy1iuBYhJkoNd6v8hA
+	1VXXFVSr8wq+C19H2FVdQhzxeZayAEfNBTvSAtEW1iSVgUF6XJY2QBsZVYVzgNmOsYygBTIf+ItuA
+	ecMdEcMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ZIu-0000000G9lF-2agJ;
-	Mon, 23 Mar 2026 07:02:24 +0000
+	id 1w4ZJ0-0000000G9ng-48Rw;
+	Mon, 23 Mar 2026 07:02:30 +0000
 Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ZIt-0000000G9jb-03ST;
-	Mon, 23 Mar 2026 07:02:23 +0000
+	id 1w4ZIz-0000000G9lB-1wml;
+	Mon, 23 Mar 2026 07:02:30 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	Christian Brauner <brauner@kernel.org>
@@ -38,9 +38,9 @@ Cc: Jan Kara <jack@suse.cz>,
 	sparclinux@vger.kernel.org,
 	linux-fsdevel@vger.kernel.org,
 	linux-api@vger.kernel.org
-Subject: [PATCH 2/3] fs: pass on FTRUNCATE_* flags to do_truncate
-Date: Mon, 23 Mar 2026 08:01:45 +0100
-Message-ID: <20260323070205.2939118-3-hch@lst.de>
+Subject: [PATCH 3/3] fs: remove do_sys_truncate
+Date: Mon, 23 Mar 2026 08:01:46 +0100
+Message-ID: <20260323070205.2939118-4-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260323070205.2939118-1-hch@lst.de>
 References: <20260323070205.2939118-1-hch@lst.de>
@@ -60,88 +60,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pass the flags one level down to replace the somewhat confusing small
-argument, and clean up do_truncate as a result.
+do_sys_truncate ist only used to implement ksys_truncate and the native
+truncate syscalls.  Merge do_sys_truncate into ksys_truncate and return
+int from it as it only returns 0 or negative errnos.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- fs/internal.h       |  2 +-
- fs/open.c           | 22 ++++++++++------------
- io_uring/truncate.c |  2 +-
- 3 files changed, 12 insertions(+), 14 deletions(-)
+ fs/open.c                | 8 ++++----
+ include/linux/syscalls.h | 8 +-------
+ 2 files changed, 5 insertions(+), 11 deletions(-)
 
-diff --git a/fs/internal.h b/fs/internal.h
-index 2663823e273a..52e4c354e7a4 100644
---- a/fs/internal.h
-+++ b/fs/internal.h
-@@ -198,7 +198,7 @@ extern struct open_how build_open_how(int flags, umode_t mode);
- extern int build_open_flags(const struct open_how *how, struct open_flags *op);
- struct file *file_close_fd_locked(struct files_struct *files, unsigned fd);
- 
--int do_ftruncate(struct file *file, loff_t length, int small);
-+int do_ftruncate(struct file *file, loff_t length, unsigned int flags);
- int chmod_common(const struct path *path, umode_t mode);
- int do_fchownat(int dfd, const char __user *filename, uid_t user, gid_t group,
- 		int flag);
 diff --git a/fs/open.c b/fs/open.c
-index 412d0d6fbaa7..181c1597e73c 100644
+index 181c1597e73c..681d405bc61e 100644
 --- a/fs/open.c
 +++ b/fs/open.c
-@@ -161,23 +161,21 @@ COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length
+@@ -126,7 +126,7 @@ int vfs_truncate(const struct path *path, loff_t length)
+ }
+ EXPORT_SYMBOL_GPL(vfs_truncate);
+ 
+-int do_sys_truncate(const char __user *pathname, loff_t length)
++int ksys_truncate(const char __user *pathname, loff_t length)
+ {
+ 	unsigned int lookup_flags = LOOKUP_FOLLOW;
+ 	struct path path;
+@@ -151,13 +151,13 @@ int do_sys_truncate(const char __user *pathname, loff_t length)
+ 
+ SYSCALL_DEFINE2(truncate, const char __user *, path, long, length)
+ {
+-	return do_sys_truncate(path, length);
++	return ksys_truncate(path, length);
+ }
+ 
+ #ifdef CONFIG_COMPAT
+ COMPAT_SYSCALL_DEFINE2(truncate, const char __user *, path, compat_off_t, length)
+ {
+-	return do_sys_truncate(path, length);
++	return ksys_truncate(path, length);
  }
  #endif
  
--int do_ftruncate(struct file *file, loff_t length, int small)
-+int do_ftruncate(struct file *file, loff_t length, unsigned int flags)
+@@ -222,7 +222,7 @@ COMPAT_SYSCALL_DEFINE2(ftruncate, unsigned int, fd, compat_off_t, length)
+ #if BITS_PER_LONG == 32
+ SYSCALL_DEFINE2(truncate64, const char __user *, path, loff_t, length)
  {
--	struct inode *inode;
--	struct dentry *dentry;
-+	struct dentry *dentry = file->f_path.dentry;
-+	struct inode *inode = dentry->d_inode;
- 	int error;
- 
--	/* explicitly opened as large or we are on 64-bit box */
--	if (file->f_flags & O_LARGEFILE)
--		small = 0;
--
--	dentry = file->f_path.dentry;
--	inode = dentry->d_inode;
- 	if (!S_ISREG(inode->i_mode) || !(file->f_mode & FMODE_WRITE))
- 		return -EINVAL;
- 
--	/* Cannot ftruncate over 2^31 bytes without large file support */
--	if (small && length > MAX_NON_LFS)
-+	/*
-+	 * Cannot ftruncate over 2^31 bytes without large file support, either
-+	 * through opening with O_LARGEFILE or by using ftruncate64().
-+	 */
-+	if (length > MAX_NON_LFS &&
-+	    !(file->f_flags & O_LARGEFILE) && !(flags & FTRUNCATE_LFS))
- 		return -EINVAL;
- 
- 	/* Check IS_APPEND on real upper inode */
-@@ -205,7 +203,7 @@ int ksys_ftruncate(unsigned int fd, loff_t length, unsigned int flags)
- 	if (fd_empty(f))
- 		return -EBADF;
- 
--	return do_ftruncate(fd_file(f), length, !(flags & FTRUNCATE_LFS));
-+	return do_ftruncate(fd_file(f), length, flags);
+-	return do_sys_truncate(path, length);
++	return ksys_truncate(path, length);
  }
  
- SYSCALL_DEFINE2(ftruncate, unsigned int, fd, off_t, length)
-diff --git a/io_uring/truncate.c b/io_uring/truncate.c
-index 487baf23b44e..c88d8bd8d20e 100644
---- a/io_uring/truncate.c
-+++ b/io_uring/truncate.c
-@@ -41,7 +41,7 @@ int io_ftruncate(struct io_kiocb *req, unsigned int issue_flags)
+ SYSCALL_DEFINE2(ftruncate64, unsigned int, fd, loff_t, length)
+diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+index 8787b3511c86..f5639d5ac331 100644
+--- a/include/linux/syscalls.h
++++ b/include/linux/syscalls.h
+@@ -1285,13 +1285,7 @@ static inline long ksys_lchown(const char __user *filename, uid_t user,
  
- 	WARN_ON_ONCE(issue_flags & IO_URING_F_NONBLOCK);
+ #define FTRUNCATE_LFS	(1u << 0)	/* allow truncating > 32-bit */
+ int ksys_ftruncate(unsigned int fd, loff_t length, unsigned int flags);
+-
+-int do_sys_truncate(const char __user *pathname, loff_t length);
+-
+-static inline long ksys_truncate(const char __user *pathname, loff_t length)
+-{
+-	return do_sys_truncate(pathname, length);
+-}
++int ksys_truncate(const char __user *pathname, loff_t length);
  
--	ret = do_ftruncate(req->file, ft->len, 1);
-+	ret = do_ftruncate(req->file, ft->len, 0);
- 
- 	io_req_set_res(req, ret, 0);
- 	return IOU_COMPLETE;
+ static inline unsigned int ksys_personality(unsigned int personality)
+ {
 -- 
 2.47.3
 
