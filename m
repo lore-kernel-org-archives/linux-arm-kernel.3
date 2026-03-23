@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23222F483E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB72F483EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzukGy0mDvWVfGApXjKmO3IJfjtD14JfhFuTIWdC1qY=; b=Q2g5gHd5oXlbBF0KMyJJDm4tEL
-	AobqL4mFH9QILP7KSO7vJQK7bp/+xKFxcpT9KZhdxmNp+rLooBBDag/e1oRH5n+edjyX1ifrDFqa7
-	eMPuCM3Kaf4Xbqq3MZwcxCndvZD7AY/fcjsONkczhrq+VGOkdZ2BkGc1i63syH+2iO1S3Qwl+e44+
-	mvpw2XrUSHx92HxEw5kiSjHCho7U2wWovcFGSFNDyBiemvAtBcbebtCcDVxWjesNU+raNCCezChFV
-	5TI9StoxTkpw8wbPZ8HLkRryorcX5X7NNqiyETkXgEohDGXZ7I2TSfryV6HQL7c7YvGCqsifmLzd3
-	w4uix7Nw==;
+	bh=/AltQxVMRaDiZn/otYACU056eFGHpp8ohsXtQFKkbMg=; b=G0YP82BzYe3JqxTOPj4hJj5XLj
+	vbEDKwwpIfhFN/EahbJ+ELBWxg7cd9OSTq4WjxWQsgKuV/2LM8fcMmiT+2rekxR5QCDRF+yCooN3I
+	IhJv6b6ySSjE9g3WAtnGIUrTk2AhHoDrqQM+nsrgGwfkYsSGqBNmu+E/u1n78ys4tm4Cbpl1O6z7I
+	eTElsnmm8/sblfIVXMzStqLWbmTxeafJqR5Uv+MZNQ9QsJ/HvJ1IdrYqDMdR0gVGTZVe67ExagDUG
+	4Q+IWbpNOEp+J/6bkEuhMyGKRr6koKUpsC82pYEjIgzpIhf5aazenlz/0RsGQLp1EsyIfOvmobWa/
+	YuY50DTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4l3e-0000000HSFK-1fVt;
+	id 1w4l3e-0000000HSFS-3sEO;
 	Mon, 23 Mar 2026 19:35:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4l3a-0000000HSEb-2zBE;
+	id 1w4l3b-0000000HSEc-2xeP
+	for linux-arm-kernel@lists.infradead.org;
 	Mon, 23 Mar 2026 19:35:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2C2B41880;
-	Mon, 23 Mar 2026 19:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B188C2BC87;
-	Mon, 23 Mar 2026 19:35:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A59B443B6;
+	Mon, 23 Mar 2026 19:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FB6FC4CEF7;
+	Mon, 23 Mar 2026 19:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774294521;
-	bh=i/t8VSKp5b+BL5E8gx+o445vAz2TiAkmdeFV5lM/HPI=;
+	s=k20201202; t=1774294522;
+	bh=/AltQxVMRaDiZn/otYACU056eFGHpp8ohsXtQFKkbMg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i51Umrv24x2wYxi5FuXuoM4znGJSMe8lAkc2oCadrO+TOCZdcoWNwZQS3hzaK9EHJ
-	 ClUdWOK/5H9wMZI/KIvWBToZPSYD0WhseP7jbi1xX/n7VN9UqNB+dr+Ypt1GQk605U
-	 0jJVngIokSRQTaUegoeVm8rqtidwZ9Ci9gA2WWxQV8gkCcskRyuWtAmQmdqT0wAcjW
-	 0ftIvk+zsSaC7MvPl1PcfCyVrU47G2/lE2OStAC6iEp9rts/dhqKRYzc0BRbEr8qKc
-	 nbYd3zFuKJbBJy0yhK5Kt9IuJ/lIGuk5MHdJspVhVqeaVALvdcVyVjkVbsoJpwMzaw
-	 rZA/42lWPwugA==
-Date: Mon, 23 Mar 2026 14:35:20 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	linux-rockchip@lists.infradead.org,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+	b=mw723Ji8ItqQwUkwxJcN/Lz9ZCPbLplRhgd+/HWLjYYhaaJLwqAchXAPVB8RAhCA2
+	 RJQ4xB1wv9PE8mYmtagQpq6CD2sp5GucDxge8kwOFo7DLsxOwa3Ol/DUDgI+3GpH2W
+	 UryNApEJlAgmW9xEL6N/ptwGGPL/omQbNMntwtTeXGBJt5lnc4AxwrpWBdYQOAm7DU
+	 KUWKu/LxUSCOfgJvc/8yCR9S4R2sQermq2LugTuYmsGfIFXpKjUpoZFLUwx8IVUC/h
+	 9DwUAdT4XaHKI21LeFuhUCfdYjrgLaj4We1bDNeGvs+jL1zvmNsRKC7YWtP8uOmqyj
+	 WbtjNoqX0a+xA==
+Date: Mon, 23 Mar 2026 19:35:15 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Frank Li <Frank.li@nxp.com>
-Subject: Re: [PATCH v2 1/2] media: dt-bindings: rockchip,rk3568-mipi-csi2:
- add rk3588 compatible
-Message-ID: <177429451982.1234730.1312051337335309882.robh@kernel.org>
-References: <20260305-rk3588-csi2rx-v2-0-79d01b615486@collabora.com>
- <20260305-rk3588-csi2rx-v2-1-79d01b615486@collabora.com>
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-can@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Andra-Teodora Ilie <andra.ilie@nxp.com>,
+	Larisa Grigore <larisa.grigore@nxp.com>
+Subject: Re: [PATCH v3 2/6] dt-bindings: can: fsl,flexcan: add NXP S32N79 SoC
+ support
+Message-ID: <20260323-treadmill-enactment-2aa03aaf785d@spud>
+References: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
+ <20260323135827.2129371-3-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8gizptVAuJfhu7Yo"
 Content-Disposition: inline
-In-Reply-To: <20260305-rk3588-csi2rx-v2-1-79d01b615486@collabora.com>
+In-Reply-To: <20260323135827.2129371-3-ciprianmarian.costea@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_123522_775328_D971AA57 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260323_123523_762952_487DE0EF 
+X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,18 +91,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 13 Mar 2026 12:08:45 +0100, Michael Riesch wrote:
-> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
-> the RK3568.
-> Introduce a list of compatible variants and add the RK3588 variant to
-> it.
-> 
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml      | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
-> 
+--8gizptVAuJfhu7Yo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
+--8gizptVAuJfhu7Yo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacGV8wAKCRB4tDGHoIJi
+0vsFAP0btJesQ6LLyqyvxF+cJfSUf05z8QVlm4W0g7uyZH6qDQD/QhkoMM9OvPji
+TI2/IY8edpfBbuYsdSQVYhOjy7CapgI=
+=rX6j
+-----END PGP SIGNATURE-----
+
+--8gizptVAuJfhu7Yo--
 
