@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5ACF46112
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB050F46112
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B/YWoZ3/P7yhoach9i5x35UvO4eHF6OSW5RXxRtkbv8=; b=kAd1ZPpQUH/PAAnPyNqhUf7uPM
-	lNTzSnis2CqPek/GemS7vcTAPGrkiNwB7Yy7uF5M+40KfzNs7YYOfOhxqANRiawtrZEiUe5Msc36q
-	zhSdzgJWhzu4+OJ4Aal+mEE1KYu28fJMBrX2iqVi774EdQXehjQO8cbx4Hh4NDE/TtM3UaXZslV/l
-	ZD8Vm9HORT7AGH3RGvrfs3syiHZgQEPMaVcbw8fjiqbnQPiQdV6hXo3WXuARcp6jlkkapmR4djEkD
-	BrfE3XYsTsg3dodsQAlN6ivUG5aBsxyEimKCR7aMn5GJPjZgY9t3d7W9C8s3iP5hZcliejQocZU8r
-	3qxMhNnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OscSA7VX88n3XrL7v79AKQUAYIeU7nasD2rrGASIl8w=; b=PPrdZpES3h/jK4Bji0PoKdIJ/Y
+	A04mFwkS6KrLhoAqevZ+1vdbv+/CPKKk81OPhGNEpHklhE+poaen5P8Q53Qk3S/HwzBCsuQ58xZp2
+	Zw0cYj4bP7uzS+mCOFPNHU9R2tA/diQjT0tiad9BMroiOm+GcDWAdTpk+8SL+7xthiqFs2JC8losU
+	9kmrwx2A44AHeTvA1CTrlhVj9b+fx1tq02e32FuhVeswAr0d84lekQidLP81mVxW7r4ylX9zlKXLz
+	Sjad2wNSMUgFc43wbwZCIf8fzBN37jUhB/obZOvD0fvUwsRXMGbnIlj+q8gTAsiWNXKFC47GIhm4D
+	AMbY9+OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fY9-0000000GrE8-3Cvf;
-	Mon, 23 Mar 2026 13:42:33 +0000
-Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
+	id 1w4fcv-0000000GrXV-2Iax;
+	Mon, 23 Mar 2026 13:47:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fY6-0000000GrDK-2Zwe
+	id 1w4fcu-0000000GrXD-0mE0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:42:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774273332; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=YWLMt1BESz0MDJjpIIoY7lbYGoBRIuj33ljFEmeSeZqYLKo3+hKwNjGByRc0GRpOi6C2DOzexIDl7KMjdOLpQagFz8cmWDk8Yp4TWCGCdOF8Z/X+J9sJKeZGvXIp74XfN3Dt+sil0cWQ1HMn35Xh3DC1p3KfKpOqyz4SYx+vhfA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774273332; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=B/YWoZ3/P7yhoach9i5x35UvO4eHF6OSW5RXxRtkbv8=; 
-	b=c+/0LEkWxn8b+GazaZ0hzWuxWGBF3qSJ4foEfi07WkFvuBVYMXQhYQPBpouXxoMXr1R/usFVFG2fa/0urWGN5n1cPzU9TXZ0BLKLjrKybqevlUC4xDRHNDXCYOvkOVi4y9gQ0OLNrDw2FPLS8u55JoG55tUI4Zp9eYmMOu4WXLU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=trunixcodes@zohomail.com;
-	dmarc=pass header.from=<trunixcodes@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774273332;
-	s=zm2022; d=zohomail.com; i=trunixcodes@zohomail.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=B/YWoZ3/P7yhoach9i5x35UvO4eHF6OSW5RXxRtkbv8=;
-	b=PzeuQvOqP58m2fvoBqtKod2LL54xID/NdzECU7cl/IZ02DOlxfjbzdgcb9ZgGoV8
-	n7D4L1P0ON713IQs3iCAKvcRJx82jzMbvr2wI5VFif5J2Fzq2aEYQmPFVthteyGAv/6
-	+nHUEZMUBY2RIgxQxUJHGyYedmmGiMDcUnuOUVQQ=
-Received: by mx.zohomail.com with SMTPS id 1774273331223815.8540051298768;
-	Mon, 23 Mar 2026 06:42:11 -0700 (PDT)
-From: Ethan Luna <trunixcodes@zohomail.com>
-To: peterhuewe@gmx.de,
-	jarkko@kernel.org
-Cc: jgg@ziepe.ca,
-	nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] tpm: i2c: atmel: fix block comment formatting
-Date: Mon, 23 Mar 2026 06:40:49 -0700
-Message-ID: <20260323134200.7766-1-trunixcodes@zohomail.com>
-X-Mailer: git-send-email 2.53.0
+	Mon, 23 Mar 2026 13:47:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D2B4600AC;
+	Mon, 23 Mar 2026 13:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA10C4CEF7;
+	Mon, 23 Mar 2026 13:47:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774273647;
+	bh=n/BN5CL1WxBMpMxMXTlEGYNKW0+Dt8dFs9PN5GhrPc8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jFqT8tOKxCtEL4bjUYtNwV0kyZpM34BPJ1M7/93ycZ8k+sJjClfRZHcpWmd80cGFW
+	 VQ+Brrjc4Gc68SlSQvKBmgHg63PEeO0YQGlKgHC2+UX4HtnYp1e2xxtx/ihz/NOuv3
+	 WbVIT734BcsAp35mgE/L5VJDSGjJDrM0OfqKuSb03tCMkub76wR9a6AFLDbwkTe1Md
+	 FJE583U1jnwmjBtb8+gl6xbV6x+Py0Rqe12Xh7E46hYf+QJdrYdytiFZKwsQTh1vk+
+	 0HbKVfl068bHzb798Kg3ZmEt9hR1oGxSve/zPag4U0kuT227V/hUPR+WSnLBlQsEcw
+	 Xpet+rWYat6Mw==
+Date: Mon, 23 Mar 2026 13:47:21 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+Cc: olivier.moysan@foss.st.com, arnaud.pouliquen@foss.st.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	lgirdwood@gmail.com, krzk+dt@kernel.org, robh@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] ASoC: dt-bindings: stm32: Fix incorrect compatible
+ string in stm32h7-sai match
+Message-ID: <e4146fbd-3e2e-4d2f-b042-2af006bdfefb@sirena.org.uk>
+References: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Feedback-ID: rr080112276cb5c677688b0b5d5a8bdc4700000e571217a95e1510df44e1961518088c0ac02099ae0364b407:zu0801122744ffdf8d598da53cf7b50c340000fb9598dcb6b536ab228881c1662b59ba53ed999511fea69f49:rf0801122cf7ce3eb0d7f27411f9ae9099000095ac9992e66c5daedf75e7720fa1c9b1866df24cda0360e94f433d2aafd1:ZohoMail
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_064230_692741_9F622D43 
-X-CRM114-Status: GOOD (  18.63  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qE4q0SY78LU6P2Qu"
+Content-Disposition: inline
+In-Reply-To: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
+X-Cookie: Avoid gunfire in the bathroom tonight.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,106 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
-same line as the comment text. This violates the kernel's preferred
-comment style, which requires the closing delimiter to appear on its
-line.
 
-Fix the formatting to improve readability and resolve checkpatch
-warnings.
+--qE4q0SY78LU6P2Qu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
----
+On Sat, Mar 21, 2026 at 02:20:11AM +0100, Jihed Chaibi wrote:
+> The conditional block that defines clock constraints for the stm32h7-sai
+> variant references "st,stm32mph7-sai", which does not match any compatible
+> string in the enum. As a result, clock validation for the h7 variant is
+> silently skipped. Correct the compatible string to "st,stm32h7-sai".
 
-V1 -> V2: Fixed block comment formatting consistently across all multi-line comments
+A web search for stm32mph7 appears to show stm32h7 as the correct part
+number...  ST people, any confirmation here?  Are both valid?
 
-v1: https://lore.kernel.org/all/20260322193112.27010-1-trunixcodes@zohomail.com/
+--qE4q0SY78LU6P2Qu
+Content-Type: application/pgp-signature; name="signature.asc"
 
- drivers/char/tpm/tpm_i2c_atmel.c | 34 +++++++++++++++++++++-----------
- 1 file changed, 23 insertions(+), 11 deletions(-)
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
-index 4f229656a8e2..c3cdc0d6e61c 100644
---- a/drivers/char/tpm/tpm_i2c_atmel.c
-+++ b/drivers/char/tpm/tpm_i2c_atmel.c
-@@ -31,9 +31,11 @@
- 
- struct priv_data {
- 	size_t len;
--	/* This is the amount we read on the first try. 25 was chosen to fit a
-+	/* 
-+	 * This is the amount we read on the first try. 25 was chosen to fit a
- 	 * fair number of read responses in the buffer so a 2nd retry can be
--	 * avoided in small message cases. */
-+	 * avoided in small message cases.
-+	 */
- 	u8 buffer[sizeof(struct tpm_header) + 25];
- };
- 
-@@ -58,7 +60,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
- 	if (status < 0)
- 		return status;
- 
--	/* The upper layer does not support incomplete sends. */
-+	/*
-+	 * The upper layer does not support incomplete sends.
-+	 */
- 	if (status != len)
- 		return -E2BIG;
- 
-@@ -76,9 +80,11 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
- 	if (priv->len == 0)
- 		return -EIO;
- 
--	/* Get the message size from the message header, if we didn't get the
-+	/* 
-+	 * Get the message size from the message header, if we didn't get the
- 	 * whole message in read_status then we need to re-read the
--	 * message. */
-+	 * message.
-+	 */
- 	expected_len = be32_to_cpu(hdr->length);
- 	if (expected_len > count)
- 		return -ENOMEM;
-@@ -111,15 +117,19 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
- 	struct i2c_client *client = to_i2c_client(chip->dev.parent);
- 	int rc;
- 
--	/* The TPM fails the I2C read until it is ready, so we do the entire
-+	/* 
-+	 * The TPM fails the I2C read until it is ready, so we do the entire
- 	 * transfer here and buffer it locally. This way the common code can
--	 * properly handle the timeouts. */
-+	 * properly handle the timeouts.
-+	 */
- 	priv->len = 0;
- 	memset(priv->buffer, 0, sizeof(priv->buffer));
- 
- 
--	/* Once the TPM has completed the command the command remains readable
--	 * until another command is issued. */
-+	/* 
-+	 * Once the TPM has completed the command the command remains readable
-+	 * until another command is issued.
-+	 */
- 	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
- 	dev_dbg(&chip->dev,
- 		"%s: sts=%d", __func__, rc);
-@@ -172,9 +182,11 @@ static int i2c_atmel_probe(struct i2c_client *client)
- 
- 	dev_set_drvdata(&chip->dev, priv);
- 
--	/* There is no known way to probe for this device, and all version
-+	/* 
-+	 * There is no known way to probe for this device, and all version
- 	 * information seems to be read via TPM commands. Thus we rely on the
--	 * TPM startup process in the common code to detect the device. */
-+	 * TPM startup process in the common code to detect the device.
-+	 */
- 
- 	return tpm_chip_register(chip);
- }
--- 
-2.53.0
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBRGgACgkQJNaLcl1U
+h9Ad4gf9FDP7GFBd0VCxZa8UNz10NKWI6UItALUjjjsjEf9mhswPDggnsknBDl2Y
+4w+9nGrTJ1aX9nQUDXAk5ffeZJkk91NB7AwIOTVNqXoduBQZ3SaN/xy79C2JNNEN
+CDIUAvRPa7QIA4bxmHJCA7AttHDuDToBYSGm3TOMJpJqtDZiGBmLckgE9tkMEzDX
+odvwRZL1SHf94AwsDZw5rSV3+xBtGHwSiGcOr419u7dE8MuEZmU/W2/ghdhCHgMx
+cuL7bDPqfruIPaOgiVXK3yoSyOQjs/KqtyOrwIjMoxjLUt8bNUMTkKvbB2udagcV
+P3rXfJ+QMo5MqneyzB7J7DS+1Mjf0g==
+=Zi5l
+-----END PGP SIGNATURE-----
 
+--qE4q0SY78LU6P2Qu--
 
