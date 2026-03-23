@@ -4,81 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81274D58CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 22:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F8BED58CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 23:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2FUlbBkvBLVFdNmaLX9tGhQ46KhUPmEjRBcpuvYzF8=; b=jhDEDBj6pDA/FSCEfetx40iwe8
-	ICk8pNCV9i43pgkvZiovMFMNHllpACbsNixtr+gN1svYl1pfH6xKOq0ojRBtBrYyUSGmAszcPDfB+
-	uF3uJiK3mDmzp+0sSsSkXJ2a4VOLQ/geG/6eNG5YWgNWWRUVIBLj5/Vryq1LFsC/MquTBhZGlsaYX
-	5qnEIUbbuy7hK3Pi8jx62AUQxPxqTtWrnFhHOXZ1+LD0Vv3ocpD2YEXJq3n4IwwPX+JZwYg2UtB17
-	ShBRtBt1Wq2Sm8pNLRBoHEfERmBBf/+367l4xfd/O+XHz7oYu8YTGjYaamwSj3ErhFSTEDBCUyogP
-	10FzRWpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R4uMInzq5NgkDWXHQnks9slhjJJ86gHcLkRkbnR911M=; b=aYHajvBa1KfYwsmyWlOofeBLHq
+	VGib/X/xUVA1YMsCEVdCi/U4MGUlFlt5v9DfUvWD8Bg0AmlNzSgsSm5E2n9wbEveP93pz5VDxJOMn
+	9KV+nSMQ9LFPm6yf88hpwMc2VvZKxpZJfrjHGkFLBIt5nYPZIBbioYyDTjohhVjPJrJJQ6WxHE1IB
+	uFFn/4CP3OchF2C9xoSfTHh6ADU1KIPhNqNuYz3arkL6pXHSa0nUlrnszKI1xtYQEPb9uaSNUhWf0
+	aygKWU6aLmocJkp2oZA9uZg3BViGPrIkRVxSdJc+3TjKiFdsU0BcZX1EFGW3hQDRQcfNau/emN6cr
+	vtl3XQ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4oF2-000000006vR-2i5a;
-	Mon, 23 Mar 2026 22:59:24 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1w4oJt-000000007Ei-0zbf;
+	Mon, 23 Mar 2026 23:04:25 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4oEy-000000006v1-192B
+	id 1w4oJr-000000007Dy-29FU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 22:59:22 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260323225914euoutp024236efe9c9730aca3b477503191c21e2~fmpezqAxC2814628146euoutp02J
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 22:59:14 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260323225914euoutp024236efe9c9730aca3b477503191c21e2~fmpezqAxC2814628146euoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774306754;
-	bh=P2FUlbBkvBLVFdNmaLX9tGhQ46KhUPmEjRBcpuvYzF8=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=jYGzTZeZSvGSOJJX3UeovqfeXE/eQUAMlIBHQ8QqNRBO1mZZxzHzrZ7fDQyQsNQcQ
-	 SsxDI6AUQIJfT8xkauSatpu33/EBLbcuOgS4iXqsArlRcOjtRxuyx3Cez3B4B3ZwRA
-	 BB+1lyBzZhcBKRDxlTC3kldXONQ0oV/dE5I0JEW4=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260323225913eucas1p27d37fb261288ce51d50a4a566ba44f7d~fmpd9llab0348903489eucas1p2G;
-	Mon, 23 Mar 2026 22:59:13 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260323225912eusmtip1826bb496df313ad92acb02f2ee6d9af3~fmpctZOkU0832708327eusmtip1M;
-	Mon, 23 Mar 2026 22:59:12 +0000 (GMT)
-Message-ID: <b482be19-d702-40a0-bb05-9198494f17fa@samsung.com>
-Date: Mon, 23 Mar 2026 23:59:11 +0100
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
-To: Andrei Vagin <avagin@google.com>, Kees Cook <kees@kernel.org>, Andrew
-	Morton <akpm@linux-foundation.org>
-Cc: Cyrill Gorcunov <gorcunov@gmail.com>, Mike Rapoport <rppt@kernel.org>,
-	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, criu@lists.linux.dev, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, Chen Ridong <chenridong@huawei.com>,
-	Christian Brauner <brauner@kernel.org>, David Hildenbrand
-	<david@kernel.org>, Eric Biederman <ebiederm@xmission.com>, Lorenzo Stoakes
-	<lorenzo.stoakes@oracle.com>, Michal Koutny <mkoutny@suse.com>, Alexander
-	Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260323175340.3361311-2-avagin@google.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260323225913eucas1p27d37fb261288ce51d50a4a566ba44f7d
-X-Msg-Generator: CA
+	Mon, 23 Mar 2026 23:04:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GA5dnot4bb5JcZIp4Yrrk5Dg2mlLH9H5hU4RnoL8M9DwKhLG95+L265g2bFtXbiHTOrF8c9pgj6Yk4+QE4G6rpkCc32t2uiD5goz2NpItfh2xbRsCc6iGUxB6FhPeeIlFRzKu6O0f26POZGS6N/qpzcApSUCEn5uQZH7OKxn52GPYoFakJBnc8GK75JzENk+i01ZaUwmYQkMBVda5ozxqJeMtMlgbSY20cVC1IrnzAggk3/GpdbHIhzj2IJOTmfl/x/bK7cT+H5KU8DE8pWITaXXut1vE1LU9oggvBjZkNI0j8/mobPX86C+5exz66UvfXYczgl3C+EKRUONbTdiYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R4uMInzq5NgkDWXHQnks9slhjJJ86gHcLkRkbnR911M=;
+ b=QksWgBltUZNvABQRTnaT0Hg++gH7sM832JnMNg9JWnVEk3IlVjEi0eZ5y7Vajhp0ATSDLtrO9YeGTmx7Bj4SsHgHgzOZ0oWA5ao1iKJ9KsS269a+DVK0XlqQjwXdDWj9uj/khGaKS5dKgyShigl+uf8Bfh5u2LKfxis+FT/ys+8dd7x9lh24gDN41ow/NR6tclnbjosgoa708r7SJk273pBbBuCrr1efwF4BZYTqAiluSB8zOrZoDg0hXPYTBzzZVG0XLWNBB2SerI4LKcDNe3s4heHTOsFyt5DIP7rBQNaWlPveUb2gP2XewSmJ/7tAFU6kgPVN+obtEjDXnm14VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R4uMInzq5NgkDWXHQnks9slhjJJ86gHcLkRkbnR911M=;
+ b=Ef279bJVQZnBwl3CJzR4x+6l6XGLL86HsHshhBYlsfcuue8mBFdzvJPqHf2xbjAf1C+PGRH36keM3hd40QNXkrrrLdNHpYf71PNYiz5LGCHAcIMbPv7nNnqkFNTUi7MGAz+GU7FnH3HdEjNEAPmm2bDHHGI5HjXBN75jqTCKxrs+bCbfACR38K0+09IbTPg5rWqRK59gYsgTPTyL6LEF9EZnUtNOYmmoKCJngTb9ciufUOTo+ymPCVFv3RgI1q2JbbgZSPNiBnmwiGCIQ/5AC8mzWQl+dAHWPo0UnXCyW6ORFCUXQ/MadByQTvOab7U25jU9fw8XQWQjILF0ECNHMw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB7990.eurprd04.prod.outlook.com (2603:10a6:20b:2a5::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Mon, 23 Mar
+ 2026 23:04:18 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 23:04:11 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Forrest Shi <xuelin.shi@nxp.com>,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: freescale: imx93: Add Ethos-U65 NPU and SRAM nodes
+Date: Mon, 23 Mar 2026 19:03:58 -0400
+Message-ID: <177430687636.1464261.2364554085578692462.b4-ty@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260306203103.3119790-1-robh@kernel.org>
+References: <20260306203103.3119790-1-robh@kernel.org>
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260323175407eucas1p2de1dfc8a6e319580cbc8a3de8ec3d11e
-X-EPHeader: CA
-X-CMS-RootMailID: 20260323175407eucas1p2de1dfc8a6e319580cbc8a3de8ec3d11e
-References: <20260323175340.3361311-1-avagin@google.com>
-	<CGME20260323175407eucas1p2de1dfc8a6e319580cbc8a3de8ec3d11e@eucas1p2.samsung.com>
-	<20260323175340.3361311-2-avagin@google.com>
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8P220CA0027.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:348::8) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB7990:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e8c4e79-9c05-4d8e-ef83-08de89307e7f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|56012099003|22082099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: yUwClsqNCivBEPehDXaOP+Q5tjs1wHnbYEZiqGXLriJG+VgfYIFxx2uInaBkeESSHpd4wUG4OL0gbRprvNlrLsauHjhhPEi4pYxByEgGkuN6FTGAyew9B7GZB4/odBGbxIMNoG2XLjZv4Qp3eX1/UkhQJmaLAtvChdYTCLgCBpdyBBdjKt5S3s6RG8dKyGMqH/FtRKtpM1QvagvD2pCrk73u9qZZO/lArF9DD/5sFD188bSnCx3gu7ZbTn3qN6JxAmK+VpeBlE3BX66th79snON++DXE9IrWDrpltbhIrd7UMt+/5aDbvAOtzGKUpjV7rqYMQq1YO8VfQxsDLPMWDvR/1ZLCTjPgyzv5tMRzUY0XBUJwmqGowGSDSAy/TbMQWQAyIu5l+3C47srUXjwFV4FngBo8qGvAkbuotzvYzwXJv+54c/DTvs5fn7RKktZoyFnqzrxs1klmU4gaH4Ibmfl5jFOGr1fCFun7Nld3kR1Tr0bV5VaAEES5cGYVaLrhByjrZhISv2Z28B9Zs/OalezKZHLfizZh0ZxuKcTkaYrKvHz36hiclEeQrVW1oJ9LfPmdXiYKkvyQkUMeZGSDEcJ5U6Un7PBqx0aCyiuTm1/Ja58z3t06ZE9Ww3AS03lsYATxf+03PTHhVtkCDuKcoJdXdZbLAOmoraKU8QeHT/BypWp4IEloZCiq9cu3viRU8qfKnw7xdA/1qGakznaNiEdTPKMXds00E+hfxT0FCYBTNSJr2+fy24csTGMk/izMRILU8JqSfphTnwxhrwXS/0rOjdlyX7xOonwBhSnJlsM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZkZtdGdxRWNZTE5nZUE0U09zZ3M0cG5CbGhIRFVuTlE5K0V2Tm1LUzFORlVx?=
+ =?utf-8?B?WlN6QzA2TnEwZ1JlMjR3TUxPTDl6MVd1M3BWcE50ZjArYkdKYkV2bERFdnRE?=
+ =?utf-8?B?TFlLOWVHMzJkTFJyRTcxd3g1WWNqeUFHQkxJYmJtR2t3WGVBVTcrT0EwbDdl?=
+ =?utf-8?B?YXVTbFBkc3BGUmVxa1RYeGc0MDdwNTdVMDU3WnhVeW4zYWt5ZTNyR0RoNjdR?=
+ =?utf-8?B?U3JaV3BqamJSbCtidXA1NE9mRnhJODFmMEpqNGQ0VllxUWJNajd3QTk3bzhp?=
+ =?utf-8?B?WlBSbllUbEEvMDhQeHZjcVIyaGY1b0IyRFlDOXE4NmxiZ2ZHcmNGZE92Y2Vs?=
+ =?utf-8?B?dmFGaC9xdVNRaFVFQlZjb1cvMVk1ak5CQTRITEQyNUhVMVNuL2VlZDJMWlVF?=
+ =?utf-8?B?V1Y5QVVHNVMwOUppeDFZTzN3MmFadHI1alAvZkR1MmhhWEsxVUk4R2xGY0U5?=
+ =?utf-8?B?VmorNHJna1NralprQzI1UWhKeGVUeHN6d3lKQ3FqZUlrcDVuNEVJZnpsRE1a?=
+ =?utf-8?B?ZHNua25PamNXTTMxNVRLU1NVblhtYVJKdHZMOVJmUUNWbU9DMVNYZ2paTVZ1?=
+ =?utf-8?B?UW1yMUV3QjhjY0xXdS93WW1sQkZWZkhWU2xvajZFdEp3dGFRRWpMblk4bTRZ?=
+ =?utf-8?B?WWYyZTFvQSswUUMyL2dJMksvOWlMOXpTanVHR214VVFNM095aUViZktKNGx0?=
+ =?utf-8?B?K2I0elhvODFpbWk3SnpXVUZEeERHdEJzYXlTVmtFNFAvRVBlNC9kY21IdDRl?=
+ =?utf-8?B?c3VvekFOUVJLOE9tWjZWN2dIVjAvZFd3NU1oOFZGbk9vUlg0anJZcTJVOFk0?=
+ =?utf-8?B?MUliRnV3RDk2NS9yb3JUNVBCeVphL015Q1NTQjZPekpaMlRPWFFWUnplQWtq?=
+ =?utf-8?B?Z1REWUxLZ0dqbStnV3lEcHNOM1VyWUVDMFZOcXBEQlpOeUFNU1AySUxsUTVy?=
+ =?utf-8?B?bmtJbDJIZHJ1N1FGY1RKMHNkYjJSRFBCbzFWK2VGQUdISlJsSWVVR2l6bk1I?=
+ =?utf-8?B?OEZQNEE2UGVIaDBaby9Ib0x1SjB1ZWlnSkJhaklWWlNKRFIzRUhYdzVYM0ov?=
+ =?utf-8?B?YnJ5TlJlcDVhQkxYaFl0SUY3MHNVRlNQNS90UzBibnJySXVYTE9PMG1wZkpB?=
+ =?utf-8?B?MWZXdnR3RjA5b3RCRkEyRnhvdThZYzFtQlFsbU1RY3ZtZmtiZzAxSnRlWGpL?=
+ =?utf-8?B?bU1xS2VVUVRSYVZRUmU0NjYzTlZxWXBTTlRpbHVFSklUQm9aUkhDL3FHdHox?=
+ =?utf-8?B?ZGd0ZnlqMElSdjZ6UGVuM2xVcW0vWmJISzN4UHJVbUhDenNWbFdZbk1SemZh?=
+ =?utf-8?B?VEVoQ1RQOUZpcVN1UFIxYjV2N2NMbUNvV1pmd3Y1WHVRcXNEbGtBS0lRSkZH?=
+ =?utf-8?B?NXpsRGhGWDAxUWVjQlJFdWJXL3N1d0lNNTZmMXJZeFVIdkRJT2UvVEl5VUZl?=
+ =?utf-8?B?Wk8vc3VybnZ2bzBmU29RZFdnY1VSdWEvdUlNYUJFK0RhYnlpakIxZ0pBeWNR?=
+ =?utf-8?B?S2s3bzlyd0lvNXhycWYrZkk3bk50ZkxWczBmSjErMGtKWWw1aGsxUjVqUGNz?=
+ =?utf-8?B?M241YXVRdjdoY0duZ0syM3dLeGtwOUU0dEVQdHlGbkM3SysreEVmdXNpSy9p?=
+ =?utf-8?B?L0Y5U2ZHdTczSDJLdUIwT1p1aE5qNzFvbHRGTHA4aVdNMm43dE5LT3dWWlFE?=
+ =?utf-8?B?T21kOFp4Y2NzZnVQSGZkbVZzYzREY2wvV2FWRmJjMmdyMWFYWVNOZ05PcFE1?=
+ =?utf-8?B?bEthVFY0dEFFVzNZUVE2NEdQRVYvSzZiQ0gyQzJmaWRwSGMzT1VOWUNIc0h3?=
+ =?utf-8?B?RStlVjNVV3VwM2phSFo3UnMzYmpUaEVBNEpzTDArMDJ1MEptMC9RcnVkZklI?=
+ =?utf-8?B?NVJGMXE4WUF6c1lzTmpGZFZIYm5NMDM3WTRwL1dzaXQyOTBidStDRXJoby9E?=
+ =?utf-8?B?YmpXb1ZNN0I0ay9EcWxUckYvY1pUQlF0b3lscG0zalI2a1NLbjFqbTFpS3Zk?=
+ =?utf-8?B?WDJ0VmJudFBzcXhQZytpUGxNZWRGSkdqNUhVc0lId1FCMzk0NkR6NWJBSHpX?=
+ =?utf-8?B?YnQ2aytqM3FISk5YZjV0VmQ0TEwzTXZMbkNveEsvVmd1V1hjT1VzQjdzR1ZR?=
+ =?utf-8?B?eFFPRVlsZU9kWk5TR04wdjZzaG0zeVVUL2pUdkh4bGhXN0M4dS8xbnVENkV6?=
+ =?utf-8?B?bSs3T2JjbjU1ZFI2TmI0YUdGcVBaU0pIbEFJR3JWZHdIM0h0c3hFNXlQYTVH?=
+ =?utf-8?B?S0FkMmJFNWs2SWE5NTRHSzg2TFNhRHFQOUJTdmI1MVNsYlU1YTlnZGpLN0Z6?=
+ =?utf-8?Q?zk6IOskqmfUarkjrZa?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e8c4e79-9c05-4d8e-ef83-08de89307e7f
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 23:04:11.0546
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lFCXsY18kSq3FosapzWaYr4slaef6K+cuqZGq1r2k3JM/YEwItMY6KwCOdbtHr9DwYP7PLVuxITtLpAnCjpogA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7990
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_155921_225353_ABFD53EE 
-X-CRM114-Status: GOOD (  34.79  )
+X-CRM114-CacheID: sfid-20260323_160423_551454_E5D296B5 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,291 +156,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23.03.2026 18:53, Andrei Vagin wrote:
-> Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
-> AT_HWCAP2, etc.) from a parent process when they have been modified via
-> prctl.
+
+On Fri, 06 Mar 2026 14:31:02 -0600, Rob Herring (Arm) wrote:
+> i.MX93 contains an Arm Ethos-U65 NPU. The NPU uses the internal SRAM for
+> temporary buffers. The SRAM is larger than 96KB, but that is all that is
+> available to non-secure world.
 >
-> To support C/R operations (snapshots, live migration) in heterogeneous
-> clusters, we must ensure that processes utilize CPU features available
-> on all potential target nodes. To solve this, we need to advertise a
-> common feature set across the cluster.
 >
-> This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
-> auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV).  When
-> execve() is called, if the current process has MMF_USER_HWCAP set, the
-> HWCAP values are extracted from the current auxiliary vector and stored
-> in the linux_binprm structure. These values are then used to populate
-> the auxiliary vector of the new process, effectively inheriting the
-> hardware capabilities.
->
-> The inherited HWCAPs are masked with the hardware capabilities supported
-> by the current kernel to ensure that we don't report more features than
-> actually supported. This is important to avoid unexpected behavior,
-> especially for processes with additional privileges.
->
-> Reviewed-by: Cyrill Gorcunov <gorcunov@gmail.com>
-> Reviewed-by: Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-> Signed-off-by: Andrei Vagin <avagin@google.com>
 
-v5 fixed the issue I've observed here:
+Applied, thanks!
 
-https://lore.kernel.org/all/aec9c36d-d67a-4b61-9950-57b95afedf75@samsung.com/
+[1/1] arm64: dts: freescale: imx93: Add Ethos-U65 NPU and SRAM nodes
+      commit: c95a5c0b55664ff938371b058673f294ce01fe1b
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Move sram@20480000 node after soc@0 because keep order by address
+Fix line assigned-clock-parents to keep below 100 char to avoid checkpatch
+warning.
 
-> ---
->   fs/binfmt_elf.c          | 13 ++++++---
->   fs/binfmt_elf_fdpic.c    | 13 ++++++---
->   fs/exec.c                | 62 ++++++++++++++++++++++++++++++++++++++++
->   include/linux/binfmts.h  | 11 +++++++
->   include/linux/mm_types.h |  2 ++
->   kernel/fork.c            |  3 ++
->   kernel/sys.c             |  5 +++-
->   7 files changed, 100 insertions(+), 9 deletions(-)
->
-> diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
-> index fb857faaf0d6..d99db73c76f0 100644
-> --- a/fs/binfmt_elf.c
-> +++ b/fs/binfmt_elf.c
-> @@ -183,6 +183,7 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
->   	int ei_index;
->   	const struct cred *cred = current_cred();
->   	struct vm_area_struct *vma;
-> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
->   
->   	/*
->   	 * In some cases (e.g. Hyper-Threading), we want to avoid L1
-> @@ -247,7 +248,8 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
->   	 */
->   	ARCH_DLINFO;
->   #endif
-> -	NEW_AUX_ENT(AT_HWCAP, ELF_HWCAP);
-> +	NEW_AUX_ENT(AT_HWCAP, user_hwcap ?
-> +			      (bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
->   	NEW_AUX_ENT(AT_PAGESZ, ELF_EXEC_PAGESIZE);
->   	NEW_AUX_ENT(AT_CLKTCK, CLOCKS_PER_SEC);
->   	NEW_AUX_ENT(AT_PHDR, phdr_addr);
-> @@ -265,13 +267,16 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
->   	NEW_AUX_ENT(AT_SECURE, bprm->secureexec);
->   	NEW_AUX_ENT(AT_RANDOM, (elf_addr_t)(unsigned long)u_rand_bytes);
->   #ifdef ELF_HWCAP2
-> -	NEW_AUX_ENT(AT_HWCAP2, ELF_HWCAP2);
-> +	NEW_AUX_ENT(AT_HWCAP2, user_hwcap ?
-> +			       (bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
->   #endif
->   #ifdef ELF_HWCAP3
-> -	NEW_AUX_ENT(AT_HWCAP3, ELF_HWCAP3);
-> +	NEW_AUX_ENT(AT_HWCAP3, user_hwcap ?
-> +			       (bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
->   #endif
->   #ifdef ELF_HWCAP4
-> -	NEW_AUX_ENT(AT_HWCAP4, ELF_HWCAP4);
-> +	NEW_AUX_ENT(AT_HWCAP4, user_hwcap ?
-> +			       (bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
->   #endif
->   	NEW_AUX_ENT(AT_EXECFN, bprm->exec);
->   	if (k_platform) {
-> diff --git a/fs/binfmt_elf_fdpic.c b/fs/binfmt_elf_fdpic.c
-> index 95b65aab7daa..92c88471455a 100644
-> --- a/fs/binfmt_elf_fdpic.c
-> +++ b/fs/binfmt_elf_fdpic.c
-> @@ -508,6 +508,7 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
->   	unsigned long flags = 0;
->   	int ei_index;
->   	elf_addr_t *elf_info;
-> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
->   
->   #ifdef CONFIG_MMU
->   	/* In some cases (e.g. Hyper-Threading), we want to avoid L1 evictions
-> @@ -629,15 +630,19 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
->   	 */
->   	ARCH_DLINFO;
->   #endif
-> -	NEW_AUX_ENT(AT_HWCAP,	ELF_HWCAP);
-> +	NEW_AUX_ENT(AT_HWCAP,	user_hwcap ?
-> +				(bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
->   #ifdef ELF_HWCAP2
-> -	NEW_AUX_ENT(AT_HWCAP2,	ELF_HWCAP2);
-> +	NEW_AUX_ENT(AT_HWCAP2,	user_hwcap ?
-> +				(bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
->   #endif
->   #ifdef ELF_HWCAP3
-> -	NEW_AUX_ENT(AT_HWCAP3,	ELF_HWCAP3);
-> +	NEW_AUX_ENT(AT_HWCAP3,	user_hwcap ?
-> +				(bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
->   #endif
->   #ifdef ELF_HWCAP4
-> -	NEW_AUX_ENT(AT_HWCAP4,	ELF_HWCAP4);
-> +	NEW_AUX_ENT(AT_HWCAP4,	user_hwcap ?
-> +				(bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
->   #endif
->   	NEW_AUX_ENT(AT_PAGESZ,	PAGE_SIZE);
->   	NEW_AUX_ENT(AT_CLKTCK,	CLOCKS_PER_SEC);
-> diff --git a/fs/exec.c b/fs/exec.c
-> index 9ea3a775d51e..1cd7d87a0e79 100644
-> --- a/fs/exec.c
-> +++ b/fs/exec.c
-> @@ -1775,6 +1775,65 @@ static int bprm_execve(struct linux_binprm *bprm)
->   	return retval;
->   }
->   
-> +static void inherit_hwcap(struct linux_binprm *bprm)
-> +{
-> +	struct mm_struct *mm = current->mm;
-> +	bool compat = in_compat_syscall();
-> +	int i, n;
-> +
-> +#ifdef ELF_HWCAP4
-> +	n = 4;
-> +#elif defined(ELF_HWCAP3)
-> +	n = 3;
-> +#elif defined(ELF_HWCAP2)
-> +	n = 2;
-> +#else
-> +	n = 1;
-> +#endif
-> +
-> +	for (i = 0; n && i < AT_VECTOR_SIZE; i += 2) {
-> +		unsigned long type, val;
-> +
-> +		if (!compat) {
-> +			type = mm->saved_auxv[i];
-> +			val = mm->saved_auxv[i + 1];
-> +		} else {
-> +			compat_uptr_t *auxv = (compat_uptr_t *)mm->saved_auxv;
-> +
-> +			type = auxv[i];
-> +			val = auxv[i + 1];
-> +		}
-> +
-> +		switch (type) {
-> +		case AT_NULL:
-> +			goto done;
-> +		case AT_HWCAP:
-> +			bprm->hwcap = val;
-> +			break;
-> +#ifdef ELF_HWCAP2
-> +		case AT_HWCAP2:
-> +			bprm->hwcap2 = val;
-> +			break;
-> +#endif
-> +#ifdef ELF_HWCAP3
-> +		case AT_HWCAP3:
-> +			bprm->hwcap3 = val;
-> +			break;
-> +#endif
-> +#ifdef ELF_HWCAP4
-> +		case AT_HWCAP4:
-> +			bprm->hwcap4 = val;
-> +			break;
-> +#endif
-> +		default:
-> +			continue;
-> +		}
-> +		n--;
-> +	}
-> +done:
-> +	mm_flags_set(MMF_USER_HWCAP, bprm->mm);
-> +}
-> +
->   static int do_execveat_common(int fd, struct filename *filename,
->   			      struct user_arg_ptr argv,
->   			      struct user_arg_ptr envp,
-> @@ -1843,6 +1902,9 @@ static int do_execveat_common(int fd, struct filename *filename,
->   			     current->comm, bprm->filename);
->   	}
->   
-> +	if (mm_flags_test(MMF_USER_HWCAP, current->mm))
-> +		inherit_hwcap(bprm);
-> +
->   	return bprm_execve(bprm);
->   }
->   
-> diff --git a/include/linux/binfmts.h b/include/linux/binfmts.h
-> index 65abd5ab8836..94a3dcf9b1d2 100644
-> --- a/include/linux/binfmts.h
-> +++ b/include/linux/binfmts.h
-> @@ -2,6 +2,7 @@
->   #ifndef _LINUX_BINFMTS_H
->   #define _LINUX_BINFMTS_H
->   
-> +#include <linux/elf.h>
->   #include <linux/sched.h>
->   #include <linux/unistd.h>
->   #include <asm/exec.h>
-> @@ -67,6 +68,16 @@ struct linux_binprm {
->   	unsigned long exec;
->   
->   	struct rlimit rlim_stack; /* Saved RLIMIT_STACK used during exec. */
-> +	unsigned long hwcap;
-> +#ifdef ELF_HWCAP2
-> +	unsigned long hwcap2;
-> +#endif
-> +#ifdef ELF_HWCAP3
-> +	unsigned long hwcap3;
-> +#endif
-> +#ifdef ELF_HWCAP4
-> +	unsigned long hwcap4;
-> +#endif
->   
->   	char buf[BINPRM_BUF_SIZE];
->   } __randomize_layout;
-> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-> index 3cc8ae722886..62dde645f469 100644
-> --- a/include/linux/mm_types.h
-> +++ b/include/linux/mm_types.h
-> @@ -1919,6 +1919,8 @@ enum {
->   #define MMF_TOPDOWN		31	/* mm searches top down by default */
->   #define MMF_TOPDOWN_MASK	BIT(MMF_TOPDOWN)
->   
-> +#define MMF_USER_HWCAP		32	/* user-defined HWCAPs */
-> +
->   #define MMF_INIT_LEGACY_MASK	(MMF_DUMPABLE_MASK | MMF_DUMP_FILTER_MASK |\
->   				 MMF_DISABLE_THP_MASK | MMF_HAS_MDWE_MASK |\
->   				 MMF_VM_MERGE_ANY_MASK | MMF_TOPDOWN_MASK)
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index bc2bf58b93b6..2ac277aa078c 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -1105,6 +1105,9 @@ static struct mm_struct *mm_init(struct mm_struct *mm, struct task_struct *p,
->   
->   		__mm_flags_overwrite_word(mm, mmf_init_legacy_flags(flags));
->   		mm->def_flags = current->mm->def_flags & VM_INIT_DEF_MASK;
-> +
-> +		if (mm_flags_test(MMF_USER_HWCAP, current->mm))
-> +			mm_flags_set(MMF_USER_HWCAP, mm);
->   	} else {
->   		__mm_flags_overwrite_word(mm, default_dump_filter);
->   		mm->def_flags = 0;
-> diff --git a/kernel/sys.c b/kernel/sys.c
-> index cdbf8513caf6..e4b0fa2f6845 100644
-> --- a/kernel/sys.c
-> +++ b/kernel/sys.c
-> @@ -2157,8 +2157,10 @@ static int prctl_set_mm_map(int opt, const void __user *addr, unsigned long data
->   	 * not introduce additional locks here making the kernel
->   	 * more complex.
->   	 */
-> -	if (prctl_map.auxv_size)
-> +	if (prctl_map.auxv_size) {
->   		memcpy(mm->saved_auxv, user_auxv, sizeof(user_auxv));
-> +		mm_flags_set(MMF_USER_HWCAP, mm);
-> +	}
->   
->   	mmap_read_unlock(mm);
->   	return 0;
-> @@ -2190,6 +2192,7 @@ static int prctl_set_auxv(struct mm_struct *mm, unsigned long addr,
->   
->   	task_lock(current);
->   	memcpy(mm->saved_auxv, user_auxv, len);
-> +	mm_flags_set(MMF_USER_HWCAP, mm);
->   	task_unlock(current);
->   
->   	return 0;
+About sram size discussion, we can fix later.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
