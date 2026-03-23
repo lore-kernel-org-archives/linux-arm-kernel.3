@@ -4,45 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC87F46137
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B40F46132
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abMc/+RpRXqb6A157XT9WeH6XIAGt3sWmMtm4v19n84=; b=f9Yt5eKPtv3rg89JD2RnSjaTgC
-	uOvamPmZOEFPqH3NCPD5ZUlb3iF+kUQPJRMZbmBXcG/ZlN/f5o3tVMC5HDRGzODV5eSKbMRVsdC95
-	59XONvCSl8WuAlD6p9OP1yrcAxybPQ+XJqX6kYOpTq+HZLMSjI6KXHk3rRk83k3qho1XTckNJDt0c
-	ZNrfGtr9se5bJEf+3N/LUAK+Zdmf3DkYAS4CzF7GltalWrEP0RUi+oYBtODvH1uvhHU8m0j2NyKUd
-	Qa/EfKf3bIWzkDEIQi1TacX6WBi/RZ95ZikEKvLF5RsuEBPCUMpvmN10K6JmYXkBww/5T9XxzEMRe
-	FdNiJ6Ug==;
+	bh=nTSl2OG5DiP4Tzrdin34Md98OgKsXpz3qr2juSxA29Y=; b=cWE/jA6e/NuEYbowiG8mqGDTl4
+	hePmhWtPDoyL2VAV2VKNWINkp+vfRMWIzvQrGIhaXYuoYZfeGcPiSq244O+1t/QMgjKJasKktGl2v
+	CA3566ol7O3zCaa1q8Zr2UdO9Hzxomgj5GP+cbLw0GC6YfU9udQsHPipUXCVL+6/KdangU/YfsAff
+	lbdlIAgq3fk/x/6AOlZdgjXDKeb0XxmYsJZmQ4KZ96W/W+iOXSRRUTFYFj4Lt4f0n24si/GsgIM75
+	10zSTGS1hShHZW6/5MQpAd1+mzRbH2HiiPUKrjcthw6l2MIexIaQNa0DqBgEDQ4RA/ASQ71siBfxw
+	uBwwdkEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gkF-0000000Gxud-2RyZ;
-	Mon, 23 Mar 2026 14:59:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4glV-0000000GyL6-36eV;
+	Mon, 23 Mar 2026 15:00:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gkA-0000000Gxts-3tpv
+	id 1w4glU-0000000GyKF-1qkZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Mar 2026 15:00:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=nTSl2OG5DiP4Tzrdin34Md98OgKsXpz3qr2juSxA29Y=; b=hVwYpUa5SKuQVzH/wxOFmedbrv
+	nbX6EZLPU+rRySmuyaihCYpb87xtomW+K+sKdxwqILgYk3Se8p4vuselViQYSFRHK82/j4n8PyT0h
+	f9WjcFnevLeHRgyQi5brs6EcfzK24mvN/z1iowSgkAsWrSnpsH7w7Gkf0f5H4szFEmG849QfDaNBz
+	uFXbqdilTCzEo9OeADCQNmenYik5xOmymof6uht7FMyOLd5qqPWbP8FzVH8s+dJEThcbTBY7GxmSp
+	b0LjFsSVKOjCJYyrDL5+Ks1QmLb6N6yboXGMGpyiifyHwPiHqmWjk8ETSYomCLwe3Ec4LlebZ82Km
+	S35m/k4w==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4glQ-00000001n8J-0LBs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 14:59:04 +0000
+	Mon, 23 Mar 2026 15:00:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7799B43698;
-	Mon, 23 Mar 2026 14:59:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2356C2BCB1;
-	Mon, 23 Mar 2026 14:58:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 82BDA43615;
+	Mon, 23 Mar 2026 15:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2CB2C2BC9E;
+	Mon, 23 Mar 2026 15:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774277942;
-	bh=LPRdzg8aaZAuXnZ8jK5A6DbpFDyp7diOg/t+NXwG7Pc=;
+	s=k20201202; t=1774278016;
+	bh=Hv3zAbS8DeLMrQDrPh89cAimDkr9XNvit+xdTh3RoWc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hxJjPJ8WCX9THBHg3LzrpsZaffD1n/kXXOubCDQCFgtZFmgPhAPGxNWHRjVWggDv5
-	 OGxsoiLUPjcmNckiTBLEpTPuO2OTvlHCjAHW385ln2fMbRsxwe66wjo0+44H5W5afp
-	 h8pBRCH2zhGkYTPBBznBAe9Bhrmj14pqSuxt6SU+poedO6U9y0eLewkYqNfHU4qhu9
-	 2xnLbaSDyx4Diq4tM940y2kaVr2QsDV7+jGgIye7AasTUGS7Ka6nsohP8nZdLeBzaX
-	 8KuukZJkmbvIZ1o+bG9YC+Z0VEH7oTfFVtcVPQwp661GewzXXt4EplJlcOEtghcKZN
-	 fS5UisRxtWXpA==
-Date: Mon, 23 Mar 2026 14:58:56 +0000
+	b=nNdHEjiH4fJldE6ROcEUbFfZ/8o4o/PbBAg79CJYMBezd9MApZMfyHLKMsZeJBjC5
+	 caClkZxB4r3aJixckNrChXGwRsYb4oLgv7JWkNP/L/RbS88nwRUmuG5Yqco0HmSvuq
+	 1vDt1eWOU3h2dQ+ENhu6aMw+2V2lwUYw84LnvRMtUO6NaMh/C4L/v1kgTmOqoa9/59
+	 4m+Ias2QxYpnF63YN7mJjO54WU9JJ69CLFprmJyEas83nDu5jt5V4waXoJ7BnpWHGq
+	 jNOPScYypraXrpEE/8RNXMVuijUX6xBUCJw3y3EeyoJAM9wkT2fX+KwHl4g5ysDlD0
+	 PPcv880wANmig==
+Date: Mon, 23 Mar 2026 15:00:10 +0000
 From: Will Deacon <will@kernel.org>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -54,19 +69,19 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH v3 26/36] KVM: arm64: Return -EFAULT from VCPU_RUN on
- access to a poisoned pte
-Message-ID: <acFVMCb0pMY7r46_@willie-the-truck>
+Subject: Re: [PATCH v3 30/36] KVM: arm64: Allow userspace to create protected
+ VMs when pKVM is enabled
+Message-ID: <acFVeqB2P0rKqvBu@willie-the-truck>
 References: <20260305144351.17071-1-will@kernel.org>
- <20260305144351.17071-27-will@kernel.org>
- <86341u5uhr.wl-maz@kernel.org>
+ <20260305144351.17071-31-will@kernel.org>
+ <865x6q63fu.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86341u5uhr.wl-maz@kernel.org>
+In-Reply-To: <865x6q63fu.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_075903_031159_12704707 
-X-CRM114-Status: GOOD (  31.64  )
+X-CRM114-CacheID: sfid-20260323_150020_467344_181526DF 
+X-CRM114-Status: GOOD (  27.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +96,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 04:35:44PM +0000, Marc Zyngier wrote:
-> On Thu, 05 Mar 2026 14:43:39 +0000,
+On Fri, Mar 20, 2026 at 01:22:29PM +0000, Marc Zyngier wrote:
+> On Thu, 05 Mar 2026 14:43:43 +0000,
 > Will Deacon <will@kernel.org> wrote:
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > index 4ff31947579b..7f705f662c40 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > @@ -890,6 +890,49 @@ static int get_valid_guest_pte(struct pkvm_hyp_vm *vm, u64 ipa, kvm_pte_t *ptep,
-> >  	return 0;
-> >  }
+> > 
+> > Introduce a new VM type for KVM/arm64 to allow userspace to request the
+> > creation of a "protected VM" when the host has booted with pKVM enabled.
+> > 
+> > For now, this depends on CONFIG_EXPERT and results in a taint on first
+> > use as many aspects of a protected VM are not yet protected!
+> > 
+> > Signed-off-by: Will Deacon <will@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_pkvm.h |  2 +-
+> >  arch/arm64/kvm/Kconfig            | 10 ++++++++++
+> >  arch/arm64/kvm/arm.c              |  8 +++++++-
+> >  arch/arm64/kvm/mmu.c              |  3 ---
+> >  arch/arm64/kvm/pkvm.c             | 11 ++++++++++-
+> >  include/uapi/linux/kvm.h          |  5 +++++
+> >  6 files changed, 33 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> > index 7041e398fb4c..2954b311128c 100644
+> > --- a/arch/arm64/include/asm/kvm_pkvm.h
+> > +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> > @@ -17,7 +17,7 @@
 > >  
-> > +int __pkvm_vcpu_in_poison_fault(struct pkvm_hyp_vcpu *hyp_vcpu)
-> > +{
-> > +	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(hyp_vcpu);
-> > +	kvm_pte_t pte;
-> > +	s8 level;
-> > +	u64 ipa;
-> > +	int ret;
-> > +
-> > +	switch (kvm_vcpu_trap_get_class(&hyp_vcpu->vcpu)) {
-> > +	case ESR_ELx_EC_DABT_LOW:
-> > +	case ESR_ELx_EC_IABT_LOW:
-> > +		if (kvm_vcpu_trap_is_translation_fault(&hyp_vcpu->vcpu))
-> > +			break;
-> > +		fallthrough;
-> > +	default:
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/*
-> > +	 * The host has the faulting IPA when it calls us from the guest
-> > +	 * fault handler but we retrieve it ourselves from the FAR so as
-> > +	 * to avoid exposing an "oracle" that could reveal data access
-> > +	 * patterns of the guest after initial donation of its pages.
-> > +	 */
-> > +	ipa = kvm_vcpu_get_fault_ipa(&hyp_vcpu->vcpu);
-> > +	ipa |= kvm_vcpu_get_hfar(&hyp_vcpu->vcpu) & GENMASK(11, 0);
-> 
-> nit: we now have FAR_TO_FIPA_OFFSET() for this.
-
-Neat, I'll use that. Thanks.
-
-> > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> > index 32294bd21dde..da0a45dab203 100644
-> > --- a/arch/arm64/kvm/pkvm.c
-> > +++ b/arch/arm64/kvm/pkvm.c
-> > @@ -417,10 +417,13 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> >  			return -EINVAL;
+> >  #define HYP_MEMBLOCK_REGIONS 128
 > >  
-> >  		/*
-> > -		 * We raced with another vCPU.
-> > +		 * We either raced with another vCPU or the guest PTE
-> > +		 * has been poisoned by an erroneous host access.
-> >  		 */
-> > -		if (mapping)
-> > -			return -EAGAIN;
-> > +		if (mapping) {
-> > +			ret = kvm_call_hyp_nvhe(__pkvm_vcpu_in_poison_fault);
-> > +			return ret ? -EFAULT : -EAGAIN;
-> > +		}
+> > -int pkvm_init_host_vm(struct kvm *kvm);
+> > +int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
+> >  int pkvm_create_hyp_vm(struct kvm *kvm);
+> >  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+> >  void pkvm_destroy_hyp_vm(struct kvm *kvm);
+> > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> > index 7d1f22fd490b..e71f7fb6e89a 100644
+> > --- a/arch/arm64/kvm/Kconfig
+> > +++ b/arch/arm64/kvm/Kconfig
+> > @@ -82,4 +82,14 @@ config PTDUMP_STAGE2_DEBUGFS
+> >  
+> >  	  If in doubt, say N.
+> >  
+> > +config PROTECTED_VM_UAPI
+> > +	bool "Expose protected VMs to userspace (experimental)"
+> > +	depends on KVM && EXPERT
+> > +	help
+> > +	  Say Y here to enable experimental (i.e. in development)
+> > +	  support for creating protected virtual machines using KVM's
+> > +	  KVM_CREATE_VM ioctl() when booted with pKVM enabled.
+> > +
+> > +	  Unless you are a KVM developer, say N.
+> > +
 > 
-> I guess this considers that racing against another vcpu is an unlikely
-> situation, because calling back into EL2 and walking the PTs isn't
-> exactly cheap.
+> Let me once more express my lack of appetite for config options.
+> Protected more is already gated by a command-line option, and requires
+> active buy-in from the user.
+> 
+> Nested support is in the same "not quite finished" state, and yet
+> isn't hidden behind a configuration symbol.
+> 
+> Taint the kernel if you want, but I'd rather we don't add extra config
+> options for this. Documenting the "experimental" aspect of upstream
+> pKVM should be enough.
 
-Yeah, I wanted to avoid walking the stage-2 page-table at EL2 on every
-fault, so it ends up being deferred to here in the case that we find an
-existing mapping for the faulting IPA.
+Since I _do_ expect the user ABI to evolve (probably becoming stricter)
+as we introduce additional protection to parts of the protected VM
+state, I just went for the full shebang: CONFIG option, cmdline option
+and taint.
 
-> I wonder if there is a mechanism we could use to directly return this
-> information to the host at the point of the guest fault. The only
-> things I can figure out would require the PTE to be valid (access or
-> permission faults, for example), and that'd break the "full PTE
-> dedicated to annotations"...
-
-Oh, I see what you mean... using the fault type as a proxy feels like it
-probably won't scale so well if we ever want to use those faults for
-anything else.
-
-If we want to optimise the common case, perhaps I could set a flag in
-the host kvm structure (from EL2) when the page is poisoned in
-__pkvm_host_force_reclaim_page_guest() and then check that here? In that
-case, only VMs that have had a page forcefully-reclaimed will issue the
-hypercall. There's a race, but I think it's ok because we'll get -EAGAIN
-and pick up the flag the next time around.
-
-WDYT? It might be premature optimisation, but it also feels do-able?
+I tend to agree that having *all* of that is overkill, so if you're
+happy for me to drop the CONFIG option, despite the user ABI not being
+stable, then I'm fine with that.
 
 Will
 
