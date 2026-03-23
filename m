@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF169D58CD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 04:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89243D58CC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 04:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPVOVXRS5gJ3PFDSRQQsaieeJxLwdueewdmFDIlgVy4=; b=l4CsfPwAUSybpBxNqiiR3BqkbN
-	kOjCpJueeaKpdwWYh66jy77XEItEH+whbw7uxBUSCT/us2h4jVH3C2pm8QqL/4cLypLymV+68983k
-	R81ufLXDBlHTDiYoHuTvD6FcjRmX0aWchhFFP5UcsM0WiFz0XA1VUCmqHwG2NdKu7gWHTi7vGT8iH
-	oRT6gshEVbKSSx8azKfHAR5L67cGyFFCWLIwSk0LfoE79/FK9KzWTD0LuSGB2pEwxfHWpPkfjzbpk
-	vUBJ9WM8vSWieTCD9o2m9ZM1OrPRLtfxYQKDhrbLNCDdf9Drm8ycNYYC/EOJlS4co8V0lAEYAKtxI
-	cX8oRZAw==;
+	bh=bpzF/CEF7fwWVk/imLxKyu7B/chXAu6y92czDhmcd0o=; b=CwLQLGunLw0l8ngg7DDl+LrcJj
+	67QOCJa0K3oAII+3ePCNp9euPZW8BuMYpqELbXQtgBRGvN/+Re4uQZiAGdE7mc1t8gv2AyGsQLc/3
+	Z0+31oRfR/I6hs6My5zIO2YxWNLNGskoBCm5IE4w3pPeViydA8Lc/ewdDyPRRl0X7gOC5I4Ob8oku
+	rATdYbv7f8u78ha/8LgcMtTJXP/ZzjMerZCnlrLm/dHpg30KNVpXvf3o9dyCv+lvwYpjjmFZOAszJ
+	uDEQt1IlR+ezD6bLVAqWq3WfBxBXtIdgqF9rLu+8YuCAQZg93YnCJsVqSv1tMr2gxYOfTnOWfK40H
+	QJQ+5N0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4X30-0000000G1cl-3Ggj;
-	Mon, 23 Mar 2026 04:37:50 +0000
+	id 1w4X73-0000000G1te-3h6B;
+	Mon, 23 Mar 2026 04:42:01 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4X2w-0000000G1bu-25H0
+	id 1w4X71-0000000G1tJ-10bT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 04:37:48 +0000
+	Mon, 23 Mar 2026 04:42:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774240663;
+	s=mimecast20190719; t=1774240918;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YPVOVXRS5gJ3PFDSRQQsaieeJxLwdueewdmFDIlgVy4=;
-	b=fROIddAdBrQ18dl5r/qCGxXHYOk0Gp5dHNiLafUd26OCfyex/UgwwMEgiITw4LFTymP15Z
-	AeGUf3rIPAjNoWNFNg1TB3o4bLTvdj0c352hKcgPKXEyHTcrMTCoRmpLaMBwGKyLFnJx3j
-	zlALUW5BFW1S4Gp8PWnCtRAlY1Y2D8A=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=bpzF/CEF7fwWVk/imLxKyu7B/chXAu6y92czDhmcd0o=;
+	b=IQh0coUvxzjvf3YqDSHotoIiaBClcc1BbOWuf8lR0NBvhZhsX2BGBBfpHcojCUQmQHu1OZ
+	+IVy9RON7O2GkClAfT3l0TtBAB8XVYoJC4ASMgSExOyjAl6RNAHP2NeJVk7R1KPa2bjpvr
+	hZEYGLJtGBvgRz8SdlUP+11NQusM8c8=
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
+ [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-237-S19mcgu0OSuP6_7YqM1wHQ-1; Mon, 23 Mar 2026 00:37:41 -0400
-X-MC-Unique: S19mcgu0OSuP6_7YqM1wHQ-1
-X-Mimecast-MFC-AGG-ID: S19mcgu0OSuP6_7YqM1wHQ_1774240660
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35ba4bf54beso3376005a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 21:37:41 -0700 (PDT)
+ us-mta-341-3WqPwMSyOa26GPOOjczoIA-1; Mon, 23 Mar 2026 00:41:56 -0400
+X-MC-Unique: 3WqPwMSyOa26GPOOjczoIA-1
+X-Mimecast-MFC-AGG-ID: 3WqPwMSyOa26GPOOjczoIA_1774240915
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-829bf6406ecso9650769b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 21:41:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774240660; x=1774845460;
+        d=1e100.net; s=20251104; t=1774240915; x=1774845715;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YPVOVXRS5gJ3PFDSRQQsaieeJxLwdueewdmFDIlgVy4=;
-        b=N3jXOnwNaZbB8naVOp2xFPNXizHn7n44NM5VCDbE1R+RnNKFwpBv/LnkhauJSjpkeZ
-         2A1Ls8ZuJP/pUM1xbRDBHxEWD2TWSfONTXqrAG1/x2e38b8vaFQwD6pAGZMUkFxkAbsY
-         /Jz2ymN4Iicv5YDi58acGzbLQCWPanNAhCyThDfFsiA7TFy8ppNawWjaJQHbd3erj3/Q
-         o8+KHcFQd0hQzsEVJXOHn/A2dWl7bunUM3Yi1BB/Tjp7jC5ot0kWZ0bKkJVubbY4W2nY
-         wvI8EnVxu+X8pc4vBEXxQS8mfu1oimmYckR29Cr8T4eAyakwkh1EW5knBxP5xUyF84NN
-         cWqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWlGwg2iJ59I6GmLZCt2zpQcha7Ush+A3peVcU7vgMvIUtHymBUgDT4uAmOBtwPptGbooCylS7+8jNtzjAMGCNj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0oDJHmP3kn0EOhyj7FzkGn4UMp7oYBnXetTlOgJD0vT8v5ReO
-	/zgW/VnFBvrR36xPBXv+NjBn6JkbzF8MpHImvYP+wxRfNUB9RwmZcD0Uf9U+wVX2SMrMnzl18ye
-	5Q+faeJZ0JHxB378tjI3PCl/lEJg3Aa9WpR4deZDJZVWYrpSClBs1GsPFR5RztR8sr4lI4dgMzr
-	Jo
-X-Gm-Gg: ATEYQzzc71ZSYQ4hTKAe6Q8RTL22TkN7oIBg+8sb23wiapGc5oBeHp3xXxVEnpVOzHk
-	JaVVcqmz5SoyZdJD/vsOtU6Pg/2GAy1UcygMtiBAevR0bkw5nrs2A3ealx5vmVnsKyYM55YkT0N
-	d3rlJ57fqpa8ZcDrxWlWP2K94UUnm1pnfEJjAiB/5hFQ+loIlqclCMsPqavbDgNEfH70+mMyuaT
-	PbcxmNo1nlDa42SQeYszznHiJwEHoN+Wfg38hIiq2aNvA3UaR4SsNXS2yjUW4IUS/Xtlwm6vXZF
-	wFoAbD7VQaFsYVqnFJQyCs4VwouD2kATo3KNZkLT352aZbjJT/ljVw1qenqqdlUDEHAnc8a9bKC
-	oVp+4AUitIBKC7Kb6gPDHW43dYKyqrZ2Yjf2CjGKkVIvYCOgsPTeT7msHH2/LOdUY
-X-Received: by 2002:a17:90b:288d:b0:359:97d3:5c5b with SMTP id 98e67ed59e1d1-35bd2c6efd0mr8849953a91.20.1774240659532;
-        Sun, 22 Mar 2026 21:37:39 -0700 (PDT)
-X-Received: by 2002:a17:90b:288d:b0:359:97d3:5c5b with SMTP id 98e67ed59e1d1-35bd2c6efd0mr8849913a91.20.1774240659008;
-        Sun, 22 Mar 2026 21:37:39 -0700 (PDT)
+        bh=bpzF/CEF7fwWVk/imLxKyu7B/chXAu6y92czDhmcd0o=;
+        b=BpW/BvpL7PxtuWeIcjb/cEvZ0d7/CTBo4r4XEqkMrP+m1U6WG0UEBCb8/fSxEt1jOm
+         QxshChLjZdTfyIdM8UGq3dNkaq7I/jaujbQNf2mubWAGCKMLMtxebhsCGw1dPRrdn4lg
+         JDZF2KIweR+WHhGw2k9V0hkUMIxljEevMTjyalqo2AvCIVGx2lOJG0J0E9shkfhE5EeS
+         kMtMiRqFlPIhvTsXVSKfcC/LmXVmUMTiSVu9FvGlj++H6i8gUvdJuGsifODNTympvwSk
+         R3/quRvPOUeAx9rmZbwAeP6xi0yqYEYx7t2OkDEw3PjpXBYdfronctGJydONJAHeQsKA
+         rnpw==
+X-Forwarded-Encrypted: i=1; AJvYcCWphI4iGL8o0Um/nvwLH9aKp44EnxNbQUEmUe8rNIBOFU4Hl8CF1+KrWEJOlLX6CpOqygaoINOrFBM+UEXyCOPk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZU0kzVRNoPTmqF00G0S8uY03di6FZgi1QTsLLesUUNuAE6ZY/
+	ocrcROa6cGkKFatilw/ht/wNYyNmeR64NsTzXKedzzSQNL9OHX3z1hyz8EWmWE9bt0IME4HGOdH
+	uRWNgfx4SiRTtqRIKMlpjNvo4ifELjSlnoPadtx6k5emxKdBMcOqfqI5NV/5a6x83xj3PnDfizA
+	CO
+X-Gm-Gg: ATEYQzyX0jptyk/RJMdAA5BTTIy6iqmThFnQWji9GN8i5HgDlU6dLAYV7yJuPObywTu
+	GhaaoVw2P9bUZygDIzgjuyHbz5IGoMjXEm6ts/B3zv9urVjfbZcKbfnoiPPkJuvtELrsottTIDb
+	vFEj59FQI2zW7aOtEpjXLklUmSSzGD+2qVn1Gc4clkU20/wLv3BLlk22d62/i/x/VudhhWVv6S6
+	60pr272AfXvGtQpqMiaHYg7DifiWSuy8xIB64sOwij5wqtk0PaOqsGrziE0HXhINRQKKqNJgyRt
+	gB7PZqPiI44La1d3p6Dow7+7Tv9mh1QgJG3Gj9P/b59sn6KistC3+dqUR/zeHkGxOK5QhBuQMQp
+	NeJtqvymeIvFCKAQXp/ORZF3nTrEN0t7Pv+5y1Jw7fiiaMi5ttRBRqDSnXXrTWk12
+X-Received: by 2002:a05:6a00:21c4:b0:81f:52d4:a5ec with SMTP id d2e1a72fcca58-82a8c37fbfdmr9102369b3a.43.1774240915352;
+        Sun, 22 Mar 2026 21:41:55 -0700 (PDT)
+X-Received: by 2002:a05:6a00:21c4:b0:81f:52d4:a5ec with SMTP id d2e1a72fcca58-82a8c37fbfdmr9102343b3a.43.1774240914907;
+        Sun, 22 Mar 2026 21:41:54 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bd36b169esm3220585a91.12.2026.03.22.21.37.23
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b03aa9fc6sm8259697b3a.7.2026.03.22.21.41.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Mar 2026 21:37:37 -0700 (PDT)
-Message-ID: <ea006d67-34c0-44e3-8a7a-7934fb4da63c@redhat.com>
-Date: Mon, 23 Mar 2026 14:37:20 +1000
+        Sun, 22 Mar 2026 21:41:54 -0700 (PDT)
+Message-ID: <71f9ac1e-9f5a-4f12-807b-bbe0803f99e7@redhat.com>
+Date: Mon, 23 Mar 2026 14:41:39 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 01/40] arm_mpam: Ensure in_reset_state is false after
- applying configuration
+Subject: Re: [PATCH v6 00/40] arm_mpam: Add KVM/arm64 and resctrl glue code
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -98,18 +97,17 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
  zengheng4@huawei.com, linux-doc@vger.kernel.org
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-2-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-2-ben.horgan@arm.com>
+In-Reply-To: <20260313144617.3420416-1-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: YoQrcz2qHBQv8a3frTk-MK_68v9bEqlCoRo7Hc2qV_E_1774240660
+X-Mimecast-MFC-PROC-ID: XAPqTJJOy3MHnjSyg9LH3As-aYnSvfwWoVljk198eoA_1774240915
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_213746_612646_34F57C60 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260322_214159_357592_59A5F76B 
+X-CRM114-Status: GOOD (  29.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,39 +123,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/14/26 12:45 AM, Ben Horgan wrote:
-> From: Zeng Heng <zengheng4@huawei.com>
+> This version of the mpam missing pieces series sees a couple of things
+> dropped or hidden. Memory bandwith utilization with free-running counters
+> is dropped in preference of just always using 'mbm_event' mode (ABMC
+> emulation) which simplifies the code and allows for, in the future,
+> filtering by read/write traffic. So, for the interim, there is no memory
+> bandwidth utilization support. CDP is hidden behind config expert as
+> remount of resctrl fs could potentially lead to out of range PARTIDs being
+> used and the fix requires a change in fs/resctrl. The setting of MPAM2_EL2
+> (for pkvm/nvhe) is dropped as too expensive a write for not much value.
 > 
-> The per-RIS flag, in_reset_state, indicates whether or not the MSC
-> registers are in reset state, and allows avoiding resetting when they are
-> already in reset state. However, when mpam_apply_config() updates the
-> configuration it doesn't update the in_reset_state flag and so even after
-> the configuration update in_reset_state can be true and mpam_reset_ris()
-> will skip the actual register restoration on subsequent resets.
+> There are a couple of 'fixes' at the start of the series which address
+> problems in the base driver but are only user visible due to this series.
 > 
-> Once resctrl has a MPAM backend it will use resctrl_arch_reset_all_ctrls()
-> to reset the MSC configuration on unmount and, if the in_reset_state flag
-> is bogusly true, fail to reset the MSC configuration. The resulting
-> non-reset MSC configuration can lead to persistent performance restrictions
-> even after resctrl is unmounted.
+> Changelogs in patches
 > 
-> Fix by clearing in_reset_state to false immediately after successful
-> configuration application, ensuring that the next reset operation
-> properly restores MSC register defaults.
+> Thanks for all the reviewing and testing so far. Just a bit more to get this
+> over the line.
 > 
-> Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> Acked-by: Ben Horgan <ben.horgan@arm.com>
-> [Horgan: rewrite commit message to not be specific to resctrl unmount]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Subject was originally:
-> arm_mpam: Fix MPAM reset on resctrl unmount by clearing in_reset_state
-> ---
->   drivers/resctrl/mpam_devices.c | 1 +
->   1 file changed, 1 insertion(+)
+> There is a small build conflict with the MPAM abmc precursors series [1], which
+> alters some of the resctrl arch hooks. I will shortly be posting a respin
+> of that too.
+> 
+> [1] https://lore.kernel.org/lkml/20260225201905.3568624-1-ben.horgan@arm.com/
+> 
+>  From James' cover letter:
+> 
+> This is the missing piece to make MPAM usable resctrl in user-space. This has
+> shed its debugfs code and the read/write 'event configuration' for the monitors
+> to make the series smaller.
+> 
+> This adds the arch code and KVM support first. I anticipate the whole thing
+> going via arm64, but if goes via tip instead, the an immutable branch with those
+> patches should be easy to do.
+> 
+> Generally the resctrl glue code works by picking what MPAM features it can expose
+> from the MPAM drive, then configuring the structs that back the resctrl helpers.
+> If your platform is sufficiently Xeon shaped, you should be able to get L2/L3 CPOR
+> bitmaps exposed via resctrl. CSU counters work if they are on/after the L3. MBWU
+> counters are considerably more hairy, and depend on hueristics around the topology,
+> and a bunch of stuff trying to emulate ABMC.
+> If it didn't pick what you wanted it to, please share the debug messages produced
+> when enabling dynamic debug and booting with:
+> | dyndbg="file mpam_resctrl.c +pl"
+> 
+> I've not found a platform that can test all the behaviours around the monitors,
+> so this is where I'd expect the most bugs.
+> 
+> The MPAM spec that describes all the system and MMIO registers can be found here:
+> https://developer.arm.com/documentation/ddi0598/db/?lang=en
+> (Ignored the 'RETIRED' warning - that is just arm moving the documentation around.
+>   This document has the best overview)
+> 
+> 
+> Based on v7.0-rc3
+> 
+> The series can be retrieved from:
+> https://gitlab.arm.com/linux-arm/linux-bh.git mpam_resctrl_glue_v6
 > 
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+[...]
 
+Retested this series on NVidia's grace-hopper machine where L3 cache partitioning
+and MBW (soft) limiting worked as expected. Besides, The L3 cache monitor counters
+are increased as more cache usage is observed.
+
+Tested-by: Gavin Shan <gshan@redhat.com>
+
+Thanks,
+Gavin
 
 
