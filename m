@@ -4,74 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD77FC72A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2C7FC72A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=foORgteAPlfrIAS1ba1QdpFRcnbJ/IN133dyq0cl3iU=; b=xOvV/QSW2X9A7JML6p7RRC7e1o
-	zvxu2uF19bwlnn/JPkGM6SSKu+H72cdIkxqp/xEpApj9/qBHpLDnTxHrOEu8IS0TdGOhbBfS5EwRm
-	tazKWnXkYRLJDT7kyqOosoLVU+jzGLMMELWzFkgpWD+2ZLa1tFDLMFAG/5mTwiYd/BOOT8G9nr5ae
-	9W0oF89/ED2Ha+JnWTwX0FcvmI18dqTR0Gio9XbqG0ppfCKfcwT0wPBBOZjBDmQD2XhvF/UtWg1fx
-	p+gsSi3XHvJIJTXzuhdWwf+MQlhl72iP6AA1ySIQRAI6rvk0aNDlSCQHL7XFPMnJTFRJEuW3w279a
-	TDRIexpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a8MM/xJ9ET8uYLmL6oke3dwsU+HDMWl6bKuiuIQjV/4=; b=XWZpVIb5eiZsBdBVWI2VGGahYs
+	q02WBU3qJ6FdGmdjo/x9xkqd26P4Jjk796NmIlNint9jW+nsmR8MdyHEO3aJZfLW0rNLdiSRosXkV
+	FXdn+Rx/bXwG56UWCbR/W+1lhvPtxCCq30QIibL6QXs+mtqRV6fi+JQJlDfLSNBaJtvyn+moONrKO
+	GVZfyuPv4lM78Z6VmLUzB9nuJ0fAcNaK5jfS+y0AlH1p+QlmGpAu546+QXo7tiEKqlV0WpLfsATbb
+	vOmXM2jKRsDRUcy78nRX7VdVDYgoLDuv7lLZwLlr+XO/4uKFuCp69G8LjZjulIivgytouCEbWeO/m
+	rqFdAvDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Zgp-0000000GC4R-0bAk;
-	Mon, 23 Mar 2026 07:27:07 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1w4Zgt-0000000GC6h-1yHp;
+	Mon, 23 Mar 2026 07:27:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Zgk-0000000GBzs-1yN9
+	id 1w4Zgo-0000000GC3z-27S5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 07:27:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=foORgteAPlfrIAS1ba1QdpFRcnbJ/IN133dyq0cl3iU=; b=R0hPVjz/e4re407HofT8dGEi1i
-	3JQFkXx9UO3s9OlU19vdAjXPHEUcBzvdyiBPi3DsLnMUCj9uOVolF6dMKHg5ofWtTd1S1/g65GYA0
-	bTUmFtRmprxRn8aON9G+L2Rws5xyEd/NkeZSCXRLAUfcPgsoMVHlTQZyiXaZVRhC1zOegPlo/iW3Z
-	d/liLWIOX6ww6cXhLLmsDBL0UeG8/+mGp7VPpE/Q3CuMTKazScNmAjIkVDNJJEItjcHdrFUR5oNfP
-	sog5+bH2+knmqkgqP4jQ7fxHYpymAa1Z5a2dJbVWA7/ss/yw7vI80ZLEOadk7aEOl5i2ASn5wrvat
-	VpK0VGpg==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w4Zga-000OD6-1i;
-	Mon, 23 Mar 2026 08:26:52 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w4Zg2-000N2t-2c;
-	Mon, 23 Mar 2026 08:26:52 +0100
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>,
- Peng Fan <peng.fan@nxp.com>, linux-gpio@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-imx@nxp.com, stable@vger.kernel.org
-Subject: Re: [PATCH v2] gpio: mxc: map Both Edge pad wakeup to Rising Edge
-Date: Mon, 23 Mar 2026 08:26:51 +0100
-Message-ID: <2826794.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260320193150.2508850-1-shenwei.wang@nxp.com>
-References: <20260320193150.2508850-1-shenwei.wang@nxp.com>
+	Mon, 23 Mar 2026 07:27:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 974DF60123;
+	Mon, 23 Mar 2026 07:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08364C2BCB0;
+	Mon, 23 Mar 2026 07:27:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774250825;
+	bh=4mvaC2L/czadecXkPXHTgYIe/GrhSr50cNbfUGrNwdk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Tv4lUu4U9WYwUQur7DH/tDx+7A7KXe23f4O4Y2Lo+BNMV7JDeX5lSybiNGKe+4+FT
+	 Xo7yNr28uJ6oIreAhok8CtZz6NIc+5ssy63ZKycvThFGtmLVp9nBjubVJufgq6En7N
+	 oA+t8+23BZIYH8QoiS0UgHNcAb24JljaGPJkEQK4N6/Zi6D3oLSaOf83+V2cYVvjP+
+	 uO1u0b6P91Pjrifjds03fi9AIYkbAvIIK6OoLi0FL+uxsmYT+/Vo8uPqYFMs0ywWiq
+	 IR3SJa6MmbzbT4IxyjdXkzogDQX0tCTg0nGCGLAZuIgnUa/33nov/vlLjwgOmNOUWu
+	 qzLLNuI4dawBg==
+Message-ID: <7967caff-101a-461a-bc61-aeb8fc8f04b1@kernel.org>
+Date: Mon, 23 Mar 2026 08:27:00 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27948/Sun Mar 22 07:24:25 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_002702_628725_092D4C36 
-X-CRM114-Status: GOOD (  20.29  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: dma: arm-dma350: document generic and
+ combined IRQ topologies
+To: Jun Guo <jun.guo@cixtech.com>, Peter Chen <peter.chen@cixtech.com>
+Cc: fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, robin.murphy@arm.com, Frank.Li@kernel.org,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260319101723.246539-1-jun.guo@cixtech.com>
+ <20260319101723.246539-2-jun.guo@cixtech.com>
+ <20260320-vengeful-violet-cockle-382580@quoll>
+ <ab0VoTut0u4f7EVr@nchen-desktop>
+ <41254f6c-3ce3-4566-acf4-f0bf764565f3@kernel.org>
+ <ab0aYUK1NlUV3riG@nchen-desktop>
+ <45bb547e-8a9a-41ef-a5d3-417dc4f35746@kernel.org>
+ <dd6ee455-7bba-4734-be84-a7db097754c6@cixtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <dd6ee455-7bba-4734-be84-a7db097754c6@cixtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,79 +125,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 20. M=E4rz 2026, 20:31:50 CET schrieb Shenwei Wang:
-> Suspend may fail on i.MX8QM when Falling Edge is used as a pad wakeup
-> trigger due to a hardware bug in the detection logic. Since the hardware
-> does not support Both Edge wakeup, remap requests for Both Edge to Rising
-> Edge by default to avoid hitting this issue.
->=20
-> A warning is emitted when Falling Edge is selected on i.MX8QM.
->=20
-> Fixes: f60c9eac54af ("gpio: mxc: enable pad wakeup on i.MX8x platforms")
-> cc: stable@vger.kernel.org
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->  Changes in V2:
->   - add a check for i.mx8qm and emit a warning when Falling Edge is
->     selected.
->=20
->  drivers/gpio/gpio-mxc.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-> index d7666fe9dbf8..095bcfbc56e0 100644
-> --- a/drivers/gpio/gpio-mxc.c
-> +++ b/drivers/gpio/gpio-mxc.c
-> @@ -584,12 +584,13 @@ static bool mxc_gpio_set_pad_wakeup(struct mxc_gpio=
-_port *port, bool enable)
->  	unsigned long config;
->  	bool ret =3D false;
->  	int i, type;
-> +	bool is_imx8qm =3D of_device_is_compatible(port->dev->of_node, "fsl,imx=
-8qm-gpio");
->=20
->  	static const u32 pad_type_map[] =3D {
->  		IMX_SCU_WAKEUP_OFF,		/* 0 */
->  		IMX_SCU_WAKEUP_RISE_EDGE,	/* IRQ_TYPE_EDGE_RISING */
->  		IMX_SCU_WAKEUP_FALL_EDGE,	/* IRQ_TYPE_EDGE_FALLING */
-> -		IMX_SCU_WAKEUP_FALL_EDGE,	/* IRQ_TYPE_EDGE_BOTH */
-> +		IMX_SCU_WAKEUP_RISE_EDGE,	/* IRQ_TYPE_EDGE_BOTH */
->  		IMX_SCU_WAKEUP_HIGH_LVL,	/* IRQ_TYPE_LEVEL_HIGH */
->  		IMX_SCU_WAKEUP_OFF,		/* 5 */
->  		IMX_SCU_WAKEUP_OFF,		/* 6 */
-> @@ -604,6 +605,12 @@ static bool mxc_gpio_set_pad_wakeup(struct mxc_gpio_=
-port *port, bool enable)
->  				config =3D pad_type_map[type];
->  			else
->  				config =3D IMX_SCU_WAKEUP_OFF;
-> +
-> +			if (is_imx8qm && config =3D=3D IMX_SCU_WAKEUP_FALL_EDGE) {
-> +				dev_warn_once(port->dev, "No falling-edge support on i.MX8QM\n");
+On 23/03/2026 03:09, Jun Guo wrote:
+> Hi Krzysztof,
+> 
+> On 3/20/2026 6:04 PM, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL
+>>
+>> On 20/03/2026 10:58, Peter Chen wrote:
+>>> On 26-03-20 10:43:10, Krzysztof Kozlowski wrote:
+>>>> EXTERNAL EMAIL
+>>>>
+>>>> On 20/03/2026 10:38, Peter Chen wrote:
+>>>>> On 26-03-20 10:12:53, Krzysztof Kozlowski wrote:
+>>>>>> EXTERNAL EMAIL
+>>>>>>
+>>>>>> On Thu, Mar 19, 2026 at 06:17:21PM +0800, Jun Guo wrote:
+>>>>>>> Update the DMA-350 DT binding to match the current driver behavior.
+>>>>>>>
+>>>>>>> Allow both:
+>>>>>>> - "arm,dma-350" as the generic compatible, and
+>>>>>>> - "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
+>>>>>>>
+>>>>>>> Also document interrupt topology variants supported by hardware
+>>>>>>> integration:
+>>>>>>> - one combined interrupt for all channels, or
+>>>>>>> - one interrupt per channel (up to 8 channels).
+>>>>>>>
+>>>>>>> This patch is Assisted-by: Cursor: GPT-5.3 Codex.
+>>>>>>
+>>>>>> Wrong tag, please read carefully the guideline before using LLM tools.
+>>>>>>
+>>>>>
+>>>>> Hi Krzysztof,
+>>>>>
+>>>>> It is the trade off for coding-assistants.rst suggestion and
+>>>>> passing checkpatch.pl. Currently, checkpatch.pl reports the
+>>>>> error for tag without email address. So we choose to add tag
+>>>>> description at patch context.
+>>>>
+>>>> You still have to use correct tag.
+>>>
+>>> You mean even checkpatch.pl reports below error, we still add it
+>>> "Assisted-by: Cursor: GPT-5.3 Codex" as tag?
+>>
+>> Yes, after fixing the contents (that's not entirely correct format I
+>> think). Hopefully someone will fix checkpatch one day...
+> I cannot find any commit records referencing AI via "Co-developed-by" in 
+> the latest kernel GitHub repository, and I also cannot locate any text 
+> describing the correct way to cite AI in the submitting-patches.rst 
+> file. In this case, how can I confirm the current correct format?
 
-How about "No falling-edge support for wakeup on i.MX8QM"? Without
-context this message in the kernellog is confusing.
+If you do not want to read coding with assistant guideline and follow
+its words, then please don't send code created with such tools. Do you
+even have full copyrights to send it here? What license was used by the
+tool to generate you this code?
 
 Best regards,
-Alexander
-
-> +				config =3D IMX_SCU_WAKEUP_OFF;
-> +			}
-> +
->  			ret |=3D mxc_gpio_generic_config(port, i, config);
->  		}
->  	}
-> --
-> 2.43.0
->=20
->=20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Krzysztof
 
