@@ -4,97 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25150F46139
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E63F4613B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+799mjtJ424ayaFpNGDyPK5HSrH/GAuIDLlXAToI0C0=; b=hXweFM1upuazoK01c/JvmRusR5
-	98yHYLdgs0ACppqHiNyYAbvjfcSBTYs5qj4uaTiP6FpATZM9F4PbP4WupmcSkJE6lOkzIp+OObs+I
-	pW4m0qkAyF2pgmInXTuDsbJ0t5FL0nSNFHIyAPkBh2KTuqRrkgfohIn/9G0J2GG1u+3xG/aihSPp5
-	XksjbnFrSSwpRUOJML3IY5nMB7QyLBBlc6Lz1cX3LNL00A8KsBUiKnAo7R8rpwMEJzGuFwa+vhum+
-	iHmCYvn+KtrEo8oxV2qJhvGGXw2jIaokeAmYZA1nJURXwoumPlcNe9tOGUawrLTJeSFR0jN9MB3dW
-	V2aAIROw==;
+	bh=MYU9K1BczlLtBMfJPDu28QIk9pzoA+hXl3yf17nC2HI=; b=RTtA/3MLFe8D5KR7M0IxMqOAfK
+	e0LUpzd3U+i8uzlCzp64aJ6ABf46hMHwUyjto9Ujk3wZvn5VzbcdJrde90pur6WiEWrfL/H8qNvMm
+	2CodcVVhh8jEJVRnghVpWnn2l6HDLACJfdxq+kKZdsNZvKrosCMj/wbrXg/B5VYbWWNNiEnz4UKRS
+	zWawZWGXSjqI6UtL/MOHh+OuxxYZJZwEUbwiK4JMx3DvX6wuoQQkOIrps9bEeMJ0TKmXnCJBXLVWn
+	NY+F76wgZrRRai0wEHdxRKysDqe0yAhCPdDMWX1QShRf6Rq0mCnsozHOLEEAuRv3uo03ShtiLPfGZ
+	BRivG5fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hLv-0000000H2x6-23cI;
-	Mon, 23 Mar 2026 15:38:03 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1w4hME-0000000H31B-26iB;
+	Mon, 23 Mar 2026 15:38:24 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hLs-0000000H2wc-1fiY
+	id 1w4hM2-0000000H2xg-0v2g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 15:38:01 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-43b7ffed973so147909f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 08:37:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774280277; x=1774885077; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+799mjtJ424ayaFpNGDyPK5HSrH/GAuIDLlXAToI0C0=;
-        b=pYWGk1QDeT+aG7cJi/jERhcFs99uBP3DN0O2r9FaTKJ/pcH6TGlC0Q76yAPG6UTTzj
-         WxA6DQRmQbNr7/uIb8qFR7jmMchyuUQsl3wMwVmooXoannfs9S/uP+qdVRy2SsNUAjPn
-         VkcSpNzL8oiLyfsJyDKT5366q6l3xHy0oCBIq6W2FBX14cum6m6gKeN8DYICGCyLuqq7
-         IZ3qK46Xjmikk94OvXRECS3csxrn3XLhu34gQ6y3SXJOBuZkFHNldle1GgCegCsLCpFL
-         DYhRkHL5yIAWgMfMCPvUYrqhdB3LQZqpcQUynasg4HejaoIJRNSkoASAx8Xm7dBQKFDA
-         5MjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774280277; x=1774885077;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+799mjtJ424ayaFpNGDyPK5HSrH/GAuIDLlXAToI0C0=;
-        b=rLJDxQOuzJwLnm99ZyQH0bCrdVvz4Q9WmFPU6gsWnq1iTvddKTCzPv7N3dA/zNvcu1
-         5kf5mGRxNfdfZe5GHV5VPaCFaEhBAR4YAFtxr8XpVb4Tlsfxxp0BOE9uXa7gy3UTtOk0
-         g/zDbicbdkXWmFsVlJuRCD0GAz3+BUhYq++oBDhPJPYoLMuSNwU7XCPZOdX7W4HBVGuJ
-         KOlNySqfMi+PTaLHf5KGbF8knuiAHjfcuCrgGTC4Rd1szIZ0rXzqyH0SX1ixSSYD+eie
-         TwcIT05mTmKxhpn8pqcStO2cchAMb/k79cyrA01/60PDcw9uX5Lw7vfQ/7UyNw5uG2Kj
-         7hUg==
-X-Forwarded-Encrypted: i=1; AJvYcCWvXiIrucWDZqr1AKtXkWLIU82oa2KJi/w6LKs4uS4HAbxAAZXZg7xhwSQovvdK6ynJmnThajKy7vgEMtXTIN5p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnDGrYXKERK1u6nCfH3ugckV0aZbX9+0izRkuRx7hZhGBfZjeY
-	oBlxDHEsppJcO3g6RUG32zIFvEp7rUs/93Rh3AliGgH+v+ilvGuPg0x1Jmq0N/DuDdA=
-X-Gm-Gg: ATEYQzy4rle7XNnxh8I0HttmenC2XbAEQvbvt7hti2xGRGyJ4T6twAavCrE6NSd8Qjc
-	lIOhCZ5T9mOrsWiVAZqOm4GksOZX34gRZGYNCSitvg87WiiQfbSYtcuz6T+UbRFB6HzezoAzLRb
-	siX63T1ouFIli1v0BzN4Uok+tO7c0Ou4ZHRNiZN2WxPqbFMtSURCKyf/lUYPTAhwC4KcsK/meer
-	fkq0k1+x8GGZ5Cbmi5q3U3w42nrRFQWyKjRYzrSun6NXa0xO+994TBMerDzpDy3bl+JDCOydy9S
-	ny2JjqugulK3CNGLqsLq32g1mrbvHZwFPAGif1MmUCadsZ1JwwQI1bRSd10PELTeZEf/uToiAva
-	i36eJTEByjC+wqQf12aPsJrrEjX8sRAORArFk3YeVxtet3Np6SEoUgK9oYHY7DLBqDGfN0M3IdX
-	JeQkSnrZ1YpuxUPH4rUsyR5fiG+IMm7r7WP48ZWiGz1/tHaM6tPr/U3SCkTrElb8bOG/qAfsQU7
-	X88K9cNQ99h
-X-Received: by 2002:a5d:588a:0:b0:43b:634a:8ee3 with SMTP id ffacd0b85a97d-43b642755cbmr20095191f8f.34.1774280277500;
-        Mon, 23 Mar 2026 08:37:57 -0700 (PDT)
-Received: from localhost ([94.4.193.72])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b644bf1c5sm33324552f8f.14.2026.03.23.08.37.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 08:37:57 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Mar 2026 15:37:55 +0000
-Message-Id: <DHA9V6AKRSFP.357L2LIJ2X96U@linaro.org>
-Cc: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH RFC 8/8] arm64: dts: exynos850: add PMU interrupt
- generation node
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Alexey Klimov"
- <alexey.klimov@linaro.org>, "Sam Protsenko" <semen.protsenko@linaro.org>,
- <linux-samsung-soc@vger.kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org>
- <20260226-exynos850-cpuhotplug-v1-8-71d7c4063382@linaro.org>
- <20175026-1576-468f-b68e-4af18d22b875@kernel.org>
-In-Reply-To: <20175026-1576-468f-b68e-4af18d22b875@kernel.org>
+	Mon, 23 Mar 2026 15:38:14 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260323153802epoutp04a6524d00b31d85793e60ef15cd449a1b~fgoQ3ZA7-1364513645epoutp04u
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 15:38:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260323153802epoutp04a6524d00b31d85793e60ef15cd449a1b~fgoQ3ZA7-1364513645epoutp04u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1774280282;
+	bh=MYU9K1BczlLtBMfJPDu28QIk9pzoA+hXl3yf17nC2HI=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=mgU9aFrC+5Kx+21CCBQ48vtUtevP0XGV5aHjupTGFTw7s0wbx2FYZ7piHu2gEGNx9
+	 7FiJ9iRzTsn7N6OtZVcQFwqx9+/yRy1FbPgDJReQh76dJWCUi3xQdbS9llr9OgF8ia
+	 3KFTDuksHm5/ZDwJUU6SICm8wW+RY1yai4quNiMM=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260323153802epcas5p1bb1e979594c5257c037cdf6411e7a177~fgoQZrLX82373723737epcas5p1t;
+	Mon, 23 Mar 2026 15:38:02 +0000 (GMT)
+Received: from epcpadp2new (unknown [182.195.40.142]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4ffckf0KMvz3hhT4; Mon, 23 Mar
+	2026 15:38:02 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20260323123542epcas5p349d0e7c45d02ccaa06c84dbdf1777126~feJElRtj12139221392epcas5p34;
+	Mon, 23 Mar 2026 12:35:42 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260323123538epsmtip2099c850de3b514ee4ac3f5a0092dd02a~feJAkDKG92361023610epsmtip2P;
+	Mon, 23 Mar 2026 12:35:38 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: "'Vladimir Oltean'" <vladimir.oltean@nxp.com>, "'Martin K. Petersen'"
+	<martin.petersen@oracle.com>
+Cc: <linux-phy@lists.infradead.org>, "'Vinod Koul'" <vkoul@kernel.org>,
+	"'Neil	Armstrong'" <neil.armstrong@linaro.org>,
+	<dri-devel@lists.freedesktop.org>, <freedreno@lists.freedesktop.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-can@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<linux-ide@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-rockchip@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-scsi@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <spacemit@lists.linux.dev>,
+	<UNGLinuxDriver@microchip.com>, "'Bart Van Assche'" <bvanassche@acm.org>,
+	"'Peter Griffin'" <peter.griffin@linaro.org>, "'James E.J. Bottomley'"
+	<James.Bottomley@HansenPartnership.com>, "'Krzysztof	Kozlowski'"
+	<krzk@kernel.org>, "'Chanho Park'" <chanho61.park@samsung.com>
+In-Reply-To: <20260323115848.ghdu4sbk75tvggfb@skbuf>
+Subject: RE: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
+ struct phy guts
+Date: Mon, 23 Mar 2026 18:05:36 +0530
+Message-ID: <1891546521.01774280282025.JavaMail.epsvc@epcpadp2new>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJoz1sM+EbPjkyDopxrfJVWkMJWdwI9AyWpAaSC6pgB9ZOp/gJXIgBltGJxFXA=
+Content-Language: en-us
+X-CMS-MailID: 20260323123542epcas5p349d0e7c45d02ccaa06c84dbdf1777126
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CPGSPASS: Y
+X-Hop-Count: 3
+X-CMS-RootMailID: 20260323115859epcas5p10177db12a2e8aee9578271ff1411137b
+References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
+	<20260319223241.1351137-10-vladimir.oltean@nxp.com>
+	<yq1a4w3l04g.fsf@ca-mkp.ca.oracle.com>
+	<CGME20260323115859epcas5p10177db12a2e8aee9578271ff1411137b@epcas5p1.samsung.com>
+	<20260323115848.ghdu4sbk75tvggfb@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_083800_461213_D83F54D0 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260323_083811_974948_6E6FA5D7 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +111,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Mar 7, 2026 at 5:08 PM GMT, Krzysztof Kozlowski wrote:
-> On 26/02/2026 16:47, Alexey Klimov wrote:
->> Add pmu_intr_gen node for Exynos850. This hw block is required
->> for different power management routines like CPU hotplug and
->> different sleep and idle states.
->> Also reference this node from main PMU node.
->>=20
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 6 ++++++
->>  1 file changed, 6 insertions(+)
->>=20
->> diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot=
-/dts/exynos/exynos850.dtsi
->> index cb55015c8dce..e3f4fe6ee118 100644
->> --- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
->> +++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
->> @@ -211,9 +211,15 @@ gic: interrupt-controller@12a01000 {
->>  						 IRQ_TYPE_LEVEL_HIGH)>;
->>  		};
->> =20
->> +		pmu_intr_gen: syscon@11870000 {
->
-> Does not look ordered. Randomness of this file does not make it easier,
-> so assuming this will be resorted someday we come with a tool, please
-> place it after @11800000.
+Hi Vladimir
 
-Ack. Thanks.
+> -----Original Message-----
+> From: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Sent: Monday, March 23, 2026 5:29 PM
+> To: Martin K. Petersen <martin.petersen@oracle.com>
+> Cc: linux-phy@lists.infradead.org; Vinod Koul <vkoul@kernel.org>; Neil
+> Armstrong <neil.armstrong@linaro.org>; dri-devel@lists.freedesktop.org;
+> freedreno@lists.freedesktop.org; linux-arm-kernel@lists.infradead.org;
+> linux-arm-msm@vger.kernel.org; linux-can@vger.kernel.org; linux-
+> gpio@vger.kernel.org; linux-ide@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-media@vger.kernel.org; linux-
+> pci@vger.kernel.org; linux-renesas-soc@vger.kernel.org; linux-
+> riscv@lists.infradead.org; linux-rockchip@lists.infradead.org;
+linux-samsung-
+> soc@vger.kernel.org; linux-scsi@vger.kernel.org;
+linux-sunxi@lists.linux.dev;
+> linux-tegra@vger.kernel.org; linux-usb@vger.kernel.org;
+> netdev@vger.kernel.org; spacemit@lists.linux.dev;
+> UNGLinuxDriver@microchip.com; Bart Van Assche <bvanassche@acm.org>;
+> Alim Akhtar <alim.akhtar@samsung.com>; Peter Griffin
+> <peter.griffin@linaro.org>; James E.J. Bottomley
+> <James.Bottomley@HansenPartnership.com>; Krzysztof Kozlowski
+> <krzk@kernel.org>; Chanho Park <chanho61.park@samsung.com>
+> Subject: Re: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
+> struct phy guts
+> 
+> On Thu, Mar 19, 2026 at 10:15:17PM -0400, Martin K. Petersen wrote:
+> > Vladimir,
+> >
+> > > The Exynos host controller driver is clearly a PHY consumer (gets
+> > > the
+> > > ufs->phy using devm_phy_get()), but pokes into the guts of struct
+> > > ufs->phy
+> > > to get the generic_phy->power_count.
+> >
+> > Ah, newer version. Would still like an ack from Samsung.
+> >
+> > And I hit the wrong key, I did not actually apply this...
+> 
+> I will have to resend v6 because of an armv7 build error I've caused for
+ufs-
+> qcom.c (which doesn't #include <linux/interrupt.h>, and relies on a
+transitive
+> inclusion from <linux/phy/phy.h>). It would be nice to get the ack from
+> Samsung, but I'll send the next version in the upcoming hours regardless.
+Will review and possibly test on one of the board later tonight
 
-BR,
-Alexey
+
+
 
