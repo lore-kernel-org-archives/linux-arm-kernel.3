@@ -4,163 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46094D58CBE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 04:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF169D58CD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 04:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCvlBXZ99NDG5pUFS9gt2G6Z2/x0v6v15bYfZuhB25U=; b=lAy4UxrTcH0Nf4Ob9Ni70vescd
-	AKSAr7wZBbJ9wLOXGls8nhrJDkYZNzqfJklbu3kGaf8dabn9swk+gs/X05I9KoRG0FUH8dOf4HTDN
-	LMNhWqYy1h61iMeR3vlWd8Qo8Q7PFhnOvWqcxNetK+oE3vspA0G1CecKAwj1K0gZQVUfbat0e0a3l
-	wqY97z15bvV6gwSWBJJDeb1+8ZW34/1QLEMmrys8LrTHZeMallbULX9arciIuFT7SazyralzdfOxW
-	obpBKmvgTIPFww7QwBzonjGctFT/CqD0HWGM5mgjarkw9D6BKnkOwQa/aHkaRh9ARiCbJ1undJZiL
-	B7P0+iQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YPVOVXRS5gJ3PFDSRQQsaieeJxLwdueewdmFDIlgVy4=; b=l4CsfPwAUSybpBxNqiiR3BqkbN
+	kOjCpJueeaKpdwWYh66jy77XEItEH+whbw7uxBUSCT/us2h4jVH3C2pm8QqL/4cLypLymV+68983k
+	R81ufLXDBlHTDiYoHuTvD6FcjRmX0aWchhFFP5UcsM0WiFz0XA1VUCmqHwG2NdKu7gWHTi7vGT8iH
+	oRT6gshEVbKSSx8azKfHAR5L67cGyFFCWLIwSk0LfoE79/FK9KzWTD0LuSGB2pEwxfHWpPkfjzbpk
+	vUBJ9WM8vSWieTCD9o2m9ZM1OrPRLtfxYQKDhrbLNCDdf9Drm8ycNYYC/EOJlS4co8V0lAEYAKtxI
+	cX8oRZAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4WiL-0000000G0ua-252D;
-	Mon, 23 Mar 2026 04:16:29 +0000
-Received: from mail-eastus2azolkn19011024.outbound.protection.outlook.com ([52.103.12.24] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1w4X30-0000000G1cl-3Ggj;
+	Mon, 23 Mar 2026 04:37:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4WiJ-0000000G0uA-2umO;
-	Mon, 23 Mar 2026 04:16:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dCfOTcVkN+MJK3Jh06UvxjDCUc5A+5aFISjcZJogegWIqsoBoAxYW7++ud2uy0UlKhplHciU6TdfVSuDs2FdQkwQlEL3zYsqQw10VJMAtZH78t3ANVViCgkdasQQirKUuIIU0wi8KyeGq20fP9JLbdpkTSNNgDaBLJmlN3La9MaRjjerdBJnxk/ZpHTCCpThQrpb1Jp+Pwr5UtaMw/ePvbzzLkLpHXNdO3PXke6shBQBsjOmM8e3+W3zVcVL/F+j1lSXMCP87rDr3+Ja6vLcLMqoHpyfvWpuJS8uuGamU4E6A3ccx8wzgQHqfwUrAbPUCXmbG6y0FoAlXHcgq8O23Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LCvlBXZ99NDG5pUFS9gt2G6Z2/x0v6v15bYfZuhB25U=;
- b=d9YM24qG78WxbUeoehMX2UN9+YpL7gRbqhFyN9lVphDvbyL+Q9QmLLysGN2xxlGVqfTjAUbU4L+talLB0ww12wh46CJtENV+B8wY51IOAhO247MoW8UW2mo/rs40Rt7tU45VYTez1zAvTSEMfxh7Cxerq+ZKR6mCr3CoYMXD34IVk6fRUCCrWjbWyiwPpkXcxY2hhu/X1JdpbEAdcqa+IssjvxMab/uFJb1DuT4C1NLsirEqNd2/13HYh8QDVE0fr3DXxSHwwQtFHKsLOU7GAp1snrdXN2tv40c0nXZh64kPhHxw7kuUAjDQv4CWVEvjw2Bf5tbLQbpTpHOfAze66g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LCvlBXZ99NDG5pUFS9gt2G6Z2/x0v6v15bYfZuhB25U=;
- b=hkdGdBl4GhpKB4eBfHmXOjRFGtlCoLErRHJ3nFK7ly5al1EUpRTQUQ4xXVjZH5Q3Khffc1y8yhyWNYBs+jzN/4aJQsaDLdKKAu6NMgBMT6xJHD0tFplc7xCQS0VKnXkzoU8pMRHxFYAEfGwDg/UJHCb7Qe7Vyoickj7I/o80/WPAMAqXcGcU+xQRM3wOsrXhYupAzfWeyVwF6LYyIP3hJBts9aSr+qB48wCwWAna6oXFI1qGMeG8YkYA9UOSwSULSVHUjKeI/ZUIoZV5kKTLMZXQekpInERU9SbCK2SIIFG2y753n6U9s5bc6EkbWSSYfK+ygfqmqLFPLkJ6cRTcgQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by IA0PR02MB9193.namprd02.prod.outlook.com (2603:10b6:208:43a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Mon, 23 Mar
- 2026 04:16:20 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9723.018; Mon, 23 Mar 2026
- 04:16:20 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Long Li <longli@microsoft.com>, "Lorenzo Stoakes (Oracle)"
-	<ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-CC: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan
- Cui <decui@microsoft.com>, Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger
-	<richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Bodo Stroesser
-	<bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>,
-	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner
-	<brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand
-	<david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, Vlastimil
- Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren
- Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jann Horn
-	<jannh@google.com>, Pedro Falcato <pfalcato@suse.de>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mtd@lists.infradead.org"
-	<linux-mtd@lists.infradead.org>, "linux-staging@lists.linux.dev"
-	<linux-staging@lists.linux.dev>, "linux-scsi@vger.kernel.org"
-	<linux-scsi@vger.kernel.org>, "target-devel@vger.kernel.org"
-	<target-devel@vger.kernel.org>, "linux-afs@lists.infradead.org"
-	<linux-afs@lists.infradead.org>, "linux-fsdevel@vger.kernel.org"
-	<linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	Ryan Roberts <ryan.roberts@arm.com>
-Subject: RE: [PATCH v4 18/21] drivers: hv: vmbus: replace deprecated mmap hook
- with mmap_prepare
-Thread-Topic: [PATCH v4 18/21] drivers: hv: vmbus: replace deprecated mmap
- hook with mmap_prepare
-Thread-Index: AQJN0rqm5S7tosaoM3nkaYB8eJypuAGlwE9MtMwd4aA=
-Date: Mon, 23 Mar 2026 04:16:20 +0000
-Message-ID: <SN6PR02MB41573DF211DA2469D7FFE892D44BA@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <cover.1774045440.git.ljs@kernel.org>
- <05467cb62267d750e5c770147517d4df0246cda6.1774045440.git.ljs@kernel.org>
-In-Reply-To: <05467cb62267d750e5c770147517d4df0246cda6.1774045440.git.ljs@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|IA0PR02MB9193:EE_
-x-ms-office365-filtering-correlation-id: 39a7b7e5-fd47-45ff-0fe0-08de8892f01f
-x-microsoft-antispam: BCL:0;ARA:14566002|461199028|31061999003|13091999003|19110799012|8060799015|8062599012|37011999003|15080799012|12121999013|3412199025|440099028|102099032|40105399003|41105399003|53005399003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?/N3H04TX5bQahuSHyUaieq8RAF4eEp0DeU+m1gxuxPYqKo05Rg5bEthYXy0N?=
- =?us-ascii?Q?7SH4HlohLeS6InvGttrjB4SxysDESZLPBoQWfq1pWOWy8V0RwCCEjYRyroMM?=
- =?us-ascii?Q?PiWCMUEwQdoQ2TLCfacF5D5JPl5FfMWhTCjfOmnuJ/XJqM2HhZfJJTCCdP/s?=
- =?us-ascii?Q?mtCJwE/7NlQ1YQBHAsToPL3VKQ//bY73JrFHJAg04TFtTxnVsuYkwaMkaWQ5?=
- =?us-ascii?Q?CjUUcz8WwXXvJ2OrkvZDAxrcu/CsAS+QypPLO+l2y6tER5FdizzmttuZ+RhD?=
- =?us-ascii?Q?vGzzgKeyNib5W5I1Jvqo2LSp9K7+EVQlnLuVvlE+q8Vwi5KiM0cP/1WL4vcl?=
- =?us-ascii?Q?1iFsRh3nMwOMWFNhMVAw4mfIpB/P7NpVPHcaTb18aL01uAuik7JWV1cw0Hk6?=
- =?us-ascii?Q?jHImw/whHJn4lEh8QQZl/kJHUZWrxNIGMXH8e3pLjMsF4yZJJHfbnwO6ti0G?=
- =?us-ascii?Q?fZ2LNG8NCyjQpvHfdOENae8alVB4aqAsrX18h2QLJVjGrCQSvprRgUVMZKGG?=
- =?us-ascii?Q?Oz5G5hw4YCBiRWG0E8UXiKVOnGvk/Tgk2P6wBEEdZ71L1sTSu3cAWHcrmHE/?=
- =?us-ascii?Q?0XGrG/GnnnTmgOM1g1WYEQ68kJBpKBn1vyxZkF63sWG+b1l5ysyjUwbFzLOv?=
- =?us-ascii?Q?ypEv74WbTjJ2SPsrZAZxD2N4IqYbvIq0ZNbroUGEKJNd8LGY6YwHjkHRwxwv?=
- =?us-ascii?Q?NiKKDVYdcKXUf61EB0AKbHXPBq0Eg+b76UpRtHbmbjdIBWfrTUVoo47QXzJU?=
- =?us-ascii?Q?CPMgw3HHhTFXHztdrE1aWtJeiMRbyC/PRiIGxf2atZatkjfe5A+pArLRqnb2?=
- =?us-ascii?Q?fnK7OkffAlcRzD+lkYY14VQG7uew80QoDEVx5mXYq1qBYX+3v8q5qanYVj0C?=
- =?us-ascii?Q?Vpb1FgEwlpgCV13XnGRc6lqclLC5MtsW8kzGgbxMcWyT4LYpKq6WpJtvnpaz?=
- =?us-ascii?Q?HgfFhxUq62jDj6JgzEMEhx7fUrD3V0J6fCfVchBE26lg3WgveIQBCYcK1qEz?=
- =?us-ascii?Q?7bA8gm2IeSLoxeicTkzr1/AzKieOvz+rWKmNOyDMaJ7wmGc=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?pAMnP1LvvhF6KDwQuSIFbjHW8GgI+vXR6DbPhPgwY7SHNdHVXCQ9HaN3O2lo?=
- =?us-ascii?Q?HCs2smjpU0aA6wKe89W5KOYn7KnlqqvDpej/UGUbpFK6dToRKGXKbWQWmvZ6?=
- =?us-ascii?Q?NlQfqGQbgtrVCNczIH2pMIFB7AYgVIGAttry3EdFXRS8nuozl/sWJdCJOzZn?=
- =?us-ascii?Q?TkyDp6mpsaLiXS3/1nJLjfZw94prMwcak27DqlV0HDRYBu9aDnTG3hzT41r/?=
- =?us-ascii?Q?P5mjl4A+bGyp5SSG/h4g6+5VRc9QADCNkq4mSuw0rmINiM5BIiPhqtAv9FG4?=
- =?us-ascii?Q?R/yoiwHjTwrjNf12DhFLgq4pedb/rrhvQTd8ggKIAUdpg7PaAfBooBPoh9YL?=
- =?us-ascii?Q?7OmoCBbOGozkr0ysbUr1C1b+zmCB/2Es32Iq2m5lk8LVZB9Gm6ag0DlYxufH?=
- =?us-ascii?Q?U9dPHDHSFSVFT8PWzB4aB5rIVseQKu0ki7jlUvkPovmqJcZU/D8tQhmIvbw7?=
- =?us-ascii?Q?VBpfOln/+y9OU+idyZmvLe4CZ0hUq81M525qlghOvgy+VlQVBmWfxBJqHjCC?=
- =?us-ascii?Q?zLQC1BW0oSL06F3LsHA2843eMJlIJXFuustI7ZoAAlZicR/qgM0d12P7lSmE?=
- =?us-ascii?Q?zlIJHXS3TFjHV4S+dc/eyEiYVo59KSeiC01WcJMD/8iKrjs3iNmEBMU8yGwk?=
- =?us-ascii?Q?dPqfwplnl4VashuIWIlUh6RDbomjJsbDV7DdWVODh07HelgIsQaNIaCv+2Cn?=
- =?us-ascii?Q?MgCGrxrnbOAOpbMv+0njzuL1fjySU8OC8PsdeNzLJWaacuQrk55yFar9WSUP?=
- =?us-ascii?Q?V9f5oMNkQQr5IwEhiHNg6mGSmnVgWvof/vALd5y/VzeO8nPtoRXfw6uXxBDf?=
- =?us-ascii?Q?usv5O748XBNIuvGWHd54GcnwUC2qnRlemQBMN/cL9LIvL9tbnh5PBKJKJ6P1?=
- =?us-ascii?Q?JDcGYxLcW8fxNyXXyS+FDHrGYW8bz+Q4BlkHrIvxm3qgeoHeSOebN6aA9qTB?=
- =?us-ascii?Q?0pjNBiXu/OJSrn7w9sJHWG1uys2agIEeHFVTSU1jXb0INe2GkG/MbX6dvC7f?=
- =?us-ascii?Q?T+nqZ3S7mwWAQzv/pK/aiNwEPVXWC/0bMgSfXTGSFE2Kq3hRu7pL9R5B4I89?=
- =?us-ascii?Q?rPGPtLKHpG6YW+fSuVD6zzvp7anVQAmcRKM3zfEsI2XBr03XegxQdtxuximM?=
- =?us-ascii?Q?PUXExKxk8G+thuLDCWkertAMsb8HJNm4yv+2cF9tb1b8a124oLTvj2S6hpsh?=
- =?us-ascii?Q?Bf3EFX2CrQUjHdRfZKlKSSAxkujLMJK3AtLx3Q17IPA40QdOFXwQLutI7yxA?=
- =?us-ascii?Q?tFnogOlM9DijqvgOCL8YqXBy9Qr1uY2SFQLb0iaixSXbWow7+fu6Lwl1C4dD?=
- =?us-ascii?Q?HneraP9k0fQ3+IOA4qLCFgZgNR34FAktHImiSbpDkodftG+5+JAh9ZEFtX+n?=
- =?us-ascii?Q?4qbj2yA=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1w4X2w-0000000G1bu-25H0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 04:37:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774240663;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YPVOVXRS5gJ3PFDSRQQsaieeJxLwdueewdmFDIlgVy4=;
+	b=fROIddAdBrQ18dl5r/qCGxXHYOk0Gp5dHNiLafUd26OCfyex/UgwwMEgiITw4LFTymP15Z
+	AeGUf3rIPAjNoWNFNg1TB3o4bLTvdj0c352hKcgPKXEyHTcrMTCoRmpLaMBwGKyLFnJx3j
+	zlALUW5BFW1S4Gp8PWnCtRAlY1Y2D8A=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-237-S19mcgu0OSuP6_7YqM1wHQ-1; Mon, 23 Mar 2026 00:37:41 -0400
+X-MC-Unique: S19mcgu0OSuP6_7YqM1wHQ-1
+X-Mimecast-MFC-AGG-ID: S19mcgu0OSuP6_7YqM1wHQ_1774240660
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35ba4bf54beso3376005a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 21:37:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774240660; x=1774845460;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YPVOVXRS5gJ3PFDSRQQsaieeJxLwdueewdmFDIlgVy4=;
+        b=N3jXOnwNaZbB8naVOp2xFPNXizHn7n44NM5VCDbE1R+RnNKFwpBv/LnkhauJSjpkeZ
+         2A1Ls8ZuJP/pUM1xbRDBHxEWD2TWSfONTXqrAG1/x2e38b8vaFQwD6pAGZMUkFxkAbsY
+         /Jz2ymN4Iicv5YDi58acGzbLQCWPanNAhCyThDfFsiA7TFy8ppNawWjaJQHbd3erj3/Q
+         o8+KHcFQd0hQzsEVJXOHn/A2dWl7bunUM3Yi1BB/Tjp7jC5ot0kWZ0bKkJVubbY4W2nY
+         wvI8EnVxu+X8pc4vBEXxQS8mfu1oimmYckR29Cr8T4eAyakwkh1EW5knBxP5xUyF84NN
+         cWqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWlGwg2iJ59I6GmLZCt2zpQcha7Ush+A3peVcU7vgMvIUtHymBUgDT4uAmOBtwPptGbooCylS7+8jNtzjAMGCNj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0oDJHmP3kn0EOhyj7FzkGn4UMp7oYBnXetTlOgJD0vT8v5ReO
+	/zgW/VnFBvrR36xPBXv+NjBn6JkbzF8MpHImvYP+wxRfNUB9RwmZcD0Uf9U+wVX2SMrMnzl18ye
+	5Q+faeJZ0JHxB378tjI3PCl/lEJg3Aa9WpR4deZDJZVWYrpSClBs1GsPFR5RztR8sr4lI4dgMzr
+	Jo
+X-Gm-Gg: ATEYQzzc71ZSYQ4hTKAe6Q8RTL22TkN7oIBg+8sb23wiapGc5oBeHp3xXxVEnpVOzHk
+	JaVVcqmz5SoyZdJD/vsOtU6Pg/2GAy1UcygMtiBAevR0bkw5nrs2A3ealx5vmVnsKyYM55YkT0N
+	d3rlJ57fqpa8ZcDrxWlWP2K94UUnm1pnfEJjAiB/5hFQ+loIlqclCMsPqavbDgNEfH70+mMyuaT
+	PbcxmNo1nlDa42SQeYszznHiJwEHoN+Wfg38hIiq2aNvA3UaR4SsNXS2yjUW4IUS/Xtlwm6vXZF
+	wFoAbD7VQaFsYVqnFJQyCs4VwouD2kATo3KNZkLT352aZbjJT/ljVw1qenqqdlUDEHAnc8a9bKC
+	oVp+4AUitIBKC7Kb6gPDHW43dYKyqrZ2Yjf2CjGKkVIvYCOgsPTeT7msHH2/LOdUY
+X-Received: by 2002:a17:90b:288d:b0:359:97d3:5c5b with SMTP id 98e67ed59e1d1-35bd2c6efd0mr8849953a91.20.1774240659532;
+        Sun, 22 Mar 2026 21:37:39 -0700 (PDT)
+X-Received: by 2002:a17:90b:288d:b0:359:97d3:5c5b with SMTP id 98e67ed59e1d1-35bd2c6efd0mr8849913a91.20.1774240659008;
+        Sun, 22 Mar 2026 21:37:39 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bd36b169esm3220585a91.12.2026.03.22.21.37.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Mar 2026 21:37:37 -0700 (PDT)
+Message-ID: <ea006d67-34c0-44e3-8a7a-7934fb4da63c@redhat.com>
+Date: Mon, 23 Mar 2026 14:37:20 +1000
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39a7b7e5-fd47-45ff-0fe0-08de8892f01f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2026 04:16:20.7940
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR02MB9193
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/40] arm_mpam: Ensure in_reset_state is false after
+ applying configuration
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org
+References: <20260313144617.3420416-1-ben.horgan@arm.com>
+ <20260313144617.3420416-2-ben.horgan@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260313144617.3420416-2-ben.horgan@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YoQrcz2qHBQv8a3frTk-MK_68v9bEqlCoRo7Hc2qV_E_1774240660
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_211627_771439_4E0EF98B 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20260322_213746_612646_34F57C60 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,94 +124,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lorenzo Stoakes (Oracle) <ljs@kernel.org> Sent: Friday, March 20, 202=
-6 3:40 PM
->=20
-> The f_op->mmap interface is deprecated, so update the vmbus driver to use
-> its successor, mmap_prepare.
->=20
-> This updates all callbacks which referenced the function pointer
-> hv_mmap_ring_buffer to instead reference hv_mmap_prepare_ring_buffer,
-> utilising the newly introduced compat_set_desc_from_vma() and
-> __compat_vma_mmap() to be able to implement this change.
->=20
-> The UIO HV generic driver is the only user of hv_create_ring_sysfs(),
-> which is the only function which references
-> vmbus_channel->mmap_prepare_ring_buffer which, in turn, is the only
-> external interface to hv_mmap_prepare_ring_buffer.
->=20
-> This patch therefore updates this caller to use mmap_prepare instead,
-> which also previously used vm_iomap_memory(), so this change replaces it
-> with its mmap_prepare equivalent, mmap_action_simple_ioremap().
->=20
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+On 3/14/26 12:45 AM, Ben Horgan wrote:
+> From: Zeng Heng <zengheng4@huawei.com>
+> 
+> The per-RIS flag, in_reset_state, indicates whether or not the MSC
+> registers are in reset state, and allows avoiding resetting when they are
+> already in reset state. However, when mpam_apply_config() updates the
+> configuration it doesn't update the in_reset_state flag and so even after
+> the configuration update in_reset_state can be true and mpam_reset_ris()
+> will skip the actual register restoration on subsequent resets.
+> 
+> Once resctrl has a MPAM backend it will use resctrl_arch_reset_all_ctrls()
+> to reset the MSC configuration on unmount and, if the in_reset_state flag
+> is bogusly true, fail to reset the MSC configuration. The resulting
+> non-reset MSC configuration can lead to persistent performance restrictions
+> even after resctrl is unmounted.
+> 
+> Fix by clearing in_reset_state to false immediately after successful
+> configuration application, ensuring that the next reset operation
+> properly restores MSC register defaults.
+> 
+> Fixes: 09b89d2a72f3 ("arm_mpam: Allow configuration to be applied and restored during cpu online")
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> Acked-by: Ben Horgan <ben.horgan@arm.com>
+> [Horgan: rewrite commit message to not be specific to resctrl unmount]
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->  drivers/hv/hyperv_vmbus.h    |  4 ++--
->  drivers/hv/vmbus_drv.c       | 31 +++++++++++++++++++------------
->  drivers/uio/uio_hv_generic.c | 11 ++++++-----
->  include/linux/hyperv.h       |  4 ++--
->  4 files changed, 29 insertions(+), 21 deletions(-)
->=20
+> Subject was originally:
+> arm_mpam: Fix MPAM reset on resctrl unmount by clearing in_reset_state
+> ---
+>   drivers/resctrl/mpam_devices.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
 
-There are two mmap() code paths in the Hyper-V UIO code. One path is
-to mmap() the file descriptor for /dev/uio<n>, and the other is to mmap()
-the "ring" entry under /sys/devices/vmbus/devices/<uuid>. The former is
-done by uio_mmap(), and the latter by hv_uio_ring_mmap_prepare().
-
-I tested both these paths using a combination of two methods in a
-x86/x64 VM on Hyper-V:
-
-1) Using the fcopy daemon, which maps the ring buffer for the primary
-channel and sends/receives messages with the Hyper-V host. This
-method tests only the 1st path because the fcopy daemon doesn't create
-any subchannels that would use the "ring" entry.
-
-2) Using a custom-built test program. This program doesn't communicate
-with the Hyper-V host, but allows mostly verifying both code paths for the
-primary channel. As a sanity check, it verifies that the two mmaps are
-mapping the same memory, as expected.
-
-As such,
-
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-Tested-by: Michael Kelley <mhklinux@outlook.com>
-
-The most robust test would be to run DPDK networking against
-UIO, as it would communicate with the Hyper-V host and use
-multiple subchannels that resulting in mmap'ing the "ring"
-entry under /sys.
-
-@Long Li -- I'll leave it to your discretion as to whether you want
-to test DPDK against these mmap() changes.
-
-I've noted one minor issue below.
-
-[snip]
-
---- a/include/linux/hyperv.h
-+++ b/include/linux/hyperv.h
-@@ -1015,8 +1015,8 @@ struct vmbus_channel {
- 	/* The max size of a packet on this channel */
- 	u32 max_pkt_size;
-=20
--	/* function to mmap ring buffer memory to the channel's sysfs ring attrib=
-ute */
--	int (*mmap_ring_buffer)(struct vmbus_channel *channel, struct vm_area_str=
-uct *vma);
-+	/* function to mmap_prepare ring buffer memory to the channel's sysfs rin=
-g attribute */
-
-Changing the comment from "mmap ring buffer" to "mmap_prepare ring buffer"
-produces awkward wording since "mmap" is used here as a verb.  It might be =
-better
-to just leave the comment unchanged.
-
-Michael
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
-+	int (*mmap_prepare_ring_buffer)(struct vmbus_channel *channel, struct vm_=
-area_desc *desc);
-=20
- 	/* boolean to control visibility of sysfs for ring buffer */
- 	bool ring_sysfs_visible;
 
