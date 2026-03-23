@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E34F483CC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6267DF483C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7oW8eeWlrFIS0etByx1jJuYk3xwlUeH3LcLLLh3/AUU=; b=mqFSlNUnpMPVBNxCkeRcxieGlZ
-	pD3OsubiUQ7L4nA73ZPckHBIQWERFI+GXk3LRSSPN1TLRmwg4tnwcmxlF3Mqzn5eSaBBjpd4q6uXK
-	rbRyggq4WZaJGVqKs1Q46qGdITi8SoDV1dy5veiuvq1lUwah0anz3c/EjR8tbYiBNBm8PQW9BKDMF
-	ltTox2MmTbOJVNcLnHICW2PGIfELzQSXtZbkCrBnihDOqAsK/JyyNJnTfEMfOOv05x1AQF1OGteNB
-	780pX0FqEirGHQCgj8zKK+Xd+z8/9RcP38Kmk/j6OoopAs3Sbrzjx6czcseveg+FwvS04wuaA3Q+e
-	l/Cl9x3g==;
+	bh=Tv1ZfbYNTQRJ5BsqfJnjS2/ejVdC/LTBmkDVCwmyCDQ=; b=nLIqtZoDYY2dagL5Ec3oPgUw92
+	w7Ea0tXGW4TiAJsObabNkx6c9CqYG2B4gfjc3lsTGG75GS3xPTbXN3lzHdigYsx7zByJnbwzHmeLq
+	eVQK2hoVPl8ACj/ltmqJhu1O3ZN2Ov/P1bRdiu+y+yBOxdjUvcYanVIa9ODYnBgQvAateMh5H1zjt
+	nU0qfI74GeftPdML6w/bdgCQDqf3jeUsa1Rr8miXqwAcmlWs40bhYQI3TN1x5qaPtZBooscE7+IL4
+	/3FT3bb6IWpN36FwbSN0vkxdKOTP72E5cylgLGSPgk/NaG7jrL9gnCNX6pDIEeTrXLRU4y+GPTmbu
+	Oi3kF3pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4iWR-0000000HAmP-3kgr;
-	Mon, 23 Mar 2026 16:52:59 +0000
+	id 1w4iWS-0000000HAmf-0ly7;
+	Mon, 23 Mar 2026 16:53:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4iWP-0000000HAla-0nRB
+	id 1w4iWP-0000000HAlb-2338
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 23 Mar 2026 16:52:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 201FD14BF;
-	Mon, 23 Mar 2026 09:52:48 -0700 (PDT)
-Received: from [10.57.58.207] (unknown [10.57.58.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A68A33F73B;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 113A31516;
 	Mon, 23 Mar 2026 09:52:51 -0700 (PDT)
-Message-ID: <71261065-7895-492f-8457-998901391530@arm.com>
-Date: Mon, 23 Mar 2026 17:52:48 +0100
+Received: from [10.57.58.207] (unknown [10.57.58.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EEA33F73B;
+	Mon, 23 Mar 2026 09:52:54 -0700 (PDT)
+Message-ID: <588b2b4f-9cf6-43e5-b0e5-55820c74cbbb@arm.com>
+Date: Mon, 23 Mar 2026 17:52:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
+Subject: Re: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings
+ correctly
 To: Ryan Roberts <ryan.roberts@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
@@ -48,15 +48,15 @@ To: Ryan Roberts <ryan.roberts@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org
 References: <20260323130317.1737522-1-ryan.roberts@arm.com>
- <20260323130317.1737522-2-ryan.roberts@arm.com>
+ <20260323130317.1737522-3-ryan.roberts@arm.com>
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20260323130317.1737522-2-ryan.roberts@arm.com>
+In-Reply-To: <20260323130317.1737522-3-ryan.roberts@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_095257_355473_BA49AEEC 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20260323_095257_573251_EF9E9E54 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,90 +74,65 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 23/03/2026 14:03, Ryan Roberts wrote:
 > [...]
 >
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 96711b8578fd0..b9b248d24fd10 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -350,7 +350,6 @@ void __init arch_mm_preinit(void)
->  	}
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 358d1dc9a576f..87dfe4c82fa92 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -25,6 +25,11 @@ static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
+>  {
+>  	struct page_change_data *masks = walk->private;
 >  
->  	swiotlb_init(swiotlb, flags);
-> -	swiotlb_update_mem_attributes();
+> +	/*
+> +	 * Some users clear and set bits which alias eachother (e.g. PTE_NG and
+
+Nit: "each other"
+
+> +	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
+> +	 * first then set.
+> +	 */
+>  	val &= ~(pgprot_val(masks->clear_mask));
+>  	val |= (pgprot_val(masks->set_mask));
+>  
+> @@ -36,7 +41,7 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+>  {
+>  	pud_t val = pudp_get(pud);
+>  
+> -	if (pud_sect(val)) {
+> +	if (pud_leaf(val)) {
+>  		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
+>  			return -EINVAL;
+>  		val = __pud(set_pageattr_masks(pud_val(val), walk));
+> @@ -52,7 +57,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+>  {
+>  	pmd_t val = pmdp_get(pmd);
+>  
+> -	if (pmd_sect(val)) {
+> +	if (pmd_leaf(val)) {
+>  		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
+>  			return -EINVAL;
+>  		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+> @@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>  	ret = update_range_prot(start, size, set_mask, clear_mask);
 >  
 >  	/*
->  	 * Check boundaries twice: Some fundamental inconsistencies can be
-> @@ -377,6 +376,14 @@ void __init arch_mm_preinit(void)
->  	}
->  }
->  
-> +bool page_alloc_available __ro_after_init;
-> +
-> +void __init mem_init(void)
-> +{
-> +	page_alloc_available = true;
-> +	swiotlb_update_mem_attributes();
+> -	 * If the memory is being made valid without changing any other bits
+> -	 * then a TLBI isn't required as a non-valid entry cannot be cached in
+> -	 * the TLB.
+> +	 * If the memory is being switched from present-invalid to valid without
+> +	 * changing any other bits then a TLBI isn't required as a non-valid
+> +	 * entry cannot be cached in the TLB.
+>  	 */
+> -	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
+> +	if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
 
-The move seems reasonable, x86 calls this function even later (from
-arch_cpu_finalize_init()).
+It isn't obvious to understand where all those PTE_MAYBE_NG come from if
+one hasn't realised that PTE_PRESENT_INVALID overlays PTE_NG.
 
-> +}
-> +
->  void free_initmem(void)
->  {
->  	void *lm_init_begin = lm_alias(__init_begin);
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index a6a00accf4f93..5b6a8d53e64b7 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -773,14 +773,33 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->  {
->  	int ret;
->  
-> -	/*
-> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
-> -	 * anything that is not pte-mapped in the first place. Just return early
-> -	 * and let the permission change code raise a warning if not already
-> -	 * pte-mapped.
-> -	 */
-> -	if (!system_supports_bbml2_noabort())
-> -		return 0;
-> +	if (!system_supports_bbml2_noabort()) {
-> +		/*
-> +		 * !BBML2_NOABORT systems should not be trying to change
-> +		 * permissions on anything that is not pte-mapped in the first
-> +		 * place. Just return early and let the permission change code
-> +		 * raise a warning if not already pte-mapped.
-> +		 */
-> +		if (system_capabilities_finalized() ||
-> +		    !cpu_supports_bbml2_noabort())
-> +			return 0;
-> +
-> +		/*
-> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
-> +		 * page allocator. Can't split until it's available.
-> +		 */
-> +		extern bool page_alloc_available;
+Since for this purpose we always set/clear both PTE_VALID and
+PTE_MAYBE_NG, maybe we could define some macro as PTE_VALID |
+PTE_MAYBE_NG, as a counterpart to PTE_PRESENT_INVALID?
 
-Could we at least have the declaration in say <asm/mmu.h>? x86 defines a
-similar global so we could eventually have a generic global (defined
-before mem_init() is called).
+- Kevin
 
-Looks good otherwise:
-
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-> +		if (WARN_ON(!page_alloc_available))
-> +			return -EBUSY;
-> +
-> +		/*
-> +		 * Boot-time: Started secondary cpus but don't know if they
-> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
-> +		 * window in case they don't.
-> +		 */
-> +		if (WARN_ON(num_online_cpus() > 1))
-> +			return -EBUSY;
-> +	}
->  
->  	/*
->  	 * If the region is within a pte-mapped area, there is no need to try to
+> [...]
 
