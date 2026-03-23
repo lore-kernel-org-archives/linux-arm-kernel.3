@@ -4,65 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC196F483DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700A3F483E3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/nCHX+tDcrCGiwi0oGeFHT7dM1ri9COBAZZl3YVv8VM=; b=Zg994hKuzjfUXtixUrT6ZSAkKC
-	duFFKLVwXNXn0O8O4vX0AEfX+2rdkUMppm1en29zLOAUrUu+EvL1Pc1hXc/+1M4OaY2N2nJXV2t3j
-	Qd4zMusau4I3sz27PTXPUDdd5sDt9JOulF30YL2KY6rgXJbqwiFNXd/adIaTkfY4qZM3qEUihZyKH
-	WsA3swYX8Fca0FgFf1ljs1KRCB8KmrbfcjTns6VY6ruvcSE1Jses0NBCPbc/Bn3p14E32fFZmMqO8
-	GZA135H5oJ2ki46leloTfxyNp2QrdrObF6KBCXLsYApK351mctQNgy2Qp3GOxJOt43Usoc8DQlgTn
-	vn43ww2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E+/W8i4aQcBSkxWLvMraxFa00eFt6W2mAnWYNBNsPeA=; b=1j493INK0hbsDwKbrA42dUO6wB
+	XL0N3v6WBBLrpstq7XrcnxoCec7nsI8E5Fi4z+vqoPUbAbn0ka3xsyzrDntk+/RjaBFiBDiW43d4I
+	PRhHqV+w3FvFlHsZ5kg2AiijWYZg8Vd9p2yuaoLtJQDVyZZiuQwZTxH/eMCTrE0ZUprvrgUcYL7RP
+	/ezHjslxJODvC/UUHB3vr9NYq+V48QnnEJpqRDtuQxu2FWRNcDNeuEGHBQLLZVBryae9coixjj60O
+	IekT73RosB1vL+MLTNpa6vVITdzgJRYsJ7zDfngTkvoIWIsWksCXWBVzgGvVIinCJ0fCdf659LMU0
+	YLwbYcig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4juB-0000000HKt5-3oYH;
-	Mon, 23 Mar 2026 18:21:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ju8-0000000HKsd-3o0E
+	id 1w4k3O-0000000HLaE-3Qcf;
+	Mon, 23 Mar 2026 18:31:06 +0000
+Received: from mail-northeuropeazon11012039.outbound.protection.outlook.com ([52.101.66.39] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4k3K-0000000HLZP-33w8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 18:21:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFC2A1477;
-	Mon, 23 Mar 2026 11:21:24 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EEAE3F73B;
-	Mon, 23 Mar 2026 11:21:27 -0700 (PDT)
-Date: Mon, 23 Mar 2026 18:21:22 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Andrei Vagin <avagin@google.com>
-Cc: Kees Cook <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Cyrill Gorcunov <gorcunov@gmail.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, criu@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Chen Ridong <chenridong@huawei.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Michal Koutny <mkoutny@suse.com>,
-	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
-Message-ID: <acGEonF9I6sPA42B@J2N7QTR9R3.cambridge.arm.com>
-References: <20260323175340.3361311-1-avagin@google.com>
- <20260323175340.3361311-2-avagin@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Mon, 23 Mar 2026 18:31:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r+CAGkjAav0TXrH1GccZVWkHjymTpb9DMP4Ti2vlyHLKLr+JtkTl5q6+TInHX+F7vAWDA2e+eeLxSMj8N+pQfrC0mYOJf3vbhgPjtCceQmGgrmhoJM3aESsXCGCnebey4tzgtemdZRlGds4FX1ixBr1jRJDvlcKmtH2+Jp3DTapDXQDwEu2E6jek5jrTnot/1kmn3bLzdaZ7PEd/CRWv8shTT5/buW76eGmM5iI4LMiPwefSSP33Rv4AWtak3qBmo856uGP7VxeDOsnfSHc9rBTwhwQhY9JQu0dab9NRU1H91+dX5HHbBjD0yURTISx3lO4Y80uI9nZlVTu4X5j1zQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E+/W8i4aQcBSkxWLvMraxFa00eFt6W2mAnWYNBNsPeA=;
+ b=VmOgMQfX+aOH6z5N1Yj5l0hnYfrgdbYYVthVwP9WvDkVWNi1inDp4ITQCjNUu1vTRaTkS9clQetPVK4wZqAOfTing5EAiL6n7RRpT2XNSIyHAqTZSIIjUburC+kzrx1Spc8w4UdUsIDWeXaNiUvVJWqRctXo4b9pKpNlI2l4BJupj1r6ODpECIkNJQOy6JBSE7HyWgslnDmBHUy30/ewmIGJ2EepxOqGFwEAqp/U25yJkGMZtJ1A5BIFJ0y3aEO93e+mLcPYsB5S8zJ/EEvXHcMuWgzR/IwAIZFgOK8Tc4QfK62Z2iWtWXyr6CULbc77+kX52r41uCXByN1osuInGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E+/W8i4aQcBSkxWLvMraxFa00eFt6W2mAnWYNBNsPeA=;
+ b=HmyE62TwMfRCYgFLYZArufiksiKmUkw4FOhtr3rqSpVi+CrhweGzIfr8/hLYJMif9ZsSSu+dacFwBKCX3nO5pphlEOyFKxlusem2EPFvaYb+bCeSbaoLcM0E4/X5EMY+cj57GqaGCw5aH2Rxx7U58frUakf40nrGdtv4YLbzhKUdJx3R2jz2Dn5iBchPl7cXdMSJzmXiyTt6QDQDMVVcqZEcQ0RofVD7wNf4aM/7dUAHHzUIm98OZ/pIcCA0SQfHqkfE88KJsbWLmsG7O+a9q8NpYN77HDk/wBS8/wFt+mVWx4dnKW7VHo4EpZKZgsGfAUjSu8Uhj9QLH0TUSLdSdA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI2PR04MB10810.eurprd04.prod.outlook.com (2603:10a6:800:27e::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Mon, 23 Mar
+ 2026 18:30:41 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 18:30:51 +0000
+Date: Mon, 23 Mar 2026 14:30:50 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v7 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
+ i.MX943 PCIe compatible strings
+Message-ID: <acGG2pITRP2q3_ka@lizhi-Precision-Tower-5810>
+References: <20260313083443.2391254-1-hongxing.zhu@nxp.com>
+ <20260313083443.2391254-3-hongxing.zhu@nxp.com>
+ <20260322231003.GA69234-robh@kernel.org>
+ <AS8PR04MB8833815B161AEAA3648DBF908C4BA@AS8PR04MB8833.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260323175340.3361311-2-avagin@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AS8PR04MB8833815B161AEAA3648DBF908C4BA@AS8PR04MB8833.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: SN1PR12CA0092.namprd12.prod.outlook.com
+ (2603:10b6:802:21::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI2PR04MB10810:EE_
+X-MS-Office365-Filtering-Correlation-Id: ccc6190f-566e-495c-2ecf-08de890a4fda
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016|52116014|7053199007|18002099003|56012099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: kokgr+axsF7AXhmgbw8o0YviYy5aA4aiypWL2ksawj2xVbqzKXDG6gwCru0fYQVeXaa1kz0aUPrAO5Cb7Zrh8Y0MT933iM2ohFTYuKHogXh/VCaGPB/BcNVypp4lI5QBfnjrsOiURgySMgRhhsPYjF6ZaIy4RfusCFpNuJjp46echXfTApvi9G+NrvV3gZjaXD9uloLti+wUKAGZKf3yV18xILQughim1Z7caXLjOTtdQLDoMBxILUDK72C8T8sAKS6um/gpemNdULI4Mjx9DUdvJmuxLJoe1ckQOr62C5tKokUCgJTNGMRuckkL9V+ZKiFrtBzS2gQnmXWwTa9+t9q5hVVjTe0iGHMvC4Y6lT5vTTpCUNsOnwu2wTJNx7YtEg83QVIAiHPu5ZNrc6V6kM3xIkU3kq6Kyj4pW9ifwEzB0IJ5X8moKnWA5Wnayq4t2BeI9i+/7BkRmNXhzZZjJvkdyphdut1G+VAyyP5JtaUpIP1ELZN9vvHABgNJgtg5QNxo7bPjU18y+Pz3c0Nu6K3GsNL0Aav+8TFwck0hNu+GkgdxkWUGrRHod5EuEJzQ3UZMg87ZDfRCccja15an0gf04BIDLfdibKLrgo3wGt5XtZlOKqA7ulEqv3ArXemJinaggkC/dGBJRCBR/siqbkkSaNNGzgFkJ9WxKADsLhY1IM/5Pz3n6DkxfZm6yFlorb46ThODuy9Oe3a+u1pBoO8SVArLolUQDUAkKhxZCzZwD+1bGZlkmkxPqwA7H3wf5QRqge8dEF9b5zSC22zpHqBmpWyiSgJrOnGn5ZzlF0I=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016)(52116014)(7053199007)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGkrNm5rQWdwMnc1KzdvdC9IOWU3SUg0NjlFL3dOMFg2VlFqQ01FVjA3c2dE?=
+ =?utf-8?B?YllmbGU4TjFTSWFndHcyL2ZoSGcxNGpwRC8rdTZBbklENW9WUGhMUnRXK1Nx?=
+ =?utf-8?B?UiswVlFTaXpoNkNlb25zK0g2Y01saFpDK1dKZXQzRjJENGVVZDdyNEQ2aE9t?=
+ =?utf-8?B?bjVWU1dHZkVYTUhNTnc4aTdyb2F2NCtlbm85bXk4L1p3djRhMitZVGJldlRj?=
+ =?utf-8?B?eEhZQjRBZFBzNUJJZnlRL0swN0ZBcnowMHFyaEh4TWZRb2FQQ0cySFBkRkhB?=
+ =?utf-8?B?UU5mZFBNNnJFRGwwSTBYT2VuVGpvQVNGMDZDV0dyOXROT0N2R0NEd2dzTmNX?=
+ =?utf-8?B?aTRvSEFGSUhQYnh1TFFWNGtYZlY1ckxzdWlyUmdvZnhoUWtiQlpCMjBmM25N?=
+ =?utf-8?B?b0VwYVVZMXhIKytTZ0p2Y0krSHlYaFJVbjZLTmtsVm9PU0RGZ2w5dkg2WjF1?=
+ =?utf-8?B?cUxYSTNwaFk0Uzkzcm1xSFFoNWdObFBUdEtsY0dLR3pDUzN5SUFDRitXUm1o?=
+ =?utf-8?B?blRpQ0tRYTE2VkMzV3JvZGxsc2EyMFJRYmt6eGJHWVNLK29tZTRVU3JlOHNT?=
+ =?utf-8?B?NjkyRW5jSzQ5amdLaTFIZ0tMQUdJYSt4eVB0MFdENHY3anBxa0xxa3pjbjZz?=
+ =?utf-8?B?Y2J6UEYxOFp6NWJoSlNJL2hZZjA5MXJCcXlZL0Q1YUZUek92bnRnRklMbUFQ?=
+ =?utf-8?B?M2IrOGVTanpxRStMRHNvRlZQRHViUE9hSmYvbnhpa1JjVGd2U1U4akt4S05C?=
+ =?utf-8?B?S1RuTnpuQThhTFd3V0xrUXNiU1d0bHVsWjZJMmoyU0hmSFJYd08zc3ovOWU1?=
+ =?utf-8?B?eUduaGJWZlVkbFpTZGN0YkpJbXRhRFl6VVROb1BXRUZuTEw5K0xiOXZXUStv?=
+ =?utf-8?B?amhQNFV1ZU9PSWlWY3VjY3czMWJWQXFtRkRLdUR4NGxtNEEzdUQ3ZjFXZDhI?=
+ =?utf-8?B?L3FvZFBzWENtWGRvVG5KUnZBQlgzSWE1ZVJQanFleDZqMk9NbmFPV3pvOFl3?=
+ =?utf-8?B?TW5vZTVhb2t5QU0zTmlXOFVJQWE4a2xLUmcrb0g5RVVzb3FVV0F4NGo5SktK?=
+ =?utf-8?B?NnFkT2oxUVRJajdSQkZiVTBBbHRRS245SVNUZUhMZVZCdThmYWdnZWNpbmNW?=
+ =?utf-8?B?UlZ1TnJOK1BpWlNLRTBxMGllSlFxNWgrS3Z5YmltR2pIYnpaUk5TaFlhVVlR?=
+ =?utf-8?B?eWRVUDhMUWJydy9SZE5BQmRyR2loNTZtV2lLUzlaVnhoTUtFWGNXSzM2WElm?=
+ =?utf-8?B?OVFsQThWWVhRQ1FKSkdOWnorUmpqbHlJU0NvckZDL1hPelVtNVVpL3A2bzIr?=
+ =?utf-8?B?M2RlWERramFPMFRHelc3N0NNVFVkUjdqOEFpODNZbW9JSlMzVEtuMUZoZk5z?=
+ =?utf-8?B?STV1SStveDVCeHJ6b3RGVW0rUkNScHNJNkdSUHcwQzZCYXBQeTJXcjlTNC9B?=
+ =?utf-8?B?ajNxWHIwYVBKQWE4b3laZzRSY3V3b29tZGdrMXozZFhFT21IemkwbFJXVExQ?=
+ =?utf-8?B?bjZkOEFvQ2lGU0ladlZKSmFiOThXRVVMM1FNK0p5ZWpNWEFWMDZvdy9zcm83?=
+ =?utf-8?B?cDlLMFB5YmJ4NS9PS2sxYVZjNzRWbmU5M2luMHZVSUNpWFZZbnR4TEZEcUlq?=
+ =?utf-8?B?K0NNZTAybkhsaWc0TmFMQmx1cXlBN2xqczd3T2NtUU1ISDdNZVQxK2tlZzdP?=
+ =?utf-8?B?eUlKZHlpOE9rNjhlcGV2TnJEWWJsK3R5ZzZnak5QR1JLb3NXaWdTaWVRakp2?=
+ =?utf-8?B?OHdsajJQOHlKd0NPUmRZcjlSdmtrM043UmFyVGVVakY0VFBLQi9WcEE5TFRh?=
+ =?utf-8?B?ODVZTE1uZTMvYXl5Y0pPbkZYLzRtZGYvczlDV2hXL0RxNUF5bWdDL3JIMWw4?=
+ =?utf-8?B?SisyT1dZdSt5MjEwZWNMOGk2b2N3RDF4T3hUWUx4d0JKRG82aU9RL3V5V1dY?=
+ =?utf-8?B?WjY0RDcvejZSRlZVSnpNNlRoOGRUODllaVQ4WmFTWlRqUkFsNlpqQUNLYnhS?=
+ =?utf-8?B?Vk1MMlRkSlJFOCs0dlpOc1AvNGVBUmFIVEhycUxMd0JpaktqVXNZUmp3bDVv?=
+ =?utf-8?B?WWg4M1dhYzk3UC9Pa0JEcXpmSkpJNVpHRzBxTVRaWStMSTdkRzZ0Rnh6RjlI?=
+ =?utf-8?B?Q25lK3hNQXBzRkRyYWhhbXE4dTMxeU1OTjA2WjF1dGZsekZ4MWYyR25XaWcv?=
+ =?utf-8?B?QXlTMnFneHUzRGVWdXBtaHZKMnRyYkRuT3ZnYU9mSFhISmRKbUVRVnpsaUZk?=
+ =?utf-8?B?MVJaSlNpUGlHdEZWbUlKQmwyY0RNeHhvQmk4M2R3bHVRY3NCYTNUZlB4ZDlu?=
+ =?utf-8?B?NmtoVDdxSnRaR0lZOEx1ZXdxejJRa0xveWs5VE9CSTU5dzRldzFHQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ccc6190f-566e-495c-2ecf-08de890a4fda
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 18:30:51.7967
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KSox9CxXvm1iyf4jGRNan+nW60dFwyxDBcruW4ZvaIDr+Y4TspMWID4yWuPdfjNhjCf6fN2RlKmx7Ncf0EnEBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10810
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_112133_051003_4C69317A 
-X-CRM114-Status: GOOD (  37.38  )
+X-CRM114-CacheID: sfid-20260323_113102_774560_AF45CAAC 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,300 +162,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 05:53:37PM +0000, Andrei Vagin wrote:
-> Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
-> AT_HWCAP2, etc.) from a parent process when they have been modified via
-> prctl.
-> 
-> To support C/R operations (snapshots, live migration) in heterogeneous
-> clusters, we must ensure that processes utilize CPU features available
-> on all potential target nodes. To solve this, we need to advertise a
-> common feature set across the cluster.
-> 
-> This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
-> auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV).  When
-> execve() is called, if the current process has MMF_USER_HWCAP set, the
-> HWCAP values are extracted from the current auxiliary vector and stored
-> in the linux_binprm structure. These values are then used to populate
-> the auxiliary vector of the new process, effectively inheriting the
-> hardware capabilities.
-> 
-> The inherited HWCAPs are masked with the hardware capabilities supported
-> by the current kernel to ensure that we don't report more features than
-> actually supported. This is important to avoid unexpected behavior,
-> especially for processes with additional privileges.
+On Mon, Mar 23, 2026 at 02:23:20AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Rob Herring <robh@kernel.org>
+> > Sent: 2026年3月23日 7:10
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > Cc: krzk+dt@kernel.org; conor+dt@kernel.org; bhelgaas@google.com; Frank
+> > Li <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
+> > kwilczynski@kernel.org; mani@kernel.org; s.hauer@pengutronix.de;
+> > kernel@pengutronix.de; festevam@gmail.com; linux-pci@vger.kernel.org;
+> > linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
+> > imx@lists.linux.dev; linux-kernel@vger.kernel.org
+> > Subject: Re: [PATCH v7 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
+> > i.MX943 PCIe compatible strings
+> >
+> > > +          - fsl,imx8mm-pcie
+> > > +          - fsl,imx8mp-pcie
+> > > +          - fsl,imx8mq-pcie
+> > > +          - fsl,imx8q-pcie
+> > > +          - fsl,imx94-pcie
+> > > +          - fsl,imx943-pcie
+> Did these two shall be dropped either?
 
-At a high level, I don't think that's going to be sufficient:
+Yes, drop because you use fallback "fsl,imx94-pcie", "fsl,imx95-pcie", so
+doesn't allow single "fsl,imx94-pcie".
 
-* On an architecture with other userspace accessible feature
-  identification mechanism registers (e.g. ID registers), userspace
-  might read those. So you might need to hide stuff there too, and
-  that's going to require architecture-specific interfaces to manage.
-
-  It's possible that some code checks HWCAPs and others check ID
-  registers, and mismatch between the two could be problematic.
-
-* If the HWCAPs can be inherited by a more privileged task, then a
-  malicious user could use this to hide security features (e.g. shadow
-  stack or pointer authentication on arm64), and make it easier to
-  attack that task. While not a direct attack, it would undermine those
-  features.
-
-Mark.
-
-> Reviewed-by: Cyrill Gorcunov <gorcunov@gmail.com>
-> Reviewed-by: Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-> Signed-off-by: Andrei Vagin <avagin@google.com>
-> ---
->  fs/binfmt_elf.c          | 13 ++++++---
->  fs/binfmt_elf_fdpic.c    | 13 ++++++---
->  fs/exec.c                | 62 ++++++++++++++++++++++++++++++++++++++++
->  include/linux/binfmts.h  | 11 +++++++
->  include/linux/mm_types.h |  2 ++
->  kernel/fork.c            |  3 ++
->  kernel/sys.c             |  5 +++-
->  7 files changed, 100 insertions(+), 9 deletions(-)
-> 
-> diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
-> index fb857faaf0d6..d99db73c76f0 100644
-> --- a/fs/binfmt_elf.c
-> +++ b/fs/binfmt_elf.c
-> @@ -183,6 +183,7 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
->  	int ei_index;
->  	const struct cred *cred = current_cred();
->  	struct vm_area_struct *vma;
-> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
->  
->  	/*
->  	 * In some cases (e.g. Hyper-Threading), we want to avoid L1
-> @@ -247,7 +248,8 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
->  	 */
->  	ARCH_DLINFO;
->  #endif
-> -	NEW_AUX_ENT(AT_HWCAP, ELF_HWCAP);
-> +	NEW_AUX_ENT(AT_HWCAP, user_hwcap ?
-> +			      (bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
->  	NEW_AUX_ENT(AT_PAGESZ, ELF_EXEC_PAGESIZE);
->  	NEW_AUX_ENT(AT_CLKTCK, CLOCKS_PER_SEC);
->  	NEW_AUX_ENT(AT_PHDR, phdr_addr);
-> @@ -265,13 +267,16 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
->  	NEW_AUX_ENT(AT_SECURE, bprm->secureexec);
->  	NEW_AUX_ENT(AT_RANDOM, (elf_addr_t)(unsigned long)u_rand_bytes);
->  #ifdef ELF_HWCAP2
-> -	NEW_AUX_ENT(AT_HWCAP2, ELF_HWCAP2);
-> +	NEW_AUX_ENT(AT_HWCAP2, user_hwcap ?
-> +			       (bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
->  #endif
->  #ifdef ELF_HWCAP3
-> -	NEW_AUX_ENT(AT_HWCAP3, ELF_HWCAP3);
-> +	NEW_AUX_ENT(AT_HWCAP3, user_hwcap ?
-> +			       (bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
->  #endif
->  #ifdef ELF_HWCAP4
-> -	NEW_AUX_ENT(AT_HWCAP4, ELF_HWCAP4);
-> +	NEW_AUX_ENT(AT_HWCAP4, user_hwcap ?
-> +			       (bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
->  #endif
->  	NEW_AUX_ENT(AT_EXECFN, bprm->exec);
->  	if (k_platform) {
-> diff --git a/fs/binfmt_elf_fdpic.c b/fs/binfmt_elf_fdpic.c
-> index 95b65aab7daa..92c88471455a 100644
-> --- a/fs/binfmt_elf_fdpic.c
-> +++ b/fs/binfmt_elf_fdpic.c
-> @@ -508,6 +508,7 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
->  	unsigned long flags = 0;
->  	int ei_index;
->  	elf_addr_t *elf_info;
-> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
->  
->  #ifdef CONFIG_MMU
->  	/* In some cases (e.g. Hyper-Threading), we want to avoid L1 evictions
-> @@ -629,15 +630,19 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
->  	 */
->  	ARCH_DLINFO;
->  #endif
-> -	NEW_AUX_ENT(AT_HWCAP,	ELF_HWCAP);
-> +	NEW_AUX_ENT(AT_HWCAP,	user_hwcap ?
-> +				(bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
->  #ifdef ELF_HWCAP2
-> -	NEW_AUX_ENT(AT_HWCAP2,	ELF_HWCAP2);
-> +	NEW_AUX_ENT(AT_HWCAP2,	user_hwcap ?
-> +				(bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
->  #endif
->  #ifdef ELF_HWCAP3
-> -	NEW_AUX_ENT(AT_HWCAP3,	ELF_HWCAP3);
-> +	NEW_AUX_ENT(AT_HWCAP3,	user_hwcap ?
-> +				(bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
->  #endif
->  #ifdef ELF_HWCAP4
-> -	NEW_AUX_ENT(AT_HWCAP4,	ELF_HWCAP4);
-> +	NEW_AUX_ENT(AT_HWCAP4,	user_hwcap ?
-> +				(bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
->  #endif
->  	NEW_AUX_ENT(AT_PAGESZ,	PAGE_SIZE);
->  	NEW_AUX_ENT(AT_CLKTCK,	CLOCKS_PER_SEC);
-> diff --git a/fs/exec.c b/fs/exec.c
-> index 9ea3a775d51e..1cd7d87a0e79 100644
-> --- a/fs/exec.c
-> +++ b/fs/exec.c
-> @@ -1775,6 +1775,65 @@ static int bprm_execve(struct linux_binprm *bprm)
->  	return retval;
->  }
->  
-> +static void inherit_hwcap(struct linux_binprm *bprm)
-> +{
-> +	struct mm_struct *mm = current->mm;
-> +	bool compat = in_compat_syscall();
-> +	int i, n;
-> +
-> +#ifdef ELF_HWCAP4
-> +	n = 4;
-> +#elif defined(ELF_HWCAP3)
-> +	n = 3;
-> +#elif defined(ELF_HWCAP2)
-> +	n = 2;
-> +#else
-> +	n = 1;
-> +#endif
-> +
-> +	for (i = 0; n && i < AT_VECTOR_SIZE; i += 2) {
-> +		unsigned long type, val;
-> +
-> +		if (!compat) {
-> +			type = mm->saved_auxv[i];
-> +			val = mm->saved_auxv[i + 1];
-> +		} else {
-> +			compat_uptr_t *auxv = (compat_uptr_t *)mm->saved_auxv;
-> +
-> +			type = auxv[i];
-> +			val = auxv[i + 1];
-> +		}
-> +
-> +		switch (type) {
-> +		case AT_NULL:
-> +			goto done;
-> +		case AT_HWCAP:
-> +			bprm->hwcap = val;
-> +			break;
-> +#ifdef ELF_HWCAP2
-> +		case AT_HWCAP2:
-> +			bprm->hwcap2 = val;
-> +			break;
-> +#endif
-> +#ifdef ELF_HWCAP3
-> +		case AT_HWCAP3:
-> +			bprm->hwcap3 = val;
-> +			break;
-> +#endif
-> +#ifdef ELF_HWCAP4
-> +		case AT_HWCAP4:
-> +			bprm->hwcap4 = val;
-> +			break;
-> +#endif
-> +		default:
-> +			continue;
-> +		}
-> +		n--;
-> +	}
-> +done:
-> +	mm_flags_set(MMF_USER_HWCAP, bprm->mm);
-> +}
-> +
->  static int do_execveat_common(int fd, struct filename *filename,
->  			      struct user_arg_ptr argv,
->  			      struct user_arg_ptr envp,
-> @@ -1843,6 +1902,9 @@ static int do_execveat_common(int fd, struct filename *filename,
->  			     current->comm, bprm->filename);
->  	}
->  
-> +	if (mm_flags_test(MMF_USER_HWCAP, current->mm))
-> +		inherit_hwcap(bprm);
-> +
->  	return bprm_execve(bprm);
->  }
->  
-> diff --git a/include/linux/binfmts.h b/include/linux/binfmts.h
-> index 65abd5ab8836..94a3dcf9b1d2 100644
-> --- a/include/linux/binfmts.h
-> +++ b/include/linux/binfmts.h
-> @@ -2,6 +2,7 @@
->  #ifndef _LINUX_BINFMTS_H
->  #define _LINUX_BINFMTS_H
->  
-> +#include <linux/elf.h>
->  #include <linux/sched.h>
->  #include <linux/unistd.h>
->  #include <asm/exec.h>
-> @@ -67,6 +68,16 @@ struct linux_binprm {
->  	unsigned long exec;
->  
->  	struct rlimit rlim_stack; /* Saved RLIMIT_STACK used during exec. */
-> +	unsigned long hwcap;
-> +#ifdef ELF_HWCAP2
-> +	unsigned long hwcap2;
-> +#endif
-> +#ifdef ELF_HWCAP3
-> +	unsigned long hwcap3;
-> +#endif
-> +#ifdef ELF_HWCAP4
-> +	unsigned long hwcap4;
-> +#endif
->  
->  	char buf[BINPRM_BUF_SIZE];
->  } __randomize_layout;
-> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-> index 3cc8ae722886..62dde645f469 100644
-> --- a/include/linux/mm_types.h
-> +++ b/include/linux/mm_types.h
-> @@ -1919,6 +1919,8 @@ enum {
->  #define MMF_TOPDOWN		31	/* mm searches top down by default */
->  #define MMF_TOPDOWN_MASK	BIT(MMF_TOPDOWN)
->  
-> +#define MMF_USER_HWCAP		32	/* user-defined HWCAPs */
-> +
->  #define MMF_INIT_LEGACY_MASK	(MMF_DUMPABLE_MASK | MMF_DUMP_FILTER_MASK |\
->  				 MMF_DISABLE_THP_MASK | MMF_HAS_MDWE_MASK |\
->  				 MMF_VM_MERGE_ANY_MASK | MMF_TOPDOWN_MASK)
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index bc2bf58b93b6..2ac277aa078c 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -1105,6 +1105,9 @@ static struct mm_struct *mm_init(struct mm_struct *mm, struct task_struct *p,
->  
->  		__mm_flags_overwrite_word(mm, mmf_init_legacy_flags(flags));
->  		mm->def_flags = current->mm->def_flags & VM_INIT_DEF_MASK;
-> +
-> +		if (mm_flags_test(MMF_USER_HWCAP, current->mm))
-> +			mm_flags_set(MMF_USER_HWCAP, mm);
->  	} else {
->  		__mm_flags_overwrite_word(mm, default_dump_filter);
->  		mm->def_flags = 0;
-> diff --git a/kernel/sys.c b/kernel/sys.c
-> index cdbf8513caf6..e4b0fa2f6845 100644
-> --- a/kernel/sys.c
-> +++ b/kernel/sys.c
-> @@ -2157,8 +2157,10 @@ static int prctl_set_mm_map(int opt, const void __user *addr, unsigned long data
->  	 * not introduce additional locks here making the kernel
->  	 * more complex.
->  	 */
-> -	if (prctl_map.auxv_size)
-> +	if (prctl_map.auxv_size) {
->  		memcpy(mm->saved_auxv, user_auxv, sizeof(user_auxv));
-> +		mm_flags_set(MMF_USER_HWCAP, mm);
-> +	}
->  
->  	mmap_read_unlock(mm);
->  	return 0;
-> @@ -2190,6 +2192,7 @@ static int prctl_set_auxv(struct mm_struct *mm, unsigned long addr,
->  
->  	task_lock(current);
->  	memcpy(mm->saved_auxv, user_auxv, len);
-> +	mm_flags_set(MMF_USER_HWCAP, mm);
->  	task_unlock(current);
->  
->  	return 0;
-> -- 
-> 2.53.0.983.g0bb29b3bc5-goog
-> 
-> 
+Frank
+>
+> Thanks.
+> Best Regards
+> Richard Zhu
+> > > +          - fsl,imx95-pcie
+> > > +      - items:
+> > > +          - enum:
+> > > +              - fsl,imx94-pcie
+> > > +              - fsl,imx943-pcie
+> > > +          - const: fsl,imx95-pcie
+> > >
+> > >    clocks:
+> > >      minItems: 3
+> > > --
+> > > 2.37.1
+> > >
 
