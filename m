@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4ACEC01A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE73EC01A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y36mYnn//4FrI2ubOkjWYg4TmngNW6rB3lI2di8xzT8=; b=qoUe58p/5DWhTBb0zsys+fhVmM
-	Z71sgJ8+p3LUm3ghV6PZns4QOQMh5udhgB1YKetpTLDsYg3tEOUxmuA2SnG/2GlplrIW4sqZW2c77
-	K8bL3eGLTKcs1dDQrIdrf4WhHL3txiuXYkQJ/9Vw6ZW5ZbcIIOHfV+xMnWlr7mhqgDITOYSR0FKqv
-	xfQGBcn6ZTIHOxeLks4Groc6dYHPXS8CK3THNnIjSFjCxTVKwSX7eKed9m3zb00F2KWFA1gcBYw6M
-	L7YNmwAgTViL4QogX+4+1S0L+lv7qBglLZqpPEwQRw4ZPetOCrDIpVE0jDWNqLVo76C0TlPQeVrGH
-	jO8uf5Rg==;
+	bh=4ajZOG7Wv9bQaacjiwdfbf2cIayCuKBgmgNCXU+gOXI=; b=2MfJXEZAhYXyCVWjdUv6BSO5QU
+	I2th2MYWVuO4ZWhjZx42hovtJOf6yrKgwXRd87dtqONFM7RyI2fnfSQoU3iaBT7vG2FMtgZbY3nmF
+	PwjeoATANTAYDIBoFOGdWe5qgQp3zBhWgwED3VNSqP5l8ifYL41pZ2Llm5G3Rm4eo86et78nLpLWm
+	bvj6bzihQfi+/vClbC7+fiKc6D6WvyeZp4xdM85bNYOC2ZhxgWzD+MP+dLMyAJpTZUdGAk3VcFS5B
+	KtBK/K+okfJ254WPv3EhYP4npM+FyduOCHWHW9IK/TqtM2zmncNXdL9E/ioRfn3GobnegaNZ3Ut7v
+	UCy+CL7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a2m-0000000GE2t-0RTh;
-	Mon, 23 Mar 2026 07:49:48 +0000
+	id 1w4a2x-0000000GE8x-2bSM;
+	Mon, 23 Mar 2026 07:49:59 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a2l-0000000GE1n-0QoE
+	id 1w4a2w-0000000GE8N-0ljb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 07:49:47 +0000
+	Mon, 23 Mar 2026 07:49:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 68329600C4;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BAAA600C4;
+	Mon, 23 Mar 2026 07:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B693C2BC9E;
 	Mon, 23 Mar 2026 07:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A752C4CEF7;
-	Mon, 23 Mar 2026 07:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774252186;
-	bh=oTjYKF2HzgnTzfVt/T4KR/aYoXu0jvREAeLPVzJjchU=;
+	s=k20201202; t=1774252197;
+	bh=CusCegPCNb++eRZgEnFYAhQJhnAtG3gjmvQHWQKqyPY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ApW+Ttb+jFMzL2PVxO2byAuk+A4fmPJnMaO15oJq2IHN6Zecm4hgjhBgwx8npbKST
-	 TGIhzz69K5K4pqQrfkuVb111Ir4KwV9TblQWUzh9dnGHx88hKymgGX1Jv2l7vvSHbM
-	 eeOwB1tP4IvmYQA/ieHNVxEm4eqUCFiuavhCV8w4JZLIDlqV+RrBsQ6RutKPB1KiCx
-	 CTJ9HkxBlgZ4IexKCBXnmCd9iYf4bnQmxV5OCKwv84oMEH+prH6i6fEMCUVPImpnIq
-	 IFbjWI+qGUrIe7+ITN828go5miiQUt8iDKr+D1nvEix/c2fD9Fsz6E0RBqR/E2a1+7
-	 j3bxw4hqbLsrw==
+	b=B6fPKlxHQgWSYzAKTM8G/WWrhZHeaeNsETUGqkQueGTMK64wv6WfUMzzorQkeopo7
+	 hBHZE+Gqs69UQLXKRy/u5tAt1wOavloqFcv52lzntc3bYHhMnIBwNhwWERo67xoRWs
+	 e+V1fc4IuFsAILvV17/Umo0CswXHiww2G9w5Xmd5bUZ/65HujbklLiPL0z9Ta4QPPB
+	 jXAaAUCkB5sI+cmP91/5BYP+gLzDhZrZBjNKcAP9UvluKbCVPCd5xFSjRu5OWYWMU0
+	 Gk6PiNYwrqh+5Y8Mj243Ec5aEbQi2bt8Ki9ITja32vtDHNFNfgb/1VhVG4vtHkAh/C
+	 1xTA2fQLh15Mg==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Potapenko <glider@google.com>,
@@ -92,9 +92,9 @@ Cc: Alexander Potapenko <glider@google.com>,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 5/9] memblock: make free_reserved_area() more robust
-Date: Mon, 23 Mar 2026 09:48:32 +0200
-Message-ID: <20260323074836.3653702-6-rppt@kernel.org>
+Subject: [PATCH v2 6/9] memblock: extract page freeing from free_reserved_area() into a helper
+Date: Mon, 23 Mar 2026 09:48:33 +0200
+Message-ID: <20260323074836.3653702-7-rppt@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260323074836.3653702-1-rppt@kernel.org>
 References: <20260323074836.3653702-1-rppt@kernel.org>
@@ -116,46 +116,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-There are two potential problems in free_reserved_area():
-* it may free a page with not-existent buddy page
-* it may be passed a virtual address from an alias mapping that won't
-  be properly translated by virt_to_page(), for example a symbol on arm64
+There are two functions that release pages to the buddy allocator late in
+the boot: free_reserved_area() and memblock_free_late().
 
-While first issue is quite theoretical and the second one does not manifest
-itself because all the callers do the right thing, it is easy to make
-free_reserved_area() robust enough to avoid these potential issues.
+Currently they are using different underlying functionality,
+free_reserved_area() runs each page being freed via free_reserved_page()
+and memblock_free_late() uses memblock_free_pages() -> __free_pages_core(),
+but in the end they both boil down to a loop that frees a range page by
+page.
 
-Replace the loop by virtual address with a loop by pfn that uses
-for_each_valid_pfn() and use __pa() or __pa_symbol() depending on the
-virtual mapping alias to correctly determine the loop boundaries.
+Extract the loop frees pages from free_reserved_area() into a helper and
+use that helper in memblock_free_late().
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/memblock.c | 34 +++++++++++++++++++++++-----------
- 1 file changed, 23 insertions(+), 11 deletions(-)
+ mm/memblock.c | 55 +++++++++++++++++++++++++++------------------------
+ 1 file changed, 29 insertions(+), 26 deletions(-)
 
 diff --git a/mm/memblock.c b/mm/memblock.c
-index c0896efbee97..eb086724802a 100644
+index eb086724802a..ccdf3d225626 100644
 --- a/mm/memblock.c
 +++ b/mm/memblock.c
-@@ -895,21 +895,32 @@ int __init_memblock memblock_remove(phys_addr_t base, phys_addr_t size)
+@@ -893,26 +893,12 @@ int __init_memblock memblock_remove(phys_addr_t base, phys_addr_t size)
+ 	return memblock_remove_range(&memblock.memory, base, size);
+ }
  
- unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
+-unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
++static unsigned long __free_reserved_area(phys_addr_t start, phys_addr_t end,
++					  int poison)
  {
--	void *pos;
--	unsigned long pages = 0;
-+	phys_addr_t start_pa, end_pa;
-+	unsigned long pages = 0, pfn;
+-	phys_addr_t start_pa, end_pa;
+ 	unsigned long pages = 0, pfn;
  
--	start = (void *)PAGE_ALIGN((unsigned long)start);
--	end = (void *)((unsigned long)end & PAGE_MASK);
--	for (pos = start; pos < end; pos += PAGE_SIZE, pages++) {
--		struct page *page = virt_to_page(pos);
+-	/*
+-	 * end is the first address past the region and it may be beyond what
+-	 * __pa() or __pa_symbol() can handle.
+-	 * Use the address included in the range for the conversion and add
+-	 * back 1 afterwards.
+-	 */
+-	if (__is_kernel((unsigned long)start)) {
+-		start_pa = __pa_symbol(start);
+-		end_pa = __pa_symbol(end - 1) + 1;
+-	} else {
+-		start_pa = __pa(start);
+-		end_pa = __pa(end - 1) + 1;
+-	}
+-
+-	for_each_valid_pfn(pfn, PFN_UP(start_pa), PFN_DOWN(end_pa)) {
++	for_each_valid_pfn(pfn, PFN_UP(start), PFN_DOWN(end)) {
+ 		struct page *page = pfn_to_page(pfn);
+ 		void *direct_map_addr;
+ 
+@@ -934,7 +920,29 @@ unsigned long free_reserved_area(void *start, void *end, int poison, const char
+ 		free_reserved_page(page);
+ 		pages++;
+ 	}
++	return pages;
++}
++
++unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
++{
++	phys_addr_t start_pa, end_pa;
++	unsigned long pages;
++
 +	/*
 +	 * end is the first address past the region and it may be beyond what
 +	 * __pa() or __pa_symbol() can handle.
-+	 * Use the address included in the range for the conversion and add
-+	 * back 1 afterwards.
++	 * Use the address included in the range for the conversion and add back
++	 * 1 afterwards.
 +	 */
 +	if (__is_kernel((unsigned long)start)) {
 +		start_pa = __pa_symbol(start);
@@ -164,32 +192,36 @@ index c0896efbee97..eb086724802a 100644
 +		start_pa = __pa(start);
 +		end_pa = __pa(end - 1) + 1;
 +	}
-+
-+	for_each_valid_pfn(pfn, PFN_UP(start_pa), PFN_DOWN(end_pa)) {
-+		struct page *page = pfn_to_page(pfn);
- 		void *direct_map_addr;
  
- 		/*
--		 * 'direct_map_addr' might be different from 'pos'
--		 * because some architectures' virt_to_page()
--		 * work with aliases.  Getting the direct map
--		 * address ensures that we get a _writeable_
--		 * alias for the memset().
-+		 * 'direct_map_addr' might be different from the kernel virtual
-+		 * address because some architectures use aliases.
-+		 * Going via physical address, pfn_to_page() and page_address()
-+		 * ensures that we get a _writeable_ alias for the memset().
- 		 */
- 		direct_map_addr = page_address(page);
- 		/*
-@@ -921,6 +932,7 @@ unsigned long free_reserved_area(void *start, void *end, int poison, const char
- 			memset(direct_map_addr, poison, PAGE_SIZE);
- 
- 		free_reserved_page(page);
-+		pages++;
- 	}
- 
++	pages = __free_reserved_area(start_pa, end_pa, poison);
  	if (pages && s)
+ 		pr_info("Freeing %s memory: %ldK\n", s, K(pages));
+ 
+@@ -1810,20 +1818,15 @@ void *__init __memblock_alloc_or_panic(phys_addr_t size, phys_addr_t align,
+  */
+ void __init memblock_free_late(phys_addr_t base, phys_addr_t size)
+ {
+-	phys_addr_t cursor, end;
++	phys_addr_t end = base + size - 1;
+ 
+-	end = base + size - 1;
+ 	memblock_dbg("%s: [%pa-%pa] %pS\n",
+ 		     __func__, &base, &end, (void *)_RET_IP_);
+-	kmemleak_free_part_phys(base, size);
+-	cursor = PFN_UP(base);
+-	end = PFN_DOWN(base + size);
+ 
+-	for (; cursor < end; cursor++) {
+-		memblock_free_pages(cursor, 0);
+-		totalram_pages_inc();
+-	}
++	kmemleak_free_part_phys(base, size);
++	__free_reserved_area(base, base + size, -1);
+ }
++
+ /*
+  * Remaining API functions
+  */
 -- 
 2.53.0
 
