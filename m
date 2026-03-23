@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7C3F483CC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A94DF483C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkGIlYzvDBEyiZx5t1EZ4xK7lO7CSSnAAM3Pg/uXRzM=; b=C5fdG8H7tQPdVy5MnSmSGz3DJW
-	IFfxRXaV+lY4a3EuJtI0OTf2yD/BPpeGdeXwn9MfFJlxjogMJ5alHbQMDrXNKL8RP5K9pQCOSCxc9
-	NNI0mdaN34fxk6VV6Yh3z0bDgsg1DPBWPlZlH52cweGfR929t3yFRDiRxEQ5MJRW2j10Yj4hPhDCJ
-	RFl69L5DxuLlI3Hudg8hdAG5tsagDJeoxnuLy22PB/J+t4umIgBNKES6pnCp4B9es4VfHnrAnvmRr
-	CC+DxqoAnBQKcML3Y427F6r8/7/KQebWj2VDnDWX0P84HNBm33IqVoMLn3CGItJVrfw/qNWSLkW1z
-	kNsliPtw==;
+	bh=O5z0cZoIP40ydCgMr2OHiwxqqMK+7x7ZmHu7h/85psw=; b=dot1sW5UDyggaOG1vcFRlmP0J4
+	s9KTZPY2SEnr4/0WYF9n4uK/T1IN1zmj53wfYm5LDf03m3oQ9qkDfZzq59qlDEJ+atUKcbdweNJR8
+	xdta3dOkotz16WffjAuzlpoi6xR0f3z95DH+1yJcWVCG1hgRyi0CAzvetrrn8LJsfEwgEItYgx3Xc
+	m2qknNfOG/Zr22/2meInkyTW9pNkd6QOlHnzwMwXjNgo8UwUQenPK77docf3bJncbFyyN5E9kunnf
+	gi9V/S/N6NS/IEViXLZKyemRMQPMfc2+oJ523LOWqoxJ6SN5WgkIGrWuchwcu/tQ4ykUsxPqNarmv
+	i/Bn9S7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4i4r-0000000H7xW-3xe1;
-	Mon, 23 Mar 2026 16:24:29 +0000
+	id 1w4i4s-0000000H7yf-2P7R;
+	Mon, 23 Mar 2026 16:24:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4i4j-0000000H7tF-1xrs
+	id 1w4i4l-0000000H7uW-2HoV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 16:24:23 +0000
+	Mon, 23 Mar 2026 16:24:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9DD914BF;
-	Mon, 23 Mar 2026 09:24:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4D35169E;
+	Mon, 23 Mar 2026 09:24:16 -0700 (PDT)
 Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2827F3F73B;
-	Mon, 23 Mar 2026 09:24:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 351623F73B;
+	Mon, 23 Mar 2026 09:24:21 -0700 (PDT)
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Will Deacon <will@kernel.org>,
@@ -44,18 +44,17 @@ Cc: Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Mark Brown <broonie@kernel.org>,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v3 3/5] arm64: cputype: Add C1-Pro definitions
-Date: Mon, 23 Mar 2026 16:24:03 +0000
-Message-ID: <20260323162408.4163113-4-catalin.marinas@arm.com>
+Subject: [PATCH v3 5/5] KVM: arm64: Add SMC hook for SME dvmsync erratum
+Date: Mon, 23 Mar 2026 16:24:05 +0000
+Message-ID: <20260323162408.4163113-6-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260323162408.4163113-1-catalin.marinas@arm.com>
 References: <20260323162408.4163113-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_092422_463904_7A3B9E00 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_092423_728191_EC2AE465 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,40 +69,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cputype definitions for C1-Pro. These will be used for errata
-detection in subsequent patches.
+From: James Morse <james.morse@arm.com>
 
-These values can be found in "Table A-303: MIDR_EL1 bit descriptions" in
-issue 07 of the C1-Pro TRM:
+C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
+all outstanding SME accesses. Instead a DSB needs to be executed on the
+affecteed CPUs. The implication is pages cannot be unmapped from the
+host stage2 then provided to the guest. Host SME accesses may occur
+after this point.
 
-  https://documentation-service.arm.com/static/6930126730f8f55a656570af
+This erratum breaks pKVM's guarantees, and the workaround is hard to
+implement as EL2 and EL1 share a security state meaning EL1 can mask
+IPI sent by EL2, leading to interrupt blackouts.
 
+Instead, do this in EL3. This has the advantage of a separate security
+state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
+to know about CPUs that are off or in PSCI's CPU_SUSPEND.
+
+Add the needed hook.
+
+Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: James Morse <james.morse@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- arch/arm64/include/asm/cputype.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 17 +++++++++++++++++
+ include/linux/arm-smccc.h             |  6 ++++++
+ 2 files changed, 23 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 08860d482e60..7b518e81dd15 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -98,6 +98,7 @@
- #define ARM_CPU_PART_CORTEX_A725	0xD87
- #define ARM_CPU_PART_CORTEX_A720AE	0xD89
- #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
-+#define ARM_CPU_PART_C1_PRO		0xD8B
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 38f66a56a766..ef8afbdd421b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -5,6 +5,8 @@
+  */
  
- #define APM_CPU_PART_XGENE		0x000
- #define APM_CPU_VAR_POTENZA		0x00
-@@ -189,6 +190,7 @@
- #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
- #define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
- #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
-+#define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
- #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
- #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
- #define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
+ #include <linux/kvm_host.h>
++#include <linux/arm-smccc.h>
++
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+@@ -28,6 +30,15 @@ static struct hyp_pool host_s2_pool;
+ static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+ #define current_vm (*this_cpu_ptr(&__current_vm))
+ 
++static void pkvm_sme_dvmsync_fw_call(void)
++{
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714)) {
++		struct arm_smccc_res res;
++
++		arm_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
++	}
++}
++
+ static void guest_lock_component(struct pkvm_hyp_vm *vm)
+ {
+ 	hyp_spin_lock(&vm->lock);
+@@ -553,6 +564,12 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+ 	if (ret)
+ 		return ret;
+ 
++	/*
++	 * After stage2 maintenance has happened, but before the page owner has
++	 * changed.
++	 */
++	pkvm_sme_dvmsync_fw_call();
++
+ 	/* Don't forget to update the vmemmap tracking for the host */
+ 	if (owner_id == PKVM_ID_HOST)
+ 		__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 50b47eba7d01..e7195750d21b 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -105,6 +105,12 @@
+ 			   ARM_SMCCC_SMC_32,				\
+ 			   0, 0x3fff)
+ 
++/* C1-Pro erratum 4193714: SME DVMSync early acknowledgement */
++#define ARM_SMCCC_CPU_WORKAROUND_4193714				\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_32,				\
++			   ARM_SMCCC_OWNER_CPU, 0x10)
++
+ #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
+ 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+ 			   ARM_SMCCC_SMC_32,				\
 
