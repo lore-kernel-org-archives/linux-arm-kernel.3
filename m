@@ -4,54 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC3BF483D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C39BF483C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNmbo9n65pXEsQ9XFD/j7JU1Z0t6i0RjZvYv9WD3xf8=; b=G3YmJolrHAMpprrvA4Gc4vm9uC
-	om8zqOesEsDcMWKL0HHUruELLxolpVYcwX7hElnvrZJMddGT5axhhXbqv6p4szHvo6/6wfXbA0TN9
-	FdR3yoMBKUp77EaOMJVE+O6LoUzsvaF+N/yZVOOXbAiZ/lQ8X3+alCAt5eYTsvi4XcxuASoAH8rLt
-	WFXFNt2cJpNu+1PCg992KMbpaPdzXoOPq99HYZMqoey+uX++RytbySth+op5o1F4NVLmzE2AF4Npc
-	bZv/W+cQR+5trLwr/3qpbBmo1XgkKZJKv/OoVwRUOL2az5vkdoyYM4KLyVyeMMHryfGBjlwTBA773
-	B6AbQKyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=03hqnEAuspYj1fFMdrpO6ZDQqLsJ5+bFq/qY2mRtgQM=; b=tzjEJGYCV5Ht6GYbSTRKRrK6yw
+	VwsRFYh1RQrQe1+K2lh9jtUSjpwPCFChM0PPyYtdU+pczgLHFiYbl7KQcmmrqE4ZClX+28gHdVWB2
+	sAH8ukO2cYxki4duhqgr8Ujpd89fthEJygldpysZdIYRkZ2F8CXeLcDeclGUQZxPIzjCZA+bh9OvR
+	Pe8CqHZR8JmkpkgY/KGDA3IKnJDI1bZEGFp0YWkx74Gskrg/c6i21bk/Bk814Cl/Y5dkka1lyjJ+u
+	Jsl5GCvgRQGKSBiFexbgCI3Drxl/ZQybcIxt6QIXq+//NYtWeG9yzz0wS5f8o1crXTJTJPg/gkYY/
+	2Z35EmEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4iZm-0000000HBCj-2hzS;
-	Mon, 23 Mar 2026 16:56:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4idA-0000000HBfJ-2X6J;
+	Mon, 23 Mar 2026 16:59:56 +0000
+Received: from mail-northeuropeazon11010028.outbound.protection.outlook.com ([52.101.84.28] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4iZi-0000000HBA5-0yhq
+	id 1w4id7-0000000HBei-3l1m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 16:56:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E58D9404F8;
-	Mon, 23 Mar 2026 16:56:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C011C2BCB0;
-	Mon, 23 Mar 2026 16:56:20 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/3] firmware: arm_scmi: Fix bound iterators returning too many items
-Date: Mon, 23 Mar 2026 17:56:11 +0100
-Message-ID: <8d9f0630e7ef2e3415df9800b6d9459063034977.1774283748.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1774283748.git.geert+renesas@glider.be>
-References: <cover.1774283748.git.geert+renesas@glider.be>
+	Mon, 23 Mar 2026 16:59:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lWBpXYNhuyc/7SxNKaazsGH2XhqwWQzatvS00V8WUErT3i2zfM1lnVEiBD5nWCXUv80IadHQBLKF+qBrJ0mY+cmJDXC8EWfcu870bZmqtPkmdInW4PqYUInN7WFEQnanMInjPLkM1M0W7FJX3iFbPDFkqBs1D/umwvxPZolzXoCjGPnAJoHy2XQFMhgsFTr7n6ri63c0fFZIBIe3tx6iTznOQp8hIQMe/MH2iu7Wl2LXmiNDZ1JNlZFLoUjso3y9AAS4Qbv5yUL7jbRUhWI7Z1+HnJp4QGT1e/5fGSbzKvrWOadCuNj3TWEL1raP5LEOS2ovx8qSiPhRqHaxE4q6Ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=03hqnEAuspYj1fFMdrpO6ZDQqLsJ5+bFq/qY2mRtgQM=;
+ b=N2s6F0+iDmQZABwswWvcf/7SADsfWVT7cinABKmkXi2sVmXiJF7behbCJKF6nEUwM6SJ3oiSw0u/c3VvXI8I91PrH5N+FW4zfAhLldLrq0NgFytdQeD1enlxl0yH7wSCxIpZ7gbfTFkaHr6IG4hESBGfnsyoaWMKkgpeA1FJ7f7HCQ+qVf9T2Ecls31D4qDcBdZZCc7yAnFLjar7HskiLm1DH4UNC8P0wU1S5dGU3TR4TW8/CyiLF0Q/Pv8ujAXSdYWDI30nPqBTWurvxgvJqm5zKpr0GEg1R9b1jxZVK2vyLYpGGv2p+pmrpogeH9gyJf9xcNmr1r8YpuQpucVCnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=03hqnEAuspYj1fFMdrpO6ZDQqLsJ5+bFq/qY2mRtgQM=;
+ b=B8HImz1dEx1oBVYB1Se2O0dUY93qbXeeMr1p4LSO0RyzEBnPDBOY+fUPR6yAFj+ypveJ4XPh0OZsOtDp60uUbntseIxCXO9QAkZ0M/AtounuZZircxcaMba0k1No+LbGXAOU0m+zHk907UVYvU+uURfLJ04QILjLxztxx+sgLE6xf/Hr5SB5c01NibGCJ6PU7PmYSZErbzHvz5KdX2vxl9zc3pQqSDXyzB6/Vt6xPSr5kmvFT0Nxjsld+bTAFB3EDCzTKWnUxx/SqMdLq6GEag5lHLwlI21oLnInnz/b7szJwCQ7XdJN0RKKou8yizY5ep4Avo65ooqsLmNiz+vMBA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU4PR04MB10401.eurprd04.prod.outlook.com (2603:10a6:10:55e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Mon, 23 Mar
+ 2026 16:59:21 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 16:59:39 +0000
+Date: Mon, 23 Mar 2026 12:59:34 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Eduard Bostina <egbostina@gmail.com>
+Cc: daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com,
+	m-chawdhry@ti.com, Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: watchdog: Convert TS-4800 to DT schema
+Message-ID: <acFxdiHYjlSOESf_@lizhi-Precision-Tower-5810>
+References: <20260323084616.10469-1-egbostina@gmail.com>
+ <20260323084616.10469-2-egbostina@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260323084616.10469-2-egbostina@gmail.com>
+X-ClientProxiedBy: SJ0PR03CA0153.namprd03.prod.outlook.com
+ (2603:10b6:a03:338::8) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10401:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1016c7f9-8879-4345-c0ac-08de88fd9210
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|52116014|38350700014|7053199007|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: GoejmQNfqswBXI/vbkBdmQSQmvoixD+J72nm1sn9fWELhH6n1BniTdqJ9Zk3xp2ElkfpGhLkAfY9eia5u0zy0obRF1y/b76QCqRN9iL95kDM69q49Qz7O3q9D4XMZvPDkAvkGqLfkQ2p+lyy3wLAdm/vkDQeoubH9ZQCdPUNxY0A/PK90CTWUq1f23HTjhaotJ+CLlX+/RzI8t4VNjO3vbaKOvuRPgumA3bpynDYtsQmB08VCqcmQ08aRzq5+Y+Ul9N6o6Z2gbXV7SpTcPmmvwAQqbmZSkOjnMD+TGI0TA64ijVv8shYy3JBzZgSW5KOs3qh+wrLRBeGk8CCAaNr2KF3AITmjZsNblFwPlSDdtC9AHQnMjGlU1Gw7YBvyN6eL0JGYK6CwICGOJyBHn7MExrwtFpHbzqtWLuxzz5raCZ+LPmB0weYejSNKeh8n6Mrt/RO5M07Tbmdxcs0256vybhB6dkO7tp5ZLKSA6OT9olBRcluFpBOxj6cLMINlwonzcwRwb46i54AA0927XPO+BnAZrbXAeL5zb3j1JwqVID9QJU1Y/dblkjexTdLYkG4wXKFokPolLw5xmngSpqQFjVa0Vikd+2xhlgNoA3Ldnzw+1ixzPLeIcElKZGGw2m9DHnaAA+lnWjHMofo11JvJ1OUj3ZPZFR+W1xqqVxErsGaygr5rfZWXb4XWCgf6ESbbxRFXJ3idT4Ozyp1haLZtuv38mFvlizhSifmFUMWcJeuMGzX+oDktOS6BTjyMoGE
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(52116014)(38350700014)(7053199007)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?r64wDRKdeMvYLJ2e+W/4FbB6Q9E6G0dLKi/ImozpnAXsTljfMQ+Gyp14JZpV?=
+ =?us-ascii?Q?sTBYCMa/xX76A718lq7rU7dMB2NfDutYviQ6EIrHXq3OoJVV/AVe5Ev0Ywxm?=
+ =?us-ascii?Q?4/cJmvXoLWQym/XjqRRql84tMSecgJzCG6aOIHl7zbHC26lU926VREVfFiyv?=
+ =?us-ascii?Q?dLCDWYYuambciFvpYA1sdJkVO3FG9G0RxGkxVkY+P55DGGuJroxlqrjbNKsE?=
+ =?us-ascii?Q?ODcQJnVqfa414yDAyGLvevodhJmNbu8a31Y42MtT7IMrj1jXdfr3msb4a3yy?=
+ =?us-ascii?Q?fQBJOWcuQdrBQSwT3QQzLigZ+HCt008c/qvagsG1itQElYjSO4xiwu9UvNAo?=
+ =?us-ascii?Q?Vz4CvKwMEByy35FfKcFvmDuet3R/ekFA+ZsFXuFtw/EDw77kmdzCH+qLXd0n?=
+ =?us-ascii?Q?IYwSp2nmC8wsJj1y3gBvpCAXXrxE7jFaKtKdP/SQ7bo0/Gcb81nu88zcaQwr?=
+ =?us-ascii?Q?qtpa0NmATyJ/7ps7HhtgelK02n2RffY+lK9tuBc4NFtsMrrObcTJP1TKOrAH?=
+ =?us-ascii?Q?P+2CqxL0dWoL6BFNJEs4eDTs2F4BC/gDWfenBaQm18kEuzZVgOS5O0R/rpkx?=
+ =?us-ascii?Q?FP+egoTQCtVHeHNhn4SciLtnAdFSEr+FJM+1hZO6bt4UfOSZ0Qm7QGfSuded?=
+ =?us-ascii?Q?qhVEkzKXkQH4pm80oninSl2+e3to3EVbs/WwuiYfSxeKsSyt+aD3COWI+CPC?=
+ =?us-ascii?Q?gY5+wmQU/xrVRDTyw2BVyKIzi7TD5s7PvydT1O4wHAH4EmpD6GDsCfYy5x6d?=
+ =?us-ascii?Q?t1zlId8V0yzxvzHVa+PEA+DNkCxJSIKUbDGcKLYYfwNRNWEtDdqH8n2TAtFw?=
+ =?us-ascii?Q?VxN56kgc88QNx4ZM0/U5iH/4l61U5HY3pLt3PKudMsNuMHUdkmrWyGV93ZXB?=
+ =?us-ascii?Q?VVSDieZlD/hxkatRcE70W3sSJZNMp0/dP/Pm8utiU8BIHER290eIddqPRX0i?=
+ =?us-ascii?Q?96tYRYqYn6JffhGetnhaj3C/UPcv8oANNgZGinl0ThUBflL1tbOBtLXHexCE?=
+ =?us-ascii?Q?npR/jpBZCQLZfVvXHbPMO6oHTCAC32+bdS2zFZG11vcMgoGJdzyFmItdKsR0?=
+ =?us-ascii?Q?X6jy+Q7RUyPR3WtH5tsZBISE0//+tXh1lHdiGs0D4aI1YVehKjSMrOXJU7E0?=
+ =?us-ascii?Q?yAbey91r5Idqzr7AwwJ0rfdD1RYBozUutDkcY5QUZG1MJEWdgsryUkvc3nzB?=
+ =?us-ascii?Q?VkJa7FosC4JTgyetXOi8qcL5RF4wgrE9WYME/YAXgFy+UU7A5WvMBC8++Dxl?=
+ =?us-ascii?Q?2Vq6ozBQqaFET1+Cd/Ly40jySWHozc/YrsRLsmBozFQ/ADBcymibcGCUgNt1?=
+ =?us-ascii?Q?fBg1T/NlAqiDJg0rd1lAE+77UsCq9KlznKHo3wILvBSrMLbrv/CmxR8NFBJa?=
+ =?us-ascii?Q?ncQBD2Jna7AgWUaX3HQ44JVtx9ECdJUTOBEl86BVI2JEYKVn8D4Pf2/8PNqf?=
+ =?us-ascii?Q?Id5r0Qiyyq6nkwAdZLrK3jKQdj4+hp6moGR04tzqe9rUe0EErp1bIdE8Gi6A?=
+ =?us-ascii?Q?6pLC8Pc8p3cQYAbb7m7Ayy/v4e6GHUNP2vqFTxXN+OL0Y7yvBP/HYTbIwDwI?=
+ =?us-ascii?Q?7sa3j8z00c4kOYXcnGFKKhILOBmwpc7pGCNhPob3GLE28lQeNZGk9J3Pa026?=
+ =?us-ascii?Q?G2I7VuKNFr5fZTtfd4WsE5eetd/1Caz5ekOAg+tocfuU940sQByT7MX/ygzd?=
+ =?us-ascii?Q?sPp4InfmjR664jbflqLvDcmN+0bVHdwjVctMTpkMaouiOtND?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1016c7f9-8879-4345-c0ac-08de88fd9210
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 16:59:39.3672
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z+9//NeFhNkRzxO1d3GOGawSAwlR4zN9y8po/VYqYP0jw7Yg1GhKNZbuucRHFkEjxKtYc+6mXHTwCGjOEU+BRA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10401
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_095622_369600_E488D281 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20260323_095953_965100_78BBE5AC 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,90 +143,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When using a bound-iterator with an upper bound, commands are sent, and
-responses are received, until the upper bound is reached.  However, it
-is up to the SCMI provider implementation to decide how many rates are
-returned in response to a single CLOCK_DESCRIBE_RATES command.  If the
-last response contains rates beyond the specified upper bound, they are
-still passed up for further processing.  This may lead to buffer
-overflows in unprepared callsites.
+On Mon, Mar 23, 2026 at 10:46:12AM +0200, Eduard Bostina wrote:
+> Convert the Technologic Systems TS-4800 watchdog timer bindings
+> to DT schema.
+>
+> Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+> ---
+> Note:
+> * This patch is part of the GSoC2026 application process for device tree bindings conversions
+> * https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
+>
+>  .../watchdog/technologic,ts4800-wdt.yaml      | 46 +++++++++++++++++++
+>  .../bindings/watchdog/ts4800-wdt.txt          | 25 ----------
+>  2 files changed, 46 insertions(+), 25 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
+>
+> diff --git a/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml b/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
+> new file mode 100644
+> index 000000000..cb2066b4b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
+> @@ -0,0 +1,46 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/watchdog/technologic,ts4800-wdt.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Technologic Systems TS-4800 Watchdog
+> +
+> +maintainers:
+> +  - Eduard Bostina <egbostina@gmail.com>
+> +
+> +allOf:
+> +  - $ref: watchdog.yaml#
 
-While the imprecise bound handling may have been intentional (it was
-mentioned in the commit message introducing the code), it is still
-confusing for users, and may cause hard to debug crashes.  Fix this by
-strictly enforcing the upper bound.
+Move allOf after required incase add if-else branch later.
 
-Note that this may cause an increase in the number of
-CLOCK_DESCRIBE_RATES commands issued, as retrieving the last rate may no
-longer be done inadvertentently, but require its own command.
+> +
+> +properties:
+> +  compatible:
+> +    const: technologic,ts4800-wdt
+> +
+> +  syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: Phandle to the FPGA's syscon
+> +          - description: Offset to the watchdog register
+> +    description: Phandle / integers array that points to the syscon node which
+> +      describes the FPGA's syscon registers.
+> +
+> +required:
+> +  - compatible
+> +  - syscon
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscon: syscon@b0010000 {
+> +      compatible = "syscon", "simple-mfd";
+> +      reg = <0xb0010000 0x3d>;
+> +      reg-io-width = <2>;
+> +
 
-Fixes: 13289addf5a52e1f ("firmware: arm_scmi: Add bound iterators support")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-This caused random "kernel BUG at drivers/base/devres.c:135!" crashes
-during boot on R-Car X5H, as lazy clock rate discovery does not handle
-correctly receiving more rates than expected.
+Needn't this part. just keep below watchdog node should be enough.
 
-Example for a clock with 8 rates, which are all returned in response to
-a single CLOCK_DESCRIBE_RATES command:
+Frank
 
-    scmi_clock_describe_rates_get_lazy: Grabbing rates 0..2
-    iter_clk_describe_update_state: Returned 8 remaining 0
-    iter_clk_describe_update_state: Allocating 8 rates
-    iter_clk_describe_process_response: rates[0] = 33333333
-    iter_clk_describe_process_response: rates[1] = 66666666
-    iter_clk_describe_process_response: rates[2] = 133333333
-    iter_clk_describe_process_response: rates[3] = 266666666
-    iter_clk_describe_process_response: rates[4] = 355555555
-    iter_clk_describe_process_response: rates[5] = 533333333
-    iter_clk_describe_process_response: rates[6] = 711111111
-    iter_clk_describe_process_response: rates[7] = 1066666666
-						   ^^^^^^^^^^
-Rates [3] to [7] are received, despite being outside the bound.
-
-    scmi_clock_describe_rates_get_lazy: Grabbing rates 7..7
-    iter_clk_describe_update_state: Returned 1 remaining 0
-    iter_clk_describe_process_response: rates[8] = 1066666666
-					      ^    ^^^^^^^^^^
-Out of bounds access! ------------------------+    |
-Same value as [7] ---------------------------------+
----
- drivers/firmware/arm_scmi/driver.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 2a9183686203b4e7..03fd7caa8b42a12c 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1820,6 +1820,7 @@ static int __scmi_iterator_run(void *iter, unsigned int *start, unsigned int *en
- 	const struct scmi_protocol_handle *ph;
- 	struct scmi_iterator_state *st;
- 	struct scmi_iterator *i;
-+	unsigned int n;
- 
- 	if (!iter)
- 		return -EINVAL;
-@@ -1852,13 +1853,17 @@ static int __scmi_iterator_run(void *iter, unsigned int *start, unsigned int *en
- 			return -EINVAL;
- 		}
- 
--		for (st->loop_idx = 0; st->loop_idx < st->num_returned; st->loop_idx++) {
-+		if (end)
-+			n = min(st->num_returned, *end - st->desc_index + 1);
-+		else
-+			n = st->num_returned;
-+		for (st->loop_idx = 0; st->loop_idx < n; st->loop_idx++) {
- 			ret = iops->process_response(ph, i->resp, st, i->priv);
- 			if (ret)
- 				return ret;
- 		}
- 
--		st->desc_index += st->num_returned;
-+		st->desc_index += n;
- 		ph->xops->reset_rx_to_maxsz(ph, i->t);
- 		/*
- 		 * check for both returned and remaining to avoid infinite
--- 
-2.43.0
-
+> +      watchdog {
+> +        compatible = "technologic,ts4800-wdt";
+> +        syscon = <&syscon 0xe>;
+> +        timeout-sec = <10>;
+> +      };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt b/Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
+> deleted file mode 100644
+> index 8f6caad42..000000000
+> --- a/Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
+> +++ /dev/null
+> @@ -1,25 +0,0 @@
+> -Technologic Systems Watchdog
+> -
+> -Required properties:
+> -- compatible: must be "technologic,ts4800-wdt"
+> -- syscon: phandle / integer array that points to the syscon node which
+> -          describes the FPGA's syscon registers.
+> -          - phandle to FPGA's syscon
+> -          - offset to the watchdog register
+> -
+> -Optional property:
+> -- timeout-sec: contains the watchdog timeout in seconds.
+> -
+> -Example:
+> -
+> -syscon: syscon@b0010000 {
+> -	compatible = "syscon", "simple-mfd";
+> -	reg = <0xb0010000 0x3d>;
+> -	reg-io-width = <2>;
+> -
+> -	wdt@e {
+> -		compatible = "technologic,ts4800-wdt";
+> -		syscon = <&syscon 0xe>;
+> -		timeout-sec = <10>;
+> -	};
+> -}
+> --
+> 2.53.0
+>
 
