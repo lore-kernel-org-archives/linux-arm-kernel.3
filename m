@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42922EC01AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB3BEC01A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=50lipdLdy0rn0ZzFb+/og0BjrVfYMthBF9lHaKHPaS8=; b=0TGoLI7gZZ3In2z1u5Rm94fC4k
-	OPfC5s4FXr2j60XxtIab/2YFlLZPaxsgKwm7tHYKYQlM3uwZrWDQoC8qrJ+hFa97ZRQ+bYAFXb4Kx
-	pZD2v76VhLCMvZAlWk5XXT1Z7COsITFSoN+8ejzW2w+2pSHTNZNmfzoSPOu5/X5T00ZfirNQby/sn
-	4W2fEd+k7V3kpDWhKC1TPvtnUfHrEmKxdaN48HjbxA8dIKDowlEmekIs4tieDF1QIQWksuCfikCO2
-	KiM8bq+JunAD7XDY+hIn8+Vm4a/stGpFPx/bGOEj4l0lpNX1DPAOVPVACgSRldCSWNHpBjL6Mjjv6
-	RswiM5Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HRpfkon01fXZerM9f0oDAjGQYFsh+lno7ysvy+gZQfE=; b=tg9Nt3c2viBY25FfzxRvzdoklO
+	KzBccXDHmvSFLVgRottWxvUI6ud0zTnVOcyzsO5u83/L6q3bw5C0Kel0TeVQXS69P46HX9PtmgK7z
+	HOfgm12/qRO1qYWbSW9xD+iHYBc5LT+jGfHdZQEX/upIYOJqTndF5FX03YJJyGaaGqqsl2IsTbVzi
+	Zsd5PSKkCl+694lpSlZoAUNl33VCPbao30i69z/e2S9Kb41Jct/3546uPcDYoZhf/+EeCQ5IVfad2
+	5koHyfrMmzFw2Ggux66Q9T9Ym1yU+CoNQ3fajoZ19x6KIflBUA429JnkWCRtrrwbnKPuok9iC8amx
+	z1rjrc1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bLS-0000000GLR2-3rCo;
-	Mon, 23 Mar 2026 09:13:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4bQs-0000000GMLt-3Ayb;
+	Mon, 23 Mar 2026 09:18:46 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bLR-0000000GLQq-2wNA;
-	Mon, 23 Mar 2026 09:13:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E411D600C4;
-	Mon, 23 Mar 2026 09:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06702C4CEF7;
-	Mon, 23 Mar 2026 09:13:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774257188;
-	bh=wzMrqKx3Jtzn/TAs56FycVP5WjxG7mSofPlph6puuTE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=joSxwlspVhKYcgE4zizMzEupkVxH7zBoRt16ItgpGqtktF8hLPrEEOTxfgh4aRR46
-	 H0U9alpLsA83SdovjY4NjT0S8IVfoGCFHfdV08wBojK7QatPitGsHroy+nurmzIUo5
-	 9LTrYrheRCty7XcM5Hdcd35jJVYk4YzX2FwqnAgbFVPaee1S/zk0OOYbb6dWKe54SV
-	 Qejn61X7CFhOqRsAbeUsXpGiEPrzUHGPx8hpLYNbDN7Ghgx9DVL33kddcsAYc4j5Sz
-	 AmCzqaip3eo7Xnd8PbIQkYXGzXvvJm8fegMwy8XoqhfyH8Ytxfa3hUrWvBicIE9Bu0
-	 C1NjdvWhW+Gjw==
-Date: Mon, 23 Mar 2026 09:13:06 +0000
-From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Long Li <longli@microsoft.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "K . Y . Srinivasan" <kys@microsoft.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
-	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>, 
-	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>, 
-	"linux-staging@lists.linux.dev" <linux-staging@lists.linux.dev>, "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, 
-	"target-devel@vger.kernel.org" <target-devel@vger.kernel.org>, "linux-afs@lists.infradead.org" <linux-afs@lists.infradead.org>, 
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH v4 18/21] drivers: hv: vmbus: replace deprecated mmap
- hook with mmap_prepare
-Message-ID: <409ff1b0-43ff-4b1d-ad07-7624e0817640@lucifer.local>
-References: <cover.1774045440.git.ljs@kernel.org>
- <05467cb62267d750e5c770147517d4df0246cda6.1774045440.git.ljs@kernel.org>
- <SN6PR02MB41573DF211DA2469D7FFE892D44BA@SN6PR02MB4157.namprd02.prod.outlook.com>
+	id 1w4bQq-0000000GMLW-1Cd5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 09:18:46 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=HRpfkon01fXZerM9f0oDAjGQYFsh+lno7ysvy+gZQfE=;
+	b=FT0XodMsuHQhxMnfOLpu4iF+2ZEWCWYNaeoyTtSVuec7tYj8fMsqZ2u8B0SXFEhYP9l1j7NfO
+	ZHJOwowzIjTMPFL7ObOna0gJrfSMVf0wejCAjtNcaATAPGoW+g2Wi87EbXOnZib8qCSi9QKbPlg
+	IBeQEZejAjAaz+FQuFnSd/Y=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4ffSBQ6TgBz1T4JY;
+	Mon, 23 Mar 2026 17:13:02 +0800 (CST)
+Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2987740567;
+	Mon, 23 Mar 2026 17:18:31 +0800 (CST)
+Received: from [10.67.120.222] (10.67.120.222) by
+ kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 23 Mar 2026 17:18:30 +0800
+Message-ID: <076199c7-265a-4c24-9e8b-964af10931e2@huawei.com>
+Date: Mon, 23 Mar 2026 17:18:30 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SN6PR02MB41573DF211DA2469D7FFE892D44BA@SN6PR02MB4157.namprd02.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC patch 1/9] selftests/resctrl: Move CPU affinity and resctrl
+ FS setup to child process
+To: Reinette Chatre <reinette.chatre@intel.com>, <tony.luck@intel.com>,
+	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
+	<shuah@kernel.org>, <tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>,
+	<ben.horgan@arm.com>, <jonathan.cameron@huawei.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
+CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<wangzhou1@hisilicon.com>
+References: <20260304040334.765860-1-wuyifan50@huawei.com>
+ <20260304040334.765860-2-wuyifan50@huawei.com>
+ <33a9c54d-565b-4de9-b525-1390bfd50593@intel.com>
+From: wuyifan <wuyifan50@huawei.com>
+In-Reply-To: <33a9c54d-565b-4de9-b525-1390bfd50593@intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.222]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk500005.china.huawei.com (7.202.194.90)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_021844_705615_1D928EE4 
+X-CRM114-Status: GOOD (  38.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,106 +86,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 04:16:20AM +0000, Michael Kelley wrote:
-> From: Lorenzo Stoakes (Oracle) <ljs@kernel.org> Sent: Friday, March 20, 2026 3:40 PM
-> >
-> > The f_op->mmap interface is deprecated, so update the vmbus driver to use
-> > its successor, mmap_prepare.
-> >
-> > This updates all callbacks which referenced the function pointer
-> > hv_mmap_ring_buffer to instead reference hv_mmap_prepare_ring_buffer,
-> > utilising the newly introduced compat_set_desc_from_vma() and
-> > __compat_vma_mmap() to be able to implement this change.
-> >
-> > The UIO HV generic driver is the only user of hv_create_ring_sysfs(),
-> > which is the only function which references
-> > vmbus_channel->mmap_prepare_ring_buffer which, in turn, is the only
-> > external interface to hv_mmap_prepare_ring_buffer.
-> >
-> > This patch therefore updates this caller to use mmap_prepare instead,
-> > which also previously used vm_iomap_memory(), so this change replaces it
-> > with its mmap_prepare equivalent, mmap_action_simple_ioremap().
-> >
-> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
-> > ---
-> >  drivers/hv/hyperv_vmbus.h    |  4 ++--
-> >  drivers/hv/vmbus_drv.c       | 31 +++++++++++++++++++------------
-> >  drivers/uio/uio_hv_generic.c | 11 ++++++-----
-> >  include/linux/hyperv.h       |  4 ++--
-> >  4 files changed, 29 insertions(+), 21 deletions(-)
-> >
->
-> There are two mmap() code paths in the Hyper-V UIO code. One path is
-> to mmap() the file descriptor for /dev/uio<n>, and the other is to mmap()
-> the "ring" entry under /sys/devices/vmbus/devices/<uuid>. The former is
-> done by uio_mmap(), and the latter by hv_uio_ring_mmap_prepare().
->
-> I tested both these paths using a combination of two methods in a
-> x86/x64 VM on Hyper-V:
->
-> 1) Using the fcopy daemon, which maps the ring buffer for the primary
-> channel and sends/receives messages with the Hyper-V host. This
-> method tests only the 1st path because the fcopy daemon doesn't create
-> any subchannels that would use the "ring" entry.
->
-> 2) Using a custom-built test program. This program doesn't communicate
-> with the Hyper-V host, but allows mostly verifying both code paths for the
-> primary channel. As a sanity check, it verifies that the two mmaps are
-> mapping the same memory, as expected.
->
-> As such,
->
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
+Hi Reinette,
 
-Perfect, thanks so much for this!
+On 3/13/2026 4:53 AM, Reinette Chatre wrote:
+> Hi Yifan,
+>
+> On 3/3/26 8:03 PM, Yifan Wu wrote:
+>> 3. Since only the child process is monitored, the CPU affinity should
+>> also be set only on the child process to ensure that the PMU (Performance
+>> Monitoring Unit) can count memory bandwidth from the benchmark process.
+> A child process inherits its parent's CPU affinity mask, no?
+>
+>> 4. When the parent and child processes are scheduled on the same CPU,
+>> the parent process's activity may interfere with the monitoring of
+>> the child process. This is particularly problematic in some ARM MPAM
+> Which tests are encountering issues? For MBM and MBA I do not think this
+> matters since the tests just compare perf and resctrl numbers and perf
+> will already contain all bandwidth associated with the PMU so isolation here
+> may require to potentially take all traffic off a socket.
+> CMT tests may see some impact since it compares cache occupancy to the
+> size of the buffer being read. I do have a pending series that aims to
+> address some issues with the CMT test:
+> https://lore.kernel.org/linux-patches/cover.1772582958.git.reinette.chatre@intel.com/
+>
+>> implementations, where memory bandwidth monitoring real-time values. When
+>> the child process is preempted off the CPU, this results in inaccurate
+>> monitoring.
+> This motivation is not clear to me. Could you please elaborate how inaccurate
+> this monitoring gets? The child process may be preempted but it should not be
+> moved from the CPU in its affinity mask.
+The bandwidth monitoring feature on certain systems only ensures
+that tasks currently scheduled to the CPU are correctly counted by the
+hardware. The counters for tasks that have been scheduled out of the CPU
+will be out of date. Therefore, separating parent and child processes
+to run on different CPUs can ensure that bandwidth monitoring correctly
+counts the real-time bandwidth. This approach also works on other systems.
+>> This commit moves the CPU affinity and resctrl FS setup to the child
+>> process after fork(), ensuring these settings only affect the benchmark
+>> process, thereby maintaining measurement accuracy and making the
+>> implementation more portable across platforms.
+>>
+>> Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
+>> ---
+>>   tools/testing/selftests/resctrl/resctrl_val.c | 68 +++++++++++--------
+>>   1 file changed, 39 insertions(+), 29 deletions(-)
+>>
+>> diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
+>> index 7c08e936572d..85ac96c7cb8f 100644
+>> --- a/tools/testing/selftests/resctrl/resctrl_val.c
+>> +++ b/tools/testing/selftests/resctrl/resctrl_val.c
+>> @@ -545,7 +545,6 @@ int resctrl_val(const struct resctrl_test *test,
+>>   	cpu_set_t old_affinity;
+>>   	int domain_id;
+>>   	int ret = 0;
+>> -	pid_t ppid;
+>>   
+>>   	if (strcmp(param->filename, "") == 0)
+>>   		sprintf(param->filename, "stdio");
+>> @@ -556,22 +555,10 @@ int resctrl_val(const struct resctrl_test *test,
+>>   		return ret;
+>>   	}
+>>   
+>> -	ppid = getpid();
+>> -
+>> -	/* Taskset test to specified CPU. */
+>> -	ret = taskset_benchmark(ppid, uparams->cpu, &old_affinity);
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	/* Write test to specified control & monitoring group in resctrl FS. */
+>> -	ret = write_bm_pid_to_resctrl(ppid, param->ctrlgrp, param->mongrp);
+>> -	if (ret)
+>> -		goto reset_affinity;
+>> -
+>>   	if (param->init) {
+>>   		ret = param->init(param, domain_id);
+> write_bm_pid_to_resctrl() does more than just write the task ID to the tasks file,
+> it also creates the resource groups in its parameters. By moving it after the
+> param->init() callback it prevents any test specific initialization from
+> being done in the test's resource groups.
+>
+I see. Since mbm_total_path, which is used in the parent process during
+param->measure(), is initialized in initialize_mem_bw_resctrl(), we
+cannot move param->init() to the child process. However, we can perform
+the test-specific resource group configuration in param->setup(), as we
+did in mba_setup().
 
-It is tricky for me to test these, beyond fairly exhaustive logical
-confirmation of equivalence, so this is _hugely_ helpful.
+>>   		if (ret)
+>> -			goto reset_affinity;
+>> +			return ret;
+>>   	}
+>>   
+>>   	/*
+>> @@ -586,10 +573,8 @@ int resctrl_val(const struct resctrl_test *test,
+>>   	if (param->fill_buf) {
+>>   		buf = alloc_buffer(param->fill_buf->buf_size,
+>>   				   param->fill_buf->memflush);
+> This is the buffer on which the workload will operate and by having
+> different CPU affinity between parent and child the buffer may be created in a
+> separate domain.
+>
+> Consider for example if I apply just this patch on a test system and try out the
+> MBM test it now fails:
+> 1..1
+> # Starting MBM test ...
+> # Mounting resctrl to "/sys/fs/resctrl"
+> # Benchmark PID: 6127
+> # Writing benchmark parameters to resctrl FS
+> # Write schema "MB:0=100" to resctrl FS
+> # Checking for pass/fail
+> # Fail: Check MBM diff within 15%
+> # avg_diff_per: 100%
+> # Span (MB): 1280
+> # avg_bw_imc: 50
+> # avg_bw_resc: 0
+> not ok 1 MBM: test
+>
+> What happened here is that the buffer was created by the parent in one domain but
+> the child's affinity was set to another domain. The test assumes that it can
+> count local memory and all of those counts are zero for resctrl since the memory
+> is not local. Similarly low numbers from perf for same reason.
+Yeah, if the CPU affinity setting is moved to the child process, it will
+also be necessary to move the memory allocation to the child process. In
+addition, what about setting the mempolicy to the local domain when
+setting the CPU affinity? Like this:
+         if (param->fill_buf) {
+                 buf = alloc_buffer(param->fill_buf->buf_size,
+param->fill_buf->memflush);
+                 if (!buf)
+                         exit(-ENOMEM);
 
->
-> The most robust test would be to run DPDK networking against
-> UIO, as it would communicate with the Hyper-V host and use
-> multiple subchannels that resulting in mmap'ing the "ring"
-> entry under /sys.
->
-> @Long Li -- I'll leave it to your discretion as to whether you want
-> to test DPDK against these mmap() changes.
+                 fill_cache_read(buf, param->fill_buf->buf_size, false);
 
-Thanks in advance for taking a look on this also!
+@@ -559,7 +564,8 @@ int taskset_benchmark(pid_t bm_pid, int cpu_no, 
+cpu_set_t *old_affinity)
+         CPU_ZERO(&my_set);
+         CPU_SET(cpu_no, &my_set);
 
->
-> I've noted one minor issue below.
->
-> [snip]
->
-> --- a/include/linux/hyperv.h
-> +++ b/include/linux/hyperv.h
-> @@ -1015,8 +1015,8 @@ struct vmbus_channel {
->  	/* The max size of a packet on this channel */
->  	u32 max_pkt_size;
->
-> -	/* function to mmap ring buffer memory to the channel's sysfs ring attribute */
-> -	int (*mmap_ring_buffer)(struct vmbus_channel *channel, struct vm_area_struct *vma);
-> +	/* function to mmap_prepare ring buffer memory to the channel's sysfs ring attribute */
->
-> Changing the comment from "mmap ring buffer" to "mmap_prepare ring buffer"
-> produces awkward wording since "mmap" is used here as a verb.  It might be better
-> to just leave the comment unchanged.
+-       if (sched_setaffinity(bm_pid, sizeof(cpu_set_t), &my_set)) {
++       if (sched_setaffinity(bm_pid, sizeof(cpu_set_t), &my_set) ||
++           set_mempolicy(MPOL_LOCAL, NULL, NULL)) {
 
-Sure am happy with that of course, I think Sashiko moaned about this but
-it's obviously fine either way.
+>> -		if (!buf) {
+>> -			ret = -ENOMEM;
+>> -			goto reset_affinity;
+>> -		}
+>> +		if (!buf)
+>> +			return -ENOMEM;
+>>   	}
+>>   
+> While isolating just the workload to its own resource group may be reasonable it is
+> not clear to me what problem this patch aims to solve.
+>
+> Reinette
+>
+Isolating the parent and child processes on different CPUs is done to
+ensure that the parent process can monitor the real-time memory bandwidth
+of the child process in parallel, and to ensure the correct monitoring of
+the child process's bandwidth on a specific platform.
 
-Andrew - do you mind restoring the comment to its original form above? Thanks!
+Regards,
+Yifan Wu
 
->
-> Michael
->
->
-> +	int (*mmap_prepare_ring_buffer)(struct vmbus_channel *channel, struct vm_area_desc *desc);
->
->  	/* boolean to control visibility of sysfs for ring buffer */
->  	bool ring_sysfs_visible;
-
-Cheers, Lorenzo
 
