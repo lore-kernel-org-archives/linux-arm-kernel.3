@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CE3EC01C8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53DD6EC01C8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bgecuX6dgFikNLDFCtRY5VaqRxvGHfJWc9O3C/uu8wI=; b=f3xUhn0dI5GwbxdY4lH6XgrwJO
-	c7tR3D2RqpaUJVaMN4CpvAUOCSRD1z7M9yXG2+yzI5+bs/3d44Gd6TzPk659nbHKZjL/JkO+P1J2n
-	mHPPQWwrWfJsb7tom7135QnACFdq4Qh1FNNyYuTTX++jA3DK147ZQ1Sk57PdmpbHGLB3RNQu0pV1g
-	Qhh2S4vXGeGrrocJHykEUipZSBMz7K+7PniXaJJV7HWJziFYZrH6S86NrGnq6cwAEaDL/3C/K2NuE
-	4tiuLtgxRYbOn2tXGCgoPLpY/ibs2A8NRCI6CPwtATXIHYNovtBRGG5bqCxRpN2niggZHKqdoC9nU
-	m15pe+TA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Skhq+8bwNzjiqYQ3YWn8po9yFP9RcJcRyx8QXtgixyI=; b=ISUX1wkM6rhXYISeC6Iyvzdp/y
+	S2YRWPtDUsOdK1hVP/H29fVo5cjuP+2uqsUkhb/wqb1nDMX0hAfLG9W01d1u6HTHTn9oS/dhZpO4w
+	hTWuRhiO9kMg1cjc9lvLCvncNHdQBwSBJfh5kQILKxj/FMi2sFPWrkF2ijy9UfkPyFhGom8Wazlwb
+	lAqIIfffoRMNi3EPCmZAeA1r9YovOITM3PhaCXOQsmDq2IG6uwqnyvJ0DnfOvQnJYkvmps0eGDNAT
+	vh2xVSb2jXUE9K/LVWuHt2cEqJEYVT/hYaeAgVhHeqtrWS7nupXywwWs2MW6/FbkMySYvb/mAiQW8
+	rIlG2Zow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4d2w-0000000GYfG-3ATs;
-	Mon, 23 Mar 2026 11:02:10 +0000
+	id 1w4d2x-0000000GYfb-0Mr7;
+	Mon, 23 Mar 2026 11:02:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4d2p-0000000GYcT-20YP
+	id 1w4d2s-0000000GYdJ-2Dr7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 11:02:05 +0000
+	Mon, 23 Mar 2026 11:02:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EB131516;
-	Mon, 23 Mar 2026 04:01:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67EE31688;
+	Mon, 23 Mar 2026 04:01:59 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CCB103F73B;
-	Mon, 23 Mar 2026 04:01:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C69DD3F73B;
+	Mon, 23 Mar 2026 04:02:02 -0700 (PDT)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Linus Walleij <linusw@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -47,15 +47,17 @@ Cc: Michal Piekos <michal.piekos@mmpsystems.pl>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/5] pinctrl: sunxi: fix A523 GPIO IRQ blunder
-Date: Mon, 23 Mar 2026 12:01:46 +0100
-Message-ID: <20260323110151.2352832-1-andre.przywara@arm.com>
+Subject: [PATCH 2/5] pinctrl: sunxi: Remove unneeded IRQ remuxing for some SoCs
+Date: Mon, 23 Mar 2026 12:01:48 +0100
+Message-ID: <20260323110151.2352832-3-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260323110151.2352832-1-andre.przywara@arm.com>
+References: <20260323110151.2352832-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_040203_648704_006F8CDC 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20260323_040206_651618_699EDA22 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,81 +72,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When playing around with an Allwinner A527 board, I noticed that the
-GPIO IRQ operation was broken, evident by not working SD card detect
-functionality. The GPIO line reflected the CD pin correctly (as shown in
-/sys/kernel/debug/gpio), but the core code just wouldn't react to those
-changes.
-This is admittedly mostly my fault, due to misunderstanding the IRQ
-assocication in the original A523 DT submission.
+The Allwinner A10 and H3 SoCs cannot read the state of a GPIO line when
+that line is muxed for IRQ triggering (muxval 6), but only if it's
+explicitly muxed for GPIO input (muxval 0). Other SoCs do not show this
+behaviour, so we added a optional workaround, triggered by a quirk bit,
+which triggers remuxing the pin when it's configured for IRQ, while we
+need to read its value.
 
-Digging a bit deeper I found three bugs around this whole operation:
-1) The A523 was marked as needing the "irq_read_needs_mux" workaround,
-   even though this is not true. This itself wouldn't be too critical, if
-   not:
-2) The irq_read_needs_mux workaround routine assumes that the IRQ mux is
-   always using value 0x6, which is not true for newer SoCs (D1, A523).
-3) The association between GPIO IRQ banks and their interrupts is
-   off-by-one for the A523. Interrupts are triggered, but the wrong ones.
+For some reasons this quirk flag was copied over to newer SoCs, even
+though they don't show this behaviour, and the GPIO data register
+reflects the true GPIO state even with a pin configured to muxval 6
+(IRQ). The workaround is just more costly, but doesn't break otherwise,
+so this was probably never noticed by anyone.
+Experiments confirm that the H5, H6, H616 and A523 do not need this
+workaround, they show the GPIO line value with both muxval 0 and 6.
 
-This series fixes all those issues. Due to dependencies between DT and
-code this is a bit involved:
-- Patch 2/5 drops the irq_read_needs_mux workaround for the non-affected
-  SoCs, which fixes one part of the problem by masking bug #2 above.
-- Patch 4/5 adds the missing IRQ line for the (non-implemented!) PortA
-  GPIO bank to the DT, which corrects the IRQ association.
+Remove the unneeded quirk from those SoC's pinctrl driver description.
+This should have no obvious effect on the H5, H6, H616 (other than
+being more efficient), but the workaround is broken for the A523, so
+it fixes (one part of the) interrupt operation there.
 
-Those two patches alone are fixing the immediate issue. If people agree,
-these should be taken ASAP, I added Fixes: lines for the backports.
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Fixes: b8a51e95b376 ("pinctrl: sunxi: Add support for the secondary A523 GPIO ports")
+---
+ drivers/pinctrl/sunxi/pinctrl-sun50i-h5.c     | 2 --
+ drivers/pinctrl/sunxi/pinctrl-sun50i-h6.c     | 1 -
+ drivers/pinctrl/sunxi/pinctrl-sun50i-h616.c   | 1 -
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 1 -
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   | 1 -
+ 5 files changed, 6 deletions(-)
 
-However there is more:
-- The DT binding only describes 10 IRQs for the A523, so patch 3/5
-  corrects that value, to make the new DT pass DT validation.
-- The pinctrl code would only expect 10 IRQs, so would now be missing
-  the one for the last bank (PortK). Patch 5/5 fixes that number, but
-  is more elaborate since it needs now to cater for old DTs carrying
-  just 10 interrupts. Not too happy or convinced about that workaround,
-  eager to hear about better solutions here. Please note that no board
-  so far uses PortK interrupts, so this isn't too criticial right now.
-- For good measure, patch 1/5 fixes the workaround to cope with IRQ mux
-  values other than 0x6. This is now more robust, not requiring to know
-  the IRQ mux value at all, also saving one MMIO read and fixing a
-  potential race with other pinctrl mux code.
-
-This applies on top of v7.0-rc5 (really the .get_direction callback
-fix[1] merged into v7.0-rc3), plus the two patches from Michal's series[2],
-which I assume would be applied shortly.
-
-Please have a look and test, especially on A523/A527/T527 boards!
-
-Cheers,
-Andre
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit?id=01e10d0272b9
-[2] https://lore.kernel.org/linux-sunxi/20260320-rc2-boot-hang-v6-0-74dca70dd60e@mmpsystems.pl
-
-Andre Przywara (5):
-  pinctrl: sunxi: Rework IRQ remuxing to avoid fixed mux value
-  pinctrl: sunxi: Remove unneeded IRQ remuxing for some SoCs
-  dt-bindings: pinctrl: sun55i-a523: increase IRQ bank number
-  arm64: dts: allwinner: a523: Add missing GPIO interrupt
-  pinctrl: sunxi: a523: add missing IRQ bank (plus old DT workaround)
-
- .../allwinner,sun55i-a523-pinctrl.yaml        |  8 ++--
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  3 +-
- drivers/pinctrl/sunxi/pinctrl-sun50i-h5.c     |  2 -
- drivers/pinctrl/sunxi/pinctrl-sun50i-h6.c     |  1 -
- drivers/pinctrl/sunxi/pinctrl-sun50i-h616.c   |  1 -
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c |  1 -
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   |  3 +-
- drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 45 ++++++++++++-------
- drivers/pinctrl/sunxi/pinctrl-sunxi.h         |  1 -
- 9 files changed, 37 insertions(+), 28 deletions(-)
-
-
-base-commit: c369299895a591d96745d6492d4888259b004a9e
-prerequisite-patch-id: dcb1e8190ce649778193c3b391f759d4bcba9a28
-prerequisite-patch-id: e003cee1830cf260b932fd6503a62270a1930310
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun50i-h5.c b/drivers/pinctrl/sunxi/pinctrl-sun50i-h5.c
+index 669793c6578e..56ce0f78d4ba 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun50i-h5.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun50i-h5.c
+@@ -533,7 +533,6 @@ static const struct sunxi_pinctrl_desc sun50i_h5_pinctrl_data_broken = {
+ 	.pins = sun50i_h5_pins,
+ 	.npins = ARRAY_SIZE(sun50i_h5_pins),
+ 	.irq_banks = 2,
+-	.irq_read_needs_mux = true,
+ 	.disable_strict_mode = true,
+ };
+ 
+@@ -541,7 +540,6 @@ static const struct sunxi_pinctrl_desc sun50i_h5_pinctrl_data = {
+ 	.pins = sun50i_h5_pins,
+ 	.npins = ARRAY_SIZE(sun50i_h5_pins),
+ 	.irq_banks = 3,
+-	.irq_read_needs_mux = true,
+ 	.disable_strict_mode = true,
+ };
+ 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun50i-h6.c b/drivers/pinctrl/sunxi/pinctrl-sun50i-h6.c
+index 517118341316..22f3d3875316 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun50i-h6.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun50i-h6.c
+@@ -589,7 +589,6 @@ static const struct sunxi_pinctrl_desc h6_pinctrl_data = {
+ 	.npins = ARRAY_SIZE(h6_pins),
+ 	.irq_banks = 4,
+ 	.irq_bank_map = h6_irq_bank_map,
+-	.irq_read_needs_mux = true,
+ 	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
+ };
+ 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun50i-h616.c b/drivers/pinctrl/sunxi/pinctrl-sun50i-h616.c
+index ecf6d2438e21..48cf114505e0 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun50i-h616.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun50i-h616.c
+@@ -875,7 +875,6 @@ static const struct sunxi_pinctrl_desc h616_pinctrl_data = {
+ 	.npins = ARRAY_SIZE(h616_pins),
+ 	.irq_banks = ARRAY_SIZE(h616_irq_bank_map),
+ 	.irq_bank_map = h616_irq_bank_map,
+-	.irq_read_needs_mux = true,
+ 	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_CTL,
+ };
+ 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+index 69cd2b4ebd7d..462aa1c4a5fa 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+@@ -26,7 +26,6 @@ static const u8 a523_r_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
+ static struct sunxi_pinctrl_desc a523_r_pinctrl_data = {
+ 	.irq_banks = ARRAY_SIZE(a523_r_irq_bank_map),
+ 	.irq_bank_map = a523_r_irq_bank_map,
+-	.irq_read_needs_mux = true,
+ 	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
+ 	.pin_base = PL_BASE,
+ };
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+index 7d2308c37d29..b6f78f1f30ac 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+@@ -26,7 +26,6 @@ static const u8 a523_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
+ static struct sunxi_pinctrl_desc a523_pinctrl_data = {
+ 	.irq_banks = ARRAY_SIZE(a523_irq_bank_map),
+ 	.irq_bank_map = a523_irq_bank_map,
+-	.irq_read_needs_mux = true,
+ 	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
+ };
+ 
 -- 
 2.43.0
 
