@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AEAD58CDC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 06:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AE6D58CB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 06:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISK/exyUdJ23yO78+Gn42xzI5rMH8hkY//83Yc4RV2Q=; b=MewS3OkIEvwJ4D2Yn31cQFb+KI
-	Zxo4yr7JMShwtLm2vileQpXH/0c2gpsd6qplHWxdjECB5df9l4OcagHCPJD6B/4kUmHSign5fy9qM
-	ASFvb8Zrekgj0blILxzzsauPfAv4s3wcGSooGAtX8Pn9sOo2ysv2hXgO39eiKeXXiyzrbViVwGucQ
-	5Dz1hpMbPEPATt9tvK+GBp0U6hqI1Z/2nUzukhCw1u211Bkts0G0fxajIv0V5mvxcfyVRb5OFDjJM
-	QSPESm72GEwktxb/izXlCLmxP6PCWoJclyQXV1PWSYTT/OdJM/s8EVxZ4f+1gLjgZJjjhi75fzeT3
-	tpFHDqdQ==;
+	bh=/VzDoLUhO1gb7oNNZE+I+ReWQ1Pd7mAscGwxQPtNBNo=; b=aqDt1We9km0bUYVXFG3QWh3CuU
+	kRq7Wt1pkOtZydFzvWrKrNWqtkvcIktoFLO9orKFcJL3rWjPCXMAFr0nUlDd1b9dnasGuEt5w2nCg
+	ErWBBw/HU3zlXzaMrovxd6sPELJxsWlh858yTDlNuF1RD+GcQ4Jull/3RN709BxH4s677GDMaQ9XV
+	pFwYx370XnPfyT87Bo+zfSUjvtLV5ZIt1RlODB7Oo5Ctf2LMvlGn3BEPRn3/VDt/qy2FEu89PS72S
+	ddQ2UQbG7ETWvE52rJpo+tjGSySNBeqVteGK9Rio87MGWIS4AzAuusX1R68b+5kNJjici8vMbO8GX
+	9lG9099A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4YvE-0000000G8Wu-0ifO;
-	Mon, 23 Mar 2026 06:37:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w4Yz0-0000000G8jf-11Hw;
+	Mon, 23 Mar 2026 06:41:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4YvB-0000000G8WU-3ZMk
+	id 1w4Yyy-0000000G8jH-0uvU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 06:37:55 +0000
+	Mon, 23 Mar 2026 06:41:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774247872;
+	s=mimecast20190719; t=1774248107;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ISK/exyUdJ23yO78+Gn42xzI5rMH8hkY//83Yc4RV2Q=;
-	b=UB2IdYLcd4yOyAhX4gKG3HLhsMAaNZWK/ctv05+d94vqUEX7boBoxi5NSG+u8eEWOD4jTO
-	f43H6Z7zY5di8iifGNn0xCTmlcKknlAiYGlAjCJ2W6cR6JvyfF4UcnsLLFu8QbVDLc3qyx
-	F+ybfIxCXY9G02jGiyF3rqtWoly7CpM=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=/VzDoLUhO1gb7oNNZE+I+ReWQ1Pd7mAscGwxQPtNBNo=;
+	b=Rn3+j6f7IUMq46kafqK6jUyNhmmDN05Ihgx+/IcoV1o29P3NjaLpbBYciCJBXQFFt7X+L9
+	emaE4C+f51usUGehziszIIKVNghneRPiQYm5yJerXfgV7IMogU3nPKMQfJeVOAwsN4tkCf
+	t1cGcHOxZBKQlqP4oV5Eu745wlw549Y=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-115-YuBwQvCfMA-sYT1wqY25PA-1; Mon, 23 Mar 2026 02:37:50 -0400
-X-MC-Unique: YuBwQvCfMA-sYT1wqY25PA-1
-X-Mimecast-MFC-AGG-ID: YuBwQvCfMA-sYT1wqY25PA_1774247869
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35842aa350fso21423605a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 23:37:50 -0700 (PDT)
+ us-mta-142-jPAqZBfKOjCZOsF3d-J6tQ-1; Mon, 23 Mar 2026 02:41:45 -0400
+X-MC-Unique: jPAqZBfKOjCZOsF3d-J6tQ-1
+X-Mimecast-MFC-AGG-ID: jPAqZBfKOjCZOsF3d-J6tQ_1774248104
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b060c14ccbso39951295ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Mar 2026 23:41:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774247869; x=1774852669;
+        d=1e100.net; s=20251104; t=1774248104; x=1774852904;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ISK/exyUdJ23yO78+Gn42xzI5rMH8hkY//83Yc4RV2Q=;
-        b=IEcaMFKrTNyzI+oV0o3bmVUK/Jan2DlkOUvfbFSrCnE5tgIt8eFf+Fisu+n7zp4yPM
-         whRZpVVaLK5AOIS6OP5l0EcJp0brL4c6E0gy2I5d4vwXkAD+tGgJ46ZRB/Okpk5JcHwQ
-         shFIN38/TCfHYDiAWav4N887ddu9BT3NDntH4cG1h0i4TTc7Cquz7BAOw08EgN7r+zgO
-         ptB/DI1DJ2WopTeOLjbRdtHHvh9s3k+5s+CjKwJS0qKfxDbtP+YTnDgp/vyezakOK8/Y
-         mh9tgEtu8OmDkZ9jKYICeCZz5+cH2JseVUkt2/fe68Bw1Ub9FVUjesx+7PMxRVfFRbrL
-         lwcw==
-X-Forwarded-Encrypted: i=1; AJvYcCXmiLHmTJfNrpTKtOZYD84NA/n4z7q+piNSA+kAJvayVZ53FHOPeF64fgUA3RDQ0UrtvH/c/KUHlzhvkoUT508o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyk86pGsHpG3ltTnshAa1xlp2pC2KQkAGiBexDXONqzzO9kTtI6
-	0QmOxms+VfwfGkwcWD7QWmuUuKps8Z+32sBI+Ei26HWD69ZKu570TCbuGjq8/ny2d+7l/qnZC1Y
-	QjJXQsArfK8jyKQVgXR/ORMywCYW2gSHjgDM0n28UzV+Qu4uKVPxHRuRrVwWpvflNeYAaMG7GyM
-	20
-X-Gm-Gg: ATEYQzwDKXLoNBe9/fMTCy9/lNYwHsqJ7zTwUET95EOKuC49nmASPHt4Z/T1iYaQ20u
-	UFAMDJatYPnhFze+fFitWUFAr92ZkuuEP3j7497/rOKwcfP+0yZWuPagmKLuYTwbtWJC9AANYmS
-	ane2E7PQ4pINOILNo0snoeGowkaAvc17VpIdanXHbGT9TvsUhFXXNUBDhMI6FZAliKXK/fw5izB
-	C+CjY5DLfxYSJ++CPvfwZTjObb/PITxSuuFEF5DpbYOHlnCAt0g6sZrb5kklzt1/hUA2sJgL4/t
-	vock100q9mQPgWJTQ8NC7aAE24Xe6jF9huXPUfSYMEa2XZOIOXfVkLXvJ+BX3EyTDziS+T+tAzl
-	p2uScmxJshNyKqLTJ5msas0K2V4HbjQowSGYSjWhX+6nHP7H4MQUojYgFA7Z/aMuZ
-X-Received: by 2002:a17:90a:d406:b0:356:2c7b:c026 with SMTP id 98e67ed59e1d1-35bd2d1f007mr9090106a91.23.1774247869489;
-        Sun, 22 Mar 2026 23:37:49 -0700 (PDT)
-X-Received: by 2002:a17:90a:d406:b0:356:2c7b:c026 with SMTP id 98e67ed59e1d1-35bd2d1f007mr9090083a91.23.1774247868996;
-        Sun, 22 Mar 2026 23:37:48 -0700 (PDT)
+        bh=/VzDoLUhO1gb7oNNZE+I+ReWQ1Pd7mAscGwxQPtNBNo=;
+        b=XWiqXOu2/D1A/XtEBkJrxjvj1guY98IR023a13UJpklVMOio5pvYT8skB8+4Utcjm9
+         3QIGrAJjtQStj4PNE4fZwEMX2/B23sSR+ysiYAtHOvhVg4sorl2vxW0WL2cjYS4ixBOL
+         Hr6Zf65iYNJdytIFKcJc8IZdnRpKvdBQ3oLaKi0fTxKdHR6TA2+Bkb5ZQ6j3jR9Q5oaT
+         IvCVJzpSoQ5eAEPARf/P3/8CGRNoF0muF0NeHQ8ffRKhWgIklAw6Fcq6/AtIY0wivzRH
+         P+wmzHMAQGRBSo8fEAOIpAc3HrZZ7MaUn144zU7/f4fjtDzpnMKoxTAy2/1JnYP/QEBc
+         pl2g==
+X-Forwarded-Encrypted: i=1; AJvYcCW075jX5In7vRMgFRoCVtV9mNCjCSXMn4U2vxYXpfMV0iTuzekq4zuJOoBh/YhlqEBPbGGMYyoZPYSi+K/PPiVe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBNQtM/QwDK0n/Z9VeZd6eY8imw1vAt2wxu4xxK9ipmDXSxBuZ
+	fqKcfdpi3T4M+NQMEumEgMmNjlzXgu7SgnEAPS+0d5SUipJnsSIpRLdFaSGLq/1Ddcviz9AD+ew
+	hK8aXx6oghgeHQZcnqd6EKiVAYuverfKybZSadts4OGW1w/GFYW1NY0rPVSq2A3NWLOEfUWGm0U
+	A/
+X-Gm-Gg: ATEYQzxBK16EzH6wdeSx0CSyfL6ZNeJCscfZZ2jH+iTMpPLaUkKd30+SKGc+Fw02I4i
+	k0NUlaNAITN4gy0FDL34+On9RdA1RC405aJGuBUAPU3UB1L70+7ZbJIIrWLHaNXSq8X8VOyDJbX
+	Wz6LD2RilP6b0OcK4M+Rcxief0XHx1hcmOZKio8teeqsZbYLZ9mW6dK77xCciKSt4Kqx4EGqGtJ
+	NiEGw8SXDmucS+BP8Ob+CJn6ilQ9hsY8+J2bTbVvuv0BelurxKzrXkkVeVyBRz1gQr1G2gQGZoY
+	lWOicsyEDUyhMINqkNkMItgtdfr7WAJROM2hnUWxZZFtnf+0jEwQlulKZj3LLBXmNur0qsxyw7Q
+	NnnpUk66Mv2LnXw5VwoorKT6CZd1BmW3aQ2jdkqH7b3rttPdH1R5Lkp71zyIAKJ3i
+X-Received: by 2002:a17:902:d2c1:b0:2b0:603e:e147 with SMTP id d9443c01a7336-2b0827313b4mr111046435ad.22.1774248104423;
+        Sun, 22 Mar 2026 23:41:44 -0700 (PDT)
+X-Received: by 2002:a17:902:d2c1:b0:2b0:603e:e147 with SMTP id d9443c01a7336-2b0827313b4mr111045975ad.22.1774248104047;
+        Sun, 22 Mar 2026 23:41:44 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bc60ec3aasm10906457a91.10.2026.03.22.23.37.36
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0835298acsm101110265ad.22.2026.03.22.23.41.29
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Mar 2026 23:37:48 -0700 (PDT)
-Message-ID: <9f5fa983-155e-411a-b543-e7626d6f04b1@redhat.com>
-Date: Mon, 23 Mar 2026 16:37:34 +1000
+        Sun, 22 Mar 2026 23:41:43 -0700 (PDT)
+Message-ID: <310ac0e6-6999-4969-b03b-a10564fc2901@redhat.com>
+Date: Mon, 23 Mar 2026 16:41:27 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 15/40] arm_mpam: resctrl: Pick the caches we will use
- as resctrl resources
+Subject: Re: [PATCH v6 16/40] arm_mpam: resctrl: Implement
+ resctrl_arch_reset_all_ctrls()
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -99,18 +99,18 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  zengheng4@huawei.com, linux-doc@vger.kernel.org,
  Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-16-ben.horgan@arm.com>
+ <20260313144617.3420416-17-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-16-ben.horgan@arm.com>
+In-Reply-To: <20260313144617.3420416-17-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Mqbfu10L11yg0euMREwWMI2dGKal5eTHRzwTdPmuUME_1774247869
+X-Mimecast-MFC-PROC-ID: ZuDyToSUtRCHyUDaunyfQ3k2pAD2ybph4emreV2gPcc_1774248104
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_233754_000313_38E461E2 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260322_234148_338762_73EA40CD 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,46 +128,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 3/14/26 12:45 AM, Ben Horgan wrote:
 > From: James Morse <james.morse@arm.com>
 > 
-> Systems with MPAM support may have a variety of control types at any point
-> of their system layout. We can only expose certain types of control, and
-> only if they exist at particular locations.
-> 
-> Start with the well-known caches. These have to be depth 2 or 3 and support
-> MPAM's cache portion bitmap controls, with a number of portions fewer than
-> resctrl's limit.
+> We already have a helper for resetting an mpam class and component.  Hook
+> it up to resctrl_arch_reset_all_ctrls() and the domain offline path.
 > 
 > Tested-by: Gavin Shan <gshan@redhat.com>
 > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 > Tested-by: Peter Newman <peternewman@google.com>
 > Tested-by: Zeng Heng <zengheng4@huawei.com>
 > Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 > Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
-> Changes since rfc:
-> Jonathan:
-> Remove brackets
-> Compress debug message
-> Use temp var, r
-> 
 > Changes since v2:
-> Return -EINVAL in mpam_resctrl_control_init() for unknown rid
+> Don't expose unlocked reset
 > 
-> Changes since v4:
-> Set alloc_capable after other settings (Reinette)
-> 
-> Changes since v5:
-> Missing 'have' in comment
-> Set cdp_capable to true for L2 and L3
+> Changes since v3:
+> Don't use or expose mpam_reset_component_locked()
 > ---
->   drivers/resctrl/mpam_resctrl.c | 91 +++++++++++++++++++++++++++++++++-
->   1 file changed, 89 insertions(+), 2 deletions(-)
+>   drivers/resctrl/mpam_devices.c  |  2 +-
+>   drivers/resctrl/mpam_internal.h |  3 +++
+>   drivers/resctrl/mpam_resctrl.c  | 13 +++++++++++++
+>   3 files changed, 17 insertions(+), 1 deletion(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
-
 
 
