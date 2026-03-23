@@ -4,94 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7425F4613F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 21:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89245F4613C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 21:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csOGr/K8Tf7uItgGXZwcjonMRapeP/TA0fdd2GZkXSo=; b=oXW02MAIRYtkM7MCB5lb/2Ff6A
-	cf4lfLBQ1tP6t+1rA/T0ZC9AvaOgUuSIGOXzBAF9HIJJESqVDi/5PSoeVLp9mWOJZy/UoUPuawOs+
-	QI9TAf7z89bBGZaokq0MZbCAYuYDnnykEX9I2Sc15EKivdrWNh0+N6/IrpwfcCKEu+VCg3ig0uE+8
-	QMsmKjdUTKUmh7r1dsbWp8GI3B6FrKcTb1I1mj8tMiVE/owA8vZGZP+KMgf8ZF5lltoURnj4XjpGO
-	JIhZ2Z4G7pNS7cRQi5SBdzd/7i9pzGGWZ+K/Gp4pax3d6P4gUasrP0+xVomIedWrGoj3hMMyzqQa+
-	D8Q2lJaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHKGou1cRoa9wRPIVYoOzzo1Bae61UFki/1j2H6dVvM=; b=Z+CJBh7KeO4NOFkQjbEYksLYVo
+	QslRm/g1AxGnV6iqxR7GLjT+2wfJE1wzpq07XZVUJdCFSdm9gqlqBM+Usp+d/fTGsupC+tCJmjA61
+	dn8lm32NwnbGcXITwZe2uagiRKVdgoIvYfkGy0i8OYX5IR7zJfr5saEL4FfNbjWMq2P2d0fR4oyEj
+	VrAZToaXBUFE8nynG9+kJys28cuwPurf0ZHgzcRfZGwESHVbP4g2hN6vUPYT0ABme6FVI+M+hzFmE
+	uWIWlennbWzkIUJh4YrJNuaDwNOlwaV/ZRBkxY3FsPWs/jJ/DZkv7Bf6HvgOXNj7jj8PEf3w73lLh
+	9yugE4iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4mor-000000000sd-36XN;
-	Mon, 23 Mar 2026 21:28:17 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1w4mv3-000000001NF-1Ow6;
+	Mon, 23 Mar 2026 21:34:41 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4mol-000000000qx-1jSz
+	id 1w4muz-000000001Ma-3aI2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 21:28:12 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4853a485721so5560745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 14:28:10 -0700 (PDT)
+	Mon, 23 Mar 2026 21:34:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u1TCRVY/061cq1fLuQ+53vDqZ0q++toC3eieHG0ItyRfr50HMvoEzwgKaYDrLDegsXHtcjjScmKJ3PLDegFTplu3AIM6WJTpVQq+Ra3a5vmuto21DhJYjW3VkmhdXCNXcpfZQih1DPArSGblN+KPjLbL2M/um7MumqXIxPynTSOywqvAkNsM0QlbAKqQ9QtQ7B1Q/sKrslcT1BKVAHvyFYcQ9rOaZEXiospBwLC8LbEey24NAX9KR++3MGqTYfyYeH8x6WdRUQtKzEbaVSNc3PROEcBkP5IlfGKhOwdBQonp3ujDwJQNCtVQzIoV9kTlwUxoGihU2IJ0FWC9NYboKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uHKGou1cRoa9wRPIVYoOzzo1Bae61UFki/1j2H6dVvM=;
+ b=Q/tyL7eWSOhsb06gDmiwrOQyDbMxW47kGjSpC1wvPyEGhuat23z+tx8VcVRyDG7R4RtQfWHXbXiMLtDHn66WoH20bc5Ly7ckVdQu+xyCOxkEfUsCTfJARY4ULFOpm+SjSonu0LheWsAe833SM6sTUzMh91vfKpWaK3SBRNAsbFgzpReA7N2b3n00A1I/yNHbkB3WZIDwAEeQIfnIA+J/mjFEmqcdiSDnjXzu8OaJFh4EC6hbM2deGuT9LMswiO/vP1ll7Hnix3OhAYSrQ0Wp2SNxGIeeBG/oLn/oLyI62WlBBgTgbUUjtvkNAM/4kFmV/1zkIVeHz/6s7uYqqV1dRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774301289; x=1774906089; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=csOGr/K8Tf7uItgGXZwcjonMRapeP/TA0fdd2GZkXSo=;
-        b=HR/HzhHpQlXKbOrABZL+KidAsnnZegp7f/6ZOexTYpk/vd5nvCK5CzlpDarjid2l+s
-         ys7NetQWpIvK8ldr/wX0JEWRzW1cD7+kbMXWJpbqZP2wRYzFhWevIj5y3FgZG5HY6dSq
-         2R32aR+c0U6MN98jrn4BTmKi+3uozTLkWM5cz5n6gzYCFS/E7EmIoViPo6Tms+OxDHe/
-         ZYIhH2yqWyzOu8LteljUEX2VhWAgdLKfirRDXluoj/1qzxT35R8OmU29+B1g96/eJlgU
-         evu32dkg/KhyRTIvbl1GhbzijXALDCj0ajtW6Xs3iQvAjSzombciSKRaGjBI/7BKVJfc
-         gFvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774301289; x=1774906089;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=csOGr/K8Tf7uItgGXZwcjonMRapeP/TA0fdd2GZkXSo=;
-        b=Syi4Iz1c+kUGB2x8j8tN8O1/hr/idtgdax2DyVYJW3tPU6nZ9qPY1X4+iz6R3qtEkc
-         sGL0fNy/dtYfMAI99lJTQZPG/tfi38/xwXalFxhg75Edxn6vTlSlOTmiQjtTlBiyhVgD
-         8m6JsATcGI1uh8XNmclSFloQ3TXyUimJ6OqCYg3fxENOSoyVPeEfhQPssolnmjMhwY6k
-         BlMTbBzQnsf7u96LOXfttooCcw1WB30a9/STcM7lQBr//IOPU6nX8lV6NS7Jag36Ho0N
-         hMd1Ej+8Q926lsPeULaRIVNBQBpUNFollP4d42bKe4WoEVk266xMKjoJoIcteTnXZU17
-         +Ypw==
-X-Forwarded-Encrypted: i=1; AJvYcCWTdAqMosEuF6OZ0xopGdb5vYPjiaUDyxcfL/CeKkA1S87WoU3Z6iIqIEd7gqin3pnHNhFkpOLDoz/46hGZzcj7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2fssEN+sza4wGHEA7uD/6ozKwAwi2DA3HyzGWqrB/x6NjV0FZ
-	pcc75/j2u2EF7GhFdtN8Z8f/Wt77my12DKnsxYF+DAZcBOlM+W1bn2k4
-X-Gm-Gg: ATEYQzxMtvlhjMxh2HxDSu2w8/fT1aJV8MxMLxZcmZPvz8cUZZu9w/SOBPJuoBpfHPy
-	YIy/NfmHrM85MtsUe2yTjvS96+iPWq9NNgoRap2HTvJWdW8t2NxRS1Dhp62hnFl1YKC3b5xHdes
-	kWoGAScr1ekZUg6IWHBBpoqjtQKkFs3PYp5z+vA9HHPUae2CkU1Y+f7nd1edjmvkzWz1fmgiNQ3
-	pajOqbW4PLNQtLAhXv2W+ua+0kBKUN1PZQeKSkAcP0M1eb7/8GG7bk6MRnQNsJD8ZipeMBYI74F
-	fSB16LyCQY+QsWjTgMqV2pFFOA1SuFX8/cmTyo3B1uJoGAc9iQsmUrRTEdXRvk8GOG88C+SRVEn
-	wseUcjN4NvROceBx1yyxDwkjIR3rIS84zFdgpeQ6gEzqQp59ok3hAxp8yaN/7k+lYsYR8jX1AKx
-	lyjErOMWvMR5pp2vtASuFmjdzGpddWode10iYyk7xinOutCfGs9g2OdMmeH80ZgMQ=
-X-Received: by 2002:a05:600c:3b07:b0:485:9a50:338b with SMTP id 5b1f17b1804b1-486febb8560mr105205725e9.2.1774301289309;
-        Mon, 23 Mar 2026 14:28:09 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b6470393fsm33386975f8f.17.2026.03.23.14.28.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 14:28:08 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	ardb@kernel.org,
-	linusw@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH 2/3] crypto: atmel-sha204a - fix truncated 32-byte blocking read
-Date: Mon, 23 Mar 2026 21:27:54 +0000
-Message-Id: <20260323212755.687342-3-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260323212755.687342-1-l.rubusch@gmail.com>
-References: <20260323212755.687342-1-l.rubusch@gmail.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uHKGou1cRoa9wRPIVYoOzzo1Bae61UFki/1j2H6dVvM=;
+ b=OSclN+We2T3sTpAHxVTWu7+WV6MWx38npcAe4Lz30zL0YZKA1vGKS1XFuCqNM+z0VXfEr1id8T+J+sqZytksqZZlZOGxkCbf1Wwl/BfcWMDSgaBWshlBJSgZG8XFYv3TCMk4hY8FRCOxcdXmoU5Rkl14G29YSxfGqIxJ5lvEYYY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ CO1PR01MB7307.prod.exchangelabs.com (2603:10b6:303:156::15) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.31; Mon, 23 Mar 2026 21:34:02 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 21:34:08 +0000
+Message-ID: <a3766dfc-06ed-4cdc-9c55-0dcc3638746e@os.amperecomputing.com>
+Date: Mon, 23 Mar 2026 14:34:26 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+ <20260323130317.1737522-2-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <20260323130317.1737522-2-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0144.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::29) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CO1PR01MB7307:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6b6900f-c617-4c08-5833-08de8923e8f5
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|55112099003|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: mOiABnVFeIGtLVflDlkV1WArvI+UbDxUX3by/ZvWOJiYSjcP6ar2y2ya03d2P8QVLgLpQBdf1DSiRWDc+L7f+QcEAy0nnUexUSRsBJ+1T9uVPnbh1TXPkPF3AdKOGh2QLfepftt4EhhU6ayZ6+u7nvW8gua7oRj2phiIMpASu2vmOSFq8Cx3iCxdgE04kZQje7rmeGSlOC/HxazScmzLCScajXvZiip2v/5b/i5B2P9GgdDPXc7U2RUYJJN0aI8H8BkTYe0/5stLuSoEHC+3wwQCIuFg5YPVQwNtOQ1aHEqshNkD7B8QDaIiwbugQA8CXrwNIMwqSY74XmyxFbJEhyc43JMMRA0qPvLL/POwUzgkS+p6bbv8NHQeHmI12ospugSvdz1fwXVwGFVNc05CDFyrk7yGG7RsPvpuo7kDGgciR0MD7Kjy1+3yKGZ1uM5/4JFeyHQI9r4WTsNP3GdLWTuwpZb9uU25iTLI/RelI4h0IFBOppiGrBW7N5lOBXHocnJvEPddoMhkxWhq7govKoUVgthLEI6WZhji/pd2pA3rqmigNpeXc2mIGHwbgfQ6EKJtcza0GhlC/AnENSaHS8ss3MXY4bc70vx9iaF+r+itG8xOFz3egGoIVA5BkF5DEexzrfraMNqYtdoqL/n1jNCNNCQQPX1LRHT4A6Ev2cWiK3/OlwqD68yzc9ruwu+N
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(55112099003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?THY2N2hzaWxXZXFZbFR0bG9GL3hib25rVzF0OXpLRklQZmNvTmJnZ0VhT1hX?=
+ =?utf-8?B?Yll4NW9wL0V2VjZMWHkyekVzNEtZRFJwTExUclBHajFYclgwYjFQbmUzZVUw?=
+ =?utf-8?B?c0dMVHhTYjZMV0h2djd4cWhCYjdMVjVCYTVXQkJhZFE0YVMzMFNRaWNac3pP?=
+ =?utf-8?B?SUptUi83T1ZOYWtoNFZjWFJnZTJycnpJbkJNSmdYYUxzckZTeFprK2krajE3?=
+ =?utf-8?B?YmpCbS91aHo4TWtmenVBVWNxdUcxdUNpU1NQOUY3WWtrUTB3am1qUVpLOE9J?=
+ =?utf-8?B?bDhrc2srQ2VHMHdTdmZMZ0VkVlZiMUVyMmlycjJQZVY1T3lvS2pEQU9LV2kr?=
+ =?utf-8?B?WkNlKzBhZzJ3RW1XTHVRbGVLVVNXemtiYUMzQWpVdWpXZ2lwZk1jUWpwS1J2?=
+ =?utf-8?B?anBYb3kyK3ROUGFLNEJnR1U3SzY0emdPNWN6U0lpbEQ1N2FIcStUYThONnRG?=
+ =?utf-8?B?ZjJLWHZoNGFyRkZRKzNIRStKQlhwTy9UQTdtamZCUzRrbm1YMFNhS2tIZmRS?=
+ =?utf-8?B?MXVTcWRvWWhnQ3RiK0pURGlad3p6RjFEaGx1Q2taNTAyK0ZHV256a2VJSmZO?=
+ =?utf-8?B?RHowRnpWc0g2SmtydmxUN0xIOVh5WkJjUFFwMkJmVm1mcFVVMWk2VEVLeGM3?=
+ =?utf-8?B?TGdyMng3MEFoRmVIQ09sRjRlU285aEJ6R28xMmdhTWFQeEE3dzBONU5VR0M3?=
+ =?utf-8?B?QTc2STUwVkRmdlkyQ1RMYlBUVVBtaENUNzdRRzUwdm9qUERPVFRlL2l1VWlk?=
+ =?utf-8?B?dkFWeTc0cW4wazNBcUJpSU9ZTVJtT2k4UHY0QXJhdEJ3K3E0ZllBR0NNNzQ3?=
+ =?utf-8?B?NXFRbUs5QWlPUUVRMUZXYTV2WUIrMzc4V1lOdU01M3RTR0VOaXBVL3pTK3A4?=
+ =?utf-8?B?UzBOTDdjTklCaEZTMVRHV21qQ3A4U0k0MWI5dFdnWHJvQVBvOU5LY2poaG5z?=
+ =?utf-8?B?Z2svcTE2NlZOVGFoR25ubE84VEtUYnNKc3J6OEtmNmh3Mi9lS2F3NDB4OUY2?=
+ =?utf-8?B?aXVIdGRxQy9VL2JmTFdERjdpdnRYd0gxRVBLQk1XYVFmemE0U2dQUVhGd2dX?=
+ =?utf-8?B?THMxendEVm1vdXZSTERZaTBwR2hYYVQ5VDdiTzIza0tCVDdzYXZRSHMvQVBU?=
+ =?utf-8?B?ckNla255MDdzZWZqMEVBelhpVzhVRkNqSTUyb2p4aGVKblJZT0dkeFgzcUM4?=
+ =?utf-8?B?VUNvTWxvY3luVDhCSFNpam1WSHFwS3lSdFpuT3kreUhESk4rWGVJUmRxcnR2?=
+ =?utf-8?B?Vnd6ZXdra0dvRmI2MUkxZ3lNN290WWtZUGp3c2lwQXVyWlMxMHRGZXFvVnBT?=
+ =?utf-8?B?czFSREIyZVMvRURrQWx3cmdESHdneWIvMjgwN214UTBpb3hvcE10WWh1dlFW?=
+ =?utf-8?B?YXNCV0V5cTkybU1CUkJnWU5sRkIyMFozZ1FBajJBeHlpMlFKQmVOT1U2ZFpk?=
+ =?utf-8?B?NEpteUNiazZkb3VVemRnc0k3UG1sSWJsLzY3Q2toQzloS29iUWJPNTdnRXRU?=
+ =?utf-8?B?Vi9pazh4VXRhVnFramtFS3RlZFp3dmNZRjJTZlVQQ1R4anAvOWI3OEswc09C?=
+ =?utf-8?B?a2pSamYzalVqNjFEOHVTMlptZGNxWDQyMGo5OUxPVG5GbEV2WjU1REJ3d2w4?=
+ =?utf-8?B?NXdPTHEyb2t0Sm9naUQxa3UvV0t1M1ZKaG45WXdOK0pKNU1JQ0lwTnVoREZL?=
+ =?utf-8?B?SnJEMmxjSW1jOTloQVp0TWUzenJkVHc0cHRKUTkrdWJydjFuZW9TQU1mSEVM?=
+ =?utf-8?B?U0hBTWRBVmdNUXRlSDVvTTJvZTVncnYzK1piRmRsVUk4cEdkL2RjcmRqeDRn?=
+ =?utf-8?B?ZGsxSE1DUENkV2hORGZqNVJ5czkyYWVVOUlGQ1g0cXFENm9GdG9WNnVhN2hm?=
+ =?utf-8?B?b2ErL3NzamhIRXM1ZzYzVSt5QzhZdDhuSHR6U203T2lFK09ucWcveE8zSjZI?=
+ =?utf-8?B?N0tXTmYwd3Rsd3JVNy9lRnlSRjRUNGJPNWQxbkdmakpJaEJlZFJQMGczckFu?=
+ =?utf-8?B?ZmtQNnJhQlhpYnlqSGxnbTNQN0NNUHhpK0lESjRsbThjSE9YeTN1NEJxNkF5?=
+ =?utf-8?B?VDhKbFc0cStnTFNOclRSRE5KZ2Rhdlh6WU5TdnU0aURIQzBaVitxNFlkMWds?=
+ =?utf-8?B?UHdNaGdTem1lYkNZVUdmMXdkYVJMY2FjUExqV1BVQlBScTNyWDgrWmRSOWw2?=
+ =?utf-8?B?blBrQ2p0cEJxTW00VTJFUk5iUlVsem1jbjNZdC9MK1dSaFVwUXluN2xrcFZN?=
+ =?utf-8?B?MUVTRnhDU3NsbkNoT2x1SGdBRzhPTUhKMFA2TkFKQ2M5Rjd5djExb1NNZGtF?=
+ =?utf-8?B?T3lqREtvOEI2ZjhvdElaNzEwWHMyWFA4S3dtVHZ4NmdlaG8yWEtIMW0zY0ly?=
+ =?utf-8?Q?kLDw+kgK8XWu7bMk=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6b6900f-c617-4c08-5833-08de8923e8f5
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 21:34:08.0405
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gYO9RwfaMqnORZx01x7rFHnGYwClx7cTwqo6wle2pdt9pznZM1NRZGW1bIECWzSaZG/8hwaAHZp64qmkqzgMiT/VyUL1dlJsrBXgpAfNrS4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB7307
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_142811_466020_E5992FCC 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260323_143437_917050_B795DD27 
+X-CRM114-Status: GOOD (  43.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +154,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ATSHA204A returns a 35-byte packet consisting of a 1-byte count,
-32 bytes of entropy, and a 2-byte CRC. The current blocking read
-implementation was incorrectly copying data starting from the
-count byte, leading to offset data and truncated entropy.
 
-Additionally, the chip requires significant execution time to
-generate random numbers, going by the datasheet. Reading the I2C bus
-too early results in the chip NACK-ing or returning a partial buffer
-followed by zeros.
 
-Verification:
-Tests before showed repeadetly reading only 8 bytes of entropy:
-$ head -c 32 /dev/hwrng | hexdump -C
-00000000  02 28 85 b3 47 40 f2 ee  00 00 00 00 00 00 00 00  |.(..G@..........|
-00000010  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
-00000020
+On 3/23/26 6:03 AM, Ryan Roberts wrote:
+> Commit a166563e7ec37 ("arm64: mm: support large block mapping when
+> rodata=full") enabled the linear map to be mapped by block/cont while
+> still allowing granular permission changes on BBML2_NOABORT systems by
+> lazily splitting the live mappings. This mechanism was intended to be
+> usable by realm guests since they need to dynamically share dma buffers
+> with the host by "decrypting" them - which for Arm CCA, means marking
+> them as shared in the page tables.
+>
+> However, it turns out that the mechanism was failing for realm guests
+> because realms need to share their dma buffers (via
+> __set_memory_enc_dec()) much earlier during boot than
+> split_kernel_leaf_mapping() was able to handle. The report linked below
+> showed that GIC's ITS was one such user. But during the investigation I
+> found other callsites that could not meet the
+> split_kernel_leaf_mapping() constraints.
+>
+> The problem is that we block map the linear map based on the boot CPU
+> supporting BBML2_NOABORT, then check that all the other CPUs support it
+> too when finalizing the caps. If they don't, then we stop_machine() and
+> split to ptes. For safety, split_kernel_leaf_mapping() previously
+> wouldn't permit splitting until after the caps were finalized. That
+> ensured that if any secondary cpus were running that didn't support
+> BBML2_NOABORT, we wouldn't risk breaking them.
+>
+> I've fix this problem by reducing the black-out window where we refuse
+> to split; there are now 2 windows. The first is from T0 until the page
+> allocator is inititialized. Splitting allocates memory for the page
+> allocator so it must be in use. The second covers the period between
+> starting to online the secondary cpus until the system caps are
+> finalized (this is a very small window).
+>
+> All of the problematic callers are calling __set_memory_enc_dec() before
+> the secondary cpus come online, so this solves the problem. However, one
+> of these callers, swiotlb_update_mem_attributes(), was trying to split
+> before the page allocator was initialized. So I have moved this call
+> from arch_mm_preinit() to mem_init(), which solves the ordering issue.
+>
+> I've added warnings and return an error if any attempt is made to split
+> in the black-out windows.
+>
+> Note there are other issues which prevent booting all the way to user
+> space, which will be fixed in subsequent patches.
 
-After this patch applied, the result will be as follows:
-$ head -c 32 /dev/hwrng | hexdump -C
-00000000  5a fc 3f 13 14 68 fe 06  68 0a bd 04 83 6e 09 69  |Z.?..h..h....n.i|
-00000010  75 ff cf 87 10 84 3b c9  c1 df ae eb 45 53 4c c3  |u.....;.....ESL.|
-00000020
+Hi Ryan,
 
-Fix these issues by:
-Increase cmd.msecs to 30ms to provide sufficient execution time. Then
-set cmd.rxsize to RANDOM_RSP_SIZE (35 bytes) to capture the entire
-hardware response. Eventually, correct the memcpy() offset to index 1 of
-the data buffer to skip the count byte and retrieve exactly 32 bytes of
-entropy.
+Thanks for putting everything to together to have the patches so 
+quickly. It basically looks good to me. However, I'm thinking about 
+whether we should have split_kernel_leaf_mapping() call for different 
+memory allocators in different stages. If buddy has been initialized, it 
+can call page allocator, otherwise, for example, in early boot stage, it 
+can call memblock allocator. So split_kernel_leaf_mapping() should be 
+able to be called anytime and we don't have to rely on the boot order of 
+subsystems.
 
-Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
----
- drivers/crypto/atmel-sha204a.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Thanks,
+Yang
 
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 1baf4750d311..350ba8618c69 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -18,6 +18,9 @@
- #include <linux/workqueue.h>
- #include "atmel-i2c.h"
- 
-+#define ATMEL_RNG_BLOCK_SIZE 32
-+#define ATMEL_RNG_EXEC_TIME 30
-+
- static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
- 				   void *areq, int status)
- {
-@@ -91,13 +94,15 @@ static int atmel_sha204a_rng_read(struct hwrng *rng, void *data, size_t max,
- 	i2c_priv = container_of(rng, struct atmel_i2c_client_priv, hwrng);
- 
- 	atmel_i2c_init_random_cmd(&cmd);
-+	cmd.msecs = ATMEL_RNG_EXEC_TIME;
-+	cmd.rxsize = RANDOM_RSP_SIZE;
- 
- 	ret = atmel_i2c_send_receive(i2c_priv->client, &cmd);
- 	if (ret)
- 		return ret;
- 
--	max = min(sizeof(cmd.data), max);
--	memcpy(data, cmd.data, max);
-+	max = min_t(size_t, ATMEL_RNG_BLOCK_SIZE, max);
-+	memcpy(data, &cmd.data[1], max);
- 
- 	return max;
- }
--- 
-2.53.0
+>
+> Reported-by: Jinjiang Tu <tujinjiang@huawei.com>
+> Closes: https://lore.kernel.org/all/0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com/
+> Fixes: a166563e7ec37 ("arm64: mm: support large block mapping when rodata=full")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>   arch/arm64/mm/init.c |  9 ++++++++-
+>   arch/arm64/mm/mmu.c  | 35 +++++++++++++++++++++++++++--------
+>   2 files changed, 35 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 96711b8578fd0..b9b248d24fd10 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -350,7 +350,6 @@ void __init arch_mm_preinit(void)
+>   	}
+>   
+>   	swiotlb_init(swiotlb, flags);
+> -	swiotlb_update_mem_attributes();
+>   
+>   	/*
+>   	 * Check boundaries twice: Some fundamental inconsistencies can be
+> @@ -377,6 +376,14 @@ void __init arch_mm_preinit(void)
+>   	}
+>   }
+>   
+> +bool page_alloc_available __ro_after_init;
+> +
+> +void __init mem_init(void)
+> +{
+> +	page_alloc_available = true;
+> +	swiotlb_update_mem_attributes();
+> +}
+> +
+>   void free_initmem(void)
+>   {
+>   	void *lm_init_begin = lm_alias(__init_begin);
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index a6a00accf4f93..5b6a8d53e64b7 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -773,14 +773,33 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>   {
+>   	int ret;
+>   
+> -	/*
+> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
+> -	 * anything that is not pte-mapped in the first place. Just return early
+> -	 * and let the permission change code raise a warning if not already
+> -	 * pte-mapped.
+> -	 */
+> -	if (!system_supports_bbml2_noabort())
+> -		return 0;
+> +	if (!system_supports_bbml2_noabort()) {
+> +		/*
+> +		 * !BBML2_NOABORT systems should not be trying to change
+> +		 * permissions on anything that is not pte-mapped in the first
+> +		 * place. Just return early and let the permission change code
+> +		 * raise a warning if not already pte-mapped.
+> +		 */
+> +		if (system_capabilities_finalized() ||
+> +		    !cpu_supports_bbml2_noabort())
+> +			return 0;
+> +
+> +		/*
+> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
+> +		 * page allocator. Can't split until it's available.
+> +		 */
+> +		extern bool page_alloc_available;
+> +		if (WARN_ON(!page_alloc_available))
+> +			return -EBUSY;
+> +
+> +		/*
+> +		 * Boot-time: Started secondary cpus but don't know if they
+> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
+> +		 * window in case they don't.
+> +		 */
+> +		if (WARN_ON(num_online_cpus() > 1))
+> +			return -EBUSY;
+> +	}
+>   
+>   	/*
+>   	 * If the region is within a pte-mapped area, there is no need to try to
 
 
