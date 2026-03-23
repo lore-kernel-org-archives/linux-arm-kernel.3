@@ -4,67 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCEEEC01BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F73EC01C0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJTb0xkbZjVRAhnixAaE2Mem1YPJq8VLXXpUQXHVEx8=; b=S6yVBo++1DbkuOxP0+oGNV5J4K
-	oZtMF+Y+sSQQA/v03n9fmJ8m6lZqDNxS4givxRFGgObieguwtlzhYWAvE8gKcR4Dftu4u4tJt1l2l
-	6dV6ZjCg0OK/segnkxsfwPVKztyCwcv/hnBIq/DGmI7aHCQW3vnZqMOswDCED02Y1p0ev0YE6Hayr
-	O7sMbQ+FqFxcfBVhPk1byPMWaPtCJ14b5QX1k2Q2x96KjL2u1cxOauolgtrSEXsdrrM/iwYZeDfT2
-	KRQy12x2XmdKFurqV37TqWd1kgXeg5gzovE6KY+n55Kcy3Vk88g1+e9gxWs6mKxXWj1M+RMlP7pKm
-	8VXsoGew==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kHtEe1e7RiyfO6lLZp+boVdOJK0KK9ZEoEY9OocgKBc=; b=IH7xaX/78JTLVbBobvhwnsvURA
+	2GYJ74lyMTJfBROMdLow6qxX0W4JIQRPodqEpuHyI1okdlepkytbqo2ISl0ScmXlzC40Bx5EImb6Y
+	dsZey0ixdudibWgaq9z0UNZj9K6bEyYeJN4XozXeMFX6gkRpZNzupm0g77CIu+hL97TeJ5ICXr0bm
+	UpIEgIwd6TleirnUQTBRZSvk5YABcmZuIGVdqwuVpGUuOYtfSio6LtvRn2mkG2iq3CGxA48exHW2w
+	/VuJ+cm3iTe7qQ5cyByl0qvhfo1mkF0lQrcbyLuFRY98SjTBxHJoWm17h9KX+2m17CAC89qzJQMGH
+	oKc61hQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cIF-0000000GTJJ-1jyU;
-	Mon, 23 Mar 2026 10:13:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cIC-0000000GTIV-2j9f
+	id 1w4cMK-0000000GTZW-0R42;
+	Mon, 23 Mar 2026 10:18:08 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4cMH-0000000GTZ8-1NEy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 10:13:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABEEE1516;
-	Mon, 23 Mar 2026 03:13:43 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B7863F63F;
-	Mon, 23 Mar 2026 03:13:44 -0700 (PDT)
-Message-ID: <80915f50-b5c9-4790-81c6-4f08b2af1274@arm.com>
-Date: Mon, 23 Mar 2026 10:13:43 +0000
+	Mon, 23 Mar 2026 10:18:06 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-823c56765fdso5476b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 03:18:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774261084; x=1774865884; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kHtEe1e7RiyfO6lLZp+boVdOJK0KK9ZEoEY9OocgKBc=;
+        b=LzWqWYfa0oEbh8z/P+vSzgvQ2mAKxmeK0zroJNBiXiEREj3tXoTSxLCkISet1me9W5
+         BWmSs7+QBon8gtq2j1v6GX71K74xNsrWTbkMNB32HLNBoLqQGF2ISgkcoCulLzkzs00s
+         t2NguSdOz8hAVJE6PzWb0rwi4GqWdZB49iOUeMYQq1p9SLeWB2l6QtzR7aePwuBgnp7W
+         9+p8g3IVSvbRelM2tNfDLZsVdJiXV8bu2+1OAV31vbKbXtBIpQkJq/uljRm/qe4eWxAb
+         rBxwRdv1xTqDwbidYMS3EhF0ZT3x6+fqGdRgjqUeT1qAk16aM8/RkakdtfpTXW44EZmD
+         v6TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774261084; x=1774865884;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kHtEe1e7RiyfO6lLZp+boVdOJK0KK9ZEoEY9OocgKBc=;
+        b=k+g65SS8V9mG0yIerPJHb2Vq+JcFI8e28q+AVRJvkFAL0Cf8ruYQdy3qO12Ky/60A9
+         0jahqoXjeWeRYVOYDXAqB9GCPQgew2I9kAcQA1qZb7WKCMdyYqPMTDYj6PTruoQb54fO
+         iFAGjalXll61R7U5SbaXgvrUpqVMbPKpR55UWpKaL2uB2ZcKP02NVyDmqQbkRbBiSQAI
+         o7WH6Gw7wWNcIoPEQqqL7q00SCSPNProLGLqWf/kRWVDp+N7KV47xL+29ZY8M9+BKIey
+         uqW0WbfepLtQm8/oZMOryBsLJi3s/YY+3hgBiIkKFXRb/HCuOPGaEWE1XlTq68p0g1vO
+         4hOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqqo6DV1SMDSR6qgD8FlFxDHh/ZwtMZIoLOZoWyGy8hf6O1CZ5GwJcQ63F0tks3YOQiofdStpVZYkeuCLlVoP0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxll60bpDaMbFBJYGfoM7tsNl3OBCd2tRDr11uOpVVSfwwuBqmL
+	ckhnW91Avqlo1dZnUwBS83TMiZ+e8slcbAcS5BTbzxiQ12cBg8oN6lKX
+X-Gm-Gg: ATEYQzyDWSqxOMlGckP7DXnJE7S4vk3R2gmjjYCJQcM9HFc61kHyygogc3RgauEkDJC
+	WHMjZYtEW12AgG/w5yQHdlwzy5JV9P5zNgL/w6H6Jm4oDRfGBFldKuuCSG6PmhXSYveVredMYNv
+	5FNipOCmpwyk8KnUFS7kmwKMLZ2HO90lpMv3kU2xgyesJq4FktLda9jrofAYIts+QiJExR+t8t8
+	KRxVWaA/yL+IS4pnNa9WEwNG8wKAhbPWsZZikvuwSSKVqUjzog6SPF2MKy6N8kqDzLWUmSusEBE
+	JZwVpSGwNQL9IjrwS6OrAl7cjRREc+IkbcVbgRMphWBsoExcLnHtoDX8HRjT7jNmKVrwp1uvdIU
+	4LGaZ9mCJ8drFZlz0ueeEjnzhguJyCd6uUZuUAdfw5CO909ZQmxpSDXahVXVvYY7QohGAoBVTfe
+	arFghfAuHKwLfgw7N2cWf5LPjkodx4ZUGsrTX8tNN3eiBjTE6ZiuZDnkf7/qUUg5KTSYw+a4p6Y
+	5+j8tsNF9NG
+X-Received: by 2002:a05:6a00:2195:b0:823:3078:f684 with SMTP id d2e1a72fcca58-82a8c35d2bfmr9312586b3a.32.1774261084178;
+        Mon, 23 Mar 2026 03:18:04 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b04220d9asm8630779b3a.60.2026.03.23.03.18.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 03:18:03 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH net-next v15 0/3] Add support for Nuvoton MA35D1 GMAC
+Date: Mon, 23 Mar 2026 18:17:53 +0800
+Message-ID: <20260323101756.81849-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v6 14/40] arm_mpam: resctrl: Add boilerplate cpuhp and
- domain allocation
-To: Gavin Shan <gshan@redhat.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-15-ben.horgan@arm.com>
- <98708bfe-7930-49d5-b383-42b7b2d6759d@redhat.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <98708bfe-7930-49d5-b383-42b7b2d6759d@redhat.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_031352_820097_B4EF32DD 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20260323_031805_421771_C706232B 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,568 +116,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+This patch series is submitted to add GMAC support for Nuvoton MA35D1
+SoC platform. This work involves implementing a GMAC driver glue layer
+based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+interface capabilities.
 
-On 3/23/26 06:31, Gavin Shan wrote:
-> Hi Ben,
-> 
-> On 3/14/26 12:45 AM, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> resctrl has its own data structures to describe its resources. We can't use
->> these directly as we play tricks with the 'MBA' resource, picking the MPAM
->> controls or monitors that best apply. We may export the same component as
->> both L3 and MBA.
->>
->> Add mpam_resctrl_res[] as the array of class->resctrl mappings we are
->> exporting, and add the cpuhp hooks that allocated and free the resctrl
->> domain structures. Only the mpam control feature are considered here and
->> monitor support will be added later.
->>
->> While we're here, plumb in a few other obvious things.
->>
->> CONFIG_ARM_CPU_RESCTRL is used to allow this code to be built even though
->> it can't yet be linked against resctrl.
->>
->> Tested-by: Gavin Shan <gshan@redhat.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Tested-by: Zeng Heng <zengheng4@huawei.com>
->> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
->> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
->> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Domain list is an rcu list
->> Add synchronize_rcu() to free the deleted element
->> Code flow simplification (Jonathan)
->>
->> Changes since v2:
->> Iterate over mpam_resctrl_dom directly (Jonathan)
->> Code flow clarification
->> Comment tidying
->> Remove power of 2 check as no longer creates holes in rmid indices
->> Remove unused type argument
->> add macro helper for_each_mpam_resctrl_control
->>
->> Changes since v3:
->> Add and use mpam_resctrl_online_domain_hdr()
->> mpam_resctrl_alloc_domain() error paths (Reinette)
->> rebase on x86/cache changes rdt_mon_domain becomes rdt_l3_mon_domain
->> etc
->>
->> Changes since v4:
->> Set rid in domain_hdr
->> Use rescctrl_res.alloc_capable to determine if alloc_capable as the
->> decision may depend on the resctrl mount options (cdp)
->> Squash in arm_mpam: resctrl: Sort the order of the domain lists
->> Move out monitor/counter changes to a separate patch
->> Commit message update
->>
->> Changes since v5:
->> Use r->alloc_capable when resource specific
->> Move offline_ctrl_domain label and cleanup to monitor boilerplate patch
->> ---
->>   drivers/resctrl/Makefile        |   1 +
->>   drivers/resctrl/mpam_devices.c  |  12 ++
->>   drivers/resctrl/mpam_internal.h |  21 +++
->>   drivers/resctrl/mpam_resctrl.c  | 324 ++++++++++++++++++++++++++++++++
->>   include/linux/arm_mpam.h        |   3 +
->>   5 files changed, 361 insertions(+)
->>   create mode 100644 drivers/resctrl/mpam_resctrl.c
->>
-> 
-> With the following two comments addressed. I don't think none of them are critical
-> given the fact that this series has been respinned to v6 and may be ready for Linux
-> v7.1. If there is still a chance for another respin, they may be worthy to be addressed.
+Overview:
+  1. Added a GMAC driver glue layer for MA35D1 SoC, providing support for
+  the platform's two GMAC interfaces.
+  2. Added device tree settings, with specific configurations for our
+  development boards:
+    a. SOM board: Configured for two RGMII interfaces.
+    b. IoT board: Configured with one RGMII and one RMII interface.
+  3. Added dt-bindings for the GMAC interfaces.
 
-Thanks for the review. Fingers crossed, we will make Linux v7.1.
+v15:
+  - Return error correctly in probe function.
 
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
->> index 898199dcf80d..40beaf999582 100644
->> --- a/drivers/resctrl/Makefile
->> +++ b/drivers/resctrl/Makefile
->> @@ -1,4 +1,5 @@
->>   obj-$(CONFIG_ARM64_MPAM_DRIVER)            += mpam.o
->>   mpam-y                        += mpam_devices.o
->> +mpam-$(CONFIG_ARM_CPU_RESCTRL)            += mpam_resctrl.o
->>     ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)    += -DDEBUG
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index d50461d6ff3f..0e525539b7e2 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -1612,6 +1612,9 @@ static int mpam_cpu_online(unsigned int cpu)
->>               mpam_reprogram_msc(msc);
->>       }
->>   +    if (mpam_is_enabled())
->> +        return mpam_resctrl_online_cpu(cpu);
->> +
->>       return 0;
->>   }
->>   @@ -1655,6 +1658,9 @@ static int mpam_cpu_offline(unsigned int cpu)
->>   {
->>       struct mpam_msc *msc;
->>   +    if (mpam_is_enabled())
->> +        mpam_resctrl_offline_cpu(cpu);
->> +
->>       guard(srcu)(&mpam_srcu);
->>       list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
->>                    srcu_read_lock_held(&mpam_srcu)) {
->> @@ -2500,6 +2506,12 @@ static void mpam_enable_once(void)
->>       mutex_unlock(&mpam_list_lock);
->>       cpus_read_unlock();
->>   +    if (!err) {
->> +        err = mpam_resctrl_setup();
->> +        if (err)
->> +            pr_err("Failed to initialise resctrl: %d\n", err);
->> +    }
->> +
->>       if (err) {
->>           mpam_disable_reason = "Failed to enable.";
->>           schedule_work(&mpam_broken_work);
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index 4632985bcca6..28ac501e1ac3 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -12,6 +12,7 @@
->>   #include <linux/jump_label.h>
->>   #include <linux/llist.h>
->>   #include <linux/mutex.h>
->> +#include <linux/resctrl.h>
->>   #include <linux/spinlock.h>
->>   #include <linux/srcu.h>
->>   #include <linux/types.h>
->> @@ -337,6 +338,16 @@ struct mpam_msc_ris {
->>       struct mpam_garbage    garbage;
->>   };
->>   +struct mpam_resctrl_dom {
->> +    struct mpam_component        *ctrl_comp;
->> +    struct rdt_ctrl_domain        resctrl_ctrl_dom;
->> +};
->> +
->> +struct mpam_resctrl_res {
->> +    struct mpam_class    *class;
->> +    struct rdt_resource    resctrl_res;
->> +};
->> +
->>   static inline int mpam_alloc_csu_mon(struct mpam_class *class)
->>   {
->>       struct mpam_props *cprops = &class->props;
->> @@ -391,6 +402,16 @@ void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx);
->>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->>                      cpumask_t *affinity);
->>   +#ifdef CONFIG_RESCTRL_FS
->> +int mpam_resctrl_setup(void);
->> +int mpam_resctrl_online_cpu(unsigned int cpu);
->> +void mpam_resctrl_offline_cpu(unsigned int cpu);
->> +#else
->> +static inline int mpam_resctrl_setup(void) { return 0; }
->> +static inline int mpam_resctrl_online_cpu(unsigned int cpu) { return 0; }
->> +static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
->> +#endif /* CONFIG_RESCTRL_FS */
->> +
->>   /*
->>    * MPAM MSCs have the following register layout. See:
->>    * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> new file mode 100644
->> index 000000000000..e698b534e3db
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -0,0 +1,324 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +// Copyright (C) 2025 Arm Ltd.
->> +
->> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
->> +
->> +#include <linux/arm_mpam.h>
->> +#include <linux/cacheinfo.h>
->> +#include <linux/cpu.h>
->> +#include <linux/cpumask.h>
->> +#include <linux/errno.h>
->> +#include <linux/list.h>
->> +#include <linux/printk.h>
->> +#include <linux/rculist.h>
->> +#include <linux/resctrl.h>
->> +#include <linux/slab.h>
->> +#include <linux/types.h>
->> +
->> +#include <asm/mpam.h>
->> +
->> +#include "mpam_internal.h"
->> +
->> +/*
->> + * The classes we've picked to map to resctrl resources, wrapped
->> + * in with their resctrl structure.
->> + * Class pointer may be NULL.
->> + */
->> +static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
->> +
->> +#define for_each_mpam_resctrl_control(res, rid)                    \
->> +    for (rid = 0, res = &mpam_resctrl_controls[rid];            \
->> +         rid < RDT_NUM_RESOURCES;                        \
->> +         rid++, res = &mpam_resctrl_controls[rid])
->> +
->> +/* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
->> +static DEFINE_MUTEX(domain_list_lock);
->> +
->> +bool resctrl_arch_alloc_capable(void)
->> +{
->> +    struct mpam_resctrl_res *res;
->> +    enum resctrl_res_level rid;
->> +
->> +    for_each_mpam_resctrl_control(res, rid) {
->> +        if (res->resctrl_res.alloc_capable)
->> +            return true;
->> +    }
->> +
->> +    return false;
->> +}
->> +
->> +/*
->> + * MSC may raise an error interrupt if it sees an out or range partid/pmg,
->> + * and go on to truncate the value. Regardless of what the hardware supports,
->> + * only the system wide safe value is safe to use.
->> + */
->> +u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
->> +{
->> +    return mpam_partid_max + 1;
->> +}
->> +
->> +struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
->> +{
->> +    if (l >= RDT_NUM_RESOURCES)
->> +        return NULL;
->> +
->> +    return &mpam_resctrl_controls[l].resctrl_res;
->> +}
->> +
->> +static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
->> +{
->> +    /* TODO: initialise the resctrl resources */
->> +
->> +    return 0;
->> +}
->> +
->> +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
->> +{
->> +    struct mpam_class *class = comp->class;
->> +
->> +    if (class->type == MPAM_CLASS_CACHE)
->> +        return comp->comp_id;
->> +
->> +    /* TODO: repaint domain ids to match the L3 domain ids */
->> +    /* Otherwise, expose the ID used by the firmware table code. */
->> +    return comp->comp_id;
->> +}
->> +
->> +static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
->> +                     enum resctrl_res_level rid,
->> +                     struct rdt_domain_hdr *hdr)
->> +{
->> +    lockdep_assert_cpus_held();
->> +
->> +    INIT_LIST_HEAD(&hdr->list);
->> +    hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
->> +    hdr->rid = rid;
->> +    cpumask_set_cpu(cpu, &hdr->cpu_mask);
->> +}
->> +
->> +static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
->> +                       struct rdt_domain_hdr *hdr)
->> +{
->> +    lockdep_assert_cpus_held();
->> +
->> +    cpumask_set_cpu(cpu, &hdr->cpu_mask);
->> +}
->> +
->> +/**
->> + * mpam_resctrl_offline_domain_hdr() - Update the domain header to remove a CPU.
->> + * @cpu:    The CPU to remove from the domain.
->> + * @hdr:    The domain's header.
->> + *
->> + * Removes @cpu from the header mask. If this was the last CPU in the domain,
->> + * the domain header is removed from its parent list and true is returned,
->> + * indicating the parent structure can be freed.
->> + * If there are other CPUs in the domain, returns false.
->> + */
->> +static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
->> +                        struct rdt_domain_hdr *hdr)
->> +{
->> +    lockdep_assert_held(&domain_list_lock);
->> +
->> +    cpumask_clear_cpu(cpu, &hdr->cpu_mask);
->> +    if (cpumask_empty(&hdr->cpu_mask)) {
->> +        list_del_rcu(&hdr->list);
->> +        synchronize_rcu();
->> +        return true;
->> +    }
->> +
->> +    return false;
->> +}
->> +
->> +static void mpam_resctrl_domain_insert(struct list_head *list,
->> +                       struct rdt_domain_hdr *new)
->> +{
->> +    struct rdt_domain_hdr *err;
->> +    struct list_head *pos = NULL;
->> +
->> +    lockdep_assert_held(&domain_list_lock);
->> +
->> +    err = resctrl_find_domain(list, new->id, &pos);
->> +    if (WARN_ON_ONCE(err))
->> +        return;
->> +
->> +    list_add_tail_rcu(&new->list, pos);
->> +}
->> +
->> +static struct mpam_resctrl_dom *
->> +mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
->> +{
->> +    int err;
->> +    struct mpam_resctrl_dom *dom;
->> +    struct rdt_ctrl_domain *ctrl_d;
->> +    struct mpam_class *class = res->class;
->> +    struct mpam_component *comp_iter, *ctrl_comp;
->> +    struct rdt_resource *r = &res->resctrl_res;
->> +
->> +    lockdep_assert_held(&domain_list_lock);
->> +
->> +    ctrl_comp = NULL;
->> +    guard(srcu)(&mpam_srcu);
->> +    list_for_each_entry_srcu(comp_iter, &class->components, class_list,
->> +                 srcu_read_lock_held(&mpam_srcu)) {
->> +        if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
->> +            ctrl_comp = comp_iter;
->> +            break;
->> +        }
->> +    }
->> +
->> +    /* class has no component for this CPU */
->> +    if (WARN_ON_ONCE(!ctrl_comp))
->> +        return ERR_PTR(-EINVAL);
->> +
->> +    dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
->> +    if (!dom)
->> +        return ERR_PTR(-ENOMEM);
->> +
->> +    if (r->alloc_capable) {
->> +        dom->ctrl_comp = ctrl_comp;
->> +
->> +        ctrl_d = &dom->resctrl_ctrl_dom;
->> +        mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr);
->> +        ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
->> +        err = resctrl_online_ctrl_domain(r, ctrl_d);
->> +        if (err)
->> +            goto free_domain;
->> +
->> +        mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
->> +    } else {
->> +        pr_debug("Skipped control domain online - no controls\n");
->> +    }
->> +    return dom;
->> +
-> 
-> Even though we will never support "r->alloc_capable == false", it's worthy to maintain
-> the consistence in the code level here, meaning @dom needs to be released with a proper
-> error number returned.
-> 
->     if (r->alloc_capable) {
->         :
->     } else {
->         pr_debug("Skipped control domain online - no controls\n");
->         err = -EINVAL;
->         goto free_domain;
->     }
-> 
-> Alternatively, the check can be done before locating the component from its calss.
-> 
->     
->     lockdep_assert_held(&domain_list_lock);
-> 
->     if (!r->alloc_capable) {
->         pr_debug("Skipped control domain online - no controls\n");
->         return ERR_PTR(-EINVAL);
->     }
-> 
->     ctrl_comp = NULL;
+v14:
+  - Fixed dt_binding_check compilation errors in the YAML file.
 
-Once monitor support is added later in the series this is no longer an
-error path as monitor only platforms are valid. In order to avoid adding
-a change and then reverting it later in the series I would like to keep
-this as it is.
+v13:
+  - Fixed YAML with dt_binding_check
+  - Added callback for plat_dat->phy_interface
+  - Updated PHY-related setting helper function
+  - Renamed registers and values to avoid misleading names
 
-> 
->> +free_domain:
->> +    kfree(dom);
->> +    dom = ERR_PTR(err);
->> +
->> +    return dom;
->> +}
->> +
->> +static struct mpam_resctrl_dom *
->> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
->> +{
->> +    struct mpam_resctrl_dom *dom;
->> +    struct rdt_resource *r = &res->resctrl_res;
->> +
->> +    lockdep_assert_cpus_held();
->> +
->> +    list_for_each_entry_rcu(dom, &r->ctrl_domains, resctrl_ctrl_dom.hdr.list) {
->> +        if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
->> +            return dom;
->> +    }
->> +
->> +    return NULL;
->> +}
->> +
->> +int mpam_resctrl_online_cpu(unsigned int cpu)
->> +{
->> +    struct mpam_resctrl_res *res;
->> +    enum resctrl_res_level rid;
->> +
->> +    guard(mutex)(&domain_list_lock);
->> +    for_each_mpam_resctrl_control(res, rid) {
->> +        struct mpam_resctrl_dom *dom;
->> +        struct rdt_resource *r = &res->resctrl_res;
->> +
->> +        if (!res->class)
->> +            continue;    // dummy_resource;
->> +
->> +        dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
->> +        if (!dom) {
->> +            dom = mpam_resctrl_alloc_domain(cpu, res);
->> +        } else {
->> +            if (r->alloc_capable) {
->> +                struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
->> +
->> +                mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
->> +            }
->> +        }
->> +        if (IS_ERR(dom))
->> +            return PTR_ERR(dom);
->> +    }
->> +
-> 
-> I think the "if (IS_ERR(dom))" check can be moved after "dom = mpam_resctrl_alloc_domain(cpu, res)"
-> because it seems the only path where an erroneous domain can be returned.
-> 
->         dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
->         if (!dom) {
->             dom = mpam_resctrl_alloc_domain(cpu, res);
->             if (IS_ERR(dom))
->                 return PTR_ERR(dom);
->         } else {
->             ...
->         }
+v12:
+  - Drop private structure nvt_priv_data
+  - Fix error propagation to preserve probe deferral
+  - Refactor internal delay handling into a dedicated helper
+  - Move FIFO and filter configuration from driver to Device Tree
+  - Update DT binding to include "snps,dwmac-3.70a" compatible
 
-Yes, that would be clearer. I'll make this change if a respin becomes needed.
+v11:
+  - Propagate syscon lookup errors to allow proper probe deferral.
 
-> 
->> +    resctrl_online_cpu(cpu);
->> +
->> +    return 0;
->> +}
->> +
->> +void mpam_resctrl_offline_cpu(unsigned int cpu)
->> +{
->> +    struct mpam_resctrl_res *res;
->> +    enum resctrl_res_level rid;
->> +
->> +    resctrl_offline_cpu(cpu);
->> +
->> +    guard(mutex)(&domain_list_lock);
->> +    for_each_mpam_resctrl_control(res, rid) {
->> +        struct mpam_resctrl_dom *dom;
->> +        struct rdt_ctrl_domain *ctrl_d;
->> +        bool ctrl_dom_empty;
->> +        struct rdt_resource *r = &res->resctrl_res;
->> +
->> +        if (!res->class)
->> +            continue;    // dummy resource
->> +
->> +        dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
->> +        if (WARN_ON_ONCE(!dom))
->> +            continue;
->> +
->> +        if (r->alloc_capable) {
->> +            ctrl_d = &dom->resctrl_ctrl_dom;
->> +            ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
->> +            if (ctrl_dom_empty)
->> +                resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
->> +        } else {
->> +            ctrl_dom_empty = true;
->> +        }
->> +
->> +        if (ctrl_dom_empty)
->> +            kfree(dom);
->> +    }
->> +}
->> +
->> +int mpam_resctrl_setup(void)
->> +{
->> +    int err = 0;
->> +    struct mpam_resctrl_res *res;
->> +    enum resctrl_res_level rid;
->> +
->> +    cpus_read_lock();
->> +    for_each_mpam_resctrl_control(res, rid) {
->> +        INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
->> +        res->resctrl_res.rid = rid;
->> +    }
->> +
->> +    /* TODO: pick MPAM classes to map to resctrl resources */
->> +
->> +    /* Initialise the resctrl structures from the classes */
->> +    for_each_mpam_resctrl_control(res, rid) {
->> +        if (!res->class)
->> +            continue;    // dummy resource
->> +
->> +        err = mpam_resctrl_control_init(res);
->> +        if (err) {
->> +            pr_debug("Failed to initialise rid %u\n", rid);
->> +            break;
->> +        }
->> +    }
->> +    cpus_read_unlock();
->> +
->> +    if (err) {
->> +        pr_debug("Internal error %d - resctrl not supported\n", err);
->> +        return err;
->> +    }
->> +
->> +    if (!resctrl_arch_alloc_capable()) {
->> +        pr_debug("No alloc(%u) found - resctrl not supported\n",
->> +             resctrl_arch_alloc_capable());
->> +        return -EOPNOTSUPP;
->> +    }
->> +
->> +    /* TODO: call resctrl_init() */
->> +
->> +    return 0;
->> +}
->> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
->> index 7f00c5285a32..2c7d1413a401 100644
->> --- a/include/linux/arm_mpam.h
->> +++ b/include/linux/arm_mpam.h
->> @@ -49,6 +49,9 @@ static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
->>   }
->>   #endif
->>   +bool resctrl_arch_alloc_capable(void);
->> +bool resctrl_arch_mon_capable(void);
->> +
->>   /**
->>    * mpam_register_requestor() - Register a requestor with the MPAM driver
->>    * @partid_max:        The maximum PARTID value the requestor can generate.
-> 
-> Thanks,
-> Gavin
-> 
+v10:
+  - Update DTS/DTSI files to follow proper hierarchy and port modeling
+
+v9:
+  - Fixed file permissions. (YAML, driver, DTS)
+  - Moved phy-handle and PHY-related properties from SoC dtsi to board dts.
+
+v8:
+  Changes since v7:
+  - Rebased onto the latest net-next.
+  - Removed unused symbol.
+  - stmmac parent driver now reads hardware features directly to support
+    Wake-on-LAN via magic packet, so PMT-related overrides in this driver
+    have been removed.
+  - Update dwmac-nuvoton driver:
+      - Update the license to GPL.
+      - Improve the description in Kconfig.
+
+v7:
+  - Update dwmac-nuvoton driver
+    - Update probe function to use stmmac_pltfr_probe instead.
+
+v6:
+  - Update dwmac-nuvoton driver
+    - Use NVT as the previx for all functions, structs, and defines.
+    - Remove unnecessary comments.
+
+v5:
+  - Update yaml
+    - Remove the properties already defined in snps dwmac.
+  - Update dwmac-nuvoton driver
+    - Add a comment to explain the override of PMT flag.
+
+v4:
+  - Update yaml
+    - Remove unnecessary property 'select'.
+    - Remove unnecessary compatible entries and fix items.
+    - Specify number of entries for 'reg'.
+    - Remove already defined property 'phy-handle'.
+    - Update example.
+    - Modify the property internal path delay to match the driver.
+  - Update dtsi
+    - Move 'status' to be the last property.
+  - Update dwmac-nuvoton driver
+    - Use remove instead of remove_new.
+    - Use dev_err_probe instead.
+
+v3:
+  - Update yaml
+    - Fix for dt_binding_check warnings & errors.
+    - Add compatible in snps dwmac.
+  - Update dtsi
+    - Update dtsi to follow examples in yaml.
+  - Update dwmac-nuvoton driver
+    - Fix for auto build test warnings.
+    - Invalid path delay arguments will be returned.
+
+v2:
+  - Update yaml
+    - Rename file to align with the compatible property.
+    - Add an argument to syscon to replace mac-id,
+      with corresponding descriptions.
+    - Use tx-internal-delay-ps and rx-internal-delay-ps properties for
+      configurable path delay with corresponding descriptions,
+      allowing selection between GMAC internal and PHY.
+    - Add all supported phy-mode options.
+    - Remove unused properties.
+  - Update dtsi
+    - Modify syscon configuration to include an argument for
+      GMAC interface selection.
+  - Update dwmac-nuvoton driver
+    - Remove redundant device information print statements.
+    - Remove non-global parameters.
+    - Retrieve GMAC interface selection from the syscon argument.
+    - Parse Tx and Rx path delays by correct properties.
+    - Update configurations to support Wake-on-LAN.
+
+Joey Lu (3):
+  dt-bindings: net: nuvoton: Add schema for Nuvoton MA35 family GMAC
+  arm64: dts: nuvoton: Add Ethernet nodes
+  net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+
+ .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 140 ++++++++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  25 ++++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  24 +++
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  52 +++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 136 +++++++++++++++++
+ 8 files changed, 391 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+
+-- 
+2.43.0
 
 
