@@ -4,141 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0B7F4612B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533D3F46135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+oWMSCKxMSzMwfiT72a6Og/7ntIqLA0/09brtyvtUs=; b=fxEq9NOtQXFPiFQ6olSJHm9ic7
-	29UE97lKr6RhclupwYiECyB2izWQSCZUy41j1d4hx2DgNP6Hz9PBr6FUdoFtjq3+MX32HjuyqorcD
-	BEQJm1huRjEliFTqzJQDFmyF05REJKbvQpX3qs4A2xjmYs/lFXUoU49g71VJAm2uSm43nYq+ji8Ku
-	JCW99ZyWMSxTfsV2W81hTnXSl95UjVXwasaTQthdW0xxSDBvqkSYU9ZHgWU9JhvYKtXLea1bgWbTc
-	KvTztWiMfUbM2Ma9RCM7i7ufMmkqSMK8Vr3Dnwqxxkkkq61glUy+9D08QAo0GxOmrOWe7MjOFnpnQ
-	I92vpleA==;
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LI8/dUz99GIMIFX7jL9A6Uqav/8pN6H5Y3gQQrLVq3g=; b=2FIJiI4rPxZIOH7wXOMFP4Mm/e
+	jtBV9uNdOUldPt1VP+t+WHbfCEdCICGZ9FWOMCEKqQUuswZndz93X03l8JEgHAa7W4Rheh6arptlH
+	QPCWUnKKeRThXVXQBUgYKr1avnjNlaS8u+iCNJ/LZlYFUBuc8g/ZeroLwRcMFBZ7dVhcZNRTnAx20
+	QA3zFXem3F2/g4BglI/lDOW8oxGmm3QaxNkOovXwnhAOzICnoXNFEIZI1buiomfjWQ+/gB+YyZgVc
+	9fITKmxiJXSXkvNKsxpF2QgpDt+VQElhw03UoA0jHw+gbs5w27hYyMoTTNSshOZ3fcel4fuahKHSG
+	sjFMJfPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gXH-0000000GwwJ-1Qve;
-	Mon, 23 Mar 2026 14:45:43 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1w4gew-0000000GxMq-30aM;
+	Mon, 23 Mar 2026 14:53:38 +0000
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gXF-0000000GwvY-04FC
+	id 1w4geu-0000000GxM6-0b6e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 14:45:42 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-2c10a2e2cd1so2617221eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 07:45:40 -0700 (PDT)
+	Mon, 23 Mar 2026 14:53:37 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-2c0e6f5abb5so141161eec.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 07:53:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774277615; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XlVgQw/DKVk1Iw+OhSQIgeD+FGZ9ejyAj/ZPYB59yP6ZxQbTWD7jCYRc9FhtlDhlVw
+         1mT+fBawKAjNWwf6M5Wh1tkTFGQFxPhIq+Y/dFKiU2I8c2VHPidqjkT4wUgK6UTg9hl/
+         KTD9UO6XY0ZsaSTlB/1Z+n+xgg9Irbm4xEsJvD1FYlR2FmRNAo6ySeRbkIBuhq/G4pMI
+         R7WcwBfR+EVo/viO2zo1BiKlQWuRCuUr9DdyFDbcYrlnTgD8SINNK2I9b8xepsA5hlOx
+         5kyaufwQb2xnAerMAYkjtzSHADTcmMkPAK8ioR3wZp+4ie0iRjmimj9+bHKGnRdRDt/J
+         /xqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=LI8/dUz99GIMIFX7jL9A6Uqav/8pN6H5Y3gQQrLVq3g=;
+        fh=XBM0opagj9WP9LBI62QCrmCX09epn52rymExRx3AvWY=;
+        b=LH1rpx2uIsvOp8PqZZn0e1Y1hhTCazUumLn/yof1CMVOuUucLm4jNZpto/Ki8Fk0WT
+         4dW3b2n37CyIW/qxdNf+lNheL01EvSWFqsg3LKbCuPNE7WjEcU0oQGNZQw4peVPxsyFy
+         tbkeJnbIvviVHuFYWvA5Z2KCrhgXe6bPufkmV5ZkLF4ENY4uG40KLmesDXmRajaho6MH
+         pTXKdo5l3f8t3C0TuaJrtoJteUjyQCVg40QW8trLfLJBR/0LqHOM6FXEOfK823BWqZcT
+         himE99/7j9KJWHZrEsEHDHVNfc+5jAnSV19YTyCGcq4BfaMBsCOt79OyiIbsMI+39cGI
+         tUYw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774277140; x=1774881940; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=I+oWMSCKxMSzMwfiT72a6Og/7ntIqLA0/09brtyvtUs=;
-        b=Dp0SYDl8Voe97mBkT6cXp2MNlNGVspYwlSfsPD5XcJBss5RUHtt67AGjvSjWiHT5PG
-         NzAsolExUuVquRKIq0Xs71Cl459Rwzpjo9tQ6tLXO31ug4LAJajWq5Qokbm2jS/mLbjE
-         bj4OmMZDIN1ZPKa6zBGDCAYZ3TT7PEP7VHiy9nykw+YZmI8S9ooUqI84SDI4grBmuQOQ
-         bZo9ZCU5DGgB92oR6mEGfZ0DAhMnQBriGBQXTH+XUTBMvEr5DM0BgyNC4lEQ+ETH78s/
-         rFfWR7n8c2f7Cw3rqoMANoE4Pq028impptodY0HGhCKKBlp/INgKYCKNehhCf3Fm49DS
-         W1cw==
+        d=gmail.com; s=20230601; t=1774277615; x=1774882415; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LI8/dUz99GIMIFX7jL9A6Uqav/8pN6H5Y3gQQrLVq3g=;
+        b=FRJlwAWLeQtckrDNCLh8nmQVNn3NB8oNpqSvEUiFsFAoKs6Ism/foEn2EEH3UkXBgC
+         p3MZUZyT7FSd7XIF4nHKe1qfhNZHoRa66dHZistfzyZbedjo59X1B9jqaOxbzJkVWeXv
+         nt4tYkG5XRRL6OiCDR7LPsdd48xP10zUXkpGdjVd2cmVjQ+sCEgyEjOYh4Ol2to/jRwj
+         gxHVE2Tt+hEAt68agCNRjVItNfNtvR+YumFpqrYQCAmXNI+lPv8zkK0ctU/6gEKnFotD
+         /KM25/sFvlyAQKPE1Qc8kOebyh4r2lVVyDOStIxNdbqc32dvbw1+PWUF8J71R2y3HSn4
+         1eeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774277140; x=1774881940;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=I+oWMSCKxMSzMwfiT72a6Og/7ntIqLA0/09brtyvtUs=;
-        b=lJdyfrqTvuA2A0ws3E+EpBux5hTMnTYv/WsbPZh/EZssl2Eua7aw/XD6skIRXoE/+4
-         AhXGGkfxGjnP9KQxYzxzrk5f4mMaaP+GLBwltoURJXrTwSgzlNnoxZ457BCo/q5hK6Ok
-         E1xbRKY9KtseNilsyiVYtke/KvioCGB6TpZaDhwFeSaFU8gtXup4wuyNNMaO7IAYySYG
-         3Xg2RzZQbG2Tf+uV5pXhUJCr6Xsb9a/Kx4r7KWEbaVlfGasvuqW+5ArdAGoUFzdTEPAd
-         ovPS81BA0sRTSkJPwfKbtJT116a6fhzC/E/WdvwjmUxcNtjiZgIP6SQ/xgEe88pW27PT
-         PP/A==
-X-Gm-Message-State: AOJu0YyPNeprQo65v/fWkRi8DtXFXSkiSSozZ+fncIbcSodVver/C48R
-	ru4d9zZptEPGZmfwV3g4tftxqcSekCbZ1z1ajDUFSIwPcNeVyPnQ8SNA
-X-Gm-Gg: ATEYQzyIqatNyPX+qJLsNkY8anlURCVfQl3OQExzgaW1iZ1PtOu73ZO4bsuJ0Msknrd
-	BQRpv3gwqafcRHCITI3P2Xb+HbUEjhVPKYvIOx/06UAmCjSDkMf/YQD1OK08yF1QGtV2R+LUM4O
-	vR/ba801hUDfFLSOhgTb46uanyGgtBv8QB/5shVy/8iuWfLi68YbGGhrDX/iYDz+PTAPNitoaoi
-	Y5vc46yBo0/xv2R+c0ymT2NZ+sKGXuHhO0m8d6FxdIiFbBDcCKaYBGxur8CHHUWly4qdZ4IUsbR
-	muHtDmK+awSAco6nlYbfg+uDDDYA0Oe5oXN9wCFQt4oX4XUS5UKQ7npImZfLkwXseu651t84cOH
-	GNXlQg5VFgdrflgwfllLBxl0kdBl1DmWDJUEmxoyaj0GoZXFjcFJmTXoY2TnDAze7LYed7hILt/
-	mF6XQBbMQR2JBZsNz2+GawyCtSklmpnyTMYa50Dq1OMT5moOHQTody+AFpSQ1fsvWoZ1xZLNVz
-X-Received: by 2002:a05:7300:a883:b0:2c0:fec3:fcff with SMTP id 5a478bee46e88-2c109712ae0mr5271934eec.17.1774277140029;
-        Mon, 23 Mar 2026 07:45:40 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2c10b29d28csm15457195eec.19.2026.03.23.07.45.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 07:45:39 -0700 (PDT)
-Message-ID: <696f0e32-5deb-401c-9b98-830c6bfdeca6@roeck-us.net>
-Date: Mon, 23 Mar 2026 07:45:38 -0700
+        d=1e100.net; s=20251104; t=1774277615; x=1774882415;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LI8/dUz99GIMIFX7jL9A6Uqav/8pN6H5Y3gQQrLVq3g=;
+        b=S17Kpsu+hYAn6affzTclYV74RqLHzWmRgJARKUV8jGDmrlXH+sTC2J999JOL9O+BFm
+         2JMnFsAn8bb2Yx9fQ0nWoxPq6O4hktxGKdPlhPDcB7wxCTVg1U035N1aV744CTk8OK7s
+         ZNEFgN7TRdoTbXgCXtPrV3KOAi6sycutpu8ALv8FyZq4qw+zlYdtgncfUyjy64q/biXW
+         mA1mE9lQXgq1jOdWo/tMqg5vDUKtITFucIOHi3Pu8EIz60QRY3gG5Qudu7vwQxHpPE/C
+         SToHswkSP8mcbjJYXmxczAIqPAzjk4zDAm4nENwLuADbXG+tfd6O7ZJ45wdVFexJslaa
+         ajzw==
+X-Forwarded-Encrypted: i=1; AJvYcCVtYzNAqVdzxlZCi1qcX6N6hO1lfRgAwPJjkXZDq90M4B+NFKIAttqpgX+trB9Hkuy+mcco/pdhPfW0Ethl560g@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNFEiWplx/iPrng0ZRne387W54JHbg+CbsMpKHrZgwjhNTfWUk
+	C8pGQgsC5WhAfSqID8Vy9Reh2FBY24tVvhe0bfHA1ZtPb+xuEhW6Jss65sbLs0d19NcierFtj87
+	JCQr5TFx5gYEdO8Vyp4Cij3GjZRPrfLU=
+X-Gm-Gg: ATEYQzwrUNlTmRpoPAV1MtSdM3kUpE8EowJdTMNl3XarZfg6b/Ibmi1+ec16VFqgBIP
+	BmtTdnMVl9VXHYWHlzwyVMrfh919fTbKkFDzHp4wzbNBUbGTJwYYBlQO7GXBWxS2p9t0GT7hOtl
+	RRWrTWVBlWjSriU0qsenDlfeY1Y+POozSpJeROCQDdifm9U/J707loI+RXuLuyEy1Icqf3XiXMW
+	uzqSsJ3W6hDpAvn7csQgC+BSW0I/lBGkdkL/WpirCiB3k8W69Gkkv75gUsW07PI5MiNytAjlmc7
+	RM6p1PfaErTJROCdxSJmEp8MXRCGg9jwwLVFp+FBHT4cmddYBWH1NhINRwU7VQhgQqeeyJc6ACl
+	+k/mfpup9g62WUWbHCd4YW6w=
+X-Received: by 2002:a05:7300:3215:b0:2c1:27c:758c with SMTP id
+ 5a478bee46e88-2c109938d44mr2357139eec.8.1774277615132; Mon, 23 Mar 2026
+ 07:53:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/7] dt-bindings: watchdog: Drop SMARC-sAM67 support
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-doc@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20260302122540.1377444-1-mwalle@kernel.org>
- <20260302122540.1377444-7-mwalle@kernel.org>
- <f124b200-09e3-4e73-a100-f47007732e8f@roeck-us.net>
- <DHA13HM1GIJW.1E7XCMY349JX7@kernel.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <DHA13HM1GIJW.1E7XCMY349JX7@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260322192159.88138-1-ojeda@kernel.org> <20260322193830.89324-1-ojeda@kernel.org>
+ <4fba0163-547e-4099-8b37-5d8429bda6da@sirena.org.uk>
+In-Reply-To: <4fba0163-547e-4099-8b37-5d8429bda6da@sirena.org.uk>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Mon, 23 Mar 2026 15:53:21 +0100
+X-Gm-Features: AQROBzBN4j7-1buNPtn5ON4A_wtJBuiQQ3UlTVe5clvsCt_bKh7FB_BsDwGf67A
+Message-ID: <CANiq72nmFsnoP3dv_-0PWH0XBpf0OuPzNR2CP9Hw56Z+RVifAg@mail.gmail.com>
+Subject: Re: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+To: Miguel Ojeda <ojeda@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Jean Delvare <khali@linux-fr.org>, 
+	linux-kernel@vger.kernel.org, a.hindborg@kernel.org, acourbot@nvidia.com, 
+	akpm@linux-foundation.org, aliceryhl@google.com, 
+	anton.ivanov@cambridgegreys.com, bjorn3_gh@protonmail.com, 
+	boqun.feng@gmail.com, dakr@kernel.org, david@davidgow.net, gary@garyguo.net, 
+	johannes@sipsolutions.net, justinstitt@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org, 
+	linux-mm@kvack.org, linux-um@lists.infradead.org, linux@armlinux.org.uk, 
+	llvm@lists.linux.dev, lossin@kernel.org, mark.rutland@arm.com, 
+	mmaurer@google.com, morbo@google.com, nathan@kernel.org, 
+	nick.desaulniers+lkml@gmail.com, nicolas.schier@linux.dev, nsc@kernel.org, 
+	peterz@infradead.org, richard@nod.at, rust-for-linux@vger.kernel.org, 
+	tmgross@umich.edu, urezki@gmail.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_074541_084311_3E65BE5F 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260323_075336_185594_726D1FB0 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,31 +129,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/26 01:45, Michael Walle wrote:
-> Hi,
-> 
-> On Mon Mar 2, 2026 at 4:01 PM CET, Guenter Roeck wrote:
->> On 3/2/26 04:24, Michael Walle wrote:
->>> I was just informed that this product is discontinued (without being
->>> ever released to the market). Pull the plug and let's not waste any more
->>> maintainers time and revert commit 354f31e9d2a3 ("dt-bindings: watchdog:
->>> Add SMARC-sAM67 support").
->>>
->>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
->>> Signed-off-by: Michael Walle <mwalle@kernel.org>
->>
->> Reviewed-by: Guenter Roeck <linux@roeck-us.net>
-> 
-> Everything expect this patch was picked up. Guenter, do you want to
-> take it, or should it go through the TI SoC queue?
-> 
-> Thanks,
-> -michael
+On Mon, Mar 23, 2026 at 2:54=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
+>
+> Callers should never treat NULL any differently to any other non-error
+> pointer, this is not a value intended for inspection by users.
+>
+> Having specific handling for NULLs is very much not a preferred
+> interface, and most things shouldn't.  The caller should probably have
+> it's own !CONFIG_REGULATOR checks rather than using the return value.
 
-I am fine with either approach. Wim handles all watchdog subsystem pull requests,
-so we'll need his feedback.
+Yeah, that is the understanding I got from reading both the docs and
+the comment, but I think the docs (i.e. not the comment in the stub)
+could point that `NULL` is one possible pointer value (perhaps
+including discouraging relying on particular values at the same time,
+and perhaps mentioning `!CONFIG_REGULATOR`).
 
-Thanks,
-Guenter
+i.e. to me, "Pointer to a struct regulator corresponding to the
+regulator producer," sounds in the docs a bit too much like it will be
+a valid one... no?
 
+Another perspective is that, when one reads the rendered docs:
+
+  https://docs.kernel.org/driver-api/regulator.html#c.regulator_get
+
+one sees the postconditions, but they happen to not apply in all cases
+(in fact, perhaps not having the "Returns" there would increase the
+chances one realizes that, but I understand that you want them to
+treat it as fully opaque as much as possible).
+
+It could also help things like AI review systems which may only notice
+the docs and not the comment inside the stub.
+
+Perhaps it could be at least a one-line comment in the real
+definition, even if not in the rendered docs, to have a chance for
+others to notice.
+
+I don't know -- I hope that helps, in any case. Perhaps Daniel can
+tell us what he thought when he was writing the code, as another
+perspective, i.e. whether it was the docs or not the issue.
+
+Thanks!
+
+Cheers,
+Miguel
 
