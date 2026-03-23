@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E70F483DF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F3CCF483DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+OMEl7jW9fwjryCD/mh+2mTQpWaHTEudOcVmWoiYSg=; b=pXhWGZIbVsKEeak+6pfaatcWVX
-	IxOKPaTnF8pctGWSMLotG0ViQV3DfXQf2ZVF3RT+2yFa91OK+DDNUK1iiB3jBgCq1sxmXzOugbzo8
-	fNTxTXRmNcFQwnw000hi8n3r02jUbOqaYwOQBVmt6g/JOXrkyk5pX9PHhJiNo3V3Mb6RBOIvgZTw8
-	uJydJRPf54a5ZtpZCwsWbgrw9R2s17G2hLhLhkqbgvwNNRzMydMt3qYjI6rAMJ+XjTRF9kYcis9EW
-	eP5wktdu5r771oX/8Cj49rfwo9SRyhAw7ZnuOaXW8o+n66wzMnXEoOZtXE+WW0uwGD5BrkockwULl
-	NBSLz8WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ocw65/pV/F3VkulhvpJVvk0PeG4d8waPMt+IQekoqB8=; b=2ASvJyJOyVZ++q7QAzmxJh/Wul
+	MrpHWDLi1ReyyedDYfpLNFnmkmlHPP2NvmcYtya6FE8p12rfDgwEjR0IRUHz+Gh5jIKLdZYHNemfr
+	bpKFnohS4cyReu72BmQoeA4e0UbJ6te9dbSB2mFQqBGSpGhXh+pnR88DuH20Th6Nq5FCTbZ43+7aK
+	FT8cyhsOjFsT9DqLdZMNWykxAmQkCVYbdn0coc11urREhxCgpCldI93gV0U4Rqflpex4ysS8RLOtM
+	2UMzhAQPzn9r7XGIlzu4qK4N+Lisksem4z6uGyTYRb34eMl+8Ua/RrZHyfPwUL6evty08ZejxNvlh
+	U4s9B13w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jMe-0000000HFt8-0HJv;
-	Mon, 23 Mar 2026 17:46:56 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w4jMi-0000000HFxM-30ew;
+	Mon, 23 Mar 2026 17:47:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jMI-0000000HFay-10Xh;
-	Mon, 23 Mar 2026 17:46:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774287991;
-	bh=FaphVizh/jrcTWKzM1pHB/8nCLnRBECP6/YJ+CUORb8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aP87GDEPev0+YdNme5A25+vd/LCzVS65S51MQDutLcvlkolvhDhFmlL/UtGSVOhf/
-	 6SUCQnsIX/BoyTCGd+mfUi2gS1mG13U/P/GAFYMDZ76F/bg5siZLYhn7C+LRHd4gP0
-	 WiOcLHXTsD47QPeXkC4MwsUjuX5GM3ZJMhuAHzNtynRZDe9K85+EP+GNOTSrUZlLaQ
-	 BUNcVCi1MlCoh5bwVA9yXJ43aQDRc4ZDT45DVtdWEluwrJLe1si9abKzsdTZY8TEJ9
-	 77IJDSBCufRdmbzcfuvwI258aNgT+KAC+B98pd+Uvz7h5SzmJUgAB+TtV9ijKw9KKV
-	 dcQl25kIZ+AxA==
-Received: from localhost (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 02D9417E3F1B;
-	Mon, 23 Mar 2026 18:46:30 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 23 Mar 2026 19:45:30 +0200
-Subject: [PATCH RESEND v4 4/4] drm/rockchip: dw_hdmi_qp: Do not send HPD
- events for all connectors
+	id 1w4jMg-0000000HFvd-30Qs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 17:46:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5531A436F8;
+	Mon, 23 Mar 2026 17:46:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F0B9C2BC9E;
+	Mon, 23 Mar 2026 17:46:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774288018;
+	bh=cyADZ9NAmmVw6DXEt8XTqLzsSVTUO02DgLX3MND3plw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UAMvzguFqw7l8E04akXR2DAi3tC8rDn/FLDt8xxkmA5qEwlx5ozAhlENGBr7/S3i/
+	 aYOJ8zGdC/h0L8WXB3NXAuPY+hEzl4QRSDoDBSchHroyMJgNiJkdrOjj1G+jM9EMlb
+	 d/9hF5mj0cE17Znj5CirDtDv+QEGcyTd5DE91O0t1rJaRhweKOD3O5T58Flwbckugc
+	 gX58KagYf7SdYdLlpZ+u9boMPzMwxrmzWykD/deksMIWj58MRCosnvSon72JyMXLGa
+	 uYZTkvK4SSBwcpWt3HqmTsgQopRWSxpqpGkhc30Em6T8br9SxT1mHxPW1huBsqGRnR
+	 hogx5xAFoQ0Nw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w4jMe-00000004pwY-06KE;
+	Mon, 23 Mar 2026 17:46:56 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: [PATCH] KVM: arm64: set_id_regs: Allow GICv3 support to be set at runtime
+Date: Mon, 23 Mar 2026 17:46:42 +0000
+Message-ID: <20260323174642.3183075-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260323-dw-hdmi-qp-scramb-v4-4-1d99df84883e@collabora.com>
-References: <20260323-dw-hdmi-qp-scramb-v4-0-1d99df84883e@collabora.com>
-In-Reply-To: <20260323-dw-hdmi-qp-scramb-v4-0-1d99df84883e@collabora.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Diederik de Haas <diederik@cknow-tech.com>, 
- Maud Spierings <maud_spierings@hotmail.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_104634_432024_3F1C4F0B 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20260323_104658_818835_EDF97740 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,114 +83,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to optimize the HPD event handling and run the detect cycle on
-the affected connector only, make use of
-drm_connector_helper_hpd_irq_event() instead of
-drm_helper_hpd_irq_event().
+set_id_regs creates a GIC3 guest when possible, and then proceeds
+to write the ID registers as if they were not affected by the presence
+of a GIC. As it turns out, ID_AA64PFR1_EL1 is the proof of the
+contrary.
 
-Additionally, move devm_request_threaded_irq() after bridge connector
-initialization.
+KVM now makes a point in exposing the GIC support to the guest,
+no matter what userspace says (userspace such as QEMU is known to
+write silly things at times).
 
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Accommodate for this level of nonsense by teaching set_id_regs about
+fields that are mutable, and only compare registers that have been
+re-sanitised first.
+
+Reported-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 44 ++++++++++++--------------
- 1 file changed, 20 insertions(+), 24 deletions(-)
+ .../testing/selftests/kvm/arm64/set_id_regs.c | 52 ++++++++++++++++---
+ 1 file changed, 45 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 1a09bcc96c3e..65dfaee15178 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -92,6 +92,7 @@ struct rockchip_hdmi_qp {
- 	struct regmap *regmap;
- 	struct regmap *vo_regmap;
- 	struct rockchip_encoder encoder;
-+	struct drm_connector *connector;
- 	struct dw_hdmi_qp *hdmi;
- 	struct phy *phy;
- 	struct gpio_desc *frl_enable_gpio;
-@@ -251,14 +252,10 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_struct *work)
- 	struct rockchip_hdmi_qp *hdmi = container_of(work,
- 						     struct rockchip_hdmi_qp,
- 						     hpd_work.work);
--	struct drm_device *drm = hdmi->encoder.encoder.dev;
--	bool changed;
-+	bool changed = drm_connector_helper_hpd_irq_event(hdmi->connector);
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index 73de5be58bab0..24f70312b3557 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -37,6 +37,9 @@ struct reg_ftr_bits {
+ 	 * For FTR_LOWER_SAFE, safe_val is used as the minimal safe value.
+ 	 */
+ 	int64_t safe_val;
++
++	/* Allowed to be changed by the host after run */
++	bool mutable;
+ };
  
--	if (drm) {
--		changed = drm_helper_hpd_irq_event(drm);
--		if (changed)
--			dev_dbg(hdmi->dev, "connector status changed\n");
--	}
-+	if (changed)
-+		dev_dbg(hdmi->dev, "connector status changed\n");
- }
+ struct test_feature_reg {
+@@ -44,7 +47,7 @@ struct test_feature_reg {
+ 	const struct reg_ftr_bits *ftr_bits;
+ };
  
- static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)
-@@ -466,13 +463,12 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	struct dw_hdmi_qp_plat_data plat_data = {};
- 	const struct rockchip_hdmi_qp_cfg *cfg;
- 	struct drm_device *drm = data;
--	struct drm_connector *connector;
- 	struct drm_encoder *encoder;
- 	struct rockchip_hdmi_qp *hdmi;
- 	struct resource *res;
- 	struct clk_bulk_data *clks;
- 	struct clk *ref_clk;
--	int ret, irq, i;
-+	int ret, hpd_irq, i;
- 
- 	if (!pdev->dev.of_node)
- 		return -ENODEV;
-@@ -573,17 +569,9 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	if (plat_data.cec_irq < 0)
- 		return plat_data.cec_irq;
- 
--	irq = platform_get_irq_byname(pdev, "hpd");
--	if (irq < 0)
--		return irq;
--
--	ret = devm_request_threaded_irq(hdmi->dev, irq,
--					cfg->ctrl_ops->hardirq_callback,
--					cfg->ctrl_ops->irq_callback,
--					IRQF_SHARED, "dw-hdmi-qp-hpd",
--					hdmi);
--	if (ret)
--		return ret;
-+	hpd_irq = platform_get_irq_byname(pdev, "hpd");
-+	if (hpd_irq < 0)
-+		return hpd_irq;
- 
- 	drm_encoder_helper_add(encoder, &dw_hdmi_qp_rockchip_encoder_helper_funcs);
- 	drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
-@@ -597,12 +585,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 				     "Failed to bind dw-hdmi-qp");
+-#define __REG_FTR_BITS(NAME, SIGNED, TYPE, SHIFT, MASK, SAFE_VAL)	\
++#define __REG_FTR_BITS(NAME, SIGNED, TYPE, SHIFT, MASK, SAFE_VAL, MUT)	\
+ 	{								\
+ 		.name = #NAME,						\
+ 		.sign = SIGNED,						\
+@@ -52,15 +55,20 @@ struct test_feature_reg {
+ 		.shift = SHIFT,						\
+ 		.mask = MASK,						\
+ 		.safe_val = SAFE_VAL,					\
++		.mutable = MUT,						\
  	}
  
--	connector = drm_bridge_connector_init(drm, encoder);
--	if (IS_ERR(connector))
--		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
-+	hdmi->connector = drm_bridge_connector_init(drm, encoder);
-+	if (IS_ERR(hdmi->connector))
-+		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->connector),
- 				     "Failed to init bridge connector\n");
- 
--	return drm_connector_attach_encoder(connector, encoder);
-+	ret = drm_connector_attach_encoder(hdmi->connector, encoder);
-+	if (ret)
-+		return ret;
+ #define REG_FTR_BITS(type, reg, field, safe_val) \
+ 	__REG_FTR_BITS(reg##_##field, FTR_UNSIGNED, type, reg##_##field##_SHIFT, \
+-		       reg##_##field##_MASK, safe_val)
++		       reg##_##field##_MASK, safe_val, false)
 +
-+	return devm_request_threaded_irq(hdmi->dev, hpd_irq,
-+					 cfg->ctrl_ops->hardirq_callback,
-+					 cfg->ctrl_ops->irq_callback,
-+					 IRQF_SHARED, "dw-hdmi-qp-hpd",
-+					 hdmi);
++#define REG_FTR_BITS_MUTABLE(type, reg, field, safe_val) \
++	__REG_FTR_BITS(reg##_##field, FTR_UNSIGNED, type, reg##_##field##_SHIFT, \
++		       reg##_##field##_MASK, safe_val, true)
+ 
+ #define S_REG_FTR_BITS(type, reg, field, safe_val) \
+ 	__REG_FTR_BITS(reg##_##field, FTR_SIGNED, type, reg##_##field##_SHIFT, \
+-		       reg##_##field##_MASK, safe_val)
++		       reg##_##field##_MASK, safe_val, false)
+ 
+ #define REG_FTR_END					\
+ 	{						\
+@@ -134,7 +142,8 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, CSV2, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, DIT, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, SEL2, 0),
+-	REG_FTR_BITS(FTR_EXACT, ID_AA64PFR0_EL1, GIC, 0),
++	/* GICv3 support will be forced at run time if available */
++	REG_FTR_BITS_MUTABLE(FTR_EXACT, ID_AA64PFR0_EL1, GIC, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL3, 1),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL2, 1),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL1, 1),
+@@ -634,12 +643,38 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
+ 		ksft_test_result_pass("ID_AA64PFR1_EL1.MTE_frac no longer 0xF\n");
  }
  
- static void dw_hdmi_qp_rockchip_unbind(struct device *dev,
-
++static uint64_t reset_mutable_bits(uint32_t id, uint64_t val)
++{
++	struct test_feature_reg *reg = NULL;
++
++	for (int i = 0; i < ARRAY_SIZE(test_regs); i++) {
++		if (test_regs[i].reg == id) {
++			reg = &test_regs[i];
++			break;
++		}
++	}
++
++	if (!reg)
++		return val;
++
++	for (const struct reg_ftr_bits *bits = reg->ftr_bits; bits->type != FTR_END; bits++) {
++		if (bits->mutable) {
++			val &= ~bits->mask;
++			val |= bits->safe_val << bits->shift;
++		}
++	}
++
++	return val;
++}
++
+ static void test_guest_reg_read(struct kvm_vcpu *vcpu)
+ {
+ 	bool done = false;
+ 	struct ucall uc;
+ 
+ 	while (!done) {
++		uint64_t val;
++
+ 		vcpu_run(vcpu);
+ 
+ 		switch (get_ucall(vcpu, &uc)) {
+@@ -647,9 +682,11 @@ static void test_guest_reg_read(struct kvm_vcpu *vcpu)
+ 			REPORT_GUEST_ASSERT(uc);
+ 			break;
+ 		case UCALL_SYNC:
++			val = test_reg_vals[encoding_to_range_idx(uc.args[2])];
++			val = reset_mutable_bits(uc.args[2], val);
++
+ 			/* Make sure the written values are seen by guest */
+-			TEST_ASSERT_EQ(test_reg_vals[encoding_to_range_idx(uc.args[2])],
+-				       uc.args[3]);
++			TEST_ASSERT_EQ(val, reset_mutable_bits(uc.args[2], uc.args[3]));
+ 			break;
+ 		case UCALL_DONE:
+ 			done = true;
+@@ -740,7 +777,8 @@ static void test_assert_id_reg_unchanged(struct kvm_vcpu *vcpu, uint32_t encodin
+ 	uint64_t observed;
+ 
+ 	observed = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(encoding));
+-	TEST_ASSERT_EQ(test_reg_vals[idx], observed);
++	TEST_ASSERT_EQ(reset_mutable_bits(test_reg_vals[idx], encoding),
++		       reset_mutable_bits(observed, encoding));
+ }
+ 
+ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
 -- 
-2.52.0
+2.47.3
 
 
