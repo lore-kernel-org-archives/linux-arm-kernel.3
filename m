@@ -4,139 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03BCEC01CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F0BD58B00
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrAAXizoOHygHzB/TmZqVGfrawcHdiN8J7vTtvklL54=; b=QNWs3pZWpTHFgEzzPDyoB/jzRm
-	QKoJ39Lv1LQvaWmabsZSEXkIFQpY7lMVA0a2AmURszbWULbTH2F827y+aq0v89/HQwRKJYv5Dhx74
-	VOuXlITe47FeLBpKvWMV4B22isK6JONQ7aGd4/pxqWnSxxZSctiyQxNbs2LD6F/pUtm3VJq63OV8H
-	YeX8ELwaRNrX9kjjKOUOPRTKuIWZ7OlxSazupOArSeQNAQS5Eg2w6/tSJivd/1R3ETLX03fMLN67U
-	ZXBpqt6WlF7EjLX8TInnwMwsUfVtWmVYzErT6wixaYX489l74hz1BNajtThQIz9Xxv2usGLy3HGCy
-	2/DKF2ZQ==;
+	bh=YDciruzs8Ey3qf1jOS+c7GPDS8nO7KcVc/iFzTYFC6w=; b=ZthOfUEkBiC1LGebaia5h0laY1
+	xydHB4weYtBHUprODfqa2qy7qwRsqygrELrhTnrENEhcl1eU07uJOzqyE5qjnZONWe8NYmbBJIgXk
+	Lp/Ar/uqYPq1LUTZ/GuvUocfe190yxE5hY5kurHb40t+EbVZNfYpe36xSL0TtgWxqMtXLxYvTqW/z
+	BFfS2S21nuN707/14/ed+1idIaTnwFj0E8wZS7fHiMrm9PtuEnnw+mK4CUYKF/69KYTOrI2zX2q2f
+	JDT7Y7H8nQffG7DnU5aFk4z+HwiOXYpC/uDE/va5PnmkL3ZtiWJP33+WmBnWHEOlmL+FJmC1eL/dd
+	X9Jqny3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4eLL-0000000GhNv-2hOL;
-	Mon, 23 Mar 2026 12:25:15 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w4eU0-0000000Ghku-2dRv;
+	Mon, 23 Mar 2026 12:34:12 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4eLI-0000000GhNN-2GDO
+	id 1w4eTy-0000000GhkW-3uc4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 12:25:13 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62NBgIlN123193
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 12:25:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lrAAXizoOHygHzB/TmZqVGfrawcHdiN8J7vTtvklL54=; b=BU+lu28d2SeS/6qW
-	q60iEkc0Wbqc/09VVWtfNDGcXqfrFVTfSW1eKUc9eRZwSyfh8d4nsbG8VBcCrrzE
-	sg2J4prP/M9AhVlgXJYwnopW2eDRHDk7BHDXJlgKuJnoKnB/LevBQyrdGOhnaPm6
-	qEB5ItDiqDhdSxPNcyof2BKu6GdVNHsyWYS8PRtsHrpc1NcTH8HZFRdbKmKvJgRd
-	vWvVqQmf5/9PhX2T3dseFOdwKnXtHSCm1B6VWQRyLtX2f8Z009qnnNOOxzmT+AIq
-	VimyTBxPFl1gAKCPpOSlM38lt6u1kSyNST9DcVGPx9oM0k6bmSCwvvB/k0tJSTHc
-	zGHHfA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d34vkr47q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 12:25:11 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50b68af943eso1675751cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 05:25:11 -0700 (PDT)
+	Mon, 23 Mar 2026 12:34:12 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-5091ed02c54so1073391cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 05:34:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774269249; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VYiH0tUIFh4kiNoEDmPH9ZnQOOWCje+NzClKeSzzTD/lWUNIg4s3yMOnyxjudArrmd
+         UxpYOYvbfr9Orz9xsTLpiUJhSDSpRvhd/9i8hD9owwbH1fOrvetW4ubqvuhm9WeFRjEt
+         Tqaa8gxYQrU/7sufnNVBAl+3aWOJ2JE7lXgTNv19wYEZZeSFQTMW/uOcFL5gWsTShCtp
+         jUtKMsI3/R8BaRG1RBzgL1H1Jxm4N3iYulvPdvwO+mUPQ6IIZ8HaZtWrHGOza/1P0HYz
+         bqUwmVaw9e3d8jkj9oob2XYIXIUNsdF58TIbuzJNAZTmkG2f1PK9o1Ug/jzOhIfFzkx9
+         h0rQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YDciruzs8Ey3qf1jOS+c7GPDS8nO7KcVc/iFzTYFC6w=;
+        fh=5Q1gE9tIuRdfphz5cYuB39Ln6YlwhvSb7N+D/EZPXM8=;
+        b=JxPhwkUdXiY4RyagvUqQGMMnl3mF/sMDKZUCqI9M53ZUuOeULrNG5kDsPjBPTcoJH/
+         L/ZAB19QtqmZZT4tPglMzXdbFrC2kpynSPnudq0XHDozQJfXb59y96cQ6HI24aflS4oF
+         1uLBiHzmdLqFvdQIjng2DUqa1dQR/Kx7SSc8Tpirczp+Pc6xRVqRnRZ5X93/6jTk2018
+         nWMDO4U2cBHkbJw1lbXkKiteWk81ScUbcGG9BuDtGqSBkhaOUlyc/OWtFHWzsZ/R2lDL
+         1JVh/zZZbwYqkie3Lv7CTXi9OjsxPO+xPmDP1lG/h13PZIgaXePFeLV/Kqx8hPSNkP8a
+         NkQA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774268711; x=1774873511; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lrAAXizoOHygHzB/TmZqVGfrawcHdiN8J7vTtvklL54=;
-        b=C09ZTtgcl3hYryMKAGwqHuk+/Ex5Ies4hqazzcNgGHP57o4nnoBbeQdN8OvwqNA0yu
-         E3wiri1td6JiqCE2MgCrfKr11DEclB2WMTYmdxBL+aQNZCXIB6i+NMR1Wj2a6Lu+1nCH
-         LizZskQGI9vsiznytPKilV7b0xYJ8NtymLlg8mVgHv2np344erRyvRCMPZ4RG7ZuNOTt
-         Z+SJ3ofbhuvlfyCNdP7nEqyzOVwx2a+3vq4cz3rF9nvZlvclYS9iRvZX3feMQckjJLvL
-         4oUMwSX06iTlzG61U664gDzESY7E06CUOvKZf8OS+K/HC8ttvYlv5Q42XzAIMRyP0gIl
-         EFZQ==
+        d=google.com; s=20251104; t=1774269249; x=1774874049; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YDciruzs8Ey3qf1jOS+c7GPDS8nO7KcVc/iFzTYFC6w=;
+        b=CWoT98xeTfu/Nj9VvLK1pKvCPV67ltLnKqnh/39ogHsRU+Ra55ykp1AtSMnUHdQu2n
+         AZWvjavvBr5gGXaE1vy9Z4I54/IPj9lCEwLy7wUua34qiG0vRmQw4yv/xWpWpU3ccuCu
+         bxq9AMBH2NLENQbbIiYE9I0PDhOQbCzUAAOABepgjxaWQRP+ZGJdoQn3ch2fVyJ1Prje
+         10fOV83o/+bI1mXaHd0WJh7AOgSHF7bVywUsTV8YI2L9YBE3vv4Ja55CthOCSfDw+bF+
+         SSQ5ghIghzeA3T4RKSO2ERdxJblfAiDudfXPqGBbXiSikh16kwJaKVQpnmPlPOKXjwbh
+         RZiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774268711; x=1774873511;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lrAAXizoOHygHzB/TmZqVGfrawcHdiN8J7vTtvklL54=;
-        b=LMhXIqEHa9Xrb9lAMvh1AK/pT7X5F4uwkRMUDj9jofnfMDpIiGNwPCv9Hd0SXxBx3U
-         CwhDGw74CajOWp3YNlcRZ3YTuy0ORbPI7CT5eSuhCKmk7C2y3Le4fB7Oe2AFXPrFFqxW
-         BFsnxCZm9WA8DUPS6YnsllzMvPsiAzovEz9I9wLCAQ2mL+ivFvDFgprXNMhHho/qefJ+
-         GV7cigI9mycCGsGAYmCUQJH6XsHmdX4Ajz4CNhAVROn4QOeUSWwFNBPFEc4Tl1J4/403
-         YqjUZc8sGfGFCsMFDKRzPG8sfcr1pXad5RFQ81DJ2SQNzoVsDbKpy7KYv+undX6NXN3c
-         5FVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUXkdLs1Gm6RSlQyOllUChwGXsz1NTH9aev+rRG9vTjOYguUdSzhzZpeXeUmHLJs829MZSnVAhKRlHlzyURfOqq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzlu/szH70uzqAWBzvxnizV7IJ+BqmlxcwNMGyA3NwHd6ufHqXy
-	RZ8KSn0y9oVz4GuZs2pE/ScFOEj1qo2meJXbl+eo0d01wYLRdd3Awcuxv/M+0IE7+s4WJNCN/cc
-	z1fcrFXQ2JmUPxC0iw+1NRD9JvWzFC5uco171iJS9bTZSPHDjoeCqSV5fL2nQmHHr4lhCIKhLLm
-	4nkw==
-X-Gm-Gg: ATEYQzz2VJf+Qwnf2gf+IMUBHoQuBfp0V/gbU63idSQg6MvNjtdL/XGpq38DHZOB4Jz
-	3L0S5r78PjfphiVOZ0SY9C4a4vpTHJ0Oeamnam3/g1qjrqlXwdXZB98gD3vGzIGMnGFUSpe2doH
-	WHmW1IryLGugeSo+cMY6IcYNPwy9L58aUZQUmgH9iSaT7Sd6+fI/9iz2yEJVqt7Q101BE6P7H6y
-	cGqEpFFtkbkxDPIKhx9HXaL4Dc8v67UIUxWnwOMUJJMq2b7KfWH7AqzSGyGb++MEcZWPfUkMcgY
-	YFTuTYh7dtTyMqnAlH/pLssMCEScP6F0DCEtr4yGRr8hHloNP/XJyaQC645vRJG0VaZr0RNYkdI
-	RZB+qNEMREXB2+64GbLEoLybHgq3NxbqH3KgJCaTFeFXhQKqWnMGNDEaoVg5pNDI0Lh+Xqt06SG
-	A9Iyg=
-X-Received: by 2002:a05:622a:293:b0:509:2b5a:808 with SMTP id d75a77b69052e-50b373d3484mr146051031cf.2.1774268710753;
-        Mon, 23 Mar 2026 05:25:10 -0700 (PDT)
-X-Received: by 2002:a05:622a:293:b0:509:2b5a:808 with SMTP id d75a77b69052e-50b373d3484mr146050711cf.2.1774268710253;
-        Mon, 23 Mar 2026 05:25:10 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b983398c140sm496780866b.63.2026.03.23.05.25.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 05:25:09 -0700 (PDT)
-Message-ID: <96074093-b653-4024-bd09-efcd3d68927a@oss.qualcomm.com>
-Date: Mon, 23 Mar 2026 13:25:07 +0100
+        d=1e100.net; s=20251104; t=1774269249; x=1774874049;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=YDciruzs8Ey3qf1jOS+c7GPDS8nO7KcVc/iFzTYFC6w=;
+        b=iGm+egHCX0MtTrIGdPAAOxTE8o+uCqOKPJifuGMmoVtlBqi0xSO7I2fEyI3ktZG60Z
+         EkUDCW2k1NgvdpUCJKvBOFFXAPl1o6sPTNFUS30PsQDUjNzTLyQ+OCnNq8OP3NYJUGgQ
+         CKnLGP3th3Pv9dHE4WdOfidvmx9fL7pv533SItbgJ3pZ3J4zeVW0dfxafcwnRDilTKAk
+         y/08IWcNc1vQhl/ttvgATuNBizoU5YXDl0WKyFYi8vwnh2IV2s+/RQr1+FEOEaZyUxfa
+         M5HMbqQ/s2kg27WxnSBjhoA1YVZxpEbEzBBiu5Uh1JFA7gu0bbIAgYzAncPc+Gtu+rkM
+         d4pg==
+X-Forwarded-Encrypted: i=1; AJvYcCXM3ZogKItJS5t020kWS8Sd0fpiOg8mVPip65IigXWnSF9F83flJfMHg8R6LupANRF0OxwZ7euq9wmHOqUjqWz5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoN2k3HnydmBRNk3Pd/6U1CJ6dgxOFfqvGZufdAPaviXaHr/Uz
+	OhSHkRQlaDFMkBCSM6gYudkR5u8guycVD6cVkn9nTt8AR4WYSuA0jTlojgJ1JGK1/srGyDl33km
+	Wyr4eRh6gbSM+GAj8S47SnBp7iJpdlAwRslA/ClVj
+X-Gm-Gg: ATEYQzwH6uKtSjwLCCL22c2vMJebr3bMcVyo7GIJ/RXUwjczXe1Tp5TkyX+m1sYlqGR
+	gcUk5H30y1jytzDMDOic+9UOPDgbS3aAK9cYN7Y4MVchcJnKv0CcUx/A8YMv/rFLSJhC/Rx3E6D
+	89G+SbGR3B4qT0hE7PCWUj+EXlO83A6mXJ+BSQO3HDB2tevHvDPDZ2lqaRqZoA/9jISxeBSdbkz
+	GJaSwbXGsHt5TiSqDlUzPP3gvNIrmrODNO5EEfMc2pFCvdrD2ho4HtgTyeen0G+4y82RR/Z4C0u
+	dhz8EsWJhDPLGUov2BpK+AJqfEGStiz56aQt+aLdkw==
+X-Received: by 2002:ac8:574b:0:b0:509:25c5:42b4 with SMTP id
+ d75a77b69052e-50b480c27a5mr24589311cf.13.1774269248302; Mon, 23 Mar 2026
+ 05:34:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage for
- panel nt37801
-To: Ayushi Makhija <quic_amakhija@quicinc.com>, andersson@kernel.org,
-        konrad.dybcio@linaro.org, robh+dt@kernel.org,
-        krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-        dmitry.baryshkov@linaro.org
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com
-References: <20260323102229.1546504-1-quic_amakhija@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260323102229.1546504-1-quic_amakhija@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDA5NiBTYWx0ZWRfXzKT9epRZ8xE+
- juWnjuG7xp6eyZv/citE4ILh/qXj5dIMmgseZKR/jR6KjauO2vaqQJLA2/NcJ0f/OYgQ2m3iBMy
- 8LKi0MsDDyc8/Fvd6D4XVh8P2gM5HnVLJB9hQI9Zzckqs93GdBv1iKaV4GnW+gSrGOvB4pbU66W
- jL1G5hDuZdKYaeRKDlrn2QIGBBI16zOFfnC05slcpQu5f/E12LR2w8VKpVTWVf3Mi65+ag5wEm0
- xOI7wJsu5nEa7cAsvDoOEX/wBLhaH6ZaGhBo9UlCvcBLO3KTtSvU7xE9xLnmN1q1H/Lx07gCbPk
- Voy9NuwfbINreheBOrciy6u0lkXTeXXAK+L7ILkeBvEMEh3Yb6lW6uu509l6ABBukHnevJsh83k
- y4GCSrF+CRh/MH2YFmiNxzfjJ2clvwgW5C99kEfFwFidy5gAGYFaBWhPzkKgQnwgTxCmrpgVs0P
- abUOU+Y1mkhUTSIcAEA==
-X-Authority-Analysis: v=2.4 cv=eMoeTXp1 c=1 sm=1 tr=0 ts=69c13127 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=WnUHuuy95XYsLch6RvQA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 1aVf7uRAu8C_lBwGsMZaykM6iNPdye2x
-X-Proofpoint-ORIG-GUID: 1aVf7uRAu8C_lBwGsMZaykM6iNPdye2x
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-23_03,2026-03-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
- bulkscore=0 phishscore=0 spamscore=0 clxscore=1015 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603230096
+References: <20260321212419.2803972-1-maz@kernel.org> <177426391593.2932170.8726976984414575226.b4-ty@kernel.org>
+In-Reply-To: <177426391593.2932170.8726976984414575226.b4-ty@kernel.org>
+From: Mostafa Saleh <smostafa@google.com>
+Date: Mon, 23 Mar 2026 12:33:55 +0000
+X-Gm-Features: AQROBzA3qYHe3s8BaZ2dHYM9ZdaRsKXyWNR-mfM5AIq5nZXyLzrP-udG8vd73pg
+Message-ID: <CAFgf54rsCocMTaP=OPfFq7BCwoxQKcEkcyad16BtnZ11XxyKxg@mail.gmail.com>
+Subject: Re: [PATCH 0/5] KVM: arm64: pkvm; Rework aspects of the PSCI relay
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_052512_700753_D1B17346 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260323_053410_997029_72189F77 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,14 +119,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/26 11:22 AM, Ayushi Makhija wrote:
-> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
-> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
-> 
-> Signed-off-by: Ayushi Makhija <quic_amakhija@quicinc.com>
-> ---
+On Mon, Mar 23, 2026 at 11:05=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
+e:
+>
+> On Sat, 21 Mar 2026 21:24:14 +0000, Marc Zyngier wrote:
+> > Having recently spent some quality time debugging [1], I ended up
+> > reading too much of the PSCI relay code and felt that it could do with
+> > a bit of spring cleaning.
+> >
+> > To be clear, this series doesn't really fix anything. It simply adjust
+> > things to my own taste, which may or may not be everyone's.
+> >
+> > [...]
+>
+> Applied to next, thanks!
+>
+> [1/5] KVM: arm64: pkvm: Move error handling to the end of kvm_hyp_cpu_ent=
+ry
+>       commit: 4ebfa3230b40728638a6acceb709f900f920f921
+> [2/5] KVM: arm64: pkvm: Simplify BTI handling on CPU boot
+>       commit: 1536a0b1386850b67a9ea840e57b7b475e895fed
+> [3/5] KVM: arm64: pkvm: Turn __kvm_hyp_init_cpu into an inner label
+>       commit: ba64e273eac3d7ec4a2b621b3620c4d3b0399858
+> [4/5] KVM: arm64: pkvm: Use direct function pointers for cpu_{on,resume}
+>       commit: 59c6e12d40a5b05038b68bcdb4690456fee68e8a
+> [5/5] KVM: arm64: Remove extra ISBs when using msr_hcr_el2
+>       commit: 54a3cc145456272b10c1452fe89e1dcf933d5c39
+>
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Maybe a bit late, but I tested with pKVM(nvhe and hvhe) that it
+boots/powers off + hotplug through sysfs
 
-Konrad
+Tested-by: Mostafa Saleh <smostafa@google.com>
+
+Thanks,
+Mostafa
+
+> Cheers,
+>
+>         M.
+> --
+> Without deviation from the norm, progress is not possible.
+>
+>
 
