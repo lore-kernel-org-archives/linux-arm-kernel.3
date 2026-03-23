@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F51AF46101
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61630F46101
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4euLU3dzlJaKSg+W6fHDQOReg72+Z4efBvrwOXxb+0=; b=4qhzQzq3EzxYGc1fIiYh5P00N8
-	xIxoZ3K4wavw59zf+6D7u8Mxj7H867Ehkz+dfuuHfjprVXLV8f1JjBDzFe5ccWcweb2XhKqOp5qhf
-	jQGIxWBwki4mQV58fe9scNf17a8xKPb8WZbJ+YBKYgYjBFFcRQp8gFcUET1ORQWkaRk/A2xWiohpU
-	EFj4iwTubi3hhTrBIXsCKsy8xceVdhAvoDvVYRf1rVInp3y1Ob2mVojynDgtnAFOEOdUfO5/7Z1U2
-	hvJRSvrqSbHsa6DTJHonUQIMHDaDZFV1d42iXe4xPzBLOletcspqndjFpG7Ko0rhBaTPFfb592hOq
-	fKnpSJxA==;
+	bh=hyWUJz7ZT4dzndB427q38nfqxK1VH+VJCRGRbsWeTMw=; b=AtEO6reJNR7CvRxel6zWd3W5OQ
+	5kRVBaVHbrALA3YzEGvOdqFJTe+Q2hrMiAxO/YJBHBgsqMOw63blLuQ1qhB5gpbTXuP8ib9fJix1a
+	6NIYGWbFWK2iA/82o1mGX84IcUNeo6vLvh/0GevQDGVSGcMvkWCiWTpq9S5sSU72M/RqjSFESnbp3
+	Ac/DGK/I8+SLZ+ujO2jj24tZqB7ea6vlpwDkDs//oTZ+6bW50a/K6t+Bx4Yy50j9yfJHLlNRz2WMe
+	6bpUY9/S5PaGrmJjR9ZLBN8/mIepkVDtAeW+w9jKNWbhbwQ1vvSYV415zpF/Gx2jAg21NTWtmRThd
+	qhwSFt1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fG7-0000000GoRS-2DCb;
-	Mon, 23 Mar 2026 13:23:55 +0000
+	id 1w4fGU-0000000GoWL-03RD;
+	Mon, 23 Mar 2026 13:24:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fG5-0000000GoQz-2sic
+	id 1w4fGR-0000000GoVl-3V5f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:23:54 +0000
+	Mon, 23 Mar 2026 13:24:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 242EC4401C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:23:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 048B8C2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:23:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72FB240B1E;
+	Mon, 23 Mar 2026 13:24:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36925C4CEF7;
+	Mon, 23 Mar 2026 13:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774272233;
-	bh=p4euLU3dzlJaKSg+W6fHDQOReg72+Z4efBvrwOXxb+0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=e5HtEG+7Z0hUDOWD3lrZNo7a5ayfeIp4SuizcRE4uO+9EmsW6BKXHcDeifvaxe2rG
-	 /ceh2tyMi5IQbD7GLa5h7LrgBy3Y8VacInQubtMZaeCLkxtliLIBn4nQGNwUOe/wBW
-	 QbjfMaLR5sJXIU8YSZUO3SCti6TsRFNn4FiLOVdWtKVlTErmN0xUNv/9tkq88PPhTf
-	 qssJrNQOt2HkVZyO8EvMkPR1qSjAZeNS8e6159kq2ha/5Iyvs43bh3AeN6D2/fXZU4
-	 JHf64I8vwPYntE4oEO7/Bi25jM18wKuNtomZjGX6ciHWT02qSMeWrXH8R2oY8QYTFb
-	 TJZQJ7uCmsVEQ==
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-79a60975dc5so1916787b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 06:23:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUN45ut00CK4ne7YpBj+BvFjkiyrnQnwPSJxHjBhqC0K/MmweADN8Yx6w+YalJnaNFwqm1V/FWMHfnnLaMpPU4j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0V2vpExblIM7Tg4oU/CVkIX+ftt3F3CceDoo7HH54yKD/8+eH
-	qv/tKN1rTbLJpWOLcnPVUxoRzNzpuCAJCh8NcS7sS9qQvc98BkdAYE62N50iZhVPOhEC7ps/W4s
-	qOCPUlBSwb61uZdE4z8xjoqKwXoVVrlk=
-X-Received: by 2002:a05:690c:2605:b0:798:1219:c78d with SMTP id
- 00721157ae682-79a90c0a53emr125159107b3.50.1774272232374; Mon, 23 Mar 2026
- 06:23:52 -0700 (PDT)
+	s=k20201202; t=1774272255;
+	bh=mqs5zAZq0cjIjQqg6msmfW+S/T7XdFMiumdtkA29a98=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=g0PcgubM7/2phLSEIfZRJcQYY5dMdgoRXiFXuASh4e5zc4071rU9I/1RAMcvy9KME
+	 KRFPwmvkem7JJe8Q6mxesGSAEB1G7wBLq4IEfc3IUTtUFJOjmKUSWvflhAvMHJz7+f
+	 wAgUxsJBrFSHRxstToFKClm43R0I6xdM/0ILGkOA5voZjaVAadO8egJQQoeQZCUd+5
+	 bI5RZQ++eN0qMNdOHVICj69lNL6LsHMC6hYn/x8/KypmKEnUpb3hLfCX8U5bqoSKmC
+	 2nwSGw/CNKBe+vVdzPoYfT4bFkZJHZmQM2z8bVqbqcXx7sLHPh40tK1LmR4IVgne2Z
+	 9LCp15QDNQDdw==
+Date: Mon, 23 Mar 2026 08:24:14 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20260320-rc2-boot-hang-v6-0-74dca70dd60e@mmpsystems.pl>
-In-Reply-To: <20260320-rc2-boot-hang-v6-0-74dca70dd60e@mmpsystems.pl>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 23 Mar 2026 14:23:41 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=ztBrtMxaN3JohArsPm5sYaJ8=54v8VrCHyFRPOBsROQ@mail.gmail.com>
-X-Gm-Features: AQROBzCnimvZvEKxbgJqnARSDh8ZkIJDbBTIcd5gmgSkLxqAgXbW8hAX9GtTaeY
-Message-ID: <CAD++jL=ztBrtMxaN3JohArsPm5sYaJ8=54v8VrCHyFRPOBsROQ@mail.gmail.com>
-Subject: Re: [PATCH v6 0/2] fix gpiochip_lock_as_irq() failure when pinmux is unknown
-To: michal.piekos@mmpsystems.pl
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
+ Michal Simek <michal.simek@amd.com>, Nuno Sa <nuno.sa@analog.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ saikrishna12468@gmail.com, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ git@amd.com, David Lechner <dlechner@baylibre.com>, 
+ Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
+ devicetree@vger.kernel.org
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <20260323074505.3853353-5-sai.krishna.potthuri@amd.com>
+References: <20260323074505.3853353-1-sai.krishna.potthuri@amd.com>
+ <20260323074505.3853353-5-sai.krishna.potthuri@amd.com>
+Message-Id: <177427225202.450573.11125989986102537734.robh@kernel.org>
+Subject: Re: [PATCH v2 4/4] dt-bindings: iio: adc: xlnx,axi-xadc: convert
+ to DT schema
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_062353_760789_4FE8E4A8 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_062415_909422_91FCD6E6 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,10 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
 
-this v6 patchset applied for fixes!
+On Mon, 23 Mar 2026 13:15:05 +0530, Sai Krishna Potthuri wrote:
+> Convert the xilinx-xadc.txt to DT schema and remove the old text binding.
+> Update xilinx-xadc binding path to YAML format in MAINTAINERS file.
+> 
+> The 'xlnx,channels' property is a container node(type: object) with
+> a vendor prefix, which triggers the below warning:
+>   "properties:xlnx,channels:type: 'boolean' was expected"
+> 
+> This cannot be changed because the original text binding specified
+> 'xlnx,channels' since 2014, driver explicitly looks up "xlnx,channels"
+> using device_get_named_child_node() and removing the vendor prefix
+> would break backward compatibility with existing device trees.
+> Also, keep all vendor-prefixed properties from the original binding to
+> maintain backward compatibility with existing devicetrees and driver code.
+> 
+> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+> ---
+>  .../bindings/iio/adc/xilinx-xadc.txt          | 141 ----------------
+>  .../bindings/iio/adc/xlnx,axi-xadc.yaml       | 154 ++++++++++++++++++
+>  2 files changed, 154 insertions(+), 141 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/iio/adc/xilinx-xadc.txt
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/xlnx,axi-xadc.yaml
+> 
 
-Yours,
-Linus Walleij
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/xlnx,axi-xadc.yaml: properties:xlnx,channels:type: 'boolean' was expected
+	hint: A vendor boolean property can use "type: boolean"
+	from schema $id: http://devicetree.org/meta-schemas/vendor-props.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260323074505.3853353-5-sai.krishna.potthuri@amd.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
