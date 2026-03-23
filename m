@@ -4,106 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FEFF46137
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6509CF46139
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fvBbBNsJFcFh6LZdhMnznYYLRi36NWaZNx0WnHPdGPc=; b=LSnU4AKG/BijikIvNv29unK/5k
-	/yf2RLxwG8i3x8NmbOqnLj/e62s7uncevq9w0+M5rm+uoWNpq0gJsnnQXm7lYmHEOZxoJtu3zUJ6N
-	ZxL0ORCad+HCTjlsYbCqp5Sn1JWN93JG6WZTctAGGd8MFyE/Xu6/2ktAedFsWPZFq3yZysg6LjPnR
-	WLIl/yGbl99Gar3ucB4ALgw8H/+yH4d4JUwhYH5kc48yEYb9+GF+TiwVvk9KVeRfhxcrALCtN7/H5
-	2O3IlcUAJ9mExLcZIT78Le4wYg8RcnfonujMij2LXVP2WCuyPO0bZ2vfJQGUJJOhsMfmxORImfc6i
-	YxISkl6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZzLEa3KL5XVk7DKMlxQHZBfsBy0BGZb9ScjlDMpdRtc=; b=xK69PBpERrEygZwBprN5cXbHQU
+	aitqb2LQQUvYCI6W+05tDfproYzF/xp4K69dxuQsvIQaZW9NafAEJhwNFNXil/23E3KRKcFOEK7dp
+	VXdAFnk+ionkph+XkeswXEu6HXyXSnPmXl+R/VWrxb6WIj5OYdThJgAXdi8vKF1s1ymPQ8ui5y2hZ
+	w45UbHCqUT7Jm+jjXDciHSRURFV0zdpJ1MW9Y1PVa99eXe5v98+DbQ1S9Ealp0K7gwzpmDPfYrj39
+	87w+8wC8TY6lWVidPDezNTpLA7Gp5ZQAW3PfLJQN3NsWpDpGijpXydh5r9Gpsp8hzNdTEmHXu9KeU
+	67uhpzjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gib-0000000GxlY-3YFk;
-	Mon, 23 Mar 2026 14:57:25 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1w4gk2-0000000Gxsx-1FK4;
+	Mon, 23 Mar 2026 14:58:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4giZ-0000000Gxkj-0Zlu
+	id 1w4gk1-0000000Gxsq-112B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 14:57:24 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b97ed4ad579so459114966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 07:57:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774277841; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CrMAM4zS7vsFidrT1ULGhWjGDs1OAyo3qvJ2spZriGsmhDLFJAIL7D+Re99+SWLlm/
-         cL952BYvgl0JB8qBnC9TcZQuoVT7l/4bG8OWvWoAM6g2JKiSl9DU7B70WDFkaeM9ikEk
-         UZbv3bxVA1GHP06XLLWsDpfYTHB3uckeOz8AQG0nF11NaNDrgaZIY4EcrG2NuYCHS65+
-         p6mXoYIG8KfWn8Ev+19EbFcHSkNn8sGLSip9uoHFGvWllUDEGMoCeU1d3WLc5MeRAKkq
-         L01j8/r63uDcq3aoPSFoaoCxrti79QwsoMvG2wNOMhmRCAJiK6FcwkraEuAJiASKM/cG
-         Kdyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=fvBbBNsJFcFh6LZdhMnznYYLRi36NWaZNx0WnHPdGPc=;
-        fh=O7FAe+BK2fGiYnE7jQ1qBWxE0/QBDob7DbmT0aaGNDk=;
-        b=IjgmOsdESlye3J6gsMgzkohza56DAOEDmr3Xw2rUuEx836aXhobKBtvkoWsPO1Zk7+
-         TX1pDaFQikr+AktpcCnuX6f8VD8CY8sdvvUWEpzcmM6pIErwwBe9/HLDihCGFoXf4U0v
-         mdN1rlB+lzPUaAh4+Rvygo/YHGAKuh0TeDxUI+TXnUtNyvWf2Xt7le74sgxakkHUp2fc
-         ZcfN9eWG8PIUZZyxtxlU0rkFVbtRKCZ31bwZQ2tCoPQtQIgs3GV77fvUblAoaebEbM7v
-         +Xok0LhAuJFcsOba0Kz+cW/V+ZZMpHUZ9FWUbII1EjbeRc90bWKCBWRID70SaFvF54Zx
-         MHSw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774277841; x=1774882641; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fvBbBNsJFcFh6LZdhMnznYYLRi36NWaZNx0WnHPdGPc=;
-        b=Gr2uF0W+vW1JYjjmfaYzy/K1pvA2ydJqFqangt6oKA7T104KMp0xAApJ8goJQfshRP
-         9S6gXpu5pNTZctD0FR3vo7TVKO9lcw8jNJJVnBMlJAlWqF7WoBxXkzko/nM165ZAO8Jf
-         FK+LECxf3i51S3izXsdTjVBe3Avle1ziJpbzAzDDIJADp/euT9VPiq96ER0YOX3HTG9A
-         CNlfEbvOUUb78n8Vl/rpBD7PwKoZKpOZeouYQY10uWPn19xl5IqaSAJTwC7O1mBoEgEN
-         JqA1upd6dBWFOAN6QahcH2Y4e9UM48xH8pMuJd8l/1YrnihyOGpsjF845hM5dNs/jqET
-         2SIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774277841; x=1774882641;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=fvBbBNsJFcFh6LZdhMnznYYLRi36NWaZNx0WnHPdGPc=;
-        b=sWlRpFohNaJsQAuWJt/GAxylyWtMRqZRAWxb5QEYWGp5JaralFAxefZEZw4kcEk+Xt
-         dUEQKKjipKtZO0WVUQKsXveoywLSymBWjeST7BqrPHJsFW5bDSeL4g0Cwg+cgGZ3kP5j
-         GNSSwoX5JcZ0xldAtWEgaGrskZhbzToHfEzBtb68xOKA6B1Du5CP+yI8Dx/nkpUZ0xd9
-         F3pzY8WANSDTn5zKjnwY1YJuf91JnO/vvOQhW0bTiW+q88F9Bx+1E93KTcqEGKqW9GQT
-         g2YKiudC4moTh9biN7VcS4PcKcFqK0rLvVSOE04ol25HHWst3r2slJKo4LKyiFZvgKyX
-         Yz2A==
-X-Forwarded-Encrypted: i=1; AJvYcCXcq1O/0AezmsYzumdPYEHq9Hz6Pp34Iq9wEjdOzrcTBELct7jVKtpXH4GwyO7rDuswGvXpnvPhdkou1qQT660x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyb4rqh44nnFYYqIusLg08C7QXykCpR1AV0IzJDtn0h72pJ4z+s
-	awHsyaVIWa4qa+BVvHcddrAiDSzV2XBp2L9gPu/LZJeUCNpNG2Rwvfl/Z3YmzsobD1P7jloAV82
-	J0I0AtY9vaEyZFYhaCrqkVFz1v79lPug=
-X-Gm-Gg: ATEYQzywgFa504PyDNNoLVw4J93rhPwM1bnZQpGBWDvWDcpQRw0rhADVUjPlTPHyo0P
-	TNaZgkgJawAN/SMCG300570cuAqQGNTv0RTiD1rJCtzJe9OtHsruYgYT/dckImghlx3QnmnrVjR
-	Mz9+GO2AWmeU+GpdEoVQkbMbRaI2F+S0ARPpaG2Hm7Yu906GSQ6AmEiZL+PYjNh/KHHL0lJBuZS
-	p4sI28N1x+Hy3bMj0s2n3ePQVYbU4l0qEfo3DTMxxVDloduzbxaOD/G6SMOd//ssQu9tPvrBDMI
-	fvv+WpJP4Fw1kXPL+dA=
-X-Received: by 2002:a17:907:394:b0:b97:7157:e1d8 with SMTP id
- a640c23a62f3a-b982f362ce4mr665161666b.31.1774277840831; Mon, 23 Mar 2026
- 07:57:20 -0700 (PDT)
+	Mon, 23 Mar 2026 14:58:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40836600CB;
+	Mon, 23 Mar 2026 14:58:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70A55C2BC9E;
+	Mon, 23 Mar 2026 14:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774277901;
+	bh=f8dCaoHE8v13TX7zhudBhLxwnKyjtp2XPdiKUD8OWGE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IHzOAlF5Ymj0Vgg4Oh1oKLaVDPOpYje9/8/qWu57Nft5V+j/b0M8g+Cu2UNVc6R2g
+	 9z51ACWPv4nBFHk3tat/R5aiNl9d6UIGIGIW/DRNqcAJfViMhrS4WoeXWXkeCrJFS3
+	 OVU5yeag7Iq9MfbIWCHBciePzpm3nX0Ep7Zbu7flioBdRslEKuD+Zg2iSXUjp65M66
+	 +u4EeDR8uDD3tEYcKpc+pwswo37xLvEvjYMC+uBe1EPQAXy9u54A2GzLtkBsPJCGOA
+	 HKZqV3VnVcs32rR4WDHocLGDgK4gLNw+YGhBTZjtuF33JfgvEWfVmp8ja2HrD1dXBJ
+	 Y4Nkya3ai0L8Q==
+Date: Mon, 23 Mar 2026 14:58:16 +0000
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v3 25/36] KVM: arm64: Reclaim faulting page from pKVM in
+ spurious fault handler
+Message-ID: <acFVCKZVw77OSiS0@willie-the-truck>
+References: <20260305144351.17071-1-will@kernel.org>
+ <20260305144351.17071-26-will@kernel.org>
+ <864ima5v6c.wl-maz@kernel.org>
+ <87fr5tcyim.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20260322171752.608486-1-jassisinghbrar@gmail.com> <20260323051359.3167665-1-joonwonkang@google.com>
-In-Reply-To: <20260323051359.3167665-1-joonwonkang@google.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 23 Mar 2026 09:57:07 -0500
-X-Gm-Features: AQROBzBe_IwTDmRX3xv3pKLn1drI9MBmr7nvWb2-uieo7Ubr1p6hTCoz3FnKSmk
-Message-ID: <CABb+yY2aAiAFU5iCBmBdpkTM6_4VMh7BFPbwKxwt-gdN-qqLWw@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
-To: Joonwon Kang <joonwonkang@google.com>
-Cc: andersson@kernel.org, dianders@chromium.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, shawn.guo@linaro.org, stable@vger.kernel.org, tglx@kernel.org, 
-	akpm@linux-foundation.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_075723_206902_AD3F50A8 
-X-CRM114-Status: GOOD (  26.85  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87fr5tcyim.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,77 +79,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 12:14=E2=80=AFAM Joonwon Kang <joonwonkang@google.c=
-om> wrote:
+On Sat, Mar 21, 2026 at 09:39:13AM +0000, Marc Zyngier wrote:
+> On Fri, 20 Mar 2026 16:20:59 +0000,
+> Marc Zyngier <maz@kernel.org> wrote:
+> > 
+> > On Thu, 05 Mar 2026 14:43:38 +0000,
+> > Will Deacon <will@kernel.org> wrote:
+> > > 
+> > > Host kernel accesses to pages that are inaccessible at stage-2 result in
+> > > the injection of a translation fault, which is fatal unless an exception
+> > > table fixup is registered for the faulting PC (e.g. for user access
+> > > routines). This is undesirable, since a get_user_pages() call could be
+> > > used to obtain a reference to a donated page and then a subsequent
+> > > access via a kernel mapping would lead to a panic().
+> > > 
+> > > Rework the spurious fault handler so that stage-2 faults injected back
+> > > into the host result in the target page being forcefully reclaimed when
+> > > no exception table fixup handler is registered.
+> > 
+> > Is there any reason why you prefer the 'inject fault' followed by
+> > 'gimme that page' dance over a more direct 'unconditionally reclaim
+> > the page on the back of the fault'?
+> > 
+> > I can't figure out what would go wrong in the latter approach, as you
+> > always have an opportunity to inject a (fatal) fault if you can't
+> > safely reclaim the page.
+> 
+> To be clear, the reason I'm asking this is that with RME (whether
+> that's with the dreaded CCA or something else), injecting a fault into
+> the host would involve EL3, and I don't trust EL3 to do that. There is
+> also the small detail that the fault syndrome is not strictly
+> architectural, meaning that EL3 would have to learn a pKVM-specific
+> behaviour.
 >
-> > The active_req field serves double duty as both the "is a TX in
-> > flight" flag (NULL means idle) and the storage for the in-flight
-> > message pointer. When a client sends NULL via mbox_send_message(),
-> > active_req is set to NULL, which the framework misinterprets as
-> > "no active request". This breaks the TX state machine by:
-> >
-> >  - tx_tick() short-circuits on (!mssg), skipping the tx_done
-> >    callback and the tx_complete completion
-> >  - txdone_hrtimer() skips the channel entirely since active_req
-> >    is NULL, so poll-based TX-done detection never fires.
-> >
-> > Fix this by introducing a MBOX_NO_MSG sentinel value that means
-> > "no active request," freeing NULL to be valid message data. The
-> > sentinel is defined in the subsystem-internal mailbox.h so that
-> > controller drivers within drivers/mailbox/ can reference it, but
-> > it is not exposed to clients outside the subsystem.
->
-> It sounds that it allows future controller drivers also to refer to the
-> new sentinel pointer value.
->
-Sentinel value is not the problem, active_req should have been hidden
-from controllers. Which is actually respected by all controllers
-except the tegra-hsp.c
+> But EL3 should be able to report a GPC fault to RL-EL2, which then
+> could act the exact same way as pKVM, unmapping, clearing and
+> releasing the page.
 
-> >
-> > Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
-> > Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
-> > audited for regression:
-> >
-> >  - Most already work around the bug via knows_txdone=3Dtrue with a
-> >    manual mbox_client_txdone() call, making the framework's
-> >    tracking irrelevant. These are unaffected.
-> >
-> >  - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
-> >    the poll timer now correctly detects NULL-active channels
-> >    instead of silently skipping them.
-> >
-> >  - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
-> >    caller that omitted the knows_txdone + mbox_client_txdone()
-> >    pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
-> >    missing mailbox TX done acknowledgment").
-> >
-> >  - No caller sets both a tx_done callback and sends NULL, nor
-> >    combines tx_block=3Dtrue with NULL sends, so the newly reachable
-> >    callback/completion paths are never exercised.
-> >
-> > Also update tegra-hsp's flush callback, which directly inspects
-> > active_req to wait for the channel to drain: the old "!=3D NULL"
-> > check becomes "!=3D MBOX_NO_MSG", otherwise flush spins until
-> > timeout since the sentinel is non-NULL.
-> >
-> > The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
-> > by clients.
->
-> The other, but I guess more important, tradeoff is that future controller
-> driver developers should now know that the pointer value of `->active->re=
-q`
-> could be -1(=3D=3D MBOX_NO_MSG) other than conventional pointer value(mem=
-ory
-> address, NULL, or error-encoded pointer value).
->
-That should not be a concern. Controller drivers shouldn't peek into
-mailbox internals and if they do they will know the sentinel value
-being used.
-For example, of the ~40 drivers, only tegra-hsp.c chose to (not had
-to) use active_req and it relied on the sentinel value, which will now
-be MBOX_NO_MSG.
+I wonder if we should try to get this changed/extended, given that it's
+all software? Perhaps RL-EL2 could populate parts of the fault syndrome
+that get injected back into the host?
 
-Thanks
-Jassi
+Ideally, we'd run something at RL-EL2 that is tightly-coupled with KVM
+and so we wouldn't need to teach EL3 anything as long as it lets the
+two talk to each other...
+
+> Thoughts?
+
+I think we need to retain the exception injection behaviour, for two
+reasons:
+
+1. The kernel can over-read strings via load_unaligned_zeropad(). If
+   this happens to walk into a protected page, we have to inject a fault
+   so that the exception handler can fix things up. Otherwise, we'd
+   silently poison protected pages due to software-speculative accesses.
+
+2. If the fault comes directly from userspace (e.g. because of an
+   out-of-bounds access or a virtio problem), the fault handler in the
+   kernel will inject a signal back to userspace which can be caught and
+   handled synchronously. I suppose we could require the VMM to make the
+   guest memory PROT_NONE if it wanted to preserve this behaviour
+   (assuming it doesn't break GUP). Still, it feels desirable to report
+   the problem synchronously when we can.
+
+Will
 
