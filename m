@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E216EF46100
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 12:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34601F46101
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gt82d3IVq1vxclytaQLxZv+KSDc3G6ILVdEZ2/6IgDU=; b=1XKk/YOS+R8jectTepRNEd6phC
-	nwBfwzAr4UKCwtQos59JydRf54AcLsTvmhjJEIUTh+xCq4D5moCyfTRyNbYr4MEZuN3CS3SIwe4GI
-	fzFM5P+3p3bbyBPknI8krY44UwoP7i56fNefwWM6tdE+ICasPsyKzbAoVWjs9Zb5kriSKBaF5Nsz8
-	P4dLJgARQfQqh4gBp9177u9+XgT3wsJJG42l80InkCymysi/i4tV5G1meYeyEyb7QKIhVEwi0+ML8
-	cQYJ+FNvNFAL3RL+lGnLe1lutcKe9OVwY/G/WeenOoTPVo0KDYkDKxmBuX/TE0Xb+K3yFwxfxymrZ
-	MSXq82WA==;
+	bh=E+lQ3UMGEmSVPIolXgNgOu9XRCtVf1fK9RjoJaMgZkY=; b=4zBvEGNqhr0dIl+wnCcrrOwm+q
+	Fg07suxH78V7Fs4DdlZe6ntiybd1n16T15bvNGWirbRbekkhn+8D1I+wgzNm4AdP2I1IR67QHWsg/
+	Jd8KO5sD5rj9OqLdz/DjC5y5zccFRDFDhxR9jk4WbEqStkM4QlfgXvqnqBbrikfc9lQvpiC4pYoVb
+	TVKYyd75dPB1lxk7Z43wMOmGsbU+PjTNzQDshBHgQT1dwX7QOPb25uyKS11vHw4DR1kVRtuQtiVvw
+	z0TQv+e3Gh9hX3DlESxw2xjt9QX8REs0NDs93js/BMzxRvxMLDkYYUcMEfddogA6eTuL9q0h1qp09
+	/oCSezxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4eqd-0000000Gjbl-3J6c;
-	Mon, 23 Mar 2026 12:57:35 +0000
-Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
+	id 1w4et9-0000000Gjnq-2qxw;
+	Mon, 23 Mar 2026 13:00:11 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4eqb-0000000Gjb6-1ZgP
+	id 1w4et7-0000000GjnS-1Jsh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 12:57:34 +0000
-Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-56ce1384618so65071e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 05:57:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774270652; x=1774875452; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gt82d3IVq1vxclytaQLxZv+KSDc3G6ILVdEZ2/6IgDU=;
-        b=ioFLf7R4Joi5mI6PuSc9jt7UuBMxI9i0qzJEauhpzRaS8f9yeU0NJdzgp6W2BVQVc1
-         /E6+OoW8o2PKCWgNDPCa+Ix8W7/ybL4AU9YOMZ+8HBxvszS1xV4IdR8yTaIUJ1M9ACLK
-         bGP65cgHFoKpF3YtdzBFc1mvdFm/riXCECFZvDjd2LIuxK6N8lKJn1/bGOQt+0wAuls8
-         MFsWyDsBburVZzMtbaHJKnXBYk2mlamtRqIuhHfXlpb8gwQ5jDAfHZhHwbc8dGeJMS+A
-         9LF8DvdENXfp8x7j4U3e9dwi2/H/ltQuYETycLgRUeYX+EQhhs+FDcULqmw5785iQjQZ
-         aXBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774270652; x=1774875452;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Gt82d3IVq1vxclytaQLxZv+KSDc3G6ILVdEZ2/6IgDU=;
-        b=N/OusZI2rvaUsSHrk+hIY9IuJ14/s6UgRg2aQF1UDJHl9Bwui8+b+EOPN9/TPFf7cR
-         vwkX5/cKOpE1QRtixqGW1wvAWxW4R9Xi9CxIg1CbYaVdM2zndMjX3MSiCBPWNOAlhIg/
-         n2OuIh2WfsrNc5X+uRnxhouVMluASgT43FTibK1YxxSROVG6bEdgJuRHCpQjKkFy0ZED
-         79Tfdh6B6Bth9CyjPhLHW+8fT9EF5UYqiMwof6M4NjjPO0KlwPuzr1yWiZezqBApHWIo
-         mBktlK1lRiMOGwpFZh60RggeziIKX8OVUzdvGpnXcWLEFuqBC8vdsPmChrcZ9/K5TA2x
-         l2FA==
-X-Forwarded-Encrypted: i=1; AJvYcCVnz15+NQzRuHm25iwwoYFDKHbXQs9Mc1yp1B55StERyjoFr+lZ2Mtg2DH6+Px3vokz/R1638uDnIZ0POVN7xM5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWlzGwXXZVv7wfa49n3PcKri25gcgyB6uu0BCn3U5KH/gTeASQ
-	cBfc4ppDvOJXBZ0U2JNsedJwSPoPjzRcxeaMeJGmkBHprM1txps+O+Bh
-X-Gm-Gg: ATEYQzyZaXHcaITc5R1F6kOpRQG49Vk2naRpQ8JMqNCtbjBuB/aBRQLr9r/hsiRO9r5
-	SsJFX9BTfo0dWSThsBjdpP6ibRW9OwCS1jNwz8hmsLMMOossTu3KtHPXijtukPTzjQGrZHYKY4C
-	eQL3Sz0XJz/NSjZgvnhB65OxZTMIa5rhtzhOz9bH2aLc6EYGrLeK6i+he8YCHeBFagP2V9b7PWu
-	b4XbMkGRMlB/o6dX2q+OA3NimFGhHfAHZDvLs90I9F1Sxz4e3JVW5zXcWmLHhy0MaLj+sS+5dVi
-	gouTm8Dk0dh0+pDZiDDldYT+OFH+LclFq96aRx55YVvqGAC1AjHMaH3FCQ+JZ7f/rBy7rqyQk1K
-	Jni6A26J1536ZErTgECwAO/WP2vqM7dyVtnK2qJxUQrX1BupzWFblcWQ2rmM3VdrIt5WZViPZ7D
-	s4OxSEVhiR6iZjy48rP0F336+SEITCDEqDXjjS2NxUtUp5/ZWLG9t9R/lkxg+8GJcOhWyL7g==
-X-Received: by 2002:a05:6102:4a86:b0:5ef:ac78:3c77 with SMTP id ada2fe7eead31-602aecd2a05mr5411035137.18.1774270651739;
-        Mon, 23 Mar 2026 05:57:31 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:1b3:a803:91c4:d341:319d:24e6:7622])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-602af8539b1sm7498325137.1.2026.03.23.05.57.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 05:57:31 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 23 Mar 2026 13:00:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=E+lQ3UMGEmSVPIolXgNgOu9XRCtVf1fK9RjoJaMgZkY=; b=QX7VVrBYq2qK6WXc7sUB/4ygB/
+	AlQ6sc9ElDGRL0KnG3q8A41jH/skcTi1rgKlttf0Ji9nlSsKd5dCzkhtrVmGhPew+wRd/5F9DR6aF
+	g1j9lMEVGqCGrAi/VTNYF8pN9UYVlYEK9sUQE2/NR4g5kc0xJmOQjctQYQ2bJ+5135CC23rC0dbPc
+	F4ZSIdERPsLlkDClYgRDMi4Q21RSEl2x08TZHApUhJ9G6KK/2lEGingYro/X9ZqRaFHXhiJytofXf
+	EBPELlwSxSCAoPytD0teQJ2DCizDVJRoI6dYpz0wHeZxWZIBWrxjeoKbHiRqoBJMy6y2cg8uORDUz
+	rYNPrV3Q==;
+Received: from sslproxy02.your-server.de ([78.47.166.47])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1w4et4-000Jj9-2e;
+	Mon, 23 Mar 2026 14:00:06 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy02.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1w4et4-000KoI-0F;
+	Mon, 23 Mar 2026 14:00:06 +0100
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH] ARM: dts: rockchip: Pass linux,code to the power key on rk3288-veyron-pinky
-Date: Mon, 23 Mar 2026 09:57:21 -0300
-Message-ID: <20260323125721.692139-1-festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/1] arm64: dts: imx8mp-tqma8mpql-mba8mp-ras314: add vcc supply for BT device
+Date: Mon, 23 Mar 2026 13:59:50 +0100
+Message-ID: <20260323125951.611042-1-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27949/Mon Mar 23 07:24:47 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_055733_458785_0975D5E1 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20260323_060009_521392_CA94BF79 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +89,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to gpio-keys.yaml, linux,code is a required property.
+Add the vcc power supply for the BT device. Fixes the warning:
+btnxpuart serial0-0: supply vcc not found, using dummy regulator
 
-Pass it to fix the following dt-schema warning:
-
-lid-switch (gpio-keys): key-power: 'linux,code' is a required property
-
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm/boot/dts/rockchip/rk3288-veyron-pinky.dts | 1 +
+ arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-veyron-pinky.dts b/arch/arm/boot/dts/rockchip/rk3288-veyron-pinky.dts
-index cc27d116d025..e241f93b2310 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-veyron-pinky.dts
-+++ b/arch/arm/boot/dts/rockchip/rk3288-veyron-pinky.dts
-@@ -47,6 +47,7 @@ &lid_switch {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+index 94e2a7df35560..90d6b5ae215fc 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
+@@ -587,6 +587,7 @@ &uart2 {
  
- 	key-power {
- 		gpios = <&gpio0 RK_PA5 GPIO_ACTIVE_HIGH>;
-+		linux,code = <KEY_POWER>;
+ 	bluetooth {
+ 		compatible = "nxp,88w8987-bt";
++		vcc-supply = <&reg_vcc_3v3>;
  	};
  };
  
