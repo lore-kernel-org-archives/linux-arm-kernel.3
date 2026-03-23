@@ -4,143 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37065EC01B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EAFEC01B1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1Z2YMjYRumWz7KLQss276yLV/pnJhg7HvkzBrtLVJU=; b=lw669x6T5oeio7n15FFH6P8Hgn
-	yF0cY1qO0TrLn2XXvmjk4HyaVzxSAsGzYXgQLwI7fWUQfDG+bc++AHs7NS9L8rBW6XUJclnKBfAOh
-	QI93i2kML9UmBMpagrMv9iJxspD7Cp5XHf4QXiVVfU8Z6bi+vxL7gw1q1mmPT8r9hvtE2nUxfEKkP
-	tFAfFj5poOHRfndD5Fwm4CMv+0mbDnrTadG1uLcUye2hpRC5I8PURFfnpJJ9ne8Xg5ZNWt6TgJ6P6
-	De8si9DymgBtw0SU4PA34OYoVU2EECcmNbGulYWBj/9iz667YdGoBZp0WnPZwJGG65NYM1PkkP7hE
-	DNhuo+8A==;
+	bh=W6keZ0J8bp8XaUyK9YS2ONZrB864NUMZU0QHXs1cWj4=; b=MrtJKVv34s1H1r9jCEHMftipII
+	ze2aNGlwJZmLn1DVDIGd6BSAns1zUyFbg5ATxHPwou8ttM/b9Ea05Prbuqh87xgGGWaegKkYYydEk
+	pSyaPUS4/0BmaA3Ocofi65YhRNmk+/Knpj2NmoFlggTa+ZbwUHDmNquB7vEGPaeEYIDdsvIMsWx57
+	LVfGe4mLnYC+mQvUdFapE6A0Ltks5bXTguWU1gnlz6VqVdJKzWp6d1E1LjClXmsP2CMRhfIGm9fou
+	d1myEEBCSMUKqIHynX0JtzIL29CBDuaQv9pO6gxwCPj9TII48tT9zp7SUN+IYnscYyAEqnb5Okqiv
+	mbbBLdXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cEf-0000000GSyM-3VpS;
-	Mon, 23 Mar 2026 10:10:13 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1w4cGS-0000000GT8L-1g1U;
+	Mon, 23 Mar 2026 10:12:04 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cEd-0000000GSxk-0kNW
+	id 1w4cGP-0000000GT7V-0Sfw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 10:10:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EhH9Ne/3bMAIhGETB8A+XuhWctLGuwc5xpI5WXifcQuQ0KEBqb4xjohMvKZWHYXIq72pWdMB75jr2oPG6+xs2C3RdCkvuDo+S5h4t1FhuuCs100JNjRbJrIqrzIvqsYZERhkHrPlld66HaiiMB7y8I8RUOlcbAgwDrknZ1vb0VhSkYkP4PrK1GhJxWB1EKlExqIfrcjENKH5+8CAk1CbUYZ/qIktuKwxHzou5yQg4L1cFE/gYvllvGCBmyL4u+07gmyldFh3bt6zAYxnEk9FZgaxbpdXJkjyhPiYXMXHPk3EIHhZP1HF1Skk7AS7rdcAWbXPyqsx1Y6yu6VM7LhIvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k1Z2YMjYRumWz7KLQss276yLV/pnJhg7HvkzBrtLVJU=;
- b=LG8GeEe5UUSxbWu+ZtSLQt9UzTM1G+liH3snKqoD68VW+oI60GLqoUJo7Akc34s3+U+HfBAXhzIzcMm/X7sE+sUyaYqgAfRDKF09dZE4OBC/IYvUYfEn45qIL5Ty2Ded6PrAZnvx+PhXBPUAfD0NFbf6rKpcGkmm/ohrEztvbejtCsHnExDl0jZMGXO6lJHyEuTm9MV9HcEOSNTnbj+IkwZV0iY98cbk9AS4clUWG0nZ3kNwW7MdUupP6VSh+9XWkhgeyHcznbvU4so7VUmxtgKmF+K3asF+k2cDJfW8u0AFOqORvHWO54zeHONBgOZfLBphrqoQ1bC5evp1bPan6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k1Z2YMjYRumWz7KLQss276yLV/pnJhg7HvkzBrtLVJU=;
- b=O/YpKucAtMbwFV3ingqTaTV1ZO7Cf5Mmv+KWoiUz0kxMgtFW4syKkwYBDVwsOExGkfWEmn5SVqImnieT/rD1MgD2CMin0j/DOVrgVbElQtqkdp7uV1TfACJHvh6XjgWvk/MOMcP1jKTZkUUZQL5o+zfM91QodLHkLRbLFEUodJan8b8OR1LOdt5GzLiHBpEDX7+iPrM7vub+OqJgOKZyNsRQrcNnoA9fjZngWv2rJ9QToE6VmtGXRNU5tmtMdPclKOm1cbcLKQD9T0OyymHXEi/iyM0SSyr0isHQZfgdshRdxl69gFdsFONDeMjreMWbNGw2gNzZCmr3rqnk+pNeKA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com (2603:10b6:8:2b0::12)
- by LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Mon, 23 Mar
- 2026 10:10:05 +0000
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391]) by DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391%6]) with mapi id 15.20.9745.019; Mon, 23 Mar 2026
- 10:10:05 +0000
-Message-ID: <b5860d64-6eed-453e-8261-2c8b0c5571c4@nvidia.com>
-Date: Mon, 23 Mar 2026 10:10:00 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
- for SYSTEM_SUSPEND
-From: Jon Hunter <jonathanh@nvidia.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- mark.rutland@arm.com, lpieralisi@kernel.org
-Cc: bjorn.andersson@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com,
- mani@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>,
- Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla
- <sudeep.holla@arm.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
- <d7a8271e-f6a5-491c-be2a-7ebc7d37645d@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <d7a8271e-f6a5-491c-be2a-7ebc7d37645d@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CWLP123CA0232.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:400:19f::14) To DS2PR12MB9750.namprd12.prod.outlook.com
- (2603:10b6:8:2b0::12)
+	Mon, 23 Mar 2026 10:12:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=W6keZ0J8bp8XaUyK9YS2ONZrB864NUMZU0QHXs1cWj4=; b=Qf5aIl4GVdq+PVzn9w/hvh7DOX
+	FCCUAW7ftXAsDzHJNPTVjt7mwFKnUwy03aE9Xs7W/wrZ1IZ36xE2uXOt+E/SU8cGgCzyZq3ezpmn1
+	99UmOCXZ0oTFgxS/00h14C2XCgPvHsTEwAypDJy6TRq30NfdCPXSfeh66zklbOg0ehoOExCyJffSF
+	kb/bp9qhyQ8oVg1MxcQnCrDW1VI4Frxa4NcgDzKb7Nqy5zbETXlZfsdzxokLbdjblfxSdFZzUhTTc
+	ct4yKgRDo/i5WvBZUWM6SRR4gzIo5X/ZFUuB1Mt7A6nwO2kS5r52kTaxvUNF35OCuRejf3EsIoigK
+	2qoF9H4Q==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w4cGF-000MKb-02;
+	Mon, 23 Mar 2026 11:11:51 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w4cGD-0009hO-2R;
+	Mon, 23 Mar 2026 11:11:50 +0100
+Message-ID: <9e5367c6dfba0708578cda69fc48531b3749b5e8.camel@ew.tq-group.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-j722s: Add main_i2c4 device node
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Aniket Limaye <a-limaye@ti.com>, Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, u-kumar1@ti.com, Jared McArthur
+ <j-mcarthur@ti.com>
+Date: Mon, 23 Mar 2026 11:11:49 +0100
+In-Reply-To: <20260304-j722s-main-i2c4-dt-v1-1-03f79f0cdf97@ti.com>
+References: <20260304-j722s-main-i2c4-dt-v1-1-03f79f0cdf97@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PR12MB9750:EE_|LV8PR12MB9620:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55bc2f83-80f9-4a95-d906-08de88c45a9d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003|7053199007;
-X-Microsoft-Antispam-Message-Info: rhJP/jjGC3VFkr8F0n9UoHaZ4EOfbLEJUN73WTC7F/VTNW0fS/d72kPVYfPfiWiAZMZ4tWchvGnBSolxlIPE9nLwrJJntmVpk1pe/Ll+3e4EojnreuYeoikfbXa5YALZew7DynW9gAg6JOxHsjKabB4CMHryelrpIreqmsqbdsAZpPWe6m9L4esZOkTGmKZ1ymkcTdr2Qp+sk8q8k8MIzE9tspYq7DSOxl54Y8F5xk7vXCJJKJ3qy95Tqnl3OpDAbReW1YwBFgcRUzIDPsNUZlKG47ht9j8LlmggOx61wGOnwGV6mlOzJ5WCprUy+5GiqzbbNhVU4guF0tOtzLVVPICtOcXiQTJfoIZNIu6pQZIsldrqKZhAADCu+4Cjji6LfL29/mRz6KtnbCA0LIYCI7SvoSi6FQQ69+97rZNodXjy0o/0srYPHYkO6aA+roy2bH2Kf2grgbV7jehwzE1XKPQUJJ0ts8DpeHREbEnmO7f0k2ROsFfSg2qx2PEGv7lTlPuqV1A0pAHBj2EDWO65pnXLyeEI01gp0mAesOU8vHYvE5zohuJKDfLkHLiUwEvcQ9bsgyySBn5pttPTMDcgYDLsXpFX3PEPZnfINju4UYaQMJjMg6w5th1tWPN4GGrzlg0i4Igt6PdHayNIBCtL2vNSjMLUHz4cAvtXs/7420ykEj0iXtQbN+4ENPkDnqFv8MhiD10rgzj8gLX3VNueJNIrGZppnZPA6b7x+BTylWk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR12MB9750.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akxndTlZUXNiR1hmS2RnaGxDa0RGMnR2OEQ4eWRTMDROTU9HZVhDWUNTMGV1?=
- =?utf-8?B?SS81VkNHSVh1dkh1UXhyS2xreUdCSzM1dkRCUWliQnhRYXJtazR3bXQwbVpP?=
- =?utf-8?B?MzFManJVM1BUUmg5MDhUNUZ5TW45ejBMTDlNbllnd2xXS0tkTnhnUlVDcGtC?=
- =?utf-8?B?di9ZY0xtL3V2bkRuMmNIVG5Cb3RydVpMNkw3dTNnaEV1NTFrRkhjR2EvbDhS?=
- =?utf-8?B?OXUrYUViVXAyTGhaakVzcVJ4dDFIRXk1OTZ6b1hBNFhpTTd6M1BoNU5CNnFn?=
- =?utf-8?B?aXBzclFBMjFWWG9SVit2WFMyelJLSGwyVEdab0U5RXBLYkVvOUh3b0RSYlVi?=
- =?utf-8?B?dVVYaXdRMklIQW9ZWW1JNlNHbGIxOEFEY2E2b2s1NFVRRGU4L2c5SWlFak16?=
- =?utf-8?B?Zk05dTdLQkdZNXgwZkZEN0xVWHA0THQ3R0hhWkt4bGRrZ2JSTWsxQ1FHSWx4?=
- =?utf-8?B?c01kMUF5b2cyWVNrN21ERTZSTVh6YUdBY1dTcitKQ2FicTViMnZ3am5FUkhW?=
- =?utf-8?B?cCtOYXQ4cWlRdWhKTDNiRTMrNVhkRFBMdkJWQlB6Q2orN2I5RnNJclpIbG9s?=
- =?utf-8?B?Y05xdE1RSU9jK1N1MXdlU2lESlhMc1gvdkZmb3JpcjZUd0ErOXhOV0d2OXJ0?=
- =?utf-8?B?bUwvSlJDK2dzQW9TalZOcU05cnN4Qml3c3k4eng3NHhTZzQvZjZBazdQb3hk?=
- =?utf-8?B?ZkF5OWdGQ05mRTdQYTdxN1lXUlJlY2VCbXZ0YisrUzNQV0JDbTdxR1BTQml2?=
- =?utf-8?B?NmdPaGlDRm5HNkFnODlXa1lKbXVCSGx4SGZiZHd0NDd6N1BjSnpiT285MWgv?=
- =?utf-8?B?WmtodlZTYTNjMmYxYXIwSStBaUZGTnl6Zy9MUVdNUHFKTWRtMmdIcWw4WlNn?=
- =?utf-8?B?ZjlLczdiVzFDSzhFckJIemxaTlRQSTdUQkEzTHR0dE9yUlR0UFJCeW1QcHBL?=
- =?utf-8?B?Nm5OWjU1MlNkUUMrbDFoSlZJeG9DZVA0ZFhjVGVHQ0VtbkhIRFlSQ0N1dkVz?=
- =?utf-8?B?SjhpUzh6NUE0a3R2V3BUdkV6RGVsdVN2SzFhSUFFaUFTS1RUODdqZ1ZUV2ln?=
- =?utf-8?B?Z09scmZiY3E2citsSjRiZDN3N3c1VURVRzZ5UFRpTXNqU21yMGlNQ2JwdGw4?=
- =?utf-8?B?ZS9CUnNGdC9LZE0rV1p4K0ZJbFRDR2ZFRVlQZkp2ckhRWUlscldpczdNMlkx?=
- =?utf-8?B?VGVzWWJ6SEV0Z21QUGJqenR0cmFBbjRBVERQVHlvT3V3dWVRL0ZCbE9KVHd0?=
- =?utf-8?B?d3UvV3BqUHowYXZFdXZtT25VQU9WRENvcVVJcWhmZG51c1BWR3R4KytZVU5q?=
- =?utf-8?B?RmQ1Yy9Sa1B0RW1aNUhGbzhqSEtwTnlMNlVlRkpsOUpCakwzTklvYVYxSENv?=
- =?utf-8?B?SWg0MDFOaElObHJ6T3BOOFJONGt2a1RtQ0NxT0NTODZVNlBKeC9CSGJ0bTA4?=
- =?utf-8?B?WFVJeHFpQmRDM2VHcDRKMmFBa0FUV3V1cHI1OWZrbW1NdklibmIvMkJQVE1i?=
- =?utf-8?B?TVZuRnhWVE1BNCtJOGdXaFI0c2o4SzgyWE9CQ1VXVW0yS1BxSVVjSFdZRElL?=
- =?utf-8?B?RERtZ2RPcHQvYU5EdlJkbVBvc2psNTZDQ0NZalJPZVVWRFJNR2hma2VGNHZu?=
- =?utf-8?B?TWxHSnJiVzQrNnpmdCtUcWhEZ09wN01idFZ2QnR2a3hoNSs3TEVaU05jYXFB?=
- =?utf-8?B?S2FiYUsvUmYvejVQT09sWUhHZng1ZTNLOU1INkRnbm53UU5OeHI5bkEvYnBq?=
- =?utf-8?B?VWxndWRSYjhieUJSTEQzV0JzaUlGSHNOYVh3Q29aZnZxSHdwUHZ0Y0N3RVlU?=
- =?utf-8?B?WVdFcHZVNVVpYXJXQm5FNFVEUktySUpIdmRucTR5L0IyU3EyS25TMXBmZXIr?=
- =?utf-8?B?STlmWkgrOXphdUh6OU8rbXA0YlYwM01sRzJqekE1T2Q5L0xrR3kvL1pCbGt4?=
- =?utf-8?B?b0ZaZ0gyN1hDeVExTnlLaWFpWkNLaHBtaStia3dJTTQ2UDBGQ3M4QVlxZkR6?=
- =?utf-8?B?UVBTaHQwWGJFckZ0QjNpVXo3amR0bzl1MUlmcVdNSkpSWDBQRFd3dGJmeHVq?=
- =?utf-8?B?N3JDOFQ2NUZ3RjBCU2dJUVdYU1lPbm1hWFptTXdpT3duNkkvVzVGNlZ6UUFQ?=
- =?utf-8?B?aTlEUkxKdFFlc3ZXaVVMcHJEUE5nYjdEWkxtRklsUjBmUGJiRTNINE9JdVRp?=
- =?utf-8?B?akNtc2U3YUU2TXZqN3I4NVlNWERUdlc3MDBOemVoc0VBd1pnQk5zU00wcUl6?=
- =?utf-8?B?WGpjMEVlSHBmS0VuM0EwYWx3L1JXQ0VQL3hGdllQdUxYZ2pXbG15czUrelIw?=
- =?utf-8?B?djR2N3NENmlBdDNNK3d1aWRGQ3YzQkJsVXh2LzJ4Z2R0MGl3UXRrNnB6c2Mv?=
- =?utf-8?Q?MMmzh5qlPSi/0wTBDNLnhGqRtsjvuQus6ZoBohiK1uwoV?=
-X-MS-Exchange-AntiSpam-MessageData-1: W+aK2pEzLiGJMw==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55bc2f83-80f9-4a95-d906-08de88c45a9d
-X-MS-Exchange-CrossTenant-AuthSource: DS2PR12MB9750.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 10:10:05.0038
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FKGmHvhCstZbJu6s7DwdAE0vIHot8skv2wUVNPOvTAceY5EwxXbjRXGos/7ptcD3yjuiFiWwgA8wX3oQ1BBdiA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9620
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27949/Mon Mar 23 07:24:47 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_031011_236646_7365A868 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20260323_031201_415169_9B1F3D4B 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,95 +85,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark, Lorenzo,
+On Wed, 2026-03-04 at 14:41 +0530, Aniket Limaye wrote:
+> Add missing device tree node for main_i2c4, and the corresponding ranges
+> in cbass_main. Interrupt for this i2c controller is routed through the
+> Main GPIOMUX Router.
+> Base address, Interrupt IDs are taken from J722S TRM [0].
+> Device, Clock IDs are taken from TISCI docs [1].
+>=20
+> Additionally, the I2C4 is the only interrupt source to the GPIOMUX INTR
+> router that generates level interrupts, while all other sources generate
+> edge interrupts. Due to this, the router needs to handle interrupt-type
+> on a per-line basis. Modify the router node and its consumers to
+> specify the interrupt type corresponding to each interrupt line.
+>=20
+> [0]: https://www.ti.com/lit/zip/sprujb3
+> [1]:
+> https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/index.html#j722s
+>=20
+> Signed-off-by: Jared McArthur <j-mcarthur@ti.com>
+> Signed-off-by: Aniket Limaye <a-limaye@ti.com>
+> ---
+> Note:
+> Support for per-line interrupt-types was added through a recent series
+> [2], which was already merged in.
+>=20
+> Testing:
+> - Enable I2C4 (additional DT patch) on j722s-evm and run i2cdetect [3].
+> - Add testcode to ignore the NACK interrupt, which results in an irq
+>   storm -> showing that GIC is actually receiving level interrupt from
+>   the INTR [4].
 
-On 12/03/2026 19:00, Jon Hunter wrote:
-> Hi all,
-> 
-> On 31/12/2025 16:21, Manivannan Sadhasivam wrote:
->> From: Konrad Dybcio <konradybcio@kernel.org>
->>
->> PSCI specification defines the SYSTEM_SUSPEND feature which enables the
->> firmware to implement the suspend to RAM (S2RAM) functionality by
->> transitioning the system to a deeper low power state. When the system
->> enters such state, the power to the peripheral devices might be 
->> removed. So
->> the respective device drivers must prepare for the possible removal of 
->> the
->> power by performing actions such as shutting down or resetting the device
->> in their system suspend callbacks.
->>
->> The Linux PM framework allows the platform drivers to convey this info to
->> device drivers by calling the pm_set_suspend_via_firmware() and
->> pm_set_resume_via_firmware() APIs.
->>
->> Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call the 
->> above
->> mentioned APIs in the psci_system_suspend_begin() and
->> psci_system_suspend_enter() callbacks.
->>
->> Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
->> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
->> [mani: reworded the description to be more elaborative]
->> Signed-off-by: Manivannan Sadhasivam 
->> <manivannan.sadhasivam@oss.qualcomm.com>
->> ---
->>
->> This patch was part of an old series that didn't make it to mainline 
->> due to
->> objections in the binding and exposing CPU_SUSPEND as S2RAM patches:
->> https://lore.kernel.org/all/20241028-topic-cpu_suspend_s2ram- 
->> v1-0-9fdd9a04b75c@oss.qualcomm.com/
->>
->> But this patch on its own is useful for platforms implementing the S2RAM
->> feature in PSCI firmware. So I picked it up, tested on Qcom X1E T14s and
->> resending it.
->>
->>   drivers/firmware/psci/psci.c | 10 ++++++++++
->>   1 file changed, 10 insertions(+)
->>
->> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
->> index 38ca190d4a22..e73bae6cb23a 100644
->> --- a/drivers/firmware/psci/psci.c
->> +++ b/drivers/firmware/psci/psci.c
->> @@ -539,12 +539,22 @@ static int psci_system_suspend(unsigned long 
->> unused)
->>   static int psci_system_suspend_enter(suspend_state_t state)
->>   {
->> +    pm_set_resume_via_firmware();
->> +
->>       return cpu_suspend(0, psci_system_suspend);
->>   }
->> +static int psci_system_suspend_begin(suspend_state_t state)
->> +{
->> +    pm_set_suspend_via_firmware();
->> +
->> +    return 0;
->> +}
->> +
->>   static const struct platform_suspend_ops psci_suspend_ops = {
->>       .valid          = suspend_valid_only_mem,
->>       .enter          = psci_system_suspend_enter,
->> +    .begin          = psci_system_suspend_begin,
->>   };
->>   static void __init psci_init_system_reset2(void)
-> 
-> 
-> I wanted to ask what the status of this patch is?
-> 
-> It turns out that since commit f3ac2ff14834 ("PCI/ASPM: Enable all 
-> ClockPM and ASPM states for devicetree platforms"), this fix is also 
-> need for Tegra platforms that have NVMe devices to ensure that they are 
-> suspended as needed. There is some more background in this thread [0].
+I ran a basic test on our MBa67xx board based on current linux-next with th=
+is
+patch applied. Probe and configuration of a RPi DSI camera module (IMX219)
+connected to I2C4 is working as expected.
+
+Tested-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 
 
-Any feedback on this? I am not sure if this patch is purposely being 
-ignored, but if so, I would like to understand why.
 
-Thanks
-Jon
+>=20
+> [2]: https://lore.kernel.org/all/20260123-ul-driver-i2c-j722s-v4-0-b08625=
+c487d5@ti.com/
+> [3]: https://gist.github.com/aniket-l/844925345316adf9f65f04c8cdedd62d#fi=
+le-j722s-evm-main-i2c4-working-logs-txt
+> [4]: https://gist.github.com/aniket-l/844925345316adf9f65f04c8cdedd62d#fi=
+le-j722s-evm-main-i2c4-irqstorm-logs-txt
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 13 +++++++-----=
+-
+>  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi              | 13 ++++++++++++=
++
+>  arch/arm64/boot/dts/ti/k3-j722s.dtsi                   |  3 ++-
+>  3 files changed, 22 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arc=
+h/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> index 0e1af2a69ca2..f130c7cb998d 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> @@ -543,10 +543,9 @@ main_spi2: spi@20120000 {
+>  	main_gpio_intr: interrupt-controller@a00000 {
+>  		compatible =3D "ti,sci-intr";
+>  		reg =3D <0x00 0x00a00000 0x00 0x800>;
+> -		ti,intr-trigger-type =3D <1>;
+>  		interrupt-controller;
+>  		interrupt-parent =3D <&gic500>;
+> -		#interrupt-cells =3D <1>;
+> +		#interrupt-cells =3D <2>;
+>  		ti,sci =3D <&dmsc>;
+>  		ti,sci-dev-id =3D <3>;
+>  		ti,interrupt-ranges =3D <0 32 16>;
+> @@ -558,8 +557,9 @@ main_gpio0: gpio@600000 {
+>  		gpio-controller;
+>  		#gpio-cells =3D <2>;
+>  		interrupt-parent =3D <&main_gpio_intr>;
+> -		interrupts =3D <190>, <191>, <192>,
+> -			     <193>, <194>, <195>;
+> +		interrupts =3D <190 IRQ_TYPE_EDGE_RISING>, <191 IRQ_TYPE_EDGE_RISING>,
+> +			     <192 IRQ_TYPE_EDGE_RISING>, <193 IRQ_TYPE_EDGE_RISING>,
+> +			     <194 IRQ_TYPE_EDGE_RISING>, <195 IRQ_TYPE_EDGE_RISING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <2>;
+>  		ti,davinci-gpio-unbanked =3D <0>;
+> @@ -574,8 +574,9 @@ main_gpio1: gpio@601000 {
+>  		gpio-controller;
+>  		#gpio-cells =3D <2>;
+>  		interrupt-parent =3D <&main_gpio_intr>;
+> -		interrupts =3D <180>, <181>, <182>,
+> -			     <183>, <184>, <185>;
+> +		interrupts =3D <180 IRQ_TYPE_EDGE_RISING>, <181 IRQ_TYPE_EDGE_RISING>,
+> +			     <182 IRQ_TYPE_EDGE_RISING>, <183 IRQ_TYPE_EDGE_RISING>,
+> +			     <184 IRQ_TYPE_EDGE_RISING>, <185 IRQ_TYPE_EDGE_RISING>;
+>  		interrupt-controller;
+>  		#interrupt-cells =3D <2>;
+>  		ti,davinci-gpio-unbanked =3D <0>;
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/=
+dts/ti/k3-j722s-main.dtsi
+> index 9ee5d0c8ffd1..ddf20e44f0ea 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> @@ -154,6 +154,19 @@ usb1: usb@31200000 {
+>  		};
+>  	};
+> =20
+> +	main_i2c4: i2c@fe80000 {
+> +		compatible =3D "ti,am64-i2c", "ti,omap4-i2c";
+> +		reg =3D <0x00 0x0fe80000 0x00 0x100>;
+> +		interrupt-parent =3D <&main_gpio_intr>;
+> +		interrupts =3D <178 IRQ_TYPE_LEVEL_HIGH>;
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +		power-domains =3D <&k3_pds 257 TI_SCI_PD_EXCLUSIVE>;
+> +		clocks =3D <&k3_clks 257 2>;
+> +		clock-names =3D "fck";
+> +		status =3D "disabled";
+> +	};
+> +
+>  	ti_csi2rx1: ticsi2rx@30122000 {
+>  		compatible =3D "ti,j721e-csi2rx-shim";
+>  		reg =3D <0x00 0x30122000 0x00 0x1000>;
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s.dtsi b/arch/arm64/boot/dts/t=
+i/k3-j722s.dtsi
+> index 059c65ece183..1b36dcf37925 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
+> @@ -160,7 +160,8 @@ cbass_main: bus@f0000 {
+>  			 <0x00 0x0fd80000 0x00 0x0fd80000 0x00 0x00080000>, /* GPU */
+>  			 <0x00 0x0fd20000 0x00 0x0fd20000 0x00 0x00000100>, /* JPEGENC0_CORE =
+*/
+>  			 <0x00 0x0fd20200 0x00 0x0fd20200 0x00 0x00000200>, /* JPEGENC0_CORE_=
+MMU */
+> -			 <0x00 0x20000000 0x00 0x20000000 0x00 0x0a008000>, /* Third peripher=
+al window */
+> +			 <0x00 0x0fe00000 0x00 0x0fe00000 0x00 0x000f0400>, /* Third peripher=
+al window */
+> +			 <0x00 0x20000000 0x00 0x20000000 0x00 0x0a008000>, /* Fourth periphe=
+ral window */
+>  			 <0x00 0x30040000 0x00 0x30040000 0x00 0x00080000>, /* PRUSS-M */
+>  			 <0x00 0x301c0000 0x00 0x301c0000 0x00 0x00001000>, /* DPHY-TX */
+>  			 <0x00 0x30101000 0x00 0x30101000 0x00 0x00080100>, /* CSI window */
+>=20
+> ---
+> base-commit: d517cb8cea012f43b069617fc8179b45404f8018
+> change-id: 20260303-j722s-main-i2c4-dt-8a1344d04ffe
+>=20
+> Best regards,
 
--- 
-nvpublic
-
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
