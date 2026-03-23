@@ -4,86 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B511AF483D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6D6F483D7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6mLJgPLWSuoj/P2MAtrzoRO0g8BMHCjkX0hvTYs5nb0=; b=2rX49938YWWqer60cFBZB8rNqH
-	cf6ydohD3IqNZnIjMFkm0+pqiPitl7RM6khuZvBpE2ULDDyw2+52z/hI2Fb99yQYasQGD4/AxBS5Q
-	D+BMu2OvG//9d0C660zCA8pbT1Li2sgtbW3LcYsne8npQ4Cw7dMWB8g4T240ASbn3Dg+wUTFSmI9K
-	WfYYooiX74Y+CTNFRbys0bHmKsGRRGAb0tA8+q2+ansAPbaBgJpb5TAVtyVzTiQyG6BQJKei7CfAt
-	1TtF4G6KXsbb9wzHF9YA1S1bicVYQgugL5uW3EhnH3KwH27lO7Bf8q9EKzPrT6tCrk5R0C15hH0uj
-	+WEIpKvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DAFVmIYqCpTk7YHQuUKCiaGw6d7SaBhhkzvznBNGhns=; b=Y1s9XOWoCjfUhOBx9ON0VcBo5D
+	DbAoAxx2mhtZ8LTrKXzR3Ou6rCGtEd2X/iR5dg0BE10U0L5hjw0i9XBhWSN/SuWUlXBh+RszeyPXu
+	W5ulxbZc7XC4HlDBdEe1PuwJI0nYrjFVdRQje1kL5fV2XD4+HG0y4JsbNt2C+nJ73ZaGpYLiTGN8L
+	QXO3qtBFzqPuoNdTW3OOS2MQFIv5O+ix8XE0/O+hy9CQc4hq7BZQOw/X7YfGEPdmMuJ5hA9Kkli2s
+	gvmdwqSH9WyIkPWtnShGZ6xLatC90BWfo3tdxI8qomO9GF30Lsygie4KNuZmarzzJT+gnAmSCId3n
+	qZ3oupqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jTg-0000000HHAg-2M28;
-	Mon, 23 Mar 2026 17:54:12 +0000
-Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
+	id 1w4jXU-0000000HHr8-0vDv;
+	Mon, 23 Mar 2026 17:58:08 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jTb-0000000HH5s-2u0F
+	id 1w4jXS-0000000HHqb-0Xua
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 17:54:08 +0000
-Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-67bf3e1051bso5958456eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 10:54:06 -0700 (PDT)
+	Mon, 23 Mar 2026 17:58:07 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ab46931cf1so46156885ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 10:58:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774288446; x=1774893246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6mLJgPLWSuoj/P2MAtrzoRO0g8BMHCjkX0hvTYs5nb0=;
-        b=tCpf+uQRoNRmVBXA+cPwzBWqd14/eoKxpo0wgSoMjglKlDzKMSvds38RvaTe8D1PSU
-         6fMRYZTpU6KWPgFnMSUuqLiGtdWP3YJeBX9i9M4K5bGpLDx4fHcnldcDdlsl/Z88TRIY
-         yjxBSyToLsmg0s6zkRxhxfyx+udS9n51y7qaXj2p48ADgw4NsxwUca+Dw0dtPFn2umHv
-         w0FMFlcqak07aLZKKP2D+eN/0h6scE+ccdlurdjahomcxHCev3yz+3xSUMsyVSu9DnDY
-         W8Ku5UzYzQbz1Jwuo94ua/KDaGrDBBmv5o/j31PkgU8XON0Z3qunJYdOSf6R6VG8W9rb
-         hA9A==
+        d=gmail.com; s=20251104; t=1774288685; x=1774893485; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DAFVmIYqCpTk7YHQuUKCiaGw6d7SaBhhkzvznBNGhns=;
+        b=no7QuWTFAW9G+BAPyvOEd+owpYP65WgFo2zgzVnLW6vYHSM8mcKCFee1pNMQtsY+Xl
+         +UgfDDdum1J2E28Kb4oxvcjqCoG5VHUujC8spCv/lBfzX3SONjLw+Sc7UCcEcNX+o/Qr
+         ssyrKCPtDgmLT43KrI18CFsrnvee37fN/H8u2enu/7QH+8/Qqort7d3Z6uaKrplQmIL/
+         yvr6zC0RhJQLYsv9lZokRmYenLYBrCSM5VLp3F0imxRIdstqEJaq3UPxzC+dUAvWPC9p
+         Bf/osSR+ZoiiyrGPjl7Z5CBg7VekGs3zf++JhgvGpgDIijzKEwAc0VCJz1bzQQbpgAep
+         VidA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774288446; x=1774893246;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6mLJgPLWSuoj/P2MAtrzoRO0g8BMHCjkX0hvTYs5nb0=;
-        b=WTlDxGYXRDGORVyhKGl4h1uarFx7jPVxNbxiIFEcBwopuoAWwbPMC+dbdxbBYE/S4s
-         Dl5sRFh9czwmehwtL3tsuANywL0+VYJdWosiqCLSnvsijAaMc2Y2PWayMWH36ssp3/7u
-         Cewqiu5MZnkGTZIOrVGCfuNqW0fJBMRL3twnJDs8+zeZSP2fG7ZQROhbFaf9ywRpZfmK
-         nBbbXw18Krg+1gJl2mFS/PMb60qxISZToJA8RDNvb038lfV+RT0PzgwTyYJbMBKGANMA
-         B0hoNo8AMqgVxE0gZ3pis6INwszRnxm3HYCvYuNejz1SBhZQ5PlSEogD6ZUvfkAop5p/
-         pndg==
-X-Forwarded-Encrypted: i=1; AJvYcCW0PFtpXBzivsKcGBPc8H6ZVlbMnvQsP/DtNjQ9aPNkfzAhfIGyk2OZGinvas3iZfcN7ZXI4QMtTjjJRduvdUta@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwkzfqnZh2UHGFKRrvFMlEs48ObJWcjpG7ITFmvgDX7+QF+rkn
-	zQhCQKSaJTtC1kGz9VlU2XlEiQsFLh+YHkH2nGir/tOj3t5ymNVGHz38LrFMPyDFmHQ0X4Rh+Jr
-	L+dwBig==
-X-Received: from ilbeb14.prod.google.com ([2002:a05:6e02:460e:b0:4f8:5be9:9dbe])
- (user=avagin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6820:612:b0:67d:ec7b:cc9d
- with SMTP id 006d021491bc7-67dec7bd049mr3051580eaf.18.1774288445933; Mon, 23
- Mar 2026 10:54:05 -0700 (PDT)
-Date: Mon, 23 Mar 2026 17:53:39 +0000
-In-Reply-To: <20260323175340.3361311-1-avagin@google.com>
-Mime-Version: 1.0
-References: <20260323175340.3361311-1-avagin@google.com>
-X-Mailer: git-send-email 2.53.0.983.g0bb29b3bc5-goog
-Message-ID: <20260323175340.3361311-4-avagin@google.com>
-Subject: [PATCH 3/4] mm: synchronize saved_auxv access with arg_lock
-From: Andrei Vagin <avagin@google.com>
-To: Kees Cook <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Cyrill Gorcunov <gorcunov@gmail.com>, 
-	Mike Rapoport <rppt@kernel.org>, Alexander Mikhalitsyn <alexander@mihalicyn.com>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, criu@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, Chen Ridong <chenridong@huawei.com>, 
-	Christian Brauner <brauner@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Eric Biederman <ebiederm@xmission.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Michal Koutny <mkoutny@suse.com>, Andrei Vagin <avagin@google.com>, 
-	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20251104; t=1774288685; x=1774893485;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DAFVmIYqCpTk7YHQuUKCiaGw6d7SaBhhkzvznBNGhns=;
+        b=L/3Jz4kVvUFS9QwuCVAYefML6vSQeknTg97aoGDVUyDCJdOrmIb4u8/qiqYywcQk7K
+         RtYUycwXWgRQ4eTWU9jDZhve5sKA0EiIM5fKPlBDJezAUAC77Daz/yoECMFJcjpdHvDU
+         aQ9nN06V/IpC4DT3QDV0olqRztCm1bXdKJvZC8E2eBVxZfpDK49hMO8N6Sta4Q7bapwq
+         CU2i8ekwXsPs3KAZlbWqSPULwlY1Lnh6RKn1e4TRqzJL2GWmAgA7bxFaXKjGznwVGuno
+         T/wJP9S9WEdKLDeQBxVvmFqcNUDnkHl1A2F6XgHOHOVLqpRbyblT7myG7iAOk4QDVq/Q
+         XAuA==
+X-Forwarded-Encrypted: i=1; AJvYcCVp0WuoPKmr7IvSWY1cniqcEu5Li49BlvhfbGrK9za5Kr9u4flgUc5hS4F/yM/dwgAzs4xDszAftcwCnoZkwaQi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1FJSE6tMRu8nKhRA/n1NR++uhqOS90DjsOf0yABxQ2Qs5tenj
+	lNdUaDcLZoOkRafyRvTnKLYzPkHGrmOZByJN3I4tK3X8yQmcCjvl4uHL
+X-Gm-Gg: ATEYQzya24wLZhQ225RnrXky+7BQ8oIhhoMg2ms0hvRJHPSVJt91y6q6IrNW2GHP7uz
+	pfHqGgw6ulXXuHLL2U/EjPlWbEvjwxmm2amocFl3A4ORIApTI2eONg8jzoffcdvEZ7N/eCNZOll
+	sKU9VlryxyvtsMLaEtwfsqGUX4fQ60fBwZaBgag4UnquQQbOPSTssQYdnuyZ/FOi+bGJrmrYJj5
+	K35fSPRIuS2B0Mqzs+jF8cYNC2783qUiAiMAeaPUx40PBBExGQwEtspGlkMqJEl+i9DpAgq2LDm
+	cMz7SOQM/7KKGLFrydTSgW4dwhpfMZhAevewV2xLdq4DF3VhmX1Ooglj/weLJb/43/LCtmzkeJ/
+	Y6XHEGT0IyQotXsIpx/eymHvtzYs+HNnR3A0km0Pv+bQVUdzcUCE+rz8zJv16NCZ9g1wxXWiauR
+	61EwStZWPruX2dmz2t0isfiFq+C47FgB83QF+o
+X-Received: by 2002:a17:903:2acc:b0:2ae:7f85:33d1 with SMTP id d9443c01a7336-2b0a4cd49e4mr4562165ad.0.1774288684737;
+        Mon, 23 Mar 2026 10:58:04 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.167.147.240])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0835551c3sm113415065ad.35.2026.03.23.10.58.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 10:58:04 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Tue, 24 Mar 2026 01:57:59 +0800
+Subject: [PATCH] PCI: aspeed: Fix IRQ domain leak on platform_get_irq()
+ failure
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260324-aspeed-v1-1-354181624c00@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACZ/wWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYyMT3cTigtTUFN0kA1MTUxNLM8MUc1MloOKCotS0zAqwQdGxtbUAgHK
+ gQ1gAAAA=
+X-Change-ID: 20260324-aspeed-b05454961d75
+To: Jacky Chou <jacky_chou@aspeedtech.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774288681; l=1574;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=cYrcg8cZ1OOgmV+TAbZ97fcCPC0PWmH/iybgc6SDMxs=;
+ b=l+RPKAQMkKB3prPtTq61GiYDOiTZZEVvZpdPRmil5aMf0ygzxdGhIKpTojXIdqk8Guifwxe3Y
+ UOj7efLJOKnAPRYwxbJvxbBY6Iz1Z6VcYRmZbAzVLfAw5weD9l6RPeg
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_105407_756161_B0043064 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20260323_105806_176887_CBFBF9F7 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,181 +114,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mm->saved_auxv array stores the auxiliary vector, which can be
-modified via prctl(PR_SET_MM_AUXV) or prctl(PR_SET_MM_MAP). Previously,
-accesses to saved_auxv were not synchronized. This was a intentional
-trade-off, as the vector was only used to provide information to
-userspace via /proc/PID/auxv or prctl(PR_GET_AUXV), and consistency
-between the auxv values left to userspace.
+The aspeed_pcie_probe() function calls aspeed_pcie_init_irq_domain()
+which allocates pcie->intx_domain and initializes MSI. However, if
+platform_get_irq() fails afterwards, the cleanup action was not yet
+registered via devm_add_action_or_reset(), causing the IRQ domain
+resources to leak.
 
-With the introduction of hardware capability (HWCAP) inheritance during
-execve, the kernel now relies on the contents of saved_auxv to configure
-the execution environment of new processes.  An unsynchronized read
-during execve could result in a new process inheriting an inconsistent
-set of capabilities if the parent process updates its auxiliary vector
-concurrently.
+Fix this by registering the devm cleanup action immediately after
+aspeed_pcie_init_irq_domain() succeeds, before calling
+platform_get_irq(). This ensures proper cleanup on any subsequent
+failure.
 
-While it is still not strictly required to guarantee the consistency of
-auxv values on the kernel side, doing so is relatively straightforward.
-This change implements synchronization using arg_lock.
-
-Reviewed-by: Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-Reviewed-by: Cyrill Gorcunov <gorcunov@gmail.com>
-Reviewed-by: Michal Koutn=C3=BD <mkoutny@suse.com>
-Signed-off-by: Andrei Vagin <avagin@google.com>
+Fixes: 9aa0cb68fcc1 ("PCI: aspeed: Add ASPEED PCIe RC driver")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- fs/exec.c                |  2 ++
- fs/proc/base.c           | 12 +++++++++---
- include/linux/mm_types.h |  1 -
- kernel/fork.c            |  7 ++++++-
- kernel/sys.c             | 29 ++++++++++++++---------------
- 5 files changed, 31 insertions(+), 20 deletions(-)
+ drivers/pci/controller/pcie-aspeed.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/fs/exec.c b/fs/exec.c
-index 1cd7d87a0e79..dea868d058fa 100644
---- a/fs/exec.c
-+++ b/fs/exec.c
-@@ -1791,6 +1791,7 @@ static void inherit_hwcap(struct linux_binprm *bprm)
- 	n =3D 1;
- #endif
-=20
-+	spin_lock(&mm->arg_lock);
- 	for (i =3D 0; n && i < AT_VECTOR_SIZE; i +=3D 2) {
- 		unsigned long type, val;
-=20
-@@ -1831,6 +1832,7 @@ static void inherit_hwcap(struct linux_binprm *bprm)
- 		n--;
- 	}
- done:
-+	spin_unlock(&mm->arg_lock);
- 	mm_flags_set(MMF_USER_HWCAP, bprm->mm);
- }
-=20
-diff --git a/fs/proc/base.c b/fs/proc/base.c
-index 4c863d17dfb4..b5496cec888e 100644
---- a/fs/proc/base.c
-+++ b/fs/proc/base.c
-@@ -1083,14 +1083,20 @@ static ssize_t auxv_read(struct file *file, char __=
-user *buf,
- {
- 	struct mm_struct *mm =3D file->private_data;
- 	unsigned int nwords =3D 0;
-+	unsigned long saved_auxv[AT_VECTOR_SIZE];
-=20
- 	if (!mm)
- 		return 0;
-+
-+	spin_lock(&mm->arg_lock);
-+	memcpy(saved_auxv, mm->saved_auxv, sizeof(saved_auxv));
-+	spin_unlock(&mm->arg_lock);
-+
- 	do {
- 		nwords +=3D 2;
--	} while (mm->saved_auxv[nwords - 2] !=3D 0); /* AT_NULL */
--	return simple_read_from_buffer(buf, count, ppos, mm->saved_auxv,
--				       nwords * sizeof(mm->saved_auxv[0]));
-+	} while (saved_auxv[nwords - 2] !=3D 0); /* AT_NULL */
-+	return simple_read_from_buffer(buf, count, ppos, saved_auxv,
-+				       nwords * sizeof(saved_auxv[0]));
- }
-=20
- static const struct file_operations proc_auxv_operations =3D {
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 62dde645f469..10351af5851b 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -1255,7 +1255,6 @@ struct mm_struct {
- 		unsigned long start_code, end_code, start_data, end_data;
- 		unsigned long start_brk, brk, start_stack;
- 		unsigned long arg_start, arg_end, env_start, env_end;
+diff --git a/drivers/pci/controller/pcie-aspeed.c b/drivers/pci/controller/pcie-aspeed.c
+index 3e1a39d1e648..6acfae7d026e 100644
+--- a/drivers/pci/controller/pcie-aspeed.c
++++ b/drivers/pci/controller/pcie-aspeed.c
+@@ -1052,14 +1052,14 @@ static int aspeed_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0)
+-		return irq;
 -
- 		unsigned long saved_auxv[AT_VECTOR_SIZE]; /* for /proc/PID/auxv */
-=20
- #ifdef CONFIG_ARCH_HAS_ELF_CORE_EFLAGS
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 2ac277aa078c..3880ce0d44f9 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -1106,8 +1106,13 @@ static struct mm_struct *mm_init(struct mm_struct *m=
-m, struct task_struct *p,
- 		__mm_flags_overwrite_word(mm, mmf_init_legacy_flags(flags));
- 		mm->def_flags =3D current->mm->def_flags & VM_INIT_DEF_MASK;
-=20
--		if (mm_flags_test(MMF_USER_HWCAP, current->mm))
-+		if (mm_flags_test(MMF_USER_HWCAP, current->mm)) {
-+			spin_lock(&current->mm->arg_lock);
- 			mm_flags_set(MMF_USER_HWCAP, mm);
-+			memcpy(mm->saved_auxv, current->mm->saved_auxv,
-+			       sizeof(mm->saved_auxv));
-+			spin_unlock(&current->mm->arg_lock);
-+		}
- 	} else {
- 		__mm_flags_overwrite_word(mm, default_dump_filter);
- 		mm->def_flags =3D 0;
-diff --git a/kernel/sys.c b/kernel/sys.c
-index e4b0fa2f6845..c679b5797e73 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -2147,20 +2147,11 @@ static int prctl_set_mm_map(int opt, const void __u=
-ser *addr, unsigned long data
- 	mm->arg_end	=3D prctl_map.arg_end;
- 	mm->env_start	=3D prctl_map.env_start;
- 	mm->env_end	=3D prctl_map.env_end;
--	spin_unlock(&mm->arg_lock);
--
--	/*
--	 * Note this update of @saved_auxv is lockless thus
--	 * if someone reads this member in procfs while we're
--	 * updating -- it may get partly updated results. It's
--	 * known and acceptable trade off: we leave it as is to
--	 * not introduce additional locks here making the kernel
--	 * more complex.
--	 */
- 	if (prctl_map.auxv_size) {
--		memcpy(mm->saved_auxv, user_auxv, sizeof(user_auxv));
- 		mm_flags_set(MMF_USER_HWCAP, mm);
-+		memcpy(mm->saved_auxv, user_auxv, sizeof(user_auxv));
- 	}
-+	spin_unlock(&mm->arg_lock);
-=20
- 	mmap_read_unlock(mm);
- 	return 0;
-@@ -2190,10 +2181,10 @@ static int prctl_set_auxv(struct mm_struct *mm, uns=
-igned long addr,
-=20
- 	BUILD_BUG_ON(sizeof(user_auxv) !=3D sizeof(mm->saved_auxv));
-=20
--	task_lock(current);
--	memcpy(mm->saved_auxv, user_auxv, len);
-+	spin_lock(&mm->arg_lock);
- 	mm_flags_set(MMF_USER_HWCAP, mm);
--	task_unlock(current);
-+	memcpy(mm->saved_auxv, user_auxv, len);
-+	spin_unlock(&mm->arg_lock);
-=20
- 	return 0;
- }
-@@ -2481,9 +2472,17 @@ static inline int prctl_get_mdwe(unsigned long arg2,=
- unsigned long arg3,
- static int prctl_get_auxv(void __user *addr, unsigned long len)
- {
- 	struct mm_struct *mm =3D current->mm;
-+	unsigned long auxv[AT_VECTOR_SIZE];
- 	unsigned long size =3D min_t(unsigned long, sizeof(mm->saved_auxv), len);
-=20
--	if (size && copy_to_user(addr, mm->saved_auxv, size))
-+	if (!size)
-+		return sizeof(mm->saved_auxv);
+ 	ret = devm_add_action_or_reset(dev, aspeed_pcie_irq_domain_free, pcie);
+ 	if (ret)
+ 		return ret;
+ 
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
 +
-+	spin_lock(&mm->arg_lock);
-+	memcpy(auxv, mm->saved_auxv, size);
-+	spin_unlock(&mm->arg_lock);
-+
-+	if (copy_to_user(addr, auxv, size))
- 		return -EFAULT;
- 	return sizeof(mm->saved_auxv);
- }
---=20
-2.53.0.983.g0bb29b3bc5-goog
+ 	ret = devm_request_irq(dev, irq, aspeed_pcie_intr_handler, IRQF_SHARED,
+ 			       dev_name(dev), pcie);
+ 	if (ret)
+
+---
+base-commit: 785f0eb2f85decbe7c1ef9ae922931f0194ffc2e
+change-id: 20260324-aspeed-b05454961d75
+
+Best regards,
+-- 
+Felix Gu <ustc.gu@gmail.com>
 
 
