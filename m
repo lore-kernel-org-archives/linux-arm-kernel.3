@@ -4,60 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B52D58CD7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 05:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD89D58CDF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 06:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y3TWGYyW8KDTrte31FhfEVEVVaJCQ8UpNi/ywekTLs4=; b=sQan7ZUMQXVCtqQF0P14fGQB/F
-	N3eOsOPl24Buk6KC2E5Q5Uo+IBQqUvRxpoNLLPLJ64GeWJDly/1Yy7LphEn7JB0Zi9zFwkuyA3g9v
-	5X+lO48ci9PGWDMBcOTQCH7Ba2nAbRAwwgD9RCC7AtD00Lumt4WSa/wUSgCSrOSAxQPgPHLnROteJ
-	UNZAOQh/loSS92pDOwTVYg+u2bnWagihjjDsCXoE7xHtX3oRpeodKlw2PAUgWxBfoSNt2+MaY6R2e
-	oOZxZAYBho5BT1HyVqt6wH4VcbuT1k9bK0gcaGmCIu660GxHOSg7w70g3IdWxouvTTk+Dned4+Scl
-	Yc2SPl0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+fmi5UuSl5NkRjaxWvupDcK+tsZdlaJHTTY1oHy89dw=; b=EC8yZT7HoEYzYm0kaTLcZo/Clb
+	aqIRdHOGSDY9WrqZLPzLYNSr4wHK2CQbvE6wT0OUN6s4KM/T1QosL35VOjddZ/PnuMWDVFxeDPdbv
+	FHt/p6YpHcFhCAcCC8ewA6m7cUHwSBtgIrAJg3+ZQyrzZuOOaTFjeS5aM4UaLdBMHj5/jF94rtXuO
+	arTjdHmLqvbVkV654Eq9nXrgLb4eXvPxOIbHYUbB3q3cc9b4RyfWqLPQzkqj+Eg5Z2ix78Mcsp6NV
+	OkLUJaUi0RQBOuawpsHG0AUeO8d3+uGYOKKhi5SiCBtPEHFh+9teBCdXKh9YGCoZTDD6HuR7bzzcn
+	qEOPUtfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Y5I-0000000G4Sy-1n4x;
-	Mon, 23 Mar 2026 05:44:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4YQZ-0000000G58d-3Gff;
+	Mon, 23 Mar 2026 06:06:15 +0000
+Received: from mail-westeuropeazon11010044.outbound.protection.outlook.com ([52.101.69.44] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4Y5E-0000000G4SA-496S
+	id 1w4YQW-0000000G57r-0ebK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 05:44:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 08CAD401F1;
-	Mon, 23 Mar 2026 05:44:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51E54C4CEF7;
-	Mon, 23 Mar 2026 05:44:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774244649;
-	bh=Ir8hCmjyPf2Ze81ZaE3IWsYRpbwEsWy/ErIWhj8mOsM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m39DqGfvrDfGdMll05g6haD4ZbZQ/mZgMPqVS1mUjOVIddG0gLO8oMBCs5+J9MkA9
-	 B0StEfTEvIMQYlHgpN0GrbDtPGVIT65E9CriYl6rwh6rbc7osj/sd8QRAAsQZGwIQo
-	 KKWuEE2obSPln8OPzTZInmKPXSIctRtGozAPDCdDe7GKoSfGixK/brC8Tsw378rWfz
-	 dHfGZyeJYgmuJHzSNKi9kO0jEQVEzf0DW76Esv/+da4M+M8hm0FQd9EVdSTv+rwh7s
-	 JRLbqFXrzVSNs0tRXDnmH2LfWAtPRANGxA9Qe7egLllaYElTMJs2KSvycl/M+iBsfu
-	 Lf8FItyNR5mbQ==
-Date: Mon, 23 Mar 2026 07:44:05 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Ethan Luna <trunixcodes@zohomail.com>
-Cc: peterhuewe@gmx.de, jgg@ziepe.ca, nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev, linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tpm: i2c: atmel: fix block comment formatting
-Message-ID: <acDTJbHJOHIQRUsY@kernel.org>
-References: <20260322193112.27010-1-trunixcodes@zohomail.com>
+	Mon, 23 Mar 2026 06:06:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oggJnnODP7Mc2j2NnEMadeijak7U12J0mTMoLO26gKq+Ug3dfZmqa4VWUloqP3T0ELeE7Voj40Z0bKBCMJkD21HTKaNuHa7uJ+qEqMu84U5MHylaLqGjnYH1nma7QQMxT1Gq/dm7V4KF2Cl7gQiJ1hEZB9PeUYyNeUPzdVcP7JNrDooETfwy2NYZpfVSB3NUSc5NtsleJDDDtgj6H1GZuUCbVmstG6P8awPPdFcKAfMnLNU+CML3jMrEUWU2KMOAmQ/MExg605KEjkO0qJh/3cXrV6PZtWVj/23QdV47ZElQoRroib59gkj+xXd4Ni77QIaRgrKzIq22j5t+xObKzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+fmi5UuSl5NkRjaxWvupDcK+tsZdlaJHTTY1oHy89dw=;
+ b=WSiVMN+hswPDckuBUIpQcDmPvXw4nfoTb+hZZccvbgx13kCJrCu+mtoUOuW356nVpUr4EDkQ1bHC5K4EqouB2DB9nFw2shVpRsJusxYqpBijJQWgoMouKhXXezMNxUrWRhvpciU9fir9ZRaGOfO8mtR775emabaxooss96bxdwjVypLdqrHZqI73gSTrTLoO2fzDePdah2ZhYcw9iINrwa/URE+O5KbO/GVUD/cKz3nah5WIc4/5I3UbFJoat48ffWEmKsAsE9T2+QTq+McWvCMrDKeCnSR++Cz/cZpqlhKBgKoOjZlhqfrH01maDtI0KN06uLiV+EkRgMAk95aTNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+fmi5UuSl5NkRjaxWvupDcK+tsZdlaJHTTY1oHy89dw=;
+ b=HpCBxP5T3LbAgDYpNJwkHNu+g8KqHzoeU+d7a5KPaXFQZFRu0bJ+6Ie6JRKSwX+9lWNKcEBCAQSpjb+9DVGzF31S5vP6zlMcRGmDpxteRex/SWWt3IQxInmenT7nFKnH7Uav3qGDMMxYV5WVcA2e4YU6jwLskPDu2xXsyGkk3AWt5zybFMcL27E18WZ7hut5OdmKybaf08o6WDDpDBS3DOvaoWqOSAaQPW1lcRToTiu5mVV8v796nLAb8EVhvy53ENeS73MkChMD6DzZQT0g1vit5iY/1JNiCcfs16jqN95FJS33VAjh3SSyIcuioWjudz466b/fjQcijcQo4dbM1Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8505.eurprd04.prod.outlook.com (2603:10a6:20b:40a::14)
+ by PAXPR04MB8911.eurprd04.prod.outlook.com (2603:10a6:102:20e::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
+ 2026 06:05:35 +0000
+Received: from AM9PR04MB8505.eurprd04.prod.outlook.com
+ ([fe80::dc5a:b0aa:4a1b:c55e]) by AM9PR04MB8505.eurprd04.prod.outlook.com
+ ([fe80::dc5a:b0aa:4a1b:c55e%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 06:05:59 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	f.fainelli@gmail.com,
+	frank.li@nxp.com,
+	chleroy@kernel.org,
+	horms@kernel.org,
+	linux@armlinux.org.uk,
+	andrew@lunn.ch
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH v2 net-next 00/14] Add preliminary NETC switch support for i.MX94
+Date: Mon, 23 Mar 2026 14:07:38 +0800
+Message-Id: <20260323060752.1157031-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MAXPR01CA0099.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::17) To AM9PR04MB8505.eurprd04.prod.outlook.com
+ (2603:10a6:20b:40a::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260322193112.27010-1-trunixcodes@zohomail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8505:EE_|PAXPR04MB8911:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7eab5480-d346-440e-bef5-08de88a240b8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|7416014|376014|921020|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: QBtf2UB3VW3nZ4c5xx5M9PWLIPKvAPRPHbYEHGz4MptZvPL2Vx5Ilus+nYo8chjAP0mXhw7fPJ+euyX0z1SfPcT8TAFVymZ2/eS5wIRn0OjH20eybERg3SLRTNTH1NcW0t3rm5xmGoX9aORyQJLGCqZIbvzJ6+K5iAOY8cWaCiFPGp9VNXoThze87qV6EFyzcRZsVYiBLvcKaYlu6U24nkV4sDtHzGFnYHqs5F9YWspcB5LabqDWmivMTncqbHjMdytSjpt+vUR/AWS5kL0QVuyiaplgk7g9OhgrjTxf0wezaJLGkwLqnMXA2R21zp58NrLSK2+J06MD1ZysBLLOV6A4rZAOdpnvvr7BkTjFuU2f/z5wObQUWvHIYi+7Pl5Fk+uaihoMlJKAN1QNA9FIn1sLy8nqD5XZ9fE4O3pvgJBOViI9dfV+Z8Lxmdr6pDBJxG1MqXb9eAih0hQxR9MnoX3lgK1/8WVBDqswu7ZQHng36q8nZgoHEYH7JW3mvDe/BWfYilyUFpZGkpEhDnoV2BBSbQamUCeacS1RqEhpBUNae94ZEWtJPySNWZ2kRQw+ttTxTpp0YD1a4+I5FPL4pYFBb+d6MHffms+Dmh+I2w8xvTkDIn2bgr0AAv7XJkRx5NP6w+UCVy2JFC2F4RGOxnCTBzbAmAGSCfrq08hJ4GGhdPD0NYR2AXCt/JJapxwG3PLb1/y8sSzTwerCCWdBj0VMTRdhqHQK+3wYYO+W6k/Di3L5QGSOZEGEwMpwIl1+JXT6onXUm/KvWf9ilAGycQzY7hRrDfI6V9YEC3iEpxtdFaD5hRJKqMd6TQ/Gsf1l
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8505.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(7416014)(376014)(921020)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hgxhRrwzE/Uc0MM35XJP+SuoP0MxZpC4Jlp5pjf5veqfFu3o9R7f2zbA+s94?=
+ =?us-ascii?Q?CwmSt198uXcK6BUvqGK/AWTnaf26iFgd2JAUY38UBs+ECASoTURCJ9uXG7up?=
+ =?us-ascii?Q?jP24SI/M9AVwrzd16n+pNlchg/TegUJ7ZKnr5O2fNX/jDp4iuic4xkR+NyO7?=
+ =?us-ascii?Q?/TxqnKWP09lYrsZj2G4hjXGY8YGhLr/Fhz7KSWa6Hf1UVnNJCxAZY+XtoKMQ?=
+ =?us-ascii?Q?HAmi/5bZhLw4fwtmRaHi7Fw6pgY2he80YT9zF0fPIEdOOqdcWVVGdFQrCU0T?=
+ =?us-ascii?Q?Le1IPTVL29lrdcXM25kDoYkaKxuPOJEPXN5HXIsXxbd7SIOAWCF86GHwXgdA?=
+ =?us-ascii?Q?JVqIWmEC6D4QCUFvO7J9HKqfOIeRcW8MNvMW6+Zefxn01PlxcF3RcjwaIKZw?=
+ =?us-ascii?Q?Jn9rCwH7lR27ZOpPqrnxsuSHvxwC+wDnPXNb2jMvX+OcJ9XDFjOrJc86OKRR?=
+ =?us-ascii?Q?dSCSCMR2Nu3s6e6e2Lq7qf0hyXtwkhTtkqTkZbs/VKZesA6YXj9CnigZj8GA?=
+ =?us-ascii?Q?VGvF+SEs5l3q+oA2JFBhmwgKkZX3LjpgMj3Q5IO7m2VOOv0gI3FHV9g2ZN85?=
+ =?us-ascii?Q?gkW5Yg4bTcOo/GDI5RMLepjEN83gerSrJgtXowJZiUSf1xTmwgYKRViNWwsA?=
+ =?us-ascii?Q?r4W2xm05mvQ89Lv2qfp5DRR6tnJ8L0rHfK1CRIW+4llPQY5f3QaacmGiQbBY?=
+ =?us-ascii?Q?bVHsVcrfKxcNXOs1cJIKa1kDUgs3vFgQr+6Ur4LV4IoVOcn2U41y5HpgLqmv?=
+ =?us-ascii?Q?lkcclTgkhTrsz5v0JrtkmvrEVPsd9kPqj897zQfme3UqCYbtkw0L6o5e+WuR?=
+ =?us-ascii?Q?inVsyJf4qbS6eetIdUpilQ2rWma5UOSkUXsJpZ9CSfCF3oYBDBIwaWIsTumE?=
+ =?us-ascii?Q?h2vOBDpzrKwCHyMkjAXOibwXP0JD6+8qPLP5AfdP5FRrcSl00eBivsv0QOQt?=
+ =?us-ascii?Q?3OuLRhu33kqK9QBUOHThnfio/OsJbxONlCNvRqrgz8Dehezk4Ph3fRF4z+Ac?=
+ =?us-ascii?Q?xJGxv1kKdiWLAETjGTJIp/0vEPlWNSBPF6ramy+S4/+S4+U//4O+rwXs2DiR?=
+ =?us-ascii?Q?G7TlSas9ZxH8Q558B7Pfyetm3AVO6Vo3KmAxemdVcc0a9glhD81VTRsFERTO?=
+ =?us-ascii?Q?xqP7Y9ywIiQy3QH4kIWRAObX4rMZ41SPTQWkK59qqE9XnTBI6988NBhkzC/j?=
+ =?us-ascii?Q?R+TJsUwd7ogBqxTGPHWdGQhcNCbO6QzzYcGWIPD6usM55msOLDYZqfEEShAn?=
+ =?us-ascii?Q?5WVkWk0io49RQgSwffpWhMEjU1klKIEKP57OIny8O3JeqSMM7q29IbUheRzc?=
+ =?us-ascii?Q?oVsr7leSLltRQGhPzCSU9WTG3L7rjQ2n/HrvMc3vz9xZJ2smBICkFfqokyFD?=
+ =?us-ascii?Q?CyeZYLtHU4c+1n+OhVhcmZW5BAKYotAdLVKHlboQZKRt9+1lVjQeNhj46tFz?=
+ =?us-ascii?Q?pIUH4xXEeeiGezmloTJiI2+m3AWoNkgvgfpXGAs0kN0QgMQhwGNsE/0X3NuL?=
+ =?us-ascii?Q?rnt+x+O+cy+DIeIumErrt124+eSgcrFgOJ0FWzEoHCsCk3LTWE/G4E6A6w+i?=
+ =?us-ascii?Q?QzP/HydwLnz7XZQvQeoRL1mj+RK6+a4qIXO20QA56508nOci0mRITXiG08um?=
+ =?us-ascii?Q?0Q6HvUFUounKuxfNf8b4sJy6nCcy7HWhuNxB6uH3Lk91e1S5VEPr9tDWzVW7?=
+ =?us-ascii?Q?IcJHLZMnQALWiHUrTz9nAgEKVVAxduV+cYvz5hx44zK2ncHT?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7eab5480-d346-440e-bef5-08de88a240b8
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8505.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 06:05:59.6351
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aDQnVR/b1jR30fg17LcC2uzqqzQUs62ZWuCnhJyzn57Hnf2JxYXw16xONuHOaidIH94BPXhpRk4r2uRhMlVJSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8911
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260322_224413_098713_D325BA3E 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20260322_230612_386461_48F6B2E8 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +152,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 22, 2026 at 12:30:53PM -0700, Ethan Luna wrote:
-> Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
-> same line as the comment text. This violates the kernel's preferred
-> comment style, which requires the closing delimiter to appear on it's
-> line.
-> 
-> Fix the formatting to improve readability and resolve checkpatch
-> warnings.
-> 
-> Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
-> ---
->  drivers/char/tpm/tpm_i2c_atmel.c | 19 +++++++++++++------
->  1 file changed, 13 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
-> index 4f229656a8e2..702b3c9191dc 100644
-> --- a/drivers/char/tpm/tpm_i2c_atmel.c
-> +++ b/drivers/char/tpm/tpm_i2c_atmel.c
-> @@ -33,7 +33,8 @@ struct priv_data {
->  	size_t len;
->  	/* This is the amount we read on the first try. 25 was chosen to fit a
+i.MX94 NETC (v4.3) integrates 802.1Q Ethernet switch functionality, the
+switch provides advanced QoS with 8 traffic classes and a full range of
+TSN standards capabilities. It has 3 user ports and 1 CPU port, and the
+CPU port is connected to an internal ENETC through the pseduo link, so
+instead of a back-to-back MAC, the lightweight "pseudo MAC" is used at
+both ends of the pseudo link to transfer Ethernet frames. The pseudo
+link provides a zero-copy interface (no serialization delay) and lower
+power (less logic and memory).
 
-If you fix this up here.
+Like most Ethernet switches, the NETC switch also supports a proprietary
+switch tag, is used to carry in-band metadata information about frames.
+This in-band metadata information can include the source port from which
+the frame was received, what was the reason why this frame got forwarded
+to the entity, and for the entity to indicate the precise destination
+port of a frame. The NETC switch tag is added to frames after the source
+MAC address. There are three types of switch tags, and each type has 1
+to 4 subtypes, more details are as follows.
 
->  	 * fair number of read responses in the buffer so a 2nd retry can be
-> -	 * avoided in small message cases. */
-> +	 * avoided in small message cases.
-> +	 */
->  	u8 buffer[sizeof(struct tpm_header) + 25];
->  };
->  
-> @@ -58,7 +59,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
->  	if (status < 0)
->  		return status;
->  
-> -	/* The upper layer does not support incomplete sends. */
-> +	/*
-> +	 * The upper layer does not support incomplete sends.
-> +	 */
->  	if (status != len)
->  		return -E2BIG;
->  
-> @@ -78,7 +81,8 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
->  
->  	/* Get the message size from the message header, if we didn't get the
->  	 * whole message in read_status then we need to re-read the
-> -	 * message. */
-> +	 * message.
-> +	 */
->  	expected_len = be32_to_cpu(hdr->length);
->  	if (expected_len > count)
->  		return -ENOMEM;
-> @@ -113,13 +117,15 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
->  
->  	/* The TPM fails the I2C read until it is ready, so we do the entire
->  	 * transfer here and buffer it locally. This way the common code can
-> -	 * properly handle the timeouts. */
-> +	 * properly handle the timeouts.
-> +	 */
->  	priv->len = 0;
->  	memset(priv->buffer, 0, sizeof(priv->buffer));
->  
->  
->  	/* Once the TPM has completed the command the command remains readable
-> -	 * until another command is issued. */
-> +	 * until another command is issued.
-> +	 */
->  	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
->  	dev_dbg(&chip->dev,
->  		"%s: sts=%d", __func__, rc);
-> @@ -174,7 +180,8 @@ static int i2c_atmel_probe(struct i2c_client *client)
->  
->  	/* There is no known way to probe for this device, and all version
->  	 * information seems to be read via TPM commands. Thus we rely on the
-> -	 * TPM startup process in the common code to detect the device. */
-> +	 * TPM startup process in the common code to detect the device.
-> +	 */
->  
->  	return tpm_chip_register(chip);
->  }
-> -- 
-> 2.53.0
-> 
+Forward switch tag (Type = 0): Represents forwarded frames.
+  - SubType = 0 - Normal frame processing.
 
-The same comment applies for all.
+To_Port switch tag (Type = 1): Represents frames that are to be sent to
+a specific switch port.
+  - SubType = 0. No request to perform timestamping.
+  - SubType = 1. Request to perform one-step timestamping.
+  - SubType = 2. Request to perform two-step timestamping.
+  - SubType = 3. Request to perform both one-step timestamping and
+    two-step timestamping.
 
-BR, Jarkko
+To_Host switch tag (Type = 2): Represents frames redirected or copied to
+the switch management port.
+  - SubType = 0. Received frames redirected or copied to the switch
+     management port.
+  - SubType = 1. Received frames redirected or copied to the switch
+    management port with captured timestamp at the switch port where
+    the frame was received.
+  - SubType = 2. Transmit timestamp response (two-step timestamping).
+
+Currently, this patch set supports Forward tag, SubType 0 of To_Port tag
+and SubType 0 of To_Host tag. More tags will be supported in the future.
+
+In addition, the switch supports NETC Table Management Protocol (NTMP),
+some switch functionality is controlled using control messages sent to
+the hardware using BD ring interface with 32B descriptors similar to the
+packet Transmit BD ring used on ENETC. This interface is referred to as
+the command BD ring. This is used to configure functionality where the
+underlying resources may be shared between different entities or being
+too large to configure using direct registers.
+
+For this patch set, we have supported the following tables through the
+command BD ring interface.
+
+FDB Table: It contains forwarding and/or filtering information about MAC
+addresses. The FDB table is used for MAC learning lookups and MAC
+forwarding lookups.
+
+VLAN Filter Table: It contains configuration and control information for
+each VLAN configured on the switch.
+
+Buffer Pool Table: It contains buffer pool configuration and operational
+information. Each entry corresponds to a buffer pool. Currently, we use
+this table to implement flow control feature on each port.
+
+Ingress Port Filter Table: It contains a set of filters each capable of
+classifying incoming traffic using a mix of L2, L3, and L4 parsed and
+arbitrary field data. We use this table to implement host flood support
+to the switch port.
+
+The switch also supports other tables, and we will add more advanced
+features through them in the future.
+
+---
+v2:
+1. Use raw_smp_processor_id() in netc_select_cbdr() instead of
+smp_processor_id().
+2. Remove netc_port_free_mdio_bus() and netc_free_mdio_bus().
+3. Correct the mask value in netc_port_set_mac_mode()
+4. Rename net_port_set_rmii_mii_mac() to netc_port_set_rmii_mii_mac().
+5. Check the return value of ntmp_bpt_update_entry() in
+netc_switch_bpt_default_config().
+6. Add some comments to avoid false positives from AI review.
+v1 link: https://lore.kernel.org/imx/20260316094152.1558671-1-wei.fang@nxp.com/
+---
+
+Wei Fang (14):
+  dt-bindings: net: dsa: update the description of 'dsa,member' property
+  dt-bindings: net: dsa: add NETC switch
+  net: enetc: add pre-boot initialization for i.MX94 switch
+  net: enetc: add basic operations to the FDB table
+  net: enetc: add support for the "Add" operation to VLAN filter table
+  net: enetc: add support for the "Update" operation to buffer pool
+    table
+  net: enetc: add support for "Add" and "Delete" operations to IPFT
+  net: enetc: add multiple command BD rings support
+  net: dsa: add NETC switch tag support
+  net: dsa: netc: introduce NXP NETC switch driver for i.MX94
+  net: dsa: netc: add phylink MAC operations
+  net: dsa: netc: add more basic functions support
+  net: dsa: netc: initialize buffer bool table and implement
+    flow-control
+  net: dsa: netc: add support for the standardized counters
+
+ .../devicetree/bindings/net/dsa/dsa.yaml      |    6 +-
+ .../bindings/net/dsa/nxp,netc-switch.yaml     |  128 ++
+ MAINTAINERS                                   |   11 +
+ drivers/net/dsa/Kconfig                       |    3 +
+ drivers/net/dsa/Makefile                      |    1 +
+ drivers/net/dsa/netc/Kconfig                  |   14 +
+ drivers/net/dsa/netc/Makefile                 |    3 +
+ drivers/net/dsa/netc/netc_ethtool.c           |  192 ++
+ drivers/net/dsa/netc/netc_main.c              | 1561 +++++++++++++++++
+ drivers/net/dsa/netc/netc_platform.c          |   89 +
+ drivers/net/dsa/netc/netc_switch.h            |  155 ++
+ drivers/net/dsa/netc/netc_switch_hw.h         |  356 ++++
+ .../ethernet/freescale/enetc/netc_blk_ctrl.c  |  188 +-
+ drivers/net/ethernet/freescale/enetc/ntmp.c   |  391 ++++-
+ .../ethernet/freescale/enetc/ntmp_private.h   |  120 ++
+ include/linux/dsa/tag_netc.h                  |   14 +
+ include/linux/fsl/netc_global.h               |    6 +
+ include/linux/fsl/ntmp.h                      |  233 +++
+ include/net/dsa.h                             |    2 +
+ include/uapi/linux/if_ether.h                 |    1 +
+ net/dsa/Kconfig                               |   10 +
+ net/dsa/Makefile                              |    1 +
+ net/dsa/tag_netc.c                            |  180 ++
+ 23 files changed, 3638 insertions(+), 27 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/nxp,netc-switch.yaml
+ create mode 100644 drivers/net/dsa/netc/Kconfig
+ create mode 100644 drivers/net/dsa/netc/Makefile
+ create mode 100644 drivers/net/dsa/netc/netc_ethtool.c
+ create mode 100644 drivers/net/dsa/netc/netc_main.c
+ create mode 100644 drivers/net/dsa/netc/netc_platform.c
+ create mode 100644 drivers/net/dsa/netc/netc_switch.h
+ create mode 100644 drivers/net/dsa/netc/netc_switch_hw.h
+ create mode 100644 include/linux/dsa/tag_netc.h
+ create mode 100644 net/dsa/tag_netc.c
+
+-- 
+2.34.1
+
 
