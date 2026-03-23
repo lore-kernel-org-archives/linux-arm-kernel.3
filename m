@@ -4,97 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3BEF46139
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BD1F4613B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+UUACqAEvJ8nDbjPv0hUOrpaSay71+UWgCtj8ajV1Q=; b=AUeJ+y5LcW5FylSEMWiy4G8C1f
-	gSGZXEy7TkBHL5JDqpcpeP4NzRyNBJKqI+PBozJ/wdpNgsbkzdUDJO8zV3yVEJ66L9Kb+EVq/ZPT5
-	RrD8Rpr/1OM6VE5alMYOGcMU7iVKBXM4jt4kJJpbA8r60qWWhuIatCtDMSkn7z+3hNRSrbxCl8aHw
-	S9Cp1/vu7RsA/ZVCeTfWupt7YDPUv//xjAnhuwKCqYjrzlkEldWveDDX0F+wR3OKRAZS4Lwr7keu2
-	ks9KhRCtrCI/W9RVCByGmtmAkjELvuGijqVueYUCCk8E5jaxrD4EWWdPwQP93Tvn2ohMglZ5v/Rne
-	b+d9UIpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+UYSRLmdUz8m2ECEPbWoYNIW4mZEno4VBvItMsoE48=; b=axKCLhhjv92J1rv4kE5o91HWSH
+	q2L+rcxPs4mRbSstOXrpeN0oq6DmHNOq93JnSqc7aXEkLH3/AW54xT+1mjUYxZvY9b8kO6iNvRQFZ
+	UhWPKZyim8/RVBfGFEH9VAM2oCH9y8gxT/cW3vXdWSOnDUOvdgwZis49DetyV+/5NGEQNhC8fKfRN
+	dx/nHNE00SymMYLDwTzGVyZaNukUzBcVhs8GzhAEtWZ9N0FDxXXMG73L4dqrO+sXcjgSy2DOmo1tS
+	u5WhNCb4K2UgdnC2febDfzBce1EkMMdkFeQ/wg5kU4BCMIHlWk7xnSly2fiZhLVG0M8WfY0hXBuZg
+	Vg0CXe4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hQE-0000000H3O1-0xds;
-	Mon, 23 Mar 2026 15:42:30 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1w4hR7-0000000H3U3-2QCx;
+	Mon, 23 Mar 2026 15:43:25 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hQB-0000000H3Nc-0SYX
+	id 1w4hR5-0000000H3T9-0HAZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 15:42:28 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-43b7ffed973so150948f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 08:42:26 -0700 (PDT)
+	Mon, 23 Mar 2026 15:43:25 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-35842aa350fso23379585a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 08:43:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774280545; x=1774885345; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d+UUACqAEvJ8nDbjPv0hUOrpaSay71+UWgCtj8ajV1Q=;
-        b=kJ/0oylWHneA+0ZXyMHJcYvzTFuxSS2gFdgXsMLt9BZtkzGbc07Aim5bhOJDWU7Md0
-         1iZyG+PJMSwtV3zQT85l+ar4IPdY2t+0Vn0GAdBzoZdt9be9PvztmN6/du/gRZAXifDA
-         KH9BrZ51RH4VzBgEKs2HOlNvzdou9O9T/mEd9Lmrrufyp27VYJC17OeZmqqknWQ0dH46
-         OEui1Zs671HdqK/gILGicleQM9UTNfnZFSFa5tm5LPy8H4hWP3DvnVAlh23hKX+lCbe5
-         u3E2faa1FqnOEf258tuZzMak6g3M/8DsBe3/Z05+jxB9mwozFv/d2Ed/RMG81WAYHtKc
-         KbPQ==
+        d=google.com; s=20251104; t=1774280601; x=1774885401; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=V+UYSRLmdUz8m2ECEPbWoYNIW4mZEno4VBvItMsoE48=;
+        b=nuOmxzQoh1BeBKJhNHRCs1uCxc4PNfr2pTJZgPUy3zUOPy90jGgtHZPkzP2yOfrNor
+         MAhNvbrI8M3o1bt/XfEEnJq8QRzMzU1dYWoqMxngmf4u8weu5uny8eOIR0k+cdW4pN6t
+         qE9QSaNU0hHL93LOZN+QxPm8pBC+VZCLq7l9BQE11OGo60+DsZzH+IeJ84D05vS2KIft
+         pvD9s3nM5XaAqw6L+LYf0tmlTd7joO/8RMau8ShQVCmOKwivbBoA0rN3aAAOc3Hes6i4
+         MLLjPuBY5P3TpJjwRII88DOw3RtmYB7xQVnCOrigRimkVHX2090dQpWVNYN9t20AtZ7P
+         Hvdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774280545; x=1774885345;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d+UUACqAEvJ8nDbjPv0hUOrpaSay71+UWgCtj8ajV1Q=;
-        b=Z2gGuktI9Ot6w+hQnGf8EEIs0l8oiLXUIXKZHzI4dIat+ssmGr6OElBVRwjwj3ZWAK
-         zR1iLSOl81fNdo57DVm81ytOs1jjn5ODWyikSpJYoOjmSrN4Ch0ih/13qqqvugHUzP98
-         5wj0x9OqivwNlCxcxDUSUH/XgnArsCvy65xFMwx3ZXXEYAVB9M0VrkczukLWi5aFXYkr
-         yQSHerwaMzKFX0pd08lRhKdVP823diEnwqNELV6eGqjRmFxTB5IDI/2fLomCHVIat5Fc
-         6kPbulKYhlJOLhmJ2e2MwgxJ1tjTTuxH+QYBdguAvSGTFYgldyauc72F5o9BFhLjSfHI
-         E77w==
-X-Forwarded-Encrypted: i=1; AJvYcCWGimOYd4KHfY2liTnQc4WvkX5d0OT5GpUzHEiMYLXtuKSaxsxV9CeV/I6IFHqUvdGmBe9gKEVOWvhM2VwhKHkl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7R6GCJrCN+TqxIvGPTIECrat5S2fLjOMi4dZek/jvKkVee6/u
-	izaZaT1n2b4trkCdUTXBMfcJ3XCF3wMgt+OBuu46/ZXSGLDs6TP8ZxtHwpml9vzmH9g=
-X-Gm-Gg: ATEYQzwk2QnvhGi8MCwP2opQKxooKJpzsnYK4klq7fg/eoXyb2OewjrocnelNwbfmyI
-	EyT6+J877epV7K8ImaFHClb+qMaP+EocqZO2hrmxIY+L6ZmRuMWWYyopczX9s11kyiwbqHyg6+v
-	CqqNEHUZqA1FlquZpNgFuhcEvyHPiqZ50E8VnWIhP0SzFep5/YWBFbvny8r+TQS3PcMEKg9JIq3
-	9+In/ZKZIxrznDXWcIrj0s2mu3YzOdpZrid7GSUsk7WK2CHOBQ972aRcOET21IO8AAG1sYUx/UR
-	I55MI/jgQRRv7DJPokYtdRfDfO3WWrvKfb7JmJZ3TFzf8uk8b5PgfOQ9rPmBlQkF118DLYl8bNA
-	QuPp3eMEUWOSrDgGmPXYjLptR7fnOLCCDjuQ84x+OfsAPdZFjPbtANHm3CfyJY89ZVufPcdMPAW
-	Pexa0d3ZsVyTePwZPsELlJYZLSoejq9xk6/Hv2zG3e/InPin8Eim01v7W1qeYoa/0ZjAIha/yHr
-	sepUhWOrxV6
-X-Received: by 2002:a5d:5f53:0:b0:439:be04:13c4 with SMTP id ffacd0b85a97d-43b6423d85bmr18780048f8f.4.1774280545056;
-        Mon, 23 Mar 2026 08:42:25 -0700 (PDT)
-Received: from localhost ([94.4.193.72])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b644acb52sm32068966f8f.7.2026.03.23.08.42.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 08:42:24 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774280601; x=1774885401;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=V+UYSRLmdUz8m2ECEPbWoYNIW4mZEno4VBvItMsoE48=;
+        b=A8CEX8TX9OlahqyC0msT3Bl+dLhEUJ9qxaCYdoJlZzdrA5NSvzIq09Cgj9o8/A4bEk
+         44eQmlmNwudUAeRVkh4t/1WvT4Vde2NLkEtcgfKH5H0uRuPzP5h+I6tnT6u7dSFUomTL
+         vVOOHgcV0swseHXKwC5DUIcisynTo2Cm0PMM6m8cwZ+4v3nu7d3BYAP8rZMueOg4/0k1
+         K6bu7TyQVr7bB+vRGvFXeYiIheRArK5ZdY+qiatXaMV9xPCHLgk7MNDsbb6uffsyius6
+         w3vX4FtOgSXnBInKABY5VmBZjUFGQytC4/UEzRyfLPv5WzPyWLtFXzCLLaAslGFwx5xe
+         sD4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXXXExhhuELVsclyMqkqgSEE84JNSDfxPvJJYmoc57gN+NF2k4LnKtjFF+cS01noa+KuzFLDKskn6NtuB7C65iD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrISzoaY78za7hM9+ToSG61R47SbhnA7rXOXZ5TdjIqTfSSCpW
+	MrujJwnRhg3Zq2wTXJE0r35oCJZZML+N+6GWOlO4+BWpEqiu5x/OJaCNiT7xaQ51ldnOAPjk57H
+	hsu28sKflRGHigSCdiEuXogp8YQ==
+X-Received: from pgbbw35.prod.google.com ([2002:a05:6a02:4a3:b0:c73:fc44:8bb5])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a20:7d9a:b0:398:90e5:a9b9 with SMTP id adf61e73a8af0-39bce9f7ac5mr12047793637.27.1774280601248;
+ Mon, 23 Mar 2026 08:43:21 -0700 (PDT)
+Date: Mon, 23 Mar 2026 15:43:16 +0000
+In-Reply-To: <CABb+yY2aAiAFU5iCBmBdpkTM6_4VMh7BFPbwKxwt-gdN-qqLWw@mail.gmail.com>
 Mime-Version: 1.0
+References: <CABb+yY2aAiAFU5iCBmBdpkTM6_4VMh7BFPbwKxwt-gdN-qqLWw@mail.gmail.com>
+X-Mailer: git-send-email 2.53.0.959.g497ff81fa9-goog
+Message-ID: <20260323154319.3523356-1-joonwonkang@google.com>
+Subject: Re: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
+From: Joonwon Kang <joonwonkang@google.com>
+To: jassisinghbrar@gmail.com
+Cc: akpm@linux-foundation.org, andersson@kernel.org, dianders@chromium.org, 
+	joonwonkang@google.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, maz@kernel.org, shawn.guo@linaro.org, 
+	stable@vger.kernel.org, tglx@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Mar 2026 15:42:23 +0000
-Message-Id: <DHA9YL83GF3E.VOMD4KV10NLW@linaro.org>
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Alexey Klimov"
- <alexey.klimov@linaro.org>, "Sam Protsenko" <semen.protsenko@linaro.org>,
- <linux-samsung-soc@vger.kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>
-Cc: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH RFC 1/8] dt-bindings: soc: move and rename
- google,gs101-pmu-intr-gen schema under soc/samsung/
-X-Mailer: aerc 0.21.0
-References: <20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org>
- <20260226-exynos850-cpuhotplug-v1-1-71d7c4063382@linaro.org>
- <b02f06e1-dac7-4521-bf5e-471b5575467d@kernel.org>
-In-Reply-To: <b02f06e1-dac7-4521-bf5e-471b5575467d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_084227_171623_3B3A3DCC 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20260323_084323_133164_23862AB8 
+X-CRM114-Status: GOOD (  31.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +93,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Mar 7, 2026 at 5:03 PM GMT, Krzysztof Kozlowski wrote:
-> On 26/02/2026 16:47, Alexey Klimov wrote:
->> The GS101 PMU interrupts generation block is actually a standard Samsung
->> Exynos IP block found in older SoCs like the Exynos 850 and others and
->> not exclusive to Google SoCs. Thus, renaming to
->> samsung,exynos850-pmu-intr-gen, moving the schema file to soc/samsung
->> directory to reflect its origin, since Exynos850 predates GS101 SoCs,
->> and preparing for adding Exynos850 description.
->>=20
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  .../samsung,exynos850-pmu-intr-gen.yaml}                              |=
- 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>=20
->> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-p=
-mu-intr-gen.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,ex=
-ynos850-pmu-intr-gen.yaml
->> similarity index 80%
->> rename from Documentation/devicetree/bindings/soc/google/google,gs101-pm=
-u-intr-gen.yaml
->> rename to Documentation/devicetree/bindings/soc/samsung/samsung,exynos85=
-0-pmu-intr-gen.yaml
->> index 2be022ca6a7d..f9b40f3fd165 100644
->> --- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr=
--gen.yaml
->> +++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos850-pm=
-u-intr-gen.yaml
->> @@ -1,10 +1,10 @@
->>  # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>  %YAML 1.2
->>  ---
->> -$id: http://devicetree.org/schemas/soc/google/google,gs101-pmu-intr-gen=
-.yaml#
->> +$id: http://devicetree.org/schemas/soc/samsung/samsung,exynos850-pmu-in=
-tr-gen.yaml#
->>  $schema: http://devicetree.org/meta-schemas/core.yaml#
->> =20
->> -title: Google Power Management Unit (PMU) Interrupt Generation
->> +title: Samsung Power Management Unit (PMU) Interrupt Generation
->
-> Rename is fine if you add here compatible, otherwise the name does not
-> match the compatible.
+> On Mon, Mar 23, 2026 at 12:14=E2=80=AFAM Joonwon Kang <joonwonkang@google=
+.com> wrote:
+> >
+> > > The active_req field serves double duty as both the "is a TX in
+> > > flight" flag (NULL means idle) and the storage for the in-flight
+> > > message pointer. When a client sends NULL via mbox_send_message(),
+> > > active_req is set to NULL, which the framework misinterprets as
+> > > "no active request". This breaks the TX state machine by:
+> > >
+> > >  - tx_tick() short-circuits on (!mssg), skipping the tx_done
+> > >    callback and the tx_complete completion
+> > >  - txdone_hrtimer() skips the channel entirely since active_req
+> > >    is NULL, so poll-based TX-done detection never fires.
+> > >
+> > > Fix this by introducing a MBOX_NO_MSG sentinel value that means
+> > > "no active request," freeing NULL to be valid message data. The
+> > > sentinel is defined in the subsystem-internal mailbox.h so that
+> > > controller drivers within drivers/mailbox/ can reference it, but
+> > > it is not exposed to clients outside the subsystem.
+> >
+> > It sounds that it allows future controller drivers also to refer to the
+> > new sentinel pointer value.
+> >
+> Sentinel value is not the problem, active_req should have been hidden
+> from controllers. Which is actually respected by all controllers
+> except the tegra-hsp.c
+>=20
+> > >
+> > > Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
+> > > Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
+> > > audited for regression:
+> > >
+> > >  - Most already work around the bug via knows_txdone=3Dtrue with a
+> > >    manual mbox_client_txdone() call, making the framework's
+> > >    tracking irrelevant. These are unaffected.
+> > >
+> > >  - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
+> > >    the poll timer now correctly detects NULL-active channels
+> > >    instead of silently skipping them.
+> > >
+> > >  - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
+> > >    caller that omitted the knows_txdone + mbox_client_txdone()
+> > >    pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
+> > >    missing mailbox TX done acknowledgment").
+> > >
+> > >  - No caller sets both a tx_done callback and sends NULL, nor
+> > >    combines tx_block=3Dtrue with NULL sends, so the newly reachable
+> > >    callback/completion paths are never exercised.
+> > >
+> > > Also update tegra-hsp's flush callback, which directly inspects
+> > > active_req to wait for the channel to drain: the old "!=3D NULL"
+> > > check becomes "!=3D MBOX_NO_MSG", otherwise flush spins until
+> > > timeout since the sentinel is non-NULL.
+> > >
+> > > The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
+> > > by clients.
+> >
+> > The other, but I guess more important, tradeoff is that future controll=
+er
+> > driver developers should now know that the pointer value of `->active->=
+req`
+> > could be -1(=3D=3D MBOX_NO_MSG) other than conventional pointer value(m=
+emory
+> > address, NULL, or error-encoded pointer value).
+> >
+> That should not be a concern. Controller drivers shouldn't peek into
+> mailbox internals
 
-Thanks, I'll rearrange commits then to make it sane in the next submission.
+Thanks for this clarification on your intention. This resolves the afore-
+mentioned concerns.
 
-BR,
-Alexey
+> and if they do they will know the sentinel value
+> being used.
+> For example, of the ~40 drivers, only tegra-hsp.c chose to (not had
+> to) use active_req and it relied on the sentinel value, which will now
+> be MBOX_NO_MSG.
+>=20
+> Thanks
+> Jassi
+
+Thanks,
+Joonwon Kang
 
