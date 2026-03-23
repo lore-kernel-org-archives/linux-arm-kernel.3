@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9594EC01D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EB0EC01DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vV532aEbVbKjSBZ8fOcIUS5jUDl3wqrJOvveGpsT9Do=; b=IFbC6qEKWs/o06r/tBtx0g2mAH
-	UkAX+ZMbhBCFd8HEhxsS/uWbb6fwW77Cl/j0/p2W1wMkXp6wdCRY+1Hv6DwyA7icC/+jz+aywvGXS
-	OpglXycKK/EJYGBbJ9zf+hz4yA7OHHN5ssuD8KOI3k9WjFzbjuJQk/rlKmkntnKtaKBnnJOsH1D8d
-	ym8ngM1ZhPm5Df0IWPB/jxqnP88OH++7tVkQSAfXocTSVxtuHxMM4cFPGk6zxefbONTD1+WsrszEb
-	x/MIWoZTNddlrzDqm72DbAzAjseWPLaZxtOgeNQ3bgOlVmw1RcMdBoCPQ3M8DaRfOKp0mBhYhlI4A
-	qOv98v5w==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zKDB0jdoKZi39X8HPp068xWyfksBFW34kbhM9caEeH0=; b=mSb1I6SON9nrbj6kwkEPlz/Mo/
+	53SLY83SnEcewMtZ7nqJ/RzydQ1Jg5jV2Ra2FmMSUS+ejEpY0xVAv7H48vbKv5Ic6pFjMWYVazjw5
+	hNLm5vWjuemmCkhctCBEhxEPEpuvjmO0SFiQMo55S+LtDifVAb2wMtTcoq9FF3GvhTu41DFq+snzz
+	t58SsJLPH6qdrt5AvtFWCNfRFsByEeps16+vRNu4Xn11ayQwkCuWAq4cBJDuuaESvBP7GX2a6KjOx
+	N+neV4NjVrAWOGToEfXBjR1dBvNGbQ90QFuj1GATbyJiGK7YwAvhzCQfJybO2XufdZ1wYXQrkr+UW
+	mMdpX4lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dls-0000000GeAJ-3UVf;
-	Mon, 23 Mar 2026 11:48:36 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1w4dlt-0000000GeAe-1aEe;
+	Mon, 23 Mar 2026 11:48:37 +0000
+Received: from mail-japanwestazon11022102.outbound.protection.outlook.com ([40.107.75.102] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dlq-0000000Ge99-1o3t
+	id 1w4dlq-0000000Ge98-26GC
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 23 Mar 2026 11:48:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S2B69WFQlf46Mgk+wju5E1kFLBpSaOoZX+WHmO/C6bvinZZ7FAaVlYpjAe/QHAjBFV/V+GR3nY57x1fKDG4bs700GwIxlXx4YzleAWkUpOgpHxOXnIpQwFf03ZeljM7azqGXjTDA3nLh/BqZSTFfThHVoYWwwOz1pDwQG8FGVxqsrLvY2StZrxkLDaq29mtiSJBzC4/3rnn5RNJ6bUpN5/+4f/f7vcEWMELJUOEmiIquM5Bojt+rVuRn4Yf5ruihvdZ5HXFBqB+gaB5AhcvgerDOZvodXKJQSi8EuXAVcHAATCWkj/Tnlv5sp2quE7xxGnzFs73DrXcUkpIsSzUPsg==
+ b=kgOBIZ2O42eHpzUac7gA29SwuK9FxR77OaQA2VEsI7iHjZomVoEKdqVOqIB2mwZmIye7w1LGydqzi7gNKfUBd8MU24lGU833JbpXW4zHhGpVO4aBrdJOJ/O7Ilx4heZuPYZhh42aADFpLF4q7Ntd+h1WtDXDAM/txbUVwXgFz1s6h45KrUXyLtiHBD5I4wsapJ2a1Zsn2AbhHYMnuUyM683ZKLvXuQH6NfzDzdbrcUIyS/EvJfJvDixboS9Hqn+32M+0nSZh7a9yT7FRiGk/sFPlDTRASYLe6/oNowNKPKaNKbTuTn2fa49CuA9PwUxW4mZmPUfB5kmRUjVxnmGvVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vV532aEbVbKjSBZ8fOcIUS5jUDl3wqrJOvveGpsT9Do=;
- b=Kn0anWcCxBBPDlr3QrW/vJUd97/wvLx91+czif+3ZIuSzX/ssOsMwk+9SWArP+bWQDNpAK+O61VKQfZi2QGmb/9NA5LX/bWRf4P0ZLshDW1tP9zCXF5ruzJw6Kh2lQyxWkigD+5YjbRjcnV9KuuqAE10QU0PYo1frP8mG2sJ2e/acj/7/BCBiXVy57mw1+yzxao9+a5oyS7PSFXKPCljJZJts2LWDD9FRfTRBmNn39tC80D86/9BqBLA67qAEFDAIw0wBCS594LuzucoVnOly5FP+muB3XwB7eRk4dOKm0kA48EOePtxjPBunsMiviSmEqMmSWOtS11LFtlXGKwOHw==
+ bh=zKDB0jdoKZi39X8HPp068xWyfksBFW34kbhM9caEeH0=;
+ b=k8v4nku1v3aOFQfBm6lh9PjFn6mPSTKWGZiVeA7TEKRJVKt2lUXkYs5hBA1H2NN8G5Gvox+aljXgEHFxlx5W5N28/jf3HJhOaIEArUS7+gb6Kvq4o9PLCe8FX88bFjse5UwKOrLHAfWYOJ8BcojdxSxYTvvohB6fa12wHFPqjpF8t6vOS3cMLYufXR4DRkS2bWZ49hSd2isHqK439gHlcJjD4jROMD9hJuK6ae3SPlSLyGH/FqumJOc5RDzLshUdOB6cdmz0lnHQMbwuTb0VhviEOpAq/SSgn90zHIThGoSjxSeeduf/JHBz7juxEnFrfgBPxw9fF986nyWwKPpEjg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from TY4P286CA0134.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:37f::6)
- by TY2PPF7E205D1F6.apcprd06.prod.outlook.com (2603:1096:408::799) with
+Received: from OS0P286CA0155.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:16a::6)
+ by KL1PR06MB6906.apcprd06.prod.outlook.com (2603:1096:820:128::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Mon, 23 Mar
- 2026 11:48:25 +0000
-Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
- (2603:1096:405:37f:cafe::ab) by TY4P286CA0134.outlook.office365.com
- (2603:1096:405:37f::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Mon,
- 23 Mar 2026 11:48:25 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
+ 2026 11:48:27 +0000
+Received: from OSA0EPF000000CC.apcprd02.prod.outlook.com
+ (2603:1096:604:16a:cafe::37) by OS0P286CA0155.outlook.office365.com
+ (2603:1096:604:16a::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.25 via Frontend Transport; Mon,
+ 23 Mar 2026 11:48:27 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,12 +55,12 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
+ OSA0EPF000000CC.mail.protection.outlook.com (10.167.240.58) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Mon, 23 Mar 2026 11:48:25 +0000
+ 15.20.9723.19 via Frontend Transport; Mon, 23 Mar 2026 11:48:26 +0000
 Received: from guoo-System-Product-Name.. (unknown [172.20.64.188])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 397204126F88;
-	Mon, 23 Mar 2026 19:48:23 +0800 (CST)
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id ADB444126F83;
+	Mon, 23 Mar 2026 19:48:22 +0800 (CST)
 From: Jun Guo <jun.guo@cixtech.com>
 To: peter.chen@cixtech.com,
 	fugang.duan@cixtech.com,
@@ -78,40 +78,37 @@ Cc: dmaengine@vger.kernel.org,
 	cix-kernel-upstream@cixtech.com,
 	linux-arm-kernel@lists.infradead.org,
 	Jun Guo <jun.guo@cixtech.com>
-Subject: [PATCH v4 1/3] dt-bindings: dma: arm-dma350: document generic and combined IRQ topologies
-Date: Mon, 23 Mar 2026 19:48:20 +0800
-Message-Id: <20260323114822.1925869-2-jun.guo@cixtech.com>
+Subject: [PATCH v4 0/3] dmaengine: arm-dma350: support combined IRQ topology
+Date: Mon, 23 Mar 2026 19:48:19 +0800
+Message-Id: <20260323114822.1925869-1-jun.guo@cixtech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260323114822.1925869-1-jun.guo@cixtech.com>
-References: <20260323114822.1925869-1-jun.guo@cixtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|TY2PPF7E205D1F6:EE_
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CC:EE_|KL1PR06MB6906:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 158d76f5-c817-4f4d-6a3b-08de88d217ac
+X-MS-Office365-Filtering-Correlation-Id: c6144477-9882-433f-8ba7-08de88d21829
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|1800799024|82310400026|56012099003|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: +4vQmSNEUsJpwjQkVw/da556zt7xu3bAylvwb9SV4ch34XKXATKkPudvLmJf0agaK+F4YlvIEXdDnBCRTTmBmG28O/gBDAzz4D+MieUNRNdK6OfcFi2m0Zcz3oeQwBp6Q/AbAAMzFCVof06bxjZBVmW8zrThSu6gMT9AN+QOoiwIi+xCxdiQlp8sV+uQrKOmAdUnnqU1EUzRztR5NYemEZGnp2CdrNCHuizEG5H+IAtPs62uUt4OpXfsN1NR4cIjC8C5qKKTbd+LZJ8NPZgpk8W1pYv7jGhu/9Xs8xwjNtyonbgFapqwifyejgqS6tutOg7C7xfFNYUYEee8mhJwBYIT226LuKxjGco7KflDEguw6musNUtOtAQRkLQhbd1gzh4Wdk3hThYlMrwCGFCMBenLVkxNehNiFYCO8y2PTLCCb3WxMSBifYOHKTxV1cNkc0NyJujpPcT/qZmx2t7AOsoEV/xAM31BFhuL8eI5eLM7oy4c/s6ivci/TSGKqmRHBlshqbDG98cORHV27WRYeYYyT73GyvYKMvRn8fg+JRZUnLwHfObEB5M4yQ4FmJ4K8rxtoisti727QrtZFRvZiqVIM5n5/bKRVjpUV27Fdp22eBYBsWMtYM2PV6G/YN5gPx8U9+0F4qUionS56kSSJlQlxlQMXmXvfqA2OVClvhbm6vfEVfPQn4I0ipfyQXqwlKmc0g72jJ3PvrnK13oV5OHr1xMAR7xUr32femJ5y4dT++ZUGBesmsI+8GtdwAFw/PRR2ZBr9s4zt4KHwAfRtUep2/oJ1nVtOQv88WqbSUTcFEdSXnOX1UW9SuYmyFbH
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(1800799024)(82310400026)(56012099003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700016|921020|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: hoXNjqyFEsr0LXO8FGGf52Y0Wxajmht4ruX9bxa0UpMz0hXgaJUj2w+iHlaadfJL689trNqIc4LPvmsbcIdnluLVCKuZokkbpFgKcjdX40iJ57VDKDCfEx+iI2Nu2DGKF7hjGZLYTmX0hqTWEtN1XC/CI8auGGuzarCBROtFMPj/fWCaa6lKFH6ReTH8YwtmJB6qDeFK7E2rdhqXt8XSRMdC6IG2t3zFap/yEZjmxA4Yi2tHNksPBOzLSflyZPtHrUUwynycN/dh2fOZfoubjBOjlwgBJZll6R0n57eN3gFjWhKza2Ofn8uk4LnPjrOZ0q21hSMVeAB9LVb9ov0wkFvg1jTkAjRyG6xxfRo+1NsAbyE4/WCSmO2y3Fl6Cy2GFyRnl9LA7+lw+y67WF11Pjfj4cs6m/pkzFQasEsHP5QTy6isfaiJh+T6zvsM7q+TzPa7B5oqUcqR6hVAx585J9oVzCR6pS6FNB58w9TshrJjPoZwH5j1739HDZO45HW1opHLYDV2+YlLZpwZQ235eH/LFL+NovBQsrPEBfPzqN28heSH96dO+giO42+4/srKRVaEaWfyOu8Hg1nEA/qANk3FTqc00dpNTrSUnsNIRQuQH4El1o6cQxRaovW62y83AW9fCdrNvYRxlIgFjW5KIGNSlWIuDM3qc7b2LCsRzNtuiQSTRSyW99F3hESYp/79nvrK9+0njvbWTNyl3jTUfJmxKGTg+/wAJHphkkCSJ3C51Azx16Qzudw0WdYP3UwF3/ZcCxwDviBtLhGyOqApqFyLOwl0/cpQ5QKn4B75pCWMllgdZql6OyQGkvf/BUd0
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700016)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lzsl7ugjDZ293ozU2gm8WHR7aXgNip/RKR47Ep489oFvv6IkiAe6f2+JI1fwJ14bmXqX9qOIA5f6ZeedpJmj/ZGLdINz2ocmvzp0e7NOukjWfzE/pgUoxzNEEf3aFjewsk3Q02GxFag6GsfD2btN1dzde/uWbwPhEpXPGysjUes25aTamIrPP19iE68C1+AqY3lll8jPPmucSDHxrnDpyCqeZomMtNNscjQMuQNUFAsqSAohn5za9KEeEA8lUmj4m7ipwwz/Rq3Nd5sKDmNKhdfD7gJw7bJM0KdPXfyz4bS5f7qen8H2KUOhYupkK89ZdAqaShdfA9E4jeqP/tsUp94bP9BwTwdshcXWgdmyf15Tie0iMj1nmLFInLJcrJ8eH7aFKTGfP0LiJMlSsrjRlcwkmt06d8Gnevho/khSItEOVzUQpPXcxm7CcxgkL6eb
+X-MS-Exchange-AntiSpam-MessageData-0: D5YiKiYWqXAXpxFgEKYm3kWhk8cecbcSKfVxqnzhTsleQmylT1A/Omexzmul8KJsIvc29RVTi4nkWJYxQD7AYnO7GrVFwhnD4ujepgQM0j3jQrG9eY4J4gN/0rua0FdY2bJ0sdj8d6xRI0Y2bNc5y/jCASm4U0EOB12kxqOJQx2z6FCcGRd/nZELjdJxv5TrdvaIwNqCj6Y1iU8hNNPSKg1Nys1yII12z98vLGMrpxnuSuoFDGEDmzZT72Hr2ys0a28kVKU6N/KLhQELVZiCUuW7FKpZBVntwoE0uAoBlKJxKSvDtJLtIYzs1G6YpES9jFzQzpHj5QeZFg2g0P5WKB9QYIkKeNtGp/AjxjWqFjGHUqqr/ClQjmG/blvpAQUbZ6sTnxSMXbrW/NSS+Vs8iZvYCidn8eFk/uNpqmK1dauYdRP3xNuO7YVvEUzxhrP+
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 11:48:25.2284
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 11:48:26.0483
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 158d76f5-c817-4f4d-6a3b-08de88d217ac
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6144477-9882-433f-8ba7-08de88d21829
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB87.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CC.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF7E205D1F6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6906
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_044834_489558_261D3084 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_044834_544651_A55983EF 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,75 +123,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the DMA-350 DT binding to match the current driver behavior.
+DMA-350 can be integrated with either one interrupt per channel or a
+single combined interrupt for all channels. This series adds support
+for the combined IRQ topology while keeping compatibility with the
+per-channel topology.
 
-Allow both:
-- "arm,dma-350" as the generic compatible, and
-- "cix,sky1-dma-350", "arm,dma-350" for SoC-specific fallback usage.
+Patch 1 updates the DT binding to describe both interrupt topologies
+(1 combined IRQ or 8 per-channel IRQs) and keeps "arm,dma-350" as the
+generic compatible, with optional SoC-specific fallback compatible.
 
-Also document interrupt topology variants supported by hardware
-integration:
-- one combined interrupt for all channels, or
-- one interrupt per channel (up to 8 channels).
+Patch 2 updates the driver to detect IRQ topology at runtime using
+platform_irq_count(), handles both modes in one code path, and enables
+DMANSECCTRL.INTREN_ANYCHINTR only when combined IRQ mode is used.
 
-Assisted-by: Cursor: GPT-5.3-Codex
-Signed-off-by: Jun Guo <jun.guo@cixtech.com>
----
- .../devicetree/bindings/dma/arm,dma-350.yaml  | 34 +++++++++++++------
- 1 file changed, 24 insertions(+), 10 deletions(-)
+Patch 3 adds the Sky1 DMA DT node using the combined IRQ topology.
 
-diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-index 429f682f15d8..47091614d1b4 100644
---- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-+++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-@@ -14,7 +14,14 @@ allOf:
- 
- properties:
-   compatible:
--    const: arm,dma-350
-+    description:
-+      Use "arm,dma-350" for generic integration. A SoC-specific
-+      compatible may be listed first, followed by "arm,dma-350".
-+    oneOf:
-+      - const: arm,dma-350
-+      - items:
-+          - const: cix,sky1-dma-350
-+          - const: arm,dma-350
- 
-   reg:
-     items:
-@@ -22,15 +29,22 @@ properties:
- 
-   interrupts:
-     minItems: 1
--    items:
--      - description: Channel 0 interrupt
--      - description: Channel 1 interrupt
--      - description: Channel 2 interrupt
--      - description: Channel 3 interrupt
--      - description: Channel 4 interrupt
--      - description: Channel 5 interrupt
--      - description: Channel 6 interrupt
--      - description: Channel 7 interrupt
-+    maxItems: 8
-+    description:
-+      Either one interrupt per channel (8 interrupts), or one
-+      combined interrupt for all channels.
-+    oneOf:
-+      - items:
-+          - description: Channel 0 interrupt
-+          - description: Channel 1 interrupt
-+          - description: Channel 2 interrupt
-+          - description: Channel 3 interrupt
-+          - description: Channel 4 interrupt
-+          - description: Channel 5 interrupt
-+          - description: Channel 6 interrupt
-+          - description: Channel 7 interrupt
-+      - items:
-+          - description: Combined interrupt shared by all channels
- 
-   "#dma-cells":
-     const: 1
+Tested on CIX SKY1 with dmatest:
+  % echo 2000 > /sys/module/dmatest/parameters/timeout
+  % echo 1 > /sys/module/dmatest/parameters/iterations
+  % echo "" > /sys/module/dmatest/parameters/channel
+  % echo 1 > /sys/module/dmatest/parameters/run
+
+Changes in v4:
+- Reword binding text to align with kernel style.
+- Revise the AI attribution to the standard format.
+- Remove redundant links from the commit log.
+
+Changes in v3:
+- Rework binding compatible description to match generic-first model.
+- Keep interrupts schema support for both 1-IRQ and 8-IRQ topologies.
+- Drop SoC match-data dependency for IRQ mode selection.
+- Detect IRQ topology via platform_irq_count() in probe path.
+- Refactor IRQ handling into a shared channel handler.
+- Enable DMANSECCTRL.INTREN_ANYCHINTR only in combined IRQ mode.
+
+Changes in v2:
+- Update to kernel standards, enhance patch description, and refactor
+ driver to use match data for hardware differentiation instead of
+ compatible strings.
+
+Jun Guo (3):
+  dt-bindings: dma: arm-dma350: document generic and combined IRQ
+    topologies
+  dma: arm-dma350: support combined IRQ mode with runtime IRQ topology
+    detection
+  arm64: dts: cix: add DT nodes for DMA
+
+ .../devicetree/bindings/dma/arm,dma-350.yaml  |  34 ++--
+ arch/arm64/boot/dts/cix/sky1.dtsi             |   7 +
+ drivers/dma/arm-dma350.c                      | 165 +++++++++++++++---
+ 3 files changed, 170 insertions(+), 36 deletions(-)
+
 -- 
 2.34.1
 
