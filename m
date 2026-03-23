@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1E0EC01B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3C7EC01B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCbZ2f0Kcl+hC4CPhtXEDMfwP+rqGeU660PawdGL7lw=; b=dOrpAJ8yFKyINvK4qw8wgwk3i+
-	hdEQ8ylaUiukozlCmcnjpP+vQRnNlciQd1vhRwP/5Mml4iTGL/kLlZ05D7lUbcAo31Y0UaK8JU/nG
-	mvMFYNYM7tRL6XfFlkIoP5OFj2uhx8as9t58YNQYms32ousxSty9OkRjgNR8mm+QMCvw2RJMsKlBN
-	RL81ACFUPJ1BBFkpD8ns0jr3w0BhOioeTAA/bcWRUjFU5Gh/z+sZaeVjCbICCeaccHKuTilEukKv+
-	yMbpAYCFur6Ci0rln/1NHyekShsjMWEn/oETtDSNz55Xq6lbJ4guODqysHuHB6x1ykRBp65jdS53i
-	57F5b7lQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mb0AvQgjgSknt3B21ENaWWdGHU3LKRYBpvSFRD1KkSQ=; b=csIlIZYMU09ZDBhqSSj44h2GfT
+	DmX7NsckKoXxjENs1huTOXU6+huPnlURZNh+QvFUJBU2JzvlW/A6T5s+WqN3Rdiz7fcbWn0kQmn0C
+	E1SuYi7vOhWIPcUhAFZZnDWxzg2ZfanUIegJmW4md/xxCqEmDH3vRCZy5pnpzmQ452+bkWFOtQfzt
+	BcwEIaBjccwkTyfIxPbqiTGrAhYQhY9enKdsp7ph03V72nAbZTcgQGFPdBQAAMKP+Uo2DCROqw4mW
+	YbfYPh/7Tnaol0b+JMWRdaMywA/llpdkwkmqlb7H7f37WQAyj/sBGU2y2F3U2XglD8JSRhlSBwjdl
+	Ts6NHiQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cAc-0000000GSXg-3eE0;
-	Mon, 23 Mar 2026 10:06:02 +0000
-Received: from mail-m15595.qiye.163.com ([101.71.155.95])
+	id 1w4cCc-0000000GSnB-1JFM;
+	Mon, 23 Mar 2026 10:08:06 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cAZ-0000000GSVX-1UuU;
-	Mon, 23 Mar 2026 10:06:00 +0000
-Received: from [172.16.12.43] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 37f14d637;
-	Mon, 23 Mar 2026 18:05:53 +0800 (GMT+08:00)
-Message-ID: <170a22d3-f1d6-4f71-97ca-db3edf689d93@rock-chips.com>
-Date: Mon, 23 Mar 2026 18:05:53 +0800
+	id 1w4cCa-0000000GSmo-2S8c
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 10:08:05 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 747CB225;
+	Mon, 23 Mar 2026 11:06:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774260406;
+	bh=iyWyNlV51BpyMkw7V5QwsB1bepmvYO6pQ+kULfmgUXg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rP0iqGlGqtP8yALjUej6Mzd+BVB60eXEQ+JfZWcKub/mOgG7qPq0t7htAkmAuKR6l
+	 pcPJxxSC8Y5eQh/zVpgf/X7zpucSMTQI379kjsX0oeUNsCOzHOeJ9jljDg7tBi10xy
+	 +bu9gvl5k6jlX9RfCE+CNiEW8lIPsvHWggzblZqQ=
+Date: Mon, 23 Mar 2026 12:08:01 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, imx@lists.linux.dev,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>, Jakub Kicinski <kuba@kernel.org>,
+	Joy Zou <joy.zou@nxp.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] net: stmmac: provide flag to disable EEE
+Message-ID: <20260323100801.GA1514659@killaraus.ideasonboard.com>
+References: <20260323093933.1785583-1-laurent.pinchart@ideasonboard.com>
+ <20260323093933.1785583-2-laurent.pinchart@ideasonboard.com>
+ <acEOGMHfYsxv3GOk@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] dt-bindings: display: rockchip: analogix-dp:
- Expand clock-names "hclk" for the third clock
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- alchark@gmail.com, cristian.ciocaltea@collabora.com,
- sebastian.reichel@collabora.com, kever.yang@rock-chips.com,
- heiko.stuebner@cherry.de, tomeu@tomeuvizoso.net, amadeus@jmu.edu.cn,
- michael.riesch@collabora.com, didi.debian@cknow.org,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260319104031.1986946-1-damon.ding@rock-chips.com>
- <20260319104031.1986946-2-damon.ding@rock-chips.com>
- <20260320-amusing-magnetic-harrier-20cc40@quoll>
- <311d143b-cc78-465e-9be2-0a9a0a33ea0b@kernel.org>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <311d143b-cc78-465e-9be2-0a9a0a33ea0b@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d1a28788303a3kunmafb06323593c9f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh5CSVZIHU0ZQxpKH0wdSkhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Fko7vEm8qr/yM2Scx5aIktLIO/rsbKX9HQLG3hxzupnw8xra/FYMjlKPI2owJHEspyFJD+ms/U9DaO5WfmxhCm2w1GQVeKDGIM+SQNwMZMvzBNT1QbEO9S3xjsmMIMpH/LWoSgi9tGb7pVcciBKkTO5ljMPe4juXCYwDkDNEcL8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=qCbZ2f0Kcl+hC4CPhtXEDMfwP+rqGeU660PawdGL7lw=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <acEOGMHfYsxv3GOk@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_030559_572567_3B88698B 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260323_030804_767370_F634C1B6 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +80,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On 3/20/2026 5:41 PM, Krzysztof Kozlowski wrote:
-> On 20/03/2026 10:19, Krzysztof Kozlowski wrote:
->> On Thu, Mar 19, 2026 at 06:40:23PM +0800, Damon Ding wrote:
->>> The RK3588 eDP controller needs the video datapath clock "hclk" to work
->>> well. Previously, it works without explicitly adding this clock because
->>> the 'rockchip,vo-grf = <&vo1_grf>' property implicitly enables HCLK_VO1.
->>>
->>> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add support for RK3588")
->>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>> ---
+On Mon, Mar 23, 2026 at 09:55:36AM +0000, Russell King (Oracle) wrote:
+> On Mon, Mar 23, 2026 at 11:39:32AM +0200, Laurent Pinchart wrote:
+> > From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+> > 
+> > Some platforms have problems when EEE is enabled, and thus need a way
+> > to disable stmmac EEE support. Add a flag before the other LPI related
+> > flags which tells stmmac to avoid populating the phylink LPI
+> > capabilities, which causes phylink to call phy_disable_eee() for any
+> > PHY that is attached to the affected phylink instance.
+> > 
+> > iMX8MP is an example - the lpi_intr_o signal is wired to an OR gate
+> > along with the main dwmac interrupts. Since lpi_intr_o is synchronous
+> > to the receive clock domain, and takes four clock cycles to clear, this
+> > leads to interrupt storms as the interrupt remains asserted for some
+> > time after the LPI control and status register is read.
+> > 
+> > This problem becomes worse when the receive clock from the PHY stops
+> > when the receive path enters LPI state - which means that lpi_intr_o
+> > can not deassert until the clock restarts. Since the LPI state of the
+> > receive path depends on the link partner, this is out of our control.
+> > We could disable RX clock stop at the PHY, but that doesn't get around
+> > the slow-to-deassert lpi_intr_o mentioned in the above paragraph.
+> > 
+> > Previously, iMX8MP worked around this by disabling gigabit EEE, but
+> > this is insufficient - the problem is also visible at 100M speeds,
+> > where the receive clock is slower.
+> > 
+> > There is extensive discussion and investigation in the thread linked
+> > below, the result of which is summarised in this commit message.
+> > 
+> > Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > Closes: https://lore.kernel.org/r/20251026122905.29028-1-laurent.pinchart@ideasonboard.com
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > 
-> BTW, all your patches (this and previous set... actually, everything you
-> ever sent IIRC) end up marked as spam. I don't see anything in the
-> headers pointing to the issue. There is no score assigned and
-> DMARC+SPF+DKIM pass.
-> 
-> However it seems you are using @rock-chips.com and SMTP server 163.com,
-> so maybe that difference. Or maybe it is rock-chips lack of DMARC policy
-> (p=none dis=none)?
-> 
-> Regardless of the reason, if you do not ever receive answers from
-> people, it is likely that is the reason.
-> 
-> 
+> As you are sending this on my behalf, you need to add your s-o-b after
+> mine:
 
-Thank you for the kind heads-up! And I’m sorry for the extra work you 
-have to go through checking the spam folder.
+Oops, I'm not sure how I missed that. Sorry.
 
-It looks like I really need to have a good talk with our IT team about this.
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-Thanks again for letting me know — much appreciated!
+>  Any further SoBs (Signed-off-by:'s) following the author's SoB are from
+>  people handling and transporting the patch, but were not involved in its
+>  development. SoB chains should reflect the **real** route a patch took
+>  as it was propagated to the maintainers and ultimately to Linus, with
+>  the first SoB entry signalling primary authorship of a single author.
 
-Best regards,
-Damon
+-- 
+Regards,
 
+Laurent Pinchart
 
