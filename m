@@ -4,67 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF57DF483EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C2DF483E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11j9z/1fJKiQVdJE20P4e+j+9ToUEls87BE6rvgPEnQ=; b=v9PGNaky3P3u2N+xxalWRPHnMd
-	LgRVs29scUcQsdjEW1azVw7RBHEeuxThTNZva2TjCpHxeiLHcRokQ2Vs5fOhnYkLzQ9xPzsqEpTwF
-	TAghkswWZL4OjUxPbgFm0lMMCV3hKJMBF+NnGlo4pL6twVha6q5a/EBiYyE4dARFBWF/IntE+44R4
-	O4pyiS1AzjQX/tWscbb2QEalPQXQXYkyNbf8y1dw9BqN+SNkktUiJQvlny9LUQB6a4loUNA0RSNda
-	0yzEOvJADYOEO2j9CSZGfP1wt25clMkQh/d9BMbZe6CjdNoM9y0wFGdUmA7xanNgFNtYqDl8XYWCz
-	AGS1/RjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7NbmZ1QKrXEl2r+K4tiwcyEFIcHYN37QKlPIMtIbx0A=; b=LsQRvZEU2F8z80UaA/LKjW6qks
+	C1x0YS3V7frYky+jrFjuRzxmKm4ZfPiea1Xj+E2Y0GVbiVzwFbm68fUve0gZ1p4I5fhxUsrrYJreJ
+	EYColoQ7Spgnoc4nJIM7nr3mvGGrUpr58mIegsfLJZKJNc68B2APQhCn4/gGuZTPKnCCbXkCBTIoi
+	B/xeFVnFDszf/D82tv05DUqHiix2T3hHvhXJ6Wyv16ugQznX5ifaCm23zE3Iwek7n0yy1b81fJZgD
+	g32rnW6cI2V1bP3cDqItgm0Qr9/dsJIhDbj0c6wEbuHPPchuI5Nn8lkbmFPV8MtgFh0vXVyUvZoJF
+	ZQj5wivA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lAc-0000000HTfL-3HeK;
-	Mon, 23 Mar 2026 19:42:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4lAj-0000000HTkW-3lgO;
+	Mon, 23 Mar 2026 19:42:45 +0000
+Received: from mx0a-002e3701.pphosted.com ([148.163.147.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lAa-0000000HTem-29iX;
-	Mon, 23 Mar 2026 19:42:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D2F7434D7;
-	Mon, 23 Mar 2026 19:42:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 167B4C4CEF7;
-	Mon, 23 Mar 2026 19:42:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774294955;
-	bh=11j9z/1fJKiQVdJE20P4e+j+9ToUEls87BE6rvgPEnQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FgPX3A5wg1iUr/7tQS9xp5e6w0B25P8zSkCFksilaSdtWF0zDITP+MM+ylpxRhqqN
-	 z1RrpGJ0rkK+G2tQr65a2/Xwv7EiFqD6PuLMWp6NIgNgWPZTiDGxPpc7mIWDXI+lVj
-	 WazCdp1gkd01GY8XHb75ph0A9LOKxkfuKGbvWtCEABYmHzURaMEXJmTzb8e3FF9HZm
-	 Yd94MYFdCPEkY0FJN62BvsxE7q/dbpPH7fE+CcgiWdhHVGeKHch8avzFVVHAHBzTai
-	 26KyXPjH454gkbq++sACIjU4amKyHo63ZwM2pIugLnvvDU+/lf1hAcY1Y2JEWVzJnR
-	 x0lY5DPsSmnIQ==
-Date: Mon, 23 Mar 2026 19:42:30 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com,
-	amelie.delaunay@foss.st.com
-Subject: Re: [PATCH v5 07/17] spi: orion: Simplify clock handling with
- devm_clk_get_enabled()
-Message-ID: <7e9fc388-cdc3-4810-9136-9a1f33fed7f7@sirena.org.uk>
-References: <cover.1773885292.git.xiaopei01@kylinos.cn>
- <387f2fa1b3e1a356c524bb36eab07e1b431b6382.1773885292.git.xiaopei01@kylinos.cn>
+	id 1w4lAf-0000000HTgx-3Pn4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 19:42:44 +0000
+Received: from pps.filterd (m0150241.ppops.net [127.0.0.1])
+	by mx0a-002e3701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62NHBbS63538076;
+	Mon, 23 Mar 2026 19:42:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hpe.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pps0720; bh=7NbmZ1QKrXEl2
+	r+K4tiwcyEFIcHYN37QKlPIMtIbx0A=; b=iSipXJrvTf/UWBn8mzKCzxGYdllmz
+	GXSGDF2OYlSXtrD1R7T/wDc3WCijB/XIgypkM7Y8/LrVefSW7vZDE17XFtAK9InV
+	ZS//9lw/rCK3IeG6Oef6IHgqJ/bQ/uLBhO7OKgsMfZMnp3V8sywK60E+THdPg2zj
+	/UL/gT/q6TPY6gmKR4LDLHvla6BCKGGz/+x0e8UnuZK2TkxsoYazeHoCSsHBxDHG
+	x+YcdtJFxWDf8p4eIvtGBbEuPPoESEoiYa5bczeGNC+b+UtXE5dFyQ8hDqJMQ+4j
+	BOGe+9TCd/OsJdSC7xKMXGgrNsmGiSmTZOTv7xJIebBztr/6FuxRWsJ+Q==
+Received: from p1lg14881.it.hpe.com (p1lg14881.it.hpe.com [16.230.97.202])
+	by mx0a-002e3701.pphosted.com (PPS) with ESMTPS id 4d32faykv3-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Mar 2026 19:42:30 +0000 (GMT)
+Received: from p1lg14886.dc01.its.hpecorp.net (unknown [10.119.18.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by p1lg14881.it.hpe.com (Postfix) with ESMTPS id 1FA13802BB3;
+	Mon, 23 Mar 2026 19:42:30 +0000 (UTC)
+Received: from hpe.com (unknown [16.231.227.39])
+	by p1lg14886.dc01.its.hpecorp.net (Postfix) with ESMTP id A27EE810AF6;
+	Mon, 23 Mar 2026 19:42:29 +0000 (UTC)
+From: nick.hawkins@hpe.com
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jean-Marie Verdun <verdun@hpe.com>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Nick Hawkins <nick.hawkins@hpe.com>
+Subject: [PATCH v2 2/3] arm64: Kconfig: Add ARCH_HPE_GSC platform
+Date: Mon, 23 Mar 2026 14:42:22 -0500
+Message-Id: <20260323194223.683487-3-nick.hawkins@hpe.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260323194223.683487-1-nick.hawkins@hpe.com>
+References: <20260323194223.683487-1-nick.hawkins@hpe.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ETAL/F05848nVpj1"
-Content-Disposition: inline
-In-Reply-To: <387f2fa1b3e1a356c524bb36eab07e1b431b6382.1773885292.git.xiaopei01@kylinos.cn>
-X-Cookie: The only perfect science is hind-sight.
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: SztAbvx7loym9CNYxY-pARWcbR_1LesO
+X-Proofpoint-GUID: SztAbvx7loym9CNYxY-pARWcbR_1LesO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDE0NSBTYWx0ZWRfX8dZGn8JhO4pI
+ r7AJbyMcv0jDfC9vXFZyOjSGr7t8Ukr2jcgcb9SKNhjGLspuqsPcDRzZJdKT7RngsTOAqnl6SDC
+ bG+aG3nrtAvzbYcODd/pScoWAJEiY3Ri2Dse7VDlZlPytPP+2Im1zgE5hPUz2nyEAmveIgu244R
+ dl3pF39iHzB7697pUSsDHE7doKLjQ6xvr2/OIe3jP2ngq5DQBuFo7J/0LEIltrTPinRo/faihgW
+ nUurqOisTZG4DN6dDke7dzCMuQmxDsl+nH9vMMqijkjXmDapy86hbAPvutAlDD7gjqPQ8QqqQlB
+ uaCi62+e/+hzocKf3b6aRnz9uVccVSjH7mYpnubioZ/OJaW30D0PkvC5c6T8l4BXeCWlFU7D2Mm
+ hkJJkXvVD93HudavIt/uCck+Z9Je+eurHkm2LAiVAyEpAcGdMHaZrYK8zliPe0Jx1+GIwn4xW6r
+ d4cUiLuI2EoPdUgTx1Q==
+X-Authority-Analysis: v=2.4 cv=ZdEQ98VA c=1 sm=1 tr=0 ts=69c197a6 cx=c_pps
+ a=FAnPgvRYq/vnBSvlTDCQOQ==:117 a=FAnPgvRYq/vnBSvlTDCQOQ==:17
+ a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=gQcMVamqm3wCPoSYhaRC:22
+ a=_ZmgHqWwjZUDpi_pur5s:22 a=MvuuwTCpAAAA:8 a=N7h5HMGqC5NSTC7Z1HcA:9
+X-HPE-SCL: -1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-23_04,2026-03-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1011 suspectscore=0 malwarescore=0 spamscore=0
+ lowpriorityscore=0 priorityscore=1501 bulkscore=0 impostorscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603230145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_124236_569632_528D7CEC 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_124242_966552_7C790348 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nick Hawkins <nick.hawkins@hpe.com>
 
---ETAL/F05848nVpj1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Add the ARCH_HPE menuconfig group and ARCH_HPE_GSC config for the
+HPE GSC ARM64 BMC SoC.
 
-On Thu, Mar 19, 2026 at 10:04:03AM +0800, Pei Xiao wrote:
-> Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for the "axi" clock. This reduces
-> boilerplate code and error handling, as the managed API automatically
-> disables the clock when the device is removed or if probe fails.
+Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
+---
+ arch/arm64/Kconfig.platforms | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-Another runtime PM clock managment one.
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 54eb1d7fd419..4bbc27bb9b7b 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -168,6 +168,29 @@ config ARCH_HISI
+ 	help
+ 	  This enables support for Hisilicon ARMv8 SoC family
+ 
++
++menuconfig ARCH_HPE
++	bool "HPE SoC Support"
++	help
++	  This enables support for HPE ARM-based SoC chips used
++	  on HPE servers.  HPE SoCs serve as the Baseboard
++	  Management Controller (BMC) providing out-of-band server
++	  management.
++
++if ARCH_HPE
++
++config ARCH_HPE_GSC
++	bool "HPE GSC SoC"
++	select PINCTRL
++	select GENERIC_IRQ_CHIP
++	select CLKSRC_MMIO
++	help
++	  Support for the HPE GSC ARM64 BMC SoC used on HPE servers.
++	  The GSC provides hardware management, power control, remote
++	  access, and server health monitoring capabilities for HPE
++	  Gen12 and later server platforms.
++
++endif
+ config ARCH_KEEMBAY
+ 	bool "Keem Bay SoC"
+ 	help
+-- 
+2.34.1
 
---ETAL/F05848nVpj1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBl6UACgkQJNaLcl1U
-h9BT8Qf/dtJjSArsGgU+y0yVED55+m8067SuMbN7WPDUHaKFWCm0BD0AB2I7w1wo
-Q2eV7b7mCT9le7uw8d9NPBabofnVmISnVSpguFgRIG7YVtcz6uVBHSV78j6gcMvk
-kruWd2xH7oETY56WXrEH08IbyT7W1URHbuWrZ8rHqszSMdKsqCx7ASMx8O92IOx4
-JX2u0m/PftCpz/ebstkEkS86e37+yNik2jfo4cb+HhAkYYkgYUzeocNaWEixMslH
-FcajN7OlPOnfeey4e2Fj7/C/S62tLwDD1HckZI9Ja3rE252BzECQ9E0U/4Ocf7ZD
-kMKNWTPNhkr71ULS8mV6P4nVuyLAgA==
-=fMon
------END PGP SIGNATURE-----
-
---ETAL/F05848nVpj1--
 
