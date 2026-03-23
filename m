@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3017EEC01A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6DDEC01A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJzb2fLH8dZQbmaimNfUiNnzxhnIKEQ1hMjT2Y397N8=; b=TCarzLtPm9D6j43as7UxyTiT1S
-	dRlLhtpm7SxWK4f84djHJjDMTGp6T+btt4X2UBejOun7UoLvGAkNcQ2l4FBCs7pZeOe7bH4xn5BrY
-	W6tbjaWnU2u66+KsxhkR5YHKVJAgULWrTAHOX/XaJ4MMAcb9Z4NGOmU5iaZwzDrG70L95ae8ZuH67
-	VmJNHxBcIdP5nCi1XKNU1wVVS9veGgUAZqaO9o50cT7mD0VB0gJholQwmHrIF3xpC2wK2doTWmWjv
-	HUYVB8pWQ/gLmvlWuoLRRe16mF732wDppWVL2Ql8hJY71Ys56ocEv//ZOesQOjmA8p4a8feIU2RJo
-	u9csPzlg==;
+	bh=LUoq4AqXxwwvH6idpeZLZNb7HSgeuk0Y/FgULYcntaU=; b=2EnRJlc2MwdOq2GVEGR/i+LVs8
+	4GOg7Qh6gtMbOg9sMwZBfCkGo44N04aFUXUtM707QOfmafJXR2mYx6zn8vql8PKoa3GPbCPPu5cXd
+	+qcHaOXFuQ235J/OzJzxXVMTLO8JnsjxmfbvHooO5J5ybNaFpXkIKcQTM1ubWi+y69sM3/tH8mENa
+	HxuldX+BUuFCZDl4Cn5JiMyzfKn+MC7mIl+nqLXpBLJEMNVLWfhusjK0Jjapw9CHDklxeXZRR30A3
+	KlM/E5JNkZow5+1mvuRL2XF7nKfyYZgpXAPa8bLM+c22+0xP3NPAVrdXsQMyJ/zj3rgPinLUZwvc2
+	kTXMTrfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a2P-0000000GDrc-3LTM;
-	Mon, 23 Mar 2026 07:49:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4a2c-0000000GDxm-3Blw;
+	Mon, 23 Mar 2026 07:49:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a2O-0000000GDqm-1Bvc
+	id 1w4a2Z-0000000GDvr-3LXY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 07:49:25 +0000
+	Mon, 23 Mar 2026 07:49:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F20A34181A;
-	Mon, 23 Mar 2026 07:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3804AC4CEF7;
-	Mon, 23 Mar 2026 07:49:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DDA6406E9;
+	Mon, 23 Mar 2026 07:49:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 591E2C2BC9E;
+	Mon, 23 Mar 2026 07:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774252163;
-	bh=H66xl/BIJkTq28ukNF8WEu/fNAsPeeebsB5A/nwWYaQ=;
+	s=k20201202; t=1774252175;
+	bh=BA3ifIM8vMxNHhaniMoWafVGKix2KJOOnEEIB0IJslA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I5My3+MQvuPzdJ/eqnURHDufO2mFAIraPI31J+w/BDj7mSnOzz+bBSQ1nkIe6BHbp
-	 XVpJh7sZx9NFenINTf9GYQ137cP6vq3WlrCC8bnp6YDsHPgO8DCjw+QUFpZuyiQRev
-	 4ZiDp6rsouY8nD13d6IOzKlDukyiP/rqJ1UKAgnZiOiYzFhPGMGLMTbUTFoLqAqxjQ
-	 tmiRSnujVaLodu+eJjuLWv5yflUsq2SZE3WtD7/jj+hDdLQLtnmbP8EpnzzEK7QIi7
-	 D0NRQA1iQ/GFpfYatJJU9GNNL+T6vp+PtI6c81WogxjFBeSkYizd+xg4X95TFNbYpb
-	 0iF2JqU+gfR1g==
+	b=mLj2uAa3+/NwQuaTBTXMkFS5rLYfpWnRharPWCiY5k6pdAcO4J3dmwxqJ62FgiBQQ
+	 6QZgWy9Mlf+tLly2+EmiGoDig1TtvZff/B4jJXf2DfbTWewwveYymwfcCOjtHZQiEM
+	 A5doCHhRHLPTbVpCiM0WsxIRUNgKw1Bx20fB8JozatJ8LOTL2kl9c4hvj5qA9sfO+n
+	 AzfuKIyOe63JrT4uxw94ft2d5Kx2CM1R8jWppspvBEBJEOpyiO3cITWk2VSYdG1nuP
+	 qsE5AeX67dLQzBsQgP/eryYFm2ElRC0wJ8E8PQf9c8rRCCLLCxB/Hagi8E4T2A58pl
+	 wNxCDVFEoh0Dw==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Potapenko <glider@google.com>,
@@ -92,17 +92,17 @@ Cc: Alexander Potapenko <glider@google.com>,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 3/9] powerpc: opal-core: pair alloc_pages_exact() with free_pages_exact()
-Date: Mon, 23 Mar 2026 09:48:30 +0200
-Message-ID: <20260323074836.3653702-4-rppt@kernel.org>
+Subject: [PATCH v2 4/9] mm: move free_reserved_area() to mm/memblock.c
+Date: Mon, 23 Mar 2026 09:48:31 +0200
+Message-ID: <20260323074836.3653702-5-rppt@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260323074836.3653702-1-rppt@kernel.org>
 References: <20260323074836.3653702-1-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_004924_367206_CC6ECA98 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260323_004935_879999_FD723298 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,57 +119,192 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-opal-core allocates buffers with alloc_pages_exact(), but then
-marks them as reserved and frees using free_reserved_area().
+free_reserved_area() is related to memblock as it frees reserved memory
+back to the buddy allocator, similar to what memblock_free_late() does.
 
-This is completely unnecessary and the pages allocated with
-alloc_pages_exact() can be naturally freed with free_pages_exact().
+Move free_reserved_area() to mm/memblock.c to prepare for further
+consolidation of the functions that free reserved memory.
 
-Replace freeing of memory in opalcore_cleanup() with
-free_pages_exact() and simplify allocation code so that it won't mark
-allocated pages as reserved.
+No functional changes.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/powerpc/platforms/powernv/opal-core.c | 11 +----------
- 1 file changed, 1 insertion(+), 10 deletions(-)
+ mm/memblock.c                     | 37 ++++++++++++++++++++++++++++++-
+ mm/page_alloc.c                   | 36 ------------------------------
+ tools/include/linux/mm.h          |  1 +
+ tools/testing/memblock/internal.h | 34 +++++++++++++++++++++++++---
+ 4 files changed, 68 insertions(+), 40 deletions(-)
 
-diff --git a/arch/powerpc/platforms/powernv/opal-core.c b/arch/powerpc/platforms/powernv/opal-core.c
-index e76e462f55f6..32662d30d70f 100644
---- a/arch/powerpc/platforms/powernv/opal-core.c
-+++ b/arch/powerpc/platforms/powernv/opal-core.c
-@@ -303,7 +303,6 @@ static int __init create_opalcore(void)
- 	struct device_node *dn;
- 	struct opalcore *new;
- 	loff_t opalcore_off;
--	struct page *page;
- 	Elf64_Phdr *phdr;
- 	Elf64_Ehdr *elf;
- 	int i, ret;
-@@ -328,11 +327,6 @@ static int __init create_opalcore(void)
- 		oc_conf->opalcorebuf_sz = 0;
- 		return -ENOMEM;
- 	}
--	count = oc_conf->opalcorebuf_sz / PAGE_SIZE;
--	page = virt_to_page(oc_conf->opalcorebuf);
--	for (i = 0; i < count; i++)
--		mark_page_reserved(page + i);
--
- 	pr_debug("opalcorebuf = 0x%llx\n", (u64)oc_conf->opalcorebuf);
+diff --git a/mm/memblock.c b/mm/memblock.c
+index d4a02f1750e9..c0896efbee97 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -893,6 +893,42 @@ int __init_memblock memblock_remove(phys_addr_t base, phys_addr_t size)
+ 	return memblock_remove_range(&memblock.memory, base, size);
+ }
  
- 	/* Read OPAL related device-tree entries */
-@@ -437,10 +431,7 @@ static void opalcore_cleanup(void)
- 
- 	/* free the buffer used for setting up OPAL core */
- 	if (oc_conf->opalcorebuf) {
--		void *end = (void *)((u64)oc_conf->opalcorebuf +
--				     oc_conf->opalcorebuf_sz);
--
--		free_reserved_area(oc_conf->opalcorebuf, end, -1, NULL);
-+		free_pages_exact(oc_conf->opalcorebuf, oc_conf->opalcorebuf_sz);
- 		oc_conf->opalcorebuf = NULL;
- 		oc_conf->opalcorebuf_sz = 0;
++unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
++{
++	void *pos;
++	unsigned long pages = 0;
++
++	start = (void *)PAGE_ALIGN((unsigned long)start);
++	end = (void *)((unsigned long)end & PAGE_MASK);
++	for (pos = start; pos < end; pos += PAGE_SIZE, pages++) {
++		struct page *page = virt_to_page(pos);
++		void *direct_map_addr;
++
++		/*
++		 * 'direct_map_addr' might be different from 'pos'
++		 * because some architectures' virt_to_page()
++		 * work with aliases.  Getting the direct map
++		 * address ensures that we get a _writeable_
++		 * alias for the memset().
++		 */
++		direct_map_addr = page_address(page);
++		/*
++		 * Perform a kasan-unchecked memset() since this memory
++		 * has not been initialized.
++		 */
++		direct_map_addr = kasan_reset_tag(direct_map_addr);
++		if ((unsigned int)poison <= 0xFF)
++			memset(direct_map_addr, poison, PAGE_SIZE);
++
++		free_reserved_page(page);
++	}
++
++	if (pages && s)
++		pr_info("Freeing %s memory: %ldK\n", s, K(pages));
++
++	return pages;
++}
++
+ /**
+  * memblock_free - free boot memory allocation
+  * @ptr: starting address of the  boot memory allocation
+@@ -1776,7 +1812,6 @@ void __init memblock_free_late(phys_addr_t base, phys_addr_t size)
+ 		totalram_pages_inc();
  	}
+ }
+-
+ /*
+  * Remaining API functions
+  */
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 2d4b6f1a554e..df3d61253001 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -6234,42 +6234,6 @@ void adjust_managed_page_count(struct page *page, long count)
+ }
+ EXPORT_SYMBOL(adjust_managed_page_count);
+ 
+-unsigned long free_reserved_area(void *start, void *end, int poison, const char *s)
+-{
+-	void *pos;
+-	unsigned long pages = 0;
+-
+-	start = (void *)PAGE_ALIGN((unsigned long)start);
+-	end = (void *)((unsigned long)end & PAGE_MASK);
+-	for (pos = start; pos < end; pos += PAGE_SIZE, pages++) {
+-		struct page *page = virt_to_page(pos);
+-		void *direct_map_addr;
+-
+-		/*
+-		 * 'direct_map_addr' might be different from 'pos'
+-		 * because some architectures' virt_to_page()
+-		 * work with aliases.  Getting the direct map
+-		 * address ensures that we get a _writeable_
+-		 * alias for the memset().
+-		 */
+-		direct_map_addr = page_address(page);
+-		/*
+-		 * Perform a kasan-unchecked memset() since this memory
+-		 * has not been initialized.
+-		 */
+-		direct_map_addr = kasan_reset_tag(direct_map_addr);
+-		if ((unsigned int)poison <= 0xFF)
+-			memset(direct_map_addr, poison, PAGE_SIZE);
+-
+-		free_reserved_page(page);
+-	}
+-
+-	if (pages && s)
+-		pr_info("Freeing %s memory: %ldK\n", s, K(pages));
+-
+-	return pages;
+-}
+-
+ void free_reserved_page(struct page *page)
+ {
+ 	clear_page_tag_ref(page);
+diff --git a/tools/include/linux/mm.h b/tools/include/linux/mm.h
+index 028f3faf46e7..4407d8396108 100644
+--- a/tools/include/linux/mm.h
++++ b/tools/include/linux/mm.h
+@@ -17,6 +17,7 @@
+ 
+ #define __va(x) ((void *)((unsigned long)(x)))
+ #define __pa(x) ((unsigned long)(x))
++#define __pa_symbol(x) ((unsigned long)(x))
+ 
+ #define pfn_to_page(pfn) ((void *)((pfn) * PAGE_SIZE))
+ 
+diff --git a/tools/testing/memblock/internal.h b/tools/testing/memblock/internal.h
+index 009b97bbdd22..b72be2968104 100644
+--- a/tools/testing/memblock/internal.h
++++ b/tools/testing/memblock/internal.h
+@@ -11,9 +11,22 @@ static int memblock_debug = 1;
+ 
+ #define pr_warn_ratelimited(fmt, ...)    printf(fmt, ##__VA_ARGS__)
+ 
++#define K(x) ((x) << (PAGE_SHIFT-10))
++
+ bool mirrored_kernelcore = false;
+ 
+ struct page {};
++static inline void *page_address(struct page *page)
++{
++	BUG();
++	return page;
++}
++
++static inline struct page *virt_to_page(void *virt)
++{
++	BUG();
++	return virt;
++}
+ 
+ void memblock_free_pages(unsigned long pfn, unsigned int order)
+ {
+@@ -23,10 +36,25 @@ static inline void accept_memory(phys_addr_t start, unsigned long size)
+ {
+ }
+ 
+-static inline unsigned long free_reserved_area(void *start, void *end,
+-					       int poison, const char *s)
++unsigned long free_reserved_area(void *start, void *end, int poison, const char *s);
++void free_reserved_page(struct page *page);
++
++static inline bool deferred_pages_enabled(void)
++{
++	return false;
++}
++
++#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			 \
++	for ((pfn) = (start_pfn); (pfn) < (end_pfn); (pfn)++)
++
++static inline void *kasan_reset_tag(const void *addr)
++{
++	return (void *)addr;
++}
++
++static inline bool __is_kernel(unsigned long addr)
+ {
+-	return 0;
++	return false;
+ }
+ 
+ #endif
 -- 
 2.53.0
 
