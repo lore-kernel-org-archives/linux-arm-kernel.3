@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED530F532C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0BFF532C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GW//tTVcndjG7rANObrku1uf8/SpuJ+cu9fM8IhMTfs=; b=zniKuy9ErU0zsuZhQrYMrJRnzp
-	jSEkL9hW1iGEkPpiGdBNQOeXb8acAy2nJTPpvGsmW3valtaufP9GvVKMRLmncXH//a8NpYEEwaMpI
-	XWKB9lSlvSMH26yy4s74BJD/20BKyezWbNwL5ps0/tMadnKwjCd7S+1IISI4GOL5bn62IB37OLgjC
-	Re2vU/JTU4Ltg/yg/H/3GLtP0gh+lpiJQL454rb7/Z8ICwH5iXOov2udNcoPuo20FG9gaTWdDMIsh
-	U2zuzCg/oBmPX6KfuG1RYHrPkyR+YWpkJMe8MDzNH07dTScA1JHA3IXwggPFzBakxHhxw1dE+53ne
-	Hvp7AGcg==;
+	bh=ca8Rj9GB7gLTQs8mTT2laB9prNTZ+3eAHNTErbTCcpU=; b=rdDYjiwKvYAkJQsryV+ez3sByy
+	tYih0q/3UiIuAypKG5DG4PiCKi7H9+x39q4vX6zam+0FBxihqeFAwlCU8ECidCDQEvILztrvuWcBg
+	QiqTmiSUHRTL+3kwUh99WEwmY5LTIj+U0TqIT4KYROj9qhRL1ZA/5sUqc4shqr9Se7Nzg/5qsZgLX
+	aQYvjXx2gl3CXVC1YnsCYRBK2tzAu8AEUTOIEpJUrypVUlHDKsMYfPIVZHcIka+Ijr0Fr+ahymtp2
+	gNMTfA7+yB7U/fWeaSoxCpi30FUrR5oVD6n1SJ0YvFMw3cjJA7hpr5eU/hgxBsFuBy5hu6lUHj3bb
+	Wv6A7klA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pN5-00000000D7W-0O6Y;
-	Tue, 24 Mar 2026 00:11:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4pNP-00000000DET-2tMg;
+	Tue, 24 Mar 2026 00:12:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pN4-00000000D7H-0HCT;
-	Tue, 24 Mar 2026 00:11:46 +0000
+	id 1w4pNK-00000000DCr-45zn;
+	Tue, 24 Mar 2026 00:12:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B31D0600C4;
-	Tue, 24 Mar 2026 00:11:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57BE8C2BC9E;
-	Tue, 24 Mar 2026 00:11:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AB4B42A44;
+	Tue, 24 Mar 2026 00:12:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F343C4CEF7;
+	Tue, 24 Mar 2026 00:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774311103;
-	bh=Di5mcPNb0r2N+QWMH4UxyuhE6p8fkYgO2pkH90SHdT4=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=f7r1JImQB/SRvnQqdQ62Ik0ATXOFu5eMEUFc4YTTBMHtSqYJ2gVutAKIN/VqjZyeF
-	 P2sWCb8H6rrSfm5Knf95lClTIk/6qD2abXnr5aBhHVu/X67jk+7F9AYilQBE84u2yA
-	 rT39OWjQR0xJvp7VaLbyF2OcpkWudRMK2uWc0MlRJDN9EvAQ0LyuFLkhCgUNPFBo/b
-	 1oxbwvUphkldddonytnk1kx6CJ8qHHZnUTDKibToHOrTSl1x+lGlVT1gCXFfpcXSq7
-	 SZtrQQi3Hgc7YNXvUJ+sD/K4XIhpBirnHXziunLrPKWxYxlEVUSz0YcQq0/YACipLq
-	 qa0h0Sq6mV5BQ==
+	s=k20201202; t=1774311121;
+	bh=BZbJm13p6v7uFdlnM0kKtK0kw8yT1avRjwVB64Na/7o=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=K5jrM1g2tyqh02781ZCofBxdfOJa5AeuqQBRehpGadrtFJkHXqdcRGeht8LNeB8BZ
+	 wnlNZwrVhyrC/r2TLmI8LlwiO6e0sYpNbwVaLAK9WMg6TCUIVtlwIHp06aCXyVYq4w
+	 Gc2rlipBVnNSjWlhvUY+v6OnmjekBcEA9X+uUcMdDNCKsxudLZUiRRzuDrIAM52srd
+	 lsBYYTs0MXVixREYqFhtCQBIrFs3/YdCaT1n9zw6FHBXTvNpm/xEu0qmejb3DN2b3M
+	 riBxd2/y+jPldyolcFW4HpkUCsadZYycV7tAy2B0c8xFStC8JdkVjtThnv3MhDdYOE
+	 KcVPFoU266lzg==
 From: Mark Brown <broonie@kernel.org>
-To: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, openbmc@lists.ozlabs.org, 
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com, 
- amelie.delaunay@foss.st.com, Pei Xiao <xiaopei01@kylinos.cn>
-In-Reply-To: <cover.1773885292.git.xiaopei01@kylinos.cn>
-References: <cover.1773885292.git.xiaopei01@kylinos.cn>
-Subject: Re: (subset) [PATCH v5 00/17] cleanup in spi by use
- devm_clk_get_enabled
-Message-Id: <177429527684.757727.3178430227590182148.b4-ty@b4>
-Date: Mon, 23 Mar 2026 19:47:56 +0000
+To: Liam Girdwood <lgirdwood@gmail.com>, Benson Leung <bleung@chromium.org>, 
+ Guenter Roeck <groeck@chromium.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ chrome-platform@lists.linux.dev
+In-Reply-To: <20260320083135.2455444-1-wenst@chromium.org>
+References: <20260320083135.2455444-1-wenst@chromium.org>
+Subject: Re: [PATCH 0/2] regulator: cros-ec: cleanup and add supplies
+Message-Id: <177430554501.811880.4959580213615516944.b4-ty@b4>
+Date: Mon, 23 Mar 2026 22:39:05 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev-17187
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2226; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Di5mcPNb0r2N+QWMH4UxyuhE6p8fkYgO2pkH90SHdT4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpwda8CnOiOloYzFySgYbCE/6hff/7Co6oZovH/
- NYX07fdL5eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacHWvAAKCRAk1otyXVSH
- 0NvUB/4tGt133fOvYsd5ccQQIQOzVbVHSDtwT2WLeR3+X0YErOBbugNfEdY+SSuDTTx5dvleDwv
- RRu/m16aqCnbltqs+xqYo0EXuNKhb/EH7dIXDpbBvc/66u5FoNCTIqeF5Jfab/mZBDBQKddVugr
- 5e0Weu5eT9FYS5UydoOJLtwKzXRKlT0OeLmLgYIV5CuL4HKShuJNQ4VHb1+VsVS74JesMhW3FZL
- e9cayQAVBijhwh//ogTcJasWpFIG0iF14Lf9dGiYeeZalKEWH9KveHB6VChUAjuE75JWrl/xt0a
- 8vEuC/a9d+boVY7I08rDLiYeqO164RdPm5UbQvrxTWXR5C9G
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1447; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=BZbJm13p6v7uFdlnM0kKtK0kw8yT1avRjwVB64Na/7o=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpwdbOXyzix15AngIKGeCoU5IoLfda9/2BUmLmw
+ ParSdlB6laJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacHWzgAKCRAk1otyXVSH
+ 0HbzB/9xIU3u7Z+zr1GTIUwKmtVL/HaOR+tHv7Dd1zvMFDjYaud3AO+A7Ou0rtX9wVSlclihAa0
+ qzz09CEtPbgiH0gIJ+QJ29LdkY0HZo90sOFp0pAnnPZjAlCNV7piky8z32ib4/4afkquTY0RDh1
+ 11FaOv8v2Phr6Ry4R1JzGFzJGn5Dy96V4xKfqpcKQXlpstbsY78YNaP9m7IkNRkuD2MKbRVp0dl
+ AS0XhuxxBp8nE/p5nA5njK6KcccA2blVW/0iw7gv7Ashx1uNrd/oxAZVLl4bPMyIW1YEUAxuWXd
+ KQ+yKgkhBCJRrhUpuS7BfJ76IXB9M7SnKdPfWnHLpuajuUyK
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_171203_071079_E158B360 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +89,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Mar 2026 10:03:56 +0800, Pei Xiao wrote:
-> cleanup in spi by use devm_clk_get_enabled
+On Fri, 20 Mar 2026 16:31:31 +0800, Chen-Yu Tsai wrote:
+> regulator: cros-ec: cleanup and add supplies
 > 
-> I know that many old SPI drivers should not be modified for hardware
-> stability and to reduce maintenance effort. But I can't help cleaning them
-> up. To minimize the introduction of issues, I tried not to modify the
-> timing of those hardware clock enables.
+> Hi,
+> 
+> This series is part of a broader collection of regulator related
+> cleanups for MediaTek Chromebooks. This one covers the regulators
+> exposed by the ChromeOS Embedded Controller.
 > 
 > [...]
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.1
 
 Thanks!
 
-[02/17] spi: bcm63xx-hsspi: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/e532e21a246d
-[03/17] spi: bcmbca-hsspi: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/8b237cb10e32
-[09/17] spi: sifive: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/140039c23aca
-[13/17] spi: stm32: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/7da637804805
-[14/17] spi: sunplus-sp7021: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/ea0e916de134
-[15/17] spi: uniphier: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/fbf34af0c6eb
-[16/17] spi: zynq-qspi: Simplify clock handling with devm_clk_get_enabled()
-        https://git.kernel.org/broonie/spi/c/c9a4136c4746
+[1/2] regulator: dt-bindings: cros-ec: Add regulator supply
+      https://git.kernel.org/broonie/regulator/c/56b7c08a8b4b
+[2/2] regulator: cros-ec: Add regulator supply
+      https://git.kernel.org/broonie/regulator/c/411eb30f1382
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
