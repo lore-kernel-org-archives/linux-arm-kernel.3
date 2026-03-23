@@ -4,112 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23275F483F7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 20:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1785CF483F7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 20:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIVEHRZaJfFWfmB4lK9YCeE4pyi2N0slcN6uptbPhEo=; b=f/fFwvT2YSImj8HtuyyPt+Y7nY
-	fJGU4O4x+kRdk6hmyiUDkt5TO8Al1h2hM0fYWP6ED7XgfmVk0wdBRkZ+/YYS+g5ihREPIvv083lOY
-	gTqwSqMW70Rh9fp8ef/n/E3IXsKGbv3vWjr4A+5qoy4RHztM7G20m+muwRwYWbZoYW9PEb9SJ6E5z
-	9oVI2YEE4AR2Jd4/lmlF5nLGZn0lxM/7wlPzPWdvYFhGBSxeHHU2OiEVir1rW3dogMuqvUZU81M8u
-	NHTBBqz4Wsqa61Xthm9qxKDKTO49ox9ivZPG2/p4HeQ3frOGslkZa8q9r+Ov6A/wR3ji/W+4rlYox
-	CZJmWulQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=olrg9+koKbp1wST4wwsyJvh2+Fhta++w8bB0JufkCNc=; b=dJyr/KhRanFah3HhC8JCcWEgiv
+	oZkUDCa71raez1yrRAv4YnF0AP/q4x84Iov8O19zjXIUSgiA1gvo9kr7CigGn192D0jOMtTm7YTuQ
+	wnLU+/hCLx+ZuXsL5l/cTUPuI6+Mk9fVfVMc39a8ooLC08gGACrBZRd8ZGiorfA0jnwWIOz/IK3Y5
+	xhbc2MKMfYdZjG1S19C4wP4XddsiUOWt/h8+6IJFOtM/20qi8ktgqtHV8uM1Sq+OoTW7aLsGSnV3c
+	3wwPVGf8SEa/v9SeekE6KlHgxr2Ef+DFYxT5QbTGcvZovIoTIa64EbPmZm9xNyQcPj26iICwY4CXQ
+	GwLU/BLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4llj-0000000HYRv-2e7p;
-	Mon, 23 Mar 2026 20:20:59 +0000
-Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
+	id 1w4loO-0000000HYo5-3xig;
+	Mon, 23 Mar 2026 20:23:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4llh-0000000HYRa-0EXx
+	id 1w4loM-0000000HYnS-2oBb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 20:20:58 +0000
-Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-12a80c36350so1873691c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:20:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774297256; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bHe7bgLaYs8zHhHcuKWJAhHbLlAqCQ31uM4fT/L0ODRdq+/nzRnZu3UjjkJCRJQbfp
-         14iBsIJtF3CUt0tkevOwE4bVrQSViPbYlEuXbAhJPgLc7bsaebdkRR3PZl/VX3MA3zPy
-         foetVJRxA+KZlbjE5SMowKZKW8YXRM6+Cqabv0tiME8asVNI2Yb0EG1Qz5sPAT2dPXLv
-         hWPcFteUpAA+BoN3f2ndG2xbqgSO3ULRzRCFwmL7Q1vbKLt3hP9wQBxjh2/E8Fr7PE5n
-         m00qs2bcvPBZRatD6Ww6NcKTau4dzAeA/ApRaTWjND8nkdzrg7RR3xj4iJ7enWDhXDO2
-         oLTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=wIVEHRZaJfFWfmB4lK9YCeE4pyi2N0slcN6uptbPhEo=;
-        fh=VcsH9IkIqya8OEVChgJDrhKoPgVjZ7Pv62fhPJC9Tnk=;
-        b=LaiqwS6pTDRamt+WoxUVisFk9vhqLqJhHE/EUaIRHPLN8VAhUm4QwK9a6/EFMCdChZ
-         jBtepkU2PA/NxHil0S1Y7YdwQtvht1sL5COo2FwgsWFj/201VnFyQ+igrkXLqvfPwkXQ
-         MUl2fBKEv9/oR1weqr2bNYnD+BQI8NCjzwj7+t4toswpSzVJZ9ACzbxeUj+qq/xze1HU
-         YWH38OR16cao1P6tz8j3RyC00mhRnR9cpW641AvjC+XTRmqhVSKZC6sW2n7BHI5tSPUt
-         mcvKamUEg6nfdC1gRWr1q8+ytA2hZZhX1jiWfHletkJmSRawjcMwSGzagL7JDrS2lxOn
-         duNg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 23 Mar 2026 20:23:44 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62NHrIYS2682273
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 20:23:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=olrg9+koKbp1wST4wwsyJvh2
+	+Fhta++w8bB0JufkCNc=; b=hrwgHYkt1QFkdKuInaLwrkqFZ8cI3EhkOa53XLsD
+	cbxrVjDJmZuW8PBe/zJ6hrCed2qH69LJeBNHdo9Q4QM3Nk0vUsnuK4T6/TEOXcEc
+	t4h0TBFfOpYZFCzY8QtbYw+hyZ83aoPhB/RenJdJMo3cNayobtYjLa+fbbL6/Sio
+	eAQwLkwYt09VoWUbb5LKI2OjES+lYfzalxhWGZxt8e0S6Op41Ut1YIGxlIuoLxL4
+	7do+kdJn+/hTsV5vUryxB0tQ4DO7asIvpx1aFugKM6JPcSVkhoxsOjxAi1p9fsS8
+	PXADvEucj7538b5FkLQpgU4u62f8QNlt707hQHifB4glzg==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d31p7akw7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 20:23:40 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35a0337930eso620621a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:23:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774297256; x=1774902056; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wIVEHRZaJfFWfmB4lK9YCeE4pyi2N0slcN6uptbPhEo=;
-        b=e/S5Mi9b1umiq28VlQLDqbrum++qV1NnfRG0VjqGaCj4Du8rfE3pKe3nVZT2NBPo9L
-         tPhQ3iPDUAr3QSqmqEsB2+nInD90XqpLOeUIDwimulyzp3hGMxFlYopIAWcEnYJZzLet
-         +L5ycGKb+BW/yKChnQCrKrJROclGbZtPvD+BoLAvF5dEEck2QCThoY4e/R356A69d5zG
-         jugGYA0Z3T0QE75Su9zYxJIG+moWjKPgMx10Xt5QySUM+tUuS9Nb3zotmZHPNFgBsWEx
-         yOW996xfNc/BBmGOW/Gqk3kTWyRbl5bJ7I52gRK+ZvDD1iQnd5X90fbS8DAQ4mKfB8ql
-         8pAw==
+        d=oss.qualcomm.com; s=google; t=1774297419; x=1774902219; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=olrg9+koKbp1wST4wwsyJvh2+Fhta++w8bB0JufkCNc=;
+        b=FhFgcAhy4bRyCQn3O4ZELCFGMuSyTtCkFjkusX3CkwebJo1BSZuusFXa4AlTkge7lI
+         1bmvc25HU9uKNsNR+R2ZLMewCI2yg3xn2SzLDVQ/S3P40t1/OyXHYFcCkHls04hSxLIk
+         NNLb1twNgg55DaJyK1f/Do00o3Y9dihVGM27SigV6SKt4iUddno72SbjN1Z3P9sfXLUE
+         pGLzwGGTk6YiCmedksc5Er7JJ3FzZeS0QcXK8U0I3SN/5NtwH8isud1SbPjrb0d5qx3K
+         0ZDerhDKbeuDclISbwHCoN7yfecQgMvLQtYNThEngq6ECD07KCub/bqEYhitbekNTeEg
+         NOdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774297256; x=1774902056;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=wIVEHRZaJfFWfmB4lK9YCeE4pyi2N0slcN6uptbPhEo=;
-        b=bSLSSXO0+lVRx1q4BQFmRCszEjJLEMJG6sBmsSoxw7xyhrDSooMFdXrzjIMuy0DZVS
-         2jYdcaqoTLGOyaY35sdrIb5ntjEA+6+RYcg4x0v/Ft0rk/Rrd5BrUgMBXt2uNvetztYy
-         TcDxvx7RsOeLZJuveTjUvH+gi0H0ApVVECVsuOiB2yqEnXutrYH1EJ5UZXU9tiAIEAMT
-         KrVUL4s1/Z1BsXNdrYs/XRrJB8QgTiJ9TduO1AOVMq/pBGgWZXGk5x9gevVEzD6UmUNm
-         /ComBjqHpqoRkO+Of48CdVXQKFQ0iO08wnVlz77U4c01elBiQgys6KUxNXstPM8JYzH8
-         YFTw==
-X-Forwarded-Encrypted: i=1; AJvYcCWUMW1Z6lzgsXXiD2h4xen/ZAVLIorC/t5mnx2olSwvoD+to8zLU9adL0CFUwvZWTgRSPuf3wTjMyfc7d/NxUph@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9oFmxGmO4XSg0PBrFGSkUSX2dbFVtPZOoQ75iAkzLXpYw6woX
-	ZsHWRCEJPydHpj25O4Je3kzeRu4dVjJOt4qwY+GBKSSPw6Sn90DiUS5Xz9nOVEkzN7q4e8wI0rj
-	aLYDmWwowRtpQHjTavuzJapAKfPEbytU=
-X-Gm-Gg: ATEYQzy7Pa3lNWRs0QKzysfrI23BbHNpIju2BJffuxw5RR13kPwpuh/FMmddXt0H0tt
-	7HVpkwg2o9dE9LoyufrRTV3ix1GZFdpEUh4LSh8m45eFBOUfWo0Tl+iG/+7Rx7MTgAn416Y09Sq
-	+qyJ6bPGAs7eGAQIa8OxkGdzMVkLFZA1JrlELDiH1KNwhwMI2VMDDH+ABsJFDD5l5pO3wfrwtXR
-	JYIdrgnI708IOlM+B0RItmafh17bARjE8AJ1luOrySOdZ9ARtXAErzn/O6OOkCkSV3L9q5rlhkw
-	RgUBa6xcdLbD+INr0agRlrpaJKilP360cKMIrKn6ymyGV+HAfHF/sDQz8By/UiYsFNR+NtgiMfa
-	IoTZEZhtKXg830RksD8Q5mVAfmS3UoLxJ
-X-Received: by 2002:a05:7022:6713:b0:128:d1c9:3633 with SMTP id
- a92af1059eb24-12a7265f60dmr5589793c88.13.1774297255634; Mon, 23 Mar 2026
- 13:20:55 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774297419; x=1774902219;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=olrg9+koKbp1wST4wwsyJvh2+Fhta++w8bB0JufkCNc=;
+        b=Hp1GeqvSDNI2os5Z0H+ya+C8ie0WsubR+66WC2vRBTNmZabW/Jg913u0M6kTl/J8cV
+         ZiMcWl3WrGSApDYjqHONPy1S16OcdrC5LK27d9+IAESaK16reAB4r7+bZYMWpoirh6ZS
+         9xcb7MfaJoqcU6g0K9zH4Y9C3F20dDCBJmhsN7xawzmrtY7VfmIRQIODNzUuKSevkJxU
+         XiI9o7CecCuiKH47GH3FTF8YGvhXKFi88q8A4/qeTwNKi8uaEJitSLj6LDrnpN0r8zeA
+         6VlHI0iJ7xnyAeemJLsp8CIqRKXgiEbT6Mau63yazHzwNYVjoqNRe+qj6wZA443N2Zih
+         MdLA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2xHlwjBWRwV8LeVuANZaEA+3vVhmLrNgA11OtYUQAqm2szJlUiZwdPj8IWgPmFGhjVGhBDC0cvjM0iM3sjgHo@lists.infradead.org
+X-Gm-Message-State: AOJu0YznD9fxbHdWJjdQ77FqNyUPy3xbzTX95mBgkm1fHeXhUCtWHhxQ
+	VKCvg6UppKm0GYiZFn+B7pjbUJ5jbugjIU5bBRb+9QDho9npdp3AFJ8pS6E2iqg9Y7EQjUHxxxG
+	S22B/7GCKUXB/543kidnhh2GfJ3RO6akBwbXgpg/pKFMkgByEWyWiJ6vdUhogzVUIxDAoXDq0lQ
+	2laQ==
+X-Gm-Gg: ATEYQzwiaFsWuPy2YP3WV4AIkoUIe79A0g2ytsF/i/NAY/3ftTYur3yt/hp734Tz6ne
+	4VJ5P+DMOLyNvtVAtexlssrwCpgm54+XLBF5pTmi8YkjYXwhR1DSpL5r3idqJDi75FW9yebwSsv
+	OI7a22o/ID4IkJBxIFcaRK06y4dfWCAhwnu+RpI5reNf+duz3D8d9SBBpT0ni66TtVMJyV/AXLY
+	duhp8flS8+FcDFARztdRtrYpyvwnk4CSCsFjKaSdBmpapfiP7pwj5lUZ4WH4gmHbw1MqLlxxk+I
+	aqWV0aMuXn2zW3EnvALixOI3nEvCQWHamqcZ2U6KejcDsBVp3+ex+m9PZSpSo04ZFEVegFJ6F/B
+	0stvfpIYMeiY0XALSDyP5/eUYR6QqmDN8drU=
+X-Received: by 2002:a17:90b:35d0:b0:34c:fe7e:84fe with SMTP id 98e67ed59e1d1-35bd2d0dabcmr12741297a91.28.1774297419031;
+        Mon, 23 Mar 2026 13:23:39 -0700 (PDT)
+X-Received: by 2002:a17:90b:35d0:b0:34c:fe7e:84fe with SMTP id 98e67ed59e1d1-35bd2d0dabcmr12741263a91.28.1774297418454;
+        Mon, 23 Mar 2026 13:23:38 -0700 (PDT)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c015cd6c3sm78727a91.0.2026.03.23.13.23.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 13:23:38 -0700 (PDT)
+Date: Tue, 24 Mar 2026 01:53:31 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Andrew Lunn <andrew@lunn.ch>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 0/8] net: stmmac: improve PCS support
+Message-ID: <acGhQ0oui+dVRdLY@oss.qualcomm.com>
+References: <abdEscs44fU4kRag@oss.qualcomm.com>
+ <abdYu864OmNWiWIW@shell.armlinux.org.uk>
+ <ablpxwGks9m38fhM@shell.armlinux.org.uk>
+ <absjNQ2s3Z5N2Zwo@oss.qualcomm.com>
+ <abtE7sDT75I7uPnk@shell.armlinux.org.uk>
+ <abvAuHFZzCFobO-V@shell.armlinux.org.uk>
+ <7566c66b-2dda-4b29-b59e-4e4a7e159e21@oss.qualcomm.com>
+ <abvy6nZyjyxUXMuf@shell.armlinux.org.uk>
+ <bcab38a5-e7f7-47c9-ab9c-99294e095c22@oss.qualcomm.com>
+ <abwSHGw39FTJGNb7@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
- <20260312-imx943-rproc-v1-1-3e66596592a8@nxp.com> <20260323191529.GA1054724-robh@kernel.org>
-In-Reply-To: <20260323191529.GA1054724-robh@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 23 Mar 2026 22:20:42 +0200
-X-Gm-Features: AaiRm51XzKk2n6IioMvqGKwYdcIMaisSl_WziBcqMgfR8j04ziwnDez8lFdfqYw
-Message-ID: <CAEnQRZCbGPqBBKjQiGB_pRj_8GYMFXXXVmpfsU0_AOjo3J5cPQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
-To: Rob Herring <robh@kernel.org>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-remoteproc@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <abwSHGw39FTJGNb7@shell.armlinux.org.uk>
+X-Authority-Analysis: v=2.4 cv=RMC+3oi+ c=1 sm=1 tr=0 ts=69c1a14c cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=G4x0Uraz-9_3_ZZlgMgA:9 a=CjuIK1q_8ugA:10 a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-ORIG-GUID: qyuDoaLH9bADdN4t7fEMTjqcn463fA89
+X-Proofpoint-GUID: qyuDoaLH9bADdN4t7fEMTjqcn463fA89
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDE1MSBTYWx0ZWRfX9XVE6ap2dwFN
+ HR9oreaLSrwgOsnPhZ1NZUm36nTfh1K+ftt5xM9+VNuNuBaIHyuMDDBXdCZ5kVtK05x5lJW9jYj
+ UTj0amyDYghu0ZfMvioxSyp47ceG5C38hjH/7WYo3R3qihUIF3JsSPuX/xo1u5Y4FVQslN0K6BB
+ YnR1T5Xcnv7nTP2asboXoKh2pr96m4SLmWOQM0ws/Lg+o6E+RLaPPoR250kVpZ2Ck5Wt7jlKYYJ
+ qarrCaBztLsoYh3GvI1GtiLkypRnu3a8vRzboh35S89AWpHhvwoFbOv5SIQxqxJBYWlujIPXwdq
+ N/OaxEsJUIZotfSYB6L2dLrBtR5TAwbQvSagdgGF2xrbEF5fN7l80S4aQmcSsjhDrNTU1XT/k7V
+ lDU5DhE7LHWal1wzIO8mgSF9/3xcne4QzEEXeWDGFikFQgcCBaoqbW0RrWsWs9XPgTVExxQL76Q
+ n5N3tK94D34TbqL0/Tw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-23_05,2026-03-23_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 lowpriorityscore=0 impostorscore=0
+ priorityscore=1501 bulkscore=0 spamscore=0 adultscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603230151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_132057_101018_F087C833 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260323_132342_832023_A09982DD 
+X-CRM114-Status: GOOD (  53.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,73 +155,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 9:16=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Thu, Mar 12, 2026 at 08:36:56PM +0800, Peng Fan (OSS) wrote:
-> > From: Peng Fan <peng.fan@nxp.com>
-> >
-> > Cortex-M[7,33] processors use a fixed reset vector table format:
-> >
-> >   0x00  Initial SP value
-> >   0x04  Reset vector
-> >   0x08  NMI
-> >   0x0C  ...
-> >   ...
-> >   IRQ[n]
-> >
-> > In ELF images, the corresponding layout is:
-> >
-> > reset_vectors:  --> hardware reset address
-> >         .word __stack_end__
-> >         .word Reset_Handler
-> >         .word NMI_Handler
-> >         .word HardFault_Handler
-> >         ...
-> >         .word UART_IRQHandler
-> >         .word SPI_IRQHandler
-> >         ...
-> >
-> > Reset_Handler:  --> ELF entry point address
-> >         ...
-> >
-> > The hardware fetches the first two words from reset_vectors and populat=
-es
-> > SP with __stack_end__ and PC with Reset_Handler. Execution proceeds fro=
-m
-> > Reset_Handler.
-> >
-> > However, the ELF entry point does not always match the hardware reset
-> > address. For example, on i.MX94 CM33S:
-> >
-> >   ELF entry point:           0x0ffc211d
-> >   CM33S hardware reset base: 0x0ffc0000
-> >
-> > To derive the correct hardware reset address, the unused lower bits mus=
-t
-> > be masked off. The boot code should apply a SoC=E2=80=91specific mask b=
-efore
-> > programming the reset address registers, e.g.:
-> >
-> >   reset_address =3D entry & reset-vector-mask
-> >
-> > This reset address derivation method is also applicable to i.MX8M
-> > Cortex-M7/4 cores.
-> >
-> > Introduces the optional DT property `fsl,reset-vector-mask` to specify =
-the
-> > mask used for deriving the hardware reset address from
-> > the ELF entry point.
->
-> Why can't you fix the ELF image to have the right address?
+Hi,
+On Thu, Mar 19, 2026 at 03:11:24PM +0000, Russell King (Oracle) wrote:
+> On Thu, Mar 19, 2026 at 02:50:29PM +0100, Konrad Dybcio wrote:
+> > On 3/19/26 1:58 PM, Russell King (Oracle) wrote:
+> > > On Thu, Mar 19, 2026 at 11:09:33AM +0100, Konrad Dybcio wrote:
+> > >> On 3/19/26 10:24 AM, Russell King (Oracle) wrote:
+> > >>> On Thu, Mar 19, 2026 at 12:35:58AM +0000, Russell King (Oracle) wrote:
+> > >>>> On Thu, Mar 19, 2026 at 03:42:05AM +0530, Mohd Ayaan Anwar wrote:
+> > >>>>> [    8.650486] qcom-ethqos 23040000.ethernet: clk_csr value out of range (0xffffff00 exceeds mask 0x00000f00), truncating
+> > >>>>
+> > >>>> Please look into this first - with the MDIO bus operating at
+> > >>>> who-knows-what frequency, this could make reading from the PHY
+> > >>>> unreliable.
+> > >>>
+> > >>> My guess is clk_get_rate(priv->plat->stmmac_clk) is returning zero,
+> > >>> which means we don't know the rate of the CSR clock.
+> > >>>
+> > >>> From what I can see in drivers/clk/qcom/gcc-qcs404.c and
+> > >>> drivers/clk/qcom/gcc-sdx55.c, this looks like this case - the
+> > >>> struct clk_branch makes no mention of any clock rate, nor does it
+> > >>> have any parent. From what I can see, neither of these drivers
+> > >>> specify any rates for any of their clocks, which likely means that
+> > >>> clk_get_rate() will be zero for all of them.
+> > >>>
+> > >>> Sadly, when I designed the clk API, I didn't think that people would
+> > >>> be stupid enough not to implement the API properly, more fool me.
+> > >>>
+> > >>> Under the old code, we would've used STMMAC_CSR_20_35M, which means
+> > >>> we're assuming that the CSR clock is between 20 and 35MHz, even
+> > >>> though the value is zero. Is that the case? If it's higher than
+> > >>> 35MHz, then you've been operating the MDIO bus out of IEEE 802.3
+> > >>> specification, which can make PHY access unrealible.
+> > >>>
+> > >>> In any case, please fix your clock drivers.
+> > >>
+> > >> I'm not 100% sure the currently-passed AXI clock is what we want
+> > >> there and the docs aren't super helpful.. is there a synopsys-name
+> > >> for it? What rates would you expect it to run at?
+> > > 
+> > > There is no easy answer to that - it depends on the bus interfaces
+> > > and whether the CSR (register) clock is separate.
+> > > 
+> > > The likely possible names are hclk_i (for AHB master), aclk_i (for
+> > > AXI master), or clk_csr_i.
+> > > 
+> > > It does state that the CSR clock should have a minimum frequency of
+> > > 25MHz to allow all statistics to be properly collected.
+> > > 
+> > > The rate of the CSR clock needs to be known, as selecting the divider
+> > > for generating MDC within IEEE 802.3 specifications is rather
+> > > fundamental. You may find something there which hints at what rate
+> > > the dwmac's CSR clock runs at.
+> > 
+> > If it's either AXI or AHB, in both cases their direct parent is controlled
+> > by an entity external to Linux and their rates may change at runtime,
+> > based on aggregated needs of the bus. They're defined as levels/corners
+> > (abstract term for a hidden volt+freq combo).
+> > 
+> > It may be that the operating range for the EMAC removes that variability,
+> > but with no concrete evidence and just anecdotal experience, that's only
+> > the case for the AHB clock
+> 
+> The important thing is that the MDC doesn't exceed the max clock
+> frequency for the PHY and any other device connected to the MDIO
+> bus. IEEE 802.3 specifies a max frequency of 2.5MHz (minimum period
+> for MDC shall be 400 ns). Some PHYs can operate in excess of this,
+> but one would need to confirm that all devices on the MDIO bus
+> supports higher frequencies before using them. In the kernel, we
+> generally err on the side of caution and stick to IEEE 802.3.
+> 
+> There are two ways to achieve the divider value with stmmac.
+> 
+> 1. if priv->plat->csr_clk is set to a value other than -1, this
+>    configures the hardware divisor (for "normal" cores, it takes
+>    STMMAC_CSR_* constants that can be found in include/linux/stmmac.h)
+> 
+> 2. otherwise, the rate of priv->plat->stmmac_clk is used as the CSR
+>    clock value, which is the reference clock for the divider that
+>    generates the MDC clock, and an appropriate divider is selected.
+>    Given the available dividers, it works out at between 1.25MHz for
+>    a CSR clock of just over 20MHz and 2.47MHz for 800MHz. (I have a
+>    patch which documents the ranges for each of the STMMAC_CSR_xxx
+>    values.)
+> 
+> Note that the dividier constants are not the actual divider itself,
+> as can be seen in include/linux/stmmac.h
+> 
 
-This is a good suggestion! Or parse the ELF file and figure out the
-reset address at runtime.
->
-> Or just imply the reset address from the compatible? It's fixed per SoC,
-> right?
+As noted by Konrad, the AXI and AHB clock rates are indeed unknown to
+the Linux kernel:
+[    7.739389] [DBG] priv->plat->stmmac_clk rate = 0
+[    7.739391] [DBG] priv->plat->pclk rate = 0
 
-This won't work because for the same SoC depending on where you want
-to boot from (e.g ITCM, DRAM)
-the reset address might be different.
+Additionally, here's what I found (focusing on QCS9100 Ride R3, but
+most of this should be applicable to all qcom-ethqos consumers):
+
+1. clk_csr_i is connected to the SLV_AHB clock, named "pclk" in the
+   devicetree. This is the source for the MDC. The "stmmaceth" clock,
+   provided by AXI, is used for data transfers. It appears that the
+   devicetree gets it in reverse as per the stmmac clock
+   documentation added by Russell, i.e., the right order would be:
+
+diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
+index 147ebf9b1ac6..f1aa2490bf6b 100644
+--- a/arch/arm64/boot/dts/qcom/lemans.dtsi
++++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
+@@ -7111,10 +7111,10 @@ ethernet0: ethernet@23040000 {
+                        interrupts = <GIC_SPI 946 IRQ_TYPE_LEVEL_HIGH>,
+                                     <GIC_SPI 782 IRQ_TYPE_LEVEL_HIGH>;
+                        interrupt-names = "macirq", "sfty";
+ 
+-                       clocks = <&gcc GCC_EMAC0_AXI_CLK>,
+-                                <&gcc GCC_EMAC0_SLV_AHB_CLK>,
++                       clocks = <&gcc GCC_EMAC0_SLV_AHB_CLK>,
++                                <&gcc GCC_EMAC0_AXI_CLK>,
+                                 <&gcc GCC_EMAC0_PTP_CLK>,
+                                 <&gcc GCC_EMAC0_PHY_AUX_CLK>;
+                        clock-names = "stmmaceth",
+                                      "pclk",
+
+2. However, even with the correct naming, clk_get_rate() would return
+   0 for both clocks since they are firmware-managed.
+
+3. For GCC_EMAC0_SLV_AHB_CLK, the hardware documentation mentions the
+   range of 50 - 100 MHz. I am trying to check if there's any chance
+   of it turboing to a higher rate. For now, I think we can assume
+   this to be the working range.
+
+In view of this, would setting priv->plat->clk_csr to
+STMMAC_CSR_60_100M from the glue layer be correct?
+
+	Ayaan
 
