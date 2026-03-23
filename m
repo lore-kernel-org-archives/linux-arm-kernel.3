@@ -4,124 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D494F4613B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:44:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E7DF4613C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=857oDi1w30iRUEZNIZCDcc4NK+1YeerD+Igqd1c1Lk4=; b=duVu6qspbNqWXI1cFMg4jtdPGW
-	DvGqZy7Ctus9me1BnV0OjKjabCdFR19gxKcv4bB5DLEi4dlUbNyj2Z70kEiJR5Dccijba/w+93z03
-	T79kAv4h+anL/L05e3dN+O2LUlAzWe5HE5tglU8fHnnbfdBzMf6hbQtcmV3oPvpetfdMBnlPQvXmV
-	5pEZntKN6jP+BePgX+dgxlZyiKR3M7jD2Hw2yL5SGXnuAWYxOdoW3UKHIJ6g83UN5khdc2MglKMQ/
-	9PQ/55+W5rhtkWdl/eXJFoDj9dFnbEeeKZa3lrdaqE+0xfIRJ7QeVqaNTlXSnpj1lm2BUpFFNFGGS
-	dp2Tbg4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=32EEkOhoYJwH8hrTa443uf4buDKYrx0jNJ4E+5sch6s=; b=RzZ+xxxwQJJYeyrmbLKTcV7OIx
+	6A0RkpYl+D+2Cjw2RK+/diw8BA0pWmHsAUp1pzAnwDgDZjXaifpI3f+jB+gII+7ID0eEJcyNzHk8X
+	loOq35QWpViJStBj9AXPnokGLyObrO9xfLKdWuSDg4a0uQpyXXBaasv7U0OD01b2qnKL1ytYv/MLc
+	OylBrx5YYtfgiv41wGFX9yQMajaEm9Y7jVnsHiM/lk09SSAydrw9Lz16GrAGMOpRx2XwADLa0A4e4
+	nY7xTj+Q/hBQm4/sZjNyFQrFPmXnF9gmOb1LBXGjwzDk4V8vBSBk0MFqQlHJUP8TuTnS6gM/1/2r0
+	Qh47TBKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hRk-0000000H3cb-1cPx;
-	Mon, 23 Mar 2026 15:44:04 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1w4hZV-0000000H4Lg-1G5F;
+	Mon, 23 Mar 2026 15:52:05 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hRh-0000000H3bu-0yZH
+	id 1w4hZT-0000000H4Kn-0I0x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 15:44:02 +0000
+	Mon, 23 Mar 2026 15:52:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774281123; x=1805817123;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Wsy4mgLvmZ1zb7hkkxczM7lgmvPfWbrrjQnkYsvJG78=;
+  b=Hl9auhu3wKXWqaCwsPjBLBKc5xFius4Akl81K6voEuM5cVA7e/O+YsXd
+   vobGvS72kN6BdfWuA6aEx3s6juT1XtBZGhZSlV+CAxb02YpO2kohp8KXW
+   qlfJ+aXlam1I35/zJKBjJY1FTsPyxgzIGdy8WvcN7rdKiQOwfkFZjtwMp
+   3heixzJckivEfZZkWdUByxZbdxadES+i86ghUmmYcv14nWi2xC8CFWNHY
+   rsFN1iq0azEsc7iTo7us9W4eSfW6f0onCRH4dqvatbY9UgAlk4sbGxodg
+   vBMaeosivMV9gkQ9/mErwCLiZFt4VB7ZwOUWnrSm6jUobNbN2XE1eFlpx
+   w==;
+X-CSE-ConnectionGUID: pGq1tEziT2Sr6zgR40C3jA==
+X-CSE-MsgGUID: wN1YrN02TEOR7+asc8JflA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11738"; a="97903019"
+X-IronPort-AV: E=Sophos;i="6.23,137,1770624000"; 
+   d="scan'208";a="97903019"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Mar 2026 08:52:02 -0700
+X-CSE-ConnectionGUID: fF/VTXQ+QIWmdRo9h/oAMw==
+X-CSE-MsgGUID: Yl4SNv9AQ4WkXymCMEBTfw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,137,1770624000"; 
+   d="scan'208";a="224028180"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Mar 2026 08:52:02 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Mon, 23 Mar 2026 08:52:01 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Mon, 23 Mar 2026 08:52:01 -0700
+Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.62) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Mon, 23 Mar 2026 08:52:00 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h+2/zgpl5Skk/xr08zrk2UEy3hUgqnPy9sxrccTbs6PZjUOgOrjkOo8NGwx8p4tpLAC5LxuVuSWKq8iMuxMbAw0wioGjtn4MFy5SnNW05Oe1CTcg5o4l729dz3f1ByzdoLRSDWDk8D/6LiYhYpmF6MsAy6XmN+eBnFeb3gi3fAl18blVWCuRCJsIuCAV1uR20u4ccpC0XpT40fEdG1ex7Za6jvrKvgvbikS0cW0IuGPk6gKvSfMREJ2r8fsdtWEKnyVSng4gCXPgtDfINuay4nAo89ZnFkbNayCzi0tXYrZq1ewWvHBwri4PD3LBbeyWMikTcd/Ug0TomzGjyyYBpQ==
+ b=lmSDJem7Arv24G7O7pOKOaTo6A14Lskb+9HocNXmg2tZYyc/S6DVkCY838RH12oTVKldXS3n1pGOcXVoHEs7Z+amxHFvS390wpc4fQkjuEX3w3oktVD9MRgoLhDahfpPKDRluBbaPBg+UnveCdwS0RPaGc5QrEffpWU8XZ4OMkkS+L88t5mBnZ6Ou8mIWsaEs3QI4AH5Dalw3ZZ6wA9qb5175Jt1o1Axu274QThtL7pDgzg/wnIHYYVXeoevkTYIp2C5FQg7N/UGasxjQw082jgmDFAHZD81fAOSBu+NcY6o6ls0QtxmC6azCgoVtq1pb0XPBNHt1XmA21FY+b2G6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=857oDi1w30iRUEZNIZCDcc4NK+1YeerD+Igqd1c1Lk4=;
- b=sjfgzYruJpF8OCmjysIiidwlTHL2NySoTV1y6lA0mt3A1bi1ZfGOJZCTz6FdbQOfrJgCuP91kZumfLxXfSUxiFFSuJcyVyBt4RCc7Gx+x2XRqZDXe+N9+7migqFp4dCPMY0hPGny3YSyhhYxbfZxhJKn60FaJot0bgdnsbhhfVTlYIE4CY4H75hfsxzIQkkBeWhM0kkKJnYg5ztN6BY4bWcYZTlt7vogBNDmBPixjjOL9ADENq+dxqiOdrzjhLv2IqQdxB7utMxh5KJIq0V57jpl8i6i5LerwOIBd31JX+a6mV84biiVWeyQWQpsD601umrJlO8y7/sjiGnbZPAoBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=857oDi1w30iRUEZNIZCDcc4NK+1YeerD+Igqd1c1Lk4=;
- b=F/IPxMH6zZfku4H8eNLfF1OfZ16xndipW6girdrJKz+mBbFVo7Clxi+4yk+VwpIHqpBCb/52pbOwEI+EmS493t41XFGdnvn2fc7n2qFlWJHin7UHE6iZlU8rkB6Lrmy0T0Pa5+H5JqAPCuVRJypL1Vdi1L/X+a42TkVQhFKZf5Q=
-Received: from CH0P220CA0026.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:ef::22)
- by DS0PR10MB6800.namprd10.prod.outlook.com (2603:10b6:8:13b::22) with
+ bh=32EEkOhoYJwH8hrTa443uf4buDKYrx0jNJ4E+5sch6s=;
+ b=LE6Nx/p04MfmsyKpOg3ZA9IgkkBVb6Z9FmVTKed/Oja1UaUGE45GHLAgDNOeRTHm6QZhjEoePP1olRtCHVTX0+Nzb6Gm8HlqHMbg7GiJ6qGwU9f0mJZ/mOnYpOlPKaKUjTWJlqprktrX0wuK5U+jZgN+EncvvUO+/EIJZCAv1sVhEIuGwzaV07pzN5r3/LEasU2ySbaFWQ6b20z64To/BoUI9Eqqb9bVFjFgg5QpmabN2S12LCVn9HibJvEdQTQb+Pr85z2ICd4ur7Ps7GdJx5aj9LtOjpUg4/0CXg8amZI9m2G6P6vm6Ea0+HAy0ZRN8XEYmC5DMNb2lYtbiRkptw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com (2603:10b6:a03:4d2::10)
+ by BL3PR11MB6412.namprd11.prod.outlook.com (2603:10b6:208:3bb::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 15:43:53 +0000
-Received: from CH2PEPF0000014A.namprd02.prod.outlook.com
- (2603:10b6:610:ef:cafe::37) by CH0P220CA0026.outlook.office365.com
- (2603:10b6:610:ef::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Mon,
- 23 Mar 2026 15:43:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CH2PEPF0000014A.mail.protection.outlook.com (10.167.244.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Mon, 23 Mar 2026 15:43:53 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Mar
- 2026 10:43:52 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Mar
- 2026 10:43:52 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 23 Mar 2026 10:43:52 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62NFhqpV1010045;
-	Mon, 23 Mar 2026 10:43:52 -0500
-Message-ID: <d8ddb5bd-3acc-4691-b07a-57afa702b42c@ti.com>
-Date: Mon, 23 Mar 2026 10:43:52 -0500
-MIME-Version: 1.0
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.10; Mon, 23 Mar
+ 2026 15:51:58 +0000
+Received: from SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d]) by SJ2PR11MB7573.namprd11.prod.outlook.com
+ ([fe80::bfe:4ce1:556:4a9d%5]) with mapi id 15.20.9745.019; Mon, 23 Mar 2026
+ 15:51:58 +0000
+Message-ID: <a4bb0590-2ab7-491f-9261-256754347a44@intel.com>
+Date: Mon, 23 Mar 2026 08:51:55 -0700
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Fix MMC pin pull configurations
-To: Francesco Dolcini <francesco@dolcini.it>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>, Andrew Davis
-	<afd@ti.com>
-References: <20260223233731.2690472-1-jm@ti.com>
- <20260319080228.GA6079@francesco-nb>
+Subject: Re: [RFC patch 1/9] selftests/resctrl: Move CPU affinity and resctrl
+ FS setup to child process
+To: wuyifan <wuyifan50@huawei.com>, <tony.luck@intel.com>,
+	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
+	<shuah@kernel.org>, <tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>,
+	<ben.horgan@arm.com>, <jonathan.cameron@huawei.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
+CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<wangzhou1@hisilicon.com>
+References: <20260304040334.765860-1-wuyifan50@huawei.com>
+ <20260304040334.765860-2-wuyifan50@huawei.com>
+ <33a9c54d-565b-4de9-b525-1390bfd50593@intel.com>
+ <076199c7-265a-4c24-9e8b-964af10931e2@huawei.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
 Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <20260319080228.GA6079@francesco-nb>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
+In-Reply-To: <076199c7-265a-4c24-9e8b-964af10931e2@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR04CA0318.namprd04.prod.outlook.com
+ (2603:10b6:303:82::23) To SJ2PR11MB7573.namprd11.prod.outlook.com
+ (2603:10b6:a03:4d2::10)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000014A:EE_|DS0PR10MB6800:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e7aebcc-853d-42ce-650f-08de88f2fc74
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB7573:EE_|BL3PR11MB6412:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f5449f9-0ed3-4c49-bda4-08de88f41d32
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 7yVHq/XOZ0TeC6FwgY+2tWmEOdk+dTB5c5DrfQY9O8ENhyA5V2QDWkr+EDw9tRc97lJEVB4Fy2y+vJuuPEhBnKkPZep1+/08k3KZaT1Cyq+wF7eGD/HvIGtyz1sQ6kMlV6Bz0Av8JbfvYslBZ8TZx37Wr1Ii815toxBuOjNq9UIGyxpbfOLx0iR20E2lKGzbemEbV2036Ph3AD/tUrasSUyP/JUQxdWk5bJ6dPRgEPiDz+JJUtL7V3sLz2stDts5Dz0KnnxESQ/FGHatd0gi4kBwIyl/Lvc22hkk4kg+yQFvNJr5fqcJHZ28Ye6eh3Q/3Ie7QaC9hMxP4zijK4qP9iSW4pHe17tN48pjBSF543HHHFufYVGVnWg+SFZ8PSyHJGK8RJoeYSR58RYdSKCGWqFqqP7zI1jY8LfoAo1AsLXRVa8JKUl1Xmk42rmeLmlHK8GQOAbRASXXU1DAXKu4/MmPtBfTFgkL/B5sU/G6Y8C/CBi31SV8E6cO5OshmJrA7jf2zvbPqaMiTO9suYSNkGeweENnhNMCYogWceWNNuoUyiGMRBYzSGdin8KiFEiqu/xxwYSrW6D0ZzqfvzpR0k9jAV9OD6GFCc8e2AnQ/DXd602vVLtKW0PDWe84tuUQTUO0hfobcfaPm4WsNGPys7r2vGLApImkl+rG6/1bE8cYJxKQQ5G5RupZuw8anzY8UQsBiACxxC6y9GHd4gYY5mqRQoYO/S5qccROIUw7K7HKV6ABmQRI8dDClcfGAS1n9REedocehvSCsSAf1pWMrw==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 7FdTnb0jDGy3yTnbZneW+fluKCuMFyudwVp1YxbzCjqwAZo0dzLmXUVxtnschGmL1yBbwdQPCg4N5Fm8IrzDH9kXDKzkvDPltMAEhlCd0YytLwF0k+7GCEIeKaliPg0nE5g5S9O0DPx50QxajFz0WGFMoXUm3u+zwYcP1M5nH0V/EuiomNVVqpwIjWYukmBlofj872VCmcR0uFEo0EPR6cXSn/HUStTJB3GeRHtLz/2jLHzD9RpQzOdiN8IeRM0to9nJmINQUy7nKYcEZjHa4YKqhTrXCqXkkhF2BH3729RZmplsSDMD5rz1A2kH55SJzOCN7Qm3/DNwnfMGNtu0pG+5QPsSwBU1sQCPZIXzHJDA3gfCl01+tqpw29W+mZomWgea4hiDc87jinNASjDMjVkonmnoDiMRfONp0sMs32icj+vG0thDDW2sZCOiUwxsK0SKE7WN5RW37o0zuOB3ebLeRCKHEKthd+1lU2x2AeowZFW2Xte9l/D5QpFtJ0cYhgY+WZbqEBvI659RVYeC+YZe0QQoBRiTCGucovaxy8T7dbhLGMhP8qJkRWYZk/mc+disl3iS5SceLWFTddK3xA4+ynaS0AfI7YSvxZYumr/AD6b9jWKVQKnhBq2pzxRgYN6RV4yzyYRa471TF3DSXip3pyppVf6tJskflx3FEJWDmADFF2mqTZJ/v7k4inuJjec/oEB8pWdKi1muS/Xaebp0ySU0AXwA9ZxW/TII3FWVHlBvC2fMqSphkxOtvPX25lb5lFf4m1wHDSI9/7FtoIIt+EuiRkgvqz05kHrU6iQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7573.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: A9l6n9V6HNsRUAEUskHHj9p8FU6GWIIcjBUWqjM9o+EQcuaq9ugVVqoS2av9A/bYbkd+mi/0w7XAG9VXTAS6qzdH0Ngghv9P/2SVX0WiewVO7B4I//d4FhQLG4rJLIQEk13vGn2Yf8bN/o/hvJZYNr1yGW5LEo8XgOafE7CG18RjKFSPOLXAcv7uaVvWfD5L7X0YV/I0Nxf08EM70a8wibCEAqpSuJ77x3lrfNhpqMx5+zecBYa3vK1bUc5WQMBzAj+q6HcSG4ZpHWM/WGhrAlJXEZjkYPpoYvftDJnUhEXK0YqU84EZ090xjPPKQexKsnqYoGCJJQH9XhT18sAyq28WEKPwoYDX8pidN+yK2tLTKsBgTUBiVtzJxBidrfnpYY6sGMc3e999lOldPatRC2UYku14gw+v5Wb6MCQShx3Y2+tUIgUn2fPUj78bbk3f
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 15:43:53.1273
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M1lsZWVhN0dNdFJzVjB0ZG9IYzdxMVNHbkZ3NG81Rmp3eUp6dEZ2Mk1kcUEv?=
+ =?utf-8?B?S1RwQzdBbWc0Y3pCN1B3Q2tQbmVZcTJ2eTJCcmRCeFpBZlBJWEpWdzYyajBp?=
+ =?utf-8?B?S0ZsaTdKZWxiVzNxLy9qSjNPSi9ueWdRb1RzNTJQbG9hWEg0WWx5QmlXWlZV?=
+ =?utf-8?B?MDdlQW50MGU5SHBUM1BvbTdmNVQ1QkMyeU42aW42WkFCYTNmVFVaUzhKVTdw?=
+ =?utf-8?B?dVdkMWZpalQ4ZDVORkZidHlEOUVJMkc5Rzh6WmVvT21ULzcyaUMxY0JTRnQz?=
+ =?utf-8?B?S2ZyMWZQMDBJTUtLanJjU1Rxb295VGdjNW03R0VCb1JTdmdKdkRITTltNmJB?=
+ =?utf-8?B?b0EvMG5rZkszOVdySTNHV0tSZm5pZkV1V09OWE0zRW8zZ0ZzNHNGMmZJODZP?=
+ =?utf-8?B?dDkvNjVaTVMvTm5CYWJhSzN6cGp1bzVGaHNnWDBtb0ZmZW5yV0Y4QkFwakpD?=
+ =?utf-8?B?UjhoMjUxZUFQeUpxV1FiYkF2RVgwdWpRTFFqZDNTRmdzeUtpRDFYeGhjTGJY?=
+ =?utf-8?B?dEhLNXJLODQwSUtNY25zU1JpMDcxbjZkSEg0aTRMKzFvVEZacEwwdHNYdHll?=
+ =?utf-8?B?K3F4U09aUFhVOCtjd0xCSU1NWDhseERtOFgvYTNTRUQyKzc3eGFodDdrV1hh?=
+ =?utf-8?B?ZTJINjZvYStoTHlrWm02cGJ3V2trdjJRUEQ2MDVoZ00zcTVhd1Bsb2lROGJ1?=
+ =?utf-8?B?VWMrWE0vTWdNVjNGSUlZeHExWmFBUCtkZUNzcnpzclEwMlErSzFEb1NLWlRw?=
+ =?utf-8?B?eFA1b3V3UWRBb3JqNzJBdVZXU1hHS21LZHRibGN6MG43cDN3c21Xd2RzL0VI?=
+ =?utf-8?B?dGFrVXdVMXBPOGR2WGUyb3dNclY2czlyM0liRUFhOXBUbmlxT2tDN1lGek81?=
+ =?utf-8?B?ZGpZaTBQWHFObm9jbG52MTlvUVBkckxtZ1dhYWR5Ny9NV24xU2d2Wk5mLzA1?=
+ =?utf-8?B?UVBHTVAyYkRpNmVoSXhnNmRySW4rZkQ3aE5KS2F6Uk1SSEVNSll5SXQ0NDFo?=
+ =?utf-8?B?V056YXIvRnJsUks5U3ZibVpqalVyektRMjREVk9Id0cvZ1VnSDYxYmgrdkI3?=
+ =?utf-8?B?M3FsUmt0OCszQ2JzWVAzZTd3RXltckZQVUdIV3MyK2x4RGJOQjI4bjFoOE5x?=
+ =?utf-8?B?OXc2ODNNTWNzQkppRWpKUm9VUHJGZUVqdjRjU2UrcVEybnBmaXdzQUk5dklu?=
+ =?utf-8?B?ZEd5RVlEYitWYXhYWDhESUJ5S25QVElsRW9iVENTVWdaYzlSbTh1enJ6K0xv?=
+ =?utf-8?B?WVBCanNTVmJWdUFBTzROTGlQV1owNlRVMFFCalRYSnhhSFZhZWtaRnA2ZFpp?=
+ =?utf-8?B?NnpJQmwrQ0d1YVNQUUlDcXFOWlhpR1lYekVnVmg1TG45TVZUM3Z1di9PLzB5?=
+ =?utf-8?B?aW5keklCMkI3TGNjeXl5d3g0czNxMWdreUUzdjZ0U0dtMnJaVjBhdmZTVmtW?=
+ =?utf-8?B?cTBBSXBaVDNlQmRzcUZ3QTdHNWhxcVB6ZWhlWjhlL3pHVmh5YlBsSFV5Tzhw?=
+ =?utf-8?B?ZW5ITmZrRUY4cm9zOGRwcHJ0Z3daVTVjUmhCOEZ6TGtXbDdVQlBjdnYzVnYx?=
+ =?utf-8?B?ZTB5bDlwNVNRQ2NSdWJuMlZ2ek9PUEEzQlQ3WTlybU5zMWhTWW40cXF0bFY4?=
+ =?utf-8?B?RVExMW10aVlFUEoxN2tUYmsyRk9oeEw3Z3NXRjE5UDlFV0JGWjBITCswaVFE?=
+ =?utf-8?B?emNUMmJmd1JhMkFGZFpEU3JhVVBJbG1scTFRQ0s0QWpZOGIraXVTcUNhTm51?=
+ =?utf-8?B?UmZCWVdPUFhUend4RkFRNlFrMUt6UGxMNWtFN21ZMXh6Y2FoRzVTRUlYQTRy?=
+ =?utf-8?B?MGZ1SlBUejZPcTJqNWhnanlESk5ZMFMzZEVBQkJwVzhPdGlmQ3VPYVZoblQ5?=
+ =?utf-8?B?R2U5TjJSRjFTMFUzWG1aMjI5L3NmWkRIVmVKcm80L00yMUhwSTZMUE1pZXR4?=
+ =?utf-8?B?VkhhQy9FLzRQVTNpMisxWU4wTW1HWkZnVGp3clFGbEsrdEVqcHFNZDkxelN6?=
+ =?utf-8?B?Uzd5QjY3bTJnRjYzYnQ3QlZPcStUOHdDL1NQU3F2dHRlUkVSWkNxZW0yZUZL?=
+ =?utf-8?B?L0pWY0ZhaG9KU0Nyams5T1VIRU0xd3JkRTVaV3NGTGlueDRmYWdPMDBwTFRy?=
+ =?utf-8?B?WGJ3VTExMmdkZXdpbVdhV1V2V1NXVkRtSGxHS0Y5RUY2Q1NyQVp1VS9wZy9W?=
+ =?utf-8?B?aFZURWFObm5keWRFYnZQZCs0UXZyekRaKzF3cHdvYjdJK25PRGxSaTU1OGNQ?=
+ =?utf-8?B?dnI2TWthZWRWbU8zdDlKU05KZGkra2JwTktUOWxoUnFDTXNza3M5eWxXUk82?=
+ =?utf-8?B?ZHAvZDlVNFpSejZEZDIwMGR3eEdKMTJzaFNuMUkxZ0tpNE1PaXpCbXpiUUhK?=
+ =?utf-8?Q?qBgjFtGCeQ71pL+0=3D?=
+X-Exchange-RoutingPolicyChecked: QnU5qc/tYteB8toMIiCOIjBZ8L8shm/en9qdLnS7K0XmRls8tn1iJIB9qLWt32Wf9F7WQaGMUgbjHGSsajKeIzPhJEfgIjp0/9uPl7rxb9fPrrDOPlIDXMTJqH486ESbgIUhUgU96AxR8bUQ1DlJXs50yOLxyS2sbtm72QRXb5zkkqEiSAvQOZQRQaX/Ya5oUSxXtz9NHWHYJwrbgcGO9vbmlG7h7TRXtLdiPYciWOF1wsOQrhHbJeV9Z34N4xVSv8K+UgUDlit2RrmSl+ZX3fqkrWDhkpLXMVNB/JGYhAdCmMLdKBWC5p6jEq6KYtijJKFe+nUUsDKmjALw7hsl3Q==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f5449f9-0ed3-4c49-bda4-08de88f41d32
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7573.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 15:51:57.9877
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e7aebcc-853d-42ce-650f-08de88f2fc74
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000014A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6800
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SoIDqvRPQaQYtVU4gDPuR5kg+TpHjS6plLjxJxD2rU7FghlZnRWdsNBGU+/u7d+xbffoPvf9lEhxf9s3MjPaasOHpg6gWszW8OKmGjS86Hc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR11MB6412
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_084401_348918_9AEE2AE5 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_085203_169572_44CEB6B8 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,22 +192,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
+Hi Yifan,
 
-On 3/19/26 3:02 AM, Francesco Dolcini wrote:
-> Hello Judith,
+On 3/23/26 2:18 AM, wuyifan wrote:
+> Hi Reinette,
 > 
-> On Mon, Feb 23, 2026 at 05:37:28PM -0600, Judith Mendez wrote:
->> This series corrects MMC pin pull-up/pull-down configurations across
->> TI AM62L EVM, AM62P SK, & AM62 LP SK boards to properly match their
->> hardware design.
+> On 3/13/2026 4:53 AM, Reinette Chatre wrote:
+>> Hi Yifan,
+>>
+>> On 3/3/26 8:03 PM, Yifan Wu wrote:
+>>> 3. Since only the child process is monitored, the CPU affinity should
+>>> also be set only on the child process to ensure that the PMU (Performance
+>>> Monitoring Unit) can count memory bandwidth from the benchmark process.
+>> A child process inherits its parent's CPU affinity mask, no?
+>>
+>>> 4. When the parent and child processes are scheduled on the same CPU,
+>>> the parent process's activity may interfere with the monitoring of
+>>> the child process. This is particularly problematic in some ARM MPAM
+>> Which tests are encountering issues? For MBM and MBA I do not think this
+>> matters since the tests just compare perf and resctrl numbers and perf
+>> will already contain all bandwidth associated with the PMU so isolation here
+>> may require to potentially take all traffic off a socket.
+>> CMT tests may see some impact since it compares cache occupancy to the
+>> size of the buffer being read. I do have a pending series that aims to
+>> address some issues with the CMT test:
+>> https://lore.kernel.org/linux-patches/cover.1772582958.git.reinette.chatre@intel.com/
+>>
+>>> implementations, where memory bandwidth monitoring real-time values. When
+>>> the child process is preempted off the CPU, this results in inaccurate
+>>> monitoring.
+>> This motivation is not clear to me. Could you please elaborate how inaccurate
+>> this monitoring gets? The child process may be preempted but it should not be
+>> moved from the CPU in its affinity mask.
+> The bandwidth monitoring feature on certain systems only ensures
+> that tasks currently scheduled to the CPU are correctly counted by the
+> hardware. The counters for tasks that have been scheduled out of the CPU
+> will be out of date. Therefore, separating parent and child processes
+> to run on different CPUs can ensure that bandwidth monitoring correctly
+> counts the real-time bandwidth. This approach also works on other systems.
+
+Does this imply that when a task is scheduled out of the CPU then
+its counter is dynamically re-assigned to another task? This sounds like behavior
+that needs to be addressed by the driver and not accommodated by the test.
+
+Since this failed on the first system I tried I cannot trust the argument that
+this works on other systems.
+
+>>> This commit moves the CPU affinity and resctrl FS setup to the child
+>>> process after fork(), ensuring these settings only affect the benchmark
+>>> process, thereby maintaining measurement accuracy and making the
+>>> implementation more portable across platforms.
+>>>
+>>> Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
+>>> ---
+>>>   tools/testing/selftests/resctrl/resctrl_val.c | 68 +++++++++++--------
+>>>   1 file changed, 39 insertions(+), 29 deletions(-)
+>>>
+>>> diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
+>>> index 7c08e936572d..85ac96c7cb8f 100644
+>>> --- a/tools/testing/selftests/resctrl/resctrl_val.c
+>>> +++ b/tools/testing/selftests/resctrl/resctrl_val.c
+>>> @@ -545,7 +545,6 @@ int resctrl_val(const struct resctrl_test *test,
+>>>       cpu_set_t old_affinity;
+>>>       int domain_id;
+>>>       int ret = 0;
+>>> -    pid_t ppid;
+>>>         if (strcmp(param->filename, "") == 0)
+>>>           sprintf(param->filename, "stdio");
+>>> @@ -556,22 +555,10 @@ int resctrl_val(const struct resctrl_test *test,
+>>>           return ret;
+>>>       }
+>>>   -    ppid = getpid();
+>>> -
+>>> -    /* Taskset test to specified CPU. */
+>>> -    ret = taskset_benchmark(ppid, uparams->cpu, &old_affinity);
+>>> -    if (ret)
+>>> -        return ret;
+>>> -
+>>> -    /* Write test to specified control & monitoring group in resctrl FS. */
+>>> -    ret = write_bm_pid_to_resctrl(ppid, param->ctrlgrp, param->mongrp);
+>>> -    if (ret)
+>>> -        goto reset_affinity;
+>>> -
+>>>       if (param->init) {
+>>>           ret = param->init(param, domain_id);
+>> write_bm_pid_to_resctrl() does more than just write the task ID to the tasks file,
+>> it also creates the resource groups in its parameters. By moving it after the
+>> param->init() callback it prevents any test specific initialization from
+>> being done in the test's resource groups.
+>>
+> I see. Since mbm_total_path, which is used in the parent process during
+> param->measure(), is initialized in initialize_mem_bw_resctrl(), we
+> cannot move param->init() to the child process. However, we can perform
+> the test-specific resource group configuration in param->setup(), as we
+> did in mba_setup().
+
+Setup that only applies to the test self can reasonably be done within the
+actual test workload but test initialization via init() callback can reasonably
+expect that the resource groups exist. Consider the CMT series I mentioned to you
+earlier, I have since submitted v3:
+https://lore.kernel.org/linux-patches/cover.1773432891.git.reinette.chatre@intel.com/
+
+It seems better to split resource group creation from the task ID assignment.
+
+
 > 
-> On AM62P the first mmc controller has no pinctrl, how is the situation
-> on this specific interface?
+>>>           if (ret)
+>>> -            goto reset_affinity;
+>>> +            return ret;
+>>>       }
+>>>         /*
+>>> @@ -586,10 +573,8 @@ int resctrl_val(const struct resctrl_test *test,
+>>>       if (param->fill_buf) {
+>>>           buf = alloc_buffer(param->fill_buf->buf_size,
+>>>                      param->fill_buf->memflush);
+>> This is the buffer on which the workload will operate and by having
+>> different CPU affinity between parent and child the buffer may be created in a
+>> separate domain.
+>>
+>> Consider for example if I apply just this patch on a test system and try out the
+>> MBM test it now fails:
+>> 1..1
+>> # Starting MBM test ...
+>> # Mounting resctrl to "/sys/fs/resctrl"
+>> # Benchmark PID: 6127
+>> # Writing benchmark parameters to resctrl FS
+>> # Write schema "MB:0=100" to resctrl FS
+>> # Checking for pass/fail
+>> # Fail: Check MBM diff within 15%
+>> # avg_diff_per: 100%
+>> # Span (MB): 1280
+>> # avg_bw_imc: 50
+>> # avg_bw_resc: 0
+>> not ok 1 MBM: test
+>>
+>> What happened here is that the buffer was created by the parent in one domain but
+>> the child's affinity was set to another domain. The test assumes that it can
+>> count local memory and all of those counts are zero for resctrl since the memory
+>> is not local. Similarly low numbers from perf for same reason.
+> Yeah, if the CPU affinity setting is moved to the child process, it will
+> also be necessary to move the memory allocation to the child process. In
+> addition, what about setting the mempolicy to the local domain when
+> setting the CPU affinity? Like this:
 
-For AM62P, MM0 interface is a hardphy. We do not need pinmux nodes
-for hardphys since there is nothing to configure, pins have one
-purpose, and it cannot be changed.
+Is local allocation not the default?
 
-~ Judith
+Reinette
 
