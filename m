@@ -4,81 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311CDF4610D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 341A7F46119
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llgxcxL/C1tvB5WXTxbj5qLOo0G+Bs8aGeCNtbHtlY8=; b=YZfCQ6MHDUe2nVm7FWym1hxa5H
-	Vk6Q4vpvK3W9iXxaqMt1W58mxhOMIqZQ3SMJbPOuaM2m2HsAGSUuJe7ml+St7cPuQVG7SiP7Elh0a
-	0x08mEyWkkP8UoHjUkLREOXCn/9BohzzjTyih4+26MJtl6QxZxGANVar+gfvK2zOidYMdvzROTaOl
-	QZOobKwGaK2Bv5jaxAbnFj2gTAgApf0OdLnS2kZ55/04nM+/Yesg0EgrYXloY2WRMdFr4TmyBg0iE
-	GUfL0dVnDVlPttIUq4vaHAA99agjTYuJEUG2t4AC/Ex9cH1U2Kdu8NS6lDB5pHNTvhE6+5AHpOhnf
-	0rKuD0qw==;
+	bh=+3GOWPIVljvKJN7KNFT2U0PYatgsfRiQD1Y7YM77qG8=; b=HlMoxj+KqzSzjfk8ArArL5pcbj
+	UxYFhhtX3G7ZfRW3yg55GG2Kw7sFQA0c8wZ5tqk49ZGDOl1SqD+J3U4yooaWrzz2Hu7rs3oJ1O1N3
+	Q5OzYMrXt1sGax9SaV1ldxjoWQFvxNueuIpyOwrt0l2fnxRATxag/QrvTir9/yH9iY1voSIhnM4k3
+	Fqn4m69udjN9sex7U7Bq8fD0LlvxqMPwb6Z4/qJp/kzCxUuXsP8lD1/YgwEMC8vDg5PRGn/CzApR3
+	DA10yqRX++zoPy4XP1mhyfPAP89kD4SgVG8qVAK9Wd/camhWrVdIofuvzvhplFhsYAAJsQMaBVS3H
+	nJ5o9khg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fg6-0000000Grka-3Twn;
-	Mon, 23 Mar 2026 13:50:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4fgh-0000000GrqC-2Ojk;
+	Mon, 23 Mar 2026 13:51:23 +0000
+Received: from mail-francecentralazon11013016.outbound.protection.outlook.com ([40.107.162.16] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fg6-0000000GrkU-1Xsd
+	id 1w4fge-0000000GrpQ-3XVM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:50:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C6B63600C4;
-	Mon, 23 Mar 2026 13:50:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B44C4CEF7;
-	Mon, 23 Mar 2026 13:50:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774273845;
-	bh=0baWZXNjINTZ3z2SxZs2QXw3tAwYKeKFF0/2CnhzC2c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=u0y/GdpE99QHygF9m+wNkdy4t8wCswklFo1dQ5gOCESsWbY98SpCCLRJ3T0pJbmA3
-	 R4XFr8fdSyzCJo45Lhgt0yMOg0Zsu8NyB+0t3AHZmnQTllrtB8UFd2nFjBom5q3j6H
-	 i8HqXaDvQ9eDYrA0px1eb+bKBXlKazZ6lB1mZucueNpyMK5lP2GfuvONa7R570NX+n
-	 qZ0o+0fjFlywoFrw1y4Y6hCz7llzT759NGkbce6e0saJWoxAe16Qbofv866gLk0dda
-	 z/8VyWItC1wfZa+y1kDH8Xogwx6Sd3ge/kYMaIEBLfm29LszQZhBLn7QiiOFCm/Fg6
-	 7+Fh4rR8thsWw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w4fg3-00000004ke5-19cj;
-	Mon, 23 Mar 2026 13:50:43 +0000
-Date: Mon, 23 Mar 2026 13:50:42 +0000
-Message-ID: <86y0ji4pu5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-In-Reply-To: <3be4971e-31a4-4033-9583-88d7fc96104f@sirena.org.uk>
-References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
-	<20260319154937.3619520-13-sascha.bischoff@arm.com>
-	<3be4971e-31a4-4033-9583-88d7fc96104f@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 23 Mar 2026 13:51:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vsaPT76XfV6M+VogFC/TTh0kRdwSYKz7f/SCL4vXPkErmZZA8BTS0QhGCyvPA4Pa95Whyn8xpekNGm2GXFZZM7qOb0hS+S3bMuT7ZjUkh/Ag9jih7Bi12CUCKrSl45sjz2jdcE+U9TeB19Oltp5wm4h9+JZP86aKiZbwmu3bmNiVmtEJDRyU7wTerwncX5UP+3JABpFkHPUOMMqTHKdwXqlIz8YFjVKv4JPogXgHe36DYKA9bRkQsrOm8xtTHLBUlx3lYPxpvS0D4CLxcT06LXI8Fo47BC6T5BmojkMAbUbAbvc5yfcyAwYOnB4RzEVxExqSXLjnOTqbcJtmdpRrQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+3GOWPIVljvKJN7KNFT2U0PYatgsfRiQD1Y7YM77qG8=;
+ b=oTUfAn58S+5zXNOxdNMkvc3yH6eCydKq3b56YE1WKyJLnoAIFG60UdG58e/OYzm26ulToUCisCwGh10QQa4shK5BEncz9uDqK91VU6uizU071DMaeF2aytbAlg5PNTy/BVVV6O2OAynePi4FlRpAlhNG/9Ak0WFhnEHPoGXH6AheyX+JW4zBzzoaJ6r5gJFQtRG5w68BNHUtipih7f7j154itIDiBzp9g4LsNEh7iF8nmb/19W183zTyLJrllzOuVp6IWiUAQ0qru57g11AHV/Q/4f1JxEEiZKxEfSn8J82HquTK6aN4nZNixvbx4flNmT+np8dDH/6bZbsPHK8Ang==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+3GOWPIVljvKJN7KNFT2U0PYatgsfRiQD1Y7YM77qG8=;
+ b=UfNa2jjbw5XC11gXUP9Asoa8P8zxtNXq2Ziq+UuDBMcLpIyRFMcvqKUadRvNPnNw19FNP6pXjHNwYQFLnVhUQIX2QNys5hpbyu4EUqWmkqRgDM4frYZsj8SlIjxISbCaFE+J4BI+k9cQnt83LKBMdkgryU0ZiQ7uJfYSD2LOL8xxIDcT8roAXayyn3WelihmOjyfu3rJVJpelk/o5+aXlMQn6ps1FKxiUYOZ/NX7KLE0Nw/R7wGkCX0Lxf7+6S6hvcWcJ+YH3mFuUOnNomBIoquOoPntdy34l1mXSEhCi1he5bErO/vKg0j7VkZK29nBXpAbf60gnrP5wePZgrph9Q==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by DU2PR04MB8613.eurprd04.prod.outlook.com (2603:10a6:10:2d8::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
+ 2026 13:50:55 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%4]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 13:51:15 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, "arnaud.pouliquen@foss.st.com"
+	<arnaud.pouliquen@foss.st.com>
+CC: Shuah Khan <skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
+	<peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Andrew Lunn <andrew@lunn.ch>
+Subject: RE: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
+Thread-Topic: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
+Thread-Index: AQHcsyPMkrsH1v1X8EObP4AwJRt0+bW8L85w
+Date: Mon, 23 Mar 2026 13:51:15 +0000
+Message-ID: <PAXPR04MB9185BAA70595FB4BE85F8362894BA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20260313195801.2043306-1-shenwei.wang@nxp.com>
+ <20260313195801.2043306-4-shenwei.wang@nxp.com>
+In-Reply-To: <20260313195801.2043306-4-shenwei.wang@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|DU2PR04MB8613:EE_
+x-ms-office365-filtering-correlation-id: 223e4322-4d2a-425b-52cd-08de88e3409a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|921020|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: 4jBgwbXoBXxk0QsVuiu4H3DuiG7O+ez14fBjgZ4O3rM57fF3AmIW+x6xV4tpeBeGWw3jaJLSrh1ftsFL3tFBj8AtuOgUShZCiKAyQrakFS1/I/0OAmB2OHoDz+h5rFDtQa513VfAwl6g6y7eeP4uvEMebzqOuPDEqfr+V6flypdWDxOFOYeUl9yoZGuzCUxeDlML5Jha7zjOAGFp1GbAbR+94ykBPcfZLF/m5BUZe4bBZocIog+lKJDOACm0A7AdYwogZk+eSJt/Pm6zu7MhqOQHSmkQHVXkJfS3eaoIa/gMMVogR3KDun54y5KnfWBwBn97S1lKeuky5F58daFmc/u6vFfkQPIPbj/lF4OP1NUm1Np4NIVNNislgypCVBN+hLOjEThpFb4caEXC4SWpysE9fQZp+w1QF2yX3euu46apFVn2EVdezhyQqD+ISB7jUDBB1BdLTy9rV+vrKVXusINdW8B6vdDJBqmEZR1JQd6x+hionLSjtrG7d5YNSRyl+AszKwJ7osq1fIxLmgKoPlzKc8jjiVkCtxoVlRq8p0xTNcUntRgucSi9aUQdpYYsKWQJHAMsvwW6xQ8NiXw3bAcK4rNXXg0ihdP6zyackw3on5S+K9h0i/OEJ8k4TiU1sk638DXMG/fzbluUw7GM6337ikCr6upns61YUbVyPW2BgSZs+k3X7p6ZPjncgC36LulVj2vEVzuI5FrebS6BS7KCxGghDtFN6+gywqpAoZtFCLn7LgQIigQRzOM0FfGAvTnwUXBmzYaqWz5vj6dux9AyAEXSs5nsOSHQlYFODDFJVzIDTDHwAWa72bSqBkeP
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(921020)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?J/kTa1zOjBVyJEvDi/NeqC+VoNgs96PuNLy9bIScK4mSUTh6bb9wnpRLcKCT?=
+ =?us-ascii?Q?xvxuRMWTAAzTxonH5nYAsXWJ6ODtBK01sYOfATTeCNUJi8SBFHNa91IqSxF7?=
+ =?us-ascii?Q?aV9phS/BNJg0alc2DG46vXD8bfaCLYlK+IvsBKuYl8jNYo6A/lVSKQMabD/t?=
+ =?us-ascii?Q?g+U7yQ373SAwGu86r+pimgrH8YF03Peg8cWgVrErByuxXGKPoKCzm0/G2igR?=
+ =?us-ascii?Q?nTGFuYYc5m5inqnUHEIww2cpd31QTvI+CcX2qTxRy3VzqGTIdx6/DYRnEkKv?=
+ =?us-ascii?Q?1odFLNR/CSQ9IZ2HIKgkG1tajnD+Vprg/suARwlHIKQo/uDI7Aav/E1VdJEC?=
+ =?us-ascii?Q?ix/adUkg9HfgLU56EJROyutIdCf6AzPVMMu0UljXm+nmPVh0x18uXdEkGT1r?=
+ =?us-ascii?Q?oQZv4btwqlb3pJ7SMQl5BXt1/7ep4rK1pFpCq6vAEZYfapf3z/rtP9GL7+9P?=
+ =?us-ascii?Q?MaCnjXG6dJEOiBpF+/2U9C+16vAAjUbgQSpF0dklAufiRXfMbFt8PYhOUMRC?=
+ =?us-ascii?Q?8nyc+grmxu0QZK5ke7eKzTYmQErXYuFwAN0bsuAu8RlELeCuytiM7c/dSa63?=
+ =?us-ascii?Q?RClgXuUF0EpKBLqMkWsONuKgwmCAOMnz0cEo2Gcqs64OcN7YtZ5pnbKPaXf6?=
+ =?us-ascii?Q?HoB6RYK9IuCcFt65nZR1nIlJ8/+PNfB/jyYv4MdUbOXiLBeyFgABJkCWRkUs?=
+ =?us-ascii?Q?1Jw5TyuwrMiPfiGu5OmJ87tBbz8Q3F/iwvNkRzrWU97Q8YfMWCHOmEN3VbGF?=
+ =?us-ascii?Q?FgRoGGPAYWhT1PyYED1JbAZKoXPpqeDgi7i6rjc6kM9XyI05pSjb5MibEkd+?=
+ =?us-ascii?Q?Srzonn4VBqTPXoveWI+iMOoUFfDBELNDlmiS83k5eDQsqyvOBBjf0R9KXC5G?=
+ =?us-ascii?Q?pCURpZuPHsPQzzLrjDDe32KADgeSS6z49g3PZwsO1oOb+Lm2W4iKw/W2S1Od?=
+ =?us-ascii?Q?FafV+583UjFdScJqnlfMiHOF2MXZ2aAlD+2RMdX83LT/mR/TgGbWmYfbgDG1?=
+ =?us-ascii?Q?34Wb1r+mFAZZ/vZhiOxzkuKWyNZ9IX7wVtWdefayEy4u87ccoTlLfwgMjlo5?=
+ =?us-ascii?Q?8HUmw4jy2NmgN4YYt4ri0+Qg6kzsMU+HAkKRFkKGTbPnjN1hTXPLuVTLECqE?=
+ =?us-ascii?Q?omCb3r12wF5qToyq00azlnZ7bFckRQn9xl6vEfUN6SlavJc6Pbi2ySaZPudQ?=
+ =?us-ascii?Q?okJL8EBKqulbr2UtKs6zJvI6v7g4J6bxPBMk5FXF3xP2LI3xOk+n0YdQ/DHt?=
+ =?us-ascii?Q?7gfCJpSisM3M1yyv6GH1NWxvzsiZ36KKtE5rBNJDwTlRgpklDlGste+CJLF2?=
+ =?us-ascii?Q?j76gfhpju/cbe/+APC1KDHyQ5CyjJGgj2yIBzWvj9dRUICkHtSmXa+DfQtdI?=
+ =?us-ascii?Q?u94kKSE0B9xiuaN/g7nP/qdca51maxjbj1VpcfClipowLImHcemXatf2LuLm?=
+ =?us-ascii?Q?OT2iJE5lPPGPabmGa8x6cyXxNuiqHx7I3OkQ+ze5PlJhMQ4lmBEH7CCE7+0l?=
+ =?us-ascii?Q?sjvxgKMJiyav2Qa6UBREP7zk67Bpl1RfizwHwG96yfdkaLM7/2FS4e9DKCBi?=
+ =?us-ascii?Q?P/bH8eqtcQrZYVdO1b0uh/+HREPXd3+lyYtV1XBxeVwKpHawPzCNKvNws6Y/?=
+ =?us-ascii?Q?7z4kLPhFdhGnG/KIiZ+FtB7RLdcJEtWrOdyHlzRcHBVBTQkApQ1Y2omgVrzV?=
+ =?us-ascii?Q?ad6+gZhm0i4KQQk+Kz6jlIcIjjfu6OfLmiTvoD8OFX0c4XWC?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 223e4322-4d2a-425b-52cd-08de88e3409a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2026 13:51:15.5640
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hFIUx9M3hFwnGOwehCjDnNel6QvH8CTlk1s1S10OXxTPHnniBGGtvovQM9k/aZ0/TLjDzZGkCMLic2nx5Hc+xA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8613
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_065120_881184_62B8EB68 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +152,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Mar 2026 13:37:59 +0000,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (7bit)>]
-> On Thu, Mar 19, 2026 at 03:52:50PM +0000, Sascha Bischoff wrote:
-> > Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
-> > already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
-> > fields. Add sanitisation for the GCIE field, which is set to IMP if
-> > the host supports a GICv5 guest and NI, otherwise.
-> 
-> ...
-> 
-> > All of this extra work is required to make sure that "legacy" GICv3
-> > guests based on QEMU transparently work on compatible GICv5 hosts
-> > without modification.
-> 
-> I'm seeing a regression in -next in set_id_regs on a range of platforms,
-> including physical ones like the Toradex Verdin AM62 and i.MX8MP-EVK,
-> with a GICv3:
+Hi Bjorn,
 
-What CPUs do these machines have?
+> -----Original Message-----
+> From: Shenwei Wang
+> Sent: Friday, March 13, 2026 2:59 PM
+> To: Linus Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.o=
+rg>;
+> Jonathan Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzyszto=
+f
+> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn
+> Andersson <andersson@kernel.org>; Mathieu Poirier
+> <mathieu.poirier@linaro.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> <s.hauer@pengutronix.de>; arnaud.pouliquen@foss.st.com
+> Cc: Shuah Khan <skhan@linuxfoundation.org>; linux-gpio@vger.kernel.org; l=
+inux-
+> doc@vger.kernel.org; linux-kernel@vger.kernel.org; Pengutronix Kernel Tea=
+m
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Shenwei
+> Wang <shenwei.wang@nxp.com>; Peng Fan <peng.fan@nxp.com>;
+> devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <=
+linux-
+> imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>; Andrew Lunn
+> <andrew@lunn.ch>
+> Subject: [PATCH v12 3/5] gpio: rpmsg: add generic rpmsg GPIO driver
+>=20
 
-	M.
+Since I rewrote this version based on your earlier feedback=20
+---
+"My expectation is that it will be better to just have two separate
+drivers - but reuse all the design-work done in the gpio-virtio."
+---
+I'd glad to hear what you think about this patch.
 
--- 
-Without deviation from the norm, progress is not possible.
+Thanks,
+Shenwei
+
+> On an AMP platform, the system may include two processors:
+> 	- An MCU running an RTOS
+> 	- An MPU running Linux
+>=20
+> These processors communicate via the RPMSG protocol.
+> The driver implements the standard GPIO interface, allowing the Linux sid=
+e to
+> control GPIO controllers which reside in the remote processor via RPMSG
+> protocol.
+>=20
+> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
+> Cc: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> ---
+>  drivers/gpio/Kconfig      |  17 ++
+>  drivers/gpio/Makefile     |   1 +
+>  drivers/gpio/gpio-rpmsg.c | 596 ++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 614 insertions(+)
+>  create mode 100644 drivers/gpio/gpio-rpmsg.c
+>=20
+> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig index
+> b45fb799e36c..cff0fda8a283 100644
+
 
