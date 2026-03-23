@@ -4,149 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E799EC01B6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7E5EC01B6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=; b=LrfPYiNjzObrtspR/4Qd1j7eo+
-	ZQM1sYnlyN52GfPlZxHQFoEnMSacnT+7yf0+mvsB2KzFI9bQ4XZfeNCBICCCxcZgaYSOsUVHr/lau
-	iW0eGYiOoRI54PfecNllf1VaqbIMtSqaF2b3xd2UE1XFkS9nlsVZarXTSv/S8V88sA2NG2ts3/0ej
-	CkXfS+8n+lhd+0GMwiA8bCnVB+T6P+IS7swMpM6LdoHt3i8RaMQt7+LevIgtCjE6EcGfryyJpmIJ4
-	QKihfJb4rCED3L3AIrcJv30y25m0MgYEgV0EjW0/Cyp26bGdbejuFKuJ3Mxd0OlkcvU5Js5Yv4JqS
-	Sf6pZgdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7P07Ahcdh4DPBeNK1tqYTnpufwuJ3YzytC0z563zCsA=; b=P/g5I6pg8eId8Q
+	3sqdbRQu3+8dMBGzMSH6H19X4rqYNhfqZ/K9Bf6G2v3f+VlFv89hcZReckw/HkR50ReZyDtQwTAHT
+	Rwn0nloRxxQDVrn35iPEqz3RPflh7SqKyLtnvejiLFfC/Hbk7OSlfTDaqSN0riqnOrGV1UX+0WWTs
+	fR4jWXH4t6AGSx4wh5rFW0EvfkD0+LNBD4KwHWEJ9cYy2AY0RiTvZcOzenMqvzw/yr3a+qCVpu69T
+	DTtFtHpirOhFJxB52OF7FMEzgvL3O/YCJjfFlxRuizbetbrZFECnswKrZWovE/hoQidnLQBoBblNm
+	3205vM9fKxUr+vVKFuJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4buC-0000000GP5C-1Uvv;
-	Mon, 23 Mar 2026 09:49:04 +0000
-Received: from mail-norwayeastazon11013062.outbound.protection.outlook.com ([40.107.159.62] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w4bv1-0000000GPAO-2yAt;
+	Mon, 23 Mar 2026 09:49:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bu8-0000000GP4q-0ed6
+	id 1w4buy-0000000GP9q-0qC7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 09:49:03 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=aSlsQd8H5efWgNCMg4/efrAkb1+uFZh9WN6LNe8WkLA+rdax1sypeZFbKLfFGSbzi6SScNMeLwTzZz5NZEHalUcRpt7o5UvQkMqa2EyatLWcm9S0k/JHU31Xi0p9lop9aIQIu2kzIqY9RPA0u1mcO17Q8vjTgI45K6C7c3CT/txRfCeey1/S4Mr4HKhDmgDkuOD8OmbW3s109C7m5zsD506l6VnJFSzZtPSyHXPpBMbsYLXSG9gpNu6m0HU+7umsPAszDA4dHIszx5AOSOLnSrhEPgFYfkvg7CKDlooj3BzLVvO3aYwLz207WDiIQX831wAalRxb/Myra44urIs+iA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
- b=jyED2C7j7GCDkxj3TiyytbRtlx4bUEkmuQ3/Fue72R/FYHT8BDn2xauAYK3acSQiIzzsOiG/qACuFf4Jw4fxCxmZIRkhPUOD5xd8aSV8WbrYEnCaThSgsV+EJ/VxoneaePNxiUynVmhlJr1Z9LWBMxhFGCWCx61rF1fmwxX6MkzE29Ev32n8seLIJGvrY03BVtKcDUAbXAb71AzHfbh7Ha9jOcsarZ3GSCi6wGNWfyESat03jtr0M+/0f7Wdlpj5QMOp5GN2ReLrdmIxR2l2LPty0YG5yKlCwXnmdCRp5dJAWgwL5oPvyqKlfwU2Gv1z2NJUlKdjET84lrxccqBXlg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=linaro.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
- b=dt0zOyrhsGxY3PJzv1GyAsKRdtX8Oovxca0szc7H2fCZuC2di6Bb9wQiy9HHg4EwfFYBFkb6M6Q3/qGJpWY6DcHWqJRhGw91uN3+OiE5DEstcNDkhEC+e3KD8bb3VDRO66ATh9KW8iSJDTXyiGGuD0IsOVzjPAAnsStmoEbO0kI=
-Received: from AS4PR10CA0030.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5d8::11)
- by GV2PR08MB8368.eurprd08.prod.outlook.com (2603:10a6:150:bb::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.30; Mon, 23 Mar
- 2026 09:48:47 +0000
-Received: from AMS1EPF00000091.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d8:cafe::b7) by AS4PR10CA0030.outlook.office365.com
- (2603:10a6:20b:5d8::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Mon,
- 23 Mar 2026 09:48:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS1EPF00000091.mail.protection.outlook.com (10.167.242.88) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
- via Frontend Transport; Mon, 23 Mar 2026 09:48:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hEPnd01ghXLxWlnHjHZd5+RTVRl3jOlI7wG3Q4e8y7VhoWERjKy7gIWbnAXmtZJfNWvK1K5W+g/prYFKvxZAZVR7rC3ojD7y581hiZmjnkm39+7/XLbDFoMjfPExN6HnjqNEF7GysqLtLKdjQasvUSGZb9/z2VJoSlnTXZ17PmrENP+gg79IDuCKB5LTI7wu0dVr32c+4JGvtqilP3VNs26rT2FlGZNfMKJSksErDJRCQxswfetF+zgSNnQR8VaJdMHlFE99ia38HzpBHUYV+gdoO1UpbOjcPNCjUhAOq/vb0lzU0bUtVIE4ZzGTKByDd0w2EoOgAnsIQqXA/cqlEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
- b=HJYNmVGujWIa1bhS9aeKRZHG6PW7bkYmDMd9CbkFaxSsIEyV84V71T84w09PXGvYRtkFcYmR3St2SCZg5jQyEVj14vzXGiA9ZSJXS5VyxsNBDM3m+UH8ldGOjDHcMmDxD74zyBkzGbs/9luFnEQRgpv/uu4MVuNkJdcdtsAIczvukYacsN+s3GU5FSylcnFnfCwcv7pf/kgmYrGhNKTZmAtJz4Q9V+UEGUUx8WbRdR6AGQouWn7CiE77H636egb4fcZXoRodVTQEZngXIlXf35E+5dRL+4XcNbKKkQqd3p/oWkpysJsvFx1Ip2gtIHzjieU1u75XO6A7yq1AKUV0JQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=em6sO/eE6LyqszYkGsfMmhIKh4bBfx55luPbGKdGryo=;
- b=dt0zOyrhsGxY3PJzv1GyAsKRdtX8Oovxca0szc7H2fCZuC2di6Bb9wQiy9HHg4EwfFYBFkb6M6Q3/qGJpWY6DcHWqJRhGw91uN3+OiE5DEstcNDkhEC+e3KD8bb3VDRO66ATh9KW8iSJDTXyiGGuD0IsOVzjPAAnsStmoEbO0kI=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by PAWPR08MB10308.eurprd08.prod.outlook.com (2603:10a6:102:369::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 09:47:41 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.022; Mon, 23 Mar 2026
- 09:47:41 +0000
-Message-ID: <5116b14f-a6a1-45a5-a6b3-94d633b2f58f@arm.com>
-Date: Mon, 23 Mar 2026 09:47:39 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/20] coresight: syscfg: Use spinlock to protect
- active variables
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
- <20260320-arm_coresight_path_power_management_improvement-v7-8-327ddd36b58b@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260320-arm_coresight_path_power_management_improvement-v7-8-327ddd36b58b@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0155.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:36c::9) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	Mon, 23 Mar 2026 09:49:53 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62N7tWWm1627093
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 09:49:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=7P07Ahcdh4DPBeNK1tqYTn
+	pufwuJ3YzytC0z563zCsA=; b=loyG8+435M3gkv906ABl/fVRnSqgu/tbyje6tl
+	Q8Owb7zEUEp05I6DeL8eufU++qlw0YMQPhJbVSvOxwFNUhK6kwdmH6b4cegZpviT
+	AxITZKGjcYe0aVE4g4Lv+6u9sQtT+J63WrWJPk9XLpuK6j7j5zL4fZB4/NBlAyqe
+	a3m+sBFkLy0OKq3c8mZ7LAeKR9y0G5KAfQ8eoa9KYEXg0lIiq4QORQaMgvWJVTA5
+	9oDhnUMAyEBwlBZZJ96Zryuk6kkNjafo2g9Zs7jhqYb6jqDY9ZLRW971Ummxz/LY
+	xM8RxV/pD3ALxYFnEuUL850c+jv9Ejhog5pOWVQQSHq2HUng==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d31jc0dft-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 09:49:51 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c7381a9a932so1593252a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 02:49:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774259390; x=1774864190; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7P07Ahcdh4DPBeNK1tqYTnpufwuJ3YzytC0z563zCsA=;
+        b=jwAbGsy/SeAX7EKKtxgGHO4ylP5NxwV4RWi+yjkoB2Xrjbu5sLMTT08iCTDkxXkgiZ
+         lfzqDIJNxYaEJciPUIFoZbzBwzPJIfAv0f4iQaH47P7hQ4M9RIoMHX9t9gjQyrstR2pk
+         7k4XMOIc8TNIDLQ8BDImc01/rulzGgwBx84pgw/6wu/hr5qV+mIWMssPolsI/7fSCQXf
+         3Zg7MahJce/ls7mai6MOSeDMm1j03lSpsGPOS//qtcT1NPKSngj6JAyg8ays3Qg8PDIf
+         3pV4RkIoPha1iqQDzMlVGH8YXJF4UxhvMFCSf2x2F97O41PpR8UMfO5z4+/Kd9iglWr4
+         L/4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774259390; x=1774864190;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7P07Ahcdh4DPBeNK1tqYTnpufwuJ3YzytC0z563zCsA=;
+        b=fIvJlMhY4iOIJLHUgTU9OiJHWSP+x9RT33LcZO/pP5wKBjjT8iY6ElPzypBRpN2NqU
+         qHogsp+3Usfn77uvGecgzBuYpsgeHOBmBHq9sZPkUOD++92iut5JV+Mwz1v+REmOwR2S
+         iGusT/Qtg/rZjtEQqfae9d4iskXsP0bIaJCH9Vn0RlsAn8wr3S1gcz8EHOjTcncT9YLB
+         +xLAmgyp2L7GdimGiNYtVJMTMRLFkjPrhapNVq6y+s202cC/Vsm5qJK7PCnf5Uu7KQRd
+         V3EjY46wdpII4Yyxgrht7IVZsG/1wpaBLXYmzK4kFz9k9k4ikGsNEzXzmO25GDhA9BID
+         ARqg==
+X-Forwarded-Encrypted: i=1; AJvYcCUFPGhpZgPOGi9B0eMgu01QwZ5T4h4CuSGN3tAlUyK1GXdY4AubXd8b5fbobfCMUzszVrhiIqSPzKNRRKfVVniU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7AiYUJplk5wLucQ6sakZbCwq4ZFLNSHVh7gjc68rGCfvq1hjH
+	iOlPebRRBABniqzkinmUk2TVgismeRMBvnGGyktTfnuym9De8fYPJrDW2YpBbW3pOP+sT8e2UtQ
+	npsOoQ1tNoacEBMyQNf1KmmWqRwwaEsLxW1VgCBf2Fi+DW+Sx/D2jLdve65mYKoYsK64RRn29PJ
+	oI+w==
+X-Gm-Gg: ATEYQzyK/l7HYDRi43rKtNjlAFtkSm2SP10jtyGzKf2hz2GNrCzylvP89NdxutECrJS
+	0N9IboN+qcDVEuuBaj89zVM++JCZNclwcrlqF18G0wGWZYu3nG22bjQzUma3tAmi3fqyD2WPisA
+	T8jR3Qn4mEdOdfysR6gPFkJnkLoJvPOQw7yOl90Q77LX/jXoBMEt8E5jYmf8AMexu6MvngtKVBr
+	Y8YU4JYFmHFou9IZ5QoLobDjiCYLAuiuovInsnJPczZ3osnWJVaRK/JLCDukr5HJhavr6BK96TO
+	vfARYTokr4mby/NtHJLzEYscut1PZnoWk50b0waYTcR9XpOJC1t2lJg6kq3TVDLHQ3UdPkD9xR+
+	pZeq64/UYPFWxWKhFaK7xfjG+k+UbnfKLmo91UptmRzlCAO3nMnnzkZMWX1FAM00V0jlMB/0JR3
+	Tso+f+2Icd
+X-Received: by 2002:a05:6a20:9189:b0:398:a76e:4ad4 with SMTP id adf61e73a8af0-39bcea1df3emr10686659637.21.1774259390181;
+        Mon, 23 Mar 2026 02:49:50 -0700 (PDT)
+X-Received: by 2002:a05:6a20:9189:b0:398:a76e:4ad4 with SMTP id adf61e73a8af0-39bcea1df3emr10686627637.21.1774259389637;
+        Mon, 23 Mar 2026 02:49:49 -0700 (PDT)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c743a939af0sm6591935a12.16.2026.03.23.02.49.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 02:49:49 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v16 0/7] coresight: ctcu: Enable byte-cntr function for TMC
+ ETR
+Date: Mon, 23 Mar 2026 17:49:25 +0800
+Message-Id: <20260323-enable-byte-cntr-for-ctcu-v16-0-7a413d211b8d@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|PAWPR08MB10308:EE_|AMS1EPF00000091:EE_|GV2PR08MB8368:EE_
-X-MS-Office365-Filtering-Correlation-Id: 483fb0c2-392d-48d0-3bb5-08de88c1615e
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|921020|7053199007|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: YszzM9KzMJVQBtniyFDrxTTlmjx7V+vWuXq6P32N2AEV+buG0D0T7vDshQQIAQYCivSWLlaXDzLGoex9pU5xCkN1d3PtRoTT9BO63qnoW3moozTcS0ZbRXXn5LMUES0UZ24bI6deDlmz/3Whx883Q0pZg4LJRvfVnfJ95xsSFFtA0TT03V5q0gz/eu5qrnJvbRSmyAZDWFqdcxqg3fEPvRaq8lkOuequ5zUrQJoqZRMYR5SkRtjC757xXztZKw3xlQlmAkUOvKOqfZXbxXyZ5MEBZ+MTfG1YXUqpypme0wuLOiyWBIhCES3ukoClm7UkurlK6u6N3UlG5FaKtaKsNIrc5hR/VI1kcE7pITJ5g6WbhhLh2L/Nhyps8aTm1Ps3leJOVG6Cu/YbCZt5kXS6zKdH0K7JKzBSskStEII+lQoIoxO1kP4EDFymY2BNW4FkZXD3DtpLK2416sTmN/HcaOXHZuGR57+vgARldmrX3s+mpO0mG2IEcLMqKXoid0zl+8KZrhCfCco3X7sKu8IFpo4ygeWjs1G/o2BNsiY3r9XMm3v4tU0FRqcSW3AxRrzZQFHKmbiKDhRora+38h7QI9/MiHG4FSZFOt7s0awy3J1wI6oRzaLfePXERCB0IRvA+45BZfZqFbyHB1lJPH7UawMBOgvFF6SlCnHoCzac/rbkr12Gvs3tVCUMRAzIpEtLK0SGUA0vHZW36cVvRyZAtDGoz+ab5YPaK5i1K3SmCYD1cCHruCVBPHg/274cme1e+e5854gufqof3V4JFD5xyA==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(921020)(7053199007)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: I7dZ8SOO19ol3RYSEOnb8kvop+RT/WQTUAygnDGo+CtWGDIXfROksk7khdKucxH0SW8tPna/MvbsOK84cojL995QG0Po0O14Wg4c2ME8lClcX8en3aE9poJWqhGinXNxeZoGZfL68D4FklqPZ6JNu/8HjplwDz6IFOjeh2OSvPPDH9bc9sCOArJrUWerQIlhxFv7yL3b17YklCw9pZzcKivQF6WHqKnf6kYyZDeYAliInF5czmCUSjNT4rW1NOFXliAPmIYsD/0pDqDXsNhwF0zxzIv94FqAjY2JfshcortEhmeIiZhG2/u3rgGF1wQ2WoTZvnnJTgATMznsjBYCKw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10308
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000091.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 0f438eac-ac18-49f0-2525-08de88c139ee
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|82310400026|376014|14060799003|36860700016|921020|7053199007|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: IeHKL0UUcVlB8+iUEM93kCsQglkyVZAuR0Sjs3mPwzM38QqjvpImLDKxSI72Knc9gkMlz0YMnv6Hwd6TmaWPaRH+K+EHjgNiqm7BxqD/sU9uWJgtsSVOKqATVmt7e0LfNhIZreDPg0xodXLHr86krCxcYCDAmUc0rgEPeWAkHh7x3nEx4lkfZb9X+JQP+ruYSUkydFuwOiwF6zRMEOLmDG8vnqLbsuEo+gvrexR67bXKjfBhjim8eatOiv35u5x25Nls8xyqDH5ohdZ0GGyEocgpQmfRljR+7IXp76AWjPDyQiswHbk7PqL9+/UvhGneFLCa7YZDV4VsrwjGDzKmKldTXEy16Cs7yAkFyZ4hp0dNq9tcbXAup7gLCS7+KotnpJaAxK4fQHwpLRUX0JWcEv/kHD9KYXzWHJVfmprG7MM3UeUX9Lzg57rQKv+ooGIf3NpGQO4MfEl+KetdQkTBtNgEE65TH7Ti68xryNeAQFWRYY8usNsE9T4gVGV3IBgj1aQGBMs5SaBEdTr7Mh0ZPSWcr3U8c0b4fgJU8AXx0oK11L6Wkjce5PQNyvTgthI5/lQd1O72dPiUFMq0qpb7Of/R/aXW/wxPF05247AG502ba39QIeiHdTSAhIlIt/yR3dZ4YGLCl/SarlIJj3RjLkXP0/WG8FVLyvIRpYUHin9IeaFuMoE6ye+INcTbyp/UtRxE1+Og7ojUA8GTPGCo+t9zxUhgBWkZt1gDt/vj4j4XpCG6c7sNP8+3AfNorsLc8XUjo8FRGLJItnb4u4zh55PD39KpLwHMFdGn6DISWkBkn9bcsqJYlPw8dmeoB+ZZ
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(82310400026)(376014)(14060799003)(36860700016)(921020)(7053199007)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3g0f8NrNL7LEFXiwgkULB+hhsmK9sPSEPNIQz/T2afVEqOhdr5eYKTlMa1Rdp5wP/LRe+Xx/JE7ktKsTe3JvHuL8o8ygLvmUjKqG6Zoslc3FasIBIJa3j4Pe6VhFpVEowHbnRkIB0kZsGq531IqaFZ1vxEZOVlGPRqXkIdf1pM3zxYopkC06TRXcb0PTCbSr6V+6i1ez6qL5e3O0TYM6KtSnj5KHqSbm4arDKuJEGSfFqqdhM/AXYj8vYUHKw5dsJIxCVohis7fKElw4N/urSLbwZRqm3KqbmZFKFY+WXlhKBlmlMNT7Ze9ixS12mG78VV2O0g8mXkA+hFLrpAHjKgWfw21wKF2S7tIOU1mTmCmohjPXPvXPyz1MiWPfixwTdVkDFswGh8huUbazB69hPsN/5eKT2aVSiwso5R3lWqajcgFv6gt2YjbS2qv/OGU4
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:48:47.5699
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 483fb0c2-392d-48d0-3bb5-08de88c1615e
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000091.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8368
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAKYMwWkC/43NQQ6CMBAF0KuQrh3SUmiLK+9hXECZShOg2gKRE
+ O5uYeXCGDeT/J+ZNysJ6C0Gck5W4nG2wbohBiZOCdFtNdwRbBMLktFMUE5LwKGqO4R6GRH0MHo
+ wzoMe9QTGKIGClaqWhsT7h0djXwd+vcXc2jA6vxy/Zpbv9T9sXAUKmiqVcSwqheLiQkifU9Vp1
+ /dpHGTnZ1Z8kIz/JItIMimlYTk2nJVfyG3b3r/xSf8fAQAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Mike Leach <mike.leach@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774259383; l=9355;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=4qZFcvPq4IDipSZwkZ9LtIXn1RxWXKNMQrdLyvEdl0I=;
+ b=cO4RG/kpQ3rfVdDUivQuwmy9H0OCEejRCIlhPC8W6yOBDlwCVya4LgyCnV5xebPG1+zWfOgfB
+ YIDOgGF1GFGCWjgAS43gjdwkVTlclL56PPY9OX2YTUzWjT9kY0hNzjl
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Authority-Analysis: v=2.4 cv=fKc0HJae c=1 sm=1 tr=0 ts=69c10cbf cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=7CQSdrXTAAAA:8
+ a=KKAkSRfTAAAA:8 a=QyXUC8HyAAAA:8 a=JfrnYn6hAAAA:8 a=KXRl9pNFgIUfUIjHtNEA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
+ a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=cvBusfyB2V15izCimMoJ:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-GUID: -lkFvl2BnbZcDEVbVjAP8qhNfJxwYOTe
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzIzMDA3NSBTYWx0ZWRfX0OMU38XzhhXU
+ H6oni6ufd9ksY2L0WcnilWuPLhfDcP1mnUqIWLN7XbvuQ+6liyQ62e+LMGdREKQRVh8LuP/uVUi
+ ylCo9llnr82xTQ/j3l+rKcavqqcdHRlgAmpQjgbgWsdUtExc75yVpwVSuEg6FxSbqMKidWJxieN
+ YEM2kbQzhlP7V+0IXDYtuRG2cXiBvx8Ejqt/QFnA6Ux784gxulE8WFXAv/eUBLzCT5ucH7r1TO1
+ ItWU5fleVlV6pqXDO+0QCTEmYMT8En2cpJgzzMD2haZdCf+Wt3Uo/2kjdFsz6sO+4ZeNhx/v1El
+ q8YPmQ0yGWm61YAkK78Q1lgR5XchK3p6lk5fuiBR3n0GZ5zskWJ1976HVXA38jbrMPk45KprMt7
+ 8nYksxMOvh4fe2kNZWrBjKWJiMHALKL5ki0hFgAFyT3OxQlaCxbwUw0x++Uz7AiDRgV94qkZj8M
+ GetUjemf128U5MxR68Q==
+X-Proofpoint-ORIG-GUID: -lkFvl2BnbZcDEVbVjAP8qhNfJxwYOTe
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-23_03,2026-03-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
+ adultscore=0 bulkscore=0 spamscore=0 suspectscore=0 malwarescore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603230075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_024900_360179_D6AF394E 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20260323_024952_251657_6D0EA4C3 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,121 +167,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2026 17:42, Leo Yan wrote:
-> To support dynamically enabling and disabling the CoreSight path during
-> CPU idle, cscfg_config_sysfs_get_active_cfg() may be called by the ETM
-> driver in an atomic context. However, the function currently acquires a
-> mutex, which is a sleepable lock, and this is not allowed in atomic
-> context.
-> 
-> To make cscfg_config_sysfs_get_active_cfg() called in the idle flow,
-> replace the mutex with a raw spinlock to protect the active
-> variables.
-> 
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Tested-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-syscfg.c | 21 ++++++++++++---------
->   drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
->   2 files changed, 14 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-> index d7f5037953d6ba7fb7f83a8012a1abc5ffd0a147..3b77e4da6b6b3cfc0aa687c0280c8ee5118e286b 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-> @@ -957,15 +957,18 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->   
->   	cfg_hash = (unsigned long)config_desc->event_ea->var;
->   
-> +	raw_spin_lock(&cscfg_mgr->spinlock);
-> +
->   	if (activate) {
->   		/* cannot be a current active value to activate this */
->   		if (cscfg_mgr->sysfs_active_config) {
->   			err = -EBUSY;
-> -			goto exit_unlock;
-> +		} else {
-> +			err = _cscfg_activate_config(cfg_hash);
-> +			if (!err)
-> +				cscfg_mgr->sysfs_active_config = cfg_hash;
->   		}
-> -		err = _cscfg_activate_config(cfg_hash);
-> -		if (!err)
-> -			cscfg_mgr->sysfs_active_config = cfg_hash;
-> +
->   	} else {
->   		/* disable if matching current value */
->   		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
-> @@ -975,7 +978,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->   			err = -EINVAL;
->   	}
->   
-> -exit_unlock:
-> +	raw_spin_unlock(&cscfg_mgr->spinlock);
-> +
->   	mutex_unlock(&cscfg_mutex);
->   	return err;
->   }
-> @@ -983,9 +987,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->   /* set the sysfs preset value */
->   void cscfg_config_sysfs_set_preset(int preset)
->   {
-> -	mutex_lock(&cscfg_mutex);
-> +	guard(raw_spinlock)(&cscfg_mgr->spinlock);
->   	cscfg_mgr->sysfs_active_preset = preset;
-> -	mutex_unlock(&cscfg_mutex);
->   }
->   
->   /*
-> @@ -994,10 +997,9 @@ void cscfg_config_sysfs_set_preset(int preset)
->    */
->   void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
->   {
-> -	mutex_lock(&cscfg_mutex);
-> +	guard(raw_spinlock)(&cscfg_mgr->spinlock);
->   	*preset = cscfg_mgr->sysfs_active_preset;
->   	*cfg_hash = cscfg_mgr->sysfs_active_config;
-> -	mutex_unlock(&cscfg_mutex);
->   }
->   EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
->   
-> @@ -1201,6 +1203,7 @@ static int cscfg_create_device(void)
->   	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
->   	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
->   	cscfg_mgr->load_state = CSCFG_NONE;
-> +	raw_spin_lock_init(&cscfg_mgr->spinlock);
->   
->   	/* setup the device */
->   	dev = cscfg_device();
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
-> index 66e2db890d8203853a0c3c907b48aa66dd8014e6..f52aba4608dadc1c7666e0e28c9b43dc1c33d1eb 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.h
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.h
-> @@ -42,6 +42,7 @@ enum cscfg_load_ops {
->    * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
->    * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
->    * @load_state:		A multi-stage load/unload operation is in progress.
-> + * @spinlock:		Exclusive access sysfs_active_* variables.
+The byte-cntr function provided by the CTCU device is used to count the
+trace data entering the ETR. An interrupt is triggered if the data size
+exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+handler counts the number of triggered interruptions.
 
-minor nit: s/spinlock/sysfs_store_lock to make it explicit in the code 
-and we don't have to look up what this protects ?
+Based on this concept, the irq_cnt can be used to determine whether
+the etr_buf is full. The ETR device will be disabled when the active
+etr_buf is nearly full or a timeout occurs. The nearly full buffer will
+be switched to background after synced. A new buffer will be picked from
+the etr_buf_list, then restart the ETR device.
 
-Suzuki
+The byte-cntr reading functions can access data from the synced and
+deactivated buffer, transferring trace data from the etr_buf to userspace
+without stopping the ETR device.
 
+The byte-cntr read operation has integrated with the file node tmc_etr,
+for example:
+/dev/tmc_etr0
+/dev/tmc_etr1
 
->    */
->   struct cscfg_manager {
->   	struct device dev;
-> @@ -54,6 +55,7 @@ struct cscfg_manager {
->   	u32 sysfs_active_config;
->   	int sysfs_active_preset;
->   	enum cscfg_load_ops load_state;
-> +	raw_spinlock_t spinlock;
->   };
->   
->   /* get reference to dev in cscfg_manager */
-> 
+There are two scenarios for the tmc_etr file node with byte-cntr function:
+1. BYTECNTRVAL register is configured and byte-cntr is enabled -> byte-cntr read
+2. BYTECNTRVAL register is reset or byte-cntr is disabled -> original behavior
+
+Shell commands to enable byte-cntr reading for etr0:
+echo 1 > /sys/bus/coresight/devices/ctcu0/irq_enabled0
+echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+cat /dev/tmc_etr0
+
+Reset the BYTECNTR register for etr0:
+echo 0 > /sys/bus/coresight/devices/ctcu0/irq_enabled0
+
+---
+Changes in v16:
+1. Remove lock/unlock processes in patch "coresight: tmc: add create/clean
+   functions for etr_buf_list" because we are allocating/freeing memory.
+- Link to v15: https://lore.kernel.org/r/20260313-enable-byte-cntr-for-ctcu-v15-0-1777f14ed319@oss.qualcomm.com
+
+Changes in v15:
+1. add lockdep_assert_held in patch "coresight: tmc: add create/clean
+   functions for etr_buf_list"
+2. optimize tmc_clean_etr_buf_list function
+3. optimize the patch "enable byte-cntr for TMC ETR devices" according
+   to Suzuki's comments
+   - call byte_cntr_sysfs_ops from etr_sysfs_ops
+   - optimize the lock usage in all functions
+   - remove the buf_node parameter in etr_drvdata, move it to
+     byte_cntr_data
+   - move the tmc_reset_sysfs_buf function to tmc-etr.c
+   - add a read flag to struct etr_buf_node to allow updating pos while
+     traversing etr_buf_list during data reads.
+Link to v14: https://lore.kernel.org/r/20260309-enable-byte-cntr-for-ctcu-v14-0-c08823e5a8e6@oss.qualcomm.com
+
+Changes in V14:
+1. Drop the patch: integrate byte-cntr's sysfs_ops with tmc sysfs file_ops
+2. Replace tmc_sysfs_ops with byte_cntr_sysfs_ops in byte_cntr_start
+   function and restore etr_sysfs_ops in byte_cntr_unprepare function.
+3. Remove redundant checks in byte‑cntr functions.
+Link to V13: https://lore.kernel.org/all/20260223-enable-byte-cntr-for-ctcu-v13-0-9cb44178b250@oss.qualcomm.com/
+
+Changes in v13:
+1. initilize the byte_cntr_data->raw_spin_lock before using.
+2. replace kzalloc with kzalloc_obj.
+Link to V12: https://lore.kernel.org/all/20260203-enable-byte-cntr-for-ctcu-v12-0-7bf81b86b70e@oss.qualcomm.com/
+
+Changes in v12:
+1. Add a new function for retrieving the CTCU's coresight_dev instead of
+   refactor the existing function.
+Link to v11: https://lore.kernel.org/r/20260126-enable-byte-cntr-for-ctcu-v11-0-c0af66ba15cf@oss.qualcomm.com
+
+Changes in v11:
+1. Correct the description in patch1 for the function coresight_get_in_port.
+2. Renaming the sysfs_ops to tmc_sysfs_ops per Suzuki's suggestion.
+Link to v10: https://lore.kernel.org/r/20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com
+
+Changes in v10:
+1. fix a free memory issue that is reported by robot for patch 2.
+Link to v9: https://lore.kernel.org/r/20251224-enable-byte-cntr-for-ctcu-v9-0-886c4496fed4@oss.qualcomm.com
+
+Changes in v9:
+1. Drop the patch: add a new API to retrieve the helper device
+2. Add a new patch to refactor the tmc_etr_get_catu_device function,
+   making it generic to support all types of helper devices associated with ETR.
+3. Optimizing the code for creating irq_threshold sysfs node.
+4. Remove interrupt-name property and obtain the IRQ based on the
+   in-port number.
+Link to v8: https://lore.kernel.org/r/20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com
+
+Changes in V8:
+1. Optimizing the patch 1 and patch 2 according to Suzuki's comments.
+2. Combine the patch 3 and patch 4 together.
+3. Rename the interrupt-name to prevent confusion, for example:etr0->etrirq0.
+Link to V7 - https://lore.kernel.org/all/20251013-enable-byte-cntr-for-ctcu-v7-0-e1e8f41e15dd@oss.qualcomm.com/
+
+Changes in V7:
+1. rebased on tag next-20251010
+2. updated info for sysfs node document
+Link to V6 - https://lore.kernel.org/all/20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com/
+
+Changes in V6:
+1. rebased on next-20250905.
+2. fixed the issue that the dtsi file has re-named from sa8775p.dtsi to
+   lemans.dtsi.
+3. fixed some minor issues about comments.
+Link to V5 - https://lore.kernel.org/all/20250812083731.549-1-jie.gan@oss.qualcomm.com/
+
+Changes in V5:
+1. Add Mike's reviewed-by tag for patchset 1,2,5.
+2. Remove the function pointer added to helper_ops according to Mike's
+   comment, it also results the patchset has been removed.
+3. Optimizing the paired create/clean functions for etr_buf_list.
+4. Remove the unneeded parameter "reading" from the etr_buf_node.
+Link to V4 - https://lore.kernel.org/all/20250725100806.1157-1-jie.gan@oss.qualcomm.com/
+
+Changes in V4:
+1. Rename the function to coresight_get_in_port_dest regarding to Mike's
+comment (patch 1/10).
+2. Add lock to protect the connections regarding to Mike's comment
+(patch 2/10).
+3. Move all byte-cntr functions to coresight-ctcu-byte-cntr file.
+4. Add tmc_read_ops to wrap all read operations for TMC device.
+5. Add a function in helper_ops to check whether the byte-cntr is
+enabkled.
+6. Call byte-cntr's read_ops if byte-cntr is enabled when reading data
+from the sysfs node.
+Link to V3 resend - https://lore.kernel.org/all/20250714063109.591-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3 resend:
+1. rebased on next-20250711.
+Link to V3 - https://lore.kernel.org/all/20250624060438.7469-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3:
+1. The previous solution has been deprecated.
+2. Add a etr_buf_list to manage allcated etr buffers.
+3. Add a logic to switch buffer for ETR.
+4. Add read functions to read trace data from synced etr buffer.
+Link to V2 - https://lore.kernel.org/all/20250410013330.3609482-1-jie.gan@oss.qualcomm.com/
+
+Changes in V2:
+1. Removed the independent file node /dev/byte_cntr.
+2. Integrated the byte-cntr's file operations with current ETR file
+   node.
+3. Optimized the driver code of the CTCU that associated with byte-cntr.
+4. Add kernel document for the export API tmc_etr_get_rwp_offset.
+5. Optimized the way to read the rwp_offset according to Mike's
+   suggestion.
+6. Removed the dependency of the dts patch.
+Link to V1 - https://lore.kernel.org/all/20250310090407.2069489-1-quic_jiegan@quicinc.com/
+
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@arm.com>
+To: James Clark <james.clark@linaro.org>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+
+---
+Jie Gan (7):
+      coresight: core: refactor ctcu_get_active_port and make it generic
+      coresight: tmc: add create/clean functions for etr_buf_list
+      coresight: tmc: introduce tmc_sysfs_ops to wrap sysfs read operations
+      coresight: etr: add a new function to retrieve the CTCU device
+      dt-bindings: arm: add an interrupt property for Coresight CTCU
+      coresight: ctcu: enable byte-cntr for TMC ETR devices
+      arm64: dts: qcom: lemans: add interrupts to CTCU device
+
+ .../ABI/testing/sysfs-bus-coresight-devices-ctcu   |   9 +
+ .../bindings/arm/qcom,coresight-ctcu.yaml          |  10 +
+ arch/arm64/boot/dts/qcom/lemans.dtsi               |   3 +
+ drivers/hwtracing/coresight/Makefile               |   2 +-
+ drivers/hwtracing/coresight/coresight-core.c       |  24 ++
+ .../hwtracing/coresight/coresight-ctcu-byte-cntr.c | 286 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  | 123 +++++++--
+ drivers/hwtracing/coresight/coresight-ctcu.h       |  79 +++++-
+ drivers/hwtracing/coresight/coresight-priv.h       |   2 +
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  55 ++--
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    | 226 +++++++++++++++-
+ drivers/hwtracing/coresight/coresight-tmc.h        |  42 +++
+ 12 files changed, 789 insertions(+), 72 deletions(-)
+---
+base-commit: a0ae2a256046c0c5d3778d1a194ff2e171f16e5f
+change-id: 20260309-enable-byte-cntr-for-ctcu-ff86e6198b7f
+
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
 
 
