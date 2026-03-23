@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D0C4EC01A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADD5EC01A2
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 08:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IiFXaq2KynT225qwMSd7jsUuMjJ4J3qIwVeyuIMFqQA=; b=1lT3UJJj0/oEHsyJc9xhv2A2xL
-	hD/VuZ0OYUUuYUCFMgrgtuuTC5d5cfISWnzZvMsrsWMwLlR1h8g7xKclDz+A/5wdSAFdqUCIOY78A
-	A5KlQG0z7z4G3Jb385WjTs+PhUjqw72GQvb8BMR2ytP48h/99GVCwhC9PsEnQ6f1Mwc4iE4PtzkyY
-	dANbvJVO0ffjESw6DowswdQVkL7L8Ad9oB2GH6tlf3QuUV0hgNaKeFd+yc6x7WHFO/yjLnVZ/7SxF
-	wjkvev6kKPH03kcvX3VlM2c2rZJFfiqQMkjcaAxcuSmg4o+W3v0ilMSl7uj+BWCONfG9NfV9f5V3/
-	vegPIChw==;
+	bh=+QzNDirO+Pun9y4cnI/mvQSADsIoA51wg/5R1jcim0I=; b=matJ8PZeRtNZ7wOjrerICSz3lK
+	x3RSDwfySALl/tgkzEeCSaacBLGNFC0FaKBFw7COyzSxnik4rIVOU+uV8OlwATK3ahVIuYgmWgpJe
+	cQMwuLQaI6rT4BBpPO9ZhIqt6trLx6LJxJ49KAy1UHzwoQynoObXDVAekGKjAgdVrI5wcOuHPlHy/
+	xqoMXXOGBqJlBaLFF2F2Mqrl7mD9Rpk148GkANzQ+cExv28KjHpdY+MtWJvh2L9h+HCLzqXrx/BGz
+	hv1IknWZWabTLivIfkl4srWWvx8NMzTWKKCqgRg7gn0Er027OnpY6QAgKuKSZOPMp5Wt7ko6jpAix
+	EALHt7BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4axW-0000000GIqv-2EP9;
+	id 1w4axW-0000000GIrK-3iku;
 	Mon, 23 Mar 2026 08:48:26 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4axQ-0000000GIoy-2Iku
+	id 1w4axS-0000000GIpR-2QRb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 08:48:22 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4853e1ce427so26191325e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 01:48:20 -0700 (PDT)
+	Mon, 23 Mar 2026 08:48:23 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-483487335c2so30197235e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 01:48:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774255699; x=1774860499; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1774255701; x=1774860501; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IiFXaq2KynT225qwMSd7jsUuMjJ4J3qIwVeyuIMFqQA=;
-        b=V64zFC1d3p7Om/CI5NLjPrzhSWaKLcewwTAVBRfOhI00DjWRqNPiEjsIJnjiGzcMZl
-         Cyjlxz1/UgdVH0X0k/UE2ygbQE9EUrQq+030VGrEn8Fh2O3ipuYboQ2Fj4aNeuzSAm8e
-         OCGvlJVyH1Ej/OfZgNrkD3BRHx9ZqRHlZgfHbQAftgRlxBlByWBohmSg1CGLxHEKN0qR
-         S51jrxvxMDJVUlRF1gF3czvUz/r3IUOvyLRATR5E6q+MZIVS/c+gIYboNQ3C4jcLZOOg
-         6LzPFtqwZDAeFmXo1/E26Y0xqJX32znii18nallUPCCCZjcMj+A4G9ocmYiLsaglAuA+
-         HOGg==
+        bh=+QzNDirO+Pun9y4cnI/mvQSADsIoA51wg/5R1jcim0I=;
+        b=ZhcnU+6QfSG3AJCoUO8n2YmMN1B1O/DT0ABbErvhHnT+utROV2mYsg6+YHB5q2IdJs
+         lu5QFRXr2jpjYnA12/fX3M6l3IiuN3MN1VXsAQqsJFSf4nNGzFtnBMcTICpVl+P2rmB6
+         iQh6xyPLdwWI4KYh7WUWXeSsBoyBx9nmol69XeDGyOJ3ULqnys6pvFvoAEeWXGYbo50C
+         bMLR8LFeBOVO58/khXJQW+A10ODXhNQBpeHHe1yJyJhAFGmrkp1/lV16mZklX92ki0t9
+         m/Gb5XWelSjLyefpGhG0DmYPxl0JntkWGV+qtYWMosZ9jo/vfrpkuT6gluvQfphFtlci
+         NXnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774255699; x=1774860499;
+        d=1e100.net; s=20251104; t=1774255701; x=1774860501;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=IiFXaq2KynT225qwMSd7jsUuMjJ4J3qIwVeyuIMFqQA=;
-        b=b5hbtA+Xxc9NbQDfbNbLLo0Gq4C0jKtffXCx4Y2yszD5qpfo8P86xYDVZ/QNOCFJQ+
-         OG4LvNTETvFiiWvBnYA22iifF+T10wI9CXd0y4+bsjST0u64v16gX76g0SN9wbjoHf1x
-         Sg+BOVb2G2xgiChjPbc1nbh1t6heFwDq0SLg3y527Pp9XigyM/Ts/ATtdJS255fV9mZ3
-         DTAevdL9dCnig8/2X2TnlUxc5cttvVQZALR3L/V82c575Z8YFwV8hjqDJ+NepkcjOP6S
-         qmQuH9RqMVordkddilRA6rDWHwDllqEsqx1bCSlbzPNi9ClHDjJmYxrBhCp0WNayWFsE
-         C5aQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWpLZOd5dZDEN2654sUAUUOilVFvnHjPL+d7RrrVTqyWxAsUY0B7LavNkTqvLMCfG1Eknt19qAN28M9Ejyh4wat@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+/MzulsroKFgIIvP1beo/jKGjx2eK9+oJqPZ9e3HuFFKyVrnS
-	YGs7NMF5AcqBZSfmP3D5HQiP8ASOpH+PTNt3h2K5yiOsqzOHMgcqGPo/
-X-Gm-Gg: ATEYQzztXTyuy7GmNYILy603bBGlSWuuZzZAlLgNrZDekwlOJ90zMRzGlyG4xrA7TqS
-	mkROWE/k6Yha11epdXJUSMJ+RS/cY2+urgBa81YQgaZ/hWZ/Od73htAmbtbkSqepc/wEwW8zWjF
-	SBS0JzYqQ9leBul2wxXOY5uY+LVwc7MIRLI4Jmiu0x1v4nxhwUNQRliT/cTtej/IxfQMO+ESolK
-	gyGGkMrVJtS0vyVonlTWZJ+92kITU77QKdphLa5pEGYl40ALWCZdKvOvrG1L7lzA7U+glPffhj4
-	1rHOBfvXsjOOFiA8Ah1zPoLOuvASTpXoCqAov3vOhnAcpQQ2qqGut2Rr/JVr6d5Q+81Eb4mXHLi
-	RzGZ85F8sOxlTR+jhyq+raXqEhNGJ12qfc6CrSNVmegBGTI1tmb7DDRXbvSJAXKczCDZlgNr3sO
-	tF5iVlsHnJ7ivl
-X-Received: by 2002:a05:600c:3f19:b0:483:badb:618e with SMTP id 5b1f17b1804b1-486fedf70a8mr160064695e9.8.1774255698607;
-        Mon, 23 Mar 2026 01:48:18 -0700 (PDT)
+        bh=+QzNDirO+Pun9y4cnI/mvQSADsIoA51wg/5R1jcim0I=;
+        b=SKJJ8XwZVAwvwgFT4PmaW5BKKE79VJYUZECLRZ71yM/c0lfErPz5OXbl959EIst+Jp
+         aoX0YiI+2YHaR/KtG1MymuPmc+dYxgDW/9VBSf5EOa/9lOMJVrE/TMrzg7gTqY0w8MAw
+         NvTnjZt2g8oxN5zn6g7rdnLKmVtLijZuWDUx103V4s7RFkDzv1veG9A2tBGwF9Gxkfbp
+         oPqWN6tH/DgSLa24uXObdJQjZvvxp1Pdxg55Nwqt6Jh6hEUngHKPg71aBEqaNb6hep9e
+         ThdFEOMV5MVUa9GvML2lNTpBnA4lsv/ugfgFcfRzNBhSJWEy9W3sqEe5aopj/ueCkVup
+         PRkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWIzHf2x5Cv5dQ8xXcChxpf3ptWXCGGzrNiCVcd7P6tgESSwc/7dasb+dzeiwKct/GcVBlf9Z7vU7SKh9/mdJAj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9oJ5mvUnC5rnkMyBJ8vlKL4sxnLkFUtE/3LdqTrENvGYLNU2t
+	D+1n4+gVBNFV1Aw+YmenOUw8fk+S76vWyAZYJgx2SQmjHH9M7CpyONPQ
+X-Gm-Gg: ATEYQzxh24fEEZJsNmZkrLzS5TXFGVBHQLkqnCZhd0JZuxYxhyOiHK+GE7tNFVFBYnf
+	05NabQtT/YN39WbIy6TlUrzsM6hvSfibthTW2ptqw/Uo6SiuufuH4lip/YN5afG5qtDrPhI1OYh
+	Ada7jlPZHqJNygLOaCImDODaEEM1tFC+7yUZSv6PlfQBR6EaMqjEOT7vFKrh3BP2mrnUMtr5QiL
+	s4S9J8SC0XKPiW/ihKKtOy1K1Qflv9DJNfQcPnpwwGgc6W0Bc9nzZHPnG8RrxphSvl1O23MHv4Y
+	C07ZH5DSp68Y7r0GB7H+dFDoepAqBZ0YxgW++l4EjTasIVbWWjjWfiazq/NSy5LCh1efrTT9RXI
+	4vQT2aZ9lgaMC9gl1z6bWBgGl6EHZqB5LuRbXyRRThZQAdZ610VymtpNdL32FBhbecbLJEsEtne
+	I+/I1BFb4+84Ft
+X-Received: by 2002:a05:600c:3b10:b0:485:3f72:3230 with SMTP id 5b1f17b1804b1-486fedcc4d3mr161337325e9.15.1774255700647;
+        Mon, 23 Mar 2026 01:48:20 -0700 (PDT)
 Received: from fedora ([82.77.79.23])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-486fe8367d8sm316822715e9.14.2026.03.23.01.48.17
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-486fe8367d8sm316822715e9.14.2026.03.23.01.48.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 01:48:18 -0700 (PDT)
+        Mon, 23 Mar 2026 01:48:20 -0700 (PDT)
 From: Eduard Bostina <egbostina@gmail.com>
 To: daniel.baluta@nxp.com,
 	simona.toaca@nxp.com,
@@ -90,17 +90,17 @@ To: daniel.baluta@nxp.com,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/2] dt-bindings: watchdog: Convert TS-4800 to DT schema
-Date: Mon, 23 Mar 2026 10:46:12 +0200
-Message-ID: <20260323084616.10469-2-egbostina@gmail.com>
+Subject: [PATCH 2/2] ARM: dts: nxp: imx51-ts4800: Rename wdt node to watchdog
+Date: Mon, 23 Mar 2026 10:46:13 +0200
+Message-ID: <20260323084616.10469-3-egbostina@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260323084616.10469-1-egbostina@gmail.com>
 References: <20260323084616.10469-1-egbostina@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_014820_614900_CC7A4011 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260323_014822_636426_0C13165A 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,8 +115,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Technologic Systems TS-4800 watchdog timer bindings
-to DT schema.
+The Technologic Systems TS-4800 watchdog node was previously named 'wdt',
+which violates the core watchdog.yaml schema expecting generic node names.
+
+Rename the node to 'watchdog' to fix the following dtbs_check warning:
+'wdt' does not match '^(pmic|timer|watchdog)(@.*|-([0-9]|[1-9][0-9]+))?$'
 
 Signed-off-by: Eduard Bostina <egbostina@gmail.com>
 ---
@@ -124,95 +127,22 @@ Note:
 * This patch is part of the GSoC2026 application process for device tree bindings conversions
 * https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
 
- .../watchdog/technologic,ts4800-wdt.yaml      | 46 +++++++++++++++++++
- .../bindings/watchdog/ts4800-wdt.txt          | 25 ----------
- 2 files changed, 46 insertions(+), 25 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
- delete mode 100644 Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
+ arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml b/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
-new file mode 100644
-index 000000000..cb2066b4b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/watchdog/technologic,ts4800-wdt.yaml
-@@ -0,0 +1,46 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/watchdog/technologic,ts4800-wdt.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Technologic Systems TS-4800 Watchdog
-+
-+maintainers:
-+  - Eduard Bostina <egbostina@gmail.com>
-+
-+allOf:
-+  - $ref: watchdog.yaml#
-+
-+properties:
-+  compatible:
-+    const: technologic,ts4800-wdt
-+
-+  syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: Phandle to the FPGA's syscon
-+          - description: Offset to the watchdog register
-+    description: Phandle / integers array that points to the syscon node which
-+      describes the FPGA's syscon registers.
-+
-+required:
-+  - compatible
-+  - syscon
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    syscon: syscon@b0010000 {
-+      compatible = "syscon", "simple-mfd";
-+      reg = <0xb0010000 0x3d>;
-+      reg-io-width = <2>;
-+
-+      watchdog {
-+        compatible = "technologic,ts4800-wdt";
-+        syscon = <&syscon 0xe>;
-+        timeout-sec = <10>;
-+      };
-+    };
-diff --git a/Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt b/Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
-deleted file mode 100644
-index 8f6caad42..000000000
---- a/Documentation/devicetree/bindings/watchdog/ts4800-wdt.txt
-+++ /dev/null
-@@ -1,25 +0,0 @@
--Technologic Systems Watchdog
--
--Required properties:
--- compatible: must be "technologic,ts4800-wdt"
--- syscon: phandle / integer array that points to the syscon node which
--          describes the FPGA's syscon registers.
--          - phandle to FPGA's syscon
--          - offset to the watchdog register
--
--Optional property:
--- timeout-sec: contains the watchdog timeout in seconds.
--
--Example:
--
--syscon: syscon@b0010000 {
--	compatible = "syscon", "simple-mfd";
--	reg = <0xb0010000 0x3d>;
--	reg-io-width = <2>;
--
--	wdt@e {
--		compatible = "technologic,ts4800-wdt";
--		syscon = <&syscon 0xe>;
--		timeout-sec = <10>;
--	};
--}
+diff --git a/arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts b/arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts
+index 5118a68db..3610ce395 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts
+@@ -155,7 +155,7 @@ syscon: syscon@10000 {
+ 			reg = <0x10000 0x3d>;
+ 			reg-io-width = <2>;
+ 
+-			wdt {
++			watchdog {
+ 				compatible = "technologic,ts4800-wdt";
+ 				syscon = <&syscon 0xe>;
+ 			};
 -- 
 2.53.0
 
