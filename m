@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529B1F483F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 20:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8207D58CCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 20:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PdX/pRgcF2jMFax0V2rjF4BHxVeHyQtxfI9W1Ym48ho=; b=rdpY2TKbNICUzKwVl31RXZljBv
-	PVy4pGfGzpoLW1PrtrK9vihRnzV8zv1HUs3iQzFaWdTjJwO3tZ31wDLnMbU4V2qQgz4uzFCd7eKLm
-	LeQmHjmF13uvFFx7kLV43dtymhU0cH9wRceHWIpymNm6Vm9bm/n5uCse3HpxFw2Gt+6jLYyW5ClJx
-	pAZ3VQRxPWLB7K4Kis7fSzIO4bZX7RyknLuy2k46rI4s6Jo2BJxHTjUb3B7bQMyJyd4n0O7PnyPL7
-	VWlgmP23OOzMNYVkScgDEqk6B9vQnXjcE2hKeYbKTW3XXNqa7yvePBgfbjUJQnIYT2r7aXioSSbaD
-	5P1dsUxg==;
+	bh=KiLXe3K01kFt9krWwBcSE2ZH8UWbsrjQMi5Rak0Yy4w=; b=LJpofPvBHyYI2rWXtMafL5jN6D
+	4erOnu5Ulxg3quNwRZwwTUs0ZcUZS/L9cC+bVg/yVhCP7/l45AWbDp0aj9N2JFwzPL6cWHc92ycHm
+	nCGCL+zl6hyWQC1rNFeUE8Bg7AoxFTR4T6bf/g0PdEd1cJtYTKi3p8hykYGj/E5/lyZKSFIeUVv3w
+	jIQ2EHpRCjIT+xyXa2V4AslBzNIsva8DlCg7+C3UDDKV34SS0yZcqwcKASxzaZ9KfRkjW61ywSrpw
+	RI56v3ZNtXDxNVdRGuX+KM/fEsa1prOJXqhonnHKIWCZwlHoic9jWQ0ltsccZhP/UvK0mDUU0fne+
+	u5zveQCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lrU-0000000HZFG-28gZ;
-	Mon, 23 Mar 2026 20:26:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4mKT-0000000HaKA-1onH;
+	Mon, 23 Mar 2026 20:56:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lrS-0000000HZF5-15bP
+	id 1w4mKR-0000000HaK4-34WX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Mar 2026 20:56:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KiLXe3K01kFt9krWwBcSE2ZH8UWbsrjQMi5Rak0Yy4w=; b=CduG2fTz9w9JLXbNwp2wbWW2o1
+	X2zB7T9OOkYmML3/go/f9GEyMVZxIxvaVy0YIWbINz//x1R5xclZHkANz28LvnDEIQpFh0IrbE5RZ
+	h8XJ5XYP2bcQwDjuvf5cdTdLdZaM1KAvXi9uUYy0JDqAK/YWUBK9GOm6Ch7V9HHyswARSlaIYj3yw
+	BGyL9drp6pgwztKvIILTqYgxuVHrP6NoV2ISx1mUKnwT5b/NOnOwClb3CWHTN6Boac85IBx4upcYo
+	9S/6Hb5WMJ/Ve+hUYManaOKiTqQFYf9FPUTdDq3JTUfuIsYmoKMkLq+wQbiyBfvJ8qIIJzDn9x978
+	mSg8N5fQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4mDx-00000002a5j-26Rj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 20:26:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 48782600AC;
-	Mon, 23 Mar 2026 20:26:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B58FC4CEF7;
-	Mon, 23 Mar 2026 20:26:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774297613;
-	bh=eJqp0aTOV24YJS1B68dp7Z5kq7N8KFIPaziEH3KjERs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Si9wOXU5yskTij/CpHNAswrYN7z1hP2kFejALyXxwfk2VLaXHVkRyKuhIJCW6h6Ff
-	 9E4MD7A5iwFX2RF0MVh6ZMxZ7/IN6DAm8qYEjI0k743z2p7Odul2ziNIwtReIseYQY
-	 Gamdc7YmeXsdmvMZr4VkuKb0xdRAtfbknryupxfLKn2F0VXpvnwKZRKi/mle8iKKFF
-	 CuRh69LWwcX7YYv4VWWr3CTPouYuQENkiDmGxNp1UAIIJZr2oVS8lA9nVD4tNT2Wfn
-	 zuvuCJC4xPhC5sZqsFTfq6QTsTodgxTZk+dNVDotX++XIc3ilUc566H5RQKYzfLWbC
-	 yqwePCv3cK8zg==
-Date: Mon, 23 Mar 2026 20:26:42 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <saikrishna12468@gmail.com>, <git@amd.com>
-Subject: Re: [PATCH v2 3/4] iio: adc: xilinx-xadc: Add I2C interface support
-Message-ID: <20260323202642.0cc73556@jic23-huawei>
-In-Reply-To: <20260323074505.3853353-4-sai.krishna.potthuri@amd.com>
-References: <20260323074505.3853353-1-sai.krishna.potthuri@amd.com>
-	<20260323074505.3853353-4-sai.krishna.potthuri@amd.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	Mon, 23 Mar 2026 20:56:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 745ED14BF;
+	Mon, 23 Mar 2026 13:49:42 -0700 (PDT)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 790B53F73B;
+	Mon, 23 Mar 2026 13:49:43 -0700 (PDT)
+Message-ID: <6c3b506e-8cc4-45ad-a801-326886c694c4@arm.com>
+Date: Mon, 23 Mar 2026 20:49:40 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
+ Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
+ <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ Charan Teja Kalla <quic_charante@quicinc.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Juan Yescas <jyescas@google.com>, kernel-team@android.com
+References: <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+ <67b32e90-1f60-4bf5-b534-b4a901d5a796@linaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <67b32e90-1f60-4bf5-b534-b4a901d5a796@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_205242_116519_F44FF110 
+X-CRM114-Status: GOOD (  32.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,244 +96,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Mar 2026 13:15:04 +0530
-Sai Krishna Potthuri <sai.krishna.potthuri@amd.com> wrote:
+On 23/03/2026 5:18 pm, Tudor Ambarus wrote:
+> Hi, Robin,
+> 
+> On 2/28/25 5:46 PM, Robin Murphy wrote:
+>> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+>> index a3b45b84f42b..1cec7074367a 100644
+>> --- a/drivers/iommu/iommu.c
+>> +++ b/drivers/iommu/iommu.c
+>> @@ -414,9 +414,21 @@ static int iommu_init_device(struct device *dev)
+>>   	if (!dev_iommu_get(dev))
+>>   		return -ENOMEM;
+>>   	/*
+>> -	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
+>> -	 * instances with non-NULL fwnodes, and client devices should have been
+>> -	 * identified with a fwspec by this point. Otherwise, we can currently
+>> +	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
+>> +	 * is buried in the bus dma_configure path. Properly unpicking that is
+>> +	 * still a big job, so for now just invoke the whole thing. The device
+>> +	 * already having a driver bound means dma_configure has already run and
+>> +	 * either found no IOMMU to wait for, or we're in its replay call right
+>> +	 * now, so either way there's no point calling it again.
+>> +	 */
+>> +	if (!dev->driver && dev->bus->dma_configure) {
+>> +		mutex_unlock(&iommu_probe_device_lock);
+>> +		dev->bus->dma_configure(dev);
+>> +		mutex_lock(&iommu_probe_device_lock);
+>> +	}
+> 
+> I was chasing the "something fishy" dev_WARN on a 6.19+ downstream
+> android kernel and while looking at the IOMMU code I couldn't help
+> myself and ask whether we shall prevent concurrent execution of
+> dma_configure().
+> 
+> It seems to me that while the IOMMU subsystem is executing
+> dma_configure(), the deferred probe workqueue can concurrently pick up
+> the same device, enter really_probe(), set dev->driver, and execute
+> dma_configure(). Is it worth protecting against this?
 
-> Add I2C interface support for Xilinx System Management Wizard IP along
-> with the existing AXI memory-mapped interface. This support enables
-> monitoring the voltage and temperature on UltraScale+ devices where the
-> System Management Wizard is connected via I2C.
+Yes, it's certainly still possible to hit a false-positive if thread A 
+in iommu_device_register()->bus_iommu_probe() races against thread B 
+attempting to bind, simply because thread B can set dev->driver long 
+before it gets to any point where ends up serialising on 
+iommu_probe_device_lock again, so thread A can observe that even while 
+it is doing the IOMMU probe in the "correct" context. Other than the 
+warning though, it's still functionally OK even if the "wrong" thread 
+does end up finishing the probe, at least after 0c8e9c148e29 ("iommu: 
+Avoid introducing more races").
+
+> I can try to prove it if needed, using a downstream iommu driver (sigh).
 > 
-> Key changes:
-> - Implement 32-bit DRP(Dynamic Reconfiguration Port) packet format as per
->   Xilinx PG185 specification.
-> - Add separate I2C probe with xadc_i2c_of_match_table to handle same
->   compatible string("xlnx,system-management-wiz-1.3") on I2C bus.
-> - Implement delayed version of hardware initialization for I2C interface
->   to handle the case where System Management Wizard IP is not ready during
->   the I2C probe.
-> - Add NULL checks for get_dclk_rate callback function in sampling rate
->   functions to support interfaces without clock control
-> - Create separate iio_info structure(xadc_i2c_info) without event
->   callbacks for I2C devices
-> - Add xadc_i2c_transaction() function to handle I2C read/write operations
-> - Add XADC_TYPE_US_I2C type to distinguish I2C interface from AXI
+> Thanks!
+> ta
 > 
-> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Hi.
-A few minor things inline.
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index e61927b4d41f..5f0c1a8064b5 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -461,9 +461,19 @@ static int iommu_init_device(struct device *dev)
+>           * already having a driver bound means dma_configure has already run and
+>           * found no IOMMU to wait for, so there's no point calling it again.
+>           */
+> -       if (!dev->iommu->fwspec && !dev->driver && dev->bus->dma_configure) {
+> +       if (!dev->iommu->fwspec && !READ_ONCE(dev->driver) &&
+> +           dev->bus->dma_configure) {
+>                  mutex_unlock(&iommu_probe_device_lock);
+> -               dev->bus->dma_configure(dev);
+> +
+> +               /*
+> +                * Serialize with really_probe(). Recheck dev->driver in case a
+> +                * driver bound while we were waiting for the lock.
+> +                */
+> +               device_lock(dev);
+> +               if (!dev->driver)
+> +                       dev->bus->dma_configure(dev);
+> +               device_unlock(dev);
+
+Much as I can't wait to get rid of iommu_probe_device_lock, the main 
+reason we still can't rely on device_lock() at the moment is not 
+actually the remaining sketchy replay-dependers per the comment in 
+__iommu_probe_device(), but more fundamentally that for most IOMMU 
+drivers this will deadlock in that same 
+iommu_device_register()->bus_iommu_probe() path, when the bus walk 
+happens to stumble across the IOMMU device itself, which of course is 
+already locked as it's still in the middle of its own driver bind. I 
+couldn't see an easy, clean and reliable way to get around that, so that 
+can got kicked down the road in order to get the "call of_xlate in the 
+right order and make iommu_device_register() actually work" basics 
+landed (and start shaking out all these other problems...)
 
 Thanks,
+Robin.
 
-Jonathan
+> +
+>                  mutex_lock(&iommu_probe_device_lock);
+>                  /* If another instance finished the job for us, skip it */
+>                  if (!dev->iommu || dev->iommu_group)
+> (END)
 
-> ---
->  drivers/iio/adc/Kconfig            |  15 ++
->  drivers/iio/adc/Makefile           |   1 +
->  drivers/iio/adc/xilinx-xadc-core.c |  28 +++-
->  drivers/iio/adc/xilinx-xadc-i2c.c  | 215 +++++++++++++++++++++++++++++
->  drivers/iio/adc/xilinx-xadc.h      |   1 +
->  5 files changed, 256 insertions(+), 4 deletions(-)
->  create mode 100644 drivers/iio/adc/xilinx-xadc-i2c.c
-> 
-> diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-> index a4a7556f4016..5a3956a5c086 100644
-> --- a/drivers/iio/adc/Kconfig
-> +++ b/drivers/iio/adc/Kconfig
-> @@ -1767,6 +1767,21 @@ config XILINX_XADC
->  	  The driver can also be build as a module. If so, the module will be called
->  	  xilinx-xadc.
->  
-> +config XILINX_XADC_I2C
-> +	tristate "Xilinx System Management Wizard I2C Interface support"
-> +	depends on I2C
-> +	select XILINX_XADC_CORE
-> +	help
-> +	  Say yes here to allow accessing the System Management
-> +	  Wizard on UltraScale+ devices via I2C.
-> +
-> +	  This provides voltage and temperature monitoring capabilities
-> +	  through the same IIO sysfs interface, but using I2C communication
-> +	  protocol.
-> +
-> +	  The driver can also be build as a module. If so, the module will be called
-
-line is a little too long for Kconfig.
-
-> +	  xilinx-xadc-i2c.
-> +
->
-> diff --git a/drivers/iio/adc/xilinx-xadc-i2c.c b/drivers/iio/adc/xilinx-xadc-i2c.c
-> new file mode 100644
-> index 000000000000..3d802b907260
-> --- /dev/null
-> +++ b/drivers/iio/adc/xilinx-xadc-i2c.c
-> @@ -0,0 +1,215 @@
-
-> +static int xadc_i2c_read_transaction(struct xadc *xadc, unsigned int reg, u16 *val)
-> +{
-> +	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
-> +	char write_buffer[XADC_I2C_WRITE_DATA_SIZE] = { 0 };
-> +	struct i2c_client *client = xadc_i2c->client;
-> +	char read_buffer[XADC_I2C_READ_DATA_SIZE];
-> +	int ret;
-> +
-> +	write_buffer[2] = FIELD_GET(XADC_I2C_DRP_ADDR_MASK, reg);
-> +	write_buffer[3] = XADC_I2C_INSTR_READ;
-> +
-> +	ret = i2c_master_send(client, write_buffer, XADC_I2C_WRITE_DATA_SIZE);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	ret = i2c_master_recv(client, read_buffer, XADC_I2C_READ_DATA_SIZE);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	*val = FIELD_PREP(XADC_I2C_DRP_DATA0_MASK, read_buffer[0]) |
-> +	       FIELD_PREP(XADC_I2C_DRP_DATA1_MASK, read_buffer[1]);
-> +
-> +	return 0;
-> +}
-> +
-> +static int xadc_i2c_write_transaction(struct xadc *xadc, unsigned int reg, u16 val)
-> +{
-> +	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
-> +	struct i2c_client *client = xadc_i2c->client;
-> +	char write_buffer[XADC_I2C_WRITE_DATA_SIZE];
-> +	int ret;
-> +
-> +	write_buffer[0] = FIELD_GET(XADC_I2C_DRP_DATA0_MASK, val);
-> +	write_buffer[1] = FIELD_GET(XADC_I2C_DRP_DATA1_MASK, val);
-
-This is odd enough it might be useful to have some comments.  Why do
-we need to write the value to two places for instance?
-
-> +	write_buffer[2] = FIELD_GET(XADC_I2C_DRP_ADDR_MASK, reg);
-> +	write_buffer[3] = XADC_I2C_INSTR_WRITE;
-> +
-> +	ret = i2c_master_send(client, write_buffer, XADC_I2C_WRITE_DATA_SIZE);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static int xadc_hardware_init(struct xadc *xadc)
-> +{
-> +	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
-> +	int ret;
-> +	u32 i;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(xadc->threshold); i++) {
-	for (u32 i = 0;
-
-Though why a u32?  If size doesn't matter, convention is pretty much always
-use a unsigned int for the iterator.
-
-> +		ret = xadc_i2c_read_transaction(xadc, XADC_REG_THRESHOLD(i),
-> +						&xadc->threshold[i]);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	ret = xadc_i2c_write_transaction(xadc, XADC_REG_CONF0, xadc_i2c->conf0);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = xadc_i2c_write_transaction(xadc, XADC_REG_INPUT_MODE(0),
-> +					 xadc_i2c->bipolar_mask);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = xadc_i2c_write_transaction(xadc, XADC_REG_INPUT_MODE(1),
-> +					 xadc_i2c->bipolar_mask >> XADC_INPUT_MODE_BITS);
-> +	if (ret)
-> +		return ret;
-> +
-> +	xadc_i2c->hw_initialized = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static int xadc_i2c_read_reg(struct xadc *xadc, unsigned int reg, u16 *val)
-> +{
-> +	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
-> +
-> +	if (!xadc_i2c->hw_initialized) {
-> +		int ret;
-> +
-> +		ret = xadc_hardware_init(xadc);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return xadc_i2c_read_transaction(xadc, reg, val);
-> +}
-> +
-> +static int xadc_i2c_write_reg(struct xadc *xadc, unsigned int reg, u16 val)
-> +{
-> +	struct xadc_i2c *xadc_i2c = container_of(xadc, struct xadc_i2c, xadc);
-> +
-> +	if (!xadc_i2c->hw_initialized) {
-
-Seems like this is always called once on first access?
-If so just do it form probe and simplify the read/ write_reg() functions.
-
-> +		int ret;
-> +
-> +		ret = xadc_hardware_init(xadc);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return xadc_i2c_write_transaction(xadc, reg, val);
-> +}
-
-> +static int xadc_i2c_probe(struct i2c_client *client)
-> +{
-> +	struct device *dev = &client->dev;
-> +	unsigned int conf0, bipolar_mask;
-> +	const struct xadc_ops *ops;
-> +	struct iio_dev *indio_dev;
-> +	struct xadc_i2c *xadc_i2c;
-> +	struct xadc *xadc;
-> +	int ret;
-> +
-> +	indio_dev = xadc_device_setup(dev, sizeof(*xadc_i2c), &ops);
-> +	if (IS_ERR(indio_dev))
-> +		return PTR_ERR(indio_dev);
-> +
-> +	xadc_i2c = iio_priv(indio_dev);
-> +	xadc_i2c->client = client;
-> +	xadc = &xadc_i2c->xadc;
-> +	xadc->clk = NULL;
-> +	xadc->ops = ops;
-> +	mutex_init(&xadc->mutex);
-For new code (feel free to update the other code in a separate patch).
-	ret = devm_mutex_init(xadc->mutex);
-	if (ret)
-		return ret;
-
-As gives a small amount of lock debugging infrastructure and is now
-cheap to do.  The devm form didn't used to exist.
-
-> +	spin_lock_init(&xadc->lock);
-> +
-> +	ret = xadc_device_configure(dev, indio_dev, 0, &conf0, &bipolar_mask);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to setup the device: %d\n", ret);
-> +		return ret;
-		return dev_err_probe(dev, "Failed to setup the device.\n");
-Which will pretty print the error and hide it if -EPROBEDEFER (because that should
-be silent) or -ENOMEM (because memory allocation errors are very noisy anyway!)
-
-> +	}
-> +
-> +	i2c_set_clientdata(client, indio_dev);
-> +	xadc_i2c->conf0 = conf0;
-> +	xadc_i2c->bipolar_mask = bipolar_mask;
-> +	xadc_i2c->hw_initialized = false;
-> +
-> +	return devm_iio_device_register(dev, indio_dev);
-> +}
 
