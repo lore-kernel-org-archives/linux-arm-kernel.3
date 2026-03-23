@@ -4,124 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61ABEEC01A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CF8EC01A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3iof9wozdCNF9iBqOefC+tDROYRV+4AnTEkj1JUAX+M=; b=AYoOEbmMY2mH0tyKM4R0IwahR9
-	tq8hWPRF6gtUme45U6lkVtEmoHl3RYHOroBmn8NZhCNrrz2mRbkYWSJ0mGNXIgB0K5NSTyWNJuC4w
-	h/cU/PlcPTCiJkk0MP9e4bn3JEHBF0ItwbuoBKlH2/CX6rlBmgRTggFMxA5KJhzZNSb5jGCrO8CcM
-	C25xbwOANVmlwHmVqCZbI/SuA0oYQae1fZY8qm+1JFo1acFyE21VWFBtOn3pKPFhaNmLKjXfyxmQP
-	3l4509Afq8/wDDhbYkXk+Bt62mCcgYg2qlA3e8vL5YgHo9Ok+qAwuA/Gt5S/t4ZN453KsP4f5Wl71
-	jo+fIt6A==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/kKOvh8mzHk95zH5Sm/YNif6QPFXAR4KEc0obuavFZ8=; b=zQLLqq6Wdx/tJ11EnMPmPCTxmI
+	03GxVhHwZpVqhQXDmdAmjhTkHeT7IRjMmWWnFCLkRUSYRYiaHMEoTKx0vbeR5lm4LJoxVQHuISSQb
+	SYW9RTw59e6+3rY/pZQAmEnH5Cze9YtGj/n2mEV678IIjLpfTKxW1Cw6Cj5zy2lWlwrP7J/4Gzr5F
+	ZQQTAYv68sLuGQ6FiH2wXc5A/V6bYpdA+k5fyvUP1LbEt+bqx445DVtoAC5IoMhQvts1MFtX1Rh4w
+	BIsyzvD/fAHdc72CG+wQMpBgJRjiXUYLb9En+U4AfcK0bQM7ckpc1/P6ggxxeMo7xZ14m/NUaN18k
+	dXjdPz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bD5-0000000GKal-1ro2;
-	Mon, 23 Mar 2026 09:04:31 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1w4bGL-0000000GKvg-07wF;
+	Mon, 23 Mar 2026 09:07:53 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bD3-0000000GKZB-0X7q
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 09:04:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q8o6or44bmo9PugY8D01IEhwpwAiXSmj7m8M/8yxU+37/2+Yw5jZ4T33PPqXfukL4N+79JnjdtBc7/f7CoxEVlatQUco1Xol0nNC/gE0v5MsfyKJ2bgbx1GifdvhGoCIXipo+faPqlCFqHvr88ZmtMIVQD+Ti7ao93zGD6iBlXrKBFVawngRjLGZH3oFACMB6RLbDTpLXDjLfR8N7s5DsuBspWOXX+4dJ4IYQ1gA/OvgxhA8fOO+E+MnDO+dCWcYC7o9jOyuEhh8xvsWyMKHYVh4HMT/FJBIVXbj5yxSZaCUmZjNY3eSTBH0wYZZvFB7YOyZzYEhc3gd8Rh9CKIRMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3iof9wozdCNF9iBqOefC+tDROYRV+4AnTEkj1JUAX+M=;
- b=oahMorzfbEQtmxABQRopOFXRlt1dtptc5ZKC48mNE7W+TKy//e/IMUHucJLC3f7++ajmIyRKcz89WUPhPW0ei1tpcZCJVjmzFkq0tzEbIXZTRP0HeGqti45O5fgMPQx4UDrXTStQ0pEyFbCfmpxdaNj/Wf3+K8BG9VqAJzUiQsMSYAD0wnLeVmGT6ZlNXj1Txx84Xgbays7eXryFETpTlILAk9iQWmegvLkqqCwAOPegH1bB3sO68SYGqaZqb8BqP3/dyrH4jlB7vnjSkWaqegoJUCphbtXQIz+NbgihfpE8MaynPtnTMMx4RRN0RYP8wBQ5+aOcI9LaNQyt2e4wtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3iof9wozdCNF9iBqOefC+tDROYRV+4AnTEkj1JUAX+M=;
- b=Sm3myPgGZN1IH8ME0qUl4B8MdIjl1jJaWPhYr6u+cvj5soKb/54d9sPkQNS3lsHn5XfxsRjh1xVBcONr1QjhfU1BaDc8FAyo17N4veDxXzGQsKh6ZQoj8tZ/aXKH/1WhQHhHX9Bhfnx2rWLM02qyh2KKMjlQqFHnnRaBmY1enos=
-Received: from CH2PR04CA0026.namprd04.prod.outlook.com (2603:10b6:610:52::36)
- by LV8PR10MB7846.namprd10.prod.outlook.com (2603:10b6:408:1f7::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Mon, 23 Mar
- 2026 09:04:23 +0000
-Received: from CH3PEPF00000018.namprd21.prod.outlook.com
- (2603:10b6:610:52:cafe::2f) by CH2PR04CA0026.outlook.office365.com
- (2603:10b6:610:52::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Mon,
- 23 Mar 2026 09:04:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CH3PEPF00000018.mail.protection.outlook.com (10.167.244.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.0 via Frontend Transport; Mon, 23 Mar 2026 09:04:22 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Mar
- 2026 04:04:08 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Mar
- 2026 04:04:07 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 23 Mar 2026 04:04:07 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62N947Ma334975;
-	Mon, 23 Mar 2026 04:04:07 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 62N946sA003527;
-	Mon, 23 Mar 2026 04:04:07 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
-	<danishanwar@ti.com>, <m-malladi@ti.com>
-Subject: [PATCH net-next v4 2/2] arm64: defconfig: Enable DP83TG720 PHY driver
-Date: Mon, 23 Mar 2026 14:33:58 +0530
-Message-ID: <20260323090358.632329-3-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260323090358.632329-1-m-malladi@ti.com>
-References: <20260323090358.632329-1-m-malladi@ti.com>
+	id 1w4bGJ-0000000GKvH-2STZ;
+	Mon, 23 Mar 2026 09:07:52 +0000
+X-UUID: c19c5dde269711f19e7563141e833ce8-20260323
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=/kKOvh8mzHk95zH5Sm/YNif6QPFXAR4KEc0obuavFZ8=;
+	b=s90JS+MLvHuJ5N7Ps3FAj7s4QGW5hl1DbI+8W2VmcEkhCsUMoMGD7rX2uP67MRaGwfOsMcCE8id6YFttowY940S+ggs2nh5SR87QjO2u6Efv7mAX4RC2OcK4JJjvfkf4+HVeDCtik7+aKA5W87PzaSdwjoIOKDsWrVpA8qD1W+o=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:8440c5ff-b0fd-40a8-9e77-3bcfe3e7e39d,IP:0,U
+	RL:0,TC:0,Content:56,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:56
+X-CID-META: VersionHash:e7bac3a,CLOUDID:9467ce4c-9183-487b-8624-e74f2dd98990,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:3|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c19c5dde269711f19e7563141e833ce8-20260323
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1073585773; Mon, 23 Mar 2026 02:07:45 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 23 Mar 2026 17:07:42 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 23 Mar 2026 17:07:42 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Chun-Kuang Hu
+	<chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
+	<jason-jh.lin@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
+	<singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang
+	<sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
+	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH] mailbox: mtk-cmdq: Fix CURR and END addr for task insert case
+Date: Mon, 23 Mar 2026 17:07:11 +0800
+Message-ID: <20260323090742.1522607-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000018:EE_|LV8PR10MB7846:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad378663-5d37-4546-2fdb-08de88bb2ca2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: UevXR2MvgcYnuKl6Q/VRnaGeflb9CGUw+9NnLYTmp9cDU92KoDhdVh1NwDh/u9czXv095r6B9b8788gXK8LqL3AHzxMMeAzqPvvOjkRb7ng7WjL04glNiPeKO0WC5Q/jZ7GWzpFh0fj8e3meoGQ7BP4ZIfwt2Jrk17fAyMpYKzDqsKXIziFT5mpLeuMElUJPl8JtCk9abd1ZwvGqs19W4nWNcJBrGwBhd8QjO7Zz0gsd9E5QGar9p2RJnc54GT8EpgJCX6KLgEOSZZZTn9NiRTHCHIq8nysoAUt6aEXfyUdtTMoOXlMVOJy3XFEe1tguuJ6EvObYJAlJf06u+y7UrP+APX4pPQDLQzX1ARBsYNeNmPFLgRomXmRNmmgUIQfgUbbETaUiZWVAEtrh0rS7zfQebY4BccqwF9rYJdudMYq7zQKipVN6sOpTdDgiY49HSDPR1H1OpOXZPKaxP8NlDQsNYr7zV1cDX9a+9Cgr/6M3WrfvxiAYqHJZ29QerMQ93EUmP38XK3nRXbh9gKjAnSaYo+vfnZs0wPmJ6yvuKSgPiUpDJh4r+oOn8yqdvqfr4Thk0IrQU2ziS9NK5irU6EQZ22FL8LiVo5iORVMyVOW75SBAoLpU47wVeD+1qmGIHAfWfs69o7/Up5QzQ2b3jnFaGMjDbXSRhwDyGEOYN7T7JgI32C1LU8fwriReciYfRHQywP86LhDQnfbwO39fvaM/SXwjLwGq8GHd5ADuNPg9MNz3pNfDMd9/PStrml7Kv65YSdNfNsWCkt1iQkrFXA==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: m4oHhCVPDvEs0bT1ZPwjNhuB0OvOSjVilauJQ7aoQjNUBNB+BYJKP4tTjVihSU78Mt/ZsFI5RpEglNl2Vh0/Sa3Oi+R8gP5Uyq+uB4naHDf7ouHXmLpzTRpqluiHaGama78B7R8iuBKOP/F9l2rPhNT5m8EHM2aLRmA+2l90JmxXU1dFX4tRANMs5JSc0/ppPxWjvJrPIkD/UyVvpqBG1vWYvFwVzaLldAeZPYL1Oni1Y2VrTAZwkj4BfiM9C8kPmoHeLZ7u4MwnNuRS+7OtKVq/+SJNOzMDN4WcxLdhsuCFJvEftxfSSyQfchxoAxCrlwZ4bGAM1sBU/LGave3rlU7tR9yqUG8zKoREmJjF7iaMsB02I3kAWsq53i7F/rjtTrYyrZgiQBXz0hfS0f3vHxwfaMcTdKbMkbHinQ3jma5RWyH9nLLFhDqRGWqU8+g+
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:04:22.1340
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad378663-5d37-4546-2fdb-08de88bb2ca2
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000018.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR10MB7846
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_020429_167791_E8C10060 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_020751_648233_9BDD1A40 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,28 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DP83TG720 PHY driver as a module to support TI's DP83TG720
-1000BASE-T1 Automotive Ethernet PHY. This is required for the
-DP83TG720-IND-SPE-EVM daughter card used with AM642 EVM ICSSG0
-interface.
+Fix CURR and END address calculation for inserting a cmdq task into the
+task list by using cmdq_reg_shift_addr() for proper address converting.
+This ensures both CURR and END addresses are set correctly when
+enabling the thread.
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+Fixes: a195c7ccfb7a ("mailbox: mtk-cmdq: Refine DMA address handling for the command buffer")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mailbox/mtk-cmdq-mailbox.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index b67d5b1fc45b..3b88df2ca5e1 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -420,6 +420,7 @@ CONFIG_REALTEK_PHY=y
- CONFIG_ROCKCHIP_PHY=y
- CONFIG_DP83867_PHY=y
- CONFIG_DP83869_PHY=m
-+CONFIG_DP83TG720_PHY=m
- CONFIG_DP83TD510_PHY=y
- CONFIG_VITESSE_PHY=y
- CONFIG_XILINX_GMII2RGMII=m
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index d7c6b38888a3..547a10a8fad3 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -493,14 +493,14 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
+ 		if (curr_pa == end_pa - CMDQ_INST_SIZE ||
+ 		    curr_pa == end_pa) {
+ 			/* set to this task directly */
+-			writel(task->pa_base >> cmdq->pdata->shift,
+-			       thread->base + CMDQ_THR_CURR_ADDR);
++			gce_addr = cmdq_convert_gce_addr(task->pa_base, cmdq->pdata);
++			writel(gce_addr, thread->base + CMDQ_THR_CURR_ADDR);
+ 		} else {
+ 			cmdq_task_insert_into_thread(task);
+ 			smp_mb(); /* modify jump before enable thread */
+ 		}
+-		writel((task->pa_base + pkt->cmd_buf_size) >> cmdq->pdata->shift,
+-		       thread->base + CMDQ_THR_END_ADDR);
++		gce_addr = cmdq_convert_gce_addr(task->pa_base + pkt->cmd_buf_size, cmdq->pdata);
++		writel(gce_addr, thread->base + CMDQ_THR_END_ADDR);
+ 		cmdq_thread_resume(thread);
+ 	}
+ 	list_move_tail(&task->list_entry, &thread->task_busy_list);
 -- 
 2.43.0
 
