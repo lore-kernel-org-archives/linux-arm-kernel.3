@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDC8F46102
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB410F46104
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gG6lJQx5elKZCiA53HTEHxO7NSMgoLZDtZQ88//+150=; b=v2IMZMmxoD0wKNko+lzQ5CXLE6
-	luoB8ihQV9Qn63UB2YlU9pkjPGz/jHgWvg+pFpELT5j1F1SJ89p19ep5PMJoEeeZjCUselXuaQa+T
-	vUwO5qumujgz8shKuqajDx/rY6i6NL1A6HqZHYOLXACSgAk/7Q9W6wK1YRSWPGrko0TWRJk/hShwy
-	jwgJrJbywpFmKLoLG6Nu18NHOEKcl8iWsuAECFBnCbOEIjUvZbSwJfoVaFQ1O5DSjl9z0e0OSZzDL
-	hl6H7Rar15QgIzdRPG/3BIWMq7VBipA1OI9NYyCn/D3w+Kg3ejb3h9zV/VQPBeEwqEYqOlNw05JtE
-	TTt+FTEA==;
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=iYzo0MXvWXXE7TpgsSiurp4bg46+qPB7FwYn5FL7XJI=; b=tXvyhY4TdT2g7E5+huav6BV4PK
+	zbpTArshK3G60WZZ2XQI5cVViNI0+MWvZwdjWx4bMl1o1xwtku9ps8SIAOJ3SQOOZoxg4X3uQ+88F
+	Cdp79Lv5iy3PoyWNw3qnkRUpetN2hrQRC0U/w9pP7N5bropHhnk/nwci/8Tjzft3eIbNm+nu3k2Tf
+	TJyabZfHV7kbdmcn9mAikFtpG2n7nNdwi8u0E5RcEdH2lzdoTj3NI6YU8UDmnfEBrbMfP4b5HUmmq
+	nJqHh7xqZHaKr2EkNWXGnwaqVBUytYu+X1yAtQbWf15F7lhoI5xWrD5bVT0vDyTslvApyZA4Z4A0K
+	RXWbBlGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ewc-0000000Gk9c-3ISD;
-	Mon, 23 Mar 2026 13:03:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ewS-0000000Gk4R-0pbb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:03:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B2091688;
-	Mon, 23 Mar 2026 06:03:27 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FA9A3F885;
-	Mon, 23 Mar 2026 06:03:31 -0700 (PDT)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jinjiang Tu <tujinjiang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings correctly
-Date: Mon, 23 Mar 2026 13:03:14 +0000
-Message-ID: <20260323130317.1737522-3-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260323130317.1737522-1-ryan.roberts@arm.com>
-References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+	id 1w4exN-0000000GkPz-44Ln;
+	Mon, 23 Mar 2026 13:04:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4exL-0000000GkOW-1Wrx;
+	Mon, 23 Mar 2026 13:04:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A4ED43C13;
+	Mon, 23 Mar 2026 13:04:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ABDCC4CEF7;
+	Mon, 23 Mar 2026 13:04:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1774271070;
+	bh=5Nz8s7+sMR0QBDNdaSxt7uendNTU32h2kZSUWeWq8ys=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=Qwl0kntavmmHq/WQm03gl37bTBCs7DwEkPJ7BwXuSSsAaPMCghlDIhupMVYG7kgYh
+	 PIfzVQthZE2baLhs9FUm+SYUBuGJ7aNQdL7+IfMo4gWJ1/w4aThFWAte8dKrnWUF+W
+	 oQlMJuD2j262fbJWW0e0Pb2jOSU6zAYBXdXxyEy4=
+Subject: Patch "net: fix segmentation of forwarding fraglist GRO" has been added to the 6.1-stable tree
+To: 1468888505@139.com,andrii@kernel.org,ast@kernel.org,daniel@iogearbox.net,davem@davemloft.net,dsahern@kernel.org,edumazet@google.com,gregkh@linuxfoundation.org,haoluo@google.com,jibin.zhang@mediatek.com,john.fastabend@gmail.com,jolsa@kernel.org,kpsingh@kernel.org,kuba@kernel.org,linux-arm-kernel@lists.infradead.org,linux-mediatek@lists.infradead.org,martin.lau@linux.dev,matthias.bgg@gmail.com,pabeni@redhat.com,patches@lists.linux.dev,sdf@google.com,song@kernel.org,steffen.klassert@secunet.com,willemb@google.com,yhs@fb.com,yoshfuji@linux-ipv6.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 23 Mar 2026 14:03:45 +0100
+In-Reply-To: <20260302065427.2695392-1-1468888505@139.com>
+Message-ID: <2026032344-dwindling-unretired-3b30@gregkh>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_060336_340746_B86CC456 
-X-CRM114-Status: GOOD (  29.64  )
+X-CRM114-CacheID: sfid-20260323_060431_454845_F170AEF5 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,251 +67,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It has been possible for a long time to mark ptes in the linear map as
-invalid. This is done for secretmem, kfence, realm dma memory un/share,
-and others, by simply clearing the PTE_VALID bit. But until commit
-a166563e7ec37 ("arm64: mm: support large block mapping when
-rodata=full") large leaf mappings were never made invalid in this way.
 
-It turns out various parts of the code base are not equipped to handle
-invalid large leaf mappings (in the way they are currently encoded) and
-I've observed a kernel panic while booting a realm guest on a
-BBML2_NOABORT system as a result:
+This is a note to let you know that I've just added the patch titled
 
-[   15.432706] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
-[   15.476896] Unable to handle kernel paging request at virtual address ffff000019600000
-[   15.513762] Mem abort info:
-[   15.527245]   ESR = 0x0000000096000046
-[   15.548553]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   15.572146]   SET = 0, FnV = 0
-[   15.592141]   EA = 0, S1PTW = 0
-[   15.612694]   FSC = 0x06: level 2 translation fault
-[   15.640644] Data abort info:
-[   15.661983]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
-[   15.694875]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
-[   15.723740]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   15.755776] swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000081f3f000
-[   15.800410] [ffff000019600000] pgd=0000000000000000, p4d=180000009ffff403, pud=180000009fffe403, pmd=00e8000199600704
-[   15.855046] Internal error: Oops: 0000000096000046 [#1]  SMP
-[   15.886394] Modules linked in:
-[   15.900029] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc4-dirty #4 PREEMPT
-[   15.935258] Hardware name: linux,dummy-virt (DT)
-[   15.955612] pstate: 21400005 (nzCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-[   15.986009] pc : __pi_memcpy_generic+0x128/0x22c
-[   16.006163] lr : swiotlb_bounce+0xf4/0x158
-[   16.024145] sp : ffff80008000b8f0
-[   16.038896] x29: ffff80008000b8f0 x28: 0000000000000000 x27: 0000000000000000
-[   16.069953] x26: ffffb3976d261ba8 x25: 0000000000000000 x24: ffff000019600000
-[   16.100876] x23: 0000000000000001 x22: ffff0000043430d0 x21: 0000000000007ff0
-[   16.131946] x20: 0000000084570010 x19: 0000000000000000 x18: ffff00001ffe3fcc
-[   16.163073] x17: 0000000000000000 x16: 00000000003fffff x15: 646e612065766974
-[   16.194131] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-[   16.225059] x11: 0000000000000000 x10: 0000000000000010 x9 : 0000000000000018
-[   16.256113] x8 : 0000000000000018 x7 : 0000000000000000 x6 : 0000000000000000
-[   16.287203] x5 : ffff000019607ff0 x4 : ffff000004578000 x3 : ffff000019600000
-[   16.318145] x2 : 0000000000007ff0 x1 : ffff000004570010 x0 : ffff000019600000
-[   16.349071] Call trace:
-[   16.360143]  __pi_memcpy_generic+0x128/0x22c (P)
-[   16.380310]  swiotlb_tbl_map_single+0x154/0x2b4
-[   16.400282]  swiotlb_map+0x5c/0x228
-[   16.415984]  dma_map_phys+0x244/0x2b8
-[   16.432199]  dma_map_page_attrs+0x44/0x58
-[   16.449782]  virtqueue_map_page_attrs+0x38/0x44
-[   16.469596]  virtqueue_map_single_attrs+0xc0/0x130
-[   16.490509]  virtnet_rq_alloc.isra.0+0xa4/0x1fc
-[   16.510355]  try_fill_recv+0x2a4/0x584
-[   16.526989]  virtnet_open+0xd4/0x238
-[   16.542775]  __dev_open+0x110/0x24c
-[   16.558280]  __dev_change_flags+0x194/0x20c
-[   16.576879]  netif_change_flags+0x24/0x6c
-[   16.594489]  dev_change_flags+0x48/0x7c
-[   16.611462]  ip_auto_config+0x258/0x1114
-[   16.628727]  do_one_initcall+0x80/0x1c8
-[   16.645590]  kernel_init_freeable+0x208/0x2f0
-[   16.664917]  kernel_init+0x24/0x1e0
-[   16.680295]  ret_from_fork+0x10/0x20
-[   16.696369] Code: 927cec03 cb0e0021 8b0e0042 a9411c26 (a900340c)
-[   16.723106] ---[ end trace 0000000000000000 ]---
-[   16.752866] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-[   16.792556] Kernel Offset: 0x3396ea200000 from 0xffff800080000000
-[   16.818966] PHYS_OFFSET: 0xfff1000080000000
-[   16.837237] CPU features: 0x0000000,00060005,13e38581,957e772f
-[   16.862904] Memory Limit: none
-[   16.876526] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+    net: fix segmentation of forwarding fraglist GRO
 
-This panic occurs because the swiotlb memory was previously shared to
-the host (__set_memory_enc_dec()), which involves transitioning the
-(large) leaf mappings to invalid, sharing to the host, then marking the
-mappings valid again. But pageattr_p[mu]d_entry() would only update the
-entry if it is a section mapping, since otherwise it concluded it must
-be a table entry so shouldn't be modified. But p[mu]d_sect() only
-returns true if the entry is valid. So the result was that the large
-leaf entry was made invalid in the first pass then ignored in the second
-pass. It remains invalid until the above code tries to access it and
-blows up.
+to the 6.1-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-The simple fix would be to update pageattr_pmd_entry() to use
-!pmd_table() instead of pmd_sect(). That would solve this problem.
+The filename of the patch is:
+     net-fix-segmentation-of-forwarding-fraglist-gro.patch
+and it can be found in the queue-6.1 subdirectory.
 
-But the ptdump code also suffers from a similar issue. It checks
-pmd_leaf() and doesn't call into the arch-specific note_page() machinery
-if it returns false. As a result of this, ptdump wasn't even able to
-show the invalid large leaf mappings; it looked like they were valid
-which made this super fun to debug. the ptdump code is core-mm and
-pmd_table() is arm64-specific so we can't use the same trick to solve
-that.
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-But we already support the concept of "present-invalid" for user space
-entries. And even better, pmd_leaf() will return true for a leaf mapping
-that is marked present-invalid. So let's just use that encoding for
-present-invalid kernel mappings too. Then we can use pmd_leaf() where we
-previously used pmd_sect() and everything is magically fixed.
 
-Additionally, from inspection kernel_page_present() was broken in a
-similar way, so I'm also updating that to use pmd_leaf().
+From 1468888505@139.com Mon Mar  2 07:54:33 2026
+From: Li hongliang <1468888505@139.com>
+Date: Mon,  2 Mar 2026 14:54:27 +0800
+Subject: net: fix segmentation of forwarding fraglist GRO
+To: gregkh@linuxfoundation.org, stable@vger.kernel.org, jibin.zhang@mediatek.com
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev, song@kernel.org, yhs@fb.com, john.fastabend@gmail.com, kpsingh@kernel.org, sdf@google.com, haoluo@google.com, jolsa@kernel.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, yoshfuji@linux-ipv6.org, dsahern@kernel.org, matthias.bgg@gmail.com, willemb@google.com, steffen.klassert@secunet.com, bpf@vger.kernel.org, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Message-ID: <20260302065427.2695392-1-1468888505@139.com>
 
-I haven't spotted any other issues of this shape but plan to do a follow
-up patch to remove pmd_sect() and pud_sect() in favour of the more
-sophisticated pmd_leaf()/pud_leaf() which are core-mm APIs and will
-simplify arm64 code a bit.
+From: Jibin Zhang <jibin.zhang@mediatek.com>
 
-Fixes: a166563e7ec37 ("arm64: mm: support large block mapping when rodata=full")
+[ Upstream commit 426ca15c7f6cb6562a081341ca88893a50c59fa2 ]
+
+This patch enhances GSO segment handling by properly checking
+the SKB_GSO_DODGY flag for frag_list GSO packets, addressing
+low throughput issues observed when a station accesses IPv4
+servers via hotspots with an IPv6-only upstream interface.
+
+Specifically, it fixes a bug in GSO segmentation when forwarding
+GRO packets containing a frag_list. The function skb_segment_list
+cannot correctly process GRO skbs that have been converted by XLAT,
+since XLAT only translates the header of the head skb. Consequently,
+skbs in the frag_list may remain untranslated, resulting in protocol
+inconsistencies and reduced throughput.
+
+To address this, the patch explicitly sets the SKB_GSO_DODGY flag
+for GSO packets in XLAT's IPv4/IPv6 protocol translation helpers
+(bpf_skb_proto_4_to_6 and bpf_skb_proto_6_to_4). This marks GSO
+packets as potentially modified after protocol translation. As a
+result, GSO segmentation will avoid using skb_segment_list and
+instead falls back to skb_segment for packets with the SKB_GSO_DODGY
+flag. This ensures that only safe and fully translated frag_list
+packets are processed by skb_segment_list, resolving protocol
+inconsistencies and improving throughput when forwarding GRO packets
+converted by XLAT.
+
+Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+Fixes: 9fd1ff5d2ac7 ("udp: Support UDP fraglist GRO/GSO.")
 Cc: stable@vger.kernel.org
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Link: https://patch.msgid.link/20260126152114.1211-1-jibin.zhang@mediatek.com
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+Signed-off-by: Li hongliang <1468888505@139.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/mm/pageattr.c | 50 ++++++++++++++++++++++------------------
- 1 file changed, 28 insertions(+), 22 deletions(-)
+ net/core/filter.c        |    2 ++
+ net/ipv4/tcp_offload.c   |    3 ++-
+ net/ipv4/udp_offload.c   |    3 ++-
+ net/ipv6/tcpv6_offload.c |    3 ++-
+ 4 files changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 358d1dc9a576f..87dfe4c82fa92 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -25,6 +25,11 @@ static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
- {
- 	struct page_change_data *masks = walk->private;
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -3333,6 +3333,7 @@ static int bpf_skb_proto_4_to_6(struct s
+ 			shinfo->gso_type &= ~SKB_GSO_TCPV4;
+ 			shinfo->gso_type |=  SKB_GSO_TCPV6;
+ 		}
++		shinfo->gso_type |=  SKB_GSO_DODGY;
+ 	}
  
-+	/*
-+	 * Some users clear and set bits which alias eachother (e.g. PTE_NG and
-+	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
-+	 * first then set.
-+	 */
- 	val &= ~(pgprot_val(masks->clear_mask));
- 	val |= (pgprot_val(masks->set_mask));
+ 	bpf_skb_change_protocol(skb, ETH_P_IPV6);
+@@ -3363,6 +3364,7 @@ static int bpf_skb_proto_6_to_4(struct s
+ 			shinfo->gso_type &= ~SKB_GSO_TCPV6;
+ 			shinfo->gso_type |=  SKB_GSO_TCPV4;
+ 		}
++		shinfo->gso_type |=  SKB_GSO_DODGY;
+ 	}
  
-@@ -36,7 +41,7 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
- {
- 	pud_t val = pudp_get(pud);
+ 	bpf_skb_change_protocol(skb, ETH_P_IP);
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -106,7 +106,8 @@ static struct sk_buff *tcp4_gso_segment(
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
  
--	if (pud_sect(val)) {
-+	if (pud_leaf(val)) {
- 		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
- 			return -EINVAL;
- 		val = __pud(set_pageattr_masks(pud_val(val), walk));
-@@ -52,7 +57,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
- {
- 	pmd_t val = pmdp_get(pmd);
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
+ 			return __tcp4_gso_segment_list(skb, features);
  
--	if (pmd_sect(val)) {
-+	if (pmd_leaf(val)) {
- 		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
- 			return -EINVAL;
- 		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
-@@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
- 	ret = update_range_prot(start, size, set_mask, clear_mask);
+ 		skb->ip_summed = CHECKSUM_NONE;
+--- a/net/ipv4/udp_offload.c
++++ b/net/ipv4/udp_offload.c
+@@ -351,7 +351,8 @@ struct sk_buff *__udp_gso_segment(struct
  
- 	/*
--	 * If the memory is being made valid without changing any other bits
--	 * then a TLBI isn't required as a non-valid entry cannot be cached in
--	 * the TLB.
-+	 * If the memory is being switched from present-invalid to valid without
-+	 * changing any other bits then a TLBI isn't required as a non-valid
-+	 * entry cannot be cached in the TLB.
- 	 */
--	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
-+	if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
-+	    pgprot_val(clear_mask) != PTE_PRESENT_INVALID)
- 		flush_tlb_kernel_range(start, start + size);
- 	return ret;
- }
-@@ -237,18 +243,18 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
- {
- 	if (enable)
- 		return __change_memory_common(addr, PAGE_SIZE * numpages,
--					__pgprot(PTE_VALID),
--					__pgprot(0));
-+					__pgprot(PTE_MAYBE_NG | PTE_VALID),
-+					__pgprot(PTE_PRESENT_INVALID));
- 	else
- 		return __change_memory_common(addr, PAGE_SIZE * numpages,
--					__pgprot(0),
--					__pgprot(PTE_VALID));
-+					__pgprot(PTE_PRESENT_INVALID),
-+					__pgprot(PTE_MAYBE_NG | PTE_VALID));
- }
+ 	if (skb_shinfo(gso_skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		 /* Detect modified geometry and pass those to skb_segment. */
+-		if (skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size)
++		if ((skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size) &&
++		    !(skb_shinfo(gso_skb)->gso_type & SKB_GSO_DODGY))
+ 			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
  
- int set_direct_map_invalid_noflush(struct page *page)
- {
--	pgprot_t clear_mask = __pgprot(PTE_VALID);
--	pgprot_t set_mask = __pgprot(0);
-+	pgprot_t clear_mask = __pgprot(PTE_MAYBE_NG | PTE_VALID);
-+	pgprot_t set_mask = __pgprot(PTE_PRESENT_INVALID);
+ 		ret = __skb_linearize(gso_skb);
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -108,7 +108,8 @@ static struct sk_buff *tcp6_gso_segment(
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
  
- 	if (!can_set_direct_map())
- 		return 0;
-@@ -259,8 +265,8 @@ int set_direct_map_invalid_noflush(struct page *page)
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
+ 			return __tcp6_gso_segment_list(skb, features);
  
- int set_direct_map_default_noflush(struct page *page)
- {
--	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
--	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
-+	pgprot_t set_mask = __pgprot(PTE_MAYBE_NG | PTE_VALID | PTE_WRITE);
-+	pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
- 
- 	if (!can_set_direct_map())
- 		return 0;
-@@ -296,8 +302,8 @@ static int __set_memory_enc_dec(unsigned long addr,
- 	 * entries or Synchronous External Aborts caused by RIPAS_EMPTY
- 	 */
- 	ret = __change_memory_common(addr, PAGE_SIZE * numpages,
--				     __pgprot(set_prot),
--				     __pgprot(clear_prot | PTE_VALID));
-+				     __pgprot(set_prot | PTE_PRESENT_INVALID),
-+				     __pgprot(clear_prot | PTE_MAYBE_NG | PTE_VALID));
- 
- 	if (ret)
- 		return ret;
-@@ -311,8 +317,8 @@ static int __set_memory_enc_dec(unsigned long addr,
- 		return ret;
- 
- 	return __change_memory_common(addr, PAGE_SIZE * numpages,
--				      __pgprot(PTE_VALID),
--				      __pgprot(0));
-+				      __pgprot(PTE_MAYBE_NG | PTE_VALID),
-+				      __pgprot(PTE_PRESENT_INVALID));
- }
- 
- static int realm_set_memory_encrypted(unsigned long addr, int numpages)
-@@ -404,15 +410,15 @@ bool kernel_page_present(struct page *page)
- 	pud = READ_ONCE(*pudp);
- 	if (pud_none(pud))
- 		return false;
--	if (pud_sect(pud))
--		return true;
-+	if (pud_leaf(pud))
-+		return pud_valid(pud);
- 
- 	pmdp = pmd_offset(pudp, addr);
- 	pmd = READ_ONCE(*pmdp);
- 	if (pmd_none(pmd))
- 		return false;
--	if (pmd_sect(pmd))
--		return true;
-+	if (pmd_leaf(pmd))
-+		return pmd_valid(pmd);
- 
- 	ptep = pte_offset_kernel(pmdp, addr);
- 	return pte_valid(__ptep_get(ptep));
--- 
-2.43.0
+ 		skb->ip_summed = CHECKSUM_NONE;
 
+
+Patches currently in stable-queue which might be from 1468888505@139.com are
+
+queue-6.1/net-fix-segmentation-of-forwarding-fraglist-gro.patch
+queue-6.1/net-gso-fix-tcp-fraglist-segmentation-after-pull-from-frag_list.patch
+queue-6.1/net-add-support-for-segmenting-tcp-fraglist-gso-packets.patch
 
