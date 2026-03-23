@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55321EC01A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BFDEC01A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 07:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PRKSTfQ2O+eVNBGid9yhgznzOkdGuXgn3KcDsHXlPeg=; b=k7tbQ0vYnGS6AWzTsBuxU4WQOB
-	Yi8wVtS0ctV4WTbf5bIzw0CX2DFwocihiCgRV4CaMf5s65QRA8cLPRRJZruNooFkmXeKg4u0pJf5K
-	PS3vm6kWKJ5Lq8q6bQIAYgSFOXC7INIjjJX8WAllfyMVD1NAf/lG/q/nSKW/5cG0jaDdaTPbAh9Dg
-	NYWn3hdMin1RohbPOQQ646R2ZrylzPlZ39j1Mjjvx5UI70e9vgNgjngi1TLOuqo5siwbXLbPa2uWN
-	lpDYIfUboJUq9ZkHak8GdnwVlKuNMurpuDoZTyjXxy8jUIrEA+S8ZO1QpdnOvvN34OHNnIZOq8RTl
-	2Bb87UOg==;
+	bh=zXEwAxCB27G6g1WAOCaJemzlmGEpdOhhDvBG22lnTxs=; b=jgT9mHg7i41QrR13umfz43YXYq
+	2BG2xo1dDQ7mN3loRbPU6KlWyTb2E5iaKPr5RriqE/qGkQyoj2DyxZnhin+h0tIqng0/wd1hq7IA9
+	mcv4Z43HRb2R41DJvOo1wIWVlm2LBPmyBwAn85zyB31MOOuwhSrmIuh4+7tNh6Ijm/FjszRK0VcVj
+	3g2Gc1YcOIBhRZyxxHwFS0SFSkezLNYFO6mqAS8fHm9VLFb+uQYBhV5gIu05G16OpaSndOGeDb111
+	z/c4HdYB9BrAKAu5Tcw4TNr07S3pHh5WEEuIx2JbHzXp9M+VJ1Rg7oleoduKsF2baG9YXqUj+mDak
+	EtuMSNbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a24-0000000GDkH-0Vts;
-	Mon, 23 Mar 2026 07:49:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4a2F-0000000GDnB-1zIk;
+	Mon, 23 Mar 2026 07:49:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4a22-0000000GDjl-1SpI
+	id 1w4a2D-0000000GDmg-3PSH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 07:49:03 +0000
+	Mon, 23 Mar 2026 07:49:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AE2A04358A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 06A26600C4;
+	Mon, 23 Mar 2026 07:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161B9C2BC9E;
 	Mon, 23 Mar 2026 07:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B1FC2BC9E;
-	Mon, 23 Mar 2026 07:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774252141;
-	bh=ZPayAoUZgLwz6EhVKnVbCR0MqW3d3UF4hy1nzr/kEys=;
+	s=k20201202; t=1774252152;
+	bh=IEszaCrFLo/Rs8yG7tIln7RmG7s5ArmJTUt7L+grDBM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=soMwPHB478isjyOEuq0IFRN9Cief5Jqwxg1OL7jUkDAL9y4hBeM9dbR/1MWaRqGWi
-	 ib0jpyTzOuLzovqiLkfFzH/sitT7zv4W8SFvjQAfIZyXowACHhmqxuqnkiN4Ye2w/b
-	 fqdb/4qzrOD886HOPMUSVszQTzLVwA06GpzpYZb9RUwXxMKzldKhDOEpdPGEiqzvEz
-	 d8ZnoMumXfNyr/H7/zGCKqVZFhNYMDERdxkrZ9jFtVB2x96iGjkhmG/En+iUsCJUVO
-	 API6o3jBTJGcQaw3dzn8rTLMq1L6nSmRBE/0It/iNumPWF5phnJ73bZcJMJHMFZdCH
-	 C3sxaPr5Q/wkA==
+	b=mJkHNMOmwoIFLTcd31YucBrDfzfANQW+xkkREf7kQp1YDYI6vfV8/hVhcG3l8g/jK
+	 sQngYeWtYhv0ZkW+8RpdtrXoti30446exi6Ju2/Ux3my4Q287Qpr4iWYaKli+PF0u9
+	 vL/UiFYGZsmNZ4bQKMUXEy7AH5R6vF3zaUA3sbrcBu/WMLiPFtPcKLGomrzmqCTzqi
+	 PwkOo9OAQEaeopupEyTaQ/a8bAo4WgnB6AuNb75FaxwKNBNMNqccFmqdvaop/ltQA0
+	 aYjKEuyW1vof5rqfOJ6PkR20WHVtA+dub6QcUQQxq3ViDq6QsOyMq2uvJPowcDC5VL
+	 AoERA5+OddeHw==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Potapenko <glider@google.com>,
@@ -92,17 +92,14 @@ Cc: Alexander Potapenko <glider@google.com>,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 1/9] memblock: reserve_mem: fix end caclulation in reserve_mem_release_by_name()
-Date: Mon, 23 Mar 2026 09:48:28 +0200
-Message-ID: <20260323074836.3653702-2-rppt@kernel.org>
+Subject: [PATCH v2 2/9] powerpc: fadump: pair alloc_pages_exact() with free_pages_exact()
+Date: Mon, 23 Mar 2026 09:48:29 +0200
+Message-ID: <20260323074836.3653702-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260323074836.3653702-1-rppt@kernel.org>
 References: <20260323074836.3653702-1-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_004902_417254_A121BA09 
-X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +116,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-free_reserved_area() expects end parameter to point to the first address
-after the area, but reserve_mem_release_by_name() passes it the last
-address inside the area.
+fadump allocates buffers with alloc_pages_exact(), but then marks them
+as reserved and frees using free_reserved_area().
 
-Remove subtraction of one in calculation of the area end.
+This is completely unnecessary and the pages allocated with
+alloc_pages_exact() can be naturally freed with free_pages_exact().
 
-Fixes: 74e2498ccf7b ("mm/memblock: Add reserved memory release function")
+Replace freeing of memory in fadump_free_buffer() with
+free_pages_exact() and simplify allocation code so that it won't mark
+allocated pages as reserved.
+
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/memblock.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/powerpc/kernel/fadump.c | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
 
-diff --git a/mm/memblock.c b/mm/memblock.c
-index b3ddfdec7a80..d4a02f1750e9 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -2434,7 +2434,7 @@ int reserve_mem_release_by_name(const char *name)
- 		return 0;
+diff --git a/arch/powerpc/kernel/fadump.c b/arch/powerpc/kernel/fadump.c
+index 4ebc333dd786..501d43bf18f3 100644
+--- a/arch/powerpc/kernel/fadump.c
++++ b/arch/powerpc/kernel/fadump.c
+@@ -775,24 +775,12 @@ void __init fadump_update_elfcore_header(char *bufp)
  
- 	start = phys_to_virt(map->start);
--	end = start + map->size - 1;
-+	end = start + map->size;
- 	snprintf(buf, sizeof(buf), "reserve_mem:%s", name);
- 	free_reserved_area(start, end, 0, buf);
- 	map->size = 0;
+ static void *__init fadump_alloc_buffer(unsigned long size)
+ {
+-	unsigned long count, i;
+-	struct page *page;
+-	void *vaddr;
+-
+-	vaddr = alloc_pages_exact(size, GFP_KERNEL | __GFP_ZERO);
+-	if (!vaddr)
+-		return NULL;
+-
+-	count = PAGE_ALIGN(size) / PAGE_SIZE;
+-	page = virt_to_page(vaddr);
+-	for (i = 0; i < count; i++)
+-		mark_page_reserved(page + i);
+-	return vaddr;
++	return  alloc_pages_exact(size, GFP_KERNEL | __GFP_ZERO);
+ }
+ 
+ static void fadump_free_buffer(unsigned long vaddr, unsigned long size)
+ {
+-	free_reserved_area((void *)vaddr, (void *)(vaddr + size), -1, NULL);
++	free_pages_exact((void *)vaddr, size);
+ }
+ 
+ s32 __init fadump_setup_cpu_notes_buf(u32 num_cpus)
 -- 
 2.53.0
 
