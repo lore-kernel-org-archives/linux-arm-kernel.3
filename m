@@ -4,70 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDAFF483E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AD3F483E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9sxO+oMPPr1hr6g+MEybeB3+bbNLSLnT2Lx4In7Qkl4=; b=M91YTsfrLsENVJ6y2f0Eqci06d
-	6H3f3TLdB/vDCbPwoIFkW5hU7RV6vyPXRN8GMT6xdH2JI9mbiuXSbfVOCDi2FiBAxFVMJtAYJIfLo
-	U4GC7FeIopyS39/Tw+ZnzckveAJ3yRaexkDN8C72rQrziuqFAwnLvYojrP6HWlvsnWZupy1OCrp+P
-	yiFLUsX/e7lo4UgORHp1srO1H2hnyoa6sA1WZhLwQr1QYdnC0Q7X26zVtawqLMcR49lnkv/M7JRa+
-	GT2PLN8LASrk3aHj+pqKXVWGjarEytmxMt7KbDOD4W+G5htJ1yfX8Ryvp87XxOBuuFXq6saAv4E6b
-	TfMAaXeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sELzJR8nuUhFrCssFihsyk+tCoN2kJI4zjv6cs4UL00=; b=yQpUwePbFnu97X83B5S1DwONEj
+	Qn1aYYGh3g7YPBSuiJQIpIIzDV0Gh6yLtEXyQ+gmbqdCzdCTs1K9+XXeo4hK2+hlow9qv3x6Y+G/F
+	80Mm26oKH4xlicSBqlw1ACJe1t4xrY71OZlBGACBFS/asgq6mXchSG+TFnlIDn6Oxqn9AVOdI80+6
+	xa7ZUzB467Ly4Zb7UuJpg6Nhs+LbumrTE8lT0jVjyfLV1VAAaYrkJer3RkZFv90we8JQJZmmPIAB2
+	DMLMWoN5Y5k74CYSDKtHDcvHN22v1IGmxGPRE7qSfszBZ/qB7dYJjqXSSnfKVgHlHyHF87iIF9+Sk
+	FHcFmMlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kYC-0000000HPGs-2EJ6;
-	Mon, 23 Mar 2026 19:02:56 +0000
-Received: from lpdvsmtp12.broadcom.com ([192.19.144.207] helo=relay.smtp-ext.broadcom.com)
+	id 1w4kaN-0000000HPbF-0Ldc;
+	Mon, 23 Mar 2026 19:05:11 +0000
+Received: from mail-norwayeastazon11013065.outbound.protection.outlook.com ([40.107.159.65] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kY4-0000000HPED-2avs
+	id 1w4kaK-0000000HPam-3zw4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 19:02:51 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id C7288C0004A8;
-	Mon, 23 Mar 2026 12:02:45 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com C7288C0004A8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1774292565;
-	bh=mxwtyI0DqCyBUUMSy2sNcEfaamTmrYvEIXx8FmM3rHw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WSZuHleMUxT3bgdFdkeb0g8J7qKtOuAVhtYIf7azbNJbNZGbfqeQxdqjaJ28qRYY2
-	 nI9i+JBzf2xIuVESYoH/h3y61nUNzfGBzxNvnImI7pbT7ZXZ5+valC3UmCmhA9duNG
-	 cVCTdmykUxZqpX1bMay6LA945TjKOQW0P1I6lFqs=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 6B8A0A83;
-	Mon, 23 Mar 2026 12:02:45 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Rosen Penev <rosenp@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	William Zhang <william.zhang@broadcom.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 1/2] Broadcom devicetree changes for 7.1
-Date: Mon, 23 Mar 2026 12:02:38 -0700
-Message-ID: <20260323190239.1890505-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Mon, 23 Mar 2026 19:05:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JQvnjwxX+DB78AZkC0luykAqPf+rq/UTELrXctGM0fWRPDR01VsXc63mRh6icZFUFTbCQdJqBmHqGggyxsm31BBkct3hUpQ2bGEXmf5eNhMICCvBhdLybifTGJ7k78qXvGXudYwZSyI+xTZsZogJyFCh5abMRJMNz00lv01sd6pJEe4k3CJH0kb67W4SZEeCMvtERDsJKxCKUjs61+lYJOMVqEF4QFBz+SFH5/I0aLPSOrpmDUPUhYstEXOTtyOyd4whffatPCfTomK+qNAzo00rNyz8FAIdSb+hkconbnmhzmOssny0L5b/pxnQ8rsiJqK8MVKi5vL/WjU1tSzDTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kx/D5anR5ikl9tr6Tog19sQv184r1nnFG0hzhk5U5WE=;
+ b=r2TLTTwCvwgk9AC4YinjOgqJi2sMwRqz13LiJcHHfZjyfp7Wqb2CYN2vzJTXbc3PgZiJAv/EHEaTlWEVnNqkwGxkgsgYyTvwfmK2J+lvqFcivQNF3OUzUbkH3UwhXbhl1tvnI9MqcrDmy3llEoEjMebyx9oE+Ao0/4IPGZPg8qJBTgO0os/pKVPqonLuXnH8AAQkw0NNdbbd1iHQFv60TrYC7T0HHYwfRMn5IbFtjpAHUCmeCJRIqBoKTbSWqt5qKPfFh3A+Rc4+K/udLU/EvoblBVSYnJM64HvkJLvhVW7hsHCuLPxfHJq0rJFJsatD09x/6tp8vIF+mkqSbLOcSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kx/D5anR5ikl9tr6Tog19sQv184r1nnFG0hzhk5U5WE=;
+ b=EpHMQOjpqvCasg5aM9DJQMCxKINhl+YgzikEHvwE5WAXRksTRephubL8BeywcKoQRCoTWXjVE+LDMxb4C0dQX6b0Hx8Yawg6Gzv040lKcopakvqY9uBMSDJU21O0IFrhMdqVPw+wwosuOET4MkgQyMAkCs5db9ftwFrluvDudcuT2crQser30oE3De0jYAlHWszz/oulDMd7JZIrd9jCWti1yjIy/brKF4yYcemxLzk8gBiRQ43422DpUITERBQrEYbJsuPbZ+GYJAONsgE5sM9/UoIY2++riLCMk12E4hDHek4bc9h6E3kQivGEU1NFn8wZmS3oB8nQBaBaCqz/jg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA4PR04MB9662.eurprd04.prod.outlook.com (2603:10a6:102:260::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.23; Mon, 23 Mar
+ 2026 19:05:00 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 19:04:57 +0000
+Date: Mon, 23 Mar 2026 15:04:57 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: =?iso-8859-1?Q?Adri=E1n_Garc=EDa?= Casado <adriangarciacasado42@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Haibo Chen <haibo.chen@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-mmc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Subject: Re: [PATCH v6] mmc: sdhci-esdhc-imx: remove redundant mx25 handling
+ and consolidate soc data
+Message-ID: <acGO2UGXZXyPI-jS@lizhi-Precision-Tower-5810>
+References: <20260319173832.15543-1-adriangarciacasado42@gmail.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260319173832.15543-1-adriangarciacasado42@gmail.com>
+X-ClientProxiedBy: PH7P223CA0004.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:338::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB9662:EE_
+X-MS-Office365-Filtering-Correlation-Id: dae93b39-4cea-4429-dd6b-08de890f1355
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|19092799006|1800799024|366016|38350700014|18002099003|7053199007|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: /VHH6/FjaBs31et9+tvkxxHQ54e75Pxs65qbd+91QBh9THQKeMBx1MbTnPd1pqJE6TjcRYS3HhmhKbvLZOIF23K+gBnTpVWkriiUsqwaU+gT4Uyln4CqgcH8/s+S6EczjUD0AkyAOkUfdEoz6KHmMAFascl/iZi8FAhfVS2sgx4IWauMDULVFMU2e6z1Vbfg5iKwSPqyyVejSZDr02+p+w4yu7ugjJKrjvGXWdKme6Ouaintvk/c3UFOzEFASRBerKPYvisOAvo9KP3eW92GXJphX27FZnwY2aqiAwkZMQM6mMmXU5D/FAjlr3Qkiy++h+JwV636o8TsTy1DQin8mZ9YY05I1yasukYVgdR2ZLe9qYlxKFfv2vjSNWF9N9+Ni9RKha/nc36kmL/RlR5ahRLGcQ+OPbJ66zRiLmkfV2Spbh53sFtJWvfG53gOeozl81trf5hpLhi5UQGZ0NUkGKnKicBR5Xuf75w42JyxjGCsjRslD4cG5+Ac/VFH/WWWMeD7f1/+En4hXo7eBVX+THaJr1dLlDoOr3fhfnQU1wd5ey/w+wc+JZ4pGturFYkx9giAdfn/gpfHTMRF992f1pKmhQeKHpS7T8RxCTzvVJfcRH/nH5OS3rM+Coryr7mJygFoUcrsv/iwDJrQTM3Cvlpr2GPYVyykDYjs6IuNEBYDiPOZQlLvzyCGJv2hPYasvrnJEbUXjH/apBtJMK8QPKJfMRpbTpvNbn2LRw3rocmMlp1tUF0tAEcXR7zz2k9XfuTm033X/86etPq2pOhIkTtiIONnHk/WcX7bvsdMiKk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(19092799006)(1800799024)(366016)(38350700014)(18002099003)(7053199007)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?VtmGTAfz5fNmrd28HA3QOaLGRciTcc71DD2i94JBgY449iZ2DZSVTT6tKZ?=
+ =?iso-8859-1?Q?ulPKfIlS+W/+SovU1wW08VlZr3lxB+NEBpoD4+9ycBXLmxaJr2Ky5vNLgE?=
+ =?iso-8859-1?Q?hnXruyVJaCw5phGZXUTQVG6w8Upg5uy+gVN3HwdDyD7R7JSf73qVThmmpL?=
+ =?iso-8859-1?Q?tT+Ac1zEF/BGUY/uacTLg6OB91eLT1NUubf3SJxL75FDs2mNwU3j7UHuF1?=
+ =?iso-8859-1?Q?tWny41bt2jDGPecNeNb9xP7gT0DC/PiehlMcIT5JjvLkEwZUlO6F8TxLan?=
+ =?iso-8859-1?Q?LRjzOqVAMfHN0OgWlhBONWv2s25sbRpueeTQ9YIw6snE0ktFC8iGmsafge?=
+ =?iso-8859-1?Q?59NEsW14LR44t5eCJZSkR29rgTm8FvEgFaAQ2hhOvi70BhNn5llhvmmSJH?=
+ =?iso-8859-1?Q?G2mwPFQflfr8qB7EB4BbWaANDDO5b2mShSszb6w3Vut58PMOSR13w8BAxz?=
+ =?iso-8859-1?Q?qWrVyHydPTLAc0PfNjqr5NXg9MN4y50D5HIlcUXEt8+2MA/q9woT4DHqSb?=
+ =?iso-8859-1?Q?08PfeXpunZoKKTEPCRRfkZxpN505ytdRzzeoI4GsJHCx91NnSlc27MFHc8?=
+ =?iso-8859-1?Q?rspSbU74SAVqx2gioE1eBx8kvlnxhqTg092shZkzpZXs/SSKj9LNa2Y1LI?=
+ =?iso-8859-1?Q?vKoX31PM+OEquAqt5fQWpjAM/qjNV8NrmRoFMcuvVs9OD5RwFEVPdDUrH4?=
+ =?iso-8859-1?Q?syEKuFyRZf8c2xQ5RXMHtngFnKy5bPGY0ITNktTNC2xMutIjkQegGYXbws?=
+ =?iso-8859-1?Q?uIbf3KVHxDJy1nt3ASvXEj+tK/jh4cYV/tfzeQ32BP721bQ0TPjjrdTxM1?=
+ =?iso-8859-1?Q?HUn2msD2LnVfKXXZ4lUPCiClPTB7HLuymdEOb7D+mYzG9mcN7OGH/brzEj?=
+ =?iso-8859-1?Q?372Mu5Iv7u42L9XCCQlL4WM0PwbXywTkl0MkphL+Df0rvEG4wmu8KyH7YL?=
+ =?iso-8859-1?Q?/61Pj2mGtZIS7yv9XuX66rdf90Bod+hSepTGrrB2k/KvQZ/tSyS6I+4HeV?=
+ =?iso-8859-1?Q?McbFgdboeK0BPUgA5spcezHRY8hPk94rCBj6EujYdUJayX/BZmy9ZCWO1v?=
+ =?iso-8859-1?Q?cCFIRs0UntuCxwyBs65/NePSz9+2xC3PXYP0pKuy8JWGAlvAmg1VXdwyNv?=
+ =?iso-8859-1?Q?v6G/2GkP3KfUQ9lzWhsanQQ+fiBwVsEru5CNzdgiAHjQq2ib5jXylW2Z7v?=
+ =?iso-8859-1?Q?3UxLwR/dP4a4kZaxuYNhoLFT1gRhB7JnMSLw3HpTL/wJJU6VKoK8pXaO99?=
+ =?iso-8859-1?Q?jv5SXbe8cT7BB1fkNY1CAMhqoV99tJU5p7O6camXT+YSvZ4w3u5J7pOpv8?=
+ =?iso-8859-1?Q?PQPBR95qcUQXw6ivOIbIPWx98GAKZeT5j74+1hYJ5tdQptLKLhGw7wunqd?=
+ =?iso-8859-1?Q?QNB5vUef3hrZXnvSLp0OjkyumFgap5F5ClvqTcEvL0FT8xDuYC3HDKf81z?=
+ =?iso-8859-1?Q?7wRP5Wz8EzpjKac2wPpJ2AT4n6YpQHscH9wIO1JXwMzseSHhIexTEuAh9u?=
+ =?iso-8859-1?Q?ptnp1PGcxNnP4meTRPd4LDq/PZUzT+jcA6y38a1qsxA/gPfY0CnFc6QyvN?=
+ =?iso-8859-1?Q?X6LQLmCysRNvS3E2XZsjcPDAx/jsAoXBcgt7Xg3WyfpgeBDqkGdadpOm/g?=
+ =?iso-8859-1?Q?0Sd2U7sbbCAkw6c669P1VkygIQB0gRUFtqHVcFwj/0VEL+kUNiWdBfipoH?=
+ =?iso-8859-1?Q?x75rs2FKjA+9HEdRCpT+Y4fPa6dTdNDz8ccNmFnV71qDJ5iagPJw3Hv6TB?=
+ =?iso-8859-1?Q?15W30J0bcQHaXe3h2Tz3WqOIyAZZXGZ6ErBeZgnhEkSSuVOK8iXzbzwMBX?=
+ =?iso-8859-1?Q?0Mqpb3i3NA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dae93b39-4cea-4429-dd6b-08de890f1355
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 19:04:57.6843
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bl2+HdXyRX6JgGe0CnT/z0doowmFch0Jb8GKVEGrxq2+dpPr48uPeUQXBgGpf9JcZnP4Iy+BUL538CHoWEh8XA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9662
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_120248_758348_09E2528C 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260323_120509_022484_1A3DFFFF 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +140,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+On Thu, Mar 19, 2026 at 06:38:32PM +0100, Adrián García Casado wrote:
+> Remove the is_imx25_esdhc check and redundant mx25-specific handling as it's no longer necessary since the new_soc initialization. Consolidate the drive data structs for imx25/35.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+wrap commit message at 75 column.
 
-are available in the Git repository at:
-
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-7.1/devicetree
-
-for you to fetch changes up to 220bdfcb4b4788f57faa2c28454d8b2dd3bcab6c:
-
-  ARM: dts: BCM5301X: EA9200: specify partitions (2026-03-20 16:57:31 -0700)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM-based SoCs Device Tree updates
-for 7.1, please pull the following:
-
-- Rafal provides a complete description of the PCIe Root Complex nodes
-  in order to silence a number of dtc warnings
-
-- Rosen provides the necessary NVMEM properties to allow describing the
-  WAN device MAC address from NVRAM, also adds better LEDs, USB GPIOs
-  and Wi-Fi buttons for the Linksys EA9200 router
-
-- Linus completes the BCA devices description by adding the I2C block
-  and fixing interrupts for the DMA block on 63138 and 6878
-
-----------------------------------------------------------------
-Linus Walleij (7):
-      ARM: dts: bcm6878: Fix PL081 DMA block IRQ
-      ARM: dts: bcm63138: Fix DMA IRQ
-      ARM: dts: bcm6846: Add I2C bus block
-      ARM: dts: bcm6855: Add I2C bus blocks
-      ARM: dts: bcm6878: Add I2C bus block
-      ARM: dts: bcm63138: Add I2C block
-      ARM: dts: bcm63148: Add I2C block
-
-Miquel Raynal (1):
-      ARM: dts: BCM5301X: Drop extra NAND controller compatible
-
-RafaÅ‚ MiÅ‚ecki (1):
-      ARM: dts: BCM5301X: Describe PCIe controllers fully
-
-Rob Herring (Arm) (1):
-      ARM: dts: broadcom: bcm2835-rpi: Move non simple-bus nodes to root level
-
-Rosen Penev (9):
-      ARM: dts: BCM5301X: add root pcie bridges
-      ARM: dts: BCM5301X: EA9200: set WAN MAC from nvram
-      ARM: dts: BCM5301X: panamera: set WAN MAC from nvram
-      ARM: dts: BCM5301X: AC3100: set WAN MAC from nvram
-      ARM: dts: BCM5301X: AC5300: set WAN MAC from nvram
-      ARM: dts: BCM5301X: EA9200: add WiFi button
-      ARM: dts: BCM5301X: EA9200: add USB GPIOs
-      ARM: dts: BCM5301X: EA9200: add LEDs
-      ARM: dts: BCM5301X: EA9200: specify partitions
-
- arch/arm/boot/dts/broadcom/bcm-ns.dtsi             |  58 +++++++++++-
- arch/arm/boot/dts/broadcom/bcm2835-common.dtsi     |   7 +-
- arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi        |  16 ++--
- .../boot/dts/broadcom/bcm4709-linksys-ea9200.dts   | 100 +++++++++++++++++++++
- .../boot/dts/broadcom/bcm4709-netgear-r8000.dts    |  73 +++++++--------
- .../boot/dts/broadcom/bcm47094-asus-rt-ac3100.dtsi |   7 ++
- .../boot/dts/broadcom/bcm47094-asus-rt-ac5300.dts  |   3 +
- .../dts/broadcom/bcm47094-linksys-panamera.dts     |   7 ++
- .../boot/dts/broadcom/bcm47094-luxul-xap-1610.dts  |  36 ++------
- .../dts/broadcom/bcm47094-luxul-xwr-3150-v1.dts    |  36 ++------
- arch/arm/boot/dts/broadcom/bcm63138.dtsi           |  11 ++-
- arch/arm/boot/dts/broadcom/bcm63148.dtsi           |  11 ++-
- arch/arm/boot/dts/broadcom/bcm6846.dtsi            |   9 ++
- arch/arm/boot/dts/broadcom/bcm6855.dtsi            |  18 ++++
- arch/arm/boot/dts/broadcom/bcm6878.dtsi            |  11 ++-
- 15 files changed, 289 insertions(+), 114 deletions(-)
+Frank
+>
+> Signed-off-by: Adrián García Casado <adriangarciacasado42@gmail.com>
+> ---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 21 +++++----------------
+>  1 file changed, 5 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index a7a5df673b0f6..3dc43f1e517aa 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -256,11 +256,7 @@ struct esdhc_soc_data {
+>  	u32 quirks;
+>  };
+>
+> -static const struct esdhc_soc_data esdhc_imx25_data = {
+> -	.flags = ESDHC_FLAG_ERR004536,
+> -};
+> -
+> -static const struct esdhc_soc_data esdhc_imx35_data = {
+> +static const struct esdhc_soc_data esdhc_imx25_35_data = {
+>  	.flags = ESDHC_FLAG_ERR004536,
+>  };
+>
+> @@ -391,8 +387,8 @@ struct pltfm_imx_data {
+>  };
+>
+>  static const struct of_device_id imx_esdhc_dt_ids[] = {
+> -	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
+> -	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
+> +	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
+> +	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
+>  	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
+>  	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
+>  	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
+> @@ -412,10 +408,6 @@ static const struct of_device_id imx_esdhc_dt_ids[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
+>
+> -static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
+> -{
+> -	return data->socdata == &esdhc_imx25_data;
+> -}
+>
+>  static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
+>  {
+> @@ -873,11 +865,8 @@ static void esdhc_writeb_le(struct sdhci_host *host, u8 val, int reg)
+>  		new_val = val & SDHCI_CTRL_LED;
+>  		/* ensure the endianness */
+>  		new_val |= ESDHC_HOST_CONTROL_LE;
+> -		/* bits 8&9 are reserved on mx25 */
+> -		if (!is_imx25_esdhc(imx_data)) {
+> -			/* DMA mode bits are shifted */
+> -			new_val |= (val & SDHCI_CTRL_DMA_MASK) << 5;
+> -		}
+> +		/* DMA mode bits are shifted */
+> +		new_val |= (val & SDHCI_CTRL_DMA_MASK) << 5;
+>
+>  		/*
+>  		 * Do not touch buswidth bits here. This is done in
+>
+> base-commit: f338e77383789c0cae23ca3d48adcc5e9e137e3c
+> prerequisite-patch-id: bf56dcdce62cb97741b7aa11b04c7a9648fb2d6a
+> prerequisite-patch-id: bb57e0fd9cad8c81bcf7a6389f3cb294bbe1eb52
+> --
+> 2.47.3
+>
 
