@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074D5F483D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CE4F483D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 17:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ed3P8O9QYypmWfRQckgpHgWLqQHsZPKvjKFf9kOO/l0=; b=oTX8CKRGcTI04Oha4eI3LxMXmJ
-	vmFq8BvaT75m6yT1eVepJ26R9bNhdTXjVU2dJ8F1I+h52uC+bJEUyu/udeOnQv6WrJncel3uAw6/E
-	9ktASTjYLDqB7cIfHxB01hRqepIdoahgjfkk1ybKqDmrkXf4Chj77XLofJ06/vMyaKdmS0wCGHRlJ
-	lrbo6QOsnc1xhSSXiZNEMmg6KjZm5Dj+83GWVxEjJKqyMVEBsg9Tf4WSHdWicyr08fXN9c25v/mFh
-	WIFAxDKSgZ2RJBpKhxGhNjzVMgcweGIIgLe2PnyzMSbR/2BUuusQqiZvnLE4LuCBhxqnZVoa52ewU
-	rscAqeKA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1eXoKSpVOjwfiDmA77lJ6OunQo4eVbf+pfRTM9c2n8c=; b=rNn7K5frFgvwWa2vGUEIH3FT7o
+	ujdesIlDPOEuaulYYibuPXEoA4qChMwy9r7ol3u9NC5KBN81EvDG0XUIC+5ordGZLt+kfK5/3dMAm
+	qjtCimayQzykS4h8PHbPL5BxSKB93UBvmfb5Em647R+TOEkSlSdHWXfKxNdy1av3v1rjaz2O9kasS
+	82fHLKXmjjwVqV42kmSR+vz9r6xUGiwPxM33/xmvwe2r1+11BW9CQpgdGvbD+G+djAFbAjT9rDTe4
+	KiV3FIgic/6B/Sidm3Q5Bw1u2IAqI0LMctVpTJhjnkkpMKJ1Zp4sXoS1wWm0bOe77ly/9NgYW2UwL
+	QBE9fK9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4iwA-0000000HDMX-2w1b;
-	Mon, 23 Mar 2026 17:19:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4iw8-0000000HDM9-3VCI
+	id 1w4ixI-0000000HDVE-0Cvj;
+	Mon, 23 Mar 2026 17:20:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4ixF-0000000HDUj-1BOl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 17:19:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05B8343D84;
-	Mon, 23 Mar 2026 17:19:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4B95C4CEF7;
-	Mon, 23 Mar 2026 17:19:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774286371;
-	bh=/iM84VPZCJwEWriacUA4NUmZx+hreQbQHgkrGVWtHdc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=fhONbQEkPslS3qtm+EAtHY/CfcG2+pp+oN5Vm2hcMwJKdy6R65wRJpCWLHk94jN8Q
-	 guJUpXg3mn534+8/AbzAKAGBiey3O6z7mBvbroUA22zg/lL/JfTntc/An/ZDboiMeo
-	 HwD3jYT+DAmFqlfmEHLgZD5K/lD2DEAyMhq5KLPgUnslrXpROYsAcdDRkUSScv07ri
-	 zOxNFN0huRjCBSOyxk58d+AptK9sIqM3cw485Qd0+DWmKzLv45RMEc/KRsrC+MNvu7
-	 19em4OyG93NLEklgPn8MoCTlaKRQkvthFps6YfLXZVgZLdDiK8cZe2zE9bNobT1dsi
-	 loxQec1NGKi/A==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 9ED165FBE4; Tue, 24 Mar 2026 01:19:28 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: allwinner: sun55i: Fix r-spi DMA
-Date: Tue, 24 Mar 2026 01:19:26 +0800
-Message-ID: <20260323171927.1256507-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Mon, 23 Mar 2026 17:20:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84B2014BF;
+	Mon, 23 Mar 2026 10:20:33 -0700 (PDT)
+Received: from [10.57.83.179] (unknown [10.57.83.179])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DAD53F694;
+	Mon, 23 Mar 2026 10:20:37 -0700 (PDT)
+Message-ID: <4b514b8b-c999-44f7-a7b1-12bd301b007f@arm.com>
+Date: Mon, 23 Mar 2026 17:20:36 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Content-Language: en-GB
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+ <20260323130317.1737522-2-ryan.roberts@arm.com>
+ <71261065-7895-492f-8457-998901391530@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <71261065-7895-492f-8457-998901391530@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_101932_888603_4D6FB962 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20260323_102041_441639_642C8291 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +72,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-r-spi has DRQs for both the main and MCU DMA controllers on the A523 SoC
-family, however it seems it that it is mainly routed to the MCU DMA
-controller, with no obvious way to change it.
+On 23/03/2026 16:52, Kevin Brodsky wrote:
+> On 23/03/2026 14:03, Ryan Roberts wrote:
+>> [...]
+>>
+>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> index 96711b8578fd0..b9b248d24fd10 100644
+>> --- a/arch/arm64/mm/init.c
+>> +++ b/arch/arm64/mm/init.c
+>> @@ -350,7 +350,6 @@ void __init arch_mm_preinit(void)
+>>  	}
+>>  
+>>  	swiotlb_init(swiotlb, flags);
+>> -	swiotlb_update_mem_attributes();
+>>  
+>>  	/*
+>>  	 * Check boundaries twice: Some fundamental inconsistencies can be
+>> @@ -377,6 +376,14 @@ void __init arch_mm_preinit(void)
+>>  	}
+>>  }
+>>  
+>> +bool page_alloc_available __ro_after_init;
+>> +
+>> +void __init mem_init(void)
+>> +{
+>> +	page_alloc_available = true;
+>> +	swiotlb_update_mem_attributes();
+> 
+> The move seems reasonable, x86 calls this function even later (from
+> arch_cpu_finalize_init()).
+> 
+>> +}
+>> +
+>>  void free_initmem(void)
+>>  {
+>>  	void *lm_init_begin = lm_alias(__init_begin);
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index a6a00accf4f93..5b6a8d53e64b7 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -773,14 +773,33 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>  {
+>>  	int ret;
+>>  
+>> -	/*
+>> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
+>> -	 * anything that is not pte-mapped in the first place. Just return early
+>> -	 * and let the permission change code raise a warning if not already
+>> -	 * pte-mapped.
+>> -	 */
+>> -	if (!system_supports_bbml2_noabort())
+>> -		return 0;
+>> +	if (!system_supports_bbml2_noabort()) {
+>> +		/*
+>> +		 * !BBML2_NOABORT systems should not be trying to change
+>> +		 * permissions on anything that is not pte-mapped in the first
+>> +		 * place. Just return early and let the permission change code
+>> +		 * raise a warning if not already pte-mapped.
+>> +		 */
+>> +		if (system_capabilities_finalized() ||
+>> +		    !cpu_supports_bbml2_noabort())
+>> +			return 0;
+>> +
+>> +		/*
+>> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
+>> +		 * page allocator. Can't split until it's available.
+>> +		 */
+>> +		extern bool page_alloc_available;
+> 
+> Could we at least have the declaration in say <asm/mmu.h>? x86 defines a
+> similar global so we could eventually have a generic global (defined
+> before mem_init() is called).
 
-Change the DMA channels of r-spi to the MCU so that it works properly.
+Yeah, fair enough. I was being lazy. I'll move it to the header for v2.
 
-Fixes: 1bec3bd1f839 ("arm64: dts: allwinner: sun55i: Add SPI controllers")
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 56d4e5862ff4..34d7547a6004 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -1018,7 +1018,7 @@ r_spi0: spi@7092000 {
- 			interrupts = <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&r_ccu CLK_BUS_R_SPI>, <&r_ccu CLK_R_SPI>;
- 			clock-names = "ahb", "mod";
--			dmas = <&dma 53>, <&dma 53>;
-+			dmas = <&mcu_dma 13>, <&mcu_dma 13>;
- 			dma-names = "rx", "tx";
- 			resets = <&r_ccu RST_BUS_R_SPI>;
- 			status = "disabled";
--- 
-2.47.3
+> 
+> Looks good otherwise:
+> 
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> 
+>> +		if (WARN_ON(!page_alloc_available))
+>> +			return -EBUSY;
+>> +
+>> +		/*
+>> +		 * Boot-time: Started secondary cpus but don't know if they
+>> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
+>> +		 * window in case they don't.
+>> +		 */
+>> +		if (WARN_ON(num_online_cpus() > 1))
+>> +			return -EBUSY;
+>> +	}
+>>  
+>>  	/*
+>>  	 * If the region is within a pte-mapped area, there is no need to try to
 
 
