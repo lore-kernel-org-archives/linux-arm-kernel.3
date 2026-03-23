@@ -4,154 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76642F46122
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199D9F46120
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GRQouUAtAoFM2r1Ht6OLIZn6BKh+s2A174EICOx9dcE=; b=v/vZrw3E2646czHZ74/35epS8v
-	Wo6SkBveaNnUwNWgvjsPe+kVG+5h0bc56cPuZ2XOFxNnlxZP7u5UzQ+DTilha0wZtcuLGmu5fSy92
-	DMpBGXCrhihv9NF2Roo5xrLMGa0KeS8wnxdLb4NhM1+Eyu003QsyuRKsnKGV2Od4boycgdfB4CG5R
-	UyfKL8+F+ZwsQmQ6vbfUsXQpvRZadAX7L7FGzaEORPW03nkrfccLflaZSpRZbGg15rwhEyStNIHfR
-	k+vbi+cRYjKLKI9QtU5TLoPOzCNIJCq68G1kDEQwylbJdrWseUzC45M71DTTaT8k6cix2eU4CSji+
-	p5yb0+VA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bEtCE3UFyC9EUSjcg5HmiHx+sSKd6jmOnMFqB60P6ro=; b=nn2Ek0aG9L0oqA
+	7aKyzL5yy1Fp6z/fY3PRWqs7HyOaUVqF+oSwxHoc/d8elLK2r0ysFy5avGWB/wYhgQGxlkyC6UYj7
+	QLZNSFL3xY+iKZ7W2xZEKqBo0ndK2NktBBdqQSPA56cUrSM3+65cTtD75lqNgpLQBOLBPvUykKJtb
+	MTHzxAPxlqpR4MciwmqktmsN33N+/hTVSlXJKLLY8d9GgNMrK5vE6ZKFR7k5WMjO7vIDY6bhv/4O+
+	88t2H+wjqCqw31GeIBTBhYe3Qp4u5zHt0uy/bjb2wOIAYd4PkDQkJAciyy1ba6wZPz4cLTRpsSqkY
+	CFJOkW0BSzWcQRu+eqbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fo5-0000000GscU-1ju3;
-	Mon, 23 Mar 2026 13:59:01 +0000
-Received: from mail-francecentralazon11013002.outbound.protection.outlook.com ([40.107.162.2] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1w4fpl-0000000Gt3s-1ebB;
+	Mon, 23 Mar 2026 14:00:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fnt-0000000GsRB-2Xcy
+	id 1w4fph-0000000Gt3N-3Sd2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:58:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d/7i12iorqDhScSfLpV82T70qGWAc1UTbqBnRfKYcfZ7RSkHobFByENQznD74bPr3sQ00H2Elky5mrbUXqNriWVZHn/Yjk/G1MmXdUX8/Wi0xldyDABJ1aKnNAXDywvwdb4ehqhzLK3KmkFZsb0UPlkrakCjNubmWL1jgbW0O7u8hPcddctmwCJjqdL40bTZ92uqrN/cCoQaJw1zabC6IWn3hbUxnBtp6XYpNbqH4+MLaP2amMmCBD+IT4co9FGx+HgGwsh1qJOWPJu0xvRFIGxPWPthklk4OknXKJb3C9zlZp2cm/vfyEKOGj43tUx3R2Cc0+NW+2keVQ7YtUNwTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GRQouUAtAoFM2r1Ht6OLIZn6BKh+s2A174EICOx9dcE=;
- b=ZrhmzvP29LcV2jQVYrrgLlgNXsmVBWpna6Iyws9G0avIzob5IcpeH1y5yUANl+dcxetqgarvyo4zoVakfLl/tm8ywF2s6gE8AWNCUh/87niYrV13/fkxmgdRgl8jln6WMWDP/+stRU55kLq3Fxgtgdwww1s5YW4cR2KI0soQUCMCf1GYd36G31pMgh/oMOww2BaflPCEcEfcvcuI1JcwPJai1eOl6PdEOrW8652oxexRUzLl1JXGhGA00sbIq1suLO/txFqvGkqaqVbP+fCuglTf2wpEzYdmo/5VuUmjEMuoEP/WARKwrVQujx99Ut2qYUUQNgA+SSjDbAX13jXCSg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GRQouUAtAoFM2r1Ht6OLIZn6BKh+s2A174EICOx9dcE=;
- b=svgWHg3Te6hNhrEGo/Qil9DZfX1AOvCJ24s3FdCjK5XA6jHKJXLrZZJ1TMiEvh9GkFXPEutKnV1IkZ+j/l+AZsljBa776cRiYrWFtA7SK4NlNXMvKXQl8XjRPuy23AmWcMZp7EwKcw7NQkTb9J27i+bC12RUMW/VmrIf4Y+v4Qg2q3KiJTQ4Vp5c6NRnRstGRptYFaP7avAm+PPV8wM/AOX66QwpG5XeJm1aAMHsxZSEVOug5EAOr+OPfncpSJVp+wzXe5Xc8mcphndxaPzkaINC/YGiZVOK45wfNGBaOEGDSizgAE/AxmyFaTacYheTTe9QoMfhv6+/VtJ6hHFoBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by AM9PR04MB8354.eurprd04.prod.outlook.com (2603:10a6:20b:3b6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 13:58:33 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::5c3a:1a67:2e02:20d0%5]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
- 13:58:33 +0000
-From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-can@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-Subject: [PATCH v3 6/6] arm64: dts: s32n79: enable FlexCAN devices
-Date: Mon, 23 Mar 2026 14:58:27 +0100
-Message-ID: <20260323135827.2129371-7-ciprianmarian.costea@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
-References: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P190CA0064.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:656::16) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	Mon, 23 Mar 2026 14:00:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774274440;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bEtCE3UFyC9EUSjcg5HmiHx+sSKd6jmOnMFqB60P6ro=;
+	b=GU2EM6qfj+ExM7yV2/wOGIHKoNqCqZ7d0pOFXx5hBhcFaBl2hzY9uukqw8uWGFY2p9cBoq
+	8igRjrFA6iiCr30mN+8m4hem/f7kGfG8woHhflSWZ5E6HdaNlEqVpf3R9KHG4vd94q8nJC
+	FjCnL/ECVGlHSKl1iUx2WMJyItZb+sE=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-177-S5OkONWCN46kMVa0-btQTw-1; Mon, 23 Mar 2026 09:59:05 -0400
+X-MC-Unique: S5OkONWCN46kMVa0-btQTw-1
+X-Mimecast-MFC-AGG-ID: S5OkONWCN46kMVa0-btQTw_1774274344
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-43b468229e8so2167003f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 06:59:04 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774274344; x=1774879144;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bEtCE3UFyC9EUSjcg5HmiHx+sSKd6jmOnMFqB60P6ro=;
+        b=Jjf2++gUOCgbazBrcY8+aCVSwyABId/U1VToNKTb6EQt7jbOaOGSxRCNVScXtw5xCO
+         3zw2JvDM8Ljjj37fKIf//MkI6N/Vt4RHq+YENZkbPMS09g67XSTI/Mw9AOkP0Ft06Hom
+         QFmsZstudcB7RUH9YbLNmw6eO9svx36nIZL33sKQFXbQYHoK/ouFJuxg/Fis5rZ0ie/0
+         heSukKpEmaumGbqGhHU4ZMVC16rexcG7bqJ7UnMZpunEedKBLjYOfcD3vRWwWZ0kz+QC
+         dfk64OB+Hm/0KN3HHVA9YAGIY0PHYIAOWUxnIHbk89s4TowsaSvA9EAnJlhWxWsIMJop
+         9wbg==
+X-Forwarded-Encrypted: i=1; AJvYcCXOEbuitZbLRQ/AnvoUFgJ+bshFb4JX9+h/zny4zv/1u/BrKzD6j6XY/x9emg6+CMbUWHoTiRDJpoaCCntGDl13@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbOKo5eeHLc9mbO0u2hN92dqdkhAQriOURhzK2hyODA32xPTER
+	zqWTJFc1R883vxBl2p7L/T4PAwb2pgpfD6VMig6YNwPKFlIClrlPf3L7oom5kwumTHpR0aQE2m5
+	sCh0+plvf4zIagmUHujXZiXExonVNxcoe7GilDUgRdUh58GZhR+9CysmhK3ehTc7CUk396R4EDe
+	/T
+X-Gm-Gg: ATEYQzzEX9Q+Auv59WO06oeI94ikwG3E+pHXFc4wlQTiRK5ZZ+Aln2RXnnd+A7aMmbZ
+	SDq+yudhCk1ySxx/k2fkdCWskchv4z3ABTxJ0K8tc1P//7C4Dc2S6pAd6wFdLRPbMJJX+lphP0U
+	2A8bX7RGdnJEUptUl+SphrxiPcf3tYN867jM9/T9Fg6yI62K4+sBXU6WiipEz0OpfyXCFh5HjyO
+	zktbslB34oQPiH3oEWNQEsY4iiY9Jnaqd5UUNSMRJ/6cdEDL9HqhI5c3QKV+iN4DxuoZWo4xYTH
+	rsNp/xYLHmH5vxX8On2rJmjbWTbUOWLlZy2Fo1QULdrCrdo4bnVtkOzPCe4JyfUqJnTpgvBVSKt
+	QvMCuzvCe2gFdbW2EBBkjewyewYYGzroj9uHbaFqZq2A9mYk+V9Zl8mJQdrLKZsM1L7CInw==
+X-Received: by 2002:a05:600c:4fc8:b0:486:fbf6:abd4 with SMTP id 5b1f17b1804b1-486fedbf2d4mr182477855e9.9.1774274343807;
+        Mon, 23 Mar 2026 06:59:03 -0700 (PDT)
+X-Received: by 2002:a05:600c:4fc8:b0:486:fbf6:abd4 with SMTP id 5b1f17b1804b1-486fedbf2d4mr182477085e9.9.1774274343151;
+        Mon, 23 Mar 2026 06:59:03 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486fe68ec05sm416952505e9.0.2026.03.23.06.59.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Mar 2026 06:59:02 -0700 (PDT)
+Message-ID: <772708e4-2878-41bc-b74e-8869bce7529c@redhat.com>
+Date: Mon, 23 Mar 2026 14:58:59 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|AM9PR04MB8354:EE_
-X-MS-Office365-Filtering-Correlation-Id: e625d6d0-bd3d-4746-fcd7-08de88e443fb
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: ZfnQybi2dYfwqcdJnioB67OGtmlx5s2Pz3wyS6peBspPrmyIJIqtS+nZ/x070+S11AcCXnybfZCDfGB8poh8YcdfMPKvNVsqC7i8GSqxbyTmCbbYYVVSDlXUmrSAeUbBRBVzwX4qJXS9nN22/sm+wVS4XXcsbVrW+G/q00H+cdjnbn30PoM7RdsVHa4hAwDslKNqJWkC1zg7SIYJILKzT9EK65cVoP3a1KiH7hoDkLfTLjLA/x/fY13EDBx9GxFcTR+EdPkFjRRiMp6pzTH1hlGCJlvfEWdocVU5nLWuboVij7OalZc8YBuybJCcHDMyVr9s5zqDTFz615NjhsmnrnoS9Jp/bpGFJnaVzvCnqXw0vqT1jj2A8O0ov9BL+FRPilbpb11jAdM4dcPyEmfDLv0Pgf2rrPzf/4D+9AhFDLQKhU6ujPXpnMp6Y5IaRNetjrI+9DUJ2BCtChyFeHhK3Kadr6HYYc0HbUFl9Q2q9V5SYmp83cwSz3u7h0dmeJEXoGjqK8/dytIaKRx0yQFZTivlgtflhcLc7mJ5a5mK0UAeqC50wsGNv/5Ir65NO3nkO/HvJi5gX+EeL0a8kHXekczk7xkfoOPdEpSPwvlUUAZ3T3oo7JE6imCA1hAOdEhYxlwYLQF0PGzSKAQyhsn9Up6OZmeUzmAxdrUIzCOtKcqzPeomNpNTGOFskaY41XhhMik6MjGCXw9Iny9A/yZK9nvO+7bWA67jNTK27K/WP7U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TDd0MFFiRmVvcjZnVkYrTkhRUTBJbVJTcEozb01Wb2FtRG5LdmRHc0hEZ09m?=
- =?utf-8?B?M2xibGFLSFAxWEhnSloxYTJDY1RUVU8yM3pyK2dadHJsbHVNT20yNWV5VEdR?=
- =?utf-8?B?dzBzMldpZjZDTjUxZXp6RUN0dEtqK3pxSCt6bUVsOTVoclB6Nk5lblN6dlBq?=
- =?utf-8?B?RCtzbjVaM0NFZmxlSk1PSTVDajZpckN4dDlNM01GYmFiUDlEV24vVDdvazUv?=
- =?utf-8?B?ZlIzeVB3MmgxajQ0Q3B1V09ZM1FxdHRhS3N5SXdaWllQY0lNR0hkcXc1MU8w?=
- =?utf-8?B?YzdNOXFyWmJTTW1Jc0wyRnpaMFNJZWNTRGZlVjVWOG1HdmFnN2RDRGJtd2Ni?=
- =?utf-8?B?Q3hMRGcwNmdWOFZsMFppNG1uZjNYZHkwZDczd0xmb2txSGFrbWx1OENlWVNQ?=
- =?utf-8?B?QkdaWEtocjZTN2RkckhLQzl1ZGVDMi9RMEtyVEw2R0QvSkZGYTJpWnYxaWRw?=
- =?utf-8?B?eGoxY0YvbTBkVmVuSDkxNmpxSW1wbjRMRVRTbHQ1QVZZOFIvVWhlWFNIQUVx?=
- =?utf-8?B?YTloYmY1WHVWVnV0L1lsNlY0TXNWTHRJeFBhbjlvZjNheDcyZ0E1ZWc0STRH?=
- =?utf-8?B?YU5La2VIR1dtTUUyaENZQ2dhM1BjKysvM0Vod3FuKzMva2p4VlZJMzY5dFhZ?=
- =?utf-8?B?aGZMR2p3NmI2N2tXZEZoK3NqdnFhY2pINGY4WjkvQ3NraklMVkFGWmtzN2tZ?=
- =?utf-8?B?WEd0bVdjcFl5OFVzNVA5WWRpcmtFYkFzdERVSHEzMlpSOFNqNjhQMVlhQUVs?=
- =?utf-8?B?OTcrajFNV0F4TnBCVnlYbmYzaWhwRndlYmNCaHJIUzFXVGUzUXVJWG5XRTJt?=
- =?utf-8?B?aXVBQzRGMWhGSzlzOE1IcVFaTElPd1FwOFdPOTlhVFdpRlpiZjVqcERyLzMr?=
- =?utf-8?B?V3ZPVGpBeVlHdzVKN2E0Sy9OblVmSmFaODIrZEsrdG9tb3hNNjhpNEFKdnFD?=
- =?utf-8?B?MUNiWDBxVnAvZHhCUlhTajIzRkJYdi9UU3o1L2lrMXBueWR0L1dYRm5qazgv?=
- =?utf-8?B?cE9kbU9qbHplTFBOM29adjhjK1h5TkF6bXZFWXBiWnJrUm5QTDRSRlhEMUNl?=
- =?utf-8?B?MzBkSUZCTlN1QTlFZXlpRW52R0NRY3dFTVRYSFUzakdzOTN4bzlLRG03TXg2?=
- =?utf-8?B?ZmI4bnZRMDZOb2xmOXpYRHc2MUVMMG1pbmxuSGtDRERNOEdWTjd2WGRpSG9i?=
- =?utf-8?B?SDkzam4veWlVK2E5bE0xa3BYWFF4anp6VG1jVHlmbDdCdE5nbm9OSGJRdGJk?=
- =?utf-8?B?VWZxL1hrWUhidFI0aGJuSWRhRTZmWDlqNGVSVzBpdkhUVzRib2tqWlhvYUFZ?=
- =?utf-8?B?N0xsU3N3MktlV1hOUDA3bDlUSi9Ydkg0Z1FiaVdIZlNXYWFRNkgxR0R2K0ox?=
- =?utf-8?B?RGR3QTJieUluVkFqRFhvdVFaendxK1VzOWhORGFDSGdKazFCbGRyS3hjb2FR?=
- =?utf-8?B?Z0pGMXlZQXVHVjBOZDM3alVwKzgzK3dKMEFwdEVRNkZGNG5xc3gwSU9iV0Zy?=
- =?utf-8?B?dmZHaVcwQmhTNWU1MlplVnJFeENiV3h4MlJqODQxZWIreUJ5bUJOSEFXTHVm?=
- =?utf-8?B?SStoTTNnSUxWM2cvdXRCb2hDVXQwQ2NPTXBmT0lmMzcxTmhvSDVsTENwQ3pD?=
- =?utf-8?B?cTc4S1lCU2c5QitKLzNDMG01dmlXMGl0TVBFU0cxc0xOdzNRWEhWUlhQSCtW?=
- =?utf-8?B?SUc0STNPVmplelNFM0dmUHYrWS9JTE83STdvaGFJTzUyTHhPSTFISm8wcWVy?=
- =?utf-8?B?c1JuOVIxNVZTeVNReWtCVFYzTzZTWXpUWXBPdEpva2hFcGphNEhyS1ZxZHdY?=
- =?utf-8?B?QXVtL1dKbnNJK0VRa1VGL256blNjSzBzdHU5bE9YL0FNcTUxY1JMUU12d0dv?=
- =?utf-8?B?OHlldVI2MW1KNVRIVm9aTHYxQWsxK2pUNjlaL0xBeGtxY1BHTFhTN0Z2VzRJ?=
- =?utf-8?B?NWRkSUh5ckIzSFNkVHE4YmhFUzBwTFowbXh4dGxKSDV6a0p4b1FVUmU0RFRh?=
- =?utf-8?B?VWtnVkpPdUNndnNPaCtoZVJOSjFMTVpvWWJCN21mZFlxVDhNemRKRmV3WGx6?=
- =?utf-8?B?V3NsYUdKQ1pHaEwzUkxHWHhQR1lUei84RzJWT056WHVIZDBoSDBqVVU3dGYy?=
- =?utf-8?B?RHYrdElObGhvK0gzL0U1Z2IyUlQyM0xINTVzazFsQnpoNW5mZFBtTmlrRU9M?=
- =?utf-8?B?NVpabzNidTQzcitJNU1IdmVSbjl0Z3ZwVEJLVDN1aDRCM2lZQmxwaG5qRmJm?=
- =?utf-8?B?UzlubnBseVlsUVMrNlg5YVNkVGdic3RYWnp0ODdzRHBkdG1FU0wzS1AxUmhx?=
- =?utf-8?B?cDRVKzlxSTdhWHp6a1JYZEtUTmJVRFh1OGwwc096NUplNmo0K3hKWmFOVkRS?=
- =?utf-8?Q?uwDMqqDErTDrbAM8=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e625d6d0-bd3d-4746-fcd7-08de88e443fb
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 13:58:31.0191
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: g8AQ74RjvANtz8GzQqDunflO/ObjAdj3e9c0bi6+NZo1t2TXCzhDS9H+lc+tQie0Q4klJFuCguT/rXz/XQn5aEMOzuhJ99623kH1QlMni2k=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8354
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] iommu/tegra241-cmdqv: Set supports_cmd op in
+ tegra241_vcmdq_hw_init()
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com
+Cc: joro@8bytes.org, linux-tegra@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, skolothumtho@nvidia.com
+References: <cover.1773361875.git.nicolinc@nvidia.com>
+ <7988aa837f02e44c0f436bb236cba0573bd8974f.1773361875.git.nicolinc@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <7988aa837f02e44c0f436bb236cba0573bd8974f.1773361875.git.nicolinc@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: F_ucv81MPtIj68hHnLP1UX66d37yOA2VvCcKJWqLRyk_1774274344
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_065849_650280_542885CA 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_070041_936470_95591E6F 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,47 +113,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Hi Nicolin,
 
-Enable FlexCAN controller instances (can0 and can1) and the required RCU
-irqsteer interrupt controller on S32N79-RDB board.
+On 3/13/26 1:36 AM, Nicolin Chen wrote:
+> vintf->hyp_own is finalized in tegra241_vintf_hw_init(). On the other hand,
+> tegra241_vcmdq_alloc_smmu_cmdq() is called via an init_structures callback,
+> which is earlier than tegra241_vintf_hw_init().
+>
+> This results in the supports_cmd op always being set to the guest function,
+> although this doesn't break any functionality nor have some noticeable perf
+> impact since non-invalidation commands are not issued in the perf sensitive
+> context.
+>
+> Fix this by moving supports_cmd to tegra241_vcmdq_hw_init().
+>
+> After this change,
+>  - For a guest kernel, this will be a status quo
+>  - For a host kernel, non-invalidation commands will be issued to VCMDQ(s)
+>
+> Fixes: a9d40285bdef ("iommu/tegra241-cmdqv: Limit CMDs for VCMDQs of a guest owned VINTF")
+> Reported-by: Eric Auger <eric.auger@redhat.com>
+> Reported-by: Shameer Kolothum <skolothumtho@nvidia.com>
+> Closes: https://lore.kernel.org/qemu-devel/CH3PR12MB754836BEE54E39B30C7210C0AB44A@CH3PR12MB7548.namprd12.prod.outlook.com/
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/s32n79-rdb.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Reviewed-by: Eric Auger <eric.auger@redhat.com>
 
-diff --git a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
-index 1feccd61258e..65a595d7535f 100644
---- a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
-+++ b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
-@@ -43,10 +43,22 @@ memory@80000000 {
- 	};
- };
- 
-+&can0 {
-+	status = "okay";
-+};
-+
-+&can1 {
-+	status = "okay";
-+};
-+
- &irqsteer_coss {
- 	status = "okay";
- };
- 
-+&irqsteer_rcu {
-+	status = "okay";
-+};
-+
- &uart0 {
- 	status = "okay";
- };
--- 
-2.43.0
+Eric
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> index 6fe5563eaf9eb..83f6e9f6c51d6 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> @@ -479,6 +479,10 @@ static int tegra241_vcmdq_hw_init(struct tegra241_vcmdq *vcmdq)
+>  	/* Reset VCMDQ */
+>  	tegra241_vcmdq_hw_deinit(vcmdq);
+>  
+> +	/* vintf->hyp_own is a HW state finalized in tegra241_vintf_hw_init() */
+> +	if (!vcmdq->vintf->hyp_own)
+> +		vcmdq->cmdq.supports_cmd = tegra241_guest_vcmdq_supports_cmd;
+> +
+>  	/* Configure and enable VCMDQ */
+>  	writeq_relaxed(vcmdq->cmdq.q.q_base, REG_VCMDQ_PAGE1(vcmdq, BASE));
+>  
+> @@ -639,9 +643,6 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
+>  	q->q_base = q->base_dma & VCMDQ_ADDR;
+>  	q->q_base |= FIELD_PREP(VCMDQ_LOG2SIZE, q->llq.max_n_shift);
+>  
+> -	if (!vcmdq->vintf->hyp_own)
+> -		cmdq->supports_cmd = tegra241_guest_vcmdq_supports_cmd;
+> -
+>  	return arm_smmu_cmdq_init(smmu, cmdq);
+>  }
+>  
 
 
