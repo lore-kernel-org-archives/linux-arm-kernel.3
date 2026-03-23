@@ -4,98 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEFBF46127
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D7AF4612E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZBfJFwgoEUz2EcnixeOofm+Rp3x7VxxVqxoB2WloHc=; b=T7Biwi/grTP0OvbeK+IHwdZLwK
-	iLW6+tSauulpSeNktj6+GXnz1TrbnOZnAc85YEdYQxORY/FadmAbGAxfMqYkk3eFG0XoVkyvsoUIM
-	pbbrA1E1cLO6F2oNYLcgANn7elc2Xe1so1oKa2b4v8xQuigRPRAV64xj3lLM5BlMHYPDq/Ows+Uyw
-	0tqeWhGzYnBFVCnSAGU2X/JOwG0CRiet+Z/3HHwD8f5zvNAmOxkr49iRO+lXhwfqboXZnj77sN5QP
-	gHW7R9VNN9gRi0cxoDDhX+uEc8KsRUUfbziPAPwsiVIxKiuTAYvNqAmj3qh+Rd7Rjdro+BPaey+k2
-	SvlDedcw==;
+	bh=ow2cYCMn5EXbkFbtWklLmiMt9RKP3mI6kxfKs0fin8E=; b=O6ZnyM5qGCCpNh9mFmoa3W0MZa
+	ywEVOARgc6Ohhn9MW61p7UVl1pPeqJt2d4qVgo2LttRKPrvnBpNjsYYxad2ZkYpBQPAW0HtdL3uNV
+	n1P8owBYNh5bQuO/BKkbJIyYcr+U+eO1wr+fmLbwuND2Qr6gjyHqSvrPvTB24rGApZIdT9b8zaW+x
+	YL0R0IKnwdozUa1S1XCZwFNCB4UfrUVAwyE1CIMPq3HxBlLer4dofXpi3iMukgJyrk6rmfaJEWLPa
+	6FDEcAB6N3kYqqoNxix6g1PpVnUhMk3G0ecap/u1UDujKT4xIITTb2uiqU7XK9OH+zqFpjGmqmCOB
+	J11XM9Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gL2-0000000GwBR-2tyf;
-	Mon, 23 Mar 2026 14:33:04 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1w4gR7-0000000GwTW-4BUp;
+	Mon, 23 Mar 2026 14:39:22 +0000
+Received: from mail-wm1-f74.google.com ([209.85.128.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gL0-0000000GwAu-1CBl
+	id 1w4gR4-0000000GwSY-2Z7k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 14:33:03 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35b905e9dc0so154691a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 07:33:01 -0700 (PDT)
+	Mon, 23 Mar 2026 14:39:20 +0000
+Received: by mail-wm1-f74.google.com with SMTP id 5b1f17b1804b1-4837b6f6b93so23808215e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 07:39:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774276381; x=1774881181; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=cZBfJFwgoEUz2EcnixeOofm+Rp3x7VxxVqxoB2WloHc=;
-        b=pfwOSnzRcwYkWLk7yksN62VMRf4ry/ZYL/CY8nTpvF+GFHlWmVF+OFUT4DH06zI2vw
-         IcRhM/hE+lJDQB4AvIzrZhbIoEj3kvE/muoJEm6DjCaDSJ7rMwqfg0tEh/InpekkjkVZ
-         2Kdo1Hhfrv+knmAra9GujYdYK/TX/SxN5mrRN74TAoLVePhATwyI+OYXTFBtJRy0PTzu
-         8pvXbWDaCEYh+W1u4eD/rdkwZLMqqaTavcxt9xff4kYxPxbM6Q8hHGcVYgJpKnx9hrv+
-         q/8hlp3BTbhao3Jp7OftF9i284k0ySGrvWbHM64TVRffN44Y/vw1hcgRU2Nk1YI3Wsdj
-         talQ==
+        d=google.com; s=20251104; t=1774276756; x=1774881556; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ow2cYCMn5EXbkFbtWklLmiMt9RKP3mI6kxfKs0fin8E=;
+        b=Y+y4rPh/0u6JCBZoY+wjYFzmBgawmmrR1zyMO7cKGIBULUtMzIVQq+aHnRJuXTWlV6
+         LDD2dcJ7xJ+A1D96gMOiL6xKeI7ZEC9MB4jQ+ytlHuIrPXbZbFQY/uzyBUQ9dIwbPAXB
+         qQsF3LD2sM+xS4s5gjs3OXkZvlT0CktvU98w7yVQQfJAb9GCp9bEOTUh1uQs6IFHlkgx
+         xz4nn/FdHwQAI+n2wiO1t1NHqpjve04ePxcCqNZEiwXO4jUS5G7glywci5pBLX7lkk5N
+         cMkQDLQPt/WujZHXySJZcginIa/8nrt+mMZimv2x6N+YWoytTvf38wdT+QAkdrpR0lPl
+         0Yww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774276381; x=1774881181;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cZBfJFwgoEUz2EcnixeOofm+Rp3x7VxxVqxoB2WloHc=;
-        b=es8p9A19UtwArlGCiL267Dozis4QtaM41MwrD65a3quKlZIpcrIOjIhzV8BevFNkEB
-         TD7IiSVooXhU4aZ0yieyKlXJIHEl8s8QDQk2Nlo0RB0G+Sm/8h841kAECHC5Y09sj0je
-         nkKMeA2LzCJcAWsEi6Hy1IUy2GLb3ufuX5SkcWsvSIeLzq+c2tNDPxv5y7RvZxYs4oHn
-         4mJkNyZbo8VlkddBo7YK+0YVuX1veUBVFtpYFuuYGUw/uaUuxlwaG/iXKZ323foOYUXW
-         pU2xB4f4RKpuaVtmSodV9P6YDAgNm+w6jEUGVDdIrKKnVF3qun+T5Oi6l+XvcN3hz6dx
-         J01A==
-X-Forwarded-Encrypted: i=1; AJvYcCU1LrTFmDmNLHxdC4LhYla7bXmwzPorJ0PpzV94HPoPzUaZp7Y1QihR7zHUYta258RODsvJFJkr94/q9fARHVki@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/DlmBiTxJrRxgfSaicRdwXTGEBy4MLegaM2pOhNfAY/POS7Mv
-	6lKrfYjh6lVnAtNXid88PeSyU9E9D5A7+WllWHS69/TJma5FUi7MRJ8UOOAzrt40z/w=
-X-Gm-Gg: ATEYQzyy31dyGYRCoIqa0PoQcQpoeLvSqrgQj7t96bdpMcpHRR7nLa04nqMgXtQgMoY
-	GoN+rlJ8sjcY2ooYr7/M83PF6ehr/p0sMQeEfliLegvIkNqWUafRtXgH00jAzoUWLIYFKKUZlae
-	7XmbWskudcdInXXmFKGO8x0MAVdqHDCZJ+xWKLeOiRVfgC150DlHKMOMfnxB5P55e5YgUvrDp0k
-	P+fGLeSldScYFtJB2tGcOYUEJ8PZnwY6IFZmNwRmSqJFSpnUMrugLiy9si7ru6bioTHBn8szu6L
-	542Jdk6iHsZy5D3CiRN6T1zohnySlcSOZowCjrpTmTD9H3lMHEgEFq3gW2NNL4ien7pPTpwZiGD
-	5pgU5x4s3zgxEwc54FRa6KTcRyQaozpKLcTjlyG3cbVlncNug4xfr9eflKfJ4tHpkVsgGL5d9ug
-	it+pclRLt6ZnTVfaUuYF5g/rBNUFJb8n7NrmNA7A==
-X-Received: by 2002:a17:90b:3943:b0:359:f22:8879 with SMTP id 98e67ed59e1d1-35bd2cec783mr10505770a91.22.1774276381189;
-        Mon, 23 Mar 2026 07:33:01 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:36f1:e61e:d1a0:422b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35bd262cb35sm4765516a91.1.2026.03.23.07.32.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 07:33:00 -0700 (PDT)
-Date: Mon, 23 Mar 2026 08:32:57 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Daniel Baluta <daniel.baluta@oss.nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 0/4] Add i.MX94 remoteproc support and reset vector
- handling improvements
-Message-ID: <acFPGVNOornxsPG6@p14s>
-References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
- <b5e05fe6-97c4-40cd-b7cc-b417d8717aec@oss.nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b5e05fe6-97c4-40cd-b7cc-b417d8717aec@oss.nxp.com>
+        d=1e100.net; s=20251104; t=1774276756; x=1774881556;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ow2cYCMn5EXbkFbtWklLmiMt9RKP3mI6kxfKs0fin8E=;
+        b=T9MLbQ4U2dIYqn5nRvsMZ7rRv8rWlv9zNG1pwkCluhHbOJNLNUu0MlxIWabvxffb4U
+         jQIPm/D+bbRHs9Hwfefe6Bc/3AHIaaPdcFgEiMo1cOTz7MsNfoJ0z4f+1wDWSw5Upc5p
+         WYvUhNFIGOCRizpXJxoGfFjtvQg3fzcu7O+21B8Givw3Z9QxUuAqJI0YoBQHxuTtGkLR
+         23RyLJCygLQMShq+Af7GwNOqrJWbpqB8/dx+XqEmJbHc5Pny0n5rHYa/wiDvMZMn90lP
+         gIS5NtP/clLu3qfB3IKw570sYBqMluJ9laB7YZCE5XjQI7xWp7Qfie6dCzoms3ERlWrW
+         j4lw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/jMJiDdco7hcd4DF4qb2NOyrxVCHSsHR5LUw2+2jCq1rTIM9EXzUC+zxvD3vPZ4/Hwf6o/UwfWRsT8ZPCNxUT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9tcW8Yrv8+skVkN9a4M01VlV0hhGwiWXkEJ37jDLSgbRF3q2I
+	UQ9sY8FPNDrMaL2kF6NdrX/BqjEARJ0A0/qamAyYMDWygE/qxr/zHkxx8JkLa2pRyFYAq7bJKnt
+	FJSH43R3LHh0ff7MvDA==
+X-Received: from wmbej14.prod.google.com ([2002:a05:600c:3e8e:b0:486:fa53:8cfc])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:a43:b0:486:fbd1:9dc0 with SMTP id 5b1f17b1804b1-486fee0d52fmr164091435e9.22.1774276755701;
+ Mon, 23 Mar 2026 07:39:15 -0700 (PDT)
+Date: Mon, 23 Mar 2026 14:39:14 +0000
+In-Reply-To: <b5063e7e-9245-434e-9877-5ac7b45f4bc7@lunn.ch>
+Mime-Version: 1.0
+References: <20260322192159.88138-1-ojeda@kernel.org> <20260323000327.111235-1-ojeda@kernel.org>
+ <96287f3a-d245-47cf-b7cb-f821451493d3@lunn.ch> <CANiq72nwSWVDRqm0Vap5j5X5k+Q-wq8okQ9d3KUgZt6M4CpW9g@mail.gmail.com>
+ <65336ad0-ac37-416f-b6ae-e691e3e375ae@lunn.ch> <DHA6SE9EMEQF.1PKVHEG18I5FS@garyguo.net>
+ <b5063e7e-9245-434e-9877-5ac7b45f4bc7@lunn.ch>
+Message-ID: <acFQkuarr6bcOFwM@google.com>
+Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+From: Alice Ryhl <aliceryhl@google.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Gary Guo <gary@garyguo.net>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, a.hindborg@kernel.org, acourbot@nvidia.com, 
+	akpm@linux-foundation.org, anton.ivanov@cambridgegreys.com, 
+	bjorn3_gh@protonmail.com, boqun.feng@gmail.com, dakr@kernel.org, 
+	david@davidgow.net, johannes@sipsolutions.net, justinstitt@google.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-um@lists.infradead.org, linux@armlinux.org.uk, llvm@lists.linux.dev, 
+	lossin@kernel.org, mark.rutland@arm.com, mmaurer@google.com, morbo@google.com, 
+	nathan@kernel.org, nick.desaulniers+lkml@gmail.com, nicolas.schier@linux.dev, 
+	nsc@kernel.org, peterz@infradead.org, richard@nod.at, 
+	rust-for-linux@vger.kernel.org, tmgross@umich.edu, urezki@gmail.com, 
+	will@kernel.org
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_073302_328967_B0A71655 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20260323_073918_656635_7463DCE2 
+X-CRM114-Status: GOOD (  18.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 11:19:06AM +0200, Daniel Baluta wrote:
-> On 3/12/26 14:36, Peng Fan (OSS) wrote:
-> > This series adds remoteproc support for the i.MX94 family, including the
-> > CM70, CM71, and CM33S cores, and introduces a new device‑tree property to
-> > correctly derive the hardware reset vector for Cortex‑M processors whose
-> > ELF entry point does not directly correspond to the actual reset address.
-> >
-> > Background:
-> > Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
-> > table. While ELF images embed the entry point (e_entry), this value is
-> > not always aligned to the hardware reset address. On platforms such as
-> > i.MX94 CM33S, masking is required to compute the correct reset vector
-> > address before programming the SoC reset registers.
+On Mon, Mar 23, 2026 at 02:28:25PM +0100, Andrew Lunn wrote:
+> > > If you want netlink on um, arm32, riscv, loongarch you would need a
+> > > different implementation of the binding?
+> > 
+> > It doesn't need this feature to build and function. It'll just be a bit slower
+> > because inlining from C to Rust won't happen.
 > 
-> What happens if the reset vector is at 0 and the e_entry point is at 0x800...?
+> So it sounds like my understanding is out of date. When the first
+> Ethernet PHY driver was being merged, Rust could not access inline C
+> functions. The binding had to replicate the functionality. But you are
+> saying that Rust can now make use of inline C code, but not actually
+> inline it? It results in a function call?
 > 
-> In this case masking will no longer work! Can we implement a generic approach?
->
+> What this feature does it actually allows inline C functions to be
+> inline? So it is just an optimisation?
 
-I will wait to see an R-B from Daniel before looking at this set.
+That's right, this series applies cross-language inlining to the helpers
+we have for calling inline functions.
 
-Thanks,
-Mathieu
- 
-> 
-> >
-> > Similarly, on i.MX95, the existing implementation always programs a reset
-> > vector of 0x0, which only works when executing entirely from TCM. When
-> > firmware is loaded into DDR, the driver must pass the correct reset vector
-> > to the SM CPU/LMM interfaces.
-> >
-> > This series addresses these issues and provides the necessary DT bindings
-> > and driver support.
-> >
-> > Summary of patches:
-> > [1]dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
-> > Adds a new DT property allowing SoCs to specify a mask for deriving the
-> > hardware reset vector from the ELF entry point.
-> >
-> > [2]dt-bindings: remoteproc: imx-rproc: Support i.MX9[4,52]
-> > Adds compatible strings for i.MX94 CM70, CM71, and CM33S processors.
-> >
-> > [3]remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM reset vector
-> > Ensures the correct reset vector is passed to SM APIs by introducing a
-> > driver‑level helper (imx_rproc_get_boot_addr()) that applies the
-> > reset‑vector mask.
-> >
-> > [4]remoteproc: imx_rproc: Add support for i.MX94 remoteproc
-> > Adds address translation tables and configuration data for CM70, CM71,
-> > and CM33S, enabling full remoteproc operation on i.MX94.
-> >
-> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > ---
-> > Peng Fan (4):
-> >       dt-bindings: remoteproc: imx-rproc: Introduce fsl,reset-vector-mask
-> >       dt-bindings: remoteproc: imx-rproc: Support i.MX94
-> >       remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM reset vector
-> >       remoteproc: imx_rproc: Add support for i.MX94
-> >
-> >  .../bindings/remoteproc/fsl,imx-rproc.yaml         |  9 +++
-> >  drivers/remoteproc/imx_rproc.c                     | 85 +++++++++++++++++++++-
-> >  2 files changed, 91 insertions(+), 3 deletions(-)
-> > ---
-> > base-commit: 7109a2155340cc7b21f27e832ece6df03592f2e8
-> > change-id: 20260311-imx943-rproc-2050e00b65f7
-> >
-> > Best regards,
-> 
-> 
+Sorry if I was unclear on the netlink patch series. I mentioned this
+series because you told me that inlining is important for skbuff due to
+performance (not for netlink though), and this series is necessary to
+make such code on par with C perf-wise. But if you accept the function
+call overhead from not having cross-language inlining, this series is
+not needed.
+
+Alice
 
