@@ -4,96 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A960F4613B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E1BF4613D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 16:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mObnim+O/1qM5mBF9TW6/nMqNmbffOtpWCv4mCo57ds=; b=XrcinT9x6uZARCicvwurAGVZGB
-	UfcB6LmQ4AqKwb/r6i3lZX8Iw4wtnuIFNRqWYQ+O1f99rKEmpQ94J4RSHO0ICIvfjnioZSBaVeuz0
-	FUslJEpdUsBUXvCJ4J4LU9RBLRp+0hGDDBbzMxaQvwgFWh/wU+ZGBvoGLtkiIY2vs6FClV8shZKM3
-	WiDyTobCzNWv7Xeq0hLCjFBXPQbXFSyfs8QfSvQj1uIye8x7bPrPldATgi3UeluY2w97hpuNWCCCo
-	BRevIQz/fZZ4lew0icxYj4VnHP3QeqxGUuZa/6HSvY+WHi9MwZTwk+emFT6bHcuGz3clJdQawMm/v
-	TVN0kx1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rxq0Nf9DeU0SsluPr0WcRw1qCIonFk8R082hsT1zH2E=; b=Gh1XxMX1zU97e3VYe0EpxoE5pW
+	re53gaRSSpAFa5vMtGJLulEM7RWXqZYJmU8oOfMk9d+rRDrCPEE2Yj0TlmXRtrQ/SJ2wL68JIKXqP
+	fQGR2iSt4/Rnclb2/g/Xwwf/BAeXYIppgMk4IlcVXHTfpkKJXvUiU1GjGOlnuWkc/DsED31M4Hwoh
+	Z5bhjvtM3gzEEusiK0Yhm5RV3Ex1xlVrm2INw+1PSE+csUJfEyYUI1zzf+/ity9aztsRVoLbCJ0da
+	AE5KOJZ/9HezItnrASAq5MwKk3ObPjdaQ6UPga4e9/6eOBJXdSWGnR+9Mieih3omYmWf8UMy/WKVG
+	7zocjyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hiW-0000000H597-0dvd;
-	Mon, 23 Mar 2026 16:01:24 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1w4hkC-0000000H5PV-1ZxZ;
+	Mon, 23 Mar 2026 16:03:08 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4hiT-0000000H58i-2xSC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 16:01:22 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-679f6ee3fb0so1123284eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 09:01:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bitbyteword.org; s=google; t=1774281680; x=1774886480; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mObnim+O/1qM5mBF9TW6/nMqNmbffOtpWCv4mCo57ds=;
-        b=Or3z8MEWL/wheFAEY2n+j/bXvHRD8daLvdKDO0SwvyaA4WcRU5odanzHmis+V7SG+6
-         O8MR53U7BSwIANJeOQo3a8FKYk8VhNorwrCyR4K+kTYFTTHTD3bOw3MRHFUx72DXBu1p
-         s4PMV2JUYxr6Yp4t4VFDa7Vl7UpsbBwtlEK1MDpVV76RDzYM3Uaz1qAmMsCaPncKFrak
-         uqa15udqqeGanB5Sf8D9wGixcfd2EzHt2bq2c68+N++KdXwvcPQlAQ9kKpRtX7wkaOQK
-         l2xu1aXLxjFp89JNX56eDrkHJpsM0/ujOOXd7Kxr8TnvPOLKYWFROwMUaZwk1aSOqIIU
-         pqAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774281680; x=1774886480;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mObnim+O/1qM5mBF9TW6/nMqNmbffOtpWCv4mCo57ds=;
-        b=Ucj451h5mpRB6wuvgnppVOdBBtNt2YCPAYStw6LHs6WkVH6owCTJVeHl35HcmWvHrm
-         ylvZBFLv9r/NEn1fgWjn36KJGB4xhKKNLuAy7GwCD1hMQZjGSSRzI8af2ikNUagE1AgJ
-         jbIOflAIQHq8K5sPUzivDKMFs/8tpJ0MoRsLjvVvm79qUcF43hP1yHN4EUTg2fDbzVnJ
-         5kMHP+6TsH1BATA6xN9PQR3m1sC4kdcFfuFVnQXL8BBJ+3UZJo+K8zvHmH8qJcqrlfHc
-         wYkxTTGAQSFZeyphvQAGNGnb4vdpxUPaAI7XvtwRueUIir9xuICYLhmbGJiayhrZv4wC
-         SYww==
-X-Forwarded-Encrypted: i=1; AJvYcCUP5LUlhRbaeA3vbLY6pYsdHoY4ubrNoag3pxDIekjlBZQpYLEspMrbq/ee4xCz9A/ehWvotoPVSy76Ek5QGM/0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPWcuH/pdSZzbjQ2DWNL5nUXbZ5ZBVUMotAYdLCitA1v1Pvc+G
-	QpyccTlhaSq4hrMyHo111RHYJecyUE21DH7Odwp+sppRDiv/VNNFbuv7DHRuxKVrMis=
-X-Gm-Gg: ATEYQzySlk7qAZsRoREY5j3+uELC3KwVq3PIZXN3yEyid1jay/mNbKvrs/7GVW5+kG7
-	9uq+DbVI1DPL4GL1tnpLn7c33d2skq4b6gOwpONb9Zya67HS/NBqBzC5rOQvuhUtGnyat18wT1+
-	k6QN0mQ+TOk/oZ1zbMrjjzoXx0ZrLy5D8VXRPVJQMncbcgCM5orSEdMuJZ57VTwicDCiEPoFccz
-	hj06OgqwkOeM6HLVBgwRhBiGCE2BU8vIkw3iDUCUWEXLhQ5Q1CJ2QtJl5N+psPb8mxXduBM9Hq2
-	hZlwurpymjBGen2r2qYsm7iS6m0Jh2Fx+N4kc3BsznHuW+T92RzOJkNHW2KjEBDTtRUpLPbXWvh
-	kDoisdV8MCWX0h4jKeIM0n5pvBsdx4dDK7jGPpFnkvMHBo3wHA4CGO/g0Sbea/e/hRluKirbj1p
-	ydtKgmFxijcp4x+8Ic4b4ECcoXa+EV/ezMbroOMlGqJwDRVgDP1ROIqrV93eFXGbkW4A==
-X-Received: by 2002:a05:6820:987:b0:67d:ee07:32df with SMTP id 006d021491bc7-67dee0735f2mr1955626eaf.23.1774281680005;
-        Mon, 23 Mar 2026 09:01:20 -0700 (PDT)
-Received: from vinmini.lan (c-73-143-21-186.hsd1.vt.comcast.net. [73.143.21.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cfc9088df1sm843364185a.25.2026.03.23.09.01.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 09:01:19 -0700 (PDT)
-From: "Vineeth Pillai (Google)" <vineeth@bitbyteword.org>
-To: 
-Cc: "Vineeth Pillai (Google)" <vineeth@bitbyteword.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Eddie James <eajames@linux.ibm.com>,
-	Ninad Palsule <ninad@linux.ibm.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-fsi@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH v2 09/19] fsi: Use trace_call__##name() at guarded tracepoint call sites
-Date: Mon, 23 Mar 2026 12:00:28 -0400
-Message-ID: <20260323160052.17528-10-vineeth@bitbyteword.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260323160052.17528-1-vineeth@bitbyteword.org>
-References: <20260323160052.17528-1-vineeth@bitbyteword.org>
+	id 1w4hk9-0000000H5Or-3qQ4;
+	Mon, 23 Mar 2026 16:03:07 +0000
+Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 993D719DF;
+	Mon, 23 Mar 2026 17:01:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774281706;
+	bh=xEt1T+5IaD2kByZSscV0lMn0HH53U/nhFkZ0bQ/2eZ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bHj+jVhdypJ3PdOJJ+vxoW4Mrt6GXypueUbe6MFnf3SYcKN2qAgR5D0p2h8OorLcC
+	 8A+TznZMrbjxQQQkKxYzSnw6mgVOqb0bEFY3lzbwKaAfwl2JN+RW7P69Zu7lktQEOH
+	 5T+yrqd9OUBjl6ZkEtx4Q6IxRwLbevYt/CayLbrI=
+Date: Mon, 23 Mar 2026 17:03:00 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Mikhail Rudenko <mike.rudenko@gmail.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Tomasz Figa <tfiga@chromium.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] Allow non-coherent video capture buffers on
+ Rockchip ISP V1
+Message-ID: <acFkAPreOFBvoHid@zed>
+References: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_090121_754021_CC8DC4C2 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260323_090306_115659_C5B2CFCC 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,34 +71,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace trace_foo() with the new trace_call__foo() at sites already
-guarded by trace_foo_enabled(), avoiding a redundant
-static_branch_unlikely() re-evaluation inside the tracepoint.
-trace_call__foo() calls the tracepoint callbacks directly without
-utilizing the static branch again.
+Hello
 
-Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Vineeth Pillai (Google) <vineeth@bitbyteword.org>
-Assisted-by: Claude:claude-sonnet-4-6
----
- drivers/fsi/fsi-master-aspeed.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, Mar 03, 2025 at 02:40:08PM +0300, Mikhail Rudenko wrote:
+> This small series adds support for non-coherent video capture buffers
+> on Rockchip ISP V1. Patch 1 fixes cache management for dmabuf's
+> allocated by dma-contig allocator. Patch 2 allows non-coherent
+> allocations on the rkisp1 capture queue. Some timing measurements are
+> provided in the commit message of patch 2.
+>
+> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
 
-diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
-index aa1380cdff338..8313c7d530eb7 100644
---- a/drivers/fsi/fsi-master-aspeed.c
-+++ b/drivers/fsi/fsi-master-aspeed.c
-@@ -229,7 +229,7 @@ static int check_errors(struct fsi_master_aspeed *aspeed, int err)
- 		opb_readl(aspeed, ctrl_base + FSI_MSTAP0, &mstap0);
- 		opb_readl(aspeed, ctrl_base + FSI_MESRB0, &mesrb0);
- 
--		trace_fsi_master_aspeed_opb_error(
-+		trace_call__fsi_master_aspeed_opb_error(
- 				be32_to_cpu(mresp0),
- 				be32_to_cpu(mstap0),
- 				be32_to_cpu(mesrb0));
--- 
-2.53.0
+I regularly get back to this series everytime I have to reason about
+the caching policies in vb2..
 
+Is there any reason why it didn't get in ?
+
+> ---
+> Changes in v4:
+> - rebase to media/next
+> - use `direction` instead of `buf->dma_dir` in dma_sync_sgtable_*
+> - Link to v3: https://lore.kernel.org/r/20250128-b4-rkisp-noncoherent-v3-0-baf39c997d2a@gmail.com
+>
+> Changes in v3:
+> - ignore skip_cache_sync_* flags in vb2_dc_dmabuf_ops_{begin,end}_cpu_access
+> - invalidate/flush kernel mappings as appropriate if they exist
+> - use dma_sync_sgtable_* instead of dma_sync_sg_*
+> - Link to v2: https://lore.kernel.org/r/20250115-b4-rkisp-noncoherent-v2-0-0853e1a24012@gmail.com
+>
+> Changes in v2:
+> - Fix vb2_dc_dmabuf_ops_{begin,end}_cpu_access() for non-coherent buffers.
+> - Add cache management timing information to patch 2 commit message.
+> - Link to v1: https://lore.kernel.org/r/20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com
+>
+> ---
+> Mikhail Rudenko (2):
+>       media: videobuf2: Fix dmabuf cache sync/flush in dma-contig
+>       media: rkisp1: Allow non-coherent video capture buffers
+>
+>  .../media/common/videobuf2/videobuf2-dma-contig.c  | 22 ++++++++++++++++++++++
+>  .../platform/rockchip/rkisp1/rkisp1-capture.c      |  1 +
+>  2 files changed, 23 insertions(+)
+> ---
+> base-commit: b2c4bf0c102084e77ed1b12090d77a76469a6814
+> change-id: 20241231-b4-rkisp-noncoherent-ad6e7c7a68ba
+>
+> Best regards,
+> --
+> Mikhail Rudenko <mike.rudenko@gmail.com>
+>
+>
 
