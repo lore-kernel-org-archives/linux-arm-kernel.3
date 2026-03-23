@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F342F483EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136CFF483D7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUWHb/bHW5waMVeCr38IVfB8tbe00wSzOrDLomFNqS0=; b=W9xjk8VyStrNMI1Y7jF5x4Cbjy
-	5Hd7XN/ewj39Hw7t1bR5wpiAs2tPYJ5i4sPHlbbnPpC+b86d6W2OQ32EfUaF1NQHlk2AXOoF+o5DI
-	L9XQAMbIrFBcDLycaoai7cvTvMgIdgqODwDKIfWIvDRSjVxsA4+zhsuPTWYXQs7cN0isUDYS8gB4T
-	VXaA9/19NwBVQZopaxaiTwyGYNTGogepnAsQCHbP/PziMi5hMKyv14AWcCG0/Fsbi8uaLeekp6Pvy
-	/NznLbu0cjN928auGTOIuamHRwdXZuwpR2HW2gZr82iIsk6dzR8snd2sExmuPy3IpA7+G1GpHGn3M
-	3t4BOJsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0irAWwmXTnrA6DZFtnARkmMQCtt3MlBdKCeTWfgkROs=; b=sCtXBSNWFSLgiwqlz0JJS1CSkp
+	Crktd0QsL6MxCrECSzrGprQjG6oy4uNatgSyynrdvbDxb7YmP4kuewVwfN0ucSomA3VnXkHJkI47Z
+	BENd8WFc1q3MWZEIhTwRR2YhMGhZ+gnH0pMW9z8tN/kmMwXcnFS7Q0aKYOIm5ywxI7ysj8Dcws165
+	mjTuO5JTFaX5VSpEofYwDz5N9HSPufXBmFz2taoKALeLBhSwzdpY0zLeiu/hs3NylSkM0+4Vlyyoz
+	Ww21EZ1CqqHxqVYsjAApSC6Je7RCEReWzl4T+4jHNfsfy+diGF4SzoMJ6acmOx305XALWEDTKHg9U
+	x+ZlsASQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lFz-0000000HVNV-0894;
-	Mon, 23 Mar 2026 19:48:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lFy-0000000HVN5-1ecs
+	id 1w4lNx-0000000HWaJ-02i0;
+	Mon, 23 Mar 2026 19:56:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4lNu-0000000HWZl-1xHP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 19:48:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3A9A600C4;
-	Mon, 23 Mar 2026 19:48:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFBFC2BCB0;
-	Mon, 23 Mar 2026 19:48:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774295289;
-	bh=AhCkc7lJh+tz9nznn2qikIFM9LgmMt+FJIpbfD9+zwI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NyUlUFmS/LZ/hU3F1BEvomKf3VoOzcAB/DkUDJjOIfymVW0mfAaAAFMEjr2b4dsbK
-	 hs+w8lGQQXkhGA6hHV0qMc1nrHIdkCAmf61eq3Mw4UTX/IgW6WHfAQTrtnX1NL4Ss9
-	 rT1c2b/+PPRo0JURucoqO1yseGb5JjEEixgjG4H52cfT4Ywusal/fqPMEBb4u/aniW
-	 0QSQeW1ou4JTX6lgIGOWxJbsvWSglO9UBUW2b2PFtFJp7wQHeJfwZwXv6GxcHNGAfX
-	 M345KBZiMMcFkoGlebugtUvBMflNNERpnG1xH+1taJGALArDgXRLjW23nE1+pyRd9V
-	 xv3BYM372WCww==
-Date: Mon, 23 Mar 2026 19:48:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: nick.hawkins@hpe.com
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jean-Marie Verdun <verdun@hpe.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: arm: hpe,gxp: Add HPE GSC platform
- compatible
-Message-ID: <20260323-winnings-scalded-eb8ca95805ad@spud>
-References: <20260323194223.683487-1-nick.hawkins@hpe.com>
- <20260323194223.683487-2-nick.hawkins@hpe.com>
+	Mon, 23 Mar 2026 19:56:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4238414BF;
+	Mon, 23 Mar 2026 12:56:14 -0700 (PDT)
+Received: from [10.57.59.110] (unknown [10.57.59.110])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63E533F694;
+	Mon, 23 Mar 2026 12:56:14 -0700 (PDT)
+Message-ID: <1d364f19-7cf4-400b-ad12-6380152e44e5@arm.com>
+Date: Mon, 23 Mar 2026 19:56:10 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dNqL46ltczVGst4z"
-Content-Disposition: inline
-In-Reply-To: <20260323194223.683487-2-nick.hawkins@hpe.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings
+ correctly
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+ <20260323130317.1737522-3-ryan.roberts@arm.com>
+ <588b2b4f-9cf6-43e5-b0e5-55820c74cbbb@arm.com>
+ <e36d3b17-dc66-466e-9446-692592e5d7f2@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <e36d3b17-dc66-466e-9446-692592e5d7f2@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_125622_553117_C468E113 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,102 +73,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 23/03/2026 18:25, Ryan Roberts wrote:
+>>> @@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>>>  	ret = update_range_prot(start, size, set_mask, clear_mask);
+>>>  
+>>>  	/*
+>>> -	 * If the memory is being made valid without changing any other bits
+>>> -	 * then a TLBI isn't required as a non-valid entry cannot be cached in
+>>> -	 * the TLB.
+>>> +	 * If the memory is being switched from present-invalid to valid without
+>>> +	 * changing any other bits then a TLBI isn't required as a non-valid
+>>> +	 * entry cannot be cached in the TLB.
+>>>  	 */
+>>> -	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
+>>> +	if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
+>> It isn't obvious to understand where all those PTE_MAYBE_NG come from if
+>> one hasn't realised that PTE_PRESENT_INVALID overlays PTE_NG.
+>>
+>> Since for this purpose we always set/clear both PTE_VALID and
+>> PTE_MAYBE_NG, maybe we could define some macro as PTE_VALID |
+>> PTE_MAYBE_NG, as a counterpart to PTE_PRESENT_INVALID?
+> How about:
+>
+> #define PTE_PRESENT_VALID_KERNEL	(PTE_VALID | PTE_MAYBE_NG)
+>
+> The user space equivalent has NG clear, so important to clarify that this is the
+> kernel value, I think.
 
---dNqL46ltczVGst4z
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sounds good to me.
 
-On Mon, Mar 23, 2026 at 02:42:21PM -0500, nick.hawkins@hpe.com wrote:
-> From: Nick Hawkins <nick.hawkins@hpe.com>
->=20
-> Add the HPE GSC ARM64 BMC SoC compatibles to the existing
-> hpe,gxp.yaml binding.
->=20
-> The initial board compatible is hpe,gsc-dl340gen12 for the DL340 Gen12
-> server platform.
->=20
-> Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
-> ---
->  Documentation/devicetree/bindings/arm/hpe,gxp.yaml | 7 ++++++-
->  MAINTAINERS                                        | 7 +++++++
->  2 files changed, 13 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/hpe,gxp.yaml b/Documen=
-tation/devicetree/bindings/arm/hpe,gxp.yaml
-> index 224bbcb93f95..6f057cd58571 100644
-> --- a/Documentation/devicetree/bindings/arm/hpe,gxp.yaml
-> +++ b/Documentation/devicetree/bindings/arm/hpe,gxp.yaml
-> @@ -4,7 +4,7 @@
->  $id: http://devicetree.org/schemas/arm/hpe,gxp.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
-> =20
-> -title: HPE BMC GXP platforms
-> +title: HPE BMC GXP and GSC platforms
-> =20
->  maintainers:
->    - Nick Hawkins <nick.hawkins@hpe.com>
-> @@ -18,6 +18,11 @@ properties:
->            - enum:
->                - hpe,gxp-dl360gen10
->            - const: hpe,gxp
-> +      - description: GSC Based Boards
-> +        items:
-> +          - enum:
-> +              - hpe,gsc-dl340gen12
-> +          - const: hpe,gsc
-> =20
->  required:
->    - compatible
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 2265e2c9bfbe..33e4357f9011 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2859,6 +2859,13 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/g=
-it/kristoffer/linux-hpc.git
->  F:	arch/arm/mach-sa1100/include/mach/jornada720.h
->  F:	arch/arm/mach-sa1100/jornada720.c
-> =20
-> +ARM64/HPE GSC ARCHITECTURE
-> +M:	Nick Hawkins <nick.hawkins@hpe.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/arm/hpe,gxp.yaml
-
-> +F:	arch/arm64/Kconfig.platforms
-
-That doesn't look like a file that "belongs" to you.
-
-> +F:	arch/arm64/boot/dts/hpe/
-
-And both of the other two belong to the entry right below this one, that
-already has your name on it. I don't understand why this MAINTAINERS
-entry is needed.
-
-> +
->  ARM/HPE GXP ARCHITECTURE
-
-Couldn't you just modify this to "GXP/GSC"?
-
-Binding change looks fine...
-
-Conor.
-
->  M:	Jean-Marie Verdun <verdun@hpe.com>
->  M:	Nick Hawkins <nick.hawkins@hpe.com>
-> --=20
-> 2.34.1
->=20
-
---dNqL46ltczVGst4z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacGY9QAKCRB4tDGHoIJi
-0vHEAQDS/lQdC/KAz3hJSrZQYllS3FrOrfpoVg65ox3t9KNaFQD8CqNkIP7JBhBw
-HeVgd3M5fFUYmvbhXQ6hwNlYmykU8Qs=
-=DBms
------END PGP SIGNATURE-----
-
---dNqL46ltczVGst4z--
+- Kevin
 
