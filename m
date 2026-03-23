@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30464F483E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA51F483E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGZT9X98YDjY8pqmFP7O2DzCiDdM3wiDh3Ke8SYfcAU=; b=xz7clk8U+v7s6AP8HvFUZTHllv
-	tyf95YFSQ2hcRBSfDO8iID2q1HvSjc69KXmEbYjNWF8y7bubbnzYGLjHrQGBW6WWTMI4smR4oDFZa
-	sirCcFxGamJII5en8bwl8cfOEN9fp6Kxz2JTWOXAZ7n3hmgLVYT7ttFRX7OYrl9NeTRHn5DpHcyd0
-	HJbP0M7V+I0Ai8MBUb2wRomNjZInuoX3nSmQ7XzcgKh5CLMwgKwcjWQyuQ5pTtiqvRNi8WdZaqHO3
-	4r+wWwwVMR4sKa/5kwDxw0nNuIcz15BMefZCzxRX5FFChCLxlrRDEkyNrG1PBc6ncq1it9G8qUKA2
-	tAURBfjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iAQkTnFgl+8yd50clSd1ldbwKw7NVFGAMfnkLJg3I3Y=; b=ctQFfnjc/N4l5rPzYSYmdCpVcX
+	HRyQ0zFAMKq0eXJPewNAdR3Ad51SMfbdGYN4Q0FEgEVHV6aCO13sM3K3gvSZRM6ZNFpgE0zIKORO5
+	aMa6lR/dYbU6cHb+fYMBjPskvKIn1YxtFsChBW8+jdl8dqmh6Gwf0E6FS8D3Xb9FT5XGzdP8WqwN3
+	wyodamHBJmqwqyw9BwlUbF2GtTbwBbypEqKVTqCcXSP6lmjDRaT0xkUS+D1I67paqbHj8WxQPJLd4
+	2DncCsEuEHcWpCrrV2qLWHpTX9GtF83+0IWP5sJNYndCwLtZD3XDPMiVeuOo9EfO6UbAFo4A2sHhw
+	3kbqsQvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kJR-0000000HN8K-0xC7;
-	Mon, 23 Mar 2026 18:47:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4kWZ-0000000HOaG-2VAw;
+	Mon, 23 Mar 2026 19:01:15 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4kJJ-0000000HN5T-3Ocm;
-	Mon, 23 Mar 2026 18:47:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED53B41892;
-	Mon, 23 Mar 2026 18:47:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ED47C2BCB0;
-	Mon, 23 Mar 2026 18:47:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774291652;
-	bh=aGZT9X98YDjY8pqmFP7O2DzCiDdM3wiDh3Ke8SYfcAU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qPLPJpLXohqArS19d0Rsl9Tq2Rm0Cf5y8Ng2I5m2KFg7EtoZJdxNLwg/MTJl2W1Cw
-	 2feB14MkLRFpbrXw84xdggi3fCpG0AMTwM3txAQ6rXC00YQRDOd4rGZyLjwmq+j25n
-	 u+JskI+l2yddBgwBC4tkJLEE9HdAsXMRiFYNxMZadP+st927M7B+FBS2t24RShPfQ9
-	 Gcs5ki9PsAov/Ojz3J882p9zKntofTzAYIC1FyDK/2g6rtbjqSAtCRhSwxs+s4AZn/
-	 y9RPUlk7ZCKcje3XI/fanUrSacl6u/SSoVjkqn6W0BjckGDMsYUcFgvHV/X7xxDZkf
-	 sm1UKd0Vm3Mrw==
-Date: Mon, 23 Mar 2026 18:47:27 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: Felix Gu <ustc.gu@gmail.com>, linux-spi@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Dongliang Mu <mudongliangabcd@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Johan Hovold <johan@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: spi: meson-spicc: Fix double-put in remove path
-Message-ID: <0313ea57-750c-4a2f-afa7-c6b2c8896968@sirena.org.uk>
-References: <CAN4SLj0P1pAAMBbuWhbnjfwqd-5bwsNroeMzghv0P0Y_myUSqg@mail.gmail.com>
- <47bd50c8-28ce-45a5-ac88-2167b8ec2baf@web.de>
+	id 1w4kWV-0000000HOZe-0nCT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 19:01:12 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48538c5956bso42133495e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 12:01:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774292469; x=1774897269; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iAQkTnFgl+8yd50clSd1ldbwKw7NVFGAMfnkLJg3I3Y=;
+        b=Inm5N5F8DgpLG1JBI50fdRKGtUYKKAvbOmfYpaSsUnUxF1DqbspKOvEJfmwe0ieE1Z
+         Kt+UfEbPB6U5hozc936mAw9lZu+M+RCmPs2b4GFP2pjyTc1ll+ObrTYJveVF1D7qYYg/
+         WOrv7M5AJ+75FRG4RS6/QACupwrolgR06CXNSdFMfwKtYBh6D9zjr94GlvRyIIVuVCY/
+         y20xQHW3MPeSnh8EnUOvEwA/dcw+Yh44kDDsoMOochaIRVPfpUo/o2OvmjaAj+rywsTe
+         kWfvC7PFTrST0gzL8oAvmu42MgIJobe+ai6/4O4e6L4a1w+mIhgxeZQTSwyLWtoWM77C
+         EzJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774292469; x=1774897269;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iAQkTnFgl+8yd50clSd1ldbwKw7NVFGAMfnkLJg3I3Y=;
+        b=B0d2orcZHEx53j/hatvgoQfVz0AZnYUFYH8hgGNwF8V9TqsAP9sZPu00hA+QbMGOq5
+         vqpcW5Kqbk61f/uTs3+xFcRJcCM+/3FvoNNGoLgwuMitQl2JNZN8fpw1iW+WBDrEaPSA
+         ch05lnOqxMFKF1vetNOZIvyEvKpAoyy4CS14CqOEvFTZdMLPu4bzQJo1Z4hG/ruyM6/M
+         llXNaTx9rFDf0JmLsNUL5iv6P3SLGQ82+z8b38+ah5NZlUbdmQJc3rMXVBQX6SZK4ngR
+         yrWcmVZuOol+p1SDam7raCYTcrXaZkUGBsncv0wZsYe5ijYME3sc8Q0ICCQtv964yuq3
+         j0EQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUE0SQ3+crlNlbR508whkHa1WqBT6/7cEI0FKawqdMMn/CM4pcrBn4jlMkNNE9lZYfL1lNSnf1pCzmrUEl67tL8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza/+tqyt2u3HOOWk2YBP+OGAw9BwGvK3y86t3O0O1P8k0Nl/pA
+	i/jOagyK9fyHODWRFAtdmhPeTsM+cvCa9oczCOj6tqPPXWkCMaveTVNzidHjb9JbOOE=
+X-Gm-Gg: ATEYQzxzWtKtLQJMRvW5iL6FI8xikFtRXljMCHIfFcwO+lGqk8cXXqxmYCn90hCyOzy
+	OVpomnaiXC1LgP68NFN8oINqd0y9q0HMYrCcR+u0lJvBsSFdFVFsIO8g3rVitE46rgt1eGV7u45
+	raK/bZtHN47xbuZ1pUZZLhH0ebEmpCQmKrxTcC6gIuV+2wdCUatQhPEo6Z2V6FCbIWvPzAZ+efs
+	7ixT5+aFiZqKaCHAeiDD+apk76m2C1ZLwM+0jcmGSqTnBoVca3nYvOPVBZOXX5V8nrOCHDr7Az2
+	92a5MgaBRcDlfE0zS3vjHQaRolRZrXdlNJXuB4ZtsC+hhuvLGvQO3T1ieXryBSK6fCdg2xq5uHJ
+	uIsDRk2huqVPI3tbQ1bF/0jiVuL0COsAKLjlnuApRXS+jdPiLPJ+fdrGLWyEnuAy7Xxztq0u6zX
+	Qq8MvKtRWsFX5GTQNW44nb3QXvRdFw
+X-Received: by 2002:a05:600c:4349:b0:486:fe83:861c with SMTP id 5b1f17b1804b1-4870f1fc613mr5830435e9.7.1774292468497;
+        Mon, 23 Mar 2026 12:01:08 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4870f822b83sm1713765e9.4.2026.03.23.12.01.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 12:01:08 -0700 (PDT)
+Date: Mon, 23 Mar 2026 22:01:04 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Linus Walleij <linusw@kernel.org>,
+	AKASHI Takahiro <akashi.tkhro@gmail.com>
+Cc: arm-scmi@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH v6 0/7] gpio: introduce a GPIO driver for SCMI
+Message-ID: <cover.1774283146.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZHNEvxJ+7aoee4pA"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <47bd50c8-28ce-45a5-ac88-2167b8ec2baf@web.de>
-X-Cookie: This is a good time to punt work.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_114733_872729_1665A821 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_120111_243697_3AFCE5F9 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +108,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This basically abandons my earlier attempts and goes back to Takahiro
+Akashi's driver.  Here is the link to Takahiro's patchset:
 
---ZHNEvxJ+7aoee4pA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+https://lore.kernel.org/all/20231005025843.508689-1-takahiro.akashi@linaro.org/
 
-On Mon, Mar 23, 2026 at 07:44:21PM +0100, Markus Elfring wrote:
-> > Just code review, I have fixed a similar one before.
->=20
-> Can such information mean also that any source code search approaches
-> would be involved here?
-> https://en.wikipedia.org/wiki/Code_review
+v6: Fix a build error when CONFIG_PINCONF is disabled
+    Fix the dt-binding subject and my email address
+    Use pinconf_to_config_packed() instead of PIN_CONF_PACKED()
 
-Feel free to ignore Markus, he has a long history of sending
-unhelpful review comments and continues to ignore repeated requests
-to stop.
+v5: Addresses Andy's cleanups to the driver.
+    Adrresses Krzysztof's comments about the dt spec file.
+    And almost all the subsystem prefixes were wrong.
 
---ZHNEvxJ+7aoee4pA
-Content-Type: application/pgp-signature; name="signature.asc"
+v4: Addressed Andy's comments about kernel-doc
+    Addressed Rob's comments on the spec file
 
------BEGIN PGP SIGNATURE-----
+v3: Forward ported Takahiro's patches and added some fixes ups to make
+    it work on current kernels.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBir4ACgkQJNaLcl1U
-h9C57Af+NqjsImq0bxUPqDXWMASC25bPn1ol/sq+XmMMoLUcffzZ62sKcnKJ0Us1
-ZH6Be/oVR+8pwi145jyzw4M3JF0147lCdgKJF2S3nJeYVxWWSrGHGy0gPrHlcLTu
-Rvdvs2ULEcYR3ItAiuyux3MHha+x/ZOPyoi7fQDrXJIj0DJjVyqBdJnpt38Ix9kd
-v6/+MMO4H3+tBEqUtwMRPYfll9TAPwvt2hVrU2ab5Azz3byqjtW9KGhjazOjCeCG
-xc9fCHcH8Up/Gv6yhH519+t8QaAufDgbBFS07g7Qw/txCPHnOBJkGeef4BwUe9iC
-j9a/WGJNXuE/GNCo3e1BmLGflUEaeg==
-=nwlR
------END PGP SIGNATURE-----
+AKASHI Takahiro (3):
+  pinctrl: introduce pinctrl_gpio_get_config()
+  gpio: dt-bindings: Add GPIO on top of generic pin control
+  gpio: gpio-by-pinctrl: add pinctrl based generic GPIO driver
 
---ZHNEvxJ+7aoee4pA--
+Dan Carpenter (4):
+  pinctrl: scmi: Add SCMI_PIN_INPUT_VALUE
+  pinctrl: scmi: Delete PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS support
+  pinctrl: scmi: ignore PIN_CONFIG_PERSIST_STATE
+  firmware: arm_scmi: Allow PINCTRL_REQUEST to return EOPNOTSUPP
+
+ .../bindings/gpio/pin-control-gpio.yaml       |  59 ++++++++++
+ drivers/firmware/arm_scmi/pinctrl.c           |   2 +
+ drivers/gpio/Kconfig                          |  13 +++
+ drivers/gpio/Makefile                         |   1 +
+ drivers/gpio/gpio-by-pinctrl.c                | 101 ++++++++++++++++++
+ drivers/pinctrl/core.c                        |  31 ++++++
+ drivers/pinctrl/pinconf.h                     |   6 ++
+ drivers/pinctrl/pinctrl-scmi.c                |  46 +++++---
+ include/linux/pinctrl/consumer.h              |   9 ++
+ 9 files changed, 255 insertions(+), 13 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/gpio/pin-control-gpio.yaml
+ create mode 100644 drivers/gpio/gpio-by-pinctrl.c
+
+-- 
+2.53.0
+
 
