@@ -4,153 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A86B2EC01CC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A524EC01CC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 11:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5iIGlhP1GxmWBISCr6xbm2BLgW/acl79hHZ+o+ZLILM=; b=5DHleihcsw9zUodcNR2vDf1LBj
-	RYb7J9Nlq3UagOhpKF8iWbtoMWQo1XihXpxqb29Ggtz2gL80vwWuJDSeRVSGme7pVKdrC4tFIUU1T
-	n9b02XeoU0t3UcLUR5m+CSTmHv/4s5Hi6Kf1PD0cm+xZzA3h5DNhQv9yHfldiciHQdW8k0z8Y7vPE
-	jNSr+lLCh4ScKhE/lhG5VH+reTMxp3mFBx76rYWa4F4mATtv9ZLmbRNeIDH8BXsu0p6nFNVzi618Q
-	F4J+ml6vqF+vyH7bCsiGyUv1/iTSjwk+5F7hNQ1ihFUHJmGtKtu3Bs0L2mutm6g4xALHcEwVwK0xc
-	t8iQqH7A==;
+	bh=tZ/CJ372O++VGNkJEcYMfrMLPZfurcWAJbtOkanVpSg=; b=kRSH/PAaFxhXt5aB7aQPzYGQpI
+	u3qBZmU41CuE72vFPLGcU6nXg1iQD0eroJHlLVAVJJWk22zpA3ZvOHxD2PjQfsyWuR1SlBZ1SH0p0
+	iCuRoCVcF1U575a/Ce7SPR5efW9VuvhXFOjojb33PKTmWsW77MUXsqHpGce6YsVSBSnJSNdYqL0V0
+	NavwjNORDsVkXZJj9T3IAi0pI1AfIx4hY6UX6/WnEaGl4R4lsBUnXfes7W3Y+AJA6GfbIuYGvzT8F
+	/pbX8K23CkUkpa1pJSHInVWj8+HM8pYvGzZYw1K/k1pME3Cuoy17bCHEd10HUUK38fMzSTyCPEhNK
+	y8T8FdNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dX7-0000000Gd0x-0uDf;
-	Mon, 23 Mar 2026 11:33:21 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w4dXe-0000000Gd7b-0ZXR;
+	Mon, 23 Mar 2026 11:33:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4dX3-0000000Gd0B-2e20
+	id 1w4dXc-0000000Gd6k-1nCA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 23 Mar 2026 11:33:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tZ/CJ372O++VGNkJEcYMfrMLPZfurcWAJbtOkanVpSg=; b=Pnhi/XH/A0mIw0Aj2xYc4w/oZS
+	dfKIxh/oT910Qj0X176QNX9T2RL97+Kp7K9b83wK3zWTtIU0PG5y1tTeysrPoyeXnMeeCsCEMK0b3
+	xQQlJchTc6HisYp825aLU2apkkyH9Qlkjk9VAvAn7uiC55OrppRqYLKZAvhsIHxq+XyW4Rr7d1THq
+	LsrEXmmCSTQCNKVqQ4AoaCW1sGom/Fl+qmfscoQiD+wmjfaN4mdGboERP2Py+p5UY6EmbodgOqmUv
+	V4zKIpzhh0DQv8DwVDR+zU4swhBZyCinNy+Sb2sht1bNjxHknjDSQEsEOna9lFLnQifhHwivggzDE
+	xRxz1JIg==;
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4dXY-00000001OAj-27CL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 11:33:19 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=hhk1Dx6xDDjm1ND5cmvz5OaIpCJFuWbNgveiVpseziIrlH/nPEZWbsgTui2zIGhoOSM0ZuYcSHbFwalsPUTS7Nbn9Jyv+SzRq2Comxm0pLvwc7u9cNvpkD12Mw0LKeGG5EqC0Auq01vtykmEscYimL3WvLoBpbCA3x+MxIMHb5481i7XC6eHN9bQhtV+N/dTUrPOrY43QnjXq+pTrB7FhFEWSv/6MnzCDEYPnjcEazCOGFDdihp4FFBprVJzv53P8C/IiSOZ5tAZqT3xFPMZ+4WpGYjIRExpVUDdB0WzrZsAmfvaDRZ4Lq3dx59fS7WMb4JbMJDglD94TDs3dAaFjg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5iIGlhP1GxmWBISCr6xbm2BLgW/acl79hHZ+o+ZLILM=;
- b=rpwmzMbboPUw731a+jlu+MNRGA4QGtUbZAPbZI4e1RTQX759/SotbD4cBM80f2rY27eOIJE7ICYCVdQUrgHOt8DXWzA5MQ/Zno/uOrY81SNbt1kzF14WZRzsekFQvbDJH1tr72In3QuuhqBklr6mIasAS0TSvPYJLeKA86dCQqNDDJiDnMQoK76uyJ9vdTW7ZmbewigRuFo3FF65R2QONrVmKL+NH99NQ0mYZk+AO0lWeMrBZawwKm4o06R3tvsoxrROzCEQynJyWFW9chwT98D7IuWknlT2Q/8egkudJTqwGrzpCmd2RKbNNcHachGmp+U9TGVbAs3B8o/gVJgmBA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5iIGlhP1GxmWBISCr6xbm2BLgW/acl79hHZ+o+ZLILM=;
- b=j5iC2pwM/Q6ODeYUIt27WHoX8M9ppVCzpdqPbcPQBL5U3AH3FDvF6Askp0rlsX8PbcfPSQsjoHKkf7UAig5F9+BDyX9O2Uk7tvq/vW1Y1i3/1k0Zj7GOwxtsXnJRx890k5v9csxZS2c2rbdjnxPIUSsTTCOExiR0XxYeK6+fwAU=
-Received: from AM7PR03CA0003.eurprd03.prod.outlook.com (2603:10a6:20b:130::13)
- by DU0PR08MB8688.eurprd08.prod.outlook.com (2603:10a6:10:400::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 11:33:10 +0000
-Received: from AM3PEPF0000A793.eurprd04.prod.outlook.com
- (2603:10a6:20b:130:cafe::eb) by AM7PR03CA0003.outlook.office365.com
- (2603:10a6:20b:130::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.29 via Frontend Transport; Mon,
- 23 Mar 2026 11:33:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A793.mail.protection.outlook.com (10.167.16.122) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
- via Frontend Transport; Mon, 23 Mar 2026 11:33:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tB8z3TP+fLItEoKHHoZqLRQynr6gTdrZGHL2byHuPYVyL1NmJ4kI5ns1iCeW8Lkht/xl1e1fvfWS6PfgItmxiZUj2GPoptsnSsevsaMBSl8T1Khos4vmXSkWxOm1KHzZTkVHlydseaWlY8Lm/DfFbfqYc1HPydqfdTqaVtnjlo9PdZOHbrKEobRky4EdY5xdAya/LJz9d5Et/yjFsJ2JTjPwIk6TtGdGcs5u6R6T8xrrS7gcB6SRYjAf0VvBoCvqSqy3KwP0ct+QBmEbHh12SqE4fhQfu1ZcBXd9qAJIu71XS8jEdmstQ4c7j4WFnK3PvJSKcBzQXM6aNm/0f6STtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5iIGlhP1GxmWBISCr6xbm2BLgW/acl79hHZ+o+ZLILM=;
- b=wrIayNxN+NWphAKLtVi/kN0M9zJ7ZfBIr1kqwZ5PZIWhpalNPIcfyUnQ7GqV/0MwpYUGXWgEz6Mdl++FNJV2nXwyioy+EL/t48osvoiHtFgASEohKEw90N3xKi0IiHNJ9VpZbK6S87dNEvrDBuEiNrdwjLsnVtVfKyc6lZZrRvIFDvOeD6k3xBAlmN5YZ5h+hsKbkuxTXZ2VrbZXNXQVbw3ZLkoieaSR2zeN/VXJBq491kpl6tZXIDb3ZtYQAUbiSTN+yuDaQwXtfqrFPop7EYXjFFRlQxXqhxj8kXT/UC6ctF1LwTndzz1yQ/nOc7F/qOynLdGacsSUMgMPV9G/PA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5iIGlhP1GxmWBISCr6xbm2BLgW/acl79hHZ+o+ZLILM=;
- b=j5iC2pwM/Q6ODeYUIt27WHoX8M9ppVCzpdqPbcPQBL5U3AH3FDvF6Askp0rlsX8PbcfPSQsjoHKkf7UAig5F9+BDyX9O2Uk7tvq/vW1Y1i3/1k0Zj7GOwxtsXnJRx890k5v9csxZS2c2rbdjnxPIUSsTTCOExiR0XxYeK6+fwAU=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
- by AS8PR08MB8804.eurprd08.prod.outlook.com (2603:10a6:20b:5ba::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 11:32:06 +0000
-Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
- ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9723.022; Mon, 23 Mar 2026
- 11:32:06 +0000
-Message-ID: <7ab3dcd2-23b9-45a6-84ef-9617c4614c0a@arm.com>
-Date: Mon, 23 Mar 2026 11:32:04 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 24/48] arm64: RMI: Allow populating initial contents
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-25-steven.price@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260318155413.793430-25-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0667.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:316::20) To DU4PR08MB11769.eurprd08.prod.outlook.com
- (2603:10a6:10:644::21)
+	Mon, 23 Mar 2026 11:33:51 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b6ce6d1d3dcso1305543a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 04:33:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774265625; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S3D612Qaore1yIcEAi0GDj7dnC8oL3cj3oa1h5/k0hrV1TQ5c3+p3y82wuS4Q7CudB
+         UTW38+FILK858MbgnzQDVPNk25M/fh1f87WdDMm6W9PNOpVFGp7qjSvmjj4oOLYsZTTN
+         xI3ZmA1jo21kWQSUSBl9rINEZ/9O1SE8EfGBtSMJWPPtoUqO7mxS6KLBy+RymaYsR9WQ
+         T6Kveexc12VdQSwknxscdP+6whYWQ7IX6wAmu17ZJlCTEp3X7JF9NrVWE0ZNNTYA2NFc
+         8gQfBw0l4RjPCids4tjZpjclITpOfR2BMngliX+SKjCk/wg7fpXkai+3greL3GFGZgtP
+         FT1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=tZ/CJ372O++VGNkJEcYMfrMLPZfurcWAJbtOkanVpSg=;
+        fh=WejlG5BtP3xvbht5JXdrlk78lXa5YX8Jx6PWOi2nE1I=;
+        b=keeJ7rkGbkt9JCbRx9eEGgGWo4y+GThhOb1bKXmjitzCfahqzVgqI829jWf0Alhrx+
+         Ed019xXc5mwpx6U27X248a9SUQPDr6nEOmyRWgXXOxPQxHM0ssgEca0hAmQ+QyJYcGnf
+         nsbcik7GBil/tNQco3YoJyGG0+82oEppjCyZGYkhg46Ef64M541vKx/07C9LGeHk+o86
+         S7lp6NaP9DtYADJq/eqdGn4DAUoUqzM6V4MFxvQfacZgK5GyOANoAQ5On6kb1WMq1SWx
+         oLIG1TV0o1c+LFfZXVXuEq67/BjLcwYat/UmUHvlvEZZKuFFXKI1P6l3ZyP8AH43Y1jb
+         jxBg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1774265625; x=1774870425; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tZ/CJ372O++VGNkJEcYMfrMLPZfurcWAJbtOkanVpSg=;
+        b=CtyBIReuO7tEjjO0ZfWDLYJR4lfga6Q+Kl/5U+p8RnrSH8JEIxXW5SDUTzd+okqh9W
+         +9hWjsPhZAhqwTe0w7TGxwOnfjpZbQlbJLINdbcwOkp5qFvF8O864y3ClXWOFnC4jiHY
+         TanudCUKayno6PYf05iTGcxBgmL+zSfoVTTveUdMBUs9/H8ju3oxYp1LVbukxdwNNqm+
+         nrUVxpHlZW/itj29PTX78fEfvvwsftQhPUIbYNbr70cBy5CiEC0HG+jESgGgrn8a74EZ
+         mZ/62Nh3nWdeqajtMlTQxkk9Q3J3YIFqERvfJ86Iw3guisCBXbKuWL7rXDgXR0mGCHnE
+         dPnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774265625; x=1774870425;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tZ/CJ372O++VGNkJEcYMfrMLPZfurcWAJbtOkanVpSg=;
+        b=eVHRsdXNkdu9vgSlmDAwK8/WnNKrR3t5X6LD+14+ChyCEuc+Ex/cJ8iSOpL3sVcpi3
+         BbBvOoCwW6wJdTiCVfmnZHQGmpqtJ/1CtKf2MBmBaUXSOGrZpgnmyxsZ7u5F2xNAt+lS
+         VlMxpR2uIATPk4zgPttzofsepgxCNYk2/PWK3b1ZrJzQXOof2+hvgnvOhphUJe0jlef/
+         PtyZcbO+bDk5U63qhBIHz3wDqml/G2WC7KbL6pjnvJ+N4yu7hdIGDWAFjko8LN6xcz6E
+         cr9Iq6PD5sEqT9zP3/Tk7D6Myi95Ke6VvMpN+KhE561Y+RiBbwxlzpVblIYOeuF5v/7d
+         bc7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVxYxZLH1i9WAbhdf06AEIoDydpSf/nHt9CHVFZmSyxmoe6b1A4kB3DFfMqP7VtaL5HGE6z7C4O4FqXlVAqzyDu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjTPez3hsElNhB5/Jrt7cqWq1lQYlWJnTPg7h7mNfYFjxleBMW
+	TvrQ2vT7Wy2gIb8g9Ox9P8xfNjD7AyN8cEF10VXBpt9FtnHWGcMmc3vaWcl8VCZcJRjZhmPJQQ0
+	D6N/AVShUeUhPzmREeKbb6kOeBEybo+8=
+X-Gm-Gg: ATEYQzz34zFjW9wN5Cexr2GZZ2JHmSjh7oh/RskgVMcijtaFi8yOAOwMPq8gFRv4n3R
+	0rCn3QbxfA2x/8qywMRixklEfj5wI+8OQ94jJmhMsovLroOMAclAhkEvD9TWlW/JsCOd+KCXeCa
+	RnFRl7sKQWA+1eE21Z2XcyyDHnda3HUhnX9Ou14iWYkFz7+bEKanTX5xY/aOEwa1O4AqIVGLTyg
+	V8w0n5D+RhyIcvNz31veggZiRO5pevIeWp+DTfXOzYkJOg0FOrGVrowyjR+B0DR5Y9iiTSz1d43
+	VawxhNku
+X-Received: by 2002:a05:6a21:4ec4:10b0:39b:d9f1:6ce8 with SMTP id
+ adf61e73a8af0-39bd9f17360mr7025738637.59.1774265625133; Mon, 23 Mar 2026
+ 04:33:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AS8PR08MB8804:EE_|AM3PEPF0000A793:EE_|DU0PR08MB8688:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ba26419-59f6-4cf6-cc31-08de88cff5c4
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: z5/3Jiw3fiOPAgtvcj0LPCRAWjz/R93g5TGLA+R72XGOevGFOdRh+mhoz7hTp3loLOZEmZ1VLfI8nboe8Ms2/A8Xtf7G0LltDAsEUsZL3pIeggTYVZF/cSCcU3RdcIjXN1lGWnWMvbO5LZb13mW2inwBWFHHR9QK3w+u2ELpXDLDe34XHh0cywoXG4M3cmMJPkfFJV7LuPXXPMGChC95b0ITzlZc+PUb7sS4X00W7wB4JgjYh3Kerj9SGKBKCHXZXPrWBN66dnGZuSue+tAWIdbSrH0rQtw7I8ezHkR3a/0Ue/p1IJIGPuR2wBTKiiGQjhATvBaa1efS0XGD3gC62jbqq6ZJbTqDUUvHRq6xJWZ+SK9w0Vcb0Ox7XE0y//m5Y/cCpoj0YbP1o0HYDarge8MmwxUnEXK8D+d1kHMXEur/aP0d1mkv/v7vW3nfaI1vmKB1Z5WK8nQaMDYUQ1gxqGtFoiraDhPNejGHejFUl6Hg/NGqcCITnwRkvIo4U1ZtnYvECT2X+FvV/XqOd2AlEmGWDu25Ywh+zq+8giNPyVHqqvgZqoz0TtN8QgCTAR5UKgf/lmM1nzNTZaTJJYxklHhbaoGLL+OA164Ef/fAYfqYZBv6TwUcziaC1YpF1aRIUEMFrLmAiXfqy+KxqK0ut4Gfku9614UQXxNemj2TxHesp4KWJjXNDw7A6kjPpXxeEGRlNYpix1rmVIDIFn2yoK3f0219IM/O1wF4sV6547I=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: kj17I6nd/AeRoO1ugztcrnpjLluhmhbzsbzDbLCAmpzfAyXTaWZ3DJcaYJCYIIGnR21j6m7WlHShgj7mZW6hjk1UDykgFkkTnDY+bMbaocnqQ7XVeqWCocVlv3mYxULDVa2bLtzrWs6ueeMDZvvqaKZ9Ox1yypceTDbntqLVcuSRn5SGFwX/32XVKs5talb9wOmtagyzUdkFXbDKhwQ1pj6T4anENmIswxLwuGOQ4W4BrPpFlXH3hA6iXXC2JDA4+BsBmzT2jYW46Syv+ycQTks0HAOIbBA345qt8o5vZrtLpVA/PqtHHqTwGTmn1lmHG8lMksBuKi4fgbVqxsUavw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8804
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A793.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d721d023-4e25-4fe7-62fc-08de88cfcfc4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|1800799024|82310400026|7416014|376014|14060799003|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 5JOqZ6SP+LzShPPN5YtU7QAXFk6cjMEp9Ght0WgMpXlIXgEp8pdqVBPK0SCxsWFdpHvRpNi3wJvcoHLzuynaMCpzjnGTYUKGEbjJVu/WruPd8klfcde9YobEXtRmYIECvEDGjPLM6bKgyFCR4GAPYJrLrNEnR720Aae35XkPtBTTlrnnLwsCzg/PbDCTOhxaCzhueNZinOeIVGLCxjN3pe+2LJ4smSns7eKZxyaLXmFG6w4dP6qMCsgdffcihBxkedtnSxbuBURzIXPOzI2k1HO7zEv9oJft9GwNQRPHmzXQb3e/0NgDyrMwLu5cnQmPGs1mifH7iwKoRy00j3tx/XBq5F+4saXhyQ7qIxVHhEhjOaKPSjcE4Xz3D9jVBgcriaaVmWBU9RX9cEn9Kvz1xS/C7rRj1Ndj3XtlGvyVjXiK2W5irlhvl6mNJGS5pq0h7WzSHIBxlvR9DyqgN/cgPYD/3DWBvkU3GdZPvpLszoArKoOkE5j/HOks2NKFAsw/WCBpvGD6Ogt/e5eun5Zflq9iUmnAIh6mbKEw2cmP7LzpoLH2YjA+1T2EGEIQO9nVfMIvUg+6LoH9JtxLGgMvDkeQ5fYycgcJ3cBdeBSXNVSOZGtokY7H6qlefD/UjVw7zCRatKbw/qynJWqo6TQicqTU8BhZ2IlkO2F/SYfjB9thRKWwO7jneqr3nxuv2eaU6mHsnfpf3BkNEeeZQ1rEgbpnrrrb/U8n6A1Yee9IPC6D3MoofXNi4EFAPMWc8u4yd8998bGQfKhYL9SPEbw6WA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(1800799024)(82310400026)(7416014)(376014)(14060799003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: s5/aysC7IW34jLALM/orQqdVKUJrYve6z5xgzJTzdXJlOzsegs1bRzjA7p3hMzOukKGGHsca1o3S76yHR81BJq6jIL0i3GRVtuGlWpu7FWyn0e1fsUtXbjF1luabtyVghqHvONQVJlJznZuFNRwbYO1sS5Whsk2TMwDegx2Uvsbz6dN55TNfC6cD9ybAuutBbp6oriR2qXNhhGIIdBMAY5fldLliFLmxQRPsKLr9GFtAwGPKwE1jxKa0y4siP/Ydmd9uZTJ15yK2dDr3onxkMMgijBhCkW0lw9p0l6L1cMF5anwIYYsPr4qAWXts5qWye3e0h3oExYPGWisLI/dpCzpn/5eIOxRd2FhJKKI2iNomlNmUx3JtmYRWU+7169PN4aXbqwNhhbZxrskJ13OSup/P47duBmdiUPZX08FUKaiEU5SGwd0YlPOO+sV3WZnC
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 11:33:09.5056
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ba26419-59f6-4cf6-cc31-08de88cff5c4
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A793.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8688
+References: <20260322-rockchip-v1-1-fac3f0c6dad8@gmail.com> <acEcJJgoaaOdBz70@hovoldconsulting.com>
+In-Reply-To: <acEcJJgoaaOdBz70@hovoldconsulting.com>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Mon, 23 Mar 2026 19:33:34 +0800
+X-Gm-Features: AaiRm51fMHcHwpQ2lYhMbJk1jYvV2u3krU4fRyFnpLfPmI3k8CiscRrZsq0Trqk
+Message-ID: <CAN4SLj0P1pAAMBbuWhbnjfwqd-5bwsNroeMzghv0P0Y_myUSqg@mail.gmail.com>
+Subject: Re: [PATCH] spi: meson-spicc: Fix double-put in remove path
+To: Johan Hovold <johan@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Dongliang Mu <mudongliangabcd@gmail.com>, linux-spi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_043317_823594_ACA5E5C6 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20260323_113348_694300_C3334012 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,240 +133,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 15:53, Steven Price wrote:
-> The VMM needs to populate the realm with some data before starting (e.g.
-> a kernel and initrd). This is measured by the RMM and used as part of
-> the attestation later on.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v12:
->   * The ioctl now updates the structure with the amount populated rather
->     than returning this through the ioctl return code.
->   * Use the new RMM v2.0 range based RMI calls.
->   * Adapt to upstream changes in kvm_gmem_populate().
-> Changes since v11:
->   * The multiplex CAP is gone and there's a new ioctl which makes use of
->     the generic kvm_gmem_populate() functionality.
-> Changes since v7:
->   * Improve the error codes.
->   * Other minor changes from review.
-> Changes since v6:
->   * Handle host potentially having a larger page size than the RMM
->     granule.
->   * Drop historic "par" (protected address range) from
->     populate_par_region() - it doesn't exist within the current
->     architecture.
->   * Add a cond_resched() call in kvm_populate_realm().
-> Changes since v5:
->   * Refactor to use PFNs rather than tracking struct page in
->     realm_create_protected_data_page().
->   * Pull changes from a later patch (in the v5 series) for accessing
->     pages from a guest memfd.
->   * Do the populate in chunks to avoid holding locks for too long and
->     triggering RCU stall warnings.
-> ---
->   arch/arm64/include/asm/kvm_rmi.h |   4 ++
->   arch/arm64/kvm/Kconfig           |   1 +
->   arch/arm64/kvm/arm.c             |  13 ++++
->   arch/arm64/kvm/rmi.c             | 111 +++++++++++++++++++++++++++++++
->   4 files changed, 129 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index 46b0cbe6c202..bf663bb240c4 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -96,6 +96,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
->   int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
->   int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
->   
-> +struct kvm_arm_rmi_populate;
-> +
-> +int kvm_arm_rmi_populate(struct kvm *kvm,
-> +			 struct kvm_arm_rmi_populate *arg);
->   void kvm_realm_unmap_range(struct kvm *kvm,
->   			   unsigned long ipa,
->   			   unsigned long size,
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index 1cac6dfc0972..b495dfd3a8b4 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -39,6 +39,7 @@ menuconfig KVM
->   	select GUEST_PERF_EVENTS if PERF_EVENTS
->   	select KVM_GUEST_MEMFD
->   	select KVM_GENERIC_MEMORY_ATTRIBUTES
-> +	select HAVE_KVM_ARCH_GMEM_POPULATE
->   	help
->   	  Support hosting virtualized guest machines.
->   
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index badb94b398bc..43d05da7e694 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2089,6 +2089,19 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
->   			return -EFAULT;
->   		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
->   	}
-> +	case KVM_ARM_RMI_POPULATE: {
-> +		struct kvm_arm_rmi_populate req;
-> +		int ret;
-> +
-> +		if (!kvm_is_realm(kvm))
-> +			return -ENXIO;
-> +		if (copy_from_user(&req, argp, sizeof(req)))
-> +			return -EFAULT;
-> +		ret = kvm_arm_rmi_populate(kvm, &req);
-> +		if (copy_to_user(argp, &req, sizeof(req)))
-> +			return -EFAULT;
-> +		return ret;
-> +	}
->   	default:
->   		return -EINVAL;
->   	}
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index 13eed6f0b9eb..b48f4e12e4e0 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -718,6 +718,80 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
->   		realm_unmap_private_range(kvm, start, end, may_block);
->   }
->   
-> +static int realm_create_protected_data_page(struct kvm *kvm,
+> Indeed it does:
+>
+> Reviewed-by: Johan Hovold <johan@kernel.org>
+>
+> > Fixes: 8311ee2164c5 ("spi: meson-spicc: fix memory leak in meson_spicc_remove")
+>
+> While only root can trigger this it should probably still go stable:
+>
+> Cc: stable@vger.kernel.org
+>
+> > Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+>
+> How did you find this one? Are you using some kind of static analysis
+> tool or LLM?
+>
+> Johan
+Hi Johan,
+Just code review, I have fixed a similar one before.
 
-minor nit: To align with the RMM ABI, could we rename this to :
-
-	realm_data_map_init() ?
-
-> +					    unsigned long ipa,
-> +					    kvm_pfn_t dst_pfn,
-> +					    kvm_pfn_t src_pfn,
-> +					    unsigned long flags)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	phys_addr_t rd = virt_to_phys(realm->rd);
-> +	phys_addr_t dst_phys, src_phys;
-> +	int ret;
-> +
-> +	dst_phys = __pfn_to_phys(dst_pfn);
-> +	src_phys = __pfn_to_phys(src_pfn);
-> +
-> +	if (delegate_page(dst_phys))
-> +		return -ENXIO;
-> +
-> +	ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
-> +	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-> +		/* Create missing RTTs and retry */
-> +		int level = RMI_RETURN_INDEX(ret);
-> +
-> +		KVM_BUG_ON(level == RMM_RTT_MAX_LEVEL, kvm);
-
-A buggy VMM can trigger this by calling RMI_POPULATE twice ? Should we
-return -ENXIO here rather ? The delegate_page() above could prevent
-normal cases, but is the VMM allowed to somehow trigger a "pfn" change
-backing the KVM ? Either way, this need not be Fatal ?
-
-Otherwise looks good to me.
-
-Suzuki
-
-
-> +
-> +		ret = realm_create_rtt_levels(realm, ipa, level,
-> +					      RMM_RTT_MAX_LEVEL, NULL);
-> +		if (!ret) {
-> +			ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys,
-> +						    flags);
-> +		}
-> +	}
-> +
-> +	if (ret) {
-> +		if (WARN_ON(undelegate_page(dst_phys))) {
-> +			/* Undelegate failed, so we leak the page */
-> +			get_page(pfn_to_page(dst_pfn));
-> +		}
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
-> +			      struct page *src_page, void *opaque)
-> +{
-> +	unsigned long data_flags = *(unsigned long *)opaque;
-> +	phys_addr_t ipa = gfn_to_gpa(gfn);
-> +
-> +	if (!src_page)
-> +		return -EOPNOTSUPP;
-> +
-> +	return realm_create_protected_data_page(kvm, ipa, pfn,
-> +						page_to_pfn(src_page),
-> +						data_flags);
-> +}
-> +
-> +static long populate_region(struct kvm *kvm,
-> +			    gfn_t base_gfn,
-> +			    unsigned long pages,
-> +			    u64 uaddr,
-> +			    unsigned long data_flags)
-> +{
-> +	long ret = 0;
-> +
-> +	mutex_lock(&kvm->slots_lock);
-> +	mmap_read_lock(current->mm);
-> +	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
-> +				populate_region_cb, &data_flags);
-> +	mmap_read_unlock(current->mm);
-> +	mutex_unlock(&kvm->slots_lock);
-> +
-> +	return ret;
-> +}
-> +
->   enum ripas_action {
->   	RIPAS_INIT,
->   	RIPAS_SET,
-> @@ -815,6 +889,43 @@ static int realm_ensure_created(struct kvm *kvm)
->   	return -ENXIO;
->   }
->   
-> +int kvm_arm_rmi_populate(struct kvm *kvm,
-> +			 struct kvm_arm_rmi_populate *args)
-> +{
-> +	unsigned long data_flags = 0;
-> +	unsigned long ipa_start = args->base;
-> +	unsigned long ipa_end = ipa_start + args->size;
-> +	long pages_populated;
-> +	int ret;
-> +
-> +	if (args->reserved ||
-> +	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
-> +	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
-> +	    !IS_ALIGNED(ipa_end, PAGE_SIZE) ||
-> +	    !IS_ALIGNED(args->source_uaddr, PAGE_SIZE))
-> +		return -EINVAL;
-> +
-> +	ret = realm_ensure_created(kvm);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
-> +		data_flags |= RMI_MEASURE_CONTENT;
-> +
-> +	pages_populated = populate_region(kvm, gpa_to_gfn(ipa_start),
-> +					  args->size >> PAGE_SHIFT,
-> +					  args->source_uaddr, data_flags);
-> +
-> +	if (pages_populated < 0)
-> +		return pages_populated;
-> +
-> +	args->size -= pages_populated << PAGE_SHIFT;
-> +	args->source_uaddr += pages_populated << PAGE_SHIFT;
-> +	args->base += pages_populated << PAGE_SHIFT;
-> +
-> +	return 0;
-> +}
-> +
->   static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
->   {
->   	struct kvm *kvm = vcpu->kvm;
-
+Best regards,
+Felix
 
