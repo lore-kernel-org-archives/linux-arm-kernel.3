@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC421EC01A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67899EC01A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sNHUd0dgYZHbeTJ4zF/IZbJ7G4j074Qy84sj+eAWSFM=; b=oep9bMNa58yXx47hfaY5lpT27V
-	DShOoWJJJYBsyvyMMWFECaBKGrX4xTUZo0p9+LxOMa4H32AWJhqooeUkCnJyJ6FiURTavvr12AsQc
-	bWtnL0k50tbJ9F7h5qI5r/4salVTpuwoh3bSIIJREE1f3L5LERnslK7HxhfQBMmuME6cgR42Ih/rs
-	qblCkp+92o4u0t7fpOmS10UNbeKY79xv8JK9UwG/lai4HyUZODI5ly4zNqGGmR/YwFFOOt216Gw3B
-	dW7uXUFW/d+d9iwFN2cpLRL51HFlnoda5MjVnDSDYuSjTIg9q1JHp2k2StQWxxxIZbi/PU/Ee8U15
-	pEkgO/zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Gs2RZLpHT3ifgXXfVmwMH7ojJK01k7KkJ79Z9saNdI=; b=upql1fgPz8KqhbscDR6OhhvZ/L
+	dv5mrbm2c0yXwpNCKGulg7h/OFgxxHBQ/vzanR6XQ2AbxBumcNlC4gj/txy9UEydU47FBJnJbIbHk
+	jrnn9TdIGnXUZRsB76Pkr1V6PWUpaKf48g39uc9utCs04cypUiEDR/Ti+0mYB2HfwBO0UwKoVvX6/
+	X8/Vj3+kNBzdS88oFg7NN/MuLauPx65k+rem/Qa1BkFyUo9kiVjrUFgJ+fVqWesd9I8rGMDVrkuCG
+	iNMRjWM9LFf2InTPpLrxE7uAmsX/wtfCcS2cIT0K6HE7VYmvKSBtwwryK05JuNbULkSNlmNsAYJOM
+	/iX3vd6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bBI-0000000GKEk-15HN;
-	Mon, 23 Mar 2026 09:02:40 +0000
+	id 1w4bBs-0000000GKLC-17Q1;
+	Mon, 23 Mar 2026 09:03:16 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bBF-0000000GKDn-3Q4z
+	id 1w4bBn-0000000GKJQ-2WFs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 09:02:39 +0000
+	Mon, 23 Mar 2026 09:03:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87B0540559
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 09:02:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65367C4CEF7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 09:02:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B971F404E8;
+	Mon, 23 Mar 2026 09:03:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B02A9C2BC9E;
+	Mon, 23 Mar 2026 09:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774256557;
-	bh=sNHUd0dgYZHbeTJ4zF/IZbJ7G4j074Qy84sj+eAWSFM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Oo3H8yPTy0NuSyqL3st9CCsvedMPGdft50GdIp8JT4klEkj6o66DihGIRdSLvBM8T
-	 H/BPM4AshQ/UbVPrfKhQNvsgtV0JrmOFE4OCvwttNeYn4ENvwBHaVbvleKx8YzIHA/
-	 lewWnz7G/k4yMNJ7s/BfQBTphChWpqEs85XMDwClCtHfSgbWU5uVJxu+g0WE5IJcuo
-	 qbTTwzi1ZWTLMUkMowkOU0HBU1fb56J6utZs8e96+zlM90zowvQ4x0nJZpr290f+7q
-	 jnlBxeuQ4g2xgkfxXD7OhFbOTcHHegBJcXa0xnpY4falaeMU/bnOV/h80NVNVk4zqi
-	 pxGgoOkSXBhyA==
-Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-64ad46a44easo3510023d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 02:02:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVgeZmEevrL6nd76pXpoEnOlvbJAQmgwdwz3HoDN7IQUyWOIbvfrI8O/0x8AzleT4hnb1sF0wWjN8zYlNiWhmY0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcbYTf/VEK5CODtLEPKbZZZjbmfL1kfNUMbQyDpNCUyypZ6qG8
-	UXJxMCk8UF29zgDsVCFh8YkBZfYxh9epqy7agYMuj4hFPAV8PTN3miJesyOnHG7dGJvp8Let1Ms
-	lT3ItsBnRmotqkOhdNeH2jHWmZz3GIdU=
-X-Received: by 2002:a53:e1a4:0:b0:649:f002:582b with SMTP id
- 956f58d0204a3-64eaa683c99mr8644694d50.7.1774256556643; Mon, 23 Mar 2026
- 02:02:36 -0700 (PDT)
+	s=k20201202; t=1774256588;
+	bh=IEWz/yDGTqNpb9yF4r5qDEyb/sGLpVM6hsRHTY8svVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EYrZFK5sh4eEIon27+KRCuxRRlO+nCshQb3BJJSDa057fK9I2qx5BaZzEAnJPsDXD
+	 OWtaco5xO42HLCMofsfuJI0VUvPfv82XiE4HbrrkqGxbdKQQoepzxUmM2iiVTEr6qR
+	 NMDuAFoKsJBNsh/k9uOQ3VpSiYkNctpMtKQzu5b/eCBnB3qylq4ryKQRyCeUsipsft
+	 SIsrvYMfmsPGADl3ITVarsrX6obTFGU1W+FOrV83mEyFeXPKm9dlO5uak6vi4diqoG
+	 UBMdzDRq7xV9WdeV900A+cP+XDNj1+miTSeg/4E2epFIeO84bXq5Q30Ps9LvSUXXfa
+	 ZsoO7G/XnXFpA==
+Date: Mon, 23 Mar 2026 14:32:57 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v13 04/12] dmaengine: qcom: bam_dma: Add
+ pipe_lock_supported flag support
+Message-ID: <ak4ktv4qjmjkiodahqees46gmyt3yabbd3r5f7kcf3ufq3oikm@yirezure7rlh>
+References: <20260317-qcom-qce-cmd-descr-v13-0-0968eb4f8c40@oss.qualcomm.com>
+ <20260317-qcom-qce-cmd-descr-v13-4-0968eb4f8c40@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20260317115411.2154365-1-eleanor.lin@realtek.com> <20260317115411.2154365-9-eleanor.lin@realtek.com>
-In-Reply-To: <20260317115411.2154365-9-eleanor.lin@realtek.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 23 Mar 2026 10:02:25 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkC2h+VWRLh=Rv03PbG8Lca1DuuAAs7Bish=OV7KZmiWg@mail.gmail.com>
-X-Gm-Features: AQROBzBCpGWcw3Ira5gAjDFEnKBy5l--tJzRHpH9Xs-JDfdozczVjqRXrnvq1ZE
-Message-ID: <CAD++jLkC2h+VWRLh=Rv03PbG8Lca1DuuAAs7Bish=OV7KZmiWg@mail.gmail.com>
-Subject: Re: [PATCH v4 8/8] arm64: dts: realtek: Add pinctrl support for RTD1625
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	afaerber@suse.com, bartosz.golaszewski@oss.qualcomm.com, 
-	james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, 
-	tychang@realtek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260317-qcom-qce-cmd-descr-v13-4-0968eb4f8c40@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_020237_863683_BA945826 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_020311_686584_275EDBEB 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,15 +82,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 12:54=E2=80=AFPM Yu-Chun Lin <eleanor.lin@realtek.c=
-om> wrote:
+On Tue, Mar 17, 2026 at 03:02:11PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> Extend the device match data with a flag indicating whether the IP
+> supports the BAM lock/unlock feature. Set it to true on BAM IP versions
+> 1.4.0 and above.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-> Add the pinctrl nodes for the Realtek RTD1625 SoC.
->
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Acked-by: Manivannan Sadhasivam <mani@kernel.org>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+- Mani
 
-Yours,
-Linus Walleij
+> ---
+>  drivers/dma/qcom/bam_dma.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> index 8f6d03f6c673b57ed13aeca6c8331c71596d077b..83491e7c2f17d8c9d12a1a055baea7e3a0a75a53 100644
+> --- a/drivers/dma/qcom/bam_dma.c
+> +++ b/drivers/dma/qcom/bam_dma.c
+> @@ -115,6 +115,7 @@ struct reg_offset_data {
+>  
+>  struct bam_device_data {
+>  	const struct reg_offset_data *reg_info;
+> +	bool pipe_lock_supported;
+>  };
+>  
+>  static const struct reg_offset_data bam_v1_3_reg_info[] = {
+> @@ -181,6 +182,7 @@ static const struct reg_offset_data bam_v1_4_reg_info[] = {
+>  
+>  static const struct bam_device_data bam_v1_4_data = {
+>  	.reg_info = bam_v1_4_reg_info,
+> +	.pipe_lock_supported = true,
+>  };
+>  
+>  static const struct reg_offset_data bam_v1_7_reg_info[] = {
+> @@ -214,6 +216,7 @@ static const struct reg_offset_data bam_v1_7_reg_info[] = {
+>  
+>  static const struct bam_device_data bam_v1_7_data = {
+>  	.reg_info = bam_v1_7_reg_info,
+> +	.pipe_lock_supported = true,
+>  };
+>  
+>  /* BAM CTRL */
+> 
+> -- 
+> 2.47.3
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
