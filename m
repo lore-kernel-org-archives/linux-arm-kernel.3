@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EAFEC01B1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCEEEC01BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 10:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6keZ0J8bp8XaUyK9YS2ONZrB864NUMZU0QHXs1cWj4=; b=MrtJKVv34s1H1r9jCEHMftipII
-	ze2aNGlwJZmLn1DVDIGd6BSAns1zUyFbg5ATxHPwou8ttM/b9Ea05Prbuqh87xgGGWaegKkYYydEk
-	pSyaPUS4/0BmaA3Ocofi65YhRNmk+/Knpj2NmoFlggTa+ZbwUHDmNquB7vEGPaeEYIDdsvIMsWx57
-	LVfGe4mLnYC+mQvUdFapE6A0Ltks5bXTguWU1gnlz6VqVdJKzWp6d1E1LjClXmsP2CMRhfIGm9fou
-	d1myEEBCSMUKqIHynX0JtzIL29CBDuaQv9pO6gxwCPj9TII48tT9zp7SUN+IYnscYyAEqnb5Okqiv
-	mbbBLdXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kJTb0xkbZjVRAhnixAaE2Mem1YPJq8VLXXpUQXHVEx8=; b=S6yVBo++1DbkuOxP0+oGNV5J4K
+	oZtMF+Y+sSQQA/v03n9fmJ8m6lZqDNxS4givxRFGgObieguwtlzhYWAvE8gKcR4Dftu4u4tJt1l2l
+	6dV6ZjCg0OK/segnkxsfwPVKztyCwcv/hnBIq/DGmI7aHCQW3vnZqMOswDCED02Y1p0ev0YE6Hayr
+	O7sMbQ+FqFxcfBVhPk1byPMWaPtCJ14b5QX1k2Q2x96KjL2u1cxOauolgtrSEXsdrrM/iwYZeDfT2
+	KRQy12x2XmdKFurqV37TqWd1kgXeg5gzovE6KY+n55Kcy3Vk88g1+e9gxWs6mKxXWj1M+RMlP7pKm
+	8VXsoGew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cGS-0000000GT8L-1g1U;
-	Mon, 23 Mar 2026 10:12:04 +0000
-Received: from www537.your-server.de ([188.40.3.216])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4cGP-0000000GT7V-0Sfw
+	id 1w4cIF-0000000GTJJ-1jyU;
+	Mon, 23 Mar 2026 10:13:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4cIC-0000000GTIV-2j9f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 10:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=W6keZ0J8bp8XaUyK9YS2ONZrB864NUMZU0QHXs1cWj4=; b=Qf5aIl4GVdq+PVzn9w/hvh7DOX
-	FCCUAW7ftXAsDzHJNPTVjt7mwFKnUwy03aE9Xs7W/wrZ1IZ36xE2uXOt+E/SU8cGgCzyZq3ezpmn1
-	99UmOCXZ0oTFgxS/00h14C2XCgPvHsTEwAypDJy6TRq30NfdCPXSfeh66zklbOg0ehoOExCyJffSF
-	kb/bp9qhyQ8oVg1MxcQnCrDW1VI4Frxa4NcgDzKb7Nqy5zbETXlZfsdzxokLbdjblfxSdFZzUhTTc
-	ct4yKgRDo/i5WvBZUWM6SRR4gzIo5X/ZFUuB1Mt7A6nwO2kS5r52kTaxvUNF35OCuRejf3EsIoigK
-	2qoF9H4Q==;
-Received: from sslproxy08.your-server.de ([78.47.166.52])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w4cGF-000MKb-02;
-	Mon, 23 Mar 2026 11:11:51 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w4cGD-0009hO-2R;
-	Mon, 23 Mar 2026 11:11:50 +0100
-Message-ID: <9e5367c6dfba0708578cda69fc48531b3749b5e8.camel@ew.tq-group.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-j722s: Add main_i2c4 device node
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Aniket Limaye <a-limaye@ti.com>, Nishanth Menon <nm@ti.com>, Vignesh
- Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, u-kumar1@ti.com, Jared McArthur
- <j-mcarthur@ti.com>
-Date: Mon, 23 Mar 2026 11:11:49 +0100
-In-Reply-To: <20260304-j722s-main-i2c4-dt-v1-1-03f79f0cdf97@ti.com>
-References: <20260304-j722s-main-i2c4-dt-v1-1-03f79f0cdf97@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	Mon, 23 Mar 2026 10:13:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABEEE1516;
+	Mon, 23 Mar 2026 03:13:43 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B7863F63F;
+	Mon, 23 Mar 2026 03:13:44 -0700 (PDT)
+Message-ID: <80915f50-b5c9-4790-81c6-4f08b2af1274@arm.com>
+Date: Mon, 23 Mar 2026 10:13:43 +0000
 MIME-Version: 1.0
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27949/Mon Mar 23 07:24:47 2026)
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v6 14/40] arm_mpam: resctrl: Add boilerplate cpuhp and
+ domain allocation
+To: Gavin Shan <gshan@redhat.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260313144617.3420416-1-ben.horgan@arm.com>
+ <20260313144617.3420416-15-ben.horgan@arm.com>
+ <98708bfe-7930-49d5-b383-42b7b2d6759d@redhat.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <98708bfe-7930-49d5-b383-42b7b2d6759d@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_031201_415169_9B1F3D4B 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20260323_031352_820097_B4EF32DD 
+X-CRM114-Status: GOOD (  35.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,158 +79,568 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-03-04 at 14:41 +0530, Aniket Limaye wrote:
-> Add missing device tree node for main_i2c4, and the corresponding ranges
-> in cbass_main. Interrupt for this i2c controller is routed through the
-> Main GPIOMUX Router.
-> Base address, Interrupt IDs are taken from J722S TRM [0].
-> Device, Clock IDs are taken from TISCI docs [1].
->=20
-> Additionally, the I2C4 is the only interrupt source to the GPIOMUX INTR
-> router that generates level interrupts, while all other sources generate
-> edge interrupts. Due to this, the router needs to handle interrupt-type
-> on a per-line basis. Modify the router node and its consumers to
-> specify the interrupt type corresponding to each interrupt line.
->=20
-> [0]: https://www.ti.com/lit/zip/sprujb3
-> [1]:
-> https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/index.html#j722s
->=20
-> Signed-off-by: Jared McArthur <j-mcarthur@ti.com>
-> Signed-off-by: Aniket Limaye <a-limaye@ti.com>
-> ---
-> Note:
-> Support for per-line interrupt-types was added through a recent series
-> [2], which was already merged in.
->=20
-> Testing:
-> - Enable I2C4 (additional DT patch) on j722s-evm and run i2cdetect [3].
-> - Add testcode to ignore the NACK interrupt, which results in an irq
->   storm -> showing that GIC is actually receiving level interrupt from
->   the INTR [4].
+Hi Gavin,
 
-I ran a basic test on our MBa67xx board based on current linux-next with th=
-is
-patch applied. Probe and configuration of a RPi DSI camera module (IMX219)
-connected to I2C4 is working as expected.
+On 3/23/26 06:31, Gavin Shan wrote:
+> Hi Ben,
+> 
+> On 3/14/26 12:45 AM, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> resctrl has its own data structures to describe its resources. We can't use
+>> these directly as we play tricks with the 'MBA' resource, picking the MPAM
+>> controls or monitors that best apply. We may export the same component as
+>> both L3 and MBA.
+>>
+>> Add mpam_resctrl_res[] as the array of class->resctrl mappings we are
+>> exporting, and add the cpuhp hooks that allocated and free the resctrl
+>> domain structures. Only the mpam control feature are considered here and
+>> monitor support will be added later.
+>>
+>> While we're here, plumb in a few other obvious things.
+>>
+>> CONFIG_ARM_CPU_RESCTRL is used to allow this code to be built even though
+>> it can't yet be linked against resctrl.
+>>
+>> Tested-by: Gavin Shan <gshan@redhat.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Tested-by: Zeng Heng <zengheng4@huawei.com>
+>> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+>> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
+>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since rfc:
+>> Domain list is an rcu list
+>> Add synchronize_rcu() to free the deleted element
+>> Code flow simplification (Jonathan)
+>>
+>> Changes since v2:
+>> Iterate over mpam_resctrl_dom directly (Jonathan)
+>> Code flow clarification
+>> Comment tidying
+>> Remove power of 2 check as no longer creates holes in rmid indices
+>> Remove unused type argument
+>> add macro helper for_each_mpam_resctrl_control
+>>
+>> Changes since v3:
+>> Add and use mpam_resctrl_online_domain_hdr()
+>> mpam_resctrl_alloc_domain() error paths (Reinette)
+>> rebase on x86/cache changes rdt_mon_domain becomes rdt_l3_mon_domain
+>> etc
+>>
+>> Changes since v4:
+>> Set rid in domain_hdr
+>> Use rescctrl_res.alloc_capable to determine if alloc_capable as the
+>> decision may depend on the resctrl mount options (cdp)
+>> Squash in arm_mpam: resctrl: Sort the order of the domain lists
+>> Move out monitor/counter changes to a separate patch
+>> Commit message update
+>>
+>> Changes since v5:
+>> Use r->alloc_capable when resource specific
+>> Move offline_ctrl_domain label and cleanup to monitor boilerplate patch
+>> ---
+>>   drivers/resctrl/Makefile        |   1 +
+>>   drivers/resctrl/mpam_devices.c  |  12 ++
+>>   drivers/resctrl/mpam_internal.h |  21 +++
+>>   drivers/resctrl/mpam_resctrl.c  | 324 ++++++++++++++++++++++++++++++++
+>>   include/linux/arm_mpam.h        |   3 +
+>>   5 files changed, 361 insertions(+)
+>>   create mode 100644 drivers/resctrl/mpam_resctrl.c
+>>
+> 
+> With the following two comments addressed. I don't think none of them are critical
+> given the fact that this series has been respinned to v6 and may be ready for Linux
+> v7.1. If there is still a chance for another respin, they may be worthy to be addressed.
 
-Tested-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Thanks for the review. Fingers crossed, we will make Linux v7.1.
 
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> 
+>> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+>> index 898199dcf80d..40beaf999582 100644
+>> --- a/drivers/resctrl/Makefile
+>> +++ b/drivers/resctrl/Makefile
+>> @@ -1,4 +1,5 @@
+>>   obj-$(CONFIG_ARM64_MPAM_DRIVER)            += mpam.o
+>>   mpam-y                        += mpam_devices.o
+>> +mpam-$(CONFIG_ARM_CPU_RESCTRL)            += mpam_resctrl.o
+>>     ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)    += -DDEBUG
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index d50461d6ff3f..0e525539b7e2 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1612,6 +1612,9 @@ static int mpam_cpu_online(unsigned int cpu)
+>>               mpam_reprogram_msc(msc);
+>>       }
+>>   +    if (mpam_is_enabled())
+>> +        return mpam_resctrl_online_cpu(cpu);
+>> +
+>>       return 0;
+>>   }
+>>   @@ -1655,6 +1658,9 @@ static int mpam_cpu_offline(unsigned int cpu)
+>>   {
+>>       struct mpam_msc *msc;
+>>   +    if (mpam_is_enabled())
+>> +        mpam_resctrl_offline_cpu(cpu);
+>> +
+>>       guard(srcu)(&mpam_srcu);
+>>       list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
+>>                    srcu_read_lock_held(&mpam_srcu)) {
+>> @@ -2500,6 +2506,12 @@ static void mpam_enable_once(void)
+>>       mutex_unlock(&mpam_list_lock);
+>>       cpus_read_unlock();
+>>   +    if (!err) {
+>> +        err = mpam_resctrl_setup();
+>> +        if (err)
+>> +            pr_err("Failed to initialise resctrl: %d\n", err);
+>> +    }
+>> +
+>>       if (err) {
+>>           mpam_disable_reason = "Failed to enable.";
+>>           schedule_work(&mpam_broken_work);
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 4632985bcca6..28ac501e1ac3 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -12,6 +12,7 @@
+>>   #include <linux/jump_label.h>
+>>   #include <linux/llist.h>
+>>   #include <linux/mutex.h>
+>> +#include <linux/resctrl.h>
+>>   #include <linux/spinlock.h>
+>>   #include <linux/srcu.h>
+>>   #include <linux/types.h>
+>> @@ -337,6 +338,16 @@ struct mpam_msc_ris {
+>>       struct mpam_garbage    garbage;
+>>   };
+>>   +struct mpam_resctrl_dom {
+>> +    struct mpam_component        *ctrl_comp;
+>> +    struct rdt_ctrl_domain        resctrl_ctrl_dom;
+>> +};
+>> +
+>> +struct mpam_resctrl_res {
+>> +    struct mpam_class    *class;
+>> +    struct rdt_resource    resctrl_res;
+>> +};
+>> +
+>>   static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+>>   {
+>>       struct mpam_props *cprops = &class->props;
+>> @@ -391,6 +402,16 @@ void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx);
+>>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>>                      cpumask_t *affinity);
+>>   +#ifdef CONFIG_RESCTRL_FS
+>> +int mpam_resctrl_setup(void);
+>> +int mpam_resctrl_online_cpu(unsigned int cpu);
+>> +void mpam_resctrl_offline_cpu(unsigned int cpu);
+>> +#else
+>> +static inline int mpam_resctrl_setup(void) { return 0; }
+>> +static inline int mpam_resctrl_online_cpu(unsigned int cpu) { return 0; }
+>> +static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
+>> +#endif /* CONFIG_RESCTRL_FS */
+>> +
+>>   /*
+>>    * MPAM MSCs have the following register layout. See:
+>>    * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> new file mode 100644
+>> index 000000000000..e698b534e3db
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -0,0 +1,324 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +// Copyright (C) 2025 Arm Ltd.
+>> +
+>> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+>> +
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cacheinfo.h>
+>> +#include <linux/cpu.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/errno.h>
+>> +#include <linux/list.h>
+>> +#include <linux/printk.h>
+>> +#include <linux/rculist.h>
+>> +#include <linux/resctrl.h>
+>> +#include <linux/slab.h>
+>> +#include <linux/types.h>
+>> +
+>> +#include <asm/mpam.h>
+>> +
+>> +#include "mpam_internal.h"
+>> +
+>> +/*
+>> + * The classes we've picked to map to resctrl resources, wrapped
+>> + * in with their resctrl structure.
+>> + * Class pointer may be NULL.
+>> + */
+>> +static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
+>> +
+>> +#define for_each_mpam_resctrl_control(res, rid)                    \
+>> +    for (rid = 0, res = &mpam_resctrl_controls[rid];            \
+>> +         rid < RDT_NUM_RESOURCES;                        \
+>> +         rid++, res = &mpam_resctrl_controls[rid])
+>> +
+>> +/* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
+>> +static DEFINE_MUTEX(domain_list_lock);
+>> +
+>> +bool resctrl_arch_alloc_capable(void)
+>> +{
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        if (res->resctrl_res.alloc_capable)
+>> +            return true;
+>> +    }
+>> +
+>> +    return false;
+>> +}
+>> +
+>> +/*
+>> + * MSC may raise an error interrupt if it sees an out or range partid/pmg,
+>> + * and go on to truncate the value. Regardless of what the hardware supports,
+>> + * only the system wide safe value is safe to use.
+>> + */
+>> +u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+>> +{
+>> +    return mpam_partid_max + 1;
+>> +}
+>> +
+>> +struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
+>> +{
+>> +    if (l >= RDT_NUM_RESOURCES)
+>> +        return NULL;
+>> +
+>> +    return &mpam_resctrl_controls[l].resctrl_res;
+>> +}
+>> +
+>> +static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+>> +{
+>> +    /* TODO: initialise the resctrl resources */
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+>> +{
+>> +    struct mpam_class *class = comp->class;
+>> +
+>> +    if (class->type == MPAM_CLASS_CACHE)
+>> +        return comp->comp_id;
+>> +
+>> +    /* TODO: repaint domain ids to match the L3 domain ids */
+>> +    /* Otherwise, expose the ID used by the firmware table code. */
+>> +    return comp->comp_id;
+>> +}
+>> +
+>> +static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
+>> +                     enum resctrl_res_level rid,
+>> +                     struct rdt_domain_hdr *hdr)
+>> +{
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    INIT_LIST_HEAD(&hdr->list);
+>> +    hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
+>> +    hdr->rid = rid;
+>> +    cpumask_set_cpu(cpu, &hdr->cpu_mask);
+>> +}
+>> +
+>> +static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
+>> +                       struct rdt_domain_hdr *hdr)
+>> +{
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    cpumask_set_cpu(cpu, &hdr->cpu_mask);
+>> +}
+>> +
+>> +/**
+>> + * mpam_resctrl_offline_domain_hdr() - Update the domain header to remove a CPU.
+>> + * @cpu:    The CPU to remove from the domain.
+>> + * @hdr:    The domain's header.
+>> + *
+>> + * Removes @cpu from the header mask. If this was the last CPU in the domain,
+>> + * the domain header is removed from its parent list and true is returned,
+>> + * indicating the parent structure can be freed.
+>> + * If there are other CPUs in the domain, returns false.
+>> + */
+>> +static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+>> +                        struct rdt_domain_hdr *hdr)
+>> +{
+>> +    lockdep_assert_held(&domain_list_lock);
+>> +
+>> +    cpumask_clear_cpu(cpu, &hdr->cpu_mask);
+>> +    if (cpumask_empty(&hdr->cpu_mask)) {
+>> +        list_del_rcu(&hdr->list);
+>> +        synchronize_rcu();
+>> +        return true;
+>> +    }
+>> +
+>> +    return false;
+>> +}
+>> +
+>> +static void mpam_resctrl_domain_insert(struct list_head *list,
+>> +                       struct rdt_domain_hdr *new)
+>> +{
+>> +    struct rdt_domain_hdr *err;
+>> +    struct list_head *pos = NULL;
+>> +
+>> +    lockdep_assert_held(&domain_list_lock);
+>> +
+>> +    err = resctrl_find_domain(list, new->id, &pos);
+>> +    if (WARN_ON_ONCE(err))
+>> +        return;
+>> +
+>> +    list_add_tail_rcu(&new->list, pos);
+>> +}
+>> +
+>> +static struct mpam_resctrl_dom *
+>> +mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>> +{
+>> +    int err;
+>> +    struct mpam_resctrl_dom *dom;
+>> +    struct rdt_ctrl_domain *ctrl_d;
+>> +    struct mpam_class *class = res->class;
+>> +    struct mpam_component *comp_iter, *ctrl_comp;
+>> +    struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +    lockdep_assert_held(&domain_list_lock);
+>> +
+>> +    ctrl_comp = NULL;
+>> +    guard(srcu)(&mpam_srcu);
+>> +    list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+>> +                 srcu_read_lock_held(&mpam_srcu)) {
+>> +        if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
+>> +            ctrl_comp = comp_iter;
+>> +            break;
+>> +        }
+>> +    }
+>> +
+>> +    /* class has no component for this CPU */
+>> +    if (WARN_ON_ONCE(!ctrl_comp))
+>> +        return ERR_PTR(-EINVAL);
+>> +
+>> +    dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+>> +    if (!dom)
+>> +        return ERR_PTR(-ENOMEM);
+>> +
+>> +    if (r->alloc_capable) {
+>> +        dom->ctrl_comp = ctrl_comp;
+>> +
+>> +        ctrl_d = &dom->resctrl_ctrl_dom;
+>> +        mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr);
+>> +        ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+>> +        err = resctrl_online_ctrl_domain(r, ctrl_d);
+>> +        if (err)
+>> +            goto free_domain;
+>> +
+>> +        mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+>> +    } else {
+>> +        pr_debug("Skipped control domain online - no controls\n");
+>> +    }
+>> +    return dom;
+>> +
+> 
+> Even though we will never support "r->alloc_capable == false", it's worthy to maintain
+> the consistence in the code level here, meaning @dom needs to be released with a proper
+> error number returned.
+> 
+>     if (r->alloc_capable) {
+>         :
+>     } else {
+>         pr_debug("Skipped control domain online - no controls\n");
+>         err = -EINVAL;
+>         goto free_domain;
+>     }
+> 
+> Alternatively, the check can be done before locating the component from its calss.
+> 
+>     
+>     lockdep_assert_held(&domain_list_lock);
+> 
+>     if (!r->alloc_capable) {
+>         pr_debug("Skipped control domain online - no controls\n");
+>         return ERR_PTR(-EINVAL);
+>     }
+> 
+>     ctrl_comp = NULL;
 
+Once monitor support is added later in the series this is no longer an
+error path as monitor only platforms are valid. In order to avoid adding
+a change and then reverting it later in the series I would like to keep
+this as it is.
 
->=20
-> [2]: https://lore.kernel.org/all/20260123-ul-driver-i2c-j722s-v4-0-b08625=
-c487d5@ti.com/
-> [3]: https://gist.github.com/aniket-l/844925345316adf9f65f04c8cdedd62d#fi=
-le-j722s-evm-main-i2c4-working-logs-txt
-> [4]: https://gist.github.com/aniket-l/844925345316adf9f65f04c8cdedd62d#fi=
-le-j722s-evm-main-i2c4-irqstorm-logs-txt
-> ---
->  arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 13 +++++++-----=
--
->  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi              | 13 ++++++++++++=
-+
->  arch/arm64/boot/dts/ti/k3-j722s.dtsi                   |  3 ++-
->  3 files changed, 22 insertions(+), 7 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arc=
-h/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> index 0e1af2a69ca2..f130c7cb998d 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> @@ -543,10 +543,9 @@ main_spi2: spi@20120000 {
->  	main_gpio_intr: interrupt-controller@a00000 {
->  		compatible =3D "ti,sci-intr";
->  		reg =3D <0x00 0x00a00000 0x00 0x800>;
-> -		ti,intr-trigger-type =3D <1>;
->  		interrupt-controller;
->  		interrupt-parent =3D <&gic500>;
-> -		#interrupt-cells =3D <1>;
-> +		#interrupt-cells =3D <2>;
->  		ti,sci =3D <&dmsc>;
->  		ti,sci-dev-id =3D <3>;
->  		ti,interrupt-ranges =3D <0 32 16>;
-> @@ -558,8 +557,9 @@ main_gpio0: gpio@600000 {
->  		gpio-controller;
->  		#gpio-cells =3D <2>;
->  		interrupt-parent =3D <&main_gpio_intr>;
-> -		interrupts =3D <190>, <191>, <192>,
-> -			     <193>, <194>, <195>;
-> +		interrupts =3D <190 IRQ_TYPE_EDGE_RISING>, <191 IRQ_TYPE_EDGE_RISING>,
-> +			     <192 IRQ_TYPE_EDGE_RISING>, <193 IRQ_TYPE_EDGE_RISING>,
-> +			     <194 IRQ_TYPE_EDGE_RISING>, <195 IRQ_TYPE_EDGE_RISING>;
->  		interrupt-controller;
->  		#interrupt-cells =3D <2>;
->  		ti,davinci-gpio-unbanked =3D <0>;
-> @@ -574,8 +574,9 @@ main_gpio1: gpio@601000 {
->  		gpio-controller;
->  		#gpio-cells =3D <2>;
->  		interrupt-parent =3D <&main_gpio_intr>;
-> -		interrupts =3D <180>, <181>, <182>,
-> -			     <183>, <184>, <185>;
-> +		interrupts =3D <180 IRQ_TYPE_EDGE_RISING>, <181 IRQ_TYPE_EDGE_RISING>,
-> +			     <182 IRQ_TYPE_EDGE_RISING>, <183 IRQ_TYPE_EDGE_RISING>,
-> +			     <184 IRQ_TYPE_EDGE_RISING>, <185 IRQ_TYPE_EDGE_RISING>;
->  		interrupt-controller;
->  		#interrupt-cells =3D <2>;
->  		ti,davinci-gpio-unbanked =3D <0>;
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/=
-dts/ti/k3-j722s-main.dtsi
-> index 9ee5d0c8ffd1..ddf20e44f0ea 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> @@ -154,6 +154,19 @@ usb1: usb@31200000 {
->  		};
->  	};
-> =20
-> +	main_i2c4: i2c@fe80000 {
-> +		compatible =3D "ti,am64-i2c", "ti,omap4-i2c";
-> +		reg =3D <0x00 0x0fe80000 0x00 0x100>;
-> +		interrupt-parent =3D <&main_gpio_intr>;
-> +		interrupts =3D <178 IRQ_TYPE_LEVEL_HIGH>;
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +		power-domains =3D <&k3_pds 257 TI_SCI_PD_EXCLUSIVE>;
-> +		clocks =3D <&k3_clks 257 2>;
-> +		clock-names =3D "fck";
-> +		status =3D "disabled";
-> +	};
-> +
->  	ti_csi2rx1: ticsi2rx@30122000 {
->  		compatible =3D "ti,j721e-csi2rx-shim";
->  		reg =3D <0x00 0x30122000 0x00 0x1000>;
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s.dtsi b/arch/arm64/boot/dts/t=
-i/k3-j722s.dtsi
-> index 059c65ece183..1b36dcf37925 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
-> @@ -160,7 +160,8 @@ cbass_main: bus@f0000 {
->  			 <0x00 0x0fd80000 0x00 0x0fd80000 0x00 0x00080000>, /* GPU */
->  			 <0x00 0x0fd20000 0x00 0x0fd20000 0x00 0x00000100>, /* JPEGENC0_CORE =
-*/
->  			 <0x00 0x0fd20200 0x00 0x0fd20200 0x00 0x00000200>, /* JPEGENC0_CORE_=
-MMU */
-> -			 <0x00 0x20000000 0x00 0x20000000 0x00 0x0a008000>, /* Third peripher=
-al window */
-> +			 <0x00 0x0fe00000 0x00 0x0fe00000 0x00 0x000f0400>, /* Third peripher=
-al window */
-> +			 <0x00 0x20000000 0x00 0x20000000 0x00 0x0a008000>, /* Fourth periphe=
-ral window */
->  			 <0x00 0x30040000 0x00 0x30040000 0x00 0x00080000>, /* PRUSS-M */
->  			 <0x00 0x301c0000 0x00 0x301c0000 0x00 0x00001000>, /* DPHY-TX */
->  			 <0x00 0x30101000 0x00 0x30101000 0x00 0x00080100>, /* CSI window */
->=20
-> ---
-> base-commit: d517cb8cea012f43b069617fc8179b45404f8018
-> change-id: 20260303-j722s-main-i2c4-dt-8a1344d04ffe
->=20
-> Best regards,
+> 
+>> +free_domain:
+>> +    kfree(dom);
+>> +    dom = ERR_PTR(err);
+>> +
+>> +    return dom;
+>> +}
+>> +
+>> +static struct mpam_resctrl_dom *
+>> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>> +{
+>> +    struct mpam_resctrl_dom *dom;
+>> +    struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    list_for_each_entry_rcu(dom, &r->ctrl_domains, resctrl_ctrl_dom.hdr.list) {
+>> +        if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
+>> +            return dom;
+>> +    }
+>> +
+>> +    return NULL;
+>> +}
+>> +
+>> +int mpam_resctrl_online_cpu(unsigned int cpu)
+>> +{
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    guard(mutex)(&domain_list_lock);
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        struct mpam_resctrl_dom *dom;
+>> +        struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +        if (!res->class)
+>> +            continue;    // dummy_resource;
+>> +
+>> +        dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+>> +        if (!dom) {
+>> +            dom = mpam_resctrl_alloc_domain(cpu, res);
+>> +        } else {
+>> +            if (r->alloc_capable) {
+>> +                struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+>> +
+>> +                mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+>> +            }
+>> +        }
+>> +        if (IS_ERR(dom))
+>> +            return PTR_ERR(dom);
+>> +    }
+>> +
+> 
+> I think the "if (IS_ERR(dom))" check can be moved after "dom = mpam_resctrl_alloc_domain(cpu, res)"
+> because it seems the only path where an erroneous domain can be returned.
+> 
+>         dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+>         if (!dom) {
+>             dom = mpam_resctrl_alloc_domain(cpu, res);
+>             if (IS_ERR(dom))
+>                 return PTR_ERR(dom);
+>         } else {
+>             ...
+>         }
 
---=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-https://www.tq-group.com/
+Yes, that would be clearer. I'll make this change if a respin becomes needed.
+
+> 
+>> +    resctrl_online_cpu(cpu);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +void mpam_resctrl_offline_cpu(unsigned int cpu)
+>> +{
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    resctrl_offline_cpu(cpu);
+>> +
+>> +    guard(mutex)(&domain_list_lock);
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        struct mpam_resctrl_dom *dom;
+>> +        struct rdt_ctrl_domain *ctrl_d;
+>> +        bool ctrl_dom_empty;
+>> +        struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +        if (!res->class)
+>> +            continue;    // dummy resource
+>> +
+>> +        dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+>> +        if (WARN_ON_ONCE(!dom))
+>> +            continue;
+>> +
+>> +        if (r->alloc_capable) {
+>> +            ctrl_d = &dom->resctrl_ctrl_dom;
+>> +            ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+>> +            if (ctrl_dom_empty)
+>> +                resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
+>> +        } else {
+>> +            ctrl_dom_empty = true;
+>> +        }
+>> +
+>> +        if (ctrl_dom_empty)
+>> +            kfree(dom);
+>> +    }
+>> +}
+>> +
+>> +int mpam_resctrl_setup(void)
+>> +{
+>> +    int err = 0;
+>> +    struct mpam_resctrl_res *res;
+>> +    enum resctrl_res_level rid;
+>> +
+>> +    cpus_read_lock();
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
+>> +        res->resctrl_res.rid = rid;
+>> +    }
+>> +
+>> +    /* TODO: pick MPAM classes to map to resctrl resources */
+>> +
+>> +    /* Initialise the resctrl structures from the classes */
+>> +    for_each_mpam_resctrl_control(res, rid) {
+>> +        if (!res->class)
+>> +            continue;    // dummy resource
+>> +
+>> +        err = mpam_resctrl_control_init(res);
+>> +        if (err) {
+>> +            pr_debug("Failed to initialise rid %u\n", rid);
+>> +            break;
+>> +        }
+>> +    }
+>> +    cpus_read_unlock();
+>> +
+>> +    if (err) {
+>> +        pr_debug("Internal error %d - resctrl not supported\n", err);
+>> +        return err;
+>> +    }
+>> +
+>> +    if (!resctrl_arch_alloc_capable()) {
+>> +        pr_debug("No alloc(%u) found - resctrl not supported\n",
+>> +             resctrl_arch_alloc_capable());
+>> +        return -EOPNOTSUPP;
+>> +    }
+>> +
+>> +    /* TODO: call resctrl_init() */
+>> +
+>> +    return 0;
+>> +}
+>> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+>> index 7f00c5285a32..2c7d1413a401 100644
+>> --- a/include/linux/arm_mpam.h
+>> +++ b/include/linux/arm_mpam.h
+>> @@ -49,6 +49,9 @@ static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>>   }
+>>   #endif
+>>   +bool resctrl_arch_alloc_capable(void);
+>> +bool resctrl_arch_mon_capable(void);
+>> +
+>>   /**
+>>    * mpam_register_requestor() - Register a requestor with the MPAM driver
+>>    * @partid_max:        The maximum PARTID value the requestor can generate.
+> 
+> Thanks,
+> Gavin
+> 
+
 
