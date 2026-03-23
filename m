@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC983EC01B7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518FBEC01B6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHDf1M4ElYt8JU813f7Yr2bhUBRbjWklNxlceB9nBP4=; b=TnrrE9hD8BV/NsIh+5R/b2kHNj
-	qF8vTpmAw/CYOrzCBqeog6ynpivs+QAbtd/8+ahBtFEoRFT5jdXmOJ9IBfJy3D+yCp+u5Scy9I5/n
-	8aK7OYWjG5P27ueN5TWGJ4ANR7coh/X8/p1UI01zNtmv23TRReFMe5d90E0XIj61nqJQklATAPMSY
-	YU1hzWR1/Az5/U7+LTt7dYZGYB0L9YMVOIv2yl5vQ/3li7r0jeM6CyzAiBVLGwwCYjMAXD+qWPRsf
-	ofR7/5eCRxrEdrVAXjRo7xd9cpFkYoVawYaYbA1dh/FZlG0QkPofR5TzKCjsWxOYCSbFJk7XeR2GZ
-	R1lDoMwQ==;
+	bh=QaFGfxQXbP3z6y6NEJS5OVsmc8hPCEqM4rPTfyXnlMM=; b=OQYlngj7eKWS/x8RQFRRpsEPFP
+	L3dLofTT6eXQqt6WHvjiH4nobLJIZtHYsq5rN8FXAka6Bvtfc6vkwpj/TjUWg6IvNp2cNCjgLNdOP
+	c7/s7kLx5f2wA6pdPmhiIiHJwpFX7ao4pXo80ULVLK4+4L4WeeG6NvEIkStk6k6M8FRi5LHShXwh3
+	4BhrnSBSIdNQ9TmmIGtcQMJDdbtrD5RJm4auvI8QohlzMeEW8d4hxcPIGu87st93TcL9XvfXz0nuO
+	hS7RfU3WXLa4HX5vYP9C48NWrmnSVMeQi42mKFKKzlWSFjv25yUEERYgddAsDu41BfpQJSyiWV3m1
+	kfV+WOkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4c3o-0000000GR2p-3cb3;
-	Mon, 23 Mar 2026 09:59:00 +0000
+	id 1w4c3p-0000000GR4Q-3Zrm;
+	Mon, 23 Mar 2026 09:59:01 +0000
 Received: from [2a01:4f9:c011:1c83::1] (helo=courrier.aliel.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4c3K-0000000GQY6-0bD8;
-	Mon, 23 Mar 2026 09:58:31 +0000
+	id 1w4c3K-0000000GQY5-0bF7;
+	Mon, 23 Mar 2026 09:58:32 +0000
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1774259905;
-	bh=Ywdd79SLlnG+5FuD1iPwguAxNCDzzkCuTsJrgYS9eQA=;
+	s=courrier-s1; t=1774259901;
+	bh=AO4tgBsQ5yd9Qo2dDaY+wcNu1us7EFs06fTrqRlHBYM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Bb5vBKKcHrQrCUXjhW2Cz4IuM0XNMePmeixn8P6uiZR8waRm6evd9CVlZrjJHRbyE
-	 0LbIbSka2GyYZZSOzRlmOnx/m+WdKAk3LQdNCrmS8Zv3itmdOZjYug0nU4B2ZupeGF
-	 n5mrsZDuQ6PZ6Kisc2yV091ZAQx9UnuqYgD0AJiI=
-Date: Mon, 23 Mar 2026 10:55:34 +0100
-Subject: [PATCH v3 9/9] arm64: dts: amlogic: t7: khadas-vim4: Add MMC nodes
+	b=Jh2jvneyE74Am2thzy9WlW47Gi0DtfluNkcEjr7ZRHfcR5zVN/4audqf7fagm2pxO
+	 FsV+ySupdlB3PiRryb3FNbCKtX9bgfEE5kagpR0auZ9JbbGjMVMYz1ATDj6yY1n611
+	 4tp1es03xYgthWOnCQsMmdVRobzSMAH6yIb/EltE=
+Date: Mon, 23 Mar 2026 10:55:30 +0100
+Subject: [PATCH v3 5/9] arm64: dts: amlogic: t7: Add PWM controller nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260323-add-emmc-t7-vim4-v3-9-5159d90a984c@aliel.fr>
+Message-Id: <20260323-add-emmc-t7-vim4-v3-5-5159d90a984c@aliel.fr>
 References: <20260323-add-emmc-t7-vim4-v3-0-5159d90a984c@aliel.fr>
 In-Reply-To: <20260323-add-emmc-t7-vim4-v3-0-5159d90a984c@aliel.fr>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -51,20 +51,20 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, Nick Xie <nick@khadas.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1774259896; l=2817;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1774259895; l=2868;
  i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=Ywdd79SLlnG+5FuD1iPwguAxNCDzzkCuTsJrgYS9eQA=;
+ bh=AO4tgBsQ5yd9Qo2dDaY+wcNu1us7EFs06fTrqRlHBYM=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
  BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QFYi+0Gd/+Zfbjizr+3GvRz83PiMYVaWwRvNHIFH0qMDvp4p00u17IJJSA3FSShpYkWVFarxAJD
- yjScxsu/shAU=
+ QJZSR1SMHxPM+6QdLs5pPY8OawAIsaGLhfGtKLJB4Nlbb0tJsEL5bhXobDp4DjYkDd1IsmXRpDo
+ CrkA2mHLA/A8=
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
  fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_025830_416407_928AEA76 
-X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-CacheID: sfid-20260323_025830_484141_BCB877A1 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,124 +80,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable and configure the three MMC controllers for the Khadas VIM4 board:
-- sd_emmc_a: SDIO interface for the BCM43752 Wi-Fi module
-- sd_emmc_b: SD card slot
-- sd_emmc_c: eMMC storage
+Add device tree nodes for the seven PWM controllers available
+on the Amlogic T7 SoC, using amlogic,meson-s4-pwm as fallback compatible.
+All nodes are disabled by default and should be
+enabled in the board-specific DTS file.
 
+Co-developed-by: Nick Xie <nick@khadas.com>
+Signed-off-by: Nick Xie <nick@khadas.com>
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 90 +++++++++++++++++++++-
- 1 file changed, 89 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 63 +++++++++++++++++++++++++++++
+ 1 file changed, 63 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index 770f06b0b16c7..5a73ae081036c 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -14,7 +14,10 @@ / {
- 	compatible = "khadas,vim4", "amlogic,a311d2", "amlogic,t7";
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 6d41de6f895b4..a0261cd8eadfc 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -511,6 +511,69 @@ sec_ao: ao-secure@10220 {
+ 				amlogic,has-chip-id;
+ 			};
  
- 	aliases {
--		serial0 = &uart_a;
-+		serial0	= &uart_a;
-+		mmc0	= &sd_emmc_c;
-+		mmc1	= &sd_emmc_b;
-+		mmc2	= &sd_emmc_a;
- 	};
- 
- 	memory@0 {
-@@ -159,6 +162,91 @@ &pwm_ab {
- 	pinctrl-names = "default";
- };
- 
-+/* SDIO */
-+&sd_emmc_a {
-+	status = "okay";
-+	pinctrl-0 = <&sdio_pins>;
-+	pinctrl-1 = <&sdio_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
++			pwm_ao_ef: pwm@30000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x30000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_AO_E>,
++					 <&clkc_periphs CLKID_PWM_AO_F>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	cap-sdio-irq;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+	no-mmc;
-+	no-sd;
++			pwm_ao_gh: pwm@32000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x32000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_AO_G>,
++					 <&clkc_periphs CLKID_PWM_AO_H>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+	power-domains = <&pwrc PWRC_T7_SDIO_A_ID>;
++			pwm_ab: pwm@58000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x58000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_A>,
++					 <&clkc_periphs CLKID_PWM_B>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+	keep-power-in-suspend;
++			pwm_cd: pwm@5a000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x5a000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_C>,
++					 <&clkc_periphs CLKID_PWM_D>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+	mmc-pwrseq = <&sdio_pwrseq>;
++			pwm_ef: pwm@5c000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x5c000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_E>,
++					 <&clkc_periphs CLKID_PWM_F>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddao_1v8>;
++			pwm_ao_ab: pwm@5e000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x5e000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_AO_A>,
++					 <&clkc_periphs CLKID_PWM_AO_B>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+	brcmf: wifi@1 {
-+		reg = <1>;
-+		compatible = "brcm,bcm43752-fmac", "brcm,bcm4329-fmac";
-+	};
-+};
++			pwm_ao_cd: pwm@60000 {
++				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
++				reg = <0x0 0x60000 0x0 0x24>;
++				clocks = <&clkc_periphs CLKID_PWM_AO_C>,
++					 <&clkc_periphs CLKID_PWM_AO_D>;
++				#pwm-cells = <3>;
++				status = "disabled";
++			};
 +
-+/* SD card */
-+&sd_emmc_b {
-+	status = "okay";
-+	pinctrl-0 = <&sdcard_pins>;
-+	pinctrl-1 = <&sdcard_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	max-frequency = <200000000>;
-+	disable-wp;
-+	no-sdio;
-+	no-mmc;
-+
-+	power-domains = <&pwrc PWRC_T7_SDIO_B_ID>;
-+
-+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&sd_3v3>;
-+	vqmmc-supply = <&vddio_c>;
-+};
-+
-+/* eMMC */
-+&sd_emmc_c {
-+	status = "okay";
-+	pinctrl-0 = <&emmc_ctrl_pins>, <&emmc_data_8b_pins>, <&emmc_ds_pins>;
-+	pinctrl-1 = <&emmc_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	max-frequency = <200000000>;
-+	disable-wp;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+
-+	power-domains = <&pwrc PWRC_T7_EMMC_ID>;
-+
-+	vmmc-supply = <&vddio_3v3>;
-+	vqmmc-supply = <&vddio_1v8>;
-+};
-+
- &uart_a {
- 	status = "okay";
- 	clocks = <&xtal>, <&xtal>, <&xtal>;
+ 			sd_emmc_a: mmc@88000 {
+ 				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
+ 				reg = <0x0 0x88000 0x0 0x800>;
 
 -- 
 2.49.0
