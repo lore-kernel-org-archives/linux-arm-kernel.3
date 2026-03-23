@@ -4,58 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D2BF46124
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 364ADF46122
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 14:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zVJSIaRwHowt/CDnUtsIOfmPnnJpt16EewselldkDoU=; b=hEOGLPgMJCslbAlqPtvSGp+K3j
-	4v+akjyUW/7U8LbgGssxgR1+9RptoBwBr3FYpMbLxVyV/rD7Y7sV4hm5nX2SUoTqN5aDcA2uh8LKS
-	lnbegXbPziCgU9yomkVw5UtLb2NszRilgv1OQXvbIvTkFOBZt7qUUB7ptN3rViLoy+GtwPy7ZjXSx
-	SCEAqNejXFriVDE1QYj4wp7p4IXbWNfMohuMXlmzMlcQsanRtOBUhXZhXcKdEJfoV++Aho0zwbIBS
-	48JmAErj76WqKpQO40hbPg788POhZdohds7KDKtcCbzwXDANQeOQqIgjjZQIdZICcZNOjwL4Gad5d
-	Xj/uFXqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EmvoSlI6zhEDXgvnhN85AXx/F1wuELhxcozcM5H9OTc=; b=Gc8jS4w19Gaa4E
+	NalwxMRs6JdV5xVZLi/4AyUNDbyesMS950k5a/hrr458Bd5i1ysVSkygtpGEh4Ecd3VTS9gCBECUx
+	NGUpPI5LhBAoPGLpZQrPj8/mdV0lFE4WPa1TsD/ge+zySYaX0v+nbEtURRnrgx8K8RMQEMNzvp0Le
+	6PaJ/5f7ZuLKy1/UaEMXvmSW4zHTKv2b0JaYH0/aqwVjrvzuxlRqesxkIjEqJbxHthcSMR7GaoqEk
+	CA5uKtbXoi4PsWRDUZab1Vq7Tjqxcm+648AQ85mzKnLs44gUZ6jEdtQLAVT5Z2sBfrx44EuXaMtCK
+	Bv/Mr7Ny09v3AyVw3hMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fre-0000000GtKd-1a3Z;
-	Mon, 23 Mar 2026 14:02:42 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w4fsd-0000000GtUb-2njf;
+	Mon, 23 Mar 2026 14:03:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4frc-0000000GtJq-1MCP;
-	Mon, 23 Mar 2026 14:02:41 +0000
-Received: from pb-laptop.local (185.221.143.129.nat.pool.zt.hu [185.221.143.129])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 50A441BA;
-	Mon, 23 Mar 2026 15:01:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774274480;
-	bh=BfH8lqrkHRMS5sCrm9+Zee84RMtu29VSz0DOXgmKV7Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=L4YA7V1gVEQVhycydPgRpalE6ys4+W4eQ1l++63mcN2uhUe0kxiNXwqTMI63KQ/8M
-	 swcq/Jx+0BLR+TGwpkhueF2LZWrD3xn/XQeYZZ6Qmi1dx/7bn+Cl9zR+t+UpgtRdaZ
-	 NxpT1CJ2UpFpmFEuvtWrOWtnM1uUSf7CuaMGqkn0=
-From: =?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <barnabas.pocze@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <barnabas.pocze@ideasonboard.com>
-Subject: [PATCH v1] media: rkisp1: Add support for CAC
-Date: Mon, 23 Mar 2026 15:02:16 +0100
-Message-ID: <20260323140216.1486161-1-barnabas.pocze@ideasonboard.com>
-X-Mailer: git-send-email 2.53.0
+	id 1w4fsb-0000000GtTx-1D31
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 14:03:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774274620;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EmvoSlI6zhEDXgvnhN85AXx/F1wuELhxcozcM5H9OTc=;
+	b=gNuPcMcn6B+awu2yUConfjfyprRynsz99muhxqPLDQ/icwqY0zIGWpaXSitsO7jCEr8o+X
+	6MV1JB+vzcI1pQfszGxp51uKlxyy5mRp7fgJ+dvRzvpeO0g21m7SAIrBJbrltTGbsuPIzB
+	fO0oUEoM+ElZ5i/S4zzwzB7nPxTvoJE=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-502-Tfk0LkFBMtKvn1PtgzqfDA-1; Mon, 23 Mar 2026 10:03:36 -0400
+X-MC-Unique: Tfk0LkFBMtKvn1PtgzqfDA-1
+X-Mimecast-MFC-AGG-ID: Tfk0LkFBMtKvn1PtgzqfDA_1774274615
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-439a85832c0so154846f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 07:03:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774274615; x=1774879415;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EmvoSlI6zhEDXgvnhN85AXx/F1wuELhxcozcM5H9OTc=;
+        b=hleETd1LJXHuhpDG9+AFroy/w9EK345VrGf2HbqCfWwJByn8O3rn11IhvkBVtFIUiW
+         54oTSiivKqAywgztLz3lbrGR40Zr136HpM7VL7NPuVkfGgtHRp+TshRWiz+UGPHIDgYY
+         +V6R+tcHGfbJsRKsJqEGdpjW980gILHb+AWh8sGm+Ss9pOZhdpJyfsq2M23OSBoCroBc
+         0Kb9U4EZrHECCA1SRW5UmEuXiqWGh2CetwqNBnOEcmFv59uO2pC0i0inVp0YczTRoF/z
+         CFDx0eYwHWUaFXCXreLNgWnSmNgs3I1M1Nhqw1c/JKt1qaJcycikHBW0xUtB0LWzmQgQ
+         vgCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXXp9Y/A3vG24B3FNWE196jmfh3iEofh1ni/Z+2wevJ8hahcilrMSS8ByoZFrupEioUkrNLnPqpK3j2+xbUZpOX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjAU905QPCFbSo7SMCTW+8CxUHVWXoqNmoC4bPWfxOrKISZaLH
+	Pa2heYyV6yIt+IVNz9rayATq/GbZ1r2L3HgV1kFBfJNfHhsni8pGwzqDFyNoPuyuRIhpxTdlxoF
+	cagwL9CaMgd15BMLrwnD3PX3WE/v6Jiw+x5WESeAq9IV2XhhXLV31M/dhCtWVtQtcDhN+Njx2YL
+	MK
+X-Gm-Gg: ATEYQzx6NWy1yR3ldMGfxSHMi/e3AQAW69DJlmjT9hUoIImWM1hOPJlEnWBuuh0ZOY7
+	bzbruWl/rDbIg9vz91BDYskww/3RoB/qrGqHggZnv28ionS235ZFTsG3GB6tGf5LYQg2llyMro4
+	HyS31yscJ/yhVGqRFkMEpdswqod47PpTFXoufFdgm8kJ0IQbqXRunRZpe4Wbrywze97wJj+zTof
+	FmAS3zAZfSKJDpFGzTa4rs9z331x4CtnzFV7+Jo+Yxq5Uxf1bBqh7/TUSC6qFpKH4dJIF8L4J+d
+	JDFH193yw0hm+rBrwuLwxcynrpPa6KC5o7AiujwYCRXDqbV5SVRidUlcnNuC8x1YlryVPOIekjK
+	BOJDAVtdnJ/Shx3O+90g5nmfm6NrbfAmQMmraj0KRvO5HDzxFGb78R/BNuoiw7YeKoBbDtw==
+X-Received: by 2002:a05:6000:26c4:b0:43b:4aba:8f35 with SMTP id ffacd0b85a97d-43b6424e48bmr18732364f8f.12.1774274614956;
+        Mon, 23 Mar 2026 07:03:34 -0700 (PDT)
+X-Received: by 2002:a05:6000:26c4:b0:43b:4aba:8f35 with SMTP id ffacd0b85a97d-43b6424e48bmr18732291f8f.12.1774274614356;
+        Mon, 23 Mar 2026 07:03:34 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b64703c27sm29923424f8f.18.2026.03.23.07.03.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Mar 2026 07:03:33 -0700 (PDT)
+Message-ID: <a3e212d4-78c6-49d0-982a-2baf9b0ddfd7@redhat.com>
+Date: Mon, 23 Mar 2026 15:03:32 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] iommu/tegra241-cmdqv: Update uAPI to clarify HYP_OWN
+ requirement
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, jgg@nvidia.com, kevin.tian@intel.com
+Cc: joro@8bytes.org, linux-tegra@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, skolothumtho@nvidia.com
+References: <cover.1773361875.git.nicolinc@nvidia.com>
+ <9ef47d0db2d7b8207fef1ef4437de6efa08565b6.1773361875.git.nicolinc@nvidia.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <9ef47d0db2d7b8207fef1ef4437de6efa08565b6.1773361875.git.nicolinc@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YMFubn-l3xZwebBPPi-OurZNUMCefnsBW9zCsF6PuE4_1774274615
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_070240_507031_46F2EF11 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20260323_070341_398305_155DD013 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,315 +113,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CAC block implements chromatic aberration correction. Expose it to
-userspace using the extensible parameters format. This was tested on the
-i.MX8MP platform, but based on available documentation it is also present
-in the RK3399 variant (V10). Thus presumably also in later versions,
-so no feature flag is introduced.
 
-Signed-off-by: Barnabás Pőcze <barnabas.pocze@ideasonboard.com>
----
- .../platform/rockchip/rkisp1/rkisp1-params.c  |  69 ++++++++++++
- .../platform/rockchip/rkisp1/rkisp1-regs.h    |  21 +++-
- include/uapi/linux/rkisp1-config.h            | 106 +++++++++++++++++-
- 3 files changed, 193 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-index 6442436a5e428..b889af9dcee45 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -64,6 +64,7 @@ union rkisp1_ext_params_config {
- 	struct rkisp1_ext_params_compand_bls_config compand_bls;
- 	struct rkisp1_ext_params_compand_curve_config compand_curve;
- 	struct rkisp1_ext_params_wdr_config wdr;
-+	struct rkisp1_ext_params_cac_config cac;
- };
- 
- enum rkisp1_params_formats {
-@@ -1413,6 +1414,48 @@ static void rkisp1_wdr_config(struct rkisp1_params *params,
- 				     RKISP1_CIF_ISP_WDR_TONE_CURVE_YM_MASK);
- }
- 
-+static void
-+rkisp1_cac_config(struct rkisp1_params *params,
-+		  const struct rkisp1_cif_isp_cac_config *arg)
-+{
-+	u32 regval;
-+
-+	/*
-+	 * The enable bit is in the same register (RKISP1_CIF_ISP_CAC_CTRL),
-+	 * so only set the clipping mode, and do not modify the other bits.
-+	 */
-+	regval = rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL);
-+	regval &= ~(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE |
-+		    RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE);
-+	regval |= FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE, arg->h_clip_mode) |
-+		  FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE, arg->v_clip_mode);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL, regval);
-+
-+	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK, arg->h_count_start) |
-+		 FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK, arg->v_count_start);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_COUNT_START, regval);
-+
-+	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_A_RED_MASK, arg->red[0]) |
-+		 FIELD_PREP(RKISP1_CIF_ISP_CAC_A_BLUE_MASK, arg->blue[0]);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_A, regval);
-+
-+	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_B_RED_MASK, arg->red[1]) |
-+		 FIELD_PREP(RKISP1_CIF_ISP_CAC_B_BLUE_MASK, arg->blue[1]);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_B, regval);
-+
-+	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_C_RED_MASK, arg->red[2]) |
-+		 FIELD_PREP(RKISP1_CIF_ISP_CAC_C_BLUE_MASK, arg->blue[2]);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_C, regval);
-+
-+	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_X_NORM_NF_MASK, arg->x_nf) |
-+		 FIELD_PREP(RKISP1_CIF_ISP_CAC_X_NORM_NS_MASK, arg->x_ns);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_X_NORM, regval);
-+
-+	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_Y_NORM_NF_MASK, arg->y_nf) |
-+		 FIELD_PREP(RKISP1_CIF_ISP_CAC_Y_NORM_NS_MASK, arg->y_ns);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_Y_NORM, regval);
-+}
-+
- static void
- rkisp1_isp_isr_other_config(struct rkisp1_params *params,
- 			    const struct rkisp1_params_cfg *new_params)
-@@ -2089,6 +2132,25 @@ static void rkisp1_ext_params_wdr(struct rkisp1_params *params,
- 				      RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
- }
- 
-+static void rkisp1_ext_params_cac(struct rkisp1_params *params,
-+				  const union rkisp1_ext_params_config *block)
-+{
-+	const struct rkisp1_ext_params_cac_config *cac = &block->cac;
-+
-+	if (cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
-+		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-+					RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
-+		return;
-+	}
-+
-+	rkisp1_cac_config(params, &cac->config);
-+
-+	if ((cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
-+	    !(params->enabled_blocks & BIT(cac->header.type)))
-+		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-+				      RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
-+}
-+
- typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
- 			     const union rkisp1_ext_params_config *config);
- 
-@@ -2185,6 +2247,10 @@ static const struct rkisp1_ext_params_handler {
- 		.handler	= rkisp1_ext_params_wdr,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC] = {
-+		.handler	= rkisp1_ext_params_cac,
-+		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-+	},
- };
- 
- #define RKISP1_PARAMS_BLOCK_INFO(block, data) \
-@@ -2215,6 +2281,7 @@ rkisp1_ext_params_block_types_info[] = {
- 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_EXPAND, compand_curve),
- 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_COMPRESS, compand_curve),
- 	RKISP1_PARAMS_BLOCK_INFO(WDR, wdr),
-+	RKISP1_PARAMS_BLOCK_INFO(CAC, cac),
- };
- 
- static_assert(ARRAY_SIZE(rkisp1_ext_params_handlers) ==
-@@ -2474,6 +2541,8 @@ void rkisp1_params_disable(struct rkisp1_params *params)
- 	rkisp1_ie_enable(params, false);
- 	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DPF_MODE,
- 				RKISP1_CIF_ISP_DPF_MODE_EN);
-+	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-+				RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
- }
- 
- static const struct rkisp1_params_ops rkisp1_v10_params_ops = {
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-index fbeb186cde0d5..8e25537459bbd 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-@@ -724,6 +724,23 @@
- #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MASK		GENMASK(20, 16)
- #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MAX		16U
- 
-+/* CAC */
-+#define RKISP1_CIF_ISP_CAC_CTRL_ENABLE		BIT(0)
-+#define RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE	GENMASK(2, 1)
-+#define RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE	GENMASK(3, 3)
-+#define RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK	GENMASK(12, 0)
-+#define RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK	GENMASK(28, 16)
-+#define RKISP1_CIF_ISP_CAC_A_RED_MASK		GENMASK(8, 0)
-+#define RKISP1_CIF_ISP_CAC_A_BLUE_MASK		GENMASK(24, 16)
-+#define RKISP1_CIF_ISP_CAC_B_RED_MASK		GENMASK(8, 0)
-+#define RKISP1_CIF_ISP_CAC_B_BLUE_MASK		GENMASK(24, 16)
-+#define RKISP1_CIF_ISP_CAC_C_RED_MASK		GENMASK(8, 0)
-+#define RKISP1_CIF_ISP_CAC_C_BLUE_MASK		GENMASK(24, 16)
-+#define RKISP1_CIF_ISP_CAC_X_NORM_NF_MASK	GENMASK(4, 0)
-+#define RKISP1_CIF_ISP_CAC_X_NORM_NS_MASK	GENMASK(19, 16)
-+#define RKISP1_CIF_ISP_CAC_Y_NORM_NF_MASK	GENMASK(4, 0)
-+#define RKISP1_CIF_ISP_CAC_Y_NORM_NS_MASK	GENMASK(19, 16)
-+
- /* =================================================================== */
- /*                            CIF Registers                            */
- /* =================================================================== */
-@@ -1196,8 +1213,8 @@
- #define RKISP1_CIF_ISP_CAC_A			(RKISP1_CIF_ISP_CAC_BASE + 0x00000008)
- #define RKISP1_CIF_ISP_CAC_B			(RKISP1_CIF_ISP_CAC_BASE + 0x0000000c)
- #define RKISP1_CIF_ISP_CAC_C			(RKISP1_CIF_ISP_CAC_BASE + 0x00000010)
--#define RKISP1_CIF_ISP_X_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
--#define RKISP1_CIF_ISP_Y_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
-+#define RKISP1_CIF_ISP_CAC_X_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
-+#define RKISP1_CIF_ISP_CAC_Y_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
- 
- #define RKISP1_CIF_ISP_EXP_BASE			0x00002600
- #define RKISP1_CIF_ISP_EXP_CTRL			(RKISP1_CIF_ISP_EXP_BASE + 0x00000000)
-diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
-index b2d2a71f7baff..d8acccaddd0e9 100644
---- a/include/uapi/linux/rkisp1-config.h
-+++ b/include/uapi/linux/rkisp1-config.h
-@@ -967,6 +967,92 @@ struct rkisp1_cif_isp_wdr_config {
- 	__u8 use_iref;
- };
- 
-+/*
-+ * enum rkisp1_cif_isp_cac_h_clip_mode - horizontal clipping mode
-+ *
-+ * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX: +/- 4 pixels
-+ * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX: +/- 4/5 pixels depending on bayer position
-+ */
-+enum rkisp1_cif_isp_cac_h_clip_mode {
-+	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX = 0,
-+	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX = 1,
-+};
-+
-+/**
-+ * enum rkisp1_cif_isp_cac_v_clip_mode - vertical clipping mode
-+ *
-+ * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX: +/- 2 pixels
-+ * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX: +/- 3 pixels
-+ * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX: +/- 3/4 pixels depending on bayer position
-+ */
-+enum rkisp1_cif_isp_cac_v_clip_mode {
-+	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX = 0,
-+	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX = 1,
-+	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX = 2,
-+};
-+
-+/**
-+ * struct rkisp1_cif_isp_cac_config - chromatic aberration correction configuration
-+ *
-+ * The correction is carried out by shifting the red and blue pixels relative
-+ * to the green ones, depending on the distance from the optical center:
-+ *
-+ * @h_count_start: horizontal coordinate of the optical center (13-bit unsigned integer; [1,8191])
-+ * @v_count_start: vertical coordinate of the optical center (13-bit unsigned integer; [1,8191])
-+ *
-+ * For each pixel, the x/y distances from the optical center are calculated and
-+ * then transformed into the [0,255] range based on the following formula:
-+ *
-+ *   (((d << 4) >> s) * f) >> 5
-+ *
-+ * where `d` is the distance, `s` and `f` are the normalization parameters:
-+ *
-+ * @x_nf: horizontal normalization scale parameter (5-bit unsigned integer; [0,31])
-+ * @x_ns: horizontal normalization shift parameter (4-bit unsigned integer; [0,15])
-+ *
-+ * @y_nf: vertical normalization scale parameter (5-bit unsigned integer; [0,31])
-+ * @y_ns: vertical normalization shift parameter (4-bit unsigned integer; [0,15])
-+ *
-+ * These parameters should be chosen based on the image resolution, the position
-+ * of the optical center, and the shape of pixels: so that no normalized distance
-+ * is larger than 255. If the pixels have square shape, the two sets of parameters
-+ * should be equal.
-+ *
-+ * The actual amount of correction is calculated with a third degree polynomial:
-+ *
-+ *   c[0] * r + c[1] * r^2 + c[2] * r^3
-+ *
-+ * where `c` is the set of coefficients for the given color, and `r` is distance:
-+ *
-+ * @red: red coefficients (5.4 two's complement; [-16,15.9375])
-+ * @blue: blue coefficients (5.4 two's complement; [-16,15.9375])
-+ *
-+ * Finally, the amount is clipped as requested:
-+ *
-+ * @h_clip_mode: maximum horizontal shift (from enum rkisp1_cif_isp_cac_h_clip_mode)
-+ * @v_clip_mode: maximum vertical shift (from enum rkisp1_cif_isp_cac_v_clip_mode)
-+ *
-+ * A positive result will shift away from the optical center, while a negative
-+ * one will shift towards the optical center. In the latter case, the pixel
-+ * values at the edges are duplicated.
-+ */
-+struct rkisp1_cif_isp_cac_config {
-+	__u8 h_clip_mode;
-+	__u8 v_clip_mode;
-+
-+	__u16 h_count_start;
-+	__u16 v_count_start;
-+
-+	__u16 red[3];
-+	__u16 blue[3];
-+
-+	__u8 x_nf;
-+	__u8 x_ns;
-+
-+	__u8 y_nf;
-+	__u8 y_ns;
-+};
-+
- /*---------- PART2: Measurement Statistics ------------*/
- 
- /**
-@@ -1161,6 +1247,7 @@ enum rkisp1_ext_params_block_type {
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
-+	RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC,
- };
- 
- /* For backward compatibility */
-@@ -1507,6 +1594,22 @@ struct rkisp1_ext_params_wdr_config {
- 	struct rkisp1_cif_isp_wdr_config config;
- } __attribute__((aligned(8)));
- 
-+/**
-+ * struct rkisp1_ext_params_cac_config - RkISP1 extensible params CAC config
-+ *
-+ * RkISP1 extensible parameters CAC block.
-+ * Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC`.
-+ *
-+ * @header: The RkISP1 extensible parameters header, see
-+ *	    :c:type:`rkisp1_ext_params_block_header`
-+ * @config: CAC configuration, see
-+ *	    :c:type:`rkisp1_cif_isp_cac_config`
-+ */
-+struct rkisp1_ext_params_cac_config {
-+	struct rkisp1_ext_params_block_header header;
-+	struct rkisp1_cif_isp_cac_config config;
-+} __attribute__((aligned(8)));
-+
- /*
-  * The rkisp1_ext_params_compand_curve_config structure is counted twice as it
-  * is used for both the COMPAND_EXPAND and COMPAND_COMPRESS block types.
-@@ -1532,7 +1635,8 @@ struct rkisp1_ext_params_wdr_config {
- 	sizeof(struct rkisp1_ext_params_compand_bls_config)		+\
- 	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
- 	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
--	sizeof(struct rkisp1_ext_params_wdr_config))
-+	sizeof(struct rkisp1_ext_params_wdr_config)			+\
-+	sizeof(struct rkisp1_ext_params_cac_config))
- 
- /**
-  * enum rksip1_ext_param_buffer_version - RkISP1 extensible parameters version
--- 
-2.53.0
+On 3/13/26 1:36 AM, Nicolin Chen wrote:
+> From hardware implementation perspective, a guest tegra241-cmdqv hardware
+> is different than the host hardware:
+>  - Host HW is backed by a VINTF (HYP_OWN=1)
+>  - Guest HW is backed by a VINTF (HYP_OWN=0)
+>
+> The kernel driver has an implementation requirement of the HYP_OWN bit in
+> the VM. So, VMM must follow that to allow the same copy of Linux to work.
+>
+> Add this requirement to the uAPI, which is currently missing.
+>
+> Fixes: 4dc0d12474f9 ("iommu/tegra241-cmdqv: Add user-space use support")
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Eric Auger <eric.auger@redhat.com>
+
+Eric
+> ---
+>  include/uapi/linux/iommufd.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
+> index 1dafbc552d37d..f63edbe71d542 100644
+> --- a/include/uapi/linux/iommufd.h
+> +++ b/include/uapi/linux/iommufd.h
+> @@ -1052,6 +1052,11 @@ struct iommu_fault_alloc {
+>  enum iommu_viommu_type {
+>  	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
+>  	IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
+> +	/*
+> +	 * TEGRA241_CMDQV requirements (otherwise, VCMDQs will not work)
+> +	 * - Kernel will allocate a VINTF (HYP_OWN=0) to back this VIOMMU. So,
+> +	 *   VMM must wire the HYP_OWN bit to 0 in guest VINTF_CONFIG register
+> +	 */
+>  	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
+>  };
+>  
 
 
