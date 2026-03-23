@@ -4,79 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CF8EC01A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B8AEC01A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 09:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/kKOvh8mzHk95zH5Sm/YNif6QPFXAR4KEc0obuavFZ8=; b=zQLLqq6Wdx/tJ11EnMPmPCTxmI
-	03GxVhHwZpVqhQXDmdAmjhTkHeT7IRjMmWWnFCLkRUSYRYiaHMEoTKx0vbeR5lm4LJoxVQHuISSQb
-	SYW9RTw59e6+3rY/pZQAmEnH5Cze9YtGj/n2mEV678IIjLpfTKxW1Cw6Cj5zy2lWlwrP7J/4Gzr5F
-	ZQQTAYv68sLuGQ6FiH2wXc5A/V6bYpdA+k5fyvUP1LbEt+bqx445DVtoAC5IoMhQvts1MFtX1Rh4w
-	BIsyzvD/fAHdc72CG+wQMpBgJRjiXUYLb9En+U4AfcK0bQM7ckpc1/P6ggxxeMo7xZ14m/NUaN18k
-	dXjdPz9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8V6Eom2rViGFebEUish+pLCDRvroG9b1wDJZpMW30s=; b=ApojY8YqdlfspurjOMmb2xyOEl
+	q3Nw+E6x/w06ACOq87D7wT5reH3q+qQeBmDtkQW2vVeV1so5nQK6WCQDf8hQ4IF8ozH82INK7l7Ou
+	CoS44zCAHsf5T8T515i08UiZ7XXlKY6OlW2W4ZSnB450jdj8ChWhVG0Mu83TKMIKm1Vou3LrNFW/x
+	S1+bf6CnFrMc1F1895YZGdyqHwHsvoQSkt/gQ0/AUo2sEghJAs6vmmzNY4NORgpvbSexDBI8sEdct
+	lTr8OjNrjGldxfZzV8M38DeloiSOLgWv5OnQGCMDdPr70fPUruohiTV3JKTMA4tZZNaR9+7KfI6n6
+	CIpiloqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bGL-0000000GKvg-07wF;
-	Mon, 23 Mar 2026 09:07:53 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1w4bGg-0000000GKzF-3Ge1;
+	Mon, 23 Mar 2026 09:08:14 +0000
+Received: from mail-swedencentralazon11013042.outbound.protection.outlook.com ([52.101.83.42] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4bGJ-0000000GKvH-2STZ;
-	Mon, 23 Mar 2026 09:07:52 +0000
-X-UUID: c19c5dde269711f19e7563141e833ce8-20260323
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=/kKOvh8mzHk95zH5Sm/YNif6QPFXAR4KEc0obuavFZ8=;
-	b=s90JS+MLvHuJ5N7Ps3FAj7s4QGW5hl1DbI+8W2VmcEkhCsUMoMGD7rX2uP67MRaGwfOsMcCE8id6YFttowY940S+ggs2nh5SR87QjO2u6Efv7mAX4RC2OcK4JJjvfkf4+HVeDCtik7+aKA5W87PzaSdwjoIOKDsWrVpA8qD1W+o=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:8440c5ff-b0fd-40a8-9e77-3bcfe3e7e39d,IP:0,U
-	RL:0,TC:0,Content:56,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:56
-X-CID-META: VersionHash:e7bac3a,CLOUDID:9467ce4c-9183-487b-8624-e74f2dd98990,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:3|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c19c5dde269711f19e7563141e833ce8-20260323
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1073585773; Mon, 23 Mar 2026 02:07:45 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 23 Mar 2026 17:07:42 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 23 Mar 2026 17:07:42 +0800
-From: Jason-JH Lin <jason-jh.lin@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Chun-Kuang Hu
-	<chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
-	<jason-jh.lin@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
-	<singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>,
-	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang
-	<sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
-	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] mailbox: mtk-cmdq: Fix CURR and END addr for task insert case
-Date: Mon, 23 Mar 2026 17:07:11 +0800
-Message-ID: <20260323090742.1522607-1-jason-jh.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
+	id 1w4bGe-0000000GKy2-0IrC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 09:08:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iK8Ygg7MXZIqsg1u6euaXRheAj/I65oixQiZqGviED4xCcBYlS4Jb48onTpHMcgavSl0H+eqId5HOlq4PZAmIOB5MDdmkoTnkCa7Tle8UZch1PegL0iErzGMlxAIrWLnPgB51k11kGi3YcDqmJi5b0Pugmtk0pSvKjDIz0ZhDggkXkvqBVk1EThQ97eU6/2LPmUwrYSBRJY6lNPk4Xrh0Tk6qTlz8w5e07sAz+i6EPDek6j1ZYfKIrCL7EnN2gWZ8km/LsKzt9dC0XRn/Y1s5bwgHYJAouAsjks+Fc5lGh/a0tO6NhEHv24d/bTa3CRsPnXnTRCaAjzLf1wx+WnoqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r8V6Eom2rViGFebEUish+pLCDRvroG9b1wDJZpMW30s=;
+ b=F2jQvHf/hFz8MUUTbt4mrkayqZlQPABWrAHl14tkVIRsgjqw58QhbfqYqmSaE7U6i0pXVdcM06UMM+l6s/CmJVakC5S91w/hgBmRM+g1rla24+HfrnksV9H4jD0Q9riPylWG/vZyOQ03PQeTmZhnjOIy6r0kyufEw4uQbXuI3zNP51kOZeC/CAIxEv6EEkBu1uTKKe9L4O46yfp/ggWs0n+R3Ry7slYPPcIA4gYWff4KGYfcZu4jcjKs+tFkFOpH63l611Ger40slU2l5q99qPp21+PznWiW1qyI0KXHDa9mDelc490XUWSq9LOv9EkZRxKJARoNXXt9XKjf7FEnig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r8V6Eom2rViGFebEUish+pLCDRvroG9b1wDJZpMW30s=;
+ b=PvX9g8FskLS7PnVwUOwS+zJyp7IKSxVQT8+tXET/auJZrgkPQCxWjDBG8hWgGD/awrED13Ft1lxTMoSTeK78gn7cVM+whMJ+sCiNJoH8BBIMMBajHdqe/joGcT4345GpoD/aeMVlSpwXdq5cwSrMqLLnCqiIVDhwrWDLj8MO/fFu6CP19BH0hC51lapWMj0T4VELYYnH5kswZ+jsAk8H7btPLhRYf0x+zU6C1A+7EN6xaJrnZ0HmeCGVR7yTqxTHp6y/5yMHkmGoaye2vKPFb3LJ4Ak3TTJvuAyqomI5pSUfg5NkUqrqfPNHgpQJPSyPOS+ZM+OSusmNNGQ1gQBIAg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by AS8PR04MB8279.eurprd04.prod.outlook.com (2603:10a6:20b:3f8::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
+ 2026 09:07:34 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 09:07:53 +0000
+Message-ID: <8a8d2991-cd85-4aed-a7ef-a90b0cd10fbd@oss.nxp.com>
+Date: Mon, 23 Mar 2026 11:10:57 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: hwmon: emc2305: Add
+ fan-shutdown-percent property
+To: florin.leotescu@oss.nxp.com, Guenter Roeck <linux@roeck-us.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
+ linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: daniel.baluta@nxp.com, viorel.suman@nxp.com,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
+References: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
+ <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-ClientProxiedBy: AM0PR02CA0113.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28c::10) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB8279:EE_
+X-MS-Office365-Filtering-Correlation-Id: 628f04bc-e26e-48f6-971a-08de88bbaaa0
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|366016|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: DGgeiRdkwuWL7gGvKzzP5UOIfJVa7vts/ZvGXKBFxLSYUTj1vvK6aNtFP/gLq8hsAZKXEL7P8rNfITaFGA1iBPjnMMdgCogBByVuzSNtMGXu090RQ6U5lDnlfPjGcUtNQTUf9voeicgf9jRZCKIQaDL+fixjygA3ApoFz8ghbmNkCsm9xLUM0F502nJ79gMR7oxUSh3QluAEcCOScaCIvJi1fJK+OQLopGny/qI4Xp1Q/L/l9NQr1jPLwyUrU4friOCbAEkj8baoYSjjkrJ43ICe442JE3d1oueiMI7fM2Z9gp/cakQ0kPwJG1LUxSKTFzhEa2q72iyY1Krx4ukbMDzMaEWMU89h4QHWY4IBG2zWRPXC43jhXrLGOGAsP4A2BAycyjO2jybnpST0cH/LXzmFrJM7tQx8hvwH/GaMYfoshvEfaf1lPrNOGQ3sv+rzoaJWCCD0m9LFFxuwRziZU/gjJ0Ko2P+2sXMZfMsZoH/v9tmbRMP8KOK3oDG3NKWVHE5XH+YetppafehXw2DIhyPgkb+HRk4K0d5W10JJ/ALJ1PxkAQiiLkXSy8dmF1xg8VHYxBomlDVOBrWMYx2g4IqkT/h0arohaczfdWmgxflRY7Cqu1FaJk0ygildTauzQQM1cWRAYN2p73xI61onlgUpmAZ3xTdWv5Ta6oVPZeV1vUT03ierP7eB8a9+KINcQAT4XXa17Fp5d6pTUfNI6TzAWSjrwxkkVOb7Ow4kgYU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RW9MOHZuMWdTUlVuajF4MlBVV0RCQzNDc1lCampDZ0lxejJGMGdNUVZ2TVM3?=
+ =?utf-8?B?MTgveGNWbTZ4UG5aVTVEbzA2YXV1VXFpa0lsQ1FNUkpiWGtxTmFaNHVqMGFX?=
+ =?utf-8?B?TExSdG1sM205N2xTdXdZT1BzK2lMcEM4U2dVZ2d2MFhHdmUrbWg0dkZsU2hK?=
+ =?utf-8?B?eEREeHlMdlN2SWpZQ0EwWHc0cGs3OE9mOXRPRjg3TXlGMWg0NSt0YVpNY2dR?=
+ =?utf-8?B?Y0szRTlWckxZdWFmVnhQeVJYMFlqamZoNmVlYWNxam8wUGFRK3FIeDhFV1A3?=
+ =?utf-8?B?dGdBZ0RXbzVyT3pWZzgrV3c4SVFFVk1LTUJoVGhnN1dOb2YrK3E0bW9KSFRu?=
+ =?utf-8?B?bVdHK3RtbGE3MUh3d2h2cHNBSVQrVm9VVzN4OHZTbTFtOVJHdXdDZ2J2Mysw?=
+ =?utf-8?B?bjJ5aFJaT1VrTVZBWDhKYmdyK3ZPV3hKMDNjNWVuQ2RmTDh5ZE5Bbjk2elpH?=
+ =?utf-8?B?SCtuYnpJWjB5MXZSOXlZVTlyWnRUQklSb2xSYkVBaTlPNGVzWFJ4TTk1Ymp0?=
+ =?utf-8?B?bGxaTmFsTFpDbllraUVLeWpUY3hFK3hWdUtENS9pN042MjN1RkhlM1FOTWZI?=
+ =?utf-8?B?U0pvaW1hTWRMZUc1dFR4bzd0TGJ6UW5nNDNFMXIxTjIyY2RrMU9OaWxVQmcx?=
+ =?utf-8?B?WmJZbll4Qk9QNTlHc3FZdmNma1poZTBkMmZieHp2YStMUkR4OWNxd1l5YnJ4?=
+ =?utf-8?B?dlQ1QjU2ckJFYXNXeDVvbTlLb2ZaNEJmRlRGZUpWZU5CVTBiWnUyMXpVWGVn?=
+ =?utf-8?B?bmx5eVZtalNMQUl0a0xLV0FuMkxZTjI3OHY0WnhvKzZDYWFEazJIaTl5N2pq?=
+ =?utf-8?B?ZXJLcnl3M1g0ekJQNkhqM2R2QWhIUGdxMEo2ZUI1L3FoZVY1VFEra3NNRzFJ?=
+ =?utf-8?B?RzNNSURkYkd5SW53TjcweUxNclpXU3dXaWV3T0pvVGpCa3ZCZUlRblJDalp6?=
+ =?utf-8?B?clhuQjB5UzRWbFpTYzJxOC8wUTNVd2VDbHR5dFoyakZpUFhKVTI5bDgwM01k?=
+ =?utf-8?B?Z0tMYzdxNHZwZUUxcHUvYUphRCs3eS83Vy9mTGJaYWtsd0VJUHMva1lRaWFN?=
+ =?utf-8?B?NWxzMi84aFpYL1BheVBGUThHTDZUVmhLSlNZeTNhVGQ1bDRvM1Q1elJJQ1Ra?=
+ =?utf-8?B?enRZZDBRK3pOemFNVmhLZGFoMEY3MkJIVnluR2hST2E2RThuWVFpOGExOFc3?=
+ =?utf-8?B?LzllU0F4RTVOTkRCTW1Ra2hvM1J6NFR3QWRGOXVtY253Vmk2UStMYklvYnZF?=
+ =?utf-8?B?M3ZrOWNTaUlXTW9RUU85WDNhc0xTK1lCTjRQdEhjWVdJdUd6K0U3QlVsZnhY?=
+ =?utf-8?B?QWNRaEhYQWNudGJFV3FUNVc1RkQrNjR6VVBKZTBDYllqbUY5eGRqT1NZZzFZ?=
+ =?utf-8?B?MjR2NW90LzEzVDk0K3FGNjZFVURaSG5lRlNuVnFGUTM5TUhybS8vZ01RdWo5?=
+ =?utf-8?B?eWZYYytEMWRNZnp6K3ZSc0FJeURyTHFESmRvSTJ2bFF4bmp5KzNmS2FOMjlS?=
+ =?utf-8?B?aHBsWUNDZ211TXRpUHQ1YThFc2w2Yjlxc2d6WDV6TnFHSGszTXEwUXZIOUZ1?=
+ =?utf-8?B?NGIxV2ZmRm4xSHVjWHVHZHVIMHVSMUV4MmhGSU1hVlFlc3VtU0c5WmVhZk0x?=
+ =?utf-8?B?M0JrVEE4dXJlZ09GbW94VitjQ3dqSjR4NDBYWnhTMlJHRmNPOEd2cXZ4Y0VB?=
+ =?utf-8?B?ZzF3S0sybE1LWUNJVWdJcjdCZ3BVdVZucTUvT01maTlXVlZyTXNmQWFmNURP?=
+ =?utf-8?B?M0RrQjJRS1YvV1F2S3VzbXZCa0dlVkloSUE0SUszWEhqbXRXbnl5OXFZbFZU?=
+ =?utf-8?B?TTkrL2w3d3I4RWZzUlprZzNpYm1GSU9KWnN4MHlQVWNPY3hPL3FvVmFJR0Z6?=
+ =?utf-8?B?Ym96REQxcWd4VEVrTzFCa294SEdzVnplR08veHJvT1VRdG55MkpVMEJoMjM2?=
+ =?utf-8?B?NG1ESnI1TzZ3KzlzMytJdjgrQURzSXZHSVdhNkZZWjFVMTcwa1o4QithQWFN?=
+ =?utf-8?B?NUFuSWpRZ1RQdTd1WVB2V2RJQnBkOGpIU08yQU8rNERrdy9NNUVCSTkrMm1l?=
+ =?utf-8?B?ZmNXa3ljbmVjZWY2QmRKekJPWFU0YU1vakp2VmlENDUxa3lWbm5qc0YwTmlZ?=
+ =?utf-8?B?NEd5ejdXTGpHOTBHV0RucUhOZXFBWUFLcEVkRGlIN2t0SUZVL09IR0hjdFNt?=
+ =?utf-8?B?T29najRtSlMvQUVyTzlBMVBTY3BwMzYwMG41MzJUUW1meVhnVHB4TTdHTzRk?=
+ =?utf-8?B?ZFRvZGxKQkpib2hHOVVXVlBNV0dET3k3SXJLRG41ZDlETTQ4Syt2ZE5pTUZq?=
+ =?utf-8?B?U2VOYmhXTVp4MktGc3lDNjVNVFZBR3hmdThESHdscS9EaGRlU0FYZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 628f04bc-e26e-48f6-971a-08de88bbaaa0
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 09:07:53.8179
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gy80enJ1JiJIV/7XvglR1s0QRIJ3ZSczRTaFOFb4MVOxH99O83vRlv99WydkmL7+FWuN11m/aeJlDTnFe0eTVQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8279
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_020751_648233_9BDD1A40 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20260323_020812_248750_08DF0BBF 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +155,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix CURR and END address calculation for inserting a cmdq task into the
-task list by using cmdq_reg_shift_addr() for proper address converting.
-This ensures both CURR and END addresses are set correctly when
-enabling the thread.
+On 3/20/26 17:29, florin.leotescu@oss.nxp.com wrote:
+> From: Florin Leotescu <florin.leotescu@nxp.com>
+>
+> The EMC2305 fan controller supports multiple independent PWM fan
+> outputs. Some systems require fans to enter a defined safe state
+> during system shutdown or reboot handoff, until firmware or the next
+> boot stage reconfigures the controller.
+>
+> Add an optional "fan-shutdown-percent" property to fan child nodes
+> allowing the shutdown fan speed to be configured per fan output.
+>
+> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
+> ---
+>  .../devicetree/bindings/hwmon/microchip,emc2305.yaml      | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> index d3f06ebc19fa..7bcadfab9fc4 100644
+> --- a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> +++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> @@ -54,6 +54,12 @@ patternProperties:
+>            The fan number used to determine the associated PWM channel.
+>          maxItems: 1
+>  
+> +      fan-shutdown-percent:
+> +        description:
+> +          Fan RPM in percent set during shutdown.
+AI review suggests to update description to 'Fan speed percent' or 'PWM duty cycle in percent'. This could be an easy update.
+More important question here is how should we proceed with the following observation:
 
-Fixes: a195c7ccfb7a ("mailbox: mtk-cmdq: Refine DMA address handling for the command buffer")
-Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
----
- drivers/mailbox/mtk-cmdq-mailbox.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+"fan-shutdown-percent property is already defined identically in pwm-fan.yaml."
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index d7c6b38888a3..547a10a8fad3 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -493,14 +493,14 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
- 		if (curr_pa == end_pa - CMDQ_INST_SIZE ||
- 		    curr_pa == end_pa) {
- 			/* set to this task directly */
--			writel(task->pa_base >> cmdq->pdata->shift,
--			       thread->base + CMDQ_THR_CURR_ADDR);
-+			gce_addr = cmdq_convert_gce_addr(task->pa_base, cmdq->pdata);
-+			writel(gce_addr, thread->base + CMDQ_THR_CURR_ADDR);
- 		} else {
- 			cmdq_task_insert_into_thread(task);
- 			smp_mb(); /* modify jump before enable thread */
- 		}
--		writel((task->pa_base + pkt->cmd_buf_size) >> cmdq->pdata->shift,
--		       thread->base + CMDQ_THR_END_ADDR);
-+		gce_addr = cmdq_convert_gce_addr(task->pa_base + pkt->cmd_buf_size, cmdq->pdata);
-+		writel(gce_addr, thread->base + CMDQ_THR_END_ADDR);
- 		cmdq_thread_resume(thread);
- 	}
- 	list_move_tail(&task->list_entry, &thread->task_busy_list);
--- 
-2.43.0
+Guenter, should we move it from pwm-fan.yaml to fan-common.yaml and use it here?
+
+Our initial thought was to add have it merged in microchip,emc2305.yaml as it is now
+
+and then factor it out in fan-common.yaml in a later patch.
+
+
+What do you think?
+
 
 
