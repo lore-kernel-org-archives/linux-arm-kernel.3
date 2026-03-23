@@ -4,119 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE77F46101
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BE3F46111
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 13:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5oJqHAVX7zT2HPF6s22H5/MvQLO5sXIIazXAuipXIs=; b=eQrjxSqAkM62/PfKd7uBVp1LcF
-	1YsS9nA7UFMGI3nGFJhVAXy6g+NjYGN7HQ1tpgjsH0Pd3MrQke40mEMgM8/do45ez+c+LH0ZE74Pb
-	fPoMx8A4Q0GXw1E2iKyiYA0nyBJFkp/Qt4aJ3Ok1Su2wwpRPewnES6nJJIbM9NlxunY21Krvw1Zxz
-	ktSri/Z6lHNcQHaeVjFKHCsot75NyJS3/6qK+bQPy83eBOjuKbum1J29K02kdGHulP9rkoakoLbm8
-	JbQoasg0cu5+DdrsT/7uyWoKpa1+tDwqp5XTrHCMJdfzbC31w+9KXbqOwmIButKd7xCtyqhzWSiH9
-	SRzPZDOQ==;
+	bh=AThaNra7PYPJkWS/PqQQWitYZvyRX/JWDoYPFuGNRGo=; b=PfFGfeQYrnJhJYLfWPqkt9EhnX
+	ISaQfgeBmgWjmEBq0ULoAnkmy24BRTxuacppgwZ4cN3pyJyHAtSZmXPR7deV1N54V+334anRZASt8
+	T9yunZfirp/qw/FMpLSCIm9YuplPN3FQLoEXRYj9I62xcAWdJijHTpd79z1b34lecV+Z5b9O59zUe
+	CREZM1E0YepC0Jcv8FjT9O/j8l1R6OaFe0omkhk119gCW+5PaDjb9P4i6UIRROA49AiY57xfR0kdU
+	ZXrq7Uf/GZZCfoXwUSGM1cmlQPPcY5eS4UOet5nTkoYe7uou98zAnSxoDU13Dhqvca3guQAciCX9q
+	ez/afD/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fR4-0000000Gpul-3thQ;
-	Mon, 23 Mar 2026 13:35:14 +0000
-Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
+	id 1w4fT1-0000000Gq9t-0fQD;
+	Mon, 23 Mar 2026 13:37:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4fR2-0000000GpuE-2NLX
+	id 1w4fT0-0000000Gq9l-07St
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 13:35:13 +0000
-Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2c0bf0a0236so139445eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 06:35:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774272911; cv=none;
-        d=google.com; s=arc-20240605;
-        b=f16Nk/hTYFsY7GWx+q8ys91/35l5axg3OEblJ+4pLtj3nmFymj1BfWiCGwflp0IKSR
-         Xx4dKtVwuyPOuoD/GF+uYhSf+s94P3rtLTb3oQB35Y77r3fEmdlHQQNVJ5lXQxM4TBjB
-         jf23L4fVVpaQRl1o6+mCQlHLMFV6+oR+em8gLVgojwr9uwdfuBIWu3AwOJmND6jsGF+m
-         boV9MzJAaagipFlhfTJhq5xo6dYa/T7ds2wrAUMEwD9MxhxosgDQMzM0DIhDjD4nBS8u
-         rMzntgf2Cp3GmaacFvpcN8Edy+kDm6BBfeMTu/SrH+IaNwpXAiWkveYWDedD+HK6QBaf
-         7D9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=P5oJqHAVX7zT2HPF6s22H5/MvQLO5sXIIazXAuipXIs=;
-        fh=Bjas7bRbOCjeiYYGd5S6n1kBdCMrma+dSyIxeze5R+8=;
-        b=Yw10/AvBVJBcPr8RQVk/JhPm0LVfxgRwNvV5rcCY8FQ6iS7ST4x0Kk5CBzKXVGf1eS
-         FeaQXoKogy7jjGwkt9Uu3MxiLYJcSk7oJPt5YzWlbgqOE+YJKIYLs+CpET6U0SDo/1d5
-         BBkdNMhXn9dysVuCTIOgl39jw+TRjGJyPJZID8DG9WDyObB+Zw39e904bVwXnFdR2W5s
-         LOC8lj1xMvinlPlfN7VgEAlrKfCpdWcksPphy76piG6qeH9nPnU1/oFDremqYy7ucEYj
-         8VFTflwksDIw16c6beMOGXUlRoN3R3ROkLTNM7GhsRtO3D/mY6YEDvdFKJx9rK5fDxVa
-         B6VA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774272911; x=1774877711; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P5oJqHAVX7zT2HPF6s22H5/MvQLO5sXIIazXAuipXIs=;
-        b=XTuAO0CFNoCjroBr7Lh5ifYNtdjmERR5DgTYP1XfcGvzX7m4wFCt6jcoK2ayI3rOee
-         3fHrxmIzkcJhVKAKs29WxVbBUOA0Vxp8OU8LP8aVRyEgXrcVyYIWXri/8BqmyDdi0Nqw
-         /Raq2SXoBWQX7GNihQzyZK5esVXQXvAa6TqhBzr3WZCdtZhqt+7JxNdIq7pN2PiJaDsC
-         7FevuDYsMDnOuaXyLaSFUj2N5e87RDGLr+2Pgcu+ShSTLjy73FRlPuNDjM2ymBI2Kp0K
-         YZSS3pLCflQ7WNfNwHlF09zkIJU/gky1jUupxuV0L6/bE2pgCxkC1gu9bmrVdYXojznC
-         UkKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774272911; x=1774877711;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P5oJqHAVX7zT2HPF6s22H5/MvQLO5sXIIazXAuipXIs=;
-        b=pcjpCYLg6BzS0l4UmwRwCnGf1QRdS4IBtJp9Xej8gQLdRW0bbfBTJMlJVCkMBFYmbY
-         oHSEiW3WKdZphiTlqlmhjjcC+eEne5b0+aMi8CQTvdQ7I/3dgBDdfdq/NtKGr4KhrZEF
-         11hnROi3aK8YZ/8Lv65MPOfL3c3XbiT4ifP8raKwQJcDfYZUfUzyHvkktuQzqofwdE7p
-         N5S9MyoG9ElyiKEFgb2xu94LUZYTUsXdlyiX6x6q+4EaBytKkgspQRNZGC7gNrMEgvQU
-         u3+j9X4vX4X1rxl+StpJJPBeMclqL1K0XD4VeliKGaNnrddDqdNASJe3Xam+DPFG5B+p
-         DjVg==
-X-Forwarded-Encrypted: i=1; AJvYcCVoOS/si9kWhA3xNRG+suF/NVcOhzw2duw3LG3a5QjeUU2/sMRME2jwXqi3SF4mnSg0NrUx6vCzN83F6wnfN1jZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGGWswAUpnm76apjnuTArCTcL7Wvc2wsItyKvg5O/MPHbc0lnk
-	EdoEOkpSVeGIQ/Yfx8cUsif14zhdm5fH3FzJXwOkaSL5EbRRJ6SaucznT9aEnzn5EgEHykcvD8F
-	yliUwDz/ky+pLKYUoZZVCKM6p7ZI5X6Y=
-X-Gm-Gg: ATEYQzywcjDO8sV1bkWoCPCa6DOhpooomyAhg2ClIsrpkgsg7jKLnzn3brx2JXodqyf
-	hO7XLsFvbomFXgPJfwTc7KI05ZAy/3w5DT/CJfnr35s0Aw/20CMn8+sWTS4d8eYILzAbQFBOh2a
-	XjpZFTMM0DmlC8xoN9OhUcYI1mG+OJZM5B+N5qMmH6hKuTt0pR/Y/Kvqnnjo4dhO/tIRg/HMoU1
-	TjPGVaMgtbCdfAn5I85P0Ab8f6P4+PfN6fmUMjuOC4UUgnuAT5QAO3JzcmiMJsOy50X89X0AAu9
-	DrEDet118POcsOLD/7xncLi85/O6LQcbl3juQuAMvRi7sTRwGrq0WBqXL3AXCSKyuNjsdv5TVeH
-	YiSSsbMnE85+9M1dWtBagGYh1SZ7/M4p3rw==
-X-Received: by 2002:a05:7300:5711:b0:2c1:27c:75d3 with SMTP id
- 5a478bee46e88-2c10956c2a3mr2435566eec.1.1774272911337; Mon, 23 Mar 2026
- 06:35:11 -0700 (PDT)
+	Mon, 23 Mar 2026 13:37:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9583600AC
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:37:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C768C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 13:37:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774273032;
+	bh=bv/SaUq1HdOMFnRKapZs5n44wqZCvMp+Q5Yg1ZUqQT4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=m7zrVHz8jG70gOBJcuvGd9dQDhChoJnZeciGZMEwB53wUhOugKsxbQdtTrzaMLE3K
+	 woO/Y0CCFVTtdfxh7PBN0MdrIo/XxqM+d1R6o95whzgIxItgVy1RiPKVlCgpnSYUJn
+	 3rC/v/c6EyhgWN07TN5XFfJM0fHtI7fIJ6Ax7QK1CyvhBX6dJJqIycyep4Lr0vs/3K
+	 5vf/eoZ90MF5eg1u1jFqhozl0yY8btTvkEWzPUtTccVnHiwkQN12MKkhvfz1G0OJkN
+	 LEn9AaxmO+cngxDe3AgvKNSpPpZyP6KFlH3OLBIfRGoQYTmaZiRBHIvCCB3vbuQo1K
+	 xrIdkAq1a9mqg==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a278b4c1a5so97141e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 06:37:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXS5BC4VZ5V0Gt+bD1ACIRaRfziIo8BfW03yySJyZ5VxvuZhqguqDYov59s49LCW+Vh6ahECKiao66XJfmlTUh/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVwisr54gnNjRdBEcQVAVu332+UopFJkuI2UAZn0m6TIw894Y3
+	T7PsMuuQe+O9oimVtn+xRBMFs5SOLx/5hzpB/JY6WWpZ1fTQE2SuNeq4Y1FKPL7w3nHw2AkamCs
+	Q4qZ7zpz5SxTMfZ0rkiD5OoN4bdEtvgY9nattSgi+wA==
+X-Received: by 2002:a05:6512:10d3:b0:5a1:7458:c17e with SMTP id
+ 2adb3069b0e04-5a285b55dd3mr3848196e87.37.1774273031248; Mon, 23 Mar 2026
+ 06:37:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260322192159.88138-1-ojeda@kernel.org> <20260323000327.111235-1-ojeda@kernel.org>
- <96287f3a-d245-47cf-b7cb-f821451493d3@lunn.ch> <CANiq72nwSWVDRqm0Vap5j5X5k+Q-wq8okQ9d3KUgZt6M4CpW9g@mail.gmail.com>
- <65336ad0-ac37-416f-b6ae-e691e3e375ae@lunn.ch> <DHA6SE9EMEQF.1PKVHEG18I5FS@garyguo.net>
- <b5063e7e-9245-434e-9877-5ac7b45f4bc7@lunn.ch>
-In-Reply-To: <b5063e7e-9245-434e-9877-5ac7b45f4bc7@lunn.ch>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 23 Mar 2026 14:34:58 +0100
-X-Gm-Features: AQROBzD7g_rNmuMWaBSXTkod6GcGExC_6-5XqRdaJnhqw3z7WBAm_JnLMPlOCtE
-Message-ID: <CANiq72kD6HVrDTjQrTXDujyjA4Z5ELM6Nh8kFfVfNXrvpfU1wA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Gary Guo <gary@garyguo.net>, Miguel Ojeda <ojeda@kernel.org>, a.hindborg@kernel.org, 
-	acourbot@nvidia.com, akpm@linux-foundation.org, aliceryhl@google.com, 
-	anton.ivanov@cambridgegreys.com, bjorn3_gh@protonmail.com, 
-	boqun.feng@gmail.com, dakr@kernel.org, david@davidgow.net, 
-	johannes@sipsolutions.net, justinstitt@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-um@lists.infradead.org, linux@armlinux.org.uk, llvm@lists.linux.dev, 
-	lossin@kernel.org, mark.rutland@arm.com, mmaurer@google.com, morbo@google.com, 
-	nathan@kernel.org, nick.desaulniers+lkml@gmail.com, nicolas.schier@linux.dev, 
-	nsc@kernel.org, peterz@infradead.org, richard@nod.at, 
-	rust-for-linux@vger.kernel.org, tmgross@umich.edu, urezki@gmail.com, 
-	will@kernel.org
+References: <20260317-qcom-qce-cmd-descr-v13-0-0968eb4f8c40@oss.qualcomm.com>
+ <20260317-qcom-qce-cmd-descr-v13-5-0968eb4f8c40@oss.qualcomm.com> <hohx2judes5c6na4svpah254hqbaf4kbeyu7prwkprfv5dy7hj@26nxwlvb76yp>
+In-Reply-To: <hohx2judes5c6na4svpah254hqbaf4kbeyu7prwkprfv5dy7hj@26nxwlvb76yp>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 23 Mar 2026 14:36:59 +0100
+X-Gmail-Original-Message-ID: <CAMRc=McostnmVjE=uV=2KA7-dqLvQ2BAJYTXzANacFpPGgS+Sw@mail.gmail.com>
+X-Gm-Features: AaiRm52smHlzaZX3o3c7rJCXBkH0quFZvqCL-0liNookxclyfizWuRA5g5cCXoU
+Message-ID: <CAMRc=McostnmVjE=uV=2KA7-dqLvQ2BAJYTXzANacFpPGgS+Sw@mail.gmail.com>
+Subject: Re: [PATCH v13 05/12] dmaengine: qcom: bam_dma: add support for BAM locking
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Thara Gopinath <thara.gopinath@gmail.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
+	Udit Tiwari <quic_utiwari@quicinc.com>, Md Sadre Alam <mdalam@qti.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Stephan Gerhold <stephan.gerhold@linaro.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_063512_609571_85AA7EF7 
-X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,48 +89,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 2:28=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+On Mon, Mar 23, 2026 at 10:35=E2=80=AFAM Manivannan Sadhasivam <mani@kernel=
+.org> wrote:
 >
-> So it sounds like my understanding is out of date. When the first
-> Ethernet PHY driver was being merged, Rust could not access inline C
-> functions. The binding had to replicate the functionality. But you are
-> saying that Rust can now make use of inline C code, but not actually
-> inline it? It results in a function call?
+> On Tue, Mar 17, 2026 at 03:02:12PM +0100, Bartosz Golaszewski wrote:
+> > Add support for BAM pipe locking. To that end: when starting DMA on an =
+RX
+> > channel - prepend the existing queue of issued descriptors with an
+> > additional "dummy" command descriptor with the LOCK bit set. Once the
+> > transaction is done (no more issued descriptors), issue one more dummy
+> > descriptor with the UNLOCK bit.
 >
-> What this feature does it actually allows inline C functions to be
-> inline? So it is just an optimisation?
+> I've left some comments in v12, but looks like you've missed them.
 
-We have always been using the helpers to access the inline functions,
-please see the top comment in `rust/helpers/helpers.c`:
+Sorry for that, as I explained in private, this email did not end up
+in my inbox and I didn't see it on lore.
 
-   Non-trivial C macros cannot be used in Rust. Similarly, inlined C functi=
-ons
-   cannot be called either. This file explicitly creates functions ("helper=
-s")
-   that wrap those so that they can be called from Rust.
+> >
+> > +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, v=
+oid *data, size_t len)
+> > +{
+> > +     struct bam_chan *bchan =3D to_bam_chan(desc->chan);
+> > +     const struct bam_device_data *bdata =3D bchan->bdev->dev_data;
+> > +     struct bam_desc_metadata *metadata =3D data;
+> > +
+> > +     if (!data)
+> > +             return -EINVAL;
+> > +
+> > +     if (!bdata->pipe_lock_supported)
+> > +             return -EOPNOTSUPP;
+>
+> As mentioned in v12, you should return 0 to avoid erroring out the client=
+s if
+> pipe lock is not supported.
+>
 
-It doesn't duplicate the functionality, it simply forwards the call,
-i.e. it is not as bad as a full copy-paste of the implementation.
+If the client attaches the scratchpad register then it probably does
+want to use locking, right? On the other hand, I assume you're
+thinking about a situation where the client wants locking but BAM does
+not support it. It's unlikely but ok, I'll change it.
 
-This patch series aims to improve performance (cheaply in terms of
-built time) because for Rust calling those helpers are not inline
-anymore otherwise.
+> >
+> > +static struct bam_async_desc *
+> > +bam_make_lock_desc(struct bam_chan *bchan, struct scatterlist *sg,
+> > +                struct bam_cmd_element *ce, unsigned long flag)
+> > +{
+> > +     struct dma_chan *chan =3D &bchan->vc.chan;
+> > +     struct bam_async_desc *async_desc;
+> > +     struct bam_desc_hw *desc;
+> > +     struct virt_dma_desc *vd;
+> > +     struct virt_dma_chan *vc;
+> > +     unsigned int mapped;
+> > +     dma_cookie_t cookie;
+> > +     int ret;
+> > +
+> > +     sg_init_table(sg, 1);
+> > +
+> > +     async_desc =3D kzalloc_flex(*async_desc, desc, 1, GFP_NOWAIT);
+> > +     if (!async_desc) {
+> > +             dev_err(bchan->bdev->dev, "failed to allocate the BAM loc=
+k descriptor\n");
+> > +             return NULL;
+> > +     }
+> > +
+> > +     async_desc->num_desc =3D 1;
+> > +     async_desc->curr_desc =3D async_desc->desc;
+> > +     async_desc->dir =3D DMA_MEM_TO_DEV;
+> > +
+> > +     desc =3D async_desc->desc;
+> > +
+> > +     bam_prep_ce_le32(ce, bchan->scratchpad_addr, BAM_WRITE_COMMAND, 0=
+);
+> > +     sg_set_buf(sg, ce, sizeof(*ce));
+> > +
+> > +     mapped =3D dma_map_sg_attrs(chan->slave, sg, 1, DMA_TO_DEVICE, DM=
+A_PREP_CMD);
+> > +     if (!mapped) {
+> > +             kfree(async_desc);
+> > +             return NULL;
+> > +     }
+> > +
+> > +     desc->flags |=3D cpu_to_le16(DESC_FLAG_CMD | flag);
+> > +     desc->addr =3D sg_dma_address(sg);
+> > +     desc->size =3D sizeof(struct bam_cmd_element);
+> > +
+> > +     vc =3D &bchan->vc;
+> > +     vd =3D &async_desc->vd;
+> > +
+> > +     dma_async_tx_descriptor_init(&vd->tx, &vc->chan);
+> > +     vd->tx.flags =3D DMA_PREP_CMD;
+> > +     vd->tx.desc_free =3D vchan_tx_desc_free;
+> > +     vd->tx_result.result =3D DMA_TRANS_NOERROR;
+> > +     vd->tx_result.residue =3D 0;
+> > +
+> > +     cookie =3D dma_cookie_assign(&vd->tx);
+> > +     ret =3D dma_submit_error(cookie);
+> > +     if (ret)
+> > +             return NULL;
+>
+> You are leaking async_desc here.
+>
 
-You may be referring, instead, to avoiding to have to write manually
-the helper (the forwarder) -- for that, please see "Support static
-inline functions in headers (by generating a wrapper)" at:
+Yeah, not only that but also should unmap the sg here too. Thanks.
 
-  https://github.com/Rust-for-Linux/linux/issues/353
+> > +
+> > +     return async_desc;
+> > +}
+> > +
+> > +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
+> > +{
+> > +     struct bam_device *bdev =3D bchan->bdev;
+> > +     const struct bam_device_data *bdata =3D bdev->dev_data;
+> > +     struct bam_async_desc *lock_desc;
+> > +     struct bam_cmd_element *ce;
+> > +     struct scatterlist *sgl;
+> > +     unsigned long flag;
+> > +
+> > +     lockdep_assert_held(&bchan->vc.lock);
+> > +
+> > +     if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
+> > +         bchan->slave.direction !=3D DMA_MEM_TO_DEV)
+> > +             return 0;
+> > +
+> > +     if (lock) {
+> > +             sgl =3D &bchan->lock_sg;
+> > +             ce =3D &bchan->lock_ce;
+> > +             flag =3D DESC_FLAG_LOCK;
+> > +     } else {
+> > +             sgl =3D &bchan->unlock_sg;
+> > +             ce =3D &bchan->unlock_ce;
+> > +             flag =3D DESC_FLAG_UNLOCK;
+> > +     }
+> > +
+> > +     lock_desc =3D bam_make_lock_desc(bchan, sgl, ce, flag);
+> > +     if (!lock_desc)
+> > +             return -ENOMEM;
+> > +
+> > +     if (lock)
+> > +             list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
+> > +     else
+> > +             list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued=
+);
+> > +
+> > +     bchan->locked =3D lock;
+>
+> What is this flag for?
+>
 
-(In fact, I had your previous mention of `skbuff.h` from Lore there :)
+Just a leftover. I'll drop it, thanks.
 
-Assuming `--wrap-static-fns` works well etc., then it would be nice to
-use it, yeah. But that is different from this patch series (and this
-patch series would apply as well even if we use the automated wrappers
-etc.).
+> >
+> > +struct bam_desc_metadata {
+> > +     phys_addr_t scratchpad_addr;
+>
+> I think it'd be worth adding a comment for this.
+>
 
-I hope that clarifies.
+Will do.
 
-Cheers,
-Miguel
+Bart
 
