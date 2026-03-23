@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8207D58CCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 20:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB25BF483F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 21:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KiLXe3K01kFt9krWwBcSE2ZH8UWbsrjQMi5Rak0Yy4w=; b=LJpofPvBHyYI2rWXtMafL5jN6D
-	4erOnu5Ulxg3quNwRZwwTUs0ZcUZS/L9cC+bVg/yVhCP7/l45AWbDp0aj9N2JFwzPL6cWHc92ycHm
-	nCGCL+zl6hyWQC1rNFeUE8Bg7AoxFTR4T6bf/g0PdEd1cJtYTKi3p8hykYGj/E5/lyZKSFIeUVv3w
-	jIQ2EHpRCjIT+xyXa2V4AslBzNIsva8DlCg7+C3UDDKV34SS0yZcqwcKASxzaZ9KfRkjW61ywSrpw
-	RI56v3ZNtXDxNVdRGuX+KM/fEsa1prOJXqhonnHKIWCZwlHoic9jWQ0ltsccZhP/UvK0mDUU0fne+
-	u5zveQCQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XxYw5y0oMDbij9HIoXO4SjbrHQlZ4oAoi5+oWu+ZDXY=; b=TqQUhVjUJdMHkPlwsMiXhJ9Tsl
+	KGZB03hByfSswKtIdp7vgLeipHpR/P0hYVu8OsOaunCpSQnI6fpd+8BN/Q58rRStw25VNYe6fQVyd
+	0ZsrUZjYbtecfkKwBmYUhLa5Bg+MSlBHx9baKV2NXQW7VzAHQ/xD9mZ+Ia9Gnyw//YfASJopoDOzd
+	rCAzJsKXh1SZdwYuU/RdeSIxxtskRxMPttV/nvuSaa5LC7eLJTwmm3U1GCEII4T4ArtXLDbovPUmg
+	TKaTQegV+GeDU7VhD7MK1gtovy2BkwDSfAmQetoa86YNaOyGxlqvkyU4+Rq/Q5fi698OE9YaJ0bhh
+	c3KmLlSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4mKT-0000000HaKA-1onH;
-	Mon, 23 Mar 2026 20:56:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w4mol-000000000r4-0kM7;
+	Mon, 23 Mar 2026 21:28:11 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4mKR-0000000HaK4-34WX
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Mar 2026 20:56:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KiLXe3K01kFt9krWwBcSE2ZH8UWbsrjQMi5Rak0Yy4w=; b=CduG2fTz9w9JLXbNwp2wbWW2o1
-	X2zB7T9OOkYmML3/go/f9GEyMVZxIxvaVy0YIWbINz//x1R5xclZHkANz28LvnDEIQpFh0IrbE5RZ
-	h8XJ5XYP2bcQwDjuvf5cdTdLdZaM1KAvXi9uUYy0JDqAK/YWUBK9GOm6Ch7V9HHyswARSlaIYj3yw
-	BGyL9drp6pgwztKvIILTqYgxuVHrP6NoV2ISx1mUKnwT5b/NOnOwClb3CWHTN6Boac85IBx4upcYo
-	9S/6Hb5WMJ/Ve+hUYManaOKiTqQFYf9FPUTdDq3JTUfuIsYmoKMkLq+wQbiyBfvJ8qIIJzDn9x978
-	mSg8N5fQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4mDx-00000002a5j-26Rj
+	id 1w4moi-000000000qI-3SkA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 20:56:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 745ED14BF;
-	Mon, 23 Mar 2026 13:49:42 -0700 (PDT)
-Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 790B53F73B;
-	Mon, 23 Mar 2026 13:49:43 -0700 (PDT)
-Message-ID: <6c3b506e-8cc4-45ad-a801-326886c694c4@arm.com>
-Date: Mon, 23 Mar 2026 20:49:40 +0000
+	Mon, 23 Mar 2026 21:28:09 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-483ad568d68so6658325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 14:28:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774301286; x=1774906086; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XxYw5y0oMDbij9HIoXO4SjbrHQlZ4oAoi5+oWu+ZDXY=;
+        b=jPZTA1usRixky235t89K2HiTITyDdnKfdF1GO6esHz8N5eklnqRPQ4a18fOdI5CnaI
+         B5kN5aMP2U2jCXfWc1u/jvicnneSTGOzIlj1ZM17ttB5Us+6FgA0pkQZDTfhn/5RQq6m
+         IHvN65VQV8qcNL9HbPyRWYZQgL0xVQPwHGfgyvGIp3KzkYI4LbeqYEBW5tSiFj49aR72
+         uJGcOHWAvenN3D1rU4OmZ5YWjQBs3NM/KKpayffNG5IgTacFbUgvcjooCigZmO0UOdnN
+         pr5Y1kz/AbeGST0/86REjhS9VkslgRw7xTFJll0iMyiMosGWTK7ILXjirxKK+3s71ZWM
+         Ic7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774301286; x=1774906086;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XxYw5y0oMDbij9HIoXO4SjbrHQlZ4oAoi5+oWu+ZDXY=;
+        b=faMPeXRNIekCxwzmzzF5z5CXqaHra5ac58b1gZJJDrE3U47bOZ42FNQ8JRKmYXu/JV
+         dZnr1RcNK8JZyGlNbRA4ZxRL/8E+VEnUZLQpnIJL452hyOb0Qa456dO2AzyZ+S9vC72k
+         ZUC30CTrs+/+y4uzrFQr3dAVmYch2j9xOMEyqFxydqk9Ghyj5Qfi3j1EeCwHnLUByIg+
+         Md7HH67dRyGwHv+ktaH2CCj1pBRNtHV74PEa9lwFT1zsEfAtam8ACK/ChdqlocqCJ8Us
+         KryxX3jGTVuHYgDEBcQyJoc/Fp06fqoukHtIc7hF8yDvIzovGvKzHUp5hhadGEVqgS3b
+         Zk2w==
+X-Forwarded-Encrypted: i=1; AJvYcCWMJCH9abo1orwVaLRKKyP22kCTc8czIl4dsp5cmERB5kxm7HsNMefxURA04u0IQY12Fmo1BoLY3H5Rgja0qTJw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrFJll6gq8MNDRbdnuiYoKstI+AE0c0emG4QwBDsYpA7j4NMwI
+	3zAW3OWZeKXrfLT79QHUvkR6H1eaGmPeK9M3GfTa8BUhrB1D1K5P9kqpH5DmEA==
+X-Gm-Gg: ATEYQzw7KS1UkCJeAFq/QWm9gBj5Hsnernrj6tP7zfSSFZ9CpYnhqrDvfOgB0U5PiUf
+	z2dBk6d8IUrpyPXHIDl/MK64sUPwSH3HrLYoUQKvv9LtN217zq+jh5MTwN4Qqd6tDxyGNsZpize
+	K5d48GTJvx3sxN0r0Xw0Pz0C01W/OWoBbGiCPqY1kthkJvglNZUnBquPsl7hfWifqI48giD55Cc
+	VHm1KclNpnv+WRHeWiX79NyMZz8O6zjgk03TU2DqCDwFPpIbt8bVtuuwiKwR37N75jmJYMR/xWG
+	ceFcCMMlroA/pSbQ7pKlrGpWha7aMDSdWboSpQieC+MnrEAd59V/entTKwgptWklHtQklJN/3s+
+	hs+/9HqtKxNXFdle0x92oFhp1dlRBnBAAyTEkDgrwjBJ81A/bAFawAj1slYFfo7S622M2WPLujr
+	oyGE6EPHS0CabiNQ7XSMeBYP16OFZDG7Z1wVKknh7QxtKisYJ/vc7UXowj9iHIpqZNxIjK9HRt/
+	A==
+X-Received: by 2002:a05:6000:702:b0:439:c122:4fe3 with SMTP id ffacd0b85a97d-43b64243dd2mr12046889f8f.1.1774301285791;
+        Mon, 23 Mar 2026 14:28:05 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b6470393fsm33386975f8f.17.2026.03.23.14.28.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Mar 2026 14:28:05 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	ardb@kernel.org,
+	linusw@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH 0/3] crypto: atmel-sha204a - multiple RNG fixes
+Date: Mon, 23 Mar 2026 21:27:52 +0000
+Message-Id: <20260323212755.687342-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
- path
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
- Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
- <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- Charan Teja Kalla <quic_charante@quicinc.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Juan Yescas <jyescas@google.com>, kernel-team@android.com
-References: <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
- <67b32e90-1f60-4bf5-b534-b4a901d5a796@linaro.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <67b32e90-1f60-4bf5-b534-b4a901d5a796@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_205242_116519_F44FF110 
-X-CRM114-Status: GOOD (  32.04  )
+X-CRM114-CacheID: sfid-20260323_142808_880658_83C94455 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,102 +104,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/03/2026 5:18 pm, Tudor Ambarus wrote:
-> Hi, Robin,
-> 
-> On 2/28/25 5:46 PM, Robin Murphy wrote:
->> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
->> index a3b45b84f42b..1cec7074367a 100644
->> --- a/drivers/iommu/iommu.c
->> +++ b/drivers/iommu/iommu.c
->> @@ -414,9 +414,21 @@ static int iommu_init_device(struct device *dev)
->>   	if (!dev_iommu_get(dev))
->>   		return -ENOMEM;
->>   	/*
->> -	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
->> -	 * instances with non-NULL fwnodes, and client devices should have been
->> -	 * identified with a fwspec by this point. Otherwise, we can currently
->> +	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
->> +	 * is buried in the bus dma_configure path. Properly unpicking that is
->> +	 * still a big job, so for now just invoke the whole thing. The device
->> +	 * already having a driver bound means dma_configure has already run and
->> +	 * either found no IOMMU to wait for, or we're in its replay call right
->> +	 * now, so either way there's no point calling it again.
->> +	 */
->> +	if (!dev->driver && dev->bus->dma_configure) {
->> +		mutex_unlock(&iommu_probe_device_lock);
->> +		dev->bus->dma_configure(dev);
->> +		mutex_lock(&iommu_probe_device_lock);
->> +	}
-> 
-> I was chasing the "something fishy" dev_WARN on a 6.19+ downstream
-> android kernel and while looking at the IOMMU code I couldn't help
-> myself and ask whether we shall prevent concurrent execution of
-> dma_configure().
-> 
-> It seems to me that while the IOMMU subsystem is executing
-> dma_configure(), the deferred probe workqueue can concurrently pick up
-> the same device, enter really_probe(), set dev->driver, and execute
-> dma_configure(). Is it worth protecting against this?
+When testing the RNG functionality on the Atmel SHA204a hardware, I
+found the following issues: rngtest reported failures and hexdump
+reveiled only the first 8 bytes out of 32 provided actually entropy.
 
-Yes, it's certainly still possible to hit a false-positive if thread A 
-in iommu_device_register()->bus_iommu_probe() races against thread B 
-attempting to bind, simply because thread B can set dev->driver long 
-before it gets to any point where ends up serialising on 
-iommu_probe_device_lock again, so thread A can observe that even while 
-it is doing the IOMMU probe in the "correct" context. Other than the 
-warning though, it's still functionally OK even if the "wrong" thread 
-does end up finishing the probe, at least after 0c8e9c148e29 ("iommu: 
-Avoid introducing more races").
+Having a closer look into it, I found a (small) memory leak, missing
+to free work_data, miss-reading of the count field into the entropy
+fields and parts of the 32 random bytes staying 0 due to reading the
+slow i2c device.
 
-> I can try to prove it if needed, using a downstream iommu driver (sigh).
-> 
-> Thanks!
-> ta
-> 
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index e61927b4d41f..5f0c1a8064b5 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -461,9 +461,19 @@ static int iommu_init_device(struct device *dev)
->           * already having a driver bound means dma_configure has already run and
->           * found no IOMMU to wait for, so there's no point calling it again.
->           */
-> -       if (!dev->iommu->fwspec && !dev->driver && dev->bus->dma_configure) {
-> +       if (!dev->iommu->fwspec && !READ_ONCE(dev->driver) &&
-> +           dev->bus->dma_configure) {
->                  mutex_unlock(&iommu_probe_device_lock);
-> -               dev->bus->dma_configure(dev);
-> +
-> +               /*
-> +                * Serialize with really_probe(). Recheck dev->driver in case a
-> +                * driver bound while we were waiting for the lock.
-> +                */
-> +               device_lock(dev);
-> +               if (!dev->driver)
-> +                       dev->bus->dma_configure(dev);
-> +               device_unlock(dev);
+The series proposes fixes and how fixed functionality can be/was
+verified. Executing rngtest afterward showed a decent result, due
+to the i2c bus a bit slow.
 
-Much as I can't wait to get rid of iommu_probe_device_lock, the main 
-reason we still can't rely on device_lock() at the moment is not 
-actually the remaining sketchy replay-dependers per the comment in 
-__iommu_probe_device(), but more fundamentally that for most IOMMU 
-drivers this will deadlock in that same 
-iommu_device_register()->bus_iommu_probe() path, when the bus walk 
-happens to stumble across the IOMMU device itself, which of course is 
-already locked as it's still in the middle of its own driver bind. I 
-couldn't see an easy, clean and reliable way to get around that, so that 
-can got kicked down the road in order to get the "call of_xlate in the 
-right order and make iommu_device_register() actually work" basics 
-landed (and start shaking out all these other problems...)
+All setups require selecting the Atmel-sha204a as active RNG.
+$ cat /sys/class/misc/hw_random/rng_available
+    3f104000.rng 1-0064 none
 
-Thanks,
-Robin.
+$ echo 1-0064 > /sys/class/misc/hw_random/rng_current
 
-> +
->                  mutex_lock(&iommu_probe_device_lock);
->                  /* If another instance finished the job for us, skip it */
->                  if (!dev->iommu || dev->iommu_group)
-> (END)
+$ cat /sys/class/misc/hw_random/rng_current
+    1-0064
+
+Testing RNG properties currently shows problematic results:
+$ rngtest < /dev/hwrng
+    rngtest 2.6
+    Copyright (c) 2004 by Henrique de Moraes Holschuh
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+    rngtest: starting FIPS tests...
+    rngtest: bits received from input: 1040032
+    rngtest: FIPS 140-2 successes: 0
+    rngtest: FIPS 140-2 failures: 52
+    rngtest: FIPS 140-2(2001-10-10) Monobit: 52
+    rngtest: FIPS 140-2(2001-10-10) Poker: 52
+    rngtest: FIPS 140-2(2001-10-10) Runs: 52
+    rngtest: FIPS 140-2(2001-10-10) Long run: 52
+    rngtest: FIPS 140-2(2001-10-10) Continuous run: 52
+    rngtest: input channel speed: (min=7.631; avg=7.804; max=7.827)Kibits/s
+    rngtest: FIPS tests speed: (min=32.273; avg=32.701; max=33.056)Mibits/s
+    rngtest: Program run time: 130177956 microseconds
+
+---
+Lothar Rubusch (3):
+  crypto: atmel-sha204a - fix memory leak at non-blocking RNG work_data
+  crypto: atmel-sha204a - fix truncated 32-byte blocking read
+  crypto: atmel-sha204a - fix non-blocking read logic
+
+ drivers/crypto/atmel-sha204a.c | 61 ++++++++++++++++++++++------------
+ 1 file changed, 40 insertions(+), 21 deletions(-)
+
+
+base-commit: 5c52607c43c397b79a9852ce33fc61de58c3645c
+-- 
+2.53.0
 
 
