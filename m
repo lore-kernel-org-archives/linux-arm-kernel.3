@@ -4,67 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F3BF4613A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85074F4613B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 15:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Gqyh445RFNhCMpOGQ+ZUm8h8QVvK3gHOuBtceouwcw=; b=2/vqwGIK99GdKFYwWs8eGS9Y7v
-	PGhzyd+66R+FPbWn4XE6fESpV1aE5kP+vUbeRxW23qLbj5IKT6RBLEOxjDQxaRafOwHPLAtrYHC0f
-	yzS+hOL70NujANfOeftzSU8pKu+rWNmc7Up2MtlN4b8UvE+KfH0JCcbDzMmOq46kMTmnp5gLT8nRR
-	/zhKd5yreEIREc9cbW2RqMhcIS+y99ZFuE1nHShXYDOAPBKXtxnbs+AdN1gtTmg3NClIQ05qpeitF
-	WSCiJ6j8CQWwNdmMsCidy6veCgaDYjz7vtP7MIGEHfA56aR0mHtqxcboYM76ywJSAYmkniiNLXT7E
-	JyV+J69g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Th394ncQCs3Kh40Hvs0LbO7LZwJCHzz6crYYomWJRS8=; b=GpwlTMUwIbW1LFRB0q9mXTNdEt
+	ocO6vdD6sb34hhKgbDKct0fFj3/8QzMeNfzSO6LHYRfCpsaae5DmRvlEFc4aJl06wxNPTRUMeynnf
+	N+hB4DGFm/KfHk+YhTqZ/T/LNgDeOoC+hh/xb1yghwSli7L2rMSEvJqz848EsiSN+MRkwEEFIN/Mn
+	alGfzbrAbR1JYJ9OzIGALJTM0proflqiEqYmyzsJmsnJMPfjjr4pNcRqu/j9GpPMrDfArwfCR5G5/
+	ahR9BCi1+Ky3ACuISDoZ09O7aKhsSL35zReSI8qQKq7RDRtTtZZd/48mcE7rtsAB+YETQnqLSEHll
+	XcDeZn6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gsQ-0000000GyrJ-28p0;
-	Mon, 23 Mar 2026 15:07:34 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1w4gxu-0000000Gz8A-3HvC;
+	Mon, 23 Mar 2026 15:13:14 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4gsM-0000000Gyqr-0WhD
+	id 1w4gxs-0000000Gz7k-0XoQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 15:07:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 0CD90C58081;
-	Mon, 23 Mar 2026 15:07:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CAA495FEF6;
-	Mon, 23 Mar 2026 15:07:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B553E10450FC6;
-	Mon, 23 Mar 2026 16:07:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1774278444; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=8Gqyh445RFNhCMpOGQ+ZUm8h8QVvK3gHOuBtceouwcw=;
-	b=pddg8evVZ/u+oX5Z3HmeCu6mTDmmsG29OJWSy/T0XDbuYnmjBZLPs9dQoicD8wTQEK41OY
-	jHJW7mYb14w4rBY+u2mBTdAEJjCRj2Fya6QLbH9wxp2MP40VodcnojcQV20wkC3AjC/qDz
-	TX7gt4mc7IWyc7oHN4/qY2OAf35HyqP8St/OCjjJFCyfFTDE+ZIy3GygwNeGiZIJ+fT1fr
-	3UnNKIWiTjO2JjR/VhVc0LZ33mC3tM4cG1CxcvQcAMW3RxDJfgf1pY+ejG2GGC4a3fZGPA
-	OIauvxitAsKvf+KEGtEAG7hNsY/Oa4ksa9VS8dL06jyIhYeBk8uvilHnAeQcLw==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Gabor Juhos <j4g8y7@gmail.com>, Andrew Lunn <andrew@lunn.ch>, Miquel
- Raynal <miquel.raynal@bootlin.com>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, Rob Herring <robh@kernel.org>,
+	Mon, 23 Mar 2026 15:13:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TQ/Aco+qHhekCNebkGjQG5xZYSmZjCCVqyXpRiNEe3whsbQyPzyyUqOmqxo8O8f8FdQo6BgvK6i28kNU4Tz+/RjPMkWuoHdFOqJRfE0uiDOI/ku4ejfxlc206l75gz0cFCNJACjOmJBe6l1/0JH1TzZvjfJFjULto4U9hl6INoCHubSm85TQTVU3JT0p2CQ4duQY9rtpMzTMrP8iJQJPrwwuiMs9Z7QuKxna0RAUs+TIQtzh30Z4Ol8Lmi1eQtvrbLBfzNuGeC89RRc+HFWsw1HPDYcyV3PZpbAlr11T9H4eMY3XmZhTTfQMVk6pWIHa9zig1YMdc8R7m+I1pcJZYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Th394ncQCs3Kh40Hvs0LbO7LZwJCHzz6crYYomWJRS8=;
+ b=uwBB39anTUS1xNE4eg5XR995DxVeyQEQGtEzFcDjTKEW7SkldaUWkCXKMthPrPcGY41jFMV0t9MeIFER/OT1m5/AYpgd9m6yooGaHIPGIDmgK/p9dPT1gI5RkgreadDvhlT1iTmXlA3sc4zOTfnWK7b4M0qBONhWU+vjfN04dTyhwY0qRXttinxzpBPBglm16CtIyXPJnYPR7GsebKuA6zY7D7iHKXCiHT8gCnvJjV7XjrccRG+ZtXjY3FrK7glvS+62bgNo+sVC6roqW9bplZySIeDwvO5BVCi6g+3Ypy3lgUah4138Fn+mVb/pRb7dmy+dXiCc1jT+1+VWVTWGHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Th394ncQCs3Kh40Hvs0LbO7LZwJCHzz6crYYomWJRS8=;
+ b=MmrxB42G56jx+9ioLpouZDTCPzOStGqXbD1/ODBZseUcj6+CymZVRwA7NEkum55cXhqbrLBVlIhHGZ6p3kg/NboRwnQO+VP0+CO90c3jGLkIuHGQ1KFmNXAE9PwKXjWuR+pLuqkfzorNHnNZBy4No9bq4QIb5DU8zk+KlddrUJuduARaZOLc2gp0J9Ic8l0qAkaUhsebBhtfVtbzC2CDGCtVJkd1/cqh0MYCoMQ3qdct5zCl34c7vkIrmY0U9x7ntwk0+nSx79N5dZ06DyLiSiYR/ADdt6iD1xxD0HpuUWj+vpbeMWA21AY9vPufnwuzaLh/TdSyOlIHy1WQJh7IAg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by DU4PR04MB11860.eurprd04.prod.outlook.com (2603:10a6:10:628::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Mon, 23 Mar
+ 2026 15:12:41 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
+ 15:12:55 +0000
+Message-ID: <a7982125-1782-4655-9800-235f99fc913e@oss.nxp.com>
+Date: Mon, 23 Mar 2026 17:15:59 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: remoteproc: imx-rproc: Introduce
+ fsl,reset-vector-mask
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
-Subject: Re: [PATCH v3] arm64: dts: marvell: armada-37xx: drop
- 'marvell,usb-misc-reg' from USB host nodes
-In-Reply-To: <20260319-armada-37xx-drop-usb-misc-reg-v3-1-8585c8a0a8ba@gmail.com>
-References: <20260319-armada-37xx-drop-usb-misc-reg-v3-1-8585c8a0a8ba@gmail.com>
-Date: Mon, 23 Mar 2026 16:07:19 +0100
-Message-ID: <87tsu64mag.fsf@BLaptop.bootlin.com>
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Peng Fan <peng.fan@nxp.com>
+References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
+ <20260312-imx943-rproc-v1-1-3e66596592a8@nxp.com>
+ <3e1a3f07-8c0c-4757-afd2-b9e6574a6274@oss.nxp.com>
+ <ab1D2qIUh+KPnS7p@shlinux89>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <ab1D2qIUh+KPnS7p@shlinux89>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0224.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e4::14) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|DU4PR04MB11860:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5ecba83-2dd5-44da-3e7e-08de88eea931
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: jQUSYHN2B6V99tZQGgw9MjHiMdEqFAyOnakg+NL9bJ7icz566mMWa3hZBX3XrLJLFgDm44TcxVw98GcWG7DGIED5WUakSjiu5Td4Fnom74nRl0RySdka6JQCUjhLih0P5sZ6uY/Sn5Atq8De+bsY6rMdJt3qdHOMZ1XL097iNL6WObMlfozZ2yrIPUd/tL5Dq6ysUI1OlZD25WWC/fBygAQ1FAO1Tzz3bBmAosKZy2Cec86wEt2jYiKVLSXqJr/HvT7zsUyBxjGrtVd1SqbwJiJ2lEkab/UIr0pikct/k+O4juq6CHj5YoOJ7guEJobshPJMV6D1ZCYR6fXQKVXT9UniPveRJqj2PQSz4kKtrXEp98VQoJ1JRCdN1lupwjfJTVYRW8uzvciS0onIdQPCjzmfwci7CfPSZ7Qk/nB87YGIJ0ZOG90FluPgF4kd0whcJhh+ZGDYzFxrS5Oq/INShMZky8/eRwyf4aCe5xi4QVqgt9I8r7/LDPm61xvJZmENweK23MBEDhuvxdCNZKee4J4pjvBsFrkz3QjA8BtfOl6LtFRsHk5hos0fv+9is2zYcjyTSgoudFttacuuE4pBYT6ph3A0FYIJuHA8/kmATO/3dTA4UDH8gGveNw0U3r6FapvsSgsjllJVZLPWo0sm/ZxPePT62LxxMPJRiawPQoh0GoXcPxezV+MRqswUxpkW
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjExb1R4OFlXbUljdDJMMlhodlgxaDhQc1R0TDk2ei96NXlrd01rSzMvMEY4?=
+ =?utf-8?B?YWhvS1ROVGZmdmU3MFBxVVRXMzl6bFBtY0YwZGs4a1g3UFpUZVJLM2NNRlZ5?=
+ =?utf-8?B?cXpUcmxCUnpOVWVnWVNkSEFTNFFtb2lMOFZGSHV4bk4xMlpEeG9qd0RFNFVs?=
+ =?utf-8?B?Mjc0K3FBWVpUSHN2OGhXcytJUGVCMGJYTVRaWEJUbkFWTHhrczd6citHbVhT?=
+ =?utf-8?B?d0dqNEw0emdXcUtXa0ZGbHhGeU9KajcrUEtqT0lnZWZBQ0xaYTJTc3dRb01I?=
+ =?utf-8?B?VGJ2Rm92b1hkNGhnUlI1Z0VTSkp4VExlZndPSHRxT1J4dmdVemJMd2lMakRN?=
+ =?utf-8?B?OEFmRlRtcFkvOUFKbURweG5RWloyN0NQOFlwZ0pZWDVFTVZrZjdNN00yVHBj?=
+ =?utf-8?B?SHJIV045NnNLMkFWU1lhTXVQWHExY2RQLzE2aWNjb3dSUDY2ak5pNmdmMXZC?=
+ =?utf-8?B?dENlMFJDN1gxZlFWM2FISWxEL0lEckhhdU5yRnFDQkJRUmRLMXl0aFNPZks5?=
+ =?utf-8?B?TlFiVVduR3VmS0lSeHdvYmdETGRlVDI4TXErTHRKYnBpUnNNTTVCTnJKYWZR?=
+ =?utf-8?B?VWt2bUdPVTdLWk5BOVNmemp1alExeE5BRzk5YzdWaFM3ZmZ5MnNpM0lhQmVT?=
+ =?utf-8?B?UkJueGFhSTZWd3JWc09NOHVRTWxNaWFzZUlqTHgxaEpnNWVRYVlHNDI1Z1dT?=
+ =?utf-8?B?YWZEdGNPWFhnc1pYdEpWa0wwcktTVkJxY2tjTm5kMWwwWllOUWFFSmptMkVD?=
+ =?utf-8?B?N3ZWL0lMdGx1K29mamh5YkpPUHJrWEVzckRVaVVJTFdzcExlY0Y3SUhjZVlQ?=
+ =?utf-8?B?UW1tK3hpalBKUGVqdjhZYUorVUtnOW1XUnI2OVQwUEFmRGpBdEpUVFFKb1U0?=
+ =?utf-8?B?MkUvdVBTNHN5S1dyM3QxNkt4cjFNM0Ftc0Z1L2tvVmN5VFhLVjFlV2t3UXNN?=
+ =?utf-8?B?Z3dkZzFlVkZDaE82T3RaR1pFbWlRS1c2YTJ3ZWhCemt3Zml3WHZMVVI0OFA0?=
+ =?utf-8?B?QnRtdXBsZzErdy9RaGUrN0lLdytaMWJObm4wa05DLzhKWGVuQmdnUGovQzcy?=
+ =?utf-8?B?R3BNa25xOTRSbWJJaFZoVnhpMEkzaDN0d3hhY2dQVDlzZHlUUnFyaVJyZWc3?=
+ =?utf-8?B?a25nUStkZU1uZWNKQXNGNFNZWWhRT05senRrTkxKaFJ3V3BGdmVuTGU1elFn?=
+ =?utf-8?B?ZG1WbXB3SWlVZDdkVjdXM1dzOVdhYWJTVUE5VGlMK0kwKzV5RFJNeFdNQVgy?=
+ =?utf-8?B?UzNKMmcwN2p3Z1NJdm96Q2NhTHVUSW93UzJEV0FibkNYcll6NlI0M1g1L2Zm?=
+ =?utf-8?B?OGk0YnhsSk5sQnpMRkUxVUhua200bjIzQWhvVW1TTS90SVJvYnZWd1JpUjRG?=
+ =?utf-8?B?aXV6eGxBTTNYeWxRRGFjTElMbDVkSEdLcG5yNjdyeUJqZ0Vqc0ttWmFZTUU1?=
+ =?utf-8?B?MkRTVjZhSERlU1d0Rk9BOC9HMzRGWExGdG9QbDVoUVo2bWt1MDlVbGpuNVcx?=
+ =?utf-8?B?QlkzOG5mZnhPNEdIWnhFZkxNTVN4NXJUUHBENFlVbFN1ZlpwWlI0N2Zpa1dU?=
+ =?utf-8?B?UHcyQ1pTNGlLTkFNa1VSSXRQRXdXQ2FHNEVhdjNrVUZ0aVErbkhnMkNmVzBZ?=
+ =?utf-8?B?cnBUSDV5OWo2ZGhXUGd3ejRMMTdJTStlQVVLZTllMTR6THU5RTNnWTVveTUr?=
+ =?utf-8?B?S050V0ZtQS9ZMjloeENldXBlTUlaN3RqWFNRRkNCNWp2WWZFWWNQbnpwUS9z?=
+ =?utf-8?B?Z1pZRXZVUGN2TWtqRERZWE1NRFYyTUlQZjdEMGc0VXUxR1Fybzc5Vk1ualE1?=
+ =?utf-8?B?L2hTVm85YnpHSXl3NGJUSHR1TkJsclh6YVdORkhJNnF2OU5seURFOE95UlRo?=
+ =?utf-8?B?L1NSQ1loUXhRREo1WWZRdGNubWhNL1pRQVRSU1JiN1VmcDlEY1ltejZQdmMw?=
+ =?utf-8?B?Z2lRdWRaTzZKcE82T3lPSklVa0hIeWFQb0NFZGppSGVORkdpWWgva2dpYWs4?=
+ =?utf-8?B?N251RWFhUWJtYVV3WnppQmlMRVo5ZXZleEVUUXNDR3A4RG5zSjdFR3NpWkNZ?=
+ =?utf-8?B?aTgybEZndUxnUDhqcEY3M2VxelBONytwOEw2a1pNcFVsNTR3ZW5BVFJETk1O?=
+ =?utf-8?B?emRtVGcyVDQyZURiTitGYmZJM0FVSTF6OUZ2NlUrYzNMMnJlMkd5am1ZRGpv?=
+ =?utf-8?B?RThBNE01NTBxN0lxa0diOUJ2enRpY3J4cE9Db05zSkJGTGtpZHFEM2dBY2NI?=
+ =?utf-8?B?NE9ZaXU1SUpmQTJRa3pieDFjazV6a1podHFmOWFTaGVFakZ0MER5ZHYxSkg0?=
+ =?utf-8?B?MklYSGo3SFkxZDNqV2cwZlZoR04yNXl0SzcrTG9rTUZBRlBSNkgyQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5ecba83-2dd5-44da-3e7e-08de88eea931
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 15:12:55.7819
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nx5v9HbHnPflcP41VB2Bbt8daj1ZrVrvH7LodLJbNKEh83xBaHAQTZEipArkksaEuPDh4o0ZVtwGoay4HGkO1Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11860
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_080730_311983_39C8D9C2 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20260323_081312_203295_32F67273 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,105 +160,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gabor Juhos <j4g8y7@gmail.com> writes:
+On 3/20/26 15:02, Peng Fan wrote:
+> Hi Daniel,
+>
+> On Fri, Mar 20, 2026 at 11:46:53AM +0200, Daniel Baluta wrote:
 
-> The 'marvell,usb-misc-reg' property is present both in the EHCI and
-> in the XHCI USB host device nodes, however it is not documented. Thus
-> 'make dtbs_check' produces warnings like these:
->
->   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@58000 (marvell,arm=
-ada3700-xhci): Unevaluated properties are not allowed ('marvell,usb-misc-re=
-g' was unexpected)
->           from schema $id: http://devicetree.org/schemas/usb/generic-xhci=
-.yaml
->   /arch/arm64/boot/dts/marvell/armada-3720-db.dtb: usb@5e000 (marvell,arm=
-ada-3700-ehci): Unevaluated properties are not allowed ('marvell,usb-misc-r=
-eg' was unexpected)
->           from schema $id: http://devicetree.org/schemas/usb/generic-ehci=
-.yaml
->
-> Apart from the fact that the properties are not documented, those are
-> not even used by any USB host drivers. Due to this, drop the properties
-> in order to get rid of the warnings.
->
-> Note:
->
-> With the same name, there is a property used for the Armada 3700 USB
-> UTMI PHYs of which dt-bindings documentation has been added in commit
-> e60958699afa ("dt-bindings: phy: mvebu-utmi: add UTMI PHY bindings").
->
-> Additionally, the property is handled by the 'phy-mvebu-a3700-utmi'
-> driver since commit cc8b7a0ae866 ("phy: add A3700 UTMI PHY driver").
->
-> When the nodes of the UTMI PHYs has been added to the SoC dtsi by
-> commit 05d168a56fae ("arm64: dts: marvell: armada-37xx: declare USB2
-> UTMI PHYs"), the properties has been added to the USB host controller
-> nodes also. According to the commit message this was unintentional,
-> however in regard to the USB hosts, neither the respective documentation,
-> nor driver support has been added into the tree since that.
->
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+Hi Peng,
 
 
-Applied on mvebu/dt64
+Thanks for your explanation. Few comments inline so that we can
 
-Thanks,
+find the most scalable solution for all IMX platforms.
 
-Gregory
+>> On 3/12/26 14:36, Peng Fan (OSS) wrote:
+>>> From: Peng Fan <peng.fan@nxp.com>
+>>>
+>>> Cortex-M[7,33] processors use a fixed reset vector table format:
+>>>
+>>>   0x00  Initial SP value
+>>>   0x04  Reset vector
+>>>   0x08  NMI
+>>>   0x0C  ...
+>>>   ...
+>>>   IRQ[n]
+>>>
+>>> In ELF images, the corresponding layout is:
+>>>
+>>> reset_vectors:  --> hardware reset address
 
+Is the hardware reset address fixed by the hardware team? Can it be modified at runtime by software (e.g SM or any other firmware)?
 
-> ---
-> Changes in v3:
->   - s/intentional/unintentional/
->   - add Reviewed-by tag from Miquel
->   - Link to v2: https://lore.kernel.org/r/20260317-armada-37xx-drop-usb-m=
-isc-reg-v2-1-ddff72114414@gmail.com
->
-> Changes in v2:
->   - add Reviewed-by tag from Andrew
->   - change subject and reword commit message
->   - Link to v1: https://lore.kernel.org/r/20260304-armada-37xx-drop-usb-m=
-isc-reg-v1-1-800c1b746b7a@gmail.com
-> ---
->  arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 2 --
->  1 file changed, 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/bo=
-ot/dts/marvell/armada-37xx.dtsi
-> index ea1824f5321fbb32fc4373c08a0d94bca1dc793b..44c47409f8793ae1266303607=
-812ef481edbfbc5 100644
-> --- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> +++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-> @@ -369,7 +369,6 @@ usb3: usb@58000 {
->  				compatible =3D "marvell,armada3700-xhci",
->  				"generic-xhci";
->  				reg =3D <0x58000 0x4000>;
-> -				marvell,usb-misc-reg =3D <&usb32_syscon>;
->  				interrupts =3D <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
->  				clocks =3D <&sb_periph_clk 12>;
->  				phys =3D <&comphy0 0>, <&usb2_utmi_otg_phy>;
-> @@ -393,7 +392,6 @@ usb32_syscon: system-controller@5d800 {
->  			usb2: usb@5e000 {
->  				compatible =3D "marvell,armada-3700-ehci";
->  				reg =3D <0x5e000 0x1000>;
-> -				marvell,usb-misc-reg =3D <&usb2_syscon>;
->  				interrupts =3D <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
->  				phys =3D <&usb2_utmi_host_phy>;
->  				phy-names =3D "usb";
->
-> ---
-> base-commit: 98226a594f313442fcba38cefc1df0b6c1691c7e
-> change-id: 20260304-armada-37xx-drop-usb-misc-reg-e9635498cae6
->
-> Best regards,
-> --=20
-> Gabor Juhos <j4g8y7@gmail.com>
->
+For example, with M7 on i.MX8MP the M7 core will always boot at address 0.
+See table and explanation here: https://docs.zephyrproject.org/latest/boards/nxp/imx8mp_evk/doc/index.html
+So even if you build an ELF to run in DDR the reset vector won't be placed in the DDR. But instead you need
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+to add a small romstart code in ITCM that is you put the reset vectors in ITCM then you jump to DDR.
+
+>>>         .word __stack_end__
+>>>         .word Reset_Handler
+>>>         .word NMI_Handler
+>>>         .word HardFault_Handler
+>>>         ...
+>>>         .word UART_IRQHandler
+>>>         .word SPI_IRQHandler
+>>>         ...
+>>>
+>>> Reset_Handler:  --> ELF entry point address
+>>>         ...
+>>>
+>>> The hardware fetches the first two words from reset_vectors and populates
+>>> SP with __stack_end__ and PC with Reset_Handler. Execution proceeds from
+>>> Reset_Handler.
+>>>
+>>> However, the ELF entry point does not always match the hardware reset
+>>> address. For example, on i.MX94 CM33S:
+>>>
+>>>   ELF entry point:           0x0ffc211d
+>>>   CM33S hardware reset base: 0x0ffc0000
+>>>
+>>> To derive the correct hardware reset address, the unused lower bits must
+>>> be masked off. The boot code should apply a SoC‑specific mask before
+>>> programming the reset address registers, e.g.:
+>>>
+>>>   reset_address = entry & reset-vector-mask
+>>
+>> What do you think about this idea:
+>>
+>> Use fsl,reset-vector-base instead of a mask. It could happen that for example
+>>
+>> a CM7 instance has explicit requirements to boot from TCM but the entry point is in DRAM.
+>> Then masking won't help.
+>>
+>> fsl,reset-vector-base is always fixed hardware integration dependent and you can always
+>>
+>> specify it in DT.
+>>
+> Thanks for sharing ideas. But this not work:
+> 1. User start an elf which is built to run in TCM. the reset vector is in TCM.
+> 2. User stop remote processor
+> 3. User start an elf which is built to run in DDR. the reset vector is in DDR.
+>
+> So a fixed fsl,reset-vector-base not work. We need a per elf reset vector base.
+
+Ok, I see. So a fixed reset-vector-base won't work! But in your case above a fixed
+
+reset-mask won't work unless you always know that for both cases (TCM, DDR) the
+
+entry point is within a fixed interval relative to the reset vectors.
+
+> For the case you list about boot from TCM, entry is DRAM. this is i.MX8M DDR
+> elf demo. The hardware always fetches PC/STACK from 0, but elf entry is in
+> DDR. We always use 0 as boot address for i.MX8M, no matter what elf entry is.
+>
+> For i.MX95/943, there is an register to configure M7 or M33S start address,
+> If the image is designed to run in DDR, user should set reset vector and elf
+> entry both in DDR. If the image is designed to run TCM, but space is not enough,
+> DDR is also used, the reset vector and elf entry should be both in TCM.
+>
+> Per my talk with NXP SDK team, It is less that 16KB from reset vector to
+> elf entry address.
+
+I think with this assumption it will work. Please mention this in the commit message
+
+and we will go with your initial idea.
+
 
