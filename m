@@ -4,125 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD63BF483D7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC196F483DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 18:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjYX465jYn0oNvm2kCJUUxeptr8CFCBNs9ctWKoUCEA=; b=vy9Qn/fYTymUJsCqrZHsdRTcFg
-	eENOtwaC6W9smlzB9ENFz4uc1GNXh7OHcx5U2BlmjbKNQOUEiDZjhf5re7UXHoi8tjK192TRF8PGI
-	JKvdbMix2uiTZ/U7n3BSAiplodiJXGSs1g6jv7aF9qTgVMa7uGcpr/g88eHlCm3Dzd2AGrkjxGOiG
-	tYcHT9YGESOF6KAdvL5SFAQ2Ji0TSB/8VJkSKgfvDBTEdg7uk5XKUMKi2/7154scPjdrp/20k/q4T
-	7uV+9vMhIJNDMkOxzyPModsYZU4Wd8QErT6hd/JpVhrdNFml9syiTifKgR/sy7XbsBWg0HjWYc/+w
-	gJvzLp9Q==;
+	bh=/nCHX+tDcrCGiwi0oGeFHT7dM1ri9COBAZZl3YVv8VM=; b=Zg994hKuzjfUXtixUrT6ZSAkKC
+	duFFKLVwXNXn0O8O4vX0AEfX+2rdkUMppm1en29zLOAUrUu+EvL1Pc1hXc/+1M4OaY2N2nJXV2t3j
+	Qd4zMusau4I3sz27PTXPUDdd5sDt9JOulF30YL2KY6rgXJbqwiFNXd/adIaTkfY4qZM3qEUihZyKH
+	WsA3swYX8Fca0FgFf1ljs1KRCB8KmrbfcjTns6VY6ruvcSE1Jses0NBCPbc/Bn3p14E32fFZmMqO8
+	GZA135H5oJ2ki46leloTfxyNp2QrdrObF6KBCXLsYApK351mctQNgy2Qp3GOxJOt43Usoc8DQlgTn
+	vn43ww2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jpF-0000000HJt1-0e4h;
-	Mon, 23 Mar 2026 18:16:29 +0000
-Received: from mail-northeuropeazon11010048.outbound.protection.outlook.com ([52.101.84.48] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4jpB-0000000HJsM-30oy
+	id 1w4juB-0000000HKt5-3oYH;
+	Mon, 23 Mar 2026 18:21:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4ju8-0000000HKsd-3o0E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 18:16:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PWxZ1OtvM6TtN02oPpID9Y6qxaEtQWuuYH5uvDx6WJa0vDElzeEkcJF1zOGc6nNtX4dRChvESfB5uZekWb1fokXrTk/lm+MwhU8NzZ0aGM5hUNKRZ2SlBhM+l3HyD1pdJcXwQT3nlxvbEOP7ssZB/JJo1GJbOUjHyziUb/JxOYv9kFeJKYJIMhPCmBUBl4E6lnZfs+KYir34MEl3sf7EppVjObyPfiT87RW7gHJASTQ0a6+nwVY8AeSIjS4sPqd0eBlkFC7Q/MCeNw9bU/2RGE2Tf/mWuhZjxxjTBE4J7ANugf9Z20OqTUpMvMTtrskZsk3AbveAelbo3gnBiKsgZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jjYX465jYn0oNvm2kCJUUxeptr8CFCBNs9ctWKoUCEA=;
- b=oIdXveUZpTqXrNzv6DfJWOXBv4NRLJ0GG/iPiwFbotVRnYzKve4z60eorn35qu56tBKRi4rB0frRCu6pbT3AjfpbAPTO72/KocPg3abFNZH20CSDpsbqdzMzO4mD46yvPvCk113O0bp/iWbzzeAK7Py812qAs756jxKRGUMDUy6iW9IlDWD7RLRiiWclsjOBPnDYT3Lfb/4MA9FDUz+6LaEcO34Z4jrJBJmvUkrUXXXoibnrxc1oTXwwrle+vlfTr6pFJM94mTVUb2nln1TdfN247n5afa1rlsISan0hJYdhUkuDX+54xzx3YYmw6OYtm3Vec8ON67cGqQLGl+t7xA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jjYX465jYn0oNvm2kCJUUxeptr8CFCBNs9ctWKoUCEA=;
- b=kV1W5syUohXLETtSG2nSL9KaxLcXO+uJU9xzcKt9KlA/bQN9uIWw1US40t8JzCdMWKRXVpLjBau/arR3Qwyt4fZDfcOm+yo90ZwDSpmSc89p7ebDq6WwXIqGTM2H57vax63wudhZSzhOgDu5bLp60l5ze5sjYOOc9U8nW/n2e+AYPBNC/s1jtXAkcmfC5fP5n0+asIyiOOXO0IQtBvmh08uafm+TSsUFV7izQeHWnEa1cmuBbFy3amEN7x2+7zA6w609+t5QQAlZQxPapH99SC4oDEq0nh8h3g/Z4dlYOtsK9S9TV5iEHyt/03YZKomBpbQSRKLTMCePUQkfYhXitA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB7664.eurprd04.prod.outlook.com (2603:10a6:102:f1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Mon, 23 Mar
- 2026 18:16:18 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Mon, 23 Mar 2026
- 18:16:13 +0000
-Date: Mon, 23 Mar 2026 14:16:12 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: Re: [PATCH 1/2] arm64: dts: imx8qm-mek: switch Type-C connector
- power-role to dual
-Message-ID: <acGDbMKECQ3xPdTA@lizhi-Precision-Tower-5810>
-References: <20260323110923.2567366-1-xu.yang_2@nxp.com>
+	Mon, 23 Mar 2026 18:21:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFC2A1477;
+	Mon, 23 Mar 2026 11:21:24 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EEAE3F73B;
+	Mon, 23 Mar 2026 11:21:27 -0700 (PDT)
+Date: Mon, 23 Mar 2026 18:21:22 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Andrei Vagin <avagin@google.com>
+Cc: Kees Cook <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Cyrill Gorcunov <gorcunov@gmail.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org, criu@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Chen Ridong <chenridong@huawei.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Michal Koutny <mkoutny@suse.com>,
+	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
+Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
+Message-ID: <acGEonF9I6sPA42B@J2N7QTR9R3.cambridge.arm.com>
+References: <20260323175340.3361311-1-avagin@google.com>
+ <20260323175340.3361311-2-avagin@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260323110923.2567366-1-xu.yang_2@nxp.com>
-X-ClientProxiedBy: PH8PR02CA0007.namprd02.prod.outlook.com
- (2603:10b6:510:2d0::18) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB7664:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae788692-bcc2-472d-d36e-08de89084467
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|7416014|366016|1800799024|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: H8vNJ/aKUBRV42bieOdo/MZ0Ht2noWmke6mfYuxo4EKgdU3XwIilHgXKCJY4ZWlutdhlLYx4rry7zEhPsYmx/4eUSdGWtZ5z/ZNZcm5bAmArwjk4TZecd3w1OywbKd/NEqV3kMu41SlaO5Q5hWuxoEQvJEsAW4y8qfMh4JgAqP/ZDimkhdn/Z3cNnYwWKeKr6jMRV/tFFY4FWoJ31QgvubsPYJSL6aVAx0EpelKBzGNKqaGKC53/l25Mk2aZf+dh7rcorGFI3vuexyy8YDNtTInuj5nbuv0eGkINbTbNqYwcrAeo9p7esFWMyQW6QYrXyiXs1kTGovZOSNQ/knhJFgiRcJW/ef0O7DRfXSnPBl331GE6Idsuuu39czszUIWUlQdklOKibvf+mtk5q5dA1w/WG9NT2sS72I0hIrN7FxQMwm0YB0+Z97sTImj890May6fW1ZvyM5UB1dGdmx09PFJKKuLW5deIbaimuHgcjmnhBTrkKp7LNwx/+qSkqzuIm0LkFd3SWJAblngk4gpDPdsRJr2xd+qM6fcHXd5p1a8qallHlZqQjRmz/YxhYBdK8kMEvg87f8PdFb36M87yBOV0ft32uXauCh4MrqMLy7zoFd+XFEqP1zhUSHxsslxKGWm55KOe3hL+gjFpH5/lygWdUwo55UOK7QJxpjFMvQKYkd/BVLUxIUQwX0qbHpfGgU7NgjO9f64oHfERvriP2Y3/4spW40aJzl6W6UCQWd0rG1dfxyD5pfzu5JInDlGyIKgcp9CftpriD5uujdxpKnUadnLp8mwhYPOZLz9nOwA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SyGr9VyAEiCg7jJjTJnA40uVTv5njAW0ji71cRIdKaWClYv0qJGs6tFU6MQ+?=
- =?us-ascii?Q?sB91xmd49Pq6rKHqvQ2E1GdY6HopwY9OcLDgqxt/32kAwwo74iQAzO19HI5P?=
- =?us-ascii?Q?5kD/vLc1qDfHT8CtpZ/ktYJc1Xtcp20y97fNIn44izRu7+YIF5NKmBx3Ss/d?=
- =?us-ascii?Q?ezyMWZWsikI0s9c4UE7wjkKXwyM9KW2xRrsNzU11oVBjf7vId0INBsDxEQWV?=
- =?us-ascii?Q?8IvCEAujUjzHIvXZQGTGQEha0+O0F9vaA/NKuvYxH5aLEFnNQrCNPcp50Hcr?=
- =?us-ascii?Q?o7wF5ktq57AvLX/+FJ+Lot8jQRnRRPkm4spI4VSZpPE2FJ+R1LA+Re7fzbdr?=
- =?us-ascii?Q?CfezsksxD06PaLUwRmAlcIQgQzX1Sr1xXVwHUzEP17ywAbJmlZaphL5BJ9Ah?=
- =?us-ascii?Q?CX4+7TDn1Et8juL1KphqnMN5c79RW7sFygz1VVsBDz0oqzISliIJ5qmDPPFD?=
- =?us-ascii?Q?ih3T8DfVJc9L2AkvC6jK2SQtANf2CTITslqXRx1BD7EPnlTVLzI656rrw+7D?=
- =?us-ascii?Q?8wyez6ZFbAGgwJg1I2+x5TyIIWdh/I3h6LF5huinnDFeRKmVYiC+77I05kay?=
- =?us-ascii?Q?DLI9hJb2ZbOlHrcwRNlMrsQXK9W5q2dEdOi6hPa+/+ufervXmOxuSABwvl8M?=
- =?us-ascii?Q?UzW4/nL2W6NsSFBsPyBP1CzFMznKErmBYwaiUyurigzKvGn93bATgq3yznLz?=
- =?us-ascii?Q?OSPWxEbvDKo8A7Y5hj0JTYR2GpsKrqi+Yl9xSXMtwt8bB7Bp1D215KIJcf/S?=
- =?us-ascii?Q?ke0VwUIvdGTSxL5UF5KE8D16rSODnz2iSAuoI4iOQq9WhcPpRI7URMsvY1rU?=
- =?us-ascii?Q?RWfOMJHSvukK6fuUf3HndIxxXzuZOsOCc8d/Xxo28kExdKHKg+rC6Em7etO+?=
- =?us-ascii?Q?DRUgz6GkUZASWLf2Uh909q6yPdltY7D4xVC5SvwNTQYFHCZzmEqN0TcjAFVM?=
- =?us-ascii?Q?H/wxUo/4wE9CwiSIBOg830IxEdptI+O2MGDfhPX3jW6j92rIa1iZa3CG6meh?=
- =?us-ascii?Q?kmPDoKLc2bxoxLF1ox3KSUvvJAvik5OyD6xT6oosp9jt4TaSAJOWMmtKXmMc?=
- =?us-ascii?Q?iN9A56G43tC5D9ZDwjY1wKbPCrYs/wTaGWLmF8Wdfk/eC9MqM+VD44liRwE7?=
- =?us-ascii?Q?g1sjHtB4GjDH6nGrUkczWpHdKvf3O4ELBt83Ixzo+4WrFC6Pczvme4nsj+Kw?=
- =?us-ascii?Q?qukRwthps7RUZ40G+jCZ4JsvQtqIhtf+OSq+qc/FUJvoGHRmrMpwvg8B2EMj?=
- =?us-ascii?Q?vZg40MHGP9qCGC/7IIMt3Rrg1j3K1MRmRtWUUyRGHb9Yk/U3ujlqexeKxVha?=
- =?us-ascii?Q?iFC+SRv7L6ulvekZgn5GYzyacJmecWI03apqwDi5Tqe0W9ywakG/hIuGkuMd?=
- =?us-ascii?Q?IZeqBelfvqY+y3471c0vB5fXEi+x7U5l1rPSZ548Zb28QQWIexXcMeaCaM9R?=
- =?us-ascii?Q?CINJK/vODV2axL0AkbVaY2glAiw+imYtE//a+tSeOO+8h1c616QKGdAn3lQW?=
- =?us-ascii?Q?7/MFr3bQdr2y+1bbSr1j2vbE84EFu05R7/+/jbA3gSO1T85oefJyEquELFrp?=
- =?us-ascii?Q?nggWwaXB9P5ow8eK/UnbsbUy5qFPuF5RTpeghYS5Q5ESn7VwQk13OA8XQcL1?=
- =?us-ascii?Q?TPVCcMF29pLHCKURwgk1nauOyAfipDzyrK5XemEnQ0zZ4uNsrSInWZ5uhtX4?=
- =?us-ascii?Q?jTfbrxFp47csVnMvudjy7txZ7/qUdeHlEZWKGdZ9QocS2zsL?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae788692-bcc2-472d-d36e-08de89084467
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Mar 2026 18:16:13.5952
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Cu4VsnC8LgBqX46kvYbYZA20yFF1Sc+P2VTu1J/33AMyC8D/Ek/Lr5xKwMuTR8rbAgf2uSGfRF8p5UJdnhRIOA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7664
+In-Reply-To: <20260323175340.3361311-2-avagin@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_111626_654156_C81C542C 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260323_112133_051003_4C69317A 
+X-CRM114-Status: GOOD (  37.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,60 +77,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 07:09:22PM +0800, Xu Yang wrote:
-> When attach to PC Type-A port, the USB device controller does not function
-> at all. Because it is configured as source-only and a Type-A port doesn't
-> support PD capability, a data role swap is impossible.
->
-> Actually, PTN5110THQ is configured for DFP/Source role only at POR, but
-> after POR it can operate as a DRP. By switching the power-role to dual,
-> the port can operate as a sink and enter device mode when attached to
-> Type-A port.
+On Mon, Mar 23, 2026 at 05:53:37PM +0000, Andrei Vagin wrote:
+> Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
+> AT_HWCAP2, etc.) from a parent process when they have been modified via
+> prctl.
+> 
+> To support C/R operations (snapshots, live migration) in heterogeneous
+> clusters, we must ensure that processes utilize CPU features available
+> on all potential target nodes. To solve this, we need to advertise a
+> common feature set across the cluster.
+> 
+> This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
+> auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV).  When
+> execve() is called, if the current process has MMF_USER_HWCAP set, the
+> HWCAP values are extracted from the current auxiliary vector and stored
+> in the linux_binprm structure. These values are then used to populate
+> the auxiliary vector of the new process, effectively inheriting the
+> hardware capabilities.
+> 
+> The inherited HWCAPs are masked with the hardware capabilities supported
+> by the current kernel to ensure that we don't report more features than
+> actually supported. This is important to avoid unexpected behavior,
+> especially for processes with additional privileges.
 
-when first use term DFP/DRP,
-	DFP (Downstream Facing Port)  ...
+At a high level, I don't think that's going to be sufficient:
 
-Except well known term, like POR.
+* On an architecture with other userspace accessible feature
+  identification mechanism registers (e.g. ID registers), userspace
+  might read those. So you might need to hide stuff there too, and
+  that's going to require architecture-specific interfaces to manage.
 
->
-> Since the board design uses EN_SRC to control the 5V VBUS path and EN_SNK
-> to control the 12V VBUS output,
+  It's possible that some code checks HWCAPs and others check ID
+  registers, and mismatch between the two could be problematic.
 
-I remember a hardware rework to fix this problem.
+* If the HWCAPs can be inherited by a more privileged task, then a
+  malicious user could use this to hide security features (e.g. shadow
+  stack or pointer authentication on arm64), and make it easier to
+  attack that task. While not a direct attack, it would undermine those
+  features.
 
-> to avoid outputting a higher VBUS when in
-> sink role, we set the operation current limit to 0mA so that SW will not
-> control EN_SNK at all.
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Mark.
+
+> Reviewed-by: Cyrill Gorcunov <gorcunov@gmail.com>
+> Reviewed-by: Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
+> Signed-off-by: Andrei Vagin <avagin@google.com>
 > ---
->  arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> index dadc136aec6e..8a832a0e105d 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> @@ -611,9 +611,13 @@ ptn5110: tcpc@51 {
->  		usb_con1: connector {
->  			compatible = "usb-c-connector";
->  			label = "USB-C";
-> -			power-role = "source";
-> +			power-role = "dual";
->  			data-role = "dual";
-> +			try-power-role = "sink";
->  			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-> +			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
-> +			op-sink-microwatt = <0>;
-
-Need comment here.
-
-Frank
-> +			self-powered;
->
->  			ports {
->  				#address-cells = <1>;
-> --
-> 2.34.1
->
+>  fs/binfmt_elf.c          | 13 ++++++---
+>  fs/binfmt_elf_fdpic.c    | 13 ++++++---
+>  fs/exec.c                | 62 ++++++++++++++++++++++++++++++++++++++++
+>  include/linux/binfmts.h  | 11 +++++++
+>  include/linux/mm_types.h |  2 ++
+>  kernel/fork.c            |  3 ++
+>  kernel/sys.c             |  5 +++-
+>  7 files changed, 100 insertions(+), 9 deletions(-)
+> 
+> diff --git a/fs/binfmt_elf.c b/fs/binfmt_elf.c
+> index fb857faaf0d6..d99db73c76f0 100644
+> --- a/fs/binfmt_elf.c
+> +++ b/fs/binfmt_elf.c
+> @@ -183,6 +183,7 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
+>  	int ei_index;
+>  	const struct cred *cred = current_cred();
+>  	struct vm_area_struct *vma;
+> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
+>  
+>  	/*
+>  	 * In some cases (e.g. Hyper-Threading), we want to avoid L1
+> @@ -247,7 +248,8 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
+>  	 */
+>  	ARCH_DLINFO;
+>  #endif
+> -	NEW_AUX_ENT(AT_HWCAP, ELF_HWCAP);
+> +	NEW_AUX_ENT(AT_HWCAP, user_hwcap ?
+> +			      (bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
+>  	NEW_AUX_ENT(AT_PAGESZ, ELF_EXEC_PAGESIZE);
+>  	NEW_AUX_ENT(AT_CLKTCK, CLOCKS_PER_SEC);
+>  	NEW_AUX_ENT(AT_PHDR, phdr_addr);
+> @@ -265,13 +267,16 @@ create_elf_tables(struct linux_binprm *bprm, const struct elfhdr *exec,
+>  	NEW_AUX_ENT(AT_SECURE, bprm->secureexec);
+>  	NEW_AUX_ENT(AT_RANDOM, (elf_addr_t)(unsigned long)u_rand_bytes);
+>  #ifdef ELF_HWCAP2
+> -	NEW_AUX_ENT(AT_HWCAP2, ELF_HWCAP2);
+> +	NEW_AUX_ENT(AT_HWCAP2, user_hwcap ?
+> +			       (bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
+>  #endif
+>  #ifdef ELF_HWCAP3
+> -	NEW_AUX_ENT(AT_HWCAP3, ELF_HWCAP3);
+> +	NEW_AUX_ENT(AT_HWCAP3, user_hwcap ?
+> +			       (bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
+>  #endif
+>  #ifdef ELF_HWCAP4
+> -	NEW_AUX_ENT(AT_HWCAP4, ELF_HWCAP4);
+> +	NEW_AUX_ENT(AT_HWCAP4, user_hwcap ?
+> +			       (bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
+>  #endif
+>  	NEW_AUX_ENT(AT_EXECFN, bprm->exec);
+>  	if (k_platform) {
+> diff --git a/fs/binfmt_elf_fdpic.c b/fs/binfmt_elf_fdpic.c
+> index 95b65aab7daa..92c88471455a 100644
+> --- a/fs/binfmt_elf_fdpic.c
+> +++ b/fs/binfmt_elf_fdpic.c
+> @@ -508,6 +508,7 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
+>  	unsigned long flags = 0;
+>  	int ei_index;
+>  	elf_addr_t *elf_info;
+> +	bool user_hwcap = mm_flags_test(MMF_USER_HWCAP, mm);
+>  
+>  #ifdef CONFIG_MMU
+>  	/* In some cases (e.g. Hyper-Threading), we want to avoid L1 evictions
+> @@ -629,15 +630,19 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
+>  	 */
+>  	ARCH_DLINFO;
+>  #endif
+> -	NEW_AUX_ENT(AT_HWCAP,	ELF_HWCAP);
+> +	NEW_AUX_ENT(AT_HWCAP,	user_hwcap ?
+> +				(bprm->hwcap & ELF_HWCAP) : ELF_HWCAP);
+>  #ifdef ELF_HWCAP2
+> -	NEW_AUX_ENT(AT_HWCAP2,	ELF_HWCAP2);
+> +	NEW_AUX_ENT(AT_HWCAP2,	user_hwcap ?
+> +				(bprm->hwcap2 & ELF_HWCAP2) : ELF_HWCAP2);
+>  #endif
+>  #ifdef ELF_HWCAP3
+> -	NEW_AUX_ENT(AT_HWCAP3,	ELF_HWCAP3);
+> +	NEW_AUX_ENT(AT_HWCAP3,	user_hwcap ?
+> +				(bprm->hwcap3 & ELF_HWCAP3) : ELF_HWCAP3);
+>  #endif
+>  #ifdef ELF_HWCAP4
+> -	NEW_AUX_ENT(AT_HWCAP4,	ELF_HWCAP4);
+> +	NEW_AUX_ENT(AT_HWCAP4,	user_hwcap ?
+> +				(bprm->hwcap4 & ELF_HWCAP4) : ELF_HWCAP4);
+>  #endif
+>  	NEW_AUX_ENT(AT_PAGESZ,	PAGE_SIZE);
+>  	NEW_AUX_ENT(AT_CLKTCK,	CLOCKS_PER_SEC);
+> diff --git a/fs/exec.c b/fs/exec.c
+> index 9ea3a775d51e..1cd7d87a0e79 100644
+> --- a/fs/exec.c
+> +++ b/fs/exec.c
+> @@ -1775,6 +1775,65 @@ static int bprm_execve(struct linux_binprm *bprm)
+>  	return retval;
+>  }
+>  
+> +static void inherit_hwcap(struct linux_binprm *bprm)
+> +{
+> +	struct mm_struct *mm = current->mm;
+> +	bool compat = in_compat_syscall();
+> +	int i, n;
+> +
+> +#ifdef ELF_HWCAP4
+> +	n = 4;
+> +#elif defined(ELF_HWCAP3)
+> +	n = 3;
+> +#elif defined(ELF_HWCAP2)
+> +	n = 2;
+> +#else
+> +	n = 1;
+> +#endif
+> +
+> +	for (i = 0; n && i < AT_VECTOR_SIZE; i += 2) {
+> +		unsigned long type, val;
+> +
+> +		if (!compat) {
+> +			type = mm->saved_auxv[i];
+> +			val = mm->saved_auxv[i + 1];
+> +		} else {
+> +			compat_uptr_t *auxv = (compat_uptr_t *)mm->saved_auxv;
+> +
+> +			type = auxv[i];
+> +			val = auxv[i + 1];
+> +		}
+> +
+> +		switch (type) {
+> +		case AT_NULL:
+> +			goto done;
+> +		case AT_HWCAP:
+> +			bprm->hwcap = val;
+> +			break;
+> +#ifdef ELF_HWCAP2
+> +		case AT_HWCAP2:
+> +			bprm->hwcap2 = val;
+> +			break;
+> +#endif
+> +#ifdef ELF_HWCAP3
+> +		case AT_HWCAP3:
+> +			bprm->hwcap3 = val;
+> +			break;
+> +#endif
+> +#ifdef ELF_HWCAP4
+> +		case AT_HWCAP4:
+> +			bprm->hwcap4 = val;
+> +			break;
+> +#endif
+> +		default:
+> +			continue;
+> +		}
+> +		n--;
+> +	}
+> +done:
+> +	mm_flags_set(MMF_USER_HWCAP, bprm->mm);
+> +}
+> +
+>  static int do_execveat_common(int fd, struct filename *filename,
+>  			      struct user_arg_ptr argv,
+>  			      struct user_arg_ptr envp,
+> @@ -1843,6 +1902,9 @@ static int do_execveat_common(int fd, struct filename *filename,
+>  			     current->comm, bprm->filename);
+>  	}
+>  
+> +	if (mm_flags_test(MMF_USER_HWCAP, current->mm))
+> +		inherit_hwcap(bprm);
+> +
+>  	return bprm_execve(bprm);
+>  }
+>  
+> diff --git a/include/linux/binfmts.h b/include/linux/binfmts.h
+> index 65abd5ab8836..94a3dcf9b1d2 100644
+> --- a/include/linux/binfmts.h
+> +++ b/include/linux/binfmts.h
+> @@ -2,6 +2,7 @@
+>  #ifndef _LINUX_BINFMTS_H
+>  #define _LINUX_BINFMTS_H
+>  
+> +#include <linux/elf.h>
+>  #include <linux/sched.h>
+>  #include <linux/unistd.h>
+>  #include <asm/exec.h>
+> @@ -67,6 +68,16 @@ struct linux_binprm {
+>  	unsigned long exec;
+>  
+>  	struct rlimit rlim_stack; /* Saved RLIMIT_STACK used during exec. */
+> +	unsigned long hwcap;
+> +#ifdef ELF_HWCAP2
+> +	unsigned long hwcap2;
+> +#endif
+> +#ifdef ELF_HWCAP3
+> +	unsigned long hwcap3;
+> +#endif
+> +#ifdef ELF_HWCAP4
+> +	unsigned long hwcap4;
+> +#endif
+>  
+>  	char buf[BINPRM_BUF_SIZE];
+>  } __randomize_layout;
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 3cc8ae722886..62dde645f469 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -1919,6 +1919,8 @@ enum {
+>  #define MMF_TOPDOWN		31	/* mm searches top down by default */
+>  #define MMF_TOPDOWN_MASK	BIT(MMF_TOPDOWN)
+>  
+> +#define MMF_USER_HWCAP		32	/* user-defined HWCAPs */
+> +
+>  #define MMF_INIT_LEGACY_MASK	(MMF_DUMPABLE_MASK | MMF_DUMP_FILTER_MASK |\
+>  				 MMF_DISABLE_THP_MASK | MMF_HAS_MDWE_MASK |\
+>  				 MMF_VM_MERGE_ANY_MASK | MMF_TOPDOWN_MASK)
+> diff --git a/kernel/fork.c b/kernel/fork.c
+> index bc2bf58b93b6..2ac277aa078c 100644
+> --- a/kernel/fork.c
+> +++ b/kernel/fork.c
+> @@ -1105,6 +1105,9 @@ static struct mm_struct *mm_init(struct mm_struct *mm, struct task_struct *p,
+>  
+>  		__mm_flags_overwrite_word(mm, mmf_init_legacy_flags(flags));
+>  		mm->def_flags = current->mm->def_flags & VM_INIT_DEF_MASK;
+> +
+> +		if (mm_flags_test(MMF_USER_HWCAP, current->mm))
+> +			mm_flags_set(MMF_USER_HWCAP, mm);
+>  	} else {
+>  		__mm_flags_overwrite_word(mm, default_dump_filter);
+>  		mm->def_flags = 0;
+> diff --git a/kernel/sys.c b/kernel/sys.c
+> index cdbf8513caf6..e4b0fa2f6845 100644
+> --- a/kernel/sys.c
+> +++ b/kernel/sys.c
+> @@ -2157,8 +2157,10 @@ static int prctl_set_mm_map(int opt, const void __user *addr, unsigned long data
+>  	 * not introduce additional locks here making the kernel
+>  	 * more complex.
+>  	 */
+> -	if (prctl_map.auxv_size)
+> +	if (prctl_map.auxv_size) {
+>  		memcpy(mm->saved_auxv, user_auxv, sizeof(user_auxv));
+> +		mm_flags_set(MMF_USER_HWCAP, mm);
+> +	}
+>  
+>  	mmap_read_unlock(mm);
+>  	return 0;
+> @@ -2190,6 +2192,7 @@ static int prctl_set_auxv(struct mm_struct *mm, unsigned long addr,
+>  
+>  	task_lock(current);
+>  	memcpy(mm->saved_auxv, user_auxv, len);
+> +	mm_flags_set(MMF_USER_HWCAP, mm);
+>  	task_unlock(current);
+>  
+>  	return 0;
+> -- 
+> 2.53.0.983.g0bb29b3bc5-goog
+> 
+> 
 
