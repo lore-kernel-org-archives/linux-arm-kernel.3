@@ -4,90 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F42EC01A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 08:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59D05EC01A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 08:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zocw8FuDkC/LanJ1/4h/CJiS7ZjCNwFDOerkZTo4ZLc=; b=lY20Mfr+Wrmp7N6+m/OgIPuwXu
-	4DJkP+9uW9/cMsCoSuhFPjipURHZMRHqVEaHTE1gb9NcpZq2GEe5BbUb7K6rI03xOqSa1kfPfu423
-	GIkK/vsEJD99jRRQt83JIpJ0hJE8pcZ+GkaiKLP8ut7CsoNFTbFXoUBXoezbGF8ocSLEAvlQvv5qO
-	3hvX09kmuLjdSRgz3ojsFYSX5tN1DRvZe1NpwXfoqc1lkjvWnh15PhS04LXJjBt1KXVyVDUh6JlFS
-	Vaep5HfC24Ryu6l5/PnsPVlM5yXEDr8w+bFFsA55pkQ0egZviMzGvZ1EmZe6/lfNsNFUM3ZKI7F/o
-	kpiZ23Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NtvUonViPZ2neVYMdPIgOh7c2KeVT1f1948ksdv7mxQ=; b=JBcQmdqz4PtHOjizRhTUvmtTsO
+	oVJ6EpsMWIMItIOmmg6kvvzGsZFUtR8QbOL5NeZmcVP5wpENQ34l7bvmEge39RxIy8oq+8PCsRlaV
+	9Y7trpbQgjtZZgoiaRx3erqzho/+AnpwB/4wHCDsJpYsbJyxJKNIIYTuTMZ+8Im+y7OOXHxYvIjgy
+	YGpyHchL3iZsZOTWABsKf9r1iAIdniZWWr5Y1pvP1vT8bIafngOIT2LQ6yIiCcdn4qm4MaxLCqffe
+	QJrBJobqlsazaewIj2OZDk71uRNnrc9psP+azG4wSSvgK6ei9n0CUTspBQH6iClR03r/cqk84J1sa
+	iLHZG1Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4aHX-0000000GFo0-1zIs;
-	Mon, 23 Mar 2026 08:05:03 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1w4aKZ-0000000GFy6-0Lfl;
+	Mon, 23 Mar 2026 08:08:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4aHU-0000000GFnO-48KG
+	id 1w4aKW-0000000GFxk-1Ks5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Mar 2026 08:05:02 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-486fd27754bso30706795e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 01:04:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1774253098; x=1774857898; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zocw8FuDkC/LanJ1/4h/CJiS7ZjCNwFDOerkZTo4ZLc=;
-        b=W0YwAo40inzQlOSmY5Fob39tOVYmUhK2W9hR1g/TJ0DW8zw54MLVVFD3N0Hj4no+xp
-         ybTIwQRNtXRRfT084BeGpqwa6VdMC3c+ZQfEALvi06bP1j1DeBxN8PBPTHhD88zIMifB
-         geB2N6DrMMiRPtMEJLmZl3qbwNmD6iLaiGzorpC0JCFAH6+9fkPyz58wPr99ZjgLDQ0a
-         FXvsIWfb42gGOnj3gWPProNGcClYKucarllI+bXtRWkSFLCkuUcsm0637G5dj+VXBHWn
-         xQuasdnIkYL3Zaj/PR8Ko/zDQ4QVa6pLvPzjs4vdlL5UNbbHhCkZXkalz80XcU1lcHQs
-         pdTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774253098; x=1774857898;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Zocw8FuDkC/LanJ1/4h/CJiS7ZjCNwFDOerkZTo4ZLc=;
-        b=E00auod+pI3QaJFOgI/oRpWr9M5fFE5dVYw18pes3weEEqFgiFI1KoBRtuOsrKvoEU
-         B97YrNC1YRUB8hqUakgNw5sAKkEWkhAXeBdFM6AdeSsYTnpPgywgyNiN1+S47rFF8jO6
-         QdLRG4dmIiS59BXFxIIfc1zzVJ1UT1zw7x+lqOr3zzsDDweddj59f/I6kGu15TsZV/4j
-         xgOQA4+EiFvm8a3hXkZc3xbaIUi8G0vCZyWgj6LxNQuOzs2qSolku5ptE0zVKUe8K8Z3
-         KnqSsi1htA/FiasQFOgwyAMbJ2IHf5TcVGg7xxEuGelRqceO/msiKFaY/v0DQrWz7Q1l
-         XRNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZsc+Cm9bCG9Kxfgez/8yo25WPkyYXZF9LUp0BXybi6MlYXHDGGGwprIdOk+sF5Vs8tMbcMW3lFNAH41VX/Ae8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyyru9822UDZKVUQujIJr7BXDJr43sFk70QpLZSse96ZLvN4m/0
-	GfqwuGQeIy/fLVkWvfVW8Jdw2oaq9X8mn6RWc4jTT0l1Kj0KJo6gM0n3
-X-Gm-Gg: ATEYQzxMsyEtPfm3gcdDy+/QtkJFRVb9EIHcd1KSWmWaB+J/WaYoArgvrsG7sy+YZER
-	UDmqK8NzNj0gcIgUgb5/2D1hqv0XAJ6vC3zIj6OrB/eJJM9PC/N1QrAzoCU2NLYTx/dHLuFcQ1H
-	gapSb3DV5mvi8kvuuHJTyFX3KDZtsmSrPhkzslXZ8x8EtTKU5UF0KWf2RwE92Isgen15oS6DdOf
-	VqHAbmNKPX2vfKcbzfeOhyoJsLaBQSgCYwdsn5bPR5O7FA1JIiUnTYlfaCrXP0qe1aAqzMdGmK/
-	LLvZydJNwaAQLtzrQWqcif9IhCwonC55T3AbnOYg8feVhceCVEBMxtRIqNKLXwbV7q/456pUeh0
-	dOPxqDuY8jiKfIhtAVJe2c//ig95naVXVXHpzX7m5BU3T1xi849EscElAR+9Jjk4HEoalxpqIv+
-	pErp71GDHhf9ER21ZqrKHMLG63i0hCbAuAV+7/vsVj1ij1KTm2r3OPm8ZnP5379HxPZbFdM3oYX
-	pB2dWTK
-X-Received: by 2002:a05:600c:4e8e:b0:485:3e6c:aacb with SMTP id 5b1f17b1804b1-486feda8c69mr158012695e9.4.1774253098203;
-        Mon, 23 Mar 2026 01:04:58 -0700 (PDT)
-Received: from jernej-laptop.localnet (178-79-69-125.dynamic.telemach.net. [178.79.69.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-486ff19d452sm76320155e9.19.2026.03.23.01.04.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 01:04:57 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: mripard@kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: paulk@sys-base.io, mchehab@kernel.org, gregkh@linuxfoundation.org,
- wens@kernel.org, samuel@sholland.org, linux-media@vger.kernel.org,
- linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- pengpeng@iscas.ac.cn
-Subject: Re: [PATCH 7/7] media: cedrus: validate HEVC slice reference lists
-Date: Mon, 23 Mar 2026 09:04:56 +0100
-Message-ID: <2402496.ElGaqSPkdT@jernej-laptop>
-In-Reply-To: <20260323070314.42949-1-pengpeng@iscas.ac.cn>
-References: <20260323070314.42949-1-pengpeng@iscas.ac.cn>
+	Mon, 23 Mar 2026 08:08:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4724C43A6F;
+	Mon, 23 Mar 2026 08:08:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 885BBC4CEF7;
+	Mon, 23 Mar 2026 08:07:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774253285;
+	bh=hEphEpC79ndJUN7KnbSaTRh3DIHeZPTh+GT9RZ+7GiY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mwi6aywpH240nnTboNmf+q/vOisXvvkBb7SU2xAEUlKLGNo0r+tEhtyeRDmvxKKdU
+	 nJyPovzpp/KN7zDpfPN/wHjPNZamuE0bMBvRJLhbIerD/ks5xd0M8x/usQKyM3opt9
+	 D0SH5zrAHQOlDkjgu3SiyxugyLuPu5K2+OmWtcrXXt2cvyy1j1TWxa0TBXedB70VhW
+	 nI3tHxqllivN0XK70I8IxDDZvbWiy7IUFgrsWeDNEn6PlEbh3JWK46xpoPazqCujUg
+	 jqBrorUBszXuM11LZsCPbsyNMAs+CE7HjIT9GZx9lZfgm1D6yAdMUzLMzpwCjPtArX
+	 vR1jBCIo17xUg==
+Message-ID: <f3ff461b-edd7-423a-ac99-e70145aaaaea@kernel.org>
+Date: Mon, 23 Mar 2026 09:07:54 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Aisheng Dong <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
+ devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
+ Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Vincent Guittot <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
+ <20260121021913.GA1704619-robh@kernel.org>
+ <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
+ <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
+ <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
+ <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
+ <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
+ <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
+ <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
+ <c7a59716-3d53-4787-b4ef-9674c2a4a9b5@kernel.org>
+ <3c454da1-d949-4258-87ce-8b545000bf01@app.fastmail.com>
+ <5f1b651b-1064-4280-a7e0-b7d66c396cde@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <5f1b651b-1064-4280-a7e0-b7d66c396cde@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_010501_076757_DAD0B9EF 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20260323_010808_492946_7CD7AB85 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,66 +147,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne ponedeljek, 23. marec 2026 ob 08:03:14 Srednjeevropski standardni =C4=
-=8Das je Pengpeng Hou napisal(a):
-> Cedrus consumes HEVC slice parameters directly from stateless V4L2
-> controls, but it does not validate the active reference counts or the
-> ref_idx_l0/ref_idx_l1 values before using them in fixed-size 16-entry
-> reference arrays. Oversized counts or indices can therefore walk past
-> the end of those arrays in the HEVC decode path.
->=20
-> Reject HEVC slice controls whose active reference counts or reference
-> indices exceed V4L2_HEVC_DPB_ENTRIES_NUM_MAX.
->=20
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+On 23/03/2026 08:57, Khristine Andreea Barbulescu wrote:
+> On 3/14/2026 9:31 AM, Arnd Bergmann wrote:
+>> On Fri, Mar 13, 2026, at 18:10, Krzysztof Kozlowski wrote:
+>>> On 25/02/2026 10:40, Ghennadi Procopciuc wrote:
+>>>> On 2/23/2026 3:14 PM, Krzysztof Kozlowski wrote:
+>>>>>> there are no resources allocated specifically for nodes like
+>>>>>> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
+>>>>>> driver and other drivers that read SoC‑specific information from
+>>>>>> those shared registers.
+>>>>>>  
+>>>>>> My alternative is to keep two separate syscon providers for the
+>>>>>
+>>>>> You got review already.
+>>>>>
+>>>> I still believe that nvmem is a suitable and accurate mechanism for
+>>>> describing SoC‑specific identification information, as originally
+>>>> proposed in [0], assuming the necessary adjustments are made.
+>>>>
+>>>> More specifically, instead of modeling software-defined cells, the nvmem
+>>>> layout would describe the actual hardware registers backing this
+>>>> information. One advantage of this approach is that consumer nodes (for
+>>>> example PCIe, Ethernet, or other IPs that need SoC identification data)
+>>>> can reference these registers using the standard nvmem-cells /
+>>>> nvmem-cell-names mechanism, without introducing custom, per-subsystem
+>>>> bindings.
+>>>
+>>> nvmem is applicable only if this is NVMEM. Information about the soc is
+>>> not NVMEM, unless this are blow out fuses / efuse. Does not look like,
+>>> because SoC information is set probably during design phase, not board
+>>> assembly.
+>>
+>> Agreed, nvmem clearly makes no sense here, the patch description
+>> appears to accurately describe the MMIO area as hardware registers
+>> with a fixed meaning rather than a convention for how the
+>> memory is being used.
+>>
+>> That said, there is probably room for improvement, since some of
+>> the register contents are read-only and could just be accessed
+>> by the boot firmware in order to move the information into more
+>> regular DT properties instead of defining bindings for drivers
+>> to access the information in raw form.
+>>
+>>     Arnd
+> 
+> Hi Krzysztof & Arnd,
+> 
+> Assuming we drop the syscon approach entirely, for the SerDes
+> presence information we could follow Arnd’s suggestion and have
+> it provided by the boot firmware instead of exposing it through SIUL2.
 
-There is nothing Cedrus specific here. Why not move it to common code?
+I think there is misunderstanding. By dropping syscon nodes, I meant to
+drop the nodes. Remove them. It implies that whatever their contain must
+go somewhere, right? Because your hardware is fixed and you cannot drop
+it from the hardware, right?
+
+So their parent node is the syscon.
 
 Best regards,
-Jernej
-
-> ---
->  drivers/staging/media/sunxi/cedrus/cedrus.c | 22 +++++++++++++++++++++
->  1 file changed, 22 insertions(+)
->=20
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/stagin=
-g/media/sunxi/cedrus/cedrus.c
-> index 6600245dff0e..d68da1eaa7aa 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-> @@ -77,6 +77,28 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
->  			ctx->bit_depth =3D bit_depth;
->  			cedrus_reset_cap_format(ctx);
->  		}
-> +	} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_HEVC_SLICE_PARAMS) {
-> +		const struct v4l2_ctrl_hevc_slice_params *slice =3D ctrl->p_new.p_hevc=
-_slice_params;
-> +		unsigned int i;
-> +
-> +		if (slice->num_ref_idx_l0_active_minus1 >=3D
-> +		    V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
-> +			return -EINVAL;
-> +
-> +		for (i =3D 0; i <=3D slice->num_ref_idx_l0_active_minus1; i++)
-> +			if (slice->ref_idx_l0[i] >=3D V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
-> +				return -EINVAL;
-> +
-> +		if (slice->slice_type =3D=3D V4L2_HEVC_SLICE_TYPE_B) {
-> +			if (slice->num_ref_idx_l1_active_minus1 >=3D
-> +			    V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
-> +				return -EINVAL;
-> +
-> +			for (i =3D 0; i <=3D slice->num_ref_idx_l1_active_minus1; i++)
-> +				if (slice->ref_idx_l1[i] >=3D
-> +				    V4L2_HEVC_DPB_ENTRIES_NUM_MAX)
-> +					return -EINVAL;
-> +		}
->  	}
-> =20
->  	return 0;
->=20
-
-
-
-
+Krzysztof
 
