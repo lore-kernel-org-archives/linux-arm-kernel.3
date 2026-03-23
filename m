@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188A3F483EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F342F483EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Mar 2026 19:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dmtorY8LlAopvLU37QPmGzNGM+3mvzFRJJMdAu2qDw=; b=k/rxAXPum29QD1kpJO3B0ODvNK
-	M8w4IUPi6VM0ItEDtYQ2ZfE71ImayUKHqOY3CeJABBTp9cXgQ8YabzmBAiGimryxtZOS5C2CuSCQp
-	GnsVj7gMXS2bN7g1+U2bUeFMDIcK0EkY4RmHeS5Aj1lHdhG5YS8acTjE2sI7ldl4ev7tQP2PkJZtf
-	ePzfNk35DHp56QhWQcg0j/8E4w1/kVb2PvmjMiUYJ5g5mcK4lrwDV6zikJgr1s58A5NKrI56HFPMy
-	c+7OCkUb0UvVhmM/eyTPFlfIXLr8bIVVLOloySK3Vcj49RaBw9LNhBRU12EA7SmD/5WqKfYpWTRsz
-	iuf00KnA==;
+	bh=RUWHb/bHW5waMVeCr38IVfB8tbe00wSzOrDLomFNqS0=; b=W9xjk8VyStrNMI1Y7jF5x4Cbjy
+	5Hd7XN/ewj39Hw7t1bR5wpiAs2tPYJ5i4sPHlbbnPpC+b86d6W2OQ32EfUaF1NQHlk2AXOoF+o5DI
+	L9XQAMbIrFBcDLycaoai7cvTvMgIdgqODwDKIfWIvDRSjVxsA4+zhsuPTWYXQs7cN0isUDYS8gB4T
+	VXaA9/19NwBVQZopaxaiTwyGYNTGogepnAsQCHbP/PziMi5hMKyv14AWcCG0/Fsbi8uaLeekp6Pvy
+	/NznLbu0cjN928auGTOIuamHRwdXZuwpR2HW2gZr82iIsk6dzR8snd2sExmuPy3IpA7+G1GpHGn3M
+	3t4BOJsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lEV-0000000HV7E-3gu4;
-	Mon, 23 Mar 2026 19:46:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4lFz-0000000HVNV-0894;
+	Mon, 23 Mar 2026 19:48:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4lET-0000000HV6l-3uYC;
-	Mon, 23 Mar 2026 19:46:38 +0000
+	id 1w4lFy-0000000HVN5-1ecs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Mar 2026 19:48:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F35A406E5;
-	Mon, 23 Mar 2026 19:46:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D6CC4CEF7;
-	Mon, 23 Mar 2026 19:46:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B3A9A600C4;
+	Mon, 23 Mar 2026 19:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AFBFC2BCB0;
+	Mon, 23 Mar 2026 19:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774295197;
-	bh=/dmtorY8LlAopvLU37QPmGzNGM+3mvzFRJJMdAu2qDw=;
+	s=k20201202; t=1774295289;
+	bh=AhCkc7lJh+tz9nznn2qikIFM9LgmMt+FJIpbfD9+zwI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rShQHzbr+/e0vr8yznZXZLi0IadcEXyXmTC90VkLLCkDaKMyZV6XVtlDucYuLRq74
-	 cw8in6D0nwJYmsWUzDM5DUNt7b7dv5ZP9BgpIbj55v3YyI9+xYELCUmp3kPYHs7x0C
-	 00JUcr6l+IiGJ2xPxQM/T0R+R/AxSBcBKqUj20bwgr7zgL1F4QraMYx7OEzbxPleal
-	 UhrfMUKHBGqXIXHQZtqkMmt/ioegcjIoDyE/8AluJ3QflhBk8vVAiE0QoMZKdFT6Y0
-	 mUyw1ezBl/MjVbtx5ejQ3Exaog+afTr36miFzTZGTx45Rg10COYbaTuthczwezddX0
-	 8h16B0dBoRPdQ==
-Date: Mon, 23 Mar 2026 19:46:32 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, Frank.Li@nxp.com,
-	amelie.delaunay@foss.st.com
-Subject: Re: [PATCH v5 17/17] spi: zynqmp-gqspi: Simplify clock handling with
- devm_clk_get_enabled()
-Message-ID: <cc7f3fec-e314-4f46-8c62-75feb919b778@sirena.org.uk>
-References: <cover.1773885292.git.xiaopei01@kylinos.cn>
- <611b4c4b67aaa8d86a7aeba9707ada47e6fd5dc3.1773885292.git.xiaopei01@kylinos.cn>
+	b=NyUlUFmS/LZ/hU3F1BEvomKf3VoOzcAB/DkUDJjOIfymVW0mfAaAAFMEjr2b4dsbK
+	 hs+w8lGQQXkhGA6hHV0qMc1nrHIdkCAmf61eq3Mw4UTX/IgW6WHfAQTrtnX1NL4Ss9
+	 rT1c2b/+PPRo0JURucoqO1yseGb5JjEEixgjG4H52cfT4Ywusal/fqPMEBb4u/aniW
+	 0QSQeW1ou4JTX6lgIGOWxJbsvWSglO9UBUW2b2PFtFJp7wQHeJfwZwXv6GxcHNGAfX
+	 M345KBZiMMcFkoGlebugtUvBMflNNERpnG1xH+1taJGALArDgXRLjW23nE1+pyRd9V
+	 xv3BYM372WCww==
+Date: Mon, 23 Mar 2026 19:48:05 +0000
+From: Conor Dooley <conor@kernel.org>
+To: nick.hawkins@hpe.com
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean-Marie Verdun <verdun@hpe.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: hpe,gxp: Add HPE GSC platform
+ compatible
+Message-ID: <20260323-winnings-scalded-eb8ca95805ad@spud>
+References: <20260323194223.683487-1-nick.hawkins@hpe.com>
+ <20260323194223.683487-2-nick.hawkins@hpe.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yXZTZfMj8/cYjg5u"
+	protocol="application/pgp-signature"; boundary="dNqL46ltczVGst4z"
 Content-Disposition: inline
-In-Reply-To: <611b4c4b67aaa8d86a7aeba9707ada47e6fd5dc3.1773885292.git.xiaopei01@kylinos.cn>
-X-Cookie: The only perfect science is hind-sight.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_124637_994016_808A5F8B 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260323194223.683487-2-nick.hawkins@hpe.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +76,101 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---yXZTZfMj8/cYjg5u
+--dNqL46ltczVGst4z
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Mar 19, 2026 at 10:04:13AM +0800, Pei Xiao wrote:
-> Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for both "pclk" and "ref_clk". This removes
-> the need for explicit clock enable and disable calls, as the managed
-> API automatically disables the clocks on device removal or probe
-> failure.
+On Mon, Mar 23, 2026 at 02:42:21PM -0500, nick.hawkins@hpe.com wrote:
+> From: Nick Hawkins <nick.hawkins@hpe.com>
+>=20
+> Add the HPE GSC ARM64 BMC SoC compatibles to the existing
+> hpe,gxp.yaml binding.
+>=20
+> The initial board compatible is hpe,gsc-dl340gen12 for the DL340 Gen12
+> server platform.
+>=20
+> Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
+> ---
+>  Documentation/devicetree/bindings/arm/hpe,gxp.yaml | 7 ++++++-
+>  MAINTAINERS                                        | 7 +++++++
+>  2 files changed, 13 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/hpe,gxp.yaml b/Documen=
+tation/devicetree/bindings/arm/hpe,gxp.yaml
+> index 224bbcb93f95..6f057cd58571 100644
+> --- a/Documentation/devicetree/bindings/arm/hpe,gxp.yaml
+> +++ b/Documentation/devicetree/bindings/arm/hpe,gxp.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/arm/hpe,gxp.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+> =20
+> -title: HPE BMC GXP platforms
+> +title: HPE BMC GXP and GSC platforms
+> =20
+>  maintainers:
+>    - Nick Hawkins <nick.hawkins@hpe.com>
+> @@ -18,6 +18,11 @@ properties:
+>            - enum:
+>                - hpe,gxp-dl360gen10
+>            - const: hpe,gxp
+> +      - description: GSC Based Boards
+> +        items:
+> +          - enum:
+> +              - hpe,gsc-dl340gen12
+> +          - const: hpe,gsc
+> =20
+>  required:
+>    - compatible
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 2265e2c9bfbe..33e4357f9011 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2859,6 +2859,13 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/g=
+it/kristoffer/linux-hpc.git
+>  F:	arch/arm/mach-sa1100/include/mach/jornada720.h
+>  F:	arch/arm/mach-sa1100/jornada720.c
+> =20
+> +ARM64/HPE GSC ARCHITECTURE
+> +M:	Nick Hawkins <nick.hawkins@hpe.com>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/arm/hpe,gxp.yaml
 
-Another runtime PM.
+> +F:	arch/arm64/Kconfig.platforms
 
---yXZTZfMj8/cYjg5u
+That doesn't look like a file that "belongs" to you.
+
+> +F:	arch/arm64/boot/dts/hpe/
+
+And both of the other two belong to the entry right below this one, that
+already has your name on it. I don't understand why this MAINTAINERS
+entry is needed.
+
+> +
+>  ARM/HPE GXP ARCHITECTURE
+
+Couldn't you just modify this to "GXP/GSC"?
+
+Binding change looks fine...
+
+Conor.
+
+>  M:	Jean-Marie Verdun <verdun@hpe.com>
+>  M:	Nick Hawkins <nick.hawkins@hpe.com>
+> --=20
+> 2.34.1
+>=20
+
+--dNqL46ltczVGst4z
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnBmJcACgkQJNaLcl1U
-h9Azogf/QlfWQKZIDTkEDnV1hRWkQlKZGgabUOpCAe5hOywhIwsKTsN0RsdWj4pu
-gZ5CUwol9/peWzpl3LUtT438fl+Tj1jWbjNJWSBHy4o6uSnLSIedjHJuFrA5nBb7
-Nw2JPIwe1Sxk3ooG6qCf1RLFclZHxcvjbAeTDIUbRmnA2ZeOMuDQ030AbISPi50p
-TwkulHE1Mfd6zQ/Dtfv6azyFxBMfirgdLPblRWmXkYp9zgnDKfOxgy29A30V/0zb
-NBeZSB5HZVYUCjuCMpe3hbq8MYLGL+d/khvAy8r/tnghN49BcXv9/LG798apXkXC
-FKZxce5d98Cm2HnL8Suce3/z9c3sKA==
-=quxv
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacGY9QAKCRB4tDGHoIJi
+0vHEAQDS/lQdC/KAz3hJSrZQYllS3FrOrfpoVg65ox3t9KNaFQD8CqNkIP7JBhBw
+HeVgd3M5fFUYmvbhXQ6hwNlYmykU8Qs=
+=DBms
 -----END PGP SIGNATURE-----
 
---yXZTZfMj8/cYjg5u--
+--dNqL46ltczVGst4z--
 
