@@ -4,59 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F448F54AC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984F4F54ACB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSJwazuBCDu0t3Q52Shj8lRxN6RR6iioWEdnQVZt7bU=; b=jcsHh6HPYwuGtkNqMQj26ZGK0E
-	YcVYJa8o+5L5z3aBYCIkjn+cLAEpzX4yEO2963a01nqr5gmksvY1GLXDBhG3LYIyBeT0i9gvc3RWH
-	QM/fuJUocs873Zr4ylBQvWwC5aU900xxXBlRjJ4kx1xcI8VQIFOCPFEndFmEamnM0nEcxsus3fUZg
-	Ky76s0emSSB1lxmeO9OsbUodcJ96Muk/YSrOnS5y8mvOF0DeDlMELFlrPzKgcNtwuSsflEONOsHvG
-	p7CNDp6xsl3ci5Vgmj4QPVvqTCxVpC6T3DPeg2o7k9IFXgw39ATdcM8rHnkZBfPubFcs9DlAYV8h8
-	PgjgpznQ==;
+	bh=+H1RQt9nEFm1mW3pj/3FppU+zA1eZ4F6q95FB9cWR8I=; b=e0aw5TmmgF0y6VjbFqnWuIxjA3
+	rwbAZ4emKnBI7A+DAn/EsA5aI9hEHRdgCMNk4QkhVFXcYzlOhoFF2lDEH6YN+I6wvkgro9mMB79sR
+	yra4sSPyZUJVZQ8T8fufiRoliblZvkKLz69lcwAWXQ36q4w2w2aXySX1F+A+gM/cZr1oFU2lJ2TGL
+	KtjdGEsxoh/DbCVmL8w+GHuVBbSozJf8PuVMjBakakkA5UvMqhp2I/t1E9KZAowCYHoWteCOYh8s8
+	veEJgPgqjSOjs84+0pRb3PecUFsPmYm6HAKMbbnaa6KJBE3/Fd4fP6wP4Uq4PFKHvfIrDPBsiSscu
+	m6AdLdng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w533C-00000001ga7-0DLs;
-	Tue, 24 Mar 2026 14:48:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w538w-00000001gqG-3Zwk;
+	Tue, 24 Mar 2026 14:54:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5339-00000001gZg-1Bqf
+	id 1w538v-00000001gq4-0eGT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 14:48:08 +0000
+	Tue, 24 Mar 2026 14:54:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01C6F43EBD;
-	Tue, 24 Mar 2026 14:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7720C2BC87;
-	Tue, 24 Mar 2026 14:48:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BA0B600AC;
+	Tue, 24 Mar 2026 14:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D4C6C19424;
+	Tue, 24 Mar 2026 14:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774363686;
-	bh=LLkl0SEenQDONMwzC9Hwo+1SXPja8lNluf74zP/HNRI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XV0yrAPiKeR2IFREU0+MhZd6ZQdm2ue2C0d9ATUwbZ3RUJUibOOZpnOFzFAk9VmX2
-	 wxGNPm63UzqBva9OVlOVz8hKekh6GMfn+0IO9d28vvxjGuCvPQ1q8yItV5ASf2r4HJ
-	 poj+HtN+/LP6duzU5LKFCotEu/4uhU1Q4dCVXdWIeV1NJIaaLb9BucHDNgTYVwT5xT
-	 vcmVYXKEfEEnEmGlD0NzTJwWWTzJXBkRYdXqO5+cLgbZWprLvmf0FSowRyfCU8pQ0L
-	 krRq+O6GXwkf5ncolYArUpU9oyxhtvHrs9T5WuPG1r1eGPJDGve7jWw0vtMxfAJjQv
-	 d55A3grAPgVnQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w5336-00000005CvI-3n1B;
-	Tue, 24 Mar 2026 14:48:04 +0000
-Date: Tue, 24 Mar 2026 14:48:04 +0000
-Message-ID: <86se9p472z.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
+	s=k20201202; t=1774364044;
+	bh=+H1RQt9nEFm1mW3pj/3FppU+zA1eZ4F6q95FB9cWR8I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BkfiHLJM5s81UYxIuCAfaj1IksuK9rnIWP+LpacEP5uJVh/LQcoMMg4k7V64C46GZ
+	 e1+7qX//DfTBR0TFWWC9mOorVx5VQw2OEhefk4mVdz9696oTL+g2WtqTy4dRO3ePvq
+	 HBJAG83ZpjtWReeqtxy6LUX4scRHqpUmvIisjHVyCmnaDGcjVC5dkwZha1wMGvqZCH
+	 FRdpRZKQfkXHtQAK54NIoaZv56uify9FuBiTwWEluViSRMEZjGVlYZ79H7NnappQsr
+	 UuOBGM4yhYUbpxFvi4f0+Zlm/Rt3GIJ+F+drFxjglJfc1LSQyiRNe8FOWIiW08ncX/
+	 6VPCHLIAyRTQQ==
+Date: Tue, 24 Mar 2026 14:53:58 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
 Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
 	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
 	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
 	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
 	Joey Gouly <Joey.Gouly@arm.com>,
 	Suzuki Poulose <Suzuki.Poulose@arm.com>,
@@ -65,23 +57,19 @@ Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
 	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
 	Timothy Hayes <Timothy.Hayes@arm.com>,
 	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-In-Reply-To: <638a3453-91c9-4a76-8241-25d5c27ca518@sirena.org.uk>
+Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize
+ ID_AA64PFR2_EL1.GCIE
+Message-ID: <ebd9ebb4-06ac-41a1-af16-664a4eedf3fd@sirena.org.uk>
 References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
-	<20260319154937.3619520-13-sascha.bischoff@arm.com>
-	<638a3453-91c9-4a76-8241-25d5c27ca518@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_074807_358633_A2DD52ED 
-X-CRM114-Status: GOOD (  16.62  )
+ <20260319154937.3619520-13-sascha.bischoff@arm.com>
+ <638a3453-91c9-4a76-8241-25d5c27ca518@sirena.org.uk>
+ <86se9p472z.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sWsDtecpd5ZuVCN+"
+Content-Disposition: inline
+In-Reply-To: <86se9p472z.wl-maz@kernel.org>
+X-Cookie: Forest fires cause Smokey Bears.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 12:47:24 +0000,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (7bit)>]
-> On Thu, Mar 19, 2026 at 03:52:50PM +0000, Sascha Bischoff wrote:
-> > Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
-> > already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
-> > fields. Add sanitisation for the GCIE field, which is set to IMP if
-> > the host supports a GICv5 guest and NI, otherwise.
-> 
-> We're also seeing an issue with this in the aarch32_id_regs test:
-> 
-> # selftests: kvm: aarch32_id_regs
-> # Random seed: 0x6b8b4567
-> # ==== Test Assertion Failure ====
-> #   arm64/aarch32_id_regs.c:25: read_sysreg_s((((3) << 19) | ((0) << 16) | ((0) << 12) | ((1) << 8) | ((1) << 5))) == 0
-> #   pid=3111 tid=3111 errno=4 - Interrupted system call
-> # sh: 1: addr2line: not found
-> #   0x10000000 != 0x0 (read_sysreg_s((((3) << 19) | ((0) << 16) | ((0) << 12) | ((1) << 8) | ((1) << 5))) != 0)
-> not ok 9 selftests: kvm: aarch32_id_regs # exit=254
-> 
-> which for some reason only manifests on TX2 of the platforms I've
-> seen.
 
-Is your TX2 the only machine you have that is AArch64 only at all ELs?
+--sWsDtecpd5ZuVCN+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-	M.
+On Tue, Mar 24, 2026 at 02:48:04PM +0000, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
--- 
-Without deviation from the norm, progress is not possible.
+> > We're also seeing an issue with this in the aarch32_id_regs test:
+
+...
+
+> > which for some reason only manifests on TX2 of the platforms I've
+> > seen.
+
+> Is your TX2 the only machine you have that is AArch64 only at all ELs?
+
+Yes, that should be the case.
+
+--sWsDtecpd5ZuVCN+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnCpYUACgkQJNaLcl1U
+h9Bm3Af/QFizHYbTB/ryz4KjPxz66HDJQLTRF4ZCv9unqS36DteUBrzH+P1u9Dvs
+RER8M4hbwORq3ev4XgGsh3NhIsgs0aeENgRBkp++ZbluNEFIYRfyINyR9KeAi7ZW
+HNqFEbnEdVJsaWin8pO+TjA0e5mmHxqiI8fvDYw48BT6y8Y+cmAmeNTmM1tIKSCy
+c8L1YsatMZ9z0X/VZTLuUHTHAvkc0NrH0WnjrnThxcJ2SIb9EDtYATHYTsxYnfs5
+1y18PWomKuZT4BTUwJs4PEfvVfj4iwEjHol/VjXaiwkE6OyhgiSVmHa/22aZZ8EU
+CXwCEHYHNuWRI1Zm3xWCAdNv/SOrlg==
+=Nq5T
+-----END PGP SIGNATURE-----
+
+--sWsDtecpd5ZuVCN+--
 
