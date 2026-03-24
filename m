@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012F9E9A75A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C774E9A75C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNCimm8lH9Nrd7S3bDMk3xh5Mpeyo9AVVd49TpvZ0+U=; b=w8qaIqLiYQoVynM6auoMNkdyqF
-	29JuJUKx/mVJm4vB9tXU8TpudBHrNatTM1Zp3i7frMnPmd1e6MA5alUHYnd4NPYhjMiJto3GyTqjI
-	BKt6jTYn4g6YO9k1licN0xqOoIVSY4ayH9NgJiJ7Moc2qK2ugHnvHHKbw+FrVFY1LR9gGl/zQoTmy
-	580ZvDSYTXHp7PninYtu96PmoSXA08UyPYwsVzVu130y+3SSQvW/zxot4aGbBvVNVS1KzCtep0HO3
-	+X/mi6ED2/QGZzL8YmcwuWQiP3XP0AnziCOH53wrhSc7wywSQWESunwU4KGGjD8H9wUdiU58ZQHE0
-	Z9A9ROqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eDhRwz+/ka+KYkzmF/0m24euohcc4CWkhVsPfLwqmgY=; b=bWw1WN4p7gpjjN35t2kIsns784
+	y4eHYN889DmJeJ3ixNdGnFQHFABTP48WkrX9lccmEhamuEj6ceTQuwV++Etvmzolthwm84jnBXsOR
+	nv07O+O36vPVhGHKnOBw0UN2LttIAbr6QDD5+nLh89vsSOGTIAIvOsa97jLjfeff2+km1STD/EIJP
+	NHubjb2t1hCXXmcd98CkCPE8iqMLnugLatgqK7T8OXCz0lvu8m6n5AM6Xq5SCjF1IwDSDVyWQbyaQ
+	ZOrdLmbrcK6NBnNa+KYEBX//mKJ9pfVVBh7CUvbFnfnssAmFYrqTJI41kXoXdKBE3dSzwVaFwLhH5
+	HfVuHANQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yeD-00000001Axf-0qiP;
-	Tue, 24 Mar 2026 10:06:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w4yhb-00000001BHo-3EUo;
+	Tue, 24 Mar 2026 10:09:35 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ye6-00000001AuF-2Ktj
+	id 1w4yhZ-00000001BH3-1Llb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 10:05:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tNCimm8lH9Nrd7S3bDMk3xh5Mpeyo9AVVd49TpvZ0+U=; b=eqYYP+b/qK4tA94P9WJPWHW9tP
-	j6cFfPGVoVTPfzTJP9T6B5f5x207aeF1LWNdobuh0k4rf9v2LVyB0LPV/f5dEoR5j9yzGSOt+FQWX
-	uxqou2VWkTHtUdXBHX/DUd3FG8WJuoJr515XfareNkQ+MUDtn0CFaTbBWRsk2F+kqZRXCpbebcEGS
-	TQ+sAKL/deq7lPhVemu7Ji3YR8eoP8/z3Eq2xYKbggmUjz4c3foCo8qf4o6Pmwy+5UBxaU3aN2/tp
-	BHRLTcQn66EDvy2v2MfyjPKENP1XckCo4btANKkgseF2zEWmdXnJUxpuwn6h/NFHrJU0Sx+ISHvAb
-	EVFVrPuA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58192 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w4ydu-000000001lY-3fSG;
-	Tue, 24 Mar 2026 10:05:46 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w4ydt-0000000Dlph-3WvI;
-	Tue, 24 Mar 2026 10:05:45 +0000
-In-Reply-To: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
-References: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	devicetree@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Yao Zi <me@ziyao.cc>
-Subject: [PATCH net-next 2/2] dt-bindings: remove unimplemented AXI snps,kbbe
- snps,mb and snps,rb
+	Tue, 24 Mar 2026 10:09:34 +0000
+Date: Tue, 24 Mar 2026 11:09:12 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1774346955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eDhRwz+/ka+KYkzmF/0m24euohcc4CWkhVsPfLwqmgY=;
+	b=FRNp2XIAFuvjxFIrdjAa3SBTH7lLUiD6XV6NrwG8gIdSM0vArCI9w9OEVMpTBi87r46nnw
+	H+/cppOqQ1/4P4GshUBQP6+4M1MFCrajlC0Z2c5a7d82oySbpMqQbuuqegBiXSsstDr/cl
+	XC4skgZR2NnFXL4xXRYRpSaMPv8MtfUSrDdDDGzefi8gyuNT77zLCEqiTqFVngoa73xuwe
+	vu3ZR1PlB0BXnUKpvHAvynM3j0h3L3A8ne3EcIM8k1QNBt2zdOcZ0124jwD3+Qx+H/p/B6
+	/Db0UYkHfZUkrCGpmsv+zmFvy8dKMi5AxiNtbJdBCwN3esCUXd8YZqgipWVnjA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1774346955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eDhRwz+/ka+KYkzmF/0m24euohcc4CWkhVsPfLwqmgY=;
+	b=6lts3i46kaPHm1L0yZrKLoWQU7Mla3Fzah1+WF2rGA7Eb2S1nOymrm2JQYBOg7Qw988JVw
+	uWODnGHa+iXZEyCw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Will Deacon <will@kernel.org>
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Kees Cook <kees@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Jeff Xu <jeffxu@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: vdso: fix AArch32 compat init allocation leaks
+Message-ID: <20260324110512-7a00b224-8c48-445b-93f3-dd9b7a07d3cd@linutronix.de>
+References: <20260323214117.241216-1-osama.abdelkader@gmail.com>
+ <acJgc9EVRJJOVM0S@willie-the-truck>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w4ydt-0000000Dlph-3WvI@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Mar 2026 10:05:45 +0000
+In-Reply-To: <acJgc9EVRJJOVM0S@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_030558_597255_D9A69809 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_030933_507338_7E44EECD 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the AXI snps,kbbe snps,mb and snps,rb properties as they have
-not been used, and although the driver parses these, the code hasn't
-ever used the parsed result. This parsing has now been removed.
+On Tue, Mar 24, 2026 at 09:59:15AM +0000, Will Deacon wrote:
+> On Mon, Mar 23, 2026 at 10:41:16PM +0100, Osama Abdelkader wrote:
+> > aarch32_alloc_vdso_pages() allocates the AA32 vdso pagelist, the compat
+> > sigpage, then the kuser vectors page. If aarch32_alloc_sigpage() or
+> > aarch32_alloc_kuser_vdso_page() fails, earlier allocations were not freed.
+> 
+> But why should they be freed? The vectors, sigpage and vdso are
+> independent from one another, so we can limp along with whatever we
+> managed to allocate. I'm not sure how far we'll get, mind, if single
+> page allocations are failing at initcall time...
 
-These were introduced by commit afea03656add ("stmmac: rework DMA bus
-setting and introduce new platform AXI structure").
+In the core vDSO datastore we just panic() if the allocation fails.
+(See tip/timers/vdso for the currentl implementation)
+The same should work for the architecture-specific bits.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../devicetree/bindings/net/snps,dwmac.yaml    | 18 ------------------
- 1 file changed, 18 deletions(-)
+Also I am wondering again why the return values of initcalls are ignored.
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 98ebb6276bc6..6d4afd824418 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -203,11 +203,8 @@ title: Synopsys DesignWare MAC
-         * snps,xit_frm, unlock on WoL
-         * snps,wr_osr_lmt, max write outstanding req. limit
-         * snps,rd_osr_lmt, max read outstanding req. limit
--        * snps,kbbe, do not cross 1KiB boundary.
-         * snps,blen, this is a vector of supported burst length.
-         * snps,fb, fixed-burst
--        * snps,mb, mixed-burst
--        * snps,rb, rebuild INCRx Burst
- 
-   snps,mtl-rx-config:
-     $ref: /schemas/types.yaml#/definitions/phandle
-@@ -587,11 +584,6 @@ title: Synopsys DesignWare MAC
-         description:
-           max read outstanding req. limit
- 
--      snps,kbbe:
--        $ref: /schemas/types.yaml#/definitions/flag
--        description:
--          do not cross 1KiB boundary.
--
-       snps,blen:
-         $ref: /schemas/types.yaml#/definitions/uint32-array
-         description:
-@@ -604,16 +596,6 @@ title: Synopsys DesignWare MAC
-         description:
-           fixed-burst
- 
--      snps,mb:
--        $ref: /schemas/types.yaml#/definitions/flag
--        description:
--          mixed-burst
--
--      snps,rb:
--        $ref: /schemas/types.yaml#/definitions/flag
--        description:
--          rebuild INCRx Burst
--
- required:
-   - compatible
-   - reg
--- 
-2.47.3
 
+Thomas
 
