@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95176E9A74F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11621E9A74B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8AWneB8OBhHUTqMQ4ayFDtiep4R2MIckpZOflriF0E=; b=3WxgOXpNrMHIjG650bIajwmomJ
-	F4rxvxaVnkhoOu0BbAx1O1BvVNH6+rekWDIk2dJ6K3S+sGBWSSQ2vd6xwY2LatLIoxBx3cv1ZPfAv
-	ECM+sDaoeqnFks0dHbGk74ZuJQBBIbAzkQGuEvx3eSy5xdGVczP9c6G7OVaTIXHKcKJmRKlPmNmsh
-	p8435ru3thK6U5K4iA+vPNUiSgXaU7VbB51vKu/yd6TOzAa3sxl0fcuCDTXHZ7ag5ovIZitrA8zln
-	8bTnnanJMfQ6IpRmSPyXXUtYD7P/T0bBvDZDqJjorlS0WaFvA6K9h/fpRe9VlntwU+jh2M0dwtxr4
-	DFpMgAmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SJwQ9+oRctfr5dpIJQo3Ps6u0uqQvSoNxdVowemfWsM=; b=dq2xUzBIibSkdgNBazwmkj0fjW
+	gEnX0WpD610L07dNySypW0ob2bZ9ZyyHcXNn00WairRng+VCUo1L90aIjSx6UybBw2WWfiQSwBujr
+	9FewG1FTUs+Rj5cD9clRJJLowxEP+Kdo+G+VWxhDvj1UrjtS88D2FYmNbpeDBB97vx5PsCRcPZ+35
+	UPaT7DFg/k1Q2ABCtFGz6CTimy4WxutMmJ3+bzpu0nFL7ntbkHj47jp0U4HdYwEhld2IGpO27AMHf
+	ENah/5qujRgkorPUT6lfJ8jX3yDJC0ziVFQDjZ/MR8+J5mSFyabeXk1BJq4/rm0oLqN2/lMdho1Rx
+	BQSlKfVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yLi-000000017uC-2k9Y;
-	Tue, 24 Mar 2026 09:46:58 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w4yNJ-0000000184D-1YBB;
+	Tue, 24 Mar 2026 09:48:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yLf-000000017td-1gQk;
-	Tue, 24 Mar 2026 09:46:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774345610;
-	bh=BcODXoQlJ1DFAkNcgiG6uPX6+uutgiyM2xoSaFfQjCc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E1EOoVFqk7hSh/rshO7Pa1QiIU0Du1HE7HQfvvtfsyQ6zzNEPkAy5l7bfcdo69RiD
-	 YtRGgkWq1GMUSoT23DQKLNQzLdTcJC2tUsVkcCAP2XN7C14srnElu06hy/eHjqk2UP
-	 AkECqguGwZUS+BxoPghVSrSg9wTX+M09VbOTF0SP9hiIB6+ykl1iQ8uYBTnkPAF6U3
-	 lU+8Ohxe9KMmIcDs2NwfcsxnS8qd3iHZGExmhR2/PD7FdBITOAGQ1sK12tU7XvFbgV
-	 zUjUHRU6KPTbCS47GA/eWBiw2IbPoLwkE2w+EVdYQKwY/N67rDnnewv4fTfSu33d8a
-	 ilpRq+sMx/IOQ==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E8D1717E4BCD;
-	Tue, 24 Mar 2026 10:46:49 +0100 (CET)
-Message-ID: <08e6b649-61ac-4059-a914-c537b5c4da7e@collabora.com>
-Date: Tue, 24 Mar 2026 10:46:49 +0100
+	id 1w4yNG-0000000183t-3bst
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 09:48:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=SJwQ9+oRctfr5dpIJQo3Ps6u0uqQvSoNxdVowemfWsM=; b=umBvJAzb3vktIyEGqq/LBR7BVP
+	lsO1jeaffWXOvVfwo8a8hig4hkjRAx4u4ainT4Ht2winfhufOfgXXiYsbGOF+uS1Lc2ejpEEx12Mr
+	Mc34j0DNH8Ly/9q2TSHiN3beRZ3DBpmQSJmGb7xbPINIC+djCFEOcBZVMtHwkeb+7XbVl19TQ5qWE
+	hPE814DMnOxWIOPNXqdkKdQdeXz/hsWJtm/ULhOk64OyhLnNY+a/hXzeJF4uhNUc85I2RMEMKxga9
+	V9DRc/FBvUx1cWXN8IEQCZ1gmWlZ+l5lY26rJWJ399ogt1gzN0YHoEr6XAWw5WxeGIrQLqoIdPiXF
+	iMlgE8IQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35944)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w4yN2-000000001go-1Vgb;
+	Tue, 24 Mar 2026 09:48:20 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w4yN0-000000004xj-1BAN;
+	Tue, 24 Mar 2026 09:48:18 +0000
+Date: Tue, 24 Mar 2026 09:48:18 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	thomas.petazzoni@bootlin.com,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Mun Yew Tham <mun.yew.tham@altera.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 1/5] net: stmmac: dwmac-socfpga: Move internal
+ helpers
+Message-ID: <acJd4qJ6XLE0gs0C@shell.armlinux.org.uk>
+References: <20260324092102.687082-1-maxime.chevallier@bootlin.com>
+ <20260324092102.687082-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] media: synopsys: Add imx93 support
-To: Sakari Ailus <sakari.ailus@iki.fi>, Frank Li <Frank.li@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Guoniu Zhou <guoniu.zhou@oss.nxp.com>, imx@lists.linux.dev
-References: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
- <acGQNIUKqfh8eWNB@lizhi-Precision-Tower-5810>
- <acJI3wYnl8_g4WpO@valkosipuli.retiisi.eu>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <acJI3wYnl8_g4WpO@valkosipuli.retiisi.eu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324092102.687082-2-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_024655_621127_4544ED97 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20260324_024834_923930_85108642 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +90,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-
-On 3/24/26 09:18, Sakari Ailus wrote:
-> On Mon, Mar 23, 2026 at 03:10:44PM -0400, Frank Li wrote:
->> On Tue, Feb 10, 2026 at 12:11:07PM -0500, Frank Li wrote:
->>> This 3rd time try to support DW CSI2RX support for imx93.
->>>
->>
->> Laurent Pinchart and Sakari Ailus:
->>
->> 	I am not who will take care this patch?
->> 	original drivers/media/platform/synopsys/dw-mipi-csi2rx.c picked
->> by Sakari Ailus
+On Tue, Mar 24, 2026 at 10:20:56AM +0100, Maxime Chevallier wrote:
+> This is preparatory work to allow reusing the SGMII configuration helper
+> and the wrapper to get the interface in the fix_mac_speed() callback.
 > 
-> Michael seems to have questions on the last patch, too.
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-I.. don't.. think so. After digging a bit in my memory and lore, I found
-a v3 of that series with my Reviewed-by [0]
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-[0]
-https://lore.kernel.org/all/20260216-imx93-dw-csi2-v3-0-aabafee10923@nxp.com/
+Thanks!
 
-Best regards,
-Michael
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
