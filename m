@@ -4,59 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBC2E9A74E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E9FE9A74E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcYBjPeXSOzD9NFafUiTvu5pLEyLFcNdQhAeR7aQyM0=; b=z+zqy3iEcykP53yRExQBi0cxOB
-	Ir8X5OUnyajyp4SaP7ih/5MDY6bAQjVUJVvug9f0fwjb75HEdVh0szclC8IeRGZGZ0WmSxbrG74cw
-	2ynrO927X6+TeuqoqkmWs+CmT7EHFNh95rNB04DETSuTIhwE1wHNJjwvgwBKUn5AWTdn+TFYBOrcM
-	rXztU+LSC15LH+z5vzwJGPLZyBkfmZbeOcepur7KNNkW1olrAWp5v7yGEK6t1lGIHsBngosOEqNNk
-	BIW6NsD94m+pG72TeKZCY4qVY3miSbr/6S1foyrf7QMCl+AU2/tnP21XpVTRxLpTkkAo1S141HlpU
-	ONuRD6dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h1j7nhXNxy5z2nDtI4anQZ5tze0oTo26BnQ3y9sJs7Y=; b=EGXwQRLpX4hkxm42uNp2ihQVHf
+	dS0CFyTBfEUf+epXy1ybrrE7xsLsqRw5d1z2yRsZnKjkjXJ7aOsTPQeOUVXkbuS7+3mtq7tgkOIJl
+	nt/vF0lvgOlsrkrwV0laLtn6gRuzNfA4XqoeZgqHBQ+2UNoOqLt/suB+suEr1ZoUH5Dnqz0KLWiHr
+	THpLYtdHkaJN/93r4Z0kZ+JyWPLG4eBLELvi/fqY7fyY1XaAUmsD3CarWGJ8KwhjBueARL9Zazyq5
+	bRQwZQJWLygKPQ5pQHbd6TK17oZHIMO1A4ESkp+8O/94+Tuj0JSjXDnYm4qP5trQJ/2mvGzTgFtfa
+	hsNwee1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yH4-000000017XG-0pFm;
-	Tue, 24 Mar 2026 09:42:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4yHx-000000017dH-2IEd;
+	Tue, 24 Mar 2026 09:43:05 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yH2-000000017X7-1oAw
+	id 1w4yHu-000000017cs-3169
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 09:42:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FE2760120;
-	Tue, 24 Mar 2026 09:42:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A3AEC19424;
-	Tue, 24 Mar 2026 09:42:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774345327;
-	bh=w1b6t/WZFJinFZolBARj9oLa4QRP/BXtqXTJ/gXtkSI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WzEyOhdwxgQz/aZB83aAAqtgug/qNEdW48kuM+517X+KGio6CfBkWpfWU59DdffkC
-	 le0xmNP4iHOLh+mhqpdvtgQgXt0ULpkEb2mxjpdgEQ2OT+kj7JKQAHnFLagLbukRBf
-	 iAck0oix3Z4AM5lGloysyfA4OSIGCR75xyoScmYYrEmiwSxXJyAZPqVNRmxSblu+D3
-	 WOAovnvACHyh6hViLEzVgTPC/zhini8LawFJvprnoL4HMHYP6Z+w2kgK0HUVvdqYE+
-	 jgNX3Cn0F11C0HQfXC5WEkRFk56RqeRmbEcao7rI8r0s7KHy3MUV1HqRZWTSL8s3T7
-	 M6av+VJZY62yg==
-Date: Tue, 24 Mar 2026 10:42:04 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bhargav Joshi <rougueprince47@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	xuwei5@hisilicon.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	ulf.hansson@linaro.org, zhangfei.gao@linaro.org, linux-mmc@vger.kernel.org, 
-	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com
-Subject: Re: [PATCH 2/2] arm64: dts: hisilicon: Rename dwmmc nodes to mmc
-Message-ID: <20260324-jovial-ruddy-oarfish-5dc8d8@quoll>
-References: <20260323194400.22886-1-rougueprince47@gmail.com>
- <20260323194400.22886-3-rougueprince47@gmail.com>
+	Tue, 24 Mar 2026 09:43:04 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w4yHr-0006HF-LO; Tue, 24 Mar 2026 10:42:59 +0100
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller fixes for v7.0, part 2
+Date: Tue, 24 Mar 2026 10:42:55 +0100
+Message-ID: <20260324094255.3538772-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260323194400.22886-3-rougueprince47@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_024302_757196_2C80EC16 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,27 +64,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 01:14:00AM +0530, Bhargav Joshi wrote:
-> The core mmc devicetree schema expects mmc controller nodes to be named
-> using '^mmc(@.*)?$' pattern.
-> 
-> The legacy Hisilicon SoC files (hi3660, hi3670, and hi6220) previously
-> used the 'dwmmc' prefix for their nodes. This caused warnings during
-> dtbs_check.
-> 
-> Rename the 'dwmmc' nodes to 'mmc' to comply with the standard schema and
-> dtbs_check warnings. The legacy phandle labels are kept intact.
-> 
-> Signed-off-by: Bhargav Joshi <rougueprince47@gmail.com>
-> ---
->  arch/arm64/boot/dts/hisilicon/hi3660.dtsi | 4 ++--
->  arch/arm64/boot/dts/hisilicon/hi3670.dtsi | 4 ++--
->  arch/arm64/boot/dts/hisilicon/hi6220.dtsi | 6 +++---
->  3 files changed, 7 insertions(+), 7 deletions(-)
+Dear arm-soc maintainers,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The following changes since commit e0cf84109bc6c6768337123f1de24ff56b41c91b:
 
-Best regards,
-Krzysztof
+  reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it (2026-02-23 17:03:28 +0100)
 
+are available in the Git repository at:
+
+  https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-2
+
+for you to fetch changes up to a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
+
+  reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:47 +0100)
+
+----------------------------------------------------------------
+Reset controller fixes for v7.0, part 2
+
+* Decouple spacemit K3 reset lines that were incorrectly coupled
+  together as one, but are in fact separate resets in hardware.
+* Fix a double free in the reset_add_gpio_aux_device() error path.
+  This has already been fixed on reset/next by commit a9b95ce36de4
+  ("reset: gpio: add a devlink between reset-gpio and its consumer").
+* Fix the MODULE_AUTHOR string in the rzg2l-usbphy-ctrl driver.
+
+----------------------------------------------------------------
+Biju Das (1):
+      reset: rzg2l-usbphy-ctrl: Fix malformed MODULE_AUTHOR string
+
+Guangshuo Li (1):
+      reset: gpio: fix double free in reset_add_gpio_aux_device() error path
+
+Yixun Lan (1):
+      reset: spacemit: k3: Decouple composite reset lines
+
+ drivers/reset/core.c                           |  1 -
+ drivers/reset/reset-rzg2l-usbphy-ctrl.c        |  2 +-
+ drivers/reset/spacemit/reset-spacemit-k3.c     | 60 +++++++++++++++-----------
+ include/dt-bindings/reset/spacemit,k3-resets.h | 48 +++++++++++++++------
+ 4 files changed, 73 insertions(+), 38 deletions(-)
 
