@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F765F532C3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5F9F532C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzQNKHTkEVAtgYQMHYZVy248jusM+FnEvT6P4WtJR6c=; b=WE/rBEMpuS7jURcp+IMpLwJ5ZJ
-	hI8PKrDLLDeGhhq59DDJT95RM59ROya/b5Xtcz7UW3b0xf0B62Lyd2hnRRXh1n7cPvI9Q5sCPOW/Y
-	RDf8iv4cw1MM4zxelLSe3DIcKC0VKmQfbQltEBlsRss84QTj2xlUtpOQXtk1QZS28FOvAUltNGNeR
-	2zzA4zeUB6uC86T4AR4FCKCOimzrsiQmCpW2YRxjrAOUKSRXq71rhzlFc+Ks5S0uAYZz5dFQvNk96
-	an04YO2g2y+Xp4lpaosQrlHsfDeuIAYsoSlUCNNfEeaSZ7i069NOjC3fw5CAjj8lCVrrDYXp0rZUA
-	sh/QJ4DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u5nxp8h7URPQhCFYmmxiZRPCv46829majA2c8E+Sh6c=; b=irgxyxSENQf+wnVViwzXmgF20z
+	pTbbCzKRR/aVjgoAxt7LHPMlZnwYLI7hS5XTzwxy4KH7iVHM91OCCBJcZciVw3ArEGv0f/F7vPZYy
+	X4QrGIgaHan6G8k9fH2GfegU+NevI8UOH0lVMUNAW1xzcwnpURiK2m9CkxrdX3V6zgI/NsDatw/i9
+	hwP44ONu4r/TdS4PPsdHKIZW7J6rfktx3CsoPLoc2YhO5m62+R5TjWdpr+5+3df3JTM698SelXfkw
+	LE+LxOkHkRYln+mfTIpvk2ULINkr5f5hfxUHOAMQh7OYXGhXHZ9/CApwLqJpFlCRcJdBWYRUtcuTT
+	7TFw7ADw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4psZ-00000000Fzg-2Dmh;
-	Tue, 24 Mar 2026 00:44:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4pyJ-00000000GLM-1SvJ;
+	Tue, 24 Mar 2026 00:50:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4psY-00000000FzJ-0cGb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 00:44:18 +0000
+	id 1w4pyF-00000000GKr-3q3P;
+	Tue, 24 Mar 2026 00:50:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 879B3600AC;
-	Tue, 24 Mar 2026 00:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FDB1C4CEF7;
-	Tue, 24 Mar 2026 00:44:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E3A043CF9;
+	Tue, 24 Mar 2026 00:50:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA925C4CEF7;
+	Tue, 24 Mar 2026 00:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774313057;
-	bh=zzQNKHTkEVAtgYQMHYZVy248jusM+FnEvT6P4WtJR6c=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=BCVLImsvOGIo0CPsj3MmbYWcVwQQHXRJd4BRw3lQWY/EuwPuDZKcgH9u7cdvlNpuq
-	 K/M2VZg1bcrX5ieLnQWRnAMMJaB2Bpy7Sja96O/6UXSXv3QE80a94wFxj2EGAOpxO5
-	 ZE4KTeCCmZy2IILNK+XkPTVS9Cemq+kWUSXvxEofSMX3Q2Zr5TD6vbpkv3BX0Nyslf
-	 qmEc5Fqm3IrVVLeoZkgBJWH8kByl4Vlql+fT/GONQysuBAW1M3ylz4rTsUf2nlQzWL
-	 YwAE7ldYXcwzT/tCMU7SXCZdRH1l9cpVFne6qaMMcYuwlK7fs8gDvGPQw75z+V2IID
-	 YEndTnRkURoDw==
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1774313410;
+	bh=DP5RvThrmwwduBuiuEP/nEGN+iF6viTzjV4BJyGugH8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mVUvJehR5AUXtELkMkllJyiKebZxIhNmZ4/nR7tNivljvmNUK+Gr+qeKt9Xqd5x5j
+	 W1Csj6TDL+5/kw21+fZ5hvfQogofACPndgaN/us19ikMXxy5h3PlbMa+6QPhbRojiW
+	 EyGsbnTgyVyQN4ym8TCN83arfrUXWDqp2+00cK3UA8unudbTZZWdRPjvXNdtxqDFTK
+	 v6KLy8t0Cal/AuIKun5oxq+fI9oUp+iKLPS6sSZQaVWx4KPk92BppcUbR64S7ABivL
+	 tS8urKJZM9cFNEmumEwfBZCj4AdAgc2whQSprO8YMntDSeIZ/Cp4XF+tQHCe7ocSWG
+	 uZo43DtLFvRCA==
+Date: Mon, 23 Mar 2026 17:50:08 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH 00/19] GHASH library
+Message-ID: <20260324005008.GA230053@quark>
+References: <20260319061723.1140720-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260318110251.2412-1-mohd.abd.6602@gmail.com>
-References: <20260318110251.2412-1-mohd.abd.6602@gmail.com>
-Subject: Re: [PATCH] clk: uniphier: mux: fix signedness bug in get_parent
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: hayashi.kunihiko@socionext.com, mhiramat@kernel.org, yamada.masahiro@socionext.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Anas Iqbal <mohd.abd.6602@gmail.com>
-To: Anas Iqbal <mohd.abd.6602@gmail.com>, linux-clk@vger.kernel.org, mturquette@baylibre.com
-Date: Mon, 23 Mar 2026 17:44:15 -0700
-Message-ID: <177431305509.5403.15386021337517970667@lazor>
-User-Agent: alot/0.12
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260319061723.1140720-1-ebiggers@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_175012_004428_37F8F3F9 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,21 +74,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Anas Iqbal (2026-03-18 04:02:51)
-> The uniphier_clk_mux_get_parent() function returns a u8, but
-> propagates negative error codes such as -EINVAL and regmap_read()
-> failures. These values are implicitly converted to large unsigned
-> integers, resulting in invalid parent indices.
->=20
-> The clk_ops.get_parent() callback is expected to return a valid
-> parent index and does not support error codes. Fix this by returning
-> 0 as a safe fallback in error cases.
+On Wed, Mar 18, 2026 at 11:17:01PM -0700, Eric Biggers wrote:
+> This series is targeting libcrypto-next.  It can also be retrieved from:
+> 
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git ghash-lib-v1
+> 
+> This series migrates the standalone GHASH code to lib/crypto/, then
+> converts the "gcm" template and AES-GCM library code to use it.  (GHASH
+> is the universal hash function used by GCM mode.)  As was the case with
+> POLYVAL and Poly1305 as well, the library is a much better fit for it.
+> 
+> Since GHASH and POLYVAL are closely related and it often makes sense to
+> implement one in terms of the other, the existing "polyval" library
+> module is renamed to "gf128hash" and the GHASH support is added to it.
+> 
+> The generic implementation of GHASH is also replaced with a better one
+> utilizing the existing polyval_mul_generic().
+> 
+> Note that some GHASH implementations, often faster ones using more
+> recent CPU features, still exist in arch/*/crypto/ as internal
+> components of AES-GCM implementations.  Those are left as-is for now.
+> The goal with this GHASH library is just to provide parity with the
+> existing standalone GHASH support, which is used when a full
+> implementation of AES-GCM (or ${someothercipher}-GCM, if another block
+> cipher is being used) is unavailable.  Migrating the
+> architecture-optimized AES-GCM code to lib/crypto/ will be a next step.
+> 
 
-A large number will exceed the number of parents possible for the clk
-and turn into a failure to find the parent in the parent map. There's
-nothing to do here besides implement clk_ops::get_parent_hw()[1] and fix
-all the drivers.
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git/log/?h=3D=
-clk-parent-rewrite
+As usual, the s390 code will need to be tested by someone who has the
+privilege of access to a z/Architecture mainframe.  That is the only way
+to test that code, given that the s390 community has not yet updated
+QEMU to support the CPACF_KIMD_GHASH instruction.
+
+From another review pass I also folded in some trivial cleanups that
+don't seem worth sending a v2 for unless something else comes up.
+Removed a definition I forgot to remove, dropped unnecessary rename of
+'h' to 'k', improved consistency in a couple places, etc.
+
+diff --git a/arch/arm64/crypto/ghash-ce-glue.c b/arch/arm64/crypto/ghash-ce-glue.c
+index c74066d430fa..eaf2932ceaf5 100644
+--- a/arch/arm64/crypto/ghash-ce-glue.c
++++ b/arch/arm64/crypto/ghash-ce-glue.c
+@@ -35,10 +35,6 @@ struct arm_ghash_key {
+ 	u64			h[4][2];
+ };
+ 
+-struct arm_ghash_desc_ctx {
+-	u64 digest[GHASH_DIGEST_SIZE/sizeof(u64)];
+-};
+-
+ struct gcm_aes_ctx {
+ 	struct aes_enckey	aes_key;
+ 	u8			nonce[RFC4106_NONCE_SIZE];
+diff --git a/lib/crypto/arm/gf128hash.h b/lib/crypto/arm/gf128hash.h
+index cb929bed29d5..c33c8cbe51fe 100644
+--- a/lib/crypto/arm/gf128hash.h
++++ b/lib/crypto/arm/gf128hash.h
+@@ -12,7 +12,7 @@
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+ 
+ void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
+-			   const u8 *src, const struct polyval_elem *k);
++			   const u8 *src, const struct polyval_elem *h);
+ 
+ #define ghash_blocks_arch ghash_blocks_arch
+ static void ghash_blocks_arch(struct polyval_elem *acc,
+diff --git a/lib/crypto/arm/ghash-neon-core.S b/lib/crypto/arm/ghash-neon-core.S
+index bf423fb06a75..eeffd12504a9 100644
+--- a/lib/crypto/arm/ghash-neon-core.S
++++ b/lib/crypto/arm/ghash-neon-core.S
+@@ -181,7 +181,7 @@
+ 	/*
+ 	 * void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
+ 	 *			      const u8 *src,
+-	 *			      const struct polyval_elem *k)
++	 *			      const struct polyval_elem *h)
+ 	 */
+ ENTRY(pmull_ghash_update_p8)
+ 	vld1.64		{SHASH}, [r3]
+diff --git a/lib/crypto/arm64/gf128hash.h b/lib/crypto/arm64/gf128hash.h
+index d5ef1b1b77e1..b2c85585b758 100644
+--- a/lib/crypto/arm64/gf128hash.h
++++ b/lib/crypto/arm64/gf128hash.h
+@@ -12,14 +12,14 @@
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_asimd);
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pmull);
+ 
++asmlinkage void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
++				      const u8 *src,
++				      const struct polyval_elem *h);
+ asmlinkage void polyval_mul_pmull(struct polyval_elem *a,
+ 				  const struct polyval_elem *b);
+ asmlinkage void polyval_blocks_pmull(struct polyval_elem *acc,
+ 				     const struct polyval_key *key,
+ 				     const u8 *data, size_t nblocks);
+-asmlinkage void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
+-				      const u8 *src,
+-				      const struct polyval_elem *k);
+ 
+ #define polyval_preparekey_arch polyval_preparekey_arch
+ static void polyval_preparekey_arch(struct polyval_key *key,
+@@ -91,8 +91,8 @@ static void ghash_blocks_arch(struct polyval_elem *acc,
+ 	if (static_branch_likely(&have_asimd) && may_use_simd()) {
+ 		do {
+ 			/* Allow rescheduling every 4 KiB. */
+-			size_t n =
+-				min_t(size_t, nblocks, 4096 / GHASH_BLOCK_SIZE);
++			size_t n = min_t(size_t, nblocks,
++					 4096 / GHASH_BLOCK_SIZE);
+ 
+ 			scoped_ksimd()
+ 				pmull_ghash_update_p8(n, acc, data, &key->h);
+diff --git a/lib/crypto/arm64/ghash-neon-core.S b/lib/crypto/arm64/ghash-neon-core.S
+index eadd6da47247..85b20fcd98fe 100644
+--- a/lib/crypto/arm64/ghash-neon-core.S
++++ b/lib/crypto/arm64/ghash-neon-core.S
+@@ -180,7 +180,7 @@
+ 	/*
+ 	 * void pmull_ghash_update_p8(size_t blocks, struct polyval_elem *dg,
+ 	 *			      const u8 *src,
+-	 *			      const struct polyval_elem *k)
++	 *			      const struct polyval_elem *h)
+ 	 */
+ SYM_FUNC_START(pmull_ghash_update_p8)
+ 	ld1		{SHASH.2d}, [x3]
+diff --git a/lib/crypto/riscv/ghash-riscv64-zvkg.S b/lib/crypto/riscv/ghash-riscv64-zvkg.S
+index 2839ff1a990c..6a2a2f2bc7c8 100644
+--- a/lib/crypto/riscv/ghash-riscv64-zvkg.S
++++ b/lib/crypto/riscv/ghash-riscv64-zvkg.S
+@@ -55,6 +55,8 @@
+ // void ghash_zvkg(u8 accumulator[GHASH_BLOCK_SIZE],
+ //		   const u8 key[GHASH_BLOCK_SIZE],
+ //		   const u8 *data, size_t nblocks);
++//
++// |nblocks| must be nonzero.
+ SYM_FUNC_START(ghash_zvkg)
+ 	vsetivli	zero, 4, e32, m1, ta, ma
+ 	vle32.v		v1, (ACCUMULATOR)
+diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
+index 279ff1a339be..5b60d5c3644b 100644
+--- a/lib/crypto/tests/Kconfig
++++ b/lib/crypto/tests/Kconfig
+@@ -41,7 +41,7 @@ config CRYPTO_LIB_GHASH_KUNIT_TEST
+ 	default KUNIT_ALL_TESTS
+ 	select CRYPTO_LIB_BENCHMARK_VISIBLE
+ 	help
+-	  KUnit tests for GHASH library functions.
++	  KUnit tests for the GHASH library functions.
+ 
+ config CRYPTO_LIB_MD5_KUNIT_TEST
+ 	tristate "KUnit tests for MD5" if !KUNIT_ALL_TESTS
 
