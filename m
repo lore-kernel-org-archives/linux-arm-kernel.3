@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F160CF54ADE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F33F54ADA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zeZp8zC8CS65Vocua5eoclRGzsQLhLqvXnUvfy5ofCc=; b=p7lwH8TFZqa815RDSx8sAmTG85
-	tS434WNqrrZ6Ulmh6DDacHYOck28dLpLw4X9NmL9H5Ghk7PlyAh3q8AXedD9rKb6dzSKjoS+JmuTM
-	+upDdGZmzviPLIBJSMKkomANgbqR1lC82FFLQcO2+ibF37qwYi6cmfQNH+cM3g5Kh/TnbZDQk758v
-	VeL0HkAhNgrUHke2M5eaokPPr8JI+cloAfFOch/rxA9ERvE9sF3lpoxiCrvEKqkk/upZ6UdBfp3bR
-	WhvH9FcLMHc8DREzyJR8K46ZtQ/sWlX7iT11YIjDyv9vkBYfytzXZ893JI4EcZY5t8+vs9v43p+7e
-	4HbJN0HA==;
+	bh=8+Jw00CvTMU1v2XHS+Iv9vE7g3+9u1r52N76fFD2Nsw=; b=PHf1j8rojmsROmEAayMcnoHv8x
+	oM2whUyxDfQaSJmO+Je9/kyRJDi0UL/VMhjKfiIp+eN4qDq0//Vw7LH9pbeX0NkY71nAgUQwof5lm
+	6tc6GCWH1xmMd2vvT1PWpSaUJF8x5cz7GIic7CCejvuFdGHN6QJDr7MhVEudTSPOXyH8ApiTfGcfW
+	2DIzzNmd2ysEVql+/QOuDhWP8VNwqp2HSxWK9HkTqoqWrAYb5mQOxkIkhJ/Vb8hRyv/9R6Ns4nJCu
+	XWd01d9UmW19SOa9CsMmKqrwGcrpCkDXi+TlwkSlacOaEQ1MF1eWfuyvhcuodA+eyyLagfO1N+7aL
+	0E1+T6zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w556f-00000001x0Q-4BJx;
-	Tue, 24 Mar 2026 16:59:54 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1w556v-00000001x7H-1K9J;
+	Tue, 24 Mar 2026 17:00:09 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w556e-00000001wzK-0eBA
+	id 1w556s-00000001x5v-2YMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:59:53 +0000
+	Tue, 24 Mar 2026 17:00:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774371593; x=1805907593;
+  t=1774371606; x=1805907606;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=1PkvXAZOx3orpMkb8PpUbgz2WR5NIQkeHlnghDGYLjQ=;
-  b=JhwM3gmN6ni1u98M9Mnz8RO93EOabSJB/hIofQDq5V2d6PzqgRI77P9P
-   9LSx4wH8Z+M5l/srtHgwWUf9rjAPuRCK3tFrchxFFBGJnmMYHk5AB+FI9
-   44GjNUGFnk8ttCdiqOitVdApAsEmdrXQEww1bNKbut1UFXSYx0fDELXm1
-   rwwBT8DB4Y4gurFgDzEvqgOz44cGVhxx+q8KS2/FYfghkjF0e5FdXyhpq
-   HwhhiCK1rjDPisT8PnbT8AUr6tbLpgVTzO1/js/jMc5f8weVcF2AP7NQS
-   r3gdqsIV6WfZMTV5DTwuCNgGGC+dd4G6NSwHvnuBCqQEubMQIcxG6bIk8
+  bh=9hvV8PDAdyGkHU10me7VyjfjKt6p0yD22QH58KrfakU=;
+  b=fmCHeR7yWJTVVFGnPbxAtLAb9qGhqfoqudIOxa0ZBE000Iui4qNUjNPC
+   2bni0kU9oKgrEdGcYSNu8ZqYkAuFojH8+6ThVauiY+IdIM4cncdDZ2NZe
+   C609AjRW+z2M6N8nM74fBWDQZR6WsKcGblOGp+fGVAPdWBSeYhxNW2ag/
+   4JKNJete4F+Bc+Q4vACRbdN4o19ymZcQAFtfc8Zky2QScyMJnTDVkUYzo
+   mZ37FpBTdxXWzPDqhrnVorzSjW2xQGC29WpBoemq4BTzPNzqX4pX8SboC
+   pIbmdOHljUG3fEZxb79kh+6MF0z5aSq4SM0BnrfNsVN6jQNgfNjABKvkI
    Q==;
-X-CSE-ConnectionGUID: u1DTBVjVQR+My1X3QP172w==
-X-CSE-MsgGUID: zGERd0PHTcyGAwL9UQkOyw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="79252782"
+X-CSE-ConnectionGUID: PPOi/HI+SZe+4+sie1hZvA==
+X-CSE-MsgGUID: d36hzcM6Qwi3Wg4yOXh6AA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75281387"
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="79252782"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:52 -0700
-X-CSE-ConnectionGUID: lSvW+pYLTSuPFRVG7+1ISg==
-X-CSE-MsgGUID: iJA4o6fzRaW9L3ZwLnjXfQ==
+   d="scan'208";a="75281387"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:06 -0700
+X-CSE-ConnectionGUID: ZabKv/GtRfqHh4rMbY+IrQ==
+X-CSE-MsgGUID: KjVhSRgDSkWdd+eayrpYDg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="228447959"
+   d="scan'208";a="219540084"
 Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:38 -0700
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:57 -0700
 From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
 To: linux-pci@vger.kernel.org,
 	Bjorn Helgaas <bhelgaas@google.com>,
@@ -85,9 +85,9 @@ To: linux-pci@vger.kernel.org,
 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
 	linux-kernel@vger.kernel.org
 Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH 05/10] am68k/PCI: Remove unnecessary second application of align
-Date: Tue, 24 Mar 2026 18:56:28 +0200
-Message-Id: <20260324165633.4583-6-ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH 06/10] MIPS: PCI: Remove unnecessary second application of align
+Date: Tue, 24 Mar 2026 18:56:29 +0200
+Message-Id: <20260324165633.4583-7-ilpo.jarvinen@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
 References: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
@@ -95,8 +95,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_095952_234581_472EA4EF 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260324_100006_693496_6A4E7743 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,22 +125,22 @@ Thus, remove the duplicated aligning from pcibios_align_resource().
 
 Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 ---
- arch/m68k/kernel/pcibios.c | 2 --
+ arch/mips/pci/pci-generic.c | 2 --
  1 file changed, 2 deletions(-)
 
-diff --git a/arch/m68k/kernel/pcibios.c b/arch/m68k/kernel/pcibios.c
-index 1415f6e4e5ce..7e286ee1976b 100644
---- a/arch/m68k/kernel/pcibios.c
-+++ b/arch/m68k/kernel/pcibios.c
-@@ -36,8 +36,6 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
- 	if ((res->flags & IORESOURCE_IO) && (start & 0x300))
+diff --git a/arch/mips/pci/pci-generic.c b/arch/mips/pci/pci-generic.c
+index f4957c26efc7..aaa1d6de8bef 100644
+--- a/arch/mips/pci/pci-generic.c
++++ b/arch/mips/pci/pci-generic.c
+@@ -32,8 +32,6 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
+ 	if (res->flags & IORESOURCE_IO && start & 0x300)
  		start = (start + 0x3ff) & ~0x3ff;
  
 -	start = (start + align - 1) & ~(align - 1);
 -
- 	return start;
- }
+ 	host_bridge = pci_find_host_bridge(dev->bus);
  
+ 	if (host_bridge->align_resource)
 -- 
 2.39.5
 
