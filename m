@@ -4,96 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD32F532ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55C1F532EE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XgTjr1ySaQqwvk8pm1AFU5JmGfYl/gMQzs5mt80viYk=; b=xe4BHp5wOv5mkSuApj0kfKVeSS
-	18my4pB4Wdbsap/jWni2dCWArJVmK1mMVYtYw/qu2WnnFj5jdUj/BL0ekwjENSEidTO4v/bC4lyM8
-	TOT0s4mnHrdV5Xkp3lB4mQxiVhoFpR5mke7WmtcX2ShIwwZTRtLSg6wKK+Rl0PpxekEsZ5Vd7/TOX
-	7DgZGOwfq44dgKq4Y7B7sNG1jSlfLMwf3vXNUuGD34RLkfOa/rKAdT2jv15wBRUh8B4NkY+EEUn5s
-	sgN+voIweZjdBm84IWWGyqGfxB0QuqKTlPAg0IpWnWt/DKbF1wElMlLPdKyCQo8sq3ZXcDuX4NgCO
-	JhoQ3org==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cWnoCSv8w8q7/YUh5T2kDAJaf06iTTxggP6FxI8TNLA=; b=uvCbYLVQ5EL9w5nkWeHO4lr4tr
+	LJoLfizAeezynLZHYko5yXpABmYYAjYADtp1z4Eu8qWk5bWukugXl0B+Sz3BPXFvyzL39X8wp8jK9
+	rEpHvbXdpU/BpsgPx5I0MbXXQ3bWZlStAMiBk5j/ChxgjsZsQFFgO4HvZ/UY/Kw0G7T02sG6HbRgq
+	OlZtyMOuAnm/YkM/bv0PM8huv8qE/amGQYxDyTqybctDBnLEbt9+1uLSpijkWrgU/bO3HWDm3Z2QL
+	x5JirC3CZHWli1vUWSmWMfijqARm3yd/z6m+8E1DHrp/3rMbm1VLzqp38AvxqNyrAJsa8LF8o+yDO
+	O2An0XgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wpD-00000000xTM-2dPS;
-	Tue, 24 Mar 2026 08:09:19 +0000
-Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	id 1w4wpp-00000000xgE-3P30;
+	Tue, 24 Mar 2026 08:09:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wp3-00000000xOO-1EEm
+	id 1w4wpo-00000000xfg-0dXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 08:09:10 +0000
-Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-56b7fce3ae6so4674890e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 01:09:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1774339747; x=1774944547; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XgTjr1ySaQqwvk8pm1AFU5JmGfYl/gMQzs5mt80viYk=;
-        b=WcxPAD3cnXfmwkrqsjVejZfjYNhNTsTpqjOmt/o5OucOQRcNXJTQftEem2U+QTP74N
-         jnKsZUS4xzT038sqwmozpY0tsW8PTgh5A+sQVzRRXVgz7JpdTq6aV5mUPUG1j8lYjuex
-         Q1L4ms079rOLTJAIaV4UB+4l2ADgO9bP+N8yk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774339747; x=1774944547;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=XgTjr1ySaQqwvk8pm1AFU5JmGfYl/gMQzs5mt80viYk=;
-        b=i2dNPGYuuDklEkSKAHhpoQPuXttVq08gTDqEnDYSyg68YV2MA4JflO3Ld2At7ZmGV6
-         Ynzekm9Gc9YJP0X8x1FpgmxUBWbK4peWHknfvr0ev0Pg3beSPbsGFmQKhxHKe/SPPcZw
-         5tZSFCRPt0SmkyPBW0HFm0vZattNf7WKy03dkrt4IMJPCHGLy2KC6ktgWoQv+k4vulos
-         Cvm5fA2EPnaJpuWYtef0bGOCGmOIEJdMmwyOtP42Xq0ASltkSya+81uZ9TZrxIBnEzZZ
-         U1KsvJQGY2yAm1pcEWFqO1nRon3DB2jjVWZt/bPY/zHA056rnh2/pAW0m64Y4Q9jEId/
-         67Sg==
-X-Forwarded-Encrypted: i=1; AJvYcCUWgsRx2COgFkQJbMsYf19GGpM9rzxs75iruyiIJkSnPLSLgEB4GpfTv5BZk960d53L2WNdTZ5Nrh4Fh1JaNvLf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1Tu6wtqpJozycA9Fx+rwFG9JVwA5tVGjrzuFSXw9oPll+afVD
-	os+QDg6Upr5huuM6txXvrRRA7xygLdauFo4yTxo+5xcIiQrsWdo7u3f22mwgpD/Os9KL+DeWMXc
-	zWx4=
-X-Gm-Gg: ATEYQzygf85zNKD8FGjeCgPk81ahXf7wtPKuKE5vspyMBsxuZmOH5rokcixb8ALrmG7
-	r4UEEYo7pTrcLBa7TV4fjZQ2S4+EaKrDt9PSUz/pKOr1kXPYEYZcaDCN5NSL/xZtoMEezMUfk7J
-	Rguyt2QrroCj4UkbAOMh7bYvKngJXdiovse2aeV/kLd1A2sWocKzcoOFt1tmieiioTWI5lauA16
-	jeMLzGqFpayzpxIzRHQlDv3rFl8WXfuIYOaGafkZZkyMTayFRJTknAAbHcuRQesm2IV9hcYjA20
-	H9uiP7Ag/LNzycwkpNTu2qUsVggfdRVUDmXzNL/nWseEdIJOu2n7uby9wekW3uDCwoYPsHORErR
-	ybvvvKIzlICYQZJIorc/S33HyFtlJI1ALHGPPJeL8UqPqVzN7bKJ/en51MJudrSRyqGr8fN2nvp
-	AY5dOZr79XF/9Q7FE/BzJICwi5l0fecgHhTYHWqS4oWe5E5pgv2yPL78CKTIeuC2UCRfh/
-X-Received: by 2002:ac5:c986:0:b0:56b:942f:b870 with SMTP id 71dfb90a1353d-56d135d968cmr908462e0c.0.1774339747354;
-        Tue, 24 Mar 2026 01:09:07 -0700 (PDT)
-Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56cddb6d041sm14806255e0c.1.2026.03.24.01.09.05
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Mar 2026 01:09:06 -0700 (PDT)
-Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-94ddffda372so3828861241.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 01:09:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUkcZaBxkdiv2zF51+roIgB0sDwlf/R61QP8au+QHK9eYAdMkGBCwDzxyBZQNdlm7AfmzZRQ9uWFdQZRgldHIdn@lists.infradead.org
-X-Received: by 2002:a05:6102:2b8b:b0:602:91be:3506 with SMTP id
- ada2fe7eead31-603160acc76mr1148240137.11.1774339744256; Tue, 24 Mar 2026
- 01:09:04 -0700 (PDT)
+	Tue, 24 Mar 2026 08:09:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BAB3600C4;
+	Tue, 24 Mar 2026 08:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B1B8C19424;
+	Tue, 24 Mar 2026 08:09:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1774339795;
+	bh=IKKPJZ+MZDaoxP4vPPsLme6gW/n7DEGEiTEMcgMuYp0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=0L8IR6Pk68bAp9++dR6ItzOnWZf2MgvBLl2UV5zaHXNUbsVb9RAc04NnLuD2YNf+G
+	 GmqZcQvouuvrdE0xPt4YHI6OTcY19NxN8kIn1pWJKzLM1zFnqP+nevgcl7t5hQ7vTE
+	 9EDRgh/2RJsqQNRl7woh8a9xc4H6xKdllWSA+5ec=
+Date: Tue, 24 Mar 2026 09:09:28 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>, Bjorn Helgaas <bhelgaas@google.com>,
+	Armin Wolf <W_Armin@gmx.de>, Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Vineeth Vijayan <vneethv@linux.ibm.com>,
+	Peter Oberparleiter <oberpar@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Mark Brown <broonie@kernel.org>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowang@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Alex Williamson <alex@shazbot.org>, Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-hyperv@vger.kernel.org,
+	linux-pci@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-spi@vger.kernel.org,
+	virtualization@lists.linux.dev, kvm@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 12/12] driver core: remove driver_set_override()
+Message-ID: <2026032412-finally-lubricant-7fe2@gregkh>
+References: <20260324005919.2408620-1-dakr@kernel.org>
+ <20260324005919.2408620-13-dakr@kernel.org>
 MIME-Version: 1.0
-References: <20260320084351.2461060-1-wenst@chromium.org> <20260320084351.2461060-13-wenst@chromium.org>
-In-Reply-To: <20260320084351.2461060-13-wenst@chromium.org>
-From: Fei Shao <fshao@chromium.org>
-Date: Tue, 24 Mar 2026 16:08:27 +0800
-X-Gmail-Original-Message-ID: <CAC=S1nicdkyeArSxDrnDubdBk1QECfRRsp8Mv0CNGfxs8kDQyw@mail.gmail.com>
-X-Gm-Features: AQROBzBA4rP2zsCeaLi30ZrkxDrzS3ElI-DHHIjgmcs2EqAF9GjEhjgWRZZrfYI
-Message-ID: <CAC=S1nicdkyeArSxDrnDubdBk1QECfRRsp8Mv0CNGfxs8kDQyw@mail.gmail.com>
-Subject: Re: [PATCH 12/13] arm64: dts: mediatek: mt8188-geralt: Add MT6359
- PMIC supplies
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_010909_371753_052B76E4 
-X-CRM114-Status: GOOD (  11.43  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324005919.2408620-13-dakr@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +101,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 4:44=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> The MT6359 PMIC has a number of power inputs for its various buck and
-> LDO regulators. The binding recently gained property definitions for
-> them.
->
-> Add the supplies for the PMIC regulators to the common design dtsi file.
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+On Tue, Mar 24, 2026 at 01:59:16AM +0100, Danilo Krummrich wrote:
+> All buses have been converted from driver_set_override() to the generic
+> driver_override infrastructure introduced in commit cb3d1049f4ea
+> ("driver core: generalize driver_override in struct device").
+> 
+> Buses now either opt into the generic sysfs callbacks via the
+> bus_type::driver_override flag, or use device_set_driver_override() /
+> __device_set_driver_override() directly.
+> 
+> Thus, remove the now-unused driver_set_override() helper.
+> 
+> Link: https://bugzilla.kernel.org/show_bug.cgi?id=220789
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 > ---
->  .../boot/dts/mediatek/mt8188-geralt.dtsi      | 21 +++++++++++++++++++
->  1 file changed, 21 insertions(+)
->
+>  drivers/base/driver.c         | 75 -----------------------------------
+>  include/linux/device/driver.h |  2 -
+>  2 files changed, 77 deletions(-)
 
-Reviewed-by: Fei Shao <fshao@chromium.org>
+Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
