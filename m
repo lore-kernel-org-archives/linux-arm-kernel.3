@@ -4,90 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F20CFEC0F7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75702FEC0F7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=965oKsqPDXZ5lcp7Yx51ep8Jv2s0H2ArfAjccQU4GKk=; b=Q1t7d2Oi2atHvIMkF1qbWr/T9g
-	ZgEy16WUskUxyon0eHq0TqVqAIyaqC2yLG2dhR2mddcpTkyTdZ+rUw9fEaBB662/Wi8/tffAQomA3
-	WlSOkOxsvhyG/w++MKoRNbJ8UEp0peoJ8wdYz8zgo/g/qc3r5awUg461ypAspyjHVndxsaUrecYG+
-	m+sDkh5g1pgrThF2LhJxE0nMAgD4vNKsgFVOriql25s7LVOitCX2D3WeDhiCt8usw3q8VGIjDu+c2
-	Ck13hLHFtaJ10J+tkL1gGQy+2659H8Cb9n4iN9fglLakE6HtTWi8FxPMtYVR32SQZPIn6H6zqWqp2
-	qHgZ+8nQ==;
+	bh=RR7C82ByRHf9xHFB+hAjpexhUSxycw9732oruAip0zw=; b=DefPT8evDMVsUz/ytqU+1lXv0Y
+	OTS5yoela/PrsYXrnVKRZ162gpo1wKswSlUHqVAFdBTwxMv1hf2zVnFgf4KQI5egy7KW+gHPIPG5e
+	4EkAIZsE8LzH8Tif34GaWeryTKc5DA4HtYwk2txA3RxW8fmK2V4LcEc4GunTTBYPP9zje3bXlKDjq
+	TUtoyqCt7zxV6N6xx4ZY80hCbnOVG+xHbyvNWA8QwVeU1V5+SwzxZIwo5deDHlbztpUNmuTkk6uvJ
+	vFVqee0CryYrMlv552D5/cE6UkZ9BsVa3vOcIafo06CUo6PfoUB8TDBjiu4dDw51J3SGJ9i0A2rNs
+	KOOnAzfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57N8-000000028zk-35XR;
-	Tue, 24 Mar 2026 19:25:02 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1w57NU-000000029Av-19Q6;
+	Tue, 24 Mar 2026 19:25:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57N4-000000028wH-0psC
+	id 1w57NJ-0000000295z-1ImB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 19:24:59 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id C24B04E427DD;
-	Tue, 24 Mar 2026 19:24:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 978FC601A0;
-	Tue, 24 Mar 2026 19:24:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 22377104510FD;
-	Tue, 24 Mar 2026 20:24:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1774380295; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=965oKsqPDXZ5lcp7Yx51ep8Jv2s0H2ArfAjccQU4GKk=;
-	b=uRCM72zo8lBaGeHFDWQqQcDXat0HwdCI/rktBpcoJDyPw5MpuuTMKdrVWUIJv8bh1qy1ie
-	SagFkMWqyWvYGJ75TPsAwQiDohi9yEtJajWvw45VtK3z1OyXjzmegZkk+hvaXuhWJwnDY3
-	aQ5/sQ8q69KblBRCVFT5VwKRu+oyjvfBnanSEdr6sGyOFdmIIK/2+NpQwtUAlXKqptNED8
-	lbRuO7nZhX88MqsD8bUSt2gZnG6BCTy+3Ar64+kpXISmV5KVg2Jp7+/hVugkCnQZ1XKP9t
-	aE+q0xy+fCjZe82BF0q37DMMDg1pQrxoHcEmwJtAuFZ1H8NdhVNqUGQez6Fpug==
-From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Tue, 24 Mar 2026 20:24:30 +0100
-Subject: [PATCH v4 4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+	Tue, 24 Mar 2026 19:25:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 697406012B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 19:25:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC97C2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 19:25:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774380312;
+	bh=W2kqahuI0dRdiWt2FzF8BjyOm6F3ukwameRH6zo7Z/8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=qbt34olnDFwCcy5hk+3XgKWFFeSX0TNCbAbGaxa8/DeokeewSyrbd5SlqmCnK51JN
+	 1y44QvmjzYrvCZ7OM0E6pb2z9cn34rXbMpmNvVtTW5Dj/aUYxCfAp5riiPXuhK/MuX
+	 8NBbyJs91vbERo82VwpTnh+VOE1bc7jkAEguAnkQ37g/ylAQVPfju0IzOIHPJHmvUQ
+	 ddf0rt/vPg3rPDPQJIg6wE8P29m+8TsqygjOQMq2nvoFSPdB7R4YhqdZEhW/X3f8zJ
+	 +BaKJnixBCnf3etiKvrJZjLbOVfQknJ+hp3/SOM56DzlpceXvAeBzu6FJMUTDTIF9t
+	 5VhG6GE5FAOyg==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-38a42a0d7f7so1499201fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 12:25:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWJ3XiPs6IJ/9BZpR9HNC7VRUiK0Go8895Q10p/pSwerDpiBiAZ1qKxvHsyLvI+ntGC0Uf9dUL0zTO48aQd19F6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmOE7LJmcJsW2NS+v95r3JBZLorfwplobfbej+Cs3N3IwmTcOY
+	rxqIlqdEUPNG9Nf8KWBk/S3MYN+mln3Bz5avs8Prs4EDXakB5QIWPXPDbWPqCnGhKnlrUVISeH5
+	KoIdZrEXttx3rC7IAACXWUNCIQTBprpM=
+X-Received: by 2002:a05:651c:310:b0:387:a16:ee83 with SMTP id
+ 38308e7fff4ca-38c32931d14mr11373651fa.11.1774380310067; Tue, 24 Mar 2026
+ 12:25:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260324-dev-b4-aaeon-mcu-driver-v4-4-afb011df4794@bootlin.com>
-References: <20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com>
-In-Reply-To: <20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9364;
- i=thomas.perrot@bootlin.com; h=from:subject:message-id;
- bh=eFqla8qPpbYDWPfac3s+lPB3ga1v1YuIUFaJz8wk9x8=;
- b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBpwuT2L/PghhQJMkl5WqxEFd5XhqPGcAepndyP1
- USKyEeRCNGJAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCacLk9gAKCRCfwAsFcf4K
- 7fqaDACdg7UlBACv3+rQH4K5eVI0/UYkC0f+pAl6jo7knsBGrTa/sEowEskup8tBPz/HvIzSL4g
- aZaGGLjQ6/pcyaOcAG85/gz0qjWRt7q3OHpTjtc2z5KSNmXtlAuKpbxLWEYViS1Z5YRs+5j/OjK
- fQ4cNEYf5t/+92agfXSGiN1qFUzGePvOelIFGWHFr9L7MqsPaumkSyzwJEnKxmaHm4okBlhbvAJ
- 6zfOueLCCqsxSYFsgqo8fXOVviQOUG/v61i4rqvDCp0VfHZKfneG9Wnla2xl4Ztc4orsHQ7onls
- +xl2VeQ3gHxjC79klM16WQeG77hLXg7ymy3R0J7sucjhcGiZssC3WrzetaJNq/MQmnsLCS0Hv/k
- Tmo0Q0uwRQbkJC0SlbFuCUb2E3pQEUUGjhZOffxz/dFeukzlSP3vizwKcpj3z5/Dtz6nKvxrBy6
- LYSKG/UBGVr5nKDNTjNhpQcqPOL4nqiXzhCXNiRUmv2ocvQ34X5lZNrYk9pOd+9Eqg6zo=
-X-Developer-Key: i=thomas.perrot@bootlin.com; a=openpgp;
- fpr=874077C6A6A30A2303A812219FC00B0571FE0AED
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_122458_550786_DE3F32F1 
-X-CRM114-Status: GOOD (  24.12  )
+References: <20260319-mt7927-wifi-support-v2-v2-0-d627a7fad70d@jetm.me> <20260319-mt7927-wifi-support-v2-v2-5-d627a7fad70d@jetm.me>
+In-Reply-To: <20260319-mt7927-wifi-support-v2-v2-5-d627a7fad70d@jetm.me>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Tue, 24 Mar 2026 14:24:58 -0500
+X-Gmail-Original-Message-ID: <CAGp9LzoYcJEmFKTKGsF3WchxLedyo7HvGCn8Vi=WaEXS1N-VTg@mail.gmail.com>
+X-Gm-Features: AQROBzCJFXGOj3qOH6JxvcssVN9WorUl4nD9nSO254z7rVrluItXC4oVHqFFQWg
+Message-ID: <CAGp9LzoYcJEmFKTKGsF3WchxLedyo7HvGCn8Vi=WaEXS1N-VTg@mail.gmail.com>
+Subject: Re: [PATCH v2 05/13] wifi: mt76: mt7925: advertise EHT 320MHz
+ capabilities for 6GHz band
+To: Javier Tia <floss@jetm.me>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Deren Wu <deren.wu@mediatek.com>, 
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Marcin FM <marcin@lgic.pl>, 
+	Cristian-Florin Radoi <radoi.chris@gmail.com>, George Salukvadze <giosal90@gmail.com>, 
+	Evgeny Kapusta <3193631@gmail.com>, Samu Toljamo <samu.toljamo@gmail.com>, 
+	Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, Chapuis Dario <chapuisdario4@gmail.com>, 
+	=?UTF-8?Q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
+	=?UTF-8?B?5byg5pet5ra1?= <Loong.0x00@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,302 +90,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add GPIO driver for the Aaeon SRG-IMX8P embedded controller. This
-driver supports 7 GPO (General Purpose Output) pins and 12 GPIO pins
-that can be configured as inputs or outputs.
+Hi,
 
-The driver implements proper state management for GPO pins (which are
-output-only) and full direction control for GPIO pins. During probe,
-all pins are reset to a known state (GPOs low, GPIOs as inputs) to
-prevent undefined behavior across system reboots, as the MCU does not
-reset GPIO states on soft reboot.
+On Thu, Mar 19, 2026 at 5:26=E2=80=AFPM Javier Tia <floss@jetm.me> wrote:
+>
+> mt7925_init_eht_caps() only populates EHT MCS/NSS maps for BW <=3D 80
+> and BW =3D 160, but never sets BW =3D 320. This means iw phy shows no
+> 320MHz MCS map entries even though the hardware supports 320MHz
+> operation in the 6GHz band.
+>
+> Add the missing 320MHz capability bits for 6GHz, following the same
+> pattern as mt7996:
+>   - PHY_CAP0: IEEE80211_EHT_PHY_CAP0_320MHZ_IN_6GHZ
+>   - PHY_CAP1: beamformee SS for 320MHz
+>   - PHY_CAP2: sounding dimensions for 320MHz
+>   - PHY_CAP6: MCS15 support for 320MHz width
+>   - PHY_CAP7: non-OFDMA UL MU-MIMO and MU beamformer for 320MHz
+>   - MCS/NSS: populate bw._320 maps for 6GHz band
+>
+> Introduce is_320mhz_supported() as a generic capability check using the
+> mt7925 family ID. This avoids chip-specific references in common code,
+> and automatically extends to new chips once they join the
+> is_mt7925() family via chip ID helpers.
+>
+> Tested-by: Marcin FM <marcin@lgic.pl>
+> Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
+> Tested-by: George Salukvadze <giosal90@gmail.com>
+> Tested-by: Evgeny Kapusta <3193631@gmail.com>
+> Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
+> Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
+> Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
+> Tested-by: Thibaut Fran=C3=A7ois <tibo@humeurlibre.fr>
+> Tested-by: =E5=BC=A0=E6=97=AD=E6=B6=B5 <Loong.0x00@gmail.com>
+> Signed-off-by: Javier Tia <floss@jetm.me>
+> ---
+>  drivers/net/wireless/mediatek/mt76/mt76_connac.h |  5 +++++
+>  drivers/net/wireless/mediatek/mt76/mt7925/main.c | 28 ++++++++++++++++++=
++++++-
+>  2 files changed, 32 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac.h b/drivers/n=
+et/wireless/mediatek/mt76/mt76_connac.h
+> index 813d61bffc2c..554716e01ee6 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt76_connac.h
+> +++ b/drivers/net/wireless/mediatek/mt76/mt76_connac.h
+> @@ -177,6 +177,11 @@ static inline bool is_mt7925(struct mt76_dev *dev)
+>         return mt76_chip(dev) =3D=3D 0x7925;
+>  }
+>
+> +static inline bool is_320mhz_supported(struct mt76_dev *dev)
+> +{
+> +       return is_mt7925(dev);
 
-Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
----
- MAINTAINERS                   |   1 +
- drivers/gpio/Kconfig          |  10 ++
- drivers/gpio/Makefile         |   1 +
- drivers/gpio/gpio-aaeon-mcu.c | 221 ++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 233 insertions(+)
+I don't think this is correct for mt7925, and it will cause a
+regression there. Was this tested on actual mt7925 hardware?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f91b6a1826d04bef8a0f88221f6c8e8a3652cd77..2538f8c4bc1482b139e18243a68f0a21b9be3704 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -191,6 +191,7 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
- R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
-+F:	drivers/gpio/gpio-aaeon-mcu.c
- F:	drivers/mfd/aaeon-mcu.c
- F:	include/linux/mfd/aaeon-mcu.h
- 
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index c74da29253e810b51540684b1186e8f274066b69..04285dc77430a5dbdb2d6e03e51bca64a432bf1a 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -157,6 +157,16 @@ config GPIO_74XX_MMIO
- 	    8 bits:	74244 (Input), 74273 (Output)
- 	    16 bits:	741624 (Input), 7416374 (Output)
- 
-+config GPIO_AAEON_MCU
-+	tristate "Aaeon MCU GPIO support"
-+	depends on MFD_AAEON_MCU
-+	select GPIO_GENERIC
-+	help
-+	  Select this option to enable GPIO support for the Aaeon SRG-IMX8P
-+	  onboard MCU. This driver provides access to GPIO pins and GPO
-+	  (General Purpose Output) pins controlled by the microcontroller.
-+	  The driver handles both input and output configuration.
-+
- config GPIO_ALTERA
- 	tristate "Altera GPIO"
- 	select GPIOLIB_IRQCHIP
-diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-index 2421a8fd3733e0b06c2581262aaa9cd629f66c7d..1ba6318bc558743fbe5910966c2c8fc3f792efe9 100644
---- a/drivers/gpio/Makefile
-+++ b/drivers/gpio/Makefile
-@@ -29,6 +29,7 @@ obj-$(CONFIG_GPIO_104_IDI_48)		+= gpio-104-idi-48.o
- obj-$(CONFIG_GPIO_104_IDIO_16)		+= gpio-104-idio-16.o
- obj-$(CONFIG_GPIO_74X164)		+= gpio-74x164.o
- obj-$(CONFIG_GPIO_74XX_MMIO)		+= gpio-74xx-mmio.o
-+obj-$(CONFIG_GPIO_AAEON_MCU)		+= gpio-aaeon-mcu.o
- obj-$(CONFIG_GPIO_ADNP)			+= gpio-adnp.o
- obj-$(CONFIG_GPIO_ADP5520)		+= gpio-adp5520.o
- obj-$(CONFIG_GPIO_ADP5585)		+= gpio-adp5585.o
-diff --git a/drivers/gpio/gpio-aaeon-mcu.c b/drivers/gpio/gpio-aaeon-mcu.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..3b679259a6c66e3113cadc083dc7b4152d070ed5
---- /dev/null
-+++ b/drivers/gpio/gpio-aaeon-mcu.c
-@@ -0,0 +1,221 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Aaeon MCU GPIO driver
-+ *
-+ * Copyright (C) 2025 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/mfd/aaeon-mcu.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#define AAEON_MCU_CONFIG_GPIO_INPUT	0x69
-+#define AAEON_MCU_CONFIG_GPIO_OUTPUT	0x6F
-+#define AAEON_MCU_READ_GPIO		0x72
-+#define AAEON_MCU_WRITE_GPIO		0x77
-+
-+#define AAEON_MCU_CONTROL_GPO		0x6C
-+
-+#define MAX_GPIOS	12
-+#define MAX_GPOS	7
-+
-+struct aaeon_mcu_gpio {
-+	struct gpio_chip gc;
-+	struct regmap *regmap;
-+	DECLARE_BITMAP(dir_in, MAX_GPOS + MAX_GPIOS);
-+	DECLARE_BITMAP(gpo_state, MAX_GPOS);
-+};
-+
-+static int aaeon_mcu_gpio_config_input_cmd(struct aaeon_mcu_gpio *data,
-+					   unsigned int offset)
-+{
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_CONFIG_GPIO_INPUT, offset - 7),
-+			    0);
-+}
-+
-+static int aaeon_mcu_gpio_direction_input(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	int ret;
-+
-+	if (offset < MAX_GPOS) {
-+		dev_err(gc->parent, "GPIO offset (%d) must be an output GPO\n", offset);
-+		return -EOPNOTSUPP;
-+	}
-+
-+	ret = aaeon_mcu_gpio_config_input_cmd(data, offset);
-+	if (ret < 0)
-+		return ret;
-+
-+	__set_bit(offset, data->dir_in);
-+
-+	return 0;
-+}
-+
-+static int aaeon_mcu_gpio_config_output_cmd(struct aaeon_mcu_gpio *data,
-+					    unsigned int offset,
-+					    int value)
-+{
-+	int ret;
-+
-+	ret = regmap_write(data->regmap,
-+			   AAEON_MCU_REG(AAEON_MCU_CONFIG_GPIO_OUTPUT, offset - 7),
-+			   0);
-+	if (ret < 0)
-+		return ret;
-+
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_WRITE_GPIO, offset - 7),
-+			    !!value);
-+}
-+
-+static int aaeon_mcu_gpio_direction_output(struct gpio_chip *gc, unsigned int offset, int value)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	int ret;
-+
-+	if (offset < MAX_GPOS)
-+		return 0;
-+
-+	ret = aaeon_mcu_gpio_config_output_cmd(data, offset, value);
-+	if (ret < 0)
-+		return ret;
-+
-+	__clear_bit(offset, data->dir_in);
-+
-+	return 0;
-+}
-+
-+static int aaeon_mcu_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+
-+	return test_bit(offset, data->dir_in) ?
-+		GPIO_LINE_DIRECTION_IN : GPIO_LINE_DIRECTION_OUT;
-+}
-+
-+static int aaeon_mcu_gpio_get(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	unsigned int rsp;
-+	int ret;
-+
-+	if (offset < MAX_GPOS)
-+		return test_bit(offset, data->gpo_state);
-+
-+	ret = regmap_read(data->regmap,
-+			  AAEON_MCU_REG(AAEON_MCU_READ_GPIO, offset - 7),
-+			  &rsp);
-+	if (ret < 0)
-+		return ret;
-+
-+	return rsp;
-+}
-+
-+static int aaeon_mcu_gpo_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
-+{
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_CONTROL_GPO, offset + 1),
-+			    !!value);
-+}
-+
-+static int aaeon_mcu_gpio_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
-+{
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_WRITE_GPIO, offset - 7),
-+			    !!value);
-+}
-+
-+static int aaeon_mcu_gpio_set(struct gpio_chip *gc, unsigned int offset,
-+			      int value)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+
-+	if (offset >= MAX_GPOS)
-+		return aaeon_mcu_gpio_set_cmd(data, offset, value);
-+
-+	if (aaeon_mcu_gpo_set_cmd(data, offset, value) == 0)
-+		__assign_bit(offset, data->gpo_state, value);
-+
-+	return 0;
-+}
-+
-+static const struct gpio_chip aaeon_mcu_chip = {
-+	.label			= "gpio-aaeon-mcu",
-+	.owner			= THIS_MODULE,
-+	.get_direction		= aaeon_mcu_gpio_get_direction,
-+	.direction_input	= aaeon_mcu_gpio_direction_input,
-+	.direction_output	= aaeon_mcu_gpio_direction_output,
-+	.get			= aaeon_mcu_gpio_get,
-+	.set			= aaeon_mcu_gpio_set,
-+	.base			= -1,
-+	.ngpio			= MAX_GPOS + MAX_GPIOS,
-+	.can_sleep		= true,
-+};
-+
-+static void aaeon_mcu_gpio_reset(struct aaeon_mcu_gpio *data, struct device *dev)
-+{
-+	unsigned int i;
-+	int ret;
-+
-+	/* Reset all GPOs */
-+	for (i = 0; i < MAX_GPOS; i++) {
-+		ret = aaeon_mcu_gpo_set_cmd(data, i, 0);
-+		if (ret < 0)
-+			dev_warn(dev, "Failed to reset GPO %u state: %d\n", i, ret);
-+		__clear_bit(i, data->dir_in);
-+	}
-+
-+	/* Reset all GPIOs */
-+	for (i = MAX_GPOS; i < MAX_GPOS + MAX_GPIOS; i++) {
-+		ret = aaeon_mcu_gpio_config_input_cmd(data, i);
-+		if (ret < 0)
-+			dev_warn(dev, "Failed to reset GPIO %u state: %d\n", i, ret);
-+		__set_bit(i, data->dir_in);
-+	}
-+}
-+
-+static int aaeon_mcu_gpio_probe(struct platform_device *pdev)
-+{
-+	struct aaeon_mcu_gpio *data;
-+
-+	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->regmap = dev_get_regmap(pdev->dev.parent, NULL);
-+	if (!data->regmap)
-+		return -ENODEV;
-+
-+	data->gc = aaeon_mcu_chip;
-+	data->gc.parent = pdev->dev.parent;
-+
-+	/*
-+	 * Reset all GPIO states to a known configuration. The MCU does not
-+	 * reset GPIO state on soft reboot, only on power cycle (hard reboot).
-+	 * Without this reset, GPIOs would retain their previous state across
-+	 * reboots, which could lead to unexpected behavior.
-+	 */
-+	aaeon_mcu_gpio_reset(data, &pdev->dev);
-+
-+	return devm_gpiochip_add_data(&pdev->dev, &data->gc, data);
-+}
-+
-+static struct platform_driver aaeon_mcu_gpio_driver = {
-+	.driver = {
-+		.name = "aaeon-mcu-gpio",
-+	},
-+	.probe = aaeon_mcu_gpio_probe,
-+};
-+module_platform_driver(aaeon_mcu_gpio_driver);
-+
-+MODULE_DESCRIPTION("GPIO interface for Aaeon MCU");
-+MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
-+MODULE_LICENSE("GPL");
+> +}
+> +
+>  static inline bool is_mt7920(struct mt76_dev *dev)
+>  {
+>         return mt76_chip(dev) =3D=3D 0x7920;
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/n=
+et/wireless/mediatek/mt76/mt7925/main.c
+> index f128a198f81d..cd043ac266fb 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+> @@ -183,6 +183,10 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl=
+80211_band band,
+>                 IEEE80211_EHT_PHY_CAP0_SU_BEAMFORMER |
+>                 IEEE80211_EHT_PHY_CAP0_SU_BEAMFORMEE;
+>
+> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
+v->mt76))
+> +               eht_cap_elem->phy_cap_info[0] |=3D
+> +                       IEEE80211_EHT_PHY_CAP0_320MHZ_IN_6GHZ;
+> +
+>         eht_cap_elem->phy_cap_info[0] |=3D
+>                 u8_encode_bits(u8_get_bits(sts - 1, BIT(0)),
+>                                IEEE80211_EHT_PHY_CAP0_BEAMFORMEE_SS_80MHZ=
+_MASK);
+> @@ -193,10 +197,20 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum n=
+l80211_band band,
+>                 u8_encode_bits(sts - 1,
+>                                IEEE80211_EHT_PHY_CAP1_BEAMFORMEE_SS_160MH=
+Z_MASK);
+>
+> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
+v->mt76))
+> +               eht_cap_elem->phy_cap_info[1] |=3D
+> +                       u8_encode_bits(sts - 1,
+> +                                      IEEE80211_EHT_PHY_CAP1_BEAMFORMEE_=
+SS_320MHZ_MASK);
+> +
+>         eht_cap_elem->phy_cap_info[2] =3D
+>                 u8_encode_bits(sts - 1, IEEE80211_EHT_PHY_CAP2_SOUNDING_D=
+IM_80MHZ_MASK) |
+>                 u8_encode_bits(sts - 1, IEEE80211_EHT_PHY_CAP2_SOUNDING_D=
+IM_160MHZ_MASK);
+>
+> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
+v->mt76))
+> +               eht_cap_elem->phy_cap_info[2] |=3D
+> +                       u8_encode_bits(sts - 1,
+> +                                      IEEE80211_EHT_PHY_CAP2_SOUNDING_DI=
+M_320MHZ_MASK);
+> +
+>         eht_cap_elem->phy_cap_info[3] =3D
+>                 IEEE80211_EHT_PHY_CAP3_NG_16_SU_FEEDBACK |
+>                 IEEE80211_EHT_PHY_CAP3_NG_16_MU_FEEDBACK |
+> @@ -217,7 +231,8 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl8=
+0211_band band,
+>                 u8_encode_bits(u8_get_bits(0x11, GENMASK(1, 0)),
+>                                IEEE80211_EHT_PHY_CAP5_MAX_NUM_SUPP_EHT_LT=
+F_MASK);
+>
+> -       val =3D width =3D=3D NL80211_CHAN_WIDTH_160 ? 0x7 :
+> +       val =3D width =3D=3D NL80211_CHAN_WIDTH_320 ? 0xf :
+> +             width =3D=3D NL80211_CHAN_WIDTH_160 ? 0x7 :
+>               width =3D=3D NL80211_CHAN_WIDTH_80 ? 0x3 : 0x1;
+>         eht_cap_elem->phy_cap_info[6] =3D
+>                 u8_encode_bits(u8_get_bits(0x11, GENMASK(4, 2)),
+> @@ -230,6 +245,11 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl=
+80211_band band,
+>                 IEEE80211_EHT_PHY_CAP7_MU_BEAMFORMER_80MHZ |
+>                 IEEE80211_EHT_PHY_CAP7_MU_BEAMFORMER_160MHZ;
+>
+> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
+v->mt76))
+> +               eht_cap_elem->phy_cap_info[7] |=3D
+> +                       IEEE80211_EHT_PHY_CAP7_NON_OFDMA_UL_MU_MIMO_320MH=
+Z |
+> +                       IEEE80211_EHT_PHY_CAP7_MU_BEAMFORMER_320MHZ;
+> +
 
--- 
-2.53.0
+I don't think this should be copied from mt7996 as-is for mt7927. I'd
+suggest dropping the eht_cap_elem->phy_cap_info[7] change and keeping
+it conservative for now.
 
+>         val =3D u8_encode_bits(nss, IEEE80211_EHT_MCS_NSS_RX) |
+>               u8_encode_bits(nss, IEEE80211_EHT_MCS_NSS_TX);
+>
+> @@ -239,6 +259,12 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl=
+80211_band band,
+>         eht_nss->bw._160.rx_tx_mcs9_max_nss =3D val;
+>         eht_nss->bw._160.rx_tx_mcs11_max_nss =3D val;
+>         eht_nss->bw._160.rx_tx_mcs13_max_nss =3D val;
+> +
+> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
+v->mt76)) {
+> +               eht_nss->bw._320.rx_tx_mcs9_max_nss =3D val;
+> +               eht_nss->bw._320.rx_tx_mcs11_max_nss =3D val;
+> +               eht_nss->bw._320.rx_tx_mcs13_max_nss =3D val;
+> +       }
+>  }
+>
+>  int mt7925_init_mlo_caps(struct mt792x_phy *phy)
+>
+> --
+> 2.53.0
+>
+>
 
