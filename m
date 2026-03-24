@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810FBFEC102
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8AAFEC109
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xy4AcXiCfmb46opde9bAvmfTfMxlHNxoXypu3VRt80A=; b=i2JNAEwT0Axp1XTJW3biFD948T
-	Y+XB2zyFPNSvG7PwmC93Jl/xGdO+ehvB97E1lPjxRLTXFXHxsrE3yJ1ubVddh0iTjN91xteOS7Ugb
-	M9pvS1Kc3bNFn0Hpxo6FpbhB0sEyVXl0iA4Z7C/dNyPQDJ0FGCSSCnEwf5f1CQl+pesZ3RkjPUFB1
-	byjKOq2r3dbUbwcHBNz3I3TiNT/BKBBKDC6iUbZ2E2jghwXrLpF5+S1uRVzQ55uakOfcjgA9KOKZy
-	25mz0n6YT53gK7YGeGrvusmf7LuaIX7D20TBRUMQPc5LIiClZQGNqqFL6OOF4tb90lL+dzY+zl7Pv
-	vBlRaplQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w1L6GdHBhjCyNdKfSB0Yl1Zt920SXA7U5t7SP0lOW4k=; b=pmzW42oSjs8/Csa0Ob9gc7TwBQ
+	p/8AvH2CI9KTn5ozouPSeo3U5FaFlBl5CeA/4HB/vJuAmFkclQPeAj7VEtErf13U5+hSoabllTv3q
+	HXmbAWUx8uBtahtOHXcDo95J9S3SGJ/ys9M8vBA1LxCXqFP8pSh+7Ksjm8AAqoNhzjnQhGuIpx2L4
+	rmtfnpQ31w9es4VD17FrThWhgD38vzrEOrLVnJBxz+JcaHNVMAe0JN9Jbia8xJRdF3UejSF9l/rE9
+	WkLKBCEVuSt/p8QTaPBUHbbmTlsYg7QPXy83o1Xk8zP9i21dFt8yGoZJhczPUGS4KwJd7LXuos100
+	QtHtBSSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57fV-00000002AC5-3hXK;
-	Tue, 24 Mar 2026 19:44:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w57fk-00000002AEb-0kWB;
+	Tue, 24 Mar 2026 19:44:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57fT-00000002ABR-2XcS
+	id 1w57fi-00000002AEG-4A4r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 19:44:00 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 78789591;
-	Tue, 24 Mar 2026 20:42:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774381357;
-	bh=kNNB3ARW8MAB0TKKRx9eUF6IcUYNngEha9H4UXUg9yw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sAJ34CpZdDWJm18yKHVWUdPrzJRwvPjbjmdZTBpbW7Y6OdXPde+6yM4MxQ+8CZyld
-	 YmpFyI8wB1rKiLEtT8hXEf+PaH62eBO2tkYlQHXminxPj/O25j7D9Y52fyG9KmZtS8
-	 nfR2UT8uZnclssb4uVlvRz8srtjRHhRIKaCKM6c8=
-Date: Tue, 24 Mar 2026 21:43:53 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Correct PAD settings
- for pmicirqgrp
-Message-ID: <20260324194353.GB2352505@killaraus.ideasonboard.com>
-References: <20260324-imx8mp-dts-fix-v1-1-df0eb2f62543@nxp.com>
- <20260324093850.GA2351719@killaraus.ideasonboard.com>
- <177437389415.1230693.16040948368071205395@ping.linuxembedded.co.uk>
+	Tue, 24 Mar 2026 19:44:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F0A2D60103;
+	Tue, 24 Mar 2026 19:44:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26723C2BCB1;
+	Tue, 24 Mar 2026 19:44:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774381453;
+	bh=plo2BsN6TPry+7IqvpvQqRQxEQf/o9qNSVJWv21qtAA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=arziCHdE1NM/Gy9crGNG7EEgv2FMpcFZIO4abbT+YWJj+HU1tqEHcrSTx+WSmC1UC
+	 VJJrPh72PUwadrlL6ZagpMVKh6avIAXhgSuLazTlf0zw6eT5XXca547HsEvCwO5yLs
+	 GxJBu9BnDp2lOll/Dtb8tcwb+EVb8lowGO4L76ldkInJTGRpE4CZ/SLo12UBQTrpWh
+	 oRIVWBWT6udtulx2JvyAiSqfQDdLsT8sF38BjT186AX5r95aoNH52vZcgzAggQ5wNY
+	 SyBjuPebkNnlsJYgjRSmCtqDSxDoSfIpqDpORNrtrc61A/txyIzcQCCgj5TDpspwUc
+	 IqmHP6TQdWjag==
+From: Mark Brown <broonie@kernel.org>
+To: olivier.moysan@foss.st.com, arnaud.pouliquen@foss.st.com, 
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
+ Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+Cc: lgirdwood@gmail.com, krzk+dt@kernel.org, robh@kernel.org, 
+ conor+dt@kernel.org, devicetree@vger.kernel.org, 
+ linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
+References: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
+Subject: Re: [PATCH] ASoC: dt-bindings: stm32: Fix incorrect compatible
+ string in stm32h7-sai match
+Message-Id: <177435712084.80116.5302380668283249517.b4-ty@b4>
+Date: Tue, 24 Mar 2026 12:58:40 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <177437389415.1230693.16040948368071205395@ping.linuxembedded.co.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_124359_786935_6A89BB84 
-X-CRM114-Status: GOOD (  26.96  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev-6cc06
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1174; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=plo2BsN6TPry+7IqvpvQqRQxEQf/o9qNSVJWv21qtAA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpwumKdqUnr28hTL5soqDMs+G6Rv0vwemjk3MdZ
+ 6pYqlb7Wu6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacLpigAKCRAk1otyXVSH
+ 0IvqB/9D5tShr/o1I2myc+UJ63dP7OyphYGaE1zN3aptMeKDcvAVsBE/xXuVYn4kb7jZyn7i/YK
+ 6z4wA3la+lr/ye1loftr0T85d0CGjZJFjz3vRGcLmNk4N5LMeyOm0F74kGn++skaK46qOJustqK
+ utK4ZQU+Jk/qhH463CQA58v188a8ZYJueoJ9/7Ui5orpLejlZR8jGNxIJt0lCVTrw7YHT0pN9On
+ eu9+3kIHPT9nL4gJtvWjOmuAw049QYDVYz/BH5LpWZZ0BaMjm3sTAQxFFqmwPPQnnR0UfF0qw3B
+ 64aRhp0qVp5vWYYfA6jmr9IX19juUTvnWpM29cRLdQybJR08
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,76 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 05:38:14PM +0000, Kieran Bingham wrote:
-> Quoting Laurent Pinchart (2026-03-24 09:38:50)
-> > On Tue, Mar 24, 2026 at 11:16:13AM +0800, Peng Fan (OSS) wrote:
-> > > From: Peng Fan <peng.fan@nxp.com>
-> > > 
-> > > With commit 5d0efaf47ee90 ("regulator: pca9450: Correct interrupt type"),
-> > > there is interrupt storm for i.MX8MP DEBIX Model A. Per schematic, there
-> > > is no on board PULL-UP resistors for GPIO1_IO03, so need to set PAD
-> > > PUE and PU together to make pull up work properly.
-> > > 
-> > > Fixes: c86d350aae68e ("arm64: dts: Add device tree for the Debix Model A Board")
-> > > Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > Closes: https://lore.kernel.org/all/20260323105858.GA2185714@killaraus.ideasonboard.com/
-> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > 
-> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > 
-> > Frank, would you be able to handle this as a v7.0 regression fix ?
-> > 
-> > I think the same is needed for imx8mp-debix-som-a.dtsi, but I can't
-> > confirm it as I don't have the schematics for the SoM, neither do I have
-> > access to the board.
-> > 
-> > Dan, Kieran, Stefan, could one of you check if you get an interrupt
-> > storm from the PMIC on v7.0 ?
-> 
-> Confirmed:
->  35:      83626          0          0          0 gpio-mxc   3 Level     pca9450-irq
-> 
->  and
-> 
-> 200:     270180          0          0          0    GICv3  67 Level     30a20000.i2c
-> ...
-> 200:     400925          0          0          0    GICv3  67 Level     30a20000.i2c
-> ...
-> 
-> increasing rapidly on the debix-som.
-> 
-> I started out on the linux-media branches which were 7.0-rc2 based, and
-> this didn't happen but cherry-picking in 5d0efaf47ee90 certainly causes
-> this issue to occur on my board.
+On Sat, 21 Mar 2026 02:20:11 +0100, Jihed Chaibi wrote:
+> ASoC: dt-bindings: stm32: Fix incorrect compatible string in stm32h7-sai match
 
-Could you confirm that setting MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03 to
-0x000001c0 fixes the issue ?
+Applied to
 
-> > > ---
-> > >  arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-> > > index 9422beee30b29c5a551b08476c80fbff96af3439..df7489587e48ed0c678f11291f6f2b77082ade95 100644
-> > > --- a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-> > > +++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-> > > @@ -440,7 +440,7 @@ MX8MP_IOMUXC_SAI5_RXC__I2C6_SDA                                   0x400001c3
-> > >  
-> > >       pinctrl_pmic: pmicirqgrp {
-> > >               fsl,pins = <
-> > > -                     MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03                             0x41
-> > > +                     MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03                             0x000001c0
-> > >               >;
-> > >       };
-> > >  
-> > > 
-> > > ---
-> > > base-commit: 09c0f7f1bcdbc3c37a5a760cbec76bf18f278406
-> > > change-id: 20260324-imx8mp-dts-fix-512530fe4dcd
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.0
 
--- 
-Regards,
+Thanks!
 
-Laurent Pinchart
+[1/1] ASoC: dt-bindings: stm32: Fix incorrect compatible string in stm32h7-sai match
+      https://git.kernel.org/broonie/sound/c/91049ec2e183
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
