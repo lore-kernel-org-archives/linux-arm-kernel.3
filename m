@@ -4,146 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C21F54ADA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A20F54ADA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gpzIRetEPs4kgJW//QiOuggoCLj9Dz7mJOBBmMbxFg=; b=DgRTztsqjKWj6KfN+cap7AVad7
-	SzCPIYv6DE/We5/xRAf6zPNoy57yi488y/AQ8VlBdamvI1BqAGiXy2y6Drc3N+fl7NQwM3ZrixPyg
-	t+F7vmlOQSUB89pS3KFFLPJS9npDJVpOTl817Np977xMh3BhatzDTWkBzuIzbT+y/HVaAMDwvcJhj
-	KZCx/XkzVWuDMJwdcomqNmqRrWRYAzSknLsFzT9Z/NpmLz6xcjtcMkgaJxzjckFLv96XZciCUJ7wg
-	CnGUYpMXfeG4tkk6hqqm8KS0tIZZJ0PVYg5lj9+hPP03RLTKUs2tm1zUivRrwsLoVup8LJ09p3ss9
-	2nZ75onA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vVIqBuyIq4R4/UVhTmLSRBTYm0AzPhhoH+Jbpk0DIV4=; b=zb2iUns275R6IXRCx6PmN89oaK
+	DA2rQTvsDp4WFIOWz1ftXDFL3Nrl3BbMC7USVlqeCXIYs3jB1BVFwx+mJmb6Izi6ESIvcg6xA9yB7
+	UtD+1agQ8LvjCDXNJN+8sRikOf5ytr7WPRwGRrpoNN3/6Lb8kEcgorYZP6jJdTWFhDuVSHtEkTNwc
+	UBI0SAZpzh+UNJ/VlGCDyJi94Lapzq8tvoxbeihoO3dYynnO75a1HQAsoF6U2pUavPurpK3dVc/6U
+	wysqHl47KSMkS71fzhQwweJukNDmff5IwwRaHJQ+CI7YYBHtOAfTvI3APE2tGWRZ+qv//Ec5Opfji
+	CONKGMyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w553L-00000001wKk-2Kpi;
-	Tue, 24 Mar 2026 16:56:27 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w555J-00000001wVo-4Byq;
+	Tue, 24 Mar 2026 16:58:30 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w553J-00000001wKH-13zA
+	id 1w555H-00000001wV0-2BNm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:56:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q53iaab5k95nAZZcBWql8XRaz+d93lhJBE9j0BsXEVGhf6HYnEVnGNwapJhQJ1L6GNR3OQhcmO+84+Uq1xz3KqQ64EexSfYFYjV0x15XrQy/ezRDT4FH0tlinTc/m8JsH2fbcbf/TiaZYknsVV+S+B0SX4Ulljxm55cbLVNJWqKmWBgpvmYUVRm6z2jBd3o4GwlSWlfHosJyivUbj44k3tiorPW3GNwtSzrY0eB0K8ifJ6Aktdc2c8MnqWtQCvujyNMPZ6S8Tu7lfVUfBSm56SRsd5yA0VYxY4fnFb1zdM3lSZ1Dknbhb6LCkFZnATVTRIAutOReMKugJeRUQX4hpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1gpzIRetEPs4kgJW//QiOuggoCLj9Dz7mJOBBmMbxFg=;
- b=iQUIDfE1Vx/GYoTuxaXL+/DeBzxi8xR/vFtaYFD2VP/Wzx+g4CTjlLNV30n+4VYJHEIyCAwsSYJaDQP3L7RW+3hmAVRRJRdOwIXuaDNmExipYdOTl1tAyVJlNc7hv/EPoRmJTCpy/MlqLHFVOtO5CESKp+kKEitmUSnoFnrVX4mZbXWMPxeYcVDXfnG3WErPY1dHqjRsXSivCb/zJ+gP6TVtXF1fMOEe7GeOycrILTto+BF8lExd5v8f4iZ2ZF6uJDvynmFQltHgnLjnYYFKq5ZWy1xm4bBaAI5rxXDSBLLTtAqVkzF8Djj25MdDSyXify5bnWiVuNVjoU41oJTK2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1gpzIRetEPs4kgJW//QiOuggoCLj9Dz7mJOBBmMbxFg=;
- b=dYcjgWkMMuMWlb2eYQ1bTfNMWmeUp++IhfAUOdrTwMIH5FlWdk7H9G09/4HPG2hjgOSVg4cBwMh+rkOVVATSOR1HdVtvQdhOngoxAjYd/+3P9NHMMtOZW7VQ2cXc6IlUP2ER6D+tN+5LqTR2e0Oke9OESrRZNiJn0Y9Qo/Gf9hkh/oHkpCJDE8bVxCtfsNmLggnrXUzkNQNIg0X2MILH2+NPZXK4o+k/VJJhWei1CbMSkU/gvQ32yJGFqQhahARx3iCfOVz/HMrwCSHbTesj57+s3LC0Ok5zsMiPQMu3OZJkJnqeJYSicUv7RHU4QToIwjAXgXhSp1P/TKTLkE11dg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV1PR04MB9085.eurprd04.prod.outlook.com (2603:10a6:150:20::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 16:56:06 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
- 16:56:07 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Josua Mayer <josua@solid-run.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Mikhail Anikin <mikhail.anikin@solid-run.com>,
-	Yazan Shhady <yazan.shhady@solid-run.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v10 0/4] arm64: dts: add description for solidrun imx8mp hummingboard-iiot
-Date: Tue, 24 Mar 2026 12:55:56 -0400
-Message-ID: <177437111033.2168198.4907988679135849585.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260313-imx8mp-hb-iiot-v10-0-52b3084f2426@solid-run.com>
-References: <20260313-imx8mp-hb-iiot-v10-0-52b3084f2426@solid-run.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA1P222CA0188.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c4::16) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 24 Mar 2026 16:58:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774371508; x=1805907508;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=AVKqbcBAH58YtvbtTvUhV6tMedua8892v/x7yCDldr8=;
+  b=PTsN99bF0lSOri0HlLtKCrSzjY3kuYeKWd0ttsXOAAhx6T23XnRli6wR
+   dUzUZkraco9u4olfV7qAzGMJkPKSwEMO06q1JhW2YkHxdewbCjhgGeS8c
+   ZOXmOFgSnJ9zsfDkPAzcoyF41qdYhpKKwzfO5uN6/zdrWw9kImLm7MGQO
+   PcHOd6wgNgA6p0iYnCrF4tQiCWMwYyfKMaaBJsVOUAej/9bcFU2hs1q6g
+   Eqff3l15n6Qmd7dKiEbn8Xm0z03KykzTFy+hqy/1NNimqsdelrVFYPYow
+   cRotwo6L1pxrkjqPOgslpTS3r25r3d4HMnzpBgII5c0HHUeX/cJyM4W/t
+   g==;
+X-CSE-ConnectionGUID: LcMClzS+Ts2+9Rt7Df+T5g==
+X-CSE-MsgGUID: G8BK2+1lTLmaMvlDsaPjtA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="86471504"
+X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
+   d="scan'208";a="86471504"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:58:25 -0700
+X-CSE-ConnectionGUID: aesm43ZmRSeKftw4Z5hIbQ==
+X-CSE-MsgGUID: C08Qc1D5Q9Gv1bbEQjAQVQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
+   d="scan'208";a="224421853"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:58:15 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH 00/10] PCI: Improve head free space usage
+Date: Tue, 24 Mar 2026 18:56:23 +0200
+Message-Id: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB9085:EE_
-X-MS-Office365-Filtering-Correlation-Id: 542f1a8f-edba-4e4b-5314-08de89c63dcf
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|1800799024|52116014|7416014|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: bG3OSZp86J9+Y83XiXcSeGiTO0CwVZ+bTrvf8AglrUAdUjKH4c5/kSmDpsJXdO0znBvOk9x4KBzhirWt26vv4onlmlp+73vnICRJtPOSjX4orGJ2aT7Bw+/4fR7TCcGIryQ7fVG887OSH9/MwT4WueS5NfwHkrSOnxhZqjnxUpjkV9/eTYYB1MjDfZwUf6FrFGNtDSEQHDl1XexZCfZEwJ+PFD/idOIsw+7wYAnrjJUSA8XuokIVjIyHhaIRvdv/KbAT+9g94jlI2ZJwV9noP1dUHcQnzy/HlP8lQC3u9thInjTbSag5xRgfTHxHet/rOBo/Q4w8YC1QlTeb1OIes77qGUrNspUIRGmMhfVTcx9myybuieohPVbrPbwfXHWHFil/EF2Ke9nFxzwED7DW5FJ9aBQNn711D6xK00ppFMsswfBdRkah/l4TZzla0azsBEeoqUuqaSzbgHiEQ5Z6+yAf+g/ZZSpzqnZ5VbDH0Lsj3QRptFfhe3IHVvoFqG1ZbGlvnpquvPd82WVsB/9Iwkw5EhWMGb6Tlr2SYL6z7v8PDHUe1z9MP2gs2Jl1vONb5nVKdQ4qbg+yUS4RwPLd8+D7NVfdBp5bnLqTMq2aOxNAyTY3omH/0b8gkCrS6dsdtK4hAcn/cI2Vq/4TEHt7yfKMNf7hNTiWllqsfda4WsKJc8K98IYi/cO2d3yV45nHO1TeKbhodDbi7Qi08pDjWY3oYatjzk+z2i1T6moIkQ0HC7vJxi53lnZ1rz6cgvVLJQxIZ4eov9FuwF1PIEJsxMONPn6Yt0A3UoMMlHc1eYw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(1800799024)(52116014)(7416014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnpkZEtaR1NMaFdjcld3T3ZLM005eFZqOUJDZ25EZmhUTEdJRmRUc0JKeE1i?=
- =?utf-8?B?bm9jbGZ1Zm9VTExGSkhRYWNFWjJHc3c1dzc3YktLTlRRTmgvVDNnUEt5UzNq?=
- =?utf-8?B?UThzaGYrWHNpSnQ5N0Q3VTBldVBERmF2ckxHSDVIc2llQy81RXJadEZiY3Qx?=
- =?utf-8?B?VVFZZlR5K2FzWFJkMWw0VjRjVU9mektPVXpNaHd3NDZyblhucWRwNzM2SzdY?=
- =?utf-8?B?dnloUzBKelg1bDk4dlovUC9IZE15RzdHM1YyVkdGeEh1Nk0zRW5NRHlNRVd4?=
- =?utf-8?B?UmdCUkVLbWdseThURUtWeE85NzFMN1lGa0dTOGhldE96NElWaVhoK0JJdE5j?=
- =?utf-8?B?Y0Zlakdxc2ZhcENEU2tjMFdlYWdJd3lKS2dyQkpkZWFVZWR3anVLa0JVT2p0?=
- =?utf-8?B?bzArdWhlb2txVmRTT1dWTTFnaS9XdlkyQTRLOEpZZ1JKN0F4NWRpckI0Wmhq?=
- =?utf-8?B?NVYrVDNaOFFtcnVzb1oxRURLK1NrdHJGTXRSSHczY3VNbkp0WE9nQXFWUzFL?=
- =?utf-8?B?NW55YTJtYmZCMFB3NjVyWHZlZkdkck5BZUlBZ0lPWHRaY3NoYzFISE81aEhE?=
- =?utf-8?B?MllSSXdMMGo0bi9nTWZ2NkdyRWEzbC9qa3NoWTA4NGh3Q29ab1pDanhhKzhL?=
- =?utf-8?B?WFdncjE5LytSYmRRbE9xUVREM2N0MGpJeVlxamdYTjlOUXViZGp0NTdWVVla?=
- =?utf-8?B?TWxzcW1JaURrVHhZNVIwYlBVd2gxNDlxZmkvUHVDb1ArbGl3amZtTnNQQmtT?=
- =?utf-8?B?UjNFYUZPejVoVFFwdExJY3R0MEpNV290MVUwMk9hOHc3dnkrUUZBMGNtaGtO?=
- =?utf-8?B?SFFLK3IydlVXTG9nY25GeUwxcDlMM2wzMENUeVY4WDE1NWlnREdSZ1JQUVlJ?=
- =?utf-8?B?cDlHa2djRWhhYWpnWjR5KzJFN1dxVFBYOTFYbTc3NzVoN1NSaUFaeVRZT0po?=
- =?utf-8?B?T2FSeWFrVncvZXZvSHh4bDV4bE01U3RFZzRjOEZKdklJWVhJWHRQT2pzamor?=
- =?utf-8?B?TGpzR0lFVElSWkVYZmhFQkgyeEVYQTBPUXpsQjI1VXh2N2VaUGdpQm1YdkJJ?=
- =?utf-8?B?SGxqY0xDRml3ZzRrbXdKeWFobUExQTZ5eHY5emF4NHRER1pKYmRJaThkOVpl?=
- =?utf-8?B?bDlFQXI2K0FFSGNEVmhSRndBcTRudmM3RVRhMTVDL3RLTms4SnhNUlFyT2Js?=
- =?utf-8?B?NmpiNnl2ZFlYWHcyNHhwRktOSTRHdVU4YkVheExNMnEvL3BYbzFteUkyT0NZ?=
- =?utf-8?B?VmZXOEd2cHlTV2kvT21mbklPMzFyZVhXYjZOczg0WmRrblN5RWlmNmNXc3Qv?=
- =?utf-8?B?YkdxQmpXODllTjM5RnBXTFVaTTMreVJ1TXFINVRDbHRNbWQwd1U5bWQreXZs?=
- =?utf-8?B?OVJQRkxNTGsvMEFvcUJMUk83ZkV2ZVBiQk5BM0V2ZVpZNUNoMlU4ZWFwdGFy?=
- =?utf-8?B?Smx2MU9LRkx1OHRjTzgyN1NvVnQwT1Q1VVlJSnpKMHhFcFpyMkE4dm05Mkx6?=
- =?utf-8?B?aGhvcVdSSnpyMkl3aCtlbGRjdkN0aUh4L0drT2RkTXNldUJNNFZhYk5xdnkr?=
- =?utf-8?B?c1NBT0lkSXBMVUtHdzAyYXdXSWdCck52Rzd2dmc5MlFzZWRPekxuTW5NS0Rw?=
- =?utf-8?B?VzNqQ2hZbHA1MmVkdzJBZ1BTaElPbW05QkprTnBWSGdsdlRYK0syYzRLcS84?=
- =?utf-8?B?QVBteE52dklHdnByK3R6WXVUcjlRdGFjY3Rjd2pZelVtMm5Oby9DUzlLUWZU?=
- =?utf-8?B?U1A2b1A4cThaWGZWdk4zK3dtQnNaNUg4TnFZQXpPeUY0ZkZwbXR2TUNxSE1S?=
- =?utf-8?B?dStHRmMzeFhrcG0yeDRJSWZoQWRGdHJUeGtFOWxTOUJ3RDA1Q0VTZU15c0c0?=
- =?utf-8?B?dW1veXBzbWFnUnVQSzNta3RlQUxpM2dKUlhxMkg3WXllb2tyYWgra2RidS9z?=
- =?utf-8?B?NWt0WDV4dTFEYnpkOFU3d0F3OGlramsyRmwzSlNac3c1a1ZlOGRGb2k1M2RO?=
- =?utf-8?B?ak9xaUM3NE1VSmp3TldRWHU4YlQxbEtjcDQxWmtXbXBsYVhjdXg5anA4S0RU?=
- =?utf-8?B?Nnh6RGhXUGlzQ0VTcC9mRkdjdmtqZWVKUVZhTDk4N1VDbkdxSVFzbnFDRnht?=
- =?utf-8?B?Nk51RTBiRDh1ejRhQ2hHS0ZjMVlOTjJ1YnI2Ri9HYzJiZkVZbVFQTXJOY1pm?=
- =?utf-8?B?T0pXRmFYQ2I1QnhkeEh5OHd3UExoYTNZYTJCeDNwWlhvTXF4V3RsbFFmNlJs?=
- =?utf-8?B?ck1aRGxXcUxWNUFBOWNyNXRSYkpob1R1MWtFUndZcTBKalQvMGNrV1o5Vmpn?=
- =?utf-8?Q?rB5cQEaBd4TQ3aRubW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 542f1a8f-edba-4e4b-5314-08de89c63dcf
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 16:56:06.9881
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9ImSv19zejqFG7jK6Kd8rxO3i/5/GoiHyr0Lw33+4vc8dwAIQY8MjIMz/CVqJO8EtZHZ3M3x7IQUJg4ORjMu8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9085
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_095625_300723_C959776E 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_095827_653470_7D31571C 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,37 +109,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all,
 
-On Fri, 13 Mar 2026 14:30:56 +0200, Josua Mayer wrote:
-> This patchset mainly adds description for 3 SolidRun boards:
-> - i.MX8MP Hummingboard IIoT
-> - SolidSense N8 Compact
-> - i.MX8MM Hummingboard Ripple
->
-> This includes dt bindings and a range of bug-fixes:
->
-> [...]
+This series attempts to take advantage of free head space (the free
+space before the aligned start address) in order to generally produce a
+tighter packing of the resources/bridge windows.
 
-Applied, thanks!
+The recent changes to the resource fitting algorithm caused resource
+allocation failures in some cases where a bridge window that is sized
+to be gapless could no longer be assigned. The previous algorithm left
+a huge gaps which allowed it to place the remainder (non-aligning part
+of the size) before the start address of used for the gapless fit,
+whereas the new gapless approach always had to place the remainder
+after the aligning part of the resources. There is not always space
+for the remainder triggering those failures (e.g., when the aligning
+part must be placed at the top of the window).
 
-[1/4] arm64: dts: add description for SolidRun i.MX8MP HummingBoard IIoT
-      (no commit info)
+This series attempts to allow placing the remainder once again before
+the aligning part, but now without leaving huge gaps to retain the
+benefits of the gapless bridge windows. The approach is somewhat hacky
+but should work thanks to PCI resources fundamentally consisting only
+power-of-two atoms.
 
-Change "description" to "support". Add freesacle tag in subject
+There maybe cases where architecture would not want to do such
+relocation. This series adds the relocation to arch
+pcibios_align_resource() functions to allow all of them taking
+advantage of the better resource packing but if somebody objects doing
+this relocation for a particular arch, I can remove it, please just let
+me know (this relocation doesn't seem critical unless there are
+regressions).
 
-[2/4] arm64: dts: imx8mp-hummingboard-iiot: add dt overlays for muxable ports
-      commit: a26dd6546e2a05c3504072c96129a0932f9aa532
-[3/4] arm64: dts: add description for solidrun solidsense-n8 board
-      (no commit info)
+Ilpo Järvinen (10):
+  resource: Add __resource_contains_unbound() for internal contains
+    checks
+  resource: Pass full extent of empty space to resource_alignf CB
+  resource: Rename 'tmp' variable to 'full_avail'
+  ARM/PCI: Remove unnecessary second application of align
+  am68k/PCI: Remove unnecessary second application of align
+  MIPS: PCI: Remove unnecessary second application of align
+  parisc/PCI: Cleanup align handling
+  PCI: Rename window_alignment() to pci_min_window_alignment()
+  PCI: Align head space better
+  PCI: Fix alignment calculation for resource size larger than align
 
-Change "description" to "support". Add freesacle tag in subject
+ arch/alpha/kernel/pci.c          |  1 +
+ arch/arm/kernel/bios32.c         |  9 ++++---
+ arch/m68k/kernel/pcibios.c       |  8 +++++--
+ arch/mips/pci/pci-generic.c      |  8 ++++---
+ arch/mips/pci/pci-legacy.c       |  3 +++
+ arch/parisc/kernel/pci.c         | 17 ++++++++------
+ arch/powerpc/kernel/pci-common.c |  6 ++++-
+ arch/s390/pci/pci.c              |  1 +
+ arch/sh/drivers/pci/pci.c        |  6 ++++-
+ arch/x86/pci/i386.c              |  5 +++-
+ arch/xtensa/kernel/pci.c         |  3 +++
+ drivers/pci/pci.h                |  3 +++
+ drivers/pci/setup-bus.c          | 15 ++++++++----
+ drivers/pci/setup-res.c          | 40 +++++++++++++++++++++++++++++++-
+ drivers/pcmcia/rsrc_nonstatic.c  |  3 ++-
+ include/linux/ioport.h           | 22 +++++++++++++++---
+ include/linux/pci.h              | 12 +++++++---
+ kernel/resource.c                | 33 +++++++++++++-------------
+ 18 files changed, 149 insertions(+), 46 deletions(-)
 
-[4/4] arm64: dts: add description for solidrun i.mx8mm som and evb
-      (no commit info)
 
-Change "description" to "support". Add imx tag in subject
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+-- 
+2.39.5
 
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
 
