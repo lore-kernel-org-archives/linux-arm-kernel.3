@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B82CF54AC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A23F54AC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjomO9wEEREnV8WuHEIroZdosOt8lSeQff3H3GpWa24=; b=Z4o+MAEdpzaUDjTDmKU1NBgfwV
-	N7KgQ346HsRKXqHUG3A8yU2NMBAWKbe4Jojj+76fJ7BXXUXgk+QCHf6f+IEqvoZqJKIanm8x3ydaZ
-	kqW0RVFNjY1QpVsuk+gM5kqtSy2uV3Qq+oq4P3KspyJZmatJ5O+pWALEyCuidB5TlQ2yfjz0Wp1qB
-	jwpbJcGur7/CmSxWE+ZT38K1JZCkeZqOjjaumquqhGOpNSbQgqJ3JFNpm4Hrf7xUZr1X8etyvar4i
-	5SvDn8OIXUzFnWsG29/rVFviBW5TxlKk042e5p7GIlt3nVRBnSysNNQgAD0xH8MspX8CzPnA/Nrg+
-	XQFdI3Ag==;
+	bh=PaM1vwSWs5VOJNSZALHswjHCPg6XOYuGL1UOXvI8jt0=; b=F+C1rvo+bXrg4A8OptATEWkSZd
+	hEtjg7Nkdh1auFuB/C8DEOuzVwkGbLtwqlYzSpLoZkmr97OkR+5MnqTVaKtPboagi7IjRkPvDvZfl
+	GY+2BEcZMd9xZbH1Hc4AEQPB5HgTIze6CwZsokZIBCM6whuiNrPA90yfgtY1ORT90xIaUxabZowrp
+	zMNg2hsKbiyuaFSPVk+TWFzRqQuUNNIFvhSIv3CFk5me418uiF/Xnmpj73QpnAheGBhMKcQcUPyRc
+	ENkMUxn0ob7trjbd5o3ZoXCW6R7dWMLwx4Qrzb21cRwwYNuCo/T1cm66Zp7JLWXBFh8urLuM5hQ+E
+	4+C9oaww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52qo-00000001evJ-3l5u;
-	Tue, 24 Mar 2026 14:35:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52qo-00000001ev7-1q6N
+	id 1w52r3-00000001ez9-3TO2;
+	Tue, 24 Mar 2026 14:35:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w52qz-00000001exr-3Cya
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 14:35:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41327600AC;
-	Tue, 24 Mar 2026 14:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3E12C19424;
-	Tue, 24 Mar 2026 14:35:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774362921;
-	bh=uOYMsAQrT9pGVzbOF7/UPE/o+tRze2Aon9yTH5zjzQg=;
+	Tue, 24 Mar 2026 14:35:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65324153B;
+	Tue, 24 Mar 2026 07:35:26 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3170A3F915;
+	Tue, 24 Mar 2026 07:35:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774362932; bh=WPd4At4OVeMrUVA1K/Eh5KCs9ljuPJONJ4dUEZvo+yU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UZhNTp+dI+wMVMQKiqHwSW9F/Asfh6VT+WUVCxqwISW0QbEnFn8Sw3zKA7/kn11fE
-	 LjbgrC4G2Nkch2y3oryACm+ladvDINe6raJjBOuUg1gfBuyJGMMr3Y7/Ze/3AjFLfP
-	 TsF/ZSbNXP+8k4jl+aRV5qSj+vGpDCcAswyZRx5wOeoRH9Tw0unQs6Rf0jDIRyguZ2
-	 8OYd0AaE+e3TYSUdbuklSA9AaCXyakV9+wgXFExYrlUiXKEiWd0SEA0eJFEl8ScFLs
-	 V0ZGZ0EEBB0ODX4AOeZU3E1VYaiUM6Sq7CoRRTwOcC5/cbXICkkO2fXqEUlJTOgnJk
-	 PaOBn1PeAbj7g==
-Date: Tue, 24 Mar 2026 14:35:14 +0000
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, praan@google.com, mmarrid@nvidia.com,
-	kees@kernel.org, Alexander.Grest@microsoft.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, bbiber@nvidia.com,
-	skaestle@nvidia.com
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Drain in-flight fault handlers
-Message-ID: <acKhIh-s3pglUmEL@willie-the-truck>
-References: <20260307001723.964956-1-nicolinc@nvidia.com>
- <abLE3rdM9YAu81tq@willie-the-truck>
- <20260312142509.GA1586734@nvidia.com>
- <acKZ0wtfi5R_dHm0@willie-the-truck>
- <20260324141716.GB7340@nvidia.com>
+	b=M2/sRZnuEHdGGxSh8fetnbPDv9Tzmjl49RncTarSgMEQ1PcaSmLkZe6mDhfIlQ9LU
+	 f3Q6Jsu2Z9M/6unjZOs/7tSNWINpHREURdtuY1+/uRcMx+4zykJuHygYgmSZmUW2Fw
+	 ECkOwyzuZ6S8Hc5F6fTzKglynpEqIkKDqHjbHeBc=
+Date: Tue, 24 Mar 2026 14:35:19 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH] firmware: arm_scmi: clock: Relax check in
+ scmi_clock_protocol_init
+Message-ID: <acKhJ8Z9WDvHEnYL@pluto>
+References: <20260324-scmi-clock-fix-v1-v1-1-65c21935824b@nxp.com>
+ <20260324-lean-bobcat-of-reputation-6628b5@sudeepholla>
+ <acJI7o79lVNMjV_d@pluto>
+ <CAMuHMdVcE439Cyn-TCoioLZXP-YpqObZ0UF8F2NvMCZ41eO6QQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260324141716.GB7340@nvidia.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMuHMdVcE439Cyn-TCoioLZXP-YpqObZ0UF8F2NvMCZ41eO6QQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_073533_889998_0FCAE80B 
+X-CRM114-Status: GOOD (  36.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 11:17:16AM -0300, Jason Gunthorpe wrote:
-> On Tue, Mar 24, 2026 at 02:04:03PM +0000, Will Deacon wrote:
-> > Sorry, that was sloppy terminology on my part. I'm trying to reason about
-> > faults that are generated by accesses that were translated with the
-> > page-tables of the old domain being reported once we think we are using
-> > the new domain.
-> 
-> It doesn't matter.
-> 
-> If a concurrent fault is resolving on the old domain and it completes
-> after the STE is in the new domain the device will restart and if the
-> IOVA is still non-present it will refault. This is normal and fine.
-> 
-> If it is resolving on the new domain and the new domain has a present
-> PTE so the PRI is spurious then the fault handler should NOP it and
-> restart the device.
+On Tue, Mar 24, 2026 at 02:15:36PM +0100, Geert Uytterhoeven wrote:
+> Hi Cristian,
 
-Hmm, I can see that working out if both domains expect faults, but if
-I'm switching to a domain without a handler wouldn't I be better off
-draining the outstanding faults generated on the old domain first?
-Otherwise, won't we see a bunch of noise from the eventq thread as
-it dumps unexpected events to the console?
+Hi Geert,
 
-Will
+> 
+> On Tue, 24 Mar 2026 at 09:41, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > On Tue, Mar 24, 2026 at 07:49:22AM +0000, Sudeep Holla wrote:
+> > > On Tue, Mar 24, 2026 at 02:24:14PM +0800, Peng Fan (OSS) wrote:
+> > > > On i.MX95, the SCMI Clock protocol defines several reserved clock IDs that
+> > > > are not backed by real clock devices
+> > > > (see arch/arm64/boot/dts/freescale/imx95-clock.h).
+> > > >
+> > > > For these reserved IDs, the SCMI firmware correctly returns NOT_FOUND in
+> > > > response to the CLOCK_ATTRIBUTES command. According to the SCMI Clock
+> > > > specification, NOT_FOUND is expected when a clock_id does not correspond to
+> > > > a valid clock device.
+> > > >
+> > > > The recent hardening added in scmi_clock_protocol_init() treats any error
+> > > > return as fatal, causing SCMI clock probe to fail and preventing i.MX9
+> > > > platforms from booting.
+> > > >
+> > > > Relax the check so that -ENOENT is treated as a non-fatal condition.
+> > >
+> > > I understand the use-case and the fix here, but still wonder if this
+> > > should be treated as quirk or handle it in the core. I am inclined to
+> > > latter as reserved SCMI clock/resource ID seems to be trend in its usage
+> > > and hard to classify as quirks.
+> > >
+> > > Cristain, agree or have a different view ?
+> >
+> > I was just replying...
+> >
+> > Looking at the spec 3.6.2.5 CLOCK_ATTRIBUTES
+> >
+> > "This command returns the attributes that are associated with a specific clock. An agent might be allowed access to only
+> > a subset of the clocks available in the system. The platform must thus guarantee that clocks that an agent cannot access
+> > are not visible to it."
+> >
+> > ...not sure if this sheds some light or it is ambiguos anyway...I'd say that
+> > NOT_FOUND does NOT equate to be invisible...
+> >
+> > ...BUT at the same time I think that this practice of exposing a non-contiguos
+> > set of resources IDs (a set with holes in it) is the a well-known spec-loophole
+> > used by many vendors to deploy one single FW image across all of their platforms
+> > without having to reconfigure their reosurces IDs ro expose a common set of
+> > contiguos IDs like the spec would suggest...
+> >
+> > Having said that, since we unfortunately left this door open in the
+> > implementation, now this loophole has become common practice
+> > apparently...
+> 
+> When I first read that paragraph, I was also confused.
+> What does "not visible" mean?
+>   - Not present in the clock ID space exposed to that client of
+>     the system?
+>     Yeah, multiple different sequences of contiguous IDs, depending
+>     on client!
+
+Yes that is the most spec-compliant interpretation usually; in general
+across all protocols the SCMI server, through customized enumeration
+results, should provide a per-agent view of the system: this should help
+handling shared or virtualized resources, since the agent always see
+only the 'illusion' provided by the server...
+
+...under this assumption if you dont even need a resource at all (not
+RW nor RO) you should NOT even be able to see it...this in turn of
+course means that in order to expose a contiguous set of IDs you should
+be able to properly configure at build time the FW resources on a per
+platform basis...
+
+>   - Return failure on CLOCK_ATTRIBUTES?
+>     Which is what implementations seem to do.
+
+Yes this is what is done leveraging the gap in the implementation...I am
+not sure that the non-contiguous set of IDs is supported if not by
+chance as of now :P (especially in other protocols)
+
+> 
+> The next step in the fun is when the system actually needs to know the
+> clock rate of such a clock...
+
+Well...that seems a bit of wishful thinking ...
+
+...sort of a Schrödinger's clock :P .. it is NOT_FOUND but does have rates ?
+
+Thanks,
+Cristian
 
