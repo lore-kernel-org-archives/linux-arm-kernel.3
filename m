@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A8FF532C3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77114F532C9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwnzpEmV001Lnwtrm/+xTMEqD/Zl5WTJLxCkJF0RDWM=; b=sovYkV2hQgZX9oFN4uFFDuDKj/
-	2EdnOgoUTVf43UfBLOUWiBEh9dxe10gLLhWsCbkfwEeqQv51bylFg9R2CaHE21iwSXUnsvqibRqmc
-	1axskhAqrrJBpi8kMZ9Ma8kuFyyr0CGUVpzRgR/880+II/69TTynym1755M2jbyzgAr5yCKlZ8grv
-	gglJ1PQwcn/pBRgD0Vl5YQcYFIWXrqNE2gUOeJqpEqF0xuD9pbk50oD86giLRKS/1JeEmf75ZRaW5
-	SIw/FfMqM5YqPBCMHWF9ixUCYW5MbxqB3ui/Eh8AldQJixZHOMCKRBZajcRdD3mqHVJUoMHfwYgla
-	Fsq9ljAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s+NBfkBtjjtc9IaZWRse743V27ZK/I4WahuYAx4/Jpk=; b=D4iTq3qXTsFJcWQD1Cc5w/KFIr
+	ApTFtfOeFJT1IkvZA75LC066QX6DuqD41qNwFxzMjIsOw9C/uf7m2JzVFHduemDuYMyqAfzA5MRm5
+	S2gDolNTU2FOoUf6TFkZm44aFvflJl9s8IV3nOEGjyHqeSZL90C5F7EYC+aPM3gDs7+wuHKmKRDuh
+	o5yYucQeUW+1yvUlZ1wLGY6GaKefEn0VhEPP+n3mKvnj0s1IowKHrtf/VNSvvfBNyOOTdTm8DdQYB
+	9XEm6Vz9kaqkFzYpniCC/8wfisBOinlGrPfD+gPv+bZWbW2vuOVZkqmeDIUGVOENgie1jhSulqDQ8
+	xn4lHrkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rqa-00000000QM4-1OqW;
-	Tue, 24 Mar 2026 02:50:24 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1w4rwj-00000000QZY-0iIQ;
+	Tue, 24 Mar 2026 02:56:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rqS-00000000QKp-2JrP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 02:50:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=smail.nju.edu.cn;
-	s=iohv2404; t=1774320549;
-	bh=MwnzpEmV001Lnwtrm/+xTMEqD/Zl5WTJLxCkJF0RDWM=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=O3s4KoNRQrwGjDgDhTLQebvXygh36CLCgq0u0k6LPMmf+ELsYnhsXvil0xkO7sR4m
-	 6QZCa8XvedD9URvEU2jcxqq2IJSkDatqXNwm1tAGjkJ6qUIjVLY4yJrffxTeJSe+Uc
-	 TQzsXiKQlk0doC4T6X1V3cOz1kCLA+wtufzxyn94=
-X-QQ-mid: zesmtpsz5t1774320541t42f9849a
-X-QQ-Originating-IP: GXYWvu8OfDyrTQdsRFvpq2WHWIUNA8jI8zvOen2e8QU=
-Received: from localhost.localdomain ( [116.172.93.199])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 24 Mar 2026 10:48:58 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12893628811713433287
-EX-QQ-RecipientCnt: 14
-From: Kexin Sun <kexinsun@smail.nju.edu.cn>
-To: gregkh@linuxfoundation.org,
-	jirislaby@kernel.org
-Cc: nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	richard.genoud@bootlin.com,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	julia.lawall@inria.fr,
-	xutong.ma@inria.fr,
-	yunbolyu@smu.edu.sg,
-	ratnadiraw@smu.edu.sg,
-	Kexin Sun <kexinsun@smail.nju.edu.cn>
-Subject: [PATCH v2] tty: atmel_serial: update outdated reference to atmel_tasklet_func()
-Date: Tue, 24 Mar 2026 10:48:57 +0800
-Message-Id: <20260324024857.3244-1-kexinsun@smail.nju.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <3bd295ee-1607-49db-a12e-5a4d4fc81c5c@bootlin.com>
-References: <3bd295ee-1607-49db-a12e-5a4d4fc81c5c@bootlin.com>
+	id 1w4rwh-00000000QZO-16sK;
+	Tue, 24 Mar 2026 02:56:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=s+NBfkBtjjtc9IaZWRse743V27ZK/I4WahuYAx4/Jpk=; b=U2S6G2S8u1W8JVZUzjSPaBzggZ
+	rNWlyf3lAPbRjS+XHO3z/fe/ddaI1PjI2O1rmOYaL6Y3r1UzZj0G1bCGtk6wD5lpqwJAm02SdRail
+	a9+IX9Xb29dU/ZpJae7gnERf4w6ICrn1IeSjQTiW7nR/0xvPMEJgd8itICyDB81Qoivv5gMgkqOd2
+	lSiYHzmPGe1GM8sTROIcyqyeaQdJTTgIAcpl5TU88/RQchjuaYRCm62J3ldJLDrMUNdqiUYW6Ehmp
+	AiNx7KHDJRNO2SbeeAVv55PclDCZYpyVdatdgUwtpQQirribdX4Z/O2ax6nOvawYJwTS8R9c8o6UE
+	SdECAZMg==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4rwK-000000035PD-2Z5y;
+	Tue, 24 Mar 2026 02:56:33 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 62O2rXwK5278459, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1774320813; bh=s+NBfkBtjjtc9IaZWRse743V27ZK/I4WahuYAx4/Jpk=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=sv4YYUe7+BT66W+9PYYIXBHmQ+e2QwqO4p6nmyx3BylD0ZvvHqliSrEKaFlzfdTwl
+	 BhezTfePqON7ZICio2vLWKpbAZZQ2zPknePRqI86ChPXyJQdaLuFpPxfWrkeW4NVoT
+	 b2uDvmNj2XVp+9CD4BRUP5rZAl4A9394VAref3/aq7+rXpnyFu/1bxfSQgGGfqBfDH
+	 Mfod9xKQnMnMk8X8cGN+DX+Z5hw2Y85RcTqR6lvCxVV2ci2Aw743++qSsOJP++h3at
+	 hFLy8zAhuHAJL+gF6jRUR8+UtiRAWbFzg3NTVA/nez9bA+UaAqG6QdYNXZZ/6ClYnu
+	 Q+g1q9d3anh6w==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 62O2rXwK5278459
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Mar 2026 10:53:33 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 24 Mar 2026 10:53:34 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 24 Mar 2026 10:53:33 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 24 Mar 2026 10:53:33 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+        <cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>
+Subject: [PATCH v5 04/10] clk: realtek: Introduce a common probe()
+Date: Tue, 24 Mar 2026 10:53:25 +0800
+Message-ID: <20260324025332.3416977-5-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260324025332.3416977-1-eleanor.lin@realtek.com>
+References: <20260324025332.3416977-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:smail.nju.edu.cn:qybglogicsvrgz:qybglogicsvrgz5b-0
-X-QQ-XMAILINFO: NzSDQCFWCzVTre9l+NVEhEEbNAwc89B80fFz2uIQ6QtXutcK1xClGZmI
-	AkU4kIIixzBDU4+/brnj9JmxsijKSz9MfmfCjNudzaA7ZcNQJMwARGoemA/rUpQt68Dc5vT
-	5ik6o4d1bZ6pgjmyyGTcvWXeg6mRzQ4loG6VFCaPrIML/W4e5MwIC3qe47KY8hrW7WVu7yB
-	z5kC51nqEtSarOWUVjWsWhUatU1hkf5ZkjqR5wujF0mAFjofOuBS5cpudKCjcP7PCgMW4h9
-	Dj2DZJTAYoKQwUVEexv2yikjWVd5feaJlGunhDWwukAqbadRKoUKwXYFRZkcRuHpduzSC2J
-	viiU6xwLCUl8RLih+Nrmo7qwxjQPzsu3nEy6dlDGOi/BHYMVun5ZwTLUbyM7MDepopuXISw
-	YfOVcbR/rdPwRZpfiWDawrHTPOLxVZ31RoxRmQxzSXEd0onGz77+mqpaEvNI0MUrUbB1Q1B
-	vuf+6UBt49wvMONwST2WxSAUwawygHRgjjYwHlTKlz4ZKEb1J80i/5OwdGosi4QHjk7Cdft
-	i89yKZSO4AbecaIunqtmtdjW6YXtnYJtHj8xMyryWjdEH657hQbOv0GTUwyTnYrzPY9MLXx
-	Z4fV2qdPilZwCyy+IV5MnJJzkH8yCBlYWlmO4oMSvsjolsK1HgfaLgi/l4/NZUAPTJ49ls3
-	kVPkKhKQ5t9RIIm8MTsvbW+yY+/nWxWhuw5xNjTaNQJbQiUIHMOI2LbUedwGHB3lPa8D02t
-	WYS3XBpjm/ox0lzyLI68h8yUbN9b+nSRr99ICJeTU04HOixZ6DaeJsQbflNcBYcmre+41TQ
-	1idv+ut1Us03JAHq9FEzqX4oWC/wX/ngH59JcCav7rZWYxjwi3Z/ZV/EWC6fKS+tSBHX32d
-	s3/DpbixC/z82pv4cHsxjU9PdR/nPoGtjSb143MGMRJ3BZPhfCX4GF0hHKB04D4c+HfrSJz
-	Di/yjoeeHaqdQaFVwfBH6ZnqhMdqrkOhGhpRNGIazswn1T5aUCQBUZgSDBMsZG1wx+3TvT8
-	L5x9zRv2VXajiLh6xB
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_195016_966614_3A6684A9 
-X-CRM114-Status: GOOD (  10.36  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +98,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The modem-status comparison that used irq_status_prev was
-moved from atmel_tasklet_func() into atmel_handle_status() in
-commit d033e82db9a5 ("tty/serial: at91: handle IRQ status
-more safely").  Update the comment accordingly.
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-Assisted-by: unnamed:deepseek-v3.2 coccinelle
-Signed-off-by: Kexin Sun <kexinsun@smail.nju.edu.cn>
+Add rtk_clk_probe() to set up the shared regmap, register clock hardware,
+add the clock provider, and optionally register a reset controller when
+reset bank data is provided.
+
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
- drivers/tty/serial/atmel_serial.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v5:
+- Synchronized with reset controller changes.
+---
+ MAINTAINERS                  |  1 +
+ drivers/clk/Kconfig          |  1 +
+ drivers/clk/Makefile         |  1 +
+ drivers/clk/realtek/Kconfig  | 28 +++++++++++++++++
+ drivers/clk/realtek/Makefile |  4 +++
+ drivers/clk/realtek/common.c | 59 ++++++++++++++++++++++++++++++++++++
+ drivers/clk/realtek/common.h | 43 ++++++++++++++++++++++++++
+ 7 files changed, 137 insertions(+)
+ create mode 100644 drivers/clk/realtek/Kconfig
+ create mode 100644 drivers/clk/realtek/Makefile
+ create mode 100644 drivers/clk/realtek/common.c
+ create mode 100644 drivers/clk/realtek/common.h
 
-diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-index 08dd8f887956..5d8c1cfc1c60 100644
---- a/drivers/tty/serial/atmel_serial.c
-+++ b/drivers/tty/serial/atmel_serial.c
-@@ -1927,7 +1927,7 @@ static int atmel_startup(struct uart_port *port)
- 		atmel_uart_writel(port, ATMEL_US_FMR, fmr);
- 	}
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9419b0497e0b..31f4a5a66394 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22229,6 +22229,7 @@ L:	devicetree@vger.kernel.org
+ L:	linux-clk@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/clock/realtek*
++F:      drivers/clk/realtek/*
+ F:	drivers/reset/realtek/*
+ F:	include/dt-bindings/clock/realtek*
  
--	/* Save current CSR for comparison in atmel_tasklet_func() */
-+	/* Save current CSR for comparison in atmel_handle_status() */
- 	atmel_port->irq_status_prev = atmel_uart_readl(port, ATMEL_US_CSR);
- 
- 	/*
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index 3d803b4cf5c1..d60f6415b0a3 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -519,6 +519,7 @@ source "drivers/clk/nuvoton/Kconfig"
+ source "drivers/clk/pistachio/Kconfig"
+ source "drivers/clk/qcom/Kconfig"
+ source "drivers/clk/ralink/Kconfig"
++source "drivers/clk/realtek/Kconfig"
+ source "drivers/clk/renesas/Kconfig"
+ source "drivers/clk/rockchip/Kconfig"
+ source "drivers/clk/samsung/Kconfig"
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index f7bce3951a30..69b84d1e7bcc 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -140,6 +140,7 @@ obj-$(CONFIG_COMMON_CLK_PISTACHIO)	+= pistachio/
+ obj-$(CONFIG_COMMON_CLK_PXA)		+= pxa/
+ obj-$(CONFIG_COMMON_CLK_QCOM)		+= qcom/
+ obj-y					+= ralink/
++obj-$(CONFIG_COMMON_CLK_REALTEK)	+= realtek/
+ obj-y					+= renesas/
+ obj-$(CONFIG_ARCH_ROCKCHIP)		+= rockchip/
+ obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
+diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
+new file mode 100644
+index 000000000000..63eb3fb3e79a
+--- /dev/null
++++ b/drivers/clk/realtek/Kconfig
+@@ -0,0 +1,28 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config COMMON_CLK_REALTEK
++	bool "Clock driver for Realtek SoCs"
++	depends on ARCH_REALTEK || COMPILE_TEST
++	default y
++	help
++	  Enable the common clock framework infrastructure for Realtek
++	  system-on-chip platforms.
++
++	  This provides the base support required by individual Realtek
++	  clock controller drivers to expose clocks to peripheral devices.
++
++	  If you have a Realtek-based platform, say Y.
++
++if COMMON_CLK_REALTEK
++
++config RTK_CLK_COMMON
++	tristate "Realtek Clock Common"
++	depends on RESET_CONTROLLER
++	select RESET_RTK_COMMON
++	help
++	  Common helper code shared by Realtek clock controller drivers.
++
++	  This provides utility functions and data structures used by
++	  multiple Realtek clock implementations, and include integration
++	  with reset controllers where required.
++
++endif
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+new file mode 100644
+index 000000000000..377ec776ee47
+--- /dev/null
++++ b/drivers/clk/realtek/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
++
++clk-rtk-y += common.o
+diff --git a/drivers/clk/realtek/common.c b/drivers/clk/realtek/common.c
+new file mode 100644
+index 000000000000..18a0d82ded0c
+--- /dev/null
++++ b/drivers/clk/realtek/common.c
+@@ -0,0 +1,59 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2019 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#include <linux/device.h>
++#include <linux/module.h>
++#include <linux/mfd/syscon.h>
++#include <linux/platform_device.h>
++#include "common.h"
++
++int rtk_clk_probe(struct platform_device *pdev, const struct rtk_clk_desc *desc)
++{
++	int i, ret;
++	struct regmap *regmap;
++	struct device *dev = &pdev->dev;
++	struct rtk_reset_initdata reset_initdata = {0};
++
++	regmap = device_node_to_regmap(pdev->dev.of_node);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "failed to get regmap\n");
++
++	for (i = 0; i < desc->num_clks; i++)
++		desc->clks[i]->regmap = regmap;
++
++	for (i = 0; i < desc->clk_data->num; i++) {
++		struct clk_hw *hw = desc->clk_data->hws[i];
++
++		if (!hw)
++			continue;
++
++		ret = devm_clk_hw_register(dev, hw);
++
++		if (ret) {
++			dev_warn(dev, "failed to register hw of clk%d: %d\n", i,
++				 ret);
++			desc->clk_data->hws[i] = NULL;
++		}
++	}
++
++	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
++					  desc->clk_data);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add clock provider\n");
++
++	if (!desc->num_reset_descs)
++		return 0;
++
++	reset_initdata.regmap = regmap;
++	reset_initdata.num_descs = desc->num_reset_descs;
++	reset_initdata.descs = desc->reset_descs;
++
++	return rtk_reset_controller_add(dev, &reset_initdata);
++}
++EXPORT_SYMBOL_GPL(rtk_clk_probe);
++
++MODULE_DESCRIPTION("Realtek clock infrastructure");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/realtek/common.h b/drivers/clk/realtek/common.h
+new file mode 100644
+index 000000000000..9cf013f9ba2b
+--- /dev/null
++++ b/drivers/clk/realtek/common.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2016-2019 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_COMMON_H
++#define __CLK_REALTEK_COMMON_H
++
++#include <linux/clk-provider.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/regmap.h>
++#include <linux/reset/realtek.h>
++
++#define __clk_regmap_hw(_p) ((_p)->hw)
++
++struct device;
++struct platform_device;
++
++struct clk_regmap {
++	struct clk_hw hw;
++	struct regmap *regmap;
++};
++
++struct rtk_clk_desc {
++	struct clk_hw_onecell_data *clk_data;
++	struct clk_regmap **clks;
++	size_t num_clks;
++	struct rtk_reset_desc *reset_descs;
++	size_t num_reset_descs;
++};
++
++static inline struct clk_regmap *to_clk_regmap(struct clk_hw *hw)
++{
++	return container_of(hw, struct clk_regmap, hw);
++}
++
++int rtk_clk_probe(struct platform_device *pdev,
++		  const struct rtk_clk_desc *desc);
++
++#endif /* __CLK_REALTEK_COMMON_H */
 -- 
-2.25.1
+2.34.1
 
 
