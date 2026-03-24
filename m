@@ -4,111 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBC2F54ABB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB41F54ABB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oz1kP6mGnYmsV3pNCXtV9G7tgVBh7BnFUeruC1cPFLw=; b=dflFw/KTjZreHsaJ8N8cVHFFXO
-	Ay8hTrzv2WbxFIiJYjvG8uR5ERgDmc7JfYbeKuLbCCgi2G+8bGrnkLKI3/NybEX4M77+V6B41CRR1
-	G4Abx4kX2SAgDihNuOPZf95Ob9rutoeectoG3Y5IZjKHdYknNXS9ONtfS1bVbhRYUKPQzOJIqUfsj
-	J3sw+QLR7+cZZhCm4FXT3sadMI6D0vjfiTSunehzrrFPEWzeB8Z2E3hbc2REUhuQa5r53w6cwPLc8
-	ob1Da2Bw8LrMEumtE7BEKR0nw4OFSNMSP7w4Iurhvx+IQA5DkuHE3yW6l5TRiQ0XVWxE2AUbH6XZe
-	MzFVpZVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=; b=sPc41xKoIdqh3M0F645Tw7bLA6
+	M5IX0496YZFOnk7r+DrJW8vIBdyQJKR3RNqeBkMR1OCdacoNnFe39UD/KXPCxpDsHHfjAPGBe4T0I
+	xVO+RpjF/RMT/Fg3NwcrXzt2B/NYgCgqyONz8nTYaLursTKKcyROR4wSrNcmOWSTM2IBG3JnsaQGl
+	jrzJaVHp3qGqCVp4QCXRIbLPVEMp5rx9NfcpEaQXEj4yk+QaQpgfZS8r5DBScum3c5yPRacjxVCMN
+	VBPESwqU+Uzmj3751lDkxIHYDYgLRCceZczE5rFcyikxJYfYgdOPU1VjcGbNZqd79Vm8dfZwb2w4f
+	ZrJ3q/yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52Dh-00000001aPG-2BYb;
-	Tue, 24 Mar 2026 13:54:57 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1w52EG-00000001anH-3ZjZ;
+	Tue, 24 Mar 2026 13:55:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52Da-00000001aKo-3Nka
+	id 1w52EF-00000001ale-2CZ5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 24 Mar 2026 13:55:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=; b=mL0iDlkNEZc4YqcgE23xE1CKwa
+	ShulVMXkGedMJJ1RDO9AJg9AkEv9/QgDkdoOo6n6oxB75UbSzsiTSJWnuc1B5FrrYAVB1n1JrVfnX
+	nyKTn6ijfAdeouSdzyCaimJxtWZNjRlqEOM5VF53ZdntqMiLN31YQ/nHs+BLZJpApGrnJ6kKrvIzV
+	YJo6jgA7xDyLsE+lTcCrUDHDlQeCVeLoJqv9S59Cwip3QhvbCVmBIm6FDfh7pJQT9XgvcAyed0dwz
+	eYTb6tGwFpiWewHGBaa/u4hgEZgnAn2Eju53ShmGX5lilLIr4IZxH5WeHPQOSGvzvSoSG3mxAqhTu
+	pTvSTBxw==;
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w52EB-00000004DVV-469G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:54:51 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5a142464316so5698308e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:54:50 -0700 (PDT)
+	Tue, 24 Mar 2026 13:55:30 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-56a9076813bso2405657e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:55:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774360489; x=1774965289; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oz1kP6mGnYmsV3pNCXtV9G7tgVBh7BnFUeruC1cPFLw=;
-        b=PX3IQfEO0RhqzSLuKcxVuYSRSDYyXP8sbZDIsHoT5nIpq6dKT+0bb1NtyK17ctwhHF
-         HBrGBTQIkSZ2ZPrJXiVr2xoxm8PfUJI4J+GXGAhEuViUEb3SYburxfVrBeTTNIUaNAvh
-         bJ8r/5p77X5Dy7YkGO4I2/Ub0eT1rWe+fIZZUhuQgTkGQf7hFeoThJyB5vmRPY24NSUT
-         muFClhrkw2f/gS5BGxcKgRibEm86cNabI6IsMhZbmqPLRCNxXm3srJFQr3Ta8OuTbGKB
-         J3prA8fDOrwz+171VC4LEmmffJN8r7Xim7UbabOmzPuJNhXgCw1orPsp0gaq1RXbfTL3
-         Ae7Q==
+        d=gmail.com; s=20251104; t=1774360525; x=1774965325; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=;
+        b=KKhTTFOtDZXjifRilnumeQYFdyCt5Xq0YrD8EshgEPhUzq8UZSpD0xTJk00jB+CUAc
+         KTlKcEud0hAx3+8x9nbVsdcZYr8lOKsbg6/cUZsH21f9viwb5R6ynR4ySkPntWsDYpiF
+         RB6Qd10ZrHFw6+Mikev9D7tjJYdF/Er1F3AePCRv2Vzwu3uQoDGeQCrIMBNCPSkkCaOI
+         qlw26Z92RYeTiQBZsVS/lIL9TcpGTyv+Pd3k0S/Zembc+kWNdha5z5FczDWGd9ubMUli
+         Htc5mKP8QzJufCrSGmHvH1FDk1xpa5fGEFWqlKKCPZ8iUvfJm7JJZCJwyVtRUNMdhMW6
+         WjyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774360489; x=1774965289;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=oz1kP6mGnYmsV3pNCXtV9G7tgVBh7BnFUeruC1cPFLw=;
-        b=QfwY9RgLcEQkvpwzj661sT0IaPE6JSd6Wg/l9zRV1HmeBHn5QnmATqwzLx+CrGrDOd
-         rUec3GSJZYRmXjglqQJ+FavzpbQl7/Z7V9MrWyGZFsVA76g1XBCwrfQQY/GtUIZArHOs
-         d7S3ZOz6W3KhxB1W50BY0PDSUnii0ldHNUIoU3GTLujJYtV4f2Z1c4ErzspTKcgAg0Kr
-         jbVN1002nYVcnlVq2t5K6wNzrcf9VW8aS8MP3YLh1F6bJjuO8vp2ZWx5FDfjMO5zuxe+
-         o0nz54jutcXdxydHIle/hG1oR3Axej4aK1p2VCITuVIVBtopYEqdVBh7aEAZKrgV0aId
-         5nNw==
-X-Forwarded-Encrypted: i=1; AJvYcCV8AJjweX386uZl/yiLsVFGYCl2NtvZZT48qRcl4vWt6zRf85NqhyZNVBSi4tcmwsIq7Fm8I8aEaT6J9NU1uR7Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJ92U/FOm+IXa6/FWqDHpPdGuMHEvGl9mGrYKlEg9e66CBFZVS
-	KneJo2bKJr4ncVawNB/RqyKqkpWn1Xo6GdRbnvt9XefdHpR3vCn0RZxv
-X-Gm-Gg: ATEYQzxfItJ7U0M6FwpOPYHXL/s5B7hsdFytAV3vrR7YreXF1rAKm8LX3geQI1a0lzv
-	06SRhXsuCkRUT8mn4rKXshfFbh0dd1kOn0vepZRiRLt5h05SPvOyQ/iVPMa6dZuNVl2TAwX8Di+
-	cGvZZLuTPZmw15QmJP5u1Ztb4wArgKFLiZbfZk9hr+TiZSMF2WEnV1+p/KishIHXPdaKxIJwSgY
-	no1ryjCqLa2yhQlomoDAxuoXPV6XjjhbRgm/lyNYTf9ObXAAXL3I56WXUnCTzetot5UYhoXD4Ts
-	W9KaLKpT8DNUrjMpDHDJw00SKb+r26hE2TbGagoV53lCmNFrULWETDUpb6TagSgaGiQHI+Uvmzg
-	rrOqHd08/NaqDt0n4P88urZAaNrl+8V0YBf8KVfBXuRqy/2YzNOUeRhTT+RYBppuAxJeUQn6Kvs
-	McXxz4CBbwAnxQy4TxorEN8bwOcxH+VTX5adavAQiJGpTrLrafV7iDzI8lEX2KkM1cnXew
-X-Received: by 2002:a05:6512:124c:b0:5a1:6c86:b945 with SMTP id 2adb3069b0e04-5a285afdc41mr5770590e87.12.1774360488477;
-        Tue, 24 Mar 2026 06:54:48 -0700 (PDT)
-Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a285207454sm3162823e87.48.2026.03.24.06.54.46
+        d=1e100.net; s=20251104; t=1774360525; x=1774965325;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=;
+        b=hzwQkn9rHeZ2Zed+FEWf972qCAf7JLYVzFMYwMZJJCeDx5qMA8xkzf/dt6bsrizE7y
+         PeS/4BfpjmawRlVN4CuUWbZEmMB7Ua1sWGIF1YVeJH8R8xAByE6VIDGmhWkWSSfG2i2z
+         BKJsuU5PVp34ka9w5Hzo25nXTvpzneK3T1JUWiwumQr5uGh4tYR5gg4Elxd+Cg1G74Vi
+         ayn+RgqUbXeFyhqZNHPBUXDlC8iJ8+lMs//G2R1r1xIDvuqfhbifQL0jbG3Fv+vL9hVz
+         WLenlQl590HjlFH3kzjCr2gz/wWanMPZGf/su0m68UY2yaOa4D8ZByXJkvdwsbHhjZiB
+         OsTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZAUtSRaIMtKaBryzwkzPzKxmVB2vR3g0Oh4crvthsmGfrLkdmHs3m8fQ4zfQer7mwAh9yJm1rIWsxk/A8aS1P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6pouDYYLfTkBp6kd5fO7lI5brVaCsV2sRftH92+iIpesfecWr
+	Tf8RZkWW9uazufkNJrnvt1xRvGJTM33owyRNAAgMUlqlsiMX8H8irOA9
+X-Gm-Gg: ATEYQzxggSi7wJFq4CycLBODmaQv1/2i/A0gENLT9PJxSAGbbiKORNjua2FjjmIlSZ9
+	f473Yz44oEZPkbADM+pnBhKwMeiGodKzZWoqiCJ+AqKLTWbLLdaHpZa82+nOivUgUmhqASErxrk
+	x8hIS9+QF/pOHZhH8CyvTs5DQa6zej9Rs99WYxBvFpd+catmpyhfrw6RoimAIdxPpZa+bWLAKhY
+	cNDGASgqtJfGq55rPuC/F0FKYNUl/LP5dFsab+phsVoFfwOZQI2xP8osoDwaqBUiEBJ6mp6YeE4
+	L1NgPstwmE/fObzvBXDBy0q5GXYXgsfnUnMGFHKOPxzlTBPgXfIiXMEkEMDS2eexu2TaDXNUR38
+	0J6dr+QFWKOXBgwJyo7cxEUFIPGWGb0v4C82t0W7Ezz3v8+3SdvuEdKL4CuxilOae9ThrzzHTtY
+	PrWfn7IjgNGIjkNfRiExZRETTRBkSLI7gqPdnKqFHuqgw3s/bMPPQXHyVEYYfqOhZ5AsHuZQ==
+X-Received: by 2002:a05:6122:3a0e:b0:56c:da22:6921 with SMTP id 71dfb90a1353d-56cde35a597mr7936243e0c.5.1774360524552;
+        Tue, 24 Mar 2026 06:55:24 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:1b3:a803:91c4:cdb6:8a02:47ca:2dca])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56cddc7f882sm15529418e0c.9.2026.03.24.06.55.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 06:54:47 -0700 (PDT)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Tue, 24 Mar 2026 14:54:18 +0100
-Subject: [PATCH v9 4/5] i2c: davinci: add support for setting bus frequency
+        Tue, 24 Mar 2026 06:55:23 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: broonie@kernel.org
+Cc: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH] ASoC: dt-bindings: rockchip: Convert rockchip-max98090.txt to yaml
+Date: Tue, 24 Mar 2026 10:55:08 -0300
+Message-ID: <20260324135508.839142-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260324-i2c-mux-v9-4-5292b0608243@gmail.com>
-References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
-In-Reply-To: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Peter Rosin <peda@axentia.se>, 
- Michael Hennerich <michael.hennerich@analog.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>, 
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>, 
- Bartosz Golaszewski <brgl@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3881;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=ryrI9MAQVwCIRRCngn0KDdHz7g1aMSsslONZvQCRx8g=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpwpecpKtb2LQM74bmvDz0req+77DcvmlflCxyE
- W4Thx+y7rWJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCacKXnAAKCRCIgE5vWV1S
- MlCUD/wPBVoCUV1xDm82HsdePvpFTI2QRLF6oP9tMPcFfNn5gKnix7i6IZSK70o5JGbRZP2Oqt0
- krIWM96uzXsZY1ahQOTrC//PEKTVZLYgv8Lek7pJ8fNJV70Nd2DzkaovUlBXeGWQUeHcSX0rrc2
- jw8muH/LXYI4RgA3nxwZlX3lLNEb0nNbxv/rDf0jYPs+j9mcGXH0WnRwsoVv1JO/UovW6am8AkH
- tvgbfHNliDmVpPJPeE6U4SxgwY8Otxk3b7cw7L1y2bcqxDZFIzflpxzuNNkQj5DnW+llnIAzgP0
- sjO8H0ms1lOrTt5+f4i3I9gWz5CAdvaAmZwbG0n5JEwpG1CI5BnJVlFMwld+yEJBaU4HyAexUOY
- SnRNTR5ot1h1CREUoKB90y7hEflr+pzSwtaqZNYhU2WtZAYyqB7HRwV0TpoCOUGhndf0HXHMqyJ
- iljSssZsBtgHzvWyxdh885YIt54nIFeggj3YJs8prKmAiM305wftGDGIK2xLfY+IMdwQq/cJAPq
- +/5/7exap9aoXdqA8WVdd/gAnHS4L0bLoN7UzcALDmF4Am49BXowNySUrTaEqHHiQfTMe5uDwlE
- L7+KTQ7rWJCda0niD3xovRf+f7DUKsLQsSep5U2cweJQW4WJ0R5W443R0ez0yJwVRLlnoxAR3m7
- UorDwjz3rJvMstw==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_065450_889152_36C81EE9 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20260324_135528_493348_2EB894DD 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,120 +118,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Populate adapter with clock_hz and .set_clk_freq() to enable support for
-dynamic bus frequency.
+Convert rockchip-max98090.txt to yaml to allow dt-schema validation.
 
-Remove bus_freq_hz entirely and only use clock_hz instead.
-
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+Signed-off-by: Fabio Estevam <festevam@gmail.com>
 ---
- drivers/i2c/busses/i2c-davinci.c | 35 ++++++++++++++++++++++++++++-------
- 1 file changed, 28 insertions(+), 7 deletions(-)
+ .../rockchip,rockchip-audio-max98090.yaml     | 59 +++++++++++++++++++
+ .../bindings/sound/rockchip-max98090.txt      | 42 -------------
+ 2 files changed, 59 insertions(+), 42 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml
+ delete mode 100644 Documentation/devicetree/bindings/sound/rockchip-max98090.txt
 
-diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
-index 549fb22cdf4f..d87172408445 100644
---- a/drivers/i2c/busses/i2c-davinci.c
-+++ b/drivers/i2c/busses/i2c-davinci.c
-@@ -132,8 +132,6 @@ struct davinci_i2c_dev {
- #ifdef CONFIG_CPU_FREQ
- 	struct notifier_block	freq_transition;
- #endif
--	/* standard bus frequency */
--	unsigned int		bus_freq_hz;
- 	/* Chip has a ICPFUNC register */
- 	bool			has_pfunc;
- };
-@@ -171,6 +169,7 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
- 	u32 clkh;
- 	u32 clkl;
- 	u32 input_clock = clk_get_rate(dev->clk);
-+	u32 bus_freq_hz = dev->adapter.clock_hz;
- 
- 	/* NOTE: I2C Clock divider programming info
- 	 * As per I2C specs the following formulas provide prescaler
-@@ -207,9 +206,9 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
- 	if (device_is_compatible(dev->dev, "ti,keystone-i2c"))
- 		d = 6;
- 
--	clk = (input_clock / (psc + 1)) / (dev->bus_freq_hz);
-+	clk = (input_clock / (psc + 1)) / (bus_freq_hz);
- 	/* Avoid driving the bus too fast because of rounding errors above */
--	if (input_clock / (psc + 1) / clk > dev->bus_freq_hz)
-+	if (input_clock / (psc + 1) / clk > bus_freq_hz)
- 		clk++;
- 	/*
- 	 * According to I2C-BUS Spec 2.1, in FAST-MODE LOW period should be at
-@@ -267,7 +266,7 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
- 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKL_REG));
- 	dev_dbg(dev->dev, "CLKH = %d\n",
- 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKH_REG));
--	dev_dbg(dev->dev, "bus_freq_hz = %dHz\n", dev->bus_freq_hz);
-+	dev_dbg(dev->dev, "bus_freq_hz = %dHz\n", dev->adapter.clock_hz);
- 
- 
- 	/* Take the I2C module out of reset: */
-@@ -279,6 +278,27 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
- 	return 0;
- }
- 
-+static int davinci_i2c_set_clk(struct i2c_adapter *adap, u32 clock_hz)
-+{
-+	struct davinci_i2c_dev *dev = i2c_get_adapdata(adap);
+diff --git a/Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml b/Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml
+new file mode 100644
+index 000000000000..5630652aa4c2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/rockchip,rockchip-audio-max98090.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	if (adap->clock_hz == clock_hz)
-+		return 0;
++title: Rockchip audio complex with MAX98090 codec
 +
-+	adap->clock_hz = clock_hz;
++maintainers:
++  - Fabio Estevam <festevam@gmail.com>
 +
-+	/* put I2C into reset */
-+	davinci_i2c_reset_ctrl(dev, 0);
++properties:
++  compatible:
++    const: rockchip,rockchip-audio-max98090
 +
-+	/* compute clock dividers */
-+	i2c_davinci_calc_clk_dividers(dev);
++  rockchip,model:
++    $ref: /schemas/types.yaml#/definitions/string
++    description: The user-visible name of this sound complex.
 +
-+	/* Take the I2C module out of reset: */
-+	davinci_i2c_reset_ctrl(dev, 1);
++  rockchip,i2s-controller:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the Rockchip I2S controller.
 +
-+	return 0;
-+}
++  rockchip,audio-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the MAX98090 audio codec.
 +
- /*
-  * This routine does i2c bus recovery by using i2c_generic_scl_recovery
-  * which is provided by I2C Bus recovery infrastructure.
-@@ -755,12 +775,13 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 	dev->dev = &pdev->dev;
- 	dev->irq = irq;
- 	platform_set_drvdata(pdev, dev);
-+	adap = &dev->adapter;
- 
- 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
- 	if (r)
- 		prop = I2C_MAX_STANDARD_MODE_FREQ;
- 
--	dev->bus_freq_hz = prop;
-+	adap->clock_hz = prop;
- 
- 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
- 
-@@ -800,7 +821,6 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 		goto err_unuse_clocks;
- 	}
- 
--	adap = &dev->adapter;
- 	i2c_set_adapdata(adap, dev);
- 	adap->owner = THIS_MODULE;
- 	adap->class = I2C_CLASS_DEPRECATED;
-@@ -809,6 +829,7 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 	adap->dev.parent = &pdev->dev;
- 	adap->timeout = DAVINCI_I2C_TIMEOUT;
- 	adap->dev.of_node = dev_of_node(&pdev->dev);
-+	adap->set_clk_freq = davinci_i2c_set_clk;
- 
- 	if (dev->has_pfunc)
- 		adap->bus_recovery_info = &davinci_i2c_scl_recovery_info;
-
++  rockchip,headset-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the external chip for jack detection.
++
++  rockchip,hdmi-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the HDMI device for HDMI codec.
++
++required:
++  - compatible
++  - rockchip,model
++  - rockchip,i2s-controller
++
++allOf:
++  - if:
++      required:
++        - rockchip,audio-codec
++    then:
++      required:
++        - rockchip,headset-codec
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    sound {
++        compatible = "rockchip,rockchip-audio-max98090";
++        rockchip,model = "ROCKCHIP-I2S";
++        rockchip,i2s-controller = <&i2s>;
++        rockchip,audio-codec = <&max98090>;
++        rockchip,headset-codec = <&headsetcodec>;
++    };
+diff --git a/Documentation/devicetree/bindings/sound/rockchip-max98090.txt b/Documentation/devicetree/bindings/sound/rockchip-max98090.txt
+deleted file mode 100644
+index e9c58b204399..000000000000
+--- a/Documentation/devicetree/bindings/sound/rockchip-max98090.txt
++++ /dev/null
+@@ -1,42 +0,0 @@
+-ROCKCHIP with MAX98090 CODEC
+-
+-Required properties:
+-- compatible: "rockchip,rockchip-audio-max98090"
+-- rockchip,model: The user-visible name of this sound complex
+-- rockchip,i2s-controller: The phandle of the Rockchip I2S controller that's
+-  connected to the CODEC
+-
+-Optional properties:
+-- rockchip,audio-codec: The phandle of the MAX98090 audio codec.
+-- rockchip,headset-codec: The phandle of Ext chip for jack detection. This is
+-                          required if there is rockchip,audio-codec.
+-- rockchip,hdmi-codec: The phandle of HDMI device for HDMI codec.
+-
+-Example:
+-
+-/* For max98090-only board. */
+-sound {
+-	compatible = "rockchip,rockchip-audio-max98090";
+-	rockchip,model = "ROCKCHIP-I2S";
+-	rockchip,i2s-controller = <&i2s>;
+-	rockchip,audio-codec = <&max98090>;
+-	rockchip,headset-codec = <&headsetcodec>;
+-};
+-
+-/* For HDMI-only board. */
+-sound {
+-	compatible = "rockchip,rockchip-audio-max98090";
+-	rockchip,model = "ROCKCHIP-I2S";
+-	rockchip,i2s-controller = <&i2s>;
+-	rockchip,hdmi-codec = <&hdmi>;
+-};
+-
+-/* For max98090 plus HDMI board. */
+-sound {
+-	compatible = "rockchip,rockchip-audio-max98090";
+-	rockchip,model = "ROCKCHIP-I2S";
+-	rockchip,i2s-controller = <&i2s>;
+-	rockchip,audio-codec = <&max98090>;
+-	rockchip,headset-codec = <&headsetcodec>;
+-	rockchip,hdmi-codec = <&hdmi>;
+-};
 -- 
-2.53.0
+2.43.0
 
 
