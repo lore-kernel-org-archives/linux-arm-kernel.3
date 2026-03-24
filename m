@@ -4,63 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9C2F54AB8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66363F54AB8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBakceNa+h7eXRYfPTnQwzKuKJrAZzuT/RmEI5RMf8s=; b=S5Yvq0Qsijq87o39cGBSzBiyjW
-	UJXd0fLpFLxGgKYoASF+2RpIywghMnbepafNjGYLKGAsI35mCY6RBYz6EEtJSlPbzaMSrxEjRuVGo
-	3QqdQ1yLCCt3gEZl7133WesVV5akXj7W0raEiJzhT1pFxjAHx/uusbH9C4kBSdYz+9cfRwwg0HxYR
-	d3Ie42AUuOWdSpCIiCv9ruF2sXItsNgJOKdiXPExkWInzAGQd1g4TGqeO277igYlIce0b1C8pCOqu
-	hTXORTGyBZli/W/IZRTGzbxlUvna46ezRxBGq0Nz7FI2LAdUH66EbwkrI2BIRCmnofS0yWJR+ikBb
-	hSyWhu/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xhIQ1SBclHKw+Q8c8AXe0Esq5oz+eGAWfktGJnFBl0Y=; b=Ag/grSwoH+1hyy2hEoVtHqUNa8
+	n61Ru4rdHGAht3Y7l9KZVJjSHA8+52wpSpJcnxJbHLQ/qqMsGU9EYzcveITqtNX0PmxEV8slfHIB7
+	0VFQaNZjKFfjevl1AvuohBHycicGmM1bPacO2I+m8se6T7psOguWxVD5WPCNAQpsw5ZPjebuouVfQ
+	EGxAYVgnt7/DRwHSfdvNAJJQEz6C2d057UwSE+WDjNR5YqXz3Ljf9So7EbcXuP9S/CiWdQhCnS8ES
+	UgH3EEkZQYmS5jqBKkvMSx7sBPADk7N1xTFJofCnHYRVMoIBd4dZRwgtMNXkr55yuaG3NWRA2P3Fy
+	EcQ4AJDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51vc-00000001YYP-1doF;
-	Tue, 24 Mar 2026 13:36:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51vZ-00000001YXy-2mE7
+	id 1w51wH-00000001YdZ-33gH;
+	Tue, 24 Mar 2026 13:36:57 +0000
+Received: from mail-northeuropeazon11012047.outbound.protection.outlook.com ([52.101.66.47] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w51wE-00000001Ycj-0DFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:36:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D02931476;
-	Tue, 24 Mar 2026 06:36:05 -0700 (PDT)
-Received: from [10.57.76.67] (unknown [10.57.76.67])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49F5B3F836;
-	Tue, 24 Mar 2026 06:36:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774359371; bh=6Ki15S7l8XHPgNRBcqNoAGTGF7cTa367l+xsShVQxHI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gNgOXKuNdMRBgb4secaHiXtf2czXw/iJ8jS8EV0omWiHC1pUpc1d9+L0HWMGwGkcR
-	 N1YkeFBL9JagNz7itQgMZleszv1hcgbSmTTgH7REHuITcN4qxft1/mkbvkAOYwU1ty
-	 O7LZY/a7MD5HOa48ZLjWiSonQJe51FGY/r4yyupk=
-Message-ID: <77e54936-0d1b-452c-a9cc-36c6f03930f0@arm.com>
-Date: Tue, 24 Mar 2026 13:36:06 +0000
+	Tue, 24 Mar 2026 13:36:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UI/hCC1thlhlS8PVm2BSryfE76o6HTPphKa/HDSHVWSWf9VM+QmHYkO/E1Pm3GFAzGnYXiihcmNPCQ/KHdATZCvhpX0hrMor8xNt+O/Mo6cxboe8elH6WLvII6gN85azcghosmd5rf586DSsQRnNryRhAK/p0AGdwoPHNANilqU7MM3sboLnsCtHVffxwFu+L9WTQ5ZWpajVPRFEdKbOA9+W45WAj3aZeIXNg/+4NM5u8YZRdrXyYKnNpJCwROY871PmYRDtFdVraX4yPiLjhRWcnNbpOF+i/ze6qU5JYJmN3MBUpNzt2LHheV/bRh+96+ZtiI1wnM7X80N1iIkP1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xhIQ1SBclHKw+Q8c8AXe0Esq5oz+eGAWfktGJnFBl0Y=;
+ b=fplOjtIyrfVmV7pLsX7stBu1moG/B6MQ7+wVbfocuCAzlFRuBxvh9p0Q4P1kESV6jALUAJ0Y3HH8SD/1Q2vMRbaK28zs+UTZEOC7i/KrXoBZ7/RyrJ7yJPMavI27EDH5imeuma/MJt8RhwDlre4Dy3v9oTfvbuW+ziDmU03liixYB7E0R1da2VloPeAYJzSCJg4Q1wTIPP+vUYuaq3RKqldqU/plXvWFZk7fEk++nTRxKKrQGfpfblClLGsVgZlOdHxKCm7BGP3UpVBoUw0+VuwVzF8awgv2FGMlAbDc+BBNhAx+iEGbO1NSxOfqBhYMyzs54Q902yPbd9eVV7kM5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xhIQ1SBclHKw+Q8c8AXe0Esq5oz+eGAWfktGJnFBl0Y=;
+ b=kUW/fOxg/RaxOU9OcpHHwtA0AaecN5hBtrHo5Ddqm6SXm1JFBzJIGtmlYLPsmiGxsRG1nXtjPfK4P+FcyDrRJJBpplO/V6/3tYmZwo1sNRmgBGqOeVAXaR9eyugjvlkuAa6YYDeqasBFY5GQK1qyUAqYuhpInV99zqp3VCYfxWoQ0t2wmyW2Y7G+nTicpsJUwWm3wQVExhVBRpfzPHCMG37mHbmzTGcQvFPilJcaIUkOJTA5FLWpMQzWnLfT3bNtAPTYFvkJZOEl8oh9oxJEvYpwAk6OpN+GzGPIDoxT03DMIiEhIi717sWFQl+D3kbQqHUgVAHdllhlFEGDx6PZUg==
+Received: from PAXPR04MB9424.eurprd04.prod.outlook.com (2603:10a6:102:2b2::13)
+ by PAWPR04MB9765.eurprd04.prod.outlook.com (2603:10a6:102:389::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
+ 2026 13:36:43 +0000
+Received: from PAXPR04MB9424.eurprd04.prod.outlook.com
+ ([fe80::671d:216f:d493:44ce]) by PAXPR04MB9424.eurprd04.prod.outlook.com
+ ([fe80::671d:216f:d493:44ce%4]) with mapi id 15.20.9723.022; Tue, 24 Mar 2026
+ 13:36:37 +0000
+From: Ioana Ciocoi Radulescu <ruxandra.radulescu@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Sumit Semwal
+	<sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Frank Li <frank.li@nxp.com>,
+	=?iso-8859-1?Q?Christian_K=F6nig?= <christian.koenig@amd.com>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "linaro-mm-sig@lists.linaro.org"
+	<linaro-mm-sig@lists.linaro.org>, Jiwei Fu <jiwei.fu@nxp.com>, Forrest Shi
+	<xuelin.shi@nxp.com>, Alexandru Iulian Taran <alexandru.taran@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: RE: [PATCH v2 4/9] accel/neutron: Add driver for NXP Neutron NPU
+Thread-Topic: [PATCH v2 4/9] accel/neutron: Add driver for NXP Neutron NPU
+Thread-Index: AQHcrW0UFol7c/rrhUWH45PRn/N4EbWhjjwAgBw7vqA=
+Date: Tue, 24 Mar 2026 13:36:37 +0000
+Message-ID: <PAXPR04MB9424461788159F730884F9F39448A@PAXPR04MB9424.eurprd04.prod.outlook.com>
+References: <20260306-neutron-v2-0-3019bd8c91ef@nxp.com>
+ <20260306-neutron-v2-4-3019bd8c91ef@nxp.com>
+ <110dace9-3ff9-4750-813f-93c6827b105c@kernel.org>
+In-Reply-To: <110dace9-3ff9-4750-813f-93c6827b105c@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9424:EE_|PAWPR04MB9765:EE_
+x-ms-office365-filtering-correlation-id: e597c0ac-3b0e-4f5d-6340-08de89aa5fcf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|38070700021|921020|18002099003|22082099003|56012099003;
+x-microsoft-antispam-message-info: 4/KnLqZUXvPYBH4vN/okmUyXk4OPiEdhPT/NsEzNNnUeEtRCSe7kMYhFz19l8kfw3QYL9oMz7QfCuqnrAZZlyLBa02bwjhG+6w64gSemxrDa11d4r7pElS1UWSWcJqPx+7fVLQggY44IA1P27EvGJfMpeOOcniDlyXo4uhpSjndjhzOQOgWfpo41NScUKVBlk1wr9V/nipRnSon9j9VxoVZlfXdvt5HnhOjzQl96ThzXFw9Mor/I2t9Fkt+mtK2jMG1QiKC4a2z/iKwbSu8QfgPz5d67Jm1QSnbVvxeAGlFZR9d2D8BtGkv5nAB3o7o6qIlw7lLCz3VQpoEP3wqmCvIaX8IfWtxaZNZMyyqIry9E3UQfQOnwabeX+fj8QH0F9ep0ZaNkyfEi9CGdYqA7tzrDUkYKNXsxY0TkPsY/j9AvLK+445ua0C6Yx8KaLrM4vzzpGnj52f3dq7efWksEo1kCIU9j8Bx4wUgriMagt3kfqwrnFbHhVagIoj2EvDbmK3bIrujK0cH+zs0RAAk1LQP+ZTkGi2e+6SKxL4tDtoAeT9vL3pDGdb6Z40LFQj0XqZ13b23NWebU7bC3Lik+l3939vBbz9FOhbUzfcwfohgPufptsJ68yfM2HBlCz2P3lnFBD/3MonSUhLf3JxmNxnDerNSyjAVGNrYT9oRmvXV7v71OHDF7BjZlwNo1dErOgejocN8aClhinbW2Odv5nOqwih3NI4LJ2irUFXdL+hIm+BKVVlmePzwbYvusFqhXtOnhLDOL5gD18gPClGq3Dg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9424.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(38070700021)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?lwyAYR148TNzzl1QT8LGoqpuh5R1Y8Fnxf/cisCflxIqrC+9wPCdAjDqBP?=
+ =?iso-8859-1?Q?nVV7ib5QnC/0fMCbsR60iZykLkqDj6f8XHYszh9e3i8fU7LD1vYj9KN+ES?=
+ =?iso-8859-1?Q?lB7ONsv8KlhtWWiDiNMFCUX1glbpiCvqpvaSlCZ3t+8zdEtrwWxsiYE4e4?=
+ =?iso-8859-1?Q?DKtILmqtKI4FnptguDETTbNorBFU/YXCC5PmWF0iN8cQSEwJx3hGeylERa?=
+ =?iso-8859-1?Q?JjEQuZYQ/7WOKXXRe8oucPL/Y/DNK6BnFwssCNk3mcTjYzDF2RNzIczvli?=
+ =?iso-8859-1?Q?QTnqdjaQTTyYC+UBxZwf7eYYYymC0gRdBMDGMDtfd/hqBQMSBk2jo58Py2?=
+ =?iso-8859-1?Q?Ru03UmJjE8b4pin0Ej6ogTQSiRmDy9dHh2nSpyzO6Eg8HyM2U/E7MUsq/X?=
+ =?iso-8859-1?Q?NQ/tAg+MugpfcSABb2fnPC0mmJ/d8SXbhAnddpcSmCODlQm3F5YJ29ZIzG?=
+ =?iso-8859-1?Q?uIIDIk2QVol3q1LtJkYhhcVtPILsp4d1PemkjisXd+xeC90HdnH4rrfJC5?=
+ =?iso-8859-1?Q?OcBc2paa78f8+BrrhtxbSK3RmeC5ul7FzEiEwnsF1obBLqOqIesfVRmiX+?=
+ =?iso-8859-1?Q?nwVxYlbmYcOAMDfa5s5SpLHEoButKb3a+SUfSnRwMKijbyrck5oJkBou4h?=
+ =?iso-8859-1?Q?Zb6qAsVF+TbmP4w+9rMiltKtEVvhDnoXV0d70J7RYLKJPOllclQ7hCVAIO?=
+ =?iso-8859-1?Q?5pmR6vXw3oDBBnafxGYqWolqX3t+lm33SUPG8hprNXxF/xNFvy5jp5vUtB?=
+ =?iso-8859-1?Q?W/u3qHuGx7pBO9RGCUVHMIlVW0qyzlDhPDhUbaJM5Gn501J/iYhKiuOKnH?=
+ =?iso-8859-1?Q?Djttynq5+jtbpy+NCNUJjzHIC3/d+X/RKzXur6bCdMfG2dL7hF2dF9zDBK?=
+ =?iso-8859-1?Q?Z6d7VjFl22BeETPhAaKqXe7lXA06/b7fhf82rhCVG/QJwhj4W9himfbg84?=
+ =?iso-8859-1?Q?lVcZ8fX8ksrYy4OYx6P97ExLILtAuKx2QIhwKyJVvplPNPsD6V/mqeq+kT?=
+ =?iso-8859-1?Q?Uh8c+3ra/PUFDp4dMKsBFMiy1LTO09vo6tcW0jDqUUI2SJyIGw65AwTRTO?=
+ =?iso-8859-1?Q?Wya2PXcUATbQ1vorTuJM/zwy67AVgGqQIzNYaze4kmPsPtZhs9nimwPnBf?=
+ =?iso-8859-1?Q?PJ0MjPWELC3GWJUFdYjjnNHdMqH4ZLcKU486qtLVilXdbUcUXzGeUYNhI6?=
+ =?iso-8859-1?Q?KRoUsqN/bvIaSNEIySQoh46xrtgsW9j2g3V9sI9MApbDWANB0AOVwaAtUQ?=
+ =?iso-8859-1?Q?z+gdKsOrlIlaPMZQsV8DZ6eQLuX55E2/Pu0AnJRsVBZITkglZ08sY/jnIL?=
+ =?iso-8859-1?Q?p9NrapBuXLL2sPlKRALyfTH5CUwp8h2zEYRlRP20zwGcukvHlpbIWRS5Mt?=
+ =?iso-8859-1?Q?6RgsTNCip6j4k9/D+Jin/aAERJDt26hWwWgPs0BBqizz1T4qt+uarHPMn6?=
+ =?iso-8859-1?Q?AFMSHRZf3fIkBO658ZGvPEGWiF60gYkE9zgQxfatoPrI4Div5/lGhautJx?=
+ =?iso-8859-1?Q?ejGZSPtT46Spz8flhf6Zm6ki6KSIZGZzBOssK0Ek35CbVqbYcuTHyc6cPl?=
+ =?iso-8859-1?Q?6Bmj76szsDwNG6exCBOPruJ7lUYYdUo7Z7JgOFntcWafCeBrOS7YDlwylW?=
+ =?iso-8859-1?Q?uSEcq/shYNeDoHiMmTWffCcF6YSvVvlqpCYBRu6V8GwRjjQKUNT2nQDbOf?=
+ =?iso-8859-1?Q?IOocz4u8lIxMPpO80kH1D48xRsVrq3yEKtVvZlBMutI2OZeGFbYsvjMKGT?=
+ =?iso-8859-1?Q?zEbYY19h3naUQqm/PquLhw5rWU0dFRDdIW4Ux6umX31GBaHAeS3Z1muVHd?=
+ =?iso-8859-1?Q?H6H2Gosh0A=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] dmaengine: arm-dma350: support combined IRQ mode
- with runtime IRQ topology detection
-To: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com,
- fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com, Frank.Li@kernel.org
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260324120113.3681830-1-jun.guo@cixtech.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260324120113.3681830-1-jun.guo@cixtech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9424.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e597c0ac-3b0e-4f5d-6340-08de89aa5fcf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Mar 2026 13:36:37.7720
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: A8Z2QEOs0bVPHY8QhX5+CeUgbdunAuougPCvGIpozEE2Xrd/fbRE6H4LmnFl9I6nXfMd8UDzkLxvJ0DwL9RC6vtiFR4QpdP825u6KnJLAK8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9765
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_063613_841320_5D2305AD 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20260324_063654_247599_2782790D 
+X-CRM114-Status: GOOD (  30.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +156,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-24 12:01 pm, Jun Guo wrote:
-> DMA-350 can be integrated with either one interrupt per channel or a
-> single combined interrupt for all channels. This series adds support
-> for the combined IRQ topology while keeping compatibility with the
-> per-channel topology.
-> 
-> Patch 1 updates the DT binding to describe both interrupt topologies
-> (1 combined IRQ or 8 per-channel IRQs).
-> 
-> Patch 2 updates the driver to detect IRQ topology at runtime via
-> platform_irq_count(), handle both modes in one code path, and enable
-> DMANSECCTRL.INTREN_ANYCHINTR only in combined IRQ mode.
-> 
-> Patch 3 adds the Sky1 DMA DT node using the combined IRQ topology.
-> 
-> Tested on CIX SKY1 with dmatest:
->    % echo 2000 > /sys/module/dmatest/parameters/timeout
->    % echo 1 > /sys/module/dmatest/parameters/iterations
->    % echo "" > /sys/module/dmatest/parameters/channel
->    % echo 1 > /sys/module/dmatest/parameters/run
-> 
-> Changes in v5:
-> - Fix the formatting issue in the AI tag.
-> - Remove the unnecessary "cix,sky1-dma-350".
+On Friday, March 6, 2026 at 4:22 PM, Krzysztof Kozlowski wrote:
+> On 06/03/2026 14:27, Ioana Ciocoi-Radulescu wrote:
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS index
+> > 8a5b27b061da..f7a687eb6b54 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -19191,6 +19191,16 @@ S:	Orphan
+> >  F:	Documentation/devicetree/bindings/net/nfc/nxp,nci.yaml
+> >  F:	drivers/nfc/nxp-nci
+> >
+> > +NXP Neutron NPU DRIVER
+>=20
+> s/Neutron/NEUTRON/ as everything here is in uppercase
 
-Please don't churn reposts of a series so quickly. I've only just had 
-time to finish the review of v3 that you posted only 3 working days ago, 
-that I already moved over as a reply to yesterday's v4 for visibility...
+Ok.
 
-Thanks,
-Robin.
+>=20
+> > +M:	Ioana Ciocoi Radulescu <ruxandra.radulescu@nxp.com>
+> > +M:	Jiwei Fu <jiwei.fu@nxp.com>
+> > +L:	dri-devel@lists.freedesktop.org
+> > +S:	Maintained
+> > +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+> > +F:	Documentation/accel/neutron/
+> > +F:	drivers/accel/neutron/
+> > +F:	include/uapi/drm/neutron_accel.h
+>=20
+>=20
+> >
+> > diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile index
+> > 1d3a7251b950..698136e12cce 100644
+> > --- a/drivers/accel/Makefile
+> > +++ b/drivers/accel/Makefile
+> > @@ -4,5 +4,6 @@ obj-$(CONFIG_DRM_ACCEL_AMDXDNA)		+=3D
+> amdxdna/
+> >  obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+=3D ethosu/
+> >  obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+=3D habanalabs/
+> >  obj-$(CONFIG_DRM_ACCEL_IVPU)		+=3D ivpu/
+> > +obj-$(CONFIG_DRM_ACCEL_NXP_NEUTRON)	+=3D neutron/
+> >  obj-$(CONFIG_DRM_ACCEL_QAIC)		+=3D qaic/
+> > -obj-$(CONFIG_DRM_ACCEL_ROCKET)		+=3D rocket/
+> > \ No newline at end of file
+>=20
+> You still have patch warnings.
 
-> Changes in v4:
-> - Reword binding text to align with kernel style.
-> - Revise the AI attribution to the standard format.
-> - Remove redundant links from the commit log.
-> 
-> Changes in v3:
-> - Rework binding compatible description to match generic-first model.
-> - Keep interrupts schema support for both 1-IRQ and 8-IRQ topologies.
-> - Drop SoC match-data dependency for IRQ mode selection.
-> - Detect IRQ topology via platform_irq_count() in probe path.
-> - Refactor IRQ handling into a shared channel handler.
-> - Enable DMANSECCTRL.INTREN_ANYCHINTR only in combined IRQ mode.
-> 
-> Changes in v2:
-> - Update to kernel standards, enhance patch description, and refactor
->   driver to use match data for hardware differentiation instead of
->   compatible strings.
-> 
-> Jun Guo (3):
->    dt-bindings: dma: arm-dma350: document combined and per-channel IRQ
->      topologies
->    dma: arm-dma350: support combined IRQ mode with runtime IRQ topology
->      detection
->    arm64: dts: cix: add DT nodes for DMA
-> 
->   .../devicetree/bindings/dma/arm,dma-350.yaml  |  25 ++-
->   arch/arm64/boot/dts/cix/sky1.dtsi             |   7 +
->   drivers/dma/arm-dma350.c                      | 164 +++++++++++++++---
->   3 files changed, 161 insertions(+), 35 deletions(-)
-> 
+Yeah, so the last line of this Makefile lacked the line ending and vim
+fixed that on its own when I edited the file. I can add the neutron line
+and leave the rest untouched, just making sure this is what you're
+requesting?
 
+>=20
+> > +obj-$(CONFIG_DRM_ACCEL_ROCKET)		+=3D rocket/
+> > diff --git a/drivers/accel/neutron/Kconfig
+> > b/drivers/accel/neutron/Kconfig new file mode 100644 index
+> > 000000000000..37b8ecb49804
+> > --- /dev/null
+> > +++ b/drivers/accel/neutron/Kconfig
+> > @@ -0,0 +1,16 @@
+> > +# SPDX-License-Identifier: GPL-2.0+
+> > +
+> > +config DRM_ACCEL_NXP_NEUTRON
+> > +	tristate "NXP Neutron NPU"
+> > +	depends on HAS_IOMEM
+> > +	depends on DRM_ACCEL
+> > +	depends on ARCH_MXC
+>=20
+> Missing compile test
+
+Will add.
+
+>=20
+> > +	select DRM_GEM_DMA_HELPER
+> > +	select DRM_SCHED
+> > +	help
+> > +	  Enables driver for NXP Neutron NPU.
+> > +
+> > +	  Select this if you have an NXP SoC with Neutron, like i.MX95,
+> > +	  and want to run machine learning applications.
+> > +
+> > +	  If built as module, the module is named neutron.
+>=20
+> ...
+>=20
+> > +
+> > +	ret =3D devm_request_threaded_irq(dev, ndev->irq, NULL,
+> > +					neutron_irq_handler_thread,
+> > +					IRQF_ONESHOT, KBUILD_MODNAME,
+> ndev);
+> > +	if (ret) {
+> > +		dev_err(dev, "Failed to request irq %d\n", ndev->irq);
+>=20
+> Drop, not needed.
+
+Ok
+
+>=20
+> > +		return ret;
+> > +	}
+> > +
+> > +	ret =3D of_reserved_mem_device_init(&pdev->dev);
+> > +	if (ret) {
+> > +		dev_err(dev, "Failed to initialize reserved memory\n");
+> > +		return ret;
+> > +	}
+> > +
+> > +	ret =3D devm_pm_runtime_enable(dev);
+> > +	if (ret)
+> > +		goto free_reserved;
+> > +
+> > +	pm_runtime_set_autosuspend_delay(dev,
+> NEUTRON_SUSPEND_DELAY_MS);
+> > +	pm_runtime_use_autosuspend(dev);
+> > +
+> > +	ret =3D drm_dev_register(&ndev->base, 0);
+> > +	if (ret)
+> > +		goto free_reserved;
+> > +
+> > +	return 0;
+> > +
+> > +free_reserved:
+> > +	of_reserved_mem_device_release(&pdev->dev);
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static void neutron_remove(struct platform_device *pdev) {
+> > +	struct neutron_device *ndev =3D platform_get_drvdata(pdev);
+> > +
+> > +	drm_dev_unregister(&ndev->base);
+> > +	of_reserved_mem_device_release(&pdev->dev);
+> > +}
+> > +
+> > +static int neutron_runtime_suspend(struct device *dev) {
+> > +	struct neutron_device *ndev =3D dev_get_drvdata(dev);
+> > +
+> > +	neutron_disable_irq(ndev);
+> > +	neutron_shutdown(ndev);
+> > +
+> > +	clk_bulk_disable_unprepare(ndev->num_clks, ndev->clks);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int neutron_runtime_resume(struct device *dev) {
+> > +	struct neutron_device *ndev =3D dev_get_drvdata(dev);
+> > +	int ret;
+> > +
+> > +	ret =3D clk_bulk_prepare_enable(ndev->num_clks, ndev->clks);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret =3D neutron_boot(ndev);
+> > +	if (ret) {
+> > +		clk_bulk_disable_unprepare(ndev->num_clks, ndev->clks);
+> > +		return ret;
+> > +	}
+> > +
+> > +	neutron_enable_irq(ndev);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct dev_pm_ops neutron_pm_ops =3D {
+> > +	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+> pm_runtime_force_resume)
+> > +	RUNTIME_PM_OPS(neutron_runtime_suspend,
+> neutron_runtime_resume,
+> > +NULL) };
+> > +
+> > +static const struct of_device_id neutron_match_table[] =3D {
+> > +	{ .compatible =3D "nxp,imx95-neutron" },
+> > +	{}
+> > +};
+> > +
+> > +MODULE_DEVICE_TABLE(of, neutron_match_table);
+> > +
+> > +static struct platform_driver neutron_driver =3D {
+> > +	.probe	=3D &neutron_probe,
+> > +	.remove	=3D &neutron_remove,
+> > +	.driver	=3D {
+> > +		.name		=3D "neutron",
+> > +		.of_match_table	=3D
+> of_match_ptr(neutron_match_table),
+>=20
+> Drop of_match_ptr. You will have (or you have already same as v1) here
+> warning.
+
+Will fix. But how do I get to see the warning here? Tried building with
+W=3D1 and OF support disabled but it didn't complain.
+
+Thanks!
+Ioana
+
+>=20
+> > +		.pm		=3D pm_ptr(&neutron_pm_ops),
+> > +	},
+> > +};
+> Best regards,
+> Krzysztof
 
