@@ -4,69 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B184FF532DE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3F2F532E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=REa0dCe1zxo0rTDAt2/YJVv4Kpm1GbAGT+/ZQNeOjMk=; b=4Sowpboa+76eo9DTiODRLgDf2q
-	HQ6Fra1+oSSmgulOHFhKJ1MMskCrz8NMeYn7zAWxKvETBvGi5D71vadc3Ujv6/WMSG+8ME1it6Czm
-	TYrC6/DjT0K/iMhmfPWmt68r0to6t9u8NYxdv/1ea2VnOyl2ICnn6h+oHybq8t3lhg64I0bCsD3Ng
-	cct0E+zw42waoMdiujvUqkwTmWs1T17I5Kc4sZCoNZTwi563YIk6TutKtvPYFGNOZ1OuvYHvUbhqy
-	76kj9UQTztTM0M2wRBbTaQ8oppzeOXA0CCnnYlmtshMJMknYt/qDYlMGVADGLYT3tHhkvk1a4UZZw
-	6OQ4NqQQ==;
+	bh=43b6SjPsKc9g6XHmllwsbhvYMGH2v0JIJbnJ7A+toKo=; b=Q1cvi28/JUOA87384x4SJjcDN+
+	o8NjvVS64D7VZZaLFnFMYISFJnSQXT8aQJ9NlrY86dlVLlwdAl0R8QxDD2QHwJHQWjfiVI1CULolA
+	wT7SAIFJPq/e/GQVOgkm9GxIGN4ewVLXNa06VVpH3ujUarmRZrNhAiBiSWU1p23alXzYXMSFXQBTQ
+	Ca0C42FwflMjC6YCFGHQ8Ufj1qeoULY9KiOQYH/KBpQ6nprnoSnNep4lH7CEGFlCUBemGTPpk0CAy
+	cfoBHWOp8M8T7wpBwztp5BzAEbmCMT51p8o6cQAXJs1jHa1YNDdAaGDSU1fJrlqwJIgXAt5jlX+o5
+	rLURTqAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvx-00000000dtJ-0tVV;
-	Tue, 24 Mar 2026 06:08:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4v0N-00000000f9F-3dWR;
+	Tue, 24 Mar 2026 06:12:43 +0000
+Received: from mail-m49239.qiye.163.com ([45.254.49.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvt-00000000doF-2HMI;
-	Tue, 24 Mar 2026 06:08:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C1225600C4;
-	Tue, 24 Mar 2026 06:07:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9ADC19424;
-	Tue, 24 Mar 2026 06:07:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774332454;
-	bh=wFb340HUOaVrCXWQpjgqhiuSeNlgOOpYnArU4IDmxzQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=TBlAG3kLq1QC9v/NKcvGed5e0LjMvlG9h0iMOSj/3glJcGD0yAAUYeXqJdBQlyd0n
-	 mxF3JXMSNmPhKUSGpblKH0uhIQnL36LIgEy4RiYqtxA6VpPMdmI3RCvMcAE/ryfipI
-	 aOiDQoDLBkG/+2wfKqahNxof/eeA24qDIxLyeSjLvnTXWPIFTu55qFEg9sbEnSkyD6
-	 IE90UwaA0J5PEjHSEZVGG/rhPNCy/KGELPK7CQJrWsJnxwHafSwdmIDBCXAlFNjQW+
-	 /GZzQ7+h0MixrEKdi9ZxoOAdi8r3VsYs6bqBzBzxTMMRdItSGJ2Czpb+6ey4cxdcUu
-	 qS1/OaI3tMXnw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA04E3808200;
-	Tue, 24 Mar 2026 06:07:23 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1w4v0K-00000000f8k-1zLW;
+	Tue, 24 Mar 2026 06:12:42 +0000
+Received: from [172.16.12.43] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 380ef77a7;
+	Tue, 24 Mar 2026 14:12:31 +0800 (GMT+08:00)
+Message-ID: <42c0641f-2e37-4ca4-a1ae-e8fde24c8460@rock-chips.com>
+Date: Tue, 24 Mar 2026 14:12:31 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v3 00/12] perf annotate arch clean up
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177433244254.469836.16725604300266891770.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Mar 2026 06:07:22 +0000
-References: <20260122213516.671089-1-irogers@google.com>
-In-Reply-To: <20260122213516.671089-1-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: linux-riscv@lists.infradead.org, peterz@infradead.org, mingo@redhat.com,
- acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com,
- jolsa@kernel.org, adrian.hunter@intel.com, james.clark@linaro.org,
- john.g.garry@oracle.com, will@kernel.org, leo.yan@linux.dev,
- guoren@kernel.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
- morbo@google.com, justinstitt@google.com, zecheng@google.com,
- tianyou.li@intel.com, thomas.falcon@intel.com, Julia.Lawall@inria.fr,
- suchitkarunakaran@gmail.com, atrajeev@linux.ibm.com, aditya.b1@linux.ibm.com,
- howardchu95@gmail.com, krzysztof.m.lopatowski@gmail.com, linux@treblig.org,
- shimin.guo@skydio.com, slyich@gmail.com, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/9] drm/bridge: analogix_dp: Rename and simplify
+ is_rockchip()
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>, hjc@rock-chips.com,
+ heiko@sntech.de, andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
+ alchark@gmail.com, cristian.ciocaltea@collabora.com,
+ sebastian.reichel@collabora.com, kever.yang@rock-chips.com,
+ heiko.stuebner@cherry.de, tomeu@tomeuvizoso.net, amadeus@jmu.edu.cn,
+ michael.riesch@collabora.com, didi.debian@cknow.org,
+ dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
+ m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260319104031.1986946-1-damon.ding@rock-chips.com>
+ <20260319104031.1986946-8-damon.ding@rock-chips.com>
+ <DHAANFJ6QZKU.5NN7RD47T8TI@bootlin.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <DHAANFJ6QZKU.5NN7RD47T8TI@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9d1e792c7403a3kunm954b2488614efc
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRoZQlZKGkNMTU9OGR8aSk9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=d4PGSr2b6bn1E0a78TIiBAHMJrN8AADAEpH+/KsURXWM9e0LXjFYM2ghRcKsjmiMIWmAco/kQcu1H3h4mGFifMUqIGfPZho713TMKNVTVVr8bCYlNu9Ae1IZThaNB1wk3ywC5fTQaj1q7LEs+jZsYt6koSt5zpyBAhM3Td3ayvc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=43b6SjPsKc9g6XHmllwsbhvYMGH2v0JIJbnJ7A+toKo=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_231241_102144_3CE6024B 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Luca,
 
-This series was applied to riscv/linux.git (for-next)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
-
-On Thu, 22 Jan 2026 13:35:04 -0800 you wrote:
-> 3 initial memory leak fix patches for perf annotate.
+On 3/24/2026 12:14 AM, Luca Ceresoli wrote:
+> On Thu Mar 19, 2026 at 11:40 AM CET, Damon Ding wrote:
+>> Rename is_rockchip() to analogix_dp_is_rockchip() for naming consistency
+>> and readability, and simplify the code with switch.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> Suggested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > 
-> Move the disasm.c #included arch files into a new util/annotate-arch
-> directory. Make the code compile standalone. Try to better encapsulate
-> architecture specific code within the files and with a
-> arch__new_<arch> function that allows additional data to be associated
-> with the struct arch using the standard container_of trick.
+> The patch content is OK:
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > 
-> [...]
+> However this won't apply without [0], correct?
+> 
+> So, worth mentioning in the cover letter that this series depends on the
+> [0] series.
+> 
+> [0] https://lore.kernel.org/all/20260319071452.1961274-8-damon.ding@rock-chips.com/
+> 
 
-Here is the summary with links:
-  - [v3,01/12] perf header: Fix memory leaks in process_cpu_domain_info
-    https://git.kernel.org/riscv/c/d84f24c89886
-  - [v3,02/12] perf annotate: Fix args leak of map_symbol
-    https://git.kernel.org/riscv/c/00419892bac2
-  - [v3,03/12] perf maps: Fix reference count leak in maps__find_ams
-    https://git.kernel.org/riscv/c/6fdd2676db55
-  - [v3,04/12] perf disasm: Constify use of struct arch
-    https://git.kernel.org/riscv/c/57d26593a92f
-  - [v3,05/12] perf disasm: Constify use of struct ins_op
-    https://git.kernel.org/riscv/c/1e3b91d6c53e
-  - [v3,06/12] perf disasm: Constify use of struct ins
-    https://git.kernel.org/riscv/c/2a1ca20d0b58
-  - [v3,07/12] perf disasm: Rework the string arch__is to use the ELF machine
-    https://git.kernel.org/riscv/c/927308527310
-  - [v3,08/12] perf disasm: Don't include C files from the arch directory
-    https://git.kernel.org/riscv/c/07b972ff09f4
-  - [v3,09/12] perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_ops
-    https://git.kernel.org/riscv/c/5301cc698821
-  - [v3,10/12] perf map_symbol: Switch from holding maps to holding thread
-    https://git.kernel.org/riscv/c/c4e3a00356ff
-  - [v3,11/12] perf disasm: Refactor arch__find and initialization of arch structs
-    (no matching commit)
-  - [v3,12/12] perf disasm: Minor layout tweaks for struct arch
-    https://git.kernel.org/riscv/c/dc329efc162a
+Yes, I will add it in v3.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Best regards,
+Damon
 
 
