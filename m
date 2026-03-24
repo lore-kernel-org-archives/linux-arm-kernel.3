@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5CDF54AAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D340FF54AAF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WN2wTNGMgM5bYbRGfOQZgYj/JyTydD59C5V7z3tIw28=; b=G5cRctpHsI1C1C/64fNdme4tjJ
-	W1mk17X/gFCmd1owlimhC3JxIYWT08RlzFHSTZA2Gh9UNBqX4EThAV57DyHFcF+vsxzYAgMW7i3y+
-	6F6HbWjpe8ZqXKqpw+np4yWBWsZP+2P8IVLBgeRiVg+auuPS19OLHcMNhHuaqVLDAVlIajNSg2jt5
-	VQ/E//9WYwZLN1x90nbMhzgLPxDyNQxj8phKMh0qTXzwxZ95plpixviHtYBEvnrV16SlHH3UOF6tP
-	3d//rsC9KJGR5Uy60mI1upBrIODpOsglysbxcAIUP4EDlhqBnAqoEA424gSsi3Lu5QifL2UIqMAsD
-	dzIWu0EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DlxdYudQZHzhSVGoJ5F2It4bIBVpOirU3SHbVtuL3k=; b=Rm2oTJ3HD8OYLPXVBnQwcfd9zr
+	FAdZw1UWk4WNOiwJJW3TApBKpIPF7acdO3Md7aMDbfpNSVuDBuQc0lSLvaBd7Eo/9Oo/qbtP2qtRj
+	rtasnJoJR1nemtk950kP2WHFEA/lBGKrdUZBB/Qe4i6aYQ58VXXqYS/IzF8AXED/WGSuQ0Vux+VpN
+	IAPvsRfhad4EEoslO0d1yVNQZtZzvBVPd/cK36JHuxqz4CiopZ8AJWfXatypqwf7H4Ve+G46L6k+u
+	oI9xw3IxCXZXF+JPkI84u+jMyGVozVrwY3wioqSts+OW60l3GY24QHJm75ZABGWBfVwPZK/8Z/bUE
+	qh60+L8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51RF-00000001UMx-2X0h;
-	Tue, 24 Mar 2026 13:04:53 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w51XF-00000001Urh-1eul;
+	Tue, 24 Mar 2026 13:11:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51RC-00000001UMP-2jWi
+	id 1w51XB-00000001UqM-33Cg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:04:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=WN2wTNGMgM5bYbRGfOQZgYj/JyTydD59C5V7z3tIw28=; b=JO4krb767LEVW4/gzQbytGjPP0
-	FIMh0JO+ZsFiQqlgXLpEQXy+eQz2g1WGOjXNbzS/NKmGHCMkdlLFXkjvL60PFC3f/G9a6py6A95Gm
-	96ru2QzKxJQQS/k6iUDn7Dg3FxM7m8nYjcTRlIb3HuBYR6O3quUUlNs2OW2TrV6WAFJjPQ2+2Q0bT
-	mmgDDxr+rwB2aMz/UIIRPsLkxdp5Zpx7UZbRIJm20tcHSeOK7cIbnHJoqGQwKSh2lVbAUpgMCEM/Q
-	QUsRNCxtLrGZ/884HjkfwvmSZ7+VurZEZR6m0RiLmmeUrmXRsh8T2Gnvr44ouJMTk87XQFyG67lKP
-	1fXJtbMQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38946)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w51Qz-0000000021Z-0snn;
-	Tue, 24 Mar 2026 13:04:37 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w51Qw-00000000558-0Eg7;
-	Tue, 24 Mar 2026 13:04:34 +0000
-Date: Tue, 24 Mar 2026 13:04:33 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Paolo Abeni <pabeni@redhat.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Cc: Michal Piekos <michal.piekos@mmpsystems.pl>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] net: stmmac: skip VLAN restore when VLAN hash ops are
- missing
-Message-ID: <acKL4RoM-zdwj1Ib@shell.armlinux.org.uk>
-References: <20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl>
- <5e5706bb-0f04-4bb1-94f4-45083a3c76fd@redhat.com>
+	Tue, 24 Mar 2026 13:11:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C9F57444A0
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 13:11:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE10C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 13:11:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774357860;
+	bh=ORbDg8+0Z2ANVi6DavoUZdnquVF34S4e8d2NiLiHAfI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=dAJ1bwvE/ZSWO6JumYWCZ9c0P+EffpxSjDvLCbFIdN1ytGZfKPldgSmkDxowsZq0m
+	 6izQMHzNmwTe/TOtE79Sx0Hfy3sRYTGwXV2X/wBikko1aM54bhuD2RTeyrxsgraWAE
+	 z5pBVHqurNwb9PoZ0wjSNjN7qHVLuzEFJT4nV3J/0VpPlPf322klZLZwRJqCB5ij6+
+	 5hJ4frZbwJOYYppJsam2O9lEIAYCwA5659Xkdvoi7sn4KNpEUoy3+hu3rB0bkszdVI
+	 wnMAlzfIxcrZ5oenX7WyI0VFjzV6DZo/v5zxkxu3+1+6sbnADS1syY+htnkjaG56Mv
+	 p3pOgbLCWcovQ==
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-64e8cdafeffso7662470d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:11:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUfc6yhXf/BJL29BJ0NOmkYhuUg15hK1/yyqbL6HpDvg3JvJzmUQFYpzvSUBKj++gaDeHljYRp5wollAkHuA17k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7JJthhtIR8vA9ISAI8/gGy+GjDoAh4nVBFrhsurXcsZ8ZwBOI
+	7jj7Ohzzcex+XER5X/ZN8qKphVEe+BVLeu2T8lnGYnxj0qdVPzzjKc8TuoCIyy5D6Flz6eYklNy
+	v+IOv6JrZeD+FWUB3FKKgOLMJK9Cno/s=
+X-Received: by 2002:a05:690e:16e1:b0:64d:6cac:ecb3 with SMTP id
+ 956f58d0204a3-64ed798167fmr2191116d50.35.1774357859823; Tue, 24 Mar 2026
+ 06:10:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5e5706bb-0f04-4bb1-94f4-45083a3c76fd@redhat.com>
+References: <cover.1774283146.git.dan.carpenter@linaro.org>
+In-Reply-To: <cover.1774283146.git.dan.carpenter@linaro.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 24 Mar 2026 14:10:48 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=mz5jOLkq6GA6ZWzfGfFnVOLTCoXKOd38YHj2UZaZ9ww@mail.gmail.com>
+X-Gm-Features: AQROBzC_PVLEzvyq-VUAWwZR3Zdrlt3WKR3fyJ00TG0JrBVhIbhE3LyYep2gdCQ
+Message-ID: <CAD++jL=mz5jOLkq6GA6ZWzfGfFnVOLTCoXKOd38YHj2UZaZ9ww@mail.gmail.com>
+Subject: Re: [PATCH v6 0/7] gpio: introduce a GPIO driver for SCMI
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: AKASHI Takahiro <akashi.tkhro@gmail.com>, arm-scmi@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, devicetree@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>, 
+	Michal Simek <michal.simek@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_060450_851159_053378B9 
-X-CRM114-Status: GOOD (  39.99  )
+X-CRM114-CacheID: sfid-20260324_061101_787476_0D4E120E 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,145 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 01:14:29PM +0100, Paolo Abeni wrote:
-> On 3/21/26 6:38 AM, Michal Piekos wrote:
-> > stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
-> > NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
-> > ->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
-> > -EINVAL via stmmac_do_void_callback(), resulting in a spurious
-> > "Failed to restore VLANs" error even when no VLAN filtering is in use.
-> > 
-> > Check presence of VLAN HW FILTER flags before stmmac_vlan_update().
-> > 
-> > Tested on Orange Pi Zero 3.
-> > 
-> > Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
-> > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> > ---
-> > This patch fixes a noisy "Failed to restore VLANs" message on platforms
-> > where stmmac VLAN hash ops are not implemented.
-> > stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
-> > VLAN hash ops presence which results in -EINVAL. 
-> > ---
-> > Changes in v2:
-> > - Replace check for hash ops with check for HW FILTER flags
-> > - Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 6827c99bde8c..cfc0ce9cec9c 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -6863,7 +6863,8 @@ static int stmmac_vlan_restore(struct stmmac_priv *priv)
-> >  {
-> >  	int ret;
-> >  
-> > -	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
-> > +	if (!(priv->dev->features &
-> > +	      (NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_HW_VLAN_STAG_FILTER)))
-> >  		return 0;
-> >  
-> >  	if (priv->hw->num_vlan)
-> Adding Russell.
-> 
-> It's not obvious to me that with this change the
-> restore_hw_vlan_rx_fltr() and vlan_update() callback are still invoked
-> in all the relevant driver/features permutation.
+On Mon, Mar 23, 2026 at 8:01=E2=80=AFPM Dan Carpenter <dan.carpenter@linaro=
+.org> wrote:
 
-I think there's a few questions here.
+> This basically abandons my earlier attempts and goes back to Takahiro
+> Akashi's driver.  Here is the link to Takahiro's patchset:
+>
+> https://lore.kernel.org/all/20231005025843.508689-1-takahiro.akashi@linar=
+o.org/
+>
+> v6: Fix a build error when CONFIG_PINCONF is disabled
+>     Fix the dt-binding subject and my email address
+>     Use pinconf_to_config_packed() instead of PIN_CONF_PACKED()
 
-When CONFIG_VLAN_8021Q is enabled, then we set the filter features
-if the vlhash dma capability is set:
+v6 applied to this immutable branch:
+https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/lo=
+g/?h=3Dib-scmi-pinctrl-gpio
 
-        if (priv->dma_cap.vlhash) {
-                ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
-                ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
-        }
+Then merged into my devel branch for next.
 
-Only dwmac4 and dwxgmac2 have the ability to set this feature (and
-thus be synthesised with the feature enabled.) From what I understand,
-when present, these features are permanently enabled (as they're not
-set in hw_Features).
+Bartosz, you might want to pull it in!
 
-However, in stmmac_vlan_update() there is:
+Dan: thanks for your efforts to fix up the remaining hurdles and
+bringing this to completion! Sometimes the last few % of work are
+the hardest.
 
-        if (!priv->dma_cap.vlhash) {
-                if (count > 2) /* VID = 0 always passes filter */
-                        return -EOPNOTSUPP;
+Also thanks to Takahiro for this idea: it worked out just like you
+imagined.
 
-                pmatch = vid;
-                hash = 0;
-        }
-
-So, it is clear that the intention is that stmmac_vlan_update() will
-be called even when the NETIF_F_HW_VLAN_*TAG_FILTER features are not
-present - consider a core that implements the VLAN ops, but has
-priv->dma_cap.vlhash false.
-
-It looks like vlan support was added in dwmac v4.0 and later cores
-(from the hwif table.) As the vlan ops are NULL before that, the
-horrid stmmac_do_void_callback() crud will return -EINVAL (yuck). The
-method it calls is a void function, so the only possible return values
-are zero if implemented, or -EINVAL if not.
-
-stmmac_vlan_update() itself only ever returns zero if the netif
-isn't running, or the above return value. So, an error returned from
-stmmac_vlan_update() just means that the driver has no support for
-programming the vlan configuration.
-
-Looking at the implementations for the case where vlhash is false,
-(where stmmac_update_vlan_hash() will be called with hash=0 and
-perfect_match with a vid, vlan_update_hash() still write
-to the VLAN_TAG register to configure vlan handling. I haven't
-looked up exactly what it does.
-
-The other possibility is dwxgmac2_update_vlan_hash(). This looks
-similar.
-
-So, I don't think that the correct solution is to only call this
-function when one or more of NETIF_F_HW_VLAN_*TAG_FILTER feature flags
-are set - clearly the code is written to handle the case where the
-update_vlan_hash method is populated but vlhash is false and these
-feature flags are clear.
-
-Now I'm wondering whether the code in the STMMAC_VLAN_TAG_USED block
-is correct:
-
-        /* Both mac100 and gmac support receive VLAN tag detection */
-        ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
-        if (dwmac_is_xmac(priv->plat->core_type)) {
-                ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
-                priv->hw->hw_vlan_en = true;
-        }
-        if (priv->dma_cap.vlhash) {
-                ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
-                ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
-        }
-        if (priv->dma_cap.vlins)
-                ndev->features |= NETIF_F_HW_VLAN_CTAG_TX;
-
-The test for dwmac_is_xmac() matches for dwmac4 and dwxgmac cores. If
-this is true, then we will have the vlan ops populated, and it means
-that NETIF_F_HW_VLAN_CTAG_RX can be configured by the user rather than
-being always-enabled. Is this correct? I'm not sure - I haven't dug
-into enough of the documentation for this yet. However, I suggest
-that we need to always call stmmac_update_vlan_hash() for these cores.
-
-So, I'm coming to the conclusion that we either need a test for
-dwmac_is_xmac() and not the feature flags, or maybe we just get rid
-of the "Failed to restore VLANs" error print and make
-stmmac_vlan_restore() return void (nothing uses the return value.)
-
-In summary, I'm not sure what the correct approach is - please reach
-out to Ovidiu Panait <ovidiu.panait.rb@renesas.com> who recently added
-this code, but I'm fairly sure that this solution is incorrect.
-
-Really, Ovidiu Panait should be reviewing this patch as his recent
-change introduced the problematical error print.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Yours,
+Linus Walleij
 
