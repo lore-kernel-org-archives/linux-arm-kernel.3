@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98990FEC10A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03CEFEC0FC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmyvvqpA+3a7QNkSRtg2hYz7ys9jbAoSkQkaOVx2QHM=; b=xWdYz2U2kjy1BqRpOYVKXOlJAL
-	3VmTYFi79oR8bdjRvILipwPsJCoI1qycw+sXsH32zzFGepIdvvS3fkOZDdIYSvP6qtcbrIW0c8Y1z
-	atk/7ee4WdcHa+Lyq9w/ZbZ0U0l+CzGBpOUM/U9vPIsWhJ8r+ADJxmMzYQSDF5IZj7JtzcLk+Mc4m
-	G0e/KfSi9bSnpzspuitAsDFiKzqDUHqMiTSt8MFQPV7U7ZbuGpsQtntSj6VqT55V2inlq3KxSPViV
-	I+gGZqNs3r3VaJ9v9F85A0udMIST9/qGtvg18HbOyMd3hOSxZEm5VwfSOb0GYeMNyVZLX9hU1tdCL
-	K47LiFTw==;
+	bh=dl4I20khcnPtNiwIO0FoSOod5kTJzQ8CNj323iUPvp0=; b=B0S7Yx7eBXy+yuL7RskLNldEIX
+	JxX0IGejuCt3f8Lg7KVyplwRhAOzB3Dzg0TBpAdxA1ycxrzTtLlPrV6+bS1BlOcWbpBkwU18SW7vu
+	zeURS0cwoMoGuzZhEE6uiO+umvjBkoV2B4UtSQ4seMJTpAX1yCSyGhqdVRfifHE8bsVFDNrcazvZ+
+	rVl+tB7hznyNR4GkVM79V6nkfhw1+znFUdCD85cwqIz0cWpwJTfT+WzeK8lVasFohXGEZiZ11D5bz
+	BEE5I7EuYW9Ob3ViWQoQN/UyLyxLoiMECwlr0gRMk2LN8c3e5ILjLUL8w97ld8FDrVS+EsQSBJ0uL
+	swAGc01g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57pd-00000002BDv-0vJ7;
-	Tue, 24 Mar 2026 19:54:29 +0000
+	id 1w57pm-00000002BKP-3yih;
+	Tue, 24 Mar 2026 19:54:38 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57pE-00000002B0O-0PM4;
-	Tue, 24 Mar 2026 19:54:06 +0000
+	id 1w57pM-00000002B5t-48Ne;
+	Tue, 24 Mar 2026 19:54:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=BmyvvqpA+3a7QNkSRtg2hYz7ys9jbAoSkQkaOVx2QHM=; b=FmdE7+7ZFuqHGQ1eoEPmRfwWHc
-	gDSuY7MlFYtFqYrLvbQAxRsTpBRF2kOqvvzn1etrChow06IyZ9VYIkSvw8wNjqHpNn/P5PIYv2Ttv
-	CUKejrMgFjCTbUYk51KfetfnCmrCzOEMZjXU8hMVIK9RY7s/Yt1ZvBMx5SKEk6GXTtD7iV6zdJwfm
-	4DBB71jvEuDF0Rj6jNmeV72HVnujsV5+LnvDuz5hhAkmyQiY9AhDelYi9VMNcjiWlEc7SF4RHsg1+
-	KB4KbBvmaef+QShBwAbrMtcxPkjMQTwLq9gSi2zaTAgqYvnAMdRTcpwXryCKa7owqRVrGPE/DmitM
-	JDDZGqlQ==;
+	bh=dl4I20khcnPtNiwIO0FoSOod5kTJzQ8CNj323iUPvp0=; b=jWLfHngN8P9DFmaJcfaWOIaxga
+	HfjqYFOuMkFYHp7n4o3R+WPs1GdYMYLzXn1Iw4+DtLatHcStX0ZfaMoXocjzohmUy/qd+p2OgWZ7m
+	Jccvq6lxzJ+c2/KiExS0ESO6EfdAqzAu+pS9GmjqviUn/FfjelTkv+5m6bXP5u8nxnO6VSxIS1gkb
+	KMGh+/bp4ZWLIQgODZyKppiTbl5x0PaFy0hW+6oKlRERicZ3ULqGQsG5PCcBiNvGiNeWjJ2PLW91Z
+	6Vlt3FS3oS4pfWIZelEltL06Ozpe80v7dTTSWoK+U7XzO5AK96iMKIWJB3ko7+53rnXNfJh2kGHua
+	WS3BLLqg==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Gray Huang <gray.huang@wesion.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH] arm64: dts: rockchip: add SD/eMMC aliases for ArmSom Sige5
-Date: Tue, 24 Mar 2026 20:53:56 +0100
-Message-ID: <177438200681.818857.12277446311254915277.b4-ty@sntech.de>
+	naoki@radxa.com,
+	jonas@kwiboo.se,
+	chaoyi.chen@rock-chips.com,
+	i@chainsx.cn,
+	michael.opdenacker@rootcommit.com,
+	inindev@gmail.com,
+	quentin.schulz@cherry.de,
+	andrew@lunn.ch,
+	alchark@gmail.com,
+	pbrobinson@gmail.com,
+	nick@khadas.com
+Subject: Re: [PATCH v2 0/2] arm64: dts: rockchip: Add initial support for Khadas Edge 2L
+Date: Tue, 24 Mar 2026 20:53:52 +0100
+Message-ID: <177438200679.818857.10509162196522852647.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260317-sige5-mmc-aliases-v1-1-ee93a1571802@collabora.com>
-References: <20260317-sige5-mmc-aliases-v1-1-ee93a1571802@collabora.com>
+In-Reply-To: <20260317090731.600787-1-gray.huang@wesion.com>
+References: <20260317090731.600787-1-gray.huang@wesion.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_125404_191375_644DAF9C 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260324_125413_026571_56E3BA93 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +83,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 17 Mar 2026 15:39:30 +0100, Sebastian Reichel wrote:
-> Provide aliases for the SD and eMMC interfaces, so that the operating
-> system can assign stable interface names.
+On Tue, 17 Mar 2026 17:07:29 +0800, Gray Huang wrote:
+> This patch series adds initial basic support for the Khadas Edge 2L board,
+> which is based on the Rockchip RK3576 SoC.
 > 
-> On Linux this is only relevant when booting without partition UUID
-> based root device identification, e.g. when booting without an
-> initramfs. In that case booting with e.g. root=/dev/mmcblk0p2 is
-> unreliable without this patch as the device numbers changed based
-> on device probe order.
+> To keep the initial review process simple and easy, this series only
+> enables the bare minimum peripherals required to boot the board to a shell:
+> - UART (for serial console)
+> - eMMC (for root filesystem)
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: add SD/eMMC aliases for ArmSom Sige5
-      commit: 6f7f44169bdef6e10b8d174079a155d02b87d2dc
+[1/2] dt-bindings: arm: rockchip: Add Khadas Edge 2L board
+      commit: b1a9b33cff4f58f2507e930d2c5805877928c6f7
+[2/2] arm64: dts: rockchip: Add Khadas Edge 2L board
+      commit: 254c6ae9c5014497e840a6fb8520f70caef31097
 
 Best regards,
 -- 
