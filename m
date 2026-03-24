@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667D0FEC0EB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515E9FEC0EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/JtUAW8GMSlEGiFymjy5UUqojkB5rvdVEFyaDuZCyA=; b=QdjDAAqHQW44cTwTqmoEcWauIX
-	jHEKmIPnX95aT2vfp5AGglzF3wqsAnueTkv5zfVwVqEJv4lBpaFVhjqWCnBpeyVP0tGlejXYfJ0lL
-	6n/muOlRRGoJoS3A/Yt+4ZS9u+pINbfdwoRUrDUr2xLo2C3nxKHgQk3AfOetIiuk6bsZ8A8JDT49i
-	Yk7+uBkizHGuF9ETboVvgjBSFkz4iSl2BQHuCAOkcttMy59U29ljjDJn2e9Wvzziis0qn3idCLUaN
-	TIv82LiNlVO4OQFDs3G6PMPHs0JHOd1sdeiBCxSg+PFS74GJ8CyLFIZkxro2vKwI8b7Psqv0CuAKx
-	tr+F0ulw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+t7UOgsaQNJI1+hSFJ/TE0l2lvtx+/FOkJRhUvxWn2s=; b=jeeIOKUokKMY7Hvl9TFrJRiQHZ
+	WSaEVdcp9xxmj3Xui4RRaCkSlsd9W0r3GQs6rpIBDN/2Xtq/++Iz5adYc1I7d5i93MAfu4dfqryGG
+	MO+PS6IpDx986mN+JM2ReepsGuEY1q2FxLrgRXd7S7vULMIGDJD+fBaoISsTZ/SWX/tC7bD9HOeGG
+	7BjyQ5kpNVzorVAYwzZlk74cgxWVKKq4QXvm4lHcGIZcwZRhPJH0OQK5T2D0Lu2sUVRjRQ/yA0XtC
+	mivuIrPQ6nNQgCj0ezvRRkEQnE4gNHIcPWW6JbchCiHHGR7DAeoAsQ3u6IPaFkdntsEpW4w7Qw4Y3
+	iuLONuJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55iw-000000020gC-3JPP;
-	Tue, 24 Mar 2026 17:39:26 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1w55j8-000000020iQ-2bRh;
+	Tue, 24 Mar 2026 17:39:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55it-000000020eS-02FL
+	id 1w55j7-000000020hx-3XAs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 17:39:25 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9886F112113;
-	Tue, 24 Mar 2026 18:39:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1774373954;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=f/JtUAW8GMSlEGiFymjy5UUqojkB5rvdVEFyaDuZCyA=;
-	b=IVfk07uk/ynDHxds/NRsCk3rHM3TbSBSIOTj/IqLvbEz9cyuAO144EmuDtwORQW1zsNVxW
-	rmNoWq9YmK80G3NdDLO7FbGf/FljjqwSPCRhdJMk3VyJCFXZ6BcJe3sDHYOPYB03GNPEHv
-	Eiq542aYV+NqmjD6j3BZuScr/0mbOZmCx53FhUQ2LbEgzojWBTxzeHBcE69xFvSeqtlPe5
-	IBBvAVDx+7Jdv1xn6bpiREYhkPuMS5tIuDPwg1lTyGe6I1XQO2DjrcaQWlm6xnFoo02+Cq
-	dJ0CCD6fjki60dIA3qzlV9i68+aPL7tRjE4uaT7hWj2f2+BEqBnPRwlQdeGu3Q==
-Message-ID: <e5d7ca6a-fdd3-4aca-aa1f-1d35bc9c0119@nabladev.com>
-Date: Tue, 24 Mar 2026 18:39:10 +0100
+	Tue, 24 Mar 2026 17:39:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 05616600AC;
+	Tue, 24 Mar 2026 17:39:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67DD3C2BC87;
+	Tue, 24 Mar 2026 17:39:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774373976;
+	bh=ZaI9P4HdmB3KMrbR4xZJNOkfWyry+qYtmIIIXLbqdhI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Vdxmtj4Fccv1fMIcMIq7MCmAm1ig+TX/gx3la5VFAMBYZLsELxlJqtDnhi8s0B4fZ
+	 FLtzNrkiYwLvR/VlBNRdm2g4ZrtmG0X0TZr2TyVuxc8x6k76h5ZsOIUyEILG7t+znD
+	 HsssQ29vRLe6cli6lWTOv6jdQ1HJqAj1DZnBHNcQkAKIKL+LKRwHPk0VvTdxe3r1dy
+	 LEVtjW6e7jllH/rriv3XSz9sPLVUaGTznEFwLuTrrX2lRLBtxHH9g9PTDJ/Yi9h+jS
+	 q0bGnG85JuFtt7z9RHDVdsl+TNuDQqI503+4QYEqi63536yH4BA3zYFqgfTGF5gQ57
+	 BJwrDkjNYBm8w==
+Date: Tue, 24 Mar 2026 17:39:31 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/5] KVM: selftests: arm64: Skip all 32 bit IDs when
+ set_id_regs is aarch64 only
+Message-ID: <d5759443-ffc2-43b3-93f5-99ec55492a81@sirena.org.uk>
+References: <20260317-kvm-arm64-set-id-regs-aarch64-v5-0-a60f2b956e22@kernel.org>
+ <20260317-kvm-arm64-set-id-regs-aarch64-v5-4-a60f2b956e22@kernel.org>
+ <86pl4t41kc.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus
- DHCOM SoM and boards
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Christoph Niedermaier <cniedermaier@dh-electronics.com>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev, kernel@dh-electronics.com,
- linux-kernel@vger.kernel.org
-References: <20260312232500.197096-1-marex@nabladev.com>
- <acK1YU6M5FGK3qM2@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <acK1YU6M5FGK3qM2@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_103923_265209_94193CC7 
-X-CRM114-Status: GOOD (  16.57  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="H1nc6A8dHTsws8fc"
+Content-Disposition: inline
+In-Reply-To: <86pl4t41kc.wl-maz@kernel.org>
+X-Cookie: Forest fires cause Smokey Bears.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/24/26 5:01 PM, Frank Li wrote:
-> On Fri, Mar 13, 2026 at 12:24:04AM +0100, Marek Vasut wrote:
-> ...
-> 
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-overlay-panel-ch101olhlwh.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-overlay-panel-ch101olhlwh.dtsi
->> new file mode 100644
->> index 0000000000000..534737363c9f0
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-overlay-panel-ch101olhlwh.dtsi
->> @@ -0,0 +1,42 @@
->> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->> +/*
->> + * Copyright (C) 2022 Marek Vasut
-> 
-> 2026?
 
-That was the original copyright year when this was implemented, but I 
-can update it to 2022-2026 ?
+--H1nc6A8dHTsws8fc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
->> + */
->> +
->> +&display_bl {
->> +	pwms = <&pwm1 0 5000000 0>;
->> +};
->> +
->> +&DH_OVERLAY_PANEL_I2C_BUS {
-> 
-> why upcase for label, generally it should be lower case
+On Tue, Mar 24, 2026 at 04:47:15PM +0000, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-Because this label is really a macro , please read on.
+> > On an aarch64 only system the 32 bit ID registers have UNDEFINED values.
+> > As a result set_id_regs skips tests for setting fields in these registers
+> > when testing an aarch64 only guest. This has the side effect of meaning
+> > that we don't record an expected value for these registers, meaning that
+> > when the subsequent tests for values being visible in guests and preserved
+> > over reset check the value they can spuriously fail. This can be seen by
+> > running on an emulated system with both NV and 32 bit enabled, NV will
+> > result in the guests created by the test program being 64 bit only but
+> > the 32 bit ID registers will have values.
 
->> +	#address-cells = <1>;
->> +	#size-cells = <0>;
->> +
->> +	touchscreen@41 {
->> +		compatible = "ilitek,ili251x";
->> +		pinctrl-0 = <DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_PINCTRL>;
->> +		pinctrl-names = "default";
->> +		reg = <0x41>;
-> 
-> reg should second property,  please dt-format for new dts files.
-> check others
-What is "dt-format" ? Linux kernel source tree, even current next, does 
-not mention such a tool . I did run schema check and checkpatch on these 
-patches. obv.
+> I don't think papering over this problem is the right thing to do.
 
->> +		interrupt-parent = <&DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_IRQ_PARENT>;
-> ...
->> +
->> +	ports {
->> +		#address-cells = <1>;
->> +		#size-cells = <0>;
->> +
->> +		port@1 {
->> +			reg = <1>;
-> 
-> need empty line between child node and property.
+> If the issue is that you have HW that has both NV and AArch32, then
+> KVM needs to be fixed to make the 32bit IDregs RAZ when NV is present
+> because that's not a configuration we support.
 
-Fixed in V2
+Yes, I'm seeing this in practice - it hits by default with qemu which is
+rather more readily accessible than actual hardware with NV at this
+point and I was concerned that since these registers are explicitly
+UNKNOWN (sorry, a mistake in the commit log above there) rather than RAZ
+if FEAT_AA32 is not implemented there might be gotchas.  I do see that
+there's some forcing for the case where the host doesn't support
+FEAT_AA32, I figured there must be some reason why it wasn't done based
+on the guest configuration.
 
->> +	#size-cells = <0>;
->> +
->> +	eeprom@56 {
->> +		compatible = "atmel,24c04";
->> +		reg = <0x56>;
->> +		pagesize = <16>;
->> +	};
->> +};
->> +
->> +&ecspi2 {
->> +	status = "okay";
-> 
-> status should be last property. I stop here because these
-> should be identify by tools/script
-Neither checkpatch nor schema validation complained about these.
+I'll add something to kvm_finalize_sys_regs(), it'll still need updates
+in set_id_regs since that'd make the 32 bit ID registers change value
+when the guest is run.
 
-I moved the status=okay to the end. Anything else I should update ?
+--H1nc6A8dHTsws8fc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnCzFIACgkQJNaLcl1U
+h9DDYwf9Em0WcSM2aylb1zHYADTr7YnIzBQqP/o86zuktEp0HrunQTiCzDnl3NMQ
+14RDXaHemX5VrVrYw29JutWLjEl1YI96rmMC8p6qBGSbo3V4DuV6pgoNwDta713e
+EJot0soFFT+bQk/N89VCWySOmyeWQKOBG93JVNiVBQ95+dcEFst5EmnfCGrpIan4
+yolB+GbbZ3SO3T6e3qg/ySgwrREbwCHLb+WAdKfV7NsT3AhXVrbaomdmlxIN056L
+foTiPS0xYSRj34dNUUnAamoZkgH/W+8+1J+sfufT4xjezwviTr4WlkHTxIsL0UPx
+2UJZqwfH8yGafVp75qoAFoGBj/kXZQ==
+=krAn
+-----END PGP SIGNATURE-----
+
+--H1nc6A8dHTsws8fc--
 
