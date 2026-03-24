@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0A20F54ADA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD95F54ADC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vVIqBuyIq4R4/UVhTmLSRBTYm0AzPhhoH+Jbpk0DIV4=; b=zb2iUns275R6IXRCx6PmN89oaK
-	DA2rQTvsDp4WFIOWz1ftXDFL3Nrl3BbMC7USVlqeCXIYs3jB1BVFwx+mJmb6Izi6ESIvcg6xA9yB7
-	UtD+1agQ8LvjCDXNJN+8sRikOf5ytr7WPRwGRrpoNN3/6Lb8kEcgorYZP6jJdTWFhDuVSHtEkTNwc
-	UBI0SAZpzh+UNJ/VlGCDyJi94Lapzq8tvoxbeihoO3dYynnO75a1HQAsoF6U2pUavPurpK3dVc/6U
-	wysqHl47KSMkS71fzhQwweJukNDmff5IwwRaHJQ+CI7YYBHtOAfTvI3APE2tGWRZ+qv//Ec5Opfji
-	CONKGMyQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pcUAX0q1yGtUD3vTJWJKedAHMDPJIsOcQZyGNEBEUBc=; b=1h+XA4K+lo7XRRTROApEEJiabl
+	dBd8kmffjuAn+f1uP76gPIPdhKz3h1Qvw+jRmNp9X0q3ipAw0K5JLPazc7c001tCZs1QlIqm8EDkN
+	x7u2sPir8Ofur+0vG6oPc7XvyLyJs/T8VkghEYRVPjfP0SBLM+9IO3wR00wD6TxVenCXyiSbkfK05
+	4i8eOG2W82Pg8Qk1gPYr7Vn6A+SVRedCi9cSWE3AohlEeo4RAyrBzYPQBdPtt8YRw0SwgPO9ZZeNi
+	nPkRjj2Miy2tbi7NK2Q3oOziGq2GMSe3fxBkKP2kTRil+jeL+OpsSWnFbGnLV0T1/Ii74ML9ejg3I
+	foAK4kTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w555J-00000001wVo-4Byq;
-	Tue, 24 Mar 2026 16:58:30 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1w555X-00000001wYT-1KEL;
+	Tue, 24 Mar 2026 16:58:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w555H-00000001wV0-2BNm
+	id 1w555U-00000001wXT-1N0N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:58:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774371508; x=1805907508;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=AVKqbcBAH58YtvbtTvUhV6tMedua8892v/x7yCDldr8=;
-  b=PTsN99bF0lSOri0HlLtKCrSzjY3kuYeKWd0ttsXOAAhx6T23XnRli6wR
-   dUzUZkraco9u4olfV7qAzGMJkPKSwEMO06q1JhW2YkHxdewbCjhgGeS8c
-   ZOXmOFgSnJ9zsfDkPAzcoyF41qdYhpKKwzfO5uN6/zdrWw9kImLm7MGQO
-   PcHOd6wgNgA6p0iYnCrF4tQiCWMwYyfKMaaBJsVOUAej/9bcFU2hs1q6g
-   Eqff3l15n6Qmd7dKiEbn8Xm0z03KykzTFy+hqy/1NNimqsdelrVFYPYow
-   cRotwo6L1pxrkjqPOgslpTS3r25r3d4HMnzpBgII5c0HHUeX/cJyM4W/t
-   g==;
-X-CSE-ConnectionGUID: LcMClzS+Ts2+9Rt7Df+T5g==
-X-CSE-MsgGUID: G8BK2+1lTLmaMvlDsaPjtA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="86471504"
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="86471504"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:58:25 -0700
-X-CSE-ConnectionGUID: aesm43ZmRSeKftw4Z5hIbQ==
-X-CSE-MsgGUID: C08Qc1D5Q9Gv1bbEQjAQVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="224421853"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:58:15 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: linux-pci@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	linux-alpha@vger.kernel.org,
+	Tue, 24 Mar 2026 16:58:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F3B843E35;
+	Tue, 24 Mar 2026 16:58:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F19EC19424;
+	Tue, 24 Mar 2026 16:58:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774371519;
+	bh=XTX3RY7lgLXPIuC8OIWPU6uF7FH2kNY+iILh8Aykr9o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RKc66ACIVg0DMObY7mYeEgbbYlwLWvGU2c2JLYflggsoa+sRKJ/wwQUy1JGBXocBC
+	 AD4JqBTcSW0NwMq8szw8olUqMB43x3FpezZASqKUmSyDmHtBBCQ2iVpP6P/mVFzfdU
+	 CTxAS3J+MYl7n3Ka7tbXRN/ehxVUjANMaGV/pVh3v0D7LhBIfxyF55ywOdI+0Q5NFm
+	 Mc4fkj3s+oM3rMvggMKHFtHMZWB+KE6al6bh8Z1Ws3DDXAVBSm7pa2zJBs5uihcyaK
+	 dxO83w/ddPbDzgZIGtZsarGjGDJQTX2mdDEY+aBAZIvBrXD6MIwcZ7+4OHMfa4DNmG
+	 gVVOCNQ4PBv9A==
+From: Simon Horman <horms@kernel.org>
+To: wei.fang@nxp.com
+Cc: Simon Horman <horms@kernel.org>,
+	frank.li@nxp.com,
+	devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	conor+dt@kernel.org,
+	vladimir.oltean@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
+	kuba@kernel.org,
+	claudiu.manoil@nxp.com,
+	andrew@lunn.ch,
+	krzk+dt@kernel.org,
+	linux@armlinux.org.uk,
+	edumazet@google.com,
+	linux-kernel@vger.kernel.org,
+	pabeni@redhat.com,
+	f.fainelli@gmail.com,
+	imx@lists.linux.dev,
+	chleroy@kernel.org,
+	netdev@vger.kernel.org,
+	robh@kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH 00/10] PCI: Improve head free space usage
-Date: Tue, 24 Mar 2026 18:56:23 +0200
-Message-Id: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
-X-Mailer: git-send-email 2.39.5
+	xiaoning.wang@nxp.com,
+	davem@davemloft.net
+Subject: Re: [PATCH v2 net-next 08/14] net: enetc: add multiple command BD rings support
+Date: Tue, 24 Mar 2026 16:58:04 +0000
+Message-ID: <20260324165804.245011-1-horms@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260323060752.1157031-9-wei.fang@nxp.com>
+References: <20260323060752.1157031-9-wei.fang@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_095827_653470_7D31571C 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20260324_095840_403858_6CE87C60 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,72 +92,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
-This series attempts to take advantage of free head space (the free
-space before the aligned start address) in order to generally produce a
-tighter packing of the resources/bridge windows.
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+net: enetc: add multiple command BD rings support
 
-The recent changes to the resource fitting algorithm caused resource
-allocation failures in some cases where a bridge window that is sized
-to be gapless could no longer be assigned. The previous algorithm left
-a huge gaps which allowed it to place the remainder (non-aligning part
-of the size) before the start address of used for the gapless fit,
-whereas the new gapless approach always had to place the remainder
-after the aligning part of the resources. There is not always space
-for the remainder triggering those failures (e.g., when the aligning
-part must be placed at the top of the window).
+This patch adds support for multiple command BD rings to the NTMP driver.
+The switch has two command BD rings, and netc_select_cbdr() is added to
+select an appropriate ring when the current one is busy.
 
-This series attempts to allow placing the remainder once again before
-the aligning part, but now without leaving huge gaps to retain the
-benefits of the gapless bridge windows. The approach is somewhat hacky
-but should work thanks to PCI resources fundamentally consisting only
-power-of-two atoms.
+> diff --git a/drivers/net/ethernet/freescale/enetc/ntmp.c b/drivers/net/ethernet/freescale/enetc/ntmp.c
+> --- a/drivers/net/ethernet/freescale/enetc/ntmp.c
+> +++ b/drivers/net/ethernet/freescale/enetc/ntmp.c
+> @@ -117,6 +117,25 @@ static void ntmp_clean_cbdr(struct netc_cbdr *cbdr)
+>  	cbdr->next_to_clean = i;
+>  }
+>
+> +static struct netc_cbdr *netc_select_cbdr(struct ntmp_user *user)
+> +{
+> +	int cpu, i;
+> +
+> +	for (i = 0; i < user->cbdr_num; i++) {
+> +		if (spin_is_locked(&user->ring[i].ring_lock))
+> +			continue;
+> +
+> +		return &user->ring[i];
+> +	}
 
-There maybe cases where architecture would not want to do such
-relocation. This series adds the relocation to arch
-pcibios_align_resource() functions to allow all of them taking
-advantage of the better resource packing but if somebody objects doing
-this relocation for a particular arch, I can remove it, please just let
-me know (this relocation doesn't seem critical unless there are
-regressions).
+Frank Li raised a concern about the use of spin_is_locked() here. Is this
+lockless check reliable across all architectures? spin_is_locked() behavior
+varies across configurations - it can return false negatives on UP builds and
+may not provide the ordering guarantees needed for lockless checks.
 
-Ilpo Järvinen (10):
-  resource: Add __resource_contains_unbound() for internal contains
-    checks
-  resource: Pass full extent of empty space to resource_alignf CB
-  resource: Rename 'tmp' variable to 'full_avail'
-  ARM/PCI: Remove unnecessary second application of align
-  am68k/PCI: Remove unnecessary second application of align
-  MIPS: PCI: Remove unnecessary second application of align
-  parisc/PCI: Cleanup align handling
-  PCI: Rename window_alignment() to pci_min_window_alignment()
-  PCI: Align head space better
-  PCI: Fix alignment calculation for resource size larger than align
+Would spin_trylock() be more appropriate here? Or if this racy check is
+intentional and acceptable, should it be documented why the potential race is
+safe in this context?
 
- arch/alpha/kernel/pci.c          |  1 +
- arch/arm/kernel/bios32.c         |  9 ++++---
- arch/m68k/kernel/pcibios.c       |  8 +++++--
- arch/mips/pci/pci-generic.c      |  8 ++++---
- arch/mips/pci/pci-legacy.c       |  3 +++
- arch/parisc/kernel/pci.c         | 17 ++++++++------
- arch/powerpc/kernel/pci-common.c |  6 ++++-
- arch/s390/pci/pci.c              |  1 +
- arch/sh/drivers/pci/pci.c        |  6 ++++-
- arch/x86/pci/i386.c              |  5 +++-
- arch/xtensa/kernel/pci.c         |  3 +++
- drivers/pci/pci.h                |  3 +++
- drivers/pci/setup-bus.c          | 15 ++++++++----
- drivers/pci/setup-res.c          | 40 +++++++++++++++++++++++++++++++-
- drivers/pcmcia/rsrc_nonstatic.c  |  3 ++-
- include/linux/ioport.h           | 22 +++++++++++++++---
- include/linux/pci.h              | 12 +++++++---
- kernel/resource.c                | 33 +++++++++++++-------------
- 18 files changed, 149 insertions(+), 46 deletions(-)
+> +
+> +	/* If all the command BDRs are busy now, we select
+> +	 * one of them, but need to wait for a while to use.
+> +	 */
+> +	cpu = raw_smp_processor_id();
+> +
+> +	return &user->ring[cpu % user->cbdr_num];
+> +}
+> +
+>  static int netc_xmit_ntmp_cmd(struct ntmp_user *user, union netc_cbd *cbd)
+>  {
+>  	union netc_cbd *cur_cbd;
+> @@ -125,10 +144,10 @@ static int netc_xmit_ntmp_cmd(struct ntmp_user *user, union netc_cbd *cbd)
+>  	u16 status;
+>  	u32 val;
+>
+> -	/* Currently only i.MX95 ENETC is supported, and it only has one
+> -	 * command BD ring
+> -	 */
+> -	cbdr = &user->ring[0];
+> +	if (user->cbdr_num == 1)
+> +		cbdr = &user->ring[0];
+> +	else
+> +		cbdr = netc_select_cbdr(user);
 
+This isn't a bug, but Frank Li suggested that the special case for
+cbdr_num == 1 might be redundant. Since netc_select_cbdr() would handle the
+single ring case correctly (the loop would find the only ring on the first
+iteration), would it be simpler to just unconditionally call:
 
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
--- 
-2.39.5
+    cbdr = netc_select_cbdr(user);
 
+>
+>  	spin_lock_bh(&cbdr->ring_lock);
+>
 
