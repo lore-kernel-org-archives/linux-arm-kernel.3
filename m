@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11677F532C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAFAF532C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9hS0Coi1z6CfHjgu38NsWnlAIE2XRyrESfEMKeS3Qk=; b=cosAjI+Z5YJJkResZz4jyXdbVM
-	GCb9Z4rd+kjKmuf5ZkHRCbJ8gZTF7/ifBKm7Nrg+qLnv/xY9PuF37ukC4mWhtM8xeYowH7a3yNvw4
-	kcPFjA3eoh98nsV6xYemN8DIOGRGJ5V6I/fvlfW7BXemTCaMkGSFNbE/aAOQPCKfBLMRDzzORlmPd
-	tFAaGxgSht5Xuo6TEZDeHhe4wXLqpIzocjmj5Rlqxv4dX76Gv30XSSMgK01H2NSlilnbclp9z240Q
-	29qQ1xtQP7cnuhQHTtbCwqzdYLEqxRbL2zDi99JrtkUnbH4KhnRBC3aEUpiv4MKuFiHPm5LKv5R4Q
-	UyxItoVw==;
+	bh=6gpfpIFEo/UM2Vlf5EBuE34iIvnj7ck9nMpb5/Ds9cg=; b=N32piAuIwZPmF9zVVqps72VynO
+	gXEzy74595rEOcbiXIW+9ng85tkNWlmu8aA10jm28ZP5gV1PxAkC5UD6TYBdXs7vaYFvnluRuNEaA
+	Td4EkmvDxdmE5Ik8n/mW576AJYs/A5yZR387pxT+g0yc9AD3IC2SggyItt6alxsz9qSocIy7QqU0u
+	7vVEGLG2sa6r0TP2HP/sYJcBrc0h+aFprUVERmDUNfxF6wk7Z8iI2OZpvvEkTLcPG86SZeSDsKNsg
+	COkuH1YY8KoBCC1hok+mQVMnhrhhLsAwX9h2CFSXwGZ+vhq4vTJwUh8h6kCVgkhvpWOEtiZuemQnS
+	yHIodTug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q8t-00000000HFl-1lX9;
-	Tue, 24 Mar 2026 01:01:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4q9f-00000000HMS-1u4s;
+	Tue, 24 Mar 2026 01:01:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q8r-00000000HFQ-0Qpr
+	id 1w4q9e-00000000HMI-25yt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 01:01:10 +0000
+	Tue, 24 Mar 2026 01:01:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1AFA404E5;
-	Tue, 24 Mar 2026 01:01:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 931DBC2BCB0;
-	Tue, 24 Mar 2026 01:00:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E26DB6012B;
+	Tue, 24 Mar 2026 01:01:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0E8C4CEF7;
+	Tue, 24 Mar 2026 01:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774314068;
-	bh=A7+ilLlUptt8NahoteAzf0RgIRgwKuFBHYBpfbQD/9c=;
+	s=k20201202; t=1774314087;
+	bh=KpxTlQdpK2jKnd62P5I8EEqT3CEkSotjkNoM+lvw6Dc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=erU7fvhzJv2tp5KrkKrqx+Erdif01ZeeUOpNA4f3SMGY5Zd3volrXG0e/GJE1PA+4
-	 eGQrxZX3PAs12r5SMw5wVj3Dru900+u5sZlt2HAhjsWXohecP7okhBQJqUVMGYmK9x
-	 t4JpMcZVTz48+PY+wk5zYrMxets8K+lB6YlpzvSaaUxQizoh9N8ogOZ6kZFkBtVUt/
-	 +2U/I6kRnURbopqcXHThSae0+v5nsjA+MtxnO1+6Qp2DXSnViA+Sg/1CnS+DYaIbv9
-	 MmwreYV6dk6ePxO92r/nW6iGASWXgbC1mouwugaLRXGpdUBgdYK22pwqvUSENOqNbX
-	 RFBSTYbpYZsGA==
+	b=rLAmVR6groUQSZRplygjMn68KJDDiLrGR9Vctd6Afc3mLDKzHEaYGbMFZ3KXs4fK4
+	 MUoXCr/h6SfvTEE4yAlc7KGjraQ8CFJXtGn8f5BkmJWMm1J/pjXgfy9qXciydDWGLj
+	 XNYlWwVjufJG5KD0z7v9ARc0FuEyAjjiYRe15HPbrYCuuNFi4/b/eyHrklVGEVsCSm
+	 lE5k5muPCMjo/9hKdfl5T5LohS8mNpZoGcTFibqf76OQzdeH43NHUrx9bEVbSisncq
+	 g/N4LXJNuBtUlzaGXa8b6D8KnPgXir5STaz/+AS+2urYkPCvbB6vpDfKREYcWyPp9d
+	 47Lib8DntPlsA==
 From: Danilo Krummrich <dakr@kernel.org>
 To: Russell King <linux@armlinux.org.uk>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -92,17 +92,14 @@ Cc: linux-kernel@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	linux-arm-kernel@lists.infradead.org,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 10/12] s390/ap: use generic driver_override infrastructure
-Date: Tue, 24 Mar 2026 01:59:14 +0100
-Message-ID: <20260324005919.2408620-11-dakr@kernel.org>
+Subject: [PATCH 12/12] driver core: remove driver_set_override()
+Date: Tue, 24 Mar 2026 01:59:16 +0100
+Message-ID: <20260324005919.2408620-13-dakr@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260324005919.2408620-1-dakr@kernel.org>
 References: <20260324005919.2408620-1-dakr@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_180109_211934_1C5F518F 
-X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,175 +114,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the AP masks are updated via apmask_store() or aqmask_store(),
-ap_bus_revise_bindings() is called after ap_attr_mutex has been
-released.
+All buses have been converted from driver_set_override() to the generic
+driver_override infrastructure introduced in commit cb3d1049f4ea
+("driver core: generalize driver_override in struct device").
 
-This calls __ap_revise_reserved(), which accesses the driver_override
-field without holding any lock, racing against a concurrent
-driver_override_store() that may free the old string, resulting in a
-potential UAF.
+Buses now either opt into the generic sysfs callbacks via the
+bus_type::driver_override flag, or use device_set_driver_override() /
+__device_set_driver_override() directly.
 
-Fix this by using the driver-core driver_override infrastructure, which
-protects all accesses with an internal spinlock.
+Thus, remove the now-unused driver_set_override() helper.
 
-Note that unlike most other buses, the AP bus does not check
-driver_override in its match() callback; the override is checked in
-ap_device_probe() and __ap_revise_reserved() instead.
-
-Also note that we do not enable the driver_override feature of struct
-bus_type, as AP - in contrast to most other buses - passes "" to
-sysfs_emit() when the driver_override pointer is NULL. Thus, printing
-"\n" instead of "(null)\n".
-
-Additionally, AP has a custom counter that is modified in the
-corresponding custom driver_override_store().
-
-Fixes: d38a87d7c064 ("s390/ap: Support driver_override for AP queue devices")
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=220789
 Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 ---
- drivers/s390/crypto/ap_bus.c   | 34 +++++++++++++++++-----------------
- drivers/s390/crypto/ap_bus.h   |  1 -
- drivers/s390/crypto/ap_queue.c | 24 ++++++------------------
- 3 files changed, 23 insertions(+), 36 deletions(-)
+ drivers/base/driver.c         | 75 -----------------------------------
+ include/linux/device/driver.h |  2 -
+ 2 files changed, 77 deletions(-)
 
-diff --git a/drivers/s390/crypto/ap_bus.c b/drivers/s390/crypto/ap_bus.c
-index d652df96a507..f24e27add721 100644
---- a/drivers/s390/crypto/ap_bus.c
-+++ b/drivers/s390/crypto/ap_bus.c
-@@ -859,25 +859,24 @@ static int __ap_queue_devices_with_id_unregister(struct device *dev, void *data)
- 
- static int __ap_revise_reserved(struct device *dev, void *dummy)
- {
--	int rc, card, queue, devres, drvres;
-+	int rc, card, queue, devres, drvres, ovrd;
- 
- 	if (is_queue_dev(dev)) {
- 		struct ap_driver *ap_drv = to_ap_drv(dev->driver);
- 		struct ap_queue *aq = to_ap_queue(dev);
--		struct ap_device *ap_dev = &aq->ap_dev;
- 
- 		card = AP_QID_CARD(aq->qid);
- 		queue = AP_QID_QUEUE(aq->qid);
- 
--		if (ap_dev->driver_override) {
--			if (strcmp(ap_dev->driver_override,
--				   ap_drv->driver.name)) {
--				pr_debug("reprobing queue=%02x.%04x\n", card, queue);
--				rc = device_reprobe(dev);
--				if (rc) {
--					AP_DBF_WARN("%s reprobing queue=%02x.%04x failed\n",
--						    __func__, card, queue);
--				}
-+		ovrd = device_match_driver_override(dev, &ap_drv->driver);
-+		if (ovrd > 0) {
-+			/* override set and matches, nothing to do */
-+		} else if (ovrd == 0) {
-+			pr_debug("reprobing queue=%02x.%04x\n", card, queue);
-+			rc = device_reprobe(dev);
-+			if (rc) {
-+				AP_DBF_WARN("%s reprobing queue=%02x.%04x failed\n",
-+					    __func__, card, queue);
- 			}
- 		} else {
- 			mutex_lock(&ap_attr_mutex);
-@@ -928,7 +927,7 @@ int ap_owned_by_def_drv(int card, int queue)
- 	if (aq) {
- 		const struct device_driver *drv = aq->ap_dev.device.driver;
- 		const struct ap_driver *ap_drv = to_ap_drv(drv);
--		bool override = !!aq->ap_dev.driver_override;
-+		bool override = device_has_driver_override(&aq->ap_dev.device);
- 
- 		if (override && drv && ap_drv->flags & AP_DRIVER_FLAG_DEFAULT)
- 			rc = 1;
-@@ -977,7 +976,7 @@ static int ap_device_probe(struct device *dev)
- {
- 	struct ap_device *ap_dev = to_ap_dev(dev);
- 	struct ap_driver *ap_drv = to_ap_drv(dev->driver);
--	int card, queue, devres, drvres, rc = -ENODEV;
-+	int card, queue, devres, drvres, rc = -ENODEV, ovrd;
- 
- 	if (!get_device(dev))
- 		return rc;
-@@ -991,10 +990,11 @@ static int ap_device_probe(struct device *dev)
- 		 */
- 		card = AP_QID_CARD(to_ap_queue(dev)->qid);
- 		queue = AP_QID_QUEUE(to_ap_queue(dev)->qid);
--		if (ap_dev->driver_override) {
--			if (strcmp(ap_dev->driver_override,
--				   ap_drv->driver.name))
--				goto out;
-+		ovrd = device_match_driver_override(dev, &ap_drv->driver);
-+		if (ovrd > 0) {
-+			/* override set and matches, nothing to do */
-+		} else if (ovrd == 0) {
-+			goto out;
- 		} else {
- 			mutex_lock(&ap_attr_mutex);
- 			devres = test_bit_inv(card, ap_perms.apm) &&
-diff --git a/drivers/s390/crypto/ap_bus.h b/drivers/s390/crypto/ap_bus.h
-index 51e08f27bd75..04ea256ecf91 100644
---- a/drivers/s390/crypto/ap_bus.h
-+++ b/drivers/s390/crypto/ap_bus.h
-@@ -166,7 +166,6 @@ void ap_driver_unregister(struct ap_driver *);
- struct ap_device {
- 	struct device device;
- 	int device_type;		/* AP device type. */
--	const char *driver_override;
- };
- 
- #define to_ap_dev(x) container_of((x), struct ap_device, device)
-diff --git a/drivers/s390/crypto/ap_queue.c b/drivers/s390/crypto/ap_queue.c
-index 3fe2e41c5c6b..ca9819e6f7e7 100644
---- a/drivers/s390/crypto/ap_queue.c
-+++ b/drivers/s390/crypto/ap_queue.c
-@@ -734,26 +734,14 @@ static ssize_t driver_override_show(struct device *dev,
- 				    struct device_attribute *attr,
- 				    char *buf)
- {
--	struct ap_queue *aq = to_ap_queue(dev);
--	struct ap_device *ap_dev = &aq->ap_dev;
--	int rc;
--
--	device_lock(dev);
--	if (ap_dev->driver_override)
--		rc = sysfs_emit(buf, "%s\n", ap_dev->driver_override);
--	else
--		rc = sysfs_emit(buf, "\n");
--	device_unlock(dev);
--
--	return rc;
-+	guard(spinlock)(&dev->driver_override.lock);
-+	return sysfs_emit(buf, "%s\n", dev->driver_override.name ?: "");
+diff --git a/drivers/base/driver.c b/drivers/base/driver.c
+index 8ab010ddf709..7ed834f7199c 100644
+--- a/drivers/base/driver.c
++++ b/drivers/base/driver.c
+@@ -30,81 +30,6 @@ static struct device *next_device(struct klist_iter *i)
+ 	return dev;
  }
  
- static ssize_t driver_override_store(struct device *dev,
- 				     struct device_attribute *attr,
- 				     const char *buf, size_t count)
- {
--	struct ap_queue *aq = to_ap_queue(dev);
--	struct ap_device *ap_dev = &aq->ap_dev;
- 	int rc = -EINVAL;
- 	bool old_value;
+-/**
+- * driver_set_override() - Helper to set or clear driver override.
+- * @dev: Device to change
+- * @override: Address of string to change (e.g. &device->driver_override);
+- *            The contents will be freed and hold newly allocated override.
+- * @s: NUL-terminated string, new driver name to force a match, pass empty
+- *     string to clear it ("" or "\n", where the latter is only for sysfs
+- *     interface).
+- * @len: length of @s
+- *
+- * Helper to set or clear driver override in a device, intended for the cases
+- * when the driver_override field is allocated by driver/bus code.
+- *
+- * Returns: 0 on success or a negative error code on failure.
+- */
+-int driver_set_override(struct device *dev, const char **override,
+-			const char *s, size_t len)
+-{
+-	const char *new, *old;
+-	char *cp;
+-
+-	if (!override || !s)
+-		return -EINVAL;
+-
+-	/*
+-	 * The stored value will be used in sysfs show callback (sysfs_emit()),
+-	 * which has a length limit of PAGE_SIZE and adds a trailing newline.
+-	 * Thus we can store one character less to avoid truncation during sysfs
+-	 * show.
+-	 */
+-	if (len >= (PAGE_SIZE - 1))
+-		return -EINVAL;
+-
+-	/*
+-	 * Compute the real length of the string in case userspace sends us a
+-	 * bunch of \0 characters like python likes to do.
+-	 */
+-	len = strlen(s);
+-
+-	if (!len) {
+-		/* Empty string passed - clear override */
+-		device_lock(dev);
+-		old = *override;
+-		*override = NULL;
+-		device_unlock(dev);
+-		kfree(old);
+-
+-		return 0;
+-	}
+-
+-	cp = strnchr(s, len, '\n');
+-	if (cp)
+-		len = cp - s;
+-
+-	new = kstrndup(s, len, GFP_KERNEL);
+-	if (!new)
+-		return -ENOMEM;
+-
+-	device_lock(dev);
+-	old = *override;
+-	if (cp != s) {
+-		*override = new;
+-	} else {
+-		/* "\n" passed - clear override */
+-		kfree(new);
+-		*override = NULL;
+-	}
+-	device_unlock(dev);
+-
+-	kfree(old);
+-
+-	return 0;
+-}
+-EXPORT_SYMBOL_GPL(driver_set_override);
+-
+ /**
+  * driver_for_each_device - Iterator for devices bound to a driver.
+  * @drv: Driver we're iterating.
+diff --git a/include/linux/device/driver.h b/include/linux/device/driver.h
+index bbc67ec513ed..aa3465a369f0 100644
+--- a/include/linux/device/driver.h
++++ b/include/linux/device/driver.h
+@@ -160,8 +160,6 @@ int __must_check driver_create_file(const struct device_driver *driver,
+ void driver_remove_file(const struct device_driver *driver,
+ 			const struct driver_attribute *attr);
  
-@@ -764,13 +752,13 @@ static ssize_t driver_override_store(struct device *dev,
- 	if (ap_apmask_aqmask_in_use)
- 		goto out;
- 
--	old_value = ap_dev->driver_override ? true : false;
--	rc = driver_set_override(dev, &ap_dev->driver_override, buf, count);
-+	old_value = device_has_driver_override(dev);
-+	rc = __device_set_driver_override(dev, buf, count);
- 	if (rc)
- 		goto out;
--	if (old_value && !ap_dev->driver_override)
-+	if (old_value && !device_has_driver_override(dev))
- 		--ap_driver_override_ctr;
--	else if (!old_value && ap_dev->driver_override)
-+	else if (!old_value && device_has_driver_override(dev))
- 		++ap_driver_override_ctr;
- 
- 	rc = count;
+-int driver_set_override(struct device *dev, const char **override,
+-			const char *s, size_t len);
+ int __must_check driver_for_each_device(struct device_driver *drv, struct device *start,
+ 					void *data, device_iter_t fn);
+ struct device *driver_find_device(const struct device_driver *drv,
 -- 
 2.53.0
 
