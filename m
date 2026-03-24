@@ -4,111 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C534FE9A756
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E44E9A755
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ibEOIdjW78gFl3I7+V5BD5MSg1dv87CyhSXP5TztJRI=; b=AmZ/joVwpxbY0SYWmm7DtIt2GT
-	8j77Vmy9fdT2HwVN2s/SEojtLC3btK8XQYO5d7uE/Al/vq6uRGjcpTxxB243XMIYh6DOvWqpD5/Hu
-	InSzuAcXeLriysdBO4BpQxLF2OtG8jAsCH3nrs+cGcLBSi6MJOAb8mC0ypnwoKf6voY+AwU16Ljjy
-	GSMc0pusdiqwnu8u2m2jbVY9kb0lE6pRCKj1Re8hzbRToFTo9b+LTej0zdm3yrxWLCXnXrEN4+4AS
-	3zTQnaGWErxs3dEtsG16GXOgbXhIUunvMDHRkSaSG0DSw0lxueSj0nH13ZBZViPuHZLxlFikrowCR
-	rpWY9G1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uBGSrnr63HLP+/SJxsbbv7zPqRKmlJJTq3t390zXjIo=; b=qwECJ6u+hFcUmYcyMaW/xYoM9A
+	bKbFpKTaLcPi2lCj1nlFirMK2T6hee/+LiRdu4eMOBLJttjrwfZx7tTa2FCREydDe1UU7mT52au9u
+	VrdjuRtfrX4vVYsI8vIuUcr3ZncmSNi1af+EpufGYzJvXET3jqLRVX3KTTPsnZCtZbVllummMNIhc
+	lVrWkg7Eidol0g5CgWy/JHywZMmSTbAHsaOQQLz/bIbqWgBH6itgRJ7TrX8quUAOdL71IDfa39RWi
+	86NXJcv4n21DfZUXRAbxqScv7ZUxLMbBK+Ww1VTu62a9qZjnEF9gnNUfHd2Sh8TKO7Td0Ltbr4sn/
+	cH6g024Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yUF-000000019ML-3GgV;
-	Tue, 24 Mar 2026 09:55:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4yUM-000000019QH-3FMX;
+	Tue, 24 Mar 2026 09:55:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yUD-000000019L4-2zfP;
-	Tue, 24 Mar 2026 09:55:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13620403CD;
-	Tue, 24 Mar 2026 09:55:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60099C2BCB1;
-	Tue, 24 Mar 2026 09:55:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774346144;
-	bh=7Tvmse4jl2DA6m307iJJJ2AZlRxoIEqakV8s/vY8cQQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VozjEumqpRV/La1rGaeOw09G5YRLG9e1kiekpoJSqDKa4DA27sLFec3YieZ35eb5f
-	 Kre189dyUYtBeOmbai0wZp1gflesSpbJuTaoAwLuodkX+6uSQP1Mj5U+a4JUgpX1Y9
-	 2Ho7XIgPFEcOXSaTMT9ICbgbwS6rh7evG62ioW1IdJPmkAcd/l4WdNvyDrYnpzmpNu
-	 Ac9dquNv0u+eY55AoZxA7SmVkFZJbNOTzGs8gcfZuZ2WC4pdPGi9JPHD5oQ4mDZYkW
-	 iLODCkGCEsQcbIv+n4GGO+Cy/rPafQqgMCOpz+5/rNkpshK4kiRfNORFkyZ4kWubJf
-	 gTv9ZE4e3DLyw==
-Message-ID: <fb3c4fc0-eb8f-431e-8c20-f90428d4c26e@kernel.org>
-Date: Tue, 24 Mar 2026 10:55:39 +0100
+	id 1w4yUL-000000019Ou-0y6Z;
+	Tue, 24 Mar 2026 09:55:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=uBGSrnr63HLP+/SJxsbbv7zPqRKmlJJTq3t390zXjIo=; b=VFLkpIcwvXr3y3BqfcgK5FWqcb
+	O6LcSwftsjwkgI6+MO1fSTtliJUAzcMciF3saTOuELj3uzx0WKSfUQJe0PkvlB4haKiyZnbJb07nW
+	vstl3tWdtwVrCA5NuItuEqK+YeyQHcRFRWwNzOSJDf+4bjkUzvEAtzVPNsntnUiRL+MT/msU5AXY+
+	jIjfEvoXZ3kDUd7FDirTt3cTgUKIo6AWj4xJAUvikrkV5jIee8p4cvhrO6aKrFTx+kByTbCDxrUoC
+	/c68y6l5dfMzbwAh42pV8v5ddCg3NWezpdTeQeQhKL/b/eqbONvjduLJEH7gpspmuP+Z6H/6zNL6g
+	Q2Qh8aSA==;
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4yUH-00000003iLO-1DmV;
+	Tue, 24 Mar 2026 09:55:52 +0000
+X-UUID: 99a0aed6276711f19e7563141e833ce8-20260324
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uBGSrnr63HLP+/SJxsbbv7zPqRKmlJJTq3t390zXjIo=;
+	b=DiO/lDJgMjPJyVqqQ7Rv57VWNsZklxqSW4tT12FCtSoDm8WzmL3LiE3ldx7MzTFQlsduCqkzEP66WRPDjBnMaW5kQdLTEM+yW1RprxdRYlzR3APYJUXgl0z82E8iPtjR0RWGWt9y5feKZc66OLhIcMpT/nk6tRfzKzXZPIgj1zA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:fd3c69c6-ed0f-4e72-a666-22f887588fe1,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:6fc364e0-cf51-4058-942d-ef4f058f9afa,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 99a0aed6276711f19e7563141e833ce8-20260324
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 45608650; Tue, 24 Mar 2026 02:55:33 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 24 Mar 2026 17:55:30 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 24 Mar 2026 17:55:30 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
+Subject: [PATCH v4 2/3] dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible string
+Date: Tue, 24 Mar 2026 17:54:54 +0800
+Message-ID: <20260324095455.1437-3-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20260324095455.1437-1-jianhua.lin@mediatek.com>
+References: <20260324095455.1437-1-jianhua.lin@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: spi: Fix clock-names definition
-To: Meiker Gao <ot_meiker.gao@mediatek.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Bayi Cheng <bayi.cheng@mediatek.com>,
- Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com,
- vince-wl.liu@mediatek.com, jh.hsu@mediatek.com, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260324062835.1747943-1-ot_meiker.gao@mediatek.com>
- <20260324062835.1747943-2-ot_meiker.gao@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260324062835.1747943-2-ot_meiker.gao@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_025545_803318_6F35CD9E 
-X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-CacheID: sfid-20260324_095550_127087_24237EDB 
+X-CRM114-Status: UNSURE (   9.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,19 +105,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/03/2026 07:28, Meiker Gao wrote:
-> Update the device tree binding for the Mediatek
-> MT8196 NOR controller to require that the 'clock-names'
-> property contains exactly six entries, in the strict order:
-> "spi", "sf", "axi", "axi_s", "bclk", "27m".
-> 
-> Signed-off-by: Meiker Gao <ot_meiker.gao@mediatek.com>
-> Change-Id: I0542d6d726f1af34ef76c1a58ba4e4b02ec45fe6
+Add the compatible string for the JPEG encoder block found in the
+MediaTek MT8189 SoC.
 
-You just sent multiple same patches with same errors.
+Unlike some previous SoCs, the MT8189 JPEG encoder requires 34-bit IOVA
+address space support. Therefore, it is added as a standalone compatible
+string without falling back to the generic "mediatek,mtk-jpgenc" to
+ensure the driver applies the correct hardware-specific configurations.
 
-Same feedback.
+Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+---
+ .../bindings/media/mediatek-jpeg-encoder.yaml | 20 ++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
+index 5b15f8977f67..476b7122d3fc 100644
+--- a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
+@@ -14,13 +14,15 @@ description: |-
+ 
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - mediatek,mt2701-jpgenc
+-          - mediatek,mt8183-jpgenc
+-          - mediatek,mt8186-jpgenc
+-          - mediatek,mt8188-jpgenc
+-      - const: mediatek,mtk-jpgenc
++    oneOf:
++      - items:
++          - enum:
++              - mediatek,mt2701-jpgenc
++              - mediatek,mt8183-jpgenc
++              - mediatek,mt8186-jpgenc
++              - mediatek,mt8188-jpgenc
++          - const: mediatek,mtk-jpgenc
++      - const: mediatek,mt8189-jpgenc
+   reg:
+     maxItems: 1
+ 
+@@ -34,6 +36,10 @@ properties:
+     items:
+       - const: jpgenc
+ 
++  mediatek,larb:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: a phandle to the smi_larb node.
++
+   power-domains:
+     maxItems: 1
+ 
+-- 
+2.46.0
+
 
