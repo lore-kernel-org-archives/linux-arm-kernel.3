@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78502D58CC9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7C6E9A779
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EE4FuJlbndKGLJzqACuKMNqYcAqnVVJp+qLWA/BM9j0=; b=EvRLd6gdrTkM0nznxx+nzzBVtP
-	IQlc6G0+vqP9mjqdoD38jkmlZwhqRc6oSlo/JiJ3UUR/2ILBt78tkiIwnN8pRZextPBHMaCNQ7byV
-	kr42ue7EYUezeKYX+2t7EYUh+EmKBFfTsPlP6kfME9rsyek+/rm46OyoAhi6WsLelhRX5iOHqOBL6
-	lrpUaKpN0XODQhPdjoC/mxLtA3WF0pzX3ZD62uj4fDxMmQTAkgdhHsImA8PUYJyOj/6hLOByvkk2C
-	nJEj05BX4FWFWKr5iKlk9JxOLxjPUxV8mWarT17FaNUirc0XG8Phk6wzw/RloaCesk79woUfYm7RE
-	gkCFg5zg==;
+	bh=4js7O76MsTFkhaT3iH5t3A/Vo4elsaJoenAnkOohqXI=; b=pYmWiKzLU/WGYbe/7HuEpRIbQb
+	YFXwlWE1hCcGfoByP1TXSsPQvxRu4QAN69nDdNewSwB6dKkM75gfwiTrtPKNwPET8Lr18A/uN+FQw
+	V7gcmDiLAqdzp/GIJXgkysB7mcdQr4VTt2N3GF4i1I/td0r8lsD9ZzEdUk4/KZJvf31nWgL7AKumu
+	vJEngUraPteUMqB4nVmJ6QXsBm11aX32UwFXmZKSq1rC3nEdbGXJlhwTsBTetNVP6h+YS8tK2IGQF
+	pqYrrY1Rzl0LKjf9ueTxXebPbsB9amQt9SgVGNYj/yYvtDgGvRVDa7JtA98a1DIU6Y/XOGSf3Ffup
+	ZcCDjkJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w514r-00000001Ow0-0Ndu;
+	id 1w514r-00000001OwL-1gEs;
 	Tue, 24 Mar 2026 12:41:45 +0000
-Received: from mail-westeuropeazon11020128.outbound.protection.outlook.com ([52.101.69.128] helo=AM0PR83CU005.outbound.protection.outlook.com)
+Received: from mail-francesouthazon11021089.outbound.protection.outlook.com ([40.107.130.89] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w514i-00000001Oqm-0Olr
+	id 1w514j-00000001OrD-1EN6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 12:41:37 +0000
+	Tue, 24 Mar 2026 12:41:38 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=XII1Glfn0kcTiQnFI3cM1bdlWP8SCtBCf4r9preCXGDpj/TLoVaYfQd2gXeGUWbsa9ifo9vsVGBaYq6e5dhwq2zc+KsaBpHJGpD8cPsB/db1fRy81cX6se7YpB3z9S+PGg08CdBQX5F64HaSVRI9jCAxZjGlNJaEK8bHAgai2LX1g8aTGJGlIznmodsgagAn+eBBfq5sHNKiB7uPWmpui5/qUgpV6pOU/pjNIm2WXhGPF0iRLUMMBVbCFRydpg3QljZR/s//R79E7HfcfG/6cshL+E2C/6IpEd90uSQUwA8r3APZR1bVqWcdkr/CsLvj332HM36AVWK7nVkOfB/rqg==
+ b=kV8I+r1uklsUPbcsOb6/hORQLL99H+6W+TnJZomPlSf13MibZ5Fbh6w6BvA8V4hltHGYY7OpzB6tciDupD2iFpzl3qL3wwlY9aqcwGWy+EmhXRTD3UCo0yg7q/rWeozfmfjqFwVUi5Ow0LQDUZhQFfr0d0BM2LphAq2t2PHum1tzDsLX6MbMB6zA6TKIN/0bDu/TL17wvSjQfAJYwcigtYysOQCFuD2jwBKVIy8yUkQxFAQBPPdgXcROVmOhUm1q0H9rgUer1Je2Td2VMYhHRbGt+DpxfuxgUW6kt4aE/kYkTVg5He8hCHAwHkF2n5zsf2bxo37hv0dWSVlPujmbSQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EE4FuJlbndKGLJzqACuKMNqYcAqnVVJp+qLWA/BM9j0=;
- b=o9d97V6Cv7eXEmotkIitZilUvyyu9PbE2ZVH0QJ26le2xhKhnoQFlC3DWyWUanOJH8L+JJYmpcwiJqKdJ/7hJS4bIMzC4uw1zn+KIRTua0XxriXd/reIjw4n76kFhJQeiYHAXDpdH7m8TXJwZAsrhLSMk8IxNM8Lk4XfVYEpOC3pd4oEUeHpvE+x3QDtR/bx1/aEd6Pq7XVWcm/bDtv6B+sah+yUVey1helVQIbcWe8X9QdbbQbwHPOPd494a66azrMwnzvC9iKigqasrT8XqFHKrII5SGtAfP4Xy4KQkOsHZxrWgR8F3VCq0AmwbAokoXDA4HCe84OI0r+t/2AJlA==
+ bh=4js7O76MsTFkhaT3iH5t3A/Vo4elsaJoenAnkOohqXI=;
+ b=Gd/0iHgB4/wfdhaYUgKvVEOzTNLJnaibfUkYDsbltzW7ujPGkCwXQ6xJDSyMLgSz5tls64ZnhI2zRQp/ct2bEONuZBAx13EEOepOC0X62c3tuWlKQSvUzBOtukjNAY0a0mnmCeVgmW7GeXLyzY/D/UtFYbJkTgyfUt/NYAmGd1xoVB5jPRYiQsHjoEm/vy8szPgcYm2sEgNtHp96C1jyYG3HQqN3WWfkxUTzIRvo1uXUKFSufWakuGYxdyGGZp5VByC0mFacxXBIFAYreemLaxAACsYDTe1wVuWtU26XyxsF7cLT34UDj7j/0nU65yPuYXujPfcj1fgRfpnSsyz5OA==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
  52.17.62.50) smtp.rcpttodomain=kernel.org smtp.mailfrom=solid-run.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
@@ -43,18 +43,18 @@ ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EE4FuJlbndKGLJzqACuKMNqYcAqnVVJp+qLWA/BM9j0=;
- b=OyH/YAazc7HQBwOEA2+JbhUiWaW/CMFFeMyirMW7RN/1KbcpfnbGc8t7Wz16cgKYpq364eexwuJ6MGzpEpKGjfp96k81qMX0zMMGkVH8J0w8FSkLSdGe/onFkF/GOtHbj4E2W59LGweWjkdRywKVnBr+lhxnUcg9vRk5+LpZZsg=
-Received: from CWLP123CA0225.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:19f::22)
- by DU4PR04MB12325.eurprd04.prod.outlook.com (2603:10a6:10:630::5) with
+ bh=4js7O76MsTFkhaT3iH5t3A/Vo4elsaJoenAnkOohqXI=;
+ b=XkLedxM1LfoxWvQWuWX0wc9RkzbA8A5bc16Oc+w6otMc8LDlhTuj5g6FreHUHlyj0GE+3GPb3xGwt1TLYRlx3w7rV7URqI+Pw39eTILSxEmptkvwPoyLjlurNF3ddE728CgDprngMGgyoQqBwfYDmqe3yU20qLMA/aJbREc6Bkw=
+Received: from AS4PR09CA0005.eurprd09.prod.outlook.com (2603:10a6:20b:5e0::11)
+ by DU4PR04MB11435.eurprd04.prod.outlook.com (2603:10a6:10:5ee::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 12:41:21 +0000
-Received: from AMS1EPF00000094.eurprd05.prod.outlook.com
- (2603:10a6:400:19f:cafe::90) by CWLP123CA0225.outlook.office365.com
- (2603:10a6:400:19f::22) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 12:41:01 +0000
+Received: from AMS1EPF0000004B.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5e0:cafe::8c) by AS4PR09CA0005.outlook.office365.com
+ (2603:10a6:20b:5e0::11) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
- 24 Mar 2026 12:41:30 +0000
+ 24 Mar 2026 12:41:29 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
  smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
  header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
@@ -63,46 +63,46 @@ Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
  designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
  client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
 Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- AMS1EPF00000094.mail.protection.outlook.com (10.167.242.91) with Microsoft
+ AMS1EPF0000004B.mail.protection.outlook.com (10.167.16.136) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
- via Frontend Transport; Tue, 24 Mar 2026 12:41:30 +0000
-Received: from emails-7479722-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-76.eu-west-1.compute.internal [10.20.5.76])
-	by mta-outgoing-dlp-467-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 043658078C;
+ via Frontend Transport; Tue, 24 Mar 2026 12:41:31 +0000
+Received: from emails-8946962-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-81.eu-west-1.compute.internal [10.20.6.81])
+	by mta-outgoing-dlp-431-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id EBD5380731;
 	Tue, 24 Mar 2026 12:41:30 +0000 (UTC)
-X-Mailbox-Line: From b'josua@solid-run.com' Tue Mar 24 12:41:22 2026
+X-Mailbox-Line: From b'josua@solid-run.com' Tue Mar 24 12:41:24 2026
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gi+bo5aBYgYCXOszmTry9BLnl9MkRDYO3SJjl8eKajlPfL9e8ljS1ShG5fM8MUJBghaeUyxvw7xh95Bzlg8tzqeUL7qNKD1aHKkQlX7FoQYYCE0K3G22GlsT9tXEZI7spcg5aDT3z1xUUQ9s33GxxPFbZyV51+rxuFlIVJW73dVrFZ9lIFynUAXrL/Hy/SLRmwp5PU8dOhxGb8xN7Mci6Z/piaFlChVDN7ntvpFraU7gegFDa4EUwDbM8Nt28BKjlChlDaMIoGdiIXTuiZGHauxFLw6pynw+l1eLnXmbui9X0qrJHSF7L/BDauxFr2I/i9VA6mMul843biS350uKew==
+ b=BCLGJXfDoc1Ez0rUuPhY88L1AgCyx47iI8uD7UbvyCfmx2AhQuApP0pMbhMkteBpypLeCb6fD3YPd8kv5MwBKOu97waQ+njg5nq+/Iu+oHuvlvYVLJVK2X9ywZo93VzaI8e3KZPzZVNTFRDJMTxi2GkdcekJNw5cUw0AmcfTqbk7rMP4JQHC+TyfpJ6nZmU8+fIXwIMxLVDNfUTcIjnDANzMgLcyL7FB62Zik5f3aKcjixR8ynkbU59y6Q+tFAyN1iEtN0VUaAo5uReqoaBDyTEPg2zdFhkUErEz5eXv/K1kk58I+kJ74KKoIfTWtqfaS2ox8kBoRN7FIo4HzTh9LA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EE4FuJlbndKGLJzqACuKMNqYcAqnVVJp+qLWA/BM9j0=;
- b=n6ApbtNxDRdr1rN/JUVawSy/woP4cYKAtpPkSQfd9AZe1CYcU5W0jm0XEi2IoQzBbUy7ssaUVZn8a92z+9PungQ3s5aiJVmW1SOVt9BhOWFwIJuzCri0iLu/ebw4EHeCZlSvs7A+4kpqW7A3Hjq3L4cW18qETL94b1V1Fgjx523jrJQkm+8FHPq87U4pPHc4N1SwuF8sIEnQUf/1ZtHwrQvfkf1C8cfnEMxk6hhLbowhoAJE+IUPU13VYn1LtUFjYZZXwdJfEzSM04rex6Gtdl9xgxyXHq5kj8QcUodSGQZaaV+/pqNZzOh/wC9xOT8om2luXLqoxdGzeo6+gDycYg==
+ bh=4js7O76MsTFkhaT3iH5t3A/Vo4elsaJoenAnkOohqXI=;
+ b=lmNK4tAYE2UNBct/3TY/eX06hDvfDfz4nXu0tG2SWHk1n46BqMcgqCxvvq1FXia7fKeDU0ADDmkSRiL4bybn9ILAgRLotKVGSzWTdecVU7YOdc9BxT2oqHd57muRJTzOL5VK5Udzv147v+0LzSKMeCiuLnsDiqtwof21pWSSqplyJa4WqScIOypulKeSK8SEOGb0TOLWWsbVsbnVNqpMX7yFOf/OIdNR+yBgSHn+qvxI2PihqLGwa62LSie2gC1mTl7lBagazgb8HPRZ3/YSxXUripDOK2BuxB8J9Ce6K96Ukd5BdOkSnnLG0853XP3gpR1tIQ4DQL543r+vjW+IQw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=solid-run.com; dmarc=pass action=none
  header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EE4FuJlbndKGLJzqACuKMNqYcAqnVVJp+qLWA/BM9j0=;
- b=OyH/YAazc7HQBwOEA2+JbhUiWaW/CMFFeMyirMW7RN/1KbcpfnbGc8t7Wz16cgKYpq364eexwuJ6MGzpEpKGjfp96k81qMX0zMMGkVH8J0w8FSkLSdGe/onFkF/GOtHbj4E2W59LGweWjkdRywKVnBr+lhxnUcg9vRk5+LpZZsg=
+ bh=4js7O76MsTFkhaT3iH5t3A/Vo4elsaJoenAnkOohqXI=;
+ b=XkLedxM1LfoxWvQWuWX0wc9RkzbA8A5bc16Oc+w6otMc8LDlhTuj5g6FreHUHlyj0GE+3GPb3xGwt1TLYRlx3w7rV7URqI+Pw39eTILSxEmptkvwPoyLjlurNF3ddE728CgDprngMGgyoQqBwfYDmqe3yU20qLMA/aJbREc6Bkw=
 Authentication-Results-Original: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=solid-run.com;
 Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
- by DB9PR04MB9722.eurprd04.prod.outlook.com (2603:10a6:10:4c7::9) with
+ by AM8PR04MB7905.eurprd04.prod.outlook.com (2603:10a6:20b:235::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 12:41:13 +0000
+ 2026 12:41:11 +0000
 Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
  ([fe80::d782:fbb2:be9a:43f1]) by PAXPR04MB8749.eurprd04.prod.outlook.com
  ([fe80::d782:fbb2:be9a:43f1%3]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
- 12:40:57 +0000
+ 12:41:01 +0000
 From: Josua Mayer <josua@solid-run.com>
-Date: Tue, 24 Mar 2026 13:40:55 +0100
-Subject: [PATCH v6 01/10] arm64: dts: lx2160a-cex7/lx2162a-sr-som: fix
- usd-cd & gpio pinmux
+Date: Tue, 24 Mar 2026 13:40:58 +0100
+Subject: [PATCH v6 04/10] arm64: dts: lx2160a: rename pinmux nodes for
+ readability
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260324-lx2160-sd-cd-v6-1-8bf207711848@solid-run.com>
+Message-Id: <20260324-lx2160-sd-cd-v6-4-8bf207711848@solid-run.com>
 References: <20260324-lx2160-sd-cd-v6-0-8bf207711848@solid-run.com>
 In-Reply-To: <20260324-lx2160-sd-cd-v6-0-8bf207711848@solid-run.com>
 To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
@@ -113,47 +113,47 @@ Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>,
  Yazan Shhady <yazan.shhady@solid-run.com>, 
  Rabeeh Khoury <rabeeh@solid-run.com>, Frank Li <frank.li@nxp.com>, 
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Josua Mayer <josua@solid-run.com>, 
- stable@vger.kernel.org
+ linux-kernel@vger.kernel.org, Josua Mayer <josua@solid-run.com>
 X-Mailer: b4 0.14.3
 X-ClientProxiedBy: FR4P281CA0400.DEUP281.PROD.OUTLOOK.COM
  (2603:10a6:d10:cf::20) To PAXPR04MB8749.eurprd04.prod.outlook.com
  (2603:10a6:102:21f::22)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|DB9PR04MB9722:EE_|AMS1EPF00000094:EE_|DU4PR04MB12325:EE_
-X-MS-Office365-Filtering-Correlation-Id: 26190287-0053-4562-cf94-08de89a2ac6a
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|AM8PR04MB7905:EE_|AMS1EPF0000004B:EE_|DU4PR04MB11435:EE_
+X-MS-Office365-Filtering-Correlation-Id: c0b6261a-27b3-4176-abac-08de89a2acf8
 X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|52116014|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: Mfe6Z/+c75xpK1Z3ML6nkUYQTONTyJouwW1H3XOk4RZNPWDMg/s4jUY6Waeq0fklrIkZczRRw3vkit3GVC7/Z3VbRBF/4I6/3QlU9Cdh1oNByPMTQilJ+FVJb56jd6CIPlxrbGQHOz4FbQQm/LA+Vszgaos8ab9yjZcYXvuHV+t2L+Myq8GJ5OQanWXJSNgSSgRsV9f5uiwzttaSW3Is7A/WWMaRb2Mg0JKAGws9QvmIHwp+2n0rvyXPGcC2Cb4N6TnK9UepDLQ9fpWYwzh67n/OnQehRySjAX0llQdT6T1UsIy+kb7GrX/xiFL2EGWhM/VdEZflDGsqikjRewE9siD/RN07nvRsvloG/WmqBzv0leG0rAogrAIFc0PwwobB2SHU0+oxdMJuA9XVnNgKdYekZrSNDRfOppNy3E5d2kj6R8TsQlp+fnflH/xB2T0FlqHu+v+D7mzdC90HU++cuIPmt3KjQefUgleoJdNsSK0F4E0c6F79o3pw+1UwqSYTURCDMVjdtkS8OvHLxFN2hAkbXnKrIHiKnRxGM8st4Kc2161Fban9qgYrbUzapAYl/1jqU48aGIOypubjG4YZG97CGqziOVEc/3S1PO3tGA0mW811wG42Kpg1rDvJAJepSSKXAUYx4E8tx3fRIbRw3jXvAw2YOZSMTSBEEnIH+8YmfTbCzvszH4Awu8OawO3nY1FuvPJcLFA6TThD65tyUcHg9btG0+7k+vJao7j+0EA8Gcqm5iogxtHUbAXLBXvMXY8lNGCJQ2FC/OYJKDqKJnqfpO0PUqtDX+wALjV8QWs=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(52116014)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
-X-Exchange-RoutingPolicyChecked: MrDSFGZPvaD+5QwxgMTBAuQrUwQaxuwkwvvQ23J9czexpcQA0qccsl4X4EBxXJNEAAjTCbD1METRsGevDDj/GVVAIoo5If6S9JxdI6F2CXTCofxrvCkAlGL5804ZOJBWeaTq1oXDmCGbWOA3k6Q9l6Shm58zf4amSJK/QtgZc4FNQM7B3JpxF1yFqaq2u4f27OIIm9E56Thwewwg/eguMFnj1fHuY/FLg6xk8/uqIMpLEybmyFrsUYbI9x7UPcKifdkustKN8TkwEmqtJ+HDxw/j+YeJOijvjo3NC34RlIg8GI4Cr80OULPKl/Lip7Kr8C/8cHQqUp0jcjFDelUmUQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9722
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|52116014|1800799024|38350700014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: M3h8Ek8uQRzskH60pbgsozzxe9MCJzeaWNCVQHPrgJ32Cprtuk+vN8nKNqmPZixz7x76g6Vp6NTx0dt4NDiQzlOntfWWHdHoyv9/GR+/NP/NHUTX2gz8YY6o/EAHJxJLxhD8+R5ZrLCCsnFIpE9iqYnU4/6748KrM+ULGPcCxZcn6zgewYiwlZ8eIvig5peXD0SGqO0er3NRshe9tqn3gDP2E7FvzDCpPWUFnCoDaM5wg42QIXIY4vrnnGJC7xWNlxKbqV6xMIddYK1IHjYUbt3A28DKgP53cY7nVYFgnEYo9CXY456leVhuCyFDz/AGQ3E6pU4iQ2xnSI3NuStcYvhbD4QCsaTRN7ghEPLmioeS+BE3jjkJqAxJrxVjiqgCnBB/GYCzkl5UCYMnhr6x+BV4ujiLMGEPbBY/vURA/4xuR405ktHZnLXpshKalR11jyq8Ecoqq98G+SKIt/SOocthHF6q/7x5w9gHK88rNWAJKxRxjiHUk/5qlsfBY5UU+5u41f0vxJ98lm3aj4M8mxOVxfCakuDhUASy7MflPtDw7OwnKrXCjRTNnpzUoDSqZ6wqxTUvwnq97Q1zL8jTSxn+te/AXXzSkrfpZbCOqxygXV4hMzLG9YKpXrZ5Fh8hkKnq84xzllDma7JLAN101htiHz6EvNxNE0Ze+DcJ8keBROC+XlbFtVuFO2kWRa9KzQsKObMN/TMR9OBBhj1b1bCHyNb7raThGDjhG7261KIMGwUApdb0qiZdpf7NRQ5N0AzI8riNM7VkrpPICYMP6gPbs74F2uMeAhLPdP8lB1Y=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(1800799024)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-Exchange-RoutingPolicyChecked: qmpDn/Xj4cNChDCrasTJxM/cVqnmOUh0Kou7TrVejl6t3yFck/xVcgQQK9gbestpIZJvn0EDKK2IbRMTKpvuR+hLnf4lKZ0rmMw99f+i9Bn5VcTrGOdbae9qJLRAEKCmntb0S8drpYNkN0/DLvKzSRxaCi4OY22uoHsn72djGXu2PEHe5HBSkSFsOezORK58+GFZgdMqY1IWALD8GAaGON1HtLr14lblCTYKz16sKmvK5qkf8T/CPlVpmgkqgp1+lKQ4PqxEaNf1gA/rq9zZUc1bEHO8FNCCbxw9IvavtSq5icwgTi0CEx3e59yQo7of3J/4YDdXVfHAcB4qTCICsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7905
 X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: 8673f46671f441bab8de1e1a1ef5a3ec:solidrun,office365_emails,sent,inline:167ef90dd5433cf33d467578846ac289
+X-CLOUD-SEC-AV-UUID: 3cc3b0c0e1154cd29e2555b5636f3525:solidrun,office365_emails,sent,inline:b9e026b2ce894d6ae84a8479915fad54
 X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000094.eurprd05.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF0000004B.eurprd04.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 94c76690-00ff-4ab4-fa05-08de89a298ea
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|36860700016|82310400026|14060799003|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: xQgJFzlbmi0g3+V9Kc7ib5m+HKxOywHgaN6rO+dfxHGqYkwQC4BOv+16S2NQN1OGRIGJOdpBQlLfiBRevYPPDShnVki7VP2qVeV77zDSqOmIajKinKFs1daA/IoBw2wDDQL3gntqt7MOec8yJvvKGK2nqn6PBb4sgbpHg3lBA0NP0I0htivYSebfS+isk/tT1gBuwnSqd22j1mhWrG3RCvcBkDn4pc1/B+7VShC/bqKmVwi+GERfT4THBuXcLQu8ZLZkk9HinS343VKDYYIwOUApJtZulYw4UwfRIPDdfWjf15gRVCXW+HJBHaW6lIpIImtOaruF2mXjMe1/d27GhRifY0MIhUj0mbR4g9G5SFOuiyVb87NU03DX6ENiC8SzYJrnBmElBeD7CcYlj6nmB3crynhWXu1RIER6izBCACwooTnVn1qMAVohdOHKNQ4MfUvcC2lkHYfWuQFr9XO8xC2eHwTKELKln2ysh3+rForaBouXYvM8fNDDbERbDcGg+X52qAtFQKBLqtWCP8vTxQ0b7DoZsfnu1gEYInfmlO2yuooj6h8xYC/5wp9uVmEqBhXTRHild2qkYKAT6zab2XmU5VxUY6NL3Iye+2Wg5B7bqpZAGkSspDGcbRCtDyYH0CuTZbToYaPsY1HsxYoaUPqSV7zB1HMkXkBKoGU81W0eV8GFnpmjtOXVeDD8kymKrX3R/Gl1UvWWVc+TZzQzR9q4CgETFUELDuez8MN3KxAWbTLeGK+TJdjWMlbg+Skm0D4UAHsfA4N6m+6O3X0vNg==
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(36860700016)(82310400026)(14060799003)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 2ad6cc6e-aada-4ce0-9006-08de89a29b3b
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|35042699022|14060799003|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: hfyAGLmQodz0hmoUYpqZY1BijenvV3rk1Bi6WSU0VGdBrDVyHI5G3NqR57fU6Dw+ERp9zkeuURZl6G2/YUhuQosVdIK/ccfcC+SrrK5HIBQfeBt2d2gcWPjTgCHqxZNCq9OMtLn0zhmUiZKjCOlx2MN7rAdWgdbjTOWH1vC3BZ66odZ6sVut45sFhkQAOAxUvD1X8ruq/9aUELj+oqLrdzC8z4Ryw/stYSYPhePjcQdTk/nXEgs6NovSUFXWyr4RORdHUB8OUESY3KW4iC/agHKlzg9BfsX8sLtN3s96e+E8ibl3r5ZGBzkGmARb09n8DPeMui2mH2Q/ZPN2Gw8yEY2/EWwas8ajUmsUCrJtetdyP73tej+gA6g/Kl33PuqpQp4g9E1JAZnG6gwgpHP09ieNSsIsf4GopX2Ev+Fudfm8YUGNRQ+CqsexAVJYfmNvOF3KNeL1Q4kMDDVMgo8CR5Dag2VjDYbSsgb2j7Mw9A+oss/YrjuWzjsmsHU0viLFQGXUYKwoJnZKQ9bYKO/Ci+wAXFkdZopEmhgGzGGXdWTItWi83OPVnOQSjmhG3SAfHPZitN+AdNIM9J8tBFXKtzTyEAB+2x6Tb7RKQhu0UiCHeAgfDdlMP/aImW3Vwj9Uw8q0aW+MnbhOXwvjbjbscNZ4NAeVU4G/+eP/igBPVznYumZDxVEsprHlAPKZYDspT5lqt52zCPa+UpxEX9SBqFxpAwO7MW2u66451sVtfY93yKkXzdRpB31CIBHlAeyvlFBJpY2M+q3XMF+/pn6L8A==
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(35042699022)(14060799003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Wp18yJq5EVYVOyT5qFO6RrwH9SK4n8CTAE8xUZeFRuFm9R+a0HEmBRdCZm8XBIC3d1bnayMMH6Sy4Uaxy5ru8wwPGRbU9oXSnv0UkQtxznznfM/tjB9xKe+a6D8iRwt0RbsgMlazK5jWRM+J0l88X18Es0y9n+NFd80jXGDHh7iwAJvBF8eSjPHEH7+FWFkr0imnky937Xo9NL7mfB8WXvPbTx0ay6FsT8HsrhMaYgguKQ7e2prfnbI5IkR+Wp69hsqF4ORNk6TpGoM4LACWFIoZPPQfZ2iMdyH1VCLRmluVLNyXlBcZzNcXsBQtNlZGSBB7feF5g9y+w59Kr5UaaO4eIHEjDooIpaY7zMmrgIJXGAB+u0V8f3itv3Cr2xCpeNU38NZ50sMt3vRnTeFTRVVFBEuof34QmZxBt1AhCZoQgXXMCEP9XJPD9YWsULOx
+X-MS-Exchange-AntiSpam-MessageData-0: jDAmDLTAEV9/4Yph9Yb18SGLjrCgZk1oH+/GqV+As0Z7j946tk9KYMxS1eiHpemcyuKsAO93RwNAiqoIsCxqewK6Y6xSLHvMKjFSHekD7EHYOfY2V2mw5OsZWLGwffrJz1jLPZx1f2NkMwLSPfJcjNBZQHGzaSOoZTG4HJ1DcsM7QA7jxA8dN2xS5i+F/BKbJweXa/OHefwmGuhkTV8CFjLe0OagSIxuQ8grCu8qgFbL5vkGYGfLaeNmysOU5Bwy7K3YvOO1tJdDkpvbe57LQytFPeLdgShGAKa+rigyBAhkM+nuwfnTMMqTqThiFYMkIZfXuaA449hb1KTQG3gfv62OIClLwDH2Khyj/GCzKMvoe0gjJDhZNX7+VJRkiJdTjnxlC/laFg/uQmAepxPO1P1Vp0Sqj3ZpOvsEuDDeYIpRe4zD9q+DrZvlxV3Thepw
 X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 12:41:30.2790
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 12:41:31.2058
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26190287-0053-4562-cf94-08de89a2ac6a
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0b6261a-27b3-4176-abac-08de89a2acf8
 X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000094.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000004B.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12325
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11435
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_054136_146253_096DB535 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260324_054137_497891_884796C8 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,162 +168,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c gpio to
-support bus recovery") introduced pinmux nodes for lx2160 i2c
-interfaces, allowing runtime change between i2c and gpio functions
-implementing bus recovery.
+LX2160A pinmux is done in groups by various length bitfields within
+configuration registers.
 
-However, the dynamic configuration area (overwrite MUX) used by the
-pinctrl-single driver initially reads as zero and does not reflect the
-actual hardware state set by the Reset Configuration Word (RCW) at
-power-on.
+Each group of pins is named in the reference manual after a primary
+function using soc-specific naming, e.g. IIC1 (for i2c0).
 
-Because multiple groups of pins are configured from a single 32-bit
-register, the first write from the pinctrl driver unintentionally clears
-all other bits to zero.
+Hardware block numbering starts from zero in device-tree but one in the
+reference manual.
 
-For example, on the LX2162A Clearfog, RCWSR12 is initialized to
-0x08000006. When any i2c pinmux is applied, it clears all other fields.
-This inadvertently disables SD card-detect (IIC2_PMUX) and some GPIOs
-(SDHC1_DIR_PMUX):
+Rename the already defined pinmux nodes originally added for changing
+i2c pins between i2c and gpio functions reflecting the reference manual
+name (IIC) in the node name, and the device-tree name (i2c, gpio) in the
+label.
 
-LX2162-CF RCWSR12: 0b0000100000000000 0000000000000110
-IIC2_PMUX              |||   |||   || |   |||   |||XXX : I2C/GPIO/CD-WP
-SDHC1_DIR_PMUX         XXX   |||   || |   |||   |||    : SDHC/GPIO/SPI
+Specifically, drop the "_scl" suffix from the I2C labels because the
+nodes actually configure both SDA and SCL pins together. Instead add
+"_pins" suffix to avoid conflicts with I2C controller labels.
 
-Reverting the commit in question was considered but bus recovery is an
-important feature.
+For GPIO functions, include the specific controller and pin numbers in
+the label to clarify they are generic GPIOs and help spot mistakes.
 
-Instead add pinmux nodes for those pins that were unintentionally
-reconfigured on SolidRun LX2160A Clearfog-CX and LX2162A Clearfog
-boards.
+No functional change intended.
 
 Fixes: 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c gpio to support bus recovery")
-Cc: stable@vger.kernel.org
 Signed-off-by: Josua Mayer <josua@solid-run.com>
 ---
- .../arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi |  7 +++++++
- .../dts/freescale/fsl-lx2160a-clearfog-itx.dtsi    |  2 ++
- arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi     | 24 ++++++++++++++++++++++
- .../boot/dts/freescale/fsl-lx2162a-clearfog.dts    |  2 ++
- .../boot/dts/freescale/fsl-lx2162a-sr-som.dtsi     |  7 +++++++
- 5 files changed, 42 insertions(+)
+ arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 64 +++++++++++++-------------
+ 1 file changed, 32 insertions(+), 32 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
-index eec2cd6c6d32a..7f6e39e27ce5c 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi
-@@ -162,6 +162,8 @@ rtc@51 {
- };
- 
- &fspi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&fspi_data74_pins>, <&fspi_data30_pins>, <&fspi_dqs_sck_cs10_pins>;
- 	status = "okay";
- 
- 	flash@0 {
-@@ -177,6 +179,11 @@ flash@0 {
- 	};
- };
- 
-+&pinmux_i2crv {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gpio0_14_12_pins>;
-+};
-+
- &usb0 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi
-index af6258b2fe826..580ee9b3026e3 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-clearfog-itx.dtsi
-@@ -89,6 +89,8 @@ &emdio2 {
- };
- 
- &esdhc0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&esdhc0_cd_wp_pins>, <&esdhc0_cmd_data30_clk_vsel_pins>;
- 	sd-uhs-sdr104;
- 	sd-uhs-sdr50;
- 	sd-uhs-sdr25;
 diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index 853b01452813a..af74e77efabc5 100644
+index 41c9b4253f4a5..28500e8873909 100644
 --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
 +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1721,6 +1721,10 @@ i2c1_scl_gpio: i2c1-scl-gpio-pins {
+@@ -750,8 +750,8 @@ i2c0: i2c@2000000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c0_scl>;
+-			pinctrl-1 = <&i2c0_scl_gpio>;
++			pinctrl-0 = <&i2c0_pins>;
++			pinctrl-1 = <&gpio0_3_2_pins>;
+ 			scl-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -766,8 +766,8 @@ i2c1: i2c@2010000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c1_scl>;
+-			pinctrl-1 = <&i2c1_scl_gpio>;
++			pinctrl-0 = <&i2c1_pins>;
++			pinctrl-1 = <&gpio0_31_30_pins>;
+ 			scl-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -782,8 +782,8 @@ i2c2: i2c@2020000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c2_scl>;
+-			pinctrl-1 = <&i2c2_scl_gpio>;
++			pinctrl-0 = <&i2c2_pins>;
++			pinctrl-1 = <&gpio0_29_28_pins>;
+ 			scl-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -798,8 +798,8 @@ i2c3: i2c@2030000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c3_scl>;
+-			pinctrl-1 = <&i2c3_scl_gpio>;
++			pinctrl-0 = <&i2c3_pins>;
++			pinctrl-1 = <&gpio0_27_26_pins>;
+ 			scl-gpios = <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -814,8 +814,8 @@ i2c4: i2c@2040000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c4_scl>;
+-			pinctrl-1 = <&i2c4_scl_gpio>;
++			pinctrl-0 = <&i2c4_pins>;
++			pinctrl-1 = <&gpio0_25_24_pins>;
+ 			scl-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -830,8 +830,8 @@ i2c5: i2c@2050000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c5_scl>;
+-			pinctrl-1 = <&i2c5_scl_gpio>;
++			pinctrl-0 = <&i2c5_pins>;
++			pinctrl-1 = <&gpio0_23_22_pins>;
+ 			scl-gpios = <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -846,8 +846,8 @@ i2c6: i2c@2060000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c6_scl>;
+-			pinctrl-1 = <&i2c6_scl_gpio>;
++			pinctrl-0 = <&i2c6_i2c7_pins>;
++			pinctrl-1 = <&gpio1_18_15_pins>;
+ 			scl-gpios = <&gpio1 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -862,8 +862,8 @@ i2c7: i2c@2070000 {
+ 			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+ 					    QORIQ_CLK_PLL_DIV(16)>;
+ 			pinctrl-names = "default", "gpio";
+-			pinctrl-0 = <&i2c6_scl>;
+-			pinctrl-1 = <&i2c6_scl_gpio>;
++			pinctrl-0 = <&i2c6_i2c7_pins>;
++			pinctrl-1 = <&gpio1_18_15_pins>;
+ 			scl-gpios = <&gpio1 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+ 			status = "disabled";
+ 		};
+@@ -1713,11 +1713,11 @@ pinmux_i2crv: pinmux@70010012c {
+ 			pinctrl-single,register-width = <32>;
+ 			pinctrl-single,function-mask = <0x7>;
+ 
+-			i2c1_scl: i2c1-scl-pins {
++			i2c1_pins: iic2-i2c-pins {
+ 				pinctrl-single,bits = <0x0 0 0x7>;
+ 			};
+ 
+-			i2c1_scl_gpio: i2c1-scl-gpio-pins {
++			gpio0_31_30_pins: iic2-gpio-pins {
  				pinctrl-single,bits = <0x0 0x1 0x7>;
  			};
  
-+			esdhc0_cd_wp_pins: iic2-sdhc-pins {
-+				pinctrl-single,bits = <0x0 0x6 0x7>;
-+			};
-+
- 			i2c2_scl: i2c2-scl-pins {
+@@ -1725,35 +1725,35 @@ esdhc0_cd_wp_pins: iic2-sdhc-pins {
+ 				pinctrl-single,bits = <0x0 0x6 0x7>;
+ 			};
+ 
+-			i2c2_scl: i2c2-scl-pins {
++			i2c2_pins: iic3-i2c-pins {
  				pinctrl-single,bits = <0x0 0 (0x7 << 3)>;
  			};
-@@ -1753,6 +1757,26 @@ i2c5_scl_gpio: i2c5-scl-gpio-pins {
+ 
+-			i2c2_scl_gpio: i2c2-scl-gpio-pins {
++			gpio0_29_28_pins: iic3-gpio-pins {
+ 				pinctrl-single,bits = <0x0 (0x1 << 3) (0x7 << 3)>;
+ 			};
+ 
+-			i2c3_scl: i2c3-scl-pins {
++			i2c3_pins: iic4-i2c-pins {
+ 				pinctrl-single,bits = <0x0 0 (0x7 << 6)>;
+ 			};
+ 
+-			i2c3_scl_gpio: i2c3-scl-gpio-pins {
++			gpio0_27_26_pins: iic4-gpio-pins {
+ 				pinctrl-single,bits = <0x0 (0x1 << 6) (0x7 << 6)>;
+ 			};
+ 
+-			i2c4_scl: i2c4-scl-pins {
++			i2c4_pins: iic5-i2c-pins {
+ 				pinctrl-single,bits = <0x0 0 (0x7 << 9)>;
+ 			};
+ 
+-			i2c4_scl_gpio: i2c4-scl-gpio-pins {
++			gpio0_25_24_pins: iic5-gpio-pins {
+ 				pinctrl-single,bits = <0x0 (0x1 << 9) (0x7 << 9)>;
+ 			};
+ 
+-			i2c5_scl: i2c5-scl-pins {
++			i2c5_pins: iic6-i2c-pins {
+ 				pinctrl-single,bits = <0x0 0 (0x7 << 12)>;
+ 			};
+ 
+-			i2c5_scl_gpio: i2c5-scl-gpio-pins {
++			gpio0_23_22_pins: iic6-gpio-pins {
  				pinctrl-single,bits = <0x0 (0x1 << 12) (0x7 << 12)>;
  			};
  
-+			fspi_data74_pins: xspi1-data74-pins {
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 15)>;
-+			};
-+
-+			fspi_data30_pins: xspi1-data30-pins {
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 18)>;
-+			};
-+
-+			fspi_dqs_sck_cs10_pins: xspi1-base-pins {
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 21)>;
-+			};
-+
-+			esdhc0_cmd_data30_clk_vsel_pins: sdhc1-base-sdhc-vsel-pins {
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 24)>;
-+			};
-+
-+			gpio0_14_12_pins: sdhc1-dir-gpio-pins {
-+				pinctrl-single,bits = <0x0 (0x1 << 27) (0x7 << 27)>;
-+			};
-+
- 			i2c6_scl: i2c6-scl-pins {
- 				pinctrl-single,bits = <0x4 0x2 0x7>;
+@@ -1777,19 +1777,19 @@ gpio0_14_12_pins: sdhc1-dir-gpio-pins {
+ 				pinctrl-single,bits = <0x0 (0x1 << 27) (0x7 << 27)>;
  			};
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts b/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
-index eafef8718a0fe..8920326a06735 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-clearfog.dts
-@@ -223,6 +223,8 @@ ethernet_phy8: ethernet-phy@15 {
- };
  
- &esdhc0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&esdhc0_cd_wp_pins>, <&esdhc0_cmd_data30_clk_vsel_pins>;
- 	sd-uhs-sdr104;
- 	sd-uhs-sdr50;
- 	sd-uhs-sdr25;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi
-index e914291e63a1a..e1344942eaaee 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-sr-som.dtsi
-@@ -30,6 +30,8 @@ &esdhc1 {
- };
+-			i2c6_scl: i2c6-scl-pins {
+-				pinctrl-single,bits = <0x4 0x2 0x7>;
++			gpio1_18_15_pins: iic8-iic7-gpio-pins {
++				pinctrl-single,bits = <0x4 0x1 0x7>;
+ 			};
  
- &fspi {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&fspi_data74_pins>, <&fspi_data30_pins>, <&fspi_dqs_sck_cs10_pins>;
- 	status = "okay";
+-			i2c6_scl_gpio: i2c6-scl-gpio-pins {
+-				pinctrl-single,bits = <0x4 0x1 0x7>;
++			i2c6_i2c7_pins: iic8-iic7-i2c-pins {
++				pinctrl-single,bits = <0x4 0x2 0x7>;
+ 			};
  
- 	flash@0 {
-@@ -80,3 +82,8 @@ rtc@6f {
- 		reg = <0x6f>;
- 	};
- };
-+
-+&pinmux_i2crv {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gpio0_14_12_pins>;
-+};
+-			i2c0_scl: i2c0-scl-pins {
++			i2c0_pins: iic1-i2c-pins {
+ 				pinctrl-single,bits = <0x8 0x0 (0x1 << 10)>;
+ 			};
+ 
+-			i2c0_scl_gpio: i2c0-scl-gpio-pins {
++			gpio0_3_2_pins: iic1-gpio-pins {
+ 				pinctrl-single,bits = <0x8 (0x1 << 10) (0x1 << 10)>;
+ 			};
+ 		};
 
 -- 
 2.51.0
