@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E329DF54ADA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA505F54ADE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xpg1OOHH7W5XsLN+rucSM2WsyuBL1ulEamOIabJEn3w=; b=sp0TyK8om1XpkbEEvBbf8udupo
-	YUN4Xs/aXPyhyM6DxB3vFM4gk+KVlq6eLegiPScCGYeXE12MJBweDh1GInS+fXntgr9eW0xf/D03y
-	33pVG1jJoDjfiJp5u635sW7djn2DJQ6mxho1WFfYrY9V+ZsKLiMyvQCAJoywUAxT9OLE84F3DKukK
-	jRAsQ3wwEWGLb36eQdy2RyHn87ZWQrdsyYwSGxaIstWKlm1sJTZyZy7xSOxasuN91Pnq4xuQfz3Pd
-	2OoxlKRUNCISkVczth6HSCyt+Dqrdr7k2splOerQa6H/zOCOF1GFo1PJrNE7UcNMZtAbryUh+YAWd
-	wWmryYnQ==;
+	bh=sI6V0alAInp+YEqTm9i0iP4YwBvR6bTOYbLWwt85RwA=; b=H40HMpmp9qun2efeiQBXRpt87L
+	PZueQFOOleVD2OihDIFgDIsWYz2F4o5eusSXc/LjzBsHeiO3jaHodHgks5fp49qIOUpckmvkWVnbV
+	88UCmtQLoog6s4fmVNGiGhauSSpS7iFJKL2JaiWvM5wSz7QTWR5/SaNn6G5EfB2iylEezUhyDE9jN
+	iCWb9iyYuLuHUQjap1Xe1YJtZUENLdeiHWxyjKtWDyRqM5kZSQHcxUMDVx+1GmSPJhxOpRngFYj17
+	klhc1erdOdxw9rQ78Gkw++4k7hsJuNwZlbLOHJNhtL7hC0NLvxYjPlckOk+afLkPZ72hHMmIZ8zMz
+	3hNDR2jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5577-00000001xBf-2cI9;
-	Tue, 24 Mar 2026 17:00:21 +0000
+	id 1w557K-00000001xHO-42PO;
+	Tue, 24 Mar 2026 17:00:34 +0000
 Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5574-00000001xAe-49il
+	id 1w557I-00000001xGB-0kLi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 17:00:20 +0000
+	Tue, 24 Mar 2026 17:00:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774371619; x=1805907619;
+  t=1774371632; x=1805907632;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=d6KLxSDgRcKiLzDY+NMiMRY2jmIC2rw/9NmZTIuAx/o=;
-  b=easix1+RlY9rqMRBuoMLb2wAAfgSDz3ibtQyVj4mqKpmFLMQgTbIPCX4
-   gAA2tEX3xYIEto8+AkrxOuTPGzuP2j4e4VBVuKeGGwITBZ8oflbfV8Hkp
-   5VYbtgI5lBaHcrIDfpxq6mOnlCqa++w7ugTD3Nk8+ARqI+dmONSZvjXIR
-   /p5fvft8c5Wa8UUJjzOkzuqezOLRv0raQAEbuHgWEc3mxJhsvClnVn1zP
-   ZLy2GBHQZVVO7TOXnmjvfKgm9fv/GmNgMpWiRR/gxry7bYZfuF+hIbWXy
-   vir35/haHx/+1Gs8DkkVK7Y7QH/pjiUkI44eIBNl3xTlmN+Yeovb/CpTL
-   g==;
-X-CSE-ConnectionGUID: KwZVc5DlSZ6+GyOTJbGkfg==
-X-CSE-MsgGUID: KT7pYOe5Ra6MdhWJ0D/kbg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75281420"
+  bh=yRiNPjyR6BmckrFz9yS55d2yQZU16Z4uT3UMgBowpHk=;
+  b=XVu7atomGqeRQ/mCvdsKBuOQqnS1A97ZFHQ5puo3JRTcIwdzrp5Yr2Rd
+   jj1ETPgCNbjE6BE79nJ3C7Zaa+z4mSwmDHFYxZRmzrp2mpbO4Cu3Qt/yD
+   vJJiRCY2WGxFF2yToGAcCqMXJn0mooQi9q830Eh2W/9dyTmG97j3QNmRd
+   mzE6F3SHc1fSTFh0U4wYdOQ1jinn5Iw0QBTFOWxePvgJJAl/rtzmYuJKM
+   jDxSMumIEEoe+9e1PoNoEwc9Sqib5SCOCiOVH3nSToaOEA2SziPRnnnZT
+   hG7orP7S4succId+dkQnlq9tlZ16Uzf2dP8dFFiFg03yoXx6YLJepcJZr
+   A==;
+X-CSE-ConnectionGUID: dDI18wGOQGmOcux1S44yKg==
+X-CSE-MsgGUID: FxtUrRF2TU+z74POaraNZA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75281469"
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="75281420"
+   d="scan'208";a="75281469"
 Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:18 -0700
-X-CSE-ConnectionGUID: ib4xzWKRSNm/cm3wyP1vbg==
-X-CSE-MsgGUID: WCv5QcPyT7OGGuY23A4d9Q==
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:31 -0700
+X-CSE-ConnectionGUID: NHjFhTG1RYO9C2glveQ6yA==
+X-CSE-MsgGUID: hhyUW1HYQmiP63jGpn9/jA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="219540242"
+   d="scan'208";a="219540299"
 Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:10 -0700
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:22 -0700
 From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
 To: linux-pci@vger.kernel.org,
 	Bjorn Helgaas <bhelgaas@google.com>,
@@ -85,9 +85,9 @@ To: linux-pci@vger.kernel.org,
 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
 	linux-kernel@vger.kernel.org
 Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH 07/10] parisc/PCI: Cleanup align handling
-Date: Tue, 24 Mar 2026 18:56:30 +0200
-Message-Id: <20260324165633.4583-8-ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH 08/10] PCI: Rename window_alignment() to pci_min_window_alignment()
+Date: Tue, 24 Mar 2026 18:56:31 +0200
+Message-Id: <20260324165633.4583-9-ilpo.jarvinen@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
 References: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
@@ -95,8 +95,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_100019_077859_A63BF4F4 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260324_100032_262652_11F309C4 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +111,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Caller of pcibios_align_resource() (__find_resource_space()) already
-aligns the start address by 'alignment' so aligning is only necessary
-if align > alignment.
+window_alignment() lacks prefix. Rename it to pci_min_window_alignment()
+in order to include the prefix and also add min to indicate the returned
+window alignment is the minimum PCI spec and arch allows.
 
-Change also to use ALIGN() instead of open-coding.
+Also make it available in drivers/pci/pci.h as upcoming changes will need
+to call it from outside of setup-bus.c.
 
 Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 ---
- arch/parisc/kernel/pci.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ drivers/pci/pci.h       | 3 +++
+ drivers/pci/setup-bus.c | 6 +++---
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/arch/parisc/kernel/pci.c b/arch/parisc/kernel/pci.c
-index f99b20795d5a..f50be1a63c4c 100644
---- a/arch/parisc/kernel/pci.c
-+++ b/arch/parisc/kernel/pci.c
-@@ -8,6 +8,7 @@
-  * Copyright (C) 1999-2001 Hewlett-Packard Company
-  * Copyright (C) 1999-2001 Grant Grundler
-  */
-+#include <linux/align.h>
- #include <linux/eisa.h>
- #include <linux/init.h>
- #include <linux/module.h>
-@@ -200,7 +201,7 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
- 				       resource_size_t size,
- 				       resource_size_t alignment)
- {
--	resource_size_t mask, align, start = res->start;
-+	resource_size_t align, start = res->start;
- 
- 	DBG_RES("pcibios_align_resource(%s, (%p) [%lx,%lx]/%x, 0x%lx, 0x%lx)\n",
- 		pci_name(((struct pci_dev *) data)),
-@@ -209,11 +210,8 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
- 
- 	/* If it's not IO, then it's gotta be MEM */
- 	align = (res->flags & IORESOURCE_IO) ? PCIBIOS_MIN_IO : PCIBIOS_MIN_MEM;
--
--	/* Align to largest of MIN or input size */
--	mask = max(alignment, align) - 1;
--	start += mask;
--	start &= ~mask;
-+	if (align > alignment)
-+		start = ALIGN(start, align);
- 
- 	return start;
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 13d998fbacce..2edb03c1c6b9 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -1053,6 +1053,9 @@ static inline resource_size_t pci_resource_alignment(struct pci_dev *dev,
+ 	return resource_alignment(res);
  }
+ 
++resource_size_t pci_min_window_alignment(struct pci_bus *bus,
++					 unsigned long type);
++
+ void pci_acs_init(struct pci_dev *dev);
+ void pci_enable_acs(struct pci_dev *dev);
+ #ifdef CONFIG_PCI_QUIRKS
+diff --git a/drivers/pci/setup-bus.c b/drivers/pci/setup-bus.c
+index 61f769aaa2f6..edc0d682dcad 100644
+--- a/drivers/pci/setup-bus.c
++++ b/drivers/pci/setup-bus.c
+@@ -1035,7 +1035,7 @@ resource_size_t __weak pcibios_window_alignment(struct pci_bus *bus,
+ #define PCI_P2P_DEFAULT_IO_ALIGN	SZ_4K
+ #define PCI_P2P_DEFAULT_IO_ALIGN_1K	SZ_1K
+ 
+-static resource_size_t window_alignment(struct pci_bus *bus, unsigned long type)
++resource_size_t pci_min_window_alignment(struct pci_bus *bus, unsigned long type)
+ {
+ 	resource_size_t align = 1, arch_align;
+ 
+@@ -1084,7 +1084,7 @@ static void pbus_size_io(struct pci_bus *bus, resource_size_t add_size,
+ 	if (resource_assigned(b_res))
+ 		return;
+ 
+-	min_align = window_alignment(bus, IORESOURCE_IO);
++	min_align = pci_min_window_alignment(bus, IORESOURCE_IO);
+ 	list_for_each_entry(dev, &bus->devices, bus_list) {
+ 		struct resource *r;
+ 
+@@ -1339,7 +1339,7 @@ static void pbus_size_mem(struct pci_bus *bus, struct resource *b_res,
+ 		}
+ 	}
+ 
+-	win_align = window_alignment(bus, b_res->flags);
++	win_align = pci_min_window_alignment(bus, b_res->flags);
+ 	min_align = calculate_head_align(aligns, max_order);
+ 	min_align = max(min_align, win_align);
+ 	size0 = calculate_memsize(size, realloc_head ? 0 : add_size,
 -- 
 2.39.5
 
