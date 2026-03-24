@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BE0E9A776
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCDCE9A777
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bLDa5FatlQiQDgslRUvd7a89kzDDOt8E5RHDR74RRs=; b=qx1R7Jb4A6dYZxyfcU1CIXKOH6
-	bKEzUEw06FYthEH6Hm9NfMLBIoaCd2Z6eovW5VmPZgkw7MGsXuaE+shvg6Y+wobKMrn0i0bRPYlIE
-	ALM2gQimej1XR1t6FvsTuspecD3YjLEJE4ASSMbvR++QA56XDG02cmhtz19+Ql5s+heWhuClE/JEs
-	3SyjsWo0hRYYQkFS8IPghWImrH7O/WHlBrZC3ht+Iau48m3Qn/SeBeCf6odIDMs9uhtNZz0LqASxL
-	ZC+y+qU1cM72GwnYmbWUM/L+0UiQKQ+EvGMCTpE8+SfXklQ9u7a6bHYOAhy3dzWa2vAYpoqqpKIZQ
-	p654wa1g==;
+	bh=Xf9rlczStewUcTXhPmxk6Iebg3fBe00yuYDUw52jRng=; b=g0wcoc6na2r6oI8T65MLt+m4uM
+	rKx1ZftntkhlWM+riZ86EONsKxG2FJ8spWbW8jTodKbl48zh/9Gm96tIoYs1p5zB5P7caOzvmxzN5
+	uSq/k5dxLfHuHqFSqCmCAPWpyq8VcwEoZfWq1pM7g0ghePAHq3+bQxOmNwnOB3ke/hj8YFXyNxsv7
+	9SU8T14AcQUaYUUSmu0i4CmoqwVV/UnnvRKBmeFT074ri31VnuUf+k3Q/YYccpouljuBpiH96diOh
+	KFGEupIeiJr8FFxV+vwNQOWGwQgjc4Xd4XSdTxKY1Js6bo1WIFImpY6xxYDTA5NGirAVql2CcZNUH
+	2Yn6d7qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w50CD-00000001IGs-3FGo;
-	Tue, 24 Mar 2026 11:45:17 +0000
-Received: from mail-japaneastazon11022093.outbound.protection.outlook.com ([52.101.126.93] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1w50Eo-00000001Isk-1q9A;
+	Tue, 24 Mar 2026 11:47:58 +0000
+Received: from mail-japaneastazon11023112.outbound.protection.outlook.com ([52.101.127.112] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w50CA-00000001IGG-0K8K
+	id 1w50Em-00000001Ir8-16Vo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 11:45:15 +0000
+	Tue, 24 Mar 2026 11:47:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IyCs/YwMQqRUAX9nsAq/+nIO1fACxqvU0ZmNhU1RRvXJurrYJP+C6fh0YOmh6zreJ+11cPTswapHMNYYdrz//Ny1coe4cEweY+FWyrwXzl235tne6zFJMZwJn8a1iTFEe16kHgy5H608spnXf8SU1SyWGc613QUTs+JA/cPjJDn50ZeYKvjjKYeYFC6cId+H9rstCOfTNcM8rAhwytYW0U6nQFlVufPVLJZ0mdHEUXfzhz88LO7FvdCiimZhn5Gzbsjp7zD1jOsXaZVL4MUMM8TooYgmNoXNA7lbjQht6JANaozwCa2/EUkcmdeV4IOoUlrb/J0PFluzYDjdUbL2Ag==
+ b=DQz6tdqononBkvGuznMkra0kkx1Hmp4RBZFpjYbRL4Je9HLcCslsiaq2wvHTflSNTNSM5SEoWU4RFg5Ocei6OB/d/LnCWdwWhfVEabIeg9R1H4tAWiOBUdDqHIYwiIbqtG2L92FUaqF3qfj+LqabD+pVMhRLNNfjuxWEhYvQq1C1Pc6NZBFNFrv2A8G8Hn8tF+v0tslSOKET1IU0DLScb3sQbpdoFOJseBgnPliT6tE4v4ho0uvVAJ2iWLx0Twnv32gIyEYiyHuJi1Qub50dzhh33r6pBAA06P/g/0zM7SISeBCDB6Ad3Y9uK4fW4Gug5w/dJKKIDYeriECSeJXZDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7bLDa5FatlQiQDgslRUvd7a89kzDDOt8E5RHDR74RRs=;
- b=spDkp56luWT0Gg+OCBcCYJ3zfTQPZ7XeBJqTcmoQ+AHx+dRKSbBwWva9JqTNs6JP9w4x9qCmj4octRqfCxgEAPUJSDyg76P+g73bmeHMj1/8mCLgj8I6YxUXdJ+fiTrsfK/7HDh0FoqHPCcgC0FKE3LPvAoKjB7qM4LOBiYN80yGVEL4MEgHWZql2m1UYfVODioQYXpOEZu7F3c1o+33AHYzfQXpkSNu5MMVBwQGG9k6Gh0EvTI5Tm2SVCAWPQp9P9ENO/WO36TEtSJXrbgXQ9kQtnvXgwDyup9lVGppaOeFKDWAiX0nzWTMI6uqMeN09CMEHGnbzne71xezFS2Fdw==
+ bh=Xf9rlczStewUcTXhPmxk6Iebg3fBe00yuYDUw52jRng=;
+ b=hSgaRbNo0sLqg8n6u6ERzHH9eOr29FbKEtGeZqtJ47vYuYz41Rn0adfzy08tl4FUsZN4egjZBTzNrhfmrkwUfHQgzEZnrg4ZBx0yr5SjL9eNNHF71kbVMleU2LBhn5UKvwwszl9vsnOMU6GEJdORvTby01iqjrT8bEGZNm7ipmh68fnGuRBc1IKFK/TpQvsS2FOl5YG+PHxzTR2nXmBCbJJHRGxRhJDSsfvOMYpWzFXS0boKnoNqJSikY8prVEEgOf4pJJ4MizXLW9SWOYtgP20uBBn/pml5Ahi/H8f0EIL1ZeOAx4UdfrRbMGEuTH3m5p+GdmZi4ugCamF0N0pOkg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from OSTP286CA0052.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:217::13)
- by TYZPR06MB5321.apcprd06.prod.outlook.com (2603:1096:400:1f3::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
- 2026 11:45:03 +0000
-Received: from OSA0EPF000000C7.apcprd02.prod.outlook.com
- (2603:1096:604:217:cafe::58) by OSTP286CA0052.outlook.office365.com
- (2603:1096:604:217::13) with Microsoft SMTP Server (version=TLS1_3,
+Received: from SI2PR01CA0021.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::19) by OSNPR06MB8332.apcprd06.prod.outlook.com
+ (2603:1096:604:471::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
+ 2026 11:47:53 +0000
+Received: from SG2PEPF000B66CE.apcprd03.prod.outlook.com
+ (2603:1096:4:192:cafe::6a) by SI2PR01CA0021.outlook.office365.com
+ (2603:1096:4:192::19) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
- 24 Mar 2026 11:45:00 +0000
+ 24 Mar 2026 11:47:52 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,54 +55,52 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C7.mail.protection.outlook.com (10.167.240.53) with Microsoft
+ SG2PEPF000B66CE.mail.protection.outlook.com (10.167.240.21) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 11:45:02 +0000
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 11:47:52 +0000
 Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 4D3D24126F80;
-	Tue, 24 Mar 2026 19:45:01 +0800 (CST)
-Date: Tue, 24 Mar 2026 19:45:00 +0800
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 6B8BD40A5A01;
+	Tue, 24 Mar 2026 19:47:51 +0800 (CST)
+Date: Tue, 24 Mar 2026 19:47:50 +0800
 From: Peter Chen <peter.chen@cixtech.com>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH v4 2/2] arm64: dts: cix: Add scmi powerdomain nodes for
- sky1
-Message-ID: <acJ5PLtFwZ8+E5q+@nchen-desktop>
-References: <20260313114914.1564115-1-gary.yang@cixtech.com>
- <20260313114914.1564115-3-gary.yang@cixtech.com>
+To: Zichar Zhang <zichar.zhang@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	fugang.duan@cixtech.com, linusw@kernel.org,
+	cix-kernel-upstream@cixtech.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/1] arm64: dts: cix: add FCH(S0)/S5 GPIO controllers
+ for sky1
+Message-ID: <acJ55iqzw289t9z9@nchen-desktop>
+References: <20260312094923.3473444-1-zichar.zhang@cixtech.com>
+ <20260312094923.3473444-2-zichar.zhang@cixtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260313114914.1564115-3-gary.yang@cixtech.com>
+In-Reply-To: <20260312094923.3473444-2-zichar.zhang@cixtech.com>
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C7:EE_|TYZPR06MB5321:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94595e17-9618-44d1-bb56-08de899ac93c
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CE:EE_|OSNPR06MB8332:EE_
+X-MS-Office365-Filtering-Correlation-Id: 69c49ee0-1c96-4111-4f6b-08de899b2e80
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 6cGnMZ4M/iTWiVaaIFdBOgnDmJGX+S6VrN25Oiv88uDO7g3o4nRExA+tVb/pSDvg+J4lXAPSBqzSGmgpYtriBGG9O9VefI4H4nUSwO3Fba3obt75lTPrM8SGHuTj8+V4JIPJYisjRSbynUO4OPGX6nLUBNTk1z67ngFrM6duUIp2/N/akv3AlnkHeCzTej6WU2RdL4DCBot4LpI0UdAS4lUMeaniEX0tTGTdMtHojPDVcSh2l54q55eCL9Bbs6MN2fXCMa9Hb1+ShZie4ADearNnc25vLOvesIrpO6IelpgRQyOjXF0vP70iPuilj7cA8Ef0utzae/8XPfWtKq94CHsK8XcJW7X2m68s5U6kbh78pG5D01CS3tp/as+6pJL3wsvleGxF7Mqj8XP7TL/dDeWzJIHcGIhN/8mV/+19+0UfKkBDMYp05AkPFQFy9IBlfIYQpB7dC4fs4zRJ/a/LX0bwrBlJZ7riw7DMiPnJVLBXzWwMO0RqOBmxvEfjsVefba2xYJMNmTVzPOCrnlq9fCq/TLiBPp9ERLMtRaugq7Tsnu3O4dMDbJqMZ8bkgnEPxKgXsalDLNWF7eOTCa0gPkT//3VqLnW65jQwu9Bo1UZoshZjeECYupdRYIfjeGO9FPYlclyFSImmmwM0N6jDmhSMROCLGeg/oA9kE2LMQy/jVqDaFcw4W5a0IfN86ys/2b3myjiJEGU4yRzRYW7KtzfVEwApWj3vYDO7/TELaiqHR6N+SiHKD19xY9Dc7C8vNwslyL0pbkhcJxiVu4r2uw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: guNBLcfPTP3pEndBx3mFhI8PQvx3VVZY8k/NqSjU9/JbU2yPsUiEjQKlnNnRdtgE/pBqlyq1wb5Qj+rT+DJxMBSCuxqfrHyMX9PExRDMqmIiS0AH204T+xhjVImHK8bd12jzB9uRgqhUK3Fo/ACsS4ZmZ7F76XeCqtG0dvwnjzYW402k/kVtzXDtyfKzoqeRtuWYJ3pdVgSjq25+2hLeX3C1D4sSEeLkGzfEGuXhCtbBRF3pwzBserninvxSqnSChb81d5hGEhqafhMijiDSp/pNz8acN72CJ3Bcy3oN5jJb5+VQSkwaUnrqgKEifI2MOy5Aj+9D3v+yuyAd76vUABqe9xU1hXc485guQAaX+15ja2XCQnPvcosHNzLv/DrPUdrHM+bW/Jp8SlAacY0dHlcB3JBmkoXfAb5YCgRlnm4x2AsEPv9NyfsGESv2EkX9Ub77fdk8pxYk01d+IzZdxTH9Ks/IQicQtDS4FPk2rF14IN6jofdWIDB5gj6iDnBbaxaq9P+0Kq8ZTK/3ryRS2S7o/rsokw7EGCdLA3X2tDYegbqe5UWrICqZWUTJCgYmRWoLXrYlj2K0XaVH91/I1tSvAiOm0U00MgpB0C0xL8OXV+nawD+QrQ7NNd4jSMDIETgFili0hGsGfAVjx3/CZ5/Z1xeXstBdt2XO3dhjZjx9ZaOPni7CfNdoVFHfRec6bYcMkZb0T86hbX1ZYiBkbWao6ZxUl+u6w7J9jDoFViVLlt2YHMUCDE3804k2rIj+ilYe0Scql2BCrlfmMt2j6Q==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8Z8loxmIfqF6ZeVp8D7FPIU/ufmfBabBkKXNcjtoZEEtDX9cBbCgIB45lQmcsfXRjzdzWmr2pVPAjHoi+adDxNp9cz9bji5gaFc7sDvxZF2HAAOa8H2RZS4bUMyRextHbJDR91GaM6HTRAU5wgHflcMgSAaV7GVhOu1E137jjaM/SUQvzrYxtrV4QJrT2VODirgmPymTYsd8lWriAeZyFLIOs9iJsdH7/U3rs0azjRDQ6iv4lr07AZfE96xvdS8XYGEooNMLOCmVllxzojRne3XKJzrHOH0fLOixIQd7M+Ai+f+NV42J9Nkq/kYtcdH51KyDsaZjuImAbCx5Vi2J5dl6ot6rl0c3Qa7VuUMy27fJKfMdtwzOT6Gqy5OTFYMVUdQXzOXO8fNSc5edmMXIl+Lx4xJ2A/w9gcvdgK8ukSU1K0H7E0BMtynrZIVPv46u
+X-MS-Exchange-AntiSpam-MessageData-0: G5jB6Uz4hjFsoBUkbxWkkIKgwI9l3coe0SSi55XA/g/2HGgvoy2w0MnT+oTMkYHRWkChXhq95qP/epOt76GknrfhTh62evwZ24ypbbVF+ItbOoivrqyUZFmVUH7ClQt+/j9l8oQjx/DDvA8uTFptMmR+hPCRg3W3OOwDVFe1QQpm0gmffnvy9j8D8r/+4BYTQsbhdRT+xBpFnZmEyIR80gUpQlBRlFcf+0JRujm1QLNK/k1wtZNXQkjCNlgNPNxGQTC3QLtoP+J4Rj1TTmodu4zQWnfIVxWwgPxf7pPfoHjc/wXPdhBy+ywGbfKay/jm/a8vyBFHxh2d8PHYAXpXyuaysvhjrMzubkpccOT54SxmSezhf0DHA2U2T8uZ/fUnQzaDdLKoEWlozgaNlESL/3/OsKorayB/QUvrgQDU6psScF46PgMvf7VPMJu9VrRw
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 11:45:02.4934
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 11:47:52.3757
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94595e17-9618-44d1-bb56-08de899ac93c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 69c49ee0-1c96-4111-4f6b-08de899b2e80
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C7.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CE.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5321
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR06MB8332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_044514_145639_F723BF91 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20260324_044756_309338_81F563EA 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,115 +115,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-03-13 19:49:14, Gary Yang wrote:
-> Add a second SCMI channel using SMC transport to communicate with TF-A
-> for power domain management on the Sky1 SoC.
+On 26-03-12 17:49:23, Zichar Zhang wrote:
+> Add Cadence GPIO controller nodes for Sky1 FCH(S0) and S5 domains in
+> sky1.dtsi, and enable those controllers on sky1-orion-o6.
 > 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> Signed-off-by: Zichar Zhang <zichar.zhang@cixtech.com>
 
 Applied, thanks.
 
 Peter
 > ---
->  arch/arm64/boot/dts/cix/sky1-power.h | 33 ++++++++++++++++++++++++++++
->  arch/arm64/boot/dts/cix/sky1.dtsi    | 21 ++++++++++++++++++
->  2 files changed, 54 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/cix/sky1-power.h
+>  arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  28 +++++
+>  arch/arm64/boot/dts/cix/sky1.dtsi         | 119 ++++++++++++++++++++++
+>  2 files changed, 147 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/cix/sky1-power.h b/arch/arm64/boot/dts/cix/sky1-power.h
-> new file mode 100644
-> index 000000000000..53f4a3af36b3
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1-power.h
-> @@ -0,0 +1,33 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright 2026 Cix Technology Group Co., Ltd.
-> + */
+> diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> index 4dee8cd0b86d..e39c87774c12 100644
+> --- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+> @@ -36,6 +36,22 @@ linux,cma {
+>  
+>  };
+>  
+> +&fch_gpio0 {
+> +	status = "okay";
+> +};
 > +
-> +#ifndef __SKY1_POWER_H__
-> +#define __SKY1_POWER_H__
+> +&fch_gpio1 {
+> +	status = "okay";
+> +};
 > +
-> +/* The Rich OS need flow the macro */
-> +#define SKY1_PD_AUDIO		0
-> +#define SKY1_PD_PCIE_CTRL0	1
-> +#define SKY1_PD_PCIE_DUMMY	2
-> +#define SKY1_PD_PCIEHUB		3
-> +#define SKY1_PD_MMHUB		4
-> +#define SKY1_PD_MMHUB_SMMU	5
-> +#define SKY1_PD_DPU0		6
-> +#define SKY1_PD_DPU1		7
-> +#define SKY1_PD_DPU2		8
-> +#define SKY1_PD_DPU3		9
-> +#define SKY1_PD_DPU4		10
-> +#define SKY1_PD_VPU_TOP		11
-> +#define SKY1_PD_VPU_CORE0	12
-> +#define SKY1_PD_VPU_CORE1	13
-> +#define SKY1_PD_VPU_CORE2	14
-> +#define SKY1_PD_VPU_CORE3	15
-> +#define SKY1_PD_NPU_CORE0	16
-> +#define SKY1_PD_NPU_CORE1	17
-> +#define SKY1_PD_NPU_CORE2	18
-> +#define SKY1_PD_NPU_TOP		19
-> +#define SKY1_PD_ISP0		20
-> +#define SKY1_PD_GPU		21
+> +&fch_gpio2 {
+> +	status = "okay";
+> +};
 > +
-> +#endif
+> +&fch_gpio3 {
+> +	status = "okay";
+> +};
+> +
+>  &iomuxc {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_hog>;
+> @@ -86,6 +102,18 @@ &pcie_x1_1_rc {
+>  	status = "okay";
+>  };
+>  
+> +&s5_gpio0 {
+> +	status = "okay";
+> +};
+> +
+> +&s5_gpio1 {
+> +	status = "okay";
+> +};
+> +
+> +&s5_gpio2 {
+> +	status = "okay";
+> +};
+> +
+>  &uart2 {
+>  	status = "okay";
+>  };
 > diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> index 64b76905cbff..495ea91a63f5 100644
+> index 72f3b195a927..3772548e8c0b 100644
 > --- a/arch/arm64/boot/dts/cix/sky1.dtsi
 > +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -6,6 +6,7 @@
->  
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/clock/cix,sky1.h>
-> +#include "sky1-power.h"
->  
->  / {
->  	interrupt-parent = <&gic>;
-> @@ -168,6 +169,19 @@ scmi_clk: protocol@14 {
->  				#clock-cells = <1>;
->  			};
->  		};
-> +
-> +		ap_to_tfa_scmi: scmi-1 {
-> +			compatible = "arm,scmi-smc";
-> +			arm,smc-id = <0xc2000001>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			shmem = <&ap_tfa_scmi_mem>;
-> +
-> +			smc_devpd: protocol@11 {
-> +				reg = <0x11>;
-> +				#power-domain-cells = <1>;
-> +			};
-> +		};
+> @@ -185,6 +185,13 @@ psci {
+>  		method = "smc";
 >  	};
 >  
->  	pmu-a520 {
-> @@ -428,6 +442,7 @@ pcie_x8_rc: pcie@a010000 {
->  			#size-cells = <2>;
->  			bus-range = <0xc0 0xff>;
->  			device_type = "pci";
-> +			power-domains = <&smc_devpd SKY1_PD_PCIE_CTRL0>;
->  			#interrupt-cells = <1>;
->  			interrupt-map-mask = <0 0 0 0x7>;
->  			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH 0>,
-> @@ -572,6 +587,12 @@ iomuxc_s5: pinctrl@16007000 {
+> +	s5_gpio_apb_clk: clock-100000000 {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <100000000>;
+> +		clock-output-names = "s5_gpio_apb_clk";
+> +	};
+> +
+>  	soc@0 {
+>  		compatible = "simple-bus";
+>  		ranges = <0 0 0 0 0x20 0>;
+> @@ -348,6 +355,70 @@ i3c1: i3c@4100000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		fch_gpio0: gpio-controller@4120000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x4120000 0x0 0x1000>;
+> +			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
+> +
+> +			interrupts = <GIC_SPI 304 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <32>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		fch_gpio1: gpio-controller@4130000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x4130000 0x0 0x1000>;
+> +			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
+> +
+> +			interrupts = <GIC_SPI 305 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <32>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		fch_gpio2: gpio-controller@4140000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x4140000 0x0 0x1000>;
+> +			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
+> +
+> +			interrupts = <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <32>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		fch_gpio3: gpio-controller@4150000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x4150000 0x0 0x1000>;
+> +			clocks = <&scmi_clk CLK_TREE_FCH_GPIO_APB>;
+> +
+> +			interrupts = <GIC_SPI 307 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <17>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+>  		syscon: syscon@4160000 {
+>  			compatible = "cix,sky1-system-control", "syscon";
+>  			reg = <0x0 0x4160000 0x0 0x100>;
+> @@ -587,6 +658,54 @@ s5_syscon: syscon@16000000 {
+>  			#reset-cells = <1>;
+>  		};
+>  
+> +		s5_gpio0: gpio-controller@16004000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x16004000 0x0 0x1000>;
+> +			clocks = <&s5_gpio_apb_clk>;
+> +
+> +			interrupts = <GIC_SPI 372 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <32>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		s5_gpio1: gpio-controller@16005000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x16005000 0x0 0x1000>;
+> +			clocks = <&s5_gpio_apb_clk>;
+> +
+> +			interrupts = <GIC_SPI 373 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <10>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		s5_gpio2: gpio-controller@16006000 {
+> +			compatible = "cdns,gpio-r1p02";
+> +			reg = <0x0 0x16006000 0x0 0x1000>;
+> +			clocks = <&s5_gpio_apb_clk>;
+> +
+> +			interrupts = <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <10>;
+> +
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			status = "disabled";
+> +		};
+> +
+>  		iomuxc_s5: pinctrl@16007000 {
 >  			compatible = "cix,sky1-pinctrl-s5";
 >  			reg = <0x0 0x16007000 0x0 0x1000>;
->  		};
-> +
-> +		ap_tfa_scmi_mem: shmem@84380000 {
-> +			compatible = "arm,scmi-shmem";
-> +			reg = <0x0 0x84380000 0x0 0x80>;
-> +			reg-io-width = <4>;
-> +		};
->  	};
->  
->  	timer {
 > -- 
-> 2.49.0
+> 2.34.1
 > 
 
 -- 
