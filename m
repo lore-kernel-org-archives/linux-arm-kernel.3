@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89D0F532C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A8FF532C3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zj2qyC8xhG10+YQXv/gFMiWEJ3lx8xupMwUnARNEhRY=; b=qpripsP5EEfBhkhYi+frpPNBuX
-	At/wP2WRnJpegMTGIiOHv4xig7Vcs9DyIN1l9yftUGSC/4wxO+OaYjwNwdN8whcTwY3T9+9gzv2Jp
-	Ecfa91yRBI/Zq2U8ZzSnor6RFhkOlXqZeJQLTNU/Evt57eNxo3nC7itY6AZXvVwhYX8PptoXq5/FH
-	YXNPKYbU7LttLTwgQddPbIqQHmTsvsWSvHFxluzm5nTSAGzQ0iN9vLvVScp7pPdJkZwpx4cGaoxUy
-	RJXZoZmbBSbdLTFd4oVK2Grx7zNZKZph27y8XrxInS2KnKm55AIeN+Mfgg89wFumshzFfib5QYv40
-	ghQO0LaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MwnzpEmV001Lnwtrm/+xTMEqD/Zl5WTJLxCkJF0RDWM=; b=sovYkV2hQgZX9oFN4uFFDuDKj/
+	2EdnOgoUTVf43UfBLOUWiBEh9dxe10gLLhWsCbkfwEeqQv51bylFg9R2CaHE21iwSXUnsvqibRqmc
+	1axskhAqrrJBpi8kMZ9Ma8kuFyyr0CGUVpzRgR/880+II/69TTynym1755M2jbyzgAr5yCKlZ8grv
+	gglJ1PQwcn/pBRgD0Vl5YQcYFIWXrqNE2gUOeJqpEqF0xuD9pbk50oD86giLRKS/1JeEmf75ZRaW5
+	SIw/FfMqM5YqPBCMHWF9ixUCYW5MbxqB3ui/Eh8AldQJixZHOMCKRBZajcRdD3mqHVJUoMHfwYgla
+	Fsq9ljAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rny-00000000QCM-3L2s;
-	Tue, 24 Mar 2026 02:47:42 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w4rqa-00000000QM4-1OqW;
+	Tue, 24 Mar 2026 02:50:24 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rnx-00000000QBr-0BTq;
-	Tue, 24 Mar 2026 02:47:42 +0000
-X-UUID: d0d8b042272b11f1a6de359d7043e138-20260323
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Zj2qyC8xhG10+YQXv/gFMiWEJ3lx8xupMwUnARNEhRY=;
-	b=uEgmChsBSLjbfxFHfchjLz7KNO/p+AlY/Lop6WBiznrmncaaLJG81p3jxTNcJhZ2+OysYpevNqf+RfhetvJ2MONYa/JeMihsRIZFiMy6BZhu4ssUwLaoR0jdxMDQywiB6DphI/t/kdFcotNBga7ZugBNlNCGeLHMajSezXMaF00=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:cc52f783-686c-4e0b-97b0-33e6fd634a2e,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:7bda2194-f8ef-4ca8-bea0-143568f9ca1d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d0d8b042272b11f1a6de359d7043e138-20260323
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <ot_meiker.gao@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1861440050; Mon, 23 Mar 2026 19:47:36 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 24 Mar 2026 10:47:33 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 24 Mar 2026 10:47:33 +0800
-From: Meiker Gao <ot_meiker.gao@mediatek.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: Bayi Cheng <bayi.cheng@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, <linux-spi@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Meiker Gao <ot_meiker.gao@mediatek.com>
-Subject: [PATCH 0/2] *** SUBJECT HERE ***
-Date: Tue, 24 Mar 2026 10:47:24 +0800
-Message-ID: <20260324024729.1700626-1-ot_meiker.gao@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1w4rqS-00000000QKp-2JrP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 02:50:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=smail.nju.edu.cn;
+	s=iohv2404; t=1774320549;
+	bh=MwnzpEmV001Lnwtrm/+xTMEqD/Zl5WTJLxCkJF0RDWM=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=O3s4KoNRQrwGjDgDhTLQebvXygh36CLCgq0u0k6LPMmf+ELsYnhsXvil0xkO7sR4m
+	 6QZCa8XvedD9URvEU2jcxqq2IJSkDatqXNwm1tAGjkJ6qUIjVLY4yJrffxTeJSe+Uc
+	 TQzsXiKQlk0doC4T6X1V3cOz1kCLA+wtufzxyn94=
+X-QQ-mid: zesmtpsz5t1774320541t42f9849a
+X-QQ-Originating-IP: GXYWvu8OfDyrTQdsRFvpq2WHWIUNA8jI8zvOen2e8QU=
+Received: from localhost.localdomain ( [116.172.93.199])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 24 Mar 2026 10:48:58 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12893628811713433287
+EX-QQ-RecipientCnt: 14
+From: Kexin Sun <kexinsun@smail.nju.edu.cn>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org
+Cc: nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	richard.genoud@bootlin.com,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	julia.lawall@inria.fr,
+	xutong.ma@inria.fr,
+	yunbolyu@smu.edu.sg,
+	ratnadiraw@smu.edu.sg,
+	Kexin Sun <kexinsun@smail.nju.edu.cn>
+Subject: [PATCH v2] tty: atmel_serial: update outdated reference to atmel_tasklet_func()
+Date: Tue, 24 Mar 2026 10:48:57 +0800
+Message-Id: <20260324024857.3244-1-kexinsun@smail.nju.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <3bd295ee-1607-49db-a12e-5a4d4fc81c5c@bootlin.com>
+References: <3bd295ee-1607-49db-a12e-5a4d4fc81c5c@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:smail.nju.edu.cn:qybglogicsvrgz:qybglogicsvrgz5b-0
+X-QQ-XMAILINFO: NzSDQCFWCzVTre9l+NVEhEEbNAwc89B80fFz2uIQ6QtXutcK1xClGZmI
+	AkU4kIIixzBDU4+/brnj9JmxsijKSz9MfmfCjNudzaA7ZcNQJMwARGoemA/rUpQt68Dc5vT
+	5ik6o4d1bZ6pgjmyyGTcvWXeg6mRzQ4loG6VFCaPrIML/W4e5MwIC3qe47KY8hrW7WVu7yB
+	z5kC51nqEtSarOWUVjWsWhUatU1hkf5ZkjqR5wujF0mAFjofOuBS5cpudKCjcP7PCgMW4h9
+	Dj2DZJTAYoKQwUVEexv2yikjWVd5feaJlGunhDWwukAqbadRKoUKwXYFRZkcRuHpduzSC2J
+	viiU6xwLCUl8RLih+Nrmo7qwxjQPzsu3nEy6dlDGOi/BHYMVun5ZwTLUbyM7MDepopuXISw
+	YfOVcbR/rdPwRZpfiWDawrHTPOLxVZ31RoxRmQxzSXEd0onGz77+mqpaEvNI0MUrUbB1Q1B
+	vuf+6UBt49wvMONwST2WxSAUwawygHRgjjYwHlTKlz4ZKEb1J80i/5OwdGosi4QHjk7Cdft
+	i89yKZSO4AbecaIunqtmtdjW6YXtnYJtHj8xMyryWjdEH657hQbOv0GTUwyTnYrzPY9MLXx
+	Z4fV2qdPilZwCyy+IV5MnJJzkH8yCBlYWlmO4oMSvsjolsK1HgfaLgi/l4/NZUAPTJ49ls3
+	kVPkKhKQ5t9RIIm8MTsvbW+yY+/nWxWhuw5xNjTaNQJbQiUIHMOI2LbUedwGHB3lPa8D02t
+	WYS3XBpjm/ox0lzyLI68h8yUbN9b+nSRr99ICJeTU04HOixZ6DaeJsQbflNcBYcmre+41TQ
+	1idv+ut1Us03JAHq9FEzqX4oWC/wX/ngH59JcCav7rZWYxjwi3Z/ZV/EWC6fKS+tSBHX32d
+	s3/DpbixC/z82pv4cHsxjU9PdR/nPoGtjSb143MGMRJ3BZPhfCX4GF0hHKB04D4c+HfrSJz
+	Di/yjoeeHaqdQaFVwfBH6ZnqhMdqrkOhGhpRNGIazswn1T5aUCQBUZgSDBMsZG1wx+3TvT8
+	L5x9zRv2VXajiLh6xB
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_194741_088887_177AEDB0 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_195016_966614_3A6684A9 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-*** BLURB HERE ***
-This patch series refactors the clock management for the Mediatek SPI NOR driver,
-making it more flexible and compatible with different platforms.
+The modem-status comparison that used irq_status_prev was
+moved from atmel_tasklet_func() into atmel_handle_status() in
+commit d033e82db9a5 ("tty/serial: at91: handle IRQ status
+more safely").  Update the comment accordingly.
 
-Patch 1 updates the device tree binding to support variable clock-names.
-Patch 2 migrates the driver to use clk_bulk API and optimizes error handling.
+Assisted-by: unnamed:deepseek-v3.2 coccinelle
+Signed-off-by: Kexin Sun <kexinsun@smail.nju.edu.cn>
+---
+ drivers/tty/serial/atmel_serial.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v1:
-  - Dynamically allocate clk_bulk_data array.
-  - Simplify error handling.
-  - Code cleanup and style improvements.
-
-Meiker Gao (2):
-  dt-bindings: spi: Fix clock-names definition
-  [v3] spi: spi-mtk-nor: Modify and optimization the SNFC.
-
- .../bindings/spi/mediatek,spi-mtk-nor.yaml    |  6 ++++++
- drivers/spi/spi-mtk-nor.c                     | 19 ++++++++-----------
- 2 files changed, 14 insertions(+), 11 deletions(-)
-
+diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+index 08dd8f887956..5d8c1cfc1c60 100644
+--- a/drivers/tty/serial/atmel_serial.c
++++ b/drivers/tty/serial/atmel_serial.c
+@@ -1927,7 +1927,7 @@ static int atmel_startup(struct uart_port *port)
+ 		atmel_uart_writel(port, ATMEL_US_FMR, fmr);
+ 	}
+ 
+-	/* Save current CSR for comparison in atmel_tasklet_func() */
++	/* Save current CSR for comparison in atmel_handle_status() */
+ 	atmel_port->irq_status_prev = atmel_uart_readl(port, ATMEL_US_CSR);
+ 
+ 	/*
 -- 
-2.45.2
+2.25.1
 
 
