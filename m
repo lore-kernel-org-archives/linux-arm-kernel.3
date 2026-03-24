@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B24F532C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11677F532C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l/PLRrp/kosCKHD/6EHqfX62ZOY+7hmZq9SjOmDvg9U=; b=dZekB405Fo2GJqBNjvqzsPtAk8
-	Dsy6bnWobEVgbjHnWWuO3T6KNUbAj65KveEdxw+Q0Wnq8kf/zW/ShWUeSi+CJL2b9DGV80cx0uL9n
-	rFHkNLjy6nDLfqI0AkelVa7AWIntcDNcjqLkmsPRfRv7GJMp9vguFs4vQENprm75FNJ5dsIVUrY54
-	4S023Ps7hqoy92isLdkadEVguGxjV2k9l6Kf5SLIs6TS4lfy7zdu9tSQWQxNohPJ3TaGBdrsK7FkU
-	8ccxipYvw9YZKzkKYOPnusqwNjullgbjyPnBkxJ4DVLjMdz+xpVkdff6MG+K7TdtPcIjPPEg+JpEq
-	DXvwYN0Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R9hS0Coi1z6CfHjgu38NsWnlAIE2XRyrESfEMKeS3Qk=; b=cosAjI+Z5YJJkResZz4jyXdbVM
+	GCb9Z4rd+kjKmuf5ZkHRCbJ8gZTF7/ifBKm7Nrg+qLnv/xY9PuF37ukC4mWhtM8xeYowH7a3yNvw4
+	kcPFjA3eoh98nsV6xYemN8DIOGRGJ5V6I/fvlfW7BXemTCaMkGSFNbE/aAOQPCKfBLMRDzzORlmPd
+	tFAaGxgSht5Xuo6TEZDeHhe4wXLqpIzocjmj5Rlqxv4dX76Gv30XSSMgK01H2NSlilnbclp9z240Q
+	29qQ1xtQP7cnuhQHTtbCwqzdYLEqxRbL2zDi99JrtkUnbH4KhnRBC3aEUpiv4MKuFiHPm5LKv5R4Q
+	UyxItoVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q7M-00000000Gy3-1igG;
-	Tue, 24 Mar 2026 00:59:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4q8t-00000000HFl-1lX9;
+	Tue, 24 Mar 2026 01:01:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q7J-00000000Gxh-21aS
+	id 1w4q8r-00000000HFQ-0Qpr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 00:59:34 +0000
+	Tue, 24 Mar 2026 01:01:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3151A406AE;
-	Tue, 24 Mar 2026 00:59:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF2ECC4CEF7;
-	Tue, 24 Mar 2026 00:59:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B1AFA404E5;
+	Tue, 24 Mar 2026 01:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 931DBC2BCB0;
+	Tue, 24 Mar 2026 01:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774313972;
-	bh=g9n6egUYTuF5ke2JJ6m74go1iA9dbs1LNBwQX9Kfxdo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=r79tvbMTbzL0ftvYwrYFxtc47UR6uhBnmMbW/y7VVV1iRybB+2M4JpIoiYURI0KHc
-	 xbQi6Hae6AoFoJmbmbDJaHU6H4twMWZBNd3LQspzN5XukCR8uOrEpuyEmdRt0aOb0U
-	 mOwgSJ8cLDV9T8BHYl+ocS0L8OVgW58qmKn8ydBwrFxSGxlpZWrzAsZEqo1gSY7MVu
-	 kkOnSl/PVHu6HAiahaLq+b8nbHuZsE8hCdipD5o7lr0426ClKDJ0QYolowXlhy4fkV
-	 i8IvftFPJDTfcclR/4ZCSmDk8L1PXC7Ak76kNlhT/lIjYoVE7r0UGtOBo25YTrAjXS
-	 EFJsJ4/WWZ6pw==
+	s=k20201202; t=1774314068;
+	bh=A7+ilLlUptt8NahoteAzf0RgIRgwKuFBHYBpfbQD/9c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=erU7fvhzJv2tp5KrkKrqx+Erdif01ZeeUOpNA4f3SMGY5Zd3volrXG0e/GJE1PA+4
+	 eGQrxZX3PAs12r5SMw5wVj3Dru900+u5sZlt2HAhjsWXohecP7okhBQJqUVMGYmK9x
+	 t4JpMcZVTz48+PY+wk5zYrMxets8K+lB6YlpzvSaaUxQizoh9N8ogOZ6kZFkBtVUt/
+	 +2U/I6kRnURbopqcXHThSae0+v5nsjA+MtxnO1+6Qp2DXSnViA+Sg/1CnS+DYaIbv9
+	 MmwreYV6dk6ePxO92r/nW6iGASWXgbC1mouwugaLRXGpdUBgdYK22pwqvUSENOqNbX
+	 RFBSTYbpYZsGA==
 From: Danilo Krummrich <dakr@kernel.org>
 To: Russell King <linux@armlinux.org.uk>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -92,15 +92,17 @@ Cc: linux-kernel@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	linux-arm-kernel@lists.infradead.org,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 00/12] treewide: Convert buses to use generic driver_override
-Date: Tue, 24 Mar 2026 01:59:04 +0100
-Message-ID: <20260324005919.2408620-1-dakr@kernel.org>
+Subject: [PATCH 10/12] s390/ap: use generic driver_override infrastructure
+Date: Tue, 24 Mar 2026 01:59:14 +0100
+Message-ID: <20260324005919.2408620-11-dakr@kernel.org>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260324005919.2408620-1-dakr@kernel.org>
+References: <20260324005919.2408620-1-dakr@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_175933_562970_A7B2D134 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260323_180109_211934_1C5F518F 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,95 +117,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the follow-up of the driver_override generalization in [1], converting
-the remaining 11 busses and removing the now-unused driver_set_override()
-helper.
+When the AP masks are updated via apmask_store() or aqmask_store(),
+ap_bus_revise_bindings() is called after ap_attr_mutex has been
+released.
 
-All of them (except AP, which has a different race condition) are prone to the
-potential UAF described in [2], caused by accessing the driver_override field
-from their corresponding match() callback.
+This calls __ap_revise_reserved(), which accesses the driver_override
+field without holding any lock, racing against a concurrent
+driver_override_store() that may free the old string, resulting in a
+potential UAF.
 
-In order to address this, the generalized driver_override field in struct device
-is protected with a spinlock. The driver-core provides accessors, such as
-device_match_driver_override(), device_has_driver_override() and
-device_set_driver_override(), which all ensure proper locking internally.
+Fix this by using the driver-core driver_override infrastructure, which
+protects all accesses with an internal spinlock.
 
-Additionally, the driver-core provides a driver_override flag in struct
-bus_type, which, once enabled, automatically registers generic sysfs callbacks,
-allowing userspace to modify the driver_override field.
+Note that unlike most other buses, the AP bus does not check
+driver_override in its match() callback; the override is checked in
+ap_device_probe() and __ap_revise_reserved() instead.
 
-SPI and AP are a bit special; both print "\n" when driver_override is not set,
-whereas all other buses (and thus the driver-core) produce "(null)\n" in this
-case.
+Also note that we do not enable the driver_override feature of struct
+bus_type, as AP - in contrast to most other buses - passes "" to
+sysfs_emit() when the driver_override pointer is NULL. Thus, printing
+"\n" instead of "(null)\n".
 
-Hence, SPI and AP do not take advantage of the driver_override flag in struct
-bus_type; AP additionally maintains a counter in its custom sysfs store().
+Additionally, AP has a custom counter that is modified in the
+corresponding custom driver_override_store().
 
-Technically, we could support a custom fallback string when driver_override is
-unset in struct bus_type, but only SPI would benefit from this, since AP has
-additional custom logic in store() anyways.
+Fixes: d38a87d7c064 ("s390/ap: Support driver_override for AP queue devices")
+Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+---
+ drivers/s390/crypto/ap_bus.c   | 34 +++++++++++++++++-----------------
+ drivers/s390/crypto/ap_bus.h   |  1 -
+ drivers/s390/crypto/ap_queue.c | 24 ++++++------------------
+ 3 files changed, 23 insertions(+), 36 deletions(-)
 
-(I'm not sure if there are userspace programs that strictly rely on this;
-driverctl seems to check for both, but I rather not break some userspace tool
-I'm not aware of. :)
-
-This series is based on v7.0-rc5 with no additional dependencies, hence those
-patches can be picked up by subsystems individually.
-
-[1] https://lore.kernel.org/driver-core/20260303115720.48783-1-dakr@kernel.org/
-[2] https://bugzilla.kernel.org/show_bug.cgi?id=220789
-[3] https://gitlab.com/driverctl/driverctl/-/blob/0.121/driverctl?ref_type=tags#L99
-
-Danilo Krummrich (12):
-  amba: use generic driver_override infrastructure
-  bus: fsl-mc: use generic driver_override infrastructure
-  cdx: use generic driver_override infrastructure
-  hv: vmbus: use generic driver_override infrastructure
-  PCI: use generic driver_override infrastructure
-  platform/wmi: use generic driver_override infrastructure
-  rpmsg: use generic driver_override infrastructure
-  vdpa: use generic driver_override infrastructure
-  s390/cio: use generic driver_override infrastructure
-  s390/ap: use generic driver_override infrastructure
-  spi: use generic driver_override infrastructure
-  driver core: remove driver_set_override()
-
- drivers/amba/bus.c                 | 37 +++------------
- drivers/base/driver.c              | 75 ------------------------------
- drivers/bus/fsl-mc/fsl-mc-bus.c    | 43 +++--------------
- drivers/cdx/cdx.c                  | 40 ++--------------
- drivers/hv/vmbus_drv.c             | 36 ++------------
- drivers/pci/pci-driver.c           | 11 +++--
- drivers/pci/pci-sysfs.c            | 28 -----------
- drivers/pci/probe.c                |  1 -
- drivers/platform/wmi/core.c        | 36 ++------------
- drivers/rpmsg/qcom_glink_native.c  |  2 -
- drivers/rpmsg/rpmsg_core.c         | 43 +++--------------
- drivers/rpmsg/virtio_rpmsg_bus.c   |  1 -
- drivers/s390/cio/cio.h             |  5 --
- drivers/s390/cio/css.c             | 34 ++------------
- drivers/s390/crypto/ap_bus.c       | 34 +++++++-------
- drivers/s390/crypto/ap_bus.h       |  1 -
- drivers/s390/crypto/ap_queue.c     | 24 +++-------
- drivers/spi/spi.c                  | 19 +++-----
- drivers/vdpa/vdpa.c                | 48 ++-----------------
- drivers/vfio/fsl-mc/vfio_fsl_mc.c  |  4 +-
- drivers/vfio/pci/vfio_pci_core.c   |  5 +-
- drivers/xen/xen-pciback/pci_stub.c |  6 ++-
- include/linux/amba/bus.h           |  5 --
- include/linux/cdx/cdx_bus.h        |  4 --
- include/linux/device/driver.h      |  2 -
- include/linux/fsl/mc.h             |  4 --
- include/linux/hyperv.h             |  5 --
- include/linux/pci.h                |  6 ---
- include/linux/rpmsg.h              |  4 --
- include/linux/spi/spi.h            |  5 --
- include/linux/vdpa.h               |  4 --
- include/linux/wmi.h                |  4 --
- 32 files changed, 88 insertions(+), 488 deletions(-)
-
-
-base-commit: c369299895a591d96745d6492d4888259b004a9e
+diff --git a/drivers/s390/crypto/ap_bus.c b/drivers/s390/crypto/ap_bus.c
+index d652df96a507..f24e27add721 100644
+--- a/drivers/s390/crypto/ap_bus.c
++++ b/drivers/s390/crypto/ap_bus.c
+@@ -859,25 +859,24 @@ static int __ap_queue_devices_with_id_unregister(struct device *dev, void *data)
+ 
+ static int __ap_revise_reserved(struct device *dev, void *dummy)
+ {
+-	int rc, card, queue, devres, drvres;
++	int rc, card, queue, devres, drvres, ovrd;
+ 
+ 	if (is_queue_dev(dev)) {
+ 		struct ap_driver *ap_drv = to_ap_drv(dev->driver);
+ 		struct ap_queue *aq = to_ap_queue(dev);
+-		struct ap_device *ap_dev = &aq->ap_dev;
+ 
+ 		card = AP_QID_CARD(aq->qid);
+ 		queue = AP_QID_QUEUE(aq->qid);
+ 
+-		if (ap_dev->driver_override) {
+-			if (strcmp(ap_dev->driver_override,
+-				   ap_drv->driver.name)) {
+-				pr_debug("reprobing queue=%02x.%04x\n", card, queue);
+-				rc = device_reprobe(dev);
+-				if (rc) {
+-					AP_DBF_WARN("%s reprobing queue=%02x.%04x failed\n",
+-						    __func__, card, queue);
+-				}
++		ovrd = device_match_driver_override(dev, &ap_drv->driver);
++		if (ovrd > 0) {
++			/* override set and matches, nothing to do */
++		} else if (ovrd == 0) {
++			pr_debug("reprobing queue=%02x.%04x\n", card, queue);
++			rc = device_reprobe(dev);
++			if (rc) {
++				AP_DBF_WARN("%s reprobing queue=%02x.%04x failed\n",
++					    __func__, card, queue);
+ 			}
+ 		} else {
+ 			mutex_lock(&ap_attr_mutex);
+@@ -928,7 +927,7 @@ int ap_owned_by_def_drv(int card, int queue)
+ 	if (aq) {
+ 		const struct device_driver *drv = aq->ap_dev.device.driver;
+ 		const struct ap_driver *ap_drv = to_ap_drv(drv);
+-		bool override = !!aq->ap_dev.driver_override;
++		bool override = device_has_driver_override(&aq->ap_dev.device);
+ 
+ 		if (override && drv && ap_drv->flags & AP_DRIVER_FLAG_DEFAULT)
+ 			rc = 1;
+@@ -977,7 +976,7 @@ static int ap_device_probe(struct device *dev)
+ {
+ 	struct ap_device *ap_dev = to_ap_dev(dev);
+ 	struct ap_driver *ap_drv = to_ap_drv(dev->driver);
+-	int card, queue, devres, drvres, rc = -ENODEV;
++	int card, queue, devres, drvres, rc = -ENODEV, ovrd;
+ 
+ 	if (!get_device(dev))
+ 		return rc;
+@@ -991,10 +990,11 @@ static int ap_device_probe(struct device *dev)
+ 		 */
+ 		card = AP_QID_CARD(to_ap_queue(dev)->qid);
+ 		queue = AP_QID_QUEUE(to_ap_queue(dev)->qid);
+-		if (ap_dev->driver_override) {
+-			if (strcmp(ap_dev->driver_override,
+-				   ap_drv->driver.name))
+-				goto out;
++		ovrd = device_match_driver_override(dev, &ap_drv->driver);
++		if (ovrd > 0) {
++			/* override set and matches, nothing to do */
++		} else if (ovrd == 0) {
++			goto out;
+ 		} else {
+ 			mutex_lock(&ap_attr_mutex);
+ 			devres = test_bit_inv(card, ap_perms.apm) &&
+diff --git a/drivers/s390/crypto/ap_bus.h b/drivers/s390/crypto/ap_bus.h
+index 51e08f27bd75..04ea256ecf91 100644
+--- a/drivers/s390/crypto/ap_bus.h
++++ b/drivers/s390/crypto/ap_bus.h
+@@ -166,7 +166,6 @@ void ap_driver_unregister(struct ap_driver *);
+ struct ap_device {
+ 	struct device device;
+ 	int device_type;		/* AP device type. */
+-	const char *driver_override;
+ };
+ 
+ #define to_ap_dev(x) container_of((x), struct ap_device, device)
+diff --git a/drivers/s390/crypto/ap_queue.c b/drivers/s390/crypto/ap_queue.c
+index 3fe2e41c5c6b..ca9819e6f7e7 100644
+--- a/drivers/s390/crypto/ap_queue.c
++++ b/drivers/s390/crypto/ap_queue.c
+@@ -734,26 +734,14 @@ static ssize_t driver_override_show(struct device *dev,
+ 				    struct device_attribute *attr,
+ 				    char *buf)
+ {
+-	struct ap_queue *aq = to_ap_queue(dev);
+-	struct ap_device *ap_dev = &aq->ap_dev;
+-	int rc;
+-
+-	device_lock(dev);
+-	if (ap_dev->driver_override)
+-		rc = sysfs_emit(buf, "%s\n", ap_dev->driver_override);
+-	else
+-		rc = sysfs_emit(buf, "\n");
+-	device_unlock(dev);
+-
+-	return rc;
++	guard(spinlock)(&dev->driver_override.lock);
++	return sysfs_emit(buf, "%s\n", dev->driver_override.name ?: "");
+ }
+ 
+ static ssize_t driver_override_store(struct device *dev,
+ 				     struct device_attribute *attr,
+ 				     const char *buf, size_t count)
+ {
+-	struct ap_queue *aq = to_ap_queue(dev);
+-	struct ap_device *ap_dev = &aq->ap_dev;
+ 	int rc = -EINVAL;
+ 	bool old_value;
+ 
+@@ -764,13 +752,13 @@ static ssize_t driver_override_store(struct device *dev,
+ 	if (ap_apmask_aqmask_in_use)
+ 		goto out;
+ 
+-	old_value = ap_dev->driver_override ? true : false;
+-	rc = driver_set_override(dev, &ap_dev->driver_override, buf, count);
++	old_value = device_has_driver_override(dev);
++	rc = __device_set_driver_override(dev, buf, count);
+ 	if (rc)
+ 		goto out;
+-	if (old_value && !ap_dev->driver_override)
++	if (old_value && !device_has_driver_override(dev))
+ 		--ap_driver_override_ctr;
+-	else if (!old_value && ap_dev->driver_override)
++	else if (!old_value && device_has_driver_override(dev))
+ 		++ap_driver_override_ctr;
+ 
+ 	rc = count;
 -- 
 2.53.0
 
