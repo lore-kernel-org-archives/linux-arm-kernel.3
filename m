@@ -4,109 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0122F532E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8EA3F532D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mifv6lV/1vhl2tnAgC+pUhj48DLTv7wevR0+F6OEtI0=; b=k4gMdXnrpnSHiKHNYJu2mLEEAl
-	CcacqD79UnX1hgY6Rxv9L7Nz2Qd5Xskt3JPghwCUoTOZ8yEpt9UpMYKzfoY+HzvCSwmyiiHIbRVd4
-	gekVt5/FNq8mXEN9NL5Ch5pAC0oTalss8krBTIAmiyDzVMywCeQfXzk3u5Db1XKmc7FXfus9N/p2F
-	IwAG74kYdzZd3rjdjvTOHV6zaVVY/+yDJCq4L7y5jW7T1vW7D+q144Zp/023EpyUAdiCnvDZSAci5
-	VPVCXaee8iABLuTpwd2K9ZU1gEyA9zbc/hSzee23YgCn5DA6JrjrkvqChNzU295DbwuQJl061HpD0
-	g/XfAsTg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YFfnpURaNvid2InKw6RqvyYMx0WKDk590Z+TN8SKWyw=; b=hv2LH+bb9/94hNBiPVMNxtsjYX
+	uL3nD4MDqWcNv1SShvMm574jzcyUxEBY0SZtJJoZb/dKQ5kwM+9JURI3BcBxrM+rrhNGrACLyWzF1
+	+k3aiTfH7IwwIf7cukKbF8Yef9aPvhsUfMogVvAo5HyQwTrkWabRmwGLPNQDNWKfxZX1jQp7hHBv+
+	5RIi4tLo+EATttGZu4WZVh70ihi2T4Z+p0PcGDcMF6UEPQF381V2PE7YMwQj96gjEuwHpPV6Ihgqm
+	aMQodPWu/QfC3o7wcJx5WwWWoJv/iym198kjP+a+nATgxOfOXUOUUUZBO61rZ52fyVw+1NFyZgV9N
+	hG78lX9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vMd-00000000lLT-1wpz;
-	Tue, 24 Mar 2026 06:35:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vMb-00000000lKd-2bn5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Mar 2026 06:35:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Mifv6lV/1vhl2tnAgC+pUhj48DLTv7wevR0+F6OEtI0=; b=UpGMUF8RU21KmqtmvC6Ad8ogN6
-	NtYwsBtWviL7sFip2qZpbA7qOr8oSzfBlnF1qIC0Ix7FGOHlh78JNAff2N8cBgGsL+gQ9vVDdDtHb
-	Vtf1yoBFcgCTwGo6VCM1gxApJYHwBRWddkEH4qJSWTEKmNe57inDL4ld4WTl795fQaXWgrNv8YVS1
-	1x2/tecVjJxOknfCqoob5slpmVashV2CoSZr6EOb1eE1cnnEMJWj/mX+n7eVYGJaR5jMeE0CdRHox
-	DTOhzIvZHaWW4KhYs1nsms9fun6Z7+TezHE16RLWmL8qFMsuKv8prwb76z+jXxJe5LB68CBbaVX4O
-	a7fiZHRA==;
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vMQ-00000003J7u-0LMl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 06:35:36 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-43b4fd681c2so712463f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 23:35:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774334125; x=1774938925; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Mifv6lV/1vhl2tnAgC+pUhj48DLTv7wevR0+F6OEtI0=;
-        b=Y/R/ZjAKuKpdTkpMeyc3ckcWpyhAZfPzYlJT2snOsFv4UUiS8/kFepNB9xwZF+Hyrh
-         L9tnslBTS437ip+IxhXv3pP4/JCsQ8IMyrRnWZcxEjVRYuKho5mZyQUqpJdEMSH9Yoe5
-         olnYvKPX+rYPbGzGqCd8mcIHDBYzgR9eV6McgTVx7xW0C4VrAhJuMvaOKDjx2w6nh/YG
-         yx96Foi6N/d2fup8sfqC2xy3XJ7W10aIydSuXw7e5lALtTeb5DxAcVO1eSYfGe4BZLT8
-         8HvtvrMISbK+QX/Ggy0o1EuYu7RvL+5sn8C63alyGbDS3y41FOQEVO4opxiK8XdTCkZi
-         66wQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774334125; x=1774938925;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Mifv6lV/1vhl2tnAgC+pUhj48DLTv7wevR0+F6OEtI0=;
-        b=Ilii1fLCyAxVqoT6jb35TKInhEkw90cmeFCxSZayvcYqEZEXkAMONXf3Auz96L1zx/
-         MIlXzJ+DVCvpSUY7vCjO/3zdLIjuixkEJ7Kx+9JRivpcHCz3Xjwi+eY7xdNq5Vgx35Kw
-         nf7U+3ia9nyQYW8ZFQnbAy/W34wKKbLrtDFbf3PB/Gfmui1efIpOxWrTBfT6NnZtiMfl
-         5grAJPiLzM3IMh5WiqhW5dVRgbKS8fUb/KVj48ii0r3puIh4WuRwxsfl62t/BxcxrLxP
-         SJ69EqJ1OcWtdVq+xSdrk9lR0pFHRfFKHMYsOqAIxQG91px8JMBNx7UsSj4/NLTAgFNI
-         Pf3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX9edTkpCdScVp/Uwo3d5JhuRM6AlhEs8CiZeihcuzsAN47AWL8DHh3FwjmcN/GUMF4qoZDUnmAoAqtCV2YS3Co@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXpJzN1wZmJ8TtF9WOmelZveGhfqCFeLGsogSXMpWakjJkbig9
-	Rts6aTb04AKPX6vf7MJm/t72tiTgLHwQhkMwvZAYF1OSaLMJLmA19q5h
-X-Gm-Gg: ATEYQzyL4ymrk8aFdmvCoq5F2tT0zxGlgXIdWgrsUQmaMGbZtQ97KlI5FiEjcGvQ3fH
-	DxJYPXjJTu+ldNtVOiwoKrIbIda0BoHfIy2D7vCcOoqWnpVpdyFtXykHIluiRMnn3JLaawNep01
-	j/zriAFPU3ioNRKPXROajMf/fRWWp6kBpvw3s1whzLoG/sUZt51BWzxxosbHpDJQfP6DylGNBV0
-	KcT7cQaehx7T1sB0/8IsoBDlTkjRyDDm650X1otUJ9ZvrPz05i4Zgv1kNcFqBCk+5Outq4EQCQY
-	YWWp/wOn/+ZWxRRdNgcKsTjkXY9A22TNk8nzqGTZS1/oDE2pdbCqjju995ENBe/uvbLQnkPkcD5
-	uz+z9lMKsKZaCbXa2TSQ9h1pGweyrdv3LqVARbcj/yvSKwccZ31ebx0zSSaXZCK/GqLIcR2E0J2
-	XpHBVvZDtWNxsk4e1D940=
-X-Received: by 2002:a05:6000:1aca:b0:439:be78:e1e9 with SMTP id ffacd0b85a97d-43b6423fabamr24225594f8f.14.1774334124571;
-        Mon, 23 Mar 2026 23:35:24 -0700 (PDT)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-43b6470380asm34457509f8f.24.2026.03.23.23.35.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 23:35:23 -0700 (PDT)
-From: Askar Safin <safinaskar@gmail.com>
-To: ruanjinjie@huawei.com
-Cc: devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
+	id 1w4vSH-00000000m3H-0KOR;
+	Tue, 24 Mar 2026 06:41:33 +0000
+Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4vSD-00000000m23-3thG;
+	Tue, 24 Mar 2026 06:41:30 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
 	loongarch@lists.linux.dev,
-	x86@kernel.org
-Subject: Re: [PATCH v9 0/5] arm64/riscv: Add support for crashkernel CMA reservation
-Date: Tue, 24 Mar 2026 09:35:18 +0300
-Message-ID: <20260324063519.3258161-1-safinaskar@gmail.com>
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: cleanup the RAID6 P/Q library
+Date: Tue, 24 Mar 2026 07:40:35 +0100
+Message-ID: <20260324064115.3217136-1-hch@lst.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260323072745.2481719-1-ruanjinjie@huawei.com>
-References: <20260323072745.2481719-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_063533_191001_559D2CB6 
-X-CRM114-Status: UNSURE (   6.20  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,8 +90,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please, remove me from CC list in future versions of this patchset
+Hi all,
 
--- 
-Askar Safin
+this series cleans up the RAID6 P/Q library to match the recent updates
+to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
+providing properly documented external interfaces, hiding the internals,
+using static_call instead of indirect calls and turning the user space
+test suite into an in-kernel kunit test which is also extended to
+improve coverage.
+
+Note that this changes registration so that non-priority algorithms are
+not registered, which greatly helps with the benchmark time at boot time.
+I'd like to encourage all architecture maintainers to see if they can
+further optimized this by registering as few as possible algorithms when
+there is a clear benefit in optimized or more unrolled implementations.
+
+This series sits on top of the "cleanup the RAID5 XOR library v3" series.
+
+A git tree is also available here:
+
+    git://git.infradead.org/users/hch/misc.git lib-raid6
+
+Gitweb:
+
+    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
+
+Diffstat:
+ b/Documentation/crypto/async-tx-api.rst           |    4 
+ b/crypto/async_tx/async_pq.c                      |    9 
+ b/crypto/async_tx/async_raid6_recov.c             |    9 
+ b/drivers/dma/bcm-sba-raid.c                      |    1 
+ b/drivers/md/raid5.c                              |    4 
+ b/fs/btrfs/raid56.c                               |    8 
+ b/include/linux/raid/pq.h                         |  216 ------------
+ b/include/linux/raid/pq_tables.h                  |   19 +
+ b/lib/Kconfig                                     |   11 
+ b/lib/Makefile                                    |    1 
+ b/lib/raid/Kconfig                                |   33 +
+ b/lib/raid/Makefile                               |    2 
+ b/lib/raid/raid6/Makefile                         |  124 +++++++
+ b/lib/raid/raid6/algos.c                          |  381 ++++++++++++++++++++++
+ b/lib/raid/raid6/algos.h                          |   41 ++
+ b/lib/raid/raid6/arm/neon.c                       |   23 -
+ b/lib/raid/raid6/arm/pq_arch.h                    |   22 +
+ b/lib/raid/raid6/arm/recov_neon.c                 |   25 -
+ b/lib/raid/raid6/int.uc                           |   10 
+ b/lib/raid/raid6/loongarch/loongarch_simd.c       |   31 -
+ b/lib/raid/raid6/loongarch/pq_arch.h              |   23 +
+ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c |   39 --
+ b/lib/raid/raid6/mktables.c                       |   28 -
+ b/lib/raid/raid6/powerpc/altivec.uc               |   32 -
+ b/lib/raid/raid6/powerpc/pq_arch.h                |   31 +
+ b/lib/raid/raid6/powerpc/vpermxor.uc              |   29 -
+ b/lib/raid/raid6/recov.c                          |   62 ---
+ b/lib/raid/raid6/riscv/pq_arch.h                  |   21 +
+ b/lib/raid/raid6/riscv/recov_rvv.c                |   14 
+ b/lib/raid/raid6/riscv/rvv.h                      |   26 -
+ b/lib/raid/raid6/s390/pq_arch.h                   |   15 
+ b/lib/raid/raid6/s390/recov_s390xc.c              |   14 
+ b/lib/raid/raid6/s390/s390vx.uc                   |   15 
+ b/lib/raid/raid6/tests/Makefile                   |    3 
+ b/lib/raid/raid6/tests/raid6_kunit.c              |  307 +++++++++++++++++
+ b/lib/raid/raid6/x86/avx2.c                       |   47 --
+ b/lib/raid/raid6/x86/avx512.c                     |   57 +--
+ b/lib/raid/raid6/x86/mmx.c                        |   39 --
+ b/lib/raid/raid6/x86/pq_arch.h                    |   96 +++++
+ b/lib/raid/raid6/x86/recov_avx2.c                 |   22 -
+ b/lib/raid/raid6/x86/recov_avx512.c               |   26 -
+ b/lib/raid/raid6/x86/recov_ssse3.c                |   23 -
+ b/lib/raid/raid6/x86/sse1.c                       |   49 --
+ b/lib/raid/raid6/x86/sse2.c                       |   47 --
+ lib/raid6/Makefile                                |   83 ----
+ lib/raid6/algos.c                                 |  291 ----------------
+ lib/raid6/loongarch.h                             |   38 --
+ lib/raid6/test/.gitignore                         |    3 
+ lib/raid6/test/Makefile                           |  156 ---------
+ lib/raid6/test/test.c                             |  152 --------
+ lib/raid6/x86.h                                   |   75 ----
+ 51 files changed, 1329 insertions(+), 1508 deletions(-)
 
