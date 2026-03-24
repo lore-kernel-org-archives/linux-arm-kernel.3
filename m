@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2ECF54AC5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9D2F54ACD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XajZYZ02b1XGoDSd5XhZd8eWlNUNU52oD8VDQPl0R1I=; b=pI/9Pwvf2O/0WGhajpgEs1R8Ej
-	XBhRfAszRxd9EB9HqyPZUgR93iu0OqoP2e4DNpS25YzcgUw/iTZ3MdeMniLE+cEFYXT6GBLMdQMHJ
-	/Vso8857L87zh+g2p3lZCufYraiLhecCrntJoss5qLEEOlOY/u4CicWBvnpQjvBdDKncISE38N83/
-	yDi5J5YUrz9FxhnJt3sTC07f1ejRMn3quWL1M1rv0qNw9uLzkwRjALWHnpbUwb7q2sZ5kzPeZ5eYL
-	TRx6aerXkIEqXjGNhKqtbMbGqHa6lC/pc/E/mCDl9Lvm9UKNA/iC0ALFj5M2G+MES4j6hpKtk0L5Q
-	QKiX/btw==;
+	bh=6eHnG9jUmz4zni9/UDb9TqRIefgIwhOk5Xmd/9OQ0Do=; b=k6/D2x/KLPJyNB2CdMo19mJoOm
+	j4ANHUwcX6coYNp+KHtnF6tAaX3pe4A8/hgyh3lOw82ngPABJSSf8Nn1YwrKusAIHX4sVyYSh64Sd
+	kuyIyiVzHdaaZyt6XK0mgKDl9do3g31Lv2H8vErdIR+9mF0kjVaaIpS+XBMjuFNecSC0ZOSypg6k1
+	nZWVpH0TiHEBQuphie9a6zelOPpX9xKMz+WD9qqAiHDD+bl4ye6RvB6Kbx4ZTPmij3Jb4zhXycfRN
+	stMEWiGGqSTS19ARKoi+ElncicFw3EA7ivT3xorQcpweWR38AA5gvsqYCzRuViaRHGR1qGa2J+Ax6
+	CV2c8H9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53Mr-00000001iqv-43Gj;
-	Tue, 24 Mar 2026 15:08:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w53My-00000001itX-2FIR;
+	Tue, 24 Mar 2026 15:08:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53Mq-00000001iqM-16QO
+	id 1w53Mt-00000001irI-23C2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 15:08:29 +0000
+	Tue, 24 Mar 2026 15:08:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 817EB41B61;
+	by sea.source.kernel.org (Postfix) with ESMTP id C328244355;
+	Tue, 24 Mar 2026 15:08:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECA03C19424;
 	Tue, 24 Mar 2026 15:08:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1842C19424;
-	Tue, 24 Mar 2026 15:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774364907;
-	bh=sBt192ebZ6UTIURRnm+LynelOlFw9P5iMkWpe5Wk0Sw=;
+	s=k20201202; t=1774364910;
+	bh=NsM9htBv/b5wj5VrQLrpw0yDzl6UHZ6CctXTV+kC78c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=APG2cjhQlBl1F/ZnKTNo6ZJMIowrLl6A1Ltx4H6JbRnVovR07YySaOa2yjG08OIY+
-	 zsWPcLBjuiXMMeD75QXj0gzRgs+vYsI5C4NSePOZga3rdD/0c73+uRuasUkKndttxB
-	 ck8mc+coeeqvpFMCoRBokj90QqosYecdLZDo100+Jr8/xvQjXgSJk0Z0GKktldjpUD
-	 Ztwi3xLa2u5L7gnYK/za0WYBrL4vdOpMwRzVZsWJYHPSaKaHKwDLZSAQSjxaHeyB2I
-	 lbost2XqNW/wxAFM0urPmSDDNMnnGdDC1DMgGS8pZmWpEql05TSLxK+PfNZkSY60IW
-	 YZ4ziBL+4oAFg==
+	b=JAUYAIMTIDqGGSnxOdFCm3GDEW90G6epR7nztPIgl6NHkwKo30m+Kynm993izTL1g
+	 ax342Pb3hXD7Y6S4T1WXGrquFksuWnMsEUtyJCQmy8/feMVkKVuJHx2cxZdfjV9Mb8
+	 WBv6uowTDe4QCi19dHO5+mSYrwU/qsz5Kdih5fhIzhSa9nwfjWCxJj+8UBpScXfMCk
+	 p24hogUOb7927no1C5RYLSz6drepQaf1+/04e6By9b/D7bxj7PowFvkFlF2tsPkmbE
+	 jb2WBGXQVNM6b4pPVU7YbjxeDuSu5c1lDDecUG/j+g0OLRXfHBwHNMzDtbTBCa0HnQ
+	 RHRruvTv5lymg==
 From: Will Deacon <will@kernel.org>
-To: suzuki.poulose@arm.com,
-	robin.murphy@arm.com,
-	ilkka@os.amperecomputing.com,
-	jonathan.cameron@huawei.com,
-	Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	James Clark <james.clark@linaro.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	mark.rutland@arm.com,
-	treding@nvidia.com,
-	jonathanh@nvidia.com,
-	vsethi@nvidia.com,
-	rwiley@nvidia.com,
-	sdonthineni@nvidia.com,
-	skelley@nvidia.com,
-	mochs@nvidia.com,
-	nirmoyd@nvidia.com,
-	bhelgaas@google.com,
-	wangyushan12@huawei.com,
-	shiju.jose@huawei.com,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v3 0/8] perf: add NVIDIA Tegra410 Uncore PMU support
-Date: Tue, 24 Mar 2026 15:08:10 +0000
-Message-ID: <177435585471.1950471.14714231023010509332.b4-ty@kernel.org>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] KVM: arm64: Read PMUVer as unsigned
+Date: Tue, 24 Mar 2026 15:08:11 +0000
+Message-ID: <177435562978.1948488.12134750331688272062.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260324012952.1923296-1-bwicaksono@nvidia.com>
-References: <20260324012952.1923296-1-bwicaksono@nvidia.com>
+In-Reply-To: <20260305-james-kvm-pmuver-sign-v2-0-ee80a125af9b@linaro.org>
+References: <20260305-james-kvm-pmuver-sign-v2-0-ee80a125af9b@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_080828_318330_441279EA 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20260324_080831_546081_9E31EF39 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,37 +84,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 01:29:44 +0000, Besar Wicaksono wrote:
-> This series adds driver support for the following Uncore PMUs in
-> NVIDIA Tegra410 SoC:
->   - Unified Coherence Fabric (UCF)
->   - PCIE
->   - PCIE-TGT
->   - CPU Memory (CMEM) Latency
->   - NVLink-C2C
->   - NV-CLink
->   - NV-DLink
+On Thu, 05 Mar 2026 16:28:16 +0000, James Clark wrote:
+> Fix some issues with the signedness of PMUVer and PerfMon ID fields.
 > 
-> [...]
+> I ran into the first issue when testing "ARM64 PMU Partitioning" patches
+> on the FVP. The second issue was only found by inspection.
+> 
+> 
 
-Applied first seven to will (for-next/perf), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/8] perf/arm_cspmu: nvidia: Rename doc to Tegra241
-      https://git.kernel.org/will/c/d332424d1d06
-[2/8] perf/arm_cspmu: nvidia: Add Tegra410 UCF PMU
-      https://git.kernel.org/will/c/f5caf26fd6c7
-[3/8] perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
-      https://git.kernel.org/will/c/bc86281fe4bd
-[4/8] perf/arm_cspmu: nvidia: Add Tegra410 PCIE PMU
-      https://git.kernel.org/will/c/bf585ba14726
-[5/8] perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT PMU
-      https://git.kernel.org/will/c/3dd73022306b
-[6/8] perf: add NVIDIA Tegra410 CPU Memory Latency PMU
-      https://git.kernel.org/will/c/429b7638b2df
-[7/8] perf: add NVIDIA Tegra410 C2C PMU
-      https://git.kernel.org/will/c/2f89b7f78c50
-
-The defconfig change should go separately via arm-soc (Arnd).
+[1/3] KVM: arm64: Read PMUVer as unsigned
+      https://git.kernel.org/will/c/2e30447b233a
+[2/3] arm64: cpufeature: Make PMUVer and PerfMon unsigned
+      https://git.kernel.org/will/c/d1dcc20bcc40
+[3/3] arm64: cpufeature: Use pmuv3_implemented() function
+      https://git.kernel.org/will/c/15ed3fa23cbc
 
 Cheers,
 -- 
