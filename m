@@ -4,108 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917F3F532E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD86CF532D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkAPB9tpxHoZvHVAlxdeetnmlI7GkOzZO8Qb4pFq860=; b=r1tCy1Cm/HMYYR1pE59jm0TMYk
-	Ykz4HuuWjG2REvSR+K6zREXcycRI0jH8XxPDT7NyhuMOEnrg7drnltUe0q4tbZp+y2Dqyb98+1d2+
-	AQUYh0exh+TJE9j3hyG/mHsxeN5+insN94RxLUA0N281AJYXjNHeT4bywyhOvw6IWr6HHchb+gR2f
-	5GAqaDS9dC5WLq4K20/3b3ctwIaBWMyEyHgkOxk/AW7evVXMUlFLrihz3gMq2RmIUuBWyLoGUY4B9
-	M+8TQXkCMjRNN/xHkgdvFZyAjoLLHi7xm2HtyvV1VXOc3fAGQo5opR86tq9MLvp6ymH9Foi52CaXA
-	GOvq/2PA==;
+	bh=GIkhEVZgzQ5l9z+TpFF/vXtfyDLL3bNPkDPBRcbRDA0=; b=Xl4IGeIKKo2y3pu/I+7yfuZg8+
+	m34whshkSh/L0F/IY7ueyAl/8gRRFCo4eJyBrsSVTWoaro1FcDjyIHS6JLPGYsBFJhqPMH/fnny3e
+	twvwyVFW6VbsLdMNQKduBmVqf9RQDJQtB4J7aHcaYJb4QkNKSukPiLlukbbg6qP1EORKtaWDVcrBP
+	ktI0b1xK+LZGUO7DMs3lnXe/8qYBxEvaJfJ2umNxIrSz/Lc4XGkwd9AIDmzcbALlQ12WXtCBKOch3
+	yIEDs7Bgz/pBz2mmw9zdH1E8SQohtsGRQXfOPCz592rjn0G0hsJ0xkqWsx87yWf6mDEsVXrbZ/fHu
+	vetdruew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vrH-00000000rNm-287G;
-	Tue, 24 Mar 2026 07:07:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4vsm-00000000rZs-2BWI;
+	Tue, 24 Mar 2026 07:08:56 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vrF-00000000rNI-3UWj;
-	Tue, 24 Mar 2026 07:07:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D672A600AC;
-	Tue, 24 Mar 2026 07:07:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EF82C19424;
-	Tue, 24 Mar 2026 07:07:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774336040;
-	bh=A/r+FfTIdYd7bf32ZtnrhZhkNo/CNskrUBFMjphTyAY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VsBpJFqJ1R+U+EjUVBYjnD1kfUopDa0s5nt9AO0t971Mz8l1KTqo4dVM+xEqy1twh
-	 WMAw7HPZ7TbPbYDcdv41auX+guyrGGFgG9600eMd/8lRBnTl9etI4Qu+UIhxISXWrv
-	 MHa0EkhRyFQqu8hEGOR9+iwqZ6zIdQGSuxHnAers1pSTTdT1QUV21G2Fm9Xxd6AVuY
-	 7w4R1b2WW2vRhtOBrB8up9WVLnCJcbFu7xeom9UbPrV/1jJjIfpaRpfuyWu4OFmEe8
-	 0GVtfjgGgn+DXonH3l+BKuJC6wcqJudFFWhZ6suuCNOKsmBYLrOdlZ99+4K2ogO9dV
-	 N5cR4Se6Cn4BA==
-Message-ID: <171e30f3-e294-40fb-8731-476fb51d5a3c@kernel.org>
-Date: Tue, 24 Mar 2026 08:07:15 +0100
+	id 1w4vsi-00000000rZU-1DFg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 07:08:54 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id EEF554E427BF;
+	Tue, 24 Mar 2026 07:08:47 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AE74C6011D;
+	Tue, 24 Mar 2026 07:08:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 54BD410451149;
+	Tue, 24 Mar 2026 08:08:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1774336126; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=GIkhEVZgzQ5l9z+TpFF/vXtfyDLL3bNPkDPBRcbRDA0=;
+	b=ZMUuE5m6NiK7jvGLCp/w4wTzG7j7jdnQvFOfbav/a0tPLKNczRh9ZsPa6mAgO1KFstWGSf
+	Vn7lM10TwpQzSlHCnmpksnT4knUpUChGYxZoKiDQVY/ubDgiaAe+n32/h6Y99AFbr/8ASx
+	LL9PDmy87nyX4DKh3GIA9HqqlVrTUK41OfRP5xrIY/8J+Yx9rHPsSZbDktBWPEU3GH32DG
+	0jajmfGku+NnK9Vj0ixCOcIEwanLUKeFcW0w7x+a0rRTZlPlpwjne/+8w1fHQHkdBZUvGS
+	tEe1yNkuEG88uBszSQApsxtYsnI7mpcUoteXhHy+E3qshTi1t6/3OKXoLwPjSQ==
+Message-ID: <89bc9543-9fcb-4563-b6ff-01b186231ce8@bootlin.com>
+Date: Tue, 24 Mar 2026 08:08:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] iio: adc: meson-saradc: add support for Meson S4
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Nick Xie <nick@khadas.com>, neil.armstrong@linaro.org,
- khilman@baylibre.com, martin.blumenstingl@googlemail.com,
- jbrunet@baylibre.com, dlechner@baylibre.com, andy@kernel.org,
- krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
- linux-iio@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260323013408.429701-1-nick@khadas.com>
- <20260323013408.429701-3-nick@khadas.com>
- <20260323-quizzical-striped-husky-68e24e@quoll>
- <20260323200501.6c116226@jic23-huawei>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260323200501.6c116226@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2] tty: atmel_serial: update outdated reference to
+ atmel_tasklet_func()
+To: Kexin Sun <kexinsun@smail.nju.edu.cn>, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org
+Cc: nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ julia.lawall@inria.fr, xutong.ma@inria.fr, yunbolyu@smu.edu.sg,
+ ratnadiraw@smu.edu.sg
+References: <3bd295ee-1607-49db-a12e-5a4d4fc81c5c@bootlin.com>
+ <20260324024857.3244-1-kexinsun@smail.nju.edu.cn>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <20260324024857.3244-1-kexinsun@smail.nju.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_000852_812330_A5E8E449 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,56 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/03/2026 21:05, Jonathan Cameron wrote:
-> On Mon, 23 Mar 2026 08:54:21 +0100
-> Krzysztof Kozlowski <krzk@kernel.org> wrote:
+Le 24/03/2026 à 03:48, Kexin Sun a écrit :
+> The modem-status comparison that used irq_status_prev was
+> moved from atmel_tasklet_func() into atmel_handle_status() in
+> commit d033e82db9a5 ("tty/serial: at91: handle IRQ status
+> more safely").  Update the comment accordingly.
+Double space here, but I don't think it's necessary to send another 
+iteration for that.
+
 > 
->> On Mon, Mar 23, 2026 at 09:34:06AM +0800, Nick Xie wrote:
->>> Add support for the SARADC found on the Amlogic Meson S4 SoC.
->>> According to the documentation and current testing, it is fully
->>> compatible with the G12A parameter set, so we reuse
->>> `meson_sar_adc_g12a_data` for this new compatible string.
->>>
->>> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
->>> Signed-off-by: Nick Xie <nick@khadas.com>
->>> ---
->>>  drivers/iio/adc/meson_saradc.c | 8 ++++++++
->>>  1 file changed, 8 insertions(+)
->>>
->>> diff --git a/drivers/iio/adc/meson_saradc.c b/drivers/iio/adc/meson_saradc.c
->>> index 47cd350498a0d..3ac48b7842c4f 100644
->>> --- a/drivers/iio/adc/meson_saradc.c
->>> +++ b/drivers/iio/adc/meson_saradc.c
->>> @@ -1313,6 +1313,11 @@ static const struct meson_sar_adc_data meson_sar_adc_g12a_data = {
->>>  	.name = "meson-g12a-saradc",
->>>  };
->>>  
->>> +static const struct meson_sar_adc_data meson_sar_adc_s4_data = {
->>> +	.param = &meson_sar_adc_g12a_param,
->>> +	.name = "meson-s4-saradc",
->>> +};
->>> +
->>>  static const struct of_device_id meson_sar_adc_of_match[] = {
->>>  	{
->>>  		.compatible = "amlogic,meson8-saradc",
->>> @@ -1341,6 +1346,9 @@ static const struct of_device_id meson_sar_adc_of_match[] = {
->>>  	}, {
->>>  		.compatible = "amlogic,meson-g12a-saradc",
->>>  		.data = &meson_sar_adc_g12a_data,
->>> +	}, {
->>> +		.compatible = "amlogic,meson-s4-saradc",  
->>
->> The point of compatible devices is to not add such entries. Drop.
-> It's used for naming in the userspace ABI which is supposed to reflect the part number.
+> Assisted-by: unnamed:deepseek-v3.2 coccinelle
+> Signed-off-by: Kexin Sun <kexinsun@smail.nju.edu.cn>
+Acked-by Richard Genoud <richard.genoud@bootlin.com>
 
-Indeed, I saw this pattern in more places. Does userspace need it? There
-is no "compatible" entry shown?
+> ---
+>   drivers/tty/serial/atmel_serial.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+> index 08dd8f887956..5d8c1cfc1c60 100644
+> --- a/drivers/tty/serial/atmel_serial.c
+> +++ b/drivers/tty/serial/atmel_serial.c
+> @@ -1927,7 +1927,7 @@ static int atmel_startup(struct uart_port *port)
+>   		atmel_uart_writel(port, ATMEL_US_FMR, fmr);
+>   	}
+>   
+> -	/* Save current CSR for comparison in atmel_tasklet_func() */
+> +	/* Save current CSR for comparison in atmel_handle_status() */
+>   	atmel_port->irq_status_prev = atmel_uart_readl(port, ATMEL_US_CSR);
+>   
+>   	/*
 
-If there is no, then probably this could be automated by taking the name
-from compatible after ',', but that would be out of scope for this set,
-so here it is fine.
-
-
-Best regards,
-Krzysztof
+Thanks!
 
