@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F533F532D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 04:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F233F532D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 04:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R08g5rCsq9whHw36ZZYWUOiHQj5R1FuEsuKvwJiGAyE=; b=1ToxH5EMEqMsDRWfaRkTk3abd4
-	50ZbvPuKkokgKnjfsHqAK2kAYrduieFHD5el8/8PNbidjH8/rIacfHwaeseT/p7f/m21FKvzDxl5v
-	bqn1ofHcM7mbhioq8LfkoD1P8uE8aFQfiCoMlHnpKZLIlyfkyvS0dsw46r4TMAV3NwazRnXTJKWXI
-	13tiGsfz+7/Xn2efGxVFj1J8NiGk4X52IqoXWc7heC9qG/oXg9m/RMwX11grvw8nrLvU2yy4xsrmd
-	PUBy25UeZdx4qrMB3iugeKD/55YXutcyKCij8K3wOypiWLBpQ+j4K/JtLsh51w5ohgqKpTXaW657R
-	77DVqGpg==;
+	bh=j7h3rGPOyGuFqglRPNrUoy4EwKeWamb75bpgun6g1Zg=; b=qEuDxmvABW+ARPXjZHIitWcSdA
+	2PTdkD4Cu/Q8nmv86N9sOG/+VR/s4CpCRr9XhF1pXCi4deUgbgfUrSOzwGnnGb3j50AM5R4RO6cXP
+	qrD+7Jw9GkplZYmGPp0/ENyP6jIWIAtZSH/P9ilQnBWthTEZwiFC4FXGi0LlamRSTpOmkqBn3RmA3
+	mv+BgMrPIzg82dJ0Rz0hA56vqBv4juw7HuQuRBXAcODKEO9WDiSyS7oK6EdNyYH87T1IjD8cmTDmg
+	+zQvd+Gc1VttO657GpDIU2v8eg7YkFf5aVLU7189oSAAVdr5kpFfw4sgiVcvcjcfI5FPEYvGxMZQk
+	XsHPm3wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4tFD-00000000XYN-3CAo;
-	Tue, 24 Mar 2026 04:19:55 +0000
+	id 1w4tFr-00000000Xmc-2qfV;
+	Tue, 24 Mar 2026 04:20:35 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4tFA-00000000XUS-3bWT
+	id 1w4tFo-00000000Xm1-2j48
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 04:19:54 +0000
+	Tue, 24 Mar 2026 04:20:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774325991;
+	s=mimecast20190719; t=1774326031;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=R08g5rCsq9whHw36ZZYWUOiHQj5R1FuEsuKvwJiGAyE=;
-	b=DGVpZLd2K8LXDRJ3uJhkPcA4RcO+zhbKHxzw/fRJMZid+So4nvKjMGXEIx17bIQjHAxG1D
-	Cg9QESJwkytCViSJmQvv8L9Qj6+6A/c6C4NrxaEnLnWr/9MNRsUDNjZ2MjvgHRV9/AGk/c
-	/v0ZVRs68yZe6PsyMTikRrlzjjlgk9A=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=j7h3rGPOyGuFqglRPNrUoy4EwKeWamb75bpgun6g1Zg=;
+	b=MXGD+lRgTrmxM+EBcfcnkL4C3Pv22/xOkIqgoXwB8M+rwPouKhySD2bvqxQXKBmm0d21RC
+	1nyjc9LVicIf/TN8Zq0bSznIfz9n9ziJe5E8jBoYjv4mWFrvt3BzEy17A95Y8H7lHvo4we
+	/hnN67n7qsrcmbKuHeN1bToC+rkXpyM=
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
+ [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-132-T6A7MZyRO8qm4yElxDkeRQ-1; Tue, 24 Mar 2026 00:19:50 -0400
-X-MC-Unique: T6A7MZyRO8qm4yElxDkeRQ-1
-X-Mimecast-MFC-AGG-ID: T6A7MZyRO8qm4yElxDkeRQ_1774325989
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b0601ff3d9so16225285ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 21:19:50 -0700 (PDT)
+ us-mta-638-1uGYiZOHMOG4cdKUm4H2Tw-1; Tue, 24 Mar 2026 00:20:30 -0400
+X-MC-Unique: 1uGYiZOHMOG4cdKUm4H2Tw-1
+X-Mimecast-MFC-AGG-ID: 1uGYiZOHMOG4cdKUm4H2Tw_1774326029
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c709551ec08so2870752a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 21:20:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774325989; x=1774930789;
+        d=1e100.net; s=20251104; t=1774326029; x=1774930829;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=R08g5rCsq9whHw36ZZYWUOiHQj5R1FuEsuKvwJiGAyE=;
-        b=ps5WmPCC3zHd7ckiP8/tDFoMi4/L6u0/BHCI4+bc0cFvCZoEw/Y/vSK1l4ixRd8CAG
-         ZjL3RbfEVqpRR6odKRgJH3PokzfjjCNdl9KD4qI8dtXvhbCBy8ZDIgww/8NEWXl/lCuv
-         JHPZ2Y397Kn9DBVfQt5308XVQGykTrlKZfEFbJhp6Me7q8VItCQlDd0QmEmIqHoR2lL6
-         w0n7QG+h9l9OsQjND4sKWOg+CjUoauK6HZOHRvV9b3g9yvBf5qEo8tkv/WCopAlvIxhs
-         ELFbbljDGgwxZpiirSwYIl1L6FNNiP2p2qkVaMzaQUoAvmms9TXezhBhtfqxvmVq1Z6R
-         y3cA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRvZDBpIy/cgdASJE5Z47OjcabxztcL9ubOIvOVDxfxd3JpVPIP/VwqfYFt6cmkfK5/by/eLEHiXVo4rQmI+vL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNC6eNLnMwHkdVARkOvblZoDsFTK+tTPKNW38z4DIxGvA5QxKi
-	HjxPbg4A7SCgIKVLMQD1bAQ4LJ3FY8HVXemEO6lvrCcRNUc3a/OCQuGKYSJ8EXRpXuVm8nl1ua+
-	7VYJ3jrbQZLB0wqRX3iz/FdE6KOtEfndRhpLGL3kxSBUtEPPxeCQy9z2/9/fqoUy4ay95rugeMY
-	4z
-X-Gm-Gg: ATEYQzxhZjdbWIucWUfg/O6lTJvmpgb0chHg8SC9EKSYSEHOZcQN3OisA/WZov9ZL6k
-	U33QeIDdzuth3x1dFLjTvqjrFeukEFBB1L3LgzQ7kgBYoBNcQ6r20WCOomUy2XzxY9mtEZdZArG
-	l33PM0221xne6fCcJu22eJcG3lVDEjdMunl2TezrdVyF33A1YAJP/913fgamHM0YPJsv8fS/qKz
-	W++Ht6MG3x6Au2A463/j+d5NGcwatjRMlUDwjkDgJMYFvcmug1g2d9ArRewmbFAANIdHfs7o3he
-	KHfPF9YrdhHGxYF3i2H4mcCb3mDOpDHxKe8XQr6DLsQS7dQSbdMvLjGkLupg36q5rCs9Nxzgkso
-	3n3qzjrs5ysyXLT7rwQdpZU79pnkJk1BHYYdRLjGAcelk2V7L9xbX9cZvj8eHxKYk
-X-Received: by 2002:a17:903:94e:b0:2ae:826f:2c50 with SMTP id d9443c01a7336-2b0826e2f0emr124388545ad.12.1774325989075;
-        Mon, 23 Mar 2026 21:19:49 -0700 (PDT)
-X-Received: by 2002:a17:903:94e:b0:2ae:826f:2c50 with SMTP id d9443c01a7336-2b0826e2f0emr124388145ad.12.1774325988661;
-        Mon, 23 Mar 2026 21:19:48 -0700 (PDT)
+        bh=j7h3rGPOyGuFqglRPNrUoy4EwKeWamb75bpgun6g1Zg=;
+        b=fpvQ9dhLTYPCxbdWR4Ocnkym8g3+8cEe+IY0hmYopDv/QJ1/O5XAZmFHg8f1nw3N4P
+         t0yAs7ygj92lnVbbhzCt5CbS48GJE8dZu1vsGP81EoX0dHOkiCnLwaWc+YcXgXYL3hC+
+         1xjxS1A3ykKq7qCQ1af2HRHo2NXaIsUeyBfUMwDhR8LkZDmcGU1ONm4JO7L6nvb5zlG6
+         3PliwFFaKoc4TQEHKsk9sY+SMnnCdF3P7Spiglu/mI7ipqqBr6V55QJb4Zl46QSQdSzR
+         fu5st0ZQl0dP43w7QIGLP+c4odwuUlR9gnqHwfMUvZ1SOuONRfFuzyZ+gByxbSLu2bPG
+         i1Zg==
+X-Forwarded-Encrypted: i=1; AJvYcCX92S6FqBAZgbajJ8trrRuCSlwemrlwXR6Vc33H0dgOD+VXubvYHdJpSjGtpH5KK7kBWb+8QkWAT0mtk0AT/rBb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwkNDSP+1DSN++igLzWgu+/XdTax3yxh8QcwkzRShv80WEQiPP
+	D8R7rO+0ui12DWMK5EgVBES9y/b1lR+6J1wi8L8n6m8vYcS/8qdn9FRfLaDhPKiGiMjDhgk6PEU
+	6GXpql6ugRGI2Kuuha9ut/1V5mb/9lfZtXTn9XSzsFKIdZmqskx90+F3a/fE6jawPqYp5WZW/1q
+	qc
+X-Gm-Gg: ATEYQzxC8LslRjSHGUEi4q4qs2l+5oJHAUGOH8X0isN+XSyRvlc598XYiGKhBne88WY
+	fQJc7o/VR6kk26aTwGNyvf/tQrqu5zDKpGW4HRByBJHWxJJdkjfGmXPF+enOcoc5Z0Lu+SzFY6P
+	kR7hNY3NWUEZQegQKbfsmcun7v3hSc+I6SwkT2GYiJDgnaar6mdQHtJFgPE7N/JX4QL7Q+cvGCP
+	JtrUVjuBGGN89VlMWyIn8spMOeIYDB2W3wbSCiv6UvKmw0ZGcqR/8rEoo1oUvzwo5MTYLQV9Fes
+	4d8/EH1Vy3GhI+N9PWEQTwQb9TPUTTOFxWM5rWY/EewrL7t194QYp0a+AcDqnXsCDpKHq1ek1rt
+	l8lw8jL1rEPZMVuDbCR5B4EK/lqlRZr9EpL9OknKGYpCQqygPnfCWczID+6n3rZ7e
+X-Received: by 2002:a05:6a00:1143:b0:82a:687e:c048 with SMTP id d2e1a72fcca58-82a8c2ef7camr12586339b3a.30.1774326028976;
+        Mon, 23 Mar 2026 21:20:28 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1143:b0:82a:687e:c048 with SMTP id d2e1a72fcca58-82a8c2ef7camr12586295b3a.30.1774326028616;
+        Mon, 23 Mar 2026 21:20:28 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b083516ae1sm121045485ad.13.2026.03.23.21.19.33
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b03be2589sm10542710b3a.24.2026.03.23.21.20.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 21:19:47 -0700 (PDT)
-Message-ID: <48fdab87-7caa-4e84-803f-3fbad3dd306b@redhat.com>
-Date: Tue, 24 Mar 2026 14:19:31 +1000
+        Mon, 23 Mar 2026 21:20:27 -0700 (PDT)
+Message-ID: <ad5694f7-0885-4cb6-a2e8-112df5a498c9@redhat.com>
+Date: Tue, 24 Mar 2026 14:20:12 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 37/40] arm_mpam: Add workaround for T241-MPAM-4
+Subject: Re: [PATCH v6 38/40] arm_mpam: Add workaround for T241-MPAM-6
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -98,18 +98,18 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  zengheng4@huawei.com, linux-doc@vger.kernel.org,
  Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-38-ben.horgan@arm.com>
+ <20260313144617.3420416-39-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-38-ben.horgan@arm.com>
+In-Reply-To: <20260313144617.3420416-39-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rmP39-_wxmCkvBshr7FxdNlCnD593cZVIVtwkvWrXtk_1774325989
+X-Mimecast-MFC-PROC-ID: kBjPLBljh7SCWVPUcx1YWBS3ds4PtKxwdQDenFNqx1w_1774326029
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_211953_004772_F909B5F9 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20260323_212032_766951_2CCF24DB 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,57 +127,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 3/14/26 12:46 AM, Ben Horgan wrote:
 > From: Shanker Donthineni <sdonthineni@nvidia.com>
 > 
-> In the T241 implementation of memory-bandwidth partitioning, in the absence
-> of contention for bandwidth, the minimum bandwidth setting can affect the
-> amount of achieved bandwidth. Specifically, the achieved bandwidth in the
-> absence of contention can settle to any value between the values of
-> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
-> zero (below 0.78125%), once a core enters a throttled state, it will never
-> leave that state.
+> The registers MSMON_MBWU_L and MSMON_MBWU return the number of requests
+> rather than the number of bytes transferred.
 > 
-> The first issue is not a concern if the MPAM software allows to program
-> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
-> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
-> 
-> In the scenario where the resctrl doesn't support the MBW_MIN interface via
-> sysfs, to achieve bandwidth closer to MBW_MAX in the absence of contention,
-> software should configure a relatively narrow gap between MBW_MIN and
-> MBW_MAX. The recommendation is to use a 5% gap to mitigate the problem.
-> 
-> Clear the feature MBW_MIN feature from the class to ensure we don't
-> accidentally change behaviour when resctrl adds support for a MBW_MIN
-> interface.
+> Bandwidth resource monitoring is performed at the last level cache, where
+> each request arrive in 64Byte granularity. The current implementation
+> returns the number of transactions received at the last level cache but
+> does not provide the value in bytes. Scaling by 64 gives an accurate byte
+> count to match the MPAM specification for the MSMON_MBWU and MSMON_MBWU_L
+> registers. This patch fixes the issue by reporting the actual number of
+> bytes instead of the number of transactions from __ris_msmon_read().
 > 
 > Tested-by: Gavin Shan <gshan@redhat.com>
 > Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 > Reviewed-by: Zeng Heng <zengheng4@huawei.com>
 > Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 > Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
-> [ morse: Added as second quirk, adapted to use the new intermediate values
-> in mpam_extend_config() ]
-> 
 > Changes since rfc:
 > MPAM_IIDR_NVIDIA_T421 -> MPAM_IIDR_NVIDIA_T241
-> Handling when reset_mbw_min is set
-> 
-> Changes since v3:
-> Move the 5% gap policy back here
-> Clear mbw_min feature in class
-> 
-> Changes since v5:
-> Calculate min from max when resetting
+> Don't apply workaround to MSMON_MBWU_LWD
 > ---
->   Documentation/arch/arm64/silicon-errata.rst |  2 +
->   drivers/resctrl/mpam_devices.c              | 55 +++++++++++++++++++--
+>   Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>   drivers/resctrl/mpam_devices.c              | 26 +++++++++++++++++++--
 >   drivers/resctrl/mpam_internal.h             |  1 +
->   3 files changed, 55 insertions(+), 3 deletions(-)
+>   3 files changed, 27 insertions(+), 2 deletions(-)
 > 
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
-
 
 
