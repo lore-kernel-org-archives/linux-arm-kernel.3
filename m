@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DE9F54ACD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA3FF54ACF
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZVIzM/hcqY9nOOU0B5GM7DTAabiWLeK436pE1gLgdk=; b=Dysz20bFnqFWpsu+5SIKzO3r2O
-	LHgLTVni40gTyVVSaXiU918/yj8Z/MdzCWNHf6pbjykn2h2mToj/5WqTKIrfG1OJk0jB1G761/dS7
-	EgoNHwnyQkvSgz1c8QCsv8vm7wduP+TmOMhyx9nXKVgy+rZckH73cmqSzdVKAuPss4xqSvXa/kp6R
-	pNoslmf7nbKLHIcH6enKukauTAiJRsGp+Sq0q7j59sp6s8M9Fb/3qvedaC7Gcwtc1+FLk2h2DflqL
-	nEQDFrWy92WkC9DFuiT1NPokO38lhTr0ssYPIJR/jrvXLh0gNjHzjArQ5z53ajvEbWeJT/Zm5jOSr
-	pFPoTOOw==;
+	bh=uq6WAFvnaf+mBwZ+ONGh5jXcVA8EYCETPqdRzFFZaSE=; b=k14aMGtDn2qbFnSN71jsWTBhFB
+	HRoJTw0Tdbn+dOdSaEWdPWiNPznRirU6vN1bVxm3x1/qYFKVK2WGy+eaKmvMkN3A84L9iy5AjQ7gH
+	A5b2i5MkbNqyO8o+J2DXEad47mQsMxxvTaVktQYu6C0VjBPVu4NCCrg+d3X3y8/i7CA64X0/3uein
+	+KKyXMiSqqelIxFFUvc/lCv/UU/e7fsnTubBzDHRXRVFdNTAkVbeeuE2QCLJwgTCoaMq3LBok7UEF
+	2x5B1hm74gJdWpDD4OyEjHpN7vCBYffYLsCUgVqO+vGIHsjUUprpCfL3d78VxaNFYo8bvaUKkgiUf
+	N6rwHdaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53NN-00000001j3H-2geO;
-	Tue, 24 Mar 2026 15:09:01 +0000
+	id 1w53NO-00000001j3a-0GWe;
+	Tue, 24 Mar 2026 15:09:02 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53N2-00000001iw7-3Yax
+	id 1w53Mz-00000001iuL-2Sxm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 15:08:40 +0000
+	Tue, 24 Mar 2026 15:08:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4253160123;
-	Tue, 24 Mar 2026 15:08:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12E61C2BCB5;
+	by tor.source.kernel.org (Postfix) with ESMTP id C7D1860123;
 	Tue, 24 Mar 2026 15:08:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAF59C2BC87;
+	Tue, 24 Mar 2026 15:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774364919;
-	bh=R5VUYltBEr94rWSSuVChVaVVO2Zl0GJU4okLo9Qlovo=;
+	s=k20201202; t=1774364916;
+	bh=IH2XxdQm/+/OqmCcBXugtqi7WO71IXZONI8fSZ9YkcQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o2ok6bOm+/aGYswNyfwaeNrpvKCxoX9hocW1DxwQZX4AuYvNBs+Yp/aLS8FG5fov+
-	 mYeWkocsxA1uuLV4royRTMCt3GuXYsNOicgc5laHOzoHkC0C3bfnRmitu9Y6MXx/Ud
-	 +ThtpUphDGysfH2iApq2048ytvxT/Oqt2xqZZW2jBJ3ybx4eZwEZtN8rFZ2WBLiILu
-	 lS9y0w1o0XF0P72hUbKgF4g8uoaz+vQHplvbWtXwj/uybXsU7OwHTgwl9FvxkMi1VM
-	 72F80z/loirGTkIDaP2laJCoKBDjQTulp1hSSH8AokwFSChgttjeqhcfvSRXwITMfY
-	 vBCfjdvTQpWGQ==
+	b=F2D7GdFqjAyEAY5wJEkAPVWAtu1GKYT8mQy/sIT6UpclZiK/ptU3Zo0tnfFDhVN9k
+	 4gPS0PItjdMtHcB+L+OXd7RPosL6YhV00NVTDiGzX4GAh+JsEu252ECUs9IJAdgBpt
+	 AIPlD0eaPl1O5oTArMg23jjE8rl4H7+oCWM1ttZzwW7eGPpDNhxYiJAD+jTV9tk6FO
+	 r5kW8JgFR8AEJQtWURb0BxVmxgXkVu09XFBcpFXob//lcxfqqJL6g+9cynQjFZNTji
+	 V3DnvXA9l5UL1bCm3ncPbYyG8sw99yM2lBwmVlVKnp/YX5jDBl36QFGpJjIIgrIHlR
+	 nq4upHbDAPf2g==
 From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
+To: robin.murphy@arm.com,
+	kevin.tian@intel.com,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Nicolin Chen <nicolinc@nvidia.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
+	joro@8bytes.org,
+	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	ilkka@os.amperecomputing.com,
-	James Morse <james.morse@arm.com>
-Subject: Re: [PATCH] perf/arm-cmn: Stop claiming entire iomem region
-Date: Tue, 24 Mar 2026 15:08:14 +0000
-Message-ID: <177435570088.1948965.8351460997755925127.b4-ty@kernel.org>
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	eric.auger@redhat.com,
+	skolothumtho@nvidia.com
+Subject: Re: [PATCH 0/2] iommu/tegra241-cmdqv: Fix initialization and uAPI related to HYP_OWN
+Date: Tue, 24 Mar 2026 15:08:13 +0000
+Message-ID: <177436107597.1856788.11362232309690054704.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <b6275655818f5af7e5fb07a9e18d1451b08b7e05.1771522073.git.robin.murphy@arm.com>
-References: <b6275655818f5af7e5fb07a9e18d1451b08b7e05.1771522073.git.robin.murphy@arm.com>
+In-Reply-To: <cover.1773361875.git.nicolinc@nvidia.com>
+References: <cover.1773361875.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,22 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Feb 2026 17:27:53 +0000, Robin Murphy wrote:
-> So far, the PMU has been the only thing of interest in the vast mass
-> of CMN registers, so we've gotten away with simply claiming the entire
-> iomem region. However, now that we can support other features like MPAM
-> controllers for the system caches, the PMU driver needs to stop being
-> selfish and learn to share. Similarly to arm-ni, requesting just the
-> DTC node(s) should suffice for staking our exclusive claim to the PMU
-> features, as requesting hundreds of tiny regions for all the individual
-> pmu_event_sel registers is definitely not worth the considerable bother.
+On Thu, 12 Mar 2026 17:36:33 -0700, Nicolin Chen wrote:
+> Eric and Shameer found a bug in kernel driver that supports_cmd is set in
+> an incorrect order related to the hyp_own finalization. This results in a
+> unnecessary command filter in the host environment that sends unsupported
+> (non-invalidation) commands to the SMMU CMDQ.
+> 
+> Also, Eric pointed it out that the requirement of VMM wiring HYP_OWN to 0
+> is unclear.
 > 
 > [...]
 
-Applied to will (for-next/perf), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[1/1] perf/arm-cmn: Stop claiming entire iomem region
-      https://git.kernel.org/will/c/5394396ff548
+[1/2] iommu/tegra241-cmdqv: Set supports_cmd op in tegra241_vcmdq_hw_init()
+      https://git.kernel.org/iommu/c/803e41f36d22
+[2/2] iommu/tegra241-cmdqv: Update uAPI to clarify HYP_OWN requirement
+      https://git.kernel.org/iommu/c/9dcef98dbee3
 
 Cheers,
 -- 
