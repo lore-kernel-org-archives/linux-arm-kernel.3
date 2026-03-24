@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A85BF532F7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252DCF532F8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JP/FTrx/dfcPyNk42KmBdPlpvelKqja03wbz0nyvQcM=; b=gVRVjO0500IbsfcMiHJn8SAdPX
-	l0XflWJm0/XyKHVbodWUrTPDiH2LHw9DpEXEci73UC/Q2UoTLHBofKphGrF9PfpIOExR342EhZjVX
-	1cXQxLKZd84jOBse+haSEF2SBaHtK7eSUejYEyA1IdisKKABk5ZNgtwig01iYuFqAC0Lda0J1fVsI
-	MlR63JUT7j+C40VF8MEugDhTrz/EpbTO+v3dj/N7xmYtR5dj4h1YEclmZTMbppKMFreZk8UelrPA4
-	K5mK23kz0bp8FFFmUoHVK9wWDoU2uyY6kOstOEZr+Q8uxIQXs+fVLVcBbJ+6ou5CV1/QhP472cqsj
-	fCiTfA3g==;
+	bh=LTrxnqhxUElLZFMeZprtVj0IVhPIzo7cILI0/E6FO+c=; b=NadypXjZ7k0dWCsHnl3k5DoarN
+	JxsMjfXwatAXykzoOX9igxwV4ullC30WDylxMN5yHWcUwtjrubrWr2SfYkNv7ILtBFIB6W2XgD5zC
+	AeKzbAQ1hljDKYugEPWBVpSCTi6Bx9vCNL5XUraaIKb0d4ipwwu4RJWSj1WQx0h0c69jPkp6ZsqAR
+	u7BXxoKC/AC3pm0QWyL8EPr7FDh1QgndMqsMLovFQJcf6QjbyQ4bqyY20sT9TZDcKvdPA9UPNQR6n
+	sv/sMwgYb18sVdrPPZmKzXvI9V7tEC7ktpM5BSPTjWpzCh0/neE/s0cESldJMvEkx4z8jcuHUmwGL
+	X1dU0pkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xO7-000000011BL-2Gej;
-	Tue, 24 Mar 2026 08:45:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w4xQh-000000011SX-0Her;
+	Tue, 24 Mar 2026 08:48:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xO6-000000011Ao-23rU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 08:45:22 +0000
+	id 1w4xQg-000000011SO-1srl;
+	Tue, 24 Mar 2026 08:48:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9CDB60120;
-	Tue, 24 Mar 2026 08:45:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCD75C19424;
-	Tue, 24 Mar 2026 08:45:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DB47460127;
+	Tue, 24 Mar 2026 08:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A5DEC19424;
+	Tue, 24 Mar 2026 08:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774341921;
-	bh=PPl/rC2OPLdnK/BWcMFaxt/YnKgshXcEJ8ivDfLY7fY=;
+	s=k20201202; t=1774342081;
+	bh=ix2Fecint5FiA5s4mDWUWlFNQNkl4uSNPkhTuoKP12s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eJqB4X8WYlPyGiXK2O72S3SKONpGWaKEpkxoGJ27JTZsE1lPhe7Q39be9Hv6pPMKG
-	 ALJEOMY/OdEkWXpEWlJJh/Pn7rwVLFl+J4a+4HDZWmuvWq53YjhiUQWc5bZ4K8OyND
-	 7fOLFjcUMvSdOBDYTFMyude1IDU8Qkia0mG2sTLGykgzkF3zwFyw9zhDiPt2MNQb+Q
-	 gTRnKdOkcpoQBgC/ORayqvOFe5ZYYkE8tPxs+kH5msRm8S6U2hDEtVvEStWvfuI7cC
-	 vMEmsn2ByBeE/8+byN/E8XEAFD/FCiA0CJl0o8muSPEme+Zgdr/1o4eWjLnZESpfVH
-	 cqH8jFw1OGq8g==
-Date: Tue, 24 Mar 2026 09:45:16 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-	mark.rutland@arm.com, bjorn.andersson@oss.qualcomm.com,
-	konrad.dybcio@oss.qualcomm.com, mani@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
- for SYSTEM_SUSPEND
-Message-ID: <acJPHGIW1fb7whsu@lpieralisi>
-References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
- <d7a8271e-f6a5-491c-be2a-7ebc7d37645d@nvidia.com>
- <b5860d64-6eed-453e-8261-2c8b0c5571c4@nvidia.com>
+	b=AnnfWuz82pjwgSh/h6fYf0TXk243a8v7a1di3JppVUY23vzEqT7xvFmdBmc/7nUmA
+	 bEMp3Db02y6MRqJgu9fyMuxNIqgjLF5QA4LvrwNS87mV5OZ4v6FzxiQIuSSXHbHfri
+	 KF/2j8WeohRz+pi87mV4eA5O7q5W9Dm2AWmSgcczp2NfNyomz+ey3jP9NlFMbQi1cF
+	 gfFCKz+dtGKwaZ2tMAV5Cuzzlrd+w4p/moO80HHk/LAkcW9EpOX/lpdz0Y2BOKn03I
+	 4DodTuA6xP20OZ2d2sDtBda3LoLn6idzjwbJS6Bu+2+OHF0/ezmW3NYtIA3qPVqbzZ
+	 KTSnibFDJcTJg==
+Date: Tue, 24 Mar 2026 09:47:59 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, cylee12@realtek.com, 
+	afaerber@suse.com, jyanchou@realtek.com, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Subject: Re: [PATCH v5 01/10] dt-bindings: clock: Add Realtek RTD1625 Clock &
+ Reset Controller
+Message-ID: <20260324-chirpy-vigilant-pony-c16e2f@quoll>
+References: <20260324025332.3416977-1-eleanor.lin@realtek.com>
+ <20260324025332.3416977-2-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b5860d64-6eed-453e-8261-2c8b0c5571c4@nvidia.com>
+In-Reply-To: <20260324025332.3416977-2-eleanor.lin@realtek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,93 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 10:10:00AM +0000, Jon Hunter wrote:
-> Hi Mark, Lorenzo,
+On Tue, Mar 24, 2026 at 10:53:22AM +0800, Yu-Chun Lin wrote:
+> Add DT binding schema for Realtek RTD1625 clock and reset controller
 > 
-> On 12/03/2026 19:00, Jon Hunter wrote:
-> > Hi all,
-> > 
-> > On 31/12/2025 16:21, Manivannan Sadhasivam wrote:
-> > > From: Konrad Dybcio <konradybcio@kernel.org>
-> > > 
-> > > PSCI specification defines the SYSTEM_SUSPEND feature which enables the
-> > > firmware to implement the suspend to RAM (S2RAM) functionality by
-> > > transitioning the system to a deeper low power state. When the system
-> > > enters such state, the power to the peripheral devices might be
-> > > removed. So
-> > > the respective device drivers must prepare for the possible removal
-> > > of the
-> > > power by performing actions such as shutting down or resetting the device
-> > > in their system suspend callbacks.
-> > > 
-> > > The Linux PM framework allows the platform drivers to convey this info to
-> > > device drivers by calling the pm_set_suspend_via_firmware() and
-> > > pm_set_resume_via_firmware() APIs.
-> > > 
-> > > Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call
-> > > the above
-> > > mentioned APIs in the psci_system_suspend_begin() and
-> > > psci_system_suspend_enter() callbacks.
-> > > 
-> > > Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-> > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > > [mani: reworded the description to be more elaborative]
-> > > Signed-off-by: Manivannan Sadhasivam
-> > > <manivannan.sadhasivam@oss.qualcomm.com>
-> > > ---
-> > > 
-> > > This patch was part of an old series that didn't make it to mainline
-> > > due to
-> > > objections in the binding and exposing CPU_SUSPEND as S2RAM patches:
-> > > https://lore.kernel.org/all/20241028-topic-cpu_suspend_s2ram-
-> > > v1-0-9fdd9a04b75c@oss.qualcomm.com/
-> > > 
-> > > But this patch on its own is useful for platforms implementing the S2RAM
-> > > feature in PSCI firmware. So I picked it up, tested on Qcom X1E T14s and
-> > > resending it.
-> > > 
-> > >   drivers/firmware/psci/psci.c | 10 ++++++++++
-> > >   1 file changed, 10 insertions(+)
-> > > 
-> > > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> > > index 38ca190d4a22..e73bae6cb23a 100644
-> > > --- a/drivers/firmware/psci/psci.c
-> > > +++ b/drivers/firmware/psci/psci.c
-> > > @@ -539,12 +539,22 @@ static int psci_system_suspend(unsigned long
-> > > unused)
-> > >   static int psci_system_suspend_enter(suspend_state_t state)
-> > >   {
-> > > +    pm_set_resume_via_firmware();
-> > > +
-> > >       return cpu_suspend(0, psci_system_suspend);
-> > >   }
-> > > +static int psci_system_suspend_begin(suspend_state_t state)
-> > > +{
-> > > +    pm_set_suspend_via_firmware();
-> > > +
-> > > +    return 0;
-> > > +}
-> > > +
-> > >   static const struct platform_suspend_ops psci_suspend_ops = {
-> > >       .valid          = suspend_valid_only_mem,
-> > >       .enter          = psci_system_suspend_enter,
-> > > +    .begin          = psci_system_suspend_begin,
-> > >   };
-> > >   static void __init psci_init_system_reset2(void)
-> > 
-> > 
-> > I wanted to ask what the status of this patch is?
-> > 
-> > It turns out that since commit f3ac2ff14834 ("PCI/ASPM: Enable all
-> > ClockPM and ASPM states for devicetree platforms"), this fix is also
-> > need for Tegra platforms that have NVMe devices to ensure that they are
-> > suspended as needed. There is some more background in this thread [0].
-> 
-> 
-> Any feedback on this? I am not sure if this patch is purposely being
-> ignored, but if so, I would like to understand why.
+> Co-developed-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 
-It fell through the cracks, apologies.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Lorenzo
+Best regards,
+Krzysztof
+
 
