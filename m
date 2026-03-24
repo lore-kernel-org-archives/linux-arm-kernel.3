@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8E7E9A744
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE6EE9A747
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0H4SZ3DlYEVqlzu6JJsZInSW5jEBx0hElRQGDXixpQ=; b=EHaKPip84k0pPYYqFZIXzVA6dM
-	cbSq160J7T2ZE20z2xlo7xSacvMqL23bDDkx9bp2tJSfhFSQCWc4CgdY2LiCePK+rM1UXkd35m7+U
-	TJJecxQtdE2w0y4kS3XOxjsytoRb696zVMN6dp3pLrxcZknkyd2P2ABUvJRd3ld1krOer94mDVPxC
-	0xxQI+M7yPcmqdg1NljZquICArjICYIMPo/CvdYsEp+2oU0P1w0vAtAN+P0navD2mBQ7/CEMbPjUs
-	s4KYKwr6hNjNH2DEUmQ6PFS8fCpHfLuL38IFlYh1JivE1wzvaIyLgAzN2+ugrmlZtFeUfpTKZ1dRV
-	AF40WJbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+dwLmUFC9jAYoqBGf2wujV4kmn3knCoiNZYrzuQW+1Q=; b=mhKARtaNajbGEKpKNd5yALfdbR
+	s056+5z5TG8XplGyTDaK7j+/FwYxIFUriA/Th6c7bQeIIQAhybMQc+KhL2GjB0aCvnuSru9lwQWQy
+	/KX0kkl+W1Ji6mM7CAZLmQoGo+tzbcRGBmK3jYeuc8S9zIO/OxuFqkhdUGqJehPx9Xu+bVkv7yRk4
+	qewK9GGBvdcBXUIluZuxuEPmvvSmkgaA4j+jO9gcARPfL5/Ds1/sR7l1IeAyhX38pdxyYOFRgZvPP
+	4F3ZtY/VLc82go5hFEkS3Qlh7ZKArhqrgWr6y/XejAOiAUS24Px+0HREjsBzZR7chjup78gVK1vVk
+	SA4j6/Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xxL-000000015B0-35lx;
-	Tue, 24 Mar 2026 09:21:47 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1w4y1o-000000015jf-4Ai8;
+	Tue, 24 Mar 2026 09:26:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xx9-0000000155E-2eu3
+	id 1w4y1m-000000015jM-3BiM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 09:21:37 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 53C6CC5809B;
-	Tue, 24 Mar 2026 09:22:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 217826011D;
-	Tue, 24 Mar 2026 09:21:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 572B9104511A8;
-	Tue, 24 Mar 2026 10:21:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1774344093; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=E0H4SZ3DlYEVqlzu6JJsZInSW5jEBx0hElRQGDXixpQ=;
-	b=VYEdNHVvZITYjJxp+4w6ZHknWDgFyGHrKUuXfDFyQ/1eR/CXJ2M4JdSFABSwxtSEeDjrVH
-	mIsjeTUysEzm19uEMT6hr69dbUrpmVQ6oRtJ4CO9ZNOB0R4c95R9tDbRx6H9tN0ZSCPcOP
-	/FJExyqWh+lqxlw6RRjFeVaOcvsQzXMxrG9Jb6NeD+g0TH/eOVSPWU3mTobdX4J+gQuEgT
-	6i4y85EFRH4wkXZVGQDeWDRu/RreMOVxlFvm5lpViKtR7ziRVfUoM/9zDq0X2sR4Xtwqj1
-	1sjlfyKgE7TRWz3CPcOD6X6zLPotfFPmtVX/kAWkAjzc7jBJ+u+M+XP67BYAuQ==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Mun Yew Tham <mun.yew.tham@altera.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 5/5] net: stmmac: dwmac-sofcpga: Drop the struct device reference
-Date: Tue, 24 Mar 2026 10:21:00 +0100
-Message-ID: <20260324092102.687082-6-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260324092102.687082-1-maxime.chevallier@bootlin.com>
-References: <20260324092102.687082-1-maxime.chevallier@bootlin.com>
+	Tue, 24 Mar 2026 09:26:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 867F44017A;
+	Tue, 24 Mar 2026 09:26:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC89C19424;
+	Tue, 24 Mar 2026 09:26:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774344380;
+	bh=4kWn0YZJb4i01Ir/4InQFgfX4Z1CwGSc0CpGCKJSBVM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XgbZ5flOMOM0DOOaoa9asHdHwqPMbkAPF/BFyPi6SGFqxqv6LvKJRLnYf/1/cmxSM
+	 GJq9ASMBuGA+274txopcYntJZ9cJ8uB0/dHPNqdl7xYFdE3LAsQlRtHyv7SsYddSgq
+	 dRzSrxTc2MtnWiBtRov8cm8sNtXM8si3Q1vQkXtbUnsrrN9AYkarwHkK7Dpr4kdsEb
+	 IBrewTBbkwRo9K1yLHOKHBjuun0ksO5BgNli5lh+UadJpc9NH06Gpvz5tHmc7Apxmi
+	 uvvasKFHyuLzRTJnuLj+bqr14apLQwXmTd9afb6P1acgaSQrfYtWWoQ+UsEererpTx
+	 vzNxi2GnGa5TQ==
+Date: Tue, 24 Mar 2026 10:26:17 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Gopi Krishna Menon <krishnagopi487@gmail.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, vireshk@kernel.org, 
+	conor+dt@kernel.org, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com
+Subject: Re: [PATCH 2/2] ARM: dts: st: spear: fix dtbs warning on spear
+ thermal sensor
+Message-ID: <20260324-smoky-radical-hyrax-1274a9@quoll>
+References: <20260323133814.14152-1-krishnagopi487@gmail.com>
+ <20260323133814.14152-3-krishnagopi487@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260323133814.14152-3-krishnagopi487@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_022135_992350_D0D166A0 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260324_022622_822781_BFED749E 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We keep a reference to our the struct device in the socfpga_dwmac priv
-structure, but now it's only ever used to produce logs in the
-.set_phy_mode() ops, that are specific to this driver.
+On Mon, Mar 23, 2026 at 07:08:09PM +0530, Gopi Krishna Menon wrote:
+> Running DTBS checks on st/spear1340-evb.dtb results in the following
+> warning:
+> 
+> thermal@e07008c4 (st,thermal-spear1340): Unevaluated properties are not allowed ('thermal_flags' was unexpected)
+>   from schema $id: http://devicetree.org/schemas/thermal/st,thermal-spear1340.yaml
 
-When we call that ops, we always have a ref to the struct device around,
-so let's pass it to .set_phy_mode(). We can now discard that reference
-from struct socfpga_dwmac.
+How is it possible if there is no such file?
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c   | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+Did you just add new warning in patch #1 and then claim in patch #2 that
+you fix it?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index ae40de2ed8eb..1d7f0a57d288 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -53,14 +53,14 @@
- 
- struct socfpga_dwmac;
- struct socfpga_dwmac_ops {
--	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv);
-+	int (*set_phy_mode)(struct socfpga_dwmac *dwmac_priv,
-+			    struct device *dev);
- 	void (*setup_plat_dat)(struct socfpga_dwmac *dwmac_priv);
- };
- 
- struct socfpga_dwmac {
- 	u32	reg_offset;
- 	u32	reg_shift;
--	struct	device *dev;
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct regmap *sys_mgr_base_addr;
- 	struct reset_control *stmmac_rst;
-@@ -243,7 +243,6 @@ static int socfpga_dwmac_parse_data(struct socfpga_dwmac *dwmac, struct device *
- 	dwmac->reg_offset = reg_offset;
- 	dwmac->reg_shift = reg_shift;
- 	dwmac->sys_mgr_base_addr = sys_mgr_base_addr;
--	dwmac->dev = dev;
- 	of_node_put(np_sgmii_adapter);
- 
- 	return 0;
-@@ -382,7 +381,8 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
- 	return 0;
- }
- 
--static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac)
-+static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac,
-+				     struct device *dev)
- {
- 	struct regmap *sys_mgr_base_addr = dwmac->sys_mgr_base_addr;
- 	phy_interface_t phymode = socfpga_get_plat_phymode(dwmac);
-@@ -391,7 +391,7 @@ static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac)
- 	u32 ctrl, val, module;
- 
- 	if (socfpga_set_phy_mode_common(phymode, &val)) {
--		dev_err(dwmac->dev, "bad phy mode %d\n", phymode);
-+		dev_err(dev, "bad phy mode %d\n", phymode);
- 		return -EINVAL;
- 	}
- 
-@@ -440,7 +440,8 @@ static int socfpga_gen5_set_phy_mode(struct socfpga_dwmac *dwmac)
- 	return 0;
- }
- 
--static int socfpga_gen10_set_phy_mode(struct socfpga_dwmac *dwmac)
-+static int socfpga_gen10_set_phy_mode(struct socfpga_dwmac *dwmac,
-+				      struct device *dev)
- {
- 	struct regmap *sys_mgr_base_addr = dwmac->sys_mgr_base_addr;
- 	phy_interface_t phymode = socfpga_get_plat_phymode(dwmac);
-@@ -552,7 +553,7 @@ static int socfpga_dwmac_init(struct device *dev, void *bsp_priv)
- {
- 	struct socfpga_dwmac *dwmac = bsp_priv;
- 
--	return dwmac->ops->set_phy_mode(dwmac);
-+	return dwmac->ops->set_phy_mode(dwmac, dev);
- }
- 
- static void socfpga_gen5_setup_plat_dat(struct socfpga_dwmac *dwmac)
--- 
-2.49.0
+You completely miss the point why this change is needed: how could the
+DTS work before? It could not. And that should be your justification for
+the patch, with explanation why it could not work.
+
+Best regards,
+Krzysztof
 
 
