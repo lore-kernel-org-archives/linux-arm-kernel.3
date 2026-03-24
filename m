@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4AED58CC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 22:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE19D58CC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 23:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9kw70daChVFhOHDmdtNwQp9MncWFEFeR8i+QDxsH2cM=; b=rJKSOGDCFfKtGZAA/9zYouMFdm
-	5uog6GQCrfeV/ohUja1ZNJwn2arPynN3CjHaFvhI4wdcKlXTef3cfFHNYx2/vpNMdeIOT4hSjxYEs
-	bVDnnRXpYUAfegIX2XswMYhZZZJB9fjlDbEq0aH1ht0hvjAM3i4vokHJ9ACdHXNvbuaxzp/6rolns
-	M8VGB+IcggKfssgaEL7OI0p0F1JHj3+bGbUXU/XwTv9G20PDG3wg4puoPEAgQe9nP4zAVQi7UUF5C
-	iXH7LVdhedUD+WrDrIx5mkkHmpB/ynL4UJfcjSBvm706dhWhE0i7bS39XcnpENz7FW5ET2oq1YzfQ
-	cx8Mzwcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFw4ZXad8RxaARIaaFcSFUTff0udUL0Xwujnri8O2WU=; b=4IYlwN6OdCX/2MWktQUl6GgAeU
+	7IK7UxwCFpWVqJCDc5fmgAJ6RAh+PaZ16/oqcI/RACpccMahwsP2pjqQ05zUuCbdBrH8CKseUzOiU
+	Z20x1WPkXnFlwsj6jumzbkOEaUGXfgYVCLf6YptAXT/idzCxrcsv/T/jYGlgWPLXhpaMafP4MUJau
+	67d8Pvht4FREhEbmXovbx00hhLoL5A2pPvMlTsj/uzpr6KzTPM9V69MbaR6FySwSo1gzQPG9+RgBh
+	cvg7Uz4eHymrw5F/+UK3W+SG/SWbBHJaztUmpVK62ZSbuTcB6qGd1bVTYiuHen2VB0mJlov+egmQG
+	TImua85w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5AKT-00000002JgI-16vU;
-	Tue, 24 Mar 2026 22:34:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5AqU-00000002Krw-2J18;
+	Tue, 24 Mar 2026 23:07:34 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5AKR-00000002Jfw-1IVa
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 22:34:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC4BA40554;
-	Tue, 24 Mar 2026 22:34:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEA1FC19424;
-	Tue, 24 Mar 2026 22:34:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774391665;
-	bh=MblaW0xP4HmyYQz3x3ZL7IUOWvhc1ECQYUTmSfXN4/Q=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bInkP22m7nMFnKEWUYwH/x4FRSROq0svEEH5MDHpZ+ompDxzxsgAzThXboUqycay7
-	 UX5ejEw2x+vzSLwXIRtnVmvKruesuOcVNbW1R/t9Q5uMKyfTX7CQeo9sTgZagC2oO/
-	 sPxQB099EJobK0YtwRF5+/q2WgcLcaNx8F4IfRK2UugHnXzncOq0dQgEj+m+zSWDCn
-	 L4+Hm+asWy0OZxUEXM4n8YGZvsgr6+vfNyuRx3Dyy6+s8VR4GZxCGmSEQ75sT6W5By
-	 lX4lMDRFFw41znhMUg71L3A2uOZnJoFfHqPgcYxgd+sjhS0itr3nEoIl8XEz0T7/Cs
-	 4TRIAn3CayBpQ==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Jiri Slaby <jirislaby@kernel.org>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org,
+	id 1w5AqR-00000002KrS-3Aw3;
+	Tue, 24 Mar 2026 23:07:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774393652; x=1805929652;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Fk4wnbWrvlRCpYY7EBpy23iVhDEFFSBBmhNUHDrnqG4=;
+  b=mkUJBjkBCTuc/SLtDApXaGKf23bhYNOjSx+pKWLWTkPEUakrd/XlxgJ3
+   lCxNia5peZt67y5lD43fl2UfBh8tqHLY7ny+n+Tkv1fwk7w3Gf4LIAsYr
+   6rBLcm9DIon5EssFCkdJgpoXylvDV/xbQ8oa3ubuoG/X5WFCUDYlXbfBt
+   HaIb5bZ1kG1J6z/u0p7MCYTP8SYKYg0Ygp/flq83qs4sNxGI9UYivOasP
+   ylQwIqZnPu9V7R+jYw8A9VxczblqmWVvyp3Po0jM9qfg1ssySbfRtyFDg
+   0k4FHLlQoi1hv+NA7jAqVpPT/gG9h78o4nzBA5aYh9lL7laonPPWGI0NO
+   A==;
+X-CSE-ConnectionGUID: R8CvmoCiQNij0FcCcrwe0A==
+X-CSE-MsgGUID: AdyXb7ubTK6QHBrgbUrbpg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75618055"
+X-IronPort-AV: E=Sophos;i="6.23,139,1770624000"; 
+   d="scan'208";a="75618055"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 16:07:31 -0700
+X-CSE-ConnectionGUID: SrpYwx6GQpubSXWUutx8/A==
+X-CSE-MsgGUID: wFIBomXZTwmmjw22K+0L0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,139,1770624000"; 
+   d="scan'208";a="224511070"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 24 Mar 2026 16:07:26 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w5AqJ-000000005YH-1gIj;
+	Tue, 24 Mar 2026 23:07:23 +0000
+Date: Wed, 25 Mar 2026 07:06:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>, mturquette@baylibre.com,
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, p.zabel@pengutronix.de, cylee12@realtek.com,
+	afaerber@suse.com, jyanchou@realtek.com
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] soc: fsl: qe_ports_ic: switch to irq_domain_create_linear()
-Date: Tue, 24 Mar 2026 23:34:16 +0100
-Message-ID: <a9de2f351ea71e4b794baaea8d9d790fbfac8d26.1774391374.git.chleroy@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
+	cy.huang@realtek.com, stanley_chang@realtek.com,
+	eleanor.lin@realtek.com
+Subject: Re: [PATCH v5 09/10] clk: realtek: Add RTD1625-CRT clock controller
+ driver
+Message-ID: <202603250636.b3J5aCGL-lkp@intel.com>
+References: <20260324025332.3416977-10-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=904; i=chleroy@kernel.org; h=from:subject:message-id; bh=MblaW0xP4HmyYQz3x3ZL7IUOWvhc1ECQYUTmSfXN4/Q=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWQeFsye28H7gys0xN9D6tUeNq6eE3Xnj/JufC+vrH9ff +7K1IzHHaUsDGJcDLJiiizH/3PvmtH1JTV/6i59mDmsTCBDGLg4BWAisbsZ/lfGeV/YFVcoMPO8 oqrc4T32c8XSb11z3vTs9YeScj2B2YyMDOdDNhnGa30y0T2zd7rm+dtvnlb/31rWq3k88dadxU5 ZcxgA
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324025332.3416977-10-eleanor.lin@realtek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_153427_366571_BBBCB70E 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260324_160731_875480_62BF7E3F 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +94,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-irq_domain_add_linear() is about to be removed, replace by the
-more generic irq_domain_create_linear(),
-see commit 42b8b16fe56c ("irqdomain: Drop irq_domain_add_*()
-functions") for details.
+Hi Yu-Chun,
 
-Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
----
- drivers/soc/fsl/qe/qe_ports_ic.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_ports_ic.c
-index 5e3fae19f314..9b0bba64e91e 100644
---- a/drivers/soc/fsl/qe/qe_ports_ic.c
-+++ b/drivers/soc/fsl/qe/qe_ports_ic.c
-@@ -118,7 +118,7 @@ static int qepic_probe(struct platform_device *pdev)
- 	if (data->irq < 0)
- 		return data->irq;
- 
--	data->host = irq_domain_add_linear(dev->of_node, 32, &qepic_host_ops, data);
-+	data->host = irq_domain_create_linear(dev_fwnode(dev), 32, &qepic_host_ops, data);
- 	if (!data->host)
- 		return -ENODEV;
- 
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on robh/for-next linus/master v7.0-rc5 next-20260324]
+[cannot apply to pza/reset/next pza/imx-drm/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Yu-Chun-Lin/dt-bindings-clock-Add-Realtek-RTD1625-Clock-Reset-Controller/20260324-171912
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20260324025332.3416977-10-eleanor.lin%40realtek.com
+patch subject: [PATCH v5 09/10] clk: realtek: Add RTD1625-CRT clock controller driver
+config: nios2-randconfig-001-20260325 (https://download.01.org/0day-ci/archive/20260325/202603250636.b3J5aCGL-lkp@intel.com/config)
+compiler: nios2-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260325/202603250636.b3J5aCGL-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603250636.b3J5aCGL-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   nios2-linux-ld: drivers/clk/realtek/common.o: in function `rtk_clk_probe':
+>> drivers/clk/realtek/common.c:54: undefined reference to `rtk_reset_controller_add'
+>> drivers/clk/realtek/common.c:54:(.text+0x134): relocation truncated to fit: R_NIOS2_CALL26 against `rtk_reset_controller_add'
+
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for RTK_CLK_COMMON
+   Depends on [n]: COMMON_CLK [=y] && COMMON_CLK_REALTEK [=y] && RESET_CONTROLLER [=n]
+   Selected by [y]:
+   - COMMON_CLK_RTD1625 [=y] && COMMON_CLK [=y] && COMMON_CLK_REALTEK [=y]
+
+
+vim +54 drivers/clk/realtek/common.c
+
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  12  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  13  int rtk_clk_probe(struct platform_device *pdev, const struct rtk_clk_desc *desc)
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  14  {
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  15  	int i, ret;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  16  	struct regmap *regmap;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  17  	struct device *dev = &pdev->dev;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  18  	struct rtk_reset_initdata reset_initdata = {0};
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  19  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  20  	regmap = device_node_to_regmap(pdev->dev.of_node);
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  21  	if (IS_ERR(regmap))
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  22  		return dev_err_probe(dev, PTR_ERR(regmap), "failed to get regmap\n");
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  23  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  24  	for (i = 0; i < desc->num_clks; i++)
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  25  		desc->clks[i]->regmap = regmap;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  26  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  27  	for (i = 0; i < desc->clk_data->num; i++) {
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  28  		struct clk_hw *hw = desc->clk_data->hws[i];
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  29  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  30  		if (!hw)
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  31  			continue;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  32  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  33  		ret = devm_clk_hw_register(dev, hw);
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  34  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  35  		if (ret) {
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  36  			dev_warn(dev, "failed to register hw of clk%d: %d\n", i,
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  37  				 ret);
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  38  			desc->clk_data->hws[i] = NULL;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  39  		}
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  40  	}
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  41  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  42  	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  43  					  desc->clk_data);
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  44  	if (ret)
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  45  		return dev_err_probe(dev, ret, "failed to add clock provider\n");
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  46  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  47  	if (!desc->num_reset_descs)
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  48  		return 0;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  49  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  50  	reset_initdata.regmap = regmap;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  51  	reset_initdata.num_descs = desc->num_reset_descs;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  52  	reset_initdata.descs = desc->reset_descs;
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  53  
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24 @54  	return rtk_reset_controller_add(dev, &reset_initdata);
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  55  }
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  56  EXPORT_SYMBOL_GPL(rtk_clk_probe);
+105a817ead5cd3 Cheng-Yu Lee 2026-03-24  57  
+
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
