@@ -4,132 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36D9FEC0F7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 18:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BF9FEC0F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VV13yNtQeLh2dmtF4IroQ1rT7w9KLnewn9F200nTBc4=; b=VuY76R6UULsQ0ZqYrtROfQTYhV
-	nwpWi+KPjoqswyMQOGGIbRabWi7/wUeIxik7sSTsdRPPeoGVPdjZOn8POxAwgnxf85okzzeBHZaSH
-	dJViSgOXimR370226IzrwVzreAzBDNuoH5zNuHjK8Lzi0WDa/zGsRODBQ2x/4RqWXtyUtiUsjDWfX
-	4UJuvPDSyoki8FEbeBTcuXav5zxKkGWBgBY96ymOk67OiD62rMm7AEnDhCYOBo8eAaudXLSZHL3Fb
-	gPDuz09a+a2kBgcR54YqcHqQthKLk+dX3MW6TlP/AB7z0s6onknjr3X2vBfBQS6Llo3TGbnN1+CTV
-	8T2j6Bdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LRK+Pbk+JcjIEgkJ8gJovXilJoSLfy1esd2Vmrus+/Y=; b=BWNsxvqNf3Pe0WAhV5NIYpCU6s
+	NNnaUTs0KF24ZK5516k+A1xGb/VWhYnOSoBBK9WGmRCbLCysB1NUpxDG++Ea9p8pTpqDYDreP78WB
+	qsnYS8W8Ca+sznXz9y278YKuTSyLdDlNsMthLFM3SP8aijqSHkDbsgKRbczqvsbkgyog6k+3AKDlu
+	6vqTuVYxpcqVrz5GVC+oBsqZ5g+NbH9YZfXD+m0PXWbpZW6iOiWbAiza+uUgfPsE/QCVu9Nw9Egnl
+	ukNwUll6V9HiJGe4pmIWMZ3m2kF6PZlHC0ejjpcD707YMaJ7905quie9u2dmPM4R17V32O4eIgitB
+	wmpNLSbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w56tG-000000026UJ-2bau;
-	Tue, 24 Mar 2026 18:54:10 +0000
-Received: from mail-westusazon11012020.outbound.protection.outlook.com ([52.101.43.20] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1w572t-000000027FV-0IZ6;
+	Tue, 24 Mar 2026 19:04:07 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w56tE-000000026Ty-0PQd
+	id 1w572r-000000027F0-0IPi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 18:54:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tmu1rf44y8OhmJjpGJqMO5eqRnzf2jdI3PEpK8O+3CcC/O4Uj+SIEzzm7Omw7cNFmXbPAuGJpFoYwtvaKiwcaImlrhCcaWCHQzk8Ps02FeRcEhL55WhpHs6TZF57dnLKgetikZD4e6FcHG7QmzAFffeyYZb+KcDxFM2REj7O38BkfULONmfNGtLMXhDL0ntxyWzYQMYoK24afKWD2oMmoBwPqTCPYopfnLQrQ15yEYCcx4fa1PwLFjsHKIB8y0F388XnL9WBsATAw5TaJ51oDa0wRQV0EyYiqJQQJWQuI5uANDFT/UYERyncAdDMI73IjAhC5iGGnkxuRSnsCbXY8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VV13yNtQeLh2dmtF4IroQ1rT7w9KLnewn9F200nTBc4=;
- b=JvMdaxT5cV6VLQm0QGzB5iK7d432x46l12UvFFsZNQ0RIKvDABrMaj8gzZVVcgYMx4tGtP5aSr9uSaEw5H8T6ahsbBnmrklX7bELaOQRwZ9VtS/g6uKV+5G0s3jfMnn7/fpvBwyhNl3kAiJgxyMRNH2nULrCLxRaGebokgJAtZgj9t+Krl0EorKnoqpCItEAZ0E+5Xu7qzB1ez7pj6EP0mdAj7tVAnrk7OuuB3mZyTgBUahrg6dieVsKlMCsZITIxCVieU2uCJMeezUFWCFJz8AR3xzB7JYFmgS1sWs6/zKZSF6NJreJIz+SLpwomtKzu3cDO63OWW/ogL4zNvk0IA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VV13yNtQeLh2dmtF4IroQ1rT7w9KLnewn9F200nTBc4=;
- b=BhOrog7+CnRsjiUUgJZKgqfbZK/B2dMS4OVcAnghcKOcMq8s6tMK4Uq02QyeMN282v1PzgitNKIdArz89lGhTnKTgwbfsagDhq2zh9RopBjObeu15ykF6kuQG74dA4A5Rp7brJMYL/6KU4guMdzOmZ/hywgMsW2ph7OHf1RoFxQV0PaHWyZRVwMnxv6kWz3uQvBU4gcTIilvlplVv7RDInNn6j8BUWAAiqP8Fj6v2XxiejR/7fxryimhndT9zOlvChCggUC+SkEDSWtFSWbbA321DmlL4Oo2VkwZiUGEVAiS0Im3+nnjXpSmffqjf3QvP1i25bg9gpFEHxknkBXyVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB8105.namprd12.prod.outlook.com (2603:10b6:510:2b7::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
- 2026 18:53:58 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9745.019; Tue, 24 Mar 2026
- 18:53:58 +0000
-Date: Tue, 24 Mar 2026 15:53:56 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, praan@google.com, mmarrid@nvidia.com,
-	kees@kernel.org, Alexander.Grest@microsoft.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, bbiber@nvidia.com,
-	skaestle@nvidia.com
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Drain in-flight fault handlers
-Message-ID: <20260324185356.GA67624@nvidia.com>
-References: <20260307001723.964956-1-nicolinc@nvidia.com>
- <abLE3rdM9YAu81tq@willie-the-truck>
- <20260312142509.GA1586734@nvidia.com>
- <acKZ0wtfi5R_dHm0@willie-the-truck>
- <20260324141716.GB7340@nvidia.com>
- <acKhIh-s3pglUmEL@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acKhIh-s3pglUmEL@willie-the-truck>
-X-ClientProxiedBy: BL1P223CA0003.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:208:2c4::8) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Tue, 24 Mar 2026 19:04:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B5FE5112201;
+	Tue, 24 Mar 2026 20:03:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1774379042; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=LRK+Pbk+JcjIEgkJ8gJovXilJoSLfy1esd2Vmrus+/Y=;
+	b=U6Vkgc1OrledZh7vrd+LEgH5Bf1pv5L/6rIB+B+Yirhmev7YoBWP9VjHeGAB+Uu0q+W2oz
+	uHjnpNJMunYfhPCqCxkvA1ZLIPSiS3rO2OuoK8CDLZnFJ3jgjBIruDJBDzfeFvizFz/kQ+
+	M8pameULZxpjuUy7KtoJe0fLFWuGhzlDrFm980z74HGDxNM3M0mLi7CT5fCAYS3Pjvc53y
+	mrcKLM9iHU7DY4kJ55qHdjDvoysQYN0zj9WcAMUXzEHc7nRPH0uBgquBEBRZxD1FNFWFq8
+	9VIYpojgArHAhqB5UQoc7y/30dTIgXnm+8mQnzagaKVrqic0TWHBN110pui0NA==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	kernel@dh-electronics.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: dts: imx: Add DT overlays for DH i.MX6 DHCOM SoM and boards
+Date: Tue, 24 Mar 2026 20:03:11 +0100
+Message-ID: <20260324190356.74293-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB8105:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2559e0f6-f225-4682-4a32-08de89d6b49b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Nxa0IX6q5H0ZHceA2pDrpf1ECV32VxqxP3+3I0EQcMCQRicniDaD9R/cN0O+89sYphMSAe3zdqOHiPCQgrEswU5xK3qQyEwAlqr1bGV0modtwdzKGn7zbr8NkV8UzPxTOfWiua8Ve7JMXPnLQduBsKUjsoqgsYid0dhCDtVTQMhKTkdx/NNeDorI6BHJlZrnPYOhU22ZArWi3CZ826ClkfeTPFbHGEfUNvxwcDRiQ1UdCmf+xpo5DjRWH7dVmVK447jt7nAK8RxWuot+unahB9U5ruN4a7quO65BiAKathccl0b46Cuis0hq53mryvD0/TUda79zwSQzL0cEJCdPI7qPDWBrPXmb49HKCKiCmBx1fe7YUsGCxcTWMVshmJkkfgvPLzvtlC14aT/5fuvHlkyIhWwJhkgRJCrgMSWuw0VuZYDP1ckrnH673UZJ7JV5t2e1yS6SZ5PTeV8lj9S0Hne0cEysoecKE26ATKzBi04r5Uo9xOkNAnprli11C3T8kTz2YpSmQeBPKlu1K+SZC/0b8Rx1SFR1TbqwgGHh0Dj6LpwE4QElo1DaeE2GiWe0cfGBGT/sabPZjh004EYUnN6wHndD+WlU9ZeqVgccy395hQYDxiKMyKOvWbDvgjSFIDdwkbfsSK3b2A8mM+YtPQfMNiaVqXgnQH+L4oGx4dBJdsFJnKX3hIJgRwQ43WzWg2LyqQw/AudO0fkHwnKeqFVBzZDT4mBbNc5CA4WNKfo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?h1xPvd5oQ7fRW/87GQ1wyWcDDmMrJw5PoRNcWCewJZyl2qApouybHfdabZ7S?=
- =?us-ascii?Q?pVcuf0XLQk5f692fW/PA1TRzQ/ZhVmH1c3RkIsBldHl/GtV1jFmiCDqg7Oq2?=
- =?us-ascii?Q?JZIeMMHW29u5xHup5ycAH0JwchSpUa6foYuS2891Y6eoq9UoqHtHfxZNVn6G?=
- =?us-ascii?Q?jTsjQP3itX2hyBSJ0yusoxKQ5WjqhTB9CTesNevtEL4H/Iu2HGoSywtK9gcW?=
- =?us-ascii?Q?g6t7jIlYRpvonE9uxMkJqjbS1Hfgmbo9+VPdcFV74gKuS8pu//arw1KVqJIe?=
- =?us-ascii?Q?hLlOdNJPxEIbAlOoZ9VUyWIqA2FNh1PaiQZSmSSu/iye3eJmARCacnc0PrX4?=
- =?us-ascii?Q?/ugzz+MFimlqnpGUq2326BtFnJJT3l1VJ+yLg04Id8UY5KZSzCldmQzp9ABp?=
- =?us-ascii?Q?DmGgbqYyiR0P7jpE4uLILXGyVuEIWwWli6KIQaJHtWc4948odKO33SD5NDS3?=
- =?us-ascii?Q?kJtOr6cWbMogi+fquxEpVKVDr7SUU5+CkiiiYg7WT/Ti9VYCVOm2zQc7eTwU?=
- =?us-ascii?Q?lAwgFtfV2lOLSyXOBU5YbnHlPM4yv2yHv1pf9AxgouaZz3+57509z4AncV4z?=
- =?us-ascii?Q?yp2tY7iIHjvxNFtM7f+SIlRwVG9oEveec/l61l1OU8qlIeqHB7c6nrB6vNDn?=
- =?us-ascii?Q?gNWPHrfANtV+Ucclwdb9zUP0U/esGgbVmUB3TIc6K7Fw6SseLb00nQvsbTL7?=
- =?us-ascii?Q?oami+q9Qia6kSOBF2jTXK0qQgw57yL2Jruv+pycIcB6+xizlla19t9SaVd3m?=
- =?us-ascii?Q?lQE9uTydPAiKNXer8H9DSkzlZnF+0ahC7RSwAnYeW0AacjF+kjuVmFs0OA4Q?=
- =?us-ascii?Q?osybobinOJ7mWVzmfj32YicMCVpc6GgPmtq3WlDy7getqIU3zXq529sELFtO?=
- =?us-ascii?Q?geFHlJZW1arMC+tscRajVAXZVGHDt7ZNgHcGGy2d+HW5xYilNBJi8YU3GEAQ?=
- =?us-ascii?Q?BXMSZ+T4pwLX543D47uUhDVQGvsVjn7+sKazodDE+sigPDfKRg+uf/fFvayw?=
- =?us-ascii?Q?kgmb2IO+i79NUdFn6NOWunsbN34ODFHwvVfSKOnKm7qw+R/oHZRZZeq59nFH?=
- =?us-ascii?Q?lFlst2f8a+0deRokXaC8kW/z72Mzm1i5L2CyD4mL6Lay/Cs5VpPktlul5Ze9?=
- =?us-ascii?Q?xrlex+qveIIKR1wdulH7y+YQCQmn/dTTD0jK7isSnafX1wZRVOFd4x4xUexl?=
- =?us-ascii?Q?Pl3Aqsu3l3aLhH/TVdZJ8ta2WCYqxtc3wpovpJ4Ho+WSkkp+XjpyvkwxRjnO?=
- =?us-ascii?Q?hjGooUxMVtLgjzRAUycxdpyzAXV7J02JXucJyjz8mHTPZGytmIt4gBN94LSa?=
- =?us-ascii?Q?PdakhYTQRF5WsYwRVGSw/nEhXYIZjo+cilVICD7fbHMm3UGmdnyrMN3wweM5?=
- =?us-ascii?Q?GbBiUKfnZWOSIqfuhEmgytGHkqEyfODF5/ncutuNhhA5kgrOK2ahXwArPJtG?=
- =?us-ascii?Q?OBrQsXEcXJFK6dgeijHcsV5BP9Sk1ORTT2zQOzBNaAkoellC21eo2eQjI8X/?=
- =?us-ascii?Q?0r6fOnLeOel4I58CeBzk6iJRhWIw5G7ndCRpqvpGbzJbMTwNSM8FqoChB0+X?=
- =?us-ascii?Q?r0fKS20440BhvD8AMyz8QB0SVwwxTHs0b/j3XcNtKMOLeGtQ94qtRloV447c?=
- =?us-ascii?Q?tD0AFZPXQMkHWRaa0/M/1uyvdGAxbidXYu+sFn6AJDKtHP0JNm5VeyJi+tIS?=
- =?us-ascii?Q?N37z+Pv4v2yldXcVfexxWlSrdr3GABigMjmbzbjVyOM6Jkbr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2559e0f6-f225-4682-4a32-08de89d6b49b
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 18:53:58.2865
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LsskIfXrl5Iwn4lH37ryp9yMuWHY61JWQvuzA4BVEs0YriBk5awRvGdgosvsMVyN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8105
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_115408_140976_FB9527B0 
-X-CRM114-Status: GOOD (  24.36  )
+X-CRM114-CacheID: sfid-20260324_120405_469524_34425DFA 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,45 +76,484 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 02:35:14PM +0000, Will Deacon wrote:
-> On Tue, Mar 24, 2026 at 11:17:16AM -0300, Jason Gunthorpe wrote:
-> > On Tue, Mar 24, 2026 at 02:04:03PM +0000, Will Deacon wrote:
-> > > Sorry, that was sloppy terminology on my part. I'm trying to reason about
-> > > faults that are generated by accesses that were translated with the
-> > > page-tables of the old domain being reported once we think we are using
-> > > the new domain.
-> > 
-> > It doesn't matter.
-> > 
-> > If a concurrent fault is resolving on the old domain and it completes
-> > after the STE is in the new domain the device will restart and if the
-> > IOVA is still non-present it will refault. This is normal and fine.
-> > 
-> > If it is resolving on the new domain and the new domain has a present
-> > PTE so the PRI is spurious then the fault handler should NOP it and
-> > restart the device.
-> 
-> Hmm, I can see that working out if both domains expect faults, but if
-> I'm switching to a domain without a handler 
+Add DT overlays to support DH i.MX6 DHCOM SoM carrier board expansion
+modules. The following DT overlays are implemented:
+- PDK2:
+  - DH 497-200 Display board in edge connector X12
+  - DH 505-200 Display board in edge connector X12
+  - DH 531-100 SPI/I2C board in header X21
+  - DH 531-200 SPI/I2C board in header X22
+  - DH 560-200 Display board in edge connector X12
+- PicoITX:
+  - DH 626-100 Display board in edge connector X2
 
-iommu_report_device_fault() still handles the event and generates an
-error ack.
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+V2: - Update copyright years
+    - Sort compatible and reg
+---
+ arch/arm/boot/dts/nxp/imx/Makefile            | 37 +++++++++
+ ...l-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi | 75 +++++++++++++++++++
+ .../imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi  | 61 +++++++++++++++
+ ...mx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso | 28 +++++++
+ ...-pdk2-overlay-505-200-x12-ch101olhlwh.dtso | 26 +++++++
+ ...mx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso | 32 ++++++++
+ ...mx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso | 32 ++++++++
+ ...mx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso | 39 ++++++++++
+ ...icoitx-overlay-626-100-x2-ch101olhlwh.dtso |  8 ++
+ .../boot/dts/nxp/imx/imx6qdl-dhcom-som.dtsi   |  6 +-
+ 10 files changed, 341 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
 
-> wouldn't I be better off draining the outstanding faults generated
-> on the old domain first?  Otherwise, won't we see a bunch of noise
-> from the eventq thread as it dumps unexpected events to the console?
+diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+index de4142e8f3ce8..856c9f21bd703 100644
+--- a/arch/arm/boot/dts/nxp/imx/Makefile
++++ b/arch/arm/boot/dts/nxp/imx/Makefile
+@@ -58,6 +58,31 @@ dtb-$(CONFIG_SOC_IMX53) += \
+ 	imx53-voipac-bsb.dtb
+ imx53-qsb-hdmi-dtbs := imx53-qsb.dtb imx53-qsb-hdmi.dtbo
+ imx53-qsrb-hdmi-dtbs := imx53-qsrb.dtb imx53-qsb-hdmi.dtbo
++
++imx6qdl-dhcom-pdk2-overlay-497-200-x12-dtbs := \
++	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtbo
++
++imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh-dtbs := \
++	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtbo
++
++imx6qdl-dhcom-pdk2-overlay-531-100-x21-dtbs := \
++	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtbo
++
++imx6qdl-dhcom-pdk2-overlay-531-100-x22-dtbs := \
++	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtbo
++
++imx6qdl-dhcom-pdk2-overlay-560-200-x12-dtbs := \
++	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtbo
++
++imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh-dtbs := \
++	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtbo
++
+ dtb-$(CONFIG_SOC_IMX6Q) += \
+ 	imx6dl-alti6p.dtb \
+ 	imx6dl-apf6dev.dtb \
+@@ -179,6 +204,18 @@ dtb-$(CONFIG_SOC_IMX6Q) += \
+ 	imx6q-cubox-i-som-v15.dtb \
+ 	imx6q-dfi-fs700-m60.dtb \
+ 	imx6q-dhcom-pdk2.dtb \
++	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtb \
++	imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtbo \
++	imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtb \
++	imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtbo \
++	imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtb \
++	imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtbo \
++	imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtb \
++	imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtbo \
++	imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtb \
++	imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtbo \
++	imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtb \
++	imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtbo \
+ 	imx6q-display5-tianma-tm070-1280x768.dtb \
+ 	imx6q-dmo-edmqmx6.dtb \
+ 	imx6q-dms-ba16.dtb \
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
+new file mode 100644
+index 0000000000000..90259785126ba
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
+@@ -0,0 +1,75 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++#include "imx6qdl-dhcom-overlay-panel-dpi.dtsi"
++
++&{/} {
++	lvds-encoder {
++		compatible = "onnn,fin3385", "lvds-encoder";
++		pclk-sample = <1>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++
++				lvds_bridge_in: endpoint {
++					remote-endpoint = <&ipu1_dpi0_out>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				lvds_bridge_out: endpoint {
++					remote-endpoint = <&panel_in>;
++				};
++			};
++		};
++	};
++};
++
++&display_bl {
++	pwms = <&pwm1 0 5000000 0>;
++};
++
++&i2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touchscreen@41 {
++		compatible = "ilitek,ili251x";
++		reg = <0x41>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
++		touchscreen-size-x = <16384>;
++		touchscreen-size-y = <9600>;
++		touchscreen-inverted-x;
++		touchscreen-inverted-y;
++	};
++
++	eeprom@50 {
++		compatible = "atmel,24c04";
++		reg = <0x50>;
++		pagesize = <16>;
++	};
++};
++
++&ipu1_dpi0_out {
++	remote-endpoint = <&lvds_bridge_in>;
++};
++
++&panel {
++	compatible = "chefree,ch101olhlwh-002";
++};
++
++&panel_in {
++	remote-endpoint = <&lvds_bridge_out>;
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi
+new file mode 100644
+index 0000000000000..48d346b6b484b
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi
+@@ -0,0 +1,61 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/pwm/pwm.h>
++
++&{/} {
++	display_bl: display-bl {
++		compatible = "pwm-backlight";
++		brightness-levels = <0 16 22 30 40 55 75 102 138 188 255>;
++		default-brightness-level = <8>;
++		enable-gpios = <&gpio3 27 GPIO_ACTIVE_HIGH>;
++		status = "okay";
++	};
++
++	lcd_display: disp0 {
++		compatible = "fsl,imx-parallel-display";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		interface-pix-fmt = "rgb24";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_ipu1_lcdif>;
++		status = "okay";
++
++		port@0 {
++			reg = <0>;
++
++			ipu1_display_in: endpoint {
++				remote-endpoint = <&ipu1_di0_disp0>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			ipu1_dpi0_out: endpoint {
++				remote-endpoint = <&panel_in>;
++			};
++		};
++	};
++
++	panel: panel {
++		backlight = <&display_bl>;
++
++		port {
++			panel_in: endpoint {
++			};
++		};
++	};
++};
++
++&ipu1_di0_disp0 {
++	remote-endpoint = <&ipu1_display_in>;
++};
++
++&pwm1 {
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso
+new file mode 100644
+index 0000000000000..a5cb77b351af9
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso
+@@ -0,0 +1,28 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++#include "imx6qdl-dhcom-overlay-panel-dpi.dtsi"
++
++&display_bl {
++	pwms = <&pwm1 0 50000 PWM_POLARITY_INVERTED>;
++};
++
++&ipu1_dpi0_out {
++	remote-endpoint = <&panel_in>;
++};
++
++&panel {
++	compatible = "dataimage,scf0700c48ggu18";
++};
++
++&panel_in {
++	remote-endpoint = <&ipu1_dpi0_out>;
++};
++
++&touch_som {	/* TSC2004 */
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
+new file mode 100644
+index 0000000000000..3e02031b74d0c
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
+@@ -0,0 +1,26 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++#include "imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi"
++
++&{/} {
++	gpio-keys {
++		/* BUTTON1 GPIO-B conflicts with touchscreen reset */
++		button-1 {
++			/* Use status as /delete-node/ does not work in DTOs */
++			status = "disabled";
++		};
++	};
++
++	led {
++		/* LED7 GPIO-H conflicts with touchscreen IRQ */
++		led-7 {
++			/* Use status as /delete-node/ does not work in DTOs */
++			status = "disabled";
++		};
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso
+new file mode 100644
+index 0000000000000..84a498833674d
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++&ecspi1 {
++	status = "okay";
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	eeprom@1 {
++		compatible = "microchip,25aa010a", "atmel,at25";
++		reg = <1>;
++		address-width = <8>;
++		pagesize = <16>;
++		size = <128>;
++		spi-max-frequency = <5000000>;
++	};
++};
++
++&i2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	eeprom@56 {
++		compatible = "atmel,24c04";
++		reg = <0x56>;
++		pagesize = <16>;
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso
+new file mode 100644
+index 0000000000000..9ff0771c6abf9
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++&ecspi2 {
++	status = "okay";
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	eeprom@0 {
++		compatible = "microchip,25aa010a", "atmel,at25";
++		reg = <0>;
++		address-width = <8>;
++		pagesize = <16>;
++		size = <128>;
++		spi-max-frequency = <5000000>;
++	};
++};
++
++&i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	eeprom@56 {
++		compatible = "atmel,24c04";
++		reg = <0x56>;
++		pagesize = <16>;
++	};
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso
+new file mode 100644
+index 0000000000000..9f5814e7a04f2
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso
+@@ -0,0 +1,39 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2021-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++#include "imx6qdl-dhcom-overlay-panel-dpi.dtsi"
++
++&display_bl {
++	pwms = <&pwm1 0 50000 PWM_POLARITY_INVERTED>;
++};
++
++&i2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touchscreen@38 {
++		compatible = "edt,edt-ft5406";
++		reg = <0x38>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_dhcom_e>;
++		/* Touchscreen IRQ GPIO-E conflicts with LED5 GPIO */
++		interrupt-parent = <&gpio4>;
++		interrupts = <5 IRQ_TYPE_EDGE_FALLING>; /* GPIO E */
++	};
++};
++
++&ipu1_dpi0_out {
++	remote-endpoint = <&panel_in>;
++};
++
++&panel {
++	compatible = "edt,etm0700g0edh6";
++};
++
++&panel_in {
++	remote-endpoint = <&ipu1_dpi0_out>;
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
+new file mode 100644
+index 0000000000000..5c380572c4092
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
+@@ -0,0 +1,8 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
++/*
++ * Copyright (C) 2023-2026 Marek Vasut
++ */
++/dts-v1/;
++/plugin/;
++
++#include "imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi"
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-som.dtsi
+index af0d95396cd51..74dfb92f15147 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-som.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-som.dtsi
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * Copyright (C) 2015-2021 DH electronics GmbH
+- * Copyright (C) 2018 Marek Vasut <marex@denx.de>
++ * Copyright (C) 2015-2026 DH electronics GmbH
++ * Copyright (C) 2018-2026 Marek Vasut
+  */
+ 
+ #include <dt-bindings/pwm/pwm.h>
+@@ -303,7 +303,7 @@ ldo2_reg: ldo2 {
+ 		};
+ 	};
+ 
+-	touchscreen@49 { /* TSC2004 */
++	touch_som: touchscreen@49 { /* TSC2004 */
+ 		compatible = "ti,tsc2004";
+ 		interrupts-extended = <&gpio4 14 IRQ_TYPE_EDGE_FALLING>;
+ 		pinctrl-0 = <&pinctrl_tsc2004>;
+-- 
+2.53.0
 
-Yes, it does look like since iommu_report_device_fault() handles it
-but returns an error code we will get a print.
-
-You'd need to double flush the the event queue. We always have to
-flush after changing the group->domain since that is preventing a UAF
-
-Then you'd have to flush before changing the group->domain to avoid
-the prints if faulting is being disabled.
-
-IDK, may not be worth worrying about or maybe we should just remove
-the prints..
-
-Jason
 
