@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43BDE9A74D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0CFE9A74D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz+pLbhFp0S4qTFWWddsgDGaQpvX0q+4gZ+/3kcTYd8=; b=je2d4djJDzfmpFuR4sydz4nPum
-	v+8jCiY0JYdfyS//4OFZwrXazbzawjkA3YsX+lMBvGG98wr3a1goFAcess4z1y49w37pfHYq8QkAk
-	5cPxXXXx0L6HORg9R+e1bImTuvnDY++jrxhi6vBIgggkmotGjSXOxwfpSO+mmO0YSOSi2RA5NUg6y
-	dbmLLBl5UWRiM1PU7sOyWaqIhXEWiO8aAQPi8LHNc6IXaHP7liatRGBbZc9ezeae3NGqLMCqn/MsW
-	m6yJLXpFRjfYgzJqypci5GA1wViAGYwn3FQK23WPnMn9LT31cedP+mGsZF2k+ErPSV+V8HtwwhTfD
-	Q8U1XPGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SGe9Ea0du/z3XFPAO984Z8weC3fJi6ZlDoBA0mOR4pI=; b=IyDP6A0q7oYo8AVyu0kmhWUnfw
+	ucB+9ht99vTOjsaMNvSYO52txZ0fyyP4gLvvm1zLden+h64cgVVXb9p+wmnrbG9BDcWDX5l4/lRXR
+	vLPso2VnZ3dkUNTt+ME41LsRBjmUHus0gWUAh/cdOhDcvYHCJ2cj/4FNDZLnNbx74eWfRzz9zN9nl
+	0ctTcdUkVFOojJ84IU93YuD69GIAZoSUz7LDZHbWA9jnzBEaLp1NVP7xJspSfMZUp6S5s/v0k6n1E
+	za6/EJnPwphnhyeSCOuiQy2MDavWO09CjLl3wkiy9TdvZ3ERP/BfbYqddEDO8L9MncbPcxF6LiCIn
+	tbS1WWpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yBd-000000016PP-260q;
-	Tue, 24 Mar 2026 09:36:33 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1w4yCO-000000016Vw-0dJU;
+	Tue, 24 Mar 2026 09:37:20 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yBa-000000016P2-2iA4
+	id 1w4yCL-000000016Ty-09xP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 09:36:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774344991; x=1805880991;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=Cl9Jn50dUXWt3BrXPsUSkT+go0J8MdRhtpKlgBhriss=;
-  b=KZKQ1htm63C0NMLc9aXwTdxdtae0RJ/rqEnsbsFAiOeTsKFg74KiYU1/
-   yfWVEnZjcfE1fxi+3TmThdIuTFis3TzNc0L+eFX0n9rTrCvsUhpxDtb8Y
-   f2C+oGNhpMJCWTe330DeYDM6p/lTD3rO30Z7Jaqg+ZVfYJXC8X+qivkjy
-   bZ91mjDgUfrJm9H1OZM23fGsjL4Slg2563Ng6Ylmnsm/Oj2TCW38glYib
-   cDBtSmnpIyE9k8fjtfHCdyXtF+LErydhzUI8p7XZHvo4fwEiJgCUhYufd
-   hjT1+vGJ4OvRdgw9u2EjJBk5z8ZftfFKF/qI1i2KPZB7k7R2soUhEHR75
-   w==;
-X-CSE-ConnectionGUID: rztcQL6nRhuthgs8r9OsnQ==
-X-CSE-MsgGUID: nNNA33CnRDyjXCoa2MQA/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11738"; a="86725128"
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="86725128"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 02:36:29 -0700
-X-CSE-ConnectionGUID: DmWR8uXHRDSrXII1rchdOA==
-X-CSE-MsgGUID: CPrU1x//RC2oHAiWQSJ1zA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="229228806"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by orviesa005.jf.intel.com with ESMTP; 24 Mar 2026 02:36:21 -0700
-Date: Tue, 24 Mar 2026 17:15:33 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: linux-kernel@vger.kernel.org,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	James Clark <james.clark@linaro.org>, Kees Cook <kees@kernel.org>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Russ Weight <russ.weight@linux.dev>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Suki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	Xu Yilun <yilun.xu@intel.com>, Yury Norov <yury.norov@gmail.com>,
-	Zhang Rui <rui.zhang@intel.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
-	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	Jakub Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH 5/5] fpga: m10bmc-sec: switch show_canceled_csk() to
- using sysfs_emit()
-Message-ID: <acJWNRb1t96yu/H6@yilunxu-OptiPlex-7050>
-References: <20260303200842.124996-1-ynorov@nvidia.com>
- <20260303200842.124996-6-ynorov@nvidia.com>
+	Tue, 24 Mar 2026 09:37:18 +0000
+Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 7F82D275B7;
+	Tue, 24 Mar 2026 10:37:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1774345030;
+	bh=SGe9Ea0du/z3XFPAO984Z8weC3fJi6ZlDoBA0mOR4pI=; h=From:To:Subject;
+	b=bCKlw4sXjxtW0t4gHkWFIH0ljtyh/DjUCBFhBUrsFQeBpLgATtRzcZoc9wg52AQFZ
+	 vJUry9DSVIoq8rqWwXDg5RWsMsJfLbxBa51eTxl6GNe7kNacdEYnAwge0NyxgFPs6Y
+	 K7PqHtcTqhgvNfprubeAD83dYRMManJxmTs+QBh7IFxguF3NLX0HULFrCFg7mj2lh1
+	 52aA8KP+CfNFhLzbfTzMDM94iDfNA58/QxAp5k2u/eJK2E4iYMbTjygHlWuxj4Uc9p
+	 ECRl2mkoQTxm9SNCbHnOM//ow5Z5q6vg5sgWTGA+diK+Ws89A7TNKD6bGQr3djj3Pm
+	 gCm2U4C2M+O4A==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 1/7] dt-bindings: arm: ti: Add verdin am62/am62p zinnia board
+Date: Tue, 24 Mar 2026 10:36:56 +0100
+Message-ID: <20260324093705.26730-2-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260324093705.26730-1-francesco@dolcini.it>
+References: <20260324093705.26730-1-francesco@dolcini.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260303200842.124996-6-ynorov@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_023630_705256_322297CA 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20260324_023717_236133_BC224150 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,45 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 03:08:41PM -0500, Yury Norov wrote:
-> Switch show_canceled_csk() to use the proper sysfs_emit("%*pbl").
-> 
-> Reviewed-by: Russ Weight <russ.weight@linux.dev>
-> Suggested-by: Thomas Weißschuh <linux@weissschuh.net>
-> Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> ---
->  drivers/fpga/intel-m10-bmc-sec-update.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/fpga/intel-m10-bmc-sec-update.c b/drivers/fpga/intel-m10-bmc-sec-update.c
-> index 10f678b9ed36..ae364c6636eb 100644
-> --- a/drivers/fpga/intel-m10-bmc-sec-update.c
-> +++ b/drivers/fpga/intel-m10-bmc-sec-update.c
-> @@ -10,6 +10,7 @@
->  #include <linux/firmware.h>
->  #include <linux/mfd/intel-m10-bmc.h>
->  #include <linux/mod_devicetable.h>
-> +#include <linux/mm.h>
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Why add this header file?
+Add Toradex Verdin Zinnia carrier board mated with Verdin AM62 and AM62P.
 
-Thanks,
-Yilun
+Link: https://www.toradex.com/products/carrier-board/zinnia-carrier-board
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
->  #include <linux/module.h>
->  #include <linux/platform_device.h>
->  #include <linux/slab.h>
-> @@ -183,7 +184,7 @@ show_canceled_csk(struct device *dev, u32 addr, char *buf)
->  
->  	bitmap_from_arr32(csk_map, csk32, CSK_BIT_LEN);
->  	bitmap_complement(csk_map, csk_map, CSK_BIT_LEN);
-> -	return bitmap_print_to_pagebuf(1, buf, csk_map, CSK_BIT_LEN);
-> +	return sysfs_emit(buf, "%*pbl\n", CSK_BIT_LEN, csk_map);
->  }
->  
->  #define DEVICE_ATTR_SEC_CSK_RO(_name)						\
-> -- 
-> 2.43.0
-> 
-> 
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index adda61e06173..2a6a9441c23d 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -79,6 +79,7 @@ properties:
+               - toradex,verdin-am62-nonwifi-ivy    # Verdin AM62 Module on Ivy
+               - toradex,verdin-am62-nonwifi-mallow # Verdin AM62 Module on Mallow
+               - toradex,verdin-am62-nonwifi-yavia  # Verdin AM62 Module on Yavia
++              - toradex,verdin-am62-nonwifi-zinnia # Verdin AM62 Module on Zinnia
+           - const: toradex,verdin-am62-nonwifi     # Verdin AM62 Module without Wi-Fi / BT
+           - const: toradex,verdin-am62             # Verdin AM62 Module
+           - const: ti,am625
+@@ -91,6 +92,7 @@ properties:
+               - toradex,verdin-am62-wifi-ivy    # Verdin AM62 Wi-Fi / BT Module on Ivy
+               - toradex,verdin-am62-wifi-mallow # Verdin AM62 Wi-Fi / BT Module on Mallow
+               - toradex,verdin-am62-wifi-yavia  # Verdin AM62 Wi-Fi / BT Module on Yavia
++              - toradex,verdin-am62-wifi-zinnia # Verdin AM62 Wi-Fi / BT Module on Zinnia
+           - const: toradex,verdin-am62-wifi     # Verdin AM62 Wi-Fi / BT Module
+           - const: toradex,verdin-am62          # Verdin AM62 Module
+           - const: ti,am625
+@@ -103,6 +105,7 @@ properties:
+               - toradex,verdin-am62p-nonwifi-ivy    # Verdin AM62P Module on Ivy
+               - toradex,verdin-am62p-nonwifi-mallow # Verdin AM62P Module on Mallow
+               - toradex,verdin-am62p-nonwifi-yavia  # Verdin AM62P Module on Yavia
++              - toradex,verdin-am62p-nonwifi-zinnia # Verdin AM62P Module on Zinnia
+           - const: toradex,verdin-am62p-nonwifi     # Verdin AM62P Module without Wi-Fi / BT
+           - const: toradex,verdin-am62p             # Verdin AM62P Module
+           - const: ti,am62p5
+@@ -115,6 +118,7 @@ properties:
+               - toradex,verdin-am62p-wifi-ivy    # Verdin AM62P Wi-Fi / BT Module on Ivy
+               - toradex,verdin-am62p-wifi-mallow # Verdin AM62P Wi-Fi / BT Module on Mallow
+               - toradex,verdin-am62p-wifi-yavia  # Verdin AM62P Wi-Fi / BT Module on Yavia
++              - toradex,verdin-am62p-wifi-zinnia # Verdin AM62P Wi-Fi / BT Module on Zinnia
+           - const: toradex,verdin-am62p-wifi     # Verdin AM62P Wi-Fi / BT Module
+           - const: toradex,verdin-am62p          # Verdin AM62P Module
+           - const: ti,am62p5
+-- 
+2.47.3
+
 
