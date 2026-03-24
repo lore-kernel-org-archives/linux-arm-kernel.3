@@ -4,57 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8669E9A777
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C39E9A777
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fy41l+CjiLxNPt1yzWCa9yREYcMW6OvI12kT5kkLAYw=; b=sDmsQwt3snu/PsUH28PQGD4hLp
-	qJwgDg1muShH8cNFCRu2Ir8odpZESCFnWqzbZLoNJulRgk/Yh3UO5oadeCLPOAu53vB5AjRv+ECUX
-	0ikb7pMBEOffbf8/w9I+UwjviQFknG5Ojp4VRbTn+dEWJgX9OJzE8+BzZUxFl+xW6+4yw0HhvtD/S
-	+PulZd3YkHnIu1K28qOJMwBp35TKjFEnN1Dm5AHT9dJr+sCZFj9ay8lo+iQ0HT7wF4Cu6Q5Wyu00N
-	T8I8WsyoWn1pD+7YGqy07j0OwHAj0MO+ACpn3azhzd0mPbcxaKUXQ/jD1xTcfXb3+m52grY7oJu3p
-	OlBNW0cw==;
+	bh=Pie6MjbHJGWucMSILKsSFibVl4TBxVMkf6ESGKJAHaw=; b=sSV5jzMbCMp36Dd2h21v9CGM4W
+	0LA1113cT8BeqPGjm1N606EXj1aGGmquvA97q2B6hKbDDXUBjcVKTEdS/X48+oVhEnUpC+wKGHsnN
+	1BajAXi8/LVqKT4PnLZR8kn6Hx5A8UOhf/W2LCOcbM8funfIe/ZEZZXjP+FfYyOJ8YiGGaS825+OD
+	tKqOxDdGhGdF1p1MQxStpsA9QtjcI7s3h4FtvhppiyENT5fMHF+4QuWVWNe9HshryrdNWx99+EnFC
+	FkzlyDKNf/oiqI+m2PBQt0dNFlZ0oYoYe2+eaw3jcmu8B4ZRQzgzCFDk6cuNi+u8dUw9Pp44LIPme
+	t/Qc32aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w50Fs-00000001JUB-24DG;
-	Tue, 24 Mar 2026 11:49:04 +0000
-Received: from mail-10631.protonmail.ch ([79.135.106.31])
+	id 1w50LW-00000001K0V-1eJE;
+	Tue, 24 Mar 2026 11:54:54 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w50Fo-00000001JQc-0xGl;
-	Tue, 24 Mar 2026 11:49:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1774352937; x=1774612137;
-	bh=Fy41l+CjiLxNPt1yzWCa9yREYcMW6OvI12kT5kkLAYw=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=TtcY3tm4izlAS15nSq8Hs6ZPAm56+k3IEtsZ2JHiqlwUaD+TeYISztpIeXE651GGo
-	 xbkwQLOhTTVg46bz1aq2Nm+pNV0UK6t5MOGv6DFk67sHiLJrwFfdxXwwZrdXlKlh8y
-	 j0BMl8r8kHlKj3i3WoIBifCNCNU0VJN6JnN+pbN6U2yMi77HwgXPUblgExuMcdR4RW
-	 Pw9qf42iRZDDgUnLbuNbOXkCNDKdIj2pFbVaIdUhTl7AwXO6Q3Y/9pn9HZSWYrNcJM
-	 /v+b8mBvZ2uBieKZIhgutpsfX4Ad3ZoNL0IVeU8Crs/h74GcjEHe1hITPk7UOWiyym
-	 bRfgSWumsvrgA==
-Date: Tue, 24 Mar 2026 11:48:49 +0000
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, Jeffrey Hugo <jeffrey.l.hugo@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-From: Alexander Koskovich <akoskovich@pm.me>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Alexander Koskovich <akoskovich@pm.me>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: [PATCH v5 5/5] drm/msm/dsi: Add support for RGB101010 pixel format
-Message-ID: <20260324-dsi-rgb101010-support-v5-5-ff6afc904115@pm.me>
-In-Reply-To: <20260324-dsi-rgb101010-support-v5-0-ff6afc904115@pm.me>
-References: <20260324-dsi-rgb101010-support-v5-0-ff6afc904115@pm.me>
-Feedback-ID: 37836894:user:proton
-X-Pm-Message-ID: 28fd0706425e97bd489645195d5853b55e9e1c64
+	id 1w50LT-00000001Jyf-0HyN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 11:54:53 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fg7kH228XzYQv3S
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 19:54:31 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id D844E40578
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 19:54:39 +0800 (CST)
+Received: from k01.k01 (unknown [10.67.174.197])
+	by APP1 (Coremail) with SMTP id cCh0CgAXGdl7e8Jpv2M5CA--.508S7;
+	Tue, 24 Mar 2026 19:54:39 +0800 (CST)
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Anton Protopopov <a.s.protopopov@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Shahab Vahedi <list+bpf@vahedi.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Hengqi Chen <hengqi.chen@gmail.com>,
+	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Naveen N Rao <naveen@kernel.org>,
+	Luke Nelson <luke.r.nels@gmail.com>,
+	Xi Wang <xi.wang@gmail.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Pu Lehui <pulehui@huawei.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Wang YanQing <udknight@gmail.com>
+Subject: [PATCH bpf-next v10 5/5] bpf, arm64: Emit BTI for indirect jump target
+Date: Tue, 24 Mar 2026 20:20:52 +0800
+Message-ID: <20260324122052.342751-6-xukuohai@huaweicloud.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260324122052.342751-1-xukuohai@huaweicloud.com>
+References: <20260324122052.342751-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgAXGdl7e8Jpv2M5CA--.508S7
+X-Coremail-Antispam: 1UD129KBjvJXoWxXrW8trW5XF45Cw1rWw4Uurg_yoW5uFWkpF
+	4DC3s0krWrGr4UWa1DXayDAFyakF4kGay3GFyFk3yIkrZIqFy5WF15KF12kFn3A3yrur1x
+	AayYkr17W34xJrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
+	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
+	rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267
+	AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7
+	xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Y
+	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
+	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
+	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
+	vjxUI-eODUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_044900_427989_982056A8 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_045451_484523_E20B2E2B 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,115 +111,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add video and command mode destination format mappings for RGB101010,
-and extend the VID_CFG0 DST_FORMAT bitfield to 3 bits to accommodate
-the new format value.
+From: Xu Kuohai <xukuohai@huawei.com>
 
-Make sure this is guarded behind MSM_DSI_6G_VER >=3D V2.1.0 as anything
-older does not support this.
+On CPUs that support BTI, the indirect jump selftest triggers a kernel
+panic because there is no BTI instructions at the indirect jump targets.
 
-Required for 10 bit panels such as the BOE BF068MWM-TD0 found on the
-Nothing Phone (3a).
+Fix it by emitting a BTI instruction for each indirect jump target.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
+For reference, below is a sample panic log.
+
+Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
+...
+Call trace:
+ bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x54/0xf8 (P)
+ bpf_prog_run_pin_on_cpu+0x140/0x468
+ bpf_prog_test_run_syscall+0x280/0x3b8
+ bpf_prog_test_run+0x22c/0x2c0
+
+Fixes: f4a66cf1cb14 ("bpf: arm64: Add support for indirect jumps")
+Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com>
+Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
 ---
- drivers/gpu/drm/msm/dsi/dsi_host.c            | 22 ++++++++++++++++++++++
- drivers/gpu/drm/msm/registers/display/dsi.xml |  5 ++++-
- 2 files changed, 26 insertions(+), 1 deletion(-)
+ arch/arm64/net/bpf_jit_comp.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/dsi/dsi_host.c b/drivers/gpu/drm/msm/dsi/d=
-si_host.c
-index b55ffe2fdec3..992407bbea84 100644
---- a/drivers/gpu/drm/msm/dsi/dsi_host.c
-+++ b/drivers/gpu/drm/msm/dsi/dsi_host.c
-@@ -757,6 +757,7 @@ static inline enum dsi_vid_dst_format
- dsi_get_vid_fmt(const enum mipi_dsi_pixel_format mipi_fmt)
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 7212ec89dfe3..aa5cd240cdda 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -1198,8 +1198,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
+  * >0 - successfully JITed a 16-byte eBPF instruction.
+  * <0 - failed to JIT.
+  */
+-static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+-		      bool extra_pass)
++static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn *insn,
++		      struct jit_ctx *ctx, bool extra_pass)
  {
- =09switch (mipi_fmt) {
-+=09case MIPI_DSI_FMT_RGB101010:=09return VID_DST_FORMAT_RGB101010;
- =09case MIPI_DSI_FMT_RGB888:=09return VID_DST_FORMAT_RGB888;
- =09case MIPI_DSI_FMT_RGB666:=09return VID_DST_FORMAT_RGB666_LOOSE;
- =09case MIPI_DSI_FMT_RGB666_PACKED:=09return VID_DST_FORMAT_RGB666;
-@@ -769,6 +770,7 @@ static inline enum dsi_cmd_dst_format
- dsi_get_cmd_fmt(const enum mipi_dsi_pixel_format mipi_fmt)
+ 	const u8 code = insn->code;
+ 	u8 dst = bpf2a64[insn->dst_reg];
+@@ -1224,6 +1224,9 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 	int ret;
+ 	bool sign_extend;
+ 
++	if (bpf_insn_is_indirect_target(env, ctx->prog, i))
++		emit_bti(A64_BTI_J, ctx);
++
+ 	switch (code) {
+ 	/* dst = src */
+ 	case BPF_ALU | BPF_MOV | BPF_X:
+@@ -1899,7 +1902,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 	return 0;
+ }
+ 
+-static int build_body(struct jit_ctx *ctx, bool extra_pass)
++static int build_body(struct bpf_verifier_env *env, struct jit_ctx *ctx, bool extra_pass)
  {
- =09switch (mipi_fmt) {
-+=09case MIPI_DSI_FMT_RGB101010:=09return CMD_DST_FORMAT_RGB101010;
- =09case MIPI_DSI_FMT_RGB888:=09return CMD_DST_FORMAT_RGB888;
- =09case MIPI_DSI_FMT_RGB666_PACKED:
- =09case MIPI_DSI_FMT_RGB666:=09return CMD_DST_FORMAT_RGB666;
-@@ -1713,6 +1715,26 @@ static int dsi_host_attach(struct mipi_dsi_host *hos=
-t,
- =09if (dsi->dsc)
- =09=09msm_host->dsc =3D dsi->dsc;
-=20
-+=09if (msm_host->format =3D=3D MIPI_DSI_FMT_RGB101010) {
-+=09=09if (!msm_dsi_host_version_geq(msm_host, MSM_DSI_VER_MAJOR_6G,
-+=09=09=09=09=09      MSM_DSI_6G_VER_MINOR_V2_1_0)) {
-+=09=09=09DRM_DEV_ERROR(&msm_host->pdev->dev,
-+=09=09=09=09      "RGB101010 not supported on this DSI controller\n");
-+=09=09=09return -EINVAL;
-+=09=09}
-+
-+=09=09/*
-+=09=09 * Downstream overrides RGB101010 back to RGB888 when DSC is enabled
-+=09=09 * but widebus is not. Using RGB101010 in this case may require some
-+=09=09 * extra changes.
-+=09=09 */
-+=09=09if (msm_host->dsc &&
-+=09=09    !msm_dsi_host_is_wide_bus_enabled(&msm_host->base)) {
-+=09=09=09dev_warn(&msm_host->pdev->dev,
-+=09=09=09=09 "RGB101010 with DSC but without widebus, may need extra chang=
-es\n");
-+=09=09}
-+=09}
-+
- =09ret =3D dsi_dev_attach(msm_host->pdev);
- =09if (ret)
- =09=09return ret;
-diff --git a/drivers/gpu/drm/msm/registers/display/dsi.xml b/drivers/gpu/dr=
-m/msm/registers/display/dsi.xml
-index c7a7b633d747..e40125f75175 100644
---- a/drivers/gpu/drm/msm/registers/display/dsi.xml
-+++ b/drivers/gpu/drm/msm/registers/display/dsi.xml
-@@ -15,6 +15,7 @@ xsi:schemaLocation=3D"https://gitlab.freedesktop.org/free=
-dreno/ rules-fd.xsd">
- =09=09<value name=3D"VID_DST_FORMAT_RGB666" value=3D"1"/>
- =09=09<value name=3D"VID_DST_FORMAT_RGB666_LOOSE" value=3D"2"/>
- =09=09<value name=3D"VID_DST_FORMAT_RGB888" value=3D"3"/>
-+=09=09<value name=3D"VID_DST_FORMAT_RGB101010" value=3D"4"/>
- =09</enum>
- =09<enum name=3D"dsi_rgb_swap">
- =09=09<value name=3D"SWAP_RGB" value=3D"0"/>
-@@ -39,6 +40,7 @@ xsi:schemaLocation=3D"https://gitlab.freedesktop.org/free=
-dreno/ rules-fd.xsd">
- =09=09<value name=3D"CMD_DST_FORMAT_RGB565" value=3D"6"/>
- =09=09<value name=3D"CMD_DST_FORMAT_RGB666" value=3D"7"/>
- =09=09<value name=3D"CMD_DST_FORMAT_RGB888" value=3D"8"/>
-+=09=09<value name=3D"CMD_DST_FORMAT_RGB101010" value=3D"9"/>
- =09</enum>
- =09<enum name=3D"dsi_lane_swap">
- =09=09<value name=3D"LANE_SWAP_0123" value=3D"0"/>
-@@ -142,7 +144,8 @@ xsi:schemaLocation=3D"https://gitlab.freedesktop.org/fr=
-eedreno/ rules-fd.xsd">
- =09</reg32>
- =09<reg32 offset=3D"0x0000c" name=3D"VID_CFG0">
- =09=09<bitfield name=3D"VIRT_CHANNEL" low=3D"0" high=3D"1" type=3D"uint"/>=
-  <!-- always zero? -->
--=09=09<bitfield name=3D"DST_FORMAT" low=3D"4" high=3D"5" type=3D"dsi_vid_d=
-st_format"/>
-+=09=09<!-- high was 5 before DSI 6G 2.1.0 -->
-+=09=09<bitfield name=3D"DST_FORMAT" low=3D"4" high=3D"6" type=3D"dsi_vid_d=
-st_format"/>
- =09=09<bitfield name=3D"TRAFFIC_MODE" low=3D"8" high=3D"9" type=3D"dsi_tra=
-ffic_mode"/>
- =09=09<bitfield name=3D"BLLP_POWER_STOP" pos=3D"12" type=3D"boolean"/>
- =09=09<bitfield name=3D"EOF_BLLP_POWER_STOP" pos=3D"15" type=3D"boolean"/>
-
---=20
-2.53.0
-
+ 	const struct bpf_prog *prog = ctx->prog;
+ 	int i;
+@@ -1918,7 +1921,7 @@ static int build_body(struct jit_ctx *ctx, bool extra_pass)
+ 		int ret;
+ 
+ 		ctx->offset[i] = ctx->idx;
+-		ret = build_insn(insn, ctx, extra_pass);
++		ret = build_insn(env, insn, ctx, extra_pass);
+ 		if (ret > 0) {
+ 			i++;
+ 			ctx->offset[i] = ctx->idx;
+@@ -2079,7 +2082,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	if (build_prologue(&ctx, was_classic))
+ 		goto out_off;
+ 
+-	if (build_body(&ctx, extra_pass))
++	if (build_body(env, &ctx, extra_pass))
+ 		goto out_off;
+ 
+ 	ctx.epilogue_offset = ctx.idx;
+@@ -2127,7 +2130,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	/* Dont write body instructions to memory for now */
+ 	ctx.write = false;
+ 
+-	if (build_body(&ctx, extra_pass))
++	if (build_body(env, &ctx, extra_pass))
+ 		goto out_free_hdr;
+ 
+ 	ctx.epilogue_offset = ctx.idx;
+@@ -2136,7 +2139,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	ctx.write = true;
+ 
+ 	/* Pass 3: Adjust jump offset and write final image */
+-	if (build_body(&ctx, extra_pass) ||
++	if (build_body(env, &ctx, extra_pass) ||
+ 		WARN_ON_ONCE(ctx.idx != ctx.epilogue_offset))
+ 		goto out_free_hdr;
+ 
+-- 
+2.47.3
 
 
