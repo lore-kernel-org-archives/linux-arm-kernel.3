@@ -4,111 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3F2F532D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 04:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1232F532DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 05:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=as1oD5ZP7ir6ec+9vRMPKCBQFoPmXvB2fXhjUdsVMTM=; b=j/03JjpGVteVZHFqPqH9vgof5Y
-	13RFw25ZvhwEI/9XmIdwhhr8FPsyoMx1KbSsevgDMNZQ186scDT+3ndbA0vsnpC3xjUM0l5rjfm3u
-	CN33R3WlOoeJRqE3DZaonvaBbYko887niC4BjZOXrXwCKBYEgvwpemcKVv7SVpWL10CUhtNJIgk7Y
-	o8MGe7jI+XQ23ncxpu5s3TD7JcgbAWB481LUzWVeh9GiZgucjVGXCc+hnDxyrZ5JJpXokenBKgLkQ
-	1ZZW2RklwL957a7lqA0H9uVntbAkepiwlVf+fLpwNOVvcu5eXCntOyGAjq0vEffn41OmFIP2Kc+0M
-	3ZEWFPTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c0Y4PmnbQHFp8rPUGZ8QNDXyjW4bF6+AZnK8XGjEa0A=; b=DCt1v3+Hs297Wvhp1rlscF2hfe
+	nqU5B5/xD2+f5iCufIf+tfxqa007yJ0K/AKzSYly1XxSa3uKFpDHq+tGJpTN7WijnCwHev9r5y1gr
+	/GAbJVtw0dTqqysBlgFwBzJUciJf9mjvDA/BHRzjBjAvfkpsVdz9TklDyp1RMXwSCx9wSG/yh6q7Q
+	mHEMBUcwFhtE8/LDfEQNrX9yj6sxGEDtPL19rHVLYDvr/CJTJDpSyfK/8hjKX1HebNB7Gbxe64PiW
+	xmetzillsq9LpQwqA7hg2ArBgWQQJTm84w6rbykwpNUad6z9/Ap/YL8MI2MKmd3+kO3+0SGYQXwSN
+	Q0gvi6ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4tGp-00000000Xu2-0Fxt;
-	Tue, 24 Mar 2026 04:21:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w4uLY-00000000aKx-43mF;
+	Tue, 24 Mar 2026 05:30:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4tGm-00000000XtY-49pw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 04:21:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774326092;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=as1oD5ZP7ir6ec+9vRMPKCBQFoPmXvB2fXhjUdsVMTM=;
-	b=fwKY/fxlPiT9oD4Lvx2vzByL+RUvS31Rs4n+DUPcG3brpA8U+Oyf53dCNR/R+3s4CK8656
-	UgTLCGJ80eQj7gNNmGonm6QY+kj9YDFxl+YgtBjeVy6BsSfs6qvWA5ozawcL+fY3pPaExt
-	xKTmU10a9Qy56rA+XqDw2cf4IuQkNXE=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-6-7jj1nJFmNiu7zEruRE_Z3g-1; Tue, 24 Mar 2026 00:21:30 -0400
-X-MC-Unique: 7jj1nJFmNiu7zEruRE_Z3g-1
-X-Mimecast-MFC-AGG-ID: 7jj1nJFmNiu7zEruRE_Z3g_1774326090
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2adef9d486bso34813225ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 21:21:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774326090; x=1774930890;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=as1oD5ZP7ir6ec+9vRMPKCBQFoPmXvB2fXhjUdsVMTM=;
-        b=XNL6Ma8Ya5hjfU/cGXDOVVWKahdin2gHtlkRk2D1LLYk+POCvIE7MW4Lg4opfFG5ce
-         9xPw0/LpK9gp43Fc9Lzqmn8mDqqei0GQVI6agDYYWHfw9xeb4Kx21AkqNx0+sFkbVCj2
-         gYvHUbAfUqUmmoDbwPd7VleIoIfJOoDdfOpTukEDqoRNwqGi1kGins6dsq9lAr9gOkTy
-         9ZsV6Ozgd6tymIMI9jcDjmOleIhtiiUHsD7c6IdaVpCOmWfSW04o+kAJrGFsiRxrT2Qk
-         oSiey639Kbk5MEq9Tooyo/7o/uoyOqhkiq5kwF2F3rlLrzLJshCbrXrFfxblrPqVRalf
-         dOUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWTntaLf+6R13FzIqaqzU7S9JLBshtb7OEF+3gGeJrfzZb9+V8a0xHToAxS1vmp71vSmpcjoeQEOYZvOUvhGlsy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN2+8IsHlyWZ3Feo9uvInyxbMhK2Okoo3Ap8Tn+aZEyvB/NfBp
-	SxY28TwFpmY6v6h2R/gFcQQcK+KsAqrdsFSFeNVC/vmjEdwpY8sppF705Nfdas5VCFD2Z9r8QrC
-	XpkB1BNLetjum6x01BdMuEnm/Hz7i4lq6tveWy9dfQ+HBVJEvJVvORSBjx4NAVv+FBrigkiMN89
-	lV
-X-Gm-Gg: ATEYQzyRXh4TJzaiBhWb0zxo771tO6JZZiH+kdkKxSPx5CSM1ueHg8wXqN9K1CiiVDX
-	NwLfUtqKw1T7JAjImKXGEDJ1CngmoE2V2rNepOjBtk9GlUIpC9kTQzYe8WodCNCp4wIuA6naAYL
-	HXuBQX6y2G4nT5CApM8hkDas5EJXNvKkZT9BLBnGfGgNGbTZIYDANWy/iwI13mtZB3ADd3N4aP7
-	RvC1gD79rOE3BPCEXRH8y/cYqjGUCkHOfKIHqpvuK1+40AMix+gn1I3ddvmY0HvhAs2I6NxK8WI
-	/3c+It9Z3XbfQSrm2Dg82kfa258Sfm/SVTY9LFl3kmkz7/coKz5F3Xh45Wn0ZuzW08yV5Ks1tfZ
-	HzIv4uC0eLva17isUaGLpTVUFSfrItWSmJxF6KoYrbANLVj2UUIBh/00nPgKbyaOG
-X-Received: by 2002:a17:903:1a67:b0:2b0:694d:f5db with SMTP id d9443c01a7336-2b0828238d5mr130410565ad.52.1774326089742;
-        Mon, 23 Mar 2026 21:21:29 -0700 (PDT)
-X-Received: by 2002:a17:903:1a67:b0:2b0:694d:f5db with SMTP id d9443c01a7336-2b0828238d5mr130410275ad.52.1774326089350;
-        Mon, 23 Mar 2026 21:21:29 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b08366c74dsm171510225ad.62.2026.03.23.21.21.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 21:21:28 -0700 (PDT)
-Message-ID: <d82f9434-ec90-4872-b779-2b20aa8e700d@redhat.com>
-Date: Tue, 24 Mar 2026 14:21:12 +1000
+	id 1w4uLW-00000000aK3-1qXw;
+	Tue, 24 Mar 2026 05:30:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FC68405B1;
+	Tue, 24 Mar 2026 05:30:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB708C19424;
+	Tue, 24 Mar 2026 05:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774330227;
+	bh=526IhjsOFPVmG2tNWNSg5v0vlx2brzpXsRolpXsjTxo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IwWTEQB3juSgzdL+5oAblN8Vg5C2TndIzXIJ+/psD+qLI87dPTnoZjI03lh86g1OB
+	 mpSx1LZMSw/DBe07y/3Zp7OwHRoXIwmNyksCLyArn6Wgy/ZHCvMbVGNpS90y0hARXP
+	 F0cEESScMmvPYn5UufI98xv5QMoRbgZrZzhD7xIu0KifQHEz3rXAPZncO9dZT6B7kz
+	 f7eteFWu1GwBo5+I9vrgiWwlDtSUwgSH1mRAXD6RYsxRwmK/CWvAd8Nwsx8c7aA7z2
+	 z6dYz7z5nVUXZFH9xdB88UIr+/EMARSpJjWMql6MVkuv6lSlxP20W2BfZ5GZOiuE6l
+	 rVsq+mtBjuYfg==
+Date: Tue, 24 Mar 2026 11:00:10 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
+	Nitin Rawat <quic_nitirawa@quicinc.com>
+Subject: Re: [PATCH v5 phy-next 10/27] scsi: ufs: qcom: keep parallel track
+ of PHY power state
+Message-ID: <ezrcjjwtg5n76w4m65l27szu5mywx66ti3xuprkfcp3x6quvbf@2rew4zrnnbt2>
+References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
+ <20260319223241.1351137-11-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 39/40] arm_mpam: Quirk CMN-650's CSU NRDY behaviour
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-40-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-40-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7agAy1S_hPYRKb5vcqcjMppGfw5Ioagqegtz_QT1AAs_1774326090
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260319223241.1351137-11-vladimir.oltean@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_212133_111869_E15A7217 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20260323_223030_545727_7FDE0949 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,36 +82,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/14/26 12:46 AM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+On Fri, Mar 20, 2026 at 12:32:24AM +0200, Vladimir Oltean wrote:
+> As explained in the similar ufs-exynos.c change, PHY consumer drivers
+> should not look at the phy->power_count, because in the general case
+> there might also be other consumers who have called phy_power_on() too,
+> so the fact that the power_count is non-zero does not mean that we did.
 > 
-> CMN-650 is afflicted with an erratum where the CSU NRDY bit never clears.
-> This tells us the monitor never finishes scanning the cache. The erratum
-> document says to wait the maximum time, then ignore the field.
+> Moreover, struct phy will become opaque soon, so the qcom UFS driver
+> will not be able to apply this pattern. Keep parallel track of the PHY
+> power state, instead of looking at a field which will become unavailable
+> (phy->power_count).
 > 
-> Add a flag to indicate whether this is the final attempt to read the
-> counter, and when this quirk is applied, ignore the NRDY field.
-> 
-> This means accesses to this counter will always retry, even if the counter
-> was previously programmed to the same values.
-> 
-> The counter value is not expected to be stable, it drifts up and down with
-> each allocation and eviction. The CSU register provides the value for a
-> point in time.
-> 
-> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v3:
-> parentheses in macro
-> ---
->   Documentation/arch/arm64/silicon-errata.rst |  3 +++
->   drivers/resctrl/mpam_devices.c              | 12 ++++++++++++
->   drivers/resctrl/mpam_internal.h             |  6 ++++++
->   3 files changed, 21 insertions(+)
+> About treating the phy_power_off() return code: from an API perspective,
+> this should have probably returned void, otherwise consumers would be
+> stuck in a state they can't escape. The provider, phy-qcom-qmp-ufs.c,
+> does return 0 in its power_off() implementation. I consider it safe to
+> discard potential errors from phy_power_off() instead of complicating
+> the phy_powered_on logic.
 > 
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+You could even simplify the code by getting rid of the 'phy_powered_on' check
+altogether. There is no real need to track the PHY power state in this driver.
+It is safe to call phy_power_off() without any checks.
 
+- Mani
+
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> ---
+> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: "Martin K. Petersen" <martin.petersen@oracle.com>
+> Cc: Nitin Rawat <quic_nitirawa@quicinc.com>
+> 
+> v4->v5: patch is new
+> ---
+>  drivers/ufs/host/ufs-qcom.c | 9 +++++++--
+>  drivers/ufs/host/ufs-qcom.h | 1 +
+>  2 files changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+> index 375fd24ba458..3b8bd9968235 100644
+> --- a/drivers/ufs/host/ufs-qcom.c
+> +++ b/drivers/ufs/host/ufs-qcom.c
+> @@ -508,9 +508,10 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
+>  	if (ret)
+>  		return ret;
+>  
+> -	if (phy->power_count)
+> +	if (host->phy_powered_on) {
+>  		phy_power_off(phy);
+> -
+> +		host->phy_powered_on = false;
+> +	}
+>  
+>  	/* phy initialization - calibrate the phy */
+>  	ret = phy_init(phy);
+> @@ -531,6 +532,7 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
+>  			__func__, ret);
+>  		goto out_disable_phy;
+>  	}
+> +	host->phy_powered_on = true;
+>  
+>  	ret = phy_calibrate(phy);
+>  	if (ret) {
+> @@ -1268,6 +1270,7 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+>  				dev_err(hba->dev, "phy power off failed, ret=%d\n", err);
+>  				return err;
+>  			}
+> +			host->phy_powered_on = false;
+>  		}
+>  		break;
+>  	case POST_CHANGE:
+> @@ -1277,6 +1280,7 @@ static int ufs_qcom_setup_clocks(struct ufs_hba *hba, bool on,
+>  				dev_err(hba->dev, "phy power on failed, ret = %d\n", err);
+>  				return err;
+>  			}
+> +			host->phy_powered_on = true;
+>  
+>  			/* enable the device ref clock for HS mode*/
+>  			if (ufshcd_is_hs_mode(&hba->pwr_info))
+> @@ -1467,6 +1471,7 @@ static void ufs_qcom_exit(struct ufs_hba *hba)
+>  
+>  	ufs_qcom_disable_lane_clks(host);
+>  	phy_power_off(host->generic_phy);
+> +	host->phy_powered_on = false;
+>  	phy_exit(host->generic_phy);
+>  }
+>  
+> diff --git a/drivers/ufs/host/ufs-qcom.h b/drivers/ufs/host/ufs-qcom.h
+> index 1111ab34da01..72ce0687fa42 100644
+> --- a/drivers/ufs/host/ufs-qcom.h
+> +++ b/drivers/ufs/host/ufs-qcom.h
+> @@ -282,6 +282,7 @@ struct ufs_qcom_host {
+>  	struct clk_bulk_data *clks;
+>  	u32 num_clks;
+>  	bool is_lane_clks_enabled;
+> +	bool phy_powered_on;
+>  
+>  	struct icc_path *icc_ddr;
+>  	struct icc_path *icc_cpu;
+> -- 
+> 2.43.0
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
