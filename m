@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B4DF54AD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24365F54AD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=; b=Hudpm/P7oXxEIRmPt5jwQ5gHeX
-	7aiN2PPrPqrPgEvqMb+Md60UgPuhNKTNikyWgrjpA1x5YPLWZPWKZVGt74Mk0VMB+1q6/bzOEpuG+
-	sfdLvF9ePlNZWO3fuHAklp4g7+en96PTKMvLj5g4nWPKsn4Uul/fiDrNXdQepiErQ+8OMRmiviTlS
-	7iB/McPzOFLGL7OQuvRjeqDqCN0ln/bHp5mljj7JyoC1nuExFh3JzYYCS4u7LoI6s9yFn08pTXjTr
-	qdeAPsAxsZenLSS+DRpx9GnoEngL7LzCbYACRwAj/aqQ4HFcxuzTPv6YQ2SV+UNFakzheUgJNeqjv
-	ZWfhRwDg==;
+	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=; b=WHCjCnCAyKubM99oymiMNjwqJ7
+	AZEXgdRDoNeOON2O/WrzFKdI3P6F31GQRlIWmpAZdTqDlHslJTBN2QkwXLgbTWER7HOl9xtJPagPM
+	lyNZNoKdBw/ZCteY8LJeteCQ9sWl+soEcMsG2xX3pV4drioxOwx0siJEzKIKIoMHtl0hvo51AgLkW
+	iI/ea8PZ72uoj834nsXCxJOvpFX39rSIIFOpb9ES8/CyIeRsw2D9of2u8qJnLXq5VCjbFN9KuJRS0
+	qssStqWI1CiIkQOS5/SUEgDfenekbu26kLN4wL6Nhm5lflhMCfBzUtsvFgV/MyFAAdlQZgPI2WUEU
+	nxCLa7/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54Eh-00000001pBY-1ncQ;
-	Tue, 24 Mar 2026 16:04:07 +0000
+	id 1w54En-00000001pJv-3z8k;
+	Tue, 24 Mar 2026 16:04:13 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54EV-00000001p1p-12iv;
-	Tue, 24 Mar 2026 16:04:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774368204; cv=none; 
+	id 1w54EW-00000001p2R-1odc;
+	Tue, 24 Mar 2026 16:04:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774368198; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ghbBsPBgFM7BcUp1qFA1QCntA/3UiWTKuxuBl4yUBR+HoxRMMKaJ9qgBIhR/5xck+HFc/SZ3Pwfw+OQKgFQkYHY+uLLPpvf0lHNT9F/v++ihmQ67jRJmjZHhkD+fnE/tBmtGaDMQ+qrs8aR7slPAsJVVA2i7APhuhVP3u+39cWE=
+	b=gTwtCxvnoU48JIdC6RAfXmDRVOc242BPkSJvoEodcCUBWw4glgrgGl+oyjU08QT+M+nbxNCBbv8zLoesY6OxKOhUjC9IZ7W86VGE8he0wtyNSTa7VWWQeqgD8ttLa3q65EsAk+sDOuEdZEizLEDlT9NhwBe3HmqXdPc/nFfJH5w=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774368204; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=; 
-	b=TFeozRhV3GIZRinH9z5qCgNm7mwd/2PcTBZCdrCwNROeTRaUFCGbbrI72ijSbaPRf9Svog0EzakOPfZXK74FnvciNjnz0oxyDmsj4ESLHUSXAXNLleLcTb6yphIafQyEpnYCTG/eQwH3aMLRVMT0ViPf5j6CBDetcbCP4dK92ys=
+	t=1774368198; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=; 
+	b=NwqNTCqqXnhZr8eqcJZpW7BIRuDVOFDnDBlOcYwzXfc+mET09l9BG9doFi52akkDWkTOJlLeQPy8azIIzw95ims7svZyuuCdvLBIsreBrai+MqgNtY05XjnLa3U/0O2/XGd5cX942Bu8NAF3csDgIQC/C1BDd6zaWIbCkC2qjNY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774368204;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774368198;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=+F2WuEiqCUVykRB3XRC/Bxq6Gy1eCIr0ZWhVWJ26imU=;
-	b=Juacd6/tndDn8bt3LvvFk+OyXDN52ta7kxhgnEQY19Sm50Z7oGKBgANRwor75Qmm
-	WYWnr0rnYe0n94WPwQdcHya3vUTz5w3EvflfRVnk3nksvw/h9sSZJMTXsNFGBZqsTwZ
-	RGbdXX+cEiW/j1rzJKh79CT7+O7xWfjkBTmbznSk=
-Received: by mx.zohomail.com with SMTPS id 1774368203121560.0965334782762;
-	Tue, 24 Mar 2026 09:03:23 -0700 (PDT)
+	bh=4QFgyuOG5afpYS03fcWAL5CdSy2aihqhs+a6jM8HpD0=;
+	b=StE4EcIn7CD7rPQh/GbQUkavoPogMSXjDpXEqARJsSuCu72MYqkjKgwXgcsGtNsf
+	eklnwPQ3QH3xO8Rg42Zq76sSjMpTiZv0dLynhWPDCf+V/VCx2WYydWWmXz6cOHKTaiX
+	lRviGV1rofCQwrf/PIwedosNITFNqnRNH3Od2H0w=
+Received: by mx.zohomail.com with SMTPS id 1774368195808576.6011120671428;
+	Tue, 24 Mar 2026 09:03:15 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 24 Mar 2026 17:01:18 +0100
-Subject: [PATCH v11 14/22] drm/bridge: dw-hdmi-qp: Use common HDMI output
- bus fmts helper
+Date: Tue, 24 Mar 2026 17:01:17 +0100
+Subject: [PATCH v11 13/22] drm/rockchip: vop2: Set correct output format
+ for RK3576 YUV422
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260324-color-format-v11-14-605559af4fb4@collabora.com>
+Message-Id: <20260324-color-format-v11-13-605559af4fb4@collabora.com>
 References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
 In-Reply-To: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -82,12 +82,11 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-doc@vger.kernel.org, 
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+ Andy Yan <andyshrk@163.com>
 X-Mailer: b4 0.15.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_090356_150373_73EC3D46 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_090359_233577_8FDAAE06 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,30 +101,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make use of the common drm_bridge_funcs.atomic_get_output_bus_fmts
-helper for HDMI bridge connectors.
+For RK3576 to be able to output YUV422 signals, it first needs to be
+able to pick the right output mode in the display controller to do so.
 
-This allows dw-hdmi-qp HDMI bridges to participate in recursive bus
-format selection in a meaningful way.
+The RK3576 hardware specifies different output formats depending on the
+used display protocol.
 
-Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Adjust the written register value based on the SoC and connector, so
+other users of vcstate->output_mode don't have to care about this.
+
+Reviewed-by: Andy Yan <andyshrk@163.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index d649a1cf07f5..5380aa7d82a8 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -1192,6 +1192,7 @@ static int dw_hdmi_qp_cec_transmit(struct drm_bridge *bridge, u8 attempts,
- #endif /* CONFIG_DRM_DW_HDMI_QP_CEC */
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 59d15bacf023..e76e00f0a530 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1702,6 +1702,22 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	if (vcstate->output_mode == ROCKCHIP_OUT_MODE_AAAA &&
+ 	    !(vp_data->feature & VOP2_VP_FEATURE_OUTPUT_10BIT))
+ 		out_mode = ROCKCHIP_OUT_MODE_P888;
++	else if (vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 &&
++		 vop2->version == VOP_VERSION_RK3576)
++		switch (vcstate->output_type) {
++		case DRM_MODE_CONNECTOR_DisplayPort:
++		case DRM_MODE_CONNECTOR_eDP:
++			out_mode = ROCKCHIP_OUT_MODE_YUV422_RK3576_DP;
++			break;
++		case DRM_MODE_CONNECTOR_HDMIA:
++			out_mode = ROCKCHIP_OUT_MODE_YUV422_RK3576_HDMI;
++			break;
++		default:
++			drm_err(vop2->drm, "Unknown DRM_MODE_CONNECTOR %d\n",
++				vcstate->output_type);
++			vop2_unlock(vop2);
++			return;
++		}
+ 	else
+ 		out_mode = vcstate->output_mode;
  
- static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
-+	.atomic_get_output_bus_fmts = drm_atomic_helper_bridge_get_hdmi_output_bus_fmts,
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
- 	.atomic_reset = drm_atomic_helper_bridge_reset,
 
 -- 
 2.53.0
