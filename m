@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE08F54AD9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64590F54AD9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ws8gnjoF4i5AoJRWVzVh7quYkJpi5YBeM5lgd/FTWtM=; b=gD8ichzyXiJhoy55kYKTOtuUVZ
-	19yweDE5fOx2Yo4BtFSEjfi4L7psATHSAm2gcYSGR08tVZJfKgC9FhlZC23LWkPef5HTp+l02g80F
-	ux1DYrsjZGXUWWoHpBTihh9IIrb0JO754vDWuodB3isd2EYDJXcovWXFNOu/+OMaZTjrWt4/RFj4/
-	wRNWRCr1WAIuUe2docL1cODjjChp6vmOLKckjGptk4502X7T+ozgPgQwFtrTfD55jPtsD9el+oUHR
-	vcS4qyNJI3FT25m/5A+w0nb0upQXiYcRyOQFBYtfifRjeRSxofAu6M++cRHy7XEnTooStw4nIGXtv
-	3X2GsQZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RaYmwN9M/QNSH0/UcxvoZYSN5NEcrQA8nuxUjp6DTlY=; b=nyVR6CA3UucV7ks88ueVepYyKS
+	d5WK9xTX1/t/Yh75GZQ6s83Posysnj+1HfyGXtdMIULUsC23Zstt+x2V1Wm9JBhE9Zeo0sCBNPk9d
+	61oVJP+g4BhOVh5/iSlQLAtY+OGV4/ZLHo3AVSFcp/S+E5MpDnX4tkUS6xy5fyw/ekxEerzMckGbu
+	uVQ2zFbgUY55CJirf7wW3wtc+goqHOy9mgNBRO0j8qPj/gTu1tqaREXbdZ8Zkg0g6YXVjDPixUJCn
+	OoB+BwPfohX6//01Tl07Wr9HJmPhBUu1A+7NWwth6hszrJfsxd01GKEggj/uWYJ6gRr4QIYqRY37h
+	rgcjVysg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54sx-00000001vEc-2Pep;
-	Tue, 24 Mar 2026 16:45:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w54uW-00000001vZ7-48Be;
+	Tue, 24 Mar 2026 16:47:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54sr-00000001vBG-1s5y;
-	Tue, 24 Mar 2026 16:45:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ws8gnjoF4i5AoJRWVzVh7quYkJpi5YBeM5lgd/FTWtM=; b=ZUgozKg+7/Ozw0MZAj14bc2Mud
-	RF250v2ZZZ/QL2u7ThWUQe8+i8EmqBpQtFcZaIcv/t/abW96jZMbv/NmXcD1jxvhABmY3RtJCbUcU
-	9vj5ZzFoTeQRHrHpTw0vVnwXDR0qQRgJy80AWAqtxytOtoFueLqKncqSIoaxFdpaiTnj9Gph5GjOr
-	SwcGzRj6LWnpudS/GZp9si6m4cT1TZJhmrrXAGDTTLUY0NcPz98xGlAUACP7zOEqJ1LKroru4uPmR
-	G3Zsj3oE5DdSYUjsgRqYCCH7fmnYLS/+H4oDGM9GsOFN6sgS/JkCC/lpKkgh07wf0twJ/bAFkaTRx
-	JddF3CJA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
+	id 1w54uU-00000001vYl-3gGv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 16:47:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 916C943FB8;
+	Tue, 24 Mar 2026 16:47:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB3DC19424;
+	Tue, 24 Mar 2026 16:47:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774370838;
+	bh=XnDBIiYViRetm53tsWXR/B7QRmTtoJGHqC9bSVMJ1v4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DHyC17NjVJl7bF4XQYna1r84t+tCqrQtoXRFs2ZRfAgBaed+DN6iWpb1L2nvgBK+H
+	 4hVoUKpxFfabUpqjN2dv7sdE0z2D6lInK8myXtcQ5rHt6Zs77/nADpxKwieq+es0Gx
+	 7mRb7LKfz9QQ8R/Qw9Z1QUu0ROnRAwUmCgKgFjdpu3nxgLm8BL2jy8/PG7YASIoZC5
+	 GLzIUwmmnsiOqgWO401TQKo2zhUbDpMelGtn5Nasp9mluL5eCIbevv/BIKnN2OGnUH
+	 5I87BQixz9fwaTJ6vAmxBHbReNGcG7BMCyXdkvLh4XwIm0IZH/37xuoGozIQE7CaXD
+	 Bb3VU1+30OYxg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w54uS-00000005G3x-0xwZ;
+	Tue, 24 Mar 2026 16:47:16 +0000
+Date: Tue, 24 Mar 2026 16:47:15 +0000
+Message-ID: <86pl4t41kc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shawn.lin@rock-chips.com,
-	Fabio Estevam <festevam@nabladev.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v7 1/4] dt-bindings: soc: rockchip: grf: Add RV1103B compatibles
-Date: Tue, 24 Mar 2026 17:45:30 +0100
-Message-ID: <177437057319.780275.6126712599317976655.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260313131058.708361-1-festevam@gmail.com>
-References: <20260313131058.708361-1-festevam@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/5] KVM: selftests: arm64: Skip all 32 bit IDs when set_id_regs is aarch64 only
+In-Reply-To: <20260317-kvm-arm64-set-id-regs-aarch64-v5-4-a60f2b956e22@kernel.org>
+References: <20260317-kvm-arm64-set-id-regs-aarch64-v5-0-a60f2b956e22@kernel.org>
+	<20260317-kvm-arm64-set-id-regs-aarch64-v5-4-a60f2b956e22@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, oupton@kernel.org, ben.horgan@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_094537_480285_E069FD97 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_094718_952428_82661522 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 13 Mar 2026 10:10:55 -0300, Fabio Estevam wrote:
-> Add the PMU GRF and IOC compatible strings for the RV1103B SoC.
+On Tue, 17 Mar 2026 20:10:37 +0000,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> 
+> On an aarch64 only system the 32 bit ID registers have UNDEFINED values.
+> As a result set_id_regs skips tests for setting fields in these registers
+> when testing an aarch64 only guest. This has the side effect of meaning
+> that we don't record an expected value for these registers, meaning that
+> when the subsequent tests for values being visible in guests and preserved
+> over reset check the value they can spuriously fail. This can be seen by
+> running on an emulated system with both NV and 32 bit enabled, NV will
+> result in the guests created by the test program being 64 bit only but
+> the 32 bit ID registers will have values.
 
-Applied, thanks!
+I don't think papering over this problem is the right thing to do.
 
-[1/4] dt-bindings: soc: rockchip: grf: Add RV1103B compatibles
-      commit: 25c2721f18ff97226a6561aedc9f8f76a51fe2e8
-[2/4] ARM: dts: rockchip: Add support for RV1103B
-      commit: b4dc241c68f5a2a6e312259bf23885d693f91960
-[3/4] dt-bindings: arm: rockchip: Add Omega4 Evaluation board
-      commit: 2ea01fbb1d29d2349aa489eb884938898f10a84d
-[4/4] ARM: dts: rockchip: Add Onion Omega4 Evaluation Board
-      commit: 683192d7d5b47e89d920867f7c6997d2c0d1a0ad
+If the issue is that you have HW that has both NV and AArch32, then
+KVM needs to be fixed to make the 32bit IDregs RAZ when NV is present
+because that's not a configuration we support.
 
-Now that the adapted mmc binding went in, this is also ready.
+	M.
 
-I've reordered some properties according to documented preference
-= largely { compatible, reg, [alphabetical], status }
-
-And dropped the watchdog node for now.
-
-Please resubmit that one, once the watchdog compatible went
-into the watchdog tree (and drop the status=disabled from
-the wdt node, as the watchdog is not dependent on supplies
-from the board dts)
-
-
-Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Without deviation from the norm, progress is not possible.
 
