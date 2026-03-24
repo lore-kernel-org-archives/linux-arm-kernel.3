@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 967FFF54AD7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF9CF54AD8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EOCRA3uQBc4AWcGvtFcPMpcHJU/iNoWp5grdcgMgRg=; b=QBRrcoUHk0WH5UnTkjl1YW+8z6
-	oobwPQp6AoNZovEeCWXfX0fvdJzhx8cT0TeZe7RItFh1EIBxqi44x6DjCKFcsqBonMh2DgH0abwEa
-	6iCESJJON03HJbNcmvzKfJwM20XvyMF/NAZ60fmkSmvuzJd31L3VtFg8Ivl5RE6WdQK/uO5MRorA1
-	xjAQedSQQCSCyri9DXblQ4i3A49f262ZvRO3BQgeii80zlKzhGPrsdsEnlUWic5OvPBn0Y7AvylIV
-	OIJMokIcOxpxVI/PWq4TCw6PaMFUgsyKJ38JBaD7+4CC89lwWclPKbv3tQzpkoZHdmqzMHXZlYcqb
-	/ds8kspw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NDLBWtfLFIbT1jp3s5mRg1DsLvEqiJ4fx8jdjP6EKXs=; b=kwxc0DaqFKMfIEvBnfK8X8EeBk
+	qAZzgixeALWtop1AWGx3bz47ZfChGodZVedabGivWnP6zDacvhJ1unMy8saUesrg1TSK2uw1nSn5i
+	rYlnFigBC/ajCFpFBv/UaerMTv0Xe8QVT+KrJOvbT/JVpY/hOyR4BovQaQFzTysrVKzAwrpPT9Y5q
+	ksfdg+3M0eq1531YC+NIC9DkfohSXA+8rn/rHSoPWreEZD/dQeVfur2YdtyxPOXj92tx8dnUSB49s
+	hptUl+CQc3H5Ajbf/KyJJtiDkHa3Q+RB3XoaawOwf4gU0OTmDYNW5aQAE2T/fvQ0tKykEjvQwwhsA
+	hrDsg4yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54ON-00000001rHN-1vfl;
-	Tue, 24 Mar 2026 16:14:07 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1w54OS-00000001rJf-2Aws;
+	Tue, 24 Mar 2026 16:14:12 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54OK-00000001rGc-0a95
+	id 1w54OO-00000001rHO-1bh6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:14:05 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48704db565eso32910375e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 09:14:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774368842; x=1774973642; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1EOCRA3uQBc4AWcGvtFcPMpcHJU/iNoWp5grdcgMgRg=;
-        b=Jal0vScbL4+7LNcMqrckOa8gKj7MyMXZRA3JGfyUeCPG9l6QokbIuPC9tpSTPC1sn9
-         +58JEMq0TykN6YrfN2jmKEnTtRj5hxypZROIg9GxVIhRPUTI5bsj69k88Mf0gzDr2orp
-         SGhjn8nQY2NwyPmqLPXubAtpMG5Zr5Dia9rex+Z+FESxO1l8cnj/KlDPlpIzi+O5j3l0
-         vk8NiWkhlnBshTPfsSZASKlyR0lN4hwUSxyPmjUVQPu6oP7fdvoJW7i1dyR/8iM6ZfQV
-         YJsOHNuwURaxHRa+RTpCg1/tTimhN3Ebj3LV7YK9POzmaLMEANEz5I3mkX3hH6FcxBkT
-         mMKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774368842; x=1774973642;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1EOCRA3uQBc4AWcGvtFcPMpcHJU/iNoWp5grdcgMgRg=;
-        b=gOZkJb08mT86au0pN3yFj16imikfA/ssb8TLVkwY7oQecjVoWlYaieaEbRsfC+N3Wp
-         8UpcILGPn4P8iIcO/zXmvWxkzsjl24deRBOkS8Cy5Wv0b78mPgkcNmztBPgM0go089la
-         VM1uye4W+TEKnNgbFXP5ceswY4xjhqTYc46FbCTJSPKDQpHOf5V/m1gSZU6X4tDf+ahw
-         RH9ECCweEinLdstjENZQMRfE0IU4En+jZn3rx3XVssoskCPMjD2wE80BhaOScAIxiaw6
-         aVqjMLfdohLZcaO+YI+7h6FyFsqscBlc3tPJ0B70jwkfhI89YGfD13o/NvrEQZ/zKx+9
-         NklA==
-X-Forwarded-Encrypted: i=1; AJvYcCUO+xd1eXDAiTmbrLB0VlXrwfFhbMAspB3P6IqN3OxrgMdvcqdIGSbCY2r/PXAdMBYWzqiID2WoZ5vmlZg4/Fx4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFgniid7C04wfXDa7G8Sd3aDvadxSD78groRUjXCQdsFlR7z43
-	2glm/Ww7KBhJW6Wwpvt0ll22krkw3CIc6B2qasG2Lco9c7Ohj9Ep0Uo/
-X-Gm-Gg: ATEYQzyvnD/CPA0LxqXS+MKJ1KgQ+zAuHXz0EAgsNfD8RL/J+W5dkxyuQdDIJ/y1Ghk
-	KoxmqEZEoFWAw8W8QjsYIu1AYhnE0lDnYifKYRjtO07uhO4MxX/3uNlRaMJFBJrMmiEethsA71N
-	IiJaPd3L1utXbcZnhJmnUjSmRQ0pYX09ZemECEZkTyZ91lSo2qxWIVFp5iXcNimDXf/GO6D8unc
-	jVEbwdiM7/unSCGn06yzZ5oUtaXzpzIlaWi/cEyPrmB2a7ivpjvXhr27sF+SnMZShXBllWrOWOD
-	fTt5bnpw8BkUZWqtyd/f9dfZo0D1o6B2SMkER0EtVp891ro2XslM7Lm2Nhw6Blo9iNHEg0RkJXK
-	Ab5dRZP+RDAPiC5egIeO90ZoI8/lGxHroEEVDPS6GJK2DEke2Quhp6en3s1dmCXCNNDXdtpcfOc
-	1+BkKja6NV6MsyTdqJrgN6PID7PTJlJSfzAkRlab2F/gxHwJYd8UmxTw==
-X-Received: by 2002:a05:600c:34ca:b0:485:3a27:a960 with SMTP id 5b1f17b1804b1-48715f0369fmr5614135e9.0.1774368841765;
-        Tue, 24 Mar 2026 09:14:01 -0700 (PDT)
-Received: from osama ([41.46.242.53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4871102369fsm35141365e9.6.2026.03.24.09.13.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 09:14:01 -0700 (PDT)
-Date: Tue, 24 Mar 2026 17:13:57 +0100
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Will Deacon <will@kernel.org>
-Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Jeff Xu <jeffxu@chromium.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: vdso: fix AArch32 compat init allocation leaks
-Message-ID: <acK4RbHmnxSHcTqY@osama>
-References: <20260323214117.241216-1-osama.abdelkader@gmail.com>
- <acJgc9EVRJJOVM0S@willie-the-truck>
- <20260324110512-7a00b224-8c48-445b-93f3-dd9b7a07d3cd@linutronix.de>
- <acJkDv0AT_YqDIF9@willie-the-truck>
+	Tue, 24 Mar 2026 16:14:09 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1w54OA-0004bA-PA; Tue, 24 Mar 2026 17:13:54 +0100
+Message-ID: <8af3e277-a901-4b31-9729-032df3c0d56c@pengutronix.de>
+Date: Tue, 24 Mar 2026 17:13:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 11/27] media: rockchip: rga: avoid odd frame sizes for
+ YUV formats
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de>
+ <20260127-spu-rga3-v3-11-77b273067beb@pengutronix.de>
+ <c154098ce7fd5d6bfcb44066b7c1f0cde07ff81d.camel@ndufresne.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <c154098ce7fd5d6bfcb44066b7c1f0cde07ff81d.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <acJkDv0AT_YqDIF9@willie-the-truck>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_091404_212643_216FBC72 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20260324_091408_414312_8B6B816A 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +75,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 10:14:38AM +0000, Will Deacon wrote:
-> On Tue, Mar 24, 2026 at 11:09:12AM +0100, Thomas Wei�schuh wrote:
-> > On Tue, Mar 24, 2026 at 09:59:15AM +0000, Will Deacon wrote:
-> > > On Mon, Mar 23, 2026 at 10:41:16PM +0100, Osama Abdelkader wrote:
-> > > > aarch32_alloc_vdso_pages() allocates the AA32 vdso pagelist, the compat
-> > > > sigpage, then the kuser vectors page. If aarch32_alloc_sigpage() or
-> > > > aarch32_alloc_kuser_vdso_page() fails, earlier allocations were not freed.
-> > > 
-> > > But why should they be freed? The vectors, sigpage and vdso are
-> > > independent from one another, so we can limp along with whatever we
-> > > managed to allocate. I'm not sure how far we'll get, mind, if single
-> > > page allocations are failing at initcall time...
-> > 
-> > In the core vDSO datastore we just panic() if the allocation fails.
-> > (See tip/timers/vdso for the currentl implementation)
-> > The same should work for the architecture-specific bits.
-> 
-> I think we should just leave the code as-is tbh unless there's an actual
-> issue here.
-> 
-> Will
+Hi Nicolas,
 
-Thanks all for the review.
+On 3/20/26 6:47 PM, Nicolas Dufresne wrote:
+> Le mardi 27 janvier 2026 à 15:39 +0100, Sven Püschel a écrit :
+>> Avoid odd frame sizes for YUV formats, as they may cause undefined
+>> behavior. This is done in preparation for the RGA3, which hangs when the
+>> output format is set to 129x129 pixel YUV420 SP (NV12).
+>>
+>> This requirement is documented explicitly for the RGA3 in  section 5.6.3
+>> of the RK3588 TRM Part 2. For the RGA2 the RK3588 TRM Part 2
+>> (section 6.1.2) and RK3568 TRM Part 2 (section 14.2) only mentions the
+>> x/y offsets and stride aligning requirements. But the vendor driver for
+>> the RGA2 also contains checks for the width and height to be aligned to
+>> 2 bytes.
+>>
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>>   drivers/media/platform/rockchip/rga/rga.c | 19 ++++++++++++++-----
+>>   1 file changed, 14 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+>> index 21a3c6cd38dbc..4fa6adb10b7ee 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga.c
+>> @@ -337,6 +337,19 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>>   	struct rga_ctx *ctx = file_to_rga_ctx(file);
+>>   	const struct rga_hw *hw = ctx->rga->hw;
+>>   	struct rga_fmt *fmt;
+>> +	struct v4l2_frmsize_stepwise frmsize = {
+>> +		.min_width = hw->min_width,
+>> +		.max_width = hw->max_width,
+>> +		.min_height = hw->min_height,
+>> +		.max_height = hw->max_height,
+>> +		.step_width = 1,
+>> +		.step_height = 1,
+>> +	};
+>> +
+>> +	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
+>> +		frmsize.step_width = 2;
+>> +		frmsize.step_height = 2;
+> For V4L2_PIX_FMT_YUV422P and NV16 this is 2/1. I believe you can generalize this
+> with the format info, and skip this conditions:
+>
+> 		.step_with = info->vdiv,
+> 		.step_height = info->hdiv
+>
+> Though, I'm saying that from a pixel format perspective, if the HW needs 2/2 for
+> all YUV formats, let me know, I'll give my Rb.
 
-Regards,
-Osama
+I've introduced this limitation after running into the 129x129 hang and 
+noticing that the librga just disallowed it. I've did a quick test with 
+128x129 RK_FORMAT_YCbCr_422_SP (NV16) and the librga also doesn't allow it:
+
+rga_api version 1.10.1_[4]
+[  303.177480] rga: 1807   1807  : [tgid:1807] Destroy handle[1] when 
+the user exits
+101, check error! Invalid parameters: src, Error yuv not align to 2, 
+rect[x,y,w,h] = [0, 0, 128, 129], wstride = 128, hstride = 129, format = 
+0x800(cbcr422sp)
+
+The librga docs [1] also indicate that for all YUV formats on all RGA 
+versions the "height stride must be 2-aligned" (based on the librga 
+error output "height stride" probably means "height in pixels"). 
+Therefore I've copied this requirement globally into the driver to avoid 
+potential problems (e.g. hangs or using memory outside of the actual image).
+
+Sincerely
+     Sven
+
+[1] 
+https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_Developer_Guide_RGA_EN.md#image-format-alignment-instructions
+
+> Nicolas
+>
+>> +	}
+>>   
+>>   	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
+>>   		const struct rga_frame *frm;
+>> @@ -358,11 +371,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>>   	if (!fmt)
+>>   		fmt = &hw->formats[0];
+>>   
+>> -	pix_fmt->width = clamp(pix_fmt->width,
+>> -			       hw->min_width, hw->max_width);
+>> -	pix_fmt->height = clamp(pix_fmt->height,
+>> -				hw->min_height, hw->max_height);
+>> -
+>> +	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frmsize);
+>>   	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
+>>   	pix_fmt->field = V4L2_FIELD_NONE;
+>>   
 
