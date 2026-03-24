@@ -4,70 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C9FF532DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 05:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C24F532DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 05:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CCD2aeSujp0pavip+ysOL7CU0OZuaSl1qgjtPubEHw=; b=rjwY/pMB4+XulVR56LjQf9z6Yz
-	qYXc3QabQd1n3kChEu53BljjabJ1dvmHxvK2ZEqLVAPZmtQpjtZc5YbA0yweZPatdaMcxFsvKB6Kl
-	a/KyVcdSUUx063YeoAiMwbBTXhjtk+6MtCud36nHt0wPjioY2hGVwfY8zeixBLhcW0rPJ6qacE9oD
-	jpxM3vQNmGTbCW58HdB6mn9R4KuycaKhMJM9QgtalHOuPl4qA73LiikLdjPPnIS0QyGPB5o3Or7To
-	9MFKfptb2tGnXl9p1u/nTP2W3hoE7wlRU5PfIouq6yWZ8qgf9w7jelKFlS3Rba1td2ci1levjhoW+
-	+0ToHFOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uBPqnWWG1t9OxpXaQ4jeYbg/GH5noUi/i5h3IoYvRzI=; b=sAslhb25o5OGUFxg5c3I17Hqv1
+	tO3u3GehuoX1EG6vMv0SIMeo+H86Xqcb20F3bN7XNhpve3Xf1QYpgaFG9D133wT2/i+teXS/OKQ0o
+	B7rhSpolN000Kpn64lxsZlFFEjvEbb+V1SB/15pMmFWVGf59fztoPoEqwSdVZ/wV4lY0Yx4xaM5fe
+	jswSwMLs7QNmhRpMuDGslTkMhI/oYme9vcV0GjgXnj14Ve+Vu+BTzwxezzB2/I98UWrVof7qT96xa
+	AsFRHUKkGkGK0Kp07K5Tx8XYoPReu0ZeXSzTS+DIgZ4kWU9AURbQb7wfYqClcBvgLRRmz+K0+nuA7
+	yX55UCXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uQq-00000000b1k-0cZW;
-	Tue, 24 Mar 2026 05:36:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4uXN-00000000bUK-2roO;
+	Tue, 24 Mar 2026 05:42:45 +0000
+Received: from mail-westeuropeazon11011047.outbound.protection.outlook.com ([52.101.70.47] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uQn-00000000b1F-3gy8;
-	Tue, 24 Mar 2026 05:35:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5DA740DFF;
-	Tue, 24 Mar 2026 05:35:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA62C19424;
-	Tue, 24 Mar 2026 05:35:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774330556;
-	bh=FTpPg6VqMYGsOflNx1bNpFbE/kW6TknZdoyLgHvfExU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aXaJpoSsx5dP06H/YYjIquuOqxKTP5jBgRkct2VvUZKytVQoYViVd/TVDsg/eLQyR
-	 CKNIdJn0uAb8B3OFdzKkBw692ed56Zqk9xc2PEjGl4Cm6WyTnVjwAjlU9lFeCz2xhr
-	 SH2mSPayi8nJjjhAWR7AEQfr4o7KjxQja8xNcMyV0xPasE4vsqW1doocp5pXs7fC+/
-	 rMXkX94GNonF85gbrdGWC0roEi5w1oUeetIxXObb1AEDUZQX9PEVAmKL6ThuI2a9u3
-	 afb5WaiceqoY2J2Gnzlj+a1V440r0Jdg2FI8B+mQp5ZLRcXnbF+vNN9Bdgb4REC6wO
-	 /jdyJQPIo/jtg==
-Date: Tue, 24 Mar 2026 11:05:39 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
-	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>
-Subject: Re: [PATCH v5 phy-next 08/27] PCI: Remove device links to PHY
-Message-ID: <y7n3eiqvc5gv3ax7bn6sh3ikrvzpdc6hq7qfvebroqolrzcew6@7t7hs3eya5tm>
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
- <20260319223241.1351137-9-vladimir.oltean@nxp.com>
+	id 1w4uXK-00000000bTX-3wTp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 05:42:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CLMrzJtf9MYw2l0dLUf1rMRFe0Q+w97HqFhVgRIDlk8XI9LJKds1heikFh64pZrY3I3+Gs3/3A2ysuYle3keyiK/XD8Zp/6relR1zyCfwfvOp1gw3wfEF98xyEQJv1ddSFk5ADaHOWWLEh0sKW6WZ7OjV8nUOS62KBgNYyZdjloRbKjpDIzXPuNO6cghY5bNFABavKm2Pi25K5/ZtVrSfWLWObU71iiw3TAI5gfM9RS0KLNYO5CV4BCCpEvDxRvZtb3qA3EJAX8fd4YigfjHRnZl3zog/Yt/vOA9RtUaEi/hs5jR7TNVJpUMnX3ks32LYwC688s28NV0JuP/cfojhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uBPqnWWG1t9OxpXaQ4jeYbg/GH5noUi/i5h3IoYvRzI=;
+ b=bjOkLOBgxsp97+muTg39dLaS8EygzQTbY6iCqIXG5VWqU0q1d+WIa+n32KOoyQfjp9YMRtLZY6rUcdcqPtj61WSQY/JtE9HQGwNfzp8PvdhmdngkZelOnn/QbQKL1KKEDd8JcAWiDADm4Ut0L+Ohk+EuDlQdR8MbRGiOCJd/9RBqvweKpwOi253yAK7tc2CT0IY+FqagnkLTwSErc7aKq4pRiCWeokPaQPeeZJ6iiJry4l8GPIcw96f4//RMWyWGBR+roB4r2CS6uQEsFyXhBR/AxM7Uf/WW0+imJvENhwpII1TLmONO9pEyezfQ62zmJ5ja8bFDwl7fYPLkugvCtA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uBPqnWWG1t9OxpXaQ4jeYbg/GH5noUi/i5h3IoYvRzI=;
+ b=HXq9fTWH38GbFpXHKxeOtLSQJFPnL/7YLzdKjBq5qOVIL8yEa+8MqyLYWtK+Ls1gEAUc8Z78Pj9/vUDYEHcSbiO/kDfzqo9uZGkaTQy7bYUxMLT/gfA28QSXXlgtkrSavIpkQ+YjymEkLYTj/5Npk8gBrY2PxRMz3Am5YY2ntHNZbhPXJAvFsujozR50qV209Qf1OvnPbe4mZAN7kAnJcG8mn2xvLyZt5pUeR+bTa5oJt5SMQWkKpF6X6RywchVXUcP2zYEL8vV/nF3udRpY59cVtMhXHHot70aozA5eLr+ZM+yxBWEM05qJ1yBOlloaVMIbyDNCSMIhj9ijKqHlmg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU2PR04MB8967.eurprd04.prod.outlook.com (2603:10a6:10:2e2::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
+ 2026 05:42:40 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
+ 05:42:18 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v3 0/7] arm64: dts: imx943: various update
+Date: Tue, 24 Mar 2026 13:44:06 +0800
+Message-Id: <20260324-imx943-dts-v1-v3-0-b33bf1f1c254@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKYkwmkC/12MywqDMBBFf0Wybkoyk0btqv9Rukh0WrPwQSIhR
+ fz3RqG0CHdzLpyzsEDeUWDXYmGeogtuHDLgqWBNZ4YXcddmZiBAC5TIXZ9qhbydA4+Sl3SxulI
+ KZGNZdiZPT5f23v2RuXNhHv17z0e5vd+SOpTyBEdraqtAVxrtbUjTuRl7tnUi/Lkgji5klzRZo
+ y2aCsufu67rB9ZaZ4HkAAAA
+X-Change-ID: 20260313-imx943-dts-v1-7e5b684421cb
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>, 
+ Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>, 
+ Joy Zou <joy.zou@nxp.com>, Florin Leotescu <florin.leotescu@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SI2PR04CA0004.apcprd04.prod.outlook.com
+ (2603:1096:4:197::22) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260319223241.1351137-9-vladimir.oltean@nxp.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU2PR04MB8967:EE_
+X-MS-Office365-Filtering-Correlation-Id: 057eaf2f-1abd-4e5c-cabb-08de89681c6a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|19092799006|1800799024|18002099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: DPBlWIENxcXdrles1Xtqyfx/rmyCaetSKp2RnERFosdYM+RLJm2r+/VUnPqG1W1PGkfbALzBx1IMZXWxjOK8uNLbsMyGwRQ+Mj7FgfO1iflHBC+Shq0hIEdKE6lbjhY4CrlYff3u/sRgu5aD6pWnct484ayn1HX9vlJAolO2lNar5rpsdHjQjCcJSqBzWD4J7mOV6FgtMn2ePReMhfHC2ecO6qKkZU57QS3hsmgvuS4TO/U7izd7Vdaw5QNra+MGUE8R173GWawotA4nTz50f2+6rXbc4z6Q4xaWntQPMvNW4FBnTQrgYFp6VeHzGqP5b/TvMHZF/ZIxN5qvdKSSLqtm7W65LiD+DhuIkvJG+Mz26KZ7aQkYfucN6hoMYiqMnqCmkCSB6u3btrggu+9zbAGo6TdKN2MDxhOJtRdwJCqHjp9rLgBNhFPSP4SaU5p98J3UnUOi3lGkzyev4d01t666c2YsxmUOWZmt2TsOpqFtggJ27SKSkR/RwaQIKfda/LzdlmLwWdGbdy6Og/JEMl1lgkZKWMCsVfropx6nOl6h8Y3gZVITZKlwKAwNqQbBZrNPKfUgNTjfqiTgkYN3PP2p3gj2Sg3uxX1I40EvWatVSYdFjaYZOmtLPl1qGfCi/MqkVdZ+xX7LfPddky5cggsKKQTNHV9AqxVzAe6M9LlMvU2cHFwIJhSXKzo70+YhmLUyVEo0gSPPHUwhaOhHxDJMXeH+2lchGqh7qnREDEKUl380K+1wv8NfKw+pmbG+NPuiFvZvqxik8hAr/1hw0xboH+zc6rd5r34auBu4kQ2QjJOPQOCbZTEvNTseISuQ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(19092799006)(1800799024)(18002099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2lnMjIrS0QyRDNLVEtUK2NUYXBDVlQ2UUNLQStoNlJxMFVYaVU2ankzaHZ2?=
+ =?utf-8?B?Qms4WGNEck1JbkpxcXI5YkdzQnlxUlQ2WXBMRlVDbGhKWFVUSDZhbXNLZm9o?=
+ =?utf-8?B?ZENCVndmcDdpRmNaUnNrbEgzOXhicEdTM2g4bHgwY3dwb2dpV0VwVHNUTnpm?=
+ =?utf-8?B?cmdaVE9VMmVTUkxXbExURXIyNGsxSVR0SnFScWFmRXd6T0ZONUpMU2JXc1Q2?=
+ =?utf-8?B?c2F0T2tnUHpadG1JdGkrLzdlMHBjQ3lFOE81MUE3cjVheGRNRi9YQWpxWFR4?=
+ =?utf-8?B?RXJObTBnSW5Lend0UVRNaXM0TjNBbzBGYW9EczU2VHR3SGhUUmxSdXNKT2JS?=
+ =?utf-8?B?K1dIVG5yNExadGd5Z2tSTkpWMjN2blBvaHg5TmpNZ3c3TWUycE1hVGErbGFH?=
+ =?utf-8?B?WG0vZmVjTHU2MDdBRjdJdlNseDlqVDFZZ0tycUNkQWVReWdmWFZNVXppRHFQ?=
+ =?utf-8?B?bHV1cnAwUjJQNmZjaEpkcnBNdWZKcmpWbGhOMjFmSndyWVpKOGZOME9IVmhJ?=
+ =?utf-8?B?cUFPaHRnOTdobitsZVg4ZGw2VzJxVi9SZERISDhMeWhJbHVFWnV2bk9Kd2dl?=
+ =?utf-8?B?aEowQXFlTGhoM3JBRWlWQ1NnM1FNZEk4blZrSWJRNlhRRzZ3L3ZiUXBLdnJD?=
+ =?utf-8?B?RDlMcFpnZVJ1Y2t4cDNrZThCeVg4S1RwVzRFRWVLbUN2Zy9CRnU2L3NaZWZZ?=
+ =?utf-8?B?L1IyTzdIWlNZeGNQUHVqMHhLTFRjUU5NMlI5R01FOTI4ZnYxWVdMTkVVN1Jh?=
+ =?utf-8?B?ZHhXL3pyUjdtY0tIbFlrTEJOUTU3TDN1dVRydWtWTm1RbldoY2RiNzlIdmRx?=
+ =?utf-8?B?cUM0MWtGM29xNGwzZWdPSDYzVXd2dnlNTU9uVWIyM1pYVHdPc09sUkJ3dkNW?=
+ =?utf-8?B?azl5Q1BkbFlQK0w3ZlNZay93ekdJRzlxNnlncGkyTVR6OHgydXNrS2RSQ1A1?=
+ =?utf-8?B?OEwyYndTdHIzNFZpaWdITGlITWM1TFl3aU14K0RRRmdUWE1UdzgwMHRVc3oz?=
+ =?utf-8?B?YkJ0ZXVVVDBrYjFYblJmY2sxeSs0bVRSQXV3RVhrenNtM2Rqdm5XL0FmQkpp?=
+ =?utf-8?B?ZVJRVG81aWJNQmxXQzlKQ1NxcVdsYWhNNEtXUWRMZ08yQWdKTVZweWZ4MlBG?=
+ =?utf-8?B?NHhERit2cEVjSDRnYnN4dmxMT3hWN0dQYlZKRmp4VG8wQVVZdkhpMFUxbnNu?=
+ =?utf-8?B?citidGNHSWZDSjMwUDluVzFvT0F0U3Fqall4cUtES0pDRWR3REs1V0JMdFFO?=
+ =?utf-8?B?VkZzcFlSazhWRDRCTGpQNXJYOHBQSjkvTE01T284SFFWUzVDT0lIckt6YTQw?=
+ =?utf-8?B?UUo1SngzYUllaStPdy9WVVdySUcyVEhUZDNUSUJ2Z0grV05JQkdHTUF0NHpl?=
+ =?utf-8?B?NG4xM3hJQzlVOUdUZzlCSnJqT2QwVTJGUTd4aDhwczhlaDV2MW43WFY3YnpL?=
+ =?utf-8?B?elZQTjlDcHRwSGY1VGNXS2YyWXdxUjc1QTZmaUJHZ0prYzJZRDNLSDFieUs3?=
+ =?utf-8?B?VHlPVWEyenpHZGh3dlFmNXphaWloOEsxTk9XaHplRkUvTVJobGhrdFNuUGc3?=
+ =?utf-8?B?bm9aOTQyVkEwcEhhWFlnWU13Qkg3U2RzVmxQanFXRVgzYmp3NkdISlQvQlB3?=
+ =?utf-8?B?K3RQQmQzdU0yYis1OWNiOTJxcU44U3ptU3pBSjBwNXkyRGpKeG44WW9tanVS?=
+ =?utf-8?B?eU4xTHFxRkFwZ0NIMWZKYlhDcUhYVDhQZW41cmtQbEJHNU1OYk5GbXFxaFRY?=
+ =?utf-8?B?Tk1mTlM0d3BXVHliM2tXRnN1NUpUZDUyZVM1VTJBSDhjbEVMUW1iSUdzN2xz?=
+ =?utf-8?B?NTVFU2dvbG54SUhXd2xqL1lkRjNCMm9nZGJPNXpJY2w3aWNmdVFzOS9GdnN1?=
+ =?utf-8?B?ZCtQbEwxeldpWEkrSHBLNEhXVE04OTRjQlljdEsvMHJxWURMREZLbmt2NE5r?=
+ =?utf-8?B?TEFmVzFCdUk5SGhadGdRamFrOXBYNmUwRGdoSkNzbUlmZy91clZKT2M1aHky?=
+ =?utf-8?B?MG10SUNCek5BYTFubmVpU2lvNEZUOWR5ZXMzSitHOHcxM3ltWkhtZ0NCQmdJ?=
+ =?utf-8?B?SHZvYlpTYjRmVVVxc0FyN0VTUGZYbkJUT1RIaE1vVTBEUlVPeEJUUUVLTUxG?=
+ =?utf-8?B?MEVSTnBWV1hBMGZnK0VwR0toTVFYcVg0OHFoZmptUlFIWUJEKzVXekIybVdT?=
+ =?utf-8?B?aEUwVHdlcFlrOVZnNWJORmlLQXNSZWhmK1kvY0ptNnA0V0kvK2Y2K25PTkly?=
+ =?utf-8?B?SDBBa1cwQzJGRk54SXdsODdJaWlRZlc4T2VBNGJ6UTJBYXhYdVVWcU1pNHU4?=
+ =?utf-8?B?RlAxem5MT09Lb0wxVmljVm5YMjFDRDh6cGRjVnNuZDNSa3h6Y3B1UT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 057eaf2f-1abd-4e5c-cabb-08de89681c6a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 05:42:18.1446
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JDmVecpnJPACvXtKMLq4w4XgZ+y+46+01Ml/6eakTF0wRaCRfPi3r0MKgHhgWZqn5KuSg83HZkWMvUTVVJ09RQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8967
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_223557_968702_56EEA5B5 
-X-CRM114-Status: GOOD (  29.25  )
+X-CRM114-CacheID: sfid-20260323_224242_998929_1AAE5907 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,306 +158,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 12:32:22AM +0200, Vladimir Oltean wrote:
-> This is practically a full revert of commit
-> 7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
-> and a partial revert of the device link pieces from commits
-> dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
-> 49229238ab47 ("PCI: keystone: Cleanup PHY handling")
-> 
-> The trouble with these commits is that they dereference fields inside
-> struct phy from a consumer driver, which will become no longer possible.
-> 
-> Since commit 987351e1ea77 ("phy: core: Add consumer device link
-> support") from 2019, the PHY core also adds a device link to order PHY
-> provider and consumer suspend/resume operations. All reverted commits
-> are from 2017-2018, and what they do should actually be redundant now.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Update pin header
+Add V2X/ELE mailbox nodes, more SCMI nodes, thermal nodes, fan node
+Add nxp,ctrl-ids.
 
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v3:
+- Typo fixes in patch 1 and 3
+- Link to v2: https://lore.kernel.org/r/20260320-imx943-dts-v1-v2-0-e6eba6b3a837@nxp.com
 
-- Mani
+Changes in v2:
+- Rename ana to ana-thermal
+- Rebased to next-20260319 to resolve conflicts
+- Link to v1: https://lore.kernel.org/r/20260314-imx943-dts-v1-v1-0-3ba9b426863b@nxp.com
 
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> ---
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Vignesh Raghavendra <vigneshr@ti.com>
-> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> 
-> v3->v5: none
-> v2->v3:
-> - remove dangling set but unused phy_count local variable in
->   cdns_plat_pcie_probe()
-> v1->v2:
-> - fully remove struct device link **link from struct cdns_pcie and from
->   cdns_plat_pcie_probe() error path
-> - collect tag
-> - adjust commit title
-> ---
->  .../controller/cadence/pcie-cadence-plat.c    |  4 ---
->  drivers/pci/controller/cadence/pcie-cadence.c | 16 +---------
->  drivers/pci/controller/cadence/pcie-cadence.h |  2 --
->  drivers/pci/controller/dwc/pci-dra7xx.c       | 16 ----------
->  drivers/pci/controller/dwc/pci-keystone.c     | 31 +++----------------
->  5 files changed, 5 insertions(+), 64 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence-plat.c b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-> index b067a3296dd3..fc39c01b7964 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence-plat.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-> @@ -41,7 +41,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
->  	struct pci_host_bridge *bridge;
->  	struct cdns_pcie_ep *ep;
->  	struct cdns_pcie_rc *rc;
-> -	int phy_count;
->  	bool is_rc;
->  	int ret;
->  
-> @@ -122,9 +121,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
->  	pm_runtime_put_sync(dev);
->  	pm_runtime_disable(dev);
->  	cdns_pcie_disable_phy(cdns_plat_pcie->pcie);
-> -	phy_count = cdns_plat_pcie->pcie->phy_count;
-> -	while (phy_count--)
-> -		device_link_del(cdns_plat_pcie->pcie->link[phy_count]);
->  
->  	return 0;
->  }
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
-> index a1eada56edba..0ac980249941 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.c
-> @@ -222,7 +222,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  	struct device_node *np = dev->of_node;
->  	int phy_count;
->  	struct phy **phy;
-> -	struct device_link **link;
->  	int i;
->  	int ret;
->  	const char *name;
-> @@ -238,10 +237,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> -	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
-> -	if (!link)
-> -		return -ENOMEM;
-> -
->  	for (i = 0; i < phy_count; i++) {
->  		of_property_read_string_index(np, "phy-names", i, &name);
->  		phy[i] = devm_phy_get(dev, name);
-> @@ -249,17 +244,10 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  			ret = PTR_ERR(phy[i]);
->  			goto err_phy;
->  		}
-> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
-> -		if (!link[i]) {
-> -			devm_phy_put(dev, phy[i]);
-> -			ret = -EINVAL;
-> -			goto err_phy;
-> -		}
->  	}
->  
->  	pcie->phy_count = phy_count;
->  	pcie->phy = phy;
-> -	pcie->link = link;
->  
->  	ret =  cdns_pcie_enable_phy(pcie);
->  	if (ret)
-> @@ -268,10 +256,8 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
->  	return 0;
->  
->  err_phy:
-> -	while (--i >= 0) {
-> -		device_link_del(link[i]);
-> +	while (--i >= 0)
->  		devm_phy_put(dev, phy[i]);
-> -	}
->  
->  	return ret;
->  }
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-> index 443033c607d7..35b0b33bc6fb 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.h
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
-> @@ -82,7 +82,6 @@ struct cdns_plat_pcie_of_data {
->   * @is_rc: tell whether the PCIe controller mode is Root Complex or Endpoint.
->   * @phy_count: number of supported PHY devices
->   * @phy: list of pointers to specific PHY control blocks
-> - * @link: list of pointers to corresponding device link representations
->   * @ops: Platform-specific ops to control various inputs from Cadence PCIe
->   *       wrapper
->   * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
-> @@ -95,7 +94,6 @@ struct cdns_pcie {
->  	bool			             is_rc;
->  	int			             phy_count;
->  	struct phy		             **phy;
-> -	struct device_link	             **link;
->  	const  struct cdns_pcie_ops          *ops;
->  	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
->  };
-> diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-> index d5d26229063f..b91ab37845c9 100644
-> --- a/drivers/pci/controller/dwc/pci-dra7xx.c
-> +++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-> @@ -9,7 +9,6 @@
->  
->  #include <linux/clk.h>
->  #include <linux/delay.h>
-> -#include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
-> @@ -683,7 +682,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  	int i;
->  	int phy_count;
->  	struct phy **phy;
-> -	struct device_link **link;
->  	void __iomem *base;
->  	struct dw_pcie *pci;
->  	struct dra7xx_pcie *dra7xx;
-> @@ -731,10 +729,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> -	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
-> -	if (!link)
-> -		return -ENOMEM;
-> -
->  	dra7xx->clk = devm_clk_get_optional(dev, NULL);
->  	if (IS_ERR(dra7xx->clk))
->  		return dev_err_probe(dev, PTR_ERR(dra7xx->clk),
-> @@ -749,12 +743,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  		phy[i] = devm_phy_get(dev, name);
->  		if (IS_ERR(phy[i]))
->  			return PTR_ERR(phy[i]);
-> -
-> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
-> -		if (!link[i]) {
-> -			ret = -EINVAL;
-> -			goto err_link;
-> -		}
->  	}
->  
->  	dra7xx->base = base;
-> @@ -856,10 +844,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
->  	pm_runtime_disable(dev);
->  	dra7xx_pcie_disable_phy(dra7xx);
->  
-> -err_link:
-> -	while (--i >= 0)
-> -		device_link_del(link[i]);
-> -
->  	return ret;
->  }
->  
-> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-> index 642e4c45eefc..07698c645e02 100644
-> --- a/drivers/pci/controller/dwc/pci-keystone.c
-> +++ b/drivers/pci/controller/dwc/pci-keystone.c
-> @@ -130,7 +130,6 @@ struct keystone_pcie {
->  	int			num_lanes;
->  	u32			num_viewport;
->  	struct phy		**phy;
-> -	struct device_link	**link;
->  	struct			device_node *msi_intc_np;
->  	struct irq_domain	*intx_irq_domain;
->  	struct device_node	*np;
-> @@ -1118,7 +1117,6 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  	enum dw_pcie_device_mode mode;
->  	struct dw_pcie *pci;
->  	struct keystone_pcie *ks_pcie;
-> -	struct device_link **link;
->  	struct gpio_desc *gpiod;
->  	struct resource *res;
->  	void __iomem *base;
-> @@ -1189,31 +1187,17 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  	if (!phy)
->  		return -ENOMEM;
->  
-> -	link = devm_kcalloc(dev, num_lanes, sizeof(*link), GFP_KERNEL);
-> -	if (!link)
-> -		return -ENOMEM;
-> -
->  	for (i = 0; i < num_lanes; i++) {
->  		snprintf(name, sizeof(name), "pcie-phy%d", i);
->  		phy[i] = devm_phy_optional_get(dev, name);
->  		if (IS_ERR(phy[i])) {
->  			ret = PTR_ERR(phy[i]);
-> -			goto err_link;
-> -		}
-> -
-> -		if (!phy[i])
-> -			continue;
-> -
-> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
-> -		if (!link[i]) {
-> -			ret = -EINVAL;
-> -			goto err_link;
-> +			goto err;
->  		}
->  	}
->  
->  	ks_pcie->np = np;
->  	ks_pcie->pci = pci;
-> -	ks_pcie->link = link;
->  	ks_pcie->num_lanes = num_lanes;
->  	ks_pcie->phy = phy;
->  
-> @@ -1223,7 +1207,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  		ret = PTR_ERR(gpiod);
->  		if (ret != -EPROBE_DEFER)
->  			dev_err(dev, "Failed to get reset GPIO\n");
-> -		goto err_link;
-> +		goto err;
->  	}
->  
->  	/* Obtain references to the PHYs */
-> @@ -1238,7 +1222,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  
->  	if (ret) {
->  		dev_err(dev, "failed to enable phy\n");
-> -		goto err_link;
-> +		goto err;
->  	}
->  
->  	platform_set_drvdata(pdev, ks_pcie);
-> @@ -1325,25 +1309,18 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  	pm_runtime_disable(dev);
->  	ks_pcie_disable_phy(ks_pcie);
->  
-> -err_link:
-> -	while (--i >= 0 && link[i])
-> -		device_link_del(link[i]);
-> -
-> +err:
->  	return ret;
->  }
->  
->  static void ks_pcie_remove(struct platform_device *pdev)
->  {
->  	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
-> -	struct device_link **link = ks_pcie->link;
-> -	int num_lanes = ks_pcie->num_lanes;
->  	struct device *dev = &pdev->dev;
->  
->  	pm_runtime_put(dev);
->  	pm_runtime_disable(dev);
->  	ks_pcie_disable_phy(ks_pcie);
-> -	while (num_lanes--)
-> -		device_link_del(link[num_lanes]);
->  }
->  
->  static struct platform_driver ks_pcie_driver = {
-> -- 
-> 2.43.0
-> 
+---
+Florin Leotescu (1):
+      arm64: dts: imx943-evk: Add fan node and enable active cooling on A55
 
+Joy Zou (1):
+      arm64: dts: imx943: Add thermal support
+
+Peng Fan (4):
+      arm64: dts: imx94: Add V2X/ELE mailbox nodes
+      arm64: dts: imx94: Add SCMI sensor/lmm/cpu nodes
+      arm64: dts: imx943-evk: Add nxp,ctrl-ids for scmi_misc
+      arm64: dts: imx943-evk: Add pf09/53 thermal zone
+
+Ranjani Vaidyanathan (1):
+      arm64: dts: imx94: Update pin headers
+
+ arch/arm64/boot/dts/freescale/imx94-pinfunc.h |  12 +++
+ arch/arm64/boot/dts/freescale/imx94.dtsi      |  56 +++++++++++++
+ arch/arm64/boot/dts/freescale/imx943-evk.dts  | 108 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx943.dtsi     |  62 +++++++++++++++
+ 4 files changed, 238 insertions(+)
+---
+base-commit: 518185e147d184577d14d975642eb4b7add52aef
+change-id: 20260313-imx943-dts-v1-7e5b684421cb
+
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Peng Fan <peng.fan@nxp.com>
+
 
