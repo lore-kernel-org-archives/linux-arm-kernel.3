@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFBDFF532C1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CE0F532C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Du7EJ0AMhaUruKt74Y0e1pLTXksMINnu8eg06xHD9o=; b=oE7nNCASGjyDHmFxQfv5ND0AAk
-	iLClsQF8Lmlk+mqQex3sOEkO0pqGJFHZ8g1x7oPPbD7gYwcs78AeoGpMlFbXGPospTG30HZ3LlglW
-	GQYcGmZjk9uGeSrp+tRlfYUnzLNJXzivn+HS/xssTRuZ+2JOseJ0YBlr3MPqVjETqxubcSbzPrmP9
-	w306iB8eNK86P2ZiF04b0QqnMF+YE1iA2NyrIhlz1c1lE2kyaFdoD7HQYdth/+7jt+r+kZmp3YeJo
-	uL87JwATg0TTBe6u7WD9SbjOR4MxnJ9CFEjBtUIO5ne2KtrOU08GD7A3+kulyLyX0vSL8tKzay9tw
-	MKV4+Caw==;
+	bh=1bW9cPRGzLWRs+Kf4YrqsJ6ySDotQPKBNdvs3ENGLIw=; b=So4JAxs4rKVUMTwD760dr5Ze/j
+	AT/CIMyiFjwK6EoH1lTvIdKSR3JAXfRUXYZwmLAsDgAiOMYx5asFr6gbtNOkiV83e7D8kFXIZlAe2
+	x06E47a0F1G1tUxV/Z0qjnSeNwC7bxUMpXa3cCkiaYR1CE6C4JaWeZuPZG1WkT+MlHuS6PqlobmbJ
+	bdKQC+yXuzRRzoIMyvKO5PJvH3Fv3CC5S0sSTsWToy2YsZ7RRqKTa5lVC1u0Mr6kjyqc/IzTyud19
+	EAcFn50/B8PYnlRQy/u5ju5tFbse+xLeTsj9JIlC5ljCfLK41YTuSfFe7hxtWp2UNgXdzBvgYmxSL
+	c9w1r/Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pNc-00000000DLo-0GzZ;
-	Tue, 24 Mar 2026 00:12:20 +0000
+	id 1w4pSh-00000000EM8-3aOa;
+	Tue, 24 Mar 2026 00:17:35 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pNZ-00000000DJm-0LuQ;
-	Tue, 24 Mar 2026 00:12:17 +0000
+	id 1w4pSh-00000000EM2-0JDB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 00:17:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57682600CB;
-	Tue, 24 Mar 2026 00:12:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F106C2BCB0;
-	Tue, 24 Mar 2026 00:12:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 30C84600CB;
+	Tue, 24 Mar 2026 00:17:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADFD9C2BC9E;
+	Tue, 24 Mar 2026 00:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774311136;
-	bh=ll7WR/DKdUOJ2QVL8D4sjvjEk80f6/hJ+WprFwRSzjQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=OQ54V7zhU5FhwgkZcm1E/qa6zovCBprdKLppVbHoEnyswe4s6IeVK52k1wISMZKVm
-	 xA8V/zs7e6ELV9fv6/LrbFO4so2AkWP/bTmeKk62UiSXOAVgLAk2BpbVUqRCrt8AGA
-	 Bl5CgctdbHJtDyYxFIrk6s5wlRPKZy3VX9irmzBmJLpJTaquu3mbmdMMCNqPHY8Ksx
-	 VZta93Zb67xn/JFHqQeMzNWwU5n0pNwg7rRal8YSicJrFnHsTirbACLys/dOIIVmLS
-	 rii4hmkhcC4Si9L4w3V0gPiui1DZpNn4+fJ23xgc1VFI+T/lqegimOmG/dM1sO6OPK
-	 nnkeM3mCTNEhg==
-From: Mark Brown <broonie@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Dongliang Mu <mudongliangabcd@gmail.com>, Felix Gu <ustc.gu@gmail.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260322-rockchip-v1-1-fac3f0c6dad8@gmail.com>
-References: <20260322-rockchip-v1-1-fac3f0c6dad8@gmail.com>
-Subject: Re: [PATCH] spi: meson-spicc: Fix double-put in remove path
-Message-Id: <177429077139.537498.16954848852263952907.b4-ty@b4>
-Date: Mon, 23 Mar 2026 18:32:51 +0000
-MIME-Version: 1.0
+	s=k20201202; t=1774311453;
+	bh=VhVQB7c8G+UK8CTRphdG768deVynhbMmReZLxs81FRE=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=GbqupRz1lMXaRDl8yBT4oV6RTL82bksM1y0VVudER5K5CKlzM/kFhQx5E5B5qs/N5
+	 NIERh4tAOsju0SI5byf2pOXqL62kF822F5Qtbg3w2wyb+bpev4y4npHlb28lKcRwIU
+	 akbe6j0WuWCqLf65QQ8zXCrhbwkaUt29L17MUV7YYMPtiLI3N8nIz1RbongpwAT/pe
+	 MGRG+f0MJe/tu1nztnG9/cV4wPRHQxHEQjNJ5EaiTeyvtyPPIq9H5palQxlPy6im7C
+	 mj2DiYY8zuA5XTEM+CeYqPKpcZTS516yOAEbR4Ii7ht2T3QR69RPmBYyuhCEJCr8aT
+	 gdS8l/ZqPJvTA==
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev-17187
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1104; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ll7WR/DKdUOJ2QVL8D4sjvjEk80f6/hJ+WprFwRSzjQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpwdbdXEUPKj8ItOqc7xBw6cvRRsFZKImArKwXy
- YCArGlh0Z6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacHW3QAKCRAk1otyXVSH
- 0H74B/9BC2L2wSmOiH0fUFtlo3LVk2qUS01ix3VKKDqDDCr5x/lnEyVAx1OTErUCLrUdiBzQ3an
- RKelvFWc3HGvQBk/AZDjDfdXdNtKBUx0WzuxP2nsfgZyv/e1h6s/pBVyxogIJTsvt8Ve/xxlxe8
- aiHHM/SnkblFl6tgPtDBX+uFZEk5As094CJpfwxv4MQ3alsd997cmxAPuUPINLqnY/n8dajioV8
- bonk/igKebXqsNXLnXI9pGc2Bo/8scXoHr/urS4J0n9QvEQrb+hJ1IFcmBnqhbZqE/6WH9ItDQu
- Q6m4vDgU+RoVauRthdiKab9R0U4IrPAe2E54Xwd2YDrMVyNb
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
+References: <20260310123625.163846-1-ben.dooks@codethink.co.uk>
+Subject: Re: [PATCH] clk: mvebu: armada-37xx-periph: fix __iomem casts in structure init
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Ben Dooks <ben.dooks@codethink.co.uk>
+To: Ben Dooks <ben.dooks@codethink.co.uk>, andrew@lunn.c, gregory.clement@bootlin.co, linux-clk@vger.kernel.org, mturquette@baylibre.com, sebastian.hesselbarth@gmail.com
+Date: Mon, 23 Mar 2026 17:17:24 -0700
+Message-ID: <177431144473.5403.9307921610502647121@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +68,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 22 Mar 2026 21:29:56 +0800, Felix Gu wrote:
-> spi: meson-spicc: Fix double-put in remove path
+Quoting Ben Dooks (2026-03-10 05:36:25)
+> There are a number of casts to "void __iomem *" in the initialsation
+> of the driver's clk information. Fix this by adding a helper macro
+> for the cast.
+>=20
+> Silences a number of sparse warnings:
+>=20
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in =
+initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] =
+__iomem *reg
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in =
+initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] =
+__iomem *reg1
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1: warning: incorrect type in =
+initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    expected void [noderef] =
+__iomem *reg2
+> drivers/clk/mvebu/armada-37xx-periph.c:254:1:    got void *
+> drivers/clk/mvebu/armada-37xx-periph.c:255:1: warning: incorrect type in =
+initializer (different address spaces)
+> drivers/clk/mvebu/armada-37xx-periph.c:255:1:    expected void [noderef] =
+__iomem *reg
+> drivers/clk/mvebu/armada-37xx-periph.c:255:1:    got void *
+> ...
+>=20
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> ---
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.0
-
-Thanks!
-
-[1/1] spi: meson-spicc: Fix double-put in remove path
-      https://git.kernel.org/broonie/spi/c/63542bb402b7
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Applied to clk-next
 
