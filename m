@@ -4,54 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63ED1F54AC3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEDFF54AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tj72oMxFPd8BDjOQIhw3pFVHq+x9Q3/gFhunxx6AeaU=; b=QpNYXMoceBHq5DHh3DIkMK9odQ
-	I1fpI+hrwt9z6wSn3TXSwOdRQMRIOrZ5GfV053nDF9RdwEHgHZryIvz9lj87YxBaFA+MuFuF8T3NQ
-	jywlo/Bt7coFMc8s1ITHJvg4Oylyn+6jtiIhdJniL5EFYHC72VJXFFb7MnvYB9bAtS3s0ALJ6piKe
-	0iOOnZ7oxDYBUNVZvHtHy7baf16XkeFiCclj8h4eu+pVBUEzOxnqB5X2UXvAJz7UYCzYUKFnhnuWR
-	oxbmVGuDVYk4YcJjtpvn/sKimcxzb64AxXChdoEViKNN0+mt7csvRisTfaSb7fCQ0+ts3jSt8jjK6
-	DTSNdP9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jFRqlxeeyykhaJI/khL2v43cZNHelaq/AadAUzt7MIY=; b=gb9aUq3+BtABsU1m9oqNQM+yd4
+	LodeWhjP3PuOCqjwbxhDGv3aI4cAY9rPHSBcBPUJ+E78YEvzWaEaHyZ5kxJCBVYy4ixYQV/561lN4
+	y9GnDewgKxe98bymMBbUfFj/bC8a573dOwJf7XNlr4xplKLF8/hzXwtatLonu1anYyJWutxnelbkm
+	Kly/gl/rdHqRe1HAWxo0o6UlO0ik2QMxfP8edZ/tWRVh8lCAeEG43Y/0PlGxY8xNoH79mhCjoFEGR
+	wtA7VSQNhGhWibPZQxP/ZeRuA2MG8XdyYKhlqS1AoBjv8GBIVA0nTqqEMAX6yd01L1Wog3o5OKyht
+	Cky3k5YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52b0-00000001cfl-0ghQ;
-	Tue, 24 Mar 2026 14:19:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52ax-00000001cel-02uB;
-	Tue, 24 Mar 2026 14:19:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Tj72oMxFPd8BDjOQIhw3pFVHq+x9Q3/gFhunxx6AeaU=; b=M9T0AEfPSQjpFAicz9fDQ/X1bO
-	Fdz87jpmyW3A+DWWP4PuV0SmiqTeE8igeNuGGkXWPLsHGzry54rBX9U4aFMqJr7kNnc3MbXep3F0P
-	E95WrLW7NwR4wGu0ndWSlnvqIu4WwVhusiJRD3SvFjWgQP+P3dYbj7CsEzKqTlNBYByPcOZg87iNi
-	nOEG6iL0erSUfi/DkWxxNn9B1X0of9KxCLRswaxaWJcNfPF1sWy/z0EqWjAfXquEECX6DDAPeaoNS
-	w/u7m8go2vKekYRq0S86LarASuVTtLK8bTdedEQKOUfURzLNQqDZQYRcAj0IE1YmXs9/DXqOwricK
-	wkQVCvMg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Pedro Alves <pta2002@pta2002.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Pedro Alves <pta2002@pta2002.com>
-Subject: Re: [PATCH RESEND v2] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
-Date: Tue, 24 Mar 2026 15:18:55 +0100
-Message-ID: <3407927.44csPzL39Z@phil>
-In-Reply-To: <20260323-radxa-r5-itx-hdmirx-v2-1-c52501909577@pta2002.com>
-References: <20260323-radxa-r5-itx-hdmirx-v2-1-c52501909577@pta2002.com>
+	id 1w52ej-00000001dBl-3bJI;
+	Tue, 24 Mar 2026 14:22:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w52eh-00000001dBH-1kST
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 14:22:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9713E1476;
+	Tue, 24 Mar 2026 07:22:42 -0700 (PDT)
+Received: from [10.1.39.145] (e142021.arm.com [10.1.39.145])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAA9E3F915;
+	Tue, 24 Mar 2026 07:22:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774362168; bh=BRixHAQA2z9Hj9TZCLXffWZs4Yn9gMucoyh7Xwxggps=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HsoDCgbG9zB/ghH2tlXyXDN06ILn05wImehmd9AjdFed04GolZiQso8LbleM54Svg
+	 HkL2jQE9Qs899fjFiF0e2Fw8s/9ffOWSsaXf7E5meEhDw7uY+GtTkDsgZoBw5Rt1lb
+	 iCwtI+z1wumxYBndEENICdwRcA27ceLzc+2oJXIc=
+Message-ID: <6ae6d412-84c0-402b-bb25-bad98e97969f@arm.com>
+Date: Tue, 24 Mar 2026 14:22:43 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] pinctrl: sunxi: a523: add missing IRQ bank (plus old
+ DT workaround)
+To: wens@kernel.org
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Michal Piekos <michal.piekos@mmpsystems.pl>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260323110151.2352832-1-andre.przywara@arm.com>
+ <20260323110151.2352832-6-andre.przywara@arm.com>
+ <CAGb2v648WLXK9KjXcCRKy_mQGMkn8mhxKHSukh-WC4i=sXZGbg@mail.gmail.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CAGb2v648WLXK9KjXcCRKy_mQGMkn8mhxKHSukh-WC4i=sXZGbg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_071859_108870_57BF38FE 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20260324_072251_655999_36569280 
+X-CRM114-Status: GOOD (  32.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,77 +78,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 23. M=C3=A4rz 2026, 10:25:33 Mitteleurop=C3=A4ische Normalzeit s=
-chrieb Pedro Alves:
-> The Radxa Rock 5 ITX board exposes an HDMI input exactly the same way as
-> the Rock 5B, but this was not reflected in its DTS.
->=20
-> Change the rk3588-rock-5-itx to configure and enable the hdmi_receiver
-> and hdmi_receiver_cma nodes.
->=20
-> The hot-plug detection (HPD) pin keeps the hdmirx_det name rather than
-> the hdmirx_hpd name used in other boards since that is what matches the
-> official schematics (HDMIIRX_DET_L).
->=20
-> The configurations were confirmed to be identical on the downstream
-> Radxa kernel, and this has been tested to work on a Rock 5 ITX board
-> running kernel 6.19.3.
->=20
-> Signed-off-by: Pedro Alves <pta2002@pta2002.com>
-> ---
-> Tested with the following commands:
->=20
-> v4l2-ctl --verbose -d /dev/video4 \
->   --set-fmt-video=3Dwidth=3D3840,height=3D2160,pixelformat=3D'BGR3' \
->   --stream-mmap=3D4 --stream-skip=3D3 --stream-count=3D20 \
->   --stream-to=3Dhdmiin.raw --stream-poll
->=20
-> ffmpeg -f rawvideo -vcodec rawvideo -s 3840x2160 -r 30 -pix_fmt bgr24 \
->   -i hdmiin.raw output.mp4
-> ---
-> Changes in v2:
-> - Updated dts spacing to match coding style
-> - Reverted pin naming to hdmirx_det to match schematics
->   - Didn't end up changing other boards to match. There are quite a few
->     others, so I'll probably send a separate patch for that.
->=20
-> - Link to v1: https://lore.kernel.org/r/20260304-radxa-r5-itx-hdmirx-v1-1=
-=2Df77bf1f7ce03@pta2002.com
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/ar=
-m64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-> index 172aeabba72a..8e0eead7d223 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-> @@ -349,6 +349,18 @@ &hdmi1_sound {
->  	status =3D "okay";
->  };
-> =20
-> +&hdmi_receiver_cma {
-> +	status =3D "okay";
-> +};
-> +
-> +&hdmi_receiver {
-> +	pinctrl-0 =3D <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_r=
-x_sda &hdmirx_det>;
-> +	pinctrl-names =3D "default";
-> +	hpd-gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
+Hi Chen-Yu,
 
-as said before, please also add a pinctrl setting for this pin.
+many thanks for having a look!
 
-gpio1_c6 is not part of the main hdmirx set of pins, hence needs an
-additional pinctrl entry to configure it as gpio and possibly set any
-additional pull settings.
+On 3/23/26 18:41, Chen-Yu Tsai wrote:
+> On Mon, Mar 23, 2026 at 7:02 PM Andre Przywara <andre.przywara@arm.com> wrote:
+>>
+>> The Allwinner A532 SoC implements 10 GPIO banks, each of which is
+>> interrupt capable. However the first bank (PortA) is skipped, so the
+>> indicies of those banks range from 1 to 10, not 0 to 9.
+>> We described the skipped bank correctly, but missed that for the IRQ
+>> banks, where we rely on the IRQ bank index to be aligned with the MMIO
+>> register offset, starting at 0x200.
+>>
+>> Correct that by increasing the number of IRQ banks to 11, to cover both
+>> the first skipped one, but also the last one (PortK). This fixes a bug
+>> where the interrupt numbers would be off-by-one, due to that
+>> mis-enumeration.
+>> The big caveat is that now old DTs break the kernel, since they only
+>> provide 10 interrupts, and the driver bails out entirely due to the last
+>> missing one. So add a workaround for this particular case, where we
+>> detect the requirement for 11 banks, but only 10 interrupts provided,
+>> and continue with 10 IRQs, albeit emitting a warning about a DT update.
+>> This would still be broken in terms of interrupt assignment, but it was
+>> broken the whole time before, so it's not a regression.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c |  2 +-
+>>   drivers/pinctrl/sunxi/pinctrl-sunxi.c       | 22 +++++++++++++--------
+>>   2 files changed, 15 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+>> index b6f78f1f30ac..a1d157de53d2 100644
+>> --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+>> +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+>> @@ -17,7 +17,7 @@ static const u8 a523_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
+>>   /*       PA  PB  PC  PD  PE  PF  PG  PH  PI  PJ  PK */
+>>          {  0, 15, 17, 24, 16,  7, 15, 20, 17, 28, 24 };
+>>
+>> -static const unsigned int a523_irq_bank_map[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+>> +static const unsigned int a523_irq_bank_map[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+> 
+> Actually you don't even need this, since this is a linear mapping.
+> 
+>  From sunxi_irq_hw_bank_num():
+> 
+>      if (!desc->irq_bank_map)
+>              return bank;
+>      else
+>              return desc->irq_bank_map[bank];
 
-And yes the pinctrl-driver does "implcitly" set the gpio-mode when
-a gpio is requested, but our more modern approach is to always have
-a real pinctrl entry even for gpios.
+Yeah, I was wondering about that as well, and there are other cases were 
+we wouldn't need the map, espeically in the PRMC pinctrl instances. I 
+might add a separate patch for that.
+
+>>   static const u8 a523_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
+>>   /*       PA  PB  PC  PD  PE  PF  PG  PH  PI  PJ  PK */
+>> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> index 6a86b7989b25..ffee79397590 100644
+>> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+>> @@ -19,6 +19,7 @@
+>>   #include <linux/irqdomain.h>
+>>   #include <linux/of.h>
+>>   #include <linux/of_clk.h>
+>> +#include <linux/of_irq.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/regulator/consumer.h>
+>>   #include <linux/slab.h>
+>> @@ -1582,6 +1583,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>          struct sunxi_pinctrl *pctl;
+>>          struct pinmux_ops *pmxops;
+>>          int i, ret, last_pin, pin_idx;
+>> +       int num_irq_banks;
+>>          struct clk *clk;
+>>
+>>          pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
+>> @@ -1715,16 +1717,20 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>                  goto gpiochip_error;
+>>          }
+>>
+>> -       pctl->irq = devm_kcalloc(&pdev->dev,
+>> -                                pctl->desc->irq_banks,
+>> -                                sizeof(*pctl->irq),
+>> -                                GFP_KERNEL);
+>> +       num_irq_banks = pctl->desc->irq_banks;
+>> +       /* Workaround for old A523 DT, exposing one less interrupt. */
+>> +       if (num_irq_banks == 11 && of_irq_count(node) < 11) {
+>> +               num_irq_banks = 10;
+>> +               pr_warn("Not enough PIO interrupts, please update your DT!\n");
+>> +       }
+> 
+> I would probably make the check universal, and also use dev_warn().
+> 
+>      num_irq_banks = of_irq_count(node);
+>      if (num_irq_banks != pctrl->desc->irq_banks) {
+>          dev_warn(&pdev->dev, "Incorrect number of PIO interrupts,
+> please update your DT!\n");
+>          num_irq_banks = min(num_irq_banks, pctrl->desc->irq_banks);
+>      }
+
+Ah, nice one, that's of course much better. But I see that there is 
+other code using desc->irq_banks, and if the array allocation is 
+different, that will not end well. I will check how we can use 
+num_irq_banks there as well.
+
+Thanks!
+Andre
 
 
-Heiko
 
+> 
+> Otherwise,
+> 
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+> 
+> 
+>> +       pctl->irq = devm_kcalloc(&pdev->dev, num_irq_banks,
+>> +                                sizeof(*pctl->irq), GFP_KERNEL);
+>>          if (!pctl->irq) {
+>>                  ret = -ENOMEM;
+>>                  goto gpiochip_error;
+>>          }
+>>
+>> -       for (i = 0; i < pctl->desc->irq_banks; i++) {
+>> +       for (i = 0; i < num_irq_banks; i++) {
+>>                  pctl->irq[i] = platform_get_irq(pdev, i);
+>>                  if (pctl->irq[i] < 0) {
+>>                          ret = pctl->irq[i];
+>> @@ -1733,7 +1739,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>          }
+>>
+>>          pctl->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev),
+>> -                                               pctl->desc->irq_banks * IRQ_PER_BANK,
+>> +                                               num_irq_banks * IRQ_PER_BANK,
+>>                                                  &sunxi_pinctrl_irq_domain_ops, pctl);
+>>          if (!pctl->domain) {
+>>                  dev_err(&pdev->dev, "Couldn't register IRQ domain\n");
+>> @@ -1741,7 +1747,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>                  goto gpiochip_error;
+>>          }
+>>
+>> -       for (i = 0; i < (pctl->desc->irq_banks * IRQ_PER_BANK); i++) {
+>> +       for (i = 0; i < (num_irq_banks * IRQ_PER_BANK); i++) {
+>>                  int irqno = irq_create_mapping(pctl->domain, i);
+>>
+>>                  irq_set_lockdep_class(irqno, &sunxi_pinctrl_irq_lock_class,
+>> @@ -1751,7 +1757,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+>>                  irq_set_chip_data(irqno, pctl);
+>>          }
+>>
+>> -       for (i = 0; i < pctl->desc->irq_banks; i++) {
+>> +       for (i = 0; i < num_irq_banks; i++) {
+>>                  /* Mask and clear all IRQs before registering a handler */
+>>                  writel(0, pctl->membase +
+>>                            sunxi_irq_ctrl_reg_from_bank(pctl->desc, i));
+>> --
+>> 2.43.0
+>>
+>>
 
 
