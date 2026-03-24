@@ -4,102 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAFAF532C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2607AF532C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gpfpIFEo/UM2Vlf5EBuE34iIvnj7ck9nMpb5/Ds9cg=; b=N32piAuIwZPmF9zVVqps72VynO
-	gXEzy74595rEOcbiXIW+9ng85tkNWlmu8aA10jm28ZP5gV1PxAkC5UD6TYBdXs7vaYFvnluRuNEaA
-	Td4EkmvDxdmE5Ik8n/mW576AJYs/A5yZR387pxT+g0yc9AD3IC2SggyItt6alxsz9qSocIy7QqU0u
-	7vVEGLG2sa6r0TP2HP/sYJcBrc0h+aFprUVERmDUNfxF6wk7Z8iI2OZpvvEkTLcPG86SZeSDsKNsg
-	COkuH1YY8KoBCC1hok+mQVMnhrhhLsAwX9h2CFSXwGZ+vhq4vTJwUh8h6kCVgkhvpWOEtiZuemQnS
-	yHIodTug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I4u4qwOi8947afJmL/tJWDvx8LLwnPIvS8NXvU0hxLI=; b=DYzaBpEPSZ76RkmLFaEV2nQO9g
+	vSLZfwH69t5vaO38JpqU32Ud9gPAViY5iBG9nkKDduPgoLPSoNy5hSflDzqRLIvl8UMtRdZwopBXb
+	YpobIW7Lmg1R9n9YfpEwb74v9FhTQoMmakPd0llwj8kweLmbkaleQDXxLHFekK6XpxfC5bw2H7GQu
+	7B+Ja1i00DIhDI0383uAlZOyeA2zmLckTuHK2S2+k65F/ZkAHPV7/Wf50C5BjmE7yyg7paYQvXVg1
+	rQF7oefybQbQ8FVkYCtQ3pAeXARX2sQqUTSgKmZQSrGfjEMSahxx56HEVohvTEpKa09osBQwrKdOK
+	oldRYGKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q9f-00000000HMS-1u4s;
-	Tue, 24 Mar 2026 01:01:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4qTD-00000000Ibc-3IDx;
+	Tue, 24 Mar 2026 01:22:12 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q9e-00000000HMI-25yt
+	id 1w4qTB-00000000IbH-1YfJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 01:01:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E26DB6012B;
-	Tue, 24 Mar 2026 01:01:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0E8C4CEF7;
-	Tue, 24 Mar 2026 01:01:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774314087;
-	bh=KpxTlQdpK2jKnd62P5I8EEqT3CEkSotjkNoM+lvw6Dc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rLAmVR6groUQSZRplygjMn68KJDDiLrGR9Vctd6Afc3mLDKzHEaYGbMFZ3KXs4fK4
-	 MUoXCr/h6SfvTEE4yAlc7KGjraQ8CFJXtGn8f5BkmJWMm1J/pjXgfy9qXciydDWGLj
-	 XNYlWwVjufJG5KD0z7v9ARc0FuEyAjjiYRe15HPbrYCuuNFi4/b/eyHrklVGEVsCSm
-	 lE5k5muPCMjo/9hKdfl5T5LohS8mNpZoGcTFibqf76OQzdeH43NHUrx9bEVbSisncq
-	 g/N4LXJNuBtUlzaGXa8b6D8KnPgXir5STaz/+AS+2urYkPCvbB6vpDfKREYcWyPp9d
-	 47Lib8DntPlsA==
-From: Danilo Krummrich <dakr@kernel.org>
-To: Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Armin Wolf <W_Armin@gmx.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Vineeth Vijayan <vneethv@linux.ibm.com>,
-	Peter Oberparleiter <oberpar@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Mark Brown <broonie@kernel.org>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Alex Williamson <alex@shazbot.org>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	kvm@vger.kernel.org,
-	xen-devel@lists.xenproject.org,
-	linux-arm-kernel@lists.infradead.org,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 12/12] driver core: remove driver_set_override()
-Date: Tue, 24 Mar 2026 01:59:16 +0100
-Message-ID: <20260324005919.2408620-13-dakr@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260324005919.2408620-1-dakr@kernel.org>
-References: <20260324005919.2408620-1-dakr@kernel.org>
+	Tue, 24 Mar 2026 01:22:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yYRXGzupR1zONHuyQD0+EPqwE2tFv5n5HdoHTZPNLyc8ZaDp6QM5VFWKz5esWjZy77FBid5Bjf+CmY9ZIA+HvmgtAbDhWkoQ/WWfUcWJt+kMwgg1QT49RqFJ9+xSgBZTFsRFCpcYs+1yrDheNZ9UC79lnAdKFm3ZAWuxL6bnaSoHY18fdb/U30KWZd3DHMeXguI1Vnd7wclnXpCDh0My2RCWYymQ5GLjGjd0LCLYElSTBra+EGp8zPqWb/x/0B3+Z+PPFwV5LL/+inlmlj3s/3/LxX7T2zhH62CCROdFYtKrgYGrUlTEgAkVDwPnu4aayj+LFOgGBtg49e0TtJ4AaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I4u4qwOi8947afJmL/tJWDvx8LLwnPIvS8NXvU0hxLI=;
+ b=OlJq2Tlcxksvfi5jgMK0SJjEClJmHrh+JhNhl/gIKYzqPF1oa8wBFI+3UkgW0f/Av47V/NXhNcc+bA/RBC8VM4JLR0CWm0AiKuqeFyY2gQh4SPov7L9fZO8V/raa2LlmMpWsGJVJJ3qi91Z+pqT7Nro1JtbrY4C376i+4EtdE/+ewVnW1o/Fcsj080WasHUCFJfOnSYVL0OvFpbWSLcrZzKRy1xFHjitd63IZ9P9cP7f1bN3BQE/wjr1MDELALNweVkzA/MDlDPTBezCsUSRMUD4vfUDpYSAGtZPACDryOJEsy1/kPcuWpvMnoh3m3hQSswJwmvPDacXUiLZbu/OZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I4u4qwOi8947afJmL/tJWDvx8LLwnPIvS8NXvU0hxLI=;
+ b=HfySuETy+ddMNyk29+opfWC6Q1garfX1uFG1qbTTS/2hRVehQiBuKkHhW6Oje9CQQplI9SsfGdDA4YxNtG6WG/Y+50b4XgJRXMBBuX72N49GW0xXv2b8knTX7aQPOeuFlTDaVW+gYd2y9kTsw/xoeMnkgUiws51QKgNm6+f4QbcQwN5kIdoznGYTDi8LmA08Acd2Y2567MmEaWeuwRQDH02Q3Q4dUQBKpC/rUIh9SMp9aHZ97YVo095KljeCTBiBmMO9vOOTOmyRhV2jtNgO+xIwNkYmMngHtRD8WgO00QgNXFtMtOw7UnjKy/fi8z3cvzOtDzNEo+kLJXdgJQw0Ow==
+Received: from BL1PR13CA0002.namprd13.prod.outlook.com (2603:10b6:208:256::7)
+ by SN7PR12MB7884.namprd12.prod.outlook.com (2603:10b6:806:343::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
+ 2026 01:22:02 +0000
+Received: from BL02EPF0001A0FD.namprd03.prod.outlook.com
+ (2603:10b6:208:256:cafe::9c) by BL1PR13CA0002.outlook.office365.com
+ (2603:10b6:208:256::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
+ 24 Mar 2026 01:21:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL02EPF0001A0FD.mail.protection.outlook.com (10.167.242.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 01:22:02 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Mar
+ 2026 18:21:52 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 23 Mar
+ 2026 18:21:52 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 23 Mar 2026 18:21:51 -0700
+Date: Mon, 23 Mar 2026 18:21:49 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Samiullah Khawaja <skhawaja@google.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <bhelgaas@google.com>,
+	<rafael@kernel.org>, <lenb@kernel.org>, <praan@google.com>,
+	<baolu.lu@linux.intel.com>, <xueshuai@linux.alibaba.com>,
+	<kevin.tian@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<vsethi@nvidia.com>
+Subject: Re: [PATCH v2 4/7] iommu/arm-smmu-v3: Mark ATC invalidate timeouts
+ via lockless bitmap
+Message-ID: <acHnLVtSgbcAbX2M@Asurada-Nvidia>
+References: <cover.1773774441.git.nicolinc@nvidia.com>
+ <0c5525367cc67ccc84a675544d1d9f8462704065.1773774441.git.nicolinc@nvidia.com>
+ <absfAT4jgL2f3UfR@google.com>
+ <abs0CQCrFlCsV6Ls@Asurada-Nvidia>
+ <20260323235756.GW7340@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260323235756.GW7340@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FD:EE_|SN7PR12MB7884:EE_
+X-MS-Office365-Filtering-Correlation-Id: d32e9768-a953-4428-3dba-08de8943c0ea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|7416014|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: LCFr2mvtLSmm3Y83inhfAiVSoDUBTkYD+DhcxEjOgGUyF8LhBNZbIhv350q5lPiQA5hUyteBD1wPo/CisA+hYNCFor8yw4Ptqr0BObpL6idnTpg4lP82t6QZEu8g10XtO+CIMbaitW4WzVieK66f/xX2ENB/5I+c3C3KvDsolJviMqTPGCUUeRkqZ8HF/kCLQwkFxc4WfWP6gCbQX8ghSKeDxG3erNhIIThuquGFy0IPWkiYCmsC0X1OtGgCe2fwyLN1tS7S7dMaDynYLL5gJdmXQ4nHT7RZI0rfURon4U16O/PODn92CJ49TdI82+R9OMiUuoGCx4lpd6cv5X4Gj+IjB7uYrjVknDEz01rlieuLFIPRIZudzUPWZhvaIDFBFMi7RNM8hxX2A+zVNFP09kNZPgnEGxim7BQsQaobaIS+KLSzMBvHQlhYC+Z+ueL0jKzomxhpPpsXDOJQ4XG4zow5mvk7+g72QeKL3BFqwu6zYEa8zkxjuEdkqtJi6Gj98bllSLP++Z9MSHZGtiwalBq8ylNQNCz2TtzkoVDrhdtd45vv6+TtZPdBxskG+QRlXW8FHuwfFv+f5ZEI6ST1wVRbeUxvu3WbiIj3V3yUXYROvAYW+k7pBatJneWyN6OkVaZoRVum00usOWcqOrZh5t7dYrPuE5k5OQMHOLjALNpNRbP/p8FRywQa7k7+392dIaxq66Dzeq9aku93fXRN0kqb8y3Sl3ZEsQa1IL+wyHpSgmMxL8/O4nlUR7ygKTvw7T0HeodNi32RRIDy+uxzpg==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(7416014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: RlYBIietkzF4TruvkgxrJrUa7wksAzu8CW7L2wBlaNiEMOmezU1+oc8uLs76bHcP+lphzOongBO3AzTlnwO2Y0TzItjNgnwhXnPlHxNAlbLAtnhFBL+Nb5Lj6p7CtIBYVCvagfrNRYZlW8of6WIprMkDxvOfl2oZ57AdJ7K9ZY4ptg0rUbvufkHTVogKg6KXz/DAPGkjC/Zvau/ToB16mGUTKcc24P/52/X6IDNsnm0OvcVt/xxeVRcd2I/6t7dQU9oF+4HWtRkKx83pTJTukJjNRm05eUfRKFh8WOaqtAfbwQnw6hwpNHnhFJlv1QXYc7FEw9y/5HvMHDkqwEZZgCwa/RP/Pz+VqMopf7uhiGYUVyL/Gfb1W6EoCo/ELTQscuS2wSvuylqROOmSXQ1hsNlogmNwJ5L6G0fARNfA6eajOLC9Wg7UCKBCW6+9KzXz
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 01:22:02.3755
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d32e9768-a953-4428-3dba-08de8943c0ea
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FD.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7884
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260323_182209_413862_8CD520AA 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,123 +137,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All buses have been converted from driver_set_override() to the generic
-driver_override infrastructure introduced in commit cb3d1049f4ea
-("driver core: generalize driver_override in struct device").
+On Mon, Mar 23, 2026 at 08:57:56PM -0300, Jason Gunthorpe wrote:
+> On Wed, Mar 18, 2026 at 04:23:53PM -0700, Nicolin Chen wrote:
+> 
+> > If the software times out first at 1s, it means the CMDQ is still
+> > pending on wait for the completion of ATC invalidation. Then, the
+> > caller sees -ETIMEOUT and tries to bisect the ATC batch or update
+> > the STE directly, either of which involves CMDQ. But CMDQ has not
+> > recovered yet.
+> 
+> Yeah, I don't know if the SW timeout flow is really all that RASy here
+> right now. Without somehow recovering the CMDQ it is pointless to try
+> to continue after a timeout.
+> 
+> And we are really in trouble if things like normal IOTLB invalidation
+> start to fail.
+> 
+> I think the right thing is to somehow try to recover the cmdq and then
+> restart it on the commands that haven't been SYNC'd yet and just keep
+> trying, maybe with progressively longer timeouts.
+> 
+> Just ignoring the error and continuing doesn't seem safe.
+> 
+> But that's something else again, as long as ATC invalidation reliably
+> hits the HW timeout first we should be OK to ignore it in this
+> series..
 
-Buses now either opt into the generic sysfs callbacks via the
-bus_type::driver_override flag, or use device_set_driver_override() /
-__device_set_driver_override() directly.
+Yea. I will leave a FIXME inline for now.
 
-Thus, remove the now-unused driver_set_override() helper.
-
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=220789
-Signed-off-by: Danilo Krummrich <dakr@kernel.org>
----
- drivers/base/driver.c         | 75 -----------------------------------
- include/linux/device/driver.h |  2 -
- 2 files changed, 77 deletions(-)
-
-diff --git a/drivers/base/driver.c b/drivers/base/driver.c
-index 8ab010ddf709..7ed834f7199c 100644
---- a/drivers/base/driver.c
-+++ b/drivers/base/driver.c
-@@ -30,81 +30,6 @@ static struct device *next_device(struct klist_iter *i)
- 	return dev;
- }
- 
--/**
-- * driver_set_override() - Helper to set or clear driver override.
-- * @dev: Device to change
-- * @override: Address of string to change (e.g. &device->driver_override);
-- *            The contents will be freed and hold newly allocated override.
-- * @s: NUL-terminated string, new driver name to force a match, pass empty
-- *     string to clear it ("" or "\n", where the latter is only for sysfs
-- *     interface).
-- * @len: length of @s
-- *
-- * Helper to set or clear driver override in a device, intended for the cases
-- * when the driver_override field is allocated by driver/bus code.
-- *
-- * Returns: 0 on success or a negative error code on failure.
-- */
--int driver_set_override(struct device *dev, const char **override,
--			const char *s, size_t len)
--{
--	const char *new, *old;
--	char *cp;
--
--	if (!override || !s)
--		return -EINVAL;
--
--	/*
--	 * The stored value will be used in sysfs show callback (sysfs_emit()),
--	 * which has a length limit of PAGE_SIZE and adds a trailing newline.
--	 * Thus we can store one character less to avoid truncation during sysfs
--	 * show.
--	 */
--	if (len >= (PAGE_SIZE - 1))
--		return -EINVAL;
--
--	/*
--	 * Compute the real length of the string in case userspace sends us a
--	 * bunch of \0 characters like python likes to do.
--	 */
--	len = strlen(s);
--
--	if (!len) {
--		/* Empty string passed - clear override */
--		device_lock(dev);
--		old = *override;
--		*override = NULL;
--		device_unlock(dev);
--		kfree(old);
--
--		return 0;
--	}
--
--	cp = strnchr(s, len, '\n');
--	if (cp)
--		len = cp - s;
--
--	new = kstrndup(s, len, GFP_KERNEL);
--	if (!new)
--		return -ENOMEM;
--
--	device_lock(dev);
--	old = *override;
--	if (cp != s) {
--		*override = new;
--	} else {
--		/* "\n" passed - clear override */
--		kfree(new);
--		*override = NULL;
--	}
--	device_unlock(dev);
--
--	kfree(old);
--
--	return 0;
--}
--EXPORT_SYMBOL_GPL(driver_set_override);
--
- /**
-  * driver_for_each_device - Iterator for devices bound to a driver.
-  * @drv: Driver we're iterating.
-diff --git a/include/linux/device/driver.h b/include/linux/device/driver.h
-index bbc67ec513ed..aa3465a369f0 100644
---- a/include/linux/device/driver.h
-+++ b/include/linux/device/driver.h
-@@ -160,8 +160,6 @@ int __must_check driver_create_file(const struct device_driver *driver,
- void driver_remove_file(const struct device_driver *driver,
- 			const struct driver_attribute *attr);
- 
--int driver_set_override(struct device *dev, const char **override,
--			const char *s, size_t len);
- int __must_check driver_for_each_device(struct device_driver *drv, struct device *start,
- 					void *data, device_iter_t fn);
- struct device *driver_find_device(const struct device_driver *drv,
--- 
-2.53.0
-
+Nicolin
 
