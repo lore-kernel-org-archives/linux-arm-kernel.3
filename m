@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8147D58CCA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F033AD58CCA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GrhfvBvRZGiUNI24672u4T9qgGpFtW6cvQCVSgM4gf8=; b=P4J3H3KicQuAcrRpZXh8WzvK5Z
-	H3llAIsURsCEXnYcZxC+SqnqlVhtXM8fPRI0mYgwbhARcllz4qX112eWJxDs1jbefGxm7VuT/JvJY
-	DTQ4xNHCXOmW8A/rgpswYLWfxRk6e0IyHPfISsb3zRLdt0Nq1CZ3HVhSL9t0w2uAFuGwU+lSiErfp
-	eWNdfv24p44Qg5kepxj/oXdtiOO22ddeH/Qg14CL9tDLdCW/wWfsX9E05wlJvjdlxuKPqfnBjhDty
-	der60NiZSkxCCtwHKsQ1foX8uX6NT6dYVUycTUbyUD2SO6tuNO5FN7bEG1cQcNa7cKOtDxHprRqG2
-	1ozZohqg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=etK4mKfjiybgFKjNxyR/aXssaSmyesNM9uARzXLJhCk=; b=tEJBTlY53D9/g5Dwmcij8SdokD
+	j8bKViFY0fETl2grTRAAxPX2blhORi29QwA+7ZNauyWxvzTcgdbT40F4orvgAZXcjwDupyIF6QFOR
+	c26dT/DlAvf4aIk8j0pHUjv/jzUhOQZ+Yr1OZmMmmqcCkG5JF5jJYPbV1zZujr1nxFKzw5e4+BW05
+	aU93xZiu0cSahZ5Kx+WK2hKCcmtOmWeaHUw47s3fWuQ9Ho4g/fFZHcC3eBMDaDe75lfWvLERX6Zlf
+	8lKQ5zC3bWxS6y1KFl/mdUliH5dHXD+y4l96zGaJBcx6kpTnOl2wN/NgKwa2gYi3AMhONTXIun427
+	aD0fuT5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51LL-00000001SmX-1fOw;
-	Tue, 24 Mar 2026 12:58:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w51LR-00000001Sok-0DLK;
+	Tue, 24 Mar 2026 12:58:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51LJ-00000001SmM-1A3a
+	id 1w51LN-00000001SnB-20s0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 12:58:45 +0000
+	Tue, 24 Mar 2026 12:58:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9E58B60138;
-	Tue, 24 Mar 2026 12:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81F73C19424;
-	Tue, 24 Mar 2026 12:58:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EDC764366A;
+	Tue, 24 Mar 2026 12:58:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A078C2BCB2;
+	Tue, 24 Mar 2026 12:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774357124;
-	bh=A+4g3Ij/AyOjNc1oYiN7OS9aACrBKUxxbsOdM2jP8Ac=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Hil6nIEM7g2oVF+7s/xfLmKm+SI4qMb6HhsT/SfHKXG7ZVjuALfdThW6eLkWOPg4A
-	 z58WqRw45kG4TjmDf5w8lhp2QIRyN1Q84bRCrDjHgMQFDpJQOcTtrzHUPahik46DlC
-	 155E0OiGtXVimz2n0vQwPnR0l2TxV1CBlbQC4flmByQse4nJTzjevqt+KvZKHvNpUW
-	 MkyjeCf0RRcNTTYNaknrgmzRqZZIqoG6LHGTJW2JxAskQbKWFSLv/aT5s7mY1K2imD
-	 HZ3mHww6y8ps6I8Tbd2sslEJEmU0nF+e9jy0NDz2vZ4VbZr2b6ORWWNpkaypFfu+Fp
-	 F7aAtmwwVgVNg==
+	s=k20201202; t=1774357128;
+	bh=MmcCA5Xn9PA62YuIE5jDTBc2W5syVFoV8J1qc1fPQns=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JNyjyfHg1q9gc4LNo95m9wuvtIcvxoh+ZWwK7KzHBerV8X6xqtyDEgPcIct/gWhwk
+	 Be0fr8PUgmMAFBHy1hV6zEycCaa8m/10Oxg6U5/yGOIscwmRfZBVtobcoOVIDrGHyk
+	 lja863xoTCUyKTv8il7wD0hOcq4i2sJpaWgr+htr/ZoxobSn6lmNceAGEVtF8TKQa5
+	 p0GFQyQW/O+0UFCsqUrk2AD8R+klmVgg0VVZdDkzTvDFlvoV3hZV2zHd5G+6n28QhK
+	 h53muFOHDucdnA3ZEg3DP3pg44sOPgqLUwOqS8riO/GwqiUn72kGa0wK1XjXIM52kZ
+	 ZtD2txvSqLd+g==
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>,
 	soc@lists.linux.dev
@@ -51,15 +51,20 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [GIT PULL 1/4] samsung: drivers for v7.1
-Date: Tue, 24 Mar 2026 13:58:21 +0100
-Message-ID: <20260324125821.59728-5-krzk@kernel.org>
+Subject: [GIT PULL 3/4] ARM: dts: samsung: dts for v7.1
+Date: Tue, 24 Mar 2026 13:58:23 +0100
+Message-ID: <20260324125821.59728-7-krzk@kernel.org>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260324125821.59728-5-krzk@kernel.org>
+References: <20260324125821.59728-5-krzk@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2266; i=krzk@kernel.org; h=from:subject; bh=A+4g3Ij/AyOjNc1oYiN7OS9aACrBKUxxbsOdM2jP8Ac=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpwoptXmmr4YBkPD+8zTZrPzd80hp9Ha6QeNMJE VZySaNb1TKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCacKKbQAKCRDBN2bmhouD 1zhRD/0WQA/XCArRr3CdsfHsXa+JTsEbFUOG7rPq8BI60jJgtrCfd82ERyonh793OfAWYazJ9Vj CQ5lrsxyrR3ff2SWMeBFA/NClJYNToQYqX5XZ4Iag/ALdDxGWITkYgVWf05qhr4IyNmiGu/yqUq yUEu/CuMb3hQTujHoaSf/jc34JkrIhppAwL2Hb51FgfPKdUIS6oG4Wa51CoNcsmFUoCE708HTTl OwbnKKpASQon83rxTKDzHD77mk+SMxe99NqcaIkMuES3IBAg4CuNEGZp9tbOHQ7KFUOgcxoxglW BE47zmIBDcdEd7/sYicT6lkI30IUpeU/Qohha/ejHSdKcYBIC9XCtMbHgcx+43Ut3+xfWYNhKsD nijKWhvAa2GdB/STlk+waGuDuoR8AVyWPvnHJSFauaXXBwNAWR1OnKbG47LRcTfkFugotLECNGE vMVxw15rrNLEqbgrYxCIVwE0pNsn3aVh7gcBawh7CuKpAc0TgCtbPMMaOG7wu14GDE1p3cd/Z5X G6Mx3aQs6WsezW3YELqCf+mOKg5koZlXdQErDXlKNXo9HQBN6czPsslarn8BIOZUI661nxbEe+Y 67fQMKpgxV/Heg4eNsNBwpvvpTvJwjxxq+EgZB8yEzFBgXFHbpuctC0Ax/172iIngPBtEwwUgqf STZY9sJaxw7SR7A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1746; i=krzk@kernel.org; h=from:subject; bh=MmcCA5Xn9PA62YuIE5jDTBc2W5syVFoV8J1qc1fPQns=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpwopvK/4FJb1yvGeHFMyO5wN7HbaXqwV9HXacC +oZxxJesiSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCacKKbwAKCRDBN2bmhouD 1198D/sEqmYlYF62mX4tuDHVj1Amc3BEBdB60QsT9WIGFLEWwPS41j9MX5ku/yAxyOUQfAdw6qC HHgTBLdQzUj2G9hI0dNLZ7oFjztQniAr7cBfybp7+3mZvb326R9F3Ian1XLnPMnftgT1GPQefBl 1joPW04ZtSWgCWzTiECnfN6cuFZTAk2BCBPZrrBhadtIqzIbvkeIL59uRbv18Q8D967eyMusLB1 06q+/MTbmg44/UPAxiBhQSIiWuDUGE1Mcin1s4bgf2vRKjKIsDBX7xphdiE9h4ctvUDnbh4FiDH Ig8v9+xNrgXVuj5vZStnLxCXmqQNDq1t0e+1IqBZiwbF5P89Z4zXSo5TJoNebG0AAT8WLik5Oc8 S57Cn/HvzomWikKYnKYRquipSPZ6MD3qzl6jfpeCi0SdNUE7bJwECQYPxuJJIPCZFoJnJ184KKG +rAravE3x3WxooiXeILiwOYWKBa+gOJAZcKIOXMvaTiByoEJcRLzEyMPChMRmmD0XL/pU1w1m8b 6r9O8FouwkgoRRoZP6wuTyzonOm/w5jWx4WTQCpc2etl/eTKY0Xu8e8inl0ivkrjurm27JrWNUO +XpktjFV+iqYcm7FfEWZ9H1Vu+WIPrPH+Xnq+57KC4lwJmwiVgWZlby/20bI0izREO+WsMKGUNv SPMyhAbnZD7Dw/w==
 X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_055849_563951_4BD7F1EB 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +85,37 @@ The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-7.1
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt-7.1
 
-for you to fetch changes up to a2be37eedb52ea26938fa4cc9de1ff84963c57ad:
+for you to fetch changes up to 44ee52a030a6dd2f6e0ecb3632ecf8b263114619:
 
-  firmware: exynos-acpm: Drop fake 'const' on handle pointer (2026-02-28 15:47:03 +0100)
-
-----------------------------------------------------------------
-Samsung SoC drivers for v7.1
-
-Few cleanups in ACPM firmware drivers, used on Google GS101 and newer
-Samsung Exynos SoCs.  Notable change is removing 'const' in
-'struct acpm_handle' pointers, because even though the code does not
-modify pointed data, it immediately drops the const via cast.  Also code
-is not logically readable when a reference getters/putters (e.g.
-acpm_handle_put()) take a pointer to const, because the meaning of "get"
-and "put" implies changing the memory, even if that changeable field is
-outside of pointed data.
+  ARM: dts: exyons4412: Drop duplicated I2C address/size-cells (2026-03-10 17:03:43 +0100)
 
 ----------------------------------------------------------------
-André Draszik (1):
-      dt-bindings: firmware: google,gs101-acpm-ipc: add S2MPG11 secondary PMIC
+Samsung DTS ARM changes for v7.1
 
-Krzysztof Kozlowski (4):
-      firmware: exynos-acpm: Use unsigned int for acpm_pmic_linux_errmap index
-      firmware: exynos-acpm: Count number of commands in acpm_xfer
-      firmware: exynos-acpm: Count acpm_xfer buffers with __counted_by_ptr
-      firmware: exynos-acpm: Drop fake 'const' on handle pointer
+1. New board: Exynos5250 based Google Manta (Nexus 10).
+2. Few cleanups.
 
- .../bindings/firmware/google,gs101-acpm-ipc.yaml   | 50 +++++++++++++++++++++-
- drivers/clk/samsung/clk-acpm.c                     |  4 +-
- drivers/firmware/samsung/exynos-acpm-dvfs.c        | 13 +++---
- drivers/firmware/samsung/exynos-acpm-dvfs.h        |  4 +-
- drivers/firmware/samsung/exynos-acpm-pmic.c        | 26 +++++------
- drivers/firmware/samsung/exynos-acpm-pmic.h        | 10 ++---
- drivers/firmware/samsung/exynos-acpm.c             | 30 +++++++------
- drivers/firmware/samsung/exynos-acpm.h             | 10 ++---
- drivers/mfd/sec-acpm.c                             | 10 ++---
- .../linux/firmware/samsung/exynos-acpm-protocol.h  | 40 ++++++++---------
- 10 files changed, 120 insertions(+), 77 deletions(-)
+----------------------------------------------------------------
+Alexandre Marquet (2):
+      dt-bindings: ARM: samsung: Add Google Manta (Nexus 10)
+      ARM: dts: exynos: Add Google Manta (Nexus 10)
+
+Krzysztof Kozlowski (3):
+      ARM: dts: exynos3250: Drop duplicated I2C address/size-cells
+      ARM: dts: exynos4210-smdkv310: Drop duplicated I2C address/size-cells
+      ARM: dts: exyons4412: Drop duplicated I2C address/size-cells
+
+ .../bindings/arm/samsung/samsung-boards.yaml       |   1 +
+ arch/arm/boot/dts/samsung/Makefile                 |   1 +
+ arch/arm/boot/dts/samsung/exynos3250-artik5.dtsi   |   2 -
+ arch/arm/boot/dts/samsung/exynos3250-monk.dts      |   4 -
+ arch/arm/boot/dts/samsung/exynos3250-rinato.dts    |   4 -
+ arch/arm/boot/dts/samsung/exynos4210-smdkv310.dts  |   2 -
+ .../boot/dts/samsung/exynos4412-itop-scp-core.dtsi |   2 -
+ arch/arm/boot/dts/samsung/exynos4412-origen.dts    |   2 -
+ arch/arm/boot/dts/samsung/exynos5250-manta.dts     | 564 +++++++++++++++++++++
+ 9 files changed, 566 insertions(+), 16 deletions(-)
+ create mode 100644 arch/arm/boot/dts/samsung/exynos5250-manta.dts
 
