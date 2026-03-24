@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44A0F54ABC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBC2F54ABB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eVM5njdwmLVkvkbsPkw/voN/xq5dei4oewrLsHcno0=; b=NDtwrS+aKPc9sgr84/+MDrchja
-	vPb1k8nf8wjhOnfhva/CAeYYxnza1L3i9+e2zp7gVTo1cazjIH65Nlb4xnzQCGXaE7NyRZbboON8A
-	Iys9Z1Hi07mCBC4OIyeshHKbWhv8I7vVNaT4HQM/x5v03ZgUBciYY8gsf5RYFQ1HuzhBA2hdV/UxS
-	oU8BvCQ+3AUARR3T+Qy8IAE4X5ZM4EUeBjOJiAe8IzSkrrivO6yu6yMpeKyZR+iCkOXF9ojxif4hz
-	uZGcFgM7tbWa5uYujUFmEBDGc+aUfY5mESVt8+FD0G68quILoTMajQylvIxDwPu5gWUyRav65WT3M
-	SqecJLqA==;
+	bh=oz1kP6mGnYmsV3pNCXtV9G7tgVBh7BnFUeruC1cPFLw=; b=dflFw/KTjZreHsaJ8N8cVHFFXO
+	Ay8hTrzv2WbxFIiJYjvG8uR5ERgDmc7JfYbeKuLbCCgi2G+8bGrnkLKI3/NybEX4M77+V6B41CRR1
+	G4Abx4kX2SAgDihNuOPZf95Ob9rutoeectoG3Y5IZjKHdYknNXS9ONtfS1bVbhRYUKPQzOJIqUfsj
+	J3sw+QLR7+cZZhCm4FXT3sadMI6D0vjfiTSunehzrrFPEWzeB8Z2E3hbc2REUhuQa5r53w6cwPLc8
+	ob1Da2Bw8LrMEumtE7BEKR0nw4OFSNMSP7w4Iurhvx+IQA5DkuHE3yW6l5TRiQ0XVWxE2AUbH6XZe
+	MzFVpZVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52Dh-00000001aPo-3YLj;
+	id 1w52Dh-00000001aPG-2BYb;
 	Tue, 24 Mar 2026 13:54:57 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52Dc-00000001aLh-30fg
+	id 1w52Da-00000001aKo-3Nka
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:54:53 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a27dddecb0so7409795e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:54:52 -0700 (PDT)
+	Tue, 24 Mar 2026 13:54:51 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5a142464316so5698308e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:54:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774360490; x=1774965290; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774360489; x=1774965289; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4eVM5njdwmLVkvkbsPkw/voN/xq5dei4oewrLsHcno0=;
-        b=Y8ZT/y5HRJgvacJ990f2jDRkMvjFkc2uN2Z0eCtoqsNuPbC5WIsTiXEoi8TIPqAxeq
-         Wlgtq+qtKPyvjuWozefy53zjVYjNs9yO0ejVDujwCOtlDHwGL5VbVsgymUL544oP+9nw
-         DaZhUIRvjXBN8RavUI5tzL8DjKCEODr2fI+w0jKYTLvU1cu6LP/t98gtaR2QcSCYPUlh
-         cogAp/pJwcynfG8chFmrE9aNn+nSCgl4B6+nCF2laa3CbufvVE3FJ8DuqLZyx/1yPYDX
-         m/3NxpYaVQYdPwv2b78aXbRokXuMXdECWiTtONvAaR292+XQB6MQadIEthkPgxDmztdl
-         o7lQ==
+        bh=oz1kP6mGnYmsV3pNCXtV9G7tgVBh7BnFUeruC1cPFLw=;
+        b=PX3IQfEO0RhqzSLuKcxVuYSRSDYyXP8sbZDIsHoT5nIpq6dKT+0bb1NtyK17ctwhHF
+         HBrGBTQIkSZ2ZPrJXiVr2xoxm8PfUJI4J+GXGAhEuViUEb3SYburxfVrBeTTNIUaNAvh
+         bJ8r/5p77X5Dy7YkGO4I2/Ub0eT1rWe+fIZZUhuQgTkGQf7hFeoThJyB5vmRPY24NSUT
+         muFClhrkw2f/gS5BGxcKgRibEm86cNabI6IsMhZbmqPLRCNxXm3srJFQr3Ta8OuTbGKB
+         J3prA8fDOrwz+171VC4LEmmffJN8r7Xim7UbabOmzPuJNhXgCw1orPsp0gaq1RXbfTL3
+         Ae7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774360491; x=1774965291;
+        d=1e100.net; s=20251104; t=1774360489; x=1774965289;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=4eVM5njdwmLVkvkbsPkw/voN/xq5dei4oewrLsHcno0=;
-        b=FduT3sa7DHK0SRmjYgaWYyFZyIQzyOTzu+k+yCEWrdGMuk+oDvfxMSszx2y7y5l7vn
-         5BTgNBymGHoAn1hj4PInt0MnBFtw1EKx1UUmAsCXYcSc1bGryiCyQ2qz/R3n0TFQ2/xr
-         YVo3IgV3E1yLFYYCWEYyD1HRIYevJfrR1yvmpT5b6wgShhdFSo66+dBQIqaTo6Q2sFSj
-         jygWFt4X2qe8l72EXWyqNcFxAX38eMPoUXYjQtSS6NhuTBG0TVav3cPP/sWpkT8sPNgL
-         daFTi7gGHKqeDaL+pTY5h5DkWIvV3QMUFoS64Xi4/6/YieqzJd2k6q3ijG0oDLxngNed
-         lpMA==
-X-Forwarded-Encrypted: i=1; AJvYcCVIc+UojP6OXx+mB5EufWFK1enV4vottVGtBF3/dMH9yMka3CZFWojePmvqkkdEtdxVsbhD0k7tYX8Y81+fqFto@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbGEiouC0RPKMPWOOqg5g0Mi9yzFrdUP5KBukFtoC5SYh630El
-	VCtRqX82xLLFFLAaQp4AqvY8/sWkaIcw8V4AcgvSWVLqmuQ4hP1lgoEV
-X-Gm-Gg: ATEYQzwqtPfnMMKWmTo5KpbwGQRHOICm+UwC3/FyreN6y4oHF1m0lIyEXIRsh7PtTBY
-	gGq5qfpeSlj/KEYsLnUPSdmhJw9wswLuJW9w2vS1tmGqfw/oeryzFwMMrHyJ/P74wh5gRVBGpKK
-	P/OYI89poVTW3EXsf8JBD0UXeBVgxpAJ3VgJgJD9hW4KP3fDSixxoPKKaoy5l7FarDkFeqjYEKx
-	2Aj4XGjS0RGjePZOY/mTjhLplPBD0MAS8tKfgZzcW7OsUFwuUOBdAE1hBsRzxHMDuJBJ5Djt4hC
-	ikYIgvC+L85Ko7eIkPS2CcgWFUZxTIpuM45wRiXo5OMH0h7yInDxXtbPTpr0Ta5xTsmv6uu1A8t
-	frz607h4mmDpGBaw7ujoXiextvSkq9yg+P5GurG8bdhwtURjTYvSORYbhEDA7A6pZvHK5fPtLg8
-	IQA8mRaVAS3US5/1gC4aCicVuQf2vJ8YJXB4xv67mQcxRBRD/WREuvPB2Isop95wTeJWLk
-X-Received: by 2002:a05:6512:2244:b0:5a1:58d3:a78e with SMTP id 2adb3069b0e04-5a285afe997mr5521719e87.16.1774360490303;
-        Tue, 24 Mar 2026 06:54:50 -0700 (PDT)
+        bh=oz1kP6mGnYmsV3pNCXtV9G7tgVBh7BnFUeruC1cPFLw=;
+        b=QfwY9RgLcEQkvpwzj661sT0IaPE6JSd6Wg/l9zRV1HmeBHn5QnmATqwzLx+CrGrDOd
+         rUec3GSJZYRmXjglqQJ+FavzpbQl7/Z7V9MrWyGZFsVA76g1XBCwrfQQY/GtUIZArHOs
+         d7S3ZOz6W3KhxB1W50BY0PDSUnii0ldHNUIoU3GTLujJYtV4f2Z1c4ErzspTKcgAg0Kr
+         jbVN1002nYVcnlVq2t5K6wNzrcf9VW8aS8MP3YLh1F6bJjuO8vp2ZWx5FDfjMO5zuxe+
+         o0nz54jutcXdxydHIle/hG1oR3Axej4aK1p2VCITuVIVBtopYEqdVBh7aEAZKrgV0aId
+         5nNw==
+X-Forwarded-Encrypted: i=1; AJvYcCV8AJjweX386uZl/yiLsVFGYCl2NtvZZT48qRcl4vWt6zRf85NqhyZNVBSi4tcmwsIq7Fm8I8aEaT6J9NU1uR7Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ92U/FOm+IXa6/FWqDHpPdGuMHEvGl9mGrYKlEg9e66CBFZVS
+	KneJo2bKJr4ncVawNB/RqyKqkpWn1Xo6GdRbnvt9XefdHpR3vCn0RZxv
+X-Gm-Gg: ATEYQzxfItJ7U0M6FwpOPYHXL/s5B7hsdFytAV3vrR7YreXF1rAKm8LX3geQI1a0lzv
+	06SRhXsuCkRUT8mn4rKXshfFbh0dd1kOn0vepZRiRLt5h05SPvOyQ/iVPMa6dZuNVl2TAwX8Di+
+	cGvZZLuTPZmw15QmJP5u1Ztb4wArgKFLiZbfZk9hr+TiZSMF2WEnV1+p/KishIHXPdaKxIJwSgY
+	no1ryjCqLa2yhQlomoDAxuoXPV6XjjhbRgm/lyNYTf9ObXAAXL3I56WXUnCTzetot5UYhoXD4Ts
+	W9KaLKpT8DNUrjMpDHDJw00SKb+r26hE2TbGagoV53lCmNFrULWETDUpb6TagSgaGiQHI+Uvmzg
+	rrOqHd08/NaqDt0n4P88urZAaNrl+8V0YBf8KVfBXuRqy/2YzNOUeRhTT+RYBppuAxJeUQn6Kvs
+	McXxz4CBbwAnxQy4TxorEN8bwOcxH+VTX5adavAQiJGpTrLrafV7iDzI8lEX2KkM1cnXew
+X-Received: by 2002:a05:6512:124c:b0:5a1:6c86:b945 with SMTP id 2adb3069b0e04-5a285afdc41mr5770590e87.12.1774360488477;
+        Tue, 24 Mar 2026 06:54:48 -0700 (PDT)
 Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a285207454sm3162823e87.48.2026.03.24.06.54.48
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a285207454sm3162823e87.48.2026.03.24.06.54.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 06:54:49 -0700 (PDT)
+        Tue, 24 Mar 2026 06:54:47 -0700 (PDT)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Tue, 24 Mar 2026 14:54:19 +0100
-Subject: [PATCH v9 5/5] docs: i2c: i2c-topology: add section about bus
- speed
+Date: Tue, 24 Mar 2026 14:54:18 +0100
+Subject: [PATCH v9 4/5] i2c: davinci: add support for setting bus frequency
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260324-i2c-mux-v9-5-5292b0608243@gmail.com>
+Message-Id: <20260324-i2c-mux-v9-4-5292b0608243@gmail.com>
 References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
 In-Reply-To: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
@@ -87,28 +86,29 @@ To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
  Bartosz Golaszewski <brgl@kernel.org>
 Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>
+ Marcus Folkesson <marcus.folkesson@gmail.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8169;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3881;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=GuWaYKwfMV3ENq2uAbPKaKDYJ6qhLIPVj7+qDo+zpgI=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpwpegtwHxJOynPPBbWU/7VFhGEIzuMIL/Aqc6/
- e2v/aBzLS2JAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCacKXoAAKCRCIgE5vWV1S
- MiWLEADcTDlo96dNktCHucsX4wxFTvWqQz+/jzYJ6A7WebX+7gMIKlNQyN2TRdddkrastNt2Ffm
- 9tgBWrvkpMDAld2okAN+w92oVXZx6mc/41A4hSycbKrW5rcySOYAVo9ZHi1dv33aAWOd5U97+ui
- ffW+uOlg9dbYZOYS1lbuLelB62NUMBaC8uooCCsx3elqhfQ206jf8y7xZbI14s+1TmT9D+fJ7PK
- WHh5WUbHhcrZbjhTK3R6QsZOoTZkL0JfFaKfx8fKgRWGwgLdYwuLPDQOe7zIl+NbXfe5PeaT1eh
- /JiTPrdpVaNvsx0fizNN/rkq6bAqZ4C65GvW6+J/Rm7fS4/rVIbGIbU3WMKrgWbaRrUYX3o1sqb
- 70vtE4xp8jilCU9pcMgnDuzfqjZYCHkb+0wziEFNlP5A6awv5CX3qIUne4c0bUCEQtsxruNiAg0
- 3vJAHXabmAtLTa2jqXXAXahgF9hYXRENdV3lKStlYvAoj4+GUyTxQYwmHTHBC4ISh7w4CMuBrJD
- qIMY7rQlp4DSX3UVrAs4ccSUzLdJwyy5RbupsNjCoolq88j1Y2pEA5YDrjelOEW7nuUX2NHXcJK
- UWqYqbwYrvO6E8ppxkkqUgeIIGoISAwfsoUjJLA0FdCc6Wpvcb91GFODHosoMQM74uPHEpVre+C
- +4A7DBoe9ZCyUwQ==
+ bh=ryrI9MAQVwCIRRCngn0KDdHz7g1aMSsslONZvQCRx8g=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpwpecpKtb2LQM74bmvDz0req+77DcvmlflCxyE
+ W4Thx+y7rWJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCacKXnAAKCRCIgE5vWV1S
+ MlCUD/wPBVoCUV1xDm82HsdePvpFTI2QRLF6oP9tMPcFfNn5gKnix7i6IZSK70o5JGbRZP2Oqt0
+ krIWM96uzXsZY1ahQOTrC//PEKTVZLYgv8Lek7pJ8fNJV70Nd2DzkaovUlBXeGWQUeHcSX0rrc2
+ jw8muH/LXYI4RgA3nxwZlX3lLNEb0nNbxv/rDf0jYPs+j9mcGXH0WnRwsoVv1JO/UovW6am8AkH
+ tvgbfHNliDmVpPJPeE6U4SxgwY8Otxk3b7cw7L1y2bcqxDZFIzflpxzuNNkQj5DnW+llnIAzgP0
+ sjO8H0ms1lOrTt5+f4i3I9gWz5CAdvaAmZwbG0n5JEwpG1CI5BnJVlFMwld+yEJBaU4HyAexUOY
+ SnRNTR5ot1h1CREUoKB90y7hEflr+pzSwtaqZNYhU2WtZAYyqB7HRwV0TpoCOUGhndf0HXHMqyJ
+ iljSssZsBtgHzvWyxdh885YIt54nIFeggj3YJs8prKmAiM305wftGDGIK2xLfY+IMdwQq/cJAPq
+ +/5/7exap9aoXdqA8WVdd/gAnHS4L0bLoN7UzcALDmF4Am49BXowNySUrTaEqHHiQfTMe5uDwlE
+ L7+KTQ7rWJCda0niD3xovRf+f7DUKsLQsSep5U2cweJQW4WJ0R5W443R0ez0yJwVRLlnoxAR3m7
+ UorDwjz3rJvMstw==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_065452_814107_593FF484 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20260324_065450_889152_36C81EE9 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,203 +123,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe what needs to be consideraed and taken into account
-when using different bus speeds for different mux channels.
+Populate adapter with clock_hz and .set_clk_freq() to enable support for
+dynamic bus frequency.
 
+Remove bus_freq_hz entirely and only use clock_hz instead.
+
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
- Documentation/i2c/i2c-topology.rst | 178 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 178 insertions(+)
+ drivers/i2c/busses/i2c-davinci.c | 35 ++++++++++++++++++++++++++++-------
+ 1 file changed, 28 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/i2c/i2c-topology.rst b/Documentation/i2c/i2c-topology.rst
-index 48fce0f7491b..24df553ca8c7 100644
---- a/Documentation/i2c/i2c-topology.rst
-+++ b/Documentation/i2c/i2c-topology.rst
-@@ -367,6 +367,184 @@ When D1 or D2 are accessed, accesses to D3 and D4 are locked out while
- accesses to D5 may interleave. When D3 or D4 are accessed, accesses to
- all other devices are locked out.
+diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+index 549fb22cdf4f..d87172408445 100644
+--- a/drivers/i2c/busses/i2c-davinci.c
++++ b/drivers/i2c/busses/i2c-davinci.c
+@@ -132,8 +132,6 @@ struct davinci_i2c_dev {
+ #ifdef CONFIG_CPU_FREQ
+ 	struct notifier_block	freq_transition;
+ #endif
+-	/* standard bus frequency */
+-	unsigned int		bus_freq_hz;
+ 	/* Chip has a ICPFUNC register */
+ 	bool			has_pfunc;
+ };
+@@ -171,6 +169,7 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
+ 	u32 clkh;
+ 	u32 clkl;
+ 	u32 input_clock = clk_get_rate(dev->clk);
++	u32 bus_freq_hz = dev->adapter.clock_hz;
  
-+Bus Speed and I2C Multiplexers
-+================================
-+
-+I2C bus multiplexers allow multiple downstream channels to be exposed
-+as separate I2C adapters which also could set their own bus speed.
-+
-+The multiplexer itself cannot change the bus speed as it use the upstream
-+clock and data lines to communicate with the downstream devices. The speed
-+is therefore changed in the root adapter resulting in that the whole bus is
-+affected.
-+
-+This increases the complexity of the topology and some considerations must
-+be taken into account.
-+
-+Bus speed
-+----------
-+
-+Downstream channels of an I2C multiplexer can only operate at the same or
-+lower bus speed as the upstream bus. This is because the upstream bus may
-+have devices that cannot operate at higher speeds and those will be affected
-+by the speed change.
-+
-+The example below illustrates the problem.
-+The root adapter is operating at 100kHz. D2 can only operate with 100kHz,
-+but D1 can operate at 400kHz. When D1 is selected, the bus speed of the
-+root adapter would have to be set to 400kHz, a speed that D2 may not support.
-+
-+This topology is therefor not allowed: ::
-+
-+                          .----------. 400kHz .--------.
-+        .--------. 100kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |
-+                    |     '----------'
-+                    |  .--------.
-+                    '--| dev D2 |
-+                       '--------'
-+
-+
-+This topology is allowed: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D2 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'        |  mux M1  |--. 400kHz .--------.
-+                          '----------'  '--------| dev D1 |
-+                                                 '--------'
-+
-+Preferred topology
-+-------------------
-+
-+The preferred topology when using different bus speeds is to have the multiplexer
-+connected directly to the root adapter without any devices as siblings.
-+By this arrangement, the bus speed can be changed without affecting any other devices
-+and many of the caveats are avoided.
-+
-+Other multiplexers in parallel is still okay as those are locked out during transfers.
-+
-+This is the preferred topology: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D2 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'        |  mux M1  |--. 400kHz .--------.
-+                          '----------'  '--------| dev D1 |
-+                                                 '--------'
-+
-+Locking
-+--------
-+
-+If the multiplexer is mux-locked, transfers to D3 may interleave between the
-+select-transfer-deselect to D1 or D2.
-+This results in a situation where the bus speed to D3 may be lower than it
-+is supposed to be. This is usually not a problem.
-+
-+This topology is allowed but some transfers to D3 may be at 100kHz: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |--. 400kHz .--------.
-+                    |     '----------'  '--------| dev D2 |
-+                    |  .--------.                '--------'
-+                    '--| dev D3 |
-+                       '--------'
-+
-+Multiple muxes in series
-+--------------------------
-+
-+When multiple muxes are used in series the same rules applies.
-+
-+Transfers to D3 may interleave between select-transfer-deselect to D1, which
-+results that the bus speed to D2 or D3 will be at 100KHz.
-+
-+Transfers to D2 may interleave between select-transfer-deselect to D1, which
-+results in that the bus speed to D1 may be at 400kHz as the transfer to D2
-+will set the bus speed to before the transfer to D1 starts.
-+
-+This is probably a bad topology ::
-+
-+                     .----------. 400kHz .----------. 100kHz .--------.
-+    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
-+    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
-+    '--------'  |    |  mux M1  |--.     |  mux M2  |
-+                |    '----------'  |     '----------'
-+                |  .--------.      |  .--------.
-+                '--| dev D3 |      '--| dev D2 |
-+                   '--------'         '--------'
-+
-+Multiple muxes in parallel
-+----------------------------
-+
-+When multiple muxes are used in parallel all access to other muxes are locked out
-+so this is not a problem.
-+
-+If the muxes are mux-locked, access to D3 may still interleave though.
-+
-+In the example below, D3 may not interleave between select-transfer-deselect for D1
-+or D2 as both muxes are parent-locked: ::
-+
-+
-+                   .----------. 100kHz   .--------.
-+                   |  parent- |----------| dev D1 |
-+                .--|  locked  |          '--------'
-+                |  |  mux M1  |
-+                |  '----------'
-+                |      .----------. 400KHz  .--------.
-+    .--------. 400kHz  |  parent- |---------| dev D2 |
-+    |  root  |--+------|  locked  |         '--------'
-+    '--------'  |      |  mux M2  |
-+                |      '----------'
-+                |  .--------.
-+                '--| dev D3 |
-+                   '--------'
-+
-+Idle state
-+-----------
-+
-+Muxes have an idle state, which is the state the channels are put into when no channel
-+is active. The state is typically one of the following:
-+
-+- All channels are disconnected
-+- The last selected channel is left as-is
-+- A predefined channel is selected
-+
-+Muxes that support an idle state where all channels are disconnected are preferred when using
-+different bus speeds. Otherwise high bus speeds may "leak" through to devices that
-+may not support that higher speed.
-+
-+Consider the following example: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |--. 400kHz .--------.
-+                    |     '----------'  '--------| dev D2 |
-+                    |  .--------.                '--------'
-+                    '--| dev D3 |
-+                       '--------'
-+
-+If the idle state of M1 is:
-+
-+- All channels disconnected: No problem, D1 and D2 are not affected by communication
-+  to D3.
-+- Last selected channel: Problem if D1 was the last selected channel. High speed
-+  communication to D3 will be "leaked" to D1.
-+- Predefined channel: Problem if the predefined channel D1. Set predefined channel
-+  to D2 as D2 may handle 400kHz.
-+
-+Supported controllers
-+-----------------------
-+
-+Not all I2C controllers support setting the bus speed dynamically.
-+At the time of writing, the following controllers have support:
-+
-+============================   =============================================
-+i2c-davinci                    Supports dynamic bus speed
-+============================   =============================================
+ 	/* NOTE: I2C Clock divider programming info
+ 	 * As per I2C specs the following formulas provide prescaler
+@@ -207,9 +206,9 @@ static void i2c_davinci_calc_clk_dividers(struct davinci_i2c_dev *dev)
+ 	if (device_is_compatible(dev->dev, "ti,keystone-i2c"))
+ 		d = 6;
  
- Mux type of existing device drivers
- ===================================
+-	clk = (input_clock / (psc + 1)) / (dev->bus_freq_hz);
++	clk = (input_clock / (psc + 1)) / (bus_freq_hz);
+ 	/* Avoid driving the bus too fast because of rounding errors above */
+-	if (input_clock / (psc + 1) / clk > dev->bus_freq_hz)
++	if (input_clock / (psc + 1) / clk > bus_freq_hz)
+ 		clk++;
+ 	/*
+ 	 * According to I2C-BUS Spec 2.1, in FAST-MODE LOW period should be at
+@@ -267,7 +266,7 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
+ 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKL_REG));
+ 	dev_dbg(dev->dev, "CLKH = %d\n",
+ 		davinci_i2c_read_reg(dev, DAVINCI_I2C_CLKH_REG));
+-	dev_dbg(dev->dev, "bus_freq_hz = %dHz\n", dev->bus_freq_hz);
++	dev_dbg(dev->dev, "bus_freq_hz = %dHz\n", dev->adapter.clock_hz);
+ 
+ 
+ 	/* Take the I2C module out of reset: */
+@@ -279,6 +278,27 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
+ 	return 0;
+ }
+ 
++static int davinci_i2c_set_clk(struct i2c_adapter *adap, u32 clock_hz)
++{
++	struct davinci_i2c_dev *dev = i2c_get_adapdata(adap);
++
++	if (adap->clock_hz == clock_hz)
++		return 0;
++
++	adap->clock_hz = clock_hz;
++
++	/* put I2C into reset */
++	davinci_i2c_reset_ctrl(dev, 0);
++
++	/* compute clock dividers */
++	i2c_davinci_calc_clk_dividers(dev);
++
++	/* Take the I2C module out of reset: */
++	davinci_i2c_reset_ctrl(dev, 1);
++
++	return 0;
++}
++
+ /*
+  * This routine does i2c bus recovery by using i2c_generic_scl_recovery
+  * which is provided by I2C Bus recovery infrastructure.
+@@ -755,12 +775,13 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 	dev->dev = &pdev->dev;
+ 	dev->irq = irq;
+ 	platform_set_drvdata(pdev, dev);
++	adap = &dev->adapter;
+ 
+ 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+ 	if (r)
+ 		prop = I2C_MAX_STANDARD_MODE_FREQ;
+ 
+-	dev->bus_freq_hz = prop;
++	adap->clock_hz = prop;
+ 
+ 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
+ 
+@@ -800,7 +821,6 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 		goto err_unuse_clocks;
+ 	}
+ 
+-	adap = &dev->adapter;
+ 	i2c_set_adapdata(adap, dev);
+ 	adap->owner = THIS_MODULE;
+ 	adap->class = I2C_CLASS_DEPRECATED;
+@@ -809,6 +829,7 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 	adap->dev.parent = &pdev->dev;
+ 	adap->timeout = DAVINCI_I2C_TIMEOUT;
+ 	adap->dev.of_node = dev_of_node(&pdev->dev);
++	adap->set_clk_freq = davinci_i2c_set_clk;
+ 
+ 	if (dev->has_pfunc)
+ 		adap->bus_recovery_info = &davinci_i2c_scl_recovery_info;
 
 -- 
 2.53.0
