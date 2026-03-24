@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75702FEC0F7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D566AFEC0FA
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 19:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RR7C82ByRHf9xHFB+hAjpexhUSxycw9732oruAip0zw=; b=DefPT8evDMVsUz/ytqU+1lXv0Y
-	OTS5yoela/PrsYXrnVKRZ162gpo1wKswSlUHqVAFdBTwxMv1hf2zVnFgf4KQI5egy7KW+gHPIPG5e
-	4EkAIZsE8LzH8Tif34GaWeryTKc5DA4HtYwk2txA3RxW8fmK2V4LcEc4GunTTBYPP9zje3bXlKDjq
-	TUtoyqCt7zxV6N6xx4ZY80hCbnOVG+xHbyvNWA8QwVeU1V5+SwzxZIwo5deDHlbztpUNmuTkk6uvJ
-	vFVqee0CryYrMlv552D5/cE6UkZ9BsVa3vOcIafo06CUo6PfoUB8TDBjiu4dDw51J3SGJ9i0A2rNs
-	KOOnAzfg==;
+	bh=1q0RfS1aGG0lt8SxBmxfpAMO/VATuKtCz+N6YMM1DZo=; b=jbe6SdXxpAqtnDBdN0/UUbtfqJ
+	5XaOwrhGLdAv6l4of6K4wzB8EmK4bY+ZzJXNS3FHqP4LTUmW1mCeAKLxqSMoN/p/j4K2V85FarvLH
+	RkaeffD04X56n3RygxAtp/d3yYsa9xbAS+CZ4doA9KwAM5ysduqrRhgrDbPxPNfdVem5bbbJeueEl
+	MMzRdERJYi178bFZx5CwQqg6xplU1JE3SeC2uxcZVH5NTWycWaO2YQPSfHC5ky2rYUeRBEsz8g1sE
+	AO2MaJ99LcwVt3EnkzvlEN+sFVGqO4vvMvOrxsDr7OO6FFImJ9yXQbJIWxWPYgsuljSF+kYRIOV0e
+	AOQGjEPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57NU-000000029Av-19Q6;
-	Tue, 24 Mar 2026 19:25:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w57NT-000000029AI-2dXy;
+	Tue, 24 Mar 2026 19:25:23 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w57NJ-0000000295z-1ImB
+	id 1w57N6-000000028xQ-0zHR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 19:25:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 697406012B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 19:25:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC97C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 19:25:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774380312;
-	bh=W2kqahuI0dRdiWt2FzF8BjyOm6F3ukwameRH6zo7Z/8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qbt34olnDFwCcy5hk+3XgKWFFeSX0TNCbAbGaxa8/DeokeewSyrbd5SlqmCnK51JN
-	 1y44QvmjzYrvCZ7OM0E6pb2z9cn34rXbMpmNvVtTW5Dj/aUYxCfAp5riiPXuhK/MuX
-	 8NBbyJs91vbERo82VwpTnh+VOE1bc7jkAEguAnkQ37g/ylAQVPfju0IzOIHPJHmvUQ
-	 ddf0rt/vPg3rPDPQJIg6wE8P29m+8TsqygjOQMq2nvoFSPdB7R4YhqdZEhW/X3f8zJ
-	 +BaKJnixBCnf3etiKvrJZjLbOVfQknJ+hp3/SOM56DzlpceXvAeBzu6FJMUTDTIF9t
-	 5VhG6GE5FAOyg==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-38a42a0d7f7so1499201fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 12:25:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWJ3XiPs6IJ/9BZpR9HNC7VRUiK0Go8895Q10p/pSwerDpiBiAZ1qKxvHsyLvI+ntGC0Uf9dUL0zTO48aQd19F6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmOE7LJmcJsW2NS+v95r3JBZLorfwplobfbej+Cs3N3IwmTcOY
-	rxqIlqdEUPNG9Nf8KWBk/S3MYN+mln3Bz5avs8Prs4EDXakB5QIWPXPDbWPqCnGhKnlrUVISeH5
-	KoIdZrEXttx3rC7IAACXWUNCIQTBprpM=
-X-Received: by 2002:a05:651c:310:b0:387:a16:ee83 with SMTP id
- 38308e7fff4ca-38c32931d14mr11373651fa.11.1774380310067; Tue, 24 Mar 2026
- 12:25:10 -0700 (PDT)
+	Tue, 24 Mar 2026 19:25:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D5B4D1A2FCF;
+	Tue, 24 Mar 2026 19:24:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A5362601A0;
+	Tue, 24 Mar 2026 19:24:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 965F410451131;
+	Tue, 24 Mar 2026 20:24:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1774380297; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=1q0RfS1aGG0lt8SxBmxfpAMO/VATuKtCz+N6YMM1DZo=;
+	b=P9lL39LBq8Hpic2d2kTOq1A50ORaO2tfnv4QJtnyolkztW8KFPRi6TAB7le3ipL7mzoYtR
+	05MzCY9tvSoH6XuteTaMIaWBOh+htIYzUoYR12OKpvrGoOTGH1ssxVRL6i8Bp9KLj95crJ
+	x/JvXtdU1/89Ls5oQ75ldw+YVmXmwKUKN9iZw85XgTa/6n5mk9Zu8hZYarYPmafvoQW7cc
+	IK/B3T5JPu3yTLE/qOX2gwxYpn3svLJr5jWBbcY1OMqts5vnHo973XCY3v+xHti0R3H6hl
+	tuqJxrLuQAagaXIUg4JGEBD7wgS6pLx6SjFs05HbwG/x/Yx+YUjK8YYw0UAsYA==
+From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Date: Tue, 24 Mar 2026 20:24:31 +0100
+Subject: [PATCH v4 5/5] watchdog: aaeon: Add watchdog driver for SRG-IMX8P
+ MCU
 MIME-Version: 1.0
-References: <20260319-mt7927-wifi-support-v2-v2-0-d627a7fad70d@jetm.me> <20260319-mt7927-wifi-support-v2-v2-5-d627a7fad70d@jetm.me>
-In-Reply-To: <20260319-mt7927-wifi-support-v2-v2-5-d627a7fad70d@jetm.me>
-From: Sean Wang <sean.wang@kernel.org>
-Date: Tue, 24 Mar 2026 14:24:58 -0500
-X-Gmail-Original-Message-ID: <CAGp9LzoYcJEmFKTKGsF3WchxLedyo7HvGCn8Vi=WaEXS1N-VTg@mail.gmail.com>
-X-Gm-Features: AQROBzCJFXGOj3qOH6JxvcssVN9WorUl4nD9nSO254z7rVrluItXC4oVHqFFQWg
-Message-ID: <CAGp9LzoYcJEmFKTKGsF3WchxLedyo7HvGCn8Vi=WaEXS1N-VTg@mail.gmail.com>
-Subject: Re: [PATCH v2 05/13] wifi: mt76: mt7925: advertise EHT 320MHz
- capabilities for 6GHz band
-To: Javier Tia <floss@jetm.me>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Deren Wu <deren.wu@mediatek.com>, 
-	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, linux-wireless@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Marcin FM <marcin@lgic.pl>, 
-	Cristian-Florin Radoi <radoi.chris@gmail.com>, George Salukvadze <giosal90@gmail.com>, 
-	Evgeny Kapusta <3193631@gmail.com>, Samu Toljamo <samu.toljamo@gmail.com>, 
-	Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, Chapuis Dario <chapuisdario4@gmail.com>, 
-	=?UTF-8?Q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
-	=?UTF-8?B?5byg5pet5ra1?= <Loong.0x00@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260324-dev-b4-aaeon-mcu-driver-v4-5-afb011df4794@bootlin.com>
+References: <20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com>
+In-Reply-To: <20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6725;
+ i=thomas.perrot@bootlin.com; h=from:subject:message-id;
+ bh=wPhgCjwQeSn+BRAqoO5C5GaoqnCQLTgwDb2zWF3xTM4=;
+ b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBpwuT27JsW8/YHaUMPDqgCojJdgL89bJwEQd9x4
+ cly+1EmiH+JAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCacLk9gAKCRCfwAsFcf4K
+ 7UhvC/0UM418wlXqO3GCW341kENa5EIpae1YpssVqwzEhaf+0gDrlvNyNW5D4GWWsnK51zJlnzM
+ 08fPq7tmk7sp9/Pf4DdFHoaAWPJ4imB8JPbXO5FlMomguIVdmSp35VCvbBkGr1Bai16ZEl7KdrT
+ 9xBOfeb8PJDsFlrLoT2dJ91bQS7ZdiAp12NjZ6xO/8UhfdoAPzOVu5BUEQfXa4O64SQLD72P6mJ
+ fTQJwjVmsPMGLg4giGEhDZkLhcZ+p0MKkcqNqHBN1L4ELUvMT+L5Ox8XRcberjiEOM8FIG2nMK4
+ lchewQwOIFJF6mj7WQlMtszE53Eci1gsnaKx7V91djJkpI8lGqq/aCagdjP1RrLW2e7K69zAE+w
+ LocOuwnEDaRN5t+KJMpIP/nvLmd7vDRb+nMdWIecysAybdracX/J8pn7gdGIXJRGuX3wNYFFunP
+ w16aBXCnUhtQOeTmj293cxeOXjChM41pUMZO7VMhctcoMoInbC8S2Xw8PivPI+ktiCcKc=
+X-Developer-Key: i=thomas.perrot@bootlin.com; a=openpgp;
+ fpr=874077C6A6A30A2303A812219FC00B0571FE0AED
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_122500_571710_E8A1FD11 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,164 +102,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add watchdog driver for the Aaeon SRG-IMX8P embedded controller.
+This driver provides system monitoring and recovery capabilities
+through the MCU's watchdog timer.
 
-On Thu, Mar 19, 2026 at 5:26=E2=80=AFPM Javier Tia <floss@jetm.me> wrote:
->
-> mt7925_init_eht_caps() only populates EHT MCS/NSS maps for BW <=3D 80
-> and BW =3D 160, but never sets BW =3D 320. This means iw phy shows no
-> 320MHz MCS map entries even though the hardware supports 320MHz
-> operation in the 6GHz band.
->
-> Add the missing 320MHz capability bits for 6GHz, following the same
-> pattern as mt7996:
->   - PHY_CAP0: IEEE80211_EHT_PHY_CAP0_320MHZ_IN_6GHZ
->   - PHY_CAP1: beamformee SS for 320MHz
->   - PHY_CAP2: sounding dimensions for 320MHz
->   - PHY_CAP6: MCS15 support for 320MHz width
->   - PHY_CAP7: non-OFDMA UL MU-MIMO and MU beamformer for 320MHz
->   - MCS/NSS: populate bw._320 maps for 6GHz band
->
-> Introduce is_320mhz_supported() as a generic capability check using the
-> mt7925 family ID. This avoids chip-specific references in common code,
-> and automatically extends to new chips once they join the
-> is_mt7925() family via chip ID helpers.
->
-> Tested-by: Marcin FM <marcin@lgic.pl>
-> Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
-> Tested-by: George Salukvadze <giosal90@gmail.com>
-> Tested-by: Evgeny Kapusta <3193631@gmail.com>
-> Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
-> Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
-> Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
-> Tested-by: Thibaut Fran=C3=A7ois <tibo@humeurlibre.fr>
-> Tested-by: =E5=BC=A0=E6=97=AD=E6=B6=B5 <Loong.0x00@gmail.com>
-> Signed-off-by: Javier Tia <floss@jetm.me>
-> ---
->  drivers/net/wireless/mediatek/mt76/mt76_connac.h |  5 +++++
->  drivers/net/wireless/mediatek/mt76/mt7925/main.c | 28 ++++++++++++++++++=
-+++++-
->  2 files changed, 32 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac.h b/drivers/n=
-et/wireless/mediatek/mt76/mt76_connac.h
-> index 813d61bffc2c..554716e01ee6 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-> +++ b/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-> @@ -177,6 +177,11 @@ static inline bool is_mt7925(struct mt76_dev *dev)
->         return mt76_chip(dev) =3D=3D 0x7925;
->  }
->
-> +static inline bool is_320mhz_supported(struct mt76_dev *dev)
-> +{
-> +       return is_mt7925(dev);
+The watchdog supports start, stop, and ping operations with a maximum
+hardware heartbeat of 25 seconds and a default timeout of 240 seconds.
 
-I don't think this is correct for mt7925, and it will cause a
-regression there. Was this tested on actual mt7925 hardware?
+Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+---
+ MAINTAINERS                      |   1 +
+ drivers/watchdog/Kconfig         |  10 +++
+ drivers/watchdog/Makefile        |   1 +
+ drivers/watchdog/aaeon_mcu_wdt.c | 134 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 146 insertions(+)
 
-> +}
-> +
->  static inline bool is_mt7920(struct mt76_dev *dev)
->  {
->         return mt76_chip(dev) =3D=3D 0x7920;
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/n=
-et/wireless/mediatek/mt76/mt7925/main.c
-> index f128a198f81d..cd043ac266fb 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-> @@ -183,6 +183,10 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl=
-80211_band band,
->                 IEEE80211_EHT_PHY_CAP0_SU_BEAMFORMER |
->                 IEEE80211_EHT_PHY_CAP0_SU_BEAMFORMEE;
->
-> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
-v->mt76))
-> +               eht_cap_elem->phy_cap_info[0] |=3D
-> +                       IEEE80211_EHT_PHY_CAP0_320MHZ_IN_6GHZ;
-> +
->         eht_cap_elem->phy_cap_info[0] |=3D
->                 u8_encode_bits(u8_get_bits(sts - 1, BIT(0)),
->                                IEEE80211_EHT_PHY_CAP0_BEAMFORMEE_SS_80MHZ=
-_MASK);
-> @@ -193,10 +197,20 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum n=
-l80211_band band,
->                 u8_encode_bits(sts - 1,
->                                IEEE80211_EHT_PHY_CAP1_BEAMFORMEE_SS_160MH=
-Z_MASK);
->
-> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
-v->mt76))
-> +               eht_cap_elem->phy_cap_info[1] |=3D
-> +                       u8_encode_bits(sts - 1,
-> +                                      IEEE80211_EHT_PHY_CAP1_BEAMFORMEE_=
-SS_320MHZ_MASK);
-> +
->         eht_cap_elem->phy_cap_info[2] =3D
->                 u8_encode_bits(sts - 1, IEEE80211_EHT_PHY_CAP2_SOUNDING_D=
-IM_80MHZ_MASK) |
->                 u8_encode_bits(sts - 1, IEEE80211_EHT_PHY_CAP2_SOUNDING_D=
-IM_160MHZ_MASK);
->
-> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
-v->mt76))
-> +               eht_cap_elem->phy_cap_info[2] |=3D
-> +                       u8_encode_bits(sts - 1,
-> +                                      IEEE80211_EHT_PHY_CAP2_SOUNDING_DI=
-M_320MHZ_MASK);
-> +
->         eht_cap_elem->phy_cap_info[3] =3D
->                 IEEE80211_EHT_PHY_CAP3_NG_16_SU_FEEDBACK |
->                 IEEE80211_EHT_PHY_CAP3_NG_16_MU_FEEDBACK |
-> @@ -217,7 +231,8 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl8=
-0211_band band,
->                 u8_encode_bits(u8_get_bits(0x11, GENMASK(1, 0)),
->                                IEEE80211_EHT_PHY_CAP5_MAX_NUM_SUPP_EHT_LT=
-F_MASK);
->
-> -       val =3D width =3D=3D NL80211_CHAN_WIDTH_160 ? 0x7 :
-> +       val =3D width =3D=3D NL80211_CHAN_WIDTH_320 ? 0xf :
-> +             width =3D=3D NL80211_CHAN_WIDTH_160 ? 0x7 :
->               width =3D=3D NL80211_CHAN_WIDTH_80 ? 0x3 : 0x1;
->         eht_cap_elem->phy_cap_info[6] =3D
->                 u8_encode_bits(u8_get_bits(0x11, GENMASK(4, 2)),
-> @@ -230,6 +245,11 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl=
-80211_band band,
->                 IEEE80211_EHT_PHY_CAP7_MU_BEAMFORMER_80MHZ |
->                 IEEE80211_EHT_PHY_CAP7_MU_BEAMFORMER_160MHZ;
->
-> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
-v->mt76))
-> +               eht_cap_elem->phy_cap_info[7] |=3D
-> +                       IEEE80211_EHT_PHY_CAP7_NON_OFDMA_UL_MU_MIMO_320MH=
-Z |
-> +                       IEEE80211_EHT_PHY_CAP7_MU_BEAMFORMER_320MHZ;
-> +
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2538f8c4bc1482b139e18243a68f0a21b9be3704..7b92af42c9fdc17a69a4e7a2fe50f9e199c8b144 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -193,6 +193,7 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+ F:	drivers/gpio/gpio-aaeon-mcu.c
+ F:	drivers/mfd/aaeon-mcu.c
++F:	drivers/watchdog/aaeon_mcu_wdt.c
+ F:	include/linux/mfd/aaeon-mcu.h
+ 
+ AAEON UPBOARD FPGA MFD DRIVER
+diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+index d3b9df7d466b0b7215ee87b3040811d44ee53d2a..da54e6a641d7af343e4f0ae84f96f150979f8348 100644
+--- a/drivers/watchdog/Kconfig
++++ b/drivers/watchdog/Kconfig
+@@ -168,6 +168,16 @@ config SOFT_WATCHDOG_PRETIMEOUT
+ 	  watchdog. Be aware that governors might affect the watchdog because it
+ 	  is purely software, e.g. the panic governor will stall it!
+ 
++config AAEON_MCU_WATCHDOG
++	tristate "Aaeon MCU Watchdog"
++	depends on MFD_AAEON_MCU
++	select WATCHDOG_CORE
++	help
++	  Select this option to enable watchdog timer support for the Aaeon
++	  SRG-IMX8P onboard microcontroller (MCU). This driver provides
++	  watchdog functionality through the MCU, allowing system monitoring
++	  and automatic recovery from system hangs.
++
+ config BD957XMUF_WATCHDOG
+ 	tristate "ROHM BD9576MUF and BD9573MUF PMIC Watchdog"
+ 	depends on MFD_ROHM_BD957XMUF
+diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+index ba52099b125398a32f80dad23317e223cc4af028..2deec425d3eafb6b208e061fda9f216f4baa8ecc 100644
+--- a/drivers/watchdog/Makefile
++++ b/drivers/watchdog/Makefile
+@@ -37,6 +37,7 @@ obj-$(CONFIG_USBPCWATCHDOG) += pcwd_usb.o
+ # ALPHA Architecture
+ 
+ # ARM Architecture
++obj-$(CONFIG_AAEON_MCU_WATCHDOG) += aaeon_mcu_wdt.o
+ obj-$(CONFIG_ARM_SP805_WATCHDOG) += sp805_wdt.o
+ obj-$(CONFIG_ARM_SBSA_WATCHDOG) += sbsa_gwdt.o
+ obj-$(CONFIG_ARMADA_37XX_WATCHDOG) += armada_37xx_wdt.o
+diff --git a/drivers/watchdog/aaeon_mcu_wdt.c b/drivers/watchdog/aaeon_mcu_wdt.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..f01571cf0036d252f9bebd3a9d6a1c2e7a83e42c
+--- /dev/null
++++ b/drivers/watchdog/aaeon_mcu_wdt.c
+@@ -0,0 +1,134 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Aaeon MCU Watchdog driver
++ *
++ * Copyright (C) 2025 Bootlin
++ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
++ */
++
++#include <linux/mfd/aaeon-mcu.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/watchdog.h>
++
++#define AAEON_MCU_CONTROL_WDT	0x63
++#define AAEON_MCU_PING_WDT	0x73
++
++#define AAEON_MCU_WDT_TIMEOUT         240
++#define AAEON_MCU_WDT_HEARTBEAT_MS    25000
++
++struct aaeon_mcu_wdt {
++	struct watchdog_device wdt;
++	struct regmap *regmap;
++};
++
++static int aaeon_mcu_wdt_cmd(struct aaeon_mcu_wdt *data, u8 opcode, u8 arg)
++{
++	/* The MCU always sends a response byte after each command; discard it. */
++	return regmap_write(data->regmap, AAEON_MCU_REG(opcode, arg), 0);
++}
++
++static int aaeon_mcu_wdt_start(struct watchdog_device *wdt)
++{
++	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
++
++	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_CONTROL_WDT, 0x01);
++}
++
++static int aaeon_mcu_wdt_status(struct watchdog_device *wdt, bool *enabled)
++{
++	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
++	unsigned int rsp;
++	int ret;
++
++	ret = regmap_read(data->regmap,
++			  AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT, 0x02),
++			  &rsp);
++	if (ret)
++		return ret;
++
++	*enabled = rsp == 0x01;
++	return 0;
++}
++
++static int aaeon_mcu_wdt_stop(struct watchdog_device *wdt)
++{
++	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
++
++	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_CONTROL_WDT, 0x00);
++}
++
++static int aaeon_mcu_wdt_ping(struct watchdog_device *wdt)
++{
++	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
++
++	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_PING_WDT, 0x00);
++}
++
++static const struct watchdog_info aaeon_mcu_wdt_info = {
++	.identity	= "Aaeon MCU Watchdog",
++	.options	= WDIOF_KEEPALIVEPING
++};
++
++static const struct watchdog_ops aaeon_mcu_wdt_ops = {
++	.owner		= THIS_MODULE,
++	.start		= aaeon_mcu_wdt_start,
++	.stop		= aaeon_mcu_wdt_stop,
++	.ping		= aaeon_mcu_wdt_ping,
++};
++
++static int aaeon_mcu_wdt_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct watchdog_device *wdt;
++	struct aaeon_mcu_wdt *data;
++	bool enabled;
++	int ret;
++
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->regmap = dev_get_regmap(dev->parent, NULL);
++	if (!data->regmap)
++		return -ENODEV;
++
++	wdt = &data->wdt;
++	wdt->parent = dev;
++	wdt->info = &aaeon_mcu_wdt_info;
++	wdt->ops = &aaeon_mcu_wdt_ops;
++	/*
++	 * The MCU firmware has a fixed hardware timeout of 25 seconds that
++	 * cannot be changed. The watchdog core will handle automatic pinging
++	 * to support longer timeouts. The software timeout of 240 seconds is
++	 * chosen arbitrarily as a reasonable value and is not user-configurable.
++	 */
++	wdt->timeout = AAEON_MCU_WDT_TIMEOUT;
++	wdt->max_hw_heartbeat_ms = AAEON_MCU_WDT_HEARTBEAT_MS;
++
++	watchdog_set_drvdata(wdt, data);
++
++	ret = aaeon_mcu_wdt_status(wdt, &enabled);
++	if (ret)
++		return ret;
++
++	if (enabled)
++		set_bit(WDOG_HW_RUNNING, &wdt->status);
++
++	return devm_watchdog_register_device(dev, wdt);
++}
++
++static struct platform_driver aaeon_mcu_wdt_driver = {
++	.driver		= {
++		.name	= "aaeon-mcu-wdt",
++	},
++	.probe		= aaeon_mcu_wdt_probe,
++};
++
++module_platform_driver(aaeon_mcu_wdt_driver);
++
++MODULE_DESCRIPTION("Aaeon MCU Watchdog Driver");
++MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
++MODULE_LICENSE("GPL");
 
-I don't think this should be copied from mt7996 as-is for mt7927. I'd
-suggest dropping the eht_cap_elem->phy_cap_info[7] change and keeping
-it conservative for now.
+-- 
+2.53.0
 
->         val =3D u8_encode_bits(nss, IEEE80211_EHT_MCS_NSS_RX) |
->               u8_encode_bits(nss, IEEE80211_EHT_MCS_NSS_TX);
->
-> @@ -239,6 +259,12 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl=
-80211_band band,
->         eht_nss->bw._160.rx_tx_mcs9_max_nss =3D val;
->         eht_nss->bw._160.rx_tx_mcs11_max_nss =3D val;
->         eht_nss->bw._160.rx_tx_mcs13_max_nss =3D val;
-> +
-> +       if (band =3D=3D NL80211_BAND_6GHZ && is_320mhz_supported(&phy->de=
-v->mt76)) {
-> +               eht_nss->bw._320.rx_tx_mcs9_max_nss =3D val;
-> +               eht_nss->bw._320.rx_tx_mcs11_max_nss =3D val;
-> +               eht_nss->bw._320.rx_tx_mcs13_max_nss =3D val;
-> +       }
->  }
->
->  int mt7925_init_mlo_caps(struct mt792x_phy *phy)
->
-> --
-> 2.53.0
->
->
 
