@@ -4,52 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E9FE9A74E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95176E9A74F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h1j7nhXNxy5z2nDtI4anQZ5tze0oTo26BnQ3y9sJs7Y=; b=EGXwQRLpX4hkxm42uNp2ihQVHf
-	dS0CFyTBfEUf+epXy1ybrrE7xsLsqRw5d1z2yRsZnKjkjXJ7aOsTPQeOUVXkbuS7+3mtq7tgkOIJl
-	nt/vF0lvgOlsrkrwV0laLtn6gRuzNfA4XqoeZgqHBQ+2UNoOqLt/suB+suEr1ZoUH5Dnqz0KLWiHr
-	THpLYtdHkaJN/93r4Z0kZ+JyWPLG4eBLELvi/fqY7fyY1XaAUmsD3CarWGJ8KwhjBueARL9Zazyq5
-	bRQwZQJWLygKPQ5pQHbd6TK17oZHIMO1A4ESkp+8O/94+Tuj0JSjXDnYm4qP5trQJ/2mvGzTgFtfa
-	hsNwee1g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c8AWneB8OBhHUTqMQ4ayFDtiep4R2MIckpZOflriF0E=; b=3WxgOXpNrMHIjG650bIajwmomJ
+	F4rxvxaVnkhoOu0BbAx1O1BvVNH6+rekWDIk2dJ6K3S+sGBWSSQ2vd6xwY2LatLIoxBx3cv1ZPfAv
+	ECM+sDaoeqnFks0dHbGk74ZuJQBBIbAzkQGuEvx3eSy5xdGVczP9c6G7OVaTIXHKcKJmRKlPmNmsh
+	p8435ru3thK6U5K4iA+vPNUiSgXaU7VbB51vKu/yd6TOzAa3sxl0fcuCDTXHZ7ag5ovIZitrA8zln
+	8bTnnanJMfQ6IpRmSPyXXUtYD7P/T0bBvDZDqJjorlS0WaFvA6K9h/fpRe9VlntwU+jh2M0dwtxr4
+	DFpMgAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yHx-000000017dH-2IEd;
-	Tue, 24 Mar 2026 09:43:05 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
+	id 1w4yLi-000000017uC-2k9Y;
+	Tue, 24 Mar 2026 09:46:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yHu-000000017cs-3169
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 09:43:04 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w4yHr-0006HF-LO; Tue, 24 Mar 2026 10:42:59 +0100
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller fixes for v7.0, part 2
-Date: Tue, 24 Mar 2026 10:42:55 +0100
-Message-ID: <20260324094255.3538772-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.47.3
+	id 1w4yLf-000000017td-1gQk;
+	Tue, 24 Mar 2026 09:46:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774345610;
+	bh=BcODXoQlJ1DFAkNcgiG6uPX6+uutgiyM2xoSaFfQjCc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E1EOoVFqk7hSh/rshO7Pa1QiIU0Du1HE7HQfvvtfsyQ6zzNEPkAy5l7bfcdo69RiD
+	 YtRGgkWq1GMUSoT23DQKLNQzLdTcJC2tUsVkcCAP2XN7C14srnElu06hy/eHjqk2UP
+	 AkECqguGwZUS+BxoPghVSrSg9wTX+M09VbOTF0SP9hiIB6+ykl1iQ8uYBTnkPAF6U3
+	 lU+8Ohxe9KMmIcDs2NwfcsxnS8qd3iHZGExmhR2/PD7FdBITOAGQ1sK12tU7XvFbgV
+	 zUjUHRU6KPTbCS47GA/eWBiw2IbPoLwkE2w+EVdYQKwY/N67rDnnewv4fTfSu33d8a
+	 ilpRq+sMx/IOQ==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E8D1717E4BCD;
+	Tue, 24 Mar 2026 10:46:49 +0100 (CET)
+Message-ID: <08e6b649-61ac-4059-a914-c537b5c4da7e@collabora.com>
+Date: Tue, 24 Mar 2026 10:46:49 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] media: synopsys: Add imx93 support
+To: Sakari Ailus <sakari.ailus@iki.fi>, Frank Li <Frank.li@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Guoniu Zhou <guoniu.zhou@oss.nxp.com>, imx@lists.linux.dev
+References: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
+ <acGQNIUKqfh8eWNB@lizhi-Precision-Tower-5810>
+ <acJI3wYnl8_g4WpO@valkosipuli.retiisi.eu>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <acJI3wYnl8_g4WpO@valkosipuli.retiisi.eu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_024302_757196_2C80EC16 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_024655_621127_4544ED97 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,43 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+Hi all,
 
-The following changes since commit e0cf84109bc6c6768337123f1de24ff56b41c91b:
+On 3/24/26 09:18, Sakari Ailus wrote:
+> On Mon, Mar 23, 2026 at 03:10:44PM -0400, Frank Li wrote:
+>> On Tue, Feb 10, 2026 at 12:11:07PM -0500, Frank Li wrote:
+>>> This 3rd time try to support DW CSI2RX support for imx93.
+>>>
+>>
+>> Laurent Pinchart and Sakari Ailus:
+>>
+>> 	I am not who will take care this patch?
+>> 	original drivers/media/platform/synopsys/dw-mipi-csi2rx.c picked
+>> by Sakari Ailus
+> 
+> Michael seems to have questions on the last patch, too.
 
-  reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it (2026-02-23 17:03:28 +0100)
+I.. don't.. think so. After digging a bit in my memory and lore, I found
+a v3 of that series with my Reviewed-by [0]
 
-are available in the Git repository at:
+[0]
+https://lore.kernel.org/all/20260216-imx93-dw-csi2-v3-0-aabafee10923@nxp.com/
 
-  https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-2
+Best regards,
+Michael
 
-for you to fetch changes up to a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
-
-  reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:47 +0100)
-
-----------------------------------------------------------------
-Reset controller fixes for v7.0, part 2
-
-* Decouple spacemit K3 reset lines that were incorrectly coupled
-  together as one, but are in fact separate resets in hardware.
-* Fix a double free in the reset_add_gpio_aux_device() error path.
-  This has already been fixed on reset/next by commit a9b95ce36de4
-  ("reset: gpio: add a devlink between reset-gpio and its consumer").
-* Fix the MODULE_AUTHOR string in the rzg2l-usbphy-ctrl driver.
-
-----------------------------------------------------------------
-Biju Das (1):
-      reset: rzg2l-usbphy-ctrl: Fix malformed MODULE_AUTHOR string
-
-Guangshuo Li (1):
-      reset: gpio: fix double free in reset_add_gpio_aux_device() error path
-
-Yixun Lan (1):
-      reset: spacemit: k3: Decouple composite reset lines
-
- drivers/reset/core.c                           |  1 -
- drivers/reset/reset-rzg2l-usbphy-ctrl.c        |  2 +-
- drivers/reset/spacemit/reset-spacemit-k3.c     | 60 +++++++++++++++-----------
- include/dt-bindings/reset/spacemit,k3-resets.h | 48 +++++++++++++++------
- 4 files changed, 73 insertions(+), 38 deletions(-)
 
