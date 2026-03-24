@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0B6E9A77F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D79E9A779
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0WY5O2fVmlsfJE/JIAo3CQ1FmT8f/j02dn60V8+q7U=; b=zRb61UKnI58PrqZsFqnCja9cXr
-	2Jmm7kx31XojzZ68VdD9UtKWpP3KPaNl03mVuZ71jQB5gpDE+Aph2jHHy4yzESCBrFRfA6sq/FpfE
-	XZjGcn/yasO/g4jqoNL3gyZ7noh/P6vMKS6so59FKCa87g/M3j1u98DplrFLhqs4JesZpUqLqly+X
-	Zpg9toL79U5RkvdWoED7UlN1ZZvqBEoHn1UY1/pZaVGR/iObukUiJT1kGiAc82QryeEkI6GW7gE+0
-	2Knbq+zji90FV6lp0KJQIZSzwwps4v5ElyMDEkP8XzZ+NPcZHjw+OkWhDyDqHh1ZrWKhM0CN+uIZM
-	rvwPWgVQ==;
+	bh=JA1qt91LfWyVDhYq+0YBbhyOyHkFNztXcUff8vKIvBE=; b=TCanAterSNx/iq7btxA6pFLRMo
+	P2LhgmGthr11lX1rp7YKFTzoE5p7ii6+h8X9cab0mkvdQEbtvyJN3qL/zpYJBCSQfo5sFOARwnFmU
+	L7HUjRglogRTcSGXzip2qKcoANvWhgkeEllWGTt7+u+w1lDFTJq0VxwYP5v4PiURYqTg519+10q0S
+	iv45GCH/Z3DdOCskNPAnhx3dgGFzSECS2x9f+Vt9YoyiihfJKAaURBQNKaBens+ZlX9iDEPkXouCU
+	2mwnq2dtI5/WcvZrJhMzdE/CwL93Gym/mRxxPaARou3m+ybnFknWVISbIRObsBqP5/Ig76b5Qa+pu
+	LCrA3XQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5196-00000001QNW-3RO8;
-	Tue, 24 Mar 2026 12:46:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w51AS-00000001QeF-3UAh;
+	Tue, 24 Mar 2026 12:47:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5194-00000001QMK-1WHq
+	id 1w51AQ-00000001Qdp-38Id
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 12:46:07 +0000
+	Tue, 24 Mar 2026 12:47:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8E9F4323E;
-	Tue, 24 Mar 2026 12:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCAE0C19424;
-	Tue, 24 Mar 2026 12:46:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E87343F62;
+	Tue, 24 Mar 2026 12:47:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C91BC19424;
+	Tue, 24 Mar 2026 12:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774356365;
-	bh=7v2y5R7yJ+aJsFUsyYdAnXA4i1XNAA7BioxYMzzceMY=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=hpUp9+0q79/nhSZp/N+0EmJv88hJup8Y83RJNwgl83DCCVzJel2/YgZ4f+S85T+O+
-	 RNoskRd5pFp1FIaDU1vjaP1erzeMG3f9VX9c6D1bWjkfnhdZgWS/KYOdvScUDLnUuL
-	 sXoohTFcfHrSvK1mVU81EC1bxivfCUTgir/fYcqppOvTCYZbzQVBncSMlbd+QCn2Ig
-	 3vyll3UYkh/pfMVCmBtV7Jn/ei7HOSprPLGK7Vf7NLVTKYiIZLx9nXu6fd9dheHiNE
-	 iYokbijN5Lus10fk67m5gJ4E4k7S+g5PDUgd6Daz3b8BKwHMloPC8eXKjm3P0qgUOH
-	 xROe/dROsk7iA==
-Content-Type: multipart/mixed; boundary="===============5284341796206288996=="
+	s=k20201202; t=1774356450;
+	bh=Hs5NN0Xw501p0mYPPTi5mdNMUytgK95JTGwv0k/Zx+M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Rw/d6G4Ezmrp/6pLXfqsGb8zsT2oIIOuHYmS1k5dR423pXOfKzc9+gX/F7EFKXdya
+	 MNMl/hEf685MQw6FX0fmM8qVRqr9x7zeey0RVmZV0BTCVMyzHFxKMkpkTEcSeLd0Q9
+	 6o+zauJhYa2bhFGbTi68F4/ucakqTDzOvty9LS0jowVgeblfddwHZX25iIK4NoSOF1
+	 Ay2GqQlNuYlcUFWVOh6e0ZK2gMjr07eLw2YnVFkkWUFT3rv189Evft5bBZ1ogsyZXi
+	 t6p6t4kAQRJnZY+Ld8vQ0hpJonJUNVR9y2IgdVvRsBDEFjPy5OWgchWzzUq2gcJSDS
+	 1UXm/irWTzgzw==
+Date: Tue, 24 Mar 2026 12:47:24 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize
+ ID_AA64PFR2_EL1.GCIE
+Message-ID: <638a3453-91c9-4a76-8241-25d5c27ca518@sirena.org.uk>
+References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
+ <20260319154937.3619520-13-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-Message-Id: <edfa617891aa2e2980ecfb8037a7a4ed069e518bbce1777e331c737024feb1da@mail.kernel.org>
-In-Reply-To: <20260324122052.342751-2-xukuohai@huaweicloud.com>
-References: <20260324122052.342751-2-xukuohai@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v10 1/5] bpf: Move constants blinding out of arch-specific JITs
-From: bot+bpf-ci@kernel.org
-To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Tue, 24 Mar 2026 12:46:04 +0000 (UTC)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="E0V79KpFpV4nuoMQ"
+Content-Disposition: inline
+In-Reply-To: <20260319154937.3619520-13-sascha.bischoff@arm.com>
+X-Cookie: Should I do my BOBBIE VINTON medley?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_054606_443257_A61F5F02 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20260324_054730_826179_1914E275 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,127 +85,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============5284341796206288996==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
 
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index 67eb12b637a5..8f52f4b6c3af 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
+--E0V79KpFpV4nuoMQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[ ... ]
+On Thu, Mar 19, 2026 at 03:52:50PM +0000, Sascha Bischoff wrote:
+> Add in a sanitization function for ID_AA64PFR2_EL1, preserving the
+> already-present behaviour for the FPMR, MTEFAR, and MTESTOREONLY
+> fields. Add sanitisation for the GCIE field, which is set to IMP if
+> the host supports a GICv5 guest and NI, otherwise.
 
-> @@ -1507,13 +1507,16 @@ static void adjust_insn_arrays(struct bpf_prog *prog, u32 off, u32 len)
->  #endif
->  }
->
-> -struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
-> +struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bpf_prog *prog)
->  {
+We're also seeing an issue with this in the aarch32_id_regs test:
 
-[ ... ]
+# selftests: kvm: aarch32_id_regs
+# Random seed: 0x6b8b4567
+# ==== Test Assertion Failure ====
+#   arm64/aarch32_id_regs.c:25: read_sysreg_s((((3) << 19) | ((0) << 16) | ((0) << 12) | ((1) << 8) | ((1) << 5))) == 0
+#   pid=3111 tid=3111 errno=4 - Interrupted system call
+# sh: 1: addr2line: not found
+#   0x10000000 != 0x0 (read_sysreg_s((((3) << 19) | ((0) << 16) | ((0) << 12) | ((1) << 8) | ((1) << 5))) != 0)
+not ok 9 selftests: kvm: aarch32_id_regs # exit=254
 
-> -		tmp = bpf_patch_insn_single(clone, i, insn_buff, rewritten);
-> -		if (IS_ERR(tmp)) {
-> +		if (env)
-> +			tmp = bpf_patch_insn_data(env, subprog_start + i, insn_buff, rewritten);
-> +		else
-> +			tmp = bpf_patch_insn_single(clone, i, insn_buff, rewritten);
+which for some reason only manifests on TX2 of the platforms I've seen.
 
-When env is non-NULL, bpf_patch_insn_data() adjusts env->insn_aux_data
-via adjust_insn_aux_data() and env->subprog_info via
-adjust_subprog_starts(). This shifts subprogram start positions to
-account for the expanded instructions.
+Bisect log:
 
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index cd008b146ee5..1b2b99f2d859 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
+git bisect start
+# status: waiting for both good and bad commits
+# bad: [e3d585ed3ff891a00c2284fef4be9cf8581735ab] Merge branch kvm-arm64/vgic-v5-ppi into kvmarm-master/next
+git bisect bad e3d585ed3ff891a00c2284fef4be9cf8581735ab
+# status: waiting for good commit(s), bad commit known
+# good: [f338e77383789c0cae23ca3d48adcc5e9e137e3c] Linux 7.0-rc4
+git bisect good f338e77383789c0cae23ca3d48adcc5e9e137e3c
+# bad: [0a9f38bf612b195e04236d366ed9f769ce14cc27] KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest
+git bisect bad 0a9f38bf612b195e04236d366ed9f769ce14cc27
+# bad: [4d591252bacb2d004b7c7f5db439bfa23b552ee7] KVM: arm64: gic-v5: Implement PPI interrupt injection
+git bisect bad 4d591252bacb2d004b7c7f5db439bfa23b552ee7
+# good: [da92ff15ca4c5b0f75ec1cb3d2e275db2ff2c810] KVM: arm64: gic-v5: Add Arm copyright header
+git bisect good da92ff15ca4c5b0f75ec1cb3d2e275db2ff2c810
+# bad: [070543a85adce329672012a1fe35fa48c76e02d5] KVM: arm64: gic-v5: Trap and emulate ICC_IDR0_EL1 accesses
+git bisect bad 070543a85adce329672012a1fe35fa48c76e02d5
+# bad: [a258a383b91774ac646517ec1003a442964d8946] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
+git bisect bad a258a383b91774ac646517ec1003a442964d8946
+# good: [f656807150e3e1c6f76cab918e5adfad6d881d58] KVM: arm64: gic-v5: Detect implemented PPIs on boot
+git bisect good f656807150e3e1c6f76cab918e5adfad6d881d58
+# first bad commit: [a258a383b91774ac646517ec1003a442964d8946] KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
 
-[ ... ]
+--E0V79KpFpV4nuoMQ
+Content-Type: application/pgp-signature; name="signature.asc"
 
->  static int jit_subprogs(struct bpf_verifier_env *env)
->  {
-> -	struct bpf_prog *prog = env->prog, **func, *tmp;
-> +	struct bpf_prog *orig_prog = env->prog, *prog, **func, *tmp;
->  	int i, j, subprog_start, subprog_end = 0, len, subprog;
->  	struct bpf_map *map_ptr;
->  	struct bpf_insn *insn;
->  	void *old_bpf_func;
->  	int err, num_exentries;
-> -	int old_len, subprog_start_adjustment = 0;
-> +	bool blinded = false;
->
->  	if (env->subprog_cnt <= 1)
->  		return 0;
->
-> +	prog = bpf_jit_blind_constants(env, NULL);
-> +	if (IS_ERR(prog))
-> +		return -ENOMEM;
-> +	if (prog != orig_prog)
-> +		blinded = true;
+-----BEGIN PGP SIGNATURE-----
 
-[ ... ]
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnCh9sACgkQJNaLcl1U
+h9DYIgf/SuArUXAvR0Exh14zdhXrCO8O+CXwvECOEycekzRm3hTdQJRvNCTvnCqE
+yBHraxmR8jdNYvqUn06djFs123wiu1bwJqjk+eC/CFTqTTNe0LcW/vmexBTMxehg
+8mH1Emm+3VGCM3PZhf/60jySeNIygDszCT4ox1GKsiZ8c8vk2unqcBBHkp5hNwlZ
+ObRq3RJYU6zl/SC6TY0BOG1XhgVwtaAuqegoVN7jy1RLIIoesXUqmQj+XglPeqxS
+m/NgqXRuBB4e2ZuXMDVNf93HtxYtFxm1D9qnufpBzlTWFzbtX6XGMAdG7gopjYfw
+d3jkKW90HAa5sy77547VHa19kKQxnQ==
+=DImS
+-----END PGP SIGNATURE-----
 
-> +	if (blinded) {
-> +		bpf_jit_prog_release_other(orig_prog, prog);
-> +		env->prog = prog = orig_prog;
-> +	}
->  	/* cleanup main prog to be interpreted */
->  	prog->jit_requested = 0;
->  	prog->blinding_requested = 0;
-> -	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
-> -		if (!bpf_pseudo_call(insn))
-> -			continue;
-> -		insn->off = 0;
-> -		insn->imm = env->insn_aux_data[i].call_imm;
-> +	/* we already rolled back to the clean orig_prog when blinded is true */
-> +	if (!blinded) {
-> +		for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
-> +			if (!bpf_pseudo_call(insn))
-> +				continue;
-> +			insn->off = 0;
-> +			insn->imm = env->insn_aux_data[i].call_imm;
-> +		}
->  	}
->  	bpf_prog_jit_attempt_done(prog);
->  	return err;
-
-When blinded is true, the rollback restores env->prog to orig_prog, but
-env->subprog_info still holds the shifted start positions from blinding
-(adjusted by adjust_subprog_starts() in bpf_patch_insn_data()). The
-commit message states "env->insn_aux_data and env->subprog_info are no
-longer used after JIT failure." However, on configurations without
-CONFIG_BPF_JIT_ALWAYS_ON, fixup_call_args() falls through to the
-interpreter fixup loop after jit_subprogs() fails:
-
-fixup_call_args() {
-    err = jit_subprogs(env);          /* fails, e.g. -ENOTSUPP */
-    ...
-    for (i = 0; i < prog->len; ...) {
-        ...
-        depth = get_callee_stack_depth(env, insn, i);
-    }
-}
-
-get_callee_stack_depth() computes a target address from orig_prog's
-original instruction offsets and calls find_subprog(env, start). Since
-env->subprog_info start positions were shifted by blinding but the
-instruction addresses are from the unblinded orig_prog, find_subprog()
-fails to find a matching entry and returns -ENOENT, triggering a
-spurious "verifier bug" warning and rejecting the program.
-
-Could env->subprog_info be restored alongside the prog rollback, or
-could jit_subprogs() return -EFAULT when blinding was active to skip
-the interpreter fallback path?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23488858455
---===============5284341796206288996==--
+--E0V79KpFpV4nuoMQ--
 
