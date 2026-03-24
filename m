@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7AFF532E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 23:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62195F532E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 23:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6hkqmn5/Lm/RJ1zH+MMrxFpBSNBqxslxfAIu548ZS6o=; b=1I6CDKlUHQQlPohTbCcn4rtdWg
-	pm5i8ZOVj20RPkLOJlry+AyaXUA7YpLvetH/3shDIacRfDkWzVoNquXfRME4Ky/IUoQotgu5BNGou
-	QVhzz9mSFS/iia3J67yBCnYGX5jsGNj8ICDGuMbzHTofYISfWEIbNh8n4KJfVTIX/5JM94mCAXsdb
-	3EbUOK6UgSPdtir8IWP296V3AOP7DfPmw9QFAVHKCz9MgmOv1ktr9qtFaI+oauY9AJxWPQ5DmDuwj
-	YSHRNFJnfvGT6V7jn8ZzsCuaNzzAo170xd4FeIDNqPSBVMLb91bjrexLz3WAMPiJXnsrEVst1AVpf
-	mEnG/dDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATuLVAq1ts7ScRhCkDaGsLUh7/lhKkLjo1yD6uExeT0=; b=FPqUhjBg6CYU7UGYUklFIqrOAB
+	UyhcqipkZeISTpOMonh1XiqxA6o4kxOUo06qrkWEazji5bx23zSy82gmqaxMV+FQICirpF+kpIJJO
+	8vft1tPjDX+xfeiFlOW+jFxFuRwAY+PBIlject+4F55xW+gdzvU36XkcD1bj+CvIyMAgeOicZAKDd
+	ZQP6BGLopAU7H/WgL7ypif/mgcaTJLrngkULieFybxaJQk/xdKhPMJOKn6gg8y7pSEAynOqphCBh9
+	U15GTb4aXA4GmRStHvjgwchu9dWJ9O3m4GvxBMYCWlAQiDiXoRXlFzEEue6KLAoBi/BSY5FL/dtHs
+	gz1ynSmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Auf-00000002L3k-3fSD;
-	Tue, 24 Mar 2026 23:11:53 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1w5B7m-00000002LvP-0hJH;
+	Tue, 24 Mar 2026 23:25:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Aud-00000002L3O-0buR
+	id 1w5B7j-00000002Lv4-1viG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 23:11:52 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 15605112263;
-	Wed, 25 Mar 2026 00:11:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1774393908;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=6hkqmn5/Lm/RJ1zH+MMrxFpBSNBqxslxfAIu548ZS6o=;
-	b=dMPkaKvpgdhIyAKyu5nYxwRdnlq3N08T9loLdL6JOo/n7tqhieKPGvR74HmmvbEvTH1Px3
-	UrO2Xca6vycanpXrFwcbi1VDsFi1IOxCDf/BljTZHNJCUuk6uw73z0ttCZiALwznufbr/5
-	U4VIaOt5Yu9v6o5XI9Eh4ZWdyrPFD/gTQMxxa8vgvRRgmy407PInjQ7GEEQ33x5BnQIVl4
-	6IuDYHrF+gKQ761WAFV0CnyGbuL72ws6xInX/fo/y6BKEQI7KAuA0U8fOFDqELKJEhpezz
-	vjhsYM1ldlLjk0p9PThqSCfkFZDSExQVAefZDiWfJTKyPV5a95ydouYXUeKQww==
-Message-ID: <e580bc1d-96ce-43c5-880f-bb8ee31fda28@nabladev.com>
-Date: Tue, 24 Mar 2026 22:43:25 +0100
+	Tue, 24 Mar 2026 23:25:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CFFC541A14;
+	Tue, 24 Mar 2026 23:25:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C481C19424;
+	Tue, 24 Mar 2026 23:25:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774394721;
+	bh=8M2lfLTY30frg/KZdYPe5W7EMROR9Qeg+pO68+yl6Kc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uUpZcUDxNxE64Me8evCj/8m/kPF0rqXW7NULInKarHq6hDsx+EqcsOsDT6YLE5YOv
+	 84fGJofuOiE+XO1hX9kXSjaWRfDKUxSVi5nGliR4H0V9q3sK7Q2gfLO0QLoWEHj7jy
+	 Pz565Tn2iB0vhZsZYq3eF61JXpEgYloT3UIJuVAvpRLfS9siV1zagiZPAM4c8J/y8D
+	 VKu0mdfWbmlNkzT2VDYl/pU1NOb79EUW2nLU0ZL3/gzxQhFVQ3YOi/ehEazBVjpy8E
+	 NuWE95DnBOqmilyUXeULaVocQ+bME4KzYMeJECGqpCuAJ5WKsm1mMmWlDEettZg+3Y
+	 7POC+XZ5K5oBQ==
+Date: Tue, 24 Mar 2026 18:25:20 -0500
+From: Rob Herring <robh@kernel.org>
+To: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/3] dt-bindings: power: Add power-domains-child-ids
+ property
+Message-ID: <20260324232520.GA2225579-robh@kernel.org>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+ <20260310-topic-lpm-pmdomain-child-ids-v1-1-5361687a18ff@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus
- DHCOM SoM and boards
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Christoph Niedermaier <cniedermaier@dh-electronics.com>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev, kernel@dh-electronics.com,
- linux-kernel@vger.kernel.org
-References: <20260312232500.197096-1-marex@nabladev.com>
- <acK1YU6M5FGK3qM2@lizhi-Precision-Tower-5810>
- <e5d7ca6a-fdd3-4aca-aa1f-1d35bc9c0119@nabladev.com>
- <acLtV4Vwpbj9vpE3@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <acLtV4Vwpbj9vpE3@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-1-5361687a18ff@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_161151_417705_122B4B62 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260324_162523_522087_7A95A48D 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/24/26 9:00 PM, Frank Li wrote:
-> On Tue, Mar 24, 2026 at 06:39:10PM +0100, Marek Vasut wrote:
->> On 3/24/26 5:01 PM, Frank Li wrote:
->>> On Fri, Mar 13, 2026 at 12:24:04AM +0100, Marek Vasut wrote:
->>> ...
->>>
->>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-overlay-panel-ch101olhlwh.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-overlay-panel-ch101olhlwh.dtsi
->>>> new file mode 100644
->>>> index 0000000000000..534737363c9f0
->>>> --- /dev/null
->>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-overlay-panel-ch101olhlwh.dtsi
->>>> @@ -0,0 +1,42 @@
->>>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->>>> +/*
->>>> + * Copyright (C) 2022 Marek Vasut
->>>
->>> 2026?
->>
->> That was the original copyright year when this was implemented, but I can
->> update it to 2022-2026 ?
+On Tue, Mar 10, 2026 at 05:19:23PM -0700, Kevin Hilman (TI) wrote:
+> Add binding documentation for the new power-domains-child-ids property,
+> which works in conjunction with the existing power-domains property to
+> establish parent-child relationships between a multi-domain power domain
+> provider and external parent domains.
 > 
-> Okay, you upstream this year.
+> Each element in the uint32 array identifies the child domain
+> ID (index) within the provider that should be made a child domain of
+> the corresponding phandle entry in power-domains. The two arrays must
+> have the same number of elements.
+> 
+> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+> ---
+>  Documentation/devicetree/bindings/power/power-domain.yaml | 35 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/power/power-domain.yaml b/Documentation/devicetree/bindings/power/power-domain.yaml
+> index b1147dbf2e73..a3d2af124d37 100644
+> --- a/Documentation/devicetree/bindings/power/power-domain.yaml
+> +++ b/Documentation/devicetree/bindings/power/power-domain.yaml
+> @@ -68,6 +68,21 @@ properties:
+>        by the given provider should be subdomains of the domain specified
+>        by this binding.
+>  
+> +  power-domains-child-ids:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    description:
+> +      An array of child domain IDs that correspond to the power-domains
+> +      property. This property is only applicable to power domain providers
+> +      with "#power-domain-cells" > 0 (i.e., providers that supply multiple
+> +      power domains). It specifies which of the provider's child domains
+> +      should be associated with each parent domain listed in the power-domains
+> +      property. The number of elements in this array must match the number of
+> +      phandles in the power-domains property. Each element specifies the child
+> +      domain ID (index) that should be made a child domain of the corresponding
+> +      parent domain. This enables hierarchical power domain structures where
+> +      different child domains from the same provider can have different
+> +      parent domains.
 
-Right, V2 does extend the copyrights until this year.
+Okay, I guess we stick with this. Sorry for the detour.
 
->>>> + */
->>>> +
->>>> +&display_bl {
->>>> +	pwms = <&pwm1 0 5000000 0>;
->>>> +};
->>>> +
->>>> +&DH_OVERLAY_PANEL_I2C_BUS {
->>>
->>> why upcase for label, generally it should be lower case
->>
->> Because this label is really a macro , please read on.
->>
->>>> +	#address-cells = <1>;
->>>> +	#size-cells = <0>;
->>>> +
->>>> +	touchscreen@41 {
->>>> +		compatible = "ilitek,ili251x";
->>>> +		pinctrl-0 = <DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_PINCTRL>;
->>>> +		pinctrl-names = "default";
->>>> +		reg = <0x41>;
->>>
->>> reg should second property,  please dt-format for new dts files.
->>> check others
->> What is "dt-format" ? Linux kernel source tree, even current next, does not
->> mention such a tool . I did run schema check and checkpatch on these
->> patches. obv.
-> 
-> I send out at many place, https://github.com/lznuaa/dt-format
-> I write small tools to detect and fix node and property order problem,
-> it may be buggy.
-> 
-> These node order problem is easy to detected and fix by tools to save
-> review cycle and focus on the important stuff.
-Maybe "make dtbs_check" target could include this tool , to make people 
-aware of it ?
+With the example fixed,
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+Rob
 
