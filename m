@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10273F54AA0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0C2F54AB8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snkm8Yk1lJSIIGbyA9V10oVIIMFDPNv5dbd0RwLCxhU=; b=hkJQtJ2syobdQjxkPE5Xn+heWb
-	BgWzKJd2JY/5QqFNR6rHVMNwRNMeTw3I9Df60/zfKQ4ggvz43V/9tHzCKwLlO3xnNu56xporFKMer
-	HTUW3IB4crFMJ91xMAdoVWvCZ0e4HpEvF1S+NSl8bVZdvzckttxa/FFJNy5ZXJyin6UZ2WyjZJ0Im
-	3KOBD7frT3+LyRbz3RLI7xGUSOPbbZVHavUAXiosaYzgwHBqGloVJhqvSvBgGWhZiC6ADS5rf5jCe
-	lBE1C1ZirLF1/dTiGGcwVIHTcnrHrX167UpXt5OwMGOpwoK4S1/b7bul6OK5U2Uu075GzKrrolw+d
-	CfHcrsHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9iKCvDxPU4e1QcvYZGXsXfBq0hdgl0iM7/+HP8gM9eA=; b=MeYwHixt6orFfIab3e3sAy+w9X
+	NVaiafCphJ+1bVJysLDn43XdRdv7O+iszt3bjzYdwWqcy5oPBe4oVFBVko0TMPpl977gFr1JeMyED
+	HS0jmay6b6aUmd1HuLo4pPCkunLZkp1Kd+7IPmuwrWhpS3qRnRmNBMlKIKAB+SxhZIVJngqze4yKH
+	MjJH32QOlMTrQP885GB1fhn9J21FSoFTnMuSXVDbOlWYSzfNx1t1SWSZcvma9Bxt4zQb5iXeZY0TT
+	+v3j3qr4o265NTGnFwxz0afNCjIhak/8F+qbCQMeevOFM7yKB4RRmiWw/5X89uzD/fFor/SFvQPIv
+	GLj0ddxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51gQ-00000001XGV-2iqS;
-	Tue, 24 Mar 2026 13:20:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w51qV-00000001Y7R-2tau;
+	Tue, 24 Mar 2026 13:30:59 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51gO-00000001XF9-2e9R
+	id 1w51qS-00000001Y6y-49Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:20:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=snkm8Yk1lJSIIGbyA9V10oVIIMFDPNv5dbd0RwLCxhU=; b=ONm9xJgRfpRgehHL37nXvQ2FWq
-	/JStvzJSw1JBXpbaNkzFOcsOGX9eUN6eVNaTohy6SiyrBt/fNf8S1Os82JOSYSapBMf7BPpwndfkJ
-	yJOvSLbPQ0mggKA0VMGJAamTTMbTuIf9fkRhiL6WIYJRCpXytHx0m+bBwpYUYwFDqXi5Mehu4oSly
-	nDAheswZLTscPTAYyPbkNKRX49B7h3jRL43Vb5PC2LPSqxdTQfHFH6+TE9nOoMylNt1kdkdwd+ySJ
-	PXvEzD67GWPPC5xhRM1xPWHZCau6WhPNwUPygIlrdAC+HP5ONBy1v5GXKiB8wQ2wWEX6eXwaOzb3V
-	sZkGgMBg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48332 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w51Yt-0000000025U-2Gp2;
-	Tue, 24 Mar 2026 13:12:47 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w51Yn-0000000DwWY-06F3;
-	Tue, 24 Mar 2026 13:12:41 +0000
-In-Reply-To: <acKNcX5PqtWYf8m3@shell.armlinux.org.uk>
-References: <acKNcX5PqtWYf8m3@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 14/15] net: stmmac: qcom-ethqos: correct prg_rclk_dly
- comment
+	Tue, 24 Mar 2026 13:30:58 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ad4d639db3so17527395ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:30:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774359056; x=1774963856; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=9iKCvDxPU4e1QcvYZGXsXfBq0hdgl0iM7/+HP8gM9eA=;
+        b=VEsovAkvc2XQ7Hf/SJkOPZ5/mS38ErNQ7viiA+9dhqU2nLsG65t0Y7q2bYSvPjZen5
+         K4/Cjre8V9BKqdN8xgRx9ENx8XcsqQDjvIYhSD5ze/uG2oDV7hopSInfzE5GRGCRe7/h
+         632k4SA8WKyNWhOqXgmcF0g7vkhF/N8X3VgRgGF3XLrdHMBMvx3DQ8/x4N++wQ3Zr16q
+         AQlEBmTRUKCywivoeza17zoGwLXvJVHqlu9wJmoJ78izpt5MFfgc3yG2M1aBLJ+HgCP7
+         eXs7MEA4WzdYImLRID1Fzf53vURrM43KYvHoiGjbBz61lV0b/VA7K57wtajvZi/Cypd/
+         CL8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774359056; x=1774963856;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9iKCvDxPU4e1QcvYZGXsXfBq0hdgl0iM7/+HP8gM9eA=;
+        b=S0A9kGA6IRTsMdOuRjC2B0z+agzGkO1/T93F2gWKHvhNnpm+weqT/KnHwsXvZzbMDU
+         9CjXqLRxZ0xm36MxyhhKKtiYtURQVTp/X7IPTBs0Oy+g9bPQgu11ln1Qcx5dUhuH7wzW
+         eq4/r8QKLOFo+RG0f/ZUK5159pg8AqhnACER9sWW0Yjx3njC4VDfnLewuVgbZZbQvhCx
+         xqHdAsdtJreg13vcnaJwOCuWbOHcCfWcHMCs2TPj/1PcVulBkdzrWAhGfl4y9Qyc7QU8
+         fIr/zCW0DNSNPXAv4Rz8ecqBma6jXYmAEt0UZzG+0rgRcVbQTexD5TrZCesahrGVAddl
+         fMyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYXRnuuHgkUxDfCggiw8osds9TQYQNV8B4yPFPPJ27Ngclr9Nq1ng13MIZDYNO6PlIn/40LvtMN0QEPrc1vSY3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyItTJNKfKybYltWfsYHrrBVKVJlwKp/5/xByEtMl5m/2KURSvx
+	uySFqzWYZdts1+xpM/+MTOtdG2VxMrfawpMwsLUUIdEJXlPJ5Md1A5rE
+X-Gm-Gg: ATEYQzwyRsjOG/7XTNkePnbrOSKwvAPSR3CAg/lTEL1+kDMZE5lH3Xnodb3NV/JsBs/
+	2ddGlyJKF418tiCye/MWDpEkz6kWVm4R+esCKG72Nsf4yzHwOKY3UN7IOmqbvAkiWiUVa03tVrr
+	VVyJdpErgmsS3MQrf2L1NvnmG81u4b99pYzZ0dXoZlbC4IV2m3FshgST5mNcAvH6+k4A9C6aqbi
+	9j/2RUd2pMBbZklElhEv9MBkjMm8A0vy738swj4nmHYzGJbIlzdJCismSPKZsb557XjcLeS6i3k
+	6Vjjj8YawhcP3GPKz38BdHG7h6eW+4SzJ7HjWxxN81ZEFvMI/+GnQbL6OGRiIOU/lDvGjscUvus
+	E3gfighyeayw19f3B6ah0PpR9vtdShHmLCO9D3qpZ6p7o14fQJUXMM9PNq7KJPS1+KI2v/iCSWM
+	iUM7Zl6VuZfBQTmEdD/d8gN3ljnTm9nX6w/j9jEsusgRzUjBcvuYNoCXWVOOI=
+X-Received: by 2002:a17:903:380b:b0:2ae:504c:ae8a with SMTP id d9443c01a7336-2b082724a85mr165419795ad.16.1774359055635;
+        Tue, 24 Mar 2026 06:30:55 -0700 (PDT)
+Received: from localhost ([103.70.166.143])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c743a7ffafdsm9821747a12.7.2026.03.24.06.30.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 06:30:54 -0700 (PDT)
+Date: Tue, 24 Mar 2026 19:00:49 +0530
+From: Gopi Krishna Menon <krishnagopi487@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Daniel Baluta <daniel.baluta@nxp.com>, rafael@kernel.org, 
+	daniel.lezcano@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com, robh@kernel.org, 
+	krzk+dt@kernel.org, vireshk@kernel.org, conor+dt@kernel.org, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, simona.toaca@nxp.com, d-gole@ti.com, 
+	m-chawdhry@ti.com
+Subject: Re: [PATCH 2/2] ARM: dts: st: spear: fix dtbs warning on spear
+ thermal sensor
+Message-ID: <acKEJrB6vc9wfd1k@toolbx>
+References: <20260323133814.14152-1-krishnagopi487@gmail.com>
+ <20260323133814.14152-3-krishnagopi487@gmail.com>
+ <20260324-smoky-radical-hyrax-1274a9@quoll>
+ <cd3400ce-295e-450f-b650-6715142ccbde@nxp.com>
+ <5a9f84fe-5827-48e7-8e4e-699cf8ae4776@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w51Yn-0000000DwWY-06F3@rmk-PC.armlinux.org.uk>
-Date: Tue, 24 Mar 2026 13:12:41 +0000
+In-Reply-To: <5a9f84fe-5827-48e7-8e4e-699cf8ae4776@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_062032_677926_91E3DFCD 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260324_063057_036980_1A5B15B1 
+X-CRM114-Status: GOOD (  34.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +108,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The comment for calculating the prg_rclk_dly value is incorrect as it
-omits the brackets around the divisor. Add the brackets to allow the
-reader to correctly evaluate the value. Validated with the values given
-in the driver.
+On Tue, Mar 24, 2026 at 11:01:05AM +0100, Krzysztof Kozlowski wrote:
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+> On 24/03/2026 11:00, Daniel Baluta wrote:
+> > On 3/24/26 11:26, Krzysztof Kozlowski wrote:
+> >> On Mon, Mar 23, 2026 at 07:08:09PM +0530, Gopi Krishna Menon wrote:
+> >>> Running DTBS checks on st/spear1340-evb.dtb results in the following
+> >>> warning:
+> >>>
+> >>> thermal@e07008c4 (st,thermal-spear1340): Unevaluated properties are not allowed ('thermal_flags' was unexpected)
+> >>>   from schema $id: http://devicetree.org/schemas/thermal/st,thermal-spear1340.yaml
+> >> How is it possible if there is no such file?
+> >>
+> >> Did you just add new warning in patch #1 and then claim in patch #2 that
+> >> you fix it?
+> >>
+> >> You completely miss the point why this change is needed: how could the
+> >> DTS work before? It could not. And that should be your justification for
+> >> the patch, with explanation why it could not work.
+> > 
+> > Correct me if I'm wrong but I think there was a hidden bug here 
+> > 
+> > drivers/thermal/spear_thermal.c:spear_thermal_probe:
+> > 
+> >       if (!np || !of_property_read_u32(np, "st,thermal-flags", &val)) {
+> > »       »       dev_err(&pdev->dev, "Failed: DT Pdata not passed\n");                                                                                                                         
+> > »       »       return -EINVAL;
+> > »       }
+> > 
+> > So, the driver was checking for the correct property as pointed by 
+> 
+> Yes
+> 
+> > 
+> > bindings/thermal/spear-thermal.txt but the dts was using the wrong
+> 
+> No, DTS had two properties - correct one and incorrect.
+> 
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index 3faea7ceebd3..0cc5b925cdb6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -450,8 +450,10 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
- 		rgmii_setmask(ethqos, SDCC_DDR_CONFIG_EXT_PRG_RCLK_DLY_EN,
- 			      SDCC_HC_REG_DDR_CONFIG);
- 	} else {
--		/* PRG_RCLK_DLY = TCXO period * TCXO_CYCLES_CNT / 2 * RX delay ns,
--		 * in practice this becomes PRG_RCLK_DLY = 52 * 4 / 2 * RX delay ns
-+		/* PRG_RCLK_DLY = TCXO period * TCXO_CYCLES_CNT /
-+		 *  (2 * RX delay ns),
-+		 * in practice this becomes PRG_RCLK_DLY = 52 * 4 /
-+		 *  (2 * RX delay ns)
- 		 */
- 		if (ethqos->has_emac_ge_3) {
- 			/* 0.9 ns */
--- 
-2.47.3
+Yup, spear13xx is included by spear1310.dtsi and spear1340.dtsi both of
+which have st,thermal-flags correctly defined. When working on this
+patch, after converting the binding, I ran dtbs check and upon seeing
+dtbs warning immediately fixed it thinking it was complaining because
+st,thermal-flags (thermal_flags) was written incorrectly. (Which is not
+incorrect as st,thermal-flags was there in the final node but there was one
+additional property named thermal_flags as well which is not allowed as
+UnevaluatedProperty is set to false). 
 
+Also I dont think we have to override the st,thermal-flags property in
+spear1310.dtsi as the flags value is same in spear13xx.dtsi and
+spear1310.dtsi (0x7000).
+
+> > 
+> > property name: arch/arm/boot/dts/st/spear13xx.dtsi » » » thermal@e07008c4 { » » » » compatible = "st,thermal-spear1340"; » » » » reg = <0xe07008c4 0x4>; » » » » thermal_flags = <0x7000>; » » » }; And because this check is wrong:
+> > 
+> >       if (!np || !of_property_read_u32(np, "st,thermal-flags", &val)) {
+> > 
+> > people really didn't notice it.
+> > 
+> > The check should be:
+> > 
+> >       if (!np || of_property_read_u32(np, "st,thermal-flags", &val)) {
+> > »       »       dev_err(&pdev->dev, "Failed: DT Pdata not passed\n");                                                                                                                         
+> > »       »       return -EINVAL;
+> > »       }
+> > 
+> > So, this actual patch has uncovered a bug! 
+> 
+> Yes. Driver also has bug, so probably was never working. The point is
+> whatever commit is doing, the dtbs_check warning is not the
+> justification, because it was introduced by this patchset.
+> 
+
+Please correct me if I am wrong Krzysztof but should i send a seperate patch
+fixing the thermal_flags property (Not connected to these converted
+bindings)?.
+
+Also, is it necessary to set additionalProperties to true? I am not able to
+figure out if that is needed.
+
+> Best regards,
+> Krzysztof
+
+Thanks,
+Gopi Krishna Menon
 
