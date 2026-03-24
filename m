@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB07F532D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 05:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C9FF532DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 05:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRQv5SoUqO6wpjc4KXUJi5zBo9PQQ21uTlHATv67Buc=; b=rjfbJLMD+7rjzrTUyNLG/Yjhw+
-	H+IrqKClZuOAyn3OLBePaiLOkp0VWUydDekoz9FPx6hurR2wsUXXkNbzsvTAdz4rJeGt0eGbWdCru
-	kXD3Ex89U8z4KuyzEV4v+fNgHvhJAhDWj0RpzhMaFiCTfz68ptdoJyXG0JW34JrH57xud4/rT2TJF
-	j5UmXK/k0zV5TVG5ju8h8XPlBuicrN3xy5zeb5nB8ArHWwJjwAft5pDAFDbBmbdpMfjZugCqdxodS
-	dEP5IKrnqgb13oZTuNbaUwOYu2LGjwvWLGzvUEuKN6i939S9Rp2rGhTMlNEGTEYMFXoqFVAzBFCHQ
-	p9RppWuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CCD2aeSujp0pavip+ysOL7CU0OZuaSl1qgjtPubEHw=; b=rjwY/pMB4+XulVR56LjQf9z6Yz
+	qYXc3QabQd1n3kChEu53BljjabJ1dvmHxvK2ZEqLVAPZmtQpjtZc5YbA0yweZPatdaMcxFsvKB6Kl
+	a/KyVcdSUUx063YeoAiMwbBTXhjtk+6MtCud36nHt0wPjioY2hGVwfY8zeixBLhcW0rPJ6qacE9oD
+	jpxM3vQNmGTbCW58HdB6mn9R4KuycaKhMJM9QgtalHOuPl4qA73LiikLdjPPnIS0QyGPB5o3Or7To
+	9MFKfptb2tGnXl9p1u/nTP2W3hoE7wlRU5PfIouq6yWZ8qgf9w7jelKFlS3Rba1td2ci1levjhoW+
+	+0ToHFOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uM0-00000000aYF-1HBl;
-	Tue, 24 Mar 2026 05:31:00 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1w4uQq-00000000b1k-0cZW;
+	Tue, 24 Mar 2026 05:36:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uLq-00000000aR3-48sC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 05:30:52 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35a09e0dd63so4705015a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 22:30:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1774330250; x=1774935050; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TRQv5SoUqO6wpjc4KXUJi5zBo9PQQ21uTlHATv67Buc=;
-        b=Y/fwPgmg3J9AMSVJWGrfCPhoq9TOPQDnVR9CHQNh+Jmjr9jgCdIq9pVtBKtWoHvPVl
-         2nk9dHDBMGGwtFIN+YN8an/5Zztvl9iHJs0HQGE5cAvjrnX6AERpLitC2/YFXRKGaq4L
-         kcsH6w5mjaV+Yr6DAVPu3G3rnl+aC9K99CVWE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774330250; x=1774935050;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TRQv5SoUqO6wpjc4KXUJi5zBo9PQQ21uTlHATv67Buc=;
-        b=Ht0wDjD88xy3Y3aa8rw4Xn/rhKojKrbPOEOU5YearR8ekkxmsD6BLhxrN+GBPnNVw/
-         g8LGGzTUIx5ajDRNENSZN3kr4tl+ulXIdC6ihu+mhTgs+TViisyx3EthAA1YYQfvYcEJ
-         uIDtUW95ikxe1Ej6qdFYRewlRwM6heRA78x8ONeoVUjM+SKLxds+9Z5trcHcA5WJbtP6
-         PZqMTWicERbmNGIhXyF8402AcIAxh2eT/ZDUFpOK/8rt+3yV1d3GORjpHygiv6DPvsvG
-         Pe2CeMB8FBQZqcm0I/kLX9X4t3XFSh+v+rB5HHeM0efkxJ5smZnougxM16c4JQeBiJGF
-         UOeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAh2zj7A1Ggf/riQZqjz4pXNmRQ+Q0ITLzeEVq5PmlvppSQV9sSj9HUJXonCbtiKEXg0jx/sTT6AXRAXqjTe2r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFtGy/vgwcCyNRqiVaZGkgmJNoIcPo1gkjYqlRMdSXsViD3LdJ
-	BSRbAp5Khl2M1u1n/mA2YxeXDvCrLw7b618MPiHikETTpn+6Qu+ze+mo4gOTucbKHQ==
-X-Gm-Gg: ATEYQzx0GGIFDR52hnfwxh4V4ii13F8+/e+/7XqIkiwSWzuYKaWIyRNGOrRNenazfqF
-	L9hq9Co4hrL2Swcx4+GzRd30C7We1bJcO0M9NASzYOF6/kgLUR9Y0UsyW5d4I5nykSlVQqj8WwI
-	0Zl8uiLycUrQpncQpx9oUpC0O3D4AEz1v+5syuY1UExRLUsZDCDSN5A/gItNQ97dHorelyoeYxQ
-	K+BnuIZXi7/DGkgH3eHvsCam4LhV1Cn0xP7OtpPfE3sl0d8c383v/BvYsK2a+g4cUHqhQoQ1TPf
-	+57HHa+5ZvxAsmXqwPndeE67+wlibPZ1h1lBZ/ity8B0yfe5Xq7Fj4oQWVZql1EDzy1KM6F1Ci/
-	PmwYW8T/T5RMRmEwdaNK9R5wUm7sAdkEDImWPlk2XG31mYsA1x3r/ZjRkM3nKVTctehv7+RToAi
-	lH3KCj4OHUNpCy9HgUvvFcPnj2A137wZ70VGCNSZHUCnA4+S5Dfavw7CluJahtDxz8uHXJANQEi
-	zYVyLCo
-X-Received: by 2002:a17:90b:4e90:b0:35b:e551:e776 with SMTP id 98e67ed59e1d1-35be551e7a9mr7465594a91.27.1774330250183;
-        Mon, 23 Mar 2026 22:30:50 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:19a5:8f2f:d584:8078])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c03211351sm953507a91.15.2026.03.23.22.30.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Mar 2026 22:30:49 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH RESEND 2/2] regulator: mt6315: Add regulator supplies
-Date: Tue, 24 Mar 2026 13:30:29 +0800
-Message-ID: <20260324053030.4077453-3-wenst@chromium.org>
-X-Mailer: git-send-email 2.53.0.983.g0bb29b3bc5-goog
-In-Reply-To: <20260324053030.4077453-1-wenst@chromium.org>
-References: <20260324053030.4077453-1-wenst@chromium.org>
+	id 1w4uQn-00000000b1F-3gy8;
+	Tue, 24 Mar 2026 05:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C5DA740DFF;
+	Tue, 24 Mar 2026 05:35:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA62C19424;
+	Tue, 24 Mar 2026 05:35:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774330556;
+	bh=FTpPg6VqMYGsOflNx1bNpFbE/kW6TknZdoyLgHvfExU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aXaJpoSsx5dP06H/YYjIquuOqxKTP5jBgRkct2VvUZKytVQoYViVd/TVDsg/eLQyR
+	 CKNIdJn0uAb8B3OFdzKkBw692ed56Zqk9xc2PEjGl4Cm6WyTnVjwAjlU9lFeCz2xhr
+	 SH2mSPayi8nJjjhAWR7AEQfr4o7KjxQja8xNcMyV0xPasE4vsqW1doocp5pXs7fC+/
+	 rMXkX94GNonF85gbrdGWC0roEi5w1oUeetIxXObb1AEDUZQX9PEVAmKL6ThuI2a9u3
+	 afb5WaiceqoY2J2Gnzlj+a1V440r0Jdg2FI8B+mQp5ZLRcXnbF+vNN9Bdgb4REC6wO
+	 /jdyJQPIo/jtg==
+Date: Tue, 24 Mar 2026 11:05:39 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>
+Subject: Re: [PATCH v5 phy-next 08/27] PCI: Remove device links to PHY
+Message-ID: <y7n3eiqvc5gv3ax7bn6sh3ikrvzpdc6hq7qfvebroqolrzcew6@7t7hs3eya5tm>
+References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
+ <20260319223241.1351137-9-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260319223241.1351137-9-vladimir.oltean@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_223051_025299_F36B7CCF 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260323_223557_968702_56EEA5B5 
+X-CRM114-Status: GOOD (  29.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,49 +82,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT6315 family of PMICs has 4 buck regulators. Each regulator has a
-separate supply.
+On Fri, Mar 20, 2026 at 12:32:22AM +0200, Vladimir Oltean wrote:
+> This is practically a full revert of commit
+> 7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
+> and a partial revert of the device link pieces from commits
+> dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
+> 49229238ab47 ("PCI: keystone: Cleanup PHY handling")
+> 
+> The trouble with these commits is that they dereference fields inside
+> struct phy from a consumer driver, which will become no longer possible.
+> 
+> Since commit 987351e1ea77 ("phy: core: Add consumer device link
+> support") from 2019, the PHY core also adds a device link to order PHY
+> provider and consumer suspend/resume operations. All reverted commits
+> are from 2017-2018, and what they do should actually be redundant now.
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
-Add these supplies to the driver.
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/regulator/mt6315-regulator.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+- Mani
 
-diff --git a/drivers/regulator/mt6315-regulator.c b/drivers/regulator/mt6315-regulator.c
-index d3f93aae0fc5..231e64fb0596 100644
---- a/drivers/regulator/mt6315-regulator.c
-+++ b/drivers/regulator/mt6315-regulator.c
-@@ -31,10 +31,11 @@ struct mt6315_chip {
- 	struct regmap *regmap;
- };
- 
--#define MT_BUCK(_name, _bid, _vsel)				\
-+#define MT_BUCK(_name, _bid, _supply, _vsel)			\
- [_bid] = {							\
- 	.desc = {						\
- 		.name = _name,					\
-+		.supply_name = _supply,				\
- 		.of_match = of_match_ptr(_name),		\
- 		.regulators_node = "regulators",		\
- 		.ops = &mt6315_volt_range_ops,			\
-@@ -190,10 +191,10 @@ static const struct regulator_ops mt6315_volt_range_ops = {
- };
- 
- static const struct mt6315_regulator_info mt6315_regulators[MT6315_VBUCK_MAX] = {
--	MT_BUCK("vbuck1", MT6315_VBUCK1, MT6315_BUCK_TOP_ELR0),
--	MT_BUCK("vbuck2", MT6315_VBUCK2, MT6315_BUCK_TOP_ELR2),
--	MT_BUCK("vbuck3", MT6315_VBUCK3, MT6315_BUCK_TOP_ELR4),
--	MT_BUCK("vbuck4", MT6315_VBUCK4, MT6315_BUCK_TOP_ELR6),
-+	MT_BUCK("vbuck1", MT6315_VBUCK1, "pvdd1", MT6315_BUCK_TOP_ELR0),
-+	MT_BUCK("vbuck2", MT6315_VBUCK2, "pvdd2", MT6315_BUCK_TOP_ELR2),
-+	MT_BUCK("vbuck3", MT6315_VBUCK3, "pvdd3", MT6315_BUCK_TOP_ELR4),
-+	MT_BUCK("vbuck4", MT6315_VBUCK4, "pvdd4", MT6315_BUCK_TOP_ELR6),
- };
- 
- static const struct regmap_config mt6315_regmap_config = {
+> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+> ---
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Vignesh Raghavendra <vigneshr@ti.com>
+> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> 
+> v3->v5: none
+> v2->v3:
+> - remove dangling set but unused phy_count local variable in
+>   cdns_plat_pcie_probe()
+> v1->v2:
+> - fully remove struct device link **link from struct cdns_pcie and from
+>   cdns_plat_pcie_probe() error path
+> - collect tag
+> - adjust commit title
+> ---
+>  .../controller/cadence/pcie-cadence-plat.c    |  4 ---
+>  drivers/pci/controller/cadence/pcie-cadence.c | 16 +---------
+>  drivers/pci/controller/cadence/pcie-cadence.h |  2 --
+>  drivers/pci/controller/dwc/pci-dra7xx.c       | 16 ----------
+>  drivers/pci/controller/dwc/pci-keystone.c     | 31 +++----------------
+>  5 files changed, 5 insertions(+), 64 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-plat.c b/drivers/pci/controller/cadence/pcie-cadence-plat.c
+> index b067a3296dd3..fc39c01b7964 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-plat.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-plat.c
+> @@ -41,7 +41,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
+>  	struct pci_host_bridge *bridge;
+>  	struct cdns_pcie_ep *ep;
+>  	struct cdns_pcie_rc *rc;
+> -	int phy_count;
+>  	bool is_rc;
+>  	int ret;
+>  
+> @@ -122,9 +121,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
+>  	pm_runtime_put_sync(dev);
+>  	pm_runtime_disable(dev);
+>  	cdns_pcie_disable_phy(cdns_plat_pcie->pcie);
+> -	phy_count = cdns_plat_pcie->pcie->phy_count;
+> -	while (phy_count--)
+> -		device_link_del(cdns_plat_pcie->pcie->link[phy_count]);
+>  
+>  	return 0;
+>  }
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
+> index a1eada56edba..0ac980249941 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence.c
+> @@ -222,7 +222,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
+>  	struct device_node *np = dev->of_node;
+>  	int phy_count;
+>  	struct phy **phy;
+> -	struct device_link **link;
+>  	int i;
+>  	int ret;
+>  	const char *name;
+> @@ -238,10 +237,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
+>  	if (!phy)
+>  		return -ENOMEM;
+>  
+> -	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
+> -	if (!link)
+> -		return -ENOMEM;
+> -
+>  	for (i = 0; i < phy_count; i++) {
+>  		of_property_read_string_index(np, "phy-names", i, &name);
+>  		phy[i] = devm_phy_get(dev, name);
+> @@ -249,17 +244,10 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
+>  			ret = PTR_ERR(phy[i]);
+>  			goto err_phy;
+>  		}
+> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
+> -		if (!link[i]) {
+> -			devm_phy_put(dev, phy[i]);
+> -			ret = -EINVAL;
+> -			goto err_phy;
+> -		}
+>  	}
+>  
+>  	pcie->phy_count = phy_count;
+>  	pcie->phy = phy;
+> -	pcie->link = link;
+>  
+>  	ret =  cdns_pcie_enable_phy(pcie);
+>  	if (ret)
+> @@ -268,10 +256,8 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
+>  	return 0;
+>  
+>  err_phy:
+> -	while (--i >= 0) {
+> -		device_link_del(link[i]);
+> +	while (--i >= 0)
+>  		devm_phy_put(dev, phy[i]);
+> -	}
+>  
+>  	return ret;
+>  }
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+> index 443033c607d7..35b0b33bc6fb 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence.h
+> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
+> @@ -82,7 +82,6 @@ struct cdns_plat_pcie_of_data {
+>   * @is_rc: tell whether the PCIe controller mode is Root Complex or Endpoint.
+>   * @phy_count: number of supported PHY devices
+>   * @phy: list of pointers to specific PHY control blocks
+> - * @link: list of pointers to corresponding device link representations
+>   * @ops: Platform-specific ops to control various inputs from Cadence PCIe
+>   *       wrapper
+>   * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
+> @@ -95,7 +94,6 @@ struct cdns_pcie {
+>  	bool			             is_rc;
+>  	int			             phy_count;
+>  	struct phy		             **phy;
+> -	struct device_link	             **link;
+>  	const  struct cdns_pcie_ops          *ops;
+>  	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
+>  };
+> diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
+> index d5d26229063f..b91ab37845c9 100644
+> --- a/drivers/pci/controller/dwc/pci-dra7xx.c
+> +++ b/drivers/pci/controller/dwc/pci-dra7xx.c
+> @@ -9,7 +9,6 @@
+>  
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+> -#include <linux/device.h>
+>  #include <linux/err.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/irq.h>
+> @@ -683,7 +682,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
+>  	int i;
+>  	int phy_count;
+>  	struct phy **phy;
+> -	struct device_link **link;
+>  	void __iomem *base;
+>  	struct dw_pcie *pci;
+>  	struct dra7xx_pcie *dra7xx;
+> @@ -731,10 +729,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
+>  	if (!phy)
+>  		return -ENOMEM;
+>  
+> -	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
+> -	if (!link)
+> -		return -ENOMEM;
+> -
+>  	dra7xx->clk = devm_clk_get_optional(dev, NULL);
+>  	if (IS_ERR(dra7xx->clk))
+>  		return dev_err_probe(dev, PTR_ERR(dra7xx->clk),
+> @@ -749,12 +743,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
+>  		phy[i] = devm_phy_get(dev, name);
+>  		if (IS_ERR(phy[i]))
+>  			return PTR_ERR(phy[i]);
+> -
+> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
+> -		if (!link[i]) {
+> -			ret = -EINVAL;
+> -			goto err_link;
+> -		}
+>  	}
+>  
+>  	dra7xx->base = base;
+> @@ -856,10 +844,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
+>  	pm_runtime_disable(dev);
+>  	dra7xx_pcie_disable_phy(dra7xx);
+>  
+> -err_link:
+> -	while (--i >= 0)
+> -		device_link_del(link[i]);
+> -
+>  	return ret;
+>  }
+>  
+> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> index 642e4c45eefc..07698c645e02 100644
+> --- a/drivers/pci/controller/dwc/pci-keystone.c
+> +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> @@ -130,7 +130,6 @@ struct keystone_pcie {
+>  	int			num_lanes;
+>  	u32			num_viewport;
+>  	struct phy		**phy;
+> -	struct device_link	**link;
+>  	struct			device_node *msi_intc_np;
+>  	struct irq_domain	*intx_irq_domain;
+>  	struct device_node	*np;
+> @@ -1118,7 +1117,6 @@ static int ks_pcie_probe(struct platform_device *pdev)
+>  	enum dw_pcie_device_mode mode;
+>  	struct dw_pcie *pci;
+>  	struct keystone_pcie *ks_pcie;
+> -	struct device_link **link;
+>  	struct gpio_desc *gpiod;
+>  	struct resource *res;
+>  	void __iomem *base;
+> @@ -1189,31 +1187,17 @@ static int ks_pcie_probe(struct platform_device *pdev)
+>  	if (!phy)
+>  		return -ENOMEM;
+>  
+> -	link = devm_kcalloc(dev, num_lanes, sizeof(*link), GFP_KERNEL);
+> -	if (!link)
+> -		return -ENOMEM;
+> -
+>  	for (i = 0; i < num_lanes; i++) {
+>  		snprintf(name, sizeof(name), "pcie-phy%d", i);
+>  		phy[i] = devm_phy_optional_get(dev, name);
+>  		if (IS_ERR(phy[i])) {
+>  			ret = PTR_ERR(phy[i]);
+> -			goto err_link;
+> -		}
+> -
+> -		if (!phy[i])
+> -			continue;
+> -
+> -		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
+> -		if (!link[i]) {
+> -			ret = -EINVAL;
+> -			goto err_link;
+> +			goto err;
+>  		}
+>  	}
+>  
+>  	ks_pcie->np = np;
+>  	ks_pcie->pci = pci;
+> -	ks_pcie->link = link;
+>  	ks_pcie->num_lanes = num_lanes;
+>  	ks_pcie->phy = phy;
+>  
+> @@ -1223,7 +1207,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
+>  		ret = PTR_ERR(gpiod);
+>  		if (ret != -EPROBE_DEFER)
+>  			dev_err(dev, "Failed to get reset GPIO\n");
+> -		goto err_link;
+> +		goto err;
+>  	}
+>  
+>  	/* Obtain references to the PHYs */
+> @@ -1238,7 +1222,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
+>  
+>  	if (ret) {
+>  		dev_err(dev, "failed to enable phy\n");
+> -		goto err_link;
+> +		goto err;
+>  	}
+>  
+>  	platform_set_drvdata(pdev, ks_pcie);
+> @@ -1325,25 +1309,18 @@ static int ks_pcie_probe(struct platform_device *pdev)
+>  	pm_runtime_disable(dev);
+>  	ks_pcie_disable_phy(ks_pcie);
+>  
+> -err_link:
+> -	while (--i >= 0 && link[i])
+> -		device_link_del(link[i]);
+> -
+> +err:
+>  	return ret;
+>  }
+>  
+>  static void ks_pcie_remove(struct platform_device *pdev)
+>  {
+>  	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
+> -	struct device_link **link = ks_pcie->link;
+> -	int num_lanes = ks_pcie->num_lanes;
+>  	struct device *dev = &pdev->dev;
+>  
+>  	pm_runtime_put(dev);
+>  	pm_runtime_disable(dev);
+>  	ks_pcie_disable_phy(ks_pcie);
+> -	while (num_lanes--)
+> -		device_link_del(link[num_lanes]);
+>  }
+>  
+>  static struct platform_driver ks_pcie_driver = {
+> -- 
+> 2.43.0
+> 
+
 -- 
-2.53.0.983.g0bb29b3bc5-goog
-
+மணிவண்ணன் சதாசிவம்
 
