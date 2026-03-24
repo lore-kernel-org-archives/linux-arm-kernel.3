@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 901D3F532C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE36F532C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xiEG8fs8U4waGFe76frAqj8GUGT8PfbUsJqfEpDU4H0=; b=HXbS8uCowrE7b3951mQjMyVlMt
-	hiTKcVK2Fp6vEGmN+armjbMAztIwaD1BraOqe1MIngRRDjTj2evWHCtC+QNdPR0tE04B6UuX5Qbxn
-	yWSW3wFuw0EeNf7SXKRv/vACAEB0xQiXc0mfLnZH3A+s685QANMel2EKN765QqSZod+lgMGrnQcbP
-	WRmPCE4iFwKBuv4mv64cMOBt+0cztmdW8VwBuohjwUBoWMT+a6Y5fp8XPbu7TFd/Fn0NrKEIaHi43
-	3lPvd7e2YwtdGla4h+nSiZu/zQ/hsN/LEZxmCknN8IC+LvJtUUNYdObbzzz++07qZjA7h1MfSAVHJ
-	RN+CEiNA==;
+	bh=GUvSjKAHpf5/ZLV5403ywCefJdhPTSpPVXdwv2MuyJE=; b=Q/B8QKadvUct6oDvhgXzqptp2i
+	fiCKykuMzDw5MHTFGXmwneT5i53bJ6bt47LBkqKfPotyN/E0CP+0YUixNn9Ele0zO9C8SpiMrK5RC
+	6NY17zJ9BWCKFNNdLCnZAMKEdA7sehKEOm9huKxXP0AknY1lI3Rzng0GTvtZZY+MHpv9pFWrvZ1At
+	KlfnodeJfPCfMEWzp3Sn715nbUwmVheeZc0meU6Dg/py5F5xhReUL/UP24wgh5O7mPwqszEkqtOgb
+	Gi/FNy/VFOZ1msTjob/tjJEP2urKpbKDX6c490tU647nBcvqGAtnuAbnIU6wFirWg4pXpww4bG1Jk
+	kgBbFWfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rX8-00000000P5T-24m3;
-	Tue, 24 Mar 2026 02:30:18 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1w4rXq-00000000PMh-3fkL;
+	Tue, 24 Mar 2026 02:31:02 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rX1-00000000Oxu-25HY
+	id 1w4rXn-00000000PJB-3QWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 02:30:16 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260324023002epoutp020970c2946d32538723c299fa28a77ba8~fphiMWwJB1601416014epoutp024
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 02:30:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260324023002epoutp020970c2946d32538723c299fa28a77ba8~fphiMWwJB1601416014epoutp024
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774319402;
-	bh=xiEG8fs8U4waGFe76frAqj8GUGT8PfbUsJqfEpDU4H0=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=RTFBubUceVdG5dBZjg2EJuOun+7AvU7K1xXJVOiY75v5S6AwPDX0GCIymngOFAphd
-	 E4RA3K/kK+gtTKLgy3khdnDiPmc2cGWIz79uHvHB6IujWAiNQY1L9e+YM2hT5hM2cb
-	 67/UCzZXuKEnGh+5DWuT53H601jKazX4GP44bHGA=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20260324023002epcas5p3c3a08032a55b26ba4a7023fdeaebf3cd~fphhsTMXr1327213272epcas5p3T;
-	Tue, 24 Mar 2026 02:30:02 +0000 (GMT)
-Received: from epcpadp1new (unknown [182.195.40.141]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4ffvBx72xwz2SSKf; Tue, 24 Mar
-	2026 02:30:01 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20260323172713epcas5p4dd04df01adb71b7563e1cac14b927632~fiHlqRiPK1063110631epcas5p4A;
-	Mon, 23 Mar 2026 17:27:13 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260323172656epsmtip1078ac64ab1a734cd90e8019874a7de3a~fiHV3p2Rc1639516395epsmtip1L;
-	Mon, 23 Mar 2026 17:26:55 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Vladimir Oltean'" <vladimir.oltean@nxp.com>,
-	<linux-phy@lists.infradead.org>
-Cc: "'Vinod Koul'" <vkoul@kernel.org>, "'Neil Armstrong'"
-	<neil.armstrong@linaro.org>, <dri-devel@lists.freedesktop.org>,
-	<freedreno@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-can@vger.kernel.org>,
-	<linux-gpio@vger.kernel.org>, <linux-ide@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-tegra@vger.kernel.org>,
-	<linux-usb@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<spacemit@lists.linux.dev>, <UNGLinuxDriver@microchip.com>, "'Bart Van
- Assche'" <bvanassche@acm.org>, "'Peter Griffin'" <peter.griffin@linaro.org>,
-	"'James E.J. Bottomley'" <James.Bottomley@HansenPartnership.com>, "'Martin
- K. Petersen'" <martin.petersen@oracle.com>, "'Krzysztof Kozlowski'"
-	<krzk@kernel.org>, "'Chanho Park'" <chanho61.park@samsung.com>
-In-Reply-To: <20260319223241.1351137-10-vladimir.oltean@nxp.com>
-Subject: RE: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
- struct phy guts
-Date: Mon, 23 Mar 2026 22:56:51 +0530
-Message-ID: <1891546521.01774319401971.JavaMail.epsvc@epcpadp1new>
+	Tue, 24 Mar 2026 02:31:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=GUvSjKAHpf5/ZLV5403ywCefJdhPTSpPVXdwv2MuyJE=;
+	b=Dt6obDm8VOXeUcHNGhgpUbOKrKJaeP4qLY3YmVVrDTXqMCO7LdcPBS2elLOL5OGRvlJFC7FJ+
+	f8coNORJRzwKI+8xMARAHVQQn/7xVWeXGpuJjGFWif3YkPJRhRstLll9mj2lpdTzlSjKfnjrjW2
+	FO+e8o3wwJvSG2rNP12ADxU=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4ffv4k2KfKzLltg;
+	Tue, 24 Mar 2026 10:24:38 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4B3D44055B;
+	Tue, 24 Mar 2026 10:30:42 +0800 (CST)
+Received: from [10.174.178.9] (10.174.178.9) by kwepemr500001.china.huawei.com
+ (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 24 Mar
+ 2026 10:30:41 +0800
+Message-ID: <a7fa6fd9-79b2-4e46-8ee4-fde9d5853100@huawei.com>
+Date: Tue, 24 Mar 2026 10:30:40 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJoz1sM+EbPjkyDopxrfJVWkMJWdwIGLiEOAj0DJam0ghnJMA==
-Content-Language: en-us
-X-CMS-MailID: 20260323172713epcas5p4dd04df01adb71b7563e1cac14b927632
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CPGSPASS: Y
-X-Hop-Count: 3
-X-CMS-RootMailID: 20260319223312epcas5p183a1e0c31206025da8cf00b5d745a0ce
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
-	<CGME20260319223312epcas5p183a1e0c31206025da8cf00b5d745a0ce@epcas5p1.samsung.com>
-	<20260319223241.1351137-10-vladimir.oltean@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings
+ correctly
+To: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "David Hildenbrand
+ (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>, Yang Shi
+	<yang@os.amperecomputing.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+ <20260323130317.1737522-3-ryan.roberts@arm.com>
+From: Jinjiang Tu <tujinjiang@huawei.com>
+In-Reply-To: <20260323130317.1737522-3-ryan.roberts@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.178.9]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_193013_000296_E1C4B373 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20260323_193100_556556_A6552A4D 
+X-CRM114-Status: GOOD (  45.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,69 +83,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HI Vladimir,
 
-> -----Original Message-----
-> From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Sent: Friday, March 20, 2026 4:02 AM
-> To: linux-phy@lists.infradead.org
-> Cc: Vinod Koul <vkoul@kernel.org>; Neil Armstrong
-> <neil.armstrong@linaro.org>; dri-devel@lists.freedesktop.org;
-> freedreno@lists.freedesktop.org; linux-arm-kernel@lists.infradead.org;
-> linux-arm-msm@vger.kernel.org; linux-can@vger.kernel.org; linux-
-> gpio@vger.kernel.org; linux-ide@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-media@vger.kernel.org; linux-
-> pci@vger.kernel.org; linux-renesas-soc@vger.kernel.org; linux-
-> riscv@lists.infradead.org; linux-rockchip@lists.infradead.org;
-linux-samsung-
-> soc@vger.kernel.org; linux-scsi@vger.kernel.org;
-linux-sunxi@lists.linux.dev;
-> linux-tegra@vger.kernel.org; linux-usb@vger.kernel.org;
-> netdev@vger.kernel.org; spacemit@lists.linux.dev;
-> UNGLinuxDriver@microchip.com; Bart Van Assche <bvanassche@acm.org>;
-> Alim Akhtar <alim.akhtar@samsung.com>; Peter Griffin
-> <peter.griffin@linaro.org>; James E.J. Bottomley
-> <James.Bottomley@HansenPartnership.com>; Martin K. Petersen
-> <martin.petersen@oracle.com>; Krzysztof Kozlowski <krzk@kernel.org>;
-> Chanho Park <chanho61.park@samsung.com>
-> Subject: [PATCH v5 phy-next 09/27] scsi: ufs: exynos: stop poking into
-struct
-> phy guts
-> 
-> The Exynos host controller driver is clearly a PHY consumer (gets the
-> ufs->phy using devm_phy_get()), but pokes into the guts of struct phy
-> to get the generic_phy->power_count.
-> 
-> The UFS core (specifically ufshcd_link_startup()) may call the variant
-> operation exynos_ufs_pre_link() -> exynos_ufs_phy_init() multiple times if
-> the link startup fails and needs to be retried.
-> 
-> However ufs-exynos shouldn't be doing what it's doing, i.e. looking at the
-> generic_phy->power_count, because in the general sense of the API, a
-> single Generic PHY may have multiple consumers. If ufs-exynos looks at
-> generic_phy->power_count, there's no guarantee that this ufs-exynos
-> instance is the one who previously bumped that power count. So it may be
-> powering down the PHY on behalf of another consumer.
-> 
-> The correct way in which this should be handled is ufs-exynos should
-> *remember* whether it has initialized and powered up the PHY before, and
-> power it down during link retries. Not rely on the power_count (which,
-btw,
-> on the writer side is modified under &phy->mutex, but on the reader side
-is
-> accessed unlocked). This is a discouraged pattern even if here it doesn't
-> cause functional problems.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+在 2026/3/23 21:03, Ryan Roberts 写道:
+> It has been possible for a long time to mark ptes in the linear map as
+> invalid. This is done for secretmem, kfence, realm dma memory un/share,
+> and others, by simply clearing the PTE_VALID bit. But until commit
+> a166563e7ec37 ("arm64: mm: support large block mapping when
+> rodata=full") large leaf mappings were never made invalid in this way.
+>
+> It turns out various parts of the code base are not equipped to handle
+> invalid large leaf mappings (in the way they are currently encoded) and
+> I've observed a kernel panic while booting a realm guest on a
+> BBML2_NOABORT system as a result:
+>
+> [   15.432706] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+> [   15.476896] Unable to handle kernel paging request at virtual address ffff000019600000
+> [   15.513762] Mem abort info:
+> [   15.527245]   ESR = 0x0000000096000046
+> [   15.548553]   EC = 0x25: DABT (current EL), IL = 32 bits
+> [   15.572146]   SET = 0, FnV = 0
+> [   15.592141]   EA = 0, S1PTW = 0
+> [   15.612694]   FSC = 0x06: level 2 translation fault
+> [   15.640644] Data abort info:
+> [   15.661983]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+> [   15.694875]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+> [   15.723740]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [   15.755776] swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000081f3f000
+> [   15.800410] [ffff000019600000] pgd=0000000000000000, p4d=180000009ffff403, pud=180000009fffe403, pmd=00e8000199600704
+> [   15.855046] Internal error: Oops: 0000000096000046 [#1]  SMP
+> [   15.886394] Modules linked in:
+> [   15.900029] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc4-dirty #4 PREEMPT
+> [   15.935258] Hardware name: linux,dummy-virt (DT)
+> [   15.955612] pstate: 21400005 (nzCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+> [   15.986009] pc : __pi_memcpy_generic+0x128/0x22c
+> [   16.006163] lr : swiotlb_bounce+0xf4/0x158
+> [   16.024145] sp : ffff80008000b8f0
+> [   16.038896] x29: ffff80008000b8f0 x28: 0000000000000000 x27: 0000000000000000
+> [   16.069953] x26: ffffb3976d261ba8 x25: 0000000000000000 x24: ffff000019600000
+> [   16.100876] x23: 0000000000000001 x22: ffff0000043430d0 x21: 0000000000007ff0
+> [   16.131946] x20: 0000000084570010 x19: 0000000000000000 x18: ffff00001ffe3fcc
+> [   16.163073] x17: 0000000000000000 x16: 00000000003fffff x15: 646e612065766974
+> [   16.194131] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> [   16.225059] x11: 0000000000000000 x10: 0000000000000010 x9 : 0000000000000018
+> [   16.256113] x8 : 0000000000000018 x7 : 0000000000000000 x6 : 0000000000000000
+> [   16.287203] x5 : ffff000019607ff0 x4 : ffff000004578000 x3 : ffff000019600000
+> [   16.318145] x2 : 0000000000007ff0 x1 : ffff000004570010 x0 : ffff000019600000
+> [   16.349071] Call trace:
+> [   16.360143]  __pi_memcpy_generic+0x128/0x22c (P)
+> [   16.380310]  swiotlb_tbl_map_single+0x154/0x2b4
+> [   16.400282]  swiotlb_map+0x5c/0x228
+> [   16.415984]  dma_map_phys+0x244/0x2b8
+> [   16.432199]  dma_map_page_attrs+0x44/0x58
+> [   16.449782]  virtqueue_map_page_attrs+0x38/0x44
+> [   16.469596]  virtqueue_map_single_attrs+0xc0/0x130
+> [   16.490509]  virtnet_rq_alloc.isra.0+0xa4/0x1fc
+> [   16.510355]  try_fill_recv+0x2a4/0x584
+> [   16.526989]  virtnet_open+0xd4/0x238
+> [   16.542775]  __dev_open+0x110/0x24c
+> [   16.558280]  __dev_change_flags+0x194/0x20c
+> [   16.576879]  netif_change_flags+0x24/0x6c
+> [   16.594489]  dev_change_flags+0x48/0x7c
+> [   16.611462]  ip_auto_config+0x258/0x1114
+> [   16.628727]  do_one_initcall+0x80/0x1c8
+> [   16.645590]  kernel_init_freeable+0x208/0x2f0
+> [   16.664917]  kernel_init+0x24/0x1e0
+> [   16.680295]  ret_from_fork+0x10/0x20
+> [   16.696369] Code: 927cec03 cb0e0021 8b0e0042 a9411c26 (a900340c)
+> [   16.723106] ---[ end trace 0000000000000000 ]---
+> [   16.752866] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [   16.792556] Kernel Offset: 0x3396ea200000 from 0xffff800080000000
+> [   16.818966] PHYS_OFFSET: 0xfff1000080000000
+> [   16.837237] CPU features: 0x0000000,00060005,13e38581,957e772f
+> [   16.862904] Memory Limit: none
+> [   16.876526] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+>
+> This panic occurs because the swiotlb memory was previously shared to
+> the host (__set_memory_enc_dec()), which involves transitioning the
+> (large) leaf mappings to invalid, sharing to the host, then marking the
+> mappings valid again. But pageattr_p[mu]d_entry() would only update the
+> entry if it is a section mapping, since otherwise it concluded it must
+> be a table entry so shouldn't be modified. But p[mu]d_sect() only
+> returns true if the entry is valid. So the result was that the large
+
+Maybe I missed something, pmd_sect() only checks PMD_TYPE_SECT, doesn't check PTE_VALID?
+Why it only returns true if the entry is valid?
+
+#define pmd_sect(pmd)        ((pmd_val(pmd) & PMD_TYPE_MASK) == \
+                  PMD_TYPE_SECT)
+
+
+> leaf entry was made invalid in the first pass then ignored in the second
+> pass. It remains invalid until the above code tries to access it and
+> blows up.
+>
+> The simple fix would be to update pageattr_pmd_entry() to use
+> !pmd_table() instead of pmd_sect(). That would solve this problem.
+>
+> But the ptdump code also suffers from a similar issue. It checks
+> pmd_leaf() and doesn't call into the arch-specific note_page() machinery
+> if it returns false. As a result of this, ptdump wasn't even able to
+> show the invalid large leaf mappings; it looked like they were valid
+> which made this super fun to debug. the ptdump code is core-mm and
+> pmd_table() is arm64-specific so we can't use the same trick to solve
+> that.
+>
+> But we already support the concept of "present-invalid" for user space
+> entries. And even better, pmd_leaf() will return true for a leaf mapping
+> that is marked present-invalid. So let's just use that encoding for
+> present-invalid kernel mappings too. Then we can use pmd_leaf() where we
+> previously used pmd_sect() and everything is magically fixed.
+>
+> Additionally, from inspection kernel_page_present() was broken in a
+> similar way, so I'm also updating that to use pmd_leaf().
+>
+> I haven't spotted any other issues of this shape but plan to do a follow
+> up patch to remove pmd_sect() and pud_sect() in favour of the more
+> sophisticated pmd_leaf()/pud_leaf() which are core-mm APIs and will
+> simplify arm64 code a bit.
+>
+> Fixes: a166563e7ec37 ("arm64: mm: support large block mapping when rodata=full")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 > ---
-Thanks for the patch
-Acked-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-Tested this patch for basic UFS functionality, UFS still works. 
-Feel free to add
-Tested-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-
-
+>   arch/arm64/mm/pageattr.c | 50 ++++++++++++++++++++++------------------
+>   1 file changed, 28 insertions(+), 22 deletions(-)
+>
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 358d1dc9a576f..87dfe4c82fa92 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -25,6 +25,11 @@ static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
+>   {
+>   	struct page_change_data *masks = walk->private;
+>   
+> +	/*
+> +	 * Some users clear and set bits which alias eachother (e.g. PTE_NG and
+> +	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
+> +	 * first then set.
+> +	 */
+>   	val &= ~(pgprot_val(masks->clear_mask));
+>   	val |= (pgprot_val(masks->set_mask));
+>   
+> @@ -36,7 +41,7 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+>   {
+>   	pud_t val = pudp_get(pud);
+>   
+> -	if (pud_sect(val)) {
+> +	if (pud_leaf(val)) {
+>   		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
+>   			return -EINVAL;
+>   		val = __pud(set_pageattr_masks(pud_val(val), walk));
+> @@ -52,7 +57,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+>   {
+>   	pmd_t val = pmdp_get(pmd);
+>   
+> -	if (pmd_sect(val)) {
+> +	if (pmd_leaf(val)) {
+>   		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
+>   			return -EINVAL;
+>   		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+> @@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>   	ret = update_range_prot(start, size, set_mask, clear_mask);
+>   
+>   	/*
+> -	 * If the memory is being made valid without changing any other bits
+> -	 * then a TLBI isn't required as a non-valid entry cannot be cached in
+> -	 * the TLB.
+> +	 * If the memory is being switched from present-invalid to valid without
+> +	 * changing any other bits then a TLBI isn't required as a non-valid
+> +	 * entry cannot be cached in the TLB.
+>   	 */
+> -	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
+> +	if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
+> +	    pgprot_val(clear_mask) != PTE_PRESENT_INVALID)
+>   		flush_tlb_kernel_range(start, start + size);
+>   	return ret;
+>   }
+> @@ -237,18 +243,18 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
+>   {
+>   	if (enable)
+>   		return __change_memory_common(addr, PAGE_SIZE * numpages,
+> -					__pgprot(PTE_VALID),
+> -					__pgprot(0));
+> +					__pgprot(PTE_MAYBE_NG | PTE_VALID),
+> +					__pgprot(PTE_PRESENT_INVALID));
+>   	else
+>   		return __change_memory_common(addr, PAGE_SIZE * numpages,
+> -					__pgprot(0),
+> -					__pgprot(PTE_VALID));
+> +					__pgprot(PTE_PRESENT_INVALID),
+> +					__pgprot(PTE_MAYBE_NG | PTE_VALID));
+>   }
+>   
+>   int set_direct_map_invalid_noflush(struct page *page)
+>   {
+> -	pgprot_t clear_mask = __pgprot(PTE_VALID);
+> -	pgprot_t set_mask = __pgprot(0);
+> +	pgprot_t clear_mask = __pgprot(PTE_MAYBE_NG | PTE_VALID);
+> +	pgprot_t set_mask = __pgprot(PTE_PRESENT_INVALID);
+>   
+>   	if (!can_set_direct_map())
+>   		return 0;
+> @@ -259,8 +265,8 @@ int set_direct_map_invalid_noflush(struct page *page)
+>   
+>   int set_direct_map_default_noflush(struct page *page)
+>   {
+> -	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
+> -	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
+> +	pgprot_t set_mask = __pgprot(PTE_MAYBE_NG | PTE_VALID | PTE_WRITE);
+> +	pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
+>   
+>   	if (!can_set_direct_map())
+>   		return 0;
+> @@ -296,8 +302,8 @@ static int __set_memory_enc_dec(unsigned long addr,
+>   	 * entries or Synchronous External Aborts caused by RIPAS_EMPTY
+>   	 */
+>   	ret = __change_memory_common(addr, PAGE_SIZE * numpages,
+> -				     __pgprot(set_prot),
+> -				     __pgprot(clear_prot | PTE_VALID));
+> +				     __pgprot(set_prot | PTE_PRESENT_INVALID),
+> +				     __pgprot(clear_prot | PTE_MAYBE_NG | PTE_VALID));
+>   
+>   	if (ret)
+>   		return ret;
+> @@ -311,8 +317,8 @@ static int __set_memory_enc_dec(unsigned long addr,
+>   		return ret;
+>   
+>   	return __change_memory_common(addr, PAGE_SIZE * numpages,
+> -				      __pgprot(PTE_VALID),
+> -				      __pgprot(0));
+> +				      __pgprot(PTE_MAYBE_NG | PTE_VALID),
+> +				      __pgprot(PTE_PRESENT_INVALID));
+>   }
+>   
+>   static int realm_set_memory_encrypted(unsigned long addr, int numpages)
+> @@ -404,15 +410,15 @@ bool kernel_page_present(struct page *page)
+>   	pud = READ_ONCE(*pudp);
+>   	if (pud_none(pud))
+>   		return false;
+> -	if (pud_sect(pud))
+> -		return true;
+> +	if (pud_leaf(pud))
+> +		return pud_valid(pud);
+>   
+>   	pmdp = pmd_offset(pudp, addr);
+>   	pmd = READ_ONCE(*pmdp);
+>   	if (pmd_none(pmd))
+>   		return false;
+> -	if (pmd_sect(pmd))
+> -		return true;
+> +	if (pmd_leaf(pmd))
+> +		return pmd_valid(pmd);
+>   
+>   	ptep = pte_offset_kernel(pmdp, addr);
+>   	return pte_valid(__ptep_get(ptep));
 
