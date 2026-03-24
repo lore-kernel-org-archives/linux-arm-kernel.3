@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9D2F54ACD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 306FFF54AC5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6eHnG9jUmz4zni9/UDb9TqRIefgIwhOk5Xmd/9OQ0Do=; b=k6/D2x/KLPJyNB2CdMo19mJoOm
-	j4ANHUwcX6coYNp+KHtnF6tAaX3pe4A8/hgyh3lOw82ngPABJSSf8Nn1YwrKusAIHX4sVyYSh64Sd
-	kuyIyiVzHdaaZyt6XK0mgKDl9do3g31Lv2H8vErdIR+9mF0kjVaaIpS+XBMjuFNecSC0ZOSypg6k1
-	nZWVpH0TiHEBQuphie9a6zelOPpX9xKMz+WD9qqAiHDD+bl4ye6RvB6Kbx4ZTPmij3Jb4zhXycfRN
-	stMEWiGGqSTS19ARKoi+ElncicFw3EA7ivT3xorQcpweWR38AA5gvsqYCzRuViaRHGR1qGa2J+Ax6
-	CV2c8H9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yS2ja/jRm5ExQD/dlBquJ639weeO2LVW20mV3pYZZmY=; b=yj2VEs6pL1LVt38oseyrJ0i9q8
+	RbbDEKopR8VVcRSTRjJ2I+sXUQ2gMCDpx6aKjO5uAsBzyVazN5gSdejgzdgkyIGz2oH0YuUisUAxd
+	GXPgp2B1ai3Jt+8ttNMDltf/bAbbAYeeyqtbWmjpN7pymkERJwmNYHxzltzOIvujdkmq0cyX2LX13
+	U4Z3hAJmjP/84E4VjqVTg4oz9JfYZvo3MiafXzFJXnmGf9EQitncbpzufRMuU0KJ25rAlPSNoYs5Q
+	pCn2q5uJa1z2tsRx9ppoduKxUIMB2sJDopiSTLZKVnwrcLoK6ZMT+ESvt/RUiKwfttJABvG8YhQW/
+	dJ6pBeKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53My-00000001itX-2FIR;
+	id 1w53My-00000001itC-13fV;
 	Tue, 24 Mar 2026 15:08:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53Mt-00000001irI-23C2
+	id 1w53Ms-00000001iql-1aSq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 15:08:32 +0000
+	Tue, 24 Mar 2026 15:08:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C328244355;
-	Tue, 24 Mar 2026 15:08:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECA03C19424;
-	Tue, 24 Mar 2026 15:08:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 97DA7600C4;
+	Tue, 24 Mar 2026 15:08:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D94D7C2BC87;
+	Tue, 24 Mar 2026 15:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774364910;
-	bh=NsM9htBv/b5wj5VrQLrpw0yDzl6UHZ6CctXTV+kC78c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JAUYAIMTIDqGGSnxOdFCm3GDEW90G6epR7nztPIgl6NHkwKo30m+Kynm993izTL1g
-	 ax342Pb3hXD7Y6S4T1WXGrquFksuWnMsEUtyJCQmy8/feMVkKVuJHx2cxZdfjV9Mb8
-	 WBv6uowTDe4QCi19dHO5+mSYrwU/qsz5Kdih5fhIzhSa9nwfjWCxJj+8UBpScXfMCk
-	 p24hogUOb7927no1C5RYLSz6drepQaf1+/04e6By9b/D7bxj7PowFvkFlF2tsPkmbE
-	 jb2WBGXQVNM6b4pPVU7YbjxeDuSu5c1lDDecUG/j+g0OLRXfHBwHNMzDtbTBCa0HnQ
-	 RHRruvTv5lymg==
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	James Clark <james.clark@linaro.org>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] KVM: arm64: Read PMUVer as unsigned
-Date: Tue, 24 Mar 2026 15:08:11 +0000
-Message-ID: <177435562978.1948488.12134750331688272062.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260305-james-kvm-pmuver-sign-v2-0-ee80a125af9b@linaro.org>
-References: <20260305-james-kvm-pmuver-sign-v2-0-ee80a125af9b@linaro.org>
+	s=k20201202; t=1774364909;
+	bh=Enamp8dC1Wo/mbf3VECCnKuZQq+rJTy21IUMNiBSnq0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=t6ZevjZMjOhGT9qz10/RQ7Pdx1e+/kvAd2Xg5QUFRqtogwzuGyPGlKSBQSBycl7kW
+	 O6uDJu5DaD/A0+ECKJUCmu6wg7IgOv/PMX7ExGKFfCjd+3CXRFA9h8SYJIWOqWWtzu
+	 8F4haXf1Preh7jE6RIM7+8jpmslq0EG73UQ+RBlVloobvie9k1c7QR/I1OLivK09Ww
+	 5Vuh5ma3rev2irzm4uGjTozYHF4ai9BEgAcmLk/dZP8tNgT66szQI9+cHCgdzwnU5A
+	 7xdNl+P68Bzseg463hUn+br7VSTMx7/scg2uGG22n+VAx0cdJRyVJjrxwNse5ZAry6
+	 dvj5svV49Qw8Q==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Javier Achirica <jachirica@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1] irqchip: fix mask alignment in gic-v2m
+In-Reply-To: <86zf3y4qfp.wl-maz@kernel.org>
+References: <CACixm23xGCdrZ5wy7+KyLHcdxRK+-XK6R0grg1uJA0Bo_s_YbA@mail.gmail.com>
+ <86zf3y4qfp.wl-maz@kernel.org>
+Date: Tue, 24 Mar 2026 16:08:25 +0100
+Message-ID: <87jyv1gt92.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_080831_546081_9E31EF39 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +67,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 05 Mar 2026 16:28:16 +0000, James Clark wrote:
-> Fix some issues with the signedness of PMUVer and PerfMon ID fields.
-> 
-> I ran into the first issue when testing "ARM64 PMU Partitioning" patches
-> on the FVP. The second issue was only found by inspection.
-> 
-> 
+On Mon, Mar 23 2026 at 13:37, Marc Zyngier wrote:
+> On Sat, 21 Mar 2026 14:12:16 +0000,
+> Javier Achirica <jachirica@gmail.com> wrote:
+>> 
+>> commit 2ef3886ce626dcdab0cbc452dbbebc19f57133d8 ("irqchip/gic-v2m: Handle
+>> Multiple MSI base IRQ Alignment") introduced a regression in kernel 6.12.58
+>> affecting PCIe devices using GICv2m MSI on a Qualcomm (arm64) platform.
+>> 
+>> It uses nr_irqs parameter to generate a mask to align the MSI base address,
+>> but this mask isn't properly generated when nr_irqs isn't a power of two.
+>> This bug was found while adding support for the TCL HH500V router in OpenWrt.
+>> 
+>> This patch fixes the issue, can be cleanly applied to the 6.12.x tree and,
+>> with a small fuzz, to 7.0.x.
+>> 
+>> Signed-off-by: Javier Achirica <jachirica@gmail.com>
+>> Cc: stable@vger.kernel.org
+>> ---
+>> --- a/drivers/irqchip/irq-gic-v2m.c     2026-03-20 09:45:22.170192561 +0100
+>> +++ b/drivers/irqchip/irq-gic-v2m.c     2026-03-20 09:45:26.284210783 +0100
+>> @@ -158,7 +158,7 @@
+>>         struct v2m_data *v2m = NULL, *tmp;
+>>         int hwirq, i, err = 0;
+>>         unsigned long offset;
+>> -       unsigned long align_mask = nr_irqs - 1;
+>> +       unsigned long align_mask = roundup_pow_of_two(nr_irqs) - 1;
+>> 
+>>         spin_lock(&v2m_lock);
+>>         list_for_each_entry(tmp, &v2m_nodes, entry) {
+>> 
+>
+> This looks wrong for a bunch of reasons:
+>
+> - you're hacking the allocation path, but not the free path -- what
+>   could possibly go wrong?
+>
+> - nr_irqs not being a power of two to start with is more indicative of
+>   a bug somewhere else in the system. The only case where we allocate
+>   more than a single IRQ at a time is for Multi-MSI, and that is
+>   definitely a power-of-two construct.
 
-Applied to will (for-next/perf), thanks!
+Right. Though the PCI/MSI core has never enforced it.
 
-[1/3] KVM: arm64: Read PMUVer as unsigned
-      https://git.kernel.org/will/c/2e30447b233a
-[2/3] arm64: cpufeature: Make PMUVer and PerfMon unsigned
-      https://git.kernel.org/will/c/d1dcc20bcc40
-[3/3] arm64: cpufeature: Use pmuv3_implemented() function
-      https://git.kernel.org/will/c/15ed3fa23cbc
+It just ensures that the number of requested interrupts is less than or
+equal the power of 2 aligned number in the Multiple Message Capable
+field of the Message Control word.
 
-Cheers,
--- 
-Will
+It only writes back round_up_power_of_two(nvec) to the Multiple Message
+Enable field and hands the non power of two aligned allocation request
+(nvec) down to the domain.
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+x86 handles this silently under the hood forever. The IRTE allocation
+rounds nvec up to the next power of two.
+
+If the driver requests minvec = 3 and maxvec = 5 and the hardware
+supports 8 pci_msi_enable_range() it will allocate 5 in the device
+domain, resulting in a table size of 8 and 5 actually allocted
+interrupts.
+
+The PCI/MSI core could allocate 8 in the device domain and stay
+backwards compatible by returning 5 to the caller. The downside would be
+that this fully allocates 3 extra unused interrupts descriptors and
+resources throughout the domain hierarchy.
+
+It's mostly memory and the only problematic case would be affinity
+managed interrupts where the over-allocation actually affects the scarse
+x86 vector space. I can't tell from the top of my head whether managed
+mode is actually supported with MULTI-MSI or not. It might be, but that
+needs some investigation.
+
+Can't we have nice things for once?
+
+Thanks,
+
+        tglx
+
 
