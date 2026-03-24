@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611E6FEC0EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBED5FEC0ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 18:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o4Skp0d0PaeQO+3Y+N+lz2SpTD1JG+jzc8wIlPQ0pik=; b=oc5vQ6mfs7w72TCyNCre3NUvFg
-	Kan8kLiwN4f/muECVHbOu7nYja0e3gxlEqGtcbofdXAARqjgoTwT7E85gAUxJF/2JcmFKr/GFVq/C
-	bVQh4mZVpCPL9PtTbQbD8TOqAGpEoyQWjr1jJfWD5jYLk2c1MXrG5hCG9E0hR2ow58TPTwiqRONLi
-	VZSClOEwTvujmjJ47lyoEAJRT0avWVpRnJnjrHhY8iw98UnI7POYAn5MyJwTwmHoLGLEz0UuPO0vW
-	jkhqNXSYdoPccUChxn1VKfXmW3pXO/J/xlLLWPuuTE63Y0WKXdeMg2/bmKu1fxRnYV/tN/53LdBCL
-	0bGhbIfw==;
+	bh=/ypStTJ7CiAGmDRziRUG/EYQwZPTjlxVm5e6SeBw5M8=; b=x1/xw3zZ7mAiDtYkwp2noJtPz4
+	pFlbyZwSWUHY+2T5FM+dSPe5QOuuZZ1e+fv66JNPLJvs7mtUJBL5rtGeEp0WsX46VojwqZNWU7j0b
+	94KmxN6z/jFi/CtW/dVxkqkaupm6Y4+bOIA5xtjQSs9oaR7PbEE4HmmKiqAIez5yxyOLoSXCRlbFv
+	VTC5se5RbY+5v9L+QOPSxXFyFrUgmEsSLD5T+oIZ140dTiJerTZS39GQf174kfKW9Rc2mBL/Qs/EW
+	piFmoyiIpM1t9P4lDllYTOFzGwGNWdy1eqJCJlkIm46PhcUbg8HkcZiDnw6MMc/FEoeyVg7Fztm/D
+	8tdfkIAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55zG-000000021wk-1lmK;
-	Tue, 24 Mar 2026 17:56:18 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1w56Iq-000000022jk-23RC;
+	Tue, 24 Mar 2026 18:16:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w55zD-000000021wA-0PJI
+	id 1w56Ip-000000022jZ-0ORx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 17:56:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774374975; x=1805910975;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=NL1mcB9ozeqOSsqCkkguLMRCIYPAgFUo0JaJzh10URc=;
-  b=ep2DoyF328mh2z86YBnm/yHIhjokaj2zOS9UoRxUg1LasWw9EwACtzr9
-   RTGxH/i8RPpJoR5lp2e20q2s1Q98r8wabxRMaHo5+neXFxAKO+nkTHw1t
-   0zazBX05FVJrc47+ThP+37zS45BOYkVa4MlsDRu9+4gT7o80iN4fIonRH
-   P9NHqEjz/iz8Huefrlmb+N0B3VTatR2bb+VraqBiz/OYc7UCpagIuslLd
-   ym3HZR+5swx/yxBFlLRf8iwZBBvVJ6djSezb+lCbZbOroSKbioHI4wCas
-   Om7WVOABxxue4P7WAjMtifiZoGW2P1SO1O51B3jjaDnSbjQ/xhfZM9IKn
-   Q==;
-X-CSE-ConnectionGUID: DeTG1KCiTKCMGg56tPG8BA==
-X-CSE-MsgGUID: l59x3/FATNqf9zVIVgFByg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75307424"
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="75307424"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:55:45 -0700
-X-CSE-ConnectionGUID: mUXuAQFLRnadhyMeGmty4g==
-X-CSE-MsgGUID: bujbx+8xS52CYl9LobjFjg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="220002724"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:55:35 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 24 Mar 2026 19:55:32 +0200 (EET)
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
-    Guenter Roeck <linux@roeck-us.net>, linux-alpha@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-m68k@lists.linux-m68k.org, 
-    linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-    linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-    linux-sh@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-    "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-    Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, 
-    Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
-    "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, 
-    Max Filippov <jcmvbkbc@gmail.com>, 
-    Madhavan Srinivasan <maddy@linux.ibm.com>, 
-    Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 05/10] am68k/PCI: Remove unnecessary second application
- of align
-In-Reply-To: <5de97ed9556bfcc3b1f26bd71e09fa4016ae3ff8.camel@physik.fu-berlin.de>
-Message-ID: <1c08efcd-25e8-6436-52ab-ac3d50dcf58f@linux.intel.com>
-References: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>  <20260324165633.4583-6-ilpo.jarvinen@linux.intel.com> <5de97ed9556bfcc3b1f26bd71e09fa4016ae3ff8.camel@physik.fu-berlin.de>
+	Tue, 24 Mar 2026 18:16:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 224DA600AC;
+	Tue, 24 Mar 2026 18:16:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4209FC2BC87;
+	Tue, 24 Mar 2026 18:16:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774376189;
+	bh=/ypStTJ7CiAGmDRziRUG/EYQwZPTjlxVm5e6SeBw5M8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tbqXfTDdnLGmbaxrDp1vSCXsAKADjs+oRPf/RyU4V8803jSuLAGriWNCpc2ejpyIY
+	 LjkahALqhZOvS14r4BPdBpNasv2znuWoA0xyslMOhThP8DmKScpf2+bxpQ5p/K+JZq
+	 ysmETT0UKUMHpJj0nMBOnQTIbHx5kGVn1mNVCNMU/KoPw8TCEfU98ga3GZvsiHlkNR
+	 h9A8tTzpn87Bv3eqalAkyQCy0wrWCW38nYwvEv3L0y6pF2sMt3rO7Ym8DrgXbBYvXt
+	 Gk9R5v2tYcRiqEoXnEDxsxc0P+CZLQ/bzffeAa/yLvM320CnkKoMjJLr3z+MAfL054
+	 L7+sd4W/j+ovw==
+Date: Tue, 24 Mar 2026 18:16:23 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize
+ ID_AA64PFR2_EL1.GCIE
+Message-ID: <b3f9e10d-75f6-4da9-858c-3f85d2d7db57@sirena.org.uk>
+References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
+ <20260319154937.3619520-13-sascha.bischoff@arm.com>
+ <638a3453-91c9-4a76-8241-25d5c27ca518@sirena.org.uk>
+ <86se9p472z.wl-maz@kernel.org>
+ <ebd9ebb4-06ac-41a1-af16-664a4eedf3fd@sirena.org.uk>
+ <86qzp945d1.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-641337346-1774374932=:1055"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_105615_181753_E62FD5B4 
-X-CRM114-Status: GOOD (  19.52  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GbtyFO5MUSHSk1Kb"
+Content-Disposition: inline
+In-Reply-To: <86qzp945d1.wl-maz@kernel.org>
+X-Cookie: Forest fires cause Smokey Bears.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,57 +86,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
 
---8323328-641337346-1774374932=:1055
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+--GbtyFO5MUSHSk1Kb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Tue, 24 Mar 2026, John Paul Adrian Glaubitz wrote:
+On Tue, Mar 24, 2026 at 03:25:14PM +0000, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-> Hi Ilpo,
->=20
-> On Tue, 2026-03-24 at 18:56 +0200, Ilpo J=C3=A4rvinen wrote:
-> > Aligning res->start by align inside pcibios_align_resource() is
-> > unnecessary because caller of pcibios_align_resource() is
-> > __find_resource_space() that aligns res->start with align before
-> > calling pcibios_align_resource().
-> >=20
-> > Aligning by align in case of IORESOURCE_IO && start & 0x300 cannot ever
-> > result in changing start either because 0x300 bits would have not
-> > survived the earlier alignment if align was large enough to have an
-> > impact.
-> >=20
-> > Thus, remove the duplicated aligning from pcibios_align_resource().
-> >=20
-> > Signed-off-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
-> > ---
-> >  arch/m68k/kernel/pcibios.c | 2 --
-> >  1 file changed, 2 deletions(-)
-> >=20
-> > diff --git a/arch/m68k/kernel/pcibios.c b/arch/m68k/kernel/pcibios.c
-> > index 1415f6e4e5ce..7e286ee1976b 100644
-> > --- a/arch/m68k/kernel/pcibios.c
-> > +++ b/arch/m68k/kernel/pcibios.c
-> > @@ -36,8 +36,6 @@ resource_size_t pcibios_align_resource(void *data, co=
-nst struct resource *res,
-> >  =09if ((res->flags & IORESOURCE_IO) && (start & 0x300))
-> >  =09=09start =3D (start + 0x3ff) & ~0x3ff;
-> > =20
-> > -=09start =3D (start + align - 1) & ~(align - 1);
-> > -
-> >  =09return start;
-> >  }
-> >=20
->=20
-> Sorry if it's a stupid question, but what does "am68k" in the subject ref=
-er to?
+> > > Is your TX2 the only machine you have that is AArch64 only at all ELs?
 
-The extra "a" is a typo. I'm sorry about that.
+> > Yes, that should be the case.
 
---=20
- i.
+> The hack below fixes it on my favourite Qualcomm box.
 
---8323328-641337346-1774374932=:1055--
+Confirmed on TX2:
+
+Tested-by: Mark Brown <broonie@kernel.org>
+
+--GbtyFO5MUSHSk1Kb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnC1PYACgkQJNaLcl1U
+h9BYzgf+LFxJQeWg+73NmCmRJGV5mrNVAhnE6ndhSgdZo7SUugOdDP+kU1SyiQEl
+PTmurB4rqTx512siq0ZuVjIeLhpVEEbBfMN+P7dASp5lswwGKACS5bursUDkXOpk
+Ekn64HC1i6qb0dXH1sKM31khPXtc+j+HZUHpYJqkxCCzAPqGtFYhs9h9z+nqIsQD
+73KAjEEunUGxVqecRCqTbtrh1iYHdQuNURbdidA+alFGXFJLlnVN7n1PRO3wJhnj
+BYsqhwJExjwN2sd/84ucRtHSwF2If3xiwqcPLPBi7liYlcvWBApEQ5jyBlP8hdLk
+IFoTX2g5bU15Cnql1zjDJGKfiM1NNg==
+=A7dD
+-----END PGP SIGNATURE-----
+
+--GbtyFO5MUSHSk1Kb--
 
