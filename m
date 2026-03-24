@@ -4,143 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D694BF54AB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62A3F54AB8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRYXTjj+3jPX90p8mHql8nyjSkBSP31fZ6f8r/c/zqs=; b=pFQ+zQd+7kynqziP3BLk4AhRZz
-	q8AxGqMi/6ORpBJhRdt5UzGLNEnqfU+T5b/eUXVjt/tBePf9r8gcjLAjr0nfqsPWCE7oxqeNadrK8
-	xo7o9UPD9U7loCa0JVxphvp4YWs6wHqWBG2V446rjtzgGrD0sudnJxz/rb7kHrH0xcosPpAWXXJfN
-	3sjJvu9+9Ru84TBjcX9uz7aLNYEkqHcMWDOul9EO8uBKavvWG0vxxwOYJ4ZzugvcHJR5Vpri2FNEH
-	/8zWv2hgIUP6WS0cWdYVeOwiYSCN3nkwr5f83ETlOhxwBZlYkzQOLaF2WHpZR/IE8vrI9ItlwsYuI
-	WebXE82g==;
+	bh=D3UNdFM/2oVC0aBHnMmb6liNAkmGmbywgRrpmh1ChmU=; b=0ojbwqRIaqU9OzIOODEYbG0H3u
+	1WTexOk9zJl3kE88bPUgSaDWo6TB2QvFP/KokrCbSsMqdJByjGKkpt5PfqKA53jf8X0NMt9aS2Ojg
+	TkW0RquA5oJn4NqoAarncPpcXvtMaPdk38ZeFRXKMA21iryw5nG2HZiGLo9QS6t0T/YHv/AyKixKq
+	6N+egCAtECN/Ra2QTFAjRvUDh9lU5koa+09WFiWZK89iE5KOoX4g7WQS8PqTPIoI+vKAewr2wfpj6
+	fB2yDpiAsTSeF8zY7GLxwnPI7z2GgOaKozTYV6msMii3W34HnBmwdHeQYbehJNOgaozyUB+Tubw8F
+	+8Ahry5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51yG-00000001Yrh-3GVv;
-	Tue, 24 Mar 2026 13:39:00 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1w5233-00000001Z8l-24wH;
+	Tue, 24 Mar 2026 13:43:57 +0000
+Received: from mail-vk1-f176.google.com ([209.85.221.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51yD-00000001YrC-3bMv
+	id 1w5230-00000001Z8N-2np8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:38:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Owujy0GBrqyYmOvbhydBCukId2WUiY10Jg5hj4DgDkni2pssuTAC0U4d7YNLTmbP5Mp/vyscD8dM9rDFhwkLiD72h9VwoFHb8yN8+iwHaELIomLaNo8dHTzht7gQDyRuVxcLfRKEOhq/Yja10zfK9bolfuQ+aE0kvHn0Als1BeXJd73NtCaUATRn7DFc9sq8ZY7RiuALc0V2GVJi7b6tsNZ/8U3MwJE63q1Zpkt8R+Qa6hLWybYisbn7xtrQn6j13wlTHu9+F/aInlkxBFnwPSSFuMgCejsIkka+0cuiQOYXsx7XmyyfBw6CX1sSqoqHO+F+2sPbeXkxjYLPPsuEYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kRYXTjj+3jPX90p8mHql8nyjSkBSP31fZ6f8r/c/zqs=;
- b=w+LzZFYltlLnqkh1JLkskyLiF6WKf8uJ+kYWelU09UEJxMZg6QyEZzwPjlEUVqhv95srimic/cvuWvc5ZYLt7qdknR4zpfzEDCg1JmbiBmRByRcHxM82j+cBX0PAakCbSk0pzxIuxsDJ3lOrkSK4gzvyyl86eY3eimwsfeQyVjHRlCSa+Mz05yCoFoEEy7Q4emUao/tjH2Ld/ElApIJR4TGhq7Rsxqx3OQ62uC58QFpl41FAlsC5WeOQ7EMMf0YQM0GV91Gm//CP36fYQol/BI29lhsk+zCE9bjVqSy3wOkXvghCmZtFVkMTyXA+Nou/U+Tep2IAPD4bwEC2kbth0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kRYXTjj+3jPX90p8mHql8nyjSkBSP31fZ6f8r/c/zqs=;
- b=dybfMZac1vy2bxgv4zZOrHGtxHsXwVhEjbfkPouHq4ZYmuE8kJtV+AazPLuEyhRTZ+No2jEZHfGzBNY4enPXwZyOLCmMtyvI/hrmluJD/eWd/VpXeYeMDjRhMROLi8XwZA/F/gylCNNWJ5zJoJ8S9Cq01TOw9i6uMdl3/4Q5FOqMBFGgksXXSoNcSdwvYo15g4VSOFsCyaAkg3D2OsDwQTihpSU5uh8syilTiOvIK8HdpAfjgI7TKRSvpIxNiie1m2lXq8XYpHsOrOK7GfF7SrpJmmIFNuiGdyj/2ZnZCbS8QaXq01FU4bTkTkmys6PhyfHrxhFFeEX+c4Wth7Roig==
-Received: from PAXPR04MB9424.eurprd04.prod.outlook.com (2603:10a6:102:2b2::13)
- by PA4PR04MB7615.eurprd04.prod.outlook.com (2603:10a6:102:e6::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 13:38:51 +0000
-Received: from PAXPR04MB9424.eurprd04.prod.outlook.com
- ([fe80::671d:216f:d493:44ce]) by PAXPR04MB9424.eurprd04.prod.outlook.com
- ([fe80::671d:216f:d493:44ce%4]) with mapi id 15.20.9723.022; Tue, 24 Mar 2026
- 13:38:41 +0000
-From: Ioana Ciocoi Radulescu <ruxandra.radulescu@nxp.com>
-To: Frank Li <frank.li@nxp.com>, Oded Gabbay <ogabbay@kernel.org>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Sumit Semwal
-	<sumit.semwal@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, =?iso-8859-1?Q?Christian_K=F6nig?=
-	<christian.koenig@amd.com>
-CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "linaro-mm-sig@lists.linaro.org"
-	<linaro-mm-sig@lists.linaro.org>, Jiwei Fu <jiwei.fu@nxp.com>, Forrest Shi
-	<xuelin.shi@nxp.com>, Alexandru Iulian Taran <alexandru.taran@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: RE: [PATCH v2 7/9] accel/neutron: Add job submission IOCTL
-Thread-Topic: [PATCH v2 7/9] accel/neutron: Add job submission IOCTL
-Thread-Index: AQHcrW0YA6y3SKZzMUyWigJjqVStgrWhu08AgBwQhwA=
-Date: Tue, 24 Mar 2026 13:38:41 +0000
-Message-ID: <PAXPR04MB94245DA907F655FDA17C74989448A@PAXPR04MB9424.eurprd04.prod.outlook.com>
-References: <20260306-neutron-v2-7-3019bd8c91ef@nxp.com>
- <20260306170259.296712-1-Frank.Li@nxp.com>
-In-Reply-To: <20260306170259.296712-1-Frank.Li@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9424:EE_|PA4PR04MB7615:EE_
-x-ms-office365-filtering-correlation-id: ccc4f24a-4324-47df-0c8c-08de89aaa97f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|38070700021|921020|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: c6vwratmFieNo/ABtarMaf5IjMiIXGbYog1TVv/Fn6d9KgopkZfro2+MqAy9rnYbbYnwjCURvIUT2RjB02+2Bqg4wfytvg0pc3J8SZd0VxAehsdsn9sQA4/DKDivf6VHmYs7zTJ/PgEQkRggD+JGBEr7WNnbRR3la3t3dkd8gXk/FEWWLvbDA0hyQr9NHCcvB6gti2N+CYDbSzNVM744NodlA1LWmh78MLj3MWa1/nZ1VUDnfvkLuNS/BBqh9O2/0330i5pyA2Xrvcz7RtxctsnRCkqZjRCHiJhxYxG+n6XAm16RyIUt4gxJkYFht+Cb+McD5LEXNsk0cP0Sbx0sPFhZijpinh4TpLwukuoHhMcMSTiB1MgEvGeyweNFGM2E8hmuRdyVFwq79qk4UxJ+FkIzPZPHJzA8c1oaX7AorPRDWmGScLeBEuSw5XcokTcTdy8DaWzPKfj5MN9nn3ciVA53i1X4fE4yKp/wNoeKQwxfmVEIQIh/ndRbGpFhwn/JlQqdUX+wIHxEperYPt1VFgf1lEPpXfPTH9bpw7tV8Sl1gGiHqM418lwD7ZOJlFjdgKGBNnbzszoggEmScg15wEPeb3VgauHTRGUhxK5la5r428aiX+lcjLZkQreQ1QJSSAGfIMqvqOJ0ETOZq4BOTXZOir1i/epHFqdFU7IHU91mgRSQQ78TjqjlqeOZLwtKIaq9ACEyEVzcI4KO9UlL9GzYSjFN7iJs6b6iF8rKhl5UKe1w055xu9vQHsVg2nSn7kHC5lYf6WOvJxNdsPXRbcVL/2h//E5/RZVZzuguxOvode7fEkL/7+ZkY6SleFbJ
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9424.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(38070700021)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?wDa4lD8BYAumg1dtIH53faKrFmAz5M8Slw24DogzV+nhphOW0w4WFUGP25?=
- =?iso-8859-1?Q?w17cpMrGHAin+bO2837F2PJD7cAYCdHOQW8aTwhURdfPU9ZZSIAhWH/Bf4?=
- =?iso-8859-1?Q?r5+AjaWOVllvLe2Sb7GSir+Kykf3wRtEd8TsMC3GJJu3019SpBVOpWLfI6?=
- =?iso-8859-1?Q?z6AFmL4VfomDbQGkx7sS/1UUCExIeB6T7zVjizGV7omyixCeVPlWpdHQz5?=
- =?iso-8859-1?Q?AmxOyPSjnlUTjP2cpcqDYJXKPKasKi8YSHB45++jW5FL/g7eYggSDwk6Dq?=
- =?iso-8859-1?Q?lm5ObPnvCXkdRJvd6RmJsH9NGx0pWhnkgSoRMpYOzZdnx1B+AdZ1L9/qy5?=
- =?iso-8859-1?Q?qz4Qfb5W8FaQVLyy4VzQy4fhp6mab144IWrxzzhxZfEGANjeDHTU1omBc2?=
- =?iso-8859-1?Q?X8/jAzZeI/z2JjsKDk36LtJWN8e8hdjTHQurUXJ4fRkdr/fT/Mzv0nEMNj?=
- =?iso-8859-1?Q?7a6SFWC8dH89LMrFaosZDSaagZskROtkVnOeFjktoNeZGNa2Ze3hCkm5xf?=
- =?iso-8859-1?Q?5gqcqdyni6HWo0CtXqpDULgowGQkAIhAC4fbkASSv4nHt2264p3iX9k3H2?=
- =?iso-8859-1?Q?sDlbTQg0EdgLuQAAAMZjSQCLildP9PXboFXDLnpA8w344SRY7DsHlAZNwz?=
- =?iso-8859-1?Q?tTOTt4g7DcnvD2XIn+rlAjX1RNKEQHfOI/zPy6dAGV6FTEeQnK8h6HqFau?=
- =?iso-8859-1?Q?hV6d6ItVW6hrjO7wKFlGa4/8KieWp/09uwwgK1FY9IqayyPw/VpkYmMlZ5?=
- =?iso-8859-1?Q?f6m9lc9XR8aeT/013IRYfJ+ctI6dfXa/EIs5EBleZ2tgq/oziaD0ljczCa?=
- =?iso-8859-1?Q?1uSa4rd8Mzj26dvarCpvxjYg1cg0riP0n/L6D+v+6ZisuwRewtMa3qWsa2?=
- =?iso-8859-1?Q?wHtmfBpyx73SGaTw4gjQ0zf1bCDfsVkOQ3VufaSXC9/H8bnLbcHgxmHzjL?=
- =?iso-8859-1?Q?rkFGWmhmbDVOyTdyyoOIWDoU/HYNdePvj9Rj2UECGBmp7L2elJQeps3AqJ?=
- =?iso-8859-1?Q?YKWUnuTJzMjzmB6ZpLuHWC8fR/4Mk6eVQAjA9uGEw5LNiptwi/1VRVQz0q?=
- =?iso-8859-1?Q?CrXVN92DC7zYxxoSYVAT1e/hzI9f3i1UJiWNxVltvbQZFLyUNDaHe3zwmL?=
- =?iso-8859-1?Q?5+6M5FnGM4COtsw622TLPgSomcsKX2MDnhSYZpku7BfX//LYH0mWK4krsR?=
- =?iso-8859-1?Q?fFKuj2AGLIHUGRu01lxg0TGMLrZG1GHuUE+XdVH5u9XiTqmCBl2pYr4R/r?=
- =?iso-8859-1?Q?88EhsUukSU29lCLcaqP4zIkctXc8VgCtxVmvRLm6vmG/Up2c/Z6p6/y47T?=
- =?iso-8859-1?Q?UyXhPAcbccyImkUUHs0llvcTdwKidv6lybt0F5a1DJ/nIxX5N6aLfi4wwa?=
- =?iso-8859-1?Q?899FfvlEg2pAsVUr7Bwi+5U+KY9h0p46h/dpxYpyjYWDiIVDPXepXpMnar?=
- =?iso-8859-1?Q?Vh+Mbk221RZLQzsjODBlSTap5jywLwkkEw17nqT/Y+Zz/f+KJhndO29I35?=
- =?iso-8859-1?Q?5zFvVLQdntQ/49J22kQIK2DK5V7boHlzJ+UpS2GQANZ/LJKy2bxJL2sNTQ?=
- =?iso-8859-1?Q?s0ps8PsQ73/c9MUQ7bQXEsCtUgw8AUuwIGCLZ0VyITgZOrIlZgL/xX9bwh?=
- =?iso-8859-1?Q?ZPET1GQencNXWKtQ9fyb8EMfR2WzCoKr5RGmNtHE45HvKQJZ2Tj0Z3jFw/?=
- =?iso-8859-1?Q?8Y96SXGrVUq33Wy75x94IDx631sNSJAOsaBOAH3NLDgbELEKY3wau12YTt?=
- =?iso-8859-1?Q?LX+tdDxHK77Ms6Oat+c2I7EzHYYWnLCxX653jR6Q7a1WwI1mHr2MEr2vgG?=
- =?iso-8859-1?Q?6N2IhntCEQ=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 24 Mar 2026 13:43:56 +0000
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56a9c5cb48bso1814347e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:43:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774359833; x=1774964633;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D3UNdFM/2oVC0aBHnMmb6liNAkmGmbywgRrpmh1ChmU=;
+        b=VjUGPckRTkO5kJJCeqUIYVx3CR7claQyyyEERBAlmk3nsqFb9OCnmndlTMWxFae7FY
+         5XMIGE3LjH/SalMR0aN8AP13+aYDTVyDoEWbB6Sc7VvV7BDSqcm8YItTPWEH9NtrGCi+
+         QpRkeWx0T5BgfGdhuoUyV1+XH6KjLkkV39L7MQqb241ArXHSyPexQMeqIhI/M8qsGQaZ
+         lDPjWPHsJkkgyVcG1ED7SaTd+NWl6t4t2+yzIDHZ/7Lo4XnGLz1udPJDJMV1OVHI7p68
+         5LnMab59T02hbEZch1fuO/QFL0wdA8HTKvHs1Vdu0ihuPLXqO7fwhLli7tSQN157jRMU
+         VSFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXnwlK1VW7XHhXd7d5/kvcyhM3xW72QyeRR3tICCZVdrtPVByY96vVoOAakP4nxLIEtCcajmGUVWLx4HUhk771c@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGFnnROxqBSRFvUuz4AVuVIblBkD/7kF/KwWO+xiU/BoeET1Ev
+	hO3gaihwGp6HTPb/XXvznDYey/xRpHSt63Bci3cjDXTKHEqSs9fdb5FwMqwILJ5Sglg=
+X-Gm-Gg: ATEYQzy+adF4HkbAqqVHkwJvYG7TkGDMaQ3hrNpCGLZh03PdwgO6YvnQBmMqZfU008v
+	bE/iy8nm88xEAhYn+iGQr1POcWpVwX5lkMd9DDmF63waDCJvAdU3zwkxjghEdvP/ZumWzXJC4A6
+	ni8i1NNpBDsxI/RnfwSs9FtbXlZv6EfARl60hAf8NUooQkpYcTGIebSUz2eUldE5CJcfojBdKOa
+	is3VTuoCeLkkabB1ymbxexeAvPiqK+g6MNwwYrdUCNhGfOJQc6lZSA7YGBOW70vsfJqW13exfGA
+	1vnub4uxuXbT0/8xDt/IZKa1BuUMBem4yqNCtmfBWs5rVSSlqv9BBb00aNSVA5tBiBPmI39iCYy
+	aAuA7mpR0BKmF+j4DBR1sqSsBy0bx9O+iqPb7inyC8+cVNTXhc260xgAPvwDUyNWKVQKaVMLHeB
+	rKxD4ofwhE9EzqUqa4Sr8sg/TOhRfQVm6jZXJiAAt6aKHjywVzvbsSOj2LoMF1QgR+
+X-Received: by 2002:a05:6122:62a6:b0:56c:db9b:2eab with SMTP id 71dfb90a1353d-56cde324b67mr6968911e0c.2.1774359832970;
+        Tue, 24 Mar 2026 06:43:52 -0700 (PDT)
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com. [209.85.221.171])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56cea30c727sm13765296e0c.2.2026.03.24.06.43.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Mar 2026 06:43:52 -0700 (PDT)
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-56cde757d3dso1435536e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:43:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU62Gk8KnhO0exdGLn4F4g6fNxuKoGvx7XYsaR5/3K+hNYAZz+vt2uym539AH4Cn48OcFLlqsq87TR48sC7hTcE@lists.infradead.org
+X-Received: by 2002:a05:6102:5812:b0:602:71a7:63c2 with SMTP id
+ ada2fe7eead31-602aecd0de0mr7186355137.23.1774359832015; Tue, 24 Mar 2026
+ 06:43:52 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9424.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ccc4f24a-4324-47df-0c8c-08de89aaa97f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Mar 2026 13:38:41.3903
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: HO9d+AE++cERBK2NmnPw+eANJZ7qwD89wk1YoJX6Pmhi6ZIr0r6v5v//hsfRwwwROaaX/1PiMctxovwzr6/DIYMI0pCR2WofHy52Ey1S9fE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7615
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <20260310184030.3669330-9-cristian.marussi@arm.com> <CAMuHMdUdqrA9kYeDpjwj-y6-4aALkAi2g2Od81Kxh-EVW2e2Nw@mail.gmail.com>
+ <abG4VfyB2C-gBa5Q@pluto> <20260312-classy-misty-platypus-5baea1@sudeepholla>
+ <abLrm7x8ggzAhYOg@pluto> <CAMuHMdVWL4rVTPnsMofPKFKCozjCPqF0K95ZFmrdrBD8EUt22A@mail.gmail.com>
+ <abgsW1yoGtMNE3c7@pluto> <CAMuHMdU1Z9NiQOd10zsimMcOfSC=dVYbfjAKKT4aD3Zx9KttVQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdU1Z9NiQOd10zsimMcOfSC=dVYbfjAKKT4aD3Zx9KttVQ@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 24 Mar 2026 14:43:40 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWm9X5TLaAHgCsMqjFZLvUsDjrf4CqzNiO-Hsr4X9bDtw@mail.gmail.com>
+X-Gm-Features: AQROBzDvNZgLoQvhVJc-PSdP06Iq5zvkWOybQz-6zVMkfKMPvuuu_fBc0vUNAPY
+Message-ID: <CAMuHMdWm9X5TLaAHgCsMqjFZLvUsDjrf4CqzNiO-Hsr4X9bDtw@mail.gmail.com>
+Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol initialization
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	philip.radford@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com, 
+	peng.fan@oss.nxp.com, michal.simek@amd.com, dan.carpenter@linaro.org, 
+	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com, 
+	marek.vasut+renesas@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_063857_904971_C57C2070 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260324_064355_815583_22148CBD 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,59 +104,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, March 6, 2026 at 7:03 PM, Frank Li wrote:
-> > +	if (appstatus & APPSTATUS_FAULTCAUSE_MASK) {
-> > +		dev_err(ndev->dev, "Neutron halted due to fault: 0x%lx\n",
-> > +			FIELD_GET(APPSTATUS_FAULTCAUSE_MASK,
-> appstatus));
-> > +		return neutron_job_err_handler(ndev);
->=20
-> AI: neutron_job_err_handler() returns void, not int. Remove 'return'.
+Hi Cristian,
 
-Ok, will fix.
+On Mon, 16 Mar 2026 at 17:35, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> On Mon, 16 Mar 2026 at 17:14, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > On Mon, Mar 16, 2026 at 04:50:17PM +0100, Geert Uytterhoeven wrote:
+> > > Then I came up with the following preliminary (have to check more
+> > > firmware versions) quirk (Gmail whitespace-damaged):
+> > >
+> > > diff --git a/drivers/firmware/arm_scmi/clock.c
+> > > b/drivers/firmware/arm_scmi/clock.c
+> > > index f62f9492bd42afbc..6f2af6e9084836c6 100644
+> > > --- a/drivers/firmware/arm_scmi/clock.c
+> > > +++ b/drivers/firmware/arm_scmi/clock.c
+> > > @@ -1230,6 +1230,18 @@ static const struct scmi_protocol_events
+> > > clk_protocol_events = {
+> > >         .num_events = ARRAY_SIZE(clk_events),
+> > >  };
+> > >
+> > > +#define QUIRK_RCAR_X5H_NO_ATTRIBUTES                                   \
+> > > +       ({                                                              \
+> > > +               if (ret == -EREMOTEIO || ret == -EOPNOTSUPP)            \
+> > > +                       continue;                                       \
+> > > +       })
+> > > +
+> > > +#define QUIRK_RCAR_X5H_NO_RATES
+> > >          \
+> > > +       ({                                                              \
+> > > +               if (ret == -EOPNOTSUPP)                                 \
+> > > +                       ret = 0;                                        \
+> > > +       })
+> > > +
+> > >  static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+> > >  {
+> > >         int clkid, ret;
+> > > @@ -1254,10 +1266,12 @@ static int scmi_clock_protocol_init(const
+> > > struct scmi_protocol_handle *ph)
+> > >         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+> > >                 cinfo->clkds[clkid].id = clkid;
+> > >                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> > > +               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
+> > > QUIRK_RCAR_X5H_NO_ATTRIBUTES);
+> > >                 if (ret)
+> > >                         return ret;
+> > >
+> > >                 ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
+> > > +               SCMI_QUIRK(clock_rcar_x5h_no_attributes,
+> > > QUIRK_RCAR_X5H_NO_RATES);
+> > >                 if (ret)
+> > >                         return ret;
+> > >         }
+>
+> > > Does that look like what you have in mind?
+> > > Thanks!
+> >
+> > Yes in quirk I was only addressing NOT_ATTRIBUTES and mimicing the old
+> > behaviour with continue, BUT if the set of clocks not supporting attributes
+> > and the set of clocks not suppporting rates is disjoint, I feel we need your
+> > double quirks :P
+>
+> I could have used
+>
+>     SCMI_QUIRK(clock_rcar_x5h_no_attributes, QUIRK_RCAR_X5H_NO_ATTRIBUTES);
+>
+> after both scmi_clock_attributes_get() and
+> scmi_clock_describe_rates_get(), but I wanted to keep the check as
+> strict as possible: the former returns two error codes to ignore,
+> the latter only one.
 
->=20
-> > +	ret =3D drm_sched_job_init(&job->base, &npriv->sched_entity, 1, NULL,
-> > +				 filp->client_id);
-> > +	if (ret)
-> > +		goto out_put_syncobj;
-> > +
-> > +	ret =3D neutron_push_job(job, syncobj);
-> > +	if (ret)
-> > +		goto out_sched_cleanup;
-> > +
-> > +	neutron_put_job(job);
-> > +	drm_syncobj_put(syncobj);
-> > +
-> > +	return 0;
-> > +
-> > +out_sched_cleanup:
-> > +	drm_sched_job_cleanup(&job->base);
-> > +out_put_syncobj:
-> > +	drm_syncobj_put(syncobj);
-> > +out_put_gem:
-> > +	drm_gem_object_put(job->bo);
->=20
-> AI: In the success path, neutron_put_job(job) is called which decrements
-> refcnt. But if neutron_push_job() fails and we hit out_sched_cleanup, the=
- job
-> refcnt is never decremented. This leaks the job structure.
-> Consider: if neutron_push_job() succeeds, it calls kref_get() inside sche=
-d_lock.
-> If it fails, no kref_get() happens, so don't call
->=20
-> (Need owner do judgment. Not sure if AI said correctly.)
+So these are two mitigations:
 
-I don't see an issue here, kref_get() is called at a point where
-neutron_push_job() can't fail anymore. And if neutron_push_job() fails
-earlier, error path looks clean, it frees everything in reverse order,
-including the job struct.
+    #define QUIRK_RCAR_X5H_NO_ATTRIBUTES    ({ ... })
+    SCMI_QUIRK(clock_rcar_x5h_no_attributes, QUIRK_RCAR_X5H_NO_ATTRIBUTES);
 
-Btw, what agent did you use for review?
+and
 
-Thanks,
-Ioana
+    #define QUIRK_RCAR_X5H_NO_RATES         ({ ... })
+    SCMI_QUIRK(clock_rcar_x5h_no_attributes, QUIRK_RCAR_X5H_NO_RATES);
 
->=20
-> Frank
+gated by a single quirk entry clock_rcar_x5h_no_attributes:
+
+    DECLARE_SCMI_QUIRK(clock_rcar_x5h_no_attributes);
+    DEFINE_SCMI_QUIRK(clock_rcar_x5h_no_attributes, "Renesas", NULL,
+                      "0x10a0000", "renesas,r8a78000");
+    __DECLARE_SCMI_QUIRK_ENTRY(clock_rcar_x5h_no_attributes),
+
+In general, when a specific SCMI implementation has multiple quirks
+and needs multiple mitigations, do you prefer to have individual
+entries for each quirk plus mitigation, or just a single entry with
+multiple mitigations (which may not be limited to a single protocol,
+unlike my example above)?
+
+Thanks!
+
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
