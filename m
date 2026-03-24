@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3578F532C3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B405AF532C3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=; b=RWL6c6MuTChT7p0q3Mb231tYGI
-	J5L5rSjsBrRTrisVsgZJkZ/p7uGDS4gKldiwODnP+d2w01DSKWTQGTPqcmDlizrTqBlxn9veHwF/A
-	njdAUBpsG87I8zGpSQLBWK8AwIphGyzBbYdUO4a4xUmgzF83c2W6fp9L6h5MZUaf7YLRZmQptmKXO
-	zQRluFe/c70t7GMRo6glQ6OdWJDzTt9PBXC0BBr3DQ/sI2Z8xeqgmzwGlbjfjjPIG8lD/f5u5DZra
-	xhRY7SUqOfhjnflbDDBYbB3V8OofFKN1vlbDMkAZOqQU4D26syh9J1F9fCJTZ2VzoZJlWVVYZcqMZ
-	Pr7PtU8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XNDeRudiFrfeaRo+PV5E/mL3K6Ey03i3VpH8rFuxUVc=; b=k6bBIPfRi8K/IkbyTQfyyhtWdq
+	c8FwxdHSNgCzGadGrRkf5q/6d2MzhQ7yb7F75rs5DWX1uTOpS0lAd/JjwBCETXJSOdryPvTf/uHvE
+	GrD6Q7s3v7VmnMIYum832tVohI65M4KBviyN05iPCLSiMDqNR6wHpm4/vLMLnFTC10niYiMLd9vA/
+	8/w63qgFcpErYPtA93KZqo9zl9ELyKmsOp+YPZF8w0qr7gFlMMAXcKyBtKwL97cU5BhWOJ0tjp4kX
+	dZwYMTfkpoS3lkH6lw39UGecxlM06RisrMKqz68tHtueziQY+UHQJFyO/OuAuoKBk9s995cP+VTyw
+	WKHWbz0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4qri-00000000KfE-45hd;
-	Tue, 24 Mar 2026 01:47:30 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1w4qwe-00000000KvY-2yfq;
+	Tue, 24 Mar 2026 01:52:36 +0000
+Received: from [113.46.200.224] (helo=canpmsgout09.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4qrg-00000000Kea-38f3
+	id 1w4qwa-00000000KuL-47tJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 01:47:29 +0000
-Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-43b467dcf0bso3441198f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 18:47:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774316847; cv=none;
-        d=google.com; s=arc-20240605;
-        b=d/n5e/PzbkwN3577INkR6aPPnDTSWO1VCT0zU/CsUCUeVCmPxirF+iYzAbJTkc8ifV
-         nirGUevAhs6zzarpGwOrHf2rOSzovHpYbkgZB9VWY5QLIwdtEXAB1g24oVxqK6Zi8Paz
-         rAYuuwxPigK7tqdfN+7riiMG2xDlorPwFSy03v2UdnIGkIwJmZLXL3f3/0KHetMsCa/k
-         DmRVrmS51yBUOVp7UxLLcwr9TDnFJoEosW1cJsnw/NxgjI4b2fzlImteBbfRQWPFk6ck
-         dHPn3DzJLa67DUzayQF0++Ls/saX2n13BlQ3QrDDAInaB8cS0pOa+YbfgusEfQ/6lEak
-         OREg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=;
-        fh=A/nLN9+voeZPQ97HKmK4p8p/TVj11B7Dx0B6u/lDvrM=;
-        b=ZA5fz1MPpZfFbkH0Y+atL6nU7ZsJ3T68us9HFHIJPC8EZGdkli/OeqTbfKPkTA1ebY
-         ZKNkaGu39c5sDpOXe/kOGTBnpsNvhLHDXBQaf2HXoBB0xngZy7XZudEBgW2cJDcm9WFU
-         1Dr06HzrJHaz2qg70cmusk5D8Hc4AKJwVmDPosN7a3EIky/NhGpijKFXezOuTTXHfpMf
-         1ZEIckY059Y2omindZG0QSM6CPtep8JxArch/I0WawqhHmT241ZwBv2WOCQVCUHNp6re
-         q3MsIxBrQUmDZrGmksUKjXzHpYxmtGyKE3Vf54iatv+v6AP0KtZKPLgvmoSkT1n1RoDy
-         BTZA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774316847; x=1774921647; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=;
-        b=QeIWxBxE/vhg34KCiL87x49HY4Cu3MUasxejxSIMDcKn18wt/K9HbygsfmQJTMWwKF
-         cJgM9tjgQu9btyqjze+QjN5vPucfIiHNF9xqjQmnCTjtReY0/zMnthtBLrVE0OmYkehZ
-         WhhJVLdwoEHCzfLx2lTeK5fquGl7uSjyCew9iVjtufKrlHjAQezY/8jaqCkld/y3HVgD
-         ueTNr4sgRccd1G7eyiq5eBWhqqa/nnU3rJsk3ziYbxiKjBHKBDMzyiY4pswG2IZ1Ooty
-         MPDREwj6fxR8+5IaLLLtFmQG79nWzPWH8XnJTrQTM38mXdUTY4P653i6EDOtTV6nZHTA
-         GH8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774316847; x=1774921647;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=;
-        b=lY2HfsTARpmy+syJl4hG5QVLmhDaxjL5m7Y0Bs3CR3GenPkIcWv3zBXA6zqpOkTdnN
-         dkb2XEhJAFyG/obMaP5ypwLVaAvr8QHH0X6BQrbBQio0Vtjdt2htWnIxFUlyavgNJ4oD
-         kszRHAqKKjGHja3RN/uEYKdoOvlto+C0HiUxu+OyWMgBmqYejPwGDV1LKknxiIELizpn
-         fiAnJgQA9UUJZ2Nc/6hMpicguj8k5lrroLuy6Jdj4Q0eGuGPYr6/lKQhK9ySXYXMmBvd
-         kSe2dlqE9r9VuPqHVyXxEex/guTvwCjtKqDaXrwhDWgJXYRNDx7Kz+Vj/Rg7ZLc2XvGo
-         H9Ag==
-X-Forwarded-Encrypted: i=1; AJvYcCXcZy8jCN2RhIa/z12b2hW/Yvd23kOeWWaj1vyUTYYXHTX+dh/U35sxOAmBaUU+w7znmpy7JpfnPo3M46bXta//@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNMJjKPE/2VDns95u9l8XwBCxw4zBzrQxKeHQb9/CydYBC1KZ4
-	TCv1KqupiM6D1y/FV7bCkG9hpfcoLcwUDifnsY5Ps+RBeiZeOAswuFNrWzL6PoIMnvzJljDAOjp
-	Pznv6C7ngF69XRJ5mlVycCe1eWjfTZn4=
-X-Gm-Gg: ATEYQzy1Xk1IlYrn0xdxkjbAoC+mDCRZgLgD4RzSfWHYEMa86sjoGqDqTZ5z9/tephX
-	Je+bBJlbC376Y1K0rR9pInZyV245JeO5Qe0bIQt+mTefILx6JBK+DlO9KurFvD58w7j+6JJkpml
-	Pa9I7Sc7t1u0lh0gGZCZ8UaZuGPu/vJSpnkaYvdVzBFFH1ireLlmaerZip/GbiVOHVaXxUoxjLp
-	yRw5rumYQTpDi8MaL68OebKvltn2HiCfNWhwDUg5JR/pS+LYBjZOcGKMxJqomtW5pwZZJIf07J/
-	by1VQznHPJEJFe87h7551a8tO0gGYnv4ikJjF+KBDQpn3Et+uJMgjwPvX+c=
-X-Received: by 2002:a05:6000:5c8:b0:43b:4951:6b37 with SMTP id
- ffacd0b85a97d-43b80592328mr2021634f8f.15.1774316846771; Mon, 23 Mar 2026
- 18:47:26 -0700 (PDT)
+	Tue, 24 Mar 2026 01:52:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=XNDeRudiFrfeaRo+PV5E/mL3K6Ey03i3VpH8rFuxUVc=;
+	b=PPptQTkwUgKB6Gr7+OtkRJHbnt4JPP0wr3GXZX9ioXtlU5eVdCNi2nwPJ5gFSnnRlHNAqv8Mv
+	FJyzQhxRskYx7El+HObXgYzVMlMzZwTp5P3Mxm7ePdynPIVAejqOoaooUTuvnYUUgFEHgkd8Zqx
+	PeLF/c2rgt3gLpRncGFtcvc=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4fftDF5FW7z1cyPZ;
+	Tue, 24 Mar 2026 09:46:05 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id ADB6E40565;
+	Tue, 24 Mar 2026 09:52:09 +0800 (CST)
+Received: from kwepemn200010.china.huawei.com (7.202.194.133) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 24 Mar 2026 09:52:09 +0800
+Received: from [10.174.178.56] (10.174.178.56) by
+ kwepemn200010.china.huawei.com (7.202.194.133) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 24 Mar 2026 09:52:08 +0800
+Message-ID: <bc153304-1a0b-4e92-963b-1da00d571018@huawei.com>
+Date: Tue, 24 Mar 2026 09:52:07 +0800
 MIME-Version: 1.0
-References: <20260316013651.3225328-1-ankur.a.arora@oracle.com> <20260316013651.3225328-11-ankur.a.arora@oracle.com>
-In-Reply-To: <20260316013651.3225328-11-ankur.a.arora@oracle.com>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Tue, 24 Mar 2026 02:46:50 +0100
-X-Gm-Features: AQROBzDT8zHTe-cnXwc3ToHi1r8Z06VC2JgJudU67Ap-gCTlXPytLAmMbqYbD7w
-Message-ID: <CAP01T77qL1SF_-FFjbT4wJaYAe8g3XRNO0pyPs9c54qdcN5MGQ@mail.gmail.com>
-Subject: Re: [PATCH v10 10/12] bpf/rqspinlock: Use smp_cond_load_acquire_timeout()
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org, 
-	peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com, 
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org, 
-	daniel.lezcano@linaro.org, zhenglifeng1@huawei.com, 
-	xueshuai@linux.alibaba.com, rdunlap@infradead.org, 
-	david.laight.linux@gmail.com, joao.m.martins@oracle.com, 
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] Faster Arm64 __arch_copy_from_user and
+ __arch_copy_to_user
+To: <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <sunnanyong@huawei.com>, <wangkefeng.wang@huawei.com>, <benniu@meta.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<robin.murphy@arm.com>, <tujinjiang@huawei.com>
+References: <20260316123100.82932-1-xiqi2@huawei.com>
+Content-Language: en-GB
+From: Qi Xi <xiqi2@huawei.com>
+In-Reply-To: <20260316123100.82932-1-xiqi2@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.56]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemn200010.china.huawei.com (7.202.194.133)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_184728_803085_C6EF92B2 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20260323_185233_717999_AA8468F0 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,56 +84,335 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Mar 2026 at 02:37, Ankur Arora <ankur.a.arora@oracle.com> wrote:
+Kindly ping.
+
+Also add Robin Murphy to CC.
+
+On 16/03/2026 20:31, Qi Xi wrote:
+> Based on Ben Niu's "Faster Arm64 __arch_copy_from_user and
+> __arch_copy_to_user" patch [1], this implementation further optimizes
+> and simplifies user space copies by:
 >
-> Switch out the conditional load interfaces used by rqspinlock
-> to smp_cond_read_acquire_timeout() and its wrapper,
-> atomic_cond_read_acquire_timeout().
+> 1. Limiting optimization scope to >=128 bytes copies where PAN state matters.
+>     For <128 bytes copies, the implementation uses non-privileged
+>     instructions uniformly, simplifying the code and reducing maintenance
+>     cost.
+> 2. Adding "arm64.nopan" cmdline support using the standard idreg-override
+>     framework, allowing runtime PAN disable without building separate
+>     CONFIG_ARM64_PAN=y/n kernels as required by Ben Niu's version.
+>     The implementation maintains separate paths for PAN-enabled (using
+>     unprivileged ldtr/sttr) and PAN-disabled (using standard ldp/stp), with
+>     runtime selection via ALTERNATIVE() at the large copy loop entry.
+> 3. Retaining the critical path optimization from the original patch:
+>     reducing pointer update instructions through manual batch updates,
+>     processing 64 bytes per iteration with only one pair of add instructions.
 >
-> Both these handle the timeout and amortize as needed, so use the
-> non-amortized RES_CHECK_TIMEOUT.
+> Performance improvements measured on Kunpeng 920 with PAN disabled:
 >
-> RES_CHECK_TIMEOUT does double duty here -- presenting the current
-> clock value, the timeout/deadlock error from clock_deadlock() to
-> the cond-load and, returning the error value via ret.
+> The ku_copy microbenchmark [2] (a kernel module that measures
+> copy_to/from_user throughput across various sizes by copying 1GB of
+> data in each test):
+> copy_to_user throughput change (positive = improvement):
+> 128B: +0.9%   256B: +10.3%  512B: +23.3%  1024B: +38.1%
+> 2048B: +56.2% 4096B: +68.5% 8192B: +74.8% 16384B: +79.7%
+> 32768B: +80.7% 65536B: +81.3% 131072B: +77.3% 262144B: +77.9%
+> copy_from_user throughput change:
+> 128B: +2.0%   256B: +7.5%   512B: +20.3%  1024B: +28.4%
+> 2048B: +38.1% 4096B: +39.6% 8192B: +41.5% 16384B: +42.3%
+> 32768B: +42.2% 65536B: +44.8% 131072B: +70.3% 262144B: +71.0%
 >
-> For correctness, we need to ensure that the error case of the
-> cond-load interface always agrees with that in clock_deadlock().
+> Real-world workloads:
+> - RocksDB read-write mixed workload:
+>    Overall throughput improved by 2%.
+>    copy_to_user hotspot reduced from 3.3% to 2.7% of total CPU cycles.
+>    copy_from_user hotspot reduced from 2.25% to 0.85% of total CPU cycles.
 >
-> For the most part, this is fine because there's no independent clock,
-> or double reads from the clock in cond-load -- either of which could
-> lead to its internal state going out of sync from that of
-> clock_deadlock().
+> - BRPC rdma_performance (server side, baidu_std protocol over TCP):
+>    copy_to_user accounts for ~11.5% of total CPU cycles.
+>    After optimization, server CPU utilization reduced from 64% to 62%
+>    (2% absolute improvement, equivalent to ~17% reduction in
+>    copy_to_user overhead)
 >
-> There is, however, an edge case where clock_deadlock() checks for:
+> [1] https://lore.kernel.org/all/20251018052237.1368504-2-benniu@meta.com/
+> [2] https://github.com/mcfi/benchmark/tree/main/ku_copy
 >
->         if (time > ts->timeout_end)
->                 return -ETIMEDOUT;
->
-> while smp_cond_load_acquire_timeout() checks for:
->
->         __time_now = (time_expr_ns);
->         if (__time_now <= 0 || __time_now >= __time_end) {
->                 VAL = READ_ONCE(*__PTR);
->                 break;
->         }
->
-> This runs into a problem when (__time_now == __time_end) since
-> clock_deadlock() does not treat it as a timeout condition but
-> the second clause in the conditional above does.
-> So, add an equality check in clock_deadlock().
->
-> Finally, redefine SMP_TIMEOUT_POLL_COUNT to be 16k to be similar to
-> the spin-count used in the amortized version. We only do this for
-> non-arm64 as that uses a waiting implementation.
->
-> Cc: bpf@vger.kernel.org
-> Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Cc: Alexei Starovoitov <ast@kernel.org>
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+> Co-developed-by: Ben Niu <benniu@meta.com>
+> Signed-off-by: Ben Niu <benniu@meta.com>
+> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
+> Signed-off-by: Qi Xi <xiqi2@huawei.com>
 > ---
-
-Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-
-> [...]
+> Changes in v3:
+> - Limiting optimization scope to >=128 bytes copies.
+> - Use idreg-override for PAN runtime selection with "arm64.nopan" cmdline.
+> ---
+>   arch/arm64/include/asm/asm-uaccess.h  |  22 ++----
+>   arch/arm64/kernel/pi/idreg-override.c |   2 +
+>   arch/arm64/lib/copy_from_user.S       |  17 +++-
+>   arch/arm64/lib/copy_template.S        | 108 +++++++++++++++++++-------
+>   arch/arm64/lib/copy_to_user.S         |  17 +++-
+>   5 files changed, 114 insertions(+), 52 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
+> index 9148f5a31968..198a05d478fc 100644
+> --- a/arch/arm64/include/asm/asm-uaccess.h
+> +++ b/arch/arm64/include/asm/asm-uaccess.h
+> @@ -70,27 +70,21 @@ alternative_else_nop_endif
+>    * This is complicated as there is no post-increment or pair versions of the
+>    * unprivileged instructions, and USER() only works for single instructions.
+>    */
+> -	.macro user_ldp l, reg1, reg2, addr, post_inc
+> -8888:		ldtr	\reg1, [\addr];
+> -8889:		ldtr	\reg2, [\addr, #8];
+> -		add	\addr, \addr, \post_inc;
+> +	.macro user_ldst l, inst, reg, addr, post_inc
+> +8888:		\inst		\reg, [\addr];
+> +		add		\addr, \addr, \post_inc;
+>   
+>   		_asm_extable_uaccess	8888b, \l;
+> -		_asm_extable_uaccess	8889b, \l;
+>   	.endm
+>   
+> -	.macro user_stp l, reg1, reg2, addr, post_inc
+> -8888:		sttr	\reg1, [\addr];
+> -8889:		sttr	\reg2, [\addr, #8];
+> -		add	\addr, \addr, \post_inc;
+> +	.macro user_ldst_index l, inst, reg, addr, val
+> +8888:		\inst		\reg, [\addr, \val];
+>   
+> -		_asm_extable_uaccess	8888b,\l;
+> -		_asm_extable_uaccess	8889b,\l;
+> +		_asm_extable_uaccess	8888b, \l;
+>   	.endm
+>   
+> -	.macro user_ldst l, inst, reg, addr, post_inc
+> -8888:		\inst		\reg, [\addr];
+> -		add		\addr, \addr, \post_inc;
+> +	.macro user_ldst_pair_index l, inst, reg1, reg2, addr, val
+> +8888:		\inst		\reg1, \reg2, [\addr, \val];
+>   
+>   		_asm_extable_uaccess	8888b, \l;
+>   	.endm
+> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+> index bc57b290e5e7..ac26f1f3aad4 100644
+> --- a/arch/arm64/kernel/pi/idreg-override.c
+> +++ b/arch/arm64/kernel/pi/idreg-override.c
+> @@ -64,6 +64,7 @@ static const struct ftr_set_desc mmfr1 __prel64_initconst = {
+>   	.override	= &id_aa64mmfr1_override,
+>   	.fields		= {
+>   		FIELD("vh", ID_AA64MMFR1_EL1_VH_SHIFT, mmfr1_vh_filter),
+> +		FIELD("pan", ID_AA64MMFR1_EL1_PAN_SHIFT, NULL),
+>   		{}
+>   	},
+>   };
+> @@ -249,6 +250,7 @@ static const struct {
+>   	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
+>   	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
+>   	{ "arm64.nompam",		"id_aa64pfr0.mpam=0 id_aa64pfr1.mpam_frac=0" },
+> +	{ "arm64.nopan",		"id_aa64mmfr1.pan=0" },
+>   };
+>   
+>   static int __init parse_hexdigit(const char *p, u64 *v)
+> diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
+> index 400057d607ec..1f578c4d0ae6 100644
+> --- a/arch/arm64/lib/copy_from_user.S
+> +++ b/arch/arm64/lib/copy_from_user.S
+> @@ -44,12 +44,21 @@
+>   	str \reg, [\ptr], \val
+>   	.endm
+>   
+> -	.macro ldp1 reg1, reg2, ptr, val
+> -	user_ldp 9997f, \reg1, \reg2, \ptr, \val
+> +	.macro ldp_unpriv reg1, reg2, ptr, val
+> +	user_ldst_index 9997f, ldtr, \reg1, \ptr, \val
+> +	user_ldst_index 9997f, ldtr, \reg2, \ptr, \val + 8
+>   	.endm
+>   
+> -	.macro stp1 reg1, reg2, ptr, val
+> -	stp \reg1, \reg2, [\ptr], \val
+> +	.macro stp_unpriv reg1, reg2, ptr, val
+> +	stp \reg1, \reg2, [\ptr, \val]
+> +	.endm
+> +
+> +	.macro ldp_priv reg1, reg2, ptr, val
+> +	user_ldst_pair_index 9997f, ldp, \reg1, \reg2, \ptr, \val
+> +	.endm
+> +
+> +	.macro stp_priv reg1, reg2, ptr, val
+> +	stp \reg1, \reg2, [\ptr, \val]
+>   	.endm
+>   
+>   	.macro cpy1 dst, src, count
+> diff --git a/arch/arm64/lib/copy_template.S b/arch/arm64/lib/copy_template.S
+> index 7f2f5a0e2fb9..5ef6dc9bf7d8 100644
+> --- a/arch/arm64/lib/copy_template.S
+> +++ b/arch/arm64/lib/copy_template.S
+> @@ -97,14 +97,20 @@ alternative_else_nop_endif
+>   	cmp	tmp1w, #0x20
+>   	b.eq	1f
+>   	b.lt	2f
+> -	ldp1	A_l, A_h, src, #16
+> -	stp1	A_l, A_h, dst, #16
+> +	ldp_unpriv	A_l, A_h, src, #0
+> +	stp_unpriv	A_l, A_h, dst, #0
+> +	add	src, src, #16
+> +	add	dst, dst, #16
+>   1:
+> -	ldp1	A_l, A_h, src, #16
+> -	stp1	A_l, A_h, dst, #16
+> +	ldp_unpriv	A_l, A_h, src, #0
+> +	stp_unpriv	A_l, A_h, dst, #0
+> +	add	src, src, #16
+> +	add	dst, dst, #16
+>   2:
+> -	ldp1	A_l, A_h, src, #16
+> -	stp1	A_l, A_h, dst, #16
+> +	ldp_unpriv	A_l, A_h, src, #0
+> +	stp_unpriv	A_l, A_h, dst, #0
+> +	add	src, src, #16
+> +	add	dst, dst, #16
+>   .Ltiny15:
+>   	/*
+>   	* Prefer to break one ldp/stp into several load/store to access
+> @@ -142,14 +148,16 @@ alternative_else_nop_endif
+>   	* Less than 128 bytes to copy, so handle 64 here and then jump
+>   	* to the tail.
+>   	*/
+> -	ldp1	A_l, A_h, src, #16
+> -	stp1	A_l, A_h, dst, #16
+> -	ldp1	B_l, B_h, src, #16
+> -	ldp1	C_l, C_h, src, #16
+> -	stp1	B_l, B_h, dst, #16
+> -	stp1	C_l, C_h, dst, #16
+> -	ldp1	D_l, D_h, src, #16
+> -	stp1	D_l, D_h, dst, #16
+> +	ldp_unpriv	A_l, A_h, src, #0
+> +	stp_unpriv	A_l, A_h, dst, #0
+> +	ldp_unpriv	B_l, B_h, src, #16
+> +	ldp_unpriv	C_l, C_h, src, #32
+> +	stp_unpriv	B_l, B_h, dst, #16
+> +	stp_unpriv	C_l, C_h, dst, #32
+> +	ldp_unpriv	D_l, D_h, src, #48
+> +	stp_unpriv	D_l, D_h, dst, #48
+> +	add	src, src, #64
+> +	add	dst, dst, #64
+>   
+>   	tst	count, #0x3f
+>   	b.ne	.Ltail63
+> @@ -161,30 +169,70 @@ alternative_else_nop_endif
+>   	*/
+>   	.p2align	L1_CACHE_SHIFT
+>   .Lcpy_body_large:
+> +	/* Runtime PAN decision for large copies */
+> +	ALTERNATIVE("b .Llarge_pan_disabled", "b .Llarge_pan_enabled", ARM64_HAS_PAN)
+> +
+> +.Llarge_pan_enabled:
+> +	/* PAN enabled version - use unprivileged loads (ldp_unpriv) */
+>   	/* pre-get 64 bytes data. */
+> -	ldp1	A_l, A_h, src, #16
+> -	ldp1	B_l, B_h, src, #16
+> -	ldp1	C_l, C_h, src, #16
+> -	ldp1	D_l, D_h, src, #16
+> +	ldp_unpriv	A_l, A_h, src, #0
+> +	ldp_unpriv	B_l, B_h, src, #16
+> +	ldp_unpriv	C_l, C_h, src, #32
+> +	ldp_unpriv	D_l, D_h, src, #48
+> +	add	src, src, #64
+> +1:
+> +	/*
+> +	* interlace the load of next 64 bytes data block with store of the last
+> +	* loaded 64 bytes data.
+> +	*/
+> +	stp_unpriv	A_l, A_h, dst, #0
+> +	ldp_unpriv	A_l, A_h, src, #0
+> +	stp_unpriv	B_l, B_h, dst, #16
+> +	ldp_unpriv	B_l, B_h, src, #16
+> +	stp_unpriv	C_l, C_h, dst, #32
+> +	ldp_unpriv	C_l, C_h, src, #32
+> +	stp_unpriv	D_l, D_h, dst, #48
+> +	ldp_unpriv	D_l, D_h, src, #48
+> +	add	dst, dst, #64
+> +	add	src, src, #64
+> +	subs	count, count, #64
+> +	b.ge	1b
+> +	b	.Llarge_done
+> +
+> +.Llarge_pan_disabled:
+> +	/* PAN disabled version - use normal loads without post-increment */
+> +	/* pre-get 64 bytes data using normal loads */
+> +	ldp_priv	A_l, A_h, src, #0
+> +	ldp_priv	B_l, B_h, src, #16
+> +	ldp_priv	C_l, C_h, src, #32
+> +	ldp_priv	D_l, D_h, src, #48
+> +	add	src, src, #64
+>   1:
+>   	/*
+>   	* interlace the load of next 64 bytes data block with store of the last
+>   	* loaded 64 bytes data.
+>   	*/
+> -	stp1	A_l, A_h, dst, #16
+> -	ldp1	A_l, A_h, src, #16
+> -	stp1	B_l, B_h, dst, #16
+> -	ldp1	B_l, B_h, src, #16
+> -	stp1	C_l, C_h, dst, #16
+> -	ldp1	C_l, C_h, src, #16
+> -	stp1	D_l, D_h, dst, #16
+> -	ldp1	D_l, D_h, src, #16
+> +	stp_priv	A_l, A_h, dst, #0
+> +	ldp_priv	A_l, A_h, src, #0
+> +	stp_priv	B_l, B_h, dst, #16
+> +	ldp_priv	B_l, B_h, src, #16
+> +	stp_priv	C_l, C_h, dst, #32
+> +	ldp_priv	C_l, C_h, src, #32
+> +	stp_priv	D_l, D_h, dst, #48
+> +	ldp_priv	D_l, D_h, src, #48
+> +	add	dst, dst, #64
+> +	add	src, src, #64
+>   	subs	count, count, #64
+>   	b.ge	1b
+> -	stp1	A_l, A_h, dst, #16
+> -	stp1	B_l, B_h, dst, #16
+> -	stp1	C_l, C_h, dst, #16
+> -	stp1	D_l, D_h, dst, #16
+> +
+> +.Llarge_done:
+> +	/* Post-loop: store the last block of data using stp_unpriv */
+> +	/* (without post-increment) */
+> +	stp_unpriv	A_l, A_h, dst, #0
+> +	stp_unpriv	B_l, B_h, dst, #16
+> +	stp_unpriv	C_l, C_h, dst, #32
+> +	stp_unpriv	D_l, D_h, dst, #48
+> +	add	dst, dst, #64
+>   
+>   	tst	count, #0x3f
+>   	b.ne	.Ltail63
+> diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
+> index 819f2e3fc7a9..9738ae96c823 100644
+> --- a/arch/arm64/lib/copy_to_user.S
+> +++ b/arch/arm64/lib/copy_to_user.S
+> @@ -43,12 +43,21 @@
+>   	user_ldst 9997f, sttr, \reg, \ptr, \val
+>   	.endm
+>   
+> -	.macro ldp1 reg1, reg2, ptr, val
+> -	ldp \reg1, \reg2, [\ptr], \val
+> +	.macro ldp_unpriv reg1, reg2, ptr, val
+> +	ldp \reg1, \reg2, [\ptr, \val]
+>   	.endm
+>   
+> -	.macro stp1 reg1, reg2, ptr, val
+> -	user_stp 9997f, \reg1, \reg2, \ptr, \val
+> +	.macro stp_unpriv reg1, reg2, ptr, val
+> +	user_ldst_index 9997f, sttr, \reg1, \ptr, \val
+> +	user_ldst_index 9997f, sttr, \reg2, \ptr, \val + 8
+> +	.endm
+> +
+> +	.macro ldp_priv reg1, reg2, ptr, val
+> +	ldp \reg1, \reg2, [\ptr, \val]
+> +	.endm
+> +
+> +	.macro stp_priv reg1, reg2, ptr, val
+> +	user_ldst_pair_index 9997f, stp, \reg1, \reg2, \ptr, \val
+>   	.endm
+>   
+>   	.macro cpy1 dst, src, count
 
