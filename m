@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEF6F532C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD275F532C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2f6BRIWdEuAtWv5HnNMwxUFTCLjrmQ85feP1dTWOHf8=; b=mXUwlQHsLRDYxCSEjCo8mOCUKY
-	5bQHJAWgRw9fPJDGQ4t/iseyuDEUQ+jAlgpwk7N3/IxZV0w7uLtOyOUpF/Foljy5WE+HiKqtbEM3i
-	o0TNmOv88AdzU6DqwaBGIOmKgej486D78jevkYNvcRix7rwvmb4UhTpzebIQUxvyCbQQmculMENof
-	pt64R5DHNpzD15Erz5DBM1F3pvqdYyZdutLsEpZNJReR+ZxZ8A64GRsu/XKkK2dqp/oq6yknqJkD6
-	WTx4BvVsmhol2nW5yAr0O3eCyBIF22WRLI3tpNSI91MnFQXUyBm8Zm+KzKzw8mR+RTfLPOCRV8Pec
-	bvREzaUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TO2RzNGl3QaEmDTI2VDfAcOvLdhOrGE8ero57x/6NBU=; b=alDdoF+nT0jSzAzYoOYo7ta+Ee
+	fELq5PCBGQp4i1AYP2/PnIn4YK513FWGdAhioTwr6yf0uIQy0bH+LKjZBfCOM6r+Y7rjU+8EQUfgX
+	NdddFBC2TKlU12f8R0i3SGKO9kJWfkdbuawbmdR1KJa/130vBzS7ISwu6/RYggwaSFr/3Pny1X3vq
+	K+p81Z9P1zuG/YHhkKS1hiAkuOUu4N9UZahcPRicP6j/JpXDOt92JrY8TkC70EHSMJVXO36i8RLWt
+	+x4DQI7qhoEAkD26GWOeWhX8Qrt9JoOTkcvyWhn6bE15YWeTxI2kK5mjkJiJCU1tX6J87jCQkSY+2
+	U6xaHWZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4r8g-00000000N4k-2oSq;
-	Tue, 24 Mar 2026 02:05:02 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1w4rI8-00000000NaR-0hqD;
+	Tue, 24 Mar 2026 02:14:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4r8c-00000000N2z-3ANc
+	id 1w4rI6-00000000NYZ-24gN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 02:05:01 +0000
-Received: from localhost.localdomain (unknown [111.196.245.197])
-	by APP-05 (Coremail) with SMTP id zQCowAAXrA8v8cFpkBFKCw--.34865S2;
-	Tue, 24 Mar 2026 10:04:54 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	pengpeng@iscas.ac.cn
-Subject: [PATCH] media: cedrus: validate H.264 reference list indices
-Date: Tue, 24 Mar 2026 10:04:31 +0800
-Message-ID: <20260324020431.1800-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Tue, 24 Mar 2026 02:14:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B770743EC4;
+	Tue, 24 Mar 2026 02:14:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E374C4CEF7;
+	Tue, 24 Mar 2026 02:14:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774318485;
+	bh=TO2RzNGl3QaEmDTI2VDfAcOvLdhOrGE8ero57x/6NBU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eTek9b8CkkhrzvSimQb+Reep8rVSxPw5Og9X7W1B96JNpCSbpPdnsHl307dm0kxFS
+	 8RTR2+TR32GuCCo63iMbGEvnNTOfUT1rED4pvLMc6OnP/jDG5AlZLu7CbSy3YOl62A
+	 B46kxQ6R0pRyDubvl5y/JEhA88DEUAxIG7SjQsQoHlbpYZh2fIE1BDhtwyusldXUw3
+	 xniGdIkcqhqqVxPyryWJhbhZS6bVCg2NO/F/aDGzlbw5RZEMNXoS4Ow9OZiO7/de9J
+	 X1tf4yCO3MUwYmWvNzjomaPsb3/9mUT6SbIvlEBTH0sbsraNJJAXdf45+QB05Rsrkr
+	 Mm3EipOy5DD9A==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 096101AC52D3; Tue, 24 Mar 2026 02:14:42 +0000 (GMT)
+Date: Tue, 24 Mar 2026 02:14:42 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: set_id_regs: Allow GICv3 support to be set
+ at runtime
+Message-ID: <acHzkoowEHXZ5BJv@sirena.co.uk>
+References: <20260323174642.3183075-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAXrA8v8cFpkBFKCw--.34865S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KF48WFykJr4fGrW3ZFyDGFg_yoW8tFyxpF
-	45Cr13ZayUXF43KF43Zr4kXa4a9as3AFsxKrWag3W3X3W3GFy7Xr4rKw1UZrn8Aa15C3ya
-	yrn5J3yUKFyUAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUGVWUXwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUO9N3UUUUU
-X-Originating-IP: [111.196.245.197]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kvTKe6LgctCn4IwY"
+Content-Disposition: inline
+In-Reply-To: <20260323174642.3183075-1-maz@kernel.org>
+X-Cookie: Identify your visitor.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_190459_167990_4F7662C9 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260323_191446_742434_AFC2F9B5 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cedrus validates HEVC slice reference lists in cedrus_try_ctrl(), but
-the H.264 path still consumes ref_pic_list0/ref_pic_list1 indices
-straight from the stateless slice control. Those indices are later
-used to index the fixed-size decode_params->dpb[] array in
-_cedrus_write_ref_list().
 
-Reject H.264 slice controls whose active reference counts or
-reference indices exceed V4L2_H264_NUM_DPB_ENTRIES before the driver
-reaches the DPB lookup. This keeps the validation next to the existing
-Cedrus stateless control checks and avoids driver-specific
-out-of-bounds reads from malformed userspace control payloads.
+--kvTKe6LgctCn4IwY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/staging/media/sunxi/cedrus/cedrus.c | 23 +++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+On Mon, Mar 23, 2026 at 05:46:42PM +0000, Marc Zyngier wrote:
 
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
-index d68da1eaa7aa..905084c097a9 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-@@ -42,6 +42,29 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
- 		if (sps->bit_depth_luma_minus8 != 0)
- 			/* Only 8-bit is supported */
- 			return -EINVAL;
-+	} else if (ctrl->id == V4L2_CID_STATELESS_H264_SLICE_PARAMS) {
-+		const struct v4l2_ctrl_h264_slice_params *slice = ctrl->p_new.p_h264_slice_params;
-+		unsigned int i;
-+
-+		if (slice->num_ref_idx_l0_active_minus1 >=
-+		    V4L2_H264_NUM_DPB_ENTRIES)
-+			return -EINVAL;
-+
-+		for (i = 0; i <= slice->num_ref_idx_l0_active_minus1; i++)
-+			if (slice->ref_pic_list0[i].index >=
-+			    V4L2_H264_NUM_DPB_ENTRIES)
-+				return -EINVAL;
-+
-+		if (slice->slice_type == V4L2_H264_SLICE_TYPE_B) {
-+			if (slice->num_ref_idx_l1_active_minus1 >=
-+			    V4L2_H264_NUM_DPB_ENTRIES)
-+				return -EINVAL;
-+
-+			for (i = 0; i <= slice->num_ref_idx_l1_active_minus1; i++)
-+				if (slice->ref_pic_list1[i].index >=
-+				    V4L2_H264_NUM_DPB_ENTRIES)
-+					return -EINVAL;
-+		}
- 	} else if (ctrl->id == V4L2_CID_STATELESS_HEVC_SPS) {
- 		const struct v4l2_ctrl_hevc_sps *sps = ctrl->p_new.p_hevc_sps;
- 		struct cedrus_ctx *ctx = container_of(ctrl->handler, struct cedrus_ctx, hdl);
--- 
-2.50.1 (Apple Git-155)
+> set_id_regs creates a GIC3 guest when possible, and then proceeds
+> to write the ID registers as if they were not affected by the presence
+> of a GIC. As it turns out, ID_AA64PFR1_EL1 is the proof of the
+> contrary.
 
+Thanks, this fixes the issues I was seeing in -next:
+
+Tested-by: Mark Brown <broonie@kernel.org>
+
+--kvTKe6LgctCn4IwY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEyBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnB85IACgkQJNaLcl1U
+h9CCowf4yEm4L6SEBrzHzfDEPo9zYZqteeOj1r7q+vba6HHLd3YAtNDdsghS8r2A
+8ByiqvccyeAcNpQsyESaNL2S85Qfqbx1KvT3rfzOAJBdAvOrobFrOfokpTkpT5oi
+fa6236lfJvFSNA24Os69/yqWmUiCNY9zuvEtmMxt715t6qE6x89QU5X2spvqFz/g
+pfXMb+CZ5wDrSCogJ2PJqOYaRKca1MlbqRaKPaivgfykCQ8XyXdBpHQgu7Uk5tWn
+smq0Go6mkdJvqW8JEH83LDB04EaEyB8rGJzYV+wLdt/W9uGn8AnP80jhGeTvC2ck
+WnEAHwf+gph6u6i0VWm1/rg+6otU
+=PO86
+-----END PGP SIGNATURE-----
+
+--kvTKe6LgctCn4IwY--
 
