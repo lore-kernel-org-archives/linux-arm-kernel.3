@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C6DF532C3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3578F532C3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 01:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oA/BMSG0lIaU8QmGTi1RddZfsLsTkE9mU/q8AbqzqiU=; b=M8bN3UToHYi5rkYJBsK2Z7JMIL
-	JDXg61Z+uzWT/9dVVDUP/60h4iFezgngHxA8a817gDY4bVw/h3KDrZW85nLYjmgltUHkgVpLqW7AZ
-	mPRFz7YZ9hwmtG5yCVwimK3o67XRh0krH74lZcIHhAwu9FSODdQTQYthr6ujjvCpV35m+SNfBjkMH
-	IjukZooxjJrLiXc/ImoBA2NRU8gfcO9nackDb6/2NTyP4jhVNc/Q226kcnMS615haLn5m9dTB/EDr
-	mzF3RlJAsBkQrKFlOAEVeW5tPjoWLDuK0Ki2tv7S74jfuhJpLynIe1aTeZzWvkrLLT326vrpPz+Kc
-	1Q3tqBiw==;
+	bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=; b=RWL6c6MuTChT7p0q3Mb231tYGI
+	J5L5rSjsBrRTrisVsgZJkZ/p7uGDS4gKldiwODnP+d2w01DSKWTQGTPqcmDlizrTqBlxn9veHwF/A
+	njdAUBpsG87I8zGpSQLBWK8AwIphGyzBbYdUO4a4xUmgzF83c2W6fp9L6h5MZUaf7YLRZmQptmKXO
+	zQRluFe/c70t7GMRo6glQ6OdWJDzTt9PBXC0BBr3DQ/sI2Z8xeqgmzwGlbjfjjPIG8lD/f5u5DZra
+	xhRY7SUqOfhjnflbDDBYbB3V8OofFKN1vlbDMkAZOqQU4D26syh9J1F9fCJTZ2VzoZJlWVVYZcqMZ
+	Pr7PtU8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4qog-00000000KRv-1P9N;
-	Tue, 24 Mar 2026 01:44:22 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1w4qri-00000000KfE-45hd;
+	Tue, 24 Mar 2026 01:47:30 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4qod-00000000KRO-3YyF
+	id 1w4qrg-00000000Kea-38f3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 01:44:20 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-486fb14227cso6893145e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 18:44:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774316658; cv=none;
+	Tue, 24 Mar 2026 01:47:29 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-43b467dcf0bso3441198f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 18:47:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774316847; cv=none;
         d=google.com; s=arc-20240605;
-        b=YIboguZ3R59V19SYQR19v583E/92Tj79TRK4sVUizCF13kapd8RuBPDJdxr3Av/XqT
-         hsHENomHNHU9bBzU8upGY4LD4fvLbZm+Az18wOy3/h0XOjwv1Wu9BNGCz0jYsKp/i5g2
-         s9y22EkG7kfovFz2jTy5KCdaLxSfs53GtnJLP0pUusmr9tqs3rgeHIAK4+fhEnZIym0Q
-         cgQX0Sygm/Vnq98fHBxYOoGawZbe0qYk7Yqrhy6HUNEh0S/o+6JBgr/Rpfts0NSVhGlW
-         B26CINJfIsD58gVZBdHn95KyRmYRbcpbRgjPq/mX1Xl0OtTEpfr+erNzV9/Vk+WSQAAz
-         1meA==
+        b=d/n5e/PzbkwN3577INkR6aPPnDTSWO1VCT0zU/CsUCUeVCmPxirF+iYzAbJTkc8ifV
+         nirGUevAhs6zzarpGwOrHf2rOSzovHpYbkgZB9VWY5QLIwdtEXAB1g24oVxqK6Zi8Paz
+         rAYuuwxPigK7tqdfN+7riiMG2xDlorPwFSy03v2UdnIGkIwJmZLXL3f3/0KHetMsCa/k
+         DmRVrmS51yBUOVp7UxLLcwr9TDnFJoEosW1cJsnw/NxgjI4b2fzlImteBbfRQWPFk6ck
+         dHPn3DzJLa67DUzayQF0++Ls/saX2n13BlQ3QrDDAInaB8cS0pOa+YbfgusEfQ/6lEak
+         OREg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=oA/BMSG0lIaU8QmGTi1RddZfsLsTkE9mU/q8AbqzqiU=;
-        fh=evRuntVJG6IZ9CmdRTIppSn2iB7KXpEXfOUZQ20XA5c=;
-        b=RRazFbuxrn3SoTHM/K+YF7BzeihoPQdyZ5Q3D3rokxXTfiISCY1W0LPwdt+YS1Fvgb
-         iuoJKgyBivetK32pAbHN1+/5w72D7VfiC570LYR5A6ApCeQuAxQRLDj8m1uL8r9AFsJC
-         cM22nsPx2R2nc3gkxDmgZulOayQPRADotUdGbtW/cPsiqcfWgKOYp8r6CCNKJCYhn2Gy
-         33aZfyXMAfitLEp5KYbpC0jbQXKahhMEeMiDKdHa0lenl5E7n0Eldc6xqk3DL32FUtn8
-         CwzKt7xjMD2z1o7sEXaFaEOGKW+GUE6oZK10Ez4Twnscwjfh40KnrBrNyPMfxQyLeV1W
-         2djg==;
+        bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=;
+        fh=A/nLN9+voeZPQ97HKmK4p8p/TVj11B7Dx0B6u/lDvrM=;
+        b=ZA5fz1MPpZfFbkH0Y+atL6nU7ZsJ3T68us9HFHIJPC8EZGdkli/OeqTbfKPkTA1ebY
+         ZKNkaGu39c5sDpOXe/kOGTBnpsNvhLHDXBQaf2HXoBB0xngZy7XZudEBgW2cJDcm9WFU
+         1Dr06HzrJHaz2qg70cmusk5D8Hc4AKJwVmDPosN7a3EIky/NhGpijKFXezOuTTXHfpMf
+         1ZEIckY059Y2omindZG0QSM6CPtep8JxArch/I0WawqhHmT241ZwBv2WOCQVCUHNp6re
+         q3MsIxBrQUmDZrGmksUKjXzHpYxmtGyKE3Vf54iatv+v6AP0KtZKPLgvmoSkT1n1RoDy
+         BTZA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774316658; x=1774921458; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774316847; x=1774921647; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=oA/BMSG0lIaU8QmGTi1RddZfsLsTkE9mU/q8AbqzqiU=;
-        b=kc3lAIsM8KT4izpVGE4LKftY/AkfNFwCWWP01pD1kSiQrOGW9urko+U97mxPp600hZ
-         8doOp0t8zrNZkmUnOvoWISt1VCP30/9DL1F95yXJ5K8YR+ylxBgJ9iE5jI/tVKIM7EFW
-         vxyEJrthRVNwLc3/JSvK4Mf6ukTriSfMdy9/0auU1JklGqhU7J81RsSWbeGuU/kiKmFE
-         4asdIJ1bsMx1oQPPWB9uSCYO/pnNUzLuj8EcfsHg4pKBmb5ooZy5skbZg8JAOlhi4PoZ
-         ZLPDW4f3Ke38UqsRfEZqs4+QuIgr+hy8GA2nsMhyD9Qi5rZexOlLgm+gXYifp2Vnkacp
-         vxQg==
+        bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=;
+        b=QeIWxBxE/vhg34KCiL87x49HY4Cu3MUasxejxSIMDcKn18wt/K9HbygsfmQJTMWwKF
+         cJgM9tjgQu9btyqjze+QjN5vPucfIiHNF9xqjQmnCTjtReY0/zMnthtBLrVE0OmYkehZ
+         WhhJVLdwoEHCzfLx2lTeK5fquGl7uSjyCew9iVjtufKrlHjAQezY/8jaqCkld/y3HVgD
+         ueTNr4sgRccd1G7eyiq5eBWhqqa/nnU3rJsk3ziYbxiKjBHKBDMzyiY4pswG2IZ1Ooty
+         MPDREwj6fxR8+5IaLLLtFmQG79nWzPWH8XnJTrQTM38mXdUTY4P653i6EDOtTV6nZHTA
+         GH8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774316658; x=1774921458;
+        d=1e100.net; s=20251104; t=1774316847; x=1774921647;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oA/BMSG0lIaU8QmGTi1RddZfsLsTkE9mU/q8AbqzqiU=;
-        b=nrPY+4r7HPzUydN4kq0/zL82x/9gI/5sUJcoXJUKllYTXYyU455kxcZF8sDp8hIinJ
-         9e3jM6F6yxzwVd7F3BBRIbERU+pb8qHygkHgyB5MgkSNtX2SomEKNM2qBRtSBhdCg8S3
-         CO5kZpTBB1R/qCNxjKWsn4S5xIo7Kv+SCb7jE9g2ZgF2OI44sjA7WSX+zO85wjV0wwqU
-         n8eOvaLlT8NrsO4ks3FuS0S2qaM/dXa/6oHq7aFVrTO/kyxfeZQRypY8tA0NSAEZPW/V
-         kIgZoPAGUXDzBfOrTvf/lMuzfGCg4KadZk+rJJFNlMk1YSVGePqMXg/OoLEUECCIDQRi
-         8Fzw==
-X-Forwarded-Encrypted: i=1; AJvYcCWnwbbypAewQDOMSoRrjczcmWo3VL709nuGE8KsXYytLP8vFcGEhsabrvTjnEskcfzCHGpidE6Xr/BHx6RY1d9S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/oz+FolrvnvrrZmXVuXqimVqJuujsTM1NQQQG/MXM20rdUymH
-	cHIJWlvxSGylx23R3KTLkAoxBHWLIAojAipqweJgiUPOE0l/tQvPpl/qoAMQ2jl4eYFFuSEf3ul
-	TObqhoQ/vF2Rv8ZbG7sgqU1wLkWEF2RE=
-X-Gm-Gg: ATEYQzw5NaIYsfe3QG6LKwKgzmPw+6mHzAjJhQddmg20cydtKFzSuW3gaOc6tdL/Pd4
-	a/kJ4SZbkTrN1XQeR9fauN1aG80rIlTY5Ad/xqCRilgyaikFr+jSVxJo2Lt6XFTBoqfLb76JPyN
-	D09jXryHwLyenLeTlyFpX/CsBZ8TidTe/rMKI6fNWZ84EhWKGczfjh10t993nLJEoZ2Vy55uAM5
-	OpNFeC3vGG/WrxJCfMyd5gQVHtXhepMKPUtznW4IItmfjGeH6LrjKALhpXv6Vcqe6DHnOIoBO7Z
-	y7S1PPT3SD6eYlq71uOIwPSWEk3p3J7Erf9pcFJ2mzEpdCyShsEOIg0pvKg=
-X-Received: by 2002:a05:600c:3554:b0:485:3ee1:eba5 with SMTP id
- 5b1f17b1804b1-486ff01cc5bmr205204065e9.27.1774316657635; Mon, 23 Mar 2026
- 18:44:17 -0700 (PDT)
+        bh=E05DQ8tPZZh1ybJbqcTlYE6PvwcKKcHXiXsgT1UEl+w=;
+        b=lY2HfsTARpmy+syJl4hG5QVLmhDaxjL5m7Y0Bs3CR3GenPkIcWv3zBXA6zqpOkTdnN
+         dkb2XEhJAFyG/obMaP5ypwLVaAvr8QHH0X6BQrbBQio0Vtjdt2htWnIxFUlyavgNJ4oD
+         kszRHAqKKjGHja3RN/uEYKdoOvlto+C0HiUxu+OyWMgBmqYejPwGDV1LKknxiIELizpn
+         fiAnJgQA9UUJZ2Nc/6hMpicguj8k5lrroLuy6Jdj4Q0eGuGPYr6/lKQhK9ySXYXMmBvd
+         kSe2dlqE9r9VuPqHVyXxEex/guTvwCjtKqDaXrwhDWgJXYRNDx7Kz+Vj/Rg7ZLc2XvGo
+         H9Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCXcZy8jCN2RhIa/z12b2hW/Yvd23kOeWWaj1vyUTYYXHTX+dh/U35sxOAmBaUU+w7znmpy7JpfnPo3M46bXta//@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNMJjKPE/2VDns95u9l8XwBCxw4zBzrQxKeHQb9/CydYBC1KZ4
+	TCv1KqupiM6D1y/FV7bCkG9hpfcoLcwUDifnsY5Ps+RBeiZeOAswuFNrWzL6PoIMnvzJljDAOjp
+	Pznv6C7ngF69XRJ5mlVycCe1eWjfTZn4=
+X-Gm-Gg: ATEYQzy1Xk1IlYrn0xdxkjbAoC+mDCRZgLgD4RzSfWHYEMa86sjoGqDqTZ5z9/tephX
+	Je+bBJlbC376Y1K0rR9pInZyV245JeO5Qe0bIQt+mTefILx6JBK+DlO9KurFvD58w7j+6JJkpml
+	Pa9I7Sc7t1u0lh0gGZCZ8UaZuGPu/vJSpnkaYvdVzBFFH1ireLlmaerZip/GbiVOHVaXxUoxjLp
+	yRw5rumYQTpDi8MaL68OebKvltn2HiCfNWhwDUg5JR/pS+LYBjZOcGKMxJqomtW5pwZZJIf07J/
+	by1VQznHPJEJFe87h7551a8tO0gGYnv4ikJjF+KBDQpn3Et+uJMgjwPvX+c=
+X-Received: by 2002:a05:6000:5c8:b0:43b:4951:6b37 with SMTP id
+ ffacd0b85a97d-43b80592328mr2021634f8f.15.1774316846771; Mon, 23 Mar 2026
+ 18:47:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260316013651.3225328-1-ankur.a.arora@oracle.com> <20260316013651.3225328-10-ankur.a.arora@oracle.com>
-In-Reply-To: <20260316013651.3225328-10-ankur.a.arora@oracle.com>
+References: <20260316013651.3225328-1-ankur.a.arora@oracle.com> <20260316013651.3225328-11-ankur.a.arora@oracle.com>
+In-Reply-To: <20260316013651.3225328-11-ankur.a.arora@oracle.com>
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Tue, 24 Mar 2026 02:43:41 +0100
-X-Gm-Features: AQROBzB_vyabm8gMFgwrt-FFA5yFnsEMVMsPubU3mf_XijBG48EgQr58mCqMhFo
-Message-ID: <CAP01T76iJAtfovOAhm+9-QwtbVJRbiQgUPWLBZZXYFozLFK=uw@mail.gmail.com>
-Subject: Re: [PATCH v10 09/12] bpf/rqspinlock: switch check_timeout() to a
- clock interface
+Date: Tue, 24 Mar 2026 02:46:50 +0100
+X-Gm-Features: AQROBzDT8zHTe-cnXwc3ToHi1r8Z06VC2JgJudU67Ap-gCTlXPytLAmMbqYbD7w
+Message-ID: <CAP01T77qL1SF_-FFjbT4wJaYAe8g3XRNO0pyPs9c54qdcN5MGQ@mail.gmail.com>
+Subject: Re: [PATCH v10 10/12] bpf/rqspinlock: Use smp_cond_load_acquire_timeout()
 To: Ankur Arora <ankur.a.arora@oracle.com>
 Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
@@ -106,8 +105,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
 	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_184419_902477_071435A1 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260323_184728_803085_C6EF92B2 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,26 +123,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Mon, 16 Mar 2026 at 02:37, Ankur Arora <ankur.a.arora@oracle.com> wrote:
 >
-> check_timeout() gets the current time value and depending on how
-> much time has passed, checks for deadlock or times out, returning 0
-> or -errno on deadlock or timeout.
+> Switch out the conditional load interfaces used by rqspinlock
+> to smp_cond_read_acquire_timeout() and its wrapper,
+> atomic_cond_read_acquire_timeout().
 >
-> Switch this out to a clock style interface, where it functions as a
-> clock in the "lock-domain", returning the current time until a
-> deadlock or timeout occurs. Once a deadlock or timeout has occurred,
-> it stops functioning as a clock and returns error.
+> Both these handle the timeout and amortize as needed, so use the
+> non-amortized RES_CHECK_TIMEOUT.
 >
-> Also adjust the RES_CHECK_TIMEOUT macro to discard the clock value
-> when updating the explicit return status.
+> RES_CHECK_TIMEOUT does double duty here -- presenting the current
+> clock value, the timeout/deadlock error from clock_deadlock() to
+> the cond-load and, returning the error value via ret.
+>
+> For correctness, we need to ensure that the error case of the
+> cond-load interface always agrees with that in clock_deadlock().
+>
+> For the most part, this is fine because there's no independent clock,
+> or double reads from the clock in cond-load -- either of which could
+> lead to its internal state going out of sync from that of
+> clock_deadlock().
+>
+> There is, however, an edge case where clock_deadlock() checks for:
+>
+>         if (time > ts->timeout_end)
+>                 return -ETIMEDOUT;
+>
+> while smp_cond_load_acquire_timeout() checks for:
+>
+>         __time_now = (time_expr_ns);
+>         if (__time_now <= 0 || __time_now >= __time_end) {
+>                 VAL = READ_ONCE(*__PTR);
+>                 break;
+>         }
+>
+> This runs into a problem when (__time_now == __time_end) since
+> clock_deadlock() does not treat it as a timeout condition but
+> the second clause in the conditional above does.
+> So, add an equality check in clock_deadlock().
+>
+> Finally, redefine SMP_TIMEOUT_POLL_COUNT to be 16k to be similar to
+> the spin-count used in the amortized version. We only do this for
+> non-arm64 as that uses a waiting implementation.
 >
 > Cc: bpf@vger.kernel.org
 > Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 > Cc: Alexei Starovoitov <ast@kernel.org>
 > Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> --
+> ---
 
 Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 
->  [...]
->
+> [...]
 
