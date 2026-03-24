@@ -4,136 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A339F54AC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F37F54AC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjOlnVVlh0qkmgGNtWgMrzi/OQJFpTO6whWe3Yiny0Q=; b=J/9Ush/qMLTL4RvKKB2knHyWEa
-	OrWvTaEChuwQqiCCK68DMYKBW5adO3bu7F+dzOOENSTuTntHYit81MQtCQvauqWJyKfj1gOZ7SiBi
-	GDKNXo8A+XWJwZWjK0Mz+6KMTy8mOrO7lXzGz18UspFUfLAbDw/2NUB+nGGTYYCjFH4udXpqRM+n2
-	bZSh8qhGgtOULU9/oHUaFxOCY8zmGPU75Ali9641CQrk+EeO+CdWkqiFsbBc6CQ6HPSXgBR+jeC/Y
-	rWXHN/fuFgGCr74rqYDJ1ovzM8+gOIN9Q0hRTjPswwehb+HxkUhPtBQIa+39vhqqLzOxYN+H1vwfc
-	DkduSQMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mqk3zd0vAxbDi/5mlXVc3BFXCT+o69PX3fU4fgQH7Sw=; b=M7tCVGlM0wXlESgSK+bk5ZILWJ
+	SLUqgaYVaNG2Xxt+zKvtUmXUMs0MQkzCiPQ8STADh+tjpSUM9aJj/h10rLBHxsP/KcTM0gukTBai2
+	G+PEBB6VHyZJtK2BkaDzdC5NS1vsbtXHTRJ8M9ezXpIZi9Ff4o1u+Cz3lkxWCp/tnDUT7vAiYfF/I
+	YN85cYzXmfaw+qPnVqnxsi+nnwdF3tuWVB+DC9fRRm3qVS0sCRn49U/7IomdCfovc9QloyAz59nDa
+	NcbRp1QaXh4Hc0KmIpWo7ZwaGIzBqJrwxqkURuOgwxgyG4ANUcCQ02d7Tvc58sKHrxQ9nObwdrjJ+
+	bHm5aeIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52oC-00000001ec5-0tpz;
-	Tue, 24 Mar 2026 14:32:40 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w52pd-00000001ekA-2xEL;
+	Tue, 24 Mar 2026 14:34:09 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52o9-00000001ebN-0Z2I
+	id 1w52pb-00000001ejN-0vnl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 14:32:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fLV/BM3av3yM4a8UusO0BxoTJikTR7vHY20RJ27bz1gotLqf5ErCB9vlh5bG/JVhhRCdtAqw5LWcvmKcShdnAydppj+4hVOO4gYJ6+stXeZE7WHTFlg/EDLO0jZcgtDEGWvWpj3wnGCp1RBzBPzrmoVhSmfUXGhXecp4GoU/ACxlpdM4EKgTIus0vrVZzAIeAcX2Rm6v2mc9yp4zDyZ8G+kyb25Guejurtr/BZ//ZH6VWg8SI+unZJgrS5PgCw1KryW4Gl9UXh9xbdnL7yuDdGqP/cInvtLFNpErx6D+wsevsGSEDB1xtHHzPElXPKNQ+bVOlEB5dUbFlxC2S9V+kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zjOlnVVlh0qkmgGNtWgMrzi/OQJFpTO6whWe3Yiny0Q=;
- b=hdvhbBDD/hyhUkQoRzXmmHQ9nTRhHZ4bXaU7NhW8ikGfzea8RpVVdSQNRutoSaXa+rlbK+o7sWhDk+SW7Qbacvolc+4UrPdiAbXjebEJaLgp3f7gPdlyMN3vMa+FquvtQcjerhqCtBqrRNaUbO30MNEC+WeziiHd72EpdnkJY9Igx185+Yhh+U/ngVDbDJFT3DAIoE93VoLbcfpSzUNG8S5jfr9uKDDuRKNr9qSjJavxixPOYvbD4B9FCdf4TUkpcxZs+XKjdCXLQZVDuWjl+v8UbCky4b67usMv0a5uUOFSoII738UvNpd0irFB3fbXGnkthB8BhvOyXYbsBe4bZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zjOlnVVlh0qkmgGNtWgMrzi/OQJFpTO6whWe3Yiny0Q=;
- b=G2hCzRMF2RYgKkL3/zDfYeOEUpJOKu3ruKau5PJcoSmbYXXRN2wzRuqUxsMPP4E4u1vcqG2iQU7csM/LCwdWlY3Relg3wSjnld6Z+Z1XqYMKYx11tK+UEDRHqD+fX9kPkW4iqPRksUm0S8qUXb1lMfYGB+9ku0/4Kv29DqV7TL+kEX27IWNKiPQkv6e40DJI6x/A5yFnO7eR+hXrpQjp082CK+8fEmbjEuINlbWlK3UTCjGw2JULL8DNDoOyz+cErf6d5GlohiaSA7ea0tN5Pa0KnBOWmMpdXWU/HStLV1zDv1/tSW48bg55LLq27H0En2LqLQrcuD5L3m9ZjwoBBA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV1PR04MB10750.eurprd04.prod.outlook.com (2603:10a6:150:212::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
- 2026 14:32:30 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
- 14:32:22 +0000
-Date: Tue, 24 Mar 2026 10:32:19 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Tue, 24 Mar 2026 14:34:08 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fgCGC2h1Sz9vHX;
+	Tue, 24 Mar 2026 15:33:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1774362835;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Mqk3zd0vAxbDi/5mlXVc3BFXCT+o69PX3fU4fgQH7Sw=;
+	b=mbecJxAuIMIH3Ch9AtQeri0jWVvMkP8I8dllYEyBXUhy0Mv8eARsRLOMPudWNPBoXr6IsS
+	Zpsvm8e9+oWUvWFcGsGnVwyecOZVfqPuR0zjB3Z3Fw8HeUf66kUcykwp3LBVmnm8+vYs8Q
+	qV3McdI7wGKb/ira5JZoF2K9AXSxg0JCpR9YqeId+9JIxxR8cHiadeUfGfKN8mcAUxjnL2
+	5ZiOdeH4NTiZyvTHkB6zTg52AV61PpAiiQs8g6Nug7ojg1EP8YDtoVHJOGXorrNQ6uQjbF
+	nRfbel4nvYYH0GatdWuFxpeuIo/Q/xHLdxtDWrEivgoB2q+n5cYANOVnCc9WhA==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1774362833;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Mqk3zd0vAxbDi/5mlXVc3BFXCT+o69PX3fU4fgQH7Sw=;
+	b=owug9S5k4ghRHnxaYSYBgR7qRRdEqLHEse0Ha6chP+8nf37arN4MSAxcEDF+UOiL+FxYy8
+	DUpS/FlIFPCsUVyZpe3VTNlY8fLX/b1lTDfJawa6gI/GykOyh0LglxGUYCHxxVdY9rrB4c
+	dEmIeNOXyc0QSaXn9HHAnuoN5S2LfHSgtcBpnP3GWxY6PpSEkfnFKLChfqom1UTyHn5jPF
+	9COwCjWo9piE30x2tk1AowM0NYjSxSdHlciibwOqvuPw6od0ATm/cYaA5DZdrGP12hSFOw
+	f326nTKaXTv9MYsRR6Luh73gtLqifQb++S15t3vj5+WH3gORulwYPEhpM6dCPA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	stable@vger.kernel.org,
 	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Correct PAD settings
- for pmicirqgrp
-Message-ID: <acKgc2uzGCCatKQ7@lizhi-Precision-Tower-5810>
-References: <20260324-imx8mp-dts-fix-v1-1-df0eb2f62543@nxp.com>
- <20260324093850.GA2351719@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324093850.GA2351719@killaraus.ideasonboard.com>
-X-ClientProxiedBy: BY3PR05CA0021.namprd05.prod.outlook.com
- (2603:10b6:a03:254::26) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: sparrow-hawk: Reserve first 128 MiB of DRAM
+Date: Tue, 24 Mar 2026 15:33:28 +0100
+Message-ID: <20260324143342.17872-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10750:EE_
-X-MS-Office365-Filtering-Correlation-Id: 772857b2-9a99-446a-a7f3-08de89b228ca
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|366016|1800799024|38350700014|18002099003|7053199007|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: gJ0xd6raUH9X6A1W/H7AkVUFvZ3kZnv9RDvRDa7uJyg4j59AiKmrb2wuHL2foLHD6vx7f8e+8iPdsBfm8Q598am02Uew6rD4oOORSOwaVbZX05Z5TZItmXkDUoEl3OD6NKL7BXDVz0ke8+affpz22I91VTvn68uyFgbssGnq4YIq3dfqStnyolG/48yZSASwc0e0nwCZ4PcWHDw/D6l2RfOWoLVj3XLh3ywSLHYbRQ9+YIYFSaC6VGyYK3fVEBV6P+bXJJHdmrAcin57kgL1Ks9SfXqVSGrqVudkAaM25OxG6t01bu0WVUUpJnJwyKDXbCXLzrZK/Oa/tjfjTACRHEDz0lAviTubY5/3SZ2aON2vEm4Ih/uqnyhEbDzT3ZuLRxU2+ci/UXx97P+qnzYUPYrExZB9hD+f08091ycLfNesEOz+sEb43jR7igw3KU7g52VqO1HRBhZrop5uCJGxU1kqdENKs30yFIHBJsVDRjxIEjKDr8OM4ua3rlpLWo3jG/GCkXVKq6QyZZZnmBbr/0hMNul9Qq1ch6j45ujoUpTYaiJ+ar9Z88KjT6bQAe9tOotjXsuZDMbfiFTQYesQFJqPbuJ3+LWEoq08qHJF+brRr+mFzS0KEuGbf8jyxvxRLxj5wrAAC7WDmBI/0q8xj8BxvorCi1qdskQ6fq33DnmqRcQx35LLUPTAd/Dq0BZurDqkaDGCdeiEmkmKhfioPTG6sR/J/zEOPKYFOusKSg/jrb9UmzaCf2iJAiQqj2xW7QNQYMZ70LzBS47yAq6p3T4ldXUUEbUWCzJPaV1Lq2g=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(366016)(1800799024)(38350700014)(18002099003)(7053199007)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WL2S3e81Q1QtSzX3fMZs7HXSUMQH01vpSIGax2ryc5Epzt3HdQkuG/jQPWQY?=
- =?us-ascii?Q?oG/hbTLWoAwmB13Ksbz79d/LZ+r+KVBZepAhcxzUZJX7O9kZQ6NCtQ7nDo6m?=
- =?us-ascii?Q?yJaBvAFMU8i3hg8pT33/N1QRKF5hBmIuCoySlycApFS5qbmdi8uO2iixYafk?=
- =?us-ascii?Q?Q7TPHAgm/v8XWctRRwSuF0FgwNF4zd9YnCqcbYqkN9PgspJLF5PQn85LGXin?=
- =?us-ascii?Q?rnfWfub0ujEoeVTc0vaekb05sWsLCqzI7FCLDt5V0ZXH2qJ04fT71aqOXX/1?=
- =?us-ascii?Q?NNGro3jqVn26ktEofrWDIiY0pVnLbbhQuvqHksCa06BwTK6TJ/g5X8bPler8?=
- =?us-ascii?Q?uPdIgRsb1jyMqaaehmjl4/FU1VxcB8iQlrPkdFSwdWE5i/5mHC7MPPjOdulp?=
- =?us-ascii?Q?Db2X9mH3V0IktlWkbM5VjtnmEsBHcQGWnrq3U+Tv/FowQ/dvnTbWHQD10KsF?=
- =?us-ascii?Q?FabHDUjRXh59eTuRCfedqwaQbBjt6IFsG+zVupT/dIQbP+PTbFrDa1ZEiD5/?=
- =?us-ascii?Q?cUk+V+dMY+ViX0wrW8+5XMMcMy3yjadJ8v3d6Vwuf3cy9k/9S91wX+OrNNaO?=
- =?us-ascii?Q?z5Eo9Zu6Pm03F/QGdrrfs2fZ/99QdimvFaNnTLzGXpEUoq2qGIbXFEwHcTZX?=
- =?us-ascii?Q?wNV2DN3vSRx0/7yV4Je6LaoHjmuHADe0ohAg46Dl0ZjfdTOgEZZ0OV3at6tk?=
- =?us-ascii?Q?aiKa8p55R+6t8kJx4SQFFfLZe4ARhr8Kv5zKDExYC4tWqKaXAgBDF/+PrNUR?=
- =?us-ascii?Q?v45QaGgasoEmPkPiTCWHF1mT9fKTDl3RCZpD+iX8v6KTqbeQlbNAMnbQRPz4?=
- =?us-ascii?Q?doD9ikVgUlEKjy2wXvR2QU9ixbKZNI4PsTMEiVkQ9/Efy+SvZkYZeluqEJpa?=
- =?us-ascii?Q?KKhEAn70hSahhs5z5gcVGxhlu7k9L6rTtaNhjTfjbnKAu3MBOpQh3dM5mp4K?=
- =?us-ascii?Q?zVpawQ1K1E2AiZZSiywMFly7PydriXpFTMPSKmgapXO4QimLMa9jnye11dTH?=
- =?us-ascii?Q?byFvH2lJoJm/kBW6Q8OL/3R/MCmegZQhrHtgnfiUbv2fT9sKbDlDce6hFp3/?=
- =?us-ascii?Q?qlrjv3SAM9xO10C7zqjMsFiXEnm7GltXYlSmD6yEB9s9IDsGPtdNtSCaoYGG?=
- =?us-ascii?Q?A27wsbHtFBgqIhKoRqniqe2c0J8yUmnQ1gJP1X129jYW/TmU1FWc2nkfuAvZ?=
- =?us-ascii?Q?xTMazRPmfGwxyopadiwXvBejFDbw3LgBMVMTkHH363jqOg0VwAlbaVxDPPvq?=
- =?us-ascii?Q?Fewn2FCAaI3cZ2hyh3VGZLdrZEub2X01ds0B/f9NtNvRXLrXRzdAIagJ/xFh?=
- =?us-ascii?Q?w/GvsFREv3Pi/WnecUs9Wlz/AugaQN3wu8OznRsBiE21A44vVsvbGNCApCcQ?=
- =?us-ascii?Q?D+oIpwdpdWEnTRVVO2be0Q9dJuAA29jVwgRwdIZhcR/e6XJvuOsGibY4jK4r?=
- =?us-ascii?Q?KOcq3dmUToE9RrNX9rjHm8P5u/zl72gXTZRGLukB3rx+jBo32ZamAvKS1fcp?=
- =?us-ascii?Q?aigmBWWP5rHHqKI9T+XF8ig+/WVin2ZcwgGTJb+vnxWIUecZZKfnESHCAJ+G?=
- =?us-ascii?Q?RRZsveovpYj5t+L4TLyobnsC8qXD5KEkefjk1gXy93WUa+kpb9vECZ+4ddOb?=
- =?us-ascii?Q?tAsF1umyO4nFqBUKnN71qHuQAe56+76w5fDIpoPF8rDcMklwlFlnjS71DI2U?=
- =?us-ascii?Q?/XJsM0rgmT2HKZ0YTlASBLSWxhD57m4So5mOdSQ8OTsB02sPlQlu4v9/WXm3?=
- =?us-ascii?Q?6UfiKoq2qw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 772857b2-9a99-446a-a7f3-08de89b228ca
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 14:32:22.1116
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2QuPJRdgF7rZVd6apcorKyAx2XBO6VKIgEg7TKHNhtBUBVw+Xxf6flgieg/+UT1XnMUQ6QUaW0kIDAXuqq7eHQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10750
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: ff339114a086be2d558
+X-MBO-RS-META: bdah8foftyj3w1iz9kz7webosjn7f446
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_073237_173820_B752DB8F 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20260324_073407_408904_C36451CC 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,66 +91,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 11:38:50AM +0200, Laurent Pinchart wrote:
-> Hi Peng,
->
-> Thank you for the patch.
->
-> On Tue, Mar 24, 2026 at 11:16:13AM +0800, Peng Fan (OSS) wrote:
-> > From: Peng Fan <peng.fan@nxp.com>
-> >
-> > With commit 5d0efaf47ee90 ("regulator: pca9450: Correct interrupt type"),
-> > there is interrupt storm for i.MX8MP DEBIX Model A. Per schematic, there
-> > is no on board PULL-UP resistors for GPIO1_IO03, so need to set PAD
-> > PUE and PU together to make pull up work properly.
-> >
-> > Fixes: c86d350aae68e ("arm64: dts: Add device tree for the Debix Model A Board")
-> > Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > Closes: https://lore.kernel.org/all/20260323105858.GA2185714@killaraus.ideasonboard.com/
-> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
->
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->
-> Frank, would you be able to handle this as a v7.0 regression fix ?
+Mark the first 128 MiB of DRAM as reserved. The first 128 MiB of DRAM
+may optionally be used by TFA and other firmware for its own purposes,
+and in such case, Linux must not use this memory.
 
-I just sent out fix pull request for v7.0. Wait for few days for
-Dan, Kieran, Stefa's confirm.
+On this platform, U-Boot runs in EL3 and starts TFA BL31 and Linux from
+a single combined fitImage. U-Boot has full access to all memory in the
+0x40000000..0xbfffffff range, as well memory in the memory banks in the
+64-bit address ranges, and therefore U-Boot patches this full complete
+view of platform memory layout into the DT that is passed to the next
+stage.
 
-Frank
+The next stage is TFA BL31 and then the Linux kernel. The TFA BL31 does
+not modify the DT passed from U-Boot to TFA BL31 and then to Linux with
+any new reserved-memory {} node to reserve memory areas used by the TFA
+BL31 to prevent the next stage from using those areas, which lets Linux
+to use all of the available DRAM as described in the DT that was passed
+in by U-Boot, including the areas that are newly utilized by TFA BL31.
 
->
-> I think the same is needed for imx8mp-debix-som-a.dtsi, but I can't
-> confirm it as I don't have the schematics for the SoM, neither do I have
-> access to the board.
->
-> Dan, Kieran, Stefan, could one of you check if you get an interrupt
-> storm from the PMIC on v7.0 ?
->
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-> > index 9422beee30b29c5a551b08476c80fbff96af3439..df7489587e48ed0c678f11291f6f2b77082ade95 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
-> > @@ -440,7 +440,7 @@ MX8MP_IOMUXC_SAI5_RXC__I2C6_SDA					0x400001c3
-> >
-> >  	pinctrl_pmic: pmicirqgrp {
-> >  		fsl,pins = <
-> > -			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03				0x41
-> > +			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03				0x000001c0
-> >  		>;
-> >  	};
-> >
-> >
-> > ---
-> > base-commit: 09c0f7f1bcdbc3c37a5a760cbec76bf18f278406
-> > change-id: 20260324-imx8mp-dts-fix-512530fe4dcd
->
-> --
-> Regards,
->
-> Laurent Pinchart
+In case of high DRAM utilization, for example in case of four instances
+of "memtester 3900M" running in parallel, unless the memory used by TFA
+BL31 is properly reserved, Linux may use and corrupt the memory used by
+TFA BL31, which would often lead to system becoming unresponsive.
+
+Until TFA BL31 can properly fill its own reserved-memory node into the
+DT, and to assure older versions of TFA BL31 do not cause problems, add
+explicitly reserved-memory {} node which prevents Linux from using the
+first 128 MiB of DRAM.
+
+Note that TFA BL31 can be adjusted to use different memory areas, this
+newly added reserved-memory {} node follows longer-term practice on the
+R-Car SoCs where the first 128 MiB of DRAM is reserved for firmware use.
+In case user does modify TFA BL31 to use different memory ranges, they
+must either use a future version of TFA BL31 which properly patches a
+reserved-memory {} node into the DT, or they must adjust the address
+ranges of this reserved-memory {} node accordingly.
+
+Fixes: a719915e76f2 ("arm64: dts: renesas: r8a779g3: Add Retronix R-Car V4H Sparrow Hawk board support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+index bcf8270a3ed9a..714fcaf8a846e 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+@@ -118,6 +118,17 @@ memory@600000000 {
+ 		reg = <0x6 0x00000000 0x1 0x00000000>;
+ 	};
+ 
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		tfa@40000000 {
++			reg = <0x0 0x40000000 0x0 0x8000000>;
++			no-map;
++		};
++	};
++
+ 	/* Page 27 / DSI to Display */
+ 	dp-con {
+ 		compatible = "dp-connector";
+-- 
+2.53.0
+
 
