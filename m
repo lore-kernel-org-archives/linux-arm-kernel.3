@@ -4,108 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BA1F532EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8023F532EE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ts8QTgurhQrOhcbvZk0taNObr5EoxTyEYtshId05lwo=; b=vKTTlNN61D+5/fsi19KdCE5rGl
-	pDl0xTG54DFRpLzFim/Je2Db7KdK42n6vM3C+6TGiKqeW/YblDOwfHWylLIy4zLXkXioopyWw/lNx
-	op3uf3o3g8ZqKIXTkN5Vc0bL6cPcTIpzCJlZD9zioHsWjdC/jEkJexw8dJdtthz5JXf5YyKWLVy6W
-	hPvPUXe1lu6BwZd+oWNbWsGfkU3sCBDNm8nkPAUDntNQucmuqPMDeBWT5SLjYzN7sH9+mzxRT+G/g
-	jttS1r8M0x+kIlDaHS5nVr05YMsbj840m0FdQYxCg7YIy02UNszw8ZA9KMsKKRYsqppDNT4GJNZJv
-	id/6FQLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VIRFr+vTpbz+Bqzxl07zXOH5KY7QuZAdEr+yCdmlHbU=; b=j+PzotclWdhbl1GAu4knwUYe0o
+	JjFLdORbIr7xGmYdlgNgLfCJkUtsPzki3ooUoB9ICr8oUsg/9VXrDZl5ApRXHWiSkCpEWKYfstESU
+	/jWM+v0tcs+EAygHu/JyKfkN7j2Hr51l8WguBbSMtvq+XAUNM+8Ms9LfhR4fqtS8TihYyp88vWh2h
+	3+DR2bOeqtUVYqzxuy9ZwyXGBL5Eq8KIBZlyQlinqDYCscPCtf2kr8kPWccQ6QMcrDkm/S9Jwpxd/
+	H/5tLd/MAm9RtzwQp11gdBnmfc1MZIQclHx+9X7BW+i57U4nVtbFIyaPHqqKvSlpg6+waMllPQaoi
+	VOfjZUhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wtU-00000000y8e-1za7;
-	Tue, 24 Mar 2026 08:13:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w4wwc-00000000ySD-25Bn;
+	Tue, 24 Mar 2026 08:16:58 +0000
+Received: from lahtoruutu.iki.fi ([2a0b:5c81:1c1::37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wtR-00000000y7o-2Vbm
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 08:13:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774340019;
+	id 1w4wwY-00000000yR8-2ZK0;
+	Tue, 24 Mar 2026 08:16:57 +0000
+Received: from hillosipuli.retiisi.eu (n18ws8cotq5gnfn8-1.v6.elisa-laajakaista.fi [IPv6:2001:99a:0:19f:4ce7:0:938c:d2f4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sailus)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fg2v32Nrbz49Q4j;
+	Tue, 24 Mar 2026 10:16:47 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1774340208;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ts8QTgurhQrOhcbvZk0taNObr5EoxTyEYtshId05lwo=;
-	b=h3v48IdG12BPdeXBmfK8U7izwh3KaFLtxSShFRDNWOqLmYt04jggKQkKeCFzEa+s3DB3Dt
-	s0+FCAI3xEOaQbenBlKzTNdMn8tf2X8KJojPyvLcT0T/eIEsXOniYI8qd/5qbfoe2ZE4c6
-	p3QvKCtqNRtU8dq2KD0wwl11PhC9pVY=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-436-l7tK9btSP7S7iU95iwBgqQ-1; Tue, 24 Mar 2026 04:13:37 -0400
-X-MC-Unique: l7tK9btSP7S7iU95iwBgqQ-1
-X-Mimecast-MFC-AGG-ID: l7tK9btSP7S7iU95iwBgqQ_1774340016
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-43b53023d60so3369755f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 01:13:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774340016; x=1774944816;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ts8QTgurhQrOhcbvZk0taNObr5EoxTyEYtshId05lwo=;
-        b=fajWbQqwaGwuPEKRww6mFxwO8PzHUBXBfojuuVN4vPCfFhSWi8r6/v3OorSNYxWqB6
-         79tMjZP9qdqRDf8WwXT/H0Cma5cp72nXwENWZYWJeGYhVFlJBDRhem5Mqe1OwnmJjUca
-         zAT8G1tYsD7DDWO0Eh2mSUzHUShzmTHjivB9u2NOyzecbRM2PBigd8zpYa8JJXtfdt5S
-         zglJddcStapbxO1yX3vgym+9d0Rrkeuvfu+CII3pkAyamlNTrawppKhXEhDX5hPaaVuB
-         OETdK7Ubmb43U0332+XKJDKqbhf7xS0s7X2MUHux3ydJrhL+1kifbKL9ucZaGvPn3eUX
-         upLg==
-X-Forwarded-Encrypted: i=1; AJvYcCWy6LMU7C5Bwa3cUG9snnKBCfBTnyxk087ipfn0EIXlPovELWWjC7GmTKyAD11hmJCrR5A/i+6rtB6MVXgxLXa4@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnxs6WywB2bmV3HNTuhq5j+ELBuUSfhW23+kv9WEKXveUU0zEo
-	DXoz0r+4zUQd9w93NrvyO7NPmcMYXdI2H79+1X1NjAf/N+PDvUCMAjNOFckIWt3uFBIuw2hYUfG
-	A9lAP7vjymXSCpFJqcjFrlO1CFMZj3cRwzcZ2RvBZTJTzN5j87z42dLM1d13k+lxwk8AfEm4zvB
-	xj
-X-Gm-Gg: ATEYQzxrFPGV33Jkrp7O2ZSQTtCnOE2s6wFlcMm9V7bOWDkpCGDuJIoz89ae4eY/GYX
-	4L0et9D7ErseXdaor2xzGNBEaTflXZjAQctc1hM2ZvgZJJkml8xqmlR32WnaetK08WN54ETm+Py
-	US1ZeFEseOIBjScvBISbpAOPdBUAaM7heCGTFPE0DjmSBF8+FncB+31NZlaI1W56aPGG2YdkTCd
-	XbF+iJa7G0TTs5/viTkHu6tZVcWXEriAYRGhIiitx1EZj6p2tGBDaFTyYZeZgr9ucdH2t/vTiGc
-	PNxyAjcecPacU3ETBPTyOmVgcnm6QBMibd51OGb2D2IqizsQTiLoW564hOjTiLqIIjM1ajSOLGc
-	+RjwolDE3I1DEHHBthefjBd1lIYrePkea27dR9cxlz4mpAcmFIKSDhY7C
-X-Received: by 2002:a05:6000:4382:b0:43b:3e40:222d with SMTP id ffacd0b85a97d-43b64244451mr22895155f8f.19.1774340015849;
-        Tue, 24 Mar 2026 01:13:35 -0700 (PDT)
-X-Received: by 2002:a05:6000:4382:b0:43b:3e40:222d with SMTP id ffacd0b85a97d-43b64244451mr22895104f8f.19.1774340015382;
-        Tue, 24 Mar 2026 01:13:35 -0700 (PDT)
-Received: from [192.168.88.32] ([212.105.153.60])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b644ae048sm35875560f8f.1.2026.03.24.01.13.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Mar 2026 01:13:34 -0700 (PDT)
-Message-ID: <c4e3c49e-ecc0-4702-9d2c-88ff420c4647@redhat.com>
-Date: Tue, 24 Mar 2026 09:13:32 +0100
+	bh=VIRFr+vTpbz+Bqzxl07zXOH5KY7QuZAdEr+yCdmlHbU=;
+	b=TgcYZ0ZXw3h6MLj2WcJ6Hfu5eh5gD/Fi1orEgGCkCwkRjZwOHtfQIv2SvUvLIMiVbokkIA
+	A2pVSC7dfQkQ2c8cNRn4DI6gQt3PmrreqC5+dD5dJCkEsirL44vnR/xgEfXLcyGf4UKi5e
+	oGxZ3Q3s0T81FYfFahmRabACiWRRy/dkhBdGktAK6lzzcXnwSquapbUswOfJHTZCiFhc+Y
+	50JXpwe10kHyAzMwAeG6zch5RorXOHlQ/SXf0H60BoFHUF0f7P+UE9FwYfef0LuJCdSfug
+	jgpijiuz/AG0LtE/btoaUqGIeakMYQ5bHiVNpVQzMrRGn5XaQOS2ILQZDBG1uA==
+ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1774340208;
+	b=D6LEbkeVJYw1cBKR8+mTzHjdw3FM3apl2w2BHODVxEYWQuCxmw6sa3DWGm0FxD4pDXQheR
+	6KBtDrbxhScpHh/QGReYpuPkz+0WuhAo/ripVEwuUkTQkTSKdeWh2VyruKcCaT6munw30c
+	uaBiM2hJQgYt3HUnt8j67jfTgfnGGrz9EgzJY6ApCEzcfB5MjYP4+5I2l5gBj3CkCvcBuz
+	5GzIaNKKJ3pCidvjYxL73b9p+7z321mhDEIiD9T9EorqIuljRM5fnrmXqjBgXQtOBV+MIV
+	oDF5Y0nN8+8OMrqWh5fKThgY9C5F1BuYpI14RgFBlXb3XP229YSS+h1GTuSoug==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1774340208;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VIRFr+vTpbz+Bqzxl07zXOH5KY7QuZAdEr+yCdmlHbU=;
+	b=FC2FR84W50DqmnVdifULU5w8cNSruG+U48ilxjw+UkdDmqevvz+lUoeylCJic5YeV3LD34
+	6cO9JvPEOfhiktZjz9oNTw60kBmyeHLmTL6gxqJoQq7zXxVEyrr7dCVxBwi3BYI0w2OMq8
+	aOGGNy382Vq2AN3/3BuXSIo7ncbWp9jQksfGe7RwqUPU207bumq2TScT1+Og7avGd0lF18
+	VrSC6eq3915oPUNp4sw6bOGOrGho6NR0AQEJQXZ0f2R74vaqHyBVouWmz0BsYzivc10/Ci
+	PBue0TvkHOvH2VuhjTjEDiTpHS7Uhl1uF0JTD1igLvw7IzAD2CiiAah6CgCreQ==
+Received: from valkosipuli.retiisi.eu (valkosipuli.local [192.168.4.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 91F4C634C51;
+	Tue, 24 Mar 2026 10:16:46 +0200 (EET)
+Date: Tue, 24 Mar 2026 10:16:46 +0200
+From: Sakari Ailus <sakari.ailus@iki.fi>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Michael Riesch <michael.riesch@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 4/6] media: synopsys: use struct dw_mipi_csi2rx_regs to
+ describe register offsets
+Message-ID: <acJIbvVpmDS__EEg@valkosipuli.retiisi.eu>
+References: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
+ <20260210-imx93-dw-csi2-v1-4-69667bb86bfa@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 net-next 11/14] net: dsa: netc: add phylink MAC
- operations
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- f.fainelli@gmail.com, frank.li@nxp.com, chleroy@kernel.org,
- horms@kernel.org, andrew@lunn.ch, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, Wei Fang <wei.fang@nxp.com>
-References: <20260323060752.1157031-1-wei.fang@nxp.com>
- <20260323060752.1157031-12-wei.fang@nxp.com>
- <acEIQqI-_oyCym8O@shell.armlinux.org.uk>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <acEIQqI-_oyCym8O@shell.armlinux.org.uk>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xSEfrmu1iFkdveyFbHZUV9hUyhS58s8htxXH9-xnHGc_1774340016
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260210-imx93-dw-csi2-v1-4-69667bb86bfa@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_011341_723898_8F0FA23C 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260324_011654_839512_E3249B08 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +112,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/26 10:30 AM, Russell King (Oracle) wrote:
-> On Mon, Mar 23, 2026 at 02:07:49PM +0800, Wei Fang wrote:
->> +static void netc_port_set_mac_mode(struct netc_port *np,
->> +				   unsigned int mode,
->> +				   phy_interface_t phy_mode)
->> +{
->> +	u32 mask = PM_IF_MODE_IFMODE | PM_IF_MODE_REVMII | PM_IF_MODE_ENA;
->> +	u32 val = 0;
->> +
->> +	switch (phy_mode) {
->> +	case PHY_INTERFACE_MODE_RGMII:
->> +	case PHY_INTERFACE_MODE_RGMII_ID:
->> +	case PHY_INTERFACE_MODE_RGMII_RXID:
->> +	case PHY_INTERFACE_MODE_RGMII_TXID:
->> +		val |= IFMODE_RGMII;
->> +		/* Enable auto-negotiation for the MAC if its
->> +		 * RGMII interface supports In-Band status.
->> +		 */
->> +		if (phylink_autoneg_inband(mode))
->> +			val |= PM_IF_MODE_ENA;
+Hi Frank,
+
+On Tue, Feb 10, 2026 at 12:11:11PM -0500, Frank Li wrote:
+> Use struct dw_mipi_csi2rx_regs to describe register offsets and support
+> new IP versions with differing register layouts.
 > 
-> I would prefer newer drivers not to use phylink_autoneg_inband()
-> anymore. Note that there is no need to support RGMII inband in the
-> kernel (nor is there any proper support without a "phylink_pcs"
-> being present to provide the inband status.)
-Would you mind sharing a patch adding a comment nearby
-phylink_autoneg_inband(), explaining the above for future memory?
+> Add rk3568_regs, matching the previous macro definitions, and pass it as
+> driver data retrieved during probe.
+> 
+> No functional change.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 96 +++++++++++++++++-------
+>  1 file changed, 69 insertions(+), 27 deletions(-)
+> 
+> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> index 4ad4e3b23448affeeaa932a706653818ba4019ba..6a2966c9e3a2eac661fa1f8610c9f021d6e26cf8 100644
+> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> @@ -24,14 +24,39 @@
+>  #include <media/v4l2-mc.h>
+>  #include <media/v4l2-subdev.h>
+>  
+> -#define DW_MIPI_CSI2RX_N_LANES		0x04
+> -#define DW_MIPI_CSI2RX_RESETN		0x10
+> -#define DW_MIPI_CSI2RX_PHY_STATE	0x14
+> -#define DW_MIPI_CSI2RX_ERR1		0x20
+> -#define DW_MIPI_CSI2RX_ERR2		0x24
+> -#define DW_MIPI_CSI2RX_MSK1		0x28
+> -#define DW_MIPI_CSI2RX_MSK2		0x2c
+> -#define DW_MIPI_CSI2RX_CONTROL		0x40
+> +struct dw_mipi_csi2rx_regs {
+> +	u32 n_lanes;
+> +	u32 resetn;
+> +	u32 phy_state;
+> +	u32 err1;
+> +	u32 err2;
+> +	u32 msk1;
+> +	u32 msk2;
+> +	u32 control;
+> +};
+> +
+> +struct dw_mipi_csi2rx_drvdata {
+> +	const struct dw_mipi_csi2rx_regs *regs;
+> +};
+> +
+> +/* Help check wrong access unexisted register at difference IP version */
+> +#define DW_REG_EXIST	BIT(31)
+> +#define DW_REG(x)	(DW_REG_EXIST | (x))
+> +
+> +static const struct dw_mipi_csi2rx_regs rk3568_regs = {
+> +	.n_lanes = DW_REG(0x4),
+> +	.resetn = DW_REG(0x10),
+> +	.phy_state = DW_REG(0x14),
+> +	.err1 = DW_REG(0x20),
+> +	.err2 = DW_REG(0x24),
+> +	.msk1 = DW_REG(0x28),
+> +	.msk2 = DW_REG(0x2c),
+> +	.control = DW_REG(0x40),
+> +};
+> +
+> +static const struct dw_mipi_csi2rx_drvdata rk3568_drvdata = {
 
-Thanks,
+"drvdata" is typically used of driver's context struct related to a given
+device. This is something else. How about calling it rk3568_devinfo for
+instance?
 
-Paolo
+> +	.regs = &rk3568_regs,
+> +};
+>  
+>  #define SW_CPHY_EN(x)		((x) << 0)
+>  #define SW_DSI_EN(x)		((x) << 4)
+> @@ -74,8 +99,35 @@ struct dw_mipi_csi2rx_device {
+>  
+>  	enum v4l2_mbus_type bus_type;
+>  	u32 lanes_num;
+> +
+> +	const struct dw_mipi_csi2rx_drvdata *drvdata;
+>  };
+>  
+> +static int
+> +dw_mipi_csi2rx_reg_err(struct dw_mipi_csi2rx_device *csi2, const char *name)
+> +{
+> +	dev_err_once(csi2->dev, "access to non-existent register: %s\n", name);
+> +	return 0;
+> +}
+> +
+> +#define __dw_reg_exist(offset) ((offset) & DW_REG_EXIST)
+> +
+> +#define dw_reg_exist(csi2, __name) __dw_reg_exist((csi2)->drvdata->regs->__name)
 
+Can you use the same dw_mipi_csi2rx prefix here?
+
+> +
+> +#define dw_mipi_csi2rx_write(csi2, __name, value)		\
+> +({	auto __csi2 = csi2;					\
+
+Are there different types being used for csi2? As this there's a single
+driver here I'd suppose no?
+
+> +	u32 offset = __csi2->drvdata->regs->__name;		\
+> +	__dw_reg_exist(offset) ?					\
+> +		writel(value, __csi2->base_addr + (offset & ~DW_REG_EXIST)) : \
+> +		dw_mipi_csi2rx_reg_err(__csi2, #__name); })
+> +
+> +#define dw_mipi_csi2rx_read(csi2, __name)			\
+> +({	auto __csi2 = csi2;					\
+> +	u32 offset = __csi2->drvdata->regs->__name;		\
+> +	__dw_reg_exist(offset) ?					\
+> +		readl(__csi2->base_addr + (offset & ~DW_REG_EXIST)) : \
+> +		dw_mipi_csi2rx_reg_err(__csi2, #__name); })
+> +
+>  static const struct v4l2_mbus_framefmt default_format = {
+>  	.width = 3840,
+>  	.height = 2160,
+> @@ -188,18 +240,6 @@ static inline struct dw_mipi_csi2rx_device *to_csi2(struct v4l2_subdev *sd)
+>  	return container_of(sd, struct dw_mipi_csi2rx_device, sd);
+>  }
+>  
+> -static inline void dw_mipi_csi2rx_write(struct dw_mipi_csi2rx_device *csi2,
+> -					unsigned int addr, u32 val)
+> -{
+> -	writel(val, csi2->base_addr + addr);
+> -}
+> -
+> -static inline u32 dw_mipi_csi2rx_read(struct dw_mipi_csi2rx_device *csi2,
+> -				      unsigned int addr)
+> -{
+> -	return readl(csi2->base_addr + addr);
+> -}
+> -
+>  static const struct dw_mipi_csi2rx_format *
+>  dw_mipi_csi2rx_find_format(struct dw_mipi_csi2rx_device *csi2, u32 mbus_code)
+>  {
+> @@ -265,9 +305,9 @@ static int dw_mipi_csi2rx_start(struct dw_mipi_csi2rx_device *csi2)
+>  	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
+>  		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
+>  
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_N_LANES, lanes - 1);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_CONTROL, control);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 1);
+> +	dw_mipi_csi2rx_write(csi2, n_lanes, lanes - 1);
+> +	dw_mipi_csi2rx_write(csi2, control, control);
+> +	dw_mipi_csi2rx_write(csi2, resetn, 1);
+>  
+>  	return phy_power_on(csi2->phy);
+>  }
+> @@ -276,9 +316,9 @@ static void dw_mipi_csi2rx_stop(struct dw_mipi_csi2rx_device *csi2)
+>  {
+>  	phy_power_off(csi2->phy);
+>  
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 0);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK1, ~0);
+> -	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK2, ~0);
+> +	dw_mipi_csi2rx_write(csi2, resetn, 0);
+> +	dw_mipi_csi2rx_write(csi2, msk1, ~0);
+> +	dw_mipi_csi2rx_write(csi2, msk2, ~0);
+>  }
+>  
+>  static const struct media_entity_operations dw_mipi_csi2rx_media_ops = {
+> @@ -632,7 +672,7 @@ static void dw_mipi_csi2rx_unregister(struct dw_mipi_csi2rx_device *csi2)
+>  
+>  static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
+>  	{
+> -		.compatible = "rockchip,rk3568-mipi-csi2",
+> +		.compatible = "rockchip,rk3568-mipi-csi2", .data = &rk3568_drvdata,
+>  	},
+>  	{}
+>  };
+> @@ -654,6 +694,8 @@ static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
+>  	if (IS_ERR(csi2->base_addr))
+>  		return PTR_ERR(csi2->base_addr);
+>  
+> +	csi2->drvdata = device_get_match_data(dev);
+> +
+>  	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
+>  	if (ret < 0)
+>  		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+> 
+
+-- 
+Regards,
+
+Sakari Ailus
 
