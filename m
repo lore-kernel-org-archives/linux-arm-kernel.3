@@ -4,67 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7867FE9A75A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 262D0E9A75D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JgIXlYxpapMXx8saiZg4uDRUBgfpi+0JfPftpg1denw=; b=KMqMndfbPsNUkZRBVoPwXGH3gM
-	FAqabHeKwuCWTAHEjje6JnqsxOXd3NHsgZwmDTutC8VGGT576dZUjuxp1wK3OflSG7bU1elizcBhr
-	M/7SANMyMz382ImxMTBUBU/3hA6FX2dKBrFYA21uA3GZ2ZW+CEih3q1L2Pc55C392/gujdSDrw8Pc
-	yciFrBr1mp41C4h965OjxAFpHD61O1enevv47e9bE7v6KbX09kPHIXKvwxRwmtjT1bdt+VSZ+lsd6
-	sY+aF36rMh/NOGAE+QQcz5Y2oEBlZpLwOQxLQSU0XDyxqr9xqVfp/Mr55Iy4fNyDHC3I0JxvEwpSa
-	N+lzrdow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=; b=ex4TqPptK084XnOeAZ0FCQt1Gq
+	OHYhtTQn2lEqzs7Fggpul5wSbqiyoifgx5uBiP4D3MV9tTbicUrn2LcCTjDj2CXSjhBYXWCPlyfOb
+	KPiMYJzw2kg50ugy50reSXJEUOJQcAV9tSksrihIFdTseyD00A9eld36JBigJRg2QJTSAP3eE+UnT
+	YbOp79HFKYZkaL7MvDppMkMc92jzOBaSyI5JrTHgTOMP1TVZkLPmOSKbowbFkJ1YFusSvudeJ7XAl
+	1IEyttnk1lZvuVEBDmHby4eHmLDfQfoGMspY3901yKvLAT/P6DCqDuRhqRScxs0m/4ChL3w199Ubd
+	ob5pViOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ymd-00000001Bcv-0MfZ;
-	Tue, 24 Mar 2026 10:14:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4ymk-00000001Bfe-12nr;
+	Tue, 24 Mar 2026 10:14:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yma-00000001BcS-0fkP
+	id 1w4yme-00000001BdU-4BS3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 24 Mar 2026 10:14:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=; b=Odar5STFVhWJ/YH9ANA5NPEdiH
+	mCUhhfRtZXXyasZDNYj6dc+VVkrAF6KHuk3qdV1UCuXIa8ghh8KS3pcPVFiUYTEzHJAroEqJUuoFN
+	OnmTFwdlsjvUbwxNdZ+HTr1n9GQH95cFR0oANm0QFQ/WZlrQI6b4l8H7q2Cjic7tP731OiB168Dvc
+	Ydg9m2kbI2wpZlWnBBCzATt/ZQud5RI7II7VaOFbUdXJRpHL9Br/V+za1X0K8PMPXWU4YEC3QAdIq
+	/7DtvCFUWM2OKzIrUi/Qmy2vyjaeeJKgUM5oKxNnV7fE4cMf5BKnzmEc5yEsJKYBU+JN8hSCPG5j0
+	DcHi8pnw==;
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4ymW-00000003lIu-1LOw
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 24 Mar 2026 10:14:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53C604066D;
-	Tue, 24 Mar 2026 10:14:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3B3C19424;
-	Tue, 24 Mar 2026 10:14:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774347283;
-	bh=zg+WpXDdGHriaE92puEQ+UJjbNTidyzjwpmpPSIKApQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b51RlXF9nyf57uLZAkbmqOzygP8Jq31XRBgp9s9tmXese9E+uvO343l6NDxefnMHi
-	 bPlvMTKsrY1PthViKr//5kKovtcT63Cfn6PeBOQGqUL0BT68ItF5U6l6DUXO9R1Cr9
-	 /X003u/rLLWXueH2pfXjmONUN5JkH3SYkrb1NwzrQ+JfH11iF7KqBnl09V7f6RTMCu
-	 ogj9Mm1uMJhQYC8ujJwuEkaIHhy+ZhBLDFlu6pVrNGTDJJr0Rp/ZpFPhCVj+/V2eHE
-	 y2RZnGXEJKtKYIKvGRXh7TtgtbGA6aRkwcdrfPLAVT510XzmP19OsrqtN6gGrim2IY
-	 yOF/jVyjYplgA==
-Date: Tue, 24 Mar 2026 10:14:38 +0000
-From: Will Deacon <will@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Jeff Xu <jeffxu@chromium.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: vdso: fix AArch32 compat init allocation leaks
-Message-ID: <acJkDv0AT_YqDIF9@willie-the-truck>
-References: <20260323214117.241216-1-osama.abdelkader@gmail.com>
- <acJgc9EVRJJOVM0S@willie-the-truck>
- <20260324110512-7a00b224-8c48-445b-93f3-dd9b7a07d3cd@linutronix.de>
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LPzq/fJWw7x+NVLQ1tIRkWXhvNCr3nGe6fLW+7GTYCtIjpoqxFx8uulqm5oFu/9ipRdPblT92Ca3fzNJvoIF8xPjYd0wQ6sKvavsqZqTK2Tb2HohdIqoKMmoLTHeyVsDuw0QmEqh5f8o56Nk1bnFrKxCvXPNzgizPI2M5xR3Om5Qnn8WWWcNg7OxpKjzXeSHRNRWqq+jrsihS3OpFLciNG0XGqrUu1YtAUUmFbpHrvLbVV3rln5xKquyP484eK7wqjDBrLs+35+C0AfuE7MS+Be7QKcfGK0ifiMt6rIgdEoHXncq5yJnm0lSp2wij5oVPgHicEXPM+M24xdE1rjF1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=;
+ b=fatjVWXpZLLvNlB6DHxPj3ofWlT/S6bZTpAJZLK8K0sUDAMr8Fol40jEn69dxzjkq1IBGW/8Wp+wNX+LukY+EQOZpfxGqzTZTSZyXbjU9uP857LUE9jFaZoA5Yoow5L+/ShNCmfp2sWBdeswbA0nPezI9MmKoB/NUEdjG+/PUIcDAqND3hcNMQiAxyKW9SwlXy3aKl+HOXkIYAqNqjhUMLIriOwksRpECz9+6tSyO1oKicKXF7ksfl3KE2HVO1b6KnQqjoTZDR2v42TRrDpMDV9GY7i+IByZjT4Icad7WU1XTn4Fp/JB9PYQAq5sEAvto5ru885Uz7ti/fHOZ2iNQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=;
+ b=beH9YHEeHa9ZYktofT9OAib2zV/z9nhtml6PZrzc5YWc6exPJe8pcN3+hdsC9cZVemU66Fayeu7yotPommpTfmLNUAIOosgYg9PsfWMqSQY/uQD98wVFGnnOfynEvPoNZnwYtDWPOBwMJ8mvcvn7SXf6aDc7ef8jmaMQeq/MZD0=
+Received: from SJ0PR03CA0096.namprd03.prod.outlook.com (2603:10b6:a03:333::11)
+ by SJ0PR10MB6424.namprd10.prod.outlook.com (2603:10b6:a03:44e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Tue, 24 Mar
+ 2026 10:14:30 +0000
+Received: from MWH0EPF000C618A.namprd02.prod.outlook.com
+ (2603:10b6:a03:333:cafe::78) by SJ0PR03CA0096.outlook.office365.com
+ (2603:10b6:a03:333::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
+ 24 Mar 2026 10:13:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ MWH0EPF000C618A.mail.protection.outlook.com (10.167.249.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 10:14:28 +0000
+Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Mar
+ 2026 05:14:27 -0500
+Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Mar
+ 2026 05:14:27 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 24 Mar 2026 05:14:27 -0500
+Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62OAELRn2446022;
+	Tue, 24 Mar 2026 05:14:21 -0500
+From: Akashdeep Kaur <a-kaur@ti.com>
+To: <lee@kernel.org>, <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>,
+	<vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <aaro.koskinen@iki.fi>,
+	<andreas@kemnade.info>, <khilman@baylibre.com>, <rogerq@kernel.org>,
+	<tony@atomide.com>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-omap@vger.kernel.org>, <s-ramamoorthy@ti.com>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <d-gole@ti.com>,
+	<k-willis@ti.com>, <a-kaur@ti.com>
+Subject: [PATCH v2 0/2] Make TPS65219 poweroff handler conditional
+Date: Tue, 24 Mar 2026 15:44:17 +0530
+Message-ID: <20260324101419.95616-1-a-kaur@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260324110512-7a00b224-8c48-445b-93f3-dd9b7a07d3cd@linutronix.de>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C618A:EE_|SJ0PR10MB6424:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1b226eb-07ff-4569-1e70-08de898e2247
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|1800799024|7416014|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 0VmiaB6QaZfx0id/Owiy5gZvGd0MbLVXAOdYX9Liy+qjEUK5frhRvTsw3bjw7/0ahEbpL1L6SelTfEm3NYlYLlb/gwfB5rpVeGVoQCskJGLGxlf56/w9iS3ZdK2A9LIUYPfeDdzIBKdqJHfKx/qJghLzNaDAX1qSh/VqTlO12GuRQGS7jIEJbwTSEbGwdCM2AZGYDbpLmN37gkmk3BblLZorAYWg+9hO+CgkVLSpEdn37Y0V0hCyAM1389nuVMHIdtP561dIQlo1CwIUd7qty4PI3wb/ATVss0Mj1qUS+7bH+zOQuyyNt8ZeRXfgbrD1we301NKEtom4mlZoSf8E4cgPoEZFBsCFYUejo8OdHIRaz1Us1tYEi3lPGQAALlXfOL9j2IYl3mfrL3rZYR5J2zDjERK/k04zRFn302nNMBsdIhHxkiRoN4R+t10YwWxoY+VqcinAynfZHGYylpv1BoOfRXVW+9IqWb9aLrfxjQwG8Zd6Qrn1hTyPIJZlHVuFt4O9BdryivJp0pwTOVLkbhvwE3OFcO2X3dc0L8oZYHOsMmthhCPsR3Sh9j/1jmexzohPIVsIEEZsHy5LW3mwt5EAkL703nFOwp3MJI372JMYRbgRvkeMT22g/uzVS1BQTYcIUWIK6jDb6v77JdflHeSPZJn3rRwFw70w0v6IuzPJQ/slIFUki/LFuKxNW0uyAkSj56l0dddG1uhT6Z/aunHcR3rgMTfavmCfqN5p/mWJCYaW7r5A9oIWzzaeOpvFkcCBDkEGnL20gWybSMugFxyg6DO6t/S5PNtsb37n1GEQlMJ8aykfrQOuwlozNEnp
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(1800799024)(7416014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CtrllC46WfI2tDDvbWs3wcjDYV77lg4kUU0QhptCwsT0tXwqXWzibZrM6g4ujWKWV7rLVvSFo4GCN6a9h1v3JMDbNhqUnoPNNZheuSP30kqAiNcG6oD3I65L3RoyRZH8uF0m5rrqTyMXB/XCa0gAHkId/BsntO9d9m9dQU5Lr/gSxxE3LApx8CsK+LwQnRh97whMM5Q+GqJ0Aq2d99LS56/kb9hhywNOI3cM9uTghW0llXRWt+x2vbWSP1e+i5DB5Ndmg4DoC6fdlutIaktGy6KJx2AgJWAQR5Kb2p72GvwXQMt25YATQeHD+tlaXJMyHFuJlmkrAtL5/pP/tRXTIH2dWuqnijvLv6OTSqCLErSOIjF/TwSsv0EsUf+Oz0Se4VQNOFee2gUtL1f+jUtUxaOUcqdkFDV9oJVpEUt8JUWYq/hYLqnRUCI+3XMtBb4o
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 10:14:28.5324
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1b226eb-07ff-4569-1e70-08de898e2247
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB6424
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_031444_240494_4C4D91A7 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260324_101442_494521_9425FEAD 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +149,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 11:09:12AM +0100, Thomas Weißschuh wrote:
-> On Tue, Mar 24, 2026 at 09:59:15AM +0000, Will Deacon wrote:
-> > On Mon, Mar 23, 2026 at 10:41:16PM +0100, Osama Abdelkader wrote:
-> > > aarch32_alloc_vdso_pages() allocates the AA32 vdso pagelist, the compat
-> > > sigpage, then the kuser vectors page. If aarch32_alloc_sigpage() or
-> > > aarch32_alloc_kuser_vdso_page() fails, earlier allocations were not freed.
-> > 
-> > But why should they be freed? The vectors, sigpage and vdso are
-> > independent from one another, so we can limp along with whatever we
-> > managed to allocate. I'm not sure how far we'll get, mind, if single
-> > page allocations are failing at initcall time...
-> 
-> In the core vDSO datastore we just panic() if the allocation fails.
-> (See tip/timers/vdso for the currentl implementation)
-> The same should work for the architecture-specific bits.
+This series makes the TPS65219 PMIC poweroff handler registration
+conditional based on device tree configuration, following standard
+kernel patterns.
 
-I think we should just leave the code as-is tbh unless there's an actual
-issue here.
+Currently, the TPS65219 driver unconditionally registers as the system
+poweroff handler. This creates conflicts on platforms where alternative
+poweroff mechanisms (such as TF-A firmware or other power controllers)
+should handle system shutdown instead.
 
-Will
+The standard kernel approach is to use the "system-power-controller"
+device tree property to explicitly designate which component is
+responsible for system poweroff operations.
+
+Patch 1: Add "system-power-controller" property to AM62-LP-SK device
+         tree, explicitly designating the TPS65219 PMIC as the system
+         power controller for this platform. This property was missing
+         only on AM62-LP-SK among all in-tree TPS65219-based devices.
+
+Patch 2: Update TPS65219 driver to only register poweroff handler when
+         "system-power-controller" property is present. This allows
+         other systems using this PMIC to use alternative poweroff
+         mechanisms.
+
+Impact:
+- AM62-LP-SK: No functional change (property added, handler still
+  registers)
+- Other TPS65219-based systems: Poweroff handler registration becomes
+  opt-in via DT property
+
+Tested on AM62-LP-SK - system poweroff works correctly.
+
+Changes in v2:
+- Addressed review feedback by removing comment on self explanatory code
+- Link to v1: https://lore.kernel.org/all/20260310111846.1084623-1-a-kaur@ti.com/
+
+Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+
+---
+
+Akashdeep Kaur (2):
+  arm64: dts: ti: k3-am62-lp-sk: Add system-power-controller
+  mfd: tps65219: Make poweroff handler conditional on
+    system-power-controller
+
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts |  1 +
+ drivers/mfd/tps65219.c                   | 14 ++++++++------
+ 2 files changed, 9 insertions(+), 6 deletions(-)
+
+-- 
+2.34.1
+
 
