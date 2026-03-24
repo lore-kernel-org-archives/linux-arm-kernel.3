@@ -4,72 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984F4F54ACB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06BCF54ACB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+H1RQt9nEFm1mW3pj/3FppU+zA1eZ4F6q95FB9cWR8I=; b=e0aw5TmmgF0y6VjbFqnWuIxjA3
-	rwbAZ4emKnBI7A+DAn/EsA5aI9hEHRdgCMNk4QkhVFXcYzlOhoFF2lDEH6YN+I6wvkgro9mMB79sR
-	yra4sSPyZUJVZQ8T8fufiRoliblZvkKLz69lcwAWXQ36q4w2w2aXySX1F+A+gM/cZr1oFU2lJ2TGL
-	KtjdGEsxoh/DbCVmL8w+GHuVBbSozJf8PuVMjBakakkA5UvMqhp2I/t1E9KZAowCYHoWteCOYh8s8
-	veEJgPgqjSOjs84+0pRb3PecUFsPmYm6HAKMbbnaa6KJBE3/Fd4fP6wP4Uq4PFKHvfIrDPBsiSscu
-	m6AdLdng==;
+	bh=wKyVlC3L3q/GFrdIQXeJf3+Fpo3lYHSQW+ig37+Y0tg=; b=WN/GeymWuOZgrl72axB3obFARF
+	3XhuKGoQJY8jNJZ2O1cbid5C4jgnWSy8DwrZcRio7+LpN7z25+JnHZ2rpoDf5TPLUtCeUR6pXic2b
+	qgx7N6TwJ4WvZ1HcoZb/dqcdq58ArliPn0+oz19vbBk7eTgzHRABeG1KHU/g0t92/oBKlN37jtUrc
+	Cro+vNKUIZMQyeWf2IZ5DGL+fCLwnSCUGRdio94IchEmqJs5frGZN3f9P9dJtWWg/Ku6lRhuUKmI0
+	vshrL70+FHNLNKB/kzP49UtgTTmB/B6N2EfB6N7SzDVInD5eQKeCDXD/JF7z3mT8KafowOlwdjk2E
+	flPMcbFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w538w-00000001gqG-3Zwk;
-	Tue, 24 Mar 2026 14:54:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5396-00000001gsM-1xnc;
+	Tue, 24 Mar 2026 14:54:16 +0000
+Received: from mail-eastusazon11012036.outbound.protection.outlook.com ([52.101.53.36] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w538v-00000001gq4-0eGT
+	id 1w5394-00000001gr8-0WHa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 14:54:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7BA0B600AC;
-	Tue, 24 Mar 2026 14:54:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D4C6C19424;
-	Tue, 24 Mar 2026 14:54:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774364044;
-	bh=+H1RQt9nEFm1mW3pj/3FppU+zA1eZ4F6q95FB9cWR8I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BkfiHLJM5s81UYxIuCAfaj1IksuK9rnIWP+LpacEP5uJVh/LQcoMMg4k7V64C46GZ
-	 e1+7qX//DfTBR0TFWWC9mOorVx5VQw2OEhefk4mVdz9696oTL+g2WtqTy4dRO3ePvq
-	 HBJAG83ZpjtWReeqtxy6LUX4scRHqpUmvIisjHVyCmnaDGcjVC5dkwZha1wMGvqZCH
-	 FRdpRZKQfkXHtQAK54NIoaZv56uify9FuBiTwWEluViSRMEZjGVlYZ79H7NnappQsr
-	 UuOBGM4yhYUbpxFvi4f0+Zlm/Rt3GIJ+F+drFxjglJfc1LSQyiRNe8FOWIiW08ncX/
-	 6VPCHLIAyRTQQ==
-Date: Tue, 24 Mar 2026 14:53:58 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v7 12/41] KVM: arm64: gic-v5: Sanitize
- ID_AA64PFR2_EL1.GCIE
-Message-ID: <ebd9ebb4-06ac-41a1-af16-664a4eedf3fd@sirena.org.uk>
-References: <20260319154937.3619520-1-sascha.bischoff@arm.com>
- <20260319154937.3619520-13-sascha.bischoff@arm.com>
- <638a3453-91c9-4a76-8241-25d5c27ca518@sirena.org.uk>
- <86se9p472z.wl-maz@kernel.org>
+	Tue, 24 Mar 2026 14:54:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aKArF0PvvH1yymg1Oo/f3nrL9maZiIQ/kS1Sp/II9OWKx93xjUafcaaNUk7Zv1ZxjOuM8ey1nzVzT4Z1HaaBhsdJWBryEXjSMQCa+PPqBtr3GoFBPK6Nwvw/mvq4JuBVMHx6belS/p097gy55Hz8dg+AkO4jc1bWskdy0/TBiMD9NJm3/ZEb33qYp2Gbqhwfq/QmHSW0sJqYXFRWCg9A0S5YGE5dw3pn5xn0JUaeG0+T203NWJD58LvAdntWyhkr1X8lfazKGMkHlUy3Jf7tWVu4MF8pAsjKLRWUidK6ig117o4AUh5cvUZ/zerxmmjtBhhPAVusNTcBIQXVp9Rlog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wKyVlC3L3q/GFrdIQXeJf3+Fpo3lYHSQW+ig37+Y0tg=;
+ b=QoLbGqBgZG2Lh3QhhJ8OwxbJivoq2RIjo+56HEeFrK2EdzguR5BQs9o/Ys9DqXS6L5uCkAPJNXBAVGZeCZ76AY6lpj8Vo2atz9mzzm0unC0O4Ej+ohvMAcsDMpPmA8y9gPiTMnZ1inYFS+vF3fwiw2/z/FopOz+ovpVM6iOX2ZRaM1QjkIfnp7ftAx5j+vypguwywJWKpTbWImX5vWEfML1uidSJ4NTkavzKh770WPiM5w4AAfeEe90TN41qCRcA0qTLbWZELxRlo4kphYKHUJPvgadj6FpL2ZeWlJtixMkqIpFH80w9jbXgggl5bUb9XKni59ou4hobyAgMhbT5YQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wKyVlC3L3q/GFrdIQXeJf3+Fpo3lYHSQW+ig37+Y0tg=;
+ b=4UF9aRFRAEhVDVPyhAMhfh+rJTsSXwYx0QRmqv3/8AFMpt3ICCZeefpz3M/V1ok6TZUE8Dd6mVnNi7rSvVeebYGVyq8U0y6FuazchYrYenHIUH6f7+38S3vxjhDZrPGhSWmTr2X7IH5DueWhNpIrmlxYac1Pds1aKW4KDwfSBZY=
+Received: from BYAPR21CA0024.namprd21.prod.outlook.com (2603:10b6:a03:114::34)
+ by SA1PR12MB7412.namprd12.prod.outlook.com (2603:10b6:806:2b2::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
+ 2026 14:54:05 +0000
+Received: from SJ1PEPF00001CDD.namprd05.prod.outlook.com
+ (2603:10b6:a03:114:cafe::5d) by BYAPR21CA0024.outlook.office365.com
+ (2603:10b6:a03:114::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.6 via Frontend Transport; Tue,
+ 24 Mar 2026 14:54:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF00001CDD.mail.protection.outlook.com (10.167.242.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 14:54:04 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Tue, 24 Mar
+ 2026 09:54:01 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 24 Mar
+ 2026 09:54:00 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 24 Mar 2026 09:53:57 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
+	<sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>, <horms@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
+Subject: [PATCH net 1/2] net: xilinx: axienet: Correct BD length masks to match AXIDMA IP spec
+Date: Tue, 24 Mar 2026 20:23:51 +0530
+Message-ID: <20260324145353.1899248-2-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20260324145353.1899248-1-suraj.gupta2@amd.com>
+References: <20260324145353.1899248-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="sWsDtecpd5ZuVCN+"
-Content-Disposition: inline
-In-Reply-To: <86se9p472z.wl-maz@kernel.org>
-X-Cookie: Forest fires cause Smokey Bears.
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: suraj.gupta2@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDD:EE_|SA1PR12MB7412:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12bd650c-1948-4812-e029-08de89b531a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Luze1oHRHbb1xL+/AI2VNPRWsPUVgEq0gxLzIXivSTDqkt0WlqZtY2wT6OtTE4d4YQZzgDSTivcbTLoC/P/C4fZDXOKzBhb4vNB4rVlxGfjgoMZE+mbHzwfR9VxRWBxXQPKrR5WXqJFV+mOmFAYQE96BZKQiJSx8RQUcIoG/NSc+Bre9CDhNJWw01wJHORIWBZD3dgFZZq6nRLp8wDN/JDeA7jbGC4q8Ag+JR3A2LE/upGZDRLxZMoIo3L03sa09BoimPTM3xXzkBLo1Pu2tgAUT76t2NXe+V0e+yhutq1UV9SxghwdUvSvoR6YWHwLVshWPXQaF/05g4qtELeZlsKrpgXtYwrYmy++OMIINz7FRdPpiaXV9jpDrnId1/NK+7NRy+vdE/saF2nDeKrDK6Xi+iaQQsJ6DZCXX+eJmm293mJJMo2nJKNtcac9f32guWpDD3xHtrFShcl97vBj7ig5r3cd75pdUBdIoF8XpP12ZrW4dMMgE6+SJuNW6R/kp+3y3zksT2LO+/JQyLFGNdkTv5zxt9HMyu0QMWr7FMBOcLh/kDJ7LZQL4c+CEEsy/Z5WSwb+0ew4i9/fD9RJJlsIAh8bKDD1p3SHcbMoKb+vaEN8ymnai0fwWhb0m3yU0fdOKPYOeNEb6R2WsWZwrYQmeFecWj/5eiKwnmu3JOzRs2e+RzDsZo5XUecNxhe/M1TwaUQviHwd+fZoNWaCOW/eneZAqvSLKxBVxse41nkohYWuYP/ZTTszJBpRFyA5sp21bTwncXB0gI0/fcbOK3A==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: H/6p7MMr1Z1OmzC6E7sevTkVX1d7Spg2LSBGr/vL98I4XZl3vVE4lyPwT5h/6jir5hP8fFnybP1mDh7VNs4ODzeMItKUxsuBOBqLGhcc96qwsPCXX56KQOLTJdoxC7PjhFd3NKqARdL9VF359w6I1fOfe2wkE9VQLUksLwRfp4T3nP/W8BOrIZFiTE2nhhcePvdLLxwgsxxxfZlDY/BbUd9hfMSKCmPMMvhjqkVCeA0d7S7R2aWTHWdrI0865OQNZPFwEPbzucO3CJqQg70cfDieJFywmWcN8prPWR2M8T5Dd6IqqpOkNzbuQgEQhSv03SmNxhD/HUxPJgkRSDzRBCuk5BM089rTsTdosuPC38iLbThc4/zHmgZ7DN+/xYtIsQBq++4hMK3xs3uZ/gC1c0MrhyPy6IF5qU/xr76VsA6juh69vgXDQnO1FSykYGDu
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 14:54:04.6846
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12bd650c-1948-4812-e029-08de89b531a5
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDD.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7412
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_075414_160525_F4888D25 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +128,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The XAXIDMA_BD_CTRL_LENGTH_MASK and XAXIDMA_BD_STS_ACTUAL_LEN_MASK
+macros were defined as 0x007FFFFF (23 bits), but the AXI DMA IP
+product guide (PG021) specifies the buffer length field as bits 25:0
+(26 bits). Update both masks to 0x03FFFFFF to match the IP
+documentation.
 
---sWsDtecpd5ZuVCN+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+In practice this had no functional impact, since Ethernet frames are
+far smaller than 2^23 bytes and the extra bits were always zero, but
+the masks should still reflect the hardware specification.
 
-On Tue, Mar 24, 2026 at 02:48:04PM +0000, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
+Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> > We're also seeing an issue with this in the aarch32_id_regs test:
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+index 5ff742103beb..602389843342 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+@@ -105,7 +105,7 @@
+ #define XAXIDMA_BD_HAS_DRE_MASK		0xF00 /* Whether has DRE mask */
+ #define XAXIDMA_BD_WORDLEN_MASK		0xFF /* Whether has DRE mask */
+ 
+-#define XAXIDMA_BD_CTRL_LENGTH_MASK	0x007FFFFF /* Requested len */
++#define XAXIDMA_BD_CTRL_LENGTH_MASK	0x03FFFFFF /* Requested len */
+ #define XAXIDMA_BD_CTRL_TXSOF_MASK	0x08000000 /* First tx packet */
+ #define XAXIDMA_BD_CTRL_TXEOF_MASK	0x04000000 /* Last tx packet */
+ #define XAXIDMA_BD_CTRL_ALL_MASK	0x0C000000 /* All control bits */
+@@ -130,7 +130,7 @@
+ #define XAXIDMA_BD_CTRL_TXEOF_MASK	0x04000000 /* Last tx packet */
+ #define XAXIDMA_BD_CTRL_ALL_MASK	0x0C000000 /* All control bits */
+ 
+-#define XAXIDMA_BD_STS_ACTUAL_LEN_MASK	0x007FFFFF /* Actual len */
++#define XAXIDMA_BD_STS_ACTUAL_LEN_MASK	0x03FFFFFF /* Actual len */
+ #define XAXIDMA_BD_STS_COMPLETE_MASK	0x80000000 /* Completed */
+ #define XAXIDMA_BD_STS_DEC_ERR_MASK	0x40000000 /* Decode error */
+ #define XAXIDMA_BD_STS_SLV_ERR_MASK	0x20000000 /* Slave error */
+-- 
+2.49.1
 
-...
-
-> > which for some reason only manifests on TX2 of the platforms I've
-> > seen.
-
-> Is your TX2 the only machine you have that is AArch64 only at all ELs?
-
-Yes, that should be the case.
-
---sWsDtecpd5ZuVCN+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnCpYUACgkQJNaLcl1U
-h9Bm3Af/QFizHYbTB/ryz4KjPxz66HDJQLTRF4ZCv9unqS36DteUBrzH+P1u9Dvs
-RER8M4hbwORq3ev4XgGsh3NhIsgs0aeENgRBkp++ZbluNEFIYRfyINyR9KeAi7ZW
-HNqFEbnEdVJsaWin8pO+TjA0e5mmHxqiI8fvDYw48BT6y8Y+cmAmeNTmM1tIKSCy
-c8L1YsatMZ9z0X/VZTLuUHTHAvkc0NrH0WnjrnThxcJ2SIb9EDtYATHYTsxYnfs5
-1y18PWomKuZT4BTUwJs4PEfvVfj4iwEjHol/VjXaiwkE6OyhgiSVmHa/22aZZ8EU
-CXwCEHYHNuWRI1Zm3xWCAdNv/SOrlg==
-=Nq5T
------END PGP SIGNATURE-----
-
---sWsDtecpd5ZuVCN+--
 
