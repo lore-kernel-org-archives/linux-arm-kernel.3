@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E44E9A755
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD102E9A757
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uBGSrnr63HLP+/SJxsbbv7zPqRKmlJJTq3t390zXjIo=; b=qwECJ6u+hFcUmYcyMaW/xYoM9A
-	bKbFpKTaLcPi2lCj1nlFirMK2T6hee/+LiRdu4eMOBLJttjrwfZx7tTa2FCREydDe1UU7mT52au9u
-	VrdjuRtfrX4vVYsI8vIuUcr3ZncmSNi1af+EpufGYzJvXET3jqLRVX3KTTPsnZCtZbVllummMNIhc
-	lVrWkg7Eidol0g5CgWy/JHywZMmSTbAHsaOQQLz/bIbqWgBH6itgRJ7TrX8quUAOdL71IDfa39RWi
-	86NXJcv4n21DfZUXRAbxqScv7ZUxLMbBK+Ww1VTu62a9qZjnEF9gnNUfHd2Sh8TKO7Td0Ltbr4sn/
-	cH6g024Q==;
+	bh=CC9seZVTC2RW0MreCmcdPM1JK1NcNqisbM0P3bcEO7M=; b=ZlCZ5vti4lvSsTI0ejwwpZhFIV
+	OxtFlwzvYSq7eSH9Sdfqow/iObCQAieq702XwCNlwvMHxocLK19pHTdE8KJtZL3cMQtL8mB+ace0P
+	IVb/wzeUre1zl4dwDj31erldyEvxwusDgVgqn2Kzpq8Irtz+kfhyiOHtvvSbv3/9bKMmErQQrE/I7
+	DgZd7WDQo38O0VhLeBm/VSbFsZb2Rec4fBYxRSHiZKtxQZvV9DJtALNQHbmWiGkUcg7/WyqmJCoxx
+	lB/xE8mFqeQ0XhzkRpBUkY3r8OiM1s4/dtYvW8Uuer8JuLsp9ZB1JUQ7CyhGqtbZFsA5Y8+TD1ajb
+	gMM6b0Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yUM-000000019QH-3FMX;
+	id 1w4yUM-000000019Pj-1dIs;
 	Tue, 24 Mar 2026 09:55:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yUL-000000019Ou-0y6Z;
-	Tue, 24 Mar 2026 09:55:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=uBGSrnr63HLP+/SJxsbbv7zPqRKmlJJTq3t390zXjIo=; b=VFLkpIcwvXr3y3BqfcgK5FWqcb
-	O6LcSwftsjwkgI6+MO1fSTtliJUAzcMciF3saTOuELj3uzx0WKSfUQJe0PkvlB4haKiyZnbJb07nW
-	vstl3tWdtwVrCA5NuItuEqK+YeyQHcRFRWwNzOSJDf+4bjkUzvEAtzVPNsntnUiRL+MT/msU5AXY+
-	jIjfEvoXZ3kDUd7FDirTt3cTgUKIo6AWj4xJAUvikrkV5jIee8p4cvhrO6aKrFTx+kByTbCDxrUoC
-	/c68y6l5dfMzbwAh42pV8v5ddCg3NWezpdTeQeQhKL/b/eqbONvjduLJEH7gpspmuP+Z6H/6zNL6g
-	Q2Qh8aSA==;
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yUH-00000003iLO-1DmV;
+	id 1w4yUK-000000019Oo-3Es7
+	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 24 Mar 2026 09:55:52 +0000
-X-UUID: 99a0aed6276711f19e7563141e833ce8-20260324
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uBGSrnr63HLP+/SJxsbbv7zPqRKmlJJTq3t390zXjIo=;
-	b=DiO/lDJgMjPJyVqqQ7Rv57VWNsZklxqSW4tT12FCtSoDm8WzmL3LiE3ldx7MzTFQlsduCqkzEP66WRPDjBnMaW5kQdLTEM+yW1RprxdRYlzR3APYJUXgl0z82E8iPtjR0RWGWt9y5feKZc66OLhIcMpT/nk6tRfzKzXZPIgj1zA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:fd3c69c6-ed0f-4e72-a666-22f887588fe1,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:6fc364e0-cf51-4058-942d-ef4f058f9afa,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 99a0aed6276711f19e7563141e833ce8-20260324
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 45608650; Tue, 24 Mar 2026 02:55:33 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 24 Mar 2026 17:55:30 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 24 Mar 2026 17:55:30 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
-Subject: [PATCH v4 2/3] dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible string
-Date: Tue, 24 Mar 2026 17:54:54 +0800
-Message-ID: <20260324095455.1437-3-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260324095455.1437-1-jianhua.lin@mediatek.com>
-References: <20260324095455.1437-1-jianhua.lin@mediatek.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=CC9seZVTC2RW0MreCmcdPM1JK1NcNqisbM0P3bcEO7M=; b=V9HFGZIwXhX0lVW3TSfLksqntF
+	vcxTz9rb1xM2auAXVE6r9/NNE23+bgN623DCtp1iMLnMy8P6Kkm4dvm+CwIHBRqJ5zuSFVWv/NbYA
+	xOq+Z9rP7SlQYVH5AZzxK98bdxJfEQpiivFOgxQy+0s9E879Vj/USOPnanNMTgBq+aVlqmxsKuc/U
+	sXSLc8NcWyu0PR9fywT2kxLMtLgti8D352gId+/2aOZkTwkpY5CGmpLmDFdRGK26iGWFNkxBQa68E
+	N44morvIoZu6BSFOJYvxTmD25iLxpRvL9qWBqFrR9OVnxysXSahMiFlXJZFaYA3+fX77f3vOjIXWw
+	LApfP4Qw==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4yUG-0000000DoJE-3l66
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 09:55:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w4yUG-0000CX-3N; Tue, 24 Mar 2026 10:55:48 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w4yUF-001sMU-2w;
+	Tue, 24 Mar 2026 10:55:47 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w4yUF-000000003T0-3Zm9;
+	Tue, 24 Mar 2026 10:55:47 +0100
+Message-ID: <39b18202a275168eb4344a2515f7c18723eaf8b0.camel@pengutronix.de>
+Subject: Re: [GIT PULL] Reset controller fixes for v7.0, part 2
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de
+Date: Tue, 24 Mar 2026 10:55:47 +0100
+In-Reply-To: <20260324094255.3538772-1-p.zabel@pengutronix.de>
+References: <20260324094255.3538772-1-p.zabel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_095550_127087_24237EDB 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_095548_958637_BCE17D41 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the JPEG encoder block found in the
-MediaTek MT8189 SoC.
+On Di, 2026-03-24 at 10:42 +0100, Philipp Zabel wrote:
+> Dear arm-soc maintainers,
+>=20
+> The following changes since commit e0cf84109bc6c6768337123f1de24ff56b41c9=
+1b:
+>=20
+>   reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it (2026-0=
+2-23 17:03:28 +0100)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-=
+2
+>=20
+> for you to fetch changes up to a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
+>=20
+>   reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:4=
+7 +0100)
+>=20
+> ----------------------------------------------------------------
+> Reset controller fixes for v7.0, part 2
+>=20
+> * Decouple spacemit K3 reset lines that were incorrectly coupled
+>   together as one, but are in fact separate resets in hardware.
 
-Unlike some previous SoCs, the MT8189 JPEG encoder requires 34-bit IOVA
-address space support. Therefore, it is added as a standalone compatible
-string without falling back to the generic "mediatek,mtk-jpgenc" to
-ensure the driver applies the correct hardware-specific configurations.
+It is important that this makes v7.0, as it fixes an incorrect binding
+that has not been part of a release and which has no users yet.
 
-Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
----
- .../bindings/media/mediatek-jpeg-encoder.yaml | 20 ++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+> * Fix a double free in the reset_add_gpio_aux_device() error path.
+>   This has already been fixed on reset/next by commit a9b95ce36de4
+>   ("reset: gpio: add a devlink between reset-gpio and its consumer").
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-index 5b15f8977f67..476b7122d3fc 100644
---- a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-@@ -14,13 +14,15 @@ description: |-
- 
- properties:
-   compatible:
--    items:
--      - enum:
--          - mediatek,mt2701-jpgenc
--          - mediatek,mt8183-jpgenc
--          - mediatek,mt8186-jpgenc
--          - mediatek,mt8188-jpgenc
--      - const: mediatek,mtk-jpgenc
-+    oneOf:
-+      - items:
-+          - enum:
-+              - mediatek,mt2701-jpgenc
-+              - mediatek,mt8183-jpgenc
-+              - mediatek,mt8186-jpgenc
-+              - mediatek,mt8188-jpgenc
-+          - const: mediatek,mtk-jpgenc
-+      - const: mediatek,mt8189-jpgenc
-   reg:
-     maxItems: 1
- 
-@@ -34,6 +36,10 @@ properties:
-     items:
-       - const: jpgenc
- 
-+  mediatek,larb:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: a phandle to the smi_larb node.
-+
-   power-domains:
-     maxItems: 1
- 
--- 
-2.46.0
+Because of this, commit fbffb8c7c7bb ("reset: gpio: fix double free in
+reset_add_gpio_aux_device() error path") introduces a merge conflict
+with reset/next:
 
+  https://lore.kernel.org/all/acFRVzvV9Dww47v_@sirena.org.uk/
+
+Should I resolve this myself by merging this tag in to reset/next as
+well, before submitting reset updates for v7.1?
+
+regards
+Philipp
 
