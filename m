@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C847F532C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924EBF532C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Wi1e8pFKZQtE5ZobXRDfaYjf6ZMx2oDA5/pfPnLM9I=; b=jYPMze/XDjGRfyJ71IBeOu9cZA
-	m9+nhNEnSsZiAh50Rh1jG5s23EpGFF5xilGvTxT2+9T19pRO5Jd0VR4tkG8+BjRR3NSd9fo5geDGC
-	rNuZ+HQhSz4mWs302Y9yeNW8xE0UsepITEEpjuK5V9si1iwfA6dlqJPAivJpd9B7w+PLYXC1apY3x
-	fpEqHIYhBKbdh6BQh8Zk7AdnlhGTAksYm9CuLSslXNi1QwmbNEGUj6qssHXjV89t3p3/HF3UJ5nKE
-	Ilg1MEj5ARa3L8hxb52o4QhmxN9CVmFLYyKv5iGVEtVHitSGXuDRIjQnhkmoJfoh4I9D92EKTjx88
-	rcui+eKw==;
+	bh=Z8YakcAdwU0yPK3Lv25d+UExTvV5PN99MFkItEin5gg=; b=OBYaoFCv81hMNA27H0ZfSDFs33
+	ebs4QgJGgnIgMTPj8w81fEUSxYUK27bKOwPRFGB34Wv09+P06GuQLr52o5fDF/rUaMOyRjgs2SFZl
+	DZclkUQBtPSNVQ5It/ziKFD5m2a85T9S8f+NMxiQzRfS+6VUDOHLZkDdi6glX3k1qQRHzfA8mL2wG
+	VHJ8F8rQF4oRUPvM/qOmnsLvKyNIOXFNCopRUhQiI7DOkIFP+/aAfB2UPulPpueyTc0H0tV0E7abS
+	1cFAki0B/h+FQgrlwxuRblwz6qq54TDfnFB6QJYMvDi0rM/0osO52BTCy73YhAoiPtPzzqPsGsTLK
+	I0Qi/9Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pyQ-00000000GNJ-3vnC;
-	Tue, 24 Mar 2026 00:50:22 +0000
+	id 1w4q0N-00000000Gg7-2V4t;
+	Tue, 24 Mar 2026 00:52:23 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4pyO-00000000GMn-3e0S;
-	Tue, 24 Mar 2026 00:50:22 +0000
+	id 1w4q0K-00000000GfY-2xe3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 00:52:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 35FAE44504;
-	Tue, 24 Mar 2026 00:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14178C2BCB3;
-	Tue, 24 Mar 2026 00:50:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 697D641884;
+	Tue, 24 Mar 2026 00:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD8EC4CEF7;
+	Tue, 24 Mar 2026 00:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774313420;
-	bh=JKi37m02ysGGaDX22rah6C5f382uv4n68JZXkVg1/pw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=EA1lPRk7femanXt0GavT4f4tPdaMa2ueHPgOVGMETEsdhpOojt20I3hrOri+XQedb
-	 4K3UB+rQ3tDaxkHAe7Rv5nY70rL+aPqNR2IpSr82CgVpKNd3NgjAoCpyoiBx+zHhFh
-	 A7DEfb/50zGe8OdpPck6Cp8clL8q2WnVmc4ht4RZwtT5nhl3q1nti85kI7X+i6lPdm
-	 LXSBBpAsurBm/L8aQueHdae8FRc0uYQOk3tnJ4qq8SfLz8IXouTAjPIrILjofv37uF
-	 9JZNehWFeJF/ndP2kZK9XMf4c1Hqx56/dSw7egIV8ezieQKCjXFZWAiEWTjmnv44BX
-	 GVVTHo79shKdw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7D04F3808200;
-	Tue, 24 Mar 2026 00:50:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1774313540;
+	bh=Kqmy4ocV2M8B5x1XI7enz01J/VpFK+natm8DU5YZOlI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=PmMIM0A4qRK4cY1IJyrhbdXl3FSsQlbXlcnBc8HmDANbnFZIerfm32VeeChZ2uWzg
+	 CVICPqxYUtc/p6uASO0kjeJptOM2eTMa+PQ7fY4q3O+ZA4fHAFjQ/+eK7ZiUt7p1a+
+	 03Lgy53SRCRXIsLOxf7Dssq45/rWr9wnMGFDuaQq9OTy01oFc9g8M39t8m8IFVmS+t
+	 6/9RjXPtckhONLewjMM2IRtG5PWrc0nX92PFiyIsVU/RXbVdG42Omxblgx6s/xukHX
+	 0HpEwrYhVVyEPeLR0gVx7yuecTYWQRqQch0v+5kNRSvApdpKzKPleaFeiJckBFv2vI
+	 0XhX8UFnwOsQw==
+From: Mark Brown <broonie@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ linux-sound@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chen-Yu Tsai <wens@kernel.org>
+In-Reply-To: <20260323172450.1259111-1-wens@kernel.org>
+References: <20260323172450.1259111-1-wens@kernel.org>
+Subject: Re: [PATCH] ASoC: sun4i-spdif: Make reset control non-optional and
+ check for all errors
+Message-Id: <177431115354.811880.16400372395326630860.b4-ty@b4>
+Date: Tue, 24 Mar 2026 00:12:33 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: airoha: add RCU lock around
- dev_fill_forward_path
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177431340803.395707.9019086790298315376.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Mar 2026 00:50:08 +0000
-References: <20260320094315.525126-1-dqfext@gmail.com>
-In-Reply-To: <20260320094315.525126-1-dqfext@gmail.com>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, pablo@netfilter.org,
- horms@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev-17187
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1168; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Kqmy4ocV2M8B5x1XI7enz01J/VpFK+natm8DU5YZOlI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpweBBH64WLacTjdO9ia+cqGaz97h1TIMLdZRvY
+ KUpltXD9WWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacHgQQAKCRAk1otyXVSH
+ 0HCbB/9SwEMe57/ws+kT/TSrY5Ar0bpNt/qWmRo7Nrip21CVEbhEXL9zv2CfEdKgeI9EpMFaQw9
+ 7hjeXTeEo0bAXFaQu2a+jeVFIeCQZlADacEmuxbM6yxZ3tVM8/zXV+8XXFiZfFIW7QeOQyywFET
+ 1sjHvUSClBb63ClQQUkxjM1dOsABERU/na9MsatZEi7azN7PcOvNWmbZxPsmr1bJBo3BP9763H0
+ L2IOJR7PjTQ0LwComIhIQiPOWPWhwT35IHBzOMIvudXIdRdnmwyV1WfezDGacvLGreyNMEwvCEu
+ YMyUYIVD0inA+MmCODLj+Hd1CHXpm3TS1jMZ720ANiha0jdo
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_175020_933315_06CCC399 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20260323_175220_767798_5B6BBBD8 
+X-CRM114-Status: UNSURE (   9.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,30 +89,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Tue, 24 Mar 2026 01:24:48 +0800, Chen-Yu Tsai wrote:
+> ASoC: sun4i-spdif: Make reset control non-optional and check for all errors
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Applied to
 
-On Fri, 20 Mar 2026 17:43:15 +0800 you wrote:
-> Since 0417adf367a0 ("ppp: fix race conditions in ppp_fill_forward_path")
-> dev_fill_forward_path() should be called with RCU read lock held. This
-> fix was applied to net, while the Airoha flowtable commit was applied to
-> net-next, so it hadn't been an issue until net was merged into net-next.
-> 
-> Fixes: a8bdd935d1dd ("net: airoha: Add wlan flowtable TX offload")
-> Signed-off-by: Qingfang Deng <dqfext@gmail.com>
-> 
-> [...]
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
 
-Here is the summary with links:
-  - [net,v2] net: airoha: add RCU lock around dev_fill_forward_path
-    https://git.kernel.org/netdev/net/c/1065913dedfd
+Thanks!
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+[1/1] ASoC: sun4i-spdif: Make reset control non-optional and check for all errors
+      https://git.kernel.org/broonie/sound/c/51b0909d0bc4
 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
