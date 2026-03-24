@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDE7E9A745
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82F6E9A744
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8KntcjXhStth25cptnDw+Tp7ncmtoHLEvhFMwBdb0o=; b=Z/ODNttgo5HHdOY6HlZN8FV7w1
-	0jebbGwZAv0e6/8wDLUDSv2xC47bEls2EKrQkmQWehwZP9kGT9wfzIEJVOOttj8PKiydrE9Wl5A4B
-	6H0hhXHMcx5KtxCNyGQeZ4geLOiy0cpN5RghuJmN52ZW75n6tl/QOr9UW8vlCNdLwQ8pvg/YdElEm
-	LltFMO+UeCJDwDv/1CX0fnljVSyrfGNxX64HEX4eYbdarpWHJQxGXZ60A/2ldj9Tb/QKUs31q9Z8T
-	jyI0LGKvpVJMwPuX/wb+YgT1tP/Y2l2W28qXYgJAE+mKUqdrZ8X//Di+Ba9ybNH3ZWmTUuj4RfkJU
-	o9j3f0zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XijWvmr2G4/VSAMzAQPTLjRdqgm3qgu6QZB5IohDwQI=; b=NOreylcT7ScP2bhwSBEhxbL377
+	RFgS01dPqw+YzdQW3a0gKORE7p1zi1U68Txjg3DKAw5CvbYmPVKMUa/37MSphO4I8CYWZRl+4F91o
+	BOr5r0HRfURciQUwXlErXLYzKMgiJzMyr5C9o9dnQb692sJ2Z6E+LRRgWQt6imIgGRm4g6qL/Lh79
+	kWvqd8t/MYbV2agh6DpDssRVK1an6AF4/ovgDCB8Sk8XB3KEgBcbkHPwXXGDAQMtw1OLn4AJxRoZa
+	UxohljoL0+zh8kyweep804HnC4Efv/nBy50DW6A8JHiZfVQFzEhv8Wpy43bN0EB/N65zjVwU7vYAZ
+	MDmjT4mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xwY-000000014yv-1Vu3;
-	Tue, 24 Mar 2026 09:20:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w4xx6-0000000154S-2kBF;
+	Tue, 24 Mar 2026 09:21:32 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xwU-000000014ya-3iE7
+	id 1w4xx3-0000000152i-2pmG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 09:20:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACDB644264;
-	Tue, 24 Mar 2026 09:20:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0545AC2BC9E;
-	Tue, 24 Mar 2026 09:20:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774344053;
-	bh=w5xTSyD9au6QJlfLkBDAjSdfDSrRJuHsjffbvMb4zBU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Gu61lEDKm40+ng6AZkyQBKS7A9c0sXDbweFMh5nr6rZvZKFGJ21wuj2BXaPEtBGU/
-	 Jyy7GgOl0QkcpPbczyutOluHQhpxFu5Kdt9J0Z1irM6QKTE6bBVuphxT7OSK8F57ey
-	 jdlJb0V7WgCorzL4CmcwKQv55yn9aREJmxaQKF/Re2KgywZWOGNA7cqWDLB/KGCPo8
-	 IYC1bc0Q0zycrBiZhthQiH8QJdieLraP2U3IFr1KNB1iWh1nDauJ6hr8lZrqkS1AM+
-	 ti/55+iKO8FmQ8VIpqfSw6hrxqTYYzPEMsWiVnQ1VZny5ktdKJzSF9InmfOWyfDa4w
-	 RJaa8rGQE2j3A==
-Date: Tue, 24 Mar 2026 10:20:51 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: nick.hawkins@hpe.com
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jean-Marie Verdun <verdun@hpe.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] arm64: dts: hpe: Add HPE GSC SoC and DL340 Gen12
- board DTS
-Message-ID: <20260324-valiant-copperhead-of-psychology-fe202e@quoll>
-References: <20260323194223.683487-1-nick.hawkins@hpe.com>
- <20260323194223.683487-4-nick.hawkins@hpe.com>
+	Tue, 24 Mar 2026 09:21:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id D64BE4E427C5;
+	Tue, 24 Mar 2026 09:21:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9439C6011D;
+	Tue, 24 Mar 2026 09:21:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BED0610450A18;
+	Tue, 24 Mar 2026 10:21:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1774344079; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=XijWvmr2G4/VSAMzAQPTLjRdqgm3qgu6QZB5IohDwQI=;
+	b=VzyXjdRBB14XeFJ4BD1hGxlYC8ZBdMbt1OFR4Bu4zRp8XrdeeoLebzetzQJZQLdvaOVhWZ
+	g0ZsM4r+0lrk8kIRI3iMaeupBBI/e3dRgx2xtmJDuyAcEZWab7WL9ElWCD+qaUGhsn5Wlx
+	m30E8TpAYU2cThJhur+u9TUedmFddFoQ7P0Oz5IlqKCQGXvbOh6sq6n2hLJzutVswiZ/QU
+	OUoo14Rab1A7/f+3n05Ik0uDOWcfHRQ2dKz79OOl9jRgUYqRSh/ZjOvsW0bTEXWAJObG/S
+	WNGWRQ/ml+L+ZMHQktcmrcPkGTopJrERcrRQ5biLv5jP6zlEUSwbvPWNwHej1A==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Mun Yew Tham <mun.yew.tham@altera.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH net-next 0/5] net: stmmac: dwmac-socfpga: Cleanup .fix_mac_speed
+Date: Tue, 24 Mar 2026 10:20:55 +0100
+Message-ID: <20260324092102.687082-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260323194223.683487-4-nick.hawkins@hpe.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_022054_987106_59D2183D 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20260324_022129_972263_F7145A55 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,159 +87,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 02:42:23PM -0500, nick.hawkins@hpe.com wrote:
-> From: Nick Hawkins <nick.hawkins@hpe.com>
-> 
-> Add SoC-level DTSI for the HPE GSC ARM64 BMC SoC, covering the CPU
-> cluster, GIC v3 interrupt controller, ARM64 generic timer, and console
-> UART.
-> 
-> Add the board-level DTS for the HPE DL340 Gen12, which includes
-> gsc.dtsi and adds memory and chosen nodes.
-> 
-> Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
-> ---
->  arch/arm64/boot/dts/hpe/Makefile           |   2 +
->  arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts |  18 ++++
->  arch/arm64/boot/dts/hpe/gsc.dtsi           | 106 +++++++++++++++++++++
->  3 files changed, 126 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/hpe/Makefile
->  create mode 100644 arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts
->  create mode 100644 arch/arm64/boot/dts/hpe/gsc.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/hpe/Makefile b/arch/arm64/boot/dts/hpe/Makefile
-> new file mode 100644
-> index 000000000000..804f7c54e9b6
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/hpe/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +dtb-$(CONFIG_ARCH_HPE_GSC) += gsc-dl340gen12.dtb
-> diff --git a/arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts b/arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts
-> new file mode 100644
-> index 000000000000..42cfeac99029
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts
-> @@ -0,0 +1,18 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/dts-v1/;
-> +
-> +#include "gsc.dtsi"
-> +
-> +/ {
-> +	compatible = "hpe,gsc-dl340gen12", "hpe,gsc";
-> +	model = "HPE ProLiant DL340 Gen12";
-> +
-> +	chosen {
-> +		stdout-path = &uartc;
-> +	};
-> +
-> +	memory@0 {
-> +		device_type = "memory";
-> +		reg = <0x00000000 0x40000000>;
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/hpe/gsc.dtsi b/arch/arm64/boot/dts/hpe/gsc.dtsi
-> new file mode 100644
-> index 000000000000..3433c4a18512
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/hpe/gsc.dtsi
-> @@ -0,0 +1,106 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Device Tree file for HPE GSC
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	#address-cells = <1>;
-> +	#size-cells = <1>;
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		cpu@0 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0 0xa0008048>;
-> +		};
-> +
-> +		cpu@1 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <1>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0 0xa0008048>;
-> +		};
-> +	};
-> +
-> +	clocks {
+Hi everyone,
 
-Drop node
+This small series does a bit of cleanup in the dwmad-socfpga glue
+driver, especially around the .fix_mac_speed() operation.
 
-> +		osc: osc {
+It's mostly about re-using existing helpers from the glue driver, as
+well as reorganizing the code to make the local private structures a
+little bit smaller.
 
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
+No functionnal changes are intended, this was tested on cyclone V.
 
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-output-names = "osc";
-> +			clock-frequency = <33333333>;
-> +		};
-> +	};
-> +
-> +	timer {
+Maxime Chevallier (5):
+  net: stmmac: dwmac-socfpga: Move internal helpers
+  net: stmmac: dwmac-socfpga: Use the socfpga_sgmii_config() helper
+  net: stmmac: dwmac-socfpga: Use the correct type for interface modes
+  net: stmmac: dwmac-socfpga: get the phy_mode with the dedicated helper
+  net: stmmac: dwmac-sofcpga: Drop the struct device reference
 
-Any particular reason not to follow DTS coding style for ordering nodes?
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 58 +++++++++----------
+ 1 file changed, 28 insertions(+), 30 deletions(-)
 
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +		interrupt-parent = <&gic>;
-> +	};
-> +
-> +	ahb: ahb@80000000 {
-
-Convention is rather soc@
-
-> +		compatible = "simple-bus";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		reg = <0x80000000 0x80000000>;
-> +		ranges;
-> +
-> +		gic: gic@ce000000 {
-> +			compatible = "arm,gic-v3";
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <0>;
-> +			interrupt-controller;
-> +			redistributor-stride = <0x0 0x20000>;
-> +			#redistributor-regions = <1>;
-> +			reg = <0xce000000 0x10000>,
-> +			      <0xce060000 0x40000>,
-> +			      <0xce200000 0x40000>;
-
-Same question - any reason to deviate from DTS coding style?
-
-> +		};
-> +
-> +		uartc: serial@c00000f0 {
-> +			compatible = "ns16550a";
-> +			reg = <0xc00000f0 0x8>;
-> +			interrupts = <0 19 4>;
-
-Use proper defines.
-
-Best regards,
-Krzysztof
+-- 
+2.49.0
 
 
