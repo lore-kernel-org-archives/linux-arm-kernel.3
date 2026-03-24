@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3B8F532EE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DF1F532EC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ik3Jyx2LrSAg/CobTwJRnMqo4DXjnZ0q1tRWsxKLlXQ=; b=GTlViPhVHsdscykB//z6tmGesM
-	9gtWlZuILcio5DXsBLNr5gVbMSt3qVlJwtT0q9igcUxCzJzdWvR3zRLrcx1LyUkG7Q0Op6QOc7h6I
-	/Fk15Qu6GPzCtddCW2e59VENnLJHtub0A7oBEdEmIbH1GjkxQlG8fEOQk2rkMOjel+2eqYOQKzYqh
-	wkeuClprxFOO0Z6f6fOId4lWBR+lExSYDoIr71IJ90QGpycsF15OsxZJWc1NjGiQypNwWVocCBURq
-	+gt3AOIszf0VZJ5YUPiFji0MHlT2q5v8yLWFOfOGSILuAaZ8TvZuCMe2dei696NBNkaX62XLWEo5G
-	WV85YbIw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QzIgL+DwwCHW/uEsITterMybOfOcr13lBNdLeAN/Dfs=; b=Ckb0adGVlDQdMfMOtfMy5vCbE8
+	FpDfVIzrrdT06m0Ck4Ktvl+G+lsZh1P03+7RZkXWWmmAjOtm5/1KGmep29TmbFH1r/g12HE+Dx6io
+	/zWARKaJDMt8bedC+ILU7T02z+Wq/MbL1i6Jor4KcBLG50677iZ5xWHaJh4X6V3ahJzBaPYokeXeg
+	7RIx7k15LBLFwYGBUz81Qxreb31oy1fRO9GRbw4pb6J0zqUPVpOOFXtoYT9ODiWnuDGarKTMU9IlR
+	NgEF9tZiMTAacN7f98ILNTDTYqERGGmqSONQBqBGcvmrvrUZ7ckvcIf+zQiULTBBR9/cqo9+xYVa/
+	QdyfwHew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wp3-00000000xOk-1JPd;
+	id 1w4wp3-00000000xOT-04fb;
 	Tue, 24 Mar 2026 08:09:09 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wox-00000000xNi-3frb
+	id 1w4wox-00000000xNj-3ifQ
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 24 Mar 2026 08:09:07 +0000
 Received: from localhost.localdomain (unknown [111.196.245.197])
-	by APP-01 (Coremail) with SMTP id qwCowAAXv2qYRsJpsM77Cg--.28498S2;
+	by APP-01 (Coremail) with SMTP id qwCowADnj2uYRsJpr877Cg--.1755S2;
 	Tue, 24 Mar 2026 16:08:56 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+To: mripard@kernel.org
+Cc: paulk@sys-base.io,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	nicolas.dufresne@collabora.com,
 	linux-media@vger.kernel.org,
 	linux-staging@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: cedrus: validate H.264 reference list indices
+	linux-kernel@vger.kernel.org,
+	pengpeng@iscas.ac.cn
+Subject: [PATCH] media: cedrus: skip invalid H.264 reference list entries
 Date: Tue, 24 Mar 2026 16:08:56 +0800
-Message-ID: <20260324080856.56776-1-pengpeng@iscas.ac.cn>
+Message-ID: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260324020431.1800-1-pengpeng@iscas.ac.cn>
-References: <20260324020431.1800-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAAXv2qYRsJpsM77Cg--.28498S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYP7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_JrI_Jryl8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87
-	Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE
-	6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72
-	CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7
-	M4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxAqzxv26xkF7I0En4kS14
-	v26r1q6r43MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2Iq
-	xVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42
-	IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY
-	6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aV
-	CY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjsmR7UUUUU==
+X-CM-TRANSID: qwCowADnj2uYRsJpr877Cg--.1755S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFWrZF43AFyUGw4xtFWxtFb_yoW8Gry5pF
+	4jgw12ya1DJF45GF47AF40vFyYgas5ZrWfCry5K3WxZF15uF1xuFnY9348Xrs8Za98C3ya
+	yF1ag345Xa1DA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjfUOlkVUUUUU
 X-Originating-IP: [111.196.245.197]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_010904_297295_BE61ACF2 
-X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-CacheID: sfid-20260324_010904_302406_E83CB507 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,17 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jernej,
+Cedrus consumes H.264 ref_pic_list0/ref_pic_list1 entries from the
+stateless slice control and later uses their indices to look up
+decode->dpb[] in _cedrus_write_ref_list().
 
-Thanks, that makes sense.
+Rejecting such controls in cedrus_try_ctrl() would break existing
+userspace, since stateless H.264 reference lists may legitimately carry
+out-of-range indices for missing references. Instead, guard the actual
+DPB lookup in Cedrus and skip entries whose indices do not fit the fixed
+V4L2_H264_NUM_DPB_ENTRIES array.
 
-You're right that rejecting the H.264 slice control in cedrus_try_ctrl()
-would have the same userspace compatibility problem as the HEVC case.
-I'll drop that approach and respin this as a separate Cedrus patch that
-skips out-of-range reference list indices at the point where
-_cedrus_write_ref_list() resolves them into decode->dpb[] entries.
+This keeps the fix local to the driver use site and avoids out-of-bounds
+reads from malformed or unsupported reference list entries.
 
-Best regards,
-Pengpeng
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+@@ -210,6 +210,9 @@ static void _cedrus_write_ref_list(struct cedrus_ctx *ctx,
+ 		u8 dpb_idx;
+ 
+ 		dpb_idx = ref_list[i].index;
++		if (dpb_idx >= V4L2_H264_NUM_DPB_ENTRIES)
++			continue;
++
+ 		dpb = &decode->dpb[dpb_idx];
+ 
+ 		if (!(dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
+-- 
+2.50.1
 
 
