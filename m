@@ -4,81 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2703AD58CCA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9021AE9A779
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtKHd2SK7B4wyl7fD3EfC+POgv4KjIs912NFwqGhE4E=; b=Pu+2cV9gtyXMzRp16jp4QZEFbo
-	tcgyHJdGncJEDL0yxwmGqaA23itE1C+Wt/u5LvkxFgoMs0s0imfohPB88rmGc54WY9FHK+SaS6y3X
-	+bleHlwbHnuLmNyIwNHYmoPb0/TxY6EXHGxc5Re+HapMeDgbXL0QV+hIu7beZI7WfZOo4dHjheO1J
-	pHXbsVuAv3x3ngyVdVpdTnRNrZfcbeHsqb7fiXipbmRAFsAznbsfv1wZ/1gZLJ6/ZHWWZxRstXR+t
-	1xx1M3DtHugCoHowBedoqWY3+X+Oa7H+XfE0PcyPGg0A75ciOHhzJ7LK9UCgx2YN0Hs4jX1WgrUko
-	ctc+KkoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aEyWLsxUnv16fVn1qAH/eUFUs/AcVWxtq7yyiPqazFE=; b=SFs3CLHfJhVkV9pEEBfSZWoPR7
+	TCQrPADUY50mgvrq7mjZQ+y69gLuSDh/6KDmjH1DCeMOw58BqfAidF3MITTGqWD36VYzBBRBpxKko
+	5PPp8OfFctgMkxDKvkBBU1Hu/QUhqkd8JBgqz+Uqn2Hc7AEF0zsOrakC84yR7uun6Qs1X2TZWCUaW
+	ASr2dCUNpxANnCmFqKOqfGCTKqPdrw2eymrMGLYIadd0tB8XrTdhJ9IdSFL06K1sx70w/Z51ARVam
+	NgBio6xJWf6yrB2IG9FqvmBeTUIlEVAoEJMu0LXHUaMPawQJrIT0X+/d6IKCwunTymBVrPTj4eOrD
+	h4oTwLBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51Go-00000001RvH-222q;
-	Tue, 24 Mar 2026 12:54:06 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w51Gv-00000001S18-1tMY;
+	Tue, 24 Mar 2026 12:54:13 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w51GY-00000001RiH-0LGc;
-	Tue, 24 Mar 2026 12:53:52 +0000
-X-UUID: 7f0a3f10278011f1a6de359d7043e138-20260324
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=NtKHd2SK7B4wyl7fD3EfC+POgv4KjIs912NFwqGhE4E=;
-	b=Oiyxt31v2ZSC8ME395UsOhWLxh3qz/Ie57Fs5gRKOwx3X3Ps92hGsgSI1XDvxZTcAoKg1PQPZ5rOUMK64RtiEvv9UXf5VmRFZdusrM0Hs9c9u+7frpYjhwHDnUeYybywmNkkEu3sFVlD+tz6MI9NQaubIXAcXCRwyQjWksice0A=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:8d4c5e4c-300c-460a-89fa-c0f5332f1cab,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:5c2c14d5-060f-4ecc-9ee0-121eeeb4a682,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7f0a3f10278011f1a6de359d7043e138-20260324
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <jay.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 39154585; Tue, 24 Mar 2026 05:53:46 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 24 Mar 2026 20:53:43 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 24 Mar 2026 20:53:42 +0800
-From: Jay Liu <jay.liu@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Jay Liu <jay.liu@mediatek.com>, CK Hu
-	<ck.hu@mediatek.com>
-Subject: [PATCH v4 6/6] drm/mediatek: Add TDSHP component support for MT8196
-Date: Tue, 24 Mar 2026 20:52:03 +0800
-Message-ID: <20260324125315.4715-7-jay.liu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260324125315.4715-1-jay.liu@mediatek.com>
-References: <20260324125315.4715-1-jay.liu@mediatek.com>
+	id 1w51Gq-00000001RwT-3Eni
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 12:54:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=srncULUB1xYKz4NA60VFx2Lm0AhWHe01Xh5jFwf9fQteHBIjFDqgS7ivjVEBizurKpsLEtXN0lOTHk1Q5oAj8S033ko9VweSSQLll4FjAwOjSGzONxZLAAozLL7aUaqsJ3bL932YSTcT4SfhflhK04LrFHYsm/HRYlllZZlLAsDZaKeNEYBdyRlM6ewAbfg1h84+Hwxp9q72DTqWCzgz0geofiSlhcFnJPImLteIgPBM945DEGONk8aCcj7G4/dKA4n872snZsLeIpXyb75HaZOpWbe+KW1dN52NQFE3sGUcHl/v7bF+HLQyuGRcAXrc7G916m67iYai0KiMaOqPqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aEyWLsxUnv16fVn1qAH/eUFUs/AcVWxtq7yyiPqazFE=;
+ b=GaK/8DmKZRb9Q70bxs3LBW64U6VzDZ3sAM7ogryYGbUV2bMofgYw8RCGa1tp9o2fEBxk4Mu/N03hUrx6EraL095vOS7PHmhlCFifUeJqO0eh1o/wTCbDg52v73mxIE4DcLlcpQx8BIC2mlOekeU8PuryCjGkbFurySBSf/ZFJAYXl+6oxskTK+CclpNtJsFOKaDdav0j8q6U284eAaEH0PNxvMzqbebbKwFBLTIII5s3K+U7rr5ddJV1QKZtdQ8ouzDRSAQDBB7Ke176uth9WOVZP93bSVLkiVqOSylHLUEcchRT7Y0IfNXC3phaV1saMK40OWJWFVf4MleDp7Jpwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aEyWLsxUnv16fVn1qAH/eUFUs/AcVWxtq7yyiPqazFE=;
+ b=EvDP9yTbnMiskuC7fb/jPAQhQlmPZ26HILwflo/rvKElR1huhEe8VGBQtkE9I4uEYOzBUGUYAiF1NB7rlIaTn5893cgTqp3TiiCe6LlNa0IR4m30ey1ZI3of8RydOME0AXC4RMMTNdsxwDwrDDCkYq7jvZKFgkS4gRLqR/egNgoM6T4Eoppdb5hhCznqEA2qTRJaebSTAFmYz3nso9pgGZKXZDY29z5TUn2oqgMAfAU6rd3cVxpQUKieCM8naOejMtqzraou6dYqpuEB6M2fSh2pM9eVipfDnQA9AIm66+ehAiEYIcWsdUG/wXtP4/3azO1bIjq0uuFfbcPvUz7Tbw==
+Received: from AS4P190CA0021.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d0::6)
+ by AS8PR10MB7020.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5a7::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
+ 2026 12:54:04 +0000
+Received: from AMS0EPF00000191.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d0:cafe::cc) by AS4P190CA0021.outlook.office365.com
+ (2603:10a6:20b:5d0::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
+ 24 Mar 2026 12:54:01 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS0EPF00000191.mail.protection.outlook.com (10.167.16.216) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 12:54:03 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 24 Mar
+ 2026 13:56:40 +0100
+Received: from [10.252.4.165] (10.252.4.165) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 24 Mar
+ 2026 13:54:02 +0100
+Message-ID: <dff3148a-d4a1-4ad0-baa6-50e4a1ee5c1a@foss.st.com>
+Date: Tue, 24 Mar 2026 13:54:00 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: dt-bindings: stm32: Fix incorrect compatible string
+ in stm32h7-sai match
+To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>, <arnaud.pouliquen@foss.st.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+CC: <lgirdwood@gmail.com>, <broonie@kernel.org>, <krzk+dt@kernel.org>,
+	<robh@kernel.org>, <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-sound@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
+Content-Language: en-US
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <20260321012011.125791-1-jihed.chaibi.dev@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.4.165]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000191:EE_|AS8PR10MB7020:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18632f08-d888-4e7e-6e9e-08de89a46d8a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|1800799024|7053199007|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 5fA1cRttAZgSo9MR4iwzxWcUTKLK/TkqNXpxX+H2yF52YaDebS8zNKSULOrU3L8OcHaljvNNfdHQsqb6cOiSMQGML1pO6VFAyNp3+MTyT78wIGQoSfPDEbz6r3yDRgqXRn2O31qT1Vb7ihVJmJ+wk7dSiDNoHjJ2Q1bfOCbMvbbIfiY9A6adrfIxJZcH3ENotmW2eteHnMLcEigvhUG5BJNsu2BDcMWH8GXw7MQrexn+hs4m9yhpseGQ3W0EYktPvlzjs3FStpXQaaUS3OweaYHBT8iGbNJJj3kaeDMrQmT9Noye8sI9+PaGTLTfD+1nWCpNiYwl3LNxBPK62A0mLtt8uXnfzW941hIN4oi1Sxg+KmdY1wYqYtYS4H2L9XhLMy3qSNAioqVjEFBivX7SG+nkiJklSBq9rhAXd0c/vnRHGGqNMY89M4aRrG7Ndpf+06eKGq285HlQ9XXzyPkMZOaCD59ZdXp+P2et6MH4kumNHpyPPoRpQmxB/1Bi7KGV21oreFepgAYH0vTW4cJBNgHNyBIKBu25GDz8G05IEd86Mkq163ReW7JU+ZNOIBpdePjVVk7nKsH76NjuZc/XuXKnNvHZFayibxL9RHBRk8QO3NeQr1/QOa+zLCYqff2WPfJVm3Tv84SATJSxiwN7PupdwuLNjMRd7bTqeMaabTs2qw4aE2PMQ77i0McOXIJmo/H09gHKHf/5ypkn/sqG+m3UHGYB61B8JAeoAlrGp6MiWeLe2fom+eED51G34oZ+v/ChqiKYftWOHehqGjD5iw==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(1800799024)(7053199007)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 9UoHMs4PsInmiupmb+4jwOD2AI0e9TuLmuYrhL8Yl91RrehR1mqdRVkYF3wsew42o1PyeZwp+hQ8zB+yTpWZR09EUxmWoRVHrPGZ7VSLNgAVnWiEXyuiRi9fIx2tF7XYHfYlYr+mjySfXJ5Plo8lLTxn+3kb6ErlXPLV+6wLriYNysYpptlb6PRamoPwB9N8heTJ24aJ2vCukP2qltPF0WYzisxjZbTMrwgsyeq9Fm7ChniSEDw1BmvU1NuF5cQbzLzMvjXB5mSOc9brFh109wpXKRpuMb3AwTq0dBtfuUmK2d1oJpXvqQTkKypzqZ0x7x8b7W/0zkyVDfhYoqapVF2vLMHYcdYn8uRv8uZG4Uy1YbBVQPbikXPpt3Do5fpgy8Y9RPZVC6RBjmPMYhzwaVRfmOm5SnQIjAfiFSAOx42n7zUGRiR429gMbaPWO3D1
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 12:54:03.7762
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18632f08-d888-4e7e-6e9e-08de89a46d8a
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000191.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB7020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_055350_149193_A019719B 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260324_055408_833677_AD9CAD45 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,134 +130,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add TDSHP component support for MT8196.
-TDSHP is a hardware module designed to enhance the sharpness and
-clarity of displayed images by analyzing and improving edges and
-fine details in frames.
+Hi,
 
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Jay Liu <jay.liu@mediatek.com>
----
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c | 49 +++++++++++++++++++++++++
- drivers/gpu/drm/mediatek/mtk_ddp_comp.h |  1 +
- drivers/gpu/drm/mediatek/mtk_drm_drv.c  |  2 +
- 3 files changed, 52 insertions(+)
+On 3/21/26 02:20, Jihed Chaibi wrote:
+> The conditional block that defines clock constraints for the stm32h7-sai
+> variant references "st,stm32mph7-sai", which does not match any compatible
+> string in the enum. As a result, clock validation for the h7 variant is
+> silently skipped. Correct the compatible string to "st,stm32h7-sai".
+> 
+> Fixes: 8509bb1f11a1f ("ASoC: dt-bindings: add stm32mp25 support for sai")
+> Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
+> ---
+>   Documentation/devicetree/bindings/sound/st,stm32-sai.yaml | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml b/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml
+> index 4a7129d0b157..551edf39e766 100644
+> --- a/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml
+> +++ b/Documentation/devicetree/bindings/sound/st,stm32-sai.yaml
+> @@ -164,7 +164,7 @@ allOf:
+>         properties:
+>           compatible:
+>             contains:
+> -            const: st,stm32mph7-sai
+> +            const: st,stm32h7-sai
+>       then:
+>         properties:
+>           clocks:
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-index 5cbc4b995d66..bd2b288938bf 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-@@ -57,6 +57,14 @@
- #define POSTMASK_RELAY_MODE				BIT(0)
- #define DISP_REG_POSTMASK_SIZE			0x0030
- 
-+#define DISP_REG_TDSHP_CTRL			0x0100
-+#define DISP_TDSHP_CTRL_EN			BIT(0)
-+#define DISP_REG_TDSHP_CFG			0x0110
-+#define DISP_TDSHP_RELAY_MODE			BIT(0)
-+#define DISP_REG_TDSHP_INPUT_SIZE		0x0120
-+#define DISP_REG_TDSHP_OUTPUT_OFFSET		0x0124
-+#define DISP_REG_TDSHP_OUTPUT_SIZE		0x0128
-+
- #define DISP_REG_UFO_START			0x0000
- #define UFO_BYPASS				BIT(2)
- 
-@@ -261,6 +269,37 @@ static void mtk_postmask_stop(struct device *dev)
- 	writel_relaxed(0x0, priv->regs + DISP_REG_POSTMASK_EN);
- }
- 
-+static void mtk_disp_tdshp_config(struct device *dev, unsigned int w,
-+				  unsigned int h, unsigned int vrefresh,
-+				  unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
-+{
-+	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
-+
-+	mtk_ddp_write(cmdq_pkt, w << 16 | h, &priv->cmdq_reg, priv->regs,
-+		      DISP_REG_TDSHP_INPUT_SIZE);
-+	mtk_ddp_write(cmdq_pkt, w << 16 | h, &priv->cmdq_reg, priv->regs,
-+		      DISP_REG_TDSHP_OUTPUT_SIZE);
-+	mtk_ddp_write(cmdq_pkt, 0x0, &priv->cmdq_reg, priv->regs,
-+		      DISP_REG_TDSHP_OUTPUT_OFFSET);
-+
-+	mtk_ddp_write(cmdq_pkt, DISP_TDSHP_RELAY_MODE, &priv->cmdq_reg,
-+		      priv->regs, DISP_REG_TDSHP_CFG);
-+}
-+
-+static void mtk_disp_tdshp_start(struct device *dev)
-+{
-+	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
-+
-+	writel(DISP_TDSHP_CTRL_EN, priv->regs + DISP_REG_TDSHP_CTRL);
-+}
-+
-+static void mtk_disp_tdshp_stop(struct device *dev)
-+{
-+	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
-+
-+	writel(0, priv->regs + DISP_REG_TDSHP_CTRL);
-+}
-+
- static void mtk_ufoe_start(struct device *dev)
- {
- 	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
-@@ -268,6 +307,14 @@ static void mtk_ufoe_start(struct device *dev)
- 	writel(UFO_BYPASS, priv->regs + DISP_REG_UFO_START);
- }
- 
-+static const struct mtk_ddp_comp_funcs ddp_tdshp = {
-+	.clk_enable = mtk_ddp_clk_enable,
-+	.clk_disable = mtk_ddp_clk_disable,
-+	.config = mtk_disp_tdshp_config,
-+	.start = mtk_disp_tdshp_start,
-+	.stop = mtk_disp_tdshp_stop,
-+};
-+
- static const struct mtk_ddp_comp_funcs ddp_aal = {
- 	.clk_enable = mtk_aal_clk_enable,
- 	.clk_disable = mtk_aal_clk_disable,
-@@ -441,6 +488,7 @@ static const char * const mtk_ddp_comp_stem[MTK_DDP_COMP_TYPE_MAX] = {
- 	[MTK_DISP_POSTMASK] = "postmask",
- 	[MTK_DISP_PWM] = "pwm",
- 	[MTK_DISP_RDMA] = "rdma",
-+	[MTK_DISP_TDSHP] = "tdshp",
- 	[MTK_DISP_UFOE] = "ufoe",
- 	[MTK_DISP_WDMA] = "wdma",
- 	[MTK_DP_INTF] = "dp-intf",
-@@ -496,6 +544,7 @@ static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX]
- 	[DDP_COMPONENT_RDMA1]		= { MTK_DISP_RDMA,		1, &ddp_rdma },
- 	[DDP_COMPONENT_RDMA2]		= { MTK_DISP_RDMA,		2, &ddp_rdma },
- 	[DDP_COMPONENT_RDMA4]		= { MTK_DISP_RDMA,		4, &ddp_rdma },
-+	[DDP_COMPONENT_TDSHP0]		= { MTK_DISP_TDSHP,		0, &ddp_tdshp },
- 	[DDP_COMPONENT_UFOE]		= { MTK_DISP_UFOE,		0, &ddp_ufoe },
- 	[DDP_COMPONENT_WDMA0]		= { MTK_DISP_WDMA,		0, NULL },
- 	[DDP_COMPONENT_WDMA1]		= { MTK_DISP_WDMA,		1, NULL },
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-index 7244b55f6732..cf79b6f689d0 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-@@ -38,6 +38,7 @@ enum mtk_ddp_comp_type {
- 	MTK_DISP_POSTMASK,
- 	MTK_DISP_PWM,
- 	MTK_DISP_RDMA,
-+	MTK_DISP_TDSHP,
- 	MTK_DISP_UFOE,
- 	MTK_DISP_WDMA,
- 	MTK_DPI,
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index 6f6db2e1980e..3dd7d4bb7e41 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -789,6 +789,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
- 	  .data = (void *)MTK_DISP_RDMA },
- 	{ .compatible = "mediatek,mt8195-disp-rdma",
- 	  .data = (void *)MTK_DISP_RDMA },
-+	{ .compatible = "mediatek,mt8196-disp-tdshp",
-+	  .data = (void *)MTK_DISP_TDSHP },
- 	{ .compatible = "mediatek,mt8173-disp-ufoe",
- 	  .data = (void *)MTK_DISP_UFOE },
- 	{ .compatible = "mediatek,mt8173-disp-wdma",
--- 
-2.46.0
+Reviewed-by: Olivier Moysan <olivier.moysan@foss.st.com>
 
+Thanks
 
