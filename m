@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EA7F54AB8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73015F54AB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1nsFdToyntePBoXlyyG2xfzskpRJisEXojHx4jRWnz8=; b=hBKmTVKyVTx7BdDhid4G11NqZn
-	uv1BYfn1Ye5boSdm8j+we03SpnNEQceRe+LaSEc+mma5k4FED7dc2iKfIvErw//P2gIo1BFRrPQSK
-	409H0jZkRuYkQLkuC6LAICZsKhXNk23SCUwzcBK5QYMl4QgIP+doNp/rmlHJFTUEy2KdghopXCxWA
-	BaUSoJVk2m5MaekmPFmYQAn01+grCHTjaFxg/5bJjslzr/o4j8hO1Fnc5aUCaSqny/VVBuNsLcrJU
-	Ww4p4MCwLI3YLlnRVtYcoBCg/CYmiHNoILRsl2QOCVIYLSqoaydgaMHDfdskOiCF1SmuM6GJs9oEC
-	3tN/NX2A==;
+	bh=u1bVGdnYgfiyqJLI9YKk2+00ucqRG9A7jum9N+BWuhw=; b=Ds0CcYiBbqYmrEp5i2JDW28kEn
+	FFQUSVupyUbU6qrT867BvcVODKmCU+h5LBJdEkYMyFaTFrN1YqDhBbPmt5N/HM9N5C2lrMh7yt4mo
+	QUkHOIy75WGqrHvjxL7iKc7ACu2Hn1Mprnh2DxWXB+R4dnIcb7YP96I/tzWHJ1jjUAQ8CMaJpkItl
+	gTO3M5L/IlgWEisxMqPUfvqCqn2Ih1AW4LvIz03hDZIGtpN4L1Rfbu7/cQ/Ja3YN/sCZTCuNcbHS5
+	aEtiNyOblYwf7PjyOyVMxvuKiWY0uniAOH3fwGtXWLadPJVZOYabWmYpIzJfpvRvaeGlT0HMrq+8Z
+	XjOHAv8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w523I-00000001ZAo-3Lmm;
-	Tue, 24 Mar 2026 13:44:12 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1w523U-00000001ZEi-2VyB;
+	Tue, 24 Mar 2026 13:44:24 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5238-00000001Z9B-0mbd
+	id 1w523R-00000001ZCX-1QxI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:44:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-ID:Content-Description;
-	bh=1nsFdToyntePBoXlyyG2xfzskpRJisEXojHx4jRWnz8=; b=Oakj5iUiFGgUpGZSd1N2SKIy/K
-	wzJiSQ3bG4jSK+eV2+AeFtdAFAzGoq50NK28ur8yKcNO5ore/HfN80CisAppeWv0r30CDvEGyub5o
-	Ps+fa0qlXRZ8nhuIwgrvAQoKsI7SpKNF5RhjupJFjZX9x1kzqsqy+x7LsiEXSezD4Wj6hvObsy4a5
-	xC+0LKhtXzXq2+qcvSzWo7pc0ydJN4hCx7ddB1QQ8vpzDO5JY48PTpp2JodnaFQ3QFq7iM4a+Dri6
-	8rvYUZVwkyx9K7egysaT7BfqM1vsseAnzHdYVeZqqk1m9q4GFvnUuNlPu2THed+HhU4JSLktpk6vI
-	NRoaVmUQ==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.94.2)
-	(envelope-from <leitao@debian.org>)
-	id 1w5231-008LNb-4V; Tue, 24 Mar 2026 13:43:54 +0000
-Date: Tue, 24 Mar 2026 06:43:48 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: oss@malat.biz, catalin.marinas@arm.com, will@kernel.org, 
-	mark.rutland@arm.com, paulmck@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: arm64: pseudo NMI bootconfig question
-Message-ID: <acKJn-x__694pYyR@gmail.com>
-References: <rs4igmsjrm6r2aio4nbe5jos3vcqk2u4bjhltjwtj2pn3cquip@kv3grgec7qrb>
- <20251113133403.308046d2df1c97ba7dcd2388@kernel.org>
- <wqzhgeu5vlkeuomajvy7vf3x4gf3fsnzmczmkswvjo7xdyzzbo@6uqjqftbzgot>
- <abwTJBj80oX_T8xt@gmail.com>
- <20260320130316.5be6fc45f7860d5ac44c4de1@kernel.org>
+	Tue, 24 Mar 2026 13:44:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w523G-0000hg-I8; Tue, 24 Mar 2026 14:44:10 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1w523G-001uDG-0K;
+	Tue, 24 Mar 2026 14:44:10 +0100
+Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id BCA0A50BAF9;
+	Tue, 24 Mar 2026 13:44:09 +0000 (UTC)
+Date: Tue, 24 Mar 2026 14:44:09 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
+	Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
+	Eric Chanudet <echanude@redhat.com>
+Subject: Re: [PATCH v3 1/6] can: flexcan: use dedicated IRQ handlers for
+ multi-IRQ platforms
+Message-ID: <20260324-dashing-lush-skink-c194f1-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
+ <20260323135827.2129371-2-ciprianmarian.costea@oss.nxp.com>
+ <20260324-psychedelic-idealistic-dormouse-95b03c-mkl@pengutronix.de>
+ <024316c6-aa33-4561-889c-abd9eeb9d83f@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wxywmcxzkmfggb4a"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260320130316.5be6fc45f7860d5ac44c4de1@kernel.org>
-X-Debian-User: leitao
+In-Reply-To: <024316c6-aa33-4561-889c-abd9eeb9d83f@oss.nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_064402_261592_91194253 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20260324_064421_392066_4BACAE5B 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +90,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Masami,
 
-On Fri, Mar 20, 2026 at 01:03:16PM +0900, Masami Hiramatsu wrote:
-> On Thu, 19 Mar 2026 08:20:27 -0700> Breno Leitao <leitao@debian.org> wrote:
-> > On Thu, Nov 13, 2025 at 02:37:22AM -0800, Breno Leitao wrote:
-> > > On Thu, Nov 13, 2025 at 01:34:03PM +0900, Masami Hiramatsu wrote:
-> > >
-> > > Another possible solution would be to load bootconfig earlier in the
-> > > boot process so that early parameters can be defined within bootconfig.
-> > > Petr suggested this approach some time back, but it doesn't appear to
-> > > have made it upstream.
-> > >
-> > > https://lore.kernel.org/all/20231123194106.08f5832f558fe806b1fd8098@kernel.org/
-> > >
-> > > I'm not fully up to speed on the details of this change, so I want to
-> > > ask directly: Would Petr's approach—allowing early parameters to be set
-> > > via bootconfig make sense from a bootconfig design perspective?
+--wxywmcxzkmfggb4a
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/6] can: flexcan: use dedicated IRQ handlers for
+ multi-IRQ platforms
+MIME-Version: 1.0
+
+On 24.03.2026 14:30:50, Ciprian Marian Costea wrote:
+> > Can you take care of the S32G2 which has 2 mailbox IRQs, too? Please in
+> > a separate patch.
 > >
-> > Would it be worthwhile for me to take Petr's patch, update it to the
-> > current codebase, address any issues, and verify that it resolves the
-> > problem described above? If so, would you be open to reviewing and
-> > potentially accepting such a patch?
+> > My idea was to take the "irq" argument of the IRQ handler and the quirks
+> > and figure out if you are the first or second mailbox IRQ handler.
+> >
+> > Convert these
+> >
+> > | struct flexcan_priv {
+> > | [...]
+> > | 	u64 rx_mask;
+> > | 	u64 tx_mask;
+> > | [...]
+> > | }
+> >
+> > into a struct and put an array of 2 of these structs into "struct
+> > flexcan_priv". Use correct mask array depending on IRQ handler.
+> >
+> > regards,
+> > Marc
+> >
+> > --
+> > Pengutronix e.K.                 | Marc Kleine-Budde          |
+> > Embedded Linux                   | https://www.pengutronix.de |
+> > Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+> > Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 >
-> Hmm, let me recheck it. But the thread seems suspended.
-> Can you or Petr continue to work on this?
+> Thanks for your review.
+> I'll add a separate patch implementing per-MB-IRQ mask handling (needed
+> by S32G2) in V4. And thanks for the implementation suggestion. I'll take
+> it into account.
 
-Thank you for the feedback.
+Maybe you can come up with a improved/better solution.
 
-I reviewed Petr's patch and decided to take a more focused approach that
-specifically addresses the early parameter issue, which is currently
-biting me.
+With the potential concurrent mailbox IRQ handlers on the s32g we have a
+problem with the rx-offload infrastructure. After converting it to
+per-CPU lists, we still have to merge the lists to the global one.
 
-I'd appreciate your thoughts on whether this direction properly solves
-the problem, and we can continue the discussion there.
+The current supported use case is a single IRQ handler that adds all
+received CAN frames (and CAN error frames) sorted to the skb_irq_queue
+list. At the end of the IRQ handler the list is appended to the
+skb_queue and NAPI pushes the CAN frames into the networking stack.
 
-https://lore.kernel.org/all/20260324-early_bootconfig-v1-1-1c0e625aff06@debian.org/
+This is done to preserve the order of CAN frames, which is crucial for
+some CAN protocols.
+
+If we have 2 IRQ handlers adding the per-cpu skb_irq_queue to the
+skb_queue might lead to out-of-order reception.
+
+I see 2 options to workaround this:
+- Lock the skb_queue and sort each packet into it.
+  This makes the lock longer and
+  if an IRQ is delayed old packets might already been processed, so
+  out-of-order reception is still possible.
+- Disable mailboxes 1...8 for the s32g and only use the 2nd IRQ handler.
+  This obviously reduces the number of RX mailboxes, this increases the
+  change of RX buffer overflows on systems under high load.
+  On the other hand the driver can be extended to use the mailboxes
+  64...127.
+
+As I don't have a s32g SoC nor a customer using it, I have no time to
+implement this. Maybe you or someone from NXP is willing to do this.
+
+> Now, unrelated to the per-MB-IRQ refactor, one thing I noticed during the
+> IRQ handlers split: dev->stats counters (e.g. rx_fifo_errors) can
+> be incremented concurrently from different IRQ handlers on different CPUs.
+>
+> That said, these are just diagnostic counters and lost increments
+> should be benign. Do you think this warrants any synchronization/locking
+> mechanism, or is the current behavior acceptable?
+
+There are better ways to do stats, but IMHO for now we can live with the
+problem.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--wxywmcxzkmfggb4a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCacKVJwAKCRDMOmT6rpmt
+0ny3AP97AOLxQtsjTBYCxlTxLITZgMUMW/Ggdd7EXYi/BhV5ZAD/R+Ywhkah185h
+9ybw30y8qx3GHGBTYUiZJdd3yOVQIww=
+=JAYU
+-----END PGP SIGNATURE-----
+
+--wxywmcxzkmfggb4a--
 
