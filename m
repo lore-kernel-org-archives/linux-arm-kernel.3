@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5CFF54AC7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84E4F54AC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/i4Wh/1HJH8YsAfPieMc+KWkq/wh5T7GIhFy4oXV3g=; b=cJ1RuKHbJmsoRDI78cTO4Hbtdr
-	20GOKPWjeO0iLYQu+83GgYaDnTZz/wc1gVU+bq5NQhspAWvqOqTrvUFr0FaaGGgGT34sxmaU1rqM9
-	oH5fQhvdE8rr0NNC8crB788tEqWhm8pWEsst7fmAdyCVFArki8e7t/SEzpEFjctVjhAdZx/OnQCXo
-	J570KrSQAqx13oOgjNyBBOXTzGQQORH35cq2AWXNk0olnFMgFApaAu0s9UsKPAsDW7WNmtqzP1ZQW
-	N05opD3KASR8/Yz6ownYllRpNXD7MA9e3sHrqbNbtVQAanIRPJzg5iF8Gi+Ct2R2wo6Sm4QA00etd
-	y8B2Dopw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OIVar2XSUD8cxHHwMjaGV6t1yc3VT/8+s3ndQMtgs74=; b=kPdtnwhQ4u65DmhdC2QxBxN25Z
+	KszGvQtc6eLD7mhxEKITIyXmg4EgCJgCKWkFG/rBqHiWECqWwkvaGV6CFSkjXHi7XgqhqwTMC/xPV
+	t/G6C+OUqOB8wmYHTVQEjh/CeEtna0K9zMBG5IqMGSwoA5z3IblzpKXAoSju0s+NatsXyxp6Z+Ews
+	FGHUe0xmp9cmdSEJxYVHs5BuqA8ISYEvAflh26YqnEe6Y60kiWVI1mObJMofVBBh52MJp3tCOyFL9
+	j865WsDYK8iUfQNMEdPFaaQ3XyZVG3awyBuku65rXpXMYoOleTzzRiIq1z3UDZgOX2HsLr+WieYUy
+	1/9nuYhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52tY-00000001fLn-49B5;
-	Tue, 24 Mar 2026 14:38:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w52vk-00000001fea-10mS;
+	Tue, 24 Mar 2026 14:40:28 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52tY-00000001fLQ-1FQU;
-	Tue, 24 Mar 2026 14:38:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5648760103;
-	Tue, 24 Mar 2026 14:38:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6B0C19424;
-	Tue, 24 Mar 2026 14:38:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774363091;
-	bh=e5f6jgo0dBEyQUURQKSWrpDzBd0JxDsZ01SMVL8k3SU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qIMNEe8jc/gh4IeEeHB78CDBRX8uly5TJ7AQbfM/aTBCdNlUClXSmZ3DGj32XYiJq
-	 w3bJ+ggFkIa6py50tYHZOmCtQhawWtrsj76/eDZGqNTS2E6DEDw7zok6+dGEPnugh1
-	 rN0pTjYTfRuusdcmWnyo9rBjiDrJMXTlzi6iUnqi2UkrzVyRfQZmP9Akgci7mz3F+g
-	 QuGR7o1Khy+ZyGWNS8jwo3oNlwx2iL889bycIRnXzH46HhBhKml65awhc9OfKZRYcU
-	 c9A/SwhXZceArl/7YVlb4KEf7T2vzd4jdb/0Re/Fh6+vKY2naQlBbaFBfS5NTPAKfw
-	 5GaQjW2N9rzXA==
-Message-ID: <89b0e46e-693f-454e-ac74-6e396183c5c6@kernel.org>
-Date: Tue, 24 Mar 2026 15:38:01 +0100
+	id 1w52vh-00000001fe5-469E
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 14:40:27 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b04c9e3eb7so90785ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 07:40:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774363224; x=1774968024; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OIVar2XSUD8cxHHwMjaGV6t1yc3VT/8+s3ndQMtgs74=;
+        b=IdoX64OlkT6bCAc9Nt9kpBy7EXY3QOjwL6aBzmuxQ7OxgVc02l/dpZd4netlflMcpD
+         u/b6cXqf2ExvhjWCW2eQvsyHvvNqqkjlLHql4u+xpMdsCU08U8h+5BftvpduuNlTjgkp
+         ZDSpnprG5aTXZe4zHihmF3ZS+/YIfKe6HMPk35vsgw+hu83pB5FSmvsyGg2oc6ad6VOs
+         r5IlkJ/zjQTVwm+cUYJ/3fWPuvipScV1StsQB2WPHJQIRlwFCxY7DkCrWjUCMtgJ6Vcm
+         sx4lGBwnvFpY8GXEqgFMLgV627Xh++ncDlIZsqw8CoOwzLtM0kEJH7sq0t+k/VGEPIiz
+         3G5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774363224; x=1774968024;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OIVar2XSUD8cxHHwMjaGV6t1yc3VT/8+s3ndQMtgs74=;
+        b=ROU11IZKrKZQ+dHjMvOLYJwD3A4rv0s3SSafeEJ5fsexwqDePo/n6kC4/IITLdsLk8
+         WBWszbNBJmjfBaYNYOl9LS3m6fD5WlW/pOChO0oQgzIcIPsIMZ7TlDqyt/Gdz4VYWtXB
+         aMoLEm1uDVUJr3jDWO0bll6rtRBbDEpBXsvdLCV9ZpwYCXF7rcSQeKx2jLwOiTzfGBh0
+         E1HllwqCTxu3mY+yp/CcumQlkWYfChFjUfbbDFr8u9Z1rpTjgoND4IVt0QvQzfCCJW7v
+         WTprfrQznodIOcmlSGVnZSFYzasDc5liNLZ2NwjUxNORm0W5QHyHHV7KnMKGQM1nStWA
+         rd5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWedooRbd5sNxRsqdgwuOQQ0y7wexkd0WD1y8YjmGdBUykDmOJTF1FTY6DuA3tivl9nSFq9+FQ8ahbLJ+qaZEfJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLveqGbxc+Lmc7tDpuRQMzPRmdbBzSUMVVjHnmxEVUlxyfXIu8
+	AIAEzBLf3t6t1fma/KjPftOLPS8f1GQAhNsYUAIUl3/AFT4tEeFQjyFvPMGmdDxMPg==
+X-Gm-Gg: ATEYQzy+jFWsqE81F4U7S8x7n1Rdd9uQbJ29v0/lGbFLOZhbIJ4a+YkvMWl0WJiTOXp
+	gcA4x5tBAzg+dV8btvi7bxQiKXcQffE4/lXpQrHxc86PHmGo0ODMVO9eBlhUOG8piUo5QBG9FRR
+	Q4OD1FnHWyVs3JKhtE/qXVUlwKnkO+SXjG7mTVBuQrKeq/qg4mqUIB5IlepfgfClhXZQiShRl5F
+	PrRIwCmzOxiA2tCuhqQfh7fdxLRnI+quASZ8cIm9Q2KJsaC0JsAXC4oBEjS7rSq/HVFiHSW52j4
+	BW1rsCFnco1CG6/VNfn3ryPVOWBnvMWfzpDm7HKCYFFej+xpuj5sFltIpYZilo92V6GplOIJT73
+	CeYVcnhRhJUP2zD17Mci6vMCdyNOycZ5bAaezfgsn90p2bZcCjuz4rkwA+5u9KThXxq4FEco7I4
+	FWRG6B4If/tfbVxic+ccGXMZJrsda5Sp+hAK6RrtBOe3p5WmJNugwmN5S3Kg==
+X-Received: by 2002:a17:902:f652:b0:2ae:575b:2345 with SMTP id d9443c01a7336-2b0a6707a09mr2261445ad.9.1774363223664;
+        Tue, 24 Mar 2026 07:40:23 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c0ac5b287sm719016a91.4.2026.03.24.07.40.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 07:40:23 -0700 (PDT)
+Date: Tue, 24 Mar 2026 14:40:18 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Do not continue in
+ __arm_smmu_domain_inv_range()
+Message-ID: <acKiUrnbe5ZGvPIl@google.com>
+References: <20260321225041.11090-1-nicolinc@nvidia.com>
+ <20260321225041.11090-2-nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/21] mm: have mmap_action_complete() handle the rmap
- lock and unmap
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Bodo Stroesser <bostroesser@gmail.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
- <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- Ryan Roberts <ryan.roberts@arm.com>
-References: <cover.1774045440.git.ljs@kernel.org>
- <8d1ee8ebd3542d006a47e8382fb80cf5b57ecf10.1774045440.git.ljs@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <8d1ee8ebd3542d006a47e8382fb80cf5b57ecf10.1774045440.git.ljs@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260321225041.11090-2-nicolinc@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_074026_013175_D3121973 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,23 +100,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
-> Rather than have the callers handle this both the rmap lock release and
-> unmapping the VMA on error, handle it within the mmap_action_complete()
-> logic where it makes sense to, being careful not to unlock twice.
+On Sat, Mar 21, 2026 at 03:50:40PM -0700, Nicolin Chen wrote:
+> The loop in the __arm_smmu_domain_inv_range() is a while loop, not a for
+> loop. So, using "continue" is wrong that would fail to move the needle.
 > 
-> This simplifies the logic and makes it harder to make mistake with this,
-> while retaining correct behaviour with regard to avoiding deadlocks.
+> Meanwhile, though the current command is skipped, the batch still has to
+> go through arm_smmu_invs_end_batch() to be issued accordingly.
 > 
-> Also replace the call_action_complete() function with a direct invocation
-> of mmap_action_complete() as the abstraction is no longer required.
+> Thus, use "break" to fix the issue.
 > 
-> Also update the VMA tests to reflect this change.
+> Fixes: 587bb3e56a2c ("iommu/arm-smmu-v3: Add arm_smmu_invs based arm_smmu_domain_inv_range()")
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Nice simplification.
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
-
+Thanks,
+Praan
 
