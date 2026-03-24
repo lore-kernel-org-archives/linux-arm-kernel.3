@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18265E9A762
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D005DE9A76E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATjFSYCcu4BJBlm0ZzGR/qHWqPTMf4tN63aPgcoL1c8=; b=mf5zX5yrEn35RtFey3poNjri4V
-	SN2cOPRbAqWHGq9Nj1u38vh5r4ag2Cgu2Oy5JJi7gx3NRjEdiwDLNK2wYkCsyOe2FVvGkEcYIVg+1
-	b9VTlwkn+wapLz/O27rp69bBaIQVuJ+454NNkDJDaMqZjbch2q9cKMm95KgVWNlwYjvo7ZsQeCnnQ
-	4siACGPCsZKK2nyGHWE2FSMejUMQWq9gUS58jfRXZF62gy1zLKxCWSoerllbHY06FvoC24XbjWJjw
-	eTkGmMczjA9ROLfcKgrHrm+CB/+t/DXEANBB/TOMJgXKvphjUWEMSLv2UTZT4A8gqrPZ513HAfxCh
-	foMZcbsQ==;
+	bh=M5cABfSKwk9N4hT1snogq/WSr1KiBdXIVp7l0TT9Gc0=; b=Qp8gIabfiQ7EsASFNoZx0jcQmY
+	U+tkMNQlxp3tQKOJOpu5KimE8fVXpztOkO9oqt9q8Pfp6Weuhipb5wg/C5H88YXTlIW8zcRycSzX4
+	go1rBFkH5d/pXhf/lu63WuO5mPw6pZ7HLKsgIKWUlSl6R4+Sj/PjlwAXh2F7yIVmEjUKtsYp7I5on
+	JiVM60UMNLAUO9mUAJs+ch0U141to5Z5+Ao8LppjPO7on1O/G3Z77UWz3e+eQ5lzMD7vab0PPxLmE
+	ZPZlYkhr1d6s7BroNl193H4PGiPt3p6yhhdCuec3vJkUwJb3umGJ00BQty1rTvFVz5aVM8Ds0YFB/
+	2pQT4RYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4zdz-00000001G3x-2ZkJ;
-	Tue, 24 Mar 2026 11:09:55 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1w4zne-00000001H1W-1Q8G;
+	Tue, 24 Mar 2026 11:19:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4zdw-00000001G2y-2616;
-	Tue, 24 Mar 2026 11:09:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ATjFSYCcu4BJBlm0ZzGR/qHWqPTMf4tN63aPgcoL1c8=; b=GRXHg8IePTtouM+vfGTKaOI4c0
-	7I7IxhwsAPoTINFRPHSPojPtvLHD/upj9MQ2q+XtQn9DGCp+fF6RhPUkZHeIF1MM4u95xaFD8yLZX
-	/xY8hBjfJ+fpIY1tYXcYlyXEemi43e29kMKPcO0LpqZq7TGdAA0Mp+qVRpQhNRkvdaCsIv8flxJ5f
-	jOBqICo8RHcUnpQGUW7KEaQC8WTgZlQnytFH3XM3pmmw/eZeplvhHiwJP+A82d+n30HA7rhwktHBV
-	AS42MUExSEyVkZ0/RtJ9wKTQMIdoryAxkRjxN3UQw9UXzCewaV7ikWaffuMLr5Ba7LUumwIdjvkxT
-	gguYk8eA==;
-Received: from [189.7.87.169] (helo=[192.168.0.2])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1w4zda-005J3Y-4l; Tue, 24 Mar 2026 12:09:30 +0100
-Message-ID: <707d805f-09bb-46f8-a3a4-d7630028ea2a@igalia.com>
-Date: Tue, 24 Mar 2026 08:09:22 -0300
+	id 1w4znd-00000001H1L-1MNG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 11:19:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 55AD960120;
+	Tue, 24 Mar 2026 11:19:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC3CC2BCB3;
+	Tue, 24 Mar 2026 11:19:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774351192;
+	bh=VT3AT/WWqPufi5SKMScsvaN96hTQjfYr79XjpwYmz/Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FylAkqkJCJtdxGIIUV2BYNtId7r5Em6I/zDBhS3t7Qx+UrzjNRIiN3IsEuuUpXacA
+	 D5A/eEBnvAakguDXNJ/oblyzHLYZJ4UUplW2kDMB5om7+VeLVp6zAcPjD+NvEuNkqf
+	 Agl6RB9/zpLrXdAwBe9GFIbkxJwlWBWA679Jw5vNHOeoHx97dBbX7p/bH2cgsL8uOO
+	 3iJP6pbkWv+gr3IoQG5cyue6JGknS89luNjaSayTkY6+nKJqKRbWxKjOYCHyDXT/XE
+	 QP8gQebNaOpRO+ayCrizikVz/SfLcRL1IjptPpPohsT107av2IitX5pzS8qfdHmXaa
+	 xXJncDT0wXioQ==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Pepper Gray <hello@peppergray.xyz>,
+	Will Deacon <will@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.19-6.6] arm64/scs: Fix handling of advance_loc4
+Date: Tue, 24 Mar 2026 07:19:23 -0400
+Message-ID: <20260324111931.3257972-14-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260324111931.3257972-1-sashal@kernel.org>
+References: <20260324111931.3257972-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/5] clk: bcm: rpi: Manage clock rate in
- prepare/unprepare callbacks
-To: Stephen Boyd <sboyd@kernel.org>, Chema Casanova <jmcasanova@igalia.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Iago Toral Quiroga <itoral@igalia.com>, Maxime Ripard <mripard@kernel.org>,
- Melissa Wen <mwen@igalia.com>, Michael Turquette <mturquette@baylibre.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stefan Wahren <wahrenst@gmx.net>
-Cc: linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20260312-v3d-power-management-v7-0-9f006a1d4c55@igalia.com>
- <20260312-v3d-power-management-v7-1-9f006a1d4c55@igalia.com>
- <177431178481.5403.10860855444629990495@lazor>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <177431178481.5403.10860855444629990495@lazor>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.19.9
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_040952_840287_BBAA86D1 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +77,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stephen,
+From: Pepper Gray <hello@peppergray.xyz>
 
-On 23/03/26 21:23, Stephen Boyd wrote:
-> Quoting Maíra Canal (2026-03-12 14:34:23)
->> On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
->> actually power off the clock. To achieve meaningful power savings, the
->> clock rate must be set to the minimum before disabling. This might be
->> fixed in future firmware releases.
->>
->> Rather than pushing rate management to clock consumers, handle it
->> directly in the clock framework's prepare/unprepare callbacks. In
->> unprepare, set the rate to the minimum before disabling the clock.
->> In prepare, for clocks marked with `maximize` (currently v3d),
->> restore the rate to the maximum after enabling.
->>
->> Signed-off-by: Maíra Canal <mcanal@igalia.com>
->> ---
-> 
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
+[ Upstream commit d499e9627d70b1269020d59b95ed3e18bee6b8cd ]
 
-When possible, could you apply this patch to clk-next? Thank you and
-Maxime for the reviews!
+DW_CFA_advance_loc4 is defined but no handler is implemented. Its
+CFA opcode defaults to EDYNSCS_INVALID_CFA_OPCODE triggering an
+error which wrongfully prevents modules from loading.
 
-Best regards,
-- Maíra
+Link: https://bugs.gentoo.org/971060
+Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+The context around the insertion point is identical in v6.6 and v6.12.
+The fix adds a new `case DW_CFA_advance_loc4:` between `advance_loc2`
+and `DW_CFA_def_cfa`. This should apply cleanly to both stable trees.
+
+## PHASE 3-7 SYNTHESIS
+
+Let me now compile all findings:
+
+### Step 3.1: BLAME THE CHANGED LINES
+The switch statement was introduced in commit `3b619e22c4601b` by Ard
+Biesheuvel in v6.2-rc1. The `DW_CFA_advance_loc4` constant was defined
+but never given a case handler — the bug has existed since the code was
+first introduced.
+
+### Step 3.2: FIXES TAG
+No Fixes: tag present. The implicit fix target is `3b619e22c4601b`
+("arm64: implement dynamic shadow call stack for Clang") from v6.2.
+
+### Step 3.3-3.5: FILE HISTORY AND DEPENDENCIES
+The file has been modified 7 times total. The fix is self-contained — it
+adds a new case to an existing switch statement following the exact
+pattern of `DW_CFA_advance_loc1` and `DW_CFA_advance_loc2`. No
+dependencies on other patches.
+
+### Step 5: CODE SEMANTIC ANALYSIS
+- `scs_handle_fde_frame()` is called from `scs_patch()` which is called
+  from:
+  1. `map_kernel.c` — during early boot (vmlinux SCS patching)
+  2. `module.c` — during module loading
+- The amdgpu driver generates `DW_CFA_advance_loc4` opcodes (likely due
+  to very large functions), triggering the bug on module load.
+
+### Step 7: SUBSYSTEM AND CRITICALITY
+- **Subsystem:** arm64/scs — Shadow Call Stack security feature
+- **Criticality:** IMPORTANT — affects arm64 platforms with SCS enabled
+  (hardened kernels, Android)
+
+### Step 8: IMPACT AND RISK ASSESSMENT
+
+**Who is affected:** arm64 users with CONFIG_SHADOW_CALL_STACK=y and
+CONFIG_DYNAMIC_SCS=y loading modules with large functions (e.g.,
+amdgpu).
+
+**Trigger:** Loading any kernel module whose compiled code generates
+`DW_CFA_advance_loc4` DWARF opcodes (functions spanning >64KB of
+instructions).
+
+**Failure mode in stable (6.6.y, 6.12.y):** SCS patching silently fails
+— the error return is not checked, so the module loads but without
+proper Shadow Call Stack protection. This is a **security degradation**
+— SCS is designed to protect against Return-Oriented Programming
+attacks.
+
+**Failure mode in mainline (v6.18+):** Module loading fails entirely
+(due to `6d4a0fbd34a40`). The Gentoo bug report confirms amdgpu fails to
+load on ARM64 hardened kernels.
+
+**Fix quality:**
+- 8 lines added, following the exact pattern of `advance_loc1` (1 byte)
+  and `advance_loc2` (2 bytes) but for 4 bytes
+- Obviously correct — it reads 4 bytes and advances the location counter
+- Signed off by Will Deacon (arm64 maintainer)
+- Minimal, surgical, no side effects
+- One minor style nit: `break` is outdented compared to the other cases,
+  but functionally correct
+
+## PHASE 9: FINAL SYNTHESIS
+
+### Evidence FOR backporting:
+1. Fixes a real bug that prevents module loading on arm64 (confirmed by
+   Gentoo bug report with amdgpu)
+2. In stable trees, the bug silently disables Shadow Call Stack security
+   protection for affected modules
+3. The buggy code has been present since v6.2 (affects 6.6.y, 6.12.y
+   stable trees)
+4. Fix is small (8 lines), obviously correct, follows the exact pattern
+   of adjacent code
+5. Signed off by Will Deacon (arm64 maintainer)
+6. Link to real user bug report (Gentoo #971060) — actual users hit this
+7. Self-contained — no dependencies on other patches
+8. Should apply cleanly to stable (same code context exists in 6.6 and
+   6.12)
+
+### Evidence AGAINST backporting:
+- None significant. The only minor concern is that in current stable
+  trees the error is silently ignored (module still loads), so the
+  immediate user-visible impact is lower (security degradation rather
+  than module load failure). But this is still a bug worth fixing.
+
+### Stable Rules Checklist:
+1. **Obviously correct and tested?** YES — follows the pattern of
+   loc1/loc2, tested by Gentoo users
+2. **Fixes a real bug?** YES — prevents module loading (mainline) or
+   silently breaks SCS (stable)
+3. **Important issue?** YES — security feature bypass on hardened arm64
+   kernels
+4. **Small and contained?** YES — 8 lines in one file
+5. **No new features or APIs?** YES — just adds missing case handler
+6. **Can apply to stable trees?** YES — context is identical in 6.6 and
+   6.12
+
+## Verification
+
+- [Phase 1] Parsed subject: arm64/scs subsystem, "Fix" action verb,
+  missing advance_loc4 handler
+- [Phase 1] Parsed tags: Link to bugs.gentoo.org/971060, Signed-off-by
+  Will Deacon (arm64 maintainer)
+- [Phase 2] Diff analysis: +8 lines in single file, adds
+  DW_CFA_advance_loc4 case to existing switch
+- [Phase 2] Pattern follows DW_CFA_advance_loc1 (1 byte) and
+  DW_CFA_advance_loc2 (2 bytes) exactly
+- [Phase 3] git blame: switch statement introduced in 3b619e22c4601b
+  (v6.2-rc1), bug present since then
+- [Phase 3] git show v6.1: file does not exist — bug only affects 6.2+
+- [Phase 3] git show v6.6, v6.12: confirmed DW_CFA_advance_loc4 defined
+  but no case handler in both
+- [Phase 3] git show 6d4a0fbd34a40: confirmed this commit (v6.18) made
+  module loading actually fail on SCS errors
+- [Phase 3] v6.6/v6.12 module.c: SCS patch error return is NOT checked —
+  module loads with broken SCS
+- [Phase 4] WebFetch bugs.gentoo.org/971060: confirmed amdgpu module
+  fails to load on ARM64 hardened kernel
+- [Phase 4] WebFetch lore.kernel.org: found patch discussion, accepted
+  by Will Deacon, pulled in arm64 fixes
+- [Phase 5] scs_handle_fde_frame called from scs_patch, which is called
+  from module.c and map_kernel.c
+- [Phase 6] Confirmed context around insertion point is identical in
+  v6.6 and v6.12 — clean apply expected
+- [Phase 7] Subsystem: arm64/scs, IMPORTANT criticality (security
+  feature for arm64)
+- [Phase 8] Failure mode: security degradation (stable) or module load
+  failure (mainline), severity HIGH
+
+**YES**
+
+ arch/arm64/kernel/pi/patch-scs.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patch-scs.c
+index bbe7d30ed12b3..dac568e4a54f2 100644
+--- a/arch/arm64/kernel/pi/patch-scs.c
++++ b/arch/arm64/kernel/pi/patch-scs.c
+@@ -192,6 +192,14 @@ static int scs_handle_fde_frame(const struct eh_frame *frame,
+ 			size -= 2;
+ 			break;
+ 
++		case DW_CFA_advance_loc4:
++			loc += *opcode++ * code_alignment_factor;
++			loc += (*opcode++ << 8) * code_alignment_factor;
++			loc += (*opcode++ << 16) * code_alignment_factor;
++			loc += (*opcode++ << 24) * code_alignment_factor;
++			size -= 4;
++		break;
++
+ 		case DW_CFA_def_cfa:
+ 		case DW_CFA_offset_extended:
+ 			size = skip_xleb128(&opcode, size);
+-- 
+2.51.0
+
 
