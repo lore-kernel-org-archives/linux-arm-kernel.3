@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4862EF532DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5B1F532E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WaWeCDl5JBHtBxHsYaW0gafbKodlagSCHpiXEMVywus=; b=apOUE7crcVc4+dLSKfM9vs6+QK
-	X0ASpFzZ98tvMhRZ8+xPRmNSHpCzpGW5fEvr09Thg6jAvoa3ODIS8MS+Oa9ZdpcW29ocoTnu7nPxS
-	AgXwxZtdiUsg6LLqjACkfxFhD2ZYsAj1mThuY03CZkpI0y9EFI5Fx+7C4RopTrF/dYNiIrrO9Fbpy
-	ek4IgFAdV4IYhvpJZqVaHKFQiTGoIZQDFjmtcT0hi+Ff3/Ww2a0sUEPnGg/Oo1N1n1IwWnNTX3R8G
-	hEcxz+1M/qNXwa4dZVDvkU9G9411bhu10/T98UytNzN9SeiDAkr9/CqO+UFqvl/yKp0Qz8L+bzX5B
-	kWNoLHdg==;
+	bh=dXpko5GwTyBS4/QPa5Hu8dVzEEkgR8sHL7mRRu2t+sY=; b=S9c6bpqJoQi3uNpkaWkplKj3Aw
+	SveuG5EgmCOUt16ARSK4aebpjbtBQCr54pLibn2ea93V3/UYD8T1j6ZLMoSpoNofLt92Kl0p+5Aed
+	flBb8nP/iNXzoYLTUwXQQ9wiHxft5bafHyfTNyscH8R4HZgJV2Nsh023AoDxD9DN2FxuJB+w3GbVM
+	qulxzeyHaFej6scALm1pdeX+fU1wt5aQmDzeUQhl8QX+2jz3YX6RwxJTQyM5xQEXsCg1hydyXe5Wo
+	SmQI9eai27pB14b2w7S3HJFMjKm5Nbzz6Yh1dnGATyTR1xbYDOm4Kka+XXvR/61eOaLPPCqRjHnl8
+	6YQTBIJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvS-00000000dGv-0vhs;
-	Tue, 24 Mar 2026 06:07:38 +0000
+	id 1w4uvY-00000000dL0-09O4;
+	Tue, 24 Mar 2026 06:07:44 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4uvR-00000000dGk-1FXN;
-	Tue, 24 Mar 2026 06:07:37 +0000
+	id 1w4uvV-00000000dIV-2lL8;
+	Tue, 24 Mar 2026 06:07:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0E8560128;
-	Tue, 24 Mar 2026 06:07:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98825C19424;
-	Tue, 24 Mar 2026 06:07:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E4056013A;
+	Tue, 24 Mar 2026 06:07:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E10D0C2BCB2;
+	Tue, 24 Mar 2026 06:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774332455;
-	bh=GxPGKG/6w8349y5HsiaeOu43dZr4SR2srv5wsN2Tv+4=;
+	s=k20201202; t=1774332460;
+	bh=JP9ahby6Ly1VVw7RxM4srHWXaEIozlGHAWmdpUP2jJ8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=c+DnWlXQvKGtO+8n/KZE5Zo2Ki19YvlnyKUQA9d/7tCrzTSDAD2PmimVz0/RTZ4LI
-	 CM1cK/b7eKlrVfPSG2TYd+B7eG3XAD7gsbF2I+fLnS1HTy5k+TWfV7Iyc3J4H5ieM7
-	 jZnZ9664OYwnqg5dZu3S724CJxFOzRlida7evmb+jmkd7oLQDdf+0rMT2sbCOhYTaM
-	 UXR9GQmBdlrdJPqb0ISIZhg11RvHQbMoyoCVBgVE5wZwF4gMVcxxG/3LrodL24GEZk
-	 8gKWh9pxg8JnPMo6nwNhOIfTH3GYAaHx/u1s4j/62u0/9WOjOjzAdO27WFhVla0/Pv
-	 nTcigVyeQF74A==
+	b=UbNGnKO/tp6ai6834ydA1lQ5PukSdo9guTKRu0aT7uQ94/PBq34Vo08i3GzwU1a7R
+	 Cjj86a0rKtbPKnF+oVKFGyOV87WahqlGOu4eDV+h+S5j7x4aPhqGuz+E/DJGQoXOGA
+	 wBe47f8pbr/WXEHhTZzzJBCJP9XHj+6UqfGOLICI3RcjHw+35Cz5SRZZcw7k7C/zYj
+	 XUieDNECgaPKML2nc7pDk7PgesQln2TdJXIciFo+QXEQm2NonZFnC2+3B6gKw1+DHm
+	 Z40BPILv5vYzesqn1zNeeb326JjYakJK+jDAuKVLcvEKgQfH7daPPDxWve9mnoaYbH
+	 fSR6hO6kwysDw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id E73C03808200;
-	Tue, 24 Mar 2026 06:07:24 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE5D3808200;
+	Tue, 24 Mar 2026 06:07:30 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v3 1/5] perf kvm stat: Remove use of the arch directory
+Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <177433244380.469836.9953865947941993562.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Mar 2026 06:07:23 +0000
-References: <20260203182640.3911987-2-irogers@google.com>
-In-Reply-To: <20260203182640.3911987-2-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: linux-riscv@lists.infradead.org, acme@kernel.org, aditya.b1@linux.ibm.com,
- adrian.hunter@intel.com, ajones@ventanamicro.com, ak@linux.intel.com,
- alex@ghiti.fr, alexander.shishkin@linux.intel.com, anup@brainfault.org,
- aou@eecs.berkeley.edu, ashelat@redhat.com, atrajeev@linux.ibm.com,
- blakejones@google.com, ctshao@google.com, dapeng1.mi@linux.intel.com,
- dvyukov@google.com, howardchu95@gmail.com, james.clark@linaro.org,
- john.g.garry@oracle.com, jolsa@kernel.org, leo.yan@linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, mingo@redhat.com, namhyung@kernel.org,
- palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org,
- shimin.guo@skydio.com, swapnil.sapkal@amd.com, thomas.falcon@intel.com,
- will@kernel.org, ysk@kzalloc.com, zhouquan@iscas.ac.cn
+Message-Id: <177433244873.469836.2501898935183219197.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Mar 2026 06:07:28 +0000
+References: <20251205232655.445294-1-seanjc@google.com>
+In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: linux-riscv@lists.infradead.org, maz@kernel.org, oupton@kernel.org,
+ zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org,
+ maddy@linux.ibm.com, anup@brainfault.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, frankja@linux.ibm.com,
+ imbrenda@linux.ibm.com, pbonzini@redhat.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, gustavoars@kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +79,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+This patch was applied to riscv/linux.git (for-next)
+by Sean Christopherson <seanjc@google.com>:
 
-On Tue,  3 Feb 2026 10:26:36 -0800 you wrote:
-> `perf kvm stat` supports record and report options. By using the arch
-> directory a report for a different machine type cannot be
-> supported. Move the kvm-stat code out of the arch directory and into
-> util/kvm-stat-arch following the pattern of perf-regs and
-> dwarf-regs. Avoid duplicate symbols by renaming functions to have the
-> architecture name within them. For global variables, wrap them in an
-> architecture specific function. Selecting the architecture to use with
-> `perf kvm stat` is selected by EM_HOST, ie no different than before
-> the change. Later the ELF machine can be determined from the session
-> or a header feature (ie EM_HOST at the time of the record).
+On Fri,  5 Dec 2025 15:26:55 -0800 you wrote:
+> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
+> aliases the flexible name[] in the uAPI definition with a fixed-size array
+> of the same name.  The unusual embedded structure results in compiler
+> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
+> extra level of dereferencing in KVM.  To avoid the "overlay", define the
+> uAPI structure to have a fixed-size name when building for the kernel.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3,1/5] perf kvm stat: Remove use of the arch directory
-    https://git.kernel.org/riscv/c/ceea279f9376
-  - [v3,2/5] perf kvm: Wire up e_machine
-    https://git.kernel.org/riscv/c/43af54843677
-  - [v3,3/5] perf session: Add e_flags to the e_machine helper
-    https://git.kernel.org/riscv/c/07ad6f31b674
-  - [v3,4/5] perf header: Add e_machine/e_flags to the header
-    https://git.kernel.org/riscv/c/c4f4392264b4
-  - [v3,5/5] perf thread: Don't require machine to compute the e_machine
-    https://git.kernel.org/riscv/c/84cb36da8141
+  - KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
+    https://git.kernel.org/riscv/c/da142f3d373a
 
 You are awesome, thank you!
 -- 
