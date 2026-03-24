@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6ECAFEC0F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 18:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B84BFEC0F3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 18:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JU53ztXeIg9rAt/w2RhxQEA1HrNV+jGEvjmkGqWYdZA=; b=tW4vSDgnCo6V3OdY17uScECSeL
-	5hIwYd1xFyGXgh/kSJzciECTueUxnon+9tZDiPfn9aoKm29BH+6zVLmd8diG01kewpuD9wjMs3kbl
-	4rEN2Jdn7NixRRMPk/sjYj+S9hIQaQHZpDFdGfT7fYPmm2Bvfw4AubGJ8oDBwtRY92HVueIRK06lr
-	iHUO8i4QyYneQAyiwG99faE7d9qd3PVF4ADCgnPJjV5iLzrQW64YKc/cLXQaArUJ2KlsBE278iEIK
-	4HcFTwto+7dTHwTTB+83zhSEZ8aE44UUVDALcyV7HUkGCgmV8X50djbJueUb0IoNMzQzXPZvD+U7k
-	yE6ss+Ww==;
+	bh=9Gsg2Xtdfdl+8IY6r0o/RyYDfTlBlRsSZJpA/oULFGs=; b=JRguJeD5ReYHH8bigjEtKMHN/8
+	5qeKryxwbvliKE1I73edavouYVigtTD0kUhMP9PKrcCSSOtPRu+xCJRt/dnj+Ii9vZcQl0xW6S3hB
+	bIU/SftWcW+8/8zxta8RK+10PNUbORM9+nOt3+41EViwLv9kFriXqmB8rqO+UnX5HGZ082ivWHy4t
+	io3RXA9T5QZhWZM/J0SenfsH3P21tdGu/UZvtJ+XiPcP84J5bAHGFempee2CNQvn2jhSZbHpBbQYI
+	KT7APBBWlZLghBTpx8r7Lei1wZ1MdYwzkwBGpGWxAIWLKZC4ITSYfkPpaRYEnm8vs55Ro6C63L1Db
+	EShNxltw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w56TO-00000002432-474P;
-	Tue, 24 Mar 2026 18:27:26 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1w56TX-0000000245f-19A5;
+	Tue, 24 Mar 2026 18:27:35 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w56TK-0000000242F-1wJW
+	id 1w56TU-0000000244V-3gs7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 18:27:23 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-35b95e21ccaso84202a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 11:27:22 -0700 (PDT)
+	Tue, 24 Mar 2026 18:27:34 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-35bb7afdc38so849219a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 11:27:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774376841; x=1774981641; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774376852; x=1774981652; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JU53ztXeIg9rAt/w2RhxQEA1HrNV+jGEvjmkGqWYdZA=;
-        b=IVXM+vq5rMFSnzTz4bKAdhndpA8OVysf78aI1/iFuBsCMKoVpmDT2DTTE3DBpTMGt3
-         DkLKP8Bx71PuCeU3dMnv08082pgJtgsTe7QhqqoUYHLZC2EoMHwhzJNQ+GLXgF75vYzT
-         FFc3L8NX3Be0QT5TUy4fydUH+GPyBaS1ycowkEkdW9hUAGsn9DBotJL7B8k2WTAoa2tv
-         ku8TxIjgMHsVZ5mwLp8FxxUFvwZueaTPmKbAC1iPN2aZ9xAucudb6cVkRTEnGJnJQJVE
-         ZSSMmFbzIO7we6gybaHZlIAz9L/K0JIUJv1DIrdACkXzDohYEV1aKtXY2CVE3wCblUZq
-         qUQQ==
+        bh=9Gsg2Xtdfdl+8IY6r0o/RyYDfTlBlRsSZJpA/oULFGs=;
+        b=o8PoHKlbCr38GSzRsvEiGG+3DEg+UFrMd/JvB3xU5jogL90jxgEUiJGLfWKgKpa5PC
+         wSGi6iI+TxmU/8aZno0l/lEnz7GA5ttIyMPA7HxCHC8DbnAz8xAg0mztfIvmEGTNBAl4
+         HbFYRxhtVZ1oJdV1rS29Yx8Fa1uPe/QMh+FFHEvg3aTanR7N61NC8jTItk1ayL2OoB+8
+         vCvJfdLjXXgVjo3OyTbrZivcxyMtRqUnYQ3uSXQYuX9ZLlHMMkfff8pQhIPFWmmo/b5o
+         rS1GILDFiZmyqyp7FUMajtOVQW36IWjpb+W9YYKjAB0qCf5b4J9MUHN0m2imh0AOHHXv
+         dwww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774376841; x=1774981641;
+        d=1e100.net; s=20251104; t=1774376852; x=1774981652;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=JU53ztXeIg9rAt/w2RhxQEA1HrNV+jGEvjmkGqWYdZA=;
-        b=ItehbLNGO7ionXOzXRRj1DyEr/eEkm0diQ9KcN7bI5GIA0iriZxh2Yf5iOfh/+Lpdh
-         qAWDEj9uk7RxsHNhMwyRAiJ/sJx3u7UC2YDWS00i4nTOC8VVxUAn3Gc/ZOpB3OK5I0nc
-         cPEMdS39Vd6w7NJlz5ZOyDtPDRf0ECMJ3JE9I98cH9zFDjA0vMOHzA418KIbw3yjUMZv
-         oMsjH4QYbSeyzYtKMfHlUgvkSfY1P7wcKGw2KRhmhcz3hK73SQc4DDWO7cnZ4YkEVgTa
-         n4ucsWVvRy7JzO1/eF2kAW1w6C1AhJF532VADnvfDlmzVyXqxiJwsOyoninNIiHRDEZl
-         MeLA==
-X-Forwarded-Encrypted: i=1; AJvYcCUkLX83xYN6hNNDaT/32OjnVXGCiNmy071ewb4Rldd/K6dECi01aWreZtQGFMKOXLgEHgjBW3nrKLs9KkLsJFoT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEUKCVyo79EMnRI4lxGfGPT/s8eIwy4ZrlWv052BdrLHqQ/DPG
-	JkwTX6hl6s8H1hlJTvwPhtauLIbumMQpxV/XBxfUdJG3+vL0+4hOLZuB
-X-Gm-Gg: ATEYQzxww2bzpaKCOTt5h1VxjYJ8I0RNaocpno843qvGRgV7Z84klTEyS8T17RSDISC
-	BYuguzgYgVuNKpfc8zlC9szZ4Apcp4/Yr6QfkV4DMIeUXWoLcjnTByKZbJN6bP5R7AXcBS3bsaX
-	+1gvS04lnzSK/nkDwAYu/4c4kGRGgkT5zPpS3+hRNNaqQIaXcIPMU/oK990bVU8oqgohsmco1DH
-	JlLK8KLXl3bif6pOnZQusKRsIRFUT5eWb3XmtHhu+EwoFLP9ptJwRmuGKcC+054C1ZJSfjKLJo1
-	YVn0crqI12BV/0TIzQPUv4nwAbJvabT4+uiWFUFtFz59oGEVf+Ps2inOEjFpQbeTSEHmte+2PnG
-	ONP+2Prud5dUauLRKfAcfRSz5eWYtW704vMGDoGAxeT3fXJ2Ac3t7UoAF8gW1yuFApgwaQarH1H
-	CIV8BJ0FlZuwU+k+mUpzhXi7zW+w==
-X-Received: by 2002:a17:90b:57e3:b0:34a:be93:72ee with SMTP id 98e67ed59e1d1-35c0d1451d7mr559615a91.8.1774376841343;
-        Tue, 24 Mar 2026 11:27:21 -0700 (PDT)
+        bh=9Gsg2Xtdfdl+8IY6r0o/RyYDfTlBlRsSZJpA/oULFGs=;
+        b=UKzbZabbYPSNwn5h4Fbn+9iogqZ1EIz2RNI/d9qvLc70SgnALftfT9Ldf7FeFrq8pT
+         Jub45q5Eq8g+k77j7OZb/jCsPHuzx3IPVACFK8dOXV2XsjDzvby3yanQLJOhS4lb9Q3p
+         wkqRL70vBn76SlEYgHknn5PuGN0I8pfSmPKsv/HuLdqb9p42TwMGdzfI692tYRybqV6/
+         Y6kXI6hZHQp/hZ4H+Bu8zkckvTTivvDZ33pHGPQt7LWUBTRTz++zgfD7Rbkxl9AGJTM7
+         4p12Z75uLWNTZIJu/H3oSo8tfgxA9QGC/rPBxzl3NfJpkvgEr9s0Sw3Vqb6S5Z/hoPzR
+         Yajg==
+X-Forwarded-Encrypted: i=1; AJvYcCXU47ROuJ802hMHAwfM0Ip8hFqsCrHgFko7v0Da69Iu+oXGee29+YgaH/4zMGPzSydx+0rLJAxqR2lsZbilF11s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8GP3Vy8u1JWPeQhj4JmxzsBHJPfxr/C+ONGNWMzNz0DFzMHEQ
+	RrnE50bgxBItetpz+9HhlCPEZ4TXbOrIVO8K/n4ash8Z+o8jsApcBKj6
+X-Gm-Gg: ATEYQzxc1Pfl7hLKBtjpepIDPMmdRYeTuOaJgECOVjSNWXxxW6PpSTv77fVJNeqCMyy
+	LpddXxEEW9EdMdv1q+Sw1vlmQV8cQA6vD8YfLVdszQtJwCcamr+t5oDq+RaSEGFID0ls/Mu21cg
+	Z5Z4ZLFAT6pQfQUabEViTZJlSpPir468zy3OhQ1JJugN6WA+ETrikfzfJCEnXOiVsYHDFuPFAxD
+	TWMV3NOvR0tTTl33WzGq7RBsGxjGJfktDbob3WDT87cdbAssGZf9rTNJ0YHo+px0nbi37yMWCuW
+	pmgoLFmYVLdH862zQk1hSGMw+b6MTFH3gSktzHsS2gdkttaL5ZgXAvjY5Lru8Wkr8qlQ/fj7kPD
+	1iVSC5MTUjFtCa6zqtzh2DbQAZCbvAeES35WQyfchGc+Z4Ec05p1BD3f1ftvSZNxVcQ8fxQ7EUW
+	qjLuXkaOli9pbvXeH05rAB8pqTLWxssZ8E5HCZ
+X-Received: by 2002:a17:90b:17c8:b0:35b:e591:99d1 with SMTP id 98e67ed59e1d1-35c0ddc4118mr351953a91.29.1774376851910;
+        Tue, 24 Mar 2026 11:27:31 -0700 (PDT)
 Received: from [127.0.1.1] ([103.216.213.160])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c0d6060b5sm350576a91.17.2026.03.24.11.27.10
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c0d6060b5sm350576a91.17.2026.03.24.11.27.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 11:27:20 -0700 (PDT)
+        Tue, 24 Mar 2026 11:27:31 -0700 (PDT)
 From: Atharv Dubey <atharvd440@gmail.com>
-Date: Tue, 24 Mar 2026 23:56:49 +0530
-Subject: [PATCH 01/10] i2c: tiny-usb: Replace dev_err() with
- dev_err_probe() in probe function
+Date: Tue, 24 Mar 2026 23:56:50 +0530
+Subject: [PATCH 02/10] i2c: tegra: Replace dev_err() with dev_err_probe()
+ in probe function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260324-deverr-v1-1-7e591cce33a3@gmail.com>
+Message-Id: <20260324-deverr-v1-2-7e591cce33a3@gmail.com>
 References: <20260324-deverr-v1-0-7e591cce33a3@gmail.com>
 In-Reply-To: <20260324-deverr-v1-0-7e591cce33a3@gmail.com>
 To: Till Harbaum <till@harbaum.org>, Andi Shyti <andi.shyti@kernel.org>, 
@@ -98,16 +98,16 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
  Enrico Zanda <e.zanda1@gmail.com>, Atharv Dubey <atharvd440@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774376818; l=922;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774376818; l=1910;
  i=atharvd440@gmail.com; s=20260314; h=from:subject:message-id;
- bh=/rm2EO54Io9Vb7rL8ZSyeOBixCamQEqxJe9F/gCdBcU=;
- b=ndfdbjfGLfy7wqu+RVI89cU1BdFSOOxdC43vbHuPhEqbITAhbeTXofEpCDO4hCGofdSsBz5rg
- /eaMZdocnKzBw4U70BqYrFGGqU2cbJzMF6jNMLwPSl+hIPTFUD50Y/N
+ bh=T//TFybKN0iS3J929ONSQMLq+NVtMUv+4U4PajSEtpE=;
+ b=fr2E/ILXide+l6/sGLPzjFEjto2BGT6qqnz9x0FPbuW7SDMBkCcBooGAF0nF3tgg5wQpoDzh0
+ nAnDJBBoQYcAomrkw15oBfCFd8unXKN1lYuv+oiXhwJuhidayGEmEVJ
 X-Developer-Key: i=atharvd440@gmail.com; a=ed25519;
  pk=T6i1xWOKT/RUSDYATSgyVG/4X7ac8jPjRSG1mMAcqVk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_112722_509893_9701D41C 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260324_112732_931636_838FB1D7 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,24 +129,52 @@ This simplifies the code while improving log.
 Signed-off-by: Enrico Zanda <e.zanda1@gmail.com>
 Signed-off-by: Atharv Dubey <atharvd440@gmail.com>
 ---
- drivers/i2c/busses/i2c-tiny-usb.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/i2c/busses/i2c-tegra.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-tiny-usb.c b/drivers/i2c/busses/i2c-tiny-usb.c
-index 9ef495f88ef2..0637c71126f9 100644
---- a/drivers/i2c/busses/i2c-tiny-usb.c
-+++ b/drivers/i2c/busses/i2c-tiny-usb.c
-@@ -260,9 +260,8 @@ static int i2c_tiny_usb_probe(struct usb_interface *interface,
- 		 dev->usb_dev->bus->busnum, dev->usb_dev->devnum);
- 
- 	if (usb_write(&dev->adapter, CMD_SET_DELAY, delay, 0, NULL, 0) != 0) {
--		dev_err(&dev->adapter.dev,
--			"failure setting delay to %dus\n", delay);
--		retval = -EIO;
-+		retval = dev_err_probe(&dev->adapter.dev, -EIO,
-+				       "failure setting delay to %dus\n", delay);
- 		goto error;
+diff --git a/drivers/i2c/busses/i2c-tegra.c b/drivers/i2c/busses/i2c-tegra.c
+index bec619b9af4e..51d15fca82fc 100644
+--- a/drivers/i2c/busses/i2c-tegra.c
++++ b/drivers/i2c/busses/i2c-tegra.c
+@@ -575,8 +575,8 @@ static int tegra_i2c_init_dma(struct tegra_i2c_dev *i2c_dev)
+ 	dma_buf = dma_alloc_coherent(i2c_dev->dma_dev, i2c_dev->dma_buf_size,
+ 				     &dma_phys, GFP_KERNEL | __GFP_NOWARN);
+ 	if (!dma_buf) {
+-		dev_err(i2c_dev->dev, "failed to allocate DMA buffer\n");
+-		err = -ENOMEM;
++		err = dev_err_probe(i2c_dev->dev, -ENOMEM,
++				    "failed to allocate DMA buffer\n");
+ 		goto err_out;
  	}
+ 
+@@ -588,8 +588,8 @@ static int tegra_i2c_init_dma(struct tegra_i2c_dev *i2c_dev)
+ err_out:
+ 	tegra_i2c_release_dma(i2c_dev);
+ 	if (err != -EPROBE_DEFER) {
+-		dev_err(i2c_dev->dev, "cannot use DMA: %d\n", err);
+-		dev_err(i2c_dev->dev, "falling back to PIO\n");
++		dev_err_probe(i2c_dev->dev, err,
++			      "cannot use DMA, falling back to PIO\n");
+ 		return 0;
+ 	}
+ 
+@@ -1953,7 +1953,7 @@ static int tegra_i2c_init_clocks(struct tegra_i2c_dev *i2c_dev)
+ 
+ 	err = clk_enable(i2c_dev->div_clk);
+ 	if (err) {
+-		dev_err(i2c_dev->dev, "failed to enable div-clk: %d\n", err);
++		dev_err_probe(i2c_dev->dev, err, "failed to enable div-clk\n");
+ 		goto unprepare_clocks;
+ 	}
+ 
+@@ -1979,7 +1979,7 @@ static int tegra_i2c_init_hardware(struct tegra_i2c_dev *i2c_dev)
+ 
+ 	ret = pm_runtime_get_sync(i2c_dev->dev);
+ 	if (ret < 0)
+-		dev_err(i2c_dev->dev, "runtime resume failed: %d\n", ret);
++		dev_err_probe(i2c_dev->dev, ret, "runtime resume failed\n");
+ 	else
+ 		ret = tegra_i2c_init(i2c_dev);
  
 
 -- 
