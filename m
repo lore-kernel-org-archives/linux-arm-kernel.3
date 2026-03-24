@@ -4,64 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC1FE9A741
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6C5E9A744
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 09:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qD+G4Xs0HkI3cn4nOAJhRh3+qK7Kh/N34u7QtAazG8c=; b=f4PtVi7371LU6eCWy3x/aws+ef
-	mV4X75pzHSOw8jiMiWyjJJuv6D9O0j21URiYTOxlObDqInyoWLnP/A0G/K7KxXoJmLvdxxsQNdbPe
-	f1QBfmwhqonxtgy0rGUD3iRdgUlxpp3lMkW3MibsSYVr1OjH36vpF40x3V1dpMqfUINV5At3qfwIR
-	IMzhb0v461jn19K4yNf6HdLelaf4iaR8uKJKQvJ6FPJHIMT6BHXMlRBKyLznn96zZ/xuZvNkIT747
-	FSRxtsN395RDPdVARqY3JFEwI+HlcQ/HtH0Znz913wA+KRJqh5RU68uiGtGj4pCpSa3rgEG/M9AxR
-	y4pZnlTQ==;
+	bh=Tw/G9VTXwnHHHKSCmjoBsBkmBbbcaWdFFIwUqNEEQZw=; b=AyQGGyaAmw/RmsNHNT+vlam7v5
+	OsfBp4UnURzHGCk+Rvts5GC2S9A21r1R9Fme50PpiEq5K41tVCQgh+NRdu6kD4n742H8p0I0Ki0Rk
+	OXZVAjXFbg5isZtufyvBIRaABrsbl0PIXWBzX6CWG2bW2QTrFHSaZfkb8bpCdOa5R4AQOQ630bH81
+	nfsXzIO7jVQtXlDCqrwe+rybEq/KSfWD0qH72gCCbSZph5GnSZVYRBfNWP/AdkRnZRiEjpKnQTNyv
+	2YTZbR6S0yzTo9TzuCuaRaHfexJXipAgn6Jm3pl6685lEdIw1mKhh4R1iF0/UJkcg/uh/5KJWpfbR
+	YH7Wid1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xru-0000000142V-2JxY;
-	Tue, 24 Mar 2026 09:16:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w4xsw-000000014AM-0k5z;
+	Tue, 24 Mar 2026 09:17:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4xrs-0000000142J-3ibC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 09:16:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C958560120;
-	Tue, 24 Mar 2026 09:16:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED606C19424;
-	Tue, 24 Mar 2026 09:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774343767;
-	bh=+RIij9NEuIuPQtqJ5P/rbM6Rew0JlQNlsK8q3ZzlVV0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fvbLWtsyRGOYeoAGVckAfF3ELImNKX+HDa7zDf4l9Oq9nCNtEMlxFfruyiYwe5eLV
-	 fJgWujeUclti7Gs3nbxuPFQPMxwF1qU0wIVEeMjwI44bnU/iUvDm0gQR7Lf20d7qhH
-	 FeaeI/WHcFFQ8KvhljnpPf4UjoTuNPZBJN7Cp46cbKwQqvsN7FYSTlf/2WJ2J3GtZa
-	 GhBNOfavdRm5JTlMBUpufETsAtiAp7TUxZ4Q1uigwC/oWZ5mRjCj4bVU1Qd8SR9+K+
-	 ckhIfJ2yhVccZDO7u+CRzmVj85CDiRA7m9vJjdqMXjjYDva8dEd6/kHmBb8z8USIT4
-	 EUEbBV+J/oNDQ==
-Date: Tue, 24 Mar 2026 10:16:05 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Eduard Bostina <egbostina@gmail.com>
-Cc: daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, 
-	m-chawdhry@ti.com, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>, linux-watchdog@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: Convert TS-4800 to DT
- schema
-Message-ID: <20260324-transparent-lemur-of-emphasis-f3605b@quoll>
-References: <20260323175948.302441-1-egbostina@gmail.com>
- <20260323175948.302441-2-egbostina@gmail.com>
+	id 1w4xst-0000000149n-47sM;
+	Tue, 24 Mar 2026 09:17:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Tw/G9VTXwnHHHKSCmjoBsBkmBbbcaWdFFIwUqNEEQZw=; b=SplUWw9yCKhEoZCb5eKc2p6pQR
+	1hvhkCScmjwdZ8ttXZOf2xCGgCjCnD8jcgCCkoChiUQL0Fr+lOKiCC91ygKLfG3mxXULlMHg4jkf4
+	KhW9aITMlFp/aTS9wHXf5yeTSndhFKuIzpB6mI47jyG65omCqAsSRpJ8fdv/sYD+gb9gpy6CXpFFN
+	nZ1B5ibvdxAVyPHCy8x3w4o3A+mLKWI6GIfdtcjVvAkKR2Ztowev7aj9G3H8sr2whn0wd5iSyByvs
+	DSVmcIW8SOuAPGyaURH8ypZpklHHbbRq/WaKS4Dmu3+ktq9kHP3rOofw2JNCGK23H5LI1bZHDfqeQ
+	cTBoDRTw==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4xsq-00000003cqO-2gZT;
+	Tue, 24 Mar 2026 09:17:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774343785; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SYajBwuiZa8oR0IGy+sTz3PqpZrdBA/lNr0MoEAENTM+2lZ3W133Sd2UB4kk7kFSdTYfqIMtNFyozDZ6AIe3N/H//n0LK8rfhUdvxkX9oV8qVzaUuXHbvvnXhEpOQqBhz0mhFmGxqCSgw98UansqvWiOPFBBPmF/TUNnL7C2HnQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1774343785; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Tw/G9VTXwnHHHKSCmjoBsBkmBbbcaWdFFIwUqNEEQZw=; 
+	b=PAZeN6C+SYUsvuGqzrS2CnaplC+BBQxWmcHgJiQgN+kus0naAKpO3ZZR8NMDhCOexYzujaiRdez3CsD4DH0GWdZl707RYgn0Tj4CmR4qacVn4KYFOyL2HzsWv9TAlrN/ri62vXemfjXVra8akvFnMBlD2zwcos8lYv+Dkts7ulM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774343785;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=Tw/G9VTXwnHHHKSCmjoBsBkmBbbcaWdFFIwUqNEEQZw=;
+	b=EOH1niQczPS5fbilI4PiiNRgJuvNBqXb7Mfen8spkZtWoA8KCHnvlGcBIuYVFEWp
+	T+j1DeFy1jVFNoJJSanWd2d1AH3/DIq1hNRaBr8FseE+DZypZmgdFb2Zjv8wSPuH0CZ
+	MP9TL1jsYt98vtYhRXvkCuUjsC9UiyERHaGiwJYI=
+Received: by mx.zohomail.com with SMTPS id 1774343783701798.6167436689976;
+	Tue, 24 Mar 2026 02:16:23 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Liu Ying <victor.liu@nxp.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Maxime Ripard <mripard@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, Jani Nikula <jani.nikula@intel.com>
+Subject: Re: [PATCH v3 12/14] drm/rockchip: analogix: Convert to
+ drm_output_color_format
+Date: Tue, 24 Mar 2026 10:16:14 +0100
+Message-ID: <5921295.GXAFRqVoOG@workhorse>
+In-Reply-To: <20260305-drm-rework-color-formats-v3-12-f3935f6db579@kernel.org>
+References: <20260305-drm-rework-color-formats-v3-0-f3935f6db579@kernel.org>
+ <20260305-drm-rework-color-formats-v3-12-f3935f6db579@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260323175948.302441-2-egbostina@gmail.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_091709_136609_86E159F3 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +117,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 07:59:44PM +0200, Eduard Bostina wrote:
-> Convert the Technologic Systems TS-4800 watchdog timer bindings
-> to DT schema.
+On Thursday, 5 March 2026 10:05:04 Central European Standard Time Maxime Ripard wrote:
+> Now that we introduced a new drm_output_color_format enum to represent
+> what DRM_COLOR_FORMAT_* bits were representing, we can switch to the new
+> enum.
 > 
-> Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+> The main difference is that while DRM_COLOR_FORMAT_ was a bitmask,
+> drm_output_color_format is a proper enum. However, the enum was done is
+> such a way than DRM_COLOR_FORMAT_X = BIT(DRM_OUTPUT_COLOR_FORMAT_X) so
+> the transitition is easier.
+> 
+> The only thing we need to consider is if the original code meant to use
+> that value as a bitmask, in which case we do need to keep the bit shift,
+> or as a discriminant in which case we don't.
+> 
+> Acked-by: Jani Nikula <jani.nikula@intel.com>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 > ---
+>  drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> index fdab71d51e2a71d644f128b1bf1c39429b4ad52a..96bd3dd239d251af3d5a7d0fbd4dd74942d44f2d 100644
+> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> @@ -169,16 +169,16 @@ static int rockchip_dp_powerdown(struct analogix_dp_plat_data *plat_data)
+>  static int rockchip_dp_get_modes(struct analogix_dp_plat_data *plat_data,
+>  				 struct drm_connector *connector)
+>  {
+>  	struct drm_display_info *di = &connector->display_info;
+>  	/* VOP couldn't output YUV video format for eDP rightly */
+> -	u32 mask = DRM_COLOR_FORMAT_YCBCR444 | DRM_COLOR_FORMAT_YCBCR422;
+> +	u32 mask = BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) | BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
+>  
+>  	if ((di->color_formats & mask)) {
+>  		DRM_DEBUG_KMS("Swapping display color format from YUV to RGB\n");
+>  		di->color_formats &= ~mask;
+> -		di->color_formats |= DRM_COLOR_FORMAT_RGB444;
+> +		di->color_formats |= BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
+>  		di->bpc = 8;
+>  	}
+>  
+>  	return 0;
+>  }
+> 
+> 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Best regards,
-Krzysztof
+I'm not the maintainer of this driver, but touched both the color
+formats and rockchip code enough to confidently state that this
+patch is trivially correct. I'm sure Heiko and Andy will agree. :)
+
+Kind regards,
+Nicolas Frattaroli
+
 
 
