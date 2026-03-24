@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6CBF54ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C015DF54ABB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DK0ASk5UvoEgARm55wgAnV0lUdTstKarYp2Ne0dL714=; b=kEfzG+yZ3fs8NFYslFz0jDjaRq
-	Mp5H1DDBYzpGhni7XzD/tAsrhmWQr/tsKPA3S7jurOT2desQ8s7jXH4AmwdL5wtFXHz08q+dGqZMg
-	T/dFIqa8vPjSRTNI6jIFEVVBEieSoDRg33jLFP+FdcVQ0vSLWNfRCD7pkgWnPLASK+h64klf/OJTu
-	uGYnDBZz08DiTxuhOHtutYaHyEWurNVhIY601e/9B7VEty0bV2+AIruaGU4Ql18686hGQIo4SX+fy
-	0Qvk21yvt9yQT96kmAYEONBe3/Ew2WBiWH4BTVwPDsCkoA0loR2uUZxGS/UQNDPVyH6tPHNzF8ITr
-	/gIOtizQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y6DylKeCYm3VDED+c7LS4O9E/kdD6gkIBVVmWVWmR3I=; b=ppZVJRVu7wO3FzDvyj9p6zbmeX
+	OWWfYX3ONCzc/237MbUQKz8a4iAskFmuHKSVmy/hcAH55Li8/Uu3wYzmF+sJKWeGXtC6Zs9jMU0YH
+	ALxEJIcd+zrTJgu9o0m+3F314lNvLUGt2wotylxM2bF0tfTdB8UKuWzif6WBKqfE3j/Ybv++f8ibq
+	IllLZiU/AeavNiaDxx2PagKDPs3ys+ZzU5nz6tAVd4As95dYrXijL7yRbqNXd29CtUCvig1pHskNT
+	Kwt2OorZC7eno5UnZQ4xPVU/xSw3OumtBkdcTGOTp9H5CSgjtmwYPdFy2cTqU0YpX2O8SPIFeBLF4
+	7+jhGv8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w525U-00000001ZUg-0Rb6;
-	Tue, 24 Mar 2026 13:46:28 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w526D-00000001Zi2-0Ij4;
+	Tue, 24 Mar 2026 13:47:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w525R-00000001ZUB-2udG
+	id 1w526C-00000001ZhZ-0K7W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:46:26 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1w525J-0000zN-Th; Tue, 24 Mar 2026 14:46:17 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1w525J-001uDV-1X;
-	Tue, 24 Mar 2026 14:46:17 +0100
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 2235550BAFD;
-	Tue, 24 Mar 2026 13:46:17 +0000 (UTC)
-Date: Tue, 24 Mar 2026 14:46:16 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
-	Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
-	Eric Chanudet <echanude@redhat.com>
-Subject: Re: [PATCH v3 0/6] can: flexcan: Add NXP S32N79 SoC support
-Message-ID: <20260324-visionary-vigilant-alpaca-a492d8-mkl@pengutronix.de>
-X-AI: stop_reason: "refusal"
-References: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
+	Tue, 24 Mar 2026 13:47:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 416D26012A;
+	Tue, 24 Mar 2026 13:47:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E28DC2BC87;
+	Tue, 24 Mar 2026 13:47:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774360031;
+	bh=P7hdlk9agELe0A1qr6nFer12udYaXk1PPxLMDqx39ZA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YTPWewIy2XjmxYlPmx78726H6Q3b3o2/K/XUTePzsvwm3uznu6RxSQ9VVOI3XlzOG
+	 HsrbKbDCx3m9YmyaD3qdFsMmBHphI8gV8cNWgVIhnQPUqzkVJcCVavloxupaiM3Bm6
+	 gr3e0Px4RcxCPcL83D1wX9JJc6dId3W2C4QqzltZ/kcXDNKp3m5fD4ExEn6LR+XdUP
+	 PelNtyhfO1qewjmDgvfR6vVAiq3X/L5HZs831H4nzB/UTtvqLpliKm4Brg2uWgVMzM
+	 9xAQxVjmsfR7x8Rkzygwl+RYpr/4lCFYaT1TqD0D9iSWCxDdCbIPG8WQDVTWpttBID
+	 43LOH87Q4rQ6Q==
+Message-ID: <780c1ba3-6639-478e-896f-e35ec059b58c@kernel.org>
+Date: Tue, 24 Mar 2026 14:47:06 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="sfvp3htsx73w2iwa"
-Content-Disposition: inline
-In-Reply-To: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_064625_737865_F28DBA31 
-X-CRM114-Status: GOOD (  16.43  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] soc: fsl: qe: Fix potential NULL pointer dereference
+ inqe_reset()
+To: =?UTF-8?B?5pyq5ZCb?= <1742789905@qq.com>, "qiang.zhao"
+ <qiang.zhao@nxp.com>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Cc: linux-kernel <linux-kernel@vger.kernel.org>
+References: <tencent_770FE404794D670E2ACDFA144EFDA35AC305@qq.com>
+ <7e0425c2-debe-448a-a5f9-26039de71db5@kernel.org>
+ <tencent_89405091B7744EA070AC53E11A3FFA355609@qq.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <tencent_89405091B7744EA070AC53E11A3FFA355609@qq.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,53 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---sfvp3htsx73w2iwa
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 0/6] can: flexcan: Add NXP S32N79 SoC support
-MIME-Version: 1.0
+Le 16/03/2026 à 04:28, 未君 a écrit :
+> 	
+> Vous n’obtenez pas souvent d’e-mail à partir de 1742789905@qq.com. 
+> Pourquoi c’est important <https://aka.ms/LearnAboutSenderIdentification>
+> 	
+> 
+> Hi,
+> 
+> Thank you for the detailed review. You are completely right.
+> 
+> My commit message was confusing, and returning early in qe_reset() just 
+> shifts the NULL pointer dereference to the dependent drivers later on, 
+> without actually fixing the root cause.
+> 
+> To achieve what you suggested ("if qe_immr remap fails, all drivers 
+> depending on it don't get probed"), I plan to do the following in the v2 
+> patch:
+> 
+> 1. Change the return type of qe_reset() from `void` to `int`.
+> 2. Return `-ENOMEM` if the ioremap() fails.
+> 3. Update the callers of qe_reset() (e.g., qe_probe() and other board- 
+> specific setup functions) to check this return value. If qe_reset() 
+> fails, the callers will abort their initialization/probing, which will 
+> properly prevent the child devices from being probed.
+> 
+> Does this approach sound correct to you? If so, I will prepare and 
+> submit the v2 patch accordingly.
 
-On 23.03.2026 14:58:21, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->
-> This patch series adds FlexCAN support for the NXP S32N79 SoC.
->
-> The S32N79 is an automotive-grade processor from NXP with multiple
-> FlexCAN instances. The FlexCAN IP integration on S32N79 differs from
-> other SoCs in the interrupt routing - it uses two separate interrupt
-> lines:
->   - one interrupt for mailboxes 0-127
->   - one interrupt for bus error detection and device state changes
+Well, it would probably work but is it worth it ?
 
-Can you check if the S32N79 suffers from the
+If the board is already unable to get a few bytes of memory that early 
+in the boot process it is unlikely that it will be able to do much more 
+work.
 
-| /* No interrupt for error passive */
-| #define FLEXCAN_QUIRK_BROKEN_PERR_STATE BIT(6)
+Wouldn't it be good enough to just panic() when ioremap() fails, similar 
+to what happens when qe_sdma_init() fails, see 
+https://elixir.bootlin.com/linux/v7.0-rc5/source/drivers/soc/fsl/qe/qe.c#L101
 
-problem? Maybe everyone just added the FLEXCAN_QUIRK_BROKEN_PERR_STATE
-for the new SoC without actually testing it.
+Christophe
 
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---sfvp3htsx73w2iwa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCacKVpgAKCRDMOmT6rpmt
-0mvRAP9uJpqL920nvKePwYE/f3MF6bgHAVfPT9leEIrGPeVWrAEAycBuPGzDXtPX
-Vo+/Cwt1tfC3N7rC7vFrvinAjPIWBQM=
-=makj
------END PGP SIGNATURE-----
-
---sfvp3htsx73w2iwa--
 
