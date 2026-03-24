@@ -4,51 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB2AE9A765
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F00E9A767
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CKyTYEVkPWyYi+asBSLq81UHgxquPBaNzWMSVDTBSBo=; b=gB/eHchvaqcqa+SPsmFigl8sUu
-	bRMZkTawNUBGl+Xyj9e8HzZWBO8aTBGpJ09TzrPlQuCr73Y090haFAydoUPjvkBc2uelBfabKTyYc
-	OGkf4jSs6DSWpZvP7cn96e5DocF/n3cMXZYEkuISY5DsDxRX4Y19MItHBPmNS2rn4iPA6+KjpSZ3W
-	jJIi+qprpmn/jwbWxISKpRD5+J8E4jrjEehCO6Nfx0sZlJLUpxBPLMhsNNm0PGbyLwCo4vNuNrFaH
-	W6UmU88U1Obm6YUr+88sA7BFi4/EJb9uZlrdltEw9VR/eQER1elXgNDE5TZrxPP9WDHEIkRSYHu7v
-	g75YkIVQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uE3A52l//Eyh8el6mNpQoe5V6xt4Ha2AtzkaikN1c20=; b=YWeKlHLBODoD+xgwxzFt0GF3IM
+	AzBJABfMCoU+MNt5An2BEosWkg3fPo8n2hKrAXUFoVuC/JvDVYfeNQnZYDZkOq7MTGAIbdrrXq3Fr
+	/BCQyiGl5yJTyUE5L0JUQtoptXNyqaESBeaWMES1ANAAXwUBX9Db6wP/2msZoFtVAicy3CkEMe3kJ
+	xvsyzBP0v5SwOnICm+aQqs19g01gP4OrvfI8jlt06+Ud9IFPzeH57nirPNv6CoOZHhTaLZK2x0Yyk
+	qo8EyO2VA+LtKiuFJVPhY6ay7VhLnaq5u3nHHRlCzaUKRdcWdRV3Ws01u2/VcYDHS0u9jNRixRMpI
+	hTXIxX1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4zMq-00000001EmD-1qik;
-	Tue, 24 Mar 2026 10:52:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4zMo-00000001Elq-17Yn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 10:52:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06FD6153B;
-	Tue, 24 Mar 2026 03:52:03 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 778003F73B;
-	Tue, 24 Mar 2026 03:52:07 -0700 (PDT)
-Date: Tue, 24 Mar 2026 10:51:44 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-Message-ID: <acJswNy3X1jG_gh0@J2N7QTR9R3>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com>
- <c4e823cd-bd35-0e4b-d3fd-52688bfdf4ab@huawei.com>
+	id 1w4zQQ-00000001F4a-3GI6;
+	Tue, 24 Mar 2026 10:55:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4zQN-00000001F46-2t6A;
+	Tue, 24 Mar 2026 10:55:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4078344490;
+	Tue, 24 Mar 2026 10:55:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12D7FC19424;
+	Tue, 24 Mar 2026 10:55:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774349751;
+	bh=PKmRQSmpQcoJaB3C8EeGp80u+1D+x7QmhnNQbCSeB8o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fMEcgbbGgPyzprrfIXmnWzFQVASvL51viSIEUIGq0ULM2FvF4mbfhFjh/HfjosHht
+	 cgW+/u9gxB9fYbahyMGnurb7qoARj2GLGX6Ra96W/IHys+NfiTnIL/mImcGXUmlDjh
+	 NebVgjLehpGJwqkV4cVX7lDDhnYo58udnTxoI3ZrFyMQMHtl4DswqW26b/zG06s1sO
+	 T1KpDuiaLK8G1+W+b214NZfc+rI3YgT9zrIPw8TCw1KOpmEjvUWFSZAmeubTl2MSkT
+	 fUye6Vy/rI8+HkSs58CRHJoldtPx4J8kBNNWCqvbMR5Ikppaz5prA9TA7BNpQhgvcl
+	 Af6e9o0yrXfiQ==
+Message-ID: <a9ac9f4b-9b25-43f3-a2c1-da7157a95ab9@kernel.org>
+Date: Tue, 24 Mar 2026 11:55:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c4e823cd-bd35-0e4b-d3fd-52688bfdf4ab@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 04/21] mm: avoid deadlock when holding rmap on
+ mmap_prepare error
+Content-Language: en-US
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <d44248be9da68258b07c2c59d4e73485ee0ca943.1774045440.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <d44248be9da68258b07c2c59d4e73485ee0ca943.1774045440.git.ljs@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_035210_371760_1FF85279 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20260324_035551_772470_181B3578 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,40 +98,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, tglx@kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 11:14:28AM +0800, Jinjie Ruan wrote:
-> On 2026/3/20 19:30, Mark Rutland wrote:
-> > On arm64, involuntary kernel preemption has been subtly broken since the
-> > move to the generic irq entry code. When preemption occurs, the new task
-> > may run with SError and Debug exceptions masked unexpectedly, leading to
-> > a loss of RAS events, breakpoints, watchpoints, and single-step
-> > exceptions.
+On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> Commit ac0a3fc9c07d ("mm: add ability to take further action in
+> vm_area_desc") added the ability for drivers to instruct mm to take actions
+> after the .mmap_prepare callback is complete.
 > 
-> We can also add a check in arch_irqentry_exit_need_resched to prevent
-> schedule-out when the DA bit is set.
+> To make life simpler and safer, this is done before the VMA/mmap write lock
+> is dropped but when the VMA is completely established.
+> 
+> So on error, we simply munmap() the VMA.
+> 
+> As part of this implementation, unfortunately a horrible hack had to be
+> implemented to support some questionable behaviour hugetlb relies upon -
+> that is that the file rmap lock is held until the operation is complete.
+> 
+> The implementation, for convenience, did this in mmap_action_finish() so
+> both the VMA and mmap_prepare compatibility layer paths would have this
+> correctly handled.
+> 
+> However, it turns out there is a mistake here - the rmap lock cannot be
+> held on munmap, as free_pgtables() -> unlink_file_vma_batch_add() ->
+> unlink_file_vma_batch_process() takes the file rmap lock.
+> 
+> We therefore currently have a deadlock issue that might arise.
+> 
+> Resolve this by leaving it to callers to handle the unmap.
+> 
+> The compatibility layer does not support this rmap behaviour, so we simply
+> have it unmap on error after calling mmap_action_complete().
+> 
+> In the VMA implementation, we only perform the unmap after the rmap lock is
+> dropped.
+> 
+> This resolves the issue by ensuring the rmap lock is always dropped when
+> the unmap occurs.
+> 
+> Fixes: ac0a3fc9c07d ("mm: add ability to take further action in vm_area_desc")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-That *might* be good enough for a backport to stable, but that's not the
-right fix going forwards.
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-Checking the DAIF.DA bits will prevent preemption from anything other
-than real interrupts, and Thomas said we should preempt wherever
-possible:
-
-  https://lore.kernel.org/linux-arm-kernel/87h5qak2uv.ffs@tglx/
-
-The interrupt handling path is also inconsistent w.r.t. masking DAIF
-upon return, and with that cleaned up it'll look the same as other
-exceptions, and we can't rely on DAIF.DA.
-
-I think there are alternative options here; I have a half-written reply
-to Thomas's other message:
-
-  https://lore.kernel.org/linux-arm-kernel/87fr5six4d.ffs@tglx/
-
-... and I'll try to finish that up and get it out shortly.
-
-Mark.
 
