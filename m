@@ -4,103 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC1CF54AB0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B88F54ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lwJmgnSo6KnXs3QMV/sLeygtCSL7kB69SuItbOD1ns=; b=Z9buBYK8eReTqoQt+HRDNZrh0P
-	jkBbQvm7SCXzOusnzFu9vZep2OAPquUa6bzSGhK4LZNyGdXO2t3Gs+qkIVbX3Vp+8SRV4dlLDrrOX
-	Zq7YpdkmNymwv6VYccTvcBYvb8Za3ux/Q1TtuPMX9qBLtQ85dfPGjEVpJCUIA0xD/KepxQ0wwgRun
-	z9vcDHD5ZvkiosLRom2H2YwGSo3FuBZ2k9JegYtWN1UWKsXATGwsqRs46idx8Sxx/PdjcQpaeCenv
-	frfzk37OymsKx5vDTcVsGtxukX4iNeEnOY1sgt4HqqFPmNcLgV2X9quK+WE/SLICWL7nuthjXf1dx
-	KgLBsfUA==;
+	bh=JdAp6xh8xeBfkhw2oXmLZzz+7TGqiyYSvmIRi8yYlCE=; b=cVEZykbNe8qbyntmFkiLdMzYBN
+	ayELFLcEHWwmPoZyweU27VYFVbWgtvvtuR1+n9F1vCqpBagPy26ldKuGbewGzXWW7FbBuKM8vQxBF
+	/wUDhaI34k38/1YpS/4TWONZuPa8+aLJp0jEKljyYs1RKhM7rPRNzKk4y8JjmKaMQqB1b/hZpnPAB
+	TF+1BmB6X7W1V6e3D89hrfhn+DR5IKiCwfnbecZvyl0sbK7YJMQCXojkRU6bCW2JR6az1K1JDO9nr
+	ymn2nKvBzYZkYW/M3IIDZYYJVnXNvXEjj72+ND2pyrzsX8egyOmpuSC4pF1F/RgCbF32/DDy94ieP
+	6nX4FbmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52DJ-00000001aEW-0wwI;
-	Tue, 24 Mar 2026 13:54:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w52DW-00000001aIt-2IQe;
+	Tue, 24 Mar 2026 13:54:46 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52DH-00000001aEF-3ZFK;
-	Tue, 24 Mar 2026 13:54:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0FA0600C4;
-	Tue, 24 Mar 2026 13:54:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F6EC19424;
-	Tue, 24 Mar 2026 13:54:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774360470;
-	bh=fi9HDyvfOojRUl+q7tvPW/ZUUo7COxrKyLJS5nG3Shc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BBQostQPe1O1il3B2n2fPZ8SdX8iBRcKgijfd0CrsYuGuzu/iwGI/aqeI5zqVwdSX
-	 g0CVS7Xas6Vb27q70WwPf2v23Ct3L3wg8TNDXXg8XX9t2jMCZRNbG2Vo9cxRf+FRE6
-	 xfIiRuWGcxC/rXmMZ+TxZ1QjUQTylvNF4FiXEOte/9Vobo0l2R/YFKQSDQHAGFIFTe
-	 CCP8fLARGnx1at6ziQOuWl2/wCxiyMngLDonHCOFvKICWMpmAlYL46JauClhoaQNai
-	 N7NxHdKSlh/qR53Mk5dD1JVcUE54xlmYSCFvd8u0FFgYmmbMHGyuqodPSAPjVSh/wf
-	 qRH4lf4AEjDzg==
-Message-ID: <d90284c1-3d54-4072-961b-6bb77f845ad4@kernel.org>
-Date: Tue, 24 Mar 2026 14:54:27 +0100
+	id 1w52DS-00000001aGl-1w5H
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 13:54:45 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a27eb8311bso3875941e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:54:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774360480; x=1774965280; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JdAp6xh8xeBfkhw2oXmLZzz+7TGqiyYSvmIRi8yYlCE=;
+        b=VG7b82FvsdHXPlP7lW7iaaWQK5W6M47cn5DD6tnJKGoqngFal5z7PnF10HUgMCTKAv
+         bRXSRJcDxkMYwjXk7E/SAuoR/AmKhI6hOYn5BSk2SXEdEztT/ZoWqdFv+RlanI6BUkYI
+         aoTzHixt8oJoA/hvIYYnFCITtCX8on24lK+11eYpqRR3DwLCS+V9On25yd+9Aw9g36iR
+         gVUdZFk9E0+M9/B+4Q/BZnnNyKx2pBdOXvQwl00bmP0UoELNitwCAsL89ivKhlPEjFdN
+         cmRppJW6ggJUgnUm/c//y9BLOba9ZQxJ+reTg4M5nSDRbgN6Won5aW9Tt63Z9T35WfHE
+         Pwkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774360480; x=1774965280;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=JdAp6xh8xeBfkhw2oXmLZzz+7TGqiyYSvmIRi8yYlCE=;
+        b=AJEHbHAtkebJ9xlGtrI1pUbyf0VRojMcyZWEA4OOuPxD+nmeNDQFSCyBdLgcxTY13t
+         kzslgPBPEqSBZo8XOn9x2ZccHrfMJZn9/thVlrqrLJ4hGwPI56T2a78LSul9p/uylg2J
+         xVYcumKYKId1IVyb32V6nc0s3z5I9KWu8i9I2crrCJEn7Qq48ob9u7WE2qsiR7aHFpra
+         49aROemDvPPTO4zons/IDhZbBx2N2jfl/vUAXV3dBOBKGrBLkVUzbZ9TghWMfony0P6s
+         nr81tuJZjRosHofdlUlnLkc0zY/a4weP+S0tkbsyFJVWDfT27g9AKLkEOTt1A2RhySbc
+         mKhA==
+X-Forwarded-Encrypted: i=1; AJvYcCVHfqKL4u3fD7azqyLI4AOSp9fEHrmjGOOMH4MCFA+AE8n9NiYo1rIhCWwQH4x5RbZo9YoVgnlFjovyrHJud/sx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8WnQnxeDnuq0MnWFk7gM16OaO4RpIRY0bgftsWlhVF2xMX5IR
+	Jbnpk8AEiCDrt0DTCTZAN6wjAfF4fmuVT87GqYBXuAYCgCw/XhF/gy4Dx0Fo1rcZ
+X-Gm-Gg: ATEYQzw6cpHFncxdbRgolbHYtk8gyDXbHXqFffUQadKTypBkeQLTg7v+GEmJ/9EMwCm
+	Es+LzzIhAwmGJEXcwYFmYPqFfSaUxbB5ZCNvXsR6JkrOSmZkc3n5s19iBj/EibZbbqySQqK5YNc
+	SUW1ASun5qOctjOXx6QSeMGKtQJV/6JsPaKetRsAL3HPTd2hXNYmsPuSAo65Q0qQBnw5pFq9zTk
+	rAInCDiXTDw28kBGod4Demnx80mafK7Cl+gTFpK+a2l6tQzao4DuU8s/S5kPWLKb5IyKtP0dsdH
+	iETluARwTf8q9LeDnXrALbfFsL9fc5i48/7D1fAuBwZFGEtgZ75yf92bXKDPJq+f5bszU5vGA4u
+	1WmGhBg2ss7EMU+/h6qKSxT/k6XLTqfztqj2mt7g48+/BcAQY3wO8tRtbjXiEbce4nobOl6ptJB
+	Cl9GVx173oCg6k339TP0CfJ6dg4W7LEGIjVbySdebZlj3831mZLmwkb6U3VWLydHzEMtsF
+X-Received: by 2002:a05:6512:1150:b0:5a2:7eb8:2f9a with SMTP id 2adb3069b0e04-5a285b60fa4mr5257979e87.21.1774360479973;
+        Tue, 24 Mar 2026 06:54:39 -0700 (PDT)
+Received: from [192.168.1.135] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a285207454sm3162823e87.48.2026.03.24.06.54.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 06:54:39 -0700 (PDT)
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+Date: Tue, 24 Mar 2026 14:54:15 +0100
+Subject: [PATCH v9 1/5] i2c: core: add callback to change bus frequency
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT,PULL,1/2] MediaTek ARM64 Device Tree updates for v7.1
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com
-References: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
- <20260321-aspiring-real-foxhound-4a18e7@quoll>
- <b8b9ad39-0e9e-4c38-b080-85153b2a66d1@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <b8b9ad39-0e9e-4c38-b080-85153b2a66d1@collabora.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260324-i2c-mux-v9-1-5292b0608243@gmail.com>
+References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
+In-Reply-To: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Peter Rosin <peda@axentia.se>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@intel.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Marcus Folkesson <marcus.folkesson@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2485;
+ i=marcus.folkesson@gmail.com; h=from:subject:message-id;
+ bh=XZVd7p9mIBaNy+NIKUZiBgjkJyYONlNCoWZWgB7A9Zk=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpwpeNI6OmaQ0d2ac8J3iIBGEysEYB0qwzhghkE
+ 0W3akq+mXyJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCacKXjQAKCRCIgE5vWV1S
+ MtN6EADTibXYTvwLToTRixa2sh4rGUbNLanpKU1sKffHdHOLtUuOEo4bHoRHV4E0tjabv595SmY
+ 1SMoGPf/phfw7YneGwh/MyGjm/bXChh2E226fW1kkqhRa2OEyU/mVQVKzxuHhD8axJJKo30NYJv
+ 79zdaNSTsOHy+Jf7dUytw2FXXwi75TI8dknQ2QCRl5mYIzMpwF6aPerYGnna97pwjvUMngzgTOq
+ Ug8wZvq6eMINF8G1LRrblPT2MwedfA5QVaIIzIlgTwIF63Et/o0g1nBNJIq6YEMQX0kwTL+kwSj
+ IyD4rGtU5yjFjPQK1qhnWtslh+METP8OL0dJkBHCyZFfQOXo+GyIEif4s+xTQmeqwiaFo3i7aK/
+ RAD0r2qN0zfBbE8AhzftKThJCECn/IrRMdgt1F1gFfKsqOnRLexMvdq56g9bNHEUjWxIr5NaS4J
+ 65pO+YAXVUpcXp80l341Xq0LF85vejFvK2mlDnQpMqsYS7Sz683IVEQDkOrwFGTaOnEKYM1gB+h
+ tfEcw/4Cn9jnke4nbM1av4S2MXAV+fbaPI4+pEPTQNCz0r4yBc12t0G12WoP+fq/WKdTA6yiN3V
+ ExYkKdrb8kyorl6UN/JsBiS04Twgaqh6HsC43OrXnbAzqqzSSs6G3ur8jaBryTt8SvCpf5XCVa4
+ a8wntfiGesMABpQ==
+X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
+ fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_065443_527649_16C04A77 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,27 +122,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/03/2026 14:52, AngeloGioacchino Del Regno wrote:
->> Days in linux-next:
->> ----------------------------------------
->>   0 | +++ (3)
->>
->> With 0 days in next, you cannot really react on any bug reports.
->>
-> 
-> OUCH!!!
-> 
-> Sorry about that, I didn't notice that my for-next didn't get pushed when I tried
-> to actually push it (and I was 100% convinced that I had checked after pushing).
-> 
-> Krzysztof, thanks for making me notice, that was completely unintentional.
-> 
-> I re-pushed the for-next branch exactly a second ago; that should give it some good
-> time in -next ... or well, otherwise, we can always delay those commits for v7.2 or
-> for fixes.
+All devices on the same I2C bus share the same clock line and the bus
+frequency has therefor be chosen so that all attached devices are able
+to tolarate that clock rate. IOW, the bus speed must be set for the
+slowest attached device.
 
-There is still plenty of time for this cycle, so no worries.
+With I2C multiplexers/switches on the other hand, it would be possible
+to have different "domains" that runs with different speeds.
 
-Best regards,
-Krzysztof
+Prepare for such a feature by provide an optional callback function to
+change bus frequency.
+
+As a side effect, several bus drivers keep the bus speed in a
+private structure and can now have this value stored in a uniform way
+instead.
+
+Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+---
+ include/linux/i2c.h | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+
+diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+index 20fd41b51d5c..712f9608108e 100644
+--- a/include/linux/i2c.h
++++ b/include/linux/i2c.h
+@@ -742,6 +742,8 @@ struct i2c_adapter {
+ 	struct rt_mutex mux_lock;
+ 
+ 	int timeout;			/* in jiffies */
++	u32 clock_hz;			/* bus clock speed */
++	int (*set_clk_freq)(struct i2c_adapter *adap, u32 clock_hz); /* Optional */
+ 	int retries;
+ 	struct device dev;		/* the adapter device */
+ 	unsigned long locked_flags;	/* owned by the I2C core */
+@@ -835,6 +837,39 @@ i2c_unlock_bus(struct i2c_adapter *adapter, unsigned int flags)
+ 	adapter->lock_ops->unlock_bus(adapter, flags);
+ }
+ 
++static inline int
++__i2c_adapter_set_clk_freq(struct i2c_adapter *adapter, u32 clock_hz)
++{
++	if (adapter->set_clk_freq)
++		return adapter->set_clk_freq(adapter, clock_hz);
++
++	/*
++	 * If the adapter is a root adapter without .set_clk_freq() implemented, this feature is not
++	 * supported.
++	 */
++	if (!i2c_parent_is_i2c_adapter(adapter))
++		return -EOPNOTSUPP;
++
++	/*
++	 * Update the clock_hz for non-root adapters, even if .set_clk_freq() is not implemented,
++	 * to allow the clock frequency to be propagated to root adapters that do support it.
++	 */
++	adapter->clock_hz = clock_hz;
++	return 0;
++}
++
++static inline int
++i2c_adapter_set_clk_freq(struct i2c_adapter *adapter, u32 clock_hz)
++{
++	int ret;
++
++	i2c_lock_bus(adapter, I2C_LOCK_SEGMENT);
++	ret = __i2c_adapter_set_clk_freq(adapter, clock_hz);
++	i2c_unlock_bus(adapter, I2C_LOCK_SEGMENT);
++
++	return ret;
++}
++
+ /**
+  * i2c_mark_adapter_suspended - Report suspended state of the adapter to the core
+  * @adap: Adapter to mark as suspended
+
+-- 
+2.53.0
+
 
