@@ -4,143 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AD5E9A775
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BE0E9A776
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zqrg2lc7oSR41YodgrBHmAdhnpQNxqFkkZK54x5+D5Y=; b=3oDuBCXjbcPjntHVDEAsRO2qYZ
-	ungzZpGh/8+d/9oaH4amjW9o3CqCi9me96rYm/XbAYoR5t1wYDmgnn3vSZpP2EUgnWwd+Vb62sAJD
-	Z31W9680ZnV2tGHOao3952WbI0+iGeXBP3E+qpJ3mcmxKIPoSIJN8sJdNeI5S0oMbDpFiRgZjDmC7
-	EIfG4y3zm2Tu7NvJHGuB0YebfXONGtPWdv/d5mcWfaVh+AOU1kHTt4PqgCjZ85kGwNafWXn+ozu6S
-	4IggPoVeJrs/9YQQoHS53H3ytiWD6O8z2en4OEAx69xoz1uPXKynH3rxM7EakoCqW/yYU7gPNEErX
-	UY8qRNhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7bLDa5FatlQiQDgslRUvd7a89kzDDOt8E5RHDR74RRs=; b=qx1R7Jb4A6dYZxyfcU1CIXKOH6
+	bKEzUEw06FYthEH6Hm9NfMLBIoaCd2Z6eovW5VmPZgkw7MGsXuaE+shvg6Y+wobKMrn0i0bRPYlIE
+	ALM2gQimej1XR1t6FvsTuspecD3YjLEJE4ASSMbvR++QA56XDG02cmhtz19+Ql5s+heWhuClE/JEs
+	3SyjsWo0hRYYQkFS8IPghWImrH7O/WHlBrZC3ht+Iau48m3Qn/SeBeCf6odIDMs9uhtNZz0LqASxL
+	ZC+y+qU1cM72GwnYmbWUM/L+0UiQKQ+EvGMCTpE8+SfXklQ9u7a6bHYOAhy3dzWa2vAYpoqqpKIZQ
+	p654wa1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w503k-00000001Hsb-1ehb;
-	Tue, 24 Mar 2026 11:36:32 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1w50CD-00000001IGs-3FGo;
+	Tue, 24 Mar 2026 11:45:17 +0000
+Received: from mail-japaneastazon11022093.outbound.protection.outlook.com ([52.101.126.93] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w503h-00000001HsB-2nUa
+	id 1w50CA-00000001IGG-0K8K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 11:36:31 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-12732e6a123so8341319c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 04:36:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774352189; x=1774956989; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zqrg2lc7oSR41YodgrBHmAdhnpQNxqFkkZK54x5+D5Y=;
-        b=NzmfohnBQwTfsQ0rNWfVd0IftQWgG3fGPOjBdf4n1KJFUTPvl5Iu6DuTYV1g6+LG3K
-         oYH+KNJzRjGI2/J7TIfRqbw+JJCrs+fxW1RdqEgscsh9EoOrfLCYxWsAdhP4TMn082+x
-         G2PNRVsi+qhPlQTniEi3S2GsFGWnZ7P2Msfdc9+Xrkad844wEK6Y4K3dtOhTV5QPRYpO
-         Z7mk/Hiw/n/W+STCAhwDrPU4S+asUF1+maWbtorV0bxSLfIgBtT23aJCguAYs3SbnzzD
-         jW3j3j9GrZqCa3Ol4gV64yqgf/Kx3BYcSSCkiIPw3iAR0Gvgrm8xxJ+QufNowjU9dzwR
-         wVKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774352189; x=1774956989;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Zqrg2lc7oSR41YodgrBHmAdhnpQNxqFkkZK54x5+D5Y=;
-        b=gL4GW158civdAcPsYV6glMirtONU9xXO0axzeYY4nzXb8Sxdm/p+4TkxbYUfws8pv9
-         dbU2cSu+/VLa4ryd4iuwr59X/B6rs/cvCm5PtCgYVtWZp7V1kUfprlX7e1IBrcBv2hQr
-         jsAf6Vc0tqUkwOmjWXZIYDADsr9Pgs3DXSH24Z1PG3z/gl3oCevmYAKdIV7SbRQRWU4C
-         DdwpJvGdmD617Yj579ZhttdoZvu0+9gWutKo1dSLBZyg8pR+3M7w/fXy8VcXAuDX2iOm
-         OKwXx/lI+7BBNKkF2lC4P4cAoQFXW/X5eiSvPE4lV3wRgYKToGe6Wp/6uYC09tPDsACA
-         C0BQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXg/8n54lzH800baWqIoK8x2CQ8NkHbjAq9GplGx+q8/SS+AGqcQotNDsWZyruTL+p22vSAQoh4A7jg/iNwl1j0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoZU0/pIcCaPh2nMX6T3BVqZTzjhV4NJIHzbBU5R9IZRHUU0Cx
-	f8I5qxTKFq2vbgNFSiwpwlrMSlocLDnBPhDpzO9b/4/M4rT9hEXJwIQsFmpiIw==
-X-Gm-Gg: ATEYQzzuSu4Bj6ZlsE1cMLyHiTD+8iIz2WGQmQNu2MeDMSe6t5RDjJHPJIY9YYs73j6
-	aFaGKSwmLvNxMS/tQ4Uk3/RenUuonAv2835eqfEa4LFTdyv1i1IO7y6kk9VUZeRLVZ0xhXXWUYL
-	0Gi99uXbs/+ILoqPlHp3kkupcPWk8bpqUNyqvp/lscVhcy+HuUg+XtswVDOIcdZyx3G03Agglsw
-	xuGuFZXd/jtGbl24nS15FbtBG/pk5SE3lt3m9Vt3HZ2CoIXb12y8TGOkHhw/FPukKygGqG0WYeM
-	bYPkJ1JiLgQ51ua+S6ReqpcSzyzhIVPesp+GVYwLTiJRTmrAfjbnaws9sdpGPRHHX8HIR0IWqKb
-	vZ16gX1IbkH96eb/JVqhF4SbsHpYK2p3FgJ1X8RVIcxRfxFg0iWY+JFlCeqri0v8iwej+ZmRwz0
-	a46P6S1xl5CnuRjqcks8ckx50SM4QW9BGA4B9iQ35aOFm4S8luak4quz0Je+YOxAdU0SWien8f
-X-Received: by 2002:a05:7022:ec87:b0:11d:f89d:85a0 with SMTP id a92af1059eb24-12a726d9914mr7779152c88.27.1774352188596;
-        Tue, 24 Mar 2026 04:36:28 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12a73407854sm11245327c88.8.2026.03.24.04.36.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Mar 2026 04:36:27 -0700 (PDT)
-Message-ID: <59924bef-4da4-46f2-93bf-2173e3280114@roeck-us.net>
-Date: Tue, 24 Mar 2026 04:36:25 -0700
+	Tue, 24 Mar 2026 11:45:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IyCs/YwMQqRUAX9nsAq/+nIO1fACxqvU0ZmNhU1RRvXJurrYJP+C6fh0YOmh6zreJ+11cPTswapHMNYYdrz//Ny1coe4cEweY+FWyrwXzl235tne6zFJMZwJn8a1iTFEe16kHgy5H608spnXf8SU1SyWGc613QUTs+JA/cPjJDn50ZeYKvjjKYeYFC6cId+H9rstCOfTNcM8rAhwytYW0U6nQFlVufPVLJZ0mdHEUXfzhz88LO7FvdCiimZhn5Gzbsjp7zD1jOsXaZVL4MUMM8TooYgmNoXNA7lbjQht6JANaozwCa2/EUkcmdeV4IOoUlrb/J0PFluzYDjdUbL2Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7bLDa5FatlQiQDgslRUvd7a89kzDDOt8E5RHDR74RRs=;
+ b=spDkp56luWT0Gg+OCBcCYJ3zfTQPZ7XeBJqTcmoQ+AHx+dRKSbBwWva9JqTNs6JP9w4x9qCmj4octRqfCxgEAPUJSDyg76P+g73bmeHMj1/8mCLgj8I6YxUXdJ+fiTrsfK/7HDh0FoqHPCcgC0FKE3LPvAoKjB7qM4LOBiYN80yGVEL4MEgHWZql2m1UYfVODioQYXpOEZu7F3c1o+33AHYzfQXpkSNu5MMVBwQGG9k6Gh0EvTI5Tm2SVCAWPQp9P9ENO/WO36TEtSJXrbgXQ9kQtnvXgwDyup9lVGppaOeFKDWAiX0nzWTMI6uqMeN09CMEHGnbzne71xezFS2Fdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from OSTP286CA0052.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:217::13)
+ by TYZPR06MB5321.apcprd06.prod.outlook.com (2603:1096:400:1f3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
+ 2026 11:45:03 +0000
+Received: from OSA0EPF000000C7.apcprd02.prod.outlook.com
+ (2603:1096:604:217:cafe::58) by OSTP286CA0052.outlook.office365.com
+ (2603:1096:604:217::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
+ 24 Mar 2026 11:45:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C7.mail.protection.outlook.com (10.167.240.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 11:45:02 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 4D3D24126F80;
+	Tue, 24 Mar 2026 19:45:01 +0800 (CST)
+Date: Tue, 24 Mar 2026 19:45:00 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com
+Subject: Re: [PATCH v4 2/2] arm64: dts: cix: Add scmi powerdomain nodes for
+ sky1
+Message-ID: <acJ5PLtFwZ8+E5q+@nchen-desktop>
+References: <20260313114914.1564115-1-gary.yang@cixtech.com>
+ <20260313114914.1564115-3-gary.yang@cixtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: Convert TS-4800 to DT
- schema
-To: Eduard Bostina <egbostina@gmail.com>, daniel.baluta@nxp.com,
- simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>,
- linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260323175948.302441-1-egbostina@gmail.com>
- <20260323175948.302441-2-egbostina@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260323175948.302441-2-egbostina@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260313114914.1564115-3-gary.yang@cixtech.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C7:EE_|TYZPR06MB5321:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94595e17-9618-44d1-bb56-08de899ac93c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 6cGnMZ4M/iTWiVaaIFdBOgnDmJGX+S6VrN25Oiv88uDO7g3o4nRExA+tVb/pSDvg+J4lXAPSBqzSGmgpYtriBGG9O9VefI4H4nUSwO3Fba3obt75lTPrM8SGHuTj8+V4JIPJYisjRSbynUO4OPGX6nLUBNTk1z67ngFrM6duUIp2/N/akv3AlnkHeCzTej6WU2RdL4DCBot4LpI0UdAS4lUMeaniEX0tTGTdMtHojPDVcSh2l54q55eCL9Bbs6MN2fXCMa9Hb1+ShZie4ADearNnc25vLOvesIrpO6IelpgRQyOjXF0vP70iPuilj7cA8Ef0utzae/8XPfWtKq94CHsK8XcJW7X2m68s5U6kbh78pG5D01CS3tp/as+6pJL3wsvleGxF7Mqj8XP7TL/dDeWzJIHcGIhN/8mV/+19+0UfKkBDMYp05AkPFQFy9IBlfIYQpB7dC4fs4zRJ/a/LX0bwrBlJZ7riw7DMiPnJVLBXzWwMO0RqOBmxvEfjsVefba2xYJMNmTVzPOCrnlq9fCq/TLiBPp9ERLMtRaugq7Tsnu3O4dMDbJqMZ8bkgnEPxKgXsalDLNWF7eOTCa0gPkT//3VqLnW65jQwu9Bo1UZoshZjeECYupdRYIfjeGO9FPYlclyFSImmmwM0N6jDmhSMROCLGeg/oA9kE2LMQy/jVqDaFcw4W5a0IfN86ys/2b3myjiJEGU4yRzRYW7KtzfVEwApWj3vYDO7/TELaiqHR6N+SiHKD19xY9Dc7C8vNwslyL0pbkhcJxiVu4r2uw==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 8Z8loxmIfqF6ZeVp8D7FPIU/ufmfBabBkKXNcjtoZEEtDX9cBbCgIB45lQmcsfXRjzdzWmr2pVPAjHoi+adDxNp9cz9bji5gaFc7sDvxZF2HAAOa8H2RZS4bUMyRextHbJDR91GaM6HTRAU5wgHflcMgSAaV7GVhOu1E137jjaM/SUQvzrYxtrV4QJrT2VODirgmPymTYsd8lWriAeZyFLIOs9iJsdH7/U3rs0azjRDQ6iv4lr07AZfE96xvdS8XYGEooNMLOCmVllxzojRne3XKJzrHOH0fLOixIQd7M+Ai+f+NV42J9Nkq/kYtcdH51KyDsaZjuImAbCx5Vi2J5dl6ot6rl0c3Qa7VuUMy27fJKfMdtwzOT6Gqy5OTFYMVUdQXzOXO8fNSc5edmMXIl+Lx4xJ2A/w9gcvdgK8ukSU1K0H7E0BMtynrZIVPv46u
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 11:45:02.4934
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94595e17-9618-44d1-bb56-08de899ac93c
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C7.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5321
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_043629_747455_DEC0AD00 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_044514_145639_F723BF91 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,12 +117,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/26 10:59, Eduard Bostina wrote:
-> Convert the Technologic Systems TS-4800 watchdog timer bindings
-> to DT schema.
+On 26-03-13 19:49:14, Gary Yang wrote:
+> Add a second SCMI channel using SMC transport to communicate with TF-A
+> for power domain management on the Sky1 SoC.
 > 
-> Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Applied, thanks.
 
+Peter
+> ---
+>  arch/arm64/boot/dts/cix/sky1-power.h | 33 ++++++++++++++++++++++++++++
+>  arch/arm64/boot/dts/cix/sky1.dtsi    | 21 ++++++++++++++++++
+>  2 files changed, 54 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/cix/sky1-power.h
+> 
+> diff --git a/arch/arm64/boot/dts/cix/sky1-power.h b/arch/arm64/boot/dts/cix/sky1-power.h
+> new file mode 100644
+> index 000000000000..53f4a3af36b3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/cix/sky1-power.h
+> @@ -0,0 +1,33 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright 2026 Cix Technology Group Co., Ltd.
+> + */
+> +
+> +#ifndef __SKY1_POWER_H__
+> +#define __SKY1_POWER_H__
+> +
+> +/* The Rich OS need flow the macro */
+> +#define SKY1_PD_AUDIO		0
+> +#define SKY1_PD_PCIE_CTRL0	1
+> +#define SKY1_PD_PCIE_DUMMY	2
+> +#define SKY1_PD_PCIEHUB		3
+> +#define SKY1_PD_MMHUB		4
+> +#define SKY1_PD_MMHUB_SMMU	5
+> +#define SKY1_PD_DPU0		6
+> +#define SKY1_PD_DPU1		7
+> +#define SKY1_PD_DPU2		8
+> +#define SKY1_PD_DPU3		9
+> +#define SKY1_PD_DPU4		10
+> +#define SKY1_PD_VPU_TOP		11
+> +#define SKY1_PD_VPU_CORE0	12
+> +#define SKY1_PD_VPU_CORE1	13
+> +#define SKY1_PD_VPU_CORE2	14
+> +#define SKY1_PD_VPU_CORE3	15
+> +#define SKY1_PD_NPU_CORE0	16
+> +#define SKY1_PD_NPU_CORE1	17
+> +#define SKY1_PD_NPU_CORE2	18
+> +#define SKY1_PD_NPU_TOP		19
+> +#define SKY1_PD_ISP0		20
+> +#define SKY1_PD_GPU		21
+> +
+> +#endif
+> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+> index 64b76905cbff..495ea91a63f5 100644
+> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+> @@ -6,6 +6,7 @@
+>  
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/clock/cix,sky1.h>
+> +#include "sky1-power.h"
+>  
+>  / {
+>  	interrupt-parent = <&gic>;
+> @@ -168,6 +169,19 @@ scmi_clk: protocol@14 {
+>  				#clock-cells = <1>;
+>  			};
+>  		};
+> +
+> +		ap_to_tfa_scmi: scmi-1 {
+> +			compatible = "arm,scmi-smc";
+> +			arm,smc-id = <0xc2000001>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			shmem = <&ap_tfa_scmi_mem>;
+> +
+> +			smc_devpd: protocol@11 {
+> +				reg = <0x11>;
+> +				#power-domain-cells = <1>;
+> +			};
+> +		};
+>  	};
+>  
+>  	pmu-a520 {
+> @@ -428,6 +442,7 @@ pcie_x8_rc: pcie@a010000 {
+>  			#size-cells = <2>;
+>  			bus-range = <0xc0 0xff>;
+>  			device_type = "pci";
+> +			power-domains = <&smc_devpd SKY1_PD_PCIE_CTRL0>;
+>  			#interrupt-cells = <1>;
+>  			interrupt-map-mask = <0 0 0 0x7>;
+>  			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 407 IRQ_TYPE_LEVEL_HIGH 0>,
+> @@ -572,6 +587,12 @@ iomuxc_s5: pinctrl@16007000 {
+>  			compatible = "cix,sky1-pinctrl-s5";
+>  			reg = <0x0 0x16007000 0x0 0x1000>;
+>  		};
+> +
+> +		ap_tfa_scmi_mem: shmem@84380000 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x84380000 0x0 0x80>;
+> +			reg-io-width = <4>;
+> +		};
+>  	};
+>  
+>  	timer {
+> -- 
+> 2.49.0
+> 
+
+-- 
+
+Best regards,
+Peter
 
