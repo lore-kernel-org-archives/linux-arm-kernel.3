@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9E8F532E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EEA1F532E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zW8uIB2NtF+y3+kz9J2beyUNt/ZqGaeyC2e1+yP+5Ok=; b=L0aryzftabfpfMLfaLzQCr5As/
-	7nPAGeVfsPd5XlVVqXGFoHP+N2a8IvzKqEMln+KVRsxwKLue+mhOb0q52B5M/AOnHRqNBYhp8WLcA
-	pLtzsUVWDQTMwjHiY2JFAONyA0ObilmGw4/rlvDUHUFd1n67AA/uhKyqyXQ6dizV17pnj/RTn574o
-	c1+qH8r+FYAVYV6xUR1RLR7MA99K44quhBINB+2/MG+ePMq7FDPc+cEWR5WEwScNjq7eEJb0r7Aox
-	/bPKf0ArcQSJd1CAH2PvkGN/QjHP/E93P80FKDh3Oi4LEBQZ3VVHwbRbaRM4Ek9yY0L4I+0w6Gf02
-	JESxrEpA==;
+	bh=0OLOycf39/aNOeJnNC0qRC/hLgeyWr7ry5aUV0rUsGY=; b=H1nE2KhwLV1oD57UhwIxmqA3Kl
+	w8JOIT5HRoU3MRZkiKjIptIDvnMk4T8ayhIK1AHLm84dP+l9hslNq/5Wa/MkoPj3mIfkZEbrKwlAY
+	hBRWhzIPwh1Z38rYBYMm6bAJwNWy33pgdFZh+Aa5m1FS2UDnCq0kri8gM2fJ6b2dMkoSeRwmk/Z+9
+	x9Q164OjNaRkg8yPAPS0IC2++GOlN6cL2tKFJdsTawDv62D5Mch4bfnbGoA9cQFOO185jgMsooXU6
+	tmIGHERS4h/aP1UioK+q0TtUxLXNfXReSVCOaUj58UM6tUvF/MKZcD6jM/CQyq0merOpzusY9Drl0
+	3SnFz7Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wUo-00000000vDs-3dLy;
-	Tue, 24 Mar 2026 07:48:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wUm-00000000vD7-1JKB
+	id 1w4wW2-00000000vMm-2gtM;
+	Tue, 24 Mar 2026 07:49:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4wW0-00000000vMK-463d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 07:48:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 489481476;
-	Tue, 24 Mar 2026 00:48:02 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4E173F694;
-	Tue, 24 Mar 2026 00:48:06 -0700 (PDT)
-Date: Tue, 24 Mar 2026 07:48:04 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 14/20] coresight: Control path with range
-Message-ID: <20260324074804.GD43072@e132581.arm.com>
-References: <20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com>
- <20260320-arm_coresight_path_power_management_improvement-v7-14-327ddd36b58b@arm.com>
- <45af1506-c08d-4f7a-b07b-90666092680b@arm.com>
+	Tue, 24 Mar 2026 07:49:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E843960103;
+	Tue, 24 Mar 2026 07:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2BB2C19424;
+	Tue, 24 Mar 2026 07:49:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774338566;
+	bh=WjVMjQuHxIzGaW30gU6dOjv/9JEiFarwE8HCOIl6ENI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g4BDSsGgwt/m35S1WVgZF+4KdcrHCPVhK0YaLM6ZYaayy7Jm5f3eHzoeaoGuZQBqW
+	 gS1orJx6dE2iChoGomcXXQer96JAwd4fOIyt/bbf4QCCYTWnRyFqdZKHFN0kUoiJjc
+	 EmnqVazUjUB6wmif407Kp3DfTh6x1EzueVl8RZxRyk44TtM7wu+Bsey/tebMzon5Df
+	 HfI37IA7Bv9bdf6ZjxcneCzVi+OttstfaAGBqykhF6RAjASaq/5fYNjYdkihoagYSV
+	 aJj5BFlJBy4MxzLjtuNGiqthAI2TfcCrPDxH+Btzn2fG4m6GVeKQqjVg5Kjw4VY6mm
+	 jcJLBudOzF0SA==
+Date: Tue, 24 Mar 2026 07:49:22 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH] firmware: arm_scmi: clock: Relax check in
+ scmi_clock_protocol_init
+Message-ID: <20260324-lean-bobcat-of-reputation-6628b5@sudeepholla>
+References: <20260324-scmi-clock-fix-v1-v1-1-65c21935824b@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <45af1506-c08d-4f7a-b07b-90666092680b@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_004812_470627_35399CAE 
-X-CRM114-Status: GOOD (  27.46  )
+In-Reply-To: <20260324-scmi-clock-fix-v1-v1-1-65c21935824b@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,88 +72,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 10:01:52AM +0000, Suzuki K Poulose wrote:
-
-[...]
-
-> > +static struct coresight_node *
-> > +coresight_path_last_node(struct coresight_path *path)
-> > +{
-> > +	return list_last_entry(&path->path_list, struct coresight_node, link);
-> > +}
-> > +
+On Tue, Mar 24, 2026 at 02:24:14PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> nit: This could be used for in coresight_get_sink().
-
-Will do.
-
-> > +static bool coresight_path_nodes_in_order(struct coresight_path *path,
-> > +					  struct coresight_node *from,
-> > +					  struct coresight_node *to)
+> On i.MX95, the SCMI Clock protocol defines several reserved clock IDs that
+> are not backed by real clock devices
+> (see arch/arm64/boot/dts/freescale/imx95-clock.h).
 > 
-> I am not very clear what this is supposed to do and what it is doing ?
-> Are we verifying that the nodes @from and @to are in order ? As, in the
-> the link is from @from to @to ? In that case what you do may not be
-> sufficient ?
-
-My purpose is that coresight_path_nodes_in_order() checks if *from and
-*to are sequential on the link.  This is a internal function to detect
-any buggy code written in callers.
-
-An assumption is all callers must obtain nodes from the path before
-passing them in coresight_path_nodes_in_order().  Therefore, the check
-is simplified to only verify that *from appears before *to.
-
-> Rather, we should walk the path from @from and return if we find @to on the
-> walk. Otherwise return false ? In any case,this need a comment on
-> the top.
-
-Sure, I will refine the walk code like this way and add a comment.
-
-> Also I don't think this check is really needed. If we don't find the
-> @to, simply disable the entire path.
-
-If we allow @to to be NULL, we may also need to allow @from to be NULL
-(e.g. in the enable path case).
-
-Instead, callers can fetch the first and last nodes using helpers and
-explicitly pass them to the enable and disable functions.  Although this
-introduces some duplicate code in callers, it avoids complexity in the
-enable and disable functions.
-
-> > +{
-> > +	struct coresight_node *nd;
-> > +
-> > +	/* Callers must fetch nodes from the path */
-> > +	if (WARN_ON_ONCE(!from || !to))
-> > +		return false;
-> > +
-> > +	list_for_each_entry(nd, &path->path_list, link) {
-> > +		if (nd == from)
-> > +			return true;
-> > +		if (nd == to)
-> > +			return false;
-> > +	}
-> > +
-> > +	return false;
-> > +}
-> > +
-> >   /*
-> > - * coresight_disable_path_from : Disable components in the given path beyond
-> > - * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
-> > - * disabled.
-> > + * coresight_disable_path_from_to : Disable components in the given @path
-> > + * between @from and @to.
-> > + *
-> > + * The range excludes @from but includes @to.  @from is exclusive to handle the
-> > + * case where it is the source (the first node in the path), as the source has
-> > + * its own disable function.
+> For these reserved IDs, the SCMI firmware correctly returns NOT_FOUND in
+> response to the CLOCK_ATTRIBUTES command. According to the SCMI Clock
+> specification, NOT_FOUND is expected when a clock_id does not correspond to
+> a valid clock device.
 > 
-> Why not break that "hack" and always include @from and let the caller now
-> use this helper to disable everything after the @source ?
+> The recent hardening added in scmi_clock_protocol_init() treats any error
+> return as fatal, causing SCMI clock probe to fail and preventing i.MX9
+> platforms from booting.
+> 
+> Relax the check so that -ENOENT is treated as a non-fatal condition.
+> 
 
-Will do for this and below suggestions.
+I understand the use-case and the fix here, but still wonder if this
+should be treated as quirk or handle it in the core. I am inclined to
+latter as reserved SCMI clock/resource ID seems to be trend in its usage
+and hard to classify as quirks.
 
-Thanks,
-Leo
+Cristain, agree or have a different view ?
+
+
+-- 
+Regards,
+Sudeep
 
