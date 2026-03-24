@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09115F532ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8C4F532E9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 08:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bsHWbw7oyNKZz8F9g3T7f5cxwL5OoWi6tUY7Ok/t8ws=; b=Y51/8q1OPjkSxrI4ScCOpHDFGe
-	89vhEFSdApnO9f4bjDjpMdcWq8m8V68mis611q4w7eLz3VUFUdAdN2iRu/mW12hyWm2BpToHB6mSg
-	CHjZS5jSEpqll1saJ2VFNIp/4V9aVbjhJX+3kYUQ6EXEnMQntooDR7nSql78SWUJ15gU9ADibBIMr
-	n0ksvhNxUuRbinvGbidWGYtvoVHloZVNeIJlNUBo2V8C2MbIG8SbpygcjHo2HSDWvNHciD8Aouesa
-	kfZYJ0WaynXuPJPnfwCVEZx8cln5mTWhwg/4Q//ECBnKEyb5kQz5Gsyx/0XEyc0BirE6OucxHHpak
-	v0xzLolg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RqovqAVOh/J3GxdWkjwkCOMcif7wlkSPNm8sBdge6o4=; b=3PAV6w0R7MBAy+zOqZANbmspL9
+	Ci2a4iaV3sJtN/tAhXqJp4oyCz4/IiTr3zHu6YC+WQPORd0Pmv7A0pBvlAtXsfN9TdtdpcQIMi25t
+	cN9l3jilE/jki1Nn4uZ204PY0WCAu3RKwVOES3a3ukRcNK0EfK5Jf4w2Oz3wkuQfV/w5CTG05ElZq
+	NF6UFleAL5kc6RrkLJPiUSKjrb41RhMGDR5GJi3EBF27WPvjZB5hQHj11i7vDUM82xafIyAPYYkQM
+	N++2tP0i6cEnyyfhZJPUdKBH/P6DV4APYkQLJ+FEP4MpuffjP7L+/XIr09QaiWo/WOX9n/3m4BeeF
+	C5o8zKNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wis-00000000wqr-2NIU;
-	Tue, 24 Mar 2026 08:02:46 +0000
-Received: from meesny.iki.fi ([2001:67c:2b0:1c1::201])
+	id 1w4wn0-00000000xDF-1S4B;
+	Tue, 24 Mar 2026 08:07:02 +0000
+Received: from mail-m3285.qiye.163.com ([220.197.32.85])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4wiq-00000000woh-1OPe;
-	Tue, 24 Mar 2026 08:02:45 +0000
-Received: from hillosipuli.retiisi.eu (n18ws8cotq5gnfn8-1.v6.elisa-laajakaista.fi [IPv6:2001:99a:0:19f:4ce7:0:938c:d2f4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sailus)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4fg2ZW0pv3zyVM;
-	Tue, 24 Mar 2026 10:02:27 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1774339349;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bsHWbw7oyNKZz8F9g3T7f5cxwL5OoWi6tUY7Ok/t8ws=;
-	b=MWSifNUlPaaqMOq4PuTJ5MqOaeiGZA+wlBmVOvAJuXT0uqK2iwK3AbdKBBSJPebPQH+cAk
-	srwWvrkyOCT47rCmaM/OLZu4Z4ASaTJXpYzo2RbSeToioBL0ksxV3ttibDMOzYKFeZ+Kk0
-	HzJzr9W4BsiqIjBTXktK9FmO8I4AgN8=
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=meesny; cv=none; t=1774339349;
-	b=oW98lXMVIazFB6zLz7XJvsrrlvRFfsVvpjFymnNTO4uPy8Uf9aRTc6KWWcDlXv9ZwDVdlu
-	/bHalqM1L7lIl5piDLmK5SejL1ejle5bRnDYT0E1V87XmErzP1K6MlfBHRAzT2hODljSil
-	0QL6dzTpfEJdUN0lwlMu7GzasW5KLos=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1774339349;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bsHWbw7oyNKZz8F9g3T7f5cxwL5OoWi6tUY7Ok/t8ws=;
-	b=t//NLF34xv9Yrs/la/jT9186cicr6b4RNHPTFTBSwkXWdccrS/E+nVb8ChfqqjVaRhmIJN
-	+n3YGX26QzP484y1XJzmwwzmbNCpOQKYmIDpmHq5WdepT4jrCn6gViv+ib9YhBlpwxm1VR
-	bSac0l4xpMN9aXcoKfSab23Nms/7Ffo=
-Received: from valkosipuli.retiisi.eu (valkosipuli.local [192.168.4.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 1160B634C4E;
-	Tue, 24 Mar 2026 10:02:26 +0200 (EET)
-Date: Tue, 24 Mar 2026 10:02:25 +0200
-From: Sakari Ailus <sakari.ailus@iki.fi>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 3/6] media: synopsys: implement .get_frame_desc() callback
-Message-ID: <acJFEcGm0Sgw5nyW@valkosipuli.retiisi.eu>
-References: <20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com>
- <20260210-imx93-dw-csi2-v1-3-69667bb86bfa@nxp.com>
+	id 1w4wmw-00000000xCR-2Kt9;
+	Tue, 24 Mar 2026 08:07:00 +0000
+Received: from [172.16.12.17] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3812347a3;
+	Tue, 24 Mar 2026 15:31:39 +0800 (GMT+08:00)
+Message-ID: <418f84d2-fb2c-c4a3-6690-c86ec44d594f@rock-chips.com>
+Date: Tue, 24 Mar 2026 15:31:38 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260210-imx93-dw-csi2-v1-3-69667bb86bfa@nxp.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Cc: shawn.lin@rock-chips.com,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH v1 1/1] scsi: ufs: rockchip: Drop unused include
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ linux-scsi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260320215606.3236516-1-andriy.shevchenko@linux.intel.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260320215606.3236516-1-andriy.shevchenko@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d1ec1a10009cckunm623cadc09c6d83
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkJIGFZOHktDHU4fGBlPSx9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=JeS80Zun1dOnGKzrio4K+VZ2PPPO3DJFTJeTYaTN0KG9mrg7FpwvVzLlzn0yn68uopv2X3SaR7uJB5V+MDT19eqNh/qx9zSRpDRIduhrPQlhgxz8gIM2qC3IXcagu6h0nhTePVbJpqG0j1j+qgFzlWpHkLOiGKh/NISYsnpiN3g=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=RqovqAVOh/J3GxdWkjwkCOMcif7wlkSPNm8sBdge6o4=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_010244_552963_AB912B02 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260324_010659_155025_7D275011 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,78 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+在 2026/03/21 星期六 5:56, Andy Shevchenko 写道:
+> This driver includes the legacy header <linux/gpio.h> but does
+> not use any symbols from it. Drop the inclusion.
 
-On Tue, Feb 10, 2026 at 12:11:10PM -0500, Frank Li wrote:
-> Implement the .get_frame_desc() callback to fetch information from the
-> remote endpoint.
+Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > ---
->  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 25 ++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
+>   drivers/ufs/host/ufs-rockchip.c | 1 -
+>   1 file changed, 1 deletion(-)
 > 
-> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> index 61cd7f491b3d5b8a37707b23ca03ce709b40a79f..4ad4e3b23448affeeaa932a706653818ba4019ba 100644
-> --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> @@ -70,6 +70,8 @@ struct dw_mipi_csi2rx_device {
->  	struct v4l2_async_notifier notifier;
->  	struct v4l2_subdev sd;
->  
-> +	struct v4l2_subdev *remote_source;
-> +
->  	enum v4l2_mbus_type bus_type;
->  	u32 lanes_num;
->  };
-> @@ -431,10 +433,31 @@ static int dw_mipi_csi2rx_disable_streams(struct v4l2_subdev *sd,
->  	return ret;
->  }
->  
-> +static int
-> +dw_mipi_csi2rx_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
-> +			      struct v4l2_mbus_frame_desc *fd)
-> +{
-> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
-> +	struct media_pad *remote_pad;
-> +
-> +	if (!csi2->remote_source)
-> +		return -ENODEV;
-> +
-> +	remote_pad = media_pad_remote_pad_unique(&csi2->pads[DW_MIPI_CSI2RX_PAD_SINK]);
-> +	if (IS_ERR(remote_pad)) {
-> +		dev_err(csi2->dev, "can't get source pad of %s (%pe)\n",
-> +			csi2->remote_source->name, remote_pad);
-> +		return PTR_ERR(remote_pad);
-> +	}
-> +	return v4l2_subdev_call(csi2->remote_source, pad, get_frame_desc,
-> +				remote_pad->index, fd);
-> +}
-
-Can you use v4l2_subdev_get_frame_desc_passthrough()?
-
-> +
->  static const struct v4l2_subdev_pad_ops dw_mipi_csi2rx_pad_ops = {
->  	.enum_mbus_code = dw_mipi_csi2rx_enum_mbus_code,
->  	.get_fmt = v4l2_subdev_get_fmt,
->  	.set_fmt = dw_mipi_csi2rx_set_fmt,
-> +	.get_frame_desc = dw_mipi_csi2rx_get_frame_desc,
->  	.set_routing = dw_mipi_csi2rx_set_routing,
->  	.enable_streams = dw_mipi_csi2rx_enable_streams,
->  	.disable_streams = dw_mipi_csi2rx_disable_streams,
-> @@ -487,6 +510,8 @@ static int dw_mipi_csi2rx_notifier_bound(struct v4l2_async_notifier *notifier,
->  		return ret;
->  	}
->  
-> +	csi2->remote_source = sd;
-> +
->  	return 0;
->  }
->  
-> 
-
--- 
-Regards,
-
-Sakari Ailus
+> diff --git a/drivers/ufs/host/ufs-rockchip.c b/drivers/ufs/host/ufs-rockchip.c
+> index 7fff34513a60..bac68f238e1c 100644
+> --- a/drivers/ufs/host/ufs-rockchip.c
+> +++ b/drivers/ufs/host/ufs-rockchip.c
+> @@ -6,7 +6,6 @@
+>    */
+>   
+>   #include <linux/clk.h>
+> -#include <linux/gpio.h>
+>   #include <linux/gpio/consumer.h>
+>   #include <linux/mfd/syscon.h>
+>   #include <linux/of.h>
 
