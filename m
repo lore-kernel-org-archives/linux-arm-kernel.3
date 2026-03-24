@@ -4,130 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B97F54AC0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2D6F54AC3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6uHryHjLPvqK8YR0I69HRvEyoHm4yz/byja5RgciSM=; b=gz7Z16yAMUOYmdoAluAil9rHE3
-	0BfWIph7LkZhAeZmx7+cHbzcJOE0dSckFRvLiOkV+tykhWtFe6+gv4gBuTmZLafjx/FEgOvxrY1m0
-	noBi4SIQ7gXov7hUMTcI/1Dwgei8ysOC308m9UpVz2PYRvWpvT8cUF781w6KI74236MqqplRZJ1YH
-	26FoaZyoBgwiX1zSw78OcfVeXjy0ap82DSdQT3Wb0zFuDEDwmGUtEvZTdmJMH0j2UZYpwG+8/B7dE
-	LSiqrynCF81ssJqmMJnK4cWJJN05MN0TGdeiUmqbCSwEMjDAACkXP279LciPC97tEjntPKNHtiGmK
-	4Oa4srmw==;
+	bh=YLMmL9VmQywy+Up0QoM5xuLhWibdytnU56bbqoy1KIg=; b=iNtWZfLhr+ffo49TOrpLUNFpGz
+	nDlQ97259QNywQW80bS5lMGseKgjR2VliKXVtPVj2uktbsQbIxM3qWWTlaqNCLOKVs7fX3/HIJLf1
+	ERluDuWjtDmMm8cMO2m03OCZ4zp0GqZtgHCUSkKdsWDmRv/zslAjpWVg2kp/Sw1y8HrT3mYVpGe7V
+	NO1/DwWSVlrd0TJS8w8UaWmWu7Go6jCcht6SAq76sx4UWWC4HE3nzdTfYebE2a80l+4Fl86Ba/kuT
+	5aGeS6x1+I6iCezxVxb8NTev4EArM78HBpIZWaBmwaVwjCJ2aFFUkUSMHD00hZCmPz8bbVuZLGZEI
+	T6GD9ZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52ZU-00000001cSu-1jIz;
-	Tue, 24 Mar 2026 14:17:28 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1w52aD-00000001cY9-3MEo;
+	Tue, 24 Mar 2026 14:18:13 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52ZR-00000001cSA-34nA
+	id 1w52aB-00000001cXi-1Bg1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 14:17:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RnAaNG/4sXpmB2zeqSpZR1l6jTf94SqBsKwU7x7iuBTvrM/X0DQKAy+r8qKUq2ZcOGzalda+l4u1/Ruj8NhcdZq1AOWXukxaYH8dr21cf/ObwpgJ55IV1iVkzS2TULEWF+1GqH6k2AHC5NvB45xg+uO6sTZehX5DD6i4AIql9aB0eDSAP6pYTWDrwCVc/+TDPAr2NY9PDRBNSFtfa2ODOfnrvaFIPPXsIVI0byBVl/alZ5sHERXhyFbNn4dYxLgz+U+PVS8LmY4qmKP1HMUX8kC6ucsOSXySaKePmNVZHp5CCTXvbGwJaVhORMqkQUi3TLiviUfBEYadoxKNO8g8pw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P6uHryHjLPvqK8YR0I69HRvEyoHm4yz/byja5RgciSM=;
- b=ULDRYtp7wXoFVv0YNE9Ue2MLmJlSROX8BYmf6/icOExuVY3vItCLxKcnQVtjt9jA39CJrw7i3mZpX7b5LitkxNQ55bPEUbK7g2phf/iXhBOirtlwOw6vRAm9kTanZOK40uVlbPmVdWsIAuY0R423JDeoI8vWx/rLVT5IDcTHT8HwQFy6j48Gc/sBS/gkGs1mwAnK+vFpN8z0V7doDJ1PmThN1J4bC2QdqRmeCfabzNQo+fwzo79CWIZ+iuYLUTNXys+P3JcI4pe/8dJKa+PC+R991ubspg59Srn1GpzTgg/e2MWd4FjSICFMgD6Ruzt+n44Cs8CTtyqHqOPpG1/RSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P6uHryHjLPvqK8YR0I69HRvEyoHm4yz/byja5RgciSM=;
- b=nKdz4ZgBCOEDXZ9dMmjxiTRnRbuTDrzAhXbz1ezghISJ90kPQ7nYdkqeVmuciLmNnuT4BzJ7XySXS0PjCXV8wMmBFy1ox96TpfwZcPeRXqBJK8Mx9Q8GPPZakUOrUc1ZP7EFoHTS3zFd9TCcvK6FPV0QD6u0le3zlxRGoSwnVqx5ssosaWGWCsxEffhZ9YR0u/b3Fo6gQdixmc70gK0OPPJ8rIQdfhj7z1TdwCoWzVrS46LyLiKWY5BahNGhQUUYkcrFpSP9EXofExUgRfMJmU35BpoVml6Bru7ckJA6c1NbkvWg2L2CLCzUzhFbvgOabCL7p8cHBr5WRtpnppKadQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by BL1PR12MB5923.namprd12.prod.outlook.com (2603:10b6:208:39a::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Tue, 24 Mar
- 2026 14:17:17 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9745.019; Tue, 24 Mar 2026
- 14:17:17 +0000
-Date: Tue, 24 Mar 2026 11:17:16 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, praan@google.com, mmarrid@nvidia.com,
-	kees@kernel.org, Alexander.Grest@microsoft.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, bbiber@nvidia.com,
-	skaestle@nvidia.com
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Drain in-flight fault handlers
-Message-ID: <20260324141716.GB7340@nvidia.com>
-References: <20260307001723.964956-1-nicolinc@nvidia.com>
- <abLE3rdM9YAu81tq@willie-the-truck>
- <20260312142509.GA1586734@nvidia.com>
- <acKZ0wtfi5R_dHm0@willie-the-truck>
+	Tue, 24 Mar 2026 14:18:12 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4852afd42ceso10279695e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 07:18:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774361889; x=1774966689; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YLMmL9VmQywy+Up0QoM5xuLhWibdytnU56bbqoy1KIg=;
+        b=Rljd5r3yIzcXJB9CxOC07ZeJ4u7m+jDC4JLqNXKvfOQgmjNDjgVLlRbF8nMxNWKfKp
+         zqQVRXHG7NueYUiaCnvX+extJcjP3wm31KEhjjuUvn54APQRs0z5rSyzV6Hdk6CSnXMf
+         lqlOKx6mLlmUlNatgK5lEwd2vS91XVveNFNe0/U1eS4jHFIAlSRLvmtmC3AXBe1rpY3x
+         D6XCfKc4iWX3QC1uMWX06DMZRVaOJLhuqKA5GOdfoxAH76NoayAcG4vegpk3VCzoGKJk
+         tnhsiMrEXjEcYhMp6sc0sRTbRj2+tDfjNhxNijEDdH3Dy681ITvc9O8Xh0GaLPOVvIjc
+         g94g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774361889; x=1774966689;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YLMmL9VmQywy+Up0QoM5xuLhWibdytnU56bbqoy1KIg=;
+        b=dXlVAjGX6i2UrLQK7CjOUkAY7hNtx4h0AujMYic3A37MPlEFRQifcqFKPSj0u/9L0a
+         4rAhuU79CpVp8MQ8rQ/x5Td78F+muNX619BaZO6q895v172p8w+tDKooKGLqJH4W1/Kg
+         vsmcZEMzIVDpkIYH7hZcHIu4m7yPw1/ohr+W6RxpNrHAzNBZxieMrmwez50kAPZob8aX
+         r+54Y7TEXBXRFPdCMDGVozZpJ1OLXn9iBby1shJ1LP4CMmqAQPvBV0Qr3GCK1PGNUMm5
+         JrhwwX6LVoCLRkMzusfD1ljPR2iwO5TopUIE1BjkscgXa1EKb2OOgvIW29rSak+6yfn4
+         /yXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVc6yI9kKsDqxYJ4UZCDZ0j8KJE1HxaMk5l0931fnd1rZpEqRYwnbGLa0nIeK4ZMgXZoFVU8ooQvxZCXi201TIx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxolG4Q5+kL1sGqJ/dZokBxUwaW0opvQKC/lGMEezo3ZCiNcKSN
+	hui0V1U8iaV1R0l4/HrwVP4enHoIQue8pY8zMuGZ/KF5HyUl6INMDGHd4dbtZtDHbA==
+X-Gm-Gg: ATEYQzy1+hOom/1IZRHog2jinVYgcD70RRewxq5YvaNi41pGWRvY7AnWlXQa7eWBuVM
+	YmRdMInq5FHa8LpTc2BkIr04SzLq5twBoHcM5r/qE3gkqFtLT7n7mtl6DEJYudIy1ugz613kOod
+	DsOTeH4gryEsgLbTZiBY7rkJHd1WpwCpO6UggM7i4qQqOAny9WSQ8Yj0Nm38qDYhxZ/+VVq1imu
+	ZMniJxrxwBpJEfKQj2v36/SpR2r5KW55EA+XJrCroQAJZxh6MatLu3+xZXSFUQh/IHX2V/bVvTD
+	r75C04cM5Lc5yp9ch+UD8RXQLufmJMFyeZWcdsbyZL+1bCNotihK4BS1VP4BDAOMY8DF99/PNpa
+	felayzDLex32kbTf8BVu+D5JOSrzGyLH5UBuCGd/cgAoeXvHkb6t8ke2mMXDwOvK7Ok05Z3O334
+	qz07abIEOpuZYZl8+iFHemWscmJquemPlIz43jiLv9tOGakmAOBXGRzr7qq3UuPEYnlrdaPbjRy
+	UlTHw==
+X-Received: by 2002:a05:600c:c167:b0:486:fab9:a578 with SMTP id 5b1f17b1804b1-486fedc3843mr249633765e9.11.1774361888913;
+        Tue, 24 Mar 2026 07:18:08 -0700 (PDT)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-487117732a1sm48548215e9.15.2026.03.24.07.18.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 07:18:08 -0700 (PDT)
+Date: Tue, 24 Mar 2026 14:18:04 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com,
+	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com,
+	tabba@google.com, will@kernel.org, yuzenghui@huawei.com
+Subject: Re: [PATCH] KVM: arm64: Inject UNDEF when host is executing an smc
+ with imm16 != 0
+Message-ID: <acKdHK1FbHM_-zdl@google.com>
+References: <20260324135728.3532400-1-sebastianene@google.com>
+ <acKacAd6aV32624m@google.com>
+ <acKbLtb288sABYA4@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <acKZ0wtfi5R_dHm0@willie-the-truck>
-X-ClientProxiedBy: YT3PR01CA0025.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:86::29) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|BL1PR12MB5923:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6fa5c44-752d-4c60-7af5-08de89b00db6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: hA3uM1C6+Q0vMuVS4G1lFDizUkJCRkT63ardsptadj1BJmvLUQvYfQMZYX9r/2VWbsUDnOd0CilUlGhaWHf+UcOBXGOxGu8ees3YFti+/Yn2fQsSBbnInS3s0/njkvAJjtihnWfsBGxaxeHt0CRkm4aFve0SVBXij/aA597perQgsp3Sc+DNbVYYPRoyWYHlansaLEzVBwSB/O9l4lJivR+f7rG+eeTLj9jlQ4di2OUMbD3wkXdSOuekM4qqlVIrksruAk8QcQ2Xv+cm6d/hVUgd6bh9T9tv6U5pLOEYOc0krI4Apf8vQDJvFMPxSA2qBJBV57IFlTMoJQQpSouP71PlCfWoj/DWPT7bAcEoQA15838yy9w8szA8d+NuDlyz696rTzMNnWQUcVgY2m1KJ6LBbstxdwznSZeR0JHy/xSW+QaH1OL3XO7X4r/DTQSy1Ok8GIOU7xw3oISCSFR3SYvdD0CpZIsPmhqBiCNUxZIzy1/WBWlkKFUNC77zmczxwVv9gS5qgMvicWN0wZdlehjkTN5bKt6Ea7bohoYejRQZ7RJFaVvzkds/TYq1rttsLox0h3cCaiZ/K/MO8oGnN+AwY6Rolr3NckDqkivR8yqLfm8z8TjXlpLeWjCf45sBlAGexI9U+r9FhT3h4XeEPC3H8RjMX49Kj88TnJ8LZIFk0Mg8v128oI6owfpPwwr1FDg67ZMH9KZQY7fgQNfevoJ0MFYBF4DjjHCVjVc3TG8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R8lxXfhRuEPhEKChl9EfuZ+ehHSq8b7unSfexuhf5EtTJufKt44tWJ2zf5kC?=
- =?us-ascii?Q?4AZ71bBTGli4t0EQQPLxuJa1npp8sOZHnfChiAlYmICgH8JgVgcYeiNjiyi0?=
- =?us-ascii?Q?IngrVukFKrfpUGJGxVokwsqx05/IOBNxsSQeFho/3Cmbb2ft+NMCMQSvdmu4?=
- =?us-ascii?Q?aTqFhCJ1bo2Vqv4cqlHw5cy2vjAtd5MqSMd/F6vg+UmOPD3m2fGZOJtS0PaU?=
- =?us-ascii?Q?XEY7qwVePF4mpjronqd/+hi37MRsWDNwEviWY5qM/1kEA+5sFAUFhkmp/QYf?=
- =?us-ascii?Q?KPKuy3wudcVJMbUsXAhySTmKqrnyN2gdFfMs9MDRufkeEbSd7OvBK0iIqsaZ?=
- =?us-ascii?Q?yY0+xREyWuFQNqQz9jSI+K3POuSJLGUTHnmR3OekngoQWA/yQOxeU7xbSJ6x?=
- =?us-ascii?Q?wyq0NwD/NJ5WXezPlvBBjJT3SbinLqVy9pMX44HXBUWaWt9xDhI7+LK2Ybou?=
- =?us-ascii?Q?rtjUjoxc3xbTCorG9FQ7zudhy0LBZE24mdzkZXvTt8FYGuBEQwwpxAZSVU0b?=
- =?us-ascii?Q?8SitZu/LEl+dOt9pE0qccZnCngINIJbKD0dlwF2YNWdVe5y3eLuh2ShRJVmT?=
- =?us-ascii?Q?pEBG4b/bC75OZBtOExbzV97y4yfK9+d1xWUwn0lU1BPpKO/SeF5Ndh5N5zJ4?=
- =?us-ascii?Q?TN5OZ72tHKxI+0EzT2R5rq5gEF8W2NzW8pYtHBZa5WshBZ7hMiB1WS/Bv1pm?=
- =?us-ascii?Q?QgBRxJCh/VHGhmtyvOJtLyKSgTsuhYfg+qlhjDTYw3Qq/fFAGlv2YAUq3VwW?=
- =?us-ascii?Q?0WM4mtQXJS5RvWM2UNSzw9MFyQMI0sDhN7wFbh+WX0z9KpBUdejQ9tRfvcmQ?=
- =?us-ascii?Q?0MrXY3FPftbvC26E2yCTXUD57PTcUW4xgIssa6t6SzS5y5q9RXwyNPWYStWT?=
- =?us-ascii?Q?P0hXsU9yfZgc4LWIK3LsuUL5qt7xD/dfPK5FZ9GhqkNNeAmrpISWHoKbxzfV?=
- =?us-ascii?Q?kBx8NQlOD5WBd2hykxVAUnKPp5BmE3+coxOw9937F4S9vIN5JfpQgQ5WTFpa?=
- =?us-ascii?Q?PdLB0EhGI2GQxMyIzbmmeEm8dDxypxd93lD5CaeWjr8NNk8305Ej6W4HLgLK?=
- =?us-ascii?Q?pHpgg0IWTNdEGNNk30rNPYc45jXCd+WvWqHLfoPjAAPTBXe8Ci1nPE+AMhlM?=
- =?us-ascii?Q?L0YeRwTeyTwJBfTAofAs7IiEqaUY67YLNMTylAqPNOG0t5OOmIY1zEhjiLAZ?=
- =?us-ascii?Q?OF3+TwvGSPhsZEvQJi9y3rGK8GXLgXv42ho+QX7UAFICdIK+Jwk8Xj66A6Mm?=
- =?us-ascii?Q?SjlDuSLaJ0guD9DDrzNIoNshAZIsCzYALu0GNeXUncMjioNquGz5ABQ2TMI7?=
- =?us-ascii?Q?TiWhlLcn1Dw1fQYbXZ4FcvQi/Oq0oPGiaBXjBqnHt0UO+H4tXSAwfydgMpGC?=
- =?us-ascii?Q?8LN966XY3qbVTW1tActemJJ77dtUNytsEce7znYiIr55iPqT2QIcYeaIi0jL?=
- =?us-ascii?Q?IYraSm577FK1X4Iny1yfIcr5mEye1rKVQ+rf+ckHlatsljEg8G1UIogIxUVb?=
- =?us-ascii?Q?COKWF+9P9+oSL+FKmGMliOlhENFbaHry7A9xpgXYZgE0udsA3gbhVdCkd6XX?=
- =?us-ascii?Q?UrCugVdDkGxGSzJtmC/1DfRcmjqUlsuYTSmWLFYvMEcN2ruHI+l0OBiZacp0?=
- =?us-ascii?Q?ZtjKXyLShJdq3EWI8zbVxi1SgIQz81z3C0+x0W8VmxbICLJao6lXwj+kmGes?=
- =?us-ascii?Q?AEagaWX8T9JHaPx+v8CPys9kVjuQBgO4IcYcB6YD/3nO7mm8?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6fa5c44-752d-4c60-7af5-08de89b00db6
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 14:17:17.3813
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4wUs0cBnzoFHLJ5KERWW2bgMRN2u0Ej8B4z/DkjLAEOR5xqVqSDx79Y38eKNUC5d
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5923
+In-Reply-To: <acKbLtb288sABYA4@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_071725_801192_648B87F1 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20260324_071811_341335_276A48AE 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,41 +104,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 02:04:03PM +0000, Will Deacon wrote:
-> Sorry, that was sloppy terminology on my part. I'm trying to reason about
-> faults that are generated by accesses that were translated with the
-> page-tables of the old domain being reported once we think we are using
-> the new domain.
-
-It doesn't matter.
-
-If a concurrent fault is resolving on the old domain and it completes
-after the STE is in the new domain the device will restart and if the
-IOVA is still non-present it will refault. This is normal and fine.
-
-If it is resolving on the new domain and the new domain has a present
-PTE so the PRI is spurious then the fault handler should NOP it and
-restart the device.
-
-> > The ordering is supposed to be
-> >  1) IOMMU HW starts using the new domain
-> >  2) iommu_attach_handle_get() returns the new domain
-> >  3) IOMMU driver flushes its own IRQs/queues that may be concurrently
-> >     calling iommu_attach_handle_get()
+On Tue, Mar 24, 2026 at 02:09:50PM +0000, Vincent Donnefort wrote:
+> On Tue, Mar 24, 2026 at 02:06:40PM +0000, Vincent Donnefort wrote:
+> > On Tue, Mar 24, 2026 at 01:57:28PM +0000, Sebastian Ene wrote:
+> > > The ARM Service Calling Convention (SMCCC) specifies that the function
+> > > identifier and parameters should be passed in registers, leaving the
+> > > 16-bit immediate field of the SMC instruction un-handled.
+> > > Currently, our pKVM handler ignores the immediate value, which could lead
+> > > to non-compliant software relying on implementation-defined behavior.
+> > > Enforce the host kernel running under pKVM to use an immediate value
+> > > of 0 by decoding the ISS from the ESR_EL2 and inject an undefined
+> > > instruction exception back to the caller.
+> > > 
+> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 7 ++++++-
+> > >  1 file changed, 6 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index e7790097db93..ff6a90a4a4c7 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -756,13 +756,18 @@ static bool handle_host_mte(u64 esr)
+> > >  void handle_trap(struct kvm_cpu_context *host_ctxt)
+> > >  {
+> > >  	u64 esr = read_sysreg_el2(SYS_ESR);
+> > > +	u16 imm16;
+> > >  
+> > >  	switch (ESR_ELx_EC(esr)) {
+> > >  	case ESR_ELx_EC_HVC64:
+> > >  		handle_host_hcall(host_ctxt);
+> > >  		break;
+> > >  	case ESR_ELx_EC_SMC64:
+> > > -		handle_host_smc(host_ctxt);
+> > > +		imm16 = esr & U16_MAX;
+> > > +		if (!imm16)
+> > 
+> > if (ESR_ELx_xVC_IMM_MASK(esr)) ?
+> > 
+> > Also, I can't find void inject_undef64(void); I think you need a vcpu for that?
 > 
-> Does that mean we should kick the evtq thread? I'm not sure what this
-> means for the priq.
+> Ah my bad, handle_host_mte() introduced it!
+> 
+> > 
+> > > +			handle_host_smc(host_ctxt);
+> > > +		else
+> > > +			inject_undef64();
 
-The locking issue is around iommu_attach_handle_get(), so any
-thread/irq concurrently calling that has to be fenced. That's it. We
-don't have to expedite or synchronize with concurrent PRI at all.
+Could it be better to return SMCCC_RET_NOT_SUPPORTED?
 
-> I don't think we can rely on the IRQ being taken, though, so presumably
-> we have to kick the irq thread manually and see what's actually sitting
-> in the event queue after the CMD_SYNC?
-
-Er, I thought the iommu_attach_handle_get() was in a threaded irq? If
-it is in a WQ then yeah more is needed.
-
-Jason
+> > >  		break;
+> > >  	case ESR_ELx_EC_IABT_LOW:
+> > >  	case ESR_ELx_EC_DABT_LOW:
+> > > -- 
+> > > 2.53.0.983.g0bb29b3bc5-goog
+> > > 
 
