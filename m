@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D66F54ACF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AED5F54AD9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HaaqCyZJuHFyqaA3jF9mPx4YKb7kG9SBT0R3VHSi6qg=; b=cKYkFZHLxBwPtFMxugt9Yjx0SE
-	MNZbXDLd/7w7JG+koGB5vj9bv8I45csB+1kRy9cZBvSHla5sLaNdmqWM47Z7nP37speBk8ehwF+GG
-	JSnTnPCWLEHNsu8+FSdfpUALd6y+kasCQYCDX/mMohSkrYTaaOrsFvHSFXJIhsBe3WBNTeTcA4eEr
-	xG/ia1xwxf3CcBZgcU9/hv79Y2AKsifq+j28jS23T6xRGO+4oLY33rL+TDpnLi4MXqaLI5bY6QOiW
-	gqGiEEQYuSPKeNPemrLoXlftxyoWmhjc23wppWXGG1LLEg3WxwzLMSumcxqJpxpkrO3lHp5rMIALq
-	H9OO6/7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W/aJXaKiUSMSw1tUBsHjBJ8n/KyhSShc5r5U9xDSJag=; b=fIRZss7E3Bq1Nv+oXJy0616O5j
+	UlewW37luz2A9EsHXh5tfkJS8CqiE/LAfo343ZBR4MNo7hdVXEMtJtktig21uw0dyV9ea8tsIctrF
+	yWQ1/+jCuZnnqbpBk8TUyRfzVqcCuNAJjfBCOoNFxJ6tXnsOhkRKyrHIQUk76X+jI6rsg6m9pOSfc
+	6S8MtSlEq0S3MONu25Rhukyprl4gokA5pN7swAikWDKzGEdkBpTnVObgheeZsqC0mGT/VErMJLqYI
+	zIqyv9s9vJcHfTo9tq5KzUNFsDYZn/JIGGCEGLvTdAqPg8hLBbTr9HvJcHqDMyLOv56QPcShVOAXL
+	SSgO3t6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54gj-00000001tO4-0CAH;
-	Tue, 24 Mar 2026 16:33:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w54iz-00000001tZv-3IVR;
+	Tue, 24 Mar 2026 16:35:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54gg-00000001tNj-1GZu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:33:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774369979;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HaaqCyZJuHFyqaA3jF9mPx4YKb7kG9SBT0R3VHSi6qg=;
-	b=TDwXD2iSShiHC3ZtxujZoy1USTRy3vSpjr+GshFuEL+b0Qc/1msK/a2styumghE+u3Buva
-	akCEL+rOmvJW/fv3hNamApmXvdFQHS6p4/KPpOPFawLNI5cLGI8U8kxncb0Q68KXdAjDCd
-	qJuCu4PQbpgcodWcD4XwKqcN5Xks88w=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-374--XToJWc3N2-g2izUlOs6XA-1; Tue, 24 Mar 2026 12:32:58 -0400
-X-MC-Unique: -XToJWc3N2-g2izUlOs6XA-1
-X-Mimecast-MFC-AGG-ID: -XToJWc3N2-g2izUlOs6XA_1774369977
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-439ca4b3d0bso5164055f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 09:32:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774369977; x=1774974777;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=HaaqCyZJuHFyqaA3jF9mPx4YKb7kG9SBT0R3VHSi6qg=;
-        b=deRFMyp/h4TfP4goJyY7zoH/lhqHd9NBDt9z9qYpYkaN6limZqcUleuuC9OMUJPO3W
-         RBNcLyWhVyzy5X1EmefJMKXo1djW/pR+8vUpFo/nZZBFWe0Ai9qAjS4DiBEICgnZejfq
-         vZcwhbuHyqfLkyM9YKmLEM/XahvWuOx1rAHhn7Ivpzmxc3VlrwHlN8BD1AEp+1V4W+jf
-         70mKyFTqrZIrRdmCtKqZ3G20amPNlI2RLnk7RPN1jJP0hOUZQHlbZfgyX4ayOotqcq7L
-         Ez1UuJJx5LOSoq8OJJkghegR4qrrx5mBgWQrTiBZNUXFqOJU82jg2F0s2J6yWWzq4pcn
-         V1Ow==
-X-Forwarded-Encrypted: i=1; AJvYcCXA7TiYdNRHBDRJYgE4vkzz9BNLZ6OAo56F8oud9cfNSzPEAVpk5mI+xXWe+7K/EaZTDicW7JbLt8nBKtJSce8L@lists.infradead.org
-X-Gm-Message-State: AOJu0YyViO7Wd9hRMmVgEaUgk5lvI3y8lHFoBsASFVroKqkSxbLl5XvQ
-	jI4JeZSQGOVyyKxjZCdp1KyopAiUgBIEi5e+4t7Xtah8G37ybJvMfp9wQatCUuFnAnEDcg1p8Ga
-	Vx2mWIyM6ablXJMWnpK7d1B0v13NeGU34lYmWial0HHQc8kFUDTpsY2rJsbuMAcT2FaJzGRI3sX
-	4TZS8jUrkGAdFrBwdTZkqKNbyvV4AsjwXAlTLZFZkUQx70gTa972s=
-X-Gm-Gg: ATEYQzxzX46qzl7uxxluwBDfugghGrGA5r6E8C9PQ9uTjRt3WGA3+Z99EBYcWR5ucBn
-	hZVy/cvJgoX17De3ZIJn5zS2mUvUHjliTO1MnAlGhzDAEmiaWfQpt1nUVfvgrTTQD724iLLuEKV
-	b6ZEslOqiGiF8kshYOZWOsNvIm+2XFlGQXPBDcdktnmxAGTZ10ckPO43Vw+9xnCIQIqB+NB1lBQ
-	jnzzztgcQQfpyO757k5iuRuR4EwwPpmIPqasdG9PnHFrfLTVRVcaUwk+glKRhRIbjsH8HJVWjJp
-	6lS0
-X-Received: by 2002:a05:6000:2003:b0:439:c040:cc8a with SMTP id ffacd0b85a97d-43b88a0fb2amr191785f8f.32.1774369976877;
-        Tue, 24 Mar 2026 09:32:56 -0700 (PDT)
-X-Received: by 2002:a05:6000:2003:b0:439:c040:cc8a with SMTP id
- ffacd0b85a97d-43b88a0fb2amr191746f8f.32.1774369976441; Tue, 24 Mar 2026
- 09:32:56 -0700 (PDT)
+	id 1w54ix-00000001tZT-0JAW;
+	Tue, 24 Mar 2026 16:35:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E6FAE43878;
+	Tue, 24 Mar 2026 16:35:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A27FCC19424;
+	Tue, 24 Mar 2026 16:35:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774370121;
+	bh=uvgrzaHO3grkwKy9+089vaxpnmbs4+0xFVD7fE+BlCg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mCj3nnRZEPIdtmViKw3PDpai7OwDquEgzLJEZ26oE90AfteaXy0i9TaB/c7BaxFvb
+	 TbEiCuWEA6Wv27Asd6DPIJsTH4Mx9POnWfqMFokRI+bLy/W2CLoSfDEWfM24Us13Cs
+	 QXtvIAoK0qd8ujZUWv2rJrVyiBeVoH8QP/Ob/fjUArQV4sgDIv/QN7M4pvzKbUoZdK
+	 +j93tcLxP+JAgxjn7Uj5hDnfPw51TI0eFm6GJldqWDg6h4T1BtYK6geAEWodxE/Zw7
+	 nSMQAMGNOD6Cc/Ya9icBBPVn1CDFRReP2qnF9OeRpbQUvvkbOLXBBmRg8bD9QubspZ
+	 mndsFT1HJo3ng==
+Date: Tue, 24 Mar 2026 16:35:10 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>, 
+	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"K . Y . Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Bodo Stroesser <bostroesser@gmail.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
+	David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	David Hildenbrand <david@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-mtd@lists.infradead.org, linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, linux-afs@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH v4 05/21] mm: switch the rmap lock held option off in
+ compat layer
+Message-ID: <ad5e5bed-12b7-4ef7-a93f-753489115cb0@lucifer.local>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <dda74230d26a1fcd79a3efab61fa4101dd1cac64.1774045440.git.ljs@kernel.org>
+ <d5b66671-697f-4a4d-8039-d9c9ac5ad4d7@kernel.org>
 MIME-Version: 1.0
-References: <20260320094151.2541661-1-maz@kernel.org>
-In-Reply-To: <20260320094151.2541661-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Tue, 24 Mar 2026 17:32:43 +0100
-X-Gm-Features: AQROBzBSOb2DrC9P9JRJKnQIuo8-0o7xFzXZcGC7UdoeyqQYcpLh-BRplqsjmsU
-Message-ID: <CABgObfb=e4eeD7Dx7o_3rSNvs+dGmoE-n3Zp9N6A_QTzGtjVBg@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.0, take #4
-To: Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <zenghui.yu@linux.dev>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VHK3YIwCYk3GAEukSAo1sk73-sT2FdEC8CamLxO_leU_1774369977
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d5b66671-697f-4a4d-8039-d9c9ac5ad4d7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_093302_411909_A68E928F 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_093523_154122_9932AB2E 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +90,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 10:42=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
-e:
+On Tue, Mar 24, 2026 at 03:26:28PM +0100, Vlastimil Babka (SUSE) wrote:
+> On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> > In the mmap_prepare compatibility layer, we don't need to hold the rmap
+> > lock, as we are being called from an .mmap handler.
+> >
+> > The .mmap_prepare hook, when invoked in the VMA logic, is called prior to
+> > the VMA being instantiated, but the completion hook is called after the VMA
+> > is linked into the maple tree, meaning rmap walkers can reach it.
+> >
+> > The mmap hook does not link the VMA into the tree, so this cannot happen.
+> >
+> > Therefore it's safe to simply disable this in the mmap_prepare
+> > compatibility layer.
+> >
+> > Also update VMA tests code to reflect current compatibility layer state.
+> >
+> > Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 >
-> Paolo,
+> Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 >
-> Another week, another set of fixes. This time, another two fixes,
-> mostly observable with nested virt. The first one results in a vcpu
-> coming out of reset potentially skipping the first instruction at its
-> initial PC. The second one is a classic example of pointer arithmetic
-> going wrong in our address translation emulation, setting the access
-> bit in semi-random places. Both are stable candidates.
+> a typo fix below, Andrew can fix locally?
+>
+> > ---
+> >  mm/util.c                       |  6 ++++-
+> >  tools/testing/vma/include/dup.h | 42 +++++++++++++++++----------------
+> >  2 files changed, 27 insertions(+), 21 deletions(-)
+> >
+> > diff --git a/mm/util.c b/mm/util.c
+> > index a2cfa0d77c35..182f0f5cc400 100644
+> > --- a/mm/util.c
+> > +++ b/mm/util.c
+> > @@ -1204,6 +1204,7 @@ int compat_vma_mmap(struct file *file, struct vm_area_struct *vma)
+> >
+> >  		.action.type = MMAP_NOTHING, /* Default */
+> >  	};
+> > +	struct mmap_action *action = &desc.action;
+> >  	int err;
+> >
+> >  	err = vfs_mmap_prepare(file, &desc);
+> > @@ -1214,8 +1215,11 @@ int compat_vma_mmap(struct file *file, struct vm_area_struct *vma)
+> >  	if (err)
+> >  		return err;
+> >
+> > +	/* being invoked from .mmmap means we don't have to enforce this. */
+>
+> 				.mmap
 
-Pulled, thanks.
+mmmmm map! ;)
 
-Paolo
+Andrew - could you fixup in place? Thanks.
 
+>
+> > +	action->hide_from_rmap_until_complete = false;
+> > +
+> >  	set_vma_from_desc(vma, &desc);
+> > -	err = mmap_action_complete(vma, &desc.action);
+> > +	err = mmap_action_complete(vma, action);
+> >  	if (err) {
+> >  		const size_t len = vma_pages(vma) << PAGE_SHIFT;
+> >
 
