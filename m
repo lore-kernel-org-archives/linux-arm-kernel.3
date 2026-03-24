@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F33F54ADA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E329DF54ADA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 17:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+Jw00CvTMU1v2XHS+Iv9vE7g3+9u1r52N76fFD2Nsw=; b=PHf1j8rojmsROmEAayMcnoHv8x
-	oM2whUyxDfQaSJmO+Je9/kyRJDi0UL/VMhjKfiIp+eN4qDq0//Vw7LH9pbeX0NkY71nAgUQwof5lm
-	6tc6GCWH1xmMd2vvT1PWpSaUJF8x5cz7GIic7CCejvuFdGHN6QJDr7MhVEudTSPOXyH8ApiTfGcfW
-	2DIzzNmd2ysEVql+/QOuDhWP8VNwqp2HSxWK9HkTqoqWrAYb5mQOxkIkhJ/Vb8hRyv/9R6Ns4nJCu
-	XWd01d9UmW19SOa9CsMmKqrwGcrpCkDXi+TlwkSlacOaEQ1MF1eWfuyvhcuodA+eyyLagfO1N+7aL
-	0E1+T6zg==;
+	bh=Xpg1OOHH7W5XsLN+rucSM2WsyuBL1ulEamOIabJEn3w=; b=sp0TyK8om1XpkbEEvBbf8udupo
+	YUN4Xs/aXPyhyM6DxB3vFM4gk+KVlq6eLegiPScCGYeXE12MJBweDh1GInS+fXntgr9eW0xf/D03y
+	33pVG1jJoDjfiJp5u635sW7djn2DJQ6mxho1WFfYrY9V+ZsKLiMyvQCAJoywUAxT9OLE84F3DKukK
+	jRAsQ3wwEWGLb36eQdy2RyHn87ZWQrdsyYwSGxaIstWKlm1sJTZyZy7xSOxasuN91Pnq4xuQfz3Pd
+	2OoxlKRUNCISkVczth6HSCyt+Dqrdr7k2splOerQa6H/zOCOF1GFo1PJrNE7UcNMZtAbryUh+YAWd
+	wWmryYnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w556v-00000001x7H-1K9J;
-	Tue, 24 Mar 2026 17:00:09 +0000
+	id 1w5577-00000001xBf-2cI9;
+	Tue, 24 Mar 2026 17:00:21 +0000
 Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w556s-00000001x5v-2YMQ
+	id 1w5574-00000001xAe-49il
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 17:00:07 +0000
+	Tue, 24 Mar 2026 17:00:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774371606; x=1805907606;
+  t=1774371619; x=1805907619;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=9hvV8PDAdyGkHU10me7VyjfjKt6p0yD22QH58KrfakU=;
-  b=fmCHeR7yWJTVVFGnPbxAtLAb9qGhqfoqudIOxa0ZBE000Iui4qNUjNPC
-   2bni0kU9oKgrEdGcYSNu8ZqYkAuFojH8+6ThVauiY+IdIM4cncdDZ2NZe
-   C609AjRW+z2M6N8nM74fBWDQZR6WsKcGblOGp+fGVAPdWBSeYhxNW2ag/
-   4JKNJete4F+Bc+Q4vACRbdN4o19ymZcQAFtfc8Zky2QScyMJnTDVkUYzo
-   mZ37FpBTdxXWzPDqhrnVorzSjW2xQGC29WpBoemq4BTzPNzqX4pX8SboC
-   pIbmdOHljUG3fEZxb79kh+6MF0z5aSq4SM0BnrfNsVN6jQNgfNjABKvkI
-   Q==;
-X-CSE-ConnectionGUID: PPOi/HI+SZe+4+sie1hZvA==
-X-CSE-MsgGUID: d36hzcM6Qwi3Wg4yOXh6AA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75281387"
+  bh=d6KLxSDgRcKiLzDY+NMiMRY2jmIC2rw/9NmZTIuAx/o=;
+  b=easix1+RlY9rqMRBuoMLb2wAAfgSDz3ibtQyVj4mqKpmFLMQgTbIPCX4
+   gAA2tEX3xYIEto8+AkrxOuTPGzuP2j4e4VBVuKeGGwITBZ8oflbfV8Hkp
+   5VYbtgI5lBaHcrIDfpxq6mOnlCqa++w7ugTD3Nk8+ARqI+dmONSZvjXIR
+   /p5fvft8c5Wa8UUJjzOkzuqezOLRv0raQAEbuHgWEc3mxJhsvClnVn1zP
+   ZLy2GBHQZVVO7TOXnmjvfKgm9fv/GmNgMpWiRR/gxry7bYZfuF+hIbWXy
+   vir35/haHx/+1Gs8DkkVK7Y7QH/pjiUkI44eIBNl3xTlmN+Yeovb/CpTL
+   g==;
+X-CSE-ConnectionGUID: KwZVc5DlSZ6+GyOTJbGkfg==
+X-CSE-MsgGUID: KT7pYOe5Ra6MdhWJ0D/kbg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="75281420"
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="75281387"
+   d="scan'208";a="75281420"
 Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:06 -0700
-X-CSE-ConnectionGUID: ZabKv/GtRfqHh4rMbY+IrQ==
-X-CSE-MsgGUID: KjVhSRgDSkWdd+eayrpYDg==
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:18 -0700
+X-CSE-ConnectionGUID: ib4xzWKRSNm/cm3wyP1vbg==
+X-CSE-MsgGUID: WCv5QcPyT7OGGuY23A4d9Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="219540084"
+   d="scan'208";a="219540242"
 Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:57 -0700
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 10:00:10 -0700
 From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
 To: linux-pci@vger.kernel.org,
 	Bjorn Helgaas <bhelgaas@google.com>,
@@ -85,9 +85,9 @@ To: linux-pci@vger.kernel.org,
 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
 	linux-kernel@vger.kernel.org
 Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH 06/10] MIPS: PCI: Remove unnecessary second application of align
-Date: Tue, 24 Mar 2026 18:56:29 +0200
-Message-Id: <20260324165633.4583-7-ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH 07/10] parisc/PCI: Cleanup align handling
+Date: Tue, 24 Mar 2026 18:56:30 +0200
+Message-Id: <20260324165633.4583-8-ilpo.jarvinen@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
 References: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
@@ -95,8 +95,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_100006_693496_6A4E7743 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260324_100019_077859_A63BF4F4 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,36 +111,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Aligning res->start by align inside pcibios_align_resource() is
-unnecessary because caller of pcibios_align_resource() is
-__find_resource_space() that aligns res->start with align before
-calling pcibios_align_resource().
+Caller of pcibios_align_resource() (__find_resource_space()) already
+aligns the start address by 'alignment' so aligning is only necessary
+if align > alignment.
 
-Aligning by align in case of IORESOURCE_IO && start & 0x300 cannot ever
-result in changing start either because 0x300 bits would have not
-survived the earlier alignment if align was large enough to have an
-impact.
-
-Thus, remove the duplicated aligning from pcibios_align_resource().
+Change also to use ALIGN() instead of open-coding.
 
 Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 ---
- arch/mips/pci/pci-generic.c | 2 --
- 1 file changed, 2 deletions(-)
+ arch/parisc/kernel/pci.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/arch/mips/pci/pci-generic.c b/arch/mips/pci/pci-generic.c
-index f4957c26efc7..aaa1d6de8bef 100644
---- a/arch/mips/pci/pci-generic.c
-+++ b/arch/mips/pci/pci-generic.c
-@@ -32,8 +32,6 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
- 	if (res->flags & IORESOURCE_IO && start & 0x300)
- 		start = (start + 0x3ff) & ~0x3ff;
+diff --git a/arch/parisc/kernel/pci.c b/arch/parisc/kernel/pci.c
+index f99b20795d5a..f50be1a63c4c 100644
+--- a/arch/parisc/kernel/pci.c
++++ b/arch/parisc/kernel/pci.c
+@@ -8,6 +8,7 @@
+  * Copyright (C) 1999-2001 Hewlett-Packard Company
+  * Copyright (C) 1999-2001 Grant Grundler
+  */
++#include <linux/align.h>
+ #include <linux/eisa.h>
+ #include <linux/init.h>
+ #include <linux/module.h>
+@@ -200,7 +201,7 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
+ 				       resource_size_t size,
+ 				       resource_size_t alignment)
+ {
+-	resource_size_t mask, align, start = res->start;
++	resource_size_t align, start = res->start;
  
--	start = (start + align - 1) & ~(align - 1);
+ 	DBG_RES("pcibios_align_resource(%s, (%p) [%lx,%lx]/%x, 0x%lx, 0x%lx)\n",
+ 		pci_name(((struct pci_dev *) data)),
+@@ -209,11 +210,8 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
+ 
+ 	/* If it's not IO, then it's gotta be MEM */
+ 	align = (res->flags & IORESOURCE_IO) ? PCIBIOS_MIN_IO : PCIBIOS_MIN_MEM;
 -
- 	host_bridge = pci_find_host_bridge(dev->bus);
+-	/* Align to largest of MIN or input size */
+-	mask = max(alignment, align) - 1;
+-	start += mask;
+-	start &= ~mask;
++	if (align > alignment)
++		start = ALIGN(start, align);
  
- 	if (host_bridge->align_resource)
+ 	return start;
+ }
 -- 
 2.39.5
 
