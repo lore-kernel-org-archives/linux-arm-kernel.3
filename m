@@ -4,77 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924EBF532C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B24F532C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 00:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8YakcAdwU0yPK3Lv25d+UExTvV5PN99MFkItEin5gg=; b=OBYaoFCv81hMNA27H0ZfSDFs33
-	ebs4QgJGgnIgMTPj8w81fEUSxYUK27bKOwPRFGB34Wv09+P06GuQLr52o5fDF/rUaMOyRjgs2SFZl
-	DZclkUQBtPSNVQ5It/ziKFD5m2a85T9S8f+NMxiQzRfS+6VUDOHLZkDdi6glX3k1qQRHzfA8mL2wG
-	VHJ8F8rQF4oRUPvM/qOmnsLvKyNIOXFNCopRUhQiI7DOkIFP+/aAfB2UPulPpueyTc0H0tV0E7abS
-	1cFAki0B/h+FQgrlwxuRblwz6qq54TDfnFB6QJYMvDi0rM/0osO52BTCy73YhAoiPtPzzqPsGsTLK
-	I0Qi/9Zw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l/PLRrp/kosCKHD/6EHqfX62ZOY+7hmZq9SjOmDvg9U=; b=dZekB405Fo2GJqBNjvqzsPtAk8
+	Dsy6bnWobEVgbjHnWWuO3T6KNUbAj65KveEdxw+Q0Wnq8kf/zW/ShWUeSi+CJL2b9DGV80cx0uL9n
+	rFHkNLjy6nDLfqI0AkelVa7AWIntcDNcjqLkmsPRfRv7GJMp9vguFs4vQENprm75FNJ5dsIVUrY54
+	4S023Ps7hqoy92isLdkadEVguGxjV2k9l6Kf5SLIs6TS4lfy7zdu9tSQWQxNohPJ3TaGBdrsK7FkU
+	8ccxipYvw9YZKzkKYOPnusqwNjullgbjyPnBkxJ4DVLjMdz+xpVkdff6MG+K7TdtPcIjPPEg+JpEq
+	DXvwYN0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q0N-00000000Gg7-2V4t;
-	Tue, 24 Mar 2026 00:52:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w4q7M-00000000Gy3-1igG;
+	Tue, 24 Mar 2026 00:59:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4q0K-00000000GfY-2xe3
+	id 1w4q7J-00000000Gxh-21aS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 00:52:22 +0000
+	Tue, 24 Mar 2026 00:59:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 697D641884;
-	Tue, 24 Mar 2026 00:52:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD8EC4CEF7;
-	Tue, 24 Mar 2026 00:52:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3151A406AE;
+	Tue, 24 Mar 2026 00:59:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF2ECC4CEF7;
+	Tue, 24 Mar 2026 00:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774313540;
-	bh=Kqmy4ocV2M8B5x1XI7enz01J/VpFK+natm8DU5YZOlI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=PmMIM0A4qRK4cY1IJyrhbdXl3FSsQlbXlcnBc8HmDANbnFZIerfm32VeeChZ2uWzg
-	 CVICPqxYUtc/p6uASO0kjeJptOM2eTMa+PQ7fY4q3O+ZA4fHAFjQ/+eK7ZiUt7p1a+
-	 03Lgy53SRCRXIsLOxf7Dssq45/rWr9wnMGFDuaQq9OTy01oFc9g8M39t8m8IFVmS+t
-	 6/9RjXPtckhONLewjMM2IRtG5PWrc0nX92PFiyIsVU/RXbVdG42Omxblgx6s/xukHX
-	 0HpEwrYhVVyEPeLR0gVx7yuecTYWQRqQch0v+5kNRSvApdpKzKPleaFeiJckBFv2vI
-	 0XhX8UFnwOsQw==
-From: Mark Brown <broonie@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>, 
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
- Chen-Yu Tsai <wens@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- linux-sound@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Chen-Yu Tsai <wens@kernel.org>
-In-Reply-To: <20260323172450.1259111-1-wens@kernel.org>
-References: <20260323172450.1259111-1-wens@kernel.org>
-Subject: Re: [PATCH] ASoC: sun4i-spdif: Make reset control non-optional and
- check for all errors
-Message-Id: <177431115354.811880.16400372395326630860.b4-ty@b4>
-Date: Tue, 24 Mar 2026 00:12:33 +0000
+	s=k20201202; t=1774313972;
+	bh=g9n6egUYTuF5ke2JJ6m74go1iA9dbs1LNBwQX9Kfxdo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=r79tvbMTbzL0ftvYwrYFxtc47UR6uhBnmMbW/y7VVV1iRybB+2M4JpIoiYURI0KHc
+	 xbQi6Hae6AoFoJmbmbDJaHU6H4twMWZBNd3LQspzN5XukCR8uOrEpuyEmdRt0aOb0U
+	 mOwgSJ8cLDV9T8BHYl+ocS0L8OVgW58qmKn8ydBwrFxSGxlpZWrzAsZEqo1gSY7MVu
+	 kkOnSl/PVHu6HAiahaLq+b8nbHuZsE8hCdipD5o7lr0426ClKDJ0QYolowXlhy4fkV
+	 i8IvftFPJDTfcclR/4ZCSmDk8L1PXC7Ak76kNlhT/lIjYoVE7r0UGtOBo25YTrAjXS
+	 EFJsJ4/WWZ6pw==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Armin Wolf <W_Armin@gmx.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Vineeth Vijayan <vneethv@linux.ibm.com>,
+	Peter Oberparleiter <oberpar@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Mark Brown <broonie@kernel.org>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowang@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Alex Williamson <alex@shazbot.org>,
+	Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-hyperv@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	kvm@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	linux-arm-kernel@lists.infradead.org,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 00/12] treewide: Convert buses to use generic driver_override
+Date: Tue, 24 Mar 2026 01:59:04 +0100
+Message-ID: <20260324005919.2408620-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev-17187
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1168; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Kqmy4ocV2M8B5x1XI7enz01J/VpFK+natm8DU5YZOlI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpweBBH64WLacTjdO9ia+cqGaz97h1TIMLdZRvY
- KUpltXD9WWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacHgQQAKCRAk1otyXVSH
- 0HCbB/9SwEMe57/ws+kT/TSrY5Ar0bpNt/qWmRo7Nrip21CVEbhEXL9zv2CfEdKgeI9EpMFaQw9
- 7hjeXTeEo0bAXFaQu2a+jeVFIeCQZlADacEmuxbM6yxZ3tVM8/zXV+8XXFiZfFIW7QeOQyywFET
- 1sjHvUSClBb63ClQQUkxjM1dOsABERU/na9MsatZEi7azN7PcOvNWmbZxPsmr1bJBo3BP9763H0
- L2IOJR7PjTQ0LwComIhIQiPOWPWhwT35IHBzOMIvudXIdRdnmwyV1WfezDGacvLGreyNMEwvCEu
- YMyUYIVD0inA+MmCODLj+Hd1CHXpm3TS1jMZ720ANiha0jdo
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_175220_767798_5B6BBBD8 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260323_175933_562970_A7B2D134 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,35 +115,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 01:24:48 +0800, Chen-Yu Tsai wrote:
-> ASoC: sun4i-spdif: Make reset control non-optional and check for all errors
+This is the follow-up of the driver_override generalization in [1], converting
+the remaining 11 busses and removing the now-unused driver_set_override()
+helper.
 
-Applied to
+All of them (except AP, which has a different race condition) are prone to the
+potential UAF described in [2], caused by accessing the driver_override field
+from their corresponding match() callback.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
+In order to address this, the generalized driver_override field in struct device
+is protected with a spinlock. The driver-core provides accessors, such as
+device_match_driver_override(), device_has_driver_override() and
+device_set_driver_override(), which all ensure proper locking internally.
 
-Thanks!
+Additionally, the driver-core provides a driver_override flag in struct
+bus_type, which, once enabled, automatically registers generic sysfs callbacks,
+allowing userspace to modify the driver_override field.
 
-[1/1] ASoC: sun4i-spdif: Make reset control non-optional and check for all errors
-      https://git.kernel.org/broonie/sound/c/51b0909d0bc4
+SPI and AP are a bit special; both print "\n" when driver_override is not set,
+whereas all other buses (and thus the driver-core) produce "(null)\n" in this
+case.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Hence, SPI and AP do not take advantage of the driver_override flag in struct
+bus_type; AP additionally maintains a counter in its custom sysfs store().
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Technically, we could support a custom fallback string when driver_override is
+unset in struct bus_type, but only SPI would benefit from this, since AP has
+additional custom logic in store() anyways.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+(I'm not sure if there are userspace programs that strictly rely on this;
+driverctl seems to check for both, but I rather not break some userspace tool
+I'm not aware of. :)
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+This series is based on v7.0-rc5 with no additional dependencies, hence those
+patches can be picked up by subsystems individually.
 
-Thanks,
-Mark
+[1] https://lore.kernel.org/driver-core/20260303115720.48783-1-dakr@kernel.org/
+[2] https://bugzilla.kernel.org/show_bug.cgi?id=220789
+[3] https://gitlab.com/driverctl/driverctl/-/blob/0.121/driverctl?ref_type=tags#L99
+
+Danilo Krummrich (12):
+  amba: use generic driver_override infrastructure
+  bus: fsl-mc: use generic driver_override infrastructure
+  cdx: use generic driver_override infrastructure
+  hv: vmbus: use generic driver_override infrastructure
+  PCI: use generic driver_override infrastructure
+  platform/wmi: use generic driver_override infrastructure
+  rpmsg: use generic driver_override infrastructure
+  vdpa: use generic driver_override infrastructure
+  s390/cio: use generic driver_override infrastructure
+  s390/ap: use generic driver_override infrastructure
+  spi: use generic driver_override infrastructure
+  driver core: remove driver_set_override()
+
+ drivers/amba/bus.c                 | 37 +++------------
+ drivers/base/driver.c              | 75 ------------------------------
+ drivers/bus/fsl-mc/fsl-mc-bus.c    | 43 +++--------------
+ drivers/cdx/cdx.c                  | 40 ++--------------
+ drivers/hv/vmbus_drv.c             | 36 ++------------
+ drivers/pci/pci-driver.c           | 11 +++--
+ drivers/pci/pci-sysfs.c            | 28 -----------
+ drivers/pci/probe.c                |  1 -
+ drivers/platform/wmi/core.c        | 36 ++------------
+ drivers/rpmsg/qcom_glink_native.c  |  2 -
+ drivers/rpmsg/rpmsg_core.c         | 43 +++--------------
+ drivers/rpmsg/virtio_rpmsg_bus.c   |  1 -
+ drivers/s390/cio/cio.h             |  5 --
+ drivers/s390/cio/css.c             | 34 ++------------
+ drivers/s390/crypto/ap_bus.c       | 34 +++++++-------
+ drivers/s390/crypto/ap_bus.h       |  1 -
+ drivers/s390/crypto/ap_queue.c     | 24 +++-------
+ drivers/spi/spi.c                  | 19 +++-----
+ drivers/vdpa/vdpa.c                | 48 ++-----------------
+ drivers/vfio/fsl-mc/vfio_fsl_mc.c  |  4 +-
+ drivers/vfio/pci/vfio_pci_core.c   |  5 +-
+ drivers/xen/xen-pciback/pci_stub.c |  6 ++-
+ include/linux/amba/bus.h           |  5 --
+ include/linux/cdx/cdx_bus.h        |  4 --
+ include/linux/device/driver.h      |  2 -
+ include/linux/fsl/mc.h             |  4 --
+ include/linux/hyperv.h             |  5 --
+ include/linux/pci.h                |  6 ---
+ include/linux/rpmsg.h              |  4 --
+ include/linux/spi/spi.h            |  5 --
+ include/linux/vdpa.h               |  4 --
+ include/linux/wmi.h                |  4 --
+ 32 files changed, 88 insertions(+), 488 deletions(-)
+
+
+base-commit: c369299895a591d96745d6492d4888259b004a9e
+-- 
+2.53.0
 
 
