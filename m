@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88431F532C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAE6F532C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 02:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSIoPx/QasmgO1+blwa/Zm4uo8FGDj1ZMGtWL34otwo=; b=3TngCyguGm9DURKSHok9pIXgO6
-	8X2JVLNeI29KUiDbHPcwXyIjS4mRel5vrdIlmsg0p2YnEwjKM+ot31ZTWQTNycTyKrtL5H7WOB4N9
-	P5+qlH53+vhhJT9QpgBbpdW1ry03x4oSs8TnTXNQMHxoj5HyummDF4a4WEHTdFJh1IrFZSQvhQZ4S
-	U6/qNQQGArrzLCFR5n1cruReAmMMmoKfEwxGvcGU0zQFXQz1JM4iOuvcwDGLv3ikEFV7EfCE5rnwn
-	OL88dPMz64qGmpFKAir7bXeSBYv9VF3U9XXk7IgehGGGUfiQXjkgdjSqH+KblJTwNHGzKGRPswT3/
-	tfqK9abw==;
+	bh=435cIZNlzdFTlJfxS8UaRiY53dd/RBy70f3AXSP5hw4=; b=xTy+mX7JxGkFmKNrI2Am0CjZJp
+	BWumT9Xn1dW3wS0PGgcH21Msovxydr8ItlzKYccR0hBMYKEMlAqlTeSJ8rJyUIJSRwgOZZICIWKJY
+	wwLeCNZrhNnta3oB5jCEza4Wx7Njf1QXH68WFP1FNtckEnXusYVeIbSPlpJyD/2b5OEcOQTVKLq3b
+	QfwHLN1lhDfwwGsOWrL95zdgTmwpoePCBjlCPqvL2PyTJLRPQ2xXCt8ccc54Cla7thOEmeoavE7I7
+	VWQdUxf9GqaIczBRlHJFwsd7zVNKJo9eHdyb7HuI6V+po94iLRfQGufU6qUyiC59dcx2tJavuZWUL
+	BKjKqM/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rZM-00000000Pao-1aoy;
-	Tue, 24 Mar 2026 02:32:36 +0000
-Received: from mail-northeuropeazon11011046.outbound.protection.outlook.com ([52.101.65.46] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w4rm7-00000000Q4V-0P00;
+	Tue, 24 Mar 2026 02:45:47 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4rZJ-00000000PaR-1AZX
+	id 1w4rm4-00000000Q3x-0OfM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 02:32:34 +0000
+	Tue, 24 Mar 2026 02:45:45 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VLI0AMbtfom+aS/kdQ2YeezvevbKNkMSSn88sgHJYRyLe7oNjKmSG4j+xDmlIJUj7SFr/XdxDJ6ZB2CvrRK0ncnbQWUq5PWVHki7ZkP/xrFrIP9jOz8EkOCYA9osyweH2PDGCNHfEH3m7uq6m6BwdRzWRPK/GTU+OiJlNHmBDAG1taYo69t9jycOKCvIhUbRxNTGEPQ6S93DySvolI58UwPnVKkBF35M/s9gv08Fd34ZWL5N/npWP44jMbBRxlyN3nTrDSuZIfoKtxQWKB4zKNmWC2C9w2RmR1+nMDgj6T06TL36/9DYqz+MK7wx/7LKbRO+vctbar8mhvVHDoXz5A==
+ b=AmAv6EjqXS1s3t8upIrYUKIuVSBdcp386qzmAYqAIIlYADeWKFKpwb6EViAegIbq4ikRCuf579uw1O3jmLNhu+0+UQpKSw89UoSB8p0Vk3sg7Ufe1GWzFUNhEEWDRp7PXIxqFpBqlunOdr5QLDEz2an5BaRBJ4SLU/qo1hqeNSnuN5B+OIctFl/v0TEh8i2NlaeoBGeE+FAyTbVGucnDyDnjmCS+OqSbOXfr6qhpNJPT+gbyYfpiEtKrCmcbF+mXNTszai07UBq5Z9Ig9RHFweNAD4LgVK2qFitk9Dz1tH/R38GCtIk1VmL2k6fwOddQjlU2NR0dZ5JFkuEeMQq5Eg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vSIoPx/QasmgO1+blwa/Zm4uo8FGDj1ZMGtWL34otwo=;
- b=PcikXsJak3LJRA7punP7OY8+R3NXhp2ycVAExsG7tANEGTIVqVTxPHqa2d2Z/09NLMIk4C/W44U3hwyjbJtr9vP/sQ0mJWmXdXdHMBVVVLypMiHm6oDb5DnuvMUpjhgozux42vhEgRwLrSlIlPfnbSKwFqekpeycLiadNx+nJ+A1GYXnALFAgSx5xkrDHFfUrurfCxR4G9BZaPjHBfoFb7ho3QU+q4PY3IzNUJRB8WW+jJ6xanKhMwin556NK01ZNXOv0YRW+a0wCa4zENFryrHJ0UQm7WrVz58Fm9nOa78tIhSYPVfhDvbjhSpCD0INx8p6j4m+HPcZxIzOyQB87A==
+ bh=435cIZNlzdFTlJfxS8UaRiY53dd/RBy70f3AXSP5hw4=;
+ b=zS4TUhgPmWQLPmQulDCRHTNiBtPT5+t6MzF5Pymiuw3uGcqrhpcuV0YTtamiXp2FMlvaqlVdN632WeGHH1+NIWDF1SMO6InnSJHdBVG0FYwi5V+lLUUJNHqI9kdg8/jYFznhnMCUKHZ6jJ0g7qu3COXWPTWbcfKKH1gV9D/uZTYfzu6VVn22XsvjGFK8e5VUJx/2Wp3PNYP+fJ51E7ZGNgaePmQhYyTUgUpf+eFYPdEXMopE0dHJmvfSeBxvQnWnsdREshc3u9b7X1R/qUO8lrIeIBvnAbvM1ZAdEIJ8Yh9aWMGhM4GXuC8xSfsu2QQfSq0auVSnLHptYue9f3kBfQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vSIoPx/QasmgO1+blwa/Zm4uo8FGDj1ZMGtWL34otwo=;
- b=iYxmfBCqxg3tyrCHtNopTgafQ7qz9vbvzqAq4b03dwj5aZApxjYLuHfZ1OPqc8M2K1MHFRUiI1gJFB9Ihy/lZDiTRo3I8gqUUNOsYCAYHAgKVUtADOcCaRWuDu5++KSKo3b7Zp9yIAGyS2hpvnl0UVE184tQEivT7ucw4qwBbCel8DqB1+NiC9kIPmMUe+52z0srgocagyD0CiPiwa6ByGtHNyJ/Iz1fAl2F4a/qQlZiUpUnc+OKwly193lhslfXwmBeyJ59Q7i0fUuvsXgm3iAzewFQccKFgCwhJCTCULYNrgAU9qiRaEMNPugcVKFfej07Jq9fHTItpEFQVAGMQQ==
+ bh=435cIZNlzdFTlJfxS8UaRiY53dd/RBy70f3AXSP5hw4=;
+ b=FeeP2Q83+bj+S0bO2bZwBxq7lp26EzTOCjSZENDQj+RDjdZA+f0Q4sR7OW8N8Fe5iBIKFiOK5QDB32WmqsW6iOWGcjc1wFP6cLyN9OqM53r3HLHI67gLLfMc7QTcmRbTPNoz5c5d5eOE/7PPVdpW5aXLAW20AD15qN6cLEXwcMZSj50nElTyadOMcp3yF+wXuhKCKEQP1Yoo+WzY7ios10SYpeXo+Tkwyc8zF9veBSuH43MhyEPmwknVzg8nvEUotYPvc1cVnug1HNVo3RRDuc+coQfAzUdPYtJJCtWivOzUns+NYKlhz/sFGa7kJx7QmTco4zJ7XabxuUddu3jZpA==
 Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by DU0PR04MB9396.eurprd04.prod.outlook.com
- (2603:10a6:10:35b::9) with Microsoft SMTP Server (version=TLS1_2,
+ (2603:10a6:800:315::13) by PA6PR04MB11988.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 02:32:16 +0000
+ 2026 02:45:14 +0000
 Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
  ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
  ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
- 02:32:26 +0000
+ 02:45:39 +0000
 From: Sherry Sun <sherry.sun@nxp.com>
 To: Frank Li <frank.li@nxp.com>
 CC: "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
@@ -65,12 +65,13 @@ Subject: RE: [PATCH V2] arm64: dts: imx8mp-evk: Disable PCIe bus in the
  default dts
 Thread-Topic: [PATCH V2] arm64: dts: imx8mp-evk: Disable PCIe bus in the
  default dts
-Thread-Index: AQHcuEhJWXRYjvNtWUKzhDJQysY4nLW8fkWAgAB8n7A=
-Date: Tue, 24 Mar 2026 02:32:26 +0000
-Message-ID: <VI0PR04MB121147DEDEA2B8058666867F19248A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+Thread-Index: AQHcuEhJWXRYjvNtWUKzhDJQysY4nLW8fkWAgAB8n7CAAAOjIA==
+Date: Tue, 24 Mar 2026 02:45:39 +0000
+Message-ID: <VI0PR04MB121140F94476DBC9D2F845ADC9248A@VI0PR04MB12114.eurprd04.prod.outlook.com>
 References: <20260320090353.1483418-1-sherry.sun@nxp.com>
  <acGN-QsB65Kbs7Gf@lizhi-Precision-Tower-5810>
-In-Reply-To: <acGN-QsB65Kbs7Gf@lizhi-Precision-Tower-5810>
+ <VI0PR04MB121147DEDEA2B8058666867F19248A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+In-Reply-To: <VI0PR04MB121147DEDEA2B8058666867F19248A@VI0PR04MB12114.eurprd04.prod.outlook.com>
 Accept-Language: zh-CN, en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -78,60 +79,60 @@ X-MS-TNEF-Correlator:
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DU0PR04MB9396:EE_
-x-ms-office365-filtering-correlation-id: 2b3826ad-11b8-4ce0-4172-08de894d969e
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|PA6PR04MB11988:EE_
+x-ms-office365-filtering-correlation-id: a5dddbe5-58a6-4daa-a2a2-08de894f6f67
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|38070700021|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: Y03syAzbRS3xEScJzEJPruIlIFCbiHaB9sHe9Eo9BsGL68k43+zU8f/O+FyQ3yrRfJgpPQtGW5CewTN/XWl0b5LiKzyRMCAuwO0c+eUNr+yoLIPEnibeU62DyeRzRJQEn/IHV7XmiBuKd2Z1Wnlg/7XO8y+whSL0qtUUM0qr5gAM4pt5DEGgjs1pq1vttxbUBd1Q4+8VKdBBlG5Tvn9vaTVRy82LsvQ2Gvg6OQaaIXCTweCXNr8gM4RX1lY5qQ9IPz/rRkW1cQPvNB5wjtX56HKDIosxIw2Xj7yFSoOHhVTXYKi7jo6msq3bEtFtYurAJ7k7iKZP/sHJymldzn6wq33qN6NQUL0wGG2veO5OzbQkLUVh7gIfsVdPl/MWbOqnl+E9s8Jke/TQlcWunT6+D08knoA0coopDdQpc4ao61cANSNwrrdpP63ARWJ13yFk0COAhwpIKbTN5d3l5n2Jv2FB/P9Xf680Sblh9iHwD67fixTz6WteFVuP+wFM1fcwmzkuv7K3Fr+SVxCB6oD/K5MmkA9nrcywTQqM+gprS9ewuJqhff1XpCTXZj2tBK0GBtrQBz8tSchsEwBzRJd7AgKs3Ns3zkjrpv1NHaqQRMkn9SiIOEFz0HR57VdkoldBR1pG11TC2JEhudrSRRGjboZh206UQFx3J4MIIgcCG7RJy+y6rAPK4zv9CCkO+XOjJXKyWMhHB6N73d7jffP1aIzOnJusxDnGeQxMMwEPG2EPKoD1wLEcNnmPBPBePUx6HzA0M7K9bSw/t+MgGo52GNl/XOoMWcCvEuAvh6SFz2Y=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: dbNqS3Oz+F/yCGT5WtwPsmly4UUUbg3zYn8OGbSjObbcjCFUdOoQYAx3kRUxi+KOnzIHg9wSxIloiHSpj7tuXMSEfs91l9DBRCXG5pl9W4/a2Em4o2icHfLcXHT8UJFZUlgny06USgRSLIL5XtERP0I0QFob/aD7cdv+pt7xi5Ot5gPh0cCeH2F/qw7VzMS2flxtMS//+ufMh4pca/vbIBKzqppbODoKCKX58++gXd363+K1CEoLA5FRGdPlEMMMv5TzfbCSbnMGiPJzR7EQkEAHNvFwtOt43Dn79Tz5EyFBXb1XTvA3oZxU2ymYtyCrWLfnyjepLR0YCgI3erbeUdOe/7p1/gEfZagcimxE6s+2g2xp3m30arw0l10PD39SIPGqSKLkaZrz6WFiD+nprSr0aieFfrFkbXnHkRPXmBtGsbTDaJoOCvT1hhUU8qs0IhKkTFclRdY+OxQqYZC4SZjxtn0B36OTAlsQVA4CJZ26lsr03VerfujRw4YVFIonvDjKwFmCKiACVyJ+KoATCbxRqOMVvKbvVGx9jUBfHRadWB+lmX25bjfA10zSvgYfcwamflIlf5MSJ1IXmwUq8sj8PyUdqfXtMKSknJknMtyCzJKyzfui5CzQOXYesT8BX+Z3hYXfd3wP48HoLkPj+GnaN4s6/Fn4GpOlBOinATXSfCTJ0ZZfD2mhctPcR5EUtma3xj1OuBIqgZgXCahKLc4TFnxVq3ug4hB9w0zRtP2sLw7pLfnjGbo/u6QBWbTdNDYLVxDdbQlk4RGwiYyIK7h1HBlX8gzTqHL4wcCCdxE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?HCV5Cj+/X7eWasMYwyqtkS94da179GUVhV7mpH/d9Li+AQ35IBXkM85hj9Eo?=
- =?us-ascii?Q?sNPKHnoNKau5gZrjbvOYPY2kCP486jbYu0gU7cWctbodo0J3a0N8u+Namx2J?=
- =?us-ascii?Q?Gm6nd3EGh03T709VRvRkmtyiHT7q1mSPrfzoVNTCCDH1eQfJgA13ofoE5Qne?=
- =?us-ascii?Q?Mkv9XWReomt1xgab5D/9AfvP7GthC/1jpEi3dw4U4aYbhLTVewN7ENnuh+cR?=
- =?us-ascii?Q?qILKbMKxuk1/8Kz5p+oeARLwVnUU0ZLlIE7JT6xOog3md64icCkeR+1uf/ek?=
- =?us-ascii?Q?HHuYq2pbBQQRhL+BQGgAEW+kLDFtcNedhk2dxlPlsurJ4JOGSLAPKezBTRCC?=
- =?us-ascii?Q?50dpAKfiK5JH8owckA9LjUQBK282eytk7ZyMEg1u2rM+mQekzjQBSlQT6aYd?=
- =?us-ascii?Q?UEx3NFDVYBvjJTyyPdAqavM0Dc7ljTiuzM3Cef97hqGxquqSdRWpz1/J8zUR?=
- =?us-ascii?Q?usAhFuXcsVKasbs2vCUroPOVYg7fUdtczxPQMK63cpV8wUwFI9503622Wu+Z?=
- =?us-ascii?Q?1o4z5Ie/Wsg5AGL6zp8qVM7zaAhpjt6UGeUcIdgUEYfpGlgl9M8e6hxgbFuo?=
- =?us-ascii?Q?WKkaNnyNhpL2ehMlMNJ8M9BA9sUGMz9xqcQEZR6gavtAsL3S7JJ9o9bl8IJG?=
- =?us-ascii?Q?WxvIgRzX4bBOHiLnUJFFi5gLtwGgFhU0lzhAozBFCmDhRjFEvja0Flr1HJin?=
- =?us-ascii?Q?MCld1DIOcHDkRtWVi4lhlvpdi4gipJWmDbFtOS/vgY4/FSIjlQgL4aGU1cSV?=
- =?us-ascii?Q?JHuP0CU3Ht0EqlPPRW/6revXJdXTPII2+izx9JbmdyzlQtuuFU6xSYb771Ev?=
- =?us-ascii?Q?kWkKFBAPMI9Cw5ICsMkN4I6YyJ2OY6KLJ2eOeWMNoAz0B0xlu+b8jn0N9fgf?=
- =?us-ascii?Q?29hUHGmbeInJFsc06QPHqQAV3wCU29Aq1nhCU6wuPtDW6QzLF6Hp7xdMe3Mn?=
- =?us-ascii?Q?6uZylSTwpmSTFp3B1s5fKToVs4fhf3nOU9DPHY34fZGK/YDAVmlYxrKxn4wF?=
- =?us-ascii?Q?E5qMenY800DFmmfc6zXx4tUpgyk9cWmE5Uh/DVxPOcfiK0YA9uvnoOC0Tfpq?=
- =?us-ascii?Q?1EHuOPZ6Sz9mcgxsNGX7OMiykQi+ylVnG3Df6BrffEoINJU7/VH8bQicEn/x?=
- =?us-ascii?Q?WvxfOTgrk6cjf34lsmI3sYxRo+gUeRvjcAOGsayVAt15y9OyDoU4LjfDGwKe?=
- =?us-ascii?Q?hfqHRAYL6vBGr43/9ogvml0nZAkZy7YBI4cak4suuh40WOreYVWa5VGRohB+?=
- =?us-ascii?Q?2BYPJxDb0O0+ii3DmiwxUcy4uQFEKZxnD4Tbvy4VZ7Mm+DlmwKYVQWqRVI3f?=
- =?us-ascii?Q?fYmGqT0vFPJfBauhMTp3Q8GUoGITZSF28rh7UVcAUUGYPUpYoRsR43l8D/rm?=
- =?us-ascii?Q?3L7vvI58LeZWd6T5s/7MBzMzSG7QkebtmAiJpurFUXhfmrgt5gCdZ4V2EVzy?=
- =?us-ascii?Q?4jOXZmsYs5MJWqhvrA3TpzwLgw/dk2eChKHITV88dx8J55Q6nCMKjjwPPp6n?=
- =?us-ascii?Q?5wH/FY8HWyhRqZiXQtnnBOF0X7NwW5yqkKxj37Hg4tMSwCDSHSbtFcY9x8E9?=
- =?us-ascii?Q?9/h538zWTDBMMN0uRmdKn+VI0HltnSfyAlhh4Wxv0/13RdNcg3vC37/DFoz1?=
- =?us-ascii?Q?ern3d1sVvjar9y2YlnuLrrBAQgopugmRssyqrrnKWJO17X73419w+tNLcs6a?=
- =?us-ascii?Q?6l61to1TB+iIWRRPMPr5fKeqYYyvbgJOfGmb+R2kuWA6ef47?=
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?IqBFB0Fu+YRBP/QxNqR+yinxnPEdAkYJ3ste5LouxIxK5nXI1VAgkMZW4mew?=
+ =?us-ascii?Q?caoWthRJyyjRXncgu8kZUz32b06W2c4WyAsLkLhvsY6cEAT4MTyjO0PihaRN?=
+ =?us-ascii?Q?G4GGAV18UBWQ/xYV8vSgcySVBkX31159DygBNCOla1Lyai6NSwXRlg6Zfc7z?=
+ =?us-ascii?Q?AjtmbOV1KW/kQCh+yOHkB7aKa7ZwxMAUw/c6fVzoR+VtfUBH/O/ZbzYAqqF7?=
+ =?us-ascii?Q?rsGtmaF+/TJG4KmLbVDjUXtkBsGmN1UsYJGAaGpVrxnT+myTiqzVaHWndOz9?=
+ =?us-ascii?Q?0RlkKMFF9oFBPjrfP3u5yj8+zZRrB5lCbaLHBNzrzcJYfKUv9BeO1YvoCKyJ?=
+ =?us-ascii?Q?uRaeERF4xn8uNXgdpqN1oKDDkZNlMQNJFa5a7FHzERc7gKx+G2q6NtvpRBx/?=
+ =?us-ascii?Q?MoLiEGPyIkUGtLvhawwToIFwn1713EYmjGa9N7/eJtzJwHGwrOpB8yCCWubv?=
+ =?us-ascii?Q?DFXW9MvN5Pf7wDexZBqBJifAntMixV+jgat1CsAiqanRLHOSZ4nUejunpDqs?=
+ =?us-ascii?Q?J5lAn9SOeJpW16SIRshi2hWDqJ6io3x1UvIYK4HYNiW5CGZCgQOFjEJx3j5D?=
+ =?us-ascii?Q?RIgtGSva1r8+IXYiH7TtqEMK5Sxt53d7L/n4/WwKxuYvnCTK/znSbZ2L3yp0?=
+ =?us-ascii?Q?OvOvvGT6Fv+YQMSA0+x2yX6Ot26F9vs3ayHIvLceSldbSaTMO0LUAs7x1guO?=
+ =?us-ascii?Q?Tba0Gc3X+lwRkAvmKRqs24q/ky+oCIX+d3+HxnTk05sElTOzGNXzhugoDIh3?=
+ =?us-ascii?Q?gc69G04m6AsbfggLA7NW01daSKvep5O9Rsm9vGqmPJ36tkrvfZEskyyd4Jd4?=
+ =?us-ascii?Q?4TyzJ9VSYL7eDjEHzYH8zCFLXnDeW2+4z6jx9afNJcN/HgxFSrGoCbdcVd8k?=
+ =?us-ascii?Q?pXq3RR7qyIu7HCBqB0J6j0P43i4jnzf04moZgQ7m1hhVzrpgoaz7ScTHVjr9?=
+ =?us-ascii?Q?iJevwX0R3jJZvMbnIcIZLcVG7/KiOrkOQU3kRfYMApTO0rL25qopD1fIX1oa?=
+ =?us-ascii?Q?ykJXKaEx/DGrK+ciWtgSWlWhBjKpz9o3iaakty9fZ2RqXLIpNT6Hf78HIuOJ?=
+ =?us-ascii?Q?97ud9TYiE0T+Qmd3bHU4KZjfZ7sMtDYfTd15lJmzL1OdK1TqwjkYRaUFu1vL?=
+ =?us-ascii?Q?R/+YRVuW1xFrrLQ/cGz5MBO9xheLc86fRe2CGjNxSAnOnggjY8vLGELerzFo?=
+ =?us-ascii?Q?UzGipSMYz1/GojJbuGfKDEbHzsDCIIiqvdMAO0HWmo7bAObgdVgO+54EK0bQ?=
+ =?us-ascii?Q?190KKSH44kdYWe3xzEw731mCdJ3xauDwAf9+FkSwAtf8UB3nhBBtx/Mwg6+9?=
+ =?us-ascii?Q?n+pSHBQuZ8dHGl+w8Kgbw+1xQrFj3O3AKsjfyPpl1D5d3yf9giik01KgtNfX?=
+ =?us-ascii?Q?22EqPXF9zyEfjicOj9ves2auY2EUjKv9LIqeEtqGNLL9Su7npUbLxSSWKvSW?=
+ =?us-ascii?Q?x5FLh5aA77Nz4pa/r9Etm+x67gmzEqzJrkW6+BHD/kq3yQjMrB84BIDAZVSB?=
+ =?us-ascii?Q?Bo0Ktl5wjImHlVc84E3fhFxuZyInfed4qXiucWThQXFE5GXycy8p0NHnxVeJ?=
+ =?us-ascii?Q?dIjcpd5FEjM86aTz5Exgzu/2PSnhxDTFNJdRVxnsOghBRTw6z5hSMuETbd4I?=
+ =?us-ascii?Q?91DwTgGsqNUg/AwoBbSfbpdV3UTsJlUoQnuvN4pxWMFjyABMcDdpcUKsM9lv?=
+ =?us-ascii?Q?VTz7hE6wu5wgKmX/unMBvFaZcaBMxhYXUAmfP0X2bsNe4dV5?=
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 X-OriginatorOrg: nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b3826ad-11b8-4ce0-4172-08de894d969e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Mar 2026 02:32:26.5190
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5dddbe5-58a6-4daa-a2a2-08de894f6f67
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Mar 2026 02:45:39.7259
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: biqJ760sj3fYe/l5g5sTG6X95kNfCJyL2RVU3OgO4mT4BbGMn6f3uTPv3AcdHin6eg1M+aUY7QTFpN8Pa3YrdQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9396
+X-MS-Exchange-CrossTenant-userprincipalname: sfWvHiVGD4+BjKsgyDvX8iTmMPz+Gu5dp7bzDj87mA9e743TaPqxWdLEe70kTFgeM8YejvURLLd0UheSWyTP/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11988
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_193233_320637_DD677369 
-X-CRM114-Status: GOOD (  26.74  )
+X-CRM114-CacheID: sfid-20260323_194544_140001_6022F00B 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,132 +147,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH V2] arm64: dts: imx8mp-evk: Disable PCIe bus in the
-> default dts
+> > Subject: Re: [PATCH V2] arm64: dts: imx8mp-evk: Disable PCIe bus in
+> > the default dts
+> >
+> > On Fri, Mar 20, 2026 at 05:03:53PM +0800, Sherry Sun wrote:
+> > > Disable the PCIe bus in the default device tree to avoid shared
+> > > regulator conflicts between SDIO and PCIe buses. The
+> > > non-deterministic probe order between these two buses can break the
+> > > PCIe initialization sequence, causing PCIe devices to fail detection
+> intermittently.
+> > >
+> > > On i.MX8MP EVK board, the M.2 connector is physically wired to both
+> > > USDHC1 and PCIe0, however the out-of-box module is SDIO IW612 WiFi,
+> > > so enable the SDIO WiFi in the default imx8mp-evk.dts, and provide a
+> > > separate device tree overlay (imx8mp-evk-pcie.dtso) to enable the
+> > > PCIe bus when needed.
+> > >
+> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > > ---
+> > > Chanegs in V2:
+> > > 1. Improve the commit message to clarify SDIO WiFi is the out-of-box
+> > module on
+> > >    i.MX8MP EVK board.
+> > > ---
+> > >  arch/arm64/boot/dts/freescale/Makefile        |  4 +++-
+> > >  .../boot/dts/freescale/imx8mp-evk-pcie.dtso   | 19
+> +++++++++++++++++++
+> > >  arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  4 ++--
+> > >  3 files changed, 24 insertions(+), 3 deletions(-)  create mode
+> > > 100644 arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
+> > >
+> > > diff --git a/arch/arm64/boot/dts/freescale/Makefile
+> > > b/arch/arm64/boot/dts/freescale/Makefile
+> > > index 780682258e71..107ca270ef32 100644
+> > > --- a/arch/arm64/boot/dts/freescale/Makefile
+> > > +++ b/arch/arm64/boot/dts/freescale/Makefile
+> > > @@ -333,12 +333,14 @@ imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs +=3D
+> > > imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-
+> > > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0-dtbs +=3D imx8mp-evk.dtb
+> > > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtbo
+> > >  imx8mp-evk-lvds1-imx-lvds-hdmi-dtbs +=3D imx8mp-evk.dtb
+> > > imx8mp-evk-lvds1-imx-lvds-hdmi.dtbo
+> > >  imx8mp-evk-mx8-dlvds-lcd1-dtbs +=3D imx8mp-evk.dtb
+> > > imx8mp-evk-mx8-dlvds-lcd1.dtbo -imx8mp-evk-pcie-ep-dtbs +=3D
+> > > imx8mp-evk.dtb imx-pcie0-ep.dtbo
+> > > +imx8mp-evk-pcie-dtbs :=3D imx8mp-evk.dtb imx8mp-evk-pcie.dtbo
+> > > +imx8mp-evk-pcie-ep-dtbs +=3D imx8mp-evk-pcie.dtb imx-pcie0-ep.dtbo
+> > >  dtb-$(CONFIG_ARCH_MXC) +=3D
+> > > imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-lvds0-imx-lvds-hdmi.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) +=3D
+> > > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-lvds1-imx-lvds-hdmi.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-mx8-dlvds-lcd1.dtb
+> > > +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-pcie.dtb
+> > >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-pcie-ep.dtb
+> > >
+> > >  imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33-dtbs +=3D
+> > > imx8mp-tqma8mpql-mba8mpxl.dtb
+> > > imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtbo
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
+> > > b/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
+> > > new file mode 100644
+> > > index 000000000000..4f6546d442bf
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
+> > > @@ -0,0 +1,19 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > > +/*
+> > > + * Copyright 2026 NXP
+> > > + */
+> > > +
+> > > +/dts-v1/;
+> > > +/plugin/;
+> > > +
+> > > +&pcie_phy {
+> > > +	status =3D "okay";
+> > > +};
+> > > +
+> > > +&pcie0 {
+> > > +	status =3D "okay";
+> > > +};
+> > > +
+> > > +&usdhc1 {
+> > > +	status =3D "disabled";
+> > > +};
+> >
+> > Please use one overlay for both imx95 and imx8mp to enable pcie0 and
+> > disable usdhc1.
 >=20
-> On Fri, Mar 20, 2026 at 05:03:53PM +0800, Sherry Sun wrote:
-> > Disable the PCIe bus in the default device tree to avoid shared
-> > regulator conflicts between SDIO and PCIe buses. The non-deterministic
-> > probe order between these two buses can break the PCIe initialization
-> > sequence, causing PCIe devices to fail detection intermittently.
-> >
-> > On i.MX8MP EVK board, the M.2 connector is physically wired to both
-> > USDHC1 and PCIe0, however the out-of-box module is SDIO IW612 WiFi, so
-> > enable the SDIO WiFi in the default imx8mp-evk.dts, and provide a
-> > separate device tree overlay (imx8mp-evk-pcie.dtso) to enable the PCIe
-> > bus when needed.
-> >
-> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > ---
-> > Chanegs in V2:
-> > 1. Improve the commit message to clarify SDIO WiFi is the out-of-box
-> module on
-> >    i.MX8MP EVK board.
-> > ---
-> >  arch/arm64/boot/dts/freescale/Makefile        |  4 +++-
-> >  .../boot/dts/freescale/imx8mp-evk-pcie.dtso   | 19 +++++++++++++++++++
-> >  arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  4 ++--
-> >  3 files changed, 24 insertions(+), 3 deletions(-)  create mode 100644
-> > arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile
-> > b/arch/arm64/boot/dts/freescale/Makefile
-> > index 780682258e71..107ca270ef32 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -333,12 +333,14 @@ imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs +=3D
-> > imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-
-> > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0-dtbs +=3D imx8mp-evk.dtb
-> > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtbo
-> >  imx8mp-evk-lvds1-imx-lvds-hdmi-dtbs +=3D imx8mp-evk.dtb
-> > imx8mp-evk-lvds1-imx-lvds-hdmi.dtbo
-> >  imx8mp-evk-mx8-dlvds-lcd1-dtbs +=3D imx8mp-evk.dtb
-> > imx8mp-evk-mx8-dlvds-lcd1.dtbo -imx8mp-evk-pcie-ep-dtbs +=3D
-> > imx8mp-evk.dtb imx-pcie0-ep.dtbo
-> > +imx8mp-evk-pcie-dtbs :=3D imx8mp-evk.dtb imx8mp-evk-pcie.dtbo
-> > +imx8mp-evk-pcie-ep-dtbs +=3D imx8mp-evk-pcie.dtb imx-pcie0-ep.dtbo
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D
-> > imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-lvds0-imx-lvds-hdmi.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D
-> > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-lvds1-imx-lvds-hdmi.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-mx8-dlvds-lcd1.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-pcie.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-pcie-ep.dtb
-> >
-> >  imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33-dtbs +=3D
-> > imx8mp-tqma8mpql-mba8mpxl.dtb
-> > imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtbo
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
-> > b/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
-> > new file mode 100644
-> > index 000000000000..4f6546d442bf
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-pcie.dtso
-> > @@ -0,0 +1,19 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright 2026 NXP
-> > + */
-> > +
-> > +/dts-v1/;
-> > +/plugin/;
-> > +
-> > +&pcie_phy {
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&pcie0 {
-> > +	status =3D "okay";
-> > +};
-> > +
-> > +&usdhc1 {
-> > +	status =3D "disabled";
-> > +};
+> Hi Frank,
 >=20
-> Please use one overlay for both imx95 and imx8mp to enable pcie0 and
-> disable usdhc1.
+> imx8mp has a specific pcie_phy, I disabled it in the default imx8mp-evk.d=
+ts
+> and enabled it in xxx-pcie.dtso, if we use one overlay for both imx95 and
+> imx8mp, is it acceptable that we need to keep the 8mp pcie_phy enabled
+> even in non-PCIe usage scenarios?
+>=20
 
-Hi Frank,
-
-imx8mp has a specific pcie_phy, I disabled it in the default imx8mp-evk.dts
-and enabled it in xxx-pcie.dtso, if we use one overlay for both imx95 and i=
-mx8mp,
-is it acceptable that we need to keep the 8mp pcie_phy enabled even in non-=
-PCIe
-usage scenarios?
+In addition, another difference between imx8mp and imx95 is that imx8mp con=
+nects usdhc1 to the M.2 connector, while imx95 connects usdhc3 to the M.2 c=
+onnector. The usdhc interfaces are different, so we cannot use the same DTS=
+O file.
 
 Best Regards
 Sherry
-
->=20
-> Frank
->=20
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > index aedc09937716..f09335e6388d 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > @@ -763,7 +763,7 @@ &pcie_phy {
-> >  	fsl,refclk-pad-mode =3D <IMX8_PCIE_REFCLK_PAD_INPUT>;
-> >  	clocks =3D <&pcie0_refclk>;
-> >  	clock-names =3D "ref";
-> > -	status =3D "okay";
-> > +	status =3D "disabled";
-> >  };
-> >
-> >  &pcie0 {
-> > @@ -773,7 +773,7 @@ &pcie0 {
-> >  	vpcie-supply =3D <&reg_pcie0>;
-> >  	vpcie3v3aux-supply =3D <&reg_pcie0>;
-> >  	supports-clkreq;
-> > -	status =3D "okay";
-> > +	status =3D "disabled";
-> >  };
-> >
-> >  &pcie0_ep {
-> > --
-> > 2.37.1
-> >
 
