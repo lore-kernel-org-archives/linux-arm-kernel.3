@@ -4,129 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE23DF54ACF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F20F54ACF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUDK+NyK5qKuM3I/BmkulAYbRTzZXqih6fsQdf8mKHA=; b=Ej3v+x2vrGqbrRfHpRtNaUSN3o
-	u/gBIj7Nd+Ao0H6qiT+mk0zVJSQWshqFDPgBZGO0DU/KJOYuYKIPTBujARO+oqQvcXQlnHDz5i2I1
-	mqv9i5y9grZq0NvVWJ9gzJGqCUvsNgH9IZDuUXGuss7rLGGhqxbu71m6QIabmDXoMVcfKLesASpSC
-	8H78BoXmaqm0vWt0oaDKsB7uqOG8Fcz4tQrWI9zSiTV5jd/jYlvHf0PUra7mWYBwvwaL7Vb7FZE7C
-	cYBgMJLmsHTFn/cgPAakulRA5n6gnenm2mzJCP8iepwo3qtE+h4GKuGHlwhYsPwEvBYRv8eAiduvj
-	OYjXrMTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n5OdgjrOMEVmskJFBhxo2Jxl4KSA7KIQr5KbvQcIS9s=; b=pJZwxu1BD1gjrLvjLyNAn1uX9+
+	714J7z3BshrJv7/ziIOA5e5psPu/KOlWpa6EEwN7rUvS4X2GLkoUuK7rg73BRGlb0TpSMjLPDELj0
+	xe+tpAhhu2S8uPvnIpffLxYX62f5IldplZu9X3HS/LWwUSFCZWBVESJhXn3xaJ55xAwlQJ7Zw0ZqJ
+	utaDA6rOPQSP4NGUzRQLQi9gBFEEtTG2QWC7/Q5qgfIyj1uH2RGVwr5Gsg/TyFBPdxuDN50DaSODW
+	BYFoRV9rScfFEHXmax9pxtsWXH/lY5Z1LDs4pfgC+V0lw4c1HY4L/JC3LgXzQOYaAd1GupQrsjfu+
+	mbYWBTsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53zB-00000001mx8-1usb;
-	Tue, 24 Mar 2026 15:48:05 +0000
-Received: from mail-westeuropeazon11013067.outbound.protection.outlook.com ([52.101.72.67] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w5473-00000001nNl-2Woz;
+	Tue, 24 Mar 2026 15:56:13 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53z9-00000001mwd-1VsY
+	id 1w546z-00000001nMo-2tHv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 15:48:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vWyRD3BDLtsmehuaYGfuihbYvjCLxxUghk4EhQg9wJEA3sGBPh6Q4P3PiYwe+f8EcxjjYLOM8bslDQe7O20Ve+F9WVNnBRr2s/ke6WmtsLDYf2kGithH2mljCJ/HYhIDwBHEaZCAoStT8lqHCJxF0uN+jkUOOd+P9XIuQQ6Xo44P952ZVUJqRGIwqDNKIF8kRJtUZez2pPS4M70b56kSIM6J6461CWDP1NEIfwDN7OJ53B1m+YfNGsVXMDw6TBOT0nREc/Rz//IVmckS1jZ4ZKYECbKS3rxoXLjJE2h2/hZ/NK8WMqWW+z7bCXRvL/H4YOjRZrj8Aum1WI7fQduBiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HUDK+NyK5qKuM3I/BmkulAYbRTzZXqih6fsQdf8mKHA=;
- b=gPZhs5groyODA9VfPJFgytU/abcKKeQMoMEB28L9Y/01IOaTkEXD0m+cKCIeYkk9Lqv3d5KPX6qO7hFdqjbZV0JEC8QEHvdseuldOW9WR5UJOLOHBLUlvxv0V8ZmyKY9WkbU511ARaU/8sBVRBU69Dhp0U5z5Ve2PCfuplIzQeGbEBCTbbz6CqPNPRSW/yBdvry9CqUszYlOUWBBwzgpQKU0b1m9AF3qfg7KtpsqsUP3yf+fQ52+q0EZLKG/bBHrIJK/VOSuQ9aLSqtlCJeF8nECzmJlFYUXf+ZLQ12smWeCVW9UZHxcJMouMJ+UrIY4kIfZHRUaxa2ybzjmW7KSpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HUDK+NyK5qKuM3I/BmkulAYbRTzZXqih6fsQdf8mKHA=;
- b=MEABuDLWR7qOOD/BsOgiVr9pi4Kbh0VJJWAXy/kzwSwXZekVr9MDo8A+7xaqYLhnnEJMB5DpgR/Iz+r/mE8ESBTRs43KsxabGPrXbEJt+yrEDu4yx26UcKgj/2NjDWH04dbGqI6XNNz9P0WayZASGZceSi5AGlRJyVVZ2kR0qpfcF5JHFG1CzH/9XreRbPCvr8hz5hCMXzfzyW5Cw29f1KGi6VftJofmCS7OGeDSiHMoa7ZwECSdAPuk9lMfByd9/D2pzcv0pV7pc3QfjE6Owq4ouWUZsABMv39J2uQEO7mCS0GFUGVTVy80BOxZsP3bYu8g2mCCy2eQckILHMzqoQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB7629.eurprd04.prod.outlook.com (2603:10a6:102:f2::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 15:47:42 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
- 15:47:50 +0000
-Date: Tue, 24 Mar 2026 11:47:49 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Eduard Bostina <egbostina@gmail.com>
-Cc: daniel.baluta@nxp.com, simona.toaca@nxp.com,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] arm64: dts: imx8mp-edm-g-wb: Use 0 for reserved bit
-Message-ID: <acKyJTkqq-bV_3jZ@lizhi-Precision-Tower-5810>
-References: <20260310091054.2029912-1-egbostina@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260310091054.2029912-1-egbostina@gmail.com>
-X-ClientProxiedBy: SJ0PR05CA0098.namprd05.prod.outlook.com
- (2603:10b6:a03:334::13) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 24 Mar 2026 15:56:12 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1w546i-0001ad-Ic; Tue, 24 Mar 2026 16:55:52 +0100
+Message-ID: <05de75cb-adc4-470e-bc67-3218b4180025@pengutronix.de>
+Date: Tue, 24 Mar 2026 16:55:50 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB7629:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6edfc991-3e32-4a59-feb8-08de89bcb41a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|19092799006|366016|38350700014|56012099003|22082099003|7053199007|18002099003;
-X-Microsoft-Antispam-Message-Info: N0J5wm9rsG5nn7dczmYnZPkhRKzVHD2WL8hDpfl7YOz9BHQ3vABspyo2pQosn2/9F+37JRkMKUFMZnVvhoYBH2c2Esl0fpmRdYzIXe8WBWOCyBS3caF8JMC9GNAz+47iSbT9o6DNOMD5VwFnuZyzus4wjMAcD+RY1TtFI+XAkMnrBHShgOrhWcsPB3uThMYYYTJZ7TuYsWoc4lFUfR5vE5Ukmnx1s93uKPGYqZkDM5cpMAymxy4Nev9izFsS6ulnZ01k2B8hm9qvcACTw0/jn2GkmaDzmaHOFgXPibMsrsY+2GR3oyby4yGKtTZ8w1NTI8xyOWeUvWapSD45Dr+8o0BgKM+jWoI1XIFTP9oL7m0Pa5+or0jnHs5tArd2OLYvanF84sVRFUaVQpEZVBZxuurPZjd76VghJw4QYITJNUnlK+eI13Qb6X1s1I6ukaDmrVPdrxuDP+qWIGR9OAEH6tmdWt7FrCCYb/ULOfKy667JDt5SG6/Iq3z9X9aqMhYiIGQ51RAc2mF35ZsHWyvxUXmZnQpZ7zP+sJI9VNInTBtNqLtzGChxLZjbBp3/lDtlCEBpfE912uq7wbLGJKK4EdqI32vqGe8V4sug9RZaBX7MZvl2gicJ9dptX5tpYGC1BRCuEC2Dx1Ms75/kvhNkIWq/lTA3iaRycfYvK7JQgvv4Qm6f4i/yC2PnLcK9ccgGzRhr/oro9UXgXTs3IXCV7x9q90q9r4t20bIlcw8J8EpZFFJxI/t5m1kLZP99/+SM+obigbq+KC4dbJO5vdX9hvEe08QX0ty/jF0J4Po0sA0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(19092799006)(366016)(38350700014)(56012099003)(22082099003)(7053199007)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0GpDkv3eoRU19JGj4oj+73h+thZvKNZAisLyQ0Okd6KXHNDMJ3snY/Q1Vc/B?=
- =?us-ascii?Q?/sp1nOYhBlq1nCXJ70D/v2iMkl7CMJq8LB0EJtVMpAutNcr3BTNsWS5gtVKn?=
- =?us-ascii?Q?OvG4LEl7AL7Aew6gpDWg8Qo01pVLy0KUqARnQ12TSGIDyWfgvQ+MTqPJj5K9?=
- =?us-ascii?Q?s8V5gloTlPJVwyBvCT2gtgBIyxqfWKe9bFfW7/In3fKAfcLxmtYeSNYFaEwT?=
- =?us-ascii?Q?2SWHOeeRVAN+anHtjp67LtquFZh6/PVBhuTkYj62D3r2Zy+lsGv7HzlO2fn5?=
- =?us-ascii?Q?Jga7fr+CxfRGX1d+/wcFYWkySYor7WemwSvGMPOy9RZlyp8DcqPUH9XdqJ6B?=
- =?us-ascii?Q?16I5axKKX7x77o5kyxdSfJRJTnaLP+zp8rJ3YXAThboc7wBibgLLpIB8DnVq?=
- =?us-ascii?Q?2sybA4q7BzpuFmekfPK+vMopFNo9++t5BULE/qjgJrYyOMbZ/4Z/O0QHS68I?=
- =?us-ascii?Q?TwTtxL6Kyt8IlG9n7RHJQDT9aPnYaz/wca7ZY64ayV8HoYfn2FWLKXbXYUez?=
- =?us-ascii?Q?7A1PzY/9ZQCNcZbVsXkW3Tu3FGipXU4eM3bfJOsaJvjh8abPUVPBMiabyxYQ?=
- =?us-ascii?Q?epnoX7K677HMoGVq2OyiiapTiscp4gugaifufavAwcKfCrh3D2T2v1pnfxjx?=
- =?us-ascii?Q?L4zXazxy+MHP23Z9QxmPcW1+QzDKOOkTEE1vwJ6N7Z1RQyMFnfpdKqGDlaTW?=
- =?us-ascii?Q?MG6ueKtED9L2nk5MnW2tO95c+TLN6wUbo1C9ydxhoqIdyrTMD1/t4yKxnmsN?=
- =?us-ascii?Q?QKSvH6o0mulej0dBRBMMCTvuD9IRpNmsfNt0dWRrYK2Uw6TmCWVOcSl7AEWT?=
- =?us-ascii?Q?hAWv+alOPsiI9z30t4prPf//3/x3RmxI9GYADU0LW6cHeKD0ZoyHnvvzqz9k?=
- =?us-ascii?Q?fH2Y4hT5X2HMy7NKBvvy6BW6RPMHTo0MHsy3+oUGtBortRwhXrDVZx5h8jyY?=
- =?us-ascii?Q?4zY7wjh0oO4TjaPEXxOHmikQDUVgTLqo75CpcTAjzJnPD39N7Ia7blIuh/E/?=
- =?us-ascii?Q?73ZO/k9ULqdxU2X9+s/zkvgLM8kepxppPa9UjkWvOctit295XhKwTBYyaWcs?=
- =?us-ascii?Q?s9OL1+A1YvdkuMfzGgfDzvjtI8tMoPoC1p3xKFVVVNSNfn8V06D+RRfedydR?=
- =?us-ascii?Q?1rDpUR2kpXxqERyZpqUr984lG0oyjQQfJ1q/04E04AMkG/717I2F6putm1f6?=
- =?us-ascii?Q?lQ+swm013fDaTiMNhz4gHA/sx1vmL8dNPKaYQfZ/CGbxcyDELOy3PM2ix+U2?=
- =?us-ascii?Q?lj2Aj5vEPo6ees0+VYtyIA+c4QvThSPH17gv2tDbbGGH2y8kbH4+dWWUEGGj?=
- =?us-ascii?Q?Vp9Ga/XMTulXZSrF8GC+S4fAm+OUEfG6yHCucsj+sna0sEP3R3CyAon+q2jV?=
- =?us-ascii?Q?zt4l2qaXruNM/ch6timDghFmYLWFB8F9X4c5TKHyUQ1/TsURbo310GfpALDA?=
- =?us-ascii?Q?13hm7ejLJ5mwZ+0R+S3jkCwxolUuAsdwQOJ5zs+bscUv87NpggLNWzelbVvT?=
- =?us-ascii?Q?PGtN044Wl6RhWs8uAtbAv3WBgw/HI5a3CEp02QkInglH6iQOB9R11jDBFi6y?=
- =?us-ascii?Q?MOABWQMkNjLwQXGdK35QTxmVRn3TmcZ4aEMQ0e05cF7qsDz+1m1GRwgnal0z?=
- =?us-ascii?Q?LwiSioLUn2S1Cnj0dsGvyF4iri1jO4UU72XHBC1YkptHs6TG5x8daQA1KxPW?=
- =?us-ascii?Q?+TbX9ra7KdlrmayF5fxxLbUNnkGRetYxfAB1tK7TAe3O+Bd7IPGRPvP3T1iq?=
- =?us-ascii?Q?5VtrbvDz0g=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6edfc991-3e32-4a59-feb8-08de89bcb41a
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 15:47:50.3235
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HqjKZ4IrA4cW3QKK9AjBQHdNSTjlmLY6THsBi2qNMKBWZ5sAITRyw714SGALJX6acCC41biWYXTQD1TCHk0p0A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7629
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/27] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+References: <20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de>
+ <20260127-spu-rga3-v3-1-77b273067beb@pengutronix.de>
+ <fc7b74095548d9c13a92d2944c1f5ca9f5c7dba5.camel@ndufresne.ca>
+ <f2428e12-88c5-4b6e-a840-382e26da4541@pengutronix.de>
+ <f5028eecdecedd9ea5e2a94d4fbf08b675e0842f.camel@ndufresne.ca>
+Content-Language: en-US
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <f5028eecdecedd9ea5e2a94d4fbf08b675e0842f.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_084803_420833_3E887F3A 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20260324_085609_872009_2EF8A113 
+X-CRM114-Status: GOOD (  35.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,46 +77,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 09:10:53AM +0000, Eduard Bostina wrote:
+Hi Nicolas,
 
-Remove RFC.
+On 3/24/26 1:55 PM, Nicolas Dufresne wrote:
+> Le mardi 24 mars 2026 à 11:22 +0100, Sven Püschel a écrit :
+>> Hi Nicolas,
+>>
+>> On 3/19/26 7:44 PM, Nicolas Dufresne wrote:
+>>> Le mardi 27 janvier 2026 à 15:39 +0100, Sven Püschel a écrit :
+>>>> Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
+>>>> peripheral found on the RK3588 SoC. Also specify an iommu property,
+>>>> as the RGA3 contains the generic rockchip iommu. The RGA2 also has
+>>>> an iommu, but it's specific to the RGA2.
+>>>>
+>>>> The existing binding refers to the RGA2 peripheral. The RK3588
+>>>> contains one RGA2 core and two RGA3 cores. Both feature a similar
+>>>> functionality of scaling, cropping and rotating of up to two input
+>>>> images into one output image. Key differences of the RGA3 are:
+>>>>
+>>>> - supports 10bit YUV output formats
+>>>> - supports 8x8 tiles and FBCD as inputs and outputs
+>>>> - supports BT2020 color space conversion
+>>>> - max output resolution of (8192-64)x(8192-64)
+>>>> - MMU can map up to 32G DDR RAM
+>>>> - fully planar formats (3 planes) are not supported
+>>>> - max scale up/down factor of 8 (RGA2 allows up to 16)
+>>> Nothing import, but some more details on the differences can be found here.
+>>>
+>>> https://github.com/sravansenthiln1/rga-demos/tree/main
+>>>
+>>> They also removed from RGA3 the neural network quantization support
+>>> (CLIP((source + offset) * scale). I suppose that integer tensors are fading
+>>> away, and the accelerator does not do floats.
+>> I've found a more complete list in the librga docs [1]. There are a
+>> bunch of different RGA2 versions out there, the RGA2 from the rk3288
+>> isn't the same as the RGA2-Enhanced contained in the rk3588/rk3399. Only
+>> the latter one includes the NN features.
+>>
+>> [1]
+>> https://github.com/airockchip/librga/blob/main/docs/Rockchip_Developer_Guide_RGA_EN.md#design-index
+> That is a way better list, thanks.
+>
+>>> One things that isn't clear, even in the upstream RGA2 implementation is if the
+>>> accelerator is cache coherent. When I study the BSP usage of RGA2, they
+>>> integrate the RGA2 directly into GStreamer software video converter. They don't
+>>> do anything to flush the cache, indicating that RGA2 is most probably cache
+>>> coherent.
+>>>
+>>> Do you know if RGA3 has the same feature or if this is one of the difference ?
+>>> Typically, RKIOMMU users are not, in RGA2, a completely custom mmu was used (and
+>>> implemented inside the driver, as standalone).
+>> I don't know. Looking at the vendor driver for the RGA3 it sets a cache
+>> flush flag when the source is virtual memory (vs. dma-bufs and physical
+>> memory). So I'd assume the RGA3 is not cache coherent. From a chat with
+>> my colleagues, they found it a bit odd that the RGA2 should be cache
+>> coherent, as it looks like a strange exception for a minor peripheral.
+>>
+>> Does this imply anything for my driver or is the whole cache coherency
+>> handled by the underlying buffer handling or is this just for the
+>> difference documentation?
+>>
+>> Btw. to which BSP do you refer?
+> No implication, pretty much everything I looked in in rockchip-linux/kernel on
+> github. Checking again, with a bit more knowledge then last time (but still very
+> little), indeed, it seems that virtual address handling is similar to what VB2
+> USERPTR code is doing. Basically, locks pages, and sync them in some ways.
+>
+> I was just trying to help gather what this driver is leaving behind.
+>
+>>>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>>>> ---
+>>>>    .../devicetree/bindings/media/rockchip-rga.yaml       | 19 ++++++++++++++++++-
+>>>>    1 file changed, 18 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+>>>> index ac17cda65191b..7735d8794c719 100644
+>>>> --- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+>>>> +++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+>>>> @@ -9,7 +9,9 @@ title: Rockchip 2D raster graphic acceleration controller (RGA)
+>>>>    description:
+>>>>      RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
+>>>>      graphics operations, such as point/line drawing, image scaling, rotation,
+>>>> -  BitBLT, alpha blending and image blur/sharpness.
+>>>> +  BitBLT, alpha blending and image blur/sharpness. There exist two variants
+>>>> +  named RGA2 and RGA3 that differ in the supported inputs/output formats,
+>>>> +  the attached IOMMU and the supported operations on the input.
+> We should say, "this driver supports two variants", rather then there exist. Can
+> we clarify that we don't support BitBLT, I think it is miss-leading. In general,
+> I found most 2D m2m fooling people into thinking, great, that chip is supported
+> until they find that v4l2 m2m can only handle a tiny subset.
 
-> The i.MX8MP Reference Manual documents bit 0 of the
-> IOMUXC_SW_PAD_CTL_PAD registers as reserved. The hd3ss3220
-> IRQ pin (SAI1_RXD6/GPIO4_IO08) currently uses pad config
-> value 0x41 which sets this reserved bit.
->
-> Change 0x41 to 0x40 to leave the reserved bit cleared, as
-> recommended by the reference manual.
+Isn't talking about drivers/implementation at this point incorrect? In 
+my understanding the dt docs just describe the Hardware (which can do 
+more than the m2m API supports).
 
-Any impact if set bit 0 to 1?
+Btw.: given the multitude of different RGA versions (as I've only found 
+out recently through the librga docs) I'll adjust the docs to avoid 
+implying that there only exists a RGA2 and RGA3. Instead more like 
+"there exist various RGA versions" and that some SoCs (aka. the rk3588) 
+contain RGA cores with different version (making the rga3 distiction 
+necessary, as rk3588-rga doesn't imply if it's the RGA2-Enhanced or the 
+RGA3 core).
 
-> This also allows for
-> easier conversion to symbolic macros.
+Sincerely
+     Sven
 
-Can you send this patch also?
-
-Frank
 >
-> Signed-off-by: Eduard Bostina <egbostina@gmail.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Nicolas
 >
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> index 242fa930b..a78401d11 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> @@ -345,7 +345,7 @@ MX8MP_IOMUXC_SAI1_TXD5__GPIO4_IO17		0x16 /* DSI_VDDEN */
->
->  	pinctrl_hd3ss3220_irq: hd3ss3220-irqgrp {
->  		fsl,pins = <
-> -			MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08		0x41 /* GPIO_P253 */
-> +			MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08		0x40 /* GPIO_P253 */
->  		>;
->  	};
->
-> --
-> 2.43.0
->
+>>>>    
+>>>>    maintainers:
+>>>>      - Jacob Chen <jacob-chen@iotwrt.com>
+>>>> @@ -20,6 +22,7 @@ properties:
+>>>>        oneOf:
+>>>>          - const: rockchip,rk3288-rga
+>>>>          - const: rockchip,rk3399-rga
+>>>> +      - const: rockchip,rk3588-rga3
+>>>>          - items:
+>>>>              - enum:
+>>>>                  - rockchip,rk3228-rga
+>>>> @@ -45,6 +48,9 @@ properties:
+>>>>      power-domains:
+>>>>        maxItems: 1
+>>>>    
+>>>> +  iommus:
+>>>> +    maxItems: 1
+>>>> +
+>>>>      resets:
+>>>>        maxItems: 3
+>>>>    
+>>>> @@ -54,6 +60,17 @@ properties:
+>>>>          - const: axi
+>>>>          - const: ahb
+>>>>    
+>>>> +allOf:
+>>>> +- if:
+>>>> +    properties:
+>>>> +      compatible:
+>>>> +        contains:
+>>>> +          enum:
+>>>> +            - rockchip,rk3588-rga3
+>>>> +  then:
+>>>> +    required:
+>>>> +      - iommus
+>>>> +
+>>> You really can't use this chip with CMA ?
+>> Ah, no. I'd rather thought that this just describes that there is a
+>> dedicated iommu (which also has a appropriate dt node) for this
+>> peripheral. I'll just drop this block (which also fixes the indentation
+>> issue).
+>>
+>> Sincerely
+>>       Sven
+>>
+>>> Nicolas
+>>>
+>>>>    required:
+>>>>      - compatible
+>>>>      - reg
 
