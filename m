@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FE5E9A777
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 11:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575A0E9A779
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/rRKV4dxkRrc43GceKr7lE484JsS3Jz2HF7uxQehBE=; b=yi2glKPf2zIqtGv1vjMOAxYSyC
-	pkUNUgSePk4IGf6Ix0CKVrofDK8uCFMc35NMJ+7UM8Xcx2h74+YXiRjD8mcQeCiyn+Kfl0w8b1k0/
-	SS4FtENQptJVuhOZfSFMWmOc9F3XliS+JNjoymge1sxT5uVhyXWyw/x8jChvOw/PXJ3zfJ71LYM40
-	HclsDI29ODF0JIkaNNK5wcP07DOK1PNP/ZNWwVBc6wTKaoo1TbAT7PRCmwGKS9QvR8hPZ/qgj44XG
-	05LC//LuiRZiS0+BCfA47UIda8ILKj/QsbNmQZAWMm1mSiD7SizjNC9TzBS40n3XrmamOnmnDKHUR
-	Ln2wpDSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/48YHi9PH/jbHwNAxGtxWG5UWSPXla39qFvH8wMTRxU=; b=kUeoX1M0g/VfP9K6XXgYs6PLvk
+	hrnlOqO5DM3kYnwkU3pn/1C3jQBX9sA1xkfRVxsWFw31B4mUXmqfWhPTqXV/6rDRMEBS022ScYepZ
+	CYCIcFjf2O7POEE6a5ze82PsV8enPFVokcleto0pp8N4zvZX+3tEANyUJXfQuB47wQcOt3E5qNvbe
+	H+IomcW5jKAvqarbJwIfD80sXgWFeP3ofSKvVTj1TFO3rKaInSRr3LdqlZg9QrkTj3JX/LJg/ItO0
+	m2kd5TRhiGsYLWCNb0R1W9FAEfOaUrESBjboWZdpQqYUwcHKakWAhe1/tuZp9SrOhz8IQc4Ba7Uq4
+	wZQ1t4AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w50PR-00000001Ko4-1d5Z;
-	Tue, 24 Mar 2026 11:58:57 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w50Rt-00000001L0b-49ml;
+	Tue, 24 Mar 2026 12:01:30 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w50PP-00000001KnV-1U41
+	id 1w50Rp-00000001KzE-1iIo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 11:58:56 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1w50PI-0001NH-4S; Tue, 24 Mar 2026 12:58:48 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1w50PH-001tEx-2Q;
-	Tue, 24 Mar 2026 12:58:47 +0100
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 66B6250B994;
-	Tue, 24 Mar 2026 11:58:47 +0000 (UTC)
-Date: Tue, 24 Mar 2026 12:58:47 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
-	Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>, 
-	Eric Chanudet <echanude@redhat.com>
-Subject: Re: [PATCH v3 0/6] can: flexcan: Add NXP S32N79 SoC support
-Message-ID: <20260324-nice-boa-of-elegance-10c519-mkl@pengutronix.de>
-X-AI: stop_reason: "refusal"
-References: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
+	Tue, 24 Mar 2026 12:01:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LaLu+Or/ljzl6Rzbs5QMDgViKhPdPKGX0NdBaHWiSkld+33Dt3v9mtAFwmN8RZnph+n6zV/jidfeJ2ywF3gFC6YZ3aQ1f7Ry5r/OpTRpQUXoCIOKMOzmxxPPOHUB4goMpwlVzndIZSTdrN8TmRj6G9SQDyJxacnip3Ga2QupMDWaIbzgWeFqYKkYXZZzg3rGXRugOm2y/ckUXNxEa159F/x31BKdoOc8a7w0JWDMDX+ylagov7p1RToYedYEzvDAE9D6390jeukmGOZ9SsbuwiOnAwhF5Faugy5jkMadbjJyL6yzBrczSkU/qE8GA1CXhYe4Mg+FsNckxy8n5+UhDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/48YHi9PH/jbHwNAxGtxWG5UWSPXla39qFvH8wMTRxU=;
+ b=EIFMJs6p7J+a6TiTJoWMtf9bI7VUb/uonkGWAmahzg34HqPP79faVNpdoEwU5swn74BG2kC0y/oIDiS8TLZII65N6tGv1ovwsALFQLGWi+LOA1s8ftx3GqSdS9AAUDSs6lgp16kuq2EHeCNWfAOcccJL7SxmWfwZ7moDa3W4gzb0MG/abUUWtHsyItkzeFxPKNlALXDp5lTp/kfH4PSuwPXWJ89ZWkkxpKU43J/SykTZepX8F5XHyuEfHy8m2/WLlf9m96X9WJB/IwvD9ECNN+Z/C7ANH2ZYQb8AuoFIzU0sJDPDqwQNsxPVxmluo5r4p+JmOhkrMME49TOYg0v64w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TY4P286CA0119.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:37c::16)
+ by TYZPR06MB6860.apcprd06.prod.outlook.com (2603:1096:405:1d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
+ 2026 12:01:15 +0000
+Received: from TY2PEPF0000AB88.apcprd03.prod.outlook.com
+ (2603:1096:405:37c:cafe::6d) by TY4P286CA0119.outlook.office365.com
+ (2603:1096:405:37c::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
+ 24 Mar 2026 12:01:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB88.mail.protection.outlook.com (10.167.253.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 12:01:15 +0000
+Received: from guoo-System-Product-Name.. (unknown [172.20.64.188])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AD9644126F95;
+	Tue, 24 Mar 2026 20:01:13 +0800 (CST)
+From: Jun Guo <jun.guo@cixtech.com>
+To: peter.chen@cixtech.com,
+	fugang.duan@cixtech.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	vkoul@kernel.org,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	robin.murphy@arm.com,
+	Frank.Li@kernel.org
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org,
+	Jun Guo <jun.guo@cixtech.com>
+Subject: [PATCH v5 0/3] dmaengine: arm-dma350: support combined IRQ mode with runtime IRQ topology detection
+Date: Tue, 24 Mar 2026 20:01:10 +0800
+Message-Id: <20260324120113.3681830-1-jun.guo@cixtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mb6au225qig5m3u5"
-Content-Disposition: inline
-In-Reply-To: <20260323135827.2129371-1-ciprianmarian.costea@oss.nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB88:EE_|TYZPR06MB6860:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 6480a878-66a6-4501-1d34-08de899d0d1e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|7416014|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: zNSACxjgafAiD0Qh6epW4DoYESRrYgsooJM6xuD672mPx60pvF0O33UkTPTVz+RSMzMu/OFXOGWF9FiMNu/N56LbJloYahUP7iINlTcd0MbZQ+e/A3VX8XdhOBPi/b6Sg1/tI+3kZkGrl3hQrBV0jZavUxHH3jOSkAtDpcTC6/tiidRvXAFlF+BRVXt0lywEuGRGtDqpCLFkJ0pF7CAlHBbYHI/n1ikEJpTS+5kCGRzzlTVgh11qKNKucxH7ZN+4mk3siP0njdGbm+NFDB23E/NNc4N7WMClmzGdM7dRg7Z2wDMsepGlQFLEQwz8dNGfXNRkkrabYctSFxN7v/7IJn7zd8K6wiiMYV61HOQeI18rpWbVfApySuaKhwVmaBcCm3EDTxsyefGI7KuYwPHJOLtSmUSw4glqH/q1HjI0yGvmBCVi6cof88iggLG+VI/0Cxam0ptGcDEW/R4xXQVYmYj1Enakmgx5jdMbiIEdKswD39OdRHUr21boduxMURqvg6hiP/GVOBkpehllF1f0aemD5gHX5OWFOZramEwxhGKqVV19lVQ2jhehGIfV9SnJ+chxK4QKIRHglejOm341UVUO2J6ZtSqrEx0EQzv3oQeC21WzTreZNE/Mq3eg7mYTJkn7h4c3wLI0cJR3VyUoVaEQToUzvjfMVsdyNP7d9p21rKOmGEfdXfgqMLaHAkrlF4kFLrvrGuqjZG46dVNbgKaOYseUPC+Ue9Y2peBxrrxF53Gy1k2pISk7kHy86/lzb7VxfePZoeK1OC68pQrlNpuoSERBXr0ujc/h8C15wXGDFnQnZIFOj4tWa9cbGc3R
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(7416014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +8ucrI4K44X6V5WUeCBoxrkB/AXRR2eJ9oj64aDVJHQ/YTrY76tCrnAyP+/AbBWQovuAtYnoz5W7obGM1x5I3YRx3saobzA/D6gpsB7UBp8JPSygdOj/Wx4uwkHeEID6matsW358THBFpdVUs3aGa8vSD9vW7WLranmpeuzQGxauy6Ax5Z0cbV06E1FG6/XYUiiTZiZ7bbugqN6z6KfsXWG9ez+4nlbXi4rsqKy8BzRLV7laotVNHyC2q5TTjZY50t7UyMhB+pjVD/PwmG6xECYSa8FPTMMU0kf7XR0IPfTapJIO39q6yP2ocN0GWVX04q3oSiOzF74tL0gCvwviQljnjO1mhOttMsuB+yupe//IWkjcvs8jhlodJ8G3ZXxjjtLejNI2LHrDY/DsbZTAfv6T6cE0W0BAmoWL4vLUN0RODvF5NhkAsAhEfj+vYAyU
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 12:01:15.3570
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6480a878-66a6-4501-1d34-08de899d0d1e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB88.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6860
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_045855_394865_48517C8D 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260324_050125_448099_C2775640 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +123,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+DMA-350 can be integrated with either one interrupt per channel or a
+single combined interrupt for all channels. This series adds support
+for the combined IRQ topology while keeping compatibility with the
+per-channel topology.
 
---mb6au225qig5m3u5
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 0/6] can: flexcan: Add NXP S32N79 SoC support
-MIME-Version: 1.0
+Patch 1 updates the DT binding to describe both interrupt topologies
+(1 combined IRQ or 8 per-channel IRQs).
 
-On 23.03.2026 14:58:21, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->
-> This patch series adds FlexCAN support for the NXP S32N79 SoC.
->
-> The S32N79 is an automotive-grade processor from NXP with multiple
-> FlexCAN instances. The FlexCAN IP integration on S32N79 differs from
-> other SoCs in the interrupt routing - it uses two separate interrupt
-> lines:
->   - one interrupt for mailboxes 0-127
->   - one interrupt for bus error detection and device state changes
->
-> The CAN controllers are connected through an irqsteer interrupt
-> controller in the RCU (Resource Control Unit) domain.
->
-> This series:
->   1. Splits flexcan_irq() into dedicated handlers for multi-IRQ platforms
->   2. Adds dt-bindings documentation for S32N79 FlexCAN
->   3. Introduces FLEXCAN_QUIRK_IRQ_BERR to handle the two-interrupt
->      configuration
->   4. Adds S32N79 device data and compatible string to the driver
->   5. Adds FlexCAN device tree nodes for S32N79 SoC
->   6. Enables FlexCAN devices on the S32N79-RDB board
+Patch 2 updates the driver to detect IRQ topology at runtime via
+platform_irq_count(), handle both modes in one code path, and enable
+DMANSECCTRL.INTREN_ANYCHINTR only in combined IRQ mode.
 
-Can you please add support for multiple IRQs to
-flexcan_chip_interrupts_enable().
+Patch 3 adds the Sky1 DMA DT node using the combined IRQ topology.
 
-regards,
-Marc
+Tested on CIX SKY1 with dmatest:
+  % echo 2000 > /sys/module/dmatest/parameters/timeout
+  % echo 1 > /sys/module/dmatest/parameters/iterations
+  % echo "" > /sys/module/dmatest/parameters/channel
+  % echo 1 > /sys/module/dmatest/parameters/run
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+Changes in v5:
+- Fix the formatting issue in the AI tag.
+- Remove the unnecessary "cix,sky1-dma-350".
 
---mb6au225qig5m3u5
-Content-Type: application/pgp-signature; name="signature.asc"
+Changes in v4:
+- Reword binding text to align with kernel style.
+- Revise the AI attribution to the standard format.
+- Remove redundant links from the commit log.
 
------BEGIN PGP SIGNATURE-----
+Changes in v3:
+- Rework binding compatible description to match generic-first model.
+- Keep interrupts schema support for both 1-IRQ and 8-IRQ topologies.
+- Drop SoC match-data dependency for IRQ mode selection.
+- Detect IRQ topology via platform_irq_count() in probe path.
+- Refactor IRQ handling into a shared channel handler.
+- Enable DMANSECCTRL.INTREN_ANYCHINTR only in combined IRQ mode.
 
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCacJ8dAAKCRDMOmT6rpmt
-0sqAAP4ty+lyM0j3TDBPhpl0Re+rYZxgcgbR0YBNywA8wS4RdQD+IDsVXj8+pT87
-FCOI+GZbJDr7Xfy4kHaruRgUxZzUCQw=
-=WxrY
------END PGP SIGNATURE-----
+Changes in v2:
+- Update to kernel standards, enhance patch description, and refactor
+ driver to use match data for hardware differentiation instead of
+ compatible strings.
 
---mb6au225qig5m3u5--
+Jun Guo (3):
+  dt-bindings: dma: arm-dma350: document combined and per-channel IRQ
+    topologies
+  dma: arm-dma350: support combined IRQ mode with runtime IRQ topology
+    detection
+  arm64: dts: cix: add DT nodes for DMA
+
+ .../devicetree/bindings/dma/arm,dma-350.yaml  |  25 ++-
+ arch/arm64/boot/dts/cix/sky1.dtsi             |   7 +
+ drivers/dma/arm-dma350.c                      | 164 +++++++++++++++---
+ 3 files changed, 161 insertions(+), 35 deletions(-)
+
+-- 
+2.34.1
+
 
