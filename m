@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84E4F54AC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE22F54AC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 14:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OIVar2XSUD8cxHHwMjaGV6t1yc3VT/8+s3ndQMtgs74=; b=kPdtnwhQ4u65DmhdC2QxBxN25Z
-	KszGvQtc6eLD7mhxEKITIyXmg4EgCJgCKWkFG/rBqHiWECqWwkvaGV6CFSkjXHi7XgqhqwTMC/xPV
-	t/G6C+OUqOB8wmYHTVQEjh/CeEtna0K9zMBG5IqMGSwoA5z3IblzpKXAoSju0s+NatsXyxp6Z+Ews
-	FGHUe0xmp9cmdSEJxYVHs5BuqA8ISYEvAflh26YqnEe6Y60kiWVI1mObJMofVBBh52MJp3tCOyFL9
-	j865WsDYK8iUfQNMEdPFaaQ3XyZVG3awyBuku65rXpXMYoOleTzzRiIq1z3UDZgOX2HsLr+WieYUy
-	1/9nuYhQ==;
+	bh=R9azy4441Z9htuSU+O0vgMgPqnPm0TMDTgfr4iB1vDg=; b=wBfYKXa7awFKNREmAkofQhPqCu
+	8NbjTK5seQ7xydchv693H/4fVoq4eoSGLulHatq889f5exWnzy2wCEzUcA7o4LPmMwQ+pO3UDxCiO
+	YTMtgYO/jA4nNqSHFGwU5QGBU8uQngwG43D8S2hfOnIQyUxPVl4oFEseuwTWvb49Ht8MB/ZpCUySI
+	H7vFifEAJfrlH+n5Td5MTtEqhMBioAxU1cHocLbWehIZf0M+AYe4PoYdIkvptwrJa8V16C+4yXcx6
+	83lm6gJXmnP+JUCgjoQc8ZOxeSrZ3DrFcx5+8SGqyJ7PEw4CN+le9D3A0iydRE8P6HOnEigedOgOg
+	mMRImcwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52vk-00000001fea-10mS;
-	Tue, 24 Mar 2026 14:40:28 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1w52xJ-00000001ftA-2C1V;
+	Tue, 24 Mar 2026 14:42:05 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52vh-00000001fe5-469E
+	id 1w52xH-00000001fsd-24tL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 14:40:27 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b04c9e3eb7so90785ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 07:40:24 -0700 (PDT)
+	Tue, 24 Mar 2026 14:42:04 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-485317b6bd0so62385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 07:42:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774363224; x=1774968024; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1774363321; x=1774968121; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OIVar2XSUD8cxHHwMjaGV6t1yc3VT/8+s3ndQMtgs74=;
-        b=IdoX64OlkT6bCAc9Nt9kpBy7EXY3QOjwL6aBzmuxQ7OxgVc02l/dpZd4netlflMcpD
-         u/b6cXqf2ExvhjWCW2eQvsyHvvNqqkjlLHql4u+xpMdsCU08U8h+5BftvpduuNlTjgkp
-         ZDSpnprG5aTXZe4zHihmF3ZS+/YIfKe6HMPk35vsgw+hu83pB5FSmvsyGg2oc6ad6VOs
-         r5IlkJ/zjQTVwm+cUYJ/3fWPuvipScV1StsQB2WPHJQIRlwFCxY7DkCrWjUCMtgJ6Vcm
-         sx4lGBwnvFpY8GXEqgFMLgV627Xh++ncDlIZsqw8CoOwzLtM0kEJH7sq0t+k/VGEPIiz
-         3G5Q==
+        bh=R9azy4441Z9htuSU+O0vgMgPqnPm0TMDTgfr4iB1vDg=;
+        b=BRkmLq0VnCQtQCAbfTk7+GpDVrUR9Fw+eSM6/WxDeCaNqg3jWnJvmhGf/mXHk3Jghj
+         INIB5a+2QtAS5Rte5of1EmcYeZyaVh4wV5vOYl1kEJzCIInkqre5LDbwsMEWTyYo1UdK
+         +blG1yEIssLd6920wtlNd+Ei5/gQkb7WNuGlSR/n6cEJzNVlnsGdd5pDStITcZeqm08u
+         9I4Ev4LzKDhEHxXAjT3IfzOaw2NfSHnseg4fnUtPiNWvnnl3572xuYxSCXThjAmrr2V3
+         IE5S4JljnwwqYvwBfJgvS+fsGgKDoEzg1JtS6bIGfueg72Xh7oYwMyIjcmirjzlkqGce
+         W/zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774363224; x=1774968024;
+        d=1e100.net; s=20251104; t=1774363321; x=1774968121;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OIVar2XSUD8cxHHwMjaGV6t1yc3VT/8+s3ndQMtgs74=;
-        b=ROU11IZKrKZQ+dHjMvOLYJwD3A4rv0s3SSafeEJ5fsexwqDePo/n6kC4/IITLdsLk8
-         WBWszbNBJmjfBaYNYOl9LS3m6fD5WlW/pOChO0oQgzIcIPsIMZ7TlDqyt/Gdz4VYWtXB
-         aMoLEm1uDVUJr3jDWO0bll6rtRBbDEpBXsvdLCV9ZpwYCXF7rcSQeKx2jLwOiTzfGBh0
-         E1HllwqCTxu3mY+yp/CcumQlkWYfChFjUfbbDFr8u9Z1rpTjgoND4IVt0QvQzfCCJW7v
-         WTprfrQznodIOcmlSGVnZSFYzasDc5liNLZ2NwjUxNORm0W5QHyHHV7KnMKGQM1nStWA
-         rd5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWedooRbd5sNxRsqdgwuOQQ0y7wexkd0WD1y8YjmGdBUykDmOJTF1FTY6DuA3tivl9nSFq9+FQ8ahbLJ+qaZEfJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLveqGbxc+Lmc7tDpuRQMzPRmdbBzSUMVVjHnmxEVUlxyfXIu8
-	AIAEzBLf3t6t1fma/KjPftOLPS8f1GQAhNsYUAIUl3/AFT4tEeFQjyFvPMGmdDxMPg==
-X-Gm-Gg: ATEYQzy+jFWsqE81F4U7S8x7n1Rdd9uQbJ29v0/lGbFLOZhbIJ4a+YkvMWl0WJiTOXp
-	gcA4x5tBAzg+dV8btvi7bxQiKXcQffE4/lXpQrHxc86PHmGo0ODMVO9eBlhUOG8piUo5QBG9FRR
-	Q4OD1FnHWyVs3JKhtE/qXVUlwKnkO+SXjG7mTVBuQrKeq/qg4mqUIB5IlepfgfClhXZQiShRl5F
-	PrRIwCmzOxiA2tCuhqQfh7fdxLRnI+quASZ8cIm9Q2KJsaC0JsAXC4oBEjS7rSq/HVFiHSW52j4
-	BW1rsCFnco1CG6/VNfn3ryPVOWBnvMWfzpDm7HKCYFFej+xpuj5sFltIpYZilo92V6GplOIJT73
-	CeYVcnhRhJUP2zD17Mci6vMCdyNOycZ5bAaezfgsn90p2bZcCjuz4rkwA+5u9KThXxq4FEco7I4
-	FWRG6B4If/tfbVxic+ccGXMZJrsda5Sp+hAK6RrtBOe3p5WmJNugwmN5S3Kg==
-X-Received: by 2002:a17:902:f652:b0:2ae:575b:2345 with SMTP id d9443c01a7336-2b0a6707a09mr2261445ad.9.1774363223664;
-        Tue, 24 Mar 2026 07:40:23 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c0ac5b287sm719016a91.4.2026.03.24.07.40.21
+        bh=R9azy4441Z9htuSU+O0vgMgPqnPm0TMDTgfr4iB1vDg=;
+        b=UR6NcZEoqNoWE1bCTVVKv/2fNp/i20BYDysRz8UsxBV6Q5/yoaUOINW8tXe9J9e79a
+         JXjh5IMD5Tc2nv5vw8k1HQtxom1yI7OcGUsvUV9KxHkPRyKK5oeaN11Nxbi6fXkOBGMO
+         fr2+quFLDGf5Z0isrjfGLKOfOQEW7yxRYVurKxC5YMKidsFVAPD+8K0V3+4UsPOeJAsO
+         Kg0b8duaLeLQs2FTTmXV/mvkXYR8Hkfqw6EGdC6ac7wR8K5603fztmIg48tnBgRcyAgR
+         4Qt4Krzi7xuUNX5oMTo/9tcSZKJpRz515nk4g+VFidC4aTUmSip24ro2novCcB4l/y6O
+         l5BA==
+X-Forwarded-Encrypted: i=1; AJvYcCVHukZ7+z2gEJK521VUpeUB4aROp/1hKrwW8ybmDy6AWKfv6qPydDTiacelzZmlDXzs6RnfLR0Fla+F7HEUDXmJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzsz7kZ4iy+gQ4ntPUc39BQzANXp1kzEJj2KrJ6YMTcIhJdk4C6
+	56iVTs6CctRWBUxYnOjL9xvQape58neETuD026G4GHvYO3+ypTnP8cK2yw6ZRxJUFg==
+X-Gm-Gg: ATEYQzyGztXji6E+a34TmtLnpqSdaYgByKmPiAg8RGpNzdTnWBmQrhILRSsQLw2xvVP
+	+tuT1LWm7IcMSX9ZgTS0vPIYdqtB4J3S9XGZqkvr6oSwTv6iWqRswmr27qr6bukZenm9hXQmLq2
+	G6ds4IhvpB60peESx+mhaKx+iPz2eIIvycbuZasq7MpTFzhUWs5W2BC57Hyx5jqeKCxx3PMKUCY
+	g3VDSNXlF3U69lO2/6IA0+4J/wVXwfYm+ue7NFf4vHiJJo1BLBbY3mtNju8QSy/h4X+km3bbM4X
+	7CxIUL+gd5WB6L3r2Hv8xnIoHI/IH/trQ9pn1W1EcPboAblJwzVo7Ym4wC2+8TGFJkjomSfW3IY
+	Gqtn5Qo1rI09uAol6LMPkKZJ1VRCydiipv4bPxXWdOCdcv3O4Br7uGljFnQyYtjaHKdX1rWUaHB
+	5gcpbCvNYVjTMA9uC/euKqHJXUsvmTvAYWJhETbxJMH25v91DR+1Xp+6CPyYXFK8qp7UtRealCX
+	qAQMA==
+X-Received: by 2002:a05:600c:4e0e:b0:486:fbd9:b22c with SMTP id 5b1f17b1804b1-4870f59993dmr1066435e9.16.1774363320437;
+        Tue, 24 Mar 2026 07:42:00 -0700 (PDT)
+Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b64711f58sm39757790f8f.29.2026.03.24.07.41.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 07:40:23 -0700 (PDT)
-Date: Tue, 24 Mar 2026 14:40:18 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@nvidia.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Do not continue in
- __arm_smmu_domain_inv_range()
-Message-ID: <acKiUrnbe5ZGvPIl@google.com>
-References: <20260321225041.11090-1-nicolinc@nvidia.com>
- <20260321225041.11090-2-nicolinc@nvidia.com>
+        Tue, 24 Mar 2026 07:41:59 -0700 (PDT)
+Date: Tue, 24 Mar 2026 14:41:56 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com,
+	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com,
+	tabba@google.com, will@kernel.org, yuzenghui@huawei.com
+Subject: Re: [PATCH] KVM: arm64: Inject UNDEF when host is executing an smc
+ with imm16 != 0
+Message-ID: <acKitObzn6jrO205@google.com>
+References: <20260324135728.3532400-1-sebastianene@google.com>
+ <acKacAd6aV32624m@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260321225041.11090-2-nicolinc@nvidia.com>
+In-Reply-To: <acKacAd6aV32624m@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_074026_013175_D3121973 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260324_074203_549103_7D48841B 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,24 +103,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 21, 2026 at 03:50:40PM -0700, Nicolin Chen wrote:
-> The loop in the __arm_smmu_domain_inv_range() is a while loop, not a for
-> loop. So, using "continue" is wrong that would fail to move the needle.
-> 
-> Meanwhile, though the current command is skipped, the batch still has to
-> go through arm_smmu_invs_end_batch() to be issued accordingly.
-> 
-> Thus, use "break" to fix the issue.
-> 
-> Fixes: 587bb3e56a2c ("iommu/arm-smmu-v3: Add arm_smmu_invs based arm_smmu_domain_inv_range()")
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+On Tue, Mar 24, 2026 at 02:06:40PM +0000, Vincent Donnefort wrote:
+> On Tue, Mar 24, 2026 at 01:57:28PM +0000, Sebastian Ene wrote:
+> > The ARM Service Calling Convention (SMCCC) specifies that the function
+> > identifier and parameters should be passed in registers, leaving the
+> > 16-bit immediate field of the SMC instruction un-handled.
+> > Currently, our pKVM handler ignores the immediate value, which could lead
+> > to non-compliant software relying on implementation-defined behavior.
+> > Enforce the host kernel running under pKVM to use an immediate value
+> > of 0 by decoding the ISS from the ESR_EL2 and inject an undefined
+> > instruction exception back to the caller.
+> > 
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 7 ++++++-
+> >  1 file changed, 6 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index e7790097db93..ff6a90a4a4c7 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -756,13 +756,18 @@ static bool handle_host_mte(u64 esr)
+> >  void handle_trap(struct kvm_cpu_context *host_ctxt)
+> >  {
+> >  	u64 esr = read_sysreg_el2(SYS_ESR);
+> > +	u16 imm16;
+> >  
+> >  	switch (ESR_ELx_EC(esr)) {
+> >  	case ESR_ELx_EC_HVC64:
+> >  		handle_host_hcall(host_ctxt);
+> >  		break;
+> >  	case ESR_ELx_EC_SMC64:
+> > -		handle_host_smc(host_ctxt);
+> > +		imm16 = esr & U16_MAX;
+> > +		if (!imm16)
 > 
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Hi Vincent,
+
+> if (ESR_ELx_xVC_IMM_MASK(esr)) ?
+
+Yes we can use this instead.
+
+> 
+> Also, I can't find void inject_undef64(void); I think you need a vcpu for that?
+> 
+
+Right, there is one version that does that.
+
+> > +			handle_host_smc(host_ctxt);
+> > +		else
+> > +			inject_undef64();
+> >  		break;
+> >  	case ESR_ELx_EC_IABT_LOW:
+> >  	case ESR_ELx_EC_DABT_LOW:
+> > -- 
+> > 2.53.0.983.g0bb29b3bc5-goog
+> > 
 
 Thanks,
-Praan
+Sebastian
 
