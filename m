@@ -4,108 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAA2F532CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 03:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF46F532CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 03:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3n35LNNeF5Wx2GIr4g4uUmRoFWbzxVfDULULORcx74=; b=QeRTTn+66SllGhL0+I7wKSP4ik
-	gSYsEs1M4J7hKhSzwNsDK6kQrlGpnPXoafJ0vBtapwCKu4nZzRz2demt5H4TVyRWBSpThdArEcx1h
-	/hzV15GjRhwOz8MerhQUY/favgiE/+cbBGse4QU4BoLLcSbg5kO/+bH8zF/1HKuc+BKsQlsKoNy1V
-	l78S+1R9CJDyozWVqnDZzcfR5+6ZzuL5hRvoL+oiOja1epGywBvFMg6DFTx53UPCZ23Oy21qJdeA5
-	wFeOuPCOiLfNr2NbjAfc4ZzapZu2l/1zIfbxfXTvGnzoC7uJFauJ6U6N7qWNCY4T8Lz0xK7+lRbMx
-	8WOwSKMA==;
+	bh=M9oHoK+qgr+hzDA71sg+T7mBzxA/nxf+7FTfYBCJoWQ=; b=EJDTcifjkP4PW23Hx3F3xxo3IY
+	klpvtueeQhjP2jqXsATPiFpXI2REaIgM4B59C1xn3GKnyhQbIQnKDwKwal0OJ45SD4Gf3V+wbCT98
+	lhGNjIwOfBuyX1zvh7uZ5k/tyiWDCRaG57arZxaJtQf2OGNoHKyStw1+ZM2uzpFaNSfF5zrL7+zif
+	olN2GUeHkz5VxmTGTKDKIPqp7OkCCJB5MB86tHW/TsNRrmnCkF3aYjl3QL0pcjMm6o1yADHnHkdIZ
+	nj53gB/kAdnPEN2PhWRe+nxGFzhDjdG0u09nIzFOhLpXJjf5gLqWUIprzFUZWifoh0pgNF6bl3jAe
+	mVCXKNow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4sfA-00000000VIf-2CcK;
-	Tue, 24 Mar 2026 03:42:40 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1w4sfG-00000000VMa-3bQs;
+	Tue, 24 Mar 2026 03:42:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4sf6-00000000VFm-3jIk
+	id 1w4sfE-00000000VKX-18Op
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 03:42:39 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5a12cd0bcd8so4382249e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 20:42:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774323755; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Zj43mU921i07igWgda0nE1nLRKl/+4SlGhBlBwZGPUK07R1Uz18yJnL7G7Rsv042MR
-         jPz98M6c1Z6JDonIg+/rf0AUbyZsgL3nNtLHW3e+qSo0g3ZhET1saRSiS0Et4xqvVwty
-         3JT2nLagKqFcifaZC1hixvKZvPb/0sbnXk6c6xnO48VmQ72LZ+SOAVYOmorVpv6o4p27
-         mseZty2MrwNkX934F2HSWcUaa4mB4lf4WzLNsGdcjyZClhp+wCJCyCCTU5HVsELL+2ur
-         R05QiLSBauSny61L85Y123XljRVN+CSAWSwuBS79NX6jmHHw/0hx9CGB1IBP1hdVsVWf
-         Ce1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=X3n35LNNeF5Wx2GIr4g4uUmRoFWbzxVfDULULORcx74=;
-        fh=YkDzFZ126lcA1Y+4rdMffMm0Osaf6Xio0yTvoGH5ncE=;
-        b=VtevR0P40pryOY6T11pGMdLlMZGb3PvY2hxyqZQyYLewAvJNHskT/ne+sKv0bn82Y8
-         TpLfgNKoaZRu3+/pIyw0GyCcqcvwVZ5cmIMm4eaE6GXxltYqd6sR5s16AFXuoJEjUS/2
-         Cha1+jTAdUMJ7LnlyynebaO3KwpTBCRN0D2bGHBo1kZsPyAwxDNB7294hBLpCDB5GDr1
-         /hB1P46J9L8V4Ow/SkzY/A3H6Nh8jmXGqIrjTedwEhsyw+wqvjR8dzot0US7Ra4IbdSw
-         CnfvFQvnj/M+JmZx5rvfK936aaGVj2om+3Gphg1HSVU5fCxUtnSNDuQjVgQepWaXXwYn
-         I3Nw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1774323755; x=1774928555; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X3n35LNNeF5Wx2GIr4g4uUmRoFWbzxVfDULULORcx74=;
-        b=oW1MdO7KboV/p6hCsfi6XDwu75lQFDHWCEiaV3ObG29SmvrkOHgMB2oLhzIJOnghSg
-         Aff0TY47vtf82Wz5gTgYMSo/da5oK2v1RDbGtqB9iJGpgdiV6L6ETxejjxrxCnogCRpi
-         tNfhuYtZrQbsFqO+Y7FVk1WTNsme1jZwJF0BQ=
+	Tue, 24 Mar 2026 03:42:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774323763;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M9oHoK+qgr+hzDA71sg+T7mBzxA/nxf+7FTfYBCJoWQ=;
+	b=gDxz0Fr9pDXxJm6xmmE4GqhJIINbvUsKfZ4mbqZi80tn4KZDcj5CLY+GrgWqOrzogcpE10
+	G3pX9PhNJQTPnFYY9IipKXFDQXgrFS20KWjSXOwvqOrXeySgUug90vs3tf5sBBgbtneKoQ
+	gg/QOMxJfIj6NsvBThRaocngQuHycaM=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-402-IGxTdMBlOGGn41SI7hVXEA-1; Mon, 23 Mar 2026 23:42:41 -0400
+X-MC-Unique: IGxTdMBlOGGn41SI7hVXEA-1
+X-Mimecast-MFC-AGG-ID: IGxTdMBlOGGn41SI7hVXEA_1774323761
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b0601ff3d9so15749415ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 20:42:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774323755; x=1774928555;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=X3n35LNNeF5Wx2GIr4g4uUmRoFWbzxVfDULULORcx74=;
-        b=j0Rdft+6LVPSdmRkbZfhbzkxZbUfV2J4Np5hJA6NOF9TIsrpyoAK/ueX+notdL5dpP
-         8gp+WxUaGf0+785rOVkT4PLzK559ucOPKp11KHqfTfrnCgIGA5bbuz79RyDLlKq7ZByd
-         l/1XupK2APPWQbZzDcjK0pheXTCoPZ8aivyu1nfvKSh6qwAvrepgrXPWI1xYM6bhUiuv
-         tYBAOWUvn2E9z2styEF6xYff4CjC2FGKT6t9c6gzTjLW9DPWRoZEt0g9O/XZKlJAkGpK
-         0HD633RQTns9iNdVaDQU/oLzGVN9I6P18+5ISnLJ+5rwDnQjtPz6UxBrShmYRkh6fmFx
-         UuMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX84Gge3kZrgRFD0Wt74fGtEv2ja1ScbBWyhRjBsrIN6S81ZqveMRZbrIIwl2WlEUxF34EgjUfMOFGQgS5X8M7k@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYr+SErwRvVq9uC53HK2OIxR9CLhIDmwW13lnVRJtZil/mVPgP
-	GOqfsl/H04EJgKzY3tVEPfFZhvslQL74EEIwEm5Poza43IHcT2Xa3Bf0fihwpHnkXOWBQn+TsJk
-	ONU0r7Dd4yj6hm58LyN+JUr33UW7qqOTyywz3E4Oc
-X-Gm-Gg: ATEYQzxzV2TeulpUElYhpQlMj0JSTd8OJUrxs4/kgozm9ufV8zR7TC/dTHKZ6A8X1at
-	P3tU/mOnVEKV8rKvkoSxsbYx70CkttRE9VJ5SZpH++543HVkCf0KMAZqZmB0J+S3mq4871ab1Xi
-	NMj6u6t67+e+FGpe2flEDjwfC9DVV2jLj4UIzhCGy3cLWJONDwej6atWU5eggngYYnkkQnIL5V2
-	K3UZand2VH2DJh2Xu8vkBZtHest+QPpnhLYeFGpYcMUQC4ujdRu+FT2wNpIByxsf7gq9X/qIwAc
-	gvsFs79lwQ==
-X-Received: by 2002:a05:6512:32c6:b0:5a1:44ba:c96e with SMTP id
- 2adb3069b0e04-5a285b6db31mr4580171e87.38.1774323754655; Mon, 23 Mar 2026
- 20:42:34 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774323760; x=1774928560;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=M9oHoK+qgr+hzDA71sg+T7mBzxA/nxf+7FTfYBCJoWQ=;
+        b=AsIFDDMrpLxgKtsXsT3qG1V0a/KDPxsCLmSAXqDbP7cu8nhkr7oGK7RnXQEvEpKJlo
+         9Ya6cyo5pcfKyl+AsAYtVlzOjjEZYdv3q+Afkw/gE4UFYjNsSEjbFHH+W6eFctRPkaoX
+         RllkBnwM5i4LAfROjfZ7F/3Ps7mYTjIP9ZFUk4MEvdobgX4JoUDU/6RLBww3PwUDd+uS
+         Wy0WPmUML66aCjY54fySGuxgfeb7wwta6Xrn7e1kqhyTclt/Im1n3l9c1u9rKha2hVxO
+         2sNGvesA6AT23xCITVzPXzI/BB+L+3p4UWOsgKxrQw2qPd+ZMpf0RLPBDEgJGPeiVqtE
+         I+Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCWAn4uV8E5F17bn/NJ010shDyCVRFtcfip20zOotnZhSFtQcRoQ80h7/7of8caMDcmeBLF27KRADjMswhg1mjcP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzigVeS0kQ8nW4z9kdb2aG0Vxx/ZsfMhV4dUS3dGVoSlQGo1OtL
+	QwAI2Ki+mCI11IybJc+U6FsLyRdXGJwLgdwZs8bqL1HOO14nLiN9DPUipwKtM2bs03RJP/PuzBG
+	4dTKdBXD59m3YqEdSntbKNzlwwiQNgSNJmkaF/vHAZoxxj0xrw4Tu8shtHtT8qAGnt/4ciDp00Z
+	s6
+X-Gm-Gg: ATEYQzyysJ6j5vLJxFGEGGT9wSe9Fv6WANP1bd23YCc+jEurFxWIW4FWto9ZA95/R0T
+	jXm3sDd1DXfES+gtWJrK1cXOKqAbHLkUrHKxT4o3/BHlMBEbrABlWQUQ9U/6TJXAaIqMM0KbvSX
+	CiOyJnHd//ZanVq6l40X0gC0K1Ky3wpcmfr1mTpJ1pFFmlMMmklcZv5BSHOC8XDkaKiFHKIQ79t
+	AqREciF4fnmlfv+QTmQf8QXN8J6yg/1tbgEWbi2djKBQ9tzvwwcvPdKGAwahe6pTle9fudmnfWS
+	ctYY9K0qk7aeLK+n6tHksi5UBzMuMbylC8yeCFPcJbZB5vlkFCtjalsKMjixo7PrBDMvYhEkr0c
+	aLcldmiyXezamiLqiN9diqnX+20x0NkNSr0MTSGr4N6b6hQ3TH7IYkYqpsjwZb15P
+X-Received: by 2002:a17:902:f685:b0:2b0:4a1c:b847 with SMTP id d9443c01a7336-2b0827d55dcmr137215295ad.52.1774323760646;
+        Mon, 23 Mar 2026 20:42:40 -0700 (PDT)
+X-Received: by 2002:a17:902:f685:b0:2b0:4a1c:b847 with SMTP id d9443c01a7336-2b0827d55dcmr137215045ad.52.1774323760248;
+        Mon, 23 Mar 2026 20:42:40 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b08369617dsm161821885ad.71.2026.03.23.20.42.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Mar 2026 20:42:39 -0700 (PDT)
+Message-ID: <be4c52da-b345-43d2-b251-f0760ed4417d@redhat.com>
+Date: Tue, 24 Mar 2026 13:42:23 +1000
 MIME-Version: 1.0
-References: <20260320072440.2403318-1-wenst@chromium.org> <20260320072440.2403318-3-wenst@chromium.org>
- <20260320-dashing-crocodile-of-emphasis-2cc43d@quoll> <CAGXv+5ESnhsVfu5pWf1DEt35+10ZKTgJ5G6DuJC4s6yEpRH_YQ@mail.gmail.com>
- <e14ae934-e448-433f-987d-77bede5f6d07@kernel.org>
-In-Reply-To: <e14ae934-e448-433f-987d-77bede5f6d07@kernel.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 24 Mar 2026 11:42:22 +0800
-X-Gm-Features: AaiRm52CNgLAlXeiRcCcd4-xI1ROYPaycCYYMcNwH55Sc_4mMYJ7m6m9CPgV9Vk
-Message-ID: <CAGXv+5FhSsq2FtieUm+jKTZ4+Zes5TO9gD-a_rHgOzY5kTOB1g@mail.gmail.com>
-Subject: Re: [PATCH 2/5] regulator: dt-bindings: mt6359: Drop bogus
- vcn33_[12]_* split regulators
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 32/40] arm_mpam: resctrl: Add empty definitions for
+ assorted resctrl functions
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260313144617.3420416-1-ben.horgan@arm.com>
+ <20260313144617.3420416-33-ben.horgan@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260313144617.3420416-33-ben.horgan@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mbMWkbnO7kpWnjPf5UwpOOgPx2V1EDT-Qe9zkjUyD2o_1774323761
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_204237_024062_BBD5C065 
-X-CRM114-Status: GOOD (  30.93  )
+X-CRM114-CacheID: sfid-20260323_204244_529221_4A37E923 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,68 +125,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 4:31=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 23/03/2026 09:26, Chen-Yu Tsai wrote:
-> > On Fri, Mar 20, 2026 at 5:54=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On Fri, Mar 20, 2026 at 03:24:35PM +0800, Chen-Yu Tsai wrote:
-> >>> vcn33_[12]_bt and vcn33_[12]_wifi refer to the same output. There are
-> >>> two enable bits in the registers so that BT and WiFi drivers can togg=
-le
-> >>> them separately without any coordination. If either bit is set, then =
-the
-> >>> regulator output is enabled.
-> >>>
-> >>> Unfortunately some of them are already referenced by in-tree device
-> >>> trees. To keep backward compatibility with them, keep the vcn33_*_bt
-> >>
-> >> So you drop "_wifi" regulators breaking the ABI, no?
-> >
-> > Indeed it is a breakage. I kept the *_bt part to cover all in-tree
-> > device trees.
-> >
-> > But the representation itself is broken, as explained in the commit
-> > message.
-> >
-> > I leave it to the platform maintainers to decide whether this "breakage=
-"
-> > to fix the broken representation is acceptable.
-> >
-> > Note that there is a similar issue with the *_sshub and non _sshub
-> > regulators: there is only one actual output for the two. I'm still
-> > asking the vendor for hardware behavior specifics.
-> >
-> >>> regulator. Also combine them for a shorten regular expression pattern=
-.
-> >>
-> >> Instead the duplicates should be deprecated and driver should still
-> >> support the "_wifi" variants.
-> >
-> > But it doesn't really work in the driver. You cannot set different
-> > constraints on the two, especially conflicting constraints, and expect
-> > them to work. And if you set the voltage on one of them, the other
-> > will change as well.
->
-> Of course, but now imagine a DTB with only *_wifi regulators and no *_bt.
->
-> >
-> > If we want the driver to support both with _sane_ behavior, we would
-> > need to introduce some sort of alias lookup for both reading
-> > constraints and resolving supplies. The driver registers _just_ one
-> > regulator, and both DT nodes resolve to it.
->
-> Yes, either alias lookup or adjusting the regulator_desc before
-> registering them, depending on the nodes.
->
-> If I understood old code correctly, the point is that ABI allowed *_wifi
-> without *_bt and this would be a working setup. Now it won't work.
+On 3/14/26 12:46 AM, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> A few resctrl features and hooks need to be provided, but aren't needed or
+> supported on MPAM platforms.
+> 
+> resctrl has individual hooks to separately enable and disable the
+> closid/partid and rmid/pmg context switching code. For MPAM this is all the
+> same thing, as the value in struct task_struct is used to cache the value
+> that should be written to hardware. arm64's context switching code is
+> enabled once MPAM is usable, but doesn't touch the hardware unless the
+> value has changed.
+> 
+> For now event configuration is not supported, and can be turned off by
+> returning 'false' from resctrl_arch_is_evt_configurable().
+> 
+> The new io_alloc feature is not supported either, always return false from
+> the enable helper to indicate and fail the enable.
+> 
+> Add this, and empty definitions for the other hooks.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v3:
+> Add resctrl_arch_pre_mount() {}
+> resctrl_arch_reset_rmid_all() signature update
+> add stubs for abmc
+> keep empty definitions together
+> 
+> Changes since v5:
+> Add resctrl_arch_reset_rmid() since mbwu will always use abmc
+> ---
+>   drivers/resctrl/mpam_resctrl.c | 65 ++++++++++++++++++++++++++++++++++
+>   include/linux/arm_mpam.h       |  9 +++++
+>   2 files changed, 74 insertions(+)
+> 
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-OK. I will drop this part for now and just add the supplies. I'll
-resend the cleanup once I figure out how to do it in the regulator
-driver.
-
-ChenYu
 
