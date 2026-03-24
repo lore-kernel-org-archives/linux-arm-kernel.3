@@ -4,135 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11043F532E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4747BF532E8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQM7eHnVoeAhrAn7FxIm1PZgvchjSYSQc/shb75BI+E=; b=bDzHT5BWIL43sF+bNWw6kND3Sf
-	xLPA9fRzzsbB2/mkJ3autDtri7/aCvR7aPn5TybL48wTgXIaXh2ZHE1y+nep3yPM7TZmlhhP4vpR5
-	b0I1bHTgNjUqpwVLGbSVyQBmfV5TihMAPFePNIVNA6++J487U3d4cREEHT0Izc1aDv3Lm2k/byr/G
-	xYiMAzxU2F6OmnJYeRQUCMs8iQE/sebx6kKd/KT+l2Z8KzzcrHLpLLeHq+fRot5yAVOBSjioSYlFZ
-	aMN4OBD5KITgtvG+LKg7DMn0uqFhLOOShelKxeREb8jJO81eV8/ohQObCV+TkKD6AJr19hMBhxRsr
-	5f2XV7JQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D0PrQb6LVJXvhKdZiscb+q7C7N+X1yjx0s2vQdoyk9Y=; b=GPGQli/RHKOWcXoeVE2X8iKex1
+	Jdd1/+ZbKpnUms7hKQ4G9vr1inWhAyQioacbDyOZ20dis30iBtgxL7gtzOxmhPgXhc3WIW3dlhPyG
+	oBNUhqy8N++FZ5fERI/UUAkP1dwPZpLUidQJpaVXdgcLGsxyluDYUWKwMlJoZoE99djEiUqQgMR6F
+	uPKhxDgCjHZ7jw6nlc6niDpprmYZTHjzANIgjsU2scUQD7/G4DP9PrFY0rqnbgTmVt/cKGmeFaD1u
+	etDiWJN3F0rRispf3ot5QltzKuWFztpHnW1c2UTMeicJYqWfiDqpOxMBPwzY9dYoXHVYo++Nwcmue
+	VFROsqdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4w1M-00000000sOk-2RV3;
-	Tue, 24 Mar 2026 07:17:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4w1K-00000000sON-1xXZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 07:17:47 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62O3wuku3170733
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 07:17:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HQM7eHnVoeAhrAn7FxIm1PZgvchjSYSQc/shb75BI+E=; b=k/TLGKZa2XF0AXaU
-	NXP2vVc6qfoyi+dwPVjMyYhtVH4X4uX8L2v7EW79vb8PBZE/QN+VQJGjwTIY5Qsp
-	V8LoPPvnQEoSa33Z/5PJdYCeKBWlwg/wwc9t9myLn+EUElvd8O0/KWjydVzvvApO
-	sNCPP0KW7nnmsMpOamTdJQMHCTx01dUlbwe4Q2HFRvT/uPSNciQ49GSX+1Sqgd7A
-	+qR7yZOj6CpgCQ4P1ryXP+gxEm1R07BRbDFOVoTs3WZFs+h0bKaA6BlsBpXY/XD3
-	BVgwPJZ9TdRE/GIxSUB0qWF8VBXkWSsQHkRUD4pMYDF8OJWMVMA3YwE10Yr+k8tT
-	OSMJeA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d35r23hxy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 07:17:44 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b056b2f0cfso13221325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 00:17:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774336664; x=1774941464; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HQM7eHnVoeAhrAn7FxIm1PZgvchjSYSQc/shb75BI+E=;
-        b=f9XcR/evCmTuhv0Q6j7YOYaaMGCofFPv6oOp+tF7RyzAR71ez3hDR6v5hIKdvWvLqk
-         3FPxOxscpiwCufMnkjUDORLdBqzuU8Pqw95xXIZdhlCcEe++/S7NYLYnCbTVz6b/1csX
-         SJoVUZcnW1bDd/PYqej8DEVA4/CjYgjM3HDDqCLodJWxHwekHJT5vlDKfz82hwLo9WsA
-         sORhzA5c/MvwmZqTY8CrUMWx+9rvPodHfuiJwXgu9MiD+mgV4aRdVDZmejuK/CBGKTAc
-         NBvsiinmo8XCdLQT87Us3A1po7NW3bj6CjAADMhx8hlujT5Wl7jMovJYNJgkVmpZ1wlb
-         1RBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774336664; x=1774941464;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=HQM7eHnVoeAhrAn7FxIm1PZgvchjSYSQc/shb75BI+E=;
-        b=NrWtdqvlQW2CetFOZdBIzOWlC7gQBactSgv8JjsDueNcno9C2wbULPgGoUrF3qK8ad
-         4FcnEBTcOlLUk/dAkJNnm+SAeDtTv4UzOfac3I7ncmty3LQNwiGyusWnS6fBCjTcpbOr
-         X1qCntG5oK5n2H/mzgrE4UXaeINMYquwRjxzvxEW4rEw5Xyc7pVjSjwU0BZgSq8gE/dV
-         ZT6yuR+YebIeB3BMheY+++gU7ZMLXBuvP9V4KNaxMk5QZnuhJc0ll/A+wkOmFeHKx3Qq
-         oVH2dbN0/5TNYDbaUqL7cT45/60fd4tclJj4s7sJVEWKWtQBbVJUCl8p/KAwAjed+QHK
-         50Rw==
-X-Forwarded-Encrypted: i=1; AJvYcCVd+5IAZ6tqt3bIZEr0PaSCB5Addqh8SsLuWSmobw2JbQ6hd/AjRDaiU5T0HNYEt/sRCVfpSOInhJ/3N1oYbsUE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZkVzSuL6iTqliNegdtCIdAJ4ndHpxPuujnGbYX6KQNoEQhyfy
-	FVSLK/JdGJqdAqaCk34zKHnim8XQII2g5NbYYZeUPc9Yqf4JYjJhfHuqqFiw4p3Ai+x5q+e8Pyx
-	SLcvZPuH5DqE4agDuf4xgpN95M22HHW1pgpqDLy5iVsDCD8yvT6rK4Fd9Ia60ML++5POAcus1Y8
-	gUTw==
-X-Gm-Gg: ATEYQzxTtbmuobpl/+fWAT4rCEU2rPbpB5pdP7luZfMysmNWoBNqpPURNbbLWeOZgzQ
-	7ELk2Zvhq7mRvLMLkPqkdU2L7nJDiFyw3VTeXwHcGgr7TEeGkuH7aZ4XJDndsnHh22/FrfI2RCr
-	b3Bwt3cv+1CPYwKpZvRlR15xeap7bA6wuo1pHukwCAFy2tojNz1wHZwpho0BufH9YFCfYqphx0q
-	jkQ8dvEsjQx843V0cnnNn9iqAmoBQthxvVKZfCuIVFcfcMfELHImkVXx4I7shLrvNVy+tFD1HfH
-	GGJmb8KlbV6qCfVR/haAy/UZOknFKes6YtFugABZVTMXdDTu/wDjCkpbes+pITuvy9xDLM2Uy19
-	lamqrU/VZGapYx8I9KAIQHfU=
-X-Received: by 2002:a17:903:946:b0:2b0:531b:b3e6 with SMTP id d9443c01a7336-2b0826c382bmr151661865ad.10.1774336663911;
-        Tue, 24 Mar 2026 00:17:43 -0700 (PDT)
-X-Received: by 2002:a17:903:946:b0:2b0:531b:b3e6 with SMTP id d9443c01a7336-2b0826c382bmr151661745ad.10.1774336663426;
-        Tue, 24 Mar 2026 00:17:43 -0700 (PDT)
-Received: from [192.168.1.102] ([117.193.214.249])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0aa622677sm6868975ad.74.2026.03.24.00.17.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 00:17:43 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
-        bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-        peter.chen@cixtech.com, Gary Yang <gary.yang@cixtech.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        cix-kernel-upstream@cixtech.com
-In-Reply-To: <20260313114914.1564115-1-gary.yang@cixtech.com>
-References: <20260313114914.1564115-1-gary.yang@cixtech.com>
-Subject: Re: (subset) [PATCH v4 0/2] Add scmi powerdomain for sky1
-Message-Id: <177433665904.17735.11886295556987492843.b4-ty@b4>
-Date: Tue, 24 Mar 2026 12:47:39 +0530
+	id 1w4wEB-00000000tOV-31U8;
+	Tue, 24 Mar 2026 07:31:03 +0000
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4wE7-00000000tNY-2tWe;
+	Tue, 24 Mar 2026 07:31:02 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app2 (Coremail) with SMTP id TQJkCgBHXqGRPcJpsDYLAA--.53447S2;
+	Tue, 24 Mar 2026 15:30:28 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	horms@kernel.org,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net-next v5 0/3] net: stmmac: eic7700: fix EIC7700 eth1 RX sampling timing
+Date: Tue, 24 Mar 2026 15:30:17 +0800
+Message-ID: <20260324073017.376-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.0
-X-Authority-Analysis: v=2.4 cv=VvUuwu2n c=1 sm=1 tr=0 ts=69c23a99 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=13ILl30Z8QjaXWZz8Pan+w==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=VwQbUJbxAAAA:8 a=jNwzyYJvxPVIlz3NwY0A:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: Opvi5DqLY1_9h4AQ2hdOameWdUl-FYDv
-X-Proofpoint-ORIG-GUID: Opvi5DqLY1_9h4AQ2hdOameWdUl-FYDv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI0MDA1OCBTYWx0ZWRfX0ayuK3cyoTI5
- lSm7WonMBRepio1jpIW4rJI4QmRFNtC2o0CyD8eE/aQLDje7+Pda159A3/lVFO1CvOkq+llXZA1
- aqEIOQpDW8DaayQRVgDatydlzwiewM63qM7S86eGG/IqmSJ3PjD7xinHcHdQRBIWljvSnjS9J8a
- OR1HkVbFbffQQi+HGbYeTiTU87TFGGTHF9DsZpPHCQ8f43PDOMwoJOkdb3hlJgWRaiedxbmSa4W
- 6EfCc1UKDLDAw5aacQWD1hd8663EbhhCysSJsWYfSVr29ObyWeB8fYI963X6qEb1RNpIC/04F7l
- ybe6t+pEN1F/V+NooeYRS9fK4mih+7+xTs+k+1/6meP/NmTKwQRWrXlTEIKZkA7LmfXB+k7EyNa
- InYulYDxP5X/bdIzcxux7bPvyXTHOg1dnRs5expWtCtBSQsPUUzB30TYZX6T2HQ5rGjfGXUtktp
- 29jNECHMqrGSSgwSDQA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-24_02,2026-03-23_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 spamscore=0 adultscore=0 lowpriorityscore=0
- impostorscore=0 bulkscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603240058
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgBHXqGRPcJpsDYLAA--.53447S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxAF1xCFWDAw4UZFykAw4ruFg_yoWrKw1rpa
+	1UWr15GF4DtryxJwsrtF109a4Fqan3G3W29r18JwnrJws0kF1qqr4IkF15ZFyDCrZ7ur1U
+	AF15Ka1UCa4j9rJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9E14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI4
+	8JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xv
+	wVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjx
+	v20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20E
+	Y4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRifHU3UUUUU==
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_001746_643788_E0276305 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260324_003059_907040_C20F4A1E 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,25 +100,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-On Fri, 13 Mar 2026 19:49:12 +0800, Gary Yang wrote:
-> v4 changes:
-> - Pass dts build check with below commands:
-> make O=$OUTKNL dt_binding_check
-> make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pcie-host.yaml
-> make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
-> scripts/checkpatch.pl 000*.patch
-> - delete power-domain-names property
-> 
-> [...]
+v4 -> v5:
+  - eswin,eic7700-eth.yaml:
+    - Add Acked-by from Conor Dooley
+    - No functional changes
 
-Applied, thanks!
+  - Update dwmac-eic7700.c:
+    - Disable clocks on the error path to fix a clock leak in
+      eic7700_dwmac_init() when regmap_set_bits() fails
+      (reported by Simon Horman <horms@kernel.org>)
 
-[1/2] dt-bindings: PCI: cix,sky1-pcie-host: Add power-domains
-      commit: 94c62cf0698c0edbf1f118dd80ea19d0ff5d834e
+  - Link to v4:
+    https://lore.kernel.org/lkml/20260313075234.1567-1-lizhi2@eswincomputing.com/
 
-Best regards,
+v3 -> v4:
+  - Update eswin,eic7700-eth.yaml:
+    - Improve commit message in dt-bindings patch to clarify the
+      hardware difference of the eth1 MAC and why a new compatible
+      string is required.
+    - Move the newly added eswin,hsp-sp-csr item to the end of the list
+      to avoid inserting entries in the middle of the binding schema.
+    - Simplify the compatible schema by replacing the previous oneOf
+      construct with an enum.
+
+  - Update dwmac-eic7700.c:
+    - Fix build issues.
+    - Adjust code to match the updated binding definition.
+
+  - Update DTS/DTSI descriptions:
+    - Move SoC-level descriptions to the .dtsi file.
+    - Keep board-specific configuration in the .dts file.
+
+  - Link to v3:
+    https://lore.kernel.org/lkml/20260303061525.846-1-lizhi2@eswincomputing.com/
+
+v2 -> v3:
+  - Update eswin,eic7700-eth.yaml:
+    - Extend rx-internal-delay-ps and tx-internal-delay-ps range
+      from 0-2400 to 0-2540 to match the full 7-bit hardware delay
+      field (127 * 20 ps).
+    - Add "multipleOf: 20" constraint to reflect the 20 ps hardware
+      step size.
+    - Make rx-internal-delay-ps and tx-internal-delay-ps optional.
+      A well-designed board should not require internal delay tuning.
+    - Remove rx-internal-delay-ps and tx-internal-delay-ps from the
+      example to avoid encouraging blind copy into board DTs.
+
+  - Update dwmac-eic7700.c:
+    - Treat rx-internal-delay-ps and tx-internal-delay-ps as optional
+      DT properties.
+    - Apply delay configuration only when properties are present.
+    - Keep TX/RX delay registers cleared by default to ensure a
+      deterministic state when no delay is specified.
+
+  - Describe Ethernet configuration for the HiFive Premier P550 board:
+    - Add GMAC controller nodes for the HiFive Premier P550 board
+      to describe the on-board Ethernet configuration.
+
+      The Ethernet controller depends on clock, reset, pinctrl
+      and HSP subsystem providers which are currently under
+      upstream review. These dependent nodes will be submitted
+      separately once the corresponding drivers are merged.
+
+      Due to these missing dependencies, dt-binding-check may
+      report warnings or failures for this series.
+
+  - No functional changes to RX clock inversion logic.
+
+  - Link to v2:
+    https://lore.kernel.org/lkml/20260209094628.886-1-lizhi2@eswincomputing.com/
+
+  - This series is based on the EIC7700 clock support series:
+    https://lore.kernel.org/all/20260210095008.726-1-dongxuyang@eswincomputing.com/
+    The clock series is currently under review.
+
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Drop the vendor-specific properties eswin,rx-clk-invert and
+      eswin,tx-clk-invert.
+    - Introduce a distinct compatible string
+      "eswin,eic7700-qos-eth-clk-inversion" to describe MAC instances that
+      require internal RGMII clock inversion.
+      This models the SoC-specific hardware difference directly via the
+      compatible string and avoids per-board configuration properties.
+    - Change rx-internal-delay-ps and tx-internal-delay-ps from enum to
+      minimum/maximum to reflect the actual delay range (0-2400 ps)
+    - Add reference to High-Speed Subsystem documentation in eswin,hsp-sp-csr
+      description. The HSP CSR block is described in Chapter 10
+      ("High-Speed Interface") of the EIC7700X SoC Technical Reference Manual,
+      Part 4 (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf):
+      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+  - Update dwmac-eic7700.c:
+    - Remove handling of eswin,rx-clk-invert and eswin,tx-clk-invert
+      properties.
+    - Select RX clock inversion based on the new
+      "eswin,eic7700-qos-eth-clk-inversion" compatible string, using
+      match data to apply the required configuration for affected MAC
+      instances (eth1).
+
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260109080601.1262-1-lizhi2@eswincomputing.com/
+
+Zhi Li (3):
+  dt-bindings: ethernet: eswin: add clock sampling control
+  net: stmmac: eic7700: enable clocks before syscon access and correct
+    RX sampling timing
+  riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet
+    controller
+
+ .../bindings/net/eswin,eic7700-eth.yaml       |  69 +++++--
+ .../dts/eswin/eic7700-hifive-premier-p550.dts |  42 ++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        |  66 +++++++
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 183 ++++++++++++++----
+ 4 files changed, 303 insertions(+), 57 deletions(-)
+
 -- 
-Manivannan Sadhasivam <mani@kernel.org>
+2.25.1
 
 
