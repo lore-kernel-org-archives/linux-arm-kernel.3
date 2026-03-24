@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62195F532E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 23:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EA0F532E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 23:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATuLVAq1ts7ScRhCkDaGsLUh7/lhKkLjo1yD6uExeT0=; b=FPqUhjBg6CYU7UGYUklFIqrOAB
-	UyhcqipkZeISTpOMonh1XiqxA6o4kxOUo06qrkWEazji5bx23zSy82gmqaxMV+FQICirpF+kpIJJO
-	8vft1tPjDX+xfeiFlOW+jFxFuRwAY+PBIlject+4F55xW+gdzvU36XkcD1bj+CvIyMAgeOicZAKDd
-	ZQP6BGLopAU7H/WgL7ypif/mgcaTJLrngkULieFybxaJQk/xdKhPMJOKn6gg8y7pSEAynOqphCBh9
-	U15GTb4aXA4GmRStHvjgwchu9dWJ9O3m4GvxBMYCWlAQiDiXoRXlFzEEue6KLAoBi/BSY5FL/dtHs
-	gz1ynSmA==;
+	bh=rvzzUSpr+EbbnecMvm1F2VOXLbjzf1bq8YTw+uICp5w=; b=tzbTuJReTxwoQBI5gpfBeFk+3z
+	hqc8L8oceD++VxTFPKASXDnWmRm+zbtn7Dio8VbwdVG4C7U9Eci8kVXRqp1YwcATZ6XGwXd3ivBre
+	AECTWct/E9eX4LH+mmWe3+6J2klLEBYuH4WVpkxqNmfUAZGR23GFfj/dW4xQKsoLm+ngjXTcffzTP
+	3tolpQmK4h5FKYQrlOpor4N3uHsTCW43/0xYzYSq0Gd+7zgwoeOeCMz0Px/uRvNIskrOSvPvNn788
+	MGJBf7mjQzEZprStV7Y8VuW77Ya+/XfVY6mE39YDtPsEyQm6p2424v7V6cwqfzVpxOZYiYqJCh1mQ
+	PPtqssCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5B7m-00000002LvP-0hJH;
-	Tue, 24 Mar 2026 23:25:26 +0000
+	id 1w5B9h-00000002M5m-0PoK;
+	Tue, 24 Mar 2026 23:27:25 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5B7j-00000002Lv4-1viG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 23:25:24 +0000
+	id 1w5B9e-00000002M5O-3ikU;
+	Tue, 24 Mar 2026 23:27:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFFC541A14;
-	Tue, 24 Mar 2026 23:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C481C19424;
-	Tue, 24 Mar 2026 23:25:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8737643448;
+	Tue, 24 Mar 2026 23:27:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 233C6C19424;
+	Tue, 24 Mar 2026 23:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774394721;
-	bh=8M2lfLTY30frg/KZdYPe5W7EMROR9Qeg+pO68+yl6Kc=;
+	s=k20201202; t=1774394842;
+	bh=7Vksh/TZbAbO2ZdMTl4B7tAMqUDtCF8BMGNIcRTQQSg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uUpZcUDxNxE64Me8evCj/8m/kPF0rqXW7NULInKarHq6hDsx+EqcsOsDT6YLE5YOv
-	 84fGJofuOiE+XO1hX9kXSjaWRfDKUxSVi5nGliR4H0V9q3sK7Q2gfLO0QLoWEHj7jy
-	 Pz565Tn2iB0vhZsZYq3eF61JXpEgYloT3UIJuVAvpRLfS9siV1zagiZPAM4c8J/y8D
-	 VKu0mdfWbmlNkzT2VDYl/pU1NOb79EUW2nLU0ZL3/gzxQhFVQ3YOi/ehEazBVjpy8E
-	 NuWE95DnBOqmilyUXeULaVocQ+bME4KzYMeJECGqpCuAJ5WKsm1mMmWlDEettZg+3Y
-	 7POC+XZ5K5oBQ==
-Date: Tue, 24 Mar 2026 18:25:20 -0500
-From: Rob Herring <robh@kernel.org>
-To: "Kevin Hilman (TI)" <khilman@baylibre.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: power: Add power-domains-child-ids
- property
-Message-ID: <20260324232520.GA2225579-robh@kernel.org>
-References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
- <20260310-topic-lpm-pmdomain-child-ids-v1-1-5361687a18ff@baylibre.com>
+	b=n4Up3lKqsTJ3zA02PVZEJYOgzoUtGJISGUakPl4rAUImUrn+UgsknQlJHaRjt57lL
+	 8JWg8RWsV4B0DKiXiKQj4ruMsCnTFfp2DZ6VPmpx+EVpkyylr4eNa2eBM1EB04qYbE
+	 cgUn6EaeXjb8IRyke2xPHl48rwxIgKkfKqU7RMlyrwbLTcndVJ13JPflqV7/Q9kBL8
+	 Vm7ml0IaPzD24ag4Th1J0lkTTd+t6EiJ8hI3W2P6VS9fu3o9c1BsUFkYxxsOLAioYB
+	 fsrmsTXqx87TXptkHPy0kFW1xkhve7dVL93RwuLXwBU6feouEQQT6QFdwZ3ifla6q6
+	 WFZPq95BI9Y/A==
+Date: Tue, 24 Mar 2026 16:27:20 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Tianjia Zhang <tianjia.zhang@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH 00/12] SM3 library
+Message-ID: <20260324232720.GA3622@quark>
+References: <20260321040935.410034-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260310-topic-lpm-pmdomain-child-ids-v1-1-5361687a18ff@baylibre.com>
+In-Reply-To: <20260321040935.410034-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_162523_522087_7A95A48D 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20260324_162722_963620_E059729A 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 05:19:23PM -0700, Kevin Hilman (TI) wrote:
-> Add binding documentation for the new power-domains-child-ids property,
-> which works in conjunction with the existing power-domains property to
-> establish parent-child relationships between a multi-domain power domain
-> provider and external parent domains.
+On Fri, Mar 20, 2026 at 09:09:23PM -0700, Eric Biggers wrote:
+> This series is targeting libcrypto-next.  It can also be retrieved from:
 > 
-> Each element in the uint32 array identifies the child domain
-> ID (index) within the provider that should be made a child domain of
-> the corresponding phandle entry in power-domains. The two arrays must
-> have the same number of elements.
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sm3-lib-v1
 > 
-> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
-> ---
->  Documentation/devicetree/bindings/power/power-domain.yaml | 35 +++++++++++++++++++++++++++++++++++
->  1 file changed, 35 insertions(+)
+> This series cleans up the kernel's existing SM3 hashing code:
 > 
-> diff --git a/Documentation/devicetree/bindings/power/power-domain.yaml b/Documentation/devicetree/bindings/power/power-domain.yaml
-> index b1147dbf2e73..a3d2af124d37 100644
-> --- a/Documentation/devicetree/bindings/power/power-domain.yaml
-> +++ b/Documentation/devicetree/bindings/power/power-domain.yaml
-> @@ -68,6 +68,21 @@ properties:
->        by the given provider should be subdomains of the domain specified
->        by this binding.
->  
-> +  power-domains-child-ids:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      An array of child domain IDs that correspond to the power-domains
-> +      property. This property is only applicable to power domain providers
-> +      with "#power-domain-cells" > 0 (i.e., providers that supply multiple
-> +      power domains). It specifies which of the provider's child domains
-> +      should be associated with each parent domain listed in the power-domains
-> +      property. The number of elements in this array must match the number of
-> +      phandles in the power-domains property. Each element specifies the child
-> +      domain ID (index) that should be made a child domain of the corresponding
-> +      parent domain. This enables hierarchical power domain structures where
-> +      different child domains from the same provider can have different
-> +      parent domains.
+> - First, it updates lib/crypto/sm3.c to implement the full SM3 instead
+>   of just SM3's compression function.
+> 
+> - Next, it adds a KUnit test suite for the new library API.
+> 
+> - Next, it replaces the "sm3-generic" crypto_shash with a wrapper around
+>   the new library API.
+> 
+> - Finally, it accelerates the API using the existing SM3 assembly code
+>   for arm64, riscv, and x86.  The architecture-specific crypto_shash
+>   glue code for SM3 is no longer needed and is removed.
+> 
+> This should look quite boring.  It's the same cleanup that I've already
+> done for the other hash functions.
+> 
+> Note: I don't recommend using SM3.  There also don't appear to be any
+> immediate candidate users of the SM3 library other than crypto_shash.
+> 
+> Still, this seems like the clear way to go.  It's simpler, and it gets
+> the hash algorithms integrated in a consistent way.  We won't have to
+> keep track of two quite different ways of doing things.  With KUnit the
+> code becomes much easier to test and benchmark, as well.
 
-Okay, I guess we stick with this. Sorry for the detour.
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-With the example fixed,
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-Rob
+- Eric
 
