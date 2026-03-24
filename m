@@ -4,67 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEFCF532CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 03:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91245F532CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 03:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40hYrgHMhL5Y3sgIvyGDHr2DSh4JcFjI1IXGpM/589E=; b=475ezd1py4oQTOOeHNl3bX9Pfa
-	4wut6b0NmnICBFthww7PqcPAO1oP4s+4nLWWdhdssTckpkpIoP4a5h8bFHW84Cy5MJUVLLbJD4135
-	R8AkKQfyxZ05Acwk5PWySF+TOiSjfCN+AeWq3luyCtXjsp9VFRfckMZvecyoToZ0ixNejG9ZFN4Zu
-	YhoU6gIvTbX9xUaavI6Rhgq+97Q556zpgQwtT6tzGd8G45Lq14MoZziw54RGMtqvAUQGLedMl/b5j
-	PLEpEssFCD5TKThNdYGsbeDM5ILXP3f6EHd2ALPs/w3QUBLoo/I/X4Dmjnh49XXuZ4QzLNgVuEQma
-	VgcpUQ1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jdu93ifSsJEGGskNFuxir7Ji5rwDeMQqVeRVYhoNygI=; b=PGAFbqe/q9MBbM1/2fNZ/2h2km
+	7sQwP4jhy1Ry785upDQ5mgKTIrJadsLi75CYbzt2o0n1obdkWXifYJQXZ7ninrizIzT2A91/WYa3r
+	KkANKsvAkKbRNn9x4SHMjr9+k2/ayWnjbPhFASlzKDBpVWlGdVd8aWLasR0xje1psyRxbDIOzVy7M
+	z3BRodEekxTTyD4tAgAH9qpj73F3c3Y1P+/uogDUuY3rxX78aD8F7YJgX4UiZjnUsBMwMM1t/gxPz
+	IWBEOUaHdrOgKhZoaGMss4vrDu4dN0YoD9MFa4yJ4kg7A+cdbSyrip8unRvMbVKAvuEHb5xD0AZuQ
+	NHI7NnuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4sBL-00000000SZo-3Un8;
-	Tue, 24 Mar 2026 03:11:51 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1w4sEH-00000000Skk-1hrk;
+	Tue, 24 Mar 2026 03:14:53 +0000
+Received: from mail-northeuropeazon11012064.outbound.protection.outlook.com ([52.101.66.64] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4sBI-00000000SZI-2XB2
+	id 1w4sEF-00000000Sjk-0AeA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 03:11:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1774321899;
-	bh=40hYrgHMhL5Y3sgIvyGDHr2DSh4JcFjI1IXGpM/589E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=E8hVtBNgBrNdvLlWQvKdjHzlxebKnv8/HKVeiS/DFd3RTyaMLM8i+lnyTJLUyqnr1
-	 5oRE0irl1i5UBIeJ+/lz6onh2hv1Mg4d4Cj1xC8RNAAChpl7eoCItUni3F0TUoG7pT
-	 brHVXfEIUCGD0f//XMqUytT4jc2dqB+rDmmnVmDTyrmHzYtoDbiu3sZBR2mXO1HPIv
-	 vhuugmBNZWegkcJlc0y6P5gnPNRLuEbzAhlbYrORsfXNnOY1wetPJ3LqYkgse9r/On
-	 c2JhmK/wPo2fBHKDGUjamOc/QPN5gwwp46CruZ/qVp5cVLwt2eEgG8Z1CQCe1jIElO
-	 WFCplhl1kCfgw==
-Received: from [192.168.72.167] (210-10-213-150.per.static-ipl.aapt.com.au [210.10.213.150])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 605EF602C2;
-	Tue, 24 Mar 2026 11:11:38 +0800 (AWST)
-Message-ID: <405f6b1b4081ffb379a21bcdb5d2a8e81d2e2e3e.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v27 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, andriy.shevchenko@linux.intel.com,
-  Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
- <benh@kernel.crashing.org>, Rayn Chen <rayn_chen@aspeedtech.com>, Philipp
- Zabel <p.zabel@pengutronix.de>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org
-Date: Tue, 24 Mar 2026 11:11:38 +0800
-In-Reply-To: <20260324-upstream_i2c-v27-2-f19b511c8c28@aspeedtech.com>
-References: <20260324-upstream_i2c-v27-0-f19b511c8c28@aspeedtech.com>
-	 <20260324-upstream_i2c-v27-2-f19b511c8c28@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2+deb12u1 
+	Tue, 24 Mar 2026 03:14:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=en5BSI0jRjWQWGwJeEHT7KQkta3CoQyLW3X6moP5M2ILyj653oBuvMG72FDwyuLhohokTmtoElohc7791vWuDCjwAXorMHEQEHpK7dq/8WdawpwxIuEuQxCEOQEirk1PCuMjNN2RDWi9c8k3qcUemjREBd65yMB8grr8ECwbkwZArDFOjkv9p0TmoB6p4SZPx7+pVbbzaJPS4s0YBo6V42EW2sWTJjhdwiz2/2NVNkf/gg9A3uYksumhLGcPgZ0Xb7G+j4E0Bmt2178cJPZNFXSywiEb/yNRZDmUyrUWhAAMAFBEtjxjdarHbtaKkJNT8dbGYPyHxmiXJF2+SyULRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jdu93ifSsJEGGskNFuxir7Ji5rwDeMQqVeRVYhoNygI=;
+ b=CKhmC4prXDFr4IVeZJ561crSoUu+ftWNJmXmxjiEuO1fhjpeSm8PzVAGF379XK78TUcD5mhnymiHJrRe7CK06+mBw7cWpWqYfnHBLf9nLMRsatqgL7bTBYlXr2da9mDwLAe2DxTIC91ShzfLY0FaBDVKLsn4WQgF1Ig2NIj9XFk6sEkcGrzQZSY8p3c8oILHFkpTPB0qOVWu5sQQ9xXHVXhrILP7m5R1bGEJbd8LfjbTOmQ7mAgut3iOvslhEK+rplpTloI4oiEjKgoygnI48ew+lxQsByM51M1/tF5u7zSqOQegfQX3ntky9e3tk3Dsx1GB0zabhP7ODTEU/vF6PQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jdu93ifSsJEGGskNFuxir7Ji5rwDeMQqVeRVYhoNygI=;
+ b=m2RaK1CN0bVW9RXzJEIId/84ZpnmBnBIBse5uXv57MmOsO/JCDgvfcckfZWiCeu63MzQ9qOvfTa0CPWTsWBfprue5YnFBTIV+gKWoUdxn8bpkVDtQEt14J7BqEDbNdj9PIDhmaA2J8IP1ATjuUWcXBr5pSYPBlz21hSw96hsUG+qe/cVBgofnn5OzSO8hEQlAFTUN3KyG8Yhu2h1CxYzsijGxTUaJHpaxRVan4aivdRZIlhvAKcmdJnNwbYEKTIZGlwGQCVSsGRsOQ807NdDzh0WXop0ZDjM4UJPHjHP+CbiLhVj8dc5k/+YXBLemEgoQHOcRb4tfYW4Iyg9ju2O+Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB8PR04MB7177.eurprd04.prod.outlook.com (2603:10a6:10:127::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
+ 2026 03:14:39 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
+ 03:14:25 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Tue, 24 Mar 2026 11:16:13 +0800
+Subject: [PATCH] arm64: dts: imx8mp-debix-model-a: Correct PAD settings for
+ pmicirqgrp
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260324-imx8mp-dts-fix-v1-1-df0eb2f62543@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAPwBwmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYyMT3czcCovcAt2UkmLdtMwKXVNDI1Njg7RUk5TkFCWgpoKiVKAw2MD
+ o2NpaAELeqUFgAAAA
+X-Change-ID: 20260324-imx8mp-dts-fix-512530fe4dcd
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Marco Felsch <m.felsch@pengutronix.de>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Daniel Scally <dan.scally@ideasonboard.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SG2PR02CA0018.apcprd02.prod.outlook.com
+ (2603:1096:3:17::30) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB8PR04MB7177:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa3c1ea6-fe16-4cc3-c860-08de895376e7
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|19092799006|366016|921020|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Ivz+Rlcsm9HwyJqBC59cPcVcADftfT4ouJgTfV26eDUv2dH0t3V3sqd4acohdMULLbtuOedl2VpAtsbZVi6K4UGSBXW2LMsEM1DGssPNwTT1AzmMBIBMBOo6xVITVST+nilQFEq4gSL/0yNjYqIV07EPJZNdQR5WLjEZDRZklmC1ygoWxuk0R/XhH8R12iJgcmFOQ8b6UGm4YMJu3Yu6C5wfog3RipxKiVFsiIV3Zgbpeiv4K2nlpdg2bCpbBg4m7b2jT3/1PEvkWUXvNQiLz6k4fUl+vbqgKfNAn8eBRxBQJnkpBIV8cAm+KLYPrSU6a2VzdlNsvTj21MdFtUtBQ8DWqrmuEg9428BM3Cb4fBmrSUneE9spzgJpQd4Teb0JgAHPUhtt0cj98f81bCDiHy22o2/cQ8ug7fcUFYhjCmDzvUvZ+qWiPHy9NgGyJVVx0lDZ0u8KyTdfK3oSjMWvKOZhL/HrBgP/o4sm8RSqCdTXM1fTDBQ9TpfzqrvxQ7vfAm0UPGlTevHCIZueSidcffPj6XrvnGJlTTQrvydpKq3OSqsbWAkxMrqk9sWRbLga8y5cZ/aammLSFxEDS6SvL3qgoIWEW4/bZ1yjq9UcMBFVl2BXnMPINSlCr2Vf1sQEMVIIHvud5CXCBalW71BIYMl2VoP7qtNlC/UGhcxk64qrZoVKpr0hkLgG3iccCgu4wTW5mOnQM4B/m5s1KOQe9QWBMW2X0gXEl0niOgL1JjChJtzvuH9uI9zhfp4bEfbztgG95e/Oy8NnQijko5AKnUBL5y8l8KDi1xPA7D13w3e4TkNZsCxX0hA66740VVg/
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(19092799006)(366016)(921020)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VXpkcUZQYkYyYUpkMGtON00zZm9QMm4rckJWMVN6VW5HTHFhUTJxZ21Fc1Q2?=
+ =?utf-8?B?UXdvWUdVM3VTejBXNmdnblhTZCs3QisvVnBoeGIvL3UrdWYzMHhQMVFacEpp?=
+ =?utf-8?B?L0JnaCtZV0dtQmJ3RGljVnRMZ0RWNUQ4NndZSkxiWWhRckpDTXZZVTk1dDRW?=
+ =?utf-8?B?blk5U2JoVk5URHRCS293SWQvVFFlbEZDZ1BtMFVtdy9xWWZCWGk0SXpPeDVq?=
+ =?utf-8?B?QzVGSlFjZWgybHZoUnlwZExXa1hNMUJ3b3dlWS95UG5IYjJCeFhWdnYzN2c4?=
+ =?utf-8?B?Mks0ai9YelpIbVFZSWtuZ2FycVd6cTRZTkx4V081anFPNGN3d0E4QmtWbHUr?=
+ =?utf-8?B?VFFaL0twTk1xMVRxRU1MeVNNc3ZNc2tLOVFJT3JUM0ZGSmpUNWd4QlpLTUtr?=
+ =?utf-8?B?QW8xYUdzY09jR0RkeEJGMUtaeGpzSXVURTFFSmVnaCtsUVlPY0doaXpzaGVL?=
+ =?utf-8?B?SGNUZnFhang4TnJPR2xweW1KS3B3QVAvL1QwOEZRZ1IxNmhUVGM0NjdNa1FY?=
+ =?utf-8?B?TG9sM2xMaTdDdXRjVjF2YlRRcHdRMEhIR0ZRUVgrSk9QQ2ZzRjVtdFRIeG1h?=
+ =?utf-8?B?c0I4TzMyVklCOHl4K0RNNytOWUl2UXlIeXVzNGVxWm9iamtvMkI0Lzlwc05J?=
+ =?utf-8?B?Y1Z2TGZnQU5Lekd6dHJmQ2l1Ly9jc0pFd1FFYlNDcENqTFlndHZwaGhGdFJl?=
+ =?utf-8?B?czhXOVdIMFg1Uk51MGRPTmt0bllvc3BIQ0VTNXVHRDIwQzRBVDg1Lzhub2RN?=
+ =?utf-8?B?SlFVd0NTb01tZUh4a3V5VkpmQ2Z3NEVlRU1UWWx2anlJejQ0UDJGZnVlMWFS?=
+ =?utf-8?B?WE8wQnhPTytpTS9TUkliWVk5SkhsUnZMaUVFTWpDam9WS0NXcWM4V3ZkeGNN?=
+ =?utf-8?B?V2FKL1BvaldodW9OSW8yajhOMG1qbzRVbkRSYWtFUTE1V2RTaXRoQWNTUGlQ?=
+ =?utf-8?B?clg1WXd5YnJ0OXR5S0crL0ptcnVaRnBsWWp4RmRvb3FWcWRBOUVpY1FiWm5q?=
+ =?utf-8?B?eVd5anp0WXpESnFDbHBJcHdINmJyTXVpSDRYUnphbzRjTGcyNjNyVE41alJP?=
+ =?utf-8?B?RFc0K21mQVFTdEhKUFQ2UVptQndKYjNtRWpTTVIrSjRPYlRSOEVwMUdpMTBp?=
+ =?utf-8?B?cmhDMGxJU3dqVmtYNHF1SXl4eHpsRCtXWlNmRWRES29PSmZITEdhOU9WT3Fq?=
+ =?utf-8?B?WGV3Qy9HMmR6Y1lyZzVUMnBnNzV3eTVPWW55NThITUwvOW5VWHNPeTVpSEJj?=
+ =?utf-8?B?dUg5aFRDVHc5aVZLTFo4VmhXVkg5S3JnamZRWlRFU3BtMUlUMElKbW00OW1X?=
+ =?utf-8?B?ZGsvTXoxbjc1U2M2UGNsbXgwR0V5NUN1bHNEdzJFdVlkd21sZ2hLV1l2MW13?=
+ =?utf-8?B?ak8yQThVOXVHMllvbS9pSlU4UFpGaHlYV3BvNXAydG11dzE5ZUJwQ2ZqdUxt?=
+ =?utf-8?B?TTA0a2UzWWlCSjcxRVZiYzBESmp0SEsvVEhQQUFLODFqcU1WbDAxUDBydjZw?=
+ =?utf-8?B?eGRKbEY1clJtOVlKYk94Tm8xU0hLRkFMMkg4MWtxVEtkV3B2SU5scTZKRmxa?=
+ =?utf-8?B?bzN0TDcyeEkvekY2RElwc0tVbG5wSmRENzAwVTVwc1dsdGQ3dFlGLzU2bi92?=
+ =?utf-8?B?RGdWcUV5cHlGcE9aNlpmdW9BTkFpN200dDdXdXF3eFR0NThMa1JXeXNkcnQw?=
+ =?utf-8?B?Q1VqV0J4MjdvTG5EVlV4VG5CcUNPNmtROWJzS2l2Z1RXRmhWdWxtelRFRzky?=
+ =?utf-8?B?QkFRV0Vpd3d6Z1dKWENTK2I3azVhblVRSy90RWRKUG40QnQzRVVkTTNWNVQz?=
+ =?utf-8?B?RnlyQlMwNWJvcFpCcStYWjFxNmdtNGU2ZzZVbEVkVlVUWmRqZEdoc1hyUFBs?=
+ =?utf-8?B?QUsyd1NKRlhBbFJCcGZEZUU0ZHBRZWlxcUdmN2RaemdvSVBDeTRHakpnc0FM?=
+ =?utf-8?B?ZGt0dFloM1VSSStYbW5vaEZoam1QR2RCNEtkVHBPUUIveG9NNmEvcVJIekZU?=
+ =?utf-8?B?QjdjZ1BWaXNNRHNFM293NnZNelVRaEdtZGdLSHl4RnJBeWs2emNpTS83S0p2?=
+ =?utf-8?B?YjV1ZmpSNHhHbldIRm5MdnVZMWVZRkEyOXR4cHZWWHdQUk5Xc25WZ3pXNkw3?=
+ =?utf-8?B?MHdJYTBxTUc0dUplcGlYeEczbkU4SDN1dXRGdWh3RGVhRXloSjJDSlYwRUlo?=
+ =?utf-8?B?OTV2dkJTT1NWSER6Um5kTnVzdVhnQ01kZlFzSFhMRHlGVUF2MXkzQ1JTamJN?=
+ =?utf-8?B?ME5OYndYU2hheEd4OXBDLys3NTE5WE8rTXl6OFVkUG0rL21KcXROa0NHSi82?=
+ =?utf-8?B?TEtqakRGTVdCcURweGgzMFRUOVBGUHNjZVVnZEtPaVhGaFdsMWNxUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa3c1ea6-fe16-4cc3-c860-08de895376e7
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 03:14:25.1655
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rbiFiA//kFiTvh1auKSEG6AkSXntq6ZACxUGhI5rpezy3bJnnc8Vfte8+vwPoMCI7fRniK6jBqcmQEgtYhkr8A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7177
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_201148_845886_8F2B1F6B 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20260323_201451_093022_B4AA7CC6 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,90 +158,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+From: Peng Fan <peng.fan@nxp.com>
 
-> The AST2600 I2C controller supports three transfer modes (byte, buffer,
-> DMA). Add "aspeed,transfer-mode" so DT can select the preferred transfer
-> method per controller instance.
+With commit 5d0efaf47ee90 ("regulator: pca9450: Correct interrupt type"),
+there is interrupt storm for i.MX8MP DEBIX Model A. Per schematic, there
+is no on board PULL-UP resistors for GPIO1_IO03, so need to set PAD
+PUE and PU together to make pull up work properly.
 
-This patch does not add an aspeed,transfer-mode property.
+Fixes: c86d350aae68e ("arm64: dts: Add device tree for the Debix Model A Board")
+Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Closes: https://lore.kernel.org/all/20260323105858.GA2185714@killaraus.ideasonboard.com/
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> Also add the "aspeed,global-regs"
-> phandle to reference the AST2600 global registers syscon/regmap used by
-> the controller.
->=20
-> These properties apply only to the AST2600 binding and are not part of
-> the legacy binding, which uses a mixed controller/target register layout
-> and does not have the split register blocks or these new configuration
-> registers. Legacy DTs remain unchanged.
->=20
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
-> Changes in v27:
-> - change aspeed,transfer-mode to aspeed,enable-dma.
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
+index 9422beee30b29c5a551b08476c80fbff96af3439..df7489587e48ed0c678f11291f6f2b77082ade95 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
+@@ -440,7 +440,7 @@ MX8MP_IOMUXC_SAI5_RXC__I2C6_SDA					0x400001c3
+ 
+ 	pinctrl_pmic: pmicirqgrp {
+ 		fsl,pins = <
+-			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03				0x41
++			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03				0x000001c0
+ 		>;
+ 	};
+ 
 
-What about all the previous changes?
+---
+base-commit: 09c0f7f1bcdbc3c37a5a760cbec76bf18f278406
+change-id: 20260324-imx8mp-dts-fix-512530fe4dcd
 
-> ---
-> =C2=A0.../devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 17 +++++++++++++++++
-> =C2=A01 file changed, 17 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yam=
-l b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> index de2c359037da..38da6fc6424f 100644
-> --- a/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> @@ -37,6 +37,21 @@ properties:
-> =C2=A0=C2=A0 resets:
-> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
-> =C2=A0
-> +=C2=A0 aspeed,enable-dma:
-> +=C2=A0=C2=A0=C2=A0 type: boolean
-> +=C2=A0=C2=A0=C2=A0 description: |
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 I2C bus enable dma mode transfer.
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ASPEED ast2600 platform equipped with 16 =
-I2C controllers that share a
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 single DMA engine. DTS files can specify =
-the data transfer mode to/from
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 the device, either DMA or programmed I/O.
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
-As we had discussed: this does not define the transfer mode, only
-whether DMA is available to the peripheral.
-
-Why mention the 16 i2c controllers here?
-
-Please keep this description simple and relevant to the specific purpose
-of the property.
-
-> +
-> +=C2=A0 aspeed,global-regs:
-> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
-> +=C2=A0=C2=A0=C2=A0 description:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Phandle reference to the i2c global sysco=
-n node, containing the
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 SoC-common i2c register set.
-> +
-> =C2=A0required:
-> =C2=A0=C2=A0 - reg
-> =C2=A0=C2=A0 - compatible
-> @@ -59,4 +74,6 @@ examples:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets =3D <&syscon ASPE=
-ED_RESET_I2C>;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-frequency =3D <100=
-000>;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 interrupts =3D <GIC_SPI =
-110 IRQ_TYPE_LEVEL_HIGH>;
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 aspeed,global-regs =3D <&i2c_=
-global>;
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 aspeed,transfer-mode =3D "buf=
-fer";
-
-This example does not match the binding.
-
-Cheers,
-
-
-Jeremy
 
