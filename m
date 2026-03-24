@@ -4,137 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 262D0E9A75D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD57E9A75A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 10:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=; b=ex4TqPptK084XnOeAZ0FCQt1Gq
-	OHYhtTQn2lEqzs7Fggpul5wSbqiyoifgx5uBiP4D3MV9tTbicUrn2LcCTjDj2CXSjhBYXWCPlyfOb
-	KPiMYJzw2kg50ugy50reSXJEUOJQcAV9tSksrihIFdTseyD00A9eld36JBigJRg2QJTSAP3eE+UnT
-	YbOp79HFKYZkaL7MvDppMkMc92jzOBaSyI5JrTHgTOMP1TVZkLPmOSKbowbFkJ1YFusSvudeJ7XAl
-	1IEyttnk1lZvuVEBDmHby4eHmLDfQfoGMspY3901yKvLAT/P6DCqDuRhqRScxs0m/4ChL3w199Ubd
-	ob5pViOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9IY4dDZh9dDmUZT2xOVDzhyZHdg/R37G9q2o81SGSX0=; b=E2Shen06NrB9UpfOyemUREVsrb
+	T+4M7WL/Y0HlhhdnsbwLCwQU3lIaizp9BZaX3uRjheczpNDhSxRxkpr9L7QH+aK509pfRJLQRRb12
+	hGKPfJ/KfY/hvSsNb/mTZZ/o3a4v1jtkgopXh5eTAW01KmgijjiabEePPs7/Kw6QPG3MfnmRIXMBA
+	z0VEiOepLcijIQAVsS//HfxXnCpXjyqopDzW8iwjcUeRScJ0o78zh8/Pz6JcFhmw0soKhqa5tqq3a
+	cbeAHGIDRkEzYLR/I2WcXYnt9JZ39RpRN+jIEUMlBa8LwG84YSZVe78MNA9YoFwgEuAm3Q3WkvrI9
+	WMamxX0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ymk-00000001Bfe-12nr;
-	Tue, 24 Mar 2026 10:14:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w4ymj-00000001BfG-3nKA;
+	Tue, 24 Mar 2026 10:14:53 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4yme-00000001BdU-4BS3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Mar 2026 10:14:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=; b=Odar5STFVhWJ/YH9ANA5NPEdiH
-	mCUhhfRtZXXyasZDNYj6dc+VVkrAF6KHuk3qdV1UCuXIa8ghh8KS3pcPVFiUYTEzHJAroEqJUuoFN
-	OnmTFwdlsjvUbwxNdZ+HTr1n9GQH95cFR0oANm0QFQ/WZlrQI6b4l8H7q2Cjic7tP731OiB168Dvc
-	Ydg9m2kbI2wpZlWnBBCzATt/ZQud5RI7II7VaOFbUdXJRpHL9Br/V+za1X0K8PMPXWU4YEC3QAdIq
-	/7DtvCFUWM2OKzIrUi/Qmy2vyjaeeJKgUM5oKxNnV7fE4cMf5BKnzmEc5yEsJKYBU+JN8hSCPG5j0
-	DcHi8pnw==;
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4ymW-00000003lIu-1LOw
+	id 1w4ymd-00000001Bcq-3TO6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 10:14:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LPzq/fJWw7x+NVLQ1tIRkWXhvNCr3nGe6fLW+7GTYCtIjpoqxFx8uulqm5oFu/9ipRdPblT92Ca3fzNJvoIF8xPjYd0wQ6sKvavsqZqTK2Tb2HohdIqoKMmoLTHeyVsDuw0QmEqh5f8o56Nk1bnFrKxCvXPNzgizPI2M5xR3Om5Qnn8WWWcNg7OxpKjzXeSHRNRWqq+jrsihS3OpFLciNG0XGqrUu1YtAUUmFbpHrvLbVV3rln5xKquyP484eK7wqjDBrLs+35+C0AfuE7MS+Be7QKcfGK0ifiMt6rIgdEoHXncq5yJnm0lSp2wij5oVPgHicEXPM+M24xdE1rjF1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=;
- b=fatjVWXpZLLvNlB6DHxPj3ofWlT/S6bZTpAJZLK8K0sUDAMr8Fol40jEn69dxzjkq1IBGW/8Wp+wNX+LukY+EQOZpfxGqzTZTSZyXbjU9uP857LUE9jFaZoA5Yoow5L+/ShNCmfp2sWBdeswbA0nPezI9MmKoB/NUEdjG+/PUIcDAqND3hcNMQiAxyKW9SwlXy3aKl+HOXkIYAqNqjhUMLIriOwksRpECz9+6tSyO1oKicKXF7ksfl3KE2HVO1b6KnQqjoTZDR2v42TRrDpMDV9GY7i+IByZjT4Icad7WU1XTn4Fp/JB9PYQAq5sEAvto5ru885Uz7ti/fHOZ2iNQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PPqCxDwKNuZFSOyEhul/CcWlJAbocDCIegm3rkkSdDk=;
- b=beH9YHEeHa9ZYktofT9OAib2zV/z9nhtml6PZrzc5YWc6exPJe8pcN3+hdsC9cZVemU66Fayeu7yotPommpTfmLNUAIOosgYg9PsfWMqSQY/uQD98wVFGnnOfynEvPoNZnwYtDWPOBwMJ8mvcvn7SXf6aDc7ef8jmaMQeq/MZD0=
-Received: from SJ0PR03CA0096.namprd03.prod.outlook.com (2603:10b6:a03:333::11)
- by SJ0PR10MB6424.namprd10.prod.outlook.com (2603:10b6:a03:44e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.19; Tue, 24 Mar
- 2026 10:14:30 +0000
-Received: from MWH0EPF000C618A.namprd02.prod.outlook.com
- (2603:10b6:a03:333:cafe::78) by SJ0PR03CA0096.outlook.office365.com
- (2603:10b6:a03:333::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
- 24 Mar 2026 10:13:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000C618A.mail.protection.outlook.com (10.167.249.122) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Tue, 24 Mar 2026 10:14:28 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Mar
- 2026 05:14:27 -0500
-Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 24 Mar
- 2026 05:14:27 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 24 Mar 2026 05:14:27 -0500
-Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62OAELRn2446022;
-	Tue, 24 Mar 2026 05:14:21 -0500
-From: Akashdeep Kaur <a-kaur@ti.com>
-To: <lee@kernel.org>, <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>,
-	<vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <aaro.koskinen@iki.fi>,
-	<andreas@kemnade.info>, <khilman@baylibre.com>, <rogerq@kernel.org>,
-	<tony@atomide.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-omap@vger.kernel.org>, <s-ramamoorthy@ti.com>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <d-gole@ti.com>,
-	<k-willis@ti.com>, <a-kaur@ti.com>
-Subject: [PATCH v2 0/2] Make TPS65219 poweroff handler conditional
-Date: Tue, 24 Mar 2026 15:44:17 +0530
-Message-ID: <20260324101419.95616-1-a-kaur@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 24 Mar 2026 10:14:48 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48540d21f7dso43388555e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 03:14:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774347285; x=1774952085; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9IY4dDZh9dDmUZT2xOVDzhyZHdg/R37G9q2o81SGSX0=;
+        b=aJAl2Z+OzET7iEGVIL43P/DJkYN6gdJKmAtEFwYuUEAj7vuD90jVG+MTvK2KaXuI8Z
+         iwcNVEOu5oG44SIXOCF0H0OWezaV3LWLWxns8Xk/iho+7z/hXKkSCwgOeLRbAn1/thHS
+         1JKc6i9dbBy0JvQ+5lk6rvW+uH3GU3iXx8B23vJeeGFnoilJiQrWSqnXfgjRtfJPYTC8
+         08mCmy9Pvc2Nht8et9viPvF2B+veexfxB73ByTQThqOo8uzJRjixWrrL9xaOqqeJGhv3
+         THtsq+LfLPPRNLUWMyoSzcQx8Birr88EGv1eiS9RMDrowXuW3XQidwAroyrWfF0tJIHX
+         BFsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774347285; x=1774952085;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9IY4dDZh9dDmUZT2xOVDzhyZHdg/R37G9q2o81SGSX0=;
+        b=fVneefEFCRueW2f1w3UBKpd463RTxF3sR8CwinEOMot3QLiyjgFvsMyvqBBk2l/zP6
+         ZPg/nl/3UaqqUEjQ/NPglnMi3SdQJEfXPRnVBYHY1/LuymqgXnwkJA4aEGdYQWbMSHkG
+         0pk1TdRRxh2aA/FCBeWpBMguAxyojTYutdPwRklTLhZOb8aq+0nKqFnDoNdOlJzdnRcl
+         Cm2ewYJpBfzsERMcRW+yguKeId+TtpD3a8yQQnRgM7RPH9zOV7Mu6LxD7FZM5a67MQz/
+         QDiLc3yfFXyBnVF3/OXbMMbTiVoIa6GvDJaG65mxfCxd0wqQK3USTh/dlfRZfU+oFjw6
+         9c+w==
+X-Gm-Message-State: AOJu0YyaO006P8ek2rEcrOWJpGfRgF31kN8d08k0KpN5oWCq2m+JdZgO
+	W3Gm6+jGeWnZAga9IVSvXqxyn4+jelmgcPIEDZ0OECzdC3ZqIBSUyrl8XjcEgylA1AIbO7k4SS+
+	RyJCe3g==
+X-Gm-Gg: ATEYQzyTwHJNzOtmLPABwM7+nVsPBBCiACq6kIy5cNzH5utD9KtKOhfv2t7lr6srdbf
+	tOX6TyeqtFZUP59laJYZXSojXsNoJY2CiofQO0YlJb2spP6ZFz2sStTELZd/fcS2zSW+AByKly/
+	QirO4YI7bc9WluxicRxL6XXPjS1cdfvvkwNGOLCOQfA8xtAHxd/mcRgjSqJm28rTfzTQ8UTYKyE
+	ovX8G1rT06ckL4F1vcXIXOiwrHLbJsZylN3koh7GPFCnSMfQhK3dARnbpVmN9lzjclAzDfFfKNa
+	fl1pGWopHGxvyz3vkpHMWGUC/xPa+SIvBL5uKvAfd/4S5MLNxtuww8UQdm94br0Kqm6Ofv2YkU/
+	fKTNILKiQCoshDMIHr5FCQ6xFsC1H4SOA/zG2a550K0ACGIpl3LXkW08QxN0IRQ6KD5WoLNAfT7
+	1oEonkeChazHpiNkBizPwzrDYSqByxg63Dbeq8dVMlNXIIwK2sQh4RKA+2iZdMgYDNq2k=
+X-Received: by 2002:a05:600c:1d15:b0:485:34b3:8587 with SMTP id 5b1f17b1804b1-486fedf9061mr218893015e9.10.1774347284527;
+        Tue, 24 Mar 2026 03:14:44 -0700 (PDT)
+Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b6425eeb4sm32171989f8f.0.2026.03.24.03.14.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 03:14:43 -0700 (PDT)
+Date: Tue, 24 Mar 2026 10:14:40 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 5/5] KVM: arm64: Add SMC hook for SME dvmsync erratum
+Message-ID: <acJkEEXKt_GunFLQ@google.com>
+References: <20260323162408.4163113-1-catalin.marinas@arm.com>
+ <20260323162408.4163113-6-catalin.marinas@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C618A:EE_|SJ0PR10MB6424:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1b226eb-07ff-4569-1e70-08de898e2247
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|1800799024|7416014|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 0VmiaB6QaZfx0id/Owiy5gZvGd0MbLVXAOdYX9Liy+qjEUK5frhRvTsw3bjw7/0ahEbpL1L6SelTfEm3NYlYLlb/gwfB5rpVeGVoQCskJGLGxlf56/w9iS3ZdK2A9LIUYPfeDdzIBKdqJHfKx/qJghLzNaDAX1qSh/VqTlO12GuRQGS7jIEJbwTSEbGwdCM2AZGYDbpLmN37gkmk3BblLZorAYWg+9hO+CgkVLSpEdn37Y0V0hCyAM1389nuVMHIdtP561dIQlo1CwIUd7qty4PI3wb/ATVss0Mj1qUS+7bH+zOQuyyNt8ZeRXfgbrD1we301NKEtom4mlZoSf8E4cgPoEZFBsCFYUejo8OdHIRaz1Us1tYEi3lPGQAALlXfOL9j2IYl3mfrL3rZYR5J2zDjERK/k04zRFn302nNMBsdIhHxkiRoN4R+t10YwWxoY+VqcinAynfZHGYylpv1BoOfRXVW+9IqWb9aLrfxjQwG8Zd6Qrn1hTyPIJZlHVuFt4O9BdryivJp0pwTOVLkbhvwE3OFcO2X3dc0L8oZYHOsMmthhCPsR3Sh9j/1jmexzohPIVsIEEZsHy5LW3mwt5EAkL703nFOwp3MJI372JMYRbgRvkeMT22g/uzVS1BQTYcIUWIK6jDb6v77JdflHeSPZJn3rRwFw70w0v6IuzPJQ/slIFUki/LFuKxNW0uyAkSj56l0dddG1uhT6Z/aunHcR3rgMTfavmCfqN5p/mWJCYaW7r5A9oIWzzaeOpvFkcCBDkEGnL20gWybSMugFxyg6DO6t/S5PNtsb37n1GEQlMJ8aykfrQOuwlozNEnp
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(1800799024)(7416014)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CtrllC46WfI2tDDvbWs3wcjDYV77lg4kUU0QhptCwsT0tXwqXWzibZrM6g4ujWKWV7rLVvSFo4GCN6a9h1v3JMDbNhqUnoPNNZheuSP30kqAiNcG6oD3I65L3RoyRZH8uF0m5rrqTyMXB/XCa0gAHkId/BsntO9d9m9dQU5Lr/gSxxE3LApx8CsK+LwQnRh97whMM5Q+GqJ0Aq2d99LS56/kb9hhywNOI3cM9uTghW0llXRWt+x2vbWSP1e+i5DB5Ndmg4DoC6fdlutIaktGy6KJx2AgJWAQR5Kb2p72GvwXQMt25YATQeHD+tlaXJMyHFuJlmkrAtL5/pP/tRXTIH2dWuqnijvLv6OTSqCLErSOIjF/TwSsv0EsUf+Oz0Se4VQNOFee2gUtL1f+jUtUxaOUcqdkFDV9oJVpEUt8JUWYq/hYLqnRUCI+3XMtBb4o
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 10:14:28.5324
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1b226eb-07ff-4569-1e70-08de898e2247
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB6424
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260323162408.4163113-6-catalin.marinas@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_101442_494521_9425FEAD 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260324_031447_896690_44410D4A 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,55 +103,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series makes the TPS65219 PMIC poweroff handler registration
-conditional based on device tree configuration, following standard
-kernel patterns.
+On Mon, Mar 23, 2026 at 04:24:05PM +0000, Catalin Marinas wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
+> all outstanding SME accesses. Instead a DSB needs to be executed on the
+> affecteed CPUs. The implication is pages cannot be unmapped from the
+> host stage2 then provided to the guest. Host SME accesses may occur
+> after this point.
+> 
+> This erratum breaks pKVM's guarantees, and the workaround is hard to
+> implement as EL2 and EL1 share a security state meaning EL1 can mask
+> IPI sent by EL2, leading to interrupt blackouts.
+> 
+> Instead, do this in EL3. This has the advantage of a separate security
+> state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
+> to know about CPUs that are off or in PSCI's CPU_SUSPEND.
+> 
+> Add the needed hook.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@kernel.org>
 
-Currently, the TPS65219 driver unconditionally registers as the system
-poweroff handler. This creates conflicts on platforms where alternative
-poweroff mechanisms (such as TF-A firmware or other power controllers)
-should handle system shutdown instead.
+In case this goes in before Will's p-guest series and with just a small comment
+below:
 
-The standard kernel approach is to use the "system-power-controller"
-device tree property to explicitly designate which component is
-responsible for system poweroff operations.
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-Patch 1: Add "system-power-controller" property to AM62-LP-SK device
-         tree, explicitly designating the TPS65219 PMIC as the system
-         power controller for this platform. This property was missing
-         only on AM62-LP-SK among all in-tree TPS65219-based devices.
+> ---
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 17 +++++++++++++++++
+>  include/linux/arm-smccc.h             |  6 ++++++
+>  2 files changed, 23 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 38f66a56a766..ef8afbdd421b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -5,6 +5,8 @@
+>   */
+>  
+>  #include <linux/kvm_host.h>
+> +#include <linux/arm-smccc.h>
+> +
+>  #include <asm/kvm_emulate.h>
+>  #include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+> @@ -28,6 +30,15 @@ static struct hyp_pool host_s2_pool;
+>  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+>  #define current_vm (*this_cpu_ptr(&__current_vm))
+>  
+> +static void pkvm_sme_dvmsync_fw_call(void)
+> +{
+> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714)) {
+> +		struct arm_smccc_res res;
+> +
+> +		arm_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
 
-Patch 2: Update TPS65219 driver to only register poweroff handler when
-         "system-power-controller" property is present. This allows
-         other systems using this PMIC to use alternative poweroff
-         mechanisms.
+With hyp tracing in kvmarm/next, this should be hyp_smccc_1_1_smc().
 
-Impact:
-- AM62-LP-SK: No functional change (property added, handler still
-  registers)
-- Other TPS65219-based systems: Poweroff handler registration becomes
-  opt-in via DT property
-
-Tested on AM62-LP-SK - system poweroff works correctly.
-
-Changes in v2:
-- Addressed review feedback by removing comment on self explanatory code
-- Link to v1: https://lore.kernel.org/all/20260310111846.1084623-1-a-kaur@ti.com/
-
-Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-
----
-
-Akashdeep Kaur (2):
-  arm64: dts: ti: k3-am62-lp-sk: Add system-power-controller
-  mfd: tps65219: Make poweroff handler conditional on
-    system-power-controller
-
- arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts |  1 +
- drivers/mfd/tps65219.c                   | 14 ++++++++------
- 2 files changed, 9 insertions(+), 6 deletions(-)
-
--- 
-2.34.1
-
+> +	}
+> +}
+> +
+>  static void guest_lock_component(struct pkvm_hyp_vm *vm)
+>  {
+>  	hyp_spin_lock(&vm->lock);
+> @@ -553,6 +564,12 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+>  	if (ret)
+>  		return ret;
+>  
+> +	/*
+> +	 * After stage2 maintenance has happened, but before the page owner has
+> +	 * changed.
+> +	 */
+> +	pkvm_sme_dvmsync_fw_call();
+> +
+>  	/* Don't forget to update the vmemmap tracking for the host */
+>  	if (owner_id == PKVM_ID_HOST)
+>  		__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index 50b47eba7d01..e7195750d21b 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.h
+> @@ -105,6 +105,12 @@
+>  			   ARM_SMCCC_SMC_32,				\
+>  			   0, 0x3fff)
+>  
+> +/* C1-Pro erratum 4193714: SME DVMSync early acknowledgement */
+> +#define ARM_SMCCC_CPU_WORKAROUND_4193714				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_32,				\
+> +			   ARM_SMCCC_OWNER_CPU, 0x10)
+> +
+>  #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
+>  	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+>  			   ARM_SMCCC_SMC_32,				\
+> 
 
