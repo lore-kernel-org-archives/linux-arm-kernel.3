@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB4F6F532CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 03:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A9AF532CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 03:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XblcNM6KU7hXW8KSNBudspXcLZs2xKbcalCmzhtiVUo=; b=A2ySGo+vtEuUBgg3PSoMqD6mvu
-	U+W4NuYGJneJe0lgz5WiCayzZXkLcR2B8SEGpcCZ3W5h7YcZhFXbAiRlk8+fw2dP3rGamD1m7J+bj
-	OUCtw37j1VVw9ShXXFNiRcCeilUsp2pVfjHj2bRdDEOC2f7hv2X9wqlToZp+LSCCOamDGRLW0aXMu
-	LVKdUbOvGN8L5iSk94lHRNtplsehPO+QvGvnz1ms7jgy43DyFa2NUZOBYsi5h6aTc0ecsmUtQuNA2
-	q0TlodYTRo173YI7ijmEcry7bXAMB/1G2X04sJiDEXjrcxyiFO2wqbPTJqBUEJPD3A39N78PClPe9
-	M07eLiRw==;
+	bh=LD86M66XQ6z2RDnVdKVUV2lC/ws2IdjFX4ukZlHTEIA=; b=FhRmXdQCc2zEGo13BZ1cD96lYJ
+	e7gknDVHTo8P/LjJgU65uO8DV6lMut8W+zadtzkeVVaeQW6n1i3ZLHrsghcZhYoOCiWOxshDdie8v
+	H43SYF8nBW+0Li7JgjNG5WnYZjWvm0O9XheVSqizgf0xcOhE7EB66AJrIlgp8t2DHUO6cc8icbk3N
+	xi2TBR9G/u2fTbngDXghQU7wzZr1T3GtPTitvXW2QIEFWniBiWzZ7qOJRn2wy8K2B6oTk6lbdnXWT
+	u+cD3rQEIMnmJ04EH2MBzp1QO1JJjneJnqNOOqjopircUKsNrUi41PIGlYLrXho2nnXCEEzA8sRUd
+	utWsLKKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4sdD-00000000UkW-3T0U;
-	Tue, 24 Mar 2026 03:40:39 +0000
+	id 1w4sdd-00000000UqL-2hPR;
+	Tue, 24 Mar 2026 03:41:05 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4sdB-00000000Uk9-22AN
+	id 1w4sda-00000000Uo6-0LHL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 03:40:39 +0000
+	Tue, 24 Mar 2026 03:41:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774323636;
+	s=mimecast20190719; t=1774323661;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XblcNM6KU7hXW8KSNBudspXcLZs2xKbcalCmzhtiVUo=;
-	b=KzagikAoZeXaAXClYZRt/tW4dO0sJYLwUIRklwvl6XpsCqKFkuDa7yb8I6buHd8AxM+W7M
-	M20NNN0EBWxO+Q1lbuxTCYBhzHZdmXl3qOC1U9lg1NaurCHTqplpbtuKGVJbB2m0vkBUj8
-	jVe7xMP3W232w6LplzM9gii58c+xr+8=
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
- [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=LD86M66XQ6z2RDnVdKVUV2lC/ws2IdjFX4ukZlHTEIA=;
+	b=dHWBRbGTCRFGliDRKXv3clCrBZvIDGNlc9OIkt50khnNpc4TjBgDefrLU0vJpgd6a39E8c
+	QKoZqP+kW3E64eMwLhJlDFiHojkXxAE2zC05lm5e+atvrFyntf4pk+AfwA00ETctvvk+Q9
+	zEk6fK90tgQf+6wD1dviEIy7s3Ryktw=
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
+ [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-556-v65oK6heNUSIlvI8b6YO5Q-1; Mon, 23 Mar 2026 23:40:33 -0400
-X-MC-Unique: v65oK6heNUSIlvI8b6YO5Q-1
-X-Mimecast-MFC-AGG-ID: v65oK6heNUSIlvI8b6YO5Q_1774323633
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c6e24ee93a6so3835915a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 20:40:33 -0700 (PDT)
+ us-mta-182-da7BPq4lPcSYgDHIi65j-A-1; Mon, 23 Mar 2026 23:40:58 -0400
+X-MC-Unique: da7BPq4lPcSYgDHIi65j-A-1
+X-Mimecast-MFC-AGG-ID: da7BPq4lPcSYgDHIi65j-A_1774323658
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-82a6906e35fso6325940b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Mar 2026 20:40:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774323633; x=1774928433;
+        d=1e100.net; s=20251104; t=1774323657; x=1774928457;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XblcNM6KU7hXW8KSNBudspXcLZs2xKbcalCmzhtiVUo=;
-        b=StiiOg7sf7kY7vts63qTQBrioSWS2Rd4vu/OhovcUpL3roAHktO3LasXdcQPQM/+vB
-         K6eZidWbYOx+EDv+9GKBzgMaP6EB+4mAGxBSFTTSKssYUqUkRrcjvKQu1QoeXCMnoWEV
-         DN7DBuoP1hcJOQ2zHA3ev5o/Nt7W0qxoMpawm7akJcJ255sUzigWAJWj8IwV8AuDg1Hl
-         0chZsw2Z5ES9riC+mMUT2iz/QHLvDyUg63xGc+Duc0GeQMtphrHBNwmj5HXT+4h7/1hp
-         xeabUWfpHwY/Yb/ijlWfJEujtL7EWr7CG09Zbrm+sCnLcOo5xz4MF1ZiI7693DM2b3Qs
-         3b4w==
-X-Forwarded-Encrypted: i=1; AJvYcCXH3LhUiqNMOE/MIT5F4/2H06mhXezazfA7WkNB2pDBBro7oVG3niMcdAnjpx8hQKNv0yPA0pe69zZkqZnZDygk@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl8vlU0VJVbU9CIajFnJiQHbsoCP5WPgkFlyIfjPwTWHAC8c45
-	4arpRuwU3DxQDjKNRp1WCRMKbHGnPxkGIlXSZU3x5kp0pLc88mOxUZbEy4bNNWv+B/oYwu3ffld
-	vPRBN3cfTAGt4FWkP31jGYyO5ftUawfXGdUC+yWD2HMW7+HFXYHecAXZsxNnRSUtX78C3l5yOm+
-	gg
-X-Gm-Gg: ATEYQzyVDt38mCa2gD0RzkAvvlH2uUDWJ1skVK/cN3beUOrKUf1WV6RaQuZ3L1LWKAU
-	BfbQYfQFCt/wiwRIhaGbCNIMmzTRrqYAcp/LNadL1INRYDchzHONgT4CRToUpL44mtDMNUrgZ+u
-	sLH5VGZV0nec9Vk3XqDSqNPfaGSll8+vvHbs28TzYdjOfduTMZ2ldxFEoKvki+QcwL//CS5r1aV
-	Q2IvU1PcbjV0EroJufnXxhrbWoaBFhjFWFK1WLlJdl8jK378FT8yl4Skv5uqhCCFeLy2c7LzaPe
-	b3vw/FZuVDC+Vias4K8h2RLmuAYpVou5VYTEVuCSXaEdTdxl/mEktqrNPrkvtbetS6ZAC0C+tfx
-	+WkJG0ayml8VpIZfL/tx5lDyCmTDwljM07fLmVbKaTarAKVwS7jOJLXYE+7oxULJo
-X-Received: by 2002:a17:902:e847:b0:2b0:5306:5f20 with SMTP id d9443c01a7336-2b0a4e16ca1mr16086255ad.18.1774323632617;
-        Mon, 23 Mar 2026 20:40:32 -0700 (PDT)
-X-Received: by 2002:a17:902:e847:b0:2b0:5306:5f20 with SMTP id d9443c01a7336-2b0a4e16ca1mr16086135ad.18.1774323632220;
-        Mon, 23 Mar 2026 20:40:32 -0700 (PDT)
+        bh=LD86M66XQ6z2RDnVdKVUV2lC/ws2IdjFX4ukZlHTEIA=;
+        b=SgnfvXeY5Tm3KFTD8noW57e+05HnN7rL++n1TXH6r2ABgTv/yaCHrMdjVrp4ZjCT65
+         alZRIGHD1AaU2ylFfkFOreeoX8SEPOb7SyDxK7f6lMQBw7fualL3s24hub0v87JPYmv7
+         kn7SF1w1gQQqJBwDR7JWa6RDS11OeWtX59gWnm01kr4EeqaOHuKkSLi1W+GPRdufsltm
+         mQQ3Cm7Pni0YZM8r9eix7tEBwVRzzsshFZK9OW12bJR6Zf/h6LMa/6HDTX0PfAkL7F2M
+         vuwcOREgE0SbJKb/QO0tP3A/2Os24A0aqhFCmW/d7A0NS2/jmsWBt21RYmdCXHX/fvdw
+         37aQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWBNDpdKgN2Yi7uNlxz4zlrkPRrz4tMhGaPRGP0WRfeRwbd0uWXKVeDUT7rjyYjhQGBJWN4ho+O/BAhmbYrZ3EI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzwxHIqVszSsrJzSYfccL1WlEZrMDkbnfJRVsPC63Z697qruec
+	gkyX03p6qg70tlJdFDVQrsfKZQhzYTRKzXItmT0gFm1isNGbW/un38sRFWrY2xwc1DaBdXI0fd/
+	RjGCSQIWj7ZXcGzFcQlfDpaGX1TxCG2bfbTvk6eAfIDYgAieY3ab2/NdY5Ie5YWMaVIKp5VqmRB
+	9I
+X-Gm-Gg: ATEYQzzzU9NZJzEz9jbxBXxKlQ3OsDXVQNf4SUm4CWI4TljHNR4Jmn6Kq13a0e3WrjS
+	SzUP288w+4GfD23oWoHjn1005MOYbS7bDFM0QvmlCql5lpKizza2PnOzN4OzAvWf4PEDVNvHHgT
+	RywcDJSZu2EeK50cctr73tGha+NiNVAjZ/rE1GnCZ+CfaBK6Zr/R04weKIsElblt+hIbnh/5f5Z
+	NFkadJTyr9hVMCRvYcAVCQnoP/3Q4HNuZ3B9Gzz/Ni69zwxU7oPGPlxBzanHHmMawxLY2102R3g
+	3bD8PqRYG8twyZj7krH/DZN437+S2mDW6gMBupsPEw34DN3/JSqsvn22oVkgxGRWjvlnHxwcC4l
+	yGMG38Rk0FsAOH/ypCTe1u/CnXEL9OLTYbg7NGdSrqQmZxRK/fRBcavxDvvi4Mu4E
+X-Received: by 2002:a05:6a00:2d82:b0:82a:67ce:66de with SMTP id d2e1a72fcca58-82c5bdb0f77mr1586843b3a.14.1774323657553;
+        Mon, 23 Mar 2026 20:40:57 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2d82:b0:82a:67ce:66de with SMTP id d2e1a72fcca58-82c5bdb0f77mr1586793b3a.14.1774323657062;
+        Mon, 23 Mar 2026 20:40:57 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b08366c443sm162024795ad.56.2026.03.23.20.40.20
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82b0354baefsm11044528b3a.0.2026.03.23.20.40.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Mar 2026 20:40:31 -0700 (PDT)
-Message-ID: <2825ca38-44c5-4649-8a1c-40cf98905c44@redhat.com>
-Date: Tue, 24 Mar 2026 13:40:17 +1000
+        Mon, 23 Mar 2026 20:40:56 -0700 (PDT)
+Message-ID: <6ff8f2f2-e7b9-49a5-bbc1-3cfdc2fff4fb@redhat.com>
+Date: Tue, 24 Mar 2026 13:40:41 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 27/40] arm_mpam: resctrl: Add monitor initialisation
- and domain boilerplate
+Subject: Re: [PATCH v6 28/40] arm_mpam: resctrl: Add support for csu counters
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -96,20 +95,21 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
  will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
  joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-28-ben.horgan@arm.com>
+ <20260313144617.3420416-29-ben.horgan@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260313144617.3420416-28-ben.horgan@arm.com>
+In-Reply-To: <20260313144617.3420416-29-ben.horgan@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: wLD8ztf4KeJvsVHkO3TgPzkoigPpbs6YOk-m-5Uso-4_1774323633
+X-Mimecast-MFC-PROC-ID: ulKuQ-Zi58BP1onlBqxqQTWkzPQhGJ_VT-Tfk4TteiE_1774323658
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260323_204037_658712_64B2F693 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260323_204102_197379_1E6DF7F8 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,42 +125,57 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/14/26 12:46 AM, Ben Horgan wrote:
-> Add the boilerplate that tells resctrl about the mpam monitors that are
-> available. resctrl expects all (non-telemetry) monitors to be on the L3 and
-> so advertise them there and invent an L3 resctrl resource if required. The
-> L3 cache itself has to exist as the cache ids are used as the domain
-> ids.
+> From: James Morse <james.morse@arm.com>
 > 
-> Bring the resctrl monitor domains online and offline based on the cpus
-> they contain.
+> resctrl exposes a counter via a file named llc_occupancy. This isn't really
+> a counter as its value goes up and down, this is a snapshot of the cache
+> storage usage monitor.
 > 
-> Support for specific monitor types is left to later.
+> Add some picking code which will only find an L3. The resctrl counter
+> file is called llc_occupancy but we don't check it is the last one as
+> it is already identified as L3.
 > 
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
 > Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 > Reviewed-by: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Co-developed-by: Dave Martin <dave.martin@arm.com>
+> Signed-off-by: Dave Martin <dave.martin@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
-> New patch but mostly moved from the existing patches to
-> separate the monitors from the controls and the boilerplate
-> from the specific counters.
-> Use l3->mon_capable in resctrl_arch_mon_capable() as
-> resctrl_enable_mon_event() now returns a bool.
+> Changes since rfc:
+> Allow csu counters however many partid or pmg there are
+> else if -> if
+> reduce scope of local variables
+> drop has_csu
 > 
-> Changes since v5:
-> Use r->mon_capable instead of resctrl_arch_mon_capable() as specific
-> to the resource
-> Comment line wrap
-> Include offline_ctrl_domain cleanup from controls boilerplate patch
-> Include any_mon_comp finding and
-> Halve num_rmid when cdp_enabled
-> Move mpam_resctrl_get_mon_domain_from_cpu() from boilerplate patch
+> Changes since v2:
+> return -> break so works for mbwu in later patch
+> add for_each_mpam_resctrl_mon
+> return error from mpam_resctrl_monitor_init(). It may fail when is abmc
+> allocation introduced in a later patch.
+> Squashed in patch from Dave Martin:
+> https://lore.kernel.org/lkml/20250820131621.54983-1-Dave.Martin@arm.com/
+> 
+> Changes since v3:
+> resctrl_enable_mon_event() signature update
+> Restrict the events considered
+> num-rmid update
+> Use raw_smp_processor_id()
+> Tighten heuristics:
+>   Make sure it is the L3
+>   Please shout if this means the counters aren't exposed on any platforms
+> Drop tags due to change in policy/rework
+> 
+> Changes since v4:
+> Move generic monitor boilerplate to separate patch
 > ---
->   drivers/resctrl/mpam_internal.h |  15 +++
->   drivers/resctrl/mpam_resctrl.c  | 231 ++++++++++++++++++++++++++++++--
->   2 files changed, 235 insertions(+), 11 deletions(-)
+>   drivers/resctrl/mpam_resctrl.c | 83 ++++++++++++++++++++++++++++++++++
+>   1 file changed, 83 insertions(+)
 > 
-
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
