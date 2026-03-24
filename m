@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F29F532E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917F3F532E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ECt3iIDWrav4P5wrIAZ7MzDj+kkt+1A1GncpUQdHIg8=; b=kV4Pd9BLOCZF2d2I9NUnNuLHke
-	7mUsPGCSRioHxE5F6ct1zxwkzlSnLbGd/sWfzg+WczP51fZHD8qM8TfANrtfVehCpMD8C+XZZk6pl
-	Eij77X7S4V2jo0WaoDRp0xhtK0tRCqYAN2aBetXYXNgakH4O/83Je+Lar7DNmndw9eCmaRZNESTCe
-	5abRB7W/MIcR5DUh5lG2UU4GK+Gj08brldg8r7nQV4QF+DgeYxBUvQrID1H24YzLzj9x8sfP4SHoe
-	jZtqaTufhDh4gFbAsWk1MQtcDVsQaky+6DL0schtXWNhpL/kQPa0sB0+QyiZa7JNc0gbZXgrVxzfE
-	Z9Cd+1tw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OkAPB9tpxHoZvHVAlxdeetnmlI7GkOzZO8Qb4pFq860=; b=r1tCy1Cm/HMYYR1pE59jm0TMYk
+	Ykz4HuuWjG2REvSR+K6zREXcycRI0jH8XxPDT7NyhuMOEnrg7drnltUe0q4tbZp+y2Dqyb98+1d2+
+	AQUYh0exh+TJE9j3hyG/mHsxeN5+insN94RxLUA0N281AJYXjNHeT4bywyhOvw6IWr6HHchb+gR2f
+	5GAqaDS9dC5WLq4K20/3b3ctwIaBWMyEyHgkOxk/AW7evVXMUlFLrihz3gMq2RmIUuBWyLoGUY4B9
+	M+8TQXkCMjRNN/xHkgdvFZyAjoLLHi7xm2HtyvV1VXOc3fAGQo5opR86tq9MLvp6ymH9Foi52CaXA
+	GOvq/2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vps-00000000rBl-2Dwb;
-	Tue, 24 Mar 2026 07:05:56 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1w4vrH-00000000rNm-287G;
+	Tue, 24 Mar 2026 07:07:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vpp-00000000rAf-1VJQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 07:05:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=EC
-	t3iIDWrav4P5wrIAZ7MzDj+kkt+1A1GncpUQdHIg8=; b=kpLExsBPV3cBzO9hrK
-	ZRUtU4zchsPsBD9f85e9Ki3RATXfMYoHlgBg+P2Tja1WiHufD6Qf+YZkrJ+CLNxs
-	+TPrEP16eef1emI8FzmuczVb7hTxvnwbF0AaxtYvmX/uHHuvu2eKcGj8Fp1aoUX3
-	m2UW8bVn8Snm9ZVkMcI/0V4PU=
-Received: from pek-lpg-core5.wrs.com (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD39w6kN8JpbT5hBA--.36422S2;
-	Tue, 24 Mar 2026 15:05:09 +0800 (CST)
-From: Robert Garcia <rob_garcia@163.com>
-To: stable@vger.kernel.org,
-	Richard Leitner <richard.leitner@linux.dev>
-Cc: Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-media@vger.kernel.org,
-	Robert Garcia <rob_garcia@163.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6.12.y] media: nxp: imx8-isi: Fix streaming cleanup on release
-Date: Tue, 24 Mar 2026 15:05:07 +0800
-Message-Id: <20260324070507.2554507-1-rob_garcia@163.com>
-X-Mailer: git-send-email 2.34.1
+	id 1w4vrF-00000000rNI-3UWj;
+	Tue, 24 Mar 2026 07:07:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D672A600AC;
+	Tue, 24 Mar 2026 07:07:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EF82C19424;
+	Tue, 24 Mar 2026 07:07:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774336040;
+	bh=A/r+FfTIdYd7bf32ZtnrhZhkNo/CNskrUBFMjphTyAY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VsBpJFqJ1R+U+EjUVBYjnD1kfUopDa0s5nt9AO0t971Mz8l1KTqo4dVM+xEqy1twh
+	 WMAw7HPZ7TbPbYDcdv41auX+guyrGGFgG9600eMd/8lRBnTl9etI4Qu+UIhxISXWrv
+	 MHa0EkhRyFQqu8hEGOR9+iwqZ6zIdQGSuxHnAers1pSTTdT1QUV21G2Fm9Xxd6AVuY
+	 7w4R1b2WW2vRhtOBrB8up9WVLnCJcbFu7xeom9UbPrV/1jJjIfpaRpfuyWu4OFmEe8
+	 0GVtfjgGgn+DXonH3l+BKuJC6wcqJudFFWhZ6suuCNOKsmBYLrOdlZ99+4K2ogO9dV
+	 N5cR4Se6Cn4BA==
+Message-ID: <171e30f3-e294-40fb-8731-476fb51d5a3c@kernel.org>
+Date: Tue, 24 Mar 2026 08:07:15 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD39w6kN8JpbT5hBA--.36422S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Cr47JFWDGrW8Xw17WFWxJFb_yoWDZw4xpF
-	4fWrWfWr48try8A3WDJa1UXr15Ga4vva97JrWxGa4rAF15ur1YqF1UtFW0qrZ5GrWkZFW3
-	trW5X3yIkr45XaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_zuAUUUUUU=
-X-Originating-IP: [60.247.85.88]
-X-CM-SenderInfo: 5uresw5dufxti6rwjhhfrp/xtbDAQYCbWnCN6ZIXwAA3F
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_000553_805010_EA93C7BC 
-X-CRM114-Status: GOOD (  20.02  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] iio: adc: meson-saradc: add support for Meson S4
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Nick Xie <nick@khadas.com>, neil.armstrong@linaro.org,
+ khilman@baylibre.com, martin.blumenstingl@googlemail.com,
+ jbrunet@baylibre.com, dlechner@baylibre.com, andy@kernel.org,
+ krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+ linux-iio@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260323013408.429701-1-nick@khadas.com>
+ <20260323013408.429701-3-nick@khadas.com>
+ <20260323-quizzical-striped-husky-68e24e@quoll>
+ <20260323200501.6c116226@jic23-huawei>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260323200501.6c116226@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,288 +120,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Leitner <richard.leitner@linux.dev>
+On 23/03/2026 21:05, Jonathan Cameron wrote:
+> On Mon, 23 Mar 2026 08:54:21 +0100
+> Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+>> On Mon, Mar 23, 2026 at 09:34:06AM +0800, Nick Xie wrote:
+>>> Add support for the SARADC found on the Amlogic Meson S4 SoC.
+>>> According to the documentation and current testing, it is fully
+>>> compatible with the G12A parameter set, so we reuse
+>>> `meson_sar_adc_g12a_data` for this new compatible string.
+>>>
+>>> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+>>> Signed-off-by: Nick Xie <nick@khadas.com>
+>>> ---
+>>>  drivers/iio/adc/meson_saradc.c | 8 ++++++++
+>>>  1 file changed, 8 insertions(+)
+>>>
+>>> diff --git a/drivers/iio/adc/meson_saradc.c b/drivers/iio/adc/meson_saradc.c
+>>> index 47cd350498a0d..3ac48b7842c4f 100644
+>>> --- a/drivers/iio/adc/meson_saradc.c
+>>> +++ b/drivers/iio/adc/meson_saradc.c
+>>> @@ -1313,6 +1313,11 @@ static const struct meson_sar_adc_data meson_sar_adc_g12a_data = {
+>>>  	.name = "meson-g12a-saradc",
+>>>  };
+>>>  
+>>> +static const struct meson_sar_adc_data meson_sar_adc_s4_data = {
+>>> +	.param = &meson_sar_adc_g12a_param,
+>>> +	.name = "meson-s4-saradc",
+>>> +};
+>>> +
+>>>  static const struct of_device_id meson_sar_adc_of_match[] = {
+>>>  	{
+>>>  		.compatible = "amlogic,meson8-saradc",
+>>> @@ -1341,6 +1346,9 @@ static const struct of_device_id meson_sar_adc_of_match[] = {
+>>>  	}, {
+>>>  		.compatible = "amlogic,meson-g12a-saradc",
+>>>  		.data = &meson_sar_adc_g12a_data,
+>>> +	}, {
+>>> +		.compatible = "amlogic,meson-s4-saradc",  
+>>
+>> The point of compatible devices is to not add such entries. Drop.
+> It's used for naming in the userspace ABI which is supposed to reflect the part number.
 
-[ Upstream commit 47773031a148ad7973b809cc7723cba77eda2b42 ]
+Indeed, I saw this pattern in more places. Does userspace need it? There
+is no "compatible" entry shown?
 
-The current implementation unconditionally calls
-mxc_isi_video_cleanup_streaming() in mxc_isi_video_release(). This can
-lead to situations where any release call (like from a simple
-"v4l2-ctl -l") may release a currently streaming queue when called on
-such a device.
+If there is no, then probably this could be automated by taking the name
+from compatible after ',', but that would be out of scope for this set,
+so here it is fine.
 
-This is reproducible on an i.MX8MP board by streaming from an ISI
-capture device using gstreamer:
 
-	gst-launch-1.0 -v v4l2src device=/dev/videoX ! \
-	    video/x-raw,format=GRAY8,width=1280,height=800,framerate=1/120 ! \
-	    fakesink
-
-While this stream is running, querying the caps of the same device
-provokes the error state:
-
-	v4l2-ctl -l -d /dev/videoX
-
-This results in the following trace:
-
-[  155.452152] ------------[ cut here ]------------
-[  155.452163] WARNING: CPU: 0 PID: 1708 at drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c:713 mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
-[  157.004248] Modules linked in: cfg80211 rpmsg_ctrl rpmsg_char rpmsg_tty virtio_rpmsg_bus rpmsg_ns rpmsg_core rfkill nft_ct nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 nf_tables mcp251x6
-[  157.053499] CPU: 0 UID: 0 PID: 1708 Comm: python3 Not tainted 6.15.4-00114-g1f61ca5cad76 #1 PREEMPT
-[  157.064369] Hardware name: imx8mp_board_01 (DT)
-[  157.068205] pstate: 400000c5 (nZcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[  157.075169] pc : mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
-[  157.081195] lr : mxc_isi_pipe_irq_handler+0x38/0x1b0 [imx8_isi]
-[  157.087126] sp : ffff800080003ee0
-[  157.090438] x29: ffff800080003ee0 x28: ffff0000c3688000 x27: 0000000000000000
-[  157.097580] x26: 0000000000000000 x25: ffff0000c1e7ac00 x24: ffff800081b5ad50
-[  157.104723] x23: 00000000000000d1 x22: 0000000000000000 x21: ffff0000c25e4000
-[  157.111866] x20: 0000000060000200 x19: ffff80007a0608d0 x18: 0000000000000000
-[  157.119008] x17: ffff80006a4e3000 x16: ffff800080000000 x15: 0000000000000000
-[  157.126146] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-[  157.133287] x11: 0000000000000040 x10: ffff0000c01445f0 x9 : ffff80007a053a38
-[  157.140425] x8 : ffff0000c04004b8 x7 : 0000000000000000 x6 : 0000000000000000
-[  157.147567] x5 : ffff0000c0400490 x4 : ffff80006a4e3000 x3 : ffff0000c25e4000
-[  157.154706] x2 : 0000000000000000 x1 : ffff8000825c0014 x0 : 0000000060000200
-[  157.161850] Call trace:
-[  157.164296]  mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi] (P)
-[  157.170319]  __handle_irq_event_percpu+0x58/0x218
-[  157.175029]  handle_irq_event+0x54/0xb8
-[  157.178867]  handle_fasteoi_irq+0xac/0x248
-[  157.182968]  handle_irq_desc+0x48/0x68
-[  157.186723]  generic_handle_domain_irq+0x24/0x38
-[  157.191346]  gic_handle_irq+0x54/0x120
-[  157.195098]  call_on_irq_stack+0x24/0x30
-[  157.199027]  do_interrupt_handler+0x88/0x98
-[  157.203212]  el0_interrupt+0x44/0xc0
-[  157.206792]  __el0_irq_handler_common+0x18/0x28
-[  157.211328]  el0t_64_irq_handler+0x10/0x20
-[  157.215429]  el0t_64_irq+0x198/0x1a0
-[  157.219009] ---[ end trace 0000000000000000 ]---
-
-Address this issue by moving the streaming preparation and cleanup to
-the vb2 .prepare_streaming() and .unprepare_streaming() operations. This
-also simplifies the driver by allowing direct usage of the
-vb2_ioctl_streamon() and vb2_ioctl_streamoff() helpers, and removal of
-the manual cleanup from mxc_isi_video_release().
-
-Link: https://lore.kernel.org/r/20250813212451.22140-2-laurent.pinchart@ideasonboard.com
-Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
-Co-developed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Tested-by: Richard Leitner <richard.leitner@linux.dev> # i.MX8MP
-Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
-[ Minor context change fixed. ]
-Signed-off-by: Robert Garcia <rob_garcia@163.com>
----
- .../platform/nxp/imx8-isi/imx8-isi-video.c    | 156 +++++++-----------
- 1 file changed, 58 insertions(+), 98 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-index a71eb30323c8..4e6c3540de35 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-@@ -937,6 +937,49 @@ static void mxc_isi_video_init_channel(struct mxc_isi_video *video)
- 	mxc_isi_channel_set_output_format(pipe, video->fmtinfo, &video->pix);
- }
- 
-+static int mxc_isi_vb2_prepare_streaming(struct vb2_queue *q)
-+{
-+	struct mxc_isi_video *video = vb2_get_drv_priv(q);
-+	struct media_device *mdev = &video->pipe->isi->media_dev;
-+	struct media_pipeline *pipe;
-+	int ret;
-+
-+	/* Get a pipeline for the video node and start it. */
-+	scoped_guard(mutex, &mdev->graph_mutex) {
-+		ret = mxc_isi_pipe_acquire(video->pipe,
-+					   &mxc_isi_video_frame_write_done);
-+		if (ret)
-+			return ret;
-+
-+		pipe = media_entity_pipeline(&video->vdev.entity)
-+		     ? : &video->pipe->pipe;
-+
-+		ret = __video_device_pipeline_start(&video->vdev, pipe);
-+		if (ret)
-+			goto err_release;
-+	}
-+
-+	/* Verify that the video format matches the output of the subdev. */
-+	ret = mxc_isi_video_validate_format(video);
-+	if (ret)
-+		goto err_stop;
-+
-+	/* Allocate buffers for discard operation. */
-+	ret = mxc_isi_video_alloc_discard_buffers(video);
-+	if (ret)
-+		goto err_stop;
-+
-+	video->is_streaming = true;
-+
-+	return 0;
-+
-+err_stop:
-+	video_device_pipeline_stop(&video->vdev);
-+err_release:
-+	mxc_isi_pipe_release(video->pipe);
-+	return ret;
-+}
-+
- static int mxc_isi_vb2_start_streaming(struct vb2_queue *q, unsigned int count)
- {
- 	struct mxc_isi_video *video = vb2_get_drv_priv(q);
-@@ -985,6 +1028,17 @@ static void mxc_isi_vb2_stop_streaming(struct vb2_queue *q)
- 	mxc_isi_video_return_buffers(video, VB2_BUF_STATE_ERROR);
- }
- 
-+static void mxc_isi_vb2_unprepare_streaming(struct vb2_queue *q)
-+{
-+	struct mxc_isi_video *video = vb2_get_drv_priv(q);
-+
-+	mxc_isi_video_free_discard_buffers(video);
-+	video_device_pipeline_stop(&video->vdev);
-+	mxc_isi_pipe_release(video->pipe);
-+
-+	video->is_streaming = false;
-+}
-+
- static const struct vb2_ops mxc_isi_vb2_qops = {
- 	.queue_setup		= mxc_isi_vb2_queue_setup,
- 	.buf_init		= mxc_isi_vb2_buffer_init,
-@@ -992,8 +1046,10 @@ static const struct vb2_ops mxc_isi_vb2_qops = {
- 	.buf_queue		= mxc_isi_vb2_buffer_queue,
- 	.wait_prepare		= vb2_ops_wait_prepare,
- 	.wait_finish		= vb2_ops_wait_finish,
-+	.prepare_streaming	= mxc_isi_vb2_prepare_streaming,
- 	.start_streaming	= mxc_isi_vb2_start_streaming,
- 	.stop_streaming		= mxc_isi_vb2_stop_streaming,
-+	.unprepare_streaming	= mxc_isi_vb2_unprepare_streaming,
- };
- 
- /* -----------------------------------------------------------------------------
-@@ -1147,97 +1203,6 @@ static int mxc_isi_video_s_fmt(struct file *file, void *priv,
- 	return 0;
- }
- 
--static int mxc_isi_video_streamon(struct file *file, void *priv,
--				  enum v4l2_buf_type type)
--{
--	struct mxc_isi_video *video = video_drvdata(file);
--	struct media_device *mdev = &video->pipe->isi->media_dev;
--	struct media_pipeline *pipe;
--	int ret;
--
--	if (vb2_queue_is_busy(&video->vb2_q, file))
--		return -EBUSY;
--
--	/*
--	 * Get a pipeline for the video node and start it. This must be done
--	 * here and not in the queue .start_streaming() handler, so that
--	 * pipeline start errors can be reported from VIDIOC_STREAMON and not
--	 * delayed until subsequent VIDIOC_QBUF calls.
--	 */
--	mutex_lock(&mdev->graph_mutex);
--
--	ret = mxc_isi_pipe_acquire(video->pipe, &mxc_isi_video_frame_write_done);
--	if (ret) {
--		mutex_unlock(&mdev->graph_mutex);
--		return ret;
--	}
--
--	pipe = media_entity_pipeline(&video->vdev.entity) ? : &video->pipe->pipe;
--
--	ret = __video_device_pipeline_start(&video->vdev, pipe);
--	if (ret) {
--		mutex_unlock(&mdev->graph_mutex);
--		goto err_release;
--	}
--
--	mutex_unlock(&mdev->graph_mutex);
--
--	/* Verify that the video format matches the output of the subdev. */
--	ret = mxc_isi_video_validate_format(video);
--	if (ret)
--		goto err_stop;
--
--	/* Allocate buffers for discard operation. */
--	ret = mxc_isi_video_alloc_discard_buffers(video);
--	if (ret)
--		goto err_stop;
--
--	ret = vb2_streamon(&video->vb2_q, type);
--	if (ret)
--		goto err_free;
--
--	video->is_streaming = true;
--
--	return 0;
--
--err_free:
--	mxc_isi_video_free_discard_buffers(video);
--err_stop:
--	video_device_pipeline_stop(&video->vdev);
--err_release:
--	mxc_isi_pipe_release(video->pipe);
--	return ret;
--}
--
--static void mxc_isi_video_cleanup_streaming(struct mxc_isi_video *video)
--{
--	lockdep_assert_held(&video->lock);
--
--	if (!video->is_streaming)
--		return;
--
--	mxc_isi_video_free_discard_buffers(video);
--	video_device_pipeline_stop(&video->vdev);
--	mxc_isi_pipe_release(video->pipe);
--
--	video->is_streaming = false;
--}
--
--static int mxc_isi_video_streamoff(struct file *file, void *priv,
--				   enum v4l2_buf_type type)
--{
--	struct mxc_isi_video *video = video_drvdata(file);
--	int ret;
--
--	ret = vb2_ioctl_streamoff(file, priv, type);
--	if (ret)
--		return ret;
--
--	mxc_isi_video_cleanup_streaming(video);
--
--	return 0;
--}
--
- static int mxc_isi_video_enum_framesizes(struct file *file, void *priv,
- 					 struct v4l2_frmsizeenum *fsize)
- {
-@@ -1293,9 +1258,8 @@ static const struct v4l2_ioctl_ops mxc_isi_video_ioctl_ops = {
- 	.vidioc_expbuf			= vb2_ioctl_expbuf,
- 	.vidioc_prepare_buf		= vb2_ioctl_prepare_buf,
- 	.vidioc_create_bufs		= vb2_ioctl_create_bufs,
--
--	.vidioc_streamon		= mxc_isi_video_streamon,
--	.vidioc_streamoff		= mxc_isi_video_streamoff,
-+	.vidioc_streamon		= vb2_ioctl_streamon,
-+	.vidioc_streamoff		= vb2_ioctl_streamoff,
- 
- 	.vidioc_enum_framesizes		= mxc_isi_video_enum_framesizes,
- 
-@@ -1334,10 +1298,6 @@ static int mxc_isi_video_release(struct file *file)
- 	if (ret)
- 		dev_err(video->pipe->isi->dev, "%s fail\n", __func__);
- 
--	mutex_lock(&video->lock);
--	mxc_isi_video_cleanup_streaming(video);
--	mutex_unlock(&video->lock);
--
- 	pm_runtime_put(video->pipe->isi->dev);
- 	return ret;
- }
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
