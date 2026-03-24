@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F7AF532C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 06:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F29F532E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 07:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fStmksvtywXlbYrMkIeKxeAAlIJznjKfNiH+KK7VUOE=; b=utNUNTJM/VtahXg/jtHJ2Ulzqu
-	olHux4XQhRnQm6k+OsJMFj8CbcUa8XosozCyw47O8DZeV5QL0OGoaAPRkmvEnk37am6U1q88HXuV6
-	dplZ0pDKmYAFrKkHCCaCJ/m6AK1CaKTlAKJ+XBhOaD/f85lXDkqXxb/Z0zbmQ/IV4oinUi+QvTGHl
-	Fmq2H+Tm2E/J1hyoYTdHMLje+LqvBZrYzEM2h3MKD+H6dmQISK+UmnWvdHVenHFvcH8QlTOCANY/G
-	bxNBSqhBkeAz7pp2J4gVldeecoeC/P5fJZB7Th15oue5GZlIIXe7BkWfamGjgFCa/k8b0oIFXbDYH
-	aEKHZEcg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ECt3iIDWrav4P5wrIAZ7MzDj+kkt+1A1GncpUQdHIg8=; b=kV4Pd9BLOCZF2d2I9NUnNuLHke
+	7mUsPGCSRioHxE5F6ct1zxwkzlSnLbGd/sWfzg+WczP51fZHD8qM8TfANrtfVehCpMD8C+XZZk6pl
+	Eij77X7S4V2jo0WaoDRp0xhtK0tRCqYAN2aBetXYXNgakH4O/83Je+Lar7DNmndw9eCmaRZNESTCe
+	5abRB7W/MIcR5DUh5lG2UU4GK+Gj08brldg8r7nQV4QF+DgeYxBUvQrID1H24YzLzj9x8sfP4SHoe
+	jZtqaTufhDh4gFbAsWk1MQtcDVsQaky+6DL0schtXWNhpL/kQPa0sB0+QyiZa7JNc0gbZXgrVxzfE
+	Z9Cd+1tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vVv-00000000p8N-3PTc;
-	Tue, 24 Mar 2026 06:45:19 +0000
-Received: from 2a02-8389-2341-5b80-d601-7564-c2e0-491c.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:d601:7564:c2e0:491c] helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w4vVt-00000000ovK-05zE;
-	Tue, 24 Mar 2026 06:45:17 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>,
-	linux-kernel@vger.kernel.org,
+	id 1w4vps-00000000rBl-2Dwb;
+	Tue, 24 Mar 2026 07:05:56 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w4vpp-00000000rAf-1VJQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Mar 2026 07:05:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=EC
+	t3iIDWrav4P5wrIAZ7MzDj+kkt+1A1GncpUQdHIg8=; b=kpLExsBPV3cBzO9hrK
+	ZRUtU4zchsPsBD9f85e9Ki3RATXfMYoHlgBg+P2Tja1WiHufD6Qf+YZkrJ+CLNxs
+	+TPrEP16eef1emI8FzmuczVb7hTxvnwbF0AaxtYvmX/uHHuvu2eKcGj8Fp1aoUX3
+	m2UW8bVn8Snm9ZVkMcI/0V4PU=
+Received: from pek-lpg-core5.wrs.com (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD39w6kN8JpbT5hBA--.36422S2;
+	Tue, 24 Mar 2026 15:05:09 +0800 (CST)
+From: Robert Garcia <rob_garcia@163.com>
+To: stable@vger.kernel.org,
+	Richard Leitner <richard.leitner@linux.dev>
+Cc: Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-media@vger.kernel.org,
+	Robert Garcia <rob_garcia@163.com>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: [PATCH 17/17] raid6_kunit: randomize buffer alignment
-Date: Tue, 24 Mar 2026 07:40:52 +0100
-Message-ID: <20260324064115.3217136-18-hch@lst.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260324064115.3217136-1-hch@lst.de>
-References: <20260324064115.3217136-1-hch@lst.de>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 6.12.y] media: nxp: imx8-isi: Fix streaming cleanup on release
+Date: Tue, 24 Mar 2026 15:05:07 +0800
+Message-Id: <20260324070507.2554507-1-rob_garcia@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD39w6kN8JpbT5hBA--.36422S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Cr47JFWDGrW8Xw17WFWxJFb_yoWDZw4xpF
+	4fWrWfWr48try8A3WDJa1UXr15Ga4vva97JrWxGa4rAF15ur1YqF1UtFW0qrZ5GrWkZFW3
+	trW5X3yIkr45XaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_zuAUUUUUU=
+X-Originating-IP: [60.247.85.88]
+X-CM-SenderInfo: 5uresw5dufxti6rwjhhfrp/xtbDAQYCbWnCN6ZIXwAA3F
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_000553_805010_EA93C7BC 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +81,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add code to add random alignment to the buffers to test the case where
-they are not page aligned, and to move the buffers to the end of the
-allocation so that they are next to the vmalloc guard page.
+From: Richard Leitner <richard.leitner@linux.dev>
 
-This does not include the recovery buffers as the recovery requires
-page alignment.
+[ Upstream commit 47773031a148ad7973b809cc7723cba77eda2b42 ]
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
+The current implementation unconditionally calls
+mxc_isi_video_cleanup_streaming() in mxc_isi_video_release(). This can
+lead to situations where any release call (like from a simple
+"v4l2-ctl -l") may release a currently streaming queue when called on
+such a device.
+
+This is reproducible on an i.MX8MP board by streaming from an ISI
+capture device using gstreamer:
+
+	gst-launch-1.0 -v v4l2src device=/dev/videoX ! \
+	    video/x-raw,format=GRAY8,width=1280,height=800,framerate=1/120 ! \
+	    fakesink
+
+While this stream is running, querying the caps of the same device
+provokes the error state:
+
+	v4l2-ctl -l -d /dev/videoX
+
+This results in the following trace:
+
+[  155.452152] ------------[ cut here ]------------
+[  155.452163] WARNING: CPU: 0 PID: 1708 at drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c:713 mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
+[  157.004248] Modules linked in: cfg80211 rpmsg_ctrl rpmsg_char rpmsg_tty virtio_rpmsg_bus rpmsg_ns rpmsg_core rfkill nft_ct nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 nf_tables mcp251x6
+[  157.053499] CPU: 0 UID: 0 PID: 1708 Comm: python3 Not tainted 6.15.4-00114-g1f61ca5cad76 #1 PREEMPT
+[  157.064369] Hardware name: imx8mp_board_01 (DT)
+[  157.068205] pstate: 400000c5 (nZcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[  157.075169] pc : mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
+[  157.081195] lr : mxc_isi_pipe_irq_handler+0x38/0x1b0 [imx8_isi]
+[  157.087126] sp : ffff800080003ee0
+[  157.090438] x29: ffff800080003ee0 x28: ffff0000c3688000 x27: 0000000000000000
+[  157.097580] x26: 0000000000000000 x25: ffff0000c1e7ac00 x24: ffff800081b5ad50
+[  157.104723] x23: 00000000000000d1 x22: 0000000000000000 x21: ffff0000c25e4000
+[  157.111866] x20: 0000000060000200 x19: ffff80007a0608d0 x18: 0000000000000000
+[  157.119008] x17: ffff80006a4e3000 x16: ffff800080000000 x15: 0000000000000000
+[  157.126146] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+[  157.133287] x11: 0000000000000040 x10: ffff0000c01445f0 x9 : ffff80007a053a38
+[  157.140425] x8 : ffff0000c04004b8 x7 : 0000000000000000 x6 : 0000000000000000
+[  157.147567] x5 : ffff0000c0400490 x4 : ffff80006a4e3000 x3 : ffff0000c25e4000
+[  157.154706] x2 : 0000000000000000 x1 : ffff8000825c0014 x0 : 0000000060000200
+[  157.161850] Call trace:
+[  157.164296]  mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi] (P)
+[  157.170319]  __handle_irq_event_percpu+0x58/0x218
+[  157.175029]  handle_irq_event+0x54/0xb8
+[  157.178867]  handle_fasteoi_irq+0xac/0x248
+[  157.182968]  handle_irq_desc+0x48/0x68
+[  157.186723]  generic_handle_domain_irq+0x24/0x38
+[  157.191346]  gic_handle_irq+0x54/0x120
+[  157.195098]  call_on_irq_stack+0x24/0x30
+[  157.199027]  do_interrupt_handler+0x88/0x98
+[  157.203212]  el0_interrupt+0x44/0xc0
+[  157.206792]  __el0_irq_handler_common+0x18/0x28
+[  157.211328]  el0t_64_irq_handler+0x10/0x20
+[  157.215429]  el0t_64_irq+0x198/0x1a0
+[  157.219009] ---[ end trace 0000000000000000 ]---
+
+Address this issue by moving the streaming preparation and cleanup to
+the vb2 .prepare_streaming() and .unprepare_streaming() operations. This
+also simplifies the driver by allowing direct usage of the
+vb2_ioctl_streamon() and vb2_ioctl_streamoff() helpers, and removal of
+the manual cleanup from mxc_isi_video_release().
+
+Link: https://lore.kernel.org/r/20250813212451.22140-2-laurent.pinchart@ideasonboard.com
+Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
+Co-developed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Tested-by: Richard Leitner <richard.leitner@linux.dev> # i.MX8MP
+Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+[ Minor context change fixed. ]
+Signed-off-by: Robert Garcia <rob_garcia@163.com>
 ---
- lib/raid/raid6/tests/raid6_kunit.c | 41 +++++++++++++++++++++++++-----
- 1 file changed, 35 insertions(+), 6 deletions(-)
+ .../platform/nxp/imx8-isi/imx8-isi-video.c    | 156 +++++++-----------
+ 1 file changed, 58 insertions(+), 98 deletions(-)
 
-diff --git a/lib/raid/raid6/tests/raid6_kunit.c b/lib/raid/raid6/tests/raid6_kunit.c
-index a0a473643e91..d2fd4a9b74d4 100644
---- a/lib/raid/raid6/tests/raid6_kunit.c
-+++ b/lib/raid/raid6/tests/raid6_kunit.c
-@@ -20,6 +20,7 @@ MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
- 
- static struct rnd_state rng;
- static void *test_buffers[RAID6_KUNIT_MAX_BUFFERS];
-+static void *aligned_buffers[RAID6_KUNIT_MAX_BUFFERS];
- static void *test_recov_buffers[RAID6_KUNIT_MAX_FAILURES];
- static size_t test_buflen;
- 
-@@ -43,6 +44,14 @@ static unsigned int random_length(unsigned int max_length)
- 	return (rand32() % (max_length + 1)) & ~511;
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+index a71eb30323c8..4e6c3540de35 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+@@ -937,6 +937,49 @@ static void mxc_isi_video_init_channel(struct mxc_isi_video *video)
+ 	mxc_isi_channel_set_output_format(pipe, video->fmtinfo, &video->pix);
  }
  
-+/* Generate a random alignment that is a multiple of 64. */
-+static unsigned int random_alignment(unsigned int max_alignment)
++static int mxc_isi_vb2_prepare_streaming(struct vb2_queue *q)
 +{
-+	if (max_alignment == 0)
-+		return 0;
-+	return (rand32() % (max_alignment + 1)) & ~63;
-+}
++	struct mxc_isi_video *video = vb2_get_drv_priv(q);
++	struct media_device *mdev = &video->pipe->isi->media_dev;
++	struct media_pipeline *pipe;
++	int ret;
 +
- static void makedata(int start, int stop)
- {
- 	int i;
-@@ -73,7 +82,7 @@ static void test_recover_one(struct kunit *test, unsigned int nr_buffers,
- 	for (i = 0; i < RAID6_KUNIT_MAX_FAILURES; i++)
- 		memset(test_recov_buffers[i], 0xf0, test_buflen);
- 
--	memcpy(dataptrs, test_buffers, sizeof(dataptrs));
-+	memcpy(dataptrs, aligned_buffers, sizeof(dataptrs));
- 	dataptrs[faila] = test_recov_buffers[0];
- 	dataptrs[failb] = test_recov_buffers[1];
- 
-@@ -95,13 +104,13 @@ static void test_recover_one(struct kunit *test, unsigned int nr_buffers,
- 		ta->recov->data2(nr_buffers, len, faila, failb, dataptrs);
- 	}
- 
--	KUNIT_EXPECT_MEMEQ_MSG(test, test_buffers[faila], test_recov_buffers[0],
-+	KUNIT_EXPECT_MEMEQ_MSG(test, aligned_buffers[faila], dataptrs[faila],
- 			len,
- 			"faila miscompared: %3d[%c] buffers %u len %u (failb=%3d[%c])\n",
- 			faila, member_type(nr_buffers, faila),
- 			nr_buffers, len,
- 			failb, member_type(nr_buffers, failb));
--	KUNIT_EXPECT_MEMEQ_MSG(test, test_buffers[failb], test_recov_buffers[1],
-+	KUNIT_EXPECT_MEMEQ_MSG(test, aligned_buffers[failb], dataptrs[failb],
- 			len,
- 			"failb miscompared: %3d[%c] buffers %u len %u (faila=%3d[%c])\n",
- 			failb, member_type(nr_buffers, failb),
-@@ -140,9 +149,9 @@ static void test_rmw_one(struct kunit *test, unsigned int nr_buffers,
- {
- 	const struct test_args *ta = test->param_value;
- 
--	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, test_buffers);
-+	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, aligned_buffers);
- 	makedata(p1, p2);
--	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, test_buffers);
-+	ta->gen->xor_syndrome(nr_buffers, p1, p2, len, aligned_buffers);
- 	test_recover(test, nr_buffers, len);
- }
- 
-@@ -168,13 +177,33 @@ static void raid6_test_one(struct kunit *test)
- 	unsigned int nr_buffers =
- 		(rand32() % (RAID6_KUNIT_MAX_BUFFERS - 2)) + 3;
- 	unsigned int len = random_length(RAID6_KUNIT_MAX_BYTES);
-+	unsigned int max_alignment;
-+	int i;
- 
- 	/* Nuke syndromes */
- 	memset(test_buffers[nr_buffers - 2], 0xee, test_buflen);
- 	memset(test_buffers[nr_buffers - 1], 0xee, test_buflen);
- 
-+	/*
-+	 * If we're not using the entire buffer size, inject randomize alignment
-+	 * into the buffer.
-+	 */
-+	max_alignment = RAID6_KUNIT_MAX_BYTES - len;
-+	if (rand32() % 2 == 0) {
-+		/* Use random alignments mod 64 */
-+		for (i = 0; i < nr_buffers; i++)
-+			aligned_buffers[i] = test_buffers[i] +
-+				random_alignment(max_alignment);
-+	} else {
-+		/* Go up to the guard page, to catch buffer overreads */
-+		unsigned int align = test_buflen - len;
++	/* Get a pipeline for the video node and start it. */
++	scoped_guard(mutex, &mdev->graph_mutex) {
++		ret = mxc_isi_pipe_acquire(video->pipe,
++					   &mxc_isi_video_frame_write_done);
++		if (ret)
++			return ret;
 +
-+		for (i = 0; i < nr_buffers; i++)
-+			aligned_buffers[i] = test_buffers[i] + align;
++		pipe = media_entity_pipeline(&video->vdev.entity)
++		     ? : &video->pipe->pipe;
++
++		ret = __video_device_pipeline_start(&video->vdev, pipe);
++		if (ret)
++			goto err_release;
 +	}
 +
- 	/* Generate assumed good syndrome */
--	ta->gen->gen_syndrome(nr_buffers, len, test_buffers);
-+	ta->gen->gen_syndrome(nr_buffers, len, aligned_buffers);
++	/* Verify that the video format matches the output of the subdev. */
++	ret = mxc_isi_video_validate_format(video);
++	if (ret)
++		goto err_stop;
++
++	/* Allocate buffers for discard operation. */
++	ret = mxc_isi_video_alloc_discard_buffers(video);
++	if (ret)
++		goto err_stop;
++
++	video->is_streaming = true;
++
++	return 0;
++
++err_stop:
++	video_device_pipeline_stop(&video->vdev);
++err_release:
++	mxc_isi_pipe_release(video->pipe);
++	return ret;
++}
++
+ static int mxc_isi_vb2_start_streaming(struct vb2_queue *q, unsigned int count)
+ {
+ 	struct mxc_isi_video *video = vb2_get_drv_priv(q);
+@@ -985,6 +1028,17 @@ static void mxc_isi_vb2_stop_streaming(struct vb2_queue *q)
+ 	mxc_isi_video_return_buffers(video, VB2_BUF_STATE_ERROR);
+ }
  
- 	test_recover(test, nr_buffers, len);
++static void mxc_isi_vb2_unprepare_streaming(struct vb2_queue *q)
++{
++	struct mxc_isi_video *video = vb2_get_drv_priv(q);
++
++	mxc_isi_video_free_discard_buffers(video);
++	video_device_pipeline_stop(&video->vdev);
++	mxc_isi_pipe_release(video->pipe);
++
++	video->is_streaming = false;
++}
++
+ static const struct vb2_ops mxc_isi_vb2_qops = {
+ 	.queue_setup		= mxc_isi_vb2_queue_setup,
+ 	.buf_init		= mxc_isi_vb2_buffer_init,
+@@ -992,8 +1046,10 @@ static const struct vb2_ops mxc_isi_vb2_qops = {
+ 	.buf_queue		= mxc_isi_vb2_buffer_queue,
+ 	.wait_prepare		= vb2_ops_wait_prepare,
+ 	.wait_finish		= vb2_ops_wait_finish,
++	.prepare_streaming	= mxc_isi_vb2_prepare_streaming,
+ 	.start_streaming	= mxc_isi_vb2_start_streaming,
+ 	.stop_streaming		= mxc_isi_vb2_stop_streaming,
++	.unprepare_streaming	= mxc_isi_vb2_unprepare_streaming,
+ };
  
+ /* -----------------------------------------------------------------------------
+@@ -1147,97 +1203,6 @@ static int mxc_isi_video_s_fmt(struct file *file, void *priv,
+ 	return 0;
+ }
+ 
+-static int mxc_isi_video_streamon(struct file *file, void *priv,
+-				  enum v4l2_buf_type type)
+-{
+-	struct mxc_isi_video *video = video_drvdata(file);
+-	struct media_device *mdev = &video->pipe->isi->media_dev;
+-	struct media_pipeline *pipe;
+-	int ret;
+-
+-	if (vb2_queue_is_busy(&video->vb2_q, file))
+-		return -EBUSY;
+-
+-	/*
+-	 * Get a pipeline for the video node and start it. This must be done
+-	 * here and not in the queue .start_streaming() handler, so that
+-	 * pipeline start errors can be reported from VIDIOC_STREAMON and not
+-	 * delayed until subsequent VIDIOC_QBUF calls.
+-	 */
+-	mutex_lock(&mdev->graph_mutex);
+-
+-	ret = mxc_isi_pipe_acquire(video->pipe, &mxc_isi_video_frame_write_done);
+-	if (ret) {
+-		mutex_unlock(&mdev->graph_mutex);
+-		return ret;
+-	}
+-
+-	pipe = media_entity_pipeline(&video->vdev.entity) ? : &video->pipe->pipe;
+-
+-	ret = __video_device_pipeline_start(&video->vdev, pipe);
+-	if (ret) {
+-		mutex_unlock(&mdev->graph_mutex);
+-		goto err_release;
+-	}
+-
+-	mutex_unlock(&mdev->graph_mutex);
+-
+-	/* Verify that the video format matches the output of the subdev. */
+-	ret = mxc_isi_video_validate_format(video);
+-	if (ret)
+-		goto err_stop;
+-
+-	/* Allocate buffers for discard operation. */
+-	ret = mxc_isi_video_alloc_discard_buffers(video);
+-	if (ret)
+-		goto err_stop;
+-
+-	ret = vb2_streamon(&video->vb2_q, type);
+-	if (ret)
+-		goto err_free;
+-
+-	video->is_streaming = true;
+-
+-	return 0;
+-
+-err_free:
+-	mxc_isi_video_free_discard_buffers(video);
+-err_stop:
+-	video_device_pipeline_stop(&video->vdev);
+-err_release:
+-	mxc_isi_pipe_release(video->pipe);
+-	return ret;
+-}
+-
+-static void mxc_isi_video_cleanup_streaming(struct mxc_isi_video *video)
+-{
+-	lockdep_assert_held(&video->lock);
+-
+-	if (!video->is_streaming)
+-		return;
+-
+-	mxc_isi_video_free_discard_buffers(video);
+-	video_device_pipeline_stop(&video->vdev);
+-	mxc_isi_pipe_release(video->pipe);
+-
+-	video->is_streaming = false;
+-}
+-
+-static int mxc_isi_video_streamoff(struct file *file, void *priv,
+-				   enum v4l2_buf_type type)
+-{
+-	struct mxc_isi_video *video = video_drvdata(file);
+-	int ret;
+-
+-	ret = vb2_ioctl_streamoff(file, priv, type);
+-	if (ret)
+-		return ret;
+-
+-	mxc_isi_video_cleanup_streaming(video);
+-
+-	return 0;
+-}
+-
+ static int mxc_isi_video_enum_framesizes(struct file *file, void *priv,
+ 					 struct v4l2_frmsizeenum *fsize)
+ {
+@@ -1293,9 +1258,8 @@ static const struct v4l2_ioctl_ops mxc_isi_video_ioctl_ops = {
+ 	.vidioc_expbuf			= vb2_ioctl_expbuf,
+ 	.vidioc_prepare_buf		= vb2_ioctl_prepare_buf,
+ 	.vidioc_create_bufs		= vb2_ioctl_create_bufs,
+-
+-	.vidioc_streamon		= mxc_isi_video_streamon,
+-	.vidioc_streamoff		= mxc_isi_video_streamoff,
++	.vidioc_streamon		= vb2_ioctl_streamon,
++	.vidioc_streamoff		= vb2_ioctl_streamoff,
+ 
+ 	.vidioc_enum_framesizes		= mxc_isi_video_enum_framesizes,
+ 
+@@ -1334,10 +1298,6 @@ static int mxc_isi_video_release(struct file *file)
+ 	if (ret)
+ 		dev_err(video->pipe->isi->dev, "%s fail\n", __func__);
+ 
+-	mutex_lock(&video->lock);
+-	mxc_isi_video_cleanup_streaming(video);
+-	mutex_unlock(&video->lock);
+-
+ 	pm_runtime_put(video->pipe->isi->dev);
+ 	return ret;
+ }
 -- 
-2.47.3
+2.34.1
 
 
