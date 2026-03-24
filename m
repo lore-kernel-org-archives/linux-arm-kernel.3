@@ -4,106 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB41F54ABB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40524F54ABB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=; b=sPc41xKoIdqh3M0F645Tw7bLA6
-	M5IX0496YZFOnk7r+DrJW8vIBdyQJKR3RNqeBkMR1OCdacoNnFe39UD/KXPCxpDsHHfjAPGBe4T0I
-	xVO+RpjF/RMT/Fg3NwcrXzt2B/NYgCgqyONz8nTYaLursTKKcyROR4wSrNcmOWSTM2IBG3JnsaQGl
-	jrzJaVHp3qGqCVp4QCXRIbLPVEMp5rx9NfcpEaQXEj4yk+QaQpgfZS8r5DBScum3c5yPRacjxVCMN
-	VBPESwqU+Uzmj3751lDkxIHYDYgLRCceZczE5rFcyikxJYfYgdOPU1VjcGbNZqd79Vm8dfZwb2w4f
-	ZrJ3q/yA==;
+	bh=as56aPNtWm44s9wE7zPwXim0QPC6mmk0ed7R9T8xyHw=; b=vkk9vhV0/aJknAZFEE66T6xuXL
+	s7D583FH7sUkO9ZJA1GDG/w3QQ70tH/SJSxCme4Rurc+cSiZb8zp8Ebac8x/UYI8WyrbTtwHiC0QA
+	yWUHOSkloEiiYjYZyLZJQgBTkWEZpZcQS9xTykxUFVs+qm1nt9NBcs2PnI/++VsYfMeTy1MI3NPdV
+	/oiEZtQK1s8I8M9CxfN5kELnXzCT+R5FHoUSFLYCG5u09ZFjGmcZHCsStgp52x7xIzqMJ5ssi6IXe
+	xw3tbyV7xJ/fZ6kKDSmkd76f23Aa4wKnMHjM2pfhQhj6L36p9R89BQC6dOvGamg/LpCy2gvQmg5Hh
+	7YJsj4og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52EG-00000001anH-3ZjZ;
-	Tue, 24 Mar 2026 13:55:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w52GG-00000001bB4-2s2m;
+	Tue, 24 Mar 2026 13:57:36 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52EF-00000001ale-2CZ5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 24 Mar 2026 13:55:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=; b=mL0iDlkNEZc4YqcgE23xE1CKwa
-	ShulVMXkGedMJJ1RDO9AJg9AkEv9/QgDkdoOo6n6oxB75UbSzsiTSJWnuc1B5FrrYAVB1n1JrVfnX
-	nyKTn6ijfAdeouSdzyCaimJxtWZNjRlqEOM5VF53ZdntqMiLN31YQ/nHs+BLZJpApGrnJ6kKrvIzV
-	YJo6jgA7xDyLsE+lTcCrUDHDlQeCVeLoJqv9S59Cwip3QhvbCVmBIm6FDfh7pJQT9XgvcAyed0dwz
-	eYTb6tGwFpiWewHGBaa/u4hgEZgnAn2Eju53ShmGX5lilLIr4IZxH5WeHPQOSGvzvSoSG3mxAqhTu
-	pTvSTBxw==;
-Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52EB-00000004DVV-469G
+	id 1w52GD-00000001bAX-2Zsv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:55:30 +0000
-Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-56a9076813bso2405657e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:55:26 -0700 (PDT)
+	Tue, 24 Mar 2026 13:57:34 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-485375aa56eso34761045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 06:57:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774360525; x=1774965325; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=;
-        b=KKhTTFOtDZXjifRilnumeQYFdyCt5Xq0YrD8EshgEPhUzq8UZSpD0xTJk00jB+CUAc
-         KTlKcEud0hAx3+8x9nbVsdcZYr8lOKsbg6/cUZsH21f9viwb5R6ynR4ySkPntWsDYpiF
-         RB6Qd10ZrHFw6+Mikev9D7tjJYdF/Er1F3AePCRv2Vzwu3uQoDGeQCrIMBNCPSkkCaOI
-         qlw26Z92RYeTiQBZsVS/lIL9TcpGTyv+Pd3k0S/Zembc+kWNdha5z5FczDWGd9ubMUli
-         Htc5mKP8QzJufCrSGmHvH1FDk1xpa5fGEFWqlKKCPZ8iUvfJm7JJZCJwyVtRUNMdhMW6
-         WjyA==
+        d=google.com; s=20251104; t=1774360651; x=1774965451; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=as56aPNtWm44s9wE7zPwXim0QPC6mmk0ed7R9T8xyHw=;
+        b=h6RgdkvI8dCHU19Qvg+8ovDZbQ896voiSm32BhboA6lIgr6kzwBFrM/mSAaT9t1qfM
+         H9OSWdhIKwiMYzCG6coSiEUsHuHOuqmxwSfZWWwXMBsd3LlJ/WKqtIEMoPkNe3Ez7Zrt
+         5UkPColumI1glGxJD0JC+ZhyzFhlURTEowaM3scUAFn5b8mZkPilbA5xnPr49u44n9RQ
+         +11G34Wdl4KjPs9eCWZC6ZbMvGfJowvJkzHPDdO+fj+M4npYRp5qT+51zZyHXzIZl8mE
+         Gx7b4tXyhHQ5fZ/cuLxgFTqpbYWLbErz3wQc++JbrJoOPT/cQjF/LOlUKPzI9By4VgHF
+         JzoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774360525; x=1774965325;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5nh37Pt3GbzjBTjgr+edrZlsjGKmow/H+jwHdw9iYPc=;
-        b=hzwQkn9rHeZ2Zed+FEWf972qCAf7JLYVzFMYwMZJJCeDx5qMA8xkzf/dt6bsrizE7y
-         PeS/4BfpjmawRlVN4CuUWbZEmMB7Ua1sWGIF1YVeJH8R8xAByE6VIDGmhWkWSSfG2i2z
-         BKJsuU5PVp34ka9w5Hzo25nXTvpzneK3T1JUWiwumQr5uGh4tYR5gg4Elxd+Cg1G74Vi
-         ayn+RgqUbXeFyhqZNHPBUXDlC8iJ8+lMs//G2R1r1xIDvuqfhbifQL0jbG3Fv+vL9hVz
-         WLenlQl590HjlFH3kzjCr2gz/wWanMPZGf/su0m68UY2yaOa4D8ZByXJkvdwsbHhjZiB
-         OsTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZAUtSRaIMtKaBryzwkzPzKxmVB2vR3g0Oh4crvthsmGfrLkdmHs3m8fQ4zfQer7mwAh9yJm1rIWsxk/A8aS1P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6pouDYYLfTkBp6kd5fO7lI5brVaCsV2sRftH92+iIpesfecWr
-	Tf8RZkWW9uazufkNJrnvt1xRvGJTM33owyRNAAgMUlqlsiMX8H8irOA9
-X-Gm-Gg: ATEYQzxggSi7wJFq4CycLBODmaQv1/2i/A0gENLT9PJxSAGbbiKORNjua2FjjmIlSZ9
-	f473Yz44oEZPkbADM+pnBhKwMeiGodKzZWoqiCJ+AqKLTWbLLdaHpZa82+nOivUgUmhqASErxrk
-	x8hIS9+QF/pOHZhH8CyvTs5DQa6zej9Rs99WYxBvFpd+catmpyhfrw6RoimAIdxPpZa+bWLAKhY
-	cNDGASgqtJfGq55rPuC/F0FKYNUl/LP5dFsab+phsVoFfwOZQI2xP8osoDwaqBUiEBJ6mp6YeE4
-	L1NgPstwmE/fObzvBXDBy0q5GXYXgsfnUnMGFHKOPxzlTBPgXfIiXMEkEMDS2eexu2TaDXNUR38
-	0J6dr+QFWKOXBgwJyo7cxEUFIPGWGb0v4C82t0W7Ezz3v8+3SdvuEdKL4CuxilOae9ThrzzHTtY
-	PrWfn7IjgNGIjkNfRiExZRETTRBkSLI7gqPdnKqFHuqgw3s/bMPPQXHyVEYYfqOhZ5AsHuZQ==
-X-Received: by 2002:a05:6122:3a0e:b0:56c:da22:6921 with SMTP id 71dfb90a1353d-56cde35a597mr7936243e0c.5.1774360524552;
-        Tue, 24 Mar 2026 06:55:24 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:1b3:a803:91c4:cdb6:8a02:47ca:2dca])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56cddc7f882sm15529418e0c.9.2026.03.24.06.55.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 06:55:23 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: broonie@kernel.org
-Cc: heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH] ASoC: dt-bindings: rockchip: Convert rockchip-max98090.txt to yaml
-Date: Tue, 24 Mar 2026 10:55:08 -0300
-Message-ID: <20260324135508.839142-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1774360651; x=1774965451;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=as56aPNtWm44s9wE7zPwXim0QPC6mmk0ed7R9T8xyHw=;
+        b=NqLXBOo6YF5MPPRezH2qm2MATDnaMuZiAMeG8fnG7r0kksXxXq15DvlhmUh1LVX2GF
+         UVP8G8wOESmr8m6vmIJpZ5/EPfFINisS2W9OinU3sWTPIG1jV+IXIDJsDSabQhmUN0pd
+         ZTEyBwmsm5qhbU492gxHBl02++qtKAvg0eh+hFQEqquNmbCEs37iCkInW33jKe7UCpLx
+         aF5PKmcloo122l12c6nWLbZTt/wKWhI0PtFZ0cDL4c9CBeGW3aOP21m+IQPaLmgz9N/p
+         vJGCw4phxjSOYAzsvRrZjfNlVgMpbD4uikTNzuTK1HbpKOi/u19zD6G4+9d1/VmXECMO
+         ZsVA==
+X-Forwarded-Encrypted: i=1; AJvYcCWO0yrEVxvmy+MJHqGoomRvVIikqWL4tHyxGDkVxxeDLmTWAxlrCrPthHBvWMJm5DtmN/5RbJe4X/SOm7k54x3g@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLcqxZpZ+dGIFMktuNLkretqGDlRfVaPjyaVDxqsS0uG24b5bK
+	l82vrjpgS5aJl3CxzzLnfhh/NsOWtwf4R7eIT5EaOXLiwja3x8C0zUPphHze8i5JqZgeCWLJjXR
+	kZsSw39XsLtqSBPSIFVCiNvYtwhxr7A==
+X-Received: from wmbjx8.prod.google.com ([2002:a05:600c:5788:b0:485:3ddc:f26b])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:33a3:b0:486:ffa3:584 with SMTP id 5b1f17b1804b1-486ffa30b40mr104955515e9.15.1774360651034;
+ Tue, 24 Mar 2026 06:57:31 -0700 (PDT)
+Date: Tue, 24 Mar 2026 13:57:28 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.983.g0bb29b3bc5-goog
+Message-ID: <20260324135728.3532400-1-sebastianene@google.com>
+Subject: [PATCH] KVM: arm64: Inject UNDEF when host is executing an smc with
+ imm16 != 0
+From: Sebastian Ene <sebastianene@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, android-kvm@google.com
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com, 
+	maz@kernel.org, oupton@kernel.org, sebastianene@google.com, 
+	suzuki.poulose@arm.com, tabba@google.com, vdonnefort@google.com, 
+	will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_135528_493348_2EB894DD 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20260324_065733_660931_3B83FA8F 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,130 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert rockchip-max98090.txt to yaml to allow dt-schema validation.
+The ARM Service Calling Convention (SMCCC) specifies that the function
+identifier and parameters should be passed in registers, leaving the
+16-bit immediate field of the SMC instruction un-handled.
+Currently, our pKVM handler ignores the immediate value, which could lead
+to non-compliant software relying on implementation-defined behavior.
+Enforce the host kernel running under pKVM to use an immediate value
+of 0 by decoding the ISS from the ESR_EL2 and inject an undefined
+instruction exception back to the caller.
 
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- .../rockchip,rockchip-audio-max98090.yaml     | 59 +++++++++++++++++++
- .../bindings/sound/rockchip-max98090.txt      | 42 -------------
- 2 files changed, 59 insertions(+), 42 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml
- delete mode 100644 Documentation/devicetree/bindings/sound/rockchip-max98090.txt
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml b/Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml
-new file mode 100644
-index 000000000000..5630652aa4c2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/rockchip,rockchip-audio-max98090.yaml
-@@ -0,0 +1,59 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/rockchip,rockchip-audio-max98090.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip audio complex with MAX98090 codec
-+
-+maintainers:
-+  - Fabio Estevam <festevam@gmail.com>
-+
-+properties:
-+  compatible:
-+    const: rockchip,rockchip-audio-max98090
-+
-+  rockchip,model:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description: The user-visible name of this sound complex.
-+
-+  rockchip,i2s-controller:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the Rockchip I2S controller.
-+
-+  rockchip,audio-codec:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the MAX98090 audio codec.
-+
-+  rockchip,headset-codec:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the external chip for jack detection.
-+
-+  rockchip,hdmi-codec:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the HDMI device for HDMI codec.
-+
-+required:
-+  - compatible
-+  - rockchip,model
-+  - rockchip,i2s-controller
-+
-+allOf:
-+  - if:
-+      required:
-+        - rockchip,audio-codec
-+    then:
-+      required:
-+        - rockchip,headset-codec
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    sound {
-+        compatible = "rockchip,rockchip-audio-max98090";
-+        rockchip,model = "ROCKCHIP-I2S";
-+        rockchip,i2s-controller = <&i2s>;
-+        rockchip,audio-codec = <&max98090>;
-+        rockchip,headset-codec = <&headsetcodec>;
-+    };
-diff --git a/Documentation/devicetree/bindings/sound/rockchip-max98090.txt b/Documentation/devicetree/bindings/sound/rockchip-max98090.txt
-deleted file mode 100644
-index e9c58b204399..000000000000
---- a/Documentation/devicetree/bindings/sound/rockchip-max98090.txt
-+++ /dev/null
-@@ -1,42 +0,0 @@
--ROCKCHIP with MAX98090 CODEC
--
--Required properties:
--- compatible: "rockchip,rockchip-audio-max98090"
--- rockchip,model: The user-visible name of this sound complex
--- rockchip,i2s-controller: The phandle of the Rockchip I2S controller that's
--  connected to the CODEC
--
--Optional properties:
--- rockchip,audio-codec: The phandle of the MAX98090 audio codec.
--- rockchip,headset-codec: The phandle of Ext chip for jack detection. This is
--                          required if there is rockchip,audio-codec.
--- rockchip,hdmi-codec: The phandle of HDMI device for HDMI codec.
--
--Example:
--
--/* For max98090-only board. */
--sound {
--	compatible = "rockchip,rockchip-audio-max98090";
--	rockchip,model = "ROCKCHIP-I2S";
--	rockchip,i2s-controller = <&i2s>;
--	rockchip,audio-codec = <&max98090>;
--	rockchip,headset-codec = <&headsetcodec>;
--};
--
--/* For HDMI-only board. */
--sound {
--	compatible = "rockchip,rockchip-audio-max98090";
--	rockchip,model = "ROCKCHIP-I2S";
--	rockchip,i2s-controller = <&i2s>;
--	rockchip,hdmi-codec = <&hdmi>;
--};
--
--/* For max98090 plus HDMI board. */
--sound {
--	compatible = "rockchip,rockchip-audio-max98090";
--	rockchip,model = "ROCKCHIP-I2S";
--	rockchip,i2s-controller = <&i2s>;
--	rockchip,audio-codec = <&max98090>;
--	rockchip,headset-codec = <&headsetcodec>;
--	rockchip,hdmi-codec = <&hdmi>;
--};
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index e7790097db93..ff6a90a4a4c7 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -756,13 +756,18 @@ static bool handle_host_mte(u64 esr)
+ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ {
+ 	u64 esr = read_sysreg_el2(SYS_ESR);
++	u16 imm16;
+ 
+ 	switch (ESR_ELx_EC(esr)) {
+ 	case ESR_ELx_EC_HVC64:
+ 		handle_host_hcall(host_ctxt);
+ 		break;
+ 	case ESR_ELx_EC_SMC64:
+-		handle_host_smc(host_ctxt);
++		imm16 = esr & U16_MAX;
++		if (!imm16)
++			handle_host_smc(host_ctxt);
++		else
++			inject_undef64();
+ 		break;
+ 	case ESR_ELx_EC_IABT_LOW:
+ 	case ESR_ELx_EC_DABT_LOW:
 -- 
-2.43.0
+2.53.0.983.g0bb29b3bc5-goog
 
 
