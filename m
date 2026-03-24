@@ -4,64 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BB9F54ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC1CF54AB0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEsibGR4Gnt8WxsSGkKjIUukhG44jXijQmtsq+XVE1w=; b=VnqPpFPadtIY7tJbitzONWrSEM
-	n6+mFNTe2uV5hquGSGhcAvjVnyCk7ugisVaiKbPf6GzT4FilQWIr8KzO80VaZlGrXVQAwc7ILLDIY
-	bpeHyAg4IAYHmhxnYlZbgk4oR9HVSC8KpRsJvSy7R57Gcg0TuEl9TPlh+2cg8FS89kpzITJFIfafi
-	6FVI0iEaUFRfkQ8RHKOaTlbCM5vDifxDMzqb9zo/U7n9S1K+GQWEaElolYUKjFRMdaYN96lpz1WmY
-	ztXvL582f4C+ax94KR8ItP12r7vZ4lXTi7/3mCbVwAwcFhXgfGku+twSj/z0r4hF2Sreo8fGjKHoq
-	oOAWrbyg==;
+	bh=4lwJmgnSo6KnXs3QMV/sLeygtCSL7kB69SuItbOD1ns=; b=Z9buBYK8eReTqoQt+HRDNZrh0P
+	jkBbQvm7SCXzOusnzFu9vZep2OAPquUa6bzSGhK4LZNyGdXO2t3Gs+qkIVbX3Vp+8SRV4dlLDrrOX
+	Zq7YpdkmNymwv6VYccTvcBYvb8Za3ux/Q1TtuPMX9qBLtQ85dfPGjEVpJCUIA0xD/KepxQ0wwgRun
+	z9vcDHD5ZvkiosLRom2H2YwGSo3FuBZ2k9JegYtWN1UWKsXATGwsqRs46idx8Sxx/PdjcQpaeCenv
+	frfzk37OymsKx5vDTcVsGtxukX4iNeEnOY1sgt4HqqFPmNcLgV2X9quK+WE/SLICWL7nuthjXf1dx
+	KgLBsfUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52BP-00000001a3q-0fb2;
-	Tue, 24 Mar 2026 13:52:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1w52DJ-00000001aEW-0wwI;
+	Tue, 24 Mar 2026 13:54:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w52BM-00000001a35-144d;
-	Tue, 24 Mar 2026 13:52:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774360345;
-	bh=94g3Jg52tfyyaalRLEEVRBjds2/VXmSCbqO88/kuIRM=;
+	id 1w52DH-00000001aEF-3ZFK;
+	Tue, 24 Mar 2026 13:54:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D0FA0600C4;
+	Tue, 24 Mar 2026 13:54:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F6EC19424;
+	Tue, 24 Mar 2026 13:54:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774360470;
+	bh=fi9HDyvfOojRUl+q7tvPW/ZUUo7COxrKyLJS5nG3Shc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Br2n+bfWa86iLGjFkIKN3RXN70ujcfb5BBGlJ72iAEPgKZfE7mXdNCAt3y5CCgyjA
-	 mZOcyi2mcQPViWimIfZcQXVGr19CjvgsYAOBMYoDZXHZ7FtDIZ7prhuVJ4vvNrbBne
-	 Z7dLzKzSbTWeIKV2TJkBHanxNz6/+3dbteGRV7ig8j6iAJ8E4JnTUJ963dleOyCQRY
-	 hrwstTi04oV+K4s3/TnPwBc5b/TSYdX2G0wCpWg+Lo4ldPa82DyMjHFdiLBqzHgIqu
-	 lHygSjtJb+uTCx1k93vYMoHfeZjMT3X7x0CA6dCaL9C09ApJfZ+inXHJR/Ya8CbLFb
-	 XewNfOpBZ++bg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 92CBA17E5A12;
-	Tue, 24 Mar 2026 14:52:25 +0100 (CET)
-Message-ID: <b8b9ad39-0e9e-4c38-b080-85153b2a66d1@collabora.com>
-Date: Tue, 24 Mar 2026 14:52:25 +0100
+	b=BBQostQPe1O1il3B2n2fPZ8SdX8iBRcKgijfd0CrsYuGuzu/iwGI/aqeI5zqVwdSX
+	 g0CVS7Xas6Vb27q70WwPf2v23Ct3L3wg8TNDXXg8XX9t2jMCZRNbG2Vo9cxRf+FRE6
+	 xfIiRuWGcxC/rXmMZ+TxZ1QjUQTylvNF4FiXEOte/9Vobo0l2R/YFKQSDQHAGFIFTe
+	 CCP8fLARGnx1at6ziQOuWl2/wCxiyMngLDonHCOFvKICWMpmAlYL46JauClhoaQNai
+	 N7NxHdKSlh/qR53Mk5dD1JVcUE54xlmYSCFvd8u0FFgYmmbMHGyuqodPSAPjVSh/wf
+	 qRH4lf4AEjDzg==
+Message-ID: <d90284c1-3d54-4072-961b-6bb77f845ad4@kernel.org>
+Date: Tue, 24 Mar 2026 14:54:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [GIT,PULL,1/2] MediaTek ARM64 Device Tree updates for v7.1
-To: Krzysztof Kozlowski <krzk@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  matthias.bgg@gmail.com
 References: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
  <20260321-aspiring-real-foxhound-4a18e7@quoll>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ <b8b9ad39-0e9e-4c38-b080-85153b2a66d1@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20260321-aspiring-real-foxhound-4a18e7@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <b8b9ad39-0e9e-4c38-b080-85153b2a66d1@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_065232_452389_1CECBA8D 
-X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +115,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/03/26 12:07, Krzysztof Kozlowski ha scritto:
-> On Fri, Mar 20, 2026 at 09:56:38AM +0100, AngeloGioacchino Del Regno wrote:
->> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+On 24/03/2026 14:52, AngeloGioacchino Del Regno wrote:
+>> Days in linux-next:
+>> ----------------------------------------
+>>   0 | +++ (3)
 >>
->>    Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+>> With 0 days in next, you cannot really react on any bug reports.
 >>
->> are available in the Git repository at:
->>
->>    https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v7.1
->>
->> for you to fetch changes up to 820ed0c1a13c5fafb36232538d793f99a0986ef3:
->>
->>    arm64: dts: mediatek: mt7986a: Fix gpio-ranges pin count (2026-03-12 13:32:17 +0100)
 > 
-> Days in linux-next:
-> ----------------------------------------
->   0 | +++ (3)
+> OUCH!!!
 > 
-> With 0 days in next, you cannot really react on any bug reports.
+> Sorry about that, I didn't notice that my for-next didn't get pushed when I tried
+> to actually push it (and I was 100% convinced that I had checked after pushing).
 > 
+> Krzysztof, thanks for making me notice, that was completely unintentional.
+> 
+> I re-pushed the for-next branch exactly a second ago; that should give it some good
+> time in -next ... or well, otherwise, we can always delay those commits for v7.2 or
+> for fixes.
 
-OUCH!!!
+There is still plenty of time for this cycle, so no worries.
 
-Sorry about that, I didn't notice that my for-next didn't get pushed when I tried
-to actually push it (and I was 100% convinced that I had checked after pushing).
-
-Krzysztof, thanks for making me notice, that was completely unintentional.
-
-I re-pushed the for-next branch exactly a second ago; that should give it some good
-time in -next ... or well, otherwise, we can always delay those commits for v7.2 or
-for fixes.
-
-Cheers,
-Angelo
+Best regards,
+Krzysztof
 
