@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6822EF54AD9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0876F54AD7
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oi99Zq9kXc3m7bqBRTiEl2Y4h2li2+WPQIA8JvfmSpo=; b=zokCkS3KBLftuA4GPjewwUg56u
-	yN6NhRQ46ieslj8SI1UY628qbu0GjupQq0Br7ktdfGScLMttr5RloXDF1yijUjSd9xRQBdUQFd5tc
-	vvh2nnB542JDTO0m0QMW8fe5xNasLfhEPCI3BIOSgpnJuNNgTLR4KI9ooxR+VwLL5yasbwzuAkHno
-	57DGzbo3Ed2/uimvSklMTkoCK20KJIISSzGlqCLuZaYgbK/AmZMQYFMX0Pjja2EdNSZqgmkJm4oax
-	s/yTGnPmud6iQ/ssmJ42hvzbTpMJ21mh6epaA62VjZYILL2N9+3k6GX2jpSw/GxSfnAMsCcB8zDvr
-	siqTk3cA==;
+	bh=jdyWYSyo287N7trPP5POqS+TCkxF/IFSb/acbmwgA54=; b=KXlX3I3/Mfbo7zU3uBsgoIGkor
+	XWKc2eqR5aquCgqHwRGsDXga3Af8F7n/pdvsfHH+PIVk/wc0Io6wB8Gef0gaC9A/fL0ogp8XFMrrd
+	2lTYTAzu3ub9TCCJlQ5VYyouwi7zHJR519SvFdLW0oVRKi7YY6duIsjGM1p5mYyxXu9hpubJFzG12
+	1f8tdZ+h3kJzb1q9PFx48DEm1tveq+m4aTVPyuoMvZOAD2n/tIgyxEGKMH+SGtnyOH/YJZtEIbS5H
+	WeGO5eGeiqFV/01DAiYL9UxVk5N2r9UcuqvIe6gQc7fpkXadNj7DZjaYpqD1bsvbLYbX7nDLS4yaw
+	kB6YfBFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54rN-00000001uOL-2Eph;
+	id 1w54rN-00000001uOd-3ZT4;
 	Tue, 24 Mar 2026 16:44:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w54rL-00000001uMl-3bhq
+	id 1w54rM-00000001uMo-07Yk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:44:03 +0000
+	Tue, 24 Mar 2026 16:44:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31AB560123;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6BD7E60138;
 	Tue, 24 Mar 2026 16:44:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35F7C2BCB2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16FFC2BC87;
 	Tue, 24 Mar 2026 16:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774370642;
-	bh=U61+dRHYuGxHw4u9pXFuFuZiDuMWELHNCtj0Nylxc0Q=;
+	bh=iRKS7gv8fCvjYKMqPMFIbD72v7V5hcNF6WcvPrFlSRo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tsClmxy4M9zi3pMxpUGq3hxYRSZ4og2rH3NnK9WSJE+kTch0rT9za2dEVurIEIHKq
-	 VbX7Lb6/U1gjTqAUOzLAJOKbGEl69JQtOEyuJg62O46z9jRZA4yGmV6mb5c6CopUtO
-	 mYbRbmqo3Jm59Mu89FgntzTfaQlsAhglopEXSBGMMI3V1cxL67L5otRhmiPjM2NiFE
-	 FE0dskqUWWH2ldK948OprtoogAP3SfcBt9gArYdz5Tj3x3N3Ml5QdN5HzivawjxeGn
-	 UzsM7Zap8uftLrLhLP2UMI8Cmh1MPWEs9Hai3MN+kBI6PylkgCfziMsYX7A94QbHK4
-	 4tmrUMoYxNuvA==
+	b=aZC1wnIqpt390sXCOeAD1YZhNVDEobbPtbLhavgjyVncHx+fw4LAXMLVlYf05pdE/
+	 0HS/vMx1srrnsL4/fR4Br3IwKK4lSgo5hvP+w0H8kzeK715ScmVQNw7QjKoIG1YhUV
+	 OvV8L8bakZ60LWvzbeauvAPsxlGCAcgg5uvWivDLoRystMAGmoXuCaYhBgyk2F7c6V
+	 VTAopkjvzFp9IlonJhWVa6JnyWfYtleA89/YBO9bLoyUJ/qcDcr3Q3pCTUctD/3Zir
+	 pQARZnGCx4oA/wuw5hljpxC2TbYDPMyZG+nRfR89Pt4YRwn6sqPk5oWLe1YeDJ8jEE
+	 00MFpRc1uQq2Q==
 Received: by wens.tw (Postfix, from userid 1000)
-	id B0B825FFAB; Wed, 25 Mar 2026 00:44:00 +0800 (CST)
+	id A81265FEB2; Wed, 25 Mar 2026 00:44:00 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -55,9 +55,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/7] soc: sunxi: sram: Const-ify sunxi_sram_func data and references
-Date: Wed, 25 Mar 2026 00:43:51 +0800
-Message-ID: <20260324164357.1607247-4-wens@kernel.org>
+Subject: [PATCH 2/7] dt-bindings: sram: sunxi-sram: Add H616 SRAM regions
+Date: Wed, 25 Mar 2026 00:43:50 +0800
+Message-ID: <20260324164357.1607247-3-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260324164357.1607247-1-wens@kernel.org>
 References: <20260324164357.1607247-1-wens@kernel.org>
@@ -77,63 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sunxi_sram_func contains value mapping that do not change at runtime.
+The Allwinner H616 has two switchable peripheral SRAM regions:
 
-Const-ify them.
+- The VE SRAM is a 2 MB dedicated SRAM for the Video Engine. CPU access
+  to this region is enabled by default. CPU access can be disabled,
+  after which reads will show the same stale value for all addresses,
+  while writes are ignored.
+
+  The mux value for this region is different from previous generations.
+
+- The SRAM C region is an alias of the first 128 KB of VE SRAM, plus 64
+  KB of DE SRAM. The latter is otherwise unaccessible from the CPU. When
+  CPU access is disabled, the whole region reads as zero, while writes
+  are ignored.
+
+  The mux value for this region is the same as on the A64 and H6.
+
+Add compatible strings for both of them.
 
 Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- drivers/soc/sunxi/sunxi_sram.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ .../bindings/sram/allwinner,sun4i-a10-system-control.yaml    | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
-index 446b9fc1f175..5e8c80ae3509 100644
---- a/drivers/soc/sunxi/sunxi_sram.c
-+++ b/drivers/soc/sunxi/sunxi_sram.c
-@@ -29,11 +29,11 @@ struct sunxi_sram_func {
- };
+diff --git a/Documentation/devicetree/bindings/sram/allwinner,sun4i-a10-system-control.yaml b/Documentation/devicetree/bindings/sram/allwinner,sun4i-a10-system-control.yaml
+index e7f7cf72719e..6e6ab2168a2a 100644
+--- a/Documentation/devicetree/bindings/sram/allwinner,sun4i-a10-system-control.yaml
++++ b/Documentation/devicetree/bindings/sram/allwinner,sun4i-a10-system-control.yaml
+@@ -80,6 +80,7 @@ patternProperties:
+               - const: allwinner,sun4i-a10-sram-c1
+               - const: allwinner,sun4i-a10-sram-d
+               - const: allwinner,sun50i-a64-sram-c
++              - const: allwinner,sun50i-h616-ve-sram
+               - items:
+                   - enum:
+                       - allwinner,sun5i-a13-sram-a3-a4
+@@ -103,7 +104,9 @@ patternProperties:
+                       - allwinner,sun7i-a20-sram-d
+                   - const: allwinner,sun4i-a10-sram-d
+               - items:
+-                  - const: allwinner,sun50i-h6-sram-c
++                  - enum:
++                      - allwinner,sun50i-h6-sram-c
++                      - allwinner,sun50i-h616-sram-c
+                   - const: allwinner,sun50i-a64-sram-c
  
- struct sunxi_sram_data {
--	char			*name;
--	u8			reg;
--	u8			offset;
--	u8			width;
--	struct sunxi_sram_func	*func;
-+	char				*name;
-+	u8				reg;
-+	u8				offset;
-+	u8				width;
-+	const struct sunxi_sram_func	*func;
- };
- 
- struct sunxi_sram_desc {
-@@ -54,7 +54,7 @@ struct sunxi_sram_desc {
- 		.reg = _reg,					\
- 		.offset = _off,					\
- 		.width = _width,				\
--		.func = (struct sunxi_sram_func[]){		\
-+		.func = (const struct sunxi_sram_func[]){	\
- 			__VA_ARGS__, { } },			\
- 	}
- 
-@@ -111,7 +111,7 @@ static int sunxi_sram_show(struct seq_file *s, void *data)
- 	struct device_node *sram_node, *section_node;
- 	const struct sunxi_sram_data *sram_data;
- 	const struct of_device_id *match;
--	struct sunxi_sram_func *func;
-+	const struct sunxi_sram_func *func;
- 	const __be32 *sram_addr_p, *section_addr_p;
- 	u32 val;
- 
-@@ -169,7 +169,7 @@ static const struct sunxi_sram_data *sunxi_sram_of_parse(struct device_node *nod
- {
- 	const struct of_device_id *match;
- 	const struct sunxi_sram_data *data;
--	struct sunxi_sram_func *func;
-+	const struct sunxi_sram_func *func;
- 	struct of_phandle_args args;
- 	u8 val;
- 	int ret;
+ required:
 -- 
 2.47.3
 
