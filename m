@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D96F54ADE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C99F54ADC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 16:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TtPJfOS6ybRUYylo/bLt96EKp7yLEhb5rsHoucJB9QI=; b=PgTFvlrSMP1frOzV3HpGpuqv09
-	lhcw1oJ7RPdGKiLwoWPJjf/sLjr56l8gyJHgTRduC6E9Besilaj5youaUMqPQZcf0t/O7FIUOpp95
-	tal2VyZkVCi8M+OAIJJDB0h76mnFlG2BrhtlNkgT5/6qzTSxx7ZzSx9J98SYugQrVQgZ2wXD5gJ3/
-	Lu90e92RyTSokToOg6rxsRAw0xN9aKf3LB0+pgddFRCMLVwZ5wgjzLgkdLjFaxxx9crRjlcgzoHFp
-	ilVdnJ4IsIYEvOo1MjVpqJ6/RzbFE79KTSnox/+T6AQbsPXp+eIWHadVtRiXHF0mL+wHkw9q4QK1L
-	FR7fTAsA==;
+	bh=pJDNoTaGftVFib8voNKcZV7M81zwjnGP3NBshahnzuU=; b=Ia0cUegKORgFaZlyndKFfUKm1T
+	Q83o0G1jOEFBB9M0lkiSAVgqL1RTO4701XMj8OMBmxZTVIac6/llCcaUsV2JV5DVjsp5KprMNmf5l
+	UjYYoNXQGTgTxn/cgkL2EjmjPSbUvlx6OjCTqnEmXM2EnE0VdVTpjHDTXp3qzh5DcU3AmU0tcrkDE
+	oQag0HzLeMJKJKOOb0zG4D/bTVuza31BxOdVyz7S8rcT6X0X37LGGOXUSXjrh9WZwT2Sp73Zmtxrf
+	/tJ0MBxQxX/+FiQ81F5vJ5tXF2D3QXQeqTeC4JQD6cbJnxDqyNS8mtapHnqAudKDBj1nPehC0G0Lr
+	Wvw/XgXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5567-00000001wm6-3Kfw;
-	Tue, 24 Mar 2026 16:59:19 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1w556S-00000001wts-0mxX;
+	Tue, 24 Mar 2026 16:59:40 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5565-00000001wlB-2DYD
+	id 1w556Q-00000001wt5-1KEy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 16:59:18 +0000
+	Tue, 24 Mar 2026 16:59:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774371558; x=1805907558;
+  t=1774371579; x=1805907579;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=4wZaEWcRmOK6fFyQu8mcl48M7LLtMpZtBEYXsd1Cc4E=;
-  b=JL9j3tQeXBYC83en/T8KiQE9JJyUH+tYKOhXXjWWAS+oIoMIcgoLgo0W
-   PQ8J1LtlYKISV4O7YW4/ZBAJLct0KS1Z5n33+LDGxT8qTDxPJ/zK75RFD
-   4Q3UCd0TwlbWJ4z5Q/sUv6+VUWa3Xv8xuxHm1hnJRTlnLpcZxk0cEfAtq
-   lkw7v9Xlcb1JWazFzTGp0KurDx2USnkngF1b1Y6DgXdvqg53lVlYPkMCS
-   XbtxgNWWfjWW8bznrWL16ZxYU3qxLOwG9lKtqEj7ilgD/My2dEzFsCQ4y
-   qBALtZT9j0oKqDX4EM8Vxa9VIBnen6b1lzG9qJMUFdv5DeZsNK4U7H5Nh
+  bh=cQi+TnP6KS0Xel2L1NUm1zOxuJkTQw+HXZFhNST/QpA=;
+  b=ULyMssnyIxA+WgYz4/xyz832bS6VnKyxuvu5Ok0+dNNVjR2RfyGrtrtU
+   ed6PE3wEPeca+UVwF7mQuddaHj2rgoKRPOAoiytSqNDW5u/ES+fA4A3fk
+   ZQl9hxSFfCmptk0j2A8Emh4mVsfgURFzUBmHxahq4pi5lztUmRUxWddDD
+   6iPhr4XVrpgAF82B7FSgR+0+OktAelLlig+1XpL6sWeZaUNwgUCh/YBME
+   FYp4or+BoTRVWJClIjsI0b5mAtZ3S8vbtFkwdgppaVwS3nGAb6Adf8rfN
+   yEfICABoO85WKD0JDO88L5dWvF2nESWlSMQlLr5dv3WfJ4jiAKYrOJ5li
    w==;
-X-CSE-ConnectionGUID: DYDwOi0yRy2MaqkCrJydJQ==
-X-CSE-MsgGUID: OfvlpeqmQHCpeQdUrQy3CA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="86471759"
+X-CSE-ConnectionGUID: CMCQY79QREWeiTxxXu68UA==
+X-CSE-MsgGUID: +wbXWLOgSp6BiA0FVgmBRQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="79252741"
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="86471759"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:17 -0700
-X-CSE-ConnectionGUID: b26LCQzsTZi2fIETMNneag==
-X-CSE-MsgGUID: WA0Ub946SXOBfg0OV/eeeg==
+   d="scan'208";a="79252741"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:34 -0700
+X-CSE-ConnectionGUID: bklkz5swSMGrpU/gEbGm9Q==
+X-CSE-MsgGUID: DjRzhFV5Q9qVW8oMHuNG1A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,138,1770624000"; 
-   d="scan'208";a="224666273"
+   d="scan'208";a="228447839"
 Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.217])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:07 -0700
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2026 09:59:22 -0700
 From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
 To: linux-pci@vger.kernel.org,
 	Bjorn Helgaas <bhelgaas@google.com>,
@@ -85,9 +85,9 @@ To: linux-pci@vger.kernel.org,
 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
 	linux-kernel@vger.kernel.org
 Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH 03/10] resource: Rename 'tmp' variable to 'full_avail'
-Date: Tue, 24 Mar 2026 18:56:26 +0200
-Message-Id: <20260324165633.4583-4-ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH 04/10] ARM/PCI: Remove unnecessary second application of align
+Date: Tue, 24 Mar 2026 18:56:27 +0200
+Message-Id: <20260324165633.4583-5-ilpo.jarvinen@linux.intel.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
 References: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
@@ -95,8 +95,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_095917_619966_CA0D74C1 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260324_095938_420225_3F6CF926 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,80 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__find_resource_space() has variable called 'tmp'. Rename it to
-'full_avail' to better indicate its purpose.
+Aligning res->start by align inside pcibios_align_resource() is
+unnecessary because caller of pcibios_align_resource() is
+__find_resource_space() that aligns res->start with align before
+calling pcibios_align_resource().
+
+Aligning by align in case of IORESOURCE_IO && start & 0x300 cannot ever
+result in changing start either because 0x300 bits would have not
+survived the earlier alignment if align was large enough to have an
+impact.
+
+Thus, remove the duplicated aligning from pcibios_align_resource().
 
 Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 ---
- kernel/resource.c | 28 ++++++++++++++--------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
+ arch/arm/kernel/bios32.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/kernel/resource.c b/kernel/resource.c
-index 1b8d3101bdc6..8c5fcb30fc33 100644
---- a/kernel/resource.c
-+++ b/kernel/resource.c
-@@ -727,39 +727,39 @@ static int __find_resource_space(struct resource *root, struct resource *old,
- 				 struct resource_constraint *constraint)
- {
- 	struct resource *this = root->child;
--	struct resource tmp = *new, avail, alloc;
-+	struct resource full_avail = *new, avail, alloc;
- 	resource_alignf alignf = constraint->alignf;
+diff --git a/arch/arm/kernel/bios32.c b/arch/arm/kernel/bios32.c
+index 5b9b4fcd0e54..cedb83a85dd9 100644
+--- a/arch/arm/kernel/bios32.c
++++ b/arch/arm/kernel/bios32.c
+@@ -571,8 +571,6 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
+ 	if (res->flags & IORESOURCE_IO && start & 0x300)
+ 		start = (start + 0x3ff) & ~0x3ff;
  
--	tmp.start = root->start;
-+	full_avail.start = root->start;
- 	/*
- 	 * Skip past an allocated resource that starts at 0, since the assignment
--	 * of this->start - 1 to tmp->end below would cause an underflow.
-+	 * of this->start - 1 to full_avail->end below would cause an underflow.
- 	 */
- 	if (this && this->start == root->start) {
--		tmp.start = (this == old) ? old->start : this->end + 1;
-+		full_avail.start = (this == old) ? old->start : this->end + 1;
- 		this = this->sibling;
- 	}
- 	for(;;) {
- 		if (this)
--			tmp.end = (this == old) ?  this->end : this->start - 1;
-+			full_avail.end = (this == old) ?  this->end : this->start - 1;
- 		else
--			tmp.end = root->end;
-+			full_avail.end = root->end;
+-	start = (start + align - 1) & ~(align - 1);
+-
+ 	host_bridge = pci_find_host_bridge(dev->bus);
  
--		if (tmp.end < tmp.start)
-+		if (full_avail.end < full_avail.start)
- 			goto next;
- 
--		resource_clip(&tmp, constraint->min, constraint->max);
--		arch_remove_reservations(&tmp);
-+		resource_clip(&full_avail, constraint->min, constraint->max);
-+		arch_remove_reservations(&full_avail);
- 
- 		/* Check for overflow after ALIGN() */
--		avail.start = ALIGN(tmp.start, constraint->align);
--		avail.end = tmp.end;
-+		avail.start = ALIGN(full_avail.start, constraint->align);
-+		avail.end = full_avail.end;
- 		avail.flags = new->flags;
--		if (avail.start >= tmp.start) {
-+		if (avail.start >= full_avail.start) {
- 			alloc.flags = avail.flags;
- 			if (alignf) {
- 				alloc.start = alignf(constraint->alignf_data,
--						     &avail, &tmp,
-+						     &avail, &full_avail,
- 						     size, constraint->align);
- 			} else {
- 				alloc.start = avail.start;
-@@ -777,7 +777,7 @@ next:		if (!this || this->end == root->end)
- 			break;
- 
- 		if (this != old)
--			tmp.start = this->end + 1;
-+			full_avail.start = this->end + 1;
- 		this = this->sibling;
- 	}
- 	return -EBUSY;
+ 	if (host_bridge->align_resource)
 -- 
 2.39.5
 
