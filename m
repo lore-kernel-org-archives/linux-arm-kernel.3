@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C015DF54ABB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BB9F54ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 13:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6DylKeCYm3VDED+c7LS4O9E/kdD6gkIBVVmWVWmR3I=; b=ppZVJRVu7wO3FzDvyj9p6zbmeX
-	OWWfYX3ONCzc/237MbUQKz8a4iAskFmuHKSVmy/hcAH55Li8/Uu3wYzmF+sJKWeGXtC6Zs9jMU0YH
-	ALxEJIcd+zrTJgu9o0m+3F314lNvLUGt2wotylxM2bF0tfTdB8UKuWzif6WBKqfE3j/Ybv++f8ibq
-	IllLZiU/AeavNiaDxx2PagKDPs3ys+ZzU5nz6tAVd4As95dYrXijL7yRbqNXd29CtUCvig1pHskNT
-	Kwt2OorZC7eno5UnZQ4xPVU/xSw3OumtBkdcTGOTp9H5CSgjtmwYPdFy2cTqU0YpX2O8SPIFeBLF4
-	7+jhGv8g==;
+	bh=dEsibGR4Gnt8WxsSGkKjIUukhG44jXijQmtsq+XVE1w=; b=VnqPpFPadtIY7tJbitzONWrSEM
+	n6+mFNTe2uV5hquGSGhcAvjVnyCk7ugisVaiKbPf6GzT4FilQWIr8KzO80VaZlGrXVQAwc7ILLDIY
+	bpeHyAg4IAYHmhxnYlZbgk4oR9HVSC8KpRsJvSy7R57Gcg0TuEl9TPlh+2cg8FS89kpzITJFIfafi
+	6FVI0iEaUFRfkQ8RHKOaTlbCM5vDifxDMzqb9zo/U7n9S1K+GQWEaElolYUKjFRMdaYN96lpz1WmY
+	ztXvL582f4C+ax94KR8ItP12r7vZ4lXTi7/3mCbVwAwcFhXgfGku+twSj/z0r4hF2Sreo8fGjKHoq
+	oOAWrbyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w526D-00000001Zi2-0Ij4;
-	Tue, 24 Mar 2026 13:47:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w52BP-00000001a3q-0fb2;
+	Tue, 24 Mar 2026 13:52:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w526C-00000001ZhZ-0K7W
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 13:47:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 416D26012A;
-	Tue, 24 Mar 2026 13:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E28DC2BC87;
-	Tue, 24 Mar 2026 13:47:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774360031;
-	bh=P7hdlk9agELe0A1qr6nFer12udYaXk1PPxLMDqx39ZA=;
+	id 1w52BM-00000001a35-144d;
+	Tue, 24 Mar 2026 13:52:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774360345;
+	bh=94g3Jg52tfyyaalRLEEVRBjds2/VXmSCbqO88/kuIRM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YTPWewIy2XjmxYlPmx78726H6Q3b3o2/K/XUTePzsvwm3uznu6RxSQ9VVOI3XlzOG
-	 HsrbKbDCx3m9YmyaD3qdFsMmBHphI8gV8cNWgVIhnQPUqzkVJcCVavloxupaiM3Bm6
-	 gr3e0Px4RcxCPcL83D1wX9JJc6dId3W2C4QqzltZ/kcXDNKp3m5fD4ExEn6LR+XdUP
-	 PelNtyhfO1qewjmDgvfR6vVAiq3X/L5HZs831H4nzB/UTtvqLpliKm4Brg2uWgVMzM
-	 9xAQxVjmsfR7x8Rkzygwl+RYpr/4lCFYaT1TqD0D9iSWCxDdCbIPG8WQDVTWpttBID
-	 43LOH87Q4rQ6Q==
-Message-ID: <780c1ba3-6639-478e-896f-e35ec059b58c@kernel.org>
-Date: Tue, 24 Mar 2026 14:47:06 +0100
+	b=Br2n+bfWa86iLGjFkIKN3RXN70ujcfb5BBGlJ72iAEPgKZfE7mXdNCAt3y5CCgyjA
+	 mZOcyi2mcQPViWimIfZcQXVGr19CjvgsYAOBMYoDZXHZ7FtDIZ7prhuVJ4vvNrbBne
+	 Z7dLzKzSbTWeIKV2TJkBHanxNz6/+3dbteGRV7ig8j6iAJ8E4JnTUJ963dleOyCQRY
+	 hrwstTi04oV+K4s3/TnPwBc5b/TSYdX2G0wCpWg+Lo4ldPa82DyMjHFdiLBqzHgIqu
+	 lHygSjtJb+uTCx1k93vYMoHfeZjMT3X7x0CA6dCaL9C09ApJfZ+inXHJR/Ya8CbLFb
+	 XewNfOpBZ++bg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 92CBA17E5A12;
+	Tue, 24 Mar 2026 14:52:25 +0100 (CET)
+Message-ID: <b8b9ad39-0e9e-4c38-b080-85153b2a66d1@collabora.com>
+Date: Tue, 24 Mar 2026 14:52:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qe: Fix potential NULL pointer dereference
- inqe_reset()
-To: =?UTF-8?B?5pyq5ZCb?= <1742789905@qq.com>, "qiang.zhao"
- <qiang.zhao@nxp.com>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Cc: linux-kernel <linux-kernel@vger.kernel.org>
-References: <tencent_770FE404794D670E2ACDFA144EFDA35AC305@qq.com>
- <7e0425c2-debe-448a-a5f9-26039de71db5@kernel.org>
- <tencent_89405091B7744EA070AC53E11A3FFA355609@qq.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <tencent_89405091B7744EA070AC53E11A3FFA355609@qq.com>
+Subject: Re: [GIT,PULL,1/2] MediaTek ARM64 Device Tree updates for v7.1
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: arm-soc <arm@kernel.org>, soc <soc@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ matthias.bgg@gmail.com
+References: <20260320085641.15843-1-angelogioacchino.delregno@collabora.com>
+ <20260321-aspiring-real-foxhound-4a18e7@quoll>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260321-aspiring-real-foxhound-4a18e7@quoll>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260324_065232_452389_1CECBA8D 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Le 16/03/2026 à 04:28, 未君 a écrit :
-> 	
-> Vous n’obtenez pas souvent d’e-mail à partir de 1742789905@qq.com. 
-> Pourquoi c’est important <https://aka.ms/LearnAboutSenderIdentification>
-> 	
+Il 21/03/26 12:07, Krzysztof Kozlowski ha scritto:
+> On Fri, Mar 20, 2026 at 09:56:38AM +0100, AngeloGioacchino Del Regno wrote:
+>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+>>
+>>    Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+>>
+>> are available in the Git repository at:
+>>
+>>    https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v7.1
+>>
+>> for you to fetch changes up to 820ed0c1a13c5fafb36232538d793f99a0986ef3:
+>>
+>>    arm64: dts: mediatek: mt7986a: Fix gpio-ranges pin count (2026-03-12 13:32:17 +0100)
 > 
-> Hi,
+> Days in linux-next:
+> ----------------------------------------
+>   0 | +++ (3)
 > 
-> Thank you for the detailed review. You are completely right.
+> With 0 days in next, you cannot really react on any bug reports.
 > 
-> My commit message was confusing, and returning early in qe_reset() just 
-> shifts the NULL pointer dereference to the dependent drivers later on, 
-> without actually fixing the root cause.
-> 
-> To achieve what you suggested ("if qe_immr remap fails, all drivers 
-> depending on it don't get probed"), I plan to do the following in the v2 
-> patch:
-> 
-> 1. Change the return type of qe_reset() from `void` to `int`.
-> 2. Return `-ENOMEM` if the ioremap() fails.
-> 3. Update the callers of qe_reset() (e.g., qe_probe() and other board- 
-> specific setup functions) to check this return value. If qe_reset() 
-> fails, the callers will abort their initialization/probing, which will 
-> properly prevent the child devices from being probed.
-> 
-> Does this approach sound correct to you? If so, I will prepare and 
-> submit the v2 patch accordingly.
 
-Well, it would probably work but is it worth it ?
+OUCH!!!
 
-If the board is already unable to get a few bytes of memory that early 
-in the boot process it is unlikely that it will be able to do much more 
-work.
+Sorry about that, I didn't notice that my for-next didn't get pushed when I tried
+to actually push it (and I was 100% convinced that I had checked after pushing).
 
-Wouldn't it be good enough to just panic() when ioremap() fails, similar 
-to what happens when qe_sdma_init() fails, see 
-https://elixir.bootlin.com/linux/v7.0-rc5/source/drivers/soc/fsl/qe/qe.c#L101
+Krzysztof, thanks for making me notice, that was completely unintentional.
 
-Christophe
+I re-pushed the for-next branch exactly a second ago; that should give it some good
+time in -next ... or well, otherwise, we can always delay those commits for v7.2 or
+for fixes.
 
+Cheers,
+Angelo
 
