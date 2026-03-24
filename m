@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C7FF54AD0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D91F54ACF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 15:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q4yFcdfLoMycK9iVMeBa6vV12EYRDZRmWmYAs97jeLQ=; b=4E+XeQE+gEL6qugcbuHCCxQnC9
-	4t5amFGVQQlMFQuhTkbE2ljjS2Ja+QsfYn/117Dg4ovZEV8F7FR+WkYi6O+cUtGio7TRyGWsd0B0J
-	M1MMhiTXD9RdIoytzbwmZjFsNQGAdhAq2wpLPVe41uwDkz+/qK+HKW5e8MfU0ZD6V2pPg+ZTgVqVJ
-	eX9x684yZSNla/ieXVsrvkEBIYlwVs8eF6G7RPM6EtWszsWMmdoIR0dwM+wG58w9VDGfdaQM8TT0Z
-	hNufguxSyPXTlS0Hx7rKYiv6bvFusTUtDY+r0CW1ULm46E3AVNSvnVaUIQwTiEKPWrT9hyB8xcLv9
-	tUUKyqng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VolA4kz5nfbaDIr9UMIbPnzlGct1Wn/qTCnh2YivWqM=; b=RZZZrqVkuHmHz5guWXnnl5yqxb
+	7kTmxiOHC0/MFWKrgXTiiId841qZLbtUc7/h7LENvF0RRDoYo+NlAo9K4trJaueq3DYa33zmMfiaE
+	XymhtyrHZ+K9m5pDdkj2TDmg8sE57ZzN/UDeBZ8Co1Rljv+He771a/3RJqlsLPej/6h6QPkONUv3P
+	7qPUo+kYLoTRM/Ry7YrTh5lHzRHW7k7YAF0eaBrBt7F7YWaAVEfFI4COOt3nbWth+A4SNiy85dJ+N
+	6JUN3MZUEnuWKdQuaoQ2HNGXSEouwUaLtYgZdBYqOg16/N5hCzumnW6X8LX8K2I0xOR5Uq4nFmwNa
+	lTlLdiHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53vV-00000001mY6-3Xfk;
-	Tue, 24 Mar 2026 15:44:17 +0000
-Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
+	id 1w53xd-00000001mjk-1JG0;
+	Tue, 24 Mar 2026 15:46:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w53vT-00000001mXP-1MbB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 15:44:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774367049; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Blp/UJoXI172pbZdvmEIK05VbZv2zruec5pshAWWqMnPazuKziYduXgdZo3FhuNtH4MngV0mZvA05h1jXsXynF7p8SoIu1QSayn8hEnII8qFwBK4aZmfKeTpHcXdFne9WMgJ32gzX3/rFEY8smX3Ytjl3rBSD+Mtb9sKaaB+CeA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774367049; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=q4yFcdfLoMycK9iVMeBa6vV12EYRDZRmWmYAs97jeLQ=; 
-	b=RdOYcfhscAgFPTxY5+WSXXJeIXUBxlsxc+HTH9tSUmXY8/8EQa6dRgSe11Ic9qOdEk2ifEATtTBi9Vhqh0uYXoF2klIrWqgp/DAPr49ujJ9VTS0vM4lizPOCVOTuXKGQbLnzjGGQmDRcGy1RyJnyqQEbdJgDRrXuDt1jWtW4Ul8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=trunixcodes@zohomail.com;
-	dmarc=pass header.from=<trunixcodes@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774367049;
-	s=zm2022; d=zohomail.com; i=trunixcodes@zohomail.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
-	bh=q4yFcdfLoMycK9iVMeBa6vV12EYRDZRmWmYAs97jeLQ=;
-	b=NeMQ5eW3RNvZicBqF+3c1OklOIDc6o5AkDzvjU5r7Fmvo4URvhch2jPOQVmvKsUf
-	sOq0TSuvYxI1fIKhhWdQOPsJnualnnFN1SADSyYU7ggzZfS3XX6OLjMqk24VXztoq8A
-	iYtmTmNEp9pjfye5iUynoaQzVs6PJITn0sjgLKXo=
-Received: by mx.zohomail.com with SMTPS id 1774367047799293.29233390284094;
-	Tue, 24 Mar 2026 08:44:07 -0700 (PDT)
-From: Ethan Luna <trunixcodes@zohomail.com>
-To: peterhuewe@gmx.de,
-	jarkko@kernel.org
-Cc: jgg@ziepe.ca,
-	nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev,
-	linux-integrity@vger.kernel.org,
+	id 1w53xc-00000001mjZ-2X5x;
+	Tue, 24 Mar 2026 15:46:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8772C600AC;
+	Tue, 24 Mar 2026 15:46:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3123FC19424;
+	Tue, 24 Mar 2026 15:46:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774367187;
+	bh=FYUbLS4x6Nc+I7HqaW/Crr9Gva6T47bDev7ITRWYHvI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MPJOwUL/O2nlpD5r3r3Wgk6C5YAnuJ0uxdQRtF4wYqnSZMGYFF7fC8JL7GG2oWXN0
+	 ehBMJyrWX67MCLCBOBGh4cOw2PyJ8hxoikPIA0zex39PWC/jI6AQq7yjPd8AzlxlwG
+	 TXlLEwA7KiV9vZB7xJ6sCjO60unz078JzHduvzahYYmuSMN1XPJcrVNJdPCYfaa+SB
+	 p+wfDsg1PIM9AmYCdVHbnU5dBTXsoqxqyxAMR7iztZOI3uXGWLTtBO6RSZAXQKM9K1
+	 WtvngY8dmI3P5TtK8lkos5o0xHfsUGO4QuptZ6Or3d1Gy/CTHLFnKOnMB4f4PY25Ig
+	 V6sgthkh5OVIw==
+Date: Tue, 24 Mar 2026 15:46:20 +0000
+From: Will Deacon <will@kernel.org>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] tpm: i2c: atmel: fix block comment formatting
-Date: Tue, 24 Mar 2026 08:39:49 -0700
-Message-ID: <20260324154354.6268-1-trunixcodes@zohomail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org
+Subject: Re: [PATCH v13 3/6] iommu: Add verisilicon IOMMU driver
+Message-ID: <acKxzGk1Z541yoZ4@willie-the-truck>
+References: <20260216095144.107356-1-benjamin.gaignard@collabora.com>
+ <20260216095144.107356-4-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Feedback-ID: rr08011227bdff1a87741d6709db5417dd00007eedcf7322d31ae1c5a34cc6c3bd9219f07974fcc15b1ee4de:zu080112272e0c313d4a7e07d895724df10000a6a1bd546eab8626b83cada607efcf8f59a215f912017407a9:rf0801122cb8c3cf8ada706d2083c6e60c0000db61e0e54f3a3b7f1d26843295d99223e8c6da0d3ac33d90fefd91b4e187:ZohoMail
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_084415_393196_F8D82305 
-X-CRM114-Status: GOOD (  18.39  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260216095144.107356-4-benjamin.gaignard@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,108 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
-same line as the comment text. This violates the kernel's preferred
-comment style, which requires the closing delimiter to appear on its
-line.
+On Mon, Feb 16, 2026 at 10:51:35AM +0100, Benjamin Gaignard wrote:
+> The Verisilicon IOMMU hardware block can be found in combination
+> with Verisilicon hardware video codecs (encoders or decoders) on
+> different SoCs.
+> Enable it will allow us to use non contiguous memory allocators
+> for Verisilicon video codecs.
+> If both decoder and this iommu driver are compiled has modules
+> there is undefined symboles issues so this iommu driver could
+> only be compiled has built-in.
+> 
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> ---
+>  MAINTAINERS               |   8 +
+>  drivers/iommu/Kconfig     |  11 +
+>  drivers/iommu/Makefile    |   1 +
+>  drivers/iommu/vsi-iommu.c | 794 ++++++++++++++++++++++++++++++++++++++
+>  include/linux/vsi-iommu.h |  21 +
+>  5 files changed, 835 insertions(+)
+>  create mode 100644 drivers/iommu/vsi-iommu.c
+>  create mode 100644 include/linux/vsi-iommu.h
 
-Fix the formatting to improve readability and resolve checkpatch
-warnings.
+[...]
 
-Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
----
+> +static size_t vsi_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
+> +			      size_t size, size_t count, struct iommu_iotlb_gather *gather)
+> +{
+> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
+> +	dma_addr_t pte_dma, iova = (dma_addr_t)_iova;
+> +	unsigned long flags;
+> +	phys_addr_t pt_phys;
+> +	u32 dte;
+> +	u32 *pte_addr;
+> +	size_t unmap_size = 0;
+> +
+> +	spin_lock_irqsave(&vsi_domain->lock, flags);
+> +
+> +	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
+> +	/* Just return 0 if iova is unmapped */
+> +	if (!vsi_dte_is_pt_valid(dte))
+> +		goto unlock;
+> +
+> +	pt_phys = vsi_dte_pt_address(dte);
+> +	pte_addr = (u32 *)phys_to_virt(pt_phys) + vsi_iova_pte_index(iova);
+> +	pte_dma = pt_phys + vsi_iova_pte_index(iova) * sizeof(u32);
+> +	unmap_size = vsi_iommu_unmap_iova(vsi_domain, pte_addr, pte_dma, size);
+> +
+> +unlock:
+> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
+> +
+> +	return unmap_size;
+> +}
 
-V1 -> V2: Fixed block comment formatting consistently across all multi-line comments
-V2 -> V3: Fixed trailing whitespaces consistently across all multi-line comments
+I still think you need TLB invalidation here.
 
-v1: https://lore.kernel.org/all/20260322193112.27010-1-trunixcodes@zohomail.com/
-v2: https://lore.kernel.org/all/20260323134200.7766-1-trunixcodes@zohomail.com/
+I looked at the downstream code that you linked to and it litters the
+invalidation in the callers via mpp_iommu_flush_tlb(), which tend to
+invalidate _before_ starting an operation. That's very likely buggy and
+certainly not something we want upstream.
 
- drivers/char/tpm/tpm_i2c_atmel.c | 34 +++++++++++++++++++++-----------
- 1 file changed, 23 insertions(+), 11 deletions(-)
+The unmap routine should do the invalidation so that, when it returns,
+the pages really are unmapped from the device (assuming strict mode).
 
-diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
-index 4f229656a8e2..9fd73049821f 100644
---- a/drivers/char/tpm/tpm_i2c_atmel.c
-+++ b/drivers/char/tpm/tpm_i2c_atmel.c
-@@ -31,9 +31,11 @@
- 
- struct priv_data {
- 	size_t len;
--	/* This is the amount we read on the first try. 25 was chosen to fit a
-+	/*
-+	 * This is the amount we read on the first try. 25 was chosen to fit a
- 	 * fair number of read responses in the buffer so a 2nd retry can be
--	 * avoided in small message cases. */
-+	 * avoided in small message cases.
-+	 */
- 	u8 buffer[sizeof(struct tpm_header) + 25];
- };
- 
-@@ -58,7 +60,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
- 	if (status < 0)
- 		return status;
- 
--	/* The upper layer does not support incomplete sends. */
-+	/*
-+	 * The upper layer does not support incomplete sends.
-+	 */
- 	if (status != len)
- 		return -E2BIG;
- 
-@@ -76,9 +80,11 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
- 	if (priv->len == 0)
- 		return -EIO;
- 
--	/* Get the message size from the message header, if we didn't get the
-+	/*
-+	 * Get the message size from the message header, if we didn't get the
- 	 * whole message in read_status then we need to re-read the
--	 * message. */
-+	 * message.
-+	 */
- 	expected_len = be32_to_cpu(hdr->length);
- 	if (expected_len > count)
- 		return -ENOMEM;
-@@ -111,15 +117,19 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
- 	struct i2c_client *client = to_i2c_client(chip->dev.parent);
- 	int rc;
- 
--	/* The TPM fails the I2C read until it is ready, so we do the entire
-+	/*
-+	 * The TPM fails the I2C read until it is ready, so we do the entire
- 	 * transfer here and buffer it locally. This way the common code can
--	 * properly handle the timeouts. */
-+	 * properly handle the timeouts.
-+	 */
- 	priv->len = 0;
- 	memset(priv->buffer, 0, sizeof(priv->buffer));
- 
- 
--	/* Once the TPM has completed the command the command remains readable
--	 * until another command is issued. */
-+	/*
-+	 * Once the TPM has completed the command the command remains readable
-+	 * until another command is issued.
-+	 */
- 	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
- 	dev_dbg(&chip->dev,
- 		"%s: sts=%d", __func__, rc);
-@@ -172,9 +182,11 @@ static int i2c_atmel_probe(struct i2c_client *client)
- 
- 	dev_set_drvdata(&chip->dev, priv);
- 
--	/* There is no known way to probe for this device, and all version
-+	/*
-+	 * There is no known way to probe for this device, and all version
- 	 * information seems to be read via TPM commands. Thus we rely on the
--	 * TPM startup process in the common code to detect the device. */
-+	 * TPM startup process in the common code to detect the device.
-+	 */
- 
- 	return tpm_chip_register(chip);
- }
--- 
-2.53.0
+I know you said that you tried to add invalidation here and it "didn't
+work", but that's not something I can really help you with.
 
+Will
 
