@@ -4,156 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4EAF4613F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC84F483E2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Mar 2026 12:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGe8mSvPIhJAzRQimPetINqtWP0+rFxYzcwSSR4mE78=; b=eB2IWwn9lJOShub9zOzNnE3pDe
-	f+yVxPiHjupNq+6Wu3lfK5HC5eFxmXLBDFcET8cRAhbXcnNlKK8+4262WbjSUDTuruqs5zYpY5jmH
-	ttt/EdLQK9DfeqN+l6G0VTbPIkIxxG7hKXggQWdMHzu2so1SDX3A7Lo23peLdbdfH9ceJIl5GMp7T
-	d41DZi5AEPDxITVbd56DKliqWtXhk5tXvTQZPrHrrlAxBV5A3Fgc2Fa/0vQ5lQmaM0I03s3W/Sdbq
-	9F//5FNIQqWR/IKrvvZ+QY1Vpo/5Gyexe7c9eMrLc5tTpmekgUpHM9m7YAgZONmGVFemBYyepeEFD
-	2zqFOMdg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Shk48Guqth0dMGtPHiYWn3blJ70CgjGVRZHzaVpvLPY=; b=RwxTImbfA12/qN
+	0ygvDb07ykTzPdeqxS8WlQtB2kAjB3KQ3XHwkOU/OU4chC0DrCL7V5sHN8vBq+/FGHbE1AcjaBeVC
+	8HRdDURTWoDKK0/zFDFiDj5vajRs9Mli5Q+cbgp6Y+MFCzh6XOqhzq5GwtD+eJspvln4n0DDu2/fn
+	hfxTrdS9rZAL+1653xa4obqE20wfykVDYk8deFdMnzM9Nj6DOP5iTgrYBIMsSfVI43r8uMxjAYysX
+	+xC3gMSltGNSAUuxiJUP8/0/r9nimCaiKGbQUcteu7KbKaDXKgl0jPCQXjd7w5gTZKSrbw/Z2zVXb
+	EiNoA/FHfEjFdmN6h09w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w515H-00000001PEL-3Fq5;
-	Tue, 24 Mar 2026 12:42:11 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w515I-00000001PFH-1y3V;
+	Tue, 24 Mar 2026 12:42:12 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w514r-00000001Ova-46Pf
+	id 1w514y-00000001P2q-1mEh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Mar 2026 12:41:47 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Ws1+is8sZ94SD2qotO6pegtTPomXrf4hAdkGgahiG8TCwx6GBDAKfzvWU2BcD5PP74pPBz6emjuvdudcqLDSns2s/4fotya3+fYhYvZ7oxyLsQjx62LFM0BJmpxcHKA47LC6X0u7GltF5JRtSTSgnvRdGBap1ztZtuBrgOg2bGYnrqQ5Vz3XiSCxLI+nlEnvsMfWKDiWkJprWPjL4q+PJUcjiMtERITLt6BSckY96JjYJ6uCQj26pK0Ov9h4pw3G5pqu0PYlVZwqpPEnixjZ3sbQMZGm19JVn0XQ8ekecdLeofHYnfENj5mbdMLhXhNgGMyqthsPDhboNHSxpnCaMA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kGe8mSvPIhJAzRQimPetINqtWP0+rFxYzcwSSR4mE78=;
- b=PsYGvjz1+kTwD4Wy4g5pWgvHIVQRhbx6RCqYpKLz6c2Gdsa0qyCEmAAENlmacJzLcwAw7yLFcgZtZkGrqmyyoEwJLTl8D+MY6JbqU5JgRgwa55IM+jrb3N+NO5QJ/PzCGsaxOQj9yMM+O55Az09pkOAaoY7P8Ql+F482QXSbN/UgerM0zJ3+qHnln3lcN0CPqW3mCpBc+K7mg1XwbbcRjcl6faHohbafVIZlF7lwDuJy/fs+XPw3HlXJy13xnGLrNvgHFpmLe/wJgpo+fF+QHpdpTYPI2HO94yh41zI/Cx4F2T6PJzCwzhc2astIwRp5NXr0YZXr8qKw0PEfY4KgKQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
- 52.17.62.50) smtp.rcpttodomain=kernel.org smtp.mailfrom=solid-run.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
- dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
- (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
- dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kGe8mSvPIhJAzRQimPetINqtWP0+rFxYzcwSSR4mE78=;
- b=ORxKyADI8w4s9f4UZaPkCKz944JczqMjwaVUvnzaq0mBLteLhyelXLyc52b8wNI06UfjMMewlbuQGQQsMzn7p4br393W6tsaL1u4o8x24MOFyZvXe+229p6ury6fOTEcvHQQZ4epgCsoH6BATh+gApuCBb9TIfbdoyB6liNUy4w=
-Received: from AS4P250CA0006.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5df::8)
- by AS8PR04MB7669.eurprd04.prod.outlook.com (2603:10a6:20b:29b::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 12:41:13 +0000
-Received: from AMS1EPF0000003F.eurprd04.prod.outlook.com
- (2603:10a6:20b:5df:cafe::b0) by AS4P250CA0006.outlook.office365.com
- (2603:10a6:20b:5df::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Tue,
- 24 Mar 2026 12:41:38 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
- smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
- header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
- header.from=solid-run.com;
-Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
- designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- AMS1EPF0000003F.mail.protection.outlook.com (10.167.16.36) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.19
- via Frontend Transport; Tue, 24 Mar 2026 12:41:38 +0000
-Received: from emails-5594358-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-76.eu-west-1.compute.internal [10.20.5.76])
-	by mta-outgoing-dlp-834-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 5222B80710;
-	Tue, 24 Mar 2026 12:41:38 +0000 (UTC)
-X-Mailbox-Line: From b'josua@solid-run.com' Tue Mar 24 12:41:31 2026
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MxQUbrIY3U2/JJBuUPqcAC+XZTeuDitxSa0LAw1KIJj5oAfyFLhrCDpiJN59fc7RL12uaBE9ajMfq20vtTAZhp5u/o20WeDyFhFE3OmwZ0gxQQA4lCYQqonlHuylTivv0cIOrjkBHPsJvYtOePFam382IzYL+uiXFXTTo6WkN1RmZpLwpypYQTDZWMUkyhouAdvkctSTlUFGqb+2+CqklZwAg1IFZlaJw6nVVNSgEOBjwr22Mq1f2RgpjrBdH2FPmGwNtJDP6tVp1Np4oSPL/AP46vGyFcDmQvtT/2Y94rY3N8HLZH7tgPGLBjt5od/2Mmd0Vq/+sq7f+FwhDvRa0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kGe8mSvPIhJAzRQimPetINqtWP0+rFxYzcwSSR4mE78=;
- b=WbNP1ILX+qE9c55w9LsVtRLlPhgMO1FS4FLhP5VxOEjBEYsBGNh9BVOiNyHuBBWcy4jjgHNqGm6mHEh54wYF3+t2VZscd8isaz/M7/wySFr/S7wdSU9qiNhPvk6Be8ZKYi/R9KRIJ/Gt52glyC0Wm+EzU1FF622enrQ8ONezKU1gZ/E7BX4czTGlwh9E+jn6e+m8dY2I/kTxYNSuqqwRdFkz5PC/1QdgpXP4i7tZQ53E2qiRnnsLre9z6hpsaqbMThPXkMLeVJKn+72oCRs3U6VQ1cZ7zngJJyxnQ3MLRBp/V6gCgDCqaNc+mdDZ2BBk93a37yyb0Ha/d5VKe8NoZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kGe8mSvPIhJAzRQimPetINqtWP0+rFxYzcwSSR4mE78=;
- b=ORxKyADI8w4s9f4UZaPkCKz944JczqMjwaVUvnzaq0mBLteLhyelXLyc52b8wNI06UfjMMewlbuQGQQsMzn7p4br393W6tsaL1u4o8x24MOFyZvXe+229p6ury6fOTEcvHQQZ4epgCsoH6BATh+gApuCBb9TIfbdoyB6liNUy4w=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=solid-run.com;
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
- by AM8PR04MB7905.eurprd04.prod.outlook.com (2603:10a6:20b:235::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Tue, 24 Mar
- 2026 12:41:15 +0000
-Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1]) by PAXPR04MB8749.eurprd04.prod.outlook.com
- ([fe80::d782:fbb2:be9a:43f1%3]) with mapi id 15.20.9723.030; Tue, 24 Mar 2026
- 12:41:04 +0000
-From: Josua Mayer <josua@solid-run.com>
-Date: Tue, 24 Mar 2026 13:41:00 +0100
-Subject: [PATCH v6 06/10] arm64: dts: lx2160a: change zeros to hexadecimal
- in pinmux nodes
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260324-lx2160-sd-cd-v6-6-8bf207711848@solid-run.com>
-References: <20260324-lx2160-sd-cd-v6-0-8bf207711848@solid-run.com>
-In-Reply-To: <20260324-lx2160-sd-cd-v6-0-8bf207711848@solid-run.com>
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Carlos Song <carlos.song@nxp.com>
-Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>, 
- Yazan Shhady <yazan.shhady@solid-run.com>, 
- Rabeeh Khoury <rabeeh@solid-run.com>, Frank Li <frank.li@nxp.com>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Josua Mayer <josua@solid-run.com>
-X-Mailer: b4 0.14.3
-X-ClientProxiedBy: FR4P281CA0400.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cf::20) To PAXPR04MB8749.eurprd04.prod.outlook.com
- (2603:10a6:102:21f::22)
+	Tue, 24 Mar 2026 12:41:53 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62O7DT6Q481575;
+	Tue, 24 Mar 2026 12:41:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=pp1;
+	 bh=Shk48Guqth0dMGtPHiYWn3blJ70CgjGVRZHzaVpvLPY=; b=nqs3h6SkcQWZ
+	+OwoltQeMxOO6RblQPqe55tAVjsackvCM4KkhWNpCQq04FPsFlS93zfiGSC7Di4+
+	S9HKMl0Sjn5QTzbM3NfhhnAIAYBvkUkrdxOKSw7d0UM43AXyYRkeT8yYGAz8hak7
+	ZGJjdVwyS8NI2NFgL8wvwtd0s6FHAxSN4ucTbH9O2vRt2+dg7MkFcwB5Thprjrjc
+	U/howCgydGuthvICdFGdQd3XIc0EaU0k/lS6es2878jUgr/pm+7/onljXHYAZGv+
+	d2SOZp5c+3ZgwIjW+EEdkE2KjadPhRrKOtZM1Zuf8LiFRmTbl3wfp/kpxlXGAEqB
+	O8U48KsXUA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d1ktxudx6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Mar 2026 12:41:31 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62OC7Gcu008722;
+	Tue, 24 Mar 2026 12:41:30 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4d26nnhuw0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Mar 2026 12:41:30 +0000
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62OCf5V326608298
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Mar 2026 12:41:05 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 201225803F;
+	Tue, 24 Mar 2026 12:41:29 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 946D658055;
+	Tue, 24 Mar 2026 12:41:25 +0000 (GMT)
+Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 24 Mar 2026 12:41:25 +0000 (GMT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|AM8PR04MB7905:EE_|AMS1EPF0000003F:EE_|AS8PR04MB7669:EE_
-X-MS-Office365-Filtering-Correlation-Id: 61e95839-b155-413f-f26f-08de89a2b15c
-X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|52116014|1800799024|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: wTeOH6SUPHfcr+2MWipEgr5nEh/ZcjXG3C/oxTopgMUIaV7wvXriga5X0XzX3lXcMQXYu62LALpGTENVhCvdANo9H7M9XBisq85o0pvsjAGascSN0xp5rUgzMtsV1m78coBD22ibZyMpdlQO2xKqx53l75N+GcmZCoY4HkuaBvwm4Z6ffi49k+UiYEdce6OEPthPqwAO+4ybEpVTyDkOEaZzgzIaA91VCtlxUy9z0dpRzM/VY7UAzDamdb1YgS9G38APfwMF/D6pFOrxIObbWY0fRk3DRSnLPmexZ/CI8J3ya1+5NMbDegfwciOv2t0yO1yS2CuxB7sIgoFnUCgHrCvDh/w/RFjIcToxGDZWDZDY8VavwxNhC52ZEA8T9AsKV2NDXYtbTiCl59zcysAR1B4vMD5fs95LzHjzD52CRyWJtmXXME3JiILALIBN7+6qDRpxYyXXlAAvsfPwJzoeuW49EOX4Yvr9mEEsjYOz5u6juifFQXLIVzjDpDB82nRB/RHT7VBrR/KrlCUfWeal8AwNG3VURMb93qyy6/eLH/T+8QtYjaGaPaQ4pRc75E8tZCl8KNI57CWqYME0CrP7urx2N9jEj9CZJZsy45mDqZxvWwJYSuM7C0aJdOanvyiVEBgNvJKxkc4uGc27r1h2grVcNjKepx8W2sv2ln/cB5A/VZQv0lfky5riL2hb1t/sTw6G1TOLr5aKRm7Ck0NbbV7NTk9zrXXMUyfQI6gYKyXgmqR+yBdqH0bfngEGblfZbuGHZnqu4ANkElVpoksSalSUmsxZs3nviVUqGuWMozg=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(1800799024)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-Exchange-RoutingPolicyChecked: rDmhCT/XPrC9V/Ocxt0E7FgIHsLgpc0Ixtd45L4dqbY3fDlYA/zFIn6ikw2I7oe05DW6Y9eDuaTfv5zWpZxYxKuW1cZTSjxyUb5zcymQ/iqnpxi+yjrnZN11KRIOxOR96qBb86rjMRHJRSDie0DtGYobSuxc2Ht6M3jLG0wx2lIkuYM/NMs8iBTsksd2jsZp4gsNBuXIGhfmrWYB4XtYjJFDJPpuo06YCCKAdObFDI52F0bJat2B8ZiQz+RfzNep1RvkvYaDlv8BXze62+zAbtwdhkcXxG7zGUjTvw9JjpE1gQ8pU4ptEsHCZCSxp+kb5+I0QI0mslVTtlT19RVg5Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7905
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: 0f95f761cbd24e2dae19dee4ebf49c8a:solidrun,office365_emails,sent,inline:b9e026b2ce894d6ae84a8479915fad54
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF0000003F.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 57bca4b5-d9ab-4d99-fc33-08de89a29cc5
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|82310400026|1800799024|376014|14060799003|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: vOOe0LN8q9qBVKipxF0F2m5QmHwvqEdTvaPO16CYtwp7Q+HF5Ht9yTFRPEgVLh4KCon1fFVF2z0nZKf88X0YJ0Q2fQbbl1ML4/YJCUsKzmToEZfl8O7KQ5wj0rmb5KMmeiik+IEvuXLJmDJAYKb51Ct2uYF91QkAbvbi9zT10Z7zhNsS78SD/YQ+Ny/kcT3GEVwiNtxAjI1U1C08xUqDd8tLYknbDsFCxlp9POTKgnpAFH/XSTfn8LMWXJ6ENHHdBVnKN4aYVnsjoAdItx4B1jbmID4Ic17f02N4ssooInZmn6mFoRh9rlBQ/XsHNuShpoekkT/9yNT/S+EJecDQYAP47087d8kHXD641RTM8vCNeerk9E19Xj7FX2j98BsZlHH0XJnY01OjDMsPRD3fTkiNmaRQCa9rR/HUqMhIbuvl3ZHHHeSNA1X9ck9mNTPkbCGZunuqG+wrKWk5AXr3CFSOjImGzxGEwL5v7fRg/vBVuMJhAcX27aGMWGwYzFru7fVvksXTfx8LIT/HV1j/u6ausOvEp0rTg2fus89dD6N5ZNnniu2QR/p7+PtfCbTxasDE3LyoirfuK7WQZx3mj4T7q5zqbKtpVUH1a+DrMm9Tba0Z9M7BA3ycUubfTo8WP8iLO6Plq6IQuzl9mttxS2eTtGV2U9Kt9sGYQFW0xrLHmORCdHDL06A8edgBK2sj337hV2GfPK9TU7Nfk8338iA2mKg1UFLZlAp4NH/7MLX8gziY2w7d4pu/6pqvgx9d5Z8D/oCNN4A3s4/GB8aIfw==
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(82310400026)(1800799024)(376014)(14060799003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: yzj+4r5VA+7aXkE/jWm8T/PUi0/LC+iMmCi/HaaUmEr1aQxftT2Vgx6ZtDYg3CGIGBE4uHlusKKmawb2RUoroHScVHX+AIkUreCSbXMOpdToaVutWmbIp4pzoK4CovAXgSIQxhkCXeaJGJkYxVG60xrRcRbFReWcZO80KAxlFoJAo67xnLr4cPEetvx28HBzh00Tr/5U3Jb8JpUCwZ5TZyGKFcgcB2dgqc3HmMhG0oj+JL8ZetuuGYw3nGA76gnWVuWnmbT6bBc2RNgIeHVsNdc/Udin5RCKx3TXrtCItORaeFRn/6cZczGvayHyL41obHrtC6mBlZlAERQcM3Jbo2DHHeSxRnD2fDVn3U8JXmXKheNiXcKIFb4VtZSZmU7CzI++u8RFudTS0qL/7svi9lxZIFXZGxwS46TlMfTZGIBrzrc7tgr92qEY3zqJNvJO
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Mar 2026 12:41:38.5529
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 61e95839-b155-413f-f26f-08de89a2b15c
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000003F.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7669
+Date: Tue, 24 Mar 2026 13:41:25 +0100
+From: Harald Freudenberger <freude@linux.ibm.com>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+        Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Ioana
+ Ciornei <ioana.ciornei@nxp.com>,
+        Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil
+ Agarwal <nikhil.agarwal@amd.com>,
+        "K. Y. Srinivasan" <kys@microsoft.com>,
+        Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+        Dexuan
+ Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+        Bjorn Helgaas
+ <bhelgaas@google.com>, Armin Wolf <W_Armin@gmx.de>,
+        Bjorn Andersson
+ <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Vineeth Vijayan <vneethv@linux.ibm.com>,
+        Peter Oberparleiter
+ <oberpar@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian
+ Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle
+ <svens@linux.ibm.com>,
+        Holger Dengler <dengler@linux.ibm.com>,
+        Mark Brown
+ <broonie@kernel.org>,
+        "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang
+ <jasowang@redhat.com>,
+        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+        =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
+        Alex Williamson
+ <alex@shazbot.org>, Juergen Gross <jgross@suse.com>,
+        Stefano Stabellini
+ <sstabellini@kernel.org>,
+        Oleksandr Tyshchenko
+ <oleksandr_tyshchenko@epam.com>,
+        "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>,
+        linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-hyperv@vger.kernel.org,
+        linux-pci@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+        linux-s390@vger.kernel.org, linux-spi@vger.kernel.org,
+        virtualization@lists.linux.dev, kvm@vger.kernel.org,
+        xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 10/12] s390/ap: use generic driver_override infrastructure
+Mail-Reply-To: freude@linux.ibm.com
+In-Reply-To: <20260324005919.2408620-11-dakr@kernel.org>
+References: <20260324005919.2408620-1-dakr@kernel.org>
+ <20260324005919.2408620-11-dakr@kernel.org>
+Message-ID: <b5a80e06aa0240348dfa6826c20f3aec@linux.ibm.com>
+X-Sender: freude@linux.ibm.com
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IqITsb/g c=1 sm=1 tr=0 ts=69c2867c cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=V8-k01nbhAtxNRQPXScA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI0MDA5OCBTYWx0ZWRfX5BtF+dGcqKne
+ ud3qOj4gTSLR9zLNfAq3JG6g/oOlaoDuAoL5ugYqpH9s9vpJjplhqsv+C5Fn13wLfcNuqTFjG2K
+ 8B20fOIVvCqa5XvNqyGQnMAHAZ9m7lornaYpmzRxy2uj+A1xP4iQsysQ7y+S7A488UAEKXq5qZ6
+ LBbN3vhPXZJ/bEjV349pY7YewQW80X8aJiv4wUe79X39dz6GUwBnh+wAamLPOldfeVWA3ylebkO
+ fpE77uN6WRT54jS8FnW/ZhUlXkVn14gcYRIyrgSPpzwxEiZ3nS5fgK7DV0UKCoQQHx0EyIcKLvI
+ sxcDzd1vSEY19GMOKPv1ZW+MN86TCAn4dq3ojgq1Xg0hwRVL0L3YGoz9QETDntcaSlj/0kKtlA6
+ UfD/yUxgwr0WFEGPDCZ3E/gq/ajxwH4hTrddRdALUSslhqrcmAjUB1i/qil1QJJkf8vWuRKoJjs
+ AJigNCQkv9LzvxCAnUQ==
+X-Proofpoint-GUID: YK3KYDPHgye9e3NvrRpemo-oOEIjjzeD
+X-Proofpoint-ORIG-GUID: IG7OyOmEsbO9ZGMbJn71CzQus0Ee1qWf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-24_02,2026-03-23_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1011 spamscore=0 impostorscore=0 suspectscore=0
+ phishscore=0 bulkscore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603240098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_054146_130480_EFDE55FC 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_054152_504062_74AB8B2B 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,71 +168,188 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: freude@linux.ibm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace some stray zeros from decimal to hexadecimal format within
-pinmux nodes.
+On 2026-03-24 01:59, Danilo Krummrich wrote:
+> When the AP masks are updated via apmask_store() or aqmask_store(),
+> ap_bus_revise_bindings() is called after ap_attr_mutex has been
+> released.
+> 
+> This calls __ap_revise_reserved(), which accesses the driver_override
+> field without holding any lock, racing against a concurrent
+> driver_override_store() that may free the old string, resulting in a
+> potential UAF.
+> 
+> Fix this by using the driver-core driver_override infrastructure, which
+> protects all accesses with an internal spinlock.
+> 
+> Note that unlike most other buses, the AP bus does not check
+> driver_override in its match() callback; the override is checked in
+> ap_device_probe() and __ap_revise_reserved() instead.
+> 
+> Also note that we do not enable the driver_override feature of struct
+> bus_type, as AP - in contrast to most other buses - passes "" to
+> sysfs_emit() when the driver_override pointer is NULL. Thus, printing
+> "\n" instead of "(null)\n".
+> 
+> Additionally, AP has a custom counter that is modified in the
+> corresponding custom driver_override_store().
+> 
+> Fixes: d38a87d7c064 ("s390/ap: Support driver_override for AP queue 
+> devices")
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+> ---
+>  drivers/s390/crypto/ap_bus.c   | 34 +++++++++++++++++-----------------
+>  drivers/s390/crypto/ap_bus.h   |  1 -
+>  drivers/s390/crypto/ap_queue.c | 24 ++++++------------------
+>  3 files changed, 23 insertions(+), 36 deletions(-)
+> 
+> diff --git a/drivers/s390/crypto/ap_bus.c 
+> b/drivers/s390/crypto/ap_bus.c
+> index d652df96a507..f24e27add721 100644
+> --- a/drivers/s390/crypto/ap_bus.c
+> +++ b/drivers/s390/crypto/ap_bus.c
+> @@ -859,25 +859,24 @@ static int
+> __ap_queue_devices_with_id_unregister(struct device *dev, void *data)
+> 
+>  static int __ap_revise_reserved(struct device *dev, void *dummy)
+>  {
+> -	int rc, card, queue, devres, drvres;
+> +	int rc, card, queue, devres, drvres, ovrd;
+> 
+>  	if (is_queue_dev(dev)) {
+>  		struct ap_driver *ap_drv = to_ap_drv(dev->driver);
+>  		struct ap_queue *aq = to_ap_queue(dev);
+> -		struct ap_device *ap_dev = &aq->ap_dev;
+> 
+>  		card = AP_QID_CARD(aq->qid);
+>  		queue = AP_QID_QUEUE(aq->qid);
+> 
+> -		if (ap_dev->driver_override) {
+> -			if (strcmp(ap_dev->driver_override,
+> -				   ap_drv->driver.name)) {
+> -				pr_debug("reprobing queue=%02x.%04x\n", card, queue);
+> -				rc = device_reprobe(dev);
+> -				if (rc) {
+> -					AP_DBF_WARN("%s reprobing queue=%02x.%04x failed\n",
+> -						    __func__, card, queue);
+> -				}
+> +		ovrd = device_match_driver_override(dev, &ap_drv->driver);
+> +		if (ovrd > 0) {
+> +			/* override set and matches, nothing to do */
+> +		} else if (ovrd == 0) {
+> +			pr_debug("reprobing queue=%02x.%04x\n", card, queue);
+> +			rc = device_reprobe(dev);
+> +			if (rc) {
+> +				AP_DBF_WARN("%s reprobing queue=%02x.%04x failed\n",
+> +					    __func__, card, queue);
+>  			}
+>  		} else {
+>  			mutex_lock(&ap_attr_mutex);
+> @@ -928,7 +927,7 @@ int ap_owned_by_def_drv(int card, int queue)
+>  	if (aq) {
+>  		const struct device_driver *drv = aq->ap_dev.device.driver;
+>  		const struct ap_driver *ap_drv = to_ap_drv(drv);
+> -		bool override = !!aq->ap_dev.driver_override;
+> +		bool override = device_has_driver_override(&aq->ap_dev.device);
+> 
+>  		if (override && drv && ap_drv->flags & AP_DRIVER_FLAG_DEFAULT)
+>  			rc = 1;
+> @@ -977,7 +976,7 @@ static int ap_device_probe(struct device *dev)
+>  {
+>  	struct ap_device *ap_dev = to_ap_dev(dev);
+>  	struct ap_driver *ap_drv = to_ap_drv(dev->driver);
+> -	int card, queue, devres, drvres, rc = -ENODEV;
+> +	int card, queue, devres, drvres, rc = -ENODEV, ovrd;
+> 
+>  	if (!get_device(dev))
+>  		return rc;
+> @@ -991,10 +990,11 @@ static int ap_device_probe(struct device *dev)
+>  		 */
+>  		card = AP_QID_CARD(to_ap_queue(dev)->qid);
+>  		queue = AP_QID_QUEUE(to_ap_queue(dev)->qid);
+> -		if (ap_dev->driver_override) {
+> -			if (strcmp(ap_dev->driver_override,
+> -				   ap_drv->driver.name))
+> -				goto out;
+> +		ovrd = device_match_driver_override(dev, &ap_drv->driver);
+> +		if (ovrd > 0) {
+> +			/* override set and matches, nothing to do */
+> +		} else if (ovrd == 0) {
+> +			goto out;
+>  		} else {
+>  			mutex_lock(&ap_attr_mutex);
+>  			devres = test_bit_inv(card, ap_perms.apm) &&
+> diff --git a/drivers/s390/crypto/ap_bus.h 
+> b/drivers/s390/crypto/ap_bus.h
+> index 51e08f27bd75..04ea256ecf91 100644
+> --- a/drivers/s390/crypto/ap_bus.h
+> +++ b/drivers/s390/crypto/ap_bus.h
+> @@ -166,7 +166,6 @@ void ap_driver_unregister(struct ap_driver *);
+>  struct ap_device {
+>  	struct device device;
+>  	int device_type;		/* AP device type. */
+> -	const char *driver_override;
+>  };
+> 
+>  #define to_ap_dev(x) container_of((x), struct ap_device, device)
+> diff --git a/drivers/s390/crypto/ap_queue.c 
+> b/drivers/s390/crypto/ap_queue.c
+> index 3fe2e41c5c6b..ca9819e6f7e7 100644
+> --- a/drivers/s390/crypto/ap_queue.c
+> +++ b/drivers/s390/crypto/ap_queue.c
+> @@ -734,26 +734,14 @@ static ssize_t driver_override_show(struct device 
+> *dev,
+>  				    struct device_attribute *attr,
+>  				    char *buf)
+>  {
+> -	struct ap_queue *aq = to_ap_queue(dev);
+> -	struct ap_device *ap_dev = &aq->ap_dev;
+> -	int rc;
+> -
+> -	device_lock(dev);
+> -	if (ap_dev->driver_override)
+> -		rc = sysfs_emit(buf, "%s\n", ap_dev->driver_override);
+> -	else
+> -		rc = sysfs_emit(buf, "\n");
+> -	device_unlock(dev);
+> -
+> -	return rc;
+> +	guard(spinlock)(&dev->driver_override.lock);
+> +	return sysfs_emit(buf, "%s\n", dev->driver_override.name ?: "");
+>  }
+> 
+>  static ssize_t driver_override_store(struct device *dev,
+>  				     struct device_attribute *attr,
+>  				     const char *buf, size_t count)
+>  {
+> -	struct ap_queue *aq = to_ap_queue(dev);
+> -	struct ap_device *ap_dev = &aq->ap_dev;
+>  	int rc = -EINVAL;
+>  	bool old_value;
+> 
+> @@ -764,13 +752,13 @@ static ssize_t driver_override_store(struct 
+> device *dev,
+>  	if (ap_apmask_aqmask_in_use)
+>  		goto out;
+> 
+> -	old_value = ap_dev->driver_override ? true : false;
+> -	rc = driver_set_override(dev, &ap_dev->driver_override, buf, count);
+> +	old_value = device_has_driver_override(dev);
+> +	rc = __device_set_driver_override(dev, buf, count);
+>  	if (rc)
+>  		goto out;
+> -	if (old_value && !ap_dev->driver_override)
+> +	if (old_value && !device_has_driver_override(dev))
+>  		--ap_driver_override_ctr;
+> -	else if (!old_value && ap_dev->driver_override)
+> +	else if (!old_value && device_has_driver_override(dev))
+>  		++ap_driver_override_ctr;
+> 
+>  	rc = count;
 
-No functional change intended.
-
-Fixes: 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c gpio to support bus recovery")
-Signed-off-by: Josua Mayer <josua@solid-run.com>
----
- arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index 53b9c5f1f1935..d266bf96e2c6a 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1722,7 +1722,7 @@ pinmux_i2crv: pinmux@70010012c {
- 			pinctrl-single,function-mask = <0x7>;
- 
- 			i2c1_pins: iic2-i2c-pins {
--				pinctrl-single,bits = <0x0 0 0x7>;
-+				pinctrl-single,bits = <0x0 0x0 0x7>;
- 			};
- 
- 			gpio0_31_30_pins: iic2-gpio-pins {
-@@ -1734,7 +1734,7 @@ esdhc0_cd_wp_pins: iic2-sdhc-pins {
- 			};
- 
- 			i2c2_pins: iic3-i2c-pins {
--				pinctrl-single,bits = <0x0 0 (0x7 << 3)>;
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 3)>;
- 			};
- 
- 			gpio0_29_28_pins: iic3-gpio-pins {
-@@ -1742,7 +1742,7 @@ gpio0_29_28_pins: iic3-gpio-pins {
- 			};
- 
- 			i2c3_pins: iic4-i2c-pins {
--				pinctrl-single,bits = <0x0 0 (0x7 << 6)>;
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 6)>;
- 			};
- 
- 			gpio0_27_26_pins: iic4-gpio-pins {
-@@ -1750,7 +1750,7 @@ gpio0_27_26_pins: iic4-gpio-pins {
- 			};
- 
- 			i2c4_pins: iic5-i2c-pins {
--				pinctrl-single,bits = <0x0 0 (0x7 << 9)>;
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 9)>;
- 			};
- 
- 			gpio0_25_24_pins: iic5-gpio-pins {
-@@ -1758,7 +1758,7 @@ gpio0_25_24_pins: iic5-gpio-pins {
- 			};
- 
- 			i2c5_pins: iic6-i2c-pins {
--				pinctrl-single,bits = <0x0 0 (0x7 << 12)>;
-+				pinctrl-single,bits = <0x0 0x0 (0x7 << 12)>;
- 			};
- 
- 			gpio0_23_22_pins: iic6-gpio-pins {
-
--- 
-2.51.0
-
+Thanks Danilo
+Reviewed-by: Harald Freudenberger <freude@linux.ibm.com>
 
