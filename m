@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837C1109E521
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7D1109E523
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3lTfbT0nJDHwJ1grHQdMNGWaZalhIx1nvID0f4t1l0=; b=FYdXxPuIEKFuIJ94AxBLD79zfH
-	e0kARaxz2HTVwE8bBpOUb5R79nuXdX65oAXdYaShl27x1ESIPxUixVMKeTEVZfDT0oxETPOtSC9Zm
-	eilL4I154XxsSG16+kxLIe+ENEK8/JYfEAXKCESWV2r6OsfLksff1rUonS6b6Sh2XSqVZqG+mEPtV
-	tD0zn/kAmiU5QmJWZl13RKuY7/kYAxFxDmPLcfTFYnKXXnLiYHIFTz2BzqEai2gS5dskTjepGFHgb
-	Qh3uLnwX3aV/N/ydmBGfp2OEA33r8p42axLMsMkNZ25YinPrNWrQfOFVrxm7WF6IxhGpBHslWUcxI
-	WoHXe+QQ==;
+	bh=Xhr1D24nKivYP/3T0AfCxVIkR9YFjI1CmvRMS0ErUhs=; b=W3FwO2acTUydYtwmUHRvEpiGnK
+	GQDeKosxCjgDol+bAOXN+i7sbl3im9hzDMdm72ofhneqvB2bl5G+ZL/qJeB9o4pVkqW0VM7TEyYJI
+	nZNqNMxejEO9nZ+yZvQU152daS4EFBhnAkFB1QB5W+rRCPcgT5uM4w2gNMz7L0N3CrB73vvOMxPdh
+	wF9ggN1YcsBHVk230dkUyQruQWEAAoDhHUPb3M05SmAsjMVRXpiZ6jtvgI5cx78ktN3zL3PzNup0k
+	enhgKf5sCihGdZinyz6wCrLNuazuTh0TpE0TAVTAH5mOlGtdZijlgAsdai2JlA4ERjAHNsx+mF3Ui
+	xVr5Y5Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WDK-00000004ItM-1pjJ;
-	Wed, 25 Mar 2026 21:56:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5WGt-00000004JBi-3kYN;
+	Wed, 25 Mar 2026 22:00:15 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WDI-00000004It3-3LBF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 21:56:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1BA2040729;
-	Wed, 25 Mar 2026 21:56:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B268CC4CEF7;
-	Wed, 25 Mar 2026 21:56:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774475792;
-	bh=cDsofzUExbaRruhadQQdIGevP2H5+i7XAF8lJ7eU7k0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pNuh3pJPrMQV1aXwLfXOsQdPoh0jfs/9+LKenDgbmzr2ascfU/cuPw92VYPa6n72V
-	 QDN96c2K2UnHjRiOwJnyab/LwQfqq8oAmhaPAPR6/thcW6EVeTd6kFTdZj0jMHe8jo
-	 EJn622al9O3VhzblYDbAq7vHzWqY3JdbfJ9DXw8/Q/lBjeQVqnSvfgumYrEJi18ZnP
-	 H8zopvZ4spCuUK/7QPYMiWMAKhD101LLND52r5KNE1+5DJdCzyqCBOI283h4TegEKp
-	 7fz43EYMfYpcuMXF8MzZ8W6VhRj2NuF0l2gkVN9h9H0OqPRA3moCuAwGCeRd6EH8W7
-	 CV1EjpVBNPg1g==
-Date: Wed, 25 Mar 2026 16:56:30 -0500
-From: Rob Herring <robh@kernel.org>
-To: florin.leotescu@oss.nxp.com
-Cc: Guenter Roeck <linux@roeck-us.net>,
+	id 1w5WGs-00000004JB9-05cV;
+	Wed, 25 Mar 2026 22:00:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Xhr1D24nKivYP/3T0AfCxVIkR9YFjI1CmvRMS0ErUhs=; b=5tawHl3e+uz9eT1sXa8Trr9UO3
+	ROaHbvVci5+1x1gHnzDm2slDD0JaznmGKOrxGbVFDkZMzS+rmgkpFFIzI8uoZ8Vm3HM5sU74Lbgg9
+	/PopU1JjeSWjAX4u00eOPjCt0e4mbNvr581G0kAg+1PHB+QCwy6hnY76o/2fmt4nVWL0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w5WGR-00DMmg-Oz; Wed, 25 Mar 2026 22:59:47 +0100
+Date: Wed, 25 Mar 2026 22:59:47 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, viorel.suman@nxp.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: hwmon: emc2305: Add
- fan-shutdown-percent property
-Message-ID: <20260325215630.GA6513-robh@kernel.org>
-References: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
- <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mips@vger.kernel.org, imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH net-next v9 2/6] net: stmmac: qcom-ethqos: use generic
+ device properties
+Message-ID: <ba85f84e-740d-47d6-a8a0-97823bf2c4d7@lunn.ch>
+References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
+ <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
+In-Reply-To: <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_145632_872565_0037E151 
-X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-CacheID: sfid-20260325_150014_082945_CCD11749 
+X-CRM114-Status: UNSURE (   7.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,25 +105,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 05:29:58PM +0200, florin.leotescu@oss.nxp.com wrote:
-> From: Florin Leotescu <florin.leotescu@nxp.com>
+On Mon, Mar 16, 2026 at 01:05:07PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> The EMC2305 fan controller supports multiple independent PWM fan
-> outputs. Some systems require fans to enter a defined safe state
-> during system shutdown or reboot handoff, until firmware or the next
-> boot stage reconfigures the controller.
-> 
-> Add an optional "fan-shutdown-percent" property to fan child nodes
-> allowing the shutdown fan speed to be configured per fan output.
+> In order to drop the dependency on CONFIG_OF, convert all device property
+> getters from OF-specific to generic device properties and stop pulling
+> in any linux/of.h symbols.
 
-Why not a common fan property in fan-common.yaml?
+Adding to what Russell said, please document your new binding. e.g. in
+Documentation/firmware-guide/acpi/dsd.
 
-We generally specify fan speeds in RPM (and then map RPMs to duty cycle 
-for PWM).
-
-Also, we have (or can have) cooling levels defined. Perhaps we should 
-define the cooling level for shutdown? Maybe other things with cooling 
-levels need a shutdown level too?
-
-Rob
+	Andrew
 
