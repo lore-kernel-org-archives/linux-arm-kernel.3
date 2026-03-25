@@ -4,156 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A83103A9A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 02:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C8B103A9A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 02:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lq0T1S+FFsvnKXCCuV+pWKYzVePyuEfmjErJokPG8zg=; b=TSIOxoPaDrqY1opxq+gjydsAYZ
-	piAXzXUh6MatLmHrKMpoBN34dB7/ci4JmMG/r9akZLKpzuC9bDdnoPiqgtbCqfZr1prXNU9ijIQnO
-	LzBQhg+TVf1OUzdfMUzs0adGpRdk81w0HxX5prDkXDKVZ7Pk7iyt2AdtPhmLrX4H+VAyT0083tGt8
-	f0FEY9kFOOr4zJ9bCoRaQjL4iu0m4hcI+CiJkF3SfZwGuOAt2mU/dVEW+d2rv5/PREimIVpPl7GDg
-	GzIip1xH+ykgsLqJoCn/7+J4oxiPVWOIPNjxp6z/uh1GYIMJ6dJWHp4AX4Rtp5gh6RHHzEvOrjEsG
-	3RYgpnmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hwTq8tVboakA0dlKm2095mjACNVUEwjvucSKWH8sawo=; b=fsPDm6JeQitQqmH52hOuUX8VwF
+	n5T+2J8DZEnr/ckc85lnp+q9EMgqNXAjaZwcbRVSPieYkmFjHIoCN1wYfVjhxQvYo5dXVhuK0TGK7
+	OmUJp/gKQeEiF4tFo8iiJzWILU3kh26rUhez2zClomYLQwfBgptLW5tfahRxw7WAkjItAR+rHyoaO
+	EI5r4WWuJkDOOvlmHeaCr+CI1HdHcZd0+sfHUxgA0cL2/r/7zesX4JPgzB6Qf44m2a0qUQYjHnLAC
+	1gXRRy0T1zCfp/ipZvIl9TsZ8uXiAhIdcQK3js/legzo+yxuymQoKalamhN+1MPI0sLaSQtQM/Bb7
+	SDUlGapg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EIQ-00000002Xnb-49v9;
-	Wed, 25 Mar 2026 02:48:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w5EIt-00000002Xwy-1iTS;
+	Wed, 25 Mar 2026 02:49:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EIP-00000002Xmj-49zu;
-	Wed, 25 Mar 2026 02:48:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Lq0T1S+FFsvnKXCCuV+pWKYzVePyuEfmjErJokPG8zg=; b=cJwxRDKuWh+uj42ZFLqOdGqHSV
-	OnipqBiIAfXMx9TDSDtQ6tcmIWJ8kAf6+lVfcTIkHwJzsqewewWvPU0QPpzi84+p522p0tx5Y+Nv7
-	BeIe6oZegFCVk1zOAmxo/20BYzw73ZCQSZWShWLMm+npZpNuDslzhK6IqZYJwnSXuvzajtswRVqwx
-	5aIkYhl1BeGLItNP3/bLT0yUntiajKEH05yfMgz3lm/RaO5DDaSPgZXSZWorPdwjN064DQFDMlLC4
-	8XQswSH8rFAiDosFtFnub4+9gCmYn02ZgOQmkFBX0EGawcVXIcjV6LyznuE9ftE8AUh/DG3J/jpq1
-	aa7/Ji2g==;
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EIE-00000005ISy-1cU5;
-	Wed, 25 Mar 2026 02:48:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V/hCMHl2CfqOQNBCUlbbZShah/dwRycdqP/ny3mEmimy/QRmj7CPv0oydoPchSwDRC1M93FSdi15LzjwJhHay04nw564U35g11nNDlE0SaEsqFH20b0cTfneMFDvBTgbs1v0Qhx2pW2B9rGVVNJd/ej6LDCUqmRjtm02D5CpVgE7dmiwie62XFLNUQVEmmUCcbP9mP/fURy4mX9HFcDTvNpkKH+AHr5GwXdRC8V/ynw42BIkQuroeMxdqVAqRpyqnBEg9ntdtN89DWghtJ/7BlZYfz/Zx4n7FjEUybUyP7W9+UkReo6YeFY1wiVAaLGbKdHe0B3sdo0OmLfYFFSRIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lq0T1S+FFsvnKXCCuV+pWKYzVePyuEfmjErJokPG8zg=;
- b=JauN2LMiL/V918lUqpdeUjK7+zdUx+QlZ9N+gLAdJ/Zs9yt+1JXhItrhPmBIN9kIfs2yhe9h3lBEf5iVA+2SzMth039zrCNvpDLFdgdGveatd837TQRc3C3pXFCXFFscazL4xvEzRlcfWbvaq37X6y9BphvdjYCSrvdnVMR2B9uJZuRTzAr8rV20kmoLydcjB99qsGZOvB9900BinghPUz0CpsAnZp14+obusGM8ShjSmFHSR6FqLXtNq3wkVnxb4Xaq6zDvirR3GjB+o7R2d59jsp50sJ7wOwyXtbraajZwMJTKCONODGpJfT8PBXnQEMDXChRmQSynLcr5BwGSag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Lq0T1S+FFsvnKXCCuV+pWKYzVePyuEfmjErJokPG8zg=;
- b=ZwVcqgS63KM1rhOpf9kBGQBcN/LUCe3fga8b4H4wgVv9TxJzOyzXhHHtIyayP8DJB+7FZ7YbjMlt/vDYL8OE9WNmLQPsRSfGJ78jdirtUijvr2NHclvnGZ67ogbiWt4OWAp1PhzfdaI26WJbMXgv5CQ3d91x4i58ZtTlBYLOls5+IjBKoKkkLltz+j1DVVUQTzYFvIoRuVIkjDzZBwBh1+VgQB44q/32Kfj4pVxCV/wzwfs6P57yCUkxYrcesMrUThtLzXLqNsynvLPYoqbov1pHbT8GkHPKOj677THVl/dUexXI1G1k9g3qjcoRmIXnYQrekDTO0RorskWgyu8h5w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by SI3PR03MB10032.apcprd03.prod.outlook.com (2603:1096:4:2a4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Wed, 25 Mar
- 2026 02:48:16 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4%3]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
- 02:48:16 +0000
-Message-ID: <316efeff-477d-4d8d-9c60-ac7c4e5b9b33@amlogic.com>
-Date: Wed, 25 Mar 2026 10:48:10 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/9] arm64: dts: amlogic: t7: Add eMMC, SD card and
- SDIO pinctrl nodes
-Content-Language: en-US
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Johannes Berg <johannes@sipsolutions.net>, van Spriel <arend@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org
-References: <20260323-add-emmc-t7-vim4-v3-0-5159d90a984c@aliel.fr>
- <20260323-add-emmc-t7-vim4-v3-1-5159d90a984c@aliel.fr>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <20260323-add-emmc-t7-vim4-v3-1-5159d90a984c@aliel.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2P153CA0016.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::17) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+	id 1w5EIs-00000002XwY-0uMi;
+	Wed, 25 Mar 2026 02:49:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A4F9560128;
+	Wed, 25 Mar 2026 02:49:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50888C2BCB2;
+	Wed, 25 Mar 2026 02:49:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774406945;
+	bh=NXf2WNHgUrsXctzD8+piqofyVEnIOCaRrGV7Z3iMfXY=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=frXEP3sgTwL9btbGzemrAzj0euOr8ss/Sh5SHnDklwKWKklwI+YBkOAeumbzTx5Qk
+	 yuWHIRTc7untDvKLJGv1USaWcCItcTftPV/IxNZI0W8odCNGDyS8g4YjZGgwsiavmr
+	 e7REuLLsi/FBrCpgngM5SGNtdRWdTWKCOIKbdbImPlTH0RAKzKyBVbSvzrWRjncxKu
+	 7tEIxVwjyeFR442QXVo4WkrbTOGeGDtFS9IARuGvSr6W5SzyNbm4f26wfnmeZjpdFf
+	 /nWNDI7Xkk+UZ+bGzxrBww09jQ+tLPTq7H36R4olxEkqePnN7/4FLaY+kvVNRJgrQ7
+	 3OciKo0s/FHLg==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SI3PR03MB10032:EE_
-X-MS-Office365-Filtering-Correlation-Id: e19a0ca5-4462-4d2c-b356-08de8a18f6e7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020|7053199007|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Yk41VjJkCHmZKOTydfCgWYZ2HgIMGYPV7y0GelV/HJ37kcDFaW8w2gc/9KpNL2v0/K9Vy/MIeDVN68CHU8ilHjpSXEdx56h0t28Y73NFwQqU8/7tZHz+MEoa5Q/doggP3FozIsjnCXo5ucxFkrRdWp5aFRFuGH3ZF0V40jtDPBs3vFYrNahyHzU8IKXOHuLo48eyavtw2MjIBJzeYyOl4MkP+mzJDKpCkggx9i99tbOesw0Ylvev9uwyF7tzZ1TGE+A3OLnYZm07rKfRsFEwSP7YHv4VsZhLZbKVsIPQyIalvYyKZQqD5fmZX6WgiYHZP8aUuk50HRZONFsJ4wAAQPjrjGHM+4F6wnhgqnEzzGKTakOh9hgZh9ZAezgDiyxlU2rgXHb0CD0VBea8QwaUTmMMLZgGkCiiX69vmE8cwVCJ+N0ccyk7gsUyBNIpeFB5lbuDwZPPn5WUGE2Kb/jmlU/MQW6TyR26HeKQaw2jA0qY0OlPHyG8rU1zqLWJoz9FJDt0dNlLAo6boQz25xAz/PSebQ7qRLPwjU8hRCXd5HCziAdZkesANb7ITwL3H3/7wXuxbM0ZcrHp3YWmKwse745oAm1K6PSE74jnJyXr/5vVxRunjxIhVvX8I8oJE5AJ9VCEAi7ZwxBrIl+9F/qfkhmGPOwSyzmYMZMiNaaf72vVQEE355MC3vGNUQ1cbW1YQzXWyKOvboJtbDFmXH/6WHYXB7NUL2bCOwjlIWmewjqpVhoEMDO+UhwrYYVVMpiosnFS2CHo3JSU1AAg6AgJIw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020)(7053199007)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UEl2ako5bi9CMEFUZ21nVVJPSDA5NGh0MHNjaVhnRG5LaUlCazZUUnZBbE9F?=
- =?utf-8?B?USs2Qms2RGFiZEdSdlRBSldpSDV3aHExOUVIc3BacTlXeklESW03MEhyVkFt?=
- =?utf-8?B?azk2QUhyVU4rY2NDcmMrY0M0aGFNeWZpejdDQmJOSmFIcUk4OGE5OTNreVpx?=
- =?utf-8?B?WTZIMCtrMWdGNmJ4Y3Y2WjJ4SkRRczZVU2xmTXRoRDlKVUZYbzhmL2krbi9h?=
- =?utf-8?B?VWF1Z0RzcjlCSmMvYXlscGkySWJjM0M4ZmU1UzZRc3V0TUUrUUVOOFEyN2xD?=
- =?utf-8?B?UVhVSEszcUFLMFNvaUtXdWNwa2hnL0lYZ1IyQjJOWUZrYlZzdXVmdkcwSmx5?=
- =?utf-8?B?T0tEUDFDTCtTTHQ2YUhVRDM4WUJocERhZ3JOVm9CRDZRUXpYaVdvMlFhajZQ?=
- =?utf-8?B?d05ZQk1HdFhuSCsyS3IrU2NiaFN5OGQ5OW1sV0dEcU5ub2hwbUVaUmZGUTJH?=
- =?utf-8?B?dmYxUE9VMUorUmFOYTRWUVgremhMNkxieUIrMnV2SXgwZW16MkxnSE91bGcy?=
- =?utf-8?B?VzRHQncyeElvRHJSQmZjNUlBSVQxa1Z1dDBlNEwyNllDd2pRUGwyejRER2ps?=
- =?utf-8?B?ZlkyWWd3R29nK1NicW9kdDNVdldXZWRkakFocG9YWG1HTC9Sd240YUphWURV?=
- =?utf-8?B?SzhFbFNjQlpQa0ROdnE0TFJ0eTg0cUw2Nmp4ZSt5R0FsS2FUTzRBZFNkWnBF?=
- =?utf-8?B?emdlRWRncHcrUS9lMHlGWmpzL3BTektob2U5SytXK3NocmVjQmQzZUg3Z3VJ?=
- =?utf-8?B?bmhHSFI0WnZiQkNKN3RsYlluY01Ob0VWN3I5SUg0ZmlYWU52UmpxS0diM2xX?=
- =?utf-8?B?clhCWHpDVlNTc2FiZjNMdTJOU2Q1QTJtbmFXa2ZwcE9saUFHa2doNDRJTExO?=
- =?utf-8?B?eC85S1RUOUpUcld2S1oxZDVVVXFGWnl2Q0ZIUktoeXNJd0t5U1VVajZacWpI?=
- =?utf-8?B?RGVHZkNjR3REQnZ5aDRSQ2xTTWdYMnR2dWNoYnJqRXhld24rWDdUWlk3UTIw?=
- =?utf-8?B?V3BSUEpDSEx2VGZiYW8vWmlWYk82bThaZlgwZFN2c3lGK0VNZVdSRDRmNEpZ?=
- =?utf-8?B?cGsrc2pXZWxGblhVNHhpaXBvekRlaWJiQ3hqVTF1cFR5OWlBTm41Z1FKOVFw?=
- =?utf-8?B?U0k5T1kvdmwzcEpDcWl2YXVvZ0hCZjlvZXI0cmFpTDRMVDZ4TWRXMEJVcDlQ?=
- =?utf-8?B?WVNTNUR0YWE5YkJER3Y2MkhEeEdOV1ZCaTlJNmVvUHV4YkVWN1I1QnBiSWh0?=
- =?utf-8?B?alkyNmhSdkFqdkwxYnpEc2YwTjdQS2c1RXg2T1NpZFNSU2FJVUhidjhHMWsr?=
- =?utf-8?B?NjU3MStFcW93ZW1kbmxoYm1hTWZGd2oxbXVOYzgvTUhJcUJCbjArTnVReUx3?=
- =?utf-8?B?M291RFZCbHRMR3hsazEvZWt5RXdpcmNDZkhDWTFhS2xiTG4xMk5udTlWVnZ2?=
- =?utf-8?B?b253SlBaSkt5UEY1TGR0VHVIRHRqUCt3V0toNHViZEl5K0RDSHNvUytQUS9V?=
- =?utf-8?B?MXVTenZNSDVudk5udXp0UDZJekg4YllqRG5Wb1YwWkhrRzRtRjdURW9aeWtm?=
- =?utf-8?B?bHFZN3NIKzBGdjBJTVYzREJqSnJITHBzekdlek9aV2RDWmJhK2MvTmprM2dw?=
- =?utf-8?B?ajZWWGE4Z2owWm5lZzhTalpFSGVoQ0FRSHV6bVcvZ0pRTjk4Wk5vd0dva285?=
- =?utf-8?B?YzB6QVdVRGZCa0JHdTdxaDFaWFhVVld5dkxuaUFubCtPdHdrRjcxVzczMjNw?=
- =?utf-8?B?TmljZHJlNUZ3SUh1MmNxUFdIRkkwUFlLUCs3SDMyLy8yamtHbHlXZElIWXdU?=
- =?utf-8?B?SDNXZGNNRzE0NU5ZT21XV29lU0hWRHJSNXdMM3BrWmdrTkhVUWZaa3hValNK?=
- =?utf-8?B?c1F2aFVvMDRsU3lyelZ1UFNZV1N6a2t5c3o4TC9oWEk2Z2dndTdYbFpJNGYx?=
- =?utf-8?B?dzdCSk5TdUUzSENvaFRRZ2liSStoWTIwaDhBdkpCK3ZTalB5MVJWSU92TXRv?=
- =?utf-8?B?Y1MrbzRpY0h0aitNaHFqRG9KZUxxV0I3TDJCdVhYYjkrZTN1K3B6bTgwc05m?=
- =?utf-8?B?TVZ0dTYzNmdLUUhFdU9CSkpIS2dCNzBReDdvUXcvTXc5bElzUngrTkVmVVl2?=
- =?utf-8?B?VGlXaTNGb3dWaU9EYVdCTjB6bjJTbFZrcG9SMHBXTDJ3cHVUOHg2SnYwUlZM?=
- =?utf-8?B?T3o4Nml0UUloNzI5dzNGY2puOHVZV1RROFgwYUp5ZHQxcm10Z25TVjF5VUtu?=
- =?utf-8?B?U2ZCK0NzVW1yWTMrcksyclRxZUpSZXVac1JiT3hrcEcxdlJXM1FDNmhISCt1?=
- =?utf-8?B?ZzRNZ2lPUjZVaFh1ZUtqZGFEak41azgxSjNWaUQvZVZCN01hUi9oUT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e19a0ca5-4462-4d2c-b356-08de8a18f6e7
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 02:48:16.0754
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kcK6vDhMdaSUaPWn3Rw8+Zp/tAZX/QBqbtvg/z6gcv9VPtaTdBIFom9ObV2zuoAu3OZ7F0zhDTe1dzMfXDaGfd6+7JO0o0Lmf1hxXH47QM8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI3PR03MB10032
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_024829_525609_DAFFE7EC 
-X-CRM114-Status: GOOD (  13.00  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260324025332.3416977-2-eleanor.lin@realtek.com>
+References: <20260324025332.3416977-1-eleanor.lin@realtek.com> <20260324025332.3416977-2-eleanor.lin@realtek.com>
+Subject: Re: [PATCH v5 01/10] dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, eleanor.lin@realtek.com
+To: Yu-Chun Lin <eleanor.lin@realtek.com>, afaerber@suse.com, conor+dt@kernel.org, cylee12@realtek.com, jyanchou@realtek.com, krzk+dt@kernel.org, mturquette@baylibre.com, p.zabel@pengutronix.de, robh@kernel.org
+Date: Tue, 24 Mar 2026 18:59:01 -0700
+Message-ID: <177440394165.5403.17868576455504268400@localhost.localdomain>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,132 +67,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ronald,
+Quoting Yu-Chun Lin (2026-03-23 19:53:22)
+> diff --git a/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.=
+yaml b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+> new file mode 100644
+> index 000000000000..6fabc2da3975
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+> @@ -0,0 +1,52 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/realtek,rtd1625-clk.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Realtek RTD1625 Clock & Reset Controller
+> +
+> +maintainers:
+> +  - Yu-Chun Lin <eleanor.lin@realtek.com>
+> +
+> +description: |
+> +  The Realtek RTD1625 Clock Controller manages and distributes clock
+> +  signals to various controllers and implements a Reset Controller for t=
+he
+> +  SoC peripherals.
+> +
+> +  Clocks and resets are referenced by unique identifiers, which are defi=
+ned as
+> +  preprocessor macros in include/dt-bindings/clock/realtek,rtd1625-clk.h=
+ and
+> +  include/dt-bindings/reset/realtek,rtd1625.h.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - realtek,rtd1625-crt-clk
+> +      - realtek,rtd1625-iso-clk
+> +      - realtek,rtd1625-iso-s-clk
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
 
-On 2026/3/23 17:55, Ronald Claveau wrote:
-> These pinctrl nodes are required by the eMMC, SD card and SDIO drivers
-> to configure pin muxing at runtime.
-> 
-> - eMMC: control, 4-bit/8-bit data, data strobe and clock gate pins
-> - SD card: data, clock, command and clock gate pins
-> - SDIO: data, clock, command and clock gate pins
-> 
-> Signed-off-by: Ronald Claveau<linux-kernel-dev@aliel.fr>
-> ---
->   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 98 +++++++++++++++++++++++++++++
->   1 file changed, 98 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> index 6510068bcff92..ac8de8e9b8010 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> @@ -250,6 +250,104 @@ gpio: bank@4000 {
->                                          #gpio-cells = <2>;
->                                          gpio-ranges = <&periphs_pinctrl 0 0 157>;
->                                  };
-> +
-> +                               emmc_ctrl_pins: emmc-ctrl {
-> +                                       mux-0 {
-> +                                               groups = "emmc_cmd";
-> +                                               function = "emmc";
-> +                                               bias-pull-up;
-> +                                       };
-> +
-> +                                       mux-1 {
-> +                                               groups = "emmc_clk";
-> +                                               function = "emmc";
-> +                                               bias-disable;
-> +                                       };
-> +                               };
-> +
-> +                               emmc_data_4b_pins: emmc-data-4b {
-> +                                       mux-0 {
-> +                                               groups = "emmc_nand_d0",
-> +                                                        "emmc_nand_d1",
-> +                                                        "emmc_nand_d2",
-> +                                                        "emmc_nand_d3";
-> +                                               function = "emmc";
-> +                                               bias-pull-up;
-> +                                       };
-> +                               };
-> +
-> +                               emmc_data_8b_pins: emmc-data-8b {
-> +                                       mux-0 {
-> +                                               groups = "emmc_nand_d0",
-> +                                                        "emmc_nand_d1",
-> +                                                        "emmc_nand_d2",
-> +                                                        "emmc_nand_d3",
-> +                                                        "emmc_nand_d4",
-> +                                                        "emmc_nand_d5",
-> +                                                        "emmc_nand_d6",
-> +                                                        "emmc_nand_d7";
-> +                                               function = "emmc";
-> +                                               bias-pull-up;
-> +                                       };
-> +                               };
-> +
-> +                               emmc_ds_pins: emmc-ds {
-> +                                       mux {
-> +                                               groups = "emmc_nand_ds";
-> +                                               function = "emmc";
-> +                                               bias-pull-down;
-> +                                       };
-> +                               };
-> +
-> +                               emmc_clk_gate_pins: emmc_clk_gate {
+Are there any input clks for the clk tree?
 
-Node names should use hyphens ('-') instead of underscores ('_'), 
-consistent with the following nodes.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@98000000 {
+> +      compatible =3D "realtek,rtd1625-crt-clk";
+> +      reg =3D <98000000 0x1000>;
 
-> +                                       mux {
-> +                                               groups = "GPIOB_8";
-> +                                               function = "gpio_periphs";
-> +                                               bias-pull-down;
-> +                                       };
-> +                               };
-> +
-> +                               sdcard_pins: sdcard {
-> +                                       mux {
-> +                                               groups = "sdcard_d0",
-> +                                                        "sdcard_d1",
-> +                                                        "sdcard_d2",
-> +                                                        "sdcard_d3",
-> +                                                        "sdcard_clk",
-> +                                                        "sdcard_cmd";
-> +                                               function = "sdcard";
-> +                                               bias-pull-up;
-> +                                       };
-> +                               };
-> +
-> +                               sdcard_clk_gate_pins: sdcard_clk_gate {
-> +                                       mux {
-> +                                               groups = "GPIOC_4";
-> +                                               function = "gpio_periphs";
-> +                                               bias-pull-down;
-> +                                       };
-> +                               };
-> +
-> +                               sdio_pins: sdio {
-> +                                       mux-0 {
-> +                                               groups = "sdio_d0",
-> +                                                        "sdio_d1",
-> +                                                        "sdio_d2",
-> +                                                        "sdio_d3",
-> +                                                        "sdio_clk",
-> +                                                        "sdio_cmd";
-> +                                               function = "sdio";
-> +                                               bias-pull-up;
-> +                                       };
-> +                               };
-> +
-> +                               sdio_clk_gate_pins: sdio_clk_gate {
-> +                                       mux {
-> +                                               groups = "GPIOX_4";
-> +                                               function = "gpio_periphs";
-> +                                               bias-pull-up;
-> +                                       };
-> +                               };
->                          };
-> 
->                          gpio_intc: interrupt-controller@4080 {
+Should be 0x98000000 to match the unit address.
+
+> +      #clock-cells =3D <1>;
+> +      #reset-cells =3D <1>;
+> +    };
 
