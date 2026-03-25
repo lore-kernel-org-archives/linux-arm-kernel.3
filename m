@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FAC109C040
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AC5109C055
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pYAxf3VW/HInMToZHO0pS79XW5O33/TonbSLS2yJnCM=; b=DGTxy9QGCGEaN2kK1oz40WQkHX
-	MyjCoZxL+Ga2pUmQGIqwzkDyZn2fA5WoeqnTCwQfuLQ8CJc1TQt0mvhpNSkkSjjdyViG+1ia8kKHw
-	FNvEHuxIfCpbyHYOMgHTJWILV+uaI+oTheCUcLQVmT35fADnzb+a1Txquz078L/hWuEWUde7+42w2
-	gbBo3Qqef9FulqeSKa6/CiJ8skjUnK1S0F51JMSpiRCvYN2NotXCLGkoR4JcYro6y1OJvNGqAnUx9
-	M4UUn8jXR8b7+QdtTWUEVwwRlPGEo0+7GSFmZBSjvVsuwlrCmL+vGvekzf4MmXBwK3/YuHz+EWmgd
-	LV8PK+Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yFmm1e2joJDzrblN9CkV4X7e2hjaTZalUHmbuneKN1s=; b=f3hCKHJfdDRFLTv46HKH9A2acw
+	RRVSO0GOggWTY5dIiP4VvsgrECKrXIkXJN4A3q5UJEMYIQRSTh3jpjxp5oEHUn9eOF3xONkhHlXRm
+	63Iuat7lhSc2BS1FRwF3s5GpP37ATXX9Se3Vquh2ybeZVOB2KXCb93X7+FSjsMMu2HIT7DT4/4BKT
+	FvWal98Xy/vjLtrSH3ijuo3nVgCDY1SYVWsZMgswV76/C71u1mknl3MmcN3dbPAPMf+Q/rzbQ8qCr
+	mGC3OxGbvvB8OPoXtYGTTCpe6+iOXflGdnx9ej3Cw0kAsah+lFSO3oPdu4MyUQO5YfF/WHUIT+ojj
+	kTh8kH5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Slo-000000043hi-34gT;
-	Wed, 25 Mar 2026 18:15:56 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Slm-000000043hG-1Gg7;
-	Wed, 25 Mar 2026 18:15:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774462530; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=iNSFw4BQJshLLPXQARh8ibRd6UVRs9i/nVifDjGClbRqTsK8CMUFa2XaJhgpqc4MtRpsnvT/MtPhxss5bM5h/LLHv55ciM2sfpAIU13INnA68vLhZ6RzbvhglJBIIAdg7ejAJsyFhRAOCkic27g+OF25EbUbdqX63RRNmO3fJNQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774462530; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=pYAxf3VW/HInMToZHO0pS79XW5O33/TonbSLS2yJnCM=; 
-	b=BhMfIrOjgmVvUcay2ns5NiNFyY3DNO+pP2q7c7tt2rl8WWdSVlhf7atcVWpEGU/jjoxfyGpOHz/GfqXTnNvAXDDmjMG9VPyew4I4IRe1p+JZ5vOdFI2Ej/chjpp4yobN8RFuNXrz8Id2WbU8U6l0bq6aPH3wKZs4+tdvOu7y2CE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774462530;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=pYAxf3VW/HInMToZHO0pS79XW5O33/TonbSLS2yJnCM=;
-	b=TPMTpYTaEUPpWQ7b10E7g1OChCuezPo4/jeaivSdOwpxG85LK5icQ/Bsgl9X9yNg
-	l7+jjBMJFoL8r8zvnVcBjx9zKTWXw9gz5ocBEq0ytR25o3jvLQYPf2nwSiVxZT/Ls4e
-	huYq5At0370vL091vWdffnEGkMFzr+Gs9V8IPTIY=
-Received: by mx.zohomail.com with SMTPS id 1774462528545299.56819553131663;
-	Wed, 25 Mar 2026 11:15:28 -0700 (PDT)
-Message-ID: <199e674cfdbccad104db761964611b1d6352f9f3.camel@collabora.com>
-Subject: Re: [PATCH net-next 2/2] net: phy: Introduce Airoha AN8801/R
- Gigabit Ethernet PHY driver
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Heiner Kallweit	
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
- matthias.bgg@gmail.com, 	kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Wed, 25 Mar 2026 19:15:22 +0100
-In-Reply-To: <3fbfabf7-b3af-405b-ade4-4f62db2c1c45@lunn.ch>
-References: <20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com>
-	 <20260304-add-airoha-an8801-support-v1-2-0ae4ee5a2f9d@collabora.com>
-	 <3fbfabf7-b3af-405b-ade4-4f62db2c1c45@lunn.ch>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1w5SqK-000000044EO-0U73;
+	Wed, 25 Mar 2026 18:20:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5SqH-000000044Dz-1rBg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 18:20:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0CC51F02;
+	Wed, 25 Mar 2026 11:20:26 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 687383F836;
+	Wed, 25 Mar 2026 11:20:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774462832; bh=j2/es1QhPhuq51aj/X0brAWozFW8cVd/nUY1rJQCm28=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RnRqlju//v+l8+03/0wteCA6R1iCsC1AxpJi6NyA/fWzpmNollbBo80IOtBxUXBxZ
+	 G5EG2hgtu/qJ5SgLsJ9eud5ObOxoheQ95D/hyREnHIaEvJHzxuqvDMmezCC/dm26sj
+	 AWDLdr/3IUF3rzLY+0m1k9SAPvra5hVsUBx3KeD0=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	liuyonglong@huawei.com,
+	Jonathan.Cameron@huawei.com,
+	yezhenyu2@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	suzuki.poulose@arm.com
+Subject: [PATCH] arm64/kvm: Enable eager hugepage splitting if HDBSS is available
+Date: Wed, 25 Mar 2026 18:20:27 +0000
+Message-ID: <acQna2hLwdr1juTN@devkitleo>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <acQj5grOdZT8LUGp@devkitleo>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com> <20260225040421.2683931-5-zhengtian10@huawei.com> <acQj5grOdZT8LUGp@devkitleo>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_111554_398767_C13179D9 
-X-CRM114-Status: GOOD (  43.07  )
+X-CRM114-CacheID: sfid-20260325_112033_545299_312B48F9 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,200 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+FEAT_HDBSS speeds up guest memory dirty tracking by avoiding a page fault
+and saving the entry in a tracking structure.
 
-On Wed, 2026-03-04 at 15:59 +0100, Andrew Lunn wrote:
-> > +static int an8801r_did_interrupt(struct phy_device *phydev)
-> > +{
-> > +	u32 irq_en, irq_status;
-> > +	int ret;
-> > +
-> > +	ret =3D air_buckpbus_reg_read(phydev,
-> > AN8801_BPBUS_REG_WAKE_IRQ_EN,
-> > +				=C2=A0=C2=A0=C2=A0 &irq_en);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret =3D air_buckpbus_reg_read(phydev,
-> > AN8801_BPBUS_REG_WAKE_IRQ_STS,
-> > +				=C2=A0=C2=A0=C2=A0 &irq_status);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (irq_status & AN8801_IRQ_WAKE_MAGICPKT)
-> > +		return 0;
->=20
-> With a name like an8801r_did_interrupt() you would expect the return
-> value to be some value of True, if there was an interrupt. I would
-> suggest either a different name, or return 1. Maybe also add a
-> kerneldoc header indicating the return values, since it is probably
-> not going to be standard.
->=20
-The function name was not great and confusing.
+That may be a problem when we have guest memory backed by hugepages or
+transparent huge pages, as it's not possible to do on-demand hugepage
+splitting, relying only on eager hugepage splitting.
 
-While reworking the interrupt handling for WoL support for v2, I merged
-the function with the an8801r_handle_interrupt function (to process
-differently the Magic Packet and Link Change interrupts) so this
-function won't be in v2.
-=20
-> > +static void an8801r_get_wol(struct phy_device *phydev,
-> > +			=C2=A0=C2=A0=C2=A0 struct ethtool_wolinfo *wol)
-> > +{
-> > +	u32 reg_val;
-> > +
-> > +	air_buckpbus_reg_read(phydev,
-> > AN8801_BPBUS_REG_WAKEUP_CTL1, &reg_val);
-> > +
-> > +	wol->supported =3D WAKE_MAGIC;
->=20
-> How does WoL work on this device. Only via interrupts? If so, maybe
-> you should only return WAKE_MAGIC as supported if there is a valid
-> interrupt?
->=20
-Yes, the WoL works via interrupts and indeed it lacks the interrupt
-validity check.
+So, at stage2 initialization, enable eager hugepage splitting with
+chunk = PAGE_SIZE if the system supports HDBSS.
 
-In v2, following the RTL8211F wake-on-lan support example given to me
-by Russell in his review, I'll fix this by adding a check using
-device_can_wakeup in an8801r_get_wol and an8801r_set_wol functions and
-adding a probe function (there was none in v1) to mark the PHY device
-as wakeup capable if it has a valid interrupt and if the wakeup-source
-property is present in the devicetree for the device node.
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+---
+ arch/arm64/kvm/mmu.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-> > +static int an8801r_rgmii_delay_config(struct phy_device *phydev)
-> > +{
-> > +	switch (phydev->interface) {
-> > +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> > +		return an8801r_rgmii_txdelay(phydev, 4);
-> > +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> > +		return an8801r_rgmii_rxdelay(phydev, 0);
-> > +	case PHY_INTERFACE_MODE_RGMII_ID:
-> > +		return an8801r_rgmii_txdelay(phydev, 4);
-> > +		return an8801r_rgmii_rxdelay(phydev, 0);
->=20
-> The parameters look very odd here. 4 means 2ns, but 0 also means 0ns?
-> Can this API be improved?
-From the info I finally got about these magic values, the differences
-between the RX and TX values for the default insert delays can be
-explained by the additional RGMII_RXDELAY_ALIGN bit setting when
-writing the RX delay register (AN8801_BPBUS_REG_RXDLY_STEP), done by
-an8801r_rgmii_rxdelay function because it adds an extra offset.
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 070a01e53fcb..bdfa72b7c073 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -993,22 +993,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+ 
+ 	mmu->last_vcpu_ran = alloc_percpu(typeof(*mmu->last_vcpu_ran));
+ 	if (!mmu->last_vcpu_ran) {
+ 		err = -ENOMEM;
+ 		goto out_destroy_pgtable;
+ 	}
+ 
+ 	for_each_possible_cpu(cpu)
+ 		*per_cpu_ptr(mmu->last_vcpu_ran, cpu) = -1;
+ 
+-	 /* The eager page splitting is disabled by default */
+-	mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
++	 /* The eager page splitting is disabled by default if system has no HDBSS */
++	if (system_supports_hacdbs())
++		mmu->split_page_chunk_size = PAGE_SIZE;
++	else
++		mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
++
+ 	mmu->split_page_cache.gfp_zero = __GFP_ZERO;
+ 
+ 	mmu->pgd_phys = __pa(pgt->pgd);
+ 
+ 	if (kvm_is_nested_s2_mmu(kvm, mmu))
+ 		kvm_init_nested_s2_mmu(mmu);
+ 
+ 	return 0;
+ 
+ out_destroy_pgtable:
+-- 
+2.53.0
 
-For TX, the 4 value is the delay step value that is the closest to 2ns
-(1.883ns). But For RX, setting the step value to 0 and setting the
-RGMII_RXDELAY_ALIGN bit too, inserts a 1.992ns delay. Without align
-bit, it would indeed be -0.008ns.
-
-Those delays are also inserted because the an8801r_rgmii_rxdelay and
-an8801r_rgmii_txdelay function set the force mode bit
-(RGMII_RXDELAY_FORCE_MODE / RGMII_TXDELAY_FORCE_MODE).=20
-If this bit is unset, it prevents inserting a delay.
-
-> Also, PHY_INTERFACE_MODE_RGMII_TXID means 2ns delay for TX, but it
-> also means 0ns delay for RX. The code appears to be missing this
-> second part.
->=20
-There is indeed a bug with this double return in
-PHY_INTERFACE_MODE_RGMII_ID case so the RX delay is not inserted.
-
-> > +	case PHY_INTERFACE_MODE_RGMII:
->=20
-> And here you should be disabling all delays. We have seen boards
-> where
-> the strapping is wrong, the PHY boots in RGMII_ID, but RGMII is
-> required, and so the driver must fully implement
-> PHY_INTERFACE_MODE_RGMII disabling the delays.
->=20
-You're right it is also missing the delay disabling part.
-
-The an8801r_rgmii_txdelay and an8801r_rgmii_rxdelay function don't
-allow to disable them since they always set force mode bit and because
-the 0 values does not completely mean no inserted delay.
-Their implementations should be modify to be able to do that.
-
-For v2, I've reworked the an8801r_rgmii_delay_config and
-an8801r_rgmii_rx/txdelay to handle properly all RGMII configuration
-cases and I hope in a simpler manner.
-
-> > +static int an8801r_config_init(struct phy_device *phydev)
-> > +{
-> > +	u8 led_default_function[AN8801R_NUM_LEDS] =3D { 0 };
-> > +	int prev_page, ret;
-> > +
-> > +	ret =3D an8801r_of_init_leds(phydev, led_default_function);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/* Disable Low Power Mode (LPM) */
-> > +	ret =3D phy_write_mmd(phydev, MDIO_MMD_VEND2,
-> > AN8801_REG_PHY_INTERNAL0,
-> > +			=C2=A0=C2=A0=C2=A0 FIELD_PREP(AN8801_PHY_INTFUNC_MASK,
-> > 0x1e));
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret =3D phy_write_mmd(phydev, MDIO_MMD_VEND2,
-> > AN8801_REG_PHY_INTERNAL1,
-> > +			=C2=A0=C2=A0=C2=A0 FIELD_PREP(AN8801_PHY_INTFUNC_MASK,
-> > 0x2));
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/* Disable EEE by default */
-> > +	ret =3D phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV,
-> > 0);
-> > +	if (ret)
-> > +		return ret;
->=20
-> Why? If EEE is broken, this is not sufficient to stop a user
-> re-enabling it.
->=20
-I've tested by removing these lines and EEE seems working fine.
-I'll remove them in v2.
-
-> > +static int an8801r_read_status(struct phy_device *phydev)
-> > +{
-> > +	int prev_speed, ret;
-> > +	u32 val;
-> > +
-> > +	prev_speed =3D phydev->speed;
-> > +
-> > +	ret =3D genphy_read_status(phydev);
-> > +	if (ret)
-> > +		return ret;
->=20
-> You configure the PHY to support downshift. If it has performed a
-> downshift, does it report the actual speed in the usual registers
-> read
-> by genphy_read_status(), or is it necessary to read a vendor
-> register?
-From the tests I've done, I got the actual speed read correctly by
-genphy_read_status function.
-I did a test by adding in this function the vendor register reading at
-the same time and comparing it and did not get a discrepancy too when
-switching with ethtool between different speed configurations.
-
-Would it be more reliable to use the vendor register instead?
-
->=20
-> > +static struct phy_driver airoha_driver[] =3D {
-> > +{
-> > +	PHY_ID_MATCH_MODEL(AN8801R_PHY_ID),
-> > +	.name			=3D "Airoha AN8801R",
-> > +	.features		=3D PHY_GBIT_FEATURES,
->=20
-> Should not be needed, if the PHY enumerates its capabilities
-> correctly.
-I confirm it is not needed, I'll remove it in v2.
-
-Thanks for the review.
-
-Regards,
-Louis-Alexis
-
->=20
-> =C2=A0=C2=A0=C2=A0 Andrew
->=20
-> ---
-> pw-bot: cr
 
