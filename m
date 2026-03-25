@@ -4,107 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D23AFEA83D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1576FEA839
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=; b=HZeUYbPaoVuhHe+P2ej1cdALc8
-	at7ANr4apN+pKKUEDeFE97GHkTH0S/hV4AWsuamJO+ceeEauvj6rX8nQuB9b7NDSoguhV39gIcMRy
-	WxL1yhImpdfmUryIZ6KM6n0XRvFGnxTVRqF8kg6BFY64NDhSkNF5jd+Q1SPXiBgqG6oyeNPQvTVmV
-	7FF+0hvVxO2dLJQ+7DRKs5IR6lD/Hmbsn7DUJFyg1BQZIXf3jGZ93HOCNZJbdVkmDG36rbOczfecy
-	jNcEoAYUlKO4G3kchacRS3bKiV8IqD+gqWa/IYzNEzy55yfmZtuIE7Xapf0+OD53Wt4qkO+2XZceq
-	3BuoytdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dPn24ee3Ut3if8Ncvi7vY0xSmV1MlIqacbWnXs0wBFE=; b=vgDjEwhJttZlCi
+	luY6ySt83B2KMB/Fzp5QCTaDEXfeKlE8Hma143iyIyeZuuYO2/zaS6gU0XA+QgBV0xG6I+A7MPjnp
+	x2cbHlyVpRlxcRBL4GKPQ2Qfs/QFv8Mwbmcv5ov8Q+VBjDBboW6Iq2vLzHUVdiJ0NbhunYYgQ5xK5
+	XbQkNaOL+dfaS5hESEE9a4dChEdgaojGIsKrsHniPXMuXmMJ7nlCd1/yvidORH5Tmxdy7uWeyNZdw
+	F2Lrb4XhGABvGdPFvPRqw2KmWHef2SNMNef5kb6Z8EU4gAaFOZL070V3y4VskTbDsjFidadKwGG/C
+	sxTX/pC2egNtNtCzwmCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Kso-000000034uD-2bzu;
-	Wed, 25 Mar 2026 09:50:38 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1w5Kt1-000000034yL-3sfe;
+	Wed, 25 Mar 2026 09:50:51 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Ksm-000000034tJ-2CNN
+	id 1w5Ksp-000000034uC-2So7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 09:50:37 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-669d7666d77so4877033a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 02:50:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774432234; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Y1tHw26R3MFT3mfm9uMOXto0Dr1X1a1sSE/Mk4Awa9Ki+TEPXpnduj+E38776B0eYn
-         +w2UENiTdVsk4GgPFpG4Qbe/AvlAY2btDzI5DssgmzjxqV/4e4IpzoYwK7FD4ZNJWnmp
-         SaCeEoZXHzYZXRSO5rueRAWnnC8j7vc13qHYRyB76sA7y1r5wSuINOFSV/fbPiixQPlY
-         K5b2xwQ25MY9F1HjUNWpYkBgJCtZry+XHgvVtWZOo8i72FVjOemr31aWXxq/AHJhVc6Z
-         iTDZ6waxcW8nqpGVX7NXDCs+nDL1n0JeESdbSlvQzvzcSo7qdECZQKEE9poUs+GUVbb8
-         3TNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=;
-        fh=B/yQTkd/C6GJC9RNmw7sg1zpY8CgGYPUesYQaWcINsA=;
-        b=Qb6xNI2Y6J3ha8ixU1UqWSHmQoaMvjb9g4yM2KOjxCB83kVmFMgeW42y8aOggcsd8z
-         HGGtLeTzDRf/tk+FvCtsblI5RU82BxWjbfQoMxnr4uu2nPQq/ThtbJBYU7gMuqdBEjPi
-         98moD9rrr0rDMn2ZMjENXt23prrQaLGv196O4Y/+WLnx3PN8XDwedGHBtnKrQ7ywjTCc
-         FIIAg5zENlRW/i1RfeCOZLSNzdngO87qVXJT62hbwpmE3qZovp60m7HA7x3vWwxGcEIK
-         G8Kpqq5T3wy0LrEvBDLXXrl3nV3ViALmFu3ta3xtVufgod1QS/xJHLisRnlYZ+E8pAOP
-         70XA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 25 Mar 2026 09:50:40 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48541edecf9so19887875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 02:50:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774432234; x=1775037034; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=;
-        b=aF43O3SR3XnB8asEilskmTQoA2zRXIiGoAnZmf320bkf58YfLGZ+KqtMLWgcp0AnRw
-         IgnrOIPnL8AHPKxhroVgJRzfmxusipEXogGMwALCNkA1paAJJ7nQCwgspuwpXAYZ/maN
-         ZI+fmhyezO21XlIB+TJZ4fJKjzFokZm6RoxZzDW3m3pci13IXK6BBurD3XZqOOB9MVem
-         C5zB62JByNdHc+O7GAZOM+bH7AfyaU01Q/Tb0bkfMlQ6whdH/pzltdrMQeLKW35fi/su
-         7AZ/KxqCWlLizL4aI+NuweuLyuqt/MPllstFwh/yyWKUitp/Go1rLLbqaLFie3AdRLzN
-         NbqQ==
+        d=gmail.com; s=20251104; t=1774432238; x=1775037038; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dPn24ee3Ut3if8Ncvi7vY0xSmV1MlIqacbWnXs0wBFE=;
+        b=tDcfmd7YrTWJ4S8XfDlp0DUlWgXhs9dAGfmK8ud6GoqaZ9a+/zSYGLNWLfWI9nZudB
+         eZMvCOS2JqzzuirZh/JGkVfgAa2WLeCl8vlzIEeD8fgiQpd/J8gLE4mk3wKsIqlauKPg
+         ob6j9Jo/XD1KR1wKnUDIENggIuZIdMCEOaIn7vmqAOjSFW6lLFIiUdjST8mcXfR5MokA
+         ISP7QgWzwPkmUq36z/yh6+uwYhj6SOwkJ1RAK0wFrsbgaxBRaUA08KuCuMB3dDemoCYA
+         PkmnQxm2QMCqvzNXJ3j72plQYuPVeXAL+8Qhw2jvmbydlQAw5QFkibumF0yrQHCKaJhE
+         GL3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774432234; x=1775037034;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=;
-        b=hdmwE3IUA9A8GkaOLsh45pTRVk3hDwrjSwyfGUHsaZeeo1VzJcFJ+vucN/lvOlwe2E
-         +lMsrhHxUAY12vT6ta20YwHWBQguFLT9oeMrf97O5XmivR0zI1eeYRQ74SA+2k2zt1BI
-         9ibqxkuROgSq0VP7o2IEsO+YEDYZxzS4sTi1zTpREMDW3P0LtPlhbRCE6FG64EYDzZ9W
-         w4vj/mH2GdCAC6lsy9cG/dETvGl+eTm5FgvCZBqMiyR8CCIDot34At4ETgrPfkU6DdZF
-         Y/XWijTRMgJXrnUxU0ExWDIDu2PHIZG6XDew9WeMlJvMCKxV3No90uo9NoXyY/Dmj5gG
-         e5LQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVg1vud5n/zWXVPjl1N/HzRTq09Fc6NBQuQV6yJLhImJ1+wQUm+h/T9zSJ90j7TapJcMgwC6KRmc1bm0VvSbcHE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/WKGqoXkk1LQVAebdq98/rfaysuoVgE1WTO/Z7ldRGLz22ARi
-	fKKBi4UM6tav9nZ2s+0Hc2ItEK3l8tEc4TRQJUHmJ7gi3PHEHM+kvrmyVrAl55B4Aa9O8xskvSk
-	fdOiE6WRk7f3yrvS+lFba2+SCck/jazc=
-X-Gm-Gg: ATEYQzwkKvCq6VNu3l6XvDfddfs6YIrNwc1Ahw2P5/5HS+Rw1V1NohQ+HeQ+36qepWW
-	OsWGZwVbqB6CYJ/s0G1fi5wrHQi9yxgw/eXqs235hu9HoYfInWGKNseSQMwwbvdnNaL+kJEPLe2
-	zn3cAFieWrRKYpaJgXMh4TFyXyyibXddBUuhPypzkt6qrR8H8tICTWYHD6/r9ruKdAYNFy8w/1r
-	hQgb5TbgZzHWISfOpwM0uHPfLoPkmqS/bNXZLbATolit9pRtPNNHYxAuulME1rgkwvsRHHgYUt9
-	bwywCJzt
-X-Received: by 2002:a17:907:72c7:b0:b96:f6f1:e7af with SMTP id
- a640c23a62f3a-b9b0ea7e884mr143299166b.9.1774432233910; Wed, 25 Mar 2026
- 02:50:33 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774432238; x=1775037038;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dPn24ee3Ut3if8Ncvi7vY0xSmV1MlIqacbWnXs0wBFE=;
+        b=nzC1F2gJ0jU76V3uFaL+ILJ23JC557KR3BdE0nebgmed+akPeT/epKA1k5zSge6Ggm
+         oJoz9t00jX2upp/qLu1CGConf4NPkimlMZqifKQQXG4zmLnW1nRur6X3VViPz4eZ2Cjw
+         Q8XV6kbOVBC+D8fIr5MySBMfZ6e6t6zXUuw/bGG6tdCqdkPkZ0DRZrVAoIJcVcK111su
+         CLvS77N7JtMeAKByL3hE+iPToVRDitLVA+xcntoReJiV1FvNsf1HxhSjibm/bCxbocQY
+         9paZIg98d7OezTM0D7SqmcL/t+HtVlKljqCwKXPzwB9GzWtKgaK9GS7kRToTLkd4RzDR
+         Q62g==
+X-Forwarded-Encrypted: i=1; AJvYcCUW6Sd/sPdLs3mLqx72Oqv4VZjXZPV7Vovsx4Xle8g12Ly94VxidCPQprWs9K0dyf1Kn+iOlwGBb9b/4yFMyUiF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNUnd+P/4d03eqhjFdwamBsvhjzwUKAb3h1jt4P8DxGAYravgC
+	PGT+Ej5JCvryzwgPWrbKq/4c7l0eSpkfXSb/7+OtKKMoonu+ouP7sXPI
+X-Gm-Gg: ATEYQzxzCvAIbtuB4XK+Jbs1UZFK52qeCKF+PPwAsnw4O79JBsXBpGGH4s7ViY6i3QP
+	aRjEoLCNJu+tIxXwXVCjHpg8fxzx6Ax4AhCfKg2vx9iSaBAc7jQ7OGx33sqnOAdF55EcAXiWTrY
+	VZTpB6OoArBE+hEAJhkj/GEHn7z3VdFDXq+kHPuw0lrg1VPd1JB1NcOy67riD1N8rJwtupOiaLk
+	wLw7XhDgWKPB7qBd7VcvRdAMtc6aGDjT9p9YV1fH+6OljY23jopOBiWr+5uBC5qdeHMjxJRfToQ
+	gPfOEYfgPEvvTpIlMJbK7TlrFY+ymzyFYnHIiGzD7dI52znoBNBMn0oZ/Pd7EBYl6bkeK5gAfem
+	gVcOUDHIOghOA5IhADr+8AMkmoMXjloqDInYrDGGI4jpo+OSeXn2gTxIeoM26gsVgZYmVLX0NmU
+	NOyebPMiDKCFNOkG193aiMdTJTGFwiEhBRMSC5XoIabey0k3DTA04vPfOQqPmuwWbJwDJayGT4b
+	tt2mQqgCYK3+ZDnQ9CV8r6grN5cY4FtpG1Q+S1nF9eDZ9K1Hsfzm0+tisofXA3rux4ZCVV7HXV7
+X-Received: by 2002:a05:600c:c490:b0:485:2c61:9459 with SMTP id 5b1f17b1804b1-48715fd526cmr41004935e9.8.1774432237393;
+        Wed, 25 Mar 2026 02:50:37 -0700 (PDT)
+Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-487116ee57esm111397755e9.14.2026.03.25.02.50.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 02:50:36 -0700 (PDT)
+From: Franz Schnyder <fra.schnyder@gmail.com>
+Subject: [PATCH 0/3] arm64: dts: freescale: imx95-toradex-smarc: Add
+ Bluetooth and SER2
+Date: Wed, 25 Mar 2026 10:50:19 +0100
+Message-Id: <20260325-mainline-update-imx95-v1-0-b5ebe976655b@toradex.com>
 MIME-Version: 1.0
-References: <20260310091054.2029912-1-egbostina@gmail.com> <acKyJTkqq-bV_3jZ@lizhi-Precision-Tower-5810>
-In-Reply-To: <acKyJTkqq-bV_3jZ@lizhi-Precision-Tower-5810>
-From: Eddie <egbostina@gmail.com>
-Date: Wed, 25 Mar 2026 11:50:22 +0200
-X-Gm-Features: AQROBzD-kPMMH1jFoji7rnPnjGOGNLf_VyIguCX0e1QYp30ObYBIhsUdhFbiTf0
-Message-ID: <CAEFOc61tNbF+cE0waQpfvuSe7enJkDk_yzcGXZ_-D1Kvj_5G-w@mail.gmail.com>
-Subject: Re: [RFC PATCH] arm64: dts: imx8mp-edm-g-wb: Use 0 for reserved bit
-To: Frank Li <Frank.li@nxp.com>
-Cc: daniel.baluta@nxp.com, simona.toaca@nxp.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANuvw2kC/x2MQQqAIBAAvxJ7TtishPpKdLDcaqFMtCIQ/550H
+ IaZCIE8U4C+iODp4cCnzVCVBcybtisJNplBolRYy0Ycmu3OlsTtjL6yPt6uFYiTWdTcNpNGyK3
+ ztPD7f4cxpQ9kZqivZwAAAA==
+X-Change-ID: 20260324-mainline-update-imx95-00bdf6c54ba0
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Francesco Dolcini <francesco@dolcini.it>, 
+ Franz Schnyder <franz.schnyder@toradex.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_025036_578721_644E5147 
-X-CRM114-Status: GOOD (  23.39  )
+X-CRM114-CacheID: sfid-20260325_025039_650197_F106B5C9 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,84 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+This patch series adds support for missing interfaces on the Toradex 
+SMARC i.MX95 SoM.
 
->> Change 0x41 to 0x40 to leave the reserved bit cleared, as
->> recommended by the reference manual.
->
-> Any impact if set bit 0 to 1?
->
+It adds:
+- SER2 interface
+- UART interface for Bluetooth
+- WIFI_UART_EN as a gpio-hog to select the UART function by default,  
+  as the MAYA-W260 UART signals are shared with the JTAG.
 
+Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
+---
+Franz Schnyder (3):
+      arm64: dts: freescale: imx95-toradex-smarc: Add SER2 interface
+      arm64: dts: freescale: imx95-toradex-smarc: Enable bluetooth on lpuart5
+      arm64: dts: freescale: imx95-toradex-smarc: Use gpio-hog for WIFI_UART_EN
 
-I have not tested this on hardware with the bit cleared, so
-I cannot confirm functional impact for sure, but according to
-section 8.2.4.238 of the iMX8MP reference manual, bit 0 of
-SW_PAD_CTL_PAD_SAI1_RXD6 is reserved with a reset value of 0.
-The only defined fields are PE (bit 8), HYS (bit 7),
-PUE (bit 6), ODE (bit 5), FSEL (bit 4), and DSE (bits 2:1).
+ .../boot/dts/freescale/imx95-toradex-smarc-dev.dts |  5 +++
+ .../boot/dts/freescale/imx95-toradex-smarc.dtsi    | 44 ++++++++++++++++++++++
+ 2 files changed, 49 insertions(+)
+---
+base-commit: efc6947b672d449d6b4560a55ad3589a6bee746c
+change-id: 20260324-mainline-update-imx95-00bdf6c54ba0
 
-Both 0x41 and 0x40 should result in identical pad behavior.
-Leaving it set probably risks undefined behavior in future
-revisions of the silicon.
+Best regards,
+-- 
+Franz Schnyder <franz.schnyder@toradex.com>
 
-
->> This also allows for
->> easier conversion to symbolic macros.
->
-> Can you send this patch also?
-
-Yes, I will send a followup patch soon.
-
-Thanks for the review.
-
-Eduard
-
-=C3=8En mar., 24 mar. 2026 la 17:48, Frank Li <Frank.li@nxp.com> a scris:
->
-> On Tue, Mar 10, 2026 at 09:10:53AM +0000, Eduard Bostina wrote:
->
-> Remove RFC.
->
-> > The i.MX8MP Reference Manual documents bit 0 of the
-> > IOMUXC_SW_PAD_CTL_PAD registers as reserved. The hd3ss3220
-> > IRQ pin (SAI1_RXD6/GPIO4_IO08) currently uses pad config
-> > value 0x41 which sets this reserved bit.
-> >
-> > Change 0x41 to 0x40 to leave the reserved bit cleared, as
-> > recommended by the reference manual.
->
-> Any impact if set bit 0 to 1?
->
-> > This also allows for
-> > easier conversion to symbolic macros.
->
-> Can you send this patch also?
->
-> Frank
-> >
-> > Signed-off-by: Eduard Bostina <egbostina@gmail.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts b/arch/a=
-rm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> > index 242fa930b..a78401d11 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> > @@ -345,7 +345,7 @@ MX8MP_IOMUXC_SAI1_TXD5__GPIO4_IO17                0=
-x16 /* DSI_VDDEN */
-> >
-> >       pinctrl_hd3ss3220_irq: hd3ss3220-irqgrp {
-> >               fsl,pins =3D <
-> > -                     MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08              0=
-x41 /* GPIO_P253 */
-> > +                     MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08              0=
-x40 /* GPIO_P253 */
-> >               >;
-> >       };
-> >
-> > --
-> > 2.43.0
-> >
 
