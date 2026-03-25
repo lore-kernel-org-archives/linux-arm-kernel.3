@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD8B109E527
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C32C109E52C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xhc0lo48Q3QfWm4w4QGgG6wDX0pvtlLQwzAZSIzNX2o=; b=Db1SPInF6Peu8CKaO/Jw2hxDV9
-	lfENXnY6JrjBaxkWzweYDtCaRymChi5Jjh5dFh2JA1plMLOmbmI5UJyT7ZLlMRzOmOu3GwFKKsQQS
-	HcssOstLgxvU5LreHjA4Ei6Xc3xuxGSw4YOnZCkMsdi5jZB/De+9j1mdimVXyuLSNmNZ+lIrPQ47b
-	HCaxthrjZwKRVjTdZN8DArknZByejTBBPz+mTCP0kO0PtZvmLbxtWqJbYeBbkSPx5w45m5SdzTQ5T
-	wvgf6fCLIpktIYulZ1hwUW33kUGn+CSYTr/Alz5uXxdxgXDNvpfSxHy9MP3mh2mvgCeAPfgo6+mZu
-	EHk5MpSg==;
+	bh=/bpYpa/VqljOpI1W9U6cNgHHmNXVAh9ifBfj8k+h+6c=; b=X9aFnEbMpM7UUy7WlJKPLt2tp7
+	7E95a2mqpaMsr6uSVXfNlN+/sgnwgMYk8NdjMKEwAcj/XjuqxXEmSujSVcUh0MfGc0Ipk4Lg3QyE/
+	3lx7G5pZp5ZL/EBsvwlTl1BAIqL9D9A91mdSF8TLtqM0M3MOU/bw1LWHKgl9p+dMU5W9Zc/z1wj0N
+	wDDDMij6lA5Hx37bjB2Dx263FVex488ElxOTuhGw6RTr7Cn+PQ/+jdFojM8SmB+AhPReVRhqwlm2G
+	NOAPFLDMM+QW9FTKlpAlTKxKAF4BSkQ/JwqCSp21Y7XHqWBkOjypl4NznOM124rH50ym1FL03yWQp
+	wzF6V5ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Wce-00000004M9k-1rap;
-	Wed, 25 Mar 2026 22:22:44 +0000
+	id 1w5Wcd-00000004M8p-3LZx;
+	Wed, 25 Mar 2026 22:22:43 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WcY-00000004M5c-0jLq
+	id 1w5WcW-00000004M3r-3Z55
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 22:22:40 +0000
+	Wed, 25 Mar 2026 22:22:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB5EF44703;
+	by sea.source.kernel.org (Postfix) with ESMTP id AAD7B445B7;
 	Wed, 25 Mar 2026 22:22:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C429BC2BCB0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 76E5DC2BCB2;
 	Wed, 25 Mar 2026 22:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774477355;
-	bh=Ko5eJ00+iD2PkDlRZb5TmiRuUZmptMbNVLOisdGaDYg=;
+	bh=XlbkRM4Y81V56cTV6+/QXoC0VtBMPVLklzsTe2WL+4A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=QHwqgfv/Bf/pgAcUvzt+2XvDOn75vl+tJzhvdr2A8yJODeYFg2OAWynuNr5uddf68
-	 jrjNLoexwKb1Zzu+8/hf34TJZLKOuSHJ+FE7dK1N1RMxfWPLQroDHOzBbqgy01So0G
-	 192cKChyhP0T6NAyJqSLFXcOpYQJUfX5dvwypXEJS+Z1rsQ1vHutF3zzKLkHcxBtjy
-	 ifj3mEgHJV9ro9QGX5fc/jY/eRpUgFD9eaxQRAZLp3xUfKskhSxdziqV3CqQCFHGbt
-	 AcDmPuUmu9o0seBr1kz5jvvgTA5xTR/gXjAWbtwskgX8frpluSmkoupBkdfvKNYd24
-	 MQHdSn+OdIDkw==
+	b=lQ69Jv8B/3wQDhxqPuov8bHPKS0hHNxLndUK5wwPb9y5NyueAhiwDRgOlIBA8mCOZ
+	 Re2Vm8HOgJjjNMVa+hAOCTSFS4H/cZqLyFOupnoR8CgDT1H05ojyNAvPp7TBk31WSl
+	 6f4/S8r9356ZmbgYuIlknWYE3Pil6XGUOWSZ+PPRC3/PGnJuesjn8MXmxv8OdCzZ73
+	 TkxqM+teioQnumDahMEH+4hVFYgB0UXNTjOdixwWYjoXlau2fH+E7Dkc/yoS+HUWt+
+	 2TgDC6scEg3l2uPQLbxlFmH24xOMUkk28OG52sQtGqpLCDS7PmmLX9Hq82Ujogyuyk
+	 ANpB645nkO0FA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BAA0C109E527;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6BBDC109E529;
 	Wed, 25 Mar 2026 22:22:35 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Wed, 25 Mar 2026 22:22:27 +0000
-Subject: [PATCH v9 6/6] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
+Date: Wed, 25 Mar 2026 22:22:25 +0000
+Subject: [PATCH v9 4/6] lib/linear_ranges: Add
+ linear_range_get_selector_high_array
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260325-max77759-charger-v9-6-4486dd297adc@google.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260325-max77759-charger-v9-4-4486dd297adc@google.com>
 References: <20260325-max77759-charger-v9-0-4486dd297adc@google.com>
 In-Reply-To: <20260325-max77759-charger-v9-0-4486dd297adc@google.com>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -73,19 +73,19 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
  Amit Sunil Dhamne <amitsd@google.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774477354; l=3934;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774477354; l=3004;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=bruH2PMOUkO97UYu2THTFVcDzHT49eOgRVKEaZdvmY4=;
- b=UnZJCmEPXSOTZU8eIu3pKBaNNSm5b6cf2wd4OSDRS+1pTSFSHnDBncyhynszpzLtMvhpzQk3x
- J/bDqEhAQE6CQFg6v9Z+rB2tJywptY3TNS6k2xoTCp5XjV5idjdW+Li
+ bh=Nqh5k2fIldoRheNZDSxzkfLUdV4de+6ygmmg823YqUE=;
+ b=zFfRG5xDa1iRyZnqxrL4HRmDlQGIPEekP5OMzzTGSReG9mypAumDchcaavNYgfUVcps5AgubH
+ rlsgj/H7UQLCHLyUh8/XTfNgfB1Casz8OIAv6Oq0clzrCFxNsB/ZduV
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_152238_293116_F7455C26 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20260325_152236_954195_594A1D7D 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,124 +103,78 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Amit Sunil Dhamne <amitsd@google.com>
 
-TCPCI maxim driver directly writes to the charger's register space to
-set charger mode depending on the power role. As MAX77759 chg driver
-exists, this WAR is not required.
-
-Instead, use a regulator interface to source vbus when typec is in
-source power mode. In other power modes, this regulator will be turned
-off if active.
+Add a helper function to find the selector for a given value in a linear
+range array. The selector should be such that the value it represents
+should be higher or equal to the given value.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Reviewed-by: André Draszik <andre.draszik@linaro.org>
+Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
+Acked-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/usb/typec/tcpm/tcpci_maxim.h      |  1 +
- drivers/usb/typec/tcpm/tcpci_maxim_core.c | 54 +++++++++++++++++++------------
- 2 files changed, 34 insertions(+), 21 deletions(-)
+ include/linux/linear_range.h |  3 +++
+ lib/linear_ranges.c          | 36 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+)
 
-diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.h b/drivers/usb/typec/tcpm/tcpci_maxim.h
-index b33540a42a95..b314606eb0f6 100644
---- a/drivers/usb/typec/tcpm/tcpci_maxim.h
-+++ b/drivers/usb/typec/tcpm/tcpci_maxim.h
-@@ -60,6 +60,7 @@ struct max_tcpci_chip {
- 	struct tcpm_port *port;
- 	enum contamiant_state contaminant_state;
- 	bool veto_vconn_swap;
-+	struct regulator *vbus_reg;
- };
+diff --git a/include/linux/linear_range.h b/include/linux/linear_range.h
+index 2e4f4c3539c0..0f3037f1a94f 100644
+--- a/include/linux/linear_range.h
++++ b/include/linux/linear_range.h
+@@ -57,5 +57,8 @@ void linear_range_get_selector_within(const struct linear_range *r,
+ int linear_range_get_selector_low_array(const struct linear_range *r,
+ 					int ranges, unsigned int val,
+ 					unsigned int *selector, bool *found);
++int linear_range_get_selector_high_array(const struct linear_range *r,
++					 int ranges, unsigned int val,
++					 unsigned int *selector, bool *found);
  
- static inline int max_tcpci_read16(struct max_tcpci_chip *chip, unsigned int reg, u16 *val)
-diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-index 19f638650796..c0ee7e6959ed 100644
---- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-+++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-@@ -10,6 +10,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/usb/pd.h>
- #include <linux/usb/tcpci.h>
- #include <linux/usb/tcpm.h>
-@@ -35,12 +36,6 @@
-  */
- #define TCPC_RECEIVE_BUFFER_LEN				32
- 
--#define MAX_BUCK_BOOST_SID				0x69
--#define MAX_BUCK_BOOST_OP				0xb9
--#define MAX_BUCK_BOOST_OFF				0
--#define MAX_BUCK_BOOST_SOURCE				0xa
--#define MAX_BUCK_BOOST_SINK				0x5
--
- static const struct regmap_range max_tcpci_tcpci_range[] = {
- 	regmap_reg_range(0x00, 0x95)
- };
-@@ -202,32 +197,49 @@ static void process_rx(struct max_tcpci_chip *chip, u16 status)
- 	tcpm_pd_receive(chip->port, &msg, rx_type);
+ #endif
+diff --git a/lib/linear_ranges.c b/lib/linear_ranges.c
+index a1a7dfa881de..c85583678f6b 100644
+--- a/lib/linear_ranges.c
++++ b/lib/linear_ranges.c
+@@ -241,6 +241,42 @@ int linear_range_get_selector_high(const struct linear_range *r,
  }
+ EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
  
-+static int get_vbus_regulator_handle(struct max_tcpci_chip *chip)
++/**
++ * linear_range_get_selector_high_array - return linear range selector for value
++ * @r:		pointer to array of linear ranges where selector is looked from
++ * @ranges:	amount of ranges to scan from array
++ * @val:	value for which the selector is searched
++ * @selector:	address where found selector value is updated
++ * @found:	flag to indicate that given value was in the range
++ *
++ * Scan array of ranges for selector for which range value matches given
++ * input value. Value is matching if it is equal or higher than given value
++ * If given value is found to be in a range scanning is stopped and @found is
++ * set true. If a range with values greater than given value is found
++ * but the range min is being greater than given value, then the range's
++ * lowest selector is updated to @selector and scanning is stopped.
++ *
++ * Return: 0 on success, -EINVAL if range array is invalid or does not contain
++ * range with a value greater or equal to given value
++ */
++int linear_range_get_selector_high_array(const struct linear_range *r,
++					 int ranges, unsigned int val,
++					 unsigned int *selector, bool *found)
 +{
-+	if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-+		chip->vbus_reg = devm_regulator_get_exclusive(chip->dev,
-+							      "vbus");
-+		if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-+			dev_err(chip->dev,
-+				"Failed to get vbus regulator handle\n");
-+			return -ENODEV;
-+		}
++	int i;
++	int ret;
++
++	for (i = 0; i < ranges; i++) {
++		ret = linear_range_get_selector_high(&r[i], val, selector,
++						     found);
++		if (!ret)
++			return 0;
 +	}
 +
-+	return 0;
++	return -EINVAL;
 +}
++EXPORT_SYMBOL_GPL(linear_range_get_selector_high_array);
 +
- static int max_tcpci_set_vbus(struct tcpci *tcpci, struct tcpci_data *tdata, bool source, bool sink)
- {
- 	struct max_tcpci_chip *chip = tdata_to_max_tcpci(tdata);
--	u8 buffer_source[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SOURCE};
--	u8 buffer_sink[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SINK};
--	u8 buffer_none[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_OFF};
--	struct i2c_client *i2c = chip->client;
- 	int ret;
- 
--	struct i2c_msg msgs[] = {
--		{
--			.addr = MAX_BUCK_BOOST_SID,
--			.flags = i2c->flags & I2C_M_TEN,
--			.len = 2,
--			.buf = source ? buffer_source : sink ? buffer_sink : buffer_none,
--		},
--	};
--
- 	if (source && sink) {
- 		dev_err(chip->dev, "Both source and sink set\n");
- 		return -EINVAL;
- 	}
- 
--	ret = i2c_transfer(i2c->adapter, msgs, 1);
-+	ret = get_vbus_regulator_handle(chip);
-+	if (ret) {
-+		/*
-+		 * Regulator is not necessary for sink only applications. Return
-+		 * success in cases where sink mode is being modified.
-+		 */
-+		return source ? ret : 1;
-+	}
-+
-+	if (source) {
-+		if (!regulator_is_enabled(chip->vbus_reg))
-+			ret = regulator_enable(chip->vbus_reg);
-+	} else {
-+		if (regulator_is_enabled(chip->vbus_reg))
-+			ret = regulator_disable(chip->vbus_reg);
-+	}
- 
--	return  ret < 0 ? ret : 1;
-+	return ret < 0 ? ret : 1;
- }
- 
- static void process_power_status(struct max_tcpci_chip *chip)
+ /**
+  * linear_range_get_selector_within - return linear range selector for value
+  * @r:		pointer to linear range where selector is looked from
 
 -- 
 2.53.0.1018.g2bb0e51243-goog
