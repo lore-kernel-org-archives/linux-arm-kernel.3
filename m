@@ -4,61 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE12F103A9A8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061FFFEC11B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7JuadCeGX6W9vwITObvZIGEFb5ZeS50Pf/MGH42a6A=; b=WpatUzkCYASahshLZGwwVbtxRb
-	QXt7W0aMA5UsP6myMWr4MVaIp4JPPXwPbNVPMepSlGW48HE3CaB24ZDop0Bkg7bvW/ovqJldDwqS+
-	CQSq9lF9E5sCDDFZ4AztNusqdjH4a4iQa35xtrIXakZAgBZMuZC+Yb53ZsSgjr3dy9f5en4WN5buj
-	VS/4J/FJExPRYPAFqflJ3UmMEtjW9uxvHlzCHQ4bKQ6KUHDXOAvTBy1vvNC26fZK0b3MFsFUUy+es
-	3kTdjGsJHzxdg3Fq6IrroiCufm2ffXboG1leLjCrSmnq7H7tqeVy0dcYJOhpyM8+I1FhcwDPYHyZQ
-	uIwCJGgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vxTWuUbiz3HjMwyD2pkoFeUpebgO7CXzXTE/LOIBP9M=; b=4YGkdipbqip0IXE6aGf3ho6SaD
+	uilTEmY9puhr4YkLLV1NZNAIBn/+aSm3pxdYT6mah3Faul+gz9uLZvDBW4dDU480wSu1TsZZnkLO3
+	n23Cev6jxoEasVi+nB99wurkt03AeaIf5HAzqrlsAxSk7+AZQSR2B2kYuPa2jNp/xwo0S1LpdRTZ6
+	mMKdMcXpuUl8rVNCe84kayEM5BMmRZfm0kHeW/DBxAvWC35fDekzaqTQHQOxhIQvpILYsAoPKTRMz
+	GAQGMHBNiejI+rgnfDTgI7n79WcLVXC0dRBhV/Z1QfmtkY62Eq01B0YrwQ62YZA5gZai+T3N8FTEH
+	DE0OQNNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5M14-00000003Cwh-33Rm;
-	Wed, 25 Mar 2026 11:03:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5M11-00000003CvL-2UCT
+	id 1w5M1G-00000003D1x-2nLq;
+	Wed, 25 Mar 2026 11:03:26 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5M1B-00000003CyY-1Ny7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 11:03:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40BB81CDD;
-	Wed, 25 Mar 2026 04:03:02 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C182D3FB90;
-	Wed, 25 Mar 2026 04:03:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774436588; bh=SCTyfeB3k+9EI0VBNm85ZqRDDZXH45gfMsPcUlCMqBo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U8kZZcJ+nmBCer/W/3ur1dwzBBpVWsQsHoXpqA0s3Rr/8Z0/tLT64wUFSCG3bXnxQ
-	 JqmVn0nHsLhEODDAX1ofMrYsCyCL3es3b38QJ9kR8sqLXAEQs5GUxdZugfT/ntAK7O
-	 cwth0QQdBOw7Sy4aKAV4bnI7BFNAqqAIkMpWkJ5w=
-Date: Wed, 25 Mar 2026 11:03:01 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-Message-ID: <acPAzdtjK5w-rNqC@J2N7QTR9R3>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com>
- <87eclek0mb.ffs@tglx>
- <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com>
- <87341ujwl4.ffs@tglx>
- <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com>
- <87fr5six4d.ffs@tglx>
+	Wed, 25 Mar 2026 11:03:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k4bRY6T6gu8BULu/k21/rZkl0uWNTMlI5jf8FTBHqqe9i9R2BSV8ZFJEUYgspqdAjLo9Vm5agj2lgsoe9/maYfpqB7b0O/MW4do1mEPngEs2O5CGEU6nXaIMRkCEpgVkCIN+lbLoDsS/Hw7yL19BJKV8yxjuDBFXS7FugyxH/acNtcgrdX332gvHVDDqAdh/k1CBJ/K12HIaXlLcWjvz6QSPSwClMq4Xa5BjjGJNy5K0f7uVkRjynyx6FqxUktF4SY+Tf7vg6ilX8pf4WBgFKy0fxSuywSSytfCVh6Kzi5RZdFFjUjvaeNAsguAFcMauUJy+c8GmofL4LojnLxrXiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vxTWuUbiz3HjMwyD2pkoFeUpebgO7CXzXTE/LOIBP9M=;
+ b=EccySJ12JNErrFz/TIxxyrIJoO8ecCQFOga3wB6gOoE4/xGvEkZCTf1IWGKarIMgZhucvELnFiwTgNSWIWv8bIi5GvbZSiFTxFZi1rm1hDRjzVgXvVeRvJigUKFkjy3tk8SgavCcCpleVsChK4ScyqmX4bMYLg+Oqd4w/MmfhhGvGeM/LXBl1nplyz2i9njjUxS7CDJwHP108ZZLiIwUNhattIcGcIo+BFrir7FvDpnViM10UOq/Cm/trrP6a7MNBqGkAhh1fVEXMOfDI+6iJSBMn7clWTXk/SerQYC8aojgYtg5tJB+xpTp9qjEp92EEeYCxesi2B5EIuPtlieS5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vxTWuUbiz3HjMwyD2pkoFeUpebgO7CXzXTE/LOIBP9M=;
+ b=YvxmOhtmTL0CJz0U89KCJFtsSqLTDoFDmmmkXH6yFXcwHM3i6kFG6sZu2wuPMBzAwSei+QAHsmkBYDrI4BZ05wB5IomL9WRYzLkF0oPDztTtLMogOlEYgJN52P8MdT1sIM0isGBi8zQkIFNFyJkhNiOoYmz4/4poTaZcJmcdizuOJaci9pYjACbP+WnniXWFfcN05suaEhOqQp46vGyPU/XIj7Rs/xxOMDxGqRMcMxeWAnzVuBd8C5T1qI5wTIKGUyfTI7SXLiEREKyrq+QRVt6WtTwhO3G2O+s/Xkl2LsX1F7It1bXxdj7/q3YJTbwhLJEdxq/BJ41yi9X9ac9VGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by PA1PR04MB10398.eurprd04.prod.outlook.com
+ (2603:10a6:102:44d::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
+ 2026 11:03:15 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 11:03:15 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com,
+	hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de
+Cc: imx@lists.linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 8/8] arm64: dts: imx95: Move power supply properties to Root Port node
+Date: Wed, 25 Mar 2026 19:00:58 +0800
+Message-Id: <20260325110058.2854742-9-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20260325110058.2854742-1-sherry.sun@nxp.com>
+References: <20260325110058.2854742-1-sherry.sun@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA1PR01CA0174.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:d::12) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87fr5six4d.ffs@tglx>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|PA1PR04MB10398:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8532f476-0f76-43fe-4da4-08de8a5e1cf1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|1800799024|19092799006|376014|7416014|921020|38350700014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Oni2DNOVi6s1fABGoNMOu1RCy2JrN1heDUi1QbCVmX0fCUdQFmCpyZQOinntcQkSu+rz/PQW+93XoNYbxtPa1ykDi81qdKfzbOvhuQwoKwS+v5Sme3GgQTnHeQwqHmUNY11J02/A9/cML2gwHGe6a8XLYHlIHCN56oE28JWbPBleEIS5B7N/pO6DIGeIO4NBp8q56uSRjnKslnzJZJOXHAemz4KirwxCJ3Zx9nDTnT9frFqpQjsQUVRizS2UjGW2ebjmC+ou1+gr1JThaJOiNfFeVvxXAgqqp9hSDji2JsWA8rNk0QHGKVVVOJPliituQpWNCeX8g0CWhXRnse/4Z9uVMeFF51zEp2i/vdnJnakZ8/2/6OW4P2FNk/an3Dllv8iCFS3myksNRg1F5+kCpc6ZGCiErUYFGwFcP035/6L42GBcqCXVV47/kIfSDq/llYUgREO8dLwI1g5cU7Xjcxi+fu5gha9Op96X/r6XoK+ms8mhjnbqGmT0jNIwrf9W/t7rcpc/B4+ilu/BbjufOMpMu21ccqKe+mmE3zLguuHF9kpNOcaKnyDGYqZj+tHrRHq1pp+zJBS9/1djzpq0uxDnkNx+QyStxUqG14bYrbTNwJgoKC1Oa7ewFQepa6aR0uR5e8lD888M3P2JNFzd/Ln7ryhSxr+B9mdD5b+7dweTc8MyLoAuUU9WUsJEyX9cChUPudQvOiSw3rDcMAyPoncLSl1jV40S3ywiL3EM5iL3SyjlfGEf7G6+jVuJHxLhtNIVWEJr8uBVnO5/zz122syzPWxW9CTvS5DX5g9APvWnmdGId2jQZGZnFZuCnFPp
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(1800799024)(19092799006)(376014)(7416014)(921020)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lc3VAaQzFKR/JwNpnM9eK8PuzvUY9dWDgnsi40GIkw6u2Zhpuz/JaOPsoLQ/?=
+ =?us-ascii?Q?+jjbUOCH9/4FN7MyqskzuVy3Wzp3fRfau1Rfn8op57mbiR2Rq8Plq6F2DNlI?=
+ =?us-ascii?Q?nQCDY99UE7Lfj4IMUEzD5V8J8cnK19ih1CPFUo1MH+HjVygnRzuDPdJbP/tc?=
+ =?us-ascii?Q?kXtB/+lRp+M7fx9uM5Gi0/Q/20BrjyFJsXyhca352k41I1iwyPPc4KdMZv5L?=
+ =?us-ascii?Q?o96oL9UBrPpmL2gLA+OaGyoF14iJZLXGSnGhLL5MfE3rtWU+VTv7ttkh8nXJ?=
+ =?us-ascii?Q?kOpCyRcakSpLD+LkrlnHpzxePRJZtYc9EdfVrUcUJ3qBQzR4qEv5RJqhPoRy?=
+ =?us-ascii?Q?w/bcHwHqgS2HvUyJMw8pwrUJ0P8x8l7B8CV8LgoUsLCrSu4Nv5j66eONc7Jt?=
+ =?us-ascii?Q?84Q8K5P9681sMHRh56BNuUChBoXGZAm0YMdBNYRiDdlNHpaI+5vMhMXglu43?=
+ =?us-ascii?Q?qOya7RCCVwwlWBtmyx4lgky0HlYsQZHRKraODx2ZXVgTYV35fMK1PWP2EISf?=
+ =?us-ascii?Q?wfOuHL2/XTTa6uCeR1JkzeHQB6zdAo+k34vZ4epubukwiDRk5IapklJMHm4b?=
+ =?us-ascii?Q?kMfgqa72Kk94isefsl+Fgtknrhbpj00pdOZeBYpnYdYbRhkC4BeLaHz4IIdl?=
+ =?us-ascii?Q?A6mujfQP51Yku+jStXBGPWusQ8Y5U8rdwea6b/FDfZVU7bbhJdEfcHldDrJ6?=
+ =?us-ascii?Q?z0XhoCkn7Jb2fus9JElPvlQo+lFaUwM5XGlQMMC9qGuiWGMZDXunVDH/AWUI?=
+ =?us-ascii?Q?UxJhzcnZvpIvQ22oTPxNaepvBKLKSlnKdxVTaFJkKfYOzVqK9J90E3H0gS38?=
+ =?us-ascii?Q?gcygs1T98cqqVFJEt9PPXdf7fez+9x0oLR/37ftHrUmOY5ywnK8xD7EhX/nI?=
+ =?us-ascii?Q?HiAVs7g7GPAmdxhtayJS4DCIdJCyPPqwV7WuHHmUN7CbjhgCazLb0WV7WRHh?=
+ =?us-ascii?Q?tCDOTTs73wDpzEhijM/1fWb8AJK807YqGiziquIJTy2VabxuSuiWRmeLMPdV?=
+ =?us-ascii?Q?oYxqqcqaFi1V/fCkXxhtHfeWs+Y2KbcGo1pgyik9jmW6rVwptr/1YjaPjwZD?=
+ =?us-ascii?Q?ui0ENTycK0sfeg1CORqRcoJvNb9fLPnGIG94vICwq5YtlfvbeWxIZ0tLgAxi?=
+ =?us-ascii?Q?FXBgrs3etLthg4vkO1lQkUuVc6OoUga5ffyrZ9dan5TIQWgXWIrU4SJdpcvz?=
+ =?us-ascii?Q?TpdAso1jacpsNlxTTIbIDnOClYkb7HEGZnVYpfv3x3xuO0E66mOxiV4qs40I?=
+ =?us-ascii?Q?q7TudFvd8R27ixiDCo6kQuB6F/E1tlF9FgW2giEisIT0Bn2wiai5fmN5WRzB?=
+ =?us-ascii?Q?xAZHR+b5xCgSA0aneCv+RvPHV/bbGMWygDVBj1ebKwnKTGFvwIONpJoOG2nQ?=
+ =?us-ascii?Q?OYhPGrIcWVxdo+Djr2pkDO6Xhc4Yg/601wHHWrR9W0zq8q38nxKn/kPrszSE?=
+ =?us-ascii?Q?xYQlevrY36JmSXAKUGmqBpFdbBcUcIP2yq34lb0UkhXx73Vgfsj0XPQmMe/O?=
+ =?us-ascii?Q?Rofxu2/aGsm6WjbMT7iE0JFO07/jJGwB2UycZlUf71WCVA0Jwo4hrsaM+nNU?=
+ =?us-ascii?Q?kazkH1B6mGJl8yrsXu/gvKkjo1opqIKjsrdAnnIlAf6DEKB6uaJ9xkuvBjvn?=
+ =?us-ascii?Q?JBj67wuAvY9PXq5MH0ybLDF//OVl/JBSd5l+45YkVlaZUV9HefnmcJS7In7d?=
+ =?us-ascii?Q?5PYmeqq7hR5GOrFQuu72WGOXDNBbGHxqSjrL6ovyb/WvTDr+InIKc6qwa6Fp?=
+ =?us-ascii?Q?TYT5C6H4TQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8532f476-0f76-43fe-4da4-08de8a5e1cf1
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 11:03:15.1194
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CmWXleXsGdt80UVa3zTrU8EizPeDcebZDBhCvOcBe660mlpLw9F8JNb59MJP3qT2A1ESj19Nr2pNjDLWuB2C4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10398
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_040311_714146_D3B549AB 
-X-CRM114-Status: GOOD (  39.76  )
+X-CRM114-CacheID: sfid-20260325_040321_383360_23AA2C29 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,250 +147,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 22, 2026 at 12:25:06AM +0100, Thomas Gleixner wrote:
-> On Fri, Mar 20 2026 at 17:31, Mark Rutland wrote:
-> > On Fri, Mar 20, 2026 at 05:26:47PM +0100, Thomas Gleixner wrote:
-> > I *think* you're saying that because the arch code would manage DAIF
-> > early during entry and late during exit, that would all be in one place.
-> 
-> That was my thought, see below.
-> 
-> > However, that doubles the number of times we have to write to DAIF: at
-> > entry we'd have to poke it once to unmask everything except IRQs, then
-> > again to unmask IRQs, and exit would need the inverse. We'd also have to
-> > split the inheritance logic into inherit-everything-but-interrupt and
-> > inherit-only-interrupt, which is doable but not ideal. With pseudo-NMI
-> > it's even worse, but that's largely because pseudo-NMI is
-> > over-complicated today.
-> 
-> Interrupts are not unmasked on interrupt/exception entry ever and I
-> don't understand your concerns at all, but as always I might be missing
-> something.
+Move the vpcie-supply and vpcie3v3aux-supply properties from the PCIe
+controller nodes to the Root Port child nodes to support the new PCI
+pwrctrl framework.
 
-I think one problem is that we're using the same words to describe
-distinct things, because the terminology is overloaded; I've tried to
-clarify some of that below.
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 4 ++--
+ arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 8 ++++----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-I think another is that there are a large number of interacting
-constraints, and it's easily possible to find something that for most
-but not all of those. I *think* there's an approach that satisfies all
-of our requirements; see below where I say "I *think* what would work
-for us ...".
+diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+index 7d820a0f80b2..0d1cdfd54cce 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+@@ -555,8 +555,6 @@ &pcie0 {
+ 	pinctrl-names = "default";
+ 	/* This property is deprecated, use reset-gpios from the Root Port node. */
+ 	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
+-	vpcie-supply = <&reg_m2_pwr>;
+-	vpcie3v3aux-supply = <&reg_m2_pwr>;
+ 	supports-clkreq;
+ 	status = "disabled";
+ };
+@@ -570,6 +568,8 @@ &pcie0_ep {
+ 
+ &pcie0_port0 {
+ 	reset-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
++	vpcie-supply = <&reg_m2_pwr>;
++	vpcie3v3aux-supply = <&reg_m2_pwr>;
+ };
+ 
+ &sai1 {
+diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+index 6f193cf04119..77c3a87d9065 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+@@ -542,8 +542,6 @@ &pcie0 {
+ 	pinctrl-names = "default";
+ 	/* This property is deprecated, use reset-gpios from the Root Port node. */
+ 	reset-gpio = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
+-	vpcie-supply = <&reg_pcie0>;
+-	vpcie3v3aux-supply = <&reg_pcie0>;
+ 	supports-clkreq;
+ 	status = "okay";
+ };
+@@ -557,6 +555,8 @@ &pcie0_ep {
+ 
+ &pcie0_port0 {
+ 	reset-gpios = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
++	vpcie-supply = <&reg_pcie0>;
++	vpcie3v3aux-supply = <&reg_pcie0>;
+ };
+ 
+ &pcie1 {
+@@ -564,8 +564,6 @@ &pcie1 {
+ 	pinctrl-names = "default";
+ 	/* This property is deprecated, use reset-gpios from the Root Port node. */
+ 	reset-gpio = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
+-	vpcie-supply = <&reg_slot_pwr>;
+-	vpcie3v3aux-supply = <&reg_slot_pwr>;
+ 	status = "okay";
+ };
+ 
+@@ -578,6 +576,8 @@ &pcie1_ep {
+ 
+ &pcie1_port0 {
+ 	reset-gpios = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
++	vpcie-supply = <&reg_slot_pwr>;
++	vpcie3v3aux-supply = <&reg_slot_pwr>;
+ };
+ 
+ &sai1 {
+-- 
+2.37.1
 
-For context, when I said "at entry" and "at exit" I was including
-*everything* we have to do before/after the "real" logic to handle an
-exception, including parts that surround the generic entry code. I'm
-happy to use a different term for those periods, but I can't immediately
-think of something better.
-
-For example, for faults handled by arm64's el1_abort(), I was
-characterising this as:
-
-    /* -------- "entry" begins here -------- */
-
-    [[ entry asm ]]
-    [[ early triage, branch to el1_abort() ]]
-
-    static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr) 
-    {
-            unsigned long far = read_sysreg(far_el1);
-            irqentry_state_t state;
-
-            state = enter_from_kernel_mode(regs) {
-                    ...
-		    irqentry_enter(regs);
-                    ...
-	    }
-            local_daif_inherit(regs); // <----------- might unmask interrupts
-    /* -------- "entry" ends here ---------- */
-
-
-    /* -------- "real logic" begins here --- */
-            do_mem_abort(far, esr, regs);
-    /* -------- "real logic" ends here ----- */
-
-
-    /* -------- "exit" begins here --------- */
-            local_daif_mask(); // <------------------------- masks interrupts
-            exit_to_kernel_mode(regs, state) {
-	            ...
-		    irqentry_exit(regs);
-	            ...
-	    }
-    }
-
-    [[ return from el1_abort() ]]
-    [[ exit asm ]]
-
-    /* -------- "exit" ends here ----------- */
-
-Please note, el1_abort() is indicative of what arm64 does for
-(most) synchronous exceptions, but there are slight differences for
-other exceptions. For anything maskable (including interupts) we DO NOT
-use local_daif_inherit() and instead unmask specific higher-priority
-maskable exceptions via other functions that write to DAIF, etc.
-
-Interrupts are an odd middle ground where we use irqentry_{enter,exit}()
-but do not use local_daif_inherit().
-
-> The current sequence on entry is:
-> 
->   // interrupts are disabled by interrupt/exception entry
->   enter_from_kernel_mode()
->      irqentry_enter(regs);
->      mte_check_tfsr_entry();
->      mte_disable_tco_entry();
->      daif_inherit(regs);
->      // interrupts are still disabled
-
-That last comment isn't quite right: we CAN and WILL enable interrupts
-in local_daif_inherit(), if and only if they were enabled in the context
-the exception was taken from.
-
-As mentioned above, when handling an interrupt (rather than a
-synchronous exception), we don't use local_daif_inherit(), and instead
-use a different DAIF function to unmask everything except interrupts.
-
-> which then becomes:
-> 
->   // interrupts are disabled by interrupt/exception entry
->   irqentry_enter(regs)
->      establish_state();
->      // RCU is watching
->      arch_irqentry_enter_rcu()
->         mte_check_tfsr_entry();
->         mte_disable_tco_entry();
->         daif_inherit(regs);
->      // interrupts are still disabled
->           
-> Which is equivalent versus the MTE/DAIF requirements, no?
-
-As above, we can't use local_daif_inherit() here because we want
-different DAIF masking behavior for entry to interrupts and entry to
-synchronous exceptions. While we could pass some token around to
-determine the behaviour dynamically, that's less clear, more
-complicated, and results in worse code being generated for something we
-know at compile time.
-
-If we can leave DAIF masked early on during irqentry_enter(), I don't
-see why we can't leave all DAIF exceptions masked until the end of
-irqentry_enter().
-
-I *think* what would work for us is we could split some of the exit
-handling (including involuntary preemption) into a "prepare" step, as we
-have for return to userspace. That way, arm64 could handle exiting
-something like:
-
-	local_irq_disable();
-	irqentry_exit_prepare(); // new, all generic logic
-	local_daif_mask();
-	arm64_exit_to_kernel_mode() {
-		...
-		irqentry_exit(); // ideally irqentry_exit_to_kernel_mode().
-		...
-	}
-
-... and other architectures can use a combined exit_to_kernel_mode() (or
-whatever we call that), which does both, e.g.
-
-	// either noinstr, __always_inline, or a macro
-	void irqentry_prepare_and_exit(void)
-	{
-		irqentry_exit_prepare();
-		irqentry_exit();
-	}
-
-That way:
-
-* There's a clear separation between the "prepare" and subsequent exit
-  steps, which minimizes the risk that a change subtly breaks arm64's
-  exception masking.
-
-* This would mirror the userspace return path, and so would be more
-  consistent over all.
-
-* All of arm64's arch-specific exception masking can live in
-  arch/arm64/kernel/entry-common.c, explicit in the straight line code
-  rather than partially hidden behind arch_*() callbacks.
-
-* There's no unnecessary cost to other architectures.
-
-* There's no/minimal maintenance cost for the generic code. There are no
-  arch_*() callbacks, and we'd have to enforce ordering between the
-  prepare/exit steps anyhow...
-
-If you don't see an obvious problem with that, I will go and try that
-now.
-
-> The current broken sequence vs. preemption on exit is:
-> 
->   // interrupts are disabled
->   exit_to_kernel_mode
->      daif_mask();
->      mte_check_tfsr_exit();
->      irqentry_exit(regs, state);
-> 
-> which then becomes:
-> 
->   // interrupts are disabled
->   irqentry_exit(regs, state)
->      // includes preemption
->      prepare_for_exit();
-> 
->      // RCU is still watching
->      arch_irqentry_ecit_rcu()
->         daif_mask();
->         mte_check_tfsr_exit();
-> 
->      if (state.exit_rcu)
->         ct_irq_exit();
-
-As above, I'd strongly prefer if we could pull the "prepare" step out of
-irqentry_exit(). Especially since for the entry path we can't push the
-DAIF masking into irqentry_enter(), and I'd very strongly prefer that
-the masking and unmasking occur in the same logical place, rather than
-having one of those hidden behind an arch_() callback.
-
-> Which is equivalent versus the MTE/DAIF requirements and fixes the
-> preempt on exit issue too, no?
-> 
-> That change would be trivial enough for backporting, right?
-> 
-> It also prevents you from staring at the bug reports which are going to
-> end up in your mailbox after I merged the patch which moves the
-> misplaced rcu_irq_exit_check_preempt() check _before_ the
-> preempt_count() check where it belongs.
-
-I intend to fix that issue, so hopefully I'm not staring at those for
-long.
-
-Just to check, do you mean that you've already queued that (I didn't
-spot it in tip), or that you intend to? I'll happily test/review/ack a
-patch adding that, but hopefully we can fix arm64 first.
-
-> I fully agree that ARM64 is special vs. CPU state handling, but it's not
-> special enough to justify it's own semantically broken preemption logic.
-
-Sure. To be clear, I'm not arguing for broken preemption logic. I'd
-asked those initial two questions because I suspected this approach
-wasn't quite right.
-
-As above, I think we can solve this in an actually generic way by
-splitting out a "prepare to exit" step, and still keep the bulk of the
-logic generic.
-
-> Looking at those details made me also look at this magic
-> arch_irqentry_exit_need_resched() inline function. 
-
-I see per your other reply that you figured out this part was ok:
-
-  https://lore.kernel.org/linux-arm-kernel/87se9ph129.ffs@tglx/
-
-... though I agree we can clean that up further.
-
-Mark.
 
