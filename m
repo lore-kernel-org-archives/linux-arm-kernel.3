@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49F3F54AD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83ACF54AD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 01:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zuss7wBPaRYsZWeVEmPBdobtWdihJ6eoFJTEIumZiw=; b=VRDHvkMTNVqZmhiZUZI2OrdUxt
-	f0pYrvtvbp4rQCjHn5Y4E36RoX+s2GgK+ufjqmYXZb1396ZukgGrKTP+IFajeORdUPD2KPhi/suh/
-	5HuVWxdIjlgGJZ1ViOFSfXXI5HuDDoLg3BCjwtnh6by/AP+biKKQ5CmEqzAeOdcgxMuTa3Hj+biOF
-	Pg/OOpY8+Jme6h/Y+3Q36h75CBVE/wgZVYoE+87J+aQd18GU1rkHBXtSYWGENj7kV4btAw6FM5fWm
-	LuJXbFC3pa9lX2uC0Rq4AwHOMakRaTCugi/2IMcjKfiK5qrV0oaBjQ5nDwKD8ap80E/Tv3jaglVvh
-	2m0rwBcg==;
+	bh=Ga59RPO7UoVbIvrxEty8mgMs3vZyOoOxAvjjLOxPXfQ=; b=xa0dUBnJfOhQkeBUf8RKdmbFGE
+	MTmlf9tWV7QKLYcLc/5/XfzP0li0sE6s09v/IIC7iTGsESIM7pk7TO9T9vD8+Cf8PB5eywt/EK2Ig
+	PJyMH5l/fZPEJ4L2PftF8cmSTkA3zQzh1GkGu6+gfpg57dzlcZtOhQuBOralpynMyT5UIyK6jCz2A
+	DXKacqUGLF9wJggEeB8ez3gqEbS0CGeEZmqSmcqv6q9f0liRLynxiCwFs9lDjVCBhY8s9Vi0h7pLd
+	A5R2dbXzGAMsWXsebmyzgOUjX59NX22PTZFxTM7Aia84oXDG5InEw5L5fW9fkCW9IZ4GBedwF48/f
+	+p/Ieypg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CVd-00000002QQg-1G2M;
-	Wed, 25 Mar 2026 00:54:09 +0000
+	id 1w5CeO-00000002QkO-1HDg;
+	Wed, 25 Mar 2026 01:03:12 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CVa-00000002QQK-3Ann
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 00:54:07 +0000
+	id 1w5CeL-00000002Qjx-1WdF;
+	Wed, 25 Mar 2026 01:03:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B50B943D61;
-	Wed, 25 Mar 2026 00:54:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68BF3C19424;
-	Wed, 25 Mar 2026 00:54:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 491B444041;
+	Wed, 25 Mar 2026 01:03:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9F01C19424;
+	Wed, 25 Mar 2026 01:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774400045;
-	bh=dRfWufNAJCcOhh0AhmUSfHoYAd4HMIuJBmV7zbhHIv8=;
+	s=k20201202; t=1774400588;
+	bh=BCqN1HRfQI85LJqzaOsF30o7yYh99FN5msanyn26A20=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AUbP/vJT3ju85md9fr2qXnnguARCnC6pYHEWEpWgxdy3mERVlbgDcDeN0tTsdggeF
-	 KxflKX2yJwN7hFAEkp8hMd8eaVm5AUgnfY2+97Ty1E7yBjuR/Wl5PRZYCNeSrtPb3f
-	 /kxaCN8j1pDIOkvGRsFvzPTB0rCZzuPhn1Y9rVwhKmm2HqQhOhNkCPN+H6l6VKgg/i
-	 F9aG7r+Zu6Vfd4IUxNNp/DhFsEzIJ0BfxyIKb7z6ooH8gC2QhBxJYrECUxjAJGpvLG
-	 js2BbpJNCjvSNmdhCNS+CrcA9r6yute3EqWKFLWaS7GtuxH1Z1n9edAI/rn63JdOE/
-	 msh13CzeR4YhA==
-Date: Tue, 24 Mar 2026 19:54:04 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: kernel@pengutronix.de, linux-kernel@vger.kernel.org, krzk+dt@kernel.org,
-	l.stach@pengutronix.de, s.hauer@pengutronix.de, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, festevam@gmail.com, frank.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org,
-	linux-pci@vger.kernel.org, conor+dt@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com
-Subject: Re: [PATCH v8 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
- i.MX943 PCIe compatible strings
-Message-ID: <177440004361.2302904.12708290351428536062.robh@kernel.org>
-References: <20260324023036.784466-1-hongxing.zhu@nxp.com>
- <20260324023036.784466-3-hongxing.zhu@nxp.com>
+	b=K+PpHdgRj8s5v+pumtM0rbqcsEvchYV+F/DJygRrU8X3g5na3v5U0nMGhsDjC4j3K
+	 eXENBp569HPoBDcsd8FRCMQKptwcoV8UCY3DYKAP9GpiFoS1uw+NK9VbUcGk9Y2xMm
+	 IbEOI1n6OFZl++zMOeRtw1EiPN4AdnbR0kl/69J5eMt3q0E1ILpYQ9sch66XJtgryk
+	 jqod+byIm3aFtNwQR4HUEE2Dqd7/N9jjagKXkBDdp9/qluqB7yebM3alw1RMwBGKId
+	 /tUJ0ikssc9/gH8WMYiFK9a4NMJXtxoLq20kPY8IwoqCgovnz27xFgccXoiQS0orX5
+	 gNOsTrXQ26Jbg==
+Date: Tue, 24 Mar 2026 20:03:07 -0500
+From: Rob Herring <robh@kernel.org>
+To: Jianhua Lin <jianhua.lin@mediatek.com>
+Cc: nicolas@ndufresne.ca, mchehab@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com,
+	jh.hsu@mediatek.com
+Subject: Re: [PATCH v4 1/3] dt-bindings: media: mediatek-jpeg-decoder: add
+ MT8189 compatible string
+Message-ID: <20260325010307.GA2309270-robh@kernel.org>
+References: <20260324095455.1437-1-jianhua.lin@mediatek.com>
+ <20260324095455.1437-2-jianhua.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260324023036.784466-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20260324095455.1437-2-jianhua.lin@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_175406_814891_A865556F 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260324_180309_445852_2FC2277A 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,18 +79,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 24 Mar 2026 10:30:33 +0800, Richard Zhu wrote:
-> Add i.MX94 and i.MX943 PCIe compatible strings and fallback to
-> i.MX95 PCIe compatible string.
+On Tue, Mar 24, 2026 at 05:54:53PM +0800, Jianhua Lin wrote:
+> Add the compatible string for the JPEG decoder block found in the
+> MediaTek MT8189 SoC.
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Compared to previous generation ICs, the MT8189 JPEG decoder requires
+> 34-bit IOVA address space support and only needs a single clock
+> ("jpgdec") instead of two. Therefore, it is added as a standalone
+> compatible string without falling back to older SoCs.
+> 
+> Update the binding schema to include the new compatible string and add
+> an `allOf` block with conditional checks. This enforces the single clock
+> requirement for MT8189 while preserving the two-clock requirement
+> ("jpgdec-smi", "jpgdec") for older SoCs.
+> 
+> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
 > ---
->  .../bindings/pci/fsl,imx6q-pcie-ep.yaml       | 18 ++++++++-----
->  .../bindings/pci/fsl,imx6q-pcie.yaml          | 26 ++++++++++++-------
->  2 files changed, 28 insertions(+), 16 deletions(-)
+>  .../bindings/media/mediatek-jpeg-decoder.yaml | 39 ++++++++++++++++---
+>  1 file changed, 34 insertions(+), 5 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+> index a4aacd3eb189..91c9b2a4687b 100644
+> --- a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+> +++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+> @@ -17,13 +17,14 @@ properties:
+>      oneOf:
+>        - items:
+>            - enum:
+> -              - mediatek,mt8173-jpgdec
+>                - mediatek,mt2701-jpgdec
+> +              - mediatek,mt8173-jpgdec
+>        - items:
+>            - enum:
+>                - mediatek,mt7623-jpgdec
+>                - mediatek,mt8188-jpgdec
+>            - const: mediatek,mt2701-jpgdec
+> +      - const: mediatek,mt8189-jpgdec
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+This goes in the 1st oneOf entry along with 8173.
 
