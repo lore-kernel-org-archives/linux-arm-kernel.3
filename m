@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08898FEC0F4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 01:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473DF108B91E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 01:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BV3XYgZxuT+5SsT9GcGm6w69EULEtAqJy0dkEnbZ10c=; b=ygqilz+iZRtCNtZ9Hgmn/l2/P6
-	wGPGQ90X5YxeIKgFeQvJmHEf4wkJgkdKNsYq7M03WwLYZIOpHt80B98TWeN8FUn6Tj1E5DqFGdzPv
-	UZerAlKO+8GkRp8N4DBthqrHnD2YZVEmsGbt7wDTccKvL6sJUjsJhufnZ8XHi1Uz0/rfGpZZNS1Eb
-	wP0GKvZx0JmsmMO5LJPeIsJBmWFfl6VJsJky+S6BWdg1uPFCVo3tFzuvYXlR+KpHukWmw02XzvYC4
-	XMc1DMfMZARcbHfjU5YUnW1WIETyGQ2A+wAJI/HvbAisPS+oCtNeK6Q2oWv9crrUMT5Yg6KM7G7Pz
-	xXcWufbg==;
+	bh=07p2AHTHoMybNDBcsrSuuplzOKpydQ2b3XLkDqGvEbg=; b=AW0m3+KAGv7ZEuDsdctl3GXvSN
+	rUauGbwv/U1NSlkuR6xEeZe2CAKuzWmiXWfU214WzprUu5B5NdSdpyDGCbJWJqQtMJqpo5p1oOWsQ
+	S1lKLRVlWGGqnW5luyso2X6K9UXm8HtDbV3iZFwSC9hvnXwQwyXW4C77lOOWTMU23jAf5Tw3MUt/y
+	1jn009U4r/7jVwvWc3sB/7Df9dLlsDXXuuLxITdgviI0JhRHfaWrOMtkDmkqDp0lwYzxyY7p5kEk7
+	Rf60mCVojhsvdor8kEvIUrYeRMRj49onIVN710txEdZIefB4+f+ALXsGaOfygoZbNQI/U0qNwrC+r
+	pXMVa62w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Cf6-00000002Qqp-1f0w;
-	Wed, 25 Mar 2026 01:03:56 +0000
+	id 1w5DJt-00000002Smf-03jE;
+	Wed, 25 Mar 2026 01:46:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Cf4-00000002QqZ-2ufb;
-	Wed, 25 Mar 2026 01:03:54 +0000
+	id 1w5DJr-00000002SmW-0oN0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 01:46:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD7DA600AC;
-	Wed, 25 Mar 2026 01:03:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD7EC19424;
-	Wed, 25 Mar 2026 01:03:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3951260103;
+	Wed, 25 Mar 2026 01:46:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B82E9C19424;
+	Wed, 25 Mar 2026 01:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774400633;
-	bh=Ec30pFjGpNIPtSM6yzZYTFlRdMVgyF721FSkvUyNkaI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LEqtVdKP4amwdek/+3Ktf7X09C5MDfeZBY0wiy5GoJTq1delYyze+d/0JQcLR05jb
-	 ftJ3y4UM5R1aQeKdLwSIgqtf7h13I2is9hulQsIXxMe+wdbbcmCAbqjc4IAVBMcO8s
-	 7y7rjcQuOH+4EnhKnvBp8WRWBld+JEGMNofJ4irYs6YKYWVbtjIgwTrLaOJlVG58Bb
-	 nOGqS6+kdBcUJbohlt09G/7OMBNmdxziHmfk6mV+o7Ajy3hNaVHTfB8yBzzHcoX5/V
-	 YR3+J5eoVji3IcQir4IbIVfCOGBiy7d6J9FTMRQQ+7nK0+boLNE22d+EhWItMVrsXb
-	 PQAouLEGOKrWg==
-Date: Tue, 24 Mar 2026 20:03:52 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jianhua Lin <jianhua.lin@mediatek.com>
-Cc: krzk+dt@kernel.org, vince-wl.liu@mediatek.com,
-	linux-mediatek@lists.infradead.org,
-	angelogioacchino.delregno@collabora.com, nicolas@ndufresne.ca,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	mchehab@kernel.org, linux-kernel@vger.kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, matthias.bgg@gmail.com,
-	linux-media@vger.kernel.org, sirius.wang@mediatek.com,
-	jh.hsu@mediatek.com
-Subject: Re: [PATCH v4 2/3] dt-bindings: media: mediatek-jpeg-encoder: add
- MT8189 compatible string
-Message-ID: <177440063161.2317367.2319748600784024525.robh@kernel.org>
-References: <20260324095455.1437-1-jianhua.lin@mediatek.com>
- <20260324095455.1437-3-jianhua.lin@mediatek.com>
+	s=k20201202; t=1774403161;
+	bh=HvRVk/YPY3gKc9XAyt9raBZ1qgC/+JELgZiZx+SJ6N4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=P44exNmxQ70a5hsAAw7auqSfc7E3xhP6zmBLbY4VKOeDbOBlza3XzQg6kWsfAEFW4
+	 cxI9ZsxnlQhX9NxVYWkUAdeng9+r8dhX1Mr0hig5YUDL/Yr8c5UPAjWhSxiW1CCZ1D
+	 qKBJyAingduujPrMri2ea23aolKVEqeXU3CUIvZEVczw73geOtQ5rqVYe4vxQW1PM4
+	 KjkJa4P0bYdQY4fC6Yk1YdbFO25qrm0jaz73De8BF3IAnl/pleeGI6tadvBh5ypnE5
+	 K92aL6SnMpHQUMSE54vM7nGYX5crg96AMONStV7M3W1ZL1M/1hSbrRMMPsY238m1GR
+	 q/XKQSgLSUtIg==
+Date: Tue, 24 Mar 2026 20:46:00 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324095455.1437-3-jianhua.lin@mediatek.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: jk@codeconstruct.com.au, devicetree@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Rayn Chen <rayn_chen@aspeedtech.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-i2c@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>, 
+ andriy.shevchenko@linux.intel.com, Philipp Zabel <p.zabel@pengutronix.de>, 
+ linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
+ linux-aspeed@lists.ozlabs.org, 
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+In-Reply-To: <20260324-upstream_i2c-v27-2-f19b511c8c28@aspeedtech.com>
+References: <20260324-upstream_i2c-v27-0-f19b511c8c28@aspeedtech.com>
+ <20260324-upstream_i2c-v27-2-f19b511c8c28@aspeedtech.com>
+Message-Id: <177440316087.2477729.6574194979133287654.robh@kernel.org>
+Subject: Re: [PATCH v27 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and transfer-mode properties
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +79,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 24 Mar 2026 17:54:54 +0800, Jianhua Lin wrote:
-> Add the compatible string for the JPEG encoder block found in the
-> MediaTek MT8189 SoC.
+On Tue, 24 Mar 2026 11:06:27 +0800, Ryan Chen wrote:
+> The AST2600 I2C controller supports three transfer modes (byte, buffer,
+> DMA). Add "aspeed,transfer-mode" so DT can select the preferred transfer
+> method per controller instance. Also add the "aspeed,global-regs"
+> phandle to reference the AST2600 global registers syscon/regmap used by
+> the controller.
 > 
-> Unlike some previous SoCs, the MT8189 JPEG encoder requires 34-bit IOVA
-> address space support. Therefore, it is added as a standalone compatible
-> string without falling back to the generic "mediatek,mtk-jpgenc" to
-> ensure the driver applies the correct hardware-specific configurations.
+> These properties apply only to the AST2600 binding and are not part of
+> the legacy binding, which uses a mixed controller/target register layout
+> and does not have the split register blocks or these new configuration
+> registers. Legacy DTs remain unchanged.
 > 
-> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 > ---
->  .../bindings/media/mediatek-jpeg-encoder.yaml | 20 ++++++++++++-------
->  1 file changed, 13 insertions(+), 7 deletions(-)
+> Changes in v27:
+> - change aspeed,transfer-mode to aspeed,enable-dma.
+> ---
+>  .../devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml     | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.example.dtb: i2c@80 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('aspeed,transfer-mode' was unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/aspeed,ast2600-i2c.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260324-upstream_i2c-v27-2-f19b511c8c28@aspeedtech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
