@@ -4,104 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3651BFEA830
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450A3FEA837
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQnoxuo+RfJVqr7nd3qZJp1iTq7jEvOPdb9UXk5XaM0=; b=vRyx8ovMrSgHDRj75yKQ9rqIti
-	txc3E3mzqBIYWu0zmm1mP0sxJksj2kjlzv3C8AbY7cm7ZIVhjDIF3bxnjLkDrp8M7PETL55RuL0bI
-	DOuOT0Pn15mrONEFyMJL9JcPyNg6OtGUgSxOro5qjDhT8nZCeRT4U56jCltY9MzxLmd81/eHJZa07
-	MrSvWoLLPo96MxNN+T02QxtpvSn3f+3t4hiaTrm+pfK6cM5Mk07n1bjNWqPk9Wn6+qP6N3Bkl5FCi
-	tH46bNLw73qGlfp40BnCkHicVzZTf+iu4eNLyP2S37V14rTGPqH53v9/aHdqL/BBf4rejZpGkVKa8
-	SFPwT3GQ==;
+	bh=728svDarDpybv6q7KG00Eki4xvaBhCJwwC+/P9iXkjY=; b=O7P1C0KhHOMQ14TFHfaI0/OoA1
+	TDdLyPXMY7oGKtKDEziV0RRqkteH8GO3H4x+KI0Gy5zKlzcKqPfhQRYPFOcCOn/MXfkXN5i8mPQlI
+	c+WX2NC1zwRed+kdK5WD6rIlu++ikMtBX4dUKDB2Bu30qraaJnx6ZhElxtCpLonMQ9ZCPlogocIvM
+	WErFpmIxMQyPAykMa39pyaB4iCidneHEX2NCDICPl1UUBgg+5fRf7VKLFE5zC85LoMKcNkYet3Lzc
+	k1tIUejM+3k3cCLcxnzH1pi7TGkUXy/NrDhB6o17W9ShLeeNSLGsE96VokMgoMx1jtFg7326sd64R
+	z00CT+dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JtB-00000002yst-3su1;
-	Wed, 25 Mar 2026 08:46:57 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1w5Jy1-00000002zBu-2qTN;
+	Wed, 25 Mar 2026 08:51:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Jt8-00000002yrF-2r30
+	id 1w5Jxy-00000002zBO-47l1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 08:46:55 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4870206f73bso27318585e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 01:46:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774428412; x=1775033212; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MQnoxuo+RfJVqr7nd3qZJp1iTq7jEvOPdb9UXk5XaM0=;
-        b=aJddqQN4XvizdbKWritqSevENu2m31bftrLctPZFMyrQ/eK7SR/3OBKI42ARrBQfqy
-         oyiEWM0MwslH+ODc+104VfrGQzJeYIKhZSsA+wLnD1+g9verNE3IEuZp5rdB6CNliZI2
-         1L1JZI8zqkkEtPKSNPRf+Q2AqdYeYzEzw6TiwVOb63HA6//kD6IpYsawsO4wNgxPevsL
-         zD/bsVsFEcxduX7ky0bjG/B1EgNDWVsaCWBRJlp6kmRqvE7t+cMXbQgOg40BuwrVcvTB
-         Jxqu1JgMjfbi6N1exPn+B3/RN0TjSevua7IW/gM/seCo9Yrw5fsJzQ1eGynXVaud2Flh
-         QX/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774428412; x=1775033212;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=MQnoxuo+RfJVqr7nd3qZJp1iTq7jEvOPdb9UXk5XaM0=;
-        b=oDa7cc8xUNllqR3EgvpoXTWGF65Bk8OqSlYiCBdOD+mD7ACns06Rn6j08euHmAP8A0
-         KdcYHvJkVcTW9y3nEQ+ZBbfEiBAK17t9K5QWXKCyVjEXdDieF9uqS/1uAcD7QbTcyeGd
-         xPfA9rIvg5cjcpoulrwG2VWJtiEOS9FBC4eMkp1yrBCWrD5jZdb+CbQhfjA8TyJq7c3H
-         uZT+EfkZztkZhbi69DlVfY2eCcK9JgwYsCpg0qi5JpKQ6ot2bO+z6XRirCabqDpjSQL7
-         p5nAEe1u1QJkMWU0NrJ5OykdnFPYqPgdvhWFAVIwnrJPFBgwyoRSralWSHyHs4+jssd+
-         Pb9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWy1c8G2yZINx2p6Zu6a+B9PexZ72AHjgtVGdUxWGOd38dndAJfveyUrGIehQjuWyYwq1ZpjdffchlAdlGObrzV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbFFMlqOlizSFIw+SYvoqfb6EalQmfNhWczF+cQdPNgdhfDnj5
-	J03kDTtmgVaIWjSqdOuUDGlZ20d8EEDJua0DLdzCCUNGbmtrGA1vdyfX
-X-Gm-Gg: ATEYQzx/Cd7hSvUYK0iVGYG8n0NzErpDiqZeLJQW0G+1TNJ9X70IZbojXEjbJO2+pPX
-	QsUlBWVVv1GCrEUTf8Vh/Qmncm0ARsZV35XxqulyjbrQq9/hLqoaxkOzv42XlwiBSVmfW1mzMCE
-	3w68VCWzO4vIEXkDp7jortFHwPgq2BzAnmLjdG1r2steq+3JyU5OCiz3zXsjIYeJBAR6OBEBbJK
-	nrrmeh8hI9GkKjq2n3ofPEbT8wIxVHp78Uj7WhyhCzXIcchh8RAeQNFE5OadxOHCjgk3CAAVkOa
-	5V8BNQXtZx41nQvIAtfqzkvzMZHOY7lGqsUaHHO8bJ4CIDnpfsBguXC7hAcvY3qGHxG8kFLqK6+
-	CVSzp2XR7BxGrEE5nY9m9QQ7M1BwZWrZ11NR4SnOQ+vgGLndPzi+3O8fHN4RioW04bPH2zI5ThJ
-	W+tQqy0hFO4irRRF9nfV8=
-X-Received: by 2002:a05:600c:4685:b0:485:3eba:ab96 with SMTP id 5b1f17b1804b1-48715fc3725mr41087225e9.3.1774428412054;
-        Wed, 25 Mar 2026 01:46:52 -0700 (PDT)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4871174f39dsm99718895e9.11.2026.03.25.01.46.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2026 01:46:51 -0700 (PDT)
-From: Askar Safin <safinaskar@gmail.com>
-To: jack@suse.cz
-Cc: Liam.Howlett@oracle.com,
-	akpm@linux-foundation.org,
-	ardb@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	david@kernel.org,
-	dev.jain@arm.com,
-	hughd@google.com,
+	Wed, 25 Mar 2026 08:51:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 33F004023D;
+	Wed, 25 Mar 2026 08:51:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67F3AC4CEF7;
+	Wed, 25 Mar 2026 08:51:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774428713;
+	bh=wb0mpku6g4vk6LeYoqKTVgZtD079ouSEG5afLG7CYHo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=b1e3/Kii8oNvJgJ1AntUStWco7jvCebnWCtuv9zQCi2oUsNeV3CcabZ/VnDWT/4Bu
+	 SdMcpnZUmux3R7PA238aj+buhQoQTRaRCXpWVo3lfGnlVNamvRsJHecUDO4uY4JETZ
+	 xHJynwGclZ7csipkKUqwqfdSbhr2yZe/cHdAo7WUa3IRdxgN7vSItNWj8/2zpJM8+z
+	 ZD01fhqLFQqk3slMEX+1PFlTdn7jeaS5TQm3vnMZ8RuoTjWtwNM3l4/A2ygJ2Hvbj0
+	 HyR0HIfxv2d4zYS9GJNQyVlSryBTgfJVvw36EgMl3VIff5tJxeQAebFY0sT7kqzmW+
+	 QsAWpfwuNt7wg==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Mike Rapoport <rppt@kernel.org>
+Cc: Alexander Potapenko <glider@google.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brendan Jackman <jackmanb@google.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Brauner <brauner@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jan Kara <jack@suse.cz>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Rob Herring <robh@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	devicetree@vger.kernel.org,
+	iommu@lists.linux.dev,
+	kasan-dev@googlegroups.com,
 	linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com,
-	lsf-pc@lists.linux-foundation.org,
-	mhocko@suse.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	surenb@google.com,
-	vbabka@suse.cz,
-	will@kernel.org,
-	willy@infradead.org
-Subject: Re: [Lsf-pc] [LSF/MM/BPF TOPIC] Per-process page size
-Date: Wed, 25 Mar 2026 11:46:32 +0300
-Message-ID: <20260325084633.906324-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <pqwem5hownnfwcqrubksdwwraqbkthpzucknhavrghmw5lyszs@vdorbx4fyyaf>
-References: <pqwem5hownnfwcqrubksdwwraqbkthpzucknhavrghmw5lyszs@vdorbx4fyyaf>
+	linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Lorenzo Stoakes <ljs@kernel.org>
+Subject: Re: [PATCH v2 0/9] memblock: improve late freeing of reserved memory
+Date: Wed, 25 Mar 2026 10:51:37 +0200
+Message-ID: <177442863989.343689.8532363597437067519.b4-ty@b4>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260323074836.3653702-1-rppt@kernel.org>
+References: <20260323074836.3653702-1-rppt@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_014654_735292_C3EFC80C 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260325_015155_067727_C317995F 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,26 +118,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jan Kara <jack@suse.cz>:
-> > Is there some other way for someone to block a page from getting evicted
-> > from the pagecache?
-> > 
-> > We have this memfd_pin_folios() thing, but I don't think we have something
-> > comparable for ordinary pagecache files.
-> > 
-> > ... putting them into a pipe and never reading from the pipe maybe (I assume
-> > that's what splice() does, but not sure if it actually places the pages in
-> > there or whether it creates a copy first)?
+On Mon, 23 Mar 2026 09:48:27 +0200, Mike Rapoport wrote:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 > 
-> Standard splice copies data first (it's using standard IO callbacks such as
-> ->read_iter) so that doesn't pin page cache AFAICT. Only vmsplice(2) does
-> but that requires mmap.
+> Hi,
+> 
+> Following a recent discussion about leaks in x86 EFI [1], I audited usage of
+> memblock_free_late() and free_reserved_area() and made some imporovements how
+> we handle late freeing of the memory allocated with memblock.
+> 
+> [...]
 
-Splice from page cache to pipe sometimes doesn't copy data.
+Applied to for-next branch of memblock.git tree, thanks!
 
-That is why test program mentioned here may print "new":
-https://lore.kernel.org/all/CAHk-=wjixHw6n_R5TQWW1r0a+GgFAPGw21KMj6obkzr3qXXbYA@mail.gmail.com/
+[1/9] memblock: reserve_mem: fix end caclulation in reserve_mem_release_by_name()
+      commit: ea459d3c24fefd90b60a702f4a73833434ae0248
+[2/9] powerpc: fadump: pair alloc_pages_exact() with free_pages_exact()
+      commit: 6e827110aea5fb9c53a5bf070413ffe5cad105b0
+[3/9] powerpc: opal-core: pair alloc_pages_exact() with free_pages_exact()
+      commit: 3cf80188ecb828ed034ba562614cf1d48156b126
+[4/9] mm: move free_reserved_area() to mm/memblock.c
+      commit: 0aa264cda784f9fbe1a80ef13144cf81610086c7
+[5/9] memblock: make free_reserved_area() more robust
+      commit: 456ac994018598bc57ceaacb8a2c72e722c9755b
+[6/9] memblock: extract page freeing from free_reserved_area() into a helper
+      commit: 40191dae9ed84c816b593bb1b36a80f86c2279d1
+[7/9] memblock: make free_reserved_area() update memblock if ARCH_KEEP_MEMBLOCK=y
+      commit: b9e028ca869de24df00206d7ec640380670fc38f
+[8/9] memblock, treewide: make memblock_free() handle late freeing
+      commit: 64cb853c2ab4d8bd25b965f05e33ac0c6672bae7
+[9/9] memblock: warn when freeing reserved memory before memory map is initialized
+      commit: c7fc9cde41be029cf6675befbafcbb2dab40b39b
 
--- 
-Askar Safin
+tree: https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock
+branch: for-next
+
+--
+Sincerely yours,
+Mike.
+
 
