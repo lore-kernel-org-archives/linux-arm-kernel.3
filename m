@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DC8109C040
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED8D109C04D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4N4WM+cmPpBaKwZWyDFo1qlxcYPuytvpbUHsAspj/Fw=; b=EHp1PV8bzDTtYjA4UbbPxvDtDb
-	evFs9cTS0O0u694LtCRocCsTVF7bNGCy5r+F4t7oGBASWmXJ3uPbAN4oMUQiKSdwQBrzi2ii9yDUD
-	taDCMcoBumNQ/nywa7Kzjxo5+bh1y/8r7Z3AFp4/wO4f8evnPkOo5vvpu9dXFBq4fUg1Em6nWooEx
-	wxsCrra5X48kAcoGB+73TD0i/AlX8Uujp55ZxHGfvE3mwMX81KCn8/3qDuKLSjTPzru5+efDPgkHI
-	ikwyTwovmQnCqB9fyQZZS5CWekMnEE3bb/PHBz2tCxknhblOWd+QErQdgf/dXMfbUqRMXkpSeOnOB
-	3FefXNAQ==;
+	bh=NrASyDXrPTRzOdXMt+rY87vftM8wegQWKG3EcVZsavw=; b=2jJNI6B0EHRj+gV/R4+lO4zvmu
+	UkQS4Ic790l8Eyj3Mv5G1AOogA6Z8EHJ6GTxtuo8Ek74R4uxL1WYoyOgEGOAv2qSxlxSbvcD0CoNf
+	BhepA1dGGmYY0b6ct+xiS9IrFPRtfxpdF2dK+SJk/3xFlzE1CHD7pKUeCs1nzrWlN85uLTk6Gx3v8
+	Ldh+PwA6YRRVpMgbQzaKgEpenfOj5cnEZcdocxshrG1aVQNWh4NhTdvogD1zg31EumD/Y6MW3WX+i
+	H3+S3J7jLXPvaQTHWEtta8S9y8kOGhUiQ3OtecUqSJ/kwQR5poFvqU0zdwDMbM3EaQkCaoHymsY4g
+	NEGIFRNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ScQ-000000042dD-30dQ;
-	Wed, 25 Mar 2026 18:06:14 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1w5Sd5-000000042l1-0eAI;
+	Wed, 25 Mar 2026 18:06:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ScN-000000042bi-2cUz
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 18:06:13 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 0B98F20202;
-	Wed, 25 Mar 2026 19:06:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1774461968;
-	bh=4N4WM+cmPpBaKwZWyDFo1qlxcYPuytvpbUHsAspj/Fw=; h=From:To:Subject;
-	b=gvaf1Xkmq4pXHVPZjj6KAFXDHN/fL0TeZTegQTWxY1b+5waPJE2O9hyyMIE0BDy+1
-	 OrcP2dfTtNcosLeKdO4I7eCUMq/qYLMut8F2HlBbO3lkdCb8cWxY/EDTStoRYOBxAV
-	 ppUtyOkxfDD9RTmN2PzjQtEvW6nwWjMK88v2Wb87MwR7er+TVtNUpc/Yib/uCS8WFt
-	 a/ucL2qyzRRciW0bqeVzx3bAyM8RE1GAGxOyEZfZtBZIVtZ6eRbC2PB1JqVtvfJcXy
-	 5tv0r5eVg7RGzYnoFJdzGD7sJ0EPmBJWJDAbab6ZFigKjiZN2Iv5tR4rO2eu5BQ9dA
-	 474/tmhHHqNrA==
-Date: Wed, 25 Mar 2026 19:06:04 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	id 1w5Sd2-000000042kP-1UUe;
+	Wed, 25 Mar 2026 18:06:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01347434F9;
+	Wed, 25 Mar 2026 18:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1384AC19423;
+	Wed, 25 Mar 2026 18:06:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774462011;
+	bh=NrASyDXrPTRzOdXMt+rY87vftM8wegQWKG3EcVZsavw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AUU+WkdGqhPPGBJsyxlRKgS0WHccD27F+kY9qWgUG84BLHPPtNPWCGQoCOk3YFWXX
+	 V9vPXLoZ0Roax9hgRmUZ2qlbxZpoZ8vsYPe3HMkLaEB1bpKgkZIXu9syWEB/whji4C
+	 fRMlKI+MnZWtlCX4H3el/NZLyHHtdF+pcdyUt2xN1n19Rocynt9flKl74H66r+EmNb
+	 NrwXGDDKNgKtyrm7TID9cyxtEKTSz2xr2CmsJzm3DXwz8wOnV9Tj3LavZz5XtD/UOu
+	 mIbUJ99sSOq4eLYnbdmpJw67p39qmaLom0FUhjoED+uvH6G/Tlc2VCXMH9FnV4OJN9
+	 CepO2tOLvWKIg==
+Date: Wed, 25 Mar 2026 18:06:45 +0000
+From: Conor Dooley <conor@kernel.org>
+To: michael.riesch@collabora.com
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 0/2] Add support for Variscite DART-MX95 and Sonata
- board
-Message-ID: <20260325180604.GA2972@francesco-nb>
-References: <20260313174707.26902-1-stefano.r@variscite.com>
- <abRdwy_AS046QVRI@lizhi-Precision-Tower-5810>
- <acLqjeqmR4eVDoKw@lizhi-Precision-Tower-5810>
- <20260325122104.GA19112@francesco-nb>
- <acP2UX6B5js_ozWm@lizhi-Precision-Tower-5810>
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>,
+	Charalampos Mitrodimas <charmitro@posteo.net>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/9] media: dt-bindings: add rockchip rk3588 vicap
+Message-ID: <20260325-goofiness-smoky-05a9da4ab7c7@spud>
+References: <20250430-rk3588-vicap-v3-0-e38e428868cc@collabora.com>
+ <20250430-rk3588-vicap-v3-2-e38e428868cc@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S07loI5ARDnCLB+6"
 Content-Disposition: inline
-In-Reply-To: <acP2UX6B5js_ozWm@lizhi-Precision-Tower-5810>
+In-Reply-To: <20250430-rk3588-vicap-v3-2-e38e428868cc@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_110612_553992_2FA69DAA 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20260325_110652_404767_26DAC29D 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 10:50:57AM -0400, Frank Li wrote:
-> On Wed, Mar 25, 2026 at 01:21:04PM +0100, Francesco Dolcini wrote:
-> > On Tue, Mar 24, 2026 at 03:48:29PM -0400, Frank Li wrote:
-> > > On Fri, Mar 13, 2026 at 02:56:03PM -0400, Frank Li wrote:
-> > > > On Fri, Mar 13, 2026 at 06:47:01PM +0100, Stefano Radaelli wrote:
-> > > > > This patch series adds support for the Variscite DART-MX95 system on
-> > > > > module and the Sonata carrier board.
-> > > > >
-> > > > > The series includes:
-> > > > > - Device tree bindings documentation for both SOM and carrier board
-> > > > > - SOM device tree with on-module peripherals
-> > > > > - Sonata carrier board device tree with board-specific features
-> > > > >
-> > > > > The implementation follows the standard SOM + carrier board pattern
-> > > > > where the SOM dtsi contains only peripherals mounted on the module,
-> > > > > while carrier-specific interfaces are enabled in the board dts.
-> > > > >
-> > > > > v7:
-> > > > > - Order nodes in symphony dts
-> > > >
-> > > > Can you run https://github.com/lznuaa/dt-format for new file to easy
-> > > > track and check by script later.
-> > >
-> > > I applied with below change
-> > > - update copywrite to 2026
-> >
-> > How do you know that the correct copyright year is 2026?
-> > The copyright years does not change to today just because it is the year
-> > it was submitted.
-> 
-> At least it should include 2026 because it is new files in kernel
-> tree.
 
-The copyright year is not changing nor being updated just because you
-are adding the file to the linux kernel tree.
+--S07loI5ARDnCLB+6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Francesco
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
+--S07loI5ARDnCLB+6
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacQkNQAKCRB4tDGHoIJi
+0trSAP9NhcSN5IwjQxra/MoajEVkzUk285uvd3tnxxt6xebTeQD40Ti+GjJ8RBsz
+y/CiyatNQxTRh/VP0eEHfoLlCuj6BA==
+=yM+a
+-----END PGP SIGNATURE-----
+
+--S07loI5ARDnCLB+6--
 
