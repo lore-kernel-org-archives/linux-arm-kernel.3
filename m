@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCBB109C048
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 17:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38EC7109C048
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 17:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/4H+DiadOiRTmHuIYarcBMDL9Ll/NZemGNAQE+FIEk=; b=TKWdLgizyyU02aPyXueeugCP6j
-	gqoj1aLwnSjV/3kXnQJjmxFYzcG/v9fTmbEVkM1AmKkmonwicWIrUreGL02CYNCc6opHDZc4dJpxF
-	fy1+GT+UNon0I9ETB0H/XCrndmtb0p83nEilbJ7PGBHWmXHRyjCqG0SPpU9G14HqchvLqPIPcxSH3
-	xmd8P4npQqJ1dbphEAb8jd16SreN6yUHttIPET9rzzFibGObT2zzWpoOiD3TQI+NrC+38aPlKho0t
-	pKZfX9pRGGQPZ+vjAUu1qdKUe9oEvB5sw8VyMFPup1MOhq2rVVTtM1K7Z1xEMJYsbGHKSqxvb5viR
-	VC4PrRqQ==;
+	bh=TmPOORiqcrsn/xb5hIyAeI5Nv5h0BrhKFXeoq3pi82A=; b=rVuGCTvJnFIQPq+6mZGpAgkvWO
+	h/Scw1DF9GEu097Rj5FbkoqKfj48poWNGEjSfNkKHVudR147q441p99uO9pnUtQTbFK4sCUU1Yecd
+	KhlrHb10RqRtZiqrsQ6h5XR2RSAWlp/tFTVDeOrW+LKs0OmmPWRHzZ9TF5EzYjWPL/sFRtsxdA/8u
+	MnBF8vRk/So0alEAwG6tXpNtGk/qjuNlxmuvFeuhKFP2yyHjJtLB89ufG69d1fvqH1qE97djVO/40
+	TTyIjTZgo/dh4MtbzHhkOY6Exz6eKdyaUdnAyHBwS3A7noSDCKESvvB/LTzE3U8chNm316Z3NezfI
+	lp2cIHfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Rrp-00000003yOy-0F0s;
-	Wed, 25 Mar 2026 17:18:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5Rvd-00000003ydX-2y5M;
+	Wed, 25 Mar 2026 17:22:01 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Rrn-00000003yOs-3dd4
+	id 1w5Rva-00000003ych-41y0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 17:18:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0786460123;
-	Wed, 25 Mar 2026 17:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 281C8C2BCB0;
-	Wed, 25 Mar 2026 17:18:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774459082;
-	bh=cFS0jVgZrx7xu2C6f50P2frIPGlrT8eOzJuFuNpwFjo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IcX6HqEa9DILb3F2zUR/6AhM0A/9PKp4cV3eA9+fWgQ8wT+lQxqy0PTE3FfiypTqH
-	 kBadxVFjuUA6toZFjYMdCn53aBHhdTO597fzrhBxuOE6/rZeeF3a7Y2EKJYa/LoRR9
-	 ohKbB4ztRSpm4likC02IDT8SHbff4ssAecKdQZZkWaWY1yaVsezERg+tOS0qh2A26u
-	 7ExNBYswAZTmtZiZthye+wrBnmcKgAGkFK5mgc/AQE6BaaaVSb1wIqBm5xNjw5ciWl
-	 PNWZBbkTPlFhL99q7kGVlsvVExGHf7KrsIUjvnYUNIYGQ12Z9U93LxPBckW0aJDnQb
-	 22v+ZUU+bbFCQ==
-Date: Wed, 25 Mar 2026 18:17:58 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	stable <stable@kernel.org>
-Subject: Re: [PATCH] i2c: s3c24xx: check the size of the SMBUS message before
- using it
-Message-ID: <acQYnURilS0_fTvS@zenone.zhora.eu>
-References: <2026022314-rely-scrubbed-4839@gregkh>
+	Wed, 25 Mar 2026 17:22:00 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w5RvG-0006FR-RU; Wed, 25 Mar 2026 18:21:38 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w5RvG-0025yM-1l;
+	Wed, 25 Mar 2026 18:21:38 +0100
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w5RvG-00000000Ehq-1u0w;
+	Wed, 25 Mar 2026 18:21:38 +0100
+Message-ID: <526371c3755ea7f65e46f80326742225f72fa581.camel@pengutronix.de>
+Subject: Re: [PATCH v5 03/10] reset: Add Realtek basic reset support
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>, mturquette@baylibre.com, 
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ 	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Date: Wed, 25 Mar 2026 18:21:38 +0100
+In-Reply-To: <20260324025332.3416977-4-eleanor.lin@realtek.com>
+References: <20260324025332.3416977-1-eleanor.lin@realtek.com>
+	 <20260324025332.3416977-4-eleanor.lin@realtek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2026022314-rely-scrubbed-4839@gregkh>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_102159_177495_BB37963B 
+X-CRM114-Status: GOOD (  24.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,25 +81,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg,
+On Di, 2026-03-24 at 10:53 +0800, Yu-Chun Lin wrote:
+> From: Cheng-Yu Lee <cylee12@realtek.com>
+>=20
+> Define the reset operations backed by a regmap-based register
+> interface and prepare the reset controller to be registered
+> through the reset framework.
+>=20
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+> Changes in v5:
+> - Created drivers/reset/realtek/ directory and include/linux/reset/realte=
+k.h.
+> - Extracted the common reset helpers:
+>  - Moved the source code to drivers/reset/realtek/common.c and
+>  - the header to include/linux/reset/realtek.h
+> - Renamed rtk_reset_bank to rtk_reset_desc.
+> - Added 'bits' member to rtk_reset_desc structure.
+> - Removed rtk_reset_get_id() and rtk_reset_get_bank() helper.
+> - Introduced rtk_reset_get_desc().
+> ---
+>  MAINTAINERS                    |  1 +
+>  drivers/reset/Kconfig          |  1 +
+>  drivers/reset/Makefile         |  1 +
+>  drivers/reset/realtek/Kconfig  |  3 ++
+>  drivers/reset/realtek/Makefile |  2 +
+>  drivers/reset/realtek/common.c | 91 ++++++++++++++++++++++++++++++++++
+>  include/linux/reset/realtek.h  | 25 ++++++++++
+>  7 files changed, 124 insertions(+)
+>  create mode 100644 drivers/reset/realtek/Kconfig
+>  create mode 100644 drivers/reset/realtek/Makefile
+>  create mode 100644 drivers/reset/realtek/common.c
+>  create mode 100644 include/linux/reset/realtek.h
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 721356d4c02c..9419b0497e0b 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22229,6 +22229,7 @@ L:	devicetree@vger.kernel.org
+>  L:	linux-clk@vger.kernel.org
+>  S:	Supported
+>  F:	Documentation/devicetree/bindings/clock/realtek*
+> +F:	drivers/reset/realtek/*
+>  F:	include/dt-bindings/clock/realtek*
+> =20
+>  REALTEK SPI-NAND
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index 7ce151f6a7e4..03be1931f264 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -398,6 +398,7 @@ config RESET_ZYNQMP
+> =20
+>  source "drivers/reset/amlogic/Kconfig"
+>  source "drivers/reset/hisilicon/Kconfig"
+> +source "drivers/reset/realtek/Kconfig"
+>  source "drivers/reset/spacemit/Kconfig"
+>  source "drivers/reset/starfive/Kconfig"
+>  source "drivers/reset/sti/Kconfig"
+> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+> index fc0cc99f8514..4407d1630070 100644
+> --- a/drivers/reset/Makefile
+> +++ b/drivers/reset/Makefile
+> @@ -2,6 +2,7 @@
+>  obj-y +=3D core.o
+>  obj-y +=3D amlogic/
+>  obj-y +=3D hisilicon/
+> +obj-y +=3D realtek/
+>  obj-y +=3D spacemit/
+>  obj-y +=3D starfive/
+>  obj-y +=3D sti/
+> diff --git a/drivers/reset/realtek/Kconfig b/drivers/reset/realtek/Kconfi=
+g
+> new file mode 100644
+> index 000000000000..99a14d355803
+> --- /dev/null
+> +++ b/drivers/reset/realtek/Kconfig
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +config RESET_RTK_COMMON
+> +	bool
+> diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makef=
+ile
+> new file mode 100644
+> index 000000000000..b59a3f7f2453
+> --- /dev/null
+> +++ b/drivers/reset/realtek/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-$(CONFIG_RESET_RTK_COMMON) +=3D common.o
+> diff --git a/drivers/reset/realtek/common.c b/drivers/reset/realtek/commo=
+n.c
+> new file mode 100644
+> index 000000000000..b9e3219dc8f7
+> --- /dev/null
+> +++ b/drivers/reset/realtek/common.c
+> @@ -0,0 +1,91 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2019 Realtek Semiconductor Corporation
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/of.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset-controller.h>
+> +#include <linux/reset/realtek.h>
+> +
+> +struct rtk_reset_data {
+> +	struct reset_controller_dev rcdev;
+> +	struct rtk_reset_desc *descs;
+> +	struct regmap *regmap;
+> +};
+> +
+> +static inline struct rtk_reset_data *to_rtk_reset_controller(struct rese=
+t_controller_dev *r)
+> +{
+> +	return container_of(r, struct rtk_reset_data, rcdev);
+> +}
+> +
+> +static inline struct rtk_reset_desc *rtk_reset_get_desc(struct rtk_reset=
+_data *data,
+> +							unsigned long idx)
+> +{
+> +	return &data->descs[idx];
+> +}
+> +
+> +static int rtk_reset_assert(struct reset_controller_dev *rcdev,
+> +			    unsigned long idx)
+> +{
+> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
+> +	struct rtk_reset_desc *desc =3D rtk_reset_get_desc(data, idx);
+> +	u32 mask =3D desc->write_en ? (0x3 << desc->bit) : BIT(desc->bit);
+> +	u32 val  =3D desc->write_en ? (0x2 << desc->bit) : 0;
+> +
+> +	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
+> +}
+> +
+> +static int rtk_reset_deassert(struct reset_controller_dev *rcdev,
+> +			      unsigned long idx)
+> +{
+> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
+> +	struct rtk_reset_desc *desc =3D rtk_reset_get_desc(data, idx);
+> +	u32 mask =3D desc->write_en ? (0x3 << desc->bit) : BIT(desc->bit);
+> +	u32 val  =3D mask;
+> +
+> +	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
+> +}
+> +
+> +static int rtk_reset_status(struct reset_controller_dev *rcdev,
+> +			    unsigned long idx)
+> +{
+> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
+> +	struct rtk_reset_desc *desc =3D rtk_reset_get_desc(data, idx);
+> +	u32 val;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(data->regmap, desc->ofs, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return !((val >> desc->bit) & 1);
+> +}
+> +
+> +static const struct reset_control_ops rtk_reset_ops =3D {
+> +	.assert   =3D rtk_reset_assert,
+> +	.deassert =3D rtk_reset_deassert,
+> +	.status   =3D rtk_reset_status,
+> +};
+> +
+> +int rtk_reset_controller_add(struct device *dev,
+> +			     struct rtk_reset_initdata *initdata)
+> +{
+> +	struct rtk_reset_data *data;
+> +
+> +	data =3D devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	data->regmap          =3D initdata->regmap;
+> +	data->descs           =3D initdata->descs;
+> +	data->rcdev.owner     =3D THIS_MODULE;
+> +	data->rcdev.ops       =3D &rtk_reset_ops;
+> +	data->rcdev.dev       =3D dev;
+> +	data->rcdev.of_node   =3D dev->of_node;
+> +	data->rcdev.nr_resets =3D initdata->num_descs;
+> +
+> +	return devm_reset_controller_register(dev, &data->rcdev);
+> +}
+> +EXPORT_SYMBOL_GPL(rtk_reset_controller_add);
 
-On Mon, Feb 23, 2026 at 06:05:15PM +0100, Greg Kroah-Hartman wrote:
-> The first byte of an i2c SMBUS message is the size, and it should be
-> verified to ensure that it is in the range of 0..I2C_SMBUS_BLOCK_MAX
-> before processing it.
-> 
-> This is the same logic that was added in commit a6e04f05ce0b ("i2c:
-> tegra: check msg length in SMBUS block read") to the i2c tegra driver.
-> 
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: Alim Akhtar <alim.akhtar@samsung.com>
-> Cc: Andi Shyti <andi.shyti@kernel.org>
-> Cc: stable <stable@kernel.org>
-> Assisted-by: gkh_clanker_2000
-> Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Please implement this as an auxiliary device driver. Move the
+rtk_reset_initdata definitions in here and select them based on either
+auxiliary_device_id (see imx8mp-audiomix or spacemit) or of_device_id
+(see eyeq).
+The regmap can be retrieved from the parent (clk device) via
+dev_get_regmap (see imx8mp-audiomix).
 
-merged to i2c/i2c-host.
+> diff --git a/include/linux/reset/realtek.h b/include/linux/reset/realtek.=
+h
+> new file mode 100644
+> index 000000000000..3c2226e3ed26
+> --- /dev/null
+> +++ b/include/linux/reset/realtek.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __LINUX_RESET_REALTEK_H__
+> +#define __LINUX_RESET_REALTEK_H__
+> +
+> +#include <linux/types.h>
+> +
+> +struct device;
+> +struct regmap;
+> +
+> +struct rtk_reset_desc {
+> +	u32 ofs;
+> +	u32 bit;
+> +	u32 write_en;
+> +};
+> +
+> +struct rtk_reset_initdata {
+> +	struct rtk_reset_desc *descs;
+> +	u32 num_descs;
+> +	struct regmap *regmap;
+> +};
+> +
+> +int rtk_reset_controller_add(struct device *dev,
+> +			     struct rtk_reset_initdata *initdata);
+> +
+> +#endif /* __LINUX_RESET_REALTEK_H__ */
 
-Thanks,
-Andi
+With the above suggested changes, this header is not necessary.
+
+regards
+Philipp
 
