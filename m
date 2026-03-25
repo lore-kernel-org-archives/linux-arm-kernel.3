@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2445F106B53F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202A5106B53F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hA/RcDLnfM70e9u18PcuMcikLc3YOOmToizAbJtUCjw=; b=HoRc8xuYsyCh+wMeGHtEL0u9fS
-	BchW0BkssmPI1ucVrJj7MMZnd4wN6/mouf1ylrJXpwAXoZWgrFYQyAzEhNBxZL1Ui2ItBPTStjRrV
-	XrsvgWnomEvRloOTCb9TI22Hohg/T6xwmspqQUlkADUVTtkgK0vXXpcLkze8dMWdaVPWFUHfC4XVe
-	KI1LjcRhwaI6yBVzH23D2cf4OHUdF0y5I2+GsBMUkuF9OWVbhftmvO+OYty86QkxMaMsTehb6jWs/
-	FB5aDsshtM/RfSqgowZQSz9Jv8/yDCoB5kOQTmNxhs1ZJiKAve02L7oZ4Pk7txP+y7WxRutnKO/uc
-	ITHKsqEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s5C26zCJLmThL5P9gL0eaNPwT8Ft4vwHwAr08kkFcwE=; b=2SXV9DmbOfQekmmXPj0mYTJ8X+
+	84d52lXldpzo2WZuwn//pucpbbpYpHK/OmWG2oq1g8hf0uniLNmHN3XOQ5ddk68uLje41SshpWzWr
+	T/EEk+84waoY0ri0TXvLh26UkjhYuKPBYeEzU7fTyc/bJ+7RlqxKizDqnv25BmWWRVA7zxjHlMTYP
+	J9S06BrUp1gzqyhgz44snJtufJ5241u+wBReRjdkpLKgeUGWdQZzgXo2FsPLu9I5D4apkwvsJvjpF
+	l5AJP2GhjyE0ekN4j/hIsupBmkHSZPEbRa5DzD7QUkQ02PrF8c8w7guNauLunEdoqa8igqkt77bMa
+	Zuol4zbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5OgM-00000003VHO-0Jjz;
-	Wed, 25 Mar 2026 13:54:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5OgJ-00000003VGS-27X8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 13:54:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA21E1CDD;
-	Wed, 25 Mar 2026 06:53:50 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 712F83F836;
-	Wed, 25 Mar 2026 06:53:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774446836; bh=rTpz50E+4PJ6RioGt1JBhmHx0qMuH5Sl7wjDXLEJHn8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F3S2AixyqhIuvb8mv8t2FHXLeYL9B2PwbydxQJsk+j50mWFPm3DNRdGMWKQ16/2k6
-	 weCqqFChyZQPX537W7n5cnvAWcGK9jd+cQdtzw8wzA9Eh5HfC5UyqLTWEbBLh/76EH
-	 xjaFdyHFtCq85BBXLQ7eZIVbpTx5hrKWok8PXOv8=
-Date: Wed, 25 Mar 2026 13:53:50 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
-	peterz@infradead.org, mark.rutland@arm.com, harisokn@amazon.com,
-	cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
-	daniel.lezcano@linaro.org, memxor@gmail.com,
-	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-	rdunlap@infradead.org, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v10 00/12] barrier: Add
- smp_cond_load_{relaxed,acquire}_timeout()
-Message-ID: <acPo7l_pd5rnHpSX@arm.com>
-References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
- <20260315184925.b6f93386e918ca79614843e3@linux-foundation.org>
- <874imftol4.fsf@oracle.com>
- <20260316233712.7cbfac27@pumpkin>
- <87ms07rlp9.fsf@oracle.com>
- <20260317091705.5a64fc56@pumpkin>
+	id 1w5OkN-00000003Va6-08ZS;
+	Wed, 25 Mar 2026 13:58:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5OkK-00000003VZU-3Xo1;
+	Wed, 25 Mar 2026 13:58:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DF39C600C4;
+	Wed, 25 Mar 2026 13:58:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64A8AC4CEF7;
+	Wed, 25 Mar 2026 13:57:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774447087;
+	bh=KyjiwAokSYk7ozvT6M+V8CAJzdrqAh71WLKooyLlGIw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a/Isf1Nn7bbzilJ+WFOdPoPwPnR5v6LhxMrlFuBsyYg2XAwIEm2QemKRxXZjHN5Nu
+	 AChgjyjIk7vb33QJ6oLak9yHuJmn9pok4FzY118/Z+xhCYL9ZvqY/49+WryhvTm+9I
+	 H/uz07412nF3UDASUIjgPac3fueYVdb60S7vSKmq1WNoCwue6s87ja2S3Tsh5l+e3f
+	 64SHJjpAkfwmhNBTPQZWk39ka/fPMUqC0l5Alm8rDrmCIyjXRQby1EnxD/KFHZR4nK
+	 FM9Uffh/ooy89oUPe3IV97KvalyzhwV1CHWkx0R4J2p9nJcR4wxJQ24/KPk84FZbM0
+	 vIlUGx35sv7Jg==
+Message-ID: <b1b682fb-9d79-4388-8499-4623d0785ec0@kernel.org>
+Date: Wed, 25 Mar 2026 14:57:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260317091705.5a64fc56@pumpkin>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_065359_584256_7B25BB8A 
-X-CRM114-Status: GOOD (  12.85  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 18/21] drivers: hv: vmbus: replace deprecated mmap hook
+ with mmap_prepare
+Content-Language: en-US
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <05467cb62267d750e5c770147517d4df0246cda6.1774045440.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <05467cb62267d750e5c770147517d4df0246cda6.1774045440.git.ljs@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +98,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 09:17:05AM +0000, David Laight wrote:
-> On Mon, 16 Mar 2026 23:53:22 -0700
-> Ankur Arora <ankur.a.arora@oracle.com> wrote:
-> > David Laight <david.laight.linux@gmail.com> writes:
-> > > On arm64 I think you could use explicit sev and wfe - but that will wake all
-> > > 'sleeping' cpu; and you may not want the 'thundering herd'.  
-> > 
-> > Wouldn't we still have the same narrow window where the CPU disregards the IPI?
+On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> The f_op->mmap interface is deprecated, so update the vmbus driver to use
+> its successor, mmap_prepare.
 > 
-> You need a 'sevl' in the interrupt exit path.
+> This updates all callbacks which referenced the function pointer
+> hv_mmap_ring_buffer to instead reference hv_mmap_prepare_ring_buffer,
+> utilising the newly introduced compat_set_desc_from_vma() and
+> __compat_vma_mmap() to be able to implement this change.
+> 
+> The UIO HV generic driver is the only user of hv_create_ring_sysfs(),
+> which is the only function which references
+> vmbus_channel->mmap_prepare_ring_buffer which, in turn, is the only
+> external interface to hv_mmap_prepare_ring_buffer.
+> 
+> This patch therefore updates this caller to use mmap_prepare instead,
+> which also previously used vm_iomap_memory(), so this change replaces it
+> with its mmap_prepare equivalent, mmap_action_simple_ioremap().
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-No need to, see the rule below in
-https://developer.arm.com/documentation/ddi0487/maa/2983-beijhbbd:
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-R_XRZRK
-  The Event Register for a PE is set by any of the following:
-  [...]
-  - An exception return.
-
--- 
-Catalin
 
