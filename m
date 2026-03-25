@@ -4,139 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7CE1109E528
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A0D109E528
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14O+rHUy9JUHv4nndxIKJLmJP+F4NFBUxwm3pxRAatw=; b=4pyC3FfNYiR5sYOugtV6hmvuqI
-	SpBzRgUct7YNAuXyPPxUQHnIGdzkcu3rzU/bu+DMoDSaP/ZjOQ0TnZkkk/oQN1Ey4I6nLyEa0SiEk
-	EJEq316NxIjOkF6/Qen59M35Vxo/AP+F00Cz7W09oCwYYYUXHOHUqILSU4IlYSMZ+/9RU7r7V0wL3
-	fJpCj/fnWs6S+Bso7lojNqOUED8tRyYoDSd29vDgURvcXi1nsXxtNnaazYIN6URsds2hxlFHOF1CP
-	TPAyIHkEAKecqSAwvqn51D2f9QkBgi8gJ5yKzA68LDjxXbv0x05nOnii3ZS/T9IyxXoilBVn0JkVb
-	B02prMog==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jg+jxIxiDHnN00TgvSu+pP6M1fm2u7hbNztuwkGyUXY=; b=FjhqISTq1HqvpkYKxbvvXSrBTu
+	4UI2zI0rOSz47Fl4CcDSCJ8hGa+s8+bXQEDwI0Clq68KKAO5KHUD1mFMzAOLKK3FV3fyJkVVhAM7u
+	DDwsBeivjT0Yru/q3hCU1Q8WZ9pId+CL/7VSUv14Mpmt4pF+p9UssUMYSVzbkTp3+jGj9Xm3TrhbL
+	t2XZJnomhmu7zMndsKdIExfgKhE2X5CibHwyXc+xQTc3Crwh8TUd5QFDxw/fRcy30ftn4YXVYqI6U
+	5FJfaN8lnM8HvOX5M5Q20h/ccPmfCbFH+YqIDPid2XRVEW5lYQk4bmH0ul0StD4pUYlG/jsf1eDVx
+	CZ8tz1nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Wmv-00000004N78-3Ent;
-	Wed, 25 Mar 2026 22:33:21 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1w5X85-00000004NlV-2gHJ;
+	Wed, 25 Mar 2026 22:55:13 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Wmp-00000004N6d-2jAc
+	id 1w5X83-00000004Nl5-07hA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 22:33:19 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-12a695044a4so804573c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 15:33:14 -0700 (PDT)
+	Wed, 25 Mar 2026 22:55:12 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-358d80f60ccso224111a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 15:55:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774477994; x=1775082794; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=14O+rHUy9JUHv4nndxIKJLmJP+F4NFBUxwm3pxRAatw=;
-        b=dWvDWbsZtsDqbeF7qqkIqfAOV8X2jOLyAh+stnwweUfqsiPWTn9Yqtt+9c+NpsZ0NJ
-         Ma2Hjaj8SLgVdi5NY26wgW0ckFpY6FkLoRmSH2xRmBOMzz2J04r3lblVOT8IbenG84/E
-         HFBVvGkwU563KQX+yvlPq9y3f9YTLTZ7OGhbvxziiDT+T55XVrNjO2c2D1Ze3G3logXd
-         TJLZZtt9ePkr51uRDBLJpJOkblWTSwb/AnHOyBfY6GyP+FEBQN7k6Usb45a9k2jHDCBB
-         4kALjAO2ncuJZkBR+zfWjflGsDdeI64vIO0cJRzNd+6spiJ7u7Mx7IJ+xAahdVHPoC3b
-         Uu6A==
+        d=gmail.com; s=20251104; t=1774479309; x=1775084109; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jg+jxIxiDHnN00TgvSu+pP6M1fm2u7hbNztuwkGyUXY=;
+        b=UlG5im4kQ4ZPE90/s/EWcabFTpLgH3CbQTspcTRaYNtecv1ftwhoGX7qDRDBKztf8y
+         OgRIYlyUsDmjDiZWSoQT1SbRhU3Z+YPGB5S6JeTSJl2amXQ+NyfzVwjtc5Xs7zlPfZ1C
+         dVfx8A00bCRigag+Z7XPxs+LmI415JQm0d8RYPK100NuQ7qbyfSe752BDzc02MstlgIm
+         KXUOV2TVD+MndqbgyVGdsYxzCaow/re4Ap7fzUH49GJ2yRHVz8tfXccv8WpNZ8mqz/RP
+         lNilz9gdICYaoQLz97g12vpbwaXZx9xrAMwu+k+TivTn8JGyO+FBj3X7ZH5Qrm4GJGER
+         UxrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774477994; x=1775082794;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=14O+rHUy9JUHv4nndxIKJLmJP+F4NFBUxwm3pxRAatw=;
-        b=NwAE4j+KzgbYW+jHf0GvlNli5N4iMJ/5OBmDYlIBSqkTcuM4VWD8Txk7uQJB6Xmul8
-         Bz5XLKyZ0YKRvE7I/k2PHNohFKxgWuyMeFVdm9xprdG3Zf07A9nTkM1ZTiRgHd2ARP0w
-         dgkogtP8GTCgBiXYPQV2ZmU8yNvkIjYUTk/wXz2d0YYwXgpqIdCAonEco3gMz2xpAFjf
-         00DqpoiI13WWDJhj0WaRUCfv72w+ltJNaQjG+48nx4q7zJ3Ta7WRWIAF6nGBJUSd3/6x
-         7fBKl7YG5ojomFB4BPg/21//dchCTyII+82Nb4pQl2+sUnmKi0M10ddv2+oFu8Igi2QK
-         tsgg==
-X-Forwarded-Encrypted: i=1; AJvYcCWunHWnC1A1BVsxZOJ5LewyEAcjRv8JqmaJlYjCIBjivNNV4czUhHaQtFnFjP9NV+gL8stQCdYbwAnh6tcdE2ot@lists.infradead.org
-X-Gm-Message-State: AOJu0YylZdE8nXcFcDywQ5h5Q2ISaPgPefy+4aiv6mDI86MrUTxPxE7C
-	YLSj2Wi6l90Ugu1crrRQLLQTGfYv7OM46RnxZkStpQjTMD7PI4b6LkRf
-X-Gm-Gg: ATEYQzzckV3u++ZWwOdRis1Wm2/+sopfs8bmZof8UgeC8hVJsasQi0sI5U0XXxObBIi
-	rKx0r8vXrNOTbDghFYM5vM0Am8Vg+kILKaxnS+g3Ekv8inHqAQbDjzb8LDSQCnWWUb5p15ZcgR9
-	zmSbppsaN+hZuM6+4UuTmOMFfI3IK+Yp5zUPzmRsauBG8qk6TPXve65tOXYeoUXUlHW3hWvFxWJ
-	sY70VpFxodTFUcX3UzgV+4STcoBkd8fIxIsG/lUegVYVG6zGyIKdzSG+CUhdOq/XpiJL8r5AjY6
-	H9LmsDfRJ4/Tm/sQIInQXSfTnqDPsEuuEnOw4aXGV7FuJ9UK9wFlgTNl0l1jQ94qKLBUop1600f
-	jTt1YB0uylcYPZ+pqxkXzqAy4tQ/rwcglTnlkYSstTNfcViVZ6prFa+t07JSTL4SyWHcjNy/OR0
-	/Vv6m12he3GEc+csBmp37XRuh35WHpp4DbZGO3dneXBe/6crCWF/jLgL1+SXy/FjVi6IkODJ1y
-X-Received: by 2002:a05:7022:402:b0:11b:c1ab:bdd4 with SMTP id a92af1059eb24-12a96f04f69mr2620804c88.38.1774477994108;
-        Wed, 25 Mar 2026 15:33:14 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12aa762430bsm1567649c88.10.2026.03.25.15.33.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2026 15:33:13 -0700 (PDT)
-Message-ID: <f016c567-dd37-4f1a-8c8d-5b8dc6a3b9a3@roeck-us.net>
-Date: Wed, 25 Mar 2026 15:33:11 -0700
+        d=1e100.net; s=20251104; t=1774479309; x=1775084109;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jg+jxIxiDHnN00TgvSu+pP6M1fm2u7hbNztuwkGyUXY=;
+        b=mIVwkCgbgplumzPakTk8DCnl3yUdSRUbw8w4KRHR+jhHi50gFdN0acKCaC3IP59I0G
+         4izwTQrQZIapLhxPPmTmcNXIxTvdV7FxyNuYLH/PorJ51plaCVl+6e1uInNtrQh9VvvZ
+         9DnuRlVuDhpgHpUBdKixqLVCc0XetZhkn/xKQ/7BJhUI213V/BC/dnJMFzT//14fGj1F
+         kkSW3feXtQwfpb3VGryFCvtCL+PlSCX4M8rRJbSMqVAfVqtcmfdWgq4UbKHAGzshbfRV
+         27RwC/ZTNw7na3y0BpqZIDe23aksdSL84NbvKAmdsBVacQTorcdG2qHpm2Z0GnIybA61
+         /6lg==
+X-Forwarded-Encrypted: i=1; AJvYcCVIvy6+wZ8cDZf+diRDZDo9kKrJR7n1Rv1znZ5KMk+9VAjL+gMmrg5afplOc5iEXR9kewjyEuq/2cHgUrhAIu5S@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4+V0+bco81h73w6KzZPcCJcJV2n62HK4r65MWn/TDZs1BInKM
+	F0rhGF73nkap7nmfRbvPEAv0ZzTXaiJiMcBdN+6tkBqQYl+zYHmEnGQ6
+X-Gm-Gg: ATEYQzyEbGYvApxohBnWhc45RK4nahB86hBDu9OpgVsng5AH50MoM45/9yf/eVwqHER
+	leR7HbVPe1RMS361GArhJ/0fGo379cGJiR9vlWYa8x0zs4xXD2a9AdvXf6unPC1tMQXTqBi57cT
+	wQJXNJq0sE1+scacoSkBnCNQuDRwKCWj+TkyLiGXSdAYBDbK7XmcAA/gTZoHFfw5AUYvQnuyhVN
+	WIFgco/UAjv7KreQLGWrucNzEldibENzutmhB1S7O6KMYHk42PR9E9XawwZp2TLPRtLUwMJWvPi
+	smkfDTLydSRzh1iK9PR0zSU6MnQbPoIPt2RTxBnL71tt1qkuGUVbkskIxfF6Nhalb3aDmWdEsS4
+	EzN2TziwARfDpETGWfFM5Bv4liyLJ6jyh6tSwsRWzGoHdvkMn8pgVmWRh0lVEim4iGMe+rR/qnN
+	5Sl7ezpMA4jKyD/3EgaEMZoMoN
+X-Received: by 2002:a17:90b:3f47:b0:356:7b41:d348 with SMTP id 98e67ed59e1d1-35c0dd95083mr4052323a91.20.1774479309361;
+        Wed, 25 Mar 2026 15:55:09 -0700 (PDT)
+Received: from arch ([2409:40c2:5018:3ab3:ebcf:9aee:dece:80da])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c1e1a64absm84066a91.2.2026.03.25.15.55.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 15:55:09 -0700 (PDT)
+From: Bhargav Joshi <rougueprince47@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xuwei5@hisilicon.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ulf.hansson@linaro.org,
+	zhangfei.gao@linaro.org,
+	linux-mmc@vger.kernel.org
+Cc: daniel.baluta@nxp.com,
+	simona.toaca@nxp.com,
+	d-gole@ti.com,
+	m-chawdhry@ti.com,
+	rougueprince47@gmail.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] mmc: hisilicon: Convert dw-mshc bindings and fix dtbs
+Date: Thu, 26 Mar 2026 04:24:37 +0530
+Message-ID: <20260325225439.68161-1-rougueprince47@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: hwmon: emc2305: Add
- fan-shutdown-percent property
-To: Rob Herring <robh@kernel.org>, florin.leotescu@oss.nxp.com
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
- linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, daniel.baluta@nxp.com, viorel.suman@nxp.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-References: <20260320152959.1575978-1-florin.leotescu@oss.nxp.com>
- <20260320152959.1575978-2-florin.leotescu@oss.nxp.com>
- <20260325215630.GA6513-robh@kernel.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260325215630.GA6513-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_153315_730748_FFD5F036 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260325_155511_071638_FADDA901 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,51 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/25/26 14:56, Rob Herring wrote:
-> On Fri, Mar 20, 2026 at 05:29:58PM +0200, florin.leotescu@oss.nxp.com wrote:
->> From: Florin Leotescu <florin.leotescu@nxp.com>
->>
->> The EMC2305 fan controller supports multiple independent PWM fan
->> outputs. Some systems require fans to enter a defined safe state
->> during system shutdown or reboot handoff, until firmware or the next
->> boot stage reconfigures the controller.
->>
->> Add an optional "fan-shutdown-percent" property to fan child nodes
->> allowing the shutdown fan speed to be configured per fan output.
-> 
-> Why not a common fan property in fan-common.yaml?
-> 
-> We generally specify fan speeds in RPM (and then map RPMs to duty cycle
-> for PWM).
-> 
+This series converts the Hisilicon dw-mshc text bindings to DT schema
+format and cleans up legacy node names in Hisilicon board files.
 
-The problem here is mentioning "fan speed" instead of referring to pwm
-duty cyle in the first place. It is not just misleading, it is wrong.
+While testing the new YAML schema, dtbs_check flagged the hi3660, 
+hi3670, and hi6220 SoC files for using the non-standard 'dwmmc' node 
+name prefix. resulting in warnings.
 
-It is impossible to associate fan speed with a specific duty cycle because
-that differs for each fan. It isn't even consistent for the same fan model -
-one never knows what fan speed one gets for a given duty cycle. It depends
-on the air flow in the chassis and on fan-to-fan deviations. It will change
-over the lifetime of a fan. It may even change with the ambient temperature.
-Fan controllers use a feedback loop for that purpose, but that doesn't
-work here since, after all, this is a shutdown parameter.
+Patch 1 Convert to DT schema
+Patch 2 updates the Hisilicon dtsi files to use standard 'mmc' 
+node name.
 
-I don't think anything but specifying a shutdown duty cycle is
-feasible here.
+Changes in v2:
+ - Patch 1: 
+    - Grouped compatible strings into an enum.
+    - Replaced raw numbers with proper flags.
+    - Fixed property order and removed invalid hex values.
+    - Added explanation for clock order change in commit message.
+    - Collected Acked-by tag.
+ - Patch 2: 
+    - No code changes.
+    - Collected Acked-by and Reviewed-by tags.
 
-> Also, we have (or can have) cooling levels defined. Perhaps we should
-> define the cooling level for shutdown? Maybe other things with cooling
-> levels need a shutdown level too?
-> 
+Signed-off-by: Bhargav Joshi <rougueprince47@gmail.com>
+---
+Note: this patch is part of the process for applying to GSoC device
+tree bindings conversion project #
+https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
 
-Unless I am missing something, the thermal subsystem does not currently have
-a concept of a "shutdown cooling state". The driver supports registering
-with the thermal subsystem, but it is not mandatory. Even if the thermal
-subsystem would support shutdown cooling states or a similar concept,
-I do not think it would be a good idea to mandate its existence or in a fan
-controller driver.
+- The file is enabled by arm64 defconfig (CONFIG_MMC_DW_K3=y)
+- It is used in following
+    /arch/arm64/boot/dts/hisilicon/hi3660.dtsi
+    -included by /arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
+    /arch/arm64/boot/dts/hisilicon/hi3670.dtsi
+    -included by /arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
 
-Thanks,
-Guenter
+Bhargav Joshi (2):
+  dt-bindings: mmc: hisilicon,hi3660-dw-mshc: Convert to DT schema
+  arm64: dts: hisilicon: Rename dwmmc nodes to mmc
+
+ .../mmc/hisilicon,hi3660-dw-mshc.yaml         | 117 ++++++++++++++++++
+ .../devicetree/bindings/mmc/k3-dw-mshc.txt    |  73 -----------
+ arch/arm64/boot/dts/hisilicon/hi3660.dtsi     |   4 +-
+ arch/arm64/boot/dts/hisilicon/hi3670.dtsi     |   4 +-
+ arch/arm64/boot/dts/hisilicon/hi6220.dtsi     |   6 +-
+ 5 files changed, 124 insertions(+), 80 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mmc/hisilicon,hi3660-dw-mshc.yaml
+ delete mode 100644 Documentation/devicetree/bindings/mmc/k3-dw-mshc.txt
+
+-- 
+2.53.0
 
 
