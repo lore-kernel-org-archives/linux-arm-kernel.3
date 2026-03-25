@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8FFFC72DF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 351EF1075269
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo96waFsUS6SwGsSk6YcgJNL6tDx99iHJkgqoGtM31M=; b=PyiMqIl1fR+j7HzII93Y7/9qyr
-	M1D2sOebdxs5jzEkSvqhgbe/09GCgLZhH/0BZr3tDO5DFZus1BaJCn5NnXjYiJ0wnT6G5ZKpQZVnT
-	0fKebzZPrN/KQZoBDXIdYXRofoOzq7FA5g77S51c90ob6KC6jg/GgtaD+Rj4/+QcMPM2izlWSgglO
-	Z+IppF/G9HRXD0FwUpveT9dmsd0qCxWdnoNM8phd5YDikghhQn+hvbYpdi149/RsDsIKSg4c81cVZ
-	cqv+0SYEQPPF6HPPfnTJPJQE84a6g2kbKgcTZLSbPaS05D4xqdlRbTI1iIRObcotpS3yjPyrnALli
-	OSSni41Q==;
+	bh=8ZXqSfHdZYWHg8eoBYi4L/7RE6JUTLCp/Mr9famKjAg=; b=J/oCAK4gxGK0BgiqLZ/geAWxch
+	/Fszs3/npxxmzJpbF4Ulqu0PShUV6DNVqMwE3JuTyinlRCrQIlYq6vaGpKy9oqRp16/jpxX0A66op
+	FAZQaH/fMiKBNSbVq5EuK84bNzcA+bn41D6oX1tXxrfm9ezIce13n1VQKgyJNFmT0vinlSMaYWy4j
+	JRSlb1lBq0A0BJyRt96IgM0PTO0PZU5X6GnRB5qbf6CnbDXezzzXRkqPnp9JnUSpQ8LWH/OprlhBV
+	fUwvA25eQSZgN6Oz9kt738RRQ7HXnZD+EKDUspHd2iU0sllwFsFSza2e7x8oyBPucEtvUBv4zzfgc
+	Jc9i2lhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CFp-00000002PfT-2VyL;
-	Wed, 25 Mar 2026 00:37:49 +0000
+	id 1w5CFu-00000002Phu-3j6i;
+	Wed, 25 Mar 2026 00:37:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CFk-00000002Pe0-3dFQ
+	id 1w5CFr-00000002PgL-2R5i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 00:37:46 +0000
+	Wed, 25 Mar 2026 00:37:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C82A1C0A;
-	Tue, 24 Mar 2026 17:37:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D55991C14;
+	Tue, 24 Mar 2026 17:37:43 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 380233FB90;
-	Tue, 24 Mar 2026 17:37:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A06123FE53;
+	Tue, 24 Mar 2026 17:37:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774399064; bh=r2NqJqtxMzptltCE+GymYSs9aCU3DPcd19M/MmyWskE=;
+	t=1774399069; bh=Ia+vilw3zsqeIzVE3dF4KM+CNyzCGCU+jhvm1P5T5B8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IXGXS+ykBFLyiBA3As/Eqt2T1yCIqKBQCggrqBgjYnb6sfzOlJ9y3rqp5FIAOB6gb
-	 jIdZXjLGF6flg57RCzDbANEG7hahqs4hSAhbGwjg0A+O6xyXZoiK0O4TdYPhw1JiSh
-	 SsEzrofyk+2laz8DFG/BqAOD8i45Vwh7xOU+pBNY=
+	b=txQiWiter+YQWq+0d+dLUs3Ut9UQP5DnpuSantdQEso5kSTyrcU3ZGUtb7/qQNTDt
+	 xM0HIdfGUI0F6wcMwho7heLm2gW0zKWpIZ9c/FL632wHWG2xfymBxiYUL4LydUZBus
+	 YuNN67lZ9og1GYkvFu+EU05KvMY+UJ0ZfLyXxH+k=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
@@ -54,17 +54,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH 2/3] KVM: arm64: sefltests: Add basic NV selftest
-Date: Wed, 25 Mar 2026 00:36:19 +0000
-Message-ID: <20260325003620.2214766-3-weilin.chang@arm.com>
+Subject: [PATCH 3/3] KVM: arm64: selftests: Enable stage-2 in NV preparation functions
+Date: Wed, 25 Mar 2026 00:36:20 +0000
+Message-ID: <20260325003620.2214766-4-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260325003620.2214766-1-weilin.chang@arm.com>
 References: <20260325003620.2214766-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_173745_033634_DD8C65D4 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20260324_173751_709368_2F27CA97 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,99 +79,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a simple NV selftest that uses the NV library functions to eret from
-vEL2 to EL1, then call an hvc to jump back to vEL2.
+Introduce library functions for setting up guest stage-2 page tables,
+then use that to give L2 an identity mapped stage-2 and enable it.
+
+The translation and stage-2 page table built is simple, start level 0,
+4 levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
+
+The nested page table code is adapted from lib/x86/vmx.c.
 
 Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/arm64/hello_nested.c        | 65 +++++++++++++++++++
- 2 files changed, 66 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
+ .../selftests/kvm/include/arm64/nested.h      |  7 ++
+ .../selftests/kvm/include/arm64/processor.h   |  9 ++
+ .../testing/selftests/kvm/lib/arm64/nested.c  | 97 ++++++++++++++++++-
+ 3 files changed, 111 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 5e681e8e0cd7..d7499609cd0c 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -167,6 +167,7 @@ TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
- TEST_GEN_PROGS_arm64 += arm64/at
- TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
- TEST_GEN_PROGS_arm64 += arm64/hello_el2
-+TEST_GEN_PROGS_arm64 += arm64/hello_nested
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
-new file mode 100644
-index 000000000000..16c600539810
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
-@@ -0,0 +1,65 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * hello_nested - Go from vEL2 to EL1 then back
-+ */
-+#include "kvm_util.h"
-+#include "nested.h"
-+#include "processor.h"
-+#include "test_util.h"
-+#include "ucall.h"
+diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+index 739ff2ee0161..0be10a775e48 100644
+--- a/tools/testing/selftests/kvm/include/arm64/nested.h
++++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+@@ -6,6 +6,13 @@
+ #ifndef SELFTEST_KVM_NESTED_H
+ #define SELFTEST_KVM_NESTED_H
+ 
++uint64_t get_l1_vtcr(void);
 +
-+static void l2_guest_code(void)
++void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
++		uint64_t nested_paddr, uint64_t paddr, uint64_t size);
++void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
++			uint32_t memslot);
++
+ void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+ void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+ void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
+diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
+index ac97a1c436fc..5de2e932d95a 100644
+--- a/tools/testing/selftests/kvm/include/arm64/processor.h
++++ b/tools/testing/selftests/kvm/include/arm64/processor.h
+@@ -104,6 +104,15 @@
+ #define TCR_HA			(UL(1) << 39)
+ #define TCR_DS			(UL(1) << 59)
+ 
++/* VTCR_EL2 specific flags */
++#define VTCR_EL2_T0SZ_BITS(x)	((UL(64) - (x)) << VTCR_EL2_T0SZ_SHIFT)
++
++#define VTCR_EL2_SL0_LV0_4K	(UL(2) << VTCR_EL2_SL0_SHIFT)
++#define VTCR_EL2_SL0_LV1_4K	(UL(1) << VTCR_EL2_SL0_SHIFT)
++#define VTCR_EL2_SL0_LV2_4K	(UL(0) << VTCR_EL2_SL0_SHIFT)
++
++#define VTCR_EL2_PS_40_BITS	(UL(2) << VTCR_EL2_PS_SHIFT)
++
+ /*
+  * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
+  */
+diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+index 111d02f44cfe..910f8cd30f96 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/nested.c
++++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+@@ -1,8 +1,11 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+- * ARM64 Nested virtualization helpers
++ * ARM64 Nested virtualization helpers, nested page table code adapted from
++ * ../x86/vmx.c.
+  */
+ 
++#include <linux/sizes.h>
++
+ #include "kvm_util.h"
+ #include "nested.h"
+ #include "processor.h"
+@@ -18,6 +21,87 @@ static void hvc_handler(struct ex_regs *regs)
+ 	regs->pc = (u64)after_hvc;
+ }
+ 
++uint64_t get_l1_vtcr(void)
 +{
-+	/* nothing */
++	return VTCR_EL2_PS_40_BITS | VTCR_EL2_TG0_4K | VTCR_EL2_ORGN0_WBWA |
++	       VTCR_EL2_IRGN0_WBWA | VTCR_EL2_SL0_LV0_4K | VTCR_EL2_T0SZ_BITS(48);
 +}
 +
-+static void guest_code(void)
++static void __nested_pg_map(struct kvm_vm *vm, uint64_t guest_pgd,
++		     uint64_t nested_paddr, uint64_t paddr, uint64_t flags)
 +{
-+	GUEST_ASSERT_EQ(get_current_el(), 2);
-+	GUEST_PRINTF("vEL2 entry\n");
-+	run_l2();
-+	GUEST_DONE();
++	uint8_t attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
++	uint64_t pg_attr;
++	uint64_t *ptep;
++
++	TEST_ASSERT((nested_paddr % vm->page_size) == 0,
++		"L2 IPA not on page boundary,\n"
++		"  nested_paddr: 0x%lx vm->page_size: 0x%x", nested_paddr, vm->page_size);
++	TEST_ASSERT((paddr % vm->page_size) == 0,
++		"Guest physical address not on page boundary,\n"
++		"  paddr: 0x%lx vm->page_size: 0x%x", paddr, vm->page_size);
++	TEST_ASSERT((paddr >> vm->page_shift) <= vm->max_gfn,
++		"Physical address beyond maximum supported,\n"
++		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
++		paddr, vm->max_gfn, vm->page_size);
++
++	ptep = addr_gpa2hva(vm, guest_pgd) + ((nested_paddr >> 39) & 0x1ffu) * 8;
++	if (!*ptep)
++		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PGD_TYPE_TABLE | PTE_VALID;
++	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 30) & 0x1ffu) * 8;
++	if (!*ptep)
++		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PUD_TYPE_TABLE | PTE_VALID;
++	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 21) & 0x1ffu) * 8;
++	if (!*ptep)
++		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PMD_TYPE_TABLE | PTE_VALID;
++	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 12) & 0x1ffu) * 8;
++
++	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
++	pg_attr |= PTE_SHARED;
++
++	*ptep = (paddr & GENMASK(47, 12)) | pg_attr;
 +}
 +
-+int main(void)
++void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
++		uint64_t nested_paddr, uint64_t paddr, uint64_t size)
 +{
-+	struct kvm_vcpu_init init;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
++	size_t npages = size / SZ_4K;
 +
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-+	vm = vm_create(1);
++	TEST_ASSERT(nested_paddr + size > nested_paddr, "Vaddr overflow");
++	TEST_ASSERT(paddr + size > paddr, "Paddr overflow");
 +
-+	kvm_get_default_vcpu_target(vm, &init);
-+	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-+	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	prepare_l2_stack(vm, vcpu);
-+	prepare_hyp_state(vm, vcpu);
-+	prepare_eret_destination(vm, vcpu, l2_guest_code);
-+	prepare_nested_sync_handler(vm, vcpu);
-+
-+	while (true) {
-+		vcpu_run(vcpu);
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_PRINTF:
-+			pr_info("%s", uc.buffer);
-+			break;
-+		case UCALL_DONE:
-+			pr_info("DONE!\n");
-+			goto end;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			fallthrough;
-+		default:
-+			TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
-+		}
++	while (npages--) {
++		__nested_pg_map(vm, guest_pgd, nested_paddr, paddr, MT_NORMAL);
++		nested_paddr += SZ_4K;
++		paddr += SZ_4K;
 +	}
-+
-+end:
-+	kvm_vm_free(vm);
-+	return 0;
 +}
++
++/*
++ * Prepare an identity shadow page table that maps all the
++ * physical pages in VM.
++ */
++void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
++			uint32_t memslot)
++{
++	sparsebit_idx_t i, last;
++	struct userspace_mem_region *region =
++		memslot2region(vm, memslot);
++
++	i = (region->region.guest_phys_addr >> vm->page_shift) - 1;
++	last = i + (region->region.memory_size >> vm->page_shift);
++	for (;;) {
++		i = sparsebit_next_clear(region->unused_phy_pages, i);
++		if (i > last)
++			break;
++
++		nested_map(vm, guest_pgd,
++			   (uint64_t)i << vm->page_shift,
++			   (uint64_t)i << vm->page_shift,
++			   1 << vm->page_shift);
++	}
++}
++
+ void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ {
+ 	size_t l2_stack_size;
+@@ -32,7 +116,16 @@ void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ 
+ void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+ {
+-	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
++	vm_paddr_t guest_pgd;
++
++	guest_pgd = vm_phy_pages_alloc(vm, 1,
++				       KVM_GUEST_PAGE_TABLE_MIN_PADDR,
++				       vm->memslots[MEM_REGION_PT]);
++	nested_map_memslot(vm, guest_pgd, 0);
++
++	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW | HCR_EL2_VM);
++	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2), guest_pgd);
++	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTCR_EL2), get_l1_vtcr());
+ }
+ 
+ void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
 -- 
 2.43.0
 
