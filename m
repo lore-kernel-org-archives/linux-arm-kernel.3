@@ -4,100 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E04FEA83C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9367EFEA83C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aIsbSfS605Q4eTkbTgnxZvgMorhnFDaqZxn3f2tTBFI=; b=p3Z64vcGx1e7GGAjxfYKD4DFo8
-	em+NM4es3QnSUTD1jOL6GotP1IUB8gaNvRJxLNmln8PS0OckbQmHN+FFS5Ro/aIgLoBIATBzxyhkp
-	jMtEVjDQmoQVp/3v8NNN7ZwwoyicqPjlfHih7xpASkJqwMOS9iefBvbyPMiunIqfs1UF02ZWZ7exs
-	xmc2syS7eZYXGn1Mc/ZNkfT8NYLXwQ3B+nUt8hbCRjJVuAFDPVFdHJjrAHUUEu9TmC3iMWGrUNr/d
-	BxrWNBQKi4Qinas3NO8KhoM4ZCDa/ftCEtExuVYlGjIoiV/z4pfLxWG3+adjb7+/0pLBgIxwcd6G3
-	hMXkfLEA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fU4ut9+6hgjR8gcByS1Qfnrw19CdoqBab7lCYCwrhkw=; b=RlsXJ5/pVmh3i6DsMQOeViI9s+
+	HFp0nf8ZAaqfzkl2nb5x/623lA6fubK+mPG2C1tigcCNEOukEy8GotOiq6B6ZXqGhfueWMaL4239i
+	X/vJFri1A8O6l6fTLRtEQbtjpC59PiA9hfVjwDFKO6XzsbuKP1fCZ6xaNAn+op5AQ7/SZWKrzFoNb
+	l82zyXn0FrqyzgdElpMcbS2sEyYqcXnlxr5P3X3vu2seJ1Kq21UP9UfLRo7L+Gtb4y7TWOtzRHx78
+	XenYnGt2MlgCy+oSPdmc6m23tiMYiytwszyYJLZD+D6qDSdIydCFwsCI7rNPpDlutpgN2ajvLpb3L
+	YXCirF5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Kau-000000033lp-13SI;
-	Wed, 25 Mar 2026 09:32:08 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1w5Kca-000000033xC-2lgN;
+	Wed, 25 Mar 2026 09:33:52 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Kas-000000033lC-1Q5y
+	id 1w5KcX-000000033wU-2gYA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 09:32:07 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48702d51cd0so49231905e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 02:32:05 -0700 (PDT)
+	Wed, 25 Mar 2026 09:33:50 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5a27a90a7b6so2596914e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 02:33:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774431227; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Zvh1IYIAdGM/R461N22/Mo1L+lR1KPa9f0psIdtBoV87HqRUFCfPyY8JULsfku5PaP
+         +linJtZDzX/bYdQpC1/DalLgd+xLTMqP+VeG39OTj+ZPRZ5Z2EV5m2jgxh3bL7GbgFXl
+         fSMsxpKuUriRzStJ74mxQy/vGOpANRG2KL+lNFx8M6sBoesNqT36xR8ONylgdjBr9R19
+         zxzNtPAGag+gZAL0vBwTWpp6gGoO5ohPauyr5/ftyOzAoEcGV6EyIE2/ZE+l0C7YvvcQ
+         4FL+s7FfYSOmfmdNCwyiNIFQWOCIkfSVHhmwhn0AoZFCN2wfvKMRskUnK+IgR+htV39h
+         1tKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fU4ut9+6hgjR8gcByS1Qfnrw19CdoqBab7lCYCwrhkw=;
+        fh=CqOFwJqH85V9EnXG/iDeyy7DodoPvvKobK8Y0OGgZfg=;
+        b=OPkz6qAzgECneiTbTWLJWUEodKRWv52EWbwsOlL2iV73kipODG5xEX0B3eu198hAbn
+         GrlqF55Hb3jhQE0WJ1FEsLESZ5K+JvFmYY/OwOEGpC8rlizMrA+eoDND5yW13aOpGAep
+         izUjvUu4I5TxnrFZ1HOHyrQc7T4NMju2d/Orxy60ciWepDiE9FqrwopEpX1aHaMxdAS/
+         pJ9k2By1EHxNfclyDD6uLcXSRt+brb+yoTSXkHsJYxVa1ERfdVVDkmDecB8ITV22Zd8W
+         IpCUw2mhoqAEDJzTSx5A97urPhonO85jxAO+8gVVlwTq6FLcs6+R3ReQbuVmLSC+D23G
+         obig==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774431124; x=1775035924; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aIsbSfS605Q4eTkbTgnxZvgMorhnFDaqZxn3f2tTBFI=;
-        b=jo0lIdlWdj7aOv0BknjwVh1Me5ySseOs02BsB0YA/wdgvt//vNrQhIzr8q6aLo7qaQ
-         qUqluvuPCD1hkWvp93J8LMsqklzDaTTzqj71i9xvsk78SYzzCFJZ7/kBqd4VDin6Q+TT
-         Ed0DwTIARQNznx9QrAUqnnOIP8Ulca7CAZW55MM2/LR/Xa/hB5qCichTj3s6qR5DjHTA
-         5b0A5rGyAx86F/og+t5rq4PSYWhA7SqQz43RrI7TZnGHTk92pLthABxSlzf6meigau13
-         o6pk9nOhJW+AoKgSTe5ooXBogtCxofsCm65qjkxGuao5oKP2SMses3P0IohM9jgrglFL
-         wcQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774431124; x=1775035924;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1774431227; x=1775036027; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=aIsbSfS605Q4eTkbTgnxZvgMorhnFDaqZxn3f2tTBFI=;
-        b=Qf/asc6fPJkYF33/OXyHwbztN6dGikMZaPhPKcfyPzsEHN9kchWaZcZdecYji8bMvV
-         z9/YFoDZWR/a0ixg+392vK69cr7Fje1zhp6x9bXsLRAgg63CG29seibF0VJrGAD59dnq
-         r9Ud0v8Q1HpwDQQTp4FLMACco5kWpISixHMx8a9omGLrEyQBMhdM0NZwYngioek4P4L7
-         yd6Y2rAFl7UkasYIZn/ZYiBXxzu2gaIiwyEB8neemE4QvgVaLi5Wjk+esG7R3ILpTva9
-         lffG18mnT3zWFFb3cfxN6VtWzq9c5UnN7zwssmGiR/4DilBsT2Tff8dLGn+t0rbB0Icb
-         3XQA==
-X-Forwarded-Encrypted: i=1; AJvYcCXy8kFP1udfdTmEo0pd6Sct/oRD8P4j7FyxrzUCFNTkA8FVy4BRx96PQ+uocihNybmG9KxhPuHSxwiyiPV6QgQC@lists.infradead.org
-X-Gm-Message-State: AOJu0YysapBCalpEpk41nNPHRnYFjgVTbQ/xbuwnv/ryEjYrSBK0vkH/
-	D5TVExWHw1urnqOAAsq3UfoZ9+HWykU71FNWbQ2c04Ix1g0zDhVF8GAw
-X-Gm-Gg: ATEYQzwMv9MnMbYxs/g5TSP9tc3BiJNBIRPJ/UFNL3bY8ejCjAnC1W/eQDunkfzuUr4
-	J5oCth2INytN/7valLuNrfVmVNShB0Fo7V3VwlitR2OKFX3nyhvUV5PPWugLcGfYyuiGsX+ykQG
-	HM8PmzeoLa5o2gDL7GrgQcDfZBUzlCZxrZ3tiOjg8yytrccJEg1/kvTD7+k2F6rRKHx/uFGL/my
-	48HhpO68vJOjZRCBJr4tByrIOVdM2xsc1ZXFVILOqYR6fM4hcsy1hyx4j12jsC7g6mQIFGC99x5
-	YRk8wLUrp5vEo5lgHaPjjXr4+ooQrb/d9V3UCw5Vf5mv3tzbdud8G8Q2vLjsWiHBfUe13rnQ2un
-	FUwOFZI0bt3tQ/otcoM/F/G5Y/mpzBycGYKMD8olYAM3iWspvzXmoBPWkNnlilMejnLWH7HJPGz
-	3Hh0G1emp45idgZoK8wV2n6GEO7gwz1Jxmpqf5DdD72POzQfoF/8bPJw8kLttmqxZRI1nixGBXT
-	zH3w4S6fFviJVvLQDy/EsN5oc5Nr6wleLoXOOBYWaIHZxJl/jFDrA04z2z6/K1B5xBqqX9EPuQB
-	LfUp1nB0g3D7TlNBKKLH
-X-Received: by 2002:a05:600c:8b88:b0:487:1c2:6a4c with SMTP id 5b1f17b1804b1-48715fbf6a6mr44191015e9.4.1774431123985;
-        Wed, 25 Mar 2026 02:32:03 -0700 (PDT)
-Received: from franzs-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48711764625sm120724195e9.14.2026.03.25.02.32.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 02:32:03 -0700 (PDT)
-From: Franz Schnyder <fra.schnyder@gmail.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Franz Schnyder <franz.schnyder@toradex.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v1] PCI: imx6: Fix reference clock source selection
-Date: Wed, 25 Mar 2026 10:31:16 +0100
-Message-ID: <20260325093118.684142-1-fra.schnyder@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        bh=fU4ut9+6hgjR8gcByS1Qfnrw19CdoqBab7lCYCwrhkw=;
+        b=VMWBpKKLCR19QEqGAlqt8pfB9Mr6GLfve9B/6CFtCZK9Y5/PMw0y3nZMc7HPCybxNi
+         b6vEiGfi9itt9uACeSMs1fDrrPUzbBPk9ktwDIbt0sdQKuV93E20cXAoJmbTVK/rI2lO
+         3HvikZ+Z0VQhPGbbHWMojPPRR8WojAftL0A+Q=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774431227; x=1775036027;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fU4ut9+6hgjR8gcByS1Qfnrw19CdoqBab7lCYCwrhkw=;
+        b=T4cT0RTc1j5gPD4y9uioDFhdTOlyKITcMHLZeNqZQUmGJ3Ea4E5+G9hVGC0npgnhsn
+         Hboclomart78hSGsI+mAaMGH8H4nSHTDUaLzwWLM/JQA3Aq7ii0/YphIJHiyhdmiZ97h
+         Wbg1JT6swfrfc11SPwL8jHmiD3t218DgjvQwEMGbw8IWUtqjhYIc1SAPJ542mVslcb2N
+         WGPhO4jR+TVrznYMDZG84a57JPA6RQGnnRKm/XqCtTY2D/MjUEfs29+9jQTv3KsesEe1
+         0e96ZYrtCWU7AN/hmtcLpCFmDfE+UlrUV+ZRwmkozN4iGcuufYV2TOPU+3y2MOED/7id
+         cjFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWHIxKtddYdI302PfcD0wFYCA5W4GuEmfewUJa0bglFWfAS3rvG+ACgHU1JYDFpqlgFJHWhAEJMvXeV+7TOfeCB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYLty6St7Fa3Lab4aC9hA84ZekS3mKCfWsmmKv+0nWQxotweIu
+	t6PrdZxq1FWj/EAVgxUDnPu1nFym7Njsd2LpVauPuhq/kX4KfWxaqiGfWNe1Owrt2Cw8KZnXsDV
+	zLIK1lnK1d7nA23KrLFRAMKHHtVmPEtnkxCwQfaT6
+X-Gm-Gg: ATEYQzxwEzbrTAfFyok65mV1I4U40YKihLEe3d+xh0GX4DuXC2r/hAFVHUrONTClMrT
+	dKS1Oz+qIlOOJBJOknZkpWn3OcVAkrHpv8Nt+O8zsuY5wUk1Kl2LlBWY0SDMshDkWtIvTEyME0E
+	u6CMOn9SU+Arp9nztQcSrNyrvC+2pTPW56mvPD2ybUkPboQOOjuPha68XfBo82VSOQhkyUgDznT
+	FsFvisFFMMp8CjzDLIkPDkYoHTNULIs0HZjDv/URrXcGNIpkk2z05qyhRbAcdLhXn9CR+GzhtAT
+	MRDD1QXa47FZDc9N3u6ExLF1DMeL7bPVgroM
+X-Received: by 2002:a05:6512:3e11:b0:5a1:3864:9306 with SMTP id
+ 2adb3069b0e04-5a29b99fe3emr1149914e87.43.1774431227426; Wed, 25 Mar 2026
+ 02:33:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260325082546.1572405-1-zhengxingda@iscas.ac.cn>
+In-Reply-To: <20260325082546.1572405-1-zhengxingda@iscas.ac.cn>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 25 Mar 2026 17:33:35 +0800
+X-Gm-Features: AQROBzCBmtM1crEyyFCRfioph5HGsVEx0Ru6HUQh1CoBPOQAq272r89mllAysys
+Message-ID: <CAGXv+5GwR69W5FVWzFYzdybdXv53ub-o9doDQOwey4O1HE6jCw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: mediatek: add mt8173-hana rev2
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Mateusz Koza <mateusz.koza@grinn-global.com>, Frank Wunderlich <frank-w@public-files.de>, 
+	Gary Bisson <bisson.gary@gmail.com>, Cristian Cozzolino <cristian_ci@protonmail.com>, 
+	Jianeng Ceng <cengjianeng@huaqin.corp-partner.google.com>, 
+	Max Shevchenko <wctrl@proton.me>, Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Icenowy Zheng <uwu@icenowy.me>, 
+	Conor Dooley <conor.dooley@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_023206_395421_9B17BE93 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260325_023349_723691_99474AC8 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +121,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Franz Schnyder <franz.schnyder@toradex.com>
+On Wed, Mar 25, 2026 at 4:25=E2=80=AFPM Icenowy Zheng <zhengxingda@iscas.ac=
+.cn> wrote:
+>
+> My Lenovo Flex 11 Chromebook contains a board with revision ID 2.
+>
+> Add rev2 to the compatible list of base hana DTB to allow depthcharge to
+> match the DTB.
 
-In the PCIe PHY init for the iMX95, the reference clock source selection
-uses a conditional instead of always passing the mask. This currently
-breaks functionality if the internal refclk is used.
+By consumer electronics standards, this device is ancient.
 
-Pass always IMX95_PCIE_REF_USE_PAD as the mask and clear the bit if
-external refclk is not used.
+I couldn't dig up which revisions were commercially available, but
+our downstream kernel says that regvisions 0 through 6 are all
+compatible.
 
-Fixes: d8574ce57d76 ("PCI: imx6: Add external reference clock input mode support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Acked-by: Chen-Yu Tsai <wenst@chromium.org>
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 81a7093494c8..e0580d6efa57 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -268,8 +268,8 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- 			IMX95_PCIE_PHY_CR_PARA_SEL);
- 
- 	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
--			   ext ? IMX95_PCIE_REF_USE_PAD : 0,
--			   IMX95_PCIE_REF_USE_PAD);
-+			   IMX95_PCIE_REF_USE_PAD,
-+			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
- 	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
- 			   IMX95_PCIE_REF_CLKEN,
- 			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
--- 
-2.43.0
-
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Changes in v2:
+> - Added Conor's A-b.
+> - Changed mailbox to ISCAS one.
+>
+>  Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Docume=
+ntation/devicetree/bindings/arm/mediatek.yaml
+> index 382d0eb4d0af6..2894c8a16c78c 100644
+> --- a/Documentation/devicetree/bindings/arm/mediatek.yaml
+> +++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+> @@ -148,6 +148,7 @@ properties:
+>            - const: google,hana-rev5
+>            - const: google,hana-rev4
+>            - const: google,hana-rev3
+> +          - const: google,hana-rev2
+>            - const: google,hana
+>            - const: mediatek,mt8173
+>        - description: Google Hana rev7 (Poin2 Chromebook 11C)
+> --
+> 2.52.0
+>
 
