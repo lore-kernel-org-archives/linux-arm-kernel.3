@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A83FEA83B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B042FFEA83B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/d227tN7do1JSmsHAQNKTs0yUvoqksEIgK5FnXWPbw=; b=ZD09ZbMuJXpQa0Uisl7DvrSzYR
-	9vaFcG/fJbDZnvxi5xEj6KX2tmZ7JUilKvQHMb33OXUXTGM+nqDUQZ10fv30Gwbf08h298K9Do8dj
-	prPw5jc5Weun4k3aX/xXzAslbTQ/1CY8pLzooGdnstkmBNoGrcxW42CMTOwmz6xB30j+XE1Fmb3Uz
-	IsIVQ5R8RX4mz4vK7b+tu6JW9l3XNyyuU9L9WQyoTq/HxPRbtnBWhYYeONxbz/hVgEjI5SCNiwZ8+
-	cmCgVrSqtDdeMHWYyA0BpAwvJbbnNUX2YrgWijN0WGwm7hA/7UVUxVgAXGCHchfGDrUQa75+JhYrR
-	5KUVgkyQ==;
+	bh=KkUgwbZwkrT7tZGP8SVFvMdfTmBvKHFMz2IyzenIXMs=; b=w1R8in0tkiuQWr2hmNjREr6GvA
+	M9aRuvgm/WdwxTq5CTC5I+rNRAYlnENeGM4/ruk501T6EPdVXqqjrec6Pf/uMZXDoIFrvBc2GmN/4
+	IrE0XLNhnKOS5562l2u8HD7jJxLoOTkavTm39Z9YNXqXZMOlsIZpxXgViMMqjRG4vVSGDpBCi6OF9
+	diKKhYh+UEMKGIzh560dT4F9Z3BfHJXMagT4ZbExoWUSYzxduaby2MTB31abTtKV6Y5uMKf+Nv6b/
+	QyJ1pmFmvX0aUfePQJ3Q/t6bLEDK2ZtvYhU0dLIYI8Scu1a3YYQpixGa7BE9f5CAYms03T4kRgCYk
+	KMjsq01A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LPc-000000038cm-356D;
-	Wed, 25 Mar 2026 10:24:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5LPj-000000038gP-3LFH;
+	Wed, 25 Mar 2026 10:24:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LPZ-000000038c4-3Ksv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 10:24:31 +0000
+	id 1w5LPd-000000038dF-3opa;
+	Wed, 25 Mar 2026 10:24:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C2DA4004E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 10:24:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C8CCC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 10:24:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6302F42B44;
+	Wed, 25 Mar 2026 10:24:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44E4BC4CEF7;
+	Wed, 25 Mar 2026 10:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774434268;
-	bh=DQWAjarmAEIR12f+N5kRbQsMdjqbb6LUni3iSD57BnA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bEQrkKEzQxDGG2rRmwMwwzN1PH2pUmPqRZOMb7514c+kC5R2sVannMWLpgjySJZVe
-	 mbV+bE/TRHqs/ehwzg20kGw9dIaKov4LyqKeOg0JDwDgW84Bk2zOWCJ1thteWuIOKm
-	 pTPqPAOOCcooBmPBydv03XO29dmd9KDMaPDzA9ew2sjRhNnTsRP0TnNTwZy88n83Z4
-	 cuY6nJP5L7IN/VFyC6ZCF+m8vEywUbh4PWv31+bbtWma0mkO9TK79+f4Jf0FBzGmtc
-	 dVefH9QRJYh1T75xstMx0JOCKh6AZjLbU93SSPNR2iI/no0EE4DyOjTxgZclmdErBM
-	 DNK+jKKaLi7Bg==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-38bf85e4810so17909491fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 03:24:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXDfWiogb6JYTXvXpYZQsjDYiZmEgMco21HFhQQ09deh5V0u6VsJjtVRKTxY8kp65lV+RoL55RqjYWy4AoXbLCP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfPTIA8G/WdOCqgIsGBj4fCWfJKxG30OLDzMOlxWtbJ3bvZdJM
-	qkU3Bq3wmNljI5IgUGrdSpN47ZInO7F5w8xkyyWUIVurzbmB3qnmrzUWQfca+KLAl3z3NPj30El
-	0tRAerUYtKsJmNvwN0IncU+Wl+hSFmw5o0POI2tUZ+A==
-X-Received: by 2002:a05:651c:1582:b0:38b:f0f0:e3cd with SMTP id
- 38308e7fff4ca-38c4320ca56mr8033351fa.36.1774434267149; Wed, 25 Mar 2026
- 03:24:27 -0700 (PDT)
+	s=k20201202; t=1774434273;
+	bh=p4SW4OpQ2gx0HoB77aBSsnjwhDuxQYBolk+cHDEmzKU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rltdof9WVS1oLv7QKy5GNxKTX8mlW2HgTiPkyXeuRV8FNUrkT4uU+tfK1KoQf3TX1
+	 xP+TliwzDp1e4MLsTqESjen2eS+wbB81pAShhC6mK28s3pqWxaEs2Mb+IrYppT8eZH
+	 TPC02Kd1mT9gqJydmCpD2Qwh0LJu38txLVjjjeMo4FGzB6IPFOWufdRWT40wn8htYz
+	 +f7Lm0aCjnia373FFBJqr5enbiSEeSfPNX/qtxpQrXBVpJ+mBWIgTTGoeDmwXCrtrR
+	 u/m4V4mFx7bCyD2IP4UzNrOTYy2mol024IH/vOfvsdtvhAH41ttZAmOrAXSl4Ravy0
+	 Nyg1aFmIMxaew==
+Message-ID: <325b874f-55f5-4e9d-a924-11efa95b8ec8@kernel.org>
+Date: Wed, 25 Mar 2026 11:24:23 +0100
 MIME-Version: 1.0
-References: <cover.1774283146.git.dan.carpenter@linaro.org> <CAD++jL=mz5jOLkq6GA6ZWzfGfFnVOLTCoXKOd38YHj2UZaZ9ww@mail.gmail.com>
-In-Reply-To: <CAD++jL=mz5jOLkq6GA6ZWzfGfFnVOLTCoXKOd38YHj2UZaZ9ww@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Wed, 25 Mar 2026 11:24:13 +0100
-X-Gmail-Original-Message-ID: <CAMRc=Me2pyUshFZeXqWU0DF2eTkNjNvVDUP3LL9DO0ZfMOPJDA@mail.gmail.com>
-X-Gm-Features: AaiRm50nqwnVr1AXzgZWPax30PNVL9bQfMa7oruOnr447gPeYYgO3Xx86_ZMZ5g
-Message-ID: <CAMRc=Me2pyUshFZeXqWU0DF2eTkNjNvVDUP3LL9DO0ZfMOPJDA@mail.gmail.com>
-Subject: Re: [PATCH v6 0/7] gpio: introduce a GPIO driver for SCMI
-To: Linus Walleij <linusw@kernel.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, AKASHI Takahiro <akashi.tkhro@gmail.com>, 
-	arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, devicetree@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Khaled Ali Ahmed <Khaled.AliAhmed@arm.com>, 
-	Michal Simek <michal.simek@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 15/21] stm: replace deprecated mmap hook with
+ mmap_prepare
+Content-Language: en-US
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <9f3d559a264a83cf45518fcf35cc7ef1d7dfd500.1774045440.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <9f3d559a264a83cf45518fcf35cc7ef1d7dfd500.1774045440.git.ljs@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_032429_870543_F1D92CA7 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260325_032434_000521_A8F82EE7 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +101,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 2:11=E2=80=AFPM Linus Walleij <linusw@kernel.org> w=
-rote:
->
-> On Mon, Mar 23, 2026 at 8:01=E2=80=AFPM Dan Carpenter <dan.carpenter@lina=
-ro.org> wrote:
->
-> > This basically abandons my earlier attempts and goes back to Takahiro
-> > Akashi's driver.  Here is the link to Takahiro's patchset:
-> >
-> > https://lore.kernel.org/all/20231005025843.508689-1-takahiro.akashi@lin=
-aro.org/
-> >
-> > v6: Fix a build error when CONFIG_PINCONF is disabled
-> >     Fix the dt-binding subject and my email address
-> >     Use pinconf_to_config_packed() instead of PIN_CONF_PACKED()
->
-> v6 applied to this immutable branch:
-> https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/=
-log/?h=3Dib-scmi-pinctrl-gpio
->
-> Then merged into my devel branch for next.
->
-> Bartosz, you might want to pull it in!
->
-> Dan: thanks for your efforts to fix up the remaining hurdles and
-> bringing this to completion! Sometimes the last few % of work are
-> the hardest.
->
-> Also thanks to Takahiro for this idea: it worked out just like you
-> imagined.
->
+On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> The f_op->mmap interface is deprecated, so update driver to use its
+> successor, mmap_prepare.
+> 
+> The driver previously used vm_iomap_memory(), so this change replaces it
+> with its mmap_prepare equivalent, mmap_action_simple_ioremap().
+> 
+> Also, in order to correctly maintain reference counting, add a
+> vm_ops->mapped callback to increment the reference count when successfully
+> mapped.
+> 
+> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Pulled, thanks!
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-Bart
+> ---
+>  drivers/hwtracing/stm/core.c | 31 +++++++++++++++++++++----------
+>  1 file changed, 21 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
+> index 37584e786bb5..f48c6a8a0654 100644
+> --- a/drivers/hwtracing/stm/core.c
+> +++ b/drivers/hwtracing/stm/core.c
+> @@ -666,6 +666,16 @@ static ssize_t stm_char_write(struct file *file, const char __user *buf,
+>  	return count;
+>  }
+>  
+> +static int stm_mmap_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
+> +			   const struct file *file, void **vm_private_data)
+> +{
+> +	struct stm_file *stmf = file->private_data;
+> +	struct stm_device *stm = stmf->stm;
+> +
+> +	pm_runtime_get_sync(&stm->dev);
+> +	return 0;
+> +}
+> +
+>  static void stm_mmap_open(struct vm_area_struct *vma)
+>  {
+>  	struct stm_file *stmf = vma->vm_file->private_data;
+> @@ -684,12 +694,14 @@ static void stm_mmap_close(struct vm_area_struct *vma)
+>  }
+>  
+>  static const struct vm_operations_struct stm_mmap_vmops = {
+> +	.mapped = stm_mmap_mapped,
+>  	.open	= stm_mmap_open,
+>  	.close	= stm_mmap_close,
+>  };
+>  
+> -static int stm_char_mmap(struct file *file, struct vm_area_struct *vma)
+> +static int stm_char_mmap_prepare(struct vm_area_desc *desc)
+>  {
+> +	struct file *file = desc->file;
+>  	struct stm_file *stmf = file->private_data;
+>  	struct stm_device *stm = stmf->stm;
+>  	unsigned long size, phys;
+> @@ -697,10 +709,10 @@ static int stm_char_mmap(struct file *file, struct vm_area_struct *vma)
+>  	if (!stm->data->mmio_addr)
+>  		return -EOPNOTSUPP;
+>  
+> -	if (vma->vm_pgoff)
+> +	if (desc->pgoff)
+>  		return -EINVAL;
+>  
+> -	size = vma->vm_end - vma->vm_start;
+> +	size = vma_desc_size(desc);
+>  
+>  	if (stmf->output.nr_chans * stm->data->sw_mmiosz != size)
+>  		return -EINVAL;
+> @@ -712,13 +724,12 @@ static int stm_char_mmap(struct file *file, struct vm_area_struct *vma)
+>  	if (!phys)
+>  		return -EINVAL;
+>  
+> -	pm_runtime_get_sync(&stm->dev);
+> -
+> -	vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+> -	vm_flags_set(vma, VM_IO | VM_DONTEXPAND | VM_DONTDUMP);
+> -	vma->vm_ops = &stm_mmap_vmops;
+> -	vm_iomap_memory(vma, phys, size);
+> +	desc->page_prot = pgprot_noncached(desc->page_prot);
+> +	vma_desc_set_flags(desc, VMA_IO_BIT, VMA_DONTEXPAND_BIT,
+> +			   VMA_DONTDUMP_BIT);
+> +	desc->vm_ops = &stm_mmap_vmops;
+>  
+> +	mmap_action_simple_ioremap(desc, phys, size);
+>  	return 0;
+>  }
+>  
+> @@ -836,7 +847,7 @@ static const struct file_operations stm_fops = {
+>  	.open		= stm_char_open,
+>  	.release	= stm_char_release,
+>  	.write		= stm_char_write,
+> -	.mmap		= stm_char_mmap,
+> +	.mmap_prepare	= stm_char_mmap_prepare,
+>  	.unlocked_ioctl	= stm_char_ioctl,
+>  	.compat_ioctl	= compat_ptr_ioctl,
+>  };
+
 
