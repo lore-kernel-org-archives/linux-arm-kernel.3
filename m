@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D4B106B53A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2359106B53C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wMDIPfUD9IhpdNz/oudulWcw0X4n9DQM3JJYmmAdwmY=; b=AnlV5QQJW3xCocP9u58bmKXwXg
-	y0zPpfqaj0HKDgys4d8cKPnWVCoa85Zv1PwcW8aM5+24bW2N3j1vn+mMWqcrZ4jMh3HSTFUCMosJ1
-	OgS86iWSIZpCmTHJwElB3+NOpuDMrGioZrMHJahNs2IYjfLdbrDiKfyO/OFNoVLMZyql3NerueFzO
-	+4Cp1J0KuOM3f+vA3AF3RkEU4WetBqbME9Y9aFnFjmpYSwvTnJLaZDbTy4F/AOOd4EN0CIJNff2n9
-	sj5hw1Nz5+IsYsMQx4bokPXw8Tf79DKuMEMCHRKdfF23xNmVmO4Et1CyKogpYqcnImY6VLF4Q1E3U
-	lNgpxuYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A/uWIVCsHM3OuV687UGaxKwlFpK8BmL0FOzKJeyrA84=; b=d77byw4wx1005vah455dA36Lep
+	eXQrEdYeTAXeqt8vS8SrcnCBICEm+ksRtteORJlsxHPaolmZeNT7M808XghuZgTwS2RFtlTkt97xH
+	qDS4JSGvJEia4ADvcfaBWVjSXQUgepVA5mCae+OiqMQuEtjERwEUE6+sXH1rOrcCXTzqH3Y2YDcKQ
+	S4C6NjTmWRFam8sGFPAIIca+Q+C3AIk+zGC62gt+aN4RF+y6Cw7IbrVZ14DXwwYYjfKWpKO0Lgx5B
+	sUXf4FIDyqj4eq0q3yft01j2418mBjofHQqEKkRCATtQ7CdWKmRNxoW4ep8m7ntiBpZ8p3cI+Rw8K
+	PJvOZK2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ON3-00000003TSH-1PYU;
-	Wed, 25 Mar 2026 13:34:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ON1-00000003TRt-294S
+	id 1w5OVJ-00000003UF1-0Zdc;
+	Wed, 25 Mar 2026 13:42:37 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5OVG-00000003UAz-1ByV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 13:34:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C95A61CDD;
-	Wed, 25 Mar 2026 06:33:55 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BC673F836;
-	Wed, 25 Mar 2026 06:33:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774445641; bh=lZ4CBq7Ixdqscjj9OP02TD8QGkO3fkLUcmUe5Ywrwt8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fSp6CPlksiz56QNHDFrh7jhkmfSfbX6IKMXHufXvfnVp24CrQ7HiXg5BrUJVfCq2p
-	 C2jM8duFHGe0Hq5IbJDz7RsS0VPQcfcZxGGkHi2BVCfs6ubfHyiWbBVqXAnmz82dWS
-	 R78gyDj6te/Vl3XUc7Etkv5pGG/fsSGtIE14Y1Rk=
-Date: Wed, 25 Mar 2026 13:33:56 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Sebastian Ene <sebastianene@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, catalin.marinas@arm.com, joey.gouly@arm.com,
-	oupton@kernel.org, suzuki.poulose@arm.com, tabba@google.com,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH v2] KVM: arm64: Prevent the host from using an smc with
- imm16 != 0
-Message-ID: <acPkROffwAsuqsuX@J2N7QTR9R3>
-References: <20260325113138.4171430-1-sebastianene@google.com>
- <acPIdoA8oc7T8wKX@google.com>
- <86ldfg3ze2.wl-maz@kernel.org>
- <acPRIk7_dH5Erul8@willie-the-truck>
+	Wed, 25 Mar 2026 13:42:35 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fgp455J6pz9vD7;
+	Wed, 25 Mar 2026 14:42:13 +0100 (CET)
+Message-ID: <ecbbfcde-7f51-455b-bb54-b5302e43b582@mailbox.org>
+Date: Wed, 25 Mar 2026 14:42:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acPRIk7_dH5Erul8@willie-the-truck>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Add overlay for Olimex
+ MIPI-HDMI adapter
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Scott Murray <scott.murray@konsulko.com>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20260320025328.509003-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdWO9Qc=mn1SAwZt1HJK2VkU++G_8N+eVuN5AWTrLnVxUQ@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdWO9Qc=mn1SAwZt1HJK2VkU++G_8N+eVuN5AWTrLnVxUQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: 8rtm93ju491ad1x3sjgu8jiqyor49wpx
+X-MBO-RS-ID: bc1cffd0535c5fa0316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_063403_588709_FC24053A 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20260325_064234_495714_35A7A2A4 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +70,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:12:18PM +0000, Will Deacon wrote:
-> On Wed, Mar 25, 2026 at 11:46:29AM +0000, Marc Zyngier wrote:
-> > On Wed, 25 Mar 2026 11:35:18 +0000,
-> > Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > 
-> > > On Wed, Mar 25, 2026 at 11:31:38AM +0000, Sebastian Ene wrote:
-> > > > The ARM Service Calling Convention (SMCCC) specifies that the function
-> > > > identifier and parameters should be passed in registers, leaving the
-> > > > 16-bit immediate field of the SMC instruction un-handled.
-> > > > Currently, our pKVM handler ignores the immediate value, which could lead
-> > > > to non-compliant software relying on implementation-defined behavior.
-> > > > Enforce the host kernel running under pKVM to use an immediate value
-> > > > of 0 by decoding the ISS from the ESR_EL2 and return a not supported
-> > > > error code back to the caller.
+On 3/25/26 2:32 PM, Geert Uytterhoeven wrote:
 
-> > It also begs the question: if you don't want to handle SMCs with a
-> > non-zero immediate, why is it OK to do it for HVCs?
+Hello Geert,
+
+> On Fri, 20 Mar 2026 at 03:53, Marek Vasut
+> <marek.vasut+renesas@mailbox.org> wrote:
+>>
+>> From: Scott Murray <scott.murray@konsulko.com>
+>>
+>> Add a DT overlay to bind the Olimex MIPI-HDMI dual-lane DSI-to-HDMI adapter
+>> on the Retronix R-Car V4H Sparrow Hawk board.
+>>
+>> Current device link is at https://www.olimex.com/Products/IoT/ESP32-P4/MIPI-HDMI/open-source-hardware
+>>
+>> Signed-off-by: Scott Murray <scott.murray@konsulko.com>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 > 
-> I suppose the difference is that the HVC API is a private interface
-> between EL2 and the host. As it stands, EL2 ignores the immediate but we
-> don't have a way to know how EL3 responds to the immediate for an SMC.
+> Thanks for your patch!
 > 
-> When proxying an SMC from the host, EL2 therefore has three choices:
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-olimex-dsi-hdmi.dtso
+>> @@ -0,0 +1,94 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +/*
+>> + * Device Tree Overlay for Olimex MIPI-HDMI adapter connected to J4:DSI
+>> + * on R-Car V4H ES3.0 Sparrow Hawk board
+>> + *
+>> + * Copyright (C) 2026 Scott Murray <scott.murray@konsulko.com>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +/plugin/;
+>> +
+>> +#include <dt-bindings/gpio/gpio.h>
 > 
->   1. Ignore the immediate from the host and always use zero when talking
->      to EL3. That's the current behaviour, but it could theoretically
->      lead to problems if EL3 is using the immediate for something.
+> This include is not needed, so I will drop it while applying.
 > 
->   2. Propagate the immediate from the host. That should work, but it's
->      a bit involved.
-> 
->   3. Reject non-zero immediates (this patch).
-
-I think (3) is the only safe option. As described in:
-
-  https://lore.kernel.org/linux-arm-kernel/acPi5V0DgGcgHNGO@J2N7QTR9R3/
-
-... regardless of the the conduit (HVS/SMC) used, a non-zero immediate
-is NOT a legitimate SMCCC call. (1) is not safe, becuase it could change
-the semantic of the call, and (2) is not safe because the calling
-convention could differ (and e.g. things might be clobbered that we
-don't expect).
-
-We know that the host *SHOULD* use a zero immediate, and so anything
-else represents a bug that we will want to catch.
-
-Mark.
+> The rest LGTM, so
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> i.e. will queue in renesas-devel for v7.1.
+Thank you very much.
 
