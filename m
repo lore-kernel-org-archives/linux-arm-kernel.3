@@ -4,102 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A719109C02F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE709109C033
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZqPXz+Sa/AY6Vo8qNYqeoHSuweF/2Tg4HA9dNOaxg0o=; b=A5nb61EF5BTtG7ekrg9rPUl5GC
-	+LXfpB+2JQXsiyL8kPDhAcmeRSpJa2LdfmgcvW01WNsB16g1x1sexFJGsDC497gLKMgOIWJp3+k7r
-	jOp064It68T4ojkw9nOVDYL6BPU/GJ5ZfCbT5/LcP77kRrtIm3SSSySsQjnGAaachwL7K3Xf7B0bN
-	gF+mU8iP2DlXbf6D8oOloQKR8LbC1UWTTPvgPPvkCuzGRpC1LMv/v5ntGfjYNPrRBhJfcCX0vEk80
-	QBMElEoIcwhu/px5/g464OlJFnx574K9fNDdNG2HfiCo2MWakcFfmUBeZSJXOSqwyOF7gLunDfEWT
-	MdJ35iWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q1LS0X8D9rZPgYlkNBeJn/Dx7bozYXvugGmOCFqbL4g=; b=443FjHkjFGc18ld5wCllsqqBFl
+	Vniyieael1n3YCH/e+hfDjpuCs52TBby9bgnSxhNCVF/hIBtD2Vk5sbwij1nWzgR/+R/kbef7GvYP
+	g7t5OpLvQ5cECklzxsF/uor8Cho/XlqYDxVYFkXNfC2uh2HIHgShqTGAdI6EM1DdPjRWAuGAZYPaC
+	0vyvMw/sdb+hK29rrh/6wwjKCrVEFsrq7TeVDR4ZvwCVFFXSzsqeUnafRk6gEDbPBr8QihaSM/0J2
+	eJmLkH5YfbgfEr/jIrhoo3lX3nMEmB4j1G9ufBp9QTISt3hFyJc3+6YRd+XENrzvPAsCZwMcI2s5z
+	5SBScsDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QN8-00000003oJD-19Xi;
-	Wed, 25 Mar 2026 15:42:18 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1w5QQr-00000003oZB-2FhL;
+	Wed, 25 Mar 2026 15:46:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QN5-00000003oIk-0Sd6
+	id 1w5QQo-00000003oYp-2NFg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 15:42:16 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-439b611274bso3636655f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:42:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774453332; x=1775058132; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZqPXz+Sa/AY6Vo8qNYqeoHSuweF/2Tg4HA9dNOaxg0o=;
-        b=cBEP4X5PjCRwCivaFMxkpC+TyZRVXly1kxTIvA7h/VHrYrrEtoqzLtsAVrc97gPx1x
-         Iu3Kl6VRt7Mi4IiqhBlWJFigzE/Tin302rbThn6c75vIvpglQU3OuMWfTCX17UrTAB1m
-         zx0S7Etaq/xoGquubn3aqIXHF6RgjoAqQsEH7SaKbX2mg7JWh0Vtv0LJIjSohFj6JlyD
-         oN6H+VrvyUjZVuQyO+po9LneTEzKooIhEUxBlwpAUUDEQZg080FiG+5EnjrlL9yo/Lia
-         HdfIh8wDZnzSE4sFK/gG30o/OywB21/gM2CHYglJ0PQAT26dBgBEolyqEWSVnYXIztdK
-         2MFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774453332; x=1775058132;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZqPXz+Sa/AY6Vo8qNYqeoHSuweF/2Tg4HA9dNOaxg0o=;
-        b=nx9HrsZbGQ9yO9rdox9taa5wNDQHWSIueZYT2g796fCBTh4d7wGDGdUcln5JeiUD2d
-         DQW/GJMEetgYA5VEnLdPBJMD1NBbVMUVhcwJzMtpMhrGFw9aYsaC9tsTSseSO1a0iXap
-         wUm6hMYvKDw/hVHoLRhnhOw+2wqVnsco6gLcD72C20ki9/vCpOXLQ5cf0hchptWI9SG0
-         kL07Vabwl/s7yTjr02AQEbhdMSvSBPW08fjSeD4mLt4HroAEcp0e+N7SZypQ0NADK+z4
-         mzG3kMRSVzMFryFOSl5WJRNRnoxIikOkSOvv308kvTdkClCIESYlRgexDq1/Hb4Sbb5y
-         bUSA==
-X-Forwarded-Encrypted: i=1; AJvYcCU9EaYULQpCiHttbytKKabp6sQNvL1QsbiLCRCbXZel0lWMy8myf7lJM127EtA3ja+Kf5ZicDRUfHpvqD7V+IGW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxquM1gMPzK8It0BffJHxAtMKDdosmRecmJjcj2p0pL7poznC6Z
-	XkNdYE5jJEPFx4UXPKcABkMZN7wCoObKSl/FzwWjW4wxyU2VIPISH+uS
-X-Gm-Gg: ATEYQzwlK8UAnnFT/T3JyFTU5JcsYgSqthdNQFB6Pv5l8htMqb//xZSRp1ElHT8gKoB
-	OPw8o493CHiw6zp5WTr7Rg/WVmzYNljLHamyx6GQtCgDfqWsprf0wArVBtYTFnm7KjKbyinoG3Z
-	xGmz9y5Lk8r06d0vJXDMIKpg70dNgFaokCyXIZqqTr1QQR36UkZQrfes+VmxbrJaEQT7B6pP7vy
-	FKiNuJ+Pv5YNeMe99MQLuew+viuMMBYcodU0IMGAVfMjj3IB0vgIaDz1TuqrddEDYjbxW9gVSc8
-	nDrLezCVLRH/Q5zBEmfF2WxvJCdGxuY3KvkP6r/jPgVzLixd0/b2htsXBdbSx+arpBJe5HKcPtT
-	GDMbA2jtmllT9dGf4FZLHj4sqGHNK+ZdigzohI//zVYk3MTyICPIBVlb2ns+zxJklVnaCZY2SOG
-	KrEUIVHOVREagD8oQz7iQXeeAfjKvmmMrOFRnKtV3aF+8o2yjbug7InBNvQo596Pxu
-X-Received: by 2002:a05:6000:2912:b0:43b:8766:6005 with SMTP id ffacd0b85a97d-43b8899d143mr6042308f8f.20.1774453332131;
-        Wed, 25 Mar 2026 08:42:12 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919cf2b2sm609925f8f.18.2026.03.25.08.42.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 08:42:11 -0700 (PDT)
-Date: Wed, 25 Mar 2026 15:42:10 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, Andrew Morton
- <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
- will@kernel.org, peterz@infradead.org, mark.rutland@arm.com,
- harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
- daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
- xueshuai@linux.alibaba.com, rdunlap@infradead.org,
- joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
- konrad.wilk@oracle.com
-Subject: Re: [PATCH v10 00/12] barrier: Add
- smp_cond_load_{relaxed,acquire}_timeout()
-Message-ID: <20260325154210.79a621df@pumpkin>
-In-Reply-To: <acPo7l_pd5rnHpSX@arm.com>
-References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
-	<20260315184925.b6f93386e918ca79614843e3@linux-foundation.org>
-	<874imftol4.fsf@oracle.com>
-	<20260316233712.7cbfac27@pumpkin>
-	<87ms07rlp9.fsf@oracle.com>
-	<20260317091705.5a64fc56@pumpkin>
-	<acPo7l_pd5rnHpSX@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 25 Mar 2026 15:46:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A37644059;
+	Wed, 25 Mar 2026 15:46:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A706C4CEF7;
+	Wed, 25 Mar 2026 15:46:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774453565;
+	bh=arMQUtpWwBD53gpZC5IP4lyPB/8JTDtY7XN8FKKRdJw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=f7Pvn7FOqlxQL5CTuUG3hf1FdjCwUJoHZtWXhRQBXygUAT8aAaPSzaqN+LuH9zCt0
+	 ZrHG5KjFAlPW4BGx0wD2hX3P6/4CQDH3VlC6SQ5/2NoVHRoCSJExAt/IjoTjHmJJ1P
+	 Ig+Uf3Tzh0Ba5/BGSMMzMjrFIs2F6BrT8132jwo33eb3JBPrz0vYibk6PCTJ5/5FlN
+	 PrgcuwOJCwktxtZNEldGT/5XrdyyU6sg4jbWQy/wt3CMOE4nVFagrt95JLOoS+nYbZ
+	 XbJ29EGeQqHNyvtXnwITA5yggwUwYnRXnDZKMyt0RKc6UnnnKDgA+MhEFdnpOTCNbo
+	 kAkabPaEfIgpw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
+ masking
+In-Reply-To: <acPAzdtjK5w-rNqC@J2N7QTR9R3>
+References: <20260320113026.3219620-1-mark.rutland@arm.com>
+ <20260320113026.3219620-2-mark.rutland@arm.com> <87eclek0mb.ffs@tglx>
+ <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com> <87341ujwl4.ffs@tglx>
+ <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com> <87fr5six4d.ffs@tglx>
+ <acPAzdtjK5w-rNqC@J2N7QTR9R3>
+Date: Wed, 25 Mar 2026 16:46:01 +0100
+Message-ID: <87ecl7gbeu.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_084215_172106_B2FB83C9 
-X-CRM114-Status: GOOD (  25.77  )
+X-CRM114-CacheID: sfid-20260325_084606_655707_CC9D58AC 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +70,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Mar 2026 13:53:50 +0000
-Catalin Marinas <catalin.marinas@arm.com> wrote:
+On Wed, Mar 25 2026 at 11:03, Mark Rutland wrote:
+> On Sun, Mar 22, 2026 at 12:25:06AM +0100, Thomas Gleixner wrote:
+>> The current sequence on entry is:
+>> 
+>>   // interrupts are disabled by interrupt/exception entry
+>>   enter_from_kernel_mode()
+>>      irqentry_enter(regs);
+>>      mte_check_tfsr_entry();
+>>      mte_disable_tco_entry();
+>>      daif_inherit(regs);
+>>      // interrupts are still disabled
+>
+> That last comment isn't quite right: we CAN and WILL enable interrupts
+> in local_daif_inherit(), if and only if they were enabled in the context
+> the exception was taken from.
 
-> On Tue, Mar 17, 2026 at 09:17:05AM +0000, David Laight wrote:
-> > On Mon, 16 Mar 2026 23:53:22 -0700
-> > Ankur Arora <ankur.a.arora@oracle.com> wrote:  
-> > > David Laight <david.laight.linux@gmail.com> writes:  
-> > > > On arm64 I think you could use explicit sev and wfe - but that will wake all
-> > > > 'sleeping' cpu; and you may not want the 'thundering herd'.    
-> > > 
-> > > Wouldn't we still have the same narrow window where the CPU disregards the IPI?  
-> > 
-> > You need a 'sevl' in the interrupt exit path.  
-> 
-> No need to, see the rule below in
-> https://developer.arm.com/documentation/ddi0487/maa/2983-beijhbbd:
-> 
-> R_XRZRK
->   The Event Register for a PE is set by any of the following:
->   [...]
->   - An exception return.
-> 
+Ok.
 
-It is a shame the pages for the SEV and WFE instructions don't mention that.
-And the copy I found doesn't have working hyperlinks to any other sections.
-(Not even references to related instructions...)
+> As mentioned above, when handling an interrupt (rather than a
+> synchronous exception), we don't use local_daif_inherit(), and instead
+> use a different DAIF function to unmask everything except interrupts.
+>
+>> which then becomes:
+>> 
+>>   // interrupts are disabled by interrupt/exception entry
+>>   irqentry_enter(regs)
+>>      establish_state();
+>>      // RCU is watching
+>>      arch_irqentry_enter_rcu()
+>>         mte_check_tfsr_entry();
+>>         mte_disable_tco_entry();
+>>         daif_inherit(regs);
+>>      // interrupts are still disabled
+>>           
+>> Which is equivalent versus the MTE/DAIF requirements, no?
+>
+> As above, we can't use local_daif_inherit() here because we want
+> different DAIF masking behavior for entry to interrupts and entry to
+> synchronous exceptions. While we could pass some token around to
+> determine the behaviour dynamically, that's less clear, more
+> complicated, and results in worse code being generated for something we
+> know at compile time.
 
-You do need to at least comment that the "msr s0_3_c1_c0_0, %[ecycles]" is
-actually WFET.
-Is that using an absolute cycle count?
-If so does it work if the time has already passed?
-If it is absolute do you need to recalculate it every time around the loop?
-__delay_cycles() contains guard(preempt_notrace()). I haven't looked what
-that does but is it needed here since preemption is disabled?
+I get it. Duh what a maze.
 
-Looking at the code I think the "sevl; wfe" pair should be higher up.
-If they were before the evaluation of the condition then an IPI that set
-need_resched() just after it was tested would cause a wakeup.
-Clearly that won't help if the condition does anything that executes 'wfe'
-and won't sleep if it sets the event - but I suspect they are unlikely.
+> If we can leave DAIF masked early on during irqentry_enter(), I don't
+> see why we can't leave all DAIF exceptions masked until the end of
+> irqentry_enter().
 
-I also wonder how long it takes the cpu to leave any low power state.
-We definitely found that was an issue on some x86 cpu and had to both
-disable the lowest low power state and completely rework some wakeup
-code that really wanted a 'thundering herd' rather than the very gentle
-'bring each cpu out of low power one at a time' that cv_broadcast()
-gave it.
+Yes. Entry is not an issue.
 
-	David
+> I *think* what would work for us is we could split some of the exit
+> handling (including involuntary preemption) into a "prepare" step, as we
+> have for return to userspace. That way, arm64 could handle exiting
+> something like:
+>
+> 	local_irq_disable();
+> 	irqentry_exit_prepare(); // new, all generic logic
+> 	local_daif_mask();
+> 	arm64_exit_to_kernel_mode() {
+> 		...
+> 		irqentry_exit(); // ideally irqentry_exit_to_kernel_mode().
+> 		...
+> 	}
+>
+> ... and other architectures can use a combined exit_to_kernel_mode() (or
+> whatever we call that), which does both, e.g.
+>
+> 	// either noinstr, __always_inline, or a macro
+> 	void irqentry_prepare_and_exit(void)
+
+That's a bad idea as that would require to do a full kernel rename of
+all existing irqentry_exit() users.
+
+> 	{
+> 		irqentry_exit_prepare();
+> 		irqentry_exit();
+> 	}
+
+Aside of the naming that should work.
+
+Thanks,
+
+        tglx
+
+
+
 
 
