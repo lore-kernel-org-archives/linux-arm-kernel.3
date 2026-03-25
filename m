@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C343109C024
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB5B109C022
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+3NKDTpQ34hS5CefVWGyZeTlCYotLQuj58BjnlaMSA=; b=hRRTQajyt+1w/pzcC9w+4etAC7
-	KGKOgsDMD2o5n8OxOrb2lEM/wN+lSnifjIdhhcgOC8CG3rQX5rweUlwWN6CMSCbb7/xBDhc+xiEWy
-	ppuoSAFF/iVhvFsfl1Jhwqp8sgMMOZqTW7KLTnZ7e90DH92D/79Tuses1do69SXEqOdXd1GKu0zu3
-	RJHyPvoJZ+sn4x76IaHe2S/kfDxTrlC4GbTuqy9trj/bV24qF0oEFa+u1v/Yq3LnbcJSkYPfWXcPR
-	+nJjQ4OCDC27KnjOyjdejjO+Lo8j2/AS19UsyNdGiu15iaPEKRjQmeW3P2LOaAIuEwMlFzjfLFI9A
-	IUH8m7ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7isK/Dbl65EI3Rm86FPt2M8EyGlg1PW9pqCn5jlwq8k=; b=Itv4DS1yOnKkWO7ZirlxqnDuG7
+	QxveRpSO9NgYyyLl3uDZvjla0OSk+IcmPAX5qyo2SJiNpYV8GbpdTDCVTyfgd91qFnzKEoyhwdq+9
+	iK4hd6Ra55TMNyZ0hTnJglCpy9f9kijznFt+T9W4ZskZRY+vDZ4JQcRkNVTshAbK396zC7wir1vtU
+	ZcK4eaFWg4hI+ayOzO/Vs+H616wtqu5K0C9K1juVjl56inTEFyG8z1b3Xy33BZ/SpkdXuEHFUNVyX
+	Nu+9fbq/uBOGdoctiQh/PYDqvfQKz0PMCIH8bscGKtqJ6Dib6lsnFhgNKAKNVLTK2YKzRmsL4HAb6
+	fdtgkn3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PDs-00000003aqw-36VT;
-	Wed, 25 Mar 2026 14:28:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PD4-00000003aGW-2v8m
+	id 1w5PEw-00000003bao-2Ijw;
+	Wed, 25 Mar 2026 14:29:46 +0000
+Received: from mail-vs1-f51.google.com ([209.85.217.51])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5PEq-00000003bWy-2RoM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:27:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACD391F02;
-	Wed, 25 Mar 2026 07:27:43 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8CFD3F836;
-	Wed, 25 Mar 2026 07:27:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774448869; bh=EfsYdRg9lf72zMTxWlFShEXvT4q0hfgEkH5NGN5/OhU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dqUCLGtXSKJ45MRIxH3olO7uxlccHVEfGAxpbZGhbhtARgkmP+Ugg4LQEEjv9opGz
-	 PcSLbsrQb1Pkg3XfKD+cEkoPye3HPyOMOkoJI2fHBLa1XKOXj80p8CuWYfeU0KJJuG
-	 yytq/ZVvnfVArC2m4+rlumEZtl+RHM/TkxLU85q0=
-From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 25 Mar 2026 14:27:00 +0000
-Subject: [PATCH v8 23/23] coresight: Move CPU hotplug callbacks to core
- layer
+	Wed, 25 Mar 2026 14:29:44 +0000
+Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-5ffa277c115so4357256137.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:29:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774448979; x=1775053779;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7isK/Dbl65EI3Rm86FPt2M8EyGlg1PW9pqCn5jlwq8k=;
+        b=Ks16UIuJerk+UiMcVu7+glyZNnE25EyWvPESLVIzVmhAGjl5RW7GztEGf6imWrtmsy
+         //eXAgWgq9ZNr6QCEA9xCbYUUFfC/AiurlPSL2FxeRbteB7DryFcqZkqReFQsKCubhyq
+         zJ3qyAxua/qw0A8mu90ANeJTQqTdjsD8twvCdXrfMKw4uN6ziPT9x5z5Q198TXaO0oZq
+         kJn7qm/HfDtuyk8r//TDgflwzuRA7NATdKjnwFXgdWRWQth5L3TpseivQwnFG0YY8Rcn
+         /bnx6lrLnqRjec5yPsv5oBaWQhPUQWA2W8FAYw8AGILphlgXF6SKZoPl5pIxrqHGoL8l
+         FBlw==
+X-Gm-Message-State: AOJu0YxSrZIbvSv/AaU8hyA2UA8E1ra6t6x5REPbNmdAw8W2oO5uzWPE
+	NLdHl13gqAvRsERSXL3uhIe7OynAuVjUS7kXKnvMeve6vpCzWqmvTOqH9srrSLhb2Zw=
+X-Gm-Gg: ATEYQzwyHakItWlSvcoAODnDPrfH9iXpMt51V6TayrXMtYnMSHyDCAh8L9oNuIQQw1X
+	pUHhSbqw8c4yNoHIIchR1s5lhy+JiieAItK43kTR0QXk1zdzCf4c0FZcITn2l1taOL7eML7YKpv
+	NiGC5Mn6JShiRXrZy0PTC/pKY9qa5I0SMvb+nL+NeyL9waB01FSM6PPKa01/0UpcE9Iw0oiFizx
+	cipfeQqq6cbgnk2J6+nx+O3GzVwao7P4sexJmP56COSx6Bk1FLVrczZo/t1fB38y71UNBgg80fU
+	Um60m5gg8t8CVcHzZ0fGBUBu8bAU5b47FkhWlat5K8Rv0GbgZaAOq8FEwE6SWhDsbaxtm4VySXN
+	/InXuNTQLG/HSsBpvBND0R/J3pa1QRmo1BIE3pkJILojeEnUvoPxrnMqWIFCPP10XQol02NP+O1
+	Vtkc/RlmSpSQVvDzGM1rWx81xMB9z8DuHBnyslHEoQruZq8/JKETgnydMQ8LGZ
+X-Received: by 2002:a05:6102:5086:b0:5ff:c6b2:efde with SMTP id ada2fe7eead31-60378fe593dmr1751241137.6.1774448979112;
+        Wed, 25 Mar 2026 07:29:39 -0700 (PDT)
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-951be185991sm111308241.6.2026.03.25.07.29.36
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Mar 2026 07:29:36 -0700 (PDT)
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-5fff18d44fbso3917124137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:29:36 -0700 (PDT)
+X-Received: by 2002:a05:6102:4bc5:b0:602:7627:6c4f with SMTP id
+ ada2fe7eead31-60387238034mr1950349137.17.1774448976166; Wed, 25 Mar 2026
+ 07:29:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-arm_coresight_path_power_management_improvement-v8-23-7b1902e18041@arm.com>
-References: <20260325-arm_coresight_path_power_management_improvement-v8-0-7b1902e18041@arm.com>
-In-Reply-To: <20260325-arm_coresight_path_power_management_improvement-v8-0-7b1902e18041@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
- Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
- Keita Morisaki <keyz@google.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774448817; l=6710;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=EfsYdRg9lf72zMTxWlFShEXvT4q0hfgEkH5NGN5/OhU=;
- b=wZ2BiKDtkBN8DEn2/peHN+CbmtypUfTB1iP4z30Kzewjvq71MaLV6+04hUzKGAYZh2kjsZwpq
- +CLyU+8cILNBTUQc6KFIuBbyYjpd97wWuC56ElYaHLvjAQtszYMSvZu
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org> <20260313164008.40933-5-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260313164008.40933-5-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 25 Mar 2026 15:29:25 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdViXzq0H0UwZori2gh2Tcd6o4ssoGkXmJfFFwiL5AwHwg@mail.gmail.com>
+X-Gm-Features: AQROBzAzZX42-SVVM7_zKELfgnu5iQhGBNJzdGqfYMua7CEfqTRedVMpWqUArVY
+Message-ID: <CAMuHMdViXzq0H0UwZori2gh2Tcd6o4ssoGkXmJfFFwiL5AwHwg@mail.gmail.com>
+Subject: Re: [PATCH 4/4] arm64: dts: renesas: Fix KSZ9131 PHY bogus
+ txdv-skew-psec property
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_072750_843981_A169A89E 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20260325_072940_638193_F89DDE73 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,221 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
-The motivation is the core layer can control all components on an
-activated path rather but not only managing tracer in ETMv4 driver.
+On Fri, 13 Mar 2026 at 17:40, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> The KSZ9131 schema does not document "txdv-skew-psec" property, neither
+> does the kernel driver support this property. It does however document
+> and support "txen-skew-psec" property. Fix what is likely a copy-paste
+> error from the matching "rxdv-skew-psec" property, use "txen-skew-psec"
+> property instead of "txdv-skew-psec" property.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-The perf event layer will disable CoreSight PMU event 'cs_etm' when
-hotplug off a CPU.  That means a perf mode will be always converted to
-disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
-need to handle the Sysfs mode and ignore the perf mode.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.1.
 
-The core layer disables and releases the active path when hotplug-off a
-CPU.  When hotplug-in a CPU, it does not re-enable the path, in this
-case, users need to re-enable the trace via Sysfs interface.
+Gr{oetje,eeting}s,
 
-Tested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-core.c       | 36 ++++++++++++++++++-
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 40 ----------------------
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 --------------------
- 3 files changed, 35 insertions(+), 78 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 6b18a278f44f3b45d083db15ab09f2eae1c69a0f..5a90ec7cf0b845284223fa0b0a175a770804c868 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1904,13 +1904,47 @@ static struct notifier_block coresight_cpu_pm_nb = {
- 	.notifier_call = coresight_cpu_pm_notify,
- };
- 
-+static int coresight_dying_cpu(unsigned int cpu)
-+{
-+	struct coresight_path *path = coresight_get_local_cpu_path();
-+	struct coresight_device *source = coresight_get_source(path);
-+
-+	if (!path || !source)
-+		return 0;
-+
-+	/*
-+	 * The perf event layer will disable PMU events in the CPU hotplug.
-+	 * CoreSight driver should never handle the CS_MODE_PERF case.
-+	 */
-+	if (coresight_get_mode(source) != CS_MODE_SYSFS)
-+		return 0;
-+
-+	coresight_disable_source(source, NULL);
-+	coresight_disable_path(path);
-+	coresight_release_path(path);
-+	return 0;
-+}
-+
- static int __init coresight_pm_setup(void)
- {
--	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-+	int ret;
-+
-+	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
-+					"arm/coresight-core:starting",
-+					NULL, coresight_dying_cpu);
-+	if (ret)
-+		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
-+
-+	return ret;
- }
- 
- static void coresight_pm_cleanup(void)
- {
-+	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
- }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index c6fe8b25b855a4119110fee4162f55c0154c3d05..862ad0786699c41433eae8683406b3c1340a6cb6 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -699,35 +699,6 @@ static int etm_online_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int etm_starting_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (!etmdrvdata[cpu]->os_unlock) {
--		etm_os_unlock(etmdrvdata[cpu]);
--		etmdrvdata[cpu]->os_unlock = true;
--	}
--
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm_enable_hw(etmdrvdata[cpu]);
--	spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
--static int etm_dying_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm_disable_hw(etmdrvdata[cpu]);
--	spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
- static bool etm_arch_supported(u8 arch)
- {
- 	switch (arch) {
-@@ -795,13 +766,6 @@ static int __init etm_hp_setup(void)
- {
- 	int ret;
- 
--	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
--					"arm/coresight:starting",
--					etm_starting_cpu, etm_dying_cpu);
--
--	if (ret)
--		return ret;
--
- 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
- 					"arm/coresight:online",
- 					etm_online_cpu, NULL);
-@@ -812,15 +776,11 @@ static int __init etm_hp_setup(void)
- 		return 0;
- 	}
- 
--	/* failed dyn state - remove others */
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
--
- 	return ret;
- }
- 
- static void etm_hp_clear(void)
- {
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	if (hp_online) {
- 		cpuhp_remove_state_nocalls(hp_online);
- 		hp_online = 0;
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 2870c162fdc1c119f05ee5d92c1f6c71aa1cfb5f..1d7bfa21d7c205ae1b903bd62bc6d675d0fa949d 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1834,33 +1834,6 @@ static int etm4_online_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int etm4_starting_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (!etmdrvdata[cpu]->os_unlock)
--		etm4_os_unlock(etmdrvdata[cpu]);
--
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm4_enable_hw(etmdrvdata[cpu]);
--	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
--static int etm4_dying_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm4_disable_hw(etmdrvdata[cpu]);
--	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
- static int etm4_cpu_save(struct coresight_device *csdev)
- {
- 	int i, ret = 0;
-@@ -2110,13 +2083,6 @@ static int __init etm4_pm_setup(void)
- {
- 	int ret;
- 
--	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
--					"arm/coresight4:starting",
--					etm4_starting_cpu, etm4_dying_cpu);
--
--	if (ret)
--		return ret;
--
- 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
- 					"arm/coresight4:online",
- 					etm4_online_cpu, NULL);
-@@ -2127,14 +2093,11 @@ static int __init etm4_pm_setup(void)
- 		return 0;
- 	}
- 
--	/* failed dyn state - remove others */
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	return ret;
- }
- 
- static void etm4_pm_clear(void)
- {
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	if (hp_online) {
- 		cpuhp_remove_state_nocalls(hp_online);
- 		hp_online = 0;
+                        Geert
 
 -- 
-2.34.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
