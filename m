@@ -4,62 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B756F106B50C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DE9106B50C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8cyyJB9ebKqvPnKCP5Rw/2byvyIwxg2rgTmgI+FIBA=; b=WX2sQo9itlIR8cxhlWaJXyoOPO
-	pZfmkxRRsANlIsWAW4/S8exTTFZpvWVVMksTCAB40N04kX7GRb490BAek0/PeptACsYIuGjucaUjI
-	0dcHpsszb0xnc0DQUtfNxVyKJX2kVEkbsT4PKlWKBGnm64cs9xbNHoa8hjLB49lv9GbMYMuLaS6Gk
-	oHK9ciqIwdB6H4qW2xip5QxywepXJZElRy3ySF54zEoaloaWQLXNOcTLj9IqpIJ2bnZpF7+b/Lonx
-	NijPVLMJwjzxLABr2c/x7mwuik5DY0t84gDnL6tCaeLRRZEa+Rdr1ih2oINUpSndcu1nkuiSpweOP
-	8OFqj1dg==;
+	bh=6HiReDp40rAShKhFmk6aQGrdV2dk4gym9DDo3pfkhCw=; b=aEnVZOgIDXHgD1N83Aul4LVrCF
+	3Lnq6IsbXW15FuneS1GDr0ixKXWlfDTv6zgc/DW36OrFjWz9odLDYa3GN0GXJ4T0teMEfRwAiJSJM
+	2Gynk9IENOzD3qrvMkpaXio7+idwyXqq/L9gCj6/dwytdHrJm7X1oZFd7V27gKeTs4JGhkj0MQCfT
+	d7ur/5JgqqkkqgeROfU5tco1QujxeYybk43dcbx4D3NjoeTvfWHeuLIMoK3JAlCXpUzb2ya8jUYbM
+	CeSAIDOmGNVqDCm6jzGX5eu7rzqZpAnIApwYuH2g0GdC1k8Kx2U7N2+fntmimf0NkBJld8U6SsmMf
+	P0SuVw8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5N8K-00000003MA0-0NaJ;
-	Wed, 25 Mar 2026 12:14:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w5NAQ-00000003MLK-2cmf;
+	Wed, 25 Mar 2026 12:16:58 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5N8H-00000003M9k-3VKH
+	id 1w5NAO-00000003MKp-39xY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 12:14:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00B1760132;
-	Wed, 25 Mar 2026 12:14:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F32FC2BCB0;
-	Wed, 25 Mar 2026 12:14:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774440884;
-	bh=ddmo43ydD3DzDMQ4kgM7JV/r98vLaJXcKhiK8DEbdhg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ux8Cj21pNOzMC7o/XaAZAEfVbpqDqYGxtvUt+BSUapBGnOVUi4FLduFkxxoJ7pFzJ
-	 hj7B1UE87Oasj3Cb9dAbamKn46FKcFuD/Bj0qRCG3PbRnZgCPZpYP6dzf4+wgj4psB
-	 ovpwrqouF9crN9y+ut5APZUl0zwt+mT8Dh83Dmtz+m87tBLnkglCVZYENJ7Xjbgiuv
-	 gGoivSbtropAF/n4IhThf2WnZHQAC7nlZfjYS9gi7u70hr5cci26WTcCORZzIkL60c
-	 dLormc1nmp22Ss6kUox5m2Y82twYnvMfxSClOyztKOwn0mFAPGs/xHCh1Bv3pv7KOB
-	 ZE8m5gVv8ByWw==
-Date: Wed, 25 Mar 2026 12:14:40 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Jacky Bai <ping.bai@nxp.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: clock: Relax check in
- scmi_clock_protocol_init
-Message-ID: <20260325-dainty-hilarious-rhino-affa78@sudeepholla>
-References: <20260324-scmi-clock-fix-v1-v1-1-65c21935824b@nxp.com>
- <20260324-lean-bobcat-of-reputation-6628b5@sudeepholla>
- <acJI7o79lVNMjV_d@pluto>
+	Wed, 25 Mar 2026 12:16:58 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-509062d829dso476081cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 05:16:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774441015; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LhBtzKs1TFjfqzHgE0UNfTpm9gfQ5n4d8NVFLWTpWXilZGWVJr6dMZ/I5NXLqreLxN
+         rPW1naU182PmuX6WvROs1qfxq+yop3orVh5znm/+RMFEhSeUMGWc6OkYcHAg/uu2lIvC
+         jt8bvSqTjIpdVty8Hqy1P3+TT0uw2F0wwWDw9loWTmDOHVO2FsB3KngU/pgPQ+AuLpk7
+         pXdSUDz4v8Rm1ySwO0bSdlTjnpez6KLgZo2/KBqJZ794SFmDQWcE/xgiLi+Nds3OjG27
+         MhfMaS8AhpS09VJAE0wmOEn2Am5rQ+X9RF6IQoBhfqGUah+efYwM7sNUI4w6u6SqpRH1
+         AhyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=6HiReDp40rAShKhFmk6aQGrdV2dk4gym9DDo3pfkhCw=;
+        fh=ZFBExRKJ2TX0DUi28h1q0kYmxb0eDJCgqxUgz5YdZGI=;
+        b=U3a64vL7Xgww3peXt++qZk9FxjZ5XnOc8fhdTvKpaAQDlGMBU7BRIPZtvMgrMTLVpm
+         0hj8CZ+MTLeC682bnsmtIpCXF96/ySFLa72uHEJv0q03xewt7HxkurSUo5CW+4KjN9Ud
+         8sbtbTeUgzaA1wmlshUTOuIFdDP1tFRuMuy6lc5uuLIvjltAo6jZVPA9cOYC/tjgF4k/
+         2bTOcTTlkuUNhSP0QRzpnqhO2p+e43j5lvIQVanhQtMWrmaJgdZx6v60ykiiqxioxSzY
+         Bq3tTxCAoN0kNyhbKbB8roXN2vwf9HLTl8qSFMhMnNTJYH9KhkZWfu6l8XaaZT9I0kz+
+         1BwQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774441015; x=1775045815; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6HiReDp40rAShKhFmk6aQGrdV2dk4gym9DDo3pfkhCw=;
+        b=qwDL3zTVKM+twlG0AfrQbcWTLS7jaxYzIGNpuIYC9kta5PsfxFO1S3nfP0APDfQUok
+         tvB1en2+JuaP9t71fPD7Og2JMgWI21njMAMlojBZlmEdvIl83Yev3gR3XZDodqvjBmU+
+         fQtINYOAh6tUp9sRiAgHxwP41F/CD8prwi82l3ozQbLUw88iZDl+2Yb4edjEPTn9hViH
+         9NaxI2aMem54jGN1q+/AbFT5Tf7GmP/ymjwNJ1RPBEi5Fkvx7Qrgxt1kFAbG/aYiu74P
+         eyXoKSdsKfF4Y6hmA3iOq2Y8p35Zgco+l3JF1vOtrhVq0AqkuPeeYP4lx2a+xlbmiE8+
+         HwEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774441015; x=1775045815;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6HiReDp40rAShKhFmk6aQGrdV2dk4gym9DDo3pfkhCw=;
+        b=gbGrkWiG+Qyt25VGJWWfvT0EUjJzcXXiQQs/FEwkQqG00bOkmG5tsuCejps7llcopG
+         F2LavNCP9G/fNa+o572OcJ5ha3Gfxq5rdKCP3hGKqa6cHwnCMUhfwBqdM8H9LfnW8au8
+         5cjPcEvRxmhVWsGzs/vDkpfdGgOudniFZO1yj5/tgpG+R43ZzTGvR7ACVuvB8NGmEAL5
+         zKycLFeLF6nb4qyWlXQIZbAYYnShIedBnFvu5KILFb7PslMPYUw2DGXPw8Bl9TerUOxS
+         QapdW9drYUYfMPvjcHHcZSLY6f1x0KPhzPVEq6ppy7YWA/3lx1oOWM2r8fWNmzY9oNQt
+         P+Jg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcm5ZgscnyhTCvCnyx5+vkhh3Dz/zogfh5k4cg7rMhPy9cO9lRhNrh1k2DTp6MsxuzLolINpImv2HNz4ANhMHv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4OT4xUnqIWL5FdRF12C9sfBhB8g+PWwsBG4tabLWQT+i6trfZ
+	Bfpaex06en6y9PsWFW9z/s4mO416IGTyWozpLLZWFpZB6ViGQ9AZO/RWcprB37yTMmSdODez6PN
+	n/2carmfmcp/dzlKzOc0gyg8LewrTD5ZsY0GUCwKi
+X-Gm-Gg: ATEYQzwVl3ujqy5jjtvyx99J+XoEjMxbIvY0CCV7hIPnJtLmuSKBARuTsHOJGfdNtgg
+	bOM4yFKaiBEMnzbhkz4HKDEdO5c2v4TIUuMIKJx/L8JOS5rJqaTippgcafUiKbHtpa8me+yXOFm
+	kIU+Z9+u2aj74drDu8y1DeH+LETX76tCdznGZ4+YlkWpfkQ/eKhz2azKIo4cYkqiUextNdT1vNh
+	3e4Hg4Bayo/rep78y6alVunelQh/Fiu6YJQ8rSOBqYpKk7jlGo3XPfizOwnDl7MDZXOUxnmX+OL
+	vmF7qo40j7z2rZSUO4kd/fykzwP3yM959T3vLw==
+X-Received: by 2002:a05:622a:5a8d:b0:509:1c2c:866 with SMTP id
+ d75a77b69052e-50b83d1af72mr10972521cf.11.1774441014886; Wed, 25 Mar 2026
+ 05:16:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <acJI7o79lVNMjV_d@pluto>
+References: <20260325113138.4171430-1-sebastianene@google.com>
+ <acPIdoA8oc7T8wKX@google.com> <acPJ3Z9hDKc0Sm2t@google.com>
+In-Reply-To: <acPJ3Z9hDKc0Sm2t@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 25 Mar 2026 12:16:17 +0000
+X-Gm-Features: AQROBzAMJ0mLdR0624TEieVBSiHs3RBFsNy7Xl2T_dOXjsqgRi5JInx2E5cEcKU
+Message-ID: <CA+EHjTzeRiUvhDwAExpscWJfPNoRujeRAJ5dEDV4SMpOJK1K6A@mail.gmail.com>
+Subject: Re: [PATCH v2] KVM: arm64: Prevent the host from using an smc with
+ imm16 != 0
+To: Sebastian Ene <sebastianene@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, catalin.marinas@arm.com, joey.gouly@arm.com, 
+	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, 
+	suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_051656_819172_2B99F2F0 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,102 +119,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 08:18:54AM +0000, Cristian Marussi wrote:
-> On Tue, Mar 24, 2026 at 07:49:22AM +0000, Sudeep Holla wrote:
-> > On Tue, Mar 24, 2026 at 02:24:14PM +0800, Peng Fan (OSS) wrote:
-> > > From: Peng Fan <peng.fan@nxp.com>
-> > > 
-> 
-> Hi,
-> 
-> > > On i.MX95, the SCMI Clock protocol defines several reserved clock IDs that
-> > > are not backed by real clock devices
-> > > (see arch/arm64/boot/dts/freescale/imx95-clock.h).
-> > > 
-> > > For these reserved IDs, the SCMI firmware correctly returns NOT_FOUND in
-> > > response to the CLOCK_ATTRIBUTES command. According to the SCMI Clock
-> > > specification, NOT_FOUND is expected when a clock_id does not correspond to
-> > > a valid clock device.
-> > > 
-> > > The recent hardening added in scmi_clock_protocol_init() treats any error
-> > > return as fatal, causing SCMI clock probe to fail and preventing i.MX9
-> > > platforms from booting.
-> > > 
-> > > Relax the check so that -ENOENT is treated as a non-fatal condition.
-> > > 
-> > 
-> > I understand the use-case and the fix here, but still wonder if this
-> > should be treated as quirk or handle it in the core. I am inclined to
-> > latter as reserved SCMI clock/resource ID seems to be trend in its usage
-> > and hard to classify as quirks.
-> > 
-> > Cristain, agree or have a different view ?
-> > 
-> 
-> I was just replying...
-> 
-> Looking at the spec 3.6.2.5 CLOCK_ATTRIBUTES
-> 
-> "This command returns the attributes that are associated with a specific
-> clock. An agent might be allowed access to only a subset of the clocks
-> available in the system. The platform must thus guarantee that clocks that
-> an agent cannot access are not visible to it."
-> 
-> ...not sure if this sheds some light or it is ambiguos anyway...I'd say that
-> NOT_FOUND does NOT equate to be invisible...
-> 
-> ...BUT at the same time I think that this practice of exposing a non-contiguos
-> set of resources IDs (a set with holes in it) is the a well-known spec-loophole
-> used by many vendors to deploy one single FW image across all of their platforms
-> without having to reconfigure their reosurces IDs ro expose a common set of
-> contiguos IDs like the spec would suggest...
-> 
-> Having said that, since we unfortunately left this door open in the
-> implementation, now this loophole has become common practice
-> apparently...
-> 
+On Wed, 25 Mar 2026 at 11:41, Sebastian Ene <sebastianene@google.com> wrote:
+>
+> On Wed, Mar 25, 2026 at 11:35:18AM +0000, Vincent Donnefort wrote:
+> > On Wed, Mar 25, 2026 at 11:31:38AM +0000, Sebastian Ene wrote:
+> > > The ARM Service Calling Convention (SMCCC) specifies that the function
+> > > identifier and parameters should be passed in registers, leaving the
+> > > 16-bit immediate field of the SMC instruction un-handled.
+> > > Currently, our pKVM handler ignores the immediate value, which could lead
+> > > to non-compliant software relying on implementation-defined behavior.
+> > > Enforce the host kernel running under pKVM to use an immediate value
+> > > of 0 by decoding the ISS from the ESR_EL2 and return a not supported
+> > > error code back to the caller.
+> > >
+> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > > ---
+> > > v1 -> v2:
+> > >
+> > >  - Dropped injecting an UNDEF and return an error instead
+> > >    (SMCCC_RET_NOT_SUPPORTED)
+> > >  - Used the mask ESR_ELx_xVC_IMM_MASK instead of masking with U16_MAX
+> > >  - Updated the title of the commit message from:
+> > >    "[PATCH] KVM: arm64: Inject UNDEF when host is executing an
+> > >     smc with imm16 != 0
+> >
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 6 ++++++
+> > >  1 file changed, 6 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index e7790097db93..4ffe30fd8707 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -762,6 +762,12 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+> > >             handle_host_hcall(host_ctxt);
+> > >             break;
+> > >     case ESR_ELx_EC_SMC64:
+> > > +           if (ESR_ELx_xVC_IMM_MASK & esr) {
+> > > +                   cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
+> > > +                   kvm_skip_host_instr();
+> > > +                   break;
+> > > +           }
+> > > +
+> >
+> > I wonder if it isn't better to move that into handle_host_smc() as this is part
+> > of how we handle the SMC after all? (and it calls that kvm_skip_host_instr()
+> > already)
+> >
+>
+> I was thinking of doing that as well but I prefer this since we don't
+> have to look again at the esr in the callee.
 
-Indeed, I agree. I wasn't fully convinced to relax and this discussion
-seem to strive towards right direction IMO.
+This is a non-trivial amount of code to have in a switch. Can you
+please put it in a helper?
 
-> ...I am more concerned about the impact that this COULD have on underlying
-> resources allocations that at the driver level was certainly conceived
-> to manage a contiguos set of IDs, even though it was certanly the
-> usecase until my harden patches...so it could be safe but to be double
-> checked...
-> 
-> Quirk or core I suppose it depends on how much we want to 'legalize' this
-> trick for the future (thinking also about other protocols)...
-> 
+Thanks,
+/fuad
 
-Agreed. I am more nervous about legalising it. Let us see what are the
-issues with the firmware in the wild before we can decide. That's one reason
-I would like keep your changes in -next even though I have now dropped the
-idea of pushing in for v7.1
-
-> ...a middle ground could be to implement it as an always-on quirk that
-> matches any FW (like the existing out_of_spec_triplet quirk)... as a way
-> to keep on allowing the existing behaviour but sort of discouraging it...
-> 
-
-Fair enough, worth an attempt at the least.
-
-> Not really strong opinions about this, BUT at this point, in general I
-> would keep all of this series on hold for further testing, given these
-> issues together the bugs fixed by Geert on iterators and the lack of
-> clock-MAINTs acks...
-> 
-
-Agreed.
-
-> ...also Geert was investigating the need of a different quirks in these
-> regards for the Renesas boards...
-> 
-
-Yes still waiting for the outcome from the cliffhanger Geert left us 😉.
-Just kidding take your time Geert, no rush.
-
--- 
-Regards,
-Sudeep
+>
+> > >             handle_host_smc(host_ctxt);
+> > >             break;
+> > >     case ESR_ELx_EC_IABT_LOW:
+> > > --
+> > > 2.53.0.1018.g2bb0e51243-goog
+> > >
 
