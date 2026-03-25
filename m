@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390DD109E52F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0E6109E528
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qHp84u4lfDr+6YeO86QEXq5X1hXYtGUt81s2Al/O8Q=; b=IIwgjGl9kFR6vicPliu6V9Knec
-	54WNo8mDXQ3yjyDnSLgUNfCjDmqiT7leWQVu+7nHHx9nP5YLQR0TApvqfPJkcNXJK8e9/ZhfRSak+
-	sgtJgxlHJz8pDELmMRqE/Javj5N69s1F06qarYGF8hOqkjSRu+h0rnQeFBKxRkFkoYlGVl6+mh53A
-	E/8q1RX5AX1iwOyvUugX5wyQDRmgLhT/UjTshAbJWfoYD3zvEYzM9HWd5oLyPuMP8TNyjRuM+3xen
-	JzGehBHE9yExOUuMT99RB2DUQoJn/qDnpyg9liZRrbGfXzfKx7gz4MHz0Y1LgqhCthQSxsjSidr8N
-	yjCx0r1Q==;
+	bh=bpy+NjFmQ1UZzVo0QwIuf1cqhqfKorIEk2o2QMNh51g=; b=AuwCAG4BquT9mX3u8YA9QLNWFN
+	Dc9php4Y0DHnu9G26Q8COHKCHHOtGC/m8n6+IzONMxk1MaYDNMWaKwE4nbjeuNY3wSnaCxUHED1c0
+	mNqfdnt8cUwaB/MpHi9CfcQkVbmtzFyxfFssOscj01mRr2fE/LgyPzASlPcWv7VFajveIrQRb5CJi
+	glNhK/A8qKjjjTQNiShTbx3BypEre5bEYo9JvR55p/60UzOvW4xSv96PE0cAkacmH8SrSQJD02HYY
+	7SUIoZY87/1sQuGv0763QGiR7Yn7TDFCqfxikJP1nW83718XuhDwTVaKPZ3a8qAHkUBUV0ZbO7BW/
+	BV/FMlYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5XgN-00000004QWp-1a3q;
-	Wed, 25 Mar 2026 23:30:39 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1w5XgS-00000004Qaw-1SA5;
+	Wed, 25 Mar 2026 23:30:44 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5XgA-00000004QOB-0GDJ;
-	Wed, 25 Mar 2026 23:30:27 +0000
+	id 1w5XgB-00000004QP7-418D;
+	Wed, 25 Mar 2026 23:30:29 +0000
 Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.stl.internal (Postfix) with ESMTP id 476A61D00192;
-	Wed, 25 Mar 2026 19:30:25 -0400 (EDT)
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 305067A019D;
+	Wed, 25 Mar 2026 19:30:27 -0400 (EDT)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Wed, 25 Mar 2026 19:30:25 -0400
+  by phl-compute-02.internal (MEProxy); Wed, 25 Mar 2026 19:30:27 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
 	:content-transfer-encoding:content-type:content-type:date:date
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1774481425;
-	 x=1774567825; bh=2qHp84u4lfDr+6YeO86QEXq5X1hXYtGUt81s2Al/O8Q=; b=
-	hohgp3JhacWkXIcqV6OTOUBzW5lp+d3ebqyCrO3NHwkqLD3RyzDGoz9MJb5KAWTk
-	FSkukoa1GZQtou2XkVUgvZ7E/1bxp9NKvAB5FAYeB4gIjgZJ9enGYz4A6w7AQUyE
-	Y4B+LHA0+7BFBnXOZlje3skBumcSPO5NrS+2jsfD05g0VoTPXvUpM5R9wFiEaGkc
-	80GE2IgIirvP8HTJBndwecWTCiRpth2OO+767VrROqVAMIyltVyRc56PJuA9n0MY
-	VB+gLuqFsqqhVj3U8ktKWF5//s32V7MlSCW/+uyBiV9WkRTmUneUl2Sbp+O+FtyL
-	8a2xtLMFJyGvPuGm1jv5WA==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1774481427;
+	 x=1774567827; bh=bpy+NjFmQ1UZzVo0QwIuf1cqhqfKorIEk2o2QMNh51g=; b=
+	je4EL6eEIPJfZu3Incoye9CBSHyIKGfWv94O0LRtsh3A0mn6oFgKormWARs0mCMy
+	2RpfPjz3kzMCfctWRNjE+7y1/wzFHI25VZBtrWQopNRB/tdKGr7jjfocVHPwpAjL
+	iYiOVA2+QxzjCl4r30Q0Ux99CLhyX+sKQkFttrtkS5apTBO59VnHY8B+mn1Jywwc
+	TXM4iFLA+iD6Bq5DyCeFQtaF7H9zq6d5rd2Nqh7hGI6h+kECskSKQ+N+m15cwIM4
+	aEcvGDGa0AppIiT2Ekcw7iPvsNqI38yxQju+ycYUF1G2OxeZuBL/0jxXhOf2m1W5
+	i5wdvLNs/tZQviGb1xVuww==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774481425; x=
-	1774567825; bh=2qHp84u4lfDr+6YeO86QEXq5X1hXYtGUt81s2Al/O8Q=; b=A
-	UDxJs9+qVvBFQtlmTg6YLNUajM8kvu3MAfZNCKMQ9mp9EVROrXBT1uiXw2JEE6/1
-	n3ClUrT1KgjoDRcM3/CHsW7VeXlkVyXQnGr3SF8b6jWqC9ZqAUGEpX8ocNUprC9/
-	CO+zT/cyFqisEEPzR355FJ8x2dOGVxQQs8QmQCqnPzH7DR7C7HfODl0qx2o2x6Zx
-	15VAu+PAstGFqR4WKJBaBdLU7FPuFYHvF5qO6ixYhc+VBhGGNJFn+WCs2r7MpRjt
-	z3b6+dXgQfylFF5Se2KnJXoTul2joot0Q8v/aRF2bo9uyysltip6UbktGbOAc7RA
-	j5FjmFWl+BATpUXYu47Pg==
-X-ME-Sender: <xms:EXDEaZIO0KOU_FJmjGI5aeiIPZixzprmfU2uzVfyxfCouC2cfyaURA>
-    <xme:EXDEaf8z1JJTU3q9EcDfAfpzg6D_Pe24KhEfqoPNgAFzpEDr4CNRfgBJdashUOK4F
-    -uU5dhlpiYV7oHXLTzxQba_1Owz4x8iA1ApslL76yhFHXy0QlF1>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774481427; x=
+	1774567827; bh=bpy+NjFmQ1UZzVo0QwIuf1cqhqfKorIEk2o2QMNh51g=; b=u
+	okLqQIekFiHO6jmGEajLuLD268SDHk4WEGSoqdCZ32sqnKopMfrw4u0dNm/QEpoG
+	MJ1WChTjZ70w0ik8WbRi/5t7t25M8f1v+Q/K0ZoxATAL5tvEvv+KvBR9yumRpB2Z
+	JM3EjI7NpZCyeLC9M6T9CKSb5qS5oRxvaWMzqmb+2/FzenJC8s2p6FMFKNXS4nWW
+	PKwfOaqKsnd+iaIUudY7zMEQgCi/OBnVX4xNODgXQBMqgtWdssdPAta6zKNm/kdX
+	IrSlEcUeIVVzOTHvboOP+v/nd7mLowTN7woBg0y9Y66DAIEojNIkkro+nqmFxhlx
+	scgdybJVk0ASvC6tEiVUA==
+X-ME-Sender: <xms:EnDEafecDdmgqXXIdU-fRBu27k3I4m-RuNWgTwdZuxVGk6uewYO7Nw>
+    <xme:EnDEaQCTFGePBHD0lX2MaMsM5EM1UmLKVCwNgjdz0pcEnW0V-4-LmFFm3rAp8CF8f
+    9YAPKDCfAYrk9UY94WdvzusnOKpAWWqTOhoe89GfCIq6VcfxtZzIw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdehjeelucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
@@ -70,55 +70,55 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdehjeelucetufdote
     hnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdr
     tghomhdprhgtphhtthhopehluhhiiidruggvnhhtiiesghhmrghilhdrtghomhdprhgtph
     htthhopehmrghtthhhihgrshdrsghgghesghhmrghilhdrtghomhdprhgtphhtthhopehm
-    rghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
-    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
-    lhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
-    hrtghpthhtohepjhhnvghtthhosehmihhnvghirhhordhiohdprhgtphhtthhopehlihhn
-    uhigqdgslhhuvghtohhothhhsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    eplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:EXDEaUoUDCMSkM9PkTlgp-_iOGm7qLToMFfesF9-DJWDejRQ76CAtA>
-    <xmx:EXDEadsgDNccH_vHxDS0QKbJ9HoE1qfknCQjU-N-jkjY2QZM51wUDw>
-    <xmx:EXDEaT2XsAXb3h1E1erJekbbfaN9NJZZT1mhcDvtesClxRwZR0EZPA>
-    <xmx:EXDEaYGqTz-DD9iEg1imHc6AiSwMmsrlJuYJN32Z6JWT52ksrz698w>
-    <xmx:EXDEaQWAHAG9gjBO_GHkoeI43BmC7WpOpcuPm3sBb1_qFXde0WJUONLy>
+    vghlihhnkhhovddttdefsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrhgtvghlse
+    hhohhlthhmrghnnhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgv
+    lheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqd
+    hmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthho
+    pehlihhnuhigqdgslhhuvghtohhothhhsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:EnDEaa8PZ-lA-J7Evg4l5AVoz8W7cs8qduR7j_FUIjoWRqbhrT3GhA>
+    <xmx:EnDEadzowWAMPxS9tfL9AhXOxOIaBkPP8myy-w0ZU0MCRotm8_X4Sg>
+    <xmx:EnDEaaqlszjrS3lnu9kHVjhbMLLx_8DufgyBE9-VTxT8l6zf8F2_ZA>
+    <xmx:EnDEaeq8Dol37FfaZx__c3gxy-G0LUV5HtCe3rTdHWZJBBl4zbzFsg>
+    <xmx:E3DEaflDYk7Nau92M_t8k6gMBRbzMvhfYY3hh09wy8m_7bz6105lpKNW>
 Feedback-ID: i9dde48b3:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E7EF61EA006B; Wed, 25 Mar 2026 19:30:24 -0400 (EDT)
+	id D86981EA006B; Wed, 25 Mar 2026 19:30:26 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 From: Javier Tia <floss@jetm.me>
-Date: Wed, 25 Mar 2026 17:30:20 -0600
-Subject: [PATCH v2 3/8] Bluetooth: btusb: Add MT7927 ID for ASUS ROG
- Crosshair X870E Hero
+Date: Wed, 25 Mar 2026 17:30:21 -0600
+Subject: [PATCH v2 4/8] Bluetooth: btusb: Add MT7927 ID for Lenovo Legion
+ Pro 7 16ARX9
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-mt7927-bt-support-v2-3-b892a3252880@jetm.me>
+Message-Id: <20260325-mt7927-bt-support-v2-4-b892a3252880@jetm.me>
 To: Marcel Holtmann <marcel@holtmann.org>,
  Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>
+ Llewellyn Curran <melinko2003@gmail.com>
 X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2196; i=floss@jetm.me;
- h=from:subject:message-id; bh=M/B2rUsIc9XPtt7O3AdFVlNy7Muc9x3nvF7epwhHRKU=;
- b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxHAKGiGk2azJvxv4hwrlUssI/lPm3PFT6aFx+
- adsUSRqtWaJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacRwCgAKCRC17sMLqGd3
- H2P3C/42gbDNeKLwoRn6jTn3G5cIlS5Q/mo3IK8iEnNUfqhSzGjqpaobFyhydB2xVyAOpiXgp7d
- xinVOQCMK6Zf4jDLftyAD5ybtAW6KMdwHhAXt7pykpShi1oruQa32nWRq9wRaBdf6sC73qlF+z9
- 5XVG1CJvUUMdfiYqallYWuYLvrHJkIHpIWhD874sjKViUmLEL3tfszHT1lLhIp4Qu9AwGiSESFA
- /m+wERVyelH0DiPxawVQR/O3Idx0orcpezOifyY9UKuHdwotcILRIlOVtEPiKL4u0syZb4xHI5Z
- mNSO8bD+KvyHSAOO3z9OxHafcKWu0kk2z4mmkn1nCnz+RD0HaaRfV20pPi2aAGobfdGgXZ6zvjm
- ff2tDaSKWjUgDYHRsOSxIX8BRTQLOF5KKvBbTAh9cuW+fg9wvBnUGWfEYt/b1VodVK+oh3ZXEhy
- TGk9b7d2x1zno/5US/pyTX9Y8CJHRtR7i95O2VfYBNGIP2tKJVifmNr0/NnGt/02Ivfdg=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=floss@jetm.me;
+ h=from:subject:message-id; bh=9VC/j/XdBMGnjdaMjoJsd1+eJl2LQOX2dwL92kQTdgA=;
+ b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxHAKwNSlJ0BpVh+o2CPSWFKji3jaAkqGgnmZG
+ 2XfPr17PMeJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacRwCgAKCRC17sMLqGd3
+ H2T3C/40ur8ArNb5drsWMovbikhiRHty1V9gs6AX3Dv5AeVdHD72Uufc9yQDsgKJadvuoEJjrmt
+ g3g5XK0ssWkgP5KkWpfKaQTA/7SFb2fVGWQ7Q26zYDkjm6a3KtWFo7ih44zdffAAzOO2O3iZlZN
+ uGqSpeMl3agBNgSW7Ra1P+JR6ekh+bdly2Wzdgn+pYdGmQ2ERv8b1kMWowwmjy6RH1dBhxEormb
+ dYpg3ErIAadrkY5spoQLyxDSNiumz08fbTXUTP/WQlNWUzUgKUJG+XHs378TXuElHqFqrIaNTBo
+ zKqNu5d3QeL2NuOeAFsg09zSDjK0GZo5FHBCdnYd3ZdS+rd7vDXq17rYWxZpMy6JuSi/xq5nKyA
+ wSbDda8iSETSCWJ5fAPT8OJCvIHq5vrnYVMw8HreTQPo3snKIRBNTCAS05e3oxwznrmGThxwrV6
+ agd0fMjqZp0v5tphSBV0doJ8qPb/gVTPslNlpye/TLlW9VrvuJfWBVUGTgIeX3U2VnQV4=
 X-Developer-Key: i=floss@jetm.me; a=openpgp;
  fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
 In-Reply-To: <20260325-mt7927-bt-support-v2-0-b892a3252880@jetm.me>
 References: <20260325-mt7927-bt-support-v2-0-b892a3252880@jetm.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_163026_145853_D260100A 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260325_163028_049748_5D092B20 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,16 +133,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add USB device ID 0489:e13a (Foxconn/Hon Hai) for the MediaTek MT7927
-(Filogic 380) Bluetooth interface found on the ASUS ROG Crosshair X870E
-Hero WiFi motherboard.
+Add USB device ID 0489:e0fa (Foxconn/Hon Hai) for the MediaTek MT7927
+(Filogic 380) Bluetooth interface found on the Lenovo Legion Pro 7
+16ARX9 laptop.
 
 The information in /sys/kernel/debug/usb/devices about the Bluetooth
 device is listed as the below.
 
 T:  Bus=01 Lev=01 Prnt=01 Port=05 Cnt=04 Dev#=  5 Spd=480  MxCh= 0
 D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-P:  Vendor=0489 ProdID=e13a Rev= 1.00
+P:  Vendor=0489 ProdID=e0fa Rev= 1.00
 S:  Manufacturer=MediaTek Inc.
 S:  Product=Wireless_Device
 S:  SerialNumber=000000000
@@ -164,20 +164,20 @@ E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
 Link: https://bugzilla.kernel.org/show_bug.cgi?id=221096
 Link: https://github.com/openwrt/mt76/issues/927
 Signed-off-by: Javier Tia <floss@jetm.me>
-Tested-by: Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>
+Tested-by: Llewellyn Curran <melinko2003@gmail.com>
 ---
  drivers/bluetooth/btusb.c | 2 ++
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index a5e44887a5b5..58309af0f7a2 100644
+index 58309af0f7a2..2c9ca3d6016b 100644
 --- a/drivers/bluetooth/btusb.c
 +++ b/drivers/bluetooth/btusb.c
-@@ -751,6 +751,8 @@ static const struct usb_device_id quirks_table[] = {
+@@ -753,6 +753,8 @@ static const struct usb_device_id quirks_table[] = {
  						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x0489, 0xe139), .driver_info = BTUSB_MEDIATEK |
+ 	{ USB_DEVICE(0x0489, 0xe13a), .driver_info = BTUSB_MEDIATEK |
  						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe13a), .driver_info = BTUSB_MEDIATEK |
++	{ USB_DEVICE(0x0489, 0xe0fa), .driver_info = BTUSB_MEDIATEK |
 +						     BTUSB_WIDEBAND_SPEECH },
  	{ USB_DEVICE(0x0489, 0xe14e), .driver_info = BTUSB_MEDIATEK |
  						     BTUSB_WIDEBAND_SPEECH },
