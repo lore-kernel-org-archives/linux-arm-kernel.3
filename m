@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E53E109C027
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296AA109C02D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LHk2bnhDPS77gdVwGyJzjfIlYBqOdVnlYCXZQDSdb0=; b=VRhgeWY2DzXAM+W7HcpREavJAu
-	T63Pbs9M3YpsADXSZVuJ1sKCZnhgqt/YwFKLind2WHlVjkBo1jHMoI/oJTARHRoqvLQVota9W5/wF
-	woKLzNv3eQ9sJvYI5gqPdGGLL3rL3eKZr2OKgDG24eBECP0FzpuEQqTp94+PMuHViULnWZjmaB67G
-	WZbsRGq8aQnmzTDfEBRXcAG/UX8jkitKcfmIMc/5aAnj2cpYZerp8iSteTlk6JT9w6Z8Ns8F/T5Kx
-	d4LPUrC+D4fW6Vh1ySRkPoJQ75Z0fLCf4qsp8ubngJYVfq4LXVi9Juhk/SlKsSitkG2ftgPt72SgK
-	/9qpAc5Q==;
+	bh=nDmHmibyjZYiH5sEVeA5xxCTTvnfeWELpnQrHhWrm9s=; b=w7tHCG55UTBfTwPna1ivhuH00q
+	0u/PBw6Ne19ykCXpnErvF2EQa8Hn/JtxQNWVfhf9dYIo884ljd9MwrYqfNL7K9RB7XH7Am819Diaa
+	tISv+NxXIFoSQM2C8P63QVn6vlQtwJVK7RrVKRFdSraHxZMsoBwUBxFpQo2cMlCcgkPyutlT5IvOB
+	X2CIqqqlgiOySm8cDA9zvzIJiuLLpZppl75PcLUHchJz9heqlyIw9BMsNXYbKPQcdlf3nw1qNhiu5
+	POxtcX80Zt7Hv8iQrf2sMGY2B1hXrAnAFl6v6hJ8bI9G1wiTF02HMG0PKqQ929WMoU62AHPrgvAzL
+	XfHuKvuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Pb7-00000003hWr-3ZZN;
-	Wed, 25 Mar 2026 14:52:41 +0000
+	id 1w5PbC-00000003hcm-3OBD;
+	Wed, 25 Mar 2026 14:52:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZk-00000003fhu-1DEr
+	id 1w5PZk-00000003fiw-3dgq
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Mar 2026 14:51:16 +0000
+	Wed, 25 Mar 2026 14:51:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7LHk2bnhDPS77gdVwGyJzjfIlYBqOdVnlYCXZQDSdb0=; b=o4C/+qEnuGVzAuwy8uji+CmeUx
-	Yuna9/MU+5RKmbWKLcqRBwYHmYgihbjyUN1zmBmzF2dOd+a/adOcRzqvUNp2n8xrlSJidrHxkrcyJ
-	fIDUzfs+XslChZ2cw/fT56XHHPKTG03pupTG0sVve/S1g5eReARf6XRqU/U132JrprUTvzPkpcJz+
-	f4K/yufvWtMEaEhgHd9d+zQBpCsLGZqYAnFT0MJMws6BtEOsgTRU5iPSPezqgOTlCsGA80eXofuRp
-	23chz1vW2KeCNgEzvyC+5ZUkU7hmRpflV5j1RN2SQK2DsM0uE/YRpdop8O9nitVU+yZY1sJ2p+o8I
-	C3RFJx6w==;
+	bh=nDmHmibyjZYiH5sEVeA5xxCTTvnfeWELpnQrHhWrm9s=; b=KXX3sHIvEGHOs1J5r8UHJOMwAY
+	uNBCXe9+3PcPSfDJBjj/VzP5WnZ4FD2Zz0sHMKWZ7YBXccgMsBMPviT+A1Iiz2MnXXnFUoEhKdHOm
+	JSmi9oQCSdTVAW8rkxxfZ30iUFnpHRq0/1N1Tiu4igXi8NUPri6N0YzUIgQRRcM30MdIdIDiqx79O
+	75sbn36Gmmw3i3n7OxU/V+Cs3mwTPqOeK39UIsyply5cjWZda0KHm2C3h+PTicwLEdeJh2CWmOrU7
+	LU2IIJTHdEN84Yk/DJlY64FfBsfr8FyHXRnByXfQMkrjcRQTyeGRSEycXjBRzg0kSmi+1SViUJSiG
+	bsY1aHhg==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZc-00000006OYb-15M6
+	id 1w5PZg-00000006Obw-3JsQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:51:13 +0000
+	Wed, 25 Mar 2026 14:51:15 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1w5PZV-00050C-G1; Wed, 25 Mar 2026 15:51:01 +0100
+	id 1w5PZW-00050C-Dd; Wed, 25 Mar 2026 15:51:02 +0100
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 25 Mar 2026 15:50:49 +0100
-Subject: [PATCH v4 18/27] media: rockchip: rga: change offset to
- dma_addresses
+Date: Wed, 25 Mar 2026 15:50:54 +0100
+Subject: [PATCH v4 23/27] media: rockchip: rga: move rga_fmt to rga-hw.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260325-spu-rga3-v4-18-e90ec1c61354@pengutronix.de>
+Message-Id: <20260325-spu-rga3-v4-23-e90ec1c61354@pengutronix.de>
 References: <20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de>
 In-Reply-To: <20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -74,8 +73,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_145108_429394_AF298C4E 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20260325_145112_888314_B8BACE6D 
+X-CRM114-Status: GOOD (  28.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,290 +89,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the offset to dma_addresses, as the current naming is misleading.
-The offset naming comes from the fact that it references the offset in
-the mapped iommu address space. But from the hardware point of view this
-is an address, as also pointed out by the register naming
-(e.g. RGA_DST_Y_RGB_BASE_ADDR). Therefore also change the type to
-dma_addr_t, as with an external iommu driver this would also be the
-correct type.
+Move rga_fmt to rga-hw in preparation of the RGA3 addition, as the struct
+contains many RGA2 specific values. They are used to write the correct
+register values quickly based on the chosen format. Therefore the
+pointer to the rga_fmt struct is kept but changed to an opaque void
+pointer outside of the rga-hw.h.
 
-This change is a preparation for the RGA3 support, which uses an external
-iommu and therefore just gets an dma_addr_t for each buffer. The field
-renaming allows to reuse the existing fields of rga_vb_buffer to store
-these values.
+To enumerate and set the correct formats, two helper functions need to
+be exposed in the rga_hw struct:
+
+enum_format just get's the vidioc_enum_fmt format and it's return value
+is also returned from vidioc_enum_fmt. This is a simple pass-through,
+as the implementation is very simple.
+
+adjust_and_map_format is a simple abstraction around the previous
+rga_find_format. But unlike rga_find_format, it always returns a valid
+format. Therefore the passed format value is also a pointer to update
+it in case the values are not supported by the hardware.
+Due to the RGA3 supporting different formats on the capture and output
+side, an additional parameter is_capture has been added to support
+this use-case. The additional ctx parameter is also added to allow the
+RGA3 to limit the colorimetry only if an RGB<->YCrCb transformation
+happens.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-buf.c |  12 +--
- drivers/media/platform/rockchip/rga/rga-hw.c  | 105 +++++++++++++-------------
- drivers/media/platform/rockchip/rga/rga.h     |  12 +--
- 3 files changed, 64 insertions(+), 65 deletions(-)
+ drivers/media/platform/rockchip/rga/rga-buf.c |  2 +-
+ drivers/media/platform/rockchip/rga/rga-hw.c  | 49 +++++++++++++++++++++------
+ drivers/media/platform/rockchip/rga/rga-hw.h  |  8 +++++
+ drivers/media/platform/rockchip/rga/rga.c     | 39 +++++++--------------
+ drivers/media/platform/rockchip/rga/rga.h     | 14 +++-----
+ 5 files changed, 66 insertions(+), 46 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
-index ffc6162b2e681..bc349d0a46365 100644
+index c0cc885ba58a8..8632b18cd3fc6 100644
 --- a/drivers/media/platform/rockchip/rga/rga-buf.c
 +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
-@@ -121,7 +121,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
- 	size_t curr_desc = 0;
- 	int i;
- 	const struct v4l2_format_info *info;
--	unsigned int offsets[VIDEO_MAX_PLANES];
-+	unsigned int dma_addrs[VIDEO_MAX_PLANES];
- 
- 	if (IS_ERR(f))
- 		return PTR_ERR(f);
-@@ -145,18 +145,18 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
- 				 "Failed to map video buffer to RGA\n");
- 			return n_desc;
- 		}
--		offsets[i] = curr_desc << PAGE_SHIFT;
-+		dma_addrs[i] = curr_desc << PAGE_SHIFT;
- 		curr_desc += n_desc;
+@@ -162,7 +162,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
  	}
  
  	/* Fill the remaining planes */
- 	info = v4l2_format_info(f->fmt->fourcc);
+-	info = v4l2_format_info(f->fmt->fourcc);
++	info = v4l2_format_info(f->pix.pixelformat);
  	for (i = info->mem_planes; i < info->comp_planes; i++)
--		offsets[i] = get_plane_offset(f, info, i);
-+		dma_addrs[i] = dma_addrs[0] + get_plane_offset(f, info, i);
+ 		dma_addrs[i] = dma_addrs[0] + get_plane_offset(f, info, i);
  
--	rbuf->offset.y_off = offsets[0];
--	rbuf->offset.u_off = offsets[1];
--	rbuf->offset.v_off = offsets[2];
-+	rbuf->dma_addrs.y_addr = dma_addrs[0];
-+	rbuf->dma_addrs.u_addr = dma_addrs[1];
-+	rbuf->dma_addrs.v_addr = dma_addrs[2];
- 
- 	return 0;
- }
 diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index f6070508b1475..bf4a86a640ec5 100644
+index 5d993cf69963d..e76d1994b8684 100644
 --- a/drivers/media/platform/rockchip/rga/rga-hw.c
 +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -16,11 +16,11 @@ enum e_rga_start_pos {
- 	RB = 3,
- };
+@@ -171,6 +171,8 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+ 	union rga_dst_vir_info dst_vir_info;
+ 	union rga_dst_act_info dst_act_info;
+ 	u32 in_stride, out_stride;
++	struct rga_fmt *in_fmt = ctx->in.fmt;
++	struct rga_fmt *out_fmt = ctx->out.fmt;
  
--struct rga_corners_addr_offset {
--	struct rga_addr_offset left_top;
--	struct rga_addr_offset right_top;
--	struct rga_addr_offset left_bottom;
--	struct rga_addr_offset right_bottom;
-+struct rga_corners_addrs {
-+	struct rga_addrs left_top;
-+	struct rga_addrs right_top;
-+	struct rga_addrs left_bottom;
-+	struct rga_addrs right_bottom;
- };
+ 	src_h = ctx->in.crop.height;
+ 	src_w = ctx->in.crop.width;
+@@ -186,18 +188,18 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+ 	dst_vir_info.val = dest[(RGA_DST_VIR_INFO - RGA_MODE_BASE_REG) >> 2];
+ 	dst_act_info.val = dest[(RGA_DST_ACT_INFO - RGA_MODE_BASE_REG) >> 2];
  
- static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
-@@ -36,20 +36,20 @@ static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
- 	return (src > dst) ? ((dst << 16) / src) : ((src << 16) / dst);
- }
+-	src_info.data.format = ctx->in.fmt->hw_format;
+-	src_info.data.swap = ctx->in.fmt->color_swap;
+-	dst_info.data.format = ctx->out.fmt->hw_format;
+-	dst_info.data.swap = ctx->out.fmt->color_swap;
++	src_info.data.format = in_fmt->hw_format;
++	src_info.data.swap = in_fmt->color_swap;
++	dst_info.data.format = out_fmt->hw_format;
++	dst_info.data.swap = out_fmt->color_swap;
  
--static struct rga_corners_addr_offset
--rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
--		    unsigned int x, unsigned int y, unsigned int w, unsigned int h)
-+static struct rga_corners_addrs
-+rga_get_corner_addrs(struct rga_frame *frm, struct rga_addrs *addrs,
-+		     unsigned int x, unsigned int y, unsigned int w, unsigned int h)
- {
--	struct rga_corners_addr_offset offsets;
--	struct rga_addr_offset *lt, *lb, *rt, *rb;
-+	struct rga_corners_addrs corner_addrs;
-+	struct rga_addrs *lt, *lb, *rt, *rb;
- 	const struct v4l2_format_info *format_info;
- 	unsigned int x_div = 0,
- 		     y_div = 0, uv_stride = 0, pixel_width = 0;
+ 	/*
+ 	 * CSC mode must only be set when the colorspace families differ between
+ 	 * input and output. It must remain unset (zeroed) if both are the same.
+ 	 */
  
--	lt = &offsets.left_top;
--	lb = &offsets.left_bottom;
--	rt = &offsets.right_top;
--	rb = &offsets.right_bottom;
-+	lt = &corner_addrs.left_top;
-+	lb = &corner_addrs.left_bottom;
-+	rt = &corner_addrs.right_top;
-+	rb = &corner_addrs.right_bottom;
- 
- 	format_info = v4l2_format_info(frm->pix.pixelformat);
- 	/* x_div is only used for the u/v planes.
-@@ -64,29 +64,28 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
- 	uv_stride = frm->stride / x_div;
- 	pixel_width = frm->stride / frm->pix.width;
- 
--	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
--	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
--	lt->v_off = offset->v_off + (y / y_div) * uv_stride + x / x_div;
-+	lt->y_addr = addrs->y_addr + y * frm->stride + x * pixel_width;
-+	lt->u_addr = addrs->u_addr + (y / y_div) * uv_stride + x / x_div;
-+	lt->v_addr = addrs->v_addr + (y / y_div) * uv_stride + x / x_div;
- 
--	lb->y_off = lt->y_off + (h - 1) * frm->stride;
--	lb->u_off = lt->u_off + (h / y_div - 1) * uv_stride;
--	lb->v_off = lt->v_off + (h / y_div - 1) * uv_stride;
-+	lb->y_addr = lt->y_addr + (h - 1) * frm->stride;
-+	lb->u_addr = lt->u_addr + (h / y_div - 1) * uv_stride;
-+	lb->v_addr = lt->v_addr + (h / y_div - 1) * uv_stride;
- 
--	rt->y_off = lt->y_off + (w - 1) * pixel_width;
--	rt->u_off = lt->u_off + w / x_div - 1;
--	rt->v_off = lt->v_off + w / x_div - 1;
-+	rt->y_addr = lt->y_addr + (w - 1) * pixel_width;
-+	rt->u_addr = lt->u_addr + w / x_div - 1;
-+	rt->v_addr = lt->v_addr + w / x_div - 1;
- 
--	rb->y_off = lb->y_off + (w - 1) * pixel_width;
--	rb->u_off = lb->u_off + w / x_div - 1;
--	rb->v_off = lb->v_off + w / x_div - 1;
-+	rb->y_addr = lb->y_addr + (w - 1) * pixel_width;
-+	rb->u_addr = lb->u_addr + w / x_div - 1;
-+	rb->v_addr = lb->v_addr + w / x_div - 1;
- 
--	return offsets;
-+	return corner_addrs;
- }
- 
--static struct rga_addr_offset *rga_lookup_draw_pos(struct
--		rga_corners_addr_offset
--		* offsets, u32 rotate_mode,
--		u32 mirr_mode)
-+static struct rga_addrs *rga_lookup_draw_pos(struct rga_corners_addrs *corner_addrs,
-+					     u32 rotate_mode,
-+					     u32 mirr_mode)
- {
- 	static enum e_rga_start_pos rot_mir_point_matrix[4][4] = {
- 		{
-@@ -103,18 +102,18 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
- 		},
- 	};
- 
--	if (!offsets)
-+	if (!corner_addrs)
- 		return NULL;
- 
- 	switch (rot_mir_point_matrix[rotate_mode][mirr_mode]) {
- 	case LT:
--		return &offsets->left_top;
-+		return &corner_addrs->left_top;
- 	case LB:
--		return &offsets->left_bottom;
-+		return &corner_addrs->left_bottom;
- 	case RT:
--		return &offsets->right_top;
-+		return &corner_addrs->right_top;
- 	case RB:
--		return &offsets->right_bottom;
-+		return &corner_addrs->right_bottom;
+-	if (RGA_COLOR_FMT_IS_YUV(ctx->in.fmt->hw_format) &&
+-	    RGA_COLOR_FMT_IS_RGB(ctx->out.fmt->hw_format)) {
++	if (RGA_COLOR_FMT_IS_YUV(in_fmt->hw_format) &&
++	    RGA_COLOR_FMT_IS_RGB(out_fmt->hw_format)) {
+ 		switch (ctx->in.pix.colorspace) {
+ 		case V4L2_COLORSPACE_REC709:
+ 			src_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+@@ -208,8 +210,8 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+ 		}
  	}
  
- 	return NULL;
-@@ -316,9 +315,9 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+-	if (RGA_COLOR_FMT_IS_RGB(ctx->in.fmt->hw_format) &&
+-	    RGA_COLOR_FMT_IS_YUV(ctx->out.fmt->hw_format)) {
++	if (RGA_COLOR_FMT_IS_RGB(in_fmt->hw_format) &&
++	    RGA_COLOR_FMT_IS_YUV(out_fmt->hw_format)) {
+ 		switch (ctx->out.pix.colorspace) {
+ 		case V4L2_COLORSPACE_REC709:
+ 			dst_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+@@ -563,11 +565,36 @@ static struct rga_fmt formats[] = {
+ 	},
+ };
+ 
++static void *rga_adjust_and_map_format(struct rga_ctx *ctx,
++				       struct v4l2_pix_format_mplane *format,
++				       bool is_output)
++{
++	unsigned int i;
++
++	if (!format)
++		return &formats[0];
++
++	for (i = 0; i < ARRAY_SIZE(formats); i++) {
++		if (formats[i].fourcc == format->pixelformat)
++			return &formats[i];
++	}
++
++	format->pixelformat = formats[0].fourcc;
++	return &formats[0];
++}
++
++static int rga_enum_format(struct v4l2_fmtdesc *f)
++{
++	if (f->index >= ARRAY_SIZE(formats))
++		return -EINVAL;
++
++	f->pixelformat = formats[f->index].fourcc;
++	return 0;
++}
++
+ const struct rga_hw rga2_hw = {
+ 	.card_type = "rga2",
+ 	.has_internal_iommu = true,
+-	.formats = formats,
+-	.num_formats = ARRAY_SIZE(formats),
+ 	.cmdbuf_size = RGA_CMDBUF_SIZE,
+ 	.min_width = MIN_WIDTH,
+ 	.max_width = MAX_WIDTH,
+@@ -580,4 +607,6 @@ const struct rga_hw rga2_hw = {
+ 	.start = rga_hw_start,
+ 	.handle_irq = rga_handle_irq,
+ 	.get_version = rga_get_version,
++	.adjust_and_map_format = rga_adjust_and_map_format,
++	.enum_format = rga_enum_format,
+ };
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.h b/drivers/media/platform/rockchip/rga/rga-hw.h
+index fffcab0131225..039a3e868733e 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.h
++++ b/drivers/media/platform/rockchip/rga/rga-hw.h
+@@ -6,6 +6,8 @@
+ #ifndef __RGA_HW_H__
+ #define __RGA_HW_H__
+ 
++#include <linux/types.h>
++
+ #define RGA_CMDBUF_SIZE 0x20
+ 
+ /* Hardware limits */
+@@ -431,4 +433,10 @@ union rga_pat_con {
+ 	} data;
+ };
+ 
++struct rga_fmt {
++	u32 fourcc;
++	u8 color_swap;
++	u8 hw_format;
++};
++
+ #endif
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index 6433fdaa5b339..364c1dac3f81c 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -185,17 +185,6 @@ static int rga_setup_ctrls(struct rga_ctx *ctx)
+ 	return 0;
  }
  
- static void rga_cmd_set_src_info(struct rga_ctx *ctx,
--				 struct rga_addr_offset *offset)
-+				 struct rga_addrs *addrs)
+-static struct rga_fmt *rga_fmt_find(struct rockchip_rga *rga, u32 pixelformat)
+-{
+-	unsigned int i;
+-
+-	for (i = 0; i < rga->hw->num_formats; i++) {
+-		if (rga->hw->formats[i].fourcc == pixelformat)
+-			return &rga->hw->formats[i];
+-	}
+-	return NULL;
+-}
+-
+ struct rga_frame *rga_get_frame(struct rga_ctx *ctx, enum v4l2_buf_type type)
  {
--	struct rga_corners_addr_offset src_offsets;
-+	struct rga_corners_addrs src_corner_addrs;
- 	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int src_h, src_w, src_x, src_y;
+ 	if (V4L2_TYPE_IS_OUTPUT(type))
+@@ -217,7 +206,6 @@ static int rga_open(struct file *file)
+ 		.crop.top = 0,
+ 		.crop.width = def_width,
+ 		.crop.height = def_height,
+-		.fmt = &rga->hw->formats[0],
+ 	};
  
-@@ -330,22 +329,22 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
- 	/*
- 	 * Calculate the source framebuffer base address with offset pixel.
- 	 */
--	src_offsets = rga_get_addr_offset(&ctx->in, offset,
--					  src_x, src_y, src_w, src_h);
-+	src_corner_addrs = rga_get_corner_addrs(&ctx->in, addrs,
-+						src_x, src_y, src_w, src_h);
+ 	ctx = kzalloc_obj(*ctx);
+@@ -238,9 +226,12 @@ static int rga_open(struct file *file)
+ 	ctx->in = def_frame;
+ 	ctx->out = def_frame;
  
- 	dest[(RGA_SRC_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		src_offsets.left_top.y_off;
-+		src_corner_addrs.left_top.y_addr;
- 	dest[(RGA_SRC_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		src_offsets.left_top.u_off;
-+		src_corner_addrs.left_top.u_addr;
- 	dest[(RGA_SRC_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		src_offsets.left_top.v_off;
-+		src_corner_addrs.left_top.v_addr;
- }
+-	v4l2_fill_pixfmt_mp_aligned(&ctx->in.pix, ctx->in.fmt->fourcc,
++	ctx->in.fmt = rga->hw->adjust_and_map_format(ctx, &ctx->in.pix, true);
++	v4l2_fill_pixfmt_mp_aligned(&ctx->in.pix, ctx->in.pix.pixelformat,
+ 				    def_width, def_height, rga->hw->stride_alignment);
+-	v4l2_fill_pixfmt_mp_aligned(&ctx->out.pix, ctx->out.fmt->fourcc,
++	ctx->out.fmt =
++		rga->hw->adjust_and_map_format(ctx, &ctx->out.pix, false);
++	v4l2_fill_pixfmt_mp_aligned(&ctx->out.pix, ctx->out.pix.pixelformat,
+ 				    def_width, def_height, rga->hw->stride_alignment);
  
- static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
--				 struct rga_addr_offset *offset)
-+				 struct rga_addrs *addrs)
+ 	if (mutex_lock_interruptible(&rga->mutex)) {
+@@ -322,13 +313,11 @@ vidioc_querycap(struct file *file, void *priv, struct v4l2_capability *cap)
+ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f)
  {
--	struct rga_addr_offset *dst_offset;
--	struct rga_corners_addr_offset offsets;
-+	struct rga_addrs *dst_addrs;
-+	struct rga_corners_addrs corner_addrs;
- 	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int dst_h, dst_w, dst_x, dst_y;
- 	unsigned int mir_mode = 0;
-@@ -379,15 +378,15 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+ 	struct rockchip_rga *rga = video_drvdata(file);
+-	struct rga_fmt *fmt;
+-
+-	if (f->index >= rga->hw->num_formats)
+-		return -EINVAL;
++	int ret;
+ 
+-	fmt = &rga->hw->formats[f->index];
+-	f->pixelformat = fmt->fourcc;
++	ret = rga->hw->enum_format(f);
++	if (ret != 0)
++		return ret;
+ 
+ 	if (f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
+ 	    f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
+@@ -363,7 +352,6 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
+ 	struct rga_ctx *ctx = file_to_rga_ctx(file);
+ 	const struct rga_hw *hw = ctx->rga->hw;
+-	struct rga_fmt *fmt;
+ 	struct v4l2_frmsize_stepwise frmsize = {
+ 		.min_width = hw->min_width,
+ 		.max_width = hw->max_width,
+@@ -394,9 +382,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 		pix_fmt->xfer_func = frm->pix.xfer_func;
+ 	}
+ 
+-	fmt = rga_fmt_find(ctx->rga, pix_fmt->pixelformat);
+-	if (!fmt)
+-		fmt = &hw->formats[0];
++	hw->adjust_and_map_format(ctx, pix_fmt, V4L2_TYPE_IS_OUTPUT(f->type));
+ 
+ 	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frmsize);
+ 	v4l2_fill_pixfmt_mp_aligned(pix_fmt, pix_fmt->pixelformat,
+@@ -456,7 +442,8 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	frm = rga_get_frame(ctx, f->type);
+ 	if (IS_ERR(frm))
+ 		return PTR_ERR(frm);
+-	frm->fmt = rga_fmt_find(rga, pix_fmt->pixelformat);
++	frm->fmt = rga->hw->adjust_and_map_format(ctx, pix_fmt,
++						  V4L2_TYPE_IS_OUTPUT(f->type));
+ 
  	/*
- 	 * Configure the dest framebuffer base address with pixel offset.
- 	 */
--	offsets = rga_get_addr_offset(&ctx->out, offset, dst_x, dst_y, dst_w, dst_h);
--	dst_offset = rga_lookup_draw_pos(&offsets, rot_mode, mir_mode);
-+	corner_addrs = rga_get_corner_addrs(&ctx->out, addrs, dst_x, dst_y, dst_w, dst_h);
-+	dst_addrs = rga_lookup_draw_pos(&corner_addrs, rot_mode, mir_mode);
+ 	 * Copy colorimetry from output to capture as required by the
+@@ -480,7 +467,7 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+ 		 "[%s] fmt - %p4cc %dx%d (stride %d)\n",
+ 		  V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+-		  &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
++		  &pix_fmt->pixelformat, pix_fmt->width, pix_fmt->height,
+ 		  pix_fmt->plane_fmt[0].bytesperline);
  
- 	dest[(RGA_DST_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		dst_offset->y_off;
-+		dst_addrs->y_addr;
- 	dest[(RGA_DST_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		dst_offset->u_off;
-+		dst_addrs->u_addr;
- 	dest[(RGA_DST_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
--		dst_offset->v_off;
-+		dst_addrs->v_addr;
- }
- 
- static void rga_cmd_set_mode(struct rga_ctx *ctx)
-@@ -426,8 +425,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 
- 	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
- 
--	rga_cmd_set_src_info(ctx, &src->offset);
--	rga_cmd_set_dst_info(ctx, &dst->offset);
-+	rga_cmd_set_src_info(ctx, &src->dma_addrs);
-+	rga_cmd_set_dst_info(ctx, &dst->dma_addrs);
- 
- 	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
- 
+ 	for (i = 0; i < pix_fmt->num_planes; i++) {
 diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index dc6f90b843c32..025b1df594e9a 100644
+index d203b7dae2b03..d98e57c6d7b57 100644
 --- a/drivers/media/platform/rockchip/rga/rga.h
 +++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -96,10 +96,10 @@ struct rockchip_rga {
- 	const struct rga_hw *hw;
+@@ -17,18 +17,12 @@
+ #define DEFAULT_WIDTH 100
+ #define DEFAULT_HEIGHT 100
+ 
+-struct rga_fmt {
+-	u32 fourcc;
+-	u8 color_swap;
+-	u8 hw_format;
+-};
+-
+ struct rga_frame {
+ 	/* Crop */
+ 	struct v4l2_rect crop;
+ 
+ 	/* Image format */
+-	struct rga_fmt *fmt;
++	void *fmt;
+ 	struct v4l2_pix_format_mplane pix;
  };
  
--struct rga_addr_offset {
--	unsigned int y_off;
--	unsigned int u_off;
--	unsigned int v_off;
-+struct rga_addrs {
-+	dma_addr_t y_addr;
-+	dma_addr_t u_addr;
-+	dma_addr_t v_addr;
+@@ -142,8 +136,6 @@ static inline void rga_mod(struct rockchip_rga *rga, u32 reg, u32 val, u32 mask)
+ struct rga_hw {
+ 	const char *card_type;
+ 	bool has_internal_iommu;
+-	struct rga_fmt *formats;
+-	u32 num_formats;
+ 	size_t cmdbuf_size;
+ 	u32 min_width, min_height;
+ 	u32 max_width, max_height;
+@@ -155,6 +147,10 @@ struct rga_hw {
+ 		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
+ 	bool (*handle_irq)(struct rockchip_rga *rga);
+ 	void (*get_version)(struct rockchip_rga *rga);
++	void *(*adjust_and_map_format)(struct rga_ctx *ctx,
++				       struct v4l2_pix_format_mplane *format,
++				       bool is_output);
++	int (*enum_format)(struct v4l2_fmtdesc *f);
  };
  
- struct rga_vb_buffer {
-@@ -111,8 +111,8 @@ struct rga_vb_buffer {
- 	dma_addr_t dma_desc_pa;
- 	size_t n_desc;
- 
--	/* Plane offsets of this buffer into the mapping */
--	struct rga_addr_offset offset;
-+	/* Plane DMA addresses after the MMU mapping of the buffer */
-+	struct rga_addrs dma_addrs;
- };
- 
- static inline struct rga_vb_buffer *vb_to_rga(struct vb2_v4l2_buffer *vb)
+ static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga)
 
 -- 
 2.53.0
