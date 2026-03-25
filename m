@@ -4,130 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA72109C02D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094A5109C02F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGiGgg5Zd6Hy1LT4A8o+mz0IWMCHiK0/VW/7irwh2AE=; b=GG0owLoaWODbgdpdWkrc+fj+/w
-	La93wII736CVXimhMb+uv+u/6YN4+6z58Yu1YijviI5mKt/yc/DprsZkdzTaI152YuEIea5hMvyuq
-	fnhm/2O5bJ2I2X6sdEprUkLdD5/bpRub0QrZcbV/SXL0ji0UV9pR2/3O7TLzuTn7wp6kwx1jnf0PV
-	zn3ZECUbDQpTopRBtIsNnSpFDAFX+k7LT8LbXBCCnbvZ2PftHTe5L2N4hNwlCp1Ri7ArgsE4xX8zP
-	lB5c86+QNX84dh3e0P+rshoBoDY84Dw3I5fXr1Tn9RHfkF7I406FdKo6VBrlT7CosmgtbXz4C6QM/
-	KIggpVFg==;
+	bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=; b=NrN6koyz3ymVWvBUuH9rVAcwfH
+	PupyaWgDCq2Tt4OAO3IFypqioERuUFYtnsmP31q3KkFr5yWVnxRo133j28zfV0UHVpuPtmFJft8/B
+	jlkaSvR3jOGOwQUczhccMprZrnfxmunYd/WOSnHCfuFwP+bPiU5XXXXQx2V0ne3DgRHvNDl21E4L8
+	B8opre2jLK6RlseaBXWmMNoOzQABu95Bc1t6QEJQbAYfXgOkrULL86iGjvn14WYVVRHqj6lcE9XBy
+	hyakZvmd3ibgowCBs5f6CY6Pw4GEOojgEGb7oW4cWGptQnjatxM+m8gFJPYcLYyJJeko9iTlL2ZAS
+	yDfbqCOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PdQ-00000003ilj-4AoF;
-	Wed, 25 Mar 2026 14:55:04 +0000
-Received: from mail-francesouthazon11011025.outbound.protection.outlook.com ([40.107.130.25] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w5Pe5-00000003iqG-1K7o;
+	Wed, 25 Mar 2026 14:55:45 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PdP-00000003ikk-0GPF
+	id 1w5Pe1-00000003ipe-434R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:55:04 +0000
+	Wed, 25 Mar 2026 14:55:43 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=VjG/WnTvZhANns9swkFhRoNDBOe2vq3j1BtEDMhc/brGMzxcBin17nqMTQYxetRs9pDH7yrjDOZxz9PA8nyo78qVw90Eai7ycbU8Fimhn7Xa+1Q5021CqQ5jGJ7f8XVqhHHN9wfaaiuVwcRGfjbe1p9Tv/pP5RPMkvQOJEleEdH1rpsIDneenhymbyskA/qEwnKbyGtdE2STOWERPfTQ18jwiKLHpZhoeOhmSZjURD8fU8OMe9J+YiAd4hDBXeZhWMsqGvbzCw1hLNYnUNLVfbDsmZg3IRP9KLCvK/plVP9z78H1BtECC9eUv0ZJk0U+kDMeZnbFBYGfDCChDPOaVg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
+ b=ZMLtw/GweoNiMRs4g/z5cbi2vpeIimqUNTH7sMZ898ilPOMhs+HFlhLQ3y7MP07HlEXObT28disLtAZ1U9VzZ2V0S0AZUkbLX3pWmvNDo+bgo+BgDY2rVxizuzFhsH/+FdP6SBaiTsxcwzxaabqcAyrjN5uar9/KpaifUYGGLI7UCAiqdATeCguHZN1ws2ed3Yn5z6D79pLM35nBP5RwdGPN3RFNvuLbG+nxYyMl01w0gQFv9YedlA3eNcRYvleQf8h0riqLQYRhi7/Oy1bOHHHZn8TCB9D3Oq8/PX+dR92qbbg+qXYj/vforqw/OyxTK+Cik3nnsVPmsM9ZpSyzuw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
+ b=JP4Ue38S6IB0fVz5OoLERR1HFIUljBsoX4dzc3sBg1WSCGZZazmhRHh/LumB8fxMbAGnVYA9C0SZyOTm7MPM0jVapwUwv+oxB5OVYHrrYtkoHpyREdzomyolsdhN3LnlWMbUyj52G+tyxiJSKBx5qkMZ9dPKX87ifWkOEqi/NWs=
+Received: from AS4P189CA0016.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5db::8)
+ by DB9PR08MB8412.eurprd08.prod.outlook.com (2603:10a6:10:3d4::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Wed, 25 Mar
+ 2026 14:55:32 +0000
+Received: from AM1PEPF000252DB.eurprd07.prod.outlook.com
+ (2603:10a6:20b:5db:cafe::56) by AS4P189CA0016.outlook.office365.com
+ (2603:10a6:20b:5db::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Wed,
+ 25 Mar 2026 14:55:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM1PEPF000252DB.mail.protection.outlook.com (10.167.16.53) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.21
+ via Frontend Transport; Wed, 25 Mar 2026 14:55:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s/hRYR8qaABGRJs9uMMdbOzh5d4zoRpK6bN0Vu/5A1inT23Xh05++qzzxPMgESfxL6TogUROwipR6bGF+sqR82y2pawiX7+PZcATGiQcE33vp+8lkSbnqx+9QL+WWPuRCPrpIRyqlFWSTaBZJsYOXSif5T5vWeTuawlttxssWuE/EueeW8dV7F4ZUJd4/gdNMQu4o/pJy8cw/VQj9Fw1wFDwqZRy0YvGef8PholY3lo7WiGKiGVmkwAEq+FfNnRlBFHroHzSNsk/LllCCnxx9MELtIacRNgSKbxWWz6yQN7uhnfzDvxXp3KPmWo+erS1c+6EA4giT+n7Bx7/OkXRzA==
+ b=V+UVjgZQZ2VQur9kdnp3UOyZClLLnqbaq8kyKYgBuv230B8bmXdgaPEse5RccOCJ+W4sOgM7gXFmDmbZ04Na9eWcPKPTIkuKEMiRM/uKGTmaHBddpM6aCRoanJPr70EpHL1HMjN3RkFmPCBbmteUfICT4eb4+u6RuBeOaPvRm9GAidfBnyrYqVuXxWiNa74ByHjZJSt7DrGqCLtxN5epDS+XzsDWsd7psPbaWJqAFVcwV62wLkiO8flx1CAsjnqgSXkv8hYa8PetGtqT7taEIjuvBuGaDAvqOZevfvhKuC+eY9Dgm57D24eFHuvRNnzdlzlszm/Sa9Tzjd5/LVEzvw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oGiGgg5Zd6Hy1LT4A8o+mz0IWMCHiK0/VW/7irwh2AE=;
- b=NynJZhbuZknnqvhcxmuxMDrbRnRCOkAk2KTgmxeGw4ADTPxg7XJAIxb5/Pv9Ej9VtHiVYL9neOV6xVEu9FgDbGnLT/ambd1vRzb9DDJ0T1TX3rADQ7h/YtgcnWp3WNauWHgFe8x/I4GfZbCrEsWXGnma+VXWNgIfg+G92J061RaW1lhoDQQmRmIQBJVnqBOAZ35Ki4etzpsP55d4FwjrWUn9e7gmxqyfgIyKjxSx3Il0ZwVaLqP9XkB3Dl0qqT5dNwCZz7wLYTaaj3yB+U7tg2bAOBvQEvXZEjmz1OcABfJdVUOUSqcQUILgXr7V8qY8OKAku+G6CNac1Ny9ci4tJg==
+ bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
+ b=WxV5zSneBh+mgwab6ODuJzDG/1UJjxrR5PuKmzrUNLUM06je4mCXGnOiQKbehr+YJtYjQU1F85CBTyJIWTsLj6Yyp0e19oof1BeAuU1cUezFLGhvrotrKIus6YfdOFWR+g0cslERZCbHSp2yCioGbL/bM795TrdYbn3RkKO4eZfL6/Pb4QqIa076AoKuLVUX+tr0nfNIdaeIIAmMOv++DO1rf4BoRTcZcvguxbfndFZfqgJZlGEhqa7FeG7UQ+UWzURMRoXqBZ7mCL4QiSe7B/h9Zt7XyzDLPwX9DRYwrrsjJekZZKpM0R9mz3XdsExxfW+Nk0VlXxtC+ynnXPClww==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oGiGgg5Zd6Hy1LT4A8o+mz0IWMCHiK0/VW/7irwh2AE=;
- b=QhZ/5DcxV0UU78fc8JRehbcXSxSO2Gd4GMvY+xMr72m1IGoZm6WVTvIZx4OqQ/1r3fkZf8rCxXEW3sq2a5bjTMiM8Ds+0HPf0tIvl4ofaFObW0HtX1NdcOzHm9/jGsH93TMyfhdLembuDFTvg6lAdNqX1CzhUZh3EwJWgM5VL2GShGaXd+sSJVSiq5IjXmzmdqjYOAlZl+Z2+E7hk2euLT2PXXu1tfdxEAXwN5N0E4VWRv+1jrEyIF9Z+qaoESNfNmDiAYFOXgKo0j8anoFUjV5DiJsrsqYTzJJ2sIzyKbozPsGVoHuZpM08vCPb/nVGNoNwQscKckIYbicrFEg/Iw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM9PR04MB7489.eurprd04.prod.outlook.com (2603:10a6:20b:281::15) with
+ bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
+ b=JP4Ue38S6IB0fVz5OoLERR1HFIUljBsoX4dzc3sBg1WSCGZZazmhRHh/LumB8fxMbAGnVYA9C0SZyOTm7MPM0jVapwUwv+oxB5OVYHrrYtkoHpyREdzomyolsdhN3LnlWMbUyj52G+tyxiJSKBx5qkMZ9dPKX87ifWkOEqi/NWs=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM0PR08MB11754.eurprd08.prod.outlook.com (2603:10a6:20b:743::9)
+ by PA4PR08MB5952.eurprd08.prod.outlook.com (2603:10a6:102:e9::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
- 2026 14:54:56 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
- 14:54:55 +0000
-Date: Wed, 25 Mar 2026 10:54:46 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Franz Schnyder <franz.schnyder@toradex.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH 3/3] arm64: dts: freescale: imx95-toradex-smarc: Use
- gpio-hog for WIFI_UART_EN
-Message-ID: <acP3NiGvRCc1SgjE@lizhi-Precision-Tower-5810>
-References: <20260325-mainline-update-imx95-v1-0-b5ebe976655b@toradex.com>
- <20260325115513.707914-1-fra.schnyder@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260325115513.707914-1-fra.schnyder@gmail.com>
-X-ClientProxiedBy: BY1P220CA0011.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::11) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+ 2026 14:54:29 +0000
+Received: from AM0PR08MB11754.eurprd08.prod.outlook.com
+ ([fe80::3427:f97c:862d:1850]) by AM0PR08MB11754.eurprd08.prod.outlook.com
+ ([fe80::3427:f97c:862d:1850%4]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 14:54:29 +0000
+Message-ID: <a35839df-74a0-46b3-b5e8-7e0a066b210d@arm.com>
+Date: Wed, 25 Mar 2026 14:54:28 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/11] arm64: Skip update of an idreg field affected by
+ an override
+To: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+References: <20260302115653.1517326-1-maz@kernel.org>
+ <20260302115653.1517326-2-maz@kernel.org> <abwXl35xQ2ze1XwJ@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <abwXl35xQ2ze1XwJ@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PA7P264CA0195.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:376::14) To AM0PR08MB11754.eurprd08.prod.outlook.com
+ (2603:10a6:20b:743::9)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB7489:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01ccdb7a-487e-46df-2a23-08de8a7e7a10
+X-MS-TrafficTypeDiagnostic: AM0PR08MB11754:EE_|PA4PR08MB5952:EE_|AM1PEPF000252DB:EE_|DB9PR08MB8412:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2ccbae7-d4cd-4b31-38e7-08de8a7e9055
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|56012099003|22082099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: RfJ8269rF4ijR/3BTjs2TEKafrzDW+Y49tr1G+c/r7R6mvENVzDXtYRc/wKkB+Huf/cVfAwca6flr1Z1esDZbKDMAFpmPWb73rW71UpNF4ZK4P8vprxrEMxz5lgV5pylTCVUw7xHeqN1wuFaicBFhvTE/MGaPqgrD4DNDvd8BWIcZ1qny7zNwX6m9SlY7+Z2af0QzXRv6/mbzzsRfuad+fI+3fPTgA8iE9s/Wk451iKto7A7fL2kGoQ9ewPJkoj8EhY0apVhNDy0CvC/c4k7GfPGpoN8kwBYVPinPlbh5vAOud7p0iNNB0EnYkielrLQPUYlkQbyZb1i3uQclQ9Mna7KnpXkVmcUFUBpb0ZdHQOXizoiu2KlduY1eOmfa8yRE+D9yKzYff0TVN5eyvVcxqy5Atq2PPVyEWTxgWDkeMP+BTHIbd/Da0xX/9w1d4Ao5lkEyTuv5EGeHQjLiBcASHssxPm6bTukXfUuqJYPF50avbG0EeVh0JkrONZSEIcMh+JZUOcmpPDbViXnADl6iG2s97e04Q3zD8/jO/NCiPk2wVeE+6bSt1xJucVS+jpjzx1XZ8ZFWoQmCNSH4EoEFSb/AMNpJqFH9dUCn8t7Pi6AOPvgTXJV+K1cf0lwsW7psiPOZniNOg3BsvgriJCd+1ADiCVTEK/VwO06IMwu8JtoMeaxzExiFCri6S96BL33h62ETRz8vhN2ep3tokrMx03azIrEkHsjm5JVkHU2mOPFBOuzylnWT1i6BwV0QZcI56eBGpeOVYRqxvhq2NwTXoaXrPEAK/DyWzV46ko89jA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|56012099003|18002099003|22082099003|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: dO3nQfmYSqFz/53hBJ8OJSI26g953lwgp9YAgkAwl3rpIpIpKn0rga+ydwujbDNAPH69wBhR9XMRMPXwlc8nT+cEWuy9069Q5TpObUUuanAzrHAR5w2NDmRrT5XR5PoEv5IczQRhPfcAt6aNv4917tqYG9loOij6I4LKrEJEleBEZGNx92tu5xOH8avETt/spOaKDxvv2VhJ9goWtE9UlARUX0t3qovgwp1tA+mJ26jo5W7ZRU6erU5sCTmqIVlOQi9dpKrmDaHo+i/6aDwROwlEIEm/ClOKKM1zMFmJ3Y6JK2onj373HVBIFL/QCuyj7b5WYvWi62/FMppKgPVOEcqEVsXPqigNiFJGfUEaqlVJJ3IQBYjXH4T4cKSP82UTzBNuObdFX5Qrv2xUA28cA+gFmiqeM+MBAHY6Rt6YIfBlJvnWDGSz65R3X5mGey8I77WzSLstABkcppPb5CIOTEfXDQx6iLizHRgcZWUdmUGLumaHunNcAOTdC/Wd5BnFw5HBiU9r4Ilo/zB0l2smos6FPi5yQeZkHo048jvqc1lzxaKJeTBE7qDubZ9POpGjY+5pRgj3jVTMU6kcEIxjQsaEVAjwM7NZveOHODubPEtp00iiAqSMG+fTDXaVbEY61ZKLkZoMKQ9WVRhYF9VlZ0LZOpQ923oOpBVUoW3HkdZX8n55Tmp1cUdsMJMmu4oggVKG4d02CBes4X1STJ6w2r6qzQR2T6JBhIKH/kcB7Hk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR08MB11754.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(56012099003)(18002099003)(22082099003)(7053199007);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: S+gOWowEj+6csdbCz9YTs0X1raqbkA0QakGAM5As8PsOyCwFOBcuwMOVegKXDvyLOnKkTCUB0CNUWLKjdHJwmK421Cq8xpNZsfo5djh85swUj+VYDlXgkxcmXT3jtm6RZdo7t3wQ0TqRSGLC8ItELvUWEubp4h1b1eR4o72Zw4cG7JTUsRhnh95smwR5Cm7+lYAbUTY45ZK+YuF7ky+tU6Gy7UytD1dm3jtopZgfMysz6JZ+YJ4MAFza028t7BlxJg/GaCJriCHjA/SfXrs2NCZZLqkSN0Wg97hpxlAh6ohBOHGV7V0qmViJwi31S+agXz5U9SdM3EOgVAkqp0/GAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB5952
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM1PEPF000252DB.eurprd07.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 375d7d90-a7a8-4b8c-ab5a-08de8a7e6aa3
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|14060799003|376014|36860700016|82310400026|35042699022|56012099003|22082099003|18002099003|7053199007;
+X-Microsoft-Antispam-Message-Info: lw3q+klnjwtg3zj1tk32XLdNjElm+wS+TcETLAuVdz4zWjeHfSY2T9ExCnuHkliAsAM3Nl9T9NCXrxnY0H8OC07Rbop67FxrNqnKVdjUwD9fZ33wW/zHQ3kftBGS6Rpqn34+ioj0s9RAUmotLemhdiQGCB1aKWKQyE7T+bzvUP5fWUIMNcccVZZsQiSxqAKYGNRuobhaSpqzZA7LyhuBchL2dIawRWzFYdgrxwUxJWBSU/i4Q239rNaZwuUBtSAsh1bFwdzTC1gu5GC6orTCVZv1IfuTxShebTce9ddJxFBBNZq0hDgWNdOzZbBZUhyL7Rb3Q0pD6neabH/B8aVYTXPzfUWr5mwKiiHEvP1Co7DAKJfA/cqZSLuMguFQwjNfStWgAtppsz1zNjoOGA8knnpU7Ex18cXoBWoWFCN/fHJGPvbXgq2WHBhRFgXD7AEAxCBt18/cSmT15OPRnTrP5QE3BA+40vHYYYEKVF46lAxOxIZHsGdMPJvrKpD+LvSHjaAmEP4CKIkz8tdO3BEfDu/LtoQUZgwmhASkZHZWj2+RIMsjcYfO0ZDSDM+kJvylfQr3RLpDRZQ7godSFngBPneUXt2nblppZlaKfj0mGGsUkAkkmubW40raPuzSrs45jQGB8d6Ll+B0q6ESa4PomH8pJNV1rFKj9rR8BNL16+mW+dDJ0+QMVz+STA/fJd79vG8yA+RQMxqYKVhM5OQrewGV/zZUOdbiFNOhjugKMCu5OSyH8BjJskFuBq5KwmCR0+sy+I6TiFmLyNeNJROfBA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(14060799003)(376014)(36860700016)(82310400026)(35042699022)(56012099003)(22082099003)(18002099003)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OyYzziY9kPjzX973U2eUWVjz9JUQy9yj/cXEkoBa/q9/E5KOU1RnUtrms+8e?=
- =?us-ascii?Q?6SHNaEGZ7z5S/Xdm/6yKvdqbqHvd7iVZkR1IJEAJVQ9Pz6wv0vQolnVY//UN?=
- =?us-ascii?Q?sDy+4bXIQ4mUHflZgF5ymO1pPUyzpXbgAhTYHhTk19xfvi6QJ7syyHzdIUHu?=
- =?us-ascii?Q?N0c419bYqu40Cc2WWhVaaIh35caUS1IRUcwsLzy76C9sRNlyiqCQB87DLwIR?=
- =?us-ascii?Q?p1ipkDAM2dwRnVMfPzpdGsvX1M9z3SlkX/b7sPXcmtVhm9peomqjrb+SPwfb?=
- =?us-ascii?Q?DKc0DHDm64axscG5XqyOf+NtC8+VOAgea0FpBqMjyXvxhBNNM2AVr6SEkuko?=
- =?us-ascii?Q?xRuf/orUx27TOW7evxoSUgbFq7wy82PXKCNjeW715vfb7TSgvLfxQt7rSFK8?=
- =?us-ascii?Q?hcWdgr1MSza08+EPbraOhLM/zw8DS5HnbV11ebSNF121uEthm9rrTee6Dhr+?=
- =?us-ascii?Q?HyZ9FWXVl8jkoEgYXBu3OyoWmvuz/1oMKQlsd0XSFDi4jNqKtGRKtHY98TwL?=
- =?us-ascii?Q?uJVRJkYjHqgyS2da59sVGmR5X1G5Y34hITgQpcOZ+uERO6HDrtJmXRXfG+KW?=
- =?us-ascii?Q?1Rb2yAnW9LvfWEKvTUeMlQWmdE/ek4Crk7kLjNwec5jagkJwfIhsvWNhim0F?=
- =?us-ascii?Q?0JuX5dApsOs8RQ2flZ6qRcIlGj9RhOTVC+2Tzc9hJA/CBUj1XDQ7ZiBoiiFO?=
- =?us-ascii?Q?NcmlpT9/oLQgdKskBAlctqTpFMTqzMeA00EAEWwVHRobo8FUDWIbcW9Tu8jU?=
- =?us-ascii?Q?qMORlpV30k9uf8IAGya7pdypy8ERBHbOWUOPcHcvMTELtcdVxxwHNtWFLy9x?=
- =?us-ascii?Q?xGl8BOEMLovW2tK7u1PplvAnUFH4U1vf2tl9vGlglxkFenBYHBvLf+srDag0?=
- =?us-ascii?Q?rI8zRx6ryws0IFahH28P2JH4CUid3TgLzphAqMVifAolioUvdqBAep6nbH4/?=
- =?us-ascii?Q?bFhvwvXRW1mihXhiPtFj2sZV/BjRoxnNIG2q1FpTCtzJ2rT0CkRSY74yw8mZ?=
- =?us-ascii?Q?Wt8zVnxgQkPNmKxttXxSSRvWX1WrtjFDF8A2FomOWMoDn7nvmqfF/zTVKm4X?=
- =?us-ascii?Q?CtEysRbmvCyMIYwP4l9hcbaCYKqL4RLKAuFym0/hBxBM+1NRltgW+NnUoDMQ?=
- =?us-ascii?Q?HkdjvHLmsF3gcPgjz26nuhfGEsKfGC2MPr7LvJvp9o9yaPvxi9J3g7yiMCJe?=
- =?us-ascii?Q?RuJu0WWbu1IKDg9LEucvyTZwLbkS/IbfKE6T4T1VtfQ8oad4cGWL4Y/Iwvc8?=
- =?us-ascii?Q?msyj+9wjlWWWRd4F9aPocrvtORGPg1Kzdzfya5O6cZv+reaGxN8eTk08AS77?=
- =?us-ascii?Q?NSY5CCCut9f/Not+2eCBWlYbRvfChn3Gs51Xi1SzLY1mViZj/bcAfz5UgcDM?=
- =?us-ascii?Q?KUN+/AqsESPZGSKa/yAp3NsDwjXSZ4R1/vP1rVHEiN99RLTC4aeA0smXJNSs?=
- =?us-ascii?Q?DTLb7LKUx2QBuIsIDLDyyUNzbU3EgzdZZWbsund9PWJAzLi76YrfXHIiukbS?=
- =?us-ascii?Q?5XvwrnugFxeRuF+0QE46omOizZvgz+OvHSEBUwCwE6xR3HTJbuKN8ezbsd4U?=
- =?us-ascii?Q?HK/rHJ0PVjdweKlrGsiLJKT5wVKlU52GkBtU3g4dlZwlL99FKBmi5hMJWeNw?=
- =?us-ascii?Q?IhwRier9ONrnqzedbFqaaMIZ++cYwkZ2RLsLZFy2xTnHFXVHMSpa7iKMVwO3?=
- =?us-ascii?Q?kD0Z8p4xQEvOFLV0tT8LDRigN4aWosSb//KbC1z6oxT6Ap9E?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01ccdb7a-487e-46df-2a23-08de8a7e7a10
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 14:54:55.3598
+X-MS-Exchange-AntiSpam-MessageData-0: Km9EajMiuooXLbkoNijGS3WcUhbmht3CPlnzHLSA55x9u7Kng9/Fzxa3JcdmCh8b5ogffERbCygGKca1RnKcksWyhWQCTjiGjefshzGW1zecPy+7IVDbmRP9E/hVgFzRaFBzHc6+eqaXc3lubInBf5zr7TG7vigg/WiN0isKFlcGFUrC46oF2GvTl1UwugtcbK/CFK1YGQjvtka231Ooi/deGVW3WR01WPwVitJz8VE9Edyrxfu0u6YnA5G2gi4XKZ/O7+GeXV5Ke6YTzaBRjx3aVHyrLgBlfZNI3A2d/eg7Wuxpmat/kx8XCFR93/1cZWAv7EMSQSHmWAsU9N9nIPgtrzUqlI5ZF4tFGcBavaSCF+PJaSXcnRlJJF5Rokap/fYW/ltsAmMJqyhxUEddxWBdPP3cvzm8XujY36h7qsDyxBG91SbNFZicmZZlcqFv
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 14:55:32.4220
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F7GONJexe0fDk8Usu/Pjk+sDyttq07SV6WrfdnE+ScZoApu/72UzhgEfENec3r32sl09sMssPrFQEcKXaLqxvw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7489
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2ccbae7-d4cd-4b31-38e7-08de8a7e9055
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DB.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8412
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_075503_127097_5054CF80 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260325_075542_173110_CB8D9651 
+X-CRM114-Status: GOOD (  32.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,49 +157,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:55:11PM +0100, Franz Schnyder wrote:
-> From: Franz Schnyder <franz.schnyder@toradex.com>
->
-> On the Toradex SMARC iMX95, the WiFi UART signals are shared with the
-> JTAG. The WIFI_UART_EN signal is used to select between these
-> two functions.
->
-> Configure the signal as gpio-hog and drive it high to select the UART
-> function by default. Add a label to override the hog in derived
-> device trees.
+On 19/03/2026 15:34, Catalin Marinas wrote:
+> On Mon, Mar 02, 2026 at 11:56:42AM +0000, Marc Zyngier wrote:
+>> When computing the new value od an idreg that contains a field
+>> affected by an override, do not update that particular field.
+>>
+>> The value computed at init-time must be kept as-is, as that's
+>> what the user has asked for, for better or worse.
+>>
+>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> ---
+>>   arch/arm64/kernel/cpufeature.c | 7 +++++++
+>>   1 file changed, 7 insertions(+)
+>>
+>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>> index c31f8e17732a3..28fc77443ccd3 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -1224,6 +1224,13 @@ static void update_cpu_ftr_reg(struct arm64_ftr_reg *reg, u64 new)
+>>   		s64 ftr_cur = arm64_ftr_value(ftrp, reg->sys_val);
+>>   		s64 ftr_new = arm64_ftr_value(ftrp, new);
+>>   
+>> +		/*
+>> +		 * Don't alter the initial value that has been forced
+>> +		 * by an override.
+>> +		 */
+>> +		if ((reg->override->mask & arm64_ftr_mask(ftrp)) == arm64_ftr_mask(ftrp))
+>> +			continue;
+> 
+> I got lost in the in the cpufeature framework, so I may be missing
+> something.
+> 
+> Let's say the primary CPU has a feature field with value 2 and we want
+> to override it to value 1. For e.g. a LOWER_SAFE feature, boot_cpu_data
+> will stored the overridden value of 1.
+> 
+> A secondary CPU comes online with the same feature missing, so value 0.
+> With the above change, we no longer update the system-wide feature
+> value, leave it as 1. Later on, for a system feature we may turn it on
+> even though the secondary CPU does not support it.
+> 
+> In summary, this makes the overridden field sticky for secondary CPUs
+> even if they don't support it.
 
-gpio hog have problem about probe order, are you sure gpio device probe
-before pcie?
+That is true. I think we should let the secondary CPUs alter the values,
+with initial CPU feature value with the override value set, the system
+could then choose the safest among the override and the others.
 
-I have not seen any place refer to wifi_uart_en.
+> 
+> Unrelated to your patch, I think we can similarly fail to reject
+> secondary CPUs in check_early_cpu_features() -> verify_local_cpu_caps()
+> because of __read_sysreg_by_encoding() which uses the override value
+> unconditionally. From this perspective, we are now consistent with your
+> patch above.
 
-Frank
+This is true as well and the override takes the priority and with the
+wrong level of override value the system could be made to think that
+some features are available even when it is unsafe to do so.
+We should sanitise the values read by __read_sysreg_by_encoding() with
+the "overrides". I can cook something up.
 
->
-> Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> index a90edefc5197..29e3f5bf867b 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-> @@ -451,6 +451,13 @@ som_gpio_expander_1: gpio@21 {
->  			"",
->  			"",
->  			"SMARC_SDIO_WP";
-> +
-> +		wifi_uart_en: wifi-uart-en-hog {
-> +			gpio-hog;
-> +			gpios = <12 GPIO_ACTIVE_HIGH>;
-> +			line-name = "WIFI_UART_EN";
-> +			output-high;
-> +		};
->  	};
->
->  	embedded-controller@28 {
-> --
-> 2.43.0
->
+> 
+> In all cases we taint the kernel for FTR_STRICT features but that may go
+> unnoticed or if we had FTR_NONSTRICT (does it even matter in this
+> case?).
+> 
+> Maybe that's the intended use and blame the user for passing the wrong
+> override. We are still slightly inconsistent depending on what the boot
+
+This is correct. We should at least WARN for impossible overrides on the
+secondaries. (We only do that for boot CPUs today). The other issue with
+this is WEAK_LOCAL cpu features where we use the capability wherever
+available. May be we could reduce the severity of the warning to 
+pr_warn_once().
+
+Suzuki
+
+> CPU supports where we still decide whether accept or reject an override.
+> We don't do this for secondaries.
+> 
+> Anyway, I'm not opposing to this patch if that's what's intended. I'm
+> sure I'll forget everything about this framework in a couple of weeks.
+> 
+
+
+	
+
 
