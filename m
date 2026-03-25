@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C63109E529
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEF7109E528
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrR8z+Ce8OF06CD+lE6WfL0H0WMfEgE90JGKMOo64/g=; b=Jp8z8rp5u62t3lpz0b3Jm56CnM
-	DaR+rIhaW4xZaElTcWA3GT5K5AdzGTw73CJRfAWGWHE2gw3MN5Bm5UO+Z7z9Hhaexau9qhg/igp8C
-	+XRy6qbcLaTFiCPPc13M4UAIzkwbvzMjNfhpNDdi00wahEXMyJWE4mtrNRugpQCWtY+CiUbOh9HEX
-	DpE+h+K3ot7pmwPOHVPIkqtoy838MFts6+hFOuFkfCfRjiGGdUq/se7Z3QFsV30ZnVxTBQDheBD0V
-	7HzPADum1kLz8RVfRzVkfU2UdEt/oeUbIrUjBf8FN3w/BF5OlqIZ3oR2EduX/guh0xSxRgRYva6Bg
-	h8navMxA==;
+	bh=3GWPkO9q5K293+rSyCByZjroAzShsUUBdXbmQ0QPeA8=; b=R+uqsqsIwxPUuZvcwHgwZInaIO
+	77dDNuXoe6CnCCVHPuKusimhlrNi1QW1fS5qJdq1B6PppdHQAk31T1jqy7qY3O5TaDu0FxHpbU+s8
+	0Cztbtoa1JG/E7AkJaK+0S8ZBj/9A3TsaY+NUovcEFJRYK6xUBsArei3fwmQMhr1jBjCoos4IFsYN
+	81XUuhM8rmSfPIvFCYW6O7RSxcsioZlCGQD1aBoLO0IekXF8JHm5EHvJQDiCtVYT/HA2YKMWzbzZc
+	8xVczVyFNoAgvKQDacdgUc7YakqnzpnjJrdWgse5UuXtYekyyFTcIbjn8q4iUTg5URQ0J1tmrBM8S
+	Ajc4RM+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Wcd-00000004M7y-0nOH;
-	Wed, 25 Mar 2026 22:22:43 +0000
+	id 1w5Wcc-00000004M7b-3mzj;
+	Wed, 25 Mar 2026 22:22:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WcW-00000004M3p-31PQ
+	id 1w5WcW-00000004M3n-2sHD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 22:22:38 +0000
+	Wed, 25 Mar 2026 22:22:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8763444587;
+	by sea.source.kernel.org (Postfix) with ESMTP id 69C2643C75;
 	Wed, 25 Mar 2026 22:22:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 405E1C2BCB4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 30C08C116C6;
 	Wed, 25 Mar 2026 22:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774477355;
-	bh=2aya4qzSBOnrqFcF0qCiQffRH1oUsnDZtVMTEa3jgnE=;
+	bh=9UCX6c9kBue4B3sgbyp0P1Fi4/nUyuZVOM3nKzPEbWs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ml0wSrigpR2DeHga6KHr4v8dLcTUo6ZEco/FPiw8erY70q6kzf7ChYRCbB2s0ofgb
-	 lyASFqjbGMUfN5L6AdvdLHLN7ekJi2XNYkYSeRz73uM+dINv+ffNxuhLPoY5sqgm1G
-	 GEr3N5/5sNx+cHyIGzHr6yMKnnTbnzkPkufn4cWvHLeR9XAOpkOmZKfTLzO36OYgsP
-	 cBW53YtJBPDamav8JExn4XpIJlywsnnNtXUSkG6HWFHaIagdQaLq7AnYGwqPdyBJ8B
-	 mkqQoVWtVaal+uwX2jwTyhi+eI5Y7kLlw69SuVKN5XhyndQ8uz28iY7hhuQmKOOWS+
-	 sTBdrObXYChgg==
+	b=LXpL4/p+3x2GYazbMumdPJ2u0s4HQn9WONBeVb9KuNqoRECEJnYzgV62TPBISI4HI
+	 Iqp790T4+F4A9fD843kXcVg1Som7DXB2K/33XuNn9DPJEn4YVnIyZzc7K9k8Wg/tYt
+	 ENIDnHJ5i863lJbZSYBcOfmFSCaTc6f9ZZwIE/A/HfSXDgrxyAwW2DqiTqGlE3be6e
+	 DiW3UTchGsxv65duWRfMxOqdFJ/g6pd5Dt1cBmqBHpDltPCmTy7iIsQbhRnJCfL1o7
+	 s5CmltsEo8KIfquu2hNIOL7UYXxekWnsjQRfyOVPCI4+aw1KgvKaAQpnoalH/axvB1
+	 QQoXKCthNx2ig==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34FD4109E529;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D4B6109E527;
 	Wed, 25 Mar 2026 22:22:35 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Wed, 25 Mar 2026 22:22:23 +0000
-Subject: [PATCH v9 2/6] dt-bindings: usb: maxim,max33359: Add supply
- property for vbus
+Date: Wed, 25 Mar 2026 22:22:22 +0000
+Subject: [PATCH v9 1/6] dt-bindings: mfd: maxim,max77759: reference
+ power-supply schema and add regulator property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-max77759-charger-v9-2-4486dd297adc@google.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260325-max77759-charger-v9-1-4486dd297adc@google.com>
 References: <20260325-max77759-charger-v9-0-4486dd297adc@google.com>
 In-Reply-To: <20260325-max77759-charger-v9-0-4486dd297adc@google.com>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -74,19 +74,19 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  Amit Sunil Dhamne <amitsd@google.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774477354; l=1273;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774477354; l=1898;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=xHGJ1Vk5ohekxV/HkgsFaQ5FhplVGnbXa8tx/HTuhSE=;
- b=CTTOsuHGqVUcu4uWfAFuYbSqHf/2gLAtRaF9QcKDjxZI511TxrXnXqTcN5uL2O40X58LVgvhg
- 2xQrghgR95LAiEQ4UxBVsFYDj/kEO+8Q7PFMWxrkTvQlb05IeA8qpkG
+ bh=vVEQb41vA+t6rlDPrzI7KwMZCc1WnDQaHQOICIfZd9s=;
+ b=3j8YrSqS2bsLk/cq1k+cPifauF6cnA/HvyVgV3zfi6ELmpRQH1eCykwiBpndv7iy2yRq7X+Nb
+ dlkLgbGkw+XDPWm5EOdSmAvy1c1LmTTfrfNnRNTWTGW2hotstxIGsab
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_152236_807574_1A9525ED 
-X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-CacheID: sfid-20260325_152236_778107_A6E10B74 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,39 +105,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Amit Sunil Dhamne <amitsd@google.com>
 
-Add a regulator supply property for vbus. This notifies the regulator
-provider to source vbus when Type-C operates in Source power mode,
-while turn off sourcing vbus when operating in Sink mode or
-disconnected.
+Extend the max77759 binding to reference power-supply schema, so that
+PMIC node can reference its supplier. Also, add regulator property to
+control CHGIN (OTG) voltage.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: André Draszik <andre.draszik@linaro.org>
 ---
- Documentation/devicetree/bindings/usb/maxim,max33359.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../devicetree/bindings/mfd/maxim,max77759.yaml          | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/usb/maxim,max33359.yaml b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-index 3de4dc40b791..e652a24902ea 100644
---- a/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-+++ b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-@@ -32,6 +32,9 @@ properties:
-     description:
-       Properties for usb c connector.
+diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+index 525de9ab3c2b..42e4a84d5204 100644
+--- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
++++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+@@ -16,6 +16,9 @@ description: |
+   The MAX77759 includes Battery Charger, Fuel Gauge, temperature sensors, USB
+   Type-C Port Controller (TCPC), NVMEM, and a GPIO expander.
  
-+  vbus-supply:
-+    description: Regulator to control sourcing Vbus.
++allOf:
++  - $ref: /schemas/power/supply/power-supply.yaml#
++
+ properties:
+   compatible:
+     const: maxim,max77759
+@@ -37,12 +40,18 @@ properties:
+   nvmem-0:
+     $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
+ 
++  chgin-otg-regulator:
++    type: object
++    description: Provides Boost for sourcing VBUS.
++    $ref: /schemas/regulator/regulator.yaml#
++    unevaluatedProperties: false
 +
  required:
    - compatible
+   - interrupts
    - reg
-@@ -53,6 +56,7 @@ examples:
-             reg = <0x25>;
-             interrupt-parent = <&gpa8>;
-             interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+            vbus-supply = <&chgin_otg_reg>;
  
-             connector {
-                 compatible = "usb-c-connector";
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -59,6 +68,11 @@ examples:
+ 
+             interrupt-controller;
+             #interrupt-cells = <2>;
++            power-supplies = <&maxtcpci>;
++
++            chgin-otg-regulator {
++                regulator-name = "chgin-otg";
++            };
+ 
+             gpio {
+                 compatible = "maxim,max77759-gpio";
 
 -- 
 2.53.0.1018.g2bb0e51243-goog
