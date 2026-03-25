@@ -4,87 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D67AFEA83E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44435103A9A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAZwoz6zJrlCvSg5nIwe/xNEemY6Jvq8kD+By9rF1Ys=; b=HxuDTrvgxnqpxjAw6FQQYpoIu1
-	r/M7EokM4RuAFPsObfIa14jaVV8RMrE8+KA/fC0sukF2+JSdGOroSgErncSBKKJ4+OGVlm74QbQaH
-	F/AWrRDDi/NUT4piWC+ICg3tpAp3a84jx35J7kNWPvc2YUK1Jzmk+wNvkgqphwaknvqPA0ydGW0bi
-	UDhsFom/BSPGaE5DnttCFqMiz+C7xVqpSRVqk3VTVQKIkYmmFrzAoiVJQ3m2WWa0s+oGyu22MNqAN
-	WeeCtKeuZJiZMA6fm9j9pfzol0gE5vfgqKcBB0uz1fqfPsMmdV6xhtt3dmBDN5N0YyE2uBWVZpDwt
-	dyis1uJA==;
+	bh=PSVXXzX+7YEculvibBHwFwLpTRS4o/JrRp5O6mI0ZS0=; b=ladG9OAxwZFdodlqzlLfhUSOz7
+	fKqGFRHZuuFgsuRi59/cOeJQCGVad410k3OfChYDY4RMR/exSmrPzRy3OXc+Rg6zSHkVeSYgi/Dxq
+	tzaYLWghDzLbDkJxkjo9iY4fcsX/4JcAQs2KoVsMWa1M5qSnSyChL8XxUQBFelzSglkaP06A3XeC9
+	a8PLbpKHs4JgYhFzGPkr/KBFDxQc9ZMHYuWDx1oXC7s8/Hnyz+EBG+HdMZsPTCsQR5yhPhmqGQhDw
+	0IjzvlKO5Fn8GtH73dAciSrKrAH4p2Q9xw/IGFMmG3TKMIfmuJfc3OhJw+PED+oOhvAfyeZsxj31U
+	JwL535RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MHp-00000003F8a-3dmQ;
-	Wed, 25 Mar 2026 11:20:33 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1w5MJR-00000003FIB-3XoZ;
+	Wed, 25 Mar 2026 11:22:13 +0000
+Received: from mail-japanwestazon11022093.outbound.protection.outlook.com ([40.107.75.93] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MHn-00000003F8E-3VFz
+	id 1w5MJN-00000003FGr-0pAS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 11:20:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774437632; x=1805973632;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TVTcQb5blXw3BEZG0IaidyohTKbDsy4QnSKmj9ruqUo=;
-  b=hNGXzfRJXmrfgB3j6FP35GqB606nJZ/4GSgxumCmF1IoRjwgixFeJtxY
-   86LBWdP/Ioa10b9V4UvB4cIxbDVfTH5CQeRRJaw6M++27VZMFkQMDGm++
-   4eE9Wbvn0crnykaQjCti5qylKh6YHuqGU6AnQL9RDChYQHVgcADq6DIaQ
-   DoKcqc1WgbWuUTTR111VXAHgI5KHaulhFIHgPKZ4k+toFby5z2+bW0XY0
-   5M8hhdfLMrxCKPFVlz8pUvHPB+lWTuSawvodazErK21VTkbGtzWUlbhW9
-   O9W45QvdPG6GxfZ5/pUULmp38gmg4hTnxzg3TfH7BEUNOR2SIsxznU6P6
-   g==;
-X-CSE-ConnectionGUID: lIg60ulbS9SwYK/1xZpWfg==
-X-CSE-MsgGUID: MJ3TblWTQHis1HdjXejvRQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="78069425"
-X-IronPort-AV: E=Sophos;i="6.23,140,1770624000"; 
-   d="scan'208";a="78069425"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2026 04:20:31 -0700
-X-CSE-ConnectionGUID: gUUN8aQtQuOki9WyooG9HA==
-X-CSE-MsgGUID: KF6uE9rERyaXq4YCDcDQEQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,140,1770624000"; 
-   d="scan'208";a="226294612"
-Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 25 Mar 2026 04:20:27 -0700
-Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w5MHg-000000006jB-0AT4;
-	Wed, 25 Mar 2026 11:20:24 +0000
-Date: Wed, 25 Mar 2026 19:20:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, jk@codeconstruct.com.au,
-	andriy.shevchenko@linux.intel.com,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Rayn Chen <rayn_chen@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
-	Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v27 3/4] i2c: ast2600: Add controller driver for AST2600
- new register set
-Message-ID: <202603251922.TFJuUipj-lkp@intel.com>
-References: <20260324-upstream_i2c-v27-3-f19b511c8c28@aspeedtech.com>
+	Wed, 25 Mar 2026 11:22:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ckGdc7A7J0blXBeVPmbgZTE99u5xZLB2nzPQMfKoqMsGYiCc+TTxkzzSZxm6TZsXWXqYt7uxWNTTd+oGIZhCHAr/NDMUKd76G3dfqcOYvB1AEG6Up0WzGLKazDHug/4EU+Bu9tVd/ftUluVe0Wgmj/bB0tb8m9iiLbaoezlG2MtC3gvVwENvzV3zwL7J3Ojt9bXpyqVWAacLWrfZOmpRWnfJcVknZ1295lZFaiCWvQLK/5eKJy2aKcWFd0np9Qhxd+OYeVmdffpJ6ViwWqcoQ/Opo9fUeCZq+oUBkXOwz2FUjg1OXL5vSk7o468sZDcF5qed05YLUZoqEUbsFxWCqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PSVXXzX+7YEculvibBHwFwLpTRS4o/JrRp5O6mI0ZS0=;
+ b=HjrpRor+/oM03SfGIsdhhU3RAxV7OL7SupeAcrevxWCQO7BGTCGZt6sdrlbwI30Vnn7FuOArUq8JH4qTEpMHAK8rPBufNV3dyG6Zsg0XHF2ZykdR2dH3WuXjGZrgS9sOpt+lv8+X+EfOsDBbyxEkTvHs7/nl2pr5V3VygylYduWoQ3ncI6D3FWnTx8M5Dft9Iw4quY7qnyWE6qIZmlX97rQU/aMwL8x1WFOqQh2bpZT7r3DRjF4dOx4//UZhn7gicAorn0LHxClDROqYYcHbzT5cAfrrtKBZ0TnD4AsiqDwcuKsfBpfSAVMCqxVGiu+MtEBHmXMtXqW1mF67AaUXUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR01CA0033.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::23) by TYZPR06MB7064.apcprd06.prod.outlook.com
+ (2603:1096:405:3a::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Wed, 25 Mar
+ 2026 11:22:02 +0000
+Received: from SG2PEPF000B66CE.apcprd03.prod.outlook.com
+ (2603:1096:4:192:cafe::9e) by SI2PR01CA0033.outlook.office365.com
+ (2603:1096:4:192::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Wed,
+ 25 Mar 2026 11:21:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CE.mail.protection.outlook.com (10.167.240.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Wed, 25 Mar 2026 11:22:01 +0000
+Received: from guoo-System-Product-Name.. (unknown [172.20.64.188])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AA5104126F9C;
+	Wed, 25 Mar 2026 19:22:00 +0800 (CST)
+From: Jun Guo <jun.guo@cixtech.com>
+To: peter.chen@cixtech.com,
+	fugang.duan@cixtech.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	vkoul@kernel.org,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	robin.murphy@arm.com,
+	Frank.Li@kernel.org
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org,
+	Jun Guo <jun.guo@cixtech.com>
+Subject: [PATCH v6 2/2] arm64: dts: cix: add sky1 DMA-350 node with channel IRQ entries
+Date: Wed, 25 Mar 2026 19:21:59 +0800
+Message-Id: <20260325112159.663881-3-jun.guo@cixtech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260325112159.663881-1-jun.guo@cixtech.com>
+References: <20260325112159.663881-1-jun.guo@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324-upstream_i2c-v27-3-f19b511c8c28@aspeedtech.com>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CE:EE_|TYZPR06MB7064:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 300dd731-bc0e-47b6-1f3c-08de8a60bc88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|7416014|376014|82310400026|921020|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: DISGWF9hrKl8RS8QJuLXPl7YbpypybOhNHwHXQ+yzZOCRsScZRfny9zoFQHrmr5QvUWzk5wUuAMyG6BNxXq6H+A8OazlC7de5A9Z9k1A9tCNwucTRkBWpHm03g4MrJGzo2RhVY4QXLsjxiUkCYYO5MCn7YNx/TngLtZbFGbyyxlhGdab/aJPg9Q0/NzC1GADfngdpBaJFjf4mWjLvb52wjQjpaFFCsqrL8sqb9mc3Rt6pVfiCxc6wLj/z/USK4Z3gvOPGfLnzH+PeXeFAQLStyNLa8q5C8RKXgzrixrNWjcBbDH8yBDBsd0/S+3QKqkNNPfjDhiW85C4TRkI+JCJDFIbEPNO+Wv4kLAPWhwPQLwPdsBU/N55CF9mUe7E+dMb8o0Dpdjn0LCFPDu+u1zxxOcub/Fl2x9E3pPHMk+KvtdG+uY82x/IE7wD0crOS+mrzaMjCY5oBanC51bDM6FYT8F+oudfvrh1EX/VDM3S3Ej6yQ0nf1NHowkFFfSC/mWchRDRS7eLHwdQUAIDwOMMBNu3elFt5zQFbg9YgJRq4aX8XvNz/Gqi9dz39etFeaLAeuZOObqKjvllFaovlZWG1P42fYXAMtopdG93F1Q3NCRhrawuqNt4PHxg2bMNNywwingCgFztEQGF5Aopd18qIdQnD8vp1qZUgVyCRd6Exee2lKxiHG7CY/rPMMN/CMfr5f8Y9326l21Scud86Rr/HmFmLuX2gZrJQRDM9gcMeTxpf+5yMFPrZROvCxG5EXAeBbrjJhESzR3PZCccUt5qHJsdSTIxB5qQMwuhJBp1s70+9VZHQKTpi46thJJcfD2y
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(7416014)(376014)(82310400026)(921020)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: n6lYf50P59ALdV4g3jMNjUfSz/6yMVgcnCdQK0Joaj6o1EVTZGAKmdSbfz0uQdOv/DymfwYMHUa0qv1LrTl1ATBgPaltW79Nrz8lyv6k5i9vGEasSIdb0L1eDB+qFSMnIDBuqGPo8s+Etbv8cH5YeuKentt6PyUZTdjGF7b0CQoVcCHS1GEWemX7LIbsIQS2skY9oTJJzDXUT2uST+/iURQdo3s1b4JWAgbEuLaF/LwHeqeTLwHIbBxUTu2YhIshpZ3byytbj8tXjsj/n4LvVDzvbekmxrsZuE45nUpu5dgNhmxfre064/jgaGZ0huWkEVhQ2VbwUGGGhntXScEd55G92HR5JhXlYXxqC6x3IaKdY9wdUO0fPNXJxku0SgwGDsvwQDJydaNW9atKWYLa1ZZgpci4e8oyh8aeMrL07xgMwahNYH1IW7HSFJtsUX0Z
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 11:22:01.6075
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 300dd731-bc0e-47b6-1f3c-08de8a60bc88
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CE.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_042031_901858_961751CC 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20260325_042209_233984_E584462F 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,160 +126,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+Describe the DMA-350 channel interrupt sources in DT using 8
+interrupt entries, while all entries map to the same GIC SPI
+as wired on this platform.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+---
+ arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-[auto build test ERROR on 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-i2c-Split-AST2600-binding-into-a-new-YAML/20260325-112805
-base:   6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-patch link:    https://lore.kernel.org/r/20260324-upstream_i2c-v27-3-f19b511c8c28%40aspeedtech.com
-patch subject: [PATCH v27 3/4] i2c: ast2600: Add controller driver for AST2600 new register set
-config: i386-buildonly-randconfig-003-20260325 (https://download.01.org/0day-ci/archive/20260325/202603251922.TFJuUipj-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260325/202603251922.TFJuUipj-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603251922.TFJuUipj-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/i2c/busses/i2c-ast2600.c:955:15: error: no member named 'dma_abailable' in 'struct ast2600_i2c_bus'; did you mean 'dma_available'?
-     955 |         if (i2c_bus->dma_abailable)
-         |                      ^~~~~~~~~~~~~
-         |                      dma_available
-   drivers/i2c/busses/i2c-ast2600.c:271:9: note: 'dma_available' declared here
-     271 |         bool                    dma_available;
-         |                                 ^
-   1 error generated.
-
-
-vim +955 drivers/i2c/busses/i2c-ast2600.c
-
-   916	
-   917	static int ast2600_i2c_probe(struct platform_device *pdev)
-   918	{
-   919		struct device *dev = &pdev->dev;
-   920		struct ast2600_i2c_bus *i2c_bus;
-   921		struct reset_control *rst;
-   922		struct resource *res;
-   923		u32 global_ctrl;
-   924		int ret;
-   925	
-   926		if (!device_property_present(dev, "aspeed,global-regs"))
-   927			return -ENODEV;
-   928	
-   929		i2c_bus = devm_kzalloc(dev, sizeof(*i2c_bus), GFP_KERNEL);
-   930		if (!i2c_bus)
-   931			return -ENOMEM;
-   932	
-   933		i2c_bus->reg_base = devm_platform_ioremap_resource(pdev, 0);
-   934		if (IS_ERR(i2c_bus->reg_base))
-   935			return PTR_ERR(i2c_bus->reg_base);
-   936	
-   937		rst = devm_reset_control_get_shared_deasserted(dev, NULL);
-   938		if (IS_ERR(rst))
-   939			return dev_err_probe(dev, PTR_ERR(rst), "Missing reset ctrl\n");
-   940	
-   941		i2c_bus->global_regs =
-   942			syscon_regmap_lookup_by_phandle(dev_of_node(dev), "aspeed,global-regs");
-   943		if (IS_ERR(i2c_bus->global_regs))
-   944			return PTR_ERR(i2c_bus->global_regs);
-   945	
-   946		regmap_read(i2c_bus->global_regs, AST2600_I2CG_CTRL, &global_ctrl);
-   947		if ((global_ctrl & AST2600_GLOBAL_INIT) != AST2600_GLOBAL_INIT) {
-   948			regmap_write(i2c_bus->global_regs, AST2600_I2CG_CTRL, AST2600_GLOBAL_INIT);
-   949			regmap_write(i2c_bus->global_regs, AST2600_I2CG_CLK_DIV_CTRL, I2CCG_DIV_CTRL);
-   950		}
-   951	
-   952		i2c_bus->dev = dev;
-   953		i2c_bus->multi_master = device_property_read_bool(dev, "multi-master");
-   954		i2c_bus->dma_available = device_property_read_bool(dev, "aspeed,enable-dma");
- > 955		if (i2c_bus->dma_abailable)
-   956			i2c_bus->mode = DMA_MODE;
-   957		else
-   958			i2c_bus->mode = BUFF_MODE;
-   959	
-   960		if (i2c_bus->mode == BUFF_MODE) {
-   961			i2c_bus->buf_base = devm_platform_get_and_ioremap_resource(pdev, 1, &res);
-   962			if (IS_ERR(i2c_bus->buf_base))
-   963				i2c_bus->mode = BYTE_MODE;
-   964			else
-   965				i2c_bus->buf_size = resource_size(res) / 2;
-   966		}
-   967	
-   968		ast2600_i2c_set_xfer_mode(i2c_bus, i2c_bus->mode);
-   969	
-   970		/*
-   971		 * i2c timeout counter: use base clk4 1Mhz,
-   972		 * per unit: 1/(1000/1024) = 1024us
-   973		 */
-   974		ret = device_property_read_u32(dev, "i2c-scl-clk-low-timeout-us", &i2c_bus->timeout);
-   975		if (!ret)
-   976			i2c_bus->timeout = DIV_ROUND_UP(i2c_bus->timeout, 1024);
-   977	
-   978		init_completion(&i2c_bus->cmd_complete);
-   979	
-   980		i2c_bus->irq = platform_get_irq(pdev, 0);
-   981		if (i2c_bus->irq < 0)
-   982			return i2c_bus->irq;
-   983	
-   984		platform_set_drvdata(pdev, i2c_bus);
-   985	
-   986		i2c_bus->clk = devm_clk_get(i2c_bus->dev, NULL);
-   987		if (IS_ERR(i2c_bus->clk))
-   988			return dev_err_probe(i2c_bus->dev, PTR_ERR(i2c_bus->clk), "Can't get clock\n");
-   989	
-   990		i2c_bus->apb_clk = clk_get_rate(i2c_bus->clk);
-   991	
-   992		i2c_parse_fw_timings(i2c_bus->dev, &i2c_bus->timing_info, true);
-   993	
-   994		/* Initialize the I2C adapter */
-   995		i2c_bus->adap.owner = THIS_MODULE;
-   996		i2c_bus->adap.algo = &i2c_ast2600_algorithm;
-   997		i2c_bus->adap.retries = 0;
-   998		i2c_bus->adap.dev.parent = i2c_bus->dev;
-   999		device_set_node(&i2c_bus->adap.dev, dev_fwnode(dev));
-  1000		i2c_bus->adap.algo_data = i2c_bus;
-  1001		strscpy(i2c_bus->adap.name, pdev->name);
-  1002		i2c_set_adapdata(&i2c_bus->adap, i2c_bus);
-  1003	
-  1004		ret = ast2600_i2c_init(i2c_bus);
-  1005		if (ret < 0)
-  1006			return dev_err_probe(dev, ret, "Unable to initial i2c %d\n", ret);
-  1007	
-  1008		ret = devm_request_irq(dev, i2c_bus->irq, ast2600_i2c_bus_irq, 0,
-  1009				       dev_name(dev), i2c_bus);
-  1010		if (ret < 0) {
-  1011			ret = dev_err_probe(dev, ret, "Unable to request irq %d\n",
-  1012					    i2c_bus->irq);
-  1013			goto err;
-  1014		}
-  1015	
-  1016		writel(AST2600_I2CM_PKT_DONE | AST2600_I2CM_BUS_RECOVER,
-  1017		       i2c_bus->reg_base + AST2600_I2CM_IER);
-  1018	
-  1019		ret = devm_i2c_add_adapter(dev, &i2c_bus->adap);
-  1020		if (ret)
-  1021			goto err;
-  1022	
-  1023		ret = sysfs_create_file(&dev->kobj, &dev_attr_xfer_mode.attr);
-  1024		if (ret)
-  1025			goto err;
-  1026	
-  1027		return 0;
-  1028	
-  1029	err:
-  1030		writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-  1031		writel(0, i2c_bus->reg_base + AST2600_I2CM_IER);
-  1032		return ret;
-  1033	}
-  1034	
-
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 210739beac6d..ca3403df6e8b 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -480,6 +480,20 @@ iomuxc: pinctrl@4170000 {
+ 			reg = <0x0 0x04170000 0x0 0x1000>;
+ 		};
+ 
++		fch_dmac: dma-controller@4190000 {
++			compatible = "arm,dma-350";
++			reg = <0x0 0x4190000 0x0 0x10000>;
++			interrupts = <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH 0>;
++			#dma-cells = <1>;
++		};
++
+ 		mbox_ap2se: mailbox@5060000 {
+ 			compatible = "cix,sky1-mbox";
+ 			reg = <0x0 0x05060000 0x0 0x10000>;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
