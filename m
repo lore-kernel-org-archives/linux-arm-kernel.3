@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6F8109C05D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18FC106B504
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0F9aJVZNN0eTbnXntwroax4qbmwYtKZbs4lHsYJ+xpU=; b=wBpPuoHBsuFDDqnYahsxRXg6FZ
-	Z6RVnCfk4EqvxJ6UuBe1QifWLocJgo+xDdDbHMV6jCbPIEUdUDomu+wm0qAzoQf7dFovoSe4Uxco+
-	bXjZoc6ZUVpbMPckmgFg1IzTtAX3OdHSoUxvAGlV1ZiR9jlYDWJJ3NY2Rtw6u76FEU4plMHwcjMG+
-	1tzT6JI5dgsCjfeE2HlO/kMwsMzUCPl3naD84YECSkWAhJgon2whhzNHzwrFMOjrMjKv4nrDt8/tV
-	Ey/Uc15wo2UXF57X/84aTwm3NdNdK0+NQYuhPRhIgWWK7ksg1DOpXnq151NC+M8xpou6M5/7rIYXz
-	54IrXFwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+63yE0jsNx6IKVNNW5DKonRp2PgYnoHL3h+p28yrSC8=; b=dq4XjsicSxT25VjF7fGCxPtn7N
+	P3bo56a2Wk2Qlk/6qyL2YSr5Mn6pjcqnwyMcfxnjbbIZvuTjytZzFVwBobjJO1+qxi697rquvO8kS
+	pKStFK8vDIAs/I/8d+klRvQAQ3xMDCgoM2d0WnlqJtlhthLaBGlaMCmC/RVNRNltXL/0hBJXo57vX
+	zJBab+V3z1LPDEP7NMnGwQIUEfGp9MEtAnEbzL92mmfn7s8TE1ehhNqfQQR+nCuhG0YoLyadoDpZH
+	5TBBCySeuq+FOiw1jGKt9FXaNpR8C1w+QABKxnAY01sN9q8wrtiuCkTdImBljWKEFu1gnQg0SnLrs
+	ybg+445A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VKq-00000004F8d-1Rne;
-	Wed, 25 Mar 2026 21:00:16 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w5VR0-00000004Fb8-2gbl;
+	Wed, 25 Mar 2026 21:06:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VKj-00000004F6D-3aHW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 21:00:11 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CACF61123;
-	Wed, 25 Mar 2026 21:58:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774472330;
-	bh=A2OfuSGfu1pEciBmU7lFb8VQtaosmyFpXWzJHkIiFq8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jKrdb3YFMetZRP6Q2I/DW/SPIe8oxbScxh7f6oeP0dAdpRRc889ttGAzDDbAgF/p5
-	 ebYTLO8CEUuD+N4ENqyAuyB34bmG768Rt9UGK/5lAO/3vC/LlZBX5ZzLCCBACRJFfY
-	 7EXmtbRRb1jfGJpV8dTpbUN5GfGRBJMtdEvFx8Nw=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: netdev@vger.kernel.org,
-	imx@lists.linux.dev
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Joy Zou <joy.zou@nxp.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v4 2/2] net: stmmac: imx: Disable EEE
-Date: Wed, 25 Mar 2026 23:00:03 +0200
-Message-ID: <20260325210003.2752013-3-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260325210003.2752013-1-laurent.pinchart@ideasonboard.com>
-References: <20260325210003.2752013-1-laurent.pinchart@ideasonboard.com>
+	id 1w5VQz-00000004Faq-1ja9;
+	Wed, 25 Mar 2026 21:06:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6017760053;
+	Wed, 25 Mar 2026 21:06:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D777EC4CEF7;
+	Wed, 25 Mar 2026 21:06:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774472796;
+	bh=EeIJxhoizL0VHrXFjuJlP/f+9rmJaR50OY4vHdMlwfE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a6SmtO8KL/h5db7q0w193Qa/XVr9Xpj0JoGt7cCKgxbkcjf5umxxhimQBcbhq2Ot9
+	 c63j883PjdwCCLeUfd+Q1o5mS29QCsCYbWmOAp9lFKCNQEWs62JtUm/jrZziSkf0Eu
+	 f+W/BMlTeL66FX/vtrxIUcAmQZjFUt0rcR22rU6AJW/tMiMUCaPEcpmhQ2wEtElwGa
+	 /8QG9KCNoATgEYW0L0gPxL8qr/HZomFkBKHDz2v752E1yxfgLTaT5LLqoZ29S9Eyhh
+	 C6/hG59ugrHWkys5FRFOLDJJLj7SejybMisJox93kt8LXfgklQXFXcRXxKi2Cfy8N7
+	 2ifE6S3APHh0Q==
+Date: Wed, 25 Mar 2026 16:06:34 -0500
+From: Rob Herring <robh@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] media: dt-bindings: rockchip,rk3568-mipi-csi2:
+ add rk3588 compatible
+Message-ID: <20260325210634.GA3963190-robh@kernel.org>
+References: <20260305-rk3588-csi2rx-v3-0-754473981f39@collabora.com>
+ <20260305-rk3588-csi2rx-v3-1-754473981f39@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_140010_030739_99903AB4 
-X-CRM114-Status: GOOD (  15.36  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305-rk3588-csi2rx-v3-1-754473981f39@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX8MP suffers from an interrupt storm related to the stmmac and
-EEE. A long and tedious analysis ([1]) concluded that the SoC wires the
-stmmac lpi_intr_o signal to an OR gate along with the main dwmac
-interrupts, which causes an interrupt storm for two reasons.
+On Wed, Mar 25, 2026 at 11:25:34AM +0100, Michael Riesch wrote:
+> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
+> the RK3568.
+> Introduce a list of compatible variants and add the RK3588 variant to
+> it.
+> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  .../devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml   | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> index 4ac4a3b6f406..3d3b3cd78884 100644
+> --- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> @@ -16,9 +16,13 @@ description:
+>  
+>  properties:
+>    compatible:
+> -    enum:
+> -      - fsl,imx93-mipi-csi2
+> -      - rockchip,rk3568-mipi-csi2
+> +    oneOf:
+> +      - const: fsl,imx93-mipi-csi2
+> +      - const: rockchip,rk3568-mipi-csi2
 
-First, there's a race condition due to the interrupt deassertion being
-synchronous to the RX clock domain:
+These 2 should be a single enum as they were before.
 
-- When the PHY exits LPI mode, it restarts generating the RX clock
-  (clk_rx_i input signal to the GMAC).
-- The MAC detects exit from LPI, and asserts lpi_intr_o. This triggers
-  the ENET_EQOS interrupt.
-- Before the CPU has time to process the interrupt, the PHY enters LPI
-  mode again, and stops generating the RX clock.
-- The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
-  registers. This does not clear lpi_intr_o as there's no clk_rx_i.
-
-An attempt was made to fixing the issue by not stopping RX_CLK in Rx LPI
-state ([2]). This alleviates the symptoms but doesn't fix the issue.
-Since lpi_intr_o takes four RX_CLK cycles to clear, an interrupt storm
-can still occur during that window. In 1000T mode this is harder to
-notice, but slower receive clocks cause hundreds to thousands of
-spurious interrupts.
-
-Fix the issue by disabling EEE completely on i.MX8MP.
-
-[1] https://lore.kernel.org/all/20251026122905.29028-1-laurent.pinchart@ideasonboard.com/
-[2] https://lore.kernel.org/all/20251123053518.8478-1-laurent.pinchart@ideasonboard.com/
-
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
-Changes since v1:
-
-- Fix | operator placement
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-index 9d1bd72ffb73..01260dbbb698 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
-@@ -325,11 +325,7 @@ static int imx_dwmac_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	if (data->flags & STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY)
--		plat_dat->flags |= STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY;
--
--	if (data->flags & STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD)
--		plat_dat->flags |= STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD;
-+	plat_dat->flags |= data->flags;
- 
- 	/* Default TX Q0 to use TSO and rest TXQ for TBS */
- 	for (int i = 1; i < plat_dat->tx_queues_to_use; i++)
-@@ -366,7 +362,8 @@ static struct imx_dwmac_ops imx8mp_dwmac_data = {
- 	.addr_width = 34,
- 	.mac_rgmii_txclk_auto_adj = false,
- 	.set_intf_mode = imx8mp_set_intf_mode,
--	.flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
-+	.flags = STMMAC_FLAG_EEE_DISABLE |
-+		 STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY |
- 		 STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD,
- };
- 
--- 
-Regards,
-
-Laurent Pinchart
-
+> +      - items:
+> +          - enum:
+> +              - rockchip,rk3588-mipi-csi2
+> +          - const: rockchip,rk3568-mipi-csi2
+>  
+>    reg:
+>      maxItems: 1
+> 
+> -- 
+> 2.39.5
+> 
 
