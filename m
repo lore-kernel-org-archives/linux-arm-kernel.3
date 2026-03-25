@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC3C106B502
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DF0FEC11B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6kLDmixipbRPTZEMKqVu9x3tvNzWSMoXyK+NqiU0fM=; b=tpaQ0E9r5QnnUBHmMlLF0TZaT/
-	EIjA7TTy1b8lCY5jLnNpdvPIZh0tAGFrzYBOA/RltoWZsTRLYFvbVzbWUFpaqEFzWZQi+kTlHahac
-	pXe13/1+ZJLbYooz0iqd0DkTWaIgdz2621bL2Ks08qxixOsG8VpeVpep33Awd1mjX+iWgJk2XyM1R
-	19N1wlmxCuQnJG0V/SmsrdUHtb0q86h+xKm/pgXAdxCpKbfA8veLu2IFmRsAfxGu859ZvNVtWOKZl
-	8Sgme9iXY2T/4g4yG2bLQTS90F2sTJCpnsKg5urQIz0Vv3NDqSZKe6Pez5hERPTWzocAV0KIsaIf8
-	OmsBxayg==;
+	bh=EmXAi/wU6eElnGq1DdYsX5FKHeUBJkHX81j2b2F+gIo=; b=fQr+xHJrPSNGRIKmsOvga6WWcX
+	NlGQURPIobdzXQR32Kv8g77Ijaf6lutjOYqE+DIOy0smbcTrszaIiBGffwJfAI57OZcRdiul5dOF8
+	lonKYwoQqoH4UI5r2F/PVGl6RhhBQdMSFyYT+sdFcTKB4sKrTlZS+NuWhPcRIcpb4z6vujjtER4nl
+	NwCEsTuJlxhUD18SAAH1qfFF2m3xVKPie0iBntW3MYrK2bIJ52kI9zQCM5ByiYquu3h+2Xx/xjjT1
+	0+SnfTL1V0EXjA7uOxenNywQjIdI53rM8j1LtN3epGkCnnhLHEsS3vbAZ1d/xp7vBvLpbFMTAbK9B
+	piGt5alQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MlZ-00000003J7L-0CF8;
-	Wed, 25 Mar 2026 11:51:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w5Mle-00000003J9y-2qvL;
+	Wed, 25 Mar 2026 11:51:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MlS-00000003J2z-2uM3;
-	Wed, 25 Mar 2026 11:51:10 +0000
+	id 1w5MlR-00000003J2R-3hvv;
+	Wed, 25 Mar 2026 11:51:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB15960142;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8436144158;
 	Wed, 25 Mar 2026 11:51:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9BB67C2BCB7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 599CDC2BCB0;
 	Wed, 25 Mar 2026 11:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774439469;
-	bh=160P6WISh+Fsx9Mux8forF424XDx9Hb/XbWBrIa5OIs=;
+	bh=KeHI21tX17zitbyWM/R6acwXiOl1c2DxdhSIx3r5B2Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=m5SnJPKJQtu7Ku0/pcVsK6XnOzwEr2XK/RsDNKgzsp3ZB0anbtAgjBw+z8vVq1Pj9
-	 SGZkg/3M+8n0mZO3MPefy3E1loRg9hFHOK1HnOOx0jDNfbGjWSbEkjM0NL3I9i3ywH
-	 Hzo4bm7BKdZcgO2UszX6tk+7aHoZbr6TQlL7JQ00lpiDqeUsAcbdhWCkepRwkRdk8N
-	 DFlZci5FqiaMnesYikTtESg+W18cXRjjzojshLdKPFkM8sBYx0tkvALmQBPP4DPOnl
-	 QRTrTfv85mBPobxmzRV6YGdTKDgVhyt2K1UGbEAu3Fjw1hmOLgoEbu0LJD7eWMYeLM
-	 cRgBjZJ7JgQdQ==
+	b=At+9rirePFu0GD7weoBRWDz/whd0ugh9kPLeHHXaiK3Q3TxqVl3rTDh5hjUD93SHP
+	 MLlpTzsLA0Mx63R+/BYSXQEOpzYhSSZbINB8UhSk33TwYDSMJHQq2BW3cFgaHRXNKU
+	 1c6Ssc3ayoFu17qONPzv0XFw6h7ZjqskRMOb3daRx9RZt2A2h9Ly+gOcyxda9EqeAG
+	 h5y2WVIfX5EF8FDnl23xgt8algGEHgYuliiGn6egUzWpE9x2mG6gGopRZ9bvkDzRKh
+	 V/XP1y/DBFf6jVlKxom70UTe/xfB1tP+6FKdPSd0vkGCALRyG0vO25D0GI+Vp4kWJU
+	 psYReOh/D+3qQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9175B1093176;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46FB6103A9BF;
 	Wed, 25 Mar 2026 11:51:09 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Wed, 25 Mar 2026 12:51:09 +0100
-Subject: [PATCH DONOTMERGE v3 4/9] media: dt-bindings:
- rockchip,rk3568-mipi-csi2: add rk3588 compatible
+Date: Wed, 25 Mar 2026 12:51:06 +0100
+Subject: [PATCH v3 1/9] Documentation: admin-guide: media: add rk3588 vicap
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250430-rk3588-vicap-v3-4-e38e428868cc@collabora.com>
+Message-Id: <20250430-rk3588-vicap-v3-1-e38e428868cc@collabora.com>
 References: <20250430-rk3588-vicap-v3-0-e38e428868cc@collabora.com>
 In-Reply-To: <20250430-rk3588-vicap-v3-0-e38e428868cc@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -71,16 +70,19 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774439467; l=1219;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774439467; l=4759;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=/GzYE6Y65z4sqAFCGq0r5VgZhg70cR93RCV+j70gjCI=;
- b=rumYL0cT6v/mAk4sBmBymQu3l2qnRLwxnrYc8TFIKAHX/VVave0B4ZkbLy3lcDrTWToIMBiPo
- cLFWk+c+LgcBfWYM9WVSq2Fp+AXah0djUl5cvBmuSg2zWCtcRIrpfvz
+ bh=pTp72GEyrYn0y0wkkq8ExYmYCRhqw9pZRiQOONnrYOg=;
+ b=p2ddiO+BNbwKEbQI2oCzFXph9RouyAdBUN4czfnPoJacnmUU/dKwQD+L6044pVvnKJvLJ9BDG
+ waqddnjf5dIC+pFg7zc77LLwOEViCQeUny03d8eFb6zzHdFo/Dw9WF1
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_045109_980935_84941DA9 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,39 +100,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Riesch <michael.riesch@collabora.com>
 
-This patch is discussed over at
-https://lore.kernel.org/all/20260305-rk3588-csi2rx-v2-0-79d01b615486@collabora.com
-included here for testing purposes only.
+Add a section that describes the Rockchip RK3588 VICAP.
 
-The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
-the RK3568.
-Introduce a list of compatible variants and add the RK3588 variant to
-it.
-
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- .../devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml      | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ .../admin-guide/media/rkcif-rk3588-vicap.dot       | 29 ++++++++++++++++++++
+ Documentation/admin-guide/media/rkcif.rst          | 32 ++++++++++++++++++++++
+ 2 files changed, 61 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-index 2c2bd87582eb..5e864e92f8a8 100644
---- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-+++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
-@@ -16,8 +16,12 @@ description:
- 
- properties:
-   compatible:
--    enum:
--      - rockchip,rk3568-mipi-csi2
-+    oneOf:
-+      - const: rockchip,rk3568-mipi-csi2
-+      - items:
-+          - enum:
-+              - rockchip,rk3588-mipi-csi2
-+          - const: rockchip,rk3568-mipi-csi2
- 
-   reg:
-     maxItems: 1
+diff --git a/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
+new file mode 100644
+index 000000000000..f6d3404920b5
+--- /dev/null
++++ b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
+@@ -0,0 +1,29 @@
++digraph board {
++        rankdir=TB
++        n00000007 [label="{{<port0> 0} | rkcif-mipi2\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000007:port1 -> n0000000a
++        n00000007:port1 -> n00000010 [style=dashed]
++        n00000007:port1 -> n00000016 [style=dashed]
++        n00000007:port1 -> n0000001c [style=dashed]
++        n0000000a [label="rkcif-mipi2-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
++        n00000010 [label="rkcif-mipi2-id1\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
++        n00000016 [label="rkcif-mipi2-id2\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
++        n0000001c [label="rkcif-mipi2-id3\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
++        n00000025 [label="{{<port0> 0} | rkcif-mipi4\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000025:port1 -> n00000028
++        n00000025:port1 -> n0000002e [style=dashed]
++        n00000025:port1 -> n00000034 [style=dashed]
++        n00000025:port1 -> n0000003a [style=dashed]
++        n00000028 [label="rkcif-mipi4-id0\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
++        n0000002e [label="rkcif-mipi4-id1\n/dev/video5", shape=box, style=filled, fillcolor=yellow]
++        n00000034 [label="rkcif-mipi4-id2\n/dev/video6", shape=box, style=filled, fillcolor=yellow]
++        n0000003a [label="rkcif-mipi4-id3\n/dev/video7", shape=box, style=filled, fillcolor=yellow]
++        n00000043 [label="{{<port0> 0} | dw-mipi-csi2rx fdd30000.csi\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000043:port1 -> n00000007:port0
++        n00000048 [label="{{<port0> 0} | dw-mipi-csi2rx fdd50000.csi\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000048:port1 -> n00000025:port0
++        n0000004d [label="{{} | imx415 3-001a\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
++        n0000004d:port0 -> n00000043:port0
++        n00000051 [label="{{} | imx415 4-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000051:port0 -> n00000048:port0
++}
+diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
+index 2558c121abc4..313a0ea45d16 100644
+--- a/Documentation/admin-guide/media/rkcif.rst
++++ b/Documentation/admin-guide/media/rkcif.rst
+@@ -77,3 +77,35 @@ and the following video devices:
+ .. kernel-figure:: rkcif-rk3568-vicap.dot
+     :alt:   Topology of the RK3568 Video Capture (VICAP) unit
+     :align: center
++
++Rockchip RK3588 Video Capture (VICAP)
++-------------------------------------
++
++The RK3588 Video Capture (VICAP) unit features a digital video port and six
++MIPI CSI-2 capture interfaces that can receive video data independently.
++The DVP accepts parallel video data, BT.656 and BT.1120.
++Since the BT.1120 protocol may feature more than one stream, the RK3588 VICAP
++DVP features four DMA engines that can capture different streams.
++Similarly, the RK3588 VICAP MIPI CSI-2 receivers feature four DMA engines each
++to handle different Virtual Channels (VCs).
++
++The rkcif driver represents this hardware variant by exposing the following
++V4L2 subdevices:
++
++* dw-mipi-csi2rx fdd30000.csi: MIPI CSI-2 receiver connected to MIPI DPHY0
++* dw-mipi-csi2rx fdd50000.csi: MIPI CSI-2 receiver connected to MIPI DPHY1
++* rkcif-mipi2: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
++  MIPI DPHY0
++* rkcif-mipi4: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
++  MIPI DPHY1
++
++and the following video devices:
++
++* rkcif-mipi2-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi2
++  INTERFACE/CROP block.
++* rkcif-mipi4-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi4
++  INTERFACE/CROP block.
++
++.. kernel-figure:: rkcif-rk3588-vicap.dot
++    :alt:   Topology of the RK3588 Video Capture (VICAP) unit
++    :align: center
 
 -- 
 2.39.5
