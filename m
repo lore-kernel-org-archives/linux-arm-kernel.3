@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A99109C04E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 17:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C29109C04E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 17:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbDB9rxjdnsn1UTb7YlkdQOd4ifKfSbdGdz7bB1BEmA=; b=KirUaEuaRxQHB4AJ73SClRrFQO
-	CVO7AVSgcPgtaN2IO096YGZafBWAiRabaVXTjbobraniCPTwQelBXxhwTItAH6OuxTanLTeTRSLKj
-	SImlmumRjIvKl1QYqAiXnucpmMVXihPOyQd/R1kqOBDDY4zXr2QRFyGhsUpw6JsQxYm31rKjZtDsq
-	YW6JD/a0SpriLY/+U1mJHVdz3paZ9KfJxDXRJTIA8SbvKyXFStusooskbIbu+ARxIh+fpGV7FH/x5
-	DoF9woTNabqJEFX+wUK3q7gT+ogGhSH1NGguTKoNa1/RPe3Y7pzOzYgLb8RC0Lb2nDw/i4PdOEG9C
-	5CMOwYkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g7FLmeaUFf7PhJ36pvaOYTktXwvJqcP8WCBbpxvcbHI=; b=BxsO9XpO9tg/3pY04w65rswGJq
+	sw6X4DPw/7xb1jssW/ut9yoHrtAbdaywnd1065sLKRFx/8VBpsce84Xuahg2ov94EUC/SxMgbJ90M
+	nK3/P9sssKGI1EjDyDlSqNzgG04PzSPlzrrWvthtDNFgk/aTIvkCuK6zcMTFmyRLt/5oy/nW1twoZ
+	mLwVYqPUOHfg905t5B/0vW/joegsofpAnKxtrF5JG9CvWGX1dVeZ4xmlr0jFLBCsjhJ+eAHujBmjz
+	fXzw94p1BIHt6EN9G4cfMDPusKJGpAgyLqc5r2cn8BUsMgzRuvwjK9y/XtRhRwmABGLWGLicGxf7y
+	Ga7UefNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5S8H-0000000406S-1bbw;
-	Wed, 25 Mar 2026 17:35:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5S8F-0000000406M-2Lrf
+	id 1w5SAz-000000040Kh-1y0E;
+	Wed, 25 Mar 2026 17:37:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5SAv-000000040KN-37zO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 17:35:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D402060123;
-	Wed, 25 Mar 2026 17:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F855C4CEF7;
-	Wed, 25 Mar 2026 17:34:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774460102;
-	bh=EbLhVB6iS1vlGuGUCtBUkhmq/icBUn65MiS+x1rEuCk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MKcBY6a791jkx5gHCq4ysr7GBZz7gmQITFvcNlX6dMlMJEdujsVrD10TuUdxKphgK
-	 vDjPavA1epu+sqJkkXrUFOIGYXIEvtFFRlwQE5pQPM5+2qGdFov5p+oDx+9k+4tebN
-	 +g2j7XcEzN5OuXLATS5W5tdWUTXCzutiSXS84vx5RltHbFqt6YIfMQxWYt0c9rzM0e
-	 nCcom3m459y+W5sCUtcKBDGAczJa8r4YawhGq+BqbnSpvrgZU6pGdCBpVmyOVgKfIz
-	 j2rTS9SENMw4tS8iRSDB/8DWW3R9tqxi99Jyp7FCCXoGti1XZBPh+N0wOu/o37YesT
-	 9/wPhJVRq5UJg==
-Date: Wed, 25 Mar 2026 17:34:57 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>, Peter Rosin <peda@axentia.se>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Haibo Chen <haibo.chen@nxp.com>
-Subject: Re: [PATCH v3 3/7] pinctrl: pinctrl-generic: add
- __pinctrl_generic_pins_function_dt_node_to_map()
-Message-ID: <20260325-rectified-filtrate-32a8f7345d37@spud>
-References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
- <20260311-pinctrl-mux-v3-3-236b1c17bf9b@nxp.com>
- <CAD++jL=U2xNMMHk_LyH8CX+YpC5EGPVRasM11yesXSH4XLhqYw@mail.gmail.com>
- <absvZ5wzAwpbjHf1@lizhi-Precision-Tower-5810>
- <CAD++jLkp1CFcLccmLP0BWQSBKkruGCPT71dMeuyu3JY1N4T50g@mail.gmail.com>
- <ab1Rpf2zS8Bn1-HV@lizhi-Precision-Tower-5810>
- <acLxCnz3qYfAC3iB@lizhi-Precision-Tower-5810>
- <20260325-riding-browbeat-293b47f43d82@spud>
- <acP6oFsaD8PddWjg@lizhi-Precision-Tower-5810>
+	Wed, 25 Mar 2026 17:37:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3005F2444;
+	Wed, 25 Mar 2026 10:37:42 -0700 (PDT)
+Received: from [10.1.26.165] (XHFQ2J9959.cambridge.arm.com [10.1.26.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B1903F836;
+	Wed, 25 Mar 2026 10:37:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774460268; bh=p/OEs0TnnejAQjkFdiUHioGmEvF9yvEKBIlw0HK/PAM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=glNnsF7CcUDAAtiQxqkCMQXTyvIocCHfcWpHI7Cc8ePSiH12sl/W7usdCm08571AD
+	 ow+Od3i/Bq2iHkQjQWuvCc3Y3V0Bh/uTgOYimBvgjHoXIwNyCuNR+qtLoRuLGVmxAM
+	 tYbuPCf8qzuXLc8rG/bgK3ztEP66XxLXaCGMRDQQ=
+Message-ID: <eea4f7f1-c929-453b-adca-606ba6e4ec69@arm.com>
+Date: Wed, 25 Mar 2026 17:37:44 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CY/CCDWk7hyJWyAw"
-Content-Disposition: inline
-In-Reply-To: <acP6oFsaD8PddWjg@lizhi-Precision-Tower-5810>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] arm64: mm: Handle invalid large leaf mappings
+ correctly
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260323130317.1737522-1-ryan.roberts@arm.com>
+ <20260323130317.1737522-3-ryan.roberts@arm.com>
+ <401073fd-3438-419d-8287-35eea61919b0@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <401073fd-3438-419d-8287-35eea61919b0@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_103750_189231_B6E3598C 
+X-CRM114-Status: GOOD (  40.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,271 +77,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 24/03/2026 18:20, Yang Shi wrote:
+> 
+> 
+> On 3/23/26 6:03 AM, Ryan Roberts wrote:
+>> It has been possible for a long time to mark ptes in the linear map as
+>> invalid. This is done for secretmem, kfence, realm dma memory un/share,
+>> and others, by simply clearing the PTE_VALID bit. But until commit
+>> a166563e7ec37 ("arm64: mm: support large block mapping when
+>> rodata=full") large leaf mappings were never made invalid in this way.
+>>
+>> It turns out various parts of the code base are not equipped to handle
+>> invalid large leaf mappings (in the way they are currently encoded) and
+>> I've observed a kernel panic while booting a realm guest on a
+>> BBML2_NOABORT system as a result:
+>>
+>> [   15.432706] software IO TLB: Memory encryption is active and system is
+>> using DMA bounce buffers
+>> [   15.476896] Unable to handle kernel paging request at virtual address
+>> ffff000019600000
+>> [   15.513762] Mem abort info:
+>> [   15.527245]   ESR = 0x0000000096000046
+>> [   15.548553]   EC = 0x25: DABT (current EL), IL = 32 bits
+>> [   15.572146]   SET = 0, FnV = 0
+>> [   15.592141]   EA = 0, S1PTW = 0
+>> [   15.612694]   FSC = 0x06: level 2 translation fault
+>> [   15.640644] Data abort info:
+>> [   15.661983]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+>> [   15.694875]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+>> [   15.723740]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>> [   15.755776] swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000081f3f000
+>> [   15.800410] [ffff000019600000] pgd=0000000000000000, p4d=180000009ffff403,
+>> pud=180000009fffe403, pmd=00e8000199600704
+>> [   15.855046] Internal error: Oops: 0000000096000046 [#1]  SMP
+>> [   15.886394] Modules linked in:
+>> [   15.900029] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc4-
+>> dirty #4 PREEMPT
+>> [   15.935258] Hardware name: linux,dummy-virt (DT)
+>> [   15.955612] pstate: 21400005 (nzCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+>> [   15.986009] pc : __pi_memcpy_generic+0x128/0x22c
+>> [   16.006163] lr : swiotlb_bounce+0xf4/0x158
+>> [   16.024145] sp : ffff80008000b8f0
+>> [   16.038896] x29: ffff80008000b8f0 x28: 0000000000000000 x27: 0000000000000000
+>> [   16.069953] x26: ffffb3976d261ba8 x25: 0000000000000000 x24: ffff000019600000
+>> [   16.100876] x23: 0000000000000001 x22: ffff0000043430d0 x21: 0000000000007ff0
+>> [   16.131946] x20: 0000000084570010 x19: 0000000000000000 x18: ffff00001ffe3fcc
+>> [   16.163073] x17: 0000000000000000 x16: 00000000003fffff x15: 646e612065766974
+>> [   16.194131] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>> [   16.225059] x11: 0000000000000000 x10: 0000000000000010 x9 : 0000000000000018
+>> [   16.256113] x8 : 0000000000000018 x7 : 0000000000000000 x6 : 0000000000000000
+>> [   16.287203] x5 : ffff000019607ff0 x4 : ffff000004578000 x3 : ffff000019600000
+>> [   16.318145] x2 : 0000000000007ff0 x1 : ffff000004570010 x0 : ffff000019600000
+>> [   16.349071] Call trace:
+>> [   16.360143]  __pi_memcpy_generic+0x128/0x22c (P)
+>> [   16.380310]  swiotlb_tbl_map_single+0x154/0x2b4
+>> [   16.400282]  swiotlb_map+0x5c/0x228
+>> [   16.415984]  dma_map_phys+0x244/0x2b8
+>> [   16.432199]  dma_map_page_attrs+0x44/0x58
+>> [   16.449782]  virtqueue_map_page_attrs+0x38/0x44
+>> [   16.469596]  virtqueue_map_single_attrs+0xc0/0x130
+>> [   16.490509]  virtnet_rq_alloc.isra.0+0xa4/0x1fc
+>> [   16.510355]  try_fill_recv+0x2a4/0x584
+>> [   16.526989]  virtnet_open+0xd4/0x238
+>> [   16.542775]  __dev_open+0x110/0x24c
+>> [   16.558280]  __dev_change_flags+0x194/0x20c
+>> [   16.576879]  netif_change_flags+0x24/0x6c
+>> [   16.594489]  dev_change_flags+0x48/0x7c
+>> [   16.611462]  ip_auto_config+0x258/0x1114
+>> [   16.628727]  do_one_initcall+0x80/0x1c8
+>> [   16.645590]  kernel_init_freeable+0x208/0x2f0
+>> [   16.664917]  kernel_init+0x24/0x1e0
+>> [   16.680295]  ret_from_fork+0x10/0x20
+>> [   16.696369] Code: 927cec03 cb0e0021 8b0e0042 a9411c26 (a900340c)
+>> [   16.723106] ---[ end trace 0000000000000000 ]---
+>> [   16.752866] Kernel panic - not syncing: Attempted to kill init!
+>> exitcode=0x0000000b
+>> [   16.792556] Kernel Offset: 0x3396ea200000 from 0xffff800080000000
+>> [   16.818966] PHYS_OFFSET: 0xfff1000080000000
+>> [   16.837237] CPU features: 0x0000000,00060005,13e38581,957e772f
+>> [   16.862904] Memory Limit: none
+>> [   16.876526] ---[ end Kernel panic - not syncing: Attempted to kill init!
+>> exitcode=0x0000000b ]---
+>>
+>> This panic occurs because the swiotlb memory was previously shared to
+>> the host (__set_memory_enc_dec()), which involves transitioning the
+>> (large) leaf mappings to invalid, sharing to the host, then marking the
+>> mappings valid again. But pageattr_p[mu]d_entry() would only update the
+>> entry if it is a section mapping, since otherwise it concluded it must
+>> be a table entry so shouldn't be modified. But p[mu]d_sect() only
+>> returns true if the entry is valid. So the result was that the large
+>> leaf entry was made invalid in the first pass then ignored in the second
+>> pass. It remains invalid until the above code tries to access it and
+>> blows up.
+> 
+> Good catch. I recall I met this problem when I worked on a very early PoC of
+> large block mapping patch. It took a total different approach than
+> BBML2_NOABORT. I didn't run into that problem when I implemented BBML2_NOABORT
+> because nobody actually changed valid/invalid attribute on large block mapping
+> granule so I forgot it. But I definitely missed realm usecase.
+> 
+>>
+>> The simple fix would be to update pageattr_pmd_entry() to use
+>> !pmd_table() instead of pmd_sect(). That would solve this problem.
+> 
+> Yes, I agree.
+> 
+>>
+>> But the ptdump code also suffers from a similar issue. It checks
+>> pmd_leaf() and doesn't call into the arch-specific note_page() machinery
+>> if it returns false. As a result of this, ptdump wasn't even able to
+>> show the invalid large leaf mappings; it looked like they were valid
+>> which made this super fun to debug. the ptdump code is core-mm and
+>> pmd_table() is arm64-specific so we can't use the same trick to solve
+>> that.
+> 
+> I don't quite get why we need to show invalid mappings in ptdump? IIUC ptdump is
+> not supposed to show invalid mappings even though they are transient.
 
---CY/CCDWk7hyJWyAw
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Let's say we have 8M of PMD mappings, then we want to mark 2M in the middle of
+that as invalid. Prior to my fix, ptdump would show the full 8M as still being
+valid after making the middle 2M invalid. This happened because the note_page()
+call for the 2M invalid part was suppressed, but there was also no ptdump_hole()
+call since the PMD entry is not none. After my fix, we call note_page() for the
+non-none but invalid pmd and now the "F" is correctly displayed for that portion.
 
-On Wed, Mar 25, 2026 at 11:09:20AM -0400, Frank Li wrote:
-> On Wed, Mar 25, 2026 at 10:33:05AM +0000, Conor Dooley wrote:
-> > On Tue, Mar 24, 2026 at 04:16:10PM -0400, Frank Li wrote:
-> > > On Fri, Mar 20, 2026 at 09:54:45AM -0400, Frank Li wrote:
-> > > > On Fri, Mar 20, 2026 at 02:27:21PM +0100, Linus Walleij wrote:
-> > > > > On Thu, Mar 19, 2026 at 12:04=E2=80=AFAM Frank Li <Frank.li@nxp.c=
-om> wrote:
-> > > > > > On Mon, Mar 16, 2026 at 10:37:28AM +0100, Linus Walleij wrote:
-> > > > >
-> > > > > > > That said: in this case you're just adding a parameter, just =
-add
-> > > > > > > the parameter and change all of the in-tree users to pass fal=
-se
-> > > > > > > or whatever you need, these is just one (1) in-tree user anyw=
-ay.
-> > > > > >
-> > > > > > pinctrl_generic_pins_function_dt_node_to_map() directly feed to
-> > > > > > .dt_node_to_map() callback, add parameter will impact too much.
-> > > > >
-> > > > > Why do you say that. It already has many parameters, one more
-> > > > > or less doesn't matter. It's not like this call is performance-cr=
-itical.
-> > > > > Just change the users.
-> > > >
-> > > > In only user drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c,
-> > > > 	.dt_node_to_map =3D pinctrl_generic_pins_function_dt_node_to_map;
-> > > >
-> > > > pinctrl_generic_pins_function_dt_node_to_map() need match .dt_node_=
-to_map()'s
-> > > > declear.
-> > > >
-> > > > So it can't direct add two parameters in pinctrl_generic_pins_funct=
-ion_dt_node_to_map()
-> > > > Need simple wrap function, which other in pinctrl-mpfs-mssio.c or in
-> > > > pinconf.h.
-> > > >
-> > > > If add two parameter in .dt_node_to_map(), need change all function=
-s, which
-> > > > .dt_node_to_map =3D xxx_to_map(). and OF core part.
-> > >
-> > > Linus Walleij:
-> > > 	Is my explain clear enough? I am preparing respin it?
-> > >
-> > > 	is okay use wrap function
-> > > 	pinctrl_generic_pins_function_dt_node_to_map_ext()?
-> >
-> > I don't understand this patch. The function is called
-> > pinctrl_generic_pins_function_dt_node_to_map(). You have no pins.
-> > You're adding a parameter to make a function with *pins* in its name not
-> > use pins. The new function doesn't use pins but has pins in the name.
-> > At the very least function names should not be misleading.
-> >
-> > I was going to suggest pulling out the relevant portions and creating
-> > some helpers that could be used by multiple different-but-similar
-> > functions, but I don't actually even think that there's much in common.
-> > Most damningly I think, you don't actually read either the functions or
-> > pins properties at all and neither are permitted by your binding.
-> > So turns out you use neither pins or functions...
-> >
-> > You don't actually have any of these properties which runs counter to t=
-he
-> > goal of the function, which is parsing. With this in mind, it feels to =
-me
-> > like you're trying way too hard to make use of a generic function when =
-the
-> > right thing to do is probably just have an entirely custom function.
-> > Maybe that's a custom implementation in your driver, or a new function
-> > here, but I think writing that will highlight just how little of the
-> > code would be shared between the existing function and what your
-> > use-case needs: no pin configuration stuff, no reading of the devicetree
-> > other than the node names and no dealing with the label pointing to the
-> > "wrong" place.
-> >
-> > I recently bought a spacemit k1 board to go and write a sister function
-> > to pinctrl_generic_pins_function_dt_node_to_map() that deals with pins
-> > and groups (because that's a pretty common pattern).
-> > I would be calling that pinctrl_generic_pinmux_dt_node_to_map(),
-> > because it that's the property it deals with. I have honestly got no
-> > idea what to call one for this situation since you don't have any of the
-> > properties in pinmux-node.yaml. Maybe that's a sign.
->=20
-> At v2, I implemented customize dt_node_to_map(), Linus Walleij think it is
-> too similar with pinctrl_generic_pins_function_dt_node_to_map(), so ask me
-> to enhanance and reuse pinctrl_generic_pins_function_dt_node_to_map().
-
-Sure, and he's right that there's a lot similar. Everything you want to
-do, other than looking at the mux state, is something that
-pinctrl_generic_pins_function_dt_node_to_map() does. But bastardising
-a function that's explicitly about reading pins and functions properties
-to do things that have _neither_ is not a good implementation of that
-review feedback.
-
-If you're going to make something generic, the right level to hook in
-IMO is at the pinctrl_generic_pins_function_dt_subnode_to_map() level,
-I already know that 95% of the code in that function is identical to
-what will be used for the spacemit k1 that uses the pinmux property
-and changing its API is a lot easier than changing the API of something
-that is written to match the dt_node_to_map callback.
-You don't even benefit from the extra functionality that
-pinctrl_generic_pins_function_dt_node_to_map() provides, because you
-don't have ambiguity about where the phandle you're parsing from points.
-In your case, it has to be the group node.
-
-pinctrl_generic_pins_function_dt_subnode_to_map() could probably be
-split into two parts, one that does the dt parsing portion and a second
-portion that does the mapping to kernel data structures. The first
-portion of that is the for loop. The second portion is everything after
-the for loop and the bit that names the groups. IOW, do something like
-what I am pasting here, and you create your own function that wraps
-pinctrl_generic_to_map() in the way you want. I personally think this is
-more tasteful than what you've done, and more importantly I am pretty
-sure that this is what's needed to be able to maximise code reuse for
-the devices that use pinmux. I didn't compile this or anything, it's
-just speculative.
-
-diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-ge=
-neric.c
-index efb39c6a67033..7f02af6d9f3e4 100644
---- a/drivers/pinctrl/pinctrl-generic.c
-+++ b/drivers/pinctrl/pinctrl-generic.c
-@@ -17,56 +17,30 @@
- #include "pinctrl-utils.h"
- #include "pinmux.h"
-=20
--static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_=
-dev *pctldev,
--							   struct device_node *parent,
--							   struct device_node *np,
--							   struct pinctrl_map **maps,
--							   unsigned int *num_maps,
--							   unsigned int *num_reserved_maps,
--							   const char **group_names,
--							   unsigned int ngroups)
-+static int pinctrl_generic_to_map(struct pinctrl_dev *pctldev,
-+				  struct device_node *parent,
-+				  struct device_node *np,
-+				  struct pinctrl_map **maps,
-+				  unsigned int *num_maps,
-+				  unsigned int *num_reserved_maps,
-+				  const char **group_names,
-+				  unsigned int ngroups,
-+				  const char **functions,
-+				  unsigned int *pins,
-+				  void *function_data)
- {
- 	struct device *dev =3D pctldev->dev;
--	const char **functions;
- 	const char *group_name;
- 	unsigned long *configs;
--	unsigned int num_configs, pin, *pins;
-+	unsigned int num_configs;
- 	int npins, ret, reserve =3D 1;
-=20
--	npins =3D of_property_count_u32_elems(np, "pins");
--
--	if (npins < 1) {
--		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
--			parent, np, npins);
--		return npins;
--	}
--
- 	group_name =3D devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", parent, np);
- 	if (!group_name)
- 		return -ENOMEM;
-=20
- 	group_names[ngroups] =3D group_name;
-=20
--	pins =3D devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
--	if (!pins)
--		return -ENOMEM;
--
--	functions =3D devm_kcalloc(dev, npins, sizeof(*functions), GFP_KERNEL);
--	if (!functions)
--		return -ENOMEM;
--
--	for (int i =3D 0; i < npins; i++) {
--		ret =3D of_property_read_u32_index(np, "pins", i, &pin);
--		if (ret)
--			return ret;
--
--		pins[i] =3D pin;
--
--		ret =3D of_property_read_string(np, "function", &functions[i]);
--		if (ret)
--			return ret;
--	}
--
- 	ret =3D pinctrl_utils_reserve_map(pctldev, maps, num_reserved_maps, num_m=
-aps, reserve);
- 	if (ret)
- 		return ret;
-@@ -101,6 +75,52 @@ static int pinctrl_generic_pins_function_dt_subnode_to_=
-map(struct pinctrl_dev *p
- 		return ret;
-=20
- 	return 0;
-+}
-+
-+static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_=
-dev *pctldev,
-+							   struct device_node *parent,
-+							   struct device_node *np,
-+							   struct pinctrl_map **maps,
-+							   unsigned int *num_maps,
-+							   unsigned int *num_reserved_maps,
-+							   const char **group_names,
-+							   unsigned int ngroups)
-+{
-+	struct device *dev =3D pctldev->dev;
-+	const char **functions;
-+	unsigned int pin, *pins;
-+	int npins, ret;
-+
-+	npins =3D of_property_count_u32_elems(np, "pins");
-+
-+	if (npins < 1) {
-+		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
-+			parent, np, npins);
-+		return npins;
-+	}
-+
-+	pins =3D devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
-+	if (!pins)
-+		return -ENOMEM;
-+
-+	functions =3D devm_kcalloc(dev, npins, sizeof(*functions), GFP_KERNEL);
-+	if (!functions)
-+		return -ENOMEM;
-+
-+	for (int i =3D 0; i < npins; i++) {
-+		ret =3D of_property_read_u32_index(np, "pins", i, &pin);
-+		if (ret)
-+			return ret;
-+
-+		pins[i] =3D pin;
-+
-+		ret =3D of_property_read_string(np, "function", &functions[i]);
-+		if (ret)
-+			return ret;
-+	}
-+	return pinctrl_generic_to_map(pctldev, parent, np, maps, num_maps,
-+				  num_reserved_maps, group_names, ngroups,
-+				  functions, pins, NULL);
- };
-=20
- /*
+Thanks,
+Ryan
 
 
 
---CY/CCDWk7hyJWyAw
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+> Thanks,
+> Yang
+> 
+> 
+>>
+>> But we already support the concept of "present-invalid" for user space
+>> entries. And even better, pmd_leaf() will return true for a leaf mapping
+>> that is marked present-invalid. So let's just use that encoding for
+>> present-invalid kernel mappings too. Then we can use pmd_leaf() where we
+>> previously used pmd_sect() and everything is magically fixed.
+>>
+>> Additionally, from inspection kernel_page_present() was broken in a
+>> similar way, so I'm also updating that to use pmd_leaf().
+>>
+>> I haven't spotted any other issues of this shape but plan to do a follow
+>> up patch to remove pmd_sect() and pud_sect() in favour of the more
+>> sophisticated pmd_leaf()/pud_leaf() which are core-mm APIs and will
+>> simplify arm64 code a bit.
+>>
+>> Fixes: a166563e7ec37 ("arm64: mm: support large block mapping when rodata=full")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+>>   arch/arm64/mm/pageattr.c | 50 ++++++++++++++++++++++------------------
+>>   1 file changed, 28 insertions(+), 22 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 358d1dc9a576f..87dfe4c82fa92 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -25,6 +25,11 @@ static ptdesc_t set_pageattr_masks(ptdesc_t val, struct
+>> mm_walk *walk)
+>>   {
+>>       struct page_change_data *masks = walk->private;
+>>   +    /*
+>> +     * Some users clear and set bits which alias eachother (e.g. PTE_NG and
+>> +     * PTE_PRESENT_INVALID). It is therefore important that we always clear
+>> +     * first then set.
+>> +     */
+>>       val &= ~(pgprot_val(masks->clear_mask));
+>>       val |= (pgprot_val(masks->set_mask));
+>>   @@ -36,7 +41,7 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+>>   {
+>>       pud_t val = pudp_get(pud);
+>>   -    if (pud_sect(val)) {
+>> +    if (pud_leaf(val)) {
+>>           if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
+>>               return -EINVAL;
+>>           val = __pud(set_pageattr_masks(pud_val(val), walk));
+>> @@ -52,7 +57,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+>>   {
+>>       pmd_t val = pmdp_get(pmd);
+>>   -    if (pmd_sect(val)) {
+>> +    if (pmd_leaf(val)) {
+>>           if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
+>>               return -EINVAL;
+>>           val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+>> @@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start,
+>> unsigned long size,
+>>       ret = update_range_prot(start, size, set_mask, clear_mask);
+>>         /*
+>> -     * If the memory is being made valid without changing any other bits
+>> -     * then a TLBI isn't required as a non-valid entry cannot be cached in
+>> -     * the TLB.
+>> +     * If the memory is being switched from present-invalid to valid without
+>> +     * changing any other bits then a TLBI isn't required as a non-valid
+>> +     * entry cannot be cached in the TLB.
+>>        */
+>> -    if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
+>> +    if (pgprot_val(set_mask) != (PTE_MAYBE_NG | PTE_VALID) ||
+>> +        pgprot_val(clear_mask) != PTE_PRESENT_INVALID)
+>>           flush_tlb_kernel_range(start, start + size);
+>>       return ret;
+>>   }
+>> @@ -237,18 +243,18 @@ int set_memory_valid(unsigned long addr, int numpages,
+>> int enable)
+>>   {
+>>       if (enable)
+>>           return __change_memory_common(addr, PAGE_SIZE * numpages,
+>> -                    __pgprot(PTE_VALID),
+>> -                    __pgprot(0));
+>> +                    __pgprot(PTE_MAYBE_NG | PTE_VALID),
+>> +                    __pgprot(PTE_PRESENT_INVALID));
+>>       else
+>>           return __change_memory_common(addr, PAGE_SIZE * numpages,
+>> -                    __pgprot(0),
+>> -                    __pgprot(PTE_VALID));
+>> +                    __pgprot(PTE_PRESENT_INVALID),
+>> +                    __pgprot(PTE_MAYBE_NG | PTE_VALID));
+>>   }
+>>     int set_direct_map_invalid_noflush(struct page *page)
+>>   {
+>> -    pgprot_t clear_mask = __pgprot(PTE_VALID);
+>> -    pgprot_t set_mask = __pgprot(0);
+>> +    pgprot_t clear_mask = __pgprot(PTE_MAYBE_NG | PTE_VALID);
+>> +    pgprot_t set_mask = __pgprot(PTE_PRESENT_INVALID);
+>>         if (!can_set_direct_map())
+>>           return 0;
+>> @@ -259,8 +265,8 @@ int set_direct_map_invalid_noflush(struct page *page)
+>>     int set_direct_map_default_noflush(struct page *page)
+>>   {
+>> -    pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
+>> -    pgprot_t clear_mask = __pgprot(PTE_RDONLY);
+>> +    pgprot_t set_mask = __pgprot(PTE_MAYBE_NG | PTE_VALID | PTE_WRITE);
+>> +    pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
+>>         if (!can_set_direct_map())
+>>           return 0;
+>> @@ -296,8 +302,8 @@ static int __set_memory_enc_dec(unsigned long addr,
+>>        * entries or Synchronous External Aborts caused by RIPAS_EMPTY
+>>        */
+>>       ret = __change_memory_common(addr, PAGE_SIZE * numpages,
+>> -                     __pgprot(set_prot),
+>> -                     __pgprot(clear_prot | PTE_VALID));
+>> +                     __pgprot(set_prot | PTE_PRESENT_INVALID),
+>> +                     __pgprot(clear_prot | PTE_MAYBE_NG | PTE_VALID));
+>>         if (ret)
+>>           return ret;
+>> @@ -311,8 +317,8 @@ static int __set_memory_enc_dec(unsigned long addr,
+>>           return ret;
+>>         return __change_memory_common(addr, PAGE_SIZE * numpages,
+>> -                      __pgprot(PTE_VALID),
+>> -                      __pgprot(0));
+>> +                      __pgprot(PTE_MAYBE_NG | PTE_VALID),
+>> +                      __pgprot(PTE_PRESENT_INVALID));
+>>   }
+>>     static int realm_set_memory_encrypted(unsigned long addr, int numpages)
+>> @@ -404,15 +410,15 @@ bool kernel_page_present(struct page *page)
+>>       pud = READ_ONCE(*pudp);
+>>       if (pud_none(pud))
+>>           return false;
+>> -    if (pud_sect(pud))
+>> -        return true;
+>> +    if (pud_leaf(pud))
+>> +        return pud_valid(pud);
+>>         pmdp = pmd_offset(pudp, addr);
+>>       pmd = READ_ONCE(*pmdp);
+>>       if (pmd_none(pmd))
+>>           return false;
+>> -    if (pmd_sect(pmd))
+>> -        return true;
+>> +    if (pmd_leaf(pmd))
+>> +        return pmd_valid(pmd);
+>>         ptep = pte_offset_kernel(pmdp, addr);
+>>       return pte_valid(__ptep_get(ptep));
+> 
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacQcwAAKCRB4tDGHoIJi
-0nufAQC7IzecDMz+IrNzep7T25HQ6q+Wz7UOlRjqLF09T+nBpwD/bdchu60ojsQu
-Zgpf0gxXCq/NriMhr7Etk/Epp9gobQ0=
-=T+72
------END PGP SIGNATURE-----
-
---CY/CCDWk7hyJWyAw--
 
