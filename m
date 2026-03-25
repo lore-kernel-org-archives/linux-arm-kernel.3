@@ -4,46 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885B31093168
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C113106B53F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTXynabUS46hZfZT/a+oY6SDoieInGHw+2HSO82tENo=; b=1NjKTOU14PSubEs74d/To9uIFQ
-	qXFYbuQCmQJSpqkRygEoMJA2cmKgat6J7oK9mOJ/WP8cNqLxK2dkzx8NSDuepva9IK5vLvbhSEE8H
-	9a07mTqkEFvNU4Gs0IgFP04NY6DsfNZrdfVBTSdz7nDvJwY7nM9flHMq3v2QzJVnbw9JTrwLc6YlD
-	5H/0MoaX4XItGv575kZ43E33bbA7l2dJH86ZH/+r4QHC+tS8biLzIP1aelVDoTp7M0arKnlrqYLGh
-	sVzaRR84rEJ8DVa5Amh4pSsJUmVa2+SlCmunoAyNhT5Cfe7rFlfBwVU394LFHqxzfgPDZJgqWRFOY
-	XGLnnB4A==;
+	bh=N6EfbF46x7FRK8KyeP3/fNmqBfcgWGSTFVYtHOnQwjQ=; b=gSibwLFJpTXsj6hxOCPoRWcf8v
+	Y7sXGDbYGvDxh7sqrRXqExhhU0Y9UVVUwerR4azYgIWvwUAyDX1Y4i3B/RaKEAOyT7eYko2HRh7dk
+	YUm9ANwP7m/IG0ZMPhRMddnoxkYGieq9pxWrLnXcO//LLQdBRsM3Yx9EEKGOD2BlpMEbu00biLO/n
+	aABF8jt43kTtyWoSP+pDjeAewxJ1uoQc8jtGVTQIC08reVVKIHSeOStYE4zimxgyVV3x+NzcG0zNv
+	2YpcoFWK7sNDh8jNRuLByrIqTlgqgvYOD+Uc6Pu1yjUj+OzxRsKfC9oO416GzZfdpiE4iZouxjWP7
+	dOHZSqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Oo8-00000003W9X-0EVy;
-	Wed, 25 Mar 2026 14:02:04 +0000
+	id 1w5OoA-00000003WCj-01yV;
+	Wed, 25 Mar 2026 14:02:06 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Oo1-00000003W3N-0lOm
+	id 1w5Oo4-00000003W5o-2haR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:01:58 +0000
+	Wed, 25 Mar 2026 14:02:01 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 26B4B1ADE;
-	Wed, 25 Mar 2026 15:00:36 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 98FB91BCF;
+	Wed, 25 Mar 2026 15:00:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774447237;
-	bh=nCrTvG2jfseeZ/eRmUeub8cMM55Js0Xo68tYrLSNyU0=;
+	s=mail; t=1774447241;
+	bh=z0ohKrl3nNbmQTLz1wlnzqyZg5t58xltjjEsw+ctQ5I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lTrq/akrZ/cDvcHxIsphDGr1xlspwy4KQlGhnpeYZjrHA+vqHaMtAZm0UVn47eYlb
-	 oA249rla4McqX1KFp23MTowg4cvKYva33wdd547VJZ53zJhzIu1VE+XvLFmZhoLr07
-	 YbYaY3nfPo1Zx97u9uO9o53VJpF/mEiU6WgypR0o=
+	b=QF0d4g8Kh3BPE6L2eXkONe+b8r2Rte/T6Dszu5QsrAqshNc+P4ne0FbAdQivpQTXg
+	 pVGC9dKYZ9Sf49m+yUyZW2qTp3RHKT4EbAO87sQfLX6Jh/qiwNBgH94Em2xgfBEGAt
+	 m7IVyUk1SnG93ZkxBBlVD3KLS5BmTH0d/Z/q5Hu4=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 25 Mar 2026 16:01:26 +0200
-Subject: [PATCH v9 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+Date: Wed, 25 Mar 2026 16:01:30 +0200
+Subject: [PATCH v9 07/11] drm: xlnx: zynqmp: Use drm helpers when
+ calculating buffer sizes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-xilinx-formats-v9-3-d03b7e3752e4@ideasonboard.com>
+Message-Id: <20260325-xilinx-formats-v9-7-d03b7e3752e4@ideasonboard.com>
 References: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com>
 In-Reply-To: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com>
 To: Vishal Sagar <vishal.sagar@amd.com>, 
@@ -58,30 +59,28 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Geert Uytterhoeven <geert@linux-m68k.org>, 
  Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
  Pekka Paalanen <ppaalanen@gmail.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Pekka Paalanen <pekka.paalanen@collabora.com>, 
- Dmitry Baryshkov <lumag@kernel.org>
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2939;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1623;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=nCrTvG2jfseeZ/eRmUeub8cMM55Js0Xo68tYrLSNyU0=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpw+rKOZh6y/kojehxYsu1HWilOVqtDOI1zCHIm
- kRARLOgjRmJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCacPqygAKCRD6PaqMvJYe
- 9QGZEACQYzCy2nGRUT8yKGRzbuIC710UE8KODVctb7tXpLIm9grU6PfgDgIHuWwjs7z4Yo7Hp3B
- W849Je5MugW+xUqymZ6V/E184laVE98/MWU1kd9ZJX14uvVPQB/NavXhSwpt33cWiu2NUub3nKD
- UySvT9jOzNVI3j3CzUnlaTDySz51PrqopzSuaqiRHGGe2KeIggG05yP3zQGfBUcHMBR+eKxQffM
- UTG6D7gyE8QiHfvotyP1mJR4qnCLJcg8+lyMmE5MGYO4qsAbqcLRR/nMShbyK4aIoET91XAcaGk
- Uuey92Im3rx4zd5IIGEhRmRRAGoisaAtk44jBacwOkJL0vMjo4h4lmgZZ0c22pwE1nTRYYsCCEs
- DubTIgqCJZhipcMj2Fnscs2k/Dpg+kJNFJ/VvWeFnPKiQH3o0uWXFAWys5n0ddK5/HRqP4HQXS+
- 6FVw2RMfd/TrUMZ1EQJh4uCIyEYLwUTIgPk3cw4F6VqEQAfouUi3feE1ZPIR+Z23EVVmOaq3P4X
- 87aYXUfOs5ebjIF7YRXSTiAuecNgNNO7KODYfVF+q+whV6un0v0O0gQIenJ10NARum8WfIVIgzQ
- 3+y87oPEreV8BbTzfUwqG9gxpLSe3a5OCuL9M5M2/UCAxntYrIPuRYIkVLfiwEtDhukP+CbBE7+
- A0KExLNkmQthvpA==
+ bh=z0ohKrl3nNbmQTLz1wlnzqyZg5t58xltjjEsw+ctQ5I=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpw+rM1t8SmQCwqK8q+2874g4y6W+UFEHPA5hLY
+ P1NTp9GrruJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCacPqzAAKCRD6PaqMvJYe
+ 9eeDEACjFTftnIo4/vHE+Zbd/vinVkVUNXpCS2jTkFIphNpxKMEFHsw7tW07kBC3+PW1UIz513A
+ HLXt3o2mABa2ycziWgJfIsVDzbO2nKSPakHWbExsms2XRQ567n4dZQC3y92nRX0pcI3U+GQsPbC
+ I/KGUItD4iqGJcAuZUaA3Cn7GtbM2Ln+XeGFpdpdqNq3TlFa9ZX7dfcaL1JV43ZBiKlOzGfwR4k
+ SVLndy8Jg/nAuIPwI95nQQufCjTvgsyqOzLZuofGU93kloYDGSDX4E3U25yKRbM2pRbccNxj+/R
+ RSI9rvkcNLX0OLT+WSYTfePHO3TUXNziuxVd3EOgGcQc5Zbkn5hXar1FGDRpW2u/4rynhKe7rhn
+ 6/7ie2yQZoRICLxCQYYbA2ayWBjGOuTehWshn7VfhHvviCY2vh6Iej+t9h79wi8OhHocxnnymk3
+ tUVh3QW2WWTOYspyZaGkjpfjhIWEGpBr5QAZa5b2WwlzDmVhlxHVbg66k3mE4fq24kCEcm/Y8gv
+ yA9Efs8Fj7DluezJKBic7LrzOkmFvJUOEh17JRc7JwRnrNPJcZ98Hj94t0dp+p9NUCyVJi8Ss29
+ sYi3nvJzSpxERRAYpKzzlsIePpGy1x/3rfFnkJEL6q3nu63/y3m0TaeNcBgEVEIWwbnqueDWAYo
+ a6+4lwMinVAQ2wA==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_070157_365456_C324FD7A 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260325_070200_841727_4063BB0A 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,59 +95,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add greyscale Y8 format.
+Use drm helpers, drm_format_info_plane_width(),
+drm_format_info_plane_height() and drm_format_info_min_pitch() to
+calculate sizes for the DMA.
 
-The 8-bit greyscale format has been discussed before, and the earlier
-guidance was to use DRM_FORMAT_R8, as a single-channel 8-bit pixel.
+This cleans up the code, but also makes it possible to support more
+complex formats (like P030, XV20).
 
-However, adding DRM_FORMAT_Y8 makes sense, we can mark it as 'is_yuv' in
-the drm_format_info, and this can help the drivers handle e.g.
-full/limited range. This will distinguish two single-channel formats:
-R8, which is a RGB format with the same value for all components, and
-Y8, which is a Y-only YCbCr format, with Cb and Cr being neutral.
-
-Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Reviewed-by: Pekka Paalanen <pekka.paalanen@collabora.com>
-Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/drm_fourcc.c  | 1 +
- include/uapi/drm/drm_fourcc.h | 9 +++++++++
- 2 files changed, 10 insertions(+)
+ drivers/gpu/drm/xlnx/zynqmp_disp.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-index 4fd37226b647..a8ea1f3660cb 100644
---- a/drivers/gpu/drm/drm_fourcc.c
-+++ b/drivers/gpu/drm/drm_fourcc.c
-@@ -275,6 +275,7 @@ const struct drm_format_info *__drm_format_info(u32 format)
- 		{ .format = DRM_FORMAT_YVU422,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 2, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_YUV444,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 1, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_YVU444,		.depth = 0,  .num_planes = 3, .cpp = { 1, 1, 1 }, .hsub = 1, .vsub = 1, .is_yuv = true },
-+		{ .format = DRM_FORMAT_Y8,		.depth = 8,  .num_planes = 1, .cpp = { 1, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
- 		{ .format = DRM_FORMAT_NV12,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true },
- 		{ .format = DRM_FORMAT_NV21,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true },
- 		{ .format = DRM_FORMAT_NV16,		.depth = 0,  .num_planes = 2, .cpp = { 1, 2, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
-diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-index 10cc13bdb495..02205ec4a75a 100644
---- a/include/uapi/drm/drm_fourcc.h
-+++ b/include/uapi/drm/drm_fourcc.h
-@@ -458,6 +458,15 @@ extern "C" {
- #define DRM_FORMAT_YUV444	fourcc_code('Y', 'U', '2', '4') /* non-subsampled Cb (1) and Cr (2) planes */
- #define DRM_FORMAT_YVU444	fourcc_code('Y', 'V', '2', '4') /* non-subsampled Cr (1) and Cb (2) planes */
+diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+index 9a8f38230cb4..12a8d643915f 100644
+--- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
++++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
+@@ -1116,16 +1116,19 @@ int zynqmp_disp_layer_update(struct zynqmp_disp_layer *layer,
+ 		return 0;
  
-+/*
-+ * Y-only (greyscale) formats
-+ *
-+ * The Y-only formats are handled similarly to the YCbCr formats in the display
-+ * pipeline, with the Cb and Cr implicitly neutral (0.0 in nominal values). This
-+ * also means that COLOR_RANGE property applies to the Y-only formats.
-+ */
+ 	for (i = 0; i < info->num_planes; i++) {
+-		unsigned int width = state->crtc_w / (i ? info->hsub : 1);
+-		unsigned int height = state->crtc_h / (i ? info->vsub : 1);
+ 		struct zynqmp_disp_layer_dma *dma = &layer->dmas[i];
+ 		struct dma_async_tx_descriptor *desc;
+ 		dma_addr_t dma_addr;
++		unsigned int width;
++		unsigned int height;
 +
-+#define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
++		width = drm_format_info_plane_width(info, state->crtc_w, i);
++		height = drm_format_info_plane_height(info, state->crtc_h, i);
  
- /*
-  * Format Modifiers:
+ 		dma_addr = drm_fb_dma_get_gem_addr(state->fb, state, i);
+ 
+ 		dma->xt.numf = height;
+-		dma->sgl.size = width * info->cpp[i];
++		dma->sgl.size = drm_format_info_min_pitch(info, i, width);
+ 		dma->sgl.icg = state->fb->pitches[i] - dma->sgl.size;
+ 		dma->xt.src_start = dma_addr;
+ 		dma->xt.frame_size = 1;
 
 -- 
 2.43.0
