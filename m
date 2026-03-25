@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18BFFC72DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8FAF54AD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OR5AmQ5C+PwxUk96HWSvSEr+oIE5VPNLRZ7Lt5xbH4o=; b=n8m5sbMgY93IpAZp++VDKOG+qh
-	yAsZxFfupy/lglc2zfBFNpUlmsH5ATQLlltwKGkytf7qqb9CFp+yIlGhCsy9JqQubGEojgnTR1Gs0
-	wj4uIyjZlUEGUr23R7YXkuVnYH0TSQV66F91hfx3P0CPoA7bJR8e2VEMwJyx2DLWXdjXK9UnVmjGx
-	mtblp14YDhzPszCoBONoSeEp5OVXkQcfKo2yY2G5lZUJnBFJZkfAEqfFYac0ahwz2tbsYlteJwYSm
-	aPSDDwc0NN7Y6K9BFVZVTfgOfH5ZaLo5hL9lrwED+WsYwrcJ2+ECD/332PmgXmRR9cAx3ZNhVVhlb
-	+9tisWfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+W2l6HF6dMk2sjxzN6yjkAVU0JUCRJ2zSiQX38l0Uk8=; b=QWgs7t2VvqZcsuopzXW+L9Ffk3
+	9H89OGQXu3Nf0GDFvvj08ifTmOeYEQIq4iG+bzH5F85UtTgV/VsDiey6KhuEXIr2SYf0jJp1cl/On
+	c4nMCJ+WpKN6fIBrTmkZ8HzhbIG/Z7NMfEA+uXxr/Ot2pu03aqOuM67WeFGxvvsxucvFexcyHECpD
+	U/3kx1xPn7nOWnLGLJrzjZby6APlN/kL80ZMHBEYv89uAidiGfQvCACja43G19/qxry4qcP48FAcn
+	yz3OwhC+nNFl0H071fLH8YJblIlP+H+9nqJvthgELaaceD7Mu3F4l1NZL9rBDijAD7Jw2kVKdlB0L
+	ap81g8pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5C55-00000002Oob-162q;
-	Wed, 25 Mar 2026 00:26:43 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1w5C7N-00000002OyY-3PXt;
+	Wed, 25 Mar 2026 00:29:05 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5C51-00000002Onx-3EVW
+	id 1w5C7M-00000002OyA-1Rz5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 00:26:41 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48541edecf9so16491135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 17:26:38 -0700 (PDT)
+	Wed, 25 Mar 2026 00:29:05 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-8cd90401034so174215285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 17:29:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774398397; x=1775003197; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OR5AmQ5C+PwxUk96HWSvSEr+oIE5VPNLRZ7Lt5xbH4o=;
-        b=jeax+RT0VY3KJo9szsj86fDfNcvSm7I1NbUSWZnfR0mfyZAqY+zlZNSlgnxddoghFi
-         rgXgD4m1p5skFiyBCTTzEHz4/j1TZQMRBWUshIUrYSbioQD6e0rjFjY+LXyIpSEP3OOW
-         vhtHjPFF4Y6R9Teeb9N92c+lO1zjuFM76618j/pxO77qetdYOTrCK25rFqmCjqAhFxac
-         MMYUx+Pi6w81b2ic1Qh4LVsyf3Hg/9ULGOgLnsc1QyeUN8e5MMKHiWPdDo0R+7l14YiA
-         TBpAu15sMRKM+W1vP487I5dR2drl4gSuqWnWfRcKsEbmJM2R5oLkoy37sl1HShA61VKD
-         bV2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774398397; x=1775003197;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1774398543; x=1775003343; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OR5AmQ5C+PwxUk96HWSvSEr+oIE5VPNLRZ7Lt5xbH4o=;
-        b=tIL6zhR5SMOYXt9TyKw0UGdiBOJ0S6XEn1vXbq/he+XPX7JExaEE/QJ4XR6QbyutcU
-         uaPaqU3Qsb59J8vqCLCeYLBLbHiMeQ1L2DhVx2y739bn6KP81WNPj/qOeK0SatIWk7K9
-         wEYhK/u7mHp49tpW+60LDmeXv/ky5BzE/WiwtCzuhlUB8G7PW8eToBqjXoTaxReDOqAh
-         r8cS5VBoWQAde0nMvYqvDuRhKU5LCCiXQMtdAVfFBxKIVqTw7Pkixy1qlIXPihvmyzEP
-         giNdtXRzhDlv00WnVG0XWBg/EJwIPCliAIuYb5yU9giQ0HwHc0oZAmApY3irNQqGvnnv
-         GDrw==
-X-Forwarded-Encrypted: i=1; AJvYcCXXDcPAk3E5pQWbyrBBt4G32ZkLwF4qtbbKG1mDcD9sAGaNpBL6q7avMchJocVT/GgPTnHuOqQFqdaJn0Gmo2xz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3vMHjRSOgVDsOZwT81KQQl96HUnxgTPJEFGk+uGcpq3dh7/zL
-	r3c+M80AMS/nqxcgoHN+5TYH+rJ6qOTQfgGrd4hDmdfTKtB7hW+xLxPcBpOdCbpaA9E=
-X-Gm-Gg: ATEYQzy3O9VFV/oz3scP5m8/bNEen/qtV9YA7WqgMYhvHjdPqQpFUCy0iCv5A0PnxeP
-	bSJehZ88T4Bo5lw6ny45jz4ffrzftWAsVfAH0w5myKXIs0QbUOJCIGGikG7BtkELI/uTO8ktHv9
-	NugLJF3ojxI+eLyxsSsgQtwNbMxmNEpbgGBGF3HzJTYx1sNBe95eV6CgdKbs8R9SuufXlu15hVL
-	hkuicGsLqVQkXCFyhpMHDOMlsmR1lDsDi5WOxabH2YOf/022VLsgTMC0tJwhoo7zwnKxBTm9YU5
-	CEnMvJVa/Gf7ATGfTaVeOenf+GKUbOVGXxrYvCb/wTtBPYZmU8wU5G7IrtGI+HZfh6CrrS6qIFA
-	ZaLv8PSNbC11ZQGzNxStz/3Q+yd1p4M4gZukYD4R3Rr3sbzmHNGOlMQ8ifNXsev2cg8EPWanS4n
-	VKmL8Zs5pG3wIbSz2nllmUZ5k5414HPjeBw7t59XKQ3OtA5Vfaw1tpRM1wf2b43dN+Pc+rsFskx
-	2ydgc/9JM5N/6w=
-X-Received: by 2002:a05:600c:190e:b0:483:7903:c3b1 with SMTP id 5b1f17b1804b1-4871604c856mr22473085e9.20.1774398397416;
-        Tue, 24 Mar 2026 17:26:37 -0700 (PDT)
-Received: from [127.0.1.1] ([94.4.193.72])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b85082842sm7233704f8f.20.2026.03.24.17.26.36
+        bh=+W2l6HF6dMk2sjxzN6yjkAVU0JUCRJ2zSiQX38l0Uk8=;
+        b=KVSvNBYS/Vg/XZYe/hz9tAhRC8HlxfxCmDIKTiCaPlmAMiNGx6aXBYO10Qcx2Ef9gh
+         Z4Q+ZmEP9rj7OYx93Ko72OJMz+Jk/qeyNIW6rOPvkLrl0KURrDfKjCuqKFNRVeARyduY
+         +HAlL8hriToITtq5yO78Q7bgFxmC86BsXEKZicFdQG7bVq/gFpM3QO4A0HsoU2v5cjUc
+         Pzr9fRKrepTDjn80SufA8mtqiPEMLiZyXOkFBGe4Vruhzu0U2wZAhJ96mF3Y4Mg4W+5y
+         zFqFSlyeax1XWZwVgIp2vBpNcPc3qh9htPhOETzK+ZbherfPldm6MYQP02FXbiftGeQN
+         PUOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774398543; x=1775003343;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+W2l6HF6dMk2sjxzN6yjkAVU0JUCRJ2zSiQX38l0Uk8=;
+        b=bhL6Oc3bnOp74AsV1lCPrn1w8l8vpaqpJ0T4bFTf4tE5l6YK0ff5qCg6NDq2ZRqOj8
+         ctqdLgSh9ATqY+ybEMVFJxSgHQ0NxGdDY+Fd4Fk8/nT4Aqz7zBOdAslMZV7ibmKk8LfO
+         yzR6wIFFjsPAGEuquB+Gym7QclHwOJ2S8Y1Ly6Z21/XJFY0pAm5U+a5lGvfjmA/6aUuO
+         wqp05mXGFztRJb/NeSaVejtzQPE+AEOgS8Oz+tBXlu935oL+3mcVoPVZjMZz38cq1VSc
+         CMwof4y8f3PT2BdQmMibclKGfbEjwrXwCgIeKbZIgQadqxW7Fli0wIttMosmpykyfVAX
+         ++XA==
+X-Forwarded-Encrypted: i=1; AJvYcCW8a81yYhcHoHeyFv1fJNkKjjI71KBAofahtD8mH9bw+B7WuNsluptg7FU+6wIJcDXQrTqSagq2YVSE5G2cdmV5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2DtpvRqKPvVhTsvLKNyCP34zdUFFXWPEc/ku0MaHjIEIkvIKE
+	bsShyBycnRoB7EYo6Spr4Lo0EaeWiZMwK+KoQoFmOQ1Off6wz2qujaGu
+X-Gm-Gg: ATEYQzxFFhzuOYDV/mQ6lIBOaVZP/kyUOoOOb/Ks2ZJTnrfrbJbQRYHOZIe03+uLmZj
+	uEUOoyZ0/e1w4fh+ungRnWthbKmbJyR3T07lr2wtYBFI5vW8czFkcbJT1P+HPaFqk6HMg8M4yTT
+	A42Pf23n07UdESXfdlBQvpi3DS4IbzKspjJTdmLwljqXMVGS5jhDCSZTf75CsqvZEtqN1MC7RiP
+	bSRJLWT2Cf8Zl3QJT6t0fCXuSYmGeIPK9dnNmVOq40MKfh7qz6mljBBLxaodXtGymEt46a3ZtLQ
+	Y+npdtTYr/dx6ORkwDmLSLqD66+nBZs8tNry0RKGEuxzuK1d5yrQghuOuWL/rbB4qltrhUnC2fY
+	6Yh1v9VOAm4ReAlXOHqAQoSmVdkJt+AlUATCRvxJVPZ97RmCrW0YZpLLgu0q6FUz0gvmIjE3+Gv
+	Oam0WFTJJ8wYLzWdxK9aG8RMd/rpVosqJPd2CJSp+vkhKkSdkYVPOetestTn0gCSZlRCIDDxsdM
+	yKsRwZVtZM/RQ==
+X-Received: by 2002:a05:620a:1788:b0:8cf:b7c2:fd20 with SMTP id af79cd13be357-8d000ed1743mr238935385a.11.1774398542974;
+        Tue, 24 Mar 2026 17:29:02 -0700 (PDT)
+Received: from jernej-laptop.localnet (16.red-83-43-237.dynamicip.rima-tde.net. [83.43.237.16])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8cfc90bb7f0sm1172723985a.38.2026.03.24.17.29.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 17:26:36 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Wed, 25 Mar 2026 00:26:32 +0000
-Subject: [PATCH] arm64: dts: exynos850: Add syscon-poweroff node
+        Tue, 24 Mar 2026 17:29:02 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/7] soc: sunxi: sram: Support claiming multiple regions per
+ device
+Date: Wed, 25 Mar 2026 01:28:59 +0100
+Message-ID: <7923014.EvYhyI6sBW@jernej-laptop>
+In-Reply-To: <20260324164357.1607247-6-wens@kernel.org>
+References: <20260324164357.1607247-1-wens@kernel.org>
+ <20260324164357.1607247-6-wens@kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-exynos850-poweroff-v1-1-34c19c06e74d@linaro.org>
-X-B4-Tracking: v=1; b=H4sIALcrw2kC/x3MQQqAIBBA0avIrBNMM6SrRAupsWbjhEIZ0t2Tl
- m/xf4WMiTDDJCokvCgTx4a+E7AePu4oaWsGrfSojLYSyxM5O6vkyTcmDkH60fbWmME556GFZ8J
- A5Z/Oy/t+INkMlGQAAAA=
-X-Change-ID: 20260325-exynos850-poweroff-a6515334888a
-To: Sam Protsenko <semen.protsenko@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_172639_838169_220B9F9A 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20260324_172904_415858_78AD9252 
+X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +105,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Without poweroff node Exynos850-based board continue to draw current
-(around ~60 mA with my test setup) after poweroff. Kernel also reports
-different lockup problems and RCU stalls warnings continuosly after
-last kernel messages about hardware being switched off.
-Turns out we missed a write to PMU's PS_HOLD_CONTROL (PMU + 0x30c)
-register that actually switches the SoC off.
+Dne torek, 24. marec 2026 ob 17:43:53 Srednjeevropski standardni =C4=8Das j=
+e Chen-Yu Tsai napisal(a):
+> On the H616, the video engine needs to claim two SRAM regions.
+>=20
+> Support claiming multiple regions per device.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
-Add poweroff node that implements this.
-
-With this change the current draw after power off is in range of few
-milliampers and lockup messages are no more.
-
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- arch/arm64/boot/dts/exynos/exynos850.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index cb55015c8dce..3881f573ec08 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -215,6 +215,13 @@ pmu_system_controller: system-controller@11860000 {
- 			compatible = "samsung,exynos850-pmu", "syscon";
- 			reg = <0x11860000 0x10000>;
- 
-+			poweroff: syscon-poweroff {
-+				compatible = "syscon-poweroff";
-+				offset = <0x30c>; /* PS_HOLD_CONTROL */
-+				mask = <0x00000100>;
-+				value = <0x0>;
-+			};
-+
- 			reboot: syscon-reboot {
- 				compatible = "syscon-reboot";
- 				regmap = <&pmu_system_controller>;
-
----
-base-commit: 85964cdcad0fac9a0eb7b87a0f9d88cc074b854c
-change-id: 20260325-exynos850-poweroff-a6515334888a
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
--- 
-Alexey Klimov <alexey.klimov@linaro.org>
+Jernej
+
 
 
