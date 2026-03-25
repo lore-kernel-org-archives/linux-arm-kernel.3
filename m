@@ -4,79 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE38EFEA82F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BB0FEA834
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Spa+zFtTwKq/xwqL8Z460sYoU7uK43OPtIBMa8MAK2k=; b=Fuk31yuRoedRbgQ1zghDkDniWu
-	JPKubsXxrC1F3Pe0FcsuEXiaYy7j0NSEFIc1OyC8GkLjzenWnU0bDn4oodl1jL+NR8La/3hKNifIO
-	Fh7VNVsTfX6objlPcDAqXn0IX2Km/TX0QLc0djFaxcH3Ek8neOMmZLvzC4up54rdPhodnPZSJSKJG
-	8zJkRu9b0uXJUT5tcsTccFI8ooD32OmrEPxQYkr73dda3yqBIujJpg3hkOIRRbhJhOTfQmiqqfo9F
-	hYO07sXWd7GWCOWXtPEv6/Kor2xyygZ45fa8x9l7T+H98gTbt6TEoWD6zzO3QdJOIpsu9FGtgNA7U
-	IgfixgAw==;
+	bh=tPzfXns4gRv8hNT634QOr2rL315muN1QSz4pFBtttb0=; b=ocxpcb5Wuh6ibwagKrpsxqzQT/
+	uZrRAX39GEvAoiSq4gydcdRxmMiDL7ixoxV7Ule09YDTAUyf25gXbfocr4FLPqSgN38oPFZ4fn2aM
+	mDoBL1EfI2y7EsFRhAMkHMXDATJB9e+hIngXeUWyEcnUnSG4gs2YmqkPVxmrIrPQBCnw2aJMno6x1
+	DoohTHnKAWFQSh4O65boHlZbFF9vWDkO0l6htrwaPq9PSRLkwtdKvyiRxsbwXjhNl/oSX/02SkeoV
+	O19b6t1kh7X4lvsG+ItkfAkaump0+VIL7ygHgnuVgjM+4EjDzDYAJdZpaw5Pyf8I4jwiCkcJRSWI0
+	te5wjpHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Je4-00000002xHT-1Zpf;
-	Wed, 25 Mar 2026 08:31:20 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1w5JlH-00000002xvC-0uSK;
+	Wed, 25 Mar 2026 08:38:47 +0000
+Received: from mail-francesouthazon11011054.outbound.protection.outlook.com ([40.107.130.54] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Jdz-00000002xF3-2Bsj;
-	Wed, 25 Mar 2026 08:31:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774427469; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Tyy2JscmFeXuNquAONvjESaenDfPxxRBJwbVDF+F6CspYdRP0THK77xpmIfKM8PMC1kYj2Ef/rG5wjlWS0A/kqXWQjfz9oEYokEizNoVoe1Re5F9m5/NYO9SIO3MXm6mddHJtEOFQFE62RS9m0LyHO1ftVv0kL5q4D3r/G6DXzM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774427469; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Spa+zFtTwKq/xwqL8Z460sYoU7uK43OPtIBMa8MAK2k=; 
-	b=RnuGUVU2EXOf3k5jelhLGon3XphGBJssDU2A1nQc0hWTIyTqGBsqKWEmmvHfza1MsUKYQBUSw3wxSOw3NS/Pin9aJs3KmW0Df3QsdaOin92ocfAfVO0AlzN4T6o1eja2MiFDYS9K/4DlYIApdUq6I0imzvpsoHCbOwtdrgc0LOM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774427469;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=Spa+zFtTwKq/xwqL8Z460sYoU7uK43OPtIBMa8MAK2k=;
-	b=m8fDSXm7BdFQUyxuJ00+cdp8h2tIr0kX2FbCE3bUPTXHDjreydmBvIBVbKvWMirf
-	ZxlRx8+Ic5QAeI7QC7nutldlgXcVoFUfvVoooiuCzq4N9VWrcXyZkSf8cerX0fKwmxN
-	JnJ7ukhTEUyuxKP5RGMWnJJFSIvVFP4h6GNORgEDLy11SxLumAZoogUpm/NW2K9NbaZ
-	cLRZLOZiNjIGEU103spEJ36xKwWBmcF96dsyN5ZuHk+aF+OVY+Lf/BMN3zjYmchAm4C
-	cDKUnV6rOdZ+jIGL0fm1oLj/6oKa/6hVvbklDK9oVqslcZOOQorssqClzYckfhLEV8c
-	VXdlgRFsGw==
-Received: by mx.zohomail.com with SMTPS id 1774427467195309.4266563704275;
-	Wed, 25 Mar 2026 01:31:07 -0700 (PDT)
-Message-ID: <0739597b7a9c162525c10d82c3993e37af1c8a75.camel@icenowy.me>
-Subject: Re: [PATCH v2 0/5] powervr: MT8173 GPU support
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Frank Binns
- <frank.binns@imgtec.com>, Matt Coster	 <matt.coster@imgtec.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 25 Mar 2026 16:30:59 +0800
-In-Reply-To: <CAGXv+5FL2rs35V4F0bwq-a4ccvFaWKcr1cuKxT6sfTj9h+d6iA@mail.gmail.com>
-References: <20260325071951.544031-1-wenst@chromium.org>
-	 <93c1d325461cc0ffad890d64870de680506338c4.camel@icenowy.me>
-	 <CAGXv+5FL2rs35V4F0bwq-a4ccvFaWKcr1cuKxT6sfTj9h+d6iA@mail.gmail.com>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1w5JlE-00000002xul-2Ko3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 08:38:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ahS/r1upF7jl2o2fbTRmLbcIsUCSSWM4lF7hT0N+RNShuj5cv7mZFrF//7+HB4xqCCE9UoNWZTq2mZcAAMnXS2RhZp8O8PqrqYTxRGutHMrb6bspqTeDyVIuA5g2R6o/LkW8Ek1fLS3B60XE4jtiISLLLExvAWug2lZXKagwV0muBvuNHl/wWqDA5JMN7/OiQ+BOZHB1mSXSXI8h0Uzdg1tve2jGzqPLCjLtuo9qDMmpeMEmGDrfg7QeBQDsRwY1qZ1reFvSTJCehK4HipT8209rmVSC5TsVtO729RTVJi/RtxY4/sSOh1YDW5WF+D9FB+YC3GdmuDOpQjCGfnFF/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tPzfXns4gRv8hNT634QOr2rL315muN1QSz4pFBtttb0=;
+ b=b7vUa6MpwI0qBziH2kl0LH2C4iiHpQ77j/1v9PXyu5Gtc8Wn6SUND3jwdxosQSFURNRKVA9KEVGwmHXTjGRX16gz/vw/SVZ5NA3cZmbmjhohVjbiO0O6NR6CUzpazBFs1SGkz3iHH9RJ+HgTv70zoRG1iNfSk6jdPo37aiG6mupsqxAVsDtEqg/64LVmlDYwoyiuj3zkWsZDDEhHPXlEMzChruEdy29APLarF9QJL2dP+vxJuGETcd4wv7KlB4ewmg4QNOUIcAru7ErXAHXRch/ZzwtDVST/Dq3BDbOuhWn5BM1capfL/K/EmX65xhXZSJ+nKIgUL50sQoZCtBddng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tPzfXns4gRv8hNT634QOr2rL315muN1QSz4pFBtttb0=;
+ b=qD4qSFbn9n3017dUHBfjk6Atqo9pUsOHcRN5pLSrfySSkZQeVs4KERrnONIydfKGHG/79m04BCPhJRe4DrEq/9kZm3PEJWlaChDZyjTsGmDd2Ou8O8XVm9V+S6KcOwDx50nBFisPXhkBlMyP3JifWjjJo/ruMsu3qKn3h2SrW4xh5C3XESCSkhOaioSoosuhKMyowgM/rUTT2+7KMrIEjQCswIujjnZYfa2QpUl4x5VoAOugHp6pvg74tCndqerRtAlcrSzHL5FP4Yl31yQQOVtabtIEX0Hbkxjv0cpOKBnjKO3Gpci5UJqxYo6mLAQPPp6etAGQYkpcZAVugtcyzg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by AS8PR04MB8102.eurprd04.prod.outlook.com (2603:10a6:20b:3f3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Wed, 25 Mar
+ 2026 08:38:26 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
+ 08:38:35 +0000
+Message-ID: <80c7815b-26d9-4876-a44f-3e17b6338dc6@oss.nxp.com>
+Date: Wed, 25 Mar 2026 10:41:29 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add i.MX94 remoteproc support and reset vector
+ handling improvements
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Peng Fan <peng.fan@nxp.com>
+References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
+ <b5e05fe6-97c4-40cd-b7cc-b417d8717aec@oss.nxp.com> <acFPGVNOornxsPG6@p14s>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <acFPGVNOornxsPG6@p14s>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0120.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:bb::8) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AS8PR04MB8102:EE_
+X-MS-Office365-Filtering-Correlation-Id: e871546c-fd3d-44ce-957c-08de8a49e751
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: L5gdAFOOHYiOHV3JLmySnGASiNAEbB5T0ovA9NviGf5t6YbQm+EpFwr0bbmtpNSySx81YcEQzR2DVSw7v3VyPXNvvjcRVCgbS7niKRwasMZRzEIzFlznz7oMeZ0qodpN2ZkJuU9/E7qcaluHA7ZymwNYQukcIXPzd0JLfKSnya6pnxBgJKPDFYIe1Xl0JfzQnWRbnt7uoVUkrVyaQL6HuNtR1X3a37+YhCrMhAe3Vb40JBl6ErV9ka8sZO8eSLYtnXkYJ2vDN0ovGcDuExrbCHVBTNj8MJ1A2itIt97JDWMzy8kt0A+lnWILzIC75E9msVqOjMmTIKpv0I4FRLsz4qcvqbFj33Qeib77+3CtRd5QILnKdcGAvC2jUdNUZrHGlakoXvj0Dl6/Wp5uPon5ikZVD3lJ01PLIQA0CDOAjGmA0u9FN7GWM29KJLbn1FfPi9cjuR9Og1zWvIXtlgo/Wg0Gs91DnTajnowiq0O08x5pKjSDHr0FfYt/Dqmal2JNA8kgGiPmPtD92siSNcuSUTSOmLitsO9gdniYGXmpIPGAb5llXQ8A5XVIIgbWd+wR4CqXnoZ69BzfG7J3FE3vwgo22JSEHUoo4Pqdp27yK5JZJztieu4AAG2vR5x3JuxCVAvvScnhfff3cB3AwACmmSp9MOzw5p9veCZb9fExpHv20gaHdbV/YQ1oLtcgICIu
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cFdIKy9oSTJ2aHJ6Zko4NEVxTUx0N3RTMFpnaTZTR0dJWENpU0pTRHZoazhm?=
+ =?utf-8?B?UnUxQUNJSXJNT2dmSmpvSUZVNnhwQ29XQXdkeTkzWlZKTnpKNGxBa0V4S1NS?=
+ =?utf-8?B?VElnZnNWcWZzbFRJRHR5RlVCUFhVY2ZUTk5nR3FCRUc4TnFTZHVoRytOMUp0?=
+ =?utf-8?B?andvVmZ2YlQzVkJ6ejcwejAwUHJPMDdhdnd2NitmVVE2ZlBGSHF4QzF1aDVv?=
+ =?utf-8?B?ZUtsWUNNWVlqU0l6Mk5yZ0JFQ09IUElzKzg1WEY1KzEwa3JZaUtXZitlNEg1?=
+ =?utf-8?B?eWEySENPSFBhMkU3R3k1WXl6VStGeEgzQ3RML2RRdExGY2MwMGFjZngxUnJB?=
+ =?utf-8?B?aXNJY1lJZ2RtSTdheTU5TnBTSnZuTkV6STlNd1ZZdE9wayt4K1QweGkxZllW?=
+ =?utf-8?B?aHNRaVduVjdZTExFbmRrbGxJcjFEWE1wdE1mL3hHVWFXVUNoTEtCQitNdWUv?=
+ =?utf-8?B?Z2JtaTYvWExYSXBWZHM3bEhQYjE4TDducDlZSExoZzZadWRWVjhnNWdWN0Zp?=
+ =?utf-8?B?VXN6QU04anRnSkNScnNLZEpmcXl4Tm5aeGh3aEJ2a3NPdHBJeFFrSXZUaHVE?=
+ =?utf-8?B?MnliRmFkakJzamlSV1VQQWJuMXlmbVppSWZrdmxJU2w3d3F2WFpmdFgvMmZ4?=
+ =?utf-8?B?bnF5R1JSdHAwcmdvU3JyN3QxY2YrcmIzVklFa29OaWFwNGRHQWEwWmkrVWdD?=
+ =?utf-8?B?ZkN6L0JNUkhRQzNyNjJVbVFtQms5elJBOWVxelZmUzVFSDM4RkpmSy9ZalMw?=
+ =?utf-8?B?TDk4bDNlS2ZEeUZ2cnM0SDcrNCtLWTF4SjdFSnRKc3FGY0dvcjR3MDFFN3R1?=
+ =?utf-8?B?ZktCTGpVSEpxMUR4cFlYYWd0VCtMWjhXdys1Vi9yOFo3ZmtBcHpNbzZreFFt?=
+ =?utf-8?B?SEhjYlJvdWxyVFF3VDNhUU5oSW9EU2JzTkZFMGxRd1AyUHU1eEZudHpZNE42?=
+ =?utf-8?B?aW5ONEh2QzhXdHErcFNwOG9nU21WeTY5eUN3NjJod1BjZ3hqMGgvN0JPSlJ2?=
+ =?utf-8?B?QXhNbUwzZk10VG1NV0FKUHNXMHI4VFlEbHlOb3JrL0p5d2FCWGprTVlQZnhw?=
+ =?utf-8?B?T25NRGtyY2NEd09CWHdYQTY3YWg2SEk5amtjOG1xenBrQUo3eEszLzN4bFd3?=
+ =?utf-8?B?MUZlTWJsVG5OMDErQkhrVE10RDdYcHA2b2hoQklNSWFJdUJpWjVTMUcwYWJh?=
+ =?utf-8?B?c21XT2VaZzc1bXVPMzNwT2ZDRFdRczdCSkJKMDY0R2xmVm51RXd5R3JQQkpi?=
+ =?utf-8?B?c2EwTDVzbHpNMHJoUFBCV21aWm1KSHBBelFqR2RHMldJZWJqYVBZR3NESFdv?=
+ =?utf-8?B?VnZ4d3FBZHowRWUrSy9OZFJQaXdJd3dqekYyUVRGWmgrUkNKNWpTMWw0S1Y0?=
+ =?utf-8?B?endCcm9kUllpSXRGZGo0czNITWM4OTBKeStwNEFGVzArNzVIZURmemMrNVdT?=
+ =?utf-8?B?Y2lKOXFPNExLcDBTMXNaWVZiVTFaaVdPSW5vSHR5eEwxKzc5bisvaEJyQlJ5?=
+ =?utf-8?B?VU95S3UxRUdjamNpei85N0lxVDZvRGI0bG4wMXVKVGRrWVBGMjVwek0yeXdV?=
+ =?utf-8?B?NWNCMFNFUS81RWZ5bjJxU3NNWktjNHNoQk5WczFmbzhOajZMZmhUdlovbkQ4?=
+ =?utf-8?B?VnZCdUpCZ0VEUGl6T05VcXZSTHZNdEpqRnlLWEw1d2lEYXAyNG5aMDY3SUN5?=
+ =?utf-8?B?dGVrcXZNT3MwUU5ULzRlU1l4dEl0Ukh4N3dCS3ZRV0JLNjBmbCsvRU5GVWl1?=
+ =?utf-8?B?VTlKNktKeFRKS2RXTU1ycERRbzB3dmNHKzZZS09GQkppTU05V0N3RzR3Rmx6?=
+ =?utf-8?B?R0ZyaWhLL3RlbEgwRGpGL1FNWndsbE5zTVZGMjBoUWRVMzU5Y1RKMUVpT2hO?=
+ =?utf-8?B?eS9CcGsrZXY5VkFKeEYzeGM0L1BoeWRqOUZkSlNkTjM1V0lPOVlHUm0zZHEx?=
+ =?utf-8?B?bk9WVFpSL0hBclE2L1pna3RmMnN5MnNnYlc0d2lWQk5ZZFRlbGpLOEJURS9C?=
+ =?utf-8?B?VFRlWkh1YVpjWUp6bGpzVEFVRU1sMVpMUDNTTFJrVFpjTFNCZ0hWSEhkcFc4?=
+ =?utf-8?B?YXRhV0l4SjUxQko0QklGd1A0OWp3VTV0QUxJbnhoN2REUGlRYmNKQnRpSXV5?=
+ =?utf-8?B?UlRNMENsZE1qQWhPa1lvZzEzcTB5bUlzVS8zbEdZMG8zanZ4SFhVMk1tdk1w?=
+ =?utf-8?B?TGxUMTFqYlJYKzFpOTZtNkQ4T0tCMFR5ZWUzUlR0dEI5QmxVUEc3K1l0aSts?=
+ =?utf-8?B?dVFPVzVQeDJHdTZibUZXUDBXbE9ackxSenJFd1d3RFMrUEhSRldrQ1lHUjFt?=
+ =?utf-8?B?alp5SFZqM2haQ0VJNm9XUFNtSW1DYXpnSzFpYUNpTzVnYThQd2tlQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e871546c-fd3d-44ce-957c-08de8a49e751
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 08:38:35.3891
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vs6yunTsFYr4URzbd8g5OAHv7Cw1OA83PPZC+cNrPqn5olrbZw5dSbwEUG6NVgFYPLHAWaTDr6kqHOr4EuHFzw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_013115_596602_24D9E98D 
-X-CRM114-Status: GOOD (  38.37  )
+X-CRM114-CacheID: sfid-20260325_013844_621823_8BAD7694 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,168 +158,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 16:08 +0800=EF=BC=8CChen-Yu Tsai=E5=
-=86=99=E9=81=93=EF=BC=9A
-> On Wed, Mar 25, 2026 at 4:04=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me> wr=
-ote:
-> >=20
-> > =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 15:19 +0800=EF=BC=8CChen-Yu Tsai=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > > Hi everyone,
-> > >=20
-> > > This is v2 of my MT8173 PowerVR GPU support series.
-> > >=20
-> > > Changes since v1:
-> > > - Adapted to changed DT bindings
-> > > - Dropped driver change
-> > > - Use same power domain for "a" and "b" GPU power domains
-> > >=20
-> > > This update was requested by Icenowy.
-> > >=20
-> > >=20
-> > > This series enables the PowerVR GPU found in the MT8173 SoC,
-> > > found in
-> > > some Chromebooks.
-> > >=20
-> > > This version is different from the initial powervr driver
-> > > submission
-> > > [1]
-> > > in that it splits out the GPU glue layer support out of the
-> > > powervr
-> > > driver and into a separate clock and power domain driver. The
-> > > glue
-> > > code
-> > > is otherwise the same, and also the same as found in the ChromeOS
-> > > kernels, with some extra comments and macro names added where
-> > > possible.
-> > >=20
-> > > Patch 1 adds a binding for the glue layer, called mfgtop. The
-> > > glue
-> > > layer
-> > > contains clock and power controls for the GPU.
-> > >=20
-> > > Patch 2 adds a driver for the glue layer.
-> > >=20
-> > > Patch 3 adds an entry for the MT8173 GPU and 6XT series to the
-> > > PowerVR
-> > > binding.
-> > >=20
-> > > Patch 4 adds an entry for the PowerVR 6XT series GPU to the
-> > > driver.
-> > >=20
-> > > Patch 5 corrects the clock for the GPU (called MFG) power domain.
-> > >=20
-> > > Patch 6 adds device nodes for the GPU and glue layer to the
-> > > MT8173
-> > > dtsi
-> > > file.
-> > >=20
-> > > Patch 2 and 6 depend on patch 1 to build. I suppose some common
-> > > immutable tree would be needed from the MediaTek maintainers.
-> > >=20
-> > > The kernel driver successfully probes the hardware and loads the
-> > > "rogue_4.40.2.51_v1.fw" firmware provided by Imagination
-> > > Technologies
-> > > [2].
-> > > Userspace was tested with Mesa 24.0.8 from Debian Trixie rebuilt
-> > > with
-> > > the powervr vulkan driver enabled. `vulkaninfo` gives some
-> > > information
-> > > about the GPU (attached at the end), but running the `triangle`
-> > > example
-> > > from the Sascha Willems demos [3] with -DUSE_D2D_WSI=3DON as
-> > > recommended [4]
-> > > failed with:
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0 Can't find a display and a display mode!
-> >=20
-> > I think when using D2D the demos want width and height to be
-> > explicitly
-> > specified, otherwise it seems to hardcode 1280x720.
-> >=20
-> > If you're using an elm, could you try to add `-w 1920 -h 1080` or
-> > for
-> > hana `-w 1366 -h 768` ?
->=20
-> I only did the basic `vulkaninfo` test this time around. To do
-> anything
-> interesting probably requires the Mesa 26.1 release.
->=20
-> =C2=A0=C2=A0=C2=A0 PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vkmark --winsys kms -D b81f54f=
-8568deb0fb70a6a1ed845b65d
->=20
-> just reports "Error: Device specified by uuid is not available"
+On 3/23/26 16:32, Mathieu Poirier wrote:
+> On Fri, Mar 20, 2026 at 11:19:06AM +0200, Daniel Baluta wrote:
+>> On 3/12/26 14:36, Peng Fan (OSS) wrote:
+>>> This series adds remoteproc support for the i.MX94 family, including the
+>>> CM70, CM71, and CM33S cores, and introduces a new device‑tree property to
+>>> correctly derive the hardware reset vector for Cortex‑M processors whose
+>>> ELF entry point does not directly correspond to the actual reset address.
+>>>
+>>> Background:
+>>> Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
+>>> table. While ELF images embed the entry point (e_entry), this value is
+>>> not always aligned to the hardware reset address. On platforms such as
+>>> i.MX94 CM33S, masking is required to compute the correct reset vector
+>>> address before programming the SoC reset registers.
+>> What happens if the reset vector is at 0 and the e_entry point is at 0x800...?
+>>
+>> In this case masking will no longer work! Can we implement a generic approach?
+>>
+> I will wait to see an R-B from Daniel before looking at this set.
+>
+> Thanks,
+> Mathieu
+>  
+>
+Hi Mathieu, Peng,
 
-I am very sorry to tell you that, when I run Sascha's demo with Mesa
-main, I got GPU lost immediately...
+Patchseries mostly looks good to me. The only blocking issue here is how to correctly specify the hardware reset address.
 
-```
-[  441.509433] powervr 13000000.gpu: [drm] *ERROR* GPU device lost
-```
+I see two options here:
 
-Icenowy
+1) Create a special section in TCM that holds the PC/Stack initial value as concluded here [1]. But this
 
->=20
-> This is with Mesa 26.0.2 packages from Debian testing. At least now
-> have the powervr vulkan driver enabled by default, so I don't have
-> to rebuild the packages again.
->=20
->=20
-> ChenYu
->=20
-> > Thanks
-> > Icenowy
-> >=20
-> > >=20
-> > > Same program worked correctly on a BeaglePlay and displayed a
-> > > color
-> > > gradient triangle. Not sure what went wrong here.
-> > >=20
-> > > Anyway, please have a look and test.
-> > >=20
-> > >=20
-> > > Thanks
-> > > ChenYu
-> > >=20
-> > > [1]
-> > > https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walke=
-r@imgtec.com/
-> > > [2]
-> > > https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powe=
-rvr
-> > > [3] https://github.com/SaschaWillems/Vulkan
-> > > [4]
-> > > https://lore.kernel.org/dri-devel/f2b2671e-5acc-4dec-9c2e-3c9cd2e1f19=
-e@imgtec.com/
-> > >=20
-> > > Chen-Yu Tsai (5):
-> > > =C2=A0 dt-bindings: clock: mediatek: Add mt8173 mfgtop
-> > > =C2=A0 clk: mediatek: Add mt8173-mfgtop driver
-> > > =C2=A0 dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
-> > > =C2=A0 arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
-> > > =C2=A0 arm64: dts: mediatek: mt8173: Add GPU device nodes
-> > >=20
-> > > =C2=A0.../clock/mediatek,mt8173-mfgtop.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 70 +++++
-> > > =C2=A0.../bindings/gpu/img,powervr-rogue.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> > > =C2=A0arch/arm64/boot/dts/mediatek/mt8173.dtsi=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 33 ++-
-> > > =C2=A0drivers/clk/mediatek/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 9 +
-> > > =C2=A0drivers/clk/mediatek/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=
-=A0 1 +
-> > > =C2=A0drivers/clk/mediatek/clk-mt8173-mfgtop.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 243
-> > > ++++++++++++++++++
-> > > =C2=A0include/dt-bindings/clock/mt8173-clk.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 7 +
-> > > =C2=A07 files changed, 363 insertions(+), 1 deletion(-)
-> > > =C2=A0create mode 100644
-> > > Documentation/devicetree/bindings/clock/mediatek,mt8173-
-> > > mfgtop.yaml
-> > > =C2=A0create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
+doesn't work in all the cases 
+
+2) Add a per device data that holds the hardware reset mask that gets applied to entry address read from ELF.
+
+I'm fine going with option 2) and that's because this change is IMX rproc driver specific, it scales well and will be maintained by Peng.
+
+thanks,
+
+Daniel.
+
+[1] https://lore.kernel.org/linux-remoteproc/38476dd0-07a6-310f-1fba-2b3021a5b007@kontron.de/
+
 
