@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25A5106B53A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3BD106B53F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9ANa4vuydKv94269KjnoGlq88sTOzcJYPnsEhU6iew=; b=yfLulGYo14g5YcwgDvmI4otOov
-	e4AiF1Xc4h90F4QzRK6tV88mpZ9NgB6U2kug/VbueLvqCSTtvGxC3rAlI1fJ45exAjMApVsINL78r
-	jUaYX749tTVPpxs04lphOfxsuLpd2x4GPadPq+mohD4z9P+bmniOolWPvd/3HIMMLP/bCFuT6oVvr
-	h4yvHeiBHoDNLWYnnpeem4LUu3SOZ0ZSarPR8oN1U8gegPiW1mjNeUEliwRUJ+TGLZBiek7mPYZMC
-	QnuVq3JBeCo2pyHFfsQCYpNYCTWNS4NHsjGYzUqK312w7+vhafJK5LwEFvEDozMXUI5FRTEkSyLlu
-	D0/G4pZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9OZ4u4cVhWMS+y1LRMtoJYOo8sApnqooCJL/ZNuRAo=; b=Nu7Gz8aoraAPI9FdyY7r6IdST/
+	sHz040A7oTh2I+3T9FN0lu7qOCESdTYVvuZsmHTA/3qTsK2QcPh//Zox6vunfr8y/fPW+vfChpmmZ
+	eWDHxvRBwU0epgx31JRADWxFVT8KNug4aqEVIq0fqD/I7h2ZbKBdDs56ncUn44JkwEeQoSPjQjOqR
+	AGMBXmqxw37r0N1hXt0y7mZmJGTW3E470eJ3ejIA/M56IkPOOFc0NAR1W17w6C6TjThQxXntdvITv
+	3TlmC3JYMY49RuM8hyHyckJd2wc+HZlKI9RdnBL5q65TxqzLpQS3+XgptsHJFzTKrnUkEjM1fVsG9
+	jCsAPy7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5OX4-00000003Uis-05Fl;
-	Wed, 25 Mar 2026 13:44:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5OfI-00000003VBj-2ZTp;
+	Wed, 25 Mar 2026 13:52:56 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5OX1-00000003UiX-40ZA;
-	Wed, 25 Mar 2026 13:44:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5706260123;
-	Wed, 25 Mar 2026 13:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83E8EC4CEF7;
-	Wed, 25 Mar 2026 13:44:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774446263;
-	bh=R4VEk07h2v3XpY1QKdgb2vlUARw9jfCfolYo6/LkTvs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KAE5zjq0k6W6MQSkOk93LdaEMZFdhYeBkdfVVr5L9uBMksZM7Uj+Rg3tJ/F0cDoxQ
-	 /ZpWod11vMvBRZaWGpklLfxcVY8wnzkhrkpOKxO2ZpzX3i19eYIlo7JmFdPK8EEcbQ
-	 JBBTabX12+UWJfO1Bq/qIi6F99cuuS6xKFOHX2vMn9kETetBKgbivIuXWwjRZeoc68
-	 beV0nrCKaz3wo+/gqXJ9gA7YdKNV/Fs1hiFTBtGQQaaXsLS3mioPckoYsTNVOkDbRS
-	 G2w69gTn1NGrUnTnqKUR8XcjTDmia772g0/pL5mUppzkDufoGI7LB78+c4NUcgi3sA
-	 5UJr5EIo2ULvg==
-Date: Wed, 25 Mar 2026 14:44:20 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	Werner Sembach <wse@tuxedocomputers.com>, Andri Yngvason <andri@yngvason.is>, 
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-Message-ID: <20260325-holistic-llama-of-plenty-acbeca@houat>
-References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
- <CAPY8ntB9f_=f5kru=8w9BpTuqQR+93maGpT61EKU28Uay2vq8Q@mail.gmail.com>
- <20260325-quaint-bull-of-fortitude-dc68da@houat>
- <12425220.nUPlyArG6x@workhorse>
+	id 1w5OfF-00000003VAx-1pod
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 13:52:54 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4fgpJL2kK1z9tyY;
+	Wed, 25 Mar 2026 14:52:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1774446770;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o9OZ4u4cVhWMS+y1LRMtoJYOo8sApnqooCJL/ZNuRAo=;
+	b=eB3A+maQj5Rht1YHFdjVOxmefIvxYol6GfZcgQTFvQwqJ8YE0Wkx9Lcgvruc6XyJw0H32W
+	01eOwFQbbPQfIa3OQOJSZ6oR1hHUGDTzgFXVdLU3/38p2kJUFL+EliLawzCn+xtxyfK1Km
+	LaLaX/IWdQ7MhpoajT7zWhAVJdnTVzqCel8mo5OCk0SklDJvcFuipszaKokEUGH9agU97a
+	b9BJN5Nyr+i9Akpa3hZlt/77jh0XXGym3M29byuNWWY5Xwjz3AcK+lOAoYMsK9pJ52pln7
+	2hyrLYc/fiwRrMdN1CRzer2oXxEnDBKiiPRILCrrPn+7rTdd1JXCqTT/H1/ZxA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=FDrVHXBT;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <78a1dcbf-64b6-4f3e-8d62-2bb9d26e9e20@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1774446769;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o9OZ4u4cVhWMS+y1LRMtoJYOo8sApnqooCJL/ZNuRAo=;
+	b=FDrVHXBTcltC4Iufktx2VI/LiOCR2aN+YJi+meo2hqbGAFhFds/fqsuL8s70u0ByrB+hMF
+	pydDyOXNF36CkKdnr/dymUphQ+pNMX50s8rhySooXkafbpoE3ry7YlLH5N7DEdx7tCPneX
+	IeknfI+dzrXwZQy/fGHZjXniwlj7SnDgJSPdR2Z7q5L8gl8rvV7RFkYVHQQzGzIV2lQnzw
+	U7805F1o/bl1/wnuNIBDymEPO4N9/IlnwF9a5aAEohiJGQ1b0MLN4X/oScMHCQ5fQhozDP
+	rN94bxfAZPy0e7sv/yt6S4SbEha22PutMnZ7lFjPJJCdoRdBRBDl+TKwHRXCYA==
+Date: Wed, 25 Mar 2026 14:52:45 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="nu5efgjywb5co2ik"
-Content-Disposition: inline
-In-Reply-To: <12425220.nUPlyArG6x@workhorse>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Reserve first 128 MiB
+ of DRAM
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260324143342.17872-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdVv5KUma8=2T+ibnXyH+45xvqVrQaPho0CSzP1_r+j_hQ@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdVv5KUma8=2T+ibnXyH+45xvqVrQaPho0CSzP1_r+j_hQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 8bf10851b491f6f89bc
+X-MBO-RS-META: j75d8ic77jhjuhdeawngtk8aegjzebjn
+X-Rspamd-Queue-Id: 4fgpJL2kK1z9tyY
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_065253_634021_2AB733DA 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,105 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 3/25/26 2:08 PM, Geert Uytterhoeven wrote:
 
---nu5efgjywb5co2ik
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-MIME-Version: 1.0
+Hello Geert,
 
-On Wed, Mar 25, 2026 at 02:21:24PM +0100, Nicolas Frattaroli wrote:
-> On Wednesday, 25 March 2026 14:05:25 Central European Standard Time Maxim=
-e Ripard wrote:
-> > Hi Dave,
-> >=20
-> > On Wed, Mar 25, 2026 at 12:49:19PM +0000, Dave Stevenson wrote:
-> > > > diff --git a/include/drm/drm_connector.h b/include/drm/drm_connecto=
-r.h
-> > > > index af8b92d2d5b7..bd549f912b76 100644
-> > > > --- a/include/drm/drm_connector.h
-> > > > +++ b/include/drm/drm_connector.h
-> > > > @@ -571,14 +571,102 @@ enum drm_colorspace {
-> > > >   *   YCbCr 4:2:2 output format (ie. with horizontal subsampling)
-> > > >   * @DRM_OUTPUT_COLOR_FORMAT_YCBCR420:
-> > > >   *   YCbCr 4:2:0 output format (ie. with horizontal and vertical s=
-ubsampling)
-> > > > + * @DRM_OUTPUT_COLOR_FORMAT_COUNT:
-> > > > + *   Number of valid output color format values in this enum
-> > > >   */
-> > > >  enum drm_output_color_format {
-> > > >         DRM_OUTPUT_COLOR_FORMAT_RGB444 =3D 0,
-> > > >         DRM_OUTPUT_COLOR_FORMAT_YCBCR444,
-> > > >         DRM_OUTPUT_COLOR_FORMAT_YCBCR422,
-> > > >         DRM_OUTPUT_COLOR_FORMAT_YCBCR420,
-> > > > +       DRM_OUTPUT_COLOR_FORMAT_COUNT,
-> > > >  };
-> > > >
-> > > > +/**
-> > > > + * enum drm_connector_color_format - Connector Color Format Request
-> > > > + *
-> > > > + * This enum, unlike &enum drm_output_color_format, is used to spe=
-cify requests
-> > > > + * for a specific color format on a connector through the DRM "col=
-or format"
-> > > > + * property. The difference is that it has an "AUTO" value to spec=
-ify that
-> > > > + * no specific choice has been made.
-> > > > + */
-> > > > +enum drm_connector_color_format {
-> > > > +       /**
-> > > > +        * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display =
-protocol
-> > > > +        * helpers should pick a suitable color format. All impleme=
-ntations of a
-> > > > +        * specific display protocol must behave the same way with =
-"AUTO", but
-> > > > +        * different display protocols do not necessarily have the =
-same "AUTO"
-> > > > +        * semantics.
-> > > > +        *
-> > > > +        * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:=
-0 if the
-> > > > +        * bandwidth required for full-scale RGB is not available, =
-or the mode
-> > > > +        * is YCbCr 4:2:0-only, as long as the mode and output both=
- support
-> > > > +        * YCbCr 4:2:0.
-> > >=20
-> > > Is there a reason you propose dropping back to YCbCr 4:2:0 without
-> > > trying YCbCr 4:2:2 first? Minimising the subsampling is surely
-> > > beneficial, and vc4 for one can do 4:2:2 but not 4:2:0.
-> >=20
-> > The "auto" behaviour is strictly identical to the one we have right now,
-> > and this one stems from i915. Back when all that logic was added, it was
-> > decided to align every driver behavior on i915 because that's what most
-> > compositors would expect.
->
-> would it be okay to extend the behavior while we're at it? 4:2:2 does save
-> bandwidth compared to RGB (unlike YCbCr 4:4:4). I do think 4:2:2 instead =
-of
-> 4:2:0 will provide benefits in some cases.
+>> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+>> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+>> @@ -118,6 +118,17 @@ memory@600000000 {
+>>                  reg = <0x6 0x00000000 0x1 0x00000000>;
+>>          };
+>>
+>> +       reserved-memory {
+>> +               #address-cells = <2>;
+>> +               #size-cells = <2>;
+>> +               ranges;
+>> +
+>> +               tfa@40000000 {
+>> +                       reg = <0x0 0x40000000 0x0 0x8000000>;
+>> +                       no-map;
+>> +               };
+>> +       };
+> 
+> Obviously I don't like this very much, but I agree there is not much
+> else we can do at this point.  Shall I add a
+> 
+>      /* Temporary workaround for broken TFA BL31 */
+> 
+> comment while applying?
 
-I don't really know, we would need to ask some Wayland/Weston devs as
-well, but it sure is something worth discussing.
+For maximum backward compatibility even with old TFA BL31 versions, 
+which the users may run for whatever reason, I believe this reserved 
+memory area is here to stay and won't be "Temporary".
 
-I wouldn't do it in this series but as a follow-up though.
+But I will be looking into TFA to fill in this reserved-memory node 
+properly for this and future SoCs.
 
-Maxime
-
---nu5efgjywb5co2ik
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCacPmswAKCRAnX84Zoj2+
-dmGlAX0Q9JHOxhbPAWTKWwWdOKb27uv7yw9UktgOGpTC//J0c33s5cWESV5s9FVr
-OXH5nAQBeQGG5UBUfjnKVw2z5/UIP190HSYoXIe99ktfdFWZXL8eG7RH4sRMWGxb
-vSEBp9nfpg==
-=4Hsf
------END PGP SIGNATURE-----
-
---nu5efgjywb5co2ik--
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> i.e. will queue in renesas-fixes for v7.0.
+Thank you
 
