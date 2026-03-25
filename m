@@ -4,99 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B621093168
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7A11093168
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EUZRaRSoeGbeHMPN/xeMz+gDo6IrLpv59F7gq0WwPeI=; b=Yzn0gziPAwiYVPw8erLLAKgSCp
-	W9rgcQph2FAuld2hxyk9q6RRj4E1hxQLf23iKAev0X6+BIycLlvJw+xYZUqAqRFnq5omYXNAPlMg0
-	rnqJzjooQ0UsqA2oSup4N9mdOQy4VzuKoZoWVGXo/7tk1coGTrt9jvv35CyUS9pGmuOTHEuS26wAT
-	M/J7fM7FccXEJPRUMtIcGlawNB8mBUQ2AphyOxBlHkr2zIN9wx1iRgh4L0W2g+/lxQwN+xYHYY/rI
-	Mo9Viq50WaLuTk62xYDKQVVLFyO8WPKji6JyQCTuDqEDhtmdbLBFfS0DM0mDCrnuB1XYvZXeA14fb
-	sKdatZLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uPfKdW44wibRLb8oNCfuNh010t8RCFkKs8K3Sdc1EX0=; b=BkVoyQVt1b3m+fravysLduggeJ
+	8DO3FZHrSsIHO2BbCVmgBo3UaAUi50NQgrA+4QiLHrhPAtQPybno5xXW6c+hyi/JX9kb1nPzv7w9+
+	XFyCHmWPVWGU3yCI/AlglxJ7TWIxxebKAaQrzTlSSkU3+zECiUhcFySgTzXXdZwwydt6LSfo1A1ye
+	w+U66PBR/kUH3ycDcwo0brUOWy4BtmIF4G6riof9dmNL6rmKPJv5BgtSb75i1NPsqOGqZSD5xse6d
+	aYj3IAru4l0rsQuZr7y1uKH5vazAKa0XJVjuviWQZd2542F5Pv3BT/NZFOwtYesS6ruIy5WXli27a
+	3LzK972w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5P8f-00000003Yud-1j2L;
-	Wed, 25 Mar 2026 14:23:17 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1w5P8x-00000003Yyq-303Z;
+	Wed, 25 Mar 2026 14:23:35 +0000
+Received: from mail-vs1-f48.google.com ([209.85.217.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5P8c-00000003Yty-46nF
+	id 1w5P8v-00000003Yxt-3RRQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:23:16 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ab232cc803so23292125ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:23:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774448594; x=1775053394; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EUZRaRSoeGbeHMPN/xeMz+gDo6IrLpv59F7gq0WwPeI=;
-        b=qAdXPAHQ9IVJLSfoiihHNAjnduM4l1jgiZsFeLiS2xwFRN6YiEZ/DlNIGbQmeZEsPL
-         23OsiHpPJvgAX/SHY1GXJCWATlbwIdRAbo0V7ZZVWNoVhneEfApowLLGWTCWvaxBBvUY
-         ZinIwK7ekfQ8Lh5qsXcZZfBi2ePE6zck41JUfrjORyo3sRkkCMwKm3qLAr9KQbI1NuyW
-         8jYuDBdzEpWu3LaInupuJBgT17tso39sGY72xQiuEYiLa8SPJHkBiZW5cZ9CgiVd0XlJ
-         TAisgH+3ZMHYboRkAQXbJdrQOmd7DC6AE9r3V1qxQj5c72a05J/JCyw+965//v2z73aL
-         760w==
+	Wed, 25 Mar 2026 14:23:34 +0000
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-6028bb29cc9so3854046137.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:23:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774448594; x=1775053394;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EUZRaRSoeGbeHMPN/xeMz+gDo6IrLpv59F7gq0WwPeI=;
-        b=mQFBtFGMgmG/DwYNTBI6Cb0filx000BRpq8WQzL6NKVIX2jLFTASybITowMLdyg8zl
-         3o4IPyztiFqLCVIuWIwUcNztDXq1BVgbf0Ogi6AOn7cMz6qEhttI6nr8fAVQkx8DLasE
-         ucQmYshQs57l3r6UNJbqSdENJ8LboVcPCicQrwRj8EbIgXGolTd8UqgchxOjAtJ68lAB
-         jfHQGudBzB4XKEKe+2KXYHMb0wFYMucrKBkHp0/PxONWWB8H0L2ibUHwwOTWYzm6EhYs
-         ILXxA/5h8FV6VfwXGCDlkVes4sQVHY5t6UgE8jt1nm2G16F6vv0zf4A8VL3mHB8hNF/D
-         QtKg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdIUUzwqJ/vDDU6VFvQSbY/jNJy0ouqe7p+AUkqvTuVhkwsTl3+p9qYHWsc0vX9bx5rR6xuiWabuAQ3LIGxJRG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzRrh2N1QqBOCJyxU5bv84F3yUUDvJGOcGMMaeYWAugH7NoN5e
-	t/rrKHE4XSyWwQsv0Dpa2J0mbfAN17eNNOKNJ9NT+qCsMrMgnA/6LW3o
-X-Gm-Gg: ATEYQzxe8BV1+1d7XoOm6oq+fAQJQpIuwGj/kW6SlFxoZGaeDAXUlyUO/2235zM6Aaq
-	2eRwTLOl1RWoMBLUR0A4kZ1/fEOeh2JsGEDHJBHBs3WFqL8bZn828vKuWdcN+SRqiH7r5SJE3uZ
-	AS0OYB6Ebk85jcnHZqUwAYHQ/o8j/lYg2LC6o/nPjU9uIujsSqJoURZ33MKcHsi/NTapUTdBK1q
-	IASBV3HqK9FS8cUyjyl2ixCEQLS+xllHl2ojkKPG997f4OUba+SjW5bEeZJ/SuFM8691XmbVi8O
-	RmpeKAHLmk4e9hZ1kd3PmtUCeJxIOpg11whyh+gsn36l+iyJs4oNo2/vv3zMAL6MnbFrF2awBNF
-	WCFKKKHJjqr/UM2I/soKUNDtFRmeKDaDO2uEok7KII23j2ZOn/5UsoTMVeGDYH47anOtPP9BSV2
-	28poekwv+Hlrw3qCQ1o+qEZkY=
-X-Received: by 2002:a17:902:da88:b0:2ae:504c:ae8a with SMTP id d9443c01a7336-2b0b09d55bfmr42098335ad.16.1774448593427;
-        Wed, 25 Mar 2026 07:23:13 -0700 (PDT)
-Received: from bsp.. ([2401:4900:5034:e673:1f10:d599:388e:a85])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc7b8adasm860705ad.33.2026.03.25.07.23.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 07:23:12 -0700 (PDT)
-From: Rahul Navale <rahulnavale04@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Rahul Navale <rahul.navale@ifm.com>,
-	dev@folker-schwesinger.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	michal.simek@amd.com,
-	suraj.gupta2@amd.com,
-	thomas.gessler@brueckmann-gmbh.de,
-	radhey.shyam.pandey@amd.com,
-	tomi.valkeinen@ideasonboard.com,
-	rahulnavale04@gmail.com,
-	marex@nabladev.com,
-	marex@denx.de
-Subject: Re: [RFC PATCH] dmaengine: xilinx_dma: Fix per-channel direction reporting via device_caps
-Date: Wed, 25 Mar 2026 19:52:59 +0530
-Message-ID: <20260325142300.3680-1-rahulnavale04@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
-References: <DGHGTCJRRZCW.9TGXQW44V6RR@folker-schwesinger.de>
+        d=1e100.net; s=20251104; t=1774448612; x=1775053412;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uPfKdW44wibRLb8oNCfuNh010t8RCFkKs8K3Sdc1EX0=;
+        b=nD89Ln1QudQmleh+Sk6lkixGw/nhA7l8L+mqAutTTPfWoZHSGTuoD8jS/w4TecASSt
+         IPhLgqd0Qk5/rJ3r4WomAz2nbsncXt0r/ymwMpmQUOpAw+kc5jK/hfWiEMOpLnUoN4J2
+         Jh0dCEtFzay9Of8+4Q9oOBmFuE2GV7aYPPWfomjEzxjPDHH4gWPhrH5m4aoewQxS2Sff
+         MV+288O7wR7pWqqJRUtWcIrhsAbtvvd62YORRDxv22eK28dVHnqlN72GSlZXMooMbTIY
+         MFTYBQ0hyizyMsfgxPfGCKmeWZ+0HQB5/Y4hQ/BSi85L4b0jG4ZdENwFGPPuUUM1Xom7
+         SRrg==
+X-Gm-Message-State: AOJu0YwrxqWQhNBsn6zTd2pzzG7MpqQspMJ5tzjperQklvU3qRaRw5Ei
+	Q2s2GGAirYFBbAArGP+RAf1axBL0ODHBJ3x1K92eiQBDOZEowMUig0zvw5bylLKcUhs=
+X-Gm-Gg: ATEYQzySsSwfRVQg+ewATP0TjSSFfv8F9K+4n5nYXMgSAtfopSzJJMrlcdZhPfXr1s8
+	zNyC3eR0XtSd/Elt+0NMwgOpiwyyE0VC1Ya/2HOMv/JLwO9w7qQchiCN4LMcJKSATZN0oCiq5we
+	OWPxVKoqqLsVT6+ElHaSGWbyUVPYga4V7edIZCZL8NGRNRosIQUPcoldyxsSVZqrGen8orEcPPb
+	A407Co5yUP529OBxEbq4LFAlPRul6zWGeG+8fvcDcaPDM5saCPXyAEgxhKdIsnaconyOsU9t4B4
+	I0k9ZDHhKx4Xl2Yqum0bw5nEMxXW3Bc0naYSosyy+hTWb0XGw4HvkMtoSdGp8cwXSTp+tsPLU+k
+	EhpzwVMleOQHqLNTVIMsy+E3P5yE3kBjZ4fenZRTNdb0hZHPAZVeZap5aYLst7UXdloxY5yN9My
+	XMd3LGLFgUxYactPjq/g8n8OF2BfGMXuBw8KNnvbDFqMLB1E4N4l9u8bnDhPpn
+X-Received: by 2002:a05:6102:15a4:b0:5ff:ae5c:c669 with SMTP id ada2fe7eead31-603890e6cb6mr1938423137.37.1774448612294;
+        Wed, 25 Mar 2026 07:23:32 -0700 (PDT)
+Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-602af8539b1sm14134949137.1.2026.03.25.07.23.31
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Mar 2026 07:23:31 -0700 (PDT)
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-6028bb29cc9so3854037137.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:23:31 -0700 (PDT)
+X-Received: by 2002:a05:6102:2c83:b0:602:9977:a4fe with SMTP id
+ ada2fe7eead31-6038723803fmr1660070137.19.1774448611693; Wed, 25 Mar 2026
+ 07:23:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org> <20260313164008.40933-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260313164008.40933-3-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 25 Mar 2026 15:23:18 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUtkSWb7nr6R3XEBtzzoXOEOqE3uAAGSfmxXA3eyaUVOw@mail.gmail.com>
+X-Gm-Features: AQROBzC97DFZqc_tdbslxD1CrTlsZtSsIxK87YaGhcNdw9L7AipBy4NtEWpck64
+Message-ID: <CAMuHMdUtkSWb7nr6R3XEBtzzoXOEOqE3uAAGSfmxXA3eyaUVOw@mail.gmail.com>
+Subject: Re: [PATCH 2/4] arm64: dts: renesas: Drop RTL8211F PHY C22 compatible string
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_072315_020215_718BB96B 
-X-CRM114-Status: UNSURE (   6.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_072333_882198_D69E868C 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,17 +96,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rahul Navale <rahul.navale@ifm.com>
+On Fri, 13 Mar 2026 at 17:40, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Realtek RTL8211F PHY schema indicates that compatible string
+> "ethernet-phy-id001c.c916" must not be followed by any other
+> compatible string. Drop trailing "ethernet-phy-ieee802.3-c22"
+> to match the schema.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-@Xilinx/AMD maintainers:
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.1.
 
-Quick status: the ASoC playback regression is still present.
-when 7e01511443c3 ("dmaengine: xilinx_dma: Set dma_device directions")
-is present. Reverting 7e01511443c3 restores normal playback.
+Gr{oetje,eeting}s,
 
-Could you please advice the next steps / preferred fix direction to address
-this regression upstream?
+                        Geert
 
-Thanks,
-Rahul
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
