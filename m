@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5F8FEA82F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 07:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5965FEA82F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ylCJHL4jz4SMJERGBRhfgz5hmf9BV/IyctYJz76/DdA=; b=GmG2S96W6WesPQJxZtJftBdhDc
-	dAXMD7okyBAVvyMHCD3fLFpfgHuuZKLikdXhWGPNWRpvMyo5ctOI7jkBL2+vghTcGVhT6Xx2lL8eq
-	eHY/+oELp6/Gs0M2SloXXV6QWbzvnIbvwmQ2c0OEsxrbOMiJ88RnteITS3UYYyCrAUrRJUSPoxptm
-	+w4oQLFMKFbP9duBF8iK1LLssymMErNdNMuQdBZURvhnny8NhkVaQ8kNgvj68IChvU5oTSFe5K63g
-	fwI6/GRlVTL+LVWaml57pySPLjbXvlDiy9Y4qEKu7i5CN1sCX7rg9v+LCZ1RDFBgaFv/1Ce/JdXwt
-	NZzJMtKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vt7Mb16aSdMDgOFjLAuuIeayxSikgKE6p5Q9CKHus2k=; b=29PyJKyxN+mJ82RammFtsvo4go
+	76iRmBpiTKRNGvZFlqieM2r9VwMKgiw3si7kTXy0Lc7Mk8lzxP1v2elgtb+hjO30Xiu9Ha+sbjLLX
+	y3c5HXfTLTToc2lItZkC7CztGQSTzX2UHLgzMQngexeJ6xSHFZ6zDTWzGI+DfdryhBWCCXLfVQVm+
+	68fmSnj10A8at4rJCMMV3gZJXhiPaihFMh2sJjXgqk4kP3e4vCLtjhAgdwraVwKYyoYSf5QDtZgQT
+	ADZIt+Nfre7P9CL0thgAUhgM2gYH1yj1TSFJbq2C10j+E2qSvL4kgPake4M2vquhbcDVJkTGoP8iB
+	4jAPBP2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5J8f-00000002tIW-2euc;
-	Wed, 25 Mar 2026 07:58:53 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1w5JAb-00000002tjj-1UFW;
+	Wed, 25 Mar 2026 08:00:53 +0000
+Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5J8U-00000002t8s-3K4Z
+	id 1w5JAY-00000002tjL-26z8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 07:58:46 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b04fc8851cso21774395ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 00:58:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1774425522; x=1775030322; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ylCJHL4jz4SMJERGBRhfgz5hmf9BV/IyctYJz76/DdA=;
-        b=U8x1pCYBaCkerCmVJq0dWxj8eCPnnU4TbHDOzbtb2RVPjSdeFeFGX3v47bDuf2TEot
-         G2MzXsX2wW5yztdylZ/O2w6ok+Sb601otlvipBjxJUuQWhUDpfQG7pKoh80f2BsgGjHi
-         wlJRJOwKpyQeHSNlbCe6eXA90lqoIocMUwH8U=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774425522; x=1775030322;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ylCJHL4jz4SMJERGBRhfgz5hmf9BV/IyctYJz76/DdA=;
-        b=Bp0+abTL27bLdxoO1aVlPdFiSGeu4WoaroOvG/H4oJwBeuKaA8cMIw2l8/aUzzihy5
-         Y1O7xaxOq52euXubUlnr7cnVym09ny8RWVbErN0NYNi52pjv+Gyr9V1UNKvgBAV6Aajy
-         PsM1ibaOTEbB1hogfU26lXNUy1uJ6dy66fTeYyOUC/3mMSZfjNlFVTd1aNySLPFAnBvb
-         z3OLKy+t+Do0pSsBYAKu7epGrhoWqQ/Tq2FoWCuGyR4aXlKwAMXEvn/clPju4qg8Qj2O
-         Ko+AWK5hZ6Gp1IR52Z9cN9aIi0qSuKdSmHRO0vF0dgYS9ZToud9tGmu0O0EQw/P4/xmQ
-         Ew3A==
-X-Forwarded-Encrypted: i=1; AJvYcCV8Mes56/zbF4rd/5G5rDL9Q7gWggaPY13joIdqDqErSdyq5qksqDpqca7i9Lh4y/xaH+QHR6BZl1HIS9Io+qV5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHKIqThvfOUREc6EIpU5/GGY/2AYyOJuwRZxQdevAtuekqD7jX
-	imeWHjkdNRe3+CvFzjIzz4dhTO5ZzgHs8eO9Yy0m8UEyqSmOS//9ddlREyxI8WDGnw==
-X-Gm-Gg: ATEYQzwXD1EAsz1bb9NWlGOY7j7x2+BObAZOpzjMbN4jANDbntK5DGYx73B7k0GFIGf
-	xwPfHmxTh3BG4GtOndFnN+7lTW5eNA+mEZPXzsZbzZ5E7redEDUmFborF6Hp0gHEVHG9Q1D8ykE
-	jfCHHlq7ixj8Dg6yPep6J+SLOQIXdE9yolTN2HaOwb9EVnqkYOP+9iG0Dr0LPqh5D42oxNky/SP
-	4l0EdqZ0Em6Mv9S7n90ewXKHsy7sJsQ/NsqH6fOMCDHEN6Elvs1j0nKDZFYqJsvM+iAf6lTYGAR
-	4uW6IJd+eGqEMLkiCJzjNinhtajqJ2oJl5y94b+5RsRQsbu9AFg1Rcm39/TBGRtQqS5PsLngFub
-	AkufSq7ILukbQG36ekdhzt2Wuy4rCEiG2+w9UOggIHb5fQTNFeTrbPMqbk1f8CkvLSw0Y+fNxiT
-	vSR2qP1kfJFvdyzFeAqThg/+XquNgWuSW8pswO16rJITx23pGE4eZ5JjBpjsl7jPZ+Kv5Gax5Rq
-	fsijZg=
-X-Received: by 2002:a17:903:3843:b0:2b0:9a61:916 with SMTP id d9443c01a7336-2b0b0a7f831mr28028415ad.31.1774425521733;
-        Wed, 25 Mar 2026 00:58:41 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:7ff0:bee3:7d45:eab])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b08366c3f7sm219682465ad.60.2026.03.25.00.58.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 00:58:41 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Icenowy Zheng <icenowy@aosc.io>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 5/5] arm64: dts: mediatek: mt8173: Add GPU device nodes
-Date: Wed, 25 Mar 2026 15:19:49 +0800
-Message-ID: <20260325071951.544031-6-wenst@chromium.org>
-X-Mailer: git-send-email 2.53.0.1018.g2bb0e51243-goog
-In-Reply-To: <20260325071951.544031-1-wenst@chromium.org>
-References: <20260325071951.544031-1-wenst@chromium.org>
+	Wed, 25 Mar 2026 08:00:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1774425650; x=1805961650;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=VlBxR/SzYAHrqVgrVE6UN8eEpY06CR6hnRPY1BAcTpo=;
+  b=hmKKzLLyqPbEmpBjAzqVdpcOA320uTr3zTAK0foSjHdvvVpd1OicK27P
+   Q/3VwuV0HxHpOmqcPKNldWy7tUC9HgYf/kJORq64Zlc4Tfst3d9TmDjgY
+   3clAQUGzkopcnmZgW9z1DXJ4lSDjsbuGbytOGXlgM2gZp6FMb7UAljPqm
+   dzU9tE6rfqhIc2K9kL+LvNBeXrK1deizi6UkEbFP9hkRBbRviMa+nFooL
+   p8fmLKtlCSUOqoGDZ/5Oz08Klw1Om5fXV7W6QkdM2KFif74GEVw9CfR0C
+   TZZXQ+2q9+MY2m0lP2tChfzdO1f8SEeh3YIf6TDZYN2Mv+l9W6td5ZiT4
+   Q==;
+X-CSE-ConnectionGUID: oQWojVaUTv+ziivt2bjrhg==
+X-CSE-MsgGUID: 1dspShgtQTKQvmnJmdRBZQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="235253127"
+X-IronPort-AV: E=Sophos;i="6.23,139,1770562800"; 
+   d="scan'208";a="235253127"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2026 17:00:47 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6CFDF1C0019F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:00:47 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (az2nlsmom3.o.css.fujitsu.com [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 1BE68100D100
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:00:47 +0000 (UTC)
+Received: from sm-arm-grace07 (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom3.fujitsu.com (Postfix) with ESMTPS id 53168101BB54;
+	Wed, 25 Mar 2026 08:00:41 +0000 (UTC)
+Date: Wed, 25 Mar 2026 17:00:37 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 0/3] KVM: arm64: selftests: Basic nested guest support
+Message-ID: <acOWJT39NGrmfSbQ@sm-arm-grace07>
+References: <20260325003620.2214766-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260325003620.2214766-1-weilin.chang@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_005842_842696_1F0961AD 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260325_010051_114004_6FDAE276 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,65 +101,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek MT8173 comes with a PowerVR Rogue GX6250, which is part
-of the Series6XT, another variation of the Rogue family of GPUs.
+Hi Wei Lin,
 
-On top of the GPU is a glue layer that handles some clock and power
-signals.
+On Wed, Mar 25, 2026 at 12:36:17AM +0000, Wei-Lin Chang wrote:
+> Hi,
+> 
+> This series adds basic support for running nested guests (L2) in
+> kselftest. The first patch adds library functions. While designing the
+> APIs for userspace, I referenced Joey's approach for kvm-unit-tests [1].
+> In summary, four preparatory functions are provided for userspace to
+> set up state to run an L2 in EL1:
+> 
+>  - prepare_l2_stack()            <- sets up stack for L2
+>  - prepare_hyp_state()           <- sets up vEL2 registers
+>  - prepare_eret_destination()    <- userspace passes a function pointer
+>                                     for L2 to run
+>  - prepare_nested_sync_handler() <- sets up hvc handler in order to
+>                                     regain control after L2's hvc
+> 
+> After calling those functions, userspace can vcpu_run(), and when
+> run_l2() is called within the guest, the supplied function will be run
+> in L2, with the control flow managed by the library code in nested.c and
+> nested_asm.S. After running the L2 function, run_l2() will automatically
+> return. Note that the L2 function supplied by the user does not have to
+> call hvc.
+> 
+> Patch 2 demonstrates usage of the APIs introduced above, with a simple
+> L1 -> L2 -> L1 sequence, with an empty L2 function.
+> 
+> Patch 3 enhances the library functions by setting up L2 -> L1 stage-2
+> translation. Currently the translation is simple, with start level 0, 4
+> levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
+> 
+> [1]: https://lore.kernel.org/kvmarm/20260306142656.2775185-1-joey.gouly@arm.com/
 
-Add device nodes for both. While there is supposed to be two different
-power domains to the GPU, MediaTek does not have any information on how
-this is integrated internally. Assign the same GPU power domain to both.
+Look like this selftest assumes nested guest's MMU is disabled (L2 IPA
+to L1 IPA to PA), but I couldn's find the explicit SCTLR.M bit operation in this
+series, how do you make sure it is always off?
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8173.dtsi | 31 ++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+Thanks,
+Itaru.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-index 556e806b7787..169ba4fd183e 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-@@ -1002,6 +1002,37 @@ u2port1: usb-phy@11291000 {
- 			};
- 		};
- 
-+		gpu: gpu@13000000 {
-+			compatible = "mediatek,mt8173-gpu", "img,img-gx6250",
-+				     "img,img-rogue";
-+			reg = <0 0x13000000 0 0x10000>;
-+			interrupts = <GIC_SPI 217 IRQ_TYPE_LEVEL_LOW>;
-+			clocks = <&mfgtop CLK_MFG_G3D>,
-+				 <&mfgtop CLK_MFG_MEM>,
-+				 <&mfgtop CLK_MFG_AXI>;
-+			clock-names = "core", "mem", "sys";
-+			/*
-+			 * Binding and GPU core HW have two power domain
-+			 * inputs, but MediaTek does not have information
-+			 * on how this is done internally.
-+			 */
-+			power-domains = <&mfgtop>, <&mfgtop>;
-+			power-domain-names = "a", "b";
-+		};
-+
-+		mfgtop: clock-controller@13fff000 {
-+			compatible = "mediatek,mt8173-mfgtop";
-+			reg = <0 0x13fff000 0 0x1000>;
-+			clocks = <&topckgen CLK_TOP_AXI_MFG_IN_SEL>,
-+				 <&topckgen CLK_TOP_MEM_MFG_IN_SEL>,
-+				 <&topckgen CLK_TOP_MFG_SEL>,
-+				 <&clk26m>;
-+			clock-names = "sys", "mem", "core", "clk26m";
-+			power-domains = <&spm MT8173_POWER_DOMAIN_MFG>;
-+			#clock-cells = <1>;
-+			#power-domain-cells = <0>;
-+		};
-+
- 		mmsys: syscon@14000000 {
- 			compatible = "mediatek,mt8173-mmsys", "syscon";
- 			reg = <0 0x14000000 0 0x1000>;
--- 
-2.53.0.1018.g2bb0e51243-goog
-
+> 
+> Wei-Lin Chang (3):
+>   KVM: arm64: selftests: Add library functions for NV
+>   KVM: arm64: sefltests: Add basic NV selftest
+>   KVM: arm64: selftests: Enable stage-2 in NV preparation functions
+> 
+>  tools/testing/selftests/kvm/Makefile.kvm      |   3 +
+>  .../selftests/kvm/arm64/hello_nested.c        |  65 ++++++++
+>  .../selftests/kvm/include/arm64/nested.h      |  25 +++
+>  .../selftests/kvm/include/arm64/processor.h   |   9 +
+>  .../testing/selftests/kvm/lib/arm64/nested.c  | 154 ++++++++++++++++++
+>  .../selftests/kvm/lib/arm64/nested_asm.S      |  35 ++++
+>  6 files changed, 291 insertions(+)
+>  create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
+>  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
+>  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
+>  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> 
+> -- 
+> 2.43.0
+> 
 
