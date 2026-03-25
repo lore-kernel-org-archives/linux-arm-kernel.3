@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06037109E522
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51298109E522
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OBjfZXsH5TqD0Lm/UbWCLodSYSgWB46anAeaAS2zRIw=; b=ZKH9knkuDkOt+x1lWAC8pjIVc5
-	WNuP9EaukT7SXsp6S0R57TRuqBPWBEow3oGu+Wau4tkHZOo5Ly05wsvWXCd3RBiWPANy9E8pVWY7t
-	grvaseatl0IBw3il/Obf8ZbMpD8g2ppjBXXzD4uDjwCmvZwtKaio52WN0vJ0Yr40lULpiQZb4a09N
-	TerlAgHw/APW/V9fbNBm3o+JLyPaGOfQDCKYTLeqE4dUQrRkqI/w7oisVpKvzNYQTad7F9RtDPGbI
-	EOdNrRKqassUZyX2vYIgi2Ew+8RHO74vMC7HOGXVXc0KbUT/khnHc5dpXkU8caVyHPiXkgfWAT+/z
-	F2dq5ETA==;
+	bh=RgdC5kt5k6hG8v7cip1AuvGjq20kUgYnV+A5Mrl16mo=; b=bbIwMxjrPgepQTjCzc3tNl5sdO
+	eln4fh6Cvajo+p0r+1xf+Arl7G7dspjsKAEMqr8Kr6pE1jYIk0el8xt1sXkpGsHhntsmjj/9IEo+1
+	TT4sIPYaenCs8KAalFFSph06Yr6wJs1oNcx8uMS/l5Sn0jZ2safNrqq9yiTLq+rNGXUSTiXkPL6Mc
+	mT7OwzjmLck7n1J6EGgQNkAlbSf3W4T6Qj2BVT8a/dGpPkIF1cBeBxRLbb9mU7G2wjr7jnsFs5/cb
+	/lAc2CUZ2/DpArGjvNOoXDImOQwTzqchFOV47CEsq3/NFrS/N6/T4li/L5tIe14XssCWi7o3BjeS7
+	EGOpTaYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WRZ-00000004K5O-3sCV;
-	Wed, 25 Mar 2026 22:11:17 +0000
+	id 1w5WRj-00000004KEV-01U0;
+	Wed, 25 Mar 2026 22:11:27 +0000
 Received: from flow-b6-smtp.messagingengine.com ([202.12.124.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WRL-00000004Jp5-3zZ2;
-	Wed, 25 Mar 2026 22:11:05 +0000
+	id 1w5WRS-00000004Jy9-0JYP;
+	Wed, 25 Mar 2026 22:11:12 +0000
 Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailflow.stl.internal (Postfix) with ESMTP id D5113130051B;
-	Wed, 25 Mar 2026 18:11:02 -0400 (EDT)
+	by mailflow.stl.internal (Postfix) with ESMTP id EF6411300522;
+	Wed, 25 Mar 2026 18:11:08 -0400 (EDT)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Wed, 25 Mar 2026 18:11:03 -0400
+  by phl-compute-02.internal (MEProxy); Wed, 25 Mar 2026 18:11:09 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
 	:content-transfer-encoding:content-type:content-type:date:date
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1774476662;
-	 x=1774483862; bh=OBjfZXsH5TqD0Lm/UbWCLodSYSgWB46anAeaAS2zRIw=; b=
-	pC2HTa80V46+g3tmKoKdkEQKgvxlW0e70gQwJYwZuvqDSFlRHir6mq8/0GE54Aua
-	dU4w0LyXzQIZH4umk/x87eCQeoCOLgMrfJHCQQfMKUyG5lXhGzhuEn6zKJ0RVNQE
-	tlAOHWV5EId3DJrmV9p73zCccXHVyxgT1luK0tTUQw6Dxb4Ujbs3LecZut4cNIF2
-	snTlUzYvWdvFCas69ZQdXPpqSmxqOFpruwCdBrBmZNuDztw0qdtKnXAizTLfO9e2
-	/PbhX/FgTSmr5Gz+dgWqKpZdVsaGhF6e5/XhvABjq977j9FSy+vaNXTZmY0QroXP
-	JECukdVs2jMvAZKejA7r2A==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1774476668;
+	 x=1774483868; bh=RgdC5kt5k6hG8v7cip1AuvGjq20kUgYnV+A5Mrl16mo=; b=
+	EMyEL8CAeniknA6fI69yWrGzATf1FZ8EkIZ6qCdXCxp19WQn8evmQD3lrCqqv/Af
+	WVtTVqRm3UF+1KBn6yl+8vRJJYboR6xXBK38o5QJTYZx8IaH+x8OSTUJ0XUpPnH9
+	fqlMBHGg03Hcm7mE58zE0GLBzFvRVBc+Dx89F2ZJQUMEWNShJ32lYKcPyIVT/m4N
+	G6NGhpjub0HfYJnVvHKK+6s76HxyY8dgqYexLdeqNWoVii+u0yZh1Z/2uqfP5lEI
+	FNEyaLtSidI7jkSv8x4y789VzOp0+3O+WzQadYrvFTcicLzq/OX5ors0l89l/mP7
+	SbO9/vdgi8Y+L5djk8l2lw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774476662; x=
-	1774483862; bh=OBjfZXsH5TqD0Lm/UbWCLodSYSgWB46anAeaAS2zRIw=; b=y
-	noQXOxRgnNs16ti48F98UqeAh+6ykh1sN7nQEdiNIsUiTc3/IOA+FL2GymxxYclG
-	HYvYWBDjxJcopFY45RrhzsmpbKLO9vI/J5c7Ji1NWFD3k59JKfShtj1gcqwGBBMa
-	MNIhQPHcVmamz39dBpDiMSrb46DKZEUDgpWmRYAz9VjPCYnNgH0P+eUyCzc9czer
-	qQ1e4iTw9b6xwkGa8GHs/vqfbVDF4X1yvraK0lQgqZLNlAsvI7DH6/2S0ykHb/8B
-	n8+RYeVvNRiQHPc2xhIl5aV6+LtUZsAJmvwpSQh91MkQTY9IsJAYLYZhfUnyYvP0
-	8iNkynCY3hYxO9Z4oIxhA==
-X-ME-Sender: <xms:dl3EaQkfZmh0iOZe8HHRQedFW66kLbnQlMcfnxL_LS43zseYcyL2OQ>
-    <xme:dl3EaaogOHlkkjSgMWHD2ObDtPPa6WQur44hpGqm2sBCpwUfi2AnyuQxtAjoXRYcr
-    Id495s0ez6VfkWrymvn0eIQ3LXCTVBv0ZmAJpc5tuCqbg8jH7y7>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774476668; x=
+	1774483868; bh=RgdC5kt5k6hG8v7cip1AuvGjq20kUgYnV+A5Mrl16mo=; b=z
+	blLEkJoxMvLUMFNaTJZVvIV9hSDCPZDx8pNuJlXDSg4TnBi+E8068EVQkQUldQ28
+	UwfH5JjME5Uo/osnfcHmmMAWFjTDAWJZLeKbVftHGzsyqt3AUmoEvz4prn0sVGYC
+	zpzGKJkYw3EARZvanNRWUuPKZbdGQwalBn8D0F0X5yGE2ovpJOT7bftdA7OwqZfp
+	kTmjNLzasDTj0GFta1KqBYUm05EF9C9x7NeiS48DOWqRCv2047wi50og3ZQV4KS6
+	9sfHpDataIbEINdimS9rxbjN9/CkniaVpg/b4Qgcp5lRdM17Soxl004GsaBvytu4
+	iiJvNXGGTRqGnq38XYIlA==
+X-ME-Sender: <xms:fF3EaTt2xgc0BJ7uxJWGvWQ6Nb2YC-CeMKiOlu00zPPqIO85I25feQ>
+    <xme:fF3EafQsrKHzSHASPS-ONEmnc6o0qtX2qvDwZ8xI_X5aeU9WHe8M83eReudxTFfLZ
+    fJUkHGTAxOCjdr9fEXW5Lsqe-Xzv17F-a_i-rVtG_mH4LNt8-NQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdehiedvucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhepoffhfffugggtgffkvfevofgjfhesthekredtredtjeenucfhrhhomheplfgrvhhi
     vghrucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnhepve
     ektdfhffevuddtgfetieevtddvheduhfeggfekveejlefhleefieevueefiefhnecuvehl
-    uhhsthgvrhfuihiivgepvdenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjh
+    uhhsthgvrhfuihiivgepgeenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjh
     gvthhmrdhmvgdpnhgspghrtghpthhtohepvddvpdhmohguvgepshhmthhpohhuthdprhgt
     phhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllh
     grsghorhgrrdgtohhmpdhrtghpthhtohepfeduleefieefudesghhmrghilhdrtghomhdp
@@ -74,23 +74,22 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdehiedvucetufdote
     hoshgrlheltdesghhmrghilhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghg
     ghesghhmrghilhdrtghomhdprhgtphhtthhopehrrgguohhirdgthhhrihhssehgmhgrih
     hlrdgtohhmpdhrtghpthhtohepshgrmhhurdhtohhljhgrmhhosehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:dl3EacTpkMTnEBdwAwjpEg0O_rTGAIDqPRit8qd2IX9oksH26qvvaw>
-    <xmx:dl3EaRYZIVSqAhflBU9agyfNyIw5jUK1N3n5LHWRhQB5G5Mj6kC9Jg>
-    <xmx:dl3EaaB5sth8xzzflu8kiF7-vq1Ejxpri2PIjmo9krQZE8huff3vQQ>
-    <xmx:dl3EaYBuheMIn2JlBXxkNcy6qQvem7snpZKk9kF9T6j80OABTdPMsA>
-    <xmx:dl3EaQdqqb0eYHMWK9wnCBkD2kQj_Kvr5C6VMUG0BzzNRK_mh-maYuVD>
+X-ME-Proxy: <xmx:fF3EaS_4gsT1OKX5CazMYU-1wmc58h6Zvw6iiBzhvk3GU83wvwrORQ>
+    <xmx:fF3Eaf48SvrVK5mLDrBktlFeiCigMO5K3dP640yVRrV3dDV3AEAP3g>
+    <xmx:fF3EacikR7pSdAvvggPLbUhg3PkFDq6tXmtysngKz8IBjDY3v96Q3w>
+    <xmx:fF3EaWrgtRzqzUJFQW73ziL771z9z3CuYm6KLG_fXFBYnfXiNLpyoQ>
+    <xmx:fF3Eae_sHzy4R80XxeZSBTIq6zNc_tND3mZ_WdTQVzv7YbPaGR25WktX>
 Feedback-ID: i9dde48b3:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 7C4931EA006B; Wed, 25 Mar 2026 18:11:02 -0400 (EDT)
+	id A4BB11EA006B; Wed, 25 Mar 2026 18:11:08 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 From: Javier Tia <floss@jetm.me>
-Date: Wed, 25 Mar 2026 16:10:54 -0600
-Subject: [PATCH v3 05/13] wifi: mt76: mt7925: advertise EHT 320MHz
- capabilities for 6GHz band
+Date: Wed, 25 Mar 2026 16:10:56 -0600
+Subject: [PATCH v3 07/13] wifi: mt76: mt7925: add MT7927 firmware paths
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260325-mt7927-wifi-support-v2-v3-5-5ca66c97a755@jetm.me>
+Message-Id: <20260325-mt7927-wifi-support-v2-v3-7-5ca66c97a755@jetm.me>
 To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
  Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
  Sean Wang <sean.wang@mediatek.com>,
@@ -108,24 +107,24 @@ Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
  =?utf-8?q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>,
  =?utf-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>
 X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4604; i=floss@jetm.me;
- h=from:subject:message-id; bh=rpzkhIwTqH86iKAuSJC5SKpPFXHZZ6QEbZnRxkCG2ZY=;
- b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxF1qA4e4iRjmgoy1iomtyxH4mPjVkYGp3Spex
- cqq+WqPvIqJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacRdagAKCRC17sMLqGd3
- H/CHDACTZd8Tdj36xqh6X1UU4ZE2OxwpHYLiFRzCZEnQX82/JM32u1eTnA1QRXM6IC+4IYvJs2N
- Ow+hJbTBj0KPSQoJUH0Mb2PGqzvy207C5+xgKjVILxxEshIZlnAqsiCg/MjlCA1i6gXiw5PQeob
- UpvDfpTivHZEkSY/pX6Cy0g9MUbI4Urs7gVqKVDJPA75690HVArs7noTRaIx9IngqPZiNjIj6FV
- HP1WTq72VcLVO9+JPO8iNC4OObjz3z408xEsKQ9hpfncms8WtdGROkgIXkXt3mBuIAC79Sbic3i
- TQIie8JGYxbgjFgg60kwBIV9r22nuSgVNsQQudqoFwPtHCdJN0CIO53BVwIDNusTSCntUTWkGMN
- AZVhaf/GnVG18yExv0BiVhaXDJ+IiA+YAFYKZqU1Oceg0LbUvZZCq8pEStrDwYfjkleTfi7c+ua
- npU0Gff8iYYxSuBRuuxxKd16grdOGKQGBKPbzMg9H1YI+r/0mrz1GMnMU653sp/5kGVwg=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3298; i=floss@jetm.me;
+ h=from:subject:message-id; bh=nWa4qRu3K/oLEzDqawtOQqtIO8UuGhdZfXRs4iLq41o=;
+ b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxF1qM/TaP2bw/ec1p3ooFz69AbfJyZP/6Y2Y9
+ WA6V5CPjxyJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacRdagAKCRC17sMLqGd3
+ H0GfDACFasrPPGfSBAZkVayWMOCCTN4htPlBVa1k2crZ92GChXtQ0ldeaYd4EASB9QJHMOXvY8A
+ 4l0TyQyWrtOt2SXOrpwijYOSsfcCtBbXVjx9QQbp8WkDVq8KwVgjnFVXhODaMd2Qy6uPgxWoqWC
+ JA+FNooQzREwyQoFc0/FbAYqEpA54qbgdtLrLKEdNk2TzOWR7JsYajJDUADgcep+a7m88vSwIAf
+ pZ6MO8yLhvQsGWq0PgnrYAaWUVfXhWGwxy7E+1lIRzMXYWfu234xK0AExWd+kfuse23BGkXnUYS
+ 64MQqxROb6LmPUZRbNiqX5KH9HQFNIJHPPjpRxkDN3MIqgXc0+tbMJ55YxsPqKv7FEohlk4L2rW
+ +PQqT8LdQ4rVPzS0bHkeS1yUHOWYzAKAPkCEuRJnRE/yPYiNiZuOf2eXeKzgC9qr9b+cAgOKctp
+ T9zpoBNesTu3CV7tisq93gMoH5V1Nytkdi2wtmj4gfdAbNXQaT8VevSdiBLHde09tlF20=
 X-Developer-Key: i=floss@jetm.me; a=openpgp;
  fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
 In-Reply-To: <20260325-mt7927-wifi-support-v2-v3-0-5ca66c97a755@jetm.me>
 References: <20260325-mt7927-wifi-support-v2-v3-0-5ca66c97a755@jetm.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_151104_082013_87F3A0A9 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260325_151110_804399_D8C4AF55 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,20 +139,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt7925_init_eht_caps() only populates EHT MCS/NSS maps for BW <= 80
-and BW = 160, but never sets BW = 320. This means iw phy shows no
-320MHz MCS map entries even though the hardware supports 320MHz
-operation in the 6GHz band.
+Add firmware path definitions for MT7927 WiFi firmware (WIFI_RAM_CODE
+and PATCH_MCU) and the corresponding MODULE_FIRMWARE declarations. Add
+MT7927 cases to mt792x_ram_name() and mt792x_patch_name() so the driver
+loads the correct firmware for the 0x7927 chip ID.
 
-Add the missing 320MHz capability bits for 6GHz:
-  - PHY_CAP0: IEEE80211_EHT_PHY_CAP0_320MHZ_IN_6GHZ
-  - PHY_CAP1: beamformee SS for 320MHz
-  - PHY_CAP2: sounding dimensions for 320MHz
-  - PHY_CAP6: MCS15 support for 320MHz width
-  - MCS/NSS: populate bw._320 maps for 6GHz band
-
-Introduce is_320mhz_supported() to gate 320MHz on MT7927 only, since
-MT7925 does not support 320MHz operation.
+PCI device table entries are deferred to a later patch to allow
+infrastructure setup before device enablement.
 
 Tested-by: Marcin FM <marcin@lgic.pl>
 Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
@@ -166,84 +158,59 @@ Tested-by: Thibaut François <tibo@humeurlibre.fr>
 Tested-by: 张旭涵 <Loong.0x00@gmail.com>
 Signed-off-by: Javier Tia <floss@jetm.me>
 ---
- drivers/net/wireless/mediatek/mt76/mt76_connac.h |  5 +++++
- drivers/net/wireless/mediatek/mt76/mt7925/main.c | 22 +++++++++++++++++++++-
- 2 files changed, 26 insertions(+), 1 deletion(-)
+ drivers/net/wireless/mediatek/mt76/mt7925/pci.c | 2 ++
+ drivers/net/wireless/mediatek/mt76/mt792x.h     | 6 ++++++
+ 2 files changed, 8 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac.h b/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-index 813d61bffc2c..3785fbf5ac99 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac.h
-@@ -177,6 +177,11 @@ static inline bool is_mt7925(struct mt76_dev *dev)
- 	return mt76_chip(dev) == 0x7925;
- }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/pci.c b/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
+index c4161754c01d..f820d5aeb723 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
+@@ -633,6 +633,8 @@ module_pci_driver(mt7925_pci_driver);
+ MODULE_DEVICE_TABLE(pci, mt7925_pci_device_table);
+ MODULE_FIRMWARE(MT7925_FIRMWARE_WM);
+ MODULE_FIRMWARE(MT7925_ROM_PATCH);
++MODULE_FIRMWARE(MT7927_FIRMWARE_WM);
++MODULE_FIRMWARE(MT7927_ROM_PATCH);
+ MODULE_AUTHOR("Deren Wu <deren.wu@mediatek.com>");
+ MODULE_AUTHOR("Lorenzo Bianconi <lorenzo@kernel.org>");
+ MODULE_DESCRIPTION("MediaTek MT7925E (PCIe) wireless driver");
+diff --git a/drivers/net/wireless/mediatek/mt76/mt792x.h b/drivers/net/wireless/mediatek/mt76/mt792x.h
+index 8388638ed550..38790ef83e51 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt792x.h
++++ b/drivers/net/wireless/mediatek/mt76/mt792x.h
+@@ -45,11 +45,13 @@
+ #define MT7921_FIRMWARE_WM	"mediatek/WIFI_RAM_CODE_MT7961_1.bin"
+ #define MT7922_FIRMWARE_WM	"mediatek/WIFI_RAM_CODE_MT7922_1.bin"
+ #define MT7925_FIRMWARE_WM	"mediatek/mt7925/WIFI_RAM_CODE_MT7925_1_1.bin"
++#define MT7927_FIRMWARE_WM	"mediatek/mt7927/WIFI_RAM_CODE_MT6639_2_1.bin"
  
-+static inline bool is_320mhz_supported(struct mt76_dev *dev)
-+{
-+	return is_mt7927(dev);
-+}
-+
- static inline bool is_mt7920(struct mt76_dev *dev)
- {
- 	return mt76_chip(dev) == 0x7920;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-index f128a198f81d..cfce851a94e2 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-@@ -183,6 +183,10 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl80211_band band,
- 		IEEE80211_EHT_PHY_CAP0_SU_BEAMFORMER |
- 		IEEE80211_EHT_PHY_CAP0_SU_BEAMFORMEE;
+ #define MT7920_ROM_PATCH	"mediatek/WIFI_MT7961_patch_mcu_1a_2_hdr.bin"
+ #define MT7921_ROM_PATCH	"mediatek/WIFI_MT7961_patch_mcu_1_2_hdr.bin"
+ #define MT7922_ROM_PATCH	"mediatek/WIFI_MT7922_patch_mcu_1_1_hdr.bin"
+ #define MT7925_ROM_PATCH	"mediatek/mt7925/WIFI_MT7925_PATCH_MCU_1_1_hdr.bin"
++#define MT7927_ROM_PATCH	"mediatek/mt7927/WIFI_MT6639_PATCH_MCU_2_1_hdr.bin"
  
-+	if (band == NL80211_BAND_6GHZ && is_320mhz_supported(&phy->dev->mt76))
-+		eht_cap_elem->phy_cap_info[0] |=
-+			IEEE80211_EHT_PHY_CAP0_320MHZ_IN_6GHZ;
-+
- 	eht_cap_elem->phy_cap_info[0] |=
- 		u8_encode_bits(u8_get_bits(sts - 1, BIT(0)),
- 			       IEEE80211_EHT_PHY_CAP0_BEAMFORMEE_SS_80MHZ_MASK);
-@@ -193,10 +197,20 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl80211_band band,
- 		u8_encode_bits(sts - 1,
- 			       IEEE80211_EHT_PHY_CAP1_BEAMFORMEE_SS_160MHZ_MASK);
- 
-+	if (band == NL80211_BAND_6GHZ && is_320mhz_supported(&phy->dev->mt76))
-+		eht_cap_elem->phy_cap_info[1] |=
-+			u8_encode_bits(sts - 1,
-+				       IEEE80211_EHT_PHY_CAP1_BEAMFORMEE_SS_320MHZ_MASK);
-+
- 	eht_cap_elem->phy_cap_info[2] =
- 		u8_encode_bits(sts - 1, IEEE80211_EHT_PHY_CAP2_SOUNDING_DIM_80MHZ_MASK) |
- 		u8_encode_bits(sts - 1, IEEE80211_EHT_PHY_CAP2_SOUNDING_DIM_160MHZ_MASK);
- 
-+	if (band == NL80211_BAND_6GHZ && is_320mhz_supported(&phy->dev->mt76))
-+		eht_cap_elem->phy_cap_info[2] |=
-+			u8_encode_bits(sts - 1,
-+				       IEEE80211_EHT_PHY_CAP2_SOUNDING_DIM_320MHZ_MASK);
-+
- 	eht_cap_elem->phy_cap_info[3] =
- 		IEEE80211_EHT_PHY_CAP3_NG_16_SU_FEEDBACK |
- 		IEEE80211_EHT_PHY_CAP3_NG_16_MU_FEEDBACK |
-@@ -217,7 +231,8 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl80211_band band,
- 		u8_encode_bits(u8_get_bits(0x11, GENMASK(1, 0)),
- 			       IEEE80211_EHT_PHY_CAP5_MAX_NUM_SUPP_EHT_LTF_MASK);
- 
--	val = width == NL80211_CHAN_WIDTH_160 ? 0x7 :
-+	val = width == NL80211_CHAN_WIDTH_320 ? 0xf :
-+	      width == NL80211_CHAN_WIDTH_160 ? 0x7 :
- 	      width == NL80211_CHAN_WIDTH_80 ? 0x3 : 0x1;
- 	eht_cap_elem->phy_cap_info[6] =
- 		u8_encode_bits(u8_get_bits(0x11, GENMASK(4, 2)),
-@@ -239,6 +254,11 @@ mt7925_init_eht_caps(struct mt792x_phy *phy, enum nl80211_band band,
- 	eht_nss->bw._160.rx_tx_mcs9_max_nss = val;
- 	eht_nss->bw._160.rx_tx_mcs11_max_nss = val;
- 	eht_nss->bw._160.rx_tx_mcs13_max_nss = val;
-+	if (band == NL80211_BAND_6GHZ && is_320mhz_supported(&phy->dev->mt76)) {
-+		eht_nss->bw._320.rx_tx_mcs9_max_nss = val;
-+		eht_nss->bw._320.rx_tx_mcs11_max_nss = val;
-+		eht_nss->bw._320.rx_tx_mcs13_max_nss = val;
-+	}
- }
- 
- int mt7925_init_mlo_caps(struct mt792x_phy *phy)
+ #define MT792x_SDIO_HDR_TX_BYTES	GENMASK(15, 0)
+ #define MT792x_SDIO_HDR_PKT_TYPE	GENMASK(17, 16)
+@@ -454,6 +456,8 @@ static inline char *mt792x_ram_name(struct mt792x_dev *dev)
+ 		return MT7922_FIRMWARE_WM;
+ 	case 0x7925:
+ 		return MT7925_FIRMWARE_WM;
++	case 0x7927:
++		return MT7927_FIRMWARE_WM;
+ 	default:
+ 		return MT7921_FIRMWARE_WM;
+ 	}
+@@ -468,6 +472,8 @@ static inline char *mt792x_patch_name(struct mt792x_dev *dev)
+ 		return MT7922_ROM_PATCH;
+ 	case 0x7925:
+ 		return MT7925_ROM_PATCH;
++	case 0x7927:
++		return MT7927_ROM_PATCH;
+ 	default:
+ 		return MT7921_ROM_PATCH;
+ 	}
 
 -- 
 2.53.0
