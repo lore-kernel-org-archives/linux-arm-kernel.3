@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54C8109C023
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85456109C024
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWGD4hQPLoVQRo9t8LEnKi+4d5KyybuIU/ivYgViFIE=; b=O7U26Ld6YejfetfRCKAgrT4G/p
-	hYYBbbLtF6hU3l0tPtpfK5ejJPKBF0kiVc+WQ5KSGDFqbKyQ81ERq3cGlGh5+OtQbab6JDpouis39
-	wJWubmVyv79xteiTJ+3xw8E0nsbWJ7CFYzSjvIa/YlUtwJIjIqKVwAlEjYS/N+WYKpQIgebtbmlEN
-	nTNfPEdQn+/OVEn8lIGTW/IIkOXCxupcSw6G4FpGjoDheRsGmuIUFfZ9M0V66Nn5AIc0Lsx3/+Mu7
-	+nOisnoZP6RKS9lN7YRNWVyGqbdbojExV1+/IbRIdE/0L0mWhBtze94feBIdZR1H0uS60eQaHFOTy
-	w9L1cJZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hnNhe502TE0T03qmDQrWaqYUPQM8N8g85P7RweGQlqU=; b=zxkjU//LCwfol+swb1WQ2WERDT
+	Q5DoQYDNF0No6EcpvNZT13KzpRwm4nszJ2AisItm1AVt4FoNV0KBNm1PZSbjo1mlpd48EOeETT/iX
+	RAEilw/ecxYHujgK9a2qMstjNRv2LzgOFfI0VeuyEzS8iVUdWMR1pJkIRMSQPhA9/OobW2sc5nePb
+	5WqtjqP8038NT9PfPuMB0tFM+DDl9p7xBr7iF/ytic1zHRMvK7RX59Z30fjhuA+nDTKu1TNRKuOKn
+	NPhiiJ3BrwF0/r2uY1AG38jkCb6qqOYdpEqUEgjxkUz1RzOA1z6ua1zx894PbP4IWlAf7STtbDTxp
+	NeADELIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PCS-00000003Zcb-2Kb3;
-	Wed, 25 Mar 2026 14:27:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PCI-00000003ZY2-2Ugg
+	id 1w5PCT-00000003Ze7-2Pf4;
+	Wed, 25 Mar 2026 14:27:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5PCM-00000003ZaI-2w77
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:27:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774448821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KWGD4hQPLoVQRo9t8LEnKi+4d5KyybuIU/ivYgViFIE=;
-	b=TGotR7IGs3XtEiyySecWCTKPSQ8MMzYv7NlIQ0UcfFY83yyqqwWC20lwIoNMY5JRhqC1Lf
-	3LwspSmgfoErMTQSboFzVP/Pr6+8Hmo9mSO1Q+VgQUd1tYbkp2WsvEggtDMxMqWI+/Zm8/
-	ScndF1iQuLUDCqkRcqUZTiM/V/2FIVI=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-395-D9-2lDvgPo6rbbyWHGJJog-1; Wed, 25 Mar 2026 10:26:59 -0400
-X-MC-Unique: D9-2lDvgPo6rbbyWHGJJog-1
-X-Mimecast-MFC-AGG-ID: D9-2lDvgPo6rbbyWHGJJog_1774448819
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-89c4d85d619so377270616d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:26:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774448819; x=1775053619;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KWGD4hQPLoVQRo9t8LEnKi+4d5KyybuIU/ivYgViFIE=;
-        b=fIwg9hgrCxU0xwFcj+g5tqbveJ22WGCrKNmY3/2jf+0Ov2VEWvL1BCYqvnCsPf4HBm
-         Yp4x5Rq2+LWdMId+y456ge1481bUx+Hbzt2RNPYqu8aSNbBsIgAX9A3TPdm2ZjLSJqKG
-         2TXyxh06apk+1HiTnFAaRYZdb84NxeBomIzRCeJieJk2AHjCnGa+2FJg8xns4Kb4QAA4
-         XaJy2Dt9nFEq+AoapM5T3BdVPNetEM3ZtzxkHqMomDzrrbdOgzqj/AssunD8zW56EzfK
-         +W3GhasKt9QNehxyGoy5+NTu+U1qGZNj/KbKNELUx2aPLcA9Xx4ktNZPo/4h4xVJ09ir
-         3QYw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgsB9fViU0fNkpRHU3KJOJhq3G0kYHbrqQUmUuDcRNAOUr7iFYEKes/sYPuxcNAEq8IZvOKV2TTmim/uqrM6n4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcR/wpbIQq13CyBhsMKwqM+7fizfEDFp3ZVcEF60oRIQEkYUiK
-	kSUyKoqRxYbfRvD5SINtyWVDw1B7F4kNmgT/hR27I9jVms2U4+WkzofRfssQ1X1oU7HXqn9GqEg
-	CMuLSWjOiM452VxPhAOThNxzpy0A2w4NAZj7ofBXYBNWoLeOwYRQk/Cvd7a+X/1RS16D/zHEsn1
-	XY
-X-Gm-Gg: ATEYQzwreNjUhW4ezSR2DwmsRva0YNVNy2oB6WniK9O/xT8GfteOd9xyfkdEuprTU0s
-	tZp3fRPlSs5BULpA6oD4lDXDT5sRfLIyAwag1+Uzkw6NSaNjGqk+lfr3owVZf1m4AWZsXnWvQG/
-	PyWa9N14gGFSqo/eYeuViG73ryExw7Dnzn92Se71OX4V17uEJvoCWFzn+39OnhJyPK+NbKnheoz
-	Ag5isFUhhKERKyrAozYYXI2L9Kg0i0P8JN9QSqQoDtPqE/vGHsH1OsfLVwUjBQlobkk7ks/AexG
-	COMGJDrIbsKAyR3eptIYF2KAQ+rXEFxM3xbh7OfF4UQmPkbSYzDng8Xi6XszEYVPVkVYqR5Lm2H
-	5Lr9x4JvTk3UPReubUE6vr6iMVy7Qu8GlbWWQFnVA5fUklMU7l6Dr6rIG
-X-Received: by 2002:a05:6214:319e:b0:89a:b20:9f4e with SMTP id 6a1803df08f44-89cc4a445a8mr52199356d6.17.1774448818312;
-        Wed, 25 Mar 2026 07:26:58 -0700 (PDT)
-X-Received: by 2002:a05:6214:319e:b0:89a:b20:9f4e with SMTP id 6a1803df08f44-89cc4a445a8mr52198596d6.17.1774448817701;
-        Wed, 25 Mar 2026 07:26:57 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89cad854addsm68276376d6.48.2026.03.25.07.26.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 07:26:56 -0700 (PDT)
-Date: Wed, 25 Mar 2026 10:26:54 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Icenowy Zheng <icenowy@aosc.io>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] clk: mediatek: Add mt8173-mfgtop driver
-Message-ID: <acPwruNQpLQg7W2A@redhat.com>
-References: <20260325071951.544031-1-wenst@chromium.org>
- <20260325071951.544031-3-wenst@chromium.org>
+	Wed, 25 Mar 2026 14:27:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C25431F02;
+	Wed, 25 Mar 2026 07:26:59 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D43B43F836;
+	Wed, 25 Mar 2026 07:27:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774448825; bh=6dW2nINMnxwnqn8IshqXII1z+o03FUVaJQoB4sv6jjc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=nS+3pEu611mSxCwOBmA6oey+QEnKKNZ9Ke+0r4oRkYw+P4beZgkEzd4r+zTRrJVfI
+	 Qz9OIZA+y8rBvD4AmuMS5PvZ6N/ctAhwQamA65CvZQn+PHRv8Yp89n8rKtoDhXPRJt
+	 UnDcXv2q6yXflj1ExfMoR3RRgTlnsmUxzGVTNNDo=
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 25 Mar 2026 14:26:40 +0000
+Subject: [PATCH v8 03/23] coresight: Remove .cpu_id() callback from source
+ ops
 MIME-Version: 1.0
-In-Reply-To: <20260325071951.544031-3-wenst@chromium.org>
-User-Agent: Mutt/2.3.0 (2026-01-25)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: J0IOXpsPMQpZXH-4Ca58upvS1YyfNmHIdAFfnp7IEhI_1774448819
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260325-arm_coresight_path_power_management_improvement-v8-3-7b1902e18041@arm.com>
+References: <20260325-arm_coresight_path_power_management_improvement-v8-0-7b1902e18041@arm.com>
+In-Reply-To: <20260325-arm_coresight_path_power_management_improvement-v8-0-7b1902e18041@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+ Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
+ Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774448816; l=6906;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=6dW2nINMnxwnqn8IshqXII1z+o03FUVaJQoB4sv6jjc=;
+ b=9xzzXtCsEtJE0qf3XW0JvCQJgDRdnFiUoRJ7niFMJBmw/5mMuBfDglUC34jSkXbCnomZJv7fy
+ ueEOXmEmnAOCCzacigNoqnauYx4rRRHGSJQvrPZRTVjnznXYRL5KkAw
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_072702_766761_83BDC10D 
-X-CRM114-Status: GOOD (  35.82  )
+X-CRM114-CacheID: sfid-20260325_072706_822041_0BB68F4F 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,325 +84,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 03:19:46PM +0800, Chen-Yu Tsai wrote:
-> The MFG (GPU) block on the MT8173 has a small glue layer, named MFG_TOP
-> in the datasheet, that contains clock gates, some power sequence signal
-> delays, and other unknown registers that get toggled when the GPU is
-> powered on.
-> 
-> The clock gates are exposed as clocks provided by a clock controller,
-> while the power sequencing bits are exposed as one singular power domain.
-> 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
-> Changes since v1:
-> - Reduce tab after GATE_MFG() by one tab
-> - Move of_match_clk_mt8173_mfgtop to just before clk_mt8173_mfgtop_drv
-> - Rename power domain to "mfg-top"
-> - Add FORCE_ABORT and ACTIVE_PWRCTL_EN bits and explicitly clear
->   ACTIVE_PWRCTL_EN bit
-> ---
->  drivers/clk/mediatek/Kconfig             |   9 +
->  drivers/clk/mediatek/Makefile            |   1 +
->  drivers/clk/mediatek/clk-mt8173-mfgtop.c | 243 +++++++++++++++++++++++
->  3 files changed, 253 insertions(+)
->  create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
-> 
-> diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-> index 2c09fd729bab..8dbd9f14be62 100644
-> --- a/drivers/clk/mediatek/Kconfig
-> +++ b/drivers/clk/mediatek/Kconfig
-> @@ -537,6 +537,15 @@ config COMMON_CLK_MT8173_IMGSYS
->  	help
->  	  This driver supports MediaTek MT8173 imgsys clocks.
->  
-> +config COMMON_CLK_MT8173_MFGTOP
-> +	tristate "Clock and power driver for MediaTek MT8173 mfgtop"
-> +	depends on COMMON_CLK_MT8173
-> +	default COMMON_CLK_MT8173
-> +	select PM_GENERIC_DOMAINS
-> +	select PM_GENERIC_DOMAINS_OF
-> +	help
-> +	  This driver supports MediaTek MT8173 mfgtop clocks and power domain.
-> +
->  config COMMON_CLK_MT8173_MMSYS
->         tristate "Clock driver for MediaTek MT8173 mmsys"
->         depends on COMMON_CLK_MT8173
-> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-> index d8736a060dbd..892a54eeb281 100644
-> --- a/drivers/clk/mediatek/Makefile
-> +++ b/drivers/clk/mediatek/Makefile
-> @@ -82,6 +82,7 @@ obj-$(CONFIG_COMMON_CLK_MT8167_VDECSYS) += clk-mt8167-vdec.o
->  obj-$(CONFIG_COMMON_CLK_MT8173) += clk-mt8173-apmixedsys.o clk-mt8173-infracfg.o \
->  				   clk-mt8173-pericfg.o clk-mt8173-topckgen.o
->  obj-$(CONFIG_COMMON_CLK_MT8173_IMGSYS) += clk-mt8173-img.o
-> +obj-$(CONFIG_COMMON_CLK_MT8173_MFGTOP) += clk-mt8173-mfgtop.o
->  obj-$(CONFIG_COMMON_CLK_MT8173_MMSYS) += clk-mt8173-mm.o
->  obj-$(CONFIG_COMMON_CLK_MT8173_VDECSYS) += clk-mt8173-vdecsys.o
->  obj-$(CONFIG_COMMON_CLK_MT8173_VENCSYS) += clk-mt8173-vencsys.o
-> diff --git a/drivers/clk/mediatek/clk-mt8173-mfgtop.c b/drivers/clk/mediatek/clk-mt8173-mfgtop.c
-> new file mode 100644
-> index 000000000000..9e18f34166ae
-> --- /dev/null
-> +++ b/drivers/clk/mediatek/clk-mt8173-mfgtop.c
-> @@ -0,0 +1,243 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2024 Google LLC
-> + * Author: Chen-Yu Tsai <wenst@chromium.org>
-> + *
-> + * Based on driver in downstream ChromeOS v5.15 kernel.
-> + *
-> + * Copyright (c) 2014 MediaTek Inc.
-> + * Author: Chiawen Lee <chiawen.lee@mediatek.com>
-> + */
-> +
-> +#include <dt-bindings/clock/mt8173-clk.h>
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
-> +
-> +#include "clk-gate.h"
-> +#include "clk-mtk.h"
-> +
-> +static const struct mtk_gate_regs mfg_cg_regs = {
-> +	.sta_ofs = 0x0000,
-> +	.clr_ofs = 0x0008,
-> +	.set_ofs = 0x0004,
-> +};
-> +
-> +#define GATE_MFG(_id, _name, _parent, _shift, _flags)	\
-> +	GATE_MTK_FLAGS(_id, _name, _parent, &mfg_cg_regs, _shift, &mtk_clk_gate_ops_setclr, _flags)
-> +
-> +/* TODO: The block actually has dividers for the core and mem clocks. */
-> +static const struct mtk_gate mfg_clks[] = {
-> +	GATE_MFG(CLK_MFG_AXI, "mfg_axi", "axi_mfg_in_sel", 0, CLK_SET_RATE_PARENT),
-> +	GATE_MFG(CLK_MFG_MEM, "mfg_mem", "mem_mfg_in_sel", 1, CLK_SET_RATE_PARENT),
-> +	GATE_MFG(CLK_MFG_G3D, "mfg_g3d", "mfg_sel", 2, CLK_SET_RATE_PARENT),
-> +	GATE_MFG(CLK_MFG_26M, "mfg_26m", "clk26m", 3, 0),
-> +};
-> +
-> +static const struct mtk_clk_desc mfg_desc = {
-> +	.clks = mfg_clks,
-> +	.num_clks = ARRAY_SIZE(mfg_clks),
-> +};
-> +
-> +struct mt8173_mfgtop_data {
-> +	struct clk_hw_onecell_data *clk_data;
-> +	struct regmap *regmap;
-> +	struct generic_pm_domain genpd;
-> +	struct of_phandle_args parent_pd, child_pd;
-> +	struct clk *clk_26m;
-> +};
-> +
-> +/* Delay count in clock cycles */
-> +#define MFG_ACTIVE_POWER_CON0	0x24
-> + #define RST_B_DELAY_CNT	GENMASK(7, 0)	/* pwr_rst_b de-assert delay during power-up */
-> + #define CLK_EN_DELAY_CNT	GENMASK(15, 8)	/* CLK_DIS deassert delay during power-up */
-> + #define CLK_DIS_DELAY_CNT	GENMASK(23, 16)	/* CLK_DIS assert delay during power-down */
-> + #define FORCE_ABORT		BIT(30)		/* write 1 to force abort a power event */
-> + #define ACTIVE_PWRCTL_EN	BIT(31)		/* enable ACTIVE_POWER */
-> +
-> +#define MFG_ACTIVE_POWER_CON1	0x28
-> + #define PWR_ON_S_DELAY_CNT	GENMASK(7, 0)	/* pwr_on_s assert delay during power-up */
-> + #define ISO_DELAY_CNT		GENMASK(15, 8)	/* ISO assert delay during power-down */
-> + #define ISOOFF_DELAY_CNT	GENMASK(23, 16)	/* ISO de-assert delay during power-up */
-> + #define RST__DELAY_CNT		GENMASK(31, 24) /* pwr_rsb_b assert delay during power-down */
+The CPU ID can be fetched directly from the coresight_device structure,
+so the .cpu_id() callback is no longer needed.
 
-Is the double underscore expected in the name?
+Remove the .cpu_id() callback from source ops and update callers
+accordingly.
 
-> +
-> +static int clk_mt8173_mfgtop_power_on(struct generic_pm_domain *domain)
-> +{
-> +	struct mt8173_mfgtop_data *data = container_of(domain, struct mt8173_mfgtop_data, genpd);
-> +
-> +	/* drives internal power management */
-> +	clk_prepare_enable(data->clk_26m);
-> +
-> +	/* Power on/off delays for various signals */
-> +	regmap_write(data->regmap, MFG_ACTIVE_POWER_CON0,
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c       | 8 ++++----
+ drivers/hwtracing/coresight/coresight-etm-perf.c   | 2 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 8 --------
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 8 --------
+ drivers/hwtracing/coresight/coresight-sysfs.c      | 4 ++--
+ include/linux/coresight.h                          | 3 ---
+ 6 files changed, 7 insertions(+), 26 deletions(-)
 
-Should the return value of clk_prepare_enable() and regmap_write() be
-checked?
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 89911fc27128b2bb78c8ba704f2af5a5d4efe83c..6907da35ed02fa58f8d30f5576627a6ce3b88362 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -787,7 +787,7 @@ static int _coresight_build_path(struct coresight_device *csdev,
+ 		goto out;
+ 
+ 	if (coresight_is_percpu_source(csdev) && coresight_is_percpu_sink(sink) &&
+-	    sink == per_cpu(csdev_sink, source_ops(csdev)->cpu_id(csdev))) {
++	    sink == per_cpu(csdev_sink, csdev->cpu)) {
+ 		if (_coresight_build_path(sink, source, sink, path) == 0) {
+ 			found = true;
+ 			goto out;
+@@ -1014,7 +1014,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
+ 	/* look for a default sink if we have not found for this device */
+ 	if (!csdev->def_sink) {
+ 		if (coresight_is_percpu_source(csdev))
+-			csdev->def_sink = per_cpu(csdev_sink, source_ops(csdev)->cpu_id(csdev));
++			csdev->def_sink = per_cpu(csdev_sink, csdev->cpu);
+ 		if (!csdev->def_sink)
+ 			csdev->def_sink = coresight_find_sink(csdev, &depth);
+ 	}
+@@ -1752,10 +1752,10 @@ int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode
+ {
+ 	int cpu, trace_id;
+ 
+-	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE || !source_ops(csdev)->cpu_id)
++	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE)
+ 		return -EINVAL;
+ 
+-	cpu = source_ops(csdev)->cpu_id(csdev);
++	cpu = csdev->cpu;
+ 	switch (mode) {
+ 	case CS_MODE_SYSFS:
+ 		trace_id = coresight_trace_id_get_cpu_id(cpu);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f85dedf89a3f9e85d568ca4c320fa6fa6d9059ff..cae6738e9906c35d291e4b0f3feae37306b95c06 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -824,7 +824,7 @@ static void etm_addr_filters_sync(struct perf_event *event)
+ int etm_perf_symlink(struct coresight_device *csdev, bool link)
+ {
+ 	char entry[sizeof("cpu9999999")];
+-	int ret = 0, cpu = source_ops(csdev)->cpu_id(csdev);
++	int ret = 0, cpu = csdev->cpu;
+ 	struct device *pmu_dev = etm_pmu.dev;
+ 	struct device *cs_dev = &csdev->dev;
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+index eb665db1a37d9970f7f55395c0aa23b98a7f3118..ab47f69e923fb191b48b82367dce465c79b3a93d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+@@ -466,13 +466,6 @@ static void etm_enable_sysfs_smp_call(void *info)
+ 		coresight_set_mode(csdev, CS_MODE_DISABLED);
+ }
+ 
+-static int etm_cpu_id(struct coresight_device *csdev)
+-{
+-	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	return drvdata->cpu;
+-}
+-
+ void etm_release_trace_id(struct etm_drvdata *drvdata)
+ {
+ 	coresight_trace_id_put_cpu_id(drvdata->cpu);
+@@ -684,7 +677,6 @@ static void etm_disable(struct coresight_device *csdev,
+ }
+ 
+ static const struct coresight_ops_source etm_source_ops = {
+-	.cpu_id		= etm_cpu_id,
+ 	.enable		= etm_enable,
+ 	.disable	= etm_disable,
+ };
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index b1e0254a534027d7ede8591e56be28745d0b9974..66a8058098376264d3f8c5815763a75ebffb352e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -227,13 +227,6 @@ static void etm4_cs_unlock(struct etmv4_drvdata *drvdata,
+ 		CS_UNLOCK(csa->base);
+ }
+ 
+-static int etm4_cpu_id(struct coresight_device *csdev)
+-{
+-	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	return drvdata->cpu;
+-}
+-
+ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+ {
+ 	coresight_trace_id_put_cpu_id(drvdata->cpu);
+@@ -1201,7 +1194,6 @@ static void etm4_pause_perf(struct coresight_device *csdev)
+ }
+ 
+ static const struct coresight_ops_source etm4_source_ops = {
+-	.cpu_id		= etm4_cpu_id,
+ 	.enable		= etm4_enable,
+ 	.disable	= etm4_disable,
+ 	.resume_perf	= etm4_resume_perf,
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index d2a6ed8bcc74d64dccc735463f14790b4e80d101..3b1e7152dd108408d837c404ce607ba511ca14a6 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -232,7 +232,7 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
+ 		 * be a single session per tracer (when working from sysFS)
+ 		 * a per-cpu variable will do just fine.
+ 		 */
+-		cpu = source_ops(csdev)->cpu_id(csdev);
++		cpu = csdev->cpu;
+ 		per_cpu(tracer_path, cpu) = path;
+ 		break;
+ 	case CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE:
+@@ -282,7 +282,7 @@ void coresight_disable_sysfs(struct coresight_device *csdev)
+ 
+ 	switch (csdev->subtype.source_subtype) {
+ 	case CORESIGHT_DEV_SUBTYPE_SOURCE_PROC:
+-		cpu = source_ops(csdev)->cpu_id(csdev);
++		cpu = csdev->cpu;
+ 		path = per_cpu(tracer_path, cpu);
+ 		per_cpu(tracer_path, cpu) = NULL;
+ 		break;
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 687190ca11ddeaa83193caa3903a480bac3060d1..e9c20ceb9016fa3db256b8c1147c1fd2027b7b0d 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -395,15 +395,12 @@ struct coresight_ops_link {
+ /**
+  * struct coresight_ops_source - basic operations for a source
+  * Operations available for sources.
+- * @cpu_id:	returns the value of the CPU number this component
+- *		is associated to.
+  * @enable:	enables tracing for a source.
+  * @disable:	disables tracing for a source.
+  * @resume_perf: resumes tracing for a source in perf session.
+  * @pause_perf:	pauses tracing for a source in perf session.
+  */
+ struct coresight_ops_source {
+-	int (*cpu_id)(struct coresight_device *csdev);
+ 	int (*enable)(struct coresight_device *csdev, struct perf_event *event,
+ 		      enum cs_mode mode, struct coresight_path *path);
+ 	void (*disable)(struct coresight_device *csdev,
 
-> +		     FIELD_PREP(RST_B_DELAY_CNT, 77) |
-> +		     FIELD_PREP(CLK_EN_DELAY_CNT, 61) |
-> +		     FIELD_PREP(CLK_DIS_DELAY_CNT, 60) |
-> +		     FIELD_PREP(ACTIVE_PWRCTL_EN, 0));
-> +	regmap_write(data->regmap, MFG_ACTIVE_POWER_CON1,
-> +		     FIELD_PREP(PWR_ON_S_DELAY_CNT, 11) |
-> +		     FIELD_PREP(ISO_DELAY_CNT, 68) |
-> +		     FIELD_PREP(ISOOFF_DELAY_CNT, 69) |
-> +		     FIELD_PREP(RST__DELAY_CNT, 77));
-> +
-> +	/* Magic numbers related to core switch sequence and delays */
-> +	regmap_write(data->regmap, 0xe0, 0x7a710184);
-> +	regmap_write(data->regmap, 0xe4, 0x835f6856);
-> +	regmap_write(data->regmap, 0xe8, 0x002b0234);
-> +	regmap_write(data->regmap, 0xec, 0x80000000);
-> +	regmap_write(data->regmap, 0xa0, 0x08000000);
-> +
-> +	return 0;
-> +}
-> +
-> +static int clk_mt8173_mfgtop_power_off(struct generic_pm_domain *domain)
-> +{
-> +	struct mt8173_mfgtop_data *data = container_of(domain, struct mt8173_mfgtop_data, genpd);
-> +
-> +	/* Magic numbers related to core switch sequence and delays */
-> +	regmap_write(data->regmap, 0xec, 0);
-> +
-> +	/* drives internal power management */
-> +	clk_disable_unprepare(data->clk_26m);
-> +
-> +	return 0;
-> +}
-> +
-> +static int clk_mt8173_mfgtop_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *node = dev->of_node;
-> +	struct mt8173_mfgtop_data *data;
-> +	int ret;
-> +
-> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, data);
-> +
-> +	data->clk_data = mtk_devm_alloc_clk_data(dev, ARRAY_SIZE(mfg_clks));
-> +	if (!data->clk_data)
-> +		return -ENOMEM;
-> +
-> +	/* MTK clock gates also uses regmap */
-> +	data->regmap = device_node_to_regmap(node);
-> +	if (IS_ERR(data->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(data->regmap), "Failed to get regmap\n");
-> +
-> +	data->child_pd.np = node;
-> +	data->child_pd.args_count = 0;
-> +	ret = of_parse_phandle_with_args(node, "power-domains", "#power-domain-cells", 0,
-> +					 &data->parent_pd);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to parse power domain\n");
-> +
-> +	devm_pm_runtime_enable(dev);
-> +	/*
-> +	 * Do a pm_runtime_resume_and_get() to workaround a possible
-> +	 * deadlock between clk_register() and the genpd framework.
-> +	 */
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to runtime resume device\n");
-> +		goto put_of_node;
-> +	}
-> +
-> +	ret = mtk_clk_register_gates(dev, node, mfg_clks, ARRAY_SIZE(mfg_clks),
-> +				     data->clk_data);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to register clock gates\n");
-> +		goto put_pm_runtime;
-> +	}
-> +
-> +	data->clk_26m = clk_hw_get_clk(data->clk_data->hws[CLK_MFG_26M], "26m");
-> +	if (IS_ERR(data->clk_26m)) {
-> +		dev_err_probe(dev, PTR_ERR(data->clk_26m), "Failed to get 26 MHz clock\n");
-> +		goto unregister_clks;
-> +	}
-> +
-> +	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, data->clk_data);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to add clk OF provider\n");
-> +		goto put_26m_clk;
-> +	}
-> +
-> +	data->genpd.name = "mfg-top";
-> +	data->genpd.power_on = clk_mt8173_mfgtop_power_on;
-> +	data->genpd.power_off = clk_mt8173_mfgtop_power_off;
-> +	ret = pm_genpd_init(&data->genpd, NULL, true);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to add power domain\n");
-> +		goto del_clk_provider;
-> +	}
-> +
-> +	ret = of_genpd_add_provider_simple(node, &data->genpd);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to add power domain OF provider\n");
-> +		goto remove_pd;
-> +	}
-> +
-> +	ret = of_genpd_add_subdomain(&data->parent_pd, &data->child_pd);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Failed to link PM domains\n");
-> +		goto del_pd_provider;
-> +	}
-> +
-> +	pm_runtime_put(dev);
-> +	return 0;
-> +
-> +del_pd_provider:
-> +	of_genpd_del_provider(node);
-> +remove_pd:
-> +	pm_genpd_remove(&data->genpd);
-> +del_clk_provider:
-> +	of_clk_del_provider(node);
-> +put_26m_clk:
-> +	clk_put(data->clk_26m);
-> +unregister_clks:
-> +	mtk_clk_unregister_gates(mfg_clks, ARRAY_SIZE(mfg_clks), data->clk_data);
-> +put_pm_runtime:
-> +	pm_runtime_put(dev);
-> +put_of_node:
-> +	of_node_put(data->parent_pd.np);
-> +	return ret;
-> +}
-> +
-> +static void clk_mt8173_mfgtop_remove(struct platform_device *pdev)
-> +{
-> +	struct mt8173_mfgtop_data *data = platform_get_drvdata(pdev);
-> +	struct device_node *node = pdev->dev.of_node;
-> +
-> +	of_genpd_remove_subdomain(&data->parent_pd, &data->child_pd);
-> +	of_genpd_del_provider(node);
-> +	pm_genpd_remove(&data->genpd);
-> +	of_clk_del_provider(node);
-> +	clk_put(data->clk_26m);
-> +	mtk_clk_unregister_gates(mfg_clks, ARRAY_SIZE(mfg_clks), data->clk_data);
-> +}
-> +
-> +static const struct of_device_id of_match_clk_mt8173_mfgtop[] = {
-> +	{ .compatible = "mediatek,mt8173-mfgtop", .data = &mfg_desc },
-
-Is the match data and mfg_desc used?
-
-Brian
-
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, of_match_clk_mt8173_mfgtop);
-> +
-> +static struct platform_driver clk_mt8173_mfgtop_drv = {
-> +	.probe = clk_mt8173_mfgtop_probe,
-> +	.remove = clk_mt8173_mfgtop_remove,
-> +	.driver = {
-> +		.name = "clk-mt8173-mfgtop",
-> +		.of_match_table = of_match_clk_mt8173_mfgtop,
-> +	},
-> +};
-> +module_platform_driver(clk_mt8173_mfgtop_drv);
-> +
-> +MODULE_DESCRIPTION("MediaTek MT8173 mfgtop clock driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.53.0.1018.g2bb0e51243-goog
-> 
+-- 
+2.34.1
 
 
