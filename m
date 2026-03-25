@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 351EF1075269
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49F3F54AD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ZXqSfHdZYWHg8eoBYi4L/7RE6JUTLCp/Mr9famKjAg=; b=J/oCAK4gxGK0BgiqLZ/geAWxch
-	/Fszs3/npxxmzJpbF4Ulqu0PShUV6DNVqMwE3JuTyinlRCrQIlYq6vaGpKy9oqRp16/jpxX0A66op
-	FAZQaH/fMiKBNSbVq5EuK84bNzcA+bn41D6oX1tXxrfm9ezIce13n1VQKgyJNFmT0vinlSMaYWy4j
-	JRSlb1lBq0A0BJyRt96IgM0PTO0PZU5X6GnRB5qbf6CnbDXezzzXRkqPnp9JnUSpQ8LWH/OprlhBV
-	fUwvA25eQSZgN6Oz9kt738RRQ7HXnZD+EKDUspHd2iU0sllwFsFSza2e7x8oyBPucEtvUBv4zzfgc
-	Jc9i2lhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0zuss7wBPaRYsZWeVEmPBdobtWdihJ6eoFJTEIumZiw=; b=VRDHvkMTNVqZmhiZUZI2OrdUxt
+	f0pYrvtvbp4rQCjHn5Y4E36RoX+s2GgK+ufjqmYXZb1396ZukgGrKTP+IFajeORdUPD2KPhi/suh/
+	5HuVWxdIjlgGJZ1ViOFSfXXI5HuDDoLg3BCjwtnh6by/AP+biKKQ5CmEqzAeOdcgxMuTa3Hj+biOF
+	Pg/OOpY8+Jme6h/Y+3Q36h75CBVE/wgZVYoE+87J+aQd18GU1rkHBXtSYWGENj7kV4btAw6FM5fWm
+	LuJXbFC3pa9lX2uC0Rq4AwHOMakRaTCugi/2IMcjKfiK5qrV0oaBjQ5nDwKD8ap80E/Tv3jaglVvh
+	2m0rwBcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CFu-00000002Phu-3j6i;
-	Wed, 25 Mar 2026 00:37:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CFr-00000002PgL-2R5i
+	id 1w5CVd-00000002QQg-1G2M;
+	Wed, 25 Mar 2026 00:54:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5CVa-00000002QQK-3Ann
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 00:37:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D55991C14;
-	Tue, 24 Mar 2026 17:37:43 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A06123FE53;
-	Tue, 24 Mar 2026 17:37:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774399069; bh=Ia+vilw3zsqeIzVE3dF4KM+CNyzCGCU+jhvm1P5T5B8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=txQiWiter+YQWq+0d+dLUs3Ut9UQP5DnpuSantdQEso5kSTyrcU3ZGUtb7/qQNTDt
-	 xM0HIdfGUI0F6wcMwho7heLm2gW0zKWpIZ9c/FL632wHWG2xfymBxiYUL4LydUZBus
-	 YuNN67lZ9og1GYkvFu+EU05KvMY+UJ0ZfLyXxH+k=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH 3/3] KVM: arm64: selftests: Enable stage-2 in NV preparation functions
-Date: Wed, 25 Mar 2026 00:36:20 +0000
-Message-ID: <20260325003620.2214766-4-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260325003620.2214766-1-weilin.chang@arm.com>
-References: <20260325003620.2214766-1-weilin.chang@arm.com>
+	Wed, 25 Mar 2026 00:54:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B50B943D61;
+	Wed, 25 Mar 2026 00:54:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68BF3C19424;
+	Wed, 25 Mar 2026 00:54:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774400045;
+	bh=dRfWufNAJCcOhh0AhmUSfHoYAd4HMIuJBmV7zbhHIv8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AUbP/vJT3ju85md9fr2qXnnguARCnC6pYHEWEpWgxdy3mERVlbgDcDeN0tTsdggeF
+	 KxflKX2yJwN7hFAEkp8hMd8eaVm5AUgnfY2+97Ty1E7yBjuR/Wl5PRZYCNeSrtPb3f
+	 /kxaCN8j1pDIOkvGRsFvzPTB0rCZzuPhn1Y9rVwhKmm2HqQhOhNkCPN+H6l6VKgg/i
+	 F9aG7r+Zu6Vfd4IUxNNp/DhFsEzIJ0BfxyIKb7z6ooH8gC2QhBxJYrECUxjAJGpvLG
+	 js2BbpJNCjvSNmdhCNS+CrcA9r6yute3EqWKFLWaS7GtuxH1Z1n9edAI/rn63JdOE/
+	 msh13CzeR4YhA==
+Date: Tue, 24 Mar 2026 19:54:04 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: kernel@pengutronix.de, linux-kernel@vger.kernel.org, krzk+dt@kernel.org,
+	l.stach@pengutronix.de, s.hauer@pengutronix.de, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, festevam@gmail.com, frank.li@nxp.com,
+	linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org,
+	linux-pci@vger.kernel.org, conor+dt@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com
+Subject: Re: [PATCH v8 2/5] dt-bindings: PCI: imx6q-pcie: Add i.MX94 and
+ i.MX943 PCIe compatible strings
+Message-ID: <177440004361.2302904.12708290351428536062.robh@kernel.org>
+References: <20260324023036.784466-1-hongxing.zhu@nxp.com>
+ <20260324023036.784466-3-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324023036.784466-3-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_173751_709368_2F27CA97 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260324_175406_814891_A865556F 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,183 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce library functions for setting up guest stage-2 page tables,
-then use that to give L2 an identity mapped stage-2 and enable it.
 
-The translation and stage-2 page table built is simple, start level 0,
-4 levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
+On Tue, 24 Mar 2026 10:30:33 +0800, Richard Zhu wrote:
+> Add i.MX94 and i.MX943 PCIe compatible strings and fallback to
+> i.MX95 PCIe compatible string.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  .../bindings/pci/fsl,imx6q-pcie-ep.yaml       | 18 ++++++++-----
+>  .../bindings/pci/fsl,imx6q-pcie.yaml          | 26 ++++++++++++-------
+>  2 files changed, 28 insertions(+), 16 deletions(-)
+> 
 
-The nested page table code is adapted from lib/x86/vmx.c.
-
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
----
- .../selftests/kvm/include/arm64/nested.h      |  7 ++
- .../selftests/kvm/include/arm64/processor.h   |  9 ++
- .../testing/selftests/kvm/lib/arm64/nested.c  | 97 ++++++++++++++++++-
- 3 files changed, 111 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
-index 739ff2ee0161..0be10a775e48 100644
---- a/tools/testing/selftests/kvm/include/arm64/nested.h
-+++ b/tools/testing/selftests/kvm/include/arm64/nested.h
-@@ -6,6 +6,13 @@
- #ifndef SELFTEST_KVM_NESTED_H
- #define SELFTEST_KVM_NESTED_H
- 
-+uint64_t get_l1_vtcr(void);
-+
-+void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
-+		uint64_t nested_paddr, uint64_t paddr, uint64_t size);
-+void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
-+			uint32_t memslot);
-+
- void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
- void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
- void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
-diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index ac97a1c436fc..5de2e932d95a 100644
---- a/tools/testing/selftests/kvm/include/arm64/processor.h
-+++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -104,6 +104,15 @@
- #define TCR_HA			(UL(1) << 39)
- #define TCR_DS			(UL(1) << 59)
- 
-+/* VTCR_EL2 specific flags */
-+#define VTCR_EL2_T0SZ_BITS(x)	((UL(64) - (x)) << VTCR_EL2_T0SZ_SHIFT)
-+
-+#define VTCR_EL2_SL0_LV0_4K	(UL(2) << VTCR_EL2_SL0_SHIFT)
-+#define VTCR_EL2_SL0_LV1_4K	(UL(1) << VTCR_EL2_SL0_SHIFT)
-+#define VTCR_EL2_SL0_LV2_4K	(UL(0) << VTCR_EL2_SL0_SHIFT)
-+
-+#define VTCR_EL2_PS_40_BITS	(UL(2) << VTCR_EL2_PS_SHIFT)
-+
- /*
-  * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
-  */
-diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
-index 111d02f44cfe..910f8cd30f96 100644
---- a/tools/testing/selftests/kvm/lib/arm64/nested.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
-@@ -1,8 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * ARM64 Nested virtualization helpers
-+ * ARM64 Nested virtualization helpers, nested page table code adapted from
-+ * ../x86/vmx.c.
-  */
- 
-+#include <linux/sizes.h>
-+
- #include "kvm_util.h"
- #include "nested.h"
- #include "processor.h"
-@@ -18,6 +21,87 @@ static void hvc_handler(struct ex_regs *regs)
- 	regs->pc = (u64)after_hvc;
- }
- 
-+uint64_t get_l1_vtcr(void)
-+{
-+	return VTCR_EL2_PS_40_BITS | VTCR_EL2_TG0_4K | VTCR_EL2_ORGN0_WBWA |
-+	       VTCR_EL2_IRGN0_WBWA | VTCR_EL2_SL0_LV0_4K | VTCR_EL2_T0SZ_BITS(48);
-+}
-+
-+static void __nested_pg_map(struct kvm_vm *vm, uint64_t guest_pgd,
-+		     uint64_t nested_paddr, uint64_t paddr, uint64_t flags)
-+{
-+	uint8_t attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
-+	uint64_t pg_attr;
-+	uint64_t *ptep;
-+
-+	TEST_ASSERT((nested_paddr % vm->page_size) == 0,
-+		"L2 IPA not on page boundary,\n"
-+		"  nested_paddr: 0x%lx vm->page_size: 0x%x", nested_paddr, vm->page_size);
-+	TEST_ASSERT((paddr % vm->page_size) == 0,
-+		"Guest physical address not on page boundary,\n"
-+		"  paddr: 0x%lx vm->page_size: 0x%x", paddr, vm->page_size);
-+	TEST_ASSERT((paddr >> vm->page_shift) <= vm->max_gfn,
-+		"Physical address beyond maximum supported,\n"
-+		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
-+		paddr, vm->max_gfn, vm->page_size);
-+
-+	ptep = addr_gpa2hva(vm, guest_pgd) + ((nested_paddr >> 39) & 0x1ffu) * 8;
-+	if (!*ptep)
-+		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PGD_TYPE_TABLE | PTE_VALID;
-+	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 30) & 0x1ffu) * 8;
-+	if (!*ptep)
-+		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PUD_TYPE_TABLE | PTE_VALID;
-+	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 21) & 0x1ffu) * 8;
-+	if (!*ptep)
-+		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PMD_TYPE_TABLE | PTE_VALID;
-+	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 12) & 0x1ffu) * 8;
-+
-+	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
-+	pg_attr |= PTE_SHARED;
-+
-+	*ptep = (paddr & GENMASK(47, 12)) | pg_attr;
-+}
-+
-+void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
-+		uint64_t nested_paddr, uint64_t paddr, uint64_t size)
-+{
-+	size_t npages = size / SZ_4K;
-+
-+	TEST_ASSERT(nested_paddr + size > nested_paddr, "Vaddr overflow");
-+	TEST_ASSERT(paddr + size > paddr, "Paddr overflow");
-+
-+	while (npages--) {
-+		__nested_pg_map(vm, guest_pgd, nested_paddr, paddr, MT_NORMAL);
-+		nested_paddr += SZ_4K;
-+		paddr += SZ_4K;
-+	}
-+}
-+
-+/*
-+ * Prepare an identity shadow page table that maps all the
-+ * physical pages in VM.
-+ */
-+void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
-+			uint32_t memslot)
-+{
-+	sparsebit_idx_t i, last;
-+	struct userspace_mem_region *region =
-+		memslot2region(vm, memslot);
-+
-+	i = (region->region.guest_phys_addr >> vm->page_shift) - 1;
-+	last = i + (region->region.memory_size >> vm->page_shift);
-+	for (;;) {
-+		i = sparsebit_next_clear(region->unused_phy_pages, i);
-+		if (i > last)
-+			break;
-+
-+		nested_map(vm, guest_pgd,
-+			   (uint64_t)i << vm->page_shift,
-+			   (uint64_t)i << vm->page_shift,
-+			   1 << vm->page_shift);
-+	}
-+}
-+
- void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
- {
- 	size_t l2_stack_size;
-@@ -32,7 +116,16 @@ void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
- 
- void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
- {
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
-+	vm_paddr_t guest_pgd;
-+
-+	guest_pgd = vm_phy_pages_alloc(vm, 1,
-+				       KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-+				       vm->memslots[MEM_REGION_PT]);
-+	nested_map_memslot(vm, guest_pgd, 0);
-+
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW | HCR_EL2_VM);
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2), guest_pgd);
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTCR_EL2), get_l1_vtcr());
- }
- 
- void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
--- 
-2.43.0
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
