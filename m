@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57939FEA838
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922D6FEA838
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fzl2HrENlJrVcQ5PG8zXRsI4m4cHUP0H1MwKJSIB29s=; b=upZJsMwyrcgJppHLb8sVd6CcK7
-	3Xl5xfq3+UheuzHJzXPvYK9l+8ru0qXsQCMf4k/zMZ6jMiuphdmW9oqMcJFgElBuxu1Tw3W4K15Ks
-	Sy+vZJNwByB+ilm5aPBF4miHLLsmcfOYyjmHRKF/rs6R/VBdY+byU3tc2av9Vv2U2F7s5BLjzynam
-	lnVxrjdZgGFcjApNpqo1kbqak7o3xuhZV23tbYZvBlSEPKLpcPqRrvBBb8xv+x2GsSCDktxuIHMVA
-	Hy56kD7lTvviXxBkrzTk/7T7Ist13oXyldesYijd69pj7zURsxooqnNOmbz33+wV82V+3bLZbsouW
-	hO8dQmMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=swQXoU4O7B54MHkHeQYbFaDGv2NRbIudgzVOMg0nz88=; b=ZfwZww6l2Rmaey+2+8Vcoch4ts
+	l+ZqU6a+xRmbj5w339MBsHsShl9RyKMXGvIfr9w9tzs6cgHhW7E8u2eAzD3Gr4Tj8Xbs37rZqAAsm
+	xv230qU9e6ccpkt0zgPpzXhjwYQaeMmFTEg4rVfkM2LgyDM/iQsGBehx1jnhUnB9oTH1WXq9mvImH
+	z5ui58MWnj+6Xqoj08S5Udzm///2mrzLTQODfWxJT/D9JnSxdctqjhNl1YRCqxot1rsvP6DQCVH/W
+	7ibcC+Dg9wHulkksajhf9aE7u3WRnMEzEnYXagndEwNp7sfz6UDW7xVlSeGriidvBMDW/bIf0JZkb
+	z2XeMUWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5KNd-000000031cT-3Kol;
-	Wed, 25 Mar 2026 09:18:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5KO5-000000031lK-48ep;
+	Wed, 25 Mar 2026 09:18:53 +0000
+Received: from pouet.aliel.fr ([65.21.61.41] helo=courrier.aliel.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5KNb-000000031bl-2uOc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 09:18:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D539D41866;
-	Wed, 25 Mar 2026 09:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD2D2C4CEF7;
-	Wed, 25 Mar 2026 09:18:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774430302;
-	bh=0i4abdRDleJm92gWlAzYDCiaX3cyuhdf9fdZTk6kWlI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=C8bgt+aSaIBXurlz5x1xUUO0IvckVpM/oUBKrmOjwTSFa4Upl8Rl75127DwiSs34h
-	 ilQByYAjum0+9FBVmUCpYMER9HvMEMj/l8TuZEKFeEvLGtYiLyGpO/NvGeCtrk3lvK
-	 nBQ0de7bobdfILJK6idX5Qtsugmm5AdRNqsRjxdrov8goDeBdeAGQ7eT/KOc+914Gb
-	 Zm1uGMp1Qw3j7yTt8OY22nB+2l5bfvNPhGo5TVkka6vulOSM15QpPydA+D9BqAk2F/
-	 prdYYlP1tIgNzVPXy5Pk7N/UXjdOSYvj39EaUT1aYBH8FWOmFlIZywZjxG6jFxWFyZ
-	 ErPTweqjgwY0Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w5KNY-00000005U8U-2Vxu;
-	Wed, 25 Mar 2026 09:18:20 +0000
-Date: Wed, 25 Mar 2026 09:18:20 +0000
-Message-ID: <86mrzw468z.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 3/3] KVM: arm64: selftests: Enable stage-2 in NV preparation functions
-In-Reply-To: <20260325003620.2214766-4-weilin.chang@arm.com>
-References: <20260325003620.2214766-1-weilin.chang@arm.com>
-	<20260325003620.2214766-4-weilin.chang@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: weilin.chang@arm.com, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, pbonzini@redhat.com, shuah@kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1w5KO2-000000031ie-35lI;
+	Wed, 25 Mar 2026 09:18:52 +0000
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1774430328;
+	bh=Z7IunAIs1UkdMVVls4m8D0rlvJVBFFNsOUUJft2FEuA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=A1Vy07i3GDWA2qWjz2aPESxts2vH0vQPiYTOAKaotpDLvGxf+nMuuDKXRSRRPiarI
+	 VA0XNUrPW/6oRFskbJ0s87/Zq+KXRO/gG9yVMZ4vsFkGx4X7TxloNw2TMyk72SUx/z
+	 RndL5o/cWf3FkNUNSQpkxNakkGerLRCNgaTrg+S8=
+Date: Wed, 25 Mar 2026 10:15:20 +0100
+Subject: [PATCH v4 2/9] dt-bindings: mmc: amlogic: Add compatible for T7
+ mmc
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260325-add-emmc-t7-vim4-v4-2-44c7b4a5e459@aliel.fr>
+References: <20260325-add-emmc-t7-vim4-v4-0-44c7b4a5e459@aliel.fr>
+In-Reply-To: <20260325-add-emmc-t7-vim4-v4-0-44c7b4a5e459@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Johannes Berg <johannes@sipsolutions.net>, van Spriel <arend@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openssh-sha256; t=1774430323; l=948;
+ i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
+ bh=Z7IunAIs1UkdMVVls4m8D0rlvJVBFFNsOUUJft2FEuA=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
+ BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QAa2M99FtzPYRjuvbEZU3hsOvTlOZi7yVguJQu0utIy2Er9OdLbkf2WWMIr15yeOwxo9wPol2xy
+ M6v4vRcNc6Qs=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
+ fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_021823_775746_840E8242 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20260325_021851_156164_9A7BB15C 
+X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,141 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Mar 2026 00:36:20 +0000,
-Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> 
-> Introduce library functions for setting up guest stage-2 page tables,
-> then use that to give L2 an identity mapped stage-2 and enable it.
-> 
-> The translation and stage-2 page table built is simple, start level 0,
-> 4 levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
+Add amlogic,t7-mmc compatible string, falling back to amlogic,meson-axg-mmc
+as the T7 MMC controller is compatible with the AXG implementation.
 
-That's a no go. The most common NV-capable out there can realistically
-only do 16kB at S2, and is limited to 36bit IPA. We can't really
-afford to say "too bad" and leave the main development platform behind.
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ Documentation/devicetree/bindings/mmc/amlogic,meson-gx-mmc.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> 
-> The nested page table code is adapted from lib/x86/vmx.c.
-
-I guess this starting point is the main issue.
-
-> 
-> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> ---
->  .../selftests/kvm/include/arm64/nested.h      |  7 ++
->  .../selftests/kvm/include/arm64/processor.h   |  9 ++
->  .../testing/selftests/kvm/lib/arm64/nested.c  | 97 ++++++++++++++++++-
->  3 files changed, 111 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
-> index 739ff2ee0161..0be10a775e48 100644
-> --- a/tools/testing/selftests/kvm/include/arm64/nested.h
-> +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
-> @@ -6,6 +6,13 @@
->  #ifndef SELFTEST_KVM_NESTED_H
->  #define SELFTEST_KVM_NESTED_H
->  
-> +uint64_t get_l1_vtcr(void);
-> +
-> +void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
-> +		uint64_t nested_paddr, uint64_t paddr, uint64_t size);
-> +void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
-> +			uint32_t memslot);
-> +
->  void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
->  void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
->  void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
-> diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-> index ac97a1c436fc..5de2e932d95a 100644
-> --- a/tools/testing/selftests/kvm/include/arm64/processor.h
-> +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-> @@ -104,6 +104,15 @@
->  #define TCR_HA			(UL(1) << 39)
->  #define TCR_DS			(UL(1) << 59)
->  
-> +/* VTCR_EL2 specific flags */
-> +#define VTCR_EL2_T0SZ_BITS(x)	((UL(64) - (x)) << VTCR_EL2_T0SZ_SHIFT)
-> +
-> +#define VTCR_EL2_SL0_LV0_4K	(UL(2) << VTCR_EL2_SL0_SHIFT)
-> +#define VTCR_EL2_SL0_LV1_4K	(UL(1) << VTCR_EL2_SL0_SHIFT)
-> +#define VTCR_EL2_SL0_LV2_4K	(UL(0) << VTCR_EL2_SL0_SHIFT)
-> +
-> +#define VTCR_EL2_PS_40_BITS	(UL(2) << VTCR_EL2_PS_SHIFT)
-> +
->  /*
->   * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
->   */
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
-> index 111d02f44cfe..910f8cd30f96 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
-> @@ -1,8 +1,11 @@
->  // SPDX-License-Identifier: GPL-2.0
->  /*
-> - * ARM64 Nested virtualization helpers
-> + * ARM64 Nested virtualization helpers, nested page table code adapted from
-> + * ../x86/vmx.c.
->   */
->  
-> +#include <linux/sizes.h>
-> +
->  #include "kvm_util.h"
->  #include "nested.h"
->  #include "processor.h"
-> @@ -18,6 +21,87 @@ static void hvc_handler(struct ex_regs *regs)
->  	regs->pc = (u64)after_hvc;
->  }
->  
-> +uint64_t get_l1_vtcr(void)
-> +{
-> +	return VTCR_EL2_PS_40_BITS | VTCR_EL2_TG0_4K | VTCR_EL2_ORGN0_WBWA |
-> +	       VTCR_EL2_IRGN0_WBWA | VTCR_EL2_SL0_LV0_4K | VTCR_EL2_T0SZ_BITS(48);
-
-Irk. See above.
-
-> +}
-> +
-> +static void __nested_pg_map(struct kvm_vm *vm, uint64_t guest_pgd,
-> +		     uint64_t nested_paddr, uint64_t paddr, uint64_t flags)
-> +{
-> +	uint8_t attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
-> +	uint64_t pg_attr;
-> +	uint64_t *ptep;
-> +
-> +	TEST_ASSERT((nested_paddr % vm->page_size) == 0,
-> +		"L2 IPA not on page boundary,\n"
-> +		"  nested_paddr: 0x%lx vm->page_size: 0x%x", nested_paddr, vm->page_size);
-> +	TEST_ASSERT((paddr % vm->page_size) == 0,
-> +		"Guest physical address not on page boundary,\n"
-> +		"  paddr: 0x%lx vm->page_size: 0x%x", paddr, vm->page_size);
-> +	TEST_ASSERT((paddr >> vm->page_shift) <= vm->max_gfn,
-> +		"Physical address beyond maximum supported,\n"
-> +		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
-> +		paddr, vm->max_gfn, vm->page_size);
-> +
-> +	ptep = addr_gpa2hva(vm, guest_pgd) + ((nested_paddr >> 39) & 0x1ffu) * 8;
-> +	if (!*ptep)
-> +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PGD_TYPE_TABLE | PTE_VALID;
-> +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 30) & 0x1ffu) * 8;
-> +	if (!*ptep)
-> +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PUD_TYPE_TABLE | PTE_VALID;
-> +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 21) & 0x1ffu) * 8;
-> +	if (!*ptep)
-> +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PMD_TYPE_TABLE | PTE_VALID;
-> +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 12) & 0x1ffu) * 8;
-> +
-> +	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
-> +	pg_attr |= PTE_SHARED;
-> +
-> +	*ptep = (paddr & GENMASK(47, 12)) | pg_attr;
-
-Please use named constants, and write a page table generator that is
-independent of page, IA and OA sizes, as advertised to the guest.
-
-Thanks,
-
-	M.
+diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-gx-mmc.yaml b/Documentation/devicetree/bindings/mmc/amlogic,meson-gx-mmc.yaml
+index 57646575a13f8..976f36de2091c 100644
+--- a/Documentation/devicetree/bindings/mmc/amlogic,meson-gx-mmc.yaml
++++ b/Documentation/devicetree/bindings/mmc/amlogic,meson-gx-mmc.yaml
+@@ -19,6 +19,10 @@ allOf:
+ properties:
+   compatible:
+     oneOf:
++      - items:
++          - enum:
++              - amlogic,t7-mmc
++          - const: amlogic,meson-axg-mmc
+       - const: amlogic,meson-axg-mmc
+       - items:
+           - const: amlogic,meson-gx-mmc
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.49.0
+
 
