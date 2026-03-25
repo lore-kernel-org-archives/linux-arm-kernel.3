@@ -4,147 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7533109E528
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A39109E528
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrnfVBmH7lq0Sg1oOGIcvjqEwdPNcCOfRCUWaxpAoIE=; b=2uAcVDvgDS0B8SVXGJhRhTgeO+
-	4WEguj2OE098JZ58XwiuTdtSV1BO8kUtLZZ9f0pc0eUJzRVbkCgpO06OtSMeMNNZ0ZNoVcyJgk/fx
-	LSHbVjXwEAOwgmlUbOePVpQi0KGDkJUYfzIqYZj+YBK82aGbvx14cSLhZUorUCWPCyAv2NOOLo2zE
-	xxG6Od5w7tuMzAq8to7MFZPf9PXgJynALaZBNzwPLD07GPaKdG72tFaIK6s4TBSAalCet6IocBewV
-	ivzWbcT4ss/RUhZ+k6i0y4oEyNsZAN99j/fnybAxWK6yHHLgbCIGd8E4LeS5VkAJzHU5+pDaKcbS+
-	itzmjVMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KbyKbyFuHp+6dsr0KIzDsUutYDB3nuzbv/Jgu2ebttc=; b=FfyE9ejtNT6spzAS9NJJgxempi
+	JPGJKnPuoRLo0tw4TM3++SWsU25+8vr5FMLoAHEzGwk3+qBSsU1oCfRGJ9g+zbc0W8drFwgkeNSc0
+	Q4LnlKGrW+YHEgfbZdfV86Uv4SQ9KKpQY19hYdBIkHbt1RutC2UXnTxAWQvWfgey7yHKc3iPkLuvx
+	CccmmIfe/qWX5ERBolkXotPYEYBEhXmfp+iY62xcLJtjF5Ch/5pv+1Vu9nCsD2OAEBJQvu19dWzwS
+	TGy/DxV2d2euTNGSG2jyAL3aRrI5JgSHLPxdmpcrT+kpNEX4uErj4i2f+D1/DCmkNKVVbDFLEIxJp
+	e6hqY7ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5XHi-00000004Oam-3yCk;
-	Wed, 25 Mar 2026 23:05:10 +0000
-Received: from mail-northeuropeazon11011011.outbound.protection.outlook.com ([52.101.65.11] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w5Xfl-00000004QKj-38q6;
+	Wed, 25 Mar 2026 23:30:01 +0000
+Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5XHW-00000004ORg-46ym
+	id 1w5Xfj-00000004QK6-0VS1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 23:05:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iPdXue4PXpFSnVG2wcmmuPkp5gJhxkMFlpHADmHu1RcwYJnruH7dRna0ey0tgrs+SC1KfmaENdFmkjjkYyMzDyTbA4nSM41QdtzIsCZznR/ZPVtN0qBjd7h6vZUsaqSaYtXnX4cb2u4SeOiedgds7wr5u8lWCZlkkxImOogPTBj9Axl+dEd8iBPen0Wt7aTnTW8bj7za/mfI7jUm3cb7aT7sn5gKtt6G6ZKiHlrZpDLfDN+FGk5CUvAYSaKDgkwEgxPdgv4MP0mviJ+fDdRBAcc45t388Z0eQJpFVhxB7gSnRI4JuTTLTxFCFLEoQQZ/Dnz/h6448e9Cw9Gd0EGcuw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QrnfVBmH7lq0Sg1oOGIcvjqEwdPNcCOfRCUWaxpAoIE=;
- b=TXkKPkl3mnVaNn4kOmq3E3BNBHKH2MHRXKvkJe2br2TwbUgI9IVbEIm3Atz01BIxaN4jlfQgseuphax/QEEnGXN7KjtvGeSj3KmFX3D1062cJdXE05ymlnsvfalEMmXl2sKu874JsJ2E1iVUNbxeCwesmoiJWpIeb6RkUWxAk6icsMhdvzBw4am6YwzdZKlPb3EE1FvDdTcgGyDsFVsE5cu2v09rp/gJE7b8qVVh4Dv+OtwMFGD4F3ZHcibDHieRnDllWPFeWjQHdib7XyBm2bgGP4y0R8+BWMFiqKhYd5+6V7vNj94vWQP5EyHH+crQN+PGNzgxN3Vyx/EJqibT3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QrnfVBmH7lq0Sg1oOGIcvjqEwdPNcCOfRCUWaxpAoIE=;
- b=CTMv3rx15o9pHvH9yeGNzKFXDCmaGE3Ti6vGkdObZuapos8XXCRTu1+9q05wd9HgUs5r9ehlcRhgmlb/FgcHXlimnfheJ2GmtimkNS7DSKOzVVwqHQw+TCnb5uqyxQcrBQtXXoAxpHNo9siHHyAHNkQ3Mhabuni8zPP6tg/S5KtdQnhTXTX5TTbYGrA3yzLY6trj1Gxlf2e7jGwjqPK4cmMqzS2zOE3zRwQMXZfOUdYHYz1/GrY/i61ZYKjPy9dgVYPX6FDFhSwd350pgQo3HYrEqo3r74UGJSHMoWS4FclS65P+nIct7220uYWoer0WXC72Cb1SxQlqW9gW3yul/w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
- by GV2PR04MB12140.eurprd04.prod.outlook.com (2603:10a6:150:30c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Wed, 25 Mar
- 2026 23:04:55 +0000
-Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
- ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
- ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
- 23:04:55 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 25 Mar 2026 19:04:16 -0400
-Subject: [PATCH v4 7/7] arm64: dts: imx8mp-evk: add flexcan2 overlay file
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-pinctrl-mux-v4-7-043c2c82e623@nxp.com>
-References: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
-In-Reply-To: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
-To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774479864; l=1718;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=YjekS0zr/swbFjaUMALudPHZ5yVmBdXkiTRaBeNarUI=;
- b=SY9zXi/wmM5r5toeB3fZAh5lxwEbDKg0iZe/jIJ0iVT2Y/4GDfjyienwSv25gCHlF4vUXCFao
- wyU3hOmRrEMB6qaCFNmRJBbzD+/ImtxU9i7iq/d51zt6kYXFB+RTDRK
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR03CA0161.namprd03.prod.outlook.com
- (2603:10b6:a03:338::16) To DU0PR04MB9372.eurprd04.prod.outlook.com
- (2603:10a6:10:35b::7)
+	Wed, 25 Mar 2026 23:30:00 +0000
+Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-12a71ade78cso474578c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 16:29:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774481398; x=1775086198; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KbyKbyFuHp+6dsr0KIzDsUutYDB3nuzbv/Jgu2ebttc=;
+        b=EDNLEghGYGpm/HdQ9c2Fl7GOAGyUmXSsn+buBqPHqzArc/jN8/sX57RoP0mEMYTpF0
+         2Fm6MuzcLPhzs1HeistkAtlVOKZXtTGowWoj5zRHixQtrQQ9DkQKkIN5cyaSYNT8hQDH
+         KBwWj4ZZRJENmpkgpINBPKfb/0pT6e7ANOjv7B48YnSZbgah8S7t0QopWRx6fkiOm4wJ
+         wdbNWVKsOIAKy0eB1I/SzcT2cSW0rbqRsps/GU1NnIQB5PF6yF/eH2C9bGFCB1ipwtL7
+         Q0kCgs/ASe5/GZM0fGqNF0pUvGnPXkbRtqdkmvIIiyeG1lhmEC3V65xdWenLBDyFVK2P
+         SJ5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774481398; x=1775086198;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KbyKbyFuHp+6dsr0KIzDsUutYDB3nuzbv/Jgu2ebttc=;
+        b=oeRHxb+R0dHLB7HOSiSUhXSdijeVz0zbDVo2wwUsN8TC/Uhkr5cmE0iHUMR96ZFFKO
+         rQPBQpy9lNLD3fWwd2AWYkykSeKOaVm1jUxGp3y9+SPabHR1T99Eb70GDCRPBD3emcMS
+         UKWLcYfitMwBWToA8ue3ZNhh8cjLMH59EOi6OXSNLwHwFU4vKakn1C40jjIvoMA6iyjL
+         gCpgkSsPVkDGM1ll5uNmDcw2Ox7WXNYV9oRbcotRDB+EMdQiTBsRpofGh5gqeaDxfLXR
+         Z9Q0xdJ/4d2QN6emAxoFltuh5z4CTdwZUSUrAnh385czdE+b4CW5jY6q0EN1xmMjjPS3
+         AcBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUW/OkbioK1CvR/rXi5CXnmdtIYoqjo1pTGyXdsFSG7hGJxpKMrKd/IhoZzcSRtQe1cvJQ3cC4vk/k9MSPI7wgi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7bYFi5JjdEhcqu/3B0E15t9IokXWVu1IXg9UgeV8OVI7cBSLC
+	F28nuqqCdhFfhe6WW9AJu3S16oe6bCfaJ1pmyV5hrTNqNY/KtehCa6PK
+X-Gm-Gg: ATEYQzzo8hnGxUuWomjYrY4f07dD5/WOsBQmi5vGncRa7s+wtSPDkVOyiT3vYgUT7F4
+	AiZWWXM8gHgo/vFHJnD1uHhog6k6QKGhtUF4UeW7TQMN80uyUPq4YjPszmQJbbUJUL3KSQgOJGy
+	MI6IdPMTsOvjef4aSipPU8feiOfusu0bYsYIfmAf6lXGaUYyuC4E62/AgC4bxKFGzYu7QhYKmNE
+	4OJPUd4/w5JLBJ/x2YbBqop9AUxHemmNwgRS0CRvBy/USKm+FpWM8iwUCNTpkZSnBdxxxYvMpuU
+	raJZUwerERMJj+iL3UVjFIG/Ieb+nMdpY1XkfXf/mD9zc0LzJTQrOj96ik03sTQIBr6BB4rdE6n
+	ZnF3tFQrdHmiNYURClmVUzwXU2Fi8Z5S9usYd1HQVSk8QoTEQclr3AjkB99bSgDbHgzNtviG8ZK
+	E99Aa39jnBHpNeiy4CLNAMbh6HC9XPTnHGbHwijb8FJMpiCoGb/xjnATzHJLhpc+P9
+X-Received: by 2002:a05:7022:402:b0:122:8d:3688 with SMTP id a92af1059eb24-12a96eceb55mr2801523c88.22.1774481397800;
+        Wed, 25 Mar 2026 16:29:57 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:b7b4:352d:eb23:66e5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12aa7274231sm1355207c88.8.2026.03.25.16.29.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 16:29:57 -0700 (PDT)
+Date: Wed, 25 Mar 2026 16:29:54 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Marc Dietrich <marvin24@gmx.de>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] ARM: tegra: paz00: configure WiFi rfkill switch through
+ device tree
+Message-ID: <acRtWZohqfDLbMKE@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|GV2PR04MB12140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46e20e5d-8186-4ff7-2cef-08de8ac2edca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|19092799006|376014|1800799024|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: i+JxUwmQGBH80enW5ydBplscE06ms37aqo6x32Z4/59KKnkyzuEVpIjpEangjQfvhRvD4ooklNPFAJ+T5/tsI0buGEscosRpSX5OkWEEPwIKw+38MhYR52xe3rS3nhiyR+s6MwUoPGR+TAHCakpyC6Ng4l40lzsKMNj/zaRh3ZbZMtcDz9OyTAfV6z0xjE7sN4KHAs5FYTPmYPWVesAkNHRS2imjtzAab3AfGZWovfY38jWBK6vDapZoaQCGyl+iXrF21ZlESARu54z8JuWtJH833iKi9GZanq/a7peV7yzQjdHihJoTrheqZnyppDYU5xRmevq78ruWz6MGpZIlvKvfbJQ2KHke6QAww+Qm/qUu2V5A9geuBZ3YO+MwgfCU9rRVk+Zulkjs/DS4/VNYqYrCWVZeiGzZLVy9nyjLwuA9fmAaRAsVS7qz1TzDETUHv/MhF2/TzY+rX1G9N/HyFKLTfOgCSIUeUR6JIZPF6HwWOW4pwIBp2aSUWKb1nwUnxHJDoVZ20Q0qI+BM+dVzvMLvOMj/+s7gLQxvxD7PH1FquR/tjSoYchr9f4XgTFni06WYZv50yRR+eXO2JTiWVLiOKj+B2oSMTtaXfZVaJ1apjN50hrFpPIDpUJm7TnJQmSk0vBX8nGqqjSRj/mPGXVKvj2Rs09nNN4mUfBTvjRkjuWD+B9avwhSLoDSjM1ewsW/M2NcgEdtV6n2nzgnyk7n6qzFihv/8Cl7Uy8dsChlsDmH306tZqJ5sdMIkq8MB8wDV6aScslq5CnXtleQhZ7qq3h72avlPicPbzd5YuO4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(19092799006)(376014)(1800799024)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUJkem5MMjRHSFBQdDN2WHNKZ3Z6dmRLeVRjV2pFR2MzMTB3Q1o1V2NXS0I4?=
- =?utf-8?B?N3NhQ2NkRWQ2djFKRDNKdHczaGIzSHdvZlhmSytwK2llSklabFJGV3lERzFG?=
- =?utf-8?B?dTRXYThEbWN4ZTY1dklOZEJGVjVUZHF4SWlNa01GNXJ4NFRhTU9NaDB4K29w?=
- =?utf-8?B?RDdCTHdMc1oxQTh5VTNyWTkrZmpwczFqaTVLUml3Y1RVU29pRTlQL3BZUUUy?=
- =?utf-8?B?ZGZhbyttUTZDK2R5Si85SFVJd0NKdUVSdEJCRDc4MGhGQytIZURxTkVQNHNB?=
- =?utf-8?B?b0ZVR01xY0d1a1pLQmRrMWFKUjNkcUJHU1RNZ1N2cTZRQTNsMzVrVmp2djZY?=
- =?utf-8?B?emliQkxSaEYyWE5vcmR4U293eGlkbXlSNlJBQUhiK1pWZ0ZrakVXR29RWGtR?=
- =?utf-8?B?eEFaL1hMR0RxQllVN0dESVF6V29iL01NVVJJUFd3dkhKajJTU3NIUkJDTTlC?=
- =?utf-8?B?eTg5NlFUMmVWcWdYaVpaSkkyN1ZZMkZpZm5rRUgrcCtHVFd5MUFXNGQ2WTI1?=
- =?utf-8?B?dDNsQk1lV0hCb0JUcG1ZT2hNMUdmU1FSQWNXN25rQWZ2T2hjakFaS3czUFlY?=
- =?utf-8?B?b2tLeVFOblZsYitkVzNIT093OEFjemY5SVlYRkRCQ0o2aWdXN3oyTEtHeVR2?=
- =?utf-8?B?S0w5MWFpOEt2QXRTV1lRYm9LNURoSlNzcHF0aTlkM05uQWJ5Vi94UGFyWFAy?=
- =?utf-8?B?MXdFSkRiWkIvWXFya2tKcFZ5YThXMUJvaUlwVk9WU3FoaklrWVg5QVZkZi8v?=
- =?utf-8?B?RTNyKzNiQllUWHZEN2FqbEdJcGJ4QkdLUWNOdVErZnVGb3ZyYmtBNytoUHgr?=
- =?utf-8?B?UFRUcnNOLzZTVUFjT29Od3EvRnhNamZ6NVlQMDJpcXNnZzdkWDhRTno2cUJP?=
- =?utf-8?B?QTU0cU1MUWhrWDY1UmpMTXRhT3l0YVB6RDliSjFuUHpTNEZkeVdEYUNGZTds?=
- =?utf-8?B?YXZaWS9qdlNNcHdRYzhQQ3dISEhBQXBFbC9VcmRVZDNsMmV5bW5kVXNTOFlt?=
- =?utf-8?B?K0JlTFVlSmkrcnV3MnFqdFEvWjYxZUFlalE3MmtlNFVDdTNCOGFqcVFaZ3dX?=
- =?utf-8?B?N25HaU1KOERuVUNGWW9seGlYWm9tanpKcDBkLy9LMW8rTk5MUElUTXpyVE9n?=
- =?utf-8?B?V042eDErRDJtck5UN1NjTkN4OXNSRXB0Y1pucm9iQlZkaGpvZFRrSjB0M1Vq?=
- =?utf-8?B?aWExbkxJYWs2QjREc05QZUVLWERPSzA4N2xaZnVaNlp5aDdRRGJZazl1bHVP?=
- =?utf-8?B?UFVzclpyakdNNDlqMDNnZnRYSjJLK1ZyR3hCZmQ5clJPSkswNDdJdkFXa3E2?=
- =?utf-8?B?U3BLZU9GMEZmREpXZXVlbTNqRnMwZEtOYkd3YkR4SFpiRjZsRm9TTkN4SGpa?=
- =?utf-8?B?L3ZQd296SkdyYnJLU3h4dUJ1STg5QXhIQTB2blBYY2wzVXVJZHJXcDlBK2hH?=
- =?utf-8?B?anZ5YmtMOFB6RVViYXhVb3VqQlk2ditKalQvdHF4bE1DanhVQ3J3dEVzQ1NC?=
- =?utf-8?B?MW5iK3hURCtDZXRrWXpQa2x0b2dYYkpSdWJpcHlUbmV2Ti9BSHZzUXdYQitQ?=
- =?utf-8?B?UHpDNDBkbi96K0pCVGFMQjVmMjlXanZMOHNzdFhqSlk1aHh5VCthRTFHTndF?=
- =?utf-8?B?M25TSWREZHJsRjZoNlF4ZWpMRG5qamFrZlhqOCtVSjM1OUhuNXdldFFoMHh1?=
- =?utf-8?B?Ym9mZHRleVNoSWI2ZWVMbUFuMFFnZ3UyYlAzZTVoYjFaM1plK2E5NzJDZ2U0?=
- =?utf-8?B?clNhaWJIQXBpUkxEWUpEbnc3VlNuUWtJOWEwMEdDRDBOcktibnh3a2tpbkdv?=
- =?utf-8?B?ZDJucVBjcnZ2bTJUcTRvS3Z4QzlydTRGU0RZdEtqUlRtRXlPWnBGMjhFZklh?=
- =?utf-8?B?aS9xUkEyZnBxUWdqcmVTWUZXeW90V1JPekJCcXdTaGRLVjhBQXIzOFBhWmZm?=
- =?utf-8?B?Y2psSGMzMExuQ2pLQXFPTzA3TkhNSS9ZNk9Od3JuR3FSOHY3SjRzYXkrNjNB?=
- =?utf-8?B?Y01udG1LNEVPZUZ1QXNHcDl6N2FmOWpKWVBtSTZUT3BFSVhTOFJ6aGNDaXN2?=
- =?utf-8?B?UkUyMGpzVjAyZytwU3NlVTg5MkxjNE0ySzNESytBL2swOWxIWFByc0ZtNFFG?=
- =?utf-8?B?cDNxd0g2ZDJHZStwdDkzQW5EdU1oVXY0VzlEcUVFa0ZEQk9oRWx0ZWl3b2tW?=
- =?utf-8?B?aGVqOTN2MzVOQmlLbXB2UXg5Qkc4cGZvYVpLOGM1dDV4NzBuYUxHL1VxM0ww?=
- =?utf-8?B?K0dhTXRHNDMrL0g2aEJ1bEo5amdQYXR1MG5jeVNRd3ViTXFJZnJMQk5JdERs?=
- =?utf-8?Q?r44BIjqmt2Rsf8Ydzs?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46e20e5d-8186-4ff7-2cef-08de8ac2edca
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 23:04:55.1973
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UfsddiykwhSWh81goiu91AVz9EDnERUNORzGTMkuH8a+6FkJLh1furzLEnTTd2iGQWVm8Ew10TkRupIjmGJ0Gg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12140
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_160459_042502_F9AF3A15 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260325_162959_169508_CA9135F6 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,56 +99,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add flexcan2 overlay file, which enable flexcan2 node and disable micfil
-node.
+As of d64c732dfc9e ("net: rfkill: gpio: add DT support") rfkill-gpio
+device can be instantiated via device tree.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v3-v4
-- none
----
- arch/arm64/boot/dts/freescale/Makefile                 |  4 ++++
- arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso | 15 +++++++++++++++
- 2 files changed, 19 insertions(+)
+Add the declaration there and drop board-paz00.c file and relevant
+Makefile fragments.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 700bab4d3e6001fe6cf460fcb09cfe57acc77e36..bd377191a68a6167d5f9a65184d19c789a4223ee 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -233,6 +233,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
+Tested-by: Marc Dietrich <marvin24@gmx.de>
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+---
+
+V2:
+- added Marc's Tested-by
+
+V1:
+- https://lore.kernel.org/r/aY_BpRQmLdqOOW2K@google.com
+
+ arch/arm/boot/dts/nvidia/tegra20-paz00.dts |  8 ++++
+ arch/arm/mach-tegra/Makefile               |  2 -
+ arch/arm/mach-tegra/board-paz00.c          | 56 ----------------------
+ arch/arm/mach-tegra/board.h                |  2 -
+ arch/arm/mach-tegra/tegra.c                |  4 --
+ 5 files changed, 8 insertions(+), 64 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
+index 1408e1e00759..d1093ad569e6 100644
+--- a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
++++ b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
+@@ -706,6 +706,14 @@ vdd_pnl_reg: regulator-3v0 {
+ 		enable-active-high;
+ 	};
+ 
++	rfkill {
++		compatible = "rfkill-gpio";
++		label = "wifi_rfkill";
++		radio-type = "wlan";
++		reset-gpios = <&gpio TEGRA_GPIO(D, 1) GPIO_ACTIVE_HIGH>;
++		shutdown-gpios = <&gpio TEGRA_GPIO(K, 5) GPIO_ACTIVE_HIGH>;
++	};
 +
-+imx8mp-evk-flexcan2-dtbs += imx8mp-evk.dtb imx8mp-evk-flexcan2.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-flexcan2.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-mate.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pro.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso b/arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..f7d2674c45f72353a20300300e98c8a1eba4a2a6
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk-flexcan2.dtso
-@@ -0,0 +1,15 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&flexcan2 {
-+        status = "okay"; /* can2 pin conflict with pdm */
-+};
-+
-+&micfil {
-+        status = "disabled";
-+};
+ 	sound {
+ 		compatible = "nvidia,tegra-audio-alc5632-paz00",
+ 			"nvidia,tegra-audio-alc5632";
+diff --git a/arch/arm/mach-tegra/Makefile b/arch/arm/mach-tegra/Makefile
+index a2bb55bc0081..9e3abb14fbc1 100644
+--- a/arch/arm/mach-tegra/Makefile
++++ b/arch/arm/mach-tegra/Makefile
+@@ -15,5 +15,3 @@ obj-$(CONFIG_HOTPLUG_CPU)               += hotplug.o
+ 
+ obj-$(CONFIG_ARCH_TEGRA_114_SOC)	+= pm-tegra30.o
+ obj-$(CONFIG_ARCH_TEGRA_124_SOC)	+= pm-tegra30.o
+-
+-obj-$(CONFIG_ARCH_TEGRA_2x_SOC)		+= board-paz00.o
+diff --git a/arch/arm/mach-tegra/board-paz00.c b/arch/arm/mach-tegra/board-paz00.c
+deleted file mode 100644
+index 3ec810b6f1a7..000000000000
+--- a/arch/arm/mach-tegra/board-paz00.c
++++ /dev/null
+@@ -1,56 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * arch/arm/mach-tegra/board-paz00.c
+- *
+- * Copyright (C) 2011 Marc Dietrich <marvin24@gmx.de>
+- *
+- * Based on board-harmony.c
+- * Copyright (C) 2010 Google, Inc.
+- */
+-
+-#include <linux/err.h>
+-#include <linux/gpio/machine.h>
+-#include <linux/gpio/property.h>
+-#include <linux/platform_device.h>
+-#include <linux/printk.h>
+-#include <linux/property.h>
+-
+-#include "board.h"
+-
+-static const struct software_node tegra_gpiochip_node = {
+-	.name	= "tegra-gpio",
+-};
+-
+-static const struct property_entry wifi_rfkill_prop[] __initconst = {
+-	PROPERTY_ENTRY_STRING("name", "wifi_rfkill"),
+-	PROPERTY_ENTRY_STRING("type", "wlan"),
+-	PROPERTY_ENTRY_GPIO("reset-gpios",
+-			    &tegra_gpiochip_node, 25, GPIO_ACTIVE_HIGH),
+-	PROPERTY_ENTRY_GPIO("shutdown-gpios",
+-			    &tegra_gpiochip_node, 85, GPIO_ACTIVE_HIGH),
+-	{ }
+-};
+-
+-static const struct platform_device_info wifi_rfkill_info __initconst = {
+-	.name		= "rfkill_gpio",
+-	.id		= PLATFORM_DEVID_NONE,
+-	.properties	= wifi_rfkill_prop,
+-};
+-
+-void __init tegra_paz00_wifikill_init(void)
+-{
+-	struct platform_device *pd;
+-	int err;
+-
+-	err = software_node_register(&tegra_gpiochip_node);
+-	if (err) {
+-		pr_err("failed to register %s node: %d\n",
+-		       tegra_gpiochip_node.name, err);
+-		return;
+-	}
+-
+-	pd = platform_device_register_full(&wifi_rfkill_info);
+-	err = PTR_ERR_OR_ZERO(pd);
+-	if (err)
+-		pr_err("failed to register WiFi rfkill device: %d\n", err);
+-}
+diff --git a/arch/arm/mach-tegra/board.h b/arch/arm/mach-tegra/board.h
+index 7b3ef0dc9be1..86c3ea0d6b30 100644
+--- a/arch/arm/mach-tegra/board.h
++++ b/arch/arm/mach-tegra/board.h
+@@ -19,6 +19,4 @@
+ void __init tegra_map_common_io(void);
+ void __init tegra_init_irq(void);
+ 
+-void __init tegra_paz00_wifikill_init(void);
+-
+ #endif
+diff --git a/arch/arm/mach-tegra/tegra.c b/arch/arm/mach-tegra/tegra.c
+index 9ef1dfa7b926..f324a7e491d8 100644
+--- a/arch/arm/mach-tegra/tegra.c
++++ b/arch/arm/mach-tegra/tegra.c
+@@ -83,10 +83,6 @@ static void __init tegra_dt_init(void)
+ 
+ static void __init tegra_dt_init_late(void)
+ {
+-	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
+-	    of_machine_is_compatible("compal,paz00"))
+-		tegra_paz00_wifikill_init();
+-
+ 	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
+ 	    of_machine_is_compatible("nvidia,tegra20"))
+ 		platform_device_register_simple("tegra20-cpufreq", -1, NULL, 0);
+-- 
+2.53.0.1018.g2bb0e51243-goog
+
 
 -- 
-2.43.0
-
+Dmitry
 
