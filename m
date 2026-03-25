@@ -4,56 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10972109C02F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BA2109C032
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrKibVMNE8DsDxKsQnklJyFpycVMIw2ZQ5SV0pSiFAE=; b=G6h510Ws6hnTgeM2bvASachjev
-	A5ieA09Av1GRl2iRwT8ll5lRuvwToliDA0qdC4OcSX4esC5iO9L5nZED1/hSjHk+igX+XRmWJtJ71
-	4ZILIieEzlfM40lQxcWxTDSxPoIxYwjF7G9rty8Ac4Ubes91ugmUvChS01xPqfKbSjSffAf/8Ocws
-	P+sYraoGXjz2Axz5JtiWOix74+HpGrnMe/gLsstLOh45Bi+PlDuJ5gWWeVtzKe9KMvmHJK3jduBXE
-	tMA/sf/SgkWOzTq4njXX7Hs36LMxeIuea/YTYr7nRfBr2utENZGnA7DOtr47W9+r8oQjBgRheUYDa
-	Ez+LtdDg==;
+	bh=uWiGfQwvRd/MkcT2QufNy+Aq4KN5JzF2t9fGHMHl+pk=; b=kp4PSTODUKZuEN7GEZCd74FgzW
+	sUxsRxvyTP8ozI8fkjBEXHHOc5h1AHq4sogxaXXwRNJMGBuL+Pt9tQfQyRjlV/YzmtHiwnmx8mO7z
+	5jN39hVWtV66udNGLI/QYLFy1ayZubW50FbEoYwe4c4Uq51boXX+dnJXmF4hCTEnFjv/2lt9hDe8x
+	FCy7y1A94V/p3Ivza2AVvCzDHTWoEt2HCM38QQFwfYYTaTv9EUW34VwGqYq3rIrFoi2/TBQmkryko
+	kIyGXbOvdEHM/Du84kTE9Qvj3gNyXgQZPJrpviHqwDCG0u9LTjRjB1++6tkVDQD353NHb6TYFnMPE
+	7v3KlSmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZn-00000003fqu-36Ui;
-	Wed, 25 Mar 2026 14:51:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZc-00000003fUA-1MLT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Mar 2026 14:51:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=zrKibVMNE8DsDxKsQnklJyFpycVMIw2ZQ5SV0pSiFAE=; b=YbB5vrvbzex823duZJsgYoMVmo
-	hpZEnJwCG4xCpk14cVYhb1Vu9gia2KV4TYhsCj6mEu8iFEXrjhoTJ/1ugr9kZ4T4YIV8SizOYr/ps
-	cjUtKsFymlAJpvAOFYHCC7AT7FL87ll+DFtSoXgfLE4fNB5wsPvM/zLkOZJ5cVKWQhu1+vEj4MY+O
-	CjCJ1mipIH5HRb1cUrAsTLoL6DOwG25b9gfx9rlHTijK72X/VIRCkj1L3sg9e9HwU6g5ZXqfBx7Yr
-	y7ib8o8yX/AMXLWsA2RoHhXf6xciKqIn08Aa2et/310z5qVX1UEoJEPu5+/4h71UxtreFU+mqezJa
-	olx0qHYg==;
+	id 1w5PZo-00000003fs5-0Roz;
+	Wed, 25 Mar 2026 14:51:20 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZZ-00000006OTG-0jEI
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5PZa-00000003fR8-44s3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:51:07 +0000
+	Wed, 25 Mar 2026 14:51:08 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1w5PZS-00050C-Or; Wed, 25 Mar 2026 15:50:58 +0100
+	id 1w5PZU-00050C-R0; Wed, 25 Mar 2026 15:51:00 +0100
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 25 Mar 2026 15:50:32 +0100
-Subject: [PATCH v4 01/27] media: dt-bindings: media: rockchip-rga: add
- rockchip,rk3588-rga3
+Date: Wed, 25 Mar 2026 15:50:46 +0100
+Subject: [PATCH v4 15/27] media: rockchip: rga: prepare cmdbuf on streamon
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260325-spu-rga3-v4-1-e90ec1c61354@pengutronix.de>
+Message-Id: <20260325-spu-rga3-v4-15-e90ec1c61354@pengutronix.de>
 References: <20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de>
 In-Reply-To: <20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -66,15 +50,16 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
 X-Mailer: b4 0.15.0
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_145105_328919_C23E292C 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260325_075107_065496_E54CCB20 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +74,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
-peripheral found on the RK3588 SoC. Also specify an iommu property,
-as the RGA3 contains the generic rockchip iommu. While other versions
-also have an iommu, it's usually specific to them.
+Prepare the command buffer on streamon to reuse it's contents instead of
+completely writing it for every frame. Due to the stream settings being
+fixed after a streamon we only need to replace the source and destination
+addresses for each frame. This reduces the amount of CPU and memory
+operations done in each frame.
 
-The RK3588 contains one RGA2-Enhance core (also contained on the RK3399)
-and two RGA3 cores. Both feature a similar functionality of scaling,
-cropping and rotating of up to two input images into one output image.
-Key differences of the RGA3 are:
-
-- supports 10bit YUV output formats
-- supports 8x8 tiles and FBCD as inputs and outputs
-- supports BT2020 color space conversion
-- max output resolution of (8192-64)x(8192-64)
-- MMU can map up to 32G DDR RAM
-- fully planar formats (3 planes) are not supported
-- max scale up/down factor of 8 (RGA2 allows up to 16)
-
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-
 ---
+ drivers/media/platform/rockchip/rga/rga-hw.c | 13 +++++++++----
+ drivers/media/platform/rockchip/rga/rga.c    | 13 ++++++++++++-
+ drivers/media/platform/rockchip/rga/rga.h    |  1 +
+ 3 files changed, 22 insertions(+), 5 deletions(-)
 
-Changed in v3/v4:
-- Dropped Acked-by: Krzysztof Kozlowski due to the added iommus property
-  and description adjustments.
----
- Documentation/devicetree/bindings/media/rockchip-rga.yaml | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-index ac17cda65191b..7bd92f7336664 100644
---- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-+++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-@@ -9,7 +9,11 @@ title: Rockchip 2D raster graphic acceleration controller (RGA)
- description:
-   RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
-   graphics operations, such as point/line drawing, image scaling, rotation,
--  BitBLT, alpha blending and image blur/sharpness.
-+  BitBLT, alpha blending and image blur/sharpness. There exist many versions
-+  of this unit that differ in the supported inputs/output formats,
-+  the attached IOMMU and the supported operations on the input. As some SoCs
-+  include multiple RGA units with different versions, a more specific
-+  compatible name to differentiate the concrete unit is used for them.
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 16380be598e4a..dcd540ed3fd5b 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -417,8 +417,6 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+ {
+ 	struct rockchip_rga *rga = ctx->rga;
  
- maintainers:
-   - Jacob Chen <jacob-chen@iotwrt.com>
-@@ -20,6 +24,7 @@ properties:
-     oneOf:
-       - const: rockchip,rk3288-rga
-       - const: rockchip,rk3399-rga
-+      - const: rockchip,rk3588-rga3
-       - items:
-           - enum:
-               - rockchip,rk3228-rga
-@@ -45,6 +50,9 @@ properties:
-   power-domains:
-     maxItems: 1
+-	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
+-
+ 	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
+ 	/*
+ 	 * Due to hardware bug,
+@@ -427,11 +425,9 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+ 	rga_cmd_set_src1_addr(ctx, dst->dma_desc_pa);
  
-+  iommus:
-+    maxItems: 1
+ 	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
+-	rga_cmd_set_mode(ctx);
+ 
+ 	rga_cmd_set_src_info(ctx, &src->offset);
+ 	rga_cmd_set_dst_info(ctx, &dst->offset);
+-	rga_cmd_set_trans_info(ctx);
+ 
+ 	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
+ 
+@@ -440,6 +436,14 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+ 				   PAGE_SIZE, DMA_BIDIRECTIONAL);
+ }
+ 
++static void rga_hw_setup_cmdbuf(struct rga_ctx *ctx)
++{
++	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
 +
-   resets:
-     maxItems: 3
++	rga_cmd_set_mode(ctx);
++	rga_cmd_set_trans_info(ctx);
++}
++
+ static void rga_hw_start(struct rockchip_rga *rga,
+ 			 struct rga_vb_buffer *src,  struct rga_vb_buffer *dst)
+ {
+@@ -582,6 +586,7 @@ const struct rga_hw rga2_hw = {
+ 	.max_height = MAX_HEIGHT,
+ 	.stride_alignment = 4,
  
++	.setup_cmdbuf = rga_hw_setup_cmdbuf,
+ 	.start = rga_hw_start,
+ 	.handle_irq = rga_handle_irq,
+ 	.get_version = rga_get_version,
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index 16a663aeef8c9..d111b348255e2 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -568,6 +568,17 @@ static int vidioc_s_selection(struct file *file, void *priv,
+ 	return ret;
+ }
+ 
++static int vidioc_streamon(struct file *file, void *priv,
++			   enum v4l2_buf_type type)
++{
++	struct rga_ctx *ctx = file_to_rga_ctx(file);
++	const struct rga_hw *hw = ctx->rga->hw;
++
++	hw->setup_cmdbuf(ctx);
++
++	return v4l2_m2m_streamon(file, ctx->fh.m2m_ctx, type);
++}
++
+ static const struct v4l2_ioctl_ops rga_ioctl_ops = {
+ 	.vidioc_querycap = vidioc_querycap,
+ 
+@@ -592,7 +603,7 @@ static const struct v4l2_ioctl_ops rga_ioctl_ops = {
+ 	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
+ 	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
+ 
+-	.vidioc_streamon = v4l2_m2m_ioctl_streamon,
++	.vidioc_streamon = vidioc_streamon,
+ 	.vidioc_streamoff = v4l2_m2m_ioctl_streamoff,
+ 
+ 	.vidioc_g_selection = vidioc_g_selection,
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 38518146910a6..c741213710b32 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -152,6 +152,7 @@ struct rga_hw {
+ 	u32 max_width, max_height;
+ 	u8 stride_alignment;
+ 
++	void (*setup_cmdbuf)(struct rga_ctx *ctx);
+ 	void (*start)(struct rockchip_rga *rga,
+ 		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
+ 	bool (*handle_irq)(struct rockchip_rga *rga);
 
 -- 
 2.53.0
