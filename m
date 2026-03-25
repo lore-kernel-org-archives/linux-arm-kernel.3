@@ -4,79 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D553EFEA831
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDF5FEA82F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AXJ1qacwj7Yp46QVdr5q3R/G6cm/tjVaNaLjUk4ZdYo=; b=ZR1O099fvsEajBtdKVvJYWYPxu
-	eEXWhn/Cm+rKC678sCNKaDsv5LAKtjMBf7v0iOJNRvIIbVKdD8sDg8VFMXPwLH9YYjzgYLM/P53OS
-	nuSRLgYlp+Da3GNqRyrigCTLBhp+uDRzzeexX8AexGVZoeYHyv0wisntJ6tmZcw5fIGG+nEvLoEh7
-	MpRApqrCir+Q4ROvmSG4sesVdQeq2i+UkjhKz1bVAxyqQX+ASi9XpN/rYQWTiO3MZsrDmQkmAyrtI
-	4/L5hYM6FFV7FTh5J8HgIuuVD8DOZa0ASj18w0ixKnoWexTaUPeMMYbpQQMKpxdYHHf42zIiBT/GB
-	ZLvDK3YA==;
+	bh=zpjWcyUf2/G6TFmT98gWkQiUln52l40SGM75oMnVAvA=; b=fWcquj3u1u6P3Sa28xcks5IX74
+	Md4eaWiBz2aK4lyiXUNO1gGzL6OxixokL4g2CK8ZN/BDzt8EaHcNtwOafKKFG+baXBRYPjSHgBVim
+	WmZ5CUhnCp1IEmYjKLg2GFHJ+gTMazjF+3vwkdO8HsdiLVpomqUKiVwl3mMFbmsAwew6xpDwFFRFc
+	OgRLDcgKSXpUex4QGtOyaGO0QX+cKR/D1aNMtHCAg8IAGIpj9ezgjxXeQa3Xj9IQCXW7mH10ynX+V
+	JFPmWTiui73v3J/4HodiFLYEtXCr9LbvPoT/PwVD+raSh6KFvJtOnRrRGLL2I8YS+zA+yQin+/fsv
+	7bS3ZLxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JEg-00000002uD1-2zvw;
-	Wed, 25 Mar 2026 08:05:06 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w5JGJ-00000002uT2-061y;
+	Wed, 25 Mar 2026 08:06:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JEd-00000002uBl-3w4Q;
-	Wed, 25 Mar 2026 08:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774425899;
-	bh=JfkhMwj5pX3vzkYeKIXrU9wJqRr8s1NLWxQWQGgaA3Q=;
+	id 1w5JGF-00000002uSf-3zgf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 08:06:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FDC941806;
+	Wed, 25 Mar 2026 08:06:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 873C2C4CEF7;
+	Wed, 25 Mar 2026 08:06:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774426003;
+	bh=L9Lcvg67aB3qX5H8IvbWdCsstgXK9TNJtpNl2A00B6I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dicqqR9komLroysF/R/Cg1U6o5kKFlIGa08ve6xEUpswfU5mDNivsoIierLmjWdUC
-	 LoaqQ8AFzE337FNZHwRul2gDUsuEyP7RA/14aAu46Dh9qEG+JaTQZxVd16DS9pSy+O
-	 kWAJfSD5iyB9admQAOYSvz3FqRb9qjBCczYH+JWdPHRwhDhj9F0CXu3P4ZSs/vmuri
-	 5jP4ST8Z74hMyhx7DAYCPe+IrJnj/rHirp++AU3QIZXkeHp0WOxDFgJDZCNXPUUfTH
-	 XTDKew95WoDuIF4PdHP1mmnaCDIRmksi82NqRTxPCYHmgX8XpVoSQ1AtjCMh8TzDxi
-	 dsR1zJ/hf1HpA==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE57A17E3E69;
-	Wed, 25 Mar 2026 09:04:58 +0100 (CET)
-Message-ID: <d97b05cb-396b-4189-8b96-88eab6f85f24@collabora.com>
-Date: Wed, 25 Mar 2026 09:04:57 +0100
+	b=t2LUb3MDhCki+0CFMqDSvfNy0OV8fysODkPWs3LbZF7DQZOOu5U4yHqbt3ocnPJvN
+	 OZ9TjV1x63rnde6LIL86TyTkD1v9+6LAiNGvRzMG7/a8tVyeYxVFsuZuofOz6h+EAe
+	 8ua9/3z2XG+J/Ug0jMhzPKvji/tq3TwM4BjgCDUrShdU4A/f/bX56eqOpnAOUZ7b6i
+	 q+9iyBJ/1vt7U/kDTZLZlWjxbTG+q3+Ctsd8RH4G++XM3TdCqPJoH0XPDIwgz1dlyJ
+	 QdG4xs9zUyk2RU44hslNYaxdnXhhsOfP3b24Kq9TWtafhnF9Un9uj7dfxXlBwrmxAl
+	 U/zaV32Eqy7eA==
+Message-ID: <83024a54-74dd-43b0-8c8c-0c23820bb5e0@kernel.org>
+Date: Wed, 25 Mar 2026 09:06:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/9] media: rockchip: rkcif: add support for rk3588
- vicap mipi capture
-To: Mehdi Djait <mehdi.djait@linux.intel.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Jagan Teki <jagan@amarulasolutions.com>,
- =?UTF-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?=
- <mai.kuznetsov.misha@gmail.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250430-rk3588-vicap-v2-0-77de5ee9048e@collabora.com>
- <20250430-rk3588-vicap-v2-3-77de5ee9048e@collabora.com>
- <ablRBViDR996euua@mdjait-mobl>
- <e894fe10-3780-465a-984d-01f5e8f4c97e@collabora.com>
- <ablWdjlrPLGhDJi4@mdjait-mobl>
+Subject: Re: [PATCH v2] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
+To: Chancel Liu <chancel.liu@nxp.com>
+Cc: "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
+ "broonie@kernel.org" <broonie@kernel.org>, "robh@kernel.org"
+ <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+ "shengjiu.wang@gmail.com" <shengjiu.wang@gmail.com>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260310063522.362545-1-chancel.liu@nxp.com>
+ <20260311-brave-acoustic-mongrel-b3978d@quoll>
+ <AM9PR04MB83531E00C21A5A2314A38F9AE349A@AM9PR04MB8353.eurprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <ablWdjlrPLGhDJi4@mdjait-mobl>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <AM9PR04MB83531E00C21A5A2314A38F9AE349A@AM9PR04MB8353.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_010504_166593_DB489FC0 
-X-CRM114-Status: GOOD (  22.02  )
+X-CRM114-CacheID: sfid-20260325_010644_037104_538E1D4C 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,69 +131,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mehdi,
+On 25/03/2026 08:54, Chancel Liu wrote:
+>>> The imx-card machine driver originally supported only codecs operating
+>>> in i2s or dsp_b formats. This machine driver can support CS42448 codec
+>>> and this codec typically uses dsp_a for its TDM interface. Therefore,
+>>
+>> And what about other formats, which was asked last time?
+>>
+> 
+> The imx-card machine driver currently implements support only for
+> codecs with i2s and dsp_b format. The newly added CS42448 codec
+> requires dsp_a and that is why this patch adds dsp_a only. No other
+> formats are used or supported by the existing hardware covered by this
 
-On 3/17/26 14:28, Mehdi Djait wrote:
-> Hi Michael,
-> 
-> On Tue, Mar 17, 2026 at 02:21:20PM +0100, Michael Riesch wrote:
->> Hi Mehdi,
->>
->> On 3/17/26 14:08, Mehdi Djait wrote:
->>> Hi Michael,
->>>
->>> Thank you for this nice patch!
->>>
->>> On Tue, Mar 17, 2026 at 10:32:21AM +0100, Michael Riesch via B4 Relay wrote:
->>>> From: Michael Riesch <michael.riesch@collabora.com>
->>>>
->>>> The RK3588 Video Capture (VICAP) unit features a Digital Video Port
->>>> (DVP) and six MIPI CSI-2 capture interfaces. Add initial support
->>>> for this variant to the rkcif driver and enable the MIPI CSI-2
->>>> capture interfaces.
->>>>
->>>> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
->>>
->>> [...]
->>>
->>>>  static inline unsigned int rkcif_mipi_get_reg(struct rkcif_interface *interface,
->>>>  					      unsigned int index)
->>>>  {
->>>> @@ -631,6 +765,8 @@ static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
->>>>  	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL1, ctrl1);
->>>>  	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, ctrl0);
->>>>  
->>>> +	rkcif_mipi_write(interface, RKCIF_MIPI_CTRL, RKCIF_MIPI_CTRL_CAP_EN);
->>>> +
->>>
->>> while this is the correct solution for rk3588, for the rk3568 vicap this
->>> will write 0x1 to the VICAP_MIPI_CTRL : 0x00A0 which will enable the water line.
->>
->> nice catch ;-) However, the TRM (at least my version) claims that this
->> bit has a reset value of 0x1, so the bit in question should be already
->> set in the first place. Thus I decided to *not* make variant specific
->> code paths.
-> 
-> Yes, the reset value is indeed 0x1
-> 
->>
->> Do you see problems in your setup?
->>
-> 
-> No problems, it works as expected, I was just confused to see the
-> mipi capture enable added with this rk3588 patch and not before.
-> 
-> I just find it a bit confusing but if a nicer solution is too much
-> hassle we can leave it like this.
-
-I agree that this is (while correct) not the nicest way. I am still
-bringing up the remaining features of the RK3588 VICAP (MUX + TOISP +
-SCALER) and it looks like I need to do some refactoring anyway to
-support them. When I do that, I shall rewrite this part. For the time
-being it would be great to have this merged in order to provide initial
-mainline support for this unit.
+First sentence says about driver, here you speak about hardware, so
+feels like you are mixing these.
 
 Best regards,
-Michael
-
+Krzysztof
 
