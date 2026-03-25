@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AC5109C055
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383A6109C055
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFmm1e2joJDzrblN9CkV4X7e2hjaTZalUHmbuneKN1s=; b=f3hCKHJfdDRFLTv46HKH9A2acw
-	RRVSO0GOggWTY5dIiP4VvsgrECKrXIkXJN4A3q5UJEMYIQRSTh3jpjxp5oEHUn9eOF3xONkhHlXRm
-	63Iuat7lhSc2BS1FRwF3s5GpP37ATXX9Se3Vquh2ybeZVOB2KXCb93X7+FSjsMMu2HIT7DT4/4BKT
-	FvWal98Xy/vjLtrSH3ijuo3nVgCDY1SYVWsZMgswV76/C71u1mknl3MmcN3dbPAPMf+Q/rzbQ8qCr
-	mGC3OxGbvvB8OPoXtYGTTCpe6+iOXflGdnx9ej3Cw0kAsah+lFSO3oPdu4MyUQO5YfF/WHUIT+ojj
-	kTh8kH5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wA3AaXCRzESvZkNtYLUwYzrrKD5GU9j1r4KSqN/38rE=; b=4J7FA7XQFBAxMc+ePm1qsNJTqg
+	SKZVlYLbfO8WDttIs8Lw+VhD11tg79I2XduA4BLMzlhZU6ChQ0nhJtLPou7bTiUj+i50TdMnkvuWb
+	k0soh71UzrHRg60bjyl8tkVhSK/2Di5CT1B/UwhYE+tzxR2HKzwoIfa5J5XNnUOZZMvB9bU13lhdO
+	VsipMRlcqdRgWn+EWwPbWsK62uLilzsS8+5A5kpYHcSNSnYkJ9jIRYtIvO6egIwykCUkdLe4bYsoV
+	BWJArvhMnOOI0neRHZso3742THv+wKLBHgUlsMUay/foEZ2dwnMDMPiB9t8doaAcsSS1IN9JfwbbN
+	3cZdZmKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5SqK-000000044EO-0U73;
-	Wed, 25 Mar 2026 18:20:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5SqH-000000044Dz-1rBg
+	id 1w5SrR-000000044MC-2NZ1;
+	Wed, 25 Mar 2026 18:21:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5SrP-000000044Lq-05jT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 18:20:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0CC51F02;
-	Wed, 25 Mar 2026 11:20:26 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 687383F836;
-	Wed, 25 Mar 2026 11:20:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774462832; bh=j2/es1QhPhuq51aj/X0brAWozFW8cVd/nUY1rJQCm28=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RnRqlju//v+l8+03/0wteCA6R1iCsC1AxpJi6NyA/fWzpmNollbBo80IOtBxUXBxZ
-	 G5EG2hgtu/qJ5SgLsJ9eud5ObOxoheQ95D/hyREnHIaEvJHzxuqvDMmezCC/dm26sj
-	 AWDLdr/3IUF3rzLY+0m1k9SAPvra5hVsUBx3KeD0=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	liuyonglong@huawei.com,
-	Jonathan.Cameron@huawei.com,
-	yezhenyu2@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	suzuki.poulose@arm.com
-Subject: [PATCH] arm64/kvm: Enable eager hugepage splitting if HDBSS is available
-Date: Wed, 25 Mar 2026 18:20:27 +0000
-Message-ID: <acQna2hLwdr1juTN@devkitleo>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <acQj5grOdZT8LUGp@devkitleo>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com> <20260225040421.2683931-5-zhengtian10@huawei.com> <acQj5grOdZT8LUGp@devkitleo>
+	Wed, 25 Mar 2026 18:21:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C04F42DF5;
+	Wed, 25 Mar 2026 18:21:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51AADC4CEF7;
+	Wed, 25 Mar 2026 18:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774462902;
+	bh=wA3AaXCRzESvZkNtYLUwYzrrKD5GU9j1r4KSqN/38rE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LGQjrj+gxcjEYMmX9E6vkFBMAwVAgdirn2pG9Tpp9ueqZE2BQR0ih3EeUv0nk4D9i
+	 vQ3v88QAfHk8MntHHWRtYrP28nytUUPm77gc6YczOBwb8ulfBNl149K/S+sGDqz1kV
+	 /vzJv77cg1U3Zv/gmu/h9mUyzS4Z1pcU7gesWjf/q+vF2PShtmiUgdHoUfYVbYV2W4
+	 fUiV+xDZMM/ZF2bXhhqISFSxPLDBlg4jjh2bS6s+FarmanNQL4ZmpfDm+opQzlMYNo
+	 UJkaox4ASPEdKnIGtzD9+LaGcNHk4KlzrLDQA7WNuSYlJvynZaSYfwPqVcvkYkYrSf
+	 Ok68c/kDGJL4A==
+Date: Wed, 25 Mar 2026 18:21:36 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>, Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: display: simple: Add JuTouch JT070TM041
+ panel
+Message-ID: <20260325-unretired-commode-4b5c46861c6d@spud>
+References: <20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-0-10255d236439@pengutronix.de>
+ <20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-1-10255d236439@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="03/Mmn5KrX/eOG5t"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-1-10255d236439@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_112033_545299_312B48F9 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20260325_112143_071750_E2CA8787 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_HDBSS speeds up guest memory dirty tracking by avoiding a page fault
-and saving the entry in a tracking structure.
 
-That may be a problem when we have guest memory backed by hugepages or
-transparent huge pages, as it's not possible to do on-demand hugepage
-splitting, relying only on eager hugepage splitting.
+--03/Mmn5KrX/eOG5t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-So, at stage2 initialization, enable eager hugepage splitting with
-chunk = PAGE_SIZE if the system supports HDBSS.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
----
- arch/arm64/kvm/mmu.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+--03/Mmn5KrX/eOG5t
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 070a01e53fcb..bdfa72b7c073 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -993,22 +993,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
- 
- 	mmu->last_vcpu_ran = alloc_percpu(typeof(*mmu->last_vcpu_ran));
- 	if (!mmu->last_vcpu_ran) {
- 		err = -ENOMEM;
- 		goto out_destroy_pgtable;
- 	}
- 
- 	for_each_possible_cpu(cpu)
- 		*per_cpu_ptr(mmu->last_vcpu_ran, cpu) = -1;
- 
--	 /* The eager page splitting is disabled by default */
--	mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-+	 /* The eager page splitting is disabled by default if system has no HDBSS */
-+	if (system_supports_hacdbs())
-+		mmu->split_page_chunk_size = PAGE_SIZE;
-+	else
-+		mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-+
- 	mmu->split_page_cache.gfp_zero = __GFP_ZERO;
- 
- 	mmu->pgd_phys = __pa(pgt->pgd);
- 
- 	if (kvm_is_nested_s2_mmu(kvm, mmu))
- 		kvm_init_nested_s2_mmu(mmu);
- 
- 	return 0;
- 
- out_destroy_pgtable:
--- 
-2.53.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacQnrwAKCRB4tDGHoIJi
+0qPFAP4+1nsTJGSVuIqhbQ4xCZAfYKJhlukkxY4zNFocmAHrXQD/VIBzCTZxMeS5
+CWnelrL2U25+YW2xEnElm2DC3h48PwU=
+=xuAa
+-----END PGP SIGNATURE-----
+
+--03/Mmn5KrX/eOG5t--
 
