@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE5BFEC11B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB24FEA83B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpYiYoXoDG6Ic4xDLF6eLk5LC3Stg63tlxDdSDp9P3A=; b=i4zlx8BAU0pWqQCb+PRR36bcnC
-	xzsszBTqaaHatfwSzUIT6CxSr0WFdcGWTv0uIPr5JPNPy1aTfU1KN6tIalBDzhu9IUWIkU2hV4+tw
-	goxNRRAJHb2h5Sgv3pSLLNRx4Edf0JtSedWaJIE+fVc2g1v6+uvVJ3Sh7H9qgndOWtsRElrlX3Qq7
-	ZjkdPjiDprsyGRYaF0eA2bDs/Ngf6D/yK8vIYCe3rOMjK2yYvAS+PURAUK/TG3DLW/G1D6k0iCIgq
-	c6NmPuusoqr3izRcLYly9dl5QIprSzVRUE1pgf9TuL/Ntys1o2u3OHm1xfblxRGbnsfCo0jPM1lth
-	nQNnEE4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VowsU1O7wvsqczMyYwJOpf4xbvaSsqz6CRDVGEe5gCQ=; b=A5IcNvv9Xj5Br0DKo0pzaUw+wW
+	ZCppXxGHyQnhr/iI0RizUbckGtcU5xZES1pUJzxysdFAPJjYlKRQG7v1C3f8aVGnF2+FSbRhpIg0Z
+	qRHCeU5dKKZ6KVbe9akchFq7J83XSiRV9DsDH5+4fq9d/3nbjVUqaR5aqEkvx1QIqZQSEtLRzI8x8
+	hFmy1L4wL3qV6Cz2HTKVF+KPkOkhy34EQ3TX94YGA+7InGmssmkr3KiX8ojWbhkkF2FXoBQYY+YJj
+	TZvIRGC6AEynpF3ZjBHvzpgNKPTluLqyH0Hgt4hIb1wSHC128VTWDX1QrubwF6vl9x+d2ZwYt6wwD
+	FA/dzWIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5L0a-000000035og-1p4l;
-	Wed, 25 Mar 2026 09:58:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5L3I-0000000363x-33dJ;
+	Wed, 25 Mar 2026 10:01:28 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5L0Y-000000035oD-1RM5;
-	Wed, 25 Mar 2026 09:58:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBC5943C1A;
-	Wed, 25 Mar 2026 09:58:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEFACC4CEF7;
-	Wed, 25 Mar 2026 09:58:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774432717;
-	bh=HuY/gXey+uWVLYsCI6CkmOeVgc5q6DFm7SVnZaIS/YM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=u+uY8j9DdWnf6aJO3ZHhf6pj8o6upnz4tgfFLuwATHjhN6SatZRmXJbkO3JFsl45s
-	 ADbQAVoZ2bfxIeImDpnwFdFCo0b8tn6HNyoZW5/j1NFRa+uXe019/Hzk1B5PNJSpge
-	 oitV6NhzQsBWdl1ZGdGjjAleBOpYArsdSSBmuxkg0gbhRkp5b/B8T8vJcIMEA4HjHA
-	 nsppJG3k+pdtmXbLxSqIZuQQW9qLID/Ou1ZIPnKK9/Xrsxbabxym2XTk8bjNKNnh79
-	 gW+HYIQy6QtFwqaoSQC+HIe2caOI1oDm6sqQ/VOpZmE6eK1dpqAouDkD3M6o3nEwh3
-	 regiPf+e17GQA==
-Message-ID: <9b205b06-e938-4f30-a16d-7d90f8c49818@kernel.org>
-Date: Wed, 25 Mar 2026 10:58:28 +0100
+	id 1w5L3E-0000000363Z-3mY1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 10:01:27 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-485317b6bd0so51345e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 03:01:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774432883; x=1775037683; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VowsU1O7wvsqczMyYwJOpf4xbvaSsqz6CRDVGEe5gCQ=;
+        b=jURSqsOy1tNCU0Uk97SWygByKYudzN02OOnacNMwsrH+HIK3QQNodeYZ5D0csOac+V
+         5J0u7RsOZvtHoYqhMl3u1VT4zu7sOIRBfBYYekMWRGE/lDPJViwTY12WyR6sCzr2ezYo
+         IUVAd25nJIw2yTkEuytCBoqlC3XMNfch+sOS4c0I5JWU9sMVli69nl4n05Lu0PDNe9lx
+         u0TldOqgfuU9oT7BHb72ZiBqPbZ5mLd6q5pdSxSNLAu/JXcnLLQA85jb2vauj4cJPvkv
+         ZpgHdS27XWTMNXMyxOuRB2IXKmNwh16n/2xUqZ7k6QuzKG/XDrS6mqIez7msJmkoWFn/
+         5Efg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774432883; x=1775037683;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VowsU1O7wvsqczMyYwJOpf4xbvaSsqz6CRDVGEe5gCQ=;
+        b=SiRsUnLgnZPWjH38dsVDnbsi1VVfqYjejusvzb03Qcd+G0IQbXzkuG94jdBOptLboo
+         kqsJvzSlEKM4vZcxatPQbNMJAUk9/2+cR6O4dLqUolkcecftMZ+SZYcgGUMSlAUY8lTt
+         zuB9KQim+kZiIl8qdeDF5dPni2A8abdahmKc+hEfu+qi5VEyxOq/UmxVeJJMM9mJ3UMJ
+         TM4GGzYZOR1icXh4RjGa312Ew+Bw+IcgKgXhdR1SXf8jcEVLxd6v5NKR2kndOtwBDVsC
+         hJPi7FT8/Tlm9WjYNH9Cx+9pwCgXfGBnCqFKJaNtFIIfxzQ2Buq7nTy8RJEFDfNDQNic
+         GVxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUcLRoipsxqRvDMpnW47EQgv89Y7/MEw3ZwEIX+4+tDzJp9eu5Q22mquPIEZuFP0CUxiqx63tnKqc1I27oppROZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs12RJKDcPUxzmTy+RtiQPebK5MFjfZ0KqT502y1wltZJsY0XM
+	DOMX7Wrq+W/wJUB28DZBCcX1TSo2xvSdIX4oACpL7FW5mOW+MIRQLDJ5WbHNIZ2vQQ==
+X-Gm-Gg: ATEYQzxhCLzzJSe7m0U23QTnqpfrbBW/lmkwxZds9lXruxnggfJp18IMdKSR0YCB/HR
+	plhozxwMJT4LgH3JMFF7o/Gub7OFT5md/1x185uNsqzz70XdsJmBJwsb5XfjnE0LgUivc6Ib2tl
+	wsssaKIfaFoycJm9qpof5vb859puxnYC8d8H8ge0hEACJ5VQn4FEaTJTyKnWQDf2EwMlwyvkq00
+	VFqLStpLmaZHoNF0zPDfjDyIJE/1cXOMifnH+t7oD/EQY0WU69DjuEepP4U2PWvbMIWhle7cdDj
+	OhT1RqumFRKgKjRNdPGAy+R6Qgd0igkyqan22r6YEUIiCecYPIpQGZBubp1EiA0zuvOCJ1huA8x
+	tNy9rVv+2qesgobWXwkdBtfseoPLwOpu9PSW0Ojd3644RUd2BkbUpjobPVDswAUCzCHNYD1Npx+
+	yIPV8K///HDn/uEmjCOH5zaIYX+W9dI6Z4eRkaiMcI+YYMVyqWuMYlmoRFSQJftlpv0Tk=
+X-Received: by 2002:a05:600c:41c3:b0:480:4a7b:228 with SMTP id 5b1f17b1804b1-4871781da4cmr373535e9.1.1774432882386;
+        Wed, 25 Mar 2026 03:01:22 -0700 (PDT)
+Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48711702191sm115863335e9.5.2026.03.25.03.01.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 03:01:21 -0700 (PDT)
+Date: Wed, 25 Mar 2026 10:01:15 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com,
+	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com,
+	vdonnefort@google.com, will@kernel.org, yuzenghui@huawei.com
+Subject: Re: [PATCH] KVM: arm64: Inject UNDEF when host is executing an smc
+ with imm16 != 0
+Message-ID: <acOya6ZtAAbyOUfj@google.com>
+References: <20260324135728.3532400-1-sebastianene@google.com>
+ <CA+EHjTycaE363WXD1f9ztYv9cTe9xeo-3FQ2Ep0aVO4592XGtQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/21] mm: add mmap_action_simple_ioremap()
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Bodo Stroesser <bostroesser@gmail.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
- <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- Ryan Roberts <ryan.roberts@arm.com>
-References: <cover.1774045440.git.ljs@kernel.org>
- <a08ef1c4542202684da63bb37f459d5dbbeddd91.1774045440.git.ljs@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <a08ef1c4542202684da63bb37f459d5dbbeddd91.1774045440.git.ljs@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTycaE363WXD1f9ztYv9cTe9xeo-3FQ2Ep0aVO4592XGtQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_025838_430190_91521033 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260325_030126_253303_12F3576D 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
-> Currently drivers use vm_iomap_memory() as a simple helper function for
-> I/O remapping memory over a range starting at a specified physical address
-> over a specified length.
-> 
-> In order to utilise this from mmap_prepare, separate out the core logic
-> into __simple_ioremap_prep(), update vm_iomap_memory() to use it, and add
-> simple_ioremap_prepare() to do the same with a VMA descriptor object.
-> 
-> We also add MMAP_SIMPLE_IO_REMAP and relevant fields to the struct
-> mmap_action type to permit this operation also.
-> 
-> We use mmap_action_ioremap() to set up the actual I/O remap operation once
-> we have checked and figured out the parameters, which makes
-> simple_ioremap_prepare() easy to implement.
-> 
-> We then add mmap_action_simple_ioremap() to allow drivers to make use of
-> this mode.
-> 
-> We update the mmap_prepare documentation to describe this mode.  Finally,
-> we update the VMA tests to reflect this change.
-> 
-> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+On Tue, Mar 24, 2026 at 03:13:51PM +0000, Fuad Tabba wrote:
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+Hi Fuad,
 
+> Hi Seb,
+> 
+> On Tue, 24 Mar 2026 at 13:57, Sebastian Ene <sebastianene@google.com> wrote:
+> >
+> > The ARM Service Calling Convention (SMCCC) specifies that the function
+> > identifier and parameters should be passed in registers, leaving the
+> > 16-bit immediate field of the SMC instruction un-handled.
+> > Currently, our pKVM handler ignores the immediate value, which could lead
+> > to non-compliant software relying on implementation-defined behavior.
+> > Enforce the host kernel running under pKVM to use an immediate value
+> > of 0 by decoding the ISS from the ESR_EL2 and inject an undefined
+> > instruction exception back to the caller.
+> >
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 7 ++++++-
+> >  1 file changed, 6 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index e7790097db93..ff6a90a4a4c7 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -756,13 +756,18 @@ static bool handle_host_mte(u64 esr)
+> >  void handle_trap(struct kvm_cpu_context *host_ctxt)
+> >  {
+> >         u64 esr = read_sysreg_el2(SYS_ESR);
+> > +       u16 imm16;
+> >
+> >         switch (ESR_ELx_EC(esr)) {
+> >         case ESR_ELx_EC_HVC64:
+> >                 handle_host_hcall(host_ctxt);
+> >                 break;
+> >         case ESR_ELx_EC_SMC64:
+> > -               handle_host_smc(host_ctxt);
+> > +               imm16 = esr & U16_MAX;
+> > +               if (!imm16)
+> 
+> Do we need to introduce a new variable for this? This isn't easier to read than:
+> +               if (!(esr & U16_MAX))
+> 
+> Also, we have a mask for this: ESR_ELx_xVC_IMM_MASK , please use that instead
+
+
+I will drop that variable and use the ESR_ELx_xVC_IMM_MASK as you pointed out.
+
+> 
+> Cheers,
+> /fuad
+> 
+> 
+> 
+> > +                       handle_host_smc(host_ctxt);
+> > +               else
+> > +                       inject_undef64();
+> >                 break;
+> >         case ESR_ELx_EC_IABT_LOW:
+> >         case ESR_ELx_EC_DABT_LOW:
+> > --
+> > 2.53.0.983.g0bb29b3bc5-goog
+> >
+
+Thanks,
+Sebastian
 
