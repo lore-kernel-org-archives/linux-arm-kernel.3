@@ -4,119 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDF5FEA82F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8027BFEA82F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zpjWcyUf2/G6TFmT98gWkQiUln52l40SGM75oMnVAvA=; b=fWcquj3u1u6P3Sa28xcks5IX74
-	Md4eaWiBz2aK4lyiXUNO1gGzL6OxixokL4g2CK8ZN/BDzt8EaHcNtwOafKKFG+baXBRYPjSHgBVim
-	WmZ5CUhnCp1IEmYjKLg2GFHJ+gTMazjF+3vwkdO8HsdiLVpomqUKiVwl3mMFbmsAwew6xpDwFFRFc
-	OgRLDcgKSXpUex4QGtOyaGO0QX+cKR/D1aNMtHCAg8IAGIpj9ezgjxXeQa3Xj9IQCXW7mH10ynX+V
-	JFPmWTiui73v3J/4HodiFLYEtXCr9LbvPoT/PwVD+raSh6KFvJtOnRrRGLL2I8YS+zA+yQin+/fsv
-	7bS3ZLxQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aGtfZugx6qGzB9L9OH7bygfJL7iwyyf8p4sO411xjfg=; b=JxQUBQjaPWdFkJ0oguVkEA+j7Y
+	gxMJ7XP0OhR8FpihEaD0v4iFTlILgHDs1RINtE0hdb26OlRP+rXblGObE7iRriqO0+zDmXkV15a7M
+	ly6hMJUMHAyvx9tgHwT2OVZ//BYzHp++R7iJ2Nw+MCI5gnrnnrfxyNwp7BClRZ5EhV4xOKUslucJk
+	Ktdq0Dddaa86c2LHRKkzRIOntWxO1Lb9WnPqHGyuieFwaS6xhtWZuc4n9SsxcbRmZGRhjiPvgod5q
+	6le2l4sG07YkOzSxgCGEBwxIL7zYGItHzePJhprk0JBcksQ0b60qJlk6MulCJHQDRDZhQwr9Prft/
+	sgmK8G9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JGJ-00000002uT2-061y;
-	Wed, 25 Mar 2026 08:06:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5JIG-00000002udZ-324B;
+	Wed, 25 Mar 2026 08:08:48 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JGF-00000002uSf-3zgf
+	id 1w5JID-00000002ucS-0ua1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 08:06:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2FDC941806;
-	Wed, 25 Mar 2026 08:06:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 873C2C4CEF7;
-	Wed, 25 Mar 2026 08:06:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774426003;
-	bh=L9Lcvg67aB3qX5H8IvbWdCsstgXK9TNJtpNl2A00B6I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t2LUb3MDhCki+0CFMqDSvfNy0OV8fysODkPWs3LbZF7DQZOOu5U4yHqbt3ocnPJvN
-	 OZ9TjV1x63rnde6LIL86TyTkD1v9+6LAiNGvRzMG7/a8tVyeYxVFsuZuofOz6h+EAe
-	 8ua9/3z2XG+J/Ug0jMhzPKvji/tq3TwM4BjgCDUrShdU4A/f/bX56eqOpnAOUZ7b6i
-	 q+9iyBJ/1vt7U/kDTZLZlWjxbTG+q3+Ctsd8RH4G++XM3TdCqPJoH0XPDIwgz1dlyJ
-	 QdG4xs9zUyk2RU44hslNYaxdnXhhsOfP3b24Kq9TWtafhnF9Un9uj7dfxXlBwrmxAl
-	 U/zaV32Eqy7eA==
-Message-ID: <83024a54-74dd-43b0-8c8c-0c23820bb5e0@kernel.org>
-Date: Wed, 25 Mar 2026 09:06:37 +0100
+	Wed, 25 Mar 2026 08:08:46 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43b7481f9d3so1973972f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 01:08:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774426122; x=1775030922; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aGtfZugx6qGzB9L9OH7bygfJL7iwyyf8p4sO411xjfg=;
+        b=uz9kmDSz4RQlrUKPwy0ZG+mI1Kd6fOk8L593o6MGKdpfKfIUmvbedRqfyUVGGWf6CC
+         CdJNeIqvN6VmVPKiV1XrifOYc9DIhYqSs2Lv2ZbefaTVehKfZuY94AFfpD9IkYNlvJbt
+         I1sgxgDnqcNVVU7LWQ5QJev0xuMkuhczrk3wEEQWERUdSiB0f/tcTbp858WqT5pfI5wV
+         DPw4NAPfm4TVc0n5rgG8JPzYnsoJWY8gseL2sieFYoG3hPfZT+k7ZTiQsCQEoFvUbkS3
+         5iGv+fXKKesE0ct2H+fUeEDjoo8DqATBYLy2MJK77CHdkaOrtjJl2DqzFaigs7mytJll
+         k+0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774426122; x=1775030922;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aGtfZugx6qGzB9L9OH7bygfJL7iwyyf8p4sO411xjfg=;
+        b=DrYh1jyhELCg3rMbozbyllecpExCp7r/W+jQJ0fmuenWMjnlxviG1bpYZcVBDfpHzW
+         oIzQ0LSzciibZR1j9ZdAlL0DfEpoqHMQpRSMVkACuMAh4OtZgO2FK0N9UKh+lkfQRp28
+         ParvROBCz/0Q7dWWi+30jK54JBrvcjq37XOiXhrjr8Y9QfNtQoEBOS9sjEs/zM3XA8bX
+         8xjE4Eq/JbhKVWlfpmpm9KPjRL6AUuQGUbUCO2oLPDjb9msWcTZIw9geoIGmLAeYeKBk
+         tpattBRK0WcnG3ovc/hBshNaQQ4+njvTe7zF9BOxxzNsHSnx8WRfwpNyfDzv91TvBSJZ
+         0RhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWK7L42CrXMyUiWaofxWYjLisJZ5DbnZ9yRO11iEB+uPDm6ry4xR92QfKOZsAbFKry+H7yUDOySgm3fzz3F7JI4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMyYy1AT/+m1uBITwF3I4/qyycH4dSVHHk1QE3ELOqgl2mvDLZ
+	UY9LoTE/VUCKwUbRl1iSJRsqcI5SfwtgWpO1oqlpyBNs1M/Z1pN9lZZZqwXRrudbzIo=
+X-Gm-Gg: ATEYQzwv6UX796kZG1SImUJuPc3Ui90+pFSBfMAGw5siyioWhlLLZfK8AE1UpxQGWoM
+	LL+iSVQHJexDhu5odxjJjp7XbtuM+Q0J0p0Hu3tUTL2SYpngaHG/VkEXElGSk0ONlpf/fSSI2CS
+	zsT305lHcK+TbQXBxf/C4WXYfqEz1LrmbZbL5gK0D+eW/HpEfTJtDLeAhZKvFg39SVaRAQQiHYJ
+	hKLgJt7JOfb/WS36wFm/ijG/Jpila2XQ7mvWlmbGzFWSHsXcLF8MAdaJrZvJXCF+9+Y5NJk6W5Z
+	1KDVWm+IBuHnbw6JDGA6PIcnvAaLw275iY+Ubn5+444DJZiwvV2v9QuTKeP2Zjpzshu/+Ao8Q4z
+	TwGSAujpBFnXJAulrli72OiyKZjocI6KITRy2Zcablc0VfYDnn+hLwYzQJ3o524MR6GYq8MdAem
+	VUPIhYAI2n6QXRxJDTvGsMH0OC1AKCENn4pKMETIdo2aVXAXBjHqP2sTyV2GYjOWOmWEW1RnVar
+	SmR9W0=
+X-Received: by 2002:a05:6000:3112:b0:439:c1ca:82be with SMTP id ffacd0b85a97d-43b88a2171emr3257849f8f.28.1774426122254;
+        Wed, 25 Mar 2026 01:08:42 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:c160:8cc2:c60a:b843? ([2a01:e0a:106d:1080:c160:8cc2:c60a:b843])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b6cdfdfa9sm36075748f8f.9.2026.03.25.01.08.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Mar 2026 01:08:40 -0700 (PDT)
+Message-ID: <15674376-21c4-4403-8e0f-bcb80985743b@linaro.org>
+Date: Wed, 25 Mar 2026 09:08:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "broonie@kernel.org" <broonie@kernel.org>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
- "shengjiu.wang@gmail.com" <shengjiu.wang@gmail.com>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260310063522.362545-1-chancel.liu@nxp.com>
- <20260311-brave-acoustic-mongrel-b3978d@quoll>
- <AM9PR04MB83531E00C21A5A2314A38F9AE349A@AM9PR04MB8353.eurprd04.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <AM9PR04MB83531E00C21A5A2314A38F9AE349A@AM9PR04MB8353.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v5 2/5] drm/meson: use default case for unsupported DSI
+ pixel formats
+To: Alexander Koskovich <akoskovich@pm.me>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Jeffrey Hugo <jeffrey.l.hugo@gmail.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260324-dsi-rgb101010-support-v5-0-ff6afc904115@pm.me>
+ <20260324-dsi-rgb101010-support-v5-2-ff6afc904115@pm.me>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260324-dsi-rgb101010-support-v5-2-ff6afc904115@pm.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_010644_037104_538E1D4C 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_010845_276440_C63E099E 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,25 +137,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/03/2026 08:54, Chancel Liu wrote:
->>> The imx-card machine driver originally supported only codecs operating
->>> in i2s or dsp_b formats. This machine driver can support CS42448 codec
->>> and this codec typically uses dsp_a for its TDM interface. Therefore,
->>
->> And what about other formats, which was asked last time?
->>
+On 3/24/26 12:48, Alexander Koskovich wrote:
+> Use default instead of listing unsupported formats explicitly, so the
+> switch statements don't need updating each time a new pixel format is
+> added.
 > 
-> The imx-card machine driver currently implements support only for
-> codecs with i2s and dsp_b format. The newly added CS42448 codec
-> requires dsp_a and that is why this patch adds dsp_a only. No other
-> formats are used or supported by the existing hardware covered by this
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
+> ---
+>   drivers/gpu/drm/meson/meson_dw_mipi_dsi.c | 6 ++----
+>   1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+> index 66c73c512b0e..4412bd678108 100644
+> --- a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+> +++ b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
+> @@ -119,8 +119,7 @@ static int dw_mipi_dsi_phy_init(void *priv_data)
+>   		dpi_data_format = DPI_COLOR_18BIT_CFG_2;
+>   		venc_data_width = VENC_IN_COLOR_18B;
+>   		break;
+> -	case MIPI_DSI_FMT_RGB666_PACKED:
+> -	case MIPI_DSI_FMT_RGB565:
+> +	default:
+>   		return -EINVAL;
+>   	}
+>   
+> @@ -232,8 +231,7 @@ static int meson_dw_mipi_dsi_host_attach(void *priv_data,
+>   		break;
+>   	case MIPI_DSI_FMT_RGB666:
+>   		break;
+> -	case MIPI_DSI_FMT_RGB666_PACKED:
+> -	case MIPI_DSI_FMT_RGB565:
+> +	default:
+>   		dev_err(mipi_dsi->dev, "invalid pixel format %d\n", device->format);
+>   		return -EINVAL;
+>   	}
+> 
 
-First sentence says about driver, here you speak about hardware, so
-feels like you are mixing these.
+Feel free to merge it in msm-next or other drm branch:
+Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Best regards,
-Krzysztof
+Thanks,
+Neil
 
