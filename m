@@ -4,76 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7CCFEA83B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6551CFEA83B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgOX2Ueq2+jdgqSbhNggaZUcUNC7RJqS127l3Eab4gA=; b=VaRTnDRflBj0voviZAmWSNASJ0
-	vnFO2RcdBWYHVyk0TzXZF82IsSTRoFJrWd4brlW+rpWbH9V1oLie3nuL2m9GTyXrGhToz08u7Qu9R
-	tbI9dMVLEwEN0ALLPliUvMtkgvdBdv/q+qnQezc2hn2ps7VhUO8ekJzYnY500tKZCQ0sY8+58EGmz
-	4+BY7tKlIW4onyBJWGoyxdBxG5u0IAlTSDgXfgkoVPR2gjNKGxO4PiCGVdSv09mzXep5DVlqStfU3
-	quD6XX+0eQl4ahUgxreU70+ltuPyul10nz3ph0oJ7nVXYUiJhq4LIHMkLe0dy+qbIi7xpDiLE7HGC
-	pWKiFyKQ==;
+	bh=M3Oaf+lsL/xagpYhIMI77+rJU8pe63gBP7xVhdSABk4=; b=Zw6eddLTKnE/ncl0bqanhhAhRK
+	TfAU18iGDygbQ0r3AUrZWSgkQN/FSL/6ZZIFDZQVlxeqp3YO5RI99JqKW29tVP4QT7k/VCnLWVSp+
+	sNB0xCQc/Dj0rDnic9xmG7vM0yokw6j9VliNDPLYsMoPhqmy80O0llTZm3V3Wk+iAx1xaewGDoRGj
+	jO8b/UMNVaRu4tyjDTdCdBXDw1T+tgzS1bC2areFhCU+DCD4hn/4jhahvqD2npOghnnL31/XFlr9P
+	Oryk+Zqc10soF/jt2NZ8/fYg51rWtk5p8pq5E1VHA6TE1Iv7YOo8V03kJiQDJsbbTuwtMfw+Si/OW
+	sBmh5BRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LGf-0000000377V-2DWM;
-	Wed, 25 Mar 2026 10:15:17 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1w5LJV-000000037W0-0Wag;
+	Wed, 25 Mar 2026 10:18:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LGc-00000003758-2u05
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 10:15:16 +0000
-Message-ID: <c92395a7-5b56-415b-afe7-186b69c0a5e1@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774433710;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dgOX2Ueq2+jdgqSbhNggaZUcUNC7RJqS127l3Eab4gA=;
-	b=QlgkJmdickflLaFfKx3wSePqh64y2bLOlWkY6yFHeG8ZzVP31aJMeNc572xoQFRhCGYDKF
-	kwAq4R0G2EDBUA3MAQqZ2ce31T5qMqLJnZCpUvzJiLWZ5kzSQ61646XIuifUaY21CNr3pn
-	StPmY8yn1+F9gGonqj1MgaiJPkAj+h8=
-Date: Wed, 25 Mar 2026 18:14:52 +0800
+	id 1w5LIr-000000037NR-0YjV;
+	Wed, 25 Mar 2026 10:18:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C4352443B7;
+	Wed, 25 Mar 2026 10:17:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42BACC4CEF7;
+	Wed, 25 Mar 2026 10:17:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774433851;
+	bh=nA0qfgO+czMrdsJFZWiTSPRkj/MhdlMkek+0+cH4SK4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FsbzuEFDSLYe92S3XWu8yA78sOY17+zhlf5fynvhqSJTYFYJw6q0esNFUoK8ipb2a
+	 u7R0mqK8LQby4NecGDUI2pWioR+y7am2SLggsBspBeZ15yYpkkr0SBGpm886/RhHiN
+	 rad5UyakBWpkFvgRnnO3d8ty5mH43/XtNctbuFlXr+pC2FE4a3ufJUm13vdWVqj8co
+	 4Skreuix3aAhO5na1RQSvBFefxTvYLO7FZ0K5/iflLUiCqXO4VIdN7LbTK0OrRu670
+	 3FJ2hxkm9GwTrZwAenqnMthnSBKw3cgrQZw56I9+c3uoT2QVqVKcJOz1Sp0xitGyIg
+	 3yAvaJsltHt+A==
+Message-ID: <b009c82e-42c7-4808-972f-91c325432d82@kernel.org>
+Date: Wed, 25 Mar 2026 11:17:21 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v10 5/5] bpf, arm64: Emit BTI for indirect jump
- target
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 13/21] hpet: replace deprecated mmap hook with
+ mmap_prepare
 Content-Language: en-US
-To: Xu Kuohai <xukuohai@huaweicloud.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman
- <eddyz87@gmail.com>, Yonghong Song <yonghong.song@linux.dev>,
- Puranjay Mohan <puranjay@kernel.org>,
- Anton Protopopov <a.s.protopopov@gmail.com>,
- =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Shahab Vahedi <list+bpf@vahedi.org>, Russell King <linux@armlinux.org.uk>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Hengqi Chen <hengqi.chen@gmail.com>,
- Johan Almbladh <johan.almbladh@anyfinetworks.com>,
- Paul Burton <paulburton@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>,
- Christophe Leroy <chleroy@kernel.org>, Naveen N Rao <naveen@kernel.org>,
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Pu Lehui <pulehui@huawei.com>, Ilya Leoshkevich <iii@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- "David S . Miller" <davem@davemloft.net>, Wang YanQing <udknight@gmail.com>
-References: <20260324122052.342751-1-xukuohai@huaweicloud.com>
- <20260324122052.342751-6-xukuohai@huaweicloud.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <20260324122052.342751-6-xukuohai@huaweicloud.com>
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <094c5fcfb2459a4f6d791b1fb852b01e252a44d4.1774045440.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <094c5fcfb2459a4f6d791b1fb852b01e252a44d4.1774045440.git.ljs@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_031514_885398_F85EC51C 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_031733_217201_CD9931D9 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +101,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/3/26 20:20, Xu Kuohai wrote:
-> From: Xu Kuohai <xukuohai@huawei.com>
+On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> The f_op->mmap interface is deprecated, so update driver to use its
+> successor, mmap_prepare.
 > 
-> On CPUs that support BTI, the indirect jump selftest triggers a kernel
-> panic because there is no BTI instructions at the indirect jump targets.
+> The driver previously used vm_iomap_memory(), so this change replaces it
+> with its mmap_prepare equivalent, mmap_action_simple_ioremap().
 > 
-> Fix it by emitting a BTI instruction for each indirect jump target.
-> 
-> For reference, below is a sample panic log.
-> 
-> Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
-> ...
-> Call trace:
->  bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x54/0xf8 (P)
->  bpf_prog_run_pin_on_cpu+0x140/0x468
->  bpf_prog_test_run_syscall+0x280/0x3b8
->  bpf_prog_test_run+0x22c/0x2c0
-> 
-> Fixes: f4a66cf1cb14 ("bpf: arm64: Add support for indirect jumps")
-> Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com>
-> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Acked-by: Leon Hwang <leon.hwang@linux.dev>
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
 > ---
-
-[...]
+>  drivers/char/hpet.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/char/hpet.c b/drivers/char/hpet.c
+> index 60dd09a56f50..8f128cc40147 100644
+> --- a/drivers/char/hpet.c
+> +++ b/drivers/char/hpet.c
+> @@ -354,8 +354,9 @@ static __init int hpet_mmap_enable(char *str)
+>  }
+>  __setup("hpet_mmap=", hpet_mmap_enable);
+>  
+> -static int hpet_mmap(struct file *file, struct vm_area_struct *vma)
+> +static int hpet_mmap_prepare(struct vm_area_desc *desc)
+>  {
+> +	struct file *file = desc->file;
+>  	struct hpet_dev *devp;
+>  	unsigned long addr;
+>  
+> @@ -368,11 +369,12 @@ static int hpet_mmap(struct file *file, struct vm_area_struct *vma)
+>  	if (addr & (PAGE_SIZE - 1))
+>  		return -ENOSYS;
+>  
+> -	vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+> -	return vm_iomap_memory(vma, addr, PAGE_SIZE);
+> +	desc->page_prot = pgprot_noncached(desc->page_prot);
+> +	mmap_action_simple_ioremap(desc, addr, PAGE_SIZE);
+> +	return 0;
+>  }
+>  #else
+> -static int hpet_mmap(struct file *file, struct vm_area_struct *vma)
+> +static int hpet_mmap_prepare(struct vm_area_desc *desc)
+>  {
+>  	return -ENOSYS;
+>  }
+> @@ -710,7 +712,7 @@ static const struct file_operations hpet_fops = {
+>  	.open = hpet_open,
+>  	.release = hpet_release,
+>  	.fasync = hpet_fasync,
+> -	.mmap = hpet_mmap,
+> +	.mmap_prepare = hpet_mmap_prepare,
+>  };
+>  
+>  static int hpet_is_known(struct hpet_data *hdp)
 
 
