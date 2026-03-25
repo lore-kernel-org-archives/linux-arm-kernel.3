@@ -4,84 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80214109C029
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6EF109C032
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8XVkC8wuytXmqSHrSf3rlMMxINj+E9KqTpQaOet/TY=; b=jjeFK+GMTjhrMVuddjASBqIaa2
-	KwDvP9Vl7f7XjEGeDyACgL7jyFvwofewWqVXxA6ehG4jZz8sUJ1+M9EiSG3ONckoaa49sClwWGE4s
-	IA3AB9Z7IKcYx/ijotrKn9JLGBu9G1bWLo6mhAc+Tsm7g32aYF5KEG6N85rWm95VUhZh/p7cWPeDu
-	lGGBI4HS2G5VAJ7qf6UUbZt9m9wxvmzugqiiqBZIcSVgQhkymtI6ckRR2uDZRBl/IbtMGGrqMElWl
-	URnCSfjeHT62qE5VSZJ8M0Bil7MYx4ynOpR+ehJfzeuvkWXD6rx/DOzqIS6t4jF8RMWWWeFy6Z7sc
-	rQm8fTjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eO11bQx7sjhbWBYTR5ThY1PJIGNvBjQog7Wuvh14JpM=; b=yX1g8+avoxBhxoVbt53FoZyKAk
+	n1n3AUG1RzJ30HdLhl97CWTOxeONnyxwMUh8+yNAfhE+s+0JZgnkKuS8TM6Mti0XFNvj1StD7YNys
+	KM+OfhxJz+LaqU0RvXjpN2lmvQ9o08X6Mw03RyXMVzrUgw8WaNI3s3Hf9nrtw4+f/2lVIWamiYhab
+	fYZ89lSxWMzClwQLEuvPdGVmKtaQGTRINEhlpCxTO3vUOv3HcfSGanePA8mIfE3h87AdR5T+iHOFr
+	9H93tKKVkjrAcJjXRuGbljzbJmPnaO+hsZVvEP49MYHtKzTm7m/0FzqXVXVS+TGmCs6fQaF6PVrPE
+	4GXdDMDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PfM-00000003j2V-3FSy;
-	Wed, 25 Mar 2026 14:57:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5Ph1-00000003jGY-47IM;
+	Wed, 25 Mar 2026 14:58:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PfK-00000003j27-0BqV;
-	Wed, 25 Mar 2026 14:57:03 +0000
+	id 1w5Ph0-00000003jGQ-0kQW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 14:58:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3729A4024F;
-	Wed, 25 Mar 2026 14:57:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BAB7C4CEF7;
-	Wed, 25 Mar 2026 14:57:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4856D600AC;
+	Wed, 25 Mar 2026 14:58:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0453EC116C6;
+	Wed, 25 Mar 2026 14:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774450621;
-	bh=kODB/4Odan0TLyX1+H2rGTJ1SkOip0pPH/GqtThBgFg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lveoloIP8+97OC9m2l5bBmtBw6c3CSQdSICZGVMCZbaVAtz/7499RlssUCIk3l9al
-	 BWGtZaB/Gwx87SRUYZ4cMxnfQOw/wFD3DxPoaz6ZMwVdXpkyx08nrQ9XGu9iAX/z5D
-	 dXQvJWfV6yPc172xpKNvXzEkN0NwwG2R1phfqiDxfT8sDpBvBgM+V2xyA1LtHBt10T
-	 rerF3gSEDkGf6dqX15xt8IzhWyiX9IARja5LRQxUZ3+w4ei87vSIWEb3ti0JiuO53z
-	 NhJjjPjGV9Y3DR3hKAwYyg+sRfCMTELoq9pie6SsHbeivGmpPiJrLsmd6IyREGDtzg
-	 sr4f14070acsA==
-Date: Wed, 25 Mar 2026 15:56:58 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	Werner Sembach <wse@tuxedocomputers.com>, Andri Yngvason <andri@yngvason.is>, 
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-Message-ID: <20260325-magnificent-ultraviolet-oarfish-baefbc@houat>
-References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
- <20260324-color-format-v11-3-605559af4fb4@collabora.com>
- <acLDPYuaVI2-12JX@intel.com>
- <23910073.EfDdHjke4D@workhorse>
- <acLrv5hLyNss-Px5@intel.com>
- <20260325-neat-elegant-raven-ebc9ab@houat>
- <acPA60Ci3n_t__xF@intel.com>
+	s=k20201202; t=1774450725;
+	bh=dMcR2tX4bnCEJoOrr+QTNvL7UiCnZ4AW/utzbNb95Xs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qVbsLwkGch7h/7HSMmGtaC3uNnBXdDP2+NYlx+NZvoOzV75V0RgnusAq9j7F+EQ8c
+	 UNqKNUwrfsqhcVbtnWBDbLku4fdFZKeHU6foHHcc7cONdL9uzvG9d3nh85PVEsnmpq
+	 Itt+ye8x4DFvGucFINKbdXeDEg/YV29W4Hr0Te3CJboNNQ3LgxGQq0v7XolbmHQUtR
+	 Vc5ZNeA2AYpdOr7fvj0pS39bCUy1HOTsr3NiT3fDgtAf0A0VGFJGSR+DCHcR5a1Agk
+	 c3BYc/1MYVCxQJ9w5vin0G1Tu3d2wi7vL/Al3Z/IDutB7v4fg6qnf2a3OeCtH51FbJ
+	 zXd2cojMJVA+Q==
+Message-ID: <e3e374cc-ddf2-4112-b063-6cb1839ea566@kernel.org>
+Date: Wed, 25 Mar 2026 15:58:36 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="mhdva7e7vsga4kjf"
-Content-Disposition: inline
-In-Reply-To: <acPA60Ci3n_t__xF@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_075702_141446_AA41AB08 
-X-CRM114-Status: GOOD (  42.83  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/5] mm: rmap: support batched checks of the references
+ for large folios
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ dev.jain@arm.com, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1770645603.git.baolin.wang@linux.alibaba.com>
+ <12132694536834262062d1fb304f8f8a064b6750.1770645603.git.baolin.wang@linux.alibaba.com>
+ <CAGsJ_4yEWn3kVZPQZatOJX7NLLv-OK9pAqUDuWz25XxG5hpV=w@mail.gmail.com>
+ <a4d7cf56-eab4-431d-886b-a32456e44736@linux.alibaba.com>
+ <CAGsJ_4woBVQdYcCbN1Btr2vxOL8OAujaHkNZZ41=S-TdNh-wbw@mail.gmail.com>
+ <d6820b1e-52ae-4ef2-8342-11818fdd0cb1@linux.alibaba.com>
+ <43831628-a00f-4292-9797-cb96a029bb00@kernel.org>
+ <e54e0ec1-b968-4e12-84a3-4e3d331b1c36@linux.alibaba.com>
+ <86f611cb-1292-44e4-b629-6503135d33ca@kernel.org>
+ <e5cb474a-a84d-4edc-8289-d68378feee7d@lucifer.local>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <e5cb474a-a84d-4edc-8289-d68378feee7d@lucifer.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,154 +130,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 3/25/26 15:36, Lorenzo Stoakes (Oracle) wrote:
+> On Mon, Mar 16, 2026 at 03:15:18PM +0100, David Hildenbrand (Arm) wrote:
+>> On 3/16/26 07:25, Baolin Wang wrote:
+>>>
+>>>
+>>>
+>>> Sure. However, after investigating RISC‑V and x86, I found that
+>>> ptep_clear_flush_young() does not flush the TLB on these architectures:
+>>>
+>>> int ptep_clear_flush_young(struct vm_area_struct *vma,
+>>>                unsigned long address, pte_t *ptep)
+>>> {
+>>>     /*
+>>>      * On x86 CPUs, clearing the accessed bit without a TLB flush
+>>>      * doesn't cause data corruption. [ It could cause incorrect
+>>>      * page aging and the (mistaken) reclaim of hot pages, but the
+>>>      * chance of that should be relatively low. ]
+>>>      *
+>>>      * So as a performance optimization don't flush the TLB when
+>>>      * clearing the accessed bit, it will eventually be flushed by
+>>>      * a context switch or a VM operation anyway. [ In the rare
+>>>      * event of it not getting flushed for a long time the delay
+>>>      * shouldn't really matter because there's no real memory
+>>>      * pressure for swapout to react to. ]
+>>>      */
+>>>     return ptep_test_and_clear_young(vma, address, ptep);
+>>> }
+>>
+>> You'd probably want an arch helper then, that tells you whether
+>> a flush_tlb_range() after ptep_test_and_clear_young() is required.
+>>
+>> Or some special flush_tlb_range() helper.
+>>
+>> I agree that it requires more work.
+> 
+> Sorry unclear here - does the series need more work or does a follow up patch
+> need more work?
 
---mhdva7e7vsga4kjf
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-MIME-Version: 1.0
+Follow up!
 
-On Wed, Mar 25, 2026 at 01:03:07PM +0200, Ville Syrj=E4l=E4 wrote:
-> On Wed, Mar 25, 2026 at 09:24:27AM +0100, Maxime Ripard wrote:
-> > On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrj=E4l=E4 wrote:
-> > > On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrote:
-> > > > On Tuesday, 24 March 2026 18:00:45 Central European Standard Time V=
-ille Syrj=E4l=E4 wrote:
-> > > > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli wrot=
-e:
-> > > > > > +enum drm_connector_color_format {
-> > > > > > +	/**
-> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display pr=
-otocol
-> > > > > > +	 * helpers should pick a suitable color format. All implement=
-ations of a
-> > > > > > +	 * specific display protocol must behave the same way with "A=
-UTO", but
-> > > > > > +	 * different display protocols do not necessarily have the sa=
-me "AUTO"
-> > > > > > +	 * semantics.
-> > > > > > +	 *
-> > > > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 =
-if the
-> > > > > > +	 * bandwidth required for full-scale RGB is not available, or=
- the mode
-> > > > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output both s=
-upport
-> > > > > > +	 * YCbCr 4:2:0.
-> > > > > > +	 *
-> > > > > > +	 * For display protocols other than HDMI, the recursive bridg=
-e chain
-> > > > > > +	 * format selection picks the first chain of bridge formats t=
-hat works,
-> > > > > > +	 * as has already been the case before the introduction of th=
-e "color
-> > > > > > +	 * format" property. Non-HDMI bridges should therefore either=
- sort their
-> > > > > > +	 * bus output formats by preference, or agree on a unified au=
-to format
-> > > > > > +	 * selection logic that's implemented in a common state helpe=
-r (like
-> > > > > > +	 * how HDMI does it).
-> > > > > > +	 */
-> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO =3D 0,
-> > > > > > +
-> > > > > > +	/**
-> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
-> > > > > > +	 */
-> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
-> > > > > > +
-> > > > > > +	/**
-> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output f=
-ormat (ie.
-> > > > > > +	 * not subsampled)
-> > > > > > +	 */
-> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
-> > > > > > +
-> > > > > > +	/**
-> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output f=
-ormat (ie.
-> > > > > > +	 * with horizontal subsampling)
-> > > > > > +	 */
-> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
-> > > > > > +
-> > > > > > +	/**
-> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output f=
-ormat (ie.
-> > > > > > +	 * with horizontal and vertical subsampling)
-> > > > > > +	 */
-> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
-> > > > >=20
-> > > > > Seems like this should document what the quantization range
-> > > > > should be for each format.
-> > > > >=20
-> > > >=20
-> > > > I don't think so? If you want per-component bit depth values,
-> > > > DRM_FORMAT_* defines would be the appropriate values to use. This
-> > > > enum is more abstract than that, and is there to communicate
-> > > > YUV vs. RGB and chroma subsampling, with bit depth being handled
-> > > > by other properties.
-> > > >=20
-> > > > If you mean the factor used for subsampling, then that'd only be
-> > > > relevant if YCBCR410 was supported where one chroma plane isn't
-> > > > halved but quartered in resolution. I suspect 4:1:0 will never
-> > > > be added; no digital display protocol standard supports it to my
-> > > > knowledge, and hopefully none ever will.
-> > >=20
-> > > No, I mean the quantization range (16-235 vs. 0-255 etc).
-> > >=20
-> > > The i915 behaviour is that YCbCr is always limited range,
-> > > RGB can either be full or limited range depending on the=20
-> > > "Broadcast RGB" property and other related factors.
-> >=20
-> > So far the HDMI state has both the format and quantization range as
-> > different fields. I'm not sure we need to document the range in the
-> > format field, maybe only mention it's not part of the format but has a
-> > field of its own?
->=20
-> I think we only have it for RGB (on some drivers only?). For YCbCr
-> I think the assumption is limited range everywhere.
->=20
-> But I'm not really concerned about documenting struct members.
-> What I'm talking about is the *uapi* docs. Surely userspace
-> will want to know what the new property actually does so the
-> uapi needs to be documented properly. And down the line some
-> new driver might also implement the wrong behaviour if there
-> is no clear specification.
+-- 
+Cheers,
 
-Ack
-
-> So I'm thinking (or perhaps hoping) the rule might be something like:
-> - YCbCr limited range=20
-> - RGB full range if "Broadcast RGB" property is not present
-
-Isn't it much more complicated than that for HDMI though? My
-recollection was that any VIC but VIC1 would be limited range, and
-anything else full range?
-
-> - RGB full or limited range based on the "Broadcast RGB" property
->   if it's present
->=20
-> I think the "Broadcast RGB" property itself might also be lacking
-> proper uapi docs, so that may need to be remedied as well.
-
-I took care of documenting it when merging the HDMI helpers:
-https://docs.kernel.org/gpu/drm-kms.html#hdmi-specific-connector-properties
-
-Maxime
-
---mhdva7e7vsga4kjf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCacP3tQAKCRAnX84Zoj2+
-dqD6AX9ruA9VQEK32t44/SErwn8ouTAnQA9K9i0WTlcaidv+2oyLtolh4CEvzUcR
-Knh9fq4Bfjj/Wa5dcOSnIESCkqTRH/yo4UCESrmghwhyznX8ffjBrkE/aWSPhI2B
-5bfXV1iang==
-=9m7S
------END PGP SIGNATURE-----
-
---mhdva7e7vsga4kjf--
+David
 
