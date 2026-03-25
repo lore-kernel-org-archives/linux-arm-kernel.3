@@ -4,116 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FE6106B53D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE56106B53D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wu6GYP3rJMvRxbskPe4sjnJkFyajoSKnDGiNq8cDPUU=; b=VRjL4fDGRdsbpOhK6KcJdST2h1
-	a/0g07dvtmh101Hd+j7yKaPEmfZr+J0UW7QiIQX+LU60uokNklefKIXHIHtO1RsEDC/cOUJeq4RtD
-	yMTTZBqL1YS/nq+bFrO4YwQu/NX5+GcCo4M7Yf+0K34mhGOjpJyy/Qqc5rzzY131kOxM5VsAOmWMv
-	p1Go1NoBJRnoZroCnAzcX2us9NPTf1FLkW7vUFQsBRkbv8/ryxnpO5LtwsHfG46hktQyqkm1/p283
-	A0pXZeXLsWHPQoV3N4JdSdp9Lj29IlX9Xi4EDXClHNGlGrEyYODLp8+xfGqECvNjpMbu9TLmO0C6r
-	4y5+88xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vb25EoIPUQvOGPAL2byvl5svRaADFWKNfv6QYGqkRzY=; b=nqpxsGTqq8y1KY
+	lx2EQFDVYQZDmIPIvr2Xq/Trm66vWjfTYwiU2vwL2x9uLU9KIVVwAJSVxxQOhdyM2U4kH0eJmojVH
+	C7+4Vtuu+XzoOH01+QZcq+QiJ4Vlo9EfFIHRLifUiq9MQxAwkOW1AoL/jGKqiowVQVJlHz6tjF1lI
+	yo54CrpGxyzQnGk7r9zpeRzv2RRi1equ37VsLVBHtHfO4E4wgcaV5piQ9FyHendu8LMIa3Q+8Z2Uc
+	r1+KGTanVjlcDqEn5Keb8p8Hk7oOPOIyS+i3/jrfdZyWfRJnnQzWbSUQstWeN6kb7nrBi4DkoSB0Z
+	tNcmckWwgK7GNsRbkVhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Ond-00000003Vy2-0gv6;
-	Wed, 25 Mar 2026 14:01:35 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w5Oo2-00000003W4m-0XSe;
+	Wed, 25 Mar 2026 14:01:58 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Ona-00000003Vwp-0IEO
+	id 1w5Onz-00000003W2V-2o6R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:01:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c3JP9ttrgtdu2TfCiDacwlxyR9bP7zlJcTRjrF+cgQQe37YavyYlKgzBraaD7zz9bgjEnG2Shc3EZQHc91579dElZtXMPUskfGkQOqOes/77d94anaMAa93d9hvwVoLQZrBCKH42VEcJxPfFw780UNnPhwdSLqfnJqd0VQCBk0oCtwBjDupC8jFZslTgaigNNG7nOqKp8rVs5ik65BQCYNPisAsoytH7tVTr30MQucwI8GSMBlSJSnyU21aMOM/6tGQ8t3r5jruIdRHlJAICsyelYTHerVQ5eUCxxGlTwltjiwNH/gSfeP7b64xhE9N0Cfa4wA9AuvoE2wAQ6HhkjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wu6GYP3rJMvRxbskPe4sjnJkFyajoSKnDGiNq8cDPUU=;
- b=uMtO9SZUcNvZUon/Zs8mcz4qui1T6NEOj4HbdTKFcerAfYMS9bU98nOz38mrusUaKgGIeGeVdjAyP2o2yvEExmFMs9Mm3vUy0ThfOYKuG43VWzY31dkKPOobnJI+MzlpfqHD5VGDPOy78yAZQov2SQtMl9Zm6pS171fFY0IW4lXMJYbxr1+BOoW9T6YP+taRKXD8Pw2PyzVqwv49mREXdGHIpFkMnHesPSqZrSZWaLVdaG48cBW44vY+vRHSK55f0lrqpgCJONC2LSZpIowBQTJ59IL5EvTwZVwsHPtx35bc9xusjxI8hrSDgkx6aBRqaJHHGCptXTFwdcRjnv/RaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wu6GYP3rJMvRxbskPe4sjnJkFyajoSKnDGiNq8cDPUU=;
- b=Bmy5j/BEqx31GQq4EqAoaqyXv4T6su2Q1OHmOvzz3PtKn9JFtf39XAnpnr+5JrOcI6vzHY+sdO/NU2RZsRRO2lqQeEI+7f2HBWi1ObKc+veqWAmTYwJrqmOCXC9mpLf/8Hc2GtGfvjudZFxKL9gHzG6HH1Yxksc7lzEv7RlJlpkyfjKDrpWlSxLoFkQio9zohsUVqcJYtIase45hbvn8obu/ADYUHPpgW6kofyLhr+Dsz932C6DHYilPVaPYKomm9YWvpWn+Q8r0+Ka8WzSu151j/gNXH/I3hPFUKHp4ZNVNVo62N0HL9L24YoC7st3nkeqcRSNn4fqjxqeESJCOzg==
-Received: from DU2PR04CA0037.eurprd04.prod.outlook.com (2603:10a6:10:234::12)
- by AMBPR10MB9374.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:6aa::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
- 2026 14:01:22 +0000
-Received: from DU2PEPF00028D01.eurprd03.prod.outlook.com
- (2603:10a6:10:234:cafe::ee) by DU2PR04CA0037.outlook.office365.com
- (2603:10a6:10:234::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Wed,
- 25 Mar 2026 14:01:15 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU2PEPF00028D01.mail.protection.outlook.com (10.167.242.185) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9723.19 via Frontend Transport; Wed, 25 Mar 2026 14:01:22 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 25 Mar
- 2026 15:03:03 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 25 Mar
- 2026 15:00:25 +0100
-Message-ID: <82835523-4d3e-416c-b65c-6e6204369864@foss.st.com>
-Date: Wed, 25 Mar 2026 15:00:24 +0100
+	Wed, 25 Mar 2026 14:01:57 +0000
+Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B67FD10BE;
+	Wed, 25 Mar 2026 15:00:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774447233;
+	bh=LD2CybU1z3jPpsgDt2dZl+d0WdRNuezVNGYgJdxz5Ak=;
+	h=From:Subject:Date:To:Cc:From;
+	b=kSb8hMGgq6nMF0gIda6mbeYkbrh584sTNjR7B/e8WB9GlvczSfnvVSm9j6SRVKOCD
+	 n052KfNCQLuy8bpIiVwbdI/d/PRezgioVosIaLP1A+Yn6Z+twMhvk/QsZ0CIiK+qMP
+	 d7EmxHK6R6L2PDcNf+8NhFF6r0gEZXaUeFsPktQs=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Subject: [PATCH v9 00/11] drm: Add new pixel formats for Xilinx Zynqmp
+Date: Wed, 25 Mar 2026 16:01:23 +0200
+Message-Id: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: dts: st: Add BSEC support for STM32MP21
-To: Patrice Chotard <patrice.chotard@foss.st.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260211-upstream_stm32mp21_bsec_nodes-v1-0-8379bf97b0bc@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260211-upstream_stm32mp21_bsec_nodes-v1-0-8379bf97b0bc@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D01:EE_|AMBPR10MB9374:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6afdae07-1244-40ee-292f-08de8a76ff24
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: ZyA/7w6lMrMlEbhUvKl9NStX1toMONtEySHDTfpIokXfIXuGHFzkUwId7MgzwlZhA53o7Dj2r+6JmcAkkNv/jmN41Nh10nAAVpJ5qAI+DR+ow7YqKw/EEhdRbeSITnD4/IDJxv2xjf+2HwLx9lJI1mh8hETBKp/wXHlbBUMlc2AF7Mrv/Wb3W5+VXDfJByrXISpBLgnRseFoL7J0/TCW5vPczosGh4d7669S8mW268CUxFyXj81wbL6D657N36sw7/e9953OHEJnOwunEnyl/C1ugxXjwS4kA5P+EWa0fp3/z2SgMU3xkzniuWcT24nwsbFXJI+i5Ow3kXSULdLVinuot17WL9OrQUUvUdfG/1GOUfeht/okrpQlQc0vW+PfG9HiwqJis/7UHoLJsG/zZyIUHQQGFFpnHiHrvDdPOYu0gztSXvjykMXNbNG7IUHp5nXbYlz4Fbke5EZrPC5830tntkQ1QjOpZNf/BK6kukgWZSbYDhxKCMmeZSVZiBLUZYoXbXZUv8Xk/d4h2cko6ghTHGaa/hrr6G6ujn5Xbg9Ych3t3RlTZZKWDzub4ckMUARnam7kwYgeg1nOSSUGXHuRvAVNd9M6bLsL+XncQp/Q1LHTrDx0LP0dhHWhkIw7nEDZXwhJ7Yd68pLhCuihUK+p8at2f9ydg5Y3XPvtwlxNmFip0yHaCNageWUXzPo/wImrX87vRZkGoTnW1nmlhBvf+mzicg8m2k32pVsugluKwvQzJqjY1XA17f9WzXAFqN4rmkXvyBHSj4PHAuMzIg==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 9190H47m4qSww4sXzBV5ZLJMVllC3qMaIgVDDsUXrDXvpYrMOhDpdy57NjBVF+EOl0A7DqMgBoX0661h8WxMhcvqTnxUnZ8DnV30IY91qDTm7HAfsd7Q1oRiKGfLHrhFoLKgPPu1Q2fHgcAw2scPFl1azP7PkR1s/eHxSMS+Nvgd6q4dPiPPWp+XIdC9O0ukWmbYf2oy+lBiqKabjL7VBQL1v3mThkjZYEpRC9fpigk5h1asjhfHRqhGHiTifc2F6yugevs0aF5mAu/4BPPqkiEV26oE+Tij7xRtfg7DTsMZsdpRsAFV6un4FB/LeAMukldIA3nzvBxBGe/NRBSkPIK7SqbP0s7HkWtmrOA/DetzOzFEX4J7+Qrb+TQmGBUIPVDAP4EHrFV7HE5Efev7UWcDDHLy5ubS8chRtPNTbOXTymRsA8EjCcAUGSW5MwvP
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 14:01:22.3425
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6afdae07-1244-40ee-292f-08de8a76ff24
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D01.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR10MB9374
+X-B4-Tracking: v=1; b=H4sIALTqw2kC/3XQy2rDMBAF0F8JWtdlZvSyuup/lC5kPRpBYxc5G
+ JeQf6+ckhqqaHmHmQNzL2wOOYWZvRwuLIclzWkaSzBPB+aOdvwIXfIlMwISiATdmj7TuHZxyid
+ 7nruo0QAqwp5zVo6+cohpvYFv7yUf03ye8vfNX3Cb/lIE4j+1YAcdDJGcRKH9gK/JBztP4zDZ7
+ J/ddGKbuNBdkYAoK4WKggo4aWeVJNtQ+K4QUqXwohjwEAOCMkY2FLErnFSliKJwIssBnPKaGor
+ cFUH1R7IoTgtSnDgqDg1F/SkIgJWitnZRDKDVIEWzF70r9EDRW7sBpeytjyG6htLfFQVIfaX0W
+ 7vBFmPQZcc8UK7X6w/0/pLPnQIAAA==
+X-Change-ID: 20241120-xilinx-formats-f71901621833
+To: Vishal Sagar <vishal.sagar@amd.com>, 
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>, Simon Ser <contact@emersion.fr>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Pekka Paalanen <ppaalanen@gmail.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Pekka Paalanen <pekka.paalanen@collabora.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6695;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=LD2CybU1z3jPpsgDt2dZl+d0WdRNuezVNGYgJdxz5Ak=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpw+rHCHAJjSXGM/ajXUfKyp45eyF0JiuCoPsxv
+ UxZ2hpvbwCJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCacPqxwAKCRD6PaqMvJYe
+ 9bLCD/0aekdS4Ao1vRQACisOri9eHHv0UKAlJ1jR6iOGwJkNiqq9dRSS1shwIu+ckGkZQouvwBU
+ tq5ppI41nO+FYpcT/1JA/AXhkSKY3tHBQeMa6Vz1qM3q9lPZFddMqii9NntvvdV5iEFPwMJ/rrQ
+ ep64eYGhm/gp/RBRCXwGdXP9gQzl2hHLuOmg6xSNmbyGWpn2pX34hDyP5Nb2g0OZqywRFpI2UVV
+ KzK4DFaaxqZo+LRgwSxXPQboRNpQvihBkWD0MneuCkJBuNpPh5wrLhHySMN1S8F/ut0lnrkiXv4
+ 8fcDF/fiWfu8ujLH4Yl7GICljpGIDil4tE7l27amBb9dcYEIE1UeweuMIum9Bvgsq83vS3GGOqZ
+ U/E7MfnxpBSkvVL6e50ZWgj6MNP48TP+RPvUFs4X+jixTbe1FWUhuMwoKKyn0FOxE7ZIWY5Ywh3
+ hEt4o3csWTqR69Jkxf0q6AHhVIFmHy6Mz+kxGma/tffkY4yXo50Yw42G7tAGbqhnvB4ylWc2k7k
+ I0ILozZCUEVCvZMzAYNoFvP0hF28oetXyw7vCelXn6Q0uea2enk3KG8M+NYf8KR1cVqnOarAsC5
+ 56h5m2Hp3ySAGNaGC33WS377T8R7bVxyF3cy8thoSGGMJto935q+up2VLSpqUpOn1GIBlBDoOTY
+ /0KczdMTp6cR7QA==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_070130_580551_EFD8AC9C 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20260325_070155_856204_43FCAC33 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,30 +101,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrice
+Add new DRM pixel formats and add support for those in the Xilinx zynqmp
+display driver.
 
-On 2/11/26 14:55, Patrice Chotard wrote:
-> This series adds BSEC support for STM32MP21.
-> It adds bsec node in stm32mp211.dtsi and bootph-all property in bsec
-> node in stm32mp215f-dk.dts file.
-> 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> ---
-> Patrice Chotard (2):
->        arm64: dts: st: add bsec support to stm32mp21
->        arm64: dts: st: add bootph-all in bsec node to stm32mp215f-dk
-> 
->   arch/arm64/boot/dts/st/stm32mp211.dtsi    | 16 ++++++++++++++++
->   arch/arm64/boot/dts/st/stm32mp215f-dk.dts |  4 ++++
->   2 files changed, 20 insertions(+)
-> ---
-> base-commit: fd9678829d6dd0c10fde080b536abf4b1121c346
-> change-id: 20260211-upstream_stm32mp21_bsec_nodes-16aa826a73dc
-> 
-> Best regards,
+All other formats except XVUY2101010 are already supported in upstream
+gstreamer, but gstreamer's kmssink does not have the support yet, as it
+obviously cannot support the formats without kernel having the formats.
 
-Applied on stm32-next.
+Xilinx has support for these formats in their BSP kernel, and Xilinx has
+a branch here, adding the support to gstreamer kmssink:
 
-Thanks
-alex
+https://github.com/Xilinx/gst-plugins-bad.git xlnx-rebase-v1.18.5
+
+New formats added:
+
+DRM_FORMAT_Y8
+- 8-bit Y-only
+- fourcc: "GREY"
+- gstreamer: GRAY8
+
+DRM_FORMAT_XYYY2101010
+- 10-bit Y-only, three pixels packed into 32-bits
+- fourcc: "YPA4"
+- gstreamer: GRAY10_LE32
+
+DRM_FORMAT_XV20
+- Like NV16, but with 10-bit components
+- fourcc: "XV20"
+- gstreamer: NV16_10LE32
+
+DRM_FORMAT_X403
+- 10-bit planar 4:4:4, with three samples packed into 32-bits
+- fourcc: "X403"
+- gstreamer: Y444_10LE32
+
+XVUY2101010
+- 10-bit 4:4:4, one pixel in 32 bits
+- fourcc: "XY30"
+
+Some notes:
+
+I know the 8-bit greyscale format has been discussed before, and the
+guidance was to use DRM_FORMAT_R8. While I'm not totally against that, I
+would argue that adding DRM_FORMAT_Y8 makes sense, as:
+
+1) We can mark it as 'is_yuv' in the drm_format_info, and this can help
+   the drivers handle e.g. full/limited range. Probably some hardware
+   handles grayscale as a value used for all RGB components, in which case
+   R8 makes sense, but when the hardware handles the Y-only pixels as YCbCr,
+   where Cb and Cr are "neutral", it makes more sense to consider the
+   format as an YUV format rather than RGB.
+
+2) We can have the same fourcc as in v4l2. While not strictly necessary,
+   it's a constant source of confusion when the fourccs differ.
+
+3) It (possibly) makes more sense for the user to use Y8/GREY format
+   instead of R8, as, in my experience, the documentation usually refers
+   to gray(scale) format or Y-only format.
+
+I have made some adjustments to the formats compared to the Xilinx's
+branch. E.g. The DRM_FORMAT_XYYY2101010 format in Xilinx's kmssink uses
+fourcc "Y10 ", and DRM_FORMAT_Y10. I didn't like those, as the format is
+a packed format, three 10-bit pixels in a 32-bit container, and I think
+Y10 means a 10-bit pixel in a 16-bit container. Xilinx also has XV15
+format (similar to XV20, but 2x2 subsampled), which already exists in
+the kernel as P030.
+
+Generally speaking, if someone has good ideas for the format define
+names or fourccs, speak up, as it's not easy to invent good names =).
+That said, keeping them the same as in the Xilinx trees will, of course,
+be slightly easier for the users of Xilinx platforms.
+
+Note: Earlier versions of the series had DRM_FORMAT_Y10_P32, which is
+now DRM_FORMAT_XYYY2101010, and DRM_FORMAT_XV15, which is now removed as
+P030 already exists.
+
+[1] https://lore.kernel.org/all/20250109150310.219442-26-tzimmermann%40suse.de/
+[2] git@github.com:tomba/kmsxx.git xilinx
+[3] git@github.com:tomba/pykms.git xilinx
+[4] git@github.com:tomba/pixutils.git xilinx
+
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+Changes in v9:
+- Drop DRM_FORMAT_XV15 as DRM_FORMAT_P030 already exists
+- Rename DRM_FORMAT_Y10_P32 to DRM_FORMAT_XYYY2101010
+- I kept the Reviewed-bys related to the above, although one could say
+  renaming the format names is a substantial change. Ping me if you want
+  me to drop the Rb and re-send.
+- Link to v8: https://lore.kernel.org/r/20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com
+
+Changes in v8:
+- Expand the "drm/fourcc: Add DRM_FORMAT_Y8" commit description to
+  explain the rationale
+- Add comment to "drm: xlnx: zynqmp: Add support for Y8 and Y10_P32"
+  explainig the Y-only matrix
+- Remove extra blank line
+- Link to v7: https://lore.kernel.org/r/20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com
+
+Changes in v7:
+- Added Reviewed-bys
+- Rebased on v6.18
+- Link to v6: https://lore.kernel.org/r/20251001-xilinx-formats-v6-0-014b076b542a@ideasonboard.com
+
+Changes in v6:
+- Added tags for reviews
+- Rebased on v6.17
+- Link to v5: https://lore.kernel.org/r/20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com
+
+Changes in v5:
+- Add comment about Y-only formats, clarifying how the display pipeline
+  handles them (they're handled as YCbCr, with Cb and Cr as "neutral")
+- Clarify X403 format in the patch description
+- Set unused Y-only CSC offsets to 0 (instead of 0x1800).
+- Add R-bs
+- Link to v4: https://lore.kernel.org/r/20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com
+
+Changes in v4:
+- Reformat the drm_format_info entries a bit
+- Calculate block size only once in drm_format_info_bpp()
+- Declare local variables in separate lines
+- Add review tags
+- Fix commit message referring to Y10_LE32 (should be Y10_P32)
+- Link to v3: https://lore.kernel.org/r/20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com
+
+Changes in v3:
+- Drop "drm: xlnx: zynqmp: Fix max dma segment size". It is already
+  pushed.
+- Add XVUY2101010 format.
+- Rename DRM_FORMAT_Y10_LE32 to DRM_FORMAT_Y10_P32.
+- Link to v2: https://lore.kernel.org/r/20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com
+
+Changes in v2:
+- I noticed V4L2 already has fourcc Y10P, referring to MIPI-style packed
+  Y10 format. So I changed Y10_LE32 fourcc to YPA4. If logic has any
+  relevance here, P means packed, A means 10, 4 means "in 4 bytes".
+- Added tags to "Fix max dma segment size" patch
+- Updated description for "Add warning for bad bpp"
+- Link to v1: https://lore.kernel.org/r/20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com
+
+---
+Tomi Valkeinen (11):
+      drm/fourcc: Add warning for bad bpp
+      drm/fourcc: Add DRM_FORMAT_XV20
+      drm/fourcc: Add DRM_FORMAT_Y8
+      drm/fourcc: Add DRM_FORMAT_XYYY2101010
+      drm/fourcc: Add DRM_FORMAT_X403
+      drm/fourcc: Add DRM_FORMAT_XVUY2101010
+      drm: xlnx: zynqmp: Use drm helpers when calculating buffer sizes
+      drm: xlnx: zynqmp: Add support for P030 & XV20
+      drm: xlnx: zynqmp: Add support for Y8 and XYYY2101010
+      drm: xlnx: zynqmp: Add support for X403
+      drm: xlnx: zynqmp: Add support for XVUY2101010
+
+ drivers/gpu/drm/drm_fourcc.c       | 25 +++++++++++++++--
+ drivers/gpu/drm/xlnx/zynqmp_disp.c | 56 +++++++++++++++++++++++++++++++++++---
+ include/uapi/drm/drm_fourcc.h      | 27 ++++++++++++++++++
+ 3 files changed, 101 insertions(+), 7 deletions(-)
+---
+base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
+change-id: 20241120-xilinx-formats-f71901621833
+
+Best regards,
+-- 
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+
 
