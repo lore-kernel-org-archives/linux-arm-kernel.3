@@ -4,74 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37910109C04D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 069EE109C055
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nfQ/ZluEzA+VJhWfNYk/QTmqQJyZbxBytieg1CqHWg=; b=SXka57mQTbtghjgCM62HXFZPnq
-	ScbGAE+JYNr9gw6q+iqe5TgCtBkovBQJmOkvxPvKLXPLOpeOSXAljPfZ8eGn8cFIeRzR15ewYDbiN
-	PIXLTBcO7yO003O06rgSMue3RIqsrya53Q0/UQlY1r/LJ5DNh1ulOIquEArdaSNjo+rROrdIcQjGf
-	3wHuBky5kLhWQFy6VlR3akrpIRs6b2fsV6BzSj54qXLXqO0DNDQqfjc0+U8ThFD5SyEw6+muXfLUQ
-	8NrDvIdX58yX17sNI6/8UNFy/UcUmiil9ATukHtCu2GO/pi+6MI6B4udKjkq/+HLbpa2JdwThmjQy
-	TLzgrIfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A+0QVDflYB9FKWYz+ub5yo4geWTJxXiVNqvN8TvF1o4=; b=bGjgILB8BHmNOXcs2FL2sU9jl9
+	zYSU43wFy24iDEx3fRhdCopgyIrdiWZecYWSF+kVaaZmztwXFjCSCcO4wcoWpdKhcpBhhXxAf3BVg
+	cQ6J5HpomVXffwIjOEWYtUiiJuvtf4XgDkcKwtRl4aN7EUymLcarv+/5sqGyEXk2hxHWhwdCI3qjt
+	+5uyphles+Mviars0VfNPuW81HKML/vEOOjYI55ZK46h7GZLoq2iH7PVB/mYD4E+TtLcj3DIlsB5G
+	umT/hqGBxHIBe4IlrKGlHsGP/fzO0aBCQyHPWMc1GmRXp+hd8xMtCu9X9AXwX0Fvu8/FP/mhBkQWZ
+	wPnzZhfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5T0w-000000044zl-1Q5F;
-	Wed, 25 Mar 2026 18:31:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5T3O-000000045Ft-2Wzm;
+	Wed, 25 Mar 2026 18:34:06 +0000
+Received: from mail-norwayeastazon11013022.outbound.protection.outlook.com ([40.107.159.22] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5T0p-000000044yT-0YOm;
-	Wed, 25 Mar 2026 18:31:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5730E40B21;
-	Wed, 25 Mar 2026 18:31:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68488C19423;
-	Wed, 25 Mar 2026 18:31:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774463486;
-	bh=kybuw/joKD3Ujs6Axg2qmrSATtAdTyhGHj9Zud71BTk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=UCWdD2ieMESxwqobselJDEiSkmK4r90l/iKwsD6wVPLnjZZeCsMBKvRGGHeuSpSrO
-	 B3TwSe60QQp+GIkNVMyj9cO9skGUO4juLyAYab3sBqvwUA8jkiU5WtkFaBgPoSYCaV
-	 L5D+ZjJdvtKKkO4VysrNwz5VavWa/bNpRDpZY5EPk5jaG5XB7/HOpv9D2BQx5bFl6o
-	 oHVm5V35QMwQ5njZcQ+61uFPnJd41Sp4dveKGAEw15uSBixfIqaXpTtth8Y5Ezcg/v
-	 XVn/d7WzDaipg6MW1dllLvQJtnTpiQZKgHE1KBM9YAobudmIHikoE3L6iAGV/01qqE
-	 6cBe5A8U/gjJQ==
-From: Mark Brown <broonie@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260324135508.839142-1-festevam@gmail.com>
-References: <20260324135508.839142-1-festevam@gmail.com>
-Subject: Re: [PATCH] ASoC: dt-bindings: rockchip: Convert
- rockchip-max98090.txt to yaml
-Message-Id: <177445778598.74886.17433530132719817153.b4-ty@b4>
-Date: Wed, 25 Mar 2026 16:56:25 +0000
+	id 1w5T3L-000000045FX-0XRb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 18:34:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bsi56KtgvYtPDZJxU13J29bprDjgAlMXe98rn1fVjN9KivyczNIqVG4tj2naNTW8MDdJb0n8STm5NgqGuAEcrdXwvxNFnZp4FJq7Gc3M5B6RvDPufFTyrQivUae2V4nSVOEVoWjLNLJlvbrWKQS2ZorZq4hBdf8acTTntIreYJqOjnKJWZm1SyYnvYzkBBVc9Ih+MNpf8aQjH66yJa9B766OvvMHeTQpO7Qrqrfg5kidyhBmAPEoOausRb3CsI4uqjPWYvhfaiMiaW994PfrmuKQhIGHsoNw9DtG/vM3F5g+8mJudCBZmrwabjDNgD1MOjEeizQqy217BkRahBDX6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A+0QVDflYB9FKWYz+ub5yo4geWTJxXiVNqvN8TvF1o4=;
+ b=qUXqEewpUd0TgFoZW55vhjYsnqDYAY4kbBj+TDvx6n00302Qwvh/Ae4Eb/ZdQ/h+gmqk4tn8mePuvkJtDcRlpBXv+kCDIQwrJ/FkJTHxr//lAUpJ+d18FYeMqX2uc1kaUE/SBSJ9aguXcG5PpGecEW3xwCfkzEcdOf49XYTzxjMtFn/JACdz65SKLfBKZfHe6U45zjts4BEMJMEz9Yef54jHym8Mh+KIr+smPQt3gbd+cSn+2TjjGkLS6ylMR1KSlhOqZu7PnWhoOPrIfu/cIhaJ5ttaATt6lOyaTu3k/rGj4nuXVbG+gUf6LR1qN9gsSJnPZCxz1eE00ltSPKsGeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=A+0QVDflYB9FKWYz+ub5yo4geWTJxXiVNqvN8TvF1o4=;
+ b=K2xn0AFDN8SkBpDxXYzDYBJaVNhaaqYXMYZgrc/cxP2KwiSVxUKtfCPvgz3kDDIN7SNLqaHmDXsNO9xdb5vB/x4yN2zax9/1hcYPJMRsQVS2H/VVlb2uCQ/Q7mI5Sosanl8vMcLX2TUq8a8nJ0RaWD+UGQD5z4IHIVy8hZKVKlB4KoBARh4OpOdsd5iF95VnSxH9hb2tnlWBlWaOJ+U49WaWzvic+tIwZ8ssPly8NeoKQModk+qrhUN0JaEObQm3ln8EEBmDXs5VC0SyAm2TNZsDWqS/oRtpAWRv3M939oCvxoA0jqiq16UvbWzMewD9uSCN+M+dZ5GoHdKC8HHa3Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by PA1PR04MB10323.eurprd04.prod.outlook.com (2603:10a6:102:44e::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Wed, 25 Mar
+ 2026 18:33:23 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 18:33:52 +0000
+Date: Wed, 25 Mar 2026 14:33:23 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, kernel@dh-electronics.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M
+ Plus DHCOM SoM and boards
+Message-ID: <acQqc1AuCa1Tkb-w@lizhi-Precision-Tower-5810>
+References: <20260324190544.74531-1-marex@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324190544.74531-1-marex@nabladev.com>
+X-ClientProxiedBy: PH7PR02CA0011.namprd02.prod.outlook.com
+ (2603:10b6:510:33d::8) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev-6cc06
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1151; i=broonie@kernel.org;
- h=from:subject:message-id; bh=kybuw/joKD3Ujs6Axg2qmrSATtAdTyhGHj9Zud71BTk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpxCn73hYijmsJEGiZYuGXud9H5IrGaTRCmihMe
- DeHsGqUqtOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCacQp+wAKCRAk1otyXVSH
- 0PWIB/9yF/67uvMKywglQaTIZPmNot/J+5Xu/VQH++wGoOMiSxn3iNo3aWmoHlH+iShN2xmQigJ
- xJY07gwAQL6Woo7xvrbXp5HwyDxVkPrnH/p6nVDgkrlrdzh/F1qN4gCuSvVrP8QyvsebVTJS0u7
- ELgYuXXmE9Wbc1PQMSUiRGxSKqmROzBEqRFYoZr14uk8QSg1vCaVauh5gCzHvk4/zquJAVZ+FZn
- B10E/XeJsfTygsVetzuNnfxg9QW/Y1wDWyNzbH+/CVl3dKR2rk19EZ2jJqdEf0zN3WtKwjRA/b+
- TdgQ2aQpOBzn+bngvc+rgXh4qlPkB9Xso1grQOe6VELp/AId
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|PA1PR04MB10323:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8d860f9-389e-4837-7b03-08de8a9d08b6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024|52116014|56012099003|18002099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: LaElR2XGUKjq2uAGnPfjETg8KF20OWmHZUx2g5GtNOcaN9Acm8qi+2VSqZbjIC2W1BhhrCfYOxm0PtDwn9gCkUCXCgXFXS8XPfhIxaMjGAkel3LyUg/9RORqyiKqtVGrDxBxr0Rqwi1mCwjjcBYswLh12PdQu5HbFc2yX0D/fxvasMhO+KqDwdmPw1yuzHHZSJ3IN9zaGvTkGsPaW2/mkb97Q0wCMnpl3WLUqsIrMKPb5sogneF6//uD1hhwiln7GTrvN0hMLO9KShrLseBTRi6ZrbNixkYngh23N/6HvN00Bz+L7vLNH1wP/WG/5FTZyIjk/oSyJMV+EoC3fx6pN6J5M8jduNBekIjku8T0qhVUsf9B/ppQXgfhFQqhRZh/QHbD0WUPzS/dwBAYKPa5kkG1JKfCmYM28+yqXCxH/2IN9INVppsuQRCGCmrYAroQGAB1tJlGmadY4WDsM0igy2pVdBWNnZNCmvtr8dX2uUu/7lOTg4tBda6FXQOBngZwCJ50bVUILqMQyriP/yE+N9MQ7DYcipg8RkLV0fREvsPn1lDrYhhshpUCw5M3INRuNx/nx0/jOvmO6VFBsnI1NSaIHNM5JVVtfZjITOH2sMnHMEEGIBKu+2eYalDxp9XZaH91qWdm8st9WFcxawndG22dihWmN7GGVtNY9O7bxAZ+Tq6OPzjermn0NVeDSqnpFJ135Zd8wujSIQbO+6yFZg762UPcs+qT0Ei6rbtmU5ISnCSuQwOHAwovaIrYYoOruJaltixuMRSZohfN6rUzxPI1ghacg9fEQD0Hryst1uo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024)(52116014)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l3pHE8VzYhWcA3XJWV0edp4qyaPzsNGfsNaVj1T+GIqXgGui4hFOoX64vTzv?=
+ =?us-ascii?Q?q/18FSW/c3ZcSK2Z39Zo2NB/Aapg3YGd+ntajpPK0AawuM2+Pyar75FnKSxV?=
+ =?us-ascii?Q?/cpIsbhSr19xnvlo0zWpECgdWcv0V5rODsNNswaP/eaMmMG2hBa2mrPFUela?=
+ =?us-ascii?Q?dE+LBAkkbHRHygUNCoD1GtwoWLtT652DadV8cNH3Bscgweu1Rr0O7/3ZhW/D?=
+ =?us-ascii?Q?ww2BlqZQWVJUi5PHMwFCuqrPz0x6oZWrq9Qts6liGwJZ/JhWci5jqp1j77bo?=
+ =?us-ascii?Q?GL70TKjb2zHG/DFCoDQ5jM8zy4g1WznzfB2T/PzInMC8zcuvJtOR2yhp3YUK?=
+ =?us-ascii?Q?0QrwvPjWepB/Rlfdiz70IsiHekNEzxrHxzn5KDGTfrlmhDqhkhKB6oOPgQjs?=
+ =?us-ascii?Q?U4j8YxUltxkTZaR2Zmm4kvhf1ocDm+8apt6N5SRQW6RhutwdkskjMYX1jACO?=
+ =?us-ascii?Q?nE5I6LWayIdel9DxSnDjSIEWaNJl12Rei7/0mB9TOSPitd9P1Umd1SwTjmlF?=
+ =?us-ascii?Q?jrfy2Q4ts6pcW3uIsNIuVt5LrsiKt/F5xknJBqHi2A2mX0hJhTLvT7NH+h4/?=
+ =?us-ascii?Q?QG1dLA3DStTpmI5IB3TSaGLT5CbomxMQkLlhr6he0KrHuN5S9h5bDwhPiKGE?=
+ =?us-ascii?Q?tFyhVNnzSUlf2V93hwoq3KjcWNO3iZG0HI5Y8+AiVvaL3JsEkh/cknmlrllN?=
+ =?us-ascii?Q?AqATbDeo6pTcOt5iAyLNO1SsAbDiliJVAF8/yZ5pqp56aBEswMAVRdbI2s0a?=
+ =?us-ascii?Q?As1C8ZWjHtHnTO6KMd6/MfgfY1ZeWWhJdJC0ZtWjPZXmbRvZJWAZzvmwhsIE?=
+ =?us-ascii?Q?KJZ1OgvwkmcLSKfM4qZwPllvsS2QTDwg8gZ7+i8sFyx+/r+2D/1uIs5yDhGM?=
+ =?us-ascii?Q?oFFAHBdv23byYb3YfZIPJT4QJDegR+6upZwQZEllN5gn5CKm0XPmTYk8v9xD?=
+ =?us-ascii?Q?LmolnRJDyqxRHULw1FgHTlBOHyFj8959jcQsCY4upM2fYGxWFWZnVhuMQNpb?=
+ =?us-ascii?Q?kwrxpfB00VAA6xVkmC8BGhqCwjk6nCq1CwLNN1zQkFxt7iXtvqQERM9zeU3P?=
+ =?us-ascii?Q?wQONLVAo7iUMnYGQuQ1xpPlZbGhpJIlpMmW6YLqP3HZ5awNWu3ugFueHTmI1?=
+ =?us-ascii?Q?RucND6X0lEhX/WHWC2mVhnS2nExb/46mQnYKZoHrZJxjr4xgVmGwWQEtr05O?=
+ =?us-ascii?Q?XE/XxxhpC5KnJunuqTUOUoBrB6AlnCU9Iv3o9SBmK8uJXo5B4xbqIVa7GFX0?=
+ =?us-ascii?Q?GUI5SW/G0XYwp8CpiEgdYR+1JYs6J2CVFApaG8V6R6i/y7eAE8tqlYApIKvW?=
+ =?us-ascii?Q?pErmlSIULniynr+k9jM2ERwmFAPVNyAGHhsiU0FEIRTltADk2cgvVPz0xPWM?=
+ =?us-ascii?Q?ps15ni4RnjrElqxCYPPL89PN41pWOiWfOnAHIAJfZsAOj8sraYLFlwmJu1kt?=
+ =?us-ascii?Q?LyZnu2DhypmII1NzW5KsMkENnXcilzQ0tEuzhrvlzJsg88OzgQBu/u9jkW9A?=
+ =?us-ascii?Q?V5rhi1MDFYA7A58EyZU/UedQ5BjnGa3NZw9b7vxbvMqL+u/tUhZM/2FvUhfO?=
+ =?us-ascii?Q?4Amn1asfJomN20H43LkUB4NWic6h0hMZpIYO7kT1QMDrt64lh+3X+jOMXqZX?=
+ =?us-ascii?Q?eBDqzU5M8MDV1sQNrKxMht1VC8IKxRjrNLI+0hX0FoWeKtItHdJ8DOfpHl3w?=
+ =?us-ascii?Q?6tABI6tJ0lHI6k4vAhXYMoWtvZvelFRze2rUYVGfV50lqAks?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8d860f9-389e-4837-7b03-08de8a9d08b6
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 18:33:52.6842
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y4PzrzzLJsaDf8KZsKuxI0y9uk3OVqTC4tVvcvC4ZKSlIholhyRM/yahISpw7gJIy8uL2v+hlHKGLF+f5kIi8A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10323
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_113127_201943_5495EB87 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_113403_207695_0B861647 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +142,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 10:55:08 -0300, Fabio Estevam wrote:
-> ASoC: dt-bindings: rockchip: Convert rockchip-max98090.txt to yaml
+On Tue, Mar 24, 2026 at 08:04:19PM +0100, Marek Vasut wrote:
+> Add DT overlays to support DH i.MX8M Plus DHCOM SoM variants and carrier
+> board expansion modules. The following DT overlays are implemented:
+> - SoM:
+>   - DH 660-x00 SoM with 1xRMII PHY
+>   - DH 660-x00 SoM with 2xRMII PHY
+> - PDK2:
+>   - DH 505-200 Display board in edge connector X12 via direct LVDS
+>   - DH 531-100 SPI/I2C board in header X21
+>   - DH 531-200 SPI/I2C board in header X22
+>   - DH 560-200 Display board in edge connector X12
+> - PDK3:
+>   - DH 505-200 Display board in edge connector X36 via direct LVDS
+>   - DH 531-100 SPI/I2C board in header X40
+>   - DH 531-200 SPI/I2C board in header X41
+>   - DH 560-300 Display board in edge connector X36
+>   - EA muRata 2AE M.2 A/E-Key card in connector X20
+>   - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X31
+>   - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X29
+> - PicoITX:
+>   - DH 626-100 Display board in edge connector X2
+>
+...
+> + * Copyright (C) 2022-2026 Marek Vasut
+> + */
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#define DH_OVERLAY_PANEL_I2C_BUS			i2c5
+> +#define DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_PINCTRL	&pinctrl_dhcom_b &pinctrl_dhcom_h
 
-Applied to
+This is not straight forward.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
+you can add label like panel_i2c at dts file.
 
-Thanks!
+panel_i2c: &i2c5 {
+}
 
-[1/1] ASoC: dt-bindings: rockchip: Convert rockchip-max98090.txt to yaml
-      https://git.kernel.org/broonie/sound/c/c9b48a451ca8
+in overlay file use
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+&panel_i2c {
+	....
+}
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+So you use the same overlay file for difference dts. The same as others
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+Frank
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+> +#define DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_IRQ_PARENT	gpio1
+> +#define DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_IRQ_PIN	11
+> +#define DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_RESET_GPIO	gpio1
+> +#define DH_OVERLAY_PANEL_I2C_TOUCHSCREEN_RESET_PIN	8
 
