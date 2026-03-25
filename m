@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43683FEA808
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3DFFEC11B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 10:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnbQXF6DaQ8H6OaOkbjOR+F6C4UMnmifQBy/ewm+atQ=; b=2WjsgeMeGqz5F0tcRNL0EaenzM
-	3VwBxfNY+M+dkRyRLRH+obTsjYnVghORof/5BT2+727A87SHbcf8F0pb7SYqOHvFo7GSDyBEH6Fem
-	RMaqHo9V+fSmIApRmR3pEM5K3xllJmQouvuMmsATndKtXR0aWgispTqy/RQjvjdZHjGGPj0vwjElT
-	5p6bcyhW8+q2pzAfXfqDEdXx49W5oQZfE6HlKXfhbZyzAiH88X+aK5CQy4Bb/JDy3csPLThQjCwIi
-	FNXgh+Tpcz8mOLwh+0IBRWnI5WG7bK7fvH3KntbEsDC6GoaII0GU/LniAOZWgXATQyYMgaA9aA01g
-	z2eoirjQ==;
+	bh=BCm3S6rNd1thUNihZopkQSj0ND6N6dRRv/ivblQ7Nfw=; b=S1jPRmhf5lG9u4Dcz+Fthgo3OY
+	Q8LCAuugUCoh+ANHbFwd58uQ8oiD03S5C2WLitVr0FG6BpCbIH4zBc5sFANKpac5q0CiuUQVMAb5T
+	FCJVRxVi7V/NcbrSDmI/Ne5d8aVd2EYpPSAvRfOVHJhvz1leV8pQ6QY6cdLZ77/IIJsvhUjDqEhio
+	+KVVjwv44Tk2egUhOkR4mVt9Qen87Ox0h19QtV3p5iHdl9PFYcEB+ikETM5to+R3Xmy7UEZv4iEus
+	fb3UGDbLxVVas8GxxPmMaBzSMb1z9sINQ05DJUee9TbhoAFn8HTfEEuNJkejSfAgTnr/AN71J0Wux
+	QcQINEtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LWw-000000039kw-3pMY;
-	Wed, 25 Mar 2026 10:32:06 +0000
+	id 1w5LY0-00000003A02-0Q0B;
+	Wed, 25 Mar 2026 10:33:12 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5LWv-000000039k8-1iL9
+	id 1w5LXz-000000039zo-203M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 10:32:05 +0000
+	Wed, 25 Mar 2026 10:33:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BCE460123
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 10:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45846C2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 10:32:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E3BA8600AC;
+	Wed, 25 Mar 2026 10:33:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5572C4CEF7;
+	Wed, 25 Mar 2026 10:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774434724;
-	bh=ocM1mdWqdcmXzLcIYmHxofHeePVA9vqDrQenuhbw7uQ=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=rQsLCgURkLIEosDEkWhGLHl2g1Ra6qaeLKzy2cRqqnyXRcXcVKKwx3toJni6EMrux
-	 2yTlCjJ/KdtIfr9nJlV3R9Uyw8RZjwSCEWZZ46F6kW+ognCmhXZTt+4caRkrSnV4pJ
-	 g4EKHg7lADOkIJM8Zy429vK7uL9pAvIYddbYoRTRMs0BHYvdVDX9uYgNCxGUfYD9zg
-	 KwaTmNGmGRK3/Fgg/iLtZ3V1Oeowegn1mvk53dgavo/7O2ptF2VSu4l/gEOC/UGQ10
-	 b27HeM60vA3MAPu4GdjcQl6p8kfoIuA4k6Bdijgtvn3EOmXmoLIi8zD+zePRhB70dz
-	 j8GibjkFw3IsQ==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5a0fc5e2c59so6550560e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 03:32:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVWxoCX8UeJVSH0WZaSwtnlnX5JGHhTya2EjH6qmHwA1axeFIXRhjzZmtaFtvrnGVs5qsGPob7QVb29a7ojtW10@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLmoI7ZoUzkwbvCYLQqt0RMY+VH9tNc8/62v9nbmT1KD/fg+gF
-	yhvo5VQaSngRJvlgsMWufzd5c8AYjUjUP+pR9BBKAhfE2G0qQli7bebk9Wnz4t/Ru4eu6s9Svvo
-	hzHZ3KKgVDFx2s3Cb9D46ndRo6NCnWKncNU7lIeEqeA==
-X-Received: by 2002:a05:6512:220f:b0:5a1:34a3:757f with SMTP id
- 2adb3069b0e04-5a29b9958e6mr1037060e87.25.1774434722860; Wed, 25 Mar 2026
- 03:32:02 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Mar 2026 03:32:01 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Mar 2026 03:32:01 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260325100144.1696731-1-arnd@kernel.org>
+	s=k20201202; t=1774434790;
+	bh=EqAJ4JmzVDIM8zuNvQXcQbmW19GyMId6pMXxIqxpfPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b0vFr6RCuA8SyrW80P9JDA/OV32R/8VshRwGmUxJp0BzyCU4rEpWrHzUcYlZp0Cbi
+	 nP+gTTTJZ4jvVYBy5ivfFcbIeI4lHt4+Mu/JzpmkJJ4Uf68p+YexgmwQ6hJeS7CzGG
+	 LO9164vJNabH3EN4duTgCy2mGAhUrmdDG/4fL8GrulupzULULm7tx+LSaezhD4EwxH
+	 trHyW+NacA9/i/6S9zpYWFm50cgfobbJLOfPj8/yknWgmmeref4cUDvSuGFL8hvbGw
+	 lTv4gWgOy62lXD7gm9ZRYoDOGAoUMOtT/wX32RlfGAKtvLlB5hIN21kntD/8DfE6ie
+	 uqJTO7YEnq5cw==
+Date: Wed, 25 Mar 2026 10:33:05 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, Peter Rosin <peda@axentia.se>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH v3 3/7] pinctrl: pinctrl-generic: add
+ __pinctrl_generic_pins_function_dt_node_to_map()
+Message-ID: <20260325-riding-browbeat-293b47f43d82@spud>
+References: <20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com>
+ <20260311-pinctrl-mux-v3-3-236b1c17bf9b@nxp.com>
+ <CAD++jL=U2xNMMHk_LyH8CX+YpC5EGPVRasM11yesXSH4XLhqYw@mail.gmail.com>
+ <absvZ5wzAwpbjHf1@lizhi-Precision-Tower-5810>
+ <CAD++jLkp1CFcLccmLP0BWQSBKkruGCPT71dMeuyu3JY1N4T50g@mail.gmail.com>
+ <ab1Rpf2zS8Bn1-HV@lizhi-Precision-Tower-5810>
+ <acLxCnz3qYfAC3iB@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-References: <20260325100144.1696731-1-arnd@kernel.org>
-Date: Wed, 25 Mar 2026 03:32:01 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mdwu85gghDjQEu4eP2HZxHjBFpph07q9SOfAifSDMtpVw@mail.gmail.com>
-X-Gm-Features: AaiRm53MDlZLZwdTwMSs-omwMVxdmGT3F6ltQ_Yfx4HD4BKPWevgMv5IzNZGH1g
-Message-ID: <CAMRc=Mdwu85gghDjQEu4eP2HZxHjBFpph07q9SOfAifSDMtpVw@mail.gmail.com>
-Subject: Re: [PATCH] gpio: fix up CONFIG_OF dependencies
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Yixun Lan <dlan@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rph5EFAPA81jsNAV"
+Content-Disposition: inline
+In-Reply-To: <acLxCnz3qYfAC3iB@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +85,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Mar 2026 11:01:14 +0100, Arnd Bergmann <arnd@kernel.org> said:
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> A number of GPIO drivers that used to have a CONFIG_OF_GPIO dependency now fail
-> to build on targets without CONFIG_OF:
->
-> WARNING: unmet direct dependencies detected for GPIO_SYSCON
->   Depends on [n]: GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && OF [=n]
->   Selected by [y]:
->   - GPIO_SAMA5D2_PIOBU [=y] && GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && (ARCH_AT91 || COMPILE_TEST [=y])
->
-> drivers/gpio/gpio-mt7621.c: In function 'mediatek_gpio_bank_probe':
-> drivers/gpio/gpio-mt7621.c:254:20: error: 'struct gpio_chip' has no member named 'of_gpio_n_cells'
->   254 |         rg->chip.gc.of_gpio_n_cells = 2;
->       |                    ^
-> drivers/gpio/gpio-tegra186.c: In function 'tegra186_gpio_of_xlate':
-> drivers/gpio/gpio-tegra186.c:502:25: error: 'struct gpio_chip' has no member named 'of_gpio_n_cells'
->   502 |         if (WARN_ON(chip->of_gpio_n_cells < 2))
->       |                         ^~
-> drivers/gpio/gpio-lpc32xx.c: In function 'lpc32xx_gpio_probe':
-> drivers/gpio/gpio-lpc32xx.c:523:49: error: 'struct gpio_chip' has no member named 'of_xlate'
->   523 |                         lpc32xx_gpiochip[i].chip.of_xlate = lpc32xx_of_xlate;
->       |                                                 ^
-> drivers/gpio/gpio-spacemit-k1.c: In function 'spacemit_gpio_add_bank':
-> drivers/gpio/gpio-spacemit-k1.c:234:11: error: 'struct gpio_chip' has no member named 'of_gpio_n_cells'
->   234 |         gc->of_gpio_n_cells     = 3;
->       |           ^~
->
-> Bring that back as a dependency.
->
-> Fixes: 7803501e5754 ("gpio: drop unneeded Kconfig dependencies on OF_GPIO")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> There may be more fallout from the change, this is just what I found immediately,
-> but you could already fold the changes into the broken patch while I look
-> for additional ones.
-> ---
 
-Thanks and sorry for the breakage. However, I'm wondering if it wouldn't make
-sense to do the following:
+--rph5EFAPA81jsNAV
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/include/linux/gpio/driver.h b/include/linux/gpio/driver.h
-index 17511434ed077..ce0e0df68dbaa 100644
---- a/include/linux/gpio/driver.h
-+++ b/include/linux/gpio/driver.h
-@@ -473,7 +473,6 @@ struct gpio_chip {
- 	struct gpio_irq_chip irq;
- #endif /* CONFIG_GPIOLIB_IRQCHIP */
+On Tue, Mar 24, 2026 at 04:16:10PM -0400, Frank Li wrote:
+> On Fri, Mar 20, 2026 at 09:54:45AM -0400, Frank Li wrote:
+> > On Fri, Mar 20, 2026 at 02:27:21PM +0100, Linus Walleij wrote:
+> > > On Thu, Mar 19, 2026 at 12:04=E2=80=AFAM Frank Li <Frank.li@nxp.com> =
+wrote:
+> > > > On Mon, Mar 16, 2026 at 10:37:28AM +0100, Linus Walleij wrote:
+> > >
+> > > > > That said: in this case you're just adding a parameter, just add
+> > > > > the parameter and change all of the in-tree users to pass false
+> > > > > or whatever you need, these is just one (1) in-tree user anyway.
+> > > >
+> > > > pinctrl_generic_pins_function_dt_node_to_map() directly feed to
+> > > > .dt_node_to_map() callback, add parameter will impact too much.
+> > >
+> > > Why do you say that. It already has many parameters, one more
+> > > or less doesn't matter. It's not like this call is performance-critic=
+al.
+> > > Just change the users.
+> >
+> > In only user drivers/pinctrl/microchip/pinctrl-mpfs-mssio.c,
+> > 	.dt_node_to_map =3D pinctrl_generic_pins_function_dt_node_to_map;
+> >
+> > pinctrl_generic_pins_function_dt_node_to_map() need match .dt_node_to_m=
+ap()'s
+> > declear.
+> >
+> > So it can't direct add two parameters in pinctrl_generic_pins_function_=
+dt_node_to_map()
+> > Need simple wrap function, which other in pinctrl-mpfs-mssio.c or in
+> > pinconf.h.
+> >
+> > If add two parameter in .dt_node_to_map(), need change all functions, w=
+hich
+> > .dt_node_to_map =3D xxx_to_map(). and OF core part.
+>=20
+> Linus Walleij:
+> 	Is my explain clear enough? I am preparing respin it?
+>=20
+> 	is okay use wrap function
+> 	pinctrl_generic_pins_function_dt_node_to_map_ext()?
 
--#if defined(CONFIG_OF_GPIO)
- 	/*
- 	 * If CONFIG_OF_GPIO is enabled, then all GPIO controllers described in
- 	 * the device tree automatically may have an OF translation
-@@ -516,7 +515,6 @@ struct gpio_chip {
- 	 */
- 	int (*of_xlate)(struct gpio_chip *gc,
- 			const struct of_phandle_args *gpiospec, u32 *flags);
--#endif /* CONFIG_OF_GPIO */
- };
+I don't understand this patch. The function is called
+pinctrl_generic_pins_function_dt_node_to_map(). You have no pins.
+You're adding a parameter to make a function with *pins* in its name not
+use pins. The new function doesn't use pins but has pins in the name.
+At the very least function names should not be misleading.
 
- char *gpiochip_dup_line_label(struct gpio_chip *gc, unsigned int offset);
+I was going to suggest pulling out the relevant portions and creating
+some helpers that could be used by multiple different-but-similar
+functions, but I don't actually even think that there's much in common.
+Most damningly I think, you don't actually read either the functions or
+pins properties at all and neither are permitted by your binding.
+So turns out you use neither pins or functions...
 
-Symbols from linux/of.h are stubbed out and these drivers can build just fine
-with !CONFIG_OF. This would naturally increase the build coverage.
+You don't actually have any of these properties which runs counter to the
+goal of the function, which is parsing. With this in mind, it feels to me
+like you're trying way too hard to make use of a generic function when the
+right thing to do is probably just have an entirely custom function.
+Maybe that's a custom implementation in your driver, or a new function
+here, but I think writing that will highlight just how little of the
+code would be shared between the existing function and what your
+use-case needs: no pin configuration stuff, no reading of the devicetree
+other than the node names and no dealing with the label pointing to the
+"wrong" place.
 
-Bartosz
+I recently bought a spacemit k1 board to go and write a sister function
+to pinctrl_generic_pins_function_dt_node_to_map() that deals with pins
+and groups (because that's a pretty common pattern).
+I would be calling that pinctrl_generic_pinmux_dt_node_to_map(),
+because it that's the property it deals with. I have honestly got no
+idea what to call one for this situation since you don't have any of the
+properties in pinmux-node.yaml. Maybe that's a sign.
+
+Cheers,
+Conor.
+
+--rph5EFAPA81jsNAV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacO54QAKCRB4tDGHoIJi
+0pMgAP9oMmCGeSjt4dlxPST9iaYHHdHPq/OLqZAXovZzPIwdvwEA88h6G/MIAJvB
+OdYLGz82KLktiumTetrkiU2kvIDRlQY=
+=fORh
+-----END PGP SIGNATURE-----
+
+--rph5EFAPA81jsNAV--
 
