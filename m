@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223B1106B533
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827DF106B533
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEAJKbeH8TFmmP9M//aSv092zDua7ieyLEIFGIIxFO4=; b=38ijETGWtMmrQOmE1Qhn9p1gPh
-	7UIRwcty+EjF20+b9Qh/x4BMN2L3PgKuXujBfFmDA3OjfCrp5ByizUvVNeMhFfd07vADym1BWibSm
-	Xwre1W4jZ4lluYLKxJF4A6YUvUs0RHHwIabsPakxA9h13Z0wpi40HRfp1YsuXyHIY1+klBlIy4GKq
-	SyQXt0idiA8IROFQwbuMuVsqZq394HlmXohw/cG9d3aUgQGeWDMw3Ezk7r0cHPobD98pZ+i1uS6s5
-	VWANI/4gLpbjtWCxPBRwho3P4yo9B5yiK4nHiKB0qWwD8qxGOVNH8thgl8yKQLuuNuvvVmqgPbte/
-	A3mgdTeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zX2hdTVv3RlL2Vnk1ktSoL/weXEaux+EkETGAHpSJH4=; b=LUwvfP/WgZ/b0zHYzAQN/ZugbZ
+	kk4+zIirgGdPFsU+QVu5aihyU6uR0X+K8Op9DTtO6jrDGzrKKMHXGrgx1Y3ZOfffNjaccgl0Jrz2U
+	UyIO7jI6y+qb6UgJsBM51AEXUyWVeqTQomQMMqeFBF7UQirsrmZa/mRUsKsBQ2oVUaHF4Sx80Bsx2
+	vJi11RWfq82QHqSF+GlpXUQgtLirVTPYq7MK/AXsRJUPIuz9C0o1RMnPNlx5UOEVolT2x07muFF4e
+	m1eOdrygVZZzSQn0sqBuEIeXlYXCtalkMrbFKWV6Nrqg1VRqQsd3OgbXcSIgkU/jFeFEtsO68/U8Z
+	tYQVpSjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5O6D-00000003RVo-2O0K;
-	Wed, 25 Mar 2026 13:16:41 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1w5O79-00000003Rdb-06kz;
+	Wed, 25 Mar 2026 13:17:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5O6A-00000003RVL-3Dc9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 13:16:39 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-485317b6bd0so61945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 06:16:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774444597; x=1775049397; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dEAJKbeH8TFmmP9M//aSv092zDua7ieyLEIFGIIxFO4=;
-        b=sGflKcxArWFsFEXarLP4GZLdCkPSnh4Y4pXZagoBNAfX894RKuJX3o9U6n3ghlVzQK
-         bXx4y8O7y8f1YUdfopaAOn3PZ6O4VJrgOxA8p/2ZP3ylT17GTPWN5PFPmMjmytwIVv3R
-         DY6a6/o6zi7gte8Ci/KCq7Y/s9QyfI/DUyur8V2GPFbZcuKtcCyyB5Um9YarvfQMWooO
-         yuMnbZvbM+opS/n4/zQPQ/iZ8L1e1bT/Ab9i3dAR0x1zayJykEng76i7lFcmtb10HS/4
-         iaPLRb1sBTLATJdz8+91BGChnCo1ZUGHcicQRzN6ddoRp75VWz6RD/cFee/sq/aJBpaG
-         AS/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774444597; x=1775049397;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dEAJKbeH8TFmmP9M//aSv092zDua7ieyLEIFGIIxFO4=;
-        b=QFBntzoQ3Gxk2S/IQvOTCmqkcFZo4BOXaah7yjTv1wN25Za4Po8q3n8ImVJ19uR0X+
-         OkPS3IA08z94uUOa0kZhdqQxpinVoILB0r4nPmUFj3fotwgH2R+QorDSselyA4+bee6T
-         Fo9CItNxpxkr+I+mQyddnOUtX5E3i6fMOmrTO505bmUAqIZAc9DlbY3vvZmodZTuAq5q
-         9iC4Fd8OYz9W9XeC3D6kJgLDIpPJ4fyR0AKOYhftQt4qA7vSuyc+aY3kEPRvhSzLH5zf
-         vQeZttx0jctVhA9XmJCad5aQ5cp/McwA3rubcYH1r+qdp6Bu72HLZYDQrTWS2BT1a96w
-         Wf+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXn2Zfjg1Lv+g3GSLihVxLmQBn38UKgXv+8smqzaE869F5DQDHRsTSL42zGd3f8iQ03tZrc41zt9qMzhipqNq12@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3mPAW21zsz/oYA2qMoxU2Xjkrkf3imnlq9Hbs8NpuDHqfDM8F
-	d9AKGY/eFBErGnmfooM7qGzIn5AvuWKXWiwbWtNI607Mw/SiJEufh0J/tajWXlDXpA==
-X-Gm-Gg: ATEYQzw5r4GXRsBpAT/Z9ajvw7AmLoPkgljcXMI2KUUd/O0CIRdsLyfoL3CL3zP/1xg
-	YNrde3NoasUQYonVgPmsUg2b18K5b4aw2ZmLhO7YUDRAGVnEcaOuFwV3wNyM/X8u1iAe7FSvK2V
-	96OI3TMDZSNoPK7OIpYg8uBrvvo+lXINEX5k6B3UCMM/b/ozR5jjDQ/OVcfgRfO2/3VSMV5o+DC
-	7U5uI86MAMdYStsGj4WzD/TLYPtNkZ6oovCMVUXFsnRwH9AazwgwGiUgcRq6pKNY5CYFplPSr7L
-	n/E/4MZkjem9k4bqVoizJjA+ZEOWQrh9WrFEF/sL2ePQmLU0qMcB4rmfD4V5cj4VYZepDrpq40N
-	qSD+OoKmX5dCZcuygxsHXg1IAAHWgkU5sRnoHGfj/odjwy3FgW+cNfoXRlq3z+q4n09zWZinm85
-	J/W4bnoG87OuzDaQBveD/Rz7cYS5drDyL50FM4LGZFEGRC1L1dRRCfPjk5KGzAYsOhG7E=
-X-Received: by 2002:a05:600c:2d55:b0:47d:1e65:e841 with SMTP id 5b1f17b1804b1-48717896acamr410875e9.9.1774444596300;
-        Wed, 25 Mar 2026 06:16:36 -0700 (PDT)
-Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b87f80976sm9851996f8f.4.2026.03.25.06.16.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 06:16:35 -0700 (PDT)
-Date: Wed, 25 Mar 2026 13:16:32 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Vincent Donnefort <vdonnefort@google.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, catalin.marinas@arm.com, joey.gouly@arm.com,
-	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
-	suzuki.poulose@arm.com, will@kernel.org, yuzenghui@huawei.com
-Subject: Re: [PATCH v2] KVM: arm64: Prevent the host from using an smc with
- imm16 != 0
-Message-ID: <acPgMCuBX52LfnAH@google.com>
-References: <20260325113138.4171430-1-sebastianene@google.com>
- <acPIdoA8oc7T8wKX@google.com>
- <acPJ3Z9hDKc0Sm2t@google.com>
- <CA+EHjTzeRiUvhDwAExpscWJfPNoRujeRAJ5dEDV4SMpOJK1K6A@mail.gmail.com>
+	id 1w5O75-00000003Rbq-3XbJ;
+	Wed, 25 Mar 2026 13:17:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774444653;
+	bh=N+M/FU0OxOJkgfkXzGnyCvQNz8xOMwseVfYpfW0YPOw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=DjAR0AmbSX7gU+xvfJiG2kJbBcf+NqJ0Y6T7JLlsLlzx6TA7GBDME2nY2rerUoZ6v
+	 tRaMZ6XB8YS6MSG3+9IaT2eB/4voVQGE7AC0k5sp7bWSpqoigG+tgxp7yxRCpF8J3/
+	 VQ7oC4N1P8tdO7UoAO56yT053Vk02UCfEbr9mOoIClGe+/GSz5ep8jJSCQwS6Kl2im
+	 DmrV9UntqOd9aMuW0WhHfegdfvdh4MG0ea92FeNpO/BIZOxgoG5htfyLO0xoW//HoM
+	 XO/vHEKuP6O3JUpu/2sTlX+5vIGiTeEznDoYQoJhXOJcp79W9vAl/IlbKP/Bcz5rOd
+	 n3pzQZ/idon3Q==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:5bd7:b5b9:ee7f:b609])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B487F17E5A4D;
+	Wed, 25 Mar 2026 14:17:32 +0100 (CET)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	heiko@sntech.de
+Cc: linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v2] media: verisilicon: Simplify motion vectors and rfc buffers allocation
+Date: Wed, 25 Mar 2026 14:17:27 +0100
+Message-ID: <20260325131727.13575-1-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTzeRiUvhDwAExpscWJfPNoRujeRAJ5dEDV4SMpOJK1K6A@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_061638_825970_7E50C956 
-X-CRM114-Status: GOOD (  32.61  )
+X-CRM114-CacheID: sfid-20260325_061736_186897_6A79842A 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,80 +77,887 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:16:17PM +0000, Fuad Tabba wrote:
-> On Wed, 25 Mar 2026 at 11:41, Sebastian Ene <sebastianene@google.com> wrote:
-> >
-> > On Wed, Mar 25, 2026 at 11:35:18AM +0000, Vincent Donnefort wrote:
-> > > On Wed, Mar 25, 2026 at 11:31:38AM +0000, Sebastian Ene wrote:
-> > > > The ARM Service Calling Convention (SMCCC) specifies that the function
-> > > > identifier and parameters should be passed in registers, leaving the
-> > > > 16-bit immediate field of the SMC instruction un-handled.
-> > > > Currently, our pKVM handler ignores the immediate value, which could lead
-> > > > to non-compliant software relying on implementation-defined behavior.
-> > > > Enforce the host kernel running under pKVM to use an immediate value
-> > > > of 0 by decoding the ISS from the ESR_EL2 and return a not supported
-> > > > error code back to the caller.
-> > > >
-> > > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > > > ---
-> > > > v1 -> v2:
-> > > >
-> > > >  - Dropped injecting an UNDEF and return an error instead
-> > > >    (SMCCC_RET_NOT_SUPPORTED)
-> > > >  - Used the mask ESR_ELx_xVC_IMM_MASK instead of masking with U16_MAX
-> > > >  - Updated the title of the commit message from:
-> > > >    "[PATCH] KVM: arm64: Inject UNDEF when host is executing an
-> > > >     smc with imm16 != 0
-> > >
-> > > > ---
-> > > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 6 ++++++
-> > > >  1 file changed, 6 insertions(+)
-> > > >
-> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > index e7790097db93..4ffe30fd8707 100644
-> > > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > @@ -762,6 +762,12 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
-> > > >             handle_host_hcall(host_ctxt);
-> > > >             break;
-> > > >     case ESR_ELx_EC_SMC64:
-> > > > +           if (ESR_ELx_xVC_IMM_MASK & esr) {
-> > > > +                   cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
-> > > > +                   kvm_skip_host_instr();
-> > > > +                   break;
-> > > > +           }
-> > > > +
-> > >
-> > > I wonder if it isn't better to move that into handle_host_smc() as this is part
-> > > of how we handle the SMC after all? (and it calls that kvm_skip_host_instr()
-> > > already)
-> > >
-> >
-> > I was thinking of doing that as well but I prefer this since we don't
-> > have to look again at the esr in the callee.
-> 
-> This is a non-trivial amount of code to have in a switch. Can you
-> please put it in a helper?
+Until now we reserve the space needed for motion vectors and reference
+frame compression at the end of the frame buffer.
+This patch disentanglement mv and rfc from frame buffers by allocating
+distinct buffers for each purpose.
+That simplify the code by removing lot of offset computation.
 
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+---
+version 2:
+- rework commit message
+- free mv and rfc buffer before signal the buffer completion.
 
-Hey Fuad,
+ drivers/media/platform/verisilicon/hantro.h   |  17 +-
+ .../media/platform/verisilicon/hantro_av1.c   |   7 -
+ .../media/platform/verisilicon/hantro_av1.h   |   1 -
+ .../media/platform/verisilicon/hantro_g2.c    |  36 --
+ .../platform/verisilicon/hantro_g2_hevc_dec.c |  24 +-
+ .../platform/verisilicon/hantro_g2_vp9_dec.c  |  12 +-
+ .../media/platform/verisilicon/hantro_hevc.c  |  20 +-
+ .../media/platform/verisilicon/hantro_hw.h    |  99 +-----
+ .../platform/verisilicon/hantro_postproc.c    |  29 +-
+ .../media/platform/verisilicon/hantro_v4l2.c  | 314 ++++++++++++++++--
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c  |  16 +-
+ 11 files changed, 359 insertions(+), 216 deletions(-)
 
-I will move it as part of the handle_host_smc(..) as suggested by other
-comment.
+diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
+index 0353de154a1e..c4ceb9c99016 100644
+--- a/drivers/media/platform/verisilicon/hantro.h
++++ b/drivers/media/platform/verisilicon/hantro.h
+@@ -31,6 +31,9 @@ struct hantro_ctx;
+ struct hantro_codec_ops;
+ struct hantro_postproc_ops;
+ 
++#define MAX_MV_BUFFERS	MAX_POSTPROC_BUFFERS
++#define MAX_RFC_BUFFERS	MAX_POSTPROC_BUFFERS
++
+ #define HANTRO_JPEG_ENCODER	BIT(0)
+ #define HANTRO_ENCODERS		0x0000ffff
+ #define HANTRO_MPEG2_DECODER	BIT(16)
+@@ -237,6 +240,9 @@ struct hantro_dev {
+  * @need_postproc:	Set to true if the bitstream features require to
+  *			use the post-processor.
+  *
++ * @dec_mv:		motion vectors buffers for the context.
++ * @dec_rfc:		reference frame compression buffers for the context.
++ *
+  * @codec_ops:		Set of operations related to codec mode.
+  * @postproc:		Post-processing context.
+  * @h264_dec:		H.264-decoding context.
+@@ -264,6 +270,9 @@ struct hantro_ctx {
+ 	int jpeg_quality;
+ 	int bit_depth;
+ 
++	struct hantro_aux_buf dec_mv[MAX_MV_BUFFERS];
++	struct hantro_aux_buf dec_rfc[MAX_RFC_BUFFERS];
++
+ 	const struct hantro_codec_ops *codec_ops;
+ 	struct hantro_postproc_ctx postproc;
+ 	bool need_postproc;
+@@ -334,14 +343,14 @@ struct hantro_vp9_decoded_buffer_info {
+ 	unsigned short width;
+ 	unsigned short height;
+ 	size_t chroma_offset;
+-	size_t mv_offset;
++	dma_addr_t mv_addr;
+ 	u32 bit_depth : 4;
+ };
+ 
+ struct hantro_av1_decoded_buffer_info {
+ 	/* Info needed when the decoded frame serves as a reference frame. */
+ 	size_t chroma_offset;
+-	size_t mv_offset;
++	dma_addr_t mv_addr;
+ };
+ 
+ struct hantro_decoded_buffer {
+@@ -507,4 +516,8 @@ void hantro_postproc_free(struct hantro_ctx *ctx);
+ int hanto_postproc_enum_framesizes(struct hantro_ctx *ctx,
+ 				   struct v4l2_frmsizeenum *fsize);
+ 
++dma_addr_t hantro_mv_get_buf_addr(struct hantro_ctx *ctx, int index);
++dma_addr_t hantro_rfc_get_luma_buf_addr(struct hantro_ctx *ctx, int index);
++dma_addr_t hantro_rfc_get_chroma_buf_addr(struct hantro_ctx *ctx, int index);
++
+ #endif /* HANTRO_H_ */
+diff --git a/drivers/media/platform/verisilicon/hantro_av1.c b/drivers/media/platform/verisilicon/hantro_av1.c
+index 5a51ac877c9c..3a80a7994f67 100644
+--- a/drivers/media/platform/verisilicon/hantro_av1.c
++++ b/drivers/media/platform/verisilicon/hantro_av1.c
+@@ -222,13 +222,6 @@ size_t hantro_av1_luma_size(struct hantro_ctx *ctx)
+ 	return ctx->ref_fmt.plane_fmt[0].bytesperline * ctx->ref_fmt.height;
+ }
+ 
+-size_t hantro_av1_chroma_size(struct hantro_ctx *ctx)
+-{
+-	size_t cr_offset = hantro_av1_luma_size(ctx);
+-
+-	return ALIGN((cr_offset * 3) / 2, 64);
+-}
+-
+ static void hantro_av1_tiles_free(struct hantro_ctx *ctx)
+ {
+ 	struct hantro_dev *vpu = ctx->dev;
+diff --git a/drivers/media/platform/verisilicon/hantro_av1.h b/drivers/media/platform/verisilicon/hantro_av1.h
+index 4e2122b95cdd..330f7938d097 100644
+--- a/drivers/media/platform/verisilicon/hantro_av1.h
++++ b/drivers/media/platform/verisilicon/hantro_av1.h
+@@ -41,7 +41,6 @@ int hantro_av1_get_order_hint(struct hantro_ctx *ctx, int ref);
+ int hantro_av1_frame_ref(struct hantro_ctx *ctx, u64 timestamp);
+ void hantro_av1_clean_refs(struct hantro_ctx *ctx);
+ size_t hantro_av1_luma_size(struct hantro_ctx *ctx);
+-size_t hantro_av1_chroma_size(struct hantro_ctx *ctx);
+ void hantro_av1_exit(struct hantro_ctx *ctx);
+ int hantro_av1_init(struct hantro_ctx *ctx);
+ int hantro_av1_prepare_run(struct hantro_ctx *ctx);
+diff --git a/drivers/media/platform/verisilicon/hantro_g2.c b/drivers/media/platform/verisilicon/hantro_g2.c
+index 318673b66da8..4ae7df53dcb1 100644
+--- a/drivers/media/platform/verisilicon/hantro_g2.c
++++ b/drivers/media/platform/verisilicon/hantro_g2.c
+@@ -99,39 +99,3 @@ size_t hantro_g2_chroma_offset(struct hantro_ctx *ctx)
+ {
+ 	return ctx->ref_fmt.plane_fmt[0].bytesperline *	ctx->ref_fmt.height;
+ }
+-
+-size_t hantro_g2_motion_vectors_offset(struct hantro_ctx *ctx)
+-{
+-	size_t cr_offset = hantro_g2_chroma_offset(ctx);
+-
+-	return ALIGN((cr_offset * 3) / 2, G2_ALIGN);
+-}
+-
+-static size_t hantro_g2_mv_size(struct hantro_ctx *ctx)
+-{
+-	const struct hantro_hevc_dec_ctrls *ctrls = &ctx->hevc_dec.ctrls;
+-	const struct v4l2_ctrl_hevc_sps *sps = ctrls->sps;
+-	unsigned int pic_width_in_ctbs, pic_height_in_ctbs;
+-	unsigned int max_log2_ctb_size;
+-
+-	max_log2_ctb_size = sps->log2_min_luma_coding_block_size_minus3 + 3 +
+-			    sps->log2_diff_max_min_luma_coding_block_size;
+-	pic_width_in_ctbs = (sps->pic_width_in_luma_samples +
+-			    (1 << max_log2_ctb_size) - 1) >> max_log2_ctb_size;
+-	pic_height_in_ctbs = (sps->pic_height_in_luma_samples + (1 << max_log2_ctb_size) - 1)
+-			     >> max_log2_ctb_size;
+-
+-	return pic_width_in_ctbs * pic_height_in_ctbs * (1 << (2 * (max_log2_ctb_size - 4))) * 16;
+-}
+-
+-size_t hantro_g2_luma_compress_offset(struct hantro_ctx *ctx)
+-{
+-	return hantro_g2_motion_vectors_offset(ctx) +
+-	       hantro_g2_mv_size(ctx);
+-}
+-
+-size_t hantro_g2_chroma_compress_offset(struct hantro_ctx *ctx)
+-{
+-	return hantro_g2_luma_compress_offset(ctx) +
+-	       hantro_hevc_luma_compressed_size(ctx->dst_fmt.width, ctx->dst_fmt.height);
+-}
+diff --git a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+index e8c2e83379de..d0af9fb882ba 100644
+--- a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+@@ -383,9 +383,6 @@ static int set_ref(struct hantro_ctx *ctx)
+ 	struct vb2_v4l2_buffer *vb2_dst;
+ 	struct hantro_decoded_buffer *dst;
+ 	size_t cr_offset = hantro_g2_chroma_offset(ctx);
+-	size_t mv_offset = hantro_g2_motion_vectors_offset(ctx);
+-	size_t compress_luma_offset = hantro_g2_luma_compress_offset(ctx);
+-	size_t compress_chroma_offset = hantro_g2_chroma_compress_offset(ctx);
+ 	u32 max_ref_frames;
+ 	u16 dpb_longterm_e;
+ 	static const struct hantro_reg cur_poc[] = {
+@@ -453,14 +450,17 @@ static int set_ref(struct hantro_ctx *ctx)
+ 	dpb_longterm_e = 0;
+ 	for (i = 0; i < decode_params->num_active_dpb_entries &&
+ 	     i < (V4L2_HEVC_DPB_ENTRIES_NUM_MAX - 1); i++) {
++		int index = hantro_hevc_get_ref_buf_index(ctx, dpb[i].pic_order_cnt_val);
+ 		luma_addr = hantro_hevc_get_ref_buf(ctx, dpb[i].pic_order_cnt_val);
+ 		if (!luma_addr)
+ 			return -ENOMEM;
+ 
+ 		chroma_addr = luma_addr + cr_offset;
+-		mv_addr = luma_addr + mv_offset;
+-		compress_luma_addr = luma_addr + compress_luma_offset;
+-		compress_chroma_addr = luma_addr + compress_chroma_offset;
++		mv_addr = hantro_mv_get_buf_addr(ctx, index);
++		if (ctx->hevc_dec.use_compression) {
++			compress_luma_addr = hantro_rfc_get_luma_buf_addr(ctx, index);
++			compress_chroma_addr = hantro_rfc_get_chroma_buf_addr(ctx, index);
++		}
+ 
+ 		if (dpb[i].flags & V4L2_HEVC_DPB_ENTRY_LONG_TERM_REFERENCE)
+ 			dpb_longterm_e |= BIT(V4L2_HEVC_DPB_ENTRIES_NUM_MAX - 1 - i);
+@@ -478,13 +478,17 @@ static int set_ref(struct hantro_ctx *ctx)
+ 	if (!luma_addr)
+ 		return -ENOMEM;
+ 
+-	if (hantro_hevc_add_ref_buf(ctx, decode_params->pic_order_cnt_val, luma_addr))
++	if (hantro_hevc_add_ref_buf(ctx, decode_params->pic_order_cnt_val, luma_addr, vb2_dst))
+ 		return -EINVAL;
+ 
+ 	chroma_addr = luma_addr + cr_offset;
+-	mv_addr = luma_addr + mv_offset;
+-	compress_luma_addr = luma_addr + compress_luma_offset;
+-	compress_chroma_addr = luma_addr + compress_chroma_offset;
++	mv_addr = hantro_mv_get_buf_addr(ctx, dst->base.vb.vb2_buf.index);
++	if (ctx->hevc_dec.use_compression) {
++		compress_luma_addr =
++			hantro_rfc_get_luma_buf_addr(ctx, dst->base.vb.vb2_buf.index);
++		compress_chroma_addr =
++			hantro_rfc_get_chroma_buf_addr(ctx, dst->base.vb.vb2_buf.index);
++	}
+ 
+ 	hantro_write_addr(vpu, G2_REF_LUMA_ADDR(i), luma_addr);
+ 	hantro_write_addr(vpu, G2_REF_CHROMA_ADDR(i), chroma_addr);
+diff --git a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+index 56c79e339030..1e96d0fce72a 100644
+--- a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+@@ -129,7 +129,7 @@ static void config_output(struct hantro_ctx *ctx,
+ 			  struct hantro_decoded_buffer *dst,
+ 			  const struct v4l2_ctrl_vp9_frame *dec_params)
+ {
+-	dma_addr_t luma_addr, chroma_addr, mv_addr;
++	dma_addr_t luma_addr, chroma_addr;
+ 
+ 	hantro_reg_write(ctx->dev, &g2_out_dis, 0);
+ 	if (!ctx->dev->variant->legacy_regs)
+@@ -142,9 +142,8 @@ static void config_output(struct hantro_ctx *ctx,
+ 	hantro_write_addr(ctx->dev, G2_OUT_CHROMA_ADDR, chroma_addr);
+ 	dst->vp9.chroma_offset = hantro_g2_chroma_offset(ctx);
+ 
+-	mv_addr = luma_addr + hantro_g2_motion_vectors_offset(ctx);
+-	hantro_write_addr(ctx->dev, G2_OUT_MV_ADDR, mv_addr);
+-	dst->vp9.mv_offset = hantro_g2_motion_vectors_offset(ctx);
++	dst->vp9.mv_addr = hantro_mv_get_buf_addr(ctx, dst->base.vb.vb2_buf.index);
++	hantro_write_addr(ctx->dev, G2_OUT_MV_ADDR, dst->vp9.mv_addr);
+ }
+ 
+ struct hantro_vp9_ref_reg {
+@@ -215,15 +214,12 @@ static void config_ref_registers(struct hantro_ctx *ctx,
+ 			.c_base = G2_REF_CHROMA_ADDR(5),
+ 		},
+ 	};
+-	dma_addr_t mv_addr;
+ 
+ 	config_ref(ctx, dst, &ref_regs[0], dec_params, dec_params->last_frame_ts);
+ 	config_ref(ctx, dst, &ref_regs[1], dec_params, dec_params->golden_frame_ts);
+ 	config_ref(ctx, dst, &ref_regs[2], dec_params, dec_params->alt_frame_ts);
+ 
+-	mv_addr = hantro_get_dec_buf_addr(ctx, &mv_ref->base.vb.vb2_buf) +
+-		  mv_ref->vp9.mv_offset;
+-	hantro_write_addr(ctx->dev, G2_REF_MV_ADDR(0), mv_addr);
++	hantro_write_addr(ctx->dev, G2_REF_MV_ADDR(0), mv_ref->vp9.mv_addr);
+ 
+ 	hantro_reg_write(ctx->dev, &vp9_last_sign_bias,
+ 			 dec_params->ref_frame_sign_bias & V4L2_VP9_SIGN_BIAS_LAST ? 1 : 0);
+diff --git a/drivers/media/platform/verisilicon/hantro_hevc.c b/drivers/media/platform/verisilicon/hantro_hevc.c
+index 83cd12b0ddd6..272ce336b1c6 100644
+--- a/drivers/media/platform/verisilicon/hantro_hevc.c
++++ b/drivers/media/platform/verisilicon/hantro_hevc.c
+@@ -54,7 +54,24 @@ dma_addr_t hantro_hevc_get_ref_buf(struct hantro_ctx *ctx,
+ 	return 0;
+ }
+ 
+-int hantro_hevc_add_ref_buf(struct hantro_ctx *ctx, int poc, dma_addr_t addr)
++int hantro_hevc_get_ref_buf_index(struct hantro_ctx *ctx, s32 poc)
++{
++	struct hantro_hevc_dec_hw_ctx *hevc_dec = &ctx->hevc_dec;
++	int i;
++
++	/* Find the reference buffer in already known ones */
++	for (i = 0;  i < NUM_REF_PICTURES; i++) {
++		if (hevc_dec->ref_bufs_poc[i] == poc)
++			return hevc_dec->ref_vb2[i]->vb2_buf.index;
++	}
++
++	return 0;
++}
++
++int hantro_hevc_add_ref_buf(struct hantro_ctx *ctx,
++			    int poc,
++			    dma_addr_t addr,
++			    struct vb2_v4l2_buffer *vb2)
+ {
+ 	struct hantro_hevc_dec_hw_ctx *hevc_dec = &ctx->hevc_dec;
+ 	int i;
+@@ -65,6 +82,7 @@ int hantro_hevc_add_ref_buf(struct hantro_ctx *ctx, int poc, dma_addr_t addr)
+ 			hevc_dec->ref_bufs_used |= 1 << i;
+ 			hevc_dec->ref_bufs_poc[i] = poc;
+ 			hevc_dec->ref_bufs[i].dma = addr;
++			hevc_dec->ref_vb2[i] = vb2;
+ 			return 0;
+ 		}
+ 	}
+diff --git a/drivers/media/platform/verisilicon/hantro_hw.h b/drivers/media/platform/verisilicon/hantro_hw.h
+index f0e4bca4b2b2..6a1ee9899b60 100644
+--- a/drivers/media/platform/verisilicon/hantro_hw.h
++++ b/drivers/media/platform/verisilicon/hantro_hw.h
+@@ -162,6 +162,7 @@ struct hantro_hevc_dec_hw_ctx {
+ 	struct hantro_aux_buf scaling_lists;
+ 	s32 ref_bufs_poc[NUM_REF_PICTURES];
+ 	u32 ref_bufs_used;
++	struct vb2_v4l2_buffer *ref_vb2[NUM_REF_PICTURES];
+ 	struct hantro_hevc_dec_ctrls ctrls;
+ 	unsigned int num_tile_cols_allocated;
+ 	bool use_compression;
+@@ -457,7 +458,10 @@ int hantro_g2_hevc_dec_run(struct hantro_ctx *ctx);
+ int hantro_hevc_dec_prepare_run(struct hantro_ctx *ctx);
+ void hantro_hevc_ref_init(struct hantro_ctx *ctx);
+ dma_addr_t hantro_hevc_get_ref_buf(struct hantro_ctx *ctx, s32 poc);
+-int hantro_hevc_add_ref_buf(struct hantro_ctx *ctx, int poc, dma_addr_t addr);
++int hantro_hevc_add_ref_buf(struct hantro_ctx *ctx, int poc,
++			    dma_addr_t addr,
++			    struct vb2_v4l2_buffer *vb2);
++int hantro_hevc_get_ref_buf_index(struct hantro_ctx *ctx, s32 poc);
+ 
+ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx);
+ void rockchip_vpu981_av1_dec_exit(struct hantro_ctx *ctx);
+@@ -469,100 +473,7 @@ static inline unsigned short hantro_vp9_num_sbs(unsigned short dimension)
+ 	return (dimension + 63) / 64;
+ }
+ 
+-static inline size_t
+-hantro_vp9_mv_size(unsigned int width, unsigned int height)
+-{
+-	int num_ctbs;
+-
+-	/*
+-	 * There can be up to (CTBs x 64) number of blocks,
+-	 * and the motion vector for each block needs 16 bytes.
+-	 */
+-	num_ctbs = hantro_vp9_num_sbs(width) * hantro_vp9_num_sbs(height);
+-	return (num_ctbs * 64) * 16;
+-}
+-
+-static inline size_t
+-hantro_h264_mv_size(unsigned int width, unsigned int height)
+-{
+-	/*
+-	 * A decoded 8-bit 4:2:0 NV12 frame may need memory for up to
+-	 * 448 bytes per macroblock with additional 32 bytes on
+-	 * multi-core variants.
+-	 *
+-	 * The H264 decoder needs extra space on the output buffers
+-	 * to store motion vectors. This is needed for reference
+-	 * frames and only if the format is non-post-processed NV12.
+-	 *
+-	 * Memory layout is as follow:
+-	 *
+-	 * +---------------------------+
+-	 * | Y-plane   256 bytes x MBs |
+-	 * +---------------------------+
+-	 * | UV-plane  128 bytes x MBs |
+-	 * +---------------------------+
+-	 * | MV buffer  64 bytes x MBs |
+-	 * +---------------------------+
+-	 * | MC sync          32 bytes |
+-	 * +---------------------------+
+-	 */
+-	return 64 * MB_WIDTH(width) * MB_WIDTH(height) + 32;
+-}
+-
+-static inline size_t
+-hantro_hevc_mv_size(unsigned int width, unsigned int height)
+-{
+-	/*
+-	 * A CTB can be 64x64, 32x32 or 16x16.
+-	 * Allocated memory for the "worse" case: 16x16
+-	 */
+-	return width * height / 16;
+-}
+-
+-static inline size_t
+-hantro_hevc_luma_compressed_size(unsigned int width, unsigned int height)
+-{
+-	u32 pic_width_in_cbsy =
+-		round_up((width + CBS_LUMA - 1) / CBS_LUMA, CBS_SIZE);
+-	u32 pic_height_in_cbsy = (height + CBS_LUMA - 1) / CBS_LUMA;
+-
+-	return round_up(pic_width_in_cbsy * pic_height_in_cbsy, CBS_SIZE);
+-}
+-
+-static inline size_t
+-hantro_hevc_chroma_compressed_size(unsigned int width, unsigned int height)
+-{
+-	u32 pic_width_in_cbsc =
+-		round_up((width + CBS_CHROMA_W - 1) / CBS_CHROMA_W, CBS_SIZE);
+-	u32 pic_height_in_cbsc = (height / 2 + CBS_CHROMA_H - 1) / CBS_CHROMA_H;
+-
+-	return round_up(pic_width_in_cbsc * pic_height_in_cbsc, CBS_SIZE);
+-}
+-
+-static inline size_t
+-hantro_hevc_compressed_size(unsigned int width, unsigned int height)
+-{
+-	return hantro_hevc_luma_compressed_size(width, height) +
+-	       hantro_hevc_chroma_compressed_size(width, height);
+-}
+-
+-static inline unsigned short hantro_av1_num_sbs(unsigned short dimension)
+-{
+-	return DIV_ROUND_UP(dimension, 64);
+-}
+-
+-static inline size_t
+-hantro_av1_mv_size(unsigned int width, unsigned int height)
+-{
+-	size_t num_sbs = hantro_av1_num_sbs(width) * hantro_av1_num_sbs(height);
+-
+-	return ALIGN(num_sbs * 384, 16) * 2 + 512;
+-}
+-
+ size_t hantro_g2_chroma_offset(struct hantro_ctx *ctx);
+-size_t hantro_g2_motion_vectors_offset(struct hantro_ctx *ctx);
+-size_t hantro_g2_luma_compress_offset(struct hantro_ctx *ctx);
+-size_t hantro_g2_chroma_compress_offset(struct hantro_ctx *ctx);
+ 
+ int hantro_g1_mpeg2_dec_run(struct hantro_ctx *ctx);
+ int rockchip_vpu2_mpeg2_dec_run(struct hantro_ctx *ctx);
+diff --git a/drivers/media/platform/verisilicon/hantro_postproc.c b/drivers/media/platform/verisilicon/hantro_postproc.c
+index e94d1ba5ef10..2409353c16e4 100644
+--- a/drivers/media/platform/verisilicon/hantro_postproc.c
++++ b/drivers/media/platform/verisilicon/hantro_postproc.c
+@@ -196,36 +196,11 @@ void hantro_postproc_free(struct hantro_ctx *ctx)
+ 	}
+ }
+ 
+-static unsigned int hantro_postproc_buffer_size(struct hantro_ctx *ctx)
+-{
+-	unsigned int buf_size;
+-
+-	buf_size = ctx->ref_fmt.plane_fmt[0].sizeimage;
+-	if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_H264_SLICE)
+-		buf_size += hantro_h264_mv_size(ctx->ref_fmt.width,
+-						ctx->ref_fmt.height);
+-	else if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_VP9_FRAME)
+-		buf_size += hantro_vp9_mv_size(ctx->ref_fmt.width,
+-					       ctx->ref_fmt.height);
+-	else if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_HEVC_SLICE) {
+-		buf_size += hantro_hevc_mv_size(ctx->ref_fmt.width,
+-						ctx->ref_fmt.height);
+-		if (ctx->hevc_dec.use_compression)
+-			buf_size += hantro_hevc_compressed_size(ctx->ref_fmt.width,
+-								ctx->ref_fmt.height);
+-	}
+-	else if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_AV1_FRAME)
+-		buf_size += hantro_av1_mv_size(ctx->ref_fmt.width,
+-					       ctx->ref_fmt.height);
+-
+-	return buf_size;
+-}
+-
+ static int hantro_postproc_alloc(struct hantro_ctx *ctx, int index)
+ {
+ 	struct hantro_dev *vpu = ctx->dev;
+ 	struct hantro_aux_buf *priv = &ctx->postproc.dec_q[index];
+-	unsigned int buf_size = hantro_postproc_buffer_size(ctx);
++	unsigned int buf_size = ctx->ref_fmt.plane_fmt[0].sizeimage;
+ 
+ 	if (!buf_size)
+ 		return -EINVAL;
+@@ -267,7 +242,7 @@ dma_addr_t
+ hantro_postproc_get_dec_buf_addr(struct hantro_ctx *ctx, int index)
+ {
+ 	struct hantro_aux_buf *priv = &ctx->postproc.dec_q[index];
+-	unsigned int buf_size = hantro_postproc_buffer_size(ctx);
++	unsigned int buf_size = ctx->ref_fmt.plane_fmt[0].sizeimage;
+ 	struct hantro_dev *vpu = ctx->dev;
+ 	int ret;
+ 
+diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
+index fcf3bd9bcda2..f8d4dd518368 100644
+--- a/drivers/media/platform/verisilicon/hantro_v4l2.c
++++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+@@ -36,6 +36,9 @@ static int hantro_set_fmt_out(struct hantro_ctx *ctx,
+ static int hantro_set_fmt_cap(struct hantro_ctx *ctx,
+ 			      struct v4l2_pix_format_mplane *pix_mp);
+ 
++static void hantro_mv_free(struct hantro_ctx *ctx);
++static void hantro_rfc_free(struct hantro_ctx *ctx);
++
+ static const struct hantro_fmt *
+ hantro_get_formats(const struct hantro_ctx *ctx, unsigned int *num_fmts, bool need_postproc)
+ {
+@@ -362,26 +365,6 @@ static int hantro_try_fmt(const struct hantro_ctx *ctx,
+ 		/* Fill remaining fields */
+ 		v4l2_fill_pixfmt_mp(pix_mp, fmt->fourcc, pix_mp->width,
+ 				    pix_mp->height);
+-		if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_H264_SLICE &&
+-		    !hantro_needs_postproc(ctx, fmt))
+-			pix_mp->plane_fmt[0].sizeimage +=
+-				hantro_h264_mv_size(pix_mp->width,
+-						    pix_mp->height);
+-		else if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_VP9_FRAME &&
+-			 !hantro_needs_postproc(ctx, fmt))
+-			pix_mp->plane_fmt[0].sizeimage +=
+-				hantro_vp9_mv_size(pix_mp->width,
+-						   pix_mp->height);
+-		else if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_HEVC_SLICE &&
+-			 !hantro_needs_postproc(ctx, fmt))
+-			pix_mp->plane_fmt[0].sizeimage +=
+-				hantro_hevc_mv_size(pix_mp->width,
+-						    pix_mp->height);
+-		else if (ctx->vpu_src_fmt->fourcc == V4L2_PIX_FMT_AV1_FRAME &&
+-			 !hantro_needs_postproc(ctx, fmt))
+-			pix_mp->plane_fmt[0].sizeimage +=
+-				hantro_av1_mv_size(pix_mp->width,
+-						   pix_mp->height);
+ 	} else if (!pix_mp->plane_fmt[0].sizeimage) {
+ 		/*
+ 		 * For coded formats the application can specify
+@@ -984,6 +967,9 @@ static void hantro_stop_streaming(struct vb2_queue *q)
+ 			ctx->codec_ops->exit(ctx);
+ 	}
+ 
++	hantro_mv_free(ctx);
++	hantro_rfc_free(ctx);
++
+ 	/*
+ 	 * The mem2mem framework calls v4l2_m2m_cancel_job before
+ 	 * .stop_streaming, so there isn't any job running and
+@@ -1025,3 +1011,291 @@ const struct vb2_ops hantro_queue_ops = {
+ 	.start_streaming = hantro_start_streaming,
+ 	.stop_streaming = hantro_stop_streaming,
+ };
++
++static inline size_t
++hantro_vp9_mv_size(unsigned int width, unsigned int height)
++{
++	int num_ctbs;
++
++	/*
++	 * There can be up to (CTBs x 64) number of blocks,
++	 * and the motion vector for each block needs 16 bytes.
++	 */
++	num_ctbs = hantro_vp9_num_sbs(width) * hantro_vp9_num_sbs(height);
++	return (num_ctbs * 64) * 16;
++}
++
++static inline size_t
++hantro_h264_mv_size(unsigned int width, unsigned int height)
++{
++	/*
++	 * A decoded 8-bit 4:2:0 NV12 frame may need memory for up to
++	 * 448 bytes per macroblock with additional 32 bytes on
++	 * multi-core variants.
++	 *
++	 * The H264 decoder needs extra space on the output buffers
++	 * to store motion vectors. This is needed for reference
++	 * frames and only if the format is non-post-processed NV12.
++	 *
++	 * Memory layout is as follow:
++	 *
++	 * +---------------------------+
++	 * | Y-plane   256 bytes x MBs |
++	 * +---------------------------+
++	 * | UV-plane  128 bytes x MBs |
++	 * +---------------------------+
++	 * | MV buffer  64 bytes x MBs |
++	 * +---------------------------+
++	 * | MC sync          32 bytes |
++	 * +---------------------------+
++	 */
++	return 64 * MB_WIDTH(width) * MB_WIDTH(height) + 32;
++}
++
++static inline size_t
++hantro_hevc_mv_size(unsigned int width, unsigned int height, int depth)
++{
++	/*
++	 * A CTB can be 64x64, 32x32 or 16x16.
++	 * Allocated memory for the "worse" case: 16x16
++	 */
++	return DIV_ROUND_UP(width * height * depth / 8, 128);
++}
++
++static inline unsigned short hantro_av1_num_sbs(unsigned short dimension)
++{
++	return DIV_ROUND_UP(dimension, 64);
++}
++
++static inline size_t
++hantro_av1_mv_size(unsigned int width, unsigned int height)
++{
++	size_t num_sbs = hantro_av1_num_sbs(width) * hantro_av1_num_sbs(height);
++
++	return ALIGN(num_sbs * 384, 16) * 2 + 512;
++}
++
++static void hantro_mv_free(struct hantro_ctx *ctx)
++{
++	struct hantro_dev *vpu = ctx->dev;
++	int i;
++
++	for (i = 0; i < MAX_MV_BUFFERS; i++) {
++		struct hantro_aux_buf *mv = &ctx->dec_mv[i];
++
++		if (!mv->cpu)
++			continue;
++
++		dma_free_attrs(vpu->dev, mv->size, mv->cpu,
++			       mv->dma, mv->attrs);
++		mv->cpu = NULL;
++	}
++}
++
++static unsigned int hantro_mv_buffer_size(struct hantro_ctx *ctx)
++{
++	struct hantro_dev *vpu = ctx->dev;
++	int fourcc = ctx->vpu_src_fmt->fourcc;
++	int width = ctx->ref_fmt.width;
++	int height = ctx->ref_fmt.height;
++
++	switch (fourcc) {
++	case V4L2_PIX_FMT_H264_SLICE:
++		return hantro_h264_mv_size(width, height);
++	case V4L2_PIX_FMT_VP9_FRAME:
++		return hantro_vp9_mv_size(width, height);
++	case V4L2_PIX_FMT_HEVC_SLICE:
++		return hantro_hevc_mv_size(width, height, ctx->bit_depth);
++	case V4L2_PIX_FMT_AV1_FRAME:
++		return hantro_av1_mv_size(width, height);
++	}
++
++	/* Should not happen */
++	dev_warn(vpu->dev, "Invalid motion vectors size\n");
++	return 0;
++}
++
++static int hantro_mv_buffer_alloc(struct hantro_ctx *ctx, int index)
++{
++	struct hantro_dev *vpu = ctx->dev;
++	struct hantro_aux_buf *mv = &ctx->dec_mv[index];
++	unsigned int buf_size = hantro_mv_buffer_size(ctx);
++
++	if (!buf_size)
++		return -EINVAL;
++
++	/*
++	 * Motion vectors buffers are only read and write by the
++	 * hardware so no mapping is needed.
++	 */
++	mv->attrs = DMA_ATTR_NO_KERNEL_MAPPING;
++	mv->cpu = dma_alloc_attrs(vpu->dev, buf_size, &mv->dma,
++				  GFP_KERNEL, mv->attrs);
++	if (!mv->cpu)
++		return -ENOMEM;
++	mv->size = buf_size;
++
++	return 0;
++}
++
++dma_addr_t
++hantro_mv_get_buf_addr(struct hantro_ctx *ctx, int index)
++{
++	struct hantro_aux_buf *mv = &ctx->dec_mv[index];
++	unsigned int buf_size = hantro_mv_buffer_size(ctx);
++	struct hantro_dev *vpu = ctx->dev;
++	int ret;
++
++	if (mv->size < buf_size && mv->cpu) {
++		/* buffer is too small, release it */
++		dma_free_attrs(vpu->dev, mv->size, mv->cpu,
++			       mv->dma, mv->attrs);
++		mv->cpu = NULL;
++	}
++
++	if (!mv->cpu) {
++		/* buffer not already allocated, try getting a new one */
++		ret = hantro_mv_buffer_alloc(ctx, index);
++		if (ret)
++			return 0;
++	}
++
++	if (!mv->cpu)
++		return 0;
++
++	return mv->dma;
++}
++
++static inline size_t
++hantro_hevc_luma_compressed_size(unsigned int width, unsigned int height)
++{
++	u32 pic_width_in_cbsy =
++		round_up((width + CBS_LUMA - 1) / CBS_LUMA, CBS_SIZE);
++	u32 pic_height_in_cbsy = (height + CBS_LUMA - 1) / CBS_LUMA;
++
++	return round_up(pic_width_in_cbsy * pic_height_in_cbsy, CBS_SIZE);
++}
++
++static inline size_t
++hantro_hevc_chroma_compressed_size(unsigned int width, unsigned int height)
++{
++	u32 pic_width_in_cbsc =
++		round_up((width + CBS_CHROMA_W - 1) / CBS_CHROMA_W, CBS_SIZE);
++	u32 pic_height_in_cbsc = (height / 2 + CBS_CHROMA_H - 1) / CBS_CHROMA_H;
++
++	return round_up(pic_width_in_cbsc * pic_height_in_cbsc, CBS_SIZE);
++}
++
++static inline size_t
++hantro_hevc_compressed_size(unsigned int width, unsigned int height)
++{
++	return hantro_hevc_luma_compressed_size(width, height) +
++	       hantro_hevc_chroma_compressed_size(width, height);
++}
++
++static void hantro_rfc_free(struct hantro_ctx *ctx)
++{
++	struct hantro_dev *vpu = ctx->dev;
++	int i;
++
++	for (i = 0; i < MAX_MV_BUFFERS; i++) {
++		struct hantro_aux_buf *rfc = &ctx->dec_rfc[i];
++
++		if (!rfc->cpu)
++			continue;
++
++		dma_free_attrs(vpu->dev, rfc->size, rfc->cpu,
++			       rfc->dma, rfc->attrs);
++		rfc->cpu = NULL;
++	}
++}
++
++static unsigned int hantro_rfc_buffer_size(struct hantro_ctx *ctx)
++{
++	struct hantro_dev *vpu = ctx->dev;
++	int fourcc = ctx->vpu_src_fmt->fourcc;
++	int width = ctx->ref_fmt.width;
++	int height = ctx->ref_fmt.height;
++
++	switch (fourcc) {
++	case V4L2_PIX_FMT_HEVC_SLICE:
++		return hantro_hevc_compressed_size(width, height);
++	}
++
++	/* Should not happen */
++	dev_warn(vpu->dev, "Invalid rfc size\n");
++	return 0;
++}
++
++static int hantro_rfc_buffer_alloc(struct hantro_ctx *ctx, int index)
++{
++	struct hantro_dev *vpu = ctx->dev;
++	struct hantro_aux_buf *rfc = &ctx->dec_rfc[index];
++	unsigned int buf_size = hantro_rfc_buffer_size(ctx);
++
++	if (!buf_size)
++		return -EINVAL;
++
++	/*
++	 * RFC buffers are only read and write by the
++	 * hardware so no mapping is needed.
++	 */
++	rfc->attrs = DMA_ATTR_NO_KERNEL_MAPPING;
++	rfc->cpu = dma_alloc_attrs(vpu->dev, buf_size, &rfc->dma,
++				   GFP_KERNEL, rfc->attrs);
++	if (!rfc->cpu)
++		return -ENOMEM;
++	rfc->size = buf_size;
++
++	return 0;
++}
++
++dma_addr_t
++hantro_rfc_get_luma_buf_addr(struct hantro_ctx *ctx, int index)
++{
++	struct hantro_aux_buf *rfc = &ctx->dec_rfc[index];
++	unsigned int buf_size = hantro_rfc_buffer_size(ctx);
++	struct hantro_dev *vpu = ctx->dev;
++	int ret;
++
++	if (rfc->size < buf_size && rfc->cpu) {
++		/* buffer is too small, release it */
++		dma_free_attrs(vpu->dev, rfc->size, rfc->cpu,
++			       rfc->dma, rfc->attrs);
++		rfc->cpu = NULL;
++	}
++
++	if (!rfc->cpu) {
++		/* buffer not already allocated, try getting a new one */
++		ret = hantro_rfc_buffer_alloc(ctx, index);
++		if (ret)
++			return 0;
++	}
++
++	if (!rfc->cpu)
++		return 0;
++
++	return rfc->dma;
++}
++
++dma_addr_t
++hantro_rfc_get_chroma_buf_addr(struct hantro_ctx *ctx, int index)
++{
++	dma_addr_t luma_addr = hantro_rfc_get_luma_buf_addr(ctx, index);
++	struct hantro_dev *vpu = ctx->dev;
++	int fourcc = ctx->vpu_src_fmt->fourcc;
++	int width = ctx->ref_fmt.width;
++	int height = ctx->ref_fmt.height;
++
++	if (!luma_addr)
++		return -EINVAL;
++
++	switch (fourcc) {
++	case V4L2_PIX_FMT_HEVC_SLICE:
++		return luma_addr + hantro_hevc_luma_compressed_size(width, height);
++	}
++
++	/* Should not happen */
++	dev_warn(vpu->dev, "Invalid rfc chroma address\n");
++	return 0;
++}
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+index c1ada14df4c3..21da8ddfc4b3 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+@@ -62,7 +62,7 @@ rockchip_vpu981_av1_dec_set_ref(struct hantro_ctx *ctx, int ref, int idx,
+ 	const struct v4l2_ctrl_av1_frame *frame = ctrls->frame;
+ 	struct hantro_dev *vpu = ctx->dev;
+ 	struct hantro_decoded_buffer *dst;
+-	dma_addr_t luma_addr, chroma_addr, mv_addr = 0;
++	dma_addr_t luma_addr, chroma_addr = 0;
+ 	int cur_width = frame->frame_width_minus_1 + 1;
+ 	int cur_height = frame->frame_height_minus_1 + 1;
+ 	int scale_width =
+@@ -120,11 +120,10 @@ rockchip_vpu981_av1_dec_set_ref(struct hantro_ctx *ctx, int ref, int idx,
+ 	dst = vb2_to_hantro_decoded_buf(&av1_dec->frame_refs[idx].vb2_ref->vb2_buf);
+ 	luma_addr = hantro_get_dec_buf_addr(ctx, &dst->base.vb.vb2_buf);
+ 	chroma_addr = luma_addr + dst->av1.chroma_offset;
+-	mv_addr = luma_addr + dst->av1.mv_offset;
+ 
+ 	hantro_write_addr(vpu, AV1_REFERENCE_Y(ref), luma_addr);
+ 	hantro_write_addr(vpu, AV1_REFERENCE_CB(ref), chroma_addr);
+-	hantro_write_addr(vpu, AV1_REFERENCE_MV(ref), mv_addr);
++	hantro_write_addr(vpu, AV1_REFERENCE_MV(ref), dst->av1.mv_addr);
+ 
+ 	return (scale_width != (1 << AV1_REF_SCALE_SHIFT)) ||
+ 		(scale_height != (1 << AV1_REF_SCALE_SHIFT));
+@@ -180,11 +179,10 @@ static void rockchip_vpu981_av1_dec_set_segmentation(struct hantro_ctx *ctx)
+ 		if (idx >= 0) {
+ 			dma_addr_t luma_addr, mv_addr = 0;
+ 			struct hantro_decoded_buffer *seg;
+-			size_t mv_offset = hantro_av1_chroma_size(ctx);
+ 
+ 			seg = vb2_to_hantro_decoded_buf(&av1_dec->frame_refs[idx].vb2_ref->vb2_buf);
+ 			luma_addr = hantro_get_dec_buf_addr(ctx, &seg->base.vb.vb2_buf);
+-			mv_addr = luma_addr + mv_offset;
++			mv_addr = hantro_mv_get_buf_addr(ctx, seg->base.vb.vb2_buf.index);
+ 
+ 			hantro_write_addr(vpu, AV1_SEGMENTATION, mv_addr);
+ 			hantro_reg_write(vpu, &av1_use_temporal3_mvs, 1);
+@@ -1350,22 +1348,20 @@ rockchip_vpu981_av1_dec_set_output_buffer(struct hantro_ctx *ctx)
+ 	struct hantro_dev *vpu = ctx->dev;
+ 	struct hantro_decoded_buffer *dst;
+ 	struct vb2_v4l2_buffer *vb2_dst;
+-	dma_addr_t luma_addr, chroma_addr, mv_addr = 0;
++	dma_addr_t luma_addr, chroma_addr = 0;
+ 	size_t cr_offset = hantro_av1_luma_size(ctx);
+-	size_t mv_offset = hantro_av1_chroma_size(ctx);
+ 
+ 	vb2_dst = av1_dec->frame_refs[av1_dec->current_frame_index].vb2_ref;
+ 	dst = vb2_to_hantro_decoded_buf(&vb2_dst->vb2_buf);
+ 	luma_addr = hantro_get_dec_buf_addr(ctx, &dst->base.vb.vb2_buf);
+ 	chroma_addr = luma_addr + cr_offset;
+-	mv_addr = luma_addr + mv_offset;
+ 
+ 	dst->av1.chroma_offset = cr_offset;
+-	dst->av1.mv_offset = mv_offset;
++	dst->av1.mv_addr = hantro_mv_get_buf_addr(ctx, dst->base.vb.vb2_buf.index);
+ 
+ 	hantro_write_addr(vpu, AV1_TILE_OUT_LU, luma_addr);
+ 	hantro_write_addr(vpu, AV1_TILE_OUT_CH, chroma_addr);
+-	hantro_write_addr(vpu, AV1_TILE_OUT_MV, mv_addr);
++	hantro_write_addr(vpu, AV1_TILE_OUT_MV, dst->av1.mv_addr);
+ }
+ 
+ int rockchip_vpu981_av1_dec_run(struct hantro_ctx *ctx)
+-- 
+2.43.0
 
-> 
-> Thanks,
-> /fuad
-> 
-
-Thanks,
-Sebastian
-
-> >
-> > > >             handle_host_smc(host_ctxt);
-> > > >             break;
-> > > >     case ESR_ELx_EC_IABT_LOW:
-> > > > --
-> > > > 2.53.0.1018.g2bb0e51243-goog
-> > > >
 
