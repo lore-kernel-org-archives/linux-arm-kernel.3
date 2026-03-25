@@ -4,89 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5965FEA82F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BC7FEA82E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vt7Mb16aSdMDgOFjLAuuIeayxSikgKE6p5Q9CKHus2k=; b=29PyJKyxN+mJ82RammFtsvo4go
-	76iRmBpiTKRNGvZFlqieM2r9VwMKgiw3si7kTXy0Lc7Mk8lzxP1v2elgtb+hjO30Xiu9Ha+sbjLLX
-	y3c5HXfTLTToc2lItZkC7CztGQSTzX2UHLgzMQngexeJ6xSHFZ6zDTWzGI+DfdryhBWCCXLfVQVm+
-	68fmSnj10A8at4rJCMMV3gZJXhiPaihFMh2sJjXgqk4kP3e4vCLtjhAgdwraVwKYyoYSf5QDtZgQT
-	ADZIt+Nfre7P9CL0thgAUhgM2gYH1yj1TSFJbq2C10j+E2qSvL4kgPake4M2vquhbcDVJkTGoP8iB
-	4jAPBP2w==;
+	bh=bGcsjnn89vzi0BbUzmick1Q7ZzGi64Wctp+hOhg+iOU=; b=O8d2dSLeNr1I+m84laCFWazvqc
+	xYKuy6MUuY1KRdDQGpmiEXTCVr+o4mjtByJZhe0luxppgDf765IxAfnmiNodGFbnKEkaa3+8FIdnM
+	bYKL0NeuU3EA5BtlBuyS7aNWJD3XLfWGbv8zpG6crxXusmjZ/fUgWvSNWT1u1SGD2jkqlC7cwTCGT
+	5upOEKGCO6ugI0XHjkk1vk0x/jtthSbvXOOHTPgfWtldP7DFWZtNsHD3il713aIhmdqR0qoQ561zj
+	0mLRcrjbDeUSJYR273oBFscmFN6j91g3L3TB3vQ2+x8uG5h1u+ZRZT1rU6TfM7q2AS86Qq5rUoDuo
+	8SXudmdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JAb-00000002tjj-1UFW;
-	Wed, 25 Mar 2026 08:00:53 +0000
-Received: from esa4.hc1455-7.c3s2.iphmx.com ([68.232.139.117])
+	id 1w5JDs-00000002tzW-05tg;
+	Wed, 25 Mar 2026 08:04:16 +0000
+Received: from mail-swedencentralazon11020080.outbound.protection.outlook.com ([52.101.75.80] helo=GV3P280CU013.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JAY-00000002tjL-26z8
+	id 1w5JDp-00000002tz1-3h6m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 08:00:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1774425650; x=1805961650;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=VlBxR/SzYAHrqVgrVE6UN8eEpY06CR6hnRPY1BAcTpo=;
-  b=hmKKzLLyqPbEmpBjAzqVdpcOA320uTr3zTAK0foSjHdvvVpd1OicK27P
-   Q/3VwuV0HxHpOmqcPKNldWy7tUC9HgYf/kJORq64Zlc4Tfst3d9TmDjgY
-   3clAQUGzkopcnmZgW9z1DXJ4lSDjsbuGbytOGXlgM2gZp6FMb7UAljPqm
-   dzU9tE6rfqhIc2K9kL+LvNBeXrK1deizi6UkEbFP9hkRBbRviMa+nFooL
-   p8fmLKtlCSUOqoGDZ/5Oz08Klw1Om5fXV7W6QkdM2KFif74GEVw9CfR0C
-   TZZXQ+2q9+MY2m0lP2tChfzdO1f8SEeh3YIf6TDZYN2Mv+l9W6td5ZiT4
-   Q==;
-X-CSE-ConnectionGUID: oQWojVaUTv+ziivt2bjrhg==
-X-CSE-MsgGUID: 1dspShgtQTKQvmnJmdRBZQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11739"; a="235253127"
-X-IronPort-AV: E=Sophos;i="6.23,139,1770562800"; 
-   d="scan'208";a="235253127"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa4.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2026 17:00:47 +0900
-Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6CFDF1C0019F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:00:47 +0000 (UTC)
-Received: from az2nlsmom3.fujitsu.com (az2nlsmom3.o.css.fujitsu.com [10.150.26.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 1BE68100D100
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:00:47 +0000 (UTC)
-Received: from sm-arm-grace07 (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmom3.fujitsu.com (Postfix) with ESMTPS id 53168101BB54;
-	Wed, 25 Mar 2026 08:00:41 +0000 (UTC)
-Date: Wed, 25 Mar 2026 17:00:37 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 0/3] KVM: arm64: selftests: Basic nested guest support
-Message-ID: <acOWJT39NGrmfSbQ@sm-arm-grace07>
-References: <20260325003620.2214766-1-weilin.chang@arm.com>
+	Wed, 25 Mar 2026 08:04:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a3/psvPXe0dD7nrBvbQiDPpd26MSbxpu8xOpPqWN15rnsh1W8ftsqQQWIBh5Rgh0+ODBgNdKPOgpr1+UikFdl6BFwY40vAFYkLlOI2XGVBDCAL1+6HT60dF23cbgVvGL9xnU6buK5Gy8eMT/GgIrDlKvrtWx3JSYr3q+T7bRRbGeiowm/GOgT+KtUhN6Mi6Nb+p/gCwl6D4NoRPG/vIAbOSYgRKIB7sLPj5m2cgAo6+4DlEwGvfNhX9XKeo843LZkdxyvCraMzg171TFpA2I2eOobE9RmFqJcTVttpGPTSIX74d8SBW6cZLjrmHyvjjeh6q0+4Nc6Gqv/EJvVUJMCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bGcsjnn89vzi0BbUzmick1Q7ZzGi64Wctp+hOhg+iOU=;
+ b=bO4ByjY/ALTfrIqLy/8a51UqfcbucuGEQZbGN0fZE7BXGSyBtyZagjc3GmmfTNM5ZsKeaLxP0kG4/P3tn10QP8DodJTH6xZbACncxhdinF2oak7alJdjBR3ksLW1rq3zUaLKHd0vVqgWjKyn0qBTSlIqPkJRcwhuU9izkCiSJmJ1vfOaP+u9MYCnYTwuUJ0mJhL1QHkVgiyCVOHI1qH6B0sFRKTFaosadp7GfkGyPNCHTe/bRzIp+fcf6IVTe3aQ3B5wBjh5lmf0WHpkotXU9P6vvml96Xqw/NgFA7gyZoKJdG8/F2beyG6KvX+cSnSbMi40QQ/MtYpHmvtUNp2O2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=guidelinegeo.com; dmarc=pass action=none
+ header.from=guidelinegeo.com; dkim=pass header.d=guidelinegeo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=guidelinegeo.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bGcsjnn89vzi0BbUzmick1Q7ZzGi64Wctp+hOhg+iOU=;
+ b=PEtrBboijwVYOBaofEi/Y9JjPdPgjJoqaJEzMcZxt5d1YcjocI2Pk95IAmwXsgwAmp/yG3M+18nXFYmUvcElGnpPAo7eDRiUklBWY4v0Vpz2O88vp2evDt1R6iSpqrgJjso6Vdy0BBCfstjXpANW6ubLMDr2+BQ+ADwyKA74JfI=
+Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:14::9) by
+ GV5P280MB2251.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:377::20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.20; Wed, 25 Mar 2026 08:04:03 +0000
+Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::5a42:b24d:f94f:a5ec]) by GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::5a42:b24d:f94f:a5ec%3]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 08:04:06 +0000
+From: Christofer Jonason <christofer.jonason@guidelinegeo.com>
+To: Michal Simek <michal.simek@amd.com>, Jonathan Cameron <jic23@kernel.org>,
+	Salih Erim <salih.erim@amd.com>, "O'Griofa, Conall" <conall.ogriofa@amd.com>
+CC: "lars@metafoo.de" <lars@metafoo.de>, "dlechner@baylibre.com"
+	<dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>,
+	"andy@kernel.org" <andy@kernel.org>, Victor Jonsson
+	<victor.jonsson@guidelinegeo.com>, "linux-iio@vger.kernel.org"
+	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Topic: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Index: AQHcq7ZpCeRIu+55oEGPm8jdqCh4D7WjB/YAgARjkoCAF5c0/A==
+Date: Wed, 25 Mar 2026 08:04:06 +0000
+Message-ID: <GV3P280MB00658AACE08F285D6EF18A7CF349A@GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM>
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+ <20260307124118.1d527749@jic23-huawei>
+ <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
+In-Reply-To: <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=guidelinegeo.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV3P280MB0065:EE_|GV5P280MB2251:EE_
+x-ms-office365-filtering-correlation-id: e58b3b46-69fd-4dfe-e3e9-08de8a45167a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: XM75iZS+KRsMPl/NbibBZ8v0KB5CbT1EYO6j/7tIWxku0lrQJqrJUDhtEufN1BBuKplV9ucGmYJgynTy1bPBZ2A6b23TAI3lAEevz3m1Iub04FmGoUziJg/m2n81O1sgNdVFO40DMarofsMzVou+R0qBUbMKjP1yQdKU0q1/blq0g/JcIWKcpNgDji2HhVDGllgCXP9hI5jVqhmQW/BNMhR3Eu2DP90jkqx7H5jiJizTrZbce7orGxBE9P73f7D13iVqqnpToalK3Bn3n2i9u9LgDDgeEtuTrKmGD5S7D0Jo9aG6S4a+F3LSv3Fya2J0Ykl/ivUfnoQ8RfhpzRiucosUna7oJyyywFAHF2uTOSAxr4twrXw5lQtK2E3KpJbuz/j7QLK5PuY8qeaUOsmp1x1HCgM0UJkProw0+eJ1LKuUOPS/vOCqqFxBhHwr9lJf/1bz1xGNRv9C8pZ0LiohgTnUgSnnBIvUsHWpx1CSoFfB7kf/SGIm7vrSnzTq3qy9t25PAb+BB0690Z6cDlYcC1XNong5jnMq6uaVD6t6bn7zTN2M5/xDbQHwNbERJMGrl6wBWhVVxz/vyP+tKLW+auIYThjDeys/K1t/j53XuzwqIpd1HVE9T0jFoo4UGgaj+APZs0egNbtb2QDTO9oPE8BK+l4FN7ck2AAE5UZ6mLRb1aGZKUnXF3p2S0wrcyZQ7VZKwRT3aPDiQw0XMdb3RHBOXjEk3iCHEePROGRbkku96AZg9W7/FwnJDZrdDeXHr3TQ1CVPzk+VLBBHQISKjVzOdg5ZAZqJUZQQifVkSsA=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?R/X9aTSrOfP/xPDdJMxKfndZHdxVNHy8BrHkAAEiTAN1yscFho0MlfZK9d?=
+ =?iso-8859-1?Q?QUBYKjAiUqsqz9nx8CL+xAA9AVUTe/jnfLHIkdVnH4/ke4nE+Lk3khWZgy?=
+ =?iso-8859-1?Q?usw/65BmvhYaht8qVfrw8EMZxzpZl20O0x25atoKYKwuLHPXn+J6zx1Kt0?=
+ =?iso-8859-1?Q?qxnTJUiktaRf1m49UsKtvY3EGD2tU/A8JqxrBgFPwvSF3KwfThhF+7pgDn?=
+ =?iso-8859-1?Q?EMeCITrz4MCILEEfRnpPJ8SiXuwUpecPBQSx1Jez7kCRG8xom2LBs3Y3GE?=
+ =?iso-8859-1?Q?teJI75N5qzmD6TLx9nMozXD5nBV7KZnQR0a8mBalz7xWp32TCdbbkWNwnc?=
+ =?iso-8859-1?Q?ZVt19vtZ4EVyJ6jEBhyUe+yPwi1FJ3ODNY9fThkkGPqL8jdcQxXEzByz5b?=
+ =?iso-8859-1?Q?/NrJkvCV3UNp9sPBKaAlS3GigSdE4fabtb1uTPfxGFjkd1dPUWY3Ynl2Xy?=
+ =?iso-8859-1?Q?6rHH+5ed2oCbsXzZLqzWzXX7GSsoKhheIMYI4eb/zmEraLA+qFr3m9cjbc?=
+ =?iso-8859-1?Q?41iFjPKKsSotAXjyj+Vjvj/NBvMHsHFXICIiIOQ6BMUwRD/xyfyRe0yxFX?=
+ =?iso-8859-1?Q?T4RDVAFCa13Br7QlFir3qI+RL4oq0rrLygvfkyjOFWkqyTJCl+IFTblD1p?=
+ =?iso-8859-1?Q?Sa1fW0WZQSi1Kt30QnhmsvxauznTKKlOYufB0SQ0llJA8o3r8F/oZsUbRv?=
+ =?iso-8859-1?Q?DYb/Dk+WFOEyRmVl3Lr9vHa/Yl+nBIs8iBg0P2hRyzR9ECU8fXrPIWP4mM?=
+ =?iso-8859-1?Q?g7oU4aAXqLuLOjlDESpox5gc1NBk5xMgQ+EgsD9ynYUpTahknoY1rT+OQ6?=
+ =?iso-8859-1?Q?durcxumR1K/rATZ6ZtGV9D9/DK1KMb60M/iEpZnxT61pen+A/fD4jRl5kR?=
+ =?iso-8859-1?Q?a1seuwn1EOOCZlg49vxufEFLBseMd7NLcrgFlXElrBB7E4HZe9rph9ca18?=
+ =?iso-8859-1?Q?lgFPcOES2JcU/SfJZUmvFlw44UJryB+UdOezNT25KQJ0SRvndUfcHVUJf4?=
+ =?iso-8859-1?Q?uT3UbDpNc+mwSkLmyaatGQ3W/d3eWZ3gSISN+vwbzU3KBTDwLmgnDNClyL?=
+ =?iso-8859-1?Q?P9U2gHYWZhySZAS+r8l7Dj8jObzM8E2M2N0BE9izRzdddMaPaEUFuKwahw?=
+ =?iso-8859-1?Q?ul4PhTXDqYzL5HzMulSrIlsWyETKe4oi1ceX66QcqA1fqCqN7sXyxj2ZVE?=
+ =?iso-8859-1?Q?Nwnqu0GjbGNtgTL+bqOLjxS9NQVu0n8sA23qAb+XYpcEAdRAtjdFbecHpz?=
+ =?iso-8859-1?Q?AxPcyUatg3mQxmgsMCEHkFFvWLljBA9PZNb79VfCq9Sf0XSmpgRgKMWMsF?=
+ =?iso-8859-1?Q?k/MkJExJfsrOTaXu0x2vl/ZhwX/fS3jyJfcfT1txgROZ0cNV3BDwkin97/?=
+ =?iso-8859-1?Q?+bM9l61x6+BN5DTekhObAcaR/p16TuVbP94R4Nnv7ztNic/Ee75MhYzvWc?=
+ =?iso-8859-1?Q?jqMhFo/ceIAgO6Pmio1vI9+a0OIVNXWhPb53fANJimaD0Xbkb6UMDgltiU?=
+ =?iso-8859-1?Q?UujxlLxntse+NZZ2a282vc6Zwo9y37R94MBipsGi0lozc+h3fCEA8Q+yyl?=
+ =?iso-8859-1?Q?JWf4PSg4BXQywtc3t76ieGm7ULHSMXrvUt6wF+W3QF1Rj1B42oogJJoVu6?=
+ =?iso-8859-1?Q?BczS11EwEjmy78hNLcxS2DWgD2N2z4k2Wl9E6ortmyiAeR7mI3mFIDo75f?=
+ =?iso-8859-1?Q?b9lBEQOKi4bEbegrsuBaMUjA1jzELddN1ZACcNTDCttXAzsg+qMDpUHu8A?=
+ =?iso-8859-1?Q?vmqNoO9vXhtbiTlvME7EGJvJhk27XICXMGBrFAG495sa/LlY+U8XlFlpKe?=
+ =?iso-8859-1?Q?N/lf8fuT+5RBaTpzKMLh2LQyCpdyxOo=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260325003620.2214766-1-weilin.chang@arm.com>
+X-OriginatorOrg: guidelinegeo.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: e58b3b46-69fd-4dfe-e3e9-08de8a45167a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Mar 2026 08:04:06.7179
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f3403a73-63c2-4dc7-b628-287972076881
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 31IwX6xk463IizYy9Cl8Y4T4BTHckhoC6kbKVE3+//6HY3JQu+CM0LXS81ZzvYlcCto5DIL9NGlCJMAqMI1dYHSh/p2SVYzJ+4v9p2Pht75p3Qi4uIkWf02/k3Tj7HzW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV5P280MB2251
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_010051_114004_6FDAE276 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20260325_010413_959575_758BAFC9 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +150,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wei Lin,
-
-On Wed, Mar 25, 2026 at 12:36:17AM +0000, Wei-Lin Chang wrote:
-> Hi,
-> 
-> This series adds basic support for running nested guests (L2) in
-> kselftest. The first patch adds library functions. While designing the
-> APIs for userspace, I referenced Joey's approach for kvm-unit-tests [1].
-> In summary, four preparatory functions are provided for userspace to
-> set up state to run an L2 in EL1:
-> 
->  - prepare_l2_stack()            <- sets up stack for L2
->  - prepare_hyp_state()           <- sets up vEL2 registers
->  - prepare_eret_destination()    <- userspace passes a function pointer
->                                     for L2 to run
->  - prepare_nested_sync_handler() <- sets up hvc handler in order to
->                                     regain control after L2's hvc
-> 
-> After calling those functions, userspace can vcpu_run(), and when
-> run_l2() is called within the guest, the supplied function will be run
-> in L2, with the control flow managed by the library code in nested.c and
-> nested_asm.S. After running the L2 function, run_l2() will automatically
-> return. Note that the L2 function supplied by the user does not have to
-> call hvc.
-> 
-> Patch 2 demonstrates usage of the APIs introduced above, with a simple
-> L1 -> L2 -> L1 sequence, with an empty L2 function.
-> 
-> Patch 3 enhances the library functions by setting up L2 -> L1 stage-2
-> translation. Currently the translation is simple, with start level 0, 4
-> levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
-> 
-> [1]: https://lore.kernel.org/kvmarm/20260306142656.2775185-1-joey.gouly@arm.com/
-
-Look like this selftest assumes nested guest's MMU is disabled (L2 IPA
-to L1 IPA to PA), but I couldn's find the explicit SCTLR.M bit operation in this
-series, how do you make sure it is always off?
-
-Thanks,
-Itaru.
-
-> 
-> Wei-Lin Chang (3):
->   KVM: arm64: selftests: Add library functions for NV
->   KVM: arm64: sefltests: Add basic NV selftest
->   KVM: arm64: selftests: Enable stage-2 in NV preparation functions
-> 
->  tools/testing/selftests/kvm/Makefile.kvm      |   3 +
->  .../selftests/kvm/arm64/hello_nested.c        |  65 ++++++++
->  .../selftests/kvm/include/arm64/nested.h      |  25 +++
->  .../selftests/kvm/include/arm64/processor.h   |   9 +
->  .../testing/selftests/kvm/lib/arm64/nested.c  | 154 ++++++++++++++++++
->  .../selftests/kvm/lib/arm64/nested_asm.S      |  35 ++++
->  6 files changed, 291 insertions(+)
->  create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
->  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
->  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
->  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested_asm.S
-> 
-> -- 
-> 2.43.0
-> 
+Gentle ping on this.=0A=
+=0A=
+The fix aligns postdisable with preenable, which already uses=0A=
+xadc_get_seq_mode() to select simultaneous mode for dual external=0A=
+mux configurations.=0A=
+=0A=
+Happy to answer any questions.=0A=
+=0A=
+Thanks,=0A=
+Christofer=0A=
+________________________________________=0A=
+From:=A0Michal Simek <michal.simek@amd.com>=0A=
+Sent:=A0Tuesday, March 10, 2026 8:42 AM=0A=
+To:=A0Jonathan Cameron <jic23@kernel.org>; Christofer Jonason <christofer.j=
+onason@guidelinegeo.com>; Salih Erim <salih.erim@amd.com>; O'Griofa, Conall=
+ <conall.ogriofa@amd.com>=0A=
+Cc:=A0lars@metafoo.de <lars@metafoo.de>; dlechner@baylibre.com <dlechner@ba=
+ylibre.com>; nuno.sa@analog.com <nuno.sa@analog.com>; andy@kernel.org <andy=
+@kernel.org>; Victor Jonsson <victor.jonsson@guidelinegeo.com>; linux-iio@v=
+ger.kernel.org <linux-iio@vger.kernel.org>; linux-arm-kernel@lists.infradea=
+d.org <linux-arm-kernel@lists.infradead.org>; linux-kernel@vger.kernel.org =
+<linux-kernel@vger.kernel.org>; stable@vger.kernel.org <stable@vger.kernel.=
+org>=0A=
+Subject:=A0Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in post=
+disable for dual mux=0A=
+=A0=0A=
++Salih, Conall,=0A=
+=0A=
+On 3/7/26 13:41, Jonathan Cameron wrote:=0A=
+> On Wed,=A0 4 Mar 2026 10:07:27 +0100=0A=
+> Christofer Jonason <christofer.jonason@guidelinegeo.com> wrote:=0A=
+>=0A=
+>> xadc_postdisable() unconditionally sets the sequencer to continuous=0A=
+>> mode. For dual external multiplexer configurations this is incorrect:=0A=
+>> simultaneous sampling mode is required so that ADC-A samples through=0A=
+>> the mux on VAUX[0-7] while ADC-B simultaneously samples through the=0A=
+>> mux on VAUX[8-15]. In continuous mode only ADC-A is active, so=0A=
+>> VAUX[8-15] channels return incorrect data.=0A=
+>>=0A=
+>> Since postdisable is also called from xadc_probe() to set the initial=0A=
+>> idle state, the wrong sequencer mode is active from the moment the=0A=
+>> driver loads.=0A=
+>>=0A=
+>> The preenable path already uses xadc_get_seq_mode() which returns=0A=
+>> SIMULTANEOUS for dual mux. Fix postdisable to do the same.=0A=
+>>=0A=
+>> Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")=0A=
+>> Cc: stable@vger.kernel.org=0A=
+>> Signed-off-by: Christofer Jonason <christofer.jonason@guidelinegeo.com>=
+=0A=
+>=0A=
+> I'll leave this on list for a little longer as I'd really like a confirma=
+tion=0A=
+> of this one from the AMD Xilinx folk.=0A=
+=0A=
+Salih/Conall: Please look at this patch and provide your comment or tag.=0A=
+=0A=
+Thanks,=0A=
+Michal=
 
