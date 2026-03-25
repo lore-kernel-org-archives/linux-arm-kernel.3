@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683D9106B504
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 20:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5176106B504
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5TaF136hS7gyiN2INSsjbTVG4M1m+RcQW4RSzUAK8mc=; b=IUhTbzvEEvNvIlYXUoJ2PlXWyT
-	NKPzjvQfBzp0gMUDXRy0jJTeYQBEhdtzkIrQw5WteGhc8Sg8a0CldBO4YYA3gLfo1hIpw7cVH3Ex9
-	uZaa4Y6oGXdKNJx8WeSo8m/c4jYGBomPu51CflRs7P3y4nQt+94nN3TOxsDqNOk+KoTdRzZ9B3LEZ
-	O45iI5J2z6YHt+PFPzatH9//J2WhUAaPRzUTUzKRLsd+NjZ3dbEOuPJae+jVY/95McejxSAxvTv71
-	cRJ8Yrr1/R1qvgv9gHyeux6y+gR1Q4ciK1avciCUfeYU9U5eWBo7wJWjh9x203WfwQEVv2ogBo29E
-	tXAZO3Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GE+bIN+lj0uDiipg0Eeqly/ubh5QgY9YNqmGiJmBN5Q=; b=IioWFkysWcP2+gEK/JzKbhnmaC
+	bBWmASuIHx14b1v/Tp3t1eNZ4tvPEthdU9l8vfsPs4rEfpm+/GlwxYtI0RW/kCNkIk21V2TgoC3oC
+	TJ8P2FmF6B5xjGUHY3aIzXmgpJ0o5O61pxu6lvH61YTyvBwIaxGeScC72zz/qi32isyXY55CStqbn
+	b6D7xYFNmKkhz5f4QRljVzwn36ySDiet1gGFNACKsRiW84sgz0RZUTno4UYc7bzYVDipv2DRmwsRk
+	JkqlXzmt+6pyd+rgyw+X63heD+DzxnbztUicYhCIYvme92IH/+Wz0YOIf7gHCiJRzzotwJVQ8CjUr
+	6o0Wqy9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VDP-00000004EgR-3iRK;
-	Wed, 25 Mar 2026 20:52:35 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w5VKj-00000004F6T-3Bgd;
+	Wed, 25 Mar 2026 21:00:09 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VDN-00000004Efw-35Hc;
-	Wed, 25 Mar 2026 20:52:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5TaF136hS7gyiN2INSsjbTVG4M1m+RcQW4RSzUAK8mc=; b=bJgocfdzLBKes2wMXa50BQ/Sgw
-	2VNxUldZJFRFO1DH1e3sWYkf+HpUKst8qeo6mEmxzisIlT9F643+8G7mP8W0cEG97CX9EddaPFnAx
-	0auvwtk71mLu472gb4M/pgwwwT7auS75QFoEuI3Ulc0t8Td1yqPpRlQhMRL9Q0sVOXjuT1KRASHvT
-	KyQkPoRHlhfR1LscoVZHueKBsDdovNbEjbfAFOMWWjTHfKoz7+lVqv6Pq5sNuqrikvfHErcf50ZxE
-	dLM4luhf9tuxdUXNx8G4p2TIcbxgKN3UURxz0Ib/Wm84DDDPrXllvWnYoO6lVBmszS+dAvfAa4kcZ
-	Cij15muw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36514)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5VD1-000000003uJ-1ODG;
-	Wed, 25 Mar 2026 20:52:11 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5VCy-000000006MD-0rz1;
-	Wed, 25 Mar 2026 20:52:08 +0000
-Date: Wed, 25 Mar 2026 20:52:08 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+	id 1w5VKh-00000004F5s-0jeD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 21:00:08 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 1E8CD225;
+	Wed, 25 Mar 2026 21:58:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774472327;
+	bh=BGyq3vnbc++78ejS9kJ0tHlrDWMJafXMYaaoZnGDiSo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WKfywbR8CDmMPniTudknGbbfkZWKVGux82MZHxr4lxQ71HjtL6PcR92zA0tefCRvW
+	 WjdswoQfr5IA0nsE15lx2lj1mS+r3e6UKr+8nnRYr29j9iwmD3GhOW01XWat167DLI
+	 l7kL23AmyDXs5R3v9MJtmK/xHOnS/Wq2d5DBfPGk=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: netdev@vger.kernel.org,
+	imx@lists.linux.dev
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mips@vger.kernel.org, imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH net-next v9 5/6] net: stmmac: qcom-ethqos: split power
- management context into a separate struct
-Message-ID: <acRK-F6TACsZqEhx@shell.armlinux.org.uk>
-References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
- <20260316-qcom-sa8255p-emac-v9-5-c58934e76ff2@oss.qualcomm.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Joy Zou <joy.zou@nxp.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next v4 0/2] net: stmmac: Disable EEE on i.MX
+Date: Wed, 25 Mar 2026 23:00:01 +0200
+Message-ID: <20260325210003.2752013-1-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260316-qcom-sa8255p-emac-v9-5-c58934e76ff2@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_135233_776003_D9B595C7 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260325_140007_377003_21F611BA 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,22 +79,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 01:05:10PM +0100, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> With match data split into general and power-management sections, let's
-> now do the same with runtime device data.
+Hello,
 
-As I've already said, this conflicts with work that I have in progress,
-which will remove the serdes support from this driver _if_ we can get
-forward progress on the PCS bits from Mohd - that has become dependent
-on sorting out the MDIO bus clock which seems to have been totally
-broken in this driver for quite some time so that we can have confidence
-that any testing that is done is actually being done on a setup which is
-running within correct specification (and not running the MDIO bus at
-some insane speed that may lead to data corruption.)
+This small patch series fixes a long-standing interrupt storm issue with
+stmmac on NXP i.MX platforms.
 
+The initial attempt to fix^Wwork around the problem in DT ([1]) was
+painfully but rightfully rejected by Russell, who helped me investigate
+the issue in depth. It turned out that the root cause is a mistake in
+how interrupts are wired in the SoC, a hardware bug that has been
+replicated in all i.MX SoCs that integrate an stmmac. The only viable
+solution is to disable EEE on those devices.
+
+Individual patches explain the issue in more details. Patch 1/2,
+authored by Russell, adds a new STMMAC_FLAG to disable EEE, and patch
+2/2 sets the flag for i.MX platforms.
+
+[1] https://lore.kernel.org/r/20251026122905.29028-1-laurent.pinchart@ideasonboard.com
+
+Laurent Pinchart (1):
+  net: stmmac: imx: Disable EEE
+
+Russell King (Oracle) (1):
+  net: stmmac: provide flag to disable EEE
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c   |  9 +++------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  7 ++++++-
+ include/linux/stmmac.h                            | 13 +++++++------
+ 3 files changed, 16 insertions(+), 13 deletions(-)
+
+
+base-commit: d1e59a46973719e458bec78d00dd767d7a7ba71f
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Regards,
+
+Laurent Pinchart
+
 
