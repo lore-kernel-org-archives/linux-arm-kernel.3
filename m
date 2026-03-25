@@ -4,103 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E7E1093168
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E538109C05D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9T4ILjzpSI8Km2SYP2+R54L0ASfcwMMayhnKu46qcs4=; b=y4EQZax7E8WDz6GXEfdiHJljz4
-	/2qP5c9cwUCR9YMWevcN69YH/KNcrtvuD4Qf5PK868AbdypI8DUVTODoFcvSDvpDdOlaUyNVMt8Ey
-	ttX1e8Vyz1UmscBbjvbXzQtu0oAyDb7d9ru92SUL8P5Kg/z/ysJjLGhEc4/2iBbXnjH/X2zfDuYAy
-	04ePKhTcJH7+e5OhGzxiGCXrEA4VppwYWz5EVSP7AKRU2FLUr8XHvfiWeVgtsXmknxO24Yhq5H375
-	0f/Ncsw6YklPy93xo7qpEatf9yGVA3+Wk1SSLPIEyq3YfDPQT5OLwGh1/tr4hXnYX7YxMpqb+gLWd
-	kGLrglag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PQoNueK7Bih1JQJxX+sljZmhizS9OE+yMpwSWEJhbGw=; b=49CMbpEVaLyTdAeGNyoxrfEhrk
+	z+x8QpMsnhPm1wlX413+xGcoHtf3AFORwg/MUKhHTBmjjqs+hsrzEalVvgpaYIAGOMLwTtFpAZzpW
+	HgFirgPBqpGsTXAMrOv0CdGDqKQ7XtZMXqlO8qCngy0NXZlO4O1zuOEL2KSvs8XleQzd94YQvM3P4
+	mudbPtUuPMedgwacuSSo15TUJjmJiU3WVPpKu2n68vAOxK7T1v7jNRCRSYstk2NY4OC8V7M+zcGZX
+	T9mqruArDUC7veJqBhW9RmrCxrBSjmYuZe2vVyigTqYJaceU+Zs2+OWPIKrD1nUvSRjRpJfk5zec4
+	HVJ1Vx2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VZ7-00000004Goz-1C85;
-	Wed, 25 Mar 2026 21:15:01 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w5VsK-00000004Hmd-3lV8;
+	Wed, 25 Mar 2026 21:34:52 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VZ3-00000004GkT-1xQQ;
-	Wed, 25 Mar 2026 21:15:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9T4ILjzpSI8Km2SYP2+R54L0ASfcwMMayhnKu46qcs4=; b=wrp8frWYdflVifRHX74kmry/Q2
-	r/4/Pg35KjXCbZvWTgAj4EASo/gshPXzA5HWOrsZr9QyIMPzKmsOw0d8yr+g8Gl4HWfax7TOiXvKS
-	cjGemaSaFRDRSqeArT+DX9tYxZ95k89H+XEeM8Nwyy3h0NLcnAyp21hkkC7SvjdFVGtFq8gjI/mqK
-	QHWw0MzyFnDe38O26aNmCE/mxx6vg4TgBtU5/Yw3f5xiURVzP9s7HXJ9DDPV5ymuz9KL/HeZXpsI+
-	RreCpn5SAG+W/aNkLtWY1LUIFgfZROeJpLARzV/qAlzMt5R9arFb9osgBB34l9Xm1/+F6s0G5uRae
-	c7lA2VKQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40038)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5VYh-000000003wd-1uuC;
-	Wed, 25 Mar 2026 21:14:35 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5VYe-000000006NW-3R79;
-	Wed, 25 Mar 2026 21:14:32 +0000
-Date: Wed, 25 Mar 2026 21:14:32 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mips@vger.kernel.org, imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH net-next v10 2/6] net: stmmac: qcom-ethqos: use generic
- device properties
-Message-ID: <acRQOLJ2wWF3rIHb@shell.armlinux.org.uk>
-References: <20260323-qcom-sa8255p-emac-v10-0-79302b238a16@oss.qualcomm.com>
- <20260323-qcom-sa8255p-emac-v10-2-79302b238a16@oss.qualcomm.com>
+	id 1w5VsI-00000004HmE-2WTs;
+	Wed, 25 Mar 2026 21:34:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774474486;
+	bh=E1WXPXz+/NlfRML46gDMJ4qfQn90FVfE9nYP5/MLyMg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=e+rDolsHY8954s81Mp/fexI2cypjxrLKc6/hIUuDpERQFz1AgsSs/k6BYU7Sz3rrK
+	 SKImsKhlljGJuH+3OZEcXhJm8xoMTeiGsUijKm3BS/mgp70vScwP8BV9+qVzxuvmEZ
+	 DuPp1sLsSP5GFzOb1vQ5olRjkHik0XMRcwT0HYkhplYrTTbuR8Nxo1v/pkKOgam9JW
+	 ri0RroBwrfAP0fO00F15ZhuveO6PSW7Xrw113u8hOFw5ed3Tp3BjNUVj/4tQPDm/Ai
+	 DRHPVnmKm5oX5xuT2zWvxywDxOlEpkJxPzMXwaZDwAApkA2FgZvIH8T8iNAKH8VUza
+	 xjVE2rrtnyEGw==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B3FF117E5B52;
+	Wed, 25 Mar 2026 22:34:45 +0100 (CET)
+Message-ID: <703bcf13-ab45-4e9a-b80c-80911d85d819@collabora.com>
+Date: Wed, 25 Mar 2026 22:34:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260323-qcom-sa8255p-emac-v10-2-79302b238a16@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] media: dt-bindings: rockchip,rk3568-mipi-csi2: add
+ rk3588 compatible
+To: Rob Herring <robh@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Frank Li <Frank.li@nxp.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Collabora Kernel Team <kernel@collabora.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260305-rk3588-csi2rx-v3-0-754473981f39@collabora.com>
+ <20260305-rk3588-csi2rx-v3-1-754473981f39@collabora.com>
+ <20260325210634.GA3963190-robh@kernel.org>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260325210634.GA3963190-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_141457_530935_7D9B6A68 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20260325_143450_821192_6D27B9DA 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,89 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The comments I just gave to v9 (which is incomplete as received) apply
-to v10 as well, although I have no idea what the differences are
-between v9 and v10 as I never received the cover message. I only
-seem to receive patches 2, 4, 5 and 6.
+Hi Rob,
 
-On Mon, Mar 23, 2026 at 02:20:54PM +0100, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> In order to drop the dependency on CONFIG_OF, convert all device property
-> getters from OF-specific to generic device properties and stop pulling
-> in any linux/of.h symbols.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/Kconfig             | 2 +-
->  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 9 ++++-----
->  2 files changed, 5 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> index d3a6ab7383fc1e1b2e4b12c670b12a8ad1606e6c..4148805a82b106471a25f9496b60be5bb9ce5c00 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> @@ -135,7 +135,7 @@ config DWMAC_MESON
->  config DWMAC_QCOM_ETHQOS
->  	tristate "Qualcomm ETHQOS support"
->  	default ARCH_QCOM
-> -	depends on OF && (ARCH_QCOM || COMPILE_TEST)
-> +	depends on ARCH_QCOM || COMPILE_TEST
->  	help
->  	  Support for the Qualcomm ETHQOS core.
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 3ccf20fdf52a8ec4649b43ade8ee7b85d613e1c5..66fd2ed2c2c8428694c07d89220d0e1608546791 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -1,8 +1,8 @@
->  // SPDX-License-Identifier: GPL-2.0
->  // Copyright (c) 2018-19, Linaro Limited
->  
-> +#include <linux/mod_devicetable.h>
->  #include <linux/module.h>
-> -#include <linux/of.h>
->  #include <linux/of_net.h>
->  #include <linux/platform_device.h>
->  #include <linux/phy.h>
-> @@ -728,7 +728,6 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
->  
->  static int qcom_ethqos_probe(struct platform_device *pdev)
->  {
-> -	struct device_node *np = pdev->dev.of_node;
->  	const struct ethqos_emac_driver_data *data;
->  	struct plat_stmmacenet_data *plat_dat;
->  	struct stmmac_resources stmmac_res;
-> @@ -778,7 +777,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, PTR_ERR(ethqos->rgmii_base),
->  				     "Failed to map rgmii resource\n");
->  
-> -	data = of_device_get_match_data(dev);
-> +	data = device_get_match_data(dev);
->  	ethqos->rgmii_por = data->rgmii_por;
->  	ethqos->num_rgmii_por = data->num_rgmii_por;
->  	ethqos->rgmii_config_loopback_en = data->rgmii_config_loopback_en;
-> @@ -818,9 +817,9 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->  	if (ethqos->has_emac_ge_3)
->  		plat_dat->dwmac4_addrs = &data->dwmac4_addrs;
->  	plat_dat->pmt = true;
-> -	if (of_property_read_bool(np, "snps,tso"))
-> +	if (device_property_present(dev, "snps,tso"))
->  		plat_dat->flags |= STMMAC_FLAG_TSO_EN;
-> -	if (of_device_is_compatible(np, "qcom,qcs404-ethqos"))
-> +	if (device_is_compatible(dev, "qcom,qcs404-ethqos"))
->  		plat_dat->flags |= STMMAC_FLAG_RX_CLK_RUNS_IN_LPI;
->  	if (data->dma_addr_width)
->  		plat_dat->host_dma_width = data->dma_addr_width;
-> 
-> -- 
-> 2.47.3
-> 
-> 
-> 
+On 3/25/26 22:06, Rob Herring wrote:
+> On Wed, Mar 25, 2026 at 11:25:34AM +0100, Michael Riesch wrote:
+>> The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
+>> the RK3568.
+>> Introduce a list of compatible variants and add the RK3588 variant to
+>> it.
+>>
+>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+First of all, apologies for applying your Acked-by tag. I figured
+resolving the merged conflict was trivial and impossible to screw up, but...
+
+>> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+>> ---
+>>  .../devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml   | 10 +++++++---
+>>  1 file changed, 7 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+>> index 4ac4a3b6f406..3d3b3cd78884 100644
+>> --- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+>> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+>> @@ -16,9 +16,13 @@ description:
+>>  
+>>  properties:
+>>    compatible:
+>> -    enum:
+>> -      - fsl,imx93-mipi-csi2
+>> -      - rockchip,rk3568-mipi-csi2
+>> +    oneOf:
+>> +      - const: fsl,imx93-mipi-csi2
+>> +      - const: rockchip,rk3568-mipi-csi2
+> 
+> These 2 should be a single enum as they were before.
+
+... hm. Well.
+
+First, do you mean
+
+properties:
+  compatible:
+    oneOf:
+      - enum:
+         - fsl,imx93-mipi-csi2
+         - rockchip,rk3568-mipi-csi2
+      - items:
+         - enum:
+            - rockchip,rk3588-mipi-csi2
+         - const: rockchip,rk3568-mipi-csi2
+?
+
+If so, what is the practical difference?
+
+Thanks and best regards,
+Michael
+
+
+> 
+>> +      - items:
+>> +          - enum:
+>> +              - rockchip,rk3588-mipi-csi2
+>> +          - const: rockchip,rk3568-mipi-csi2
+>>  
+>>    reg:
+>>      maxItems: 1
+>>
+>> -- 
+>> 2.39.5
+>>
+
 
