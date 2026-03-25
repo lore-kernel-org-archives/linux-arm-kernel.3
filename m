@@ -4,142 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22F6109C033
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D77109C02F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obPOlFUS+WG+TkjWehugzeuz6F2Iw5caH+wNnJYakJM=; b=W+cXgTo6MPRSyalmURBdBCka1s
-	pz6JmMQbfvxWEa6RLKMAR7fdZRCy+ZILS8QAsIQGSwUAgxx2KZJ2cN1QHFrJ5Y0JwLAsruy+4y3lf
-	WW2kqnyEgSvDJBrmG20+xqXSCr1Dj2EWPRgcec4dxQ0GFA4Ow9/bZsljdeAeVwD3GtS1C11ymrAaI
-	fr9Bdp8Plf1FrcXHpyQN8IWxjCjM2zRLeCdHLXDAP5B9Wv3twSLyegiKwguVl+s+dujYbMsr4H994
-	1WushE7ZOSmMUdjzSrVkFqm2JwYGKpJY1W6xb57aJs7UeCL22SbjXqJPlReKDS/bOzuuhbkAkAb9J
-	+hcjdMlQ==;
+	bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=; b=iiSAeIelqsfJiZdyJ3/XcZ7XG5
+	rMgKT0hL97WMF6ZKrqQK4kikYMcOVz3xgBFrS8EY7+sSWfYHWOft+9px/pGCVKg1OoY9lUk+Y3fLI
+	iGxzqrr39+/bgf2wl3a3x+BQCsaLlnVzyFDOvueiKf69CFR/lAa39avb1kIA6TDmt5Aq6WlDAzQRH
+	vFyXi9WGQnvjJtg6Vf8yu/z7a/GpB49cR5eMGh3IsrfJQAfxJLyac2Fa99OANmVQ6ITxYqiW61G7f
+	dB8f/ZPXhskkWrPAVnrqQCTkx7KATRKh1U0x31ksjRmwR/aOdjJkLdHjcPrSZn/9CmeUoPQQscSyK
+	Vz2yDnpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QU9-00000003owk-3ag3;
-	Wed, 25 Mar 2026 15:49:33 +0000
-Received: from mail-norwayeastazon11013016.outbound.protection.outlook.com ([40.107.159.16] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w5QUO-00000003p3k-2sCV;
+	Wed, 25 Mar 2026 15:49:48 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QTz-00000003orn-1gMR
+	id 1w5QUL-00000003p0c-0Etm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 15:49:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vRd+UDnt8injBjbugjhz5pcnHP7XPHZGUVrkdGFgvzDm6iVnqTkzeDhNVXWyuGhMRafri1ADdRWVyXtxdWS1WL5z3Wjce04fwz0BXuTW0P7OccYT/9n1gEyy2qcw+4ws5ylYJlitjR0kqy2KZpbD6fzkV/7+VztcbhpVPh4w3MwuwxMMcT+mg3dCmVufjTvxxvyMrpJdKEzqnwbB6nBuL2cwYBPQ79Fti3qR5UtzW8clq3WCbbPZpSXhs5vBmRHYQ1/eBqHNyLr7Z5bCsUvMpXiAI0bPQPmkd8xWRtNP5O1OHkHQS5lolWXeVDpSfp25ozLiwATa5PXKWAjEUO94tg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=obPOlFUS+WG+TkjWehugzeuz6F2Iw5caH+wNnJYakJM=;
- b=Cq8hiZVHsg0BTuAzT5j00zRykKW4e2yAr6r6dc8iKU6m7a5LCpMVOe9HsmRSyFDZaRMEuBvDor+rO3B14vQZUzNQLbJqDwmNRZjqd8h1fXESJCjuhI6Qwfu8AsH8PCyAxkAoMAQMXnew2ox3qz/5NP1Tdip/12QRjZsv8yppLIlUCuSpJAHfVnxTIv31g3Z894HyL7TzMEuAUX7WUUCzjQxM3rBoFnSP2N9ZCnRv6f6bdZSTQKRP3JT3DGamGtd/1nd+Kk4oPhZhgpXWeugG3HNqfhYJrGJ/w1haGs0U1U/Z+8XRzsY6ZdeN1WnwFgrSqWkH6VIW0O/mKUYzUN/qkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=obPOlFUS+WG+TkjWehugzeuz6F2Iw5caH+wNnJYakJM=;
- b=YPIIY631VA/iyHfIqSz7aBh9zdk9oB4eFR/gnUzV1DxBEkvv6Otw88zCUBbntdpxt4ZHgb4AlH9kLvzPxl/7+Rs0sjIF3jwY3vu4ZEK3ZRc/HaTlNmCYOOi7yYY/nYBMvxXWuAy1RMjVFhAXexF1RY1UxVYAzsvgqeQzwT8WaRLT6+C/W/VVCAAPwbpVhiYUW3hP6DW88JYo1JYqHc7MHzWYHt8iJJFDZAwufBxqZBgCLBiUbmAgiv5E4LlNfZGV9NJtzLJjj/8vQnh9wpt8tVH+IztfsBf81iwH92S5osqs/mJqP6T/aAyjy/pp/7MJhCAishUNebcRLmtfBuixtw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DBBPR04MB7851.eurprd04.prod.outlook.com (2603:10a6:10:1e1::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Wed, 25 Mar
- 2026 15:49:18 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
- 15:49:18 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
- Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux@ew.tq-group.com, linux-renesas-soc@vger.kernel.org
-In-Reply-To: <20260316150535.786122-1-alexander.stein@ew.tq-group.com>
-References: <20260316150535.786122-1-alexander.stein@ew.tq-group.com>
-Subject: Re: (subset) [PATCH 1/3] dt: bindings: arm: add bindings for
- TQMa95xxLA
-Message-Id: <177445375561.3113942.8957070044601441757.b4-ty@nxp.com>
-Date: Wed, 25 Mar 2026 11:49:15 -0400
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SN7P222CA0011.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:124::32) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 25 Mar 2026 15:49:47 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-66a33f61d80so4392964a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:49:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774453782; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HSWzHeSu8efLWS7sZtkyx54KU5U43WJSmrCxEfpxe4cHWKJ49yCV/Wyjkvp8Q+0DpW
+         nyPOQDJIZf+AneAq0WfxNesb8mYaBttPbiJhoUvgGFduozsVghvVxmqo8/vAu2H+Mwpx
+         HGqR1cwEhYZd0oWUMvxoGxkrPmv6ERWb1cmNbzZFNcj1bH9khQ4bUN0bujFPjCy5bxot
+         krkq7XJPEbuASOJJhhfRYERwV7WvKrNvuLtFOTuVWoUq2y86k+9nLL59Ro3rQLALwpNX
+         j6a0D7l1W8QlWe9dwnsHsVI10OFmOGJ3GjTaWQ3kohtq+AFZde/PF+rkM0Xaku+R9Cxy
+         ofUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=;
+        fh=LmkJyOrHsbKagUDTPwyHPzA5CsK/mSDiQs0XA4rzEYk=;
+        b=lZDti9tO4ZemntZ+IB5tZaknYlebvLyaiC66BHEikKkOo5Mk3V1VKr3bRy14GWEMwi
+         GGym4fXjMetiju+FM8wUbSkx3V+BnsDBEhH5B77qIw4JalIvDLGzlb96X/s5aVXaayz9
+         r7YN4Wv3vLFMGM9sKSrTTHwp+HTwSiRzFC9g87eEjfEe6WZzcMU/b2QQNBpOSU2ETmOp
+         6jqDCQ+yh/ymaL5QAQbVnbtBzpSPLBijq4uEcPbXOYCEeYRGt9Kdq1R6VJ30Hz9e3omy
+         UewedmDtq5zU0Bko75tLoLTE9OGqA4dA2xgTeUq2fDIlI7jOAtW+MecDjPI4B0Me0vxL
+         Wjtw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774453782; x=1775058582; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=;
+        b=acAg8qgl7XNua6VQKmQhCsba7H34a8Dd24QgdH/kKHnIhSm+eycud0zHD3vWA4BIA9
+         MI4mXGoaEk1AQddkJqKiZydJ50tOAxQFkb4QGsw+ya/RRkv7KWdsZ62q6s6gduvjo3Cq
+         Ln0+k3BDZYRgnDVzxxJx0Ug6/UAcsMIVfu2BGZSDjffVQ9YJH82/h8JO10xnEFJWDIfD
+         mYyN+ty/Ikws7nf+kMKziiFtP3SuGB7RdilkDPsRYixrSU+W7U9v3wT2p74whg7jC5fB
+         JRL7QA40ErZlJEclg1+9bRE0Kiqq77lgEgHx0wy1Dk5otmwNVVY4cLIAK45k3Cynxhia
+         smGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774453782; x=1775058582;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=;
+        b=Q5acLURv7UJv5vAtRy/X5BdPgw8vLR97TyYo52bOYQBOgiICJ2Lhpz511Nl0P4Qvxx
+         RLgcXnriSg068R6QMCMqRzvQqGr2SBvbqwwWGa2zccndR35S1qjSAsnXEO9hOUzJoElI
+         F7VlTH69ZLr0YKUtT9HR/7aCZtJRMmpDf4rTUk4cSI/nuJb80xg0unaNkZFCU7Wyx0Rn
+         WytKdQTA6T3MsET4kOSVlBof7EGUDL8F2vcPE50H6GIvCtxoCXo+iYlpvjGgV6z023/q
+         Gl2c0Rd3Qha8+EfV+ZlvesNRbf9KUcncc6h7Cih9Z8xT9xrWE3Kpp8HT4J3qEG+Wx3Ym
+         cp3w==
+X-Forwarded-Encrypted: i=1; AJvYcCVW4EVBPDltlsjS098MgdaE74qtVg9xWjNgjAyWpgpDzzDayhPB/dxMBtCDq8kX9Gycm+bMmYfZAPAEF1NqyucU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3AZPXh9O2vRXTqVPp6ZQrMRBfLu8zCQ3MgIL9U8E5ExuPoOMI
+	230CsFZDToVIBv1iD5M4L7MK36M3g6L2ThdJTChihIY7ot9KN1tGTC63wuL9DoJ3AbjuPvdilng
+	RWXof7COr37dwICSVgverE5e46XosEq4eKuNqMMM55A==
+X-Gm-Gg: ATEYQzxbPB8N8xGGbApOwRIxJNEHvSD1tTacWmJ6GLcgqi+ovBWqhQiwXegJ7/xUe1s
+	XmBJiO96Z4MtdxLd2Lh+HxL2cvpj3wnQgVeYs1efdFNbqJI5da1kZvxrmTGd6EiTrGug/N7C/Ia
+	tP44yM6hMHYYyDRT9lItrhjr5zrWe4yJgzEL26hKqv9APJtU+/1oxZRDq9JZ0imH6KMO6SyAGrA
+	UjBhf3trZWkYFYV/KeCB/HTGDiwrIWo30hldlENAdRzX8/7UYxKnrVFwzqeIZn4dkNFYgpmR+ze
+	OCfVQyj483rGnJkpLMDfdmVBWnZiZwC3rncGpw7Ttg==
+X-Received: by 2002:a05:6402:3251:b0:668:368b:38d3 with SMTP id
+ 4fb4d7f45d1cf-66a82634560mr2196905a12.12.1774453782373; Wed, 25 Mar 2026
+ 08:49:42 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DBBPR04MB7851:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f45b578-c430-42e7-9d28-08de8a861310
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|921020|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: uk9Z+NKYl3HNjRS9zkmZF5Q1H9rHANnEldU/w+gYtqN6S4YOJbWA1qy//kaof8F6kn+HYsfwfiybWngI1P1AVwOAbswwWkaY3aWcmdNPFKyBeo7z+MET2sQsN784ceZDTm6xA7qqZ8N1hjyxcvXDOj2xd+qXzdsEoE/vXZ0ydjLS73lCKvvjw/Y65rL1OjJz92mqooHwM1kU+eEbdMaCTvkZHHy533q5YBO2+03PYmocUumnKBiBgi6/IuIK7zDb2b7IkXtEvr8AjsTU5ATh9aUdFoPeg7cc798D+Ou9znW5DbnhIUrBe4qKdxu/eBdk3Hyuve1aAF3a3iLqFOhrFKZwD6ILT+9XgyWtyg7sHxmmO4iIuPAb2LVJm0gEBxppgbA6lObVbT4B8dMAliAKe0foI9Wjqy1ejqxVuh9LYZXways6ikfsf7aPsKfKrLiKh8FU9nUn+jv+3sLCzXfi83v4Wi/pNUqbgZ58nEEyt2mn+2GIiZlYj+d/6OII+c4fh3vhtDQ14r1KK9gT0AVzOAt57yxoI5dUDgDvqSskIrFRO7ZYUhEV9Nncsw0XyO/el3KD9WnBF1QcObzgygOFBlTg8iKKYkpdprLO1CHhVXYQprbM/e4ILA2abuQDI2NLRSnQc/bdMCyx4dMdboUwreAwMKtI9mcFIEiwNBCmoz5DUBgzv5uFQ/ZonJT5cL/CeIFPZXJ8hh2WEU66eckdIEB074MyMAxQGQ3FXLZvCK/3e1n+gczNxz/QBGzioj3UcwNbl4gZyBj87Wuk4rIXQg+01YOosVdaoqs1zQa6pp03aKZFigb7XPioNClXSC8S
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(921020)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0ZaaWhHMWdhbmVUeVRLSHc3N0d2alQrNXpTME80Sjg4czMxVStua1B1MGNu?=
- =?utf-8?B?dkhZTjdQMmkra2g4L1NSU1plOXB3bXEra29WYTZkZi93NSswWDNEU3FRZ3lT?=
- =?utf-8?B?WjdKQ2w1eFBKdEdmMzh3RGtEZzBRb1pqaUhGQzdEU2tMYlo5eVpmVDZOM0s4?=
- =?utf-8?B?SkpxbkRwNkhRUVZvWVQ2NXQwekNOOW9QTlhTWDJZNVJtOVN3YlQxOGZrVU14?=
- =?utf-8?B?R1ppdnZiVTRNSzNNUEVwaW5zWG9hVXdnMU56eHFLYzNZQ2NzNFRqbm9sa2ZO?=
- =?utf-8?B?a0VNT3NnNElpOWJzTDBZMHZlMktlNURJTXlCaUs4dWhMaG9iaWlOVW8zVmlZ?=
- =?utf-8?B?RUYrSUdwbjREa3o1TGMxNUpDbWhZS0UxdW5mdGZMbkI3U05rdkpHenVVVFgx?=
- =?utf-8?B?U2M5R1VUU2NPdmxRMndrT3pKWFlrbVhLcXJXMXhQMmhoejQwKzFBSU1tZFFK?=
- =?utf-8?B?M3NxTzdaWlpScFV0S1cxQmthRXJBYmhLQ2JGQjhtN2pzVlAzMnQ0Rzh4Mldy?=
- =?utf-8?B?emdYb29XUGJtN1NDcGo1L1hHL1JGTHFwOERhdWJNc2wzdFRNNkphdURjTUp4?=
- =?utf-8?B?QUtDazNpTnRDSjY3M1IrLzlGMk5hUjFkWk5vbUc4MnR1a0hqTDRwblFlTTZH?=
- =?utf-8?B?MWdBZW5ydUsvcUhWcEY1WWI4MkpYdVBzb0NMaUFDRHB4Q2piR3NZV1JoY2tK?=
- =?utf-8?B?eFFQMFJiMEswaFNtT2IxRDRGeWEwdFY4cUwyRzYxU24ydUErOWtBVUpJdEZz?=
- =?utf-8?B?YlZOZk1KRjlNbjBWdjgwZFFNdTBXcDZWN0F0YXIvcUlIT0piUURsdFd4NE9w?=
- =?utf-8?B?UENIZkpXTUQ1bm81Nmhac0JmdnRtdEhqWmtmcXlMS096WURaT0tQRlJUTk1J?=
- =?utf-8?B?bGpEL08vYkVDaXlXWldDRTRpeVpxeFo5NGQ0Si9qTkNuMmlvV1ZVZDErYVR1?=
- =?utf-8?B?ZTRmclFrSzF5MkNISDVsWDhFa1I1Z2ZQcDdINlNUeVo4c3lKSlhPT2s5bHdv?=
- =?utf-8?B?eFZMSk9RUGZrRCtlOUY0WUpMR2VORDlYRFordE04MTNzU2Y2ODRMSmNvdkg5?=
- =?utf-8?B?Q2pZdkNKdzk4QlRnd0xJem44SzBVN2JUVEhkbndDUGxGZ29aTXkvdzd6dFpl?=
- =?utf-8?B?cnFFbytPWENzZnFJQ21vaytFenAvL2lIVHl0UUxBdGdQaXg0TThNa082MVUy?=
- =?utf-8?B?TEhXeGFkR3FmNk1vM3phNXZycTU4TTdMQWhnMWZkVjBPc3hzSU1ZbHFveUZR?=
- =?utf-8?B?YUdoRS92NTNMNitCTm5JaVJiQk5HYVRnRHpxdWZ5WHh2Z0xjelBBcW96TlUx?=
- =?utf-8?B?bFZ4ME5KNkFGWlpacTk0djFtL01qN3NGaDBMME9La1diQUw3aTRxQzVyM0Iv?=
- =?utf-8?B?V2NzRjNEM1BoNnEwRE01N1dtWm84dW40WWcveHM4QVVGR01mWHpQRjU1R045?=
- =?utf-8?B?SmxNVlVBQkNqdzY3YjZudHhzeUhWbmJBQkxmNEpNdUZZUGRla3JGOGY3dWVx?=
- =?utf-8?B?bjltWUZhWmFxTys2bmVVRzVJaFdDcHEwTUNUQmtRMWNOSk9hK0p4dXBid1Rm?=
- =?utf-8?B?SWtBaWpFYWdvRWFEY2V6ZmZWQXRDTk1CM0hpZ2syd3lvcjhUSGI0RUFldGtV?=
- =?utf-8?B?eHN2U3V3Rk9veG53bTRFL1VuS1RmN0VPK2NqbnhKZG55ZVlqWnZwQTJxQld0?=
- =?utf-8?B?L2QyUHhtUWo0Y2FXS0YxOGFrRFZKOFJ6eGQ3UDdzTTI1MzFvaWVwSUhlV1pV?=
- =?utf-8?B?VEJBZ1U5V2ViTFdPeXZFTGo3NEdUV28vbVpVYnNVQWEzcGNqMll0UnB6NE9Q?=
- =?utf-8?B?WmRmSTZuNU1wa2F3MS9SVThUVFYwdWdtMHI1eGJTZGR6dG5WY0VyU1VmZm1B?=
- =?utf-8?B?WXhyZWhxZS80azNTUk5sZnhYSnNOU1BKYjhnbzh2UFI1NnBEcTFIeFd1N1l6?=
- =?utf-8?B?RExNcVdnZGZzdEhJWHIrMkJXVlEycXB6MTQ4NlV1UGFoaVg4R08vWXZaOVVi?=
- =?utf-8?B?d3U0OHIvREdFQ09NNmJpWjB2YjduU0pLVlJOUE9DTGVIMUhlbTh2NVFrYjJm?=
- =?utf-8?B?Y1BoZ3gray9yOW84QVIzV1c4QldPR082M3k2SGkzamFkR0NzVVhPOUhPVm9o?=
- =?utf-8?B?YXNDVGV0cTZUcjJPcHVUbFoxTklNVWVRMWlnb2pPK0dRMHVhc0pVazFyYjBX?=
- =?utf-8?B?VmpFei9Qa3d3U1RSdDdFaCtIZDBEZVVhZ3VoNG50YjU4dkRqVmgxVG5yRktR?=
- =?utf-8?B?dTgvWndIbHcybUhEYVZMaEI1TXNpY0VzdzBvZFVlSkFLTFllUnFLVzVRWUl5?=
- =?utf-8?B?YXhiTk42bVRneGQ5Sy9ZRWNTTHFzZWRLMkVzR3pwMmZGR2drLzcwdz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f45b578-c430-42e7-9d28-08de8a861310
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 15:49:18.5908
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bU8Vngs39oxPp4RO3GvQQC2OIs7EuSacBJdqnLV8YVA3KoOfyt6H5ezdRfsecP2JQXI/poHzUgYKMiwYgBpx4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7851
+References: <20260324005919.2408620-1-dakr@kernel.org> <20260324005919.2408620-8-dakr@kernel.org>
+In-Reply-To: <20260324005919.2408620-8-dakr@kernel.org>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Wed, 25 Mar 2026 09:49:31 -0600
+X-Gm-Features: AQROBzDaUkN0ZNcFR8HLoPUZ0UwwRolGugOyW2ifJVz-O5YTothUc8ZwonnT9P8
+Message-ID: <CANLsYkyNx+e=QrSc=ZOqgMcOpwqdpCWsuhrvByJYcXLHPSHMUw@mail.gmail.com>
+Subject: Re: [PATCH 07/12] rpmsg: use generic driver_override infrastructure
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
+	Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, 
+	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Armin Wolf <W_Armin@gmx.de>, 
+	Bjorn Andersson <andersson@kernel.org>, Vineeth Vijayan <vneethv@linux.ibm.com>, 
+	Peter Oberparleiter <oberpar@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Harald Freudenberger <freude@linux.ibm.com>, Holger Dengler <dengler@linux.ibm.com>, 
+	Mark Brown <broonie@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>, 
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
+	Alex Williamson <alex@shazbot.org>, Juergen Gross <jgross@suse.com>, 
+	Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linux-kernel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
+	platform-driver-x86@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, linux-s390@vger.kernel.org, 
+	linux-spi@vger.kernel.org, virtualization@lists.linux.dev, 
+	kvm@vger.kernel.org, xen-devel@lists.xenproject.org, 
+	linux-arm-kernel@lists.infradead.org, Gui-Dong Han <hanguidong02@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_084923_448287_CE8509EF 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_084945_188212_49059213 
+X-CRM114-Status: GOOD (  30.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,22 +136,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 23 Mar 2026 at 19:00, Danilo Krummrich <dakr@kernel.org> wrote:
+>
+> When a driver is probed through __driver_attach(), the bus' match()
+> callback is called without the device lock held, thus accessing the
+> driver_override field without a lock, which can cause a UAF.
+>
+> Fix this by using the driver-core driver_override infrastructure taking
+> care of proper locking internally.
+>
+> Note that calling match() from __driver_attach() without the device lock
+> held is intentional. [1]
+>
+> Link: https://lore.kernel.org/driver-core/DGRGTIRHA62X.3RY09D9SOK77P@kernel.org/ [1]
+> Reported-by: Gui-Dong Han <hanguidong02@gmail.com>
+> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220789
+> Fixes: e95060478244 ("rpmsg: Introduce a driver override mechanism")
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+> ---
+>  drivers/rpmsg/qcom_glink_native.c |  2 --
 
-On Mon, 16 Mar 2026 16:04:51 +0100, Alexander Stein wrote:
-> TQMa95xxLA is a SOM using NXP i.MX95 CPU. MBa95xxCA is a carrier
-> reference design / starter kit board.
-> 
-> [1] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma95xxla/
-> 
-> 
+For the below files:
 
-Applied, thanks!
+Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 
-[1/3] dt: bindings: arm: add bindings for TQMa95xxLA
-      commit: 98e6e022858ee5845ee00f44b4805ca6b36e0388
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
-
+>  drivers/rpmsg/rpmsg_core.c        | 43 +++++--------------------------
+>  drivers/rpmsg/virtio_rpmsg_bus.c  |  1 -
+>  include/linux/rpmsg.h             |  4 ---
+>  4 files changed, 7 insertions(+), 43 deletions(-)
+>
+> diff --git a/drivers/rpmsg/qcom_glink_native.c b/drivers/rpmsg/qcom_glink_native.c
+> index 9ef17c2e45b0..e9d1b2082477 100644
+> --- a/drivers/rpmsg/qcom_glink_native.c
+> +++ b/drivers/rpmsg/qcom_glink_native.c
+> @@ -1623,7 +1623,6 @@ static void qcom_glink_rpdev_release(struct device *dev)
+>  {
+>         struct rpmsg_device *rpdev = to_rpmsg_device(dev);
+>
+> -       kfree(rpdev->driver_override);
+>         kfree(rpdev);
+>  }
+>
+> @@ -1859,7 +1858,6 @@ static void qcom_glink_device_release(struct device *dev)
+>
+>         /* Release qcom_glink_alloc_channel() reference */
+>         kref_put(&channel->refcount, qcom_glink_channel_release);
+> -       kfree(rpdev->driver_override);
+>         kfree(rpdev);
+>  }
+>
+> diff --git a/drivers/rpmsg/rpmsg_core.c b/drivers/rpmsg/rpmsg_core.c
+> index 96964745065b..2b9f6d5a9a4f 100644
+> --- a/drivers/rpmsg/rpmsg_core.c
+> +++ b/drivers/rpmsg/rpmsg_core.c
+> @@ -358,33 +358,6 @@ rpmsg_show_attr(src, src, "0x%x\n");
+>  rpmsg_show_attr(dst, dst, "0x%x\n");
+>  rpmsg_show_attr(announce, announce ? "true" : "false", "%s\n");
+>
+> -static ssize_t driver_override_store(struct device *dev,
+> -                                    struct device_attribute *attr,
+> -                                    const char *buf, size_t count)
+> -{
+> -       struct rpmsg_device *rpdev = to_rpmsg_device(dev);
+> -       int ret;
+> -
+> -       ret = driver_set_override(dev, &rpdev->driver_override, buf, count);
+> -       if (ret)
+> -               return ret;
+> -
+> -       return count;
+> -}
+> -
+> -static ssize_t driver_override_show(struct device *dev,
+> -                                   struct device_attribute *attr, char *buf)
+> -{
+> -       struct rpmsg_device *rpdev = to_rpmsg_device(dev);
+> -       ssize_t len;
+> -
+> -       device_lock(dev);
+> -       len = sysfs_emit(buf, "%s\n", rpdev->driver_override);
+> -       device_unlock(dev);
+> -       return len;
+> -}
+> -static DEVICE_ATTR_RW(driver_override);
+> -
+>  static ssize_t modalias_show(struct device *dev,
+>                              struct device_attribute *attr, char *buf)
+>  {
+> @@ -405,7 +378,6 @@ static struct attribute *rpmsg_dev_attrs[] = {
+>         &dev_attr_dst.attr,
+>         &dev_attr_src.attr,
+>         &dev_attr_announce.attr,
+> -       &dev_attr_driver_override.attr,
+>         NULL,
+>  };
+>  ATTRIBUTE_GROUPS(rpmsg_dev);
+> @@ -424,9 +396,11 @@ static int rpmsg_dev_match(struct device *dev, const struct device_driver *drv)
+>         const struct rpmsg_driver *rpdrv = to_rpmsg_driver(drv);
+>         const struct rpmsg_device_id *ids = rpdrv->id_table;
+>         unsigned int i;
+> +       int ret;
+>
+> -       if (rpdev->driver_override)
+> -               return !strcmp(rpdev->driver_override, drv->name);
+> +       ret = device_match_driver_override(dev, drv);
+> +       if (ret >= 0)
+> +               return ret;
+>
+>         if (ids)
+>                 for (i = 0; ids[i].name[0]; i++)
+> @@ -535,6 +509,7 @@ static const struct bus_type rpmsg_bus = {
+>         .name           = "rpmsg",
+>         .match          = rpmsg_dev_match,
+>         .dev_groups     = rpmsg_dev_groups,
+> +       .driver_override = true,
+>         .uevent         = rpmsg_uevent,
+>         .probe          = rpmsg_dev_probe,
+>         .remove         = rpmsg_dev_remove,
+> @@ -560,11 +535,9 @@ int rpmsg_register_device_override(struct rpmsg_device *rpdev,
+>
+>         device_initialize(dev);
+>         if (driver_override) {
+> -               ret = driver_set_override(dev, &rpdev->driver_override,
+> -                                         driver_override,
+> -                                         strlen(driver_override));
+> +               ret = device_set_driver_override(dev, driver_override);
+>                 if (ret) {
+> -                       dev_err(dev, "device_set_override failed: %d\n", ret);
+> +                       dev_err(dev, "device_set_driver_override() failed: %d\n", ret);
+>                         put_device(dev);
+>                         return ret;
+>                 }
+> @@ -573,8 +546,6 @@ int rpmsg_register_device_override(struct rpmsg_device *rpdev,
+>         ret = device_add(dev);
+>         if (ret) {
+>                 dev_err(dev, "device_add failed: %d\n", ret);
+> -               kfree(rpdev->driver_override);
+> -               rpdev->driver_override = NULL;
+>                 put_device(dev);
+>         }
+>
+> diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
+> index 8d9e2b4dc7c1..e0dacb736ef9 100644
+> --- a/drivers/rpmsg/virtio_rpmsg_bus.c
+> +++ b/drivers/rpmsg/virtio_rpmsg_bus.c
+> @@ -373,7 +373,6 @@ static void virtio_rpmsg_release_device(struct device *dev)
+>         struct rpmsg_device *rpdev = to_rpmsg_device(dev);
+>         struct virtio_rpmsg_channel *vch = to_virtio_rpmsg_channel(rpdev);
+>
+> -       kfree(rpdev->driver_override);
+>         kfree(vch);
+>  }
+>
+> diff --git a/include/linux/rpmsg.h b/include/linux/rpmsg.h
+> index fb7ab9165645..c2e3ef8480d5 100644
+> --- a/include/linux/rpmsg.h
+> +++ b/include/linux/rpmsg.h
+> @@ -41,9 +41,6 @@ struct rpmsg_channel_info {
+>   * rpmsg_device - device that belong to the rpmsg bus
+>   * @dev: the device struct
+>   * @id: device id (used to match between rpmsg drivers and devices)
+> - * @driver_override: driver name to force a match; do not set directly,
+> - *                   because core frees it; use driver_set_override() to
+> - *                   set or clear it.
+>   * @src: local address
+>   * @dst: destination address
+>   * @ept: the rpmsg endpoint of this channel
+> @@ -53,7 +50,6 @@ struct rpmsg_channel_info {
+>  struct rpmsg_device {
+>         struct device dev;
+>         struct rpmsg_device_id id;
+> -       const char *driver_override;
+>         u32 src;
+>         u32 dst;
+>         struct rpmsg_endpoint *ept;
+> --
+> 2.53.0
+>
 
