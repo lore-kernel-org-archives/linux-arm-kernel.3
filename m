@@ -4,101 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA69FEA806
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 04:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85862FEA806
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 05:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27fWtX4e+LV3z70kuuRuZ5e8ys9OszIAeG99fDZYuvA=; b=N9N3aNSovqiJXgqBzp/MNgLd9V
-	cRXedIZBZ+iCW9HfTjVEOpTED92TPG1tclfvCvr5uNves97BTl6SQURM43+ci94tMfXFwfoz/Hc4a
-	LtAPsoFrs/pGcCNti6e4lL3Z5mTW3aeLNKTLW8paWLA1uLgswU3eAb052aS2V7Uhk/kWUA8vJAyfz
-	MP/TujGTaystruO3tsurb1qIDDKEWy/GBHLitZw8sMPcKgfivND3tVnHIEcPYTShwKgknL95chRUE
-	EmPGIBVZoE2Ke8VSR0Db/d/QITEj4TiCguLpcup6fp2VzViyaaYKem9cPB53fKeISXOMc+a/N6U3B
-	c+z7Pd1A==;
+	bh=0JPtoFP4tgxV1Qy/DmZtipgdUmV3id7ioCYvoKydIGo=; b=cx+mhmhcnZ+Vvy0fnwBgk1nP6M
+	Wc6bzX715SdAGKwJpjoP1lrf6buArlH9ScACBPat4iVcfwWhk5K/N7iz/ibrIdtBTarc33bnwVXzp
+	6ec9sAnWrD9uKdo2MyDZO3AeQurdz0tFT+9ruTObWHf1b2QZqzHi/WXZ0iDXwBgxYdUVGxoyz8Wn8
+	ZunbYG33d4A7kRUXP3zvPnH/mBnb8IaPJK9DwsKrqa1Ia/p/Bku8k7YBsz449M9DT308b33K/etOK
+	FuObft0kULC5DsvmTaPqoNJkmJA9Mm8YocLy+lTnqrSluBw+qIEEw7M5a3a4ca77GvJf4bZbfeVzw
+	poVzi/FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Fdl-00000002fGP-2EbP;
-	Wed, 25 Mar 2026 04:14:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Fdk-00000002fGC-2nz2;
-	Wed, 25 Mar 2026 04:14:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=27fWtX4e+LV3z70kuuRuZ5e8ys9OszIAeG99fDZYuvA=; b=pFghz8EzegyyVLdw26KGcoes3s
-	dz3UmM1HQKq+rvfUtUWDTt00RObY7ZnF5FO3UWdYJfq6ZX/VFRRHIpgfcJLbIkaimSxkZwjgUEFA3
-	bbS0TMoLsluXp0B8uU5g0eo/xGTZ+odoMXxR5/k83Es80YZ3tKOG234Vc+dOJbq4NQmwYLyqQSUqm
-	ZFzPBzG5+mwYkBEGZwX3AvhGEpqpW2sH67GFIgCdX2zk7QcrBPZQHFsBqd/h/0NgUhlAtSq3JQdWs
-	5Z4uEWAesQT4k66Is43485c5dYWv4UT1X337UsoiZxQJgSn6OzDG9Nd3KH4fLqFqhNCTUID4dtVdJ
-	EP5mX7YQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Fde-00000005PsG-4Ahe;
-	Wed, 25 Mar 2026 04:14:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E09BA44182;
-	Wed, 25 Mar 2026 04:14:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3C4AC4CEF7;
-	Wed, 25 Mar 2026 04:14:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774412074;
-	bh=DjQNBELJeTo8/+IvhIZ195gGXomNRX+U9eI4gj1CDvQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SRN8ph0pe1XZdbFseT7tE70r/KjEUXruc5OYrwNk9RqqxCpNBz3lKttBmjvyR/V+F
-	 LtJrTZ+7anfXtgnic7l5VIoLbzWClqhGy86LYc5jTJ5WiLlspuvWPVcH7tVEo3bTZQ
-	 B3/V2PjFQujB3TmjH/YZDXYjGSvefpMLSF6ujW4kNal6dqlrgdyZy3xe5uuN8qioVt
-	 C5T8kZxf9GojeAa9XddOx6PZakiiMDHaZ25yl5D3ZSoIxAugmHnvVJo6l2b5/Lv/S0
-	 upiARQ+JCWrFKrTEs9313xFN7iKFbUBGQMZ2Z6A7i8ktSdEYDHgVOSA3WjPwRHv5Xc
-	 ZaeMKZnXKgm0Q==
-From: Kees Cook <kees@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>
-Cc: Kees Cook <kees@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] Fix bugs and performance of kstack offset randomisation
-Date: Tue, 24 Mar 2026 21:14:20 -0700
-Message-Id: <177441205756.1333400.7749975219620417508.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260303150840.3789438-1-ryan.roberts@arm.com>
-References: <20260303150840.3789438-1-ryan.roberts@arm.com>
+	id 1w5GWx-00000002hbF-3ma1;
+	Wed, 25 Mar 2026 05:11:48 +0000
+Received: from mx.socionext.com ([202.248.49.38])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5GWu-00000002hap-3oSt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 05:11:46 +0000
+Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
+  by mx.socionext.com with ESMTP; 25 Mar 2026 14:11:40 +0900
+Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
+	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id A51672091483;
+	Wed, 25 Mar 2026 14:11:40 +0900 (JST)
+Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Wed, 25 Mar 2026 14:11:40 +0900
+Received: from [10.212.247.82] (unknown [10.212.247.82])
+	by iyokan3.css.socionext.com (Postfix) with ESMTP id EEF1410A0BE;
+	Wed, 25 Mar 2026 14:11:39 +0900 (JST)
+Message-ID: <09fc1857-e554-48ec-8862-54f0650b1c58@socionext.com>
+Date: Wed, 25 Mar 2026 14:11:43 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: uniphier: mux: fix signedness bug in get_parent
+To: Stephen Boyd <sboyd@kernel.org>, Anas Iqbal <mohd.abd.6602@gmail.com>,
+ linux-clk@vger.kernel.org, mturquette@baylibre.com
+Cc: mhiramat@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260318110251.2412-1-mohd.abd.6602@gmail.com>
+ <177431305509.5403.15386021337517970667@lazor>
+Content-Language: en-US
+From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In-Reply-To: <177431305509.5403.15386021337517970667@lazor>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_041439_468182_D7DB68CA 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260324_221145_092086_81DCD52A 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,29 +69,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Mar 2026 15:08:37 +0000, Ryan Roberts wrote:
-> [Kees; I'm hoping this is now good-to-go via your hardening tree? It would be
-> good to get some linux-next testing.]
+Hi,
+
+On 2026/03/24 9:44, Stephen Boyd wrote:
+> Quoting Anas Iqbal (2026-03-18 04:02:51)
+>> The uniphier_clk_mux_get_parent() function returns a u8, but
+>> propagates negative error codes such as -EINVAL and regmap_read()
+>> failures. These values are implicitly converted to large unsigned
+>> integers, resulting in invalid parent indices.
+>>
+>> The clk_ops.get_parent() callback is expected to return a valid
+>> parent index and does not support error codes. Fix this by returning
+>> 0 as a safe fallback in error cases.
 > 
-> Hi All,
+> A large number will exceed the number of parents possible for the clk
+> and turn into a failure to find the parent in the parent map. There's
+> nothing to do here besides implement clk_ops::get_parent_hw()[1] and fix
+> all the drivers.
 > 
-> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
-> and, on arm64 at least, the performance is poor. This series attempts to fix
-> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
-> proposes a performance improvement approach.
-> 
-> [...]
+> [1]
+> https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git/log/?h=clk-parent-rewrite
 
-Sorry for the delay! Applied to for-next/hardening, thanks. :)
+Certainly, the return value of .get_parent() is now u8, which doesn't
+correctly detect an error in the function.
 
-[1/2] randomize_kstack: Maintain kstack_offset per task
-      https://git.kernel.org/kees/c/37beb4256016
-[2/2] randomize_kstack: Unify random source across arches
-      https://git.kernel.org/kees/c/a96ef5848cb0
+Some other implementations prevent .get_parent() from detecting regmap_read()
+errors, but if it does, the read value is undefined.
+If access to the parent fails, the only option is to propagate the error as
+Stephen suggested, however, that affects all drivers, not just this one.
 
-Take care,
+Thank you,
 
--- 
-Kees Cook
-
+---
+Best Regards
+Kunihiko Hayashi
 
