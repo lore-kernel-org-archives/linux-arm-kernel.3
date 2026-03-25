@@ -4,88 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9602CFEA83D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D23AFEA83D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d27maMT+gaVBX+I8KOk4v9fQBs+qrT50oEtm7+Gc3S4=; b=DChLKfmXzENU78Ai1VCYD7t/41
-	g/MtTKEkhVPUUmnQOM7ajeHJp+c86mUC2CB+i+w7dftHLjHz9mWAJLbkG9XPdDXO15VwkoWOy+n1S
-	vILOljimx4tWP37xWooIqcockXeWKQBmpG4NaqaKkIN8Tu5CKGxhchn6phWlk7JhBRy4ECx6P+ScO
-	czYpso3Ac/xiQOC9INM0pI64ADaJ6SyY7o42fO0peAyeWRoC2/7FXMVK6qBbf3RF7GrYu2AUmycUM
-	TUtA2OZ5ziA75m7LEHFTtyAWtgG1gMvxuFkJe2E/NtPrQB0QUSJn9uuQSCf4AA+sy0g9pSTTWeOsN
-	zqk8D0/A==;
+	bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=; b=HZeUYbPaoVuhHe+P2ej1cdALc8
+	at7ANr4apN+pKKUEDeFE97GHkTH0S/hV4AWsuamJO+ceeEauvj6rX8nQuB9b7NDSoguhV39gIcMRy
+	WxL1yhImpdfmUryIZ6KM6n0XRvFGnxTVRqF8kg6BFY64NDhSkNF5jd+Q1SPXiBgqG6oyeNPQvTVmV
+	7FF+0hvVxO2dLJQ+7DRKs5IR6lD/Hmbsn7DUJFyg1BQZIXf3jGZ93HOCNZJbdVkmDG36rbOczfecy
+	jNcEoAYUlKO4G3kchacRS3bKiV8IqD+gqWa/IYzNEzy55yfmZtuIE7Xapf0+OD53Wt4qkO+2XZceq
+	3BuoytdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Kpr-000000034XO-3dMo;
-	Wed, 25 Mar 2026 09:47:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5Kso-000000034uD-2bzu;
+	Wed, 25 Mar 2026 09:50:38 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Kpo-000000034Wo-37xc;
-	Wed, 25 Mar 2026 09:47:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B0374417E;
-	Wed, 25 Mar 2026 09:47:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F83C2BC9E;
-	Wed, 25 Mar 2026 09:47:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774432051;
-	bh=vUFrcOFz84OveU1pgKHoD1qwpdPZX9ciji33h3siGaE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h7rjxRys800WY0i8LFUswSR3PcQtVI+WfcvFbM55iwz1ZH6sEQagzhf2LyOreVOSW
-	 R1lGyQTKbfLllWJzdn5W8eaoKRVYpL0edcGcr6SCeDfoN1NRmrSZOCLjsPkGst2Vue
-	 whTAV+F4IJb7xm4J+qcGoX5SFmIZFB+fhBwrR2605pUGNgx0fg/E3JSQRqS9sFkabZ
-	 CtbaFD/j2jHu/4k19QPOkOOINFcC55JlaP/BKzrZDZAQkiiAvQh9vim4ubQ9CkIKj9
-	 xhp7ke2Xf5zs7lnOYxqAky/AVcczwO5PeQU9qs8vfUKFRe22DcZ0GFLqD7cqpncinF
-	 7/z8KNyW3nyVA==
-Message-ID: <2bf17da7-fb46-4503-8de9-9368a73d8487@kernel.org>
-Date: Wed, 25 Mar 2026 10:47:21 +0100
+	id 1w5Ksm-000000034tJ-2CNN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 09:50:37 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-669d7666d77so4877033a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 02:50:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774432234; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Y1tHw26R3MFT3mfm9uMOXto0Dr1X1a1sSE/Mk4Awa9Ki+TEPXpnduj+E38776B0eYn
+         +w2UENiTdVsk4GgPFpG4Qbe/AvlAY2btDzI5DssgmzjxqV/4e4IpzoYwK7FD4ZNJWnmp
+         SaCeEoZXHzYZXRSO5rueRAWnnC8j7vc13qHYRyB76sA7y1r5wSuINOFSV/fbPiixQPlY
+         K5b2xwQ25MY9F1HjUNWpYkBgJCtZry+XHgvVtWZOo8i72FVjOemr31aWXxq/AHJhVc6Z
+         iTDZ6waxcW8nqpGVX7NXDCs+nDL1n0JeESdbSlvQzvzcSo7qdECZQKEE9poUs+GUVbb8
+         3TNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=;
+        fh=B/yQTkd/C6GJC9RNmw7sg1zpY8CgGYPUesYQaWcINsA=;
+        b=Qb6xNI2Y6J3ha8ixU1UqWSHmQoaMvjb9g4yM2KOjxCB83kVmFMgeW42y8aOggcsd8z
+         HGGtLeTzDRf/tk+FvCtsblI5RU82BxWjbfQoMxnr4uu2nPQq/ThtbJBYU7gMuqdBEjPi
+         98moD9rrr0rDMn2ZMjENXt23prrQaLGv196O4Y/+WLnx3PN8XDwedGHBtnKrQ7ywjTCc
+         FIIAg5zENlRW/i1RfeCOZLSNzdngO87qVXJT62hbwpmE3qZovp60m7HA7x3vWwxGcEIK
+         G8Kpqq5T3wy0LrEvBDLXXrl3nV3ViALmFu3ta3xtVufgod1QS/xJHLisRnlYZ+E8pAOP
+         70XA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774432234; x=1775037034; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=;
+        b=aF43O3SR3XnB8asEilskmTQoA2zRXIiGoAnZmf320bkf58YfLGZ+KqtMLWgcp0AnRw
+         IgnrOIPnL8AHPKxhroVgJRzfmxusipEXogGMwALCNkA1paAJJ7nQCwgspuwpXAYZ/maN
+         ZI+fmhyezO21XlIB+TJZ4fJKjzFokZm6RoxZzDW3m3pci13IXK6BBurD3XZqOOB9MVem
+         C5zB62JByNdHc+O7GAZOM+bH7AfyaU01Q/Tb0bkfMlQ6whdH/pzltdrMQeLKW35fi/su
+         7AZ/KxqCWlLizL4aI+NuweuLyuqt/MPllstFwh/yyWKUitp/Go1rLLbqaLFie3AdRLzN
+         NbqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774432234; x=1775037034;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VP0SehC+D3+hhDWyfoKCodtXephnp1PrBhw2LiSs1TA=;
+        b=hdmwE3IUA9A8GkaOLsh45pTRVk3hDwrjSwyfGUHsaZeeo1VzJcFJ+vucN/lvOlwe2E
+         +lMsrhHxUAY12vT6ta20YwHWBQguFLT9oeMrf97O5XmivR0zI1eeYRQ74SA+2k2zt1BI
+         9ibqxkuROgSq0VP7o2IEsO+YEDYZxzS4sTi1zTpREMDW3P0LtPlhbRCE6FG64EYDzZ9W
+         w4vj/mH2GdCAC6lsy9cG/dETvGl+eTm5FgvCZBqMiyR8CCIDot34At4ETgrPfkU6DdZF
+         Y/XWijTRMgJXrnUxU0ExWDIDu2PHIZG6XDew9WeMlJvMCKxV3No90uo9NoXyY/Dmj5gG
+         e5LQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVg1vud5n/zWXVPjl1N/HzRTq09Fc6NBQuQV6yJLhImJ1+wQUm+h/T9zSJ90j7TapJcMgwC6KRmc1bm0VvSbcHE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/WKGqoXkk1LQVAebdq98/rfaysuoVgE1WTO/Z7ldRGLz22ARi
+	fKKBi4UM6tav9nZ2s+0Hc2ItEK3l8tEc4TRQJUHmJ7gi3PHEHM+kvrmyVrAl55B4Aa9O8xskvSk
+	fdOiE6WRk7f3yrvS+lFba2+SCck/jazc=
+X-Gm-Gg: ATEYQzwkKvCq6VNu3l6XvDfddfs6YIrNwc1Ahw2P5/5HS+Rw1V1NohQ+HeQ+36qepWW
+	OsWGZwVbqB6CYJ/s0G1fi5wrHQi9yxgw/eXqs235hu9HoYfInWGKNseSQMwwbvdnNaL+kJEPLe2
+	zn3cAFieWrRKYpaJgXMh4TFyXyyibXddBUuhPypzkt6qrR8H8tICTWYHD6/r9ruKdAYNFy8w/1r
+	hQgb5TbgZzHWISfOpwM0uHPfLoPkmqS/bNXZLbATolit9pRtPNNHYxAuulME1rgkwvsRHHgYUt9
+	bwywCJzt
+X-Received: by 2002:a17:907:72c7:b0:b96:f6f1:e7af with SMTP id
+ a640c23a62f3a-b9b0ea7e884mr143299166b.9.1774432233910; Wed, 25 Mar 2026
+ 02:50:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/21] fs: afs: restore mmap_prepare implementation
-Content-Language: en-US
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Bodo Stroesser <bostroesser@gmail.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
- <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
- linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- Ryan Roberts <ryan.roberts@arm.com>
-References: <cover.1774045440.git.ljs@kernel.org>
- <ad9a94350a9c7d2bdab79fc397ef0f64d3412d71.1774045440.git.ljs@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <ad9a94350a9c7d2bdab79fc397ef0f64d3412d71.1774045440.git.ljs@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260310091054.2029912-1-egbostina@gmail.com> <acKyJTkqq-bV_3jZ@lizhi-Precision-Tower-5810>
+In-Reply-To: <acKyJTkqq-bV_3jZ@lizhi-Precision-Tower-5810>
+From: Eddie <egbostina@gmail.com>
+Date: Wed, 25 Mar 2026 11:50:22 +0200
+X-Gm-Features: AQROBzD-kPMMH1jFoji7rnPnjGOGNLf_VyIguCX0e1QYp30ObYBIhsUdhFbiTf0
+Message-ID: <CAEFOc61tNbF+cE0waQpfvuSe7enJkDk_yzcGXZ_-D1Kvj_5G-w@mail.gmail.com>
+Subject: Re: [RFC PATCH] arm64: dts: imx8mp-edm-g-wb: Use 0 for reserved bit
+To: Frank Li <Frank.li@nxp.com>
+Cc: daniel.baluta@nxp.com, simona.toaca@nxp.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_024732_835914_26C67ABB 
-X-CRM114-Status: GOOD (  31.65  )
+X-CRM114-CacheID: sfid-20260325_025036_578721_644E5147 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,143 +119,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
-> Commit 9d5403b1036c ("fs: convert most other generic_file_*mmap() users to
-> .mmap_prepare()") updated AFS to use the mmap_prepare callback in favour
-> of the deprecated mmap callback.
-> 
-> However, it did not account for the fact that mmap_prepare is called
-> pre-merge, and may then be merged, nor that mmap_prepare can fail to map
-> due to an out of memory error.
-> 
-> This change was therefore since reverted.
-> 
-> Both of those are cases in which we should not be incrementing a reference
-> count.
-> 
-> With the newly added vm_ops->mapped callback available, we can simply
-> defer this operation to that callback which is only invoked once the
-> mapping is successfully in place (but not yet visible to userspace as the
-> mmap and VMA write locks are held).
-> 
-> This allows us to once again reimplement the .mmap_prepare implementation
-> for this file system.
-> 
-> Therefore add afs_mapped() to implement this callback for AFS, and remove
-> the code doing so in afs_mmap_prepare().
-> 
-> Also update afs_vm_open(), afs_vm_close() and afs_vm_map_pages() to be
-> consistent in how the vnode is accessed.
-> 
-> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
+Hi Frank,
 
-Yep that should take care of that reference count problem.
+>> Change 0x41 to 0x40 to leave the reserved bit cleared, as
+>> recommended by the reference manual.
+>
+> Any impact if set bit 0 to 1?
+>
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-> ---
->  fs/afs/file.c | 42 +++++++++++++++++++++++++++++-------------
->  1 file changed, 29 insertions(+), 13 deletions(-)
-> 
-> diff --git a/fs/afs/file.c b/fs/afs/file.c
-> index 74d04af51ff4..85696ac984cc 100644
-> --- a/fs/afs/file.c
-> +++ b/fs/afs/file.c
-> @@ -19,7 +19,7 @@
->  #include <trace/events/netfs.h>
->  #include "internal.h"
-> 
-> -static int afs_file_mmap(struct file *file, struct vm_area_struct *vma);
-> +static int afs_file_mmap_prepare(struct vm_area_desc *desc);
-> 
->  static ssize_t afs_file_read_iter(struct kiocb *iocb, struct iov_iter *iter);
->  static ssize_t afs_file_splice_read(struct file *in, loff_t *ppos,
-> @@ -28,6 +28,8 @@ static ssize_t afs_file_splice_read(struct file *in, loff_t *ppos,
->  static void afs_vm_open(struct vm_area_struct *area);
->  static void afs_vm_close(struct vm_area_struct *area);
->  static vm_fault_t afs_vm_map_pages(struct vm_fault *vmf, pgoff_t start_pgoff, pgoff_t end_pgoff);
-> +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
-> +		      const struct file *file, void **vm_private_data);
-> 
->  const struct file_operations afs_file_operations = {
->  	.open		= afs_open,
-> @@ -35,7 +37,7 @@ const struct file_operations afs_file_operations = {
->  	.llseek		= generic_file_llseek,
->  	.read_iter	= afs_file_read_iter,
->  	.write_iter	= netfs_file_write_iter,
-> -	.mmap		= afs_file_mmap,
-> +	.mmap_prepare	= afs_file_mmap_prepare,
->  	.splice_read	= afs_file_splice_read,
->  	.splice_write	= iter_file_splice_write,
->  	.fsync		= afs_fsync,
-> @@ -61,6 +63,7 @@ const struct address_space_operations afs_file_aops = {
->  };
-> 
->  static const struct vm_operations_struct afs_vm_ops = {
-> +	.mapped		= afs_mapped,
->  	.open		= afs_vm_open,
->  	.close		= afs_vm_close,
->  	.fault		= filemap_fault,
-> @@ -492,34 +495,47 @@ static void afs_drop_open_mmap(struct afs_vnode *vnode)
->  /*
->   * Handle setting up a memory mapping on an AFS file.
->   */
-> -static int afs_file_mmap(struct file *file, struct vm_area_struct *vma)
-> +static int afs_file_mmap_prepare(struct vm_area_desc *desc)
->  {
-> -	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
->  	int ret;
-> 
-> -	afs_add_open_mmap(vnode);
-> +	ret = generic_file_mmap_prepare(desc);
-> +	if (ret)
-> +		return ret;
-> 
-> -	ret = generic_file_mmap(file, vma);
-> -	if (ret == 0)
-> -		vma->vm_ops = &afs_vm_ops;
-> -	else
-> -		afs_drop_open_mmap(vnode);
-> +	desc->vm_ops = &afs_vm_ops;
->  	return ret;
->  }
-> 
-> +static int afs_mapped(unsigned long start, unsigned long end, pgoff_t pgoff,
-> +		      const struct file *file, void **vm_private_data)
-> +{
-> +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
-> +
-> +	afs_add_open_mmap(vnode);
-> +	return 0;
-> +}
-> +
->  static void afs_vm_open(struct vm_area_struct *vma)
->  {
-> -	afs_add_open_mmap(AFS_FS_I(file_inode(vma->vm_file)));
-> +	struct file *file = vma->vm_file;
-> +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
-> +
-> +	afs_add_open_mmap(vnode);
->  }
-> 
->  static void afs_vm_close(struct vm_area_struct *vma)
->  {
-> -	afs_drop_open_mmap(AFS_FS_I(file_inode(vma->vm_file)));
-> +	struct file *file = vma->vm_file;
-> +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
-> +
-> +	afs_drop_open_mmap(vnode);
->  }
-> 
->  static vm_fault_t afs_vm_map_pages(struct vm_fault *vmf, pgoff_t start_pgoff, pgoff_t end_pgoff)
->  {
-> -	struct afs_vnode *vnode = AFS_FS_I(file_inode(vmf->vma->vm_file));
-> +	struct file *file = vmf->vma->vm_file;
-> +	struct afs_vnode *vnode = AFS_FS_I(file_inode(file));
-> 
->  	if (afs_check_validity(vnode))
->  		return filemap_map_pages(vmf, start_pgoff, end_pgoff);
-> --
-> 2.53.0
+I have not tested this on hardware with the bit cleared, so
+I cannot confirm functional impact for sure, but according to
+section 8.2.4.238 of the iMX8MP reference manual, bit 0 of
+SW_PAD_CTL_PAD_SAI1_RXD6 is reserved with a reset value of 0.
+The only defined fields are PE (bit 8), HYS (bit 7),
+PUE (bit 6), ODE (bit 5), FSEL (bit 4), and DSE (bits 2:1).
 
+Both 0x41 and 0x40 should result in identical pad behavior.
+Leaving it set probably risks undefined behavior in future
+revisions of the silicon.
+
+
+>> This also allows for
+>> easier conversion to symbolic macros.
+>
+> Can you send this patch also?
+
+Yes, I will send a followup patch soon.
+
+Thanks for the review.
+
+Eduard
+
+=C3=8En mar., 24 mar. 2026 la 17:48, Frank Li <Frank.li@nxp.com> a scris:
+>
+> On Tue, Mar 10, 2026 at 09:10:53AM +0000, Eduard Bostina wrote:
+>
+> Remove RFC.
+>
+> > The i.MX8MP Reference Manual documents bit 0 of the
+> > IOMUXC_SW_PAD_CTL_PAD registers as reserved. The hd3ss3220
+> > IRQ pin (SAI1_RXD6/GPIO4_IO08) currently uses pad config
+> > value 0x41 which sets this reserved bit.
+> >
+> > Change 0x41 to 0x40 to leave the reserved bit cleared, as
+> > recommended by the reference manual.
+>
+> Any impact if set bit 0 to 1?
+>
+> > This also allows for
+> > easier conversion to symbolic macros.
+>
+> Can you send this patch also?
+>
+> Frank
+> >
+> > Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts b/arch/a=
+rm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+> > index 242fa930b..a78401d11 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
+> > @@ -345,7 +345,7 @@ MX8MP_IOMUXC_SAI1_TXD5__GPIO4_IO17                0=
+x16 /* DSI_VDDEN */
+> >
+> >       pinctrl_hd3ss3220_irq: hd3ss3220-irqgrp {
+> >               fsl,pins =3D <
+> > -                     MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08              0=
+x41 /* GPIO_P253 */
+> > +                     MX8MP_IOMUXC_SAI1_RXD6__GPIO4_IO08              0=
+x40 /* GPIO_P253 */
+> >               >;
+> >       };
+> >
+> > --
+> > 2.43.0
+> >
 
