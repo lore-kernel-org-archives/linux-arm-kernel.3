@@ -4,99 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBBA109C032
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68CE109C033
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lsqamBp8hVq8vMV9I7W5DvdI+pm9r55STzQZW1yMNLQ=; b=a6YvccQsI2Mffd0Nvx+FCMPY+P
-	EB55y5hs++zCTUo64kWdCYVKWp5ys38dWaqqwjlICyoaDJWsXppVtuNjE2yv4CvEM6El94zjKW3QY
-	wYxwDxBx+QKx6KBg0iVi0mNnIYJAj1m4Q2lu/T3PVb/xgvWT2JyJC3ywtp9+Bx1B/lzQyHzaQwF+D
-	8yd3FNzDOJNvjt4Z4GuN3lz7DRl62WgYcONAw4K6/tBaXN9SFV26kUxPDKxUOIyt/clEz+3vMPtxP
-	clTNzlFl+Sw0Zwk766c8fRLkY4PUXtEoUEuC0tGCx6fRAs/Kr38PkIB2q0eweFZd9pBx2tUAULCd1
-	AVh7G4mg==;
+	bh=khgSvsFz4BGruQneZts97/YH28J+KXY7YhwPuOZLH0c=; b=JGnx/Q0puGxGtqVztygozXcVS/
+	GeUoHn3zyyltz11sVVemgWmsBdQe3bNTiUVFHKEuVqSmJJekbU4xg3Z659TX3oDj/gBWHf0+mtT7p
+	nMBIt5hIGtdGvrIXJgDPExLpXCvj1B0kgi6WqHLFRoe2DojreQcuwogsPvw9JW2niowR/jgjGXjuq
+	TomkCWHbcxqFEBm7iBZoI7evXc9CWNJxh/KgMfzsEOR6We8+vfsUi+mHBlwVne6FmVRlokrbGXpfX
+	Zt4PJajSESX9o2hecT8dbeIdINGiWSaVjYmyUPV3QwnLYG1//4FW3Nw5rlgYq7j9mM2oaSH110zRv
+	nhyENlQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Q7N-00000003mh9-1T0V;
-	Wed, 25 Mar 2026 15:26:01 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1w5Q8P-00000003mv4-0JU4;
+	Wed, 25 Mar 2026 15:27:05 +0000
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Q7K-00000003mgX-2GQw
+	id 1w5Q8M-00000003muK-28ct
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 15:25:59 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-486ff3a0fc1so45679065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:25:57 -0700 (PDT)
+	Wed, 25 Mar 2026 15:27:04 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-12a693cdf29so994425c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:27:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774452356; x=1775057156; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774452421; x=1775057221; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lsqamBp8hVq8vMV9I7W5DvdI+pm9r55STzQZW1yMNLQ=;
-        b=ngDyxPJEXCAXuszPQ1B4oehzVsc23jv80tZ4AmfatpXy0GuFsvsADEIKiMXNBB13X8
-         OxaK3CG32LKcz8k4xlP37RKPKsKbDTMtXweOyt9er98iKbZ4NcI2izlvgmEcBdhC/EHn
-         jA5kAx+QDwJ/PhCjcFs8/PREYiKB8pQHiff1BLVOStdWz+tDNw2qTkfIaPbiD8GqkzJO
-         6wH6khqF8SVCBX2FxnuzRqQ5AlMnRwmE8J1tB15TzTr6eEufAA5uzH0OI/bH/95nILIJ
-         ozEj1JZA82ekY3XxVmierpfcFFKlxm0ER1JmTwqtPmkXdbJdAdhPs5/kxjSNCH9OOwfB
-         B1EQ==
+        bh=khgSvsFz4BGruQneZts97/YH28J+KXY7YhwPuOZLH0c=;
+        b=l31IbuJo2P2KfXa6Ou+8vr+JAAIOIc5J4NJ+xPy0hS4askB+Pfm5uxvM0vE1pTQM+R
+         U4hjJuKjuxxw005K0+5/gkgWXQQBE8fTmQfLn4nZ9m7tT+Pu1zxjKSBEX7+xRleQJ+s4
+         N7QvOB0YnlnggXjHPHh+wwIrXDiAjTe3oxn874dzdnig7ynKxuudYXTw2OrMjUtBCKVU
+         hp3tRVFhgoFwQbd8gGF8+I+VyZOr8B73xDVmMJGqXTX7rMU5LCPocpnfWT08wwuJPJ2/
+         k6aTd1BuuLlUmo+OlIYEjN6ehoUezM3dM5xt0k9HMm2/zKZJaXntvIErUPSqahuEV50z
+         t9Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774452356; x=1775057156;
+        d=1e100.net; s=20251104; t=1774452421; x=1775057221;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lsqamBp8hVq8vMV9I7W5DvdI+pm9r55STzQZW1yMNLQ=;
-        b=bdASmjfRjtC8NnyFzVGuxQhGWpHxx50beGJ+NPphwDzB7CPdLMWZ053F7J0P5uQF90
-         6UPNtKyjWsq2ace+SNFmP0IRvYW8Lwnl3Z5ZbjeZm/fQJt88A0OljrWMoMir7HAq8JAA
-         89lXwrUpGs3bq32TqcxZW1gtM3ZXP5R29wE3cmsZOPJS4+7Ai1LU0HvFK1LpSfXEVTLw
-         JzWf9t0PVBrL9ioN3+oUmM9d4A3kkiJJlj32uTLqaHiLayVPdMcIPOKIKpzXzJ9TGxcA
-         X/WsGb4bbYAb4+zbaVrrv1jlV3zrt2A9r0DR/knzGVn1zsgJ+MdmU25/WkplAhj1JMG5
-         G9Jg==
-X-Forwarded-Encrypted: i=1; AJvYcCVYq+ZJr5GQCUpAuNSljpMMn3PxZFeLc2HopQJLo7w4ew9bf3OM3ukX47Gf8EtVWRD6YPQ+Wy6OIuShRkBXE/Sx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7AJAc3Zm6kq6FBEqEIrgXOOLVngvOl+y1pysX4Tn7aaJ6eZDo
-	wD5uESA5HdcI9R0UShHbEtJZgjot/gONtk5GPoO50xGvLKYccbhiIKIn
-X-Gm-Gg: ATEYQzzRGdurw1Ov5Dy0xy3jgj+RDyZPDGxrKKAdMWjyGY+ve3aso8a5jasoTlmCBBT
-	8EfkRtZYBmecIibByASCMbv56FZ0c6AmO4Hgr4hd7FrGXsHvWbs0aIQhESWFKKPdM2oGdCqbNSB
-	HZjZ333N13tT2uzhOb6uFm6VeB6FQ3GQTLLWDyaBFnKL6vCZk6BAoQDlU5QhlUZccA7ckN3AV3z
-	7fJhyA0CN3QuFpkzZAfj1zZ5ZynefRrgtK1fPhY1AT2PSfHJoaf6YIkfx2XvD3yQop1O9chk1LE
-	9eNoxdDGNEmO1jLcV8ABuR/STkzKf/2o0jVc6SxkVMQjANyDMihhame9oqnFWGEKa4iekX8jLJA
-	/oXOjUhraao8a8AyXDG+Q6RcKc0L74u+po6g2IRVxQfZVQJsZW73QvEbf8IfNtUpsG4Bdyk/Vsh
-	4zs/qDx+nD2LTqIhtJZIZq1b+Z/OYHa8ewwUKospnahKCrRyk0ajOWoADcuzKgpL5lOhi0bc4sE
-	ZZzV7eCObfvQs55Znn/xsJeC8cgL30uyOisOjZXVxdQmp7DaXCEcsw=
-X-Received: by 2002:a05:600c:1d0e:b0:485:3ec6:e634 with SMTP id 5b1f17b1804b1-48715febda2mr57676625e9.15.1774452356292;
-        Wed, 25 Mar 2026 08:25:56 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-20-233.cust.vodafonedsl.it. [93.144.20.233])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-487172a72b6sm39684025e9.3.2026.03.25.08.25.55
+        bh=khgSvsFz4BGruQneZts97/YH28J+KXY7YhwPuOZLH0c=;
+        b=J7PK7m15KLGTpYZ4GAA8dQCP4C51ts2pnLbG68Jg28B4N6wir2frX4cTiZKlKedXOX
+         QaQy7aPZHLnSVOrAhwaKtVjQ9ot7oNChMehqYAvQeSGG5v+WILYfNtkOeu8lCam4JEZF
+         eh6CqkOWjIpEvlut6Xtq6XG/fFOJcJ/66lF6/yy6ho82Ca5pyp5EpXv+8oWvxVReKCyP
+         pSFAuk0ElTDsMKMnihYbFMhe4u23Ei3aZsvtLweeGT1UIkFY6FBYM7o7328YjpyS36R9
+         Bh0Pk7X1A+hCOQBwk4xP9odKgUKgBFmCMpNhurTJk8/SMv69OlmJQj3iYDxOZ4LBWc0q
+         DwgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWakoAxn5qSxSD8WBvvbuqcanueLgRLydT0tyCyC0iN5m94Mey2i4meBWOsiI4AKJgeeQo1hFmp32Rf42k1Le8R@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4G8kFx7+f7M8J1IWgKqs5xfmFVteZGA+FSXh3wQ9o7H0upCUf
+	sLphGKuO6p2noxy5EYt605o3YTz00/aXEGVy+ZgdkTxFUT8Eqjnc22Dk
+X-Gm-Gg: ATEYQzx+EEpiKAsNJl+2/vbwbsXHoxYjNPZhJ4U7mJGqT0nusq6WMqrNhbtZMppfkSg
+	SMbgq33E9cXRDGKu5idvKtt+nNnIk394EbsJbLeVGPyBK5l9IQWsdwNGotkaaqAz8YZBWcjUqLt
+	8J/qfc7s0zY3hLJNTIhZHR80I3IzheipaeJJHNnteoOA5Up5jGzO8F5z9FnnecSbSdV2jdKks9+
+	aVdx0dMcsZU99yXRreO/93mi1wHU23ZPd7d/zWrY00ABF4F9pjr/HrZQoqTVFE1CFdq8V2idOiM
+	Lx4iXKz/mcoupKLjaglXPd82/ONYjCbPolslm15WpELwuPuPCAMDQGIbxUqAxVflHhV5R6yTrVb
+	C5hjiF5R+232rKu096RdmsPQIx5XhieJgnsb8oNMmmKb9eEBDLwR1bv7+d8llhFmv2UcE+blpvz
+	1yySn3pCbnQ2Ptb3RwNMzefEKDoxwg977zvl9XURR8YbOQr0Ev0Mi95h/k4Uh32ln3
+X-Received: by 2002:a05:7022:220d:b0:128:cf41:d6e4 with SMTP id a92af1059eb24-12a8e1682e4mr3485083c88.21.1774452421364;
+        Wed, 25 Mar 2026 08:27:01 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:b7b4:352d:eb23:66e5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12aa76243desm44594c88.9.2026.03.25.08.26.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 08:25:55 -0700 (PDT)
-Date: Wed, 25 Mar 2026 16:25:53 +0100
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 0/2] Add support for Variscite DART-MX95 and Sonata
- board
-Message-ID: <acP-gZii2WrU6eL-@Lord-Beerus.station>
-References: <20260313174707.26902-1-stefano.r@variscite.com>
- <abRdwy_AS046QVRI@lizhi-Precision-Tower-5810>
- <acLqjeqmR4eVDoKw@lizhi-Precision-Tower-5810>
- <20260325122104.GA19112@francesco-nb>
- <acP2UX6B5js_ozWm@lizhi-Precision-Tower-5810>
+        Wed, 25 Mar 2026 08:27:00 -0700 (PDT)
+Date: Wed, 25 Mar 2026 08:26:57 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>, 
+	Grimmauld <grimmauld@grimmauld.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, driver-core@lists.linux.dev, Lukas Wunner <lukas@wunner.de>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <acP9-AfUQ7zp3kMS@google.com>
+References: <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
+ <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
+ <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
+ <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
+ <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
+ <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
+ <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org>
+ <55c28218-1638-4b90-a9cd-a177fb5abcb6@arm.com>
+ <acNgUoWWMCi1oLU4@google.com>
+ <DHBYL7Y262J2.263EOC2JNN4RK@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <acP2UX6B5js_ozWm@lizhi-Precision-Tower-5810>
+In-Reply-To: <DHBYL7Y262J2.263EOC2JNN4RK@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_082558_582814_4CE9F307 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20260325_082702_545361_BA00937B 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 10:50:57AM -0400, Frank Li wrote:
-> >
-> > How do you know that the correct copyright year is 2026?
-> > The copyright years does not change to today just because it is the year
-> > it was submitted.
+On Wed, Mar 25, 2026 at 04:13:03PM +0100, Danilo Krummrich wrote:
+> On Wed Mar 25, 2026 at 5:13 AM CET, Dmitry Torokhov wrote:
+> > That means that you are kicking the majority devices (for now) into
+> > deferral path. I do not think this is optimal.
 > 
-> At least it should include 2026 because it is new files in kernel tree.
-> 
-> >
-> > I think that you should refrain yourself for doing these kind of changes
-> > to the code when you apply patches.
-> 
-> If original owner have concern, I can update it in my tree.
-> 
+> That's not necessary, we'd only need to kick those into the deferral path that
+> have PROBE_FORCE_SYNCHRONOUS, no?
 
-Hi Francesco, hi Frank,
+Yes, it may limit the fallout, but as I explained in my other email
+there seem to be a serious disconnect on what synchronous and
+asynchronous probing mean.
 
-thanks for the clarification.
+I wonder, don't we get issues with phylib in other cases? Don't we ever
+have a module resulting in creating a phy device triggering loading
+another module on the same thread? Won't that result in a warning also?
 
-In this specific case, I'm fine with keeping 2026 for these new files
-introduced in the kernel tree.
+Thanks.
 
-Thank you all for taking care of this!
-
-Best regards,
-Stefano
+-- 
+Dmitry
 
