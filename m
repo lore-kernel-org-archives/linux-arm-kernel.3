@@ -4,104 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F297FEA806
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 04:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA69FEA806
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 04:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1zx9FotWDsXciTr6vSKC3+KwJ/ZkglPq04NJzxyt/k=; b=i6BfdiL6QFnr73ilJF8j4Pw9a1
-	vqz/qiKc5Dl/MfP2bo3qon197g+QZAGqPenqllkpytF6QAPdBgr+CHUgaC7FbbREYaR5lrO1iOEoC
-	JF9gHY72ZIudyHxMm1NdwK50SWOpdgjVvlgL+BT00AhXbnSioyhooc+vmTdtKP7265flWJWwjOX0k
-	X98ACyryuzZ1aoBHujdTYCj1VC6nvqBN3LMsyR+yuEswm1Ae2Md2jcU5UoTQEEzMtyeerRGVdvMn0
-	fKnyLWbh1CrwhFOajX25pX2oJTJjndKh84ORJv8wBc5pwLDq86571gPq67kJskOAOhkbGsOJ7XSAC
-	9u0BVlNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=27fWtX4e+LV3z70kuuRuZ5e8ys9OszIAeG99fDZYuvA=; b=N9N3aNSovqiJXgqBzp/MNgLd9V
+	cRXedIZBZ+iCW9HfTjVEOpTED92TPG1tclfvCvr5uNves97BTl6SQURM43+ci94tMfXFwfoz/Hc4a
+	LtAPsoFrs/pGcCNti6e4lL3Z5mTW3aeLNKTLW8paWLA1uLgswU3eAb052aS2V7Uhk/kWUA8vJAyfz
+	MP/TujGTaystruO3tsurb1qIDDKEWy/GBHLitZw8sMPcKgfivND3tVnHIEcPYTShwKgknL95chRUE
+	EmPGIBVZoE2Ke8VSR0Db/d/QITEj4TiCguLpcup6fp2VzViyaaYKem9cPB53fKeISXOMc+a/N6U3B
+	c+z7Pd1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5FcX-00000002ezf-3nIx;
-	Wed, 25 Mar 2026 04:13:29 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1w5Fdl-00000002fGP-2EbP;
+	Wed, 25 Mar 2026 04:14:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5FcV-00000002eyw-01aJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 04:13:28 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-12713e56abdso304949c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 21:13:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774412006; x=1775016806; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=A1zx9FotWDsXciTr6vSKC3+KwJ/ZkglPq04NJzxyt/k=;
-        b=TSiuNJECs2nTpFRM7zBhjckU4fAU7ktGO7B4lCq7haEXDIBsXE+Y8QXtgRdlD3MkMl
-         dhNKUpHsmFavpSAZFhYRc94V+tiPXi+VSnLal3ERTbifq3wR9ybwW0/gy/iYnxiJ0NFJ
-         xfMSetEbmmEElQb0nR0KfVEAA76k/rv/qlpVzNUo6JtatIQH0y65yTbcQPGLQlDB9MPF
-         6SXdE+RsofQXkP3A4OOShp18CMa176z5fYpcIv/cNjHOk4qpe+4ZCW4T1F2/gPogfJfg
-         ZAL9xpOzMxiJXX3XX0tGQZo/2nXnwZmVEtxy12dyX5sda9S7i9poXT5moRoyvQE9V/Pr
-         04Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774412006; x=1775016806;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A1zx9FotWDsXciTr6vSKC3+KwJ/ZkglPq04NJzxyt/k=;
-        b=CzmoFKuy67kNIB62pcgNk2iM8FKcpgvOlAXhtnrmIcz93KMh7L49OpoUzEDaoi14ev
-         LsmxWXN4JpG5aNPlXwxZR5GqixEpct3kR2vCsCOsiIv2MqPd9lrLR9pORs2dVgiDkJzn
-         di03ovbqurrbECV8yc5+GScjA99PRG7BiQbM6OCbS2fQPCipGeqK50GS/szb9Cq5Lp/B
-         5XjugqLQDfr0VhS3jFcMGmxUsH1ENcpnVT/mYJmHQdT3dYAeLIz87MXykHOPvVFfnm8H
-         2swaKKlNs+VUmeZ36pjSYALCfJS+MrYRN3eBAt8zqNf6gSfIqRdJVH50ftp4b9qtJ0lE
-         YzDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVRWK/qj1BfHr8bUoxgN9UPHBnBFBH6H8Wvg7umiYs0nS7hwJ9Ais5pn1QmhokbSJFp4Dny9bA47xyZcVl8MKky@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3GQjhQtrql3gepUz/wxe5vWflE/FguZD4ntpzMqn3Khckk3nS
-	feNOZAAMhvCc1eiqtNVl5SOJ+MNMVOS9nUYyVFlify0CmO2QT/q+Gqbg
-X-Gm-Gg: ATEYQzxk5nCQdmTO29l/pmgsMU9+OvI6E3zQ4IaQGFBbYVNo9Gz2bJXKoveEUenKj65
-	q/6sU/GLM0kURL22z3T/KrwikMdXwES8TyYQj2mFqbrtLPs7iJFhrT+UDEQ5RrPR53vLqXNSExG
-	IRdHgI+0iqVNIDsGGmzNOHb0kRHbuAjSAKkFykTgCgeTXyTK7KbMq726rRfxBelzRyLlcn+v6Ec
-	mmB5ln3W6j40KGk22wNijWagUD0D2oFQ/a7RxGqGXvHoCeOJWxuvTu0lb6OIXQxx7X4Oi1I6TT5
-	ryIBdbF9lJeBbET2S8kyPqpd2+mCE2yPSzY006Y13L1yap8TDHZDH/8yaLsz93goq9DNwN21AXr
-	0mtym8y83mCybDk3XT6gIQHq9Ki0uLFZdLWEK07RDcw39dIRzHswz+OsRcPZZ0u3LKs9D/DNKvv
-	ETwPI0+SqZTbjxhd8fwmkg2BYG0Kr6imECt7G4DC9YLVmKZ/71PA0afL0lKcpgTAJFlDM79qdCF
-	pc=
-X-Received: by 2002:a05:7022:418b:b0:128:f1fd:78be with SMTP id a92af1059eb24-12a9684c64cmr1091744c88.5.1774412005575;
-        Tue, 24 Mar 2026 21:13:25 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:a686:fd7f:70d3:9156])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12a733b4a39sm12292420c88.3.2026.03.24.21.13.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Mar 2026 21:13:24 -0700 (PDT)
-Date: Tue, 24 Mar 2026 21:13:20 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Danilo Krummrich <dakr@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>, 
-	Grimmauld <grimmauld@grimmauld.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, driver-core@lists.linux.dev, Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
-Message-ID: <acNgUoWWMCi1oLU4@google.com>
-References: <20260226101032.1042-1-linux.amoon@gmail.com>
- <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
- <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
- <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
- <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
- <qwanhqrpztzkudik5fmberhabnzaly7v53677dohqzj5nq4wi2@6ndpiubyxcbi>
- <DGZXF3LPSRK6.2QYN63QTKUQAX@kernel.org>
- <cp5uktfqdf6zs53qsye57ior2ikmssgevxxdtevkzpisaif22h@7mrxspkuibow>
- <DH09EDBW3X6T.2996UB1CFCAW2@kernel.org>
- <55c28218-1638-4b90-a9cd-a177fb5abcb6@arm.com>
+	id 1w5Fdk-00000002fGC-2nz2;
+	Wed, 25 Mar 2026 04:14:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=27fWtX4e+LV3z70kuuRuZ5e8ys9OszIAeG99fDZYuvA=; b=pFghz8EzegyyVLdw26KGcoes3s
+	dz3UmM1HQKq+rvfUtUWDTt00RObY7ZnF5FO3UWdYJfq6ZX/VFRRHIpgfcJLbIkaimSxkZwjgUEFA3
+	bbS0TMoLsluXp0B8uU5g0eo/xGTZ+odoMXxR5/k83Es80YZ3tKOG234Vc+dOJbq4NQmwYLyqQSUqm
+	ZFzPBzG5+mwYkBEGZwX3AvhGEpqpW2sH67GFIgCdX2zk7QcrBPZQHFsBqd/h/0NgUhlAtSq3JQdWs
+	5Z4uEWAesQT4k66Is43485c5dYWv4UT1X337UsoiZxQJgSn6OzDG9Nd3KH4fLqFqhNCTUID4dtVdJ
+	EP5mX7YQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5Fde-00000005PsG-4Ahe;
+	Wed, 25 Mar 2026 04:14:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E09BA44182;
+	Wed, 25 Mar 2026 04:14:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3C4AC4CEF7;
+	Wed, 25 Mar 2026 04:14:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774412074;
+	bh=DjQNBELJeTo8/+IvhIZ195gGXomNRX+U9eI4gj1CDvQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SRN8ph0pe1XZdbFseT7tE70r/KjEUXruc5OYrwNk9RqqxCpNBz3lKttBmjvyR/V+F
+	 LtJrTZ+7anfXtgnic7l5VIoLbzWClqhGy86LYc5jTJ5WiLlspuvWPVcH7tVEo3bTZQ
+	 B3/V2PjFQujB3TmjH/YZDXYjGSvefpMLSF6ujW4kNal6dqlrgdyZy3xe5uuN8qioVt
+	 C5T8kZxf9GojeAa9XddOx6PZakiiMDHaZ25yl5D3ZSoIxAugmHnvVJo6l2b5/Lv/S0
+	 upiARQ+JCWrFKrTEs9313xFN7iKFbUBGQMZ2Z6A7i8ktSdEYDHgVOSA3WjPwRHv5Xc
+	 ZaeMKZnXKgm0Q==
+From: Kees Cook <kees@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: Kees Cook <kees@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v5 0/2] Fix bugs and performance of kstack offset randomisation
+Date: Tue, 24 Mar 2026 21:14:20 -0700
+Message-Id: <177441205756.1333400.7749975219620417508.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260303150840.3789438-1-ryan.roberts@arm.com>
+References: <20260303150840.3789438-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <55c28218-1638-4b90-a9cd-a177fb5abcb6@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_211327_083643_69130167 
-X-CRM114-Status: GOOD (  47.30  )
+X-CRM114-CacheID: sfid-20260325_041439_468182_D7DB68CA 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,104 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 12, 2026 at 12:48:36PM +0000, Robin Murphy wrote:
-> On 2026-03-11 9:09 pm, Danilo Krummrich wrote:
-> > On Wed Mar 11, 2026 at 1:28 PM CET, Manivannan Sadhasivam wrote:
-> > > On Wed, Mar 11, 2026 at 12:46:03PM +0100, Danilo Krummrich wrote:
-> > > > On Wed Mar 11, 2026 at 6:24 AM CET, Manivannan Sadhasivam wrote:
-> > > > > I have a contrary view here. If just a single driver or lib doesn't handle async
-> > > > > probe, it cannot just force other drivers to not take the advantage of async
-> > > > > probe. As I said above, enabling async probe easily saves a few hunderd ms or
-> > > > > even more if there are more than one Root Port or Root Complex in an SoC.
-> > > > 
-> > > > Then the driver or lib has to be fixed / improved first or the driver core has
-> > > > to be enabled to deal with a case where PROBE_FORCE_SYNCHRONOUS is requested
-> > > > from an async path, etc.
-> > > > 
-> > > > In any case, applying the patch and breaking things (knowingly?) doesn't seem
-> > > > like the correct approach.
-> > > > 
-> > > > > I strongly agree with you here that the underlying issue should be fixed. But
-> > > > > the real impact to end users is not this splat, but not having the boot time
-> > > > > optimization that this patch brings in. As an end user, one would want their
-> > > > > systems to boot quickly and they wouldn't bother much about a harmless warning
-> > > > > splat appearing in the dmesg log.
-> > > > 
-> > > > You mean quickly booting into a "harmless" potential deadlock condition the
-> > > > warning splat tries to make people aware of? :)
-> > > > 
-> > > 
-> > > Hmm, I overlooked the built-as-module part where the deadlock could be possible
-> > > as indicated by the comment about the WARN_ON_ONCE().
-> > > 
-> > > But what is the path forward here? Do you want the phylib to fix the
-> > > request_module() call or fix the driver core instead?
-> > 
-> > Here are a few thoughts.
-> > 
-> > In general, I think the best would be to get rid of the (affected)
-> > PROBE_FORCE_SYNCHRONOUS cases.
-> > 
-> > Now, I guess this can be pretty hard for a PCI controller driver, as you can't
-> > really predict what ends up being probed from you async context, i.e. it could
-> > even be some other bus controller and things could even propagate further.
-> > 
-> > Not sure how big of a deal it is in practice though, there are not a lot of
-> > PROBE_FORCE_SYNCHRONOUS drivers (left), but note that specifying neither
-> > PROBE_FORCE_SYNCHRONOUS nor PROBE_PREFER_ASYNCHRONOUS currently results in
-> > synchronous by default.
-> > 
-> > (Also, quite some other PCI controller drivers do set PROBE_PREFER_ASYNCHRONOUS
-> > and apparently got lucky with it.)
-> > 
-> >  From a driver-core perspective I think we're rather limited on what we can do;
-> > we are already in async context at this point and can't magically go back to
-> > initcall context.
-> > 
-> > So, the only thing I can think of is to kick off work on a workqueue, which in
-> > the end would be the same as the deferred probe handling.
+On Tue, 03 Mar 2026 15:08:37 +0000, Ryan Roberts wrote:
+> [Kees; I'm hoping this is now good-to-go via your hardening tree? It would be
+> good to get some linux-next testing.]
 > 
-> Hmm, in fact, isn't the deferred probe mechanism itself actually quite
-> appropriate? A suitable calling context isn't the most obvious "resource
-> provider" to wait for, but ultimately it's still a case of "we don't
-> have everything we need right now, but it's worth trying again soon".
-> I may have missed some subtleties, but my instinct is that it could
-> perhaps be as simple as something like this (completely untested).
+> Hi All,
 > 
-> Cheers,
-> Robin.
+> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+> and, on arm64 at least, the performance is poor. This series attempts to fix
+> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
+> proposes a performance improvement approach.
 > 
-> ----->8-----
-> 
-> diff --git a/drivers/base/dd.c b/drivers/base/dd.c
-> index bea8da5f8a3a..3c4a0207ae3f 100644
-> --- a/drivers/base/dd.c
-> +++ b/drivers/base/dd.c
-> @@ -954,6 +954,16 @@ static int __device_attach_driver(struct device_driver *drv, void *_data)
->  	if (data->check_async && async_allowed != data->want_async)
->  		return 0;
-> +	/*
-> +	 * Bus drivers may probe asynchronously, but be adding a child device
-> +	 * whose driver still wants a synchronous probe. In this case, just
-> +	 * defer it, to be triggered by the parent driver probe succeeding.
-> +	 */
-> +	if (!async_allowed && current_is_async()) {
-> +		driver_deferred_probe_add(dev);
-> +		return 0;
-> +	}
+> [...]
 
-That means that you are kicking the majority devices (for now) into
-deferral path. I do not think this is optimal.
+Sorry for the delay! Applied to for-next/hardening, thanks. :)
 
-Does phy really need to request modules synchronously (and on its own)?
-Why can't it rely on udev to load the modules and signal when phy
-devices are ready?
+[1/2] randomize_kstack: Maintain kstack_offset per task
+      https://git.kernel.org/kees/c/37beb4256016
+[2/2] randomize_kstack: Unify random source across arches
+      https://git.kernel.org/kees/c/a96ef5848cb0
 
-Seems like a deficiency on PHY subsystem that is stuck in times long
-past.
-
-Thanks.
+Take care,
 
 -- 
-Dmitry
+Kees Cook
+
 
