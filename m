@@ -4,87 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A39109E528
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1FC109E528
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KbyKbyFuHp+6dsr0KIzDsUutYDB3nuzbv/Jgu2ebttc=; b=FfyE9ejtNT6spzAS9NJJgxempi
-	JPGJKnPuoRLo0tw4TM3++SWsU25+8vr5FMLoAHEzGwk3+qBSsU1oCfRGJ9g+zbc0W8drFwgkeNSc0
-	Q4LnlKGrW+YHEgfbZdfV86Uv4SQ9KKpQY19hYdBIkHbt1RutC2UXnTxAWQvWfgey7yHKc3iPkLuvx
-	CccmmIfe/qWX5ERBolkXotPYEYBEhXmfp+iY62xcLJtjF5Ch/5pv+1Vu9nCsD2OAEBJQvu19dWzwS
-	TGy/DxV2d2euTNGSG2jyAL3aRrI5JgSHLPxdmpcrT+kpNEX4uErj4i2f+D1/DCmkNKVVbDFLEIxJp
-	e6hqY7ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gQyLhBL9UbmzshQJvtblVnD4ZAy3WacbYAsHE1insk8=; b=R4VdcdLF/Ghfnc
+	LVSLqCQtLGhCWY7SFbeK2RrMVwvfqsm2G/1zpvEthhGKh8FDogLkb9W3YZ1FzXZ6baWcLg6uCm6q5
+	Nkj2KyMMFpSS0kVY06iXbOvmccvlLmaa5hyqv7IQyx3TqhvtvFt+aDZ1Tl6qej7Ytfu9d1wR6MFuG
+	GoZbbvxU9Sr298xPHS7Z6jTm4cFVhKlL87D9S6Jn8LT/aXLUg8PGd41mXyjTKJ3q/NIwSD+rSmXzA
+	GIfzm2mVb5dj4KvOxShSfeSwCB07azWKB6TaNUuo+qEfc4ZLj8nVkVIoAmJ9B221VGV/qF13zmIt8
+	55Q81F2YbFImpPQIenBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Xfl-00000004QKj-38q6;
-	Wed, 25 Mar 2026 23:30:01 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1w5XgB-00000004QPA-2zZ5;
+	Wed, 25 Mar 2026 23:30:27 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Xfj-00000004QK6-0VS1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 23:30:00 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-12a71ade78cso474578c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 16:29:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774481398; x=1775086198; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KbyKbyFuHp+6dsr0KIzDsUutYDB3nuzbv/Jgu2ebttc=;
-        b=EDNLEghGYGpm/HdQ9c2Fl7GOAGyUmXSsn+buBqPHqzArc/jN8/sX57RoP0mEMYTpF0
-         2Fm6MuzcLPhzs1HeistkAtlVOKZXtTGowWoj5zRHixQtrQQ9DkQKkIN5cyaSYNT8hQDH
-         KBwWj4ZZRJENmpkgpINBPKfb/0pT6e7ANOjv7B48YnSZbgah8S7t0QopWRx6fkiOm4wJ
-         wdbNWVKsOIAKy0eB1I/SzcT2cSW0rbqRsps/GU1NnIQB5PF6yF/eH2C9bGFCB1ipwtL7
-         Q0kCgs/ASe5/GZM0fGqNF0pUvGnPXkbRtqdkmvIIiyeG1lhmEC3V65xdWenLBDyFVK2P
-         SJ5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774481398; x=1775086198;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KbyKbyFuHp+6dsr0KIzDsUutYDB3nuzbv/Jgu2ebttc=;
-        b=oeRHxb+R0dHLB7HOSiSUhXSdijeVz0zbDVo2wwUsN8TC/Uhkr5cmE0iHUMR96ZFFKO
-         rQPBQpy9lNLD3fWwd2AWYkykSeKOaVm1jUxGp3y9+SPabHR1T99Eb70GDCRPBD3emcMS
-         UKWLcYfitMwBWToA8ue3ZNhh8cjLMH59EOi6OXSNLwHwFU4vKakn1C40jjIvoMA6iyjL
-         gCpgkSsPVkDGM1ll5uNmDcw2Ox7WXNYV9oRbcotRDB+EMdQiTBsRpofGh5gqeaDxfLXR
-         Z9Q0xdJ/4d2QN6emAxoFltuh5z4CTdwZUSUrAnh385czdE+b4CW5jY6q0EN1xmMjjPS3
-         AcBg==
-X-Forwarded-Encrypted: i=1; AJvYcCUW/OkbioK1CvR/rXi5CXnmdtIYoqjo1pTGyXdsFSG7hGJxpKMrKd/IhoZzcSRtQe1cvJQ3cC4vk/k9MSPI7wgi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7bYFi5JjdEhcqu/3B0E15t9IokXWVu1IXg9UgeV8OVI7cBSLC
-	F28nuqqCdhFfhe6WW9AJu3S16oe6bCfaJ1pmyV5hrTNqNY/KtehCa6PK
-X-Gm-Gg: ATEYQzzo8hnGxUuWomjYrY4f07dD5/WOsBQmi5vGncRa7s+wtSPDkVOyiT3vYgUT7F4
-	AiZWWXM8gHgo/vFHJnD1uHhog6k6QKGhtUF4UeW7TQMN80uyUPq4YjPszmQJbbUJUL3KSQgOJGy
-	MI6IdPMTsOvjef4aSipPU8feiOfusu0bYsYIfmAf6lXGaUYyuC4E62/AgC4bxKFGzYu7QhYKmNE
-	4OJPUd4/w5JLBJ/x2YbBqop9AUxHemmNwgRS0CRvBy/USKm+FpWM8iwUCNTpkZSnBdxxxYvMpuU
-	raJZUwerERMJj+iL3UVjFIG/Ieb+nMdpY1XkfXf/mD9zc0LzJTQrOj96ik03sTQIBr6BB4rdE6n
-	ZnF3tFQrdHmiNYURClmVUzwXU2Fi8Z5S9usYd1HQVSk8QoTEQclr3AjkB99bSgDbHgzNtviG8ZK
-	E99Aa39jnBHpNeiy4CLNAMbh6HC9XPTnHGbHwijb8FJMpiCoGb/xjnATzHJLhpc+P9
-X-Received: by 2002:a05:7022:402:b0:122:8d:3688 with SMTP id a92af1059eb24-12a96eceb55mr2801523c88.22.1774481397800;
-        Wed, 25 Mar 2026 16:29:57 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:b7b4:352d:eb23:66e5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12aa7274231sm1355207c88.8.2026.03.25.16.29.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 16:29:57 -0700 (PDT)
-Date: Wed, 25 Mar 2026 16:29:54 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Marc Dietrich <marvin24@gmx.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] ARM: tegra: paz00: configure WiFi rfkill switch through
- device tree
-Message-ID: <acRtWZohqfDLbMKE@google.com>
+	id 1w5Xg7-00000004QMi-2wsO;
+	Wed, 25 Mar 2026 23:30:25 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 408537A00D9;
+	Wed, 25 Mar 2026 19:30:21 -0400 (EDT)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-02.internal (MEProxy); Wed, 25 Mar 2026 19:30:21 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm3; t=1774481421; x=1774567821; bh=gQyLhBL9Ub
+	mzshQJvtblVnD4ZAy3WacbYAsHE1insk8=; b=K9MNJie+EYgMzW3BFgLJFjG8Av
+	/ZxZIiYHlUdoJUMwrRRyFegxpp3hYcuVoVvhDYiLHWf9JYPbIL61adPnF+pQnwRt
+	gB1Qq6+iJV36qX0uC4xIgp3mkY/MctJd1QGTAiFsc5gE29dnV733zHOHFvwDRp35
+	F0xeRhK6itNQ/WnXfnwU+FGOIz/4907MtBIbsIbYhaLam60FmG0nHgHyzhIO/C5K
+	a4r8V5OYZ4WIlf8dhCu7Ttc93DYMWuQ9VpqwAwR/3sVHkMHAgBRZx9vbs71Ug7k8
+	OHSViIlCSQzo2neowPA0gFeyK6ZDvzZbJjBrDCRTINYiJpJ/16+OdcWOkIHA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1774481421; x=1774567821; bh=gQyLhBL9UbmzshQJvtblVnD4ZAy3
+	WacbYAsHE1insk8=; b=McjdehOqaHBKhICEBUcEkLBSCcQKjtQ9+XVmGmFnVGHF
+	1kctnH4DHXvC2iI1fnlga15R/XnVWRrVjoh29jgBQ7ifjbUpCm6Mrcnaycl4Pp6p
+	TNWeVwQ5T6BKG0upcTKrs/rnP2am/Dj+11sAbYkdYSqojjYZsOOosK9LWyjl5KDF
+	ohT9u4+sAFMNd2tRWzC6Y70xmUTloU5fCV3lj0LBjpOn2CleYAvJW3u9QqEmj6ki
+	5H/45YOIPZP7urn0idL2tIDhWaDj3+8KRh50uhxL7YHWFaSgYMoph3dtaIh/88sK
+	nM5SqJuec1mBQFa57fTaAICWrDiXAysGWrZp3rj6Tg==
+X-ME-Sender: <xms:DHDEaQjRA4G2RKv7gaDt8OYovXOngnLonjQoS0qrkawu7KsssliIBg>
+    <xme:DHDEaT0EXNtb-v_AtHz88uIB23yGkJPfR1exUcg-PttuY-J5BtGdgBPcJRjXdlDZj
+    S05DsSpzy89UZsj2xnHZVDaOU-Lan33olUjBiDzY4m3U_vqSJar>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdehjeelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepoffhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomheplfgrvhhivghr
+    ucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnhephffgje
+    eludfhtdffieeiueejfffgueehueffgfdvvdefvdevieevtdfgkedvvedtnecuffhomhgr
+    ihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuih
+    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjhgvthhmrdhmvgdp
+    nhgspghrtghpthhtohepudehpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnh
+    hgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgt
+    ohhmpdhrtghpthhtohepfeduleefieefudesghhmrghilhdrtghomhdprhgtphhtthhope
+    gthhgrphhuihhsuggrrhhiohegsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhusghn
+    ihhnrdhivhgrnhesghhmrghilhdrtghomhdprhgtphhtthhopehluhhiiidruggvnhhtii
+    esghhmrghilhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghgghesghhmrghi
+    lhdrtghomhdprhgtphhtthhopehmvghlihhnkhhovddttdefsehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepgigvlhhnrghgrgesghhmrghilhdrtghomhdprhgtphhtthhopehmrghr
+    tggvlheshhholhhtmhgrnhhnrdhorhhg
+X-ME-Proxy: <xmx:DHDEacYkrjX6uotneRxXzmHyifBkakVgJUHEpPrnN2zV4aUfZix2XQ>
+    <xmx:DHDEae9bSUFZJCJ6G6GcUbWCjQ-byF4NlnvoqP-MMRrK2jPRG7jWqw>
+    <xmx:DHDEaWnp09GqBj8atAZesspJeD0bTT81diBrE6Ox0gct_o4lXTGbww>
+    <xmx:DHDEaTYXbqlvreATnyixcidW2fXigAuFqQa-RkM6JWwMqDOH74_A_g>
+    <xmx:DXDEaf5wQUEJi4EGz0Fk_uGH--F5a3ovsaHuYoPhuf1cImPirhp9aB_Y>
+Feedback-ID: i9dde48b3:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1AF001EA006B; Wed, 25 Mar 2026 19:30:20 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+From: Javier Tia <floss@jetm.me>
+Subject: [PATCH v2 0/8] Bluetooth: Add MediaTek MT7927 (MT6639) support
+Date: Wed, 25 Mar 2026 17:30:17 -0600
+Message-Id: <20260325-mt7927-bt-support-v2-0-b892a3252880@jetm.me>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ5AMBBA0avIrE1SlZa6ilhQg1mgaUskjbtrL
+ N/i/wSBPFOArkjg6ebA55EhywLsNh4rIc/ZIIXUohYK99gY2eAUMVzOnT6iVq0ZlbBGVwvkznl
+ a+Pmf/fC+Hw9mrpBjAAAA
+X-Change-ID: 20260305-mt7927-bt-support-6589a50c961f
+To: Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ryan Gilbert <xelnaga@gmail.com>, 
+ Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>, 
+ Llewellyn Curran <melinko2003@gmail.com>, 
+ Chapuis Dario <chapuisdario4@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, 
+ Thibaut FRANCOIS <tibo@humeurlibre.fr>, Ivan Lubnin <lubnin.ivan@gmail.com>
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5003; i=floss@jetm.me;
+ h=from:subject:message-id; bh=nsOzojii9d+fob0mA/+5E9MFraVa0JqIsD4t0SDPxxU=;
+ b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxHAKNqMDRAgL8V++ujLTUdevy9QdIGDmXveKp
+ TttrNZ20qSJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacRwCgAKCRC17sMLqGd3
+ H7goC/4nW7nHaHeRjaevGMskIDLlo8sdcGjpMYsvFD46W8GSf3J96B3SfRPZue01GahviOdw3Dr
+ 5be/e6s6vGlFbxG6fgDXN6V2sDvq3Aqtu7nEpBAgpYYr7cqlBaES2rN4bEkffDDeQKcG7x1OzcF
+ adjBWHd/AUr3gaWliaNWwz4A2JjDgEVzSwPAJni8hLCHmjZ2IAlzCP2Po57amn+RR6fctCIoxTN
+ fVKeiOyBN/Eue8gltZeNXIgJGJXfo/mI4leNTBRQy2Im6YRwTna5dJ6jkR9Inx1JgmyGUZgFEv8
+ aFIkRtUJR3Bk8yjeVWzdq1QOAg+YWd2LcJhmhuhud2EH7764sbB7UvgqXxCwh6gI/q3IxK+7Wir
+ Dz7ki7KPsjx5TX1SQAGh4RcvYEcuRO9RW5PolxmbRuBL1C0imCRNBBGrWvL4aoOZ5pxNtUi0kt0
+ S2yRFRqeE8mOfvQlOPvSsQLHqbnetGplejRVFjUOa09ew2vwMIetKwwktDToskQp+0rHA=
+X-Developer-Key: i=floss@jetm.me; a=openpgp;
+ fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_162959_169508_CA9135F6 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20260325_163024_183796_F90CA266 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,150 +135,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As of d64c732dfc9e ("net: rfkill: gpio: add DT support") rfkill-gpio
-device can be instantiated via device tree.
+This series adds Bluetooth support for the MediaTek MT7927 (Filogic 380)
+combo WiFi 7 + BT 5.4 module. The BT subsystem uses hardware variant
+0x6639 and connects via USB.
 
-Add the declaration there and drop board-paz00.c file and relevant
-Makefile fragments.
+The MT7927 is shipping in motherboards and PCIe add-in cards from ASUS,
+Gigabyte, Lenovo, MSI, and TP-Link since mid-2024. Without these patches,
+users see "Unsupported hardware variant (00006639)" or the BT subsystem
+hangs during firmware download.
 
-Tested-by: Marc Dietrich <marvin24@gmx.de>
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Jean-Francois Marliere independently identified the same three root
+causes and posted an analysis to the list in February [1], though the
+patch diff was not included in that message. This series provides the
+complete, split patches addressing the same issues.
+
+The series consists of nine patches:
+
+  [1/9] Bluetooth: btmtk: Add MT6639 (MT7927) Bluetooth support
+  [2/9] Bluetooth: btmtk: fix ISO interface setup for single alt setting
+  [3/9] Bluetooth: btusb: Add MT7927 ID for ASUS ROG Crosshair X870E Hero
+  [4/9] Bluetooth: btusb: Add MT7927 ID for Lenovo Legion Pro 7 16ARX9
+  [5/9] Bluetooth: btusb: Add MT7927 ID for Gigabyte Z790 AORUS MASTER X
+  [6/9] Bluetooth: btusb: Add MT7927 ID for MSI X870E Ace Max
+  [7/9] Bluetooth: btusb: Add MT7927 ID for TP-Link Archer TBE550E
+  [8/9] Bluetooth: btusb: Add MT7927 ID for ASUS X870E / ProArt X870E-Creator
+
+Three driver changes are needed for MT6639:
+
+1. CHIPID workaround: On some boards the BT USB MMIO register reads
+   0x0000 for dev_id, causing the driver to skip the 0x6639 init path.
+   Force dev_id to 0x6639 when it reads zero, matching the equivalent
+   WiFi-side workaround that forces chip=0x7927.
+
+2. Firmware naming: MT6639 uses firmware version prefix "2_1" instead of
+   "1_1" used by MT7925 and other variants. The firmware path is
+   mediatek/mt6639/BT_RAM_CODE_MT6639_2_1_hdr.bin.
+
+3. Section filtering: The firmware binary contains 9 sections, but only
+   sections with (dlmodecrctype & 0xff) == 0x01 are Bluetooth-related.
+   Sending WiFi/other sections causes an irreversible BT subsystem hang.
+   The filter is gated on dev_id == 0x6639 to avoid affecting other chips.
+
+Additionally, patch 2 fixes the ISO interface setup for devices that
+expose only a single alternate setting (alt 0) on the ISO endpoint.
+Without this fix, btmtk_usb_claim_iso_intf() fails with EINVAL,
+causing ~20 second initialization delays.
+
+Changes in v2:
+- Split USB device IDs into per-device commits as requested (Luiz)
+- Added 0489:e110 (MSI X870E Ace Max, new hardware report)
+- Added ISO interface fix for single alt setting (13d3:3588 devices)
+- Added Tested-by trailers for all USB IDs except 0489:e110
+- Added USB descriptor output to all per-device commits
+- Removed BTMTK_FIRMWARE_LOADED skip logic; firmware persistence is
+  handled by the existing framework (Sean Wang)
+
+The firmware blob (BT_RAM_CODE_MT6639_2_1_hdr.bin) is being submitted
+separately to linux-firmware via GitLab MR. The firmware path and
+filename have not been finalized yet; the driver currently requests
+mediatek/mt6639/, but this may change based on the linux-firmware
+review.
+
+Tested hardware:
+- ASUS ROG Crosshair X870E Hero (BT 0489:e13a)
+- ASUS ROG STRIX X870-I (BT 0489:e13a)
+- ASUS ROG STRIX X870E-E (BT 13d3:3588)
+- ASUS ProArt X870E-Creator WiFi (BT 13d3:3588)
+- Gigabyte Z790 AORUS MASTER X (BT 0489:e10f)
+- Gigabyte Z790 AORUS ELITE X WiFi7 (BT 0489:e10f)
+- MSI MEG X870E ACE MAX (BT 0489:e110)
+- Lenovo Legion Pro 7 16ARX9 (BT 0489:e0fa)
+- Lenovo Legion Pro 7 16AFR10H (BT 0489:e0fa)
+- TP-Link Archer TBE550E PCIe (BT 0489:e116)
+
+Tested on Arch Linux, CachyOS, Fedora (Bazzite), and Ubuntu
+across kernels 6.13-6.19.
+
+The companion WiFi support for MT7927 (mt76/mt7925e driver) has been
+submitted separately to linux-wireless.
+
+[1] https://lore.kernel.org/linux-bluetooth/496b0f8505eb6ffb19fdbee6f963c62aa6790fba.camel@marliere.fr/
+
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=221096
+Link: https://github.com/openwrt/mt76/issues/927
+
+Assisted-by: Claude (Anthropic)
+Signed-off-by: Javier Tia <floss@jetm.me>
 ---
+Javier Tia (8):
+      Bluetooth: btmtk: Add MT6639 (MT7927) Bluetooth support
+      Bluetooth: btmtk: fix ISO interface setup for single alt setting
+      Bluetooth: btusb: Add MT7927 ID for ASUS ROG Crosshair X870E Hero
+      Bluetooth: btusb: Add MT7927 ID for Lenovo Legion Pro 7 16ARX9
+      Bluetooth: btusb: Add MT7927 ID for Gigabyte Z790 AORUS MASTER X
+      Bluetooth: btusb: Add MT7927 ID for MSI X870E Ace Max
+      Bluetooth: btusb: Add MT7927 ID for TP-Link Archer TBE550E
+      Bluetooth: btusb: Add MT7927 ID for ASUS X870E / ProArt X870E-Creator
 
-V2:
-- added Marc's Tested-by
+ drivers/bluetooth/btmtk.c | 26 +++++++++++++++++++++++---
+ drivers/bluetooth/btmtk.h |  1 +
+ drivers/bluetooth/btusb.c | 12 ++++++++++++
+ 3 files changed, 36 insertions(+), 3 deletions(-)
+---
+base-commit: 50003ce2085a7f7dacf2426065d1a69c84b5b963
+change-id: 20260305-mt7927-bt-support-6589a50c961f
 
-V1:
-- https://lore.kernel.org/r/aY_BpRQmLdqOOW2K@google.com
+Best regards,
+--  
+Javier Tia <floss@jetm.me>
 
- arch/arm/boot/dts/nvidia/tegra20-paz00.dts |  8 ++++
- arch/arm/mach-tegra/Makefile               |  2 -
- arch/arm/mach-tegra/board-paz00.c          | 56 ----------------------
- arch/arm/mach-tegra/board.h                |  2 -
- arch/arm/mach-tegra/tegra.c                |  4 --
- 5 files changed, 8 insertions(+), 64 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-index 1408e1e00759..d1093ad569e6 100644
---- a/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-+++ b/arch/arm/boot/dts/nvidia/tegra20-paz00.dts
-@@ -706,6 +706,14 @@ vdd_pnl_reg: regulator-3v0 {
- 		enable-active-high;
- 	};
- 
-+	rfkill {
-+		compatible = "rfkill-gpio";
-+		label = "wifi_rfkill";
-+		radio-type = "wlan";
-+		reset-gpios = <&gpio TEGRA_GPIO(D, 1) GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpio TEGRA_GPIO(K, 5) GPIO_ACTIVE_HIGH>;
-+	};
-+
- 	sound {
- 		compatible = "nvidia,tegra-audio-alc5632-paz00",
- 			"nvidia,tegra-audio-alc5632";
-diff --git a/arch/arm/mach-tegra/Makefile b/arch/arm/mach-tegra/Makefile
-index a2bb55bc0081..9e3abb14fbc1 100644
---- a/arch/arm/mach-tegra/Makefile
-+++ b/arch/arm/mach-tegra/Makefile
-@@ -15,5 +15,3 @@ obj-$(CONFIG_HOTPLUG_CPU)               += hotplug.o
- 
- obj-$(CONFIG_ARCH_TEGRA_114_SOC)	+= pm-tegra30.o
- obj-$(CONFIG_ARCH_TEGRA_124_SOC)	+= pm-tegra30.o
--
--obj-$(CONFIG_ARCH_TEGRA_2x_SOC)		+= board-paz00.o
-diff --git a/arch/arm/mach-tegra/board-paz00.c b/arch/arm/mach-tegra/board-paz00.c
-deleted file mode 100644
-index 3ec810b6f1a7..000000000000
---- a/arch/arm/mach-tegra/board-paz00.c
-+++ /dev/null
-@@ -1,56 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * arch/arm/mach-tegra/board-paz00.c
-- *
-- * Copyright (C) 2011 Marc Dietrich <marvin24@gmx.de>
-- *
-- * Based on board-harmony.c
-- * Copyright (C) 2010 Google, Inc.
-- */
--
--#include <linux/err.h>
--#include <linux/gpio/machine.h>
--#include <linux/gpio/property.h>
--#include <linux/platform_device.h>
--#include <linux/printk.h>
--#include <linux/property.h>
--
--#include "board.h"
--
--static const struct software_node tegra_gpiochip_node = {
--	.name	= "tegra-gpio",
--};
--
--static const struct property_entry wifi_rfkill_prop[] __initconst = {
--	PROPERTY_ENTRY_STRING("name", "wifi_rfkill"),
--	PROPERTY_ENTRY_STRING("type", "wlan"),
--	PROPERTY_ENTRY_GPIO("reset-gpios",
--			    &tegra_gpiochip_node, 25, GPIO_ACTIVE_HIGH),
--	PROPERTY_ENTRY_GPIO("shutdown-gpios",
--			    &tegra_gpiochip_node, 85, GPIO_ACTIVE_HIGH),
--	{ }
--};
--
--static const struct platform_device_info wifi_rfkill_info __initconst = {
--	.name		= "rfkill_gpio",
--	.id		= PLATFORM_DEVID_NONE,
--	.properties	= wifi_rfkill_prop,
--};
--
--void __init tegra_paz00_wifikill_init(void)
--{
--	struct platform_device *pd;
--	int err;
--
--	err = software_node_register(&tegra_gpiochip_node);
--	if (err) {
--		pr_err("failed to register %s node: %d\n",
--		       tegra_gpiochip_node.name, err);
--		return;
--	}
--
--	pd = platform_device_register_full(&wifi_rfkill_info);
--	err = PTR_ERR_OR_ZERO(pd);
--	if (err)
--		pr_err("failed to register WiFi rfkill device: %d\n", err);
--}
-diff --git a/arch/arm/mach-tegra/board.h b/arch/arm/mach-tegra/board.h
-index 7b3ef0dc9be1..86c3ea0d6b30 100644
---- a/arch/arm/mach-tegra/board.h
-+++ b/arch/arm/mach-tegra/board.h
-@@ -19,6 +19,4 @@
- void __init tegra_map_common_io(void);
- void __init tegra_init_irq(void);
- 
--void __init tegra_paz00_wifikill_init(void);
--
- #endif
-diff --git a/arch/arm/mach-tegra/tegra.c b/arch/arm/mach-tegra/tegra.c
-index 9ef1dfa7b926..f324a7e491d8 100644
---- a/arch/arm/mach-tegra/tegra.c
-+++ b/arch/arm/mach-tegra/tegra.c
-@@ -83,10 +83,6 @@ static void __init tegra_dt_init(void)
- 
- static void __init tegra_dt_init_late(void)
- {
--	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
--	    of_machine_is_compatible("compal,paz00"))
--		tegra_paz00_wifikill_init();
--
- 	if (IS_ENABLED(CONFIG_ARCH_TEGRA_2x_SOC) &&
- 	    of_machine_is_compatible("nvidia,tegra20"))
- 		platform_device_register_simple("tegra20-cpufreq", -1, NULL, 0);
--- 
-2.53.0.1018.g2bb0e51243-goog
-
-
--- 
-Dmitry
 
