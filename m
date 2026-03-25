@@ -4,94 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2AD109C036
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 16:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90A3109C038
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 16:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bBkY1eP+Ct3GuF+0/JrP6geka8T7n6XtITHRDXyqFk=; b=oJrIsBDUYs514USqhvCg6aHjrF
-	ymPJLhj9gw5DWZvOF2OsI0MTW7Lz00kUvfGIjxXTMTgVLCUtDS3kWo9a38/1k4PKnrVVcbmuxRCAy
-	HHv9RlLnncYWH0ayyPAgcTRV023IQqC4KcmXxPTFQ7fkeoOoNx8jZhFN2eEvVBV9Pu/E6roQsZzYl
-	Po8eOn9NOFRRHYrpMG1t/wsNKNm0Mx6XgVHMFrjl6Db5cZvqYdqp1HW3woYq7SC0piu39IRMoZvSw
-	RFfMtfl/yss6eqmxx7DM663HcITLo7/cBx35Qqe92+uM3W1LLDeffn5/H49VdXs2rVQZSMbUbNSCO
-	v0D9yArw==;
+	bh=ufAT/FhBOZZoz0jFT2zXHvr+mBEe/u91vID6eiNzE9U=; b=HHwetZu3kRKU0yCZyBysNmwT1L
+	RKs91yFC0nsG37QnsZwdGvdtxptUx0w3tuHJ2uj54Qg0gEh7kjodRoLAxgowD7IXLQKeBG/hF6+dw
+	nIxw0Z8T5A63YTb6NwRDAiWillPqjAX8BQ9bFkP5gXgFms4e2Lqws3YIBrymu9H7YBxqEWSMJI5/u
+	Oou51LCuw6Zj6PeGUH9EgPfwSqLMoaXmryMUBbb89nIqY/srN7DIq9bYl1REo3l9B6hs9VR5f/6B1
+	VaXe+4pJL4RnDDbk7Q+MTuJqJnOMUGgdOLTkiWUyedNTwLQ+6SZTpogTlsE3arp2QMGPLSFE35o7U
+	K8Y3DJog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R4H-00000003sbz-2yqs;
-	Wed, 25 Mar 2026 16:26:53 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1w5R5R-00000003sk0-0mC7;
+	Wed, 25 Mar 2026 16:28:05 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5R4E-00000003sbK-2qzu
+	id 1w5R5P-00000003sjI-1ghP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 16:26:51 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4852ef20fe8so73235e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 09:26:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774456009; x=1775060809; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0bBkY1eP+Ct3GuF+0/JrP6geka8T7n6XtITHRDXyqFk=;
-        b=jUWr8ta1/kKJdv4MNZQy8eXNRkyupkvkuLrKDS8blnoLk7BCKO35lmxIEYotJ3Ms/5
-         qeWvVOzbYSvTaA4MFOF8VG9NGDJ4t3/pEmoKt8uN4j5hKfaqXBKOsIcdcaCYANci7vwA
-         twi16mrH2eBvWSl1CDyZqaLbTETvD513gs37tjfkLnv0IIfK/JoEzKDrOBAoBA02O8GR
-         scq+cxaHgP4gpPMMWmqnZEGf9rmkhA9+ScdK7LidjQ9govBWmGZPaJOMb1Lqt3rOgc5s
-         SonK+dM3EHT0/VrwmK0gIezBIHvVcq7gomNeaVYJv7zkEBPngfkSdAqJhmkLwj9XoVa6
-         chvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774456009; x=1775060809;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0bBkY1eP+Ct3GuF+0/JrP6geka8T7n6XtITHRDXyqFk=;
-        b=BK3xK0Zs7xnY/7ZzgR8H2nvwQYhe/87Mf+Bgi1I+zn+X0aIScWTfP1nlirku2nGzjK
-         fapa9TpYqtrt2v7Ifnf0B4WWg5/PlwTkDBNpDqE0PagcSZAQjXF7bM/XYq6O1f+I8GLK
-         bU46uTb3UorAxKGYxIegdM4SmzcaALLLDYs2b45/R13lNDi6ZKq+sp+ir54h2L1DsdSy
-         19nDHugfSjyRZDQ1CUsPbwVKFwx+0usuTaZ1KVl5rGqyJ1Mpwc4syveEArN6OaFxBZhy
-         VORWpbWRd56mGJvR9WJH55QtustGBSB9i9U1/HTytbB8AkPjdvuRWltdey2MmX83Pizz
-         +QDg==
-X-Forwarded-Encrypted: i=1; AJvYcCXiMR4xxHaG9B03xmp+fKWSXYn42xTF5W/x0tqyqFX7P8n+aBr2V+8wopCTEf3MEkOONwfMZTPeLc+wrOKMvUFE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPg1pCWj2vuD7TNNxQGAIhsM/nYSzbAYVt3Jz8sQ78HoLqxKT+
-	HXSsldv1mlCqL4PVCBoiBQjjdVg4XUmIRQWf/ayFIL9JcPFtY0CJD3KwHb8WLk17UJdSyxjrT+/
-	vAO6RdfjJ
-X-Gm-Gg: ATEYQzz+8z92pd13+17JjMTv9UEPHH9DjLK3bxBGGv/RdwKbDJeSGpT9fgXf0HRYdxM
-	6T+Fdth6gLirTx+ONQsvFaKDJZvmMt/EsI48b3oKbUYSlbl1qGEkun6YopR9p9SSYi85haSxTwi
-	yl0OSG/oI2SN2sHgS0iaHB1ytOCGCiWzZN9n9/0KYBQTk6T2XgxSuNfYlNVI7v5uIbFE14a481X
-	nTV93JEjmzKazRnBfJKP1AlxlBzSOu5FXDxFurnarnuJmT0BnqLZinb2+1D4sdo7GU/fMNh/hvc
-	8P0G0PNDO+iWACp12giCbGA/5kfaIaBcKXAgdaRi5a6r3F0N9gfd8NzEJ/a67pO1BJXPOar0xxe
-	W3Tr9yrkwVU4yn2Dndc9rINjudT9T6pyEcHfVHXHIaA8Wu1tOfkHKlNpoNIgeNn7C9ZyA6Zge0V
-	FC0OdEfQZPMMR5beivVJdpJ7oEdm1dovarO9pyHl+t3h2MtnYWqeuXiFOv9sMsElTk2rI=
-X-Received: by 2002:a05:600c:2251:b0:477:255c:bea8 with SMTP id 5b1f17b1804b1-4871787d822mr759325e9.7.1774456008193;
-        Wed, 25 Mar 2026 09:26:48 -0700 (PDT)
-Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919588e6sm814549f8f.16.2026.03.25.09.26.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 09:26:47 -0700 (PDT)
-Date: Wed, 25 Mar 2026 16:26:43 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, catalin.marinas@arm.com,
-	dbrazdil@google.com, joey.gouly@arm.com, kees@kernel.org,
-	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
-	perlarsen@google.com, qperret@google.com, rananta@google.com,
-	suzuki.poulose@arm.com, tabba@google.com, tglx@kernel.org,
-	vdonnefort@google.com, bgrzesik@google.com, will@kernel.org,
-	yuzenghui@huawei.com
-Subject: Re: [RFC PATCH 00/14] KVM: ITS hardening for pKVM
-Message-ID: <acQMwzA-cLAtHsvU@google.com>
-References: <20260310124933.830025-1-sebastianene@google.com>
- <abQqqTYvmrtGp9l7@google.com>
+	Wed, 25 Mar 2026 16:28:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BqEQgjCr+tee9UQVGL0ZI20sOl4ukZBgAhJnA/GAq9yn1zERNQ1FsW+MkJZU29HDzbYHg7hwLeXtBWQ6QIv/hMCTwcEc4ViEPFbW2IVBxV/vk07+nUmpR2IVsluMAWyncQIiDe5ZYskZV2LtUoTmGLfBGByrQKfhh+ByozHYYN0xsom3F31ZfDhSD6oLHVRE/MN8jUtAKRRorNoBWioQGsvqvDPNbh2XrHdc2PlNZ/WchBGJBcTd7jqBIRX1S0vb1Z/tqy7XbIPAmwr/mEz0JFJW8K3Ul+hv+VdNiMZMYDzf4JoR8/gY2ZWW5oNYlKbrtrvgYsSxSAGi2xOAd7KlfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ufAT/FhBOZZoz0jFT2zXHvr+mBEe/u91vID6eiNzE9U=;
+ b=LKTXlXylhiQTiyfcrGgIvRvpb2HPdZuvU0gWxaL9L6soJYqni3umr6IcGsvnMwAWlSwc47CiUesQvEhWigXZQPb29WL0I6A9372A6W1gQaYpVo3Jm/CMuq7605UM2fXYM1P50umVTTv9s4bndfLVfU2XtP7LNcH2SvPx6/WDXkvYAzHBG3STUUJe2XWv5IRzTx3sCDwuyC0W3lafbvxmmaxA+IrYg2n5/LNzwHW05f1IBULeRycMZ9eXX9fm6YN3jw//bLvXIOsOygXwbMXMILrt0Eij+U0fsgYELU1KHDTV34F6TY/GcHkTY/2k5/v+y5+kT4ikU4AF3uqvxI4hJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ufAT/FhBOZZoz0jFT2zXHvr+mBEe/u91vID6eiNzE9U=;
+ b=EsKykfvIPyfP+vwPTyKowx6o/hZyXoRS1DUIfPLDxJKqZsNrhGGv0a/catCcTx3HYVqcjkhybl1DAWK4XNGUFNYZSXvQXUU85v/1q6jCRxOuoGDHCVbNPyGW/VHIAAMTvVO5BC4IzpnaLZ+TYCRvKhWnV/1UxDKsbZA3NSdTqPR/rUbZLiiBSSayyImRh8vTwsCTCdLkVtfO1QHL85styVFae4CUqasJxC3+7nV4idybhdnBDT/qMoMbzU8/ORXXAP5Uhmv9HN4Ko3tLPXsL2NgAJecQPzHbOUXmXlL5kDs/Gw6bpPtGPYDm6lHzT2BuNCS0Hw/EmcdlxBZvYQv8Ew==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by GV4PR04MB11291.eurprd04.prod.outlook.com (2603:10a6:150:28f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
+ 2026 16:27:58 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 16:27:58 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Cc: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>, 
+ Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260325-verdin-imx95-upstream-frank-li-base-v3-0-b2b5221a8077@toradex.com>
+References: <20260325-verdin-imx95-upstream-frank-li-base-v3-0-b2b5221a8077@toradex.com>
+Subject: Re: (subset) [PATCH v3 0/6] arm64: dts: freescale: add Verdin
+ iMX95
+Message-Id: <177445607381.3141305.13416954574124381215.b4-ty@nxp.com>
+Date: Wed, 25 Mar 2026 12:27:53 -0400
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: BYAPR03CA0015.namprd03.prod.outlook.com
+ (2603:10b6:a02:a8::28) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <abQqqTYvmrtGp9l7@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|GV4PR04MB11291:EE_
+X-MS-Office365-Filtering-Correlation-Id: d90027df-40a8-40ff-d192-08de8a8b7986
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|7416014|52116014|18002099003|22082099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: eyzNT/y7fRWlihHry/FAOGpw0CJgmj7JOPItoseQacI0gjygRN10FcNN2ua+hpCTub+YELmsLEEfQHl9uf1HFcVU9wMkZ5rFUsi5Jg7c8PueaKXh9a3TXoaPyjGYCNM/PanCIrfNQzHAiucvcmTt2EYGc8G02UR7gYASuTSUHPooVBFiJsn8WasjipQ96wSiS+SwTi+PIDbHJdLhluc5WzTbM9tkGDY5iYDZUmBnVgRmQjnQ2Uzs/LhgdD7HX98ayx3xrVmtz1+Iiv8mRh+enYOAMaItry8SeqBGCp2zEheTr8yh+nUJBk6rU9BJb5tQR0Hy+DcbSag193Qax9ZzSeV/c3BqUiGpXBLlTMMAu3Go8Ue459rDkc5F9Q3nUmGO9dMA70jg/asOAzFYQe9ZCHNMpkBkv4cu5pVYiStMIu/oFROyYkVWnTR7LakiBchE8WFNBbl5Tbz4LxDL4aMUZFrmsrdwTkcSWrdrRbYs7wfqBFZwMrZJE8eMq9YVIK6U9QxGVJ0AvJPz8HUMCDEwYCsN5RwoQKOBbU161VHTs3JWjNvAvfiubE1Roj0CjUnE1QgI7eOal9HHRvCK8KG7GzhyXiHxBeW8Nwnv/SIlpLIwstJshkDgkOchLw77mUwo7ZAir+95MEMWrzq3nKlhXCeTgnE8k7mGZcdGYNxKwm5UAa2p32A8niPKAsbCxtuYhVAaw29rUsDzR+VbbcqZUMozNkbBsL+AKYw7QpTa9+lkYTi0WOZ9KboDh78L1WVbFDkwARuWQq2avgSBhXuJkWYqc1aY45Fj4Lt9Tpdvhsk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(7416014)(52116014)(18002099003)(22082099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?czdlSVUzeXAvNDRkK1hUOXdsRGVINzgvNFVvRC91R2N5ckw2M2Z0L2lCdGRp?=
+ =?utf-8?B?RUVLakVMZUxVd2pMdjIwOFZYYVpEM2VpelI5WnhSek0zcExCVE0wL0tZcFpM?=
+ =?utf-8?B?Q1pKaXl2YmdTQm5PaUNVSW1HUGRzM3Z6b1NMY081VnJYeTM1QU5EaEs4bEhm?=
+ =?utf-8?B?M0l3YjZUQWx0Sis0bkU0bUxEdkx3R1dVK2RaOEpCbW1uRWNrK1Jqd3VGc3pK?=
+ =?utf-8?B?SHJsQm9pTUZFMDlvYXNwTm9POURzT0MyM2JxSy9oVFlFTHNrNTNsOCtkOVpX?=
+ =?utf-8?B?bE5RZEFsY3hibzMwNi9zOWpGNVJhZVRDbEpPWXdKdkxHL08yVy9Nd3hYWEJO?=
+ =?utf-8?B?WWxYM1FBeXNwRVRBMXpzQXhIY3hBUUJPVHpnM1UvWk1VR0pWTEhKZEVmQ2g4?=
+ =?utf-8?B?R3FXUFl0T01DSzFNdm13VlM4V1pOTDRjemo1WmdpRFZLTEM4Q3dTbVA4QnlJ?=
+ =?utf-8?B?aS9WN0REY1N5QUUzRlFhK3ZoMDVxdDJzeUR2a0FzVVRVdEVhZ3VoeHFYL3VO?=
+ =?utf-8?B?MDBNZ0xvbFRNeDFEdjhOdHVRWlBoTFYvNkpkWmEvbWpBL1VWdU1MV3RNcU9j?=
+ =?utf-8?B?UEpyOGNpMkw1Wm4zbjlIbVc4emlOVTJyd2ducC9EaVVhNGEramlMSWJaVmlt?=
+ =?utf-8?B?T0NPVEdZVnZSZnZXSE84K0x3c3pHM3NyN1dsWXU3VWVpK3drRnZnaFpLS2Qz?=
+ =?utf-8?B?cEdYSWx3b29LTHMyVHcybTBXQzhkQ0wvekFOZzFSZHk1QVFscG81VDhBNXZ6?=
+ =?utf-8?B?NWdva0hUTkhSbXdjNkFGSzdLRGtUVHhRUEFRS1pCTVhrVUE5ZWRiaEdnTmIy?=
+ =?utf-8?B?S1BBekp4U0NkREh4d2hkQlFadDgxVlpYNk1DZWFTTHRDeDhpY3hzUGIzZkQ1?=
+ =?utf-8?B?dDRXUTlHU1pkMGNrQVBSWWJ1ZmVuQ2dYeU4xb0VRY2tSVWhOT3NGb3FocktJ?=
+ =?utf-8?B?RVB5K2N1UzYxN3VJTUFUclMyRGkyTVpibEcwTlBMYUdweTZzOGd0Ynl3ZmNw?=
+ =?utf-8?B?SHd6eG5CUDBKa2E1R2xlWG44K2cwQW03YkhJV01zaCtCcE5zaFRRbFoyZEM3?=
+ =?utf-8?B?ejZxMnBjYkQvV1JMWXJrUGQxMjFFTGVlbGs4dC9HWDI3ZFoxaGtWVXRBbW80?=
+ =?utf-8?B?OE01b0MyNGZQN3FSU3lHb1lvUXU5YXh5NERRRjRnTmI4Z0k4djRNZFp3Z3Zx?=
+ =?utf-8?B?YkR0MkthOVJ3aThqSmJiOTVEMENaNGlQb1lnM2svaFVOSk9FbERhbTVtanZS?=
+ =?utf-8?B?U0NvS3FNNzFqQi9YQXpGQSt3M3JDME0vSkNRektEdjNBa2hrNHg3dGZwK2lv?=
+ =?utf-8?B?QzFzc1NXQktXYlFhODRHbjkrZ0hLTXphTVRpUXVwMFhQRjhXcU5PUUw0enl0?=
+ =?utf-8?B?Mzdhb244bVBvRS9jcnhTemRkQWF6b3dhcEp6RkpqOWl0SU5vUGc4SzRXbGFs?=
+ =?utf-8?B?bStvV3Mxc2JXRXVZVDFtWGtkY01YMXNHbkl1WS8zYlAzdlpsN3RvSjl3U1hG?=
+ =?utf-8?B?K3JEOUJQZmxRckEvcVdoRENEcXFpUkpOMy9pRmVqVmswandFTWRNNFNlejhN?=
+ =?utf-8?B?WW02TlpqVW9DVWlaYVpkcGovVG9oOW8yc21YNEtldFZSVjRmdUh0Ulp0cGt1?=
+ =?utf-8?B?aUlDOGlycFJSMk12NUllTmFuNG80ekFCclBQQ29KeG1ISmNscEI0bHZONlJR?=
+ =?utf-8?B?d1hsMG8vUFVUWXA3MWtrRkdVb0NVTktkSVpQTDRDLzhyeFBSR245Ym9VK25T?=
+ =?utf-8?B?NUNoVnlGTDAvOEdhNmlaUzlWa0ZXMk81RTZOV1ZMNzFHZEtzM2JaWVFBWjVJ?=
+ =?utf-8?B?WW1UK3NJNDdkVUNtQUZQNWtnOGhTck5LamxCeVNLeVpvVGFYalNINVBQS2hH?=
+ =?utf-8?B?VGFzZmxZNW0vWEh3TThBOE0rVE1QdG12WExTN21DZnNCOXNwejRKYk5CeCtS?=
+ =?utf-8?B?blI5K0hNNWxQUVNkU0g3b0hNMmlDZE9BdCtnRXpoTFNjNkJGeXYxcjJXMS9k?=
+ =?utf-8?B?aGo4M092SFZPbEpLaHM5N3o5Q2paR3k3d0haVkRtTXc1b3o4OVIxSFM2RDVn?=
+ =?utf-8?B?aUppRy80YTloWkE0VVE3M25WQ3BGN0NCOThzSFZKY1ZFdytFaWF0bEFZWllk?=
+ =?utf-8?B?VExVRXdzRWtjaTJzQ0lGU2dVblNldDVqY1RXOFh0b200ZFpVUHB1N2hSYmg4?=
+ =?utf-8?B?SU9RZ2tTTS9QcDBTSnFlc2xvYTVEVTUwekNJRklRQ040TW1xVE12eFRoYTVp?=
+ =?utf-8?B?bWtnay9kMWZyamlodUVSa29sYWRJZGhOSk4rQ3JKZlhTU3hlRG53Vm54RXd3?=
+ =?utf-8?B?d3Fwb1BnaUVyN1pCMjF1L0owdVBVRTFLY2lHeHZzS2gwOG9VMVdIdz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d90027df-40a8-40ff-d192-08de8a8b7986
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 16:27:58.1894
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aFvGjxa1ETdBled3vDY5bNtybDtGqxGxILPxUV0i6EqXd8cIBnvLPnbWk50SquGwuWwrcOUKHIdI9vuyIneV/w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11291
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_092650_783316_E71E2295 
-X-CRM114-Status: GOOD (  71.89  )
+X-CRM114-CacheID: sfid-20260325_092803_478276_7198496F 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,266 +155,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 03:18:01PM +0000, Mostafa Saleh wrote:
 
-Hi Mostafa,
+On Wed, 25 Mar 2026 15:46:01 +0100, Ernest Van Hoecke wrote:
+> This patch series adds support for the Toradex Verdin i.MX95 SoM and its
+> currently available carrier boards: the Verdin Development Board, and
+> the Dahlia, Ivy, Mallow and Yavia carrier boards.
+> 
+> The module consists of an NXP i.MX95 family SoC, up to 16GB LPDDR4x RAM,
+> up to 128GB of storage, a USB 3.2 OTG and USB 2.0 Host, a Gigabit
+> Ethernet PHY, an I2C EEPROM and Temperature Sensor, an RX8130 RTC, an
+> I3C bus, one Quad lane CSI interface, one Quad lane DSI or CSI
+> interface, one LVDS interface (one or two channels), and some optional
+> addons: TPM 2.0, and a WiFi/BT module.
+> 
+> [...]
 
-> Hi Seb,
-> 
-> On Tue, Mar 10, 2026 at 12:49:19PM +0000, Sebastian Ene wrote:
-> > This series introduces the necessary machinery to perform trap & emulate
-> > on device access in pKVM. Furthermore, it hardens the GIC/ITS controller to
-> > prevent an attacker from tampering with the hypervisor protected memory
-> > through this device. 
-> > 
-> > In pKVM, the host kernel is initially trusted to manage the boot process but
-> > its permissions are revoked once KVM initializes. The GIC/ITS device is
-> > configured before the kernel deprivileges itself. Once the hypervisor
-> > becomes available, sanitize the accesses to the ITS controller by
-> > trapping and emulating certain registers and by shadowing some memory
-> > structures used by the ITS.
-> > 
-> > This is required because the ITS can issue transactions on the memory
-> > bus *directly*, without having an SMMU in front of it, which makes it
-> > an interesting target for crossing the hypervisor-established privilege
-> > boundary.
-> > 
-> > 
-> > Patch overview
-> > ==============
-> > 
-> > The first patch is re-used from Mostafa's series[1] which brings SMMU-v3
-> > support to pKVM.
-> > 
-> > [1] https://lore.kernel.org/linux-iommu/20251117184815.1027271-1-smostafa@google.com/#r
-> > 
-> > Some of the infrastructure built in that series might intersect and we
-> > agreed to converge on some changes. The patches [1 - 3] allow unmapping
-> > devices from the host address space and installing a handler to trap
-> > accesses from the host. While executing in the handler, enough context
-> > has to be given from mem-abort to perform the emulation of the device
-> > such as: the offset, the access size, direction of the write and private
-> > related data specific to the device. 
-> > The unmapping of the device from the host address space is performed
-> > after the host deprivilege (during _kvm_host_prot_finalize call).
-> > 
-> > The 4th patch looks up the ITS node from the device tree and adds it to
-> > an array of unmapped devices. It install a handler that forwards all the
-> > MMIO request to mediate the host access inside the emulation layer and
-> > to prevent breaking ITS functionality. 
-> > 
-> > The 5th patch changes the GIC/ITS driver to exposes two new methods
-> > which will be called from the KVM layer to setup the shadow state and
-> > to take the appropriate locks. This one is the most intrusive as it
-> > changes the current GIC/ITS driver. I tried to avoid creating a
-> > dependency with KVM to keep the GIC driver agnostic of the virtualization
-> > layer but I am happy to explore other options as well. 
-> > To avoid re-programming the ITS device with new shadow structures after
-> > pKVM is ready, I exposed two functions to change the
-> > pointers inside the driver for the following structures:
-> > - the command queue points to a newly allocated queue
-> > - the GITS_BASER<n> tables configured with an indirect layout have the
-> >   first layer shadowed and they point to a new memory region
-> > 
-> > Patch 6 adds the entry point into the emulation setup and sets up the
-> > shadow command queue. It adds some helper macros to define the offset
-> > register and the associate action that we want to execute in the
-> > emulation. It also unmaps the state passed from the host kernel
-> > to prevent it from playing nasty games later on. The patch
-> > traps accesses to CWRITER register and copies the commands from the
-> > host command queue to the shadow command queue. 
-> > 
-> > Patch 7 prevents the host from directly accessing the first layer of the
-> > indirect tables held in GITS_BASER<n>. It also prevents the host from
-> > directly accesssing the last layer of the Device Table (since the entries
-> > in this table hold the address of the ITT table) and of the vPE Table
-> > (since the vPE table entries hold the address of the virtual LPI pending
-> > table.
-> > 
-> > Patches [8-10] sanitize the commands sent to the ITS and their
-> > arguments.
-> > 
-> > Patches [11-13] restrict the access of the host to certain registers
-> > and prevent undefined behaviour. Prevent the host from re-programming
-> > the tables held in the GITS_BASER register.
-> > 
-> > The last patch introduces an hvc to setup the ITS emulation and calls
-> > into the ITS driver to setup the shadow state. 
-> > 
-> > 
-> > Design
-> > ======
-> > 
-> > 
-> > 1. Command queue shadowing
-> > 
-> > The ITS hardware supports a command queue which is programmed by the driver
-> > in the GITS_CBASER register. To inform the hardware that a new command
-> > has been added, the driver updates an index into the GITS_CWRITER
-> > register. The driver then reads the GITS_CREADR register to see if the
-> > command was processed or if the queue is stalled.
-> >  
-> > To create a new command, the emulation layer mirrors the behavior
-> > as following:
-> >  (i) The host ITS driver creates a command in the shadow queue:
-> > 	its_allocate_entry() -> builder()
-> >  (ii) Notifies the hardware that a new command is available:
-> > 	its_post_commands()
-> >  (iii) Hypervisor traps the write to GITS_CWRITER:
-> > 	handle_host_mem_abort() -> handle_host_mmio_trap() ->
-> >             pkvm_handle_gic_emulation()
-> >  (iv) Hypervisor copies the command from the host command queue
-> >       to the original queue which is not accessible to the host.
-> >       It parses the command and updates the hardware write.
-> > 
-> > The driver allocates space for the original command queue and programs
-> > the hardware (GITS_CWRITER). When pKVM becomes available, the driver
-> > allocates a new (shadow) queue and replaces its original pointer to
-> > the queue with this new one. This is to prevent a malicious host from
-> > tampering with the commands sent to the ITS hardware.
-> > 
-> > The entry point of our emulation shares the memory of the newly
-> > allocated queue with the hypervisor and donates the memory of the
-> > original queue to make it inaccesible to the host.
-> > 
-> > 
-> > 2. Indirect tables first level shadowing
-> > 
-> > The ITS hardware supports indirection to minimize the space required to
-> > accommodate large tables (eg. deviceId space used to index the Device Table
-> > is quite sparse). This is a 2-level indirection, with entries from the
-> > first table pointing to a second table.
-> > 
-> > An attacker in control of the host can insert an address that points to
-> > the hypervisor protected memory in the first level table and then use
-> > subsequent ITS commands to write to this memory (MAPD).
-> > 
-> > To shadow this tables, we rely on the driver to allocate space for it
-> > and we copy the original content from the table into the copy. When
-> > pKVM becomes available we switch the pointers that hold the orginal
-> > tables to point to the copy.
-> > To keep the tables from the hypervisor in sync with what the host
-> > has, we update the tables when commands are sent to the ITS.
-> > 
-> > 
-> > 3. Hiding the last layer of the Device Table and vPE Table from the host
-> > 
-> > An attacker in control of the host kernel can alter the content of these
-> > tables directly (the Arm IHI 0069H.b spec says that is undefined behavior
-> > if entries are created by software). Normally these entries are created in
-> > response of commands sent to the ITS.
-> > 
-> > A Device Table entry that has the following structure:
-> > 
-> > type DeviceTableEntry is (
-> > 	boolean Valid,
-> > 	Address ITT_base,
-> > 	bits(5) ITT_size
-> > ) 
-> > 
-> > This can be maliciously created by an attacker and the ITT_base can be
-> > pointed to hypervisor protected memory. The MAPTI command can then be
-> > used to write over the ITT_base with an ITE entry.
-> > 
-> > Similarly a vCPU Table entry has the following structure:
-> > 
-> > type VCPUTableEntry is (
-> > 	boolean Valid,
-> > 	bits(32) RDbase,
-> > 	Address VPT_base,
-> > 	bits(5) VPT_size
-> > )
-> > 
-> > VPT_base can be pointed to hypervisor protected memory and then a
-> > command can be used to raise interrupts and set the corresponding
-> > bit. This would give a 1-bit write primitive so is not "as generous"
-> > as the others.
-> > 
-> > 
-> > Notes
-> > =====
-> > 
-> > 
-> > Performance impact is expected with this as the emulation dance is not
-> > cost free.
-> > I haven't implemented any ITS quirks in the emulation and I don't know
-> > whether we will need it ? (some hardware needs explicit dcache flushing
-> > ITS_FLAGS_CMDQ_NEEDS_FLUSHING). 
-> > 
-> > Please note that Redistributors trapping hasn't been addressed at all in
-> > this series and the solution is not sufficient but this can be extended
-> > afterwards. 
-> > The current series has been tested with Qemu (-machine
-> > virt,virtualization=true,gic-version=4) and with Pixel 10.
-> > 
-> > 
-> > Thanks,
-> > Sebastian E.
-> > 
-> > Mostafa Saleh (1):
-> >   KVM: arm64: Donate MMIO to the hypervisor
-> > 
-> > Sebastian Ene (13):
-> >   KVM: arm64: Track host-unmapped MMIO regions in a static array
-> >   KVM: arm64: Support host MMIO trap handlers for unmapped devices
-> >   KVM: arm64: Mediate host access to GIC/ITS MMIO via unmapping
-> >   irqchip/gic-v3-its: Prepare shadow structures for KVM host deprivilege
-> >   KVM: arm64: Add infrastructure for ITS emulation setup
-> >   KVM: arm64: Restrict host access to the ITS tables
-> >   KVM: arm64: Trap & emulate the ITS MAPD command
-> >   KVM: arm64: Trap & emulate the ITS VMAPP command
-> >   KVM: arm64: Trap & emulate the ITS MAPC command
-> >   KVM: arm64: Restrict host updates to GITS_CTLR
-> >   KVM: arm64: Restrict host updates to GITS_CBASER
-> >   KVM: arm64 Restrict host updates to GITS_BASER
-> >   KVM: arm64: Implement HVC interface for ITS emulation setup
-> 
-> I tested the patches on Lenovo ideacenter Mini X Gen 10 Snapdragon,
-> and the kernel hangs at boot for me with messags the following log:
-> 
-> [    2.735838] ITS queue timeout (1056 1024)
-> [    2.739969] ITS cmd its_build_mapd_cmd failed
-> [    4.776344] ITS queue timeout (1120 1024)
-> [    4.780472] ITS cmd its_build_mapti_cmd failed
-> [    6.816677] ITS queue timeout (1184 1024)
-> [    6.820806] ITS cmd its_build_mapti_cmd failed
-> [    8.857009] ITS queue timeout (1248 1024)
-> [    8.861129] ITS cmd its_build_mapti_cmd failed
-> 
-> I am happy to do more debugging, let me know if I can try anything.
+Applied, thanks!
 
-I managed to reproduce it on this Lenovo machine. I will have to dig a bit more
-because I am not seeing this under Qemu. As a quick try I used
-gic_flush_dcache_to_poc after adding commands to the ITS queue but it
-didn't make any difference.
+[2/6] arm64: dts: freescale: Add Verdin iMX95 support
+      commit: d77901ff827c6583563d4b24b34efb795b63bdcf
+[3/6] arm64: dts: freescale: imx95-verdin: Add Dahlia carrier board
+      commit: e69a8fd8827699f9de5ec0e092f04462656d40bd
+[4/6] arm64: dts: freescale: imx95-verdin: Add Ivy carrier board
+      commit: ad37ed93a2b564cb7026faf9a0c9dd01ce566479
+[5/6] arm64: dts: freescale: imx95-verdin: Add Mallow carrier board
+      commit: 7d84f7fa8293739d71f92270f46079d4d7c5f0a2
+[6/6] arm64: dts: freescale: imx95-verdin: Add Yavia carrier board
+      commit: fd589d6e8b38eb2783980ba38cef9dd5cfc68386
 
-> 
-> Thanks,
-> Mostafa
-> 
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
-Thanks for trying it,
-Sebastian
-> > 
-> >  arch/arm64/include/asm/kvm_arm.h              |   3 +
-> >  arch/arm64/include/asm/kvm_asm.h              |   1 +
-> >  arch/arm64/include/asm/kvm_pkvm.h             |  20 +
-> >  arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  17 +
-> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   2 +
-> >  arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
-> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  14 +
-> >  arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 653 ++++++++++++++++++
-> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 134 ++++
-> >  arch/arm64/kvm/hyp/nvhe/setup.c               |  28 +
-> >  arch/arm64/kvm/hyp/pgtable.c                  |   9 +-
-> >  arch/arm64/kvm/pkvm.c                         |  60 ++
-> >  drivers/irqchip/irq-gic-v3-its.c              | 177 ++++-
-> >  include/linux/irqchip/arm-gic-v3.h            |  36 +
-> >  14 files changed, 1126 insertions(+), 31 deletions(-)
-> >  create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
-> >  create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
-> > 
-> > -- 
-> > 2.53.0.473.g4a7958ca14-goog
-> > 
 
