@@ -4,128 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8027BFEA82F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A22A1FEA82F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGtfZugx6qGzB9L9OH7bygfJL7iwyyf8p4sO411xjfg=; b=JxQUBQjaPWdFkJ0oguVkEA+j7Y
-	gxMJ7XP0OhR8FpihEaD0v4iFTlILgHDs1RINtE0hdb26OlRP+rXblGObE7iRriqO0+zDmXkV15a7M
-	ly6hMJUMHAyvx9tgHwT2OVZ//BYzHp++R7iJ2Nw+MCI5gnrnnrfxyNwp7BClRZ5EhV4xOKUslucJk
-	Ktdq0Dddaa86c2LHRKkzRIOntWxO1Lb9WnPqHGyuieFwaS6xhtWZuc4n9SsxcbRmZGRhjiPvgod5q
-	6le2l4sG07YkOzSxgCGEBwxIL7zYGItHzePJhprk0JBcksQ0b60qJlk6MulCJHQDRDZhQwr9Prft/
-	sgmK8G9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g0KgYtYkqUP59BqGGG61EV18AeUer+TehEbvZYdIpWI=; b=f9BvEJRYf8lEiLqiJuEwXe0SHC
+	CXw4jh8ingqZ3/krTXHlrgtZkX1kjyzlu+6y/NL1Egr9nWhjY4+7YK767uVkx3LMdyftkTRIA/TDF
+	DcIrVC4ATCC0kxtydcvkUZ7fiNoXHsCowZjf4HPSfjVTnWOscFXKa6aYgCnZfwWfJqPHU7Ts5n8YW
+	mLjwthm0HIflOHxj0cKQThrGAwf+fZkX1UplsZhacmVdXJGRUOtQlzqdHk3kFtjDDDGuCBgak0CvM
+	EaTUUDmjjarbUGjCN3RZUlp9Ge+bHa/Ua9MMhTkznuKGxWwGgVjjGWTDZPB7yhNUxjjHYnfNpurkp
+	etvaCDCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JIG-00000002udZ-324B;
-	Wed, 25 Mar 2026 08:08:48 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1w5JIV-00000002uiS-2JCX;
+	Wed, 25 Mar 2026 08:09:03 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JID-00000002ucS-0ua1
+	id 1w5JIS-00000002ugY-35jL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 08:08:46 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43b7481f9d3so1973972f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 01:08:43 -0700 (PDT)
+	Wed, 25 Mar 2026 08:09:02 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5a13e1cfa45so5677986e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 01:09:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774426139; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hHLsxo/kjwVNkzZ+BKkeqDHVS+hV4Dhr50vLZcdK1dVGVWBg0s+aqqnX+A7Ek7gx0+
+         kYj4L7MBVZvcMqUaRCckLEMdTLNM+UeW/JdiMEBmTL5+BnirXmktME81eoLrUqTib9pz
+         ouxswnUoM6hJLyzwuBZctwgvUXny+OK5Ei1hxGU9DQdyDVgrEuNYfVLkwe7AkgCY3AK3
+         tHG7Q0GqSv2oXxEZgmxWeTPBVz3uX1VvEzBkLae0HywZi2sp/QRo9LlJdslI1g92AMLp
+         gzo/fT54uG+wQhJhFRQM/CfdVd2Q13KSdsMlOs30UNrezEX9C6qwBv7S6AU3usYMlsyZ
+         bWlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g0KgYtYkqUP59BqGGG61EV18AeUer+TehEbvZYdIpWI=;
+        fh=n50wVdJU1lZO6hRn54rJh85uGLXE6WiNR7jDjGFPVrM=;
+        b=Vb7QxBsUp4fvSZA1V+P5PkwO1em9XnaLWIquQ6pY59kRBI0Jbl7Egmlr3CKCQGzWzM
+         27E8u7Z9Z6S9KKoQNvyUr/+aoXhOoICuoeCRr9EQ7MerIz9kxq8+Swam8dloXjt6ZmX2
+         zNMS98DKwvoht25j0fhQK60DxhHUQ6q9CIlnDh85+aPBM1ktxc9IGU70zTKpKOJqtizI
+         L0+juRMrjxa8Anb+xrGsWNkXG1UKf25zdcjWYIPw2+QFVzYWlORYAWDZiiIoV4PzdYP+
+         1wnZfuGkvnTOjFJGMlyVxUxoOk7aUFhEDHlnPtT49zZ0x+Yd6MJydBaN9BYUhnFtTT8V
+         bh/A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774426122; x=1775030922; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aGtfZugx6qGzB9L9OH7bygfJL7iwyyf8p4sO411xjfg=;
-        b=uz9kmDSz4RQlrUKPwy0ZG+mI1Kd6fOk8L593o6MGKdpfKfIUmvbedRqfyUVGGWf6CC
-         CdJNeIqvN6VmVPKiV1XrifOYc9DIhYqSs2Lv2ZbefaTVehKfZuY94AFfpD9IkYNlvJbt
-         I1sgxgDnqcNVVU7LWQ5QJev0xuMkuhczrk3wEEQWERUdSiB0f/tcTbp858WqT5pfI5wV
-         DPw4NAPfm4TVc0n5rgG8JPzYnsoJWY8gseL2sieFYoG3hPfZT+k7ZTiQsCQEoFvUbkS3
-         5iGv+fXKKesE0ct2H+fUeEDjoo8DqATBYLy2MJK77CHdkaOrtjJl2DqzFaigs7mytJll
-         k+0Q==
+        d=chromium.org; s=google; t=1774426139; x=1775030939; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g0KgYtYkqUP59BqGGG61EV18AeUer+TehEbvZYdIpWI=;
+        b=OjTS8k//u/A6R/sLDP7hUHvyue0hUDcZKzQqXfNRUbqCh5OPf5WN+1czmdZvzqgHXp
+         BXRNXFcNtg9rMdcRlzae+eDad26Vi46Uw3WY/31EOWhjqo4Dy+wNM2Gj092PluhhlG7g
+         NPuNBWENBMcVE6vVdEQUiBaK4J2kLuf1Pd8c4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774426122; x=1775030922;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aGtfZugx6qGzB9L9OH7bygfJL7iwyyf8p4sO411xjfg=;
-        b=DrYh1jyhELCg3rMbozbyllecpExCp7r/W+jQJ0fmuenWMjnlxviG1bpYZcVBDfpHzW
-         oIzQ0LSzciibZR1j9ZdAlL0DfEpoqHMQpRSMVkACuMAh4OtZgO2FK0N9UKh+lkfQRp28
-         ParvROBCz/0Q7dWWi+30jK54JBrvcjq37XOiXhrjr8Y9QfNtQoEBOS9sjEs/zM3XA8bX
-         8xjE4Eq/JbhKVWlfpmpm9KPjRL6AUuQGUbUCO2oLPDjb9msWcTZIw9geoIGmLAeYeKBk
-         tpattBRK0WcnG3ovc/hBshNaQQ4+njvTe7zF9BOxxzNsHSnx8WRfwpNyfDzv91TvBSJZ
-         0RhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWK7L42CrXMyUiWaofxWYjLisJZ5DbnZ9yRO11iEB+uPDm6ry4xR92QfKOZsAbFKry+H7yUDOySgm3fzz3F7JI4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMyYy1AT/+m1uBITwF3I4/qyycH4dSVHHk1QE3ELOqgl2mvDLZ
-	UY9LoTE/VUCKwUbRl1iSJRsqcI5SfwtgWpO1oqlpyBNs1M/Z1pN9lZZZqwXRrudbzIo=
-X-Gm-Gg: ATEYQzwv6UX796kZG1SImUJuPc3Ui90+pFSBfMAGw5siyioWhlLLZfK8AE1UpxQGWoM
-	LL+iSVQHJexDhu5odxjJjp7XbtuM+Q0J0p0Hu3tUTL2SYpngaHG/VkEXElGSk0ONlpf/fSSI2CS
-	zsT305lHcK+TbQXBxf/C4WXYfqEz1LrmbZbL5gK0D+eW/HpEfTJtDLeAhZKvFg39SVaRAQQiHYJ
-	hKLgJt7JOfb/WS36wFm/ijG/Jpila2XQ7mvWlmbGzFWSHsXcLF8MAdaJrZvJXCF+9+Y5NJk6W5Z
-	1KDVWm+IBuHnbw6JDGA6PIcnvAaLw275iY+Ubn5+444DJZiwvV2v9QuTKeP2Zjpzshu/+Ao8Q4z
-	TwGSAujpBFnXJAulrli72OiyKZjocI6KITRy2Zcablc0VfYDnn+hLwYzQJ3o524MR6GYq8MdAem
-	VUPIhYAI2n6QXRxJDTvGsMH0OC1AKCENn4pKMETIdo2aVXAXBjHqP2sTyV2GYjOWOmWEW1RnVar
-	SmR9W0=
-X-Received: by 2002:a05:6000:3112:b0:439:c1ca:82be with SMTP id ffacd0b85a97d-43b88a2171emr3257849f8f.28.1774426122254;
-        Wed, 25 Mar 2026 01:08:42 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:c160:8cc2:c60a:b843? ([2a01:e0a:106d:1080:c160:8cc2:c60a:b843])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b6cdfdfa9sm36075748f8f.9.2026.03.25.01.08.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2026 01:08:40 -0700 (PDT)
-Message-ID: <15674376-21c4-4403-8e0f-bcb80985743b@linaro.org>
-Date: Wed, 25 Mar 2026 09:08:38 +0100
+        d=1e100.net; s=20251104; t=1774426139; x=1775030939;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=g0KgYtYkqUP59BqGGG61EV18AeUer+TehEbvZYdIpWI=;
+        b=aTNdGvOopjKQptEi/LYYK6cXygfpg3xN9RMb3VIc3VQ3GI1lYEYomyrhWTUsbEcCXk
+         GqhMFRsdeHAJBH9Gs5RVUcNZBHC52Xdl6BMIXKecKu1Kecw9Mi+Io7hVCJ4L+KFXfn3H
+         EXgLk7shMd2apNfwhpprpbsa7L7NFlmZDsayprFZ10dmMKnxCpkndQMry3qyF1+lKapE
+         g2km6VgGTlxm0/R7zB17OrhW9Dm3BfGjGYogWrIrBN9vAKqe2auRr7wgraoldnFqCrSI
+         TW4GqBriXmZqkdK71V9J/QSby0vzOe2N+odP4m/tRy2goEaXwNPB+8P3/RgWeXjNFdLB
+         4EHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVsf5Yk1NgWcMZKPciDZl0zae26p35+GQTH97OVFSDtHbJRGtvn75LZyVnA4W4rgwY5Sh20uSY8BUTeL/nhy4Ko@lists.infradead.org
+X-Gm-Message-State: AOJu0YzemyA6rymiPdeF63a/u/1mOHtxmLFiaclIv9vuuQJxPb0NDLEi
+	2X7gau2OWIQmtBHKyNKVFSRShp8er5qOeSNz/ry5Ky4fomxp4bWBjGoIl/M2VoI4USc6eq6ADTv
+	Kpgpeim69aezEVXUPkAipmRl7GmPt832Wx6DhBzef
+X-Gm-Gg: ATEYQzxLhilYd3z1zIEIDD1iALn2wNuLz48/fETsXIzjEsQd+5ebBmErkboffBk3RH9
+	oLco2HZThFZvqTjThKHA1eBk5ExAKgsm4ig/R2GX/ZnrCYI3LauFnEiec9oC2LA8ImcZZ2L4iTC
+	Kd8t7RaBM4nRiwUQk+7SNCNI0NRNwIVo/g8UUZN9bkzWMs+0TdzG3pesFgG9Bn33p+O8H6gufUw
+	+nV8XqQ/I73j3UNlkqQUgwVd1n5vEo7MWuTB3JunhF/9PSuSs2lek5KbJk1zSiLqEYgLOIQB2H3
+	lYcwKEXbaZTKN0UhLPS9XGmQgaQLsDVszMlC
+X-Received: by 2002:a05:6512:2206:b0:5a2:7ddd:ec16 with SMTP id
+ 2adb3069b0e04-5a29b99baa7mr981433e87.40.1774426138566; Wed, 25 Mar 2026
+ 01:08:58 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v5 2/5] drm/meson: use default case for unsupported DSI
- pixel formats
-To: Alexander Koskovich <akoskovich@pm.me>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Jeffrey Hugo <jeffrey.l.hugo@gmail.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20260324-dsi-rgb101010-support-v5-0-ff6afc904115@pm.me>
- <20260324-dsi-rgb101010-support-v5-2-ff6afc904115@pm.me>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260324-dsi-rgb101010-support-v5-2-ff6afc904115@pm.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260325071951.544031-1-wenst@chromium.org> <93c1d325461cc0ffad890d64870de680506338c4.camel@icenowy.me>
+In-Reply-To: <93c1d325461cc0ffad890d64870de680506338c4.camel@icenowy.me>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 25 Mar 2026 16:08:47 +0800
+X-Gm-Features: AQROBzAcEDSwfaWS447vAKoAeNwXBwZATTBP1wT6QXTz02f-QcFivNXEvPY79i4
+Message-ID: <CAGXv+5FL2rs35V4F0bwq-a4ccvFaWKcr1cuKxT6sfTj9h+d6iA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] powervr: MT8173 GPU support
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Stephen Boyd <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_010845_276440_C63E099E 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20260325_010900_809987_90D1457E 
+X-CRM114-Status: GOOD (  38.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,50 +116,135 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/24/26 12:48, Alexander Koskovich wrote:
-> Use default instead of listing unsupported formats explicitly, so the
-> switch statements don't need updating each time a new pixel format is
-> added.
-> 
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> Signed-off-by: Alexander Koskovich <akoskovich@pm.me>
-> ---
->   drivers/gpu/drm/meson/meson_dw_mipi_dsi.c | 6 ++----
->   1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
-> index 66c73c512b0e..4412bd678108 100644
-> --- a/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
-> +++ b/drivers/gpu/drm/meson/meson_dw_mipi_dsi.c
-> @@ -119,8 +119,7 @@ static int dw_mipi_dsi_phy_init(void *priv_data)
->   		dpi_data_format = DPI_COLOR_18BIT_CFG_2;
->   		venc_data_width = VENC_IN_COLOR_18B;
->   		break;
-> -	case MIPI_DSI_FMT_RGB666_PACKED:
-> -	case MIPI_DSI_FMT_RGB565:
-> +	default:
->   		return -EINVAL;
->   	}
->   
-> @@ -232,8 +231,7 @@ static int meson_dw_mipi_dsi_host_attach(void *priv_data,
->   		break;
->   	case MIPI_DSI_FMT_RGB666:
->   		break;
-> -	case MIPI_DSI_FMT_RGB666_PACKED:
-> -	case MIPI_DSI_FMT_RGB565:
-> +	default:
->   		dev_err(mipi_dsi->dev, "invalid pixel format %d\n", device->format);
->   		return -EINVAL;
->   	}
-> 
+On Wed, Mar 25, 2026 at 4:04=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me> wrot=
+e:
+>
+> =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 15:19 +0800=EF=BC=8CChen-Yu Tsai=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > Hi everyone,
+> >
+> > This is v2 of my MT8173 PowerVR GPU support series.
+> >
+> > Changes since v1:
+> > - Adapted to changed DT bindings
+> > - Dropped driver change
+> > - Use same power domain for "a" and "b" GPU power domains
+> >
+> > This update was requested by Icenowy.
+> >
+> >
+> > This series enables the PowerVR GPU found in the MT8173 SoC, found in
+> > some Chromebooks.
+> >
+> > This version is different from the initial powervr driver submission
+> > [1]
+> > in that it splits out the GPU glue layer support out of the powervr
+> > driver and into a separate clock and power domain driver. The glue
+> > code
+> > is otherwise the same, and also the same as found in the ChromeOS
+> > kernels, with some extra comments and macro names added where
+> > possible.
+> >
+> > Patch 1 adds a binding for the glue layer, called mfgtop. The glue
+> > layer
+> > contains clock and power controls for the GPU.
+> >
+> > Patch 2 adds a driver for the glue layer.
+> >
+> > Patch 3 adds an entry for the MT8173 GPU and 6XT series to the
+> > PowerVR
+> > binding.
+> >
+> > Patch 4 adds an entry for the PowerVR 6XT series GPU to the driver.
+> >
+> > Patch 5 corrects the clock for the GPU (called MFG) power domain.
+> >
+> > Patch 6 adds device nodes for the GPU and glue layer to the MT8173
+> > dtsi
+> > file.
+> >
+> > Patch 2 and 6 depend on patch 1 to build. I suppose some common
+> > immutable tree would be needed from the MediaTek maintainers.
+> >
+> > The kernel driver successfully probes the hardware and loads the
+> > "rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies
+> > [2].
+> > Userspace was tested with Mesa 24.0.8 from Debian Trixie rebuilt with
+> > the powervr vulkan driver enabled. `vulkaninfo` gives some
+> > information
+> > about the GPU (attached at the end), but running the `triangle`
+> > example
+> > from the Sascha Willems demos [3] with -DUSE_D2D_WSI=3DON as
+> > recommended [4]
+> > failed with:
+> >
+> >     Can't find a display and a display mode!
+>
+> I think when using D2D the demos want width and height to be explicitly
+> specified, otherwise it seems to hardcode 1280x720.
+>
+> If you're using an elm, could you try to add `-w 1920 -h 1080` or for
+> hana `-w 1366 -h 768` ?
 
-Feel free to merge it in msm-next or other drm branch:
-Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
+I only did the basic `vulkaninfo` test this time around. To do anything
+interesting probably requires the Mesa 26.1 release.
 
-Thanks,
-Neil
+    PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
+        vkmark --winsys kms -D b81f54f8568deb0fb70a6a1ed845b65d
+
+just reports "Error: Device specified by uuid is not available"
+
+This is with Mesa 26.0.2 packages from Debian testing. At least now
+have the powervr vulkan driver enabled by default, so I don't have
+to rebuild the packages again.
+
+
+ChenYu
+
+> Thanks
+> Icenowy
+>
+> >
+> > Same program worked correctly on a BeaglePlay and displayed a color
+> > gradient triangle. Not sure what went wrong here.
+> >
+> > Anyway, please have a look and test.
+> >
+> >
+> > Thanks
+> > ChenYu
+> >
+> > [1]
+> > https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walker@=
+imgtec.com/
+> > [2]
+> > https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powerv=
+r
+> > [3] https://github.com/SaschaWillems/Vulkan
+> > [4]
+> > https://lore.kernel.org/dri-devel/f2b2671e-5acc-4dec-9c2e-3c9cd2e1f19e@=
+imgtec.com/
+> >
+> > Chen-Yu Tsai (5):
+> >   dt-bindings: clock: mediatek: Add mt8173 mfgtop
+> >   clk: mediatek: Add mt8173-mfgtop driver
+> >   dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
+> >   arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+> >   arm64: dts: mediatek: mt8173: Add GPU device nodes
+> >
+> >  .../clock/mediatek,mt8173-mfgtop.yaml         |  70 +++++
+> >  .../bindings/gpu/img,powervr-rogue.yaml       |   1 +
+> >  arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  33 ++-
+> >  drivers/clk/mediatek/Kconfig                  |   9 +
+> >  drivers/clk/mediatek/Makefile                 |   1 +
+> >  drivers/clk/mediatek/clk-mt8173-mfgtop.c      | 243
+> > ++++++++++++++++++
+> >  include/dt-bindings/clock/mt8173-clk.h        |   7 +
+> >  7 files changed, 363 insertions(+), 1 deletion(-)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/clock/mediatek,mt8173-mfgtop.yaml
+> >  create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
 
