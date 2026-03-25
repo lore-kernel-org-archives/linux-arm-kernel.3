@@ -4,69 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68E9106B519
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55499106B522
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7AALyXMvw0je7A53lWrzx1SCKloiiDnfr5zZSndjQGk=; b=KMjpcRFky5VKXRstwW72tDVGRI
-	4JLM07pGfCK9dSbblbGY4zvDKu4qzM/2Tc0dNY+E4kF1Xd0d1YVi1x87WKm/k3vCjZ5u99gtmOJwx
-	oESfJLfsu5ch1w8ycQDmu0zvoYMYNeu4Uq9ktgx3aYaK8RyDPWYYArCWQ+CLdJoaPUBwGH3sg2Jol
-	ZFuDsbdTnIQkcttnlgc2Q3R4L8mO1uuzRhA8kaRAmj26Wane3rDMm2sr2gRxUsaCnPv3bNewFHl1c
-	+fknLcdPx2g/Lw8fY90AJJXwUOtVMC2EyNi+l2io4XGWiC0Ac6bx3qiEUIgU4lckFf/RSqs8SCx6V
-	qLxZ7xDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=13K24TFOG1F3oiqIzwcE+0XCvGAkUcd6KJJKOkscNqs=; b=YWXn9J/yKh9rRD1deIEJsYI/Ro
+	ey4RNzqH7yXZA9Kd4AdrQiYvjMyV/GA7x41qNpV7Ty6FS/lpMbvosVlEjnpLfC6uRgqTXJmDzocX3
+	txZAp37d/okIIzDwgBpo41KG3D8bBrgfkWPUNrcRb3bNa9SMfsBO/Ww9LGxbOEKJdW8gEblfHRabu
+	H3ZcxVURO2tDKlNleFW1KGZM9Frw7tnguOGWw1zpt2J90S1DnlP892/pilEocpxjSfjq7JS/ZXF8W
+	rMAAJzN53aowvUN1zIDmYtU5gnqazRawed2rUK92tPGRv1vOD+tHF7wRt25XPcAZXgCwUGYhceBA7
+	oxrPaSQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NL3-00000003N3q-3Ijx;
-	Wed, 25 Mar 2026 12:27:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NL0-00000003N3T-48it
+	id 1w5NTs-00000003NW8-0uYp;
+	Wed, 25 Mar 2026 12:37:04 +0000
+Received: from mail-westus3azon11010057.outbound.protection.outlook.com ([52.101.201.57] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5NTp-00000003NVD-1ZZm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 12:27:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38E641CDD;
-	Wed, 25 Mar 2026 05:27:48 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EFC33F915;
-	Wed, 25 Mar 2026 05:27:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774441674; bh=r2XgYTZSdCM7G0IZbpb3iOsmIHn+g3Bg7hWAC/Kzi3A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UpdxeQt2YbXJHkZ26e0AGm4UKPobmeEc8zYHDPIQ7d+3Dp7TGfaxvbUJmQoUNeHt/
-	 Ld+hmZJroKy4k9k3GMVoJEcCYtwB2eiAG8IurXt0H2v7nhT1fAfw9AsJyWBI8QHK7E
-	 EF+csPDTqlILpKJ9qJAnCjmNTtj5kLbbV6V2sohM=
-Date: Wed, 25 Mar 2026 12:27:48 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, dan.carpenter@linaro.org,
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
- initialization
-Message-ID: <acPUxJ3N0QptmtlJ@pluto>
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
- <20260310184030.3669330-9-cristian.marussi@arm.com>
- <CGME20260325110244eucas1p1ea280137c0b94e1f5b79d5578da7fedf@eucas1p1.samsung.com>
- <9b574ac5-09fa-4e7a-b2bb-a339fbb319bc@samsung.com>
+	Wed, 25 Mar 2026 12:37:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YWn93wTS2oUB6FNbNLxB+K9oMxByYa8JkQRaN1C+VuiojKXvGyrkI872Yxq3bb6QrOTyUgfJI4SxnDKzcrcLbcJTIXI1r6PNmvzMWG/I2D4khu5fTyfyz3o7TPsk/WIIsELvO6XcUt9zRJ2fj8PB7D2Hq6F0LyUQQwngpHfymLZa8kzk6HA7MOj/7X7L+rRAea+NfRLOUDHLOjnF/7Ysjil1N+y3KirXrD4HVX0A3HehEjzK9OSbfPdXvTYGDCUv3k77nBPBCx7mOxonYGJvDrTOvIiLY20bvlB2C/05M1pXcJLz8dgEk/u0YjaalRP5ZprWIRjzq/aRtMf8oCJeoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=13K24TFOG1F3oiqIzwcE+0XCvGAkUcd6KJJKOkscNqs=;
+ b=L3kry+1HM0nc/7VR7yVm4Ww5qWlnVr7omdfYfpAwyjjy7v5zzTvGIw/oC86UWsnPYfRleBS/tqx5zWtfo2XIRrVnqCq9DNVJ3c/FmxgiVRmRhbeeg2MaRUvBiXL20ypkG34rgYpchBbFlTchEn3AbDoj7vM9qFmbdODp6jScQCOaWDxnKy/0faTOIIcOhStifXNIomaN0TI0w9W1/w8t/5ioTBw4CwGakqLT1E1swRxdBos5UzRSoqZlGUqI+OKoPEzamBvCeEstOPeHoa1426uOKB7LHOJJ0pEjZieSXbUSCJRjqS71NMTNsZT4fyCy158g5D8pxqSovIFXBc+KRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=13K24TFOG1F3oiqIzwcE+0XCvGAkUcd6KJJKOkscNqs=;
+ b=Ze+7g3Odus6DwMdgGRtxlhP2CH1FU9oMmOrTPOiR0OXX0n+xwNLJzL5v4CpUZF+Qk9/r/HqFV0/lU0Yc7fRxbD/LarRz+qc9xHLkpYNlLybE/pdbr68UV4zta1vzvvV2GKrvSpCFJ+uYnwiWCUlLkp3jf7JfDc2GDFPIp82TylY=
+Received: from BL1PR13CA0266.namprd13.prod.outlook.com (2603:10b6:208:2ba::31)
+ by BLAPR10MB5156.namprd10.prod.outlook.com (2603:10b6:208:321::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
+ 2026 12:36:54 +0000
+Received: from BN1PEPF0000468D.namprd05.prod.outlook.com
+ (2603:10b6:208:2ba:cafe::a1) by BL1PR13CA0266.outlook.office365.com
+ (2603:10b6:208:2ba::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.20 via Frontend Transport; Wed,
+ 25 Mar 2026 12:36:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN1PEPF0000468D.mail.protection.outlook.com (10.167.243.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Wed, 25 Mar 2026 12:36:53 +0000
+Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 25 Mar
+ 2026 07:36:52 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 25 Mar
+ 2026 07:36:52 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 25 Mar 2026 07:36:52 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62PCakEV270453;
+	Wed, 25 Mar 2026 07:36:47 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <Frank.Li@kernel.org>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <nm@ti.com>, <ssantosh@kernel.org>,
+	<horms@kernel.org>, <c-vankar@ti.com>, <mwalle@kernel.org>
+CC: <dmaengine@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<danishanwar@ti.com>, <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [RFC PATCH 0/6] Descriptor Recycling and Batch processing for CPSW
+Date: Wed, 25 Mar 2026 18:08:36 +0530
+Message-ID: <20260325123850.638748-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9b574ac5-09fa-4e7a-b2bb-a339fbb319bc@samsung.com>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468D:EE_|BLAPR10MB5156:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34377229-c7f8-409e-2d63-08de8a6b3218
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|7416014|1800799024|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: fupXZG7i7nGMcebxbv88NKItjPdVvg3R4Cz5/QVctbG+ndsHJUaaHhB5u8J7WIpycQqgYp2cTaKijfwoiPfkzpvx+2y2zz9bHTEmy1zD2HbGsF1sWWPEm9MwqtmDr0/edCWO2MDlco94FNYTgV9my8h8LIWn118iADdIIjAWLBQQL+eBP5l6dEwcnxVQJpAgXJzJLKZfJRXAMDukbM6o4BKN+m9KfMfiTLNnq5Ge+atkGKHYsFPV69RzQ/EqTXEb19N2DCXR38spA/h86aL45eztoH/plwXvMyXbYYY1BPwKTzky9WIlB2f/acmhcVWH2A+jGZ5RoO/lPPIyIQ3l9UTZNJ63698BKzBZD7tshNWxUZPKLiUPdwXTHUnORcu/rls96VYvZVeA6ivM5a5fjd3/jMzl89waQJTKOK/Svn4cp+Nhk9fKEyTxgmJZrVEv/yXWg/HkXrPihfRAh9iwPJp6bNaLbw5Imp3MjWCIVFTaY5krd0fz/QdoZPCVC/6VKFXCV+rYbfrNR+9vYaaziR08Gb4jQ9NgvdkBRELq8iLiJ5F+Hmbwth87QSyHkeaFvcTmTcGJ9sD4VWcxDuLbPb7HBBfM8n7sYX99pwjc3XKMnk78eErl81EcvD+pw1vaFzNZq4zH0uccYxXiYLsc93YxU8aGHUlO3ZG5yuqJ823reXG3iNJ7T7DmOSNtigjTdrSpX5elq7/tjub06OpDQXK8OZo9b7gJQru9Uuf8ZIuS7rjkQf5rrgmWlcZNIdpMNz9hukoIkKJN0keIi6QoGKf+CQWHq9KCIVrvyFzd20C/NemoAL1PHfGRj831eH6k
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(7416014)(1800799024)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CJFpBGnll5olIkhIGSKTkynfyuaWRObmkcxR/WCQddAE6gjhusenz70vhu3CaP1okNxfyriBLf/WDluHSKTjew6bJXa89P4qyy4nhxw6/BUN+0YR+UmYCx3Gwog5M+Tik0WhNoppMP4D9ntIVN3KrVZwXaTBEH4gwdjj3xe3WClGMgPzsjwx4jFtwDRSsYKd7HmqjIxiG7zScDJY8BcURpcEEWF0yQcmua07Dk3zDxf+UjxAVem1XZmETBMdiM3FiS04LdG/tItrlYwCKsKSPqXz9a5ozphR/7Jpx+owqH2BpBlsLnVtFlzXm0PMmkRMwe0ZFbDDzi4+5MHGdPkvlT7HlBvWgvx5U+yBSyL4S5q1p20fp5ZTTMbpIcPeQgT/rc2IZE/DSwqZ8BMMiutl0HjynwYtKGznY6Hka8HAnudkfRcsbnH5ry2HvgNuVLL9
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 12:36:53.8573
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34377229-c7f8-409e-2d63-08de8a6b3218
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468D.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_052755_157342_ED9041B7 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260325_053701_428253_A7997E44 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +131,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:02:41PM +0100, Marek Szyprowski wrote:
-> On 10.03.2026 19:40, Cristian Marussi wrote:
-> > Add proper error handling on failure to enumerate clocks features or
-> > rates.
-> >
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> 
+Hello,
 
-Hi Marek,
+NOTE for MAINTAINERS:
+Patches in this series span 3 subsystems and I have posted this as an RFC
+series to make it easy for the reviewers to understand the complete
+implementation. I will eventually split the series and post them
+sequentially to the respective subsystem's mailing list:
+1. SoC
+2. DMAEngine
+3. Netdev
 
-> This patch landed yesterday in linux-next as commit 0d8b0c8068a8 
-> ("firmware: arm_scmi: Harden clock protocol initialization"). In my 
-> tests I found that it causes a regression on RK3568 Odroid-M1 board 
-> (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts), cpufreq and GPU 
-> device are not probed properly:
-> 
-> # dmesg | grep scmi
-> scmi_core: SCMI protocol bus registered
-> arm-scmi arm-scmi.0.auto: Using scmi_smc_transport
-> arm-scmi arm-scmi.0.auto: SCMI max-rx-timeout: 30ms / max-msg-size: 
-> 104bytes / max-msg: 20
-> scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
-> arm-scmi arm-scmi.0.auto: SCMI Notifications - Core Enabled.
-> arm-scmi arm-scmi.0.auto: Malformed reply - real_sz:8 calc_sz:4  
-> (loop_num_ret:1)
-> arm-scmi arm-scmi.0.auto: SCMI Protocol v2.0 'rockchip:' Firmware 
-> version 0x0
-> arm-scmi arm-scmi.0.auto: Enabling SCMI Quirk 
-> [quirk_clock_rates_triplet_out_of_spec]
-> scmi-clocks scmi_dev.3: probe with driver scmi-clocks failed with error -22
-> 
+Series is based on commit
+d1e59a469737 tcp: add cwnd_event_tx_start to tcp_congestion_ops
+of the main branch of net-next tree. When I split the series in the
+future, I shall base the patches for SoC and DMAEngine on linux-next
+and the patches for Netdev on net-next.
 
-Yes there are multiple reports of issues on this hardening, the series
-is on hold and wont go into v7.1 as of now...it needs some basic fixes
-and various quirks probably to address non-compliant firmwares...
+This series enables batch processing for the am65-cpsw-nuss.c driver
+on the transmit path (ndo_start_xmit and ndo_xdp_xmit) and transmit
+completion path. Additionally, this series also recycles descriptors
+instead of releasing them to the pool and reallocating them. The
+difference in memory footprint without this series and with this series
+is hardly noticeable (being under 1 MB).
 
-It will be pushed to next again with a few more fixes in the coming
-days and then we'll need to figure out how many quirks will be needed on
-top of that and if it is acceptable at all...
+Feedback on the implementation w.r.t. correctness, ease of use /
+maintenance and configurability (sysfs based option for changing batch
+size) is appreciated.
 
-Thanks for the report,
-Cristian
+Series has been tested in the following combinations to cover edge
+cases:
+1. Single-Port (CPSW2G on J784S4-EVM)
+2. Multi-Port (CPSW3G on AM625-SK)
+3. Bidirectional TCP Iperf followed by interfaces being brought down
+   with traffic in flight (and TX / RX DMA Channel Teardown) followed
+   by interfaces being brought up and ensuring that Iperf traffic
+   resumes.
+
+The primary motivation for this series is to improve performance in
+terms of lowering the CPU load and achieving higher throughput for
+gigabit and multi-gigabit operation.
+
+The upcoming features that I plan to implement are:
+1. Enable batch processing on RX
+2. Batch processing on ICSSG similar to CPSW (since batch processing
+   increases latency, it might not be desirable to enable batch
+   processing and may be skipped as well).
+
+The following sections capture the improvements brought about by this
+series.
+
+[1] AM625-SK with CPSW3G (multi-port / two netdevs) and single A53
+processor (remaining CPUs are disabled) with each MAC Port operating
+at 1 Gbps Full-Duplex.
+
+===========================================================================
+Baseline for [1]
+===========================================================================
+Dual TX Iperf UDP traffic at 100% CPU Load averaged over 30 seconds:
+403 Mbps + 408 Mbps = 811 Mbps
+
+Dual RX Iperf TCP traffic at 100% CPU Load averaged over 30 seconds:
+336 Mbps + 331 Mbps = 667 Mbps
+
+===========================================================================
+With this series for [1]
+===========================================================================
+Dual TX Iperf UDP traffic at 100% CPU Load averaged over 30 seconds:
+428 Mbps + 437 Mbps = 865 Mbps
+
+Dual RX Iperf TCP traffic at 100% CPU Load averaged over 30 seconds:
+332 Mbps + 337 Mbps = 669 Mbps
+
+
+
+[2] J784S4-EVM with CPSW2G (single-port) and single A72 processor
+(remaining CPUs are disabled) with the MAC Port operating at 1 Gbps Full-
+Duplex.
+
+===========================================================================
+Baseline for [2]
+===========================================================================
+TX Iperf UDP traffic at 84% CPU Load averaged over 30 seconds:
+956 Mbps
+
+RX Iperf TCP traffic at 100% CPU Load averaged over 30 seconds:
+941 Mbps
+
+===========================================================================
+With this series for [2]
+===========================================================================
+TX Iperf UDP traffic at 80% CPU Load averaged over 30 seconds:
+956 Mbps
+
+RX Iperf TCP traffic at 100% CPU Load averaged over 30 seconds:
+941 Mbps
+
+
+
+[3] J784S4-EVM with CPSW9G (multi-port) and single A72 processor
+(remaining CPUs are disabled) with one MAC Port operating at 5 Gbps
+Full-Duplex.
+
+===========================================================================
+Baseline for [3]
+===========================================================================
+TX Iperf UDP traffic at 100% CPU Load averaged over 30 seconds:
+1.26 Gbps
+
+RX Iperf TCP traffic at 75% CPU Load averaged over 30 seconds:
+1.73 Gbps
+
+===========================================================================
+With this series for [3]
+===========================================================================
+TX Iperf UDP traffic at 100% CPU Load averaged over 30 seconds:
+1.28 Gbps
+
+RX Iperf TCP traffic at 75% CPU Load averaged over 30 seconds:
+1.75 Gbps
+
+Regards,
+Siddharth.
+
+Siddharth Vadapalli (6):
+  soc: ti: k3-ringacc: Add helper to get realtime count of free elements
+  soc: ti: k3-ringacc: Add helpers for batch push and pop operations
+  dmaengine: ti: k3-udma-glue: Add helpers for batch operations on TX/RX
+    DMA
+  net: ethernet: ti: am65-cpsw-nuss: Do not set buf_type for SKB
+    fragments
+  net: ethernet: ti: am65-cpsw-nuss: Recycle TX and RX CPPI Descriptors
+  net: ethernet: ti: am65-cpsw-nuss: Enable batch processing for TX / TX
+    CMPL
+
+ drivers/dma/ti/k3-udma-glue.c            |  55 +++
+ drivers/net/ethernet/ti/am65-cpsw-nuss.c | 441 +++++++++++++++++++----
+ drivers/net/ethernet/ti/am65-cpsw-nuss.h |  31 ++
+ drivers/soc/ti/k3-ringacc.c              |  99 +++++
+ include/linux/dma/k3-udma-glue.h         |  12 +
+ include/linux/soc/ti/k3-ringacc.h        |  35 ++
+ 6 files changed, 612 insertions(+), 61 deletions(-)
+
+-- 
+2.51.1
+
 
