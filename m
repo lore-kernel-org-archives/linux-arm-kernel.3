@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B518CFEA837
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7C1FEA837
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hC/9wOCodg6/crpThq+KQ6DfxDsBF0vRkgwmcPn9Xhk=; b=pOdArwQEeR6NM3b7o2Poe9TD4C
-	s3NemGan2xw9pZmo6Cq5qZec6Etj+RQ+wUbPko61nDsm0nVU12lZdVTuiZaGe+6t0R5rO9hSHZBsY
-	iXOKNGsK+OB34BV5eJLawUvFkldH/kF7+d8+j+8nnf95X0Os1vMfCjaMvWkucTw5rW2woziGd7orZ
-	QN01LXvMA/6wzCz4Cv0oL1OCVKbleGQRBZjKNHiPi5bJlk6TK4LFHGQIXr5gC/MWpZHqG9i6b1iKb
-	syOtrfD3MYkq4d7080h4XaRe1BCml2xzjmwVs++Pr3XLGYxjYuW3HXrD1wVDJWBgb7u9hXfURZIsw
-	jjxLrXtw==;
+	bh=pttq7SF0pbj6J9a3Fe7o8+AIeRgOAV74H21TuWBE2UE=; b=G/7s44+b1cgr463AWZSzA2eXJI
+	Io45qoe6Dq6AcZ0NAkJYjGKoOEoKbXaFUeqT0tzuBMSX8MhvuXZD6o+G4QK9dvql3ib4PvmdXsEGD
+	LzHrqH9ciqLbe6WOKMPyAPL1i3/YJaH7xKbIZJLQSvVwwJOqsPiQbcOkwt+I/d3OllJl1n/f3O9wv
+	DNrhqaNJMNYxm8osPaT2+JGInvhSjXtXTP7oKv1dy+3dAwNCNghm1SCVstGcnTkj/mJSZOAvZm4SW
+	2LiHHwEfnlepdsylp5HUwfI47uXGUdnAlRP8YIEIp2OmL4irfvZqOIR9rJ9/qYaSRAXhI+R5qq1o8
+	DBt3+Riw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5K7f-0000000301g-13pr;
-	Wed, 25 Mar 2026 09:01:55 +0000
+	id 1w5K9Y-000000030BF-3BWW;
+	Wed, 25 Mar 2026 09:03:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5K7c-00000003012-0FZa
+	id 1w5K9W-000000030Au-1gDq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 09:01:54 +0000
+	Wed, 25 Mar 2026 09:03:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C36543BF0;
-	Wed, 25 Mar 2026 09:01:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB99EC4CEF7;
-	Wed, 25 Mar 2026 09:01:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1998D442E6;
+	Wed, 25 Mar 2026 09:03:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C50B2C4CEF7;
+	Wed, 25 Mar 2026 09:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774429311;
-	bh=XvAxCyWu0L7zLc1NFfaPzwcbGzeBeEzFp0l8Vyl4SjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A9928HfEqco1L2ksGkLq5J1XZwYZB+wm7R1NLMjjKjFYzz6eZ99J1UyYE1eHxR9X1
-	 qvdNKIGZx+sVQ0KQsN77oD/kIlZO1jtn/gRmv27o+JtuIggY1/anV5/Q/8y+fxs7m4
-	 qDi32SBacHZ5rQDUp4GhuMEpWezxbGT8bT5V+MmCzmRY7TNLy9I9570yVxZ+56jIYo
-	 2F0fN7sdIi/8ez29j/W2yliQk5hv5rx1iZYIURdYTf5tsIL8FUbjWpS3pG2XoUR4gU
-	 s/5rH9rkplweCxt5UaFDyuAVjBcnJ9+dnzEby/UVAJzOWXMOw98JX9aCuSBKSbrNAn
-	 3PKB2/EtBipsA==
-Date: Wed, 25 Mar 2026 10:01:48 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	shawnguo@kernel.org, Frank.Li@nxp.com, dario.binacchi@amarulasolutions.com, 
-	alexander.stein@ew.tq-group.com, maudspierings@gocontroll.com, josua@solid-run.com, 
-	Markus.Niebel@tq-group.com, matthias.schiffer@tq-group.com, primoz.fiser@norik.com, 
-	francesco.dolcini@toradex.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add compatible for i.MX95
- 15x15 audio board (version 2)
-Message-ID: <20260325-axiomatic-cunning-oriole-5badeb@quoll>
-References: <20260324061556.980621-1-shengjiu.wang@nxp.com>
- <20260324061556.980621-2-shengjiu.wang@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260324061556.980621-2-shengjiu.wang@nxp.com>
+	s=k20201202; t=1774429430;
+	bh=w/GTjS8YC8uH+Sy4A1EDV8UGyt/H8PZtAnk1cljNo8w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fLn3NICRRfLAwA8fdLwt9a3S1jWOlTsyhgvm9TKxtZQRkOTPn8eHM0Xie9VDcCkZ/
+	 8GJrVhP3m4gxmWaHeYlqNHI+OKhIvY/oJIVcpXXModAzVFaBKxCcb5IdkMSHsXYcg8
+	 XO313s7oi20EAwUjxewUYW3Wta5AzC082RHyrjwFrm+YIr98GK8PK9KLX9+mDX3XC4
+	 vGyt6W2oHGh8pDpJDbHCyrvtvQTgvJx8WHlZqYIYMiRGk3+fPTmKI2yMJ3yNGO6Oj+
+	 NzaBbOgn605Hf2tAPp7Y+JBWc7/JLkhdGfhSc8tn0x/LKgFlIWJt4A7uE6w4llufPk
+	 RTldLE+GWj4pg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w5K9T-00000005Trk-21XU;
+	Wed, 25 Mar 2026 09:03:47 +0000
+Date: Wed, 25 Mar 2026 09:03:47 +0000
+Message-ID: <86o6kc46x8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/3] KVM: arm64: selftests: Add library functions for NV
+In-Reply-To: <20260325003620.2214766-2-weilin.chang@arm.com>
+References: <20260325003620.2214766-1-weilin.chang@arm.com>
+	<20260325003620.2214766-2-weilin.chang@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, pbonzini@redhat.com, shuah@kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_020153_051785_6B0FBFFA 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260325_020350_481878_8DCC7037 
+X-CRM114-Status: GOOD (  36.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +95,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 02:15:55PM +0800, Shengjiu Wang wrote:
-> Introduce a new DT compatible string for the NXP i.MX95 15x15 audio board
-> (version 2).
+On Wed, 25 Mar 2026 00:36:18 +0000,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
 > 
-> i.MX Audio Board is a configurable and functional audio processing
-> platform. Integrating a variety of audio input and output interfaces into
-> the system, the i.MX Audio Board supports HDMI input, HDMI eARC,
-> S/PDIF I/O, 2-ch ADC line-in, 24-ch DAC line-out and more. Based on these
-> features, rich audio application cases can be realized.
+> The API is designed for userspace to first call prepare_{l2_stack,
+> hyp_state, eret_destination, nested_sync_handler}, with a function
+> supplied to prepare_eret_destination() to be run in L2. Then run_l2()
+> can be called in L1 to run the given function in L2.
 > 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
 > ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  tools/testing/selftests/kvm/Makefile.kvm      |  2 +
+>  .../selftests/kvm/include/arm64/nested.h      | 18 ++++++
+>  .../testing/selftests/kvm/lib/arm64/nested.c  | 61 +++++++++++++++++++
+>  .../selftests/kvm/lib/arm64/nested_asm.S      | 35 +++++++++++
+>  4 files changed, 116 insertions(+)
+>  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
+>  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
+>  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> index 98da9fa4b8b7..5e681e8e0cd7 100644
+> --- a/tools/testing/selftests/kvm/Makefile.kvm
+> +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> @@ -34,6 +34,8 @@ LIBKVM_arm64 += lib/arm64/gic.c
+>  LIBKVM_arm64 += lib/arm64/gic_v3.c
+>  LIBKVM_arm64 += lib/arm64/gic_v3_its.c
+>  LIBKVM_arm64 += lib/arm64/handlers.S
+> +LIBKVM_arm64 += lib/arm64/nested.c
+> +LIBKVM_arm64 += lib/arm64/nested_asm.S
+>  LIBKVM_arm64 += lib/arm64/processor.c
+>  LIBKVM_arm64 += lib/arm64/spinlock.c
+>  LIBKVM_arm64 += lib/arm64/ucall.c
+> diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> new file mode 100644
+> index 000000000000..739ff2ee0161
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> @@ -0,0 +1,18 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * ARM64 Nested virtualization defines
+> + */
+> +
+> +#ifndef SELFTEST_KVM_NESTED_H
+> +#define SELFTEST_KVM_NESTED_H
+> +
+> +void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> +void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
+> +void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> +
+> +void run_l2(void);
+> +void after_hvc(void);
+> +void do_hvc(void);
+> +
+> +#endif /* SELFTEST_KVM_NESTED_H */
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> new file mode 100644
+> index 000000000000..111d02f44cfe
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> @@ -0,0 +1,61 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * ARM64 Nested virtualization helpers
+> + */
+> +
+> +#include "kvm_util.h"
+> +#include "nested.h"
+> +#include "processor.h"
+> +#include "test_util.h"
+> +
+> +#include <asm/sysreg.h>
+> +
+> +static void hvc_handler(struct ex_regs *regs)
+> +{
+> +	GUEST_ASSERT_EQ(get_current_el(), 2);
+> +	GUEST_PRINTF("hvc handler\n");
+> +	regs->pstate = PSR_MODE_EL2h | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
+> +	regs->pc = (u64)after_hvc;
+> +}
+> +
+> +void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> +{
+> +	size_t l2_stack_size;
+> +	uint64_t l2_stack_paddr;
+> +
+> +	l2_stack_size = vm->page_size == 4096 ? DEFAULT_STACK_PGS * vm->page_size :
+> +					 vm->page_size;
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Please use symbolic constants. Also, this looks wrong if the default
+stack size is 32k and the page size is 16k. You probably want to
+express a stack size directly, rather than a number of pages.
 
-Best regards,
-Krzysztof
+> +	l2_stack_paddr = __vm_phy_pages_alloc(vm, l2_stack_size / vm->page_size,
+> +					      0, 0, false);
+> +	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), l2_stack_paddr + l2_stack_size);
+> +}
+> +
+> +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> +{
+> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
 
+Surely the E2H value matters. Or are you planning to only run this on
+configuration that hardcode E2H==0? That'd be pretty limiting.
+
+> +}
+> +
+> +void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
+> +{
+> +	vm_paddr_t do_hvc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)do_hvc);
+> +	vm_paddr_t l2_pc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)l2_pc);
+> +
+> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SPSR_EL2), PSR_MODE_EL1h |
+> +							    PSR_D_BIT     |
+> +							    PSR_A_BIT     |
+> +							    PSR_I_BIT     |
+> +							    PSR_F_BIT);
+> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ELR_EL2), l2_pc_paddr);
+> +	/* HACK: use TPIDR_EL2 to pass address, see run_l2() in nested_asm.S */
+> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), do_hvc_paddr);
+> +}
+> +
+> +void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> +{
+> +	if (!vm->handlers) {
+> +		vm_init_descriptor_tables(vm);
+> +		vcpu_init_descriptor_tables(vcpu);
+> +	}
+> +	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64,
+> +				ESR_ELx_EC_HVC64, hvc_handler);
+> +}
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/nested_asm.S b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> new file mode 100644
+> index 000000000000..4ecf2d510a6f
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> @@ -0,0 +1,35 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * ARM64 Nested virtualization assembly helpers
+> + */
+> +
+> +.globl run_l2
+> +.globl after_hvc
+> +.globl do_hvc
+> +run_l2:
+> +	/*
+> +	 * At this point TPIDR_EL2 will contain the gpa of do_hvc from
+> +	 * prepare_eret_destination(). gpa of do_hvc have to be passed in
+> +	 * because we want L2 to issue an hvc after it returns from the user
+> +	 * passed function. In order for that to happen the lr must be
+> +	 * controlled, which at this point holds the value of the address of
+> +	 * the next instruction after this run_l2() call, which is not useful
+> +	 * for L2. Additionally, L1 can't translate gva into gpa, so we can't
+> +	 * calculate it here.
+> +	 *
+> +	 * So first save lr, then move TPIDR_EL2 to lr so when the user supplied
+> +	 * L2 function returns, L2 jumps to do_hvc and let the L1 hvc handler
+> +	 * take control. This implies we expect the L2 code to preserve lr and
+> +	 * calls a regular ret in the end, which is true for normal C functions.
+> +	 * The hvc handler will jump back to after_hvc when finished, and lr
+> +	 * will be restored and we can return run_l2().
+> +	 */
+> +	stp	x29, lr, [sp, #-16]!
+> +	mrs	x0, tpidr_el2
+> +	mov	lr, x0
+> +	eret
+> +after_hvc:
+> +	ldp	x29, lr, [sp], #16
+> +	ret
+> +do_hvc:
+> +	hvc #0
+
+This probably works for a single instruction L2 guest, but not having
+any save/restore of the L2 context makes it hard to build anything on
+top of this.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
