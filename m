@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BE0106B526
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9A2106B522
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WhH/BiavDYlcA+QqnqPeVfMuMJx+Rcb/Yk974pkiqvY=; b=1jg8pswOe656wqxiHrD2AWUudv
-	yAxIvFQLEn0mYKKOvDDiy7GxGawNsjqDa7x+A9eU4o3ZihRPrkWl4sXujMN261EoZvWWY71sGMd/o
-	Ayu3xMayFiOaQFXFdV1pzaDSDWFHxd0pQ8S9PomWNJtzzYUf7+9Vha6ompQDW+Z76zmpgwmZ6LIsl
-	YKhacJ6nAocRCewMFG+zcNVU0H1YI0DMkKKT+R/1Xk0dEfqhI9pNRqlqwk/meMQfQn3SUgQgXMxdH
-	8MIEQIplrrapvTsBYxxlC9xaGMdGIe6jdHioghUM4qsfxjze2K5NlHUwGVByNul+1VWjankJonzjh
-	FzqTuqcg==;
+	bh=wLIRxAVoVBUfAlBsoXd75PEygmNQ3cVVesbWC/Hnd80=; b=Wo2z1CXLr1LpsWzscVszsbkLsz
+	LZIeDtx3L9THr15y8oCeyljHywh21zHpEOCYN7OzgWVUaXgCLSwOGYII9zwbv6Xx3gEEy/WQghpcl
+	42aLz1GbUqOnHzcZWw/UjB/qg+jDat+brZ5kNBSQfEf29ZFGwHFEyaBS7tGjxzzhr07JjBvE/haZK
+	wy2RbVJ+DEhP6nyAyM3+/LAyKmUFlndMm64ifrXaDa3Apxcdl6BuFi0k+hBcQCp1g7d+WRbyQRiYX
+	4So1tncJOZL718BRBJqWQSovw13YCdh3JSE/Gdxt8VRke1hu587EkgB5CktkWU38QOcOPzoNF62cE
+	EC+zzJ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NWx-00000003OFP-1GMn;
-	Wed, 25 Mar 2026 12:40:15 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
+	id 1w5NXe-00000003OMk-15nR;
+	Wed, 25 Mar 2026 12:40:58 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NWt-00000003OEd-2Cj4
+	id 1w5NXa-00000003OLO-3N7k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 12:40:13 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 2DBBDC3EEAC9;
-	Wed, 25 Mar 2026 13:40:04 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 2DBBDC3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Maxime Ripard <mripard@kernel.org>,  Marco Felsch
- <m.felsch@pengutronix.de>,  Marek Vasut <marex@nabladev.com>,  Stefan
- Agner <stefan@agner.ch>,  Simona Vetter <simona@ffwll.ch>,
-  <imx@lists.linux.dev>,  Fabio Estevam <festevam@gmail.com>,  Pengutronix
- Kernel Team <kernel@pengutronix.de>,  Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>,  Sascha Hauer
- <s.hauer@pengutronix.de>,  Frank Li <Frank.Li@nxp.com>,
-  <linux-kernel@vger.kernel.org>,  <dri-devel@lists.freedesktop.org>,
-  Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
- <airlied@gmail.com>,  <linux-arm-kernel@lists.infradead.org>,  Lucas Stach
- <l.stach@pengutronix.de>
-Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-In-Reply-To: <ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com> (Liu Ying's
-	message of "Mon, 23 Mar 2026 16:18:55 +0800")
-References: <m3ms04caaj.fsf@t19.piap.pl>
-	<32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
-	<m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
-	<20260320-amiable-hairy-bullfinch-28bfda@houat>
-	<m3a4w2d4ds.fsf@t19.piap.pl>
-	<ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com>
-Date: Wed, 25 Mar 2026 13:40:03 +0100
-Message-ID: <m3se9onkv0.fsf@t19.piap.pl>
+	Wed, 25 Mar 2026 12:40:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1774442450; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=wLIRxAVoVBUfAlBsoXd75PEygmNQ3cVVesbWC/Hnd80=;
+	b=IRCMgRPm76eqhxYIdQcAD993j+N1XXjA+GL7N/3PbWQUw1Wy6fJyCntl06C6uHInnXqM/PA2z9+UeC6BEJpoYNbZ2LEvZORVkNnsfTgTSh5YNip3mYylsXaPVZMD8eYVlOas4I4Ro6IXoaUmn7whPR3UJyxz2wC9NObxjPrxCvI=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X.hm8h9_1774442445;
+Received: from 30.246.162.22(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X.hm8h9_1774442445 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 25 Mar 2026 20:40:46 +0800
+Message-ID: <96f505ac-dc5e-45df-8641-deabb973b5f3@linux.alibaba.com>
+Date: Wed, 25 Mar 2026 20:40:56 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ACPI: APEI: Handle repeated SEA error interrupts storm
+ scenarios
+To: hejunhao <hejunhao3@h-partners.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Luck, Tony" <tony.luck@intel.com>
+Cc: bp@alien8.de, guohanjun@huawei.com, mchehab@kernel.org,
+ jarkko@kernel.org, yazen.ghannam@amd.com, jane.chu@oracle.com,
+ lenb@kernel.org, Jonathan.Cameron@huawei.com, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-edac@vger.kernel.org, shiju.jose@huawei.com, tanxiaofei@huawei.com,
+ Linuxarm <linuxarm@huawei.com>
+References: <20251030071321.2763224-1-hejunhao3@h-partners.com>
+ <CAJZ5v0h=QtcT7zhZEgrTjUk7EAk2OfbGG6BoEEv-3toKODMXQA@mail.gmail.com>
+ <bf42a19d-0f5d-48d8-91f5-febb8bfd06d3@linux.alibaba.com>
+ <9817f221-5b5f-7c25-ab94-cb04a854553a@h-partners.com>
+ <70b85b7c-5107-4f79-abf7-3cc5b7e1438d@linux.alibaba.com>
+ <ea31b6d3-fae5-ab5c-c10c-ed6901296498@h-partners.com>
+ <c72680a4-5133-4b93-8efb-2e72ce0ed7fa@linux.alibaba.com>
+ <22567fce-992c-89df-28fe-3d5959b8b205@h-partners.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <22567fce-992c-89df-28fe-3d5959b8b205@h-partners.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_054011_736469_5FA79024 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20260325_054055_701421_6CAC9459 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,251 +79,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-maybe I don't understand this, but... added a bunch of printk()s:
-
-static void dump(struct lcdif_drm_private *lcdif, const char *func, unsigne=
-d line)
-{
-	uint32_t d1 =3D readl(lcdif->base + LCDC_V8_INT_STATUS_D1);
-	printk(KERN_DEBUG "%s[%u]\n", func, line);
-	printk(KERN_DEBUG "CTRL %08X PARA %08X %08X %08X %08X %08X\n",
-	       readl(lcdif->base + LCDC_V8_CTRL),
-	       readl(lcdif->base + LCDC_V8_DISP_PARA),
-	       readl(lcdif->base + LCDC_V8_DISP_SIZE),
-	       readl(lcdif->base + LCDC_V8_HSYN_PARA),
-	       readl(lcdif->base + LCDC_V8_VSYN_PARA),
-	       readl(lcdif->base + LCDC_V8_VSYN_HSYN_WIDTH));
-	printk(KERN_DEBUG "D0   %08X %08X D1 %08X(C) %08X\n",
-	       readl(lcdif->base + LCDC_V8_INT_STATUS_D0),
-	       readl(lcdif->base + LCDC_V8_INT_ENABLE_D0),
-	       d1,
-	       readl(lcdif->base + LCDC_V8_INT_ENABLE_D1));
-	printk(KERN_DEBUG "DESC %08X %08X %08X %08X %08X\n",
-	       readl(lcdif->base + LCDC_V8_CTRLDESCL0_1),
-	       readl(lcdif->base + LCDC_V8_CTRLDESCL0_3),
-	       readl(lcdif->base + LCDC_V8_CTRLDESCL_LOW0_4),
-	       readl(lcdif->base + LCDC_V8_CTRLDESCL_HIGH0_4),
-	       readl(lcdif->base + LCDC_V8_CTRLDESCL0_5));
-	if (d1)
-		writel(d1, lcdif->base + LCDC_V8_INT_STATUS_D1); // clear D1 status
-}
-
-(C) after LCDC_V8_INT_STATUS_D1 value means I clear it after read. It's
-the single PANIC bit, "write 1 to clear".
-
-LCDIFV3_PANIC0_THRES is 0x15501AA, but 2/4 and 3/4 didn't fix it either
-(completely at least). 2160p30. Also added the undocumented
-CTRLDESCL0_3_STATE_CLEAR_VSYNC bit as in NXP's driver (clearing FIFO on
-VSYNC).
-
-Normal start (before Weston):
-4.943 lcdif_reset_block[432]
-4.943 CTRL 80000000 PARA 00000000 00000000 00030003 00030003 00030003 <<<<<=
- SW_RESET
-4.943 D0   00000000 00000000 D1 00000000(C) 00000000
-4.943 DESC 00000000 00000000 00000000 00000000 00000000
-4.943 lcdif_reset_block[437]
-4.943 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-4.943 D0   00000000 00000000 D1 00000000(C) 00000000
-4.943 DESC 00000000 00000000 00000000 00000000 00000000
-4.943 lcdif_set_formats[197]
-4.943 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-4.943 D0   00000000 00000000 D1 00000000(C) 00000000
-4.943 DESC 00000000 00000000 00000000 00000000 00000000
-4.943 lcdif_set_formats[320]
-4.943 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-4.943 D0   00000000 00000000 D1 00000000(C) 00000000
-4.943 DESC 00000000 00000000 00000000 00000000 09000000
-4.943 lcdif_set_mode[340]
-4.943 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-4.943 D0   00000000 00000000 D1 00000000(C) 00000000
-4.943 DESC 00000000 00000000 00000000 00000000 09000000
-4.943 lcdif_enable_controller[382]
-4.943 CTRL 00000002 PARA 00000000 08700F00 012800B0 00480008 000A0058
-4.943 D0   00000000 00000000 D1 00000000(C) 00000000
-4.943 DESC 08700F00 00A23C00 ED000000 00000000 09000000
-4.948 lcdif_enable_controller[402]
-4.948 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.949 D0   00000000 00000000 D1 00000000(C) 00000001
-4.949 DESC 08700F00 00A23C00 ED000000 00000000 89000000               <<<<<=
- DMA_EN
-
-I don't know what exactly happens at this point, the DMA starts and the
-CRTC also starts scanning right away? No underrun follows. Not even
-"panic" indication:
-
-4.949 lcdif_crtc_atomic_enable[604]
-4.950 lcdif_plane_primary_atomic_update[746]
-4.951 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.951 D0   00000000 00000000 D1 00000000(C) 00000001
-4.951 DESC 08700F00 00A23C00 ED000000 00000000 89000000
-4.956 lcdif_plane_primary_atomic_update[755]
-4.956 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.956 D0   00000000 00000000 D1 00000000(C) 00000001
-4.956 DESC 08700F00 00A23C00 ED000000 00000000 89000000
-4.956 lcdif_crtc_atomic_flush[554]
-4.956 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.956 D0   00000000 00000000 D1 00000000(C) 00000001
-4.957 DESC 08700F00 00A23C00 ED000000 00000000 89000000
-4.957 lcdif_crtc_atomic_flush[558]
-4.957 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.957 D0   00000000 00000000 D1 00000000(C) 00000001
-4.957 DESC 08700F00 00A23C00 ED000000 00000000 C9000000               <<<<<=
- SHADOWS
-
-^^^ The code programs the CRTC to update DMA registers (only?), I guess
-mostly the frame buffer address, on the next frame end / start /
-whatever event.
-
-4.957 lcdif_crtc_enable_vblank[678]
-4.957 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.957 D0   00000000 00000000 D1 00000000(C) 00000001
-4.957 DESC 08700F00 00A23C00 ED000000 00000000 C9000000               <<<<<=
- SHADOWS
-4.962 lcdif_crtc_enable_vblank[683]
-4.962 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.962 D0   00000000 00000004 D1 00000000(C) 00000001
-4.962 DESC 08700F00 00A23C00 ED000000 00000000 C9000000               <<<<<=
- SHADOWS
-4.963 lcdif_crtc_atomic_flush[572]
-
-if the frame started at 4.948 - 4.949, the next one is due at ca. 4.982
-(30 Hz). VSync should start not sooner than 4.980 (32.0 ms).
-
-4.977 lcdif_crtc_atomic_destroy_state[632]
-4.977 Console: switching to colour frame buffer device 240x67
-4.977 lcdif_crtc_atomic_duplicate_state[661]
-4.977 lcdif_crtc_atomic_check[480]
-4.977 lcdif_crtc_atomic_check[542]
-4.977 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.977 D0   00000001 00000004 D1 00000000(C) 00000001                  <<<<<=
- VSYNC
-4.978 DESC 08700F00 00A23C00 ED000000 00000000 89000000
-
-^^^ Here the "update shadow" bit is (self) cleared, so I think the frame
-has ended (or the next one started), and a new one has started (or is
-about to). No underrun. This is not an IRQ. Interestingly, it's not
-4.980 yet.
-
-4.978 lcdif_crtc_atomic_check[543]
-4.978 lcdif_plane_primary_atomic_update[746]
-4.978 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.978 D0   00000001 00000004 D1 00000000(C) 00000001
-4.978 DESC 08700F00 00A23C00 ED000000 00000000 89000000
-4.985 lcdif_plane_primary_atomic_update[755]
-4.985 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-4.985 D0   00000001 00000004 D1 00000000(C) 00000001
-4.985 DESC 08700F00 00A23C00 ED000000 00000000 89000000
-
-At this point, the new frame definitely has started (7+ ms since VSYNC).
 
 
-Now starting Weston:
-...
-34.655 CTRL 80000000 PARA 00000000 00000000 00030003 00030003 00030003 <<<<=
-< SW_RESET
-34.655 D0   00000000 00000000 D1 00000000(C) 00000000
-34.655 DESC 00000000 00000000 00000000 00000000 00000000
-34.655 lcdif_reset_block[437]
-34.655 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-34.655 D0   00000000 00000000 D1 00000000(C) 00000000
-34.655 DESC 00000000 00000000 00000000 00000000 00000000
-34.655 lcdif_set_formats[197]
-34.655 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-34.655 D0   00000000 00000000 D1 00000000(C) 00000000
-34.655 DESC 00000000 00000000 00000000 00000000 00000000
-34.655 lcdif_set_formats[320]
-34.655 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-34.655 D0   00000000 00000000 D1 00000000(C) 00000000
-34.655 DESC 00000000 00000000 00000000 00000000 09000000
-34.655 lcdif_set_mode[340]
-34.655 CTRL 00000000 PARA 00000000 00000000 00030003 00030003 00030003
-34.655 D0   00000000 00000000 D1 00000000(C) 00000000
-34.655 DESC 00000000 00000000 00000000 00000000 09000000
-34.655 lcdif_enable_controller[382]
-34.655 CTRL 00000002 PARA 00000000 08700F00 012800B0 00480008 000A0058
-34.655 D0   00000000 00000000 D1 00000000(C) 00000000
-34.655 DESC 08700F00 00A23C00 EF000000 00000000 09000000
-34.660 lcdif_enable_controller[402]
-34.660 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.660 D0   00000000 00000000 D1 00000000(C) 00000001
-34.660 DESC 08700F00 00A23C00 EF000000 00000000 89000000               <<<<=
-< DMA_EN
+On 3/25/26 5:24 PM, hejunhao wrote:
+> 
+> 
+> On 2026/3/25 10:12, Shuai Xue wrote:
+>> Hi, junhao
+>>
+>> On 3/24/26 6:04 PM, hejunhao wrote:
+>>> Hi shuai xue,
+>>>
+>>>
+>>> On 2026/3/3 22:42, Shuai Xue wrote:
+>>>> Hi, junhao,
+>>>>
+>>>> On 2/27/26 8:12 PM, hejunhao wrote:
+>>>>>
+>>>>>
+>>>>> On 2025/11/4 9:32, Shuai Xue wrote:
+>>>>>>
+>>>>>>
+>>>>>> 在 2025/11/4 00:19, Rafael J. Wysocki 写道:
+>>>>>>> On Thu, Oct 30, 2025 at 8:13 AM Junhao He <hejunhao3@h-partners.com> wrote:
+>>>>>>>>
+>>>>>>>> The do_sea() function defaults to using firmware-first mode, if supported.
+>>>>>>>> It invoke acpi/apei/ghes ghes_notify_sea() to report and handling the SEA
+>>>>>>>> error, The GHES uses a buffer to cache the most recent 4 kinds of SEA
+>>>>>>>> errors. If the same kind SEA error continues to occur, GHES will skip to
+>>>>>>>> reporting this SEA error and will not add it to the "ghes_estatus_llist"
+>>>>>>>> list until the cache times out after 10 seconds, at which point the SEA
+>>>>>>>> error will be reprocessed.
+>>>>>>>>
+>>>>>>>> The GHES invoke ghes_proc_in_irq() to handle the SEA error, which
+>>>>>>>> ultimately executes memory_failure() to process the page with hardware
+>>>>>>>> memory corruption. If the same SEA error appears multiple times
+>>>>>>>> consecutively, it indicates that the previous handling was incomplete or
+>>>>>>>> unable to resolve the fault. In such cases, it is more appropriate to
+>>>>>>>> return a failure when encountering the same error again, and then proceed
+>>>>>>>> to arm64_do_kernel_sea for further processing.
+>>>>
+>>>> There is no such function in the arm64 tree. If apei_claim_sea() returns
+>>>
+>>> Sorry for the mistake in the commit message. The function arm64_do_kernel_sea() should
+>>> be arm64_notify_die().
+>>>
+>>>> an error, the actual fallback path in do_sea() is arm64_notify_die(),
+>>>> which sends SIGBUS?
+>>>>
+>>>
+>>> If apei_claim_sea() returns an error, arm64_notify_die() will call arm64_force_sig_fault(inf->sig /* SIGBUS */, , , ),
+>>> followed by force_sig_fault(SIGBUS, , ) to force the process to receive the SIGBUS signal.
+>>
+>> So the process is expected to killed by SIGBUS?
+> 
+> Yes. The devmem process is expected to terminate upon receiving a SIGBUS signal, you can
+> see this at the last line of the test log after the patch is applied.
+> For other processes whether it terminates depends on whether it catches the signal; the kernel is
+> responsible for sending it immediately.
+> 
+>>
+>>>
+>>>>>>>>
+>>>>>>>> When hardware memory corruption occurs, a memory error interrupt is
+>>>>>>>> triggered. If the kernel accesses this erroneous data, it will trigger
+>>>>>>>> the SEA error exception handler. All such handlers will call
+>>>>>>>> memory_failure() to handle the faulty page.
+>>>>>>>>
+>>>>>>>> If a memory error interrupt occurs first, followed by an SEA error
+>>>>>>>> interrupt, the faulty page is first marked as poisoned by the memory error
+>>>>>>>> interrupt process, and then the SEA error interrupt handling process will
+>>>>>>>> send a SIGBUS signal to the process accessing the poisoned page.
+>>>>>>>>
+>>>>>>>> However, if the SEA interrupt is reported first, the following exceptional
+>>>>>>>> scenario occurs:
+>>>>>>>>
+>>>>>>>> When a user process directly requests and accesses a page with hardware
+>>>>>>>> memory corruption via mmap (such as with devmem), the page containing this
+>>>>>>>> address may still be in a free buddy state in the kernel. At this point,
+>>>>>>>> the page is marked as "poisoned" during the SEA claim memory_failure().
+>>>>>>>> However, since the process does not request the page through the kernel's
+>>>>>>>> MMU, the kernel cannot send SIGBUS signal to the processes. And the memory
+>>>>>>>> error interrupt handling process not support send SIGBUS signal. As a
+>>>>>>>> result, these processes continues to access the faulty page, causing
+>>>>>>>> repeated entries into the SEA exception handler. At this time, it lead to
+>>>>>>>> an SEA error interrupt storm.
+>>>>
+>>>> In such case, the user process which accessing the poisoned page will be killed
+>>>> by memory_fauilre?
+>>>>
+>>>> // memory_failure():
+>>>>
+>>>>       if (TestSetPageHWPoison(p)) {
+>>>>           res = -EHWPOISON;
+>>>>           if (flags & MF_ACTION_REQUIRED)
+>>>>               res = kill_accessing_process(current, pfn, flags);
+>>>>           if (flags & MF_COUNT_INCREASED)
+>>>>               put_page(p);
+>>>>           action_result(pfn, MF_MSG_ALREADY_POISONED, MF_FAILED);
+>>>>           goto unlock_mutex;
+>>>>       }
+>>>>
+>>>> I think this problem has already been fixed by commit 2e6053fea379 ("mm/memory-failure:
+>>>> fix infinite UCE for VM_PFNMAP pfn").
+>>>>
+>>>> The root cause is that walk_page_range() skips VM_PFNMAP vmas by default when
+>>>> no .test_walk callback is set, so kill_accessing_process() returns 0 for a
+>>>> devmem-style mapping (remap_pfn_range, VM_PFNMAP), making the caller believe
+>>>> the UCE was handled properly while the process was never actually killed.
+>>>>
+>>>> Did you try the lastest kernel version?
+>>>>
+>>>
+>>> I retested this issue on the kernel v7.0.0-rc4 with the following debug patch and was still able to reproduce it.
+>>>
+>>>
+>>> @@ -1365,8 +1365,11 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+>>>           ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
+>>>
+>>>           /* This error has been reported before, don't process it again. */
+>>> -       if (ghes_estatus_cached(estatus))
+>>> +       if (ghes_estatus_cached(estatus)) {
+>>> +               pr_info("This error has been reported before, don't process it again.\n");
+>>>                   goto no_work;
+>>> +       }
+>>>
+>>> the test log Only some debug logs are retained here.
+>>>
+>>> [2026/3/24 14:51:58.199] [root@localhost ~]# taskset -c 40 busybox devmem 0x1351811824 32 0
+>>> [2026/3/24 14:51:58.369] [root@localhost ~]# taskset -c 40 busybox devmem 0x1351811824 32
+>>> [2026/3/24 14:51:58.458] [  130.558038][   C40] {1}[Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>>> [2026/3/24 14:51:58.459] [  130.572517][   C40] {1}[Hardware Error]: event severity: recoverable
+>>> [2026/3/24 14:51:58.459] [  130.578861][   C40] {1}[Hardware Error]:  Error 0, type: recoverable
+>>> [2026/3/24 14:51:58.459] [  130.585203][   C40] {1}[Hardware Error]:   section_type: ARM processor error
+>>> [2026/3/24 14:51:58.459] [  130.592238][   C40] {1}[Hardware Error]:   MIDR: 0x0000000000000000
+>>> [2026/3/24 14:51:58.459] [  130.598492][   C40] {1}[Hardware Error]:   Multiprocessor Affinity Register (MPIDR): 0x0000000081010400
+>>> [2026/3/24 14:51:58.459] [  130.607871][   C40] {1}[Hardware Error]:   error affinity level: 0
+>>> [2026/3/24 14:51:58.459] [  130.614038][   C40] {1}[Hardware Error]:   running state: 0x1
+>>> [2026/3/24 14:51:58.459] [  130.619770][   C40] {1}[Hardware Error]:   Power State Coordination Interface state: 0
+>>> [2026/3/24 14:51:58.459] [  130.627673][   C40] {1}[Hardware Error]:   Error info structure 0:
+>>> [2026/3/24 14:51:58.459] [  130.633839][   C40] {1}[Hardware Error]:   num errors: 1
+>>> [2026/3/24 14:51:58.459] [  130.639137][   C40] {1}[Hardware Error]:    error_type: 0, cache error
+>>> [2026/3/24 14:51:58.459] [  130.645652][   C40] {1}[Hardware Error]:    error_info: 0x0000000020400014
+>>> [2026/3/24 14:51:58.459] [  130.652514][   C40] {1}[Hardware Error]:     cache level: 1
+>>> [2026/3/24 14:51:58.551] [  130.658073][   C40] {1}[Hardware Error]:     the error has not been corrected
+>>> [2026/3/24 14:51:58.551] [  130.665194][   C40] {1}[Hardware Error]:    physical fault address: 0x0000001351811800
+>>> [2026/3/24 14:51:58.551] [  130.673097][   C40] {1}[Hardware Error]:   Vendor specific error info has 48 bytes:
+>>> [2026/3/24 14:51:58.551] [  130.680744][   C40] {1}[Hardware Error]:    00000000: 00000000 00000000 00000000 00000000  ................
+>>> [2026/3/24 14:51:58.551] [  130.690471][   C40] {1}[Hardware Error]:    00000010: 00000000 00000000 00000000 00000000  ................
+>>> [2026/3/24 14:51:58.552] [  130.700198][   C40] {1}[Hardware Error]:    00000020: 00000000 00000000 00000000 00000000  ................
+>>> [2026/3/24 14:51:58.552] [  130.710083][ T9767] Memory failure: 0x1351811: recovery action for free buddy page: Recovered
+>>> [2026/3/24 14:51:58.638] [  130.790952][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:51:58.903] [  131.046994][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:51:58.991] [  131.132360][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:51:59.969] [  132.071431][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:00.860] [  133.010255][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:01.927] [  134.034746][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:02.906] [  135.058973][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:03.971] [  136.083213][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:04.860] [  137.021956][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:06.018] [  138.131460][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:06.905] [  139.070280][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:07.886] [  140.009147][   C40] This error has been reported before, don't process it again.
+>>> [2026/3/24 14:52:08.596] [  140.777368][   C40] {2}[Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>>> [2026/3/24 14:52:08.683] [  140.791921][   C40] {2}[Hardware Error]: event severity: recoverable
+>>> [2026/3/24 14:52:08.683] [  140.798263][   C40] {2}[Hardware Error]:  Error 0, type: recoverable
+>>> [2026/3/24 14:52:08.683] [  140.804606][   C40] {2}[Hardware Error]:   section_type: ARM processor error
+>>> [2026/3/24 14:52:08.683] [  140.811641][   C40] {2}[Hardware Error]:   MIDR: 0x0000000000000000
+>>> [2026/3/24 14:52:08.684] [  140.817895][   C40] {2}[Hardware Error]:   Multiprocessor Affinity Register (MPIDR): 0x0000000081010400
+>>> [2026/3/24 14:52:08.684] [  140.827274][   C40] {2}[Hardware Error]:   error affinity level: 0
+>>> [2026/3/24 14:52:08.684] [  140.833440][   C40] {2}[Hardware Error]:   running state: 0x1
+>>> [2026/3/24 14:52:08.684] [  140.839173][   C40] {2}[Hardware Error]:   Power State Coordination Interface state: 0
+>>> [2026/3/24 14:52:08.684] [  140.847076][   C40] {2}[Hardware Error]:   Error info structure 0:
+>>> [2026/3/24 14:52:08.684] [  140.853241][   C40] {2}[Hardware Error]:   num errors: 1
+>>> [2026/3/24 14:52:08.684] [  140.858540][   C40] {2}[Hardware Error]:    error_type: 0, cache error
+>>> [2026/3/24 14:52:08.684] [  140.865055][   C40] {2}[Hardware Error]:    error_info: 0x0000000020400014
+>>> [2026/3/24 14:52:08.684] [  140.871917][   C40] {2}[Hardware Error]:     cache level: 1
+>>> [2026/3/24 14:52:08.684] [  140.877475][   C40] {2}[Hardware Error]:     the error has not been corrected
+>>> [2026/3/24 14:52:08.764] [  140.884596][   C40] {2}[Hardware Error]:    physical fault address: 0x0000001351811800
+>>> [2026/3/24 14:52:08.764] [  140.892499][   C40] {2}[Hardware Error]:   Vendor specific error info has 48 bytes:
+>>> [2026/3/24 14:52:08.766] [  140.900145][   C40] {2}[Hardware Error]:    00000000: 00000000 00000000 00000000 00000000  ................
+>>> [2026/3/24 14:52:08.767] [  140.909872][   C40] {2}[Hardware Error]:    00000010: 00000000 00000000 00000000 00000000  ................
+>>> [2026/3/24 14:52:08.767] [  140.919598][   C40] {2}[Hardware Error]:    00000020: 00000000 00000000 00000000 00000000  ................
+>>> [2026/3/24 14:52:08.768] [  140.929346][ T9767] Memory failure: 0x1351811: already hardware poisoned
+>>> [2026/3/24 14:52:08.768] [  140.936072][ T9767] Memory failure: 0x1351811: Sending SIGBUS to busybox:9767 due to hardware memory corruption
+>>
+>> Did you cut off some logs here?
+> 
+> I just removed some duplicate debug logs: "This error has already been...", these were added by myself.
+>> The error log also indicates that the SIGBUS is delivered as expected.
+> 
+> An SError occurs at kernel time 130.558038. Then, after 10 seconds, the kernel
+> can re-enter the SEA processing flow and send the SIGBUS signal to the process.
+> This 10-second delay corresponds to the cache timeout threshold of the
+> ghes_estatus_cached() feature.
+> Therefore, the purpose of this patch is to send the SIGBUS signal to the process
+> immediately, rather than waiting for the timeout to expire.
 
-As above, the only difference is frame buffer address.
+Hi, hejun,
 
-34.660 lcdif_crtc_atomic_enable[604]
-34.661 lcdif_plane_primary_atomic_update[746]
-34.661 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.661 D0   00000000 00000000 D1 00000000(C) 00000001
-34.661 DESC 08700F00 00A23C00 EF000000 00000000 89000000
-34.666 lcdif_plane_primary_atomic_update[755]
-34.666 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.666 D0   00000000 00000000 D1 00000000(C) 00000001
-34.667 DESC 08700F00 00A23C00 EF000000 00000000 89000000
-34.667 lcdif_crtc_atomic_flush[554]
-34.667 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.667 D0   00000000 00000000 D1 00000000(C) 00000001
-34.667 DESC 08700F00 00A23C00 EF000000 00000000 89000000
-34.667 lcdif_crtc_atomic_flush[558]
-34.667 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.667 D0   00000000 00000000 D1 00000000(C) 00000001
-34.667 DESC 08700F00 00A23C00 EF000000 00000000 C9000000               <<<<=
-< SHADOWS
+Sorry, but I am still not convinced by the log you provided.
 
-The DMA registers are to be updated on the next VSYNC.
+As I understand your commit message, there are two different cases being discussed:
 
-34.667 lcdif_crtc_enable_vblank[678]
-34.667 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.667 D0   00000000 00000000 D1 00000000(C) 00000001
-34.667 DESC 08700F00 00A23C00 EF000000 00000000 C9000000               <<<<=
-< SHADOWS
-34.672 lcdif_crtc_enable_vblank[683]
-34.672 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-34.672 D0   00000000 00000004 D1 00000000(C) 00000001
-34.672 DESC 08700F00 00A23C00 EF000000 00000000 C9000000               <<<<=
-< SHADOWS
-34.689 lcdif_crtc_atomic_destroy_state[632]
-35.482 lcdif_crtc_atomic_duplicate_state[661]
-35.482 lcdif_crtc_atomic_check[480]
-35.482 lcdif_crtc_atomic_check[542]
-35.482 CTRL 00000002 PARA 80000000 08700F00 012800B0 00480008 000A0058
-35.482 D0   01000002 00000004 D1 00000001(C) 00000001                  <<<<=
-< UNDERRUN
-35.482 DESC 08700F00 00A23C00 EF000000 00000000 89000000
+Case 1: memory error interrupt first, then SEA
 
-No VSYNC bit (though shadow updates happen on VSYNC), PANIC registered,
-and UNDERRUN.
+When hardware memory corruption occurs, a memory error interrupt is
+triggered first. If the kernel later accesses the corrupted data, it may
+then enter the SEA handler. In this case, the faulty page would already
+have been marked poisoned by the memory error interrupt path, and the SEA
+handling path would eventually send SIGBUS to the task accessing that page.
 
-Why did the first (boot) sequence result in success and this second one
-in failure? This is somehow reproducible.
-Interestingly, Weston usually starts fine in subsequent launches.
+Case 2: SEA first, then memory error interrupt
 
-How is this first (actually second - after the first VSYNC) frame
-different from all the others? Maybe we're programming UPDATE_SHADOW
-after the actual start of blanking period, but before DE, so it has no
-chance to reload registers, yet the DMA is somehow not ready?
+Your commit message describes this as the problematic scenario:
 
-The manual (LCDIF display control Register (CTRL)) suggests that the DMA
-(with present settings) starts to fetch FB data at the end of the
-previous active video pixel time (DE and pixel data going inactive):
-fetch_start_option (bits 9-8): Indicates when to start fetching for new
-frame. This signals also decide the shadow load, fifo clear time
-00b - fetch start as soon as FPV begins(as the end of the data_enable).
+A user process directly accesses hardware-corrupted memory through a
+PFNMAP-style mapping such as devmem. The page may still be in the free
+buddy state when SEA is handled first. In that case, memory_failure()
+poisons the page during SEA handling, but the process is not killed
+immediately. Since the task continues accessing the same corrupted
+location, it keeps re-entering the SEA handler, leading to an SEA storm.
+Later, the memory error interrupt path also cannot kill the task, so the
+system remains stuck in this repeated SEA loop.
 
-This should leave a lot of time to fill the FIFO (before the next DE),
-shouldn't it?
+My concern is that your recent explanation and log seem to demonstrate
+something different from what the commit message claims to fix.
 
-297 MHz pixclk, 3840x2160, 30 Hz, H back porch 296 pixclks, Vfp 176,
-V back porch 72 lines, Hfp 8 lines, VSYNC 10 lines, HSYNC 88 pixclks.
-HTotal =3D 4400 pixels which makes Vactive time =3D 4400 * 2160/297e6 =3D
-32 ms, with the remaining 1.3333 ms for all the V sync stuff.
---=20
-Krzysztof "Chris" Ha=C5=82asa
+ From the log, what I can see is:
 
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+the first SEA occurs,
+the page is marked poisoned as a free buddy page,
+repeated SEAs are suppressed by ghes_estatus_cached(),
+after the cache timeout expires, the SEA path runs again,
+then memory_failure() reports "already hardware poisoned" and SIGBUS is
+sent to the busybox devmem process.
+This seems to show a delayed SIGBUS delivery caused by the GHES cache
+timeout, rather than clearly demonstrating the SEA storm problem described
+in the commit message.
+
+So I think there is still a mismatch here:
+
+If the patch is intended to fix the SEA storm described in case 2,
+then I would expect evidence that the storm still exists on the latest
+kernel and that this patch is what actually breaks that loop.
+If instead the patch is intended to avoid the 10-second delay before
+SIGBUS delivery, then that should be stated explicitly, because that is
+a different problem statement from what the current commit message says.
+Also, regarding the devmem/PFNMAP case: I previously pointed to commit
+2e6053fea379 ("mm/memory-failure: fix infinite UCE for VM_PFNMAP pfn"),
+which was meant to address the failure to kill tasks accessing poisoned
+VM_PFNMAP mappings.
+
+So my main question is:
+
+Does the SEA storm issue still exist on the latest kernel version, or is
+the remaining issue only that SIGBUS is delayed by the GHES estatus cache
+timeout?
+
+I think the answer to that question is important before deciding whether
+this patch is correct, and before finalizing the commit message.
+
+Thanks,
+Shuai
+
 
