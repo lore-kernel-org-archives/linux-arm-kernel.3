@@ -4,80 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B28FEA801
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 03:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F0EFEA802
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 03:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Eto/koeMj9W08OyMdWoPq4maMPXzwgWrY2x5NXKmTI=; b=LamI9BunPwAeOnpoxbcDJ10W9x
-	Wp0Ndl4ONcXLSfA4rUmZ6eSEBV7eI3Qih9iOushgK3ObcKooGwDmRjchK3O6XQbHAC1z/E+B0Dixl
-	PhKUHO22AR0t4t4ky3NIk50ZrpUbL7ZziVLC7B1+bNAZLEWOtfvpr/XbVrjD1lRIxyp4JTOwJDYSk
-	1Qu7T/ttwG5GHefjeNd3FSF1rdbOcRzx7NySQ3CboeOP4Oj5XC95sckZG/iXZl+RKSHKc+FCwTwRq
-	lRfKNW3lP2u5OV8NZ6wTGCV+kkhOnj7gg3khx2gb3X8m/8f8ps9LCznlnFjgHkEFV7tG5O+7pUf61
-	d1hLDNAg==;
+	bh=lPyCS2V8M7S9x8CPORvrG2blU3HjQhpxaa2uP8UWuKw=; b=VSV9HkBJQysF6wRfrmvLfiChOg
+	nZzEIZFj0khsMCFbHdGRqyPMGtEy9JVpAowg1j/DLWuaTxHs1XkOGmLS4EgU8PvuKdpkI9Kdi2+21
+	EkBVm3lw/gBtP6qICzVs7NPPyPVcPJClCAXD2Cakee8TIWTdjBi5bvAASztAESuzDJ8SiDq9UUHbt
+	0bmma97eCkOTprbCKJwodXHam+Ywokbf5xby/yjlp9zvyLYqNx5g8udI4ocz6aQFimXUVzylk3IOg
+	zjz9ltyHOV07lGCVJ9whSMum882acWZjE6p8+S4DZosQikEPhkfhrGYdVOBZ1gBhY+ZM0gsiZxUZy
+	hf2izuAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EmE-00000002aYY-2uD1;
-	Wed, 25 Mar 2026 03:19:26 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1w5EqN-00000002b9T-0ELi;
+	Wed, 25 Mar 2026 03:23:43 +0000
+Received: from mail-northeuropeazon11012058.outbound.protection.outlook.com ([52.101.66.58] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Em5-00000002aRY-2Nvl;
-	Wed, 25 Mar 2026 03:19:18 +0000
-X-UUID: 633b010627f911f19e7563141e833ce8-20260324
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=2Eto/koeMj9W08OyMdWoPq4maMPXzwgWrY2x5NXKmTI=;
-	b=R1FTTIN6TKgK8Fo8cZYRzssteQuTGil3FnLqJnsFGN1u6aBCVfv+B4y8hp1CzvMU9aFNkmf2rkZrFVyOCey8ZRM579Ea6lm+imheGA10GjEe7ol+9n72nSst4lK2BfBahAdW+sCXkOcZcVANk7GxQnxSg60CFjCHNqYSqGLi14E=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:35847faf-cb6f-4b1e-9e5b-ec7812252afa,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:3ac019d5-060f-4ecc-9ee0-121eeeb4a682,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 633b010627f911f19e7563141e833ce8-20260324
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <ot_meiker.gao@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1998947019; Tue, 24 Mar 2026 20:19:09 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 25 Mar 2026 11:19:06 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 25 Mar 2026 11:19:06 +0800
-From: Meiker Gao <ot_meiker.gao@mediatek.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: Bayi Cheng <bayi.cheng@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, <linux-spi@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Meiker Gao <ot_meiker.gao@mediatek.com>
-Subject: [PATCH 1/2] dt-bindings: spi: Fix clock-names definition
-Date: Wed, 25 Mar 2026 11:18:54 +0800
-Message-ID: <20260325031900.2099969-2-ot_meiker.gao@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260325031900.2099969-1-ot_meiker.gao@mediatek.com>
-References: <20260325031900.2099969-1-ot_meiker.gao@mediatek.com>
+	id 1w5EqL-00000002b96-13uf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 03:23:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v+7/bo2Z1BSMOKEcZdUM2N6lbjH7RADmxt/WVn8TgQcMb9yaQSCLpdviUr6wg9izWaIt7lG8mptOK3KBNwOACYNyWYsPBT5C3gpzxVRBSeCVtxj0j7YnjV02bTz42V+WU1AnA2wr0d/ZHA3QIpNm2NpY3CM2j85IvEONi81d9P7YVoQw7JYevT5jAruW6hzNS1/xqhFbBIco/udNjrV+mLdXcksU/KqvbPKnZZdMJd1ywBAJksliEc5W+kaEzFkOjGXH3SUrDyHI3DFOhH/FmGBcr4Oqu1QwKJIHZNcfaft2NozMYp2alVPPU1Gp6ubptBscmRqutFAhoMMm3S+m9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lPyCS2V8M7S9x8CPORvrG2blU3HjQhpxaa2uP8UWuKw=;
+ b=zJFHosPZoYN6/UfFZX3SemKdwRLG9T+Dbt/YUz9NrTc05hZIOL+HamdLgB65GzsFVJXX1g6D/qKX9E0zle7Nob6fQCqDsfvBTxRyFuNZ+iQk197Xggh7FXRuz5OrAJo5O4ft33S2KZjuHZGxzPrlt9+jCA7ptCKAsY6p35XCt6NCiSS39yuBWc6+3hE+E6wGBDtUz9UCWAL6d8sRZ1bLKW/zhe3YMJxz/69MsMdX4H8uv+c5XhSqz55ZQh/2EQV4FwKZXBs85fLOVpTnTrjKDc2ATMoZRLqeAMVMXU5GCmKuBZf9+mMtQdt4O4QJ8QN1WNNg6bECMS6N9OH/LEGbiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lPyCS2V8M7S9x8CPORvrG2blU3HjQhpxaa2uP8UWuKw=;
+ b=EfdKTEeSVoaPJa7rw6HCsWl34Xwvxx9NtjMu6M8VlI7DBaxfDksOIdC0XvP70Du3GH0xyW9PNEyOpjMRlZzaNRRs65EvwmHINhmdOKvXOte4nop35qU+KaNb6WpfNZXhfMju44imoR6Fdx0yesJdYWEpuMVbmKkdNvNHlc30GtdpkwTTJGj9PBwYQddNRWnxyAaBegfanSiXqW3mW0l9WGhOMil1C2k7R3lV/cXEbVyL9klzs+UjfPsqJsalN6187cqig8t+9JfhnpSUTsaubwP+rvkzTuFnHTy/SUJ/55wuulOb5E/nMsCR3olw/kQ63/mCMZFdRFOG2wksyd56ZA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by VI0PR04MB10544.eurprd04.prod.outlook.com (2603:10a6:800:26c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
+ 2026 03:23:35 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%3]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
+ 03:23:34 +0000
+Message-ID: <d347ed87-f3b5-416c-bff8-f5da1b0567f7@nxp.com>
+Date: Wed, 25 Mar 2026 11:24:49 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: imx8mp-evk: Specify ADV7535 register
+ addresses
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260324-imx8mp-evk-adv7535-cec-reg-addr-v1-1-52dbdd63d5a4@nxp.com>
+ <acKi8-prXpnl1Js9@lizhi-Precision-Tower-5810>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <acKi8-prXpnl1Js9@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0247.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ae::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10544:EE_
+X-MS-Office365-Filtering-Correlation-Id: e832ba0d-56a5-4b2b-2127-08de8a1de5be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: /NabkM8nQxuHoHEItZvn0NXzCPrbMrwNlaNTdsqos/f/cKcFmXkzTyY309VL43S3QiUgek22MMzHgPd/KcdThHDzFWH7Uz5nJn8BoM0rZ/SmwE1okOSs/+gxW8/9G+vxO6DcQSedvoEq6wJVL/VWHQ+La8k1xl6CKegrggYQqho4bQIERc7YziKwAsnK0vDk02NqwN9ysMJrmiI/CyjPP6s/SBylsr6yUIJO8jqDvrL6dLRzZi/79Te2PciEErC8qNeXj/eGvxtSXVokxu4CJ4UTsJPZ0cZftZsgN8n4iO+x7P2WyabDeam/+PnaGk2BDes+6H+mfXlq763/442UrTJJ3uQiXxdK34rEjVUBsx0Fokfx0ZKVxZzZ0PycyqEEkBu/Nk2mwB6DB4nb84/LyY+345tuL5Ku0BGxpDoyFPTXen1ceVGB82nSGvgJTOvlq5RT1SDSVmN7mc+z3HI4j0m/ippr3Y3whD9dTjhBhLD7mdX6uwwY2+LrPchgk02JBaRhvtFTPVomUQYtZhJ9ueCEAv+j+SeYG0rO09AG09AWBuunpcOaHExQ69WQxUdBj+31Riv1PIW1dM0SBmIuNt4YGMry+aJSiGN32Zg48hADcpceTy0PUT+EgWQmJqF/zJijpksxlW9wA8kjfJI/LtGJ5zkXznY/9TB+30SK1Ja1AeIuW0e3urVgxdkfNJLM4v8rH5qqymHU0WALMYfwZF3rw6eSQDwe2TaJoPjGAh4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bFpXcGJFbElMdVEwYmNHSDBoMXE0S2RzcTdqeW05RGd2U1o1bDZ1Z1ArUU53?=
+ =?utf-8?B?ZmxLVDZMWEQycDk0NmtodE5mRDRqa3FUQ3NFa2NuZ1g4LzlCR3FpTmQ5RHln?=
+ =?utf-8?B?OXZHbFIxMm5Sc3dnRE5keXlqbnVIQTU5OXdibVRoeTBYQkJ1NEwyWHNHSGt6?=
+ =?utf-8?B?ZDlCWTUzRndMR0VjRzNORHZhU1diT1crTGtsZmpuZnJ6VXJDcUVENU5oV3dJ?=
+ =?utf-8?B?ZXAveFcxWTlhTG5uakNrNUVXVmdOckRWMW0yYkRYRndhbFp3UVNpOEtQYm8x?=
+ =?utf-8?B?aWREY2lXZ2lpZ1hWMzYwaWhoajFUVExuMTJQcTJRbndzTTNOZnlzaDRWdi9P?=
+ =?utf-8?B?VmhxazhFT0tLaE03Mk9LSHJrcjJXalVQTktMRk4yU3NLOGcxWmhrWFc3aWw5?=
+ =?utf-8?B?eW1kQXpHdEJ3U3h1MjVYdE92ZWRBcVpJclpVdFB5OVh2L0wzMzMyTUwxYVYr?=
+ =?utf-8?B?emVqUWg2RTVJNmR3aWc3WjBGbmpOV0YyVTlUcjlLTVcxMk9BWmcrTCtLUUlB?=
+ =?utf-8?B?TEZEWi9IV053VVdFK0YzS1E1YVovQ0RmUmppK0tYNHBxNEVCVzlGbG5PMm90?=
+ =?utf-8?B?REhZelBpMVZIaUhmdnpMd2ZLVThLZiszZUNkcEwwaHNtWXZSYUYzOWR5bkZy?=
+ =?utf-8?B?ZUwyMTFBNnZGZ2tNcUtwcHE2NFZGalZ6K09VcSs1MkRyY2s1RjJSa1ZMcndn?=
+ =?utf-8?B?c3ZGVUlZL1ZVNVFUVDhOOXkxOTMvWlQwbllJa0I3aWJNQTM4aTB0b2orUlpF?=
+ =?utf-8?B?TEJNU0NFWmJDcWhsUjl1anVaZDQrRDdXWGFERHRtdE9hMTBoL2RFTFBoVTdJ?=
+ =?utf-8?B?SjE2VTZOUFc5WStZbTdyb09JYVREczU0eXVTNUk4eGR3djFVWVAvY1NqeHNK?=
+ =?utf-8?B?YVFBcWk1dGtJMlRCYXNTUSsyUllHNzBGU251WktXMnVxVEFzRy9ndEYwUC9s?=
+ =?utf-8?B?eGh3bTQ0WE5tZzRyOXBkUzljbkxpNzI4WDI3VE1qbTFlNUp4akUvUXByakF6?=
+ =?utf-8?B?T0JsbFdyY3psWDc1Rm1YTVZMYng0MWloaXNwaGdoL0Q3V0ZhNXlnTzlmU3hq?=
+ =?utf-8?B?b25qL2JxZXAyQmE4ampvMlFkVEZUN1JEaHAySmd0ekVFVXRBV3hVdjEzMFlH?=
+ =?utf-8?B?RGV5UlQrZWRWdU0vMHdJZ2tCaHJ0WXJLeHhBNmpHTHppemEzOTRCM0dEeW40?=
+ =?utf-8?B?Qys3WEt3c2NOYS95cmQ0YVI2U0ZmWTNQMEVaTGExQlBCcXdqTWRkTmVFWEJU?=
+ =?utf-8?B?VkVFS2V6RTlOS09BY1hIWjhLODhYcmlmSGlkUjZDVzhscWhFbU9iOE93bkpp?=
+ =?utf-8?B?QVRHbWZYbkhLSkovWVFTcWdQQmdyKy8rcGEyWHd0N014b1VlY0RXdXRmVmxR?=
+ =?utf-8?B?emJNZTA0MmN0SGhNSGJNOGRMRWk5Mzc0Y0w4dXpjenNFNm5rNHF1VWhJby9y?=
+ =?utf-8?B?MDhDdVNsRFlSSnRDZnZtNzh6RDJWZUpmVTVxTVNBcjl1VDFrK3NhdE9OcnV2?=
+ =?utf-8?B?SVFnN1U1OTU5RjdqMjIvbkpvdmtDRzZETFcwWG1tMzhHY1U0bitHVHkxenZt?=
+ =?utf-8?B?L0pJd3pyR25hRXRlNytITVQrQXJvbGM2MWxMS2hJZlNUdk9NK0NCTjhDbmoy?=
+ =?utf-8?B?SzdHc25JVzg3SWJXSSs1d21RY3lpN1BhUFRHNEkvb0NLTUhCbDRTMlNGS04z?=
+ =?utf-8?B?UDY5OUFZS1UzRmlpWFNtMTB4SkRFYXF2N1I4d1dmNWtWYzdvUk1pUlFCMFZZ?=
+ =?utf-8?B?NXJwaThNU3NZWGxGVTFPWTRyYlJPQmJJZG1jeEtJMWsyTExSZUhpTFdwVFJn?=
+ =?utf-8?B?Mi90dkpNK3BLdzJySFljakVGempma3BIS3lrb1kwNy91eGl6cUZvWjJDcGdR?=
+ =?utf-8?B?MnRrMkwxZkxFMzZTbUZkQjJ1R0ZyNVdWZk5KVmxKQkU2eUZTc2JWY25uQ1F0?=
+ =?utf-8?B?aGZZZUh0eE9DeVR1cERaQzRYdVhUYnVwM3FoOWZGY0s5VXUxSEFqakQ0aitk?=
+ =?utf-8?B?WWtJUWlJUmZJOWVKdWtvaS9XditncXBiY2JPdHdYMzJXRThKSVVJcWdKV01H?=
+ =?utf-8?B?bGhRbFVtc1JKUkU3UzdHUnU4dkVhcnVsaVpKcVJqbFdhVUQ1RTFUc1FQZGJX?=
+ =?utf-8?B?amIyQmhZQk00SWlsUWJrNVZRZlIvNjMrZDhZQ2MwOW9YVWZvNXVSTnJ6RlZV?=
+ =?utf-8?B?aGRBcGc2TDVtK3BBOEV3blJwbTdCdkdrZlBtWGVxelpYbzNlcCtPK2ZWRC9T?=
+ =?utf-8?B?emVKUVBycWxva3d5SmZkQUI3NVNaeWpDdHdyakp6SFh1dElqd052K1lwQmpr?=
+ =?utf-8?B?Q0QyTElrRE9WT3VCSFdNZlFIK2VnbGdrbWRFenRNLzVhVHFEd0VrUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e832ba0d-56a5-4b2b-2127-08de8a1de5be
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 03:23:34.7839
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zSj2LzUrHkcaAU8RX6OpqVkS9y9CYln+BLJRbLAkeRpNErI8P4+KjHRdhdsGyWUBGJcHONRUUUMvfPFuie7Z6w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10544
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_201917_624493_CE79BFF3 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260324_202341_312535_67116378 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +151,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the device tree binding for the Mediatek.
+Hi Frank,
 
-Signed-off-by: Meiker Gao <ot_meiker.gao@mediatek.com>
----
- .../devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml      | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+On Tue, Mar 24, 2026 at 10:42:59AM -0400, Frank Li wrote:
+> On Tue, Mar 24, 2026 at 01:52:03PM +0800, Liu Ying wrote:
+>> MIPI DSI to HDMI bridge ADV7535 CEC default register address is 0x3c
+>> on an I2C bus.  And, OV5640 camera uses the same address on the same
+>> I2C bus.  To resolve this conflict, use 0x3b as ADV7535 CEC register
+>> address by specifying all ADV7535 register addresses.
+> 
+> Does cec start address programmable?  generally i2c address is fixed or
+> controller by some gpio.
 
-diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
-index a453996c13f2..0255e19efc8d 100644
---- a/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
-+++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mtk-nor.yaml
-@@ -56,14 +56,17 @@ properties:
-                      design, so this is optional.
-       - description: clock used for controller axi slave bus.
-                      this depends on hardware design, so it is optional.
-+      - description: clock used for controller axi_f, axi_h, and
-+                     axi_p to support the new platform.
- 
-   clock-names:
-     minItems: 2
-     items:
-       - const: spi
-       - const: sf
--      - const: axi
--      - const: axi_s
-+      - const: axi_f
-+      - const: axi_h
-+      - const: axi_p
- 
- required:
-   - compatible
+Yes, it's programmable.  Quote adi,adv7533.yaml:
+
+  reg:
+    description: |
+      I2C slave addresses.
+
+      The ADV7533/35 internal registers are split into four pages
+      exposed through different I2C addresses, creating four register
+      maps. Each map has it own I2C address and acts as a standard slave
+      device on the I2C bus. The main address is mandatory, others are
+      optional and revert to defaults if not specified.
+    minItems: 1
+    maxItems: 4
+
+  reg-names:
+    description:
+      Names of maps with programmable addresses. It can contain any map
+      needing a non-default address.
+    minItems: 1
+    items:
+      - const: main
+      - const: edid
+      - const: cec
+      - const: packet
+
+> 
+> Frank
+>>
+>> Fixes: 6f6c18cba16f ("arm64: dts: imx8mp-evk: add camera ov5640 and related nodes")
+>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>> ---
+>>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+>> index aedc09937716..d0a2bd975a18 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+>> @@ -602,7 +602,8 @@ ov5640_mipi_0_ep: endpoint {
+>>
+>>  	hdmi@3d {
+>>  		compatible = "adi,adv7535";
+>> -		reg = <0x3d>;
+>> +		reg = <0x3d>, <0x3f>, <0x3b>, <0x38>;
+>> +		reg-names = "main", "edid", "cec", "packet";
+>>  		interrupt-parent = <&gpio1>;
+>>  		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+>>  		adi,dsi-lanes = <4>;
+>>
+>> ---
+>> base-commit: 09c0f7f1bcdbc3c37a5a760cbec76bf18f278406
+>> change-id: 20260324-imx8mp-evk-adv7535-cec-reg-addr-2de67760133a
+>>
+>> Best regards,
+>> --
+>> Liu Ying <victor.liu@nxp.com>
+>>
+
 -- 
-2.45.2
-
+Regards,
+Liu Ying
 
