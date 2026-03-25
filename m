@@ -4,106 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450A3FEA837
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD35CFEA835
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=728svDarDpybv6q7KG00Eki4xvaBhCJwwC+/P9iXkjY=; b=O7P1C0KhHOMQ14TFHfaI0/OoA1
-	TDdLyPXMY7oGKtKDEziV0RRqkteH8GO3H4x+KI0Gy5zKlzcKqPfhQRYPFOcCOn/MXfkXN5i8mPQlI
-	c+WX2NC1zwRed+kdK5WD6rIlu++ikMtBX4dUKDB2Bu30qraaJnx6ZhElxtCpLonMQ9ZCPlogocIvM
-	WErFpmIxMQyPAykMa39pyaB4iCidneHEX2NCDICPl1UUBgg+5fRf7VKLFE5zC85LoMKcNkYet3Lzc
-	k1tIUejM+3k3cCLcxnzH1pi7TGkUXy/NrDhB6o17W9ShLeeNSLGsE96VokMgoMx1jtFg7326sd64R
-	z00CT+dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VFbVa+0YpacT1+xttrSmQ0z76K08F/kBytm4Dt7GAgc=; b=gaVZstjAIjhLA+BDpfNsGrtIP8
+	AXwwqkklpDAqtFs29qCavGTMJLxGTtuowpCKo2l1vhYd81zQec/sMAEU5b5w4s6LxiFEvrfnJmP3x
+	zBlc8XZ1fwxHnf4Z1ZUpG5aBNg6kOuXeaRvW2I6FniS9sgUdAG6ql8tR8c6utybsAHGcgLn8OGRsq
+	CEP3KCsthZwq345AetYmj7wVCNkMUqddch4BpeRzq61+DfzM23OX/bjAHoBIy/Ns61evixhI7y7y0
+	1jwy6reRX6MdQC9a/JoesI1xikY3yAQQQxzN73F2Ti8IPl2ky6J08vOmvgIl5EhSUn/FXYrRDg4gY
+	HICrvh+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Jy1-00000002zBu-2qTN;
-	Wed, 25 Mar 2026 08:51:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5K0k-00000002zNE-0vUz;
+	Wed, 25 Mar 2026 08:54:46 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Jxy-00000002zBO-47l1
+	id 1w5K0h-00000002zMR-1f55
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 08:51:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33F004023D;
-	Wed, 25 Mar 2026 08:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67F3AC4CEF7;
-	Wed, 25 Mar 2026 08:51:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774428713;
-	bh=wb0mpku6g4vk6LeYoqKTVgZtD079ouSEG5afLG7CYHo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=b1e3/Kii8oNvJgJ1AntUStWco7jvCebnWCtuv9zQCi2oUsNeV3CcabZ/VnDWT/4Bu
-	 SdMcpnZUmux3R7PA238aj+buhQoQTRaRCXpWVo3lfGnlVNamvRsJHecUDO4uY4JETZ
-	 xHJynwGclZ7csipkKUqwqfdSbhr2yZe/cHdAo7WUa3IRdxgN7vSItNWj8/2zpJM8+z
-	 ZD01fhqLFQqk3slMEX+1PFlTdn7jeaS5TQm3vnMZ8RuoTjWtwNM3l4/A2ygJ2Hvbj0
-	 HyR0HIfxv2d4zYS9GJNQyVlSryBTgfJVvw36EgMl3VIff5tJxeQAebFY0sT7kqzmW+
-	 QsAWpfwuNt7wg==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>
-Cc: Alexander Potapenko <glider@google.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Brendan Jackman <jackmanb@google.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jan Kara <jack@suse.cz>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Rob Herring <robh@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Zi Yan <ziy@nvidia.com>,
-	devicetree@vger.kernel.org,
-	iommu@lists.linux.dev,
-	kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Lorenzo Stoakes <ljs@kernel.org>
-Subject: Re: [PATCH v2 0/9] memblock: improve late freeing of reserved memory
-Date: Wed, 25 Mar 2026 10:51:37 +0200
-Message-ID: <177442863989.343689.8532363597437067519.b4-ty@b4>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260323074836.3653702-1-rppt@kernel.org>
-References: <20260323074836.3653702-1-rppt@kernel.org>
+	Wed, 25 Mar 2026 08:54:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VFbVa+0YpacT1+xttrSmQ0z76K08F/kBytm4Dt7GAgc=; b=ffDiRKYa+7jkHaxEv6ziQ8DH81
+	yVCM8KS3gaC8hokmXB7FqpdG4WD4tFS4ZwCII6wZBfD9p6KZ1cJrD7OKZFda4hpuTf20kLXyqP0ME
+	+gOaILXE26iXr8EmA8oUG9/uipIwDIVnRufm5nKcgIbPZIUuV2a7gMOJWhAd8zqnefkRF9VvzYHlV
+	VFMzULwiKOJvsDi71/+Dr77sirnMuPHf3TFzUn9KlG7Wmyb7Hybcs0T3uXjcIx8YlHHHE2+QsUEI4
+	rWzDh5UYRQ7PLcZUknKIQZep54pvogrVaZ3tXB1+rmW3EGJMF3FoWWDR6ODMa2FP1AggdocM1zEQd
+	wZwIJP3g==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <leitao@debian.org>)
+	id 1w5K0b-008xYe-QX; Wed, 25 Mar 2026 08:54:36 +0000
+Date: Wed, 25 Mar 2026 01:54:32 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Ryo Takakura <ryotkkr98@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: panic if IRQ shadow call stack allocation fails
+Message-ID: <acOhjkLqf2gsM-Sf@gmail.com>
+References: <20260324161545.5441-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324161545.5441-1-osama.abdelkader@gmail.com>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_015155_067727_C317995F 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20260325_015443_462618_BC051258 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,43 +74,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Mar 2026 09:48:27 +0200, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Tue, Mar 24, 2026 at 05:15:41PM +0100, Osama Abdelkader wrote:
+> scs_alloc() can return NULL when vmalloc fails. init_irq_scs() previously
+> stored that NULL in per-cpu irq_shadow_call_stack_ptr, which IRQ entry
+> would then use under CONFIG_SHADOW_CALL_STACK. Match other SCS setup paths
+> (e.g. SDEI) by failing explicitly instead of continuing with a NULL
+> pointer.
+
+Right,  _init_sdei_scs() doesn't not assign the per cpu pointer with
+NULL, but, at the same time it doesn't panic. SDEI propagates -ENOMEM
+back up the call chain and even frees already allocated stacks via
+free_sdei_scs(). Should it panic as well?
+
+> Mark init_irq_scs() __init since it is only called from init_IRQ().
 > 
-> Hi,
+> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> ---
+>  arch/arm64/kernel/irq.c | 14 +++++++++-----
+>  1 file changed, 9 insertions(+), 5 deletions(-)
 > 
-> Following a recent discussion about leaks in x86 EFI [1], I audited usage of
-> memblock_free_late() and free_reserved_area() and made some imporovements how
-> we handle late freeing of the memory allocated with memblock.
-> 
-> [...]
+> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+> index 15dedb385b9e..b32ed7ef8e00 100644
+> --- a/arch/arm64/kernel/irq.c
+> +++ b/arch/arm64/kernel/irq.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/init.h>
+>  #include <linux/irq.h>
+>  #include <linux/irqchip.h>
+> +#include <linux/kernel.h>
 
-Applied to for-next branch of memblock.git tree, thanks!
+Why do you need kernel.h in here? I initially thought it was
+for panic(), but, later I found panic() is already in use in this file.
 
-[1/9] memblock: reserve_mem: fix end caclulation in reserve_mem_release_by_name()
-      commit: ea459d3c24fefd90b60a702f4a73833434ae0248
-[2/9] powerpc: fadump: pair alloc_pages_exact() with free_pages_exact()
-      commit: 6e827110aea5fb9c53a5bf070413ffe5cad105b0
-[3/9] powerpc: opal-core: pair alloc_pages_exact() with free_pages_exact()
-      commit: 3cf80188ecb828ed034ba562614cf1d48156b126
-[4/9] mm: move free_reserved_area() to mm/memblock.c
-      commit: 0aa264cda784f9fbe1a80ef13144cf81610086c7
-[5/9] memblock: make free_reserved_area() more robust
-      commit: 456ac994018598bc57ceaacb8a2c72e722c9755b
-[6/9] memblock: extract page freeing from free_reserved_area() into a helper
-      commit: 40191dae9ed84c816b593bb1b36a80f86c2279d1
-[7/9] memblock: make free_reserved_area() update memblock if ARCH_KEEP_MEMBLOCK=y
-      commit: b9e028ca869de24df00206d7ec640380670fc38f
-[8/9] memblock, treewide: make memblock_free() handle late freeing
-      commit: 64cb853c2ab4d8bd25b965f05e33ac0c6672bae7
-[9/9] memblock: warn when freeing reserved memory before memory map is initialized
-      commit: c7fc9cde41be029cf6675befbafcbb2dab40b39b
+Isn't kernel.h being included transitively?
+>  #include <linux/kprobes.h>
+>  #include <linux/memory.h>
+>  #include <linux/scs.h>
+> @@ -32,23 +33,26 @@ DEFINE_PER_CPU(struct nmi_ctx, nmi_contexts);
+>  
+>  DEFINE_PER_CPU(unsigned long *, irq_stack_ptr);
+>  
+> -
+>  DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+>  
+>  #ifdef CONFIG_SHADOW_CALL_STACK
+>  DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+>  #endif
+>  
+> -static void init_irq_scs(void)
+> +static void __init init_irq_scs(void)
+>  {
+>  	int cpu;
+> +	void *s;
+>  
+>  	if (!scs_is_enabled())
+>  		return;
+>  
+> -	for_each_possible_cpu(cpu)
+> -		per_cpu(irq_shadow_call_stack_ptr, cpu) =
+> -			scs_alloc(early_cpu_to_node(cpu));
+> +	for_each_possible_cpu(cpu) {
+> +		s = scs_alloc(early_cpu_to_node(cpu));
+> +		if (!s)
+> +			panic("irq: Failed to allocate shadow call stack\n");
+> +		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
+> +	}
+>  }
 
-tree: https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock
-branch: for-next
+Reading RISC-V code, it seems it has the same problem. Is it worth fixing also?
 
---
-Sincerely yours,
-Mike.
+ static void init_irq_scs(void)
+  {
+          int cpu;
 
+          if (!scs_is_enabled())
+                  return;
+
+          for_each_possible_cpu(cpu)
+                  per_cpu(irq_shadow_call_stack_ptr, cpu) =
+                          scs_alloc(cpu_to_node(cpu));
+  }
+
+Other than these nits, feel free to add:
+
+Reviewed-by: Breno Leitao <leitao@debian.org>
 
