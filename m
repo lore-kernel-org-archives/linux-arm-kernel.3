@@ -4,58 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2359106B53C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2EF9106B53C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 13:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/uWIVCsHM3OuV687UGaxKwlFpK8BmL0FOzKJeyrA84=; b=d77byw4wx1005vah455dA36Lep
-	eXQrEdYeTAXeqt8vS8SrcnCBICEm+ksRtteORJlsxHPaolmZeNT7M808XghuZgTwS2RFtlTkt97xH
-	qDS4JSGvJEia4ADvcfaBWVjSXQUgepVA5mCae+OiqMQuEtjERwEUE6+sXH1rOrcCXTzqH3Y2YDcKQ
-	S4C6NjTmWRFam8sGFPAIIca+Q+C3AIk+zGC62gt+aN4RF+y6Cw7IbrVZ14DXwwYYjfKWpKO0Lgx5B
-	sUXf4FIDyqj4eq0q3yft01j2418mBjofHQqEKkRCATtQ7CdWKmRNxoW4ep8m7ntiBpZ8p3cI+Rw8K
-	PJvOZK2g==;
+	bh=otF+zn0d3trZmX9ZyaUJIk8/upV26fxV92Ye+ApGpqw=; b=pL+ifuH1twyQYQIMv/S6p5Ag78
+	HM2lDY+2HJEi6lPI4ltLnNM42HAGbdhSje8PGj78OoI9T5qVkAVSnFUG7o9Iqclf3Ry2N5h8Aei+Y
+	BqZqkNJRB9LdkL0FmDgHAnuz5r5YM6camtGkarkUqy38VI+bxntYW5kl+sbB5ml4amtoxOhEWb1QQ
+	PePosiqiWEalohRo0/YgylYJrW3LfkbGOUTjZa+AtJAovsfQMRXBYdCkYyy404x5CQAVoHMiOvV1C
+	6xqxOhVtFPO+6HI5aCg029aaZBasSUvvT5TpXIH0Q6kGGZy43Wojm3ld0xJJIsToXu2VEvaLwUmCj
+	DGq4Hzsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5OVJ-00000003UF1-0Zdc;
-	Wed, 25 Mar 2026 13:42:37 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1w5OWA-00000003UP1-25Bh;
+	Wed, 25 Mar 2026 13:43:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5OVG-00000003UAz-1ByV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 13:42:35 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4fgp455J6pz9vD7;
-	Wed, 25 Mar 2026 14:42:13 +0100 (CET)
-Message-ID: <ecbbfcde-7f51-455b-bb54-b5302e43b582@mailbox.org>
-Date: Wed, 25 Mar 2026 14:42:10 +0100
+	id 1w5OW8-00000003UOO-37D0;
+	Wed, 25 Mar 2026 13:43:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADF8E600AC;
+	Wed, 25 Mar 2026 13:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6BBC4CEF7;
+	Wed, 25 Mar 2026 13:43:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774446207;
+	bh=qxevTlxq6Ql+gdnUMuEobyzjtUWmEQEM7p+9cyL1w4Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ODtAzKp5cU4HDdomvw7sjdSs8IHMAYOOSxEs2h/rRrufXoBx4l+v61cnqidyuTOjR
+	 iyslCByJgqr+gYe1bpcw+qjFkLYUy2aJBCrTv7KOx+rg/9hq5C1zQTvm6a8/0OKmDp
+	 xXjVE9RyRH1deEzegZ4TCsOnQVxdwZsSvAa9CCFcC5wjmHDMcU8HW+oBbiOik87SmN
+	 OLN8n4X7Jmzw1dtixKYNu9Iz2DUe+Au4CZmOQDmiYIkAkcjqZj1Bh791LYOoWgopPm
+	 B4loXaMgr7w3ShZ9dyeuoE2TY9qrf2WGjX+ihaHCV+KkYfXDhqdALgObvmO/DiuGm3
+	 oZal5k+Xpk1qA==
+Message-ID: <bd916c05-504f-4d81-8020-45c5a563a2d8@kernel.org>
+Date: Wed, 25 Mar 2026 14:43:17 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Add overlay for Olimex
- MIPI-HDMI adapter
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Scott Murray <scott.murray@konsulko.com>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260320025328.509003-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdWO9Qc=mn1SAwZt1HJK2VkU++G_8N+eVuN5AWTrLnVxUQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 17/21] mm: allow handling of stacked mmap_prepare hooks
+ in more drivers
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdWO9Qc=mn1SAwZt1HJK2VkU++G_8N+eVuN5AWTrLnVxUQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <24aac3019dd34740e788d169fccbe3c62781e648.1774045440.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <24aac3019dd34740e788d169fccbe3c62781e648.1774045440.git.ljs@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 8rtm93ju491ad1x3sjgu8jiqyor49wpx
-X-MBO-RS-ID: bc1cffd0535c5fa0316
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_064234_495714_35A7A2A4 
-X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,45 +98,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/25/26 2:32 PM, Geert Uytterhoeven wrote:
+On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> While the conversion of mmap hooks to mmap_prepare is underway, we will
+> encounter situations where mmap hooks need to invoke nested mmap_prepare
+> hooks.
+> 
+> The nesting of mmap hooks is termed 'stacking'.  In order to flexibly
+> facilitate the conversion of custom mmap hooks in drivers which stack, we
+> must split up the existing __compat_vma_mmap() function into two separate
+> functions:
+> 
+> * compat_set_desc_from_vma() - This allows the setting of a vm_area_desc
+>   object's fields to the relevant fields of a VMA.
+> 
+> * __compat_vma_mmap() - Once an mmap_prepare hook has been executed upon a
+>   vm_area_desc object, this function performs any mmap actions specified by
+>   the mmap_prepare hook and then invokes its vm_ops->mapped() hook if any
+>   were specified.
+> 
+> In ordinary cases, where a file's f_op->mmap_prepare() hook simply needs
+> to be invoked in a stacked mmap() hook, compat_vma_mmap() can be used.
+> 
+> However some drivers define their own nested hooks, which are invoked in
+> turn by another hook.
+> 
+> A concrete example is vmbus_channel->mmap_ring_buffer(), which is invoked
+> in turn by bin_attribute->mmap():
+> 
+> vmbus_channel->mmap_ring_buffer() has a signature of:
+> 
+> int (*mmap_ring_buffer)(struct vmbus_channel *channel,
+> 			struct vm_area_struct *vma);
+> 
+> And bin_attribute->mmap() has a signature of:
+> 
+> 	int (*mmap)(struct file *, struct kobject *,
+> 		    const struct bin_attribute *attr,
+> 		    struct vm_area_struct *vma);
+> 
+> And so compat_vma_mmap() cannot be used here for incremental conversion of
+> hooks from mmap() to mmap_prepare().
+> 
+> There are many such instances like this, where conversion to mmap_prepare
+> would otherwise cascade to a huge change set due to nesting of this kind.
+> 
+> The changes in this patch mean we could now instead convert
+> vmbus_channel->mmap_ring_buffer() to
+> vmbus_channel->mmap_prepare_ring_buffer(), and implement something like:
+> 
+> 	struct vm_area_desc desc;
+> 	int err;
+> 
+> 	compat_set_desc_from_vma(&desc, file, vma);
+> 	err = channel->mmap_prepare_ring_buffer(channel, &desc);
+> 	if (err)
+> 		return err;
+> 
+> 	return __compat_vma_mmap(&desc, vma);
+> 
+> Allowing us to incrementally update this logic, and other logic like it.
+> 
+> Unfortunately, as part of this change, we need to be able to flexibly
+> assign to the VMA descriptor, so have to remove some of the const
+> declarations within the structure.
+> 
+> Also update the VMA tests to reflect the changes.
+> 
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Hello Geert,
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-> On Fri, 20 Mar 2026 at 03:53, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
->>
->> From: Scott Murray <scott.murray@konsulko.com>
->>
->> Add a DT overlay to bind the Olimex MIPI-HDMI dual-lane DSI-to-HDMI adapter
->> on the Retronix R-Car V4H Sparrow Hawk board.
->>
->> Current device link is at https://www.olimex.com/Products/IoT/ESP32-P4/MIPI-HDMI/open-source-hardware
->>
->> Signed-off-by: Scott Murray <scott.murray@konsulko.com>
->> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> 
-> Thanks for your patch!
-> 
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-olimex-dsi-hdmi.dtso
->> @@ -0,0 +1,94 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +/*
->> + * Device Tree Overlay for Olimex MIPI-HDMI adapter connected to J4:DSI
->> + * on R-Car V4H ES3.0 Sparrow Hawk board
->> + *
->> + * Copyright (C) 2026 Scott Murray <scott.murray@konsulko.com>
->> + */
->> +
->> +/dts-v1/;
->> +/plugin/;
->> +
->> +#include <dt-bindings/gpio/gpio.h>
-> 
-> This include is not needed, so I will drop it while applying.
-> 
-> The rest LGTM, so
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> i.e. will queue in renesas-devel for v7.1.
-Thank you very much.
+
 
