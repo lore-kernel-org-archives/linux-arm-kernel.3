@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F2C109C029
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87897109C02D
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HY4HgW8FsS0jlp+g4CXynckGoKvihyio4XYEOp/kZ80=; b=OK2Er4qhLXlxOfvuEMKb+qCYu9
-	KXQgJBm5rEsbR8tQc9XNUcOfP9dTpQO5ypvcqgBpdcdPESFGI7bfAvgK1k0R5j09y65hwRVt/Icbs
-	E+ki4+5alM7jGUJ0fWfLWRQoFQZMnrUmBpwcQ49sDDuiJ/isBTXamfIwlCUr9tPmg1lF9MAHvNAWk
-	sDqKvIyFXcjQFezJEDoR3LIGg/W9hvx4rx4Grdj206dU8C3q7sjNa8BPZvq6Pw71Qww/sev+q3Jx/
-	p/y8q0AbMWCC3qbp+H4f+2M4Vv3F189RC+ZgFlGshJvsfyKy4g9ym5G+plhyQ2iZREE63IbZYrmcx
-	8NqYHhcw==;
+	bh=O4bk9QE+czOAqAbGKhVQlrnRYTOgMhiFqehHUD3WUJA=; b=ymC/2wcngz4FQULM61QeSTxrNo
+	ywdqi35nRX6N4FHz6jth60Wy9KTnPx/3hH4SnGc8eJPn+WPe8rrQt8+i1gC1bvOBwfxTypSYf6lsw
+	17KQn+WQ9yNHz/GpF+Eh/PYkDJSSrac/TVUahPq3bdk4WaXvEd79T/f6UHCUToKpOuG6EIVAJIgJ0
+	HdksTUh4Is11BSuk2/NPKINRFClJsLmlKyj7hvmsaq6+zLVdqFGJvMmUgD+zg17I69S56yYJVWaiK
+	YQ/UY/di8dE+lbfQ/Rfu1xDU7GrgFt/LS6aGdkB4QBQiad0e7aarcxgYwiWiqSf5Q2t5cAyuEFGsU
+	CS9ksOQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZq-00000003fvt-2onk;
-	Wed, 25 Mar 2026 14:51:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w5PZv-00000003g4U-2obn;
+	Wed, 25 Mar 2026 14:51:27 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZd-00000003fWp-3bQJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 25 Mar 2026 14:51:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HY4HgW8FsS0jlp+g4CXynckGoKvihyio4XYEOp/kZ80=; b=K4oowY8R8taBySFKl1BqpVQSdM
-	gh83Ln9/yc+QCiR4A4rHjEBHbheDnXq2MkP/vF513mzjJrsP8FSamouFb2QPZ43S36NxsZeyLPWlb
-	/6VtlDI9DsujKBtIzAEAvOOZsoT/Kx4N34+7hARzAC3F/WaGPRkj815pc+Cd8QtKXvTfO7FBncAUE
-	COa/mJR0cWrDXVQ4VvcwHEdE+vwT3y1Xo74QFlyaww/XjOTvjlOcuke9XnjWyLGZOZm4vVBp1gBJd
-	KCAar6/7Jg5ap08EYhvAHIXPXdxJ3wAqSPlYbG7zklNW+8wfbIiJYmx6MLIxjvbfUOJdTSCBplYP1
-	V6+ab8XA==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5PZZ-00000006OTt-0xDl
+	id 1w5PZe-00000003fWb-0Evx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:51:08 +0000
+	Wed, 25 Mar 2026 14:51:11 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1w5PZT-00050C-Nz; Wed, 25 Mar 2026 15:50:59 +0100
+	id 1w5PZV-00050C-Py; Wed, 25 Mar 2026 15:51:01 +0100
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 25 Mar 2026 15:50:40 +0100
-Subject: [PATCH v4 09/27] media: rockchip: rga: announce and sync
- colorimetry
+Date: Wed, 25 Mar 2026 15:50:51 +0100
+Subject: [PATCH v4 20/27] media: rockchip: rga: share the interrupt when an
+ external iommu is used
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260325-spu-rga3-v4-9-e90ec1c61354@pengutronix.de>
+Message-Id: <20260325-spu-rga3-v4-20-e90ec1c61354@pengutronix.de>
 References: <20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de>
 In-Reply-To: <20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -67,6 +52,7 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, 
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Michael Olbrich <m.olbrich@pengutronix.de>, 
  Nicolas Dufresne <nicolas.dufresne@collabora.com>
 X-Mailer: b4 0.15.0
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
@@ -74,8 +60,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_145105_537776_093C646E 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260325_075110_110126_D09F99E0 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Announce the capability to adjust the quantization and ycbcr_enc on the
-capture side and check if the SET_CSC flag is set when the colorimetry
-is changed. Furthermore copy the colorimetry from the output to the
-capture side to fix the currently failing v4l2-compliance tests, which
-expect exactly this behavior.
+From: Michael Olbrich <m.olbrich@pengutronix.de>
 
+The RGA3 and the corresponding iommu share the interrupt. So in that
+case, request a shared interrupt so that the iommu driver can request
+it as well.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 37 +++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
+ drivers/media/platform/rockchip/rga/rga.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index ca8d8a53dc251..8c34f73d69764 100644
+index 5bdc8dc51ab68..eb7b211a99e66 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -437,6 +437,15 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
- 	fmt = &formats[f->index];
- 	f->pixelformat = fmt->fourcc;
+@@ -761,7 +761,8 @@ static int rga_probe(struct platform_device *pdev)
+ 		goto err_put_clk;
+ 	}
  
-+	if (f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
-+	    f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
-+		return 0;
-+
-+	/* allow changing the quantization and xfer func for YUV formats */
-+	if (v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
-+		f->flags |= V4L2_FMT_FLAG_CSC_QUANTIZATION |
-+			    V4L2_FMT_FLAG_CSC_YCBCR_ENC;
-+
- 	return 0;
- }
- 
-@@ -459,8 +468,25 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
- static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
- {
- 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
-+	struct rga_ctx *ctx = file_to_rga_ctx(file);
- 	struct rga_fmt *fmt;
- 
-+	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
-+		const struct rga_frame *frm;
-+
-+		frm = rga_get_frame(ctx, f->type);
-+		if (IS_ERR(frm))
-+			return PTR_ERR(frm);
-+
-+		if (!(pix_fmt->flags & V4L2_PIX_FMT_FLAG_SET_CSC)) {
-+			pix_fmt->quantization = frm->pix.quantization;
-+			pix_fmt->ycbcr_enc = frm->pix.ycbcr_enc;
-+		}
-+		/* disallow values not announced in vidioc_enum_fmt */
-+		pix_fmt->colorspace = frm->pix.colorspace;
-+		pix_fmt->xfer_func = frm->pix.xfer_func;
-+	}
-+
- 	fmt = rga_fmt_find(pix_fmt->pixelformat);
- 	if (!fmt)
- 		fmt = &formats[0];
-@@ -506,6 +532,17 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
- 	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
- 
-+	/*
-+	 * Copy colorimetry from output to capture as required by the
-+	 * v4l2-compliance tests
-+	 */
-+	if (V4L2_TYPE_IS_OUTPUT(f->type)) {
-+		ctx->out.pix.colorspace = pix_fmt->colorspace;
-+		ctx->out.pix.ycbcr_enc = pix_fmt->ycbcr_enc;
-+		ctx->out.pix.quantization = pix_fmt->quantization;
-+		ctx->out.pix.xfer_func = pix_fmt->xfer_func;
-+	}
-+
- 	/* Reset crop settings */
- 	frm->crop.left = 0;
- 	frm->crop.top = 0;
+-	ret = devm_request_irq(rga->dev, irq, rga_isr, 0,
++	ret = devm_request_irq(rga->dev, irq, rga_isr,
++			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
+ 			       dev_name(rga->dev), rga);
+ 	if (ret < 0) {
+ 		dev_err(rga->dev, "failed to request irq\n");
 
 -- 
 2.53.0
