@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8704E103A9A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E174103A9B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S2YQAGejwfR5ZlCcWyHUSZO12iuE4GgPthnFZ7lNm/A=; b=mbDFrClv3n9L+g7QHVZVmNtsmt
-	5eav+IdjTgoVVTRM8jtxfXnF2J4bemuZnp/bPRPDZKjFDFSF/VwjFb0KToPryeUHUZraxFlXlYO8D
-	bWWyGiPlOAILETdGTS+MWOpra/Z9FmN3MBZeHbSoXsDnL7fSUcGhP9NPN3t4jtlW0XZgyAminQg53
-	0oIYD762M8eOVaI1XIBDJQtwdzsb7qdrmMdF5Cw0P/7RxlySZIBH8g2wbTMhftg4QAMzWk7pKEm3U
-	HZHClKeLerX5wAHe6S5AxcSqSJj02avbdMD0fd/NeD09LDo5de7tlshdPeHUWX9cz0AP/lbVWfKOZ
-	A6mIRrLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p84lLdIepUZTxV4B3SNssiaMT7UBerhqgF3wniuKFK8=; b=x0vbeRrE0w68noERY6gOSnBrvV
+	tyhU5N5+rBsMoIs+pdW33PUm5q8CjdEN176SUmDva9S4CKyc3okDOaxgjeXBDxdAzzKNBXU5LLlgf
+	KR+biNTM91xZR+f/8v0xwyXUm5gLXuWmI34p6h5tdPhFutvm7P3WmLjfOr34c8/dmPnDyPCZ2Ys1I
+	vFL+enSgVMR/PjjU5aHt3cCszP9+m/OqD5VSfkS32pmJiHKJFUH27ZyJe2SrIGRsECGGUkieY++oO
+	stY3XveAMHb42ScMXBgN7Oq/cz2w+ZVjjo90GWelUwBbyIq8Vf6qutDwSoghAzvz2rZmBy34lBSUp
+	j1KPyB0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MOi-00000003Fsp-27QL;
-	Wed, 25 Mar 2026 11:27:40 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1w5MSi-00000003GF0-07If;
+	Wed, 25 Mar 2026 11:31:48 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MOd-00000003FqO-353E
+	id 1w5MSf-00000003GEH-2cha
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 11:27:39 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 802C81FD07;
-	Wed, 25 Mar 2026 12:27:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1774438049;
-	bh=S2YQAGejwfR5ZlCcWyHUSZO12iuE4GgPthnFZ7lNm/A=; h=From:To:Subject;
-	b=Lve7YK+wnl2mE3II7S1FEj7bjiLJ4Anor5/kTXKOzbDteEX6YJLbLp5sEpKgWs+HP
-	 gnyqs4S3EqlSWVpUJcArFe5vDEH/5XWbhZs0AG7SdvZQBWwcAGYE4MbSA9rX+A4fEt
-	 QNlw7RrLFYOmOkY+Nvx21bJMBhzkQWDgbiKMQ9gdkSpM/K9hLZl/ZJidD/H2FuUgFO
-	 Rh2a1ul4NWs/P9Od/YJtMYi0O+mYJiNVsJNUqYN7T94SwQO1n6bjGu7cTY27EAsjTg
-	 ixYp+Dyubh61gmf4Br4fuY2aQYRtLzjsE4nLkLTQCSLYGVJL0ilLkPuqEpYI+qUHSh
-	 79tkNmj1ic8kw==
-Date: Wed, 25 Mar 2026 12:27:24 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/6] arm64: dts: freescale: Add Verdin iMX95 support
-Message-ID: <20260325112724.GA7964@francesco-nb>
-References: <20260313-verdin-imx95-upstream-frank-li-base-v2-0-bd488be7c699@toradex.com>
- <20260313-verdin-imx95-upstream-frank-li-base-v2-2-bd488be7c699@toradex.com>
- <acK4awcokUyCHrG5@lizhi-Precision-Tower-5810>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acK4awcokUyCHrG5@lizhi-Precision-Tower-5810>
+	Wed, 25 Mar 2026 11:31:46 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-487018c8244so28061695e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 04:31:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774438303; x=1775043103; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=p84lLdIepUZTxV4B3SNssiaMT7UBerhqgF3wniuKFK8=;
+        b=Aqhj4PPeZ1REek/2F/Vz0T2vfZQD7vGZEFfyLYx9DlFGyXb0qqO/NLcef3PWbEM2g9
+         z8ITcmHX+umtedSt52RQP4z/98zrwYaTmv8f/i/W2RrD7tg0RuHi6Bx/bwKpHoU/DeZA
+         porULg2qBUVDicLHBECQm+11GoLIwMoNYct0ZxjO3Fa+ZTolbVHCeU6YTHxbJh+yzEu6
+         5lat5zUQ+zIGZTqZWzQ+Al5fN5mSodg5eMcMtpDIeWO1PnBnQShJIAwLLqrH2ZrJ7Qpn
+         khSMMALuT+nOSF56QhENI7ivHufbMW1t8G/vLnnmYXp7+HIVWvm79HKOKN/6bWbiSecK
+         jR2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774438303; x=1775043103;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=p84lLdIepUZTxV4B3SNssiaMT7UBerhqgF3wniuKFK8=;
+        b=FxFrL1vwVo3mozHqCLI3Nyg0v1j6uzDveg10hi+tIDMvHSizbEBH70lxth3XiOvd25
+         W5SVs6TxNfGkuDiQRH4jOPTQHgBmjIOkR1yHhu9p+Q43jgA7MRrwxbOmGyLBecnhPRhy
+         6tJFvG1kfp1NYy7i3y3f2FKI0XvvHOM92zGgJZ4bttTJ89BTYnbfmbBaqnNYW1YhQxnl
+         Sj4oehi77xTcbK4DHix6oxNpXTzApsLE0q+W6SBgIHKSrNc6iO8Ba/omrXZ5CNNz7crJ
+         EqjwJyaeYmuneW5cv020X5QoCiRi1cMFH7QFsF5XM8k1yn5bO7dGub5doLXTooj3A9kM
+         LXYA==
+X-Forwarded-Encrypted: i=1; AJvYcCWJu8FTIGil6Tv6l068YX/C/v0V1E3SJg0p8QvS6/kWZyU7LhtGFU/Y7xDdycLw0Zaf5VwoV07OQjRNWaOeVMdB@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu3er/VIh18YlzU7slNRBh9jJarnBSHLQMA/gkrAAK+YvPqzU4
+	f4h/YiEn8Ke9AIegtT/xnOz3+/p54F7WPmtz8VM4NRwNst2JeFHrlhgwLPix33L1hh5lvfXIok5
+	1fcx6hBMdRzD9Y0cQr/d0vM0SYqamzw==
+X-Received: from wruc11.prod.google.com ([2002:a5d:4f0b:0:b0:43b:42a9:2db1])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4692:b0:485:3812:36f6 with SMTP id 5b1f17b1804b1-48716046ee1mr47372355e9.21.1774438303323;
+ Wed, 25 Mar 2026 04:31:43 -0700 (PDT)
+Date: Wed, 25 Mar 2026 11:31:38 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.1018.g2bb0e51243-goog
+Message-ID: <20260325113138.4171430-1-sebastianene@google.com>
+Subject: [PATCH v2] KVM: arm64: Prevent the host from using an smc with imm16
+ != 0
+From: Sebastian Ene <sebastianene@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, android-kvm@google.com
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com, 
+	maz@kernel.org, oupton@kernel.org, sebastianene@google.com, 
+	suzuki.poulose@arm.com, tabba@google.com, vdonnefort@google.com, 
+	will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_042736_675200_A23369BA 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20260325_043145_727838_03DE7257 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 12:14:35PM -0400, Frank Li wrote:
-> On Fri, Mar 13, 2026 at 09:57:43AM +0100, Ernest Van Hoecke wrote:
-> > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> >
-> > Add support for the Toradex Verdin iMX95 and its development carrier
-> > board.
-> >
-> > The module consists of an NXP i.MX95 family SoC, up to 16GB LPDDR4x RAM,
-> > up to 128GB of storage, a USB 3.2 OTG and USB 2.0 Host, a Gigabit
-> > Ethernet PHY, an I2C EEPROM and Temperature Sensor, an RX8130 RTC, an
-> > I3C bus, one Quad lane CSI interface, one Quad lane DSI or CSI
-> > interface, one LVDS interface (one or two channels), and some optional
-> > addons: TPM 2.0, and a WiFi/BT module.
-> >
-> > Link: https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-> > Link: https://www.toradex.com/products/carrier-board/verdin-development-board-kit
-> > Co-developed-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-> > Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-> > ---
-> > v2: Reordered nodes alphanumerically by node name
-> > v1: https://lore.kernel.org/all/20260305-verdin-imx95-upstream-frank-li-base-v1-2-823fad02def9@toradex.com/
-> > ---
-> > +
-> > +/* Verdin UART_1, connector X50 through RS485 transceiver */
-> > +&lpuart7 {
-> > +	rs485-rts-active-low;
-> > +	rs485-rx-during-tx;
-> > +	linux,rs485-enabled-at-boot-time;
-> > +
-> 
-> Nit: needn't empty line between status and other property, suggest run
-> https://github.com/lznuaa/dt-format to speed up process.
+The ARM Service Calling Convention (SMCCC) specifies that the function
+identifier and parameters should be passed in registers, leaving the
+16-bit immediate field of the SMC instruction un-handled.
+Currently, our pKVM handler ignores the immediate value, which could lead
+to non-compliant software relying on implementation-defined behavior.
+Enforce the host kernel running under pKVM to use an immediate value
+of 0 by decoding the ISS from the ESR_EL2 and return a not supported
+error code back to the caller.
 
-Please review Documentation/devicetree/bindings/dts-coding-style.rst.
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+---
+v1 -> v2:
 
-Quoting from there
- > "status" (if applicable), preceded by a blank line if there is content before the property
+ - Dropped injecting an UNDEF and return an error instead
+   (SMCCC_RET_NOT_SUPPORTED)
+ - Used the mask ESR_ELx_xVC_IMM_MASK instead of masking with U16_MAX
+ - Updated the title of the commit message from:
+   "[PATCH] KVM: arm64: Inject UNDEF when host is executing an
+    smc with imm16 != 0"
+---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-I would be careful on taking every detail of such a style guide literally,
-but your comment here is not correct and it's not helping anyone.
-
-Francesco
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index e7790097db93..4ffe30fd8707 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -762,6 +762,12 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ 		handle_host_hcall(host_ctxt);
+ 		break;
+ 	case ESR_ELx_EC_SMC64:
++		if (ESR_ELx_xVC_IMM_MASK & esr) {
++			cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
++			kvm_skip_host_instr();
++			break;
++		}
++
+ 		handle_host_smc(host_ctxt);
+ 		break;
+ 	case ESR_ELx_EC_IABT_LOW:
+-- 
+2.53.0.1018.g2bb0e51243-goog
 
 
