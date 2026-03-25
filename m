@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7D1109E523
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F41109E522
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xhr1D24nKivYP/3T0AfCxVIkR9YFjI1CmvRMS0ErUhs=; b=W3FwO2acTUydYtwmUHRvEpiGnK
-	GQDeKosxCjgDol+bAOXN+i7sbl3im9hzDMdm72ofhneqvB2bl5G+ZL/qJeB9o4pVkqW0VM7TEyYJI
-	nZNqNMxejEO9nZ+yZvQU152daS4EFBhnAkFB1QB5W+rRCPcgT5uM4w2gNMz7L0N3CrB73vvOMxPdh
-	wF9ggN1YcsBHVk230dkUyQruQWEAAoDhHUPb3M05SmAsjMVRXpiZ6jtvgI5cx78ktN3zL3PzNup0k
-	enhgKf5sCihGdZinyz6wCrLNuazuTh0TpE0TAVTAH5mOlGtdZijlgAsdai2JlA4ERjAHNsx+mF3Ui
-	xVr5Y5Cg==;
+	bh=9++I9DH96vmR0RmaA4mm1thkdXF3n+A3YyOdv9DBJWY=; b=Izr8ZvaxkLBVoqBNlwDSdq8oak
+	eZlK/tJ8LjxCHQyjI9xdFWUwiByqD6+BqFrEdBTtZdPJjAZu/Pnj2dF4DAbMBgtmZAuBVTXlqJKei
+	82+8cVhKdvtcGefmiUcpLHmlwe2t/SdvOf9gxErnWPmTu1I3CeB1u302Nv/CY0q+AUjvYU/3vo1YK
+	10/OkVgKQaHRK30kv9Ya+ly22Pv0y3tJYN5j9vncY24uK2W6lCbe2owq89HZsERWAG9CuWwIvBbmo
+	jfAL9a91YzGiNSoK2VGUzHT5S1IFKnTfBBMkvLom/nYe5put1ohm7Kgh6WAsKMShlMcHLIElkNjDS
+	sXan9Skw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WGt-00000004JBi-3kYN;
-	Wed, 25 Mar 2026 22:00:15 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w5WPI-00000004Jcw-29Xc;
+	Wed, 25 Mar 2026 22:08:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5WGs-00000004JB9-05cV;
-	Wed, 25 Mar 2026 22:00:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Xhr1D24nKivYP/3T0AfCxVIkR9YFjI1CmvRMS0ErUhs=; b=5tawHl3e+uz9eT1sXa8Trr9UO3
-	ROaHbvVci5+1x1gHnzDm2slDD0JaznmGKOrxGbVFDkZMzS+rmgkpFFIzI8uoZ8Vm3HM5sU74Lbgg9
-	/PopU1JjeSWjAX4u00eOPjCt0e4mbNvr581G0kAg+1PHB+QCwy6hnY76o/2fmt4nVWL0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w5WGR-00DMmg-Oz; Wed, 25 Mar 2026 22:59:47 +0100
-Date: Wed, 25 Mar 2026 22:59:47 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	id 1w5WPG-00000004JcU-2k4d;
+	Wed, 25 Mar 2026 22:08:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D4BE44438B;
+	Wed, 25 Mar 2026 22:08:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77100C4CEF7;
+	Wed, 25 Mar 2026 22:08:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774476533;
+	bh=0SMSGojWeEuTf6IRTzrQ3Ja6RfzXsvEFtgDkgRMiJQU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UuFJlqT+amWQ9X9bdFAzekPp6vT+mLRWg+bh7t8mm5kUwFOyK+XoJanIpT16W8hc/
+	 eINb0ExdNWpmeWKVYgWEFLcdqJ9PTSM6IAM04cf26CAblCfJJb6SMW/x/7lMtwOpxr
+	 hirz9grYILPtqgoi7QIU35kWfS2QOpYkoCCwSnJfhQRZbPuR6C+ZD8glMMFWUlHuFM
+	 66cEa/nH3RxQG1PwgXNS3UL/6m+RnNpqaDpTQ8N8bS0pU3/CLZ/CokfqWf9Oomrba4
+	 rbEh1uENRqFLyISAdL7O+6rQRGyrhg6kxFJ4bEGzmQ5JUYbGUtKdNdWA+z3ObT8tH2
+	 yLECRj2cMozoQ==
+Date: Wed, 25 Mar 2026 17:08:52 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: devicetree@vger.kernel.org, Kevin Hilman <khilman@baylibre.com>,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mips@vger.kernel.org, imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH net-next v9 2/6] net: stmmac: qcom-ethqos: use generic
- device properties
-Message-ID: <ba85f84e-740d-47d6-a8a0-97823bf2c4d7@lunn.ch>
-References: <20260316-qcom-sa8255p-emac-v9-0-c58934e76ff2@oss.qualcomm.com>
- <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	van Spriel <arend@broadcom.com>, linux-wireless@vger.kernel.org
+Subject: Re: [PATCH v4 2/9] dt-bindings: mmc: amlogic: Add compatible for T7
+ mmc
+Message-ID: <177447653149.51426.16186779467459325045.robh@kernel.org>
+References: <20260325-add-emmc-t7-vim4-v4-0-44c7b4a5e459@aliel.fr>
+ <20260325-add-emmc-t7-vim4-v4-2-44c7b4a5e459@aliel.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260316-qcom-sa8255p-emac-v9-2-c58934e76ff2@oss.qualcomm.com>
+In-Reply-To: <20260325-add-emmc-t7-vim4-v4-2-44c7b4a5e459@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_150014_082945_CCD11749 
-X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-CacheID: sfid-20260325_150854_715241_9B7CEBEA 
+X-CRM114-Status: UNSURE (   9.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,15 +83,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 01:05:07PM +0100, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+On Wed, 25 Mar 2026 10:15:20 +0100, Ronald Claveau wrote:
+> Add amlogic,t7-mmc compatible string, falling back to amlogic,meson-axg-mmc
+> as the T7 MMC controller is compatible with the AXG implementation.
 > 
-> In order to drop the dependency on CONFIG_OF, convert all device property
-> getters from OF-specific to generic device properties and stop pulling
-> in any linux/of.h symbols.
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>  Documentation/devicetree/bindings/mmc/amlogic,meson-gx-mmc.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-Adding to what Russell said, please document your new binding. e.g. in
-Documentation/firmware-guide/acpi/dsd.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-	Andrew
 
