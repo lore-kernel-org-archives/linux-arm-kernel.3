@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B77E1075269
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8FFFC72DF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 00:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjQwzlnDonfP9P7OOhJbXaZkLHX8rL6q5DY0JScFebQ=; b=KEDpo7uDaZDMWo2h+JzJ3yLgY9
-	q/Aqri9R/00lXcP3THYnBHYiu/3XV/5Ct488/2G5mb6ftINgx8NTxQQZ+mAbukdgzhaiYyW6t7E/H
-	q29gwb2VXd6o88MsL9Pxq/o1jupcFAP4RR/t7AGuKiXq7sA/PtjVSC8sGJZZ6uw/gYf9kAg3juBx1
-	omhxzRKzMw3fzthWmxWZ1wwJhV5F1AcXl6nGvrO7mc1w5KjEb52QOaFBqKui+ATnFwle/A0O2WQW+
-	9TIpIeuYkw8py5aqJjyAxNWqqiUdjBemkJ38S0H5vOTsjXOn/y/IrL3AYoBMpeQNHqr1vHgUl61gi
-	fArpS72A==;
+	bh=Oo96waFsUS6SwGsSk6YcgJNL6tDx99iHJkgqoGtM31M=; b=PyiMqIl1fR+j7HzII93Y7/9qyr
+	M1D2sOebdxs5jzEkSvqhgbe/09GCgLZhH/0BZr3tDO5DFZus1BaJCn5NnXjYiJ0wnT6G5ZKpQZVnT
+	0fKebzZPrN/KQZoBDXIdYXRofoOzq7FA5g77S51c90ob6KC6jg/GgtaD+Rj4/+QcMPM2izlWSgglO
+	Z+IppF/G9HRXD0FwUpveT9dmsd0qCxWdnoNM8phd5YDikghhQn+hvbYpdi149/RsDsIKSg4c81cVZ
+	cqv+0SYEQPPF6HPPfnTJPJQE84a6g2kbKgcTZLSbPaS05D4xqdlRbTI1iIRObcotpS3yjPyrnALli
+	OSSni41Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CFk-00000002Pe2-3QsU;
-	Wed, 25 Mar 2026 00:37:44 +0000
+	id 1w5CFp-00000002PfT-2VyL;
+	Wed, 25 Mar 2026 00:37:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5CFf-00000002Pcv-49dS
+	id 1w5CFk-00000002Pe0-3dFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 00:37:41 +0000
+	Wed, 25 Mar 2026 00:37:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E7F61A9A;
-	Tue, 24 Mar 2026 17:37:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C82A1C0A;
+	Tue, 24 Mar 2026 17:37:38 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72CC63FB90;
-	Tue, 24 Mar 2026 17:37:36 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 380233FB90;
+	Tue, 24 Mar 2026 17:37:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774399058; bh=bB650cgvjeM+wlJ2Nx+MaWC6oDU8Qj0aTouMzw+P4tQ=;
+	t=1774399064; bh=r2NqJqtxMzptltCE+GymYSs9aCU3DPcd19M/MmyWskE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vEfRwCmXPUZlpCpmQMhGyTi8e39TTxWC+HYua+L960bBmaH2mEQ80m8Zp+JAeMeY8
-	 NOoCMZFqXmGwWSq2oLwPAiaJu8v/ODcYoZjsqurEcBudI17Gbp1aelKyK6a82IrTeW
-	 XxcqOQ0tXOyS7PTMBF0+/da0hXGPJET0Kww/gVAs=
+	b=IXGXS+ykBFLyiBA3As/Eqt2T1yCIqKBQCggrqBgjYnb6sfzOlJ9y3rqp5FIAOB6gb
+	 jIdZXjLGF6flg57RCzDbANEG7hahqs4hSAhbGwjg0A+O6xyXZoiK0O4TdYPhw1JiSh
+	 SsEzrofyk+2laz8DFG/BqAOD8i45Vwh7xOU+pBNY=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
@@ -54,17 +54,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH 1/3] KVM: arm64: selftests: Add library functions for NV
-Date: Wed, 25 Mar 2026 00:36:18 +0000
-Message-ID: <20260325003620.2214766-2-weilin.chang@arm.com>
+Subject: [PATCH 2/3] KVM: arm64: sefltests: Add basic NV selftest
+Date: Wed, 25 Mar 2026 00:36:19 +0000
+Message-ID: <20260325003620.2214766-3-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260325003620.2214766-1-weilin.chang@arm.com>
 References: <20260325003620.2214766-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_173740_114164_AE8DB75E 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20260324_173745_033634_DD8C65D4 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,167 +79,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The API is designed for userspace to first call prepare_{l2_stack,
-hyp_state, eret_destination, nested_sync_handler}, with a function
-supplied to prepare_eret_destination() to be run in L2. Then run_l2()
-can be called in L1 to run the given function in L2.
+Add a simple NV selftest that uses the NV library functions to eret from
+vEL2 to EL1, then call an hvc to jump back to vEL2.
 
 Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |  2 +
- .../selftests/kvm/include/arm64/nested.h      | 18 ++++++
- .../testing/selftests/kvm/lib/arm64/nested.c  | 61 +++++++++++++++++++
- .../selftests/kvm/lib/arm64/nested_asm.S      | 35 +++++++++++
- 4 files changed, 116 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+ tools/testing/selftests/kvm/Makefile.kvm      |  1 +
+ .../selftests/kvm/arm64/hello_nested.c        | 65 +++++++++++++++++++
+ 2 files changed, 66 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
 
 diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 98da9fa4b8b7..5e681e8e0cd7 100644
+index 5e681e8e0cd7..d7499609cd0c 100644
 --- a/tools/testing/selftests/kvm/Makefile.kvm
 +++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -34,6 +34,8 @@ LIBKVM_arm64 += lib/arm64/gic.c
- LIBKVM_arm64 += lib/arm64/gic_v3.c
- LIBKVM_arm64 += lib/arm64/gic_v3_its.c
- LIBKVM_arm64 += lib/arm64/handlers.S
-+LIBKVM_arm64 += lib/arm64/nested.c
-+LIBKVM_arm64 += lib/arm64/nested_asm.S
- LIBKVM_arm64 += lib/arm64/processor.c
- LIBKVM_arm64 += lib/arm64/spinlock.c
- LIBKVM_arm64 += lib/arm64/ucall.c
-diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+@@ -167,6 +167,7 @@ TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
+ TEST_GEN_PROGS_arm64 += arm64/at
+ TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
+ TEST_GEN_PROGS_arm64 += arm64/hello_el2
++TEST_GEN_PROGS_arm64 += arm64/hello_nested
+ TEST_GEN_PROGS_arm64 += arm64/host_sve
+ TEST_GEN_PROGS_arm64 += arm64/hypercalls
+ TEST_GEN_PROGS_arm64 += arm64/external_aborts
+diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
 new file mode 100644
-index 000000000000..739ff2ee0161
+index 000000000000..16c600539810
 --- /dev/null
-+++ b/tools/testing/selftests/kvm/include/arm64/nested.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+@@ -0,0 +1,65 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * ARM64 Nested virtualization defines
++ * hello_nested - Go from vEL2 to EL1 then back
 + */
-+
-+#ifndef SELFTEST_KVM_NESTED_H
-+#define SELFTEST_KVM_NESTED_H
-+
-+void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
-+void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
-+void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
-+void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
-+
-+void run_l2(void);
-+void after_hvc(void);
-+void do_hvc(void);
-+
-+#endif /* SELFTEST_KVM_NESTED_H */
-diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
-new file mode 100644
-index 000000000000..111d02f44cfe
---- /dev/null
-+++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
-@@ -0,0 +1,61 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ARM64 Nested virtualization helpers
-+ */
-+
 +#include "kvm_util.h"
 +#include "nested.h"
 +#include "processor.h"
 +#include "test_util.h"
++#include "ucall.h"
 +
-+#include <asm/sysreg.h>
++static void l2_guest_code(void)
++{
++	/* nothing */
++}
 +
-+static void hvc_handler(struct ex_regs *regs)
++static void guest_code(void)
 +{
 +	GUEST_ASSERT_EQ(get_current_el(), 2);
-+	GUEST_PRINTF("hvc handler\n");
-+	regs->pstate = PSR_MODE_EL2h | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
-+	regs->pc = (u64)after_hvc;
++	GUEST_PRINTF("vEL2 entry\n");
++	run_l2();
++	GUEST_DONE();
 +}
 +
-+void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
++int main(void)
 +{
-+	size_t l2_stack_size;
-+	uint64_t l2_stack_paddr;
++	struct kvm_vcpu_init init;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	struct ucall uc;
 +
-+	l2_stack_size = vm->page_size == 4096 ? DEFAULT_STACK_PGS * vm->page_size :
-+					 vm->page_size;
-+	l2_stack_paddr = __vm_phy_pages_alloc(vm, l2_stack_size / vm->page_size,
-+					      0, 0, false);
-+	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), l2_stack_paddr + l2_stack_size);
-+}
++	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
++	vm = vm_create(1);
 +
-+void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-+{
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
-+}
++	kvm_get_default_vcpu_target(vm, &init);
++	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
++	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
++	kvm_arch_vm_finalize_vcpus(vm);
 +
-+void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
-+{
-+	vm_paddr_t do_hvc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)do_hvc);
-+	vm_paddr_t l2_pc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)l2_pc);
++	prepare_l2_stack(vm, vcpu);
++	prepare_hyp_state(vm, vcpu);
++	prepare_eret_destination(vm, vcpu, l2_guest_code);
++	prepare_nested_sync_handler(vm, vcpu);
 +
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SPSR_EL2), PSR_MODE_EL1h |
-+							    PSR_D_BIT     |
-+							    PSR_A_BIT     |
-+							    PSR_I_BIT     |
-+							    PSR_F_BIT);
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ELR_EL2), l2_pc_paddr);
-+	/* HACK: use TPIDR_EL2 to pass address, see run_l2() in nested_asm.S */
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), do_hvc_paddr);
-+}
++	while (true) {
++		vcpu_run(vcpu);
 +
-+void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-+{
-+	if (!vm->handlers) {
-+		vm_init_descriptor_tables(vm);
-+		vcpu_init_descriptor_tables(vcpu);
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_PRINTF:
++			pr_info("%s", uc.buffer);
++			break;
++		case UCALL_DONE:
++			pr_info("DONE!\n");
++			goto end;
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++			fallthrough;
++		default:
++			TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
++		}
 +	}
-+	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64,
-+				ESR_ELx_EC_HVC64, hvc_handler);
-+}
-diff --git a/tools/testing/selftests/kvm/lib/arm64/nested_asm.S b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
-new file mode 100644
-index 000000000000..4ecf2d510a6f
---- /dev/null
-+++ b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * ARM64 Nested virtualization assembly helpers
-+ */
 +
-+.globl run_l2
-+.globl after_hvc
-+.globl do_hvc
-+run_l2:
-+	/*
-+	 * At this point TPIDR_EL2 will contain the gpa of do_hvc from
-+	 * prepare_eret_destination(). gpa of do_hvc have to be passed in
-+	 * because we want L2 to issue an hvc after it returns from the user
-+	 * passed function. In order for that to happen the lr must be
-+	 * controlled, which at this point holds the value of the address of
-+	 * the next instruction after this run_l2() call, which is not useful
-+	 * for L2. Additionally, L1 can't translate gva into gpa, so we can't
-+	 * calculate it here.
-+	 *
-+	 * So first save lr, then move TPIDR_EL2 to lr so when the user supplied
-+	 * L2 function returns, L2 jumps to do_hvc and let the L1 hvc handler
-+	 * take control. This implies we expect the L2 code to preserve lr and
-+	 * calls a regular ret in the end, which is true for normal C functions.
-+	 * The hvc handler will jump back to after_hvc when finished, and lr
-+	 * will be restored and we can return run_l2().
-+	 */
-+	stp	x29, lr, [sp, #-16]!
-+	mrs	x0, tpidr_el2
-+	mov	lr, x0
-+	eret
-+after_hvc:
-+	ldp	x29, lr, [sp], #16
-+	ret
-+do_hvc:
-+	hvc #0
++end:
++	kvm_vm_free(vm);
++	return 0;
++}
 -- 
 2.43.0
 
