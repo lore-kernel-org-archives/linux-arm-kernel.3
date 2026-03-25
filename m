@@ -4,139 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F0EFEA802
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 03:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908C1FEA804
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 03:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPyCS2V8M7S9x8CPORvrG2blU3HjQhpxaa2uP8UWuKw=; b=VSV9HkBJQysF6wRfrmvLfiChOg
-	nZzEIZFj0khsMCFbHdGRqyPMGtEy9JVpAowg1j/DLWuaTxHs1XkOGmLS4EgU8PvuKdpkI9Kdi2+21
-	EkBVm3lw/gBtP6qICzVs7NPPyPVcPJClCAXD2Cakee8TIWTdjBi5bvAASztAESuzDJ8SiDq9UUHbt
-	0bmma97eCkOTprbCKJwodXHam+Ywokbf5xby/yjlp9zvyLYqNx5g8udI4ocz6aQFimXUVzylk3IOg
-	zjz9ltyHOV07lGCVJ9whSMum882acWZjE6p8+S4DZosQikEPhkfhrGYdVOBZ1gBhY+ZM0gsiZxUZy
-	hf2izuAA==;
+	bh=IhuRCOI2Huaf5BeKcgnhFE71gyol/CkXPtMzZK978Y0=; b=Wlj4tel7Qv3EYEjdUzEfiepzqI
+	bD0KxVRwlTRRJ4daRbxyBGO7mu8oFEd+/1dNo5NSYXhamIsR8z7LkFXzJlOey46BOhv5tMnO/bIE5
+	72G4JSuUl86OhjNkbJscRrKF6fFjlXFT78pLtxOH+1Sp9RXufSjCBkiY+Q5lN8Y52qDdydwoVR1o9
+	hBpDcrAo+/F4/WSRwORRo2EOVTc7CNhHfiR5udSEMDU/EAnJqCUBYOEc4yldJ/TmkGrrJyjleB2Ul
+	sX7XL6B3oKdSH2dpAqSm3zJIC3QFV8iuq1nVjXxRyoG5k2jT9+AsLnlGVVhS08HtKrtJXUHBedmmY
+	VOEjp2Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EqN-00000002b9T-0ELi;
-	Wed, 25 Mar 2026 03:23:43 +0000
-Received: from mail-northeuropeazon11012058.outbound.protection.outlook.com ([52.101.66.58] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w5FAW-00000002by1-0ySS;
+	Wed, 25 Mar 2026 03:44:32 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EqL-00000002b96-13uf
+	id 1w5FAT-00000002bxc-0Sla
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 03:23:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v+7/bo2Z1BSMOKEcZdUM2N6lbjH7RADmxt/WVn8TgQcMb9yaQSCLpdviUr6wg9izWaIt7lG8mptOK3KBNwOACYNyWYsPBT5C3gpzxVRBSeCVtxj0j7YnjV02bTz42V+WU1AnA2wr0d/ZHA3QIpNm2NpY3CM2j85IvEONi81d9P7YVoQw7JYevT5jAruW6hzNS1/xqhFbBIco/udNjrV+mLdXcksU/KqvbPKnZZdMJd1ywBAJksliEc5W+kaEzFkOjGXH3SUrDyHI3DFOhH/FmGBcr4Oqu1QwKJIHZNcfaft2NozMYp2alVPPU1Gp6ubptBscmRqutFAhoMMm3S+m9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lPyCS2V8M7S9x8CPORvrG2blU3HjQhpxaa2uP8UWuKw=;
- b=zJFHosPZoYN6/UfFZX3SemKdwRLG9T+Dbt/YUz9NrTc05hZIOL+HamdLgB65GzsFVJXX1g6D/qKX9E0zle7Nob6fQCqDsfvBTxRyFuNZ+iQk197Xggh7FXRuz5OrAJo5O4ft33S2KZjuHZGxzPrlt9+jCA7ptCKAsY6p35XCt6NCiSS39yuBWc6+3hE+E6wGBDtUz9UCWAL6d8sRZ1bLKW/zhe3YMJxz/69MsMdX4H8uv+c5XhSqz55ZQh/2EQV4FwKZXBs85fLOVpTnTrjKDc2ATMoZRLqeAMVMXU5GCmKuBZf9+mMtQdt4O4QJ8QN1WNNg6bECMS6N9OH/LEGbiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lPyCS2V8M7S9x8CPORvrG2blU3HjQhpxaa2uP8UWuKw=;
- b=EfdKTEeSVoaPJa7rw6HCsWl34Xwvxx9NtjMu6M8VlI7DBaxfDksOIdC0XvP70Du3GH0xyW9PNEyOpjMRlZzaNRRs65EvwmHINhmdOKvXOte4nop35qU+KaNb6WpfNZXhfMju44imoR6Fdx0yesJdYWEpuMVbmKkdNvNHlc30GtdpkwTTJGj9PBwYQddNRWnxyAaBegfanSiXqW3mW0l9WGhOMil1C2k7R3lV/cXEbVyL9klzs+UjfPsqJsalN6187cqig8t+9JfhnpSUTsaubwP+rvkzTuFnHTy/SUJ/55wuulOb5E/nMsCR3olw/kQ63/mCMZFdRFOG2wksyd56ZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI0PR04MB10544.eurprd04.prod.outlook.com (2603:10a6:800:26c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
- 2026 03:23:35 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%3]) with mapi id 15.20.9723.030; Wed, 25 Mar 2026
- 03:23:34 +0000
-Message-ID: <d347ed87-f3b5-416c-bff8-f5da1b0567f7@nxp.com>
-Date: Wed, 25 Mar 2026 11:24:49 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx8mp-evk: Specify ADV7535 register
- addresses
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260324-imx8mp-evk-adv7535-cec-reg-addr-v1-1-52dbdd63d5a4@nxp.com>
- <acKi8-prXpnl1Js9@lizhi-Precision-Tower-5810>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <acKi8-prXpnl1Js9@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0247.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ae::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Wed, 25 Mar 2026 03:44:30 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-2bdcf5970cdso445729eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Mar 2026 20:44:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774410268; x=1775015068; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=IhuRCOI2Huaf5BeKcgnhFE71gyol/CkXPtMzZK978Y0=;
+        b=q+cF7kRdWdlLuqz5GkX7rDHIzN9N5XxEdhawGeFGr72G6LQvOxZzKzvh1+cmzlTAXu
+         NTGmawrsI8/Gafb9k8RLtMzUlFA3FImiIqbWu73j0IWP5Rw5zdpWANnYgN3h5a+lhOGV
+         1J8Dl0BRX0tckdu2G1sVT3l6NiS4ZKY1ilrmwj42wiAsblKLOUft+BUgE+EtxGcDevbk
+         fmtN2GQQ8Xax31w1Nf5VbiI6TTG23pfwQKIp6PSPexvkx0M3zVOvQs474UJdG7oqJg/Z
+         JgfDCXj355aVR9OEbQoczkCeXJgo3GozL2/nrQUc11DclGXe7P2/JBvalw6TNpfDBohf
+         z65Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774410268; x=1775015068;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IhuRCOI2Huaf5BeKcgnhFE71gyol/CkXPtMzZK978Y0=;
+        b=CzfgQq1gud5+h6ASbjM7U1RmeEyQG7jzNjlEhelUNwH9d1wZOFQFVucObxonQ4NDan
+         Ts3K74/1HF1qHesV3B3FyuRmXChiiAjqxmqO+7rEHzEgiwrAqbef1TxXn5qO8PWscBKD
+         HFxO7KF1ldLRJoTBtdKzuoptxOGtl0heapzsXy7y0k/8b6K0QKfJO8TrmWiEtvjLjqm+
+         VgKn8zK0GKbzcbg+mxIGispsj6cqNis7ICQLGKrWtKqV0m0pKLF2BaWz4rioVAD5mfnI
+         qpCWxCS6Xz7108qsJ4wdhKSUNo+USBSMNoKhVnFW3uDKHA01hxVD9LIWmHNysGtxQR4j
+         h4/g==
+X-Forwarded-Encrypted: i=1; AJvYcCVK9ABEZf5I25w8LI0HqXD2u9sP1JaKDdBfNTH3FUqsLiOEjl0/PrNKCJnwEWS0AVW2mm0blXtP4l9D0EpBdcpw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/GHFmWqfJeJwW+dpandXjqh7uHgz1orV4vEflTrpZH5MNFSky
+	RWzzbOUEBLfXCajeddFzpDihnpvftK70dUtovs9ne/gTUthTQcboC508
+X-Gm-Gg: ATEYQzyvfVTa15MGmuLBvp9uNmpqkGFDhfhjIDZjvmQh6n/1Q1MOTjWeQKu3NVEQQ9C
+	c0JN0MUIPYvhg9mK89XDNDo/9hxYDcthqT8RA7ZcCdilZbDbCqb8Lyg8hiMH1LyOv/DdxFK8DsP
+	cTBbApYt4EoGo4/Yhr5o9ggasli3nAEliL24jUFYhNgXlJIBf3RbOvpf25jmBVxPizkUJYh0VDQ
+	4B7F5Kmx4E2R44OveSUavy4OPyS/8SUEFlq5gaIN/J8JM5Td0O+UqSQJRj8oTydUssm9fSKGMl2
+	5MFMhtaijabQEl2KtrnqCYherxJbZy3sgdE2nlzpPFo7voVcdBRv718q+FKQtSU0FELuObR1tPM
+	uk6LrfvN5iN9iCHI50JG5w6BfJGKaJrlazzo+kqCtQZ8yM3yOE1VoZtf7CSrPesQDzJYyeKFRVt
+	1gpnP9hbg5hRJLFgm6mGI1M8KJH2vHL1SiVEv58Ce0gFEr+UjvsPU/4l6nmHcchnn6
+X-Received: by 2002:a05:7301:2b06:b0:2be:6693:9b4d with SMTP id 5a478bee46e88-2c14b4f708amr2708211eec.9.1774410267461;
+        Tue, 24 Mar 2026 20:44:27 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:a686:fd7f:70d3:9156])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2c10b2cde3bsm16989603eec.20.2026.03.24.20.44.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Mar 2026 20:44:25 -0700 (PDT)
+Date: Tue, 24 Mar 2026 20:44:22 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>, 
+	Grimmauld <grimmauld@grimmauld.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, driver-core@lists.linux.dev, Lukas Wunner <lukas@wunner.de>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <acNYJ2dyPaEzabYL@google.com>
+References: <20260226101032.1042-1-linux.amoon@gmail.com>
+ <177260693908.10259.13055467642416391434.b4-ty@kernel.org>
+ <87bc37ee-234c-4568-b72e-955c130a6838@arm.com>
+ <f7tfshf7riljjibuqge4ubfjmludubpyh3ppdf6lasurzdzbtj@sw4xxagfhnn3>
+ <5d88fb5b-e771-4ea6-8d2c-c5cfd21e5860@arm.com>
+ <DGZJBMG2Y738.2MU5LXVGEDD47@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10544:EE_
-X-MS-Office365-Filtering-Correlation-Id: e832ba0d-56a5-4b2b-2127-08de8a1de5be
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: /NabkM8nQxuHoHEItZvn0NXzCPrbMrwNlaNTdsqos/f/cKcFmXkzTyY309VL43S3QiUgek22MMzHgPd/KcdThHDzFWH7Uz5nJn8BoM0rZ/SmwE1okOSs/+gxW8/9G+vxO6DcQSedvoEq6wJVL/VWHQ+La8k1xl6CKegrggYQqho4bQIERc7YziKwAsnK0vDk02NqwN9ysMJrmiI/CyjPP6s/SBylsr6yUIJO8jqDvrL6dLRzZi/79Te2PciEErC8qNeXj/eGvxtSXVokxu4CJ4UTsJPZ0cZftZsgN8n4iO+x7P2WyabDeam/+PnaGk2BDes+6H+mfXlq763/442UrTJJ3uQiXxdK34rEjVUBsx0Fokfx0ZKVxZzZ0PycyqEEkBu/Nk2mwB6DB4nb84/LyY+345tuL5Ku0BGxpDoyFPTXen1ceVGB82nSGvgJTOvlq5RT1SDSVmN7mc+z3HI4j0m/ippr3Y3whD9dTjhBhLD7mdX6uwwY2+LrPchgk02JBaRhvtFTPVomUQYtZhJ9ueCEAv+j+SeYG0rO09AG09AWBuunpcOaHExQ69WQxUdBj+31Riv1PIW1dM0SBmIuNt4YGMry+aJSiGN32Zg48hADcpceTy0PUT+EgWQmJqF/zJijpksxlW9wA8kjfJI/LtGJ5zkXznY/9TB+30SK1Ja1AeIuW0e3urVgxdkfNJLM4v8rH5qqymHU0WALMYfwZF3rw6eSQDwe2TaJoPjGAh4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bFpXcGJFbElMdVEwYmNHSDBoMXE0S2RzcTdqeW05RGd2U1o1bDZ1Z1ArUU53?=
- =?utf-8?B?ZmxLVDZMWEQycDk0NmtodE5mRDRqa3FUQ3NFa2NuZ1g4LzlCR3FpTmQ5RHln?=
- =?utf-8?B?OXZHbFIxMm5Sc3dnRE5keXlqbnVIQTU5OXdibVRoeTBYQkJ1NEwyWHNHSGt6?=
- =?utf-8?B?ZDlCWTUzRndMR0VjRzNORHZhU1diT1crTGtsZmpuZnJ6VXJDcUVENU5oV3dJ?=
- =?utf-8?B?ZXAveFcxWTlhTG5uakNrNUVXVmdOckRWMW0yYkRYRndhbFp3UVNpOEtQYm8x?=
- =?utf-8?B?aWREY2lXZ2lpZ1hWMzYwaWhoajFUVExuMTJQcTJRbndzTTNOZnlzaDRWdi9P?=
- =?utf-8?B?VmhxazhFT0tLaE03Mk9LSHJrcjJXalVQTktMRk4yU3NLOGcxWmhrWFc3aWw5?=
- =?utf-8?B?eW1kQXpHdEJ3U3h1MjVYdE92ZWRBcVpJclpVdFB5OVh2L0wzMzMyTUwxYVYr?=
- =?utf-8?B?emVqUWg2RTVJNmR3aWc3WjBGbmpOV0YyVTlUcjlLTVcxMk9BWmcrTCtLUUlB?=
- =?utf-8?B?TEZEWi9IV053VVdFK0YzS1E1YVovQ0RmUmppK0tYNHBxNEVCVzlGbG5PMm90?=
- =?utf-8?B?REhZelBpMVZIaUhmdnpMd2ZLVThLZiszZUNkcEwwaHNtWXZSYUYzOWR5bkZy?=
- =?utf-8?B?ZUwyMTFBNnZGZ2tNcUtwcHE2NFZGalZ6K09VcSs1MkRyY2s1RjJSa1ZMcndn?=
- =?utf-8?B?c3ZGVUlZL1ZVNVFUVDhOOXkxOTMvWlQwbllJa0I3aWJNQTM4aTB0b2orUlpF?=
- =?utf-8?B?TEJNU0NFWmJDcWhsUjl1anVaZDQrRDdXWGFERHRtdE9hMTBoL2RFTFBoVTdJ?=
- =?utf-8?B?SjE2VTZOUFc5WStZbTdyb09JYVREczU0eXVTNUk4eGR3djFVWVAvY1NqeHNK?=
- =?utf-8?B?YVFBcWk1dGtJMlRCYXNTUSsyUllHNzBGU251WktXMnVxVEFzRy9ndEYwUC9s?=
- =?utf-8?B?eGh3bTQ0WE5tZzRyOXBkUzljbkxpNzI4WDI3VE1qbTFlNUp4akUvUXByakF6?=
- =?utf-8?B?T0JsbFdyY3psWDc1Rm1YTVZMYng0MWloaXNwaGdoL0Q3V0ZhNXlnTzlmU3hq?=
- =?utf-8?B?b25qL2JxZXAyQmE4ampvMlFkVEZUN1JEaHAySmd0ekVFVXRBV3hVdjEzMFlH?=
- =?utf-8?B?RGV5UlQrZWRWdU0vMHdJZ2tCaHJ0WXJLeHhBNmpHTHppemEzOTRCM0dEeW40?=
- =?utf-8?B?Qys3WEt3c2NOYS95cmQ0YVI2U0ZmWTNQMEVaTGExQlBCcXdqTWRkTmVFWEJU?=
- =?utf-8?B?VkVFS2V6RTlOS09BY1hIWjhLODhYcmlmSGlkUjZDVzhscWhFbU9iOE93bkpp?=
- =?utf-8?B?QVRHbWZYbkhLSkovWVFTcWdQQmdyKy8rcGEyWHd0N014b1VlY0RXdXRmVmxR?=
- =?utf-8?B?emJNZTA0MmN0SGhNSGJNOGRMRWk5Mzc0Y0w4dXpjenNFNm5rNHF1VWhJby9y?=
- =?utf-8?B?MDhDdVNsRFlSSnRDZnZtNzh6RDJWZUpmVTVxTVNBcjl1VDFrK3NhdE9OcnV2?=
- =?utf-8?B?SVFnN1U1OTU5RjdqMjIvbkpvdmtDRzZETFcwWG1tMzhHY1U0bitHVHkxenZt?=
- =?utf-8?B?L0pJd3pyR25hRXRlNytITVQrQXJvbGM2MWxMS2hJZlNUdk9NK0NCTjhDbmoy?=
- =?utf-8?B?SzdHc25JVzg3SWJXSSs1d21RY3lpN1BhUFRHNEkvb0NLTUhCbDRTMlNGS04z?=
- =?utf-8?B?UDY5OUFZS1UzRmlpWFNtMTB4SkRFYXF2N1I4d1dmNWtWYzdvUk1pUlFCMFZZ?=
- =?utf-8?B?NXJwaThNU3NZWGxGVTFPWTRyYlJPQmJJZG1jeEtJMWsyTExSZUhpTFdwVFJn?=
- =?utf-8?B?Mi90dkpNK3BLdzJySFljakVGempma3BIS3lrb1kwNy91eGl6cUZvWjJDcGdR?=
- =?utf-8?B?MnRrMkwxZkxFMzZTbUZkQjJ1R0ZyNVdWZk5KVmxKQkU2eUZTc2JWY25uQ1F0?=
- =?utf-8?B?aGZZZUh0eE9DeVR1cERaQzRYdVhUYnVwM3FoOWZGY0s5VXUxSEFqakQ0aitk?=
- =?utf-8?B?WWtJUWlJUmZJOWVKdWtvaS9XditncXBiY2JPdHdYMzJXRThKSVVJcWdKV01H?=
- =?utf-8?B?bGhRbFVtc1JKUkU3UzdHUnU4dkVhcnVsaVpKcVJqbFdhVUQ1RTFUc1FQZGJX?=
- =?utf-8?B?amIyQmhZQk00SWlsUWJrNVZRZlIvNjMrZDhZQ2MwOW9YVWZvNXVSTnJ6RlZV?=
- =?utf-8?B?aGRBcGc2TDVtK3BBOEV3blJwbTdCdkdrZlBtWGVxelpYbzNlcCtPK2ZWRC9T?=
- =?utf-8?B?emVKUVBycWxva3d5SmZkQUI3NVNaeWpDdHdyakp6SFh1dElqd052K1lwQmpr?=
- =?utf-8?B?Q0QyTElrRE9WT3VCSFdNZlFIK2VnbGdrbWRFenRNLzVhVHFEd0VrUT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e832ba0d-56a5-4b2b-2127-08de8a1de5be
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 03:23:34.7839
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zSj2LzUrHkcaAU8RX6OpqVkS9y9CYln+BLJRbLAkeRpNErI8P4+KjHRdhdsGyWUBGJcHONRUUUMvfPFuie7Z6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10544
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DGZJBMG2Y738.2MU5LXVGEDD47@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260324_202341_312535_67116378 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260324_204429_161604_1D9A0136 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,77 +111,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-On Tue, Mar 24, 2026 at 10:42:59AM -0400, Frank Li wrote:
-> On Tue, Mar 24, 2026 at 01:52:03PM +0800, Liu Ying wrote:
->> MIPI DSI to HDMI bridge ADV7535 CEC default register address is 0x3c
->> on an I2C bus.  And, OV5640 camera uses the same address on the same
->> I2C bus.  To resolve this conflict, use 0x3b as ADV7535 CEC register
->> address by specifying all ADV7535 register addresses.
+On Wed, Mar 11, 2026 at 01:43:15AM +0100, Danilo Krummrich wrote:
+> (Cc: Dmitry)
 > 
-> Does cec start address programmable?  generally i2c address is fixed or
-> controller by some gpio.
+> On Tue Mar 10, 2026 at 10:03 PM CET, Robin Murphy wrote:
+> > [ +driver-core maintainers - async probe question below ]
+> 
+> <snip>
+> 
+> > I'm guessing it maybe wasn't anticipated to have bus drivers calling
+> > device_initial_probe() from within async in the first place?
+> 
+> I think this is not limited to device_initial_probe(), device_attach() or even
+> device_add() would have the same problem. I.e. the driver core simply does not
+> consider whether it is already running in an async handler when it is requested
+> to run probe() synchronously.
+> 
+> A simple workaround to this would be to check whether current_is_async() and in
+> case it returns true just defer probing in an PROBE_FORCE_SYNCHRONOUS case. This
+> would at least be compatible with the guarantees given by
+> PROBE_FORCE_SYNCHRONOUS, but it doesn't sound quite right to me -- guess I have
+> to think about it a bit more.
+> 
+> In any case, given that this is not a supported case, this commit seems to be
+> wrong and should probably be reverted.
+> 
+> I think a quick workaround in the driver core as mentioned above is not a good
+> idea, instead this should be properly thought through.
 
-Yes, it's programmable.  Quote adi,adv7533.yaml:
-
-  reg:
-    description: |
-      I2C slave addresses.
-
-      The ADV7533/35 internal registers are split into four pages
-      exposed through different I2C addresses, creating four register
-      maps. Each map has it own I2C address and acts as a standard slave
-      device on the I2C bus. The main address is mandatory, others are
-      optional and revert to defaults if not specified.
-    minItems: 1
-    maxItems: 4
-
-  reg-names:
-    description:
-      Names of maps with programmable addresses. It can contain any map
-      needing a non-default address.
-    minItems: 1
-    items:
-      - const: main
-      - const: edid
-      - const: cec
-      - const: packet
+I think the bigger question is why PCI does something different from
+every other bus? Why doesn't it rely on driver core to bind devices to
+driver?
 
 > 
-> Frank
->>
->> Fixes: 6f6c18cba16f ("arm64: dts: imx8mp-evk: add camera ov5640 and related nodes")
->> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->> ---
->>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
->> index aedc09937716..d0a2bd975a18 100644
->> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
->> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
->> @@ -602,7 +602,8 @@ ov5640_mipi_0_ep: endpoint {
->>
->>  	hdmi@3d {
->>  		compatible = "adi,adv7535";
->> -		reg = <0x3d>;
->> +		reg = <0x3d>, <0x3f>, <0x3b>, <0x38>;
->> +		reg-names = "main", "edid", "cec", "packet";
->>  		interrupt-parent = <&gpio1>;
->>  		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
->>  		adi,dsi-lanes = <4>;
->>
->> ---
->> base-commit: 09c0f7f1bcdbc3c37a5a760cbec76bf18f278406
->> change-id: 20260324-imx8mp-evk-adv7535-cec-reg-addr-2de67760133a
->>
->> Best regards,
->> --
->> Liu Ying <victor.liu@nxp.com>
->>
+> > It may not strictly be the fault of this patch - clearly 91703041697c 
+> > ("PCI: Allow built-in drivers to use async initial probing") is 
+> > implicated in this too - but the fact is that it *has* exposed a bug 
+> > that needs fixing one way or another, it can't just be left hanging and 
+> > impacting end users.
+> 
+> At a side note, I think device_initial_probe() was not meant to be exposed
+> outside of the driver core in the first place. As the name suggests it is only
+> meant to be called on the initial probe() path (i.e. the initial probe() path of
+> the driver core). It seems to me that it ended up in include/linux/device.h
+> instead of drivers/base/base.h by accident.
+
+Yes, at the time when async probing was introduced driver core was the
+sole caller of device_initial_probe(). 
+
+> 
+> The original commit - commit 765230b5f084 ("driver-core: add asynchronous
+> probing support for drivers") - introducing the feature even mentions "manual
+> binding is still synchronous" in its commit message and I think this has never
+> been changed.
+
+Yes, when users "echo" into bind/unbind sysfs attributes they expect
+error codes to indicate whether operation has succeeded or not. That is
+why even if driver is marked as "prefer asynchronous" in this particular
+case the kernel still binds driver synchronously.
+
+> 
+> So, it seems commit 91703041697c ("PCI: Allow built-in drivers to use async
+> initial probing") relies on something that might work by accident. :)
+> 
+> So, I wouldn't rule out any unexpected side effects entirely.
+
+Thanks.
 
 -- 
-Regards,
-Liu Ying
+Dmitry
 
