@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D51103A9AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A191FEA83E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 11:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLc1KzNKSJhv+RREA8bTvjLUxDDu8WkwkOtqELZ4RFg=; b=R3/XVfXd0/vIW8LXbkObb8l0Dp
-	rlT3KMBEg2DM503zjvDcz+V0wxjHulx0SCWZjqyCQciNXTeV8yXyjmROR6xlvdzMuIFo0uPbMmjr1
-	K7FFgiDX2b/vhq5WwOSB9oKfNdUpNd0B5LBaddcz1Xg9XP2mU5OAi/bpO3q8AS83scMs6DiyHJ2Ha
-	BWawYmrHJaJB80UCqKV0RUpMfPsmJyO6HrlHfcXJ2KWuLYdLlIJ5stPxM+0+QmwmDCbX97EpVQqaL
-	E9x+ODIcfiDB7mFCRUoJUn4K/uijUuoLEsCxRXDeAyLy/rsCbIkMcp6ylBDFPM2ZckjW3xQwFYxDy
-	LsTCxd1A==;
+	bh=YEroe8N4TwMxIME3SWVawnEl7pBme71uQh11f3dnXE0=; b=tEH7Jisou5NI+2Brr1m0umWv1w
+	6ChdNGeKwwSuiSF/ghtFEPolXxDUl+yzjRf+0D5x99r3pEYAUO3fR+XaSBKdbSEyYMOvPIsZU9t7f
+	a7YYcaws2pklcvH59Vb28mPwdSYXUrCfA1bfHRot0HPuCf0yHcaUa70/CGh2sGoKaAu94NQcUWwZ+
+	8TRGvfwcUKeoeEn1086e8biXKx+W+5VK57c6lMCYt9TvXGBSSvG4/oPcB/F6GzbyFJGgROY1kZwxf
+	FTrYeQDuUMmFIJmhP9s4w+Hc0roZgcIm85MuVnlUntHf32GR+7ghPSJBiXsoDRy5ti7nQshwCoUPu
+	+iSAwiwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MgJ-00000003IET-358N;
-	Wed, 25 Mar 2026 11:45:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5Mh1-00000003IKA-1XBt;
+	Wed, 25 Mar 2026 11:46:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5MgI-00000003IDx-0nsJ;
-	Wed, 25 Mar 2026 11:45:51 +0000
+	id 1w5Mgy-00000003IJN-3UhL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 11:46:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B649A43604;
-	Wed, 25 Mar 2026 11:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D4ABC4CEF7;
-	Wed, 25 Mar 2026 11:45:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D41D42A40;
+	Wed, 25 Mar 2026 11:46:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EE37C2BCB2;
+	Wed, 25 Mar 2026 11:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774439149;
-	bh=mLc1KzNKSJhv+RREA8bTvjLUxDDu8WkwkOtqELZ4RFg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sFQdlKrgLhG6g84BnNQrLcUHrijuQemWmuklg/O1TaCFXK1DKJu9oOmjRmwhO3Q+q
-	 en7mDMIogOjBX0+ckfY0t0bB1mGFlGkCzY3GAvqxhLYkZR7EhhuZ3dcRNHHTqv4VlF
-	 tJwwMSDUFxUWEpHhBij/hRs/rpBTdnjqRt7R5e8F8mB38UNuGFoiwEBZ4Wy3ACmPHw
-	 mZ695SP2Pjui0SSfsUsN5jQR6KEGbO2IYTQdBc/Ptk/Nrl+cL/i646XXmMQIWg6Hkl
-	 KXkC+J1SX9bMmLKFE2xJSBn8iaxTRpo6RYZQPJ/t9VI0UVuwpekkRfii+28UQ8nh2G
-	 GMgkwnV1jikdw==
-Date: Wed, 25 Mar 2026 12:45:47 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Meiker Gao <ot_meiker.gao@mediatek.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Bayi Cheng <bayi.cheng@mediatek.com>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, 
-	jh.hsu@mediatek.com, linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: spi: Fix clock-names definition
-Message-ID: <20260325-vagabond-magnificent-polecat-624596@quoll>
-References: <20260325031900.2099969-1-ot_meiker.gao@mediatek.com>
- <20260325031900.2099969-2-ot_meiker.gao@mediatek.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260325031900.2099969-2-ot_meiker.gao@mediatek.com>
+	s=k20201202; t=1774439192;
+	bh=UXUUhS3MAESFwPxbH9V2xQaAycdYVm3Q/qrCpTgLq2M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QQRqDgvcIFv1UYT2Xy68ZNtAj7Z2Zrat6Qx61hsA4BB4RnV6OfFu36FPZz9at23A4
+	 LyikZEwfeSGfASsfEdUgutelVYTSdSOJeEyLf60e03ftqtQkKzA36ctXesgR+dw84Y
+	 UUC4Cbie4i5C5zzHHo52Kgf0KZZDLmTB/eUluu1ASoA3w8Zbjr0l0ud6+2iQNhxLKf
+	 MHoD+viNrGserUMI4eqCd2e3KnTnil2/HpIDpyW/VVg6K4PIQ1XdLD13TFkSA5y0t9
+	 m4RAPWeybqob9aQMfs7XhBvYb5kgTeKsigBh1nkEf+KOpU2j5mftnpQ+SCciJCbgm7
+	 I+B2/GKESSz7A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w5Mgv-00000005XCO-3bKt;
+	Wed, 25 Mar 2026 11:46:29 +0000
+Date: Wed, 25 Mar 2026 11:46:29 +0000
+Message-ID: <86ldfg3ze2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ene <sebastianene@google.com>, Vincent Donnefort <vdonnefort@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	android-kvm@google.com,
+	catalin.marinas@arm.com,
+	joey.gouly@arm.com,
+	mark.rutland@arm.com,
+	oupton@kernel.org,
+	suzuki.poulose@arm.com,
+	tabba@google.com,
+	will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH v2] KVM: arm64: Prevent the host from using an smc with imm16 != 0
+In-Reply-To: <acPIdoA8oc7T8wKX@google.com>
+References: <20260325113138.4171430-1-sebastianene@google.com>
+	<acPIdoA8oc7T8wKX@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebastianene@google.com, vdonnefort@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, android-kvm@google.com, catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com, oupton@kernel.org, suzuki.poulose@arm.com, tabba@google.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_044550_271015_25274675 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_044632_918660_49F35F90 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +94,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 11:18:54AM +0800, Meiker Gao wrote:
-> Update the device tree binding for the Mediatek.
+On Wed, 25 Mar 2026 11:35:18 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> On Wed, Mar 25, 2026 at 11:31:38AM +0000, Sebastian Ene wrote:
+> > The ARM Service Calling Convention (SMCCC) specifies that the function
+> > identifier and parameters should be passed in registers, leaving the
+> > 16-bit immediate field of the SMC instruction un-handled.
+> > Currently, our pKVM handler ignores the immediate value, which could lead
+> > to non-compliant software relying on implementation-defined behavior.
+> > Enforce the host kernel running under pKVM to use an immediate value
+> > of 0 by decoding the ISS from the ESR_EL2 and return a not supported
+> > error code back to the caller.
+> > 
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> > v1 -> v2:
+> > 
+> >  - Dropped injecting an UNDEF and return an error instead
+> >    (SMCCC_RET_NOT_SUPPORTED)
+> >  - Used the mask ESR_ELx_xVC_IMM_MASK instead of masking with U16_MAX
+> >  - Updated the title of the commit message from:
+> >    "[PATCH] KVM: arm64: Inject UNDEF when host is executing an
+> >     smc with imm16 != 0
+> 
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index e7790097db93..4ffe30fd8707 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -762,6 +762,12 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+> >  		handle_host_hcall(host_ctxt);
+> >  		break;
+> >  	case ESR_ELx_EC_SMC64:
+> > +		if (ESR_ELx_xVC_IMM_MASK & esr) {
+> > +			cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
+> > +			kvm_skip_host_instr();
+> > +			break;
+> > +		}
+> > +
+> 
+> I wonder if it isn't better to move that into handle_host_smc() as this is part
+> of how we handle the SMC after all? (and it calls that kvm_skip_host_instr()
+> already)
 
-That's too vague. Everything is update. Say WHY.
+Yes, that'd be vastly better.
 
-Anyway, you ignored multiple feedbacks, was spamming us with multiple
-same postings and still did not improve. There is no versioning here, no
-changelog, even subject is using incorrect prefixes.
+It also begs the question: if you don't want to handle SMCs with a
+non-zero immediate, why is it OK to do it for HVCs?
 
-Read submitting patches and other guidelines before you post, because
-you are way past the point of making innocent mistakes and this looks
-like wasting our time.
+Thanks,
 
-NAK
+	M.
 
-Best regards,
-Krzysztof
-
+-- 
+Without deviation from the norm, progress is not possible.
 
