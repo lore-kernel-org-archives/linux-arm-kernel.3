@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A767F109C02F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 16:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADB3109C02F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 16:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+oIKMw02/5NrU9gJjgsRcVMEPVswN/SdR3kQEjqZ8tY=; b=jH8+e9c+iHfsNLvfAjlHceeGHw
-	0/NTBqDhlJmrvLQDpBYSQBY1arymxMMxjZ/N8WpwkMDF4serpuuW0tvqOMO3TVfngZPm0ozlj71el
-	MfKIeDYpjfBaLdpboy5qMt0o33epDQBqqRTBYUqEq25HRYJX3evAN3bLm/bn8YY9/Kd1BvrV/Uw6O
-	/MCat/SXLm10EQcgmqUApF3jqS2gAMSzu35OGwNskrb0Mql5o4OhxeDkgwdNmoZxrd7Eq7NDEC7Hl
-	CPI7Z60lphcUPJvjWYKxbYTO3n8qLli2YjpjKgdhy6ZTo7Iq3DTKQDvTossHo+OUNnx3QFGYaWWox
-	hKjP5vXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WOREcibyjzFVZRo0vDoLHxQ7fmZD72bSMhFFQGI9zwo=; b=CTtEFvsNGlpb2ZX9NMoLyjJAw1
+	VzrStLIHwiKLXvRZ1dYM4yHstt1ekCZoCtA6iyt9FD6IEXmz9XOAmVdDjgdAylRm9vrBVtb1DJjVf
+	ZS8Hhm5k/VUAPRdzfr4Qhr3wPC1aCUXr7wIcQNivg+PpNreYxcGd+8SLZPymo4NnY0U+7aSEvU2WV
+	uSv07pE6PVb7njqi9LWJoH+8nanb0l6mY5fNCiyX6vKMIjirhkdHyRP6h5ndxaKrHv1jM7qkjsJEi
+	lgQIl86LtIM1kOzJAAhFObQDXIGqWQ9SvfmOFSTuYfMGaEH84NqusiCGDh9mRCsEv5KThKkGa7Bly
+	IamNoOxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QgU-00000003qVQ-1JLI;
-	Wed, 25 Mar 2026 16:02:18 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w5Qgx-00000003qeg-0cD3;
+	Wed, 25 Mar 2026 16:02:47 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QgR-00000003qTl-0yf8
+	id 1w5Qgs-00000003qd2-2JMe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 16:02:16 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <f.pfitzner@pengutronix.de>)
-	id 1w5QgA-0002Iy-8C; Wed, 25 Mar 2026 17:01:58 +0100
-From: Fabian Pfitzner <f.pfitzner@pengutronix.de>
-Date: Wed, 25 Mar 2026 17:01:49 +0100
-Subject: [PATCH v3] arm64: dts: imx8mp-frdm: add sd, ethernet, wifi, usb
- and hdmi support
+	Wed, 25 Mar 2026 16:02:45 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-661ce258878so13311a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 09:02:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774454560; x=1775059360; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=WOREcibyjzFVZRo0vDoLHxQ7fmZD72bSMhFFQGI9zwo=;
+        b=JquMcBsxxusSN+OdcunydSLkONRpXEHCMDwrudzeb+nWH2i5oCxOCM3b1YDncdfOIP
+         Q8+b41DwtRQE12BmJQuhPA2FRuRkbKxF1rsollc6e4AwOrJMDGgwB3eIBSEaXWoh4UAZ
+         sXsvveFs1rKYMGbhqvOghyNjWzqmS02/lN/qZlZI6Bat4REWgTCIzGye5kytHx0a+4ab
+         nwaH4mlOqw4C0BCqx1t4w4ypFf9acazjPvJ2bx9lTiXAis1KuiJFn523RomdkMson9o3
+         EtGrQNqz1bm1Wa+7JGjxSMptjdXLxpXp3YcvDIugHuMeTUX7z40MeI8kz+DYIrjozwJe
+         sjXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774454560; x=1775059360;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WOREcibyjzFVZRo0vDoLHxQ7fmZD72bSMhFFQGI9zwo=;
+        b=MgV8xTxrQ8pkzAIPCbqco/o26iP4nQP5+Ufcev4tR2A0zpl7GhJWuxl1M5uo5brWjH
+         7OKBnb3QntDkQ8IBkpLPmx3DDsCWn+tr80feQ7IEjZf3I4VzfXdAo2iZsRc3Ba2Gs6SO
+         XdDCQN6rVEcMtpVP5xHNpDq1HYFhpzzd5W7cpjgDm4DepnxWo8gXCMvDrMySCVPX1/E2
+         /p/J7YAolLB4YrqmLOcvZvIWG77BkvAZMvsr2QIGaMcq3C4M6HLalDHt7Q4nF7Eho1h0
+         yncYj+oB4KTjzGExsCvTn+4yHL/CI5FZ2BLlMcOXa3XPDk8atbItLgbAnNKLvASwf67w
+         Hxcg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDuwjXBTVKflf+jBu1sDjC7vjyUrs0j08mlLaUAI7sShjvqfgvmd7MtbDhy2LVUCGgRLY42N6zaztZ1jIamu8T@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFsjfuvZcr9/cojZYQ40ITxHS8yl68BhRLJqiMkAkczSbdbOin
+	CJt83u3+g7BXToWmb6Fklso0Cbm1r/AIZ7rVUlwtJhZNR4o9WO87yfsgjAjFew3r8A==
+X-Gm-Gg: ATEYQzxiSN8XKk4T5Q2IgABkENL/s0sZFfHtKVUTwQUR8YVCCJrhoM6j4kxwV75+gXn
+	roX2xxFBs6l1orWjmwnwhb9Rc0Whxd24Yw3HZL3gk6VqueQ8Mo2Sx2/oGwAA8WpkQMei/TDMsYp
+	+9Hmnuo1fo50PNqWuO/OgyuPbfNMb+g25xRl7xMMMstPMZ9Lh/a7eULycmz3j5REaQExwWoLsO1
+	dsASGRHQfAsWTACMio6j7S8BBlERfb3wQfeljx5O5tK0kv/TUZahlPUKxQRLJzbt2YjzQBrKA4K
+	RXZW8n6Uv4zANYpUlZiTxogvvecNamAIpWTUWcyHGg0SxUGd+I7vDDo5QDcwl32GrfEYx38pNNr
+	yE2sDibXTB5R98Z42YRY24DemSBdFSDDyCcIYiPpbbyi72/LThFX5sVqV2fPnTS2mJI9PzB/aqR
+	zGB5lZoUOT5/ThgIhaZfcLI7ycH/SJ3OWVbhSshF9od8X9BnhlpNgeubPUh3sjf5uekRo=
+X-Received: by 2002:aa7:d1c5:0:b0:665:d39:4afc with SMTP id 4fb4d7f45d1cf-66a8274c788mr44728a12.6.1774454559069;
+        Wed, 25 Mar 2026 09:02:39 -0700 (PDT)
+Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9b20265cc0sm4031066b.15.2026.03.25.09.02.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 09:02:38 -0700 (PDT)
+Date: Wed, 25 Mar 2026 16:02:34 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oupton@kernel.org, suzuki.poulose@arm.com, tabba@google.com,
+	vdonnefort@google.com, will@kernel.org, yuzenghui@huawei.com
+Subject: Re: [PATCH v2] KVM: arm64: Prevent the host from using an smc with
+ imm16 != 0
+Message-ID: <acQHGivPRWuVCkxJ@google.com>
+References: <20260325113138.4171430-1-sebastianene@google.com>
+ <acPi5V0DgGcgHNGO@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-fpf-imx8mp-frdm-v3-1-1c98eade991a@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAOwGxGkC/3XNsQ6DIBDG8VcxzKWBw6rp1PdoOigceoNIwBIb4
- 7sXXTqYjv8vud+tLGIgjOxerCxgokiTy6EuBdND63rkZHIzEFAJgJJbbzmNSzN6boMZeSlAl8a
- KSglg+coHtLQc4vOVe6A4T+FzPEhyX/9bSXLJTW1Vd6u1bFA8PLr+PYfJ0XI1yHYwwQ9Rsjojk
- BEEbNrWoO7AnpBt275fzgXY+AAAAA==
-X-Change-ID: 20260224-fpf-imx8mp-frdm-402c4df06302
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Fabian Pfitzner <f.pfitzner@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: f.pfitzner@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <acPi5V0DgGcgHNGO@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_090215_584731_16158888 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260325_090242_604335_9D0F1E5A 
+X-CRM114-Status: GOOD (  29.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,499 +104,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the following new features:
+On Wed, Mar 25, 2026 at 01:28:05PM +0000, Mark Rutland wrote:
+> On Wed, Mar 25, 2026 at 11:31:38AM +0000, Sebastian Ene wrote:
+> > The ARM Service Calling Convention (SMCCC) specifies that the function
+> > identifier and parameters should be passed in registers, leaving the
+> > 16-bit immediate field of the SMC instruction un-handled.
+> 
+> That's not quite right; the SMCCC spec says callers must use immediate
+> 0.
 
-- SD Card
-- Ethernet (FEC + EQOS)
-- Wifi
-- USB
-- HDMI
+I'll update the commit message. it is the pKVM that doesn't handle it
+(the imm16).
 
-The imx8mp-evk dt and the NXP downstream imx8mp-frdm dts were
-taken as a reference.
+> 
+> See https://developer.arm.com/documentation/den0028/h/ section 2.10
+> ("SME and HVC immediate value"), which says:
+> 
+> | • For all compliant calls, an SMC or HVC immediate value of zero must be
+> |   used.
+> | • Nonzero immediate values in SMC instructions are reserved.
+> | • Nonzero immediate values in HVC instructions are designated for use by
+> |   hypervisor vendors.
+> 
+> > Currently, our pKVM handler ignores the immediate value, which could lead
+> > to non-compliant software relying on implementation-defined behavior.
+> > Enforce the host kernel running under pKVM to use an immediate value
+> > of 0 by decoding the ISS from the ESR_EL2 and return a not supported
+> > error code back to the caller.
+> 
+> From my PoV, it'd be fine to turn a non-zero immediate into an UNDEF:
+> 
+> * For HVC, we can say any non-zero immediate represents a request to KVM to
+>   inject an UNDEF.
+> 
+> * For SMC, the dbehaviour is not defined.
+> 
+> I am also ok with returning a value in x0, BUT that's stronger than SMCCC
+> actually requires.
+>
+> Mark.
 
-Signed-off-by: Fabian Pfitzner <f.pfitzner@pengutronix.de>
----
-Changes in v3:
-- Rebased onto for-next branch:
-  https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git/log/?h=for-next
-- Link to v2: https://lore.kernel.org/r/20260316-fpf-imx8mp-frdm-v2-1-e2e8aadecb2f@pengutronix.de
+Thanks,
+Sebastian
 
-Changes in v2:
-- Reorder nodes by name
-- Remove unused "realtek,clkout-disable" property
-- Link to v1: https://lore.kernel.org/r/20260224-fpf-imx8mp-frdm-v1-1-d7f3b57c18e0@pengutronix.de
----
- arch/arm64/boot/dts/freescale/imx8mp-frdm.dts | 407 ++++++++++++++++++++++++++
- 1 file changed, 407 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-index d69d78fed4e1b151be3948bb8ef0888eb016c667..b301cf3d425b1b748e2be8f223bb703e7a4355f6 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-@@ -42,6 +42,67 @@ memory@40000000 {
- 		reg = <0x0 0x40000000 0 0xc0000000>,
- 		      <0x1 0x00000000 0 0x40000000>;
- 	};
-+
-+	native-hdmi-connector {
-+		compatible = "hdmi-connector";
-+		label = "HDMI OUT";
-+		type = "a";
-+
-+		port {
-+			hdmi_in: endpoint {
-+				remote-endpoint = <&hdmi_tx_out>;
-+			};
-+		};
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-sd {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		regulator-name = "VSD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio2 19 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_usb_vbus: regulator-vbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "USB_VBUS";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&pcal6416_1 5 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_usdhc1_vmmc: regulator-wifi-vmmc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "WLAN_EN";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&pcal6416_1 10 GPIO_ACTIVE_HIGH>;
-+		/*
-+		 * IW612 wifi chip needs more delay than other wifi chips to complete
-+		 * the host interface initialization after power up, otherwise the
-+		 * internal state of IW612 may be unstable, resulting in the failure of
-+		 * the SDIO3.0 switch voltage.
-+		 */
-+		enable-active-high;
-+		startup-delay-us = <20000>;
-+	};
-+
-+	reg_usdhc1_vqmmc: regulator-wifi-vqmmc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "regulator-wifi-vqmmc";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		enable-active-high;
-+	};
-+
-+	sdio_pwrseq: usdhc1-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio2 10 GPIO_ACTIVE_LOW>;
-+	};
- };
- 
- &A53_0 {
-@@ -60,6 +121,147 @@ &A53_3 {
- 	cpu-supply = <&reg_arm>;
- };
- 
-+&eqos {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_eqos>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy0>;
-+	snps,force_thresh_dma_mode;
-+	snps,mtl-tx-config = <&mtl_tx_setup>;
-+	snps,mtl-rx-config = <&mtl_rx_setup>;
-+	status = "okay";
-+
-+	mdio {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@2 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <2>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pinctrl_eqos_phy>;
-+			reset-gpios = <&gpio4 22 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <80000>;
-+		};
-+	};
-+
-+	mtl_tx_setup: tx-queues-config {
-+		snps,tx-queues-to-use = <5>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x2>;
-+		};
-+
-+		queue2 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x4>;
-+		};
-+
-+		queue3 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x8>;
-+		};
-+
-+		queue4 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0xf0>;
-+		};
-+	};
-+
-+	mtl_rx_setup: rx-queues-config {
-+		snps,rx-queues-to-use = <5>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x1>;
-+			snps,map-to-dma-channel = <0>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x2>;
-+			snps,map-to-dma-channel = <1>;
-+		};
-+
-+		queue2 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x4>;
-+			snps,map-to-dma-channel = <2>;
-+		};
-+
-+		queue3 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x8>;
-+			snps,map-to-dma-channel = <3>;
-+		};
-+
-+		queue4 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0xf0>;
-+			snps,map-to-dma-channel = <4>;
-+		};
-+	};
-+};
-+
-+&fec {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_fec>;
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&ethphy1>;
-+	fsl,magic-packet;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy1: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&pinctrl_fec_phy>;
-+			eee-broken-1000t;
-+			reset-gpios = <&gpio4 2 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <80000>;
-+			realtek,aldps-enable;
-+			realtek,clkout-disable;
-+		};
-+	};
-+};
-+
-+
-+&hdmi_pvi {
-+	status = "okay";
-+};
-+
-+&hdmi_tx {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hdmi>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			hdmi_tx_out: endpoint {
-+				remote-endpoint = <&hdmi_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&hdmi_tx_phy {
-+	status = "okay";
-+};
-+
- &i2c1 {
- 	clock-frequency = <400000>;
- 	pinctrl-names = "default";
-@@ -218,6 +420,32 @@ &i2c3 {
- 	status = "okay";
- };
- 
-+&lcdif3 {
-+	status = "okay";
-+};
-+
-+&usb3_0 {
-+	status = "okay";
-+};
-+
-+&usb3_1 {
-+	status = "okay";
-+};
-+
-+&usb3_phy0 {
-+	status = "okay";
-+};
-+
-+&usb3_phy1 {
-+	vbus-supply = <&reg_usb_vbus>;
-+	status = "okay";
-+};
-+
-+&usb_dwc3_1 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
- &snvs_pwrkey {
- 	status = "okay";
- };
-@@ -237,6 +465,36 @@ &uart3 {
- 	status = "okay";
- };
- 
-+&usdhc1 {
-+	assigned-clocks = <&clk IMX8MP_CLK_USDHC1>;
-+	assigned-clock-rates = <200000000>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	vmmc-supply = <&reg_usdhc1_vmmc>;
-+	vqmmc-supply = <&reg_usdhc1_vqmmc>;
-+	bus-width = <4>;
-+	non-removable;
-+	no-sd;
-+	no-mmc;
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	assigned-clocks = <&clk IMX8MP_CLK_USDHC2>;
-+	assigned-clock-rates = <400000000>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
- &usdhc3 {
- 	assigned-clocks = <&clk IMX8MP_CLK_USDHC3>;
- 	assigned-clock-rates = <400000000>;
-@@ -250,6 +508,74 @@ &usdhc3 {
- };
- 
- &iomuxc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hog>;
-+
-+	pinctrl_eqos: eqosgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x2
-+			MX8MP_IOMUXC_ENET_MDIO__ENET_QOS_MDIO				0x2
-+			MX8MP_IOMUXC_ENET_RD0__ENET_QOS_RGMII_RD0			0x90
-+			MX8MP_IOMUXC_ENET_RD1__ENET_QOS_RGMII_RD1			0x90
-+			MX8MP_IOMUXC_ENET_RD2__ENET_QOS_RGMII_RD2			0x90
-+			MX8MP_IOMUXC_ENET_RD3__ENET_QOS_RGMII_RD3			0x90
-+			MX8MP_IOMUXC_ENET_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x90
-+			MX8MP_IOMUXC_ENET_RX_CTL__ENET_QOS_RGMII_RX_CTL			0x90
-+			MX8MP_IOMUXC_ENET_TD0__ENET_QOS_RGMII_TD0			0x16
-+			MX8MP_IOMUXC_ENET_TD1__ENET_QOS_RGMII_TD1			0x16
-+			MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2			0x16
-+			MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3			0x16
-+			MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL			0x16
-+			MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x16
-+		>;
-+	};
-+
-+	pinctrl_eqos_phy: eqosphygrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI2_RXC__GPIO4_IO22				0x10
-+		>;
-+	};
-+
-+	pinctrl_fec: fecgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI1_RXD2__ENET1_MDC		0x2
-+			MX8MP_IOMUXC_SAI1_RXD3__ENET1_MDIO		0x2
-+			MX8MP_IOMUXC_SAI1_RXD4__ENET1_RGMII_RD0		0x90
-+			MX8MP_IOMUXC_SAI1_RXD5__ENET1_RGMII_RD1		0x90
-+			MX8MP_IOMUXC_SAI1_RXD6__ENET1_RGMII_RD2		0x90
-+			MX8MP_IOMUXC_SAI1_RXD7__ENET1_RGMII_RD3		0x90
-+			MX8MP_IOMUXC_SAI1_TXC__ENET1_RGMII_RXC		0x90
-+			MX8MP_IOMUXC_SAI1_TXFS__ENET1_RGMII_RX_CTL	0x90
-+			MX8MP_IOMUXC_SAI1_TXD0__ENET1_RGMII_TD0		0x16
-+			MX8MP_IOMUXC_SAI1_TXD1__ENET1_RGMII_TD1		0x16
-+			MX8MP_IOMUXC_SAI1_TXD2__ENET1_RGMII_TD2		0x16
-+			MX8MP_IOMUXC_SAI1_TXD3__ENET1_RGMII_TD3		0x16
-+			MX8MP_IOMUXC_SAI1_TXD4__ENET1_RGMII_TX_CTL	0x16
-+			MX8MP_IOMUXC_SAI1_TXD5__ENET1_RGMII_TXC		0x16
-+		>;
-+	};
-+
-+	pinctrl_fec_phy: fecphygrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI1_RXD0__GPIO4_IO02		0x10
-+		>;
-+	};
-+
-+	pinctrl_hdmi: hdmigrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC		0x10
-+		>;
-+	};
-+
-+	pinctrl_hog: hoggrp {
-+		fsl,pins = <
-+			/* Pin might be required by multiple drivers
-+			 * (e. g. HDMI Audio and HDMI TX)
-+			 */
-+			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD		0x40000010
-+		>;
-+	};
-+
- 	pinctrl_i2c1: i2c1grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL	(MX8MP_DSE_X4 | MX8MP_I2C_DEFAULT)
-@@ -293,6 +619,12 @@ MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11
- 		>;
- 	};
- 
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_RESET_B__GPIO2_IO19	0x40
-+		>;
-+	};
-+
- 	pinctrl_uart2: uart2grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX	(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
-@@ -310,6 +642,81 @@ MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS	(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
- 		>;
- 	};
- 
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x190
-+			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d0
-+			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0	0x1d0
-+			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1	0x1d0
-+			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2	0x1d0
-+			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x194
-+			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d4
-+			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0	0x1d4
-+			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1	0x1d4
-+			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2	0x1d4
-+			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3	0x1d4
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x196
-+			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d6
-+			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0	0x1d6
-+			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1	0x1d6
-+			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2	0x1d6
-+			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3	0x1d6
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x190
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d0
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x194
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d4
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d4
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d4
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d4
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT 0xc0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK	0x196
-+			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD	0x1d6
-+			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d6
-+			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d6
-+			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d6
-+			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d6
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT 0xc0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD2_CD_B__GPIO2_IO12	0x1c4
-+		>;
-+	};
-+
- 	pinctrl_usdhc3: usdhc3grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK
-
----
-base-commit: 6c4b48012d57f205c94f25da0c68a4027ea6daf6
-change-id: 20260224-fpf-imx8mp-frdm-402c4df06302
-
-Best regards,
--- 
-Fabian Pfitzner <f.pfitzner@pengutronix.de>
-
+> 
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> > v1 -> v2:
+> > 
+> >  - Dropped injecting an UNDEF and return an error instead
+> >    (SMCCC_RET_NOT_SUPPORTED)
+> >  - Used the mask ESR_ELx_xVC_IMM_MASK instead of masking with U16_MAX
+> >  - Updated the title of the commit message from:
+> >    "[PATCH] KVM: arm64: Inject UNDEF when host is executing an
+> >     smc with imm16 != 0"
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index e7790097db93..4ffe30fd8707 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -762,6 +762,12 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+> >  		handle_host_hcall(host_ctxt);
+> >  		break;
+> >  	case ESR_ELx_EC_SMC64:
+> > +		if (ESR_ELx_xVC_IMM_MASK & esr) {
+> > +			cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
+> > +			kvm_skip_host_instr();
+> > +			break;
+> > +		}
+> > +
+> >  		handle_host_smc(host_ctxt);
+> >  		break;
+> >  	case ESR_ELx_EC_IABT_LOW:
+> > -- 
+> > 2.53.0.1018.g2bb0e51243-goog
+> > 
 
