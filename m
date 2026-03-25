@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D83106B50C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC2F106B510
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 12:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kerl1iQmYGm8gQ7FFR0gPgGjFHvwLuXJ4NqS/PSKu0Y=; b=PemGLYXHz5KE5ffwyVUQWeqOvD
-	D9lJYgyvq/HYvBzxUq4ilwdL3++2FRVXCkuLl7xjjPWKM7T1zeDIAqr8XRdKS0NxXfgbprOR5C+Fm
-	7iNtpFsyjhsPvdrIr2oofjQJhYO+ZmGuirIAmlaOrQ/fqzuggrCtI0llWdbob83KSp6+q8egjvLuV
-	m5eO/gFU+3XXT8xX30uIrNLaq1pqNJKiIiqwJRASod/+2n2BRhd/hIopXGVXh6+SYPwodhkEuVSxm
-	D2fcqW5a0r8Gmlmv8W4D8daIY73wGuyHJDdqCBitCeXaC/syJYZscFBrlJzN/C8NfgudOlYX+V8bo
-	ax2SEzQg==;
+	bh=PLOm9XjuNpTv3crP433snW9Y0q8ywlGOwYlifFWD9Ic=; b=hQUdoDxUptBAOV2c/YLLCAouzG
+	t87WvYUf5XwY7+03NLOZTV0NdJI+1MYv4n0v0ooyl1eAHrZM4uAQzh065SUhL+RNvPieplcnEZrOd
+	mOf1LiIpbanaTGDRE/Z+7x7XAm3b5zfdi3iTU2Ki8eLjD3WlSnIh6yQ9bn37jAo4gCRO9LitJ6f5T
+	ZwpR8xlxQYcN9DcqlI8vdni3VDy7Y5qe0pncJGvRe7Jl25idp56n5RTIz0y+EdphG9DKRXt3yv8vR
+	BHiUGxzmL+27I8/zCczj64NbrkZN68wJ39QkrUNJcS/HWtk73RSpBvi4M3jWxj5WDPWkxmy60Z4gi
+	9lAYARLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NCU-00000003MWK-2NCf;
-	Wed, 25 Mar 2026 12:19:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5NCS-00000003MVw-1Bm8
+	id 1w5NEZ-00000003MgO-4AU4;
+	Wed, 25 Mar 2026 12:21:15 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5NEX-00000003Mg3-2ChM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 12:19:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93DEE1CDD;
-	Wed, 25 Mar 2026 05:18:55 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA8CB3F915;
-	Wed, 25 Mar 2026 05:18:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774441141; bh=1VtDicBwAjX99lDG8d/05N68hlmGlfDw/kov2CzrAp4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aYBkDpc2eDgHZyQYHUoLAJt2BHIwIuu/WzM82njvOdvPK44tY2BTYfF1eKgyd4v8L
-	 jkFp7WvXP3UcDuR8vZ5f+fHqBfqf7lwWgAgvqmrtuTH2NUXqd/eVS9CHL+PHz3AY1T
-	 bZfjCEdbZQgEA1N7owJazQjmtMlplncihp3GV5LE=
-Date: Wed, 25 Mar 2026 12:18:53 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: clock: Relax check in
- scmi_clock_protocol_init
-Message-ID: <acPSrTxMkfdeNOfr@pluto>
-References: <20260324-scmi-clock-fix-v1-v1-1-65c21935824b@nxp.com>
- <20260324-lean-bobcat-of-reputation-6628b5@sudeepholla>
- <acJI7o79lVNMjV_d@pluto>
- <CAMuHMdVcE439Cyn-TCoioLZXP-YpqObZ0UF8F2NvMCZ41eO6QQ@mail.gmail.com>
- <acKhJ8Z9WDvHEnYL@pluto>
- <CAMuHMdW==oMpCS==L8ADexPC=4uczNwK5UD6DequBjGOKQfOZw@mail.gmail.com>
- <20260325-spiffy-analytic-sloth-eabfea@sudeepholla>
+	Wed, 25 Mar 2026 12:21:14 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 148B01FC3D;
+	Wed, 25 Mar 2026 13:21:11 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1774441271;
+	bh=PLOm9XjuNpTv3crP433snW9Y0q8ywlGOwYlifFWD9Ic=; h=From:To:Subject;
+	b=JAU0gmmPMd1iVqtE16jH7H7pDG2riyi1NUZlA/MxZ12t+WjaNP1dMxqSShWUHGkIV
+	 Xzf+zvn83Qp/1T5tk370e1X7QyfyIxFKXqc5wHCzJKZS/an56mZ6vUO9pQiI9s0i4i
+	 IqSgEJtDtP4EdCKn/hISN0aIShN70LRhl/utqg4QYUgpWYMs4evzd17/evnV7jE+Ag
+	 1vX++PbpqmN6QkeW3OeZkZ/vshzTpLcoY/mdVkaWTFVzyhxpGlm39d1un80Qj8BOyb
+	 VKKXfOH5gpbFe09WcN9hdsUR31159AxcBI1rCIJ7sXBF/h00n8xPSDlBsCW+Y0SvAz
+	 aD2lAmBjVYleQ==
+Date: Wed, 25 Mar 2026 13:21:04 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 0/2] Add support for Variscite DART-MX95 and Sonata
+ board
+Message-ID: <20260325122104.GA19112@francesco-nb>
+References: <20260313174707.26902-1-stefano.r@variscite.com>
+ <abRdwy_AS046QVRI@lizhi-Precision-Tower-5810>
+ <acLqjeqmR4eVDoKw@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260325-spiffy-analytic-sloth-eabfea@sudeepholla>
+In-Reply-To: <acLqjeqmR4eVDoKw@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_051904_400705_ADCC98F5 
-X-CRM114-Status: GOOD (  42.00  )
+X-CRM114-CacheID: sfid-20260325_052113_742816_4AF248B2 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,89 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:06:15PM +0000, Sudeep Holla wrote:
-> On Tue, Mar 24, 2026 at 04:32:55PM +0100, Geert Uytterhoeven wrote:
-> > Hi Cristian,
-> > 
-
-Hi Sudeep,
-
-> > On Tue, 24 Mar 2026 at 15:35, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > On Tue, Mar 24, 2026 at 02:15:36PM +0100, Geert Uytterhoeven wrote:
-> > > > On Tue, 24 Mar 2026 at 09:41, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > > > Looking at the spec 3.6.2.5 CLOCK_ATTRIBUTES
-> > > > >
-> > > > > "This command returns the attributes that are associated with a specific clock. An agent might be allowed access to only
-> > > > > a subset of the clocks available in the system. The platform must thus guarantee that clocks that an agent cannot access
-> > > > > are not visible to it."
-> > > > >
-> > > > > ...not sure if this sheds some light or it is ambiguos anyway...I'd say that
-> > > > > NOT_FOUND does NOT equate to be invisible...
-> > > > >
-> > > > > ...BUT at the same time I think that this practice of exposing a non-contiguos
-> > > > > set of resources IDs (a set with holes in it) is the a well-known spec-loophole
-> > > > > used by many vendors to deploy one single FW image across all of their platforms
-> > > > > without having to reconfigure their reosurces IDs ro expose a common set of
-> > > > > contiguos IDs like the spec would suggest...
-> > > > >
-> > > > > Having said that, since we unfortunately left this door open in the
-> > > > > implementation, now this loophole has become common practice
-> > > > > apparently...
-> > > >
-> > > > When I first read that paragraph, I was also confused.
-> > > > What does "not visible" mean?
-> > > >   - Not present in the clock ID space exposed to that client of
-> > > >     the system?
-> > > >     Yeah, multiple different sequences of contiguous IDs, depending
-> > > >     on client!
+On Tue, Mar 24, 2026 at 03:48:29PM -0400, Frank Li wrote:
+> On Fri, Mar 13, 2026 at 02:56:03PM -0400, Frank Li wrote:
+> > On Fri, Mar 13, 2026 at 06:47:01PM +0100, Stefano Radaelli wrote:
+> > > This patch series adds support for the Variscite DART-MX95 system on
+> > > module and the Sonata carrier board.
 > > >
-> > > Yes that is the most spec-compliant interpretation usually; in general
-> > > across all protocols the SCMI server, through customized enumeration
-> > > results, should provide a per-agent view of the system: this should help
-> > > handling shared or virtualized resources, since the agent always see
-> > > only the 'illusion' provided by the server...
+> > > The series includes:
+> > > - Device tree bindings documentation for both SOM and carrier board
+> > > - SOM device tree with on-module peripherals
+> > > - Sonata carrier board device tree with board-specific features
 > > >
-> > > ...under this assumption if you dont even need a resource at all (not
-> > > RW nor RO) you should NOT even be able to see it...this in turn of
-> > > course means that in order to expose a contiguous set of IDs you should
-> > > be able to properly configure at build time the FW resources on a per
-> > > platform basis...
+> > > The implementation follows the standard SOM + carrier board pattern
+> > > where the SOM dtsi contains only peripherals mounted on the module,
+> > > while carrier-specific interfaces are enabled in the board dts.
 > > >
-> > > >   - Return failure on CLOCK_ATTRIBUTES?
-> > > >     Which is what implementations seem to do.
-> > >
-> > > Yes this is what is done leveraging the gap in the implementation...I am
-> > > not sure that the non-contiguous set of IDs is supported if not by
-> > > chance as of now :P (especially in other protocols)
-> > >
-> > > > The next step in the fun is when the system actually needs to know the
-> > > > clock rate of such a clock...
-> > >
-> > > Well...that seems a bit of wishful thinking ...
-> > 
-> > Unfortunately it is real... [cliffhanger, to be continued... :-]
-> > 
+> > > v7:
+> > > - Order nodes in symphony dts
+> >
+> > Can you run https://github.com/lznuaa/dt-format for new file to easy
+> > track and check by script later.
 > 
-> I am late to the discussion. Based on all the discussion so far, I don't
-> want to rush the clk changes from Cristian that adds the hardening yet.
+> I applied with below change
+> - update copywrite to 2026
 
-Agreed, the whole series with the iterators and hardening needs fixes from
-Geert upfront...
+How do you know that the correct copyright year is 2026?
+The copyright years does not change to today just because it is the year
+it was submitted.
 
-> I won't make it part of my SCMI v7.1 PR. However is it good idea to keep
-> it in the next so that we can converge towards some solution in v7.2 ?
-> 
-> So, the question is if I add the fixes from Geert[1] to my queue, will it
-> be a good baseline for all these changes and discussions ?
+I think that you should refrain yourself for doing these kind of changes
+to the code when you apply patches.
 
-Yes having my iterator series plus Geert fixes on top would be a good
-starting point to have a sane kernel...then we'll see how many quirks or
-de-Hardening will be needed on top of that to make all firmware
-survive...
+Thanks
+Francesco
 
-I will re-test on my side in the coming days but anything that goes on
-linux-next from your next of course has a more broad audience...
 
-Thanks,
-Cristian 
 
