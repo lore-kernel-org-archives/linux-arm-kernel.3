@@ -4,99 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C394109E52C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 22:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFE0109E522
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdqH9GF/jHNSyWBdrNC7S/eoQNumPq7J4tkoPlO6e90=; b=ANjkGL7sBQMLsSQjojbi+36dSF
-	Sd7E27skRGkcmIeEgqmVg0ciIeBrCsctFAJG6lTFYljdrv0dpGqjPYdjJNyruXXFLgQGYk3w0gTd6
-	p1sq39bKMdLQ2SJ1TdZnxcpz3r3DFYTwcXKYl7IQOTlIJLvXFGmol+uG7QDQeT6WPvlg8KTeQL2xx
-	OSBqaQNCC7bj4QTghha2vNeiCw3N3zbplrYNDlAOTobxKdsZUUi+vz2jCELlpc3ySZs3QX6ku6CEO
-	BFTiL4LBXBCN+I6zMIfBbFgx1KYek4L3UKpmgvh02Bw1gS2+i7vGd2h1VFb0SG9NpVc5llt+vb2m4
-	a8ZeE6NA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rDtbKSqjnt6iFJq8x5U0QzAkLelaLAXYOnTcZlPggpY=; b=xIk3QkR6+VXRBXdA7qxtNKRace
+	/cqBMyr78EGs+Hu2u2pszHbMJ+Ad6zXJsvt4+00arvs9FlCNpV351kBNuklCUNn2VX7uEGrebHoJq
+	OXVmpwLN7qYqF9Kh9gXmx2mjNx4XKoF6oNTq93dW3YVf9+fWb0l4KPnRsNNbB3ectKow4bbwhThPL
+	yhbZeL+2YV87k6nP4aRk8jmZaxg3QW6YfN9XZeo7QEZgSs3Xz4BP8x1w65f7n2Ltn9rDiFTDVRsdL
+	zDhIruFv20AqCeVr75WxKtonJvDVm8xUhV9lX/D670AldGPNPws0EJeFyApNfu1CR0r/5z6Eki2e2
+	/PC+uNLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5X8M-00000004Np0-3I6f;
-	Wed, 25 Mar 2026 22:55:30 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1w5XHA-00000004OGM-3KkC;
+	Wed, 25 Mar 2026 23:04:36 +0000
+Received: from mail-northeuropeazon11011038.outbound.protection.outlook.com ([52.101.65.38] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5X8J-00000004NoB-3hJQ
+	id 1w5XH8-00000004OFj-1V0z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 22:55:29 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-35a288a2c00so162970a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 15:55:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774479327; x=1775084127; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CdqH9GF/jHNSyWBdrNC7S/eoQNumPq7J4tkoPlO6e90=;
-        b=H2DDSivD2Iw3o1kLaJFilfcmvKZQtBOFU39vNSEHAxx97Z8Z//NV+CQZJ00vJ4Qft0
-         fPqTHHFv97iw5DLQ0r2NpNbpr9vOO4hphncoqenke530AScTDfIRccUMn5kxLDShhsWH
-         Dqu1Qzg60GGNQy+zfXtsfs/Zu+7rIr+aHS3HCrOzog8JS1iQD4qMNraEbDRHQrki8l4o
-         Y9wNMwr45qqso+juVfKd+K0yWpD2A6ZRNjNe5MU+3Pew0yqKG0pu61a4EAcmXLfBLa74
-         WB7S2wrA1vyU2EqIyurbUeP6SP/w9P+eKVsHN1b+I7chWZIM/5xp6TYQ7IGq71Tg4uTx
-         V2JQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774479327; x=1775084127;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CdqH9GF/jHNSyWBdrNC7S/eoQNumPq7J4tkoPlO6e90=;
-        b=dpTeVq9ao2dkGs+ueiRyWaVjIny1cEb0l6ANvB19qj3H003tGp/QvVxzcw5gYbsOdP
-         9ypNsEuySkfJNa4Zq6dH2u2ENc0mbFWmiqKgQI+RZ2YhHrdSLduesQAz45SHg8XyHDmW
-         UPnL4/5fxyfinJhwb5OjuD5T9dWp/iHbbVbFyCxEs1h+9IPpsD+fah8+ssvSpjvoFjoi
-         OPuSMytu8DOzHuKNN2K8rNIWQZVKygmJ3GXUKkJ9tU9FGm32PeOaHZiIlmlfFTX7OeRB
-         RsPTzJOM8ZEKcXIMpKSaLxBDKpjvx95OF1yXjU3aqBIednqQT1zAdFRwuq2GACEGr3ts
-         fceQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWjguT5Vj5T+P+Bzh42DFMvqqZBDAz2mn1z4QVXZSlobgJ0FNIehqESJi3fT21vAskwD7FfniGbx8Bx4MQ7LG9B@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTUN7QnmOB17pkh1qH25jDJU4uQ34hIVepCMqA6mSj5HB/Xwff
-	tFlvrXm2j/MYVI43QaFCAfB+9C8a1OOfKJg6RXgtKZYPSZthi1n43Pvl
-X-Gm-Gg: ATEYQzxr4ybnvtbTIZBTKOHEWYBgL6vUE4pyHdz3f6j+yTNE2mgCc28dTb/rX4tgbBJ
-	Gf/ZGL5AUMMXPGh9bEA2CpHk0erw9gZAo/89m73YsmuRj14Tjai40e+X19MylBS4BFGyNZ32m6F
-	yU7M+3LYre5JCfG2iqwP2vfEKZKzXIqVtq5GqAF/5bpEaGUo0iZABsUrhtWD54WZTTVWMbn4wBJ
-	VGpHbTQZyRiERJpdmUy+QdQR/y+xtXhhce2k+zD6fa2ZML4qR3crvHQYTthQEfAYya7FSsPcT6g
-	QriB/O1raBQSzXWEFYK8U22sxAo1rJXYS0HqGeojRs6gDWGvEyMWpe6OvJ2Eva/UaRIshX6HAse
-	GQJ4MzCNGE39/P7fF+IvfR+8QUBuZbi4HWCoTZYZwHBfVmdbkHqJnyZuC9FovjcunW0hC2eBoOE
-	wWehu4NxguGbyKtoObYhOLO+PA
-X-Received: by 2002:a17:90a:e7d1:b0:359:ff8a:ee4c with SMTP id 98e67ed59e1d1-35c0dd11280mr4584019a91.11.1774479326857;
-        Wed, 25 Mar 2026 15:55:26 -0700 (PDT)
-Received: from arch ([2409:40c2:5018:3ab3:ebcf:9aee:dece:80da])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c1e1a64absm84066a91.2.2026.03.25.15.55.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 15:55:26 -0700 (PDT)
-From: Bhargav Joshi <rougueprince47@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xuwei5@hisilicon.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ulf.hansson@linaro.org,
-	zhangfei.gao@linaro.org,
-	linux-mmc@vger.kernel.org
-Cc: daniel.baluta@nxp.com,
-	simona.toaca@nxp.com,
-	d-gole@ti.com,
-	m-chawdhry@ti.com,
-	rougueprince47@gmail.com,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v2 2/2] arm64: dts: hisilicon: Rename dwmmc nodes to mmc
-Date: Thu, 26 Mar 2026 04:24:39 +0530
-Message-ID: <20260325225439.68161-3-rougueprince47@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260325225439.68161-1-rougueprince47@gmail.com>
-References: <20260325225439.68161-1-rougueprince47@gmail.com>
-MIME-Version: 1.0
+	Wed, 25 Mar 2026 23:04:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h9nRkzwWsl7OI4nGYaOndwuEimUMd0nLOHza0vRON4DtZZ3vMZRURCoCvKi8ZnErJT4oBmafBA6UqRBzmdt/G7csZcMw/X5Qbzg7BOjMWDxOOECnRmEPiwx0EnoNI/iALY38qTy+0BT6yYAe0Td0zCkzjgGILuOKbraMwvg7t49bPisiixS4VNBk93fpJGwLOsKIWxUqhLHrduZjumGfMMTnecUFwLBI8RIG18AIcMk5jBb/APNdvk+1/nkNvjUaGV5FbBUKDxWB1Md29tln6Wlfpppff1n/eGPDqjUWIzzFTmV1dGTAeeHDMR+oHwwmODaNYebMeFgIityOk91bRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rDtbKSqjnt6iFJq8x5U0QzAkLelaLAXYOnTcZlPggpY=;
+ b=Q3Qi2Py4RlHnstMy9Es6VGEBqM4XelWEHqeJrsNoXYUlZ/4I44cTxGHyM0fn1HhBsu7lX/G+IHCdwmb+lmI2aXrozpBTUgsYxxJYSF5mSjDR0IffTHfh9NcT5pK/FemsUyt06JVWuAqb/0tQSvXxgdN5TyBwyt/ZudKGHuy46fYZkTYWAQZJCOMcnTd6AJuajMeVj6wpAd+zxt6p9GHTffm6Mxj0/Ubiq2cOCyMPtdC8dHPxFgOUywxsZ7HD1DjAEPYWAsGosaycUWNymPCM5uy+VPgPZVlO3HDu2BFUjo+2C8mQOL2YvHz2P0V2GWcFWXFv4Gq6TtR0MTxJkudCJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rDtbKSqjnt6iFJq8x5U0QzAkLelaLAXYOnTcZlPggpY=;
+ b=J/JmKopFVVZJPkbIYSkTPQk3i0l5tpU9YbflDA/nUWvuNlk9gCzCDp2iEh2R+qu69r/ollH4ev/jIjcZX7BPooOnVRavug+j8kiMV7B1ed8sfJNvpOHhLv0FdILekLcSvhTpIF7mF+xbxoT1ekL3RgGfF2PPQ3JxRPDHOMLIFFerKJpvgMn3BuUofK5HR7LfY2kg1oLO9rTPnW0fvy0aHEuT766NNVMBYVVXCxWaBXPCHH0sl9AvWyJCgtvX3zX7J0tfMkh3VFIUiTZeh2EKmbBh0YsrH5HkL7CEroZDI8gqPRnUoCjJ5xpWIDhZplArl/VEbwvqbeSyE7jYydkegQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by GV2PR04MB12140.eurprd04.prod.outlook.com (2603:10a6:150:30c::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9700.24; Wed, 25 Mar
+ 2026 23:04:28 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 23:04:28 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v4 0/7] pinctrl: Add generic pinctrl for board-level mux
+ chips
+Date: Wed, 25 Mar 2026 19:04:09 -0400
+Message-Id: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOlpxGkC/1XMSw6CMBSF4a2Yjq3h3j4AR+7DOKCllSZSSEGCI
+ ezdQmKww3OS71/IYIIzA7meFhLM5AbX+Tj4+UR0U/mnoa6Om2CGMkNgtHdej+FF2/dMa1tqoaQ
+ EwTMSRR+MdfNeuz/ibtwwduGzxyfY3l+nTDoT0IzKvKgRJMvzorj5ub/oriVbZcI/iSKVGCVwJ
+ isUtuKCp5IdkgGkkkWJTCrQkCtbqkOu6/oFw29sDhgBAAA=
+X-Change-ID: 20260213-pinctrl-mux-df9c5b661540
+To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774479864; l=4715;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=DmAPb7OZBiyKeLz0y2fs7pQjSz8NwO/m9FoRgPem4PY=;
+ b=YCocW9qYb7CRV2MaU0pCcyFyTfgzw/Cepw9a7vvZRfYlfWJlxG0qYwipw1MFKFxNk675Flvl6
+ VpNDMcAMuBSCnL935Lad7DT/0aKToI11lrzTh/dkW3oCiMXDKJqjJxp
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR03CA0161.namprd03.prod.outlook.com
+ (2603:10b6:a03:338::16) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|GV2PR04MB12140:EE_
+X-MS-Office365-Filtering-Correlation-Id: ea410de2-f67d-4922-eed6-08de8ac2dda0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|366016|52116014|7416014|1800799024|18002099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: 3Ix6BL1IG+Eilhxa3QkqcCHb2QIuXnYcHDnjFegS8k3kcnNMyDtPLaqHxxU9Su9TYS0U6lChWWO7EHs6pGae5mFMIwq8smUb/RX7cu1jjo0ToWscz2+ofiwjIAsTlQep9SZLBC7Xh+gi0332717xAzgo4KrLLV2B4f+nAXAgW2nX148ZVWrRavLbKV+uBLQDz3wXRVN/hd3fexDbr7gVrZ//zyCXDluNn5XA55MKfdykjaTuCY0Ctm3fCMgEi7RjfVAT2kTAdQXcLaX1+tRjIVuxKoszcubRQM5OOX765z2wOePl0DJJUYn71q9kZa+b/zZ6By5PjnD9we7l17sXNu2ymOUVDEtGr6ETw97r8f3bZP/zKTgfW1limpuxZ8BASc98RTH/jMH5KOKRxqaGp5CTbGlwGXlDg3Zcd0nxGWGdx3mpcIUiTNtZIIRVKkVk3CZsd1W3DEDT7B56fdJ8WBzGBCcHMhzNeCPZI4mOi8nHC4gZ6H3SPXhSakYLJ2Q1kI/pAz7fUUcRmi3JHl5Q28A9pkQPhRfmOI2bxydNDugQcv0+Tk8LLI7VjNfRorE+//5v6ijVNjLGHQjxumX7Q3C2FAo77wDmkxoXHGxGlU8VW3eHa6h7bhL0DfFCIv3cvN4/M3lFqZSVeAaN8zJ7scwUk6jFw4Pr1HE2saFMzbpZuvfsGJtw51nXubZN+xEnOtaJTuv4aT+owhZj08mBWNYxMyBsGCD5XI0f116RQbHjn43ukd9baqFxsIXX5qFW0KEx5RB1+OKfFkJQSgC9fky77uUQ5KhphkKJwezCf/8gabsdM5P1jc+TJF50rm0W
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(366016)(52116014)(7416014)(1800799024)(18002099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnQwMkNJQXpySzBvSUVTdmY4a1VZblJscmhNdk9EVjduZmVWNzlkaFlQN25v?=
+ =?utf-8?B?TFRtZTVsUnNqTlJZd0NMcFpFNkdJWTRkY2dRNXZpYUlpdEJ5MXVLSFNOL0Zz?=
+ =?utf-8?B?eVdvMjVMcmxOV25VOWlHeE5qbnppUnFjSkdaODYxWWQwRVhXcG1KNWl4clVY?=
+ =?utf-8?B?UnFGY3FqZWszTndRL1E5ME1GbURZb3ZLeFlBeEZDVjhtUHZYd0tQUFp6M0hk?=
+ =?utf-8?B?QU1oODMyYi9adTE1SHIvL28vYnN0enZKTGlDbnZqMStyR0x6QjlxQ05wTXdo?=
+ =?utf-8?B?K1ppdkkzaGM2YjR0V1J3MU5mN245TG9kc2psR3BuK1F2cGozSkxMc2FBd1gw?=
+ =?utf-8?B?UVBnS2NMd0QxVGVRaXhBZ0ZGeGU1OTZvWTd5djV1Z0lkMG44WWFjTkhZRWR4?=
+ =?utf-8?B?QW95YWlRSlJYeUpnNVdmTXIxMU1HR2MzZk1RMUNneUZCT0ZnenpaamcwemEv?=
+ =?utf-8?B?d0Z0ZlF5QXM2d2d2bUtiVHJOM3ZrVnZPellGUE1XRU5WMGhBK0FSNUJBTm51?=
+ =?utf-8?B?SG05bSs1eGVKZ3N3U0c3QTdRRmJ4ZWJRcm9RU0ErZUtvWmR2dmpSbGhWS1My?=
+ =?utf-8?B?V1VoZXREY2h0YmRvaGNjb2pUTlVSeVJQVWlyKzdJUFZGQVBHTlJmNW5hNHla?=
+ =?utf-8?B?QU1XdHJTUHVIWUJ4QVlZaFIzMUVsYTEwWGVmWFJJZHU4VFVLZFNaL0tNY0Vk?=
+ =?utf-8?B?NU40alFEWHJnejNFbHpKQzFXZ1RTWno4UkdBbk5EbTJJdm14emZLa2FQanFH?=
+ =?utf-8?B?akVlRjJpMmVFM01DSElZNXMxUjZQUjNtUGFmRWtFdUFuWkR3Mzd1blh5K0xT?=
+ =?utf-8?B?RVpHWU90Vk5MS0E4WFl4N212dDJwd1MvdHlkRnU3M0VKMlk0WHhwVDZXSWFk?=
+ =?utf-8?B?NjZRZkJkdmMzYk82OU5yWXZGc2hsT0tob1NmT3l5OFNGZTZEejVRRnhjcVdx?=
+ =?utf-8?B?UDNnQWtwWWhhN2lyVHVSbUZCdE1HMXdZQ295QjhLVTJocmlrZnk5VXJsZloy?=
+ =?utf-8?B?MHVrRXJ0bXBBTFdJcWxMMXF4bHNMMi93V05MaHJaTVZzVHpVNU12eXZUK2hQ?=
+ =?utf-8?B?TjFKekRLSG1sc3pZMzlacVZlS1IxaVhPa1JNU3JlVVpRMEhvWkk4UGZZdENa?=
+ =?utf-8?B?ZHlYa0lZVTZ4bmtJWVRsOGRYOGQzZ1Rxd1FrcEI0U2oyY1JySUQ2OVlHVGNW?=
+ =?utf-8?B?Vjd3TVVrb2NMQzF1eGJKN25tM0RGZXA1QWlSZDVWTG5ZL210bFRRNXkweGxt?=
+ =?utf-8?B?ZVpOMDZnc3o2UGQxWVVNNWt0SlQ1TVZ1WXlIaXQzczR3V3pCQ3BrbzQ3WUFF?=
+ =?utf-8?B?NWVwSEM1N25vWjcrend0d2lCaWhMb1ZFdS9KSnlrVGxTbnFMaFg3cy9GTldO?=
+ =?utf-8?B?dHh2azQ4NG5kZXBtTkJXaEJ0WlN4OVlURUZXaTZ2K3E2T2NWSnl0M2puZytm?=
+ =?utf-8?B?RzdvZm1SdHBBWTNCZ0ZBeWUybVNCUXhJYSsyWmVOR1RURkhpbzB5T3hwOUJO?=
+ =?utf-8?B?Z2Q5MTcwNXg4Vkh2YTdFZVBZelVNWk9TSUdsczJLR3JZWUVobnN1OUxDQXhK?=
+ =?utf-8?B?dkUxVEV2T3JPWEhxTGFicG15ZFZzMksxT1M1RUxJZUZvd2VQQU10Q2VqZmFk?=
+ =?utf-8?B?MXlxZmk3b2Y3QmV3WDRGaXFTZG85bWZZZ2xzRStXT1B2cnBFd2JCRDVLbUps?=
+ =?utf-8?B?SWxaSjY3czR5cFNtYUd3ZjNCVkhlOGJ2YWM3aFJSUVgwQWhDL2xoSTQ1dGU1?=
+ =?utf-8?B?Vm9PYlNiN2xTWnRDdmN4NnFSL1VURFljdXNlSTZmNWpKS2RVdmFhMDZCMm85?=
+ =?utf-8?B?bEx2SlZWVTlmQktlcmFaZHlPNkRxYW0yZEl6Zy8raWhTcVdJL2RRSzdMa0Rp?=
+ =?utf-8?B?cFQ3cnR3akR0WURtMkZxRXBIdUJ0dmpqVHdsMHhsc0RJanpONW0wSU44ZSsx?=
+ =?utf-8?B?Znp1N2dqMmI4REVRQi9tN2M0YWlkcjFJL0NCRy9YeVF5b0UrWVRrQ3RrT1dV?=
+ =?utf-8?B?eS9pTnFiM0xseCs1aldMc3NVbG1xNHNLaVdnMXBYRFc2MlRSMUFETE5ERHli?=
+ =?utf-8?B?NG55aGxXVlFsWnZGQi82aHlSUFRpWFFkbjJFdXZIWWcvOEx2WDJlVjF5ZVJN?=
+ =?utf-8?B?MkYrT0U3a3c5TkNNYkc3YjBMR3FTS3RsNUVvMlhFeXpPdElFc2MrOHlTLzhv?=
+ =?utf-8?B?dnZCU081ZWZ6Z25aOHpSSU5zd3I3MWdjMkdlUnM0a0RSU0w1dHp1akpIc0V4?=
+ =?utf-8?B?S3B4N3piRzAyaDZZU05LaWl2eURpRkNSM0NzMHBIY3QwWStiWHRLRmJHM0d4?=
+ =?utf-8?Q?s7Ehjv6J/bHOypbk9Q?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea410de2-f67d-4922-eed6-08de8ac2dda0
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 23:04:28.1664
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GWwfFHtVPsUC00ZyHUBRNNa9PpCrr4j2kIJ659PUL55Zw6GbbqMAtJ1WwZVsNqsuyJ9D+jp/xL9Fx1LTSY0a4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_155527_922925_08BB4E3D 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260325_160434_437999_4D1C2F51 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,106 +163,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The core mmc devicetree schema expects mmc controller nodes to be named
-using '^mmc(@.*)?$' pattern.
+Add a generic pinctrl binding for board-level pinmux chips that are
+controlled through the multiplexer subsystem.
 
-The legacy Hisilicon SoC files (hi3660, hi3670, and hi6220) previously
-used the 'dwmmc' prefix for their nodes. This caused warnings during
-dtbs_check.
+On some boards, especially development boards, external mux chips are used
+to switch SoC signals between different peripherals (e.g. MMC and UART).
+The mux select lines are often driven by a GPIO expander over I2C,
+as illustrated below:
 
-Rename the 'dwmmc' nodes to 'mmc' to comply with the standard schema and
-dtbs_check warnings. The legacy phandle labels are kept intact.
+        ┌──────┐      ┌─────┐
+        │ SOC  │      │     │    ┌───────┐
+        │      │      │     │───►│ MMC   │
+        │      │      │ MUX │    └───────┘
+        │      ├─────►│     │    ┌───────┐
+        │      │      │     │───►│ UART  │
+        │      │      └─────┘    └───────┘
+        │      │         ▲
+        │      │    ┌────┴──────────────┐
+        │ I2C  ├───►│ GPIO Expander     │
+        └──────┘    └───────────────────┘
 
-Signed-off-by: Bhargav Joshi <rougueprince47@gmail.com>
-Acked-by: Zhangfei Gao <zhangfei.gao@linaro.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Traditionally, gpio-hog is used to configure the onboard mux at boot.
+However, the GPIO expander may probe later than consumer devices such as
+MMC. As a result, the MUX might not be configured when the peripheral
+driver probes, leading to initialization failures or data transfer errors.
+
+Introduce a generic pinctrl binding that models the board-level MUX as a
+pin control provider and builds proper device links between the MUX, its
+GPIO controller, and peripheral devices. This ensures correct probe
+ordering and reliable mux configuration.
+
+The implementation leverages the standard multiplexer subsystem, which
+provides broad support for onboard mux controllers and avoids the need for
+per-driver custom MUX handling
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
+Changes in v4:
+- use Conor Dooley suggest to extract funciton pinctrl_generic_pins_to_map()
+- Link to v3: https://lore.kernel.org/r/20260311-pinctrl-mux-v3-0-236b1c17bf9b@nxp.com
+
+Changes in v3:
+- collect rob's review tag for binding
+- extend and use pinctrl_generic_pins_function_dt_node_to_map()
+- add judgement about
+commit 2243a87d90b42eb38bc281957df3e57c712b5e56
+"pinctrl: avoid duplicated calling enable_pinmux_setting for a pin"
+
+which call pinmux_disable_setting() before pinmux_enable_setting() when
+switch state. It is actually what wanted. Previous remove .disable() to
+avoid hardware glitch when switch state.
+
+New .release_mux() call intent just release software resource, like lock,
+don't touch hardware register. No glitch involve. Comments already added
+
+Linus Walleij:
+  I hope this answer all of your questions. If I missed, let me know
+
+- Link to v2: https://lore.kernel.org/r/20260225-pinctrl-mux-v2-0-1436a25fa454@nxp.com
+
 Changes in v2:
-    - No code changes.
-    - Collected Acked-by and Reviewed-by tags.
+- Add release_mux callback,
+  test insmod/rmmod, mux_state_(de)select() called.
+- Link to v1: https://lore.kernel.org/r/20260219-pinctrl-mux-v1-0-678d21637788@nxp.com
 
- 
- arch/arm64/boot/dts/hisilicon/hi3660.dtsi | 4 ++--
- arch/arm64/boot/dts/hisilicon/hi3670.dtsi | 4 ++--
- arch/arm64/boot/dts/hisilicon/hi6220.dtsi | 6 +++---
- 3 files changed, 7 insertions(+), 7 deletions(-)
+---
+Frank Li (7):
+      mux: add devm_mux_control_get_from_np() to get mux from child node
+      dt-bindings: pinctrl: Add generic pinctrl for board-level mux chips
+      pinctrl: extract pinctrl_generic_to_map() from pinctrl_generic_pins_function_dt_node_to_map()
+      pinctrl: add optional .release_mux() callback
+      pinctrl: add generic board-level pinctrl driver using mux framework
+      arm64: dts: imx8mp-evk: add board-level mux for CAN2 and MICFIL
+      arm64: dts: imx8mp-evk: add flexcan2 overlay file
 
-diff --git a/arch/arm64/boot/dts/hisilicon/hi3660.dtsi b/arch/arm64/boot/dts/hisilicon/hi3660.dtsi
-index 957a1b41f19b..374aa173bec6 100644
---- a/arch/arm64/boot/dts/hisilicon/hi3660.dtsi
-+++ b/arch/arm64/boot/dts/hisilicon/hi3660.dtsi
-@@ -1057,7 +1057,7 @@ ufs: ufs@ff3b0000 {
- 		};
- 
- 		/* SD */
--		dwmmc1: dwmmc1@ff37f000 {
-+		dwmmc1: mmc@ff37f000 {
- 			compatible = "hisilicon,hi3660-dw-mshc";
- 			reg = <0x0 0xff37f000 0x0 0x1000>;
- 			#address-cells = <1>;
-@@ -1075,7 +1075,7 @@ dwmmc1: dwmmc1@ff37f000 {
- 		};
- 
- 		/* SDIO */
--		dwmmc2: dwmmc2@ff3ff000 {
-+		dwmmc2: mmc@ff3ff000 {
- 			compatible = "hisilicon,hi3660-dw-mshc";
- 			reg = <0x0 0xff3ff000 0x0 0x1000>;
- 			#address-cells = <0x1>;
-diff --git a/arch/arm64/boot/dts/hisilicon/hi3670.dtsi b/arch/arm64/boot/dts/hisilicon/hi3670.dtsi
-index 886b93c5893a..0db1849a2878 100644
---- a/arch/arm64/boot/dts/hisilicon/hi3670.dtsi
-+++ b/arch/arm64/boot/dts/hisilicon/hi3670.dtsi
-@@ -679,7 +679,7 @@ ufs: ufs@ff3c0000 {
- 		};
- 
- 		/* SD */
--		dwmmc1: dwmmc1@ff37f000 {
-+		dwmmc1: mmc@ff37f000 {
- 			compatible = "hisilicon,hi3670-dw-mshc",
- 				     "hisilicon,hi3660-dw-mshc";
- 			reg = <0x0 0xff37f000 0x0 0x1000>;
-@@ -698,7 +698,7 @@ dwmmc1: dwmmc1@ff37f000 {
- 		};
- 
- 		/* SDIO */
--		dwmmc2: dwmmc2@fc183000 {
-+		dwmmc2: mmc@fc183000 {
- 			compatible = "hisilicon,hi3670-dw-mshc",
- 				     "hisilicon,hi3660-dw-mshc";
- 			reg = <0x0 0xfc183000 0x0 0x1000>;
-diff --git a/arch/arm64/boot/dts/hisilicon/hi6220.dtsi b/arch/arm64/boot/dts/hisilicon/hi6220.dtsi
-index f8b56d443850..61eaa7f8c1c9 100644
---- a/arch/arm64/boot/dts/hisilicon/hi6220.dtsi
-+++ b/arch/arm64/boot/dts/hisilicon/hi6220.dtsi
-@@ -799,7 +799,7 @@ mailbox: mailbox@f7510000 {
- 			#mbox-cells = <3>;
- 		};
- 
--		dwmmc_0: dwmmc0@f723d000 {
-+		dwmmc_0: mmc@f723d000 {
- 			compatible = "hisilicon,hi6220-dw-mshc";
- 			reg = <0x0 0xf723d000 0x0 0x1000>;
- 			interrupts = <0x0 0x48 0x4>;
-@@ -812,7 +812,7 @@ dwmmc_0: dwmmc0@f723d000 {
- 				     &emmc_cfg_func &emmc_rst_cfg_func>;
- 		};
- 
--		dwmmc_1: dwmmc1@f723e000 {
-+		dwmmc_1: mmc@f723e000 {
- 			compatible = "hisilicon,hi6220-dw-mshc";
- 			hisilicon,peripheral-syscon = <&ao_ctrl>;
- 			reg = <0x0 0xf723e000 0x0 0x1000>;
-@@ -828,7 +828,7 @@ dwmmc_1: dwmmc1@f723e000 {
- 			pinctrl-1 = <&sd_pmx_idle &sd_clk_cfg_idle &sd_cfg_idle>;
- 		};
- 
--		dwmmc_2: dwmmc2@f723f000 {
-+		dwmmc_2: mmc@f723f000 {
- 			compatible = "hisilicon,hi6220-dw-mshc";
- 			reg = <0x0 0xf723f000 0x0 0x1000>;
- 			interrupts = <0x0 0x4a 0x4>;
--- 
-2.53.0
+ .../bindings/pinctrl/pinctrl-multiplexer.yaml      |  57 ++++++
+ .../devicetree/bindings/pinctrl/pinctrl.yaml       |   2 +-
+ arch/arm64/boot/dts/freescale/Makefile             |   4 +
+ .../boot/dts/freescale/imx8mp-evk-flexcan2.dtso    |  15 ++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts       |  23 ++-
+ drivers/mux/core.c                                 |  40 +++--
+ drivers/pinctrl/Kconfig                            |   9 +
+ drivers/pinctrl/Makefile                           |   1 +
+ drivers/pinctrl/pinconf.h                          |  18 ++
+ drivers/pinctrl/pinctrl-generic-mux.c              | 197 +++++++++++++++++++++
+ drivers/pinctrl/pinctrl-generic.c                  |  91 ++++++----
+ drivers/pinctrl/pinmux.c                           |   5 +
+ include/linux/mux/consumer.h                       |  16 +-
+ include/linux/pinctrl/pinmux.h                     |   5 +
+ 14 files changed, 425 insertions(+), 58 deletions(-)
+---
+base-commit: ff76d257e86235eb07ef33db8644a517c48d1c3f
+change-id: 20260213-pinctrl-mux-df9c5b661540
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
