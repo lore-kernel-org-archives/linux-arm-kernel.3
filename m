@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED8D109C04D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8C9109C04D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 18:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NrASyDXrPTRzOdXMt+rY87vftM8wegQWKG3EcVZsavw=; b=2jJNI6B0EHRj+gV/R4+lO4zvmu
-	UkQS4Ic790l8Eyj3Mv5G1AOogA6Z8EHJ6GTxtuo8Ek74R4uxL1WYoyOgEGOAv2qSxlxSbvcD0CoNf
-	BhepA1dGGmYY0b6ct+xiS9IrFPRtfxpdF2dK+SJk/3xFlzE1CHD7pKUeCs1nzrWlN85uLTk6Gx3v8
-	Ldh+PwA6YRRVpMgbQzaKgEpenfOj5cnEZcdocxshrG1aVQNWh4NhTdvogD1zg31EumD/Y6MW3WX+i
-	H3+S3J7jLXPvaQTHWEtta8S9y8kOGhUiQ3OtecUqSJ/kwQR5poFvqU0zdwDMbM3EaQkCaoHymsY4g
-	NEGIFRNw==;
+	bh=PCkaHroi7JtzDDzze2vqbAGbk2FNNhsqXTmz4G6Yku4=; b=BZ3hB/UQYZhtyuuVaIaWrA+yEa
+	O4p9WufYpXqGajQI0uWPuKqWzOrvl9ew5EHwm0KmdKxsfPlo/f1LuOgcZCcSONidKV3oWccQRn4JG
+	IhaeBt4JQtGDYykIrfYoVxp1dKFi+y4vAM70v4cIQscB/YzG6bMNWtAEhqG9jforQ+PrKYB9mfKr1
+	v+HDDBBhkE99bpdxt5uzpULTvA+9zQrjkctBCgmQ+CCnYrdpzvTg29Y/x8iY47Gb7sOPLNWlTWHQ+
+	ASCW6PVkqTF8rVUXK2+d5TphhpNHOYOqJyyEnnSBpJ58nzkt1UQVfLhWSANHWsxWBnMHr79ii+KeU
+	cb7ufksw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Sd5-000000042l1-0eAI;
-	Wed, 25 Mar 2026 18:06:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5Sh5-0000000431c-0YPo;
+	Wed, 25 Mar 2026 18:11:03 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Sd2-000000042kP-1UUe;
-	Wed, 25 Mar 2026 18:06:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01347434F9;
-	Wed, 25 Mar 2026 18:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1384AC19423;
-	Wed, 25 Mar 2026 18:06:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774462011;
-	bh=NrASyDXrPTRzOdXMt+rY87vftM8wegQWKG3EcVZsavw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AUU+WkdGqhPPGBJsyxlRKgS0WHccD27F+kY9qWgUG84BLHPPtNPWCGQoCOk3YFWXX
-	 V9vPXLoZ0Roax9hgRmUZ2qlbxZpoZ8vsYPe3HMkLaEB1bpKgkZIXu9syWEB/whji4C
-	 fRMlKI+MnZWtlCX4H3el/NZLyHHtdF+pcdyUt2xN1n19Rocynt9flKl74H66r+EmNb
-	 NrwXGDDKNgKtyrm7TID9cyxtEKTSz2xr2CmsJzm3DXwz8wOnV9Tj3LavZz5XtD/UOu
-	 mIbUJ99sSOq4eLYnbdmpJw67p39qmaLom0FUhjoED+uvH6G/Tlc2VCXMH9FnV4OJN9
-	 CepO2tOLvWKIg==
-Date: Wed, 25 Mar 2026 18:06:45 +0000
-From: Conor Dooley <conor@kernel.org>
-To: michael.riesch@collabora.com
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	id 1w5Sh2-0000000431E-3vAM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 18:11:02 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 85DE4201FE;
+	Wed, 25 Mar 2026 19:10:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1774462259;
+	bh=PCkaHroi7JtzDDzze2vqbAGbk2FNNhsqXTmz4G6Yku4=; h=From:To:Subject;
+	b=HTPL/eybTJsPutz99rLH2Kc9XS4yCKQ9tVvt21D/Dny52UiEPN0dwgsarYfUsCclo
+	 HUEZrkXRQ3dWgbNIfhphDb1MDgEBR3uTaC5SvK6gQUs2m/kaZtPBT7DBrAcieKcSLp
+	 6qR9DUeyTDM8T6cQ1VaR//JHQLsvD2YG/0FT6l6q9cEEgtmM4GW61ReIkxl5vk+pe4
+	 VCl7KK32sRv5RtZLa1rpNi//kTvBnN00RZywG7SHxqPhEVNnsXMY3auZHlwSqfjuKM
+	 j5xt4vSS3t+FFhFhwxchbv/INVOC9stGTSGlNFEMMvOpGFxU03EmKid9TGJgwwlQgP
+	 j3ancjOf701Yw==
+Date: Wed, 25 Mar 2026 19:10:57 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Franz Schnyder <fra.schnyder@gmail.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	=?utf-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?= <mai.kuznetsov.misha@gmail.com>,
-	Charalampos Mitrodimas <charmitro@posteo.net>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/9] media: dt-bindings: add rockchip rk3588 vicap
-Message-ID: <20260325-goofiness-smoky-05a9da4ab7c7@spud>
-References: <20250430-rk3588-vicap-v3-0-e38e428868cc@collabora.com>
- <20250430-rk3588-vicap-v3-2-e38e428868cc@collabora.com>
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Franz Schnyder <franz.schnyder@toradex.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco@dolcini.it>
+Subject: Re: [PATCH 3/3] arm64: dts: freescale: imx95-toradex-smarc: Use
+ gpio-hog for WIFI_UART_EN
+Message-ID: <20260325181057.GB2972@francesco-nb>
+References: <20260325-mainline-update-imx95-v1-0-b5ebe976655b@toradex.com>
+ <20260325115513.707914-1-fra.schnyder@gmail.com>
+ <acP3NiGvRCc1SgjE@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="S07loI5ARDnCLB+6"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250430-rk3588-vicap-v3-2-e38e428868cc@collabora.com>
+In-Reply-To: <acP3NiGvRCc1SgjE@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_110652_404767_26DAC29D 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_111101_134152_8A14225C 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,24 +79,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 25, 2026 at 10:54:46AM -0400, Frank Li wrote:
+> On Wed, Mar 25, 2026 at 12:55:11PM +0100, Franz Schnyder wrote:
+> > From: Franz Schnyder <franz.schnyder@toradex.com>
+> >
+> > On the Toradex SMARC iMX95, the WiFi UART signals are shared with the
+> > JTAG. The WIFI_UART_EN signal is used to select between these
+> > two functions.
+> >
+> > Configure the signal as gpio-hog and drive it high to select the UART
+> > function by default. Add a label to override the hog in derived
+> > device trees.
+> 
+> gpio hog have problem about probe order, are you sure gpio device probe
+> before pcie?
 
---S07loI5ARDnCLB+6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+This is not about PCIe, we are talking about UART here. Specifically the
+module is a combo Wi-Fi/BT device, with Wi-Fi over SDIO, and BT over
+UART from NXP.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+In any case, this DT is going to be used also by the boot firmware that will
+configure the GPIO hog way before the Linux driver probes.
 
---S07loI5ARDnCLB+6
-Content-Type: application/pgp-signature; name="signature.asc"
+The DT files from the Linux kernel are used also by other projects.
 
------BEGIN PGP SIGNATURE-----
+> I have not seen any place refer to wifi_uart_en.
 
-iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacQkNQAKCRB4tDGHoIJi
-0trSAP9NhcSN5IwjQxra/MoajEVkzUk285uvd3tnxxt6xebTeQD40Ti+GjJ8RBsz
-y/CiyatNQxTRh/VP0eEHfoLlCuj6BA==
-=yM+a
------END PGP SIGNATURE-----
+There is none (as of now). This is there to make it easier for a user
+that needs access to debug to adjust this node enabling the JTAG
+functionality.
 
---S07loI5ARDnCLB+6--
+Francesco
+
 
