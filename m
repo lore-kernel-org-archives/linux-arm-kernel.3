@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9059BFEA82F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D8AFEA82F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACoTl1Z6STNWcJyf+W3IIpR9O0w8A+ZqEyoH/oc065w=; b=D4qMW2xszgzh4Tdu88Xw4xUdda
-	0Gra/+x9H4wU7YzQ4rO7TAo3HX8Mdc7HsD+YgBHnaREwy+f4dFpurAKvpL+dcOlTw4WpJ3qR6XiaL
-	xPiWoek0HHZ5lOhDpZO+E9h7bPHWjcJSaMkzZYKXZ0ScWAYoEN5m9fz967m2so1MjJBRu7NGUpr5w
-	Wg3VFfF6gqcghnZ/sZPkukzV26eNCoXfs/0MmPcimf+6ub40P5YoweY9+9AmfpRoeF8EDOn51sNzx
-	xl1pObSVuZu0LBE4uhlZRFIDPJRWbdtkkrW66R/1KvG4kh8ITDbK2T0hxOsh+LZUSkdA94fMrKd1x
-	BfHrQQbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0By6fBzQ2yRvQq975okmifMkL0lBEKR0CyIculVAKRk=; b=UOGHhDime0+oNudiqD7/SUtBlq
+	AkpW3pZWIRiE7erP2UUGo5DLv71fPmGm7nImKwJuOPRqQEjEdjT1sTfRDrfE0mEjktzeQrw1fsHFZ
+	FhFTtbQof1wu728OsP/1jjaXv5CJhuXR91bfGUFJC1rq0BWYv7eqbQ3Mk8PQE1/IF1c52roAYri3c
+	DcbL0efrJosL3M8aJ7GcMwrUJfhqKYwLQXpsHPvp8PTk9UGiEDwBSxxecybBwbofjYNuypt1MYZid
+	v0SDV5vS65vsfVohHKUxkNYc8xXOfNPIGK5FCZEL8onoEBiW3UsTLRyd2PEgZBYvlga8HGoARSX0F
+	5wQyna3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JXU-00000002wWP-2h5n;
-	Wed, 25 Mar 2026 08:24:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5JZ9-00000002whE-1WtB;
+	Wed, 25 Mar 2026 08:26:15 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JXU-00000002wWG-02mb;
-	Wed, 25 Mar 2026 08:24:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1B15600C4;
-	Wed, 25 Mar 2026 08:24:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A04AC4CEF7;
-	Wed, 25 Mar 2026 08:24:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774427070;
-	bh=OXpyySfKyZH4/xByTVF+CcO5Zm0m2JZxVDe7zJkMYr8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kaJIRIiM3CnzwTWAxlLjWYuN0VEiT2i58200iLTs297ZcYBUEFDNIhOPVeqTiRFi/
-	 1+VVucUcVSoJ8DoS1T16p7GrjEFwg83fDBOfRd7ydbm5ejQCKRihL3YvqIkN0RNeuf
-	 OlUomozQwJgbcsHSEZKjsU7/eZO1VDQPNMyj7wd0g8xe4mnqKTInaen1jPjbjGo+0G
-	 0GXEqRpJTGRGl3g3JUmpJxT6x2rRkXsbL4SkbpofUy3YU/SmpZL3hsTnHlkewmUNEF
-	 aaDj5+h4PjxK3B4GV49wKBPVgtAxSQ7bZpGp7gUdkfeX+Vn4YzLopCgxRE9Lwm+k3K
-	 DPUz5V/bvQhrw==
-Date: Wed, 25 Mar 2026 09:24:27 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	Werner Sembach <wse@tuxedocomputers.com>, Andri Yngvason <andri@yngvason.is>, 
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-Message-ID: <20260325-neat-elegant-raven-ebc9ab@houat>
-References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
- <20260324-color-format-v11-3-605559af4fb4@collabora.com>
- <acLDPYuaVI2-12JX@intel.com>
- <23910073.EfDdHjke4D@workhorse>
- <acLrv5hLyNss-Px5@intel.com>
+	id 1w5JZ4-00000002wg8-3pGM;
+	Wed, 25 Mar 2026 08:26:13 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.202])
+	by APP-05 (Coremail) with SMTP id zQCowAA3zRAMnMNpPvpuCw--.51434S2;
+	Wed, 25 Mar 2026 16:25:49 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Mateusz Koza <mateusz.koza@grinn-global.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Gary Bisson <bisson.gary@gmail.com>,
+	Cristian Cozzolino <cristian_ci@protonmail.com>,
+	Jianeng Ceng <cengjianeng@huaqin.corp-partner.google.com>,
+	Max Shevchenko <wctrl@proton.me>,
+	Sean Wang <sean.wang@mediatek.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	Icenowy Zheng <uwu@icenowy.me>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: mediatek: add mt8173-hana rev2
+Date: Wed, 25 Mar 2026 16:25:45 +0800
+Message-ID: <20260325082546.1572405-1-zhengxingda@iscas.ac.cn>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="wbwmiqkexkho5cib"
-Content-Disposition: inline
-In-Reply-To: <acLrv5hLyNss-Px5@intel.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAA3zRAMnMNpPvpuCw--.51434S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtFWxJF4fWr13Xw1DWF4rXwb_yoWDtFc_Ca
+	97u3Wqgr1kJa4S9F4qyF4kAF1UXw4rGFZ7Arn8JF45ta47CrWUWayvq3sxCryUWF4xur13
+	ZFs5CFZrXFsrCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb38FF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjTRNJ5oDUUUU
+X-Originating-IP: [112.94.102.202]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260325_012611_325056_822D23B4 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,122 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+My Lenovo Flex 11 Chromebook contains a board with revision ID 2.
 
---wbwmiqkexkho5cib
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-MIME-Version: 1.0
+Add rev2 to the compatible list of base hana DTB to allow depthcharge to
+match the DTB.
 
-On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrj=E4l=E4 wrote:
-> On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrote:
-> > On Tuesday, 24 March 2026 18:00:45 Central European Standard Time Ville=
- Syrj=E4l=E4 wrote:
-> > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli wrote:
-> > > > +enum drm_connector_color_format {
-> > > > +	/**
-> > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display protoc=
-ol
-> > > > +	 * helpers should pick a suitable color format. All implementatio=
-ns of a
-> > > > +	 * specific display protocol must behave the same way with "AUTO"=
-, but
-> > > > +	 * different display protocols do not necessarily have the same "=
-AUTO"
-> > > > +	 * semantics.
-> > > > +	 *
-> > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 if t=
-he
-> > > > +	 * bandwidth required for full-scale RGB is not available, or the=
- mode
-> > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output both suppo=
-rt
-> > > > +	 * YCbCr 4:2:0.
-> > > > +	 *
-> > > > +	 * For display protocols other than HDMI, the recursive bridge ch=
-ain
-> > > > +	 * format selection picks the first chain of bridge formats that =
-works,
-> > > > +	 * as has already been the case before the introduction of the "c=
-olor
-> > > > +	 * format" property. Non-HDMI bridges should therefore either sor=
-t their
-> > > > +	 * bus output formats by preference, or agree on a unified auto f=
-ormat
-> > > > +	 * selection logic that's implemented in a common state helper (l=
-ike
-> > > > +	 * how HDMI does it).
-> > > > +	 */
-> > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO =3D 0,
-> > > > +
-> > > > +	/**
-> > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
-> > > > +	 */
-> > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
-> > > > +
-> > > > +	/**
-> > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output forma=
-t (ie.
-> > > > +	 * not subsampled)
-> > > > +	 */
-> > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
-> > > > +
-> > > > +	/**
-> > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output forma=
-t (ie.
-> > > > +	 * with horizontal subsampling)
-> > > > +	 */
-> > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
-> > > > +
-> > > > +	/**
-> > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output forma=
-t (ie.
-> > > > +	 * with horizontal and vertical subsampling)
-> > > > +	 */
-> > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
-> > >=20
-> > > Seems like this should document what the quantization range
-> > > should be for each format.
-> > >=20
-> >=20
-> > I don't think so? If you want per-component bit depth values,
-> > DRM_FORMAT_* defines would be the appropriate values to use. This
-> > enum is more abstract than that, and is there to communicate
-> > YUV vs. RGB and chroma subsampling, with bit depth being handled
-> > by other properties.
-> >=20
-> > If you mean the factor used for subsampling, then that'd only be
-> > relevant if YCBCR410 was supported where one chroma plane isn't
-> > halved but quartered in resolution. I suspect 4:1:0 will never
-> > be added; no digital display protocol standard supports it to my
-> > knowledge, and hopefully none ever will.
->=20
-> No, I mean the quantization range (16-235 vs. 0-255 etc).
->=20
-> The i915 behaviour is that YCbCr is always limited range,
-> RGB can either be full or limited range depending on the=20
-> "Broadcast RGB" property and other related factors.
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v2:
+- Added Conor's A-b.
+- Changed mailbox to ISCAS one.
 
-So far the HDMI state has both the format and quantization range as
-different fields. I'm not sure we need to document the range in the
-format field, maybe only mention it's not part of the format but has a
-field of its own?
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Maxime
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index 382d0eb4d0af6..2894c8a16c78c 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -148,6 +148,7 @@ properties:
+           - const: google,hana-rev5
+           - const: google,hana-rev4
+           - const: google,hana-rev3
++          - const: google,hana-rev2
+           - const: google,hana
+           - const: mediatek,mt8173
+       - description: Google Hana rev7 (Poin2 Chromebook 11C)
+-- 
+2.52.0
 
---wbwmiqkexkho5cib
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCacObuwAKCRAnX84Zoj2+
-ds1XAXsG3ZPGasIIoc6AjqXiDJncnXTY0PaMBBbXGSy+Rcyhb1RiReK8zMl508aI
-ahxZUfcBfAz2j3skdPxRfMkkduKBzOjrHQhv19x1nGeExVWXWq31x8ihOc0Sjroj
-z0wjpE2yrQ==
-=ee+x
------END PGP SIGNATURE-----
-
---wbwmiqkexkho5cib--
 
