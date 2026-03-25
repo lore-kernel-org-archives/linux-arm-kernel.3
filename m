@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27871109C048
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 16:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15916109C046
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 16:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aX6Zt92Rl7zamMR40yxS1SAo7vg/tk+fp4b2fvllx30=; b=ZTEHkaDB2aYWGcstUmVIAdnBCh
-	exh13yrh5bwyqPVodkgZEuiMmM/wCxOQ/4SCsf2hT23+Zd4GvIqsaJ8fd5gc9G1sor8l7vXknLp6i
-	wSvzzcJmgqYAxW5utEJybnZ9bUugNzZ8WTPpULZ+82k8q9i0chSTGBl2mrYwXqhclj/sbJ+/cnCmv
-	E7oxNfEzP+saNRQjfyTuEO2th6xsx+kcRLJq71CtIv7xsuaVynZi5cBgK36FY8bK2Td4LHcZYY57e
-	8LhaJSY0Ndoj29beEQB3BR1tS31jz+kBAi+wQzw5jH2H2mPc5QrTFScAozxr0Jk1WEuoNEUR+Tpae
-	Piq8Q8Hg==;
+	bh=bOLHph50MygLD+LJIPpWwZg6/ExL863ytypasC2g0/0=; b=NKFRxtCWYRBsDyWaRrmR3SioZH
+	6je1YxjutVLbV5hg2QXc9GSMQ6ai+GBK43lXNR8c6fMmD1xkzfGrAqZBAD6IlbVzlIW70DS67kKuX
+	uHyTVRLBnhkaQLN19T2KaK9IQQyIyQpjdKojla8oxLPGlVs+0B1ASJG/ff0Y1Bi5iJgs7Awbm/1nx
+	qtimzhwqvrg4B+dOrMWLB6SH9yw7wHZXE10M/uq2Z9+zCIPwsZFl7xr6bPRtScHzK0L/9Nl9p+bHP
+	6OiEOboVdeaIbJmgy4rwRbiKfR3uAbfSjQcrcIGrhw8TOT+N4Ug/1M0GMMTkV+xZroQLKoGbCHWcQ
+	AfthG7HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5RTB-00000003wVb-25Xb;
-	Wed, 25 Mar 2026 16:52:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5RVb-00000003wtT-1jv7;
+	Wed, 25 Mar 2026 16:55:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5RT8-00000003wVC-3WUI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 16:52:35 +0000
+	id 1w5RVa-00000003wsy-0SBI;
+	Wed, 25 Mar 2026 16:55:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C16744557;
-	Wed, 25 Mar 2026 16:52:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F026DC4CEF7;
-	Wed, 25 Mar 2026 16:52:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 55F8D600C4;
+	Wed, 25 Mar 2026 16:55:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFB62C4CEF7;
+	Wed, 25 Mar 2026 16:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774457554;
-	bh=pWOqtv6jmpKLYd9pPWq7muuvSWKqfEOPOAHMJ6IkXEI=;
+	s=k20201202; t=1774457705;
+	bh=RKKiiq8BF8Gnss15GyLrbCZ1nQZVCizvsceHIkQybeY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eANHokosIVd5KD95xp+HQHRfvXeuEHK7Eo6rbRCk32CsXyhlZFVFE2ezxytgD44zU
-	 ZjYbNSKo/8j6WtbSSI3hYpj9HcFPD5hrfB/Y9thx8togWdftQf8QN2swMcN+5jdHWl
-	 PZiiqM95vlHF3pO+VaVFD2HUUvhksmVKV1AcKQsFftLkZ8RvQQ2FO5ikayoqBf+3OG
-	 /LkA3oXJTWAM4YYUJLWe3nCCg7XqPkqfD4nBpNDjw/lV08H7YZHYkgLYtdg3MHBic4
-	 OqG/BVzr/uCUsDzNpOUrXND7FnQuVkffbmLkBWeDf/5GhrdHVuwN1gWHBoM4kvKgZE
-	 J2shInOqyYJsw==
-Date: Wed, 25 Mar 2026 11:52:33 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Jeremy Kerr <jk@codeconstruct.com.au>,
-	"andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
+	b=fUmZoGmEOFgd86CDps+cN4uba4Z8k0RbTFUgOkt4vajosQUVDMjIwFN9CDpxm5RYr
+	 hxBLzLwoS861MUC0M22kcTkbhvNNE0TxmpPEB8PTRQDxPSCmkFS/nFXIBqG5qQp5Ry
+	 QiR0645ytteVjCwi/8/pmydejBFyvxu1LUVvWRzHDNnC+VlAXP9zcA0gSHS5r3wYus
+	 mjIJ5GADmJ0m70/jwlDNGwr7MGCxpvXj0sHXQTXBpaAeZdT+J1Oi2R6VhFZ82Lk7rw
+	 2QdZcVNjPzQA/bE/9lA/B4Gem45JFrTc9Fc3fgl1D3/mHD+g7eStV6briapV+yKL6N
+	 ito5CWuspA+Jg==
+Date: Wed, 25 Mar 2026 16:55:00 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Rayn Chen <rayn_chen@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>
-Subject: Re: [PATCH v27 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and transfer-mode properties
-Message-ID: <20260325165233.GA3782899-robh@kernel.org>
-References: <20260324-upstream_i2c-v27-0-f19b511c8c28@aspeedtech.com>
- <20260324-upstream_i2c-v27-2-f19b511c8c28@aspeedtech.com>
- <405f6b1b4081ffb379a21bcdb5d2a8e81d2e2e3e.camel@codeconstruct.com.au>
- <TY2PPF5CB9A1BE6F0B9087048F46ABD72A6F249A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH RESEND 1/2] regulator: dt-bindings: mt6315: Add regulator
+ supplies
+Message-ID: <32638731-8f33-4203-9e68-1170cff99280@sirena.org.uk>
+References: <20260324053030.4077453-1-wenst@chromium.org>
+ <20260324053030.4077453-2-wenst@chromium.org>
+ <20260325-uncovered-carp-of-inquire-8a7acf@quoll>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="waZYWKl2+xYeqLDx"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <TY2PPF5CB9A1BE6F0B9087048F46ABD72A6F249A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_095234_902899_E650F58C 
-X-CRM114-Status: GOOD (  20.73  )
+In-Reply-To: <20260325-uncovered-carp-of-inquire-8a7acf@quoll>
+X-Cookie: Question authority.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 08:11:54AM +0000, Ryan Chen wrote:
-> Hello Jeremy,
-> 	Thanks the review.
-> 
-> > Subject: Re: [PATCH v27 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add global-regs
-> > and transfer-mode properties
-> > 
-> > Hi Ryan,
-> > 
-> > > The AST2600 I2C controller supports three transfer modes (byte,
-> > > buffer, DMA). Add "aspeed,transfer-mode" so DT can select the
-> > > preferred transfer method per controller instance.
-> > 
-> > This patch does not add an aspeed,transfer-mode property.
-> Will update use aspeed,enable-dma
 
-[...]
+--waZYWKl2+xYeqLDx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> > > +  aspeed,enable-dma:
-> > > +    type: boolean
-> > > +    description: |
-> > > +      I2C bus enable dma mode transfer.
-> > > +
-> > > +      ASPEED ast2600 platform equipped with 16 I2C controllers that
-> > > +share a
-> > > +      single DMA engine. DTS files can specify the data transfer mode
-> > > +to/from
-> > > +      the device, either DMA or programmed I/O.
-> > 
-> > As we had discussed: this does not define the transfer mode, only whether
-> > DMA is available to the peripheral.
-> > 
-> > Why mention the 16 i2c controllers here?
-> > 
-> > Please keep this description simple and relevant to the specific purpose of the
-> > property.
-> 
-> Will update with following.
-> description: Enable DMA for transfers on this I2C bus.
+On Wed, Mar 25, 2026 at 09:56:00AM +0100, Krzysztof Kozlowski wrote:
+> On Tue, Mar 24, 2026 at 01:30:28PM +0800, Chen-Yu Tsai wrote:
 
-You still don't understand the distinction. It's not enable, but that 
-the h/w instance *has* DMA capability or not. It is still up to the OS 
-what to do with that information.
+> > +      pvdd4-supply:
+> > +        description: Supply for vbuck4
 
-Rob
+> These all look per-regulator supplies, so I think they should be in each
+> regulator node (see also regulator.yaml).
+
+> Or in top-level, but not in "regulators" node. The regulators is only
+> wrapping node for children.
+
+> I wonder what should be our preference - have supplies per regulator or
+> in top-level node. @Mark, any preference from your side?
+
+The top level, so people can figure out where to describe supplies
+without having to read the bindings so much - the supplies go into the
+chip, even if they're distributed within it.
+
+Please don't add random characters to my name.
+
+--waZYWKl2+xYeqLDx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnEE2MACgkQJNaLcl1U
+h9BbaAf+OWrcsJ1vWJ5LNMOJFWdpauabUdohO1MiXidlGIsmN2yzEM3MfF9lQFNs
+Sv49o8uJQLbaVz3Abgtn4eTj0uD5zyP+QWWO1MGnfca17vRjy2PVg92Rp5GQzOWt
+TCU0jGuxbBy9flaSJ1qFyzocxSD6PQh88K2fJ3ksKBc/AUb/LlCYQqTxOaYm25Xo
+C13pwZf8CI4BqfV1T2p4h0wPQqaUwNQGi/s5h1KnhYV7H6BI4+WTjR28PpaplHD9
+g5/FIRSvoQlyz4QcyfmoCPlOhMQVq2AwuIvXEy/X+tNfVHetDX6NvHs1lPmNdJit
+w4hnfdiYl4hBXRqSFNcqwKCAsiDVkg==
+=VW8o
+-----END PGP SIGNATURE-----
+
+--waZYWKl2+xYeqLDx--
 
