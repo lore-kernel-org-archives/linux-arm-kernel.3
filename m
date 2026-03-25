@@ -4,56 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6CF109C029
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4957E109C029
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdKOYdSkEo+pL9DFiEYmbSXXeO/RDwJgvWDSA8LEDKs=; b=cJmK3f7TVLZhcnhweXltTiM1qR
-	tc6ouICRLuG80A28w4eRpTGDJwC/FUOK1o1lxeWmIww9gckMBzNUmKkh3Gf8IqyZtF3UsiPPGU7+f
-	zaNgaJDg8QkqyKi1QfptNscBTpLT4UrJf9tnBFAq+nJ2Bn0JJQA94aVp7qUNV2OqjpCeLfz1P6Pul
-	2lam/0MJeLNhib/TE0QdVJZueQ2aiToFsnVd4EPXL7y15njCwBUx/dcFPQfFtOeopCgncxf4BJKyt
-	fnUhhEdPTATohErwpodj3ilv6AdsWwGJ6u8w2ojvcFa/oaZBWOxO4thVPfB72oLE9pptExTqatpAH
-	ZtfGN1Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JhKn+8nxRJgE5KLPHpQQU/yuq+dO00WCcEfZDnvrjxU=; b=ZdKa7Ko7GouMZnIuafrnGCC3j2
+	oOez49nhi7ypipMJx8rAuEX2NtD1w2x/ywUVIWQ/0no0IVgaWvrFmorIaW5kh/72ezIyT/EcNstXR
+	UEBagBzAh86SQpeTF2TB2SXBM/Lg4PTW7f9BaFu3qUO0z48Ohn+XkmnWMPezYDvqhS1HtysiU1qRH
+	DpNHlddwOl23ErBzUEHjbmDYvrw1DFXQKDI0Et5xnzPQI3QlL+J4sPDDakvPkLdwl07Mbvj9FyrEB
+	GEednPWZmC3leLtS9OqZbVUNd02PuFbtWBgP6lW+KH4K4KE5FyFVTLKAh4ifkZwgNOg9qNQJ0//fU
+	Uk4hFy0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Q2s-00000003lfz-37kr;
-	Wed, 25 Mar 2026 15:21:22 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w5Q3p-00000003lvb-2kSB;
+	Wed, 25 Mar 2026 15:22:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Q2q-00000003lfC-3S8L;
-	Wed, 25 Mar 2026 15:21:22 +0000
-Received: from ideasonboard.com (net-93-65-100-155.cust.vodafonedsl.it [93.65.100.155])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B175D121A;
-	Wed, 25 Mar 2026 16:19:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774451999;
-	bh=qZGiT+EvKcDkmxuOuy3DrL28n1CGTnETVnQH8DAchQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B1LWaFNi5OP19gPp8aVu+LOV0EMljp+gddp4A85a63+pI1HaXpCvXa1sq/ytmWK1L
-	 5d0iv3SiXbrj/2yFMvfDChcMU8kxuDJOYFuQmW3wJUYH0cGRYY2b7Qq7o5Q8TDkoXk
-	 4BoV6Yb+XlJ+7lrH/OcKZq/rRWuLYLWa6+NeBxN8=
-Date: Wed, 25 Mar 2026 16:21:15 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: =?utf-8?Q?Barnab=C3=A1s_P=C5=91cze?= <barnabas.pocze@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] media: rkisp1: Add support for CAC
-Message-ID: <acP7qpa8TxGLKFiw@zed>
-References: <20260323140216.1486161-1-barnabas.pocze@ideasonboard.com>
+	id 1w5Q3m-00000003lta-2iMN;
+	Wed, 25 Mar 2026 15:22:20 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62PFH7AR3532232;
+	Wed, 25 Mar 2026 15:21:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=JhKn+8nxRJgE5KLPHpQQU/yuq+dO00WCcEf
+	ZDnvrjxU=; b=depVfBoTZK0kQxX9TxJf+XIde+7Zw0ldgvHZRv5uxMZXt/9KDHo
+	1A8tQm/eUIr5KdRK0bz7GTkhhPteAAjTIsusCyJ+4xywV476nQL2xfPdXSRIR/+u
+	HAOdq6Q4vDivwdP2ob59atwo5gFMO186gY1oGvKdiaIavGCac9WIyhu64jNbqTq1
+	Ebcyu75/BqBcLUyT+PPtF664ndz7KjZktyNvPYnLk1i5dpIUGw9madsjXmO9V57M
+	pD09yXOPHFn93bnuDm4AoE7VFrXf1QWc+U4Z3t5H+EozL/qvsnkbFP3amFfSAVOu
+	QKX43MPvVGxCN5ctvpB0lVkO2iB5khB7g7w==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d4dy4h3er-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Mar 2026 15:21:57 +0000 (GMT)
+Received: from pps.filterd (NALASPPMTA01.qualcomm.com [127.0.0.1])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 62PFLumT017654;
+	Wed, 25 Mar 2026 15:21:56 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by NALASPPMTA01.qualcomm.com (PPS) with ESMTPS id 4d475qfgun-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Mar 2026 15:21:56 +0000
+Received: from NALASPPMTA01.qualcomm.com (NALASPPMTA01.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 62PFLuwT017648;
+	Wed, 25 Mar 2026 15:21:56 GMT
+Received: from hu-devc-lv-u22-c.qualcomm.com (hu-cang-lv.qualcomm.com [10.81.25.255])
+	by NALASPPMTA01.qualcomm.com (PPS) with ESMTPS id 62PFLuhj017645
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Mar 2026 15:21:56 +0000
+Received: by hu-devc-lv-u22-c.qualcomm.com (Postfix, from userid 359480)
+	id EC1065AE; Wed, 25 Mar 2026 08:21:55 -0700 (PDT)
+From: Can Guo <can.guo@oss.qualcomm.com>
+To: avri.altman@wdc.com, bvanassche@acm.org, beanhuo@micron.com,
+        peter.wang@mediatek.com, martin.petersen@oracle.com, mani@kernel.org
+Cc: linux-scsi@vger.kernel.org, Can Guo <can.guo@oss.qualcomm.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
+        linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH v5 00/12] scsi: ufs: Add TX Equalization support for UFS 5.0
+Date: Wed, 25 Mar 2026 08:21:42 -0700
+Message-Id: <20260325152154.1604082-1-can.guo@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260323140216.1486161-1-barnabas.pocze@ideasonboard.com>
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI1MDExMCBTYWx0ZWRfXzvWdyjqxjamr
+ aRyjjATZ3eAHK8mVWWEtSp90VIBNLt1Z8/HoftGLnbtVFyZo1vf9A3ruWl27r9UvKdAFy5bYPOX
+ RUV3GmDRpuvM8JNHyy0mnSFMm0TRl+ivUxxuTl48SPov9+Ff7N4T/IQGcYRx3eU88j/Buqd+1wk
+ poqtkF67DaEsdawV/KqsRzr9am4g1m+zDvyPGdMPa/i0L4qqilxnKsuhG/rPlOMYvfUQRedb3Eg
+ MmmMEHSGgEf/rcFHzn6khgemHQ6n6Blu7KB8sjzt0VhJ0Pf3w4VCPbMHSVMj9s5Wjk0wiVFmUHP
+ N/vqN0u34ZG5dSZTaFPjgb3VIAsTU75KuuM91xAIyYLqtuliMyJI5yW55u3Jt5TO6iPVuSEBvTy
+ HQ4rgSbwTc4MJwxSug8+s3rMvKF3vlOMEXv/lgK0jKWvmWvTnvh1ZCQgCDdy1VRdd7yj2O3n6Vk
+ 0ybUleC0bU3uCr8l1uw==
+X-Proofpoint-ORIG-GUID: ap838VB1rT8tasmd4B_0a4s6wNxIebAy
+X-Proofpoint-GUID: ap838VB1rT8tasmd4B_0a4s6wNxIebAy
+X-Authority-Analysis: v=2.4 cv=eeUwvrEH c=1 sm=1 tr=0 ts=69c3fd95 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=ZpdpYltYx_vBUK5n70dp:22 a=ZyePWOR3t2h397M-7AgA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-25_04,2026-03-24_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 clxscore=1015 bulkscore=0 adultscore=0
+ suspectscore=0 spamscore=0 priorityscore=1501 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603250110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_082121_172451_1DC1F8B2 
-X-CRM114-Status: GOOD (  38.07  )
+X-CRM114-CacheID: sfid-20260325_082218_805764_403E615D 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,358 +116,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Barnabás
+Hi,
 
-On Mon, Mar 23, 2026 at 03:02:16PM +0100, Barnabás Pőcze wrote:
-> The CAC block implements chromatic aberration correction. Expose it to
-> userspace using the extensible parameters format. This was tested on the
-> i.MX8MP platform, but based on available documentation it is also present
-> in the RK3399 variant (V10). Thus presumably also in later versions,
-> so no feature flag is introduced.
->
-> Signed-off-by: Barnabás Pőcze <barnabas.pocze@ideasonboard.com>
+The UFS v5.0 and UFSHCI v5.0 standards have published, introducing support
+for HS-G6 (46.6 Gbps per lane) through the new UniPro V3.0 interconnect
+layer and M-PHY V6.0 physical layer specifications. To achieve reliable
+operation at these higher speeds, UniPro V3.0 introduces TX Equalization
+and Pre-Coding mechanisms that are essential for signal integrity.
 
-Only minors..
+This patch series implements TX Equalization support in the UFS core
+driver as specified in UFSHCI v5.0, along with the necessary vendor
+operations and a reference implementation for Qualcomm UFS host
+controllers.
 
-> ---
->  .../platform/rockchip/rkisp1/rkisp1-params.c  |  69 ++++++++++++
->  .../platform/rockchip/rkisp1/rkisp1-regs.h    |  21 +++-
->  include/uapi/linux/rkisp1-config.h            | 106 +++++++++++++++++-
->  3 files changed, 193 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> index 6442436a5e428..b889af9dcee45 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> @@ -64,6 +64,7 @@ union rkisp1_ext_params_config {
->  	struct rkisp1_ext_params_compand_bls_config compand_bls;
->  	struct rkisp1_ext_params_compand_curve_config compand_curve;
->  	struct rkisp1_ext_params_wdr_config wdr;
-> +	struct rkisp1_ext_params_cac_config cac;
->  };
->
->  enum rkisp1_params_formats {
-> @@ -1413,6 +1414,48 @@ static void rkisp1_wdr_config(struct rkisp1_params *params,
->  				     RKISP1_CIF_ISP_WDR_TONE_CURVE_YM_MASK);
->  }
->
-> +static void
-> +rkisp1_cac_config(struct rkisp1_params *params,
-> +		  const struct rkisp1_cif_isp_cac_config *arg)
+Background
+==========
 
-Fits in one line without going over 80 cols
+TX Equalization is a signal conditioning technique that compensates for
+channel impairments at high data rates (HS-G4 through HS-G6). It works
+by adjusting two key parameters:
 
-> +{
-> +	u32 regval;
-> +
-> +	/*
-> +	 * The enable bit is in the same register (RKISP1_CIF_ISP_CAC_CTRL),
-> +	 * so only set the clipping mode, and do not modify the other bits.
-> +	 */
-> +	regval = rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL);
-> +	regval &= ~(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE |
-> +		    RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE);
-> +	regval |= FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE, arg->h_clip_mode) |
-> +		  FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE, arg->v_clip_mode);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL, regval);
-> +
-> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK, arg->h_count_start) |
-> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK, arg->v_count_start);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_COUNT_START, regval);
-> +
-> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_A_RED_MASK, arg->red[0]) |
-> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_A_BLUE_MASK, arg->blue[0]);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_A, regval);
-> +
-> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_B_RED_MASK, arg->red[1]) |
-> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_B_BLUE_MASK, arg->blue[1]);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_B, regval);
-> +
-> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_C_RED_MASK, arg->red[2]) |
-> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_C_BLUE_MASK, arg->blue[2]);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_C, regval);
-> +
-> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_X_NORM_NF_MASK, arg->x_nf) |
-> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_X_NORM_NS_MASK, arg->x_ns);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_X_NORM, regval);
-> +
-> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_Y_NORM_NF_MASK, arg->y_nf) |
-> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_Y_NORM_NS_MASK, arg->y_ns);
-> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_Y_NORM, regval);
-> +}
-> +
->  static void
->  rkisp1_isp_isr_other_config(struct rkisp1_params *params,
->  			    const struct rkisp1_params_cfg *new_params)
-> @@ -2089,6 +2132,25 @@ static void rkisp1_ext_params_wdr(struct rkisp1_params *params,
->  				      RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
->  }
->
-> +static void rkisp1_ext_params_cac(struct rkisp1_params *params,
-> +				  const union rkisp1_ext_params_config *block)
-> +{
-> +	const struct rkisp1_ext_params_cac_config *cac = &block->cac;
-> +
-> +	if (cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
-> +		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-> +					RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
-> +		return;
-> +	}
-> +
-> +	rkisp1_cac_config(params, &cac->config);
-> +
-> +	if ((cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
-> +	    !(params->enabled_blocks & BIT(cac->header.type)))
-> +		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-> +				      RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
-> +}
-> +
->  typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
->  			     const union rkisp1_ext_params_config *config);
->
-> @@ -2185,6 +2247,10 @@ static const struct rkisp1_ext_params_handler {
->  		.handler	= rkisp1_ext_params_wdr,
->  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
->  	},
-> +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC] = {
-> +		.handler	= rkisp1_ext_params_cac,
-> +		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-> +	},
->  };
->
->  #define RKISP1_PARAMS_BLOCK_INFO(block, data) \
-> @@ -2215,6 +2281,7 @@ rkisp1_ext_params_block_types_info[] = {
->  	RKISP1_PARAMS_BLOCK_INFO(COMPAND_EXPAND, compand_curve),
->  	RKISP1_PARAMS_BLOCK_INFO(COMPAND_COMPRESS, compand_curve),
->  	RKISP1_PARAMS_BLOCK_INFO(WDR, wdr),
-> +	RKISP1_PARAMS_BLOCK_INFO(CAC, cac),
->  };
->
->  static_assert(ARRAY_SIZE(rkisp1_ext_params_handlers) ==
-> @@ -2474,6 +2541,8 @@ void rkisp1_params_disable(struct rkisp1_params *params)
->  	rkisp1_ie_enable(params, false);
->  	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DPF_MODE,
->  				RKISP1_CIF_ISP_DPF_MODE_EN);
-> +	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-> +				RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
->  }
->
->  static const struct rkisp1_params_ops rkisp1_v10_params_ops = {
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-> index fbeb186cde0d5..8e25537459bbd 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-> @@ -724,6 +724,23 @@
->  #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MASK		GENMASK(20, 16)
->  #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MAX		16U
->
-> +/* CAC */
-> +#define RKISP1_CIF_ISP_CAC_CTRL_ENABLE		BIT(0)
-> +#define RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE	GENMASK(2, 1)
-> +#define RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE	GENMASK(3, 3)
-> +#define RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK	GENMASK(12, 0)
-> +#define RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK	GENMASK(28, 16)
-> +#define RKISP1_CIF_ISP_CAC_A_RED_MASK		GENMASK(8, 0)
-> +#define RKISP1_CIF_ISP_CAC_A_BLUE_MASK		GENMASK(24, 16)
-> +#define RKISP1_CIF_ISP_CAC_B_RED_MASK		GENMASK(8, 0)
-> +#define RKISP1_CIF_ISP_CAC_B_BLUE_MASK		GENMASK(24, 16)
-> +#define RKISP1_CIF_ISP_CAC_C_RED_MASK		GENMASK(8, 0)
-> +#define RKISP1_CIF_ISP_CAC_C_BLUE_MASK		GENMASK(24, 16)
+- PreShoot: Pre-emphasis applied before the main signal transition
+- DeEmphasis: De-emphasis applied after the main signal transition
 
-All these masks for coefficients 0, 1 and 2 are identical. Maybe
-#define RKISP1_CIF_ISP_CAC_RED_MASK		GENMASK(8, 0)
-#define RKISP1_CIF_ISP_CAC_BLUE_MASK		GENMASK(24, 16)
+UniPro V3.0 defines TX Equalization Training (EQTR) procedure to
+automatically discover optimal TX Equalization settings. The EQTR
+procedure:
 
-is enough
+1. Starts from the most reliable link state (HS-G1)
+2. Iterates through all possible PreShoot and DeEmphasis combinations
+3. Evaluates signal quality using Figure of Merit (FOM) measurements
+4. Selects the best settings for both host and device TX lanes
 
-> +#define RKISP1_CIF_ISP_CAC_X_NORM_NF_MASK	GENMASK(4, 0)
-> +#define RKISP1_CIF_ISP_CAC_X_NORM_NS_MASK	GENMASK(19, 16)
-> +#define RKISP1_CIF_ISP_CAC_Y_NORM_NF_MASK	GENMASK(4, 0)
-> +#define RKISP1_CIF_ISP_CAC_Y_NORM_NS_MASK	GENMASK(19, 16)
-> +
->  /* =================================================================== */
->  /*                            CIF Registers                            */
->  /* =================================================================== */
-> @@ -1196,8 +1213,8 @@
->  #define RKISP1_CIF_ISP_CAC_A			(RKISP1_CIF_ISP_CAC_BASE + 0x00000008)
->  #define RKISP1_CIF_ISP_CAC_B			(RKISP1_CIF_ISP_CAC_BASE + 0x0000000c)
->  #define RKISP1_CIF_ISP_CAC_C			(RKISP1_CIF_ISP_CAC_BASE + 0x00000010)
-> -#define RKISP1_CIF_ISP_X_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
-> -#define RKISP1_CIF_ISP_Y_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
-> +#define RKISP1_CIF_ISP_CAC_X_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
-> +#define RKISP1_CIF_ISP_CAC_Y_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
->
->  #define RKISP1_CIF_ISP_EXP_BASE			0x00002600
->  #define RKISP1_CIF_ISP_EXP_CTRL			(RKISP1_CIF_ISP_EXP_BASE + 0x00000000)
-> diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
-> index b2d2a71f7baff..d8acccaddd0e9 100644
-> --- a/include/uapi/linux/rkisp1-config.h
-> +++ b/include/uapi/linux/rkisp1-config.h
-> @@ -967,6 +967,92 @@ struct rkisp1_cif_isp_wdr_config {
->  	__u8 use_iref;
->  };
->
-> +/*
-> + * enum rkisp1_cif_isp_cac_h_clip_mode - horizontal clipping mode
-> + *
-> + * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX: +/- 4 pixels
-> + * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX: +/- 4/5 pixels depending on bayer position
-> + */
-> +enum rkisp1_cif_isp_cac_h_clip_mode {
-> +	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX = 0,
-> +	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX = 1,
-> +};
-> +
-> +/**
-> + * enum rkisp1_cif_isp_cac_v_clip_mode - vertical clipping mode
-> + *
-> + * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX: +/- 2 pixels
-> + * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX: +/- 3 pixels
-> + * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX: +/- 3/4 pixels depending on bayer position
-> + */
-> +enum rkisp1_cif_isp_cac_v_clip_mode {
-> +	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX = 0,
-> +	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX = 1,
-> +	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX = 2,
-> +};
-> +
-> +/**
-> + * struct rkisp1_cif_isp_cac_config - chromatic aberration correction configuration
-> + *
-> + * The correction is carried out by shifting the red and blue pixels relative
-> + * to the green ones, depending on the distance from the optical center:
+For HS-G6, Pre-Coding is also introduced to further improve signal
+quality. Pre-Coding must be enabled on both transmitter and receiver
+when the RX_FOM indicates it is required.
 
-Yes, the distance to the center is one parameter, but the shifting
-amount depends on other things. I would drop the last part of the
-sentence and move the description of the two below fields after the
-text
+Implementation Overview
+=======================
 
-> + *
-> + * @h_count_start: horizontal coordinate of the optical center (13-bit unsigned integer; [1,8191])
-> + * @v_count_start: vertical coordinate of the optical center (13-bit unsigned integer; [1,8191])
+The implementation follows the UFSHCI v5.0 specification and consists of:
 
-so these could go just before @x_nf
+Core Infrastructure (Patches 1-6):
+- New vops callback negotiate_pwr_mode() to allow vendors to negotiate
+  power mode parameters before applying TX Equalization settings
+- Support for HS-G6 gear enumeration
+- Complete TX EQTR procedure implementation in ufs-txeq.c
+- Debugfs interface for TX Equalization parameter inspection and manual
+  retraining
+- Module parameters for adaptive TX Equalization control
 
-> + *
-> + * For each pixel, the x/y distances from the optical center are calculated and
+Qualcomm Implementation (Patches 7-11):
+- PHY-specific configurations for TX EQTR procedure
+- Vendor-specific FOM measurement support
+- TX Equalization settings application
+- Enable TX Equalization for HW version 0x7 and onwards
 
-I forgot: did we establish that the correction is applied to the
-euclidean distance or to x and y separately ?
+The implementation is designed to be vendor-agnostic, with platform-
+specific details handled through the vops callbacks. Other vendors can
+add support by implementing the three new vops:
 
-> + * then transformed into the [0,255] range based on the following formula:
+- tx_eqtr_notify(): Called before/after TX EQTR for vendor setup
+- apply_tx_eqtr_settings(): Apply vendor-specific PHY configurations
+- get_rx_fom(): Retrieve vendor-specific FOM measurements if needed
 
-s/transformed/normalized ?
+Module Parameters
+=================
 
-> + *
-> + *   (((d << 4) >> s) * f) >> 5
-> + *
-> + * where `d` is the distance, `s` and `f` are the normalization parameters:
+The implementation provides several module parameters for flexibility:
 
-Can you use 'ns' and 'nf' to match the below ?
+- use_adaptive_txeq: Enable/disable adaptive TX Equalization (default: false)
+- adaptive_txeq_gear: Minimum gear for adaptive TX EQ (default: HS-G6)
+- use_txeq_presets: Use only the 8 standaird presets (default: false)
+- txeq_presets_selected[]: Select specific presets for EQTR
 
-> + *
-> + * @x_nf: horizontal normalization scale parameter (5-bit unsigned integer; [0,31])
-> + * @x_ns: horizontal normalization shift parameter (4-bit unsigned integer; [0,15])
-> + *
-> + * @y_nf: vertical normalization scale parameter (5-bit unsigned integer; [0,31])
-> + * @y_ns: vertical normalization shift parameter (4-bit unsigned integer; [0,15])
-> + *
-> + * These parameters should be chosen based on the image resolution, the position
-> + * of the optical center, and the shape of pixels: so that no normalized distance
+Testing
+=======
 
-s/pixels:/pixels/
+This patch series has been tested on Qualcomm platforms with UFS 5.0
+devices, validating:
 
-> + * is larger than 255. If the pixels have square shape, the two sets of parameters
-> + * should be equal.
-> + *
-> + * The actual amount of correction is calculated with a third degree polynomial:
-> + *
-> + *   c[0] * r + c[1] * r^2 + c[2] * r^3
-> + *
-> + * where `c` is the set of coefficients for the given color, and `r` is distance:
-> + *
-> + * @red: red coefficients (5.4 two's complement; [-16,15.9375])
-> + * @blue: blue coefficients (5.4 two's complement; [-16,15.9375])
-> + *
-> + * Finally, the amount is clipped as requested:
-> + *
-> + * @h_clip_mode: maximum horizontal shift (from enum rkisp1_cif_isp_cac_h_clip_mode)
-> + * @v_clip_mode: maximum vertical shift (from enum rkisp1_cif_isp_cac_v_clip_mode)
-> + *
-> + * A positive result will shift away from the optical center, while a negative
-> + * one will shift towards the optical center. In the latter case, the pixel
-> + * values at the edges are duplicated.
-> + */
-> +struct rkisp1_cif_isp_cac_config {
-> +	__u8 h_clip_mode;
-> +	__u8 v_clip_mode;
-> +
-> +	__u16 h_count_start;
-> +	__u16 v_count_start;
-> +
-> +	__u16 red[3];
-> +	__u16 blue[3];
-> +
-> +	__u8 x_nf;
-> +	__u8 x_ns;
-> +
-> +	__u8 y_nf;
-> +	__u8 y_ns;
-> +};
-> +
->  /*---------- PART2: Measurement Statistics ------------*/
->
->  /**
-> @@ -1161,6 +1247,7 @@ enum rkisp1_ext_params_block_type {
->  	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
->  	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
->  	RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
-> +	RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC,
->  };
->
->  /* For backward compatibility */
-> @@ -1507,6 +1594,22 @@ struct rkisp1_ext_params_wdr_config {
->  	struct rkisp1_cif_isp_wdr_config config;
->  } __attribute__((aligned(8)));
->
-> +/**
-> + * struct rkisp1_ext_params_cac_config - RkISP1 extensible params CAC config
-> + *
-> + * RkISP1 extensible parameters CAC block.
-> + * Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC`.
-> + *
-> + * @header: The RkISP1 extensible parameters header, see
-> + *	    :c:type:`rkisp1_ext_params_block_header`
-> + * @config: CAC configuration, see
-> + *	    :c:type:`rkisp1_cif_isp_cac_config`
-> + */
-> +struct rkisp1_ext_params_cac_config {
-> +	struct rkisp1_ext_params_block_header header;
-> +	struct rkisp1_cif_isp_cac_config config;
-> +} __attribute__((aligned(8)));
-> +
->  /*
->   * The rkisp1_ext_params_compand_curve_config structure is counted twice as it
->   * is used for both the COMPAND_EXPAND and COMPAND_COMPRESS block types.
-> @@ -1532,7 +1635,8 @@ struct rkisp1_ext_params_wdr_config {
->  	sizeof(struct rkisp1_ext_params_compand_bls_config)		+\
->  	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
->  	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
-> -	sizeof(struct rkisp1_ext_params_wdr_config))
-> +	sizeof(struct rkisp1_ext_params_wdr_config)			+\
-> +	sizeof(struct rkisp1_ext_params_cac_config))
+- Successful TX EQTR completion for HS-G6
+- Proper FOM evaluation and optimal settings selection
+- Pre-Coding enablement for HS-G6
+- Power mode changes with TX Equalization settings applied
+- Report of TX Equalization settings via debugfs entries
+- Report of TX EQTR histories via debug entries (see next section)
+- Re-training TX Equalization via debugfs entry
 
-All minors, please add
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Example of TX EQTR history
+==========================
 
-Thanks
-  j
+# cat /sys/kernel/debug/ufshcd/*ufshcd*/tx_eq_hs_gear6/device_tx_eqtr_record
+Device TX EQTR record summary -
+Target Power Mode: HS-G6, Rate-B
+Most recent record index: 2
+Most recent record timestamp: 219573378 us
 
->
->  /**
->   * enum rksip1_ext_param_buffer_version - RkISP1 extensible parameters version
-> --
-> 2.53.0
->
->
+TX Lane 0 FOM - PreShoot\DeEmphasis
+\       0        1        2        3        4        5        6        7
+0      50       70       65        -        -        -        -        x
+1       x        x        x        x        x        x        x        x
+2     100       90       70        -        -        -        -        x
+3       x        x        x        x        x        x        x        x
+4      95       90        -        -        -        -        -        x
+5       -        -        -        -        -        -        -        x
+6       x        x        x        x        x        x        x        x
+7       x        x        x        x        x        x        x        x
+
+TX Lane 1 FOM - PreShoot\DeEmphasis
+\       0        1        2        3        4        5        6        7
+0      50       70       60        -        -        -        -        x
+1       x        x        x        x        x        x        x        x
+2     100       80       65        -        -        -        -        x
+3       x        x        x        x        x        x        x        x
+4      95       85        -        -        -        -        -        x
+5       -        -        -        -        -        -        -        x
+6       x        x        x        x        x        x        x        x
+7       x        x        x        x        x        x        x        x
+
+Patch Structure
+===============
+
+Patches 1-3: Preparatory changes for power mode negotiation and HS-G6
+Patch 4: Core TX Equalization and EQTR implementation
+Patches 5-7: Debugfs support for TX Equalization
+Patches 8-12: Qualcomm vendor implementation
+
+Next
+====
+
+One more series has been developed to enhance TX Equalization support,
+which will be submitted for review after this series is accepted:
+
+- Provide board specific (static) TX Equalization settings from DTS
+- Parse static TX Equalization settings from DTS if provided
+- Apply static TX Equalization settings if use_adaptive_txeq is disabled
+- Add support for UFS v5.0 attributes qTxEQGnSettings & wTxEQGnSettingsExt
+- Enable persistent storage and retrieval of optimal TX Equalization settings
+
+v4 -> v5:
+1. Addressed comments from Bean in patch 7, returned -EINVAL when
+   negotiated gear != requested gear in function ufshcd_retrain_tx_eq().
+2. Addressed comments from Peter in patch 4, moved usage of
+   &hba->tx_eq_params[gear - 1] after checks on gear and improved the
+   checks on gear in function ufshcd_config_tx_eq_settings().
+
+v3 -> v4:
+1. Incorporated comments from Bart and Peter.
+2. In patch 1, removed redundant checks on dev_req_params
+3. In patch 1, moved error prints out of vops negotiate_pwr_mode()
+4. In patch 1, removed vops implemenation ufs_versal2_negotiate_pwr_mode(),
+   sprd_ufs_negotiate_pwr_mode() and ufs_intel_lkf_negotiate_pwr_mode() as
+   they are simply doing memcpy().
+5. In patch 3, initialize UFS_HS_GEAR_MAX as UFS_HS_G6. 
+6. In patch 4, adjusted places where UFS_HS_GEAR_MAX is used.
+7. In patch 4, defined inline func ufs_hs_rate_to_str() instead of macro.
+8. In patch 4, changed default value of use_txeq_presets to 'false'.
+8. In patch 4, optimized ufshcd_tx_eq_params and ufshcd_tx_eq_settings.
+9. In patch 4, optimized memory usage of ufshcd_tx_eq_params.
+10. In patch 5, updated places which use fields in ufshcd_tx_eq_params.
+11. In patch 7, used 'retrain' instead of 'refresh'.
+12. In patch 10, introduced a few macros.
+
+v2 -> v3:
+1. Incorporated comments from Bart, Bean and Mani.
+2. In patch 4, made ufshcd_config_pwr_mode() ignore TX EQTR error.
+3. Added patch 6 to introduce helpers to pause/resume command processing.
+4. In patch 7, changed debugfs entry to 'tx_eq_ctrl' and used 'refresh'
+   as input to trigger TX Equalization refreshing.
+5. In patch 7, renamed ufshcd_retrain_tx_eq() to ufshcd_refresh_tx_eq().
+6. Fixed typos and coding style issues.
+
+v1 -> v2:
+1. Incorporated Bart's comments.
+2. Fixed typos and coding style issues.
+3. Added enum ufshcd_pmc_policy and use enum instead of boolen parameter.
+4. Updated TX Equalization debugfs entries structure.
+5. Extracted ufshcd_pause/resume_command_processing() in ufshcd.c.
+6. Updated sequence in Qualcomm's vops get_rx_fom() implementation.
+
+Can Guo (12):
+  scsi: ufs: core: Introduce a new ufshcd vops negotiate_pwr_mode()
+  scsi: ufs: core: Pass force_pmc to ufshcd_config_pwr_mode() as a
+    parameter
+  scsi: ufs: core: Add UFS_HS_G6 and UFS_HS_GEAR_MAX to enum
+    ufs_hs_gear_tag
+  scsi: ufs: core: Add support for TX Equalization
+  scsi: ufs: core: Add debugfs entries for TX Equalization params
+  scsi: ufs: core: Add helpers to pause and resume command processing
+  scsi: ufs: core: Add support to retrain TX Equalization via debugfs
+  scsi: ufs: ufs-qcom: Fixup PAM-4 TX L0_L1_L2_L3 adaptation pattern
+    length
+  scsi: ufs: ufs-qcom: Implement vops tx_eqtr_notify()
+  scsi: ufs: ufs-qcom: Implement vops get_rx_fom()
+  scsi: ufs: ufs-qcom: Implement vops apply_tx_eqtr_settings()
+  scsi: ufs: ufs-qcom: Enable TX Equalization
+
+ drivers/ufs/core/Makefile          |    2 +-
+ drivers/ufs/core/ufs-debugfs.c     |  290 +++++++
+ drivers/ufs/core/ufs-txeq.c        | 1293 ++++++++++++++++++++++++++++
+ drivers/ufs/core/ufshcd-priv.h     |   59 +-
+ drivers/ufs/core/ufshcd.c          |  192 ++++-
+ drivers/ufs/host/ufs-amd-versal2.c |    3 -
+ drivers/ufs/host/ufs-exynos.c      |   34 +-
+ drivers/ufs/host/ufs-hisi.c        |   23 +-
+ drivers/ufs/host/ufs-mediatek.c    |   40 +-
+ drivers/ufs/host/ufs-qcom.c        |  591 ++++++++++++-
+ drivers/ufs/host/ufs-qcom.h        |   42 +
+ drivers/ufs/host/ufs-sprd.c        |    3 -
+ drivers/ufs/host/ufshcd-pci.c      |    7 +-
+ include/ufs/ufshcd.h               |  174 +++-
+ include/ufs/unipro.h               |  141 ++-
+ 15 files changed, 2779 insertions(+), 115 deletions(-)
+ create mode 100644 drivers/ufs/core/ufs-txeq.c
+
+-- 
+2.34.1
+
 
