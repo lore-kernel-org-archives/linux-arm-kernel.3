@@ -4,69 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDADE109C05B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 20:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B0C109C05D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 20:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Di57j/xK/Ly5JGYoBcWWHHq0+OqlE9jenZQR7DPGhU=; b=L0SHHnyqBH4YmpSUGl/M+3wOp7
-	2zK3gAOLM0mSh75L/Cj/es6hiyIfdmRVBuu1G7jEiBkWxjsU6vStxWbkJaLyOViyUOpapkzNTVked
-	2sb5GLjXEJEStyG8zz0GW3dXMYOpysMSunmN5ahQlS/vcXQP1sEyjZYuKmB9vl5rr7VklSVbZeEXw
-	hT/kwYfCXVn0yquPcryCnCZV2HGb0rwD530zzwxnCg3hZImmmBA5XTN+1oxBJe9CcmrAVzlv/y8F3
-	mLF4YJs3nySjC0aTHkkL7l3bnRBEetJ+8p5CrOZqC3uohiFs79Kzf9y1qizwpF4FVUH3HPQlsXDNV
-	hb8ftI/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gXPaSk6rOeSHzsuBeOwJ4iqoWQAtJOAov6388j1L0Ko=; b=lV+D29DQvBCk27ZmYzSdDhi1/0
+	yu2rGho46ULx3G9D/7sMziwKU7/JjO5BWSYTpbAxwBO1CbEIIbH3z+WQnlQhMaKxzirc+rFKPJSHB
+	VsiowJlLDwxmLtDyiDZg/Vx/rEPl1zF/uPXgYaOQCXsXHJQlZX2NUsVUaLRL6Y2AI0x7jgR1V4quH
+	KDgKQyd0b8hS/CvKbP0kaB1l+6f+3oo1XEOW/jgbB2NZ+nKpBPxCC/ZdxpKCCVx0pPtkCe2mzvxLf
+	luNtPB9HbYcXD0Lz+8Ttmt/FKgg9ICuATIBP1YdfsGAhd02UlTKmK+hjQEPJNClopoWdLzk+62jA/
+	m8JO4N5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Ubk-00000004CJa-3dSv;
-	Wed, 25 Mar 2026 20:13:40 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1w5Uln-00000004DFT-45ut;
+	Wed, 25 Mar 2026 20:24:04 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Ubi-00000004CJ0-1uKz
+	id 1w5Ull-00000004DEq-2ju6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 20:13:39 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 06C8D1BA;
-	Wed, 25 Mar 2026 21:12:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1774469536;
-	bh=7BsRlEHo9DuNRcemqGPBLT932bs5lLCqHzyJZhsZrS4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B0AC0wLn3Ob992yC9suQRcS93NkYNC9Ll/NgROD2xXR6oqAMCm78nzYvCg2EIY4gF
-	 f6Jbp405eKuz1i9nTY0+PS5tHE8c/9RKIHI12Ecp49luwgITLgdzHPvck9js6zRLoy
-	 ftEim5hQ4AMyO7uN2YyLcQ2sQLCjZrn+7inbXkvg=
-Date: Wed, 25 Mar 2026 22:13:32 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: netdev@vger.kernel.org
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, imx@lists.linux.dev,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Frank Li <Frank.Li@nxp.com>, Jakub Kicinski <kuba@kernel.org>,
-	Joy Zou <joy.zou@nxp.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/2] net: stmmac: provide flag to disable EEE
-Message-ID: <20260325201332.GA2670326@killaraus.ideasonboard.com>
-References: <20260323093933.1785583-1-laurent.pinchart@ideasonboard.com>
- <20260323093933.1785583-2-laurent.pinchart@ideasonboard.com>
- <acEOGMHfYsxv3GOk@shell.armlinux.org.uk>
- <20260323100801.GA1514659@killaraus.ideasonboard.com>
+	Wed, 25 Mar 2026 20:24:02 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso2329315e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 13:24:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774470240; x=1775075040; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gXPaSk6rOeSHzsuBeOwJ4iqoWQAtJOAov6388j1L0Ko=;
+        b=hZLixDLGumv0S04H0cMHXDJKtGwgCum7e16BzsXV4+6RNQILBoVZOpVzBLi4hynzmJ
+         RScgUD1uCOMssB675cmu5kbKfGdweqN0zzMoJkIbJ7ZlBoOskP3+5dcNTe38wt8CJP44
+         sha5FK+G8YmY4ssw+DjcJ+119rbgGuyf9yC6vXD+RYgUu6R5OKHd9HKOm4NWQ9FcNJIv
+         oytPOLXUsah9oF0avIJhh4in86lnNUnzfprIp4RR4fBPNuwSTDhc7T+xjnmoAIjZT+Ge
+         PPhp44BZYQB3iJcec4ipMUnwbaplSlz/7TJoWGPEdEZeSLw2TSX8RhIIDReFArKQJNNg
+         4aiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774470240; x=1775075040;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=gXPaSk6rOeSHzsuBeOwJ4iqoWQAtJOAov6388j1L0Ko=;
+        b=sFSJQcJMTAMDA173m1c0hn6+EeelnTtxO5VJnNrkhoPLKwdBaMQgqnVfvyYcy5VO9+
+         yzOWSJe71Q8f3jDBRcbYGFXy5VkJ0UD+k//H6qQH4POw6F8D7uNmh0qNrnZNlGFlQt/S
+         8PDqdyDhoLlG+lSQxdg7/jd6JShVLSZYfNEmvGk+fUukODj06EkwVmzAgS+c216QCE8y
+         hzx4ZmKxKHycEJy3bc+tzA1RFLC/bfKKuoEKbkt0q4x6A5i/vZXO1+08ETdF5Y83/bPt
+         jxwDL0iOOwh0snkh7PxYwLd8bv43Ax+KCEO9u78jgrUR7uRVmIrTJ1Ju3EX+RohGR/WK
+         34mQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUW5S92ztYLXhxO68902l91axwTYzckB91XobvFi2cGs6qcBJlCoLl/OViD+V3r6f8ussDvI0NIwuplrL4fxyxy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA6e7FlfheQiU15534uefaU5tRaJiGmw+tAJ+/FqWQhyOePk6t
+	oOU0dUgrOYIodBEGVogASQPLuhVGv/fOIV9O0Ujayrg70JkgIyeVVfVr
+X-Gm-Gg: ATEYQzw+4Xlxrzqur1Y6eLqCUv7E3SyjbBXEbvU+T2Y8DfJP7XlIDOmEjBaanus56uA
+	ULjKc1FJ5v1VSFwWbgMR0RvQDhAAjC0KalkobHZIk2eFOCHy4MJ/yrID34XgUCStJfVdjVR+RAw
+	M2T7mju3gb1oP0P1xW5L+iVApJjCrLV54Zo3ZAC+O0Cw4nK7nwaiwic07wtZ3c+1wxhNPq9l5sC
+	fO1sNglMARRB/0r+2BtiELuB0uPcTFEUb2bry4R1jxZiJsuZKGFti8kYaLpkVa5SQnqg0mNOfUs
+	H1rjJBPc/m/LNyQ9Ja4hykQRIfCloqn+c5lIxSGdctmFZkqj0NsQGbPo+2ONdjhmdzXEtrVdAnD
+	16lH2QyLLiaYrj4YCYbuNXfzBBUNyXbAhwnQOSISKCDGPKNR+jRcdNt23HCHVNCDIomIOueyMRZ
+	xZuvIZORLS4pvNuSS2GX+gtvt902DQZ8kTiyqET+rhhzhV4W7E1OCM5mRhery2KYoN
+X-Received: by 2002:a05:600c:4685:b0:47d:8479:78d5 with SMTP id 5b1f17b1804b1-48715fc38e8mr75859145e9.7.1774470239711;
+        Wed, 25 Mar 2026 13:23:59 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4871fbca47dsm2239685e9.1.2026.03.25.13.23.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 13:23:59 -0700 (PDT)
+Date: Wed, 25 Mar 2026 20:23:57 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, Andrew Morton
+ <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
+ will@kernel.org, peterz@infradead.org, mark.rutland@arm.com,
+ harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
+ daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
+ xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+ joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+ konrad.wilk@oracle.com
+Subject: Re: [PATCH v10 00/12] barrier: Add
+ smp_cond_load_{relaxed,acquire}_timeout()
+Message-ID: <20260325202357.3e203314@pumpkin>
+In-Reply-To: <acQOMZMk0OMfIgFO@arm.com>
+References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
+	<20260315184925.b6f93386e918ca79614843e3@linux-foundation.org>
+	<874imftol4.fsf@oracle.com>
+	<20260316233712.7cbfac27@pumpkin>
+	<87ms07rlp9.fsf@oracle.com>
+	<20260317091705.5a64fc56@pumpkin>
+	<acPo7l_pd5rnHpSX@arm.com>
+	<20260325154210.79a621df@pumpkin>
+	<acQOMZMk0OMfIgFO@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260323100801.GA1514659@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_131338_656866_CC796D08 
-X-CRM114-Status: GOOD (  32.07  )
+X-CRM114-CacheID: sfid-20260325_132401_764290_AE98A16C 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +116,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 12:08:02PM +0200, Laurent Pinchart wrote:
-> On Mon, Mar 23, 2026 at 09:55:36AM +0000, Russell King (Oracle) wrote:
-> > On Mon, Mar 23, 2026 at 11:39:32AM +0200, Laurent Pinchart wrote:
-> > > From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-> > > 
-> > > Some platforms have problems when EEE is enabled, and thus need a way
-> > > to disable stmmac EEE support. Add a flag before the other LPI related
-> > > flags which tells stmmac to avoid populating the phylink LPI
-> > > capabilities, which causes phylink to call phy_disable_eee() for any
-> > > PHY that is attached to the affected phylink instance.
-> > > 
-> > > iMX8MP is an example - the lpi_intr_o signal is wired to an OR gate
-> > > along with the main dwmac interrupts. Since lpi_intr_o is synchronous
-> > > to the receive clock domain, and takes four clock cycles to clear, this
-> > > leads to interrupt storms as the interrupt remains asserted for some
-> > > time after the LPI control and status register is read.
-> > > 
-> > > This problem becomes worse when the receive clock from the PHY stops
-> > > when the receive path enters LPI state - which means that lpi_intr_o
-> > > can not deassert until the clock restarts. Since the LPI state of the
-> > > receive path depends on the link partner, this is out of our control.
-> > > We could disable RX clock stop at the PHY, but that doesn't get around
-> > > the slow-to-deassert lpi_intr_o mentioned in the above paragraph.
-> > > 
-> > > Previously, iMX8MP worked around this by disabling gigabit EEE, but
-> > > this is insufficient - the problem is also visible at 100M speeds,
-> > > where the receive clock is slower.
-> > > 
-> > > There is extensive discussion and investigation in the thread linked
-> > > below, the result of which is summarised in this commit message.
-> > > 
-> > > Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > Closes: https://lore.kernel.org/r/20251026122905.29028-1-laurent.pinchart@ideasonboard.com
-> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > 
-> > As you are sending this on my behalf, you need to add your s-o-b after
-> > mine:
+On Wed, 25 Mar 2026 16:32:49 +0000
+Catalin Marinas <catalin.marinas@arm.com> wrote:
+
+> On Wed, Mar 25, 2026 at 03:42:10PM +0000, David Laight wrote:
+...
+> > Looking at the code I think the "sevl; wfe" pair should be higher up.  
 > 
-> Oops, I'm not sure how I missed that. Sorry.
-> 
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Yes, I replied to your other message. We could move it higher indeed,
+> before the condition check, but I can't get my head around the ordering.
+> Can need_resched() check be speculated before the WFE? I need to think
+> some more.
 
-Should I submit a v4, or can this series be picked for v7.1 with my SoB
-added ?
+I don't think speculation can matter.
+Both SEVL and WFE must be serialised against any other instructions
+that can change the event flag (as well as each other) otherwise
+everything is broken.
+Apart from that it doesn't matter, what matters is the instruction
+boundary the interrupt happens at.
 
-> >  Any further SoBs (Signed-off-by:'s) following the author's SoB are from
-> >  people handling and transporting the patch, but were not involved in its
-> >  development. SoB chains should reflect the **real** route a patch took
-> >  as it was propagated to the maintainers and ultimately to Linus, with
-> >  the first SoB entry signalling primary authorship of a single author.
+Actually both SEVL and WFE may be synchronising instructions and very slow.
+So you may not want to put them in the fast path where the condition
+is true on entry (or even true after a retry).
+So the code might have to look like:
+	for (;;) {
+		VAL = mem;
+		if (cond(VAL)) return;
+		SEVL; WFE;
+		if (cond(VAL)) return;
+		v1 = LDX(mem);
+		if (v1 == VAL)
+			WFE;
+	}
 
--- 
-Regards,
+Definitely needs a comment that both 'return from exception' and
+losing the exclusive access set the event flag.
 
-Laurent Pinchart
+The asm probably ought to have a full "memory" clobber.
+Just in case the compiler gets lively with re-ordering.
+
+	David
 
