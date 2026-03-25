@@ -4,138 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BC7FEA82E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FA0FEA82E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGcsjnn89vzi0BbUzmick1Q7ZzGi64Wctp+hOhg+iOU=; b=O8d2dSLeNr1I+m84laCFWazvqc
-	xYKuy6MUuY1KRdDQGpmiEXTCVr+o4mjtByJZhe0luxppgDf765IxAfnmiNodGFbnKEkaa3+8FIdnM
-	bYKL0NeuU3EA5BtlBuyS7aNWJD3XLfWGbv8zpG6crxXusmjZ/fUgWvSNWT1u1SGD2jkqlC7cwTCGT
-	5upOEKGCO6ugI0XHjkk1vk0x/jtthSbvXOOHTPgfWtldP7DFWZtNsHD3il713aIhmdqR0qoQ561zj
-	0mLRcrjbDeUSJYR273oBFscmFN6j91g3L3TB3vQ2+x8uG5h1u+ZRZT1rU6TfM7q2AS86Qq5rUoDuo
-	8SXudmdw==;
+	bh=045P43LH4bNvn5f+Wj8qPpIAq39tX2DOOtWxfqbqqi4=; b=g9N2i8suuEXfbAWucLmz6UWEjj
+	RvhyswwF9yunvMlpfOYV/6ATMrBxVD49K1y976Cxlcr5JyqW7kZ6RHEzHgFL3eDfCfzSfV+yw7v5P
+	b9fR9ejFrLmMneQpzqADhRtj6vOFIFY08ztl9C1F1n1cH5lZjLevPbwkC9cZ5OaqtxUSzpHoqFlXB
+	ib/Zdr1zO/4HgJSGcIjZ2UIoh3m4gPcOFVqn5jiI+gXqR8dYaP/2GCR4+iydOZx0A3vslbRd29QVj
+	vfL6aiw90Romu0CaaNdMF5BXbxQxK0zlsHop0vL1DA83JgTwf3iAkO96wyruLn44xs/KbUpCjUA6F
+	K02e6kYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JDs-00000002tzW-05tg;
-	Wed, 25 Mar 2026 08:04:16 +0000
-Received: from mail-swedencentralazon11020080.outbound.protection.outlook.com ([52.101.75.80] helo=GV3P280CU013.outbound.protection.outlook.com)
+	id 1w5JE9-00000002u5K-1X9n;
+	Wed, 25 Mar 2026 08:04:33 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JDp-00000002tz1-3h6m
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 08:04:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a3/psvPXe0dD7nrBvbQiDPpd26MSbxpu8xOpPqWN15rnsh1W8ftsqQQWIBh5Rgh0+ODBgNdKPOgpr1+UikFdl6BFwY40vAFYkLlOI2XGVBDCAL1+6HT60dF23cbgVvGL9xnU6buK5Gy8eMT/GgIrDlKvrtWx3JSYr3q+T7bRRbGeiowm/GOgT+KtUhN6Mi6Nb+p/gCwl6D4NoRPG/vIAbOSYgRKIB7sLPj5m2cgAo6+4DlEwGvfNhX9XKeo843LZkdxyvCraMzg171TFpA2I2eOobE9RmFqJcTVttpGPTSIX74d8SBW6cZLjrmHyvjjeh6q0+4Nc6Gqv/EJvVUJMCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bGcsjnn89vzi0BbUzmick1Q7ZzGi64Wctp+hOhg+iOU=;
- b=bO4ByjY/ALTfrIqLy/8a51UqfcbucuGEQZbGN0fZE7BXGSyBtyZagjc3GmmfTNM5ZsKeaLxP0kG4/P3tn10QP8DodJTH6xZbACncxhdinF2oak7alJdjBR3ksLW1rq3zUaLKHd0vVqgWjKyn0qBTSlIqPkJRcwhuU9izkCiSJmJ1vfOaP+u9MYCnYTwuUJ0mJhL1QHkVgiyCVOHI1qH6B0sFRKTFaosadp7GfkGyPNCHTe/bRzIp+fcf6IVTe3aQ3B5wBjh5lmf0WHpkotXU9P6vvml96Xqw/NgFA7gyZoKJdG8/F2beyG6KvX+cSnSbMi40QQ/MtYpHmvtUNp2O2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=guidelinegeo.com; dmarc=pass action=none
- header.from=guidelinegeo.com; dkim=pass header.d=guidelinegeo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=guidelinegeo.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bGcsjnn89vzi0BbUzmick1Q7ZzGi64Wctp+hOhg+iOU=;
- b=PEtrBboijwVYOBaofEi/Y9JjPdPgjJoqaJEzMcZxt5d1YcjocI2Pk95IAmwXsgwAmp/yG3M+18nXFYmUvcElGnpPAo7eDRiUklBWY4v0Vpz2O88vp2evDt1R6iSpqrgJjso6Vdy0BBCfstjXpANW6ubLMDr2+BQ+ADwyKA74JfI=
-Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:14::9) by
- GV5P280MB2251.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:377::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.20; Wed, 25 Mar 2026 08:04:03 +0000
-Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
- ([fe80::5a42:b24d:f94f:a5ec]) by GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
- ([fe80::5a42:b24d:f94f:a5ec%3]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
- 08:04:06 +0000
-From: Christofer Jonason <christofer.jonason@guidelinegeo.com>
-To: Michal Simek <michal.simek@amd.com>, Jonathan Cameron <jic23@kernel.org>,
-	Salih Erim <salih.erim@amd.com>, "O'Griofa, Conall" <conall.ogriofa@amd.com>
-CC: "lars@metafoo.de" <lars@metafoo.de>, "dlechner@baylibre.com"
-	<dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>,
-	"andy@kernel.org" <andy@kernel.org>, Victor Jonsson
-	<victor.jonsson@guidelinegeo.com>, "linux-iio@vger.kernel.org"
-	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
- postdisable for dual mux
-Thread-Topic: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
- postdisable for dual mux
-Thread-Index: AQHcq7ZpCeRIu+55oEGPm8jdqCh4D7WjB/YAgARjkoCAF5c0/A==
-Date: Wed, 25 Mar 2026 08:04:06 +0000
-Message-ID: <GV3P280MB00658AACE08F285D6EF18A7CF349A@GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM>
-References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
- <20260307124118.1d527749@jic23-huawei>
- <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
-In-Reply-To: <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=guidelinegeo.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV3P280MB0065:EE_|GV5P280MB2251:EE_
-x-ms-office365-filtering-correlation-id: e58b3b46-69fd-4dfe-e3e9-08de8a45167a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700021|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: XM75iZS+KRsMPl/NbibBZ8v0KB5CbT1EYO6j/7tIWxku0lrQJqrJUDhtEufN1BBuKplV9ucGmYJgynTy1bPBZ2A6b23TAI3lAEevz3m1Iub04FmGoUziJg/m2n81O1sgNdVFO40DMarofsMzVou+R0qBUbMKjP1yQdKU0q1/blq0g/JcIWKcpNgDji2HhVDGllgCXP9hI5jVqhmQW/BNMhR3Eu2DP90jkqx7H5jiJizTrZbce7orGxBE9P73f7D13iVqqnpToalK3Bn3n2i9u9LgDDgeEtuTrKmGD5S7D0Jo9aG6S4a+F3LSv3Fya2J0Ykl/ivUfnoQ8RfhpzRiucosUna7oJyyywFAHF2uTOSAxr4twrXw5lQtK2E3KpJbuz/j7QLK5PuY8qeaUOsmp1x1HCgM0UJkProw0+eJ1LKuUOPS/vOCqqFxBhHwr9lJf/1bz1xGNRv9C8pZ0LiohgTnUgSnnBIvUsHWpx1CSoFfB7kf/SGIm7vrSnzTq3qy9t25PAb+BB0690Z6cDlYcC1XNong5jnMq6uaVD6t6bn7zTN2M5/xDbQHwNbERJMGrl6wBWhVVxz/vyP+tKLW+auIYThjDeys/K1t/j53XuzwqIpd1HVE9T0jFoo4UGgaj+APZs0egNbtb2QDTO9oPE8BK+l4FN7ck2AAE5UZ6mLRb1aGZKUnXF3p2S0wrcyZQ7VZKwRT3aPDiQw0XMdb3RHBOXjEk3iCHEePROGRbkku96AZg9W7/FwnJDZrdDeXHr3TQ1CVPzk+VLBBHQISKjVzOdg5ZAZqJUZQQifVkSsA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?R/X9aTSrOfP/xPDdJMxKfndZHdxVNHy8BrHkAAEiTAN1yscFho0MlfZK9d?=
- =?iso-8859-1?Q?QUBYKjAiUqsqz9nx8CL+xAA9AVUTe/jnfLHIkdVnH4/ke4nE+Lk3khWZgy?=
- =?iso-8859-1?Q?usw/65BmvhYaht8qVfrw8EMZxzpZl20O0x25atoKYKwuLHPXn+J6zx1Kt0?=
- =?iso-8859-1?Q?qxnTJUiktaRf1m49UsKtvY3EGD2tU/A8JqxrBgFPwvSF3KwfThhF+7pgDn?=
- =?iso-8859-1?Q?EMeCITrz4MCILEEfRnpPJ8SiXuwUpecPBQSx1Jez7kCRG8xom2LBs3Y3GE?=
- =?iso-8859-1?Q?teJI75N5qzmD6TLx9nMozXD5nBV7KZnQR0a8mBalz7xWp32TCdbbkWNwnc?=
- =?iso-8859-1?Q?ZVt19vtZ4EVyJ6jEBhyUe+yPwi1FJ3ODNY9fThkkGPqL8jdcQxXEzByz5b?=
- =?iso-8859-1?Q?/NrJkvCV3UNp9sPBKaAlS3GigSdE4fabtb1uTPfxGFjkd1dPUWY3Ynl2Xy?=
- =?iso-8859-1?Q?6rHH+5ed2oCbsXzZLqzWzXX7GSsoKhheIMYI4eb/zmEraLA+qFr3m9cjbc?=
- =?iso-8859-1?Q?41iFjPKKsSotAXjyj+Vjvj/NBvMHsHFXICIiIOQ6BMUwRD/xyfyRe0yxFX?=
- =?iso-8859-1?Q?T4RDVAFCa13Br7QlFir3qI+RL4oq0rrLygvfkyjOFWkqyTJCl+IFTblD1p?=
- =?iso-8859-1?Q?Sa1fW0WZQSi1Kt30QnhmsvxauznTKKlOYufB0SQ0llJA8o3r8F/oZsUbRv?=
- =?iso-8859-1?Q?DYb/Dk+WFOEyRmVl3Lr9vHa/Yl+nBIs8iBg0P2hRyzR9ECU8fXrPIWP4mM?=
- =?iso-8859-1?Q?g7oU4aAXqLuLOjlDESpox5gc1NBk5xMgQ+EgsD9ynYUpTahknoY1rT+OQ6?=
- =?iso-8859-1?Q?durcxumR1K/rATZ6ZtGV9D9/DK1KMb60M/iEpZnxT61pen+A/fD4jRl5kR?=
- =?iso-8859-1?Q?a1seuwn1EOOCZlg49vxufEFLBseMd7NLcrgFlXElrBB7E4HZe9rph9ca18?=
- =?iso-8859-1?Q?lgFPcOES2JcU/SfJZUmvFlw44UJryB+UdOezNT25KQJ0SRvndUfcHVUJf4?=
- =?iso-8859-1?Q?uT3UbDpNc+mwSkLmyaatGQ3W/d3eWZ3gSISN+vwbzU3KBTDwLmgnDNClyL?=
- =?iso-8859-1?Q?P9U2gHYWZhySZAS+r8l7Dj8jObzM8E2M2N0BE9izRzdddMaPaEUFuKwahw?=
- =?iso-8859-1?Q?ul4PhTXDqYzL5HzMulSrIlsWyETKe4oi1ceX66QcqA1fqCqN7sXyxj2ZVE?=
- =?iso-8859-1?Q?Nwnqu0GjbGNtgTL+bqOLjxS9NQVu0n8sA23qAb+XYpcEAdRAtjdFbecHpz?=
- =?iso-8859-1?Q?AxPcyUatg3mQxmgsMCEHkFFvWLljBA9PZNb79VfCq9Sf0XSmpgRgKMWMsF?=
- =?iso-8859-1?Q?k/MkJExJfsrOTaXu0x2vl/ZhwX/fS3jyJfcfT1txgROZ0cNV3BDwkin97/?=
- =?iso-8859-1?Q?+bM9l61x6+BN5DTekhObAcaR/p16TuVbP94R4Nnv7ztNic/Ee75MhYzvWc?=
- =?iso-8859-1?Q?jqMhFo/ceIAgO6Pmio1vI9+a0OIVNXWhPb53fANJimaD0Xbkb6UMDgltiU?=
- =?iso-8859-1?Q?UujxlLxntse+NZZ2a282vc6Zwo9y37R94MBipsGi0lozc+h3fCEA8Q+yyl?=
- =?iso-8859-1?Q?JWf4PSg4BXQywtc3t76ieGm7ULHSMXrvUt6wF+W3QF1Rj1B42oogJJoVu6?=
- =?iso-8859-1?Q?BczS11EwEjmy78hNLcxS2DWgD2N2z4k2Wl9E6ortmyiAeR7mI3mFIDo75f?=
- =?iso-8859-1?Q?b9lBEQOKi4bEbegrsuBaMUjA1jzELddN1ZACcNTDCttXAzsg+qMDpUHu8A?=
- =?iso-8859-1?Q?vmqNoO9vXhtbiTlvME7EGJvJhk27XICXMGBrFAG495sa/LlY+U8XlFlpKe?=
- =?iso-8859-1?Q?N/lf8fuT+5RBaTpzKMLh2LQyCpdyxOo=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
+	id 1w5JDu-00000002u0N-3nFh;
+	Wed, 25 Mar 2026 08:04:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1774425848; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=EgJc1itclomWbWoYY1L0OXodJvSl3a1QmTBciFyHoo53RSblmuzqjezxGM3ARt34orpOu1t8h1NUM51T6pu639Te5wEhsJ+/78IKnSZ+FspgYAoHBppJJYzBY9EzBg0N+wQ904fE5IJhMu6iyd9sR1eRy5ksKwaQaI7RhGmjDG4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1774425848; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=045P43LH4bNvn5f+Wj8qPpIAq39tX2DOOtWxfqbqqi4=; 
+	b=UMYXmhZFE8dvtG54X+chFjKgsOiilppx6SVhpLEWoRvSVndcUzaOC82upwF500bi67FboElP+JoJSlg7G0p8a9Yz2GxcGb7cYhfJ3FVNtfT86FxYcCyPShFDeY0pKEYWNWrHqE/Gbz29ovEBO/IRLrMSsllWD1kArypBdm58dOg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774425847;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=045P43LH4bNvn5f+Wj8qPpIAq39tX2DOOtWxfqbqqi4=;
+	b=Sl6z+LVf4xDcYVH/a1jR9lE/BTcZh/OoV71DF1S4GAgqSxXkwDYhpb2ZybFVGIE7
+	Hc50FGhvDt/TJPOsZv7dhOhsfYf+Wbp5lPlfCn42tkY2mRs3ezuex+5ci1hQaB/uOBC
+	Ah5RS9ptrfwqvP2/rQugPjOfNRKQzduPClQNe+KEins/36S8XH5db3rjSG/sd8qKbY8
+	QZQWcRkctSSY8cKd0WT8rAxZ4SqOwunhcRuBmfu5/6Rp9ZpLufvZmAywygwzSM4IxSI
+	JCNRQ1+L6xUX7NoM7Msgfr5PEnHx3mNQ8YW9YxmG8i8AMN3TYmYVRTYrTtT17WRT/or
+	4ugIoE/5jw==
+Received: by mx.zohomail.com with SMTPS id 1774425845845509.8994376356012;
+	Wed, 25 Mar 2026 01:04:05 -0700 (PDT)
+Message-ID: <93c1d325461cc0ffad890d64870de680506338c4.camel@icenowy.me>
+Subject: Re: [PATCH v2 0/5] powervr: MT8173 GPU support
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Chen-Yu Tsai <wenst@chromium.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Frank Binns
+ <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, Maarten
+ Lankhorst	 <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 25 Mar 2026 16:03:57 +0800
+In-Reply-To: <20260325071951.544031-1-wenst@chromium.org>
+References: <20260325071951.544031-1-wenst@chromium.org>
+Organization: Anthon Open-Source Community
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-X-OriginatorOrg: guidelinegeo.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: e58b3b46-69fd-4dfe-e3e9-08de8a45167a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Mar 2026 08:04:06.7179
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: f3403a73-63c2-4dc7-b628-287972076881
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 31IwX6xk463IizYy9Cl8Y4T4BTHckhoC6kbKVE3+//6HY3JQu+CM0LXS81ZzvYlcCto5DIL9NGlCJMAqMI1dYHSh/p2SVYzJ+4v9p2Pht75p3Qi4uIkWf02/k3Tj7HzW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV5P280MB2251
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_010413_959575_758BAFC9 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260325_010419_005796_C09F7479 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,63 +88,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping on this.=0A=
-=0A=
-The fix aligns postdisable with preenable, which already uses=0A=
-xadc_get_seq_mode() to select simultaneous mode for dual external=0A=
-mux configurations.=0A=
-=0A=
-Happy to answer any questions.=0A=
-=0A=
-Thanks,=0A=
-Christofer=0A=
-________________________________________=0A=
-From:=A0Michal Simek <michal.simek@amd.com>=0A=
-Sent:=A0Tuesday, March 10, 2026 8:42 AM=0A=
-To:=A0Jonathan Cameron <jic23@kernel.org>; Christofer Jonason <christofer.j=
-onason@guidelinegeo.com>; Salih Erim <salih.erim@amd.com>; O'Griofa, Conall=
- <conall.ogriofa@amd.com>=0A=
-Cc:=A0lars@metafoo.de <lars@metafoo.de>; dlechner@baylibre.com <dlechner@ba=
-ylibre.com>; nuno.sa@analog.com <nuno.sa@analog.com>; andy@kernel.org <andy=
-@kernel.org>; Victor Jonsson <victor.jonsson@guidelinegeo.com>; linux-iio@v=
-ger.kernel.org <linux-iio@vger.kernel.org>; linux-arm-kernel@lists.infradea=
-d.org <linux-arm-kernel@lists.infradead.org>; linux-kernel@vger.kernel.org =
-<linux-kernel@vger.kernel.org>; stable@vger.kernel.org <stable@vger.kernel.=
-org>=0A=
-Subject:=A0Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in post=
-disable for dual mux=0A=
-=A0=0A=
-+Salih, Conall,=0A=
-=0A=
-On 3/7/26 13:41, Jonathan Cameron wrote:=0A=
-> On Wed,=A0 4 Mar 2026 10:07:27 +0100=0A=
-> Christofer Jonason <christofer.jonason@guidelinegeo.com> wrote:=0A=
->=0A=
->> xadc_postdisable() unconditionally sets the sequencer to continuous=0A=
->> mode. For dual external multiplexer configurations this is incorrect:=0A=
->> simultaneous sampling mode is required so that ADC-A samples through=0A=
->> the mux on VAUX[0-7] while ADC-B simultaneously samples through the=0A=
->> mux on VAUX[8-15]. In continuous mode only ADC-A is active, so=0A=
->> VAUX[8-15] channels return incorrect data.=0A=
->>=0A=
->> Since postdisable is also called from xadc_probe() to set the initial=0A=
->> idle state, the wrong sequencer mode is active from the moment the=0A=
->> driver loads.=0A=
->>=0A=
->> The preenable path already uses xadc_get_seq_mode() which returns=0A=
->> SIMULTANEOUS for dual mux. Fix postdisable to do the same.=0A=
->>=0A=
->> Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")=0A=
->> Cc: stable@vger.kernel.org=0A=
->> Signed-off-by: Christofer Jonason <christofer.jonason@guidelinegeo.com>=
-=0A=
->=0A=
-> I'll leave this on list for a little longer as I'd really like a confirma=
-tion=0A=
-> of this one from the AMD Xilinx folk.=0A=
-=0A=
-Salih/Conall: Please look at this patch and provide your comment or tag.=0A=
-=0A=
-Thanks,=0A=
-Michal=
+=E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 15:19 +0800=EF=BC=8CChen-Yu Tsai=E5=
+=86=99=E9=81=93=EF=BC=9A
+> Hi everyone,
+>=20
+> This is v2 of my MT8173 PowerVR GPU support series.
+>=20
+> Changes since v1:
+> - Adapted to changed DT bindings
+> - Dropped driver change
+> - Use same power domain for "a" and "b" GPU power domains
+>=20
+> This update was requested by Icenowy.
+>=20
+>=20
+> This series enables the PowerVR GPU found in the MT8173 SoC, found in
+> some Chromebooks.
+>=20
+> This version is different from the initial powervr driver submission
+> [1]
+> in that it splits out the GPU glue layer support out of the powervr
+> driver and into a separate clock and power domain driver. The glue
+> code
+> is otherwise the same, and also the same as found in the ChromeOS
+> kernels, with some extra comments and macro names added where
+> possible.
+>=20
+> Patch 1 adds a binding for the glue layer, called mfgtop. The glue
+> layer
+> contains clock and power controls for the GPU.
+>=20
+> Patch 2 adds a driver for the glue layer.
+>=20
+> Patch 3 adds an entry for the MT8173 GPU and 6XT series to the
+> PowerVR
+> binding.
+>=20
+> Patch 4 adds an entry for the PowerVR 6XT series GPU to the driver.
+>=20
+> Patch 5 corrects the clock for the GPU (called MFG) power domain.
+>=20
+> Patch 6 adds device nodes for the GPU and glue layer to the MT8173
+> dtsi
+> file.
+>=20
+> Patch 2 and 6 depend on patch 1 to build. I suppose some common
+> immutable tree would be needed from the MediaTek maintainers.
+>=20
+> The kernel driver successfully probes the hardware and loads the
+> "rogue_4.40.2.51_v1.fw" firmware provided by Imagination Technologies
+> [2].
+> Userspace was tested with Mesa 24.0.8 from Debian Trixie rebuilt with
+> the powervr vulkan driver enabled. `vulkaninfo` gives some
+> information
+> about the GPU (attached at the end), but running the `triangle`
+> example
+> from the Sascha Willems demos [3] with -DUSE_D2D_WSI=3DON as
+> recommended [4]
+> failed with:
+>=20
+> =C2=A0=C2=A0=C2=A0 Can't find a display and a display mode!
+
+I think when using D2D the demos want width and height to be explicitly
+specified, otherwise it seems to hardcode 1280x720.
+
+If you're using an elm, could you try to add `-w 1920 -h 1080` or for
+hana `-w 1366 -h 768` ?
+
+Thanks
+Icenowy
+
+>=20
+> Same program worked correctly on a BeaglePlay and displayed a color
+> gradient triangle. Not sure what went wrong here.
+>=20
+> Anyway, please have a look and test.
+>=20
+>=20
+> Thanks
+> ChenYu
+>=20
+> [1]
+> https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.walker@im=
+gtec.com/
+> [2]
+> https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
+> [3] https://github.com/SaschaWillems/Vulkan
+> [4]
+> https://lore.kernel.org/dri-devel/f2b2671e-5acc-4dec-9c2e-3c9cd2e1f19e@im=
+gtec.com/
+>=20
+> Chen-Yu Tsai (5):
+> =C2=A0 dt-bindings: clock: mediatek: Add mt8173 mfgtop
+> =C2=A0 clk: mediatek: Add mt8173-mfgtop driver
+> =C2=A0 dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
+> =C2=A0 arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
+> =C2=A0 arm64: dts: mediatek: mt8173: Add GPU device nodes
+>=20
+> =C2=A0.../clock/mediatek,mt8173-mfgtop.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 70 +++++
+> =C2=A0.../bindings/gpu/img,powervr-rogue.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0arch/arm64/boot/dts/mediatek/mt8173.dtsi=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0 33 ++-
+> =C2=A0drivers/clk/mediatek/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=
+=A0 9 +
+> =C2=A0drivers/clk/mediatek/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 =
+1 +
+> =C2=A0drivers/clk/mediatek/clk-mt8173-mfgtop.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 243
+> ++++++++++++++++++
+> =C2=A0include/dt-bindings/clock/mt8173-clk.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 7 +
+> =C2=A07 files changed, 363 insertions(+), 1 deletion(-)
+> =C2=A0create mode 100644
+> Documentation/devicetree/bindings/clock/mediatek,mt8173-mfgtop.yaml
+> =C2=A0create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
 
