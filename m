@@ -4,82 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1099FEA830
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D67FEA82F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 08:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9dq/YXT43RiPob4KZpRtQZKMuP8xl87UFxfdECNIzUY=; b=evJSOKKWagUbN+c44tHZXcVKn7
-	PjOWGNDIiKhoriCaATCWT5iITC4hD+3HOANoww56zOGst6nkOhlBJuCgCVm4bedgrXjJ2KCAyzn84
-	wX+GKjtRJd4NSFQf114jwRjnFWr7i8rwfEUzWvCJWca3Uglfa1O9/IXIwCU5WiguJlz3vfg0V8xJE
-	aJPmc4Q7UKI6+Bnyzo9y1rG4wEZo9NNsr4m8LiQ8rd5L9a9QqeeYcsolkYXL/1qVnhkIqjfEOmRTr
-	UgRxm5hAlueGRH5hsTveJxnWtMctU9GWHcYsUGP5aT2rVIfvHR1OBIl2VgKUbpVgFGetfkf1Uie6v
-	zhbMXTOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8WtWvakaoFDgbKGfWvkRgtMotvTgdm1aSKOsTfj3rw4=; b=N9TDr9WdqKGeYvnxwzDPB7V9Uu
+	ez9ShLdtYN0u79LwsxahiztOr+F+oj1aJqfl/aM2mQC7nhUWgAKQgc49tyy5lKYGCe8ZJzCpt4/qv
+	g1XgF7R4OfoDCLITJyLRgQfbyohk4YeBSKRMxR71G9CtzdHst6KZuBKryxnr/0QQJ9OOSq5XiHg/2
+	lsoWiak3Z0j6jYL42LlnhWH8HZlQ0JrzCTMhXcvFuXFhNlB96baHSveII4F+qQZbHUx2aGuZy2SB5
+	t9sw4DUa3rugT9bmoSl2VNnDygcF6Zkzl8dRAmbCPDHLASAUW1b1tCsgBK8pHafzHIK/88FcRYUou
+	aL2uPSHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JZU-00000002wll-45uA;
-	Wed, 25 Mar 2026 08:26:36 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1w5JdY-00000002x3t-10qk;
+	Wed, 25 Mar 2026 08:30:48 +0000
+Received: from mail-francecentralazon11013000.outbound.protection.outlook.com ([40.107.162.0] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5JZS-00000002wkl-0KMt;
-	Wed, 25 Mar 2026 08:26:35 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.202])
-	by APP-05 (Coremail) with SMTP id zQCowAA3zRAMnMNpPvpuCw--.51434S3;
-	Wed, 25 Mar 2026 16:25:51 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Mateusz Koza <mateusz.koza@grinn-global.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Gary Bisson <bisson.gary@gmail.com>,
-	Cristian Cozzolino <cristian_ci@protonmail.com>,
-	Jianeng Ceng <cengjianeng@huaqin.corp-partner.google.com>,
-	Max Shevchenko <wctrl@proton.me>,
-	Sean Wang <sean.wang@mediatek.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1w5JdW-00000002x35-115n
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 08:30:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uyml9AWjtFg5dFKIN9RwmBs1nac7i30VG14kQBdtYWSGO6k5rhObSqzbwZTwV8WkcBlWOC2uTrig3rpAIfOCppt5MxZT2x7h4BGjEbVtv/7sXVJpkDaszpeIrP09HqDdN4ZlYPs5r3fG4TH4aYWyPUwV2ncbDI4MltWUd2Gc1z5vIpIsE0m33EolrDP3i/MJyKTBe9/YpN8iQOYS/evtZ7NOFh2jPKEXyu1ROH/CoRlkK75X7XupKOCL6zWP1d9RznvyIvLqUU+T4OB49Ak0m09EqRQHOf73aJt+kDgUDG4WNT1tE6sA6z4E1d0KJfqs5ZYaK+kNr34xlu2aFuw6Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8WtWvakaoFDgbKGfWvkRgtMotvTgdm1aSKOsTfj3rw4=;
+ b=HPhrUklt+BPBJWfPE6B0IT96BY36N1bHoJm+CR2y4/62RiQuAchUeAuUR+EG3sz8hQhDbNBeyAwcPEgFRw6V3s/HgtCUh+Blkr/pID2mqR3vLUQgquCAsnyWbV9WDLGxUyo8YdDbPAlh92wO7GkL5+1FF+elbn09YGZLFT2ArTyGlGIfKZYkbSD8VT1hg2W1q15//LFnh5/HUOZ+tEaqj9/UhJXIFuoJNdbUOA3NhMiJmaCdi6MPu6m79jsRqIgC+reV7o8wjlams/VMSyXi9/jI803T8xQtG3cslbOCyEoMWx7E0REV5O76iGyLqvHcXyqqufsd/QYu1cuBZHsnew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8WtWvakaoFDgbKGfWvkRgtMotvTgdm1aSKOsTfj3rw4=;
+ b=mlQlnsyDqtwuqEaC88BX2K4iQ3QHG0dgAyddpWGW1Sj4rM1q7HnwQCiWrQBhvFVTTAgTux/s8fBsspN1W/5zuaxaF0L6Ui4+Jcy33V2YZmrkXjdNAcm1iI1kxZ6eyU0/u1OxNLEOoHkYzTnJgMhoEPl2X57AVDeeOZxT7ggzbEHHg5ROck2Buvigu6xwnlWJrhBPY4yHz2mdSNHRas0Qs4hq3PAO9xj8V0KN3AqVrPfKtPXBOQRmBS72PdFWMCacdKFDu95JDfMSD8aytkR2/HXuL6O0HUoDa1/6wHRX5cM3r1BUhz9Bj+MXjnPmKaefmmK7n6m5C0CpT1zE6JgY2g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by VI1PR04MB7054.eurprd04.prod.outlook.com
+ (2603:10a6:800:12d::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
+ 2026 08:30:38 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%5]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
+ 08:30:38 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	hongxing.zhu@nxp.com
+Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 2/2] arm64: dts: mediatek: mt8173: add hana revision 2
-Date: Wed, 25 Mar 2026 16:25:46 +0800
-Message-ID: <20260325082546.1572405-2-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260325082546.1572405-1-zhengxingda@iscas.ac.cn>
-References: <20260325082546.1572405-1-zhengxingda@iscas.ac.cn>
-MIME-Version: 1.0
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V3 0/3] arm64: dts: imx: Disable PCIe by default and add overlay support for M.2 connector
+Date: Wed, 25 Mar 2026 16:31:58 +0800
+Message-Id: <20260325083201.2637520-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAA3zRAMnMNpPvpuCw--.51434S3
-X-Coremail-Antispam: 1UD129KBjvdXoWruw1kArWrXF1UuFyUur1kGrg_yoWkZFc_JF
-	n29Fn8XF4kJas8Zw1YqFsYvr12q3y8ZrWrGFs8Jr1Dt3W5XryUG3y0v345Gr4Uu39agF45
-	ZFZ8ZFW8JrnIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbPxYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7
-	IE14v26r18M28IrcIa0xkI8VCY1x0267AKxVW8JVW5JwA2ocxC64kIII0Yj41l84x0c7CE
-	w4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6x
-	kF7I0E14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY
-	1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4
-	xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCa
-	FVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI4
-	02YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCF
-	x2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14
-	v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY
-	67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2
-	IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pEnYFtUUUUU=
-X-Originating-IP: [112.94.102.202]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0096.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::12) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|VI1PR04MB7054:EE_
+X-MS-Office365-Filtering-Correlation-Id: eac143e0-3d92-42d7-955e-08de8a48caf0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|52116014|7416014|56012099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: ISJVNm2qNUat8MhhSeEntuJ9C9/bKEAASQaW+UMcCbmyo8M8bMo9srgaupT2yI6PMjZM2lZ1YOeDZM8zWxZMItU2OsNjJg2BKwt9fmX9ppXkVSRGCZSgaIZ+BOWAOG1f04YR7E5i1VuoVZ+9dZXid19NkWgtnpdcgYB1L4XHwZGoHWII77Vep6ARQcAVfHXnJSHo4f9tZw6uLR5by1h5MSBqHN/6AITC8bx6e9baNEhz+QMjg3lA/UAlGN8Sd9sZtbFE70ba2QeqdHng66bBlKPF4GpqEz3m1JIAhuLd5iYvQ4yBHGG6Y798VckX7PFrtxHX2mTqJ2s0GQV9fDH6SQN8ztqlKUyM4TMa59TRyItLKl8je29KDF/Ummv/az5PcRobmQooO5uA9Okb+SwINFU20o69xlllC60HW3nGAW5JoOLXku2JdZ9zVEtf7Z1cRfQOMpG6AQ0F41JdqQOs36mwVvx0B6/IDkV2TPZgqd+Y+UpNnynIapJ9UwcWUcK/CcF1bP0ItyzRCd2Hw6NMqmR+BIOro+1OvCQd2npOTIEgE3vkN3ptY30FUInfU8gefwoGUkpH/SG+Kl/Nb0s1mUJN1RbMwFXZm6R8WGuCNNQUCYZ2toXW+7fvU80ovOjI9pe47PRkUneOxw5NmtH7fyRNzcAN8yHX4tYEJ5CzE3K7FWUCBEko3CIiABmeQ5kVbM5Oltnre8aam6H24hMtHmV86wm/rEFKpup8OT19rQt/r75SggkzsByt6rdLYlKS0A+I37uMXuGVNb1M+d46ayuAN+QIZBa9w8pL6nlZu3U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(52116014)(7416014)(56012099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cYSIUfFcZmPwOGH5N+4Br/ogpqc1OPVQgJTs2Wg0P81P5UCItWFrpZmvbdyM?=
+ =?us-ascii?Q?9A4X05GvZ0ruk0VXVR9fNVCjwFFxUGIF2pc7Y3T7VL/J684lw7thD7ZjczWZ?=
+ =?us-ascii?Q?PLRERA/jgNgyghVgFdmSICUuY8TMJ6PscKIUKWd649VoKEiVRyombybB2Hbp?=
+ =?us-ascii?Q?LgZp/GP0ElSbEgHQ3jCJUd1GZbLnubu3vl3KZ9Y2/D3sn4QAYsKGLzhaOjZx?=
+ =?us-ascii?Q?eSBJN1VhqTkTFUX0KEyyeMVrriodGJfw9HJx16KLozVnDICKgjqCru6Tpt7b?=
+ =?us-ascii?Q?Y72Eogbkws5PFjl2vc3dPx54wCF6mhpr794o7TmZ363eeJqD7XDZg4pRUpRN?=
+ =?us-ascii?Q?S9s8dXdeIGWFmHZSEDHqdvn5BK2lcHO3ugA8YccE8xQlc8hSV2hrktBqeNEU?=
+ =?us-ascii?Q?t/25vsdQEaaisM8DKaIjhTGDJpEOXoyCKkXzt+Uc4PKQWSZmO7N0zw2WM6p2?=
+ =?us-ascii?Q?OMR6iljV2NYrI83i6PVEFSxIl0vDMGs52e8aqpLeKlW+dyhZbQH3WxQ351oZ?=
+ =?us-ascii?Q?OHVTt+sPxyOrnXcWQ+tNSOQngKCFQ/Z3QiEIW0VX05apQ3aZuQCL5CpWSQNs?=
+ =?us-ascii?Q?xyXRqjwyKErwX/ZwV/JvhKQ0nv+6KyFUWxrQknN55zkZbP/NyKwjJ/NWgZ6u?=
+ =?us-ascii?Q?iNYAR/NUSgeJP3Zy7pZF2Ucyy4LZrfIJyRq9OKrHrsGiKrWq2gQnC+UXwHHy?=
+ =?us-ascii?Q?+qAFtbK4BIAW7O4hvGadWnBtcTtvuuEKkf1w8jSnRDCH8aP8dGS9m85lm2Ba?=
+ =?us-ascii?Q?sv+lJwy5JQF6Vc3sxuGSr7WbYZfpVCOuQXvpX7wHo20qJWdQLAq+BG2DTKFu?=
+ =?us-ascii?Q?XhI0AX5s3uOJTIf1oqOsGwRzpIhX1DVuuCkwS9a6Ki3t9W0B8QUjO2heNjOH?=
+ =?us-ascii?Q?E3OOLlhFAKr/RsYG7BDWHXcbPuNi2bxIv2S45M1Jz5vWdkSYfTTiO2uMTYm7?=
+ =?us-ascii?Q?EZARa5WO8Pwd2yRulrOpoRfCpFYZTt2uCqnDsAl+JxKNn81e4YymFqmej7d+?=
+ =?us-ascii?Q?nHekpiAJaaPwIsqkB+8v4zPoJVzW0LI14ltzlBpXDkFWPpA7KRfIZWmvDazD?=
+ =?us-ascii?Q?ALI2DYL3qUFlBc7KeIzlUqFnFTSNawKKLLhs9A1z7WBdRaBW1IlzZNaiiuiH?=
+ =?us-ascii?Q?pVESPaCbz7E0/p1gqDcG//8SNB0n6V2625WI0N/zSK/FU4i2/45hHhua7M0+?=
+ =?us-ascii?Q?xbiy/GDAtoGpig1t8wydFoQgPvq15TnNTKW/OGfdvqcSV/IPYfVeiPc0CtPo?=
+ =?us-ascii?Q?Ug3I/0rGwRjRc1QikhQ3OXnmvPwAo0Nw2jseMLsnbEk832ulHbgJG7O/os11?=
+ =?us-ascii?Q?pX/wlZNkYyY0CZ6JQBnYj5Pj1mbmFjFwlmWNkielKH8JtUglXxihQTNJuGIY?=
+ =?us-ascii?Q?SMZP1d43G8ZS1odHrlpcLhW9b87IvH5dVmwrAbJUEJXMhNP8w3LV2LVC68ua?=
+ =?us-ascii?Q?12a16QgWHN1Atl0tI4cJwlli+iFNBalpsnHoosvSxnjw215n9DFYx7eShxnB?=
+ =?us-ascii?Q?/oBbVol3KkI1Nq1NorNNfqROcmN9ZuL5Btgx8DFeuZMbegFMQ6DWBVIkJN5M?=
+ =?us-ascii?Q?17PwdhdKIE9VlvomdCcFCfgvp21eAbfK+GgQSbewvM9+WiDe2gJSQwZ2uS0w?=
+ =?us-ascii?Q?w8uaRP/Lf50XOR7bg/UJUaj6n7C/58iLIZouqxIqr4iwVHR+WwLz8LSY1EvE?=
+ =?us-ascii?Q?3RTnMmirjjH+U/YLsgVQY4/N/UnYS1yduEXEPLV1Tx1CmbB4ODKHXqLjFWHV?=
+ =?us-ascii?Q?bfZsx45a2A=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eac143e0-3d92-42d7-955e-08de8a48caf0
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 08:30:38.2511
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KZE02XHkxJrGwQ+qGyD0EISnE/Zu1sq2f9qrvZfrD2DIcMUgrXF4PS0h8guDkiVmlBVp7BokzvE3/0gqH1pXcA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_012634_566948_ED6BCFBC 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260325_013046_287314_637DD803 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +142,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current mt8173-elm-hana.dts file only contains compatible strings
-for revision 3~6, makes boards with revision 0~2 to fail to match a
-revision-specific DTS and may fall back to the rev7 one (which lacks
-some gpio-keys).
+On both i.MX8MP EVK and i.MX95-15x15 EVK boards, the M.2 connector
+shares a common regulator between USDHC (for SDIO WiFi) and PCIe
+controllers. The non-deterministic probe order between these two
+buses can break the PCIe initialization sequence, causing PCIe
+devices to fail detection intermittently.
 
-As I've got a Lenovo Flex 11 Chromebook with board revision 2, add it to
-the base hana DTB file.
+The out-of-box module on i.MX8MP EVK and i.MX95-15x15 EVK are SDIO
+WiFi (IW612), this series changes the default configuration to
+match the out-of-box hardware (SDIO WiFi) and provides a device
+tree overlay for users who need PCIe functionality:
+1. Disable PCIe in the default device tree
+2. Keep USDHC enabled for SDIO WiFi
+3. Add 'm2_usdhc' label to support overlay
+4. Provide a common overlay (imx-m2-pcie.dtso) to enable PCIe and
+   disable USDHC when needed
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 ---
-Changes in v2:
-- Changed mailbox to ISCAS one.
+Changes in V3:
+1. Add a common overlay imx-m2-pcie.dtso for both i.MX8MP EVK and
+   i.MX95-15x15 EVK. 
+2. Add 'm2_usdhc' label to support overlay.
 
- arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in V2:
+1. Improve the commit message to clarify SDIO WiFi is the out-of-box
+   module on i.MX8MP EVK and i.MX95-15x15 EVK.
+---
+Sherry Sun (3):
+  arm64: dts: imx8mp-evk: Disable PCIe bus in the default dts
+  arm64: dts: imx95-15x15-evk: Disable PCIe bus in the default dts
+  arm64: dts: imx: Add common imx-m2-pcie.dtso to enable PCIe on M.2
+    connector
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts
-index fcf0cb76a87c3..84638a07587f3 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts
-@@ -11,5 +11,5 @@ / {
- 	chassis-type = "laptop";
- 	compatible = "google,hana-rev6", "google,hana-rev5",
- 		     "google,hana-rev4", "google,hana-rev3",
--		     "google,hana", "mediatek,mt8173";
-+		     "google,hana-rev2", "google,hana", "mediatek,mt8173";
- };
+ arch/arm64/boot/dts/freescale/Makefile            |  9 +++++++--
+ arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso    | 15 +++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts      |  4 ++--
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts |  4 ++--
+ 4 files changed, 26 insertions(+), 6 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
+
 -- 
-2.52.0
+2.37.1
 
 
