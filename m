@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2E1FEA838
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46B2FEA838
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 09:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbGgH67bPt3QHUPIpc23YuEFi5K77qt04FwhAv400Ko=; b=c0u22pzPDntY9Hz6bVRjya8vs5
-	+He+TYZ00Y605TlfQdlFe4iX3vdGxXhruA8tyAxEP/xQ8wTmsZ/pdQkpfNxUYS98num9TBXJX07Jz
-	xVoVYEzCMbKfaTBUwv0Q/uaoQHSZVZJOmZW2ACmooDoNDc/K7o+21KITXxwSwDdE8MMIPWf+su7A3
-	M28BIdP2TU4qlqEph3zEn/+z1CpuIAzUvZiC3MVR2yvP7SyIqeYC+cxLM0A12TQTTSlhxqw4tIVDi
-	rQUCUHIhReToYL0aIgX+KruifanPoWbtij6ZwDsXszpT6AvM8yrILf9C3VkwT4bwXe9/i7DwLe8qC
-	z8DkOTXA==;
+	bh=gK91G0Kh3+mdj3OrhSUyPB44TdtMO6pJoTRl9mo39qQ=; b=Uuajo79UhOm4vUTuvaxzT9DcwF
+	H9/IG0HjJKCS6y5VqGh/Wda182rnE0AntpnuqpFI8CLMCzYHvByvcP6fI+LQoeuOttKmbsTy5wD7Q
+	EXj2A/LPXsFl7b9qMXUtFHp93bG7DPJZNbPTuoi4cDYU+g4ul7FBcRQEOEtwYBkiLwjxeenCiN9f1
+	N+zLDO4V2dmZ7p0aTJXviUBbXlMCGS5ak8J3jXmn+7H1TYoylyPd+UEZtzIBDWTdiVGOREmdTcTy3
+	ecO498GIcT6vMdm9RuQ+/mnYxKDgNdApbR2gDJ3Egqv06K4xDpKXyOiAvJcelxke9PGVppBBKAaMC
+	7gSwISJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5KHJ-000000030qZ-0icD;
-	Wed, 25 Mar 2026 09:11:53 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1w5KLQ-000000031At-1W8u;
+	Wed, 25 Mar 2026 09:16:08 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5KHE-000000030q0-3Eat;
-	Wed, 25 Mar 2026 09:11:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774429900; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=PrIPW1XJ0vBASVR4vl3JpnjaVAE3cj+yD6nsufsyvsHK47HkuwpMj1Ln1kGt3mxp22u9PDmiH9lUz30+4Fnyq/CC2qVUNRl4KDKXmtcu2T8/4N7Uys3zi2gFXmgyEgKP3lBkTZlQIOM/FgCclL9czNiP9qv0O9q50GYi0MsDWLg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774429900; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=nbGgH67bPt3QHUPIpc23YuEFi5K77qt04FwhAv400Ko=; 
-	b=ZYLxIFDLZagOZ+r1ajjXS6J9wZkY5fJX/ZslYGL0rhzPWL4/QR7Nkd3VnX3FY9ZSMQquTkiwvI/1r2yVBTCqotviGZEyU3yFer84PdXSBpiQkFxlynXZlvD8oyA4elkHePO1UPN1gMZqYCOGnkc2SD/leu8BV51mL/55f9WSVN8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774429900;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=nbGgH67bPt3QHUPIpc23YuEFi5K77qt04FwhAv400Ko=;
-	b=Wsu/KMwKK2D/LCL65eqiqfEYj8D4LmtE0VKaiWQHW+BIUUhyhxcqVKf5wDgFz7pX
-	fCD7fqgNFyjdkVUeqPEEsF4hmTSSzLBZw4+tR3dU7H8H/c9DCshcTFiwB93xRLwUmws
-	x5ow6QsCgCqA0RBQyA4nDwx6OuXq3MiYIbSXU7/r0x2DFCSQnKhgSVQJlRT+bgtRZqZ
-	EgGMYtS7LUAIfuS4VJk99GaZ5tuZF49o2lLHlGST4NPsjlC7ETtbotKxWiqjXN8HAyj
-	CizhhPx2nmqePu1zmrTQphnnamS+iHCCNfSTx2aO6YD9Vzc9EuuH/r6O8ZfKboyA+tZ
-	cHWvf5oB4g==
-Received: by mx.zohomail.com with SMTPS id 1774429898766570.112596004536;
-	Wed, 25 Mar 2026 02:11:38 -0700 (PDT)
-Message-ID: <42fb6b7dfc6a9d66649e0a7040cdafc1289ddf63.camel@icenowy.me>
-Subject: Re: [PATCH v2 0/5] powervr: MT8173 GPU support
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Frank Binns
- <frank.binns@imgtec.com>, Matt Coster	 <matt.coster@imgtec.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 25 Mar 2026 17:11:31 +0800
-In-Reply-To: <0739597b7a9c162525c10d82c3993e37af1c8a75.camel@icenowy.me>
-References: <20260325071951.544031-1-wenst@chromium.org>
-		 <93c1d325461cc0ffad890d64870de680506338c4.camel@icenowy.me>
-		 <CAGXv+5FL2rs35V4F0bwq-a4ccvFaWKcr1cuKxT6sfTj9h+d6iA@mail.gmail.com>
-	 <0739597b7a9c162525c10d82c3993e37af1c8a75.camel@icenowy.me>
-Organization: Anthon Open-Source Community
+	id 1w5KLO-0000000319G-1QU4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Mar 2026 09:16:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1774430157;
+	bh=gK91G0Kh3+mdj3OrhSUyPB44TdtMO6pJoTRl9mo39qQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ZnphFnjBKvQXgZewq1BcRIyvVp/KbXTSwy5zs660K1Q/BPNeFqfRZfvVEdKoK67iR
+	 OVB8Y5kuoKvgaLyJk0RFnEfYhPhmM5xSgFwWqE1TQfZ4A8Q5LHrsPY6L3C4c+y0StC
+	 OEkHNOg8VK9kjYfrF6V0ZUlbncIGBOaC+LfLuQHDTj3IvZtyI9FzdhjcbzZW6Wq7Wh
+	 13E+wFO/y6QXMrBDMmSuEOtMAhnAcwCycyfzTWRKxalbbA2FES4fnkF+y9troHKI2j
+	 dt7XWyY2nv5lSC77qVcjwQtL3Wz5wItkd8JRLeHrf/KKGBum3zbKOG2EP+L8cZhcCQ
+	 2mYJfLdMxno2w==
+Received: from pecola.lan (unknown [159.196.93.152])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7D3296452E;
+	Wed, 25 Mar 2026 17:15:54 +0800 (AWST)
+Message-ID: <28eee6d05ed1e1814f09ec907d56798a279f226d.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v27 3/4] i2c: ast2600: Add controller driver for AST2600
+ new register set
+From: Jeremy Kerr <jk@codeconstruct.com.au>
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+ <andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>,  Philipp Zabel <p.zabel@pengutronix.de>
+Cc: "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, 
+	"devicetree@vger.kernel.org"
+	 <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	 <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	 <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	 <openbmc@lists.ozlabs.org>
+Date: Wed, 25 Mar 2026 17:15:54 +0800
+In-Reply-To: <TY2PPF5CB9A1BE6D451E8AFDBA03B81AFB4F249A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260324-upstream_i2c-v27-0-f19b511c8c28@aspeedtech.com>
+	 <20260324-upstream_i2c-v27-3-f19b511c8c28@aspeedtech.com>
+	 <db921d6b820a13d59d0ffb0ab042dc6c8c11897f.camel@codeconstruct.com.au>
+	 <TY2PPF5CB9A1BE6D451E8AFDBA03B81AFB4F249A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.46.4-2+deb12u1 
 MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_021148_877207_160FBAC2 
-X-CRM114-Status: GOOD (  42.35  )
+X-CRM114-CacheID: sfid-20260325_021606_587567_FB73A1FD 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,185 +85,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 16:30 +0800=EF=BC=8CIcenowy Zheng=E5=
-=86=99=E9=81=93=EF=BC=9A
-> =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 16:08 +0800=EF=BC=8CChen-Yu Tsai=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > On Wed, Mar 25, 2026 at 4:04=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me>
-> > wrote:
-> > >=20
-> > > =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 15:19 +0800=EF=BC=8CChen-Yu Ts=
-ai=E5=86=99=E9=81=93=EF=BC=9A
-> > > > Hi everyone,
-> > > >=20
-> > > > This is v2 of my MT8173 PowerVR GPU support series.
-> > > >=20
-> > > > Changes since v1:
-> > > > - Adapted to changed DT bindings
-> > > > - Dropped driver change
-> > > > - Use same power domain for "a" and "b" GPU power domains
-> > > >=20
-> > > > This update was requested by Icenowy.
-> > > >=20
-> > > >=20
-> > > > This series enables the PowerVR GPU found in the MT8173 SoC,
-> > > > found in
-> > > > some Chromebooks.
-> > > >=20
-> > > > This version is different from the initial powervr driver
-> > > > submission
-> > > > [1]
-> > > > in that it splits out the GPU glue layer support out of the
-> > > > powervr
-> > > > driver and into a separate clock and power domain driver. The
-> > > > glue
-> > > > code
-> > > > is otherwise the same, and also the same as found in the
-> > > > ChromeOS
-> > > > kernels, with some extra comments and macro names added where
-> > > > possible.
-> > > >=20
-> > > > Patch 1 adds a binding for the glue layer, called mfgtop. The
-> > > > glue
-> > > > layer
-> > > > contains clock and power controls for the GPU.
-> > > >=20
-> > > > Patch 2 adds a driver for the glue layer.
-> > > >=20
-> > > > Patch 3 adds an entry for the MT8173 GPU and 6XT series to the
-> > > > PowerVR
-> > > > binding.
-> > > >=20
-> > > > Patch 4 adds an entry for the PowerVR 6XT series GPU to the
-> > > > driver.
-> > > >=20
-> > > > Patch 5 corrects the clock for the GPU (called MFG) power
-> > > > domain.
-> > > >=20
-> > > > Patch 6 adds device nodes for the GPU and glue layer to the
-> > > > MT8173
-> > > > dtsi
-> > > > file.
-> > > >=20
-> > > > Patch 2 and 6 depend on patch 1 to build. I suppose some common
-> > > > immutable tree would be needed from the MediaTek maintainers.
-> > > >=20
-> > > > The kernel driver successfully probes the hardware and loads
-> > > > the
-> > > > "rogue_4.40.2.51_v1.fw" firmware provided by Imagination
-> > > > Technologies
-> > > > [2].
-> > > > Userspace was tested with Mesa 24.0.8 from Debian Trixie
-> > > > rebuilt
-> > > > with
-> > > > the powervr vulkan driver enabled. `vulkaninfo` gives some
-> > > > information
-> > > > about the GPU (attached at the end), but running the `triangle`
-> > > > example
-> > > > from the Sascha Willems demos [3] with -DUSE_D2D_WSI=3DON as
-> > > > recommended [4]
-> > > > failed with:
-> > > >=20
-> > > > =C2=A0=C2=A0=C2=A0 Can't find a display and a display mode!
-> > >=20
-> > > I think when using D2D the demos want width and height to be
-> > > explicitly
-> > > specified, otherwise it seems to hardcode 1280x720.
-> > >=20
-> > > If you're using an elm, could you try to add `-w 1920 -h 1080` or
-> > > for
-> > > hana `-w 1366 -h 768` ?
-> >=20
-> > I only did the basic `vulkaninfo` test this time around. To do
-> > anything
-> > interesting probably requires the Mesa 26.1 release.
-> >=20
-> > =C2=A0=C2=A0=C2=A0 PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vkmark --winsys kms -D b81f5=
-4f8568deb0fb70a6a1ed845b65d
-> >=20
-> > just reports "Error: Device specified by uuid is not available"
->=20
-> I am very sorry to tell you that, when I run Sascha's demo with Mesa
-> main, I got GPU lost immediately...
->=20
-> ```
-> [=C2=A0 441.509433] powervr 13000000.gpu: [drm] *ERROR* GPU device lost
-> ```
+SGkgUnlhbiwKCj4gPiBJIHdvdWxkIHN1Z2dlc3Qgc2VwYXJhdGluZyB0aGUgc3RyaW5nIHBhcnNp
+bmcgZnJvbSB0aGUgImlzIHRoZSBtb2RlIGF2YWlsYWJsZSIKPiA+IGxvZ2ljLCBtb3JlIG9uIHRo
+YXQgYmVsb3cuCj4gPiAKPiBJIHdpbGwgc2VwYXJhdGUgd2l0aCBmb2xsb3dpbmcuCj4gwqAKPiBz
+dGF0aWMgaW50IGFzdDI2MDBfaTJjX3hmZXJfbW9kZV9wYXJzZShjb25zdCBjaGFyICpidWYsIGVu
+dW0geGZlcl9tb2RlICptb2RlKQo+IHsKPiDCoMKgwqAgaWYgKHN5c2ZzX3N0cmVxKGJ1ZiwgImJ5
+dGUiKSnCoMKgIHsgKm1vZGUgPSBCWVRFX01PREU7IHJldHVybiAwOyB9Cj4gwqDCoMKgIGlmIChz
+eXNmc19zdHJlcShidWYsICJidWZmZXIiKSkgeyAqbW9kZSA9IEJVRkZfTU9ERTsgcmV0dXJuIDA7
+IH0KPiDCoMKgwqAgaWYgKHN5c2ZzX3N0cmVxKGJ1ZiwgImRtYSIpKcKgwqDCoCB7ICptb2RlID0g
+RE1BX01PREU7wqAgcmV0dXJuIDA7IH0KPiDCoMKgwqAgcmV0dXJuIC1FSU5WQUw7Cj4gfQoKT0ss
+IGJ1dCB3aXRoIGtlcm5lbC1zdHlsZSBmb3JtYXR0aW5nLgoKPiAKPiBzdGF0aWMgaW50IGFzdDI2
+MDBfaTJjX3hmZXJfbW9kZV9jaGVjayhzdHJ1Y3QgYXN0MjYwMF9pMmNfYnVzICppMmNfYnVzLAo+
+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgZW51bSB4ZmVyX21vZGUgbW9kZSkKPiB7Cj4gwqDCoMKgIGlm
+IChtb2RlID09IEJVRkZfTU9ERSAmJiAhaTJjX2J1cy0+YnVmX2Jhc2UpCj4gwqDCoMKgwqDCoMKg
+wqAgcmV0dXJuIC1FSU5WQUw7Cj4gwqDCoMKgIGlmIChtb2RlID09IERNQV9NT0RFICYmICFpMmNf
+YnVzLT5kbWFfYXZhaWxhYmxlKQo+IMKgwqDCoMKgwqDCoMKgIHJldHVybiAtRUlOVkFMOwo+IMKg
+wqDCoCByZXR1cm4gMDsKPiB9Cj4gCj4gPiA+ICsKPiA+ID4gK3N0YXRpYyBjb25zdCBjaGFyICph
+c3QyNjAwX2kyY194ZmVyX21vZGVfbmFtZShlbnVtIHhmZXJfbW9kZSBtb2RlKSB7Cj4gPiA+ICvC
+oMKgwqDCoMKgwqDCoHN3aXRjaCAobW9kZSkgewo+ID4gPiArwqDCoMKgwqDCoMKgwqBjYXNlIEJZ
+VEVfTU9ERToKPiA+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldHVybiAiYnl0
+ZSI7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNhc2UgRE1BX01PREU6Cj4gPiA+ICvCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gImRtYSI7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGNh
+c2UgQlVGRl9NT0RFOgo+ID4gPiArwqDCoMKgwqDCoMKgwqBkZWZhdWx0Ogo+ID4gPiArwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuICJidWZmZXIiOwo+ID4gPiArwqDCoMKgwqDC
+oMKgwqB9Cj4gPiA+ICt9Cj4gPiA+ICsKPiA+ID4gK3N0YXRpYyBzc2l6ZV90IHhmZXJfbW9kZV9z
+aG93KHN0cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0Cj4gPiA+ICtkZXZpY2VfYXR0cmlidXRlICph
+dHRyLCBjaGFyICpidWYpIHsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgc3RydWN0IGFzdDI2MDBfaTJj
+X2J1cyAqaTJjX2J1cyA9IGRldl9nZXRfZHJ2ZGF0YShkZXYpOwo+ID4gPiArCj4gPiA+ICvCoMKg
+wqDCoMKgwqDCoHJldHVybiBzeXNmc19lbWl0KGJ1ZiwgIiVzXG4iLAo+ID4gPiArYXN0MjYwMF9p
+MmNfeGZlcl9tb2RlX25hbWUoaTJjX2J1cy0+bW9kZSkpOwo+ID4gPiArfQo+ID4gPiArCj4gPiA+
+ICtzdGF0aWMgc3NpemVfdCB4ZmVyX21vZGVfc3RvcmUoc3RydWN0IGRldmljZSAqZGV2LAo+ID4g
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBzdHJ1Y3QgZGV2aWNlX2F0dHJpYnV0ZSAqYXR0ciwKPiA+ID4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY29uc3QgY2hhciAq
+YnVmLCBzaXplX3QgY291bnQpCj4gPiB7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCBhc3Qy
+NjAwX2kyY19idXMgKmkyY19idXMgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsKPiA+ID4gK8KgwqDC
+oMKgwqDCoMKgZW51bSB4ZmVyX21vZGUgbW9kZTsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgaW50IHJl
+dDsKPiA+ID4gKwo+ID4gPiArwqDCoMKgwqDCoMKgwqByZXQgPSBhc3QyNjAwX2kyY194ZmVyX21v
+ZGVfcGFyc2UoaTJjX2J1cywgYnVmLCAmbW9kZSk7Cj4gPiA+ICvCoMKgwqDCoMKgwqDCoGlmIChy
+ZXQpCj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gcmV0Owo+ID4g
+PiArCj4gPiA+ICvCoMKgwqDCoMKgwqDCoGkyY19sb2NrX2J1cygmaTJjX2J1cy0+YWRhcCwgSTJD
+X0xPQ0tfUk9PVF9BREFQVEVSKTsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgYXN0MjYwMF9pMmNfc2V0
+X3hmZXJfbW9kZShpMmNfYnVzLCBtb2RlKTsKPiA+ID4gK8KgwqDCoMKgwqDCoMKgaTJjX3VubG9j
+a19idXMoJmkyY19idXMtPmFkYXAsIEkyQ19MT0NLX1JPT1RfQURBUFRFUik7Cj4gPiA+ICsKPiA+
+ID4gK8KgwqDCoMKgwqDCoMKgcmV0dXJuIGNvdW50Owo+ID4gPiArfQo+ID4gPiArCj4gPiA+ICtz
+dGF0aWMgREVWSUNFX0FUVFJfUlcoeGZlcl9tb2RlKTsKPiA+IAo+ID4gVGhpcyB3aWxsIG5lZWQg
+c3lzZnMgQUJJIGRvY3VtZW50YXRpb24uCj4gCj4gU2luY2UgaXQgaXMgaW4gc3lzZnMgL3N5cy9i
+dXMvcGxhdGZvcm0vZHJpdmVycy9pMmNfYXN0MjYwMAo+IFNvIEkgYWRkIERvY3VtZW50YXRpb24v
+QUJJL3Rlc3Rpbmcvc3lzZnMtYnVzLXBsYXRmb3JtLWRyaXZlcnMtaTJjLWFzdDI2MDAgCj4gYW0g
+SSByaWdodD8KCkkgd291bGQgc3VnZ2VzdCBEb2N1bWVudGF0aW9uL0FCSS90ZXN0aW5nL3N5c2Zz
+LWRyaXZlci1hc3QyNjAwLWkyYwoKPiAKPiBXaGF0OsKgwqDCoMKgwqDCoMKgwqDCoMKgwqAvc3lz
+L2J1cy9wbGF0Zm9ybS9kcml2ZXJzL2kyYy1hc3QyNjAwLy4uLi94ZmVyX21vZGUKPiBEYXRlOsKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqBNYXJjaCAyMDI2Cj4gS2VybmVsVmVyc2lvbjrCoMKgNi54CgpL
+ZXJuZWxWZXJzaW9uIGlzIG9wdGlvbmFsLCBidXQgaWYgeW91IGluY2x1ZGUgaXQsIGl0IHdvdWxk
+IGJlIDcueC4KCj4gQ29udGFjdDrCoMKgwqDCoMKgwqDCoMKgUnlhbiBDaGVuIDxyeWFuX2NoZW5A
+YXNwZWVkdGVjaC5jb20+Cj4gRGVzY3JpcHRpb246CgpLZWVwIHRoZSBmaXJzdCBsaW5lIG9mIHRo
+ZSBkZXNjcmlwdGlvbiBvbiB0aGUgc2FtZSBsaW5lLgoKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoFNob3dzIG9yIHNldHMgdGhlIHRyYW5zZmVyIG1vZGUgZm9yIHRoZSBBU1BFRUQg
+QVNUMjYwMCBJMkMKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGNvbnRyb2xsZXIu
+IFZhbGlkIHZhbHVlcyBhcmU6Cj4gCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAt
+ICJieXRlIjrCoMKgIFByb2dyYW1tZWQgSS9PLCBvbmUgYnl0ZSBhdCBhIHRpbWUuCj4gwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAtICJidWZmZXIiOiBQcm9ncmFtbWVkIEkvTyB1c2lu
+ZyB0aGUgaGFyZHdhcmUgRklGTyBidWZmZXIuCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAtICJkbWEiOsKgwqDCoCBETUEgdHJhbnNmZXIgKG9ubHkgYXZhaWxhYmxlIGlmIGFzcGVl
+ZCxlbmFibGUtZG1hCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIGlzIHNldCBpbiB0aGUgZGV2aWNlIHRyZWUpLgoKRGVjb3VwbGUgdGhpcyBm
+cm9tIHRoZSBkZXZpY2UgdHJlZSBjb25maWd1cmF0aW9uIG1lY2hhbmlzbToKCiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoC0gImRtYSI6wqDCoMKgIERNQSB0cmFuc2ZlciAoaWYgRE1B
+IGlzIGF2YWlsYWJsZSBmb3IgdGhpcwogICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRy
+b2xsZXIpCgo+IGkyY19idXMtPmJ1Zl9iYXNlID0gZGV2bV9wbGF0Zm9ybV9nZXRfYW5kX2lvcmVt
+YXBfcmVzb3VyY2UocGRldiwgMSwgJnJlcyk7Cj4gaWYgKCFJU19FUlIoaTJjX2J1cy0+YnVmX2Jh
+c2UpKQo+IMKgwqDCoCBpMmNfYnVzLT5idWZfc2l6ZSA9IHJlc291cmNlX3NpemUocmVzKSAvIDI7
+Cj4gZWxzZQo+IMKgwqDCoCBpMmNfYnVzLT5idWZfYmFzZSA9IE5VTEw7CgpJIHdvdWxkIHN1Z2dl
+c3QgYSB0ZW1wb3JhcnksIHNvIHRoZXJlJ3Mgbm8gY2hhbmNlIHRoYXQgZnV0dXJlIGNoYW5nZXMK
+Y291bGQgc2VlIGFuIEVSUl9QVFIgdmFsdWUgaW4gaTJjX2J1cy0+YnVmX2Jhc2U6CgogICAgYnVm
+X2Jhc2UgPSBkZXZtX3BsYXRmb3JtX2dldF9hbmRfaW9yZW1hcF9yZXNvdXJjZShwZGV2LCAxLCAm
+cmVzKTsKICAgIGlmICghSVNfRVJSKGJ1Zl9iYXNlKSkgewogICAgICAgIGkyY19idXMtPmJ1Zl9i
+YXNlID0gYnVmX2Jhc2UKICAgIMKgwqDCoCBpMmNfYnVzLT5idWZfc2l6ZSA9IHJlc291cmNlX3Np
+emUocmVzKSAvIDI7CiAgICB9CgphbmQgeW91IGhhdmUga3phbGxvYygpZWQsIHNvIG5vIG5lZWQg
+Zm9yIHRoZSBOVUxMIGluaXQgaW4gdGhlIGVycm9yIHBhdGguCgpDaGVlcnMsCgoKSmVyZW15Cg==
 
-However, Zink on PowerVR works, and on Lichee Pi 4A I also got
-`VK_ERROR_DEVICE_LOST` when running Sascha's demos (although the kernel
-does not report device lost).
-
-I bet it's a regression on the VK_KHR_display code.
-
-Thanks,
-Icenowy
-
->=20
-> Icenowy
->=20
-> >=20
-> > This is with Mesa 26.0.2 packages from Debian testing. At least now
-> > have the powervr vulkan driver enabled by default, so I don't have
-> > to rebuild the packages again.
-> >=20
-> >=20
-> > ChenYu
-> >=20
-> > > Thanks
-> > > Icenowy
-> > >=20
-> > > >=20
-> > > > Same program worked correctly on a BeaglePlay and displayed a
-> > > > color
-> > > > gradient triangle. Not sure what went wrong here.
-> > > >=20
-> > > > Anyway, please have a look and test.
-> > > >=20
-> > > >=20
-> > > > Thanks
-> > > > ChenYu
-> > > >=20
-> > > > [1]
-> > > > https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.wal=
-ker@imgtec.com/
-> > > > [2]
-> > > > https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/po=
-wervr
-> > > > [3] https://github.com/SaschaWillems/Vulkan
-> > > > [4]
-> > > > https://lore.kernel.org/dri-devel/f2b2671e-5acc-4dec-9c2e-3c9cd2e1f=
-19e@imgtec.com/
-> > > >=20
-> > > > Chen-Yu Tsai (5):
-> > > > =C2=A0 dt-bindings: clock: mediatek: Add mt8173 mfgtop
-> > > > =C2=A0 clk: mediatek: Add mt8173-mfgtop driver
-> > > > =C2=A0 dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
-> > > > =C2=A0 arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain
-> > > > clock
-> > > > =C2=A0 arm64: dts: mediatek: mt8173: Add GPU device nodes
-> > > >=20
-> > > > =C2=A0.../clock/mediatek,mt8173-mfgtop.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 70 +++++
-> > > > =C2=A0.../bindings/gpu/img,powervr-rogue.yaml=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> > > > =C2=A0arch/arm64/boot/dts/mediatek/mt8173.dtsi=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 33 ++-
-> > > > =C2=A0drivers/clk/mediatek/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 9 +
-> > > > =C2=A0drivers/clk/mediatek/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
-=C2=A0 1 +
-> > > > =C2=A0drivers/clk/mediatek/clk-mt8173-mfgtop.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 243
-> > > > ++++++++++++++++++
-> > > > =C2=A0include/dt-bindings/clock/mt8173-clk.h=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 7 +
-> > > > =C2=A07 files changed, 363 insertions(+), 1 deletion(-)
-> > > > =C2=A0create mode 100644
-> > > > Documentation/devicetree/bindings/clock/mediatek,mt8173-
-> > > > mfgtop.yaml
-> > > > =C2=A0create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
 
