@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3AB5109C021
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DA8109C021
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tcbIQYAOh9cDG6sNZOxVKtvVxUHP1WsG0mtWehRBwvI=; b=yYwGvLmtPIN2wzUz2vn/ZonToC
-	wnYoTrMvoRnuNEzbLuLscE5VL7WRL2u4woYwmGSzA2ypkxJW0c5WxO+7/RiwifSAjKqtjJON9Kj6h
-	GehfZg6Ja112PY6pZg45goHHEP1kcSMHPN8Uo5sb0zC2WtOlmh/fHCYUDs1GF3oNb5+OYcxjrb/sU
-	kAMZzz2m5JlTOf1jWtVtuG+zGJt0vXQe9ekTGDTxM8e7Wz1qa8QkgBZSU2HhfOF1y6rejSg2uaAUm
-	Xhu/q8/Kao5qdfE0NB1CC67H8zEh39pwItgI0Cn2xOOW+qZQjzGBmZkksWQHWkvTIcCAc7sHM0cL1
-	F31OJEeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
+	Content-type:In-reply-to:References:Cc:To:Subject:From:MIME-version:Date:
+	Message-id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4J2bs+Xgq5dSGZ9Mv94Ovt55+98SGPNbD1rG7ZHb4uQ=; b=AGF57rISIAr+ZZT2tWJinFr+Ym
+	0NiHj3CO39+AhAcEzgY90wuxNXvUaEaeS7y5oT5dk/H8kz0y7NJnyhsua8FugK3CFsazZz/ieWIR/
+	vtrlxgPCrCErcwU0BI/cDXXgWgXdTA1gVdEau4En6hSmIkTWZ49P4uZMe4WC5B+MWJE2sMWy5J2P8
+	hJv7iivG0QFiYQ8oFUgUvj9xlyfhhsNxhk8HEdPbBqS+Frg6q5hXuXza2Qh/2xqPVKPq7zum3H7JS
+	WqB0PSqfd6UCvIQhci2GjZb5xHxE62GsrB4X2e6cBRRf+Eoa1drXbTMkF/iv6b63Qjk6KsPtzVY3+
+	fj/spFEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5P9Y-00000003Z7q-2ZFc;
-	Wed, 25 Mar 2026 14:24:12 +0000
-Received: from mail-vk1-f175.google.com ([209.85.221.175])
+	id 1w5PAG-00000003ZFd-42Ly;
+	Wed, 25 Mar 2026 14:24:56 +0000
+Received: from abi149ajj125.mrs1.oracleemaildelivery.com ([129.149.100.125])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5P9W-00000003Z7F-0od8
+	id 1w5PAD-00000003ZED-2GXs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:24:11 +0000
-Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-56ba039eecbso2095914e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:24:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774448649; x=1775053449;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tcbIQYAOh9cDG6sNZOxVKtvVxUHP1WsG0mtWehRBwvI=;
-        b=Pw00VUCEEE5TkHCpWWj3v6T5lzHnV/aTZKAj6c+0QVzmECcz4IlZXrvwu7e3eR3em3
-         n2xuSE39zUNPlTxpqiXgr6ahJLfR1rkiUFqRsbJGjv7vuSf5KIL0ULv2/R5OyEu8NpXD
-         6H4KbrEREsln1xzu9h38slLWMDJUpatBrCAUdLXwc2sgE+l3WkVZltsJJuzYX2uqBZcG
-         we+nR9QBrjiKA+J+95MBB/Pt/tDiqN9cavOXORy/G05Wod/zLbbCvSjqrwmLm4HwJnUA
-         P0o3ABKYi7Ef4Lt89OpjmcudTayvMb8JYV5OLS3ALRZBuBlBSFU2wcYrK9oL6RR+s2sp
-         H28Q==
-X-Gm-Message-State: AOJu0YwvYExWjB2hPv9ddPqHANGylZubCnYk7jfwMT8/381vMipcJV3C
-	FXP56BjF+u+ZDFAIBWfnwWlbNuyGTLfqWeAiZjhxKePZRZtEtrsSubaS2rpRM16J/jI=
-X-Gm-Gg: ATEYQzy+FhQdvnYhe4P22XayckJhZynDPQdzBBpHukgR7VHKzusjlhyt17P00DdsHWT
-	d+V+rhHblrvHQ8ULEM/CWwzft7lKUFmgxn0mVn8UEXqdnS5fuYolGkVVeY3vops2my8N8lL4rtK
-	vuUjc4aZBnj1/6q+7jC5IinaF/gK1SBoC/TJdQ9DCRwFgQ3GKAlMggeJo6T8a9X8WEuKauis84i
-	0pFucKxNUcQ2elWSi2PuNVnZWqh60VsX3v37tcMIEkNurjia0Gt/siYW6NAkxe5hRow0hvSKNep
-	OdMrlfjxBt/jFaOEy1GWcC/Zu+Bwiy5AI8MZS340UlFlKcS2ERCdQGpkXheLyQ6i115SMxg/d9y
-	6foTfxHdt8KB0zowAVtO6LpmCOqZilKwKLHkLWkhYca6gcCpvfN3jCZvZWJqrwxih4JSPXin1io
-	dEAuIT2vJ3+RrOF5fno+lcSVX+noapAvTvAqITEp6VPeW/ynQ+PqZQ7x/4ISLS
-X-Received: by 2002:a05:6122:e46d:b0:56c:d1e5:1a2a with SMTP id 71dfb90a1353d-56d220625f6mr1688347e0c.10.1774448648649;
-        Wed, 25 Mar 2026 07:24:08 -0700 (PDT)
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56cddb939c2sm20048579e0c.6.2026.03.25.07.24.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2026 07:24:07 -0700 (PDT)
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-60327793ec9so561580137.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 07:24:06 -0700 (PDT)
-X-Received: by 2002:a05:6102:5694:b0:5ff:cee8:6620 with SMTP id
- ada2fe7eead31-603870ce0dfmr1803350137.11.1774448646696; Wed, 25 Mar 2026
- 07:24:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260313164008.40933-1-marek.vasut+renesas@mailbox.org> <20260313164008.40933-4-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260313164008.40933-4-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 25 Mar 2026 15:23:55 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXfRS7GNfjap74h5rUx1v4btr87vWyMRON2-5FMUVwMzw@mail.gmail.com>
-X-Gm-Features: AQROBzBQrP8z2Gc4Hd7jXaA3HaJVzjYUVvRTvP9CWmOYpIcArfN0qWHYtAQ_lAg
-Message-ID: <CAMuHMdXfRS7GNfjap74h5rUx1v4btr87vWyMRON2-5FMUVwMzw@mail.gmail.com>
-Subject: Re: [PATCH 3/4] arm64: dts: renesas: Drop KSZ9131 PHY C22 compatible string
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 25 Mar 2026 14:24:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=pta2002-202603;
+ d=pta2002.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=4J2bs+Xgq5dSGZ9Mv94Ovt55+98SGPNbD1rG7ZHb4uQ=;
+ b=eh3FxLvpjK/M33OF5I3Gjo9OPVXciBKKACkj9kLxtKyAN2VrfQ22Y4otVrEcynMhp4qmJN/Uu1EH
+   7lSQ4Eg1gfrLt6xdOmPNRuwx8U99H+RqdEWkkkaX0c6kZbLFcmH1I/QTGrRaR/gPyBXHidowtq+r
+   vuZR75P7q0bgbasnNMEUUZ1GkZTOz1wXmUrkSODVL3QSjS+5AXgFVUZGjrAgffXwsn6hx8LNYQE9
+   MoWSWdvXUZ1eRxKXCnox5WAvKMza1YtA+JHVicidFFOikXAdNy3nu0pdock6uIs/oJwlmG8U41N5
+   sxvoBGimS9QYgQDQqIKSsX/MVtYo6gr3+OSqgQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-mrs-20211019;
+ d=mrs1.rp.oracleemaildelivery.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=4J2bs+Xgq5dSGZ9Mv94Ovt55+98SGPNbD1rG7ZHb4uQ=;
+ b=p/h4czYxaw1KUjU/HZDCwmDPXXd4mls6hupdk69NS+JGAWoCdJjtjCcA8WgH/ToL+AbWn6SfA9qk
+   0kX4+xlx8Sd/xAclhxuRwmdvZX0pMJDPwEE2xTJ6QFwv0YIAKQSruDciWotiCaW5i96Fl6xGqq8z
+   VzNJhE/0ZTrECDMf3Ea8hbBUiQZ0uVaUCrJjvwXVvH3p8weKJQcPTLEjlyKgjhmtxEXKAEdgl3j9
+   i3Sv4OQWdcsHGN3zSLw5xNksBIGiHjg/1tTrY7rXdjpiGX2clrEo3yJBqcnM906vqBF+30bjF82P
+   AdGhBSunhm1qF6/Y5weTNqFjTPsW8/5QCcnd2w==
+Received: by omta-ad1-fd3-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com
+ (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
+ 2026))
+ with ESMTPS id <0TCG002W5LDA3R60@omta-ad1-fd3-401-eu-marseille-1.omtaad1.vcndpmrs.oraclevcn.com>
+ for linux-arm-kernel@lists.infradead.org; Wed, 25 Mar 2026 14:24:46 +0000 (GMT)
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Message-id: <1331010f-1446-4892-9d81-2f18b60f6977@pta2002.com>
+Date: Wed, 25 Mar 2026 14:24:45 +0000
+MIME-version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Pedro Alves <pta2002@pta2002.com>
+Subject: Re: [PATCH RESEND v2] arm64: dts: rockchip: configure hdmirx in Rock 5
+ ITX
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260323-radxa-r5-itx-hdmirx-v2-1-c52501909577@pta2002.com>
+ <3407927.44csPzL39Z@phil>
+Content-language: pt_PT, en-US
+In-reply-to: <3407927.44csPzL39Z@phil>
+Content-type: text/plain; charset=UTF-8
+Content-transfer-encoding: 8bit
+Reporting-Meta: AAHaB8rt6U4pRWPuzg6HYoL14PsnJ3SvWR/H0/t4MAxeSZoxpcePWCN+kYBu4Dv9
+ oyx+yTPV6GooNsUjV5T/IMVW9vm8S/sArtQbMZMl1GV8baPkbDQUJOQXlekQyr1c
+ GDRTH7/y+z5xxb4xFV+sBgQg8dERsOcqaN3zHsaDAbH3hesStcJcsSKWAfFCqMjX
+ Hmz2mtMwVWLqXOLZKyuAkNnEUqEYyCfll07Esyv/OEyl1I14SdejWVOeWojW07vI
+ kDmkUUFTXxwwZAJM/Mg7o/c4I7KOtlyB2/eKX+4VeWvb6bAdeNwKwpVDl9uju6F4
+ X+KGdiMdWpCC+9D9wnaqHZya7ZFjjm8lZ2fuRg5KDGtgpbcoZet4yFBC6d5MBuDQ
+ fR2Amt4bJOvo67FX+5EC1L7ZaZe1bqEFXer2pCxpSDxlhVOh0+2mrHYqYm4sZHYg qYGyCr6n
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_072410_236332_7E35E144 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260325_072455_013987_D098AB73 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +93,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Mar 2026 at 17:40, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Microchip KSZ9131 PHY schema indicates that compatible string
-> "ethernet-phy-id0022.1640" must not be followed by any other
-> compatible string. Drop trailing "ethernet-phy-ieee802.3-c22"
-> to match the schema.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Hi,
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.1.
+On 24/03/2026 14:18, Heiko Stuebner wrote:
+> Am Montag, 23. März 2026, 10:25:33 Mitteleuropäische Normalzeit schrieb Pedro Alves:
+>> +&hdmi_receiver {
+>> +	pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_det>;
+>> +	pinctrl-names = "default";
+>> +	hpd-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
+> 
+> as said before, please also add a pinctrl setting for this pin.
+> 
+> gpio1_c6 is not part of the main hdmirx set of pins, hence needs an
+> additional pinctrl entry to configure it as gpio and possibly set any
+> additional pull settings.
+> 
+> And yes the pinctrl-driver does "implcitly" set the gpio-mode when
+> a gpio is requested, but our more modern approach is to always have
+> a real pinctrl entry even for gpios.
 
-Gr{oetje,eeting}s,
+I am probably getting confused by what you are asking here, but I don't
+understand what exactly I should add. There was already a pinctrl for
+hdmirx_det (which is what the gpio1_c6 pin is) present in the file,
+hence why I did not add it in this patch:
 
-                        Geert
+&pinctrl {
+	/* ... */
+	hdmirx {
+		hdmirx_det: hdmirx-det {
+			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+	/* ... */
+};
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Looking at the other boards, they do the same thing, but they call it
+hdmirx-5v-detection instead, but as discussed in v1 of this patch I
+ended up keeping the det naming to match the schematics.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Sorry if I am missing something, I don't have much experience with this,
+so I would really appreciate some extra information.
+
+Thank you,
+Pedro
 
