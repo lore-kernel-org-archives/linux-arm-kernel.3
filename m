@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C8B103A9A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 02:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DC8103A9A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 02:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hwTq8tVboakA0dlKm2095mjACNVUEwjvucSKWH8sawo=; b=fsPDm6JeQitQqmH52hOuUX8VwF
-	n5T+2J8DZEnr/ckc85lnp+q9EMgqNXAjaZwcbRVSPieYkmFjHIoCN1wYfVjhxQvYo5dXVhuK0TGK7
-	OmUJp/gKQeEiF4tFo8iiJzWILU3kh26rUhez2zClomYLQwfBgptLW5tfahRxw7WAkjItAR+rHyoaO
-	EI5r4WWuJkDOOvlmHeaCr+CI1HdHcZd0+sfHUxgA0cL2/r/7zesX4JPgzB6Qf44m2a0qUQYjHnLAC
-	1gXRRy0T1zCfp/ipZvIl9TsZ8uXiAhIdcQK3js/legzo+yxuymQoKalamhN+1MPI0sLaSQtQM/Bb7
-	SDUlGapg==;
+	bh=AMlrKIWE1KM4Yad6QSZWMlcL+MvR+08LGf01fWoQDYo=; b=a6p2+gVbDPLeKFQWGj8sBLyfTc
+	f/U5dZD0wbtnukv9n4G13awe9saDuVvn3yD39yrxakqFdY43/s0vU2X3xQ+H9ZKzdMGh5eC7/Dx/M
+	dBZPQtP/VT1L0PC+kwZbb3M6Tr/UAPwx+4WS42UlDXH8i5YfTZs7ikNdBHwzxdWgwzmir9cgk5mdw
+	3JLWDKT0GRIUJroEgPRdL0eZasDYrnsN06BTGQ7fehVFdZSW/yDiYgDe2QDZb6stsgqcyTVbU2MgB
+	lAF5Ppkx7gzdk5tQ4mplz3geM+s0lTCXM5vHd/FdRqOIliQT30SkM6I9CfB1blR6Sqzl0WfjWK5BU
+	2+iKLmQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EIt-00000002Xwy-1iTS;
-	Wed, 25 Mar 2026 02:49:07 +0000
+	id 1w5EIz-00000002XzD-1bjC;
+	Wed, 25 Mar 2026 02:49:13 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5EIs-00000002XwY-0uMi;
-	Wed, 25 Mar 2026 02:49:06 +0000
+	id 1w5EIt-00000002Xx8-44KQ;
+	Wed, 25 Mar 2026 02:49:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4F9560128;
-	Wed, 25 Mar 2026 02:49:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50888C2BCB2;
-	Wed, 25 Mar 2026 02:49:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AD1D6013C;
+	Wed, 25 Mar 2026 02:49:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB5BC2BCB5;
+	Wed, 25 Mar 2026 02:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774406945;
-	bh=NXf2WNHgUrsXctzD8+piqofyVEnIOCaRrGV7Z3iMfXY=;
+	s=k20201202; t=1774406947;
+	bh=AMlrKIWE1KM4Yad6QSZWMlcL+MvR+08LGf01fWoQDYo=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=frXEP3sgTwL9btbGzemrAzj0euOr8ss/Sh5SHnDklwKWKklwI+YBkOAeumbzTx5Qk
-	 yuWHIRTc7untDvKLJGv1USaWcCItcTftPV/IxNZI0W8odCNGDyS8g4YjZGgwsiavmr
-	 e7REuLLsi/FBrCpgngM5SGNtdRWdTWKCOIKbdbImPlTH0RAKzKyBVbSvzrWRjncxKu
-	 7tEIxVwjyeFR442QXVo4WkrbTOGeGDtFS9IARuGvSr6W5SzyNbm4f26wfnmeZjpdFf
-	 /nWNDI7Xkk+UZ+bGzxrBww09jQ+tLPTq7H36R4olxEkqePnN7/4FLaY+kvVNRJgrQ7
-	 3OciKo0s/FHLg==
+	b=ght6Y8kOUfC/XhylkChbjn7EyL/6UF0fwadCVcpSo6Xcef8SICFwJAqK1saq9sW5b
+	 ux6z2CK2Zf+D+p4sKBbjxw5EbTTJyzIM4bIwDM8KlPA9vm0DZvqIZW5pl1GiLlNs/I
+	 gc5JPQkPBQ40hCBnszgS0CcZU6kPGgEmX3SViBFKgyLrCeSSe+ZfnNVMW+Tscj9MGu
+	 T1XOr1rUWH3Tiwolds7eWcK//AB927onwFMlxI9SrvuPW4as18ihlbo3DyR+efGzT3
+	 l9uEUzasvSHRXRvvCJUxoKRePILko/TU5ZsVE3oyMRw1Or2dPAQYIkGV6BkdWowB19
+	 N+uUfYVLjkNdA==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260324025332.3416977-2-eleanor.lin@realtek.com>
-References: <20260324025332.3416977-1-eleanor.lin@realtek.com> <20260324025332.3416977-2-eleanor.lin@realtek.com>
-Subject: Re: [PATCH v5 01/10] dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
+In-Reply-To: <20260312-v3d-power-management-v7-1-9f006a1d4c55@igalia.com>
+References: <20260312-v3d-power-management-v7-0-9f006a1d4c55@igalia.com> <20260312-v3d-power-management-v7-1-9f006a1d4c55@igalia.com>
+Subject: Re: [PATCH v7 1/5] clk: bcm: rpi: Manage clock rate in prepare/unprepare callbacks
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, cy.huang@realtek.com, stanley_chang@realtek.com, eleanor.lin@realtek.com
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, afaerber@suse.com, conor+dt@kernel.org, cylee12@realtek.com, jyanchou@realtek.com, krzk+dt@kernel.org, mturquette@baylibre.com, p.zabel@pengutronix.de, robh@kernel.org
-Date: Tue, 24 Mar 2026 18:59:01 -0700
-Message-ID: <177440394165.5403.17868576455504268400@localhost.localdomain>
+Cc: linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra?= Canal <mcanal@igalia.com>
+To: Chema Casanova <jmcasanova@igalia.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Iago Toral Quiroga <itoral@igalia.com>, Maxime Ripard <mripard@kernel.org>, =?utf-8?q?Ma=C3=ADra?= Canal <mcanal@igalia.com>, Melissa Wen <mwen@igalia.com>, Michael Turquette <mturquette@baylibre.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Stefan Wahren <wahrenst@gmx.net>
+Date: Tue, 24 Mar 2026 19:06:48 -0700
+Message-ID: <177440440896.5403.6955660705156176314@localhost.localdomain>
 User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,73 +67,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Yu-Chun Lin (2026-03-23 19:53:22)
-> diff --git a/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.=
-yaml b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
-> new file mode 100644
-> index 000000000000..6fabc2da3975
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
-> @@ -0,0 +1,52 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/realtek,rtd1625-clk.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Realtek RTD1625 Clock & Reset Controller
-> +
-> +maintainers:
-> +  - Yu-Chun Lin <eleanor.lin@realtek.com>
-> +
-> +description: |
-> +  The Realtek RTD1625 Clock Controller manages and distributes clock
-> +  signals to various controllers and implements a Reset Controller for t=
-he
-> +  SoC peripherals.
-> +
-> +  Clocks and resets are referenced by unique identifiers, which are defi=
-ned as
-> +  preprocessor macros in include/dt-bindings/clock/realtek,rtd1625-clk.h=
- and
-> +  include/dt-bindings/reset/realtek,rtd1625.h.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - realtek,rtd1625-crt-clk
-> +      - realtek,rtd1625-iso-clk
-> +      - realtek,rtd1625-iso-s-clk
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
+Quoting Ma=C3=ADra Canal (2026-03-12 14:34:23)
+> On current firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
+> actually power off the clock. To achieve meaningful power savings, the
+> clock rate must be set to the minimum before disabling. This might be
+> fixed in future firmware releases.
+>=20
+> Rather than pushing rate management to clock consumers, handle it
+> directly in the clock framework's prepare/unprepare callbacks. In
+> unprepare, set the rate to the minimum before disabling the clock.
+> In prepare, for clocks marked with `maximize` (currently v3d),
+> restore the rate to the maximum after enabling.
+>=20
+> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+> ---
 
-Are there any input clks for the clk tree?
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@98000000 {
-> +      compatible =3D "realtek,rtd1625-crt-clk";
-> +      reg =3D <98000000 0x1000>;
-
-Should be 0x98000000 to match the unit address.
-
-> +      #clock-cells =3D <1>;
-> +      #reset-cells =3D <1>;
-> +    };
+Applied to clk-next
 
