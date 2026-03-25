@@ -4,145 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094A5109C02F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80214109C029
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 14:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=; b=NrN6koyz3ymVWvBUuH9rVAcwfH
-	PupyaWgDCq2Tt4OAO3IFypqioERuUFYtnsmP31q3KkFr5yWVnxRo133j28zfV0UHVpuPtmFJft8/B
-	jlkaSvR3jOGOwQUczhccMprZrnfxmunYd/WOSnHCfuFwP+bPiU5XXXXQx2V0ne3DgRHvNDl21E4L8
-	B8opre2jLK6RlseaBXWmMNoOzQABu95Bc1t6QEJQbAYfXgOkrULL86iGjvn14WYVVRHqj6lcE9XBy
-	hyakZvmd3ibgowCBs5f6CY6Pw4GEOojgEGb7oW4cWGptQnjatxM+m8gFJPYcLYyJJeko9iTlL2ZAS
-	yDfbqCOQ==;
+	bh=Q8XVkC8wuytXmqSHrSf3rlMMxINj+E9KqTpQaOet/TY=; b=jjeFK+GMTjhrMVuddjASBqIaa2
+	KwDvP9Vl7f7XjEGeDyACgL7jyFvwofewWqVXxA6ehG4jZz8sUJ1+M9EiSG3ONckoaa49sClwWGE4s
+	IA3AB9Z7IKcYx/ijotrKn9JLGBu9G1bWLo6mhAc+Tsm7g32aYF5KEG6N85rWm95VUhZh/p7cWPeDu
+	lGGBI4HS2G5VAJ7qf6UUbZt9m9wxvmzugqiiqBZIcSVgQhkymtI6ckRR2uDZRBl/IbtMGGrqMElWl
+	URnCSfjeHT62qE5VSZJ8M0Bil7MYx4ynOpR+ehJfzeuvkWXD6rx/DOzqIS6t4jF8RMWWWeFy6Z7sc
+	rQm8fTjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Pe5-00000003iqG-1K7o;
-	Wed, 25 Mar 2026 14:55:45 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w5PfM-00000003j2V-3FSy;
+	Wed, 25 Mar 2026 14:57:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5Pe1-00000003ipe-434R
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 14:55:43 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=VjG/WnTvZhANns9swkFhRoNDBOe2vq3j1BtEDMhc/brGMzxcBin17nqMTQYxetRs9pDH7yrjDOZxz9PA8nyo78qVw90Eai7ycbU8Fimhn7Xa+1Q5021CqQ5jGJ7f8XVqhHHN9wfaaiuVwcRGfjbe1p9Tv/pP5RPMkvQOJEleEdH1rpsIDneenhymbyskA/qEwnKbyGtdE2STOWERPfTQ18jwiKLHpZhoeOhmSZjURD8fU8OMe9J+YiAd4hDBXeZhWMsqGvbzCw1hLNYnUNLVfbDsmZg3IRP9KLCvK/plVP9z78H1BtECC9eUv0ZJk0U+kDMeZnbFBYGfDCChDPOaVg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
- b=ZMLtw/GweoNiMRs4g/z5cbi2vpeIimqUNTH7sMZ898ilPOMhs+HFlhLQ3y7MP07HlEXObT28disLtAZ1U9VzZ2V0S0AZUkbLX3pWmvNDo+bgo+BgDY2rVxizuzFhsH/+FdP6SBaiTsxcwzxaabqcAyrjN5uar9/KpaifUYGGLI7UCAiqdATeCguHZN1ws2ed3Yn5z6D79pLM35nBP5RwdGPN3RFNvuLbG+nxYyMl01w0gQFv9YedlA3eNcRYvleQf8h0riqLQYRhi7/Oy1bOHHHZn8TCB9D3Oq8/PX+dR92qbbg+qXYj/vforqw/OyxTK+Cik3nnsVPmsM9ZpSyzuw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
- b=JP4Ue38S6IB0fVz5OoLERR1HFIUljBsoX4dzc3sBg1WSCGZZazmhRHh/LumB8fxMbAGnVYA9C0SZyOTm7MPM0jVapwUwv+oxB5OVYHrrYtkoHpyREdzomyolsdhN3LnlWMbUyj52G+tyxiJSKBx5qkMZ9dPKX87ifWkOEqi/NWs=
-Received: from AS4P189CA0016.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5db::8)
- by DB9PR08MB8412.eurprd08.prod.outlook.com (2603:10a6:10:3d4::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Wed, 25 Mar
- 2026 14:55:32 +0000
-Received: from AM1PEPF000252DB.eurprd07.prod.outlook.com
- (2603:10a6:20b:5db:cafe::56) by AS4P189CA0016.outlook.office365.com
- (2603:10a6:20b:5db::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.31 via Frontend Transport; Wed,
- 25 Mar 2026 14:55:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM1PEPF000252DB.mail.protection.outlook.com (10.167.16.53) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.21
- via Frontend Transport; Wed, 25 Mar 2026 14:55:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V+UVjgZQZ2VQur9kdnp3UOyZClLLnqbaq8kyKYgBuv230B8bmXdgaPEse5RccOCJ+W4sOgM7gXFmDmbZ04Na9eWcPKPTIkuKEMiRM/uKGTmaHBddpM6aCRoanJPr70EpHL1HMjN3RkFmPCBbmteUfICT4eb4+u6RuBeOaPvRm9GAidfBnyrYqVuXxWiNa74ByHjZJSt7DrGqCLtxN5epDS+XzsDWsd7psPbaWJqAFVcwV62wLkiO8flx1CAsjnqgSXkv8hYa8PetGtqT7taEIjuvBuGaDAvqOZevfvhKuC+eY9Dgm57D24eFHuvRNnzdlzlszm/Sa9Tzjd5/LVEzvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
- b=WxV5zSneBh+mgwab6ODuJzDG/1UJjxrR5PuKmzrUNLUM06je4mCXGnOiQKbehr+YJtYjQU1F85CBTyJIWTsLj6Yyp0e19oof1BeAuU1cUezFLGhvrotrKIus6YfdOFWR+g0cslERZCbHSp2yCioGbL/bM795TrdYbn3RkKO4eZfL6/Pb4QqIa076AoKuLVUX+tr0nfNIdaeIIAmMOv++DO1rf4BoRTcZcvguxbfndFZfqgJZlGEhqa7FeG7UQ+UWzURMRoXqBZ7mCL4QiSe7B/h9Zt7XyzDLPwX9DRYwrrsjJekZZKpM0R9mz3XdsExxfW+Nk0VlXxtC+ynnXPClww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0C1HXoRBo7clcM23EJ8D08jhPSxypvCLrBhoxW9E9nE=;
- b=JP4Ue38S6IB0fVz5OoLERR1HFIUljBsoX4dzc3sBg1WSCGZZazmhRHh/LumB8fxMbAGnVYA9C0SZyOTm7MPM0jVapwUwv+oxB5OVYHrrYtkoHpyREdzomyolsdhN3LnlWMbUyj52G+tyxiJSKBx5qkMZ9dPKX87ifWkOEqi/NWs=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM0PR08MB11754.eurprd08.prod.outlook.com (2603:10a6:20b:743::9)
- by PA4PR08MB5952.eurprd08.prod.outlook.com (2603:10a6:102:e9::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 25 Mar
- 2026 14:54:29 +0000
-Received: from AM0PR08MB11754.eurprd08.prod.outlook.com
- ([fe80::3427:f97c:862d:1850]) by AM0PR08MB11754.eurprd08.prod.outlook.com
- ([fe80::3427:f97c:862d:1850%4]) with mapi id 15.20.9745.019; Wed, 25 Mar 2026
- 14:54:29 +0000
-Message-ID: <a35839df-74a0-46b3-b5e8-7e0a066b210d@arm.com>
-Date: Wed, 25 Mar 2026 14:54:28 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/11] arm64: Skip update of an idreg field affected by
- an override
-To: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
- Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-References: <20260302115653.1517326-1-maz@kernel.org>
- <20260302115653.1517326-2-maz@kernel.org> <abwXl35xQ2ze1XwJ@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <abwXl35xQ2ze1XwJ@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0195.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:376::14) To AM0PR08MB11754.eurprd08.prod.outlook.com
- (2603:10a6:20b:743::9)
+	id 1w5PfK-00000003j27-0BqV;
+	Wed, 25 Mar 2026 14:57:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3729A4024F;
+	Wed, 25 Mar 2026 14:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BAB7C4CEF7;
+	Wed, 25 Mar 2026 14:57:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774450621;
+	bh=kODB/4Odan0TLyX1+H2rGTJ1SkOip0pPH/GqtThBgFg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lveoloIP8+97OC9m2l5bBmtBw6c3CSQdSICZGVMCZbaVAtz/7499RlssUCIk3l9al
+	 BWGtZaB/Gwx87SRUYZ4cMxnfQOw/wFD3DxPoaz6ZMwVdXpkyx08nrQ9XGu9iAX/z5D
+	 dXQvJWfV6yPc172xpKNvXzEkN0NwwG2R1phfqiDxfT8sDpBvBgM+V2xyA1LtHBt10T
+	 rerF3gSEDkGf6dqX15xt8IzhWyiX9IARja5LRQxUZ3+w4ei87vSIWEb3ti0JiuO53z
+	 NhJjjPjGV9Y3DR3hKAwYyg+sRfCMTELoq9pie6SsHbeivGmpPiJrLsmd6IyREGDtzg
+	 sr4f14070acsA==
+Date: Wed, 25 Mar 2026 15:56:58 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	Werner Sembach <wse@tuxedocomputers.com>, Andri Yngvason <andri@yngvason.is>, 
+	Marius Vlad <marius.vlad@collabora.com>
+Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
+ format"
+Message-ID: <20260325-magnificent-ultraviolet-oarfish-baefbc@houat>
+References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
+ <20260324-color-format-v11-3-605559af4fb4@collabora.com>
+ <acLDPYuaVI2-12JX@intel.com>
+ <23910073.EfDdHjke4D@workhorse>
+ <acLrv5hLyNss-Px5@intel.com>
+ <20260325-neat-elegant-raven-ebc9ab@houat>
+ <acPA60Ci3n_t__xF@intel.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM0PR08MB11754:EE_|PA4PR08MB5952:EE_|AM1PEPF000252DB:EE_|DB9PR08MB8412:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2ccbae7-d4cd-4b31-38e7-08de8a7e9055
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|56012099003|18002099003|22082099003|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: dO3nQfmYSqFz/53hBJ8OJSI26g953lwgp9YAgkAwl3rpIpIpKn0rga+ydwujbDNAPH69wBhR9XMRMPXwlc8nT+cEWuy9069Q5TpObUUuanAzrHAR5w2NDmRrT5XR5PoEv5IczQRhPfcAt6aNv4917tqYG9loOij6I4LKrEJEleBEZGNx92tu5xOH8avETt/spOaKDxvv2VhJ9goWtE9UlARUX0t3qovgwp1tA+mJ26jo5W7ZRU6erU5sCTmqIVlOQi9dpKrmDaHo+i/6aDwROwlEIEm/ClOKKM1zMFmJ3Y6JK2onj373HVBIFL/QCuyj7b5WYvWi62/FMppKgPVOEcqEVsXPqigNiFJGfUEaqlVJJ3IQBYjXH4T4cKSP82UTzBNuObdFX5Qrv2xUA28cA+gFmiqeM+MBAHY6Rt6YIfBlJvnWDGSz65R3X5mGey8I77WzSLstABkcppPb5CIOTEfXDQx6iLizHRgcZWUdmUGLumaHunNcAOTdC/Wd5BnFw5HBiU9r4Ilo/zB0l2smos6FPi5yQeZkHo048jvqc1lzxaKJeTBE7qDubZ9POpGjY+5pRgj3jVTMU6kcEIxjQsaEVAjwM7NZveOHODubPEtp00iiAqSMG+fTDXaVbEY61ZKLkZoMKQ9WVRhYF9VlZ0LZOpQ923oOpBVUoW3HkdZX8n55Tmp1cUdsMJMmu4oggVKG4d02CBes4X1STJ6w2r6qzQR2T6JBhIKH/kcB7Hk=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR08MB11754.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(56012099003)(18002099003)(22082099003)(7053199007);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: S+gOWowEj+6csdbCz9YTs0X1raqbkA0QakGAM5As8PsOyCwFOBcuwMOVegKXDvyLOnKkTCUB0CNUWLKjdHJwmK421Cq8xpNZsfo5djh85swUj+VYDlXgkxcmXT3jtm6RZdo7t3wQ0TqRSGLC8ItELvUWEubp4h1b1eR4o72Zw4cG7JTUsRhnh95smwR5Cm7+lYAbUTY45ZK+YuF7ky+tU6Gy7UytD1dm3jtopZgfMysz6JZ+YJ4MAFza028t7BlxJg/GaCJriCHjA/SfXrs2NCZZLqkSN0Wg97hpxlAh6ohBOHGV7V0qmViJwi31S+agXz5U9SdM3EOgVAkqp0/GAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB5952
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM1PEPF000252DB.eurprd07.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 375d7d90-a7a8-4b8c-ab5a-08de8a7e6aa3
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|14060799003|376014|36860700016|82310400026|35042699022|56012099003|22082099003|18002099003|7053199007;
-X-Microsoft-Antispam-Message-Info: lw3q+klnjwtg3zj1tk32XLdNjElm+wS+TcETLAuVdz4zWjeHfSY2T9ExCnuHkliAsAM3Nl9T9NCXrxnY0H8OC07Rbop67FxrNqnKVdjUwD9fZ33wW/zHQ3kftBGS6Rpqn34+ioj0s9RAUmotLemhdiQGCB1aKWKQyE7T+bzvUP5fWUIMNcccVZZsQiSxqAKYGNRuobhaSpqzZA7LyhuBchL2dIawRWzFYdgrxwUxJWBSU/i4Q239rNaZwuUBtSAsh1bFwdzTC1gu5GC6orTCVZv1IfuTxShebTce9ddJxFBBNZq0hDgWNdOzZbBZUhyL7Rb3Q0pD6neabH/B8aVYTXPzfUWr5mwKiiHEvP1Co7DAKJfA/cqZSLuMguFQwjNfStWgAtppsz1zNjoOGA8knnpU7Ex18cXoBWoWFCN/fHJGPvbXgq2WHBhRFgXD7AEAxCBt18/cSmT15OPRnTrP5QE3BA+40vHYYYEKVF46lAxOxIZHsGdMPJvrKpD+LvSHjaAmEP4CKIkz8tdO3BEfDu/LtoQUZgwmhASkZHZWj2+RIMsjcYfO0ZDSDM+kJvylfQr3RLpDRZQ7godSFngBPneUXt2nblppZlaKfj0mGGsUkAkkmubW40raPuzSrs45jQGB8d6Ll+B0q6ESa4PomH8pJNV1rFKj9rR8BNL16+mW+dDJ0+QMVz+STA/fJd79vG8yA+RQMxqYKVhM5OQrewGV/zZUOdbiFNOhjugKMCu5OSyH8BjJskFuBq5KwmCR0+sy+I6TiFmLyNeNJROfBA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(14060799003)(376014)(36860700016)(82310400026)(35042699022)(56012099003)(22082099003)(18002099003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Km9EajMiuooXLbkoNijGS3WcUhbmht3CPlnzHLSA55x9u7Kng9/Fzxa3JcdmCh8b5ogffERbCygGKca1RnKcksWyhWQCTjiGjefshzGW1zecPy+7IVDbmRP9E/hVgFzRaFBzHc6+eqaXc3lubInBf5zr7TG7vigg/WiN0isKFlcGFUrC46oF2GvTl1UwugtcbK/CFK1YGQjvtka231Ooi/deGVW3WR01WPwVitJz8VE9Edyrxfu0u6YnA5G2gi4XKZ/O7+GeXV5Ke6YTzaBRjx3aVHyrLgBlfZNI3A2d/eg7Wuxpmat/kx8XCFR93/1cZWAv7EMSQSHmWAsU9N9nIPgtrzUqlI5ZF4tFGcBavaSCF+PJaSXcnRlJJF5Rokap/fYW/ltsAmMJqyhxUEddxWBdPP3cvzm8XujY36h7qsDyxBG91SbNFZicmZZlcqFv
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Mar 2026 14:55:32.4220
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2ccbae7-d4cd-4b31-38e7-08de8a7e9055
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DB.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8412
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mhdva7e7vsga4kjf"
+Content-Disposition: inline
+In-Reply-To: <acPA60Ci3n_t__xF@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_075542_173110_CB8D9651 
-X-CRM114-Status: GOOD (  32.94  )
+X-CRM114-CacheID: sfid-20260325_075702_141446_AA41AB08 
+X-CRM114-Status: GOOD (  42.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,90 +96,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/03/2026 15:34, Catalin Marinas wrote:
-> On Mon, Mar 02, 2026 at 11:56:42AM +0000, Marc Zyngier wrote:
->> When computing the new value od an idreg that contains a field
->> affected by an override, do not update that particular field.
->>
->> The value computed at init-time must be kept as-is, as that's
->> what the user has asked for, for better or worse.
->>
->> Signed-off-by: Marc Zyngier <maz@kernel.org>
->> ---
->>   arch/arm64/kernel/cpufeature.c | 7 +++++++
->>   1 file changed, 7 insertions(+)
->>
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index c31f8e17732a3..28fc77443ccd3 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -1224,6 +1224,13 @@ static void update_cpu_ftr_reg(struct arm64_ftr_reg *reg, u64 new)
->>   		s64 ftr_cur = arm64_ftr_value(ftrp, reg->sys_val);
->>   		s64 ftr_new = arm64_ftr_value(ftrp, new);
->>   
->> +		/*
->> +		 * Don't alter the initial value that has been forced
->> +		 * by an override.
->> +		 */
->> +		if ((reg->override->mask & arm64_ftr_mask(ftrp)) == arm64_ftr_mask(ftrp))
->> +			continue;
-> 
-> I got lost in the in the cpufeature framework, so I may be missing
-> something.
-> 
-> Let's say the primary CPU has a feature field with value 2 and we want
-> to override it to value 1. For e.g. a LOWER_SAFE feature, boot_cpu_data
-> will stored the overridden value of 1.
-> 
-> A secondary CPU comes online with the same feature missing, so value 0.
-> With the above change, we no longer update the system-wide feature
-> value, leave it as 1. Later on, for a system feature we may turn it on
-> even though the secondary CPU does not support it.
-> 
-> In summary, this makes the overridden field sticky for secondary CPUs
-> even if they don't support it.
 
-That is true. I think we should let the secondary CPUs alter the values,
-with initial CPU feature value with the override value set, the system
-could then choose the safest among the override and the others.
+--mhdva7e7vsga4kjf
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
+ format"
+MIME-Version: 1.0
 
-> 
-> Unrelated to your patch, I think we can similarly fail to reject
-> secondary CPUs in check_early_cpu_features() -> verify_local_cpu_caps()
-> because of __read_sysreg_by_encoding() which uses the override value
-> unconditionally. From this perspective, we are now consistent with your
-> patch above.
+On Wed, Mar 25, 2026 at 01:03:07PM +0200, Ville Syrj=E4l=E4 wrote:
+> On Wed, Mar 25, 2026 at 09:24:27AM +0100, Maxime Ripard wrote:
+> > On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrj=E4l=E4 wrote:
+> > > On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrote:
+> > > > On Tuesday, 24 March 2026 18:00:45 Central European Standard Time V=
+ille Syrj=E4l=E4 wrote:
+> > > > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli wrot=
+e:
+> > > > > > +enum drm_connector_color_format {
+> > > > > > +	/**
+> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display pr=
+otocol
+> > > > > > +	 * helpers should pick a suitable color format. All implement=
+ations of a
+> > > > > > +	 * specific display protocol must behave the same way with "A=
+UTO", but
+> > > > > > +	 * different display protocols do not necessarily have the sa=
+me "AUTO"
+> > > > > > +	 * semantics.
+> > > > > > +	 *
+> > > > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 =
+if the
+> > > > > > +	 * bandwidth required for full-scale RGB is not available, or=
+ the mode
+> > > > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output both s=
+upport
+> > > > > > +	 * YCbCr 4:2:0.
+> > > > > > +	 *
+> > > > > > +	 * For display protocols other than HDMI, the recursive bridg=
+e chain
+> > > > > > +	 * format selection picks the first chain of bridge formats t=
+hat works,
+> > > > > > +	 * as has already been the case before the introduction of th=
+e "color
+> > > > > > +	 * format" property. Non-HDMI bridges should therefore either=
+ sort their
+> > > > > > +	 * bus output formats by preference, or agree on a unified au=
+to format
+> > > > > > +	 * selection logic that's implemented in a common state helpe=
+r (like
+> > > > > > +	 * how HDMI does it).
+> > > > > > +	 */
+> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO =3D 0,
+> > > > > > +
+> > > > > > +	/**
+> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
+> > > > > > +	 */
+> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
+> > > > > > +
+> > > > > > +	/**
+> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output f=
+ormat (ie.
+> > > > > > +	 * not subsampled)
+> > > > > > +	 */
+> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
+> > > > > > +
+> > > > > > +	/**
+> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output f=
+ormat (ie.
+> > > > > > +	 * with horizontal subsampling)
+> > > > > > +	 */
+> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
+> > > > > > +
+> > > > > > +	/**
+> > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output f=
+ormat (ie.
+> > > > > > +	 * with horizontal and vertical subsampling)
+> > > > > > +	 */
+> > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
+> > > > >=20
+> > > > > Seems like this should document what the quantization range
+> > > > > should be for each format.
+> > > > >=20
+> > > >=20
+> > > > I don't think so? If you want per-component bit depth values,
+> > > > DRM_FORMAT_* defines would be the appropriate values to use. This
+> > > > enum is more abstract than that, and is there to communicate
+> > > > YUV vs. RGB and chroma subsampling, with bit depth being handled
+> > > > by other properties.
+> > > >=20
+> > > > If you mean the factor used for subsampling, then that'd only be
+> > > > relevant if YCBCR410 was supported where one chroma plane isn't
+> > > > halved but quartered in resolution. I suspect 4:1:0 will never
+> > > > be added; no digital display protocol standard supports it to my
+> > > > knowledge, and hopefully none ever will.
+> > >=20
+> > > No, I mean the quantization range (16-235 vs. 0-255 etc).
+> > >=20
+> > > The i915 behaviour is that YCbCr is always limited range,
+> > > RGB can either be full or limited range depending on the=20
+> > > "Broadcast RGB" property and other related factors.
+> >=20
+> > So far the HDMI state has both the format and quantization range as
+> > different fields. I'm not sure we need to document the range in the
+> > format field, maybe only mention it's not part of the format but has a
+> > field of its own?
+>=20
+> I think we only have it for RGB (on some drivers only?). For YCbCr
+> I think the assumption is limited range everywhere.
+>=20
+> But I'm not really concerned about documenting struct members.
+> What I'm talking about is the *uapi* docs. Surely userspace
+> will want to know what the new property actually does so the
+> uapi needs to be documented properly. And down the line some
+> new driver might also implement the wrong behaviour if there
+> is no clear specification.
 
-This is true as well and the override takes the priority and with the
-wrong level of override value the system could be made to think that
-some features are available even when it is unsafe to do so.
-We should sanitise the values read by __read_sysreg_by_encoding() with
-the "overrides". I can cook something up.
+Ack
 
-> 
-> In all cases we taint the kernel for FTR_STRICT features but that may go
-> unnoticed or if we had FTR_NONSTRICT (does it even matter in this
-> case?).
-> 
-> Maybe that's the intended use and blame the user for passing the wrong
-> override. We are still slightly inconsistent depending on what the boot
+> So I'm thinking (or perhaps hoping) the rule might be something like:
+> - YCbCr limited range=20
+> - RGB full range if "Broadcast RGB" property is not present
 
-This is correct. We should at least WARN for impossible overrides on the
-secondaries. (We only do that for boot CPUs today). The other issue with
-this is WEAK_LOCAL cpu features where we use the capability wherever
-available. May be we could reduce the severity of the warning to 
-pr_warn_once().
+Isn't it much more complicated than that for HDMI though? My
+recollection was that any VIC but VIC1 would be limited range, and
+anything else full range?
 
-Suzuki
+> - RGB full or limited range based on the "Broadcast RGB" property
+>   if it's present
+>=20
+> I think the "Broadcast RGB" property itself might also be lacking
+> proper uapi docs, so that may need to be remedied as well.
 
-> CPU supports where we still decide whether accept or reject an override.
-> We don't do this for secondaries.
-> 
-> Anyway, I'm not opposing to this patch if that's what's intended. I'm
-> sure I'll forget everything about this framework in a couple of weeks.
-> 
+I took care of documenting it when merging the HDMI helpers:
+https://docs.kernel.org/gpu/drm-kms.html#hdmi-specific-connector-properties
 
+Maxime
 
-	
+--mhdva7e7vsga4kjf
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCacP3tQAKCRAnX84Zoj2+
+dqD6AX9ruA9VQEK32t44/SErwn8ouTAnQA9K9i0WTlcaidv+2oyLtolh4CEvzUcR
+Knh9fq4Bfjj/Wa5dcOSnIESCkqTRH/yo4UCESrmghwhyznX8ffjBrkE/aWSPhI2B
+5bfXV1iang==
+=9m7S
+-----END PGP SIGNATURE-----
+
+--mhdva7e7vsga4kjf--
 
