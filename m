@@ -4,124 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D77109C02F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42133109C033
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 15:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=; b=iiSAeIelqsfJiZdyJ3/XcZ7XG5
-	rMgKT0hL97WMF6ZKrqQK4kikYMcOVz3xgBFrS8EY7+sSWfYHWOft+9px/pGCVKg1OoY9lUk+Y3fLI
-	iGxzqrr39+/bgf2wl3a3x+BQCsaLlnVzyFDOvueiKf69CFR/lAa39avb1kIA6TDmt5Aq6WlDAzQRH
-	vFyXi9WGQnvjJtg6Vf8yu/z7a/GpB49cR5eMGh3IsrfJQAfxJLyac2Fa99OANmVQ6ITxYqiW61G7f
-	dB8f/ZPXhskkWrPAVnrqQCTkx7KATRKh1U0x31ksjRmwR/aOdjJkLdHjcPrSZn/9CmeUoPQQscSyK
-	Vz2yDnpA==;
+	bh=lOgXW4PS5InKdsPmZGMr7FHOwjdka6gP/0zsYjE+/u4=; b=FYwCeLO81sN8GfwtD4yH9daCsB
+	Nc2VmvbvtVLKGAkWCj8VHYWDbUw9lDjhZh5aYk15XOwVahwW2eetk1bAmKbJE9Wq6cE8nOn2tZVtS
+	inRERbyWEo0hfcLO3p74XmY5j/8gYsuMTc49KrunWUxICkckJ76fUqPyiZMX+BG/8riFdJEbjSJUv
+	1NpBTyyvj+9GXvZjJ4e2KvZnk2eIDnW2NeInG9J/zYRSIsBBLxSBL9Jc+1opEvsVlLskkozRaEhr4
+	t3yis2j8Sn2yUV2Qm4Sjh5McveSqitKH7eu7BP76/O1HWZB7Fl4PdwBEgHUZ0xSI90stzDVwUFM4j
+	c+3r8Qpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QUO-00000003p3k-2sCV;
-	Wed, 25 Mar 2026 15:49:48 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5QUL-00000003p0c-0Etm
+	id 1w5QZv-00000003pdf-3PiM;
+	Wed, 25 Mar 2026 15:55:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5QZt-00000003pcA-1PLq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 15:49:47 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-66a33f61d80so4392964a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 08:49:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774453782; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HSWzHeSu8efLWS7sZtkyx54KU5U43WJSmrCxEfpxe4cHWKJ49yCV/Wyjkvp8Q+0DpW
-         nyPOQDJIZf+AneAq0WfxNesb8mYaBttPbiJhoUvgGFduozsVghvVxmqo8/vAu2H+Mwpx
-         HGqR1cwEhYZd0oWUMvxoGxkrPmv6ERWb1cmNbzZFNcj1bH9khQ4bUN0bujFPjCy5bxot
-         krkq7XJPEbuASOJJhhfRYERwV7WvKrNvuLtFOTuVWoUq2y86k+9nLL59Ro3rQLALwpNX
-         j6a0D7l1W8QlWe9dwnsHsVI10OFmOGJ3GjTaWQ3kohtq+AFZde/PF+rkM0Xaku+R9Cxy
-         ofUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=;
-        fh=LmkJyOrHsbKagUDTPwyHPzA5CsK/mSDiQs0XA4rzEYk=;
-        b=lZDti9tO4ZemntZ+IB5tZaknYlebvLyaiC66BHEikKkOo5Mk3V1VKr3bRy14GWEMwi
-         GGym4fXjMetiju+FM8wUbSkx3V+BnsDBEhH5B77qIw4JalIvDLGzlb96X/s5aVXaayz9
-         r7YN4Wv3vLFMGM9sKSrTTHwp+HTwSiRzFC9g87eEjfEe6WZzcMU/b2QQNBpOSU2ETmOp
-         6jqDCQ+yh/ymaL5QAQbVnbtBzpSPLBijq4uEcPbXOYCEeYRGt9Kdq1R6VJ30Hz9e3omy
-         UewedmDtq5zU0Bko75tLoLTE9OGqA4dA2xgTeUq2fDIlI7jOAtW+MecDjPI4B0Me0vxL
-         Wjtw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774453782; x=1775058582; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=;
-        b=acAg8qgl7XNua6VQKmQhCsba7H34a8Dd24QgdH/kKHnIhSm+eycud0zHD3vWA4BIA9
-         MI4mXGoaEk1AQddkJqKiZydJ50tOAxQFkb4QGsw+ya/RRkv7KWdsZ62q6s6gduvjo3Cq
-         Ln0+k3BDZYRgnDVzxxJx0Ug6/UAcsMIVfu2BGZSDjffVQ9YJH82/h8JO10xnEFJWDIfD
-         mYyN+ty/Ikws7nf+kMKziiFtP3SuGB7RdilkDPsRYixrSU+W7U9v3wT2p74whg7jC5fB
-         JRL7QA40ErZlJEclg1+9bRE0Kiqq77lgEgHx0wy1Dk5otmwNVVY4cLIAK45k3Cynxhia
-         smGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774453782; x=1775058582;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PetZC3qxgw91I7G4PL1kgiG97oaIIgIA0g2FQ1jwb8M=;
-        b=Q5acLURv7UJv5vAtRy/X5BdPgw8vLR97TyYo52bOYQBOgiICJ2Lhpz511Nl0P4Qvxx
-         RLgcXnriSg068R6QMCMqRzvQqGr2SBvbqwwWGa2zccndR35S1qjSAsnXEO9hOUzJoElI
-         F7VlTH69ZLr0YKUtT9HR/7aCZtJRMmpDf4rTUk4cSI/nuJb80xg0unaNkZFCU7Wyx0Rn
-         WytKdQTA6T3MsET4kOSVlBof7EGUDL8F2vcPE50H6GIvCtxoCXo+iYlpvjGgV6z023/q
-         Gl2c0Rd3Qha8+EfV+ZlvesNRbf9KUcncc6h7Cih9Z8xT9xrWE3Kpp8HT4J3qEG+Wx3Ym
-         cp3w==
-X-Forwarded-Encrypted: i=1; AJvYcCVW4EVBPDltlsjS098MgdaE74qtVg9xWjNgjAyWpgpDzzDayhPB/dxMBtCDq8kX9Gycm+bMmYfZAPAEF1NqyucU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3AZPXh9O2vRXTqVPp6ZQrMRBfLu8zCQ3MgIL9U8E5ExuPoOMI
-	230CsFZDToVIBv1iD5M4L7MK36M3g6L2ThdJTChihIY7ot9KN1tGTC63wuL9DoJ3AbjuPvdilng
-	RWXof7COr37dwICSVgverE5e46XosEq4eKuNqMMM55A==
-X-Gm-Gg: ATEYQzxbPB8N8xGGbApOwRIxJNEHvSD1tTacWmJ6GLcgqi+ovBWqhQiwXegJ7/xUe1s
-	XmBJiO96Z4MtdxLd2Lh+HxL2cvpj3wnQgVeYs1efdFNbqJI5da1kZvxrmTGd6EiTrGug/N7C/Ia
-	tP44yM6hMHYYyDRT9lItrhjr5zrWe4yJgzEL26hKqv9APJtU+/1oxZRDq9JZ0imH6KMO6SyAGrA
-	UjBhf3trZWkYFYV/KeCB/HTGDiwrIWo30hldlENAdRzX8/7UYxKnrVFwzqeIZn4dkNFYgpmR+ze
-	OCfVQyj483rGnJkpLMDfdmVBWnZiZwC3rncGpw7Ttg==
-X-Received: by 2002:a05:6402:3251:b0:668:368b:38d3 with SMTP id
- 4fb4d7f45d1cf-66a82634560mr2196905a12.12.1774453782373; Wed, 25 Mar 2026
- 08:49:42 -0700 (PDT)
+	Wed, 25 Mar 2026 15:55:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E2191E8D;
+	Wed, 25 Mar 2026 08:55:22 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 066C33F915;
+	Wed, 25 Mar 2026 08:55:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774454128; bh=YQUNJN6zkse+VSauT7FpCBg1zlDjtEPhRb6cnGEJo3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h8JB7WbLLPhhNKdwHewQJz8w+JkyrvDnAG4/VGG5xLycbGrGIBZfkpXEzNGax363a
+	 DyMKpQnDFv5EJyjol41ofV3pwnkLQEaHLIv+H/8z64TWhKHXcywuIxr9f1hOB/Iedl
+	 g0IhNDMiR/fjZHdnXnvW74mg0i/jF65VNF2vtzks=
+Date: Wed, 25 Mar 2026 15:55:21 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
+	peterz@infradead.org, mark.rutland@arm.com, harisokn@amazon.com,
+	cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
+	daniel.lezcano@linaro.org, memxor@gmail.com,
+	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+	rdunlap@infradead.org, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v10 00/12] barrier: Add
+ smp_cond_load_{relaxed,acquire}_timeout()
+Message-ID: <acQFaVR_bGZU2JmJ@arm.com>
+References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
+ <20260315184925.b6f93386e918ca79614843e3@linux-foundation.org>
+ <874imftol4.fsf@oracle.com>
+ <20260316233712.7cbfac27@pumpkin>
 MIME-Version: 1.0
-References: <20260324005919.2408620-1-dakr@kernel.org> <20260324005919.2408620-8-dakr@kernel.org>
-In-Reply-To: <20260324005919.2408620-8-dakr@kernel.org>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Wed, 25 Mar 2026 09:49:31 -0600
-X-Gm-Features: AQROBzDaUkN0ZNcFR8HLoPUZ0UwwRolGugOyW2ifJVz-O5YTothUc8ZwonnT9P8
-Message-ID: <CANLsYkyNx+e=QrSc=ZOqgMcOpwqdpCWsuhrvByJYcXLHPSHMUw@mail.gmail.com>
-Subject: Re: [PATCH 07/12] rpmsg: use generic driver_override infrastructure
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, 
-	"K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
-	Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Armin Wolf <W_Armin@gmx.de>, 
-	Bjorn Andersson <andersson@kernel.org>, Vineeth Vijayan <vneethv@linux.ibm.com>, 
-	Peter Oberparleiter <oberpar@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Harald Freudenberger <freude@linux.ibm.com>, Holger Dengler <dengler@linux.ibm.com>, 
-	Mark Brown <broonie@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
-	Alex Williamson <alex@shazbot.org>, Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linux-kernel@vger.kernel.org, 
-	driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, linux-s390@vger.kernel.org, 
-	linux-spi@vger.kernel.org, virtualization@lists.linux.dev, 
-	kvm@vger.kernel.org, xen-devel@lists.xenproject.org, 
-	linux-arm-kernel@lists.infradead.org, Gui-Dong Han <hanguidong02@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260316233712.7cbfac27@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_084945_188212_49059213 
-X-CRM114-Status: GOOD (  30.19  )
+X-CRM114-CacheID: sfid-20260325_085529_498081_AA8FED33 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,181 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Mar 2026 at 19:00, Danilo Krummrich <dakr@kernel.org> wrote:
->
-> When a driver is probed through __driver_attach(), the bus' match()
-> callback is called without the device lock held, thus accessing the
-> driver_override field without a lock, which can cause a UAF.
->
-> Fix this by using the driver-core driver_override infrastructure taking
-> care of proper locking internally.
->
-> Note that calling match() from __driver_attach() without the device lock
-> held is intentional. [1]
->
-> Link: https://lore.kernel.org/driver-core/DGRGTIRHA62X.3RY09D9SOK77P@kernel.org/ [1]
-> Reported-by: Gui-Dong Han <hanguidong02@gmail.com>
-> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220789
-> Fixes: e95060478244 ("rpmsg: Introduce a driver override mechanism")
-> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
-> ---
->  drivers/rpmsg/qcom_glink_native.c |  2 --
+On Mon, Mar 16, 2026 at 11:37:12PM +0000, David Laight wrote:
+> On Mon, 16 Mar 2026 15:08:07 -0700
+> Ankur Arora <ankur.a.arora@oracle.com> wrote:
+> > However, as David Laight pointed out in this thread
+> > (https://lore.kernel.org/lkml/20260214113122.70627a8b@pumpkin/)
+> > that this would be fine so long as the polling is on memory, but would
+> > need some work to handle MMIO.
+> 
+> I'm not sure the current code works with MMIO on arm64.
 
-For the below files:
+It won't but also passing an MMIO pointer to smp_cond_load() is wrong in
+general. You'd need a new API that takes an __iomem pointer.
 
-Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+> I was looking at the osq_lock() code, it uses smp_cond_load() with 'expr'
+> being 'VAL || need_resched()' expecting to get woken by the IPI associated
+> with the preemption being requested.
+> But the arm64 code relies on 'wfe' being woken when the memory write
+> 'breaks' the 'ldx' for the monitored location.
+> That will only work for cached addresses.
 
->  drivers/rpmsg/rpmsg_core.c        | 43 +++++--------------------------
->  drivers/rpmsg/virtio_rpmsg_bus.c  |  1 -
->  include/linux/rpmsg.h             |  4 ---
->  4 files changed, 7 insertions(+), 43 deletions(-)
->
-> diff --git a/drivers/rpmsg/qcom_glink_native.c b/drivers/rpmsg/qcom_glink_native.c
-> index 9ef17c2e45b0..e9d1b2082477 100644
-> --- a/drivers/rpmsg/qcom_glink_native.c
-> +++ b/drivers/rpmsg/qcom_glink_native.c
-> @@ -1623,7 +1623,6 @@ static void qcom_glink_rpdev_release(struct device *dev)
->  {
->         struct rpmsg_device *rpdev = to_rpmsg_device(dev);
->
-> -       kfree(rpdev->driver_override);
->         kfree(rpdev);
->  }
->
-> @@ -1859,7 +1858,6 @@ static void qcom_glink_device_release(struct device *dev)
->
->         /* Release qcom_glink_alloc_channel() reference */
->         kref_put(&channel->refcount, qcom_glink_channel_release);
-> -       kfree(rpdev->driver_override);
->         kfree(rpdev);
->  }
->
-> diff --git a/drivers/rpmsg/rpmsg_core.c b/drivers/rpmsg/rpmsg_core.c
-> index 96964745065b..2b9f6d5a9a4f 100644
-> --- a/drivers/rpmsg/rpmsg_core.c
-> +++ b/drivers/rpmsg/rpmsg_core.c
-> @@ -358,33 +358,6 @@ rpmsg_show_attr(src, src, "0x%x\n");
->  rpmsg_show_attr(dst, dst, "0x%x\n");
->  rpmsg_show_attr(announce, announce ? "true" : "false", "%s\n");
->
-> -static ssize_t driver_override_store(struct device *dev,
-> -                                    struct device_attribute *attr,
-> -                                    const char *buf, size_t count)
-> -{
-> -       struct rpmsg_device *rpdev = to_rpmsg_device(dev);
-> -       int ret;
-> -
-> -       ret = driver_set_override(dev, &rpdev->driver_override, buf, count);
-> -       if (ret)
-> -               return ret;
-> -
-> -       return count;
-> -}
-> -
-> -static ssize_t driver_override_show(struct device *dev,
-> -                                   struct device_attribute *attr, char *buf)
-> -{
-> -       struct rpmsg_device *rpdev = to_rpmsg_device(dev);
-> -       ssize_t len;
-> -
-> -       device_lock(dev);
-> -       len = sysfs_emit(buf, "%s\n", rpdev->driver_override);
-> -       device_unlock(dev);
-> -       return len;
-> -}
-> -static DEVICE_ATTR_RW(driver_override);
-> -
->  static ssize_t modalias_show(struct device *dev,
->                              struct device_attribute *attr, char *buf)
->  {
-> @@ -405,7 +378,6 @@ static struct attribute *rpmsg_dev_attrs[] = {
->         &dev_attr_dst.attr,
->         &dev_attr_src.attr,
->         &dev_attr_announce.attr,
-> -       &dev_attr_driver_override.attr,
->         NULL,
->  };
->  ATTRIBUTE_GROUPS(rpmsg_dev);
-> @@ -424,9 +396,11 @@ static int rpmsg_dev_match(struct device *dev, const struct device_driver *drv)
->         const struct rpmsg_driver *rpdrv = to_rpmsg_driver(drv);
->         const struct rpmsg_device_id *ids = rpdrv->id_table;
->         unsigned int i;
-> +       int ret;
->
-> -       if (rpdev->driver_override)
-> -               return !strcmp(rpdev->driver_override, drv->name);
-> +       ret = device_match_driver_override(dev, drv);
-> +       if (ret >= 0)
-> +               return ret;
->
->         if (ids)
->                 for (i = 0; ids[i].name[0]; i++)
-> @@ -535,6 +509,7 @@ static const struct bus_type rpmsg_bus = {
->         .name           = "rpmsg",
->         .match          = rpmsg_dev_match,
->         .dev_groups     = rpmsg_dev_groups,
-> +       .driver_override = true,
->         .uevent         = rpmsg_uevent,
->         .probe          = rpmsg_dev_probe,
->         .remove         = rpmsg_dev_remove,
-> @@ -560,11 +535,9 @@ int rpmsg_register_device_override(struct rpmsg_device *rpdev,
->
->         device_initialize(dev);
->         if (driver_override) {
-> -               ret = driver_set_override(dev, &rpdev->driver_override,
-> -                                         driver_override,
-> -                                         strlen(driver_override));
-> +               ret = device_set_driver_override(dev, driver_override);
->                 if (ret) {
-> -                       dev_err(dev, "device_set_override failed: %d\n", ret);
-> +                       dev_err(dev, "device_set_driver_override() failed: %d\n", ret);
->                         put_device(dev);
->                         return ret;
->                 }
-> @@ -573,8 +546,6 @@ int rpmsg_register_device_override(struct rpmsg_device *rpdev,
->         ret = device_add(dev);
->         if (ret) {
->                 dev_err(dev, "device_add failed: %d\n", ret);
-> -               kfree(rpdev->driver_override);
-> -               rpdev->driver_override = NULL;
->                 put_device(dev);
->         }
->
-> diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
-> index 8d9e2b4dc7c1..e0dacb736ef9 100644
-> --- a/drivers/rpmsg/virtio_rpmsg_bus.c
-> +++ b/drivers/rpmsg/virtio_rpmsg_bus.c
-> @@ -373,7 +373,6 @@ static void virtio_rpmsg_release_device(struct device *dev)
->         struct rpmsg_device *rpdev = to_rpmsg_device(dev);
->         struct virtio_rpmsg_channel *vch = to_virtio_rpmsg_channel(rpdev);
->
-> -       kfree(rpdev->driver_override);
->         kfree(vch);
->  }
->
-> diff --git a/include/linux/rpmsg.h b/include/linux/rpmsg.h
-> index fb7ab9165645..c2e3ef8480d5 100644
-> --- a/include/linux/rpmsg.h
-> +++ b/include/linux/rpmsg.h
-> @@ -41,9 +41,6 @@ struct rpmsg_channel_info {
->   * rpmsg_device - device that belong to the rpmsg bus
->   * @dev: the device struct
->   * @id: device id (used to match between rpmsg drivers and devices)
-> - * @driver_override: driver name to force a match; do not set directly,
-> - *                   because core frees it; use driver_set_override() to
-> - *                   set or clear it.
->   * @src: local address
->   * @dst: destination address
->   * @ept: the rpmsg endpoint of this channel
-> @@ -53,7 +50,6 @@ struct rpmsg_channel_info {
->  struct rpmsg_device {
->         struct device dev;
->         struct rpmsg_device_id id;
-> -       const char *driver_override;
->         u32 src;
->         u32 dst;
->         struct rpmsg_endpoint *ept;
-> --
-> 2.53.0
->
+Even worse, depending on the hardware, you may even get a data abort
+when attempting LDXR on Device memory.
+
+> For osq_lock(), while an IPI will wake it up, there is also a small timing
+> window where the IPI can happen before the ldx and so not actually wake up it.
+> This is true whenever 'expr' is non-trivial.
+
+Hmm, I thought this is fine because of the implicit SEVL on exception
+return but the arm64 __cmpwait_relaxed() does a SEVL+WFE which clears
+any prior event, it can wait in theory forever when the event stream is
+disabled.
+
+Expanding smp_cond_load_relaxed() into asm, we have something like:
+
+	LDR	X0, [PTR]
+	condition check for VAL || need_resched() with branch out
+	SEVL
+	WFE
+	LDXR	X1, [PTR]
+	EOR	X1, X1, X0
+	CBNZ	out
+	WFE
+  out:
+
+If the condition is updated to become true (need_resched()) after the
+condition check but before the first WFE while *PTR remains unchanged,
+the IPI won't do anything. Maybe we should revert 1cfc63b5ae60 ("arm64:
+cmpwait: Clear event register before arming exclusive monitor"). Not
+great but probably better than reverting f5bfdc8e3947 ("locking/osq: Use
+optimized spinning loop for arm64")).
+
+Using SEV instead of IPI would have the same problem.
+
+-- 
+Catalin
 
