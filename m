@@ -4,99 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F79109C05D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E7E1093168
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 21:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BFJKPQI5/sac9me8amIP9+ekaSHHOonqJLT2WhRtyac=; b=IhoiKq3rNs0cPe8vkl8BLFWytJ
-	6ZjYDHwgM3wLxW6T52xnPnZrtSv9R7YUXcBD1G/AzrDr2ze2y5k7RrCQHkNmLpKXtplL67UMbdegS
-	FoMRkrXUMZM/O4yl6194gaDV5yV3z/WPzqVFmKoSqUO/G+lPg8K9C9TqAkkcwzm5Fn6jpBCPhMdzn
-	3P0kYZ7ephuU2SVSfmoRb2RCn0YCeUaqb4AnzIz9bVUdwpgzT2N662D5p78RY+EEcfCjb4+F9V2NR
-	5nhOP7D4Vxmqo8Ge3BwzQqSP/RzKGvUSr+LT4nZIHgElHF1BlL9hJdE3IH+suxeBbGVyLQ/YkQSEp
-	SuCEP8+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9T4ILjzpSI8Km2SYP2+R54L0ASfcwMMayhnKu46qcs4=; b=y4EQZax7E8WDz6GXEfdiHJljz4
+	/2qP5c9cwUCR9YMWevcN69YH/KNcrtvuD4Qf5PK868AbdypI8DUVTODoFcvSDvpDdOlaUyNVMt8Ey
+	ttX1e8Vyz1UmscBbjvbXzQtu0oAyDb7d9ru92SUL8P5Kg/z/ysJjLGhEc4/2iBbXnjH/X2zfDuYAy
+	04ePKhTcJH7+e5OhGzxiGCXrEA4VppwYWz5EVSP7AKRU2FLUr8XHvfiWeVgtsXmknxO24Yhq5H375
+	0f/Ncsw6YklPy93xo7qpEatf9yGVA3+Wk1SSLPIEyq3YfDPQT5OLwGh1/tr4hXnYX7YxMpqb+gLWd
+	kGLrglag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VVS-00000004G89-44h0;
-	Wed, 25 Mar 2026 21:11:14 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1w5VZ7-00000004Goz-1C85;
+	Wed, 25 Mar 2026 21:15:01 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5VVQ-00000004G73-261x
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Mar 2026 21:11:13 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-38be66a9fc0so3034891fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 14:11:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774473070; x=1775077870; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BFJKPQI5/sac9me8amIP9+ekaSHHOonqJLT2WhRtyac=;
-        b=eTz1fcNZc8R20uD51SjLh/3gEYXKnuuaGNuKnqQlYUPD1ndSGdE5j6ylsvQZ84DLfe
-         bq0N33d5WpsfiAlvALY6L8nh0Zb0jcX4wtH3lYOaDxjULW9olffl4HVs9nv07V+HscTE
-         AoNVovjKeyplj1nv5VqwlYmtQhgwTX7Xw4z3Z6fGh1yvA2pKxxSJGzlFiADkt2jOC1ek
-         v8wFu1TiouQYc5oH7Fo5eYTr5z+meV6vrhFO8sEcw9nHIrt39u4O2Qev04sMEEkr3jok
-         sGRLVbrk9eLHNfblkOuAHo81PP3DM2BU2N1qzlvN2t4lS3quW7o5PMF5b62vtDHsnNpq
-         FVww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774473070; x=1775077870;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BFJKPQI5/sac9me8amIP9+ekaSHHOonqJLT2WhRtyac=;
-        b=GtSucjvZCWh8YuCSU7gp+uSQq9fTlO71rWCH8pRi5RNLuug16G63E3wtkkjuBuslAG
-         11HXo7EebeYN1yNZGpk7XqAtuDEPMiB9ygEU5P99jizRy+B8bDPnzw14MQgknqoeSodV
-         296BvFO4MACYP3QbcrQCGfXQiGrCfmP3Z+FRPgicrE1sMYNTxUn4F9q4blHcCghzGaT/
-         TEKQjHKGooxOccpTEy9F62dM/siADCeLKp4wtpRO57Npm47m+rtJitiO1RxrbIuYyIGV
-         6wdXFzUpsdTQRk/Srx8CAPsOjXTQ1t9YDsyYaRzQfQ/JnCI5pxFPtmgJpGfEORqSVojk
-         pJqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBZUyF4frfTZc+Hmpt4zx96++Tcrw8sagoCHaQO85SMqC1z4F3IyEXrCzmsLa79jV4r1Bdc0e5OUKOWGCaoqOg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5Xxw/VUWyobAh31gapvGpNtGPrktu5TL5bZfkVg6iMKJ9lqoA
-	KHxkLTxgDGZzCalgitVwUB3NsE3bmkoOcWYPhMVtjyXH/DifptH+cuc=
-X-Gm-Gg: ATEYQzwlBkbLoomhPi4BCiwnqz2VEYrtW3nadtqaH+UkbUWbeM9600Kmj0Nm/3564Cg
-	WJbrsfXPls5N5ZNMvWg3a2wTGhE7ziUshPGR10scaE1i+1XScPNrxSU0HQnJrflLU9I8UlfhUOH
-	ThgJD1RZCsxDLGrQ+pGLNv9MKMHQniLwH5xjP/7Nm4IfmNseOXuVQA5TVI/f3zGE3BN7apyzEl8
-	aq00SGcsBaJOFr/vS2kZW0mAAM3WI031G1q+fr80bGD+D5RHJt8oyBu1qLWOkVkhBerHgZvX3S6
-	cvJGi3CiR39Glxk04NeTZZDxp+BPIljA81Bccw53vWToAwmUxht5mBJj9irX+fSpAqKG6zfobSQ
-	yT9clM4zsNq5SRzj8vq9ITkfRSBrjebiclk9eiC/2FgrPdugcOiXKphM2TYexTUXw8XVRx3lLJi
-	W+oWK/H7RcYV030K0cZUWte9VHaSPX42dDP3HZezKeKswm4WmDeEmY1ztw+zon1yxN2pI5V1VEd
-	TjSXPfGThbTg4TfiEV+J/pk
-X-Received: by 2002:a2e:bcc4:0:b0:387:d29:fd4f with SMTP id 38308e7fff4ca-38c43053841mr18578111fa.1.1774473069655;
-        Wed, 25 Mar 2026 14:11:09 -0700 (PDT)
-Received: from [192.168.1.17] (host-79-52-171-101.retail.telecomitalia.it. [79.52.171.101])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38c52fac168sm1524821fa.11.2026.03.25.14.11.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Mar 2026 14:11:09 -0700 (PDT)
-From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Date: Wed, 25 Mar 2026 22:11:03 +0100
-Subject: [PATCH v2] iommu: arm-smmu-qcom: Ensure smmu is powered up in
- set_ttbr0_cfg
+	id 1w5VZ3-00000004GkT-1xQQ;
+	Wed, 25 Mar 2026 21:15:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=9T4ILjzpSI8Km2SYP2+R54L0ASfcwMMayhnKu46qcs4=; b=wrp8frWYdflVifRHX74kmry/Q2
+	r/4/Pg35KjXCbZvWTgAj4EASo/gshPXzA5HWOrsZr9QyIMPzKmsOw0d8yr+g8Gl4HWfax7TOiXvKS
+	cjGemaSaFRDRSqeArT+DX9tYxZ95k89H+XEeM8Nwyy3h0NLcnAyp21hkkC7SvjdFVGtFq8gjI/mqK
+	QHWw0MzyFnDe38O26aNmCE/mxx6vg4TgBtU5/Yw3f5xiURVzP9s7HXJ9DDPV5ymuz9KL/HeZXpsI+
+	RreCpn5SAG+W/aNkLtWY1LUIFgfZROeJpLARzV/qAlzMt5R9arFb9osgBB34l9Xm1/+F6s0G5uRae
+	c7lA2VKQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40038)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w5VYh-000000003wd-1uuC;
+	Wed, 25 Mar 2026 21:14:35 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w5VYe-000000006NW-3R79;
+	Wed, 25 Mar 2026 21:14:32 +0000
+Date: Wed, 25 Mar 2026 21:14:32 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mips@vger.kernel.org, imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH net-next v10 2/6] net: stmmac: qcom-ethqos: use generic
+ device properties
+Message-ID: <acRQOLJ2wWF3rIHb@shell.armlinux.org.uk>
+References: <20260323-qcom-sa8255p-emac-v10-0-79302b238a16@oss.qualcomm.com>
+ <20260323-qcom-sa8255p-emac-v10-2-79302b238a16@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNTQ6CMBBGr0JmbU07oBhX3sMQUsoIk1jAVhsN6
- d0d2bt8L9/PCpECU4RzsUKgxJHnSQB3BbjRTgMp7oUBNR41Gq0ebvZt9P7VLv7Gb4WWbI+drQg
- 1SGsJJHpbvDbCI8fnHD7bQTI/+38rGWVUfepqU5XW6UN5Gbzl+15i0OScvxkVNjWuAAAA
-X-Change-ID: 20260210-qcom_smmu_pmfix-2aead2ba4e20
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Anna Maniscalco <anna.maniscalco2000@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774473068; l=1749;
- i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
- bh=c9MHl6wwCqZZZNdguQdAF7xL+qjBzLIdLAmWzKLWIrs=;
- b=nZxsZvGAgjyLb36vu1D/zn/oDYONnycLHZGwePaIYT75gLjwmEB/AP/WcoAECO0yu57KZ+ikU
- XNixHH2ZPVhDYRs4ADLGfLw/0OhzZBIQ0C9H4Duz9/j7FQodQ3+oErp
-X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
- pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260323-qcom-sa8255p-emac-v10-2-79302b238a16@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_141112_561305_A7AB4CD8 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260325_141457_530935_7D9B6A68 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,54 +115,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously the device was being accessed while potentially in a
-suspended state.
+The comments I just gave to v9 (which is incomplete as received) apply
+to v10 as well, although I have no idea what the differences are
+between v9 and v10 as I never received the cover message. I only
+seem to receive patches 2, 4, 5 and 6.
 
-Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
----
-Changes in v2:
-- Simplify patch by acquiring device just around the call that needs it
-- Link to v1: https://lore.kernel.org/r/20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+On Mon, Mar 23, 2026 at 02:20:54PM +0100, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> In order to drop the dependency on CONFIG_OF, convert all device property
+> getters from OF-specific to generic device properties and stop pulling
+> in any linux/of.h symbols.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/Kconfig             | 2 +-
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 9 ++++-----
+>  2 files changed, 5 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> index d3a6ab7383fc1e1b2e4b12c670b12a8ad1606e6c..4148805a82b106471a25f9496b60be5bb9ce5c00 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+> @@ -135,7 +135,7 @@ config DWMAC_MESON
+>  config DWMAC_QCOM_ETHQOS
+>  	tristate "Qualcomm ETHQOS support"
+>  	default ARCH_QCOM
+> -	depends on OF && (ARCH_QCOM || COMPILE_TEST)
+> +	depends on ARCH_QCOM || COMPILE_TEST
+>  	help
+>  	  Support for the Qualcomm ETHQOS core.
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> index 3ccf20fdf52a8ec4649b43ade8ee7b85d613e1c5..66fd2ed2c2c8428694c07d89220d0e1608546791 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> @@ -1,8 +1,8 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  // Copyright (c) 2018-19, Linaro Limited
+>  
+> +#include <linux/mod_devicetable.h>
+>  #include <linux/module.h>
+> -#include <linux/of.h>
+>  #include <linux/of_net.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/phy.h>
+> @@ -728,7 +728,6 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
+>  
+>  static int qcom_ethqos_probe(struct platform_device *pdev)
+>  {
+> -	struct device_node *np = pdev->dev.of_node;
+>  	const struct ethqos_emac_driver_data *data;
+>  	struct plat_stmmacenet_data *plat_dat;
+>  	struct stmmac_resources stmmac_res;
+> @@ -778,7 +777,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  		return dev_err_probe(dev, PTR_ERR(ethqos->rgmii_base),
+>  				     "Failed to map rgmii resource\n");
+>  
+> -	data = of_device_get_match_data(dev);
+> +	data = device_get_match_data(dev);
+>  	ethqos->rgmii_por = data->rgmii_por;
+>  	ethqos->num_rgmii_por = data->num_rgmii_por;
+>  	ethqos->rgmii_config_loopback_en = data->rgmii_config_loopback_en;
+> @@ -818,9 +817,9 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  	if (ethqos->has_emac_ge_3)
+>  		plat_dat->dwmac4_addrs = &data->dwmac4_addrs;
+>  	plat_dat->pmt = true;
+> -	if (of_property_read_bool(np, "snps,tso"))
+> +	if (device_property_present(dev, "snps,tso"))
+>  		plat_dat->flags |= STMMAC_FLAG_TSO_EN;
+> -	if (of_device_is_compatible(np, "qcom,qcs404-ethqos"))
+> +	if (device_is_compatible(dev, "qcom,qcs404-ethqos"))
+>  		plat_dat->flags |= STMMAC_FLAG_RX_CLK_RUNS_IN_LPI;
+>  	if (data->dma_addr_width)
+>  		plat_dat->host_dma_width = data->dma_addr_width;
+> 
+> -- 
+> 2.47.3
+> 
+> 
+> 
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 573085349df3..cab7d110aaf5 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -231,6 +231,7 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
- 	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
- 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
- 	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
-+	int ret;
- 
- 	/* The domain must have split pagetables already enabled */
- 	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
-@@ -260,8 +261,16 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
- 		cb->ttbr[0] |= FIELD_PREP(ARM_SMMU_TTBRn_ASID, cb->cfg->asid);
- 	}
- 
-+	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
-+	if (ret < 0) {
-+		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
-+		return -ENODEV;
-+	}
-+
- 	arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
- 
-+	pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
-+
- 	return 0;
- }
- 
-
----
-base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
-change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
-
-Best regards,
 -- 
-Anna Maniscalco <anna.maniscalco2000@gmail.com>
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
