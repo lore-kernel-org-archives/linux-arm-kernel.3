@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E65010A3D8E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D008610A62C3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbHnBtjvbra5+LRx9NtxkjXhFGZRRoduS2A97aiNLvk=; b=r9dpHAblHMZPpizpEAhnx8Rum3
-	WC3Ee2dT4zi3RmwpMV+irvSVFoPz+7syAJwrJ79/Wju5ZY6tkWOlXFdcfBqE2Q90w3PtWnSajAxn6
-	JrR+nce1uzzZk2IOzZm+gEcOz0uO7+DgqJ0mGwIats/Pkaj4G3FdODR9fo0SQ2vbsrAF26f/jXuEl
-	MR2evdpWXlEyOj7BntEe5/hEI0G/xNrp3UjhlA30HndW8NzpMBU4rSCmd4tghp+gaxb4VCGAHsa0F
-	QZXgOf88GxTViUw37GEf97jDsZ68mazMEaR/9RT8WDOgxEAjUVOypYGVcJ/l+SAZGPxIxfTfOGqEc
-	Ll+rbskA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I9Chy8AgzevwPYn3/hEg4YkH331ROLRWKE0sUs35RwM=; b=RqlF46LSJILS/7t7hFzbdWzzt6
+	4wElBly+zEr3TGNfjcfNfLOrLWQz78Xq0vZRaERa1Ic0DkaZvAqxqhjN/2YE+jHwO8Kmt9Y1RI/lO
+	Pbjhp3fBs8QrVp0wX6eReOKthRz7qmU51EG4oW5P/MEts3dgv1FAnmkxIlgYo88NZwiC8PfiyeO1Z
+	9SSdR+0e8Uy2PJdbzYYe8N9lZ2h8NMX1xNz5tJNsD+DTeh7VshD9I95t+cxxf4JGNTL6jb8P9OBPD
+	4jlDMXd+P30lrbBEYjIl51sRlc3O3Pzvpk1rDDByGN/f4mAtoEwf/igfEmwp2ykVUdSghgdMYtaOB
+	32C4rIAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k9v-00000005URc-3iIQ;
-	Thu, 26 Mar 2026 12:49:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5kCA-00000005Uc3-1Oe4;
+	Thu, 26 Mar 2026 12:52:18 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k9u-00000005URT-0oD7
+	id 1w5kC6-00000005UbY-44Oj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 12:49:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CAE860103;
-	Thu, 26 Mar 2026 12:49:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC68AC116C6;
-	Thu, 26 Mar 2026 12:49:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774529396;
-	bh=9EnC73UJMvC+ggET7kvHMNECqIIbpyprn+Rs/3zGlU4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZA/05io3UVQH3utmerGfUMGXTXoc6wRUaGANt/ShbFdUtShd4kUt0y2DfIV9boYnd
-	 YIPUqpJDlb1Ce0dDhXf/FAclEOjg+ZckMkqJEmz1UA8cOvQXFmr3SOfVQMFOqQx92i
-	 ItAcQhogrjFcPhwwP3yJh4XmduD0A4szO0RqjG+gM10NqrWXs9KXE+q98xhmmnR7sO
-	 sWUskyqUrGxCyPI7p4teIxRK2ZYIYV4rqxuZ7V66Gzm7YZu/2ZBifz9Ztx32MKBcft
-	 b+iq+1Emk+kCA8BYyyCj3hca1NHn+i63Nw7hm60q2uHve0O2i8UdtvKbPvQt96TNGM
-	 /nPtGNT20LTCQ==
-Date: Thu, 26 Mar 2026 12:49:51 +0000
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Yabin Cui <yabinc@google.com>
-Subject: Re: [PATCH v2 1/3] KVM: arm64: Disable TRBE Trace Buffer Unit when
- running in guest context
-Message-ID: <acUrb1WX9M9eMXIV@willie-the-truck>
-References: <20260227212136.7660-1-will@kernel.org>
- <20260227212136.7660-2-will@kernel.org>
- <CA+EHjTxcc2FArmi1hu17LW3BHUZ5zTnqbaQP0kbV39HXZfp9+Q@mail.gmail.com>
+	Thu, 26 Mar 2026 12:52:16 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4fhNvv6ZCHz9ttG;
+	Thu, 26 Mar 2026 13:52:11 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1774529532;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=I9Chy8AgzevwPYn3/hEg4YkH331ROLRWKE0sUs35RwM=;
+	b=YTUZUxBJ3RzbZuMkbGTZyU2cHqO5J0MT0pTPXjOb2ufwyEWX68TABeLbIdZ6TTFW8NEUOE
+	P1+/i2GWHb1Cib/0vLXXR6g7XQUeUX/hO1Whwl2tcp5uNzbJmRznafMAjZHjyY/2km/S1M
+	gT3etrZkBCwElSlOKKu9a0W3DI9iX0q1yEzOZEkaQAEPf+h2IEm7Cn5Rvz6Qvsdrcgghpz
+	R7hlL4mrxyK/VBB9KpDJj5pi944csDVKuECCPMet9ZczEuGcLXK589E4Temv0hz1gXWtKz
+	rGnJoiAQzqFUrVMlFYApYJ/TBW8FlNf8+WTmMz2SHWYqhcKuGBredCBIkiJqcw==
+Message-ID: <d6696825-f739-4427-bb60-abf8afd82b66@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1774529530;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=I9Chy8AgzevwPYn3/hEg4YkH331ROLRWKE0sUs35RwM=;
+	b=MEKXNnKQsTujq/wMDVDbuIdq5AnzVzA2L09JW/JbiGZfyOu3FYlqpvMBmY2GUCMUEuAMBV
+	nQtejxsfaEMlF2MMKxv6dyrLQTs+myKV94u8hCtg2A2Eu+LrHZhpW687mcYMXUKiMYXJ7K
+	QMaSwH6OMgxcDkR29L1ddHEY/vT0UOFwpJHCVTDD6geM9dwIViDOAESqUZd4qEzlO7wXgK
+	4t2gEG/OItcvI0DW9GXe5R3shX0MJEHiHJecdGyUHTMd8vWXUSmpb1TtOIvgA0mHKaYiSg
+	BqVyXddH4uXWUbwNcdgCkBDuxgA6xghOJy4MoCDY4ervnisz3eDucMI2mZnNRg==
+Date: Thu, 26 Mar 2026 13:52:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTxcc2FArmi1hu17LW3BHUZ5zTnqbaQP0kbV39HXZfp9+Q@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: renesas: rza2mevb: Drop RTL8211F PHY C22
+ compatible string
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260326045416.223556-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdVwa47N2VsvH8pBkAD215dr3M-qkA0SXed0vhLS2-aoKA@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdVwa47N2VsvH8pBkAD215dr3M-qkA0SXed0vhLS2-aoKA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 0aa1a6b254c98a861e0
+X-MBO-RS-META: 89mianiegazzsg9eorrsbp6xffnu78nw
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_055215_181746_5BA1C5D5 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,100 +96,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 07:27:32PM +0000, Fuad Tabba wrote:
-> On Fri, 27 Feb 2026 at 21:22, Will Deacon <will@kernel.org> wrote:
-> >
-> > The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
-> > generation in guest context when self-hosted TRBE is in use by the host.
-> >
-> > Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
-> > TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
-> > per R_YCHKJ the Trace Buffer Unit will still be enabled if
-> > TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
-> > Trace Buffer Unit can perform address translation for the "owning
-> > exception level" even when it is out of context.
-> >
-> > Consequently, we can end up in a state where TRBE performs speculative
-> > page-table walks for a host VA/IPA in guest/hypervisor context depending
-> > on the value of MDCR_EL2.E2TB, which changes over world-switch. The
-> > potential result appears to be a heady mixture of SErrors, data
-> > corruption and hardware lockups.
-> >
-> > Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
-> > draining the buffer, restoring the register on return to the host. This
-> > unfortunately means we need to tackle CPU errata #2064142 and #2038923
-> > which add additional synchronisation requirements around manipulations
-> > of the limit register. Hopefully this doesn't need to be fast.
-> >
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: Oliver Upton <oupton@kernel.org>
-> > Cc: James Clark <james.clark@linaro.org>
-> > Cc: Leo Yan <leo.yan@arm.com>
-> > Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > Cc: Fuad Tabba <tabba@google.com>
-> > Cc: Alexandru Elisei <alexandru.elisei@arm.com>
-> > Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
-> > Signed-off-by: Will Deacon <will@kernel.org>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h  |  1 +
-> >  arch/arm64/kvm/hyp/nvhe/debug-sr.c | 73 ++++++++++++++++++++++++++----
-> >  arch/arm64/kvm/hyp/nvhe/switch.c   |  2 +-
-> >  3 files changed, 66 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index 5d5a3bbdb95e..1532ad2b2ec2 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -770,6 +770,7 @@ struct kvm_host_data {
-> >                 u64 pmscr_el1;
-> >                 /* Self-hosted trace */
-> >                 u64 trfcr_el1;
-> > +               u64 trblimitr_el1;
-> >                 /* Values of trap registers for the host before guest entry. */
-> >                 u64 mdcr_el2;
-> >                 u64 brbcr_el1;
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> > index 2a1c0f49792b..3dbdee1148d3 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> > @@ -57,12 +57,56 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
-> >         write_sysreg_el1(new_trfcr, SYS_TRFCR);
-> >  }
-> >
-> > -static bool __trace_needs_drain(void)
-> > +static void __trace_drain_and_disable(void)
-> >  {
-> > -       if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
-> > -               return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
-> > +       u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
-> >
-> > -       return host_data_test_flag(TRBE_ENABLED);
-> > +       *trblimitr_el1 = 0;
-> > +
-> > +       if (is_protected_kvm_enabled()) {
-> > +               if (!host_data_test_flag(HAS_TRBE))
-> > +                       return;
-> > +       } else {
-> > +               if (!host_data_test_flag(TRBE_ENABLED))
-> > +                       return;
-> > +       }
+On 3/26/26 10:45 AM, Geert Uytterhoeven wrote:
+
+Hello Geert,
+
+> On Thu, 26 Mar 2026 at 05:54, Marek Vasut
+> <marek.vasut+renesas@mailbox.org> wrote:
+>> Realtek RTL8211F PHY schema indicates that compatible string
+>> "ethernet-phy-id001c.c916" must not be followed by any other
 > 
-> Can we simplify this? e.g.,
-> 
-> +      bool needs_drain = is_protected_kvm_enabled() ?
-> host_data_test_flag(HAS_TRBE) : host_data_test_flag(TRBE_ENABLED);
-> ....
-
-Good idea. I tend to avoid 'bool's as they often make the code less
-readable in my experience, but in this case it would be a lot better
-than the nested conditionals I have. I'll spin a v3!
-
-> That said:
-> 
-> Tested-by: Fuad Tabba <tabba@google.com>
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-
-Cheers,
-
-Will
+> This is actually RTL8201F / c816; I will fix this while applying.
+Ouf ... thank you.
 
