@@ -4,107 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C25C10A62CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 13:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E814D10A62CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 13:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ah/+Vnq17L8vUjHyAomn0sZHYBsduWJsRT60q1Ohrsc=; b=Kepf7Ct8KsZPTCf7L4LCRXpztw
-	w4aE3nK3yjxgvXmqLHyZ1fCEVXEDrHcgAqWouIEAqtJJHjMzxZpZy3NALzYV3YI9ZqFnhxCbIQ/FQ
-	HGbk9azcF4D2j28kc2j33MNhIZEcp9c8IY46CjPf98K/SZhaBBtaQlmeT7IGRVgdlV1T6Nov+kv1f
-	SBjdV74O1+uIavYG1P/fiv8VLhlN8725O6HTpX03c/rnAJWYFgtTsqxugUTimuuYVbrYK/iZp82dY
-	kEPcca4TyVqhtH2nIPQeWyuf5VdqUmQEMXK5zJ41iX3eCXN4de1Ch8iOhRK+jLyhG6tDxvbLu6lQj
-	rq06ePgQ==;
+	bh=j5T/06PnZQDDMs+KvURgz2r0ZPGg12B/UFXU9prTTL0=; b=M6ZCGG1l+ixkzjS1gi7jnbjTyF
+	wsmdKisDKxT2xh/fW3//orhgjm5glpKTy3Ik6Pi4p0FmqhbpmnuSLMrNdsp7EkWHFNIod+X4QsJry
+	j3lukcS40OHq68ZnYNi2Cuo8eD9Wr1NwFHFY17gdDjj4/wfZ3sRElILEeskGRnBVUd6G8vP6LLbT4
+	YOUbYppD93XabDUjKiuVP+sxvWEBiLfFuahRurbBSCJXfoNrnWY3Qv91WpR6ojfjvUDG8bkR8Ky2P
+	tBHcOXyWONFz1TB3o8kFk85lJrjF0VdNnPLixCMnjs/+IQqxKtIyM5OMXur1+ThLclQtaJb8RRsSu
+	7rrOZHBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5kSR-00000005WDV-1dP5;
-	Thu, 26 Mar 2026 13:09:07 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1w5kTX-00000005WQp-37Ky;
+	Thu, 26 Mar 2026 13:10:15 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5kSP-00000005WCQ-0lDT
+	id 1w5kTU-00000005WPe-3uvD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 13:09:06 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8cb40149037so113473785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 06:09:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774530544; cv=none;
-        d=google.com; s=arc-20240605;
-        b=U1W7q+lvBHV/h5gYuk8tcw0Dko7nbKDk3b84qFLb292Fnr7XCbRzCR7tIikGQHJOzC
-         b28XAEPaWkHmCxUVj80MLrYQ+CCVH0/iTRbSgSMCZ9LYOZ/QfcjWWoGl+78qXih9SaKL
-         u9AivWv+1xDWeud3A+pMi5UlE8WjR0Mxi8jj+VcOTh2naLFGExaXBwFL+4Wfz+u2Z+Hl
-         uTulSPLVF4zWETJ4xL74YJw6oTgk+kaEf+EwK/OShwa9u5Jsnohqliq0LcqmGI3jmJw6
-         G7wn1gpgxS5emQkCGK1EREjFOCnZjH+oy4PMWK/vExdV9DlsYRHKLAhB9mwZVdmq0jnw
-         1vIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ah/+Vnq17L8vUjHyAomn0sZHYBsduWJsRT60q1Ohrsc=;
-        fh=DMb6R11/PwKnjZIbRSLKn2AuX8GpC3FjgYjI94U/Ucc=;
-        b=AeymzsjOOuArFzIT5/gBlBHgVCUD5zEdDvIh+MulEILYMrAhwbhD4nfwVQDx7MmPuv
-         +1/6ROkGdQtOBfU1hD0tYF9OVaGdX6z2uvo2WceYJ/qTRMDR2IiVFuKtNGq3Do1qZtQ+
-         tjqL7jxGAJQR3ACWJPP3f+qb1+sYvnHbdBGGlKsAx4D6Mt6Jfm4Y+L93emNvoaDsdKiu
-         JKyWQNLawdREj/fk+n7UhnVM9tv2YmCjWD6oV1o0Io9phh9GkX7hW7rzc1++MoFAuOoB
-         x2QweeN73LxM+PG93lORCHjyoqr3njTKiWhUVmJ87W9YzoXkbixO5uEJXXWL8eM7iElh
-         I21w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 26 Mar 2026 13:10:14 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-483487335c2so10930785e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 06:10:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774530544; x=1775135344; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ah/+Vnq17L8vUjHyAomn0sZHYBsduWJsRT60q1Ohrsc=;
-        b=iDNd1NkAH34m7fY4S8oiJFcMkuKm50V+HuwR8RWPQ3c7E2QXZ528rgkpznw2z58TjT
-         sB+S6s4e/+n9svuVtDdrthYcD0wa9I9Ml1LVQKgQi9PklrJFjinQP0p/70/SnQCSJghZ
-         D4iX+2sPfY8eMPlEJRtsom3qJ0LZf8FS6/OLa81HSsUhcFTtpTXQC9ZD9KAMBHB2vxKD
-         U20R774JdVQCZouOKWzK1UilZXGWG+KVCWnbdv1oclxNS29dSfPAFiVmX2mCvP3odhka
-         mo3AugUe8tkqDKNhG4rhCa21MRnxmY4bbbD7jw32w3gmO5Hh6vO8Q7TbfduBnAqI7zjS
-         iKvg==
+        d=linaro.org; s=google; t=1774530611; x=1775135411; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:from:subject:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=j5T/06PnZQDDMs+KvURgz2r0ZPGg12B/UFXU9prTTL0=;
+        b=kajOSXbcNnoy6lWY+/j2FRrQb6+rC4imGjzs9J+MLOpbDF6+xGQpnBtoZb5/eZ3zSg
+         2vkfVC45Q4QmZwm5qOOJdw13Sy3uce0zVVlQKdCkOw40WaNW++tu2a9yZ/t3IeF/+iPe
+         Rk2YhMCCPY0qZ8bvduj7qpdlaEP2lbcSUC0D1Rk3uOLfiqIdTcsYUi+vq89Q7LtlJ9kY
+         +xmBSzj2uf848DGeaBoJnwZsrt3cHCxp+vv88o7Fthkg+La2nJcGIlOciTAU5nfCA+Hs
+         A8Efkp3BeIQhOptbcd9hSQrJpDC9xblZbesROFysjMuFP/BhVZOoiK2sFeUHEjVv161D
+         AUKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774530544; x=1775135344;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ah/+Vnq17L8vUjHyAomn0sZHYBsduWJsRT60q1Ohrsc=;
-        b=b6rLLZ9m4qYAUn6Sd2rGR2fhdOAnMghkM5N6U5gHyMCMLZbxMQJKEPHpQ49a/Earqx
-         utwXBvTNygyhwSBYoLwkEp+2WgquY8VKRpwCVF8oiFhpma1mk8NMLW2MZg008DkuPJoy
-         B9P0ElygP+9ejmlugkTY8PT7fKnNMglOhu76uG2ULiyazZyg6Gmos5KGMkcfBpPGWC2G
-         o0NkssWEgMm2148mC62YeH0wNC6NaXqBgfGpbS72NcA7TFWmZdUJjyL9wL0yqdSe2DwV
-         NI3skkugoE4wnh6KUrd00dJvFcyEOiFX7ZP8nJdjshWIgfooJdJL8I7x9HkX2aIk5T6/
-         vR4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWVqA6NlEUeYNdOuuAZR4XJKsj5Xsldw4sOJzU6HirRCQBVKlcHVVNFWto3QjvGD74+E+m1ddgkO8MxxgW4VHVz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL2xQhKpF0AVZIHKwIWsnMRZ382ia3VDRfG9JcLUivMJwlv1kn
-	zPUpkzV/wjy2k62xxN5NBzQHzTixAhv66C7gQ0n3nnY0TYPZ9OL7TAJKmHH1AL0/ofKjBXgLm0B
-	ossZJNm/vMGjMDKoLJ/xvPXGMWFmE8WA=
-X-Gm-Gg: ATEYQzwsBUOOUb8e6TbHTT3/IAv7fkIryKvEq1FvBhumRoCx7HxbWMqCv8abVymuKPr
-	SxEtzI9l74+2TlwXWI9OapVUToX6rFF6XaG3MbhvnUpNmtcHRucRB8WdoLhFKNOlRSAZCFpqf4z
-	SyTv/bMah1M1rnfVTDh8V0PZH6vxyPwu6cuXoLpK2BYhA9RUtW4+l6fV6mc4wJzrEZBBs+dwtjf
-	DjDZBp2Gnr+Yr6dsKPk7avnLcoMPEtDnAvsQtymm6M5d09BpofYPrHNN8IehIegz1+qJ584jI+N
-	5JtBwyFIrcxfhI4c03rT/pkONg==
-X-Received: by 2002:a05:622a:10f:b0:509:3cd:b22f with SMTP id
- d75a77b69052e-50b80d14417mr109502331cf.23.1774530543679; Thu, 26 Mar 2026
- 06:09:03 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774530611; x=1775135411;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:from:subject:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=j5T/06PnZQDDMs+KvURgz2r0ZPGg12B/UFXU9prTTL0=;
+        b=G9noqUBkU6doBPU/6xhijsyXwMkfYo6cM78dXMFChC/C7ue6C3MUlpxqqaU85pFiTM
+         UbFvXNc8fG6d4HaHrfK5LUfFGWTj1g/AEd4cjy5YDgN0b7IjtW3Eye4W1EvMOvdrWiVg
+         9VCevow727dLFNMLk18q3XYqmXuluwDPahmr4QpTyGLWYcytYsi6RtUF5i82FJfU0ZOw
+         +NqTlPqtdS4UQKVV2sXMhvgLAIm5UjreoyRW6oGjW6mo0Rca6OjIxDjfcc1CmQz7NrAY
+         jrAXF15H9YYPbSRXmJbOuGCEfVTarmHUlIv8MteWZMiBGfAO1m4NrJU5hdRXQZ/Jo33T
+         lqLQ==
+X-Gm-Message-State: AOJu0Yw2sQ+fQUNlsghFtROmgb0aGF+doK8LhgGRwxNnE99Ai1uQUs4f
+	EQIbtxvMPU+8OkNVGoaqoEmo+2bwy/tMEa/oVjFZi/JlvS13K3RdS25K/lAAU2Ba84A=
+X-Gm-Gg: ATEYQzz62uzguQ0XB1t3Hz/SJ4xxGJtnfmfj9vE3SaNW92ROA1I8kn9BxcKqBb+RBd0
+	tZGvf79uG2ElRFFISBDhqORLF9RIvm+0O85obQFgiRCtcfZesT29CDYXo2VNQ7xg/g80fiBeQn+
+	0wpfhPrtypR40l0NcnD6nMEAvKgYOwe4zFCBbftoMWQh7+wwvWA6vT6uwcPia3v9K2yO0d7lpp0
+	Jzu2JUwGst8Ei6B3AkOJ3mf7neBG9m7xIUdIQeZyYMy9XdqIzUEL04awz6R6/AJH5WCAfupihG8
+	2WU+XED6pK8AH3oXGUA5gKdCZyWIdUcxijZcGRIXf0iLAAHUugeqNnzIN9JrHb7llOAaSHtbSPP
+	ZrxhD7L/BBj48OcB5aZcRNkkWX676v/1gMeOgqqzymsPXsEWNshlsIpGqn1N/X42APbMOlZZErh
+	rHWhW24r1or3DfK6nNMEQ1/KqQEpxHFzqTJ7SemO1Selz1IZRzhXe5dRRvPugyUhOKO9X75T/Me
+	wvl9sg=
+X-Received: by 2002:a05:600c:620b:b0:485:3f72:323f with SMTP id 5b1f17b1804b1-48715fdebd2mr120329765e9.11.1774530610950;
+        Thu, 26 Mar 2026 06:10:10 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:8431:f88b:714d:f78d? ([2a01:e0a:106d:1080:8431:f88b:714d:f78d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c78bc2sm29702165e9.5.2026.03.26.06.10.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Mar 2026 06:10:10 -0700 (PDT)
+Message-ID: <c54566e1-f0e2-4584-bc4d-484ebfd40324@linaro.org>
+Date: Thu, 26 Mar 2026 14:10:09 +0100
 MIME-Version: 1.0
-References: <20260326-archtimer-v1-1-5328574e5935@protonmail.com>
-In-Reply-To: <20260326-archtimer-v1-1-5328574e5935@protonmail.com>
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-Date: Thu, 26 Mar 2026 22:08:52 +0900
-X-Gm-Features: AQROBzCaJ6byPUSHJ4pm3sRtScQ6quhPCnl36SS5KcV2s9wTyxyUFaEy3F2F7nE
-Message-ID: <CAKr_iV6uPSCZ1BzyMOxV3ET44Ho8gP19X=g1rzG83nWUzNkhWA@mail.gmail.com>
-Subject: Re: [PATCH] clocksource/drivers/timer-mediatek: initialize GPT6 as
- system counter
-To: rva333@protonmail.com
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v5 0/9] arm64: dts: amlogic: Add MMC/SD/SDIO
+ support for Khadas VIM4 (Amlogic T7)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>, Jerome Brunet
+ <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Johannes Berg <johannes@sipsolutions.net>, van Spriel <arend@broadcom.com>,
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Nick Xie <nick@khadas.com>
+References: <20260326-add-emmc-t7-vim4-v5-0-d3f182b48e9d@aliel.fr>
+ <177453048347.439230.1647215482099213609.b4-ty@linaro.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <177453048347.439230.1647215482099213609.b4-ty@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_060905_220999_FC821976 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260326_061013_008179_11EB4163 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,60 +138,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 10:00=E2=80=AFAM Roman Vivchar via B4 Relay
-<devnull+rva333.protonmail.com@kernel.org> wrote:
-> On certain MediaTek SoCs like mt6572 (likely before the CPUXGPT was
-> introduced), the generic arch timer is fed by the GPT6. Some bootloaders
-> don't initialize it properly, leading to dead arch timer.
->
-> Fix this by configuring GPT6 when the MediaTek timer is probed. This
-> makes arch timer work properly and removes IPI overhead from MediaTek
-> timer broadcast when arch timer is used.
->
-> If the timer was configured by the bootloader, this change is no-op.
->
-> Tested-by: Akari Tsuyukusa <akkun11.open@gmail.com> # MT6589
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
->  drivers/clocksource/timer-mediatek.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/t=
-imer-mediatek.c
-> index 7bcb4a3f26fb..7de34cace572 100644
-> --- a/drivers/clocksource/timer-mediatek.c
-> +++ b/drivers/clocksource/timer-mediatek.c
-> @@ -22,6 +22,8 @@
->
->  #define TIMER_SYNC_TICKS        (3)
->
-> +#define TIMER_SYSCNT            (6)
-> +
->  /* gpt */
->  #define GPT_IRQ_EN_REG          0x00
->  #define GPT_IRQ_ENABLE(val)     BIT((val) - 1)
-> @@ -335,6 +337,9 @@ static int __init mtk_gpt_init(struct device_node *no=
-de)
->
->         mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
->
-> +       /* Configure GPT6 to feed arch timer */
-> +       mtk_gpt_setup(&to, TIMER_SYSCNT, GPT_CTRL_OP_FREERUN);
-> +
->         return 0;
->  }
->  TIMER_OF_DECLARE(mtk_mt6577, "mediatek,mt6577-timer", mtk_gpt_init);
->
-> ---
+On 3/26/26 14:08, Neil Armstrong wrote:
+> Hi,
+> 
+> On Thu, 26 Mar 2026 10:59:11 +0100, Ronald Claveau wrote:
+>> This patch series depends on Jian's SCMI clock patches yet to merge
+>> https://lore.kernel.org/all/20260313070022.700437-1-jian.hu@amlogic.com/
+>>
+>> This series adds device tree support for the MMC, SD card and SDIO
+>> interfaces on the Amlogic T7 SoC and the Khadas VIM4 board.
+>>
+>> The first patches add the necessary building blocks in the T7 SoC
+>> DTSI: pinctrl nodes for pin muxing, PWM controller nodes, and MMC
+>> controller nodes. The amlogic,t7-mmc and amlogic,t7-pwm compatible
+>> strings are introduced with fallbacks to existing drivers, avoiding
+>> the need for new driver code.
+>>
+>> [...]
+> 
+> Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.1/arm64-dt)
+> 
+> [1/9] arm64: dts: amlogic: t7: Add eMMC, SD card and SDIO pinctrl nodes
+>        https://git.kernel.org/amlogic/c/fb69fa2cabc68da247bcc0bc99a14dc857b16842
+> [4/9] arm64: dts: amlogic: t7: Add PWM pinctrl nodes
+>        https://git.kernel.org/amlogic/c/b1e49f6c1ac15b2c947bdb1d22a82b823de22d27
+> [6/9] arm64: dts: amlogic: t7: khadas-vim4: Add power regulators
+>        https://git.kernel.org/amlogic/c/60eff75ac67bbf5445bdbd2842b0109ac591441c
 
-Although it has already been written,
-I tested this patch on MT6589 (Lenovo YOGA Tablet 10 Wi-Fi),
-and I have confirmed that MediaTek's timer and Arm Generic Timer are
-working properly as before the patch was applied.
-Therefore,
 
-Tested-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+I'll pick patch 3,5,7 & 9 once patches 1 & 2 from [1] are merged.
 
-Best regards,
-Akari Tsuyukusa
+[1] https://lore.kernel.org/all/20260326092645.1053261-1-jian.hu@amlogic.com/
+
+Thanks,
+Neil
+
+> 
+> These changes has been applied on the intermediate git tree [1].
+> 
+> The v7.1/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+> for inclusion in their intermediate git branches in order to be sent to Linus during
+> the next merge window, or sooner if it's a set of fixes.
+> 
+> In the cases of fixes, those will be merged in the current release candidate
+> kernel and as soon they appear on the Linux master branch they will be
+> backported to the previous Stable and Long-Stable kernels [2].
+> 
+> The intermediate git branches are merged daily in the linux-next tree [3],
+> people are encouraged testing these pre-release kernels and report issues on the
+> relevant mailing-lists.
+> 
+> If problems are discovered on those changes, please submit a signed-off-by revert
+> patch followed by a corrective changeset.
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+> [3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> 
+
 
