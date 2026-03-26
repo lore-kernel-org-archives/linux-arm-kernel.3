@@ -4,105 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FB1106F309
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A83106F30A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEUmFqIVUAlOVLueUmIQnwuJJZTXsJrLZwyhfc/Xwho=; b=cWbySw5cKxT/gOG3vdfIOf+Pbh
-	cCTOyNUkK5C8XSNYp2CoLF12ndCIwncsZ8znYd7PHXMxz8Wy5TFdXQtJajBbv3RIlG+pTN2uCPeRM
-	jugHnqHsRvo7W3A9YVQGHZG4xxuRvKVv8nSJE87nTa40Hl/05O3a1XDhNDeyVREeAJojwf4Jq27Uk
-	42ceOY20xl/t2+L+tlyGtPAqvBDXoiIqHNkz93kFVszIng7siAFXSHIWJrWW5ca9mK/heTDsD04lR
-	+qBmvfo1aCTXsbHMrrXo/bBsmOHyT6eKOdnwChf+9h/rsMBtk/8ZhAoNXibldJHbcXQrd6QQTG3a+
-	1vB+3f0Q==;
+	bh=1sq2P0HkEGVyLD86Q+rD29RmS9E+DZcdoWjOdX4Q/j0=; b=vFaiPTdaZvbbMuMNoRX6T8T9t6
+	U9bnFUKiWsRwm29nAnG6QqU3cItzJyXQ/++ruXREKxf9ttMpi9NeO1DTwWFH3hurGXAiCasE6UrEu
+	6avK8hPSdpwANSlpfq2bj8Fy7moeqzRfNowCgaL+O8vRDuYxGR/g8kmGTt8h0RhZ+am79CJpfQICp
+	9z0aczhG8btunkrT4g6ou5hwPWxMWhba2uURdR3p9eC0JhYKXjS5tcpxQmVyTtdsSFRxTYkoGNqPb
+	vP848hlpti9LUZvfqqeJKgvvf3lFAlAgSXoKkC2O2c6SNPlPIW4LF375YyrNReKyfo2bcvLJblg8B
+	mLL6jo8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gg3-000000056MP-31ND;
-	Thu, 26 Mar 2026 09:06:55 +0000
+	id 1w5ggP-000000056UF-0Vme;
+	Thu, 26 Mar 2026 09:07:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gfp-000000056F1-0zHV
+	id 1w5gfp-000000056Ez-0T7X
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 26 Mar 2026 09:06:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=iEUmFqIVUAlOVLueUmIQnwuJJZTXsJrLZwyhfc/Xwho=; b=eEci6kX2zjN/0dK6iw20ErjsSF
-	RhBM/LURZGr52f/5RyRFPGJACs5q24T/tZTQZ882Kqj4Tkunyvlsii95agdrw+FfdlA3gD6+S8L/w
-	Y6vT2CzUjydKs01/uXMOTVXnF8XLZwz5bmPHm3MOo5EeyDvGDH3EnFcbFeM29Bn2rjU3NZG1yZ2tc
-	NbIhIyRkwjFSt+w1pxN94s6ohieA6/Wxdn34pZmJ5wSc7EtGSArlTo9xdzQ6gsWumLrpjZ1xCpXb0
-	OY7IeMyb3xatp/Es3tFCjx03U95eFKFB7tZNimFK6tRBPRMLJOo3Ufus/mnvfwZ5H2gp4ET2xRrmu
-	JwphkE3g==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	bh=1sq2P0HkEGVyLD86Q+rD29RmS9E+DZcdoWjOdX4Q/j0=; b=jXfhAQqwrZQVjdmNpFycWvK64V
+	X5E8XlD12BwppadSzH7HZFOD6BBMHnyUKj66rOdauFIp0r39MmTODJaABZTUTngrIefRJQpDzhuQS
+	QzuM8ShKVPSaoq6m34LbNx+s9su+uOX26nb5rvhIHtN/jeKMazQ6qrv2VcLa0HDDaOqfRJZZRkcVc
+	zrJvOjzo+C/y7GIDI3bbwOYBqPArqhLNr60Q76mnycxoXdkF+t/h492iMO4g8qYO0OGh2Ozqa6NJ3
+	dq4IgGTIbYbyH3hgS2Egr8JCOApRI+b/uGo5yURpKbo6sUzaXZmxsilArQk2sGmk1nFTsEzxNwlox
+	g4FPuxbw==;
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gfl-00000007pvI-2q7s
+	id 1w5gfk-00000007puc-3KU9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 09:06:40 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso6284545e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:06:37 -0700 (PDT)
+	Thu, 26 Mar 2026 09:06:39 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-486b96760easo7497045e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:06:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774515996; x=1775120796; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1774515995; x=1775120795; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iEUmFqIVUAlOVLueUmIQnwuJJZTXsJrLZwyhfc/Xwho=;
-        b=Zh5BdGoJee5emS0nT3gH4zNTE2egALy4xc1bxkwFBmzxz1IVkgCEzOVmrX7RN0QxVN
-         /GmDymTjR6RLKtaWBPh6euvdD6nFyCLJt4aC4bN9n3c7wL7bbL8df0swb2TAzz6G8OEi
-         9W8lTAMF7aihVasX+jP50Dt/E92X/U/xMKvrz3nGN09xrs0gSdjZxNQR0Y77yijE/aUd
-         qWi5BBFgca1c+AOb3uAuxhhi4UeVX3dTm/bX0F6jBwQ0f2bpcOTHzwKad0722493z7S2
-         ZBD2gTKsguFI62+CHilIu7SB8FKdn7FakypHDwC7icPAECP4sV6F8Gqawl+zdi/+ZrOB
-         vHDw==
+        bh=1sq2P0HkEGVyLD86Q+rD29RmS9E+DZcdoWjOdX4Q/j0=;
+        b=ARlcuPz9WHRbdMTKtf50UNqWeeVxMx95RhNMIU2Jyo7/cX+hTX3zdOZkW65H3K0sH2
+         11agG0DdhABBTac+t2OwK3IFZzgWmTbfMiZiiv8eK3GP1Cf/OXrLpmvcc64N+qHyoK/j
+         z1zL+EGxHj8ovwY206j1TtEatbGM2fnLm6oSZKVCQAFT1YS3NT/3s0iwUHYPDiDEmmsv
+         2NWdLQP86LSgEvv7texcbqH3HwW3rt4J3HEDA9ZbU21zgpUfSjBrFMZMaNmgc3DRjvea
+         glgbNqh0NZHMw4/L0hT4CjA9j44oZrxgJYLBF59cU/AFXCoGTSAb2CWHPCfLTDd5X0kP
+         CkLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774515996; x=1775120796;
+        d=1e100.net; s=20251104; t=1774515995; x=1775120795;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=iEUmFqIVUAlOVLueUmIQnwuJJZTXsJrLZwyhfc/Xwho=;
-        b=Rq9G/LTXASW2OxRInhaZOzNVRhBka+izMpJlc9nTa+fMoivlrqepDJYIbdoQkrc9VH
-         UBJqth4//1b7T203PitTqUBASVGb3jcyARpsZIeqAXt+BqqlqfQ1AxUIxovnoX2yXEHN
-         Pc2yYVijX90K0J65lhV48JH0EHBLwHCpR5Zio9Kb6xJorCv6ERl1BiBL4IFxA7M/h7rH
-         yxGUZekuhyjj3Cixe6khtpQ8ruFkTS9wkooQcKv/kmn6R0hwCmsks0V8rdgkpSU0BPOZ
-         yGNXn/KoJwa4hdSK3A0bDoAUIRDS4q0F/Zl4SqOPX/nJxXIZsiANU4i9VV5gLtzimG7z
-         vIXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgp2TXoVWBCw29CvUj092O+TPnUuSnjYw42Rjm/xu0jaxQBHgv6J3tJqhAf+CYxSsv0/2qWL5K8QDS12QRhx/N@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIaLI7O4IDaDhi96kQZ0RE2LsSXsLgwSX5f17XhDoc6rkMGttZ
-	fYng0YT9TdQR15k9V83wdxnak0+DaKOZxGQGq2H1P4W/1ohQOAo8wwuvodFLk0I3rVk=
-X-Gm-Gg: ATEYQzwsNgHOHtWDaYlNVPpMF4zRf20r46pi24usC4IHP5xBhMLQlEjiv7ueHj2cd/V
-	Erwn2OUqWn+gY3Qm6v7hSELQ5156su9Cq/NO4AObuJ6EUJ5RMHgPMuMKzBPVgdp9M5HeYsfmhyB
-	3e3EVqORIPaN8aPIj3J6Dj4ID5ps8RI8dRXcY+Yy0bzZRu+KMY1aC4hiAI4ORBV/cZMBXNGHO59
-	dUO2jTkTwEIX24mQpaIBsJcamgEL8HcXb8NgAVW0PdStldXzYp1f4g6lUd+i1GwAJ3nj6MoED3f
-	4yyEgZr1g3TR8Yxvoz+UxkFW9UVVm/KrWxmwYI6aoSoPiX4zpos7k92vots6CYA8C4cuHAeBdAE
-	9tonTlTlWl8co8rxFXv0mOjWMBPf0V07HQCO3TBL5Tr1D/BiSWww9q1pM935O5CgXQ3Dsmqcxtz
-	4S6fZi8xY/9EZaKOhRYCO9KcVppVlpIM9zKsSJaB6ffvM8
-X-Received: by 2002:a05:600c:64c6:b0:485:34a2:919e with SMTP id 5b1f17b1804b1-487160a681bmr93976505e9.33.1774515995951;
-        Thu, 26 Mar 2026 02:06:35 -0700 (PDT)
+        bh=1sq2P0HkEGVyLD86Q+rD29RmS9E+DZcdoWjOdX4Q/j0=;
+        b=UcXDKZXtIMqGNy3KC08NYrqhqIRUdedVVre9zeNHCmVQ+aHruLJY0h1PKgMtT3QLJs
+         nidYFpMQ1t9y/4X0Qbo5hfag4qSmDCAZ2hb67ye1K7b07p3jgwYMEO0/S+qT1ZgQai/K
+         gwjvyLAhmG5CuZpFjhYkLgMmJm4+qaXFnplGOMRwSEJeSvvcpNwBZWPMK9aTvEa//qUK
+         zraTjeYZncAiEO8JEwTlRXpIuwicCJo0++n2JpsVCLcsRSK8q7u3MJWRK9qKoxR6c2Jv
+         TAvARqLPs5z/cM0sNyjWmTUsnBsdtnLubf7+LROFiDC4IpeFvDfGw/X3UFulI395nafO
+         gEbA==
+X-Gm-Message-State: AOJu0Yy/dSN5SNIubxyZj34Ot6ieFKL4968Z3vobNhNgdRyXxpqfDhcA
+	VVuz+hURSKr2nYrXv7tDS5jFp7iST3mCiWj6wKPjj6ivxfmwPJKVjjxKog9b24G2xcQ=
+X-Gm-Gg: ATEYQzzCL6BKYIkIs+6i+XL79XyWnnZjLCXaBoTQX7E0sza2Sq0Mvl0VIxzolASJ2VT
+	bU0E2vVGigW4rSDPFiUWRZ7z27KF4kWWOZrTeLN3upBZ4xTcjeMWq09AJa8UvhDQ+4KrhPu4dFx
+	NMwLccsnv7hUBUdLajU5O2r1KnQTRwCavNpLIjEOYiMVqWLbp+sw75spPrkM5qMic1j6P4nWHDN
+	AR08vZBH8/6J3UdMO4hnm4s47xCHeUrO/kNnJ3c8HL3zT9hv9lJqGQOe2qWwKTPk/Y5IOB/zloK
+	atRR4vaf8y5TqU5x7hXCrBIUhNmbB5J4d3ufnCK3mUXc6SVzOD4ezdkAdkm8kb8n6sYEw1Xk5ym
+	wLTeutEWrWE4SUMngWGYCop7sx4bup2y3/AP+UDjnGMFnluhXWFZ5gJHHco5hsEm5839m7c97TF
+	swVOMIu+ilzERByk9tY1leTwIb/o+T95knQA8qutiPjyyD
+X-Received: by 2002:a05:600c:3b12:b0:485:3f1c:d887 with SMTP id 5b1f17b1804b1-4871606dc4fmr98188405e9.26.1774515994012;
+        Thu, 26 Mar 2026 02:06:34 -0700 (PDT)
 Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872090368dsm14726905e9.5.2026.03.26.02.06.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872090368dsm14726905e9.5.2026.03.26.02.06.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 02:06:35 -0700 (PDT)
+        Thu, 26 Mar 2026 02:06:33 -0700 (PDT)
 From: Neil Armstrong <neil.armstrong@linaro.org>
-To: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, Jun Yan <jerrysteve1101@gmail.com>
-Cc: martin.blumenstingl@googlemail.com, jbrunet@baylibre.com, 
- khilman@baylibre.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
- robh@kernel.org, yangxuan8282@gmail.com
-In-Reply-To: <20260213073810.552341-1-jerrysteve1101@gmail.com>
-References: <20260213073810.552341-1-jerrysteve1101@gmail.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-gxl-s905d-phicomm-n1: add
- bluetooth node
-Message-Id: <177451599509.122020.4339182739490184296.b4-ty@linaro.org>
-Date: Thu, 26 Mar 2026 10:06:35 +0100
+To: Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260305-fix-amlt7-gic-dts-v1-1-5944415c74bf@aliel.fr>
+References: <20260305-fix-amlt7-gic-dts-v1-1-5944415c74bf@aliel.fr>
+Subject: Re: [PATCH] arm64: dts: amlogic: Fix GIC register ranges for
+ Amlogic T7
+Message-Id: <177451599311.122020.5478331004952016731.b4-ty@linaro.org>
+Date: Thu, 26 Mar 2026 10:06:33 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_090637_773284_34C57E3A 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260326_090636_959007_E0325313 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,18 +121,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Fri, 13 Feb 2026 15:38:10 +0800, Jun Yan wrote:
-> The Phicomm N1 uses a CY43455 (BCM43438) module with its Bluetooth
-> interface connected to uart_A.
+On Thu, 05 Mar 2026 23:11:25 +0100, Ronald Claveau wrote:
+> This patch aims to fix the GIC register ranges for Amlogic T7 SoC family.
 > 
-> Add the required device tree node to enable proper functionality.
+> - Context
+> Kernel log shows a warning about GIC
+> [    0.000000] GIC: GICv2 detected, but range too small and irqchip.gicv2_force_probe not set
 > 
+> Using cat /proc/interrupts command shows GIC as GIC-0
 > 
+> [...]
 
 Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.1/arm64-dt)
 
-[1/1] arm64: dts: amlogic: meson-gxl-s905d-phicomm-n1: add bluetooth node
-      https://git.kernel.org/amlogic/c/d6df314c0165cb809d6c647a593664a4f5028230
+[1/1] arm64: dts: amlogic: Fix GIC register ranges for Amlogic T7
+      https://git.kernel.org/amlogic/c/dbb92c6f1ecd0dcd76a3d1002141f340737f55f2
 
 These changes has been applied on the intermediate git tree [1].
 
