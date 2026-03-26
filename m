@@ -4,71 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC17106F2E0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 07:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEDB106F2E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 07:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6vCpUNBSiAnYzq38lMljTJz/wGpcaU+8Km5eWOGP29M=; b=p0k7U7JcsXXCMTED1eqLXDiAoq
-	RXlpn+/PfFhHdEVY6cL1aQmkTO3hB72WP9nfhrL4LzEVKm+TwlXTxNaLk6ZWGVFDnB7XDOub3IEEm
-	qaCMCo+DmH0R9g1OVACqnVZSUcWc2tVFIjbyJemOrZA8tpToRS7SKYnkSmcPuQKER8p6X93c1hymM
-	9rZxPZadO2C2RQR3/BCWkbLHtBZ8wuPkh3qxgy7QQI3E7/V9+aJTgkRDpvQ8XiMpaZjavptWADUZ6
-	M9kTDVfLITtHZ98eChP4dpBZT+Eadj7A2TsinVuFGsJmKJkXMcHbKwSKCTcPdlorAAWCsuXa6WM5G
-	t95Rt7ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QBK8KwsIy0F2HoCtnDFyZegZu0RZVNu9ia73vOztE+Q=; b=xDG6JVstkSyBFH54CaEGacY62S
+	yOZh8LOzIUtvDA0ZUiyboBJI1LkVskcacQBZvAvTHWrQbEofEEl95sHqlyqXVaOBeejjj63kXDhBv
+	IYcTRvv9076LahxOKrvsCsLwYE6nzDWTIz1c15LGtcEjyHHoEeX/alr2+Kb6agYFMWHjlYImTBo4Y
+	My2y14m/QkXn7wJPnbHVBcJlVcvgsMBhopljrPAt0+T45Rxj53jJeWBzmDo1aDZPINJtRjKfvGGF+
+	GHD/vUafHNjZOZF3dQmIcAe5G6CMi1OmsrokGONA7TSVH+x+kZUtYyouhXU4iDQt0DZg6DIc7pe1s
+	SgBlb7mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5fTD-00000004xVN-2SqE;
-	Thu, 26 Mar 2026 07:49:35 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1w5fV1-00000004xd5-01OE;
+	Thu, 26 Mar 2026 07:51:27 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5fTA-00000004xUb-19J4
+	id 1w5fUy-00000004xcR-1Rh8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 07:49:34 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B46FBC580BD;
-	Thu, 26 Mar 2026 07:49:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9716F5FDEB;
-	Thu, 26 Mar 2026 07:49:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE847104507C8;
-	Thu, 26 Mar 2026 08:49:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1774511366; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=6vCpUNBSiAnYzq38lMljTJz/wGpcaU+8Km5eWOGP29M=;
-	b=O4LfPlA6DXdQvXswgXOIiIqA0zoyzh65smdruT1D4cZH0LIUieaE/NMYMxT79/ea3Lrlgg
-	z+5xD0lSFdrKgWiB92T+DEVmk5Kxila/MxT+9yZ3ozHOsFYYW0XQoAI42vXoMGBCh9KG6b
-	uSnavCLBGDt8DrmYRt4eZFRN8lIR52gsLgSbJOEiZ44S4CUr93s4X95s1MsHvPjBayyvyz
-	NEIM4Z+9QnvY9qVXTWedfHXrOM1sahBC9X3IqD6+0FRZThSVIIPrC23nRpucKD5vSfpvaW
-	z96VqNoA7sZEaXwCvqKWI5Bq8SFwwAYl8NCSsS/YMPoLJfd0nIGjkH4GBi1IQQ==
-Message-ID: <abb1c779-b306-42f8-b2b1-aa56bfcebe1b@bootlin.com>
-Date: Thu, 26 Mar 2026 08:49:20 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] net: stmmac: skip VLAN restore when VLAN hash ops are
- missing
-To: Michal Piekos <michal.piekos@mmpsystems.pl>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl>
-Content-Type: text/plain; charset=UTF-8
+	Thu, 26 Mar 2026 07:51:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XeWG9zw8xvs9UpbXHrpLc59rda8caieWD8a5zK5IxCjGNBwaTI7CALAdFrrIZH2zaK88OZcoPElWvm7FvP4TdBKPyo1c61EFDZR+opi9uTerIdocNc9yHgqPqpmDdGdbu1VSpMKuoCkLnLLgYZCx0aJdgJJpTKBN+KojnepBej8tSW7qRlI/DmLaLTalzok4bg7JX2jAPCPGWEeOV05hSvECt35SJv8nU8P+jCAbo2xXJrlXLkC4HikPU9a5NS7wxQwD7K4j7JqUYr4JoPw4MdTLZ00nWYkuEWgMowWVJ12kZE6aksYSQ1LyaVWHTqR57Bmul0KsrsRS23CB5IK8Yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QBK8KwsIy0F2HoCtnDFyZegZu0RZVNu9ia73vOztE+Q=;
+ b=hrGIJF65RW+qIm1Ec5eH1w2vzucMmn4ZdeUVc28WQUYyyWHMNb+ZLZS8I83j36UnGgmQ7++g5JQW0uLtSTNUPARI7yWnaCkdtICqpt7rIGO7kSkyE/albL/7yczg64rORlkkR0wn2khbdAVwMfM909fhF0MF73SeSqK9R9JtbADPT8L3KlSqv/Q0OT5dOpMethvrFLSSgzgulpC5MIX/8OdDSaS6j8LpAvPRvKjHySjWsOyI0kD2ALF9HNVpoTyVpzRuMmw101aSA34K9+J+RhP2dz+E4kO9Et1IvcHbpFVWrxifGiTkwEJ+dLxZM0vXWwXpY4MaOZ/xaYHpiCbsKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QBK8KwsIy0F2HoCtnDFyZegZu0RZVNu9ia73vOztE+Q=;
+ b=MJIPdLs1M/rqOt4qPSwoaoWzE+qH3ulUj3V5UMznzRL4Hnk8C8tP8l5IHImtxlMb8/aIOFQ+s9tlLf78OJ6AVnvXmbZJmqmJDCv/8G7M3U59t+F1rsXFMMGj2Mc3fkPGX4agZF5vu/4NaQPufFHIXxs7CKVRmcqPenm7LqOF2YcnyLprow/B/eUrRMA9sCylgEF9DiZEG1iSCpjJmKWOOgfJ9zicrCsV0B6QENunpO3s65nK8a41c7wDa/6yCya2Mp6Uz65wTkucDC/FRPvflAfHAHM93GMhPEY3tfzOw3T/dUGsfr/vGK12exNPhkV/7ddFr67tA4LThQ1l+wjGBw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by AM9PR04MB8413.eurprd04.prod.outlook.com (2603:10a6:20b:3ec::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Thu, 26 Mar
+ 2026 07:51:17 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::1fdb:9c8f:5400:8bdb]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::1fdb:9c8f:5400:8bdb%4]) with mapi id 15.20.9745.019; Thu, 26 Mar 2026
+ 07:51:17 +0000
+From: Joy Zou <joy.zou@nxp.com>
+Subject: [PATCH v2 0/5] Add i.MX91 9x9 QSB basic support
+Date: Thu, 26 Mar 2026 15:51:36 +0800
+Message-Id: <20260326-b4-imx91-qsb-dts-v2-0-b991b81639e6@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIAIjlxGkC/4WNvQ6CMBRGX4V09pq2oLROvodhKO2t3IEfW9JgC
+ O9uYXDU8XzJOd/KIgbCyG7FygImijQOGeSpYLYzwxOBXGYmubzyUmhoK6B+0QJesQU3R7DIlfa
+ tVOWlZFmbAnpajuSjydxRnMfwPh6S2NcfsSSAg/ZVbY1RtpbqPizT2Y79Xv6jSURnuXDKeP7Vm
+ m3bPrC1zWDlAAAA
+X-Change-ID: 20260319-b4-imx91-qsb-dts-ce089fb28353
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>, 
+ Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Joy Zou <joy.zou@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SG2P153CA0045.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::14)
+ To AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|AM9PR04MB8413:EE_
+X-MS-Office365-Filtering-Correlation-Id: d5bc9cc0-69d1-4bc1-0ca6-08de8b0c7640
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|18002099003|56012099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: IfBxO8OoO4pnx3Yeiz/5YKfVkMW3goZgPqPW6F8KSGHDvRt5YDx37Cj5FZit9BdHgQbnWwWzOoFdIRzEAnw7kNt0ErImDcpywTzCj6t+vb99oUgS2EQZ6AXe3Vjch9vLQw59kqAHyF7ZSMam8Lj3b4qGzsNLX9sZQVcQcV8jdT1iQYlsNgim4UQF7FqjgQacBxzkKRzthj0KRpzz4fn8+8GFDq/WePS3w3RMRVpOpvtCCqDQr69gK6YxYaeG9BujYwbmFQ7U+ZVLUfqRx33k/LTgto6TOgpkp6bqUia7QKyLqZjOOnwJQJxQpGnrM5hWSY1KuiAzhEAlkYwOm+03wlLm1yQhX73anBFFt3HtL+W/b6x1ZyBwyUlTKmZ78TSzGvMUEJgWG8HRYSimVHt0NlTShRzz6BPsuhUpeSRDCEOGpqmUwYNS2NFvQsqFqK1/H14Qgw9KpXSokRz3jBSKJSKd477S/TJP+tIq0x7W8WSTBqCVzUubI7OCktEuB8s6gddqJdSSPYw0v+yw4co1fG42M2JS4aCM6PUfPEGOv/r0K747ZEDL+kYqqx2lA+nrD4LIHfKBBqQnUOuLMc4m3UrzPaDd6G/8kQiGsXxSFlI3VUy1DtEXm3Ln9t6NQwJGvJ9afw+rCKYeW76ZJq/KnHwUucslSvTkoEpdC1SOfZjXfzBDjShldxthwYqr275Uss87sJTDV6u0ZYpmH29heC8aXR6DHzh5q6yA8D/FZBRbgCljmJZobamy/9LBcNyeiBpcRXqVzkbT7u9FOoX6zP/t8eju/di9OD2S5JuhLACr4l/gYc53bsBjM4HFUqz+
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(18002099003)(56012099003)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGdISVRUNzZ2U2huMUxoQUNhK1Y2MEVRb0xCMVVYWFBkMTh0M1ZtOFF6UUtj?=
+ =?utf-8?B?ekhkZTlkdXRGVHFGNC90TFIwSnJzNnh4ck5OendoaXhyblVKOE1menpvcDVM?=
+ =?utf-8?B?UXA5Rk1lYjVBOVhrd0p2TmpmNE82dzY5V1hDTUZ6MEJWMDYyVEptRy8wMGFM?=
+ =?utf-8?B?WldmOFA1N1E5aGxtRCtScnl4OVVlTmhKd0JFZU5GanBmRjRaeHpOWUkzNTVY?=
+ =?utf-8?B?RG4wWWpISEhDZDRrMDF0bkx2ZExzYUh2M0xqOGJ4OTB4UXZDZmYrQ0J5ajIw?=
+ =?utf-8?B?eW5wc3Z5azFneTNyemx2R283VzdXMWZyMzM3Si9lNXhCbVNIODVOaFFVamI2?=
+ =?utf-8?B?c0VPejROS09iZmhZSjRjd3NvbDNIcEFvYXU2T2FwWHI3UkI0TFNWVXc2eEFa?=
+ =?utf-8?B?T3grTFR5bStwc0tJNUxpa1ZTZEpWLzNGSkxXRk1ZOWExdGtGb2dQUXBoUndZ?=
+ =?utf-8?B?YW44TXpnSlZBWmRpanpiWTRsMy9taWtmSjlKSnlZUWhsbW1JZEp1cE9VQ21I?=
+ =?utf-8?B?V1pNOG5RWitRMGhQYnpqdENyUDBTMThRVnZic1JQc2dvMldSeDVSVEpWeDVm?=
+ =?utf-8?B?V3hmQWRvdlMrUmpSdUlGaFV3R1ljNHA5OXhiNUJiZnVhK0h0cmVOanNuK1o3?=
+ =?utf-8?B?RTJrQWVFeXA5YnF5bFd3UnB3VHNmNGE2Zngxc21aRzl5a0h4MmNkemVDbVcx?=
+ =?utf-8?B?a1ZXejd2Q0sxcVBCVjhJbGJuUFhOcGlRMGZWUnJVMmJHVTFWc21NM3k4dEdy?=
+ =?utf-8?B?RWNDak5FNlVJK3hoclhTTEZLeXQrRU1GWjhGUnR2K2NkOVdjNFRZZkk2dVZ6?=
+ =?utf-8?B?ZlU0REdlVjBKR1pyR3hOZVpEak0xMmd2elQwZk9EMU5FT2FaOFpmbUR6aFpR?=
+ =?utf-8?B?d3NncElKbmhkRWZrbmNmc0MvR0FIOG1KTFYxZjVxNXo5ZEtVUTFBTlpQaytY?=
+ =?utf-8?B?czZsdkNqd1V3MFREWFlaTmtrU253d1YxV3pTMnZNdzJ0dmpFMk4wbFNtYnlm?=
+ =?utf-8?B?M0VwMHBHcjBXcE93ZmZaZHhjMi9ncGlYTXpLUnBkcmcwUUxIWnRGWm5PZld2?=
+ =?utf-8?B?U2VYMzFMS0MvbzdKbDZUbXhGZ0VYdVNPTy85NGhLSnlXcERhSkRMNVRUVTdM?=
+ =?utf-8?B?Rzh4RHlhUVpteVZHQjlNZU53ZlJqL2xDa1RreE83d1cxcjE5Y240c05XaTcv?=
+ =?utf-8?B?RTUvWjBIYy90aGdpcmJtTUJ2NGZpMHVqQjFYejBhcnRDb0lwN3g5S3RCVXpZ?=
+ =?utf-8?B?WDI0QlZCWWdmQ0JQeXVONkZtQUNwUVQxNWNQLzBQMHdIeHdzWDlraTBpM1dt?=
+ =?utf-8?B?QnRFRmdaMVZTZFljYXJ6UjlBbjAreTFNL0s5K3BNMktFQjJZaW5PeVZmSkFa?=
+ =?utf-8?B?TEQ4VUg4YTRZV1huNkhUNXAzVGxsbmhTcVAvdUpTb3BWb0xySC85c1JWSzRT?=
+ =?utf-8?B?cTVBSVQ5VkllMjJnT3k1ZXdKVlpac3IydlZod0ZXbk5hNE9RcUdqNnBmaXRn?=
+ =?utf-8?B?TERPd0VseitybTFWbEhKUWlRZ3gzblcrcFdGNEJmRzA5RDFNRHR0RjZXWVd4?=
+ =?utf-8?B?V1pKMVdZaHpvQmFoeThSWUkzMk1JTmdlUjJCdjNWaUp0OVY3dGprelU4bTNM?=
+ =?utf-8?B?MFZxVVV5b3I4RlZyS1BwRzNpaXcrQjFFNlRFbXVjZlFhMXNoakhmMzFRNnZx?=
+ =?utf-8?B?MFBXTlhDS1hVbURZNzUya1R3aGhQRXFIWDRiS0paanlFSDFWUUJnSk9CODhv?=
+ =?utf-8?B?VFE0SHc4eWNIYXNpMjRqTHliVm1qM0FIa1BuYzZZSDRSc0hLbTV6MGpZQlBz?=
+ =?utf-8?B?RlpESmkraHlpL0xvKzRiVW5iYU9hanFrYVdNSVMwTElKWnFjS0pMYldHbWtv?=
+ =?utf-8?B?aGZRTmZCK1RaVVlPRml0V3M2N0JsYTF4T3AwV3lIYWlVWkFTU0hYclNlZGtt?=
+ =?utf-8?B?Tk5BTHh6QkUyWG1IRWVESERaOUtXbXZjNVZzWjZmQmpDWUh4emJ2UnZHNEJF?=
+ =?utf-8?B?eHZnU1hhQld3S1c4aWc5dENNMkNFbkF0TVgydHB4SXBUakFBVkhZWU1VaS9S?=
+ =?utf-8?B?SVFTWEh3Ny92Um5uMXdEaDgyZVMzRkFoL2lzak80b3c2Sm9GcWRDWTN4YjVH?=
+ =?utf-8?B?cmFZc255N3kxeXpLaHlRalJvNzFZTWhCWk83dHRxUi8wYkJwdEJxMHQ2a1NM?=
+ =?utf-8?B?KzliamQwNFcweC9IUkFBVGxnNFpua1ZPSnBJbGdNQ2p1SjlEOHE0RkZETTNX?=
+ =?utf-8?B?aHo0S1VsZmlieDhoRDMrcndBV3czNzgwcXhiZjVybXZpTElmNXU5ZGM4VnUw?=
+ =?utf-8?B?RGhMWklRNXN3UW1pWnIzVVQrVlZIUVh4bjB0UXE3aFdBcUFtNUk2Zz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d5bc9cc0-69d1-4bc1-0ca6-08de8b0c7640
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 07:51:17.4548
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +HplfnXAjVgaLE8oSZGcrGJr5XaT4K/Gd89KdC2zHFt/mnbvDSNZW8Q09SgK/GWn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8413
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_004932_462348_973DE9C9 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20260326_005124_390177_869555BC 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,68 +153,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add i.MX91 9x9 QSB basic support.
 
-On 21/03/2026 06:38, Michal Piekos wrote:
-> stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
-> NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
-> ->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
-> -EINVAL via stmmac_do_void_callback(), resulting in a spurious
-> "Failed to restore VLANs" error even when no VLAN filtering is in use.
-> 
-> Check presence of VLAN HW FILTER flags before stmmac_vlan_update().
-> 
-> Tested on Orange Pi Zero 3.
-> 
-> Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
-> This patch fixes a noisy "Failed to restore VLANs" message on platforms
-> where stmmac VLAN hash ops are not implemented.
-> stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
-> VLAN hash ops presence which results in -EINVAL. 
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
+---
+Changes in v2:
+- Add three new patches to remove the clock-frequency property from mdio node.
+- Remove the clock-frequency property from mdio node for patch #5.
+- Correct GPIO pin number typo: <&gpio3 00 GPIO_ACTIVE_LOW> to <&gpio3 0 GPIO_ACTIVE_LOW> for patch #5.
+- Add whitespace before brace in BUCK4 node for patch #5.
+- Remove one level of indentation for rtc node for patch #5.
+- Add Acked-by and Reviewed-by tag for patch #1.
+- Add Reviewed-by tag for patch #5.
+- Link to v1: https://lore.kernel.org/r/20260319-b4-imx91-qsb-dts-v1-0-2eedc01d8af0@nxp.com
 
-I've been seeing the same message on socfpga. My two cents on that is
-that this error messages doesn't bring anything to the table anyways.
+---
+Joy Zou (5):
+      dt-bindings: arm: fsl: add i.MX91 9x9 QSB board
+      arm64: dts: imx91-11x11-evk: remove unused property clock-frequency from mdio node
+      arm64: dts: imx93-11x11-evk: remove unused property clock-frequency from mdio node
+      arm64: dts: imx93-9x9-qsb: remove unused property clock-frequency from mdio node
+      arm64: dts: freescale: add i.MX91 9x9 QSB basic support
 
-As Russell explains, it's either triggered when the vlan op isn't
-implemented (the stmmac callback macro stuff turns that into a -EINVAL),
-or when some capabilities arent present. All in all, it's always stuff
-that users can't really do anything about, as it's HW limitations, I
-think we can simply discard this message.
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+ arch/arm64/boot/dts/freescale/Makefile             |   1 +
+ arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts  |   1 -
+ arch/arm64/boot/dts/freescale/imx91-9x9-qsb.dts    | 425 +++++++++++++++++++++
+ .../boot/dts/freescale/imx93-11x11-evk-common.dtsi |   1 -
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts    |   1 -
+ 6 files changed, 427 insertions(+), 3 deletions(-)
+---
+base-commit: 8e42d2514a7e8eb8d740d0ba82339dd6c0b6463f
+change-id: 20260319-b4-imx91-qsb-dts-ce089fb28353
 
-Also, nothing actually checks what stmmac_vlan_restore() returns, so we
-might as well return void ?
-
-Maxime
-
-> ---
-> Changes in v2:
-> - Replace check for hash ops with check for HW FILTER flags
-> - Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 6827c99bde8c..cfc0ce9cec9c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6863,7 +6863,8 @@ static int stmmac_vlan_restore(struct stmmac_priv *priv)
->  {
->  	int ret;
->  
-> -	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
-> +	if (!(priv->dev->features &
-> +	      (NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_HW_VLAN_STAG_FILTER)))
->  		return 0;
->  
->  	if (priv->hw->num_vlan)
-> 
-> ---
-> base-commit: 42bddab0563fe67882b2722620a66dd98c8dbf33
-> change-id: 20260314-vlan-restore-error-f8b3a1c7f50a
-> 
-> Best regards,
+Best regards,
+-- 
+Joy Zou <joy.zou@nxp.com>
 
 
