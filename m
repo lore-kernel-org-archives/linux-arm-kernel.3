@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B053106F311
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8509106F30F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8VJAVqIP/8nVibtOgZxJYKeR/s5v9xtMfbmI2M9uQo=; b=DgtjIsIdnd2/TlnDalc5weEPlf
-	GfvCsimzUErJzhDhJ9O88lxQ8xlmuQsyx7qSSjDMymznPIczfd0we5dH0OxcKhEFOgAK7jKDAwD+9
-	R+Y9qso5ewvTzOcd/IahUVh8t4iNZoCs9Bq9Z0n5lqk092ofmL743YYgy/U8DbJpmSMftbGwEXCfz
-	xvvBhK7MncqeBBNBmu6ldHFU0mqhAe8RVDkd89UjwAvImBGVgL8UwYFpnqU3skq+ALyBEEDRFmxBn
-	D+sBB0mU2ky5cqtnI3KriXorCQSY3xcRn37Se6669f6dYTJQAlIrKFwNFmbCUhmXMcwYRHFQUbISr
-	ql0wKdkA==;
+	bh=qJYV2aMGvKBk7SdOxijD3x+lhGzDeP0zNnl7mW5I5/I=; b=BT4nHGUh26oijP0Nb8qtT1g4T4
+	SPHqsdN/eKwp1zxzoKOmrNVOzk/8IBOZMHXNAvBO0vRnIWTRD/XoBAT1DDRg+x9aF9bNaBNG8YlGx
+	0YKuTaugcXVhp5rk8LU0Txvup7Mjo3VGvhLagbvg9Y0K5xrsOeKGShQYR8LvTwoVdI19jaok2ICBt
+	8qJvPgeo9pQ9Yub0dybrR/Pau1CFoqfXI/O0AfXOu0jO6GNC7OOrAUsF89Z2A1glpEhdh1T8LuhNp
+	kkldpkNpYZS36NdvZ8B1EhC5m951SY2VviEINdvxybgNXHc7GwelYaS/OQEenNiZxjOYch3GiLjiB
+	9eONySkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hXT-00000005CtL-20tz;
-	Thu, 26 Mar 2026 10:02:07 +0000
-Received: from pouet.aliel.fr ([65.21.61.41] helo=courrier.aliel.fr)
+	id 1w5hXZ-00000005Cx3-0ueX;
+	Thu, 26 Mar 2026 10:02:13 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hXL-00000005Cpv-1ncM;
-	Thu, 26 Mar 2026 10:02:04 +0000
+	id 1w5hXL-00000005Cq0-1dnj;
+	Thu, 26 Mar 2026 10:02:07 +0000
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1774519315;
-	bh=RupZOoDMCR6SObVEZPI0Eq5Js26fPVZMZYxmVA4XIOs=;
+	s=courrier-s1; t=1774519317;
+	bh=z50cReUoaX9GoqnPxRfb8M2ESTEiHmyiXX+yYCUCnAY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PDE1ZgtunEiEOEfdJLsHz5EPyOyghNFF3V2K8GhBXXGIP3NITlw88+WWAJCj16Ga7
-	 BOGk6Sc1Pydd7R+BRrrN3L/NSQGN6+YqqzYCM3426r9aYvK6uo/CDeI0CP25t6VX0b
-	 u5b/wL8TuYlRwY2g1FZXY6/T7RWn9GR9l/Y97uno=
-Date: Thu, 26 Mar 2026 10:59:12 +0100
-Subject: [PATCH v5 1/9] arm64: dts: amlogic: t7: Add eMMC, SD card and SDIO
- pinctrl nodes
+	b=jUOwOl3GEvucd0hLrjOmNy4lrVdh7/mgdS+yw2qflKrvdJpXtfb9wSJ1bDmzV1jFo
+	 sxGj5fgY5PpuNTchASPtnBl+/fvUkztThC1UgDadfroVzX+9qDmlomwODW1c2K1lYZ
+	 Yzkk94G+IChMyBDOHqZgO2tkYxXiSzVgpwmmayF0=
+Date: Thu, 26 Mar 2026 10:59:14 +0100
+Subject: [PATCH v5 3/9] arm64: dts: amlogic: t7: Add MMC controller nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260326-add-emmc-t7-vim4-v5-1-d3f182b48e9d@aliel.fr>
+Message-Id: <20260326-add-emmc-t7-vim4-v5-3-d3f182b48e9d@aliel.fr>
 References: <20260326-add-emmc-t7-vim4-v5-0-d3f182b48e9d@aliel.fr>
 In-Reply-To: <20260326-add-emmc-t7-vim4-v5-0-d3f182b48e9d@aliel.fr>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -54,18 +53,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1774519311; l=2886;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1774519312; l=2309;
  i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=RupZOoDMCR6SObVEZPI0Eq5Js26fPVZMZYxmVA4XIOs=;
+ bh=z50cReUoaX9GoqnPxRfb8M2ESTEiHmyiXX+yYCUCnAY=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
  BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QBpXnFRLn/mvVteQbuhX0RqNr/Pn0obF10eTGMO2LX4Ar7kVS0Hq1WxQHqb+n0a+ey1EpRwx86I
- LQk3nxQzXSA4=
+ QGA7rZGuJlRS3I4Zqj6o1Wl7h8UH4dEpOYz7EeGFQMRZ/lMD9CqQEq5BSkQHalit9fuCnDRIqfg
+ vrG9sVZABnwI=
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
  fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_030201_818935_37674089 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20260326_030201_809389_5B5B3F8E 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,127 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These pinctrl nodes are required by the eMMC, SD card and SDIO drivers
-to configure pin muxing at runtime.
-
-- eMMC: control, 4-bit/8-bit data, data strobe and clock gate pins
-- SD card: data, clock, command and clock gate pins
-- SDIO: data, clock, command and clock gate pins
+Add device tree nodes for the three MMC controllers available
+on the Amlogic T7 SoC, using amlogic,meson-axg-mmc as fallback compatible.
+All nodes are disabled by default and should be
+enabled in the board-specific DTS file.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 98 +++++++++++++++++++++++++++++
- 1 file changed, 98 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 39 +++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 6510068bcff92..36d13371f56ba 100644
+index 36d13371f56ba..fe1ced0a58967 100644
 --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
 +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -250,6 +250,104 @@ gpio: bank@4000 {
- 					#gpio-cells = <2>;
- 					gpio-ranges = <&periphs_pinctrl 0 0 157>;
- 				};
-+
-+				emmc_ctrl_pins: emmc-ctrl {
-+					mux-0 {
-+						groups = "emmc_cmd";
-+						function = "emmc";
-+						bias-pull-up;
-+					};
-+
-+					mux-1 {
-+						groups = "emmc_clk";
-+						function = "emmc";
-+						bias-disable;
-+					};
-+				};
-+
-+				emmc_data_4b_pins: emmc-data-4b {
-+					mux {
-+						groups = "emmc_nand_d0",
-+							 "emmc_nand_d1",
-+							 "emmc_nand_d2",
-+							 "emmc_nand_d3";
-+						function = "emmc";
-+						bias-pull-up;
-+					};
-+				};
-+
-+				emmc_data_8b_pins: emmc-data-8b {
-+					mux {
-+						groups = "emmc_nand_d0",
-+							 "emmc_nand_d1",
-+							 "emmc_nand_d2",
-+							 "emmc_nand_d3",
-+							 "emmc_nand_d4",
-+							 "emmc_nand_d5",
-+							 "emmc_nand_d6",
-+							 "emmc_nand_d7";
-+						function = "emmc";
-+						bias-pull-up;
-+					};
-+				};
-+
-+				emmc_ds_pins: emmc-ds {
-+					mux {
-+						groups = "emmc_nand_ds";
-+						function = "emmc";
-+						bias-pull-down;
-+					};
-+				};
-+
-+				emmc_clk_gate_pins: emmc-clk-gate {
-+					mux {
-+						groups = "GPIOB_8";
-+						function = "gpio_periphs";
-+						bias-pull-down;
-+					};
-+				};
-+
-+				sdcard_pins: sdcard {
-+					mux {
-+						groups = "sdcard_d0",
-+							 "sdcard_d1",
-+							 "sdcard_d2",
-+							 "sdcard_d3",
-+							 "sdcard_clk",
-+							 "sdcard_cmd";
-+						function = "sdcard";
-+						bias-pull-up;
-+					};
-+				};
-+
-+				sdcard_clk_gate_pins: sdcard-clk-gate {
-+					mux {
-+						groups = "GPIOC_4";
-+						function = "gpio_periphs";
-+						bias-pull-down;
-+					};
-+				};
-+
-+				sdio_pins: sdio {
-+					mux {
-+						groups = "sdio_d0",
-+							 "sdio_d1",
-+							 "sdio_d2",
-+							 "sdio_d3",
-+							 "sdio_clk",
-+							 "sdio_cmd";
-+						function = "sdio";
-+						bias-pull-up;
-+					};
-+				};
-+
-+				sdio_clk_gate_pins: sdio-clk-gate {
-+					mux {
-+						groups = "GPIOX_4";
-+						function = "gpio_periphs";
-+						bias-pull-up;
-+					};
-+				};
+@@ -374,6 +374,45 @@ sec_ao: ao-secure@10220 {
+ 				reg = <0x0 0x10220 0x0 0x140>;
+ 				amlogic,has-chip-id;
  			};
++
++			sd_emmc_a: mmc@88000 {
++				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
++				reg = <0x0 0x88000 0x0 0x800>;
++				interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_A>,
++					 <&clkc_periphs CLKID_SD_EMMC_A>,
++					 <&scmi_clk CLKID_FCLK_DIV2>;
++				clock-names = "core", "clkin0", "clkin1";
++				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_A_SEL>;
++				assigned-clock-parents = <&xtal>;
++				status = "disabled";
++			};
++
++			sd_emmc_b: mmc@8a000 {
++				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
++				reg = <0x0 0x8a000 0x0 0x800>;
++				interrupts = <GIC_SPI 177 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_B>,
++					 <&clkc_periphs CLKID_SD_EMMC_B>,
++					 <&scmi_clk CLKID_FCLK_DIV2>;
++				clock-names = "core", "clkin0", "clkin1";
++				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_B_SEL>;
++				assigned-clock-parents = <&xtal>;
++				status = "disabled";
++			};
++
++			sd_emmc_c: mmc@8c000 {
++				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
++				reg = <0x0 0x8c000 0x0 0x800>;
++				interrupts = <GIC_SPI 178 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_C>,
++					 <&clkc_periphs CLKID_SD_EMMC_C>,
++					 <&scmi_clk CLKID_FCLK_DIV2>;
++				clock-names = "core", "clkin0", "clkin1";
++				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_C_SEL>;
++				assigned-clock-parents = <&xtal>;
++				status = "disabled";
++			};
+ 		};
  
- 			gpio_intc: interrupt-controller@4080 {
+ 	};
 
 -- 
 2.49.0
