@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5548710A88FB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F0C10A88FB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7UKezHTYAPqledPGUEh2DO5MGs9hcwA+U9WoF1npkM=; b=cml5XoM1LWSceCzQherlnCfJAt
-	BbIo6b1kVCT3IW+jbc1a7qt6IIvfQ1yUGynVD+P36Qd8jNp5/n5kzO2+txV9sAOYmTWEX6QAILFQd
-	mAQ9sVXx2A7/G5yyMsoiHnLkVSXa4l2820JFqevmDLPJ2Uo1GV6IwuHcdq+lo8LvnLKZtNWoiGZWF
-	bCixfxkvSpbzBlSZq+pEnAm37lrj3L7WmVk7MuKbtHkA/Z6NLcNemLqjLnYKSMA0/D7RyHLl8wYE7
-	s2aJ8o4ICGoDADF5eDkJP1w7SA3v3qWSV//dgyPZiNT/D36Y7aHO9FIbcwdK6JzYOXfuMVkwoHtPW
-	Qdqr8eBA==;
+	bh=a4oUCsRnoIaW2TGVVr1v0fc10aw2+Dzx01XN7duE+vc=; b=vHhk+WSeRvN3V52tzgLHSHQNFx
+	7+MlV1h4lGOxwjAqa/1AmxkPW6noHw6x0DUv7cNNeVZNvrXphSKDLaWdGqSCBjnBXQJyVqwkdzreD
+	QzSKRji5O007j5jQOXc/UGCK5ShmVwCzRppPDZnpfYZrSxGfImuJraysG3tevMGERWVwK5yt+2v5+
+	t2wzLypce31AlwIlJi5zt6NvT97SfTdCZg0/cINiuLn3oLCW8bzR7V5UO52yP9FKsLHwUEP8gMhti
+	dIat0vq479sjzRunPysbmhvnrfIk/UtqoPDVjBGwA+TGVUm85DjtIswz3mI9DZnsFW47ZKSuQzLiK
+	awh4Os0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5p9x-000000060PL-3X7M;
-	Thu, 26 Mar 2026 18:10:21 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5p9v-000000060Oe-2SJ4
+	id 1w5pBf-000000060bl-3Meg;
+	Thu, 26 Mar 2026 18:12:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5pBb-000000060ax-1nUU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 18:10:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=D7UKezHTYAPqledPGUEh2DO5MGs9hcwA+U9WoF1npkM=; b=qgJYzpCR7jCviujwEpZ0vv2vUF
-	oxcFOACz5qSYZY/QQRwAwide7RZINgtbvEdKCebe7OUAUAo+e2poBx9eYb19KuV8uLhnUiVaLVELH
-	QUAjK+E21l9asVws7NVaNBm75aKcthHu99WY9el+y++etD0SHfhZm3HN0+vQnPPTd8uB0LO9LZAUH
-	giNrseuQbFoDjabUnZAiZNcYsep3qxXzKekLjeMLao49bqNPY7EDx65pAdw3u4Mv4SyHimrz4nbRa
-	4bT1eDcMFca1gLonlXQEhCKThWwxDzGzxX5U8ptEQWHvMqDQh2/lZW/6cLK8VAevQJhXaXWjVPXDX
-	7XvO9bhg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56258)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5p9h-0000000058m-3Fmw;
-	Thu, 26 Mar 2026 18:10:05 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5p9d-000000007Fh-3HE2;
-	Thu, 26 Mar 2026 18:10:01 +0000
-Date: Thu, 26 Mar 2026 18:10:01 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	imx@lists.linux.dev, netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Frank Li <Frank.Li@nxp.com>, Jakub Kicinski <kuba@kernel.org>,
-	Joy Zou <joy.zou@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v4 1/2] net: stmmac: provide flag to disable EEE
-Message-ID: <acV2edMExFP0i8TK@shell.armlinux.org.uk>
-References: <20260325210003.2752013-1-laurent.pinchart@ideasonboard.com>
- <20260325210003.2752013-2-laurent.pinchart@ideasonboard.com>
- <177454628933.1078312.13488207016388509694@ping.linuxembedded.co.uk>
+	Thu, 26 Mar 2026 18:12:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8BAA1AED;
+	Thu, 26 Mar 2026 11:11:52 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A0A43F905;
+	Thu, 26 Mar 2026 11:11:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774548718; bh=dgIj3a5tK1onWSWVfqDJCKoL+8uwDoGTJyJ7ifoq1WE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pI8s02Y0og85zbp1uQ8eqYQhI5vaRqB/BdG9J9LhF+uyJtQfveZ9OA2eDC5pKbLZ7
+	 uh+Oa5bRLyHYGTTeXgVYdM5ddoR/qrKKdcafCsmegawct+nuY/dIFNB3sSOLvG2PV6
+	 flVGMh48lSb196pxzpduqOUBoBeYQdCsS9c2h4tY=
+Date: Thu, 26 Mar 2026 18:11:51 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
+ masking
+Message-ID: <acV2552t5X4OlNYi@J2N7QTR9R3>
+References: <20260320113026.3219620-1-mark.rutland@arm.com>
+ <20260320113026.3219620-2-mark.rutland@arm.com>
+ <87eclek0mb.ffs@tglx>
+ <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com>
+ <87341ujwl4.ffs@tglx>
+ <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com>
+ <87fr5six4d.ffs@tglx>
+ <acPAzdtjK5w-rNqC@J2N7QTR9R3>
+ <87ecl7gbeu.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <177454628933.1078312.13488207016388509694@ping.linuxembedded.co.uk>
+In-Reply-To: <87ecl7gbeu.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_111019_622705_F1A0BA67 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20260326_111204_067541_D7B227B9 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +72,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 05:31:29PM +0000, Kieran Bingham wrote:
-> This one has been a roller coaster, but I'm glad we got to the bottom of
-> it.
+On Wed, Mar 25, 2026 at 04:46:01PM +0100, Thomas Gleixner wrote:
+> On Wed, Mar 25 2026 at 11:03, Mark Rutland wrote:
+> > On Sun, Mar 22, 2026 at 12:25:06AM +0100, Thomas Gleixner wrote:
+> > I *think* what would work for us is we could split some of the exit
+> > handling (including involuntary preemption) into a "prepare" step, as we
+> > have for return to userspace. That way, arm64 could handle exiting
+> > something like:
+> >
+> > 	local_irq_disable();
+> > 	irqentry_exit_prepare(); // new, all generic logic
+> > 	local_daif_mask();
+> > 	arm64_exit_to_kernel_mode() {
+> > 		...
+> > 		irqentry_exit(); // ideally irqentry_exit_to_kernel_mode().
+> > 		...
+> > 	}
+> >
+> > ... and other architectures can use a combined exit_to_kernel_mode() (or
+> > whatever we call that), which does both, e.g.
+> >
+> > 	// either noinstr, __always_inline, or a macro
+> > 	void irqentry_prepare_and_exit(void)
 > 
-> I hope someone from synopsis takes note and and documents this for
-> future silicon integrations.
+> That's a bad idea as that would require to do a full kernel rename of
+> all existing irqentry_exit() users.
+> 
+> > 	{
+> > 		irqentry_exit_prepare();
+> > 		irqentry_exit();
+> > 	}
+> 
+> Aside of the naming that should work.
 
-I would say that it _is_ clearly documented in the databook. v3.74a
-4.3.4. LPI Interrupt already states that this signal is generated in
-the receive clock domain, and is not cleared immediately after the LPI
-control and status register is read.
+Thanks for confirming!
 
-It goes on to state that this is because the signal to clear it has to
-cross from the CSR clock domain to the receive clock domain to clear
-the signal - and states that it is at least _four_ receive clock
-cycles.
+I've pushed a (very early, WIP) draft to
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/entry/rework
 
-So, if the dwmac core is operating at 10Mbps, that means its receive
-clock is running at 2.5MHz which has a period of 400ns. In this case,
-the four receive clock cycles to clear this interrupt is 1.6us,
-assuming that the receive clock is running.
+... which is missing commit messages, comments, etc, but seems to work.
 
-However, if EEE is enabled, the receive clock comes from the PHY,
-which may gate off when the link re-enters LPI - and this event is
-under the control of the remote end, not the local end. So, what this
-means is that even though it states four receive clocks to clear the
-lpi_intr_o signal, that doesn't necessarily mean it will clear in
-1.6us as the receive clock may be stopped.
+I'll see about getting that tested, cleaned up, and on-list.
 
-So, I think it is clearly stated in the databook already, but as it's
-just two paragraphs buried in around 1500 pages, that may explain why
-it has been missed on iMX.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Mark.
 
