@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6681D10A88E0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C310110A88E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C1HBovL0iKKni3b5pUdpuk9v4ia3odEoFBnTktuY9oQ=; b=1qHXQvP7QWYm0fYhG1yZGiWwnd
-	KXysrQZo2IB/pL1M63zIQndlocxyGVk7UFlSBZANkN1komlNZ7NUh7qCC70JUkAjzY3rCaG6m2M/M
-	pug+ntnznhpcN9ls9r4k4ZXAmCkojbvvb9gePHWAjtJjaZN4LF+YYsyir4BpspaekMBnNl8lWVqWO
-	koIi72O6/+/RGr6+qBi0kOsdy+EPHfxSdYciXkoKVwtH0LI1n12NGRLjP2f/dZ6x3tVAWrZ3U6sPW
-	Pj3J3dRaZrzTZztUOmfJC+B1uS21HL97fHI3xKMP3XkBAaEZMeMmm+KV8BQmkwD+jU1PYetrI2d2t
-	WOTcLafg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vk7+/q89jjUxkzOtY1XsyYKkbzsBHpcrNS4KmvZd+/I=; b=PWWdCoE+ApqZWgi/tvd2nz57Jc
+	3q41qtXDIoYvjOfTGAgMcIX2hjGkEnzH60tfVuRtGAl4WypgTkd17u2mmVAfkyYkXOKtJN/Uku+uF
+	wixcCa8rsoLP2we0EXMLnFSYYQhIjAaTON/FlJb4YDHWn96iOjcKCXKknz2a6HzPhNAoUG5yj/yKs
+	n0Ku+bHa+ZeDNUHhUuXKTUwnih7mV61hsBWrUJSO0vitYkq4Lt/Kqc/cORKysDV5pKrtMMeG1j6Fe
+	V0+QkjmlsB7Z8IoQJ/Gh+8iIjp6OQgbbKIfhyl16z6QvQKrw/xcGkvw7gkZvuSBla1M9q7DhPM9pk
+	ieTs5KJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mn7-00000005mYs-1kaB;
-	Thu, 26 Mar 2026 15:38:37 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mn4-00000005mY3-3rk7
+	id 1w5moc-00000005mk6-1pfb;
+	Thu, 26 Mar 2026 15:40:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5moZ-00000005mji-2glN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 15:38:36 +0000
-Message-ID: <9f6a4e9f-9f93-4ced-92de-8fdc6154c694@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774539510;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C1HBovL0iKKni3b5pUdpuk9v4ia3odEoFBnTktuY9oQ=;
-	b=NVh+vpmbuQDOOJcwiZkJ1e+ML3EB3w0SQyx8QlDg2Xr65uXs/vBtWXXCebbMwh2mUbwRyC
-	dgawcc8zWLwFqSro1X67SocFOBEk7Nv3Bc3jO2DPJavHQo+bdQYGdlkYfmM4nEw1aecuxW
-	2pI4NwGUHyrrxEZesORDRerYGCYmd5k=
-Date: Thu, 26 Mar 2026 11:38:24 -0400
+	Thu, 26 Mar 2026 15:40:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD94D1E8D;
+	Thu, 26 Mar 2026 08:39:57 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EABDB3F641;
+	Thu, 26 Mar 2026 08:40:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774539603; bh=Q0dXKMwvqUVibjNiOVBckvLKDWg553EueB8+WMLxmc0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mc4lcYVYUHKT2M7If7nhAWGnZP/hhh3sCwS0HbRbciFw5wsasz3C/I3bFUxD59SRT
+	 XrtbThR6As6fI/3wYPm16LoQDN+8TdK6wkg5JDRXsQ3uXh1fduUKdo504SF8KLGg5M
+	 NI0FNHJR4eVatqynexCUxM4hF5xdex24OOKPoqCQ=
+Date: Thu, 26 Mar 2026 15:39:58 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
+	peterz@infradead.org, mark.rutland@arm.com, harisokn@amazon.com,
+	cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
+	daniel.lezcano@linaro.org, memxor@gmail.com,
+	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+	rdunlap@infradead.org, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v10 00/12] barrier: Add
+ smp_cond_load_{relaxed,acquire}_timeout()
+Message-ID: <acVTTmGCZL4QPln2@arm.com>
+References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
+ <20260315184925.b6f93386e918ca79614843e3@linux-foundation.org>
+ <874imftol4.fsf@oracle.com>
+ <20260316233712.7cbfac27@pumpkin>
+ <87ms07rlp9.fsf@oracle.com>
+ <20260317091705.5a64fc56@pumpkin>
+ <acPo7l_pd5rnHpSX@arm.com>
+ <20260325154210.79a621df@pumpkin>
+ <acQOMZMk0OMfIgFO@arm.com>
+ <20260325202357.3e203314@pumpkin>
 MIME-Version: 1.0
-Subject: Re: [PATCH net 2/2] net: xilinx: axienet: Fix BQL accounting for
- multi-BD TX packets
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "Simek, Michal" <michal.simek@amd.com>,
- "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "horms@kernel.org" <horms@kernel.org>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Katakam, Harini" <harini.katakam@amd.com>
-References: <20260324145353.1899248-1-suraj.gupta2@amd.com>
- <20260324145353.1899248-3-suraj.gupta2@amd.com>
- <cfaf4077-144a-4876-b6b0-8d4388362217@linux.dev>
- <SA1PR12MB6798E4EB242D58AEB86661B9C949A@SA1PR12MB6798.namprd12.prod.outlook.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <SA1PR12MB6798E4EB242D58AEB86661B9C949A@SA1PR12MB6798.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260325202357.3e203314@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_083835_470393_F0543881 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20260326_084007_817368_8AFF1374 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,202 +87,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/25/26 01:30, Gupta, Suraj wrote:
-> [Public]
+On Wed, Mar 25, 2026 at 08:23:57PM +0000, David Laight wrote:
+> On Wed, 25 Mar 2026 16:32:49 +0000
+> Catalin Marinas <catalin.marinas@arm.com> wrote:
 > 
->> -----Original Message-----
->> From: Sean Anderson <sean.anderson@linux.dev>
->> Sent: Tuesday, March 24, 2026 9:39 PM
->> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
->> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
->> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>; Pandey,
->> Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
->> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> kernel@vger.kernel.org; Katakam, Harini <harini.katakam@amd.com>
->> Subject: Re: [PATCH net 2/2] net: xilinx: axienet: Fix BQL accounting for multi-BD
->> TX packets
->>
->> Caution: This message originated from an External Source. Use proper caution
->> when opening attachments, clicking links, or responding.
->>
->>
->> On 3/24/26 10:53, Suraj Gupta wrote:
->> > When a TX packet spans multiple buffer descriptors (scatter-gather),
->> > the per-BD byte count is accumulated into a local variable that resets
->> > on each NAPI poll. If the BDs for a single packet complete across
->> > different polls, the earlier bytes are lost and never credited to BQL.
->> > This causes BQL to think bytes are permanently in-flight, eventually
->> > stalling the TX queue.
->> >
->> > Fix this by replacing the local accumulator with a persistent counter
->> > (tx_compl_bytes) that survives across polls and is reset only after
->> > updating BQL and stats.
->>
->> Do we need this? Can't we just do something like
->>
+> > On Wed, Mar 25, 2026 at 03:42:10PM +0000, David Laight wrote:
+> ...
+> > > Looking at the code I think the "sevl; wfe" pair should be higher up.  
+> > 
+> > Yes, I replied to your other message. We could move it higher indeed,
+> > before the condition check, but I can't get my head around the ordering.
+> > Can need_resched() check be speculated before the WFE? I need to think
+> > some more.
 > 
-> Nope, the 'size' variable passed to axienet_free_tx_chain() is local
-> to axienet_tx_poll() and goes out of scope between different polls.
-> This means it can't track completion bytes across multiple NAPI polls.
+> I don't think speculation can matter.
+> Both SEVL and WFE must be serialised against any other instructions
+> that can change the event flag (as well as each other) otherwise
+> everything is broken.
 
-Yes, but that's fine since we only update completed bytes when we retire at least one packet:
+Welcome to the Arm memory model. We don't have any guarantee that an LDR
+will only access memory after SEVL+WFE. They are not serialising.
 
-	packets = axienet_free_tx_chain(lp, &size, budget);
-	if (packets) {
-		netdev_completed_queue(ndev, packets, size);
-		u64_stats_update_begin(&lp->tx_stat_sync);
-		u64_stats_add(&lp->tx_packets, packets);
-		u64_stats_add(&lp->tx_bytes, size);
-		u64_stats_update_end(&lp->tx_stat_sync);
+> Apart from that it doesn't matter, what matters is the instruction
+> boundary the interrupt happens at.
 
-		/* Matches barrier in axienet_start_xmit */
-		smp_mb();
-		if (((tail - ci) & (lp->rx_bd_num - 1)) >= MAX_SKB_FRAGS + 1)
-			netif_wake_queue(ndev);
-	}
+True. If an interrupt is taken before the LDR (that would be a
+need_resched() check for example), then a prior WFE would not matter.
+This won't work if we replace the IPI with a SEV though (suggested
+somewhere in this thread).
 
-and this matches the value we use when enqueuing a packet
+> Actually both SEVL and WFE may be synchronising instructions and very slow.
 
-	tail_p = lp->tx_bd_p + sizeof(*lp->tx_bd_v) * (last_p - lp->tx_bd_v);
-	smp_store_release(&lp->tx_bd_tail, new_tail_ptr);
-	netdev_sent_queue(ndev, skb->len);
+Most likely not.
 
-> Regards,
-> Suraj
-> 
->> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> index 415e9bc252527..1ea8a6592bce1 100644
->> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> @@ -768,6 +768,7 @@ static int axienet_free_tx_chain(struct axienet_local
->> *lp, u32 *sizep, int budge
->>                 if (cur_p->skb) {
->>                         struct axienet_cb *cb = (void *)cur_p->skb->cb;
->>
->> +                       *sizep += skb->len;
->>                         dma_unmap_sgtable(lp->dev, &cb->sgt, DMA_TO_DEVICE, 0);
->>                         sg_free_table_chained(&cb->sgt, XAE_INLINE_SG_CNT);
->>                         napi_consume_skb(cur_p->skb, budget); @@ -783,8 +784,6 @@
->> static int axienet_free_tx_chain(struct axienet_local *lp, u32 *sizep, int budge
->>                 wmb();
->>                 cur_p->cntrl = 0;
->>                 cur_p->status = 0;
->> -
->> -               *sizep += status & XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->>         }
->>
->>         smp_store_release(&lp->tx_bd_ci, (ci + i) & (lp->tx_bd_num - 1));
->>
->> > Fixes: c900e49d58eb ("net: xilinx: axienet: Implement BQL")
->> > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
->> > ---
->> >  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  3 +++
->> > .../net/ethernet/xilinx/xilinx_axienet_main.c | 20 +++++++++----------
->> >  2 files changed, 13 insertions(+), 10 deletions(-)
->> >
->> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > index 602389843342..a4444c939451 100644
->> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > @@ -509,6 +509,8 @@ struct skbuf_dma_descriptor {
->> >   *           complete. Only updated at runtime by TX NAPI poll.
->> >   * @tx_bd_tail:      Stores the index of the next Tx buffer descriptor in the ring
->> >   *              to be populated.
->> > + * @tx_compl_bytes: Accumulates TX completion length until a full packet is
->> > + *              reported to the stack.
->> >   * @tx_packets: TX packet count for statistics
->> >   * @tx_bytes:        TX byte count for statistics
->> >   * @tx_stat_sync: Synchronization object for TX stats @@ -592,6
->> > +594,7 @@ struct axienet_local {
->> >       u32 tx_bd_num;
->> >       u32 tx_bd_ci;
->> >       u32 tx_bd_tail;
->> > +     u32 tx_compl_bytes;
->> >       u64_stats_t tx_packets;
->> >       u64_stats_t tx_bytes;
->> >       struct u64_stats_sync tx_stat_sync; diff --git
->> > a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > index b06e4c37ff61..95bf61986cb7 100644
->> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > @@ -692,6 +692,8 @@ static void axienet_dma_stop(struct axienet_local
->> *lp)
->> >       axienet_lock_mii(lp);
->> >       __axienet_device_reset(lp);
->> >       axienet_unlock_mii(lp);
->> > +
->> > +     lp->tx_compl_bytes = 0;
->> >  }
->> >
->> >  /**
->> > @@ -770,8 +772,6 @@ static int axienet_device_reset(struct net_device
->> *ndev)
->> >   * @first_bd:        Index of first descriptor to clean up
->> >   * @nr_bds:  Max number of descriptors to clean up
->> >   * @force:   Whether to clean descriptors even if not complete
->> > - * @sizep:   Pointer to a u32 filled with the total sum of all bytes
->> > - *           in all cleaned-up descriptors. Ignored if NULL.
->> >   * @budget:  NAPI budget (use 0 when not called from NAPI poll)
->> >   *
->> >   * Would either be called after a successful transmit operation, or
->> > after @@ -780,7 +780,7 @@ static int axienet_device_reset(struct net_device
->> *ndev)
->> >   * Return: The number of packets handled.
->> >   */
->> >  static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
->> > -                              int nr_bds, bool force, u32 *sizep, int budget)
->> > +                              int nr_bds, bool force, int budget)
->> >  {
->> >       struct axidma_bd *cur_p;
->> >       unsigned int status;
->> > @@ -819,8 +819,8 @@ static int axienet_free_tx_chain(struct axienet_local
->> *lp, u32 first_bd,
->> >               cur_p->cntrl = 0;
->> >               cur_p->status = 0;
->> >
->> > -             if (sizep)
->> > -                     *sizep += status & XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->> > +             if (!force)
->> > +                     lp->tx_compl_bytes += status &
->> > + XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->> >       }
->> >
->> >       if (!force) {
->> > @@ -999,18 +999,18 @@ static int axienet_tx_poll(struct napi_struct
->> > *napi, int budget)  {
->> >       struct axienet_local *lp = container_of(napi, struct axienet_local, napi_tx);
->> >       struct net_device *ndev = lp->ndev;
->> > -     u32 size = 0;
->> >       int packets;
->> >
->> >       packets = axienet_free_tx_chain(lp, lp->tx_bd_ci, lp->tx_bd_num, false,
->> > -                                     &size, budget);
->> > +                                     budget);
->> >
->> >       if (packets) {
->> > -             netdev_completed_queue(ndev, packets, size);
->> > +             netdev_completed_queue(ndev, packets,
->> > + lp->tx_compl_bytes);
->> >               u64_stats_update_begin(&lp->tx_stat_sync);
->> >               u64_stats_add(&lp->tx_packets, packets);
->> > -             u64_stats_add(&lp->tx_bytes, size);
->> > +             u64_stats_add(&lp->tx_bytes, lp->tx_compl_bytes);
->> >               u64_stats_update_end(&lp->tx_stat_sync);
->> > +             lp->tx_compl_bytes = 0;
->> >
->> >               /* Matches barrier in axienet_start_xmit */
->> >               smp_mb();
->> > @@ -1115,7 +1115,7 @@ axienet_start_xmit(struct sk_buff *skb, struct
->> net_device *ndev)
->> >                               netdev_err(ndev, "TX DMA mapping error\n");
->> >                       ndev->stats.tx_dropped++;
->> >                       axienet_free_tx_chain(lp, orig_tail_ptr, ii + 1,
->> > -                                           true, NULL, 0);
->> > +                                           true, 0);
->> >                       dev_kfree_skb_any(skb);
->> >                       return NETDEV_TX_OK;
->> >               }
+> So you may not want to put them in the fast path where the condition
+> is true on entry (or even true after a retry).
+> So the code might have to look like:
+> 	for (;;) {
+> 		VAL = mem;
+
+If we only waited on the location passed to LDXR, things would have been
+much simpler. But the osq_lock() also wants to wait on the TIF flags via
+need_resched() (and vcpu_is_preempted()).
+
+> 		if (cond(VAL)) return;
+
+So the cond(VAL) here is actually a series of other memory loads
+unrelated to 'mem'
+
+> 		SEVL; WFE;
+> 		if (cond(VAL)) return;
+
+I think this will work in principle even if 'cond' accesses other memory
+locations, though I wouldn't bother with an additional 'cond' call, I'd
+expect SEVL+WFE to be mostly NOPs. However, 'cond' must not set a local
+event, otherwise the power saving on waiting is gone.
+
+> 		v1 = LDX(mem);
+> 		if (v1 == VAL)
+> 			WFE;
+> 	}
+
+I think it's cleaner to use Ankur's timeout API here for the very rare
+case where an IPI hits at the wrong time. We then keep
+smp_cond_load_relaxed() intact as it's really not meant to wait on
+multiple memory locations to change. Any changes of
+smp_cond_load_relaxed() with moving the WFE around are just hacks, not
+the intended use of this API.
+
+-- 
+Catalin
 
