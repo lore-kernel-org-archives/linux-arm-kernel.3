@@ -4,105 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A928410A3D81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD63310A3D8E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=; b=auccNDOHn2ZV9zLJsCPeYIxtEK
-	8ihML2zewGce7eEVBvvvmCB7TE8gWfRV4L5ltfqBwtYNeQohvHoPrd8dZsu2bu7sYUHd8b6cTUxE8
-	7dHJyUcbmub76w0Fs5dfx7ZXpMKsS/GnnT1eiiEoLYAAcgJyhLM55NWrV+bT18LJrHSWAFcXQJrfB
-	qEE0EcQiMAEYvZHNa53a4R/SpdNjlHxWYTWKU+GrRASfp3eDu+EGZseXpkE+h+EmBFyuLp4oYdEo7
-	gMzK61kFflLLUBp47OlAxYgoESLgAUt7XLZpMRex4aeyDTTAGFZkxqMYnYMA/3jQLOSaR8zP2GB6m
-	yULyJ4og==;
+	bh=5qAeFBCdLp4sqr//iEcBThvsCw8Ax4MNrHHyNcO5P4k=; b=V8+dNBnH9Ufn5tt3OorhyNpvTC
+	FVYr3NtVLQ7+LYN52aksyEopZ5GJ5j5w8lRHC1wPY9InBe3xlQPUGC+6TJSJDbCqj/jPdKZbsSPag
+	6WikvnG88qbRkUt5bEtgV6ORZVEAu02TDDPaukjbULLnuhs0CA1Ymk5XM1MorvAIIW7txQsZUMJxy
+	BSUdkYSMRbR2gTbDxr6IlghPrlWyzV8mdjbQihczylmRfJ5pOnI/j5Pom9pgWFWdy++0L2lIsdCQJ
+	6Mtk2p19yxO1kZWr9J1ep3hU8BHlztSX+JJqklBlE3jGC0yq/BNsq0zR7Lsb9Hwiys3kFZ0JKfio5
+	/lekkcgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k0w-00000005TG5-3rQC;
-	Thu, 26 Mar 2026 12:40:42 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1w5k1x-00000005TfC-3lC1;
+	Thu, 26 Mar 2026 12:41:45 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k0T-00000005T0r-0m7x
+	id 1w5k1t-00000005Sk4-2poa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 12:40:14 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-38bd15d82bdso6804801fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:40:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774528811; cv=none;
-        d=google.com; s=arc-20240605;
-        b=AnDCqAKP/G/lGjntGC7V1PIPCq1Od6Q23ycswNcRIEaKWanQgecydjeM9TiYTEbhJn
-         zd708pg2Jv0diA0FrJGrc9lW2fOoLn11voMGNJgMXInELeS86vJU5w3oI3m26hXrOy2e
-         Cwe38QJw1UVKR3k+XL2K5RAHHwTcHmHBa88EhbMi+4AyOQqcje/TLV45mYHEAVS8Zr9+
-         pgysCwn0F6+hxagcaraKbZR8ZpBbry9DFmWigzD76PbQtfx/VI+S692hgogSl3jpJBlJ
-         kwUmDll0pv2ubQcvMsON8p4gTzu5QRTHm7h0AdrlIqoX3zOEKSZvburMl/dFmE4Q9sRZ
-         k40g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=;
-        fh=49jmiK6qBax38SWfCmHem6oPZ9ThA1ZIz2gJvkC9CvE=;
-        b=JcoOYwbyBMYqLKXmGsP6ulziuCiCOz3p27iulwru1w2Aem5jjIna3qu6nAm3u9veQr
-         l3uryK39toEh+1SpInocz1/JLzxKox7iHk2uVBwEYgNbqOgwCwLjVi25Ea+9/N9qpu28
-         HMyZRh0PGrB69XfYkVijSxIt6EWbHBs5QnL0F5shFfdyZsWgxUeyam0QNmRYd1J04iXo
-         kM1jGKPSYWzX5vg5M833R784es9CZ/1K7xQxLRtmjAtzs01rCLWOp7C4Bp/AemJiAprl
-         l5+3VR/tgNNks6naFHyKtS623lNXhnDe2BaiEyFLd/5ET661ye/QlFWZMntIvjhvWQUE
-         t7iA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774528811; x=1775133611; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=;
-        b=wxrVvWyxGyjiFZ7vWoiobwYNV7LZDjCdD0sA8XGuRpa+gsWphx1HXy5s7AIrisKTSk
-         cJfuLddj2OPRnBgcQXmsuIYTw9M/DzDJmTUMF/uC69HdjZrSxd/jCsurvPUYJ5YT53Aq
-         E49uy4swVeUQXqgpyx0sB0/4N2P+zbv0Gpe8+isuEZVV59FBLcDMRkiU+uQjr59HjNA3
-         ldG0arYJq97/pyzEYk9E0ALb3mApwhVX56lDbZk3FUJf3A6Yoi9g/E6NIGnn05jzZ4JG
-         VEFoa5pgd7KaubRlBAObt9p/ieN0JmOEZfTdvelf8OTlX/X1BIzDxAwdAAQabVZ2gMJn
-         0xgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774528811; x=1775133611;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=;
-        b=lN3MfLQWsVI1WDacb2nO1svY8tB27UUbyV0Ehmq79c6bCuhQJfhGFrESQXQvTckico
-         26uvzNxIsmaQaU6pxH4EDcTYKoUa9SQUywLy0CwvE0FhDSXpGayYHqWxNvg/t+V2DyYC
-         lWgzdvhNI1zXWw/wtCIh+1SbeWHSHNcNj7av7ilaEoBQQEbO82J1lPB+NKfiBlxtHJi1
-         lsd+ObL2+V7c7KBuFwMjACuE0OBXMTsZ1ZMdrCQD9/6cVpN+mqFny8k3k/5+E3jjIhQC
-         +GED1CbIdTppzVDgVor7XO70cJ5D91rciZXNRLa0k018h2cO8WG0faIdgEqoiu6g0Nsc
-         wSpA==
-X-Forwarded-Encrypted: i=1; AJvYcCUtcuB92fdQAiN/OeEZUcI1i0eBoo7X2FdBXMxe42Pnj2zlSCgZNWQsu5+7fKJ90tFYclVezkohxy/E5wzE2Z4Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY6t7xwnKFdlb3cmahCmFm0TlxfktOUaVEw+4Zum6X8gglf2TG
-	Jp24Q26KrKp5QlGbsVzaKWORtZ8WPc6WbHSLWcivj6Lafp4/0LbArV27lFQ/Gx+WeLGlf+jHUpW
-	fb+2gPDRe1YVjxJXXKEGKrgh7QIgDELr+brH+eKzJZg==
-X-Gm-Gg: ATEYQzzxCPAc5VzCR8UfYdRBEeLb5/xSTxS6Dz9AdKauz3Yg2RjMBR95KhKKHj/FAwz
-	fmPSVJ/H4LIZPPUAEcKtgx4mAX8A90qRw7KclVU15aEO+XWXmISz2KQBg0b4WcJlrpywddtaNPf
-	oLNmXQ8LoEItLgHbYCgxRltPaNZIRS3wgo12TzNORTCpVHlbow7/ttBbD74RgaS7Pfd5O+pxQUs
-	cL9B/nQlxyYsIVAWrU05aB9Z83mVk65upEyMS8yKp2Fp2elEQ/oYyz650RGt4g6Ps6C9VAKMGBl
-	GemETP0=
-X-Received: by 2002:a05:6512:1306:b0:5a2:7d1a:4043 with SMTP id
- 2adb3069b0e04-5a29b99d856mr2665316e87.20.1774528810562; Thu, 26 Mar 2026
- 05:40:10 -0700 (PDT)
+	Thu, 26 Mar 2026 12:41:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4fhNVx38F8z1T4gq;
+	Thu, 26 Mar 2026 20:34:01 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1F3E840569;
+	Thu, 26 Mar 2026 20:39:34 +0800 (CST)
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Mar 2026 20:39:33 +0800
+From: Jie Zhan <zhanjie9@hisilicon.com>
+To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <tianyaxiong@kylinos.cn>
+CC: <linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linuxarm@huawei.com>, <zhanjie9@hisilicon.com>,
+	<jonathan.cameron@huawei.com>, <zhenglifeng1@huawei.com>,
+	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+Subject: [PATCH v1 07/10] devfreq: Get and put module refcount when switching governor
+Date: Thu, 26 Mar 2026 20:34:25 +0800
+Message-ID: <20260326123428.800407-8-zhanjie9@hisilicon.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260326123428.800407-1-zhanjie9@hisilicon.com>
+References: <20260326123428.800407-1-zhanjie9@hisilicon.com>
 MIME-Version: 1.0
-References: <20260325225439.68161-1-rougueprince47@gmail.com> <69C51640.8070408@hisilicon.com>
-In-Reply-To: <69C51640.8070408@hisilicon.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 26 Mar 2026 13:39:34 +0100
-X-Gm-Features: AQROBzBmRNtgc4rNYofWXMIcZkHCVLXnq4xnye8DD2kjvOTL1AOG-2hkznear-w
-Message-ID: <CAPDyKFq6F3PZgqTtHXZPQPPBvdPhsQPtUVHiZV6X-QXvS42+CA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] mmc: hisilicon: Convert dw-mshc bindings and fix dtbs
-To: Wei Xu <xuwei5@hisilicon.com>
-Cc: Bhargav Joshi <rougueprince47@gmail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, zhangfei.gao@linaro.org, linux-mmc@vger.kernel.org, 
-	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_054013_486967_C645EEBA 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20260326_054141_918597_6798E94E 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,70 +74,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Mar 2026 at 12:19, Wei Xu <xuwei5@hisilicon.com> wrote:
->
-> Hi Bhargav,
->
-> On 2026/3/26 6:54, Bhargav Joshi wrote:
-> > This series converts the Hisilicon dw-mshc text bindings to DT schema
-> > format and cleans up legacy node names in Hisilicon board files.
-> >
-> > While testing the new YAML schema, dtbs_check flagged the hi3660,
-> > hi3670, and hi6220 SoC files for using the non-standard 'dwmmc' node
-> > name prefix. resulting in warnings.
-> >
-> > Patch 1 Convert to DT schema
-> > Patch 2 updates the Hisilicon dtsi files to use standard 'mmc'
-> > node name.
-> >
-> > Changes in v2:
-> >  - Patch 1:
-> >     - Grouped compatible strings into an enum.
-> >     - Replaced raw numbers with proper flags.
-> >     - Fixed property order and removed invalid hex values.
-> >     - Added explanation for clock order change in commit message.
-> >     - Collected Acked-by tag.
-> >  - Patch 2:
-> >     - No code changes.
-> >     - Collected Acked-by and Reviewed-by tags.
-> >
-> > Signed-off-by: Bhargav Joshi <rougueprince47@gmail.com>
-> > ---
-> > Note: this patch is part of the process for applying to GSoC device
-> > tree bindings conversion project #
-> > https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
-> >
-> > - The file is enabled by arm64 defconfig (CONFIG_MMC_DW_K3=y)
-> > - It is used in following
-> >     /arch/arm64/boot/dts/hisilicon/hi3660.dtsi
-> >     -included by /arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
-> >     /arch/arm64/boot/dts/hisilicon/hi3670.dtsi
-> >     -included by /arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
-> >
-> > Bhargav Joshi (2):
-> >   dt-bindings: mmc: hisilicon,hi3660-dw-mshc: Convert to DT schema
-> >   arm64: dts: hisilicon: Rename dwmmc nodes to mmc
-> >
-> >  .../mmc/hisilicon,hi3660-dw-mshc.yaml         | 117 ++++++++++++++++++
-> >  .../devicetree/bindings/mmc/k3-dw-mshc.txt    |  73 -----------
-> >  arch/arm64/boot/dts/hisilicon/hi3660.dtsi     |   4 +-
-> >  arch/arm64/boot/dts/hisilicon/hi3670.dtsi     |   4 +-
-> >  arch/arm64/boot/dts/hisilicon/hi6220.dtsi     |   6 +-
-> >  5 files changed, 124 insertions(+), 80 deletions(-)
-> >  create mode 100644 Documentation/devicetree/bindings/mmc/hisilicon,hi3660-dw-mshc.yaml
-> >  delete mode 100644 Documentation/devicetree/bindings/mmc/k3-dw-mshc.txt
-> >
->
-> Series applied to the HiSilicon arm64 dt tree.
-> Thanks!
->
-> Best Regards,
-> Wei
+When compiled as a kernel module, the governor module can be dynamically
+inserted or removed.  'devfreq->governor' would become NULL if the
+governor module is removed when it's in use.
 
-Usually I pick DT bindings (patch1/2) for mmc via my mmc tree and I
-also just did. Would it be possible for you to drop patch1/2 from your
-tree?
+To prevent the governor module from being removed (except for force
+unload) when it's in use, get and put a refcount of the governor module
+when starting and stopping the governor.
 
-Kind regards
-Uffe
+Now, unloading a governor module that is set for a devfreq device
+returns an error, for example:
+  # cat governor
+  performance
+  # rmmod governor_performance
+  rmmod: ERROR: Module governor_performance is in use
+
+Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+---
+ drivers/devfreq/devfreq.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
+index 9b078458d129..ba09948915ba 100644
+--- a/drivers/devfreq/devfreq.c
++++ b/drivers/devfreq/devfreq.c
+@@ -338,22 +338,31 @@ static int devfreq_set_governor_locked(struct devfreq *df,
+ 				 __func__, df->governor->name, ret);
+ 			return ret;
+ 		}
++		module_put(old_gov->owner);
+ 	}
+ 
+ 	/* Start the new governor */
++	if (!try_module_get(new_gov->owner))
++		return -EINVAL;
++
+ 	df->governor = new_gov;
+ 	ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+ 	if (ret) {
+ 		dev_warn(dev, "%s: Governor %s not started(%d)\n",
+ 			 __func__, df->governor->name, ret);
+ 
++		module_put(new_gov->owner);
+ 		if (!old_gov)
+ 			return ret;
+ 
+ 		/* Restore previous governor */
++		if (!try_module_get(old_gov->owner))
++			return -EINVAL;
++
+ 		df->governor = old_gov;
+ 		ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+ 		if (ret) {
++			module_put(old_gov->owner);
+ 			dev_err(dev, "%s: restore Governor %s failed (%d)\n",
+ 				__func__, old_gov->name, ret);
+ 			df->governor = NULL;
+-- 
+2.43.0
+
 
