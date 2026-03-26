@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A32510A62FE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1104C10A62FE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hztpmvPQiimJVMEkUlBkN90snzIBjEq9me3iQ8P9seI=; b=2y4gH2p0yOiCCqfcYUOseJNzTu
-	1b1rpvv0pkR3zbqZcd/FpdYcmmbBWpS8N0utydJZdnZTFveMwv0g7YlbxPNXo+jgIkJCX5jOvqJyA
-	TzzIGoWZq6zb6XqTsoPwppQSWGAcwW9YrDE2tAbai2cVNtd/dIX+OgWStdr1A1z6ymHaD2artbtmM
-	KJ9m62ywn5arWWtsg8tU+UKBtEaasjg/HqJ5+AmwqK4bTEj1zkt4hj8Qjh95YBHqkoCrPYempyPaj
-	T6wAqrMC8YBpFif9pSmU49w6yjZcFOmXr1mXfRlc415QakkMKZ8tOftCrJKc7fxkb1UUYCX8Twwit
-	+KgDeEDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=STCGY5YHOLEvGsutamILGTDqfSYqg76iLIjjaraENt8=; b=YS3MWhEWVugziA3nYvaC9ijMS1
+	zEXt07vPBHEFgE1hdxgoPj1a0zDcbd39iuiUdCV50m6pkLlq/oCOBpEcYnYt3+KGsKVNSlRxORG8y
+	sqRFdMWSpQ9D5SLDYmSB5qEeg0apjSwBbRitPTYjD7O/V1aJMQr0tsCGkQopK1HuaAFcMivWOf+05
+	4qy+VzcOjPxCOjyuy4VJjljN1i6EgotlrqQnhIpppdDj2/wQTblDDxLuj/2Em5PoIOxFEa2jnCULJ
+	CggpWXYpLFi8XRPbWZrmApzdf6DD8kkPmCreznLAEiA1qqPCMqnjWjqCmKCnH4ioOrWTLk52coGNF
+	zoxH+JOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lvq-00000005gAz-2XC7;
-	Thu, 26 Mar 2026 14:43:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5m0p-00000005gp2-1hNf;
+	Thu, 26 Mar 2026 14:48:43 +0000
+Received: from mail-106100.protonmail.ch ([79.135.106.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lvo-00000005gAH-111w;
-	Thu, 26 Mar 2026 14:43:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5288260053;
-	Thu, 26 Mar 2026 14:43:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37262C116C6;
-	Thu, 26 Mar 2026 14:43:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774536211;
-	bh=QCP4s4j85foSGpz3Jg5C2WeljmjT3n1LUgByDDCaay0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NFFU9k4Q9jFBVoJNp/Q3T+UOUF/TqBkwaUXEIUoxafyytcHSsU1+sCaPAJ6v9sD2b
-	 W/N14Tjytjd+HUiI+f4fu30PhI7H0uzEeJQ9w9xE6CWPScA9w5yez3QW29xmsyiHbu
-	 /Nfae9vgoUTW0Js1ml52Koj8z1jzlsPLrA47WpBXuTiSL0jS9AHQhvm+VIAv8vZsG6
-	 eB38zs2Lw1Y6MFk02nDjnelv3vUE6Lz0HBLLod18p/Nir7JyUB4XaNYgRJSupZNkct
-	 nyqqKQvEG+UPXSaRHdP/Q8SxjQlwt3IkCCDEX8Gf2aK7rN4Zog9Qs32XO+av5Xtwu/
-	 6xVRVHfdozfoQ==
-Date: Thu, 26 Mar 2026 08:43:28 -0600
-From: Keith Busch <kbusch@kernel.org>
-To: "hch@lst.de" <hch@lst.de>
-Cc: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>,
-	Justin Tee <justintee8345@gmail.com>,
-	"axboe@kernel.dk" <axboe@kernel.dk>,
-	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
-	"neal@gompa.dev" <neal@gompa.dev>,
-	"sagi@grimberg.me" <sagi@grimberg.me>,
-	"justin.tee@broadcom.com" <justin.tee@broadcom.com>,
-	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
-	"paul.ely@broadcom.com" <paul.ely@broadcom.com>,
-	James Smart <james.smart@broadcom.com>,
-	"kch@nvidia.com" <kch@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
-	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	=?utf-8?B?7J207J2A7IiY?= <euns212.lee@samsung.com>,
-	=?utf-8?B?7Lm47LCs?= <joshi.k@samsung.com>
-Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
-Message-ID: <acVGECskf5pg3_MY@kbusch-mbp>
-References: <acQxjZMOqj74yIJf@kbusch-mbp>
- <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
- <945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com>
- <20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6>
- <CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com>
- <20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1>
- <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5>
- <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
- <acVCnozG1WKPkq1L@kbusch-mbp>
- <20260326143124.GA17507@lst.de>
+	id 1w5m0m-00000005goG-0jIf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 14:48:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
+	s=protonmail; t=1774536517; x=1774795717;
+	bh=STCGY5YHOLEvGsutamILGTDqfSYqg76iLIjjaraENt8=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=iEJK2fLOzv39D522tJ1BbmvDMT/bI4PTIQQZTLdKWlRtmZuv4GlehU80mG9Y2nldZ
+	 TLcdW1upPixUdUfrd7ZYRfHun5asYa2rBQEC7r9PrHtAxFZ1f9c/k3PPUGLUu9vGFp
+	 YTirRGzgo/fjnOyQ0j88+lg8jrGKOgRlDCB54neiVHn0+ACdpRRZEFzUf8FmWH94FV
+	 XxyHcXIDpdvLoDNnR3SSyBbSz4RPcVu7s9Z7aON1l7mKcqNGqUylW+pX0YiFpZe29j
+	 DIVmJpwscCjCuPxE8v3TF6GYjmFJkdqA4N3bW2uakw8YWGAGK0QLy543Z8I+7z4v+l
+	 bgHLpqpBKDduw==
+Date: Thu, 26 Mar 2026 14:48:34 +0000
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+From: Simon Ser <contact@emersion.fr>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Subject: Re: [PATCH v8 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
+Message-ID: <0zcNsL9U3TBMN4-IhSQ5RH8kRnJMUnwP0f6LhriTxuKxp3r0oWtL6FMi4bSyZaOxknTGZmHYiBZ5Ef96ZO0y_5yEFjfwiKpFRLWWsuZ6RDw=@emersion.fr>
+In-Reply-To: <67120b18-8763-4b93-b89f-7f919f38e08e@ideasonboard.com>
+References: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com> <20260128-xilinx-formats-v8-2-9ea8adb70269@ideasonboard.com> <K_oXHqtPM_1bdhpMkkQMreIZ9OFfJVpHO3GV_wzmK_PvjQEw4Qz3IMBhGDNVQllkLg_GQeMGyOi6wpIFaRjrNkHubTwWQm-wqvKYTi6zEA0=@emersion.fr> <67120b18-8763-4b93-b89f-7f919f38e08e@ideasonboard.com>
+Feedback-ID: 1358184:user:proton
+X-Pm-Message-ID: b32e0b863de1dbc358e061ddc4316a92e88c3e16
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260326143124.GA17507@lst.de>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_074840_853368_71611D3A 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:31:24PM +0100, hch@lst.de wrote:
-> On Thu, Mar 26, 2026 at 08:28:46AM -0600, Keith Busch wrote:
-> > On Thu, Mar 26, 2026 at 03:51:52PM +0900, 전민식 wrote:
-> > >  {
-> > >  	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
-> > >  
-> > > -	trace_nvme_complete_rq(req);
-> > > +	/*
-> > > +	 * The idea for these trace events was to match up commands
-> > > +	 * dispatched to hardware with the hardware's posted response.
-> > > +	 * So skip tracing for undispatched commands.
-> > > +	 */
-> > > +	if (nvme_req(req)->status != NVME_SC_HOST_PATH_ERROR)
-> > > +		trace_nvme_complete_rq(req);
-> > > +
-> > 
-> > Well, how do we know a controller doesnn't actually return that status
-> > code? I was just suggesting to skip the trace for the condition we never
-> > dispatched the command. An added bonus is we don't need a mostly
-> > unnecessary 'if' check on every IO.
-> 
-> The 7?h error values were added for host use.  The description of
-> the section in the spec suggests this, but isn't actually as clear
-> as I would like it.  I wonder if we need to verify that controller
-> don't incorrectly return it, as that could cause some problems?
+On Friday, March 20th, 2026 at 11:37, Tomi Valkeinen <tomi.valkeinen@ideaso=
+nboard.com> wrote:
 
-Yeah, the spec is not very clear on their use. It just defines the codes
-and a one sentence description, and then never mentioned again. I think
-it allows the possibility for the controller to internally complete a
-command with such status from some undefined OOB mechanism. I'm not sure
-why the host needs to have their own self-generated status codes anyway
-since it can already attach whatever arbitrary flags it wants to its
-private data, like how we use NVME_REQ_CANCELLED.
+> On 19/03/2026 17:15, Simon Ser wrote:
+> > What is the difference between DRM_FORMAT_XV15 and DRM_FORMAT_P030?
+>=20
+> Good question. I thought the Cr & Cb are swapped between those formats.
+>=20
+> The VC4 driver uses HVS_PIXEL_ORDER_XYCBCR define, and the comment in
+> drm_fourcc.h starts with "YCbCr420". So, CbCr. But then the comments
+> then continue with CrCb.
+>=20
+> XV15/20 isn't super clear either, starting with "YCrCb" but then "Cb:Cr
+> plane".
+>=20
+> The components in the plane descriptions look identical though, hinting
+> they are the same. So to be sure, I tested it:
+>=20
+> I had test pattern support for XV15/20 in pykms, which I can test on a
+> Xilinx board. P030 is a bit more difficult, as on RPi5 it requires
+> DRM_FORMAT_MOD_BROADCOM_SAND128. But with a linear -> SAND128 converter,
+> I was able to test linear NV12 converted to NV12+SAND128 and shown on
+> the screen (just for reference), and similarly linear XV15 ->
+> P030+SAND128. And, indeed, the linear XV15 test pattern shows correctly
+> on screen when converted to SAND128. So afaics XV15 is indeed identical
+> to P030, and I can drop XV15.
+>=20
+> This then brings up the question about XV20. That format doesn't exist
+> yet, but should it then be named similarly to P030? However, I have no
+> idea what P030 means, so I don't know what a 2x1 subsampled P030 would
+> be called...
+>=20
+> Thoughts/ideas? Or just keep XV20?
 
-Anyway if a controller did return it for whatever reason, even if it is
-a bug, we'd want to see it in the trace.
+I've replied with some ideas on the new version's thread :)
 
