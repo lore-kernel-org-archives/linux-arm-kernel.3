@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5623F10A62CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 13:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516F210A62CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 13:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AMrMoDyMoCm1J1RqpO4nLs9/wPH8TbeR8ZH8ieMqM3M=; b=BGckRrdmKntSkbLRvPuhUv9lLo
-	CiPM1HJKRMt5WgOFuPhsRq66dCNH5PgO9UDadtY6rREgxppeXffNIcg6Lm5E3pVgwlEdB/DSaz++v
-	eIcUPQ1ZdGNnPFO7qtUkp+rjjSJNx7Cj1aRMKhyMUAKhfrvh+dGs9ltc4FC3xNVLlrElbLzljNYTi
-	rfJOup0T1VyDy/Dw2PoRslaqPH6meboYoVoTELazAY8lT76+aUXi4cn8T5KD/YufbRBBlCb+5TcrJ
-	uzKDriK70XCXEgTabkSLPtufW59FI/+JbyrLnUkg+NPiPExsccYT7gKGLU+AqgWjfasPMaR/X9JgI
-	/zWQmO4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V+IQh2bMlNIHcEvQUAb1og0fb5F+EUrCaMN/nPuxpxE=; b=D6ioqHS8RVNpj9qKGXzP6/4LbN
+	Z1FrFNQGrI0iPSBTC45fQTY8jF9DwRKFpTXXCsrnkYHgD17qLF1z71MWlVeXhmfXjMlic7lyvqq6z
+	6I9iOBeZD1pX8i2EqTqEqJShFfoc/f3cBzbbH1UrQxPuJU4mqMzR3zOULZVwjiCpXGO3kbyMBzZsD
+	b8Px92lK8ZQGm06K97Qtu86PbtrOGLVdIreIFprXOxjW2nVY1omEoeUY7KpZ1tBwYxfm2QF+mPwJo
+	iVP6wv5zvyB73e/zrydFyUhOxTZssxKR6yTBMU9x4JwDwH15+3nS9fIiy44xHpvephhhckakjFEgD
+	9M4nlLJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5kkV-00000005YAQ-0zX0;
-	Thu, 26 Mar 2026 13:27:47 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1w5ko1-00000005YTF-2dSG;
+	Thu, 26 Mar 2026 13:31:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5kkS-00000005Y9x-4AKz;
-	Thu, 26 Mar 2026 13:27:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774531618; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=inF8c0T9S04BCFBJF/AFqs0QQE1fnL6+L0KLfp2qflAKOoeaNF7POilnvsA4ogT6zDYEJzs/DCseE80aWKaUz95nmU2U1FPPkxmNHr6fa9tAABj6/T0/YzxGOEfjkI2vE7iix4wdHGsYY+jGCIIpca2Is5cbPETQB2cW49W/Z1Q=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774531618; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=AMrMoDyMoCm1J1RqpO4nLs9/wPH8TbeR8ZH8ieMqM3M=; 
-	b=F/uVOgmOl/+m0cjgsZP2y8CQcCEJp7/Yg24rmTHvQeop6slol6pRNfz33yzdJwytMxRzBykwUO1UZRD6U1RSUHwIQfw2LwMYGCPCK7s0zi3sF3kvj1eLwMbFVG/l1Kolu1GsIta26G2M2I0EuRjqkDbRVtjCfe7IrS/JP9zacG8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774531618;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=AMrMoDyMoCm1J1RqpO4nLs9/wPH8TbeR8ZH8ieMqM3M=;
-	b=HBcXyV1aOElHJrP/+ER67nmCR0XxtxLBZgcVosoR2oun5PXk84eq4XCERgt0txCj
-	n1btqz4DhdJsscJVr/Z3XksBjfuJCDRFbqPwSO1mPImfxdfB188suw3+SZnrbcmpGbo
-	LUMkv9IiZsZn/W4s/g4yu3jAGvxeNMghnaVP+9zg=
-Received: by mx.zohomail.com with SMTPS id 177453161763075.0968772878656;
-	Thu, 26 Mar 2026 06:26:57 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Ville =?UTF-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
- Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org, Werner Sembach <wse@tuxedocomputers.com>,
- Andri Yngvason <andri@yngvason.is>, Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color format"
-Date: Thu, 26 Mar 2026 14:26:47 +0100
-Message-ID: <16004581.uLZWGnKmhe@workhorse>
-In-Reply-To: <acUvg3Y7kMf2qioK@intel.com>
-References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
- <3979783.tdWV9SEqCh@workhorse> <acUvg3Y7kMf2qioK@intel.com>
+	id 1w5ko0-00000005YSu-28wA
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 13:31:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6720F60053;
+	Thu, 26 Mar 2026 13:31:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30EDEC116C6;
+	Thu, 26 Mar 2026 13:31:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774531883;
+	bh=si+jevF1tez+sJmAqLfZ+PpqgojMBaE2vdJxM1Sql6s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=atlSNU+xyyR3FPljR6Eqa/bAswPaibNUdndeJMiCKNuPeY2HU2Yz/k24VwHxHfoCp
+	 TbRve90y0wRkoy6xqKC3Rkegq5ce/XO1XPNvM/rZdxyDAQdIc84ve+KVmpw10Ri2h0
+	 evPvQs4GaPAW4G6G+jv3CEbV1fgQ47ZjlwEniKD8mdtaEnNfOMyHpqEO3AdFKA+Tud
+	 dI7Dybo0l2YGwDVYjBlJ9rRYZwlJyG7Ur3yPA63r9VYb9ItzmZj3Wc+zr7yZQN2E9m
+	 5DllpWAH4EzvKvnUi2MKcwwQplviH82fPBdVgLGrHOeQIg+CsSj6JPEe7HpKRRi7bX
+	 lGtT5skPuKJ6g==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm driver fixes for v7.0
+Date: Thu, 26 Mar 2026 08:31:19 -0500
+Message-ID: <20260326133119.66268-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_062745_085844_B54A8CD7 
-X-CRM114-Status: GOOD (  52.21  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,173 +70,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 26 March 2026 14:07:15 Central European Standard Time Ville Sy=
-rj=C3=A4l=C3=A4 wrote:
-> On Thu, Mar 26, 2026 at 01:44:03PM +0100, Nicolas Frattaroli wrote:
-> > On Wednesday, 25 March 2026 12:03:07 Central European Standard Time Vil=
-le Syrj=C3=A4l=C3=A4 wrote:
-> > > On Wed, Mar 25, 2026 at 09:24:27AM +0100, Maxime Ripard wrote:
-> > > > On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrj=C3=A4l=C3=A4 w=
-rote:
-> > > > > On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrot=
-e:
-> > > > > > On Tuesday, 24 March 2026 18:00:45 Central European Standard Ti=
-me Ville Syrj=C3=A4l=C3=A4 wrote:
-> > > > > > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli =
-wrote:
-> > > > > > > > +enum drm_connector_color_format {
-> > > > > > > > +	/**
-> > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or displa=
-y protocol
-> > > > > > > > +	 * helpers should pick a suitable color format. All imple=
-mentations of a
-> > > > > > > > +	 * specific display protocol must behave the same way wit=
-h "AUTO", but
-> > > > > > > > +	 * different display protocols do not necessarily have th=
-e same "AUTO"
-> > > > > > > > +	 * semantics.
-> > > > > > > > +	 *
-> > > > > > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:=
-2:0 if the
-> > > > > > > > +	 * bandwidth required for full-scale RGB is not available=
-, or the mode
-> > > > > > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output bo=
-th support
-> > > > > > > > +	 * YCbCr 4:2:0.
-> > > > > > > > +	 *
-> > > > > > > > +	 * For display protocols other than HDMI, the recursive b=
-ridge chain
-> > > > > > > > +	 * format selection picks the first chain of bridge forma=
-ts that works,
-> > > > > > > > +	 * as has already been the case before the introduction o=
-f the "color
-> > > > > > > > +	 * format" property. Non-HDMI bridges should therefore ei=
-ther sort their
-> > > > > > > > +	 * bus output formats by preference, or agree on a unifie=
-d auto format
-> > > > > > > > +	 * selection logic that's implemented in a common state h=
-elper (like
-> > > > > > > > +	 * how HDMI does it).
-> > > > > > > > +	 */
-> > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO =3D 0,
-> > > > > > > > +
-> > > > > > > > +	/**
-> > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
-> > > > > > > > +	 */
-> > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
-> > > > > > > > +
-> > > > > > > > +	/**
-> > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 outp=
-ut format (ie.
-> > > > > > > > +	 * not subsampled)
-> > > > > > > > +	 */
-> > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
-> > > > > > > > +
-> > > > > > > > +	/**
-> > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 outp=
-ut format (ie.
-> > > > > > > > +	 * with horizontal subsampling)
-> > > > > > > > +	 */
-> > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
-> > > > > > > > +
-> > > > > > > > +	/**
-> > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 outp=
-ut format (ie.
-> > > > > > > > +	 * with horizontal and vertical subsampling)
-> > > > > > > > +	 */
-> > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
-> > > > > > >=20
-> > > > > > > Seems like this should document what the quantization range
-> > > > > > > should be for each format.
-> > > > > > >=20
-> > > > > >=20
-> > > > > > I don't think so? If you want per-component bit depth values,
-> > > > > > DRM_FORMAT_* defines would be the appropriate values to use. Th=
-is
-> > > > > > enum is more abstract than that, and is there to communicate
-> > > > > > YUV vs. RGB and chroma subsampling, with bit depth being handled
-> > > > > > by other properties.
-> > > > > >=20
-> > > > > > If you mean the factor used for subsampling, then that'd only be
-> > > > > > relevant if YCBCR410 was supported where one chroma plane isn't
-> > > > > > halved but quartered in resolution. I suspect 4:1:0 will never
-> > > > > > be added; no digital display protocol standard supports it to my
-> > > > > > knowledge, and hopefully none ever will.
-> > > > >=20
-> > > > > No, I mean the quantization range (16-235 vs. 0-255 etc).
-> > > > >=20
-> > > > > The i915 behaviour is that YCbCr is always limited range,
-> > > > > RGB can either be full or limited range depending on the=20
-> > > > > "Broadcast RGB" property and other related factors.
-> > > >=20
-> > > > So far the HDMI state has both the format and quantization range as
-> > > > different fields. I'm not sure we need to document the range in the
-> > > > format field, maybe only mention it's not part of the format but ha=
-s a
-> > > > field of its own?
-> > >=20
-> > > I think we only have it for RGB (on some drivers only?). For YCbCr
-> > > I think the assumption is limited range everywhere.
-> > >=20
-> > > But I'm not really concerned about documenting struct members.
-> > > What I'm talking about is the *uapi* docs. Surely userspace
-> > > will want to know what the new property actually does so the
-> > > uapi needs to be documented properly. And down the line some
-> > > new driver might also implement the wrong behaviour if there
-> > > is no clear specification.
-> > >=20
-> > > So I'm thinking (or perhaps hoping) the rule might be something like:
-> > > - YCbCr limited range=20
-> > > - RGB full range if "Broadcast RGB" property is not present
-> > > - RGB full or limited range based on the "Broadcast RGB" property
-> > >   if it's present
-> > >=20
-> > > I think the "Broadcast RGB" property itself might also be lacking
-> > > proper uapi docs, so that may need to be remedied as well.
-> > >=20
-> > >=20
-> >=20
-> > Alright, so in v12 I'll do the following:
-> >=20
-> > - Add a line to all YCBCR connector formats that specifies they're
-> >   limited range as long as Broadcast RGB is limited. Whether it's limit=
-ed
-> >   range when Broadcast RGB is full is purposefully left undefined.
->=20
-> "Broadcast RGB", as the name implies, only affects RGB output.
 
-Alright, I'll scratch the overcomplicated undefined behaviour thing
-and just say it's limited range, and in the future, we can extend it
-to limited range by default but full range if another new property is
-set.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
->=20
-> >   In the future, we can expand this to state they're limited range by
-> >   default unless some other property is set. If we're not re-using
-> >   Broadcast RGB for that, this will work out fine, because users who
-> >   don't know about the eventual new property won't have this behaviour
-> >   changed. If we do re-use "Broadcast RGB" for that, then only users
-> >   relying on things we explicitly left undefined will get surprise
-> >   full range YCBCR.
-> > - Add a line to the RGB connector format that specifies its range
-> >   depends on the "Broadcast RGB" property
-> >=20
-> > This is a bit of a mess, because it's entirely reasonable that a
-> > future YCBCR range property would want to default to full range
-> > so that users get the most color out of their monitors. But with
-> > this description of the connector color formats, we can't do that.
-> >=20
-> > If there are alternate suggestions, I'm open for them. We can't
-> > really rename "Broadcast RGB" but if I had a time machine, that'd
-> > be my first choice.
-> >=20
-> > Kind regards,
-> > Nicolas Frattaroli
-> >=20
->=20
->=20
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
+are available in the Git repository at:
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-fixes-for-7.0
 
+for you to fetch changes up to a343fb1e03cfc9f6dc83a5efb2a8d33e9cdaf6b9:
 
+  soc: qcom: pmic_glink_altmode: Fix TBT->SAFE->!TBT transition (2026-03-18 21:51:11 -0500)
+
+----------------------------------------------------------------
+Qualcomm driver fixes for v7.0
+
+Fix the length of the PD restart reason string in pd-mapper to avoid
+QMI decoding errors, resulting in the notification being dropped.
+
+Fix the newly introduce handling of TBT/USB4 notifications in pmic_glink
+altmode driver, as it broke the handling of non-TBT/USB4 DisplayPort
+unplug events.
+
+----------------------------------------------------------------
+Konrad Dybcio (2):
+      soc: qcom: pmic_glink_altmode: Fix SVID=DP && unconnected edge case
+      soc: qcom: pmic_glink_altmode: Fix TBT->SAFE->!TBT transition
+
+Mukesh Ojha (1):
+      soc: qcom: pd-mapper: Fix element length in servreg_loc_pfr_req_ei
+
+ drivers/soc/qcom/pdr_internal.h       |  2 +-
+ drivers/soc/qcom/pmic_glink_altmode.c | 39 +++++++++++++++++++++++++----------
+ drivers/soc/qcom/qcom_pdr_msg.c       |  2 +-
+ include/linux/soc/qcom/pdr.h          |  1 +
+ 4 files changed, 31 insertions(+), 13 deletions(-)
 
