@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F0A106F30C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A2F106F30A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2cSFou4RAM9jBcIrdaxJY8v5ZGpuFyXZx62301CfC+w=; b=iSvH+ple+xY+LQqnKwNZm2jrpI
-	3uH1lfunkNS/VlnVtqpYELwN0ZEeLJXXdJvviHgR54HVj1BM6sa5avfViYCAhT2CppN+bGFGEnNOc
-	EQ7V8D68sqfNZjOcNRaMfSROjWeWvj170RPAg4GXg8uyqOq10vF0qAVSUAK9+wTeXoJy5g2Q0bk4A
-	BlsTGcJT8p+dKZ8vVCSEtZZ7/WORIOdbWOzH4qtqus3StAUDG0HqbY7zc0eR0zx4v/X3Pe78uW7sG
-	GmTKlE5rdOR8FNSYeYdMthgc7mPW5qLYvWrYi2DcwEWJbOsALFxIq5xLRmI1/Y07otEMz1qSb3a1E
-	QX0i53aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=se03Pleb/yvbhpdA/nP9mguBlHjhILkDPsR0MJ+AyMY=; b=mAwzGdEcUGXDGQHbefd/2zI8Fg
+	AcKRi3ck/zYZsQFTu39Ui/vSBPv7UU2DWaV2GfOYNQCUIZ91qWa3dYBdHob1oO3Q07u+IS0k2WmC2
+	He2j//fsnjbvS0Vp0P23J/V9OApeJAQCh3+4lWaTLGQIJTQS/a5k1xON2mi6dvDoXAd7cvOMEQ0v5
+	3pUD3AZ0E1syMjizTse+vVylikw4LRbd6TSIMKb7CXmJrsusak8K6u8nGoyLtrrK90Enum0o+6Noi
+	7LcF6ZVWsoa82ePlPhqBXBGuPI3mM3pGTXhGnrz4IT275kVOuR3e2MlA9CX/Lp5//9YLtWTQC13bZ
+	NtpmGrfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ggP-000000056UY-1j47;
-	Thu, 26 Mar 2026 09:07:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w5ggQ-000000056Wi-2sVY;
+	Thu, 26 Mar 2026 09:07:20 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gfq-000000056G4-3q1B
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Mar 2026 09:06:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:From:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=2cSFou4RAM9jBcIrdaxJY8v5ZGpuFyXZx62301CfC+w=; b=NGLdSxXo7ohMBYtX35Dwb02kjH
-	w8YchQenTA6zRJJBaeNh36xhR5qFcNhQhiu2hOUKtcRM5TLEKxczBaL+E7tbS5hVaTvW3ZBFRzNEe
-	0eUdPBax3D+fvff3ofgHk8lU9FGvPhOJZ+eHjckpHN30t0XgDehp8IwWIW0sn/oBI8A31MesAmwBI
-	ybGd5N6ZQ84D4JEXWzxYPbc8JLcpxslxHiShR+wr9nn9pRT+SJCpKce8LCcdaGIPlH9CMdEQsPtts
-	f2pgAOiGncfvBHelSjYaHu+tYjF50qRrGQ1oOKeOFSVMyjJ9StI1LEHkFM/m14B0IxWq+/VQct/9P
-	agRTgk8g==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gfn-00000007pwc-1uvP
+	id 1w5gg7-000000056OK-2stF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 09:06:41 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4852e9ca034so6984945e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:06:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774515998; x=1775120798; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2cSFou4RAM9jBcIrdaxJY8v5ZGpuFyXZx62301CfC+w=;
-        b=CnIgaWE+J7fNGrlsv+V8jheWGrUZ5ekhNviPRLUEjfEUyCTOXbOaQlAiR1pP0HLWbP
-         AAQVOrvMi/5C87z1FdISKlquG8e+LDrWspihtArSvd/JLVXbxMF7P7dsdDvrRt409lq6
-         suyADLNLFRPUZkaYTSbMkdoBLgZgtP6rgrGAHH/mDNkGR6eiye9D9LY7Kgx1RnsvIT+3
-         gLkwE15bOoLUJ0p/H/UzQNI8KhfJnp7wjcd4L7JE5OW4IDN0LHnxZQiZbM06/xT9w5Nj
-         k4Ph6sLaxD+hJCm9Of1L+OnbMyfCuJsbsY7wW+uVGcb6Z4YUCZAsh25rFoz/3lt0p8gm
-         Cu7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774515998; x=1775120798;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2cSFou4RAM9jBcIrdaxJY8v5ZGpuFyXZx62301CfC+w=;
-        b=E3krw//MmuAmF1OVeqHpnNSc6MduIpgMLihxwKiN0FSWjy/idZJpqa+6L8YU/Ex29s
-         hvhqsvNMDmgolA5+aj4Xzeyhd18G8Ght1J8mwvo1N74nB1lE/J3EsgGUyvHPgtb1TCKF
-         2WtnUnUedpwiwtdErLgMr9FysTrYzXc/7QhQJGLgEI5IhVM5HN1LiP80OdUmrtH8MK2B
-         OdUMj6os2vy+2QUSjg9tc9std8BRc1/3DIJQzdPsbD7c6PVYa6+eqYxTAr6EPnF84b5V
-         d9WIupxeU51O2osNen4O1LaNgUBvLDV5WPUug8jQqnrYdVnU7RAscKK99+Hj8THaYbFT
-         JDQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXQSF+8+0LGYb2iiZNotQgDOClc1dNL+AiKfxUm+fD+Vu4bMcDtif/BaS+4xgTVSUZWK5XYWblggrw20ZeZiWka@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVe8q4x2LE2XkrKLTf2elwvH/crrJJdkl9QupqrryqXD5o57yR
-	ET0a0NpC270jYn4mt765eCbIfVsOhIp2jPKtIwxzwNhry5tRKIjbOKTA+HpbKCVBEfU=
-X-Gm-Gg: ATEYQzwFLEXVPKwojjwPveuab7ExExPROWNHDkCEloNDZ3XQ2oep8OAA1F9hsSAQKFa
-	LyOIS7Z5t9oyWLprYu+fUwejc8aPQFyo191KBVfBIx+yVvS+xSbrmknnSXic1W/paejMkVnx5QZ
-	W3s/MuzIrzwCL/QiWrP8nJFMKH9U+/HeR7KE2Wqx6Rx0JLCJYlVuWo5Fs0hK8s7STwWe2+xxrlv
-	7glkAjLjRhw3rTOetPkDd1MCW4dlZqNPB+A5OYd/xtgpLATbBF3WfnSVUOOeajSquYiPMGRo8f7
-	juXiByl7j/Jkbglge3M2wVpp3Y6PWGY2q2RwW+1e281gWTxnl6fm60lRU5aZxEbal2d8IfUJOwk
-	zQBmQSERZG7fVeLnrkhvXoZSns/05dG3TMGlyckLmdEVK4dLanxBIi97ffWt2P2IF+PFd+oSy0a
-	FvGywu1/11MysQbD911hN6/7VH3sasu3ufeUPX70sPynn9
-X-Received: by 2002:a05:600c:154b:b0:487:243f:dc3e with SMTP id 5b1f17b1804b1-487243fdc55mr572145e9.6.1774515997897;
-        Thu, 26 Mar 2026 02:06:37 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872090368dsm14726905e9.5.2026.03.26.02.06.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 02:06:37 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Anand Moon <linux.amoon@gmail.com>
-In-Reply-To: <20260219103548.18392-1-linux.amoon@gmail.com>
-References: <20260219103548.18392-1-linux.amoon@gmail.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-axg: Add missing cache
- information to cpu0
-Message-Id: <177451599694.122020.11374125029762505205.b4-ty@linaro.org>
-Date: Thu, 26 Mar 2026 10:06:36 +0100
+	Thu, 26 Mar 2026 09:07:00 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62Q7H9fV2125486;
+	Thu, 26 Mar 2026 02:06:53 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=se03Pleb/yvbhpdA/nP9mguBl
+	HjhILkDPsR0MJ+AyMY=; b=PCiG3SgpEbvWRQTu4kad+h6ehEIX2FG2sgfMFfm97
+	2IyIFOytkWTPP3y/A69tcRdT0Mn/XV597ExFDCjToeP8KWtgCrdPKKD6ItID4q9z
+	Z76dQnmz174pryk/BpMda52ICP9POUgSPhFytaV805zXN/snHPyZK20TOAEjSueo
+	0jdLS0Yme9hlKE7Z/yYoqDZfeTLla7ssYwIOFQIpjhSU2qNF2s9RIywaEQgKmtSW
+	ffEn9L8nt1UVZDjmuLMTrccAP9cMLQMsITrS5vTAe1c9d9yol9CyqKeqSN2UQt3Q
+	QlyOCiKFIgzKBwFzMZIMkRVOGQ4OCXY8E/QKBFuKjnWTQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4d47nac0ts-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Mar 2026 02:06:53 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 26 Mar 2026 02:06:52 -0700
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 26 Mar 2026 02:06:52 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Thu, 26 Mar 2026 02:06:52 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id 995BD3F7041;
+	Thu, 26 Mar 2026 02:06:49 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
+Subject: [PATCH 1/2] dt-bindings: perf: marvell: Document CN20K DDR PMU
+Date: Thu, 26 Mar 2026 14:36:44 +0530
+Message-ID: <20260326090645.22590-2-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260326090645.22590-1-gakula@marvell.com>
+References: <20260326090645.22590-1-gakula@marvell.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA2NiBTYWx0ZWRfX/J5Arq7S4bjC
+ zQadQ6PFaV0w2/oFsNfaidkz+iO+2cu5Hi9YgIUeVHXLVR4qhx6vFlCwVYoDq6wkufZU2N/qT61
+ zoBL6eWy9IbAwL9OJn0fQWPPKTf/88z7ev3fwJdXTdQedyQXpx9lWCpZu/eYdVo/3z99S0bkeIg
+ xXHTOAE/0BF0c1p+/UvQy5pacMXAl1lmIQ1FESU6js04bYI/MaVBpagdw2nqhgZmRSQx/j450Tr
+ v0Vcno+IS7rFhHfpiwsaS8vw4clrt0Z/kGaQV6HNHJdTL4csFopMXee58ze6jqU5S++OobTU+/Y
+ HBKNgfEKn7g8oJIPjTNQbvLaWZ6OJmS95keEWveK9pS6MRNTastgNXWEOU4nrKq3cHmyS4ZbWOp
+ fEHeHc2NHl9g9GA2Qu5ff6ju2O+L2N1UV1f97J+HMHc/pJ3RKaAaNjCFqW441pEIusH8miSgpvM
+ vBh8Wcj0HDsAEJHw6IA==
+X-Authority-Analysis: v=2.4 cv=LsifC3dc c=1 sm=1 tr=0 ts=69c4f72d cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=EAYMVhzMl8SCOHhVQcBL:22 a=gEfo2CItAAAA:8 a=M5GUcnROAAAA:8
+ a=4RHyKZYBQQhKSXLDbdEA:9 a=sptkURWiP4Gy88Gu7hUp:22 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-ORIG-GUID: 0st2OJMtM2llfiW5VdOFHYLxAIjmqY_r
+X-Proofpoint-GUID: 0st2OJMtM2llfiW5VdOFHYLxAIjmqY_r
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-26_02,2026-03-24_01,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_090639_628914_0CAE3DAA 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260326_020659_728437_D5B91887 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,41 +104,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add a devicetree binding for the Marvell CN20K DDR performance
+monitor block, including the marvell,cn20k-ddr-pmu compatible
+string and the required MMIO reg region.
 
-On Thu, 19 Feb 2026 16:05:46 +0530, Anand Moon wrote:
-> Add missing L1 data and instruction cache parameters to the CPU node 0
-> for the Cortex-A53 caches on the Meson AXG SoC.
-> 
-> 
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+---
+ .../bindings/perf/marvell-cn20k-ddr.yaml      | 37 +++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.1/arm64-dt)
-
-[1/1] arm64: dts: amlogic: meson-axg: Add missing cache information to cpu0
-      https://git.kernel.org/amlogic/c/e28f4b18c134f944b0ae93ebf1bacc8e517fdcf5
-
-These changes has been applied on the intermediate git tree [1].
-
-The v7.1/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
-
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-
+diff --git a/Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml b/Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml
+new file mode 100644
+index 000000000000..6677d9eb4ba3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml
+@@ -0,0 +1,37 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/perf/marvell-cn20k-ddr.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Marvell CN20K DDR performance monitor
++
++maintainers:
++  - Geetha sowjanya <gakula@marvell.com>
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - marvell,cn20k-ddr-pmu
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        ddrcpmu {
++            compatible = "marvell,cn20k-ddr-pmu";
++            reg = <0xc200 0x00000000 0x0 0x100000>;
++        };
++    };
 -- 
-Neil
+2.25.1
 
 
