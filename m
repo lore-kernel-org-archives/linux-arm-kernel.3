@@ -4,146 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AF9109E52B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 01:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD5D109E530
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 01:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jb7pMYsrkdQgmJTI2svq021PuHzvaFbIPwoaj/zr1YI=; b=CdoRN+X1xBobyMEUVIf2wrjWSg
-	DHrbsRmS4X/Iezu6ec953z51NuLfar/Az5nqQHzsA7YUe2D9rAoWNfCw9DzVJ06QqTurZPuIz9xfc
-	UL3yvzBL+QNZ0kVbx5IeFeOXDKRYEn52/3+nyXL7U51VTI6lUKGqsgKt1IeB+DQ/KPPoZiProifbD
-	EAxJtoZ3Pr8itLN3B/IjSpzRQ6/Kmpz5gqClKjj8oLjkEW7WgK3M8/Bn4d4fD03boTnyQIZwEwUgF
-	mZyrD+JbV82CrLk39PsQ7GfffIR6TLZlKnhL3VeEPZcJFp37ZHJvO0n8vQjflxj5SWqhL+LTirJdQ
-	dMScX5eA==;
+	bh=LJmXyG1N9+0wlfMPzmUCNKxviTWEWHgcjOWVkbw1nzE=; b=UIDdpS1y7FR0TF1LwLNheEibiV
+	PprOp5TASyNYJkMcFA9aT8DQRWpPweVO20qpmLCgC6dSVwtNda2CD5qu+vC/t1yinHciTAdsSdhX8
+	as/B6VMny/TllF+Ha0lVduI9Z/4DhhlZibzW46qkVCE9kgqPuUB/rbQNkbjrU1zcr1dofb5mpMglI
+	FpvYYY7zKTFZdf+IdZYV2KtpfHD4lvs82fv1qvZe1GX5TET55G7D+YWHo4CN20DXpd2cmcKdFfO+B
+	aFfTmKVo/MSgZnIbyRWd+KQ7eDhmNC8hRVL9od//g1XhRzclQkpaMojeMWopS2s/jtD5iNCKWH6YD
+	2vpUuyhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ZOh-00000004WCc-3zXP;
-	Thu, 26 Mar 2026 01:20:31 +0000
-Received: from mail-swedencentralazon11013015.outbound.protection.outlook.com ([52.101.83.15] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w5ZT1-00000004WPL-3niy;
+	Thu, 26 Mar 2026 01:24:59 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ZOe-00000004WC9-3Alc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 01:20:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v4phisthDyu6NOMERx8KAEKXTiL2Qq5h+AZdjCdZn7RaD4o7bU1h+9i2yYzr6joNBN4N2oawfhczlyA7qUgyw1mDiPzExWKsCr/YCxm3sk/3E89coFD4LVmmcnze/0pnxQ4YnMTYBqDxjmSbUMzjk2E7HXOTBecMkM9w7VBCS9Qxj+LF964ues+f5Y8XTgNxnj6AOlyhjwm9E6f/9AFdTh6ivAAtOmsuWgBXB0msy81CjhstQL1mK77R8mpHT8qqJwtN7C5nZIf7nbN+ogrYHGc6H8HkAMvzQAvHjMqrXlshdxEm1rFJMZschDyABJYWpiNrcYC4K2I1/oIOWTBe6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jb7pMYsrkdQgmJTI2svq021PuHzvaFbIPwoaj/zr1YI=;
- b=Nu45W7e2WMSvstRk5FQw+7MIcJL95mlCtIF31K9weQde7YOw2yNBh/mE/H6nJQvYahxLWoPgAtho1AqLWKb4raaiESwCXeRRUCus4Wmf5Qbnj+fD50bjEzdFhVnx6zRl7JmVwJV6kAWdKG4WXMbrCPb2FWtwsnz85UItXIEWRgMNNed+gUL8+laraL8ei/kdn16J/AsRx5kycbj9V9J8jfALhcb/rHfyQ+ozkpC+6W0nFDZdfFRM4FHqDjg+6Y4gLWrqaSsA2GwVcEbzkocUR/UWyka6P20jQMIt7KROYAFTQczPzV/bIKjRiAh8FUt5fVdzJcgR4qqxez1YxAPvDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jb7pMYsrkdQgmJTI2svq021PuHzvaFbIPwoaj/zr1YI=;
- b=SwAHEFu74bIQHaeFSg/QhWIYsF6/JpAW1V77g5tA6PVM5Cb+F2N/tj9veJipgX3TsQwLXEjXUu3NqCgwYFjvBPkKrx1xshRX7ECY8XrcRHOeS3vVAJCw0UMr2lrsH5iZ7H3/PCXeT1ESJ+SeGViistgPxsOeK+AiXfaPfTIgobIdwPdiy+ptttNxo5apTIGhwQytPLQAKqo+i2k2kvcu12TSXp7h6zKK6a+PJ7cb68hYOUKyLpU/49RykKELD3juvOFUTc1vJJKq5UEGOasxplUdVkR79MqjvdHSGpOqr4iHNVgDIhRdxuZ3wZAytZ+Ms9jwqKcHyw6uXDdRM613oA==
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by VI2PR04MB10954.eurprd04.prod.outlook.com (2603:10a6:800:278::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Thu, 26 Mar
- 2026 01:20:21 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9723.030; Thu, 26 Mar 2026
- 01:20:20 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Franz Schnyder <fra.schnyder@gmail.com>, Lucas Stach
-	<l.stach@pengutronix.de>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn
- Helgaas <bhelgaas@google.com>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-CC: Franz Schnyder <franz.schnyder@toradex.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Francesco Dolcini
-	<francesco.dolcini@toradex.com>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v1] PCI: imx6: Fix reference clock source selection
-Thread-Topic: [PATCH v1] PCI: imx6: Fix reference clock source selection
-Thread-Index: AQHcvDpAhX77nZBBQkStXX/rfA9WerXAA6ag
-Date: Thu, 26 Mar 2026 01:20:20 +0000
-Message-ID: <AS8PR04MB8833941DBCDF040D2E7186978C56A@AS8PR04MB8833.eurprd04.prod.outlook.com>
-References: <20260325093118.684142-1-fra.schnyder@gmail.com>
-In-Reply-To: <20260325093118.684142-1-fra.schnyder@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|VI2PR04MB10954:EE_
-x-ms-office365-filtering-correlation-id: eab38e33-d652-4b14-89ae-08de8ad5d900
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|18002099003|56012099003|22082099003|921020|38070700021;
-x-microsoft-antispam-message-info: 9frP5O7DzHaPfq8kTDDcgfjKj08hj2UY5cjbOjl4aqUchTIkMRLYQGJSTKBtMAFdT8kZ4JnSGDr+xk9wpDuS1XcDCKEJJvcnoYAt1kWLYpjq87RKxoJ9ELe+fviBUUt2tVcVMDPsLGlJP579ZENsJYp5E3XfYS2z/xBe7y9NwS50dUArTv+TdVUoc0KAWAWYeIq+hl44exB7FX7GxJMHOAY6Pvgz8gKJhNvbAauuEaGbsmM3xgZOfcSGj8LTI49eDU0egqLs/eFOpNd4Ls6TyuhNfj8D0Fci17pJEQ5KiUsAq9v1yvXHZJVVmqse9iy2umBv9FAlNsVWu3OW+Q5VUqpJoMG5oNfh4AJTv4YE2FW/JWxp2e72peCA8hdRRJN7TuqBw236PSYNAfU4X6WYpVkSqTgSduk6dCpTmcXteU8rCDh/L+zerKAr/aXGrstP1+K12VmKP52iD1P+cMdTflP6nmPxaknfP4Hn1FqB2lRS5/3JypnfxYA3Y31jQNwXnFV8tHRgFP+jhAkdYHeOSB20F1fQnM50ZrxgSbTKi//aTEReR7B2BNX3FIt4S6sEBbNK6X4kg31aMHnwBqN2w++efWPa/nhhd1p9IUrUCEEVNNKiclYarHk42J/zo5ATjj1MIzU1KtBtYYOrgAEvknRtZ7wkNcAAmJY5LrAm80lrOYjZ22LiHi9njF8zUDrFY2joOJeJPTr9XqN4m7vDDLrHS1n1QbGML6qeDhLsGeMdkh+i294hcfBlEAicuCstnCrfmRsLhGFqZF41cbov+dVwayT4ZP7pk6tb1eug16Dm0LYwg9c0J8dYeP7MWMX7
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(18002099003)(56012099003)(22082099003)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?VHVwSWtTU0FKR0NsaUxUOVJSamNJckNSSDRxb05aOHd6eDRJSW45ajJDbUNk?=
- =?gb2312?B?MmRlSXFwTVllZFZucTdPaUVXT0MvMVFMVUpYbGtPeGY5QWRPeU55QUM2NnFl?=
- =?gb2312?B?a1dwbTBraFNLcExDRWVFa0RnaDNCeTB6QXV6YnBBbEpiQXZWcFNGcHZLTlJn?=
- =?gb2312?B?dVFsdFgyOTFGUVVVbUlpcy9MMnVzbzNqanVZcmpITzgzRXdidk5Xb1Z5bDQ4?=
- =?gb2312?B?eTFteUhnVFkxZ0VnOXNPcEVoNWlvUi8rbzR4NndmOXFNM3lScjRwSDltQ1Z4?=
- =?gb2312?B?Wi82R2RZL2hGZmN3WCtLcjRhbmFveFNLYTJKbjIvbWpSRHB0QmJqaWZpZ29I?=
- =?gb2312?B?eVIxSEZ4SFQ3ZE0rS2NDdEd6S0tVei8wQXN0ZjQ0VmU0RUdBdXYxL1ZoK0xU?=
- =?gb2312?B?WFk4YzJIL0dCY2dsVjZnL2JkNU5TNkhWL2ltVzB3bVVFd3lkaHFTMHRGTTF5?=
- =?gb2312?B?ZTIrbEtqVzNPbHJUTlJoM2ZSdzhzNUZRTU8rc3UzWWF6aXhkZWJ1d054T0Zr?=
- =?gb2312?B?ZHRBYnhJR2tUL0sxcmxURlVkenEwZXJRSGt5ZmkzR3B5ako5dnMwMlVQd3di?=
- =?gb2312?B?eFd0V2ZDRTlCMFE2VTYvVTBuQlhyd04yUGV2WS82cndnN1hFeGxKbng4OEU5?=
- =?gb2312?B?K1lTYzM3dmpKQXhINE8vSUJ5S0E4b21JNXphalpwNTFHZ1JwQk5CVzBzKzNJ?=
- =?gb2312?B?aURyWlowUXYyM2pkQkllOEt0VXBTVjkxT2tNSTcycS93MXhpdUI4TzY5SG1O?=
- =?gb2312?B?bS9EU29xK0NTU25VMHFEcElyRkdwNTdLSkVlYmhsL0oyVGNhdXNzMjJ1b2Uv?=
- =?gb2312?B?S0Z0MCtoV0Y2ZktzKzltUURZSVE2ZUpad0JieEVGM0o1NVBUNkZZRERRMmdN?=
- =?gb2312?B?dmFWdUx2REpWS1lNY3RNaTlXWk13Q0h0TEtQelRSYzlPeHN1YTRHUVJUUHZi?=
- =?gb2312?B?aUVxOWR4VzFLQ01ETFp5QktKa0RRc1BiektPVUFKcXVGZ05vVXVzRkNwOTlQ?=
- =?gb2312?B?TGxidDhyM29YRlNnM1pIV2pleW5PN0RHbytUaGVtaGRqTWJjZDhYYk05eDNZ?=
- =?gb2312?B?SHZLVjlpWmJGYVlIejRmNERlQkFPdzZtUHZYUExIMW13MFV6SU9sdlpkaVpV?=
- =?gb2312?B?K0NDWEl3RHVaR1NQaUQrWlZ1NFpiZzBQU0h5bUhrZnJKWVJUYTR2WkttRmVr?=
- =?gb2312?B?aGI3R2FtMlZqNkIwcCtJS1FQeHBPdWwrWW1VbUFDenBVUnRJbE5wekRKNnVi?=
- =?gb2312?B?TFJZWmRGSTZwdmZiUWFNUXE1Qmo1aFZscUV1YjJ1QVAyT3Bab1VTWFpSSXIv?=
- =?gb2312?B?cE1hd2dGMWpuRUV4YnA5NlVZc1NzUTQ1OEsvM3FGamNrKzJrZVRQamdkeTNw?=
- =?gb2312?B?c2pCVVVEYjJhZTg0S2tXekh3L0RUcTE1WmJTTTJDSm5LdWFTZWZkSzM4Q0RB?=
- =?gb2312?B?OWgrcUZpV3ZtWEliQjJpc2lNSU16YzRpblkxVFEvWGJ3Q1U4cWw2NWNBeDNB?=
- =?gb2312?B?b0J3U01NbHVLTWNTZ0F4ZUtGcy9kbS9uZ2w5L1F5c0pmeTFScUdCNjVSb0Q5?=
- =?gb2312?B?WXZkcTFIWUJHSjdWNzE1aGZLWnFkaWkwYW5TNlB3WGZ4VmFzZ0txNkNaYk1Z?=
- =?gb2312?B?K0gvVVJ4MHd1N001bkJvSzRUM0ptYkxvNmZyMGxaQVgydGppSW0xSyt5eXUx?=
- =?gb2312?B?Y2VTbDcwdW1ldUx1eWYxaUtncVpGWXlwMGtKZnVTNERIc0NVUmpTRzFnYUVu?=
- =?gb2312?B?UTljOERsK3NjQk5tMTNITG5tSEJaamdRdEdGTStldUdiME9iWXJvUmlhbE8v?=
- =?gb2312?B?WGpaTVRoSWl1K2F0bGlBTGYvdWwvN0JCOWNoTUFjOHhRYUl4ZUhzVkU0bWND?=
- =?gb2312?B?NzRkUTBKeVBVeUxzR3lGbkoyKytMTlNyTGlSZ1BJUnJ5aDBjeEFWd2tIQjNC?=
- =?gb2312?B?NDNjcXl1b0FOajRsak5HbE04aVJWbWpZZkVFRWRGWTE0NURjV245aThYN1pL?=
- =?gb2312?B?VUZqcTVXT2d3UFRmRGlGd3BDcm8vaGJvbmZYZ2oxR1VYVS9QUWIvR3BCQklQ?=
- =?gb2312?B?RHdndmtqUFdwanJhcHJtaWI4dG5yZnB2dm5nNnJZaGJhUG1NWWRSQitEdTZE?=
- =?gb2312?B?cVdNbjlMUVpsbVpyNm5wdE1NNGp6ZlFSV0JhY3Z4RVhJMWNxL3NmUnZObncw?=
- =?gb2312?B?M1VEajlhbm9hbnN1L01ZeVdaeDdUNWlxbUpTd0svVkthZXNyZjZ1dVpzSWtL?=
- =?gb2312?B?WkptbUMvYU52TDh6NHpyOURZNmp0RmpKWG9JeUNXY3hRMXVZcWhZUkFpM2JS?=
- =?gb2312?Q?XpaRNcG4IHiHa1itdM?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	id 1w5ZSy-00000004WOq-2LK6;
+	Thu, 26 Mar 2026 01:24:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774488296; x=1806024296;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Eq6Xay26AJu925QH9dEoTNSTESWdI6fBXbTFQNVzJrc=;
+  b=oFjBWqqhB6u6oSVOs1nm6h0ZSVlUkj0xSRItY8AGHr6i9SyEPeSz7FY5
+   OaeGneruB0uVp1d1CKPWbYT7Etl/opq2/onNmDVaBMhcTHf0//yX4iSsb
+   aivkxdNc7uMKVCWDOVU0QfLlb8r4oQDxFzjIUfrZ1yCZ9IjqzMcu4Q9m3
+   RMrlKX0aEPpbbRPjEYh+ZW4UemsZEadhsXzySSPQml8XlLgfncR1OYdWC
+   MnwC4o1ssjSY7I6mWnDiSwpZJaWdH/FKsDKCIHhnVE4EFw1pFsLwBVzAB
+   qBlyRA3i4znFxyQljiBzeN6jlb8MVI0PwqPidobkcOly7hC2/pljiPOzl
+   A==;
+X-CSE-ConnectionGUID: MSxfo3/BTAaa89hPVtBHxQ==
+X-CSE-MsgGUID: N3evVfNISVqCTO6QQwr4iQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11740"; a="78135429"
+X-IronPort-AV: E=Sophos;i="6.23,141,1770624000"; 
+   d="scan'208";a="78135429"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2026 18:24:55 -0700
+X-CSE-ConnectionGUID: Q+MclzIbSm+lrW2N1XA8Fw==
+X-CSE-MsgGUID: ZoLMXqn5RwaIMsxxafBSzg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,141,1770624000"; 
+   d="scan'208";a="225107174"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 25 Mar 2026 18:24:50 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w5ZSo-000000007xp-25Yb;
+	Thu, 26 Mar 2026 01:24:46 +0000
+Date: Thu, 26 Mar 2026 09:24:18 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>, Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Cc: oe-kbuild-all@lists.linux.dev, Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	Chen-Yu Tsai <wenst@chromium.org>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] clk: mediatek: Add mt8173-mfgtop driver
+Message-ID: <202603260926.gAEaAK0A-lkp@intel.com>
+References: <20260325071951.544031-3-wenst@chromium.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eab38e33-d652-4b14-89ae-08de8ad5d900
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Mar 2026 01:20:20.6228
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: E0Wh0bo1Be65vnmkoqAHYlE2palgJySlj+XQ1JzPN/Cvcriain/wb+xdd3MLjhm062fBHdN6vbhLDED9q88luQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10954
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260325071951.544031-3-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_182028_833972_CAD381BA 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260325_182456_620861_3817AC0D 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,49 +97,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBGcmFueiBTY2hueWRlciA8ZnJh
-LnNjaG55ZGVyQGdtYWlsLmNvbT4NCj4gU2VudDogMjAyNsTqM9TCMjXI1SAxNzozMQ0KPiBUbzog
-SG9uZ3hpbmcgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT47IEx1Y2FzIFN0YWNoDQo+IDxsLnN0
-YWNoQHBlbmd1dHJvbml4LmRlPjsgTG9yZW56byBQaWVyYWxpc2kgPGxwaWVyYWxpc2lAa2VybmVs
-Lm9yZz47DQo+IEtyenlzenRvZiBXaWxjenmovXNraSA8a3dpbGN6eW5za2lAa2VybmVsLm9yZz47
-IE1hbml2YW5uYW4gU2FkaGFzaXZhbQ0KPiA8bWFuaUBrZXJuZWwub3JnPjsgUm9iIEhlcnJpbmcg
-PHJvYmhAa2VybmVsLm9yZz47IEJqb3JuIEhlbGdhYXMNCj4gPGJoZWxnYWFzQGdvb2dsZS5jb20+
-OyBGcmFuayBMaSA8ZnJhbmsubGlAbnhwLmNvbT47IFNhc2NoYSBIYXVlcg0KPiA8cy5oYXVlckBw
-ZW5ndXRyb25peC5kZT47IFBlbmd1dHJvbml4IEtlcm5lbCBUZWFtDQo+IDxrZXJuZWxAcGVuZ3V0
-cm9uaXguZGU+OyBGYWJpbyBFc3RldmFtIDxmZXN0ZXZhbUBnbWFpbC5jb20+DQo+IENjOiBGcmFu
-eiBTY2hueWRlciA8ZnJhbnouc2NobnlkZXJAdG9yYWRleC5jb20+Ow0KPiBsaW51eC1wY2lAdmdl
-ci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+IGlt
-eEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IEZyYW5jZXNj
-byBEb2xjaW5pDQo+IDxmcmFuY2VzY28uZG9sY2luaUB0b3JhZGV4LmNvbT47IHN0YWJsZUB2Z2Vy
-Lmtlcm5lbC5vcmcNCj4gU3ViamVjdDogW1BBVENIIHYxXSBQQ0k6IGlteDY6IEZpeCByZWZlcmVu
-Y2UgY2xvY2sgc291cmNlIHNlbGVjdGlvbg0KPiANCj4gRnJvbTogRnJhbnogU2NobnlkZXIgPGZy
-YW56LnNjaG55ZGVyQHRvcmFkZXguY29tPg0KPiANCj4gSW4gdGhlIFBDSWUgUEhZIGluaXQgZm9y
-IHRoZSBpTVg5NSwgdGhlIHJlZmVyZW5jZSBjbG9jayBzb3VyY2Ugc2VsZWN0aW9uIHVzZXMNCj4g
-YSBjb25kaXRpb25hbCBpbnN0ZWFkIG9mIGFsd2F5cyBwYXNzaW5nIHRoZSBtYXNrLiBUaGlzIGN1
-cnJlbnRseSBicmVha3MNCj4gZnVuY3Rpb25hbGl0eSBpZiB0aGUgaW50ZXJuYWwgcmVmY2xrIGlz
-IHVzZWQuDQo+IA0KPiBQYXNzIGFsd2F5cyBJTVg5NV9QQ0lFX1JFRl9VU0VfUEFEIGFzIHRoZSBt
-YXNrIGFuZCBjbGVhciB0aGUgYml0IGlmDQo+IGV4dGVybmFsIHJlZmNsayBpcyBub3QgdXNlZC4N
-Cj4gDQo+IEZpeGVzOiBkODU3NGNlNTdkNzYgKCJQQ0k6IGlteDY6IEFkZCBleHRlcm5hbCByZWZl
-cmVuY2UgY2xvY2sgaW5wdXQgbW9kZQ0KPiBzdXBwb3J0IikNCj4gQ2M6IHN0YWJsZUB2Z2VyLmtl
-cm5lbC5vcmcNCj4gU2lnbmVkLW9mZi1ieTogRnJhbnogU2NobnlkZXIgPGZyYW56LnNjaG55ZGVy
-QHRvcmFkZXguY29tPg0KQXBvbG9naWVzLCBJIG1hZGUgYW4gZXJyb3Igd2hlbiBvcmdhbml6aW5n
-IHRoZSBjb2RlLg0KVGhpcyBidWcgd2FzIG5vdCBjYXVnaHQgZHVyaW5nIGxvY2FsIHRlc3Rpbmcg
-YmVjYXVzZSB0aGUgZXh0ZXJuYWwgT1NDIGNsb2NrDQogaW5wdXQgaXMgcGVybWFuZW50bHkgZW5h
-YmxlZCBvbiB0aGUgRVZLIGJvYXJkLg0KDQpBY2tlZC1ieTogUmljaGFyZCBaaHUgPGhvbmd4aW5n
-LnpodUBueHAuY29tPg0KDQpCZXN0IFJlZ2FyZHMNClJpY2hhcmQgWmh1DQo+IC0tLQ0KPiAgZHJp
-dmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYuYyB8IDQgKystLQ0KPiAgMSBmaWxlIGNo
-YW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2ktaW14Ni5jDQo+IGIvZHJpdmVycy9wY2kv
-Y29udHJvbGxlci9kd2MvcGNpLWlteDYuYw0KPiBpbmRleCA4MWE3MDkzNDk0YzguLmUwNTgwZDZl
-ZmE1NyAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYu
-Yw0KPiArKysgYi9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2ktaW14Ni5jDQo+IEBAIC0y
-NjgsOCArMjY4LDggQEAgc3RhdGljIGludCBpbXg5NV9wY2llX2luaXRfcGh5KHN0cnVjdCBpbXhf
-cGNpZQ0KPiAqaW14X3BjaWUpDQo+ICAJCQlJTVg5NV9QQ0lFX1BIWV9DUl9QQVJBX1NFTCk7DQo+
-IA0KPiAgCXJlZ21hcF91cGRhdGVfYml0cyhpbXhfcGNpZS0+aW9tdXhjX2dwciwNCj4gSU1YOTVf
-UENJRV9QSFlfR0VOX0NUUkwsDQo+IC0JCQkgICBleHQgPyBJTVg5NV9QQ0lFX1JFRl9VU0VfUEFE
-IDogMCwNCj4gLQkJCSAgIElNWDk1X1BDSUVfUkVGX1VTRV9QQUQpOw0KPiArCQkJICAgSU1YOTVf
-UENJRV9SRUZfVVNFX1BBRCwNCj4gKwkJCSAgIGV4dCA/IElNWDk1X1BDSUVfUkVGX1VTRV9QQUQg
-OiAwKTsNCj4gIAlyZWdtYXBfdXBkYXRlX2JpdHMoaW14X3BjaWUtPmlvbXV4Y19ncHIsIElNWDk1
-X1BDSUVfU1NfUldfUkVHXzAsDQo+ICAJCQkgICBJTVg5NV9QQ0lFX1JFRl9DTEtFTiwNCj4gIAkJ
-CSAgIGV4dCA/IDAgOiBJTVg5NV9QQ0lFX1JFRl9DTEtFTik7DQo+IC0tDQo+IDIuNDMuMA0KDQo=
+Hi Chen-Yu,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on robh/for-next drm-misc/drm-misc-next linus/master v7.0-rc5 next-20260325]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Yu-Tsai/dt-bindings-clock-mediatek-Add-mt8173-mfgtop/20260325-202618
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20260325071951.544031-3-wenst%40chromium.org
+patch subject: [PATCH v2 2/5] clk: mediatek: Add mt8173-mfgtop driver
+config: loongarch-randconfig-002-20260326 (https://download.01.org/0day-ci/archive/20260326/202603260926.gAEaAK0A-lkp@intel.com/config)
+compiler: loongarch64-linux-gcc (GCC) 14.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260326/202603260926.gAEaAK0A-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603260926.gAEaAK0A-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/pmdomain/governor.c: In function 'default_suspend_ok':
+>> drivers/pmdomain/governor.c:88:24: error: 'struct dev_pm_info' has no member named 'ignore_children'
+      88 |         if (!dev->power.ignore_children)
+         |                        ^
+--
+   drivers/pmdomain/core.c: In function 'genpd_queue_power_off_work':
+>> drivers/pmdomain/core.c:941:20: error: 'pm_wq' undeclared (first use in this function)
+     941 |         queue_work(pm_wq, &genpd->power_off_work);
+         |                    ^~~~~
+   drivers/pmdomain/core.c:941:20: note: each undeclared identifier is reported only once for each function it appears in
+   drivers/pmdomain/core.c: In function 'genpd_dev_pm_qos_notifier':
+>> drivers/pmdomain/core.c:1138:39: error: 'struct dev_pm_info' has no member named 'ignore_children'
+    1138 |                 if (!dev || dev->power.ignore_children)
+         |                                       ^
+   drivers/pmdomain/core.c: In function 'rtpm_status_str':
+>> drivers/pmdomain/core.c:3614:23: error: 'struct dev_pm_info' has no member named 'runtime_error'
+    3614 |         if (dev->power.runtime_error)
+         |                       ^
+>> drivers/pmdomain/core.c:3616:28: error: 'struct dev_pm_info' has no member named 'disable_depth'
+    3616 |         else if (dev->power.disable_depth)
+         |                            ^
+>> drivers/pmdomain/core.c:3618:28: error: 'struct dev_pm_info' has no member named 'runtime_status'
+    3618 |         else if (dev->power.runtime_status < ARRAY_SIZE(status_lookup))
+         |                            ^
+   drivers/pmdomain/core.c:3619:45: error: 'struct dev_pm_info' has no member named 'runtime_status'
+    3619 |                 p = status_lookup[dev->power.runtime_status];
+         |                                             ^
+
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for PM_GENERIC_DOMAINS
+   Depends on [n]: PM [=n]
+   Selected by [m]:
+   - COMMON_CLK_MT8173_MFGTOP [=m] && COMMON_CLK [=y] && (ARCH_MEDIATEK || COMPILE_TEST [=y]) && COMMON_CLK_MT8173 [=m]
+
+
+vim +88 drivers/pmdomain/governor.c
+
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   49  
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   50  /**
+9df3921e026532 drivers/base/power/domain_governor.c Ulf Hansson       2016-03-31   51   * default_suspend_ok - Default PM domain governor routine to suspend devices.
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   52   * @dev: Device to check.
+3b2714c5d2d26d drivers/base/power/domain_governor.c Randy Dunlap      2023-12-05   53   *
+3b2714c5d2d26d drivers/base/power/domain_governor.c Randy Dunlap      2023-12-05   54   * Returns: true if OK to suspend, false if not OK to suspend
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   55   */
+9df3921e026532 drivers/base/power/domain_governor.c Ulf Hansson       2016-03-31   56  static bool default_suspend_ok(struct device *dev)
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   57  {
+66d29d802ef3bf drivers/base/power/domain_governor.c Ulf Hansson       2022-05-11   58  	struct gpd_timing_data *td = dev_gpd_data(dev)->td;
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   59  	unsigned long flags;
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   60  	s64 constraint_ns;
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   61  
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   62  	dev_dbg(dev, "%s()\n", __func__);
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   63  
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   64  	spin_lock_irqsave(&dev->power.lock, flags);
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   65  
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   66  	if (!td->constraint_changed) {
+9df3921e026532 drivers/base/power/domain_governor.c Ulf Hansson       2016-03-31   67  		bool ret = td->cached_suspend_ok;
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   68  
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   69  		spin_unlock_irqrestore(&dev->power.lock, flags);
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   70  		return ret;
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   71  	}
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   72  	td->constraint_changed = false;
+9df3921e026532 drivers/base/power/domain_governor.c Ulf Hansson       2016-03-31   73  	td->cached_suspend_ok = false;
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   74  	td->effective_constraint_ns = 0;
+8262331eaaf751 drivers/base/power/domain_governor.c Viresh Kumar      2019-07-04   75  	constraint_ns = __dev_pm_qos_resume_latency(dev);
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   76  
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   77  	spin_unlock_irqrestore(&dev->power.lock, flags);
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   78  
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   79  	if (constraint_ns == 0)
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   80  		return false;
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   81  
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   82  	constraint_ns *= NSEC_PER_USEC;
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   83  	/*
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   84  	 * We can walk the children without any additional locking, because
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   85  	 * they all have been suspended at this point and their
+6ff7bb0d02f829 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-05-01   86  	 * effective_constraint_ns fields won't be modified in parallel with us.
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   87  	 */
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29  @88  	if (!dev->power.ignore_children)
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   89  		device_for_each_child(dev, &constraint_ns,
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29   90  				      dev_update_qos_constraint);
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01   91  
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   92  	if (constraint_ns == PM_QOS_RESUME_LATENCY_NO_CONSTRAINT_NS) {
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   93  		/* "No restriction", so the device is allowed to suspend. */
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   94  		td->effective_constraint_ns = PM_QOS_RESUME_LATENCY_NO_CONSTRAINT_NS;
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   95  		td->cached_suspend_ok = true;
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   96  	} else if (constraint_ns == 0) {
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   97  		/*
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   98  		 * This triggers if one of the children that don't belong to a
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07   99  		 * domain has a zero PM QoS constraint and it's better not to
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  100  		 * suspend then.  effective_constraint_ns is zero already and
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  101  		 * cached_suspend_ok is false, so bail out.
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  102  		 */
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  103  		return false;
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  104  	} else {
+2b1d88cda32f81 drivers/base/power/domain_governor.c Ulf Hansson       2015-10-15  105  		constraint_ns -= td->suspend_latency_ns +
+2b1d88cda32f81 drivers/base/power/domain_governor.c Ulf Hansson       2015-10-15  106  				td->resume_latency_ns;
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  107  		/*
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  108  		 * effective_constraint_ns is zero already and cached_suspend_ok
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  109  		 * is false, so if the computed value is not positive, return
+0759e80b84e34a drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  110  		 * right away.
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  111  		 */
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  112  		if (constraint_ns <= 0)
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29  113  			return false;
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  114  
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29  115  		td->effective_constraint_ns = constraint_ns;
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  116  		td->cached_suspend_ok = true;
+704d2ce6603f7e drivers/base/power/domain_governor.c Rafael J. Wysocki 2017-11-07  117  	}
+a98f1b78ecf325 drivers/base/power/domain_governor.c Ulf Hansson       2015-10-13  118  
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29  119  	/*
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29  120  	 * The children have been suspended already, so we don't need to take
+9df3921e026532 drivers/base/power/domain_governor.c Ulf Hansson       2016-03-31  121  	 * their suspend latencies into account here.
+a5bef810ad9816 drivers/base/power/domain_governor.c Rafael J. Wysocki 2012-04-29  122  	 */
+9df3921e026532 drivers/base/power/domain_governor.c Ulf Hansson       2016-03-31  123  	return td->cached_suspend_ok;
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01  124  }
+b02c999ac325e9 drivers/base/power/domain_governor.c Rafael J. Wysocki 2011-12-01  125  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
