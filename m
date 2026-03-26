@@ -4,91 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2038810A3D80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 214BD10A3D7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/azvFG1nnUlhxSiJLaoTFukeNHF4vMpB+fiAo39JynM=; b=X52XF/E7lYaLuKdiYE7CZaFwUV
-	HdYupRLOIlY9MJXlgq7f4ik7/49x3aYZXPG2hq/jRBRaT/S4/XOJMoFVkoz0us2oc7UwF/ZYP4z3E
-	WOus+mLi9+Yb0+T2W7DxIYmXTsFD61FF1fXHpm1PxcfvynoUwQSgoMnNszXxabMN+kDyo1v4QR4S/
-	T+Fj8HUaa4UUuc4H1vRebYMcF2lEzGhg/IkvQzedNAPo+hA6RH9j/2Q7ZXCMsLUuPQnCeLO7R5PDZ
-	tuYZGlTOieidFyvi7uPuPGjat9rA1LULnbh1/zE6HvV6h84NXRUjuxgzvLZgXPnzTqgMeNyy/3Cq6
-	90paVChw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQAQsTMDZkqZ3clNWAoD9Tuqcy8i4qiqZDJqp5x03m4=; b=ckGaHNz7UnaW7U+5kzI7BTNlgc
+	dQBVE4+MOiFCGZv/qLRtW3xpraujoVTi7VkCyFPws8KZFiA4YztzzjtTflWtYEabf2kRG6lFQLuG7
+	/Q0G9YsjV2e0q2WUY7PCxiyO4KliwoiD5jSXSuouTmMhj/o17Hgyx9hngyx8kYdHVmvEmESSJgSpA
+	2gJNTZWrKsoOaShEZxz9mElngw6WX1fIyGnIwwnupZO5vg0Q6souKamPvAoqpgnz4EOn1jMrmqGKb
+	dQzYuL//L9IhtFadFH/xd3B3iGB7dZvdnCT420u3/UCMFZpET9WN25w2Tso/7dZ/sy2lswo2D3fJF
+	9/rK7fNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jev-00000005QNG-48q3;
-	Thu, 26 Mar 2026 12:17:58 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1w5jf2-00000005QP1-1Eal;
+	Thu, 26 Mar 2026 12:18:04 +0000
+Received: from mail-northeuropeazon11012055.outbound.protection.outlook.com ([52.101.66.55] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jet-00000005QLu-1j1Z
+	id 1w5jeu-00000005QM8-3PMW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 12:17:56 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-38a01c80c34so8404111fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:17:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774527473; x=1775132273; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/azvFG1nnUlhxSiJLaoTFukeNHF4vMpB+fiAo39JynM=;
-        b=gBir9IQBM001mpmG6sSigv/I8hel+uS38p4twzZsdUsdA9/vvENd0A7+n6QMAskxJb
-         2rTWOv2Bdn7D77H6DQoXJBljJ3fLZQCaqR5ionMbpcMqy0VbFqvTbQeO/6JOie3LmzS9
-         p6J8EFWU4W7mNItDobs3fyc60H6gIeCTdNS+xr8EmyJjlvcmxHnXI6MlOnOlUFNaW6bN
-         jZbYUl9fm2vIytGq8ZAGpSl/xnO1nVTsx7LvGnM9qRmmHSYvuz5XDoHRO/3SrqQ6lcrN
-         NO0JLqE+frl0xptlR3/TBFeqamaUuO3gI30oq/jP2iAxx4r4OGOc8vvBmzcFxc57OJbF
-         sD2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774527473; x=1775132273;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/azvFG1nnUlhxSiJLaoTFukeNHF4vMpB+fiAo39JynM=;
-        b=h2WXr8HMJxluq+uqQ3Kh5YJ82XznNVqmOVscWVPv/d2f1xg9u3UYSa+jpXIUF6svJf
-         dJdO60ftz17PA4QR8mXfhb/CTRb14kFuXTGdCPts2smTEws2PskH4rVz/fJBrNQVxbb3
-         VRjZ7xNu/iMqU631t1eabKMlVEDwApKhFqilOXUOfVoLfQ96lNfO5oLd4SJ2rgDv0E76
-         bVP0itNuo1eBO5E5OgMV5d3X9BmwMBl4/I1qO43BsVaVjnVUqNlV0wl8KVEb3vvZ7Icx
-         B9znEwW5QNXtF8KQorj/01pZpTlPkW2twGomEdIKqyAW48JhkZdS2W0sQit9w5wHYD1j
-         cbow==
-X-Forwarded-Encrypted: i=1; AJvYcCXjSt/cRs7A81UhP0W55JEHqfSsfNJeO4GkuEBi3TZ3l+Ml/Bz7pQTq/Q3DW6/holIr3xY461ZVCHWjUefrJ8xP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcXovl7fr6oMxFMT8wwRzr4JzngdjZ9Xm8oOAmEIAULJLPMQgi
-	BW3Flh+zNp//KR5fX4ieinBiyI4DFs/V+fXH4jPjVgV4Zclx1xgabxIG
-X-Gm-Gg: ATEYQzzpsrrV99YuedoYt8CqA/dxXFk6OJdeLAMtXgk1YrJPy53YGk4rvofK8rV38cs
-	/74jtZjZq7YwDqa3+0ikhpHdFnohRyf4mMQNLACP0Zdi0VbzRnBX0XcU2LG3J1FjZYwkxJuvUzW
-	uRL3e2wmoadWbVttVggs3FO50n4Jh3Parix0HQiDdFeMCI0hU4mJtJQ4Tjr6D7FR2wuBKHaZ9Vf
-	0v25RIAm5ESCcuN6qJ1QBJidlY7iQlbjyzI7bhtBhGN+arQcDu/dbNNBkQgSeWc+7yeZE7qY3Am
-	/INW+T+Yo0GNl+oWSI1FqZo8kLBDkfC35PVGgQos9w5eoR/bTulNwc6rJcJnhz9PcppzmYCPskG
-	tJfdDxL/nzANRQFlHQkRtYamxlbqOz1eEiuOsVHsIKOegXHPHMips6dabQZsGmSLRt0hcn6FUwC
-	mhyMuQ9MuJxRXvpqeJvjkJ7FqoWemlxtoU1+eLkv0zrTGF1qNCI9yiaWP8ZZJ7
-X-Received: by 2002:a05:651c:1114:b0:383:18fb:fdf0 with SMTP id 38308e7fff4ca-38c431f2536mr24521661fa.22.1774527472629;
-        Thu, 26 Mar 2026 05:17:52 -0700 (PDT)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38c6a848cddsm520711fa.13.2026.03.26.05.17.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 05:17:52 -0700 (PDT)
-Date: Thu, 26 Mar 2026 13:17:50 +0100
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 0/5] I2C Mux per channel bus speed
-Message-ID: <acUj7u5o0Pch260w@gmail.com>
-References: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Thu, 26 Mar 2026 12:17:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p8RbnJtaRcsRYFwcE2E3eJCoiJUoZa3CL/IvQcH5wdIbn9TILXYEZA3rFRnXOgD8IA47iNmba7dYUWPveHrt2/fZFFbI2ILdCNOq+TgYmeCQY5z2Uek9gRbSKSRR+d+O83Ga5rtYsuVodAqee8SulhWWrvpIy+Bwb80LHe7dVbCM7sfUQSqaD72+ZmkRZddyVHY7HPdxa2zzfKbxfFRE2nYa7MEAWL5IVCFaTTysCUhXiCU+IgpniVr+zNz2JCMOFDGd2t3f/j3GnC7frFJvavn6+mXeTmiDEkkr6NB1aYrQfpRzdwRzH/I6fN4mWL01uQNYOf6K9fxNQ9hi1zhLkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VQAQsTMDZkqZ3clNWAoD9Tuqcy8i4qiqZDJqp5x03m4=;
+ b=b24Yil4nl1GicVjCuwyUIJqXOdow3NAwwlk688RNIAzYNpvUmdrAs2uTDne8ewTHeeJqy1p6tueHb1yn5AiSj2Sv+XDGUz/TfQl1UZ5raU3W98IAFC1r0zLh2CBMFokK8qNvKTQQCw52ZbP8gzIH2xyXSDvM5w/VflvegHxVuX7OxvvGEs1SwbLyCUFLn++tTyjhbDSa0B3D+FeGNcblKeXhcgeLUlhl0jO4r8Yj33vnr5TX1W/bF5db/2wfnZUwc+A8x3r/9XoswXKP0oH3rFwzAOwBxTOXsRVRYUaR6dTj4VaR+rg5a+H6NTzs0WOyn96NHDNbHj9FQFN/g0/A3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VQAQsTMDZkqZ3clNWAoD9Tuqcy8i4qiqZDJqp5x03m4=;
+ b=mTQ5p4PrqzIBNrgeOaaGDzVUwzVNPrY3m61MjfPBSNur+Oykciam07+VOjgw0o/0Y+I2vWbl4PpmXdu8PzQxsatFjGqcYHVpYHnoE5W2bhYnN+cvo18pqODdpsuJTU4YWAWDasrVgmTUm8lghG50s/GKhd3wgp8QPTywbjVOGITuP4c+UQQglxRyBla/I7M9xa3osesCUN9beEWJAU4xhTtODRyB5XsuGTT5l01AoCwymIW6HSv99rB3EFAL6hsZSVZf/8dd2yWtj73Y+LEyeaMHJhWUSQ9zHXln/Pbo1tUg+ZAveTF1W2lncS34DEMGRILWyBxAm88Ngbu/468UYQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8809.eurprd04.prod.outlook.com (2603:10a6:20b:408::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Thu, 26 Mar
+ 2026 12:17:52 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Thu, 26 Mar 2026
+ 12:17:29 +0000
+Date: Thu, 26 Mar 2026 20:20:00 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Daniel Baluta <daniel.baluta@oss.nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 0/4] Add i.MX94 remoteproc support and reset vector
+ handling improvements
+Message-ID: <acT7VJP0vZ7bT9mk@shlinux89>
+References: <20260312-imx943-rproc-v1-0-3e66596592a8@nxp.com>
+ <b5e05fe6-97c4-40cd-b7cc-b417d8717aec@oss.nxp.com>
+ <acFPGVNOornxsPG6@p14s>
+ <80c7815b-26d9-4876-a44f-3e17b6338dc6@oss.nxp.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260324-i2c-mux-v9-0-5292b0608243@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <80c7815b-26d9-4876-a44f-3e17b6338dc6@oss.nxp.com>
+X-ClientProxiedBy: SG2PR02CA0084.apcprd02.prod.outlook.com
+ (2603:1096:4:90::24) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8809:EE_
+X-MS-Office365-Filtering-Correlation-Id: 205a8241-e28c-476e-d022-08de8b31a63e
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|19092799006|366016|22082099003|18002099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: 0QwBigSm9KNvppmbsNBLyalN28L9Mdph99GWKYDfC7OcIruuaa7oWVovNDp41q5RyF3mlyBAd4ezgkn3TqKD31RZZ2n1Z7aUUzk5pueaUYnC3v32fFUuaE4iDoMhXFoXTkO8CnwxKeOiYp1hbzhEDOksCD0/GW+EwS2ESMxpu+M2XhJIIxMdj2JVF32IAYNALNWmK2hZLXE7R2xtE+fnBKBsfs8eV6ZlaA5YH6R9akX90qNW7b6VSiq+zOVJMmfCzOmK4Ly0KoSN9hlkQ6nDP212iOh1WkUPBuoNzoiJISZDETZY2WUtxQFV+kypVuOc3RjmdIsb/wmqY83ux3FXlXOMbB/UXXwY4PIsvwGRCCJLGKLO2HuhAzhRRmouZ+vOLpz4BomepA9QfRKW3cOiHm4MpX1c2SidPOQrAvUz3RpHcdEcqLjM1c9dCTyONgrnQclAT/sCgVfpxA2uh+dTaRemJS3ZUxtDi73e5z2cUJJtJng+6O1ianT+nQsl0uqfzkKm8vEFXyGwVmVYIUjR0eogoDb4NCrkUgtbmLYEN0eZVfatBknCCMzj5Y7NL9fE7D5j84EdtHKZSGRR4NGVTd5ccMwKQtD2IMMnMa//jSyFVXvrGFifR59SOKOVlAfo8Vc0M5sbRVmORLaxVFyY1DbJLK1QNN1Pz65mVlnNFdEkdYu+pWLuqi2cfHZec0IUxTSI+jBIJPLK/Fe9TpkVDOjw0DT88K+EUwPU/fmoBB36IrjTITzYNg8ioGm4sgA5
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(19092799006)(366016)(22082099003)(18002099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MG43VXZMR1RITmpFZGJjaXc1TXJKZHBXMURtVjN2M0o0RVJXbFpSaG51bjl5?=
+ =?utf-8?B?VjlSZ3FDTkhsZGRhOHVrMWVSbEV4bGQvaTgzaDlPTkEyS1BUNm1UbXMvcWs1?=
+ =?utf-8?B?T041NWVoakxiWWNaVTBmNEFMSnhnOFFOeGdpbDM1NkRCNmZFYTRRV09CMWxS?=
+ =?utf-8?B?bUhZQ0VyUk9ZUlY4cC90aElnTzZTZ08xRkFMZjM4NUdSYjlmNnNNb3hyNXZC?=
+ =?utf-8?B?UEd5ejd4amJPd1pyd1hMRnZUVDZVUnRqcnF1V1BCRjFVSElYcnFicEJ5Rzhn?=
+ =?utf-8?B?RGErSHRlb2NEY2Z3cFl5TmZONmFoOGpMYmcxZVk5ZmFuOGJLVVRpR3p6dTJr?=
+ =?utf-8?B?VGI2S2xLU3VScVlNOC9OQ2JkZ0lQRnpUVnI0bkZmZWhPMFhJbzRReU5GcGtN?=
+ =?utf-8?B?MUhaS2QwL01TcWcrbk51MHhEYkdSSHIwMm5wV2hyUFpTSFVxR3NnRWJxQ1Jx?=
+ =?utf-8?B?NEF5SGRKYmwzTjYxNUQxTzE2Rld0YTNqeXZDMkM1OFY2aW03V0ZCTGQ3bTEx?=
+ =?utf-8?B?YVZBeE50N0RtanViTHRsb1NUTkEwaXpiSFl6Z3lYZTJydXVUNGx0NVd0Ylgy?=
+ =?utf-8?B?cGVLaS9DeFlwcDBPN214WGhueTF1OVdOTHBFdVhlQ3pEMGJnbDBSQzhaL3V0?=
+ =?utf-8?B?UVMzV2xaQmp5Y0NBeUNWTTFkYmpRVHV5OUpPTVlsemM4Y2lMMWhIWXlJRmdz?=
+ =?utf-8?B?MXVIZHRnTEo0UWZhZ0tuWlQxRkRqdzQvT24wakkxVlZaMFVUT2ozNEZNOXZk?=
+ =?utf-8?B?Z0VMVE9oR1R5STB4YzhJeUxBbEVIdWtmbERla21WcnduSURVRjMrSzhITFpk?=
+ =?utf-8?B?RlFCbkwvQXJXVTNMUk45TGdodFJIamRTcTc2TkhEMVhkTXhkUEJXdkhKVzZY?=
+ =?utf-8?B?cTRMN0pITjZUL2x6L0xvOUdIOGlqek9GTlhKT0NjMVU3cFdGWGxib0NEZy9G?=
+ =?utf-8?B?Q2VSY1lEV3FNd0xibmhwUmhWN0gvZVJMc1YxczE5Y1Q3NWxnSWNYV2NreUxU?=
+ =?utf-8?B?bDgvbDliQ0c5K291K090MkdqSGxreThUQ2lFL25Qb0ZMQkRUOERLN2hEQXB5?=
+ =?utf-8?B?dU5XcHVZR3k4L2xNeWhGOHZFZlpoL0xzcVE0L0hpbEQwNnV0VGUrUER4OW5o?=
+ =?utf-8?B?akZ3Wk9DeC9ZS0M0N2dBZ2VQb2RadjMwcFlZeVA3c3p0NlN1RzhocG5scGRO?=
+ =?utf-8?B?cXdocG9NM1RGQVRKM3dtemR5SEg0cHVaZ0NIWFpXa0dsa2ZLWHloZUlZRUVN?=
+ =?utf-8?B?YXU5cFRzWFNPdlFOU1ZaUVVzQUFhQnNBOTZxUlNFdHd6QXFZTTFzN3JCV21W?=
+ =?utf-8?B?VjNMTzJORUQ5cHhaRFdkWVZYRkMySnRSNWpUS1FEZFppamc1TkRxRW5JMW12?=
+ =?utf-8?B?K01QbTM2ZEZLOWpnL2lKd2FYdWt3T1BZcittVjB3M3oxTXhOWTE4elJCZHlt?=
+ =?utf-8?B?S0dQU2RYalhDSUxoVFNkRGpPcldvb05Wbko1YmNDN2ZRUi9HZURZUUlFSk9t?=
+ =?utf-8?B?YzJ3ZTRybDNBU2RrV0hlMnUwcXZDWEp6NVJYMlZkQ2hYdnFSU1JMU1plejRq?=
+ =?utf-8?B?Nm9NZmFWTkZpMEpScnM1R1l3b0N6L1RUVzl0aVhpN1puTlhxVHJ5bjJlVlB5?=
+ =?utf-8?B?L1hZUzRXWS80NXdWQTFnQktONzdxaytBcUJsK1dabkRscXI5a05VT2lGeHNv?=
+ =?utf-8?B?c0xZUXQwY29sYnVGazAyaGQyUzVsbmxOOWpXTTA0a0VKTFhxcFM1LzYzS093?=
+ =?utf-8?B?ai94cEpQczI2d0xPNUoyMnFMaFlVY3E2UnJSNmJaeHhNeUkwM3htdXRLK1hz?=
+ =?utf-8?B?UWsxbm9PWWJnczdhblZiano5WThaT0w0MzlIZkd0endFUnBZSHVuaXZVeExE?=
+ =?utf-8?B?TC95OWVpU1RhRklTZlRlZjFvMDR3NSs5eGE3Qm9JaFJNYXIrc0s1bUdKelRU?=
+ =?utf-8?B?VWdpdWM0MWdNeEoxVm5uSXp2MTFLaERUUHp0bDQ2aTExdURrM0l5aE9vRTho?=
+ =?utf-8?B?bXVoTTNxQTdTem9wOXZxQ3JVUUJVUlJCTVpuQVFhbEJLanRXLzNDUysyVWlJ?=
+ =?utf-8?B?ZXYwY3d5bDF5bE9ScVl6Wjg3MXhoNDluM0pCNnlHVExzd2tKbE9XZTd6Zkp0?=
+ =?utf-8?B?QllQSXpnUWhmbmRONXp4KzB1VHAzRGljMnRBL0lwcHRwTitVMEJ3cjdueHBU?=
+ =?utf-8?B?NVFOcEt3SEdiMW1UV0lhNndUb1ZtQWUyOFlQUzBjcVlEbTNjcGJjWHNnbWo4?=
+ =?utf-8?B?RjczWWphNnc3QndRQlR4b2duTU1XWEcrdXBiUml0WEErMHJVTm1rWUp6SDNN?=
+ =?utf-8?B?YzdlTmlRZGp4amtpdDMzNW1vcDZlaU9zZkxsZWdWOFBpYkJ0OGxmZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 205a8241-e28c-476e-d022-08de8b31a63e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 12:17:29.5490
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4sSpqMuX+BrUsJIV9B/93WvN07TfjQPVmdALqvhW6pYgoelaALyVaZKFY5UL32Ke219G4t4kZQWJuBZgL4ZZgA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_051755_473930_7CD97CF5 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20260326_051756_861068_B8B40E22 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +160,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 02:54:14PM +0100, Marcus Folkesson wrote:
-> This was a RFC on how to implement a feature to have different bus
-> speeds on different channels with an I2C multiplexer/switch.
-> As no major complaints on the design came up during the review, I
-> decided to submit the series without the RFC tag.
-> 
-> The benefit with this feature is that you may group devices after
-> the fastest bus speed they can handle.
-> A real-world example is that you could have e.g. a display running @400kHz
-> and a smart battery running @100kHz using the same I2C controller.
-> 
-> There are many corner cases where this may cause a problem for some
-> hardware topologies. I've tried to describe those I could think of
-> in the documentation, see Patch #5.
-> 
-> E.g. one risk is that if the mux driver does not disconnect channels
-> when Idle, this may cause a higher frequency to "leak" through to
-> devices that are supposed to run at lower bus speed.
-> This is not only a "problem" for changing bus speed but could also be
-> an issue for potential address conflicts.
-> 
-> This patchset has been used and tested heavily the last months
-> on a custom board based on a da850 (DaVinci) platform.
-> 
-> The implementation is split up into several patches:
-> 
-> Patch #1 Introduce a callback for the i2c controller to set bus speed
-> Patch #2 Introduce functionality to adjust bus speed depending on mux
->          channel.
-> Patch #3 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
-> Parch #4 Implement set_clk_freq for the i2c-davinci driver
-> Parch #5 Update documentation with this feature
-> 
-> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
-> ---
+On Wed, Mar 25, 2026 at 10:41:29AM +0200, Daniel Baluta wrote:
+>On 3/23/26 16:32, Mathieu Poirier wrote:
+>> On Fri, Mar 20, 2026 at 11:19:06AM +0200, Daniel Baluta wrote:
+>>> On 3/12/26 14:36, Peng Fan (OSS) wrote:
+>>>> This series adds remoteproc support for the i.MX94 family, including the
+>>>> CM70, CM71, and CM33S cores, and introduces a new device‑tree property to
+>>>> correctly derive the hardware reset vector for Cortex‑M processors whose
+>>>> ELF entry point does not directly correspond to the actual reset address.
+>>>>
+>>>> Background:
+>>>> Cortex‑M processors fetch their initial SP and PC from a fixed reset vector
+>>>> table. While ELF images embed the entry point (e_entry), this value is
+>>>> not always aligned to the hardware reset address. On platforms such as
+>>>> i.MX94 CM33S, masking is required to compute the correct reset vector
+>>>> address before programming the SoC reset registers.
+>>> What happens if the reset vector is at 0 and the e_entry point is at 0x800...?
+>>>
+>>> In this case masking will no longer work! Can we implement a generic approach?
+>>>
+>> I will wait to see an R-B from Daniel before looking at this set.
+>>
+>> Thanks,
+>> Mathieu
+>>  
+>>
+>Hi Mathieu, Peng,
+>
+>Patchseries mostly looks good to me. The only blocking issue here is how to correctly specify the hardware reset address.
+>
+>I see two options here:
+>
+>1) Create a special section in TCM that holds the PC/Stack initial value as concluded here [1]. But this
+>
+>doesn't work in all the cases 
+>
+>2) Add a per device data that holds the hardware reset mask that gets applied to entry address read from ELF.
+>
+>I'm fine going with option 2) and that's because this change is IMX rproc driver specific, it scales well and will be maintained by Peng.
 
-Peter,
-Do you have any feedback on this new approach?
+Thanks, I will go with option 2.
 
-Thanks in advance,
-Marcus
+Thanks
+Peng
+
+>
+>thanks,
+>
+>Daniel.
+>
+>[1] https://lore.kernel.org/linux-remoteproc/38476dd0-07a6-310f-1fba-2b3021a5b007@kontron.de/
+>
 
