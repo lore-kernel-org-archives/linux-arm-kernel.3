@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4AA109E54B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 06:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4D8109E557
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 06:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qyl2tRm9hwQuxiJfS+7z0mBBb4tN3hi0dNEI5cPRQeU=; b=zdKTRoI3Dj5DnnnOhTl0i1KU32
-	C0uPDYUDJs79KT1clyx1aDWpjMVUEIoHMFHx5yAY4KLmDmz4EDGoISUdkx/6grU+/JsFsYXd4KATi
-	YayF9e3+QzEeIWpLaOOHcuhMj1IUqbPQjIpUfD3H9ld1fWGJ2vFV2DLsD4MJALbnxZ/LGMVrKH29L
-	6XE6YG4nX0eaDmgbSiQMGylJNsNFis8rGNrMfd5+xWNYS7RPt4L9i2r0AxKjrtAPq8UlRhvdd/vyI
-	AfS0V7H9yPGB6p7GcMGoLwEz8Pw9A8WLfe6pS0djzEAj6VTqFnoKh1CX0donjm92Jr61lK8BbUyJh
-	+SaKtn4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hIe/d+aqEF+Og+dkwi/qcOoP5kcHDvehyPihNn/5TwE=; b=obBjenxwNvkv5d4LG+jG2rnVMm
+	E1HjKr+feX9ThE2Obd40EdpgHtIkYyzA5p4IxTeWR+jSxQ6Vxd3z7Tl+UWCbQ8Yj5EMUqoGfV+T0G
+	6V4ECSUXpqqxJTMQLTgciM+aK5Gy9suHxfoMUPWX1AN1N/f3kFT9VY3AuSXaQkT8MEZr4+qmagKMr
+	2y7oS1oiDPYHg7FRMEFsYNNSnCGpCLkIxLRzL2bywhLvLe9/czZqXYh4MU2ZM4g8eSeQEEpagbTCx
+	c4hDhm5HpLsDsUupHwff5fvLamCAMIjunE9rBZgtm9uoyXGWnr85C3DRG7x8PTaQb8/9wnFrjSksM
+	q656lXsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5eA0-00000004oYQ-3Fxk;
-	Thu, 26 Mar 2026 06:25:40 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1w5eAr-00000004off-3kut;
+	Thu, 26 Mar 2026 06:26:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5e9x-00000004oY3-3IeU
+	id 1w5eAn-00000004oea-0ykj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 06:25:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1774506335;
-	bh=qyl2tRm9hwQuxiJfS+7z0mBBb4tN3hi0dNEI5cPRQeU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=m2F1VRLu/z3h8YIiv7trbgAiAAm6P5Qmqlm2K8m0WMAkklBjdOHKK2qH+3jKOg808
-	 87SnMIqU08U0frdGWu0lwmFPUhoe/efmKqSOtLbUtzQkqL3r8jrjZv1lPf+wLPqoFl
-	 l+7v57m9JyoPSY8k0pua4Gz3vbWGjN92YBBw7Y8V6jqjNilu/9b5AJsLFetf3X3qqq
-	 ABSANVeY/39ywVNSZb/QZxqE8zKty2pJ7Kxb03mXUy9sDhCND2xX8nw6cmQZgesXBz
-	 zstN6KwZaLRvPieyfHtF7oQvWXP+3exgqvkPZAXUKgGuUVdMkQ21H2VoxdXfukWxqA
-	 KunTFnm1d75WQ==
-Received: from [192.168.68.115] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1AF006597C;
-	Thu, 26 Mar 2026 14:25:35 +0800 (AWST)
-Message-ID: <eacfdc8637a7e59457c3c7d29e1044426d5c7f75.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2] ARM: dts: aspeed: anacapa: Add eeprom device node
- for NFC adaptor board
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: carl.lee@amd.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, 	linux-kernel@vger.kernel.org,
- peter.shen@amd.com, colin.huang2@amd.com
-Date: Thu, 26 Mar 2026 16:55:34 +1030
-In-Reply-To: <20260309-arm-dts-aspeed-anacapa-add-eeprom-device-v2-1-91c7dde4b79d@amd.com>
-References: <20260309-arm-dts-aspeed-anacapa-add-eeprom-device-v2-1-91c7dde4b79d@amd.com>
+	Thu, 26 Mar 2026 06:26:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C03243F50
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 06:26:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65C6CC2BCB7
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 06:26:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774506388;
+	bh=PONUkDK5Nxfv+FEOSWCheKX6fc5iX8BXeD7AcKEe1tc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=dlyOxobOD7/nYy9+GasYYrE2iASEDUSRxFdWw1g0dcvJ4AsHzlIvOXc3dyxqz6OGe
+	 iePLcbc3KY61fK+dGD0uWopqKF+KDAXk31JmHENFOHpPn2RB6Y4RV38PPmSweUxx7u
+	 TG/FaySOkJSwu0+G9SHUuAeoUJVS3i+dOiTEIJvjunaJBJ3jAPmje6cUajjXedI1GY
+	 vlDC+bfj0EBGstW5vD9jBTCyfu42HYpK9w7ilvWyGSya0GPpymj10n7HBWRCOJepdf
+	 MN9gvYuix0F5WM9Mbvss+cJ80ACOdCxo47rIXLrykg/HulJ01EL1IT+5WnGpw/9fC+
+	 Md+/8dUSc4T0A==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-38aef9cc451so4401981fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 23:26:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWF7wFkYi2B70O0IRuWnSJ9OEIUem/wSAo7KRfg9JHxgJbnidvWP9QE1pl9FEgA7vA6Vr9mdek57ldC/fxDjtZV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsV83yvCwEJGIqgmEWImrB9njFZ5ttkEsfzpG0kX7F40Jo78c9
+	dAmoUX7a+UqykJu9hMFLoxpg4UDNtwffcUhhQvzllObhN5CUkurtllbPQABlscwFh1RvAjh5EE3
+	PBnq5K7wrT0GN1E4BhE8Eeum5XOM6USw=
+X-Received: by 2002:a05:651c:4406:20b0:38a:8b97:7e9c with SMTP id
+ 38308e7fff4ca-38c4309e800mr18002601fa.11.1774506386686; Wed, 25 Mar 2026
+ 23:26:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260325-mt7927-wifi-support-v2-v3-0-5ca66c97a755@jetm.me> <20260325-mt7927-wifi-support-v2-v3-13-5ca66c97a755@jetm.me>
+In-Reply-To: <20260325-mt7927-wifi-support-v2-v3-13-5ca66c97a755@jetm.me>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Thu, 26 Mar 2026 01:26:17 -0500
+X-Gmail-Original-Message-ID: <CAGp9LzpZy70T61o7q0t5AAYQwBK+ywp_zbLGw=4SD5Ga_gxmmQ@mail.gmail.com>
+X-Gm-Features: AQROBzBJ6-X-H7xt9CpRo8Vppnuc0zRH3pX-AHj4xX39HuOpZCQktesCUmP5MEQ
+Message-ID: <CAGp9LzpZy70T61o7q0t5AAYQwBK+ywp_zbLGw=4SD5Ga_gxmmQ@mail.gmail.com>
+Subject: Re: [PATCH v3 13/13] wifi: mt76: mt7925: enable MT7927 PCI device IDs
+To: Javier Tia <floss@jetm.me>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Deren Wu <deren.wu@mediatek.com>, 
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>, 
+	George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, 
+	Samu Toljamo <samu.toljamo@gmail.com>, Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, 
+	Chapuis Dario <chapuisdario4@gmail.com>, =?UTF-8?Q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
+	=?UTF-8?B?5byg5pet5ra1?= <Loong.0x00@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_232538_021076_A369674E 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260325_232630_111534_0D61ED45 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,68 +92,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carl,
+Hi, Javier
 
-Sorry for the delayed in review.
-
-On Mon, 2026-03-09 at 11:46 +0800, Carl Lee via B4 Relay wrote:
-> From: Carl Lee <carl.lee@amd.com>
->=20
-> Add eeprom device node for NFC adaptor board FRU.
->=20
-> Signed-off-by: Carl Lee <carl.lee@amd.com>
+On Wed, Mar 25, 2026 at 5:14=E2=80=AFPM Javier Tia <floss@jetm.me> wrote:
+>
+> Add PCI device table entries for MT7927 hardware variants:
+>   - 14c3:7927 (ASUS ROG Crosshair X870E Hero, Lenovo Legion Pro 7)
+>   - 14c3:6639 (Foxconn/Azurewave modules)
+>   - 14c3:0738 (AMD RZ738 / MediaTek MT7927)
+>
+> This is the final patch in the series, enabling MT7927 device
+> enumeration after all infrastructure (DMA, IRQ, HW init, band index,
+> power management) is in place.
+>
+> Tested-by: Marcin FM <marcin@lgic.pl>
+> Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
+> Tested-by: George Salukvadze <giosal90@gmail.com>
+> Tested-by: Evgeny Kapusta <3193631@gmail.com>
+> Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
+> Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
+> Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
+> Tested-by: Thibaut Fran=C3=A7ois <tibo@humeurlibre.fr>
+> Tested-by: =E5=BC=A0=E6=97=AD=E6=B6=B5 <Loong.0x00@gmail.com>
+> Signed-off-by: Javier Tia <floss@jetm.me>
 > ---
-> Add eeprom device nodes used to store FRU data for the PRoT
-> module and NFC adapter board on Anacapa platform.
+>  drivers/net/wireless/mediatek/mt76/mt7925/pci.c | 29 +++++++++++++++----=
+------
+>  1 file changed, 18 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/pci.c b/drivers/ne=
+t/wireless/mediatek/mt76/mt7925/pci.c
+> index 693e08f35d68..00c3601f14ff 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
+> @@ -16,6 +16,12 @@ static const struct pci_device_id mt7925_pci_device_ta=
+ble[] =3D {
+>                 .driver_data =3D (kernel_ulong_t)MT7925_FIRMWARE_WM },
+>         { PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x0717),
+>                 .driver_data =3D (kernel_ulong_t)MT7925_FIRMWARE_WM },
+> +       { PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x7927),
+> +               .driver_data =3D (kernel_ulong_t)MT7927_FIRMWARE_WM },
+> +       { PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x6639),
+> +               .driver_data =3D (kernel_ulong_t)MT7927_FIRMWARE_WM },
+> +       { PCI_DEVICE(PCI_VENDOR_ID_MEDIATEK, 0x0738),
+> +               .driver_data =3D (kernel_ulong_t)MT7927_FIRMWARE_WM },
+>         { },
+>  };
+>
+> @@ -530,7 +536,8 @@ static int mt7925_pci_probe(struct pci_dev *pdev,
+>         if (ret)
+>                 goto err_free_pci_vec;
+>
+> -       is_mt7927_hw =3D (pdev->device =3D=3D 0x6639 || pdev->device =3D=
+=3D 0x7927);
+> +       is_mt7927_hw =3D (pdev->device =3D=3D 0x6639 || pdev->device =3D=
+=3D 0x7927 ||
+> +                       pdev->device =3D=3D 0x0738);
+>
+>         /* MT7927: CONNINFRA power domain and WFDMA register access are
+>          * unreliable with PCIe L1 active, causing throughput to drop
+> @@ -546,16 +553,16 @@ static int mt7925_pci_probe(struct pci_dev *pdev,
+>                 goto err_free_pci_vec;
+>         }
+>
+> -       /* MT7927 firmware lacks the connac2 feature trailer, so
+> -        * mt792x_get_mac80211_ops() can't detect CNM support and
+> -        * replaces chanctx/ROC/mgd_prepare_tx ops with stubs.
+> -        * Force CNM and restore the original mt7925 ops.
+> -        */
+> -       if ((pdev->device =3D=3D 0x6639 || pdev->device =3D=3D 0x7927) &&
+> -           !(features & MT792x_FW_CAP_CNM)) {
+> -               features |=3D MT792x_FW_CAP_CNM;
+> -               memcpy(ops, &mt7925_ops, sizeof(*ops));
+> -       }
+> +               /* MT7927 firmware lacks the connac2 feature trailer, so
+> +                * mt792x_get_mac80211_ops() can't detect CNM support and
+> +                * replaces chanctx/ROC/mgd_prepare_tx ops with stubs.
+> +                * Force CNM and restore the original mt7925 ops.
+> +                */
+> +               if ((pdev->device =3D=3D 0x6639 || pdev->device =3D=3D 0x=
+7927 ||
+> +                    pdev->device =3D=3D 0x0738) && !(features & MT792x_F=
+W_CAP_CNM)) {
+> +                       features |=3D MT792x_FW_CAP_CNM;
+> +                       memcpy(ops, &mt7925_ops, sizeof(*ops));
+> +               }
 
-This patch note seems inaccurate for the purpose of v2?
+I think the quirk should be applied before the CNM check in
+mt792x_get_mac80211_ops().
 
-Doesn't matter too much in this instance, but should be fixed for any
-subsequent revision. Which, speaking of ...
+That helper already owns the fw_features detection and the ops rewrite,
+so adding another memcpy() later to restore mt7925_ops feels fragile.
+The final ops selection is no longer decided in one place, and the extra
+full memcpy() depends on the current call flow and implementation
+details of mt792x_get_mac80211_ops().
 
-> ---
-> Changes in v2:
-> - Remove PRoT module eeprom commit since it is already included in anothe=
-r series under review.
-> - Only include NFC adapter board eeprom node.
-> - Link to v1: https://lore.kernel.org/r/20260309-arm-dts-aspeed-anacapa-a=
-dd-eeprom-device-v1-0-45092310e0e6@amd.com
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 5 +++++
-> =C2=A01 file changed, 5 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/a=
-rch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> index 2cb7bd128d24..69c41532fdfb 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> @@ -815,6 +815,11 @@ i2c13mux0ch7: i2c@7 {
-> =C2=A0			#address-cells =3D <1>;
-> =C2=A0			#size-cells =3D <0>;
-> =C2=A0
-> +			eeprom@50 {
-> +				compatible =3D "atmel,24c128";
-> +				reg =3D <0x50>;
-> +			};
-> +
-> =C2=A0			nfc@28 {
+If MT7927 should force MT792x_FW_CAP_CNM despite the missing trailer,
+please fold that into mt792x_get_mac80211_ops() and keep the ops
+selection in one place.
 
-... these nodes are out of order.
-
-Can you please order them by ascending unit address, as per the DTS
-coding style?
-
-https://docs.kernel.org/devicetree/bindings/dts-coding-style.html#order-of-=
-nodes
-
-Andrew
-
-> =C2=A0				compatible =3D "nxp,nxp-nci-i2c";
-> =C2=A0				reg =3D <0x28>;
->=20
-> ---
-> base-commit: a0ae2a256046c0c5d3778d1a194ff2e171f16e5f
-> change-id: 20260309-arm-dts-aspeed-anacapa-add-eeprom-device-a1aabe06a35b
->=20
-> Best regards,
+>
+>         mdev =3D mt76_alloc_device(&pdev->dev, sizeof(*dev), ops, &drv_op=
+s);
+>         if (!mdev) {
+>
+> --
+> 2.53.0
+>
+>
 
