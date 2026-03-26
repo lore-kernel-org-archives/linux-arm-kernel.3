@@ -4,60 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4781B109E550
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0757109E553
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=il3g8uMgmZyxfuqxE59MMwiS51z8GXa/F/F4aoMlsVI=; b=TTSiOutw5e0nXjq6IBpFCnVUx4
-	ouCCqWUs/O69KcWUId3GTsSkP5xHlBYoJ6MkYHKXOWjxas8jLoZXRjtSJbriirpuvyUbD56NZyW6B
-	LJ+Kjqym2TsmleJUWemq7Llm8RSlpcc/QKflHQEBK33y43PsekJmxSq2ujBJGP9gwixaekJ8SFnqQ
-	wmYcZnZyBuQJt5dZRZPYwpO5Jiyk5m124YpNt6FJNKrHU7MvoTOkUopn+7ryOrnNL4wWpuUWD0ICa
-	ERBqEi+KmGazklXJzPFSjpsTigDNOgiykNxX+jxoTm0TLBLrN8Iwh8RT5JXZn0uWxA+/wulx+mzbi
-	RRSdRgcw==;
+	bh=WDVHE8ZNeHD87zMkTdblsnFPbawhf/ne9FySvSXVmKY=; b=3UQw9FhGEslAyZOA9YYbjKCkOg
+	3MBONkpE2Okr3Ew0YMx27QMmm4GrqsOUPp9gSP8HRDZ5V1Pz5RU3JG+fC6Up5wh51+WzRmOI9dAiE
+	sPyaYJRQeCOjs6Ak2egUiGapxrmGm4FwCSUF+PCG3rDUKvCHnMj+MLOQ50OrZ6ITrwMuj1WtImlgh
+	ZYCzNnP8jVwglnI13mCSus6NnA6AElN7tm7GfdFKYysBl3V3+0TL/2zWk7wJShcnuQyXXyEZQQwsC
+	EmD/PRc+JE7RFJn3XR6oGZsKOlF9MBvRQdEKBC1zrqTdsmmwlpiwVkb4GYN5mN/Nx2Ay2T5PkZNLW
+	g5qYfowQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5dND-00000004kRi-3AzG;
-	Thu, 26 Mar 2026 05:35:15 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1w5dSB-00000004kny-11Rr;
+	Thu, 26 Mar 2026 05:40:24 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5dNA-00000004kQ7-3eZd
+	id 1w5dS6-00000004knM-3j9r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 05:35:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1774503310;
-	bh=il3g8uMgmZyxfuqxE59MMwiS51z8GXa/F/F4aoMlsVI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VTgnUmtoXWYE/vqR1G5jvE2cATbzQoH4Hd2dA7qzwHED0B/nhEVKPMpync81pfwRD
-	 YGVzk7eBFgXMKfxap7NLscIG3TqecNGwQT2lPFb3oANLMo5vvooG0/qtkMEfggLU9Q
-	 ObR7/76IWqPu8RLy11UNVj6lNpKi60h0AoA036fP98yvsw4SejcHUkngf46h0z7xM7
-	 hjJhNMJI7kQU/AmLVhhaR8j3UHxBfYqjkZ1Oe3LaU5LDcs56w/w3R0bGoGdWu2fM+X
-	 5gpPBUmv3t4BlxNNCqtzJGLZEgj3NXHuW64Ya+KxthZ8cRsP7jydqXMPwBmzrByRV4
-	 O0b98Y6M9glCQ==
-Received: from [192.168.68.115] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 81DEC6597C;
-	Thu, 26 Mar 2026 13:35:09 +0800 (AWST)
-Message-ID: <ec13c056cf74b4c7741e6f14cf9c49c159066f36.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] ARM: dts: aspeed: yosemite5: Add MP5998 power monitor
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Daniel Hsu <d486250@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, joel@jms.id.au
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Daniel Hsu
-	 <Daniel-Hsu@quantatw.com>
-Date: Thu, 26 Mar 2026 16:05:09 +1030
-In-Reply-To: <20260305084650.24511-1-Daniel-Hsu@quantatw.com>
-References: <20260305084650.24511-1-Daniel-Hsu@quantatw.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 26 Mar 2026 05:40:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774503619; x=1806039619;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oW8AKHaKiPRcfFyQaL9/PspJoWCGfB/4eBYkak3V3MM=;
+  b=B4FMEoa9GXS7YLer+XjUil1e6dOrlPO3gHOtbvtw1XHBN+FrRY/J6o13
+   FivLeP7NYSJulQgvjS1+HMx2OccOKz7EeNVUNrcf7hKV+Zu3f2dpGt4OL
+   WNgjG+k4+Fy9St7F0NEaoLr2cmxU3z1/WQL4esX/9//yDz8Ap2490+3tF
+   ZONXd5UMx87LB+sNGgmzqUTNJHwH35t0T7ru7QwRWEoroGBj43vM4Qvk+
+   fqcdofW+VqvNKD2WYAPPgh0lXwqVZyVQisfIim2IlHV78u0kNjiWCsohw
+   LvjVtW3Kn2jYxsHpUlNkRb8uqi+kDLK4i20NWThDF56pVNiSNQlxFjc1V
+   A==;
+X-CSE-ConnectionGUID: AUiMSC4zQ1CZRmHiTwi9BA==
+X-CSE-MsgGUID: F6TnzIy9TdW1HgyQxvIjKg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11740"; a="75515681"
+X-IronPort-AV: E=Sophos;i="6.23,141,1770624000"; 
+   d="scan'208";a="75515681"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Mar 2026 22:40:18 -0700
+X-CSE-ConnectionGUID: +dW/4zaXRVG098+Ti0BcDw==
+X-CSE-MsgGUID: 6hzwvHHSS6qUEOtenFr0qA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,141,1770624000"; 
+   d="scan'208";a="224835758"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 25 Mar 2026 22:40:13 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w5dRy-000000008I5-3jeB;
+	Thu, 26 Mar 2026 05:40:10 +0000
+Date: Thu, 26 Mar 2026 13:39:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Michal Simek <monstr@monstr.eu>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	saikrishna12468@gmail.com, git@amd.com,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Subject: Re: [PATCH v2 1/4] iio: adc: xilinx-xadc: Split driver into core and
+ platform files
+Message-ID: <202603261323.1EonYM3W-lkp@intel.com>
+References: <20260323074505.3853353-2-sai.krishna.potthuri@amd.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260323074505.3853353-2-sai.krishna.potthuri@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_223513_112696_D1CBA667 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260325_224019_031392_D4C96A89 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,50 +97,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hi Sai,
 
-On Thu, 2026-03-05 at 16:46 +0800, Daniel Hsu wrote:
-> Add the MP5998 power monitor device on I2C bus with address 0x46
-> for the Yosemite5 platform.
+kernel test robot noticed the following build errors:
 
-I would rather you describe the purpose of the power monitoring. Why is
-this instance of an MP5998 necessary in the system design? The address
-of the sensor is evident from the details in the patch and isn't
-necessary to describe here.
+[auto build test ERROR on jic23-iio/togreg]
+[also build test ERROR on robh/for-next linus/master v7.0-rc5 next-20260325]
+[cannot apply to xilinx-xlnx/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->=20
-> This allows the hwmon driver to probe the device and expose the
-> power monitoring telemetry to userspace.
+url:    https://github.com/intel-lab-lkp/linux/commits/Sai-Krishna-Potthuri/iio-adc-xilinx-xadc-Split-driver-into-core-and-platform-files/20260326-024045
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git togreg
+patch link:    https://lore.kernel.org/r/20260323074505.3853353-2-sai.krishna.potthuri%40amd.com
+patch subject: [PATCH v2 1/4] iio: adc: xilinx-xadc: Split driver into core and platform files
+config: i386-buildonly-randconfig-002-20260326 (https://download.01.org/0day-ci/archive/20260326/202603261323.1EonYM3W-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260326/202603261323.1EonYM3W-lkp@intel.com/reproduce)
 
-I would prefer you reword or remove this sentence. The purpose of the
-devicetree is to describe the hardware. What the firmware/kernel
-chooses to do with that information is a separate problem.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603261323.1EonYM3W-lkp@intel.com/
 
-Andrew
+All errors (new ones prefixed by >>, old ones prefixed by <<):
 
->=20
-> Signed-off-by: Daniel Hsu <Daniel-Hsu@quantatw.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 5 ++++=
-+
-> =C2=A01 file changed, 5 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-
-> yosemite5.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-
-> yosemite5.dts
-> index 2486981f3d6b..6287f80d70d9 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> @@ -422,6 +422,11 @@ power-sensor@45 {
-> =C2=A0		shunt-resistor =3D <1000>;
-> =C2=A0	};
-> =C2=A0
-> +	power-monitor@46 {
-> +		compatible =3D "mps,mp5998";
-> +		reg =3D <0x46>;
-> +	};
-> +
-> =C2=A0	power-monitor@47 {
-> =C2=A0		compatible =3D "ti,tps25990";
-> =C2=A0		reg =3D <0x47>;
+>> ERROR: modpost: "xadc_handle_events" [drivers/iio/adc/xilinx-xadc-platform.ko] undefined!
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
