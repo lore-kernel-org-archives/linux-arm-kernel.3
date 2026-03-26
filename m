@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22ECE109E557
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E32109E553
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 06:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xh5QcYAfEMFXHbh0WK42+35rw1y3aSrFCHR3K9Wbzu4=; b=G1g7+4eUz8vaLXKpwsHtjMpy8S
-	Y6cB8waB1C1G1ptM9Rm72xDWsElEZV/lMVPA5S3cXIlz0PCuANp2mOI3HeIra3wORufIMymanhVQr
-	kP+VQDQeSu2KGoJ3NNIosarXTNCnwzRgZD5T31X4gBVHG3t0/LGeuKxgQ59DeW1ZEAdTh9fxlsN8t
-	dfedKVztBTUCQmE8uEJxDCXc15Z8rZSPtyq2CrjehgK70J4A7rK1ZPw865s4vFvTrjYVL02pwIM4z
-	HTTR/2LaytqOVTlz6fEyVsojG34CxKPxw0mDGJP0rdc3sDD6rJJ0dnKdQKzLnRRia00/nFJTk6E4s
-	xEPwLfKg==;
+	bh=D4BWqwsowftV0uLn6UqEICU6dheuLBTYAGw06kSQO3c=; b=mo0jEdetIBkQQEMKrgI1ylyyNf
+	PUspw/yMcIyPshFKwuNwIaLU2mStx23icFwE7r0px32MZShOrAMO7RFuJdfHz9LmEpyM4EQ5+t63G
+	tW6KhA9qzxr20KLyAN4RABKnj7EdYTsb/GufWohup8kv5IP5WmH7EvEUuIpkPY+skI/VuTk3vIeyW
+	axq6AhtsQjxyh5NJwpEJ7ADPaxFrY6RO0JNH6qlB3XWnwq8uh5A0PGkHJNC7trg5yMbdxano8i8m1
+	HSu161U22gcYDc1ERKUpBFbbo1FWf+ZzqCKRa3nN3a1zwJeDtCMi3eZIbQ8n2TKLBfiKchmRTOaAK
+	EQly0Kug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5diV-00000004lnO-0dc7;
-	Thu, 26 Mar 2026 05:57:15 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1w5dst-00000004mEv-16wU;
+	Thu, 26 Mar 2026 06:07:59 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5diS-00000004lmJ-25W3;
-	Thu, 26 Mar 2026 05:57:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774504622; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Mkf6zUtwlT2CtdV8DayQHX/AuQiNtB4rQ32WTmol5rl4U4fv/8V9VnmFyRPQaTqm0d5362E1BE6YT1THilTYoqWmnvgNkU+I9nkOg3GXNIqzEBeynE9fGxR3MkEDbKxUBm3Ta4c7bQP4F2NDxF9nlOLoKO1nLSA5f35Pb0djXkk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774504622; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xh5QcYAfEMFXHbh0WK42+35rw1y3aSrFCHR3K9Wbzu4=; 
-	b=HisGqtURNgasPUPl/AfZVgF8IhOghkyFg7CEhUspEnrT4SCFUiIOCnpdeZ6vtx9RUPh0k02uKCKBZIk7TqRpEYOKrE1PoIEzC9pd3DI/eekrvn5uD43uo9OXyxZYhu1KpZZkg0U/2xXGNRlT+r3DysiP3ScLTXA/Ex3P531Hc/A=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774504622;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=xh5QcYAfEMFXHbh0WK42+35rw1y3aSrFCHR3K9Wbzu4=;
-	b=gkYCDRH1D9/3bbcfsNZVUGpV7eHZORKaF6UnoL3qaiM/T7ol0/ONeIqlT9SogZiM
-	AM8c9eUJgaX5Y0UMF2TpTVg/gQMpRMPL6mqr2AL+1i7hg+kPFbiHc/Ctt7f1a/D6xyQ
-	GFC97KbEyLkCriYzRT3Q1LA2Q6kIn3FYabwsY96OMTTx2TkdEfukQjIFCusVJVzf51V
-	upg9GQwkQ1AWPnl00HVj2BI/s/UdIqdxfYsuu66WlSJxMrDXMLZIwNER+TbA0NVSbV3
-	KgGHoTpeq2nO4F9L+vOPi9/vXtvLiRirGR/pVTIG53cIJlcEm+5eivVqh+zJPY34M9F
-	01O8EI1peA==
-Received: by mx.zohomail.com with SMTPS id 1774504620418841.5970104476653;
-	Wed, 25 Mar 2026 22:57:00 -0700 (PDT)
-Message-ID: <fbba135320ea666a5ad127c9da58276f2afd3494.camel@icenowy.me>
-Subject: Re: [PATCH v2 0/5] powervr: MT8173 GPU support
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Frank Binns
- <frank.binns@imgtec.com>, Matt Coster	 <matt.coster@imgtec.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 26 Mar 2026 13:56:52 +0800
-In-Reply-To: <42fb6b7dfc6a9d66649e0a7040cdafc1289ddf63.camel@icenowy.me>
-References: <20260325071951.544031-1-wenst@chromium.org>
-			 <93c1d325461cc0ffad890d64870de680506338c4.camel@icenowy.me>
-			 <CAGXv+5FL2rs35V4F0bwq-a4ccvFaWKcr1cuKxT6sfTj9h+d6iA@mail.gmail.com>
-		 <0739597b7a9c162525c10d82c3993e37af1c8a75.camel@icenowy.me>
-	 <42fb6b7dfc6a9d66649e0a7040cdafc1289ddf63.camel@icenowy.me>
-Organization: Anthon Open-Source Community
+	id 1w5dsq-00000004mDu-1P2v
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 06:07:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1774505272;
+	bh=D4BWqwsowftV0uLn6UqEICU6dheuLBTYAGw06kSQO3c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=khH2mG+uBGCYkDqfbI4rBOR+DTt4gDN3awebhhzeDtW0i7D3pFkiOjQbFbo4FjsfX
+	 hFlHdj8si7MP1DHnhNbUp3N8c2TsJISpuRilYRg/TpM4rP2me+OoPSM02N69Rh1djq
+	 w2M2xXTnQquI/E9IkIhPLX0NXuMtf8GYQbNRPkvyoCkAR4on53/sA7OvI2W66kesbB
+	 p1xejc2yVcKPEt1JaD05UqQ9f6ihO5wmxvFWc4QO9pt7c/lf7c9U9JSwiZhVyxk8Yo
+	 jYeLz1YCr2Tpx92RMhR2xapSSlCKX0dGwldW/Pwbg8ubyoDFQ1lAR4z8aPKRFs9aHv
+	 d1mRbsa8jIfuQ==
+Received: from [192.168.68.115] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7CDF76597C;
+	Thu, 26 Mar 2026 14:07:51 +0800 (AWST)
+Message-ID: <d7794f74b26bbc1ee0a70e39c5671acc018f80eb.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v5 2/8] ARM: dts: aspeed: yosemite5: Remove ambiguous
+ power monitor DTS nodes
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Kevin Tung <kevin.tung.openbmc@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, 	linux-kernel@vger.kernel.org, Amithash
+ Prasasd <amithash@meta.com>, Kevin Tung	 <Kevin.Tung@quantatw.com>, Ken
+ Chen <Ken.Chen@quantatw.com>, Leo Yang	 <Leo-Yang@quantatw.com>, Jackson
+ Liu <Jackson.Liu@quantatw.com>, Daniel Hsu	 <Daniel-Hsu@quantatw.com>
+Date: Thu, 26 Mar 2026 16:37:51 +1030
+In-Reply-To: <CABh9gBd3b9TB1-s=Gq1q-M8bX+4UioXePUF0DPVrU2N3N8S9yw@mail.gmail.com>
+References: <20260223-yv5_revise_dts-v5-0-fc913e902488@gmail.com>
+	 <20260223-yv5_revise_dts-v5-2-fc913e902488@gmail.com>
+	 <73ea41bf341df0e3215c58a029c9ea2386c4ef8a.camel@codeconstruct.com.au>
+	 <CABh9gBd3b9TB1-s=Gq1q-M8bX+4UioXePUF0DPVrU2N3N8S9yw@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_225712_574370_4A14E18D 
-X-CRM114-Status: GOOD (  47.76  )
+X-CRM114-CacheID: sfid-20260325_230756_574165_28F779FD 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,213 +79,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 17:11 +0800=EF=BC=8CIcenowy Zheng=E5=
-=86=99=E9=81=93=EF=BC=9A
-> =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 16:30 +0800=EF=BC=8CIcenowy Zheng=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 16:08 +0800=EF=BC=8CChen-Yu Tsai=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > > On Wed, Mar 25, 2026 at 4:04=E2=80=AFPM Icenowy Zheng <uwu@icenowy.me=
->
-> > > wrote:
-> > > >=20
-> > > > =E5=9C=A8 2026-03-25=E4=B8=89=E7=9A=84 15:19 +0800=EF=BC=8CChen-Yu =
-Tsai=E5=86=99=E9=81=93=EF=BC=9A
-> > > > > Hi everyone,
-> > > > >=20
-> > > > > This is v2 of my MT8173 PowerVR GPU support series.
-> > > > >=20
-> > > > > Changes since v1:
-> > > > > - Adapted to changed DT bindings
-> > > > > - Dropped driver change
-> > > > > - Use same power domain for "a" and "b" GPU power domains
-> > > > >=20
-> > > > > This update was requested by Icenowy.
-> > > > >=20
-> > > > >=20
-> > > > > This series enables the PowerVR GPU found in the MT8173 SoC,
-> > > > > found in
-> > > > > some Chromebooks.
-> > > > >=20
-> > > > > This version is different from the initial powervr driver
-> > > > > submission
-> > > > > [1]
-> > > > > in that it splits out the GPU glue layer support out of the
-> > > > > powervr
-> > > > > driver and into a separate clock and power domain driver. The
-> > > > > glue
-> > > > > code
-> > > > > is otherwise the same, and also the same as found in the
-> > > > > ChromeOS
-> > > > > kernels, with some extra comments and macro names added where
-> > > > > possible.
-> > > > >=20
-> > > > > Patch 1 adds a binding for the glue layer, called mfgtop. The
-> > > > > glue
-> > > > > layer
-> > > > > contains clock and power controls for the GPU.
-> > > > >=20
-> > > > > Patch 2 adds a driver for the glue layer.
-> > > > >=20
-> > > > > Patch 3 adds an entry for the MT8173 GPU and 6XT series to
-> > > > > the
-> > > > > PowerVR
-> > > > > binding.
-> > > > >=20
-> > > > > Patch 4 adds an entry for the PowerVR 6XT series GPU to the
-> > > > > driver.
-> > > > >=20
-> > > > > Patch 5 corrects the clock for the GPU (called MFG) power
-> > > > > domain.
-> > > > >=20
-> > > > > Patch 6 adds device nodes for the GPU and glue layer to the
-> > > > > MT8173
-> > > > > dtsi
-> > > > > file.
-> > > > >=20
-> > > > > Patch 2 and 6 depend on patch 1 to build. I suppose some
-> > > > > common
-> > > > > immutable tree would be needed from the MediaTek maintainers.
-> > > > >=20
-> > > > > The kernel driver successfully probes the hardware and loads
-> > > > > the
-> > > > > "rogue_4.40.2.51_v1.fw" firmware provided by Imagination
-> > > > > Technologies
-> > > > > [2].
-> > > > > Userspace was tested with Mesa 24.0.8 from Debian Trixie
-> > > > > rebuilt
-> > > > > with
-> > > > > the powervr vulkan driver enabled. `vulkaninfo` gives some
-> > > > > information
-> > > > > about the GPU (attached at the end), but running the
-> > > > > `triangle`
-> > > > > example
-> > > > > from the Sascha Willems demos [3] with -DUSE_D2D_WSI=3DON as
-> > > > > recommended [4]
-> > > > > failed with:
-> > > > >=20
-> > > > > =C2=A0=C2=A0=C2=A0 Can't find a display and a display mode!
-> > > >=20
-> > > > I think when using D2D the demos want width and height to be
-> > > > explicitly
-> > > > specified, otherwise it seems to hardcode 1280x720.
-> > > >=20
-> > > > If you're using an elm, could you try to add `-w 1920 -h 1080`
-> > > > or
-> > > > for
-> > > > hana `-w 1366 -h 768` ?
-> > >=20
-> > > I only did the basic `vulkaninfo` test this time around. To do
-> > > anything
-> > > interesting probably requires the Mesa 26.1 release.
-> > >=20
-> > > =C2=A0=C2=A0=C2=A0 PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 \
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vkmark --winsys kms -D b81=
-f54f8568deb0fb70a6a1ed845b65d
-> > >=20
-> > > just reports "Error: Device specified by uuid is not available"
+Hi Kevin,
+
+Sorry for the delay.
+
+On Mon, 2026-03-09 at 11:41 -0700, Kevin Tung wrote:
+> On Tue, Mar 3, 2026 at 6:41=E2=80=AFPM Andrew Jeffery
+> <andrew@codeconstruct.com.au> wrote:
 > >=20
-> > I am very sorry to tell you that, when I run Sascha's demo with
-> > Mesa
-> > main, I got GPU lost immediately...
+> > Hi Kevin,
 > >=20
-> > ```
-> > [=C2=A0 441.509433] powervr 13000000.gpu: [drm] *ERROR* GPU device lost
-> > ```
-
-The device lost message seems to be some bug of the open source KMD or
-the firmware.
-
-When I disable runtime power management of the 13000000.gpu device,
-this message does not appear, instead the following message appears and
-the GPU can continue to accept jobs:
-
-```
-powervr 13000000.gpu: [drm] Received unknown FWCCB command 2abc0070
-```
-
->=20
-> However, Zink on PowerVR works, and on Lichee Pi 4A I also got
-> `VK_ERROR_DEVICE_LOST` when running Sascha's demos (although the
-> kernel
-> does not report device lost).
->=20
-> I bet it's a regression on the VK_KHR_display code.
-
-I'm now sure that it's a regression, it's now tracked at [1].
-
-[1] https://gitlab.freedesktop.org/mesa/mesa/-/issues/15161
-
->=20
-> Thanks,
-> Icenowy
->=20
+> > Sorry for the patchy replies so far, but this series bothers me and
+> > other priorities keep bumping it down the list.
 > >=20
-> > Icenowy
+> > On Mon, 2026-02-23 at 19:17 +0800, Kevin Tung wrote:
+> > > Two different power monitor devices, using different drivers, reuse
+> > > I2C addresses 0x40 and 0x45 on bus 10 across Yosemite5 board variants=
+.
+> > > Defining these devices statically in the DTS can lead to incorrect
+> > > driver binding on newer boards when the wrong device is instantiated.
 > >=20
-> > >=20
-> > > This is with Mesa 26.0.2 packages from Debian testing. At least
-> > > now
-> > > have the powervr vulkan driver enabled by default, so I don't
-> > > have
-> > > to rebuild the packages again.
-> > >=20
-> > >=20
-> > > ChenYu
-> > >=20
-> > > > Thanks
-> > > > Icenowy
-> > > >=20
-> > > > >=20
-> > > > > Same program worked correctly on a BeaglePlay and displayed a
-> > > > > color
-> > > > > gradient triangle. Not sure what went wrong here.
-> > > > >=20
-> > > > > Anyway, please have a look and test.
-> > > > >=20
-> > > > >=20
-> > > > > Thanks
-> > > > > ChenYu
-> > > > >=20
-> > > > > [1]
-> > > > > https://lore.kernel.org/dri-devel/20220815165156.118212-2-sarah.w=
-alker@imgtec.com/
-> > > > > [2]
-> > > > > https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/=
-powervr
-> > > > > [3] https://github.com/SaschaWillems/Vulkan
-> > > > > [4]
-> > > > > https://lore.kernel.org/dri-devel/f2b2671e-5acc-4dec-9c2e-3c9cd2e=
-1f19e@imgtec.com/
-> > > > >=20
-> > > > > Chen-Yu Tsai (5):
-> > > > > =C2=A0 dt-bindings: clock: mediatek: Add mt8173 mfgtop
-> > > > > =C2=A0 clk: mediatek: Add mt8173-mfgtop driver
-> > > > > =C2=A0 dt-bindings: gpu: powervr-rogue: Add MediaTek MT8173 GPU
-> > > > > =C2=A0 arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain
-> > > > > clock
-> > > > > =C2=A0 arm64: dts: mediatek: mt8173: Add GPU device nodes
-> > > > >=20
-> > > > > =C2=A0.../clock/mediatek,mt8173-mfgtop.yaml=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 70 +++++
-> > > > > =C2=A0.../bindings/gpu/img,powervr-rogue.yaml=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> > > > > =C2=A0arch/arm64/boot/dts/mediatek/mt8173.dtsi=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 |=C2=A0 33 ++-
-> > > > > =C2=A0drivers/clk/mediatek/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 9 +
-> > > > > =C2=A0drivers/clk/mediatek/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
-=C2=A0 1 +
-> > > > > =C2=A0drivers/clk/mediatek/clk-mt8173-mfgtop.c=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 | 243
-> > > > > ++++++++++++++++++
-> > > > > =C2=A0include/dt-bindings/clock/mt8173-clk.h=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 7 +
-> > > > > =C2=A07 files changed, 363 insertions(+), 1 deletion(-)
-> > > > > =C2=A0create mode 100644
-> > > > > Documentation/devicetree/bindings/clock/mediatek,mt8173-
-> > > > > mfgtop.yaml
-> > > > > =C2=A0create mode 100644 drivers/clk/mediatek/clk-mt8173-mfgtop.c
+> > There are effective methods of maintaining devicetrees for variants.
+> > Why are we choosing to remove information about the platform rather
+> > than use existing techniques to properly describe them?
+> >=20
+> Hi Andrew,
+>=20
+> This is due to hardware design changes during earlier development
+> stages, and the fix is expected to remain stable as the design has
+> matured.
+> Could you guide me on the best way to maintain devicetrees for
+> variants? Thank you :)
+
+My expectation is your platforms move through several design phases
+prior to (mass?) production. My suspicion is that you have sent a
+devicetree for the pre-production design phases, and you're trying to
+evolve that one devicetree to match the design for whatever current
+phase you're in.
+
+So, ideally: Send a devicetree only for the finalised design. Don't
+send devicetrees for pre-production designs.
+
+If you feel you can't do that for some reason, an alternative is to
+have a separate .dts file for each phase in the design process.
+
+This may sound tedious but it doesn't have to be a burden to maintain.
+
+For instance, you can use one or more .dtsi files to describe the
+common components and relationships for your platform. These .dtsi
+files are then #included into .dts files as usual. Often .dtsi files
+are used to isolate different hardware scopes (SoC vs board, for
+instance), but we're not limited to that, we can use them for the
+purpose outlined above too.
+
+If there are only (very) minor differences, there's also the option of
+#including another .dts file. From there you can adjust properties or
+even delete nodes where it makes sense. For example, we maintain a .dts
+file for the latest revision of the AST2600-EVB, but we also have a
+separate .dts for the A1 revision with a different regulator setup:
+
+- https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/a=
+rch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts?h=3Dv7.0-rc5
+- https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/a=
+rch/arm/boot/dts/aspeed/aspeed-ast2600-evb-a1.dts?h=3Dv7.0-rc5
+
+Any of these are better options than this current approach of trying to
+justify incompatible changes against unclear design boundaries.
+
+Andrew
 
