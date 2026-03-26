@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5309910A62FE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A32510A62FE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHwkdYII8F/vroJPH6/SLswhD90taY/WQMp0FFNx/ko=; b=fNIASt8V6jKGX+GS0+krNow9/9
-	PnVOuwkz3Q0IJu6HhOuy5loXkPrtfHH7UkyH5klw1chFUKAzFr8tOmYEma9ElZguYS8e0NHUr51JA
-	5xQrgjiaWjoOW6O6F8ZJ7hwP6DwzRMtJY+f7WiWwQFAGmiC8GKbgHKlS338xe//JPuhHmNsTqCcW8
-	mU//PiuC00EuqhHCgX04GOx975VWzj/0pj9ksKWqt6epJhG5/Vu9K596GLxyinOx3Y9tS0dN+WOS5
-	1gOWq3ZH9D/y8/KnE1hl8z4sDPRGvzzoB+K4+EQRpS4hi8fstEFQvpnXOpiXWr+u4xKVqx/9Dh0Wl
-	xMjZj6ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hztpmvPQiimJVMEkUlBkN90snzIBjEq9me3iQ8P9seI=; b=2y4gH2p0yOiCCqfcYUOseJNzTu
+	1b1rpvv0pkR3zbqZcd/FpdYcmmbBWpS8N0utydJZdnZTFveMwv0g7YlbxPNXo+jgIkJCX5jOvqJyA
+	TzzIGoWZq6zb6XqTsoPwppQSWGAcwW9YrDE2tAbai2cVNtd/dIX+OgWStdr1A1z6ymHaD2artbtmM
+	KJ9m62ywn5arWWtsg8tU+UKBtEaasjg/HqJ5+AmwqK4bTEj1zkt4hj8Qjh95YBHqkoCrPYempyPaj
+	T6wAqrMC8YBpFif9pSmU49w6yjZcFOmXr1mXfRlc415QakkMKZ8tOftCrJKc7fxkb1UUYCX8Twwit
+	+KgDeEDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lvk-00000005g8t-1IzW;
-	Thu, 26 Mar 2026 14:43:28 +0000
-Received: from mail-4317.protonmail.ch ([185.70.43.17])
+	id 1w5lvq-00000005gAz-2XC7;
+	Thu, 26 Mar 2026 14:43:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lva-00000005g7k-1TvD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 14:43:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
-	s=protonmail; t=1774536196; x=1774795396;
-	bh=yHwkdYII8F/vroJPH6/SLswhD90taY/WQMp0FFNx/ko=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=DAOHIfugkP7QYTmEzTq3YTRK/6di7hNJUIoogv4b3qtRTaSdmeqYrYMwXR0EXcz39
-	 OyAq+8pLK/qct9WAw4RASfHZmgOWIqikQ6TsdUED3Y1rW8uYjCKC/D87O/QDCwGpR/
-	 kAUzeXJ9Ue6BmPAahdbEGEn+raCheLYzOuy2GyF5kG8RkwD6hvOF+SL3Enm6N5wlD6
-	 dhtyg3m7tYZ4fnzr7bP84D6yy7+E+wtixUTNrW/kLdxao9yhqIPL4SBLJ9pfbYQQGR
-	 yVFC7hJth1cxRE3aiOPUf3feh3ygjt6u13ZZ6flc4M/7jwbATJxGfmZDAYzDhXOaCN
-	 4ZMIIrLuJ3IQw==
-Date: Thu, 26 Mar 2026 14:43:10 +0000
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-From: Simon Ser <contact@emersion.fr>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>
-Subject: Re: [PATCH v9 05/11] drm/fourcc: Add DRM_FORMAT_X403
-Message-ID: <jCbIrZ5-fvx73de8DmjQ7xpuEw63kTCQ5p88cdF7yRcUk7uNbE9y0YU7uZbPXNotQAB9y6c0u5n3TrnXckvQ8Oje_J3QGxEwBSr_liQVDK0=@emersion.fr>
-In-Reply-To: <20260325-xilinx-formats-v9-5-d03b7e3752e4@ideasonboard.com>
-References: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com> <20260325-xilinx-formats-v9-5-d03b7e3752e4@ideasonboard.com>
-Feedback-ID: 1358184:user:proton
-X-Pm-Message-ID: df6e2ce0b384cee0a0208f6f7f66c7730d42147e
+	id 1w5lvo-00000005gAH-111w;
+	Thu, 26 Mar 2026 14:43:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5288260053;
+	Thu, 26 Mar 2026 14:43:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37262C116C6;
+	Thu, 26 Mar 2026 14:43:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774536211;
+	bh=QCP4s4j85foSGpz3Jg5C2WeljmjT3n1LUgByDDCaay0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NFFU9k4Q9jFBVoJNp/Q3T+UOUF/TqBkwaUXEIUoxafyytcHSsU1+sCaPAJ6v9sD2b
+	 W/N14Tjytjd+HUiI+f4fu30PhI7H0uzEeJQ9w9xE6CWPScA9w5yez3QW29xmsyiHbu
+	 /Nfae9vgoUTW0Js1ml52Koj8z1jzlsPLrA47WpBXuTiSL0jS9AHQhvm+VIAv8vZsG6
+	 eB38zs2Lw1Y6MFk02nDjnelv3vUE6Lz0HBLLod18p/Nir7JyUB4XaNYgRJSupZNkct
+	 nyqqKQvEG+UPXSaRHdP/Q8SxjQlwt3IkCCDEX8Gf2aK7rN4Zog9Qs32XO+av5Xtwu/
+	 6xVRVHfdozfoQ==
+Date: Thu, 26 Mar 2026 08:43:28 -0600
+From: Keith Busch <kbusch@kernel.org>
+To: "hch@lst.de" <hch@lst.de>
+Cc: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>,
+	Justin Tee <justintee8345@gmail.com>,
+	"axboe@kernel.dk" <axboe@kernel.dk>,
+	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
+	"neal@gompa.dev" <neal@gompa.dev>,
+	"sagi@grimberg.me" <sagi@grimberg.me>,
+	"justin.tee@broadcom.com" <justin.tee@broadcom.com>,
+	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
+	"paul.ely@broadcom.com" <paul.ely@broadcom.com>,
+	James Smart <james.smart@broadcom.com>,
+	"kch@nvidia.com" <kch@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	=?utf-8?B?7J207J2A7IiY?= <euns212.lee@samsung.com>,
+	=?utf-8?B?7Lm47LCs?= <joshi.k@samsung.com>
+Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
+Message-ID: <acVGECskf5pg3_MY@kbusch-mbp>
+References: <acQxjZMOqj74yIJf@kbusch-mbp>
+ <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
+ <945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com>
+ <20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6>
+ <CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com>
+ <20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1>
+ <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5>
+ <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
+ <acVCnozG1WKPkq1L@kbusch-mbp>
+ <20260326143124.GA17507@lst.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_074318_538683_ED2D9298 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260326143124.GA17507@lst.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,30 +92,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, March 25th, 2026 at 15:02, Tomi Valkeinen <tomi.valkeinen@ide=
-asonboard.com> wrote:
+On Thu, Mar 26, 2026 at 03:31:24PM +0100, hch@lst.de wrote:
+> On Thu, Mar 26, 2026 at 08:28:46AM -0600, Keith Busch wrote:
+> > On Thu, Mar 26, 2026 at 03:51:52PM +0900, 전민식 wrote:
+> > >  {
+> > >  	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
+> > >  
+> > > -	trace_nvme_complete_rq(req);
+> > > +	/*
+> > > +	 * The idea for these trace events was to match up commands
+> > > +	 * dispatched to hardware with the hardware's posted response.
+> > > +	 * So skip tracing for undispatched commands.
+> > > +	 */
+> > > +	if (nvme_req(req)->status != NVME_SC_HOST_PATH_ERROR)
+> > > +		trace_nvme_complete_rq(req);
+> > > +
+> > 
+> > Well, how do we know a controller doesnn't actually return that status
+> > code? I was just suggesting to skip the trace for the condition we never
+> > dispatched the command. An added bonus is we don't need a mostly
+> > unnecessary 'if' check on every IO.
+> 
+> The 7?h error values were added for host use.  The description of
+> the section in the spec suggests this, but isn't actually as clear
+> as I would like it.  I wonder if we need to verify that controller
+> don't incorrectly return it, as that could cause some problems?
 
-> +/*
-> + * 3 plane non-subsampled (444) YCbCr
-> + * 10 bpc, 30 bits per sample image data in a single contiguous buffer.
-> + * index 0: Y plane,  [31:0] x:Y2:Y1:Y0    [2:10:10:10] little endian
-> + * index 1: Cb plane, [31:0] x:Cb2:Cb1:Cb0 [2:10:10:10] little endian
-> + * index 2: Cr plane, [31:0] x:Cr2:Cr1:Cr0 [2:10:10:10] little endian
-> + */
-> +#define DRM_FORMAT_X403=09=09fourcc_code('X', '4', '0', '3')
+Yeah, the spec is not very clear on their use. It just defines the codes
+and a one sentence description, and then never mentioned again. I think
+it allows the possibility for the controller to internally complete a
+command with such status from some undefined OOB mechanism. I'm not sure
+why the host needs to have their own self-generated status codes anyway
+since it can already attach whatever arbitrary flags it wants to its
+private data, like how we use NVME_REQ_CANCELLED.
 
-So, this one is different from the Q family, because Q has padding in
-LSB rather than MSB. Speaking of, maybe we should add "LSB aligned" to
-the doc comment to make that clear?
-
-Re-reading the sibling thread about DRM_FORMAT_XV20, sounds like the
-first digit matches my expectations for sub-sampling. How did you pick
-the last two digits? I think I would've expected "30" here rather than
-"03", since the last two planes are Cb Cr rather than Cr Cb.
-
-Has the first "X" letter been picked arbitrarily? It's already used to
-denote padding in other formats so I wonder if we should pick that
-instead of, say, "T".
-
-Simon
+Anyway if a controller did return it for whatever reason, even if it is
+a bug, we'd want to see it in the trace.
 
