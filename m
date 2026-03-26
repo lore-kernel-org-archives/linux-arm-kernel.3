@@ -4,91 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF31106F2FC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A338E106F2FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZIuiXRVUEe8C+bPC4WsRGZm1BjkEqR+1WT0JlENtHs=; b=uOSo++QopLdPJPGkHzP6OmgkOa
-	vFr+U4RoEwqxFV/j8l3we5udieME7pKwhOb9g69m1zHiEok8FmeiZBarpYJ4w+p3V/5zzed4W6hDt
-	YedGMu1kpGuDv5tmvXrQ0MZojyOshH1cEztJYuO1P5laLqzgMTiweossMmLyZk9t1M7d9YZ0qtKI7
-	upbFrf0TBFtj9+eG+Vbg1C39RnNOMW4dDmQdpPJYD8bkLhjOv2xxZKv2tZipdjnj9uEdeqU6CU4Vw
-	vM/4D18vf57MdfyM8WKJDIyhn02hRFrUKmrUtJiEiz6/7phPII9wLgkYHn6oYowCtvX/O1+KgE0Ru
-	Qos9xTxQ==;
+	bh=UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=; b=GsWyupcFowCGMjLcJpJGE0gZwB
+	xfKSonoZNIiEIOcWfoXF2JUi3dMqeAbPZrl8FZ5jDNx67cUyKkJcGwrQFZAdWQ5+l++sQ5+/j7Y/u
+	XdSpojWFQC/bjSmA1IhjGFoZ7poG5CIKZC0Rf/eMGIWZRofc+AhNQHa10hyPYsum2Xd9AG6mXEvAT
+	YJV0tbUQhbbHjjhzTXQhb07zjGAmqAESSeSDRBneFC6p36lySHYCtnixcv0LU14t8vrjsSyDQq0Z7
+	vihCW+sMoO9nO5DIA0B5NPIuLlBKrl1QO/dPmYNOsi4My4fPweBybGLjGYIj/aKrmVsDjjWUwcy0j
+	Kdm4+WZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gGJ-000000052hG-3nJ0;
-	Thu, 26 Mar 2026 08:40:19 +0000
+	id 1w5gHA-000000052tZ-3URC;
+	Thu, 26 Mar 2026 08:41:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gGI-000000052gt-33N0
+	id 1w5gH9-000000052sg-3wrs
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 26 Mar 2026 08:40:18 +0000
+	Thu, 26 Mar 2026 08:41:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RZIuiXRVUEe8C+bPC4WsRGZm1BjkEqR+1WT0JlENtHs=; b=gKzGNwZAIS9x4Nhb3R3EywFYas
-	4sSbQgwp8D1bQCcOcp7ck5/z8olQ6pkllJQ5vCwryqQ+zIwKvQZ62FQn/TF04KXxiacIPkACVh1Mf
-	b27IrJNbhfcVRrmuqtwT4ed/jvES5zYcwjiVPSfCePPFoo3s+4blHG/5cbhyMM/KSlZ7OSSWrjRM0
-	kXhrlwpHSnhAo3ONaEzfBd61XYQ0z9s6IbtLaY+w2zZsi3cCA1Q4sKPVn6curQhmG5PBfjmHnfnG+
-	WrttSPpm7Kj3hp5+A+UP8Cc6nP40hMZz+XbKoM0vjT3ABNrxYp8hnC8T3u/weZsDsYPfP8GQAzjId
-	iS/9kCWA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	bh=UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=; b=BjjfIADmPJcoZO5zk+/nXgu9gI
+	pK9uU79wYXSCZCIMbWPO+gyLIQ1rfm5zNIbi/MwmuQtBZrY9aTeCYQlzZal/pf5PTpAJ8NcOIk322
+	X9c7++1UwfqZ/IVVMWrRwlk485Ob+QsWFmAHhU+A7YUcqd+2pqdbwnlXQ/e/ameTARGGZcH/rAME7
+	bM47e4OiLrOclBazRI+sWsWUkGzRIj4Y1yY5MGs9+gsDT73p0VRQQi7F6tRCLW4mN1ty4acr1H4UQ
+	UTMcTKXw5Rxb88Ij84RDkQ0xqtr+Jps0l1run5cIeEHrFuAdGZGTfnY7zHEelwTCKF724oGAhjpNv
+	R1u4h7Nw==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gGF-00000007lox-15qT
+	id 1w5gH6-00000007lwz-1lUM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 08:40:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC5B3441F8
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 08:40:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC972C19423
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 08:40:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774514411;
-	bh=QfOa7OzRwwd4XlZR0+3Hhy9wDi0PAtKq+HHQAKzIr2Q=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ftVRdaDOnFGANoIrp9OBhja30/JqJdcf3WqhVM2IUvVXw1JgNZtfzpu2r9NuVwChu
-	 joOjJsjzXJUWLt+dRFKmTpkTngVjS8DFiBoJ1ku8K6YdkYhh15H9U+Yj2GDrKUaEPa
-	 Sw9pzt32LwMPHlNSpKHdfyI5x+h/+fpuWZY3hm3mQQQsUMdJKtH/Wy3RPLx5CSksGw
-	 zJVQOUPBX2D/joxJX1uJJ01gj+2Q/gRrNklw3vit3m6/D4jR/LSLPCV+ciIuMS1O0K
-	 0Tqg46eygQg5MxDMp9zjKRDyxww15tORBncfdovtYuhN55HeyXHK/qz7TQnyMLjRty
-	 I2Wy4KJzpWdCg==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5a126c8aab9so1001159e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:40:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU/6NpiEf6FGUW+zsJOR57winPVTSCbDgYb4TZMHg3OuKFxfv3XrU/c8dAsPtijYFD+qpCXv8zKTtGQIUswXwcs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg+uFiX5hOdmP96MoBb8BN47pC8NJzdzcGS7tQTVyXEE4G8dha
-	LxgvLGMhPH3vvYiN/bW/H7wUhLhlgFWN8cySvShcW1EQWwujTjWt0jfhi3SYKByoAwfbhUlygC+
-	Hb5VVFFwS66HUHquXWEtcA/OVdFclMKpe2Fo28BZsCQ==
-X-Received: by 2002:a05:6512:a8f:b0:5a1:3da4:e92f with SMTP id
- 2adb3069b0e04-5a29b9ab6d8mr2497661e87.43.1774514410393; Thu, 26 Mar 2026
- 01:40:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260325100144.1696731-1-arnd@kernel.org> <CAMRc=Mdwu85gghDjQEu4eP2HZxHjBFpph07q9SOfAifSDMtpVw@mail.gmail.com>
- <1789ce66-5a18-4b54-bbad-3b2049f2c26d@app.fastmail.com>
-In-Reply-To: <1789ce66-5a18-4b54-bbad-3b2049f2c26d@app.fastmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 26 Mar 2026 09:39:57 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfwR9POm3OvuJTRcg8sO1y=LRdBMrbVLQ=eZD177r49qw@mail.gmail.com>
-X-Gm-Features: AQROBzDadLtwyr2raaFqkwGzyCOh9M5RUz_Gm02mFq1aGi1CGm9iwle9RVHpGLA
-Message-ID: <CAMRc=MfwR9POm3OvuJTRcg8sO1y=LRdBMrbVLQ=eZD177r49qw@mail.gmail.com>
+	Thu, 26 Mar 2026 08:41:10 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62Q6P1dX051998
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 08:41:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=; b=kwqFVl0va4Ro4+rt
+	fFgR1pQCzXvp8Mms5DBXi0Ow2aYvPUaXH6hlIhO16WnSpOV8MwbNlmWjKWe9TKJE
+	J5coywcqs7VMaFOehqKnkiVjfyGA84VV0WzF2crMLMozmnJHtB31gFvTLueSbfT2
+	oJz/npWpybSJK7bmwLETA+J1htz3aqgcjl5OnJrb18YiV84BH13+p0O7sLaLxWWp
+	qjvKUy1ZBqwJmFSvaZsWvbGKJlGUI/ksvGuSF852jMxu8vFHlEnGMIjHl/YKvGZ1
+	YDL7/rX9w/6AkkPIYPuiFYRcd6YJpfYxMRNWh6hNffJVdy8pY1E6zmtANkTByNj1
+	7zCBdw==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d4q1t1ygv-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 08:41:04 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50b31cff27fso9726851cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:41:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774514464; x=1775119264; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=;
+        b=esFW+z7sDsnt2/deeBnQpFnxlrsAEtHdGxkrVkRznLIFo85Um9rRPWThdkg3mzSl3C
+         uRTlmquJ+H6fddRgVVInC6PZeXvQGu3nuG4fUVNDWpN7Qx27LMa6pWkRSLJtUo7/wcw7
+         3EgFA2u95Nrg8fIV1ZhRoUDvv5Q3TM+snBL0XZ3HjTxmtoLzZZ5eOTyxRcnsz8AxBCMd
+         nmxandvjzSugIrPmBPaxDRX/CNoWcZatqWefzYQ0zoUiWW3izX0wc8eOCvlAbkFwwx/B
+         Kmw6AhnKM/mji42jK1T2brq9Tb3BkIZvEv8wx14MpvGRIw0MjVwNnNCMGjNdWNSHca8u
+         i4ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774514464; x=1775119264;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UahLMjjXP4HmY+1teJYFwYlE8SFM1tviQgqBvsmUzcw=;
+        b=JW+MOOs+u9EFDQHAuOU6x69KPXt0YrzpS1D1HncBcQDS+TlRE9tIprEwHkXcU1w5j/
+         UfOKGgJpFTYgYUwkLYI58ThChtKepXGKWGQ6ObRVdkT+PFt6vzSvJZkuJB5uTzLlv+C/
+         A9QqFB6TGHN2oP+KNnwgY/I0UzBCbZy/TY8NwTfv+ptYWRXF6jLiy9tbBj0nMjfDkPZZ
+         x9rIqWBl1d03KBJqSFoVbv/Whrp2JuGQJmCSzNx68+2FI4ktIlitStBR1g0qCx+IJzQs
+         5vadw03s+oj9Smr3sFJbmr1hX48wexDxE1Vl5BV8LM3lT6nX8GCG5L7IK8/tZzFFGBOB
+         FVfA==
+X-Forwarded-Encrypted: i=1; AJvYcCUjudfnoVZjWBY8nNcMuPXRU9n7zYSAcJY5kdhwrsIBlr7UyjSAmPZL3tHiwITokjComCDrbN/eQ0YBBg+XXVtH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yze76fIApZLUf7r7S+sCP5RAQDBLPErp6Qi6fiS1j7C8dqRebR0
+	0p2kwu1bckxxHE3SZOhxILbrVreTYF1WGp55XAz3SVQDvOPdWeDS7d8oTd/5QZULSfXz7C/tUwq
+	b08nvyhgfOxRNJW/CjVbxTZCgx9ToHmeAkDIT01Jn2JcFY7i+daXufc7lRo7pUO/dM2cXC52S9G
+	UbWQ==
+X-Gm-Gg: ATEYQzyzVBJo512lT85DWJ74QoiMZ1IXUrDvWc1bwApHvtSlNluQ0FWppwjRr9V3pNF
+	1p62N9hE/9ZEZXEyIaNsiBWzDIzk5yGTayVDWke4hdIm976iHEvsEgy3I8E1rRyu0zKvkvnhZel
+	1cXNp2c5+NoOuCjCpfGDpdJ/U3ULGT3l+9W96BNVBFjZOZ1Q77as7cR/SwSXBL1DX3g10uPU1Aa
+	x+gg/xKt0URGQ5sOciNn/17CMDy51R/QDgE6LFLe5j8x8zkIsZjKbVqzuh1vyEBY+YG5EfuPWJU
+	Dj/o/zNWW0vQWbfcxlk/PXvd+I9XYqtJUbUQ4W912KoLXGXapPl4A8eSo6qPGQEsbsqji9a+SLH
+	dt02Qfxp+ku3Ro21bC0ksl+NOPvVXs1Ns57Bq+9epzfmcq3zZk10=
+X-Received: by 2002:ac8:7e92:0:b0:50b:44cc:2a95 with SMTP id d75a77b69052e-50b80e36ab3mr91222421cf.36.1774514463748;
+        Thu, 26 Mar 2026 01:41:03 -0700 (PDT)
+X-Received: by 2002:ac8:7e92:0:b0:50b:44cc:2a95 with SMTP id d75a77b69052e-50b80e36ab3mr91222121cf.36.1774514463190;
+        Thu, 26 Mar 2026 01:41:03 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:92a5:ac13:cd81:9625])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c845b8sm16608955e9.4.2026.03.26.01.41.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Mar 2026 01:41:02 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Arnd Bergmann <arnd@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Arnd Bergmann <arnd@arndb.de>, Yixun Lan <dlan@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
 Subject: Re: [PATCH] gpio: fix up CONFIG_OF dependencies
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Arnd Bergmann <arnd@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Linus Walleij <linusw@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Mar 2026 09:41:00 +0100
+Message-ID: <177451445822.5060.11939390617609457696.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260325100144.1696731-1-arnd@kernel.org>
+References: <20260325100144.1696731-1-arnd@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=e7cLiKp/ c=1 sm=1 tr=0 ts=69c4f120 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=faeRYzTSnDSNNYB9Nk0A:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-GUID: l6s-4D8UM5GRUMMOeiQdtcsrBacplExC
+X-Proofpoint-ORIG-GUID: l6s-4D8UM5GRUMMOeiQdtcsrBacplExC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA2MiBTYWx0ZWRfX3kz96ME8Sw8f
+ z0fy890P6iJfqancL4ksHbh7eAOTAl/fQ/pDeDDACY0n6GSIZT5T+o3YCQ0RoD/Q4hFfuV2Q93V
+ Oco+YNfxhembCN/c/BgXkTgWhT057vYj+hH8up8NK/YRyHhMLgvsYuH/nwMzymTvsq7qNAeJuDH
+ 12tjo8KpNuhasSfJuXS1L6Jc7Tiw6HlrC7sSgJMfLnIf0AKeX6FfhYBQQ3v5Z9iVfpZBq7a4PE8
+ aIgzvAAl1tkWrTgFVLfP5pnP52tN/SMgZCYezObCmkwMDJe84GDR4UGLNYttH5oYivy70Jmv/0Y
+ ylAe0JuflqtOK2sc0xeqSbWNSK2A7ajAICkVq1LMBzXlnOjxUNvmv2V2a6EkMcD0j0DRc3rCpap
+ SR3Na58JmaOHnXXiIs3x5lC1Xu7BLH7wYH8GuSShn/4lkzIskiRJ2e3p0Q8kD+Cg4Wymmd2snbB
+ 4ceMULR4eyCX2X6U5EA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-26_02,2026-03-24_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 spamscore=0 bulkscore=0 phishscore=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603260062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_084015_645202_C746CF3A 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260326_084108_703030_7AFF925E 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +165,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 11:41=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrot=
-e:
->
-> On Wed, Mar 25, 2026, at 11:32, Bartosz Golaszewski wrote:
-> > On Wed, 25 Mar 2026 11:01:14 +0100, Arnd Bergmann <arnd@kernel.org> sai=
-d:
-> >>
-> >> WARNING: unmet direct dependencies detected for GPIO_SYSCON
-> >>   Depends on [n]: GPIOLIB [=3Dy] && HAS_IOMEM [=3Dy] && MFD_SYSCON [=
-=3Dy] && OF [=3Dn]
-> >>   Selected by [y]:
-> >>   - GPIO_SAMA5D2_PIOBU [=3Dy] && GPIOLIB [=3Dy] && HAS_IOMEM [=3Dy] &&=
- MFD_SYSCON [=3Dy] && (ARCH_AT91 || COMPILE_TEST [=3Dy])
-> >>
-> >
-> > Thanks and sorry for the breakage. However, I'm wondering if it wouldn'=
-t make
-> > sense to do the following:
-> >
-> >
-> > -#if defined(CONFIG_OF_GPIO)
-> >       /*
-> >        * If CONFIG_OF_GPIO is enabled, then all GPIO controllers descri=
-bed in
-> >        * the device tree automatically may have an OF translation
-> ...
-> > Symbols from linux/of.h are stubbed out and these drivers can build jus=
-t fine
-> > with !CONFIG_OF. This would naturally increase the build coverage.
->
-> I don't think we need to worry about the build coverage here, CONFIG_OF
-> is still included in x86 allmodconfig and half the randconfig builds,
-> so the drivers get enough exposure either way.
->
-> On the other hand, dropping the build time check may help avoid
-> future Kconfig dependency issues, so that still sounds like a
-> reasonable suggestion. At least CONFIG_GPIO_SAMA5D2_PIOBU
-> is going to need the 'depends on OF' regardless though to work
-> around the other build error I cited above.
->
->      Arnd
 
-Fair enough, I'll queue this patch.
+On Wed, 25 Mar 2026 11:01:14 +0100, Arnd Bergmann wrote:
+> A number of GPIO drivers that used to have a CONFIG_OF_GPIO dependency now fail
+> to build on targets without CONFIG_OF:
+> 
+> WARNING: unmet direct dependencies detected for GPIO_SYSCON
+>   Depends on [n]: GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && OF [=n]
+>   Selected by [y]:
+>   - GPIO_SAMA5D2_PIOBU [=y] && GPIOLIB [=y] && HAS_IOMEM [=y] && MFD_SYSCON [=y] && (ARCH_AT91 || COMPILE_TEST [=y])
+> 
+> [...]
 
-Bart
+Applied, thanks!
+
+[1/1] gpio: fix up CONFIG_OF dependencies
+      https://git.kernel.org/brgl/c/af475c16bc02a08ed6af6ca0c920f98a45611fe6
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
