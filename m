@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6794910A88E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9E310A88E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 16:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hjbkzpYN6SEyYHTqhvZQT64dEOhLI3aoAivH4zr/qc=; b=soJ6Z1+LxASbhm22lMtvUqMFAk
-	kLngdJIUDgpWoOdSEUPcgXBClFfgpJMnf4Fu+kbcBrKUSltdwHaWd2EBTHTn9bsDp+WyH8xBqASOO
-	C34tCtgmBNF8Igh5ksqiw/45A3w5aTub+uemDS+ExVvFy+4Yn6bWcAzm3JTv3XQu9MFVpbsDSmIc+
-	gsy3Xi3Mn7XVCrTGk8e9TAHsh8ffZCTQPhMb5N1Bro7XwVSywKw6UdZOclgX2IBut5kQCfhG/b5a3
-	pAojGrkGQXGXAUOtdK98UzFtVUeG4LFshD2rP6tfmq/m/EGUf4mO6FiBHqj5KTdDOiYdzNljGVPAw
-	1Prb53wg==;
+	bh=kCuq0CvhS9n+WdIm4mK7r+0jxzykOe3qHSsFefweB/I=; b=YEqPDlhS5SmnhvTb93nrtWurZi
+	dkVdFMLY/wdp+R5kPdQklDAZ13W2pzWWqsveNs7zTT8/M26F1sH3jThQjoDPme080hlOJSKOnoiMt
+	57BeElbBLeMs6u4OqW48C2j/Msnm5TwThlVMQY10JUqsGwpeWBbsdKWASgGs9aFWlXwUc5Nr4+XE2
+	IY33OWs1G6T8KsoQeEYq32IasWCtB+usB3JqmzEuVn+GQp9CP9BoEJQUzLE2wfM4PgoZ4L+j46HfE
+	gpHxfeSOVT+v3n+O4L2jQW/qTYo+rHv16Lv5uBgp8tQBt5ZgTbndHNan8+D8s4wFFmooBruIWMzi5
+	v2RABWvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5n6i-00000005oMs-1IMz;
-	Thu, 26 Mar 2026 15:58:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5n8P-00000005oZs-08sw;
+	Thu, 26 Mar 2026 16:00:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5n6f-00000005oM8-2XjG
+	id 1w5n8M-00000005oZh-2PeA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 15:58:50 +0000
+	Thu, 26 Mar 2026 16:00:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2CF843C57;
-	Thu, 26 Mar 2026 15:58:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01FFDC116C6;
-	Thu, 26 Mar 2026 15:58:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E01A60127;
+	Thu, 26 Mar 2026 16:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37DA3C116C6;
+	Thu, 26 Mar 2026 16:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774540728;
-	bh=tTQxD9EHRYahV5vajLwoH5cOmwDwYqTZzE3aTrnmmRA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BAcWM7ct+tSe96JXMXQjjuR+xRmsdakYqdUam7sAe1arIjeds+uoCtqwyQEcnIwRm
-	 oddaBY8DCQZMFEmELY6vZXE18Hh4Hp/gHAEjydww9YpcK3OfHb7OQot5VlMtVUEQlj
-	 yS5mxCVqf6t6luH62UWpXv2e3AP9Ro6DkJ7Fa+rw5/rDi0deE/gIE25empz+u2mTZT
-	 77IMGTOkIvrEsbnJs7pQImnJiaEZAjkISToUzlxFFR1t3+2EqIprUULe3I39IQlDNL
-	 KposIUGT64pgRYNa9w0hhwRwBl8ZnKwDoBdM51MZzhorgldWQWp+QuD+4ur1MOXKJ/
-	 gLEJIvjbsTQQQ==
-Date: Thu, 26 Mar 2026 10:58:45 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Ayushi Makhija <quic_amakhija@quicinc.com>
-Cc: konrad.dybcio@linaro.org, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, dmitry.baryshkov@linaro.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com
-Subject: Re: [PATCH] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage for
- panel nt37801
-Message-ID: <acVWseivbxLQ_uDM@baldur>
-References: <20260323102229.1546504-1-quic_amakhija@quicinc.com>
- <acHwvzjcvqNxUjm3@baldur>
- <ccb11c2a-4cf1-4486-be71-d4bcc983cee6@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ccb11c2a-4cf1-4486-be71-d4bcc983cee6@quicinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_085849_684327_54F53A06 
-X-CRM114-Status: GOOD (  23.58  )
+	s=k20201202; t=1774540833;
+	bh=suSxf+cexdkRqgiCTVxM2+SaDbXf2T9H5jOvQ4DS/yo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pkmNb9d36WTAWrcg85iRDMqVsEBvSSFp6FJmcMvTprkrSlZmmauv3pQ0Z1wYGid7n
+	 2QkqlumUYj4WwTS9W5VRmrZdMy19a5YvbgeddG1eppNfDVSXzTT33g2EYTFYLp8ynC
+	 TsmClxYJJDrNSOXTtbQ8JVoDitctK9c+GVHVzNzGBX9Kl7UDVRLONXnrXCVWWcN/Pz
+	 0cFwLciqlkv9X0VmK9Vjq23voH8YGgv3qM7YZGQUlugOlEa9N58URJhLqIVS/N5Ksf
+	 BtyJ2yfeGMosE4on2g2imarshY4cz1XvSTuZ4BrkJDL+/v/1Ukf3YvUgG6Pf109Boh
+	 q8/AZ0t+XnmqA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w5n8J-0000000610M-1ZN0;
+	Thu, 26 Mar 2026 16:00:31 +0000
+Date: Thu, 26 Mar 2026 16:00:31 +0000
+Message-ID: <86fr5m4m3k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] irqchip/gic-v3: Print a warning for out-of-range interrupt numbers
+In-Reply-To: <ce695ea46decc816974179314a86f2b9b5cad6a9.1772799134.git.geert+renesas@glider.be>
+References: <ce695ea46decc816974179314a86f2b9b5cad6a9.1772799134.git.geert+renesas@glider.be>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: geert+renesas@glider.be, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:06:52PM +0530, Ayushi Makhija wrote:
-> On 3/24/2026 7:34 AM, Bjorn Andersson wrote:
-> > On Mon, Mar 23, 2026 at 03:52:29PM +0530, Ayushi Makhija wrote:
-> >> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
-> >> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
-> >>
-> > 
-> > Please add Fixes: tag.
-> > 
+On Fri, 06 Mar 2026 12:13:32 +0000,
+Geert Uytterhoeven <geert+renesas@glider.be> wrote:
 > 
-> Hi Bjorn,
+> gic_irq_domain_translate() does not check if an interrupt number lies
+> within the valid range of the specified interrupt type.  Add these
+> checks, and print a warning if the interrupt number is out of range.
 > 
-> Sure, will add in new patchset.
+> This can help flagging incorrectly described Extended SPI and PPI
+> interrupts in DT.
 > 
-> >> Signed-off-by: Ayushi Makhija <quic_amakhija@quicinc.com>
-> > 
-> > Please start using your oss.qualcomm.com address.
-> > 
-> >> ---
-> >>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
-> >>  1 file changed, 1 insertion(+), 1 deletion(-)
-> >>
-> >> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> >> index 3837f6785320..6ba4e69bf377 100644
-> >> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> >> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> >> @@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
-> >>  
-> >>  		vreg_l12b_1p8: ldo12 {
-> >>  			regulator-name = "vreg_l12b_1p8";
-> >> -			regulator-min-microvolt = <1200000>;
-> >> +			regulator-min-microvolt = <1650000>;
-> > 
-> > Are you sure it's not supposed to be 1.8V, given the name of the rail?
-> > 
-> > Regards,
-> > Bjorn
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> This would have prevented the issue fixed by "[PATCH] arm64: dts:
+> renesas: r8a78000: Fix out-of-range SPI interrupt numbers"[1].
 > 
-> There was already discussion regarding the minimum voltage for this regulator on sm8550 target
-> on other upstream patch. 
+> v2:
+>   - Fix off-by-one error in PPI range check.
 > 
-> Link: https://lore.kernel.org/all/aQQdQoCLeKhYtY7W@yuanjiey.ap.qualcomm.com/
+> [1] https://lore.kernel.org/1f9dd274720ea1b66617a5dd84f76c3efc829dc8.1772641415.git.geert+renesas@glider.be/
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
-> This values is according to the NT37801 panel sec
-> "The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states 
-> VDDI=1.65V~1.95V."
-> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 20f13b686ab22faf..9e97505d4b767043 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -1603,15 +1603,27 @@ static int gic_irq_domain_translate(struct irq_domain *d,
+>  
+>  		switch (fwspec->param[0]) {
+>  		case 0:			/* SPI */
+> +			if (fwspec->param[1] > 987)
+> +				pr_warn_once("SPI %u out of range (use ESPI?)\n",
+> +					     fwspec->param[1]);
+>  			*hwirq = fwspec->param[1] + 32;
+>  			break;
+>  		case 1:			/* PPI */
+> +			if (fwspec->param[1] > 15)
+> +				pr_warn_once("PPI %u out of range (use EPPI?)\n",
+> +					     fwspec->param[1]);
+>  			*hwirq = fwspec->param[1] + 16;
+>  			break;
+>  		case 2:			/* ESPI */
+> +			if (fwspec->param[1] > 1023)
+> +				pr_warn_once("ESPI %u out of range\n",
+> +					     fwspec->param[1]);
+>  			*hwirq = fwspec->param[1] + ESPI_BASE_INTID;
+>  			break;
+>  		case 3:			/* EPPI */
+> +			if (fwspec->param[1] > 63)
+> +				pr_warn_once("EPPI %u out of range\n",
+> +					     fwspec->param[1]);
+>  			*hwirq = fwspec->param[1] + EPPI_BASE_INTID;
+>  			break;
+>  		case GIC_IRQ_TYPE_LPI:	/* LPI */
 
-Yes, so the panel requires 1.65V, so regulator-min-microvolt needs to be
-at least that. But regulator-min-microvolt should account for all the
-consumers of the rail, are there any others?
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Which leads me to my question, the people designing the board named the
-rail VREG_L12B_1P8 in the schematics, why didn't they name it
-VREG_L12B_1P65?
+	M.
 
-Please check all the consumers and make the regulator-min-microvolt work
-for all of them - if that's 1.65V, then your change is good.
-
-Regards,
-Bjorn
-
-> Thanks,
-> Ayushi
-> 
-> >>  			regulator-max-microvolt = <1800000>;
-> >>  			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-> >>  			regulator-allow-set-load;
-> >> -- 
-> >> 2.34.1
-> >>
-> 
+-- 
+Without deviation from the norm, progress is not possible.
 
