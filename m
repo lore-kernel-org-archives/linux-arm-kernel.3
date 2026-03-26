@@ -4,138 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54C410A88E1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6794910A88E1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JZ0FfDdnlixNx4zFT8GXGx6gj+gUGUDPyPY70mgnqo=; b=BmpM1aY67SQb1a2pSGbQDpqERj
-	taZEqKr+LNBQWEOsQk45ayG5SWNNCubHVMEnqBX7VwRlxdlPs7YeiJXw2sCUDYN+m8ux+92r9o6mJ
-	ONQUocndcvnb3O1/1bgqgIG66rp1wkWUSlaGWcbYIM0YZn61MtuQVefUkR/XkVRRdHs9uRMOS94Ta
-	jJ0nfSlx40H6wwBTKvzHZxZw13t2+V2Qmh/fIU8CIYpc+ogyBlyYHukuvR1Ec+uOvTicZzwUc2rE0
-	zaJt6r1lyj4hFx5D2caXjs0Qe4Bxt5T4GtEsV7EkulbD/q/nQb98buz53+bR6V8MRFFzabUUd+62s
-	HzwnzxSg==;
+	bh=8hjbkzpYN6SEyYHTqhvZQT64dEOhLI3aoAivH4zr/qc=; b=soJ6Z1+LxASbhm22lMtvUqMFAk
+	kLngdJIUDgpWoOdSEUPcgXBClFfgpJMnf4Fu+kbcBrKUSltdwHaWd2EBTHTn9bsDp+WyH8xBqASOO
+	C34tCtgmBNF8Igh5ksqiw/45A3w5aTub+uemDS+ExVvFy+4Yn6bWcAzm3JTv3XQu9MFVpbsDSmIc+
+	gsy3Xi3Mn7XVCrTGk8e9TAHsh8ffZCTQPhMb5N1Bro7XwVSywKw6UdZOclgX2IBut5kQCfhG/b5a3
+	pAojGrkGQXGXAUOtdK98UzFtVUeG4LFshD2rP6tfmq/m/EGUf4mO6FiBHqj5KTdDOiYdzNljGVPAw
+	1Prb53wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5n68-00000005oIU-42B4;
-	Thu, 26 Mar 2026 15:58:16 +0000
-Received: from mail-francesouthazon11011060.outbound.protection.outlook.com ([40.107.130.60] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1w5n6i-00000005oMs-1IMz;
+	Thu, 26 Mar 2026 15:58:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5n66-00000005oI7-1tOk
+	id 1w5n6f-00000005oM8-2XjG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 15:58:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LP0n/3N++xMIUdS7tTEK+3Xvl57waFiRRkShvX7Cmm9ufcNHiwnRuEw6NE1Pu/ekJ3GNA9VX+RqUzQ1AOhARcoETpne9M0wqVpnIU+tYd/DcaX7GBoDXY9OkmgqlWMFvvksuFsVvvzsjMjlPbajrqUxzNeMI/s8yVjPDFenJ1B2G7Ier716w+TroNlBqysXHIFZbv8e1ZS9vGkMn94WffyUIJ6wWVICrCrhDN6W0JAZqvTuecO1Lig9nUntUKnnSDZnMcWw6GTaiLsr8wZxc5W7UfeAqzuqGc2P33WJcPLBEZ22mPve6T515pb4fjPeK6uAnLjKBgJPnvdG8IUNmew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1JZ0FfDdnlixNx4zFT8GXGx6gj+gUGUDPyPY70mgnqo=;
- b=OBvzrQwqb3HihKW6oy0eDziFdU1iGup7JIcedDacVBCw5UaveY+VIlK8yX/IuMraTMctSHpeKiFkE0Vjmrys3cVxlmRQXqh0EMAS2Tq1QB45ruShQN+1+2P3iwoz440QK2pOLxKnbCZWW0Fr/cpxdzFD07fW66qJ1I9kmWMMAmp0k07B2MeWl0UVTQXEylDJooh4K7RxBYYMcujje7E+KY5IhfgxNrryoMwgOZMvQhLbdztdfrwW/mVFS3jyzb1CJ4omyukeCQXtf4d4F1/OtA/aXiree08TVanMtbFienEQ/94QrvQyHUNBaYfy8DiaAhq58uZ3E08Z1p34yfu0xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1JZ0FfDdnlixNx4zFT8GXGx6gj+gUGUDPyPY70mgnqo=;
- b=RazeuMtEnlcbLWAgfo8kP6fBqJgL4ZyK58BdlAWs1QM8vzrMi3vM63F+ISUVUWxtUR3ScXaj2yba0B4IxMtTWjBS1OAgBeAHkVCVXfIHWU4NLjBDFHEg8zBme9gkIKRB+S9kumeTuZgS6+P2VZKeienTnGG2JStP8aZOeRIbr7IJuaj8ttHklH6WyCeZEpC9j1gfxKyG0yk/Yt1vJI59vzbeag89X3ajFDQgGNjMuJiqTsJbIMs4v4ZIQ0yAMYcAExhgQXrOzHVrja9gUfD405eVssLwBaxeo7H+WVr/HshXtY70AsrppyZCXcqP7+wS1CznqMfAaRRDgNtj7p8J4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU2PR04MB8680.eurprd04.prod.outlook.com (2603:10a6:10:2df::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Thu, 26 Mar
- 2026 15:58:08 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.022; Thu, 26 Mar 2026
- 15:58:08 +0000
-Date: Thu, 26 Mar 2026 11:57:59 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: (subset) [PATCH v10 0/5] Add MIPI CSI-2 support for i.MX8ULP
-Message-ID: <acVXhxohG8RS67_U@lizhi-Precision-Tower-5810>
-References: <20251205-csi2_imx8ulp-v10-0-190cdadb20a3@nxp.com>
- <177453839102.4969.6512848643800500076.b4-ty@nxp.com>
+	Thu, 26 Mar 2026 15:58:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F2CF843C57;
+	Thu, 26 Mar 2026 15:58:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01FFDC116C6;
+	Thu, 26 Mar 2026 15:58:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774540728;
+	bh=tTQxD9EHRYahV5vajLwoH5cOmwDwYqTZzE3aTrnmmRA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BAcWM7ct+tSe96JXMXQjjuR+xRmsdakYqdUam7sAe1arIjeds+uoCtqwyQEcnIwRm
+	 oddaBY8DCQZMFEmELY6vZXE18Hh4Hp/gHAEjydww9YpcK3OfHb7OQot5VlMtVUEQlj
+	 yS5mxCVqf6t6luH62UWpXv2e3AP9Ro6DkJ7Fa+rw5/rDi0deE/gIE25empz+u2mTZT
+	 77IMGTOkIvrEsbnJs7pQImnJiaEZAjkISToUzlxFFR1t3+2EqIprUULe3I39IQlDNL
+	 KposIUGT64pgRYNa9w0hhwRwBl8ZnKwDoBdM51MZzhorgldWQWp+QuD+4ur1MOXKJ/
+	 gLEJIvjbsTQQQ==
+Date: Thu, 26 Mar 2026 10:58:45 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Ayushi Makhija <quic_amakhija@quicinc.com>
+Cc: konrad.dybcio@linaro.org, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, dmitry.baryshkov@linaro.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com
+Subject: Re: [PATCH] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage for
+ panel nt37801
+Message-ID: <acVWseivbxLQ_uDM@baldur>
+References: <20260323102229.1546504-1-quic_amakhija@quicinc.com>
+ <acHwvzjcvqNxUjm3@baldur>
+ <ccb11c2a-4cf1-4486-be71-d4bcc983cee6@quicinc.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <177453839102.4969.6512848643800500076.b4-ty@nxp.com>
-X-ClientProxiedBy: PH0P220CA0012.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::35) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB8680:EE_
-X-MS-Office365-Filtering-Correlation-Id: d588cc2a-66ea-4eb5-10ab-08de8b507919
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|52116014|376014|921020|56012099003|22082099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: PsRm69/SBh3QBlCmKzOiyfVToOiihOwur2A34ycFvtkZHlXr81iUUm7Nb8yY2pHFA1I7NiIc+lpEKp10CTDKVVNcTYrVr/z+AZMH6mfo9di3dujyKYlHmtV5hqHgB+p9Exi8L1RHXa0zOT4sP4vmpOImtQCKwM+zwrY5NeVGKPMsG0PSGkKmnFF6aouZRZWq2wyMvcXQs9ReiB47jX3Groi8xMNIqColY6V5v1aFBikX5gsa/0DsLBj0smjWFspRFkHzDNRvLkaItR7AZnNkf42xlkEBUM8eN5+EswhSbbr3PQaG5a7K+T9lNSE9yItPfC/8VVsMkDw6Y3w8jQ+Hsnba0mOMCk6Re0V/ny9x2sphZrx7VPVwG4teDRGCfTHQnlFGmAZEDuRy4AMr6RrlkcBNfH8mFpqeAZV1LFIiEQetcuzW7yE6+GYxjyjCeCtKSVuK1T7T7TiRHkIOSI1URGTr/YRaqaypfNQxko1mauFVRUSnV6GQzu9xTkTe8iBPVkzOpMo5pRvWQuoTSiZrXSIcWPh0KZVyX0er64fk8tbHHqjWYAnQL/ZgpJD6zszS6z8oaf9sXlG0feI2+9hKDDZppk9ogfoXGCk9+YfeakXiR2ov3CEf/p8tpB1VLBXfTdBT3sM7ZyXOvxa5h02ijMYmaBAkHS61iLrJ/9ERRpEEUgqYuXA6Oc+6cPmpxiuDoCaHZcfYSWtrurCIrE40ULJ7PYOaGhQfUs0iyA1MeX+zs7wL6jw1avXvKmzWHyWaxrmFtnkrMXII5ATmh9qTlRvnilOHFB2DH+JibFFvY3O3Ts8tFRU3H9MV/kiDRcuH
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(52116014)(376014)(921020)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2gNUspJfN1GF5NTYltQQtDE4+EyuvmWrG10FTpjM36A7BCfsyqEXCQbLxSgO?=
- =?us-ascii?Q?e7Cm634OzPb9S+WfFp4Mq3xEDCIyw6BHtZt9iGJBCwrNi/67vDClUKAJEnvi?=
- =?us-ascii?Q?rynNf8JwFgUf+mwFcgFTeEydybzo2wZHUc2+AAT81o0S1M7OFatoIq6Cgxvd?=
- =?us-ascii?Q?LQfIZCPmSJBvFXjGHVv4x31nGdk9X94CoicQEo5p065MH1pgDAjpgozQIgOo?=
- =?us-ascii?Q?8YcznbGw+NiOYHzzaLVFK7ieDtX1qoUGyXU+m/1PhukuzYssgA5cbhz3aWSb?=
- =?us-ascii?Q?HUDziYu4sZK5MSyKXklla1vYrzLXtIaqcN3Hc8LJM2mSEiaYyrrALajG1uy8?=
- =?us-ascii?Q?6ycKivxNnrPpW1PpQ5ZIXnPmoRFsP8gIN7ACuHHaIFVlZyRpFZHM9BiruehT?=
- =?us-ascii?Q?ay2Ul0Rgx1rZFPP4PiGt3ogrnqnfptfpdlooQGRUBQxiggLvhG5frZS98HIt?=
- =?us-ascii?Q?gG+1J6oXwX3XVcqCr+3XIGribf4Ux+u0sTJtU7unB/EyGISZtjwSBxtvmtTU?=
- =?us-ascii?Q?iC3n2lYahwomgzHjaXgmt0s6I9tGkL/Iv/pUL2kM2i/O3IbRqLX5jpssl2Ea?=
- =?us-ascii?Q?9hHshUw4NUkKPKSJ46EYbPqUy8SjbnSpvxHwgvpWNT5GzEsBhKJu6HAH3ghj?=
- =?us-ascii?Q?d/fpeuReMoK9WAra8S6fKIBNVkWpmxQO8wCvNqij91hFQdyx8b9zUWC/DRjH?=
- =?us-ascii?Q?GB98pWDB+lbg0kr+PnObqjTbXqlQQs8JyFGGPCrMUYducYp3f6Bfe2FGGh0p?=
- =?us-ascii?Q?Nlt8A/tNr3D9+g7OMWVZkeOQ7Hdz2pYmeZ/yWBuWjJfUFIXHE6/RctTwB67u?=
- =?us-ascii?Q?0SvFNb1ffBTUgJpfKHQcwn0yHyDJ7rwf3VONVK8ie3O/VdmLSmsTqRDzwEJJ?=
- =?us-ascii?Q?+CU3r7UKHO4qbxmJ5IepA3xcfYw0TEawyKXLHpX3iU+lT2fKhmBKRvLODQBb?=
- =?us-ascii?Q?p7JIn12GIvCAbEkzsF+Mvsk2E3829kXQ9g4vumBEAtZN75TxoaSpt4vsUNsg?=
- =?us-ascii?Q?89RMXCayErzRFFRR54i3UiH3SK8Xli0TL0Hfrxi0wKqY3oYaherp0jxeYEHo?=
- =?us-ascii?Q?7RgtDeiOA8stqk5fa2JUwfFo5b0nhGzcA1mmoIUVX+d/bSlglziX/syQ2XAr?=
- =?us-ascii?Q?vXgLwMMOj7PPxTqnU8qkLB1/uzHK7H6wmKx0D9sNY/jsLj84ahngQqJMDn35?=
- =?us-ascii?Q?LLBb8YoQzBfHdrnaHpCNw7RtjzG/j2bZQFWVRf50Me05nQzJZc58E4PUUM1i?=
- =?us-ascii?Q?vO6wvsCoRAW1oaB/JSCsSfKF8a5Q5FltzPEiqEvRums+BKd0iWs4xZn80upC?=
- =?us-ascii?Q?sfI+p0Io6T3TlPpFCDPADXljsWV6Su/NNOkOmtt2fXa3qveB2Al/mkQouNHM?=
- =?us-ascii?Q?k2AXebMOEINVxBbL72WBXxJCnF05MOZQbRwQqSXIL1PMjXFTREI8e7zQmENc?=
- =?us-ascii?Q?p5LnYeNP3HyFuHSonmwmtOafcxJ3pyPJ1hPIbvNqbgYEpNpSKa9YOWm+ealh?=
- =?us-ascii?Q?agkPfp4soUmb0kgYytBYjVxENBW5uxEU52NLYTWPXBJnhabu7QcljIVWevDS?=
- =?us-ascii?Q?rvnMgub2JcwhdISWzYrL+mDiDL0tiMwis+NTdh4Fz6ooZeLnQmCn5UFAe7NT?=
- =?us-ascii?Q?evAayikazwiihRN/WZHOU3fKOiolEX1YwVDB3sGfmtmWkwkwfQmA8XOqVy1C?=
- =?us-ascii?Q?WCQhq8tiAo6cLKzc3LrRr1W3xpb2obT5NauVGnAJh+QqZa/6v7YWOxpgPgCG?=
- =?us-ascii?Q?Jc4hPSYPwg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d588cc2a-66ea-4eb5-10ab-08de8b507919
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 15:58:08.0390
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7QWJcIRRtFI1VhbbQFIziRuFY0WU0HYRq9k0F+JfN4sW/dxnttwDsc72cECOe7KNXYUNmvUq0BRePMfybHMetQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8680
+In-Reply-To: <ccb11c2a-4cf1-4486-be71-d4bcc983cee6@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_085814_506548_54DE1E27 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260326_085849_684327_54F53A06 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,29 +76,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 11:20:54AM -0400, Frank Li wrote:
->
-> On Fri, 05 Dec 2025 17:07:42 +0800, Guoniu Zhou wrote:
-> > The serial adds MIPI CSI-2 support for i.MX8ULP.
-> >
-> >
->
-> Applied, thanks!
->
-> [5/5] arm64: dts: imx8ulp: Add CSI and ISI Nodes
->       commit: 73f3ca0f85285b2fc4ea05affb9a44bf899cd595
->
-> Add extra empty line between reg and child node.
+On Thu, Mar 26, 2026 at 03:06:52PM +0530, Ayushi Makhija wrote:
+> On 3/24/2026 7:34 AM, Bjorn Andersson wrote:
+> > On Mon, Mar 23, 2026 at 03:52:29PM +0530, Ayushi Makhija wrote:
+> >> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
+> >> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
+> >>
+> > 
+> > Please add Fixes: tag.
+> > 
+> 
+> Hi Bjorn,
+> 
+> Sure, will add in new patchset.
+> 
+> >> Signed-off-by: Ayushi Makhija <quic_amakhija@quicinc.com>
+> > 
+> > Please start using your oss.qualcomm.com address.
+> > 
+> >> ---
+> >>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
+> >>  1 file changed, 1 insertion(+), 1 deletion(-)
+> >>
+> >> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+> >> index 3837f6785320..6ba4e69bf377 100644
+> >> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+> >> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+> >> @@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
+> >>  
+> >>  		vreg_l12b_1p8: ldo12 {
+> >>  			regulator-name = "vreg_l12b_1p8";
+> >> -			regulator-min-microvolt = <1200000>;
+> >> +			regulator-min-microvolt = <1650000>;
+> > 
+> > Are you sure it's not supposed to be 1.8V, given the name of the rail?
+> > 
+> > Regards,
+> > Bjorn
+> 
+> There was already discussion regarding the minimum voltage for this regulator on sm8550 target
+> on other upstream patch. 
+> 
+> Link: https://lore.kernel.org/all/aQQdQoCLeKhYtY7W@yuanjiey.ap.qualcomm.com/
+> 
+> This values is according to the NT37801 panel sec
+> "The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states 
+> VDDI=1.65V~1.95V."
+> 
 
-Guoniu Zhou:
+Yes, so the panel requires 1.65V, so regulator-min-microvolt needs to be
+at least that. But regulator-min-microvolt should account for all the
+consumers of the rail, are there any others?
 
-I have to drop this one because miss <dt-bindings/reset/imx8ulp-pcc-reset.h>
+Which leads me to my question, the people designing the board named the
+rail VREG_L12B_1P8 in the schematics, why didn't they name it
+VREG_L12B_1P65?
 
-Do you miss some dependence?
+Please check all the consumers and make the regulator-min-microvolt work
+for all of them - if that's 1.65V, then your change is good.
 
-Frank
->
-> Best regards,
-> --
-> Frank Li <Frank.Li@nxp.com>
+Regards,
+Bjorn
+
+> Thanks,
+> Ayushi
+> 
+> >>  			regulator-max-microvolt = <1800000>;
+> >>  			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+> >>  			regulator-allow-set-load;
+> >> -- 
+> >> 2.34.1
+> >>
+> 
 
