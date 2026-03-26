@@ -4,146 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237DB106F314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4ED8106F314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQ61kuhdrfqFul0L2FFBXSHRCVEg6otwfwoaX1TK3/E=; b=oZEwy2e09xfqvtXuT4N1lgeIM9
-	bPKQ+HzRZkO8ru1SrTovbszYxxvtaE5Z6c/KVF5mtiTCjmRJ9q9PRR4HFLv4dMOMf8YqDL+ZRdxlS
-	MkVYpn9RL8DqtbkXdPLqyPmE6YTN6rnFEWX/PvvrXEJDfMVmC4fdXSdntqi5R1iMLamjcm62nY0wd
-	tqbPzZdHCu/L493xPLs2FHQ7ps9dj2Puj9nhJ3WEUkYr2watuJ9GNPXRbApuR6AeCPjpUl7e937Uv
-	VM4ci+mMv9DRbcQSW4QKBXRNU6//5nILDDm/+QGrwa7OjpZyfyOr6KPDtrK2IKTPgFMGwKeBeZPdD
-	GtddlzDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NLLjfS5BvDFcvjGePocKuzlspinwqEnC95/6wgf9NSk=; b=S+gvsbl6ttpJP+6ni6qEYJh3hx
+	LpyonUcDVGc/+psl8QaZ0w8bRIm/OAnkTlYww2sdAcCjNo95a+EKo9hnqmXooMuvmHCcOIFmCbrpA
+	vkbbE76wr/+vfqlxCbgNFnh6W2jFPWonRajDfVtFq8lMWl2TwvSkgOe7cqyHR+NuFnSUaWSIMfaSN
+	hkMZnmv+Nd6jDhf/Q+9P61lccjK5Ly66I7Eqr/m4rc4CKR8mDcWeEQQeYGOYZJx60C3WTWsRf756Y
+	DoZjdt/5MenYeE7B0HrHHbEg2TeS/gH0W+2nPvJz3kgu0CIVWe/WoCm5RwDABQw4Aw1J8KFexBECX
+	WoBBqKBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hFo-00000005Amq-0YDv;
-	Thu, 26 Mar 2026 09:43:52 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1w5hGN-00000005B14-3B5w;
+	Thu, 26 Mar 2026 09:44:27 +0000
+Received: from mail-ua1-f49.google.com ([209.85.222.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hFi-00000005AiR-23Qh
+	id 1w5hGE-00000005AwT-1sAn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 09:43:48 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62Q59Wqg1479684;
-	Thu, 26 Mar 2026 09:43:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=GQ61ku
-	hdrfqFul0L2FFBXSHRCVEg6otwfwoaX1TK3/E=; b=avrMFIfOdugi4S/4hndTN+
-	CLl/8HIMGz5Y/Oum5eOm3OxGCkgJK5eRyIT5itUmQlmpPCJa5rd7cEhD70kd89Vx
-	sIkj70/bP26p1m99XZIqnezWszE2fOzkNLz1UKG/M+ZIpYxEchD1eZtuvPGMylcs
-	oeHmw2eVFKJjsgFq0pWIzHhgjEoKzXSvm+Q3IfGfuYz/X6Rtw3ddqbg74qyboisW
-	7VhJFSlPA/npMVSA1RxAqkj0qgcs/ITsZmLD/UBiIHDv6wpIicKFko9HHa1mxW7e
-	FX0uQjKv616F5kTpsv6tLKCb9nFCwCPKBw3DJM+rLF0pILZ/li0SeQnt8POSnByw
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d1kxqmkhe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Mar 2026 09:43:18 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62Q70AQB026695;
-	Thu, 26 Mar 2026 09:43:16 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4d275m292g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Mar 2026 09:43:16 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62Q9hCts51970526
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 26 Mar 2026 09:43:12 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 59BB320049;
-	Thu, 26 Mar 2026 09:43:12 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B3A6C20040;
-	Thu, 26 Mar 2026 09:43:11 +0000 (GMT)
-Received: from [9.52.196.90] (unknown [9.52.196.90])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 26 Mar 2026 09:43:11 +0000 (GMT)
-Message-ID: <e232e227-b022-40b7-ae9b-085398172aaa@linux.ibm.com>
-Date: Thu, 26 Mar 2026 10:43:11 +0100
+	Thu, 26 Mar 2026 09:44:24 +0000
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-94b07fddecbso483828241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:44:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774518257; x=1775123057;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NLLjfS5BvDFcvjGePocKuzlspinwqEnC95/6wgf9NSk=;
+        b=U3P9zm+Q4O879t6WYJVsmzyw5ONvVGM8QJGocMHh/w5e0wLfYUnJ/Ex815ttX+tmfn
+         QKzTQ5BZR/m4fT++jXg4Xry2sXRCm8lDtoSqRsf2uPR4jFpSGV6siBsLC7pH/99o6cNl
+         Ke8wYDE8Uh62oZMsLWsEvuC1H9t6xiYM5hNAv84tAScT5wg//8uKWLWbrPBLeqUIwOTk
+         TXSAhMwJ14SgOXaGrjpAU05uF1ifYVYvt1Bv7ZUExLsoaXwerEyh8z+pVIQhlcKhcMRs
+         k6Rsd/h9QMZgEkpH4whq6rdSTk1IjwgDslsKNaCVvz+tYuRZ14MqnqwswelT8M5rk3FI
+         iPbg==
+X-Gm-Message-State: AOJu0YyVZZtKII/mya0f7ehaKKzHyh/rDnFFKbzeOtP5Td0iNgi5JGxr
+	r4Wi38HnhnZcbngQk6p69AI9PU/HTCFc1VCQdkVoy1Oe+aveAvGOjYRqeKHeMo6Utfw=
+X-Gm-Gg: ATEYQzzif0R69+AX3Qqrw0aUWn13sIJQfM7hyMP6/49ArXxsJQ4NAQFbGvBrE3suv8I
+	L1QUDxaj+3zn/mNLLMOfDurp6sxgghkqkVNlVbqZFmNrzGYJaf79Dhc1RU0HHblSs2qm+VjgPVU
+	O4CgfAIzxXPhP4Pjd08ekOsvypBNAC4rOtvWZ/fKfGY6DDQTvbfPzYaMjpeNYxk6Aj/bU0bG2ED
+	ynIY6fUk/rpMcsO9a/qCjEcXvVvJXzpK+BZgITdYcgnuB7Wl43fVZQhqAs1AO+bGgS/GgZr2bo8
+	eFbew3qCkkKEJLIa72Jgc7Hwb51wcaQlHwAa/zxdHDUPY7EdqtcWeRxzUP6R+dvgsNDVHOJp9RE
+	UFQGLBp88XhLUoosTSy/dALuS4Fstl3FPr7DgQSMbsemmvgASPTrOBHy9Y9uOHuyuJCwLZxpUrl
+	DuLlT/xCABYin1We5QN6KBHd9hWFj1USk0qmrVKp0TinslI+R6wmqUReKNlYjT
+X-Received: by 2002:a05:6102:dca:b0:5f5:4f68:9f7e with SMTP id ada2fe7eead31-6037900d2a0mr3365262137.8.1774518256742;
+        Thu, 26 Mar 2026 02:44:16 -0700 (PDT)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-604d53951e2sm2413466137.11.2026.03.26.02.44.15
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Mar 2026 02:44:15 -0700 (PDT)
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-94de68feaf4so487075241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:44:15 -0700 (PDT)
+X-Received: by 2002:a05:6102:84c1:10b0:5ff:d192:ff22 with SMTP id
+ ada2fe7eead31-6038728e7b3mr2209468137.19.1774518254998; Thu, 26 Mar 2026
+ 02:44:14 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/12] s390/cio: use generic driver_override
- infrastructure
-To: Danilo Krummrich <dakr@kernel.org>, Russell King <linux@armlinux.org.uk>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Ioana Ciornei <ioana.ciornei@nxp.com>,
-        Nipun Gupta <nipun.gupta@amd.com>,
-        Nikhil Agarwal <nikhil.agarwal@amd.com>,
-        "K. Y. Srinivasan"
- <kys@microsoft.com>,
-        Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
-        Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
-        Bjorn Helgaas <bhelgaas@google.com>, Armin Wolf <W_Armin@gmx.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Peter Oberparleiter <oberpar@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Harald Freudenberger <freude@linux.ibm.com>,
-        Holger Dengler <dengler@linux.ibm.com>,
-        Mark Brown <broonie@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang <jasowang@redhat.com>,
-        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-        =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>,
-        Alex Williamson <alex@shazbot.org>, Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini
- <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-        linuxppc-dev@lists.ozlabs.org, linux-hyperv@vger.kernel.org,
-        linux-pci@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-        linux-s390@vger.kernel.org, linux-spi@vger.kernel.org,
-        virtualization@lists.linux.dev, kvm@vger.kernel.org,
-        xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org,
-        Gui-Dong Han <hanguidong02@gmail.com>
-References: <20260324005919.2408620-1-dakr@kernel.org>
- <20260324005919.2408620-10-dakr@kernel.org>
-Content-Language: en-US
-From: Vineeth Vijayan <vneethv@linux.ibm.com>
-In-Reply-To: <20260324005919.2408620-10-dakr@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: lM9ihgFyzDaKKK4hT6xbAWnBu4HPvbko
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA2NyBTYWx0ZWRfX2in2v/sm6fVn
- 1EOEfnIWW9XHJhqTtN1dackcJvrGoIn6RYtzj2jaFpMYQNlaN3XxkuZ6dzpRGfvaZaU5moxAo8x
- trr+PwJfEqlepekJSKPo1fy9d5o6sgA5m683HkjOswpiKaLB0x2ZC2oGeSCAtUXbWtftJWxMU93
- r9db17SA3IR04n61jqkqo5Bm6YDmBdYR4V4J415d1oOQfmhBzzcsrs5XSBy2lSc6eI3Yyn+zNJA
- fVQxRgkOI9yEBwUOLE+1Bp0urJ3SQpsL6Mxqh1jqv0YqiavIDSQ9i78PTJ+7C/RudgHS8T2aNad
- w9soTfL5Lep9UESaYSAmOjYsSO5EEkxvuZXANkgGYCQiRzjVScD+Gyn69Rf+vvAYsxJQFXrQuWu
- UQoghhH9HNEe1gD65ozDrx3Bl3HFNi5z9FxZxdctIbC0r4+GoaXzUaZ2fC0g/Uri9kPCKMvcMLh
- 7P5IIMyCHlQF+nN31cA==
-X-Authority-Analysis: v=2.4 cv=bLEb4f+Z c=1 sm=1 tr=0 ts=69c4ffb7 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=rH2cy8X4UbemT2jZliAA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: sWD6kkjX1ahK5tMWR5AN0EWZ8NVBfHg-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-26_02,2026-03-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1011 phishscore=0 impostorscore=0
- malwarescore=0 lowpriorityscore=0 suspectscore=0 bulkscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603260067
+References: <20260326045355.223529-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260326045355.223529-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Mar 2026 10:44:03 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWM0zq2pAJAVEO=WkNyoVFFf-3OX2_+7fJxMWTPuG6hyQ@mail.gmail.com>
+X-Gm-Features: AQROBzA5raX3WKUVOehzAlLaSiESouGRrUnc8wD5Mdt7U_rTWFsDl9lKV1nSlwY
+Message-ID: <CAMuHMdWM0zq2pAJAVEO=WkNyoVFFf-3OX2_+7fJxMWTPuG6hyQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: renesas: r8a7742-iwg21d-q7-dbcm-ca: Drop
+ KSZ8081 PHY C22 compatible string
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_024346_546543_E35FDFC4 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260326_024420_292620_685E6306 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,27 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 26 Mar 2026 at 05:54, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Microchip KSZ8081 PHY schema indicates that compatible string
+> "ethernet-phy-id0022.1560" must not be followed by any other
+> compatible string. Drop trailing "ethernet-phy-ieee802.3-c22"
+> to match the schema.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.1.
 
-On 3/24/26 01:59, Danilo Krummrich wrote:
-> When a driver is probed through __driver_attach(), the bus' match()
-> callback is called without the device lock held, thus accessing the
-> driver_override field without a lock, which can cause a UAF.
-> 
-> Fix this by using the driver-core driver_override infrastructure taking
-> care of proper locking internally.
-> 
-> Note that calling match() from __driver_attach() without the device lock
-> held is intentional. [1]
-> 
-> Link:https://lore.kernel.org/driver-core/DGRGTIRHA62X.3RY09D9SOK77P@kernel.org/ [1]
-> Reported-by: Gui-Dong Han<hanguidong02@gmail.com>
-> Closes:https://bugzilla.kernel.org/show_bug.cgi?id=220789
-> Fixes: ebc3d1791503 ("s390/cio: introduce driver_override on the css bus")
-> Signed-off-by: Danilo Krummrich<dakr@kernel.org>
-> ---
+Gr{oetje,eeting}s,
 
-Thank you Danilo.
+                        Geert
 
-Reviewed-by: Vineeth Vijayan <vneethv@linux.ibm.com>
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
