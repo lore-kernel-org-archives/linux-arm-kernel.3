@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1104C10A62FE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DBF710A62FF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=STCGY5YHOLEvGsutamILGTDqfSYqg76iLIjjaraENt8=; b=YS3MWhEWVugziA3nYvaC9ijMS1
-	zEXt07vPBHEFgE1hdxgoPj1a0zDcbd39iuiUdCV50m6pkLlq/oCOBpEcYnYt3+KGsKVNSlRxORG8y
-	sqRFdMWSpQ9D5SLDYmSB5qEeg0apjSwBbRitPTYjD7O/V1aJMQr0tsCGkQopK1HuaAFcMivWOf+05
-	4qy+VzcOjPxCOjyuy4VJjljN1i6EgotlrqQnhIpppdDj2/wQTblDDxLuj/2Em5PoIOxFEa2jnCULJ
-	CggpWXYpLFi8XRPbWZrmApzdf6DD8kkPmCreznLAEiA1qqPCMqnjWjqCmKCnH4ioOrWTLk52coGNF
-	zoxH+JOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dF3fC2Pc1J5FXgAvNPiHACy3LkzghIoVHmgkzv4SFi8=; b=QpCvpcLoA6djYHI4Hx7YRMoxjN
+	IhinDQF6b9OUZfJSY0A3AMJnZ/PFrNDjEA8ogkv5xXCogEYl7ORGEtmYz157EessL/G1vlwil4++r
+	DXEct+DH4g4htZvwHJbx31GY/LmYhu9QDMlbebWoH4xOOSv0QL89ym04ogBc3fyzKfn1/M2Tn7R6b
+	4xElDoVrf+Zujq2NciuiaCS+d0l+AlWq+uGrAa3vXqCbNy2B5Vz8qSVaMXVYjGdtXJbv0rSI/86yI
+	sw4PNvnWAYv6VE33RlrhJLGSomUxUDPDPugaS+4YjftsR6T9Ib8To3k9bPGfWyhRsFT50Za7pxvJz
+	jrdYvGLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5m0p-00000005gp2-1hNf;
-	Thu, 26 Mar 2026 14:48:43 +0000
-Received: from mail-106100.protonmail.ch ([79.135.106.100])
+	id 1w5m5R-00000005hC0-3PJx;
+	Thu, 26 Mar 2026 14:53:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5m0m-00000005goG-0jIf
+	id 1w5m5P-00000005hBe-2hoR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 14:48:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
-	s=protonmail; t=1774536517; x=1774795717;
-	bh=STCGY5YHOLEvGsutamILGTDqfSYqg76iLIjjaraENt8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=iEJK2fLOzv39D522tJ1BbmvDMT/bI4PTIQQZTLdKWlRtmZuv4GlehU80mG9Y2nldZ
-	 TLcdW1upPixUdUfrd7ZYRfHun5asYa2rBQEC7r9PrHtAxFZ1f9c/k3PPUGLUu9vGFp
-	 YTirRGzgo/fjnOyQ0j88+lg8jrGKOgRlDCB54neiVHn0+ACdpRRZEFzUf8FmWH94FV
-	 XxyHcXIDpdvLoDNnR3SSyBbSz4RPcVu7s9Z7aON1l7mKcqNGqUylW+pX0YiFpZe29j
-	 DIVmJpwscCjCuPxE8v3TF6GYjmFJkdqA4N3bW2uakw8YWGAGK0QLy543Z8I+7z4v+l
-	 bgHLpqpBKDduw==
-Date: Thu, 26 Mar 2026 14:48:34 +0000
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-From: Simon Ser <contact@emersion.fr>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v8 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
-Message-ID: <0zcNsL9U3TBMN4-IhSQ5RH8kRnJMUnwP0f6LhriTxuKxp3r0oWtL6FMi4bSyZaOxknTGZmHYiBZ5Ef96ZO0y_5yEFjfwiKpFRLWWsuZ6RDw=@emersion.fr>
-In-Reply-To: <67120b18-8763-4b93-b89f-7f919f38e08e@ideasonboard.com>
-References: <20260128-xilinx-formats-v8-0-9ea8adb70269@ideasonboard.com> <20260128-xilinx-formats-v8-2-9ea8adb70269@ideasonboard.com> <K_oXHqtPM_1bdhpMkkQMreIZ9OFfJVpHO3GV_wzmK_PvjQEw4Qz3IMBhGDNVQllkLg_GQeMGyOi6wpIFaRjrNkHubTwWQm-wqvKYTi6zEA0=@emersion.fr> <67120b18-8763-4b93-b89f-7f919f38e08e@ideasonboard.com>
-Feedback-ID: 1358184:user:proton
-X-Pm-Message-ID: b32e0b863de1dbc358e061ddc4316a92e88c3e16
+	Thu, 26 Mar 2026 14:53:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E3E1640A0B;
+	Thu, 26 Mar 2026 14:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98266C116C6;
+	Thu, 26 Mar 2026 14:53:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774536806;
+	bh=JskL5xnhwWFHaEenp/2RuGMXr1FMLRJRU6ueR9QY3vQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HmRvcq8+156F4isswv49IFl/NxyXBTsW8Jwg0ob6oCwecqEMDKQfmmrH4cdaalwh1
+	 3LzjANvoInf0uo90/QjJvWzSIQPi+8Ejib3w+kgB9jJlPNWAZPLmKy3b32bL9+ovfp
+	 p3A/dIFjbNugUZa8s32ZUXlm/QA+l+ROtzlxQhZa67v4lidJrQeSJgGO0JilcQRs/v
+	 YsOlrkyNwrP874y+BmROKaQraGgqBQSO0RW6uVbEjwJ+YPIkqN+bijzvsxjmkJeTnt
+	 ROOzT2V+SbL87XkhBZSKB8OI41u4qcL/COq1/wpOgaGo3H2vZhise+5kZVhhfBShf6
+	 huPC3XBaTtzrQ==
+Date: Thu, 26 Mar 2026 09:53:23 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+Subject: Re: [PATCH v3 1/7] dt-bindings: remoteproc: k3-r5f: Split up memory
+ regions
+Message-ID: <177453680287.2360004.8754104483766299234.robh@kernel.org>
+References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
+ <20260318-topic-am62a-ioddr-dt-v6-19-v3-1-c41473cb23c3@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260318-topic-am62a-ioddr-dt-v6-19-v3-1-c41473cb23c3@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_074840_853368_71611D3A 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20260326_075327_708300_BB21D68D 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,42 +69,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Dhruva Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall Willis <k-willis@ti.com>, devicetree@vger.kernel.org, Vishal Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, March 20th, 2026 at 11:37, Tomi Valkeinen <tomi.valkeinen@ideaso=
-nboard.com> wrote:
 
-> On 19/03/2026 17:15, Simon Ser wrote:
-> > What is the difference between DRM_FORMAT_XV15 and DRM_FORMAT_P030?
->=20
-> Good question. I thought the Cr & Cb are swapped between those formats.
->=20
-> The VC4 driver uses HVS_PIXEL_ORDER_XYCBCR define, and the comment in
-> drm_fourcc.h starts with "YCbCr420". So, CbCr. But then the comments
-> then continue with CrCb.
->=20
-> XV15/20 isn't super clear either, starting with "YCrCb" but then "Cb:Cr
-> plane".
->=20
-> The components in the plane descriptions look identical though, hinting
-> they are the same. So to be sure, I tested it:
->=20
-> I had test pattern support for XV15/20 in pykms, which I can test on a
-> Xilinx board. P030 is a bit more difficult, as on RPi5 it requires
-> DRM_FORMAT_MOD_BROADCOM_SAND128. But with a linear -> SAND128 converter,
-> I was able to test linear NV12 converted to NV12+SAND128 and shown on
-> the screen (just for reference), and similarly linear XV15 ->
-> P030+SAND128. And, indeed, the linear XV15 test pattern shows correctly
-> on screen when converted to SAND128. So afaics XV15 is indeed identical
-> to P030, and I can drop XV15.
->=20
-> This then brings up the question about XV20. That format doesn't exist
-> yet, but should it then be named similarly to P030? However, I have no
-> idea what P030 means, so I don't know what a 2x1 subsampled P030 would
-> be called...
->=20
-> Thoughts/ideas? Or just keep XV20?
+On Wed, 18 Mar 2026 16:13:07 +0100, Markus Schneider-Pargmann (TI) wrote:
+> Split up the region reserved for the firmware image in more specific
+> sections to expose the full fixed layout. Especially the LPM metadata
+> section is important for bootloaders as it contains information about
+> how to exit IO+DDR. This is read by the bootloader but is written by the
+> firmware.
+> 
+> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+> ---
+>  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml       | 29 ++++++++++++++--------
+>  1 file changed, 19 insertions(+), 10 deletions(-)
+> 
 
-I've replied with some ideas on the new version's thread :)
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
