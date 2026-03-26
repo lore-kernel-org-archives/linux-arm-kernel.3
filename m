@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7950910A3D80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5E610A3D86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWQfC+vkVg6s6Aluh+qkk7w2aQ6dzgjp3pNFuJDRRHM=; b=s7+7f1AnmNETfeVZuK7vK/V8hi
-	1wobP0rPGXgq4eoAo1Q3r6LXo4kfeuZWb3ZnFPIj+Ypdi1/CYlcJzd1rXqHeVXbPagBZbyFV33Y6M
-	0e35U8cJPimmNgzJIGNv6P+SoHjh3D/lyZs6sSvy6rZgwDMrFjbHXNeb6mkXda/Qd/Tt2P8O9a/Wl
-	Z3wSKqhyU8ZAZKC84AbdBUSwl/VAjdDcJ/PKc3gPUZO/beimZF/OsqOYScfp5OUm/RfVtFEzDkOjj
-	3mDCnbZBLn141lXtvchCkOcLJ7u9fuFupujIZhPIBurN0KOUfp9dzC+waNeva/Km4BMxIEs620xkm
-	bNO8Hiiw==;
+	bh=tmr5pIZ3uDUDnmr+tLaGSi0/UR7lT7JyH5Iown1Pxyk=; b=CHHWV5vkXdNiY4QfkV9fvbhe3C
+	tAMUV6v54ew+Er+5t1hi9R6MmbBzgo2GqLsjRvyLz88TvaJk2ANZq1OF0cUH1xWVLEtdvMkeUebdM
+	XFVYp6/5cwn6ondkzxVS8Ab9e2u55V0dN4+rB7qDSQfTv9AMpf9SD7T/SZGhhfBHv1OHhTXXyA9Pb
+	bvZsNO2xqwaNeIUureOugejT1bldnLp0/Fu44DZ2nBCIrqI9CNGZREtT5AS4m+6buSDNnhx4C0s3k
+	cSS2mJ6UseHtoTjBqJUonO5ea3pBxEpSmFi8MrJQuq3Dt5C6ui6L8rJpH17/3Qsm4wDlpi64uvF0W
+	9zjtb2Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jRm-00000005Olo-2DiN;
-	Thu, 26 Mar 2026 12:04:22 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1w5jSy-00000005OxB-3szH;
+	Thu, 26 Mar 2026 12:05:36 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jRi-00000005Ojz-1ceD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 12:04:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1774526653; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=LWQfC+vkVg6s6Aluh+qkk7w2aQ6dzgjp3pNFuJDRRHM=;
-	b=k5g6DT9c6bM2scDrLxZ2nBw4M1mepmVduZ6uWv+1vA1e0GV4FptwR7xISz+AlIBlYCwmWB4+yZyvuvVjP911NM8pStz/SgpvkIQcgueoohLNIAzpqw0zWl6bLukZrR2ezSSDnWvEiEFOlTM01W7Oh0tyj1gTTli6pw4onpjyV7Y=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R701e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X.lAXzx_1774526650;
-Received: from 30.42.98.36(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0X.lAXzx_1774526650 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 26 Mar 2026 20:04:12 +0800
-Message-ID: <aef474b9-5286-46f4-99d2-43d0b85f7176@linux.alibaba.com>
-Date: Thu, 26 Mar 2026 20:04:10 +0800
+	id 1w5jSw-00000005Ovh-1taE;
+	Thu, 26 Mar 2026 12:05:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774526731;
+	bh=Zgf20bu0xGzHqUFQHCNtBUZtwRdwhJSQCkmmV2fc+ys=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ZGbUBS5JiTuFi7VBT2/pW5362F8o0aMKire94QYUJY/NQgk9COoAQp47Y3DmioUVy
+	 UcXlgGWd+Rx4IJFjKE05TarlhL2GtHYMeUrr1TcESsDvQK/lD3/PZgZ8CFsVg4Fppy
+	 inDIUapqFS6xkKIllL1AfE7dl9LswO9OeHYczFztAE+vnlpBzGQxu54WEX0Xw8F57V
+	 Fdl8XE0K4cC6LjevWUloVYuKwJQX/1jVDyqKRzmHF5Hb5XsqeFEre1oNJVTdDyijcZ
+	 aK9666e06IIgHK5XYla7IN0ZcCcTgniJLIvdiV32qCWfy7Y/8sGQmif135m5iVB6wk
+	 r5suKlMf6K4gw==
+Received: from yukiji.home (lfbn-idf1-1-2269-27.w92-151.abo.wanadoo.fr [92.151.67.27])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DDD6B17E6082;
+	Thu, 26 Mar 2026 13:05:30 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 26 Mar 2026 13:04:12 +0100
+Subject: [PATCH net-next v2 1/4] dt-bindings: net: Add support for Airoha
+ AN8801/R GbE PHY
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/5] mm: rmap: support batched checks of the references
- for large folios
-To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
- Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, will@kernel.org, lorenzo.stoakes@oracle.com,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- dev.jain@arm.com, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <a4d7cf56-eab4-431d-886b-a32456e44736@linux.alibaba.com>
- <CAGsJ_4woBVQdYcCbN1Btr2vxOL8OAujaHkNZZ41=S-TdNh-wbw@mail.gmail.com>
- <d6820b1e-52ae-4ef2-8342-11818fdd0cb1@linux.alibaba.com>
- <43831628-a00f-4292-9797-cb96a029bb00@kernel.org>
- <e54e0ec1-b968-4e12-84a3-4e3d331b1c36@linux.alibaba.com>
- <86f611cb-1292-44e4-b629-6503135d33ca@kernel.org>
- <e5cb474a-a84d-4edc-8289-d68378feee7d@lucifer.local>
- <e3e374cc-ddf2-4112-b063-6cb1839ea566@kernel.org>
- <e227a7f7-0186-4d10-b7b4-c84ca8424bdd@lucifer.local>
- <bfd282b1-523d-4945-97a0-ec30fe1df577@linux.alibaba.com>
- <a0181a7c-d191-483d-bbc9-678bc355a984@lucifer.local>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <a0181a7c-d191-483d-bbc9-678bc355a984@lucifer.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260326-add-airoha-an8801-support-v2-1-1a42d6b6050f@collabora.com>
+References: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
+In-Reply-To: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com, 
+ matthias.bgg@gmail.com, kernel@collabora.com, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774526729; l=3223;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=FA5AQZRyCjhwT8o7QRGwdmO6VLOKQrbpn6fhImI/4Og=;
+ b=cA3GQztJxtw0FPttw+KwoD4r9hKjNYsOOFsNSP9sD/iJLAaWXOrkWzaLWrZmTzB3qAu/BJXCo
+ 9oB3+Sy2ceSCnyWXAXLLwcafvIXQf8m1C/n9PGK8lmDhmQHri7VX5jV
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_050419_094547_35388A5A 
-X-CRM114-Status: GOOD (  26.58  )
+X-CRM114-CacheID: sfid-20260326_050534_641454_2D4FC567 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,129 +91,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
+Add a new binding to support the Airoha AN8801R Series Gigabit
+Ethernet PHY.
 
-On 3/26/26 7:10 PM, Lorenzo Stoakes (Oracle) wrote:
-> On Thu, Mar 26, 2026 at 09:47:51AM +0800, Baolin Wang wrote:
->>
->>
->> On 3/25/26 11:06 PM, Lorenzo Stoakes (Oracle) wrote:
->>> On Wed, Mar 25, 2026 at 03:58:36PM +0100, David Hildenbrand (Arm) wrote:
->>>> On 3/25/26 15:36, Lorenzo Stoakes (Oracle) wrote:
->>>>> On Mon, Mar 16, 2026 at 03:15:18PM +0100, David Hildenbrand (Arm) wrote:
->>>>>> On 3/16/26 07:25, Baolin Wang wrote:
->>>>>>>
->>>>>>>
->>>>>>>
->>>>>>> Sure. However, after investigating RISC‑V and x86, I found that
->>>>>>> ptep_clear_flush_young() does not flush the TLB on these architectures:
->>>>>>>
->>>>>>> int ptep_clear_flush_young(struct vm_area_struct *vma,
->>>>>>>                  unsigned long address, pte_t *ptep)
->>>>>>> {
->>>>>>>       /*
->>>>>>>        * On x86 CPUs, clearing the accessed bit without a TLB flush
->>>>>>>        * doesn't cause data corruption. [ It could cause incorrect
->>>>>>>        * page aging and the (mistaken) reclaim of hot pages, but the
->>>>>>>        * chance of that should be relatively low. ]
->>>>>>>        *
->>>>>>>        * So as a performance optimization don't flush the TLB when
->>>>>>>        * clearing the accessed bit, it will eventually be flushed by
->>>>>>>        * a context switch or a VM operation anyway. [ In the rare
->>>>>>>        * event of it not getting flushed for a long time the delay
->>>>>>>        * shouldn't really matter because there's no real memory
->>>>>>>        * pressure for swapout to react to. ]
->>>>>>>        */
->>>>>>>       return ptep_test_and_clear_young(vma, address, ptep);
->>>>>>> }
->>>>>>
->>>>>> You'd probably want an arch helper then, that tells you whether
->>>>>> a flush_tlb_range() after ptep_test_and_clear_young() is required.
->>>>>>
->>>>>> Or some special flush_tlb_range() helper.
->>>>>>
->>>>>> I agree that it requires more work.
->>
->> (Sorry, David. I forgot to reply to your email because I've had a lot to
->> sort out recently.)
->>
->> Rather than adding more arch helpers (we already have plenty for the young
->> flag check), I think we should try removing the TLB flush, as I mentioned to
->> Barry[1]. MGLRU reclaim already skips the TLB flush, and it seems to work
->> fine. What do you think?
->>
->> Here are our previous attempts to remove the TLB flush:
->>
->> My patch: https://lkml.org/lkml/2023/10/24/533
->> Barry's patch:
->> https://lore.kernel.org/lkml/20220617070555.344368-1-21cnbao@gmail.com/
->>
->> [1] https://lore.kernel.org/all/6bdc4b03-9631-4717-a3fa-2785a7930aba@linux.alibaba.com/
->>
->>>>> Sorry unclear here - does the series need more work or does a follow up patch
->>>>> need more work?
->>>>
->>>> Follow up!
->>>
->>> Ok good as in mm-stable now. Sadly means I don't get to review it but there we
->>> go.
->>
->> Actually this patchset has already been merged upstream:)
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../devicetree/bindings/net/airoha,an8801.yaml     | 85 ++++++++++++++++++++++
+ 1 file changed, 85 insertions(+)
 
-Let me try to make things clear.
+diff --git a/Documentation/devicetree/bindings/net/airoha,an8801.yaml b/Documentation/devicetree/bindings/net/airoha,an8801.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..b90b21b5505367309b5df8ece54ea38664f6b50f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/airoha,an8801.yaml
+@@ -0,0 +1,85 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/airoha,an8801.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN8801R Series PHY
++
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++
++description:
++  The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
++  with Single-port serdes interface for 1000Base-X/RGMII; this chip is
++  compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE 802.3(u,ab)
++  and supports Energy Efficient Ethernet (802.3az), Full Duplex Control
++  Flow (802.3x), auto-negotiation, crossover detect and autocorrection,
++  Wake-on-LAN with Magic Packet, and Jumbo Frame up to 9 Kilobytes.
++  This PHY also supports up to three user-configurable LEDs, which are
++  usually used for LAN Activity, 100M, 1000M indication.
++
++allOf:
++  - $ref: ethernet-phy.yaml#
++
++properties:
++  compatible:
++    enum:
++      - ethernet-phy-idc0ff.0421
++
++  reg:
++    maxItems: 1
++
++  leds: true
++
++  wakeup-source:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Enable Wake-on-LAN support
++
++required:
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/leds/common.h>
++
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        ethernet-phy@0 {
++            compatible = "ethernet-phy-idc0ff.0421";
++            reg = <0>;
++
++            leds {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                led@0 {
++                    reg = <0>;
++                    color = <LED_COLOR_ID_GREEN>;
++                    function = LED_FUNCTION_LAN;
++                    default-state = "keep";
++                };
++
++                led@1 {
++                    reg = <1>;
++                    color = <LED_COLOR_ID_GREEN>;
++                    function = LED_FUNCTION_LAN;
++                    function-enumerator = <1>;
++                    default-state = "keep";
++                };
++
++                led@2 {
++                    reg = <2>;
++                    color = <LED_COLOR_ID_YELLOW>;
++                    function = LED_FUNCTION_LAN;
++                    function-enumerator = <2>;
++                    default-state = "keep";
++                };
++            };
++        };
++    };
 
-> Err but this revision was sent _during_ the merge window...?
-> 
-> Was sent on 9th Feb on Monday in merge window week 1, with a functional change
-> listed:
-> 
-> - Skip batched unmapping for uffd case, reported by Dev. Thanks.
-> 
-> And then sent in 2nd batch on 18th Feb (see [0]).
-> 
-> So we were ok with 1 week of 'testing' (does anybody actually test -next during
-> the merge window? Was it even sent to -next?) for what appears to be a
-> functional change?
+-- 
+2.53.0
 
-I posted v5 on Dec 26th[0], and it collected quite a few Reviewed-by 
-tags and sat in mm-unstable for testing.
-
-Later, Dev reported a uffd-related issue (I hope you recall that 
-discussion). I posted a fix[1] for it on Jan 16th, which Andrew accepted.
-
-Since then, the v5 series (plus the fix) continued to be tested in 
-mm-unstable. We kept it there mainly because David mentioned he wanted 
-to review the series, so we were waiting for his time.
-
-On Feb 9th, after returning from vacation, David reviewed the series 
-(thanks, David!). I replied to and addressed all his comments, then 
-posted v6 on the same day[2].
-
-Additionally, v6 had no functional changes compared to v5 + the fix, and 
-it mainly addressed some coding style issues pointed out by David. I 
-also discussed this with David off-list, and since there were no 
-functional changes, my expectation was that it could still make it into 
-the merge window. That is why v6 was merged.
-
-[0] 
-https://lore.kernel.org/linux-mm/cover.1766631066.git.baolin.wang@linux.alibaba.com/#t
-[1] 
-https://lore.kernel.org/linux-mm/20260116162652.176054-1-baolin.wang@linux.alibaba.com/
-[2] 
-https://lore.kernel.org/all/cover.1770645603.git.baolin.wang@linux.alibaba.com/
-
-> And there was ongoing feedback on this and the v5 series (at [1])?
-
-Regarding the feedback on v5, I believe everything has been addressed.
-
-> This doesn't really feel sane?
-> 
-> And now I'm confused as to whether mm-stable patches can collect tags, since
-> presumably this was in mm-stable at the point this respin was done?
-> 
-> Maybe I'm missing something here but this doesn't feel like a sane process?
-
-Andrew, David, please correct me if I've missed anything. Also, please 
-let me know if there's anything in the process that needs to be 
-improved. Thanks.
 
