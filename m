@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5004C10A88D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 16:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFDA10A88D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 16:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNUmiKN4fF40nM9pWiE85RUF4sgRs4iO5/OLdhEvvt4=; b=qOvw7RkCU1DvFcgsQ3TOAn/etF
-	TLjYY0Ov7vwiH02aG0YLhZbJK+0q6UCuuXb7w5LFm3Ky8B462CNuL8sEUP5IvN54N5x+ljq82X3fG
-	/JXWpAOFTxA0MTv4i73pXgLS+09H7Zq2ZZJtVGJsi0mZNun0LE1ssFu0zkJxWk/Rgq5rYFb/Y+cuu
-	cV4wKCSSM7tKCyGxAqFGchi36SK90NeTTRJrRfLd1XMGWUR1T4k3MqXw2LksjdEZelxo/gV4uemae
-	3GMxJ1XO1dAYdgOMuuzrBLcyT7nIFBexpp/DybDVAhNYghh42deczRstP34Vgg9WI8ihkXwf+OVit
-	Lduz9Rqw==;
+	bh=KWouWXnDGtNRg1OssjuVEKm4sQO0E0DczrT+nNv9akM=; b=Pe4Vl9nCValGlYT+qKGfofQsd4
+	5M98S1Fc8RCyuoAKw+Ym5K5n7S4qEoibZkkNfiM87iUBiGYWbNC+y1kqbVCOsvWWU9aU5dUKs+nK2
+	iaaDh59miQQDdK0hZBixdb1mWFwZTK2TJTNEvUuF70GpxOT1nmqiefUQ07urp3J0Q6R6Q0mFLqsWa
+	2SExP+Ek2wPNLcU1NyTDmotWtaPGCtIFn17JCDkTeh15EAEn2PZypMsnjkTDobNse7Jc9qK0cPHuQ
+	L+yN/m+MoG9ouMt7ER2gw4Wjqgun3SOHhxOYxcVgtAik9nWi8ohyy8B+5s/N9zn3k8xOjB8e8RO1e
+	KLpInmXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5o0J-00000005tkl-1OIa;
-	Thu, 26 Mar 2026 16:56:19 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w5o13-00000005trZ-1hc8;
+	Thu, 26 Mar 2026 16:57:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5o0G-00000005tkJ-2H8f
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 16:56:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tNUmiKN4fF40nM9pWiE85RUF4sgRs4iO5/OLdhEvvt4=; b=kXY46qQT5qzcTwqCfrKvP11HGq
-	t7K+Nj3BlywQwKVJHBo32nOQW961sBOhNM6FQDhIUViBvKHq2iNyA0rr8m9TTygVEJKRLscoxMdrN
-	7eaXMTw69WouHlGL6LfWeaByyS3LZp7/hcu20kvS8I9S1VBSzNho0lCpzd5ZO93U/40k0INfLkEub
-	FlGjH1w8/zMZDQDGK9O1d17QLcyATzlzoDcmXHrdWVgegDsWEoSeznIXxz3pNCKXKGh2pH/C+NvTL
-	W++2TONR/xO0GHxc8BV6hHNBpIHnuZjZQhN51+sU9938mKQCKmCAUXWxlYhPgCXKwBD53W+PvXvl/
-	vEnpYZbg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35442)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5nzr-0000000052T-3jxv;
-	Thu, 26 Mar 2026 16:55:51 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5nzg-000000007C9-0FDQ;
-	Thu, 26 Mar 2026 16:55:40 +0000
-Date: Thu, 26 Mar 2026 16:55:39 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	bcm-kernel-feedback-list@broadcom.com, richardcochran@gmail.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, rohan.g.thomas@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch, horms@kernel.org, sdf@fomichev.me,
-	me@ziyao.cc, siyanteng@cqsoftware.com.cn,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	weishangjuan@eswincomputing.com, wens@kernel.org,
-	vladimir.oltean@nxp.com, lizhi2@eswincomputing.com,
-	boon.khai.ng@altera.com, maxime.chevallier@bootlin.com,
-	chenchuangyu@xiaomi.com, yangtiezhu@loongson.cn,
-	ovidiu.panait.rb@renesas.com, chenhuacai@kernel.org,
-	florian.fainelli@broadcom.com, quic_abchauha@quicinc.com
-Subject: Re: [PATCH net-next v8 4/6] Add PCI driver support for BCM8958x
-Message-ID: <acVlC3v0Hyt94XDN@shell.armlinux.org.uk>
-References: <20260320211921.1202058-1-jitendra.vegiraju@broadcom.com>
- <20260320211921.1202058-5-jitendra.vegiraju@broadcom.com>
+	id 1w5o12-00000005trD-0ZXD;
+	Thu, 26 Mar 2026 16:57:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 043036011F;
+	Thu, 26 Mar 2026 16:57:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFC2C116C6;
+	Thu, 26 Mar 2026 16:56:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774544222;
+	bh=tr+9fNAQNqGsuZCPn0EwTdspBeuzqbTTR89MFy19qdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=stOtUva7Sd7FQSWNmcGkhGLZugI5j7Fu2CtWbWqq0feqBH45KJVj1SwSgjEtshfuA
+	 u3XZes7NQeWH3mSRD0/1aqabnAxICLFxr028HePUwdbgtDlohLqz83XgB24EIwd+qj
+	 iddlTgjMFbQfNG3wepAs+pEMfZbkgg0qKGvcrzkPcUtVZwC4QD9tWWFqzoHk1si/Bz
+	 +GdPkwh4nzND9/SezB+7Zf5LDO9RAnXAqPmaPLhzUTamcxe/+8pIVwc288cmxAMrAu
+	 W/yFu9VJhOcGYgL+3t2hCwnspKUbtsy6CetHnzGSHNpFoF4i4woC/hpijnDmE97JpU
+	 DPDCLIctgg4IQ==
+Date: Thu, 26 Mar 2026 22:26:42 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Chuanhua Lei <lchuanhua@maxlinear.com>, 
+	Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Pratyush Anand <pratyush.anand@gmail.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/2] PCI: dwc: Add multi-port controller support
+Message-ID: <nokpoxfotjlirqs735sse3f5copimqwmd7fblegrcozkmpkgae@6bw6u3qazbme>
+References: <20260305-dt-parser-v2-0-85836db8dc06@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260320211921.1202058-5-jitendra.vegiraju@broadcom.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_095616_746687_BF38F262 
-X-CRM114-Status: GOOD (  36.60  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260305-dt-parser-v2-0-85836db8dc06@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,438 +84,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 02:19:19PM -0700, Jitendra Vegiraju wrote:
-> +static const struct property_entry fixed_link_properties[] = {
-> +	PROPERTY_ENTRY_U32("speed", 10000),
-> +	PROPERTY_ENTRY_BOOL("full-duplex"),
-> +	PROPERTY_ENTRY_BOOL("pause"),
-> +	{ }
-> +};
-> +
-> +static const struct software_node parent_swnode = {
-> +	.name = "phy-device",
-> +};
-> +
-> +static const struct software_node fixed_link_swnode = {
-> +	.name = "fixed-link",           /* MUST be named "fixed-link" */
-> +	.parent = &parent_swnode,
-> +	.properties = fixed_link_properties,
-> +};
-> +
-> +static const struct software_node *brcm_swnodes[] = {
-> +	&parent_swnode,
-> +	&fixed_link_swnode,
-> +	NULL
-> +};
+On Thu, Mar 05, 2026 at 11:50:35AM +0530, Sumit Kumar wrote:
+> This series adds support for multi-port PCIe controllers in the DesignWare
+> driver. Currently, the driver only supports a single Root Port with
+> controller-level properties, which doesn't work for multi-port controllers
+> where each port may have different configurations.
+> 
+> This series introduces a per-port structure and parsing API that allows 
+> each Root Port to be configured independently via pcie@N child nodes in
+> device tree, while maintaining backward compatibility with existing 
+> single-port bindings.
+> 
 
-Looking at this structure, I'm not sure it's correct. You seem to have:
+This patch touches multiple host controller drivers. I'd appreciate if the
+platform maintainers could test this series and give their tested-by tag to make
+sure we don't regress.
 
-pci_device
-- "phy-device" swnode attached here (which describes the PCI device,
-  which isn't any kind of PHY)
-	- "fixed-link" attached as a child
+- Mani
 
-The "fixed-link" is a property for the local network device which
-signifies that there isn't a PHY attached or there's an inaccessible
-PHY that only operates with one set of settings.
-
-Maybe rename "phy-device" to "ethernet"?
-
-> +
-> +struct brcm_priv_data {
-> +	void __iomem *mbox_regs;    /* MBOX  Registers*/
-> +	void __iomem *misc_regs;    /* MISC  Registers*/
-> +	void __iomem *xgmac_regs;   /* XGMAC Registers*/
-> +};
-> +
-> +struct dwxgmac_brcm_pci_info {
-> +	int (*setup)(struct pci_dev *pdev, struct plat_stmmacenet_data *plat);
-> +};
-> +
-> +static void misc_iowrite(struct brcm_priv_data *brcm_priv,
-> +			 u32 reg, u32 val)
-> +{
-> +	iowrite32(val, brcm_priv->misc_regs + reg);
-> +}
-> +
-> +static void dwxgmac_brcm_common_default_data(struct plat_stmmacenet_data *plat)
-> +{
-> +	int i;
-> +
-> +	plat->force_sf_dma_mode = true;
-> +	plat->mac_port_sel_speed = SPEED_10000;
-> +	plat->clk_ptp_rate = 125000000;
-> +	plat->clk_ref_rate = 250000000;
-> +	plat->tx_coe = true;
-> +	plat->rx_coe = STMMAC_RX_COE_TYPE1;
-> +	plat->rss_en = 1;
-> +	plat->max_speed = SPEED_10000;
-> +
-> +	/* Set default value for multicast hash bins */
-> +	plat->multicast_filter_bins = HASH_TABLE_SIZE;
-
-Already the default setup by stmmac_plat_dat_alloc().
-
-> +
-> +	/* Set default value for unicast filter entries */
-> +	plat->unicast_filter_entries = 1;
-
-Already the default setup by stmmac_plat_dat_alloc().
-
-> +
-> +	/* Set the maxmtu to device's default */
-> +	plat->maxmtu = BRCM_MAX_MTU;
-> +
-> +	/* Set default number of RX and TX queues to use */
-> +	plat->tx_queues_to_use = BRCM_TX_Q_COUNT;
-> +	plat->rx_queues_to_use = BRCM_RX_Q_COUNT;
-> +
-> +	plat->tx_sched_algorithm = MTL_TX_ALGORITHM_SP;
-> +	for (i = 0; i < plat->tx_queues_to_use; i++) {
-> +		plat->tx_queues_cfg[i].use_prio = false;
-
-Already false.
-
-> +		plat->tx_queues_cfg[i].prio = 0;
-
-Already zero.
-
-> +		plat->tx_queues_cfg[i].mode_to_use = MTL_QUEUE_AVB;
-
-Since MTL_QUEUE_AVB is zero, this is already the case.
-
-> +	}
-
-All three points taken together mean that this loop is not required
-as all these members are being explicitly set to values of zero,
-which they already hold.
-
-> +
-> +	plat->rx_sched_algorithm = MTL_RX_ALGORITHM_SP;
-> +	for (i = 0; i < plat->rx_queues_to_use; i++) {
-> +		plat->rx_queues_cfg[i].use_prio = false;
-
-Already false.
-
-> +		plat->rx_queues_cfg[i].mode_to_use = MTL_QUEUE_AVB;
-
-Since MTL_QUEUE_AVB is zero, this is already the case.
-
-> +		plat->rx_queues_cfg[i].pkt_route = 0x0;
-
-Already zero.
-
-> +		plat->rx_queues_cfg[i].chan = i;
-
-stmmac_plat_dat_alloc() already initialises plat->rx_queues_cfg[].chan.
-
-> +	}
-
-Taking all these points together, it means that this loop also isn't
-required, since you're not changing anything that hasn't already been
-setup.
-
-> +}
-> +
-> +static int dwxgmac_brcm_default_data(struct pci_dev *pdev,
-> +				     struct plat_stmmacenet_data *plat)
-> +{
-> +	/* Set common default data first */
-> +	dwxgmac_brcm_common_default_data(plat);
-> +	plat->core_type = DWMAC_CORE_25GMAC;
-> +	plat->bus_id = 0;
-
-The underlying devm_kzalloc() which allocates "plat" will clear the
-struct to zeros, so this assignment to bus_id shouldn't be necessary.
-
-> +	plat->phy_addr = 0;
-
-You said there's no MDIO bus, so I don't think you need to initialise
-plat->phy_addr. stmmac_plat_dat_alloc() will set this to -1.
-
-> +	plat->phy_interface = PHY_INTERFACE_MODE_XGMII;
-> +
-> +	plat->dma_cfg->pbl = DEFAULT_DMA_PBL;
-> +	plat->dma_cfg->pblx8 = true;
-> +	plat->dma_cfg->aal = false;
-> +	plat->dma_cfg->eame = true;
-> +
-> +	plat->axi->axi_wr_osr_lmt = 31;
-> +	plat->axi->axi_rd_osr_lmt = 31;
-> +	plat->axi->axi_fb = false;
-
-devm_kzalloc() which is used to allocate plat->axi in the probe function
-will zero out this structure, so axi_fb will already be false.
-
-> +	plat->axi->axi_blen_regval = DMA_AXI_BLEN64;
-> +	return 0;
-> +}
-> +
-> +static struct dwxgmac_brcm_pci_info dwxgmac_brcm_pci_info = {
-> +	.setup = dwxgmac_brcm_default_data,
-> +};
-
-It looks to me like this is a copy of stmmac_pci.c / dwmac-intel.c etc.
-Do you know for certain that you're going to need to do different
-setups depending on the PCI device?
-
-What's the reasoning for the split between
-dwxgmac_brcm_common_default_data() and dwxgmac_brcm_default_data() ?
-
-> +
-> +static void brcm_config_misc_regs(struct pci_dev *pdev,
-> +				  struct brcm_priv_data *brcm_priv)
-> +{
-> +	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LOW,
-> +			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LO_VALUE);
-> +	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HIGH,
-> +			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HI_VALUE);
-> +
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_VALUE);
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_VALUE);
-> +
-> +	/* Enable Switch Link */
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MII_CTRL_OFFSET,
-> +		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX |
-> +		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX |
-> +		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
-> +}
-> +
-> +static int brcm_config_multi_msi(struct pci_dev *pdev,
-> +				 struct plat_stmmacenet_data *plat,
-> +				 struct stmmac_resources *res)
-> +{
-> +	int ret;
-> +	int i;
-> +
-> +	ret = pci_alloc_irq_vectors(pdev, BRCM_XGMAC_MSI_VECTOR_MAX,
-> +				    BRCM_XGMAC_MSI_VECTOR_MAX,
-> +				    PCI_IRQ_MSI | PCI_IRQ_MSIX);
-> +	if (ret < 0) {
-> +		dev_err(&pdev->dev, "%s: multi MSI enablement failed\n",
-> +			__func__);
-> +		return ret;
-> +	}
-> +
-> +	/* For RX MSI */
-> +	for (i = 0; i < plat->rx_queues_to_use; i++)
-> +		res->rx_irq[i] =
-> +			pci_irq_vector(pdev,
-> +				       BRCM_XGMAC_MSI_RX_VECTOR_START + i * 2);
-> +
-> +	/* For TX MSI */
-> +	for (i = 0; i < plat->tx_queues_to_use; i++)
-> +		res->tx_irq[i] =
-> +			pci_irq_vector(pdev,
-> +				       BRCM_XGMAC_MSI_TX_VECTOR_START + i * 2);
-> +
-> +	res->irq = pci_irq_vector(pdev, BRCM_XGMAC_MSI_MAC_VECTOR);
-> +
-> +	plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
-> +	plat->flags |= STMMAC_FLAG_TSO_EN;
-> +	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-> +	return 0;
-> +}
-> +
-> +static int brcm_pci_resume(struct device *dev, void *bsp_priv)
-> +{
-> +	struct pci_dev *pdev = to_pci_dev(dev);
-> +
-> +	brcm_config_misc_regs(pdev, bsp_priv);
-
-Is it worth declaring struct pdev for one place that it's used?
-
-	brcm_config_misc_regs(to_pci_dev(dev), bsp_priv);
-
-should work just as well.
-
-> +
-> +	return stmmac_pci_plat_resume(dev, bsp_priv);
-> +}
-> +
-> +static int dwxgmac_brcm_pci_probe(struct pci_dev *pdev,
-> +				  const struct pci_device_id *id)
-> +{
-> +	struct dwxgmac_brcm_pci_info *info =
-> +		(struct dwxgmac_brcm_pci_info *)id->driver_data;
-> +	struct plat_stmmacenet_data *plat;
-> +	struct brcm_priv_data *brcm_priv;
-> +	struct stmmac_resources res;
-> +	struct device *dev;
-> +	int rx_offset;
-> +	int tx_offset;
-> +	int vector;
-> +	int ret;
-> +
-> +	dev = &pdev->dev;
-
-As you go to the effort of declaring a struct device pointer, and
-assign it, do you think it would be a good idea to either use it for
-all &pdev->dev instances below, or just get rid of the two instances
-that you actually use "dev" ?
-
-I count six instances of "&pdev->dev" below vs two making use of "dev"
-directly.
-
-> +
-> +	brcm_priv = devm_kzalloc(&pdev->dev, sizeof(*brcm_priv), GFP_KERNEL);
-> +	if (!brcm_priv)
-> +		return -ENOMEM;
-> +
-> +	plat = stmmac_plat_dat_alloc(dev);
-> +	if (!plat)
-> +		return -ENOMEM;
-> +
-> +	plat->axi = devm_kzalloc(&pdev->dev, sizeof(*plat->axi), GFP_KERNEL);
-> +	if (!plat->axi)
-> +		return -ENOMEM;
-> +
-> +	/* This device is directly attached to the switch chip internal to the
-> +	 * SoC using XGMII interface. Since no MDIO is present, register
-> +	 * fixed-link software_node to create phylink.
-> +	 */
-> +	software_node_register_node_group(brcm_swnodes);
-> +	device_set_node(dev, software_node_fwnode(&parent_swnode));
-> +
-> +	/* Disable D3COLD as our device does not support it */
-> +	pci_d3cold_disable(pdev);
-> +
-> +	/* Enable PCI device */
-> +	ret = pcim_enable_device(pdev);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "%s: ERROR: failed to enable device\n",
-> +			__func__);
-> +		return ret;
-
-What about cleaning up the swnodes ?
-
-> +	}
-> +
-> +	pci_set_master(pdev);
-> +
-> +	memset(&res, 0, sizeof(res));
-> +	res.addr = pcim_iomap_region(pdev, 0, pci_name(pdev));
-> +	if (IS_ERR(res.addr))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(res.addr),
-> +				     "failed to map IO region\n");
-
-Convention is to have a blank line here.
-
-> +	/* MISC Regs */
-> +	brcm_priv->misc_regs = res.addr + BRCM_XGMAC_IOMEM_MISC_REG_OFFSET;
-> +	/* MBOX Regs */
-> +	brcm_priv->mbox_regs = res.addr + BRCM_XGMAC_IOMEM_MBOX_REG_OFFSET;
-> +	/* XGMAC config Regs */
-> +	res.addr += BRCM_XGMAC_IOMEM_CFG_REG_OFFSET;
-> +	brcm_priv->xgmac_regs = res.addr;
-> +
-> +	plat->suspend		= stmmac_pci_plat_suspend;
-> +	plat->resume		= brcm_pci_resume;
-> +	plat->bsp_priv = brcm_priv;
-> +
-> +	ret = info->setup(pdev, plat);
-> +	if (ret)
-> +		return ret;
-
-What about cleaning up the swnodes ?
-
-> +
-> +	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LOW,
-> +			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LO_VALUE);
-> +	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HIGH,
-> +			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HI_VALUE);
-> +
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_VALUE);
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_VALUE);
-> +
-> +	/* SBD Interrupt */
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_VALUE);
-> +	/* EP_DOORBELL Interrupt */
-> +	misc_iowrite(brcm_priv,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_VALUE);
-> +	/* EP_H0 Interrupt */
-> +	misc_iowrite(brcm_priv,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_VALUE);
-> +	/* EP_H1 Interrupt */
-> +	misc_iowrite(brcm_priv,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_OFFSET,
-> +		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_VALUE);
-> +
-> +	rx_offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_RX0_PF0_OFFSET;
-> +	tx_offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_TX0_PF0_OFFSET;
-> +	vector = BRCM_XGMAC_MSI_RX_VECTOR_START;
-> +	for (int i = 0; i < BRCM_MAX_DMA_CHANNEL_PAIRS; i++) {
-> +		/* RX Interrupt */
-> +		misc_iowrite(brcm_priv, rx_offset, vector++);
-> +		/* TX Interrupt */
-> +		misc_iowrite(brcm_priv, tx_offset, vector++);
-> +		rx_offset += 4;
-> +		tx_offset += 4;
-> +	}
-
-It looks like this device can program the MSI vector numbers. Does
-it make sense to interleave them, or would it be simpler to have
-all the receive vectors and then all the transmit vectors?
-
-This also hard-codes the fact that BRCM_XGMAC_MSI_TX_VECTOR_START
-is one more than BRCM_XGMAC_MSI_RX_VECTOR_START, which isn't nice
-given that you use these macros when claiming the MSI vectors.
-
-> +
-> +	/* Enable Switch Link */
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MII_CTRL_OFFSET,
-> +		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX |
-> +		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX |
-> +		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
-> +	/* Enable MSI-X */
-> +	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_PCIESS_CTRL_OFFSET,
-> +		     XGMAC_PCIE_MISC_PCIESS_CTRL_EN_MSI_MSIX);
-> +
-> +	ret = brcm_config_multi_msi(pdev, plat, &res);
-> +	if (ret) {
-> +		dev_err(&pdev->dev,
-> +			"%s: ERROR: failed to enable IRQ\n", __func__);
-> +		goto err_disable_msi;
-> +	}
-> +
-> +	ret = stmmac_dvr_probe(&pdev->dev, plat, &res);
-> +	if (ret)
-> +		goto err_disable_msi;
-> +
-> +	return ret;
-> +
-> +err_disable_msi:
-> +	pci_free_irq_vectors(pdev);
-
-This is still buggy. What about cleaning up the swnodes?
-
-> +
-> +	return ret;
-> +}
-> +
-> +static void dwxgmac_brcm_pci_remove(struct pci_dev *pdev)
-> +{
-> +	stmmac_dvr_remove(&pdev->dev);
-> +	pci_free_irq_vectors(pdev);
-> +	device_set_node(&pdev->dev, NULL);
-> +	software_node_unregister_node_group(brcm_swnodes);
-
-As the remove function does way more cleanup than the probe function,
-this is a sign that the probe function is buggy. This is exactly why
-I suggested using ->init and ->exit in the previous review. I seem
-to have been ignored on that though... and the problem I already
-pointed out remains.
-
-Thanks.
+> Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+> ---
+> Changes in v2:
+> - Fix error code preservation in dw_pcie_resume_noirq() to return actual
+>   error from dw_pcie_wait_for_link() instead of hardcoded -ETIMEDOUT (Mani).
+> - Initialize ret variable to -ENOENT in dw_pcie_parse_root_ports() (Mani).
+> - dw_pcie_host_init(): Remove -ENOENT error skipping to make parsing
+>   failures fatal for now, add TODO comment about making properties
+>   optional later (Mani).
+> - Link to v1: https://lore.kernel.org/r/20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com
+> 
+> ---
+> Sumit Kumar (2):
+>       PCI: API changes for multi-port controller support
+>       PCI: dwc: Add multi-port controller support
+> 
+>  drivers/pci/controller/dwc/pci-exynos.c           |   4 +-
+>  drivers/pci/controller/dwc/pci-imx6.c             |  15 +-
+>  drivers/pci/controller/dwc/pci-meson.c            |   1 -
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 175 ++++++++++++++++++----
+>  drivers/pci/controller/dwc/pcie-designware.c      |  32 ++--
+>  drivers/pci/controller/dwc/pcie-designware.h      |  17 ++-
+>  drivers/pci/controller/dwc/pcie-fu740.c           |   6 +-
+>  drivers/pci/controller/dwc/pcie-intel-gw.c        |  13 +-
+>  drivers/pci/controller/dwc/pcie-qcom-common.c     |   5 +-
+>  drivers/pci/controller/dwc/pcie-qcom-ep.c         |   4 +-
+>  drivers/pci/controller/dwc/pcie-qcom.c            |   4 +-
+>  drivers/pci/controller/dwc/pcie-rcar-gen4.c       |  13 +-
+>  drivers/pci/controller/dwc/pcie-spear13xx.c       |   5 +-
+>  drivers/pci/controller/dwc/pcie-tegra194.c        |   4 +-
+>  drivers/pci/of.c                                  |   6 +-
+>  drivers/pci/pci.h                                 |   2 +
+>  16 files changed, 232 insertions(+), 74 deletions(-)
+> ---
+> base-commit: 097a6c336d0080725c626fda118ecfec448acd0f
+> change-id: 20251010-dt-parser-98b50ce18fc1
+> 
+> Best regards,
+> -- 
+> Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+> 
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+மணிவண்ணன் சதாசிவம்
 
