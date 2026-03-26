@@ -4,162 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A51C109E54B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D201B109E557
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=; b=f8BSuSGkUuB1OEuoycgeS49OUw
-	DNkKObEnoE9c4XmX+rkANxzvYgAyjItkevPq2Yy36ndSLERdczP6KCj+C2Zk5AjxxVrqNT/R1Qtie
-	wF1Gj5s4UNxyYQFEg/nxlY0VPEwv5kgabqw76h1xjYxItqltr1ekA5LhMh4HgUw9QvmFFvSS2A9CW
-	8VkQN09XZghnH91REeWOyf9vq5HQUSMEyaTJON0/YVzr5MK8v2nRQoxa06p3YbbEtnyg3GeJ17uIK
-	7Ic17uKPt7T+t3hA9C992XHqbRB1HZp2fvuAncHssIQzHZkLk3yGfr1QlLpubhdPY3nslygml4BWY
-	jiRduPPQ==;
+	bh=Bl28UD4hohd/NY1SWa8YfX4dzDR7PBtZycCAzWaHs8M=; b=QwBAO6ygipk2gv0pX+6W4EP7Gx
+	jj3UMinHqqwc+Yo4lCR7k6polK4OQsYBbR02aSBQiBCBH9UO8Eisp0Hxnd748fpLqGqZrTNxFOyl6
+	ahg5FU06Je4TUgY5SIOQ3LODnt1qxi3HmCXvcxfXMqTSx8ntbokbDa2r5Xz/wwgRgAsklZinpob5Q
+	/yELjStejWz/lA/2B88b50uYiEhW1+7PoW9plujViilILRvlbjPfW3GL4ufrSffNdCVE+aoJr+7vu
+	Zzkgwv9bGsyTs7yg1h/Zpr8Bicj5Fd6xtQtL6As3vJAZFRwcmADjbVfsERsKnXrMgRTdGwfB5jjxL
+	yHey5rDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5dgd-00000004lU4-3I6j;
-	Thu, 26 Mar 2026 05:55:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w5dhn-00000004lbm-25hG;
+	Thu, 26 Mar 2026 05:56:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5dgb-00000004lTf-2t2E
+	id 1w5dhk-00000004laz-3dcw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 05:55:19 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62PKwLhQ1175797
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:55:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=; b=g6USjlaGedJfM+6c
-	sh043EGNYzelCOV0izT4tNV/QLb3n01n46Bcfmfqhk0dekR80UJbYOv+ECiKyqF5
-	hDGBoDW4HjYW1FAnHB6HQjPL6wiU4HzOonNQwpb/m8z7iZT58NXSi3dOBPrIjoKw
-	wuQ+A2qImDN45is0qhRImk0Fg9/VXYXt4bbMo7IOL2woERqueHmWAt0hrmhyhiv0
-	JLF5Kd2kqXU71weN+dS35T63ejg75uq5aWodNW+gv5W1MJbCfegg49wHfqx8ROk+
-	Zh+yu0VCeaDvVnApliD+U5Gk5SVWVPwHYOe3DC9JmVtMZhekVG/bxeogXSihbsCE
-	J0PCCw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d4q76sd4n-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:55:16 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2adef9d486bso11898545ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 22:55:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774504516; x=1775109316; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=;
-        b=PPmBBnFhNA6ApKMgqRUudbvIAeBGDGFyp8Ql4sdwb2r/JBlkalmv5Ge+Su5sAcmPHe
-         jnUGnDGqefBwAsMpmCOsSBUfWAsWTcD/Z0CKivtmg16AdyTowQ/YtLGQc4rfr+52XynB
-         FKg0q+ftLUXXxGycECKGrb3cPQMUU+wfL7LmDvU9ePqV2JY3NyschUjK/bO/aBqk7OpQ
-         +OvfMLgcjunA19KIvPPIzjWHAiF1Gzha8J6PDfwdpiMqX6Z4NFX19/K7Z4/a+WSNZTXM
-         DHEaL2NCRB0YfTdvOyZ32bwxD7PtvU+NTknpNN+2Gp7I4t8K3DYIAYKFJ5+6xEAGHAS2
-         YFCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774504516; x=1775109316;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=;
-        b=Qc9uaiY1NA+CeKZzElarZGNpNyv8iuV2RR5b5KLz3wLUnJe22QP2qV5WJX6Bgyu9sY
-         hmB72HVYnBwM1UyEli6V5ChY/Cv8XNvltP6vX/JoNDd3Llt26/tbb92G9kCjJ6egegoy
-         mEK+NTKfj9Ed9cOpz/WIe/Y/4U0dIV2bPzcJI8+dT7pAZGLlsmj5iimfsVNL84YuuBEr
-         IzUctRL4nWAU+t3Q2yTcUesV6qlsPvElq3BuBfIbDjIOivXr3zLCniGv2UvMDiNB3g2J
-         vopknDEKlPgbkdi3EN3mfBxUyRbjymE/TCbwHfo3sAOzy3dGPfClqCTeDh6uTC8cwtPa
-         bqCA==
-X-Forwarded-Encrypted: i=1; AJvYcCViR20kzDMy6D7omm1TlN5AFKSSsit4xbqua7kCbA1bRZiLgb2NSvbLEJCY9gYvRitJSLmcEofapYHQYmaxU+cY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuLSCettwePnrmgUpx+aMa2sRh937PHKsONat6xZNzAJ/ZMWPh
-	EBGHIvxBEylUWLeBRaxRq8up451cSy3RfwAsDcBzFAW0k/iHLoZ3sIkRYfbNWwBfLxUaH+HixL8
-	6u+xFsjy9E3cERhW5ARHc4dQSAUEDDcH5w7ozLtegK1DB8CmFsYNNATRN5bi9d1N/df49GXQl/a
-	FNyw==
-X-Gm-Gg: ATEYQzwPAhuz2cTLJt72zycpSuL/5PcYag1BlQ5axETJ9AmXIT2PQjiuiTIS8c2sTns
-	7rzlNpjPhPHYiUzxDPAExa/62rfLrpZ2huJdPaoP5s57b+JcNYtGi9LzVonS2gTyR9lmJZZOL0/
-	+J+ZM6K23PuTQ687YIabnvWJi8+uCjsJFOgicJXUyKc/B9gAjQszOZXmdrwaTQvoDSKss88uKJo
-	PVfj5e9hNtgk97EnGClrIQIXB7nKd5fLg0Tq9YOYUdvdQstISbNMLLiFRdX+LX3th7dZu5aScGO
-	Gqk4jOETSEN1JQujZjquAhaG6u1LTj9XtCtcEGxniql9HFCL+UGidNT9+0NYQHQUCFX+hzLwsuv
-	NKliVXQ+FewFCFxd/RUWRGqiddCBz3nsonSHZqsGpOVJ/L9UUvfpw25lL
-X-Received: by 2002:a17:903:1b10:b0:2b0:673a:7c90 with SMTP id d9443c01a7336-2b0b0aad881mr74442665ad.28.1774504515823;
-        Wed, 25 Mar 2026 22:55:15 -0700 (PDT)
-X-Received: by 2002:a17:903:1b10:b0:2b0:673a:7c90 with SMTP id d9443c01a7336-2b0b0aad881mr74442365ad.28.1774504515275;
-        Wed, 25 Mar 2026 22:55:15 -0700 (PDT)
-Received: from [10.219.57.109] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc87e820sm17098715ad.50.2026.03.25.22.55.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2026 22:55:14 -0700 (PDT)
-Message-ID: <65f76d05-1474-46d3-aa71-4acfe86c5718@oss.qualcomm.com>
-Date: Thu, 26 Mar 2026 11:23:53 +0530
+	Thu, 26 Mar 2026 05:56:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 21ACB444F8
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:56:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 011D9C2BCB9
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:56:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774504588;
+	bh=GSGBiV6pimsYFcaUTsHEze3oEMK+9eMZdVzhhnNbZkE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YJcVmmmJDJ4WHG4F7QFG+0uNjTfB48rZRuKUKvMKAXXtAWJtRZxCGmfOcY9p8h0n7
+	 y6DtIKE2xMd9TzHUoKCg+6CV4FihIqsm8cu/ZPEImcDsNspHV7BzLatYeAh+/WRXDT
+	 goYo2+7ScyNFrWpAIBF1DvCRDCLlq9Xcn3Eci+cZC1TSxh0Sx99Jt+J+ODBeL0z0tY
+	 4rq5R6MiZ78+4wKBp/6qI2igG/PAvFx17NC4TBdKfHVvVpP1Gmuj5jPpyMnT+uxFLi
+	 9Js/CSnTgOWqvgkDviOevcEzbQw4A6/TbX9kDHDbt2wHnPMy4aLZi7L0UrTQIGRGv/
+	 9lRRCERCYBN5w==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-38a32d36396so4077941fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 22:56:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWZYU06IRPpCFXl3Wnm9kw6Yh3K/45gt/fX08rgL+WSzij3L6ZTF9xsaM0K5Yugn5jTXJXnrfKcK8k1nLm4CP/x@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWuzbv9vaAtuFYvt2hwNusY8nOSGRyGby6bQt0LEIe2TBOPZlf
+	AZ8KVPaMvcTcrjfq0wm8uHQnLUexjnPcqJU/+SrrHh/k0V88KEgWXeZugQi5uigTMqQOVJNBXUD
+	BP+yOU9QryvKzkXmfeXQyNCg6Lw6oNQE=
+X-Received: by 2002:a2e:800f:0:b0:389:e3ad:40b7 with SMTP id
+ 38308e7fff4ca-38c6537b4a4mr1146961fa.2.1774504586085; Wed, 25 Mar 2026
+ 22:56:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 0/3] of: parsing of multi #{iommu,msi}-cells in maps
-To: Nipun Gupta <nipun.gupta@amd.com>,
-        Nikhil Agarwal
- <nikhil.agarwal@amd.com>,
-        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>,
-        Saravana Kannan <saravanak@kernel.org>,
-        Richard Zhu <hongxing.zhu@nxp.com>,
-        Lucas Stach <l.stach@pengutronix.de>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Bjorn Helgaas
- <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
-        Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-pci@vger.kernel.org, imx@lists.linux.dev,
-        xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-References: <20260325-parse_iommu_cells-v11-0-1fefa5c0e82c@oss.qualcomm.com>
-Content-Language: en-US
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-In-Reply-To: <20260325-parse_iommu_cells-v11-0-1fefa5c0e82c@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=NOPYOk6g c=1 sm=1 tr=0 ts=69c4ca44 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=NEAV23lmAAAA:8 a=EUspDBNiAAAA:8
- a=G4NFmJWIaiRLgIwbil8A:9 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: MdgrOLIBkcLSN_TsT11plRcytLGRteCm
-X-Proofpoint-GUID: MdgrOLIBkcLSN_TsT11plRcytLGRteCm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA0MiBTYWx0ZWRfX5oRrYeM1Q0d1
- +A9fRRIEaaysxVGXsHMpkHH/jQf0cgpKLxS8KnDD0hCYyDDDDuUZQySCHBpdoFICzs4mSVglyFU
- cFcANYPWc5uOa1C0i2hQn8y2vy9VnigraRNGgl1uWGDXI2veLwdYpO2/hei2e3clMwJkQyWMWDH
- K+4FQPOqVxIeRhy6QCnH2F8aLFIFLOc8/ymacuG/4okMaTkNesEj5ipNtGLr/+IWTTWbzz/ZJyk
- lZMrv9a3IIIxFf+eLT/n1fAhdedE04nKDIboU39Dur5HXbfKUJt1hhGJ3RdEb6LYB5F4j+P2fSk
- +cM4OlOMEdQJ4qxXRq3HTQu4R+xZ9f62bIY5LRKuJlRGapPChUfne7U4Oit6OY46lSCH9nzIgwt
- +r9P6m4CjXqq4RaWirDouJEgDlkbvySqVfQBGBAkpClQM2lIFJlVkWMv4Kt1R8KuCOlxzw2TUYb
- O5KHjn51rgRanCt/nkQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-26_01,2026-03-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 clxscore=1015 priorityscore=1501 lowpriorityscore=0
- impostorscore=0 malwarescore=0 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603260042
+References: <20260325-mt7927-wifi-support-v2-v3-0-5ca66c97a755@jetm.me>
+In-Reply-To: <20260325-mt7927-wifi-support-v2-v3-0-5ca66c97a755@jetm.me>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Thu, 26 Mar 2026 00:56:16 -0500
+X-Gmail-Original-Message-ID: <CAGp9Lzo1XPR7=Gwi_Qr9ZC=g4ec+zGg_eUdh8yBgUdi=qiHMag@mail.gmail.com>
+X-Gm-Features: AQROBzCgBXUtbhG8iRwtdKRawqSwIZWXpTZoHZD06hGoEDbZC2YT7tVUlmNXhZc
+Message-ID: <CAGp9Lzo1XPR7=Gwi_Qr9ZC=g4ec+zGg_eUdh8yBgUdi=qiHMag@mail.gmail.com>
+Subject: Re: [PATCH v3 00/13] This series adds support for the MediaTek MT7927
+ (Filogic 380) combo
+To: Javier Tia <floss@jetm.me>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Deren Wu <deren.wu@mediatek.com>, 
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>, 
+	George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, 
+	Samu Toljamo <samu.toljamo@gmail.com>, Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, 
+	Chapuis Dario <chapuisdario4@gmail.com>, =?UTF-8?Q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, 
+	=?UTF-8?B?5byg5pet5ra1?= <Loong.0x00@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_225517_766137_BBA3410C 
-X-CRM114-Status: GOOD (  34.43  )
+X-CRM114-CacheID: sfid-20260325_225628_939613_1DC8AC16 
+X-CRM114-Status: GOOD (  32.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,153 +93,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Javier
 
+Sorry for the late reply. This version already looks better than v1
+overall, and the patch order is cleaner. I still think a few areas
+could be refined further, as this would also be a good opportunity to
+refactor the code a bit so mt7927 support fits more naturally and
+future chips are easier to handle as well.
 
-On 3/25/2026 4:38 PM, Vijayanand Jitta wrote:
-> So far our parsing of {iommu,msi}-map properties has always blindly
-> assumed that the output specifiers will always have exactly 1 cell.
-> This typically does happen to be the case, but is not actually enforced
-> (and the PCI msi-map binding even explicitly states support for 0 or 1
-> cells) - as a result we've now ended up with dodgy DTs out in the field
-> which depend on this behaviour to map a 1-cell specifier for a 2-cell
-> provider, despite that being bogus per the bindings themselves.
-> 
-> Since there is some potential use[1] in being able to map at least
-> single input IDs to multi-cell output specifiers (and properly support
-> 0-cell outputs as well), add support for properly parsing and using the
-> target nodes' #cells values, albeit with the unfortunate complication of
-> still having to work around expectations of the old behaviour too.
-> 							-- Robin.
-> 
-> Unlike single #{}-cell, it is complex to establish a linear relation
-> between input 'id' and output specifier for multi-cell properties, thus
-> it is always expected that len never going to be > 1. 
-> 
-> These changes have been tested on QEMU for the arm64 architecture.
-> 
-> Since, this would also need update in dt-schema, raised PR[2] for the
-> same.
-> 
-> [1] https://lore.kernel.org/all/20250627-video_cb-v3-0-51e18c0ffbce@quicinc.com/
-> [2] PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
-> 
-> V11:
->   - Added explicit filter_np parameter to of_map_id() and of_map_msi_id()
->     per Dmitry Baryshkov's review feedback, making the filter explicit
->     instead of overloading arg->np as both input filter and output parameter.
->   - Removed of_node_put() from inside of_map_id(), making the caller responsible
->     for reference management. Updated of_msi_xlate() to properly handle reference counting.
->   - Collected ACKed by tags, and fixed minor typos.
->   Link to v10:
->   https://lore.kernel.org/r/20260309-parse_iommu_cells-v10-0-c62fcaa5a1d8@oss.qualcomm.com
-> 
-> V10:
->   - Move of_map_iommu_id()/of_map_msi_id() from include/linux/of.h to
->     drivers/of/base.c as out-of-line helpers per feedback from Marc Zyngier
->     and Rob Herring.
->   - Add kernel-doc to document both helpers for discoverability and
->     usage clarity.
->   - Fix of_map_msi_id() wrapper and all its callers (cdx_msi.c,
->     irq-gic-its-msi-parent.c, drivers/of/irq.c) to correctly use the new
->     struct of_phandle_args-based API with proper of_node_put() handling
->     as per feeback from Dmitry.
->   Link to v9:
->   https://lore.kernel.org/r/20260301-parse_iommu_cells-v9-0-4d1bceecc5e1@oss.qualcomm.com
-> 
-> V9:
->   - Updated TO/CC list based on feedback to include all relevant
->     maintainers.
->   - No functional changes to the patches themselves.
-> 
->   Link to V8:
->   https://lore.kernel.org/all/20260226074245.3098486-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V8:
->   - Removed mentions of of_map_args from commit message to match code.
-> 
->   Link to V7:
->   https://lore.kernel.org/all/20260210101157.2145113-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V7:
->   - Removed of_map_id_args structure and replaced it with
->     of_phandle_args as suggested by Dmitry.
-> 
->   Link to V6:
->   https://lore.kernel.org/all/20260121055400.937856-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V6:
->   - Fixed build error reported by kernel test bot.
-> 
->   Link to V5:
->   https://lore.kernel.org/all/20260118181125.1436036-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V5:
->   - Fixed Build Warnings.
->   - Raised PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
-> 
->   Link to V4:
->   https://lore.kernel.org/all/20251231114257.2382820-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V4:
->   - Added Reviewed-by tag.
->   - Resolved warnings reported by kernel test bot, minor code
->     reorganization.
-> 
->   Link to V3:
->   https://lore.kernel.org/all/20251221213602.2413124-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V3:
->   - Added Reviewed-by tag.
->   - Updated of_map_id_args struct as a wrapper to of_phandle_args and
->     added comment description as suggested by Rob Herring.
-> 
->   Link to V2:
->   https://lore.kernel.org/all/20251204095530.8627-1-vijayanand.jitta@oss.qualcomm.com/
-> 
-> V2:
->   - Incorporated the patches from Robin that does the clean implementation.
->   - Dropped the patches the were adding multi-map support from this series
->     as suggested.
-> 
-> V1:
->  https://lore.kernel.org/all/cover.1762235099.git.charan.kalla@oss.qualcomm.com/
-> 
-> RFC:
->  https://lore.kernel.org/all/20250928171718.436440-1-charan.kalla@oss.qualcomm.com/#r
-> 
-> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+On Wed, Mar 25, 2026 at 5:11=E2=80=AFPM Javier Tia <floss@jetm.me> wrote:
+>
+> WiFi 7 + BT 5.4 module to the mt7925 driver. The MT7927 uses PCI ID
+> 14c3:7927 (some hardware reports 14c3:6639) and shares the mt7925
+> firmware interface but requires different DMA ring layout, IRQ mapping,
+> chip initialization, and power management handling.
+>
+> Tested hardware:
+> - ASUS ROG Crosshair X870E Hero (BT 0489:e13a, WiFi 14c3:6639)
+> - ASUS ProArt X870E-Creator WiFi (BT 0489:e13a / 13d3:3588, WiFi 14c3:663=
+9)
+> - ASUS ROG Strix X870-I (WiFi 14c3:7927)
+> - ASUS ROG Strix X870-F Gaming WiFi (BT 0489:e13a, WiFi 14c3:7927)
+> - ASUS ROG Strix X870E-E (BT 13d3:3588, WiFi 14c3:7927)
+> - Gigabyte X870E Aorus Master X3D (BT 0489:e10f, WiFi 14c3:7927)
+> - Gigabyte Z790 AORUS MASTER X (BT 0489:e10f, WiFi 14c3:7927)
+> - Gigabyte Z790 AORUS ELITE X WiFi7 (BT 0489:e10f, WiFi 14c3:7927)
+> - MSI MEG X870E ACE MAX (BT 0489:e110, WiFi 14c3:7927)
+> - Lenovo Legion Pro 7 16ARX9 (BT 0489:e0fa, WiFi 14c3:7927)
+> - Lenovo Legion Pro 7 16AFR10H (BT 0489:e0fa, WiFi 14c3:7927)
+> - TP-Link Archer TBE550E PCIe (BT 0489:e116, WiFi 14c3:7927)
+> - EDUP EP-MT7927BE M.2 card (WiFi 14c3:7927)
+> - Foxconn/Azurewave M.2 modules (WiFi 14c3:6639)
+> - AMD RZ738 reference design (WiFi 14c3:0738)
+>
+> Tested on Arch Linux, CachyOS, EndeavourOS, Fedora (Bazzite), NixOS,
+> openSUSE Tumbleweed, and Ubuntu across kernels 6.13-6.19.
+>
+> What works:
+> - WiFi 7 with EHT 320MHz on 2.4/5/6 GHz bands
+> - 320MHz data path verified at 841 Mbps (iperf3 -t30 -P8)
+> - PCIe initialization with CBTOP remap and MT7927-specific DMA layout
+> - System suspend/resume (S3)
+> - DBDC (dual-band concurrent) mode
+> - Explicit band_idx assignment for stable 5GHz/6GHz operation
+> - ASPM and runtime PM disabled for MT7927 (see below)
+>
+> Known limitations (planned as follow-up series):
+> - Runtime PM: disabled for MT7927 because the combo chip shares a
+>   CONNINFRA power domain between WiFi (PCIe) and BT (USB).
+>   SET_OWN/CLR_OWN transitions on the LPCTL register crash the BT
+>   firmware, requiring a full power cycle to recover. PM enablement
+>   will be addressed once safe power state transitions are determined.
+> - mac_reset returns -EOPNOTSUPP (DMA recovery not yet implemented)
+> - MLO (Multi-Link Operation): tested working on 5GHz+2.4GHz STR
+>   (776 Mbps) but requires additional patches for link lifetime
+>   and error handling. Sean Wang's series [1] addresses these;
+>   MLO support will be submitted as a follow-up on top of that.
+> - TX retransmissions: elevated retry rate on all bands, firmware-side
+>   rate adaptation issue not addressable in the driver.
+>
+> [1] https://lore.kernel.org/linux-wireless/20260306232238.2039675-1-sean.=
+wang@kernel.org/
+>
+> Patches 1-5 add generic 320MHz EHT support (no MT7927 references).
+> Patches 6-7 introduce MT7927 chip ID helpers and firmware paths.
+> Patch 8 adds per-chip IRQ map handling.
+
+This part patch 1-8 looks good overall. My only concern was a possible
+regression on mt7925, but now that the incorrect mt7925 320 MHz
+support has been fixed  in the version, this should be fine.
+
+> Patch 9 introduces mt792x_dma_config struct for chip-specific DMA.
+> Patch 10 combines CBTOP remap, chip init, DBDC, CNM, and mac_reset.
+> Patch 11 adds mt7925_band_idx() helper for stable 5/6 GHz operation.
+
+I am still thinking a bit more about patches 9-11. My current
+preference is to introduce the generic layer first, and then migrate
+the mt7925 and mt7927-specific parts on top of it.
+I will handle this part on my side, since I want to carefully compare
+the vendor driver with your changes first, and make sure the mt7925
+side is solid before moving the mt7927-related changes forward. For
+the mt7927-related work, I will make sure your contribution, as well
+as the work from the other volunteers, is properly preserved when I
+carry this forward.
+
+> Patch 12 disables ASPM and runtime PM for MT7927.
+> Patch 13 enables the MT7927 PCI device table entries.
+>
+> The WiFi firmware path and filename in linux-firmware have not been
+> finalized yet. The driver currently requests mediatek/mt6639/ (the
+> mobile SoC codename), but this may change based on the linux-firmware
+> review.
+
+Similar to the BT side, I would prefer to have a dedicated Linux
+firmware for mt7927 WiFi. I am not sure yet whether the current
+changes will work seamlessly with that, so we can revisit it later and
+see what further adjustments are needed.
+
+>
+> Changes since v2 (suggested by Sean Wang):
+> - Fixed is_320mhz_supported() to check for MT7927 only, not the
+>   entire mt7925 family. MT7925 does not support 320MHz (patch 5).
+> - Dropped phy_cap_info[7] 320MHz additions (NON_OFDMA_UL_MU_MIMO
+>   and MU_BEAMFORMER) to keep capabilities conservative (patch 5).
+> - Disabled runtime PM for MT7927 (patch 12). The combo chip shares a
+>   CONNINFRA power domain between WiFi and BT; SET_OWN/CLR_OWN
+>   transitions crash BT firmware. Discovered via user reports of BT
+>   lockups after enabling power_save=3D1 (Reported-by: Nitin Gurram).
+> - Added tested hardware: MSI MEG X870E ACE MAX, Gigabyte Z790 AORUS
+>   ELITE X WiFi7, Lenovo Legion Pro 7 16AFR10H.
+>
+> Changes since v1 (suggested by Sean Wang):
+> - Reorganized from 18 patches into 13 across 8 logical groups
+> - Common 320MHz patches first, chip-specific changes later
+> - Introduced mt792x_dma_config struct to reuse mt7925_dma_init()
+>   instead of duplicating as mt7927_dma_init()
+> - Replaced is_mt7927() with is_320mhz_supported() in common patches
+> - Added mt7925_band_idx() helper replacing scattered if/else patterns
+> - Renamed MT7927-specific registers with MT7927_ prefix
+> - Added PCI ID 0x0738 for AMD RZ738 hardware
+> - Moved GLO_CFG_EXT1 register address into dma_config struct to
+>   eliminate is_mt7927() from shared mt792x_dma.c
+>
+> Link to v2: https://lore.kernel.org/linux-wireless/20260319-mt7927-wifi-s=
+upport-v2-v2-0-d627a7fad70d@jetm.me/
+> Link to v1: https://lore.kernel.org/linux-wireless/20260306-mt7927-wifi-s=
+upport-v1-0-c77e7445511d@jetm.me/
+>
+> Assisted-by: Claude (Anthropic)
+> Signed-off-by: Javier Tia <floss@jetm.me>
 > ---
-> 
+> Javier Tia (13):
+>       wifi: mt76: mt7925: fix stale pointer comparisons in change_vif_lin=
+ks
+>       wifi: mt76: mt7925: add 320MHz bandwidth to bss_rlm_tlv
+>       wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS
+>       wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec
+>       wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band
+>       wifi: mt76: mt7925: add MT7927 chip ID helpers
+>       wifi: mt76: mt7925: add MT7927 firmware paths
+>       wifi: mt76: mt7925: use irq_map for chip-specific interrupt handlin=
+g
+>       wifi: mt76: mt7925: add chip-specific DMA configuration
+>       wifi: mt76: mt7925: add MT7927 hardware initialization
+>       wifi: mt76: mt7925: fix band_idx for stable 5GHz/6GHz operation
+>       wifi: mt76: mt7925: disable ASPM and runtime PM for MT7927
+>       wifi: mt76: mt7925: enable MT7927 PCI device IDs
+>
+>  drivers/net/wireless/mediatek/mt76/mt76_connac.h   |  13 +-
+>  drivers/net/wireless/mediatek/mt76/mt7925/init.c   |  19 +-
+>  drivers/net/wireless/mediatek/mt76/mt7925/mac.c    |   9 +
+>  drivers/net/wireless/mediatek/mt76/mt7925/main.c   |  61 ++++-
+>  drivers/net/wireless/mediatek/mt76/mt7925/mcu.c    |  55 +++-
+>  drivers/net/wireless/mediatek/mt76/mt7925/mt7925.h |   7 +
+>  drivers/net/wireless/mediatek/mt76/mt7925/pci.c    | 277 +++++++++++++++=
+++++--
+>  .../net/wireless/mediatek/mt76/mt7925/pci_mac.c    |  14 +-
+>  .../net/wireless/mediatek/mt76/mt7925/pci_mcu.c    |  20 +-
+>  drivers/net/wireless/mediatek/mt76/mt792x.h        |  27 ++
+>  drivers/net/wireless/mediatek/mt76/mt792x_dma.c    |  68 ++---
+>  drivers/net/wireless/mediatek/mt76/mt792x_regs.h   |  33 +++
+>  12 files changed, 528 insertions(+), 75 deletions(-)
 > ---
-> Charan Teja Kalla (1):
->       of: Factor arguments passed to of_map_id() into a struct
-> 
-> Robin Murphy (2):
->       of: Add convenience wrappers for of_map_id()
->       of: Respect #{iommu,msi}-cells in maps
-> 
->  drivers/cdx/cdx_msi.c                    |   8 +-
->  drivers/iommu/of_iommu.c                 |   6 +-
->  drivers/irqchip/irq-gic-its-msi-parent.c |  11 +-
->  drivers/of/base.c                        | 213 ++++++++++++++++++++++++-------
->  drivers/of/irq.c                         |  11 +-
->  drivers/pci/controller/dwc/pci-imx6.c    |  18 ++-
->  drivers/pci/controller/pcie-apple.c      |   6 +-
->  drivers/xen/grant-dma-ops.c              |   5 +-
->  include/linux/of.h                       |  30 ++++-
->  9 files changed, 237 insertions(+), 71 deletions(-)
-> ---
-> base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
-> change-id: 20260301-parse_iommu_cells-1c33768aebba
-> 
+> base-commit: 9ac76f3d0bb2940db3a9684d596b9c8f301ef315
+> change-id: 20260319-mt7927-wifi-support-v2-e89d779b28f4
+>
 > Best regards,
-
-Hi Robin,
-
-Could this series be pulled into an immutable branch/tag, if it doesn't
-make it into the v7.1 merge window ? There are client changes dependent on it,
-So it would help to get them moving forward rather than waiting another cycle.
-
-Thanks,
-Vijay
+> --
+> Javier Tia <floss@jetm.me>
+>
+>
 
