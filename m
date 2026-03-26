@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9755910A88F1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7666E10A88FD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=onuRQkPmwCIpth/t55bBYnvpguxJISC6gk3ZFvsnTBs=; b=zs7/Lc5XqCoXYYSAuaCTsefmUT
-	o4uY6gD33OMUGdX4n13mlOk7W1ItkhYTCcYGCVmbQGnyfyRYJ4cmBbCkRnmCweOYNvWCi7M/fitFe
-	2ywiKTgV8M7/CFEbZUovxCbWNSTjTGswcu+soepMQ2+guwpwt6fJvdtVoTOfAq3Z9UVt78VbG4SF6
-	WyZnMhFWN2EiPOcTQBoBohg6uU3c80aHhb2qq81c108w6bjeL2AyQbPGtwGdTIgwcIxPZ9irkFTRf
-	wo9J3XEzN+bhIIszzCcimWvfhgGx2J8h6JjHIkpP3SD3NoY24ODobOUWzQ1ZQqzgqRoi1nihcXFCA
-	aWsgf2uA==;
+	bh=Q04VIAHNkeO/Oab8CZfYBVf+J5N6KJreQMXprmET4N4=; b=ch3tbdpKioBooP9dR42uucG9wL
+	/6kD+ihnWZ/6MW7U8a1wxwySI3bcmKMsWtjaS2IkQau3Mf3L4JF1TYwtJPweAb9XjDkJibHVaCJvm
+	5w7czEWaVKkr2TNHxgRX8VacbGG6/RMjPFOJ632jYiB5PSUNyZXr568gK17fB3UeNx2uvwNhOLWIi
+	8QVnL1B7xVJU1cJ4OtgiXxKi3PYbYhwKsFJjzmklnKh1KY41Uyso3AyLw11AwhPHp6DYKsyUUakJR
+	RvIedZgleada+LQWYmXTxvTHB1db6sB9Hgv71fsuVH8ANP1t3skyTIevawuEbTZkJXr5gbKPgjjM4
+	xfXS9dyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pCe-000000060lw-1qJ6;
-	Thu, 26 Mar 2026 18:13:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w5pF8-000000061Ba-08e8;
+	Thu, 26 Mar 2026 18:15:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pCc-000000060lM-3IBd
+	id 1w5pF6-000000061A4-0q2j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 18:13:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3E8760054;
-	Thu, 26 Mar 2026 18:13:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B3FC116C6;
-	Thu, 26 Mar 2026 18:13:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774548785;
-	bh=onuRQkPmwCIpth/t55bBYnvpguxJISC6gk3ZFvsnTBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fbY1+q+fVV90ac80mhG7oRHiW7dLVnAsaxYjEkvgg3RVEFRF0TOLP78UWAGX/SuY8
-	 teiNxXthB5s/sZWS3Smp+uFCrPq8ojKuCHd8NSI3Gw4YlAJ0eZJCalsGxb3CQgKyNg
-	 eE1dzIZBQ7wIPacSMEtjz+W167HfW4PRVMa7j/Xog/6vfBOIIivZ4ouauNxM2QC47I
-	 V8TjpiElAs+ES082b9UBM/BR1qfqsoG8tHgWvKzeHPdndlCjEvTGLOOp1DWjDkuqao
-	 +5JTscv4FhUOvc08NNBR3vGZ91/Sojk/EsyBrD3koapnBIgCwBcEVvr1IwUdOJJhsG
-	 YevULXYCG6UrA==
-Date: Thu, 26 Mar 2026 18:12:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
+	Thu, 26 Mar 2026 18:15:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Q04VIAHNkeO/Oab8CZfYBVf+J5N6KJreQMXprmET4N4=; b=A91llKaRZg1Kmp6LhWd1OiFvcj
+	3itUEP0PSvXO6oGyTtfgHDbDG28LoaPafvUnAUVxPxPAGgzivyFflJrT+8x7+D5B6aEBiE5KUJvpx
+	hsLC3Q9MtLtj5zS6XTV+mTFQHCTk/a4GPoJsYEIH5dzvP8DG3wwdU6/BAhPw3H9Z4kE7jlOleNzY4
+	938Lcw/7mq1ZxXXkBvdTj0rrQ/E8FqgyUjbin2ESTPaMpntIg5biA5leRtVjbSi3EMVY1NPQ2UQUW
+	vZvi82S6JJQyDlX/01L00gn7bQ3JaN9y4RDLm9UG60iu0fAZ20CIs2Nv6xeag98tIykPe2I/N4nY9
+	WeQ2ggwA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54672)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w5pEw-0000000059k-0PVC;
+	Thu, 26 Mar 2026 18:15:30 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w5pEt-000000007G1-3NVj;
+	Thu, 26 Mar 2026 18:15:27 +0000
+Date: Thu, 26 Mar 2026 18:15:27 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Primoz Fiser <primoz.fiser@norik.com>
-Subject: Re: [PATCH v1 1/3] dt-bindings: arm: fsl: add Variscite DART-MX93
- Boards
-Message-ID: <20260326-sizable-dance-78b73f70fac5@spud>
-References: <cover.1774539301.git.stefano.r@variscite.com>
- <b7b243c9c3931e8d7ddd984b654e7ef493e84690.1774539301.git.stefano.r@variscite.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+	Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH net-next 1/2] net: stmmac: remove axi_kbbe, axi_mb and
+ axi_rb members
+Message-ID: <acV3v-iyoCUTh2a8@shell.armlinux.org.uk>
+References: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
+ <E1w4ydo-0000000Dlpb-34jd@rmk-PC.armlinux.org.uk>
+ <20260326172943.GR111839@horms.kernel.org>
+ <acVxNBLE8Ck2qfjc@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PLO7GUF6w8z+16Yd"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b7b243c9c3931e8d7ddd984b654e7ef493e84690.1774539301.git.stefano.r@variscite.com>
+In-Reply-To: <acVxNBLE8Ck2qfjc@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_111540_260889_7455D1DA 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +93,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 26, 2026 at 05:47:32PM +0000, Russell King (Oracle) wrote:
+> On Thu, Mar 26, 2026 at 05:29:43PM +0000, Simon Horman wrote:
+> > On Tue, Mar 24, 2026 at 10:05:40AM +0000, Russell King (Oracle) wrote:
+> > > axi_kbbe, axi_mb and axi_rb are all written, but nothing ever reads
+> > > their values. Remove the code that sets these and the struct members.
+> > > 
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > 
+> > Hi Russell,
+> > 
+> > FYI, AI review suggests that these fields should also be removed from
+> > Documentation/networking/device_drivers/ethernet/stmicro/stmmac.rst
+> 
+> I noticed. I've prepared an update if netdev folk want that to happen
+> as I've noticed that that documentation is fairly out of date now.
 
---PLO7GUF6w8z+16Yd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+There's another reason I haven't submitted an update, and that's
+because netdev is fairly backlogged at the moment - currently there's
+381 patches in patchwork - four pages of patchwork, with the oldest
+"new" patch dated 21st March. I don't think netdev patchwork needs
+more patches at the moment!
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
---PLO7GUF6w8z+16Yd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacV3KwAKCRB4tDGHoIJi
-0owPAQD3E45ZJKFwFRvgLC7JzNAeyiR+9OmbwQ35jEMeSNonDQD1Gn84ysRfckCH
-1VN+CjFscwhHyf6LfZt3azNzZtaVDg==
-=NoRV
------END PGP SIGNATURE-----
-
---PLO7GUF6w8z+16Yd--
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
