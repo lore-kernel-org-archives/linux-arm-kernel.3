@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1307D109C038
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 07:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC17106F2E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 07:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1rpr0C2dmOBXYyPWul0Xwe45NLnRL1Y3ksA5yPVlBA=; b=d91Qok0GWSI21yjRrq7fNkskyG
-	JhEH/eLyunXKmeQhS0B4d5gostrOxLShOdJA0rnLNihBVTFsJ5U0xxEUCN/UdD9i7I5PIKPKc9/dt
-	rUX8i+HLjysjOmfWFEO2pcrZETzpW2lT/foBgJX04roZlhKHGe61obbmncREcGnjUmQeQigjXtR/O
-	p9LU5GOEP/G10UqxOJ9j7vdg1kkiMQMM6AqS18r3SE9w1k7QAt8wcsv0BZKaWSCBSIqV2jQBOjnBd
-	Zt7pbPgwpFB/6bo3y9GzMuUF2sqJzF5FhEax3StKCxbmxFuLy66GBGtFD32BxVQ6oPjXlGEub+vgR
-	sbSpg+6A==;
+	bh=6vCpUNBSiAnYzq38lMljTJz/wGpcaU+8Km5eWOGP29M=; b=p0k7U7JcsXXCMTED1eqLXDiAoq
+	RXlpn+/PfFhHdEVY6cL1aQmkTO3hB72WP9nfhrL4LzEVKm+TwlXTxNaLk6ZWGVFDnB7XDOub3IEEm
+	qaCMCo+DmH0R9g1OVACqnVZSUcWc2tVFIjbyJemOrZA8tpToRS7SKYnkSmcPuQKER8p6X93c1hymM
+	9rZxPZadO2C2RQR3/BCWkbLHtBZ8wuPkh3qxgy7QQI3E7/V9+aJTgkRDpvQ8XiMpaZjavptWADUZ6
+	M9kTDVfLITtHZ98eChP4dpBZT+Eadj7A2TsinVuFGsJmKJkXMcHbKwSKCTcPdlorAAWCsuXa6WM5G
+	t95Rt7ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5fIj-00000004wtb-0QVn;
-	Thu, 26 Mar 2026 07:38:45 +0000
-Received: from mail-pl1-f173.google.com ([209.85.214.173])
+	id 1w5fTD-00000004xVN-2SqE;
+	Thu, 26 Mar 2026 07:49:35 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5fIg-00000004wtG-41HL
+	id 1w5fTA-00000004xUb-19J4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 07:38:44 +0000
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2a3e79fe2b8so445865ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 00:38:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774510721; x=1775115521;
-        h=content-transfer-encoding:in-reply-to:organization:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X1rpr0C2dmOBXYyPWul0Xwe45NLnRL1Y3ksA5yPVlBA=;
-        b=dVjaOnx10A35XFESNGswq6B8sasEhuOF2A1AUMRRb9B0KOfTWYFmxbWcQ0UmbTQuVO
-         cdlX0sWruyxq9BjKN8A2z6szuAOiEvw1+4o0L6H9no5AIUNeeUEVkb9fhjOjEw6OJ9AF
-         +xXrI3CDKCx4LPzQjeorIxOd4rVqdmRW+8FvK65uLLJiCnD8jgh+copjjYSxdPz0it2k
-         s/m3cmpX3hZI3ofn0fAP72j/Hl1SoVId2FXl8u+NI5QlanNRVRFv4x1UJuaN66XJjpiN
-         3TZg4HBryD/rv1Opl1547/jKibFAS0yBUV6uOC5yFpCJqOpjOPO9YV5Da4mkTZROCczL
-         I63g==
-X-Forwarded-Encrypted: i=1; AJvYcCV7mIVPcNRJ1vgDniCO87OSVCSQPGrOo6rFjdapPaYab8QEGZ2ZTTVjR+PTu43IJBnHIUc9uRGQZgFSN5z9hnR+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoeSb2VkipJSY9+iK1qig/TjZNOHwQjHiKCooJEfqFJJy4+Wvv
-	N30ha/YlF9LVYB8B42rwTXlb1TS7arkCUL8VL8ZkD8kaur94uTFS10aX
-X-Gm-Gg: ATEYQzxa4V8xlgDCeyC8x6aXxMgDnbvjWUFBOcZiluHc53OXrMQnkzNg8Y2EYx7Jw4/
-	ZxVgBXVecLIEHq1xeZxv1ZvUbc7iZ1WAOAE3OFvDRyaEpLCnYobCN874TFH5yxx7LhThu0OAr5c
-	xqZOS4OydrXBbXllVhZGF1XS2XnGizMj5jlAqLXLNtcyb92mjX3yzUEkpAz/UsHORbeB0xMwBOE
-	7HAkUg+oxOg0XrrjCoTgVRgLQxtSXPDnMI/fUCJuu8b1Tr5cmerNV0qYfngqWtcKLZftyMXHvu2
-	jYkzwO8igUJmj9Jiq3urs0axM6RVrcR4VtDydSFMPuI84Znfy9K1fcrcP4sUSBcFVBrtYbVkROk
-	mN3GPjYf7MqmSJyhiFmRNuH3zVaJncRx1iYvVdLKCL8nhxeuG2AlNAhU5rFVuWEzehxGEzbBqY8
-	vKtv+HMn6VBMo9tNvVYCToFJMZl/zcMvyyK1JkAby9PkVrBwbKsjEJLbHrQ96d2fiP4J7Q5t8Kl
-	2Q0PRxCtpii7svmiQkr/A==
-X-Received: by 2002:a17:903:2acf:b0:2b0:bf0c:cb46 with SMTP id d9443c01a7336-2b0bf0cdaf9mr9439045ad.8.1774510721579;
-        Thu, 26 Mar 2026 00:38:41 -0700 (PDT)
-Received: from [172.30.1.21] ([119.206.52.3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc87e6cfsm20682045ad.39.2026.03.26.00.38.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Mar 2026 00:38:41 -0700 (PDT)
-Message-ID: <f45312a8-7ead-4e81-82f5-75ffa8df7f6a@kzalloc.com>
-Date: Thu, 26 Mar 2026 16:38:37 +0900
+	Thu, 26 Mar 2026 07:49:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B46FBC580BD;
+	Thu, 26 Mar 2026 07:49:55 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9716F5FDEB;
+	Thu, 26 Mar 2026 07:49:27 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE847104507C8;
+	Thu, 26 Mar 2026 08:49:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1774511366; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=6vCpUNBSiAnYzq38lMljTJz/wGpcaU+8Km5eWOGP29M=;
+	b=O4LfPlA6DXdQvXswgXOIiIqA0zoyzh65smdruT1D4cZH0LIUieaE/NMYMxT79/ea3Lrlgg
+	z+5xD0lSFdrKgWiB92T+DEVmk5Kxila/MxT+9yZ3ozHOsFYYW0XQoAI42vXoMGBCh9KG6b
+	uSnavCLBGDt8DrmYRt4eZFRN8lIR52gsLgSbJOEiZ44S4CUr93s4X95s1MsHvPjBayyvyz
+	NEIM4Z+9QnvY9qVXTWedfHXrOM1sahBC9X3IqD6+0FRZThSVIIPrC23nRpucKD5vSfpvaW
+	z96VqNoA7sZEaXwCvqKWI5Bq8SFwwAYl8NCSsS/YMPoLJfd0nIGjkH4GBi1IQQ==
+Message-ID: <abb1c779-b306-42f8-b2b1-aa56bfcebe1b@bootlin.com>
+Date: Thu, 26 Mar 2026 08:49:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] arm64: defconfig: Enable options for CIX Sky1 SoC
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Peter Chen <peter.chen@cixtech.com>, arnd@arndb.de
-Cc: geert+renesas@glider.be, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260326033939.3789800-1-peter.chen@cixtech.com>
- <c2127a57-3ced-4c0c-a7df-c052cd5dac7e@oss.qualcomm.com>
+Subject: Re: [PATCH v2] net: stmmac: skip VLAN restore when VLAN hash ops are
+ missing
+To: Michal Piekos <michal.piekos@mmpsystems.pl>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-From: Yunseong Kim <ysk@kzalloc.com>
-Organization: kzalloc
-In-Reply-To: <c2127a57-3ced-4c0c-a7df-c052cd5dac7e@oss.qualcomm.com>
+In-Reply-To: <20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_003843_024308_0145DE33 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260326_004932_462348_973DE9C9 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +83,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi,
 
-On 3/26/26 4:14 PM, Krzysztof Kozlowski wrote:
-> On 26/03/2026 04:39, Peter Chen wrote:
->> Enable pinctrl, gpio, pcie and hda audio support.
+On 21/03/2026 06:38, Michal Piekos wrote:
+> stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
+> NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
+> ->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
+> -EINVAL via stmmac_do_void_callback(), resulting in a spurious
+> "Failed to restore VLANs" error even when no VLAN filtering is in use.
 > 
-> Why?
+> Check presence of VLAN HW FILTER flags before stmmac_vlan_update().
+> 
+> Tested on Orange Pi Zero 3.
+> 
+> Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+> This patch fixes a noisy "Failed to restore VLANs" message on platforms
+> where stmmac VLAN hash ops are not implemented.
+> stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
+> VLAN hash ops presence which results in -EINVAL. 
 
-This configuration is required for GPIO functionality on the Radxa Orion O6.
-The following issue has been reported on the Debian kernel mailing list:
+I've been seeing the same message on socfpga. My two cents on that is
+that this error messages doesn't bring anything to the table anyways.
 
-  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1131772
+As Russell explains, it's either triggered when the vlan op isn't
+implemented (the stmmac callback macro stuff turns that into a -EINVAL),
+or when some capabilities arent present. All in all, it's always stuff
+that users can't really do anything about, as it's HW limitations, I
+think we can simply discard this message.
 
-> Please search within similar patches for explanation how why this is not
-> enough and what should be here.
+Also, nothing actually checks what stmmac_vlan_restore() returns, so we
+might as well return void ?
+
+Maxime
+
+> ---
+> Changes in v2:
+> - Replace check for hash ops with check for HW FILTER flags
+> - Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 6827c99bde8c..cfc0ce9cec9c 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6863,7 +6863,8 @@ static int stmmac_vlan_restore(struct stmmac_priv *priv)
+>  {
+>  	int ret;
+>  
+> -	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
+> +	if (!(priv->dev->features &
+> +	      (NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_HW_VLAN_STAG_FILTER)))
+>  		return 0;
+>  
+>  	if (priv->hw->num_vlan)
+> 
+> ---
+> base-commit: 42bddab0563fe67882b2722620a66dd98c8dbf33
+> change-id: 20260314-vlan-restore-error-f8b3a1c7f50a
 > 
 > Best regards,
-> Krzysztof
-
-Thank you!
-
-Best regards,
-Yunseong Kim
-
- 
 
 
