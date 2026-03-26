@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6294E106F31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31E5106F317
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RQV5YgPwjVWKQKtPAfMfDAcJfJwQuNLBuqyUqk5nGbA=; b=oXm82STjuSJ8iG2sUjFV128gHY
-	WlPQ6PnUP4cKupEk2XNc8ZdyfuTa2Fcgw5LOc+US2/5BOjDKBKbAlQR7zzmzty3H8eMZ2pXLp5Nuc
-	sXk8OxafjbgUp8S2pz3F+txMKlf+rT0vz3OesasbW6/F2lBWfH+AFH799qRmmcT04B980Km8cWSiX
-	i0mcbDSrMf3tBdc82FqGZ9HrgO1w+7XogF0bQy0IGqJmpSD/eHeqgW+h33T11vWc3T2VpNFbDqgjp
-	Lm6/SuxHZx3g2Y/XchPga/VWbTUBQdZXb+QuYqyEnG8ynHz4pJm7vnPpQhD+wpVpwDKpedotCJmeY
-	9OlnsIiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tj1CCf7feg6izfr5xpJ0Jj8MSJWfnwKEpwqghyP9Vj8=; b=uVZXSrTNVkPXL4ysV2asciGiQm
+	+zHAVUPLPps98iCZvTBI1oQ4rc+u2B4dvMZrFVp/PZK7emIsl65Ypipk9Y7v0hB+xcQiJ+HiNQnme
+	nrY2bgcEaaqDEd5h/zUMp9kEGZDJXkevIzZ+hdNHEu5mX29+9reX4HRXikMv3UF6hXhTL57ENTLOB
+	sPiDrNjEbyxebKhX/HsJV9WQ5G59hp8JiQU4yF2rHpTkUJk/XjB93b7WbbwAzofwE6SWhZgWBMa1F
+	7h7JuYS3lUxjlwlL01oGR7PfPRmbO2/K0Y3NAqJyVPJ5V4U7NFn5/if7KzaXlhKD7J3ByQ7MAh9C+
+	d8QIYZ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hyB-00000005GfN-1wjf;
-	Thu, 26 Mar 2026 10:29:43 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1w5i1g-00000005Gtz-0Y9A;
+	Thu, 26 Mar 2026 10:33:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hy7-00000005Gei-2z6f
+	id 1w5i1e-00000005Gts-258P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 10:29:41 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 26 Mar
- 2026 18:29:31 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 26 Mar 2026 18:29:31 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Thu, 26 Mar 2026 18:29:22 +0800
-Subject: [PATCH] ARM: dts: aspeed: g6: Add PWM/Tach controller node
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Thu, 26 Mar 2026 10:33:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 91B4460130;
+	Thu, 26 Mar 2026 10:33:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2844EC116C6;
+	Thu, 26 Mar 2026 10:33:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774521197;
+	bh=NyCZxhrmAGFbyrL6h2c2w6JZvW0gffjIb4o1sEXE/4g=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=C94S+xEBpyEIESagZYsh6vWRmPxqlxpYq8f+4SuY2THKpf/FdX9VBeOUuEJPAGuZ6
+	 MLZcIml1C3R7WhiYcNN+yxjDjmz9nAa5NOJPXrj0yqlwtf/A6x2iiR4ObLgs3u0V8m
+	 vnj3MS00gVVjTevcNP8QFZd15DSzbPUJctmh7fFGchJyI23Cer2OtY7vzM2kp2GXIL
+	 TNazfChQquXqpy+AoWcU0awhaRUYN1pGGxGLLTvDu422fZi1zC9E6A9u/57jyrd/vD
+	 U9lTVqHtQJwSxklSTcMvF5bwwZO14Esba62N4mrK9vjEJQYLyg53uuzzfu4hFjNXaN
+	 BG45J7/0eW1eQ==
+Date: Thu, 26 Mar 2026 05:33:15 -0500
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260326-g6-dtsi-v1-1-348e7a0661c2@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAIEKxWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDYyMz3XQz3ZSS4kxdy9RU4xRLI4OkZINkJaDqgqLUtMwKsEnRsbW1ABG
- wlgRZAAAA
-X-Change-ID: 20260326-g6-dtsi-9ee3d920bc0c
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Billy Tsai
-	<billy_tsai@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774520971; l=1258;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=VdlCgfKxytsoAxz1ceuN+oZF1N/0ydu9279KC7M2B6Q=;
- b=6LQIfCPgwe2WTbwtFBzk67e1rmbGs8rZ2uOnqh+PSZ9DXZv9Rn4tKkJdjKheF3/+gY9bieilX
- qUclh29h+NiAF6R789GZKqv2U8efedQl54cShepZyIWqe9JFI5NhGEb
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_032939_758716_A8104E48 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: mark.rutland@arm.com, will@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ devicetree@vger.kernel.org, krzk+dt@kernel.org, 
+ linux-kernel@vger.kernel.org
+To: Geetha sowjanya <gakula@marvell.com>
+In-Reply-To: <20260326090645.22590-2-gakula@marvell.com>
+References: <20260326090645.22590-1-gakula@marvell.com>
+ <20260326090645.22590-2-gakula@marvell.com>
+Message-Id: <177452119218.1921575.14174289122061565308.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: perf: marvell: Document CN20K DDR PMU
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a device tree node for the AST2600 PWM/Tach controller.
-Describe register range, clock, reset, and cell configuration.
-Set status to "disabled" by default.
 
-Prepares for enabling PWM and tachometer support on platforms
-utilizing this SoC.
+On Thu, 26 Mar 2026 14:36:44 +0530, Geetha sowjanya wrote:
+> Add a devicetree binding for the Marvell CN20K DDR performance
+> monitor block, including the marvell,cn20k-ddr-pmu compatible
+> string and the required MMIO reg region.
+> 
+> Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+> ---
+>  .../bindings/perf/marvell-cn20k-ddr.yaml      | 37 +++++++++++++++++++
+>  1 file changed, 37 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml
+> 
 
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
----
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 189bc3bbb47c..818d486b94ac 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -102,6 +102,15 @@ ahbc: bus@1e600000 {
- 			reg = <0x1e600000 0x100>;
- 		};
- 
-+		pwm_tach: pwm-tach-controller@1e610000 {
-+			compatible = "aspeed,ast2600-pwm-tach";
-+			reg = <0x1e610000 0x100>;
-+			clocks = <&syscon ASPEED_CLK_AHB>;
-+			resets = <&syscon ASPEED_RESET_PWM>;
-+			#pwm-cells = <3>;
-+			status = "disabled";
-+		};
-+
- 		fmc: spi@1e620000 {
- 			reg = <0x1e620000 0xc4>, <0x20000000 0x10000000>;
- 			#address-cells = <1>;
+yamllint warnings/errors:
 
----
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-change-id: 20260326-g6-dtsi-9ee3d920bc0c
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.example.dts:22.21-25.15: Warning (unit_address_vs_reg): /example-0/bus/ddrcpmu: node has a reg or ranges property, but no unit name
 
-Best regards,
--- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260326090645.22590-2-gakula@marvell.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
