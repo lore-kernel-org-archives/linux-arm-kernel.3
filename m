@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AAE10A88E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 17:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BD410A88D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 17:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2iz6Kx63iIsmMZCDFp4f6bceBdYx8kf2s18BrcmKZX0=; b=aJKw3hZa7MFgD6MTKkktOcOdYU
-	7TOiAwRzD/GHVRjfAyRAhpUoXs1ZUN8STaXFaGgesGgth8aqP19L4tONTb/9jO05qR0Wpf8NphnFQ
-	IcpuOR09izVp8QnN8znYZgAxNPkEfKFVyE6QeFFvR0uUxc4D3o0CM76oxjHpEZpyIDN1TJxKvInFa
-	sP7sBXdWUpZywgtTAnSlZqU3mNgtUgV/Rt5eWVt6WWEu3jgEkFXQFAeI8MZwhT9fJ923RLU66/cqx
-	57VBQa2brjxRaZXvM/FOIVgEu4315ZOzqL+nQA0SsrH3NIp0RDnTuuTjlVZlIil9wmfT8vtR4wEAL
-	crso1LoA==;
+	bh=sT5mtSo1QsQf+S0QZQW2rTe3ksJVVRq4/Li6QLpKsMY=; b=CIooXsRSSj0cyBMdyCz5UdsgRj
+	r9mkJPBoXa9js4ne+tqsUOOoLR4bDAMPAaU+0a+7HWUwDGcG7PUFr8KK5Kyj+A78HHkLEWFFlg+hw
+	3rn5b49z7EMfqkFj5j4McQwvZ0JYqlGdkE+cMKyVc/lxI6p4+qQ8dPapl7K6sw35KASWvpIq0n38O
+	LYoe5BDDG5WE4fIbhRYybQ2NkgU71zFhE92Pqf22eLm1+Rvwv3I7cs1vsK4RgBKHm9472oWFR+mem
+	c6zx/2UcwUNtd7ql3QPvnid5QHjam45TkgMG+9PsM0Mxemrm2wMpBOnmu78xFxZu0nt5077N5doSQ
+	R/ozwIGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oIy-00000005va7-02Jb;
-	Thu, 26 Mar 2026 17:15:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5oPD-00000005wJw-0iS3;
+	Thu, 26 Mar 2026 17:22:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oIw-00000005vZZ-0HD5;
-	Thu, 26 Mar 2026 17:15:35 +0000
+	id 1w5oPB-00000005wJn-2nUS;
+	Thu, 26 Mar 2026 17:22:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72BAD4396D;
-	Thu, 26 Mar 2026 17:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F717C19423;
-	Thu, 26 Mar 2026 17:15:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E4E660054;
+	Thu, 26 Mar 2026 17:22:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CC95C2BCB0;
+	Thu, 26 Mar 2026 17:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774545333;
-	bh=jvkDS9tKLVeEgF0DgkEhc5+lTjNn80rqHLS3xCz8V0w=;
+	s=k20201202; t=1774545720;
+	bh=gWAQKtriBxFBte89uPYeWlvezYh2OvK63i/Tp6/VF7k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BDXTH51QoJgCKUhhoHf42bamFgq+wwWwg1N9Yig9JfaQ3gADMfymF5+pKFJZBgewY
-	 scQZV+UZ1Twq7B/cvZGwTdphEYhvnqj1envTzFEZB1quSnoOAwsXV+D6CcgmWzSO3I
-	 sNcM4Q264pAZgFkDgmoFWNG3zPjLGLiYXClrgzo/dqjANPgJ6I821qS009NzZkAV9q
-	 b+e8Nh5yJ1KOp+KZ4C4oFIUMxq5q2iXPid9IYvcrcM057xWBWk36a+IR4lwec+qQBD
-	 B6/NkJ4vU61QMiR2zZKH3k+RXdBxUpvHeuWY70qvzZ2G2nc7UvS3pGLV12cmDjkCkT
-	 xJ1qQhQutGwmw==
-Date: Thu, 26 Mar 2026 17:15:27 +0000
+	b=Ruj8LsbcbV4dCDq0E48OMRhVzsMLuW17ySAFidrwpOPI40LzVLOiGQ8tlIpee46IV
+	 NVnj/U+ctWN8apMnF7ah0Z3pKHeoYBjboAHwulMGFECwUtBmsUbqZElv8W1/Rhnjjj
+	 cdxnu5ZGxYk9zca2iRoQ7nuKRj8+/FhHDSPUuFWcAajYRoZuibqnMX7q51UAhjTwnE
+	 VdRHq5EpNHzWQEoZibO89qbiOBYCdScrXm11x8doEqQ0e64wsj3Qmep3EO9qmp3YMy
+	 EDl7rxZQeMxuvDvukj9qbgbHeJ33ud4N3udWdBh4q0bSCB3iXYH/sb5PVHHkBAHaCB
+	 IXnzD3kyCiDSA==
+Date: Thu, 26 Mar 2026 17:21:52 +0000
 From: Simon Horman <horms@kernel.org>
-To: "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Elad Yifee <eladwf@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: mtk_ppe: avoid NULL deref when gmac0
- is disabled
-Message-ID: <20260326171527.GO111839@horms.kernel.org>
-References: <20260324-wed-crash-gmac0-disabled-v1-1-3bc388aee565@simonwunderlich.de>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
+Subject: Re: Re: [PATCH net-next v5 3/3] riscv: dts: eswin:
+ eic7700-hifive-premier-p550: enable Ethernet controller
+Message-ID: <20260326172152.GQ111839@horms.kernel.org>
+References: <20260324073017.376-1-lizhi2@eswincomputing.com>
+ <20260324073408.439-1-lizhi2@eswincomputing.com>
+ <20260325180330.GL111839@horms.kernel.org>
+ <2a12c839.5e64.19d28232537.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260324-wed-crash-gmac0-disabled-v1-1-3bc388aee565@simonwunderlich.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_101534_121081_7E9D4A94 
-X-CRM114-Status: GOOD (  11.52  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2a12c839.5e64.19d28232537.Coremail.lizhi2@eswincomputing.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,20 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 09:36:01AM +0100, Sven Eckelmann (Plasma Cloud) wrote:
-> If the gmac0 is disabled, the precheck for a valid ingress device will
-> cause a NULL pointer deref and crash the system. This happens because
-> eth->netdev[0] will be NULL but the code will directly try to access
-> netdev_ops.
-> 
-> Instead of just checking for the first net_device, it must be checked if
-> any of the mtk_eth net_devices is matching the netdev_ops of the ingress
-> device.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 73cfd947dbdb ("net: ethernet: mtk_eth_soc: ppe: prevent ppe update for non-mtk devices")
-> Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+On Thu, Mar 26, 2026 at 11:14:45AM +0800, 李志 wrote:
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+...
 
+> Hi Simon,
+> 
+> Thanks for your review.
+> 
+> You're right, this build failure is due to an invalid clock reference
+> ("clk") in the Ethernet node, which does not correspond to an existing
+> clock provider label in the current DTS.
+> 
+> For context, this was discussed during an earlier revision:
+> https://lore.kernel.org/lkml/5dea8ce0.4435.19c471231f5.Coremail.lizhi2@eswincomputing.com/
+> 
+> The EIC7700 clock controller support has since been applied, so I will
+> update the DTS to reference the correct clock provider and ensure the
+> build passes cleanly.
+> 
+> I will fix this in the next revision (v6).
+
+Thanks.
+
+Please be aware that if the patch is routed via net-next,
+then the dependency will need to be present in net-next.
 
