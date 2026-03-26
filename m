@@ -4,136 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202A010AB807
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 19:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5C910AB807
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 19:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ouHxqePAy6D+SfyqmR5ekt/SMEAh/HE8vuWfppZv84=; b=2mJqhxk1Qz4CgGT3u7WSTSaeCn
-	6d0+PIG46nifIpS6fxpkLFDbZaqHQKAvS4C9i/btAPJ/sqhv/FS3nrH7EJtLdUzWwg0Bmy37Fa0Do
-	kz6PgxCgxrXpDIGvXm9mctk4XZDPeVbLvIA/8epV1lf/e+bLgUqGi8US5J1QpHAadQPWr213o+RSx
-	b75DEPYA+hmdr7mqXKZG8erGpu8spwW5FQ8gYRywBUUd9TfUde/MHlBaoxvcKBDLdTSuMy+odPI4s
-	sjsW0zUj4RNzvSWatneIJO7Hja/2KRMQG5xv4PwRwcCFizPo3M4fEyUf9gm2BWUZoYM3TZsopetJZ
-	4fG9QAuQ==;
+	bh=VLIzwB5kEFGI/DvTT0q7RQouEwYDVjXCy7eU0mMpxo0=; b=0IDeOqekgjWP0ixb+pZW2jyamS
+	Q7jCGTfmDLf/YD6TccSO+aqt4apM9IhjwH1tGNnJ1prp+X9sZ4Aq0d5Rwuzvmk0ZcNUuar3q7/pZ2
+	1Rv2fjybm74yYiWBqmybpeSMwMlE9OnpoLpO8goTFpo02Zm9+p+R2tJu/3kwUDDHluNZa29VWwLlL
+	Pu09muB2hDtsjhAuoAp3Cv28Psi8wjMypzRscl/9tGiZ2i9JVHKixAvr7oKhBhoyzoBGoxpUCs/+b
+	94zZtvuhmf+NGLgGp8fk3b6a0OoV0fzppBdA8ObM71tfGZPuszAa6TVuhis1t8322BjaYqhQQPNTs
+	RhZbSxDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5qel-000000068c9-0sFH;
-	Thu, 26 Mar 2026 19:46:15 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1w5qfr-000000068iW-3Eta;
+	Thu, 26 Mar 2026 19:47:23 +0000
+Received: from mail-northeuropeazon11011051.outbound.protection.outlook.com ([52.101.65.51] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5qei-000000068bU-0sMq
+	id 1w5qfp-000000068hu-3BkW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 19:46:14 +0000
+	Thu, 26 Mar 2026 19:47:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xd2OUisb+oSRn0V+PMwM8Cumu1yw+TzyT7ULix26F/a/yG7aFFK7zR84f41s5P/0yIQjLRvqqjlE0wU4lBswklZrRXA60mSb8/1WuYd80TukOj1VBG6Dnf74b1uygHn7osIzeIQAJi0DtCdZRvLIsH6Q9cXbU0FgtE/2zTp022Wm790/ldJIZv1CmfAVRC50ckqUNEyYh8FKjG5/s0qAKycgchfWqo0X6N6Dr8IygApz2KzuZE3z4JVOg9RllSSuqIgYRLt/xLS+gnm+zYhaBnDPMG+CJmlurOs9dUvlPFrb6ypGqw+vgcEQxn3oZ+Nmqma2wxc1HCJdKW/32nDs+g==
+ b=gKBCLcMqDSwhLLBB5uxOZxxwJgFjiFRwIvhajliswt4Dui9fFmLy35bsEUqA9/F7jd/gOP/zuX+8g3FQ7/Ay883R4fpdO+sriEt8fdTh1yCH9ldyTQDTi/9eH0cWTUumdnrhU9YGUg2goZNyKisCL4FD3ot/+XI1YlrmHk61UaOpyAkcPzqxipPqh71ntqag//Qz/CTVpyq1DgWmn87A/ite1Xl/4tCHj5ycwWEY/hzeHb0MI7be5CQv9j9WmuSD8VAZgHgvVxvhImZIHa1w8NqETFiTYCcgmBPRkuolDWbj/pHJAVOhKQhA2kGyjPJy5gGsHxjLNbj8EnBQ4r9S0w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4ouHxqePAy6D+SfyqmR5ekt/SMEAh/HE8vuWfppZv84=;
- b=SgXcPfhlkect0hA5rQuGX/4JGpNEe33huMzxIKAAK1a+yTG+BEYvc/AUVdQ5gEQ1nQNB/XtESCzpdLQ5O0wtFwmcdep8VAqmpEGJ2eOIDZp+vNMErGrom4LL/15PaB/6xXFMdhIYa3Y0ZMg6m4avsKlEMy1o9srgVxAuW9SuM9gSjo6B41zo6A7k5El5wjKkN25IWrxyENbOfQz6jNOqr1e3KWOxrmjie4kzbTOLJfUXg90fwxZMu1tc6K85DC2xCZVVdsKilFfxvGYxuda36GdjT351iwTIODQVrO1t+mP38iRXySoEOEUqH78UU9JeC0nNiCLqlSyCsIv13phGoA==
+ bh=VLIzwB5kEFGI/DvTT0q7RQouEwYDVjXCy7eU0mMpxo0=;
+ b=m2ZOjZNW1aHiv04rIuSdzgSgeIJUNniem4hlT8X5pguuByu7+ZyV5uKLX7zBjx+HTlBANSSTUJv2WOXz95s57WhWMD9H+zkve8NMmmiZ5m/z+VL49Mb6lfA/VPzeeTdNtADCxVWpDiPTrK+IYO51HfAcdXR8mhz9c3UunGr6NP4752skKNz8tX0Zyde0HtakNmUbqr3rC1nwGlAdenmRMrLFJtN5KT7sAm2D4bOQbGuAMvLOHCZDsFeW0iQEd7AjDjADsHaL8bRhbvW3CqnZLX+AzFcyJF8bFAD9KEdW3A5izy27EK4jjsWqSgJ+nOtuNeYACU6IR/kmZjUhCeQvAw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4ouHxqePAy6D+SfyqmR5ekt/SMEAh/HE8vuWfppZv84=;
- b=zAF1M69CMqa/0C48NB/3PtKNm/tZ/gRB70JaBOfOtERICqLY6Xq18KoVyZzDjHDCMR5NHJa5tyg7lIt3MTTYvpg3UbKhG8q9a5VyU+UBF+0jnbbmYaIvnAmIUuJvhpRx4rug74LTrSH7HoguYBpJHj+Ow9hE3bHMpTR7adopocU=
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
- by DS3PR12MB999216.namprd12.prod.outlook.com (2603:10b6:8:38d::7) with
+ bh=VLIzwB5kEFGI/DvTT0q7RQouEwYDVjXCy7eU0mMpxo0=;
+ b=mszQzplgjx1CfbQLOYqCM+8uhUQNo8bVjzKIQqfSztao0TJr5pzd6c4l6rWCCHPy4AyJrxA/U6nLzNQ2dwGC+xsBnT9h7YexTtN2ODfXi1T46Ivt6AkXPoi7Cw4im7slh/yhgxgfF9XJcDyxGeRxDKLgVEzTkGbUBtu3mdjcz73/MYs9lft7et3f5QAiTSFyMppZDoK2tP4VYmf/a/B5OlI5ZQ60vjJZbqm9GFTbQQQuSJMkepvbcEZUUA5bODFWUXgc6R+PGgFuOwTfAw9YsSGDlgl7kUsm7EwUm9yw2WXKA4AVZ9uf5grLy9Y9oa2XoJ93J6r0DXD/pBijgNQO6w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by OSKPR04MB11368.eurprd04.prod.outlook.com (2603:10a6:e10:9e::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.10; Thu, 26 Mar
- 2026 19:46:06 +0000
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54%4]) with mapi id 15.20.9769.006; Thu, 26 Mar 2026
- 19:46:06 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
-	<michal.simek@amd.com>, "sean.anderson@linux.dev" <sean.anderson@linux.dev>,
-	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>, "horms@kernel.org"
-	<horms@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
-Subject: WITHDRAWN -RE: [PATCH net V2 0/2] Correct BD length masks and BQL
- accounting for multi-BD TX packets
-Thread-Topic: WITHDRAWN -RE: [PATCH net V2 0/2] Correct BD length masks and
- BQL accounting for multi-BD TX packets
-Thread-Index: AQHcvVPF3ZVZoRIQMUqYa/tgxHECpbXBN7Qg
-Date: Thu, 26 Mar 2026 19:46:06 +0000
-Message-ID: <SA1PR12MB6798DD0E0C9EE42C5157E512C956A@SA1PR12MB6798.namprd12.prod.outlook.com>
-References: <20260326185510.3840084-1-suraj.gupta2@amd.com>
-In-Reply-To: <20260326185510.3840084-1-suraj.gupta2@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2026-03-26T19:35:47.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
- Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB6798:EE_|DS3PR12MB999216:EE_
-x-ms-office365-filtering-correlation-id: 60c2526c-7705-4a6b-8dbd-08de8b705230
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: nkodKCFEdxAzgPBBqyF4zIpaFkMq3/Vif10/9m1k8OhYHyr907GH/aPjUmCRJUSPizBx4Ehr5YX9Ql989molxalMQh9uFudqxGumE9nV2iYWXcGdc0l7f5EAm5C1AGs4tHbpCc5l0rbaLGOReu6lvxSb68x7dS8dFBxoCrr9f9DaLgWpzUNQu7wObgQczl8vFz+TUEvVvtIQrxbTtOg9i3EUOqLnw9yide+FQB46z87GS2tVDXkznTplWWBqmcXO8HVjgG9Unw53BwUvGbUpzQxSUDxOng7NNElaCVo4jDm6PmQtaaejCba//GH8tM8xTyWo9p0qboDet8Vy+ohoieGcFeDy6Lpu3xEw4Hk/hktUQtSNQ+gCDoQhOXs/ZrHsi3dV+bD4w9sgHREfz3wdxrHMk+AkPVN1wgMKZVy9guxaspNWIeK9juJyRHMzrAkDej4GvjfX1dKMeqvr8KTstKk5wbQ+RRReA24Di1gY9Qv9Dx6esbOw8TE8+uyAobdF0uR2Vhg45g+cIaCzcDyvp+QHfd8FVZk9BS4XnIDqIbxxn6sUc4/oU4q/Obq7nSggb/VajfwN5uOyhFsbafzFZlrEON2GTNdwu+HQ9f/9roLiKhT05WutW7l07TV1TzYKvtzyfHuuDHg34NM7E3Q/E708K6TaEDGR7ZBvLwuTq9QdJDD3y7HaG5zgkL1ADVUPF9sGYs7wQn8Nsf6El901DZCj3fqya5qsLyM3Ert3CXJOjD6zBj30ARzlU/62ib0vbhEp0GihJSR9Vaqx46kpKezu0/B0g/iYBttgfnuXcHSqu0JbwYwLaPt6wzCqX9A/
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?40VFk+LNrCd1IvJ+yxXjRVu4oyVf/1Gmq8wDBxvxnOScAR5xEDdClo7IjuX6?=
- =?us-ascii?Q?BCHFpa3Z/V55CI9HBdRtGLSt/TLgXivmA4UyRgojQoJcNB8QWcdRx7GxRWu6?=
- =?us-ascii?Q?Upt13wY6sa7ikC00zOewUciLkLZCX4SL/h7i+Ef5JQZTOb3Ami4XoNZvDC8o?=
- =?us-ascii?Q?jNCygBSbEpsMWn0NHsV0t3UKJ/xgOtgS+cFY7bOpUZn/UfRcu8bvie2a9lPF?=
- =?us-ascii?Q?+Lw0O1Du51+utL95IEJ0CeeH0t7Ge+LR1dYkCJ5qn4KilxEnKKb/wT9bZ9hA?=
- =?us-ascii?Q?zCxUW7ARwZSf/5wOIwSFB42HYlhpaibIc3Mqks8h9DRmI6TMFdSWPHEXoKIn?=
- =?us-ascii?Q?RWXPHuyDN2p/Y23n5U2WqAUaFdqGP8encFYjcfbZmGhBvw/7MnWAZu3MjDdc?=
- =?us-ascii?Q?j+3mvCinJVzVI5ql4KA4cWgdbINdCP2kpBObJeJ9RhgoOkdsrtOd5nNeOTp4?=
- =?us-ascii?Q?CL6ehHVxIlqwctVfnG8rJjQJ0lCnnb/Re9EqITlVdvpR9lKC88vMtpykSnih?=
- =?us-ascii?Q?CuoKaGilKcPvlBcTQr1lJKpAfYdE++P9pZDSO4yqKo8ra3p2S//PlxVp7x25?=
- =?us-ascii?Q?a5SSejg9JOj2Fx+CnXFoXXtWX3/FIHzSI48PZP4fzT5SpZKcY1ygoD9Y1BWg?=
- =?us-ascii?Q?jEzR/bK/jXyFoUjMnSlFTpe9W5nbglOdJblihvmTp2XUcqIFDgr9OoXkjHXu?=
- =?us-ascii?Q?CfcHGZWpd36F/CYxbW0a2Tn5WoYSL8XW3o4gKzjoSLk1hBk37bHrJBVd2xtU?=
- =?us-ascii?Q?hf/Rb6i5xpryxenTazyvgDsGLgGQi0m3lqHWcBmPgD3IcEUcuiRROG16fqA4?=
- =?us-ascii?Q?BOgBOTSH7fC3uQe+97RPTFcKjK8mZ+s6wKvAS6NZkHVckEOOltAyFgx4hxBF?=
- =?us-ascii?Q?dnjEJiSpK6weyfmylKGy/cN1l8P8eUZYUcMCT05Gx83Kqmj5lP/pYvEZzsV0?=
- =?us-ascii?Q?9/DhxTKRy244hQIsIpa1Z5UJ470SSSYXbmSUcaJQe2TSoao/6+BWZ4giefXm?=
- =?us-ascii?Q?c3hKq30CtZSgITne5VhUcHGy345aJ1Rg/gwcYIoIscw5vOyzs9bV2qEyWlL6?=
- =?us-ascii?Q?j2NOTEnr3kf+vhIDiCA+KGZTasdxbAYPuCetRC1+EpY7Y32jMou4qGolYHkc?=
- =?us-ascii?Q?7qr7/e4aQkckUkY/dvAX4ECACStE7WBy6mCgQ3uHvSp7rRYgYoPVFt8OIpGP?=
- =?us-ascii?Q?dpeB9C5ZPRjpcrE419C7vx7zV4kwItrS/55He+2gRAop4Vq27ZzJ1f75KPsa?=
- =?us-ascii?Q?vzSscxn+JK5Epp+DhVZCsDAh+mmCOwnR+kTjKBHxxMWnPOS2yl3WjZcTUkMs?=
- =?us-ascii?Q?b41azwlxtXMaZTQnuf/2KpGoodjkUTxGvRZGDSBuQJ7aAWLSyynYXaB66ZEN?=
- =?us-ascii?Q?DhkWuo4O6FeoNkSQrIUwjy6yN0fVyEV2/kDaCPW6+hn/WQlvB7BOI567HbnJ?=
- =?us-ascii?Q?E1rBh5T8BnGT2YDWyd6gx1iZaDXCMM0OLo+R0UZyvMyhgN5E4apkolpWI60K?=
- =?us-ascii?Q?C38VN8L5LDV2faNGamp1zuKSUqjRMhdIGVyQoRXHSQw8Yk1/c3hMXzYBCuEQ?=
- =?us-ascii?Q?QjK9sKtN+8EdLKgbmNmsuBSMv4jTV49IGLKqIsKSSL1Cy2rMby6SfZxuvht7?=
- =?us-ascii?Q?J4iTCZSUe8jxHz3c4fHFBIHVcdjNaws1KUkIF5JFGvjCzJl6rFvsWd0Q9o8P?=
- =?us-ascii?Q?z0Vl1VCXSu7f0N1fNUPGK/tINKkHek7pzBzHC6HXfalwoMLr?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Thu, 26 Mar
+ 2026 19:47:14 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.022; Thu, 26 Mar 2026
+ 19:47:14 +0000
+Date: Thu, 26 Mar 2026 15:47:06 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH v4 3/7] pinctrl: extract pinctrl_generic_to_map() from
+ pinctrl_generic_pins_function_dt_node_to_map()
+Message-ID: <acWNOhnBvA5l9NW3@lizhi-Precision-Tower-5810>
+References: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
+ <20260325-pinctrl-mux-v4-3-043c2c82e623@nxp.com>
+ <20260326-concur-eel-3e0b3d91e00a@spud>
+ <20260326-poncho-expanse-d30a9eded8e2@spud>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260326-poncho-expanse-d30a9eded8e2@spud>
+X-ClientProxiedBy: PH7PR10CA0016.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::8) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|OSKPR04MB11368:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbbd8a41-5df6-4896-e576-08de8b707a81
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|1800799024|7416014|52116014|366016|56012099003|22082099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: L140J1Mu5+6B/johF89xk3yauB3eM2KlqHeylYEUPcvDyDABB3ZrUrZVwLPOSkNIkUdCeGUJJDvasLCZJT5h3nypg1yuZjYSAT8K/EBPCY78GCl/6sfoLxZrx98KxXqD8a1yOvpBSWRaAVvma3sKSTK4HbkH3w40iFKE6X5FNDRbkUeGrQGO/3Weldz48z00DXrKomGfmmJtLr32lYGpXPKB7zE/3sSgGzYF9TYtHPgS3VoduForIQERUY70f3zE2BuEfnkpzwKn6vfjnCCYq+u+AvocZPH+ZfpvTApbSPKPjfrvvHQRaoAENT+07YrkJC4YaVo5G18NBYGJq+J9td0KYvbEWm/QLx7HehUNAQ6iI+tUS0dbBCtDjtXO/0qefatxPX7+9fZgFyGXlDZLEvuiRtc1Msy5+NCPb/AqVp8DdXvhNGUWFfTSBLSxDTJj6FnKKWp3EtKqOyDzMqYYs6wN2c8YUwmlQLZsX8KzoQnm4ivs0V+6D/3/UeHyoAXSZm55b6Xw3zf9XSe4+GcJMbqKmQub4CTvUUR7aMd6BP64TUCaIT0w13sKfemtJmYxhDg0ZoZCW/GUYvsC+E79lDqMjniRZ6SBN+f/WVMCWf/XBBv2wZhlVoZSX5fARl/ESEn5wLatx0hMLNcl3RMmY/W0b6x/2xnH6ribS0rH///k7qlO3tLjzxm3mfPmzSjFULtiHaRXTBYxVt8TMuik+VAWzWWX1asqnPqbcMoebhZ2KFy57csuagPXAVD+aAv1OkvRuolJ4aut3suF5nsXgBFGDXvaP2NOqtUn2pzk2NU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(1800799024)(7416014)(52116014)(366016)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?z1OT0MV72s1Gou/+mw/lx/b2fMONEjCrC+XziZZ2C34NOOfsNvsT72TeaL1z?=
+ =?us-ascii?Q?wUdyqGd1zWy9vCHhgQ/9/vA4mGtCTxSg2NkgA0lJCjLXIi+kfxFWsx471XgN?=
+ =?us-ascii?Q?yl216SETG5DcoffrYpPW2x0h+7RFuAw9sFaLHKV9MyryVMOexgOUI6ov+xUE?=
+ =?us-ascii?Q?ipNHj98QbigQVc0nlZQG+4or0sXNgB1m1oDPe1RW/wikg9D5Lf9qOablVdgt?=
+ =?us-ascii?Q?wbve0jtrrXc6g7iRj5TEQ/x7RHbaDOLfXXjroQFIZH/dPmHNaBQaXaHvNJeB?=
+ =?us-ascii?Q?wx1cTXM/dn9xKak7GX635jJxRHLyuk9h7DwB5z7TINUWbYoCKiPFJdsQynqX?=
+ =?us-ascii?Q?FeIIbpjxylBbcGLLs46EKzv9LRzDwuF9r2FTy+A8DQ1vl+LnOhjyudVR/0Gw?=
+ =?us-ascii?Q?EL50hea+MiYafzmn8u5qRKXBh2SmrZl1ldyNQAZrApOrU3Y1yvo7t7+sQS9t?=
+ =?us-ascii?Q?UE9rI065D9YSFjQHE70ylbzaDUiLEEz7ZS5+2VwgFgiUqRJScW2YcsmkvsMt?=
+ =?us-ascii?Q?4qA+ji7yAlSl280YO3JngobXaFvWz+bmd/g90rwfGrWsjMxSlXDqMwQiypb5?=
+ =?us-ascii?Q?KWwFoYY9h/iUx7mRhTIRm7sOtdfrcIgTDfQtllhABGSN1IBPjw0fmEKhCREy?=
+ =?us-ascii?Q?p5ZcOs9/oXmbQyY1AkfxqTXzHH/8IVk2PdYePHC8gCmJAevKQ4lLWGCk+SqU?=
+ =?us-ascii?Q?bUxV2hx1/mzJpsCKK+FAnq3vBGqNco2ssNfPnOxdGSMI1H/S+ZeHX2ZnaxJb?=
+ =?us-ascii?Q?Q8bo/k2mreTy9UyBUVtK8LdDhMiGsDvpyfmmjNo22on4kFFuGITtu/iTzQ7G?=
+ =?us-ascii?Q?GH/YpHm2s2Uw9zpfhQgcJoXRKIq5KbTHEp6+GnP463+e1oWHma3962nJtXi/?=
+ =?us-ascii?Q?j5g6pY7DJU0ZD/AGPhtt36A413eTISwhz0z0AP/T39To+VGh/gOi6nsIUSkw?=
+ =?us-ascii?Q?kW24h41F0qXiM+FytosMmoG9wLvR66/XxSgXcFbBPsafoygNdG8kBjDm7Lz2?=
+ =?us-ascii?Q?TUKjO4MAeLRuS0vXhdqcfft0ozj5cpcGpdXH2at/W1rnTD3gUGWjVA0yZNtS?=
+ =?us-ascii?Q?VdV71dwjrqcnIqS/CI2K9OPMLo4VO2uVwLf95StxAt0MGPoWLZq3IlyrdNQn?=
+ =?us-ascii?Q?OecjJsI+EYZDwBI+Wor5jhsR0xuAvENtVIcBo4nCT0ybIAwJfc84HE8dXp9N?=
+ =?us-ascii?Q?7Qn/5AsLNLyR5oo8KtzjorU0INEsAYSkHBqBbcg+Cyb1xjzWaMJMKTxZ1jUE?=
+ =?us-ascii?Q?Kmqzny4rwXF6xCuoG+lfinNP46E4tzCQLT7f+/WKgUu8SG1viZLYvinYxaDK?=
+ =?us-ascii?Q?gBPf6Ozqf9pf3IYT8xZycgQ+ZA7f86SqoYD1YT2FaeJ3RD1Bpe5FU3rp7YF4?=
+ =?us-ascii?Q?gqn+cW98XEKpIimMHYKO2hWAHnlJvmK9CRxmqSYmYu9VVWDEDgpn69/cl96d?=
+ =?us-ascii?Q?cdH8ZU6QZN17qPiA/YBeWb6yqh/i7p30oPgiuoj7pvuDG9RTVe6f/I2Ffpav?=
+ =?us-ascii?Q?xy6jZuI3QzOMnocRIP+Y0XfkQkBBYqPz0mdNNRooF5IfrmXvRWq1mVaIP4Iz?=
+ =?us-ascii?Q?8her54qchJr3qvrsxw82uAymrzGzqqaDKKbL+RYrv+a8pOHKAXnpKbNautlV?=
+ =?us-ascii?Q?Mkt5rGpvelNFZDL15OepAlw9890N4h1luIKvsWZ13nWTsO4OlN9dDcUpDRDg?=
+ =?us-ascii?Q?gziJsSqEditwRv9WxC9qIQ30HmHNVohzCkpsalQTt5fIFrgI?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbbd8a41-5df6-4896-e576-08de8b707a81
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60c2526c-7705-4a6b-8dbd-08de8b705230
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Mar 2026 19:46:06.4622
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 19:47:14.2393
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: IZl1TR+9YCY2Zi4IjDYz+SahbutFiOwpziyHTuBdHsdJYNYT1bwynE/KGnmtEcjOK/TH1WMuBMqTFyQlPV6uPw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999216
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NEMmM+ZWr2YSSg5nJulsEvj4h49OEiajs+X/vTQUlTyx2SX6F2B0aJ8ugt+101IBWI7CMGhHXYb5oZ/Jm3fEWQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11368
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_124612_249269_6233C166 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260326_124721_844213_B894E683 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,54 +146,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Public]
+On Thu, Mar 26, 2026 at 06:55:01PM +0000, Conor Dooley wrote:
+> On Thu, Mar 26, 2026 at 06:52:12PM +0000, Conor Dooley wrote:
+> > On Wed, Mar 25, 2026 at 07:04:12PM -0400, Frank Li wrote:
+> >
+> > > diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-generic.c
+> > > index efb39c6a670331775855efdc8566102b5c6202ef..20a216ae63e91b69985ea4cfcd0b57103c6ca950 100644
+> > > --- a/drivers/pinctrl/pinctrl-generic.c
+> > > +++ b/drivers/pinctrl/pinctrl-generic.c
+> > > @@ -17,29 +17,18 @@
+> > >  #include "pinctrl-utils.h"
+> > >  #include "pinmux.h"
+> > >
+> > > -static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *pctldev,
+> >
+> > > +int
+> > > +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *parent,
+> >
+> > Can you drop this stylistic change please? The
+>
+> Whoops, cut myself off. To be clear, what I am asking for is to keep the
+> "int" etc on the same line as the function name. This function is new,
+> but you did it for the existing function too and the comparison is here.
+>
+> >
+> > > +		       struct device_node *np, struct pinctrl_map **maps,
+> > > +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
+> > > +		       const char **group_names, unsigned int ngroups,
+> > > +		       const char **functions, unsigned int *pins)
+> > >  {
+> > >  	struct device *dev = pctldev->dev;
+> > > -	const char **functions;
+> > > +	int npins, ret, reserve = 1;
+> > > +	unsigned int num_configs;
+> > >  	const char *group_name;
+> > >  	unsigned long *configs;
+> > > -	unsigned int num_configs, pin, *pins;
+> > > -	int npins, ret, reserve = 1;
+> > > -
+> > > -	npins = of_property_count_u32_elems(np, "pins");
+> > > -
+> > > -	if (npins < 1) {
+> > > -		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
+> > > -			parent, np, npins);
+> > > -		return npins;
+> > > -	}
+> > >
+> > >  	group_name = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", parent, np);
+> > >  	if (!group_name)
+> > > @@ -51,22 +40,6 @@ static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *p
+> > >  	if (!pins)
+> > >  		return -ENOMEM;
+> >
+> > This looks suspect. You've left the pins allocation behind:
+> > 	pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+> > 	if (!pins)
+> > 		return -ENOMEM;
+> > but pinctrl_generic_pins_function_dt_subnode_to_map() has already
+> > populated this array before calling the function.
 
-> -----Original Message-----
-> From: Suraj Gupta <suraj.gupta2@amd.com>
-> Sent: Friday, March 27, 2026 12:25 AM
-> To: andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
-> kuba@kernel.org; pabeni@redhat.com; Simek, Michal
-> <michal.simek@amd.com>; sean.anderson@linux.dev; Pandey, Radhey Shyam
-> <radhey.shyam.pandey@amd.com>; horms@kernel.org
-> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; Katakam, Harini <harini.katakam@amd.com>
-> Subject: [PATCH net V2 0/2] Correct BD length masks and BQL accounting fo=
-r
-> multi-BD TX packets
+what's means?
+
+pinctrl_generic_pins_function_dt_subnode_to_map()
+{
+	pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+	...
+	pinctrl_generic_to_map();
+}
+
+pinctrl_generic_pins_function_dt_subnode_to_map() have not use this array.
+
+Frank
+> >
+> > Also, this should probably be
+> > Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+> >
+> > Cheers,
+> > Conor.
+> >
+> > >
+> > > -	functions = devm_kcalloc(dev, npins, sizeof(*functions), GFP_KERNEL);
+> > > -	if (!functions)
+> > > -		return -ENOMEM;
+> > > -
+> > > -	for (int i = 0; i < npins; i++) {
+> > > -		ret = of_property_read_u32_index(np, "pins", i, &pin);
+> > > -		if (ret)
+> > > -			return ret;
+> > > -
+> > > -		pins[i] = pin;
+> > > -
+> > > -		ret = of_property_read_string(np, "function", &functions[i]);
+> > > -		if (ret)
+> > > -			return ret;
+> > > -	}
+> > > -
+> > >  	ret = pinctrl_utils_reserve_map(pctldev, maps, num_reserved_maps, num_maps, reserve);
+> > >  	if (ret)
+> > >  		return ret;
+> > > @@ -103,6 +76,54 @@ static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *p
+> > >  	return 0;
+> > >  };
+> > >
+> > > +static int
+> > > +pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *pctldev,
+> > > +						struct device_node *parent,
+> > > +						struct device_node *np,
+> > > +						struct pinctrl_map **maps,
+> > > +						unsigned int *num_maps,
+> > > +						unsigned int *num_reserved_maps,
+> > > +						const char **group_names,
+> > > +						unsigned int ngroups)
+> > > +{
+> > > +	struct device *dev = pctldev->dev;
+> > > +	unsigned int pin, *pins;
+> > > +	const char **functions;
+> > > +	int npins, ret;
+> > > +
+> > > +	npins = of_property_count_u32_elems(np, "pins");
+> > > +
+> > > +	if (npins < 1) {
+> > > +		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
+> > > +			parent, np, npins);
+> > > +		return npins;
+> > > +	}
+> > > +
+> > > +	pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+> > > +	if (!pins)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	functions = devm_kcalloc(dev, npins, sizeof(*functions), GFP_KERNEL);
+> > > +	if (!functions)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	for (int i = 0; i < npins; i++) {
+> > > +		ret = of_property_read_u32_index(np, "pins", i, &pin);
+> > > +		if (ret)
+> > > +			return ret;
+> > > +
+> > > +		pins[i] = pin;
+> > > +
+> > > +		ret = of_property_read_string(np, "function", &functions[i]);
+> > > +		if (ret)
+> > > +			return ret;
+> > > +	}
+> > > +
+> > > +	return pinctrl_generic_to_map(pctldev, parent, np, maps, num_maps,
+> > > +				      num_reserved_maps, group_names, ngroups,
+> > > +				      functions, pins);
+> > > +}
+> > > +
+> > >  /*
+> > >   * For platforms that do not define groups or functions in the driver, but
+> > >   * instead use the devicetree to describe them. This function will, unlike
+> > >
+> > > --
+> > > 2.43.0
+> > >
+>
 >
 
-Please ignore / withdraw this V2 series.
-
-Due to a syncing issue in my outlook, I sent v2 prematurely. There is still=
- ongoing discussion on v1 that needs to be concluded first. I'll follow up =
-after the v1 feedback is resolved.
-
-Thanks,
-Suraj
-
-> Caution: This message originated from an External Source. Use proper caut=
-ion
-> when opening attachments, clicking links, or responding.
->
->
-> This patch series fixes two issues in the Xilinx AXI Ethernet driver:
->  1. Corrects the BD length masks to match the AXIDMA IP spec.
->  2. Fixes BQL accounting for multi-BD TX packets.
->
-> ---
-> Changes in V2:
-> Use GENMASK() to define the BD length masks.
-> ---
-> Suraj Gupta (2):
->   net: xilinx: axienet: Correct BD length masks to match AXIDMA IP spec
->   net: xilinx: axienet: Fix BQL accounting for multi-BD TX packets
->
->  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  7 +++++--
-> .../net/ethernet/xilinx/xilinx_axienet_main.c | 20 +++++++++----------
->  2 files changed, 15 insertions(+), 12 deletions(-)
->
-> --
-> 2.49.1
->
 
 
