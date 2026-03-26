@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9A510A1E63
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F2810A1E63
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWCdWABxg5w2NkMPkfS0kEXFaOncrxR8xyY6bs996+A=; b=QPEvbOYf2NpY5e2ab3ojARfjd4
-	2qfGrJwc6WOG5EQRh1zi1Nbx/hzMVPjTI53t1hpPp4MektYoMMqvSwKRIgX/2/tqxoZAgZk4+CW93
-	ioYFZI7XfTPoo7FDMeh1Y2mLviypj2il2VDujbWsqtxJKdJOvAP4Gr3PDBtVc1mTlVyYo6v3M+fdL
-	N/phslugsZO0nXkQDhLCmZ/FXXoCt41gwzpEJVeVK/MYHM2XyFRoSq1y7CWc2sNvkIOUDsxRXbmCb
-	IG5Ie+LeirQsncU8YiZCqTluxQXZXVwE4t/BFSUO+ZrPJiHPL2gioTptOlmKmNV3+a44NZtPnVhiV
-	xltqljrA==;
+	bh=1/oy7ceZgq6kafjM27/5aikAaDW1La3Nrm8k/wtuaRI=; b=OuCniwm5KQ8Kw1mJYDlhU03m1y
+	0vSsPybO/rl9i3ba7Nudx7+M2cYMk9tPjguumiOSc6lMs1bOuZeEz5jUId541TXwPa2bNJQH4mdB0
+	I0wH3rCd0fxPsBxoftHJf/74OP2CFgP+/peWX5f7slVADCNcso5Z0X+tjZu64n8yMweyieP6lyp8k
+	oQKDZzlI3v4Xi830oFQd9b91QbJGGn2d8ksBEf7mSngNFErTfu9Ttaq+T9V/WdUpMnP3rzzsVLb49
+	g4Zo5R3YJPnafugq5tLIyLRJ+fYR4UG6fyOgIp/78zd+0S/quKh7Ju9YnVXmqrXQGOSZfY0EZOOjj
+	aohZVFvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pVm-000000062WZ-3q6w;
-	Thu, 26 Mar 2026 18:32:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5pW0-000000062Z6-1tzz;
+	Thu, 26 Mar 2026 18:33:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pVj-000000062Ve-2aPL;
-	Thu, 26 Mar 2026 18:32:52 +0000
+	id 1w5pVl-000000062W2-3HNQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 18:32:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D59C744252;
-	Thu, 26 Mar 2026 18:32:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B0F5C116C6;
-	Thu, 26 Mar 2026 18:32:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FE3C60054;
+	Thu, 26 Mar 2026 18:32:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4A31C116C6;
+	Thu, 26 Mar 2026 18:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774549970;
-	bh=XR7anxY/aULN0YoI5XPa/sNu7iBMedYBtJCjhMTLsFE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LAK06jIGTbcIopqhOIH234wqe1F7Qll2yeR6S6Qa8cnQnDQe/jXb8LhKAdS9+wkW/
-	 HPiM2pAHgINa1O6cYQEVbxzyg6P7OP5gpCjepaYPUPTRxynTQZZz7mAQavfo6y09mi
-	 n0LhyOjfNYGf7c7kx/Mf3bV02YFiADOBLl6/eHhbUURx7oXHaflHOJr0gm/7V3hnVr
-	 NCFpY9OYaKP2rvckHz4//1hUp0xvri3t3eMEg3VPRKjCRekmFcYSMI/L9kBZWuMAFr
-	 ikx2pAyIx89gFR3gYahrfC/l+iGzxHseJU8zdUDf/Ybn+fWqk2tK7P7zkM+UCiBVji
-	 6lwqhYMRenmZg==
-Date: Fri, 27 Mar 2026 00:02:35 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, 
-	jingoohan1@gmail.com, kwilczynski@kernel.org, bhelgaas@google.com, 
-	florian.fainelli@broadcom.com, jim2101024@gmail.com, robh@kernel.org, 
-	ilpo.jarvinen@linux.intel.com, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	claudiu.beznea.uj@bp.renesas.com, linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-omap@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, shawn.lin@rock-chips.com
-Subject: Re: [PATCH v9 1/5] PCI: Add pcie_get_link_speed() helper for safe
- array access
-Message-ID: <zcctd7y75nbdxca7dlltvr7dsdrpxphlaq63l64hob3sxzrnwl@zheojrqwfp3j>
-References: <20260313165522.123518-2-18255117159@163.com>
- <20260326181624.GA1331242@bhelgaas>
+	s=k20201202; t=1774549972;
+	bh=bFKagJn+6VDiIWYvBH/rDFVITDPxEwgu5uxJ1+f8eDc=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=u71b93l3C5wk+oII1bPNa23kdKbAW1wkyQjBN3khkWAxcQjKrWhpc6NVHMb9YNvIM
+	 h46rJrmUkzR8J3U34//01RdQRBkCeMBnUqGzTH65syUaFFxTuJ4LJC4j/ZejGsPh3g
+	 Z5vCfNyi0l0qe0s4sT4aNSwTAkWJGG8p08/zVzNC43JPcgPW6v0GQ3CfEu5W+UgAJy
+	 EXeJ3WSnr+lp0OierY33faj7KaJDTo45ZBO+w5XuMTUXElHBfRSM8W/9IdUws+Alc2
+	 OwwbXfyLaEru3CLEuEDwJ+CkJLDuc9Q5L5zWo5sHUAn4N2lOD6RGyXmq3FOy/ixoMw
+	 2Zxd2WxLBbhbg==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
+ masking
+In-Reply-To: <acV2552t5X4OlNYi@J2N7QTR9R3>
+References: <20260320113026.3219620-1-mark.rutland@arm.com>
+ <20260320113026.3219620-2-mark.rutland@arm.com> <87eclek0mb.ffs@tglx>
+ <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com> <87341ujwl4.ffs@tglx>
+ <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com> <87fr5six4d.ffs@tglx>
+ <acPAzdtjK5w-rNqC@J2N7QTR9R3> <87ecl7gbeu.ffs@tglx>
+ <acV2552t5X4OlNYi@J2N7QTR9R3>
+Date: Thu, 26 Mar 2026 19:32:48 +0100
+Message-ID: <87jyuycugf.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260326181624.GA1331242@bhelgaas>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_113251_711045_D603723D 
-X-CRM114-Status: GOOD (  22.55  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +68,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 01:16:24PM -0500, Bjorn Helgaas wrote:
-> On Sat, Mar 14, 2026 at 12:55:18AM +0800, Hans Zhang wrote:
-> > The pcie_link_speed[] array is indexed by PCIe generation numbers
-> > (1 = 2.5 GT/s, 2 = 5 GT/s, ...).  Several drivers use it directly,
-> > which can lead to out-of-bounds accesses if an invalid generation
-> > number is used.
-> > 
-> > Introduce a helper function pcie_get_link_speed() that returns the
-> > corresponding enum pci_bus_speed value for a given generation number,
-> > or PCI_SPEED_UNKNOWN if the generation is out of range.  This will
-> > allow us to safely handle invalid values after the range check is
-> > removed from of_pci_get_max_link_speed().
-> > 
-> > Signed-off-by: Hans Zhang <18255117159@163.com>
-> > ---
-> >  drivers/pci/pci.h   |  2 ++
-> >  drivers/pci/probe.c | 16 ++++++++++++++++
-> >  2 files changed, 18 insertions(+)
-> > 
-> > diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> > index 13d998fbacce..409aca7d737a 100644
-> > --- a/drivers/pci/pci.h
-> > +++ b/drivers/pci/pci.h
-> > @@ -108,6 +108,8 @@ struct pcie_tlp_log;
-> >  				 PCI_EXP_DEVCTL_FERE | PCI_EXP_DEVCTL_URRE)
-> >  
-> >  extern const unsigned char pcie_link_speed[];
-> > +unsigned char pcie_get_link_speed(unsigned int speed);
-> > +
-> >  extern bool pci_early_dump;
-> >  
-> >  extern struct mutex pci_rescan_remove_lock;
-> > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> > index bccc7a4bdd79..d6592898330c 100644
-> > --- a/drivers/pci/probe.c
-> > +++ b/drivers/pci/probe.c
-> > @@ -783,6 +783,22 @@ const unsigned char pcie_link_speed[] = {
-> >  };
-> >  EXPORT_SYMBOL_GPL(pcie_link_speed);
-> >  
-> > +/**
-> > + * pcie_link_speed_value - Get speed value from PCIe generation number
-> 
-> Wrong name here (pcie_link_speed_value vs pcie_get_link_speed)
-> (pointed out by Sashiko).
-> 
+Mark!
 
-Noticed this one while applying.
+On Thu, Mar 26 2026 at 18:11, Mark Rutland wrote:
+>
+> I've pushed a (very early, WIP) draft to
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/entry/rework
+>
+> ... which is missing commit messages, comments, etc, but seems to work.
+>
+> I'll see about getting that tested, cleaned up, and on-list.
 
-> > + * @speed: PCIe speed (1-based: 1 = 2.5GT, 2 = 5GT, ...)
-> > + *
-> > + * Returns the speed value (e.g., PCIE_SPEED_2_5GT) if @speed is valid,
-> > + * otherwise returns PCI_SPEED_UNKNOWN.
-> > + */
-> > +unsigned char pcie_get_link_speed(unsigned int speed)
-> 
-> Sashiko also pointed out that the commit log says this returns "enum
-> pci_bus_speed", while here we return unsigned char (which is also the
-> type of pcie_link_speed[x]).
-> 
-> https://sashiko.dev/#/patchset/20260313165522.123518-1-18255117159%40163.com
-> 
+I've pulled it and looked at the v7.0-rc3.. diff.
 
-This one I didn't, but fixed now, thanks!
+That looks really good! Thanks for taking care of that.
 
-- Mani
+As a related side note. Seeing that even more of the generic entry code
+is moving to include/linux/, I'm pondering to move the content back into
+kernel/entry and include those "local" headers from the
+include/linux/... so that everything is to find in one place, but that's
+a purely cosmetic problem :)
 
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks,
+
+        tglx
+
 
