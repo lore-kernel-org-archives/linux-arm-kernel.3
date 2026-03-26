@@ -4,106 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED06106F30F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98013106F314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=si1WQGu7D98ZY9SBeUQTBSa4sqGBk6dnIALYoyrzyqg=; b=K0jZG1q6q6TDWXG/wrY0AFzbvu
-	/2iYKkvrN4djVHiFwMO79392oGw2aSmwyxlYSDlDISFptbDWT1mmyaYCICi3hAB5OqFTFdjFXq5Z5
-	4I9FK3HvLlOiQ7xq24NEKDNkWb6ec9aBbprz5OjQnO+oln3zl5PUzPFsyZz2QTfLPpU7fpcAxOtDE
-	itsIsmKn5UNmAd24biDvT1Gklkq57HMa5Bq1cuYNYS8niIItRUTxGsccr3AHZu/1Xm+scgsJDmJ/y
-	yTZyWx9mduw8MP9a55LZD4J7CvZKIA8u9kSFV2pJMNZbgl+Tv8+W6ggMBsOrG1v8kz9KnE3nKmVR0
-	YjfTX30w==;
+	bh=gKCyFU3ic+mjTuSY0uUxaZ2dkgAoaG2cSvjjvcWGNkc=; b=wUmPirlc5gUqwuPV3te2dO/ILh
+	7Zbkc0ZsxQTNYmsmjNT/hSQqJmjL26udXM3RsJ/DjjqHuh3s8eCzYCvTXqGFAdGuz4d3SCXmeaTaj
+	nzXTXrs6aSO4bvODYaeVIkvpEihPBU8Op2grbEyjXdQlJoi20HlutQjhyObXdezUp9Agsn5K491uq
+	LguYSpSv8TMfcSGr7wRtDRMipBJP+9deTmYqokmPnCoO/VAkvaweN/5/jFMZsg1PlcjKNPvYhYF3k
+	Cc4JBHp4Ka4EheLn5mk9quLpfgpvDsWWiOWE6l/7yPfJpW2POCwqRtSz16E5p2gHikwM2fJapTNN7
+	X+xbDFNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5h9G-00000005AEJ-2eMs;
-	Thu, 26 Mar 2026 09:37:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w5hFM-00000005AbX-0KUK;
+	Thu, 26 Mar 2026 09:43:24 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5h9D-00000005ADw-1iPw
+	id 1w5hFJ-00000005Ab5-2eXF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 09:37:05 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62Q6w3CK1060910;
-	Thu, 26 Mar 2026 09:37:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	si1WQGu7D98ZY9SBeUQTBSa4sqGBk6dnIALYoyrzyqg=; b=QdvmmrZTFLcBkGdj
-	Z0Cairh9lfQ44JgQSL0m74ZRef8YjjNUWmAfMfim/c8LZTZyNoi+2uZbbwUNjp97
-	fEx3HFOd05zgv2Z2jbvfOirREskoaPyox3Dl934po8+/ViIHWNluUBeGkaTkCV8Q
-	0dXBHzIUGH2ryDVoYjkW5h1fwy0PDtBz147iqdMGC4sn3FExNftfnQk9sblIqW1G
-	RN+6OmaiDoa0QUIo1JGWiY9BERGoAzREK6Cab7N0HpMCkjwTtt+BjTMifyPuoU45
-	FKHLP/vKDA3kSP0bMYN3rfLd5aUwqAZTmY5G9cB1Aqb35x+HSVHSvt3fdNoiQ6rY
-	Co4mhA==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d4qkst2rd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Mar 2026 09:36:59 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 62Q9awhE005195
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Mar 2026 09:36:58 GMT
-Received: from [10.204.79.33] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 26 Mar
- 2026 02:36:55 -0700
-Message-ID: <ccb11c2a-4cf1-4486-be71-d4bcc983cee6@quicinc.com>
-Date: Thu, 26 Mar 2026 15:06:52 +0530
+	Thu, 26 Mar 2026 09:43:22 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-82c20b9fb15so382768b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:43:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1774518200; x=1775123000; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gKCyFU3ic+mjTuSY0uUxaZ2dkgAoaG2cSvjjvcWGNkc=;
+        b=OkEXk7jOxWFUev7+daYozWhfs5bt7btbpTxF44Ouigs8c3P7iiACXCGCkXxwIhU109
+         G6d6oW7uf6pcMKMdHzJ1sajZbojLyO1k639CmxL1iQ4vKwl5s+MxICCYWZPmsU/Rwc+j
+         jVIdDxSdFeRumKTvJYulSaqjQrv7pim7nqo3w=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774518200; x=1775123000;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=gKCyFU3ic+mjTuSY0uUxaZ2dkgAoaG2cSvjjvcWGNkc=;
+        b=iY3JYTMfwnINCEEW/2xpCoBO5Is6d3aj24Kyrvn6/QhJ5f3GgVJkQdT0dcgLCllFig
+         C+SAs/ILUO+vPgGNrIF8RYGPpdxD/6b60rut3anVtN9wVG2NWPrAGkLoqnM41KjaZiGh
+         LHz5irnl1ElSfiCHLrua5watWxe93DiajvgxkB7Yt8IEgR2XGlPSlo77OoVHRfBMpAKQ
+         6pni2fCpM0P907XCpTrNHcJSe//82zgyQRo+g1VkiS8/hRjqxgXY/UamLiAgREhMagEY
+         PE9B4C/+ah/w9CEF08pTPWuKLxlzN942iktyY5WODZePOPS3hW21OiF+6BJkPak46IMo
+         acpg==
+X-Forwarded-Encrypted: i=1; AJvYcCXZbNIIbpvzO2aQJRJ1OP+opEj1KA1c3gC1HCwlHa2sJi2TjeK6VW2KFi2Q8pGr6yguQZiG/AqfO3dhTpclEPmK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlxpeKkUx9bw/7ubZwQEMBqpHmrjeO7mm2BOC/Bqg2avQNMkj+
+	XBJSPWaYYk2ZJHFumJ7st8zF4S7D13+p8EeCmYxAFy4FhK7vv/qzVsc+gzh4Tnz55Q==
+X-Gm-Gg: ATEYQzwG8wt054ANhSDFEeICwKAeCfWCuCN/NXSVZzvzqSl3FF+9YmpgIu0BPBE1o2I
+	ehkeeGUx313NIZfPKMCFGsQkQodseVBTuoKOmybtl80rbd6M1rl929sPVTYkj70ypCtexTC0AM/
+	0/wF9zbZvRevyZPAui+zQPmaEhT+gRBHmQy7476wyEBe802qFk736Qa67WECKPJ6iM3sDQE58Tv
+	Gp4VNOVqqaH99vNW0Rk/SrcfrKJ6kVAkkNC7kCZSWxM62TNnK3vHpO30PZ6zlRf+PyrE485Gxmj
+	BDmZhICfCupt4zT3q4JmCRGVDPcZGv7l4rU/2ZUXScqpH+tzz+67CXyMrPSP+9lhAee+qqQ5iKB
+	DXeUKHVNUioW0ntUMwIcHu88yEpR03/mV/oOJLEJK6/8CCzpRRkgGanEKuckMs8IyTYB9NyC99t
+	qJyVGcclCdw4A++EP4Xcs9plkOBf9vS5BRddtcrUscYxJEJ58OQM8EzzQg4UJZqtaU1zr1BT8q7
+	ff7zpNqWOkZldKxVTU=
+X-Received: by 2002:a05:6a20:7491:b0:398:9379:d056 with SMTP id adf61e73a8af0-39c4abeac6amr7815749637.16.1774518200463;
+        Thu, 26 Mar 2026 02:43:20 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3ed5:7e63:b37c:a7d7])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c76737f28fasm1673312a12.7.2026.03.26.02.43.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Mar 2026 02:43:20 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/4] drm/exynos: Internalize exynos_drm_gem_free_object()
+Date: Thu, 26 Mar 2026 17:43:03 +0800
+Message-ID: <20260326094308.1161335-2-wenst@chromium.org>
+X-Mailer: git-send-email 2.53.0.1018.g2bb0e51243-goog
+In-Reply-To: <20260326094308.1161335-1-wenst@chromium.org>
+References: <20260326094308.1161335-1-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage for
- panel nt37801
-To: Bjorn Andersson <andersson@kernel.org>
-CC: <konrad.dybcio@linaro.org>, <robh+dt@kernel.org>,
-        <krzysztof.kozlowski+dt@linaro.org>, <conor+dt@kernel.org>,
-        <dmitry.baryshkov@linaro.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_rajeevny@quicinc.com>,
-        <quic_vproddut@quicinc.com>
-References: <20260323102229.1546504-1-quic_amakhija@quicinc.com>
- <acHwvzjcvqNxUjm3@baldur>
-Content-Language: en-US
-From: Ayushi Makhija <quic_amakhija@quicinc.com>
-In-Reply-To: <acHwvzjcvqNxUjm3@baldur>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA2OCBTYWx0ZWRfX4wn0AcuQ7rg7
- 5BROEAxqbXQcSB8YCfB7emHawKdH+b7rV/aeddlRPzPvsTM6Aqftat1PFqarxlg4u8agOTpo0M7
- BljeIiUWXshHUL7RUF4QT2dEVIEGV0ttaO8H1dqRj3YtXKc6nnZ1ljLfe0JR/sNDhhdl4J/LMpE
- lYJzT0sAVaBGqKXAjolkJDUi20kN7LM2cPuGsxoTBT9RzaGUYxiTeaFfM1th98dxH5jMWg7IkCS
- UAjQDYT/Hz8+qUMeBUnzQ6uFdRr1FpUk0fUR38/cJFmEV9MgXB+Skbmij1Zz0+cdedJH9rw5K5B
- DOVbZ6ddPmX+t1tJDg42XRRjUIuuk5tWh2hyaqLYIaJe/LmgFJeSKAWJaM3iQufZmtE9lG6s5vE
- +MBfMkk2TEiHPjonaObKf4E4kZ3KOHY5nx44WixBlvxouo2Dn6XzWEw2WBcEsBJ09AFAHeP+hgz
- uk39MiJlyuNmPZCC4fw==
-X-Proofpoint-ORIG-GUID: V78TK3gKM0R4oU_XDdcJIlyprYxnUQac
-X-Authority-Analysis: v=2.4 cv=eOMeTXp1 c=1 sm=1 tr=0 ts=69c4fe3c cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=3Rd_ledAG8Ua1yCYJBgA:9
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: V78TK3gKM0R4oU_XDdcJIlyprYxnUQac
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-26_02,2026-03-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 malwarescore=0 suspectscore=0 impostorscore=0
- lowpriorityscore=0 adultscore=0 bulkscore=0 clxscore=1015 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603260068
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_023703_898624_CC4E3254 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20260326_024321_725558_D2B522DD 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,60 +105,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/24/2026 7:34 AM, Bjorn Andersson wrote:
-> On Mon, Mar 23, 2026 at 03:52:29PM +0530, Ayushi Makhija wrote:
->> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
->> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
->>
-> 
-> Please add Fixes: tag.
-> 
+exynos_drm_gem_free_object() is only provided as a callback for GEM
+objects. It does not need to be exposed to the rest of the driver.
 
-Hi Bjorn,
+Move it above where it is used and internalize it to just the GEM
+functions.
 
-Sure, will add in new patchset.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/gpu/drm/exynos/exynos_drm_gem.c | 10 +++++-----
+ drivers/gpu/drm/exynos/exynos_drm_gem.h |  3 ---
+ 2 files changed, 5 insertions(+), 8 deletions(-)
 
->> Signed-off-by: Ayushi Makhija <quic_amakhija@quicinc.com>
-> 
-> Please start using your oss.qualcomm.com address.
-> 
->> ---
->>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> index 3837f6785320..6ba4e69bf377 100644
->> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> @@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
->>  
->>  		vreg_l12b_1p8: ldo12 {
->>  			regulator-name = "vreg_l12b_1p8";
->> -			regulator-min-microvolt = <1200000>;
->> +			regulator-min-microvolt = <1650000>;
-> 
-> Are you sure it's not supposed to be 1.8V, given the name of the rail?
-> 
-> Regards,
-> Bjorn
-
-There was already discussion regarding the minimum voltage for this regulator on sm8550 target
-on other upstream patch. 
-
-Link: https://lore.kernel.org/all/aQQdQoCLeKhYtY7W@yuanjiey.ap.qualcomm.com/
-
-This values is according to the NT37801 panel sec
-"The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states 
-VDDI=1.65V~1.95V."
-
-Thanks,
-Ayushi
-
->>  			regulator-max-microvolt = <1800000>;
->>  			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->>  			regulator-allow-set-load;
->> -- 
->> 2.34.1
->>
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/exynos/exynos_drm_gem.c
+index 69ef6cda1ce9..59fd736a1fb9 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
+@@ -133,6 +133,11 @@ void exynos_drm_gem_destroy(struct exynos_drm_gem *exynos_gem)
+ 	kfree(exynos_gem);
+ }
+ 
++static void exynos_drm_gem_free_object(struct drm_gem_object *obj)
++{
++	exynos_drm_gem_destroy(to_exynos_gem(obj));
++}
++
+ static const struct vm_operations_struct exynos_drm_gem_vm_ops = {
+ 	.open = drm_gem_vm_open,
+ 	.close = drm_gem_vm_close,
+@@ -318,11 +323,6 @@ int exynos_drm_gem_get_ioctl(struct drm_device *dev, void *data,
+ 	return 0;
+ }
+ 
+-void exynos_drm_gem_free_object(struct drm_gem_object *obj)
+-{
+-	exynos_drm_gem_destroy(to_exynos_gem(obj));
+-}
+-
+ int exynos_drm_gem_dumb_create(struct drm_file *file_priv,
+ 			       struct drm_device *dev,
+ 			       struct drm_mode_create_dumb *args)
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.h b/drivers/gpu/drm/exynos/exynos_drm_gem.h
+index 79d7e1a87419..8b5bd20ae8c1 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_gem.h
++++ b/drivers/gpu/drm/exynos/exynos_drm_gem.h
+@@ -88,9 +88,6 @@ static inline void exynos_drm_gem_put(struct exynos_drm_gem *exynos_gem)
+ int exynos_drm_gem_get_ioctl(struct drm_device *dev, void *data,
+ 				      struct drm_file *file_priv);
+ 
+-/* free gem object. */
+-void exynos_drm_gem_free_object(struct drm_gem_object *obj);
+-
+ /* create memory region for drm framebuffer. */
+ int exynos_drm_gem_dumb_create(struct drm_file *file_priv,
+ 			       struct drm_device *dev,
+-- 
+2.53.0.1018.g2bb0e51243-goog
 
 
