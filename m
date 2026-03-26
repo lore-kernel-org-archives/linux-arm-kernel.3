@@ -4,47 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303CB10A62EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF09910A62F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RqVqDCoVZ3UVUvBjXL8ALS4wpv/ZTlX+ITsrwTuD52U=; b=wC85xoXRHHJcDHvb6E68Lb/CQW
-	OamoJ+pAXspfJAFfizSrz9jLosGSA37kMP+FYRzlLwMZ0a2nCtLk0QX7g/1Q2a9SceYlAn6xiy+Dv
-	B0GqV6CRd4ix5ATeqVUGbLA2QydDkTnzxYgogqHTv2OgnRWx3+tfKwHTT1nih9k5mJIT+8ccmQbUA
-	YQlA7D1jNY/JKz/fq6ZPYoR+bhw02NlfQRebb0GdzEllrYqy9Y3Cm4whkFmdtjXLcO6a5ICGZR1n0
-	DeWoALXpOg2UWKEg3NrKFMZ5wjX/znKzufgl1Ilk1bAEJHbLhEYbXEcFsyiaE32zf+EDrN6aQugKv
-	+CPSj2EA==;
+	bh=cqAo4B4Zn6p/GYAnn/u81HTFZV5FsFBQHnaL2sPYiTY=; b=tgunrRZdGlFHhMaodqD/b+l/j6
+	yK+boWTUMvVhxzlxktPnizmgm9aRVSJvurQ890UfRuxhOGCDiwhbX9R4GMJqZdWddpAfSWIcJw00n
+	mhxe2MBa56NosdGD5NO3AvKTxVr4eD9a4IhUzNjZpNoMUdbzkJWvdBvj0tIP2Y96I8+sMvPY53zL0
+	J4E9joI9Jel46nRGdSs0qcM6j7ttIFHBjtF9Ns9wlcDeWIhQjJv7Y69cv5Yn9ESdYMAJvxLMEqBDD
+	+Wi40sxueeXTnhQTe/CBdK7Xnv5XSP5bMHO4ZpHtk+aLPhC3uUgy3zjuDwSPxf2wywTEJu05C/9PK
+	GPNKPjzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lhc-00000005e1f-01CH;
-	Thu, 26 Mar 2026 14:28:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5lkD-00000005eSd-3IN3;
+	Thu, 26 Mar 2026 14:31:33 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lhZ-00000005e0p-3rGP;
-	Thu, 26 Mar 2026 14:28:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBAAB441EC;
-	Thu, 26 Mar 2026 14:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFFCBC116C6;
-	Thu, 26 Mar 2026 14:28:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774535328;
-	bh=9qmbprKUMbqPiWVN+/bZb7MOWCpDyMug8liR6R/yc+g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VCEyCUb4Sbe57pTItGWDihVwE3k84WC8IH+5WEC7oSc5qBrt9ukC6VkCwE5EyJHHp
-	 Rc3K1H4UaO4J24Qa1z5epnSPdtb+OKCRgphqP4KPPbYWZxkHUfcWPr9/pj3Q/iHrDv
-	 tfqYeUI5VuZv3xmcsWa8mXkGDrePxWlIdxMcvVwtXFe1Bz89xBqT2mgOE1W4d2ULgB
-	 xn/rCjUrG0wjZroIrAesNjXwfyvfR7HdXRTnMMEPcOYdRtnfaLGUD/Cp+e1QhSPRtH
-	 2YaaDiWIydJe90eiAi+QqorJqXCLNqFmg5FNbvfA8SRNROCdI2/A+/IE854RFxv5Va
-	 dTxYw77Ec+9jQ==
-Date: Thu, 26 Mar 2026 08:28:46 -0600
-From: Keith Busch <kbusch@kernel.org>
-To: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
-Cc: "hch@lst.de" <hch@lst.de>, Justin Tee <justintee8345@gmail.com>,
+	id 1w5lkB-00000005eRS-1JDn;
+	Thu, 26 Mar 2026 14:31:32 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 7013B68CFE; Thu, 26 Mar 2026 15:31:24 +0100 (CET)
+Date: Thu, 26 Mar 2026 15:31:24 +0100
+From: "hch@lst.de" <hch@lst.de>
+To: Keith Busch <kbusch@kernel.org>
+Cc: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>,
+	"hch@lst.de" <hch@lst.de>, Justin Tee <justintee8345@gmail.com>,
 	"axboe@kernel.dk" <axboe@kernel.dk>,
 	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
 	"neal@gompa.dev" <neal@gompa.dev>,
@@ -61,24 +49,17 @@ Cc: "hch@lst.de" <hch@lst.de>, Justin Tee <justintee8345@gmail.com>,
 	=?utf-8?B?7J207J2A7IiY?= <euns212.lee@samsung.com>,
 	=?utf-8?B?7Lm47LCs?= <joshi.k@samsung.com>
 Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
-Message-ID: <acVCnozG1WKPkq1L@kbusch-mbp>
-References: <20260326061443.GA23850@lst.de>
- <acQxjZMOqj74yIJf@kbusch-mbp>
- <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
- <945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com>
- <20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6>
- <CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com>
- <20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1>
- <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5>
- <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
+Message-ID: <20260326143124.GA17507@lst.de>
+References: <20260326061443.GA23850@lst.de> <acQxjZMOqj74yIJf@kbusch-mbp> <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4> <945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com> <20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6> <CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com> <20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1> <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5> <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5> <acVCnozG1WKPkq1L@kbusch-mbp>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
+In-Reply-To: <acVCnozG1WKPkq1L@kbusch-mbp>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_072850_015097_22DCD552 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260326_073131_514380_00679F63 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,64 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:51:52PM +0900, 전민식 wrote:
->  {
->  	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
->  
-> -	trace_nvme_complete_rq(req);
-> +	/*
-> +	 * The idea for these trace events was to match up commands
-> +	 * dispatched to hardware with the hardware's posted response.
-> +	 * So skip tracing for undispatched commands.
-> +	 */
-> +	if (nvme_req(req)->status != NVME_SC_HOST_PATH_ERROR)
-> +		trace_nvme_complete_rq(req);
-> +
+On Thu, Mar 26, 2026 at 08:28:46AM -0600, Keith Busch wrote:
+> On Thu, Mar 26, 2026 at 03:51:52PM +0900, 전민식 wrote:
+> >  {
+> >  	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
+> >  
+> > -	trace_nvme_complete_rq(req);
+> > +	/*
+> > +	 * The idea for these trace events was to match up commands
+> > +	 * dispatched to hardware with the hardware's posted response.
+> > +	 * So skip tracing for undispatched commands.
+> > +	 */
+> > +	if (nvme_req(req)->status != NVME_SC_HOST_PATH_ERROR)
+> > +		trace_nvme_complete_rq(req);
+> > +
+> 
+> Well, how do we know a controller doesnn't actually return that status
+> code? I was just suggesting to skip the trace for the condition we never
+> dispatched the command. An added bonus is we don't need a mostly
+> unnecessary 'if' check on every IO.
 
-Well, how do we know a controller doesnn't actually return that status
-code? I was just suggesting to skip the trace for the condition we never
-dispatched the command. An added bonus is we don't need a mostly
-unnecessary 'if' check on every IO.
+The 7?h error values were added for host use.  The description of
+the section in the spec suggests this, but isn't actually as clear
+as I would like it.  I wonder if we need to verify that controller
+don't incorrectly return it, as that could cause some problems?
 
----
-diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index f5ebcaa2f859c..0dcccdca2965e 100644
---- a/drivers/nvme/host/core.c
-+++ b/drivers/nvme/host/core.c
-@@ -454,11 +454,10 @@ void nvme_end_req(struct request *req)
- 	blk_mq_end_request(req, status);
- }
- 
--void nvme_complete_rq(struct request *req)
-+static void __nvme_complete_rq(struct request *req)
- {
- 	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
- 
--	trace_nvme_complete_rq(req);
- 	nvme_cleanup_cmd(req);
- 
- 	/*
-@@ -493,6 +492,12 @@ void nvme_complete_rq(struct request *req)
- 		return;
- 	}
- }
-+
-+void nvme_complete_rq(struct request *req)
-+{
-+	trace_nvme_complete_rq(req);
-+	__nvme_complete_rq(req);
-+}
- EXPORT_SYMBOL_GPL(nvme_complete_rq);
- 
- void nvme_complete_batch_req(struct request *req)
-@@ -513,7 +518,7 @@ blk_status_t nvme_host_path_error(struct request *req)
- {
- 	nvme_req(req)->status = NVME_SC_HOST_PATH_ERROR;
- 	blk_mq_set_request_complete(req);
--	nvme_complete_rq(req);
-+	__nvme_complete_rq(req);
- 	return BLK_STS_OK;
- }
- EXPORT_SYMBOL_GPL(nvme_host_path_error);
---
+Independent of that your patch below looks sane to me.
+
 
