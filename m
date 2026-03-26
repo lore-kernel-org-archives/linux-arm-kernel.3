@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5E610A3D86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8AD10A3D81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmr5pIZ3uDUDnmr+tLaGSi0/UR7lT7JyH5Iown1Pxyk=; b=CHHWV5vkXdNiY4QfkV9fvbhe3C
-	tAMUV6v54ew+Er+5t1hi9R6MmbBzgo2GqLsjRvyLz88TvaJk2ANZq1OF0cUH1xWVLEtdvMkeUebdM
-	XFVYp6/5cwn6ondkzxVS8Ab9e2u55V0dN4+rB7qDSQfTv9AMpf9SD7T/SZGhhfBHv1OHhTXXyA9Pb
-	bvZsNO2xqwaNeIUureOugejT1bldnLp0/Fu44DZ2nBCIrqI9CNGZREtT5AS4m+6buSDNnhx4C0s3k
-	cSS2mJ6UseHtoTjBqJUonO5ea3pBxEpSmFi8MrJQuq3Dt5C6ui6L8rJpH17/3Qsm4wDlpi64uvF0W
-	9zjtb2Ag==;
+	bh=+p4pxfx3aecFf1jcljxVcZ8DPw75vCS0BNhnP3haqmw=; b=wGhe7RnWmqqST16wybFUIKwYRH
+	g3guuml7WSbBFIJXDbaApB/YO2jzMIsolCePRZvb3PSzmYLyA9wsPaVAkhNtLzw4NHkopvroYxCw8
+	iCdbHgMqtp8rjMvOQq0zfUA+sEDmugzVFtQzEd1jcH7jqLmu0af/dWAkCZW595p/Gu8vC0gq6xh6r
+	Iq4ptIVsqqGrWUAElFKXyL0d5im509L4SEj6QUAp+iGRKsaLl01nyv3QRErc4DYE+cCUA8Gr5CChN
+	4aWmTC59h03AH8YFobeFP8h6yFvjPFHbawjhXlnAwoZ8q5v0elDyrN21PZCXbXXt57x6b5Pq/9Vwc
+	gY3ZmThg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jSy-00000005OxB-3szH;
-	Thu, 26 Mar 2026 12:05:36 +0000
+	id 1w5jSz-00000005Oxh-259w;
+	Thu, 26 Mar 2026 12:05:37 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5jSw-00000005Ovh-1taE;
-	Thu, 26 Mar 2026 12:05:35 +0000
+	id 1w5jSx-00000005Ovl-0sdV;
+	Thu, 26 Mar 2026 12:05:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774526731;
-	bh=Zgf20bu0xGzHqUFQHCNtBUZtwRdwhJSQCkmmV2fc+ys=;
+	s=mail; t=1774526732;
+	bh=NihN73nX4Vo6b33p6sv55lawetyANmkKtj9GSk6TAPU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZGbUBS5JiTuFi7VBT2/pW5362F8o0aMKire94QYUJY/NQgk9COoAQp47Y3DmioUVy
-	 UcXlgGWd+Rx4IJFjKE05TarlhL2GtHYMeUrr1TcESsDvQK/lD3/PZgZ8CFsVg4Fppy
-	 inDIUapqFS6xkKIllL1AfE7dl9LswO9OeHYczFztAE+vnlpBzGQxu54WEX0Xw8F57V
-	 Fdl8XE0K4cC6LjevWUloVYuKwJQX/1jVDyqKRzmHF5Hb5XsqeFEre1oNJVTdDyijcZ
-	 aK9666e06IIgHK5XYla7IN0ZcCcTgniJLIvdiV32qCWfy7Y/8sGQmif135m5iVB6wk
-	 r5suKlMf6K4gw==
+	b=JIKVgHPpvBaQswcqC7BG0fi+ByVeAo4SNGX7S3ABsYlx4aI1C3oONp1ZTocwS66BM
+	 HwyoorwLvXFKS1S2wKCJK2o4lU7rHd85r9ehGMiM7+i+FB1aYG/MebFJJNk6zf4IcI
+	 evHL+GjUs0EAOOBl4r7vfKv97VH4hL1xZkrSCTXKmfGyQfeyt9m94NqNjcV+v/VYlG
+	 e4K8K7gMxvyFrEOJqmR5yxlFnmfzxJr85XXvm5hKxGleM/Wr7aVk8l8ub4IELG3VHe
+	 +O1yTbC4pEqR0yqz1GsMuRTqNYNbbKv8SLxQf9x4oWJmsHhvHCYG07/mwHJXx34SdM
+	 m7+y+VhP6+NOg==
 Received: from yukiji.home (lfbn-idf1-1-2269-27.w92-151.abo.wanadoo.fr [92.151.67.27])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DDD6B17E6082;
-	Thu, 26 Mar 2026 13:05:30 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D878517E60BF;
+	Thu, 26 Mar 2026 13:05:31 +0100 (CET)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 26 Mar 2026 13:04:12 +0100
-Subject: [PATCH net-next v2 1/4] dt-bindings: net: Add support for Airoha
- AN8801/R GbE PHY
+Date: Thu, 26 Mar 2026 13:04:13 +0100
+Subject: [PATCH net-next v2 2/4] net: phy: Add Airoha phy library for
+ shared code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260326-add-airoha-an8801-support-v2-1-1a42d6b6050f@collabora.com>
+Message-Id: <20260326-add-airoha-an8801-support-v2-2-1a42d6b6050f@collabora.com>
 References: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
 In-Reply-To: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -67,16 +67,16 @@ Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774526729; l=3223;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774526729; l=4772;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=FA5AQZRyCjhwT8o7QRGwdmO6VLOKQrbpn6fhImI/4Og=;
- b=cA3GQztJxtw0FPttw+KwoD4r9hKjNYsOOFsNSP9sD/iJLAaWXOrkWzaLWrZmTzB3qAu/BJXCo
- 9oB3+Sy2ceSCnyWXAXLLwcafvIXQf8m1C/n9PGK8lmDhmQHri7VX5jV
+ bh=NihN73nX4Vo6b33p6sv55lawetyANmkKtj9GSk6TAPU=;
+ b=vTFeCSNE/LeYsMxRsqGBiAJjhzyloUxyF6nTfkp2mFJLedPhcK5la7iyrFSJOfJ/+6un9NoXP
+ hDLh2FYhYcgCbdiUKBAYcCbnAN+ZFZ53bivo4UQsKSsf74fGph0+ACj
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_050534_641454_2D4FC567 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260326_050535_396105_6770AA56 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,109 +91,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In preparation of Airoha AN8801R PHY support, split out the interface
+functions that will be common between the already present air_en8811h
+driver and the new one, and put them into a new library named
+air_phy_lib.
 
-Add a new binding to support the Airoha AN8801R Series Gigabit
-Ethernet PHY.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../devicetree/bindings/net/airoha,an8801.yaml     | 85 ++++++++++++++++++++++
- 1 file changed, 85 insertions(+)
+ drivers/net/phy/Kconfig       |  6 ++++++
+ drivers/net/phy/Makefile      |  1 +
+ drivers/net/phy/air_en8811h.c | 13 ++-----------
+ drivers/net/phy/air_phy_lib.c | 30 ++++++++++++++++++++++++++++++
+ drivers/net/phy/air_phy_lib.h | 14 ++++++++++++++
+ 5 files changed, 53 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,an8801.yaml b/Documentation/devicetree/bindings/net/airoha,an8801.yaml
+diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
+index b5ee338b620d53980fbec9e83ab0de3d96ab4cc9..b6b1cde7e51fa1e470bfe210c8764a193449acb5 100644
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -92,10 +92,16 @@ config AS21XXX_PHY
+ 
+ config AIR_EN8811H_PHY
+ 	tristate "Airoha EN8811H 2.5 Gigabit PHY"
++	select AIR_NET_PHYLIB
+ 	select PHY_COMMON_PROPS
+ 	help
+ 	  Currently supports the Airoha EN8811H PHY.
+ 
++config AIR_NET_PHYLIB
++	tristate
++	help
++	  Airoha Ethernet PHY common library
++
+ config AMD_PHY
+ 	tristate "AMD and Altima PHYs"
+ 	help
+diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
+index 05e4878af27abeae3dfd9ab18fd29f8bf788b2a4..7cf1fa9e12cb6073a9e68c0ffa6284b361b80487 100644
+--- a/drivers/net/phy/Makefile
++++ b/drivers/net/phy/Makefile
+@@ -30,6 +30,7 @@ obj-y				+= $(sfp-obj-y) $(sfp-obj-m)
+ obj-$(CONFIG_ADIN_PHY)		+= adin.o
+ obj-$(CONFIG_ADIN1100_PHY)	+= adin1100.o
+ obj-$(CONFIG_AIR_EN8811H_PHY)   += air_en8811h.o
++obj-$(CONFIG_AIR_NET_PHYLIB)	+= air_phy_lib.o
+ obj-$(CONFIG_AMD_PHY)		+= amd.o
+ obj-$(CONFIG_AMCC_QT2025_PHY)	+= qt2025.o
+ obj-$(CONFIG_AQUANTIA_PHY)	+= aquantia/
+diff --git a/drivers/net/phy/air_en8811h.c b/drivers/net/phy/air_en8811h.c
+index 29ae73e65caaa9cdebe2253b5349aa6c7478dc85..be7c3426182a26fe3799b875827750e7772caadd 100644
+--- a/drivers/net/phy/air_en8811h.c
++++ b/drivers/net/phy/air_en8811h.c
+@@ -21,6 +21,8 @@
+ #include <linux/wordpart.h>
+ #include <linux/unaligned.h>
+ 
++#include "air_phy_lib.h"
++
+ #define EN8811H_PHY_ID		0x03a2a411
+ #define AN8811HB_PHY_ID		0xc0ff04a0
+ 
+@@ -40,7 +42,6 @@
+ #define   AIR_AUX_CTRL_STATUS_SPEED_1000	0x8
+ #define   AIR_AUX_CTRL_STATUS_SPEED_2500	0xc
+ 
+-#define AIR_EXT_PAGE_ACCESS		0x1f
+ #define   AIR_PHY_PAGE_STANDARD			0x0000
+ #define   AIR_PHY_PAGE_EXTENDED_4		0x0004
+ 
+@@ -244,16 +245,6 @@ static const unsigned long en8811h_led_trig = BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
+ 					      BIT(TRIGGER_NETDEV_RX)          |
+ 					      BIT(TRIGGER_NETDEV_TX);
+ 
+-static int air_phy_read_page(struct phy_device *phydev)
+-{
+-	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
+-}
+-
+-static int air_phy_write_page(struct phy_device *phydev, int page)
+-{
+-	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
+-}
+-
+ static int __air_buckpbus_reg_write(struct phy_device *phydev,
+ 				    u32 pbus_address, u32 pbus_data)
+ {
+diff --git a/drivers/net/phy/air_phy_lib.c b/drivers/net/phy/air_phy_lib.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..b90b21b5505367309b5df8ece54ea38664f6b50f
+index 0000000000000000000000000000000000000000..04c4719a073f98ef75eabd54c4851f6a16391350
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/net/airoha,an8801.yaml
-@@ -0,0 +1,85 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/airoha,an8801.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/net/phy/air_phy_lib.c
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Airoha Ethernet PHY common library
++ *
++ * Copyright (C) 2026 Airoha Technology Corp.
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
 +
-+title: Airoha AN8801R Series PHY
++#include <linux/phy.h>
 +
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++#include "air_phy_lib.h"
 +
-+description:
-+  The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
-+  with Single-port serdes interface for 1000Base-X/RGMII; this chip is
-+  compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE 802.3(u,ab)
-+  and supports Energy Efficient Ethernet (802.3az), Full Duplex Control
-+  Flow (802.3x), auto-negotiation, crossover detect and autocorrection,
-+  Wake-on-LAN with Magic Packet, and Jumbo Frame up to 9 Kilobytes.
-+  This PHY also supports up to three user-configurable LEDs, which are
-+  usually used for LAN Activity, 100M, 1000M indication.
++#define AIR_EXT_PAGE_ACCESS		0x1f
 +
-+allOf:
-+  - $ref: ethernet-phy.yaml#
++int air_phy_read_page(struct phy_device *phydev)
++{
++	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
++}
++EXPORT_SYMBOL_GPL(air_phy_read_page);
 +
-+properties:
-+  compatible:
-+    enum:
-+      - ethernet-phy-idc0ff.0421
++int air_phy_write_page(struct phy_device *phydev, int page)
++{
++	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
++}
++EXPORT_SYMBOL_GPL(air_phy_write_page);
 +
-+  reg:
-+    maxItems: 1
++MODULE_DESCRIPTION("Airoha PHY Library");
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Louis-Alexis Eyraud");
+diff --git a/drivers/net/phy/air_phy_lib.h b/drivers/net/phy/air_phy_lib.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..dd501b175a3a38e57744f79571eb1bc4ef46fdf5
+--- /dev/null
++++ b/drivers/net/phy/air_phy_lib.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++/*
++ * Copyright (C) 2026 Airoha Technology Corp.
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
 +
-+  leds: true
++#ifndef __AIR_PHY_LIB_H
++#define __AIR_PHY_LIB_H
 +
-+  wakeup-source:
-+    $ref: /schemas/types.yaml#/definitions/flag
-+    description:
-+      Enable Wake-on-LAN support
++int air_phy_read_page(struct phy_device *phydev);
++int air_phy_write_page(struct phy_device *phydev, int page);
 +
-+required:
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/leds/common.h>
-+
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-phy@0 {
-+            compatible = "ethernet-phy-idc0ff.0421";
-+            reg = <0>;
-+
-+            leds {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                led@0 {
-+                    reg = <0>;
-+                    color = <LED_COLOR_ID_GREEN>;
-+                    function = LED_FUNCTION_LAN;
-+                    default-state = "keep";
-+                };
-+
-+                led@1 {
-+                    reg = <1>;
-+                    color = <LED_COLOR_ID_GREEN>;
-+                    function = LED_FUNCTION_LAN;
-+                    function-enumerator = <1>;
-+                    default-state = "keep";
-+                };
-+
-+                led@2 {
-+                    reg = <2>;
-+                    color = <LED_COLOR_ID_YELLOW>;
-+                    function = LED_FUNCTION_LAN;
-+                    function-enumerator = <2>;
-+                    default-state = "keep";
-+                };
-+            };
-+        };
-+    };
++#endif /* __AIR_PHY_LIB_H */
 
 -- 
 2.53.0
