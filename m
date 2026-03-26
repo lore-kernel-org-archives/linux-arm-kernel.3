@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3198710AB82E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 23:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992AD10AB82E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 23:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/jv9aN6G6rns4dN5LD+yA48hndk4jnLP3GApNEZEmMg=; b=kFLhekDOcAQzuxV2AifoDTelZd
-	xt1eQ9xWFIR10axKKZFyBTHQDRIS3S84qIVI6J6Ih5DPVKTcgNLkmMXseAbB0SxaYGMc7fn35cF4v
-	/uf5u/VnTCLQu45DRYjxsUBOJGXc87rOl0VrBYxw+BbbK7DfvkGpHKsposstBZzFFr0vc9g7JOF0R
-	n/bQphx00INiAdTkF67SgjXah3PUk9dtfG2pZOVYjdQtowzpc5NJBB7qiWk1veYMmJe89LLaJ065N
-	/0z1yVWs9kd4V2YHVUO7gOCmLcu0hoLUj6oh1W081ySaIcNdWRtEqC6PLya6TXVc9R8xVVSJTbKgm
-	/APQj8XA==;
+	bh=R/TN6HvQ+xTPSDaAAvSPHxdODsPl8D/3Jbr6LOu1F6E=; b=4DeUxOWpyY8FrinRSChFiQN2y8
+	jOPRzkMctczS5OrGxEqPgEFMAPD1sS9ZHWPQPZ8dDtlkFLP2LcbbA7QmdAzRYHMBBDqQEfQGFIEnE
+	2aXryAPocYBqg7Etq0M3qR/6qYAyN5BGe5UFp9Ozw80O4/gm9L8npdyv/EvmN3BNNIMjWIs3ymTKh
+	MV47Zr1yIHfY0jyFFweYV4YI4gUHdSOPjOGc/CnteiFuBzxaQ6jwwh0/ss/0NGPRT4jDW6NFsBe/8
+	jvxSg+iVv09JfpibArS4jgLMPtJsjDE5ln7RmV8JfKXMgcvvxen4Gzq3cT3DV1R/uxgGUcudgq04q
+	/fByiOiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5tib-00000006MEq-2SZc;
-	Thu, 26 Mar 2026 23:02:25 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1w5tjn-00000006MMa-04Xp;
+	Thu, 26 Mar 2026 23:03:39 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5tiW-00000006MEF-20FQ
+	id 1w5tjk-00000006MLr-07Qm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 23:02:23 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4852afd42ceso11773745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 16:02:19 -0700 (PDT)
+	Thu, 26 Mar 2026 23:03:37 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-486fc4725f0so13325045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 16:03:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774566138; x=1775170938; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774566214; x=1775171014; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/jv9aN6G6rns4dN5LD+yA48hndk4jnLP3GApNEZEmMg=;
-        b=gZHtv3vwzXs2U/pRqUjbhKvqfKiTLXM64vrGYIqJOLshOo9fmGfEgme6GwcnKhRIsp
-         9K0wl9gqYhbUVu9MBTQdh2iONZB5RLvkNJ5rjwX8v9FgrZ1I6agb9DWiX3Adh7CrZ5q/
-         VroNqTSBdA470qNp/k3QOzOomScz8zD1txlu6YTxktEDNsDHn8cQyoWsaIU+3Z2sbuR5
-         AvS8w63wMklx+EajZ8uwtIDluaMUaSQle6FY9HKyqVq1t7NnSiiARqxrHT0mETomTPSE
-         VOdatyE3xFagD0r71/0AtdYK1CSaHyaGDuwmyfEUG6McEAB/Cnv+RjWgHXA5+P2EqgZ3
-         RKTg==
+        bh=R/TN6HvQ+xTPSDaAAvSPHxdODsPl8D/3Jbr6LOu1F6E=;
+        b=BVm/R1lDGzuZBlP2u1dQ/1QOmehMu+ebpdK6y5+jbaDYCfZLAiiaAZV/juJeGQLb/i
+         xQj1ahXSDywnib10atKt2C/eUpgs6LXnWGBYcV8opcI95xaDqe5ActgOvneVw7Hr6VFT
+         52pDsfZxwd+YJO2h7ONwVzIdO8MMrz9nUD0uNIs9b5PtKbOWWIIYBir9VVPtWY2SF2cD
+         qgCtRlTPSK9UK39eUmH8ONCEBcp4EFjmb6kL/C8ckQAtS+FfAp3/wFniJJYZZyogF5Ic
+         SikDEwt+LV2a/wzAPT724kDkRtkTNAZQIc/Ye21IPlB+pY+LXJJM/at32VuZKXfKYi6S
+         bD4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774566138; x=1775170938;
+        d=1e100.net; s=20251104; t=1774566214; x=1775171014;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/jv9aN6G6rns4dN5LD+yA48hndk4jnLP3GApNEZEmMg=;
-        b=r1KKJY6gFuZQEDdxl3hxntYygTKfDKNu6Lykd2YaApxzpIq6mRz9pAHh7Lj2Ta+4L5
-         pTGpLz2mfwEucz5KPzR5tVMsvinV5jSKfgt5aQppLO5OD52YmI1LdDO5zhfIOkJpLdcX
-         Saf4jVjHn0MbWkgbDMMoRTu+QPwb3Nr0w41VKkSiJJIkMUU6pOHW4iFSc+Gx4LdVDdas
-         ur9h22Vd8Th4za2s9J9JlR4H5Un0B4MR3oGm6IOXMuv9DA9E4K2UDyZuRurBB3QW9knj
-         9P5estFkQ5dO/Vw0RPBs7AAWCPRVRIuzrtIIHme8krWttAziEUMX91+c3S8EmYG7gew+
-         3kqw==
-X-Forwarded-Encrypted: i=1; AJvYcCVUn6xKzavfrwq2sWfFQ7nh9l6hXK7ueZtneLcU09uOJi4KNi9kTSgta3DLID3qPkbsNp/N+L/vxKp4lV4m37M1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPKgKbHYlOVHybL8McYVV+bz4a7LI/LGcJJpkl79qj7/eR0UTc
-	/xIfE6PI5IgsucIN5CJS9T+COnarAIRG06eo8SqthUvX2d+i7ZO7yD4U
-X-Gm-Gg: ATEYQzy5t6gOzkkxBQZkDe3lvpDg35ZHVVDPnrA+Klxu7nqF8aeNLUImTehyCDGFsOJ
-	WSdxvtKifgHIT9PZaPfH4gkQRPgQumIeD2j5lgVdyUXa/z8WO4cq5/ndMqlK1WX6t3TWw1QHH5C
-	wHhxa+I9PA/CTWFOIQOcIF4ZmdHVHiJ52mokC7MKnaAx9d6wJS1AkyWgJBFPW7vADnY77Ixs1r5
-	xajUlZBUqGi1rikQhxE1S45Gvc88vIvcVXBYtC/X7Vw27FEDWrIbd8Ap95JNiqVsNlFPRA1fuAJ
-	DtbdZafpHO9zwohOVGYv0fSOSb/l6Tm6iwxQRmYnb+5AA4OmNjMmZtEOP/rNfYVFI1xP2m7e7sd
-	Ot8po3DcRp2q4sV5iHelbYVAXhR8WEEnQCzJ6l8PDBwWrGI4CocPIofaxPfOKMHDEC+TUA+aQlG
-	IBij9dn6i9Dh5C1OMsNh1iFrS16JDNExYVaBJNY1qr9pet4bSzokYSPk2OWA==
-X-Received: by 2002:a05:600c:c490:b0:479:1b0f:dfff with SMTP id 5b1f17b1804b1-48727e908e7mr6423875e9.10.1774566138214;
-        Thu, 26 Mar 2026 16:02:18 -0700 (PDT)
+        bh=R/TN6HvQ+xTPSDaAAvSPHxdODsPl8D/3Jbr6LOu1F6E=;
+        b=JrCWSz85fG7eW6vxN0/psiFDvBl/Y317NB81tfVG//BAJ1JbwmDazSH4fccxdXoo9l
+         QahLvgZhP2+W5OMSVRfj+BFlYIBjo299U4K57UE2MCmZNuZpTEOWbp80uw79tITq1kxD
+         kKGmf6+HNghCfsbG8jeToVR1jjfU2944nqhE1efHHJtMr/KwGNWOlDJktLvANEHdOpc/
+         ZQ1fA20HswVOepdKtwjGeCmdFY+b2j82PImc1DMEPYlKFLpjQsSTuqT5memxDYJ8Jz/0
+         oYuiXS6NeN2CUdbcny3V+KpCrOnaPCBAQtDG+eBsrH6oTaU86aIw9bpaahjHazBJWMMX
+         omsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/PqWpVahLwZm4dXNngqnrovAfYqvh5+TMexLtYj9S6ZpK6DZn1tSxVDeJ+a9l/FRnyfRXGTYbaj+FFWpDSEJO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzgosurec1DvNyzMEdh7SRsCgOFPiBHEQRdZiFXiyMHPOw9zNS5
+	gLcQGeLL4lUeDTy7vH4RHg0mMSSaMAKid8twoYvsmnN/2U324wblbV06
+X-Gm-Gg: ATEYQzxpYF4WHG97R4vpy36lDdloEnScU951oWo1nOKdil9hgZpK+K3RRy+tLRVNr70
+	fAtF/bt9EpvtVfcyZ8Eypnl3qXTk56XbwyhsmDdoN49x8nqDP9T96WcNh4LMaOjP0HA4mLJ8rBi
+	bXEvQG0Cbci0nxQsWC5DfU/2eBfnrvNRjX+diuX0h4jeRo5mTqxhsEmmXFmJslQ2jW1yNdPdXg9
+	zk+ZgRl9kxZu/4VEYznmiDdk09rSaY4FelPvUAT3o5OWh+ZEKve/QIsqZ16cJVOMJd9SHkIvrxu
+	/YD7mzUXiEU3oCGPst368Ak8xwUKfm+18LGdydKpyUQK+kf7363qowE+tgaEUHzE7iga8MA9OzC
+	fuGIFxot3Qz4/pZtYk7QR2hoDk3EZRGy1ZhjQI6ynidVyT5jSqQguewnCdBikzvkt1GO14m1c+M
+	vnHx+ApalphC3i574+hUk6rGW9Zw09xp3v9G5X7lpFTPPUmue7DkBZzyssacRQecsu/TKt
+X-Received: by 2002:a05:600c:45cd:b0:486:fbc4:8fe2 with SMTP id 5b1f17b1804b1-4872912dd2bmr1429515e9.15.1774566213812;
+        Thu, 26 Mar 2026 16:03:33 -0700 (PDT)
 Received: from osama ([2a02:908:1b6:8980:8cd6:6329:c43d:2fcb])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919df903sm11024636f8f.30.2026.03.26.16.02.16
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48727161bb2sm3519395e9.23.2026.03.26.16.03.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 16:02:16 -0700 (PDT)
-Date: Fri, 27 Mar 2026 00:02:14 +0100
+        Thu, 26 Mar 2026 16:03:32 -0700 (PDT)
+Date: Fri, 27 Mar 2026 00:03:30 +0100
 From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Breno Leitao <leitao@debian.org>
+To: Will Deacon <will@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Breno Leitao <leitao@debian.org>,
 	Ryo Takakura <ryotkkr98@gmail.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] arm64: panic if IRQ shadow call stack allocation fails
-Message-ID: <acW69iCN8l2clhc-@osama>
+Message-ID: <acW7QqjoF_e0Fdxl@osama>
 References: <20260324161545.5441-1-osama.abdelkader@gmail.com>
- <acOhjkLqf2gsM-Sf@gmail.com>
+ <acQO16dmw0v6pzu8@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <acOhjkLqf2gsM-Sf@gmail.com>
+In-Reply-To: <acQO16dmw0v6pzu8@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_160222_545049_773302BC 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20260326_160336_083930_C76C0E6B 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +101,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 01:54:32AM -0700, Breno Leitao wrote:
+On Wed, Mar 25, 2026 at 04:35:35PM +0000, Will Deacon wrote:
 > On Tue, Mar 24, 2026 at 05:15:41PM +0100, Osama Abdelkader wrote:
-> > scs_alloc() can return NULL when vmalloc fails. init_irq_scs() previously
-> > stored that NULL in per-cpu irq_shadow_call_stack_ptr, which IRQ entry
-> > would then use under CONFIG_SHADOW_CALL_STACK. Match other SCS setup paths
-> > (e.g. SDEI) by failing explicitly instead of continuing with a NULL
-> > pointer.
-> 
-> Right,  _init_sdei_scs() doesn't not assign the per cpu pointer with
-> NULL, but, at the same time it doesn't panic. SDEI propagates -ENOMEM
-> back up the call chain and even frees already allocated stacks via
-> free_sdei_scs(). Should it panic as well?
->
-
-Thanks, I changed it to return -ENOMEM in v2 to address will's review.
- 
-> > Mark init_irq_scs() __init since it is only called from init_IRQ().
-> > 
-> > Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
-> > ---
-> >  arch/arm64/kernel/irq.c | 14 +++++++++-----
-> >  1 file changed, 9 insertions(+), 5 deletions(-)
-> > 
 > > diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
 > > index 15dedb385b9e..b32ed7ef8e00 100644
 > > --- a/arch/arm64/kernel/irq.c
@@ -133,14 +112,6 @@ Thanks, I changed it to return -ENOMEM in v2 to address will's review.
 > >  #include <linux/irq.h>
 > >  #include <linux/irqchip.h>
 > > +#include <linux/kernel.h>
-> 
-> Why do you need kernel.h in here? I initially thought it was
-> for panic(), but, later I found panic() is already in use in this file.
-> 
-> Isn't kernel.h being included transitively?
-
-Right, I removed it in v2, thanks.
-
 > >  #include <linux/kprobes.h>
 > >  #include <linux/memory.h>
 > >  #include <linux/scs.h>
@@ -173,34 +144,21 @@ Right, I removed it in v2, thanks.
 > > +			panic("irq: Failed to allocate shadow call stack\n");
 > > +		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
 > > +	}
-> >  }
 > 
-> Reading RISC-V code, it seems it has the same problem. Is it worth fixing also?
+> I don't especially see the point in these panic() messages given that
+> presumably all sorts of other things will go wrong if we fail simple
+> allocations this early during boot.
 > 
->  static void init_irq_scs(void)
->   {
->           int cpu;
+> If you really want to check this, then we should at least do the same
+> for the IRQ stack itself, otherwise it's all a bit academic. So maybe
+> have init_irq_scs() and init_irq_stacks() return -ENOMEM so that
+> init_IRQ() can panic?
 > 
->           if (!scs_is_enabled())
->                   return;
-> 
->           for_each_possible_cpu(cpu)
->                   per_cpu(irq_shadow_call_stack_ptr, cpu) =
->                           scs_alloc(cpu_to_node(cpu));
->   }
+> Will
 
-Yes, thanks for the check.
-
-> 
-> Other than these nits, feel free to add:
-> 
-> Reviewed-by: Breno Leitao <leitao@debian.org>
-
-Thank you. I sent v2:
+Thanks for the review, I just did that in v2:
 [PATCH v2] arm64: panic from init_IRQ if IRQ handler stacks cannot be
  allocated
-
-To cover init_irq_stacks as well.
 
 Best regards,
 Osama
