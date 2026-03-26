@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704D910AB81B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 19:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EDB10AB81C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 19:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdtXqquknGuUqL6GqA/v4IZ+ed3yZ+2k+ngeORMK4GU=; b=z+mn74nHIyQhkfAr0gsvxVkyGa
-	NIqFZzu2ccvDiEfaAMCpAo/yuD20RUhp4xuFD8TGG0hQ1OupvRi1RMYBGSo1Hwmes6M9CQdjpvqLj
-	flKhai10B/TZK4fITVS+2VPn1theBnLqwnwAgG++YVgHfdp8ALU1c3oD9wzDTum6eMyEOf2fasUsL
-	ZVEMLCXpK5K3wv5F6z2QcC3tWrDM9x7Y/Ar6zOPaxVRK2DNnWp2OqpofZgFmtKXGB686Pc8SM1w7R
-	sTQy0jnw4JzI+UrunRaUHdWXWBWOR2gNiq+YTGwTdEG8O/X0D5N0hwF4HPMLjwbzoX8s+gdjvfw/O
-	aNjWmLog==;
+	bh=aO2uIJbSD+YF3jo95ppfvxUCS57mgNrtzof3kCAk/0c=; b=xb/YWDAXeBNhx1kk+CKpJc74I6
+	u1rXGlUX9oMzv3LZ/jM21WgWoKnaDmmN9ghyc9x5as3POiODxolhe+RKi3DUZimvB6gGZz9QN1lWO
+	JVGo/MjTuf9kEeBiuE9ogiwdRyLpxjdaqKVVmFcl7uZG37PRVNaHfphhquZ1k+moIB538j5pPV+HN
+	+wL2PpTnnf/UKaTlH5/5n4QoqcXXDi0YqPTWndYsajXDOcV7Mf20k7hpwXlLsZEoBjfTtAtnlX5oU
+	j0SEhChMC9+ntuJufHpTmwaFwaxtmsC+Z/QbNZxSpsCChQjNmg+Zt8SY/Eg6kV0LyymGG4vbz0YrM
+	A2Qhoo+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5qod-000000069DC-2jMh;
-	Thu, 26 Mar 2026 19:56:27 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1w5qpn-000000069LN-3Wh1;
+	Thu, 26 Mar 2026 19:57:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5qoZ-000000069Cl-3q02
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 19:56:26 +0000
-Message-ID: <c7f22eac-3098-4833-b247-3a615f49a5ea@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774554978;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bdtXqquknGuUqL6GqA/v4IZ+ed3yZ+2k+ngeORMK4GU=;
-	b=VjL2urrk/SBki+yQR99mMY549D5LYJaXb020OwkspvZRg1ZvpnrQXoZCeSdlUNyukZGhmm
-	9XFYBIGzfQ+ZVZQYiBWD47PRtuOvFwf2Z3jF7fnU7xyaLFa3c1zNIELZ2DsYmqIvYm4ZiP
-	J6QSLZ1hZsGw9XQoocRWwOk3qQbW24c=
-Date: Thu, 26 Mar 2026 15:56:07 -0400
+	id 1w5qpl-000000069Ko-0QgJ;
+	Thu, 26 Mar 2026 19:57:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7383541AAD;
+	Thu, 26 Mar 2026 19:57:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB2D5C116C6;
+	Thu, 26 Mar 2026 19:57:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774555055;
+	bh=JttQr6ja19BA2NJCGUge8nm+gAYUlqCp/BXQRJsn6tk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Q4rcr3icHxtXNIKV8otrzy/M2ts4J7FKyHvTRDMiThEsg3UsHYnmzKAdkZBLAiAVw
+	 eFF4tMoGYttH/02V0fPgQPIa3MhtZJ8b+yceKHAxBRXzsbt1N+72iLv03D+yauctUu
+	 9LT26ZJbFPwjYlnM7WNeCBaos22MgZljhJCRLJKRfGjVy+9rUmnGupu+cy6fXs5B7y
+	 8kuddANncDFk51SIdCZLxdHVk0ima/XP8697+mocmMMikvRi9Hqbr400A6GkIqfXOz
+	 nkUwG1vWUhYvBsSGmWl9Gs6Opcb8SRt/6C3Lw8M1h5hApLzdIb4Wg10GlygF926V2O
+	 Be9VPD/rBkL7Q==
+Date: Thu, 26 Mar 2026 19:57:25 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Nick Xie <nick@khadas.com>
+Cc: neil.armstrong@linaro.org, khilman@baylibre.com,
+ martin.blumenstingl@googlemail.com, jbrunet@baylibre.com,
+ dlechner@baylibre.com, andy@kernel.org, krzk+dt@kernel.org,
+ robh@kernel.org, conor+dt@kernel.org, linux-iio@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/4] iio: adc: meson-saradc: add support for Meson S4
+Message-ID: <20260326195725.4be0624a@jic23-huawei>
+In-Reply-To: <20260325070618.81955-1-nick@khadas.com>
+References: <20260325070618.81955-1-nick@khadas.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH net 2/2] net: xilinx: axienet: Fix BQL accounting for
- multi-BD TX packets
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "Simek, Michal" <michal.simek@amd.com>,
- "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "horms@kernel.org" <horms@kernel.org>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Katakam, Harini" <harini.katakam@amd.com>
-References: <20260324145353.1899248-1-suraj.gupta2@amd.com>
- <20260324145353.1899248-3-suraj.gupta2@amd.com>
- <cfaf4077-144a-4876-b6b0-8d4388362217@linux.dev>
- <SA1PR12MB6798E4EB242D58AEB86661B9C949A@SA1PR12MB6798.namprd12.prod.outlook.com>
- <9f6a4e9f-9f93-4ced-92de-8fdc6154c694@linux.dev>
- <SA1PR12MB679810BDE0FD91B702A869C2C956A@SA1PR12MB6798.namprd12.prod.outlook.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <SA1PR12MB679810BDE0FD91B702A869C2C956A@SA1PR12MB6798.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_125624_725726_CF1416D0 
-X-CRM114-Status: GOOD (  32.41  )
+X-CRM114-CacheID: sfid-20260326_125737_163521_591E17C6 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,254 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/26/26 15:51, Gupta, Suraj wrote:
-> [Public]
-> 
->> -----Original Message-----
->> From: Sean Anderson <sean.anderson@linux.dev>
->> Sent: Thursday, March 26, 2026 9:08 PM
->> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
->> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
->> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>; Pandey,
->> Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
->> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> kernel@vger.kernel.org; Katakam, Harini <harini.katakam@amd.com>
->> Subject: Re: [PATCH net 2/2] net: xilinx: axienet: Fix BQL accounting for multi-BD
->> TX packets
->>
->> Caution: This message originated from an External Source. Use proper caution
->> when opening attachments, clicking links, or responding.
->>
->>
->> On 3/25/26 01:30, Gupta, Suraj wrote:
->> > [Public]
->> >
->> >> -----Original Message-----
->> >> From: Sean Anderson <sean.anderson@linux.dev>
->> >> Sent: Tuesday, March 24, 2026 9:39 PM
->> >> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
->> >> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
->> >> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>; Pandey,
->> >> Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
->> >> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
->> >> linux- kernel@vger.kernel.org; Katakam, Harini
->> >> <harini.katakam@amd.com>
->> >> Subject: Re: [PATCH net 2/2] net: xilinx: axienet: Fix BQL accounting
->> >> for multi-BD TX packets
->> >>
->> >> Caution: This message originated from an External Source. Use proper
->> >> caution when opening attachments, clicking links, or responding.
->> >>
->> >>
->> >> On 3/24/26 10:53, Suraj Gupta wrote:
->> >> > When a TX packet spans multiple buffer descriptors
->> >> > (scatter-gather), the per-BD byte count is accumulated into a local
->> >> > variable that resets on each NAPI poll. If the BDs for a single
->> >> > packet complete across different polls, the earlier bytes are lost and never
->> credited to BQL.
->> >> > This causes BQL to think bytes are permanently in-flight,
->> >> > eventually stalling the TX queue.
->> >> >
->> >> > Fix this by replacing the local accumulator with a persistent
->> >> > counter
->> >> > (tx_compl_bytes) that survives across polls and is reset only after
->> >> > updating BQL and stats.
->> >>
->> >> Do we need this? Can't we just do something like
->> >>
->> >
->> > Nope, the 'size' variable passed to axienet_free_tx_chain() is local
->> > to axienet_tx_poll() and goes out of scope between different polls.
->> > This means it can't track completion bytes across multiple NAPI polls.
->>
->> Yes, but that's fine since we only update completed bytes when we retire at
->> least one packet:
->>
->>         packets = axienet_free_tx_chain(lp, &size, budget);
->>         if (packets) {
->>                 netdev_completed_queue(ndev, packets, size);
->>                 u64_stats_update_begin(&lp->tx_stat_sync);
->>                 u64_stats_add(&lp->tx_packets, packets);
->>                 u64_stats_add(&lp->tx_bytes, size);
->>                 u64_stats_update_end(&lp->tx_stat_sync);
->>
->>                 /* Matches barrier in axienet_start_xmit */
->>                 smp_mb();
->>                 if (((tail - ci) & (lp->rx_bd_num - 1)) >= MAX_SKB_FRAGS + 1)
->>                         netif_wake_queue(ndev);
->>         }
->>
->> and this matches the value we use when enqueuing a packet
->>
->>         tail_p = lp->tx_bd_p + sizeof(*lp->tx_bd_v) * (last_p - lp->tx_bd_v);
->>         smp_store_release(&lp->tx_bd_tail, new_tail_ptr);
->>         netdev_sent_queue(ndev, skb->len);
->>
-> 
-> Let’s say we have a packet with 4 fragments. When xmit() is called, the last buffer descriptor (the 4th one) is marked with the retiral flag[1]. Now, during completion, suppose the first 3 buffer descriptors are processed in one NAPI poll, and the 4th descriptor is handled in a subsequent poll. In this scenario, the size won’t get updated for the first 3 BDs because there’s no packet retiral for them. Then, during the second poll, the size update will only reflect the completion length of the 4th BD.
+On Wed, 25 Mar 2026 15:06:14 +0800
+Nick Xie <nick@khadas.com> wrote:
 
-That's why I suggested using skb->len and not the size from the descriptor.
+> This series adds support for the SARADC IP block found in the Amlogic
+> Meson S4 (S905Y4) SoC and enables it for the Khadas VIM1S board to
+> support the onboard ADC 'Function' key.
+> 
+> There are no known hardware differences between the SARADC on the S4
+> and the previous G12A generation. The S4 bindings utilize a fallback
+> to G12A, but a dedicated driver match entry is included to ensure the
+> correct part name is exposed to the userspace ABI.
+> 
+Applied patches 1 and 2 to the togreg branch of iio.git.
 
---Sean
-
-> This means that the bytes corresponding to the first 3 fragments are never credited to BQL, which leads to incorrect accounting and, eventually, to the TX queue stalling as described.
-> Proposed changes to accumulate the completion length across polls until the entire packet is processed directly addresses this gap.
+> Changes in v3:
+> - Patch 1: Updated the commit message to explicitly explain why the
+>   comment regarding the generic fallback was added.
+> - Patch 2: Retained the driver patch and updated the commit message to
+>   clarify that the dedicated match entry is kept specifically for
+>   userspace ABI naming purposes.
+> - Link to v2: https://lore.kernel.org/all/20260323013408.429701-1-nick@khadas.com/
 > 
-> [1]: https://elixir.bootlin.com/linux/v7.0-rc5/source/drivers/net/ethernet/xilinx/xilinx_axienet_main.c#L1127
+> Changes in v2:
+> - Addressed feedback from Krzysztof Kozlowski:
+>   - Updated dt-bindings commit message to explain the hardware compatibility.
+>   - Separated the S4 compatible string in the YAML bindings to ensure it
+>     correctly falls back to the specific "amlogic,meson-g12a-saradc" rather
+>     than the generic "amlogic,meson-saradc".
+>   - Updated the S4 SoC dtsi to use the correct G12A fallback.
+> - Added Martin's Reviewed-by tags where appropriate.
+> - Link to v1: https://lore.kernel.org/all/20260228065840.702651-1-nick@khadas.com/
 > 
 > 
-> Regards,
-> Suraj
+> Nick Xie (4):
+>   dt-bindings: iio: adc: amlogic,meson-saradc: add S4 compatible
+>   iio: adc: meson-saradc: add support for Meson S4
+>   arm64: dts: amlogic: meson-s4: add internal SARADC controller
+>   arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add Function key
+>     support
 > 
->> > Regards,
->> > Suraj
->> >
->> >> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> index 415e9bc252527..1ea8a6592bce1 100644
->> >> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> @@ -768,6 +768,7 @@ static int axienet_free_tx_chain(struct
->> >> axienet_local *lp, u32 *sizep, int budge
->> >>                 if (cur_p->skb) {
->> >>                         struct axienet_cb *cb = (void
->> >> *)cur_p->skb->cb;
->> >>
->> >> +                       *sizep += skb->len;
->> >>                         dma_unmap_sgtable(lp->dev, &cb->sgt, DMA_TO_DEVICE, 0);
->> >>                         sg_free_table_chained(&cb->sgt, XAE_INLINE_SG_CNT);
->> >>                         napi_consume_skb(cur_p->skb, budget); @@
->> >> -783,8 +784,6 @@ static int axienet_free_tx_chain(struct axienet_local *lp,
->> u32 *sizep, int budge
->> >>                 wmb();
->> >>                 cur_p->cntrl = 0;
->> >>                 cur_p->status = 0;
->> >> -
->> >> -               *sizep += status & XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->> >>         }
->> >>
->> >>         smp_store_release(&lp->tx_bd_ci, (ci + i) & (lp->tx_bd_num -
->> >> 1));
->> >>
->> >> > Fixes: c900e49d58eb ("net: xilinx: axienet: Implement BQL")
->> >> > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
->> >> > ---
->> >> >  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  3 +++
->> >> > .../net/ethernet/xilinx/xilinx_axienet_main.c | 20
->> >> > +++++++++----------
->> >> >  2 files changed, 13 insertions(+), 10 deletions(-)
->> >> >
->> >> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > index 602389843342..a4444c939451 100644
->> >> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > @@ -509,6 +509,8 @@ struct skbuf_dma_descriptor {
->> >> >   *           complete. Only updated at runtime by TX NAPI poll.
->> >> >   * @tx_bd_tail:      Stores the index of the next Tx buffer descriptor in the
->> ring
->> >> >   *              to be populated.
->> >> > + * @tx_compl_bytes: Accumulates TX completion length until a full
->> packet is
->> >> > + *              reported to the stack.
->> >> >   * @tx_packets: TX packet count for statistics
->> >> >   * @tx_bytes:        TX byte count for statistics
->> >> >   * @tx_stat_sync: Synchronization object for TX stats @@ -592,6
->> >> > +594,7 @@ struct axienet_local {
->> >> >       u32 tx_bd_num;
->> >> >       u32 tx_bd_ci;
->> >> >       u32 tx_bd_tail;
->> >> > +     u32 tx_compl_bytes;
->> >> >       u64_stats_t tx_packets;
->> >> >       u64_stats_t tx_bytes;
->> >> >       struct u64_stats_sync tx_stat_sync; diff --git
->> >> > a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > index b06e4c37ff61..95bf61986cb7 100644
->> >> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > @@ -692,6 +692,8 @@ static void axienet_dma_stop(struct
->> >> > axienet_local
->> >> *lp)
->> >> >       axienet_lock_mii(lp);
->> >> >       __axienet_device_reset(lp);
->> >> >       axienet_unlock_mii(lp);
->> >> > +
->> >> > +     lp->tx_compl_bytes = 0;
->> >> >  }
->> >> >
->> >> >  /**
->> >> > @@ -770,8 +772,6 @@ static int axienet_device_reset(struct
->> >> > net_device
->> >> *ndev)
->> >> >   * @first_bd:        Index of first descriptor to clean up
->> >> >   * @nr_bds:  Max number of descriptors to clean up
->> >> >   * @force:   Whether to clean descriptors even if not complete
->> >> > - * @sizep:   Pointer to a u32 filled with the total sum of all bytes
->> >> > - *           in all cleaned-up descriptors. Ignored if NULL.
->> >> >   * @budget:  NAPI budget (use 0 when not called from NAPI poll)
->> >> >   *
->> >> >   * Would either be called after a successful transmit operation,
->> >> > or after @@ -780,7 +780,7 @@ static int axienet_device_reset(struct
->> >> > net_device
->> >> *ndev)
->> >> >   * Return: The number of packets handled.
->> >> >   */
->> >> >  static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
->> >> > -                              int nr_bds, bool force, u32 *sizep, int budget)
->> >> > +                              int nr_bds, bool force, int budget)
->> >> >  {
->> >> >       struct axidma_bd *cur_p;
->> >> >       unsigned int status;
->> >> > @@ -819,8 +819,8 @@ static int axienet_free_tx_chain(struct
->> >> > axienet_local
->> >> *lp, u32 first_bd,
->> >> >               cur_p->cntrl = 0;
->> >> >               cur_p->status = 0;
->> >> >
->> >> > -             if (sizep)
->> >> > -                     *sizep += status & XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->> >> > +             if (!force)
->> >> > +                     lp->tx_compl_bytes += status &
->> >> > + XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->> >> >       }
->> >> >
->> >> >       if (!force) {
->> >> > @@ -999,18 +999,18 @@ static int axienet_tx_poll(struct napi_struct
->> >> > *napi, int budget)  {
->> >> >       struct axienet_local *lp = container_of(napi, struct axienet_local,
->> napi_tx);
->> >> >       struct net_device *ndev = lp->ndev;
->> >> > -     u32 size = 0;
->> >> >       int packets;
->> >> >
->> >> >       packets = axienet_free_tx_chain(lp, lp->tx_bd_ci, lp->tx_bd_num, false,
->> >> > -                                     &size, budget);
->> >> > +                                     budget);
->> >> >
->> >> >       if (packets) {
->> >> > -             netdev_completed_queue(ndev, packets, size);
->> >> > +             netdev_completed_queue(ndev, packets,
->> >> > + lp->tx_compl_bytes);
->> >> >               u64_stats_update_begin(&lp->tx_stat_sync);
->> >> >               u64_stats_add(&lp->tx_packets, packets);
->> >> > -             u64_stats_add(&lp->tx_bytes, size);
->> >> > +             u64_stats_add(&lp->tx_bytes, lp->tx_compl_bytes);
->> >> >               u64_stats_update_end(&lp->tx_stat_sync);
->> >> > +             lp->tx_compl_bytes = 0;
->> >> >
->> >> >               /* Matches barrier in axienet_start_xmit */
->> >> >               smp_mb();
->> >> > @@ -1115,7 +1115,7 @@ axienet_start_xmit(struct sk_buff *skb,
->> >> > struct
->> >> net_device *ndev)
->> >> >                               netdev_err(ndev, "TX DMA mapping error\n");
->> >> >                       ndev->stats.tx_dropped++;
->> >> >                       axienet_free_tx_chain(lp, orig_tail_ptr, ii + 1,
->> >> > -                                           true, NULL, 0);
->> >> > +                                           true, 0);
->> >> >                       dev_kfree_skb_any(skb);
->> >> >                       return NETDEV_TX_OK;
->> >> >               }
+>  .../iio/adc/amlogic,meson-saradc.yaml         |  4 ++++
+>  .../amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 19 +++++++++++++++++++
+>  arch/arm64/boot/dts/amlogic/meson-s4.dtsi     | 14 ++++++++++++++
+>  drivers/iio/adc/meson_saradc.c                |  8 ++++++++
+>  4 files changed, 45 insertions(+)
+> 
 
 
