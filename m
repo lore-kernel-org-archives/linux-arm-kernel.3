@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB5B10A1E77
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 11:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86EFC10A1E7B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 11:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vgc9KvChhjRavgBjrlbscuXfO3SJeUlFlFdUNRpKwec=; b=qrGBNMiVrEyr4pLIDEbhftFne+
-	nd3I6DflCxaOyjmVz+WVXJqm9bUTU4m0rZDsSZoC/2EVadkNd8lc2gnD/CGmYWtfBd1RKKqi/ZBIv
-	p8rVrUT6bRZgzJUvXHelmjE0sLaQxvInBEuQV0xOCFy1PvBUKKg2lmd3ddAifyx4UOBWKfPQ2pWGv
-	DrBvOHixMm4HrY6onBz/VoxtS+Lv3No0Z+8INe3uwMhy4uJktiAt0Xo+iTfXG8UfprirUvg1VnSjN
-	LXir8Rn/U8tUaqzzdQEuXOF6PuJ2NuUatwoO7jyq9juHkTygLbEFmBwxdHNwbREyJK7UpD/QnWzIg
-	yvhqxJ+A==;
+	bh=ksxNBxafjTmVCofFZmS/77PXYTqsqEzFTMsAwe+qK+I=; b=X50ffOJweFllxtNJp16Lmly0bS
+	NSQ2nOfV8N4GwEPqfZkLw6/kaJykzbGmKH3cFwrOMHLAMd+WhY4BeqHS4nfjdVNIQjI+o40iNq+Ko
+	HCL11EGZKKFweq1yI0C2nH2H31DE1mHsxqblfqZLWzn8lpR6LN3gcOa2ZR4g/lg5WhHny34zrmNM7
+	1vm9/oyNlJAaWs0d3KcTXESaP2pYKmxINueZy4peWUJ+k/0V462L5OvLyGPW5bG2VLe2/3DoVEwTM
+	I+QYDdqx2tMtmZvi7KNsWTB08VrEw3AHg2M6K9ghzgp62/nrN7gSIp/Iei0/o85AXPSqvLttJQfhw
+	DuBN0M7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5iZR-00000005K9N-19cD;
-	Thu, 26 Mar 2026 11:08:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5ibq-00000005KQD-2Owy;
+	Thu, 26 Mar 2026 11:10:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5iZO-00000005K8x-2Drh;
-	Thu, 26 Mar 2026 11:08:11 +0000
+	id 1w5ibl-00000005KPJ-0gr6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 11:10:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E75184391B;
-	Thu, 26 Mar 2026 11:08:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91817C116C6;
-	Thu, 26 Mar 2026 11:08:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F68B60130;
+	Thu, 26 Mar 2026 11:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3A83C116C6;
+	Thu, 26 Mar 2026 11:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774523289;
-	bh=+FhWc0INodHNcusM5JjA9bz3CwoI7iZDfiT6TTB+4QA=;
+	s=k20201202; t=1774523436;
+	bh=qfdbXfpkXTWqgQ8FqX+0E2eSdl6peEciH9K0TiM3LiY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lOgdNxLsTi8DtMDzePjgCDmLAHI5mhZkzKeH7gXHNmILLQJwgN+KjBX5ja3sWHVQ8
-	 dOYWiUkC0dY/HRVSqfbB5jPWnjBYLt7uXcrCzmF0NMQ0Wb+8gk3c/UDUiiaUbcUdcx
-	 44tT+tHR+AVhfL/BdHxujl5NxuTiD7XRocYQyUo6MZXeSY1QmeQSN9DVDMouytg2XN
-	 PhqZ7oehi5pR/1/b1E3srSGvx0BFg8mBDE2Fq8Gc5NfwQl/b28iMzeuK2yZmililqC
-	 gwV7jhPOgAMYiEx/csjr5zacH8CCPdZns5Uw5iDLfzt/HL+XvlDdojiQL7uzIN0hSf
-	 /sZSgaNOMehzQ==
-Date: Thu, 26 Mar 2026 11:08:04 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH RESEND 1/2] regulator: dt-bindings: mt6315: Add regulator
- supplies
-Message-ID: <0d027c7e-f1a3-492f-880b-4b48d64bbd41@sirena.org.uk>
-References: <20260324053030.4077453-1-wenst@chromium.org>
- <20260324053030.4077453-2-wenst@chromium.org>
- <20260325-uncovered-carp-of-inquire-8a7acf@quoll>
- <32638731-8f33-4203-9e68-1170cff99280@sirena.org.uk>
- <CAGXv+5Fo2GmvWQGogA-KTsFChE0-SOwWek6BQ+ZA3xaXup_z+A@mail.gmail.com>
+	b=px3KYKv3RJT+LOvqiFgExnVdmCKebe4xPFh1tDNkC+R3Lpug2ZFS0Md2SRJjUw+HC
+	 qNP1OTJa4/QIsQOC2S0GrzOPY1kJ4T/ph5XcTDVj2gE1pRBC7RkzAxHSTPU3wwJ7vp
+	 O6q9k07csP33m4w24TbMuDMae0NbtEzmesgh802DrGOG3vPp7xhhkOcaw4kK6EQGkC
+	 WFzUifCaoE8MK7JAhAUHHepnDddbI/ceFm8dX5dd+jDdIUrLkohrHyqqDI6j5OsGWJ
+	 O6ltPecqlyOPBS5ybdDnjB8wGOn5G0/JVBHTyqO1rGK7SGg0sD8NaLtbBScnzaEZV3
+	 EtH4pyMXOI3Yw==
+Date: Thu, 26 Mar 2026 11:10:28 +0000
+From: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
+	Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org, catalin.marinas@arm.com, 
+	will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, 
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com, 
+	mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com, 
+	willy@infradead.org, dev.jain@arm.com, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/5] mm: rmap: support batched checks of the
+ references for large folios
+Message-ID: <a0181a7c-d191-483d-bbc9-678bc355a984@lucifer.local>
+References: <a4d7cf56-eab4-431d-886b-a32456e44736@linux.alibaba.com>
+ <CAGsJ_4woBVQdYcCbN1Btr2vxOL8OAujaHkNZZ41=S-TdNh-wbw@mail.gmail.com>
+ <d6820b1e-52ae-4ef2-8342-11818fdd0cb1@linux.alibaba.com>
+ <43831628-a00f-4292-9797-cb96a029bb00@kernel.org>
+ <e54e0ec1-b968-4e12-84a3-4e3d331b1c36@linux.alibaba.com>
+ <86f611cb-1292-44e4-b629-6503135d33ca@kernel.org>
+ <e5cb474a-a84d-4edc-8289-d68378feee7d@lucifer.local>
+ <e3e374cc-ddf2-4112-b063-6cb1839ea566@kernel.org>
+ <e227a7f7-0186-4d10-b7b4-c84ca8424bdd@lucifer.local>
+ <bfd282b1-523d-4945-97a0-ec30fe1df577@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q/FgDHQaj/4ct7kW"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAGXv+5Fo2GmvWQGogA-KTsFChE0-SOwWek6BQ+ZA3xaXup_z+A@mail.gmail.com>
-X-Cookie: Here there be tygers.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_040810_618972_BF9DE7E0 
-X-CRM114-Status: GOOD (  13.93  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <bfd282b1-523d-4945-97a0-ec30fe1df577@linux.alibaba.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 26, 2026 at 09:47:51AM +0800, Baolin Wang wrote:
+>
+>
+> On 3/25/26 11:06 PM, Lorenzo Stoakes (Oracle) wrote:
+> > On Wed, Mar 25, 2026 at 03:58:36PM +0100, David Hildenbrand (Arm) wrote:
+> > > On 3/25/26 15:36, Lorenzo Stoakes (Oracle) wrote:
+> > > > On Mon, Mar 16, 2026 at 03:15:18PM +0100, David Hildenbrand (Arm) wrote:
+> > > > > On 3/16/26 07:25, Baolin Wang wrote:
+> > > > > >
+> > > > > >
+> > > > > >
+> > > > > > Sure. However, after investigating RISC‑V and x86, I found that
+> > > > > > ptep_clear_flush_young() does not flush the TLB on these architectures:
+> > > > > >
+> > > > > > int ptep_clear_flush_young(struct vm_area_struct *vma,
+> > > > > >                 unsigned long address, pte_t *ptep)
+> > > > > > {
+> > > > > >      /*
+> > > > > >       * On x86 CPUs, clearing the accessed bit without a TLB flush
+> > > > > >       * doesn't cause data corruption. [ It could cause incorrect
+> > > > > >       * page aging and the (mistaken) reclaim of hot pages, but the
+> > > > > >       * chance of that should be relatively low. ]
+> > > > > >       *
+> > > > > >       * So as a performance optimization don't flush the TLB when
+> > > > > >       * clearing the accessed bit, it will eventually be flushed by
+> > > > > >       * a context switch or a VM operation anyway. [ In the rare
+> > > > > >       * event of it not getting flushed for a long time the delay
+> > > > > >       * shouldn't really matter because there's no real memory
+> > > > > >       * pressure for swapout to react to. ]
+> > > > > >       */
+> > > > > >      return ptep_test_and_clear_young(vma, address, ptep);
+> > > > > > }
+> > > > >
+> > > > > You'd probably want an arch helper then, that tells you whether
+> > > > > a flush_tlb_range() after ptep_test_and_clear_young() is required.
+> > > > >
+> > > > > Or some special flush_tlb_range() helper.
+> > > > >
+> > > > > I agree that it requires more work.
+>
+> (Sorry, David. I forgot to reply to your email because I've had a lot to
+> sort out recently.)
+>
+> Rather than adding more arch helpers (we already have plenty for the young
+> flag check), I think we should try removing the TLB flush, as I mentioned to
+> Barry[1]. MGLRU reclaim already skips the TLB flush, and it seems to work
+> fine. What do you think?
+>
+> Here are our previous attempts to remove the TLB flush:
+>
+> My patch: https://lkml.org/lkml/2023/10/24/533
+> Barry's patch:
+> https://lore.kernel.org/lkml/20220617070555.344368-1-21cnbao@gmail.com/
+>
+> [1] https://lore.kernel.org/all/6bdc4b03-9631-4717-a3fa-2785a7930aba@linux.alibaba.com/
+>
+> > > > Sorry unclear here - does the series need more work or does a follow up patch
+> > > > need more work?
+> > >
+> > > Follow up!
+> >
+> > Ok good as in mm-stable now. Sadly means I don't get to review it but there we
+> > go.
+>
+> Actually this patchset has already been merged upstream:)
 
---q/FgDHQaj/4ct7kW
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Err but this revision was sent _during_ the merge window...?
 
-On Thu, Mar 26, 2026 at 12:14:32PM +0800, Chen-Yu Tsai wrote:
-> On Thu, Mar 26, 2026 at 12:55=E2=80=AFAM Mark Brown <broonie@kernel.org> =
-wrote:
+Was sent on 9th Feb on Monday in merge window week 1, with a functional change
+listed:
 
-> > The top level, so people can figure out where to describe supplies
-> > without having to read the bindings so much - the supplies go into the
-> > chip, even if they're distributed within it.
+- Skip batched unmapping for uffd case, reported by Dev. Thanks.
 
-> OK. What about the more complicated mfd PMICs? We already added
-> *-supplies for the regulator side of these PMICs in
+And then sent in 2nd batch on 18th Feb (see [0]).
 
->   - regulator/mediatek,mt6358-regulator.yaml
->   - regulator/mediatek,mt6363-regulator.yaml
+So we were ok with 1 week of 'testing' (does anybody actually test -next during
+the merge window? Was it even sent to -next?) for what appears to be a
+functional change?
 
-> And my other series for the MT6359 also adds them in this manner.
+And there was ongoing feedback on this and the v5 series (at [1])?
 
-Existing bindings are existing bindings, we can't really do anything
-with them.
+This doesn't really feel sane?
 
---q/FgDHQaj/4ct7kW
-Content-Type: application/pgp-signature; name="signature.asc"
+And now I'm confused as to whether mm-stable patches can collect tags, since
+presumably this was in mm-stable at the point this respin was done?
 
------BEGIN PGP SIGNATURE-----
+Maybe I'm missing something here but this doesn't feel like a sane process?
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnFE5QACgkQJNaLcl1U
-h9CL7ggAgKF6xfRBI6ZivfcXbd/SrQnByho2Y1xJl2cnd1Y0TCfoatIiZB7ZiYz5
-qCv+EKML1pICmBQM+d2qEJfssXEOVqou60WZIaiK35y8/G7WuubtGGHeOTaj3ISC
-tYBPuL0xZkBonsk54HqiLedLdPI6kqudc17Bpjky4ohW5OEc6tBceHpIQ5JjeT47
-XWnIUn4lT2ceikRNsgj5AI7EaVYTSVh6o/cXPHuz1FbQMlEj9htuvaey7/NpH76f
-9N00HqwUP9qAesmrjOjVDa7M8sj5aPNLfH1YVL/qH03lP2dAOiqhYlmebW/YItNQ
-ZN0kBy1Lv2fAMLBLsMn4GlliVMsccQ==
-=aoz7
------END PGP SIGNATURE-----
+Thanks, Lorenzo
 
---q/FgDHQaj/4ct7kW--
+[0]:https://lore.kernel.org/all/20260218200016.8906fb904af9439e7b496327@linux-foundation.org/
+[1]:https://lore.kernel.org/linux-mm/cover.1766631066.git.baolin.wang@linux.alibaba.com/
 
