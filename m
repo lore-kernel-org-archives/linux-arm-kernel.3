@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F0C10A88FB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F0D10A88FB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4oUCsRnoIaW2TGVVr1v0fc10aw2+Dzx01XN7duE+vc=; b=vHhk+WSeRvN3V52tzgLHSHQNFx
-	7+MlV1h4lGOxwjAqa/1AmxkPW6noHw6x0DUv7cNNeVZNvrXphSKDLaWdGqSCBjnBXQJyVqwkdzreD
-	QzSKRji5O007j5jQOXc/UGCK5ShmVwCzRppPDZnpfYZrSxGfImuJraysG3tevMGERWVwK5yt+2v5+
-	t2wzLypce31AlwIlJi5zt6NvT97SfTdCZg0/cINiuLn3oLCW8bzR7V5UO52yP9FKsLHwUEP8gMhti
-	dIat0vq479sjzRunPysbmhvnrfIk/UtqoPDVjBGwA+TGVUm85DjtIswz3mI9DZnsFW47ZKSuQzLiK
-	awh4Os0A==;
+	bh=Ji45NUWbwmYmtJWis87trG6dXs16U0uRXqDBTnsy5d4=; b=FXInVjsK1v1GSyl58dpvW5hiJz
+	bfkzNs62GfZuzeSvbeJu5BOBz/CJe0cv4d1yO13hUNTDWYyPdT5iGlTPblLyG2tO7K6uXtxnSHcDy
+	BpSTIs2bGxF3y+T3zWZx2erBqBPcqcRTCdmWyoYuKWaou/as1WE11CWGE4NmHN7vRF9+F7P2olasN
+	ovE2I45LJDHsowfNmD8DtfIEfGAKzgALIEJNjz0MI3E6i7HsP+r0nyLps6j/vrV8PXKrtLTo/dAJu
+	rgTLXvjFxJVbf0blKjtjiI7Uk+ByD2Jfn8fhKVnh339lQA7MZtCAtYnRKDAB3oGLVtv7Logo1YRFb
+	BtlJFxmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pBf-000000060bl-3Meg;
-	Thu, 26 Mar 2026 18:12:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pBb-000000060ax-1nUU
+	id 1w5pBp-000000060dX-0NbH;
+	Thu, 26 Mar 2026 18:12:17 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5pBm-000000060d1-1VBP
 	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 18:12:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Ji45NUWbwmYmtJWis87trG6dXs16U0uRXqDBTnsy5d4=; b=mAWrfpvOlFfajgP5bFr/ohHOiA
+	1QPBL3YZnDhT3I0lLAI2A8ejzh1khwXIIIlePLo6ivYWUVBAGAQy6A2GU1zBq5zM1kgnU1ILI/7aT
+	6+bckNXZKZfbJrK+n5XOCoOxHpWJwkcBYCUd8Py71xIDe2hKglU2ktIDZA62zvZq4GzIFu+Z42HZf
+	4tD/jRwlnJmeiVEMZbzZDyxj2F3YdFmBbLa9BCXi3otIaZb1H+xuGGgTjvazJhCCtIbuLplgyZwGm
+	zOMVqdlpSrwJxH6wuXq+dbMDonDyugML57jeQwYfois/7z+HMwrPJM4W3foKfQI8eEMy3WOE3WilH
+	SXgUClFw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53576)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w5pBg-0000000059C-218X;
+	Thu, 26 Mar 2026 18:12:08 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w5pBe-000000007Fq-2PgA;
 	Thu, 26 Mar 2026 18:12:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8BAA1AED;
-	Thu, 26 Mar 2026 11:11:52 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A0A43F905;
-	Thu, 26 Mar 2026 11:11:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774548718; bh=dgIj3a5tK1onWSWVfqDJCKoL+8uwDoGTJyJ7ifoq1WE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pI8s02Y0og85zbp1uQ8eqYQhI5vaRqB/BdG9J9LhF+uyJtQfveZ9OA2eDC5pKbLZ7
-	 uh+Oa5bRLyHYGTTeXgVYdM5ddoR/qrKKdcafCsmegawct+nuY/dIFNB3sSOLvG2PV6
-	 flVGMh48lSb196pxzpduqOUBoBeYQdCsS9c2h4tY=
-Date: Thu, 26 Mar 2026 18:11:51 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
- masking
-Message-ID: <acV2552t5X4OlNYi@J2N7QTR9R3>
-References: <20260320113026.3219620-1-mark.rutland@arm.com>
- <20260320113026.3219620-2-mark.rutland@arm.com>
- <87eclek0mb.ffs@tglx>
- <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com>
- <87341ujwl4.ffs@tglx>
- <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com>
- <87fr5six4d.ffs@tglx>
- <acPAzdtjK5w-rNqC@J2N7QTR9R3>
- <87ecl7gbeu.ffs@tglx>
+Date: Thu, 26 Mar 2026 18:12:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 03/15] net: stmmac: qcom-ethqos: eliminate
+ configure_func
+Message-ID: <acV29ruRVy_fcwDq@shell.armlinux.org.uk>
+References: <acKNcX5PqtWYf8m3@shell.armlinux.org.uk>
+ <E1w51Xs-0000000DwVV-2bnh@rmk-PC.armlinux.org.uk>
+ <20260326180453.GU111839@horms.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87ecl7gbeu.ffs@tglx>
+In-Reply-To: <20260326180453.GU111839@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_111204_067541_D7B227B9 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260326_111214_399634_32201FA9 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,52 +86,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 04:46:01PM +0100, Thomas Gleixner wrote:
-> On Wed, Mar 25 2026 at 11:03, Mark Rutland wrote:
-> > On Sun, Mar 22, 2026 at 12:25:06AM +0100, Thomas Gleixner wrote:
-> > I *think* what would work for us is we could split some of the exit
-> > handling (including involuntary preemption) into a "prepare" step, as we
-> > have for return to userspace. That way, arm64 could handle exiting
-> > something like:
-> >
-> > 	local_irq_disable();
-> > 	irqentry_exit_prepare(); // new, all generic logic
-> > 	local_daif_mask();
-> > 	arm64_exit_to_kernel_mode() {
-> > 		...
-> > 		irqentry_exit(); // ideally irqentry_exit_to_kernel_mode().
-> > 		...
-> > 	}
-> >
-> > ... and other architectures can use a combined exit_to_kernel_mode() (or
-> > whatever we call that), which does both, e.g.
-> >
-> > 	// either noinstr, __always_inline, or a macro
-> > 	void irqentry_prepare_and_exit(void)
+On Thu, Mar 26, 2026 at 06:04:53PM +0000, Simon Horman wrote:
+> On Tue, Mar 24, 2026 at 01:11:44PM +0000, Russell King (Oracle) wrote:
+> > Since ethqos_fix_mac_speed() is called via a function pointer, and only
+> > indirects via the configure_func function pointer, eliminate this
+> > unnecessary indirection.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > 
-> That's a bad idea as that would require to do a full kernel rename of
-> all existing irqentry_exit() users.
+> ...
 > 
-> > 	{
-> > 		irqentry_exit_prepare();
-> > 		irqentry_exit();
-> > 	}
+> > @@ -623,14 +627,6 @@ static void ethqos_configure_sgmii(struct qcom_ethqos *ethqos,
+> >  	ethqos_pcs_set_inband(ethqos, interface == PHY_INTERFACE_MODE_SGMII);
+> >  }
+> >  
+> > -static void ethqos_fix_mac_speed(void *priv, phy_interface_t interface,
+> > -				 int speed, unsigned int mode)
+> > -{
+> > -	struct qcom_ethqos *ethqos = priv;
+> > -
+> > -	ethqos->configure_func(ethqos, interface, speed);
+> > -}
+> > -
+> >  static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
+> >  {
+> >  	struct qcom_ethqos *ethqos = priv;
 > 
-> Aside of the naming that should work.
+> Hi Russell,
+> 
+> FYI, AI generated review reports that the comment in ethqos_clks_config()
+> that references ethqos_fix_mac_speed() should also be updated.
 
-Thanks for confirming!
+Also already noted (yesterday).
 
-I've pushed a (very early, WIP) draft to
+I do keep an eye on patchwork for my own patches - I have a firefox tab
+permanently open for my patches in patchwork:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/entry/rework
+https://patchwork.kernel.org/project/netdevbpf/list/?submitter=165511
 
-... which is missing commit messages, comments, etc, but seems to work.
+Thanks anyway.
 
-I'll see about getting that tested, cleaned up, and on-list.
-
-Mark.
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
