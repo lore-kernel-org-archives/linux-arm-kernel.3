@@ -4,62 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FB610A62ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14E010A62EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yP0vCFC3wYLfo6TskOFea5vhjk7dxFakYltnqH3cZYQ=; b=li8PUTDqjbIVeakLG7Jf+iGacr
-	9gXd6Jik8HmBSOD9CELVgN0biVCv7stHhxFbyAe3GcQdipJmO42bzO6tJeb1xBaMhUsVVlnGWtQle
-	JF0oKFLKrKD+U/AGpAzTCUrXcvxQEH9fKjOO+DNFo3F6ECcAvBynmU0PqwAuyBry+sJFb4P65FTEH
-	/4Me49kfK0Kf+VLrt9kZjSowLRPnbcJPfDHKG5Fd6kJVupwsVq8CUoFCEUUpqlntpV04R4nO6LOoc
-	F384/9iHiZsRPBWQ2pg8rRbbDxNKVV2cBzPGnGuk5ngP/fD83mQZsv281xDi7CecHA8I2EFiIMIMJ
-	y0oCg+sw==;
+	bh=nXxhNfrsjG5BkIW8u/zXAWZcnoXSYaawf7ROBcQK2Aw=; b=wzoxvIZFuUWb0Wm+p5S2c5ElZG
+	lCiV7I9ZImjYlWTECErRKl/KIhSriR5YCNHUKb33IUBDIC0GIfLZa5E1Y3hofWj8SLi+xtU8MqWTq
+	Ragka0I3CmqfNS/qPbLW5fFh4NfvJ1OJnWCKL9QXx/PBO0UMcFW0BT8k58K03liji3Qm609Mjg5QJ
+	G4+2LflmRSr0Ctp4UAtUviqeVww95PAF0S4hH1+Ua3IdAjuGa+nkJ8XnRx2q6Dq3usQxEu7r2F/rt
+	0NE5+9yNxksSO6wRa8ACiv/dq1KdMpPLWlWdnl59Q5pmbq8KELwA6hhy+qQ6l9rFnaQxtW/rknwQJ
+	Ver1sezg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lhE-00000005dv4-3Uh3;
-	Thu, 26 Mar 2026 14:28:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lhC-00000005duU-21aW
+	id 1w5lhT-00000005dyb-2pK9;
+	Thu, 26 Mar 2026 14:28:43 +0000
+Received: from mail-westeuropeazon11013055.outbound.protection.outlook.com ([52.101.72.55] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5lhQ-00000005dxR-43nB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 14:28:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25313175A;
-	Thu, 26 Mar 2026 07:28:18 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEF663F905;
-	Thu, 26 Mar 2026 07:28:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774535304; bh=dA/pZ4/shfNbho/ZEQkoqhst9cEeIl6GK7g6aLxe5UI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Um+LlErDMPe0y91KuxuR/T0n/cwQ2fONLwEeDEFAWG7mHGE69Hr4FTTnTUXuwEVc/
-	 RQzpyXcebKDzXSFGEFu2nV+p4hCsK88v1/kfRyabXgV4mAKRhrJCyMuAPIs2TYxamR
-	 SUUiTUvJFhDgAZPKb3TyR/8VsI2Ve21OCUq18pZA=
-Date: Thu, 26 Mar 2026 14:28:14 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 1/3] KVM: arm64: selftests: Add library functions for NV
-Message-ID: <e2zrxu275atds5ejuhyda7o2wba5kzvinyx35ocfway3xlcjmj@5gyhvy57fhwp>
-References: <20260325003620.2214766-1-weilin.chang@arm.com>
- <20260325003620.2214766-2-weilin.chang@arm.com>
- <86o6kc46x8.wl-maz@kernel.org>
+	Thu, 26 Mar 2026 14:28:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GJvI9mgQfwAyPn5iV16ZEEZoJbeIU3Unptwm5uBg+sFp0UWZANkpWLpbPah0NQHH+N9BWejt3qb47X4HY8xbJe59J+NnpSUiodAf99Sh/HrjUS6Rch4MaPpEaYFEmuWstjHhaHY/DOV2f21GzWA5nI5iAhqMPT+cqWUI9B4vQEv4Zf2MjwcsOVu7OA/Vta1wlOSxY37KqSgDYpPvfTTNonHXMj7Ui2XcIBbJM4DuMzKjdF73rDAjTi3QjgYZuY8ls+rsFxNWBzlql5X1yyLCa0SbFPFmXe/PpqK2cHWmJNcbwq5Mku46gkrwCMFxMsIZ8V87SXz3r3MlmMFnltEKEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nXxhNfrsjG5BkIW8u/zXAWZcnoXSYaawf7ROBcQK2Aw=;
+ b=DScgn8ih0SDK/1emv0E5CRzCNhAnVF57KEQAE0kYI8otD7F5OpPpy32Sn8VMSbliZjWal+5eYdAEOWya75qg9K/nV8YUqGNmF2xELmMiIIECIntI06H0zI+isdI9YsLA1o9je+FrqiF4jO/M7tXnNErbe1aU2JmzLgIyezbyvMWAeNus4pLXbedUwxJERfDkG5kB+rdrmks6SfQv++Ujdrcq49+S4IDAPI6Cv2n/4zipxCd4OIuQWNrm9HxSIj6eMRjNd60Dl7IIRrYz46uD5wPJF25hxkrTzXSjIZu8ayZHih+bXI0rjudyRfwtiNT2kgRDJtz62if1UigwMSk+ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nXxhNfrsjG5BkIW8u/zXAWZcnoXSYaawf7ROBcQK2Aw=;
+ b=GXFsIAibBC4qKXXUNNUkfolwCSeGCMiezZ85z1eXSGVk2jOKbGZ+BQLc1tjzTDK9dFJguYUPzA+UvlyPCJsQMIyVGIHYjEcM053gJOfHet4lF20gdF5sSjkroKgzTem9xi0e/j/kWatDpr4KpZkT41WPo82bxoULPuPuVYKuNd3hODh2rEiQbLV3fXHg9N7ETXbqTPx1H6WNsXkZLTDdCEPCFgB3WctP1p5N+Im7L22JBORlqbuPSvWOvIBL0K7YAHNApqVBS8a9qcXEq+NcSnA2a7NXTPSGWNlsPv5zRzcse7VWk9uNuNZX3IuA99A5bEY1R/bKF9p91+ZQyGvK/g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GVXPR04MB12092.eurprd04.prod.outlook.com (2603:10a6:150:316::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Thu, 26 Mar
+ 2026 14:28:36 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.022; Thu, 26 Mar 2026
+ 14:28:36 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	Xu Yang <xu.yang_2@nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jun.li@nxp.com
+Subject: Re: [PATCH v2 1/2] arm64: dts: imx8qm-mek: switch Type-C connector power-role to dual
+Date: Thu, 26 Mar 2026 10:28:22 -0400
+Message-ID: <177453526691.4164045.13526085812002400362.b4-ty@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260324110459.2838767-1-xu.yang_2@nxp.com>
+References: <20260324110459.2838767-1-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SN6PR2101CA0009.namprd21.prod.outlook.com
+ (2603:10b6:805:106::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86o6kc46x8.wl-maz@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB12092:EE_
+X-MS-Office365-Filtering-Correlation-Id: 664e24b7-6627-49dc-d171-08de8b43f78c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|19092799006|1800799024|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: aNpPhyZIn5Sr0soa7+WRuV2Sr/+7xnhr/+uOeVHKdRFp3DMDfadZgFYMfBRm/rMf+1S2Yh6XZAUtfuKpfSurxn3R/QdfoCCA5ucrF2tyW76q5wJf/wXPrSwPcTqc597P5y8C/I0WKFRKn35nkmbI8DDy3Zyh0bGKnc+NussCC+/XOtpsIjIFA0IkPm+gewJEBJOCJiwYWRH2rLG51by/HlbOz+vg6aKCCuV6wESp6RDHw2qk2b3f78f4KUSJM5mVz44pY78FhUc7C/RvcwaSwvajHd4uE7dpwXf04FKR35bIoPEE1vFMZI4toTf22lwQJk8ZB/yJtpizt2hluOpTBwYZ9lLfPDbDDCYSZR0CBdHexjKDhVIejFrumqGjPQoJfaPSKv+FbXgbd6QYQWrJ8P5Lh9wbuUKuiAXwU60cM3We7KFwixuLFbZjsNnzH5UHMh37reTeBFHPNGH2dwgteHIco+IlGJ139JQeMRSzD0ukiW9phyNPJtjKOz7CmO2AfUnCnx0dvt5ibaHGbBh5TcoSG2/CuQD8I8co8E0CxwK/7JO7yB1UuIcex+jCjAKPTJWBG09Wirs2kNO2Kh16YuYk2DAbTOPS3hz16kWTRyT5kWHxmZHrJIwlroQcXpP2Mnd7hE+Ow5EKKRyVhcKCFjzHt+QZUGzdZZVGME5+hXwJzeG9AEQ1IM1RRshyd0YOn1j5VyNYCqwIIopTZUrC/TYH1iPFJsfVsCH/ZpxN18UywRO2VLvYxK3aaqQWBxxFXhzgQM6IMyJt5D6m0GgZY6RdYFvvAiicq3nPWRsrMF0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(19092799006)(1800799024)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cEZXRk5uakpKdmlXdENUdkdrRzZENE1mSHhmRFJOYm5GdXJ3bUZEMjc1OXUr?=
+ =?utf-8?B?L1ErZzBxUGpWRWx2SGtCK3BseFpRSzV1NE5UaHhweFRRMyszNnVZMHJ6cURC?=
+ =?utf-8?B?VWxpb2V3dzdUVXdaWVdLcjR4VTBVTUJFQjRIaGlFQis5ZUU4a0hyMHYrVkxD?=
+ =?utf-8?B?Q0c3Mm9vMW5ZbGdQZ0t2VU5iTGJ1NTdhT2k5QjM2VXlETU95OWZYU1RwTFJz?=
+ =?utf-8?B?RERUMlh5aVBnaklQeTdqMlcrTlBCbUo3Q0ZtN0tuZmJhSU1KTlpKY2VieHA4?=
+ =?utf-8?B?cUYza2xxTHJJY1pOWExRSGRpNk5icGMrL2orS0hBUktDVG52dTJtWVJPYm96?=
+ =?utf-8?B?Q0EwT2pla2JCZjJVck4wV1VWRUl2VjZLK0RqTDFQaElieWZ1bUI5Y2tVcUk3?=
+ =?utf-8?B?YXo2VFhvVWZTTUJiTm1rVFFFVXg1TUFlOUZicWROWmovd3RpZGJMakljakFP?=
+ =?utf-8?B?NEdMNVdUelUxZkx3Q3BkYWlrTGpyeUpHS0xZSjg3NmtEV0tBVW5nbGVzQ205?=
+ =?utf-8?B?UHplK3ZXQnlJUk93OWdmUm9KSC9xc21WVzFta05YUzZjTGdUaEhOeUR0Slc5?=
+ =?utf-8?B?UDZSTHRVRHZ3anE0dW4rN05KMU1UODZrQzNiVWFaSXhackJXODRscXNSd3VU?=
+ =?utf-8?B?M2wzYW05NUJSWTZsQm5ycFJhSTl0YzNWa3l3S2tBRGlkNitQc0VYdWNtL1dQ?=
+ =?utf-8?B?TjZvWTQ0MTExNG5TZUVQNEh1dlFvc20xeTZPaTdSQ3NwQ2NYa3dyVWIxWnB5?=
+ =?utf-8?B?UWhleXVmMVdQN1dmL2IvZHY3c1hVQ0NOZ2RTVHdiSUJjcmxEVDJBSTdueE9Y?=
+ =?utf-8?B?QmhjaFEwQWJvREhDbnhzSlQ1NlVKLzhwZzJZZVR0M282aUt2MjJuQWs0VUNL?=
+ =?utf-8?B?bG0wNlBWaTl1V0UyNTdZWUc1Y01iVnF1YUd3eUtZbzVzUjhSN0d6RytEOWhP?=
+ =?utf-8?B?M2tpdjNqaEtFOU9lYWNNdlRsL0VMQXNGMWp6dXlHY016UWZYV2VjMG1ER1A2?=
+ =?utf-8?B?MTJISmdBWk5zQmN0RmlUL3czUFh0YkQ0ZUdHbUhBVUNTWlFwcHovdnZUaTE0?=
+ =?utf-8?B?VkVocDNSMmxBYWU5Vy8wNDNSczlIVjFCVVYvdGdDQWtqM1JHT0pURTJMQlNJ?=
+ =?utf-8?B?OFpiRmZ3UkdzRndUejRLZkhhRVRWdzRGRmpPZFcwYyswQUo4RC9rUStQV2Y0?=
+ =?utf-8?B?V05Kd3QxTEhHL21GSlBBR3A5WWtYZytuMllzTnhXajBDbW1zcTVHL3VoZ05J?=
+ =?utf-8?B?SzBFamJEZ2k3eDI5bzI2NGNPWWIwODBSZUJyMG01N1lZdUpCdUxzYTl2N3VK?=
+ =?utf-8?B?QlRUTzBXN2F3NDZ0NlRzTVVwNUxzMmJveTRxYUdVYldnR0RZVVpMejN2VmtQ?=
+ =?utf-8?B?UkRpeGNxK2pzV2Jscnk2TWFaL01ZbU1PU0NMdnJZWWhOTzl4TjN5R05Hb0tM?=
+ =?utf-8?B?alJLQW0yZUJGeVh2TzVJZW9OSmV4MkdwMGVQS1dGUzBZdjBQWUczaTQ2ZmVD?=
+ =?utf-8?B?Q1hPTzJGVmZpblIvM04zVDMzelcrcndZYnl4SCtMYldRaHlEU2dyT0llZGxY?=
+ =?utf-8?B?R1RjQXpMNGlEemdCekdnbEk2V3ROUzFFK2d1cVZtR2JqMnprQmZHdWs5NGxY?=
+ =?utf-8?B?bndtK2lNVGJ2ekk2VGtUb0dEWkN6UHlNd29kU1NIVTNLTkxxNmZDb2pGMnhp?=
+ =?utf-8?B?R0pVTVpEd3lsVEZNLzJCM2o1Mkl2MmphSGtDTXhOcXd6eXRtaFQreWdvMnlw?=
+ =?utf-8?B?UGZaY1doMituZE5HWFB4K1hYSkg0MDJTb0ErRnJiM3FtN0NOSEJtVTh4Wkk5?=
+ =?utf-8?B?cncrNHExeEo5aWliTU1sMG5kR0JzNUNicUtrZ3BrOEJXcUVFUmxRZ0xwRVFr?=
+ =?utf-8?B?NkF0aWdVVHQ3OEljcCtRck9FUDVKMmxyZzVRZUJ6Vy9wNjJ6MmRyNGFNWTlX?=
+ =?utf-8?B?RmJzbVJteDNTWVVkZzlEMjhVaTM3RFpOTDhPMk5jSjJ4V3U4enM0eGgvYjdP?=
+ =?utf-8?B?a2UwZTlTMGFvaTNCRVpWWUIwRnJnQnlTNzhxVVhEZitwNDRyK0QxVlJadk44?=
+ =?utf-8?B?dUxzQ1NHUVJEbkp2R3BOTWJMMlVNQWZyOUcxK1ZyektEdDkrdkRNRnUrSzAv?=
+ =?utf-8?B?MnJPRElteGNnWFRKVGdZR1FxNmhUcHJHODExUU9Da3JTcU5iQ2NuMzlWOFZo?=
+ =?utf-8?B?WG1zZUVaQmVzVTE2TEtPU0JRVlQyK1hlVDBQWWV1UmtnMVIwYVdKQ21XdEUy?=
+ =?utf-8?B?ckhNWnc1TEhXT2cvWEJZMlByVW1kcXBxRUR5VkNaOHMyc2NhNUgyRk5KR0pG?=
+ =?utf-8?Q?cNsEuljXcu5P9e6pv4?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 664e24b7-6627-49dc-d171-08de8b43f78c
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 14:28:36.8523
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HtCs3lVd84P+SAg5xYBeuqd7GAD/6iLiVTb0IyX0wquLR6j5m0wcqzNEdVgevu/HOxTtcjNv7XzKYBNr+BhcQQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_072826_597875_5EAD9389 
-X-CRM114-Status: GOOD (  38.43  )
+X-CRM114-CacheID: sfid-20260326_072841_366104_E206199B 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,203 +154,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 09:03:47AM +0000, Marc Zyngier wrote:
-> On Wed, 25 Mar 2026 00:36:18 +0000,
-> Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> > 
-> > The API is designed for userspace to first call prepare_{l2_stack,
-> > hyp_state, eret_destination, nested_sync_handler}, with a function
-> > supplied to prepare_eret_destination() to be run in L2. Then run_l2()
-> > can be called in L1 to run the given function in L2.
-> > 
-> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > ---
-> >  tools/testing/selftests/kvm/Makefile.kvm      |  2 +
-> >  .../selftests/kvm/include/arm64/nested.h      | 18 ++++++
-> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 61 +++++++++++++++++++
-> >  .../selftests/kvm/lib/arm64/nested_asm.S      | 35 +++++++++++
-> >  4 files changed, 116 insertions(+)
-> >  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
-> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
-> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested_asm.S
-> > 
-> > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> > index 98da9fa4b8b7..5e681e8e0cd7 100644
-> > --- a/tools/testing/selftests/kvm/Makefile.kvm
-> > +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> > @@ -34,6 +34,8 @@ LIBKVM_arm64 += lib/arm64/gic.c
-> >  LIBKVM_arm64 += lib/arm64/gic_v3.c
-> >  LIBKVM_arm64 += lib/arm64/gic_v3_its.c
-> >  LIBKVM_arm64 += lib/arm64/handlers.S
-> > +LIBKVM_arm64 += lib/arm64/nested.c
-> > +LIBKVM_arm64 += lib/arm64/nested_asm.S
-> >  LIBKVM_arm64 += lib/arm64/processor.c
-> >  LIBKVM_arm64 += lib/arm64/spinlock.c
-> >  LIBKVM_arm64 += lib/arm64/ucall.c
-> > diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
-> > new file mode 100644
-> > index 000000000000..739ff2ee0161
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
-> > @@ -0,0 +1,18 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * ARM64 Nested virtualization defines
-> > + */
-> > +
-> > +#ifndef SELFTEST_KVM_NESTED_H
-> > +#define SELFTEST_KVM_NESTED_H
-> > +
-> > +void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
-> > +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
-> > +void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
-> > +void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
-> > +
-> > +void run_l2(void);
-> > +void after_hvc(void);
-> > +void do_hvc(void);
-> > +
-> > +#endif /* SELFTEST_KVM_NESTED_H */
-> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
-> > new file mode 100644
-> > index 000000000000..111d02f44cfe
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
-> > @@ -0,0 +1,61 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * ARM64 Nested virtualization helpers
-> > + */
-> > +
-> > +#include "kvm_util.h"
-> > +#include "nested.h"
-> > +#include "processor.h"
-> > +#include "test_util.h"
-> > +
-> > +#include <asm/sysreg.h>
-> > +
-> > +static void hvc_handler(struct ex_regs *regs)
-> > +{
-> > +	GUEST_ASSERT_EQ(get_current_el(), 2);
-> > +	GUEST_PRINTF("hvc handler\n");
-> > +	regs->pstate = PSR_MODE_EL2h | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
-> > +	regs->pc = (u64)after_hvc;
-> > +}
-> > +
-> > +void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-> > +{
-> > +	size_t l2_stack_size;
-> > +	uint64_t l2_stack_paddr;
-> > +
-> > +	l2_stack_size = vm->page_size == 4096 ? DEFAULT_STACK_PGS * vm->page_size :
-> > +					 vm->page_size;
-> 
-> Please use symbolic constants. Also, this looks wrong if the default
-> stack size is 32k and the page size is 16k. You probably want to
-> express a stack size directly, rather than a number of pages.
 
-Makes sense, will fix the size of the stack.
+On Tue, 24 Mar 2026 19:04:58 +0800, Xu Yang wrote:
+> When attach to PC Type-A port, the USB device controller does not function
+> at all. Because it is configured as source-only and a Type-A port doesn't
+> support PD capability, a data role swap is impossible.
+>
+> Actually, PTN5110THQ is configured for Source role only at POR, but after
+> POR it can operate as a DRP (Dual-Role Power). By switching the power-role
+> to dual, the port can operate as a sink and enter device mode when attach
+> to Type-A port.
+>
+> [...]
 
-> 
-> > +	l2_stack_paddr = __vm_phy_pages_alloc(vm, l2_stack_size / vm->page_size,
-> > +					      0, 0, false);
-> > +	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), l2_stack_paddr + l2_stack_size);
-> > +}
-> > +
-> > +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-> > +{
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
-> 
-> Surely the E2H value matters. Or are you planning to only run this on
-> configuration that hardcode E2H==0? That'd be pretty limiting.
+Applied, thanks!
 
-Yes it does matter, I was tunnel-visioned in trying to make L1 <-> L2
-transition work with the bare minimum, and missed what we will want in
-the future.
+[1/2] arm64: dts: imx8qm-mek: switch Type-C connector power-role to dual
+      commit: 755d74cc06950d0f0449794dd23f42669811f6c4
+[2/2] arm64: dts: imx8qxp-mek: switch Type-C connector power-role to dual
+      commit: 8c5dbb306887fc81737e0077b9d821909f64a5fb
 
-> 
-> > +}
-> > +
-> > +void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
-> > +{
-> > +	vm_paddr_t do_hvc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)do_hvc);
-> > +	vm_paddr_t l2_pc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)l2_pc);
-> > +
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SPSR_EL2), PSR_MODE_EL1h |
-> > +							    PSR_D_BIT     |
-> > +							    PSR_A_BIT     |
-> > +							    PSR_I_BIT     |
-> > +							    PSR_F_BIT);
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ELR_EL2), l2_pc_paddr);
-> > +	/* HACK: use TPIDR_EL2 to pass address, see run_l2() in nested_asm.S */
-> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), do_hvc_paddr);
-> > +}
-> > +
-> > +void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-> > +{
-> > +	if (!vm->handlers) {
-> > +		vm_init_descriptor_tables(vm);
-> > +		vcpu_init_descriptor_tables(vcpu);
-> > +	}
-> > +	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64,
-> > +				ESR_ELx_EC_HVC64, hvc_handler);
-> > +}
-> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested_asm.S b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
-> > new file mode 100644
-> > index 000000000000..4ecf2d510a6f
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
-> > @@ -0,0 +1,35 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * ARM64 Nested virtualization assembly helpers
-> > + */
-> > +
-> > +.globl run_l2
-> > +.globl after_hvc
-> > +.globl do_hvc
-> > +run_l2:
-> > +	/*
-> > +	 * At this point TPIDR_EL2 will contain the gpa of do_hvc from
-> > +	 * prepare_eret_destination(). gpa of do_hvc have to be passed in
-> > +	 * because we want L2 to issue an hvc after it returns from the user
-> > +	 * passed function. In order for that to happen the lr must be
-> > +	 * controlled, which at this point holds the value of the address of
-> > +	 * the next instruction after this run_l2() call, which is not useful
-> > +	 * for L2. Additionally, L1 can't translate gva into gpa, so we can't
-> > +	 * calculate it here.
-> > +	 *
-> > +	 * So first save lr, then move TPIDR_EL2 to lr so when the user supplied
-> > +	 * L2 function returns, L2 jumps to do_hvc and let the L1 hvc handler
-> > +	 * take control. This implies we expect the L2 code to preserve lr and
-> > +	 * calls a regular ret in the end, which is true for normal C functions.
-> > +	 * The hvc handler will jump back to after_hvc when finished, and lr
-> > +	 * will be restored and we can return run_l2().
-> > +	 */
-> > +	stp	x29, lr, [sp, #-16]!
-> > +	mrs	x0, tpidr_el2
-> > +	mov	lr, x0
-> > +	eret
-> > +after_hvc:
-> > +	ldp	x29, lr, [sp], #16
-> > +	ret
-> > +do_hvc:
-> > +	hvc #0
-> 
-> This probably works for a single instruction L2 guest, but not having
-> any save/restore of the L2 context makes it hard to build anything on
-> top of this.
+Add fixes tags for both patches
 
-Agreed, we need L2 save/restore to meaningfully test NV.
-
-Thanks,
-Wei-Lin Chang
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
