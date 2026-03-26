@@ -4,140 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9DA109E557
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A51C109E54B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 05:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VWC6Bj+K9uxHnGnEONT80OvFfh7DvFkOXxkVna9Jzek=; b=Pq0EqCMkFoXPa04LuhYzTWGWvM
-	uGpFNoxEM1ktdbChePwDOjz5e5S3TYuAj/nTBdB+ku66cCNHQFvaKRnNu6BHHOIuLDB9txVtiJvdW
-	0ayw4Rv0bBpW6CFp2oJfZOCDe7C2JoGo/yhBv2yFsHRSmYRbQ6S8c2WUFX3lly2o6quNm4ElqRCMV
-	Hc96tPbVSvu/hr58wVlhLbOCGEgktA1Gvz+R4xkGb0pyC74Wi/CUCPvfmeJEmnRw5T6Z4LjJYI8y/
-	A2Ij6+TmY2/eeCtOymaQppykEJaO6CW5tOeg4tilwuvaB0vTjaqDaOxrjuQZHdFddbDTnXCI7kMab
-	6kX3Ukjg==;
+	bh=808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=; b=f8BSuSGkUuB1OEuoycgeS49OUw
+	DNkKObEnoE9c4XmX+rkANxzvYgAyjItkevPq2Yy36ndSLERdczP6KCj+C2Zk5AjxxVrqNT/R1Qtie
+	wF1Gj5s4UNxyYQFEg/nxlY0VPEwv5kgabqw76h1xjYxItqltr1ekA5LhMh4HgUw9QvmFFvSS2A9CW
+	8VkQN09XZghnH91REeWOyf9vq5HQUSMEyaTJON0/YVzr5MK8v2nRQoxa06p3YbbEtnyg3GeJ17uIK
+	7Ic17uKPt7T+t3hA9C992XHqbRB1HZp2fvuAncHssIQzHZkLk3yGfr1QlLpubhdPY3nslygml4BWY
+	jiRduPPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5deO-00000004lJd-3Oxm;
-	Thu, 26 Mar 2026 05:53:00 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1w5dgd-00000004lU4-3I6j;
+	Thu, 26 Mar 2026 05:55:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5deM-00000004lJF-1z2O
+	id 1w5dgb-00000004lTf-2t2E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 05:52:59 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-358e3cc5e7eso325174a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 22:52:58 -0700 (PDT)
+	Thu, 26 Mar 2026 05:55:19 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62PKwLhQ1175797
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:55:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=; b=g6USjlaGedJfM+6c
+	sh043EGNYzelCOV0izT4tNV/QLb3n01n46Bcfmfqhk0dekR80UJbYOv+ECiKyqF5
+	hDGBoDW4HjYW1FAnHB6HQjPL6wiU4HzOonNQwpb/m8z7iZT58NXSi3dOBPrIjoKw
+	wuQ+A2qImDN45is0qhRImk0Fg9/VXYXt4bbMo7IOL2woERqueHmWAt0hrmhyhiv0
+	JLF5Kd2kqXU71weN+dS35T63ejg75uq5aWodNW+gv5W1MJbCfegg49wHfqx8ROk+
+	Zh+yu0VCeaDvVnApliD+U5Gk5SVWVPwHYOe3DC9JmVtMZhekVG/bxeogXSihbsCE
+	J0PCCw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d4q76sd4n-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:55:16 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2adef9d486bso11898545ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 22:55:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774504377; x=1775109177; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=VWC6Bj+K9uxHnGnEONT80OvFfh7DvFkOXxkVna9Jzek=;
-        b=JXaLeHoRGO5Z8Kz4h5g73GbMnS5/dKT5weYONpcNo1xPKUnFPzAEF89Qp6S7juc3Oi
-         +2unocOEl2UzkkiGKc3XM3CnJnEya97F7ZgfS2GHk4eWVXVY0pP/dT77hR4JBzCj+ZMV
-         qA1o4pCN0oM3CDtIsYTqxpVUFhldWw8nkGanjN9qmFg0ssNVRmTQTsJZ32RG+TofOo1u
-         wAqwDR9jXui8ZZQVPmwRQZOctyswmixfRIv3XVE3w6qZB3G7Fw7vfDuguH7v8WAXTLQ/
-         lBNMgj0XVM8P1o6ZA7AQzW/x5NqkQpUnTpXzrk3QQt35VRMleiw1oCXf+sD4CRo9VFjO
-         8QFg==
+        d=oss.qualcomm.com; s=google; t=1774504516; x=1775109316; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=;
+        b=PPmBBnFhNA6ApKMgqRUudbvIAeBGDGFyp8Ql4sdwb2r/JBlkalmv5Ge+Su5sAcmPHe
+         jnUGnDGqefBwAsMpmCOsSBUfWAsWTcD/Z0CKivtmg16AdyTowQ/YtLGQc4rfr+52XynB
+         FKg0q+ftLUXXxGycECKGrb3cPQMUU+wfL7LmDvU9ePqV2JY3NyschUjK/bO/aBqk7OpQ
+         +OvfMLgcjunA19KIvPPIzjWHAiF1Gzha8J6PDfwdpiMqX6Z4NFX19/K7Z4/a+WSNZTXM
+         DHEaL2NCRB0YfTdvOyZ32bwxD7PtvU+NTknpNN+2Gp7I4t8K3DYIAYKFJ5+6xEAGHAS2
+         YFCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774504377; x=1775109177;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VWC6Bj+K9uxHnGnEONT80OvFfh7DvFkOXxkVna9Jzek=;
-        b=TOuCm1ACSkHrYlUEDruavDjfN85V0h3ppX+7IvZSAm4YQ0vlhKKA/0iVSNtfZPnIP9
-         imTa/91d5mVvz5MuG+5A4yG9qw3ZXMhycZuSszmS7gG+OC42pXiLS7lgU5/ob6cC7rfI
-         22VRDn0cA6Bl0OipnYvmLzQJmHHqPgIL/jUgipaZvdQwzLbsi7XQeqKUOGgx8bZX/cfV
-         mDbmqnsvO7BVYcTfBY2uUI423O754GCmKPMiy174bsOa2j/FxAz7747TyuIjWkcn9wCz
-         OklYUwpmbeZS7Hhoo05txCDDBL56rnVfSJNlftwm/AxXI0bP3AHoZj1e0iuO6wdbKoNx
-         kVaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUbkI05KZf0L/BR0dF6TvBiwTODwnXWapILUNLJLdY3DJtlnLfin1e2ehrJwFXeha1bMWrCpVaBNmaFY75K7RC+@lists.infradead.org
-X-Gm-Message-State: AOJu0YymsY3I0u3bNgPobnFA0A32rj5xGbnBfEkkOlfiVuhqJkqAN+h2
-	xmW3zXpZEsBo6RsBYb8y0chXM3/smJPhYj/9NR0PKFqVs7jne+ZqlDcO
-X-Gm-Gg: ATEYQzxFV8SCD4MrY/Vi+SBsdrxbOPoXynjoP7JRXMnM0Vs490yimDc4K6IO+UgY9EK
-	YKZ79e0Ol3RvEG2BB8KbzrO6DvWX/KxtIiEqHK8UZsaknNYManXrzRr0I3K6Ml8Nfe2rgyseI7R
-	lSJkO8fe2n5Q1XyvBINGzGPWTCDjJHjaY1V167TVZFnSGeiqoD7IaDGPJ7X++k5TF3j0ZEKJIwL
-	wLQjVQ2vG+BBwdepqaaMcWcjbBpl6oZYOkFCexwPwGE2uWTGPrbHn4Xs/G9RCKiy6EMYmvND4+1
-	gwvNBlFKNB361F2AhGgv+ONGJHxUolvSrOSaTBAgIxcFC2U4NLdjCS6fLldslsdVCIxM7Qv/Lzs
-	byIw0mNccg2Ahj6fa+Gp7e3Im3qE3JH26jvwVsKWTuKKYq7oeNj2xblghChWpGWrcxbAoAtLSi5
-	PZdz95CkAReGcXTr9YTO6ClpKbal4e/A+iZKYv1FKm7LhttnjwH55SQ1OR2RDKWcaJzSTznnuC1
-	T8+28m+nss=
-X-Received: by 2002:a17:90b:3f46:b0:35b:e844:3bd with SMTP id 98e67ed59e1d1-35c0ddf6eabmr5677531a91.31.1774504377493;
-        Wed, 25 Mar 2026 22:52:57 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c22ce693csm329442a91.14.2026.03.25.22.52.56
+        d=1e100.net; s=20251104; t=1774504516; x=1775109316;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=808xdNmKLCaAFJRD8fSiUQE9ujHk0+F2A04hZAqckLw=;
+        b=Qc9uaiY1NA+CeKZzElarZGNpNyv8iuV2RR5b5KLz3wLUnJe22QP2qV5WJX6Bgyu9sY
+         hmB72HVYnBwM1UyEli6V5ChY/Cv8XNvltP6vX/JoNDd3Llt26/tbb92G9kCjJ6egegoy
+         mEK+NTKfj9Ed9cOpz/WIe/Y/4U0dIV2bPzcJI8+dT7pAZGLlsmj5iimfsVNL84YuuBEr
+         IzUctRL4nWAU+t3Q2yTcUesV6qlsPvElq3BuBfIbDjIOivXr3zLCniGv2UvMDiNB3g2J
+         vopknDEKlPgbkdi3EN3mfBxUyRbjymE/TCbwHfo3sAOzy3dGPfClqCTeDh6uTC8cwtPa
+         bqCA==
+X-Forwarded-Encrypted: i=1; AJvYcCViR20kzDMy6D7omm1TlN5AFKSSsit4xbqua7kCbA1bRZiLgb2NSvbLEJCY9gYvRitJSLmcEofapYHQYmaxU+cY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuLSCettwePnrmgUpx+aMa2sRh937PHKsONat6xZNzAJ/ZMWPh
+	EBGHIvxBEylUWLeBRaxRq8up451cSy3RfwAsDcBzFAW0k/iHLoZ3sIkRYfbNWwBfLxUaH+HixL8
+	6u+xFsjy9E3cERhW5ARHc4dQSAUEDDcH5w7ozLtegK1DB8CmFsYNNATRN5bi9d1N/df49GXQl/a
+	FNyw==
+X-Gm-Gg: ATEYQzwPAhuz2cTLJt72zycpSuL/5PcYag1BlQ5axETJ9AmXIT2PQjiuiTIS8c2sTns
+	7rzlNpjPhPHYiUzxDPAExa/62rfLrpZ2huJdPaoP5s57b+JcNYtGi9LzVonS2gTyR9lmJZZOL0/
+	+J+ZM6K23PuTQ687YIabnvWJi8+uCjsJFOgicJXUyKc/B9gAjQszOZXmdrwaTQvoDSKss88uKJo
+	PVfj5e9hNtgk97EnGClrIQIXB7nKd5fLg0Tq9YOYUdvdQstISbNMLLiFRdX+LX3th7dZu5aScGO
+	Gqk4jOETSEN1JQujZjquAhaG6u1LTj9XtCtcEGxniql9HFCL+UGidNT9+0NYQHQUCFX+hzLwsuv
+	NKliVXQ+FewFCFxd/RUWRGqiddCBz3nsonSHZqsGpOVJ/L9UUvfpw25lL
+X-Received: by 2002:a17:903:1b10:b0:2b0:673a:7c90 with SMTP id d9443c01a7336-2b0b0aad881mr74442665ad.28.1774504515823;
+        Wed, 25 Mar 2026 22:55:15 -0700 (PDT)
+X-Received: by 2002:a17:903:1b10:b0:2b0:673a:7c90 with SMTP id d9443c01a7336-2b0b0aad881mr74442365ad.28.1774504515275;
+        Wed, 25 Mar 2026 22:55:15 -0700 (PDT)
+Received: from [10.219.57.109] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc87e820sm17098715ad.50.2026.03.25.22.55.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Mar 2026 22:52:57 -0700 (PDT)
-Message-ID: <9648e0ae-8102-4f70-866b-163fbd5050eb@roeck-us.net>
-Date: Wed, 25 Mar 2026 22:52:55 -0700
+        Wed, 25 Mar 2026 22:55:14 -0700 (PDT)
+Message-ID: <65f76d05-1474-46d3-aa71-4acfe86c5718@oss.qualcomm.com>
+Date: Thu, 26 Mar 2026 11:23:53 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] hwmon: emc2305: Support configurable fan PWM at
- shutdown
-To: florin.leotescu@oss.nxp.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
- linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: daniel.baluta@nxp.com, viorel.suman@nxp.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-References: <20260325160444.1736866-1-florin.leotescu@oss.nxp.com>
- <20260325160444.1736866-3-florin.leotescu@oss.nxp.com>
+Subject: Re: [PATCH v11 0/3] of: parsing of multi #{iommu,msi}-cells in maps
+To: Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal
+ <nikhil.agarwal@amd.com>,
+        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Thomas Gleixner <tglx@kernel.org>,
+        Saravana Kannan <saravanak@kernel.org>,
+        Richard Zhu <hongxing.zhu@nxp.com>,
+        Lucas Stach <l.stach@pengutronix.de>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Bjorn Helgaas
+ <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
+        Stefano Stabellini <sstabellini@kernel.org>,
+        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
+        Vikash Garodia <vikash.garodia@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-pci@vger.kernel.org, imx@lists.linux.dev,
+        xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
+        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+References: <20260325-parse_iommu_cells-v11-0-1fefa5c0e82c@oss.qualcomm.com>
 Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
- RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
- nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
- 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
- gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
- IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
- kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
- VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
- jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
- BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
- ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
- CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAmgrMyQFCSbODQkACgkQyx8mb86fmYGcWRAA
- oRwrk7V8fULqnGGpBIjp7pvR187Yzx+lhMGUHuM5H56TFEqeVwCMLWB2x1YRolYbY4MEFlQg
- VUFcfeW0OknSr1s6wtrtQm0gdkolM8OcCL9ptTHOg1mmXa4YpW8QJiL0AVtbpE9BroeWGl9v
- 2TGILPm9mVp+GmMQgkNeCS7Jonq5f5pDUGumAMguWzMFEg+Imt9wr2YA7aGen7KPSqJeQPpj
- onPKhu7O/KJKkuC50ylxizHzmGx+IUSmOZxN950pZUFvVZH9CwhAAl+NYUtcF5ry/uSYG2U7
- DCvpzqOryJRemKN63qt1bjF6cltsXwxjKOw6CvdjJYA3n6xCWLuJ6yk6CAy1Ukh545NhgBAs
- rGGVkl6TUBi0ixL3EF3RWLa9IMDcHN32r7OBhw6vbul8HqyTFZWY2ksTvlTl+qG3zV6AJuzT
- WdXmbcKN+TdhO5XlxVlbZoCm7ViBj1+PvIFQZCnLAhqSd/DJlhaq8fFXx1dCUPgQDcD+wo65
- qulV/NijfU8bzFfEPgYP/3LP+BSAyFs33y/mdP8kbMxSCjnLEhimQMrSSo/To1Gxp5C97fw5
- 3m1CaMILGKCmfI1B8iA8zd8ib7t1Rg0qCwcAnvsM36SkrID32GfFbv873bNskJCHAISK3Xkz
- qo7IYZmjk/IJGbsiGzxUhvicwkgKE9r7a1rOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
- 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
- pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
- J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
- pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
- 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
- ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
- I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
- nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
- HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
- JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAmgrMyQFCSbODQkACgkQyx8mb86fmYHlgg/9
- H5JeDmB4jsreE9Bn621wZk7NMzxy9STxiVKSh8Mq4pb+IDu1RU2iLyetCY1TiJlcxnE362kj
- njrfAdqyPteHM+LU59NtEbGwrfcXdQoh4XdMuPA5ADetPLma3YiRa3VsVkLwpnR7ilgwQw6u
- dycEaOxQ7LUXCs0JaGVVP25Z2hMkHBwx6BlW6EZLNgzGI2rswSZ7SKcsBd1IRHVf0miwIFYy
- j/UEfAFNW+tbtKPNn3xZTLs3quQN7GdYLh+J0XxITpBZaFOpwEKV+VS36pSLnNl0T5wm0E/y
- scPJ0OVY7ly5Vm1nnoH4licaU5Y1nSkFR/j2douI5P7Cj687WuNMC6CcFd6j72kRfxklOqXw
- zvy+2NEcXyziiLXp84130yxAKXfluax9sZhhrhKT6VrD45S6N3HxJpXQ/RY/EX35neH2/F7B
- RgSloce2+zWfpELyS1qRkCUTt1tlGV2p+y2BPfXzrHn2vxvbhEn1QpQ6t+85FKN8YEhJEygJ
- F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
- FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260325160444.1736866-3-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+In-Reply-To: <20260325-parse_iommu_cells-v11-0-1fefa5c0e82c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=NOPYOk6g c=1 sm=1 tr=0 ts=69c4ca44 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=NEAV23lmAAAA:8 a=EUspDBNiAAAA:8
+ a=G4NFmJWIaiRLgIwbil8A:9 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: MdgrOLIBkcLSN_TsT11plRcytLGRteCm
+X-Proofpoint-GUID: MdgrOLIBkcLSN_TsT11plRcytLGRteCm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA0MiBTYWx0ZWRfX5oRrYeM1Q0d1
+ +A9fRRIEaaysxVGXsHMpkHH/jQf0cgpKLxS8KnDD0hCYyDDDDuUZQySCHBpdoFICzs4mSVglyFU
+ cFcANYPWc5uOa1C0i2hQn8y2vy9VnigraRNGgl1uWGDXI2veLwdYpO2/hei2e3clMwJkQyWMWDH
+ K+4FQPOqVxIeRhy6QCnH2F8aLFIFLOc8/ymacuG/4okMaTkNesEj5ipNtGLr/+IWTTWbzz/ZJyk
+ lZMrv9a3IIIxFf+eLT/n1fAhdedE04nKDIboU39Dur5HXbfKUJt1hhGJ3RdEb6LYB5F4j+P2fSk
+ +cM4OlOMEdQJ4qxXRq3HTQu4R+xZ9f62bIY5LRKuJlRGapPChUfne7U4Oit6OY46lSCH9nzIgwt
+ +r9P6m4CjXqq4RaWirDouJEgDlkbvySqVfQBGBAkpClQM2lIFJlVkWMv4Kt1R8KuCOlxzw2TUYb
+ O5KHjn51rgRanCt/nkQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-26_01,2026-03-24_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 spamscore=0 clxscore=1015 priorityscore=1501 lowpriorityscore=0
+ impostorscore=0 malwarescore=0 bulkscore=0 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603260042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_225258_530706_8BB6FD0B 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20260325_225517_766137_BBA3410C 
+X-CRM114-Status: GOOD (  34.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,146 +174,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/25/26 09:04, florin.leotescu@oss.nxp.com wrote:
-> From: Florin Leotescu <florin.leotescu@nxp.com>
-> 
-> Some systems require fans to enter in a defined safe state during system
-> shutdown or reboot handoff.
-> 
-> Add support for the optional Device Tree property "fan-shutdown-percent"
-> to configure the shutdown PWM duty cycle per fan output.
-> 
-> If the property is present for a fan channel, the driver converts the
-> configured percentage value to the corresponding PWM duty cycle and
-> applies it during driver shutdown.
-> 
-> If the property is not present, the fan state remains unchanged.
-> 
-> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
 
-Sashiko has a couple of concerns.
 
-https://sashiko.dev/#/patchset/20260325160444.1736866-1-florin.leotescu%40oss.nxp.com
+On 3/25/2026 4:38 PM, Vijayanand Jitta wrote:
+> So far our parsing of {iommu,msi}-map properties has always blindly
+> assumed that the output specifiers will always have exactly 1 cell.
+> This typically does happen to be the case, but is not actually enforced
+> (and the PCI msi-map binding even explicitly states support for 0 or 1
+> cells) - as a result we've now ended up with dodgy DTs out in the field
+> which depend on this behaviour to map a 1-cell specifier for a 2-cell
+> provider, despite that being bogus per the bindings themselves.
+> 
+> Since there is some potential use[1] in being able to map at least
+> single input IDs to multi-cell output specifiers (and properly support
+> 0-cell outputs as well), add support for properly parsing and using the
+> target nodes' #cells values, albeit with the unfortunate complication of
+> still having to work around expectations of the old behaviour too.
+> 							-- Robin.
+> 
+> Unlike single #{}-cell, it is complex to establish a linear relation
+> between input 'id' and output specifier for multi-cell properties, thus
+> it is always expected that len never going to be > 1. 
+> 
+> These changes have been tested on QEMU for the arm64 architecture.
+> 
+> Since, this would also need update in dt-schema, raised PR[2] for the
+> same.
+> 
+> [1] https://lore.kernel.org/all/20250627-video_cb-v3-0-51e18c0ffbce@quicinc.com/
+> [2] PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
+> 
+> V11:
+>   - Added explicit filter_np parameter to of_map_id() and of_map_msi_id()
+>     per Dmitry Baryshkov's review feedback, making the filter explicit
+>     instead of overloading arg->np as both input filter and output parameter.
+>   - Removed of_node_put() from inside of_map_id(), making the caller responsible
+>     for reference management. Updated of_msi_xlate() to properly handle reference counting.
+>   - Collected ACKed by tags, and fixed minor typos.
+>   Link to v10:
+>   https://lore.kernel.org/r/20260309-parse_iommu_cells-v10-0-c62fcaa5a1d8@oss.qualcomm.com
+> 
+> V10:
+>   - Move of_map_iommu_id()/of_map_msi_id() from include/linux/of.h to
+>     drivers/of/base.c as out-of-line helpers per feedback from Marc Zyngier
+>     and Rob Herring.
+>   - Add kernel-doc to document both helpers for discoverability and
+>     usage clarity.
+>   - Fix of_map_msi_id() wrapper and all its callers (cdx_msi.c,
+>     irq-gic-its-msi-parent.c, drivers/of/irq.c) to correctly use the new
+>     struct of_phandle_args-based API with proper of_node_put() handling
+>     as per feeback from Dmitry.
+>   Link to v9:
+>   https://lore.kernel.org/r/20260301-parse_iommu_cells-v9-0-4d1bceecc5e1@oss.qualcomm.com
+> 
+> V9:
+>   - Updated TO/CC list based on feedback to include all relevant
+>     maintainers.
+>   - No functional changes to the patches themselves.
+> 
+>   Link to V8:
+>   https://lore.kernel.org/all/20260226074245.3098486-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V8:
+>   - Removed mentions of of_map_args from commit message to match code.
+> 
+>   Link to V7:
+>   https://lore.kernel.org/all/20260210101157.2145113-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V7:
+>   - Removed of_map_id_args structure and replaced it with
+>     of_phandle_args as suggested by Dmitry.
+> 
+>   Link to V6:
+>   https://lore.kernel.org/all/20260121055400.937856-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V6:
+>   - Fixed build error reported by kernel test bot.
+> 
+>   Link to V5:
+>   https://lore.kernel.org/all/20260118181125.1436036-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V5:
+>   - Fixed Build Warnings.
+>   - Raised PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
+> 
+>   Link to V4:
+>   https://lore.kernel.org/all/20251231114257.2382820-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V4:
+>   - Added Reviewed-by tag.
+>   - Resolved warnings reported by kernel test bot, minor code
+>     reorganization.
+> 
+>   Link to V3:
+>   https://lore.kernel.org/all/20251221213602.2413124-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V3:
+>   - Added Reviewed-by tag.
+>   - Updated of_map_id_args struct as a wrapper to of_phandle_args and
+>     added comment description as suggested by Rob Herring.
+> 
+>   Link to V2:
+>   https://lore.kernel.org/all/20251204095530.8627-1-vijayanand.jitta@oss.qualcomm.com/
+> 
+> V2:
+>   - Incorporated the patches from Robin that does the clean implementation.
+>   - Dropped the patches the were adding multi-map support from this series
+>     as suggested.
+> 
+> V1:
+>  https://lore.kernel.org/all/cover.1762235099.git.charan.kalla@oss.qualcomm.com/
+> 
+> RFC:
+>  https://lore.kernel.org/all/20250928171718.436440-1-charan.kalla@oss.qualcomm.com/#r
+> 
+> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+> ---
+> 
+> ---
+> Charan Teja Kalla (1):
+>       of: Factor arguments passed to of_map_id() into a struct
+> 
+> Robin Murphy (2):
+>       of: Add convenience wrappers for of_map_id()
+>       of: Respect #{iommu,msi}-cells in maps
+> 
+>  drivers/cdx/cdx_msi.c                    |   8 +-
+>  drivers/iommu/of_iommu.c                 |   6 +-
+>  drivers/irqchip/irq-gic-its-msi-parent.c |  11 +-
+>  drivers/of/base.c                        | 213 ++++++++++++++++++++++++-------
+>  drivers/of/irq.c                         |  11 +-
+>  drivers/pci/controller/dwc/pci-imx6.c    |  18 ++-
+>  drivers/pci/controller/pcie-apple.c      |   6 +-
+>  drivers/xen/grant-dma-ops.c              |   5 +-
+>  include/linux/of.h                       |  30 ++++-
+>  9 files changed, 237 insertions(+), 71 deletions(-)
+> ---
+> base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
+> change-id: 20260301-parse_iommu_cells-1c33768aebba
+> 
+> Best regards,
 
-I don't know about the shutdown problem. If that is real, a lot of drivers
-have the same problem. Don't bother about it right now.
+Hi Robin,
 
-However, the range check should indeed be a separate patch.
+Could this series be pulled into an immutable branch/tag, if it doesn't
+make it into the v7.1 merge window ? There are client changes dependent on it,
+So it would help to get them moving forward rather than waiting another cycle.
 
 Thanks,
-Guenter
-
-> ---
->   drivers/hwmon/emc2305.c | 41 +++++++++++++++++++++++++++++++++++++++++
->   1 file changed, 41 insertions(+)
-> 
-> diff --git a/drivers/hwmon/emc2305.c b/drivers/hwmon/emc2305.c
-> index 64b213e1451e..722ec1d054f8 100644
-> --- a/drivers/hwmon/emc2305.c
-> +++ b/drivers/hwmon/emc2305.c
-> @@ -32,6 +32,7 @@
->   #define EMC2305_REG_DRIVE_PWM_OUT	0x2b
->   #define EMC2305_OPEN_DRAIN		0x0
->   #define EMC2305_PUSH_PULL		0x1
-> +#define EMC2305_PWM_SHUTDOWN_UNSET      -1
->   
->   #define EMC2305_PWM_DUTY2STATE(duty, max_state, pwm_max) \
->   	DIV_ROUND_CLOSEST((duty) * (max_state), (pwm_max))
-> @@ -104,6 +105,7 @@ struct emc2305_cdev_data {
->    * @pwm_output_mask: PWM output mask
->    * @pwm_polarity_mask: PWM polarity mask
->    * @pwm_separate: separate PWM settings for every channel
-> + * @pwm_shutdown: Set shutdown PWM.
->    * @pwm_min: array of minimum PWM per channel
->    * @pwm_freq: array of PWM frequency per channel
->    * @cdev_data: array of cooling devices data
-> @@ -116,6 +118,7 @@ struct emc2305_data {
->   	u8 pwm_output_mask;
->   	u8 pwm_polarity_mask;
->   	bool pwm_separate;
-> +	s16 pwm_shutdown[EMC2305_PWM_MAX];
->   	u8 pwm_min[EMC2305_PWM_MAX];
->   	u16 pwm_freq[EMC2305_PWM_MAX];
->   	struct emc2305_cdev_data cdev_data[EMC2305_PWM_MAX];
-> @@ -539,6 +542,7 @@ static int emc2305_of_parse_pwm_child(struct device *dev,
->   				      struct device_node *child,
->   				      struct emc2305_data *data)
->   {	u32 ch;
-> +	u32 pwm_shutdown_percent;
->   	int ret;
->   	struct of_phandle_args args;
->   
-> @@ -548,6 +552,12 @@ static int emc2305_of_parse_pwm_child(struct device *dev,
->   		return ret;
->   	}
->   
-> +	if (ch >= EMC2305_PWM_MAX) {
-> +		dev_err(dev, "invalid reg %u of node %pOF (valid range 0-%u)\n", ch, child,
-> +			EMC2305_PWM_MAX - 1);
-> +		return -EINVAL;
-> +	}
-> +
->   	ret = of_parse_phandle_with_args(child, "pwms", "#pwm-cells", 0, &args);
->   
->   	if (ret)
-> @@ -579,6 +589,16 @@ static int emc2305_of_parse_pwm_child(struct device *dev,
->   	}
->   
->   	of_node_put(args.np);
-> +
-> +	ret = of_property_read_u32(child, "fan-shutdown-percent",
-> +				   &pwm_shutdown_percent);
-> +
-  > +	if (!ret) {
-> +		pwm_shutdown_percent = clamp(pwm_shutdown_percent, 0, 100);
-> +		data->pwm_shutdown[ch] =
-> +			DIV_ROUND_CLOSEST(pwm_shutdown_percent * EMC2305_FAN_MAX, 100);
-> +	}
-> +
->   	return 0;
->   }
->   
-> @@ -631,6 +651,9 @@ static int emc2305_probe(struct i2c_client *client)
->   	if (ret)
->   		return ret;
->   
-> +	for (i = 0; i < EMC2305_PWM_MAX; i++)
-> +		data->pwm_shutdown[i] = EMC2305_PWM_SHUTDOWN_UNSET;
-> +
->   	pwm_childs = emc2305_probe_childs_from_dt(dev);
->   
->   	pdata = dev_get_platdata(&client->dev);
-> @@ -714,6 +737,23 @@ static int emc2305_probe(struct i2c_client *client)
->   	return 0;
->   }
->   
-> +static void emc2305_shutdown(struct i2c_client *client)
-> +{
-> +	int i;
-> +	int ret;
-> +	struct emc2305_data *data = i2c_get_clientdata(client);
-> +
-> +	for (i = 0; i < data->pwm_num; i++) {
-> +		if (data->pwm_shutdown[i] != EMC2305_PWM_SHUTDOWN_UNSET) {
-> +			ret = i2c_smbus_write_byte_data(client, EMC2305_REG_FAN_DRIVE(i),
-> +							data->pwm_shutdown[i]);
-> +			if (ret < 0)
-> +				dev_warn(&client->dev,
-> +					 "Failed to set shutdown PWM for ch %d\n", i);
-> +		}
-> +	}
-> +}
-> +
->   static const struct of_device_id of_emc2305_match_table[] = {
->   	{ .compatible = "microchip,emc2305", },
->   	{},
-> @@ -726,6 +766,7 @@ static struct i2c_driver emc2305_driver = {
->   		.of_match_table = of_emc2305_match_table,
->   	},
->   	.probe = emc2305_probe,
-> +	.shutdown = emc2305_shutdown,
->   	.id_table = emc2305_ids,
->   };
->   
-
+Vijay
 
