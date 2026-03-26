@@ -4,134 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5753310AB827
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C105B10AB82A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/RfNIxQKYIUQw14uhGh95D145k5nMWsOXW6Q5/pdSXY=; b=UKakzQT1DZi4G7K3+DCyGhGTgz
-	W+GIyvtGVdf1lWqNxCKmJI7SXAL4I5UeJ2BKSSYJeyl8AY8VFrgB/tNTwuNbrcTGYJUbycwZ/rNTc
-	64clnmVechfNTbJrcLNzBFJdzIRlxkDcap2oZQlmcwwzXRVdECRYT2gw8TCtnHCpgOiBiT+u4oEXD
-	5MDWybJMKNRoBB+MwGc6Yb5pE30DSDSruoxWDvPFtSsjJtki6s2UoWymmoSwKQAmqdzoqSi6Gb9em
-	C8PBJ5gbmsrY4rgZiTjcI4+MxcHIu1DhKU5vgUfe7eJRhB2k7lVVou4Op08kvnak87snGQUH1eu7C
-	u2aDsJEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7W8Xkg5QSZnTdHv5Qu95enKHkyHvoCIxGgaDV0/vmWM=; b=Hxyev4fIyYs/SUFUEAk3azyKwB
+	lo3TY8yjTf6v5frHa0hkQ/4Azj9tTTYLerqzY3mvquN6IO8d2JF9SGeGeW4NXzFnQETLcB3n9B9Bt
+	sOSqwZTnXVEsBf2OyHKX1DLpdWWrjysnV6lONpV2t5mDy1AgCNZO/gJodgND5PcB7ynqqzZK/uUAf
+	UhVuBOzVbdHySFS5Hd46uVr0+PUeHaDRqpsl+v13UdIOqrudnjwAUWuARSt65fWSx4HAId1oaSnIE
+	bEIkCPnPxRNDJSG3SwW5vnSKcjx6WOpVRXpcXzJfE2uBbAAlZB143DsgxUTcloVNLenYoYAN+SN6N
+	JZWmwf/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5sL0-00000006Fp5-2i8e;
-	Thu, 26 Mar 2026 21:33:58 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5sKx-00000006FoD-31I3;
-	Thu, 26 Mar 2026 21:33:57 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 539C31D00217;
-	Thu, 26 Mar 2026 17:33:52 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 26 Mar 2026 17:33:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774560832;
-	 x=1774647232; bh=/RfNIxQKYIUQw14uhGh95D145k5nMWsOXW6Q5/pdSXY=; b=
-	IqMDVtdy9g3dNXgBMcJk+Fp8v+OY7nMFAksZR5I3dKQs/pgnaPLGfcCyGhi4aVyc
-	s89Zcud45a2CiZ9yyMK4PuF1EOB8yUb3WVnIvT4GofP2S47gqvcYCpFmJOfaK5Y+
-	KOc+agOMOn6DJ2PfKjMqOMaLTktYz8TexeDDdslrrZ3Y5yiTURS/f35oGGD+09Y6
-	sXrfaZKwKn7C5lupvsFmk0x81toqerRu418G0pUGq6hC1uP/9jYxwWbyZf+bazou
-	6XnYpjG6S0tQVQAdhhBFbX8WBzAqxLBnZAjvxsLffwRfy/BTApMN9h5uREDwD0zQ
-	m1wi5i+tYDinsj7+okztaQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774560832; x=
-	1774647232; bh=/RfNIxQKYIUQw14uhGh95D145k5nMWsOXW6Q5/pdSXY=; b=L
-	Lg61lWUQRpa5QRAliKcb5POX6yAcwUI0CN1HB0waBRaDhO0KKDghAxEPcbdyiiY9
-	fXZn41nDBH8tNiGNBBJ5Mxk2Wl4Zgozj9uQK/7Si3ail04diJxgnNwqD1f16bx1N
-	KA4N7tNulPLr1ULFKid2JB+H3cj5O9FBHHin6MNDLmC6AuDl9ZMFuZPbqt+J5mAS
-	xc5d44SI0INI9Q4j+2/a27p/4WC8ylhPqB2qiVdtXSqzyVNHQt46QjNRHTLM3wDw
-	gZtHREbrzp1lm4wQ9ROzSksT8ZUVo1lNiKxBBMO98KVE1JjBSkCG8SQSvO8h0Vje
-	vY3hn/uAhrdrVmoZMWaTQ==
-X-ME-Sender: <xms:P6bFaZLAEEBV3bwCDeAZPmOSFJwnzpkHCftpSnS8W1WdOa0CTq6GQw>
-    <xme:P6bFaf_9S1JQLWU0MdN0d9J9bDLLmp1dF-WUzWA4LusG4x5Pn1IejQHX74hxqxXZY
-    bTc6bEPtn7nGWANqBVfLEHUSFUZyNR5skKizikSigPJc2R8Qfd_bW4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdekgeejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfeelpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehjrghmihgvrdgtuhhnlhhifhhfvgesrghrmhdrtghomhdprhgtph
-    htthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohep
-    mhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrg
-    hrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrnhhtohhnrdhivhgrnhhovhes
-    tggrmhgsrhhiughgvghgrhgvhihsrdgtohhmpdhrtghpthhtohepuggrvhhiugesuggrvh
-    hiughgohifrdhnvghtpdhrtghpthhtohepghgrrhihsehgrghrhihguhhordhnvghtpdhr
-    tghpthhtohepsghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheptg
-    hhrhhishhirdhstghhrhgvfhhlsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:P6bFabzGQvj2wxAZfO7oFq_v1ja8RKR7HYucMtfA26YKLazWNFrATQ>
-    <xmx:P6bFaYrjXYtdlUeYWsmgjMA4oDcGRCKW-jMdtK9pnhtU3nqkJuf8Wg>
-    <xmx:P6bFaRzgw_OcbHg_6LazXrPsPveaVBX5aOIxtPlylfA7b7UQRUcdjw>
-    <xmx:P6bFaaol0MvBm8Edvwg7LeY9Kw5WWM57FN7B_4SvuL6j84f9MqF_Ug>
-    <xmx:QKbFaY2XZ5RWYMQAUukqG2sMMwP8B1UHXdInUhfkcbGuv_wfeoAAs7Wj>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 6AE92700065; Thu, 26 Mar 2026 17:33:51 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w5sM0-00000006G1a-1BDx;
+	Thu, 26 Mar 2026 21:35:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5sLx-00000006G0z-1XlM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 21:34:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 943172BCB;
+	Thu, 26 Mar 2026 14:34:49 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 209D73F905;
+	Thu, 26 Mar 2026 14:34:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774560895; bh=vFMzB5FzE/YeUOfPlYcV8dkuzyJituD5v8MIp3FFntA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SzyCptW2sHfGNRvQ0ORLOh4uwj+j/9C1mNnqIwJpNMyt/huaihkYQls/skdE0xGD4
+	 z+hV+4TIZZAWTi2/adw3cBCdhf5cTfzInUg8nnVMWmoqV4kKQT+4Ah2qX0lNhh29zI
+	 V9OnoG+FzAekd4m/rEzJ/xOG1fG04EX1hBzE/a5U=
+Date: Thu, 26 Mar 2026 21:34:45 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 3/3] KVM: arm64: selftests: Enable stage-2 in NV
+ preparation functions
+Message-ID: <tiwr5dxrkk5ghn7r7j4wksp7237ttft3mdsrvuc7cck7ljomwg@tvytbqrjttf7>
+References: <20260325003620.2214766-1-weilin.chang@arm.com>
+ <20260325003620.2214766-4-weilin.chang@arm.com>
+ <acN_YIzr6JZmYhZ8@sm-arm-grace07>
 MIME-Version: 1.0
-X-ThreadId: AUJnWW6OA6Vc
-Date: Thu, 26 Mar 2026 22:33:14 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Russell King" <linux@armlinux.org.uk>,
- "Christian Schrefl" <chrisi.schrefl@gmail.com>
-Cc: "Miguel Ojeda" <miguel.ojeda.sandonis@gmail.com>,
- "Alice Ryhl" <aliceryhl@google.com>, "Ard Biesheuvel" <ardb@kernel.org>,
- "Jamie Cunliffe" <Jamie.Cunliffe@arm.com>,
- "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Miguel Ojeda" <ojeda@kernel.org>,
- "Andreas Hindborg" <a.hindborg@kernel.org>, acourbot@nvidia.com,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Danilo Krummrich" <dakr@kernel.org>, "David Gow" <david@davidgow.net>,
- "Gary Guo" <gary@garyguo.net>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "Justin Stitt" <justinstitt@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-um@lists.infradead.org, llvm@lists.linux.dev,
- "Benno Lossin" <lossin@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, mmaurer@google.com,
- "Bill Wendling" <morbo@google.com>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
- "Nicolas Schier" <nicolas.schier@linux.dev>,
- "Nicolas Schier" <nsc@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Richard Weinberger" <richard@nod.at>, rust-for-linux@vger.kernel.org,
- "Trevor Gross" <tmgross@umich.edu>,
- "Uladzislau Rezki (Sony)" <urezki@gmail.com>
-Message-Id: <641592e3-2354-4238-9eb8-a1f5c2a13126@app.fastmail.com>
-In-Reply-To: <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
-References: <20260322192159.88138-1-ojeda@kernel.org>
- <20260323000327.111235-1-ojeda@kernel.org>
- <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
- <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
- <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
- <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <acN_YIzr6JZmYhZ8@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_143355_797515_A78A2806 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260326_143457_493246_90C9AD9D 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,38 +75,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026, at 16:18, Russell King (Oracle) wrote:
-> On Thu, Mar 26, 2026 at 03:31:26PM +0100, Christian Schrefl wrote:
->> On 3/26/26 2:47 PM, Miguel Ojeda wrote:
->> > On Thu, Mar 26, 2026 at 11:10=E2=80=AFAM Alice Ryhl <aliceryhl@goog=
-le.com> wrote:
->
-> I'm not sure if this is still true, but I believe it used to be the ca=
-se
-> that the -linux-gnueabi target has one behaviour for enums (fixed size)
-> whereas -none-eabi, the size of the type depends on the range of values
-> included in the enum.
+On Wed, Mar 25, 2026 at 03:23:28PM +0900, Itaru Kitayama wrote:
+> Hi Wei Lin,
 
-I checked Debian's arm-none-eabi-gcc, which indeed still has this behavi=
-or:
+Hi,
 
-$ echo 'enum { A, B } x =3D sizeof(x);' | arm-none-eabi-gcc -xc - -O2 -o=
-- -S | grep -A1 x:
-x:
-	.byte	1
+> On Wed, Mar 25, 2026 at 12:36:20AM +0000, Wei-Lin Chang wrote:
+> > Introduce library functions for setting up guest stage-2 page tables,
+> > then use that to give L2 an identity mapped stage-2 and enable it.
+> > 
+> > The translation and stage-2 page table built is simple, start level 0,
+> > 4 levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
+> > 
+> > The nested page table code is adapted from lib/x86/vmx.c.
+> > 
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  .../selftests/kvm/include/arm64/nested.h      |  7 ++
+> >  .../selftests/kvm/include/arm64/processor.h   |  9 ++
+> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 97 ++++++++++++++++++-
+> >  3 files changed, 111 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > index 739ff2ee0161..0be10a775e48 100644
+> > --- a/tools/testing/selftests/kvm/include/arm64/nested.h
+> > +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > @@ -6,6 +6,13 @@
+> >  #ifndef SELFTEST_KVM_NESTED_H
+> >  #define SELFTEST_KVM_NESTED_H
+> >  
+> > +uint64_t get_l1_vtcr(void);
+> 
+> Using a type u64 is simpler? And I think you configure guest
+> hypervisor's stage 2 translation table, I felt this gives us
+> an impression somewhere the configuration IA and OA sizes etc 
+> are stored.
 
-and I see the same thing for the hexagon target in clang, but none
-of the other targets that Linux runs on. In particular, clang always
-behaves like linux-gnueabi even when targeting plain eabi.
+Sure, u64 is okay.
+In this version I basically just used hard-coded values whenever I not
+needed IA, OA and other related values e.g. page shift, which is not
+good and as Marc said would not even work on some platforms. I'll make
+it more modular in the next iteration.
 
-$ echo 'enum { A, B } x =3D sizeof(x);' | clang --target=3Darm-none-eabi=
- -xc - -O2 -o- -S | grep -A1 x:
-x:
-	.long	4
+> 
+> > +
+> > +void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
+> > +		uint64_t nested_paddr, uint64_t paddr, uint64_t size);
+> > +void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
+> > +			uint32_t memslot);
+> > +
+> >  void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> >  void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> >  void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
+> > diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
+> > index ac97a1c436fc..5de2e932d95a 100644
+> > --- a/tools/testing/selftests/kvm/include/arm64/processor.h
+> > +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
+> > @@ -104,6 +104,15 @@
+> >  #define TCR_HA			(UL(1) << 39)
+> >  #define TCR_DS			(UL(1) << 59)
+> >  
+> > +/* VTCR_EL2 specific flags */
+> > +#define VTCR_EL2_T0SZ_BITS(x)	((UL(64) - (x)) << VTCR_EL2_T0SZ_SHIFT)
+> > +
+> > +#define VTCR_EL2_SL0_LV0_4K	(UL(2) << VTCR_EL2_SL0_SHIFT)
+> > +#define VTCR_EL2_SL0_LV1_4K	(UL(1) << VTCR_EL2_SL0_SHIFT)
+> > +#define VTCR_EL2_SL0_LV2_4K	(UL(0) << VTCR_EL2_SL0_SHIFT)
+> > +
+> > +#define VTCR_EL2_PS_40_BITS	(UL(2) << VTCR_EL2_PS_SHIFT)
+> > +
+> >  /*
+> >   * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
+> >   */
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > index 111d02f44cfe..910f8cd30f96 100644
+> > --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > @@ -1,8 +1,11 @@
+> >  // SPDX-License-Identifier: GPL-2.0
+> >  /*
+> > - * ARM64 Nested virtualization helpers
+> > + * ARM64 Nested virtualization helpers, nested page table code adapted from
+> > + * ../x86/vmx.c.
+> >   */
+> >  
+> > +#include <linux/sizes.h>
+> > +
+> >  #include "kvm_util.h"
+> >  #include "nested.h"
+> >  #include "processor.h"
+> > @@ -18,6 +21,87 @@ static void hvc_handler(struct ex_regs *regs)
+> >  	regs->pc = (u64)after_hvc;
+> >  }
+> >  
+> > +uint64_t get_l1_vtcr(void)
+> > +{
+> > +	return VTCR_EL2_PS_40_BITS | VTCR_EL2_TG0_4K | VTCR_EL2_ORGN0_WBWA |
+> > +	       VTCR_EL2_IRGN0_WBWA | VTCR_EL2_SL0_LV0_4K | VTCR_EL2_T0SZ_BITS(48);
+> > +}
+> > +
+> > +static void __nested_pg_map(struct kvm_vm *vm, uint64_t guest_pgd,
+> > +		     uint64_t nested_paddr, uint64_t paddr, uint64_t flags)
+> > +{
+> > +	uint8_t attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
+> > +	uint64_t pg_attr;
+> > +	uint64_t *ptep;
+> > +
+> > +	TEST_ASSERT((nested_paddr % vm->page_size) == 0,
+> > +		"L2 IPA not on page boundary,\n"
+> > +		"  nested_paddr: 0x%lx vm->page_size: 0x%x", nested_paddr, vm->page_size);
+> > +	TEST_ASSERT((paddr % vm->page_size) == 0,
+> > +		"Guest physical address not on page boundary,\n"
+> > +		"  paddr: 0x%lx vm->page_size: 0x%x", paddr, vm->page_size);
+> > +	TEST_ASSERT((paddr >> vm->page_shift) <= vm->max_gfn,
+> > +		"Physical address beyond maximum supported,\n"
+> > +		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
+> > +		paddr, vm->max_gfn, vm->page_size);
+> > +
+> > +	ptep = addr_gpa2hva(vm, guest_pgd) + ((nested_paddr >> 39) & 0x1ffu) * 8;
+> > +	if (!*ptep)
+> > +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PGD_TYPE_TABLE | PTE_VALID;
+> 
+> Same but given this is stage 2 translation tables, KVM_PTE_VALID?
 
-I noticed a similar issue with m68k-linux, which has a bitfield
-alignment different from anything else on gcc, but uses the normal
-behavior on clang.
+I see your point, but KVM_PTE_VALID is only defined for KVM, not here in
+kselftest userspace. However since I will redo the page table generator,
+I can add this, let's see.
+Thanks for the suggestions!
 
-        Arnd
+Thanks,
+Wei-Lin Chang
+
+> 
+> Thanks,
+> Itaru.
+> > +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 30) & 0x1ffu) * 8;
+> > +	if (!*ptep)
+> > +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PUD_TYPE_TABLE | PTE_VALID;
+> > +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 21) & 0x1ffu) * 8;
+> > +	if (!*ptep)
+> > +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PMD_TYPE_TABLE | PTE_VALID;
+> > +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 12) & 0x1ffu) * 8;
+> > +
+> > +	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
+> > +	pg_attr |= PTE_SHARED;
+> > +
+> > +	*ptep = (paddr & GENMASK(47, 12)) | pg_attr;
+> > +}
+> > +
+> > +void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
+> > +		uint64_t nested_paddr, uint64_t paddr, uint64_t size)
+> > +{
+> > +	size_t npages = size / SZ_4K;
+> > +
+> > +	TEST_ASSERT(nested_paddr + size > nested_paddr, "Vaddr overflow");
+> > +	TEST_ASSERT(paddr + size > paddr, "Paddr overflow");
+> > +
+> > +	while (npages--) {
+> > +		__nested_pg_map(vm, guest_pgd, nested_paddr, paddr, MT_NORMAL);
+> > +		nested_paddr += SZ_4K;
+> > +		paddr += SZ_4K;
+> > +	}
+> > +}
+> > +
+> > +/*
+> > + * Prepare an identity shadow page table that maps all the
+> > + * physical pages in VM.
+> > + */
+> > +void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
+> > +			uint32_t memslot)
+> > +{
+> > +	sparsebit_idx_t i, last;
+> > +	struct userspace_mem_region *region =
+> > +		memslot2region(vm, memslot);
+> > +
+> > +	i = (region->region.guest_phys_addr >> vm->page_shift) - 1;
+> > +	last = i + (region->region.memory_size >> vm->page_shift);
+> > +	for (;;) {
+> > +		i = sparsebit_next_clear(region->unused_phy_pages, i);
+> > +		if (i > last)
+> > +			break;
+> > +
+> > +		nested_map(vm, guest_pgd,
+> > +			   (uint64_t)i << vm->page_shift,
+> > +			   (uint64_t)i << vm->page_shift,
+> > +			   1 << vm->page_shift);
+> > +	}
+> > +}
+> > +
+> >  void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> >  {
+> >  	size_t l2_stack_size;
+> > @@ -32,7 +116,16 @@ void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> >  
+> >  void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> >  {
+> > -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
+> > +	vm_paddr_t guest_pgd;
+> > +
+> > +	guest_pgd = vm_phy_pages_alloc(vm, 1,
+> > +				       KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> > +				       vm->memslots[MEM_REGION_PT]);
+> > +	nested_map_memslot(vm, guest_pgd, 0);
+> > +
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW | HCR_EL2_VM);
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2), guest_pgd);
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTCR_EL2), get_l1_vtcr());
+> >  }
+> >  
+> >  void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
+> > -- 
+> > 2.43.0
+> > 
 
