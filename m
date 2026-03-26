@@ -4,93 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576CB106F315
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237DB106F314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 09:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCaasFgG3bKwmDmNR0xzReU3+wYjKSaL6CIO2mNwHyw=; b=GOXWu/hqWBaY4gBEajSfeBzunX
-	3vrnZeYcGHnVbzAUrIY+Sr+ACWU30jRUcTKpNTXhwFmV+ESHx1cO8cdRN3WUqvbLMwSIDn/788P79
-	fTQVYjdffJIUw8bsNsxrQqSVg8xHpH8Xnz5DwaF6MhYs8J6uSw3a+eloTCcz7fKrLuYafiJ3VCRvt
-	TTboPClRhMJaEU1t1/qBhp1v0s5ml5KNrhMkBX4Q4zU5Y6JT54aGKlhNpvG55xT05mbOxEKgqMpcB
-	UGL8m4wZCoiFm9eT9ez+3V6EjR/fVvMcPNbFJ9b4c2CDwuCpua7VmWc8abL/k3t/f8sC2ZbyrZoPa
-	73ucEaEA==;
+	bh=GQ61kuhdrfqFul0L2FFBXSHRCVEg6otwfwoaX1TK3/E=; b=oZEwy2e09xfqvtXuT4N1lgeIM9
+	bPKQ+HzRZkO8ru1SrTovbszYxxvtaE5Z6c/KVF5mtiTCjmRJ9q9PRR4HFLv4dMOMf8YqDL+ZRdxlS
+	MkVYpn9RL8DqtbkXdPLqyPmE6YTN6rnFEWX/PvvrXEJDfMVmC4fdXSdntqi5R1iMLamjcm62nY0wd
+	tqbPzZdHCu/L493xPLs2FHQ7ps9dj2Puj9nhJ3WEUkYr2watuJ9GNPXRbApuR6AeCPjpUl7e937Uv
+	VM4ci+mMv9DRbcQSW4QKBXRNU6//5nILDDm/+QGrwa7OjpZyfyOr6KPDtrK2IKTPgFMGwKeBeZPdD
+	GtddlzDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hFi-00000005AjZ-3SVY;
-	Thu, 26 Mar 2026 09:43:46 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1w5hFo-00000005Amq-0YDv;
+	Thu, 26 Mar 2026 09:43:52 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hFR-00000005AdW-1N3L
+	id 1w5hFi-00000005AiR-23Qh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 09:43:30 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35a02f3b8feso386783a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 02:43:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1774518208; x=1775123008; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nCaasFgG3bKwmDmNR0xzReU3+wYjKSaL6CIO2mNwHyw=;
-        b=Hpbo88wbWLlOLXW8085PtcqAkl+aOhLsO02ryQmOzm9H97kQi3K8Y5i/6t/IGhgy1K
-         S2wG1Cj283FaBbQ+T9VtVSWgoZeUzEY8LZNgYR/LFgHRRviH8EsC220In2OIBxMB6W8n
-         u69D90iCKTdk+FvAm6HPktVmNa9JSIJHJz5tY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774518208; x=1775123008;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nCaasFgG3bKwmDmNR0xzReU3+wYjKSaL6CIO2mNwHyw=;
-        b=VQjhAkjz/GRNneQ8Sj3nMbyADfXQ3bE1tb+EjjChQ8rFwkE+YHuk24u62IOBsbwUpu
-         teRH9AlJcAuIu6Dhrduj2TLLVB6DDGKjb85ciJwyTyEdANBJYs41XoW5e9KuezIKgjsR
-         KIS8xBVKZ5xHT56pfHaTSXcbR9x9maOwTKpyHzsUv7llHsvQIbLDA6G0LMBaRCQX57IO
-         912EgUZQ6DkBqsWEQPAFQllb89VPI6uc57Jo6CYhNtpkeIR1JSqNPEDIhdTQn4OXet1e
-         8ufj91RbnkKpbR8Cs2UjyJVI3Bm8fkAstfrA8SBBZ8pP73s/np8vn5cO6xINcb8vsbad
-         iJOA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLWaLAiAdZhlbw14biSN9ec09bwUX34bIal+K0T7DhrDAPaYF8uex9PpFi52N+EUhsfkK2SrwKTZ2saMaG0cfE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT4A0xCuCuHcQFoYhO4+tFCgZuxo4zWTjz7N/ARP7wVwJg8T2j
-	W+vS07F0AQlIpKOtgTRihuCxJEgoGFn6eraDhhpn7Zim2kF1XJnwHPe30kwANuXn9g==
-X-Gm-Gg: ATEYQzy+cdDHeMu1HkJAwLaV42gNnvnhdt/QPO5eSayVTpCDnwLB/gRwADLHdsGaOHW
-	7TzUbG2u8UIbjz/mh/iMOlKvfW/35buGR9ORcZtxLVzHmVcEUsOuIu2+a2LDNLV+/frqRIBKzI6
-	Ut33i+SS7aUUFL/16DqVyjI1BMSpIEXtJKN5yCFx19Uj5SRzaEkQsgCNVdQ2R4r2cECAL9Snzs3
-	4IEqWVvHmdgSUEiyygW2HaFLZqBFg8EnhJOw7JK92NGZ7o2oUvTuBEX2+ZXhq4jKZ+srVB22X78
-	JkMwAJIgygjV5F5sWjZ+M1ElvVa9PMsuFnv0RU2LvqDslNGxqzTV3RWjGtoLppfCpXbgn24801/
-	2P+OWm5BokkU0iNK5h0PJPT+bYzT2goYNOtoB1mFniWb6+INGggVQri6rV71HqKiAZzAh23S010
-	nSKUgceALvpF7I92S5ufgNAQBunwQK20snmMBAld+kMjH+wJpExgZ8rnH+1M3Bp8iyOExQ6b/r9
-	Z97A+tP
-X-Received: by 2002:a17:90b:4fc4:b0:355:35b0:8b78 with SMTP id 98e67ed59e1d1-35c0ddd9d68mr5978607a91.27.1774518208424;
-        Thu, 26 Mar 2026 02:43:28 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3ed5:7e63:b37c:a7d7])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c76737f28fasm1673312a12.7.2026.03.26.02.43.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 02:43:28 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] drm/exynos: Drop MAX_FB_BUFFER in favor of DRM_FORMAT_MAX_PLANES
-Date: Thu, 26 Mar 2026 17:43:06 +0800
-Message-ID: <20260326094308.1161335-5-wenst@chromium.org>
-X-Mailer: git-send-email 2.53.0.1018.g2bb0e51243-goog
-In-Reply-To: <20260326094308.1161335-1-wenst@chromium.org>
-References: <20260326094308.1161335-1-wenst@chromium.org>
+	Thu, 26 Mar 2026 09:43:48 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62Q59Wqg1479684;
+	Thu, 26 Mar 2026 09:43:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=GQ61ku
+	hdrfqFul0L2FFBXSHRCVEg6otwfwoaX1TK3/E=; b=avrMFIfOdugi4S/4hndTN+
+	CLl/8HIMGz5Y/Oum5eOm3OxGCkgJK5eRyIT5itUmQlmpPCJa5rd7cEhD70kd89Vx
+	sIkj70/bP26p1m99XZIqnezWszE2fOzkNLz1UKG/M+ZIpYxEchD1eZtuvPGMylcs
+	oeHmw2eVFKJjsgFq0pWIzHhgjEoKzXSvm+Q3IfGfuYz/X6Rtw3ddqbg74qyboisW
+	7VhJFSlPA/npMVSA1RxAqkj0qgcs/ITsZmLD/UBiIHDv6wpIicKFko9HHa1mxW7e
+	FX0uQjKv616F5kTpsv6tLKCb9nFCwCPKBw3DJM+rLF0pILZ/li0SeQnt8POSnByw
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d1kxqmkhe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Mar 2026 09:43:18 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 62Q70AQB026695;
+	Thu, 26 Mar 2026 09:43:16 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4d275m292g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Mar 2026 09:43:16 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 62Q9hCts51970526
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Mar 2026 09:43:12 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 59BB320049;
+	Thu, 26 Mar 2026 09:43:12 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B3A6C20040;
+	Thu, 26 Mar 2026 09:43:11 +0000 (GMT)
+Received: from [9.52.196.90] (unknown [9.52.196.90])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 26 Mar 2026 09:43:11 +0000 (GMT)
+Message-ID: <e232e227-b022-40b7-ae9b-085398172aaa@linux.ibm.com>
+Date: Thu, 26 Mar 2026 10:43:11 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/12] s390/cio: use generic driver_override
+ infrastructure
+To: Danilo Krummrich <dakr@kernel.org>, Russell King <linux@armlinux.org.uk>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Ioana Ciornei <ioana.ciornei@nxp.com>,
+        Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        "K. Y. Srinivasan"
+ <kys@microsoft.com>,
+        Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+        Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+        Bjorn Helgaas <bhelgaas@google.com>, Armin Wolf <W_Armin@gmx.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Peter Oberparleiter <oberpar@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Harald Freudenberger <freude@linux.ibm.com>,
+        Holger Dengler <dengler@linux.ibm.com>,
+        Mark Brown <broonie@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang <jasowang@redhat.com>,
+        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+        =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>,
+        Alex Williamson <alex@shazbot.org>, Juergen Gross <jgross@suse.com>,
+        Stefano Stabellini
+ <sstabellini@kernel.org>,
+        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-hyperv@vger.kernel.org,
+        linux-pci@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+        linux-s390@vger.kernel.org, linux-spi@vger.kernel.org,
+        virtualization@lists.linux.dev, kvm@vger.kernel.org,
+        xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org,
+        Gui-Dong Han <hanguidong02@gmail.com>
+References: <20260324005919.2408620-1-dakr@kernel.org>
+ <20260324005919.2408620-10-dakr@kernel.org>
+Content-Language: en-US
+From: Vineeth Vijayan <vneethv@linux.ibm.com>
+In-Reply-To: <20260324005919.2408620-10-dakr@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: lM9ihgFyzDaKKK4hT6xbAWnBu4HPvbko
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI2MDA2NyBTYWx0ZWRfX2in2v/sm6fVn
+ 1EOEfnIWW9XHJhqTtN1dackcJvrGoIn6RYtzj2jaFpMYQNlaN3XxkuZ6dzpRGfvaZaU5moxAo8x
+ trr+PwJfEqlepekJSKPo1fy9d5o6sgA5m683HkjOswpiKaLB0x2ZC2oGeSCAtUXbWtftJWxMU93
+ r9db17SA3IR04n61jqkqo5Bm6YDmBdYR4V4J415d1oOQfmhBzzcsrs5XSBy2lSc6eI3Yyn+zNJA
+ fVQxRgkOI9yEBwUOLE+1Bp0urJ3SQpsL6Mxqh1jqv0YqiavIDSQ9i78PTJ+7C/RudgHS8T2aNad
+ w9soTfL5Lep9UESaYSAmOjYsSO5EEkxvuZXANkgGYCQiRzjVScD+Gyn69Rf+vvAYsxJQFXrQuWu
+ UQoghhH9HNEe1gD65ozDrx3Bl3HFNi5z9FxZxdctIbC0r4+GoaXzUaZ2fC0g/Uri9kPCKMvcMLh
+ 7P5IIMyCHlQF+nN31cA==
+X-Authority-Analysis: v=2.4 cv=bLEb4f+Z c=1 sm=1 tr=0 ts=69c4ffb7 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=rH2cy8X4UbemT2jZliAA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: sWD6kkjX1ahK5tMWR5AN0EWZ8NVBfHg-
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-26_02,2026-03-24_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 clxscore=1011 phishscore=0 impostorscore=0
+ malwarescore=0 lowpriorityscore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603260067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_024329_366024_D91A4A80 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260326_024346_546543_E35FDFC4 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +158,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MAX_FB_BUFFER refers to the maximum number of buffer planes for a
-framebuffer. This is the same as DRM_FORMAT_MAX_PLANES, which denotes
-the maximum number of planes.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/gpu/drm/exynos/exynos_drm_drv.h | 1 -
- drivers/gpu/drm/exynos/exynos_drm_fb.c  | 4 ++--
- drivers/gpu/drm/exynos/exynos_drm_ipp.h | 4 ++--
- 3 files changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-index 1ab7195d09ae..b126cd129944 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -19,7 +19,6 @@
- 
- #define MAX_CRTC	3
- #define MAX_PLANE	5
--#define MAX_FB_BUFFER	4
- 
- #define DEFAULT_WIN	0
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_fb.c b/drivers/gpu/drm/exynos/exynos_drm_fb.c
-index 125b87adfdc4..93f387b12126 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_fb.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_fb.c
-@@ -99,7 +99,7 @@ exynos_user_fb_create(struct drm_device *dev, struct drm_file *file_priv,
- 		      const struct drm_format_info *info,
- 		      const struct drm_mode_fb_cmd2 *mode_cmd)
- {
--	struct exynos_drm_gem *exynos_gem[MAX_FB_BUFFER];
-+	struct exynos_drm_gem *exynos_gem[DRM_FORMAT_MAX_PLANES];
- 	struct drm_framebuffer *fb;
- 	int i;
- 	int ret;
-@@ -145,7 +145,7 @@ dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebuffer *fb, int index)
- {
- 	struct exynos_drm_gem *exynos_gem;
- 
--	if (WARN_ON_ONCE(index >= MAX_FB_BUFFER))
-+	if (WARN_ON_ONCE(index >= DRM_FORMAT_MAX_PLANES))
- 		return 0;
- 
- 	exynos_gem = to_exynos_gem(fb->obj[index]);
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_ipp.h b/drivers/gpu/drm/exynos/exynos_drm_ipp.h
-index 67a0805ee009..2842c8af0b7c 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_ipp.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_ipp.h
-@@ -70,9 +70,9 @@ struct exynos_drm_ipp_buffer {
- 	struct drm_exynos_ipp_task_buffer buf;
- 	struct drm_exynos_ipp_task_rect rect;
- 
--	struct exynos_drm_gem *exynos_gem[MAX_FB_BUFFER];
-+	struct exynos_drm_gem *exynos_gem[DRM_FORMAT_MAX_PLANES];
- 	const struct drm_format_info *format;
--	dma_addr_t dma_addr[MAX_FB_BUFFER];
-+	dma_addr_t dma_addr[DRM_FORMAT_MAX_PLANES];
- };
- 
- /**
--- 
-2.53.0.1018.g2bb0e51243-goog
+On 3/24/26 01:59, Danilo Krummrich wrote:
+> When a driver is probed through __driver_attach(), the bus' match()
+> callback is called without the device lock held, thus accessing the
+> driver_override field without a lock, which can cause a UAF.
+> 
+> Fix this by using the driver-core driver_override infrastructure taking
+> care of proper locking internally.
+> 
+> Note that calling match() from __driver_attach() without the device lock
+> held is intentional. [1]
+> 
+> Link:https://lore.kernel.org/driver-core/DGRGTIRHA62X.3RY09D9SOK77P@kernel.org/ [1]
+> Reported-by: Gui-Dong Han<hanguidong02@gmail.com>
+> Closes:https://bugzilla.kernel.org/show_bug.cgi?id=220789
+> Fixes: ebc3d1791503 ("s390/cio: introduce driver_override on the css bus")
+> Signed-off-by: Danilo Krummrich<dakr@kernel.org>
+> ---
 
+Thank you Danilo.
+
+Reviewed-by: Vineeth Vijayan <vneethv@linux.ibm.com>
 
