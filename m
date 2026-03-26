@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3EF10A62DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5A810A62EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5Pjy4k64ZDVJcCgJ9wS3Tl680xCo3F/CfTrExmvzvU=; b=4IE8bBqmF5V9ANgYsFk7CfFtHa
-	BgvKFAPC9QVCmnz2p9DGO2fikzg/zZ4lPDykgjavnyaO6TbT1Px1mpzfY7nD+qY1er4bwgBHVs0lN
-	6+9Qz5QE8JhjlNxT1o0aDuY/+6F3ymQUhF6YlzfzcmxuBTWrCW2unc7z2NeKgzy1Ayv+Wmjtz+VDg
-	frjhYflCnTC2hvYTXoVFG3gn0/Iy7W4ROSldcJvtnVitOAPGZG/DtuKBG1XcJWcEf7qL52N9AALUM
-	AZsk1tYeUSBkGHbSZTZgQhmPExwWkpHi+rsteCBzTdwOWbvoZnCecxnlScj6lrX8JjP4msEjNGpW/
-	7bp8/k/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m+sNoheho1OrFl4QBII3exZTKJg8TKL0T5hDuECTkLo=; b=x0MJBWoTyasUK4Nl80CKxheeS6
+	9zRlfzArMcpe65SqOcIi/fmEnUzRBkzZ1vc2gV20ahmFhL9xS5i2nEyus21odrtj+xSsOveh0MEkZ
+	CgDFGGBhtIj5H3vZaRiCoKh7NvH5RY5wP+AotIZKRW0EuQXMGhtVTs01zcKiTYBMcNdMm22qWUFxT
+	sX6DILhJtpxLhQEf+1X2kdQtquny4S1hIDeV+eY/You3q8oY+ZkplAV33y1rkhXw42VSaqodNx21U
+	Yqoq/8Ydl6dmQKWRlAtjlGV15HVlx/BXqLCELILywA875Fh+LOCLv+3UCuuYLJeel9gOC8B74SWqA
+	Ag1967xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lZv-00000005dJR-2gEV;
-	Thu, 26 Mar 2026 14:20:55 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1w5lfa-00000005djY-0h83;
+	Thu, 26 Mar 2026 14:26:46 +0000
+Received: from mail-4323.protonmail.ch ([185.70.43.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lZs-00000005dIo-2xyz;
-	Thu, 26 Mar 2026 14:20:54 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id A842468AFE; Thu, 26 Mar 2026 15:20:47 +0100 (CET)
-Date: Thu, 26 Mar 2026 15:20:47 +0100
-From: "hch@lst.de" <hch@lst.de>
-To: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
-Cc: "hch@lst.de" <hch@lst.de>, Keith Busch <kbusch@kernel.org>,
-	Justin Tee <justintee8345@gmail.com>,
-	"axboe@kernel.dk" <axboe@kernel.dk>,
-	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
-	"neal@gompa.dev" <neal@gompa.dev>,
-	"sagi@grimberg.me" <sagi@grimberg.me>,
-	"justin.tee@broadcom.com" <justin.tee@broadcom.com>,
-	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
-	"paul.ely@broadcom.com" <paul.ely@broadcom.com>,
-	James Smart <james.smart@broadcom.com>,
-	"kch@nvidia.com" <kch@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
-	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	=?utf-8?B?7J207J2A7IiY?= <euns212.lee@samsung.com>,
-	=?utf-8?B?7Lm47LCs?= <joshi.k@samsung.com>
-Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
-Message-ID: <20260326142047.GA16787@lst.de>
-References: <20260326061443.GA23850@lst.de> <acQxjZMOqj74yIJf@kbusch-mbp> <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4> <945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com> <20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6> <CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com> <20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1> <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5> <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
+	id 1w5lfW-00000005djB-3uIn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 14:26:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
+	s=protonmail; t=1774535198; x=1774794398;
+	bh=m+sNoheho1OrFl4QBII3exZTKJg8TKL0T5hDuECTkLo=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=DoS9cEClyno2/RZIqQZcV5U/T9aKFKlY15dR6v6FQZHcG9zhSQHsehnabaUTGwaAq
+	 d9QIqhI5KuvjDX1D1yjAT3tMexeWnm39VNsAOp8ZDZU+e8skfAdGY4AlPjbmtFHDMn
+	 Z94mydzAEX40tQmmKY9256ReGEfaZtk90UjabzM8YE+0lKaYcs26akbayYtHC/JPpg
+	 Rn6Zr0gbs1ACeh4FIPpq3Hyj8IgBrtkDX9dCR2d+493fuP+CB6y6qP1Tib/3tszJYB
+	 5CfcD0xx7LhP6rAn6z9Fd86YPKHnE/bO1hQWrrbPp2n7HtWyET2YfkSJRXAsXNyqj3
+	 013jZ0bte9flw==
+Date: Thu, 26 Mar 2026 14:26:29 +0000
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+From: Simon Ser <contact@emersion.fr>
+Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Subject: Re: [PATCH v9 02/11] drm/fourcc: Add DRM_FORMAT_XV20
+Message-ID: <aocdbgbLe5WhUEOGeLg3P7fRDM8i72H9zBuUnoAjjsuvBLfMPofrPtaUEjII_43KXf1wCbv1G9UutJKMkWLaEcBSnrlUV78Wrhu6l_Z0xi8=@emersion.fr>
+In-Reply-To: <20260325-xilinx-formats-v9-2-d03b7e3752e4@ideasonboard.com>
+References: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com> <20260325-xilinx-formats-v9-2-d03b7e3752e4@ideasonboard.com>
+Feedback-ID: 1358184:user:proton
+X-Pm-Message-ID: d647f5d8f1d869e3931ef15cf27673cf762af5d1
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_072052_888357_115D2592 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260326_072643_560693_DC9A7267 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,15 +70,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:51:52PM +0900, 전민식 wrote:
-> Hi hch,
-> 
-> I added a comment about why I do trace skip if it's host path error.
+On Wednesday, March 25th, 2026 at 15:02, Tomi Valkeinen <tomi.valkeinen@ide=
+asonboard.com> wrote:
 
-The patch looks good:
+> XV20 is 2 plane 10 bit per component YCbCr 2x1 subsampled format. XV20
+> is similar to the already existing P030 format, which is 2x2 subsampled.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+I don't know for sure the multi-planar YCbCr format name scheme we're
+using, but here are my observations looking at P, Q and S formats:
 
-But such note go below the '--' so that don't end up in git history.
+- The first digit indicates sub-sampling. 0 for 2x2, 2 for 2x1, 4 for none.
+- The two other digits indicate bits for the Y channel, one of 10, 12, 16.
+  One exception: Q401 indicates reverse order for Cb and Cr planes when com=
+pared
+  to Q410.
 
+P030 is a bit of an outlier here since it's the only one with multiple
+Y samples. NV formats are also multi-planar but seem to use a completely
+separate scheme.
+
+Given the above I'd say what would make most sense to me is to use P230:
+keep the last two digits and change the first one to indicate that the
+only difference is the sub-sampling. Does that make sense to you?
+
+Simon
 
