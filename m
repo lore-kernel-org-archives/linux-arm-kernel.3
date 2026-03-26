@@ -4,73 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6294D10AB827
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9DC10AB82A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=suinoSXwmZw8kGqKIl2Co6H0rlViaGDmlSqUltSZgkU=; b=0cmftlIFlwZ+VziRQQFWZcf1bT
-	4e3CC//HitLL19XMk30KwqvmMu/u3XVBrarArekCIrFPTXI4tQx1HsUvbqdaKcus5avFLumBBqUWM
-	eylc4oWt0nsdPNPp5/FLqtxQ4A4ghd5dDoWxPkOacd5jw+KHCb2Q8AMjRILI7Aq9+HF+666IXJTjw
-	sZ+j5FhK2xqIFYs4nYlaPU/So5t/s4SmVPTfVlQsXUokn0L0wbpwgztQy2PMO7JbExFvHvBKID/h9
-	LGwbJqlFEyoo2Nf4/Ye5XoWwROkBDlypk8HDnzDpJdiLHTqM2cWkQBs2BAu6/9F0633uDSvjryfV0
-	1VKCyzaQ==;
+	bh=cvt3lJ9bUn/nS9x0h5+rL6WI6mE1I309IFcyKJoRia4=; b=bYFgvFmqsvu+e1/3IScwMJXXhI
+	gC6l2GhavYKZTWaF9NvTdLuxA0SH7p8K9uNgSky/FT327VXfR+0qus/nwlAvGEffdetb1aEeQswWr
+	yvfok2qiDOWqdstwMd+mdAtuTiF/4epaSFo236fQFICGwJQwTBUXHA10Vfb2RD9ddVdOu9zvbeGPH
+	DyqxaML4Eac4mBjrzNkhjHJTZ/I02sTkl1fifFjSrvrKOmZ8eYqeZnt7jBx0PSPZngNGWP3oVdWy9
+	EKVDnZHEB5phSC7WDsQLrtRlc91EZUbYvjYGTGfz29zqmt1RDsvDehCMqvzHXa0AJI+D9x+0HmTRt
+	j3KrEzhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5rrE-00000006ChC-44EK;
-	Thu, 26 Mar 2026 21:03:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5s0K-00000006D6A-2gQi;
+	Thu, 26 Mar 2026 21:12:36 +0000
+Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5rrE-00000006Cgs-0ETV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 21:03:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED3EF60054;
-	Thu, 26 Mar 2026 21:03:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9306BC116C6;
-	Thu, 26 Mar 2026 21:03:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774558990;
-	bh=Oga/OddxY2WJCZhkLe7zcVGjS6Fu4I4k5/6EH62Urbk=;
-	h=Date:To:From:Subject:Cc:References:In-Reply-To:From;
-	b=gPAAIB3fsENGAvoB1ls1d+lyJstfElum/pLWj2DuNK2WleRkSJpZzbuOcSRguNRex
-	 LE7yjFpGJeYqgeiTWSX6kkVoDPXfYgQsoiYvVNcYBuRy7Weff6IyhdJ7LJejW3y2q7
-	 Lu58LJqd2qR99uWpkNGFPfJeYhdGTH7gmxUd9PImDf3hgeIKuz12xa1bfI6GtosZ25
-	 zz/3VILPimPfvECimlah9QRnSQlerX84zqBcJ1XtWuuz4pCn2J3IQkAwYpmSsY+R6p
-	 Vq0PeeQgRdA6sV45AaVZZ3KVJItFvjXCg6L1WvlZQDmeunZRkvtTNmqHb/caoBZYIw
-	 rdfYLFPYbjpsg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Mar 2026 22:03:02 +0100
-Message-Id: <DHD0NQH9UJ21.3J691DBDXS0K0@kernel.org>
-To: "Douglas Anderson" <dianders@chromium.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH v2] device property: Make modifications of fwnode
- "flags" thread safe
-Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, <stable@vger.kernel.org>, "Andy Shevchenko"
- <andriy.shevchenko@linux.intel.com>, "Mark Brown" <broonie@kernel.org>,
- "Wolfram Sang" <wsa+renesas@sang-engineering.com>, "Andrew Lunn"
- <andrew@lunn.ch>, "Daniel Scally" <djrscally@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Fabio
- Estevam" <festevam@gmail.com>, "Frank Li" <Frank.Li@nxp.com>, "Heikki
- Krogerus" <heikki.krogerus@linux.intel.com>, "Heiner Kallweit"
- <hkallweit1@gmail.com>, "Jakub Kicinski" <kuba@kernel.org>, "Len Brown"
- <lenb@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Pengutronix Kernel
- Team" <kernel@pengutronix.de>, "Rob Herring" <robh@kernel.org>, "Russell
- King" <linux@armlinux.org.uk>, "Sakari Ailus"
- <sakari.ailus@linux.intel.com>, "Saravana Kannan" <saravanak@kernel.org>,
- "Sascha Hauer" <s.hauer@pengutronix.de>, <devicetree@vger.kernel.org>,
- <driver-core@lists.linux.dev>, <imx@lists.linux.dev>,
- <linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-spi@vger.kernel.org>, <netdev@vger.kernel.org>
-References: <20260317090112.v2.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
-In-Reply-To: <20260317090112.v2.1.I0a4d03104ecd5103df3d76f66c8d21b1d15a2e38@changeid>
+	id 1w5s0F-00000006D4J-2iCU;
+	Thu, 26 Mar 2026 21:12:35 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailflow.phl.internal (Postfix) with ESMTP id 70588138014E;
+	Thu, 26 Mar 2026 17:12:30 -0400 (EDT)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-02.internal (MEProxy); Thu, 26 Mar 2026 17:12:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1774559550;
+	 x=1774566750; bh=cvt3lJ9bUn/nS9x0h5+rL6WI6mE1I309IFcyKJoRia4=; b=
+	E0sMQAhh0TkOQjOZsniK4kPP1PcoLWV2KYRNxET3sGKeLs16s1BbfxFO8/aQQ/lX
+	l7XQushoQdALzy6LAp0eo+EtZSHskCUa7mQjZU+A/GlEOH2jr2jj1WTFsl1f6Re9
+	j/VHZBhBw+yKeW+vl2ECZyhI3TPznv+iGkcgU6BvVyr1rIYehcyMUc8HdCPvJ51D
+	Gblbvcp/tqX6QIdhU0HMb9vBl7FsrD8LR7JdCvDPlAwkvqJ78t4HLftLk8CCi8ZQ
+	qmVvKdQUKy7fdu8TmrHOoIJ//eZikstkzzQ288/JEx+FlqVO+fcxilJKMYc+PFmw
+	MEFVVT4Fo7JPfmg40FAgrA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774559550; x=
+	1774566750; bh=cvt3lJ9bUn/nS9x0h5+rL6WI6mE1I309IFcyKJoRia4=; b=U
+	eIXJwOpPl3cUAUutZr89x1lkdQUbj+f97ECwm3X08pHjAj7+fd1N0k1Pu/MGbSQC
+	lNyJLGq1vd0ynJlViIC6Lu8QctAlqV5cUIffff+OSLobUPRp8zX5H5UTIcJshDvD
+	D4K3952AzOTtGul///Umvd3ojJFl9B/Bi+Af8xT8Ne0CJzrv3aZpl+DM1CESl6aO
+	ZgCZjpIHdmZoE9sZ8BByJH+WBiAlgLe7zl79YL4NhitK0SIm4VTzq5LEYl+fcrip
+	S+mBkVyOQXmsv1lnnGfGMKrpz4xIVXVDDZkrpAkZmhpdiYhU+ndCU6jBvhCzmJvt
+	1kwRpG1Sm6nQqe7i4HEkg==
+X-ME-Sender: <xms:PqHFafTCv14r9Z8C2kY4sXjmydl1wZ81kMcwniCKdz0Slzj3ap_sjg>
+    <xme:PqHFabkNTM3vPcmWd8n9TcPgUYiC-GBjszCaazHqOsCGlcez7F8zDWOiXCRHM-0bu
+    g5vTUKsSA5BDXanQVlStDHD-DVNdUwagux3HNM4Lp9dHt4tMKdysca9>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdekgedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepoffhfffugggtgffkvfevofgjfhesthekredtredtjeenucfhrhhomheplfgrvhhi
+    vghrucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnhepve
+    ektdfhffevuddtgfetieevtddvheduhfeggfekveejlefhleefieevueefiefhnecuvehl
+    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjh
+    gvthhmrdhmvgdpnhgspghrtghpthhtohepvddvpdhmohguvgepshhmthhpohhuthdprhgt
+    phhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllh
+    grsghorhgrrdgtohhmpdhrtghpthhtohepfeduleefieefudesghhmrghilhdrtghomhdp
+    rhgtphhtthhopehlohhonhhgrddtgidttdesghhmrghilhdrtghomhdprhgtphhtthhope
+    grrhhivghlrdhrohhsvghnfhgvlhgurdejhedtsehgmhgrihhlrdgtohhmpdhrtghpthht
+    oheptghhrghpuhhishgurghrihhogeesghhmrghilhdrtghomhdprhgtphhtthhopehgih
+    hoshgrlheltdesghhmrghilhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghg
+    ghesghhmrghilhdrtghomhdprhgtphhtthhopehrrgguohhirdgthhhrihhssehgmhgrih
+    hlrdgtohhmpdhrtghpthhtohepshgrmhhurdhtohhljhgrmhhosehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:PqHFaTtAOz4aOfWggrf5KjVy9M5banF0TJvUweQ8RF22uGxaFIE3HQ>
+    <xmx:PqHFacHTChNx9UTg-nCk_csUvrA7BQpEMJ-4QQIC26w6_zIsIIatIQ>
+    <xmx:PqHFaW-WkH8SD5QpnZGZx6Hz8KOyZ8t1ZBmpEuuZbg1wjcrX4do12Q>
+    <xmx:PqHFaaOszY5rM73JBCnsGI64_qB06PUu8KqOlgrJ5OlFAcaS_XSYjA>
+    <xmx:PqHFaUYeyHNZYkcgiNhsjzekf6HGnkUuVss6OpUBaO7Eivr_OO6Hd4BB>
+Feedback-ID: i9dde48b3:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 4263E1EA006B; Thu, 26 Mar 2026 17:12:30 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+From: Javier Tia <floss@jetm.me>
+Date: Thu, 26 Mar 2026 15:12:25 -0600
+Subject: [PATCH v4 1/9] wifi: mt76: mt7925: fix stale pointer comparisons
+ in change_vif_links
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260326-mt7927-wifi-support-v4-v4-1-8ab465addcfe@jetm.me>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
+ Deren Wu <deren.wu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>,
+ George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>,
+ Samu Toljamo <samu.toljamo@gmail.com>,
+ Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>,
+ Chapuis Dario <chapuisdario4@gmail.com>,
+ =?utf-8?q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>,
+ =?utf-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1810; i=floss@jetm.me;
+ h=from:subject:message-id; bh=DizT/ddlZFD7KX9YeoKrBVdFFWkgs3dXjw0pBgdRG1k=;
+ b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxaE4l7WE3ZFIZQ9RG3yAHeILkdCfnys0Gihiz
+ L5KH/OLmTGJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacWhOAAKCRC17sMLqGd3
+ H6leC/9wtLfOoljzuG6wmMdGF3XfSkujHVEyLZ7StGb+C/pcFHrJw51iyUKFHqVDc8GKLXuNsDw
+ F+V+tlL5kgouXGeuHOJgQvwlYiH94+rOhaZr7a8bYBsMH2f4nX+A8IkN101/fhR8b3YebcI3U8d
+ 5dQy0T78MBfVBINaqJoAK/nfPvh/PFiUu1JUeiuIK4k+qGyzYmuxPgS4ig1+AWLUizhM/0QLAeD
+ kXL2AjMaSH/Nb7pRNDe/+QGYAmyrbQljZdMgWD+LRpJv6e2n/lmIdPEzhGkcO8VgRqQ0Z8l1ZSX
+ 7d5t3zLQE8UH6DiMDT5IxczbMy+5fymEZXiIUvEKnO9iQKKwKBAkJQqQHCCxFWPUYv/ZHIoN3s4
+ 6K67Gtgrvgyz6NohMT+YBSeZla9BqRz+BGGdWFEQNp+Ca9VjmsZUXN4Pvx7Ko1vbOC3xKdk6bLX
+ 1SYAq6yVY9YJAm6FILWRrh8jyzsFk4qzYTkQ4u1xsr7syvOos30wnHfNRjEXhb8h8HMQw=
+X-Developer-Key: i=floss@jetm.me; a=openpgp;
+ fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
+In-Reply-To: <20260326-mt7927-wifi-support-v4-v4-0-8ab465addcfe@jetm.me>
+References: <20260326-mt7927-wifi-support-v4-v4-0-8ab465addcfe@jetm.me>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_141232_426503_070A201C 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +141,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Mar 17, 2026 at 5:01 PM CET, Douglas Anderson wrote:
-> In various places in the kernel, we modify the fwnode "flags" member
-> by doing either:
->   fwnode->flags |=3D SOME_FLAG;
->   fwnode->flags &=3D ~SOME_FLAG;
->
-> This type of modification is not thread-safe. If two threads are both
-> mucking with the flags at the same time then one can clobber the
-> other.
->
-> While flags are often modified while under the "fwnode_link_lock",
-> this is not universally true.
->
-> Create some accessor functions for setting, clearing, and testing the
-> FWNODE flags and move all users to these accessor functions. New
-> accessor functions use set_bit() and clear_bit(), which are
-> thread-safe.
->
-> Cc: stable@vger.kernel.org
-> Fixes: c2c724c868c4 ("driver core: Add fw_devlink_parse_fwtree()")
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Acked-by: Mark Brown <broonie@kernel.org>
-> Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+In the error path of mt7925_change_vif_links(), the free: label iterates
+over link_ids to clean up, but compares against `mconf` and `mlink`
+which hold stale values from the last loop iteration rather than the
+current link_id being freed.
 
-    [ Fix fwnode_clear_flag() argument alignment, restore dropped blank
-      line in fwnode_dev_initialized(), and remove unnecessary parentheses
-      around fwnode_test_flag() calls. - Danilo ]
+Use array-indexed access (mconfs[link_id] / mlinks[link_id]) to compare
+against the correct per-link pointers.
 
-Applied to driver-core-testing, thanks!
+Fixes: 69acd6d910b0 ("wifi: mt76: mt7925: add mt7925_change_vif_links")
+Tested-by: Marcin FM <marcin@lgic.pl>
+Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
+Tested-by: George Salukvadze <giosal90@gmail.com>
+Tested-by: Evgeny Kapusta <3193631@gmail.com>
+Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
+Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
+Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
+Tested-by: Thibaut François <tibo@humeurlibre.fr>
+Tested-by: 张旭涵 <Loong.0x00@gmail.com>
+Signed-off-by: Javier Tia <floss@jetm.me>
+---
+ drivers/net/wireless/mediatek/mt76/mt7925/main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+index 2d358a96640c..f128a198f81d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+@@ -2047,9 +2047,9 @@ mt7925_change_vif_links(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+ 		rcu_assign_pointer(mvif->link_conf[link_id], NULL);
+ 		rcu_assign_pointer(mvif->sta.link[link_id], NULL);
+ 
+-		if (mconf != &mvif->bss_conf)
++		if (mconfs[link_id] != &mvif->bss_conf)
+ 			devm_kfree(dev->mt76.dev, mconfs[link_id]);
+-		if (mlink != &mvif->sta.deflink)
++		if (mlinks[link_id] != &mvif->sta.deflink)
+ 			devm_kfree(dev->mt76.dev, mlinks[link_id]);
+ 	}
+ 
+
+-- 
+2.53.0
+
 
