@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7666E10A88FD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AEE10A88FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q04VIAHNkeO/Oab8CZfYBVf+J5N6KJreQMXprmET4N4=; b=ch3tbdpKioBooP9dR42uucG9wL
-	/6kD+ihnWZ/6MW7U8a1wxwySI3bcmKMsWtjaS2IkQau3Mf3L4JF1TYwtJPweAb9XjDkJibHVaCJvm
-	5w7czEWaVKkr2TNHxgRX8VacbGG6/RMjPFOJ632jYiB5PSUNyZXr568gK17fB3UeNx2uvwNhOLWIi
-	8QVnL1B7xVJU1cJ4OtgiXxKi3PYbYhwKsFJjzmklnKh1KY41Uyso3AyLw11AwhPHp6DYKsyUUakJR
-	RvIedZgleada+LQWYmXTxvTHB1db6sB9Hgv71fsuVH8ANP1t3skyTIevawuEbTZkJXr5gbKPgjjM4
-	xfXS9dyA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=zkX1cUz2nuxsIW1ThYc+vShL+mFbMn/nEGXCfq/ZhOI=; b=x7Pzx6HauupzOk
+	pF9WFDcDOkbDHr9lwt13+/MwoXI383LzLcsm25FrDaaML4IhONx2OdXqrvlp1yGoH3RdRBqpr3o/u
+	jL74wbaWtMlJJHRhXJYUuKQ+QZyo5FDN9b3s+PaqnyFd0jB4ValbFt50AOxKES9RVZx0BqIFKN39g
+	fynRuFTkIofOa4guMxlTa7APejSdethwbUA4qWh7QjQtiwjZS+tDj4Jcf5Hk4RRorMQEuo3kTieTF
+	PbrGNDy+OQwxEfnNv8ENtKwYMkTXP5cDsGC1O5biw6SzsrNVY5f91sq4SKRjgIFi95+PczaMygEnQ
+	l3cagw8HGL97J6EAv/aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pF8-000000061Ba-08e8;
-	Thu, 26 Mar 2026 18:15:42 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w5pFs-000000061Lz-1VZu;
+	Thu, 26 Mar 2026 18:16:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5pF6-000000061A4-0q2j
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 18:15:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Q04VIAHNkeO/Oab8CZfYBVf+J5N6KJreQMXprmET4N4=; b=A91llKaRZg1Kmp6LhWd1OiFvcj
-	3itUEP0PSvXO6oGyTtfgHDbDG28LoaPafvUnAUVxPxPAGgzivyFflJrT+8x7+D5B6aEBiE5KUJvpx
-	hsLC3Q9MtLtj5zS6XTV+mTFQHCTk/a4GPoJsYEIH5dzvP8DG3wwdU6/BAhPw3H9Z4kE7jlOleNzY4
-	938Lcw/7mq1ZxXXkBvdTj0rrQ/E8FqgyUjbin2ESTPaMpntIg5biA5leRtVjbSi3EMVY1NPQ2UQUW
-	vZvi82S6JJQyDlX/01L00gn7bQ3JaN9y4RDLm9UG60iu0fAZ20CIs2Nv6xeag98tIykPe2I/N4nY9
-	WeQ2ggwA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54672)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5pEw-0000000059k-0PVC;
-	Thu, 26 Mar 2026 18:15:30 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5pEt-000000007G1-3NVj;
-	Thu, 26 Mar 2026 18:15:27 +0000
-Date: Thu, 26 Mar 2026 18:15:27 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-	Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH net-next 1/2] net: stmmac: remove axi_kbbe, axi_mb and
- axi_rb members
-Message-ID: <acV3v-iyoCUTh2a8@shell.armlinux.org.uk>
-References: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
- <E1w4ydo-0000000Dlpb-34jd@rmk-PC.armlinux.org.uk>
- <20260326172943.GR111839@horms.kernel.org>
- <acVxNBLE8Ck2qfjc@shell.armlinux.org.uk>
+	id 1w5pFr-000000061Lm-0yRq;
+	Thu, 26 Mar 2026 18:16:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CE8E60054;
+	Thu, 26 Mar 2026 18:16:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B186C116C6;
+	Thu, 26 Mar 2026 18:16:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774548985;
+	bh=43VqNhtITmRTb0E71wFtuKVyxafRya6of6b3L56zIuM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=rH9ZhPhoyZPAUHGu42qfHJzQoyDXiaLHk6u2TDy7jxtMKoyFyr1etgM02j2RMJag2
+	 +iwu/QLH6SDpzrX2Rwk7Xf0D6UaUv0Ye7LUU1K4BrOo4hIU5IkQT+aOp2QxQMFS4LN
+	 Sm/C7ZPguXcDl6fWI5t8T1BYmS/AirzbSCbMC4v3AtXUqoEUsbX80tNGQMYwKTFXAj
+	 8J0GdOJCo649nUq3toORH7UXb0O2mTBwPoR2YLTayka8sROxFdMkqb6K66rqL+ieDD
+	 X/OwHRNfv1L6odykUi95poRDrpG0rOAWuK8xO8B1T+sfP/rfAn6ckYa8+jwX+T1tkY
+	 XXnHox9MEju3w==
+Date: Thu, 26 Mar 2026 13:16:24 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, jingoohan1@gmail.com, mani@kernel.org,
+	kwilczynski@kernel.org, bhelgaas@google.com,
+	florian.fainelli@broadcom.com, jim2101024@gmail.com,
+	robh@kernel.org, ilpo.jarvinen@linux.intel.com,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, claudiu.beznea.uj@bp.renesas.com,
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-omap@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	shawn.lin@rock-chips.com
+Subject: Re: [PATCH v9 1/5] PCI: Add pcie_get_link_speed() helper for safe
+ array access
+Message-ID: <20260326181624.GA1331242@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <acVxNBLE8Ck2qfjc@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_111540_260889_7455D1DA 
-X-CRM114-Status: GOOD (  13.60  )
+In-Reply-To: <20260313165522.123518-2-18255117159@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,29 +75,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 05:47:32PM +0000, Russell King (Oracle) wrote:
-> On Thu, Mar 26, 2026 at 05:29:43PM +0000, Simon Horman wrote:
-> > On Tue, Mar 24, 2026 at 10:05:40AM +0000, Russell King (Oracle) wrote:
-> > > axi_kbbe, axi_mb and axi_rb are all written, but nothing ever reads
-> > > their values. Remove the code that sets these and the struct members.
-> > > 
-> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > 
-> > Hi Russell,
-> > 
-> > FYI, AI review suggests that these fields should also be removed from
-> > Documentation/networking/device_drivers/ethernet/stmicro/stmmac.rst
+On Sat, Mar 14, 2026 at 12:55:18AM +0800, Hans Zhang wrote:
+> The pcie_link_speed[] array is indexed by PCIe generation numbers
+> (1 = 2.5 GT/s, 2 = 5 GT/s, ...).  Several drivers use it directly,
+> which can lead to out-of-bounds accesses if an invalid generation
+> number is used.
 > 
-> I noticed. I've prepared an update if netdev folk want that to happen
-> as I've noticed that that documentation is fairly out of date now.
+> Introduce a helper function pcie_get_link_speed() that returns the
+> corresponding enum pci_bus_speed value for a given generation number,
+> or PCI_SPEED_UNKNOWN if the generation is out of range.  This will
+> allow us to safely handle invalid values after the range check is
+> removed from of_pci_get_max_link_speed().
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>  drivers/pci/pci.h   |  2 ++
+>  drivers/pci/probe.c | 16 ++++++++++++++++
+>  2 files changed, 18 insertions(+)
+> 
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 13d998fbacce..409aca7d737a 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -108,6 +108,8 @@ struct pcie_tlp_log;
+>  				 PCI_EXP_DEVCTL_FERE | PCI_EXP_DEVCTL_URRE)
+>  
+>  extern const unsigned char pcie_link_speed[];
+> +unsigned char pcie_get_link_speed(unsigned int speed);
+> +
+>  extern bool pci_early_dump;
+>  
+>  extern struct mutex pci_rescan_remove_lock;
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index bccc7a4bdd79..d6592898330c 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -783,6 +783,22 @@ const unsigned char pcie_link_speed[] = {
+>  };
+>  EXPORT_SYMBOL_GPL(pcie_link_speed);
+>  
+> +/**
+> + * pcie_link_speed_value - Get speed value from PCIe generation number
 
-There's another reason I haven't submitted an update, and that's
-because netdev is fairly backlogged at the moment - currently there's
-381 patches in patchwork - four pages of patchwork, with the oldest
-"new" patch dated 21st March. I don't think netdev patchwork needs
-more patches at the moment!
+Wrong name here (pcie_link_speed_value vs pcie_get_link_speed)
+(pointed out by Sashiko).
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> + * @speed: PCIe speed (1-based: 1 = 2.5GT, 2 = 5GT, ...)
+> + *
+> + * Returns the speed value (e.g., PCIE_SPEED_2_5GT) if @speed is valid,
+> + * otherwise returns PCI_SPEED_UNKNOWN.
+> + */
+> +unsigned char pcie_get_link_speed(unsigned int speed)
+
+Sashiko also pointed out that the commit log says this returns "enum
+pci_bus_speed", while here we return unsigned char (which is also the
+type of pcie_link_speed[x]).
+
+https://sashiko.dev/#/patchset/20260313165522.123518-1-18255117159%40163.com
+
+> +{
+> +	if (speed >= ARRAY_SIZE(pcie_link_speed))
+> +		return PCI_SPEED_UNKNOWN;
+> +
+> +	return pcie_link_speed[speed];
+> +}
+> +EXPORT_SYMBOL_GPL(pcie_get_link_speed);
+> +
+>  const char *pci_speed_string(enum pci_bus_speed speed)
+>  {
+>  	/* Indexed by the pci_bus_speed enum */
+> -- 
+> 2.34.1
+> 
 
