@@ -4,128 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD1210AB829
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE3010AB82B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wh4REqgnKzyEzUI/NBTjswi8jAEeySuPefhD1zQxSo0=; b=GhmWMPsoCDUCgBklpziCUarO7x
-	lVcVQO307eP/s7rbdq6HRLWa+jB4n369n0aFyWZA03E5Vc5FJsx7svfL4SUktCgyYfPrKgdQt2ZIF
-	63v61ja5oxMpEmzroe4HnXoe/7GjPt1bUP0kxrtQBfW0qgIX5nizGYZtPCqh99sD0dBtREoyWgFEC
-	FkDMSErzTHBZIAv5nx0Bbk1WG6DTw03M1wKPF/Fpgr/1Grke5ZPmZq8SNkxDucN5QZX53n51NedkC
-	2vx+NroNj8/5MBOp9HL1HIaMJTcNUFEtmVB34cem5Usgyu3h0f2u8Us5ifpNfKRDQ3ilqu4AuLXmk
-	Wpc1AjFA==;
+	bh=6pjb3URkbbR01eXdGvkmTKg9j6MWjYnJLhpcHkswgr8=; b=batPuD4/BJ6UNLjXlDek3uu4u9
+	Xr5oJFTvLP+oMjTr69UUuW2Zbc9uGp+gGua4fTlsVpbjOCCI682HjcE9Qh49pFPUgD/0HGUGG+C6h
+	NBjQD6adokKpwTI+AcfQUGElDeyv22RbPhbtXSymTC5pBP/1APmawBHhyy4ydAZb3GkgDoqp2TN9u
+	BFrT7bbZy8rlNPlYfRRDSFNGBmfLLaAW5gDOxWS8bL2mK+7aXEdexmwBDUgajqeTMSoJEMj7hWPZP
+	9RztCXAC5ZA6NAG2+8crKd+G9BhOxhsNjpT5ol6p3aID8bv/ogiErIqeTr1oTQQ+t85KEurZ1XBYo
+	GEodQdjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5s1y-00000006Dty-0pxm;
+	id 1w5s1y-00000006DuX-2KZC;
 	Thu, 26 Mar 2026 21:14:18 +0000
-Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
+Received: from flow-b1-smtp.messagingengine.com ([202.12.124.136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5s0R-00000006DBW-14Pn;
-	Thu, 26 Mar 2026 21:12:44 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailflow.phl.internal (Postfix) with ESMTP id 7AE75138017E;
-	Thu, 26 Mar 2026 17:12:42 -0400 (EDT)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Thu, 26 Mar 2026 17:12:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1774559562;
-	 x=1774566762; bh=wh4REqgnKzyEzUI/NBTjswi8jAEeySuPefhD1zQxSo0=; b=
-	OZG5H7uG8A0x+up+a3yxbN7cETFHaZygZxY1fb4sB+L2NA/bxhkhov074Qthh24f
-	4CEN4lvbRWP7TBWFzxaSYggi6O7ElyjOA1OyRVmi7sO4f23eqBhhs4DLST0MDEQT
-	YYfHdlsxhFcIk0NigFNN2a8GmZbLc9QVc/7iE8GU86VbyYum1XPEJ4Q7m4VLlMRm
-	AoFUi5JNTpoMq82kMQKPnzCWucqY2fzONJnxwL1InPt+ryNhCdh6pCh/MgbBl/9g
-	j1nfPQKy2dhef12HU/CM7P4KzQmWnfyLcNuoIdVZcM2VS2QqT9csKJrm6ehCr//a
-	4Eo3m3E2xkzUe0MUtGXc0Q==
+	id 1w5s16-00000006DV8-25tt;
+	Thu, 26 Mar 2026 21:13:27 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id F135613000B5;
+	Thu, 26 Mar 2026 17:13:18 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 26 Mar 2026 17:13:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1774559598;
+	 x=1774566798; bh=6pjb3URkbbR01eXdGvkmTKg9j6MWjYnJLhpcHkswgr8=; b=
+	h6asKu9Uks25ifOvsWbdAJZSoSzdSq9ur05qS8lnhn9V/7eSdAB2i7oILTnWk05h
+	a1Bd7UiTH53pYCRbXfVFE7SEv1wQWMNzz4DQi9QvV1PDSBcx/dwPX2MtAshG6h9s
+	uNvT/JNFfEKe59zeVqppgigdwUzitymd/Yh/E2tFdqDDeqv4j+G/9aGkQh6Fe+s5
+	midsXRlD2K/MuIyiAFPpc2orO7JtJLzKRjCAs7k/miWaYl7rwmoPqaM+8FnMGApS
+	yTq/OCHm/mm0DAuonaZ6+v92mbvkTMkShEEMhNkCWquTmCcLIuq6HvzhGZdBaatc
+	UOByiv+8LC9UuODYhXbuYA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774559562; x=
-	1774566762; bh=wh4REqgnKzyEzUI/NBTjswi8jAEeySuPefhD1zQxSo0=; b=a
-	ICUo7XoYqh5yZh2M/CE42yeZwO5jrETorta12Nc7/4k5jttNbUNJK69cIqYVotQY
-	EDf34pR+kG0Df9LLhrx+oq2LZyMKmFTxHrrGn/cHC9AuRA6zAer/kI6pw4hpR0S5
-	TH8r+zQLrcmu3/54m9ZKA35x23wM9KvgrXct9BRUh7eI1CIse7W4xasTUlBkwYvR
-	GppWX57QpVBL9ktJN0QwY5hEGYlqIvZWs7bc9RHhZ5EnnS6af5vdNHYwEErcSlC9
-	NXCHL7TMUjtLzD7Z6YLwkuOIPH3edu5SuS6/tg+8cB/wdZ0fLLCgFMp1GzhiE9QE
-	2i1laXpA0hhUeXuRZT6Ow==
-X-ME-Sender: <xms:SqHFaQAP0JAkEaL9WPvmbrBXafd6nl-g5BQ_h6w1uiIZDAkYM_TXvw>
-    <xme:SqHFadU2n0W3ACIZ24sMs_2KV5OKj_KSYXAf5aXbja3iWsAb_cGoIdCQjL7LFazEr
-    gMInEfPIhAigZLQA703ptkB7JA17-2obYBrQ5wc7yHuxM82_LcouJU7>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774559598; x=
+	1774566798; bh=6pjb3URkbbR01eXdGvkmTKg9j6MWjYnJLhpcHkswgr8=; b=O
+	XCrFmp0xOx34V+/K+8Az+IxDwAi0L+d5/ghlz5sW2+v5K5TS/Lmw18CzE2aWaDD1
+	lUCrX1ge/MGkGOijz4Gid3J3VilT7GgYu5MrTH1NSW4+cRxywYAXIV9CywX9qOsi
+	iXHdqq7t3yAqpK/xcBjDu1Fw2LvYf5SdkPS07TRs94A7pp5MplN7/hvYHpF2nGWk
+	7VUmVMTVHMmIfYxvn1VT4X+9KSDvLPyocrwABTjv9Hwa2D1w/OdJiewf0PANvYUE
+	om86o69UMnG81/maqi5puEjUwhYy/jWqIWYka2xfUupH1/auvrOn0cFXjmEkRFzP
+	h8zv2fuqgRd/pV4lc+zKw==
+X-ME-Sender: <xms:bKHFaS1M2gDWqgSSjr5TTWzG-0MpiTpD6ijnhoWWMcY4y66zpocZYA>
+    <xme:bKHFaf6wbZjHiirlgQKu81zSxSJGhzT7vY8geF5gvIGBuYCkhLC37Y23WHblY5xQ7
+    dxjJ-ftXhETnPmcdwb7w0yJtIxQdqKZdkpht41Z4pLBOsy7HKWqS2E>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdekgeefucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepoffhfffugggtgffkvfevofgjfhesthekredtredtjeenucfhrhhomheplfgrvhhi
-    vghrucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnhepve
-    ektdfhffevuddtgfetieevtddvheduhfeggfekveejlefhleefieevueefiefhnecuvehl
-    uhhsthgvrhfuihiivgepfeenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjh
-    gvthhmrdhmvgdpnhgspghrtghpthhtohepvddvpdhmohguvgepshhmthhpohhuthdprhgt
-    phhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllh
-    grsghorhgrrdgtohhmpdhrtghpthhtohepfeduleefieefudesghhmrghilhdrtghomhdp
-    rhgtphhtthhopehlohhonhhgrddtgidttdesghhmrghilhdrtghomhdprhgtphhtthhope
-    grrhhivghlrdhrohhsvghnfhgvlhgurdejhedtsehgmhgrihhlrdgtohhmpdhrtghpthht
-    oheptghhrghpuhhishgurghrihhogeesghhmrghilhdrtghomhdprhgtphhtthhopehgih
-    hoshgrlheltdesghhmrghilhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghg
-    ghesghhmrghilhdrtghomhdprhgtphhtthhopehrrgguohhirdgthhhrihhssehgmhgrih
-    hlrdgtohhmpdhrtghpthhtohepshgrmhhurdhtohhljhgrmhhosehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:SqHFaWzzRu2dx4jH99zY8eg7yx87iQeT7tbaXa8j1o4Ebf9huNZmNg>
-    <xmx:SqHFafcDsetcpAnUkQuvN0EvFJI1E-lc6Zl39bgMYVPkmVli7Jg7LQ>
-    <xmx:SqHFac0SWjWQJU0xNB4Bs58PWRh1S_NLQvSJhk7fHEcu9l2aLUb0gw>
-    <xmx:SqHFaYs2A9U-5NO1_S8FfOKCuP-tww0mxC-RC8fanZYr2RTsfsjCIw>
-    <xmx:SqHFacQepzZnpiC94hU5w-btoJYtYZvr0T2na8r09VgyEezc-sE5bMhC>
-Feedback-ID: i9dde48b3:Fastmail
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedvpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtth
+    hopehrohgsihhnrdhmuhhrphhhhiesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhig
+    segrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghnthhonhdrihhvrghnoh
+    hvsegtrghmsghrihgughgvghhrvgihshdrtghomhdprhgtphhtthhopegurghnihgvlhdr
+    rghlmhgvihgurgestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopegurghvihguse
+    gurghvihgughhofidrnhgvthdprhgtphhtthhopehgrghrhiesghgrrhihghhuohdrnhgv
+    thdprhgtphhtthhopegrsgguihgvlhdrjhgrnhhulhhguhgvsehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepsghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:bKHFacD0ra2IKewOzV85-guaMKbD70dENWsy-p75QsHo1Yk0z9Nn_g>
+    <xmx:bKHFaathmkCZaZCL5hDPhlvL3BEdEuWC-JUBLqLCWV9m_v1HsxUVmg>
+    <xmx:bKHFaWue742_u7hiwisJ5WxIf99QUzzi0Dr0SkABQDBOjBgU5pdtxg>
+    <xmx:bKHFaeX3iXr1bIB49LOaucusKHBGCI8-g5rftWB0rU1MNmzYPTijsg>
+    <xmx:bqHFaY1IWjdkzpMo1o5XFVQetaAAt7u7flqJ1LRde5SJaQlj3ZPuM0gR>
+Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EBDD41EA006B; Thu, 26 Mar 2026 17:12:41 -0400 (EDT)
+	id B95A4700065; Thu, 26 Mar 2026 17:13:16 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
-From: Javier Tia <floss@jetm.me>
-Date: Thu, 26 Mar 2026 15:12:32 -0600
-Subject: [PATCH v4 8/9] wifi: mt76: mt7925: use irq_map for chip-specific
- interrupt handling
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260326-mt7927-wifi-support-v4-v4-8-8ab465addcfe@jetm.me>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
- Deren Wu <deren.wu@mediatek.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>,
- George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>,
- Samu Toljamo <samu.toljamo@gmail.com>,
- Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>,
- Chapuis Dario <chapuisdario4@gmail.com>,
- =?utf-8?q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>,
- =?utf-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>
-X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4873; i=floss@jetm.me;
- h=from:subject:message-id; bh=d/HKmmehbZuZuFy6yrEQuL+8MJqGQNMTKPsrWPbucdg=;
- b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpxaE4LrOfgn7JrGIyhpnuRTieuHLaNG2kd2xsJ
- 6hhpNjoFaGJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacWhOAAKCRC17sMLqGd3
- H2vwC/9QvmHMCgKq53HN/wxY8m/JZbWRiNIjKuLpLQdXbvy8R55Eq+kbZrkyYZ+iWupwgouuBoE
- dmT1PwvSltfy+NE0huOlAfg4QMBvFbH9PH/40spsSpNpxxbb0H4aRzOPWUoajbY51Ct55MBXuvY
- pzkd/y/4tvoeMIsI9BvKpsEIEMxXdSpVw977T/NRLWzL/EdWai1O4j0YVyFgJdUjbU4IuW0rEq7
- I56pQIGK1GEE7R1/1HaksJOvt3okCSbgNTZiosbmuarg57oiow4EIqf7R8UXyOpKX7rP1/YmxbZ
- 2NDpzm3/dPZj3cOZgrnackAyhirOfEoPaDtkVhO4EZGh2RLiiip+FLcMb4WRWtlhFt+CYuHPWIT
- SZNx7OTQMY7szXw32giTT2antBx/ND9esCe3H+akeAfRktwwDI5ffI3Npoli2KPz0cgZhiUZXh+
- E67KbD7S8DGmZwxRzHGwLjoFfm0tY6BFHbcxIsicyDfNdRYZnuRKhVemCkXIBSDhvsrW4=
-X-Developer-Key: i=floss@jetm.me; a=openpgp;
- fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
-In-Reply-To: <20260326-mt7927-wifi-support-v4-v4-0-8ab465addcfe@jetm.me>
-References: <20260326-mt7927-wifi-support-v4-v4-0-8ab465addcfe@jetm.me>
+X-ThreadId: AUJnWW6OA6Vc
+Date: Thu, 26 Mar 2026 22:12:24 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Miguel Ojeda" <ojeda@kernel.org>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>,
+ "Robin Murphy" <robin.murphy@arm.com>, "Danilo Krummrich" <dakr@kernel.org>,
+ "Abdiel Janulgue" <abdiel.janulgue@gmail.com>,
+ "Daniel Almeida" <daniel.almeida@collabora.com>,
+ "Andreas Hindborg" <a.hindborg@kernel.org>, "Christoph Hellwig" <hch@lst.de>
+Cc: iommu@lists.linux.dev, driver-core@lists.linux.dev, acourbot@nvidia.com,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Alice Ryhl" <aliceryhl@google.com>,
+ "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ "Boqun Feng" <boqun.feng@gmail.com>, "David Gow" <david@davidgow.net>,
+ "Gary Guo" <gary@garyguo.net>,
+ "Johannes Berg" <johannes@sipsolutions.net>,
+ "Justin Stitt" <justinstitt@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-um@lists.infradead.org, "Russell King" <linux@armlinux.org.uk>,
+ llvm@lists.linux.dev, "Benno Lossin" <lossin@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, mmaurer@google.com,
+ "Bill Wendling" <morbo@google.com>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
+ "Nicolas Schier" <nicolas.schier@linux.dev>,
+ "Nicolas Schier" <nsc@kernel.org>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Richard Weinberger" <richard@nod.at>, rust-for-linux@vger.kernel.org,
+ "Trevor Gross" <tmgross@umich.edu>,
+ "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
+ "Will Deacon" <will@kernel.org>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>
+Message-Id: <7ad8bdf9-5eff-4443-ad15-c05355d793d1@app.fastmail.com>
+In-Reply-To: <20260322194616.89847-1-ojeda@kernel.org>
+References: <20260322192159.88138-1-ojeda@kernel.org>
+ <20260322194616.89847-1-ojeda@kernel.org>
+Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_141243_352195_DB5FD5B9 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20260326_141325_147487_4EA553F4 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,121 +142,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mac_reset and resume paths use the hardcoded MT_INT_RX_DONE_ALL
-constant (bits 0-2) to re-enable RX interrupts. This is correct for
-MT7925 (RX rings 0, 1, 2) but wrong for chips using different ring
-indices.
+On Sun, Mar 22, 2026, at 20:46, Miguel Ojeda wrote:
+> On Sun, 22 Mar 2026 20:21:59 +0100 Miguel Ojeda <ojeda@kernel.org> wrote:
+>>
+>       BINDGEN rust/bindings/bindings_generated.rs - due to target 
+> missing
+>     In file included from rust/helpers/helpers.c:59:
+>     rust/helpers/dma.c:17:2: warning: static function 'dma_free_attrs' 
+> is used in an inline function with external linkage [-Wstatic-in-inline]
+>        17 |         dma_free_attrs(dev, size, cpu_addr, dma_handle, 
+> attrs);
+>           |         ^
+>     rust/helpers/dma.c:12:1: note: use 'static' to give inline function 
+> 'rust_helper_dma_free_attrs' internal linkage
+>        12 | __rust_helper void rust_helper_dma_free_attrs(struct device 
+> *dev, size_t size,
+>           | ^
+>           | static
+>
+> For some reason, `dma_free_attrs` is not marked `inline` in
+> `include/linux/dma-mapping.h` to begin with, unlike the rest.
+>
+> Unless I am missing something and there is a reason for that, it looks
+> like it has just been missing since it was added in commit ed6ccf10f24b
+> ("dma-mapping: properly stub out the DMA API for !CONFIG_HAS_DMA").
+>
+> Do you want a patch?
 
-Define a per-chip irq_map with the correct RX interrupt enable bits and
-replace hardcoded MT_INT_RX_DONE_ALL with irq_map field reads in the
-resume and mac_reset paths. Add the MT7927 irq_map with interrupt bits
-matching its RX ring layout (rings 4, 6, 7), selected at probe time
-based on PCI device ID.
+I have an older patch to drop CONFIG_NO_DMA entirely, which 
+may be better here, since we know that nobody cares about the
+empty stubs.
 
-This ensures the correct interrupt bits are enabled regardless of the
-chip variant.
+The only targets that 'select NO_DMA' today are m68k (sun3
+and dragonball), sh2 and um, which are some of the targets
+that don't have any DMA masters, but there is little downside
+of enabling the DMA mapping interfaces on those as well.
 
-Tested-by: Marcin FM <marcin@lgic.pl>
-Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
-Tested-by: George Salukvadze <giosal90@gmail.com>
-Tested-by: Evgeny Kapusta <3193631@gmail.com>
-Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
-Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
-Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
-Tested-by: Thibaut François <tibo@humeurlibre.fr>
-Tested-by: 张旭涵 <Loong.0x00@gmail.com>
-Signed-off-by: Javier Tia <floss@jetm.me>
----
- drivers/net/wireless/mediatek/mt76/mt7925/pci.c     | 21 +++++++++++++++++++--
- drivers/net/wireless/mediatek/mt76/mt7925/pci_mac.c |  5 ++++-
- drivers/net/wireless/mediatek/mt76/mt792x_regs.h    |  3 +++
- 3 files changed, 26 insertions(+), 3 deletions(-)
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/pci.c b/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
-index f820d5aeb723..604c0e9ae7ba 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/pci.c
-@@ -266,6 +266,18 @@ static int mt7925_dma_init(struct mt792x_dev *dev)
- 	return mt792x_dma_enable(dev);
- }
+diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+index 11835eb59d94..19fb556357fc 100644
+--- a/arch/m68k/Kconfig
++++ b/arch/m68k/Kconfig
+@@ -38,7 +38,6 @@ config M68K
+ 	select MMU_GATHER_NO_RANGE if MMU
+ 	select MODULES_USE_ELF_REL
+ 	select MODULES_USE_ELF_RELA
+-	select NO_DMA if !MMU && !COLDFIRE
+ 	select OLD_SIGACTION
+ 	select OLD_SIGSUSPEND3
+ 	select UACCESS_MEMCPY if !MMU
+diff --git a/arch/m68k/Kconfig.cpu b/arch/m68k/Kconfig.cpu
+index c9a7e602d8a4..adc50396b87d 100644
+--- a/arch/m68k/Kconfig.cpu
++++ b/arch/m68k/Kconfig.cpu
+@@ -38,7 +38,6 @@ config SUN3
+ 	depends on MMU
+ 	select HAVE_ARCH_PFN_VALID
+ 	select LEGACY_TIMER_TICK
+-	select NO_DMA
+ 	select M68020
+ 	help
+ 	  This option enables support for the Sun 3 series of workstations
+@@ -558,4 +557,4 @@ config COLDFIRE_COHERENT_DMA
+ config M68K_NONCOHERENT_DMA
+ 	bool
+ 	default y
+-	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA
++	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA && !SUN3
+diff --git a/arch/m68k/include/asm/pgtable_mm.h b/arch/m68k/include/asm/pgtable_mm.h
+index 7501ff030c63..d095ae6c19f9 100644
+--- a/arch/m68k/include/asm/pgtable_mm.h
++++ b/arch/m68k/include/asm/pgtable_mm.h
+@@ -159,8 +159,10 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 	    ? (__pgprot((pgprot_val(prot) & _CACHEMASK040) | _PAGE_NOCACHE_S))	\
+ 	    : (prot)))
  
-+static const struct mt792x_irq_map mt7927_irq_map = {
-+	.host_irq_enable = MT_WFDMA0_HOST_INT_ENA,
-+	.tx = {
-+		.all_complete_mask = MT_INT_TX_DONE_ALL,
-+		.mcu_complete_mask = MT_INT_TX_DONE_MCU,
-+	},
-+	.rx = {
-+		.data_complete_mask = MT7927_RX_DONE_INT_ENA4,
-+		.wm_complete_mask = MT7927_RX_DONE_INT_ENA6,
-+		.wm2_complete_mask = MT7927_RX_DONE_INT_ENA7,
-+	},
-+};
- static int mt7925_pci_probe(struct pci_dev *pdev,
- 			    const struct pci_device_id *id)
++#ifndef CONFIG_SUN3
+ pgprot_t pgprot_dmacoherent(pgprot_t prot);
+ #define pgprot_dmacoherent(prot)	pgprot_dmacoherent(prot)
++#endif
+ 
+ #endif /* CONFIG_COLDFIRE */
+ #endif /* !__ASSEMBLER__ */
+diff --git a/arch/m68k/kernel/dma.c b/arch/m68k/kernel/dma.c
+index 16063783aa80..c52584e024af 100644
+--- a/arch/m68k/kernel/dma.c
++++ b/arch/m68k/kernel/dma.c
+@@ -8,7 +8,7 @@
+ #include <linux/kernel.h>
+ #include <asm/cacheflush.h>
+ 
+-#ifndef CONFIG_COLDFIRE
++#if !defined(CONFIG_COLDFIRE) && !defined(CONFIG_SUN3)
+ void arch_dma_prep_coherent(struct page *page, size_t size)
  {
-@@ -310,6 +322,7 @@ static int mt7925_pci_probe(struct pci_dev *pdev,
- 	struct mt76_bus_ops *bus_ops;
- 	struct mt792x_dev *dev;
- 	struct mt76_dev *mdev;
-+	bool is_mt7927_hw;
- 	u8 features;
- 	int ret;
- 	u16 cmd;
-@@ -358,7 +371,8 @@ static int mt7925_pci_probe(struct pci_dev *pdev,
- 	dev = container_of(mdev, struct mt792x_dev, mt76);
- 	dev->fw_features = features;
- 	dev->hif_ops = &mt7925_pcie_ops;
--	dev->irq_map = &irq_map;
-+	is_mt7927_hw = (pdev->device == 0x6639 || pdev->device == 0x7927);
-+	dev->irq_map = is_mt7927_hw ? &mt7927_irq_map : &irq_map;
- 	mt76_mmio_init(&dev->mt76, pcim_iomap_table(pdev)[0]);
- 	tasklet_init(&mdev->irq_tasklet, mt792x_irq_tasklet, (unsigned long)dev);
+ 	cache_push(page_to_phys(page), size);
+diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+index d5795067befa..e246f295ec48 100644
+--- a/arch/sh/Kconfig
++++ b/arch/sh/Kconfig
+@@ -63,7 +63,6 @@ config SUPERH
+ 	select LOCK_MM_AND_FIND_VMA
+ 	select MODULES_USE_ELF_RELA
+ 	select NEED_SG_DMA_LENGTH
+-	select NO_DMA if !MMU && !DMA_COHERENT
+ 	select NO_GENERIC_PCI_IOPORT_MAP if PCI
+ 	select OLD_SIGACTION
+ 	select OLD_SIGSUSPEND
+@@ -133,10 +132,10 @@ config SWAP_IO_SPACE
+ 	bool
  
-@@ -549,7 +563,10 @@ static int _mt7925_pci_resume(struct device *device, bool restore)
- 	mt76_wr(dev, MT_PCIE_MAC_INT_ENABLE, 0xff);
- 	mt76_connac_irq_enable(&dev->mt76,
- 			       dev->irq_map->tx.all_complete_mask |
--			       MT_INT_RX_DONE_ALL | MT_INT_MCU_CMD);
-+			       dev->irq_map->rx.data_complete_mask |
-+			       dev->irq_map->rx.wm_complete_mask |
-+			       dev->irq_map->rx.wm2_complete_mask |
-+			       MT_INT_MCU_CMD);
- 	mt76_set(dev, MT_MCU2HOST_SW_INT_ENA, MT_MCU_CMD_WAKE_RX_PCIE);
+ config DMA_COHERENT
+-	bool
++	def_bool !MMU
  
- 	/* put dma enabled */
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/pci_mac.c b/drivers/net/wireless/mediatek/mt76/mt7925/pci_mac.c
-index 3072850c2752..1626a3684082 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/pci_mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/pci_mac.c
-@@ -118,7 +118,10 @@ int mt7925e_mac_reset(struct mt792x_dev *dev)
+ config DMA_NONCOHERENT
+-	def_bool !NO_DMA && !DMA_COHERENT
++	def_bool !DMA_COHERENT
+ 	select ARCH_HAS_DMA_PREP_COHERENT
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+ 	select DMA_DIRECT_REMAP
+diff --git a/arch/um/Kconfig b/arch/um/Kconfig
+index 098cda44db22..dd3428a49614 100644
+--- a/arch/um/Kconfig
++++ b/arch/um/Kconfig
+@@ -25,7 +25,6 @@ config UML
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DEBUG_BUGVERBOSE
+ 	select HAVE_PAGE_SIZE_4KB
+-	select NO_DMA if !UML_DMA_EMULATION
+ 	select OF_EARLY_FLATTREE if OF
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_CPU_DEVICES
+diff --git a/include/linux/dma-mapping.h b/include/linux/dma-mapping.h
+index 677c51ab7510..a96a22f857f1 100644
+--- a/include/linux/dma-mapping.h
++++ b/include/linux/dma-mapping.h
+@@ -138,7 +138,6 @@ static inline void debug_dma_map_single(struct device *dev, const void *addr,
+ }
+ #endif /* CONFIG_DMA_API_DEBUG */
  
- 	mt76_wr(dev, dev->irq_map->host_irq_enable,
- 		dev->irq_map->tx.all_complete_mask |
--		MT_INT_RX_DONE_ALL | MT_INT_MCU_CMD);
-+		dev->irq_map->rx.data_complete_mask |
-+		dev->irq_map->rx.wm_complete_mask |
-+		dev->irq_map->rx.wm2_complete_mask |
-+		MT_INT_MCU_CMD);
- 	mt76_wr(dev, MT_PCIE_MAC_INT_ENABLE, 0xff);
+-#ifdef CONFIG_HAS_DMA
+ static inline int dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
+ {
+ 	debug_dma_mapping_error(dev, dma_addr);
+@@ -200,146 +199,6 @@ void *dma_vmap_noncontiguous(struct device *dev, size_t size,
+ void dma_vunmap_noncontiguous(struct device *dev, void *vaddr);
+ int dma_mmap_noncontiguous(struct device *dev, struct vm_area_struct *vma,
+ 		size_t size, struct sg_table *sgt);
+-#else /* CONFIG_HAS_DMA */
+-static inline dma_addr_t dma_map_page_attrs(struct device *dev,
+-		struct page *page, size_t offset, size_t size,
+-		enum dma_data_direction dir, unsigned long attrs)
+-{
+-	return DMA_MAPPING_ERROR;
+-}
+-static inline void dma_unmap_page_attrs(struct device *dev, dma_addr_t addr,
+-		size_t size, enum dma_data_direction dir, unsigned long attrs)
+-{
+-}
+-static inline dma_addr_t dma_map_phys(struct device *dev, phys_addr_t phys,
+-		size_t size, enum dma_data_direction dir, unsigned long attrs)
+-{
+-	return DMA_MAPPING_ERROR;
+-}
+-static inline void dma_unmap_phys(struct device *dev, dma_addr_t addr,
+-		size_t size, enum dma_data_direction dir, unsigned long attrs)
+-{
+-}
+-static inline unsigned int dma_map_sg_attrs(struct device *dev,
+-		struct scatterlist *sg, int nents, enum dma_data_direction dir,
+-		unsigned long attrs)
+-{
+-	return 0;
+-}
+-static inline void dma_unmap_sg_attrs(struct device *dev,
+-		struct scatterlist *sg, int nents, enum dma_data_direction dir,
+-		unsigned long attrs)
+-{
+-}
+-static inline int dma_map_sgtable(struct device *dev, struct sg_table *sgt,
+-		enum dma_data_direction dir, unsigned long attrs)
+-{
+-	return -EOPNOTSUPP;
+-}
+-static inline dma_addr_t dma_map_resource(struct device *dev,
+-		phys_addr_t phys_addr, size_t size, enum dma_data_direction dir,
+-		unsigned long attrs)
+-{
+-	return DMA_MAPPING_ERROR;
+-}
+-static inline void dma_unmap_resource(struct device *dev, dma_addr_t addr,
+-		size_t size, enum dma_data_direction dir, unsigned long attrs)
+-{
+-}
+-static inline int dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
+-{
+-	return -ENOMEM;
+-}
+-static inline void *dma_alloc_attrs(struct device *dev, size_t size,
+-		dma_addr_t *dma_handle, gfp_t flag, unsigned long attrs)
+-{
+-	return NULL;
+-}
+-static inline void dma_free_attrs(struct device *dev, size_t size,
+-		void *cpu_addr, dma_addr_t dma_handle, unsigned long attrs)
+-{
+-}
+-static inline void *dmam_alloc_attrs(struct device *dev, size_t size,
+-		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
+-{
+-	return NULL;
+-}
+-static inline void dmam_free_coherent(struct device *dev, size_t size,
+-		void *vaddr, dma_addr_t dma_handle)
+-{
+-}
+-static inline int dma_get_sgtable_attrs(struct device *dev,
+-		struct sg_table *sgt, void *cpu_addr, dma_addr_t dma_addr,
+-		size_t size, unsigned long attrs)
+-{
+-	return -ENXIO;
+-}
+-static inline int dma_mmap_attrs(struct device *dev, struct vm_area_struct *vma,
+-		void *cpu_addr, dma_addr_t dma_addr, size_t size,
+-		unsigned long attrs)
+-{
+-	return -ENXIO;
+-}
+-static inline bool dma_can_mmap(struct device *dev)
+-{
+-	return false;
+-}
+-static inline bool dma_pci_p2pdma_supported(struct device *dev)
+-{
+-	return false;
+-}
+-static inline int dma_set_mask(struct device *dev, u64 mask)
+-{
+-	return -EIO;
+-}
+-static inline int dma_set_coherent_mask(struct device *dev, u64 mask)
+-{
+-	return -EIO;
+-}
+-static inline u64 dma_get_required_mask(struct device *dev)
+-{
+-	return 0;
+-}
+-static inline bool dma_addressing_limited(struct device *dev)
+-{
+-	return false;
+-}
+-static inline size_t dma_max_mapping_size(struct device *dev)
+-{
+-	return 0;
+-}
+-static inline size_t dma_opt_mapping_size(struct device *dev)
+-{
+-	return 0;
+-}
+-static inline unsigned long dma_get_merge_boundary(struct device *dev)
+-{
+-	return 0;
+-}
+-static inline struct sg_table *dma_alloc_noncontiguous(struct device *dev,
+-		size_t size, enum dma_data_direction dir, gfp_t gfp,
+-		unsigned long attrs)
+-{
+-	return NULL;
+-}
+-static inline void dma_free_noncontiguous(struct device *dev, size_t size,
+-		struct sg_table *sgt, enum dma_data_direction dir)
+-{
+-}
+-static inline void *dma_vmap_noncontiguous(struct device *dev, size_t size,
+-		struct sg_table *sgt)
+-{
+-	return NULL;
+-}
+-static inline void dma_vunmap_noncontiguous(struct device *dev, void *vaddr)
+-{
+-}
+-static inline int dma_mmap_noncontiguous(struct device *dev,
+-		struct vm_area_struct *vma, size_t size, struct sg_table *sgt)
+-{
+-	return -EINVAL;
+-}
+-#endif /* CONFIG_HAS_DMA */
  
- 	err = mt792xe_mcu_fw_pmctrl(dev);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_regs.h b/drivers/net/wireless/mediatek/mt76/mt792x_regs.h
-index acf627aed609..a8c8d7d6f565 100644
---- a/drivers/net/wireless/mediatek/mt76/mt792x_regs.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt792x_regs.h
-@@ -308,6 +308,9 @@
- #define HOST_RX_DONE_INT_ENA1		BIT(1)
- #define HOST_RX_DONE_INT_ENA2		BIT(2)
- #define HOST_RX_DONE_INT_ENA3		BIT(3)
-+#define MT7927_RX_DONE_INT_ENA4		BIT(12)
-+#define MT7927_RX_DONE_INT_ENA6		BIT(14)
-+#define MT7927_RX_DONE_INT_ENA7		BIT(15)
- #define HOST_TX_DONE_INT_ENA0		BIT(4)
- #define HOST_TX_DONE_INT_ENA1		BIT(5)
- #define HOST_TX_DONE_INT_ENA2		BIT(6)
-
--- 
-2.53.0
-
+ #ifdef CONFIG_IOMMU_DMA
+ /**
+diff --git a/kernel/dma/Kconfig b/kernel/dma/Kconfig
+index 0748091339f7..228a3566d344 100644
+--- a/kernel/dma/Kconfig
++++ b/kernel/dma/Kconfig
+@@ -1,12 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+-config NO_DMA
+-	bool
+-
+ config HAS_DMA
+-	bool
+-	depends on !NO_DMA
+-	default y
++	def_bool y
+ 
+ config DMA_OPS_HELPERS
+ 	bool
 
