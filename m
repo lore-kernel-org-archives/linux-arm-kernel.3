@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C2310A62F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B94310A62F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JSjYFvKsYHn3zLdzTw91PXDsC0yngduluZBblgzdeJE=; b=x+TMxg0HoT68IFnaiZvM6zwVFd
-	CxsZaVsW5PaelyI14mNkhRdUu4WNQUF7LGHKPLAriqKZeMSE7SMEIEyFMr2BQuVGGMCOYoUjhZKf/
-	WjLzVii+v9Ra+84z3gDVaOBgbOKkWUCttjnxqw5mPvb9fjBnQdMrMRM7DYJLEObBc13y8W7dGQK6D
-	82UopPcgtOOK2kcDV4Riv06WYJ/WhQvt8S1ln7Ly2Z0uM43xC4jIDb9HQui4Avf5RsbqpgfU6QtTH
-	uExpgWgxo0McJEvqdjH2kp++bXz7by2jS3HKc01+3DEHS3GF2te+MwFwNoNHQHGRmtVlXBOooAVhL
-	Un5GdbYg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/jbxR9OjY5SiCxmkdnQnFn66JvcHpYqliCfFxb1VJog=; b=XWV9YnySeUhRp/MMw0GK9ycrgo
+	gXpqpq6VuBDlhnPJloaJ2FM1R0AQGX/AJJtfK7Z5A+aX9JLOQnr0hz5+R7jlviT0UTRrtGyMJVV4L
+	55ql8ZRU2JpHvy3VMJZt9Dl0pkwnp4TKUItMU1eb/BtknSIsedg1fahREGHqVTGVxX3pIkk/remvM
+	6PBRrmZpAECAEHoM+TfDzVGzcPK85VD1kAKi8C/eIW4KQQZfAPDLsnpXUo+bses7g5O9AWdHx2H4N
+	Pn19AL/AyhEdVc61n11RBONDx7so1KIzZxuMOExiAy4IynbjSYJfTYCvgZXQQ2+IjKEEI3qE3jUdr
+	D8+GwPxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lq4-00000005fOT-2pjN;
-	Thu, 26 Mar 2026 14:37:36 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1w5lqB-00000005fQt-42tH;
+	Thu, 26 Mar 2026 14:37:43 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lq3-00000005fNh-0Dog
+	id 1w5lq3-00000005fNo-3gwX
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 26 Mar 2026 14:37:36 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-486fd3a577eso9541485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 07:37:34 -0700 (PDT)
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48704db565eso14952865e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 07:37:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774535853; x=1775140653; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JSjYFvKsYHn3zLdzTw91PXDsC0yngduluZBblgzdeJE=;
-        b=r4n7z4CxbgIRsFG5yJhD3wvFdUKiVvmm/XP7Dn9oVYrjpCjNZ9MCW2vg6eCi8OOZzl
-         zukcFcZQNP2ADooGmO2JewNiE93qbvHA1g1hoz2O/dFsRMavbBD+bRey3tB/Qt4le1wi
-         9mQ3xmn1Vk8DM9U8uGoGLUUDvF0s141tt1+M6CqyCxE7FbpeKJGsLzRIZfPMZb9ORFOP
-         K8WkfxhvwBtK5xzMc9CpOD2yZhuAFqglVBI+W6L3H9mexw9QksM1rFr32vijJ2/zKC8Z
-         njSBeVZw52P5/t/dy7IEf7bjs8X5th7gXO0RlTk1FIr7ydfOP5eJcMvS8LnpFxOpkt2D
-         CRJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774535853; x=1775140653;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1774535854; x=1775140654; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JSjYFvKsYHn3zLdzTw91PXDsC0yngduluZBblgzdeJE=;
-        b=flNZOkO8g9gyGdj6X/e6WtepScur7w53upcsbujAK+saj+ZMdG4feAKvwvEi7W3wOX
-         kRZiCWwLmLpo0gNBaYWXr7bSbfEuVve5+aKwPbC8Jmh97aNO2UQqs5ZN3qdKuNXZiHnn
-         PP32nyWrniTOjpIE0M4d45A6PgB4l6GtRxBPTmw/85vXcVjw7ImqpQZ12ufhEGY1jf1r
-         6nK0t7UwmxxtFrdwC+jfv+mQTNKWavNFNVwJy6BekXHxYwJI27FIKjj6jWOPFyAFrDCD
-         GN2JMCZCVcQVgxYiWsAc904EXCbxFI91ONf7/HgoHL7Ki1CKJjkEqdygdO51HBZA0gTB
-         YEwg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFLdtYTVR1Kr7sdZMp0Nf8tGljuoQyn8VJWbxXupmfu6/6I3x9lg/Hw6PTyOv9zBTTmqlw2iYR3r/n0cWJMM2n@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU0ULN6G0xKEzP01P28TXqy2u8+CJLrUPTsZWByawGlZEi/y3q
-	+3WjUq4LmVuxPH4oMdaXIuWXAMnDyqBtI6UqH8aejDIHh7bo1GQdDn0E
-X-Gm-Gg: ATEYQzwJteG14zZ/UIuuUaYMXCYs4AHz2GUdC4Kigr9TqRetHRpNO/AvSaqxft2i6Th
-	5pNGsLGRGtA3VHB0alYYZtNzZT0j9RHdxcQ4tQAuLmpbr2HScNbVkTEUSV/K9FfUflvNQYnky5m
-	rE/iL7aeGhtCKp+YwFT4cQZsXmOwX/G0FzHtdhWWbPZZ/mAw7QwLZuVSrmHxiOtjCrayuSC8nrr
-	+lFcfKbta/aztR4vzLoC+h72trqUsWubNzNxldEBTA3S2xnaiUtWvBKWS13lz0kB7NDny34Jq0N
-	2tF8sD52gmb5r81NqjkOWFNcADJT61iExqAM1fyyXXVT8V/LhP1XqO75luCu5HjlgS+K+gHdsMx
-	02xWVLqaRfpGrnFu6teKjt4Pn0w0M+qZIVjKbqj1LGKaHi++EF+0LIAK+wNhVWnsSUAO6XP97ve
-	DdwUihN0JMJU6hLseZx6nyIKU4R0yfbma8MFYXEixpA3RhQ4BEjuIUEKFcRj1MgV6vOLkox2sX8
-	8eBDCk75ThtFxA6oSDux6c2/5owzqWI7QY2AnqhJNBTnZeuigrCY3mpEflSlBY71hij4BO8OaJY
-	p42riateb9MF73P1I42U
-X-Received: by 2002:a05:600c:c177:b0:487:2e8:69c5 with SMTP id 5b1f17b1804b1-48715fe2aa7mr115405295e9.15.1774535852495;
-        Thu, 26 Mar 2026 07:37:32 -0700 (PDT)
+        bh=/jbxR9OjY5SiCxmkdnQnFn66JvcHpYqliCfFxb1VJog=;
+        b=YStOm+3d4G8WWe4yjjyVkJkUr8P/3WarN4LJGu6RR0DkhA4FTNxAhH4FRDvwMawtEp
+         20fumCXvtTjPJ65/qQJNGq0L9zq3i4ll2TxSvldZfjKAWxKiepnI53dyqNB2neOCNjlL
+         C9ybQSzJ7I3L1rSLyH/o5u+d6rh5p4hIXMGeSw0j2m0LkKWjyA3DBs/WLc/Gb4sEbqCK
+         XWIhLbu7ypmopeDuSlniUOTva3Pj6Dqckgnj4sWLnRDSSCiv4krhJpQSPAXycCHlfQIa
+         iyeged9y5gJaGrvNDosaBLx0+3/BuzhoO1xYMj7KrKesA6TOqXYFLG2ROtNSTm5xDnk1
+         MiSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774535854; x=1775140654;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/jbxR9OjY5SiCxmkdnQnFn66JvcHpYqliCfFxb1VJog=;
+        b=qtr8+Qf4hacdXHrzAji7hnyMFcg6XNBaW01702MKPt5eMFpG3v0/xIh7xy6ytOovf0
+         M6NI4vmKOi4DSJQ3AMGz32Ifw3PzxcnCvk1nzMb/Xno95s2mptyYbNMhZdUWvXZwgCHk
+         L2yzZGUZZdgZjtfIFWjuN4KrNouREnRBakq4ED5XlyQaj8f7Ku+jmu0J9NtvkmJZHx8n
+         O1kmmX00pBFUCMfJZ862aaiNqiB8huQu0b0SG0cP0wtvsvCdgO8QzNrquQuX1LQZ3voq
+         K3lHiI/DzpXM99+3aANSSLHzwkr6wMeOMaEOzJnCJaUNc1LgTl6xCtEU0EJELqXQ7LZi
+         7nJg==
+X-Forwarded-Encrypted: i=1; AJvYcCUuOdxB7GIw0VVIVb18FNazCyZw6NMT2o8KF+O0NkwhfVX9Vq7GaGSV7itLVCLSGzhPDoJW7mTVWuskGSZBRBJm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKek9LtZy9Rstvecqzrv4h8uzPHSCpp8ZXe+i3WeKKohVFVEuF
+	SZMOjR+hNCqn2P21Agyz6tfooCQFayrUmxspXSny0A7hYONQ4UMgRfbC
+X-Gm-Gg: ATEYQzyxvMz7RPq+gKLpUWDYnVrjw2PRtPo+3Ftz5m8IglbrtB22bMnJFFpnOXZX71n
+	SnInyZ8EV7t4LbMEOa7hz8YI8SnmoXokS7KibF9P/CQ1V6prJxAtPq2XbJvPdOYxQ7aT0UyXFhC
+	oijb9zaDuBtRAIjZ9XqH40y8Tb9807DbCt7Ts7vw1+cyfoplRcCXTdFkZ8H6RZuVl6q902+/gEe
+	tsKKjvm09yFVJ7OxIN6ny6d8aTWfqSri2dyDzg/FYBzrGpWaXOV3MMTKFjUTaXL6gHNrKl/ip0x
+	+6cJR1K3YJCwETxVezmmcCE8IF4+gDEYREVxKSqcVorFjZzVaIhWcMHyvmyNLyTWF2bRbXzquiq
+	5HqmBEc4uv99Kv0jJFtmhctAxAzuzNKYSiVYcq4YOk1U9iicUwES5scYxQ8lunlrNajQvzEu0AH
+	s7Y0E1eOuGgT0DyWJcDE86U9j3olYRUT8KuclP8bhAlVtMXe9XxQeKnzvlM+BRYVH/vrdlq2tHJ
+	i40Dooo5fQwGShk2H6DBn+gT3qD7bSOJ6RMjYb4YrZNJlQbG/ZPxjzDddd0eoyd93vrAi3hVhNX
+	lNFrNhGNow6SOW6HZ7CO
+X-Received: by 2002:a05:600c:1f8e:b0:485:4006:960c with SMTP id 5b1f17b1804b1-4871605aa53mr122496665e9.16.1774535853676;
+        Thu, 26 Mar 2026 07:37:33 -0700 (PDT)
 Received: from franzs-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722cb5845sm34024185e9.15.2026.03.26.07.37.30
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722cb5845sm34024185e9.15.2026.03.26.07.37.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 07:37:31 -0700 (PDT)
+        Thu, 26 Mar 2026 07:37:33 -0700 (PDT)
 From: Franz Schnyder <fra.schnyder@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -84,15 +85,17 @@ Cc: Franz Schnyder <franz.schnyder@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Francesco Dolcini <francesco@dolcini.it>
-Subject: [PATCH v2 0/3] arm64: dts: freescale: imx95-toradex-smarc: Add Bluetooth and SER2
-Date: Thu, 26 Mar 2026 15:37:03 +0100
-Message-ID: <20260326143711.143462-1-fra.schnyder@gmail.com>
+Subject: [PATCH v2 1/3] arm64: dts: freescale: imx95-toradex-smarc: Add SER2 interface
+Date: Thu, 26 Mar 2026 15:37:04 +0100
+Message-ID: <20260326143711.143462-2-fra.schnyder@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260326143711.143462-1-fra.schnyder@gmail.com>
+References: <20260326143711.143462-1-fra.schnyder@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_073735_095832_190B6029 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260326_073735_942730_D8C565AF 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +112,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Franz Schnyder <franz.schnyder@toradex.com>
 
-This patch series adds support for missing interfaces on the Toradex 
-SMARC i.MX95 SoM.
+The Toradex SMARC iMX95 has four exposed serial interfaces, one of these
+is SER2, which supports RTS/CTS.
 
-It adds:
-- SER2 interface
-- UART interface for Bluetooth
-- WIFI_UART_EN as a gpio-hog to select the UART function by default,  
-  as the MAYA-W260 UART signals are shared with the JTAG.
+Add UART support for SMARC SER2.
 
 Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
 ---
-v2: Remove unused label for wifi-uart-en-hog node
-    Add explanation to clarify the safe usage of the GPIO hog
+v2: no changes
 ---
+ .../dts/freescale/imx95-toradex-smarc-dev.dts    |  5 +++++
+ .../boot/dts/freescale/imx95-toradex-smarc.dtsi  | 16 ++++++++++++++++
+ 2 files changed, 21 insertions(+)
 
-Franz Schnyder (3):
-  arm64: dts: freescale: imx95-toradex-smarc: Add SER2 interface
-  arm64: dts: freescale: imx95-toradex-smarc: Enable bluetooth on
-    lpuart5
-  arm64: dts: freescale: imx95-toradex-smarc: Use gpio-hog for
-    WIFI_UART_EN
-
- .../dts/freescale/imx95-toradex-smarc-dev.dts |  5 +++
- .../dts/freescale/imx95-toradex-smarc.dtsi    | 44 +++++++++++++++++++
- 2 files changed, 49 insertions(+)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
+index 5b05f256fd52..7437e523ff63 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc-dev.dts
+@@ -210,6 +210,11 @@ &lpuart3 {
+ 	status = "okay";
+ };
+ 
++/* SMARC SER2 */
++&lpuart6 {
++	status = "okay";
++};
++
+ /* SMARC MDIO, shared between all ethernet ports */
+ &netc_emdio {
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index 7a73958f6eec..1d369983cf7d 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -22,6 +22,7 @@ aliases {
+ 		rtc1 = &scmi_bbm;
+ 		serial0 = &lpuart2;
+ 		serial1 = &lpuart1;
++		serial2 = &lpuart6;
+ 		serial3 = &lpuart3;
+ 	};
+ 
+@@ -615,6 +616,13 @@ &lpuart3 {
+ 	pinctrl-0 = <&pinctrl_uart3>;
+ };
+ 
++/* SMARC SER2 */
++&lpuart6 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart6>;
++	uart-has-rtscts;
++};
++
+ &mu7 {
+ 	status = "okay";
+ };
+@@ -1105,6 +1113,14 @@ pinctrl_uart3: uart3grp {
+ 			   <IMX95_PAD_GPIO_IO15__LPUART3_RX	0x31e>; /* SMARC P141 - SER3_RX */
+ 	};
+ 
++	/* SMARC SER2 */
++	pinctrl_uart6: uart6grp {
++		fsl,pins = <IMX95_PAD_GPIO_IO34__LPUART6_CTS_B	0x31e>, /* SMARC P139 - SER2_CTS# */
++			   <IMX95_PAD_GPIO_IO07__LPUART6_RTS_B	0x31e>, /* SMARC P138 - SER2_RTS# */
++			   <IMX95_PAD_GPIO_IO05__LPUART6_RX	0x31e>, /* SMARC P137 - SER2_RX   */
++			   <IMX95_PAD_GPIO_IO04__LPUART6_TX	0x31e>; /* SMARC P136 - SER2_TX   */
++	};
++
+ 	/* On-module eMMC */
+ 	pinctrl_usdhc1: usdhc1grp {
+ 		fsl,pins = <IMX95_PAD_SD1_CLK__USDHC1_CLK	0x158e>, /* SD1_CLK    */
 -- 
 2.43.0
 
