@@ -4,150 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6E3106F318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5D5106F319
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70UumQ0wXahp/fPc8rN0VZbGI4i5m524rI0Onbo5mUE=; b=JpiW1nsZTmSuayUBaV4iZ2So6T
-	u45/YS7WsUj8RU6MMZA70oPcBtZJy10KCdw82qN528p1PHSSj3jWb/HcLopf3JwH6GirONclg0igO
-	lMWS/MDP0UltPJLv6sGSJVN1u3KdIdVTqJ9VruX+p55lKAS2wcetbYyI+dNIT7rD9q2Bz/GNIFt+O
-	Y9U5RQ396eCJm6vUNOqYFGm9oHcMnzvPmGRoSJrpeZ1nUGGYkK0BErTjqnCchroVy5YlHuClZO8TZ
-	v84jHBi/jN/ryqJtvNZz3l1PfMg4YWv5o6qjg8e7OcDHFEm7cu64Wn7cXHIjdzWrqPe/cxfj7f90x
-	FO3Qp3LQ==;
+	bh=OHuEV5qmahzZIboidDNqvpY50/0bKhQtLRKVkzJKB/U=; b=XFTDNnizNt91FbeXkxEDuNJQ45
+	kV5a8iyt73vHhfTSLx5JN5VzxgYvUp4EAWFZQ4DU+C3s7AjjUaKX3v3yESWAUb02MXtkpb5CHRViQ
+	6xIVtXhv/JsZ5oXjRbF0TP6XCmYsCD6HaR/7K+NcAfjcEONqoorofi9PV3IDRT/nEHfU2V0G/UYPw
+	Ev4FOlbaVpPj2AQiDcFPLVXwWju1roXL71LX9mkQjKVQtezhoZd7v7qYfPxXxtc4Tl/tPRe5XaLax
+	bAEbtjXezauhDbT7c614tsMn0VfXmMpVJgvh1Xsq+tghWZkg1ansuO5uUyfHEKPX8hF4rXmoN/TUC
+	oOgFR3cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hhE-00000005F5d-1SQP;
-	Thu, 26 Mar 2026 10:12:12 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1w5hlR-00000005Fdu-2JUs;
+	Thu, 26 Mar 2026 10:16:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5hhA-00000005F5F-22nX
+	id 1w5hlP-00000005Fce-2UbP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 10:12:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E6SdPhq5chM+Zr7+ZjKoe11cvaZfHRTpac8p+LgZjlLzsdCP18F3UWeSkhSfvG7c3/pfEbXbadB3GpB9TuhZ5A/13w7hKIoF6Idq4TRdU3IReLLfgqtV5KLaCOAWTTyJZvb/hMuq/LRscPHd2gQUZtyDFOlrGWeNKUhJZlVe0rw1wrYhzUsm8AhxGOrcBrnTOx2iHP850ZQPfVpHIblJ+A3vxrkC+cKAFFx0aIBNbGYu5PhVn+E2uEHacQmf3z4yTdVz5t8hnVnKLDieGLOCAazQpQ/pQVd8FOpijs3v9DMCt58FBMPddLY824LdEoLfyJop4PPNe/C95QIEK0BDbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=70UumQ0wXahp/fPc8rN0VZbGI4i5m524rI0Onbo5mUE=;
- b=tkZo5zI0EV4HedrlZB5naBExKAk3jGiZhgF/gmIhT/C/Uin3C1bYftG6gXsvxBxx+woQ7OZ6uHLy7UkmNEOb/wz4sbl7fPtUa6qBevGEtZrNycdNNjFSuOzcyQu82jQlCL65khq7mwQnt0hQzqq6zkqbnfEEmqvRfiVZEqRpjEK9EFZuPrti8qnuTZaAWpCVagcOy2VG4ctt8kKyt5Re2giPuEyXA6iL7bqSjKkYN8DI2/z8KRZxG4p9rsY35sOBFmXePbLpfzsLm/ah0p59itG9zvpaaVm8wpi0zrEpsXrghbY3Rd3GKwe7RYEkqNbD8v+Uod/gjqYCMv7vi5YEhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=70UumQ0wXahp/fPc8rN0VZbGI4i5m524rI0Onbo5mUE=;
- b=2BoqeVo8b/r8r1kU2jB8tm4ELNpBxJ99sx3bypmBhmJ6ghMbqUNHDuKrghv7ecwYhC/tH9YL7XnYyiVsSFX4W3i/EtzNhomIXJkMA/cQtlQqgAJzJsaL327vpdg3WHbIbbs4oM6gbcfHFmcN3zj9dMfw7lQ5Ctp0+URlEQ2RMrg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
- by MN0PR12MB5809.namprd12.prod.outlook.com (2603:10b6:208:375::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.6; Thu, 26 Mar
- 2026 10:12:00 +0000
-Received: from SN7PR12MB8147.namprd12.prod.outlook.com
- ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
- ([fe80::3923:c1a4:778b:56f2%3]) with mapi id 15.20.9769.006; Thu, 26 Mar 2026
- 10:12:00 +0000
-Message-ID: <57b046e7-79ca-4d3c-952d-1cb9439601c1@amd.com>
-Date: Thu, 26 Mar 2026 15:41:51 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/8] xilinx: tsn: Add TSN Endpoint Ethernet MAC driver
- support
-From: "Neeli, Srinivas" <srneeli@amd.com>
-To: Andrew Lunn <andrew@lunn.ch>, "Neeli, Srinivas" <srinivas.neeli@amd.com>
-Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "Simek, Michal" <michal.simek@amd.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "richardcochran@gmail.com" <richardcochran@gmail.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "git (AMD-Xilinx)" <git@amd.com>
-References: <20260219054911.2017362-1-srinivas.neeli@amd.com>
- <5f884e29-151a-4ee7-9e1a-d7e1f84d9f6c@lunn.ch>
- <SN7PR12MB81478FB396CDD9929618C2D69368A@SN7PR12MB8147.namprd12.prod.outlook.com>
- <28b232f1-5814-4b3a-af28-1eab023743c0@lunn.ch>
- <ca273ea9-2d6f-4c01-b243-803835d08248@amd.com>
-Content-Language: en-US
-In-Reply-To: <ca273ea9-2d6f-4c01-b243-803835d08248@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN2PR01CA0241.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:21a::12) To SN7PR12MB8147.namprd12.prod.outlook.com
- (2603:10b6:806:32e::5)
+	Thu, 26 Mar 2026 10:16:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE181437A7;
+	Thu, 26 Mar 2026 10:16:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65ED3C116C6;
+	Thu, 26 Mar 2026 10:16:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774520190;
+	bh=8pidv6tLBMKGrGGnxMSzOA+pQiMt1DosRVV6l9JsVPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e4AbEJO60R4MTJV/FlIwybC66N9IoNBKSDUhU43IaUyGF6f9Td0oOqz1XoWE/KAX1
+	 Vip3LJHiPhP0tzyGVYmxMfHjZaSETl4I5sp2gsQw26TIIXSwUfsQO8Lxy4R/D/8hDp
+	 uhWnXGs8kP7ZsC385DV04eAEQUVJnCUozXMXZ4TgLvHHmDiIxP9Msyo/FptVHHiXOG
+	 xCCSVlVq07S2Q7zXMOtCtdGlAX3fEab3GEpKT+FmbKJq0g6Bjaudo893xEXMUq3s8g
+	 7r8FZwz1tBUnAEc/OibVHqwa2K7OxkdFzSaqgTnMIyx3CmPGRnq7y9w72P8KLKgUcp
+	 4iFlx9ISuHVnw==
+Date: Thu, 26 Mar 2026 10:16:25 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, philip.radford@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@foss.st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
+Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
+ initialization
+Message-ID: <20260326-amiable-potoo-of-health-ed5c9a@sudeepholla>
+References: <20260310184030.3669330-1-cristian.marussi@arm.com>
+ <9b574ac5-09fa-4e7a-b2bb-a339fbb319bc@samsung.com>
+ <acPUxJ3N0QptmtlJ@pluto>
+ <5980695.DvuYhMxLoT@steina-w>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|MN0PR12MB5809:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70653daf-d7d1-43ec-992d-08de8b201e7a
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Jn8i6s00ooAwQ4my1lTsT8QLJflzl7dZlbfNpa9VVWQ6P6hQwtoeLl8VgFhLm5QlVJba3+py3x9ZihR3fMu0joNhHgo+z0SavTFGpZ3BPAlvk3M0l2nfmBWFH9E/APWeJzAt4PGgzTu5LiIp6jS3Fa8CbR3QPhgx2S7pBX08WFOk6p5oPELlHL7/Xdr4o/rsb6DBLE88b3AjfwDSgBnj+kA2ZhXmy6guQZSXtts53tii3I4og2lFSsU1iT8wqpdeebyXyXm6CQMFf7ijQUEkynLMWj13TbD7vghM1bhK17xe1APxyX+my96KkZef6OKw/s81sE9SI0JEmc6Cg526MXn9uGGyA6tEexLFO2ogJBCwhKyKGh+iiGdEIk0EVw8qNljC3sttBLz7j83G18d5R6UiEd8jhGrzbBxjoIjG0W7csMFpXCsCsS6Z+27RkxEg1RUe3xCrYdc5CB48hcAVmhqnmpihxgplH3+VjsOGJvDgSpFG7tfYCwze5djk069Dt79AfQkn3EDZimYxjUkyps2sYP/d6P8HPsjJNWvxQj7NY0nThdY/CdOfa8VVtapZpuoAMPlMbNA/vDkdUk9lWAvo6pm+zlerMO2QlKVz1DWQIp6MtcU+XC6QZNhk4L2sQC4tqe0ryuQb77461g40PW82ibRilkP+XnpVq5y3hTDt1N8Td2y1sk1SaBtOVdH8NqADdxwdei7rBViAPOj6chqQLm+zOijNJmy4PPwVrDQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZzZyMDNiUkRZM2g4VlFEY3gwVTdlLzdHNG1Tc1hDTUZ0QVBDZTJCWXFWNnJz?=
- =?utf-8?B?bG5makRydm04ZHNoczMwd3VXbE5lVnRzcndpRUEzMDBKa1ovQVdDK2Erclow?=
- =?utf-8?B?dHFjS0U1SGRKaEMweTFqcXh0MTY0WUhpVjk0cEFQT1FOTUk2OXJwNkJuR0tD?=
- =?utf-8?B?T3ZvbmpvbllleHA0VkQvNWN5QnloZWVRbVJoOEJaRTRUL0dIT2NPOVMwOUVk?=
- =?utf-8?B?S3F4SE1sOXhUTXdweENJMHJBUnI0TnVlQnhaNVlMRUptN3ZOSHIzNkpxZ1J6?=
- =?utf-8?B?MXQyUTBmR1c5dFdtUVI0VWNwc2o5TjF4c0JlMU9sdWljd0ZITmZraDROMG5o?=
- =?utf-8?B?TDdiWDk1U1UrcEVXZ0xpTGQzZDBxVmZ3ejhwVUdVMVF4UjBIVHVwN3Jrdm44?=
- =?utf-8?B?ek4yN21ucG1UNDN6bWpPQXJySFlsTG5ld2JJWEY0VUlMYUtHUC9xV3lManFY?=
- =?utf-8?B?enBXRUhwZyt1eU93MTRsMjlLdTA2cHhReEF6Y2MvQ3ljY3hJU0VpOFlWSDBY?=
- =?utf-8?B?S29McHhqQ3MvdGZPVzdpdXRoQmkxYm1LMG5iTy82L1Z2STFsNCtUWFJiaFRZ?=
- =?utf-8?B?cHdYd0NiYXd3MzFhQVVmaHFCT2J0R3BDNVU1QTRjSGNaTUMzWlFjejN6cG04?=
- =?utf-8?B?NktoOVlwUWMyY29vM25LaUJZWmhZbEtJS0doSThLcXZJK3k1WmRVSnYvayt4?=
- =?utf-8?B?blBpOVliVWpTNG13dk5tNitiTGtJVHFFYXA3akl3ekxhNWovNnJLQm52OWJS?=
- =?utf-8?B?MVpsWngwYVh2L3dBV1A4YjVtUTV2UGxVZmdXT1kybXV5SmlONnZ5Yks2VEV3?=
- =?utf-8?B?MDUzdjlEVjhteU91MVpWdm1Ua2lXS01uMkg0Tys2ZmV3RFhXZk54RCtIeTFa?=
- =?utf-8?B?b3ZwTlZHNDNmSkU1TFl0bER4QmxQYko1V2ZYSHJYU05RbERtb1B1QUFPbXlq?=
- =?utf-8?B?SHo1VldNVEpHcnFxUFo5SFNUNHcwdThVS21rQjN1Tkg3eWFOY2pnck9CT2R2?=
- =?utf-8?B?QXAxZ21KS0hwWXpMUHFEWmVabEIvT0pkZTNDRlkrZW10enErbWMybEdVRzdv?=
- =?utf-8?B?Sm1IMGhRVENnOXJrOWFSWVludWhGaGZtWkV3cEdUQTJaajZOeXFBWVBlRmZZ?=
- =?utf-8?B?aWZac055Q2FnVUlMd1VyUTUxUlY3TTBYVkZiWVRkRkVuSjhaRTZ4bVlCZnYy?=
- =?utf-8?B?eTMvU3BwV0hHTGt6RVpoYU1UZDkrVkRGVXR0TDQ4WEUrSnJKQ2ZJODZFQ1c3?=
- =?utf-8?B?SGVLVlVpN1NGUHFraDA1M1lSek5lYVN0dVpxYnJNYUlaODlVNjdOWnozT3Fv?=
- =?utf-8?B?MlhubXp1eW5NcFlIMTRhVm4xaGtzdjAvNkRpRTNKZ2lnQlRCVTJudTBKN2pz?=
- =?utf-8?B?VVpzWitLK0hPWmw3QXdLdHRNdWtJMWpIWXVGSkFKL1dFbEN0Q2hBUG5GYmFF?=
- =?utf-8?B?MzNJWEdnNFplSzkrb3pzQXJVMVVMYU1vbEx2Z1ZKbWlKcVZqSS9lcVNXSHN6?=
- =?utf-8?B?MEZldUtvYzJrZlI4V3cvQVRsT1hNeFN2UHBkZm82K3RPNHoyL0dsNGpGanNr?=
- =?utf-8?B?amx0Z1lzU2c3M09oV0Z6RWlUL3JTTHNsbDNmd0ExTjRoM3JEYTI5d2VCWnJr?=
- =?utf-8?B?bk1jTlRRVUhPb0hyc0tEOGVQT2czK3FuUThhOEJoOU9KSWF6bzBpTTZOZXRX?=
- =?utf-8?B?MnRtWlVYMHJ1VUtydW1oQ0FQbWh4NHYvcTFmSk1nbm1QVklTQi8vY2dTZ1R2?=
- =?utf-8?B?bW1iTG9kb0ZlWDNra0l2OERyclNjL3o3Rml3bU5PdkcySmwyYlA2VTBZWnNo?=
- =?utf-8?B?Ni9CcDN1ZXJzQU1QQ202TlhMR3BBdVlaMERIUDdROWdTZXk4bFl6Wkw1MEVR?=
- =?utf-8?B?TjNOTlMzUDVPVHhpbVcrQ05nQjZueHZMaVJtQnR1UDR2YUZUMUxyd29wS1Yw?=
- =?utf-8?B?NGZlVUJ6cnREN2s1Nk1JT1ZkK2taclFlRFg0cHVGMmY1NkU0S1pxRmVra3NU?=
- =?utf-8?B?S1dxalk1NFBZLzdrTWxnNEpmWmJ0ZG5XQjdjYkhGMUVFMkRKd0wrTzB0b3NC?=
- =?utf-8?B?VWFHNmlRbWlLeXVhOWdzUE1pR2N6SHBOaTFsaVp4NU55anZBM2pxRVQ4NUxP?=
- =?utf-8?B?MmZENTdHUjFQbkhTV1pUTktYUS9hTzFYZkVxNXllQXVlaXhueHB2cTEwRnl3?=
- =?utf-8?B?eGVzcGpaN2JmZlNmRlFTbFVxSHAwS1luZSt5MExTUkN6T0VSOStyQ1FwQnJ0?=
- =?utf-8?B?MkRXSlJUVkFJM0haQVB2cFpXMDRJR1Vpb0tFUUd0M0FlZEgrVkdpL2JUejB5?=
- =?utf-8?Q?HF1X+J5fKJTFw9oMjF?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70653daf-d7d1-43ec-992d-08de8b201e7a
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 10:12:00.3151
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pF024T49ANTALzh7XzGMlybLuspQjYnzoVYwHSCbhaVqvYcY5ORQx7QOxH5hrR/I
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5809
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5980695.DvuYhMxLoT@steina-w>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_031208_666275_64548AF0 
-X-CRM114-Status: GOOD (  26.15  )
+X-CRM114-CacheID: sfid-20260326_031631_691993_8D2E0AA4 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,89 +85,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 26, 2026 at 09:55:18AM +0100, Alexander Stein wrote:
+> Hi,
+> 
+> Am Mittwoch, 25. M�rz 2026, 13:27:48 CET schrieb Cristian Marussi:
+> > On Wed, Mar 25, 2026 at 12:02:41PM +0100, Marek Szyprowski wrote:
+> > > On 10.03.2026 19:40, Cristian Marussi wrote:
+> > > > Add proper error handling on failure to enumerate clocks features or
+> > > > rates.
+> > > >
+> > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > > 
+> > 
+> > Hi Marek,
+> > 
+> > > This patch landed yesterday in linux-next as commit 0d8b0c8068a8 
+> > > ("firmware: arm_scmi: Harden clock protocol initialization"). In my 
+> > > tests I found that it causes a regression on RK3568 Odroid-M1 board 
+> > > (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts), cpufreq and GPU 
+> > > device are not probed properly:
+> > > 
+> > > # dmesg | grep scmi
+> > > scmi_core: SCMI protocol bus registered
+> > > arm-scmi arm-scmi.0.auto: Using scmi_smc_transport
+> > > arm-scmi arm-scmi.0.auto: SCMI max-rx-timeout: 30ms / max-msg-size: 
+> > > 104bytes / max-msg: 20
+> > > scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
+> > > arm-scmi arm-scmi.0.auto: SCMI Notifications - Core Enabled.
+> > > arm-scmi arm-scmi.0.auto: Malformed reply - real_sz:8 calc_sz:4  
+> > > (loop_num_ret:1)
+> > > arm-scmi arm-scmi.0.auto: SCMI Protocol v2.0 'rockchip:' Firmware 
+> > > version 0x0
+> > > arm-scmi arm-scmi.0.auto: Enabling SCMI Quirk 
+> > > [quirk_clock_rates_triplet_out_of_spec]
+> > > scmi-clocks scmi_dev.3: probe with driver scmi-clocks failed with error -22
+> > > 
+> > 
+> > Yes there are multiple reports of issues on this hardening, the series
+> > is on hold and wont go into v7.1 as of now...it needs some basic fixes
+> > and various quirks probably to address non-compliant firmwares...
+> > 
+> > It will be pushed to next again with a few more fixes in the coming
+> > days and then we'll need to figure out how many quirks will be needed on
+> > top of that and if it is acceptable at all...
+> 
+> Just for the records: imx95 (maybe imx94 as well) is also affected by this.
+> My board doesn't boot at all, because all the clocks are provided by SCMI.
+> 
+> With this diff I can see it's the 'ext' clock
+> -->8---
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
+> @@ -1253,8 +1253,11 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+>         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+>                 cinfo->clkds[clkid].id = clkid;
+>                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+> -               if (ret)
+> +               if (ret) {
+> +                       dev_warn(ph->dev, "scmi_clock_attributes_get failed for '%s': %d\n",
+> +                                cinfo->clkds->info.name, ret);
+>                         return ret;
+> +               }
+>  
+>                 ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
+>                 if (ret)
+> -->8---
+> > arm-scmi arm-scmi.0.auto: scmi_clock_attributes_get failed for 'ext': -2
+> > scmi-clocks scmi_dev.6: probe with driver scmi-clocks failed with error -2
+> 
+> What's the idea of how to proceeed as apparently several platforms are
+> affected?
+> 
 
-On 3/5/2026 5:16 PM, Neeli, Srinivas wrote:
-> Hi Andrew,
->
-> On 2/20/2026 7:06 PM, Andrew Lunn wrote:
->> On Fri, Feb 20, 2026 at 12:59:16PM +0000, Neeli, Srinivas wrote:
->>> [AMD Official Use Only - AMD Internal Distribution Only]
->> Sorry, i'm not part of AMD...
->>
->>>> So how does the host send a frame out Port 2? Is there an extra header
->>>> on the frame sent by EndPoint, which the switch interprets?
->>>>
->>> In this RFC, I configured all switch ports in forward mode. As a
->>> result, when a frame is sent from the internal endpoint, it is
->>> flooded to both external ports.  To forward packets to a specific
->>> port instead of flooding, either static switch CAM entries need to
->>> be configured or address learning should be enabled so the switch
->>> can learn CAM entries dynamically.
->> Despite not being part of AMD, this part is important.
->>
->> I don't care about how the RFC works, i want to know how the hardware
->> works, to ensure you have the correct choice of DSA vs pure switchdev.
->>
->> Take the example of running Spanning Tree Protocol. The bridge needs
->> to send the BPDU out a specific port. What mechanism is used to do
->> that? It also needs to know which port a BPDU ingressed.
->>
->>     Andrew
->
->
-> Hi Andrew,
->
-> I would like to briefly share an overview of our TSN switch 
-> capabilities and seek your guidance on the most appropriate Linux 
-> framework for the driver implementation specifically whether switchdev 
-> or DSA would be the better fit.
->
-> TSN Switch Capabilities
-> -----------------------
-> Our TSN subsystem supports the following IEEE TSN clauses:
->
-> IEEE 802.1Qbv – Time-Aware Shaper (scheduled traffic using gate control)
-> IEEE 802.1Qbu / IEEE 802.3br – Frame preemption
-> IEEE 802.1Qci – Per-Stream Filtering and Policing (PSFP), including: 
-> SDU-based filtering and Meter-based policing
-> IEEE 802.1CB – Frame Replication and Elimination for Reliability (FRER)
-> IEEE 802.1AS / IEEE 1588 – Time synchronization (PTP / gPTP)
->
-> Hardware Architecture Overview
-> ------------------------------
-> The switch consists of three ports:
->
-> Port 0: Connected to the CPU (control/endpoint port)
-> Port 1: Connected to MAC1
-> Port 2: Connected to MAC2
->
-> MAC1 and MAC2 are capable of transmitting and receiving PTP packets, 
-> with received packets stored in internal BRAM. They will not be 
-> forwarded by switch to the internal endpoint (EP) and MAC network 
-> drivers xmit's and receives the PTP frames.
-> The switch forwards frames based on VLAN port membership and the CAM 
-> entries and switch supports TSN features such as CBS, Qci (PSFP) and 
-> 802.1CB (FRER) through hardware configuration.
-> The CPU is intended to operate purely in the control plane and is not 
-> part of the forwarding data path.
->
-> Thank you very much for your time and guidance. Please let us know if 
-> any additional details would be helpful.
->
->
-> Best regards,
-> Neeli Srinivas
->
-Hi Andrew,
+Not exactly answer to the above question, but more discussion here:
 
-Based on the feedback so far, I am planning to proceed with a switchdev 
-based implementation for the next RFC series, as this appears to be a 
-better fit with the Linux networking model.
-Please let me know if you have any concerns with this approach. If this 
-direction is acceptable, I will share the next version of the RFC series 
-accordingly.
-Thank you for your guidance.
+https://lore.kernel.org/all/20260324-scmi-clock-fix-v1-v1-1-65c21935824b@nxp.com
 
-Best regards,
-Neeli Srinivas
+-- 
+Regards,
+Sudeep
 
