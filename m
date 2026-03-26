@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78BC10A3D91
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A928410A3D81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UB7FdfoXx03C606Sygc1OXh4g/aNCFHgAllnYL1t62I=; b=DwJmhe/496YvDGaGKlw0hVb7im
-	dCu1JWkj0GO0pe5vhV3jJRU7xc0hVunvDUNeK12BgqcMzIsWpr3lirDAHD0UK3OmUm+Ihrq7Ncjkk
-	8Zc74vY3DWSpFwJA7IXLi3HbKMY1AzZ7VQt9jvnuB/xJ0bmeMyMHNtEhP1v7rmBBvJil+Ig1UIVCD
-	4XIAIBDSerPaEBp6I1nBCyVW+/UtSVYadnVGzGmW0GUDrJ4VHq+oJ/l+HppWIzi+niZ8n1HXweL+F
-	THz+8P7c8RHju+W5gcMwMZg+PRl+DSD84igThnpL9Ue6jxqcwtcGKaBM8+GS7MN8eb6Fa8VtNR0OJ
-	xbjzHDPg==;
+	bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=; b=auccNDOHn2ZV9zLJsCPeYIxtEK
+	8ihML2zewGce7eEVBvvvmCB7TE8gWfRV4L5ltfqBwtYNeQohvHoPrd8dZsu2bu7sYUHd8b6cTUxE8
+	7dHJyUcbmub76w0Fs5dfx7ZXpMKsS/GnnT1eiiEoLYAAcgJyhLM55NWrV+bT18LJrHSWAFcXQJrfB
+	qEE0EcQiMAEYvZHNa53a4R/SpdNjlHxWYTWKU+GrRASfp3eDu+EGZseXpkE+h+EmBFyuLp4oYdEo7
+	gMzK61kFflLLUBp47OlAxYgoESLgAUt7XLZpMRex4aeyDTTAGFZkxqMYnYMA/3jQLOSaR8zP2GB6m
+	yULyJ4og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k0L-00000005SvC-35Ue;
-	Thu, 26 Mar 2026 12:40:05 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1w5k0w-00000005TG5-3rQC;
+	Thu, 26 Mar 2026 12:40:42 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k01-00000005SkC-2hMa
+	id 1w5k0T-00000005T0r-0m7x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 12:39:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fhNVX4fHGzcb1r;
-	Thu, 26 Mar 2026 20:33:40 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id 88EB840567;
-	Thu, 26 Mar 2026 20:39:34 +0800 (CST)
-Received: from localhost.localdomain (10.50.163.32) by
- kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Mar 2026 20:39:33 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <tianyaxiong@kylinos.cn>
-CC: <linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linuxarm@huawei.com>, <zhanjie9@hisilicon.com>,
-	<jonathan.cameron@huawei.com>, <zhenglifeng1@huawei.com>,
-	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
-	<prime.zeng@hisilicon.com>
-Subject: [PATCH v1 08/10] devfreq: Allow find_devfreq_governor() to get module refcount
-Date: Thu, 26 Mar 2026 20:34:26 +0800
-Message-ID: <20260326123428.800407-9-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260326123428.800407-1-zhanjie9@hisilicon.com>
-References: <20260326123428.800407-1-zhanjie9@hisilicon.com>
+	Thu, 26 Mar 2026 12:40:14 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-38bd15d82bdso6804801fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 05:40:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774528811; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AnDCqAKP/G/lGjntGC7V1PIPCq1Od6Q23ycswNcRIEaKWanQgecydjeM9TiYTEbhJn
+         zd708pg2Jv0diA0FrJGrc9lW2fOoLn11voMGNJgMXInELeS86vJU5w3oI3m26hXrOy2e
+         Cwe38QJw1UVKR3k+XL2K5RAHHwTcHmHBa88EhbMi+4AyOQqcje/TLV45mYHEAVS8Zr9+
+         pgysCwn0F6+hxagcaraKbZR8ZpBbry9DFmWigzD76PbQtfx/VI+S692hgogSl3jpJBlJ
+         kwUmDll0pv2ubQcvMsON8p4gTzu5QRTHm7h0AdrlIqoX3zOEKSZvburMl/dFmE4Q9sRZ
+         k40g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=;
+        fh=49jmiK6qBax38SWfCmHem6oPZ9ThA1ZIz2gJvkC9CvE=;
+        b=JcoOYwbyBMYqLKXmGsP6ulziuCiCOz3p27iulwru1w2Aem5jjIna3qu6nAm3u9veQr
+         l3uryK39toEh+1SpInocz1/JLzxKox7iHk2uVBwEYgNbqOgwCwLjVi25Ea+9/N9qpu28
+         HMyZRh0PGrB69XfYkVijSxIt6EWbHBs5QnL0F5shFfdyZsWgxUeyam0QNmRYd1J04iXo
+         kM1jGKPSYWzX5vg5M833R784es9CZ/1K7xQxLRtmjAtzs01rCLWOp7C4Bp/AemJiAprl
+         l5+3VR/tgNNks6naFHyKtS623lNXhnDe2BaiEyFLd/5ET661ye/QlFWZMntIvjhvWQUE
+         t7iA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774528811; x=1775133611; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=;
+        b=wxrVvWyxGyjiFZ7vWoiobwYNV7LZDjCdD0sA8XGuRpa+gsWphx1HXy5s7AIrisKTSk
+         cJfuLddj2OPRnBgcQXmsuIYTw9M/DzDJmTUMF/uC69HdjZrSxd/jCsurvPUYJ5YT53Aq
+         E49uy4swVeUQXqgpyx0sB0/4N2P+zbv0Gpe8+isuEZVV59FBLcDMRkiU+uQjr59HjNA3
+         ldG0arYJq97/pyzEYk9E0ALb3mApwhVX56lDbZk3FUJf3A6Yoi9g/E6NIGnn05jzZ4JG
+         VEFoa5pgd7KaubRlBAObt9p/ieN0JmOEZfTdvelf8OTlX/X1BIzDxAwdAAQabVZ2gMJn
+         0xgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774528811; x=1775133611;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=48CvZ1Y5htSw0CsA/IUWJDDVtqJpwQfkps0eeueb7wc=;
+        b=lN3MfLQWsVI1WDacb2nO1svY8tB27UUbyV0Ehmq79c6bCuhQJfhGFrESQXQvTckico
+         26uvzNxIsmaQaU6pxH4EDcTYKoUa9SQUywLy0CwvE0FhDSXpGayYHqWxNvg/t+V2DyYC
+         lWgzdvhNI1zXWw/wtCIh+1SbeWHSHNcNj7av7ilaEoBQQEbO82J1lPB+NKfiBlxtHJi1
+         lsd+ObL2+V7c7KBuFwMjACuE0OBXMTsZ1ZMdrCQD9/6cVpN+mqFny8k3k/5+E3jjIhQC
+         +GED1CbIdTppzVDgVor7XO70cJ5D91rciZXNRLa0k018h2cO8WG0faIdgEqoiu6g0Nsc
+         wSpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUtcuB92fdQAiN/OeEZUcI1i0eBoo7X2FdBXMxe42Pnj2zlSCgZNWQsu5+7fKJ90tFYclVezkohxy/E5wzE2Z4Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxY6t7xwnKFdlb3cmahCmFm0TlxfktOUaVEw+4Zum6X8gglf2TG
+	Jp24Q26KrKp5QlGbsVzaKWORtZ8WPc6WbHSLWcivj6Lafp4/0LbArV27lFQ/Gx+WeLGlf+jHUpW
+	fb+2gPDRe1YVjxJXXKEGKrgh7QIgDELr+brH+eKzJZg==
+X-Gm-Gg: ATEYQzzxCPAc5VzCR8UfYdRBEeLb5/xSTxS6Dz9AdKauz3Yg2RjMBR95KhKKHj/FAwz
+	fmPSVJ/H4LIZPPUAEcKtgx4mAX8A90qRw7KclVU15aEO+XWXmISz2KQBg0b4WcJlrpywddtaNPf
+	oLNmXQ8LoEItLgHbYCgxRltPaNZIRS3wgo12TzNORTCpVHlbow7/ttBbD74RgaS7Pfd5O+pxQUs
+	cL9B/nQlxyYsIVAWrU05aB9Z83mVk65upEyMS8yKp2Fp2elEQ/oYyz650RGt4g6Ps6C9VAKMGBl
+	GemETP0=
+X-Received: by 2002:a05:6512:1306:b0:5a2:7d1a:4043 with SMTP id
+ 2adb3069b0e04-5a29b99d856mr2665316e87.20.1774528810562; Thu, 26 Mar 2026
+ 05:40:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+References: <20260325225439.68161-1-rougueprince47@gmail.com> <69C51640.8070408@hisilicon.com>
+In-Reply-To: <69C51640.8070408@hisilicon.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 26 Mar 2026 13:39:34 +0100
+X-Gm-Features: AQROBzBmRNtgc4rNYofWXMIcZkHCVLXnq4xnye8DD2kjvOTL1AOG-2hkznear-w
+Message-ID: <CAPDyKFq6F3PZgqTtHXZPQPPBvdPhsQPtUVHiZV6X-QXvS42+CA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] mmc: hisilicon: Convert dw-mshc bindings and fix dtbs
+To: Wei Xu <xuwei5@hisilicon.com>
+Cc: Bhargav Joshi <rougueprince47@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, zhangfei.gao@linaro.org, linux-mmc@vger.kernel.org, 
+	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_053946_057332_F9E47F0D 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260326_054013_486967_C645EEBA 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,121 +117,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a 'get' parameter for find_devfreq_governor() to optionally get a
-refcount of the governor module.
+On Thu, 26 Mar 2026 at 12:19, Wei Xu <xuwei5@hisilicon.com> wrote:
+>
+> Hi Bhargav,
+>
+> On 2026/3/26 6:54, Bhargav Joshi wrote:
+> > This series converts the Hisilicon dw-mshc text bindings to DT schema
+> > format and cleans up legacy node names in Hisilicon board files.
+> >
+> > While testing the new YAML schema, dtbs_check flagged the hi3660,
+> > hi3670, and hi6220 SoC files for using the non-standard 'dwmmc' node
+> > name prefix. resulting in warnings.
+> >
+> > Patch 1 Convert to DT schema
+> > Patch 2 updates the Hisilicon dtsi files to use standard 'mmc'
+> > node name.
+> >
+> > Changes in v2:
+> >  - Patch 1:
+> >     - Grouped compatible strings into an enum.
+> >     - Replaced raw numbers with proper flags.
+> >     - Fixed property order and removed invalid hex values.
+> >     - Added explanation for clock order change in commit message.
+> >     - Collected Acked-by tag.
+> >  - Patch 2:
+> >     - No code changes.
+> >     - Collected Acked-by and Reviewed-by tags.
+> >
+> > Signed-off-by: Bhargav Joshi <rougueprince47@gmail.com>
+> > ---
+> > Note: this patch is part of the process for applying to GSoC device
+> > tree bindings conversion project #
+> > https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
+> >
+> > - The file is enabled by arm64 defconfig (CONFIG_MMC_DW_K3=y)
+> > - It is used in following
+> >     /arch/arm64/boot/dts/hisilicon/hi3660.dtsi
+> >     -included by /arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
+> >     /arch/arm64/boot/dts/hisilicon/hi3670.dtsi
+> >     -included by /arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
+> >
+> > Bhargav Joshi (2):
+> >   dt-bindings: mmc: hisilicon,hi3660-dw-mshc: Convert to DT schema
+> >   arm64: dts: hisilicon: Rename dwmmc nodes to mmc
+> >
+> >  .../mmc/hisilicon,hi3660-dw-mshc.yaml         | 117 ++++++++++++++++++
+> >  .../devicetree/bindings/mmc/k3-dw-mshc.txt    |  73 -----------
+> >  arch/arm64/boot/dts/hisilicon/hi3660.dtsi     |   4 +-
+> >  arch/arm64/boot/dts/hisilicon/hi3670.dtsi     |   4 +-
+> >  arch/arm64/boot/dts/hisilicon/hi6220.dtsi     |   6 +-
+> >  5 files changed, 124 insertions(+), 80 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/mmc/hisilicon,hi3660-dw-mshc.yaml
+> >  delete mode 100644 Documentation/devicetree/bindings/mmc/k3-dw-mshc.txt
+> >
+>
+> Series applied to the HiSilicon arm64 dt tree.
+> Thanks!
+>
+> Best Regards,
+> Wei
 
-Getting refcount in try_then_request_governor() prevents the governor
-module from being removed during the governor setting phase.
+Usually I pick DT bindings (patch1/2) for mmc via my mmc tree and I
+also just did. Would it be possible for you to drop patch1/2 from your
+tree?
 
-However, in devfreq_add/remove_governor(), it doesn't need to get a
-refcount of the governor module because it just checks whether a
-governor registered with the same name exists or not.
-
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
- drivers/devfreq/devfreq.c | 28 +++++++++++++++++++++-------
- 1 file changed, 21 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index ba09948915ba..c6b670b8fd22 100644
---- a/drivers/devfreq/devfreq.c
-+++ b/drivers/devfreq/devfreq.c
-@@ -254,11 +254,13 @@ EXPORT_SYMBOL(devfreq_update_status);
- /**
-  * find_devfreq_governor() - find devfreq governor from name
-  * @name:	name of the governor
-+ * @get:	whether to get a refcount of the governor module
-  *
-  * Search the list of devfreq governors and return the matched
-  * governor's pointer.
-  */
--static struct devfreq_governor *find_devfreq_governor(const char *name)
-+static struct devfreq_governor *find_devfreq_governor(const char *name,
-+						      bool get)
- {
- 	struct devfreq_governor *tmp_governor;
- 
-@@ -269,8 +271,13 @@ static struct devfreq_governor *find_devfreq_governor(const char *name)
- 
- 	guard(mutex)(&devfreq_gov_lock);
- 	list_for_each_entry(tmp_governor, &devfreq_governor_list, node) {
--		if (!strncmp(tmp_governor->name, name, DEVFREQ_NAME_LEN))
--			return tmp_governor;
-+		if (strncmp(tmp_governor->name, name, DEVFREQ_NAME_LEN))
-+			continue;
-+
-+		if (get && !try_module_get(tmp_governor->owner))
-+			return ERR_PTR(-EBUSY);
-+
-+		return tmp_governor;
- 	}
- 
- 	return ERR_PTR(-ENODEV);
-@@ -285,6 +292,9 @@ static struct devfreq_governor *find_devfreq_governor(const char *name)
-  * if is not found. This can happen when both drivers (the governor driver
-  * and the driver that call devfreq_add_device) are built as modules.
-  * Returns the matched governor's pointer or an error pointer.
-+ * On success, this holds a refcount of the governor module to prevent the
-+ * module from being unloaded during usage, so the caller should put a module
-+ * refcount after using it.
-  */
- static struct devfreq_governor *try_then_request_governor(const char *name)
- {
-@@ -296,7 +306,7 @@ static struct devfreq_governor *try_then_request_governor(const char *name)
- 		return ERR_PTR(-EINVAL);
- 	}
- 
--	governor = find_devfreq_governor(name);
-+	governor = find_devfreq_governor(name, true);
- 	if (IS_ERR(governor)) {
- 		if (!strncmp(name, DEVFREQ_GOV_SIMPLE_ONDEMAND,
- 			     DEVFREQ_NAME_LEN))
-@@ -307,7 +317,7 @@ static struct devfreq_governor *try_then_request_governor(const char *name)
- 		if (err)
- 			return (err < 0) ? ERR_PTR(err) : ERR_PTR(-EINVAL);
- 
--		governor = find_devfreq_governor(name);
-+		governor = find_devfreq_governor(name, true);
- 	}
- 
- 	return governor;
-@@ -1007,6 +1017,8 @@ struct devfreq *devfreq_add_device(struct device *dev,
- 	if (err)
- 		goto err_devfreq;
- 
-+	module_put(governor->owner);
-+
- 	list_add(&devfreq->node, &devfreq_list);
- 	mutex_unlock(&devfreq_list_lock);
- 
-@@ -1312,7 +1324,7 @@ int __devfreq_add_governor(struct devfreq_governor *governor,
- 		return -EINVAL;
- 	}
- 
--	g = find_devfreq_governor(governor->name);
-+	g = find_devfreq_governor(governor->name, false);
- 	if (!IS_ERR(g)) {
- 		pr_err("%s: governor %s already registered\n", __func__,
- 		       g->name);
-@@ -1361,7 +1373,7 @@ int devfreq_remove_governor(struct devfreq_governor *governor)
- 		return -EINVAL;
- 	}
- 
--	g = find_devfreq_governor(governor->name);
-+	g = find_devfreq_governor(governor->name, false);
- 	if (IS_ERR(g)) {
- 		pr_err("%s: governor %s not registered\n", __func__,
- 		       governor->name);
-@@ -1436,6 +1448,8 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
- 
- 	ret = devfreq_set_governor(df, governor);
- 
-+	module_put(governor->owner);
-+
- 	return ret ? ret : count;
- }
- static DEVICE_ATTR_RW(governor);
--- 
-2.43.0
-
+Kind regards
+Uffe
 
