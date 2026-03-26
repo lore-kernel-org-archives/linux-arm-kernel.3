@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427B810A88E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B3610A88E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YppUxT16TZ6mdR/tVE12ElPFig8LRvKBwVKRQBfddwQ=; b=3XXzkYVU404Ou/W1xvwI4UsvMD
-	RAUjCoRb0BpflHMV/0C8xhYcgHNXBdklb5+tb57mIsPFB+llBvqCSyR/mnpn+bHRT5jQr55zUjeIn
-	xMPM6INjwUpxn/BhaMQwsz+pSuJrKSML5vYThk5fem3dpuSM2Jh/BLK1uUaZhw8RPdxZXwyWaTCTV
-	qrKxfqrtQa6q1rBhpQnsUSy1G9wlzBJHw+ECn+2jcLlxLn6u7Ksy5bYS+NIjh9Juykrp+qRbBZ7W5
-	l2JmwjgMKg1AnHWgADj5KvgcaLyiEwHndI60SJR5obn8bDLDSJIrT5bwmFo9y6/9/wCYfNBDnXN42
-	NCyJKIDw==;
+	bh=RuVJQJOLtLr1GKKthr7khvXSIsMQ4qS3xKBVcZkbFV8=; b=XkRd+Z2icwYLd8Wjc8B/8r48/5
+	rgdTPcxMdYSP41VoPDrqkMuPxrmQvyL4nYAfeT17OjpJbs0kGhvZsIK3q1pyPqnGpJsHvaWvBjgse
+	fueXY/kPrhY29sZSSAdRsvjvzjEILQul9jyAL8vdt7s+7MPCoPq9OmcbNhrgTCDXlPbqoYcwCRb+D
+	eedpA94B1quuDgV/hsSXplaWxxIjh5qzT26VXpY8+e2m443Z5UGfvjLlLwpKPAL2BoTIIhHR7GRkD
+	vm14ah1ukcbkNLX0VooduyPoPSNjtjNp6wzHywXmfZx4m2uDkdigf32KsCW3KA9lNcK+HwNCPT0hh
+	lu/o1DUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mkO-00000005lCm-3fUq;
-	Thu, 26 Mar 2026 15:35:48 +0000
+	id 1w5mkQ-00000005lGF-3R1x;
+	Thu, 26 Mar 2026 15:35:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mkE-00000005l4E-3ybp
+	id 1w5mkG-00000005l5u-20co
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 15:35:41 +0000
+	Thu, 26 Mar 2026 15:35:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B16B3446A8;
-	Thu, 26 Mar 2026 15:35:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C404C2BCB4;
-	Thu, 26 Mar 2026 15:35:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA911417B9;
+	Thu, 26 Mar 2026 15:35:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC68CC19423;
+	Thu, 26 Mar 2026 15:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774539337;
-	bh=BRbmzUOJBjqYkQ5YB+hmyXy64v2qULuFBJxfbjyyGRY=;
+	s=k20201202; t=1774539338;
+	bh=2fYqiw6OHmz+dB7/Hu1w+XYzk0VxCs/creDSwdedOIA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VI4WsgMAyvo2ow4/RFEWZKHyYZp4RTvpwDfyWPwNxRH0T8UxkIAjVytwiiAOevfw9
-	 +v/XYWBCuBjD/JSRHFCmsfzf3x/EXyFeSP2OIwewcqGEO7PL7x4YQl5sa0XBJwT86O
-	 ssu/0tsjthkio9FagoBHJ+ppyGR9FDOwhE19hZmNFbggTLY34CnHu1Wr2pVe8RNwpm
-	 qbOO1nj12O9Hstzkdx6bs19sxIfux0hsrdinOUJ30L2ZwQ/5jIGEWZJwy3vAiKNLqf
-	 OoBM5eLAq/fKmTPjhJkqJ6xccKwWmg9C9foPxJDHyDFBSsxhCoHgvhFyUqMeCpeBhU
-	 gcjjWqz0+bupw==
+	b=Sq+JQyyLJC6FhrALSKJJgwYNXXxmlQBGU43NDO8+lIs5W9eE2pTR69hH4HKhzHIck
+	 kzTZK4D0HmKFlPnbshBFaFPAYy5JGAxM40p0tD4WqoLcIHNHhtME/XSaoZOm4VIKPJ
+	 NljiNAVLnTRAqJpNkjdma3F2bXkzqDCcjnydHtGsd5St5Kmio8B90vdqF75qqCI98t
+	 sSSNL/ZTlncHCx/go69cKHNOrvY1IQMBOEnueqhDf/5HI4jsoPRveDnFHMSnYePhKb
+	 lprjaq0Vm3z/Zx2py0b4CCszPME5fQNVRL/hrFlIVRAaP2LKeOqFrZSh+XqtHkvm8O
+	 uDWztHBzXf3gA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w5mkB-000000060II-2BdE;
-	Thu, 26 Mar 2026 15:35:35 +0000
+	id 1w5mkD-000000060II-0F6r;
+	Thu, 26 Mar 2026 15:35:37 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH 06/15] KVM: arm64: vgic-v5: Hold config_lock while finalizing GICv5 PPIs
-Date: Thu, 26 Mar 2026 15:35:21 +0000
-Message-ID: <20260326153530.3981879-7-maz@kernel.org>
+Subject: [PATCH 13/15] KVM: arm64: Move GICv5 timer PPI validation into timer_irqs_are_valid()
+Date: Thu, 26 Mar 2026 15:35:28 +0000
+Message-ID: <20260326153530.3981879-14-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260326153530.3981879-1-maz@kernel.org>
 References: <20260326153530.3981879-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_083539_023066_232E5E05 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260326_083540_725553_53298326 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Finalizing the PPI state is done without holding any lock, which
-means that two vcpus can race against each other and have one zeroing
-the state while another one is setting it, or even maybe using it.
+Userspace can set the timer PPI numbers way before a GIC has been
+created, leading to odd behaviours on GICv5 as we'd accept non
+architectural PPI numbers.
 
-Fixing this is done by:
+Move the v5 check into timer_irqs_are_valid(), which aligns the
+behaviour with the pre-v5 GICs, and is also guaranteed to run
+only once a GIC has been configured.
 
-- holding the config lock while performing the initialisation
-
-- checking if SW_PPI has already been advertised, meaning that
-  we have already completed the initialisation once
-
-Fixes: 8f1fbe2fd2792 ("KVM: arm64: gic-v5: Finalize GICv5 PPIs and generate mask")
+Fixes: 9491c63b6cd7b ("KVM: arm64: gic-v5: Enlighten arch timer for GICv5")
 Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v5.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/kvm/arch_timer.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 2b6cd5c3f9c2f..119d7d01d0e77 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -172,6 +172,16 @@ int vgic_v5_finalize_ppi_state(struct kvm *kvm)
- 	if (!vgic_is_v5(kvm))
- 		return 0;
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 6608c47d1f628..cbea4d9ee9552 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -1543,6 +1543,10 @@ static bool timer_irqs_are_valid(struct kvm_vcpu *vcpu)
+ 		if (kvm_vgic_set_owner(vcpu, irq, ctx))
+ 			break;
  
-+	guard(mutex)(&kvm->arch.config_lock);
++		/* With GICv5, the default PPI is what you get -- nothing else */
++		if (vgic_is_v5(vcpu->kvm) && irq != get_vgic_ppi(vcpu->kvm, default_ppi[i]))
++			break;
 +
-+	/*
-+	 * If SW_PPI has been advertised, then we know we already
-+	 * initialised the whole thing, and we can return early. Yes,
-+	 * this is pretty hackish as far as state tracking goes...
-+	 */
-+	if (test_bit(GICV5_ARCH_PPI_SW_PPI, kvm->arch.vgic.gicv5_vm.vgic_ppi_mask))
-+		return 0;
-+
- 	/* The PPI state for all VCPUs should be the same. Pick the first. */
- 	vcpu0 = kvm_get_vcpu(kvm, 0);
+ 		/*
+ 		 * We know by construction that we only have PPIs, so all values
+ 		 * are less than 32 for non-GICv5 VGICs. On GICv5, they are
+@@ -1678,13 +1682,6 @@ int kvm_arm_timer_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 		return -ENXIO;
+ 	}
  
+-	/*
+-	 * The PPIs for the Arch Timers are architecturally defined for
+-	 * GICv5. Reject anything that changes them from the specified value.
+-	 */
+-	if (vgic_is_v5(vcpu->kvm) && vcpu->kvm->arch.timer_data.ppi[idx] != irq)
+-		return -EINVAL;
+-
+ 	/*
+ 	 * We cannot validate the IRQ unicity before we run, so take it at
+ 	 * face value. The verdict will be given on first vcpu run, for each
 -- 
 2.47.3
 
