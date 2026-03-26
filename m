@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5A810A62EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FB610A62ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+sNoheho1OrFl4QBII3exZTKJg8TKL0T5hDuECTkLo=; b=x0MJBWoTyasUK4Nl80CKxheeS6
-	9zRlfzArMcpe65SqOcIi/fmEnUzRBkzZ1vc2gV20ahmFhL9xS5i2nEyus21odrtj+xSsOveh0MEkZ
-	CgDFGGBhtIj5H3vZaRiCoKh7NvH5RY5wP+AotIZKRW0EuQXMGhtVTs01zcKiTYBMcNdMm22qWUFxT
-	sX6DILhJtpxLhQEf+1X2kdQtquny4S1hIDeV+eY/You3q8oY+ZkplAV33y1rkhXw42VSaqodNx21U
-	Yqoq/8Ydl6dmQKWRlAtjlGV15HVlx/BXqLCELILywA875Fh+LOCLv+3UCuuYLJeel9gOC8B74SWqA
-	Ag1967xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yP0vCFC3wYLfo6TskOFea5vhjk7dxFakYltnqH3cZYQ=; b=li8PUTDqjbIVeakLG7Jf+iGacr
+	9gXd6Jik8HmBSOD9CELVgN0biVCv7stHhxFbyAe3GcQdipJmO42bzO6tJeb1xBaMhUsVVlnGWtQle
+	JF0oKFLKrKD+U/AGpAzTCUrXcvxQEH9fKjOO+DNFo3F6ECcAvBynmU0PqwAuyBry+sJFb4P65FTEH
+	/4Me49kfK0Kf+VLrt9kZjSowLRPnbcJPfDHKG5Fd6kJVupwsVq8CUoFCEUUpqlntpV04R4nO6LOoc
+	F384/9iHiZsRPBWQ2pg8rRbbDxNKVV2cBzPGnGuk5ngP/fD83mQZsv281xDi7CecHA8I2EFiIMIMJ
+	y0oCg+sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lfa-00000005djY-0h83;
-	Thu, 26 Mar 2026 14:26:46 +0000
-Received: from mail-4323.protonmail.ch ([185.70.43.23])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lfW-00000005djB-3uIn
+	id 1w5lhE-00000005dv4-3Uh3;
+	Thu, 26 Mar 2026 14:28:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5lhC-00000005duU-21aW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 14:26:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=emersion.fr;
-	s=protonmail; t=1774535198; x=1774794398;
-	bh=m+sNoheho1OrFl4QBII3exZTKJg8TKL0T5hDuECTkLo=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=DoS9cEClyno2/RZIqQZcV5U/T9aKFKlY15dR6v6FQZHcG9zhSQHsehnabaUTGwaAq
-	 d9QIqhI5KuvjDX1D1yjAT3tMexeWnm39VNsAOp8ZDZU+e8skfAdGY4AlPjbmtFHDMn
-	 Z94mydzAEX40tQmmKY9256ReGEfaZtk90UjabzM8YE+0lKaYcs26akbayYtHC/JPpg
-	 Rn6Zr0gbs1ACeh4FIPpq3Hyj8IgBrtkDX9dCR2d+493fuP+CB6y6qP1Tib/3tszJYB
-	 5CfcD0xx7LhP6rAn6z9Fd86YPKHnE/bO1hQWrrbPp2n7HtWyET2YfkSJRXAsXNyqj3
-	 013jZ0bte9flw==
-Date: Thu, 26 Mar 2026 14:26:29 +0000
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-From: Simon Ser <contact@emersion.fr>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Pekka Paalanen <ppaalanen@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v9 02/11] drm/fourcc: Add DRM_FORMAT_XV20
-Message-ID: <aocdbgbLe5WhUEOGeLg3P7fRDM8i72H9zBuUnoAjjsuvBLfMPofrPtaUEjII_43KXf1wCbv1G9UutJKMkWLaEcBSnrlUV78Wrhu6l_Z0xi8=@emersion.fr>
-In-Reply-To: <20260325-xilinx-formats-v9-2-d03b7e3752e4@ideasonboard.com>
-References: <20260325-xilinx-formats-v9-0-d03b7e3752e4@ideasonboard.com> <20260325-xilinx-formats-v9-2-d03b7e3752e4@ideasonboard.com>
-Feedback-ID: 1358184:user:proton
-X-Pm-Message-ID: d647f5d8f1d869e3931ef15cf27673cf762af5d1
+	Thu, 26 Mar 2026 14:28:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25313175A;
+	Thu, 26 Mar 2026 07:28:18 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEF663F905;
+	Thu, 26 Mar 2026 07:28:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774535304; bh=dA/pZ4/shfNbho/ZEQkoqhst9cEeIl6GK7g6aLxe5UI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Um+LlErDMPe0y91KuxuR/T0n/cwQ2fONLwEeDEFAWG7mHGE69Hr4FTTnTUXuwEVc/
+	 RQzpyXcebKDzXSFGEFu2nV+p4hCsK88v1/kfRyabXgV4mAKRhrJCyMuAPIs2TYxamR
+	 SUUiTUvJFhDgAZPKb3TyR/8VsI2Ve21OCUq18pZA=
+Date: Thu, 26 Mar 2026 14:28:14 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/3] KVM: arm64: selftests: Add library functions for NV
+Message-ID: <e2zrxu275atds5ejuhyda7o2wba5kzvinyx35ocfway3xlcjmj@5gyhvy57fhwp>
+References: <20260325003620.2214766-1-weilin.chang@arm.com>
+ <20260325003620.2214766-2-weilin.chang@arm.com>
+ <86o6kc46x8.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86o6kc46x8.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_072643_560693_DC9A7267 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260326_072826_597875_5EAD9389 
+X-CRM114-Status: GOOD (  38.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +74,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, March 25th, 2026 at 15:02, Tomi Valkeinen <tomi.valkeinen@ide=
-asonboard.com> wrote:
+On Wed, Mar 25, 2026 at 09:03:47AM +0000, Marc Zyngier wrote:
+> On Wed, 25 Mar 2026 00:36:18 +0000,
+> Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> > 
+> > The API is designed for userspace to first call prepare_{l2_stack,
+> > hyp_state, eret_destination, nested_sync_handler}, with a function
+> > supplied to prepare_eret_destination() to be run in L2. Then run_l2()
+> > can be called in L1 to run the given function in L2.
+> > 
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  tools/testing/selftests/kvm/Makefile.kvm      |  2 +
+> >  .../selftests/kvm/include/arm64/nested.h      | 18 ++++++
+> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 61 +++++++++++++++++++
+> >  .../selftests/kvm/lib/arm64/nested_asm.S      | 35 +++++++++++
+> >  4 files changed, 116 insertions(+)
+> >  create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
+> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
+> >  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> > 
+> > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> > index 98da9fa4b8b7..5e681e8e0cd7 100644
+> > --- a/tools/testing/selftests/kvm/Makefile.kvm
+> > +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> > @@ -34,6 +34,8 @@ LIBKVM_arm64 += lib/arm64/gic.c
+> >  LIBKVM_arm64 += lib/arm64/gic_v3.c
+> >  LIBKVM_arm64 += lib/arm64/gic_v3_its.c
+> >  LIBKVM_arm64 += lib/arm64/handlers.S
+> > +LIBKVM_arm64 += lib/arm64/nested.c
+> > +LIBKVM_arm64 += lib/arm64/nested_asm.S
+> >  LIBKVM_arm64 += lib/arm64/processor.c
+> >  LIBKVM_arm64 += lib/arm64/spinlock.c
+> >  LIBKVM_arm64 += lib/arm64/ucall.c
+> > diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > new file mode 100644
+> > index 000000000000..739ff2ee0161
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > @@ -0,0 +1,18 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * ARM64 Nested virtualization defines
+> > + */
+> > +
+> > +#ifndef SELFTEST_KVM_NESTED_H
+> > +#define SELFTEST_KVM_NESTED_H
+> > +
+> > +void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> > +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> > +void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
+> > +void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> > +
+> > +void run_l2(void);
+> > +void after_hvc(void);
+> > +void do_hvc(void);
+> > +
+> > +#endif /* SELFTEST_KVM_NESTED_H */
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > new file mode 100644
+> > index 000000000000..111d02f44cfe
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > @@ -0,0 +1,61 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * ARM64 Nested virtualization helpers
+> > + */
+> > +
+> > +#include "kvm_util.h"
+> > +#include "nested.h"
+> > +#include "processor.h"
+> > +#include "test_util.h"
+> > +
+> > +#include <asm/sysreg.h>
+> > +
+> > +static void hvc_handler(struct ex_regs *regs)
+> > +{
+> > +	GUEST_ASSERT_EQ(get_current_el(), 2);
+> > +	GUEST_PRINTF("hvc handler\n");
+> > +	regs->pstate = PSR_MODE_EL2h | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
+> > +	regs->pc = (u64)after_hvc;
+> > +}
+> > +
+> > +void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> > +{
+> > +	size_t l2_stack_size;
+> > +	uint64_t l2_stack_paddr;
+> > +
+> > +	l2_stack_size = vm->page_size == 4096 ? DEFAULT_STACK_PGS * vm->page_size :
+> > +					 vm->page_size;
+> 
+> Please use symbolic constants. Also, this looks wrong if the default
+> stack size is 32k and the page size is 16k. You probably want to
+> express a stack size directly, rather than a number of pages.
 
-> XV20 is 2 plane 10 bit per component YCbCr 2x1 subsampled format. XV20
-> is similar to the already existing P030 format, which is 2x2 subsampled.
+Makes sense, will fix the size of the stack.
 
-I don't know for sure the multi-planar YCbCr format name scheme we're
-using, but here are my observations looking at P, Q and S formats:
+> 
+> > +	l2_stack_paddr = __vm_phy_pages_alloc(vm, l2_stack_size / vm->page_size,
+> > +					      0, 0, false);
+> > +	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), l2_stack_paddr + l2_stack_size);
+> > +}
+> > +
+> > +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> > +{
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_RW);
+> 
+> Surely the E2H value matters. Or are you planning to only run this on
+> configuration that hardcode E2H==0? That'd be pretty limiting.
 
-- The first digit indicates sub-sampling. 0 for 2x2, 2 for 2x1, 4 for none.
-- The two other digits indicate bits for the Y channel, one of 10, 12, 16.
-  One exception: Q401 indicates reverse order for Cb and Cr planes when com=
-pared
-  to Q410.
+Yes it does matter, I was tunnel-visioned in trying to make L1 <-> L2
+transition work with the bare minimum, and missed what we will want in
+the future.
 
-P030 is a bit of an outlier here since it's the only one with multiple
-Y samples. NV formats are also multi-planar but seem to use a completely
-separate scheme.
+> 
+> > +}
+> > +
+> > +void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc)
+> > +{
+> > +	vm_paddr_t do_hvc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)do_hvc);
+> > +	vm_paddr_t l2_pc_paddr = addr_gva2gpa(vm, (vm_vaddr_t)l2_pc);
+> > +
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SPSR_EL2), PSR_MODE_EL1h |
+> > +							    PSR_D_BIT     |
+> > +							    PSR_A_BIT     |
+> > +							    PSR_I_BIT     |
+> > +							    PSR_F_BIT);
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ELR_EL2), l2_pc_paddr);
+> > +	/* HACK: use TPIDR_EL2 to pass address, see run_l2() in nested_asm.S */
+> > +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), do_hvc_paddr);
+> > +}
+> > +
+> > +void prepare_nested_sync_handler(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> > +{
+> > +	if (!vm->handlers) {
+> > +		vm_init_descriptor_tables(vm);
+> > +		vcpu_init_descriptor_tables(vcpu);
+> > +	}
+> > +	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64,
+> > +				ESR_ELx_EC_HVC64, hvc_handler);
+> > +}
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested_asm.S b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> > new file mode 100644
+> > index 000000000000..4ecf2d510a6f
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested_asm.S
+> > @@ -0,0 +1,35 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * ARM64 Nested virtualization assembly helpers
+> > + */
+> > +
+> > +.globl run_l2
+> > +.globl after_hvc
+> > +.globl do_hvc
+> > +run_l2:
+> > +	/*
+> > +	 * At this point TPIDR_EL2 will contain the gpa of do_hvc from
+> > +	 * prepare_eret_destination(). gpa of do_hvc have to be passed in
+> > +	 * because we want L2 to issue an hvc after it returns from the user
+> > +	 * passed function. In order for that to happen the lr must be
+> > +	 * controlled, which at this point holds the value of the address of
+> > +	 * the next instruction after this run_l2() call, which is not useful
+> > +	 * for L2. Additionally, L1 can't translate gva into gpa, so we can't
+> > +	 * calculate it here.
+> > +	 *
+> > +	 * So first save lr, then move TPIDR_EL2 to lr so when the user supplied
+> > +	 * L2 function returns, L2 jumps to do_hvc and let the L1 hvc handler
+> > +	 * take control. This implies we expect the L2 code to preserve lr and
+> > +	 * calls a regular ret in the end, which is true for normal C functions.
+> > +	 * The hvc handler will jump back to after_hvc when finished, and lr
+> > +	 * will be restored and we can return run_l2().
+> > +	 */
+> > +	stp	x29, lr, [sp, #-16]!
+> > +	mrs	x0, tpidr_el2
+> > +	mov	lr, x0
+> > +	eret
+> > +after_hvc:
+> > +	ldp	x29, lr, [sp], #16
+> > +	ret
+> > +do_hvc:
+> > +	hvc #0
+> 
+> This probably works for a single instruction L2 guest, but not having
+> any save/restore of the L2 context makes it hard to build anything on
+> top of this.
 
-Given the above I'd say what would make most sense to me is to use P230:
-keep the last two digits and change the first one to indicate that the
-only difference is the sub-sampling. Does that make sense to you?
+Agreed, we need L2 save/restore to meaningfully test NV.
 
-Simon
+Thanks,
+Wei-Lin Chang
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
