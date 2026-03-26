@@ -4,87 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8962210A88C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAA010A88C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1vOiFYL2/2gauah1MO2J0SrthHCAYelycFB7wMm2FBc=; b=F7PkGTVX9l0gVMlIkBzNHfyEpx
-	4zpHRRgzK/OarCK4WFg+/iBQ4T21/3sLRcqdk3WmmMxKCDc7QFEAWm5oOflk3DQSLSz9VOqutW5qQ
-	XmQsseSIm69fHE9XKAgky845bBRUj1zCVk7KPeX6EIICWAi0CJ945qx/cGLPKysy7t990Kk1OX8r7
-	bIUGCbUf1cNGvWSwdyeuF1pKKeewISvVKqbP9MPiFb/htXmlkrVh0STKhrEK2zYTdG4j8eYHaKbHT
-	NUmc80MiqN4bXpKWcLMmQ5lBnlM4Bp7JaeApoHpZKqm9CPZyLTGvF5jgwUM09rUNC9bjjnWGmmas1
-	qcnoZksA==;
+	bh=exb3BdD4UtKMSPOZzaoetbdkBWSSBwWmCWiFBEi9j3I=; b=MvP9ISuluE94dQmCGmAs5W3c8u
+	fcqw8/WUs3eITS75O7kUUinYEQ3mij5RJceQLaID84xFGSb946U2yXvKXqQ4AQW4EeuhV/GwkteO+
+	hX1I9bkMIVX7rQe52bKzoAo5otMlrf2xvwgGrq1/SyMUqeZdVSEO1RRScxmu+t6QvZwGg9laNq2HJ
+	/uJkGZi8xV0IfyRFLWf9mIFVVnS8MvxLV8zZcmLVMdRUorSTzG16Vl+sJkhbJIB/2XXq6e0sGCVhK
+	WQautymdwxP9RxyuxyIbr4RTMg9gjTYm1WsceDpdlkF8BvKhjKmDvVXdNwYpaMSjcf07synTiEff0
+	nhEmw+2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mTk-00000005jNo-1L2I;
-	Thu, 26 Mar 2026 15:18:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w5mWX-00000005k2X-3Zi8;
+	Thu, 26 Mar 2026 15:21:29 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mTh-00000005jNO-3T4C;
-	Thu, 26 Mar 2026 15:18:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1vOiFYL2/2gauah1MO2J0SrthHCAYelycFB7wMm2FBc=; b=D26skTX5ljpAkNaHIlMIJtyMXA
-	iuIGQ5XwwypR4BJdeLJLVDrC+G8tMEFZ5P4tqFmMjvoI6AOG6PIGOYJ85eGHPeAxV6gRfx+n68+yA
-	Z6Dx/Y4Gh1bEmBoiL199z+7bIHDUJX8pt+YRZ3g5KB5wjXksBBQ7eBwENc+99IFKclwJ/lK53Pjir
-	PcYACczVKeLDRVOEKCWwE4d6xmObv4geC0gR07wywRb3JWhj2yDBMxHaFvNVJJPEA+2cOalvqqiaA
-	4k8w4+HXDBOVmRXqj/u7croVsR0r2ZAHcvW2tmFLlVzNz55dyKB4kAZ54aQDsDWoJgqZAgnfjOQ71
-	P2yYBqiA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58812)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5mTM-000000004wB-0dxj;
-	Thu, 26 Mar 2026 15:18:12 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5mTH-0000000077v-1ifh;
-	Thu, 26 Mar 2026 15:18:07 +0000
-Date: Thu, 26 Mar 2026 15:18:07 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Christian Schrefl <chrisi.schrefl@gmail.com>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Alice Ryhl <aliceryhl@google.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>, a.hindborg@kernel.org,
-	acourbot@nvidia.com, akpm@linux-foundation.org,
-	anton.ivanov@cambridgegreys.com, bjorn3_gh@protonmail.com,
-	boqun.feng@gmail.com, dakr@kernel.org, david@davidgow.net,
-	gary@garyguo.net, johannes@sipsolutions.net, justinstitt@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-um@lists.infradead.org, llvm@lists.linux.dev,
-	lossin@kernel.org, mark.rutland@arm.com, mmaurer@google.com,
-	morbo@google.com, nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com, nicolas.schier@linux.dev,
-	nsc@kernel.org, peterz@infradead.org, richard@nod.at,
-	rust-for-linux@vger.kernel.org, tmgross@umich.edu, urezki@gmail.com
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-Message-ID: <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
-References: <20260322192159.88138-1-ojeda@kernel.org>
- <20260323000327.111235-1-ojeda@kernel.org>
- <acEP7tl8pqFA3tK8@shell.armlinux.org.uk>
- <acUGAsjYvNvTEO92@google.com>
- <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
- <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	id 1w5mWW-00000005k2B-1WfE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 15:21:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cTPKAIGIkOZFAWUAVDxKeUjKpPlVfBMwMbH92z/0jywokM7/Hf6C3t2xswC3KVozE09bBRqQtbw/DFWEl9DsnuJu+Q3l+umGaeu5zmBRXczk9DBVg2wO7u5iSpJBiIZ4YssHjY+hhirPxZKVMiemGO2S/gPC+WZFCCF3QCJz23+E+esp4IerIHlIO1s1mtlWVa4eGK/FXsSQC2f3K+D6QUiNc3Tl4q54kiKE/umeibor0wNhVM6L3KSkcI0rk9SKfJWHudaTivyzirmOYRLv0vJ86RJH+G8ug1xKxfNIg9xcU4kU/YbTQ4mS9bdplEiD50kAwjeB1ijA0InS1+RbcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=exb3BdD4UtKMSPOZzaoetbdkBWSSBwWmCWiFBEi9j3I=;
+ b=UIUpHqX2Abx9Y3zlOTI34woV9CueURBQi1sqb93uCd8C2ramKQ0xBeKYb0/JIQ4w4pQqP9B5BOILYVl91hVUlDjcoZMKInxnmyYoMNdsZGAhDamaWfdi0da+CVas8B3+CKlaaFKcLF0Pgs0BWVQRmyMmUv24ATj2DAAMBWKC5D38/JZqf/fGV1uuM4yLM7oc0m5spY89R+dFU5zrxvtm1BZgd4WJIPF+CRCQIiy2GQZold0zodYt9RrOtXvYccw272vB0o4/QvYPQ3ojT7aW2SeA2pkZNsC2rPhYpet6dN6K+A/gqLKX/th39OY2Dg7/lPPJMDjxTYHhD1ErZkqGOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=exb3BdD4UtKMSPOZzaoetbdkBWSSBwWmCWiFBEi9j3I=;
+ b=oMQqP/dLAoE9A8kjAsKctmgBLlnh+NIWm7RD4onOAw5v8lRjTyPt6xk+o5ma8XzNF+Q+nK1GS1xY0ysmmft+/Nrogx8GYL4k/gz4BCmnx/ud4HLwzff4NaR4pi5vQL5mGbuoWYNF8YrXlAxw3WiFlqGmyQDUu30fXW+9cF+yMaRyfJyJOZczecw1Zub7+z7q5d7VzvP6kjSg9cms1HR0ls7YXySWCP5UbtDia1+jCVpq4jUKfeshuvzEod47q4Jsqy8v9cf/YsjRwjmAXusu138vU3n3n7cHpRu8Osbi9yQ0L/dZ64pihPUFz9d21YaAwJrsyOnqSoudla3+56eRyw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GVXPR04MB11018.eurprd04.prod.outlook.com (2603:10a6:150:224::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Thu, 26 Mar
+ 2026 15:21:20 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.022; Thu, 26 Mar 2026
+ 15:21:20 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: (subset) [PATCH v10 0/5] Add MIPI CSI-2 support for i.MX8ULP
+Date: Thu, 26 Mar 2026 11:20:54 -0400
+Message-ID: <177453839102.4969.6512848643800500076.b4-ty@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251205-csi2_imx8ulp-v10-0-190cdadb20a3@nxp.com>
+References: <20251205-csi2_imx8ulp-v10-0-190cdadb20a3@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
+X-ClientProxiedBy: PH0PR07CA0092.namprd07.prod.outlook.com
+ (2603:10b6:510:4::7) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB11018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5ca6f39e-cd36-4048-1538-08de8b4b555f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014|921020|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Jtzw0ifAhTpxSsn9RLnDg2MNyXwLEJZsKUXpC0WDwyW63KxQ8MvGl2nialqE93koTTA2W9Dqo8ZkKL3+fF2+aPEQRo7LUC7JijDQQeNtRp8Wm8OYdEFKROWHZfAqC02DAUpYHGzaY0etDJnVioI5na7oqvlZxbQVJ5hTMbl+5BVnzXmJHuOumFQ2Iwh0ycT00y33BPee77RiDk2SufowxvMMtw1S1w0Q/V293GFcn5xQ0I9nLPkTgYcxtLkCwvZDf4E3+WZ/x6dyg8DUaxcg/M0dPe+JvNib5G/W3z2oWWiGpeYThw96QSkP6NBDD3AaqLew2LR6WQjbNXKFBin4VEKq5oX78Ek0/1E2qHkGzL7Vjj6+5Zm4AGkWuraxPWmGQIeRDC74PChnlv1vL4sYszPMcQvLyddhVW8I+FlnCHcb7vFWhoYhM8NLd+OJL4d7RjNgB/TQnjcEAph3okuzJLvDCQ48NcRL+2rgJtmY8SfoOKPzZEABtNv2jyQaS/3VzjcI/gFBUaEiaUoEdq9jLTGFRh9U5Yef7/VYLgssDxpR5prPSG67+ff0sjXP4MjKKNUq9wLkhH9U2Ves4XBe2TIblm5Ja/+tWGUK3cdeUGfGQzeg9jFW0ujz0KTI2Qm0AYBSg65bwBS80Zw6bozFKSG9WPjoEr0QlPPKfZ42jSgmVqL/kIfWgX87clT+2eti/6WgiVEcdUNdL5Q9enbvMDC2oIsstwRFfRbrVIozyX0OxOxan/hJ8XYS2KfWs/m1KW8HF8X98V7u8w6X4f14Xl1PsKTk2mYVnNkfR4WMLCPmLLnDMhApiEz9gH8FCOwD
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014)(921020)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2NEeFdVbWt0cFdSZE8yUDMzV2VqUFVhdi9UUXBuYnhPN1FkcFhvMytzYVVT?=
+ =?utf-8?B?OUVoWG9qeTZkMHAxRUJGNllYalBKMFpMSjE3MkNjY3d3NDhSY1lkV29kZ1pR?=
+ =?utf-8?B?OGNLSG9hZHYrenRvU2dDS2hNZmx4Kytqa0VranUrY3QyblROVGREZExVQUFl?=
+ =?utf-8?B?NjlLS3Z6djNCcmxtSEpSSFZZcGI4cmN2M3JMZlg0MkUvbUVNK1RiSzhEQzFx?=
+ =?utf-8?B?UGZDS0pVOGJFNlp0M2ZCQjlBOTRQZDd1SlNEcDlXQjNXVzE4UUhzZ2ZlVGF1?=
+ =?utf-8?B?cVA5Y01oVGs3dU56Syt5UnQ1YXRpK1BibDNFWTB1UmxOaW5aaFQ4bURtRnRI?=
+ =?utf-8?B?endrL0J3cXBoV0docW9nMEsybDE3SHJnT1JtY1d4QkRRU3ZjZi9SZCtFTW5C?=
+ =?utf-8?B?MlBPb3VNWmswOGRMWjJyNXJya0daVXF5dkdrTEJEblNsREIrZHhtMnNMT0ZF?=
+ =?utf-8?B?VzBOcTI5NTFLendLQjZEWmFBTjhhYThiUE5Ndk1TZmVKcElkeU02VWtsVUhY?=
+ =?utf-8?B?OUdNUmZITFZKT1lsQ3FmRzZqdk9vQkI0d0xNelNZakZUa080Y0pzSkZOQTFI?=
+ =?utf-8?B?QWpHNUgwbkU1KytvWG81Zi9VYk8yTVNOdnprbE04azJteWtPY3ZLWTJDL3Yy?=
+ =?utf-8?B?dU5rd3lYZS92SS9QMmRnNVhrQ3FKVzRjaXMwUjNmQ2xsNnFNZ3hac1QrYTBR?=
+ =?utf-8?B?dllXL1czWW1zU0J4Q1QycnJsNDFqSStXMU1UNmNSWmtoNDEvU0lGM0pEc085?=
+ =?utf-8?B?d08zczZYYXJsS3Bid1AzaGsxRHZIWkxmMmdldGw0SmY0RTR4UnV5aG5YQWFN?=
+ =?utf-8?B?Uk1yVENMN1FCSGJhS2UvdEd0OU5JamhmOGhHY2xGSEMrM0d2UmJqSnovMEdm?=
+ =?utf-8?B?S3B0bzFhQnpSdEx1b1F5NTA5bmZlMyt0NUM0STdwRjhxZzJwWFF1Q1JldGxL?=
+ =?utf-8?B?YXhFdVJTTFJNSk5ZYUdDVzJONnR3blBkRXRQa3JnbHdsYlA1bHZPbjJVV3pL?=
+ =?utf-8?B?MkF2K0dTU3hpQnlwZFdFMndWejQ1R3BpbnhjQ3d0dWk0b0lneStscVhFaGta?=
+ =?utf-8?B?a2NkMituc0I1VzBndUxpV0NTc3U0a3BuTW5jNE5IWlBHVXdUaklWTDhQcWtt?=
+ =?utf-8?B?cnFoWHFPT1lIYy9GUjhwdk5QdE5KRnZqUWx2RndrNXBoM0c4NlEvR0F6aHgx?=
+ =?utf-8?B?YUU4MjZ4YlhoVTlkbWJVNEdXM3RCMDg3SEFoak9rQnJURDE0ZVZ2RkxGYUtE?=
+ =?utf-8?B?Nm1OK1huRXFUNGJvYVRRV0JNOHpoU1I1MURYVDhuR29qM2NYdCtYeXVFbG1L?=
+ =?utf-8?B?NGZaN3hpU1JZWDJ6TW5QVU1MOENWdVNEN1cxTXBHWG1XVVovbmllUEFkZDFv?=
+ =?utf-8?B?TW9kQUdKQ25CelN3OUZPeVVYK1E4dUhHSHpZampDZ3V2dVA2cE9aNnUrWTZV?=
+ =?utf-8?B?Q0dZblBXU0cxYmxSMEJldHB2aittOWYyN24yZkJhSENjM25pZlFBV05yREtz?=
+ =?utf-8?B?NWRoUEdJK3phaE9UaDNjYVJoYy9iN1R5MHU4aVhyZ1lEUDRBQkVJdmhVOHo3?=
+ =?utf-8?B?dm5aOHVKcDF3cE1FS2tRaEwzUjVZNFZ1QWdEZ05vbUZkV1REMHp0endaMjVZ?=
+ =?utf-8?B?QTNqVnBuUU9yY1ZIQmY2WlFvS2h1ZlJiNFJoay9JRE5IRlF2L0JqN244Z0lT?=
+ =?utf-8?B?ZDRYZVpYSFVGMUgzRmhuT2c0L3NLdjY0TitiYTdtbmJnMTU2S2pIMjBydzdQ?=
+ =?utf-8?B?ZzdhWGlNRHFyUFR5bjh1R3hrNitZTWxGZVNhZ2ZzMjFEQ1IrdUJFRkFhOU0x?=
+ =?utf-8?B?QlBvR1FsdGYrN2RvRmxxdmVZaFlBenh5MUVCd2o0aXF6eEExbitsaGpmQ215?=
+ =?utf-8?B?QXpJWFNkNTNLa1A1a2NQS0ZWOTUwY3lGUzdXUmJ0VjJKdGhnOG9kNTZDQ2hD?=
+ =?utf-8?B?c252M1BxVml2aTk2Q0l1a2I1Qlh6UUpMVk5hK2tuRmZSZUE5NXdJc05KVUYz?=
+ =?utf-8?B?NU5lM0RESXVqTGNRNDZybnQxcHZqUjB0UmRzTTdNWERVRHhmcnNQOStUMll0?=
+ =?utf-8?B?T05lelBOcFpueGIwa2RYT0RsVUhEL0RNZVNsZEJYVU1GQUkzS3ZDR1RJWVN0?=
+ =?utf-8?B?WlF5SmZrWmc3czRrd1NacDhpbjN0U1AzRDQxYThtRlRGRUcrRTdweDhFcXJi?=
+ =?utf-8?B?M3BNS2JJdzRlVG5YeXEzeW5kcCt0UVgzM0R5a3Q2b21xeGl0NURqZE52RUNF?=
+ =?utf-8?B?Y2h0K2NudlNHOU5Lci8wR1J2SkhOc0w4RWY3Qnh2WXhOUTBRVG91UXUvcTBQ?=
+ =?utf-8?B?aVRMMGM1L1I3S3ZMY1Z1RDYyek8zcTV4N0dYeTNkL3ZiaU1UaCt6QT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ca6f39e-cd36-4048-1538-08de8b4b555f
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 15:21:20.7489
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /Y+EFIvjRwjtNeYTfh6TFtemMuTxGk5YBdv337vQSNdKvZnBaI+gAKVsQlypZGU3psuGO+FpXPYHn+PMwy0W3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_081833_889431_7C11A879 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20260326_082128_428257_BDAFC29E 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,37 +164,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:31:26PM +0100, Christian Schrefl wrote:
-> Hi Miguel,
-> 
-> On 3/26/26 2:47 PM, Miguel Ojeda wrote:
-> > On Thu, Mar 26, 2026 at 11:10 AM Alice Ryhl <aliceryhl@google.com> wrote:
-> >>
-> >> I noticed that the Makefile currently uses the arm-unknown-linux-gnueabi
-> >> target. It should probably not be -linux target to avoid this? Probably
-> >> it should just be armv7a-none-eabi, right? We gate HAVE_RUST on
-> >> CPU_32v7, so we should not need to consider the other variants.
-> > 
-> > I think Christian tried several targets back then and eventually
-> > picked that one.
-> > 
-> > Christian: what was the reason to pick the `-linux-` one? e.g. was
-> > there something you wanted to rely on that target spec that you
-> > couldn't enable or disable via `rustc` flags or similar?
-> 
-> It should probably be fine to use armv7a-none-eabi. I've mostly used
-> arm-unknown-linux-gnueabi
 
-I'm not sure if this is still true, but I believe it used to be the case
-that the -linux-gnueabi target has one behaviour for enums (fixed size)
-whereas -none-eabi, the size of the type depends on the range of values
-included in the enum.
+On Fri, 05 Dec 2025 17:07:42 +0800, Guoniu Zhou wrote:
+> The serial adds MIPI CSI-2 support for i.MX8ULP.
+>
+>
 
-Certianly, when Arm Ltd were proposing EABI, EABI had the latter
-behaviour, and I think there were cases where Linux used "enum" in
-its UAPI.
+Applied, thanks!
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+[5/5] arm64: dts: imx8ulp: Add CSI and ISI Nodes
+      commit: 73f3ca0f85285b2fc4ea05affb9a44bf899cd595
+
+Add extra empty line between reg and child node.
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
