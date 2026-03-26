@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD937109E52B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 02:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C07109E53C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 02:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UhCjsi5+ofLBuGUIP+SSxmAzaNLxCqzxK3xs/vwAG+M=; b=QQvJTUzeVNXM9lruixVwZl7KPc
-	j9inxlwAeTm3UnJYU6f0I5ZzJKQ0cEs3Jbg+UzqSYGt203TchWQmvJUNCgiA6QbUS06ElAEDi7VBR
-	fgyWr48ItkeFDGyGl/cVMeWv0KnBi8ybslg1g/eMl5oT7FE6ET/YbCdxWPnQEnO7bGnGmdIjVEty5
-	ZKrfagQYGSk2uOkD5Url2HwZc2/NKVSgHnlXbdH28bVq8Oc/kSf7FANScDYqcGmRUARfeHw8K9iss
-	j8Yot0FDEeXp7uOZWOqnxy67eagtqhIiKOccrTFke88DylOD0iZdrJf8viZbMc3Czuu8QXx9DsC8O
-	MmE6iYAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DClgII7euPARd4Aw2OGYINNJTYi6FW2MEXDTcwKQgeM=; b=ZT/Wq54rrUwA8hqHsaF7ElZ6gs
+	1+2q9hp8AYUud9x0zlhY+tJeGZDWFq7LazU/kF0fu4J2Bfge4VDM7QS6enxiIpAQsc6vSJLpKvEu+
+	psfElhke8qlf1eSqr4TOPwA27OIA4LeEZnC/vWXz97ZuqEpl6Qi4AwRf9BqUcm6A9CSK5kEfwQfG+
+	uN+K2utF7q7LMxerUD/VffiSdrpHCvmHI35M4OouhrETBYUZaR96A9tebDKrfSf1CFM2INi6u/RIl
+	1t53sYTnM6tsBmk7y4gy4Fq5kDNNrAJaouG5fcV7beVXtpV8QKXU38XbIkS7l+/XZq9xkNiKqn/n2
+	Zs0fyx/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5aJw-00000004ZQr-0Vjh;
-	Thu, 26 Mar 2026 02:19:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5aYg-00000004aP4-1c1S;
+	Thu, 26 Mar 2026 02:34:54 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5aJt-00000004ZQ8-1mZe
+	id 1w5aYd-00000004aOf-36ue
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 02:19:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D17A442BD;
-	Thu, 26 Mar 2026 02:19:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63037C4CEF7;
-	Thu, 26 Mar 2026 02:19:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774491575;
-	bh=wdQ5OAKNDtYk+nI8mmrz94DUBWcTxmQRzCeugry/HTw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=trNh3E+M3EZEDmKFspTPGDVZOD5GffWvEVPc0yZwY+cwzWBDy1jNxDZNrVZVHSqXX
-	 G8ddTG57cPANTd6PoBfR5iW4r4rpHChT8hy9DEwFzIKMmkAe4Kwqwd/KFkDJoQb1d7
-	 JKuT+hoScC11I58vVIEEZpWBpv/oNiG3GS+ahkMksN054zYHSC2DXSgzDxNj6knniG
-	 UONkU5Ya2865vpNVFEh8+S1KRTjIHhm4UKwqqr3A+FOmtlr+vzKqpb2SIyFAjrFqyI
-	 q7zFYI9rUBaMqgDjAF7D+7bzquetqMA1ERAfuzHC+jqQMYBrzf/XTr6AHOSVuATj6e
-	 WNqR16vd/HsmQ==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Wed, 25 Mar 2026 19:19:26 -0700
-Subject: [PATCH] perf/arm-cmn: Fix resource_size_t printk specifier in
- arm_cmn_init_dtc()
+	Thu, 26 Mar 2026 02:34:52 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-82748257f5fso810225b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 19:34:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774492490; x=1775097290; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DClgII7euPARd4Aw2OGYINNJTYi6FW2MEXDTcwKQgeM=;
+        b=soF1iX9AMsP9PBwHAIrSHEiPzxC0vQEdvq2v1ByK+2v9k+TaoEFEYbvhJiaxtSSbW4
+         UsGgLkDQ9KxOelf2KcAgh5KYKfnm4peSeuaEEnAvIe8rkjtu1cezMab3EYeiF4OW7L0g
+         ODy6q2Cx8NBN+7wOSINIOZ27KdwCu7kWOybOPSmO8K4h2/OOvX2/w0sn5arzajzmql7p
+         RHc1pWZXok0bWP/6cTmLcBjQ3pSu3Ji4oHnS+B+igq17jtjjBKLpYa5GIg94umWQTaFX
+         yIO+jhrRoAt9hI/YkEV8HI5NJHskOT+nv+IXVlROVmyQQTOJZnz/2hpSPt3VahiOQPCw
+         iD1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774492490; x=1775097290;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DClgII7euPARd4Aw2OGYINNJTYi6FW2MEXDTcwKQgeM=;
+        b=CdpyFH5eJlQhE6rjlatBFrNjRISQr0m+3R6CFtNyNRwlylpE2zEGy5c0jgOPP1+TSP
+         +psUrm8O4Anf5Fc2yhCv4rbN74jAh9EebwktK+XX96B8zfxBtW1v36Jrf60sG6qC36td
+         fCdIPKhgx+duDLHGUVYh8WD+76wHTSPNMm8exRwQEWLDJ8hzc8itiw3mQbInvRg0F3jS
+         ZKHShKu5NBCjRH42/fxBh2zPvWCVEaRqzCXIrxYWrDp3KEoeglQmm+a1jinm/SV4MkVi
+         FeinuzXcbhzshxb3+imPgkzvfHB5Y6ljt5lH4Me9nE1Cr7de7hJplHPTP1tSddmRAnQc
+         yaDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVzb95UQ81MCG9wdJoJ9DjV8HGo51rna4R8dgty5p8mDgMyZaFzWnL2L+XqWb8OqYFqGqzAxzg1VT8PEUbo80si@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1kxeZJyGuJk6q9s3alQdH2iwjuVSDD55N+Ai8DCWpQv6uxeNE
+	kaYlbiWAifyGS4gtRT21rzvn0SOWqWKDbhV0laquDz5XnqkB3LuVCSPhFZvRWbpW
+X-Gm-Gg: ATEYQzzjnI6O31OuP4y5mfpxKL0xkF1uJn/W8nIgVTlNmyHbgsTKOZhVmT9+6HJimnB
+	/BnxSetULecMYdqi4ZRj1By0X2iSyG7e68CJwqvG4UrMY+tffGO5PQXS3cSk03ObFX2w26Hd8xw
+	VBHsDzswdSTNJHfEXcfAdvOku883ucUhDEoV/ygK1ivAQlk72Iih51f5ODRROU65ad4Y6a7hLf8
+	IKYLW+xtZ+a+Di9AX+raXDSWHGPpDWjCe+CCg28y1JiuY5t6UuylcR6s7xfkOeys1uVxGY7A4BY
+	2UlvCt/QKc8vtt3EzPuQgWLGXWllcG3Jm1HfqS/+IYVLegvXN2akwLwd15LpknRKwv3KtyIGW1O
+	i6NAyu1Jq4Gzm6rlE82X2kFhho8/n18/LuLHmRuBZPQMtrQ9Dfb2GhKvab7FCMbsl4yC6W3YthV
+	GnspKiQuwItMMVBjCuRTckQilHCB0iiAWq3X5N28ezabLGz+z3omG8KWw=
+X-Received: by 2002:a05:6a00:27a0:b0:829:7b30:92f4 with SMTP id d2e1a72fcca58-82c6da3394emr5062994b3a.16.1774492490469;
+        Wed, 25 Mar 2026 19:34:50 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d::8bd])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82c7d3d5e81sm998465b3a.51.2026.03.25.19.34.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Mar 2026 19:34:50 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-omap@vger.kernel.org
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM SUB-ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
+Subject: [PATCH] ARM: omap2: simplify allocation for omap_device
+Date: Wed, 25 Mar 2026 19:34:32 -0700
+Message-ID: <20260326023432.54127-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260325-perf-arm-cmn-fix-resource_size_t-format-v1-1-e84d52ee3e81@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXN0QrCMAyF4VcZuTbQbayiryIyuppqhLYj6YY49
- u5Wvfzg8J8NlIRJ4dxsILSyck4V7aEB/3DpTsi3auhMZ03fDTiTBHQS0ceEgV8opHkRT6Pym8a
- CIUt0BSfTHk8D9ZasgVqbher693S5/q3L9CRfvnnY9w/Y7uijiwAAAA==
-X-Change-ID: 20260325-perf-arm-cmn-fix-resource_size_t-format-b01795e36e60
-To: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2217; i=nathan@kernel.org;
- h=from:subject:message-id; bh=wdQ5OAKNDtYk+nI8mmrz94DUBWcTxmQRzCeugry/HTw=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDJlHpm+dYHRTaMfKAys51LrvbbF/u8Xw2cVD1u1ywfvrd
- v7Xv/jpb0cpC4MYF4OsmCJL9WPV44aGc84y3jg1CWYOKxPIEAYuTgGYyOv7DP/D9udPLzm89XL6
- w+frswLD1rPHGd3f/j838pKL/YdugYePGf6KPkhVuz9p6orPvds8ep6INLIoyp9iPqe9ry1//sE
- JXSGsAA==
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_191937_527483_6B987013 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260325_193451_785065_56DF6994 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +104,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building for 32-bit ARM, there is a warning when using the %llx
-specifier to print a resource_size_t variable:
+Use a flexible array member to combine allocations.
 
-  drivers/perf/arm-cmn.c: In function 'arm_cmn_init_dtc':
-  drivers/perf/arm-cmn.c:2149:73: error: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'resource_size_t' {aka 'unsigned int'} [-Werror=format=]
-   2149 |                                      "Failed to request DTC region 0x%llx\n", base);
-        |                                                                      ~~~^     ~~~~
-        |                                                                         |     |
-        |                                                                         |     resource_size_t {aka unsigned int}
-        |                                                                         long long unsigned int
-        |                                                                      %x
+Add __counted_by for extra runtime analysis.
 
-Use the %pa specifier to handle the possible sizes of phys_addr_t
-properly. This requires passing the variable by reference.
+Remove goto paths as they are not really needed anymore.
 
-Fixes: 5394396ff548 ("perf/arm-cmn: Stop claiming entire iomem region")
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/perf/arm-cmn.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/mach-omap2/omap_device.c | 21 ++++++---------------
+ arch/arm/mach-omap2/omap_device.h |  2 +-
+ 2 files changed, 7 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index 1ac91cda6780..5c727c2abaf0 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -2146,7 +2146,7 @@ static int arm_cmn_init_dtc(struct arm_cmn *cmn, struct arm_cmn_node *dn, int id
- 	size = cmn->part == PART_CMN600 ? SZ_16K : SZ_64K;
- 	if (!devm_request_mem_region(cmn->dev, base, size, dev_name(cmn->dev)))
- 		return dev_err_probe(cmn->dev, -EBUSY,
--				     "Failed to request DTC region 0x%llx\n", base);
-+				     "Failed to request DTC region 0x%pa\n", &base);
+diff --git a/arch/arm/mach-omap2/omap_device.c b/arch/arm/mach-omap2/omap_device.c
+index 79db4c49ffc9..55f2a9d5f4df 100644
+--- a/arch/arm/mach-omap2/omap_device.c
++++ b/arch/arm/mach-omap2/omap_device.c
+@@ -309,17 +309,15 @@ static struct omap_device *omap_device_alloc(struct platform_device *pdev,
+ 	int i;
+ 	struct omap_hwmod **hwmods;
  
- 	writel_relaxed(CMN_DT_DTC_CTL_DT_EN, dtc->base + CMN_DT_DTC_CTL);
- 	writel_relaxed(CMN_DT_PMCR_PMU_EN | CMN_DT_PMCR_OVFL_INTR_EN, CMN_DT_PMCR(dtc));
-
----
-base-commit: 2f89b7f78c50ca973ca035ceb30426f78d9e0996
-change-id: 20260325-perf-arm-cmn-fix-resource_size_t-format-b01795e36e60
-
-Best regards,
---  
-Nathan Chancellor <nathan@kernel.org>
+-	od = kzalloc_obj(struct omap_device);
+-	if (!od)
+-		goto oda_exit1;
++	od = kzalloc_flex(*od, hwmods, oh_cnt);
++	if (!od) {
++		dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
++		return ERR_PTR(ret);
++	}
+ 
+ 	od->hwmods_cnt = oh_cnt;
++	memcpy(od->hwmods, ohs, oh_cnt * sizeof(*od->hwmods));
+ 
+-	hwmods = kmemdup_array(ohs, oh_cnt, sizeof(*hwmods), GFP_KERNEL);
+-	if (!hwmods)
+-		goto oda_exit2;
+-
+-	od->hwmods = hwmods;
+ 	od->pdev = pdev;
+ 	pdev->archdata.od = od;
+ 
+@@ -329,13 +327,6 @@ static struct omap_device *omap_device_alloc(struct platform_device *pdev,
+ 	}
+ 
+ 	return od;
+-
+-oda_exit2:
+-	kfree(od);
+-oda_exit1:
+-	dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
+-
+-	return ERR_PTR(ret);
+ }
+ 
+ static void omap_device_delete(struct omap_device *od)
+diff --git a/arch/arm/mach-omap2/omap_device.h b/arch/arm/mach-omap2/omap_device.h
+index aa8096ecb23c..9283c15c2403 100644
+--- a/arch/arm/mach-omap2/omap_device.h
++++ b/arch/arm/mach-omap2/omap_device.h
+@@ -51,11 +51,11 @@
+  */
+ struct omap_device {
+ 	struct platform_device		*pdev;
+-	struct omap_hwmod		**hwmods;
+ 	unsigned long			_driver_status;
+ 	u8				hwmods_cnt;
+ 	u8				_state;
+ 	u8                              flags;
++	struct omap_hwmod		*hwmods[] __counted_by(hwmods_cnt);
+ };
+ 
+ /* Device driver interface (call via platform_data fn ptrs) */
+-- 
+2.53.0
 
 
