@@ -4,142 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14E010A62EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303CB10A62EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 14:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXxhNfrsjG5BkIW8u/zXAWZcnoXSYaawf7ROBcQK2Aw=; b=wzoxvIZFuUWb0Wm+p5S2c5ElZG
-	lCiV7I9ZImjYlWTECErRKl/KIhSriR5YCNHUKb33IUBDIC0GIfLZa5E1Y3hofWj8SLi+xtU8MqWTq
-	Ragka0I3CmqfNS/qPbLW5fFh4NfvJ1OJnWCKL9QXx/PBO0UMcFW0BT8k58K03liji3Qm609Mjg5QJ
-	G4+2LflmRSr0Ctp4UAtUviqeVww95PAF0S4hH1+Ua3IdAjuGa+nkJ8XnRx2q6Dq3usQxEu7r2F/rt
-	0NE5+9yNxksSO6wRa8ACiv/dq1KdMpPLWlWdnl59Q5pmbq8KELwA6hhy+qQ6l9rFnaQxtW/rknwQJ
-	Ver1sezg==;
+	bh=RqVqDCoVZ3UVUvBjXL8ALS4wpv/ZTlX+ITsrwTuD52U=; b=wC85xoXRHHJcDHvb6E68Lb/CQW
+	OamoJ+pAXspfJAFfizSrz9jLosGSA37kMP+FYRzlLwMZ0a2nCtLk0QX7g/1Q2a9SceYlAn6xiy+Dv
+	B0GqV6CRd4ix5ATeqVUGbLA2QydDkTnzxYgogqHTv2OgnRWx3+tfKwHTT1nih9k5mJIT+8ccmQbUA
+	YQlA7D1jNY/JKz/fq6ZPYoR+bhw02NlfQRebb0GdzEllrYqy9Y3Cm4whkFmdtjXLcO6a5ICGZR1n0
+	DeWoALXpOg2UWKEg3NrKFMZ5wjX/znKzufgl1Ilk1bAEJHbLhEYbXEcFsyiaE32zf+EDrN6aQugKv
+	+CPSj2EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lhT-00000005dyb-2pK9;
-	Thu, 26 Mar 2026 14:28:43 +0000
-Received: from mail-westeuropeazon11013055.outbound.protection.outlook.com ([52.101.72.55] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w5lhc-00000005e1f-01CH;
+	Thu, 26 Mar 2026 14:28:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5lhQ-00000005dxR-43nB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 14:28:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GJvI9mgQfwAyPn5iV16ZEEZoJbeIU3Unptwm5uBg+sFp0UWZANkpWLpbPah0NQHH+N9BWejt3qb47X4HY8xbJe59J+NnpSUiodAf99Sh/HrjUS6Rch4MaPpEaYFEmuWstjHhaHY/DOV2f21GzWA5nI5iAhqMPT+cqWUI9B4vQEv4Zf2MjwcsOVu7OA/Vta1wlOSxY37KqSgDYpPvfTTNonHXMj7Ui2XcIBbJM4DuMzKjdF73rDAjTi3QjgYZuY8ls+rsFxNWBzlql5X1yyLCa0SbFPFmXe/PpqK2cHWmJNcbwq5Mku46gkrwCMFxMsIZ8V87SXz3r3MlmMFnltEKEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nXxhNfrsjG5BkIW8u/zXAWZcnoXSYaawf7ROBcQK2Aw=;
- b=DScgn8ih0SDK/1emv0E5CRzCNhAnVF57KEQAE0kYI8otD7F5OpPpy32Sn8VMSbliZjWal+5eYdAEOWya75qg9K/nV8YUqGNmF2xELmMiIIECIntI06H0zI+isdI9YsLA1o9je+FrqiF4jO/M7tXnNErbe1aU2JmzLgIyezbyvMWAeNus4pLXbedUwxJERfDkG5kB+rdrmks6SfQv++Ujdrcq49+S4IDAPI6Cv2n/4zipxCd4OIuQWNrm9HxSIj6eMRjNd60Dl7IIRrYz46uD5wPJF25hxkrTzXSjIZu8ayZHih+bXI0rjudyRfwtiNT2kgRDJtz62if1UigwMSk+ag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nXxhNfrsjG5BkIW8u/zXAWZcnoXSYaawf7ROBcQK2Aw=;
- b=GXFsIAibBC4qKXXUNNUkfolwCSeGCMiezZ85z1eXSGVk2jOKbGZ+BQLc1tjzTDK9dFJguYUPzA+UvlyPCJsQMIyVGIHYjEcM053gJOfHet4lF20gdF5sSjkroKgzTem9xi0e/j/kWatDpr4KpZkT41WPo82bxoULPuPuVYKuNd3hODh2rEiQbLV3fXHg9N7ETXbqTPx1H6WNsXkZLTDdCEPCFgB3WctP1p5N+Im7L22JBORlqbuPSvWOvIBL0K7YAHNApqVBS8a9qcXEq+NcSnA2a7NXTPSGWNlsPv5zRzcse7VWk9uNuNZX3IuA99A5bEY1R/bKF9p91+ZQyGvK/g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GVXPR04MB12092.eurprd04.prod.outlook.com (2603:10a6:150:316::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Thu, 26 Mar
- 2026 14:28:36 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.022; Thu, 26 Mar 2026
- 14:28:36 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	Xu Yang <xu.yang_2@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	jun.li@nxp.com
-Subject: Re: [PATCH v2 1/2] arm64: dts: imx8qm-mek: switch Type-C connector power-role to dual
-Date: Thu, 26 Mar 2026 10:28:22 -0400
-Message-ID: <177453526691.4164045.13526085812002400362.b4-ty@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260324110459.2838767-1-xu.yang_2@nxp.com>
-References: <20260324110459.2838767-1-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN6PR2101CA0009.namprd21.prod.outlook.com
- (2603:10b6:805:106::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1w5lhZ-00000005e0p-3rGP;
+	Thu, 26 Mar 2026 14:28:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CBAAB441EC;
+	Thu, 26 Mar 2026 14:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFFCBC116C6;
+	Thu, 26 Mar 2026 14:28:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774535328;
+	bh=9qmbprKUMbqPiWVN+/bZb7MOWCpDyMug8liR6R/yc+g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VCEyCUb4Sbe57pTItGWDihVwE3k84WC8IH+5WEC7oSc5qBrt9ukC6VkCwE5EyJHHp
+	 Rc3K1H4UaO4J24Qa1z5epnSPdtb+OKCRgphqP4KPPbYWZxkHUfcWPr9/pj3Q/iHrDv
+	 tfqYeUI5VuZv3xmcsWa8mXkGDrePxWlIdxMcvVwtXFe1Bz89xBqT2mgOE1W4d2ULgB
+	 xn/rCjUrG0wjZroIrAesNjXwfyvfR7HdXRTnMMEPcOYdRtnfaLGUD/Cp+e1QhSPRtH
+	 2YaaDiWIydJe90eiAi+QqorJqXCLNqFmg5FNbvfA8SRNROCdI2/A+/IE854RFxv5Va
+	 dTxYw77Ec+9jQ==
+Date: Thu, 26 Mar 2026 08:28:46 -0600
+From: Keith Busch <kbusch@kernel.org>
+To: =?utf-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+Cc: "hch@lst.de" <hch@lst.de>, Justin Tee <justintee8345@gmail.com>,
+	"axboe@kernel.dk" <axboe@kernel.dk>,
+	"sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
+	"neal@gompa.dev" <neal@gompa.dev>,
+	"sagi@grimberg.me" <sagi@grimberg.me>,
+	"justin.tee@broadcom.com" <justin.tee@broadcom.com>,
+	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
+	"paul.ely@broadcom.com" <paul.ely@broadcom.com>,
+	James Smart <james.smart@broadcom.com>,
+	"kch@nvidia.com" <kch@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	=?utf-8?B?7J207J2A7IiY?= <euns212.lee@samsung.com>,
+	=?utf-8?B?7Lm47LCs?= <joshi.k@samsung.com>
+Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
+Message-ID: <acVCnozG1WKPkq1L@kbusch-mbp>
+References: <20260326061443.GA23850@lst.de>
+ <acQxjZMOqj74yIJf@kbusch-mbp>
+ <20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
+ <945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com>
+ <20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6>
+ <CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com>
+ <20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1>
+ <CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5>
+ <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB12092:EE_
-X-MS-Office365-Filtering-Correlation-Id: 664e24b7-6627-49dc-d171-08de8b43f78c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|19092799006|1800799024|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: aNpPhyZIn5Sr0soa7+WRuV2Sr/+7xnhr/+uOeVHKdRFp3DMDfadZgFYMfBRm/rMf+1S2Yh6XZAUtfuKpfSurxn3R/QdfoCCA5ucrF2tyW76q5wJf/wXPrSwPcTqc597P5y8C/I0WKFRKn35nkmbI8DDy3Zyh0bGKnc+NussCC+/XOtpsIjIFA0IkPm+gewJEBJOCJiwYWRH2rLG51by/HlbOz+vg6aKCCuV6wESp6RDHw2qk2b3f78f4KUSJM5mVz44pY78FhUc7C/RvcwaSwvajHd4uE7dpwXf04FKR35bIoPEE1vFMZI4toTf22lwQJk8ZB/yJtpizt2hluOpTBwYZ9lLfPDbDDCYSZR0CBdHexjKDhVIejFrumqGjPQoJfaPSKv+FbXgbd6QYQWrJ8P5Lh9wbuUKuiAXwU60cM3We7KFwixuLFbZjsNnzH5UHMh37reTeBFHPNGH2dwgteHIco+IlGJ139JQeMRSzD0ukiW9phyNPJtjKOz7CmO2AfUnCnx0dvt5ibaHGbBh5TcoSG2/CuQD8I8co8E0CxwK/7JO7yB1UuIcex+jCjAKPTJWBG09Wirs2kNO2Kh16YuYk2DAbTOPS3hz16kWTRyT5kWHxmZHrJIwlroQcXpP2Mnd7hE+Ow5EKKRyVhcKCFjzHt+QZUGzdZZVGME5+hXwJzeG9AEQ1IM1RRshyd0YOn1j5VyNYCqwIIopTZUrC/TYH1iPFJsfVsCH/ZpxN18UywRO2VLvYxK3aaqQWBxxFXhzgQM6IMyJt5D6m0GgZY6RdYFvvAiicq3nPWRsrMF0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(19092799006)(1800799024)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cEZXRk5uakpKdmlXdENUdkdrRzZENE1mSHhmRFJOYm5GdXJ3bUZEMjc1OXUr?=
- =?utf-8?B?L1ErZzBxUGpWRWx2SGtCK3BseFpRSzV1NE5UaHhweFRRMyszNnVZMHJ6cURC?=
- =?utf-8?B?VWxpb2V3dzdUVXdaWVdLcjR4VTBVTUJFQjRIaGlFQis5ZUU4a0hyMHYrVkxD?=
- =?utf-8?B?Q0c3Mm9vMW5ZbGdQZ0t2VU5iTGJ1NTdhT2k5QjM2VXlETU95OWZYU1RwTFJz?=
- =?utf-8?B?RERUMlh5aVBnaklQeTdqMlcrTlBCbUo3Q0ZtN0tuZmJhSU1KTlpKY2VieHA4?=
- =?utf-8?B?cUYza2xxTHJJY1pOWExRSGRpNk5icGMrL2orS0hBUktDVG52dTJtWVJPYm96?=
- =?utf-8?B?Q0EwT2pla2JCZjJVck4wV1VWRUl2VjZLK0RqTDFQaElieWZ1bUI5Y2tVcUk3?=
- =?utf-8?B?YXo2VFhvVWZTTUJiTm1rVFFFVXg1TUFlOUZicWROWmovd3RpZGJMakljakFP?=
- =?utf-8?B?NEdMNVdUelUxZkx3Q3BkYWlrTGpyeUpHS0xZSjg3NmtEV0tBVW5nbGVzQ205?=
- =?utf-8?B?UHplK3ZXQnlJUk93OWdmUm9KSC9xc21WVzFta05YUzZjTGdUaEhOeUR0Slc5?=
- =?utf-8?B?UDZSTHRVRHZ3anE0dW4rN05KMU1UODZrQzNiVWFaSXhackJXODRscXNSd3VU?=
- =?utf-8?B?M2wzYW05NUJSWTZsQm5ycFJhSTl0YzNWa3l3S2tBRGlkNitQc0VYdWNtL1dQ?=
- =?utf-8?B?TjZvWTQ0MTExNG5TZUVQNEh1dlFvc20xeTZPaTdSQ3NwQ2NYa3dyVWIxWnB5?=
- =?utf-8?B?UWhleXVmMVdQN1dmL2IvZHY3c1hVQ0NOZ2RTVHdiSUJjcmxEVDJBSTdueE9Y?=
- =?utf-8?B?QmhjaFEwQWJvREhDbnhzSlQ1NlVKLzhwZzJZZVR0M282aUt2MjJuQWs0VUNL?=
- =?utf-8?B?bG0wNlBWaTl1V0UyNTdZWUc1Y01iVnF1YUd3eUtZbzVzUjhSN0d6RytEOWhP?=
- =?utf-8?B?M2tpdjNqaEtFOU9lYWNNdlRsL0VMQXNGMWp6dXlHY016UWZYV2VjMG1ER1A2?=
- =?utf-8?B?MTJISmdBWk5zQmN0RmlUL3czUFh0YkQ0ZUdHbUhBVUNTWlFwcHovdnZUaTE0?=
- =?utf-8?B?VkVocDNSMmxBYWU5Vy8wNDNSczlIVjFCVVYvdGdDQWtqM1JHT0pURTJMQlNJ?=
- =?utf-8?B?OFpiRmZ3UkdzRndUejRLZkhhRVRWdzRGRmpPZFcwYyswQUo4RC9rUStQV2Y0?=
- =?utf-8?B?V05Kd3QxTEhHL21GSlBBR3A5WWtYZytuMllzTnhXajBDbW1zcTVHL3VoZ05J?=
- =?utf-8?B?SzBFamJEZ2k3eDI5bzI2NGNPWWIwODBSZUJyMG01N1lZdUpCdUxzYTl2N3VK?=
- =?utf-8?B?QlRUTzBXN2F3NDZ0NlRzTVVwNUxzMmJveTRxYUdVYldnR0RZVVpMejN2VmtQ?=
- =?utf-8?B?UkRpeGNxK2pzV2Jscnk2TWFaL01ZbU1PU0NMdnJZWWhOTzl4TjN5R05Hb0tM?=
- =?utf-8?B?alJLQW0yZUJGeVh2TzVJZW9OSmV4MkdwMGVQS1dGUzBZdjBQWUczaTQ2ZmVD?=
- =?utf-8?B?Q1hPTzJGVmZpblIvM04zVDMzelcrcndZYnl4SCtMYldRaHlEU2dyT0llZGxY?=
- =?utf-8?B?R1RjQXpMNGlEemdCekdnbEk2V3ROUzFFK2d1cVZtR2JqMnprQmZHdWs5NGxY?=
- =?utf-8?B?bndtK2lNVGJ2ekk2VGtUb0dEWkN6UHlNd29kU1NIVTNLTkxxNmZDb2pGMnhp?=
- =?utf-8?B?R0pVTVpEd3lsVEZNLzJCM2o1Mkl2MmphSGtDTXhOcXd6eXRtaFQreWdvMnlw?=
- =?utf-8?B?UGZaY1doMituZE5HWFB4K1hYSkg0MDJTb0ErRnJiM3FtN0NOSEJtVTh4Wkk5?=
- =?utf-8?B?cncrNHExeEo5aWliTU1sMG5kR0JzNUNicUtrZ3BrOEJXcUVFUmxRZ0xwRVFr?=
- =?utf-8?B?NkF0aWdVVHQ3OEljcCtRck9FUDVKMmxyZzVRZUJ6Vy9wNjJ6MmRyNGFNWTlX?=
- =?utf-8?B?RmJzbVJteDNTWVVkZzlEMjhVaTM3RFpOTDhPMk5jSjJ4V3U4enM0eGgvYjdP?=
- =?utf-8?B?a2UwZTlTMGFvaTNCRVpWWUIwRnJnQnlTNzhxVVhEZitwNDRyK0QxVlJadk44?=
- =?utf-8?B?dUxzQ1NHUVJEbkp2R3BOTWJMMlVNQWZyOUcxK1ZyektEdDkrdkRNRnUrSzAv?=
- =?utf-8?B?MnJPRElteGNnWFRKVGdZR1FxNmhUcHJHODExUU9Da3JTcU5iQ2NuMzlWOFZo?=
- =?utf-8?B?WG1zZUVaQmVzVTE2TEtPU0JRVlQyK1hlVDBQWWV1UmtnMVIwYVdKQ21XdEUy?=
- =?utf-8?B?ckhNWnc1TEhXT2cvWEJZMlByVW1kcXBxRUR5VkNaOHMyc2NhNUgyRk5KR0pG?=
- =?utf-8?Q?cNsEuljXcu5P9e6pv4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 664e24b7-6627-49dc-d171-08de8b43f78c
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 14:28:36.8523
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HtCs3lVd84P+SAg5xYBeuqd7GAD/6iLiVTb0IyX0wquLR6j5m0wcqzNEdVgevu/HOxTtcjNv7XzKYBNr+BhcQQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12092
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_072841_366104_E206199B 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260326_072850_015097_22DCD552 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,29 +93,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 26, 2026 at 03:51:52PM +0900, 전민식 wrote:
+>  {
+>  	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
+>  
+> -	trace_nvme_complete_rq(req);
+> +	/*
+> +	 * The idea for these trace events was to match up commands
+> +	 * dispatched to hardware with the hardware's posted response.
+> +	 * So skip tracing for undispatched commands.
+> +	 */
+> +	if (nvme_req(req)->status != NVME_SC_HOST_PATH_ERROR)
+> +		trace_nvme_complete_rq(req);
+> +
 
-On Tue, 24 Mar 2026 19:04:58 +0800, Xu Yang wrote:
-> When attach to PC Type-A port, the USB device controller does not function
-> at all. Because it is configured as source-only and a Type-A port doesn't
-> support PD capability, a data role swap is impossible.
->
-> Actually, PTN5110THQ is configured for Source role only at POR, but after
-> POR it can operate as a DRP (Dual-Role Power). By switching the power-role
-> to dual, the port can operate as a sink and enter device mode when attach
-> to Type-A port.
->
-> [...]
+Well, how do we know a controller doesnn't actually return that status
+code? I was just suggesting to skip the trace for the condition we never
+dispatched the command. An added bonus is we don't need a mostly
+unnecessary 'if' check on every IO.
 
-Applied, thanks!
-
-[1/2] arm64: dts: imx8qm-mek: switch Type-C connector power-role to dual
-      commit: 755d74cc06950d0f0449794dd23f42669811f6c4
-[2/2] arm64: dts: imx8qxp-mek: switch Type-C connector power-role to dual
-      commit: 8c5dbb306887fc81737e0077b9d821909f64a5fb
-
-Add fixes tags for both patches
-
-Best regards,
+---
+diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
+index f5ebcaa2f859c..0dcccdca2965e 100644
+--- a/drivers/nvme/host/core.c
++++ b/drivers/nvme/host/core.c
+@@ -454,11 +454,10 @@ void nvme_end_req(struct request *req)
+ 	blk_mq_end_request(req, status);
+ }
+ 
+-void nvme_complete_rq(struct request *req)
++static void __nvme_complete_rq(struct request *req)
+ {
+ 	struct nvme_ctrl *ctrl = nvme_req(req)->ctrl;
+ 
+-	trace_nvme_complete_rq(req);
+ 	nvme_cleanup_cmd(req);
+ 
+ 	/*
+@@ -493,6 +492,12 @@ void nvme_complete_rq(struct request *req)
+ 		return;
+ 	}
+ }
++
++void nvme_complete_rq(struct request *req)
++{
++	trace_nvme_complete_rq(req);
++	__nvme_complete_rq(req);
++}
+ EXPORT_SYMBOL_GPL(nvme_complete_rq);
+ 
+ void nvme_complete_batch_req(struct request *req)
+@@ -513,7 +518,7 @@ blk_status_t nvme_host_path_error(struct request *req)
+ {
+ 	nvme_req(req)->status = NVME_SC_HOST_PATH_ERROR;
+ 	blk_mq_set_request_complete(req);
+-	nvme_complete_rq(req);
++	__nvme_complete_rq(req);
+ 	return BLK_STS_OK;
+ }
+ EXPORT_SYMBOL_GPL(nvme_host_path_error);
 --
-Frank Li <Frank.Li@nxp.com>
 
