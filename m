@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9166710A1E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 372AC10A1E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 11:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sNwtHWatzGgfJK5NsoWRUO/N56YCij8sQXuaw+RsWs=; b=cUW4LhSwQcHXatdx2PaluInPnX
-	izlB4xNhOJZ0Wb4nvS+lkH/girmt/ovvKFFyXQwblTByew4J51QErVB2IvR4y0mudlrZFxV2NnvHp
-	0ELdoyCp/lLJA+5G8v1B8Coqxhnuf03ebw05SjGxNRJtyBEhFfHc3K8AnXupK7pRRv+/8DkTH44uu
-	mi9sHulWjJ4wnLxyrkgElo5c2W5VmXVgyOzo6xgqwgE27rG80jRCPaH1s79MMaN9k0fpFimFMqOoK
-	8+uPxEgRmJ+gY1cQVpGb6iK5OKp7n7s6WmHD5Bq2nCXSdHyuD0HIkf/TOYtEEJUr3uqIoR8lnXY6h
-	92NQ2g2A==;
+	bh=W1Z9MD0P3+W6uowOTKwxONeryUThesOLTV3fUIqlgZA=; b=Kps7aA62lfLG7OkdEmL46ZEblb
+	i9OrXG7CmHyFAPOBfqIsXiw7ZrzH4MPoYWiQ7rpMpBj83e+UEjfEPicKl//tN9ga5fyMAijUz3GLU
+	sU+aVDh6OBSfcC8Y69DrXeqKOyiIAXZ/a3wYmAJ8HMAQpEMxnbwX751m0z4JX4E9UPJQukVi+uHud
+	rp3QH/esw2C+yuWY6HBMz+rCX8u40s/AU4cZ6Y7FlwnEKgYcyD6+dlyJFoPeLf2RP8xHTTLnSmR71
+	xoaP42m7ASPyqHlgLqyQn+KklEEKXDGPv3BFZGm5B1eO2BCygNOj+cQMAX1OZ7jOP/egWYYIq2u5x
+	T74KObDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5iQV-00000005JCT-0Vw6;
-	Thu, 26 Mar 2026 10:58:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w5iTQ-00000005JRh-0Gn6;
+	Thu, 26 Mar 2026 11:02:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5iQT-00000005JC4-0UmQ
+	id 1w5iTM-00000005JRD-085q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 10:58:57 +0000
+	Thu, 26 Mar 2026 11:01:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BE9360053;
-	Thu, 26 Mar 2026 10:58:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31EEC116C6;
-	Thu, 26 Mar 2026 10:58:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E3E54325A;
+	Thu, 26 Mar 2026 11:01:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA73CC116C6;
+	Thu, 26 Mar 2026 11:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774522735;
-	bh=Quv47jCMQyrrUKK6psCcT8WgLWEnTdPOyX4ryKPGxLY=;
+	s=k20201202; t=1774522913;
+	bh=cBYIciqF4XISq/WTZKspw6Udl0Wcav49Oqx5YmJNA9w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CmLFgT+QxU81Nq82+LOyBxa376w3EMZkEoSto76WYDik/MTPzMBebJdH1vPIIzkfK
-	 YZYNABttU63QaTCAGJR0VPeeAq6Kf9WwWmO+G76ARf70G0U/buxlL6S03CeCdJNYer
-	 diCoQ35e6e0OkbeTMkg9mYl7m+d0VjYv0tpvT96nf/HvYbOgCNSXLKLn41oZJ9VK+I
-	 bGPLyabI9plqATdNaQS3HPOKpaQZavbDrpvUv/Jk0SXpm0TFcfWS2NB4RBLlLgRl/A
-	 ss8Q7wVMCPXyN7SWcKFPO4CxDxw88G5OMIA8+8xy+Qu6qhQq1Lo6dXuj/vr96REi1A
-	 cck/daV/82vag==
-Date: Thu, 26 Mar 2026 10:58:50 +0000
+	b=MXBsn1Hc4q8uWGw+iRgZ7S//+jHoBIhR7v9OotYZboduheWkRk4OZnOlVK1CEplGk
+	 UVf37Ycvmr6g+6vL8o+qK3TZ3XzbvJqb6rUj4EnhltaZec+MVlqFzC//tajJD2D110
+	 RUkqHnWNxgwxrsR+xpBZfVozTDWClCeDXsSicwPa2pqZ/wBQpqHgsHxZqJ+eho91wG
+	 IJaVeuNmreyOIImMBQR98Nxrb7lAYWpUmPM/KtCnSyO6YbYNuZyuUIXktTYyQAb81Q
+	 FhGzjlGjO2xWPwVqnH4ju5WDfAcEcO3FLBJ3x7Gt66A2HC58t+0/MyBpDofAm8/tRQ
+	 9m3aTgJsk98RQ==
+Date: Thu, 26 Mar 2026 11:01:46 +0000
 From: Will Deacon <will@kernel.org>
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: bpf@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	rcu@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] srcu: Optimize SRCU-fast per-CPU counter increments on
- arm64
-Message-ID: <acURahmSDqFYgcIz@willie-the-truck>
-References: <20260326102608.1855088-1-puranjay@kernel.org>
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, kernel-team@meta.com,
+	anshuman.khandual@arm.com
+Subject: Re: [PATCH v2 0/4] arm64: Add BRBE support for
+ bpf_get_branch_snapshot()
+Message-ID: <acUSGgfXfX_GUEh0@willie-the-truck>
+References: <20260318171706.2840512-1-puranjay@kernel.org>
+ <CANk7y0jnY-V7Hv912gwc45jSx2UqLw5PBcdOdoFfS175bNuDmg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260326102608.1855088-1-puranjay@kernel.org>
+In-Reply-To: <CANk7y0jnY-V7Hv912gwc45jSx2UqLw5PBcdOdoFfS175bNuDmg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_040158_426566_0A8C71AA 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,97 +85,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:26:07AM -0700, Puranjay Mohan wrote:
-> On architectures like arm64, this_cpu_inc() wraps the underlying atomic
-> instruction (ldadd) with preempt_disable/enable to prevent migration
-> between the per-CPU address calculation and the atomic operation.
-> However, SRCU does not need this protection because it sums counters
-> across all CPUs for grace-period detection, so operating on a "stale"
-> CPU's counter after migration is harmless.
+On Thu, Mar 26, 2026 at 08:57:14AM +0000, Puranjay Mohan wrote:
+> Hi Catalin, Mark, and Will,
 > 
-> This commit therefore introduces srcu_percpu_counter_inc(), which
-> consolidates the SRCU-fast reader counter updates into a single helper,
-> replacing the if/else dispatch between this_cpu_inc() and
-> atomic_long_inc(raw_cpu_ptr(...)) that was previously open-coded at
-> each call site.
-> 
-> On arm64, this helper uses atomic_long_fetch_add_relaxed(), which
-> compiles to the value-returning ldadd instruction.  This is preferred
-> over atomic_long_inc()'s non-value-returning stadd because ldadd is
-> resolved in L1 cache whereas stadd may be resolved further out in the
-> memory hierarchy [1].
-> 
-> On x86, where this_cpu_inc() compiles to a single "incl %gs:offset"
-> instruction with no preempt wrappers, the helper falls through to
-> this_cpu_inc(), so there is no change.  Architectures with
-> NEED_SRCU_NMI_SAFE continue to use atomic_long_inc(raw_cpu_ptr(...)),
-> again with no change.  All remaining architectures also use the
-> this_cpu_inc() path, again with no change.
-> 
-> refscale measurements on a 72-CPU arm64 Neoverse-V2 system show ~11%
-> improvement in SRCU-fast reader duration:
-> 
->   Unpatched: median 9.273 ns, avg 9.319 ns (min 9.219, max 9.853)
->     Patched: median 8.275 ns, avg 8.411 ns (min 8.186, max 9.183)
-> 
->   Command: kvm.sh --torture refscale --duration 1 --cpus 72 \
->            --configs NOPREEMPT --trust-make --bootargs \
->            "refscale.scale_type=srcu-fast refscale.nreaders=72 \
->            refscale.nruns=100"
-> 
-> [1] https://lore.kernel.org/r/e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop
-> 
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> ---
->  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++-------------
->  1 file changed, 35 insertions(+), 16 deletions(-)
-> 
-> diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
-> index fd1a9270cb9a..4ff18de3edfd 100644
-> --- a/include/linux/srcutree.h
-> +++ b/include/linux/srcutree.h
-> @@ -286,15 +286,43 @@ static inline struct srcu_ctr __percpu *__srcu_ctr_to_ptr(struct srcu_struct *ss
->   * on architectures that support NMIs but do not supply NMI-safe
->   * implementations of this_cpu_inc().
->   */
-> +
-> +/*
-> + * Atomically increment a per-CPU SRCU counter.
-> + *
-> + * On most architectures, this_cpu_inc() is optimal (e.g., on x86 it is
-> + * a single "incl %gs:offset" instruction).  However, on architectures
-> + * like arm64, s390, and loongarch, this_cpu_inc() wraps the underlying
-> + * atomic instruction with preempt_disable/enable to prevent migration
-> + * between the per-CPU address calculation and the atomic operation.
-> + * SRCU does not need this protection because it sums counters across
-> + * all CPUs for grace-period detection, so operating on a "stale" CPU's
-> + * counter after migration is harmless.
-> + *
-> + * On arm64, use atomic_long_fetch_add_relaxed() which compiles to the
-> + * value-returning ldadd instruction instead of atomic_long_inc()'s
-> + * non-value-returning stadd, because ldadd is resolved in L1 cache
-> + * whereas stadd may be resolved further out in the memory hierarchy.
-> + * https://lore.kernel.org/r/e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop
-> + */
-> +static __always_inline void
-> +srcu_percpu_counter_inc(atomic_long_t __percpu *v)
-> +{
-> +#ifdef CONFIG_ARM64
-> +	(void)atomic_long_fetch_add_relaxed(1, raw_cpu_ptr(v));
-> +#elif IS_ENABLED(CONFIG_NEED_SRCU_NMI_SAFE)
-> +	atomic_long_inc(raw_cpu_ptr(v));
-> +#else
-> +	this_cpu_inc(v->counter);
-> +#endif
-> +}
+> Would you mind taking a look at this patchset when you have a chance?
 
-No, this is a hack. arm64 shouldn't be treated specially here.
-
-The ldadd issue was already fixed properly in
-git.kernel.org/linus/535fdfc5a2285. If you want to improve our preempt
-disable/enable code or add helpers that don't require that, then patches
-are welcome, but bodging random callers with arch-specific code for a
-micro-benchmark is completely the wrong approach.
+Adding Rob and Anshuman, as they wrote the perf driver for BRBE and are
+the best people to review this stuff.
 
 Will
 
