@@ -4,73 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02F710A1E68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 11:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C8110A1E7D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 11:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eUbyrBQrZeyw3b/k/SDrTACodn8YBSMmYKpGCCfH9E=; b=boBUavd6Rd9A9Kx70pZDcpD8QV
-	s5VppzdIV4sjcuaO6SrQXZhiTtRoei/H4Uaae1UULFKE33/nPbGYn5BdISh+XW4sbDw6APc6SrTHx
-	fnJGKTpdvJQjDWzmi+N93vaeDcHFA91BHtDJsPTS5aqDQDU1TrKiz358X0Yf+Rs7PxAsuqRR8faT5
-	appf4lUtMklWPH8QXVXp34O7+0qWpbrjXfkA7N8Fujhim7wBJrGubPk0N4CPFX8s5L09AtqbWHC0W
-	tVAjnt+vbBWr1Er0QYcATtWsCGPunb2r3UA2MOzc4yJ4nr03opx/6wl00TDla2Vb4/Jvwh6u1JWWw
-	gC123cuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z4goXpKaIIUQbzMtnbG+Nl5wjlHr+DycvPz/1fM9qKI=; b=W0lHqZ7f8fQxSqoFuPI8U5+Qof
+	nGWaichN4pUHpjjBIUn08+AQ4HNdDS2/T1qOoKQV14tmgMgFpRMROdTAyYrt6roloo4I8NmFnsjqD
+	XFJ7ZXsSVDCgIb+9FvjsQVLXLaXqhqXJl60kk0TcdB8zQlc30+G3cN1XrBmhjbPGTLwu0vLNOxoho
+	w3rw5/sMG2q3o02BbeoOgfviwAn8ditAAJBZ2QjYYA4R7L/jPZF+ZOiHdpAAWGAYQQbb+OCHhkQ/P
+	t1IWExgrYVNwlGDvsop2ya5gagxitA8Ng+aZeVSargAKgm8WNN3MtCFFTLDAf4E+XcxsdrVlE0V2W
+	YgEoV+oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ikc-00000005M2P-1PyS;
-	Thu, 26 Mar 2026 11:19:46 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1w5ios-00000005MSR-1chk;
+	Thu, 26 Mar 2026 11:24:10 +0000
+Received: from mail-northeuropeazon11010003.outbound.protection.outlook.com ([52.101.84.3] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ikX-00000005LyA-1ZKr
+	id 1w5ion-00000005MRd-3hSA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 11:19:44 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=4eUbyrBQrZeyw3b/k/SDrTACodn8YBSMmYKpGCCfH9E=;
-	b=PqfD5wy934jLNLeuXyaaOLg1+NyOaHiHgYF2LSoav3XafE3peWSUj2uOnPF8hsW/eYKyKuIHB
-	5/KMAFgPcTmA6XJp+T7F8S82XOXNdfs6CQzyraZDnhcdH+dqpo7V67PYgw8rXtt9iqY99o2hes/
-	oZm+auom9IW5mWJazjO8v/8=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fhLkf6WRjz12LGC;
-	Thu, 26 Mar 2026 19:14:02 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id A396C2025E;
-	Thu, 26 Mar 2026 19:19:29 +0800 (CST)
-Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Mar 2026 19:19:29 +0800
-Received: from [10.67.113.213] (10.67.113.213) by
- kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Mar 2026 19:19:28 +0800
-Message-ID: <69C51640.8070408@hisilicon.com>
-Date: Thu, 26 Mar 2026 19:19:28 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	Thu, 26 Mar 2026 11:24:09 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=BMqDpkBQl9UeEQeXLQfFD115JU17yr6tnet4KfSQpzyz/SGo5MD4LYZ0iCTCWAwt1vclR1in6fgbTps2POALTAW7Bcbc461lGVkIXF50bHjRmZhsAbvIFHGcmi8J907nvFkjUF8UneDUL9O3+0T61kSuu97seuwJWHPOMbvdX7Sg9aiTIozodLPXQek4fUrGMrTxLWtCP6vinV3z0HNryUUKbGbQ9axVbfT43qb3UE6g0zp8MjDCm9ZuHQ266Forq8kfGMOWdcEr7UTHdKHH875etUTbHPXvdlj+C1S68HzsKbHUXtq8rC4uyZ3CXezDE2i116LnB0WaBkiOipy33g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z4goXpKaIIUQbzMtnbG+Nl5wjlHr+DycvPz/1fM9qKI=;
+ b=dFgy0xTWmUrBoqNojwKBPXIYaeOmEWdgMJKt5l8hUwGjs72VcIgIv7qdmhpaNDQsuojh1epp0IykKbe/kiJiHRiKXWrJFArtMf/qWZPiT/YArkCkwiPI/8zguNe63mHwW2Oalv2wzd7QCzS4R4SDHkK7nTqbABS+WH/B0ZBuqBmVC4nScGpRr2mYPXZXqy826yGHkKlibOF0Cuno0ZM4b4zVkixdLXtLjTD3QvdExUzVdBAmS2C6qW7zNcs6Fpu70iNH/7JM2gvVddnrDgWhdaRZ5kRInHQ1FVcJLCWYoV0TzsrCqbqRXOAVY2z+lw41LEJd6I+1juLCVdhSeI21lg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z4goXpKaIIUQbzMtnbG+Nl5wjlHr+DycvPz/1fM9qKI=;
+ b=ZxjleHK0GdZpG/NvbH5c7ueF+wYSV0pCG/fIDpIGVMdjmLOfwkvRW/h0GEmHHklsH0r3Ts4ioOjnAwwRCgM1Q84C64PDgGQJRKnKlF5flUXWM65bLV2+eoNw4PwYwZYY0cCrberHDH+qpkKWhU4DItxcN3LJokbtWRi3MrEzxmM=
+Received: from DUZPR01CA0043.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:468::6) by AS8PR08MB6245.eurprd08.prod.outlook.com
+ (2603:10a6:20b:293::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Thu, 26 Mar
+ 2026 11:23:54 +0000
+Received: from DU6PEPF0000B61D.eurprd02.prod.outlook.com
+ (2603:10a6:10:468:cafe::ff) by DUZPR01CA0043.outlook.office365.com
+ (2603:10a6:10:468::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.33 via Frontend Transport; Thu,
+ 26 Mar 2026 11:23:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000B61D.mail.protection.outlook.com (10.167.8.137) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.21
+ via Frontend Transport; Thu, 26 Mar 2026 11:23:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f/Pextz2e9zZzh0t3PbDr28lP9WdgmSYDxzpzBhUA0KheZVw81Pg5s2w4JldE4rUmrhJOPeqX3h6gBn82w4v56sPY/QKxfaGflQQayQY7269EVTbPAay6lmQjX4RZYxTm+AASf/JC61treBsCGuIx+sCxK/6mORLF83yU9fMZSX/La43VTcz4UdLY7hUL3245EZR0xQXNWD9/VM3ebDjz4QMrV4PrUoOzNaggQiDUTIb5tJQ2k6TXyUCbFqF4S7pBFJHGuOlEtl9oFa26LxJxoSRPwaUthM+M1foPb6zoTaGyZWotuJSnXF7npd830O0zn/IJbV6fE7W5ZJgW3W9Vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z4goXpKaIIUQbzMtnbG+Nl5wjlHr+DycvPz/1fM9qKI=;
+ b=coIIePOSogIaLttVJF9c2PRdexK44uJqCXEh1p5ikh53DMxgjPSfpVKbY+y50xJn/cT3Nlj0uo/WHO7Cf01ryoJ8gIb/m1maKyrttjU8LRxiplLftL9DrmkT5sHGAT93ya1r03LVP/8F4kfVFCYVdE73EvtelAXR7UZtj710JGrkQM1a6g0YvHxKJnyC8J8R4Xmq4fqJ1Lma6FAik7XxEwFHJO307BlZNiiOtXFEQKDeW7F0yq0LET6a3jI8SQBkJDWiDVT3yNmTe9QK8qG9jXgIVMVowcw4fjmNMa7Ed3YRvoSxmTvfUmhiGNLgDns0l6+HJBOWEOFD/6MWlX6o7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z4goXpKaIIUQbzMtnbG+Nl5wjlHr+DycvPz/1fM9qKI=;
+ b=ZxjleHK0GdZpG/NvbH5c7ueF+wYSV0pCG/fIDpIGVMdjmLOfwkvRW/h0GEmHHklsH0r3Ts4ioOjnAwwRCgM1Q84C64PDgGQJRKnKlF5flUXWM65bLV2+eoNw4PwYwZYY0cCrberHDH+qpkKWhU4DItxcN3LJokbtWRi3MrEzxmM=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by PR3PR08MB5721.eurprd08.prod.outlook.com (2603:10a6:102:84::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Thu, 26 Mar
+ 2026 11:22:51 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9745.020; Thu, 26 Mar 2026
+ 11:22:51 +0000
+Message-ID: <44109e80-b46f-404c-bc69-d019c923faac@arm.com>
+Date: Thu, 26 Mar 2026 11:22:50 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 00/48] arm64: Support for Arm CCA in KVM
+To: Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <abyAbPIkDn2bGZwd@p14s> <37bc1222-6fc7-48f0-94d3-6eaac420aa55@arm.com>
+ <0b7121e7-3c74-4303-a200-01d2b7c535ce@redhat.com>
+ <9247d9ea-64b4-4e8e-81f8-3c8e00750acf@arm.com>
+ <807b844c-32f6-4094-8c24-15d7eb1d3638@redhat.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <807b844c-32f6-4094-8c24-15d7eb1d3638@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: LO4P265CA0206.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:318::18) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
-To: Bhargav Joshi <rougueprince47@gmail.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <ulf.hansson@linaro.org>,
-	<zhangfei.gao@linaro.org>, <linux-mmc@vger.kernel.org>
-CC: <daniel.baluta@nxp.com>, <simona.toaca@nxp.com>, <d-gole@ti.com>,
-	<m-chawdhry@ti.com>, <linux-kernel@vger.kernel.org>, <xuwei5@hisilicon.com>
-Subject: Re: [PATCH v2 0/2] mmc: hisilicon: Convert dw-mshc bindings and fix
- dtbs
-References: <20260325225439.68161-1-rougueprince47@gmail.com>
-In-Reply-To: <20260325225439.68161-1-rougueprince47@gmail.com>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.113.213]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq100003.china.huawei.com (7.202.195.72)
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|PR3PR08MB5721:EE_|DU6PEPF0000B61D:EE_|AS8PR08MB6245:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2f874516-0da8-4977-5d23-08de8b2a29b6
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: U4EctnKs43HpF2zJVCwbnD43nz9Df3sSEbjLnogVi9z8Zogj5/dkAbxRmOdDLFx6hvGoAndnb7zJOGhaIMTFFvIQndsmLHUNArXdM0OYnoD8c+TZgO8jUFmp1Mn7GFSqhcq6g2xuXaQQDea+FgTYpHB0w9McIHv4vbhsqLx1OedN7A28QvetKgEsAzpHkXKQ8qjmS6ZOPbx2tywP3iaySSIT3Qx80oCSCN/K1+eWy9UOEbRggM5NaVToRw722E1+dkvnQvqOmvCvX+A1ZkpfDKu31PUkUwNdv/NeRcATtAgZKJJHUkgng4huRvQgHnWIcmHZARvhu/B6N43sCBOzSVhbza9EVhqv9i13ftFEKYEoySD1cWMzoWbBve657RTQ/9ouTzN3ewm7EyLhWnJqnKtOQKI76qvpBucDh3KSBjcYgKyWl0/6Uj8jgikqV1EnKM7g/26CT50RHIPa+lf06NnmnvMCxZl4tGAXUng26NDGCGMTl0yap8aJ0Kn1v+vVGDdU/j/giJvmRLkczMAln6kqImT7BDOZ+DGOSnwQKQKw2eUt7Lzq4WC4ZhJ23MoqARHOPKMWzII/cFod5T8qkS45AXpIXbGPNMIkwqPRcRsREMBmYtRhQiX4u+12q35JWKn4k362jWvl5naflVkfcBfm9ixBDI8+xbkWo1aq5JEXR0Upy9JwQjPc+Wy8GMLY
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: CyC2ZdbaFM5FLxYpMeQgDMcdrL6EPw7247e+Nrs8W9xAe+afb8qQnREwhSdXugYEM8i3SaDU2oTPi+QBYlMqMx8i1ElWD+j8ckT0Aa6k0NOE9UrYJZ2VxPvnstLExnlzfe23XtNbsGzEhyK2SVE59HE39ItF4EIW1gLkd+RpU+BDTk1eQm6U7WATtRPiKGlZtfwXQi3F9y2tZ0p2LYe84104AI1MVkjdbwU4uGTz9xyemdfjqyNvWYisJZehUSSkEtqQ1ZMg1xYtGclvKBuYOCcMjlUF1SBWwgBqnOObNPGQQwkcfIASTLI6JxC8CpvOvVEYCx4gneKOWltpRB56Cw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR08MB5721
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B61D.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: aa8cb4d9-3b4e-4111-a20d-08de8b2a044d
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|7416014|82310400026|14060799003|35042699022|13003099007|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: HuXbfu238pbRsZKymYy/U8Dcj+nlr4B6ccHXWds6/NnQ+dIBHrL5uibCRtOrft/RkZECYLMjML+LGqJwA/Y8Pk8reZMlEBe3lgdMPgV2yMLbcKW5kpTIzrsuihY5dFIQxGMN6Rpficb7/VOs3J1YSRCDTL002A0mF/oB+JD0S0zCNUXm2s+J6ulr4WgupgVdXuMkZFojKj0hdo1GEg+iapLjjhGR2KlelwdnkvaB9/fCUhm32wBWNZ22IXDyhmPkT8HsP3AyoN2bnlzOyH9yTrasddkMtB9TgbiIxWtXq0oaNFvCd+8IIZAfDeqYYO4v5PhYAlL2cKKaY949Ns9ekT2Udr4FEQKP0z0to+Ilvqt2WSwlTo8XpRR2TK5UdnftAn/OXWsiOCfS38SzeUywcMczT+EQVr9Tl5a09vkO9gRs1Qj6g2HP8JrOWa+y774Qpkfpr+fApr3xBmO9KPdd3XEXnYvwir+9zJs5d8XdXLZ8+uVfV2SM4C5B9UuvSyLa/ZJCfyJs0nDmLeCLbvMC6oqMIoIWJxhlOnrCyB+G+EYK3bLvRzMzABy5zALELp5LlwcTTAYzedgk/nhdiygX72o8ASDeeoA0CEguB7m95HAdvIJVsZDzEVuh4NWO9Lf00qSbwjEjIL0SUXmEnzJkA3yHbDKGje5P52fHv/s1EIZZtUKGl6GWC885fDV0PkBxMlKXeJuaQl5A6NuuPsTK0lnfqBFBhuJRWb7F/14gcYM=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(7416014)(82310400026)(14060799003)(35042699022)(13003099007)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: dz5bM374N9QsvK+R/d6ibpHP9YuGX11izh9xH3vRaX5ggvQ6cH6dcWn+03EAH/KWsX4yrEnz9lxQKPaacea+vLWMs91Q9lyqmJ/J7/wbM8ZCNUB7Mb/9Hj2mh+tP+njGjSqCOkOhcmR1U5lOwH19qdowS8RhQw9rBq8uj35x8+NwpYcPzxcekrHvLZRwqiDTfzjVjXhkebOR9XHFPzOv5uY7HMjhsl6FF2mn3I/YVO9ywyblgKbuzJssMrlfSgZgiCCfLXTsIiTs7ho4ry29MdFAw6mSZzmvARIJgV6Z0fCLTvJvkisQZ6P3v0Rz+0JXII1T3toTB+fRgibaGjv++ezt8wk3gFCaSw65II7e7xB9ZN5d4sVX1dMsuZ72PFHI4taCbSMviJUGFbwmqFhRjogT40Jxb4F8UUwiy8ihhY/o1oXSo4GTgpw2DCzRWIUR
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 11:23:53.6737
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f874516-0da8-4977-5d23-08de8b2a29b6
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61D.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6245
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_041942_202706_CC2FFF28 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260326_042406_228527_E4D2492D 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +168,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bhargav,
+Hi Gavin,
 
-On 2026/3/26 6:54, Bhargav Joshi wrote:
-> This series converts the Hisilicon dw-mshc text bindings to DT schema
-> format and cleans up legacy node names in Hisilicon board files.
+On 26/03/2026 00:48, Gavin Shan wrote:
+> Hi Suzuki,
 > 
-> While testing the new YAML schema, dtbs_check flagged the hi3660, 
-> hi3670, and hi6220 SoC files for using the non-standard 'dwmmc' node 
-> name prefix. resulting in warnings.
+> On 3/25/26 8:16 PM, Suzuki K Poulose wrote:
+>> On 25/03/2026 06:37, Gavin Shan wrote:
+>>> On 3/21/26 2:45 AM, Steven Price wrote:
 > 
-> Patch 1 Convert to DT schema
-> Patch 2 updates the Hisilicon dtsi files to use standard 'mmc' 
-> node name.
+> [...]
 > 
-> Changes in v2:
->  - Patch 1: 
->     - Grouped compatible strings into an enum.
->     - Replaced raw numbers with proper flags.
->     - Fixed property order and removed invalid hex values.
->     - Added explanation for clock order change in commit message.
->     - Collected Acked-by tag.
->  - Patch 2: 
->     - No code changes.
->     - Collected Acked-by and Reviewed-by tags.
+>>>
+>>> In upstream TF-A repository [1], I don't see the config option 
+>>> 'RMM_V1_COMPAT'.
+>>> would it be something else?
+>>>
+>>> [1] git@github.com:ARM-software/arm-trusted-firmware.git    (branch: 
+>>> master)
+>>>
+>>
+>> suzuki@ewhatever:trusted-firmware-a$ git grep RMM_V1_COMPAT
+>> Makefile:       RMM_V1_COMPAT \
+>> Makefile:       RMM_V1_COMPAT \
+>> docs/getting_started/build-options.rst:-  ``RMM_V1_COMPAT``: Boolean 
+>> flag to enable support for RMM v1.x compatibility
+>> include/services/rmmd_svc.h:#if RMM_V1_COMPAT
+>> include/services/rmmd_svc.h:#endif /* RMM_V1_COMPAT */
+>> make_helpers/defaults.mk:RMM_V1_COMPAT                  := 1
+>> services/std_svc/rmmd/rmmd_main.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_main.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_main.c:#if !RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_main.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_main.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_main.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_rmm_lfa.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_rmm_lfa.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_rmm_lfa.c:#if RMM_V1_COMPAT
+>> services/std_svc/rmmd/rmmd_rmm_lfa.c:#if RMM_V1_COMPAT
+>> suzuki@ewhatever:trusted-firmware-a$ git log --oneline -1
+>> 8dae0862c (HEAD, origin/master, origin/integration, origin/HEAD) Merge 
+>> changes from topic "qti_lemans_evk" into integration
+>> suzuki@ewhatever:trusted-firmware-a$ git remote get-url origin
+>> https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git
+>>
 > 
-> Signed-off-by: Bhargav Joshi <rougueprince47@gmail.com>
-> ---
-> Note: this patch is part of the process for applying to GSoC device
-> tree bindings conversion project #
-> https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
+> Thanks for the details. It turned out that I used the wrong TF-A 
+> repository. In
+> the proposed repository, I'm able to see the option 'RMM_V1_COMPAT' and 
+> the EL3-RMM
+> interface compatible issue disappears. However, there are more issues 
+> popped up.
 > 
-> - The file is enabled by arm64 defconfig (CONFIG_MMC_DW_K3=y)
-> - It is used in following
->     /arch/arm64/boot/dts/hisilicon/hi3660.dtsi
->     -included by /arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
->     /arch/arm64/boot/dts/hisilicon/hi3670.dtsi
->     -included by /arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
+> I build everything manually where the host is emulated by QEMU instead 
+> of shrinkwrap
+> and FVP model. It's used to work well before. Maybe it's time to switch 
+> to shinkwrap
+> and FVP model since device assignment (DA) isn't supported by an 
+> emulated host
+> by QEMU and shrinkwrap and FVP model seems the only option. I need to 
+> learn how
+> to do that later.
+
+Thanks for the update. Yes, QEMU TF-RMM support is in progress, @Mathieu 
+Poirier is looking into it
+
 > 
-> Bhargav Joshi (2):
->   dt-bindings: mmc: hisilicon,hi3660-dw-mshc: Convert to DT schema
->   arm64: dts: hisilicon: Rename dwmmc nodes to mmc
+> There are two issues I can see with the following combinations. Details 
+> are provided
+> like below.
 > 
->  .../mmc/hisilicon,hi3660-dw-mshc.yaml         | 117 ++++++++++++++++++
->  .../devicetree/bindings/mmc/k3-dw-mshc.txt    |  73 -----------
->  arch/arm64/boot/dts/hisilicon/hi3660.dtsi     |   4 +-
->  arch/arm64/boot/dts/hisilicon/hi3670.dtsi     |   4 +-
->  arch/arm64/boot/dts/hisilicon/hi6220.dtsi     |   6 +-
->  5 files changed, 124 insertions(+), 80 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/mmc/hisilicon,hi3660-dw-mshc.yaml
->  delete mode 100644 Documentation/devicetree/bindings/mmc/k3-dw-mshc.txt
+>      QEMU:      https://git.qemu.org/git/ 
+> qemu.git                            (branch: stable-9.2)
+>      TF-RMM:    https://git.trustedfirmware.org/TF-RMM/tf- 
+> rmm.git            (branch: topics/rmm-v2.0-poc)
+>      EDK2:      git@github.com:tianocore/ 
+> edk2.git                            (tag:    edk2-stable202411)
+>      TF-A:      https://git.trustedfirmware.org/TF-A/trusted-firmware- 
+> a.git  (branch: master)
+>      HOST:      https://git.gitlab.arm.com/linux-arm/linux- 
+> cca.git           (branch: cca-host/v13)
+>      BUILDROOT: https://github.com/buildroot/ 
+> buildroot                       (branch: master)
+>      KVMTOOL:   https://gitlab.arm.com/linux-arm/kvmtool- 
+> cca                 (branch: cca/v11)
+>      GUEST:     https://github.com/torvalds/ 
+> linux.git                        (branch: master)
+> 
+> (1) The emulated host is started by the following command lines.
+> 
+>      sudo /home/gshan/sandbox/cca/host/qemu/build/qemu-system- 
+> aarch64                  \
+>      -M virt,virtualization=on,secure=on,gic- 
+> version=3,acpi=off                        \
+>      -cpu max,x-rme=on -m 8G -smp 
+> 8                                                    \
+>      -serial mon:stdio -monitor none -nographic - 
+> nodefaults                            \
+>      -bios /home/gshan/sandbox/cca/host/tf-a/ 
+> flash.bin                                 \
+>      -kernel /home/gshan/sandbox/cca/host/linux/arch/arm64/boot/ 
+> Image                  \
+>      -initrd /home/gshan/sandbox/cca/host/buildroot/output/images/ 
+> rootfs.cpio.xz       \
+>      -device pcie-root- 
+> port,bus=pcie.0,chassis=1,id=pcie.1                             \
+>      -device pcie-root- 
+> port,bus=pcie.0,chassis=2,id=pcie.2                             \
+>      -device pcie-root- 
+> port,bus=pcie.0,chassis=3,id=pcie.3                             \
+>      -device pcie-root- 
+> port,bus=pcie.0,chassis=4,id=pcie.4                             \
+>      -device virtio-9p- 
+> device,fsdev=shr0,mount_tag=shr0                                \
+>      -fsdev local,security_model=none,path=/home/gshan/sandbox/cca/ 
+> guest,id=shr0       \
+>      -netdev tap,id=tap1,script=/etc/qemu-ifup-gshan,downscript=/etc/ 
+> qemu-ifdown-gshan \
+>      -device virtio-net-pci,bus=pcie.2,netdev=tap1,mac=b8:3f:d2:1d:3e:f1
+> 
+> (2) Issue-1: TF-RMM complains about the root complex list is invalid. 
+> This error is
+>      raised in TF-RMM::setup_root_complex_list() where the error code is 
+> still set to
+>      0 (SUCCESS) in this failing case. The TF-RMM initialization is 
+> terminated early,
+>      but TF-A still thinks the initialization has been completely done.
+> 
+>      INFO:    BL31: Initializing RMM
+>      INFO:    RMM init start.
+>      RMM EL3 compat memory reservation enabled.
+>      Dynamic VA pool base address: 0xc0000000
+>      Reserved 20 pages. Remaining: 3615 pages
+>      Reserve mem: 20 pages at PA: 0x401f2000 (alignment 0x1000)
+>      Static Low VA initialized. xlat tables allocated: 20 used: 7
+>      Reserved 514 pages. Remaining: 3101 pages
+>      Reserve mem: 514 pages at PA: 0x40206000 (alignment 0x1000)
+>      Dynamic Low VA initialized. xlat tables allocated: 514 used: 514
+>      Invalid: Root Complex list                                         
+> <<<<< ERROR
+>      INFO:    RMM init end.
+> 
+> (3) Issue-2: The host kernel gets stuck in rmi_check_version() where 
+> SMC_RMI_VERSION
+>      is issued to TF-A, but it can't be forwarded to TF-RMM because its 
+> initialization
+>      isn't completely done (issue-1).
+> 
+>      [   37.438253] Unpacking initramfs...
+>      [   37.563460] kvm [1]: nv: 570 coarse grained trap handlers
+>      [   37.581139] kvm [1]: nv: 664 fine grained trap handlers
+>      <... system becomes stuck here ...>
+> 
+> So my workaround is to skip fetching root complex list from the EL3-RMM 
+> manifest data
+> in TF-RMM::setup_root_complex_list() since it's not provided for the 
+> qemu platform by
+
+^^ This may have to do with the RMM<->TF-A Manifest changes
+
+
+> TF-A. With this workaround, the host can boot up into shell prompt and 
+> the guest can
+> be started by kvmtool.
+> 
+>      host$ uname -r
+>      7.0.0-rc1-gavin-gd62aa44b2590
+>      host$ lkvm run --realm -c 2 -m 256                   \
+>            -k /mnt/linux/arch/arm64/boot/Image            \
+>            -i /mnt/buildroot/output/images/rootfs.cpio.xz
+>            -p earlycon=uart,mmio,0x101000000
+>      Info: # lkvm run -k /mnt/linux/arch/arm64/boot/Image -m 256 -c 2 -- 
+> name guest-163
+>      Info: Enabling Guest memfd for confidential guest
+>      Warning: The maximum recommended amount of VCPUs is 1
+>      [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x000f0510]
+>      [    0.000000] Linux version 7.0.0-rc2-gavin-g0031c06807cf 
+> (gshan@nvidia-grace-hopper-01.khw.eng.bos2.dc.redhat.com) (gcc (GCC) 
+> 14.3.1 20251022 (Red Hat 14.3.1-4), GNU ld version 2.41-64.el10) #2 SMP 
+> PREEMPT Wed Mar 25 20:28:05 EDT 2026
+>      [    0.000000] KASLR enabled
+>           :
+>      [  267.578060] Freeing initrd memory: 4728K
+>      [  267.921865] Warning: unable to open an initial console.
+>      [  270.327960] Freeing unused kernel memory: 1792K
+>      [  270.669368] Run /init as init process
 > 
 
-Series applied to the HiSilicon arm64 dt tree.
-Thanks!
+Cool, thanks!
 
-Best Regards,
-Wei
+Suzuki
+
+> Thanks,
+> Gavin
+> 
+
 
