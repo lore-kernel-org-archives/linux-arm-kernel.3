@@ -4,130 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE3010AB82B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7162110AB829
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 21:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pjb3URkbbR01eXdGvkmTKg9j6MWjYnJLhpcHkswgr8=; b=batPuD4/BJ6UNLjXlDek3uu4u9
-	Xr5oJFTvLP+oMjTr69UUuW2Zbc9uGp+gGua4fTlsVpbjOCCI682HjcE9Qh49pFPUgD/0HGUGG+C6h
-	NBjQD6adokKpwTI+AcfQUGElDeyv22RbPhbtXSymTC5pBP/1APmawBHhyy4ydAZb3GkgDoqp2TN9u
-	BFrT7bbZy8rlNPlYfRRDSFNGBmfLLaAW5gDOxWS8bL2mK+7aXEdexmwBDUgajqeTMSoJEMj7hWPZP
-	9RztCXAC5ZA6NAG2+8crKd+G9BhOxhsNjpT5ol6p3aID8bv/ogiErIqeTr1oTQQ+t85KEurZ1XBYo
-	GEodQdjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cDenTbf8o1eRuhVlh46ZHzs2WPWimdsYJNuTt153VAc=; b=awULkGb1rWYVCZAkFeKNOdDzTS
+	+2n9OhJEA9hr+DLE+fcU4Ww+LAskjufftSwcrGcgLsjoM45WIUVu9aYIQCPvIRxn16LssMtwM1lDH
+	CkJ9lbDSZtXDZxzw69MMYhrNP21p8jMJw3nrj15BMItkslQhVOrpUMBSlYQimWRJEmWjIUDRwyOg6
+	shcXGcm+jgoj45Qq3FPwX1mcuvdxMZPShGxsklSNudJ8OS01gAAivpRubblg9NR/Erx6h92c0+vqS
+	mNU9aa9Nd81AjfLwly+FnuPgRyhz/DJk5/LUNjGTNMf5Xc6Jm2lgw8mQkAGZqB7pV1nQpXA00E2Yy
+	qwsORDIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5s1y-00000006DuX-2KZC;
-	Thu, 26 Mar 2026 21:14:18 +0000
-Received: from flow-b1-smtp.messagingengine.com ([202.12.124.136])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5s16-00000006DV8-25tt;
-	Thu, 26 Mar 2026 21:13:27 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id F135613000B5;
-	Thu, 26 Mar 2026 17:13:18 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Thu, 26 Mar 2026 17:13:20 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774559598;
-	 x=1774566798; bh=6pjb3URkbbR01eXdGvkmTKg9j6MWjYnJLhpcHkswgr8=; b=
-	h6asKu9Uks25ifOvsWbdAJZSoSzdSq9ur05qS8lnhn9V/7eSdAB2i7oILTnWk05h
-	a1Bd7UiTH53pYCRbXfVFE7SEv1wQWMNzz4DQi9QvV1PDSBcx/dwPX2MtAshG6h9s
-	uNvT/JNFfEKe59zeVqppgigdwUzitymd/Yh/E2tFdqDDeqv4j+G/9aGkQh6Fe+s5
-	midsXRlD2K/MuIyiAFPpc2orO7JtJLzKRjCAs7k/miWaYl7rwmoPqaM+8FnMGApS
-	yTq/OCHm/mm0DAuonaZ6+v92mbvkTMkShEEMhNkCWquTmCcLIuq6HvzhGZdBaatc
-	UOByiv+8LC9UuODYhXbuYA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774559598; x=
-	1774566798; bh=6pjb3URkbbR01eXdGvkmTKg9j6MWjYnJLhpcHkswgr8=; b=O
-	XCrFmp0xOx34V+/K+8Az+IxDwAi0L+d5/ghlz5sW2+v5K5TS/Lmw18CzE2aWaDD1
-	lUCrX1ge/MGkGOijz4Gid3J3VilT7GgYu5MrTH1NSW4+cRxywYAXIV9CywX9qOsi
-	iXHdqq7t3yAqpK/xcBjDu1Fw2LvYf5SdkPS07TRs94A7pp5MplN7/hvYHpF2nGWk
-	7VUmVMTVHMmIfYxvn1VT4X+9KSDvLPyocrwABTjv9Hwa2D1w/OdJiewf0PANvYUE
-	om86o69UMnG81/maqi5puEjUwhYy/jWqIWYka2xfUupH1/auvrOn0cFXjmEkRFzP
-	h8zv2fuqgRd/pV4lc+zKw==
-X-ME-Sender: <xms:bKHFaS1M2gDWqgSSjr5TTWzG-0MpiTpD6ijnhoWWMcY4y66zpocZYA>
-    <xme:bKHFaf6wbZjHiirlgQKu81zSxSJGhzT7vY8geF5gvIGBuYCkhLC37Y23WHblY5xQ7
-    dxjJ-ftXhETnPmcdwb7w0yJtIxQdqKZdkpht41Z4pLBOsy7HKWqS2E>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdekgeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtth
-    hopehrohgsihhnrdhmuhhrphhhhiesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhig
-    segrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghnthhonhdrihhvrghnoh
-    hvsegtrghmsghrihgughgvghhrvgihshdrtghomhdprhgtphhtthhopegurghnihgvlhdr
-    rghlmhgvihgurgestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopegurghvihguse
-    gurghvihgughhofidrnhgvthdprhgtphhtthhopehgrghrhiesghgrrhihghhuohdrnhgv
-    thdprhgtphhtthhopegrsgguihgvlhdrjhgrnhhulhhguhgvsehgmhgrihhlrdgtohhmpd
-    hrtghpthhtohepsghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:bKHFacD0ra2IKewOzV85-guaMKbD70dENWsy-p75QsHo1Yk0z9Nn_g>
-    <xmx:bKHFaathmkCZaZCL5hDPhlvL3BEdEuWC-JUBLqLCWV9m_v1HsxUVmg>
-    <xmx:bKHFaWue742_u7hiwisJ5WxIf99QUzzi0Dr0SkABQDBOjBgU5pdtxg>
-    <xmx:bKHFaeX3iXr1bIB49LOaucusKHBGCI8-g5rftWB0rU1MNmzYPTijsg>
-    <xmx:bqHFaY1IWjdkzpMo1o5XFVQetaAAt7u7flqJ1LRde5SJaQlj3ZPuM0gR>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B95A4700065; Thu, 26 Mar 2026 17:13:16 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w5s40-00000006Eh2-0eSP;
+	Thu, 26 Mar 2026 21:16:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5s3w-00000006Ege-2GBo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 21:16:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 246C82BC0;
+	Thu, 26 Mar 2026 14:16:11 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB1CA3F905;
+	Thu, 26 Mar 2026 14:16:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774559777; bh=c+mJTClcUcrdmuit2k+9X3HYT3cHU10p3egwMFS7/v0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r39wWu6dqOWJPENHgQsBGzW4+ocqFqyBXBXCDNkzHc1HfZ+ubRxUq2jZdRO6WGhd0
+	 2zHMTaLHrehYeL1CNq/MXVFBrldUtwo4JIshPo45JaWLIQjQTQr0DAYqzcMjGmF+yI
+	 dcLMW4w5CbuKGwX65UdeYfm+kzYcMwiZqYLPoTy4=
+Date: Thu, 26 Mar 2026 21:16:06 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 3/3] KVM: arm64: selftests: Enable stage-2 in NV
+ preparation functions
+Message-ID: <3b6cppbfja7bczelm7kgxut6tdyvtiulbbfjyfvwhvthpaigu4@pybgo4yzhrus>
+References: <20260325003620.2214766-1-weilin.chang@arm.com>
+ <20260325003620.2214766-4-weilin.chang@arm.com>
+ <86mrzw468z.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-ThreadId: AUJnWW6OA6Vc
-Date: Thu, 26 Mar 2026 22:12:24 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Miguel Ojeda" <ojeda@kernel.org>,
- "Marek Szyprowski" <m.szyprowski@samsung.com>,
- "Robin Murphy" <robin.murphy@arm.com>, "Danilo Krummrich" <dakr@kernel.org>,
- "Abdiel Janulgue" <abdiel.janulgue@gmail.com>,
- "Daniel Almeida" <daniel.almeida@collabora.com>,
- "Andreas Hindborg" <a.hindborg@kernel.org>, "Christoph Hellwig" <hch@lst.de>
-Cc: iommu@lists.linux.dev, driver-core@lists.linux.dev, acourbot@nvidia.com,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Alice Ryhl" <aliceryhl@google.com>,
- "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- "Boqun Feng" <boqun.feng@gmail.com>, "David Gow" <david@davidgow.net>,
- "Gary Guo" <gary@garyguo.net>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "Justin Stitt" <justinstitt@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-um@lists.infradead.org, "Russell King" <linux@armlinux.org.uk>,
- llvm@lists.linux.dev, "Benno Lossin" <lossin@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, mmaurer@google.com,
- "Bill Wendling" <morbo@google.com>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
- "Nicolas Schier" <nicolas.schier@linux.dev>,
- "Nicolas Schier" <nsc@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Richard Weinberger" <richard@nod.at>, rust-for-linux@vger.kernel.org,
- "Trevor Gross" <tmgross@umich.edu>,
- "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
- "Will Deacon" <will@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>
-Message-Id: <7ad8bdf9-5eff-4443-ad15-c05355d793d1@app.fastmail.com>
-In-Reply-To: <20260322194616.89847-1-ojeda@kernel.org>
-References: <20260322192159.88138-1-ojeda@kernel.org>
- <20260322194616.89847-1-ojeda@kernel.org>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86mrzw468z.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_141325_147487_4EA553F4 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20260326_141620_677910_3ADB8845 
+X-CRM114-Status: GOOD (  28.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,314 +75,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 22, 2026, at 20:46, Miguel Ojeda wrote:
-> On Sun, 22 Mar 2026 20:21:59 +0100 Miguel Ojeda <ojeda@kernel.org> wrote:
->>
->       BINDGEN rust/bindings/bindings_generated.rs - due to target 
-> missing
->     In file included from rust/helpers/helpers.c:59:
->     rust/helpers/dma.c:17:2: warning: static function 'dma_free_attrs' 
-> is used in an inline function with external linkage [-Wstatic-in-inline]
->        17 |         dma_free_attrs(dev, size, cpu_addr, dma_handle, 
-> attrs);
->           |         ^
->     rust/helpers/dma.c:12:1: note: use 'static' to give inline function 
-> 'rust_helper_dma_free_attrs' internal linkage
->        12 | __rust_helper void rust_helper_dma_free_attrs(struct device 
-> *dev, size_t size,
->           | ^
->           | static
->
-> For some reason, `dma_free_attrs` is not marked `inline` in
-> `include/linux/dma-mapping.h` to begin with, unlike the rest.
->
-> Unless I am missing something and there is a reason for that, it looks
-> like it has just been missing since it was added in commit ed6ccf10f24b
-> ("dma-mapping: properly stub out the DMA API for !CONFIG_HAS_DMA").
->
-> Do you want a patch?
+On Wed, Mar 25, 2026 at 09:18:20AM +0000, Marc Zyngier wrote:
+> On Wed, 25 Mar 2026 00:36:20 +0000,
+> Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> > 
+> > Introduce library functions for setting up guest stage-2 page tables,
+> > then use that to give L2 an identity mapped stage-2 and enable it.
+> > 
+> > The translation and stage-2 page table built is simple, start level 0,
+> > 4 levels, 4KB granules, normal cachable, 48-bit IA, 40-bit OA.
+> 
+> That's a no go. The most common NV-capable out there can realistically
+> only do 16kB at S2, and is limited to 36bit IPA. We can't really
+> afford to say "too bad" and leave the main development platform behind.
 
-I have an older patch to drop CONFIG_NO_DMA entirely, which 
-may be better here, since we know that nobody cares about the
-empty stubs.
+Interesting, I didn't know that! I didn't consider the guest stage-2
+granule size < host stage-2 granule size case either.
 
-The only targets that 'select NO_DMA' today are m68k (sun3
-and dragonball), sh2 and um, which are some of the targets
-that don't have any DMA masters, but there is little downside
-of enabling the DMA mapping interfaces on those as well.
+> 
+> > 
+> > The nested page table code is adapted from lib/x86/vmx.c.
+> 
+> I guess this starting point is the main issue.
+> 
+> > 
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  .../selftests/kvm/include/arm64/nested.h      |  7 ++
+> >  .../selftests/kvm/include/arm64/processor.h   |  9 ++
+> >  .../testing/selftests/kvm/lib/arm64/nested.c  | 97 ++++++++++++++++++-
+> >  3 files changed, 111 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > index 739ff2ee0161..0be10a775e48 100644
+> > --- a/tools/testing/selftests/kvm/include/arm64/nested.h
+> > +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> > @@ -6,6 +6,13 @@
+> >  #ifndef SELFTEST_KVM_NESTED_H
+> >  #define SELFTEST_KVM_NESTED_H
+> >  
+> > +uint64_t get_l1_vtcr(void);
+> > +
+> > +void nested_map(struct kvm_vm *vm, vm_paddr_t guest_pgd,
+> > +		uint64_t nested_paddr, uint64_t paddr, uint64_t size);
+> > +void nested_map_memslot(struct kvm_vm *vm, vm_paddr_t guest_pgd,
+> > +			uint32_t memslot);
+> > +
+> >  void prepare_l2_stack(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> >  void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu);
+> >  void prepare_eret_destination(struct kvm_vm *vm, struct kvm_vcpu *vcpu, void *l2_pc);
+> > diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
+> > index ac97a1c436fc..5de2e932d95a 100644
+> > --- a/tools/testing/selftests/kvm/include/arm64/processor.h
+> > +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
+> > @@ -104,6 +104,15 @@
+> >  #define TCR_HA			(UL(1) << 39)
+> >  #define TCR_DS			(UL(1) << 59)
+> >  
+> > +/* VTCR_EL2 specific flags */
+> > +#define VTCR_EL2_T0SZ_BITS(x)	((UL(64) - (x)) << VTCR_EL2_T0SZ_SHIFT)
+> > +
+> > +#define VTCR_EL2_SL0_LV0_4K	(UL(2) << VTCR_EL2_SL0_SHIFT)
+> > +#define VTCR_EL2_SL0_LV1_4K	(UL(1) << VTCR_EL2_SL0_SHIFT)
+> > +#define VTCR_EL2_SL0_LV2_4K	(UL(0) << VTCR_EL2_SL0_SHIFT)
+> > +
+> > +#define VTCR_EL2_PS_40_BITS	(UL(2) << VTCR_EL2_PS_SHIFT)
+> > +
+> >  /*
+> >   * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
+> >   */
+> > diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > index 111d02f44cfe..910f8cd30f96 100644
+> > --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> > @@ -1,8 +1,11 @@
+> >  // SPDX-License-Identifier: GPL-2.0
+> >  /*
+> > - * ARM64 Nested virtualization helpers
+> > + * ARM64 Nested virtualization helpers, nested page table code adapted from
+> > + * ../x86/vmx.c.
+> >   */
+> >  
+> > +#include <linux/sizes.h>
+> > +
+> >  #include "kvm_util.h"
+> >  #include "nested.h"
+> >  #include "processor.h"
+> > @@ -18,6 +21,87 @@ static void hvc_handler(struct ex_regs *regs)
+> >  	regs->pc = (u64)after_hvc;
+> >  }
+> >  
+> > +uint64_t get_l1_vtcr(void)
+> > +{
+> > +	return VTCR_EL2_PS_40_BITS | VTCR_EL2_TG0_4K | VTCR_EL2_ORGN0_WBWA |
+> > +	       VTCR_EL2_IRGN0_WBWA | VTCR_EL2_SL0_LV0_4K | VTCR_EL2_T0SZ_BITS(48);
+> 
+> Irk. See above.
+> 
+> > +}
+> > +
+> > +static void __nested_pg_map(struct kvm_vm *vm, uint64_t guest_pgd,
+> > +		     uint64_t nested_paddr, uint64_t paddr, uint64_t flags)
+> > +{
+> > +	uint8_t attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
+> > +	uint64_t pg_attr;
+> > +	uint64_t *ptep;
+> > +
+> > +	TEST_ASSERT((nested_paddr % vm->page_size) == 0,
+> > +		"L2 IPA not on page boundary,\n"
+> > +		"  nested_paddr: 0x%lx vm->page_size: 0x%x", nested_paddr, vm->page_size);
+> > +	TEST_ASSERT((paddr % vm->page_size) == 0,
+> > +		"Guest physical address not on page boundary,\n"
+> > +		"  paddr: 0x%lx vm->page_size: 0x%x", paddr, vm->page_size);
+> > +	TEST_ASSERT((paddr >> vm->page_shift) <= vm->max_gfn,
+> > +		"Physical address beyond maximum supported,\n"
+> > +		"  paddr: 0x%lx vm->max_gfn: 0x%lx vm->page_size: 0x%x",
+> > +		paddr, vm->max_gfn, vm->page_size);
+> > +
+> > +	ptep = addr_gpa2hva(vm, guest_pgd) + ((nested_paddr >> 39) & 0x1ffu) * 8;
+> > +	if (!*ptep)
+> > +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PGD_TYPE_TABLE | PTE_VALID;
+> > +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 30) & 0x1ffu) * 8;
+> > +	if (!*ptep)
+> > +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PUD_TYPE_TABLE | PTE_VALID;
+> > +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 21) & 0x1ffu) * 8;
+> > +	if (!*ptep)
+> > +		*ptep = (vm_alloc_page_table(vm) & GENMASK(47, 12)) | PMD_TYPE_TABLE | PTE_VALID;
+> > +	ptep = addr_gpa2hva(vm, *ptep & GENMASK(47, 12)) + ((nested_paddr >> 12) & 0x1ffu) * 8;
+> > +
+> > +	pg_attr = PTE_AF | PTE_ATTRINDX(attr_idx) | PTE_TYPE_PAGE | PTE_VALID;
+> > +	pg_attr |= PTE_SHARED;
+> > +
+> > +	*ptep = (paddr & GENMASK(47, 12)) | pg_attr;
+> 
+> Please use named constants, and write a page table generator that is
+> independent of page, IA and OA sizes, as advertised to the guest.
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Ack, and yes, I should absolutely consider what is advertised to the
+guest...
 
-diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-index 11835eb59d94..19fb556357fc 100644
---- a/arch/m68k/Kconfig
-+++ b/arch/m68k/Kconfig
-@@ -38,7 +38,6 @@ config M68K
- 	select MMU_GATHER_NO_RANGE if MMU
- 	select MODULES_USE_ELF_REL
- 	select MODULES_USE_ELF_RELA
--	select NO_DMA if !MMU && !COLDFIRE
- 	select OLD_SIGACTION
- 	select OLD_SIGSUSPEND3
- 	select UACCESS_MEMCPY if !MMU
-diff --git a/arch/m68k/Kconfig.cpu b/arch/m68k/Kconfig.cpu
-index c9a7e602d8a4..adc50396b87d 100644
---- a/arch/m68k/Kconfig.cpu
-+++ b/arch/m68k/Kconfig.cpu
-@@ -38,7 +38,6 @@ config SUN3
- 	depends on MMU
- 	select HAVE_ARCH_PFN_VALID
- 	select LEGACY_TIMER_TICK
--	select NO_DMA
- 	select M68020
- 	help
- 	  This option enables support for the Sun 3 series of workstations
-@@ -558,4 +557,4 @@ config COLDFIRE_COHERENT_DMA
- config M68K_NONCOHERENT_DMA
- 	bool
- 	default y
--	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA
-+	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA && !SUN3
-diff --git a/arch/m68k/include/asm/pgtable_mm.h b/arch/m68k/include/asm/pgtable_mm.h
-index 7501ff030c63..d095ae6c19f9 100644
---- a/arch/m68k/include/asm/pgtable_mm.h
-+++ b/arch/m68k/include/asm/pgtable_mm.h
-@@ -159,8 +159,10 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
- 	    ? (__pgprot((pgprot_val(prot) & _CACHEMASK040) | _PAGE_NOCACHE_S))	\
- 	    : (prot)))
- 
-+#ifndef CONFIG_SUN3
- pgprot_t pgprot_dmacoherent(pgprot_t prot);
- #define pgprot_dmacoherent(prot)	pgprot_dmacoherent(prot)
-+#endif
- 
- #endif /* CONFIG_COLDFIRE */
- #endif /* !__ASSEMBLER__ */
-diff --git a/arch/m68k/kernel/dma.c b/arch/m68k/kernel/dma.c
-index 16063783aa80..c52584e024af 100644
---- a/arch/m68k/kernel/dma.c
-+++ b/arch/m68k/kernel/dma.c
-@@ -8,7 +8,7 @@
- #include <linux/kernel.h>
- #include <asm/cacheflush.h>
- 
--#ifndef CONFIG_COLDFIRE
-+#if !defined(CONFIG_COLDFIRE) && !defined(CONFIG_SUN3)
- void arch_dma_prep_coherent(struct page *page, size_t size)
- {
- 	cache_push(page_to_phys(page), size);
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index d5795067befa..e246f295ec48 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -63,7 +63,6 @@ config SUPERH
- 	select LOCK_MM_AND_FIND_VMA
- 	select MODULES_USE_ELF_RELA
- 	select NEED_SG_DMA_LENGTH
--	select NO_DMA if !MMU && !DMA_COHERENT
- 	select NO_GENERIC_PCI_IOPORT_MAP if PCI
- 	select OLD_SIGACTION
- 	select OLD_SIGSUSPEND
-@@ -133,10 +132,10 @@ config SWAP_IO_SPACE
- 	bool
- 
- config DMA_COHERENT
--	bool
-+	def_bool !MMU
- 
- config DMA_NONCOHERENT
--	def_bool !NO_DMA && !DMA_COHERENT
-+	def_bool !DMA_COHERENT
- 	select ARCH_HAS_DMA_PREP_COHERENT
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
- 	select DMA_DIRECT_REMAP
-diff --git a/arch/um/Kconfig b/arch/um/Kconfig
-index 098cda44db22..dd3428a49614 100644
---- a/arch/um/Kconfig
-+++ b/arch/um/Kconfig
-@@ -25,7 +25,6 @@ config UML
- 	select HAVE_DEBUG_KMEMLEAK
- 	select HAVE_DEBUG_BUGVERBOSE
- 	select HAVE_PAGE_SIZE_4KB
--	select NO_DMA if !UML_DMA_EMULATION
- 	select OF_EARLY_FLATTREE if OF
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_CPU_DEVICES
-diff --git a/include/linux/dma-mapping.h b/include/linux/dma-mapping.h
-index 677c51ab7510..a96a22f857f1 100644
---- a/include/linux/dma-mapping.h
-+++ b/include/linux/dma-mapping.h
-@@ -138,7 +138,6 @@ static inline void debug_dma_map_single(struct device *dev, const void *addr,
- }
- #endif /* CONFIG_DMA_API_DEBUG */
- 
--#ifdef CONFIG_HAS_DMA
- static inline int dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
- {
- 	debug_dma_mapping_error(dev, dma_addr);
-@@ -200,146 +199,6 @@ void *dma_vmap_noncontiguous(struct device *dev, size_t size,
- void dma_vunmap_noncontiguous(struct device *dev, void *vaddr);
- int dma_mmap_noncontiguous(struct device *dev, struct vm_area_struct *vma,
- 		size_t size, struct sg_table *sgt);
--#else /* CONFIG_HAS_DMA */
--static inline dma_addr_t dma_map_page_attrs(struct device *dev,
--		struct page *page, size_t offset, size_t size,
--		enum dma_data_direction dir, unsigned long attrs)
--{
--	return DMA_MAPPING_ERROR;
--}
--static inline void dma_unmap_page_attrs(struct device *dev, dma_addr_t addr,
--		size_t size, enum dma_data_direction dir, unsigned long attrs)
--{
--}
--static inline dma_addr_t dma_map_phys(struct device *dev, phys_addr_t phys,
--		size_t size, enum dma_data_direction dir, unsigned long attrs)
--{
--	return DMA_MAPPING_ERROR;
--}
--static inline void dma_unmap_phys(struct device *dev, dma_addr_t addr,
--		size_t size, enum dma_data_direction dir, unsigned long attrs)
--{
--}
--static inline unsigned int dma_map_sg_attrs(struct device *dev,
--		struct scatterlist *sg, int nents, enum dma_data_direction dir,
--		unsigned long attrs)
--{
--	return 0;
--}
--static inline void dma_unmap_sg_attrs(struct device *dev,
--		struct scatterlist *sg, int nents, enum dma_data_direction dir,
--		unsigned long attrs)
--{
--}
--static inline int dma_map_sgtable(struct device *dev, struct sg_table *sgt,
--		enum dma_data_direction dir, unsigned long attrs)
--{
--	return -EOPNOTSUPP;
--}
--static inline dma_addr_t dma_map_resource(struct device *dev,
--		phys_addr_t phys_addr, size_t size, enum dma_data_direction dir,
--		unsigned long attrs)
--{
--	return DMA_MAPPING_ERROR;
--}
--static inline void dma_unmap_resource(struct device *dev, dma_addr_t addr,
--		size_t size, enum dma_data_direction dir, unsigned long attrs)
--{
--}
--static inline int dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
--{
--	return -ENOMEM;
--}
--static inline void *dma_alloc_attrs(struct device *dev, size_t size,
--		dma_addr_t *dma_handle, gfp_t flag, unsigned long attrs)
--{
--	return NULL;
--}
--static inline void dma_free_attrs(struct device *dev, size_t size,
--		void *cpu_addr, dma_addr_t dma_handle, unsigned long attrs)
--{
--}
--static inline void *dmam_alloc_attrs(struct device *dev, size_t size,
--		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
--{
--	return NULL;
--}
--static inline void dmam_free_coherent(struct device *dev, size_t size,
--		void *vaddr, dma_addr_t dma_handle)
--{
--}
--static inline int dma_get_sgtable_attrs(struct device *dev,
--		struct sg_table *sgt, void *cpu_addr, dma_addr_t dma_addr,
--		size_t size, unsigned long attrs)
--{
--	return -ENXIO;
--}
--static inline int dma_mmap_attrs(struct device *dev, struct vm_area_struct *vma,
--		void *cpu_addr, dma_addr_t dma_addr, size_t size,
--		unsigned long attrs)
--{
--	return -ENXIO;
--}
--static inline bool dma_can_mmap(struct device *dev)
--{
--	return false;
--}
--static inline bool dma_pci_p2pdma_supported(struct device *dev)
--{
--	return false;
--}
--static inline int dma_set_mask(struct device *dev, u64 mask)
--{
--	return -EIO;
--}
--static inline int dma_set_coherent_mask(struct device *dev, u64 mask)
--{
--	return -EIO;
--}
--static inline u64 dma_get_required_mask(struct device *dev)
--{
--	return 0;
--}
--static inline bool dma_addressing_limited(struct device *dev)
--{
--	return false;
--}
--static inline size_t dma_max_mapping_size(struct device *dev)
--{
--	return 0;
--}
--static inline size_t dma_opt_mapping_size(struct device *dev)
--{
--	return 0;
--}
--static inline unsigned long dma_get_merge_boundary(struct device *dev)
--{
--	return 0;
--}
--static inline struct sg_table *dma_alloc_noncontiguous(struct device *dev,
--		size_t size, enum dma_data_direction dir, gfp_t gfp,
--		unsigned long attrs)
--{
--	return NULL;
--}
--static inline void dma_free_noncontiguous(struct device *dev, size_t size,
--		struct sg_table *sgt, enum dma_data_direction dir)
--{
--}
--static inline void *dma_vmap_noncontiguous(struct device *dev, size_t size,
--		struct sg_table *sgt)
--{
--	return NULL;
--}
--static inline void dma_vunmap_noncontiguous(struct device *dev, void *vaddr)
--{
--}
--static inline int dma_mmap_noncontiguous(struct device *dev,
--		struct vm_area_struct *vma, size_t size, struct sg_table *sgt)
--{
--	return -EINVAL;
--}
--#endif /* CONFIG_HAS_DMA */
- 
- #ifdef CONFIG_IOMMU_DMA
- /**
-diff --git a/kernel/dma/Kconfig b/kernel/dma/Kconfig
-index 0748091339f7..228a3566d344 100644
---- a/kernel/dma/Kconfig
-+++ b/kernel/dma/Kconfig
-@@ -1,12 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
--config NO_DMA
--	bool
--
- config HAS_DMA
--	bool
--	depends on !NO_DMA
--	default y
-+	def_bool y
- 
- config DMA_OPS_HELPERS
- 	bool
+Thanks,
+Wei-Lin Chang
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
