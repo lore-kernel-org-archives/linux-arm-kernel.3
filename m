@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F1C10A88FB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C9F10A88FB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 18:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOaBzBZ6vFC1cWJztibQu1Tg6emIBBjdIHsJXRTDpbo=; b=27DPClNPEZyM1azrRe67QgCZdS
-	YYyxJWfT/b6S+XQ8nMVK1/wSG3gWEHQm4iC2g/H/OtVvqkZjon2mPHixhSkEE8XGVlh4Hjc36xSZc
-	nxOJWgM38U5VeoZfptwzE13lBKTGA8OwaPpfEKqyDVjNQcTw8fSs1J+a9WM+sFVbF331QAN19iAMq
-	3tWSV66hZw3h5tgyAEBaRvAnHyyQ9vrX9LbpXkz7yBhH7FwCqLh0y4M7qGH4j0aVR+gwkgQSxYO12
-	qkz48V+5bhi/B3xYIX7e0kcwdiVtHVnu/mScmNjdTYG+u3sR47lyE4AcNGzDQx6GWWajfRjOwe23j
-	dXbN3NHw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=GNkNjuauvi46Y6nlZNxVIpreHdjhURYOCTsX9AMkqLU=; b=qTJQGfIh5xlfzf
+	kwP++1dbaT41/0Mbc1XYwDtQ0IPfJEmq5Ixq+DZIigZufVnizXLn4d4JzxBVSNPRlZdlpkS/TeQP0
+	NbrDD276N7M7NejPXDURLDb5TOlFroMDsWp1CiPGVtX6z50r6a96UIr1FY9+Yqx9d/guBU8zO0V1W
+	JLoSK3aqq12PZsxLtnQJ1fka1NnDXZJCpHqxaTo39dYpI3gw09ew52A9TKd9Agw/W63CLAzA7lnvv
+	TnmIgSxFLv341r4vDYK/j6MjbiYjRnEI1Z7n/SQzEtqrthL/cOkQK2bXwkCRLwOe09DWtmAkngghU
+	oGDn9CLSFm0gbdOAfTwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5p4o-0000000605v-3JKg;
-	Thu, 26 Mar 2026 18:05:02 +0000
+	id 1w5p9S-000000060KK-0kra;
+	Thu, 26 Mar 2026 18:09:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5p4l-0000000605F-47dv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 18:05:01 +0000
+	id 1w5p9P-000000060Jv-1vFZ;
+	Thu, 26 Mar 2026 18:09:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB77A43FD8;
-	Thu, 26 Mar 2026 18:04:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11FD9C2BCB1;
-	Thu, 26 Mar 2026 18:04:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0255C43A08;
+	Thu, 26 Mar 2026 18:09:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9922C116C6;
+	Thu, 26 Mar 2026 18:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774548298;
-	bh=qpAtIegWs0nrmgQYz8seyUU8RILvB8VXDiR3yGSyW2s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oYRvSGgspK+mulzMUQ36UxRvcUstR5rZzn14ac570iMtTy/LIGM/WQmEhR+gRXN8A
-	 OyF2HSQocuufy7SRk9CWmxP9fphI0+iEJL9AEV2S91N39YljfkYPAh80tEdxd+kdK1
-	 pSKPPdPmWRXAd/zvgMddZWG4hFtEs4meYtL17T+6LL3p6TsdIRK1ci96GS7/zqrpH1
-	 lBU/4gQHH6CIEQ1FpFAt19qNfM1qE//Co9Av44XginlsW4ygFksy0DMfnXqbjO7siB
-	 d70mCpW42qPFJIXAmGeREuclg8pj3VFN9Afkzd9piMbjQbNuuiIvgdCnL45CAVfF/l
-	 +cPqdmU3sNN4Q==
-Date: Thu, 26 Mar 2026 18:04:53 +0000
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 03/15] net: stmmac: qcom-ethqos: eliminate
- configure_func
-Message-ID: <20260326180453.GU111839@horms.kernel.org>
-References: <acKNcX5PqtWYf8m3@shell.armlinux.org.uk>
- <E1w51Xs-0000000DwVV-2bnh@rmk-PC.armlinux.org.uk>
+	s=k20201202; t=1774548586;
+	bh=Rn+vhInqQodS/bAOEwWYdnq6SYa4NomZ2mbnsMoy6H0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=GPQKysa2Kkl0pnDdhP2t5CHyGa0cSastDgmKm1O2tVeZiouqwEbsOgxTrwYLdJo+p
+	 Ufja9z0tJ2PtiRx9h6st1c6T9AoJRU36LL+yeBp8LiylI7/3RBzBX12VaEnqZNdgr7
+	 CA+E7cZdX0iMz4YCgV4wa0RAs2ytQxQNOrpeU+P/G7dkkXQcaLNf4hc1u87LijDMYT
+	 YK89haZnBIMHtd6lRQxHNY8CBETPQVS3QsUUPzBlpSyp7lGtqMmmkCDEgL5jqJl8N1
+	 WRrCF+Z4e5BzM1QOPKpSOgWr/y59L1IZRZ2xky1NUV6h8K+Mbe8i5vnaHXu6BC0S5Y
+	 i1dnY6VpNPZ8A==
+Date: Thu, 26 Mar 2026 13:09:45 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, jingoohan1@gmail.com, mani@kernel.org,
+	kwilczynski@kernel.org, bhelgaas@google.com,
+	florian.fainelli@broadcom.com, jim2101024@gmail.com,
+	robh@kernel.org, ilpo.jarvinen@linux.intel.com,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, claudiu.beznea.uj@bp.renesas.com,
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-omap@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	shawn.lin@rock-chips.com
+Subject: Re: [PATCH v9 1/5] PCI: Add pcie_get_link_speed() helper for safe
+ array access
+Message-ID: <20260326180945.GA1331170@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1w51Xs-0000000DwVV-2bnh@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20260313165522.123518-2-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_110500_042421_18345D72 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260326_110947_522271_517D2544 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 01:11:44PM +0000, Russell King (Oracle) wrote:
-> Since ethqos_fix_mac_speed() is called via a function pointer, and only
-> indirects via the configure_func function pointer, eliminate this
-> unnecessary indirection.
+On Sat, Mar 14, 2026 at 12:55:18AM +0800, Hans Zhang wrote:
+> The pcie_link_speed[] array is indexed by PCIe generation numbers
+> (1 = 2.5 GT/s, 2 = 5 GT/s, ...).  Several drivers use it directly,
+> which can lead to out-of-bounds accesses if an invalid generation
+> number is used.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Introduce a helper function pcie_get_link_speed() that returns the
+> corresponding enum pci_bus_speed value for a given generation number,
+> or PCI_SPEED_UNKNOWN if the generation is out of range.  This will
+> allow us to safely handle invalid values after the range check is
+> removed from of_pci_get_max_link_speed().
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
 
-...
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-> @@ -623,14 +627,6 @@ static void ethqos_configure_sgmii(struct qcom_ethqos *ethqos,
->  	ethqos_pcs_set_inband(ethqos, interface == PHY_INTERFACE_MODE_SGMII);
->  }
+> ---
+>  drivers/pci/pci.h   |  2 ++
+>  drivers/pci/probe.c | 16 ++++++++++++++++
+>  2 files changed, 18 insertions(+)
+> 
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 13d998fbacce..409aca7d737a 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -108,6 +108,8 @@ struct pcie_tlp_log;
+>  				 PCI_EXP_DEVCTL_FERE | PCI_EXP_DEVCTL_URRE)
 >  
-> -static void ethqos_fix_mac_speed(void *priv, phy_interface_t interface,
-> -				 int speed, unsigned int mode)
-> -{
-> -	struct qcom_ethqos *ethqos = priv;
-> -
-> -	ethqos->configure_func(ethqos, interface, speed);
-> -}
-> -
->  static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
+>  extern const unsigned char pcie_link_speed[];
+> +unsigned char pcie_get_link_speed(unsigned int speed);
+> +
+>  extern bool pci_early_dump;
+>  
+>  extern struct mutex pci_rescan_remove_lock;
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index bccc7a4bdd79..d6592898330c 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -783,6 +783,22 @@ const unsigned char pcie_link_speed[] = {
+>  };
+>  EXPORT_SYMBOL_GPL(pcie_link_speed);
+>  
+> +/**
+> + * pcie_link_speed_value - Get speed value from PCIe generation number
+> + * @speed: PCIe speed (1-based: 1 = 2.5GT, 2 = 5GT, ...)
+> + *
+> + * Returns the speed value (e.g., PCIE_SPEED_2_5GT) if @speed is valid,
+> + * otherwise returns PCI_SPEED_UNKNOWN.
+> + */
+> +unsigned char pcie_get_link_speed(unsigned int speed)
+> +{
+> +	if (speed >= ARRAY_SIZE(pcie_link_speed))
+> +		return PCI_SPEED_UNKNOWN;
+> +
+> +	return pcie_link_speed[speed];
+> +}
+> +EXPORT_SYMBOL_GPL(pcie_get_link_speed);
+> +
+>  const char *pci_speed_string(enum pci_bus_speed speed)
 >  {
->  	struct qcom_ethqos *ethqos = priv;
-
-Hi Russell,
-
-FYI, AI generated review reports that the comment in ethqos_clks_config()
-that references ethqos_fix_mac_speed() should also be updated.
-
-...
+>  	/* Indexed by the pci_bus_speed enum */
+> -- 
+> 2.34.1
+> 
 
