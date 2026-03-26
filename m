@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA9D106F304
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F59D106F303
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0QdGIGJmrLd5pDRPLgO89nIX7dVoELnsj1kn655mmo=; b=O7c5kMzXFBGVnJaNNCWKTN81ch
-	6HNG+40MA00MBweSI2AU+8SiXWSdysznG8Rr5AGd4BBPMck8YfT4jMofTW57bhlDsS4uMoRyG+lMc
-	AoTX0D+VkFqiccgKYb+iu99ixUCbMRXNfdJRoRuFPQDDh/y91izr/zci1G+UTR1vpUXnSa7pS3s1m
-	zAF03f32BJoSj7BF7uR8+RHuIKutgd/6gnP1ZmVhWosORqI7CYCIEZNEzKGSZSBw29qnBEEr8eUfZ
-	batlhxqDvRL8AOA/yK0+weL2UFE4nGk2/XZ5v/Bf80e1Dub1nBj8OgTm8SWG8VcaE1EHMdQaNmeS7
-	OlmdNOng==;
+	bh=hGIQJBrR4L4A7hNhZYj5yBcsB/y/dygFw0rKvJs4Xdw=; b=kCT+I9XcEwamZqwlJ34mC0e0Ur
+	0xaW2XOTMRQ8Y9aWDl8/S8tbqjjFzEA5VFSxaxdU6wyMlUfc6e8ILy2YL2Ag9uKq0fEaEc7S30Qop
+	nvnJ2D2sT232uNSSReBsb3YZS92AEnEYkHdJlcIHwVWk4uuj6U5UPDUOmnpAVHucXRt+j08DtuwvD
+	+F2oVE7lRV+0363KT+ONStxP177WKn9y3tZtcWuTOH+/5DVGKAVSMIy0cc2ZuFvBaAwmeq1GscNPO
+	SJVy6djx2x2R220iS2B3kggNH2guVlVStOy0KborM1CnrC/zVoQIsvQazwsFm/B2+hvkXrfXFZGbc
+	VujiHn+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gT9-000000054Hj-0kFS;
-	Thu, 26 Mar 2026 08:53:35 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1w5gTM-000000054OF-2v4q;
+	Thu, 26 Mar 2026 08:53:48 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gT4-000000054E8-0zVt
+	id 1w5gTK-000000054MW-2Y1C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 08:53:32 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-486fb112c09so6919385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:53:29 -0700 (PDT)
+	Thu, 26 Mar 2026 08:53:47 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-439b6d9c981so388809f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:53:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774515208; x=1775120008; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1774515225; x=1775120025; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=E0QdGIGJmrLd5pDRPLgO89nIX7dVoELnsj1kn655mmo=;
-        b=G+RLE02J420KZsE55pLLFd/DeKpR3C0ksHe157rZvzgLY/6lM9BVjfauDsbMFf5bQ/
-         evwh0g/PdERNpxLAImY2ig9aIHbrFPlFZGzBBE0gK0F/8Xfs9oM50ALdbNkkjXASz7E1
-         sLygtvBr6jw3codSquU41k8eUQgFnKPDtCNtPf+TlegzkJcJOalM2hoGfFaad2+8hZT7
-         Fe6rD8Bx6sZkzDsIGksGNrvcwUwYLVsiCHicraMMIyFedLS+nE5FVaV53QA6BoQWbcKv
-         P23mV+ac6jIfOxCpeVswbM8zCqLasBLyza14ySB9Q/FAYlnfCjp9jlPKqld8L7ZZ6lWk
-         tsgA==
+        bh=hGIQJBrR4L4A7hNhZYj5yBcsB/y/dygFw0rKvJs4Xdw=;
+        b=tsYZzEYXgZgi61ST206CpJjN9aqc1Vm8hWCe7+fLk2KS3nmC6wTN6cE8O86uMYCYqf
+         mngcJ2BeRRDAEWEdXBP9miKa/U0urUmJkSc5F/HM0C3EsYeFnXqIr1+YuXF23vORMClR
+         p61Gwh0kBR1kLl6cyf5zYJ3m9HjelCShNgfzDqQRi4UYsaTcPL2Hm0sqQWCf5IUMhLXo
+         Ptv7dUz8ptTE5nyPnu9IB6BE/6dP/VRQ2th7j6Vk0NZ75STipLJF89r1wJphBt5EZ3XX
+         3sh7QOU5PiNnfVr3lZWHXziBHgMN6dx5fqujVVW7UhKxoOokdII6XPDSlNENLYmvKHYk
+         94jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774515208; x=1775120008;
+        d=1e100.net; s=20251104; t=1774515225; x=1775120025;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=E0QdGIGJmrLd5pDRPLgO89nIX7dVoELnsj1kn655mmo=;
-        b=YurI9V03Cnaoai87n32UIYv7NEjUPYTRBxvHvXVytpcNMjm3AeXSf9vFLMstmy82c9
-         tKLG6izGfI7c9xbKTlmbkUuCm3K1GuIgly4hPOpwfePL1FlAOazqIFkbpNPNnsgB09N5
-         IaS8klePHrB3zax478HEE+9xp0SwSRq6b3phB5i2RN2I8Ymz6VvWbQq/EgoRSJIQzGZb
-         yGGWuaTrblEkYEsxLpjSbRrnBUQ8WDzWGe9BsnkTRhQyI7Cvv0DY70BHWLn1ldJu6Xi9
-         0WvIcAQLW7HaiWD914cdeNPffqEEoU7KIOc/AKnEOAKipdzdAB/8dSVLSDevaF8yjj3i
-         BMrw==
-X-Gm-Message-State: AOJu0YyWlG81NwHY3/NMsH2AaDuukQge6Pzo3tY16w14WmHhSPE5Umzp
-	dZCmX4vfrTb9YF124IguOk89uyf5wQSyU7DJZwjd6ltZDax7sZqRpnpwgRVAML+UgOw=
-X-Gm-Gg: ATEYQzzTdxay4VFNaWit8WZIiayk5KG8wbWTXOskrjOXqUiei01quckLDRpfaEc1fLT
-	dCm9P3Hw+vzco68mrKHIR52+k9+CnuAXPWgcVoEFmhgbMcHFf7KSUp1LaErckhb6eaNZiWWUv0b
-	UfbO5WKWRE/QokpXnL5WvaxaictM5RlL2mJ0EH/ToolDzIq7h9gXINcLYp1Xf7zyyKEQU0B8WMG
-	lvTtfyV/Lc7J7xnISs7sLAzFDe0kT8MKpKI5QXk2wBtdEGo1snP0ZvijtNn+wL5cjZgh8eP+ADG
-	0OwoO2NK4ucowB+TE3HYJXvSmYiQOYmGDwy8YhrYMMmAOtXEXLYZBUffCAyLzM1vKKVUUH+p14i
-	MOQgJtlw0jjysY0Mer97xGKUppviA72rXFlkzsSx66AlkwlXkfCC1fG7iJ1CZEbA1F1GtdlSdz7
-	BzwAS3iSstWWL/93mEDPSdLhnH0DXJ9i/NbQk7js0/Td02N9nTsAvXCaDSN+aHJoC27O+Q0YkkP
-	GxtzwE=
-X-Received: by 2002:a05:600c:4705:b0:486:fc4a:2951 with SMTP id 5b1f17b1804b1-48716083231mr103005895e9.28.1774515208194;
-        Thu, 26 Mar 2026 01:53:28 -0700 (PDT)
+        bh=hGIQJBrR4L4A7hNhZYj5yBcsB/y/dygFw0rKvJs4Xdw=;
+        b=p2x3Rt46XjUpkOHnPwT8LEq/lH2spXEWXMzDVKng4i5tqHyUJKggzZmG7jkS0Iy5rk
+         RLVtyPAo0gdwpusdBUjoo8mpgssQX7o7kloIOGfKdao7dmNzh4SDTZPoYdKYOMD0zlue
+         7+QoHPxgQxRSYsHkwODuPHKDxIB3+zLnL1E+srQBlvguEkxfEfXp5aWiBHNmL4NQ3zv9
+         ZpcFW6AHi1UxnDTnZmMuc707Neeu5nyJ9TmWzk7TaWsZZOnxLOjdRfAcy63EeLI5jK7O
+         PYnwVvzkRt2q2VKkZmpYUv6Lj6Bqhqpl7Nr/BKEpv9sG4ACGL5HQGe+Q19kUFZZOujBY
+         b/EA==
+X-Gm-Message-State: AOJu0YwiN4AjlvQsgvoiwVEHhzK1h4vAk0l16H5IhcxY6Nk7XuN2/VlE
+	a/rjHHQHr3MD2R/EQD0I/fP7vetJe7Awqrn/U0E/WJnjMG92rkB2DVrnyr21pnfUUOk=
+X-Gm-Gg: ATEYQzwGSmYDNcwgeKerqxAh3PH1EsCuP4NJZHvIZxebkrJ+aCFbr8fshzeKOlVCFqr
+	5SNy28ZLy9ymdVAw6db96IoJmRyfUSeYcsxo86b0oHMkAwb1zlFXbtdX5hwQYWJD/xTtfX7bB0c
+	aMDosFgw9bl2UjEc5MKqOVZYuFr/ob/aOg/HrOWePJftycde+knIS37Vm3R1NE89nrY19OB7kTq
+	OyBYenVMYpL3KzobMBXsml51+nW93PFIeJd7IaSsqxeUAXWD0qkLffe0FQz+kd9kAhi7Tra1JvX
+	w0BxYZbdXX3zIzaqeT9W72qfIHQjoZrW3kjd7Cq/VSbZjKDtveVPSEMAp588JxjvvFFEwsEKVNd
+	GOvwNiFeDWZYYJD8wgGUvzwK3bpoTttH7oapLDUkWtk6OuGeKPqdSTkCc2RtTYlRz+/trIsnBwI
+	BpJqA2pfgVFsChkfm5AUn2t+9LZxN7zfMyrxlSP6yq6FZEamU73isPjy8OjuTpGXuwEWBLl/11x
+	i9OQfQ=
+X-Received: by 2002:a05:6000:208a:b0:439:c153:ae3d with SMTP id ffacd0b85a97d-43b979fbc99mr1451530f8f.6.1774515224588;
+        Thu, 26 Mar 2026 01:53:44 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:8431:f88b:714d:f78d? ([2a01:e0a:106d:1080:8431:f88b:714d:f78d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c65989sm29792335e9.2.2026.03.26.01.53.27
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b9192e35esm6035382f8f.6.2026.03.26.01.53.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Mar 2026 01:53:27 -0700 (PDT)
-Message-ID: <3780aa8e-5082-4494-aa9e-ca84544bbdb2@linaro.org>
-Date: Thu, 26 Mar 2026 09:53:26 +0100
+        Thu, 26 Mar 2026 01:53:44 -0700 (PDT)
+Message-ID: <f3bcc782-2bb7-44e6-ba40-92a36648d3f7@linaro.org>
+Date: Thu, 26 Mar 2026 09:53:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 6/9] arm64: dts: amlogic: t7: khadas-vim4: Add power
- regulators
+Subject: Re: [PATCH v4 7/9] arm64: dts: amlogic: t7: khadas-vim4: Add SDIO
+ power sequence and WiFi clock
 To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
  Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
@@ -88,7 +88,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org
 References: <20260325-add-emmc-t7-vim4-v4-0-44c7b4a5e459@aliel.fr>
- <20260325-add-emmc-t7-vim4-v4-6-44c7b4a5e459@aliel.fr>
+ <20260325-add-emmc-t7-vim4-v4-7-44c7b4a5e459@aliel.fr>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -115,12 +115,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260325-add-emmc-t7-vim4-v4-6-44c7b4a5e459@aliel.fr>
+In-Reply-To: <20260325-add-emmc-t7-vim4-v4-7-44c7b4a5e459@aliel.fr>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_015330_322225_5BC9F9E6 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20260326_015346_674313_08CD6F62 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,119 +137,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/25/26 10:15, Ronald Claveau wrote:
-> Add voltage regulator nodes describing the VIM4 power tree,
-> required by peripheral nodes such as the SD card controller.
+> Add the SDIO power sequence node using mmc-pwrseq-simple and a
+> 32.768kHz PWM-based clock required by the Wi-Fi module.
 > 
 > Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > ---
->   .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 90 ++++++++++++++++++++++
->   1 file changed, 90 insertions(+)
+>   .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 22 ++++++++++++++++++++++
+>   1 file changed, 22 insertions(+)
 > 
 > diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> index fffdab96b12eb..2450084d37642 100644
+> index 2450084d37642..770f06b0b16c7 100644
 > --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
 > +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> @@ -6,6 +6,8 @@
->   /dts-v1/;
->   
->   #include "amlogic-t7.dtsi"
-> +#include <dt-bindings/gpio/amlogic,t7-periphs-pinctrl.h>
-> +#include <dt-bindings/gpio/gpio.h>
->   
->   / {
->   	model = "Khadas vim4";
-> @@ -45,6 +47,94 @@ xtal: xtal-clk {
->   		#clock-cells = <0>;
+> @@ -67,6 +67,15 @@ sd_3v3: regulator-sdcard-3v3 {
+>   		regulator-always-on;
 >   	};
 >   
-> +	dc_in: regulator-dc-in {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "DC_IN";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
+> +	sdio_pwrseq: sdio-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
+> +		post-power-on-delay-ms = <500>;
+> +		power-off-delay-us = <200000>;
+> +		clocks = <&wifi32k>;
+> +		clock-names = "ext_clock";
 > +	};
 > +
-> +	sd_3v3: regulator-sdcard-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "SD_3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vddao_3v3>;
-> +		gpio = <&gpio GPIOD_11 GPIO_ACTIVE_LOW>;
-> +		regulator-boot-on;
-> +		enable-active-low;
-> +		regulator-always-on;
+>   	vcc5v: regulator-vcc-5v {
+>   		compatible = "regulator-fixed";
+>   		regulator-name = "VCC5V";
+> @@ -135,6 +144,19 @@ vddio_c: regulator-gpio-c {
+>   		states = <1800000 1
+>   			  3300000 0>;
+>   	};
+> +
+> +	wifi32k: wifi32k {
+> +		compatible = "pwm-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <32768>;
+> +			pwms = <&pwm_ab 0 30518 0>;
 > +	};
+> +};
 > +
-> +	vcc5v: regulator-vcc-5v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC5V";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&dc_in>;
-> +
-> +		gpio = <&gpio GPIOH_4 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
-> +	vcc5v0_usb: regulator-vcc-usb {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC5V0_USB";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc5v>;
-> +
-> +		gpio = <&gpio GPIOY_5 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
-> +	vddao_1v8: regulator-vddao-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VDDAO_1V8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&vddao_3v3>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	vddao_3v3: regulator-vddao-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VDDAO_3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&dc_in>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	vddio_1v8: regulator-vddio-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VDDIO_1V8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&vddio_3v3>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	vddio_3v3: regulator-vddio-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VDDIO_3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vddao_3v3>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	vddio_c: regulator-gpio-c {
-> +		compatible = "regulator-gpio";
-> +		regulator-name = "VDDIO_C";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vddio_3v3>;
-> +		gpios = <&gpio GPIOD_9 GPIO_ACTIVE_HIGH>;
-> +		states = <1800000 1
-> +			  3300000 0>;
-> +	};
+> +&pwm_ab {
+> +	status = "okay";
+> +	pinctrl-0 = <&pwm_a_pins>;
+> +	pinctrl-names = "default";
 >   };
 >   
 >   &uart_a {
