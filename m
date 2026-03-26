@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF95310A88F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 17:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7523E10A88FA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 17:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AxDSnNL/u8N3iCRzT8SvQaiyV0V6Lf/VVxcJwZ5quX4=; b=wl7w+yNPpPTyMzR4wkD/KW13xI
-	X1Jrm6ubDnomrhrhxlMrt9j5qlHroDGI8wDhRa87BfaB7aApv5OXW2eQW0aFQp8vpQTdHSNcAccpB
-	lE0LD8ddOGTsUbsD9BaOVm42WtpKe9710/jfk88MfnG5Bak2JdBu5lO+TWI9avJY/Fk+xFGiNKDzu
-	PMoKbV8Dxu70iwIQkf3Z3vesEyx5MjFfRplSK2Rx+XQsrad4sbf9WB0oWnwzCdicic4BpBOckQOMX
-	OjeF/75uoSDdrBYZ2PCKAL9p01qjPka0Bds6gX1b+fCvcLm2oOmhQ/OCJM3lkAZW6RoL87qXMfuVr
-	hn4i2S2g==;
+	bh=BU9RH77vQPpfdjVmMQynrPrmlYiwm4Dt1P7/mRUFqYg=; b=yDCKghOepEKFBK1CwUbUHfgaQ9
+	KcAwWqn52xMJAFI3HPVKToBNM5SFJ6x5Mi6SSheR0Z5aPj0KIgwUSypgkk2dARMePVdKZ2TGgfpEk
+	Io0WtsxVrg4Bfmb2T/hPh7Tnlz55ISAnh3kFI1x3PPCWKMJlVvvdHaUd0ULB+Az3CneAng9AO7PkW
+	lR3YYPjl8A8rhj+KYyIxIv2s005+Lzm5Xx3PrlCpsp1klQV3kTxBV536AZRGAnvvxaZqDq7/V8r44
+	uv55k2GKQOKgeb+JB7YtZQdE9PPTyAQBvLisJMm0dQ6lnZK36w53WlNDjF1ZGEzcPXgBwIgQkG1BC
+	hI+K9naQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oo7-00000005z05-2FEJ;
-	Thu, 26 Mar 2026 17:47:47 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w5oyh-00000005zeG-2b0y;
+	Thu, 26 Mar 2026 17:58:43 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oo5-00000005yzO-2yM1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 17:47:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AxDSnNL/u8N3iCRzT8SvQaiyV0V6Lf/VVxcJwZ5quX4=; b=XRgb8LsvWYsTTIlo8Zxg3c8Mg2
-	SroOvC7VmpQrHi01O5KeJdSNXpz85f0PncL1ARLtaBuEHhNLTeOrAX3l1k7M4BgeMXUzy4BFO6nUz
-	uIA5/7yikZ2Ba2kWKNxYmleFglUmhOyrDo1FZAIA4lvV3m9t80slEZwWjWi6I/CRVu3MBgHBH7Bp6
-	Ozof29IoG+XDLRvsvYviwE3RkLTeBHSRl/qHyMr5MWHyJl/6Gw5H1wSE/TYY6ASRkuqEWYr6wK7G2
-	Xsauw971tdYRmcOyvKPB55AyTzLe4pC8/g9wD6Sh1Cd79upmI1Owk88xXslWvnHd9k2H9sE6jO88U
-	x3LYWhgg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34394)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w5onv-0000000057d-27mi;
-	Thu, 26 Mar 2026 17:47:35 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w5ons-000000007Ec-4AcB;
-	Thu, 26 Mar 2026 17:47:33 +0000
-Date: Thu, 26 Mar 2026 17:47:32 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-	Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH net-next 1/2] net: stmmac: remove axi_kbbe, axi_mb and
- axi_rb members
-Message-ID: <acVxNBLE8Ck2qfjc@shell.armlinux.org.uk>
-References: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
- <E1w4ydo-0000000Dlpb-34jd@rmk-PC.armlinux.org.uk>
- <20260326172943.GR111839@horms.kernel.org>
+	id 1w5oye-00000005zdi-1W7K;
+	Thu, 26 Mar 2026 17:58:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774547920; x=1806083920;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=ZN1iuzw8T8W2bRviqNraUbLOrITrSm5KwXD+jmeiWWg=;
+  b=HAD0Dbh8FhnEzTz0TUYArZIvhYGi5SmBwnTpgdXqUpMdkhUQqkg79Vmh
+   TZ6jFRba0Jyz4vMdsgXW/9gQVpUbjyeXl2QoOdF6J+ABwoZEiy0nRAzJu
+   6EMIe15ipzoPkvICCBrTY/HOnjTbC5hqikkNH7YtEwqJ1JPDArVbNK4+Q
+   s+xC3s33S1CpEJgnkrfeoYhaKp4Q/n/BKTnfkvCX8hxms7ApV1qHkuhLg
+   yRaYgld79DYan0ZAPkS/0qfnGFfzTp1lBQgpMcmZ2LgSUQCNd1TuIH/QX
+   nYm4tVuZ/S20bgRmhBZeL6hF3QZjAZvL7Fd3kt426/ea94RDZZXmBCgXG
+   w==;
+X-CSE-ConnectionGUID: ZgtGQfHjQZ67tqjTcUsNHw==
+X-CSE-MsgGUID: 92+MZf9jSiGqQ8k6nYKb5w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11741"; a="85923287"
+X-IronPort-AV: E=Sophos;i="6.23,142,1770624000"; 
+   d="scan'208";a="85923287"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Mar 2026 10:58:38 -0700
+X-CSE-ConnectionGUID: QU8QSqOhQfqCPL3kMJ994A==
+X-CSE-MsgGUID: aPEZ8FAXSXOHe3ZqlAl2hA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,142,1770624000"; 
+   d="scan'208";a="229145609"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.14])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Mar 2026 10:58:30 -0700
+Date: Thu, 26 Mar 2026 19:58:25 +0200
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com,
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	Werner Sembach <wse@tuxedocomputers.com>,
+	Andri Yngvason <andri@yngvason.is>,
+	Marius Vlad <marius.vlad@collabora.com>
+Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
+ format"
+Message-ID: <acVzwRyk_J24GrJ4@intel.com>
+References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
+ <20260324-color-format-v11-3-605559af4fb4@collabora.com>
+ <acLDPYuaVI2-12JX@intel.com>
+ <23910073.EfDdHjke4D@workhorse>
+ <acLrv5hLyNss-Px5@intel.com>
+ <20260325-neat-elegant-raven-ebc9ab@houat>
+ <acPA60Ci3n_t__xF@intel.com>
+ <20260325-magnificent-ultraviolet-oarfish-baefbc@houat>
+ <acQsw3Wi_xVlBZ8d@intel.com>
+ <20260326-pumpkin-goshawk-of-stamina-0ccb84@houat>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260326172943.GR111839@horms.kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260326-pumpkin-goshawk-of-stamina-0ccb84@houat>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_104745_769886_4C0B0792 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260326_105840_472469_4D4571CF 
+X-CRM114-Status: GOOD (  49.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +126,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 05:29:43PM +0000, Simon Horman wrote:
-> On Tue, Mar 24, 2026 at 10:05:40AM +0000, Russell King (Oracle) wrote:
-> > axi_kbbe, axi_mb and axi_rb are all written, but nothing ever reads
-> > their values. Remove the code that sets these and the struct members.
+On Thu, Mar 26, 2026 at 06:02:47PM +0100, Maxime Ripard wrote:
+> On Wed, Mar 25, 2026 at 08:43:15PM +0200, Ville Syrjälä wrote:
+> > On Wed, Mar 25, 2026 at 03:56:58PM +0100, Maxime Ripard wrote:
+> > > On Wed, Mar 25, 2026 at 01:03:07PM +0200, Ville Syrjälä wrote:
+> > > > On Wed, Mar 25, 2026 at 09:24:27AM +0100, Maxime Ripard wrote:
+> > > > > On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrjälä wrote:
+> > > > > > On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrote:
+> > > > > > > On Tuesday, 24 March 2026 18:00:45 Central European Standard Time Ville Syrjälä wrote:
+> > > > > > > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli wrote:
+> > > > > > > > > +enum drm_connector_color_format {
+> > > > > > > > > +	/**
+> > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display protocol
+> > > > > > > > > +	 * helpers should pick a suitable color format. All implementations of a
+> > > > > > > > > +	 * specific display protocol must behave the same way with "AUTO", but
+> > > > > > > > > +	 * different display protocols do not necessarily have the same "AUTO"
+> > > > > > > > > +	 * semantics.
+> > > > > > > > > +	 *
+> > > > > > > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 if the
+> > > > > > > > > +	 * bandwidth required for full-scale RGB is not available, or the mode
+> > > > > > > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output both support
+> > > > > > > > > +	 * YCbCr 4:2:0.
+> > > > > > > > > +	 *
+> > > > > > > > > +	 * For display protocols other than HDMI, the recursive bridge chain
+> > > > > > > > > +	 * format selection picks the first chain of bridge formats that works,
+> > > > > > > > > +	 * as has already been the case before the introduction of the "color
+> > > > > > > > > +	 * format" property. Non-HDMI bridges should therefore either sort their
+> > > > > > > > > +	 * bus output formats by preference, or agree on a unified auto format
+> > > > > > > > > +	 * selection logic that's implemented in a common state helper (like
+> > > > > > > > > +	 * how HDMI does it).
+> > > > > > > > > +	 */
+> > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO = 0,
+> > > > > > > > > +
+> > > > > > > > > +	/**
+> > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
+> > > > > > > > > +	 */
+> > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
+> > > > > > > > > +
+> > > > > > > > > +	/**
+> > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output format (ie.
+> > > > > > > > > +	 * not subsampled)
+> > > > > > > > > +	 */
+> > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
+> > > > > > > > > +
+> > > > > > > > > +	/**
+> > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output format (ie.
+> > > > > > > > > +	 * with horizontal subsampling)
+> > > > > > > > > +	 */
+> > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
+> > > > > > > > > +
+> > > > > > > > > +	/**
+> > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output format (ie.
+> > > > > > > > > +	 * with horizontal and vertical subsampling)
+> > > > > > > > > +	 */
+> > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
+> > > > > > > > 
+> > > > > > > > Seems like this should document what the quantization range
+> > > > > > > > should be for each format.
+> > > > > > > > 
+> > > > > > > 
+> > > > > > > I don't think so? If you want per-component bit depth values,
+> > > > > > > DRM_FORMAT_* defines would be the appropriate values to use. This
+> > > > > > > enum is more abstract than that, and is there to communicate
+> > > > > > > YUV vs. RGB and chroma subsampling, with bit depth being handled
+> > > > > > > by other properties.
+> > > > > > > 
+> > > > > > > If you mean the factor used for subsampling, then that'd only be
+> > > > > > > relevant if YCBCR410 was supported where one chroma plane isn't
+> > > > > > > halved but quartered in resolution. I suspect 4:1:0 will never
+> > > > > > > be added; no digital display protocol standard supports it to my
+> > > > > > > knowledge, and hopefully none ever will.
+> > > > > > 
+> > > > > > No, I mean the quantization range (16-235 vs. 0-255 etc).
+> > > > > > 
+> > > > > > The i915 behaviour is that YCbCr is always limited range,
+> > > > > > RGB can either be full or limited range depending on the 
+> > > > > > "Broadcast RGB" property and other related factors.
+> > > > > 
+> > > > > So far the HDMI state has both the format and quantization range as
+> > > > > different fields. I'm not sure we need to document the range in the
+> > > > > format field, maybe only mention it's not part of the format but has a
+> > > > > field of its own?
+> > > > 
+> > > > I think we only have it for RGB (on some drivers only?). For YCbCr
+> > > > I think the assumption is limited range everywhere.
+> > > > 
+> > > > But I'm not really concerned about documenting struct members.
+> > > > What I'm talking about is the *uapi* docs. Surely userspace
+> > > > will want to know what the new property actually does so the
+> > > > uapi needs to be documented properly. And down the line some
+> > > > new driver might also implement the wrong behaviour if there
+> > > > is no clear specification.
+> > > 
+> > > Ack
+> > > 
+> > > > So I'm thinking (or perhaps hoping) the rule might be something like:
+> > > > - YCbCr limited range 
+> > > > - RGB full range if "Broadcast RGB" property is not present
+> > > 
+> > > Isn't it much more complicated than that for HDMI though? My
+> > > recollection was that any VIC but VIC1 would be limited range, and
+> > > anything else full range?
 > > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > Do we have some driver that implements the CTA-861 CE vs. IT mode
+> > logic but doesn't expose the "Broadcast RGB" property? I was hoping
+> > those would always go hand in hand now.
 > 
-> Hi Russell,
+> I'm not sure. i915 and the HDMI state helpers handle it properly (I
+> think?) but it looks like only vc4 registers the Broadcast RGB property
+> and uses the HDMI state helpers.
 > 
-> FYI, AI review suggests that these fields should also be removed from
-> Documentation/networking/device_drivers/ethernet/stmicro/stmmac.rst
+> And it looks like amdgpu registers Broadcast RGB but doesn't use
+> drm_default_rgb_quant_range() which seems suspicious?
 
-I noticed. I've prepared an update if netdev folk want that to happen
-as I've noticed that that documentation is fairly out of date now.
+If they want just manual full vs. limited then they should
+limit the property to not expose the "auto" option at all.
 
-Do we think it's still useful, or should we consider deleting or
-trimming it down? Would it be better to move the struct definitions
-into the header file and making the header file part of the docs so
-that the documentation is local to the structs?
+amdgpu also ties this in with the "colorspace" property, which
+originally in i915 only controlled the infoframes/etc. But on
+amdgpu it now controls various aspects of output color
+transformation. The end result is that the property is a complete
+mess with most of the values making no sense. And for whatever
+reason everyone involved refused to remove/deprecate the
+nonsensical values :/
+
+Looks like this series should make sure the documentation for
+the "colorspace" property is in sync with the new property
+as well. Currently now it's giving conflicting information.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Ville Syrjälä
+Intel
 
