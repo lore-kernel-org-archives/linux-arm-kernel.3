@@ -4,119 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A0110A88E7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 17:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7B710A88F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 17:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ht1ydNu1umiMsWIVEKZmUkwLuvps5HNVkVlm/tB0atg=; b=cUg0p/egzOzuGV6OnIK1GLyaQb
-	8Bs+bH2+Np/rPsoqkr+m6tcTWHXshL+93XOzKAOsNuvMpEYjWaalKkrxpVo1BNArVTImATq2Gfq01
-	DOujHYylaeASywpKbAYDqtteA9HE7/pzj5aYeXdXM6Uuj8ZttrvJqLwhWHCciKp5xY5rb9AaHPjaj
-	EnyAU1j+hEpQrrbX7SEDwE6ddJ9S5DNgSWhMvJXsIrfaJsycqAo3ycuvgOaxVNSjurZD5IbVJhLfU
-	XKjsPGFkKrNDPWwIL0s+wsroKBgJicem8HwWTMtgGNnYCTOJMYvcftIFjkpRfwAxKSxP0oX3p9e4Q
-	hsFA1q2A==;
+	bh=OwqHAF6GilRUfb07/OFy98MgqKxm9IQW77RBf1hyaaM=; b=EVM61hEfMuD5+3yxoOwAYVYeSI
+	MYNGpRokCbb0R9QytEFovQURj/V2FdHEG3RJcyQT0GwdjXp/7z9zex2etSbYSvUg1lZVL0VeSMxf1
+	bmp33mZF5MJhKp9ZNLLryMVLlMx24daMa3Uml2Cu3UR+dw9aIru8Hayh8Dk7sB5YTKiIj4qpQcqT/
+	zQxB9ki9jYUtbzejN/MHhm8Y7DpaxozObT74vPchW9GZnRwfAdP7Arh55Mv3fyJMHwDhBcxTZkulI
+	OYXYxwZ5jqEMhe8qWX/88oNPz77oLmyt8EoE4NPx9MnF5ZcxOxYPv5sUtrdvV8SzszQzMrd2laGGK
+	HTq8Nm7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oYR-00000005x6t-3xqT;
-	Thu, 26 Mar 2026 17:31:35 +0000
-Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	id 1w5oYa-00000005xAv-0CtB;
+	Thu, 26 Mar 2026 17:31:44 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5oYO-00000005x5l-3m1O
+	id 1w5oYQ-00000005x5i-1dXn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 17:31:33 +0000
-Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-12736a0147cso95053c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 10:31:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774546292; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ESQeMpv8pSgDrnoARO9LLswcICHyqPFl3O5AQ5RjK/xOHrQZSb1y9fye5Db+BKgQe+
-         vdelvgrq3I27z1KrvF6QoFRkR6jpWDCXDiNULkrTVYcrYuS/kmiviXHt6Xo5MbnM7I1L
-         5z5kxSkypjXMbi6mik/xrc02q8MaBds191Jz5Qx8zk+0KbyqIr9BYQxYWMKisKvoBF3g
-         7963lE9YVOH6CslLc2RH1WqYLxBTqiPgp/Lymwf5+wIXSnJqgI6+nnHv6ObSNe68/RUv
-         NkxhTMSGpjK/RbgPh44WoebKj0VXuJrgZ6xonS/uVnH0zB4bTj/ii0q8sIvofcJlj8PP
-         MSLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ht1ydNu1umiMsWIVEKZmUkwLuvps5HNVkVlm/tB0atg=;
-        fh=PjJjhMnuT9T5lGdxUtRDyfoe+yk9iII148sdr8+KU2I=;
-        b=T9WLSN0vjWT/eig60f9sy02UND/R0z4nsGuDtxCdjmjaXlyyz142OG+EOKCbjzFegV
-         LpnLUwxldCJ1c4Dh0piofrHF7Ii1wepTmaSin4W7DM/bwAs3ISHtghZbnQttKzZyFk5s
-         tMD/B6kOUg929KRbJ3F9xsDLbf2D0lJL0WnnsS4C40pjw4d9YZ2j3zmvDoUlrgJZkgZZ
-         pd2GpTgjNDhgS3D12UHyFx5YKHbuqAP8QoVcDSTsh0Q+juGcvo4iNN0yPugtXMYVehXf
-         HWdD2RB94GClXQT6kjxvGMKIq+AwbfZ+2QR1wTtdpNQO8PafHh2AVDRPP61i48v0MOQK
-         AiWg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774546292; x=1775151092; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ht1ydNu1umiMsWIVEKZmUkwLuvps5HNVkVlm/tB0atg=;
-        b=MRrvansRJS1w8Ewvd7iUduhweyqspRRutRjPO3lar4n2Xp5sCiOR7HSepY/nEXvcfq
-         3fpSugXKNj7SBEz7zACjnEHn9+lGDgVos4FdYsQTH860VKrfmnayR4rWSJkc33Ors8+S
-         uMuIDxufEL5rDBb/3AoPe5XiLYahB6CZBOqNa5oOtjV6ugJ228tM7muvOqOjmXFFcglh
-         ragtXr9rFOOiNZrud9sMjePe0e42/RnLtWSUiCDLCZ/RpS15qa1JR7JZYdVAdiWzHhHA
-         8LG9aJOyDmwwid8BYB/7OTNa81PjbIY1G6rvkViKMwoeVAwt/Hdi0nT+rqYgQddrnPpf
-         WgDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774546292; x=1775151092;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ht1ydNu1umiMsWIVEKZmUkwLuvps5HNVkVlm/tB0atg=;
-        b=OsXfCFeUB6h+gYUGbe972xN1Gn844zofGz51+RIHaZu5a+5jNPy16luK32cx8fpFDr
-         NhsEQtQxH+vEpvsaetwNwXROAEW2Jt9vajATzfzeuBW1I/ziql1Hp+FYNWM55JT8Kst4
-         fu4bm1Ch2OEqEJahMXdU+y530OAKmTFf/JC55qGPYq/BgGbKkZ0xf3y6Ddkh5mhRA54Y
-         F6Z1qw6eMWHAfSa0h2n2mUMiBZ6UGawU4zP3o+NYTluda2gkSuK5eRd1htxnJ+Pqwjse
-         VpUKd18xk90ltWSSsexw2xqW3A+/gm0551+7KIH29jDmiFRo7iGZK3zlx2mgjA4TBw+N
-         ee8A==
-X-Forwarded-Encrypted: i=1; AJvYcCX6QRgBBq/BdTGdVgtcM8pf5teQrfSpo/q3pR8Nn2YrgDPv5RqXSI8nyS9pOv8lHbTntD73XdvQeHN4bYmlYNtb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt0T1EnPr+Smi1ZiyqHh9ImsmFAtYA92hcTIUH1myDkvWNKtD4
-	Bsx4/zzmfDBEH7ibwW7luab8qluYrjY+F7i/A06JcSRP71+uDtGImwIdNROWvcvlX8OVa4ArWt4
-	7koH7AOh/h0z9Gh9YHi87VEYCKfdExWc=
-X-Gm-Gg: ATEYQzwGSyoKplz4f8jjAUyBQGvTizUyAcqu0FQQpDyMWXbPwyBiEwo6tlvXQ1oglGy
-	zUazFiQW4ie3QezKWsKozFTCGC+6UeeCJq1gNaG0lLYneYvGRwnsnFjkhyi31x10a6rmByRY3DH
-	FJ2BkE+jrNjAAa9PzsaHXcnaqVVMtjSPteoiRQQYwMDyMB0inzLo9O9EflNVv9ug/pGkN+Y0E3F
-	F/89NU09wePuD9cXP1APSE8hKQqCDFIEE9r3UlPvySMRg55N2yoa+lQuwwKVexGaUxBdrJk9WSt
-	8bnkmPSyZxg0g2+BPbp0j2YBDErbd5ySmb1zp/IIEpfl8rVz6l6CzBkF/cCFx5ypw8H+5laFI5b
-	v1TPcL0ZF6d76YYntYcNeitU=
-X-Received: by 2002:a05:7300:cd8a:b0:2c0:fec3:fd2b with SMTP id
- 5a478bee46e88-2c15d3eebdemr2110432eec.5.1774546291859; Thu, 26 Mar 2026
- 10:31:31 -0700 (PDT)
+	Thu, 26 Mar 2026 17:31:35 +0000
+Received: from monstersaurus.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CA2779A9;
+	Thu, 26 Mar 2026 18:30:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774546212;
+	bh=mHuz9dD/zD769Vzc3Oy2YrsHQDGOSHJorSKK6FwAkVo=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=oDctDRaTumN+rKqm1apL6hQ5EeJKBozOuxXux4FR1BLSspMbcjhIASsgEkGV0F3K4
+	 S9wn6jEcBNcS5x2bsCtPTCRMYaP/XciJ/0RN0C/0I4+YSEXceKjAw6XVpioelgjzBV
+	 +jPuoWkcfkVapeJfhzE/BMxSFi8DeArKke7dxYgs=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260322192159.88138-1-ojeda@kernel.org> <20260323000327.111235-1-ojeda@kernel.org>
- <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
- <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com> <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
-In-Reply-To: <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 26 Mar 2026 18:31:18 +0100
-X-Gm-Features: AQROBzAY2TUlph37K4tdyrXW3PnWDmlLF1E76Ca3evvsqWc92x8ByVyN4OKTlu0
-Message-ID: <CANiq72=fm7FnfM2iqOLvsgxxx7X4LBkr7XU8=LWYqSzQ7zjJ2A@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-To: Christian Schrefl <chrisi.schrefl@gmail.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Jamie Cunliffe <Jamie.Cunliffe@arm.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, "Russell King (Oracle)" <linux@armlinux.org.uk>, 
-	Miguel Ojeda <ojeda@kernel.org>, a.hindborg@kernel.org, acourbot@nvidia.com, 
-	akpm@linux-foundation.org, anton.ivanov@cambridgegreys.com, 
-	bjorn3_gh@protonmail.com, boqun.feng@gmail.com, dakr@kernel.org, 
-	david@davidgow.net, gary@garyguo.net, johannes@sipsolutions.net, 
-	justinstitt@google.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-um@lists.infradead.org, llvm@lists.linux.dev, 
-	lossin@kernel.org, mark.rutland@arm.com, mmaurer@google.com, morbo@google.com, 
-	nathan@kernel.org, nick.desaulniers+lkml@gmail.com, nicolas.schier@linux.dev, 
-	nsc@kernel.org, peterz@infradead.org, richard@nod.at, 
-	rust-for-linux@vger.kernel.org, tmgross@umich.edu, urezki@gmail.com
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260325210003.2752013-2-laurent.pinchart@ideasonboard.com>
+References: <20260325210003.2752013-1-laurent.pinchart@ideasonboard.com> <20260325210003.2752013-2-laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH net-next v4 1/2] net: stmmac: provide flag to disable EEE
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, David S. Miller <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>, Francesco Dolcini <francesco.dolcini@toradex.com>, Frank Li <Frank.Li@nxp.com>, Jakub Kicinski <kuba@kernel.org>, Joy Zou <joy.zou@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Stefan Klug <stefan.klug@ideasonboard.com>, linux-arm-kernel@lists.infradead.org
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, imx@lists.linux.dev, netdev@vger.kernel.org
+Date: Thu, 26 Mar 2026 17:31:29 +0000
+Message-ID: <177454628933.1078312.13488207016388509694@ping.linuxembedded.co.uk>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_103132_938148_22DE6D30 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260326_103134_593863_9334E439 
+X-CRM114-Status: GOOD (  28.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,25 +66,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 3:31=E2=80=AFPM Christian Schrefl
-<chrisi.schrefl@gmail.com> wrote:
+Quoting Laurent Pinchart (2026-03-25 21:00:02)
+> From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+>=20
+> Some platforms have problems when EEE is enabled, and thus need a way
+> to disable stmmac EEE support. Add a flag before the other LPI related
+> flags which tells stmmac to avoid populating the phylink LPI
+> capabilities, which causes phylink to call phy_disable_eee() for any
+> PHY that is attached to the affected phylink instance.
+>=20
+> iMX8MP is an example - the lpi_intr_o signal is wired to an OR gate
+> along with the main dwmac interrupts. Since lpi_intr_o is synchronous
+> to the receive clock domain, and takes four clock cycles to clear, this
+> leads to interrupt storms as the interrupt remains asserted for some
+> time after the LPI control and status register is read.
+>=20
+> This problem becomes worse when the receive clock from the PHY stops
+> when the receive path enters LPI state - which means that lpi_intr_o
+> can not deassert until the clock restarts. Since the LPI state of the
+> receive path depends on the link partner, this is out of our control.
+> We could disable RX clock stop at the PHY, but that doesn't get around
+> the slow-to-deassert lpi_intr_o mentioned in the above paragraph.
+>=20
+> Previously, iMX8MP worked around this by disabling gigabit EEE, but
+> this is insufficient - the problem is also visible at 100M speeds,
+> where the receive clock is slower.
+>=20
+> There is extensive discussion and investigation in the thread linked
+> below, the result of which is summarised in this commit message.
+
+This one has been a roller coaster, but I'm glad we got to the bottom of
+it.
+
+I hope someone from synopsis takes note and and documents this for
+future silicon integrations.
+
+Can't wait to see where else this pops up.
+
+
+Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+
+>=20
+> Reported-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Closes: https://lore.kernel.org/r/20251026122905.29028-1-laurent.pinchart=
+@ideasonboard.com
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Tested-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  7 ++++++-
+>  include/linux/stmmac.h                            | 13 +++++++------
+>  2 files changed, 13 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 9b6b49331639..ce51b9c22129 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -1438,7 +1438,12 @@ static int stmmac_phylink_setup(struct stmmac_priv=
+ *priv)
+>                                  config->supported_interfaces,
+>                                  pcs->supported_interfaces);
+> =20
+> -       if (priv->dma_cap.eee) {
+> +       /* Some platforms, e.g. iMX8MP, wire lpi_intr_o to the same inter=
+rupt
+> +        * used for stmmac's main interrupts, which leads to interrupt st=
+orms.
+> +        * STMMAC_FLAG_EEE_DISABLE allows EEE to be disabled on such plat=
+forms.
+> +        */
+> +       if (priv->dma_cap.eee &&
+> +           !(priv->plat->flags & STMMAC_FLAG_EEE_DISABLE)) {
+>                 /* The GMAC 3.74a databook states that EEE is only suppor=
+ted
+>                  * in MII, GMII, and RGMII interfaces.
+>                  */
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index 5b2bece81448..e62d21afd56d 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -207,12 +207,13 @@ enum dwmac_core_type {
+>  #define STMMAC_FLAG_MULTI_MSI_EN               BIT(7)
+>  #define STMMAC_FLAG_EXT_SNAPSHOT_EN            BIT(8)
+>  #define STMMAC_FLAG_INT_SNAPSHOT_EN            BIT(9)
+> -#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI         BIT(10)
+> -#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING      BIT(11)
+> -#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP      BIT(12)
+> -#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY   BIT(13)
+> -#define STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD   BIT(14)
+> -#define STMMAC_FLAG_SERDES_SUPPORTS_2500M      BIT(15)
+> +#define STMMAC_FLAG_EEE_DISABLE                        BIT(10)
+> +#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI         BIT(11)
+> +#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING      BIT(12)
+> +#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP      BIT(13)
+> +#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY   BIT(14)
+> +#define STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD   BIT(15)
+> +#define STMMAC_FLAG_SERDES_SUPPORTS_2500M      BIT(16)
+> =20
+>  struct mac_device_info;
+> =20
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
 >
-> It should probably be fine to use armv7a-none-eabi. I've mostly used
-> arm-unknown-linux-gnueabi since I though it needed to match the
-> bindgen-target (which is -linux-gnu for all architectures) and
-> because from what I understand clang also uses arm-linux-gnueabi [1].
-> Also when I selected the target I thought that we would also support
-> armv6, but since I had no v6 hardware to test on I disabled it.
-
-I see, thanks for the quick reply!
-
-My current thinking is to enable this only for x86_64 and arm64, so if
-you/arm decide to switch the target (and/or enable this experimental
-feature), then that can be done without a rush, independently.
-
-(Please take a look at Russell's reply as well about the short enums thing.=
-)
-
-Cheers,
-Miguel
 
