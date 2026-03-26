@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5168210A88E0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B3410A88E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rU8q2u3BMYjFmyPgg9SMXSe4vcHu8unSINEhbt1pvPg=; b=p/hlmFlCjaC3TJT2bScfvVuPEm
-	KdA/7hAFUU17oNxWEVhAMqAuxM1sy/XkbA6n963uhkqVrkWkSKjBrUKlk1dQfFvKt9pRJMLbSQ6FA
-	DOuBddFJaQfVSosB6FwPlunqeWu+XRrElfKpsrM/U0Bdph0KpmdtnTsoyQwWVs1GY9w68BxL/8vT1
-	wEZxB+LQ2dlyj2cs08mSVjUiUKK44cULbCi94uu6FRoaiu4tAvaByTZjUd7d9St3mGMP4kVnEuPjl
-	JYwfB8uL5r7nBQLmuzCpYBe4q85PrGKU7/2ZtMikMOUiFal3bBZ46c0Zb63CWLQNAAkqNP8VILwRj
-	OVd//NwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KoLalS3RlG932bhgLxdv/NYV9f4qIr4106kzeCrJ97Q=; b=Bg4wBJ6HlHmzg+aa5vPb4CANxH
+	csXmQEtOhlDuJbJRtgp3cGuXrvUfG5d5O5wNTM9dzcq7goruMtXsJMYhHlhXocW5E7DjC33GZzto0
+	efNuBnhtqyDRkbdNMaOjf1BvBasawkSebI7wYBQeuozP+3LmeslyEC3reXJqP25vMpYk03vPfIcAO
+	Ul5vFRLJq1g5Oy68cu/NehfQYa0CakpFqRuG+a63SMclvb/lC0OuJFHg+LA7K/QM43SI5zxPAIv6r
+	r145Y98SCPQmSFq/nsoVbrrY2FIy+i680HgHN/Q9f+wohNHSMsULEnKONv+FMi1ZRjqRaI80nCOHj
+	lncRiFdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mkT-00000005lLI-1THH;
-	Thu, 26 Mar 2026 15:35:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mkH-00000005l73-1SHP
+	id 1w5mlm-00000005mQ7-33BY;
+	Thu, 26 Mar 2026 15:37:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5mkQ-00000005lF5-3Jlj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 15:35:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A84944732;
-	Thu, 26 Mar 2026 15:35:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084C1C2BCB0;
-	Thu, 26 Mar 2026 15:35:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774539339;
-	bh=OnkAaZ/jg85tiwhR94ci/DbNvsuSh0bKDG0rnVDTaYY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WhxENzHe5qoKXqeCszF5uMyrwI0ijAlY/QZU9qjz/XNdEMWTHabm0jwPQvAqdb20l
-	 DP0l093GHxr2j27R/EmCKrUscLZqXITGKtN6iKage4vb1EJEfS4+4ZtC2Spj1WF0AC
-	 trObve05YK0A0H/eYJ0XMH2GMLUmGOZHmqhP0G1dd4pinR1Y20qvYUUlTdQ5DcGsi7
-	 yyumgIuQH2Rb2knSDQoVHYEKT2Ib0FhXh/fUlB4MJajtDf92gWdZQAovZASpkQJ4hh
-	 KVlnOqzJuIjbu5JZANc0/IzWvoO4kx9UVmElOJuubXEQdhqVD5lkEj5NJ8PkAAYuQG
-	 as9gYnKrZs9uQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w5mkD-000000060II-1AJt;
-	Thu, 26 Mar 2026 15:35:37 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH 14/15] KVM: arm64: Correctly plumb ID_AA64PFR2_EL1 into pkvm idreg handling
-Date: Thu, 26 Mar 2026 15:35:29 +0000
-Message-ID: <20260326153530.3981879-15-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260326153530.3981879-1-maz@kernel.org>
-References: <20260326153530.3981879-1-maz@kernel.org>
+	Thu, 26 Mar 2026 15:35:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8B881D6F;
+	Thu, 26 Mar 2026 08:35:42 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B32803F99C;
+	Thu, 26 Mar 2026 08:35:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774539348; bh=YVG0FlxMDpsJGDv7zlW5c/pCwoam9J4eKlhKt9Gme2w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JxnZgFS6/t1fXTv5sC4XPGBHFE3vYzAx0W95PUg+xQv0C4b8U4xRYPY+nF+T9GMgI
+	 3X9/FD2gPDF/fAfYsJLj0W/4B8e1fW7oBXrMuDzoCGHGMp3Qthr76Hg2hRS8oZ2dw1
+	 YW11Fycd/oP6SPx+WqS1C/F24RjEKvsEs1QjdTzA=
+Date: Thu, 26 Mar 2026 15:35:42 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Elif Topuz <elif.topuz@arm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	sudeep.holla@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, d-gole@ti.com,
+	jonathan.cameron@huawei.com, lukasz.luba@arm.com,
+	philip.radford@arm.com, souvik.chakravarty@arm.com
+Subject: Re: [PATCH v2 07/17] firmware: arm_scmi: Use new Telemetry traces
+Message-ID: <acVSTu5oqeZ6jA9f@pluto>
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
+ <20260114114638.2290765-8-cristian.marussi@arm.com>
+ <3c6bddfd-a674-486c-add4-35ef93ec88c4@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3c6bddfd-a674-486c-add4-35ef93ec88c4@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_083541_470359_B0E17482 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260326_083550_982314_46C66218 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +77,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While we now compute ID_AA64PFR2_EL1 to a glorious 0, we never use
-that data and instead return the 0 that corresponds to an allocated
-idreg. Not a big deal, but we might as well be consistent.
+On Fri, Jan 23, 2026 at 11:43:37AM +0000, Elif Topuz wrote:
+> 
+> Hi Cristian,
 
-Fixes: 5aefaf11f9af5 ("KVM: arm64: gic: Hide GICv5 for protected guests")
-Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Elif,
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index b40fd01ebf329..be6f420388a14 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -439,7 +439,7 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 	/* CRm=4 */
- 	AARCH64(SYS_ID_AA64PFR0_EL1),
- 	AARCH64(SYS_ID_AA64PFR1_EL1),
--	ID_UNALLOCATED(4,2),
-+	AARCH64(SYS_ID_AA64PFR2_EL1),
- 	ID_UNALLOCATED(4,3),
- 	AARCH64(SYS_ID_AA64ZFR0_EL1),
- 	ID_UNALLOCATED(4,5),
--- 
-2.47.3
+> 
+> On 14/01/2026 11:46, Cristian Marussi wrote:
+> > Track failed SHMTI accesses and received notifications.
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> >  drivers/firmware/arm_scmi/telemetry.c | 57 ++++++++++++++++++++++-----
+> >  1 file changed, 48 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+> > index 16bcdcdc1dc3..443e032a3553 100644
+> > --- a/drivers/firmware/arm_scmi/telemetry.c
+> > +++ b/drivers/firmware/arm_scmi/telemetry.c
+> > @@ -25,6 +25,8 @@
+> >  #include "protocols.h"
+> >  #include "notify.h"
+> >  
+> > +#include <trace/events/scmi.h>
+> > +
+> >  /* Updated only after ALL the mandatory features for that version are merged */
+> >  #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
+> >  
+> > @@ -1366,8 +1368,10 @@ static void scmi_telemetry_tdcf_blkts_parse(struct telemetry_info *ti,
+> >  
+> >  	/* Check for spec compliance */
+> >  	if (USE_LINE_TS(payld) || USE_BLK_TS(payld) ||
+> > -	    DATA_INVALID(payld) || (PAYLD_ID(payld) != 0))
+> > +	    DATA_INVALID(payld) || (PAYLD_ID(payld) != 0)) {
+> > +		trace_scmi_tlm_access(0, "BLK_TS_INVALID", 0, 0);
+> >  		return;
+> > +	}
+> >  
+> >  	/* A BLK_TS descriptor MUST be returned: it is found or it is crated */
+> >  	bts = scmi_telemetry_blkts_lookup(ti->ph->dev, &ti->xa_bts, payld);
+> > @@ -1376,6 +1380,9 @@ static void scmi_telemetry_tdcf_blkts_parse(struct telemetry_info *ti,
+> >  
+> >  	/* Update the descriptor with the lastest TS*/
+> >  	scmi_telemetry_blkts_update(shmti->last_magic, bts);
+> > +
+> > +	trace_scmi_tlm_collect(bts->last_ts, (u64)payld,
+> > +			       bts->last_magic, "SHMTI_BLK_TS");
+> >  }
+> >  
+> >  static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
+> > @@ -1393,8 +1400,10 @@ static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
+> >  	/* Is thi DE ID know ? */
+> >  	tde = scmi_telemetry_tde_lookup(ti, de_id);
+> >  	if (!tde) {
+> > -		if (mode != SCAN_DISCOVERY)
+> > +		if (mode != SCAN_DISCOVERY) {
+> > +			trace_scmi_tlm_access(de_id, "DE_INVALID", 0, 0);
+> >  			return;
+> > +		}
+> >  
+> >  		/* In SCAN_DISCOVERY mode we allocate new DEs for unknown IDs */
+> >  		tde = scmi_telemetry_tde_get(ti, de_id);
+> > @@ -1462,6 +1471,8 @@ static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
+> >  		tde->last_ts = tstamp;
+> >  	else
+> >  		tde->last_ts = 0;
+> > +
+> > +	trace_scmi_tlm_collect(0, tde->de.info->id, tde->last_val, "SHMTI_DE_UPDT");
+> 
+> tde->last_ts instead of 0?
+>
 
+Yes, but I have reworked a lot the code so the traces also are moved
+around a lot with different tags...also I move the trace definitions
+before the protocol series in V3 and scattered the trace calls all
+across the protocol patches, which I split a lot.
+ 
+I tried anyway to follow your advice...well..anyway I doubt V3 will be
+the last one :P, so you're welcome to complain...
+
+> >  }
+> >  
+> >  static int scmi_telemetry_tdcf_line_parse(struct telemetry_info *ti,
+> > @@ -1507,8 +1518,10 @@ static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
+> >  		fsleep((SCMI_TLM_TDCF_MAX_RETRIES - retries) * 1000);
+> >  
+> >  		startm = TDCF_START_SEQ_GET(tdcf);
+> > -		if (IS_BAD_START_SEQ(startm))
+> > +		if (IS_BAD_START_SEQ(startm)) {
+> > +			trace_scmi_tlm_access(0, "MSEQ_BADSTART", startm, 0);
+> >  			continue;
+> > +		}
+> >  
+> >  		/* On a BAD_SEQ this will be updated on the next attempt */
+> >  		shmti->last_magic = startm;
+> > @@ -1520,18 +1533,25 @@ static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
+> >  
+> >  			used_qwords = scmi_telemetry_tdcf_line_parse(ti, next,
+> >  								     shmti, mode);
+> > -			if (qwords < used_qwords)
+> > +			if (qwords < used_qwords) {
+> > +				trace_scmi_tlm_access(PAYLD_ID(next),
+> > +						      "BAD_QWORDS", startm, 0);
+> >  				return -EINVAL;
+> > +			}
+> >  
+> >  			next += used_qwords * 8;
+> >  			qwords -= used_qwords;
+> >  		}
+> >  
+> >  		endm = TDCF_END_SEQ_GET(eplg);
+> > +		if (startm != endm)
+> > +			trace_scmi_tlm_access(0, "MSEQ_MISMATCH", startm, endm);
+> >  	} while (startm != endm && --retries);
+> >  
+> > -	if (startm != endm)
+> > +	if (startm != endm) {
+> > +		trace_scmi_tlm_access(0, "TDCF_SCAN_FAIL", startm, endm);
+> >  		return -EPROTO;
+> > +	}
+> >  
+> >  	return 0;
+> >  }
+> > @@ -1923,6 +1943,8 @@ static void scmi_telemetry_scan_update(struct telemetry_info *ti, u64 ts)
+> >  			tde->last_ts = tstamp;
+> >  		else
+> >  			tde->last_ts = 0;
+> > +
+> > +		trace_scmi_tlm_collect(ts, tde->de.info->id, tde->last_val, "FC_UPDATE");
+> 
+> tde->last_ts instead of ts?
+
+Yes...but a lot of rework as said above...
+
+> 
+> >  	}
+> >  }
+> >  
+> > @@ -2001,8 +2023,11 @@ static int scmi_telemetry_tdcf_de_parse(struct telemetry_de *tde,
+> >  		fsleep((SCMI_TLM_TDCF_MAX_RETRIES - retries) * 1000);
+> >  
+> >  		startm = TDCF_START_SEQ_GET(tdcf);
+> > -		if (IS_BAD_START_SEQ(startm))
+> > +		if (IS_BAD_START_SEQ(startm)) {
+> > +			trace_scmi_tlm_access(tde->de.info->id, "MSEQ_BADSTART",
+> > +					      startm, 0);
+> >  			continue;
+> > +		}
+> >  
+> >  		/* Has anything changed at all at the SHMTI level ? */
+> >  		scoped_guard(mutex, &tde->mtx) {
+> > @@ -2018,11 +2043,16 @@ static int scmi_telemetry_tdcf_de_parse(struct telemetry_de *tde,
+> >  		if (DATA_INVALID(payld))
+> >  			return -EINVAL;
+> >  
+> > -		if (IS_BLK_TS(payld))
+> > +		if (IS_BLK_TS(payld)) {
+> > +			trace_scmi_tlm_access(tde->de.info->id,
+> > +					      "BAD_DE_META", 0, 0);
+> >  			return -EINVAL;
+> > +		}
+> >  
+> > -		if (PAYLD_ID(payld) != tde->de.info->id)
+> > +		if (PAYLD_ID(payld) != tde->de.info->id) {
+> > +			trace_scmi_tlm_access(tde->de.info->id, "DE_INVALID", 0, 0);
+> >  			return -EINVAL;
+> > +		}
+> >  
+> >  		/* Data is always valid since NOT handling BLK TS lines here */
+> >  		*val = LINE_DATA_GET(&payld->l);
+> > @@ -2046,10 +2076,16 @@ static int scmi_telemetry_tdcf_de_parse(struct telemetry_de *tde,
+> >  		}
+> >  
+> >  		endm = TDCF_END_SEQ_GET(tde->eplg);
+> > +		if (startm != endm)
+> > +			trace_scmi_tlm_access(tde->de.info->id, "MSEQ_MISMATCH",
+> > +					      startm, endm);
+> >  	} while (startm != endm && --retries);
+> >  
+> > -	if (startm != endm)
+> > +	if (startm != endm) {
+> > +		trace_scmi_tlm_access(tde->de.info->id, "TDCF_DE_FAIL",
+> > +				      startm, endm);
+> >  		return -EPROTO;
+> > +	}
+> >  
+> >  	guard(mutex)(&tde->mtx);
+> >  	tde->last_magic = startm;
+> > @@ -2230,6 +2266,9 @@ scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
+> >  			tde->last_ts = LINE_TSTAMP_GET(&payld->tsl);
+> >  		else
+> >  			tde->last_ts = 0;
+> > +
+> > +		trace_scmi_tlm_collect(timestamp, tde->de.info->id, tde->last_val,
+> > +				       "MESSAGE");
+> 
+> tde->last_ts instead of timestamp? If I understand correctly, tde->last_ts
+> corresponds to the time coming from the platform. We have kernel time anyway
+> coming from ftrace format.
+
+Yes good point...timestamp is the time of arrival of the
+notification...I can also drop that parameter at this point...
+
+Thanks a lot for reviewing !
+Cristian
 
