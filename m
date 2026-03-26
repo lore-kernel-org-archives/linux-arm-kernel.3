@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8F410AB807
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 19:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E5710AB807
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 19:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=0xj7Y0QmYs5cqSXPJGx4SaxlDzojtOp5fFgQUNPONN8=; b=yW1XkisUCBPLYDcEKkvttQ80si
-	IM4ztoRzM/QHH5+kLpVvNIGEKC2m15sk+0ww0R8LAPI2D+ASQOUDQ3jwPh3bY/aBmL5SFvu2t/PJK
-	/FTKQx1IjSXNFkrCGBJ5vD6BW+tbR6chG1xuOtoSIfQF2Nm9NFHPtkxIFgT2MyVX/XsppARWbBFyz
-	B3PLXUggq6Rd1IzTg8mrxRx4s3jDzhrC2hTdg1dh9CSDh8RMGk4zHTgGWjuhBoX+n88Ixs49Q2ULz
-	U+oxqesNU4+KzVQFQ8+YuBSPOkJJ4pFkM4ooD8RUzBkNRTjdYvxPcoVc7mb0QXXJU9Kt+K51D47gw
-	RjeHNQ/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8q1b7BVCr0bxZwKjgU8Z7Ivc8vxFh7zx0HI/IRg014=; b=xdwnJH+HnIFijtYaZwi654MjUr
+	qZUh0OQaLXvcazOihFg/aV/5C74fyWHIn+3w6LC4k5e0f/nuyFqRAus6FPREPF9yGI83hXICQsqCJ
+	JSvchsI9BBTnO9u/xD871xzAWHDhC9R8BjqkA8elN3C8g1NowTb1lTibOsaJAvqQLAaEURW6MdfcZ
+	3T5psifG2/h84eH+6mjwq40sb9SIy/uHyfB/0k/OnmLBz6N8MjcsFQ4UiZEsR/5aGj9GK17XwhWE7
+	UderivnESNob5zmiAN5unhTjGweVIJBFnJ5dxq8M1++lx4Mh9GlijNTJaHxN/zGIwPAYCrsFV1BEm
+	vHjQxeFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5qKb-000000066n0-0W9g;
-	Thu, 26 Mar 2026 19:25:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5qNd-0000000674K-49bM;
+	Thu, 26 Mar 2026 19:28:33 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5qKZ-000000066mu-3hjt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 19:25:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8191C60054;
-	Thu, 26 Mar 2026 19:25:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA1EC116C6;
-	Thu, 26 Mar 2026 19:25:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774553122;
-	bh=A++szeKtnjRSEovDyZxLISgC62LFBBAIhs/d9OMRhfE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=NfJ/oEz0LRYInVcrSbNN88ZD+MdyZe+E5wpkqpNyM7Ggrd+87xrTGdb2eRZTy87DI
-	 3AEY3FowNt2dLBx5bUv4EG4eu546MewpNXZGCLDHkBfe8g3LZwJ102n7t7khlBaszz
-	 Lx4TnfZYWvuNCDHMwl+tUFBLw2zV1Ngq0Csg3zwt51tFeRwFrtv1uYON4+pXGzeX8B
-	 iMHKIRiCjG9dp3POhWU/XzfbitypWNW1N1GDKkwoAv/NyKcEekZl9lBiRmYoXapScF
-	 rKV+yPTbfY8C2bHC3ckb0AISfTndYlJ7pwkpyfMvmqNf9+9J1OGvYPuntH/jG+z1Hp
-	 YXvuT6LOCwG0g==
-Date: Thu, 26 Mar 2026 14:25:20 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>
-Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
-	Guenter Roeck <linux@roeck-us.net>, linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	linux-kernel@vger.kernel.org, Xifer <xiferdev@gmail.com>
-Subject: Re: [PATCH 00/10] PCI: Improve head free space usage
-Message-ID: <20260326192520.GA1337681@bhelgaas>
+	id 1w5qNb-0000000673c-2LY3;
+	Thu, 26 Mar 2026 19:28:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=P8q1b7BVCr0bxZwKjgU8Z7Ivc8vxFh7zx0HI/IRg014=; b=NmXGA9ydxp031MJXvgcF0ptzp7
+	XnxCZcHUteZX1hWuh3E/f7+WPpkpdHYHTGAs0t3XHOIesKna/h1MQCEtpDxqq5Aeu64B6rF4zPCHe
+	3Jief1YqMvdmf1FSJR7SQZO4vnkflxKLX7b01HSqpmpZXuLZoaT94whOqHimtZQVK0MBKyr/I4ihV
+	ed39NYWtlj7ywDMsyZPY58FuQ30fqgI+tCaujN3rw6lCsPbaKVpYzAFIbLxGbY6A8H0U/y9Z5fkpj
+	zsHWtwTIhTh2pXZZKcSLlS1xp3b6/DVvcNUfYfxAzMuD7QTCOxCrTUDiaXoco6w/oEPu6I2EghD0D
+	4cpvgQ4A==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] drm/bridge: synopsys: dw-dp: Unregister AUX channel on
+ bridge detach
+Date: Thu, 26 Mar 2026 20:28:02 +0100
+Message-ID: <2053748.usQuhbGJ8B@phil>
+In-Reply-To: <20260310-drm-rk-fixes-v2-7-645ecfb43f49@collabora.com>
+References: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
+ <20260310-drm-rk-fixes-v2-7-645ecfb43f49@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260324165633.4583-1-ilpo.jarvinen@linux.intel.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_122831_617451_69C7E797 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Xifer; thanks very much for reporting and testing!]
+Am Montag, 9. M=C3=A4rz 2026, 23:44:35 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Cristian Ciocaltea:
+> The DisplayPort AUX channel gets initialized and registered during
+> dw_dp_bind(), but it is never unregistered, which may lead to resource
+> leaks and/or use-after-free:
+>=20
+> [  224.661371] BUG: KASAN: slab-use-after-free in device_is_dependent+0xe=
+0/0x2b0
+> [  224.662015] Read of size 8 at addr ffff00011aee8550 by task modprobe/6=
+58
+> ...
+> [  224.662796]  device_is_dependent+0xe0/0x2b0
+> [  224.662802]  device_is_dependent+0x108/0x2b0
+> [  224.662808]  device_link_add+0x1f8/0x10b0
+> [  224.662813]  devm_of_phy_get_by_index+0x120/0x200
+> [  224.662819]  dw_dp_bind+0x34c/0xb10 [dw_dp]
+> [  224.662830]  dw_dp_rockchip_bind+0x194/0x250 [rockchipdrm]
+> [  224.662864]  component_bind_all+0x3a8/0x720
+> [  224.662869]  rockchip_drm_bind+0x120/0x390 [rockchipdrm]
+> [  224.662899]  try_to_bring_up_aggregate_device+0x76c/0x838
+> [  224.662904]  component_master_add_with_match+0x1f4/0x230
+> [  224.662909]  rockchip_drm_platform_probe+0x420/0x538 [rockchipdrm]
+> [  224.662939]  platform_probe+0xe8/0x168
+> [  224.662945]  really_probe+0x340/0x828
+> [  224.662950]  __driver_probe_device+0x2e0/0x350
+> [  224.662954]  driver_probe_device+0x80/0x140
+> [  224.662959]  __driver_attach+0x398/0x460
+> [  224.662964]  bus_for_each_dev+0xe0/0x198
+> [  224.662968]  driver_attach+0x50/0x68
+> [  224.662972]  bus_add_driver+0x2a0/0x4c0
+> [  224.662977]  driver_register+0x294/0x360
+> [  224.662982]  __platform_driver_register+0x7c/0x98
+> [  224.662987]  rockchip_drm_init+0xc4/0xff8 [rockchipdrm]
+> ...
+>=20
+> Unregister the AUX adapter on bridge detach.
 
-On Tue, Mar 24, 2026 at 06:56:23PM +0200, Ilpo Järvinen wrote:
-> Hi all,
-> 
-> This series attempts to take advantage of free head space (the free
-> space before the aligned start address) in order to generally produce a
-> tighter packing of the resources/bridge windows.
-> 
-> The recent changes to the resource fitting algorithm caused resource
-> allocation failures in some cases where a bridge window that is sized
-> to be gapless could no longer be assigned. The previous algorithm left
-> a huge gaps which allowed it to place the remainder (non-aligning part
-> of the size) before the start address of used for the gapless fit,
-> whereas the new gapless approach always had to place the remainder
-> after the aligning part of the resources. There is not always space
-> for the remainder triggering those failures (e.g., when the aligning
-> part must be placed at the top of the window).
-> 
-> This series attempts to allow placing the remainder once again before
-> the aligning part, but now without leaving huge gaps to retain the
-> benefits of the gapless bridge windows. The approach is somewhat hacky
-> but should work thanks to PCI resources fundamentally consisting only
-> power-of-two atoms.
-> 
-> There maybe cases where architecture would not want to do such
-> relocation. This series adds the relocation to arch
-> pcibios_align_resource() functions to allow all of them taking
-> advantage of the better resource packing but if somebody objects doing
-> this relocation for a particular arch, I can remove it, please just let
-> me know (this relocation doesn't seem critical unless there are
-> regressions).
-> 
-> Ilpo Järvinen (10):
->   resource: Add __resource_contains_unbound() for internal contains
->     checks
->   resource: Pass full extent of empty space to resource_alignf CB
->   resource: Rename 'tmp' variable to 'full_avail'
->   ARM/PCI: Remove unnecessary second application of align
->   am68k/PCI: Remove unnecessary second application of align
->   MIPS: PCI: Remove unnecessary second application of align
->   parisc/PCI: Cleanup align handling
->   PCI: Rename window_alignment() to pci_min_window_alignment()
->   PCI: Align head space better
->   PCI: Fix alignment calculation for resource size larger than align
-> 
->  arch/alpha/kernel/pci.c          |  1 +
->  arch/arm/kernel/bios32.c         |  9 ++++---
->  arch/m68k/kernel/pcibios.c       |  8 +++++--
->  arch/mips/pci/pci-generic.c      |  8 ++++---
->  arch/mips/pci/pci-legacy.c       |  3 +++
->  arch/parisc/kernel/pci.c         | 17 ++++++++------
->  arch/powerpc/kernel/pci-common.c |  6 ++++-
->  arch/s390/pci/pci.c              |  1 +
->  arch/sh/drivers/pci/pci.c        |  6 ++++-
->  arch/x86/pci/i386.c              |  5 +++-
->  arch/xtensa/kernel/pci.c         |  3 +++
->  drivers/pci/pci.h                |  3 +++
->  drivers/pci/setup-bus.c          | 15 ++++++++----
->  drivers/pci/setup-res.c          | 40 +++++++++++++++++++++++++++++++-
->  drivers/pcmcia/rsrc_nonstatic.c  |  3 ++-
->  include/linux/ioport.h           | 22 +++++++++++++++---
->  include/linux/pci.h              | 12 +++++++---
->  kernel/resource.c                | 33 +++++++++++++-------------
->  18 files changed, 149 insertions(+), 46 deletions(-)
+that sounds sort of asymmetrical though. drm_bridge_funcs has attach and
+detach callbacks and the component-framework also has bind and unbind
+callbacks.
 
-I added Xifer's tested-by, fixed the "am68k" and missing "if"
-typos, and applied these to pci/resource for v7.1.
+This might cause confusion later on I guess, especially as I don't know
+if there could be a bridge attach, after the detach that unregisters the
+aux adapter.
 
-Ilpo, if you post a v2 with more changes, I'll update to it.  I
-applied the series now to get a head start on 0-day building and into
-next.
+Looking at the AnalogixDP for example, it does the the register and
+unregister in the bind/unbind callbacks of the core driver.
+
+So I guess the in my eyes cleaner way would be to introduce a
+dw_dp_unbind() function and put the aux unregister there?
+
+At least that way, everything would be at the same "level".
+
+
+Heiko
+
+
 
