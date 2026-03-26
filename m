@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C71109E542
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 03:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4761109E542
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 03:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gc1Cfkcgv/5lPuvFF53M/UC0jd9eXEdjF+510NK63+E=; b=ywFIZGtmqmEACb/pi2r62wiKMZ
-	+KsjVKztEh953D9s7z9047umK61XyXWnBat64UxDi4t7JxLzDNpcFrec5rWswLvC2s8y0hoOUNZd6
-	TcoFf2H2nzi43vUAxnlOkZq+r25l7M75Zz3AfQ5nVTfgjK/AC0hRnH3TQ0JAF9SeQNg4NTEsoHU5j
-	m2RhG43a9WFnzIeUPHiJGTwsXf5h95dlXncrGbiBNCSrt40MzvGJgH/rFq21nrNZ3xNzH4wFdRKuc
-	6srnWErTS7v0z2heldqeYyG4ld5WmHpc6+dqsZ867jujgDPy7Tfwfs5hcsjcACcicHSeSHfCKF/Qh
-	tqH+xL5Q==;
+	bh=zeUGGTYgyK94YprNuLur3t1PD0YGNWfrDQg8S912Lhw=; b=CoJG15KhTuGU2qBU7UMTgWTdyw
+	yuondJuCCLh9IznV7iZItJWqR0IM6+itjEoktG93+kFJyIGJAIHqp+/UVAp0rwcsD9s/WlPExkUEc
+	CeMbm7qkwfBXZbx/Rv3b1D3ydjvTtZ8SNC2GoRGoZTXNokE0yAp9yRm2nEiNjMKZdX0uV7wLLG+k2
+	jGFOkpdusoEfc/we7iSHJogGrOGEpQvN5QxfnYi4qobam7SRee4sC6wKDvNERVACOkTwf1V+t+fAe
+	Nvk4BEB41NAnESpCQ+7109jMx9hKPYATLxQnocfGVCWdG1nfQjmb7KbyHpf6mULo4VFmcki9rdW4m
+	AsAGCM7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5b5g-00000004bnY-1KmK;
-	Thu, 26 Mar 2026 03:09:00 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w5b6c-00000004bvK-0s5Q;
+	Thu, 26 Mar 2026 03:09:58 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5b5c-00000004bn1-3Lf0;
-	Thu, 26 Mar 2026 03:08:57 +0000
-X-UUID: 1cc117c428c111f1a6de359d7043e138-20260325
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=gc1Cfkcgv/5lPuvFF53M/UC0jd9eXEdjF+510NK63+E=;
-	b=gmKO2qkAAxrmjzTqBw4aLC8P41r4tut1eZ8bTxm1h4+9Aw4KefYdSR3vJGbGSqSV0IwbO4QIMP93huCuG9cxPuxly9hiqXZV35/h2BqMt/2kBybsQemuqqOC21Yv+7bxsDHpHM1l5Gy+eBcmLRJsxM7VEcos1a01PH7/FznFfqQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:e716eacf-05c5-4acd-808f-96be45d2efff,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:c6b6b48e-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1cc117c428c111f1a6de359d7043e138-20260325
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ot_cathy.xu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 222753313; Wed, 25 Mar 2026 20:08:50 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 26 Mar 2026 11:08:47 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 26 Mar 2026 11:08:46 +0800
-From: Cathy Xu <ot_cathy.xu@mediatek.com>
-To: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Mengqi Zhang <Mengqi.Zhang@mediatek.com>, Wenbin Mei
-	<Wenbin.Mei@mediatek.com>, Andy-ld Lu <Andy-ld.Lu@mediatek.com>, Axe Yang
-	<Axe.Yang@mediatek.com>, Yong Mao <yong.mao@mediatek.com>, Cathy Xu
-	<ot_cathy.xu@mediatek.com>, <stable@vger.kernel.org>
-Subject: [PATCH RESEND] mmc: mtk-sd: disable new_tx/rx and modify related settings for mt8189
-Date: Thu, 26 Mar 2026 11:05:16 +0800
-Message-ID: <20260326030759.8107-1-ot_cathy.xu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1w5b6Z-00000004buv-3FgR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 03:09:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1774494593;
+	bh=zeUGGTYgyK94YprNuLur3t1PD0YGNWfrDQg8S912Lhw=;
+	h=Subject:From:To:Cc:Date;
+	b=h9tzlO7HVgpr7TKHSJj2CHl/BXQSp9jqI2Idzj2KXDfaP9GRr3XW/JDYKM0u5cwD/
+	 rAA0ZCHXMqJykP5jihSrlPCB+p2DRCPC2is/7Nt3BEEEiG8iaNUhw0VzzhQUb+ybuL
+	 YgrBjRkV3afc/awiiW+4sMx4JNX+oy44V0aHCI6f0cjMDjzbge+L+hymQFLVRASKX1
+	 tjbspCnVMe5sjoc4ax7V7pDunlpEiV1mJ1uDDs8n5xIfThKsMYqfpJrU3JJVQ2i/Uf
+	 l+D3SScdqg9BWOnhEfN5usNLs3nxOjJNn3OVJOdUYt2p/iKeWTWc8Hbs4hvgCcTZX0
+	 TXl6HbAEMfkZA==
+Received: from [192.168.68.115] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5929E645CA;
+	Thu, 26 Mar 2026 11:09:53 +0800 (AWST)
+Message-ID: <df8ef5ea7b9e254658934c18de20fd9805a82d74.camel@codeconstruct.com.au>
+Subject: [GIT PULL] aspeed: first batch of devicetree changes for v7.1
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Thu, 26 Mar 2026 13:39:52 +1030
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_200856_862321_B18B1A88 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20260325_200956_011549_E3182C44 
+X-CRM114-Status: UNSURE (   5.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +69,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Disable new_tx/rx to avoid data transmission instability, and adjust
-.data_tune, .stop_dly_sel, and .pop_en_cnt to fit the overall
-configuration after disabling new_tx/rx, making it more compatible
-with mt8189.
+Hello SoC maintainers,
 
-Fixes: 846a3a2fdff5 ("mmc: mtk-sd: add support for MT8189 SoC")
-Cc: stable@vger.kernel.org
-Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
----
- drivers/mmc/host/mtk-sd.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+Here's the first batch of ASPEED devicetree changes for v7.1.
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index 302ac8529c4f..b2680cc054bd 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -682,15 +682,15 @@ static const struct mtk_mmc_compatible mt8189_compat = {
- 	.needs_top_base = true,
- 	.pad_tune_reg = MSDC_PAD_TUNE0,
- 	.async_fifo = true,
--	.data_tune = true,
-+	.data_tune = false,
- 	.busy_check = true,
- 	.stop_clk_fix = true,
--	.stop_dly_sel = 1,
--	.pop_en_cnt = 2,
-+	.stop_dly_sel = 3,
-+	.pop_en_cnt = 8,
- 	.enhance_rx = true,
- 	.support_64g = true,
--	.support_new_tx = true,
--	.support_new_rx = true,
-+	.support_new_tx = false,
-+	.support_new_rx = false,
- 	.support_spm_res_release = true,
- };
- 
--- 
-2.45.2
+Please pull.
+
+Cheers,
+
+Andrew
+
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f=
+:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
+-7.1-devicetree-0
+
+for you to fetch changes up to 76b4ec8efdc3887cdbf730da2e55881fc1a18770:
+
+  ARM: dts: aspeed: anacapa: Add retimer EEPROMs (2026-02-23 12:02:22 +1030=
+)
+
+----------------------------------------------------------------
+aspeed: first batch of devicetree changes for v7.1
+
+New platforms:
+
+- Asus Kommando IPMI card
+- Asrock Paul IPMI card
+
+Updated platforms:
+
+- Anacapa (Meta): NFC and EEPROMs
+- MSX4 (Nvidia): 128M layout for the alternate boot flash
+
+----------------------------------------------------------------
+Anirudh Srinivasan (4):
+      dt-bindings: arm: aspeed: Add Asus Kommando IPMI card
+      ARM: dts: aspeed: Add Asus Kommando IPMI card
+      dt-bindings: arm: aspeed: Add Asrock Paul IPMI card
+      ARM: dts: aspeed: Add Asrock Paul IPMI card
+
+Carl Lee (1):
+      ARM: dts: aspeed: anacapa: add NFC device
+
+Dirk Chen (1):
+      ARM: dts: aspeed: anacapa: Add retimer EEPROMs
+
+Marc Olberding (1):
+      ARM: dts: aspeed: Add 128M alt flash layout to NVIDIA MSX4
+
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml        |   2 ++
+ arch/arm/boot/dts/aspeed/Makefile                               |   2 ++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-paul-ipmi-card.dts   | 131 ++++=
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts | 117 ++++=
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts        |  22 ++++=
++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts         |   1 +
+ arch/arm/boot/dts/aspeed/openbmc-flash-layout-128-alt.dtsi      |  32 ++++=
+++++++++++++++++++
+ 7 files changed, 307 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-paul-ipmi-ca=
+rd.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-=
+card.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/openbmc-flash-layout-128-alt.d=
+tsi
 
 
