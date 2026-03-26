@@ -4,80 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B66C109E543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 03:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9B2109E543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 03:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZZjPI2+9t2kwbpanAd9yQjrpbUTVEMjIeXvX9owJVnw=; b=nVaM/Rp4uZFhxpYmDEuvoA3i4R
-	sLOerWpHvZ0NfAc6vAR+eT93Zfl04lPpUysSJVfDmGFGYm06k/1ci9Gg79yw8Jit7c5XhzfJIHYKO
-	pKBbCrmbYmCflBU0iOJmWQ+zYexEXoHA3YWIqVC3ac+t3Cc7zSpJBuTvVRkajxcZ+fPkD641bLwC4
-	MOz1a+17DmMxMdjkL3binN9HJnsrfh4btLc5cS2KiBJzTvzjnsjReYnMjdMLWYYCzp3u203an49Ts
-	3P4IZVVn4Wv6TT4jpKxl4+PuzDpQFvJQxi86UG1v3Yo/vHa367/suhaGfSJFxRKtJjSWzegAMmxM2
-	rqOtPrlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eB+dLsG5tXfnyNIFXfqQOMNtjQr+D5glJc3VgXXmzsk=; b=IiKKkemXu2O4nzC3OUtaX9dm1h
+	UvgZyccpfmnQAsyNkM/zPuz/Fclv6FrzGtQ95WgaU19cNupV9ewtdC02LxQLcZyu64U/bUwq13lD2
+	ofPUG59S+HuUhWUJprkR5qdIbU3aLZHZIUlYhH1xJX/ZwiAugOCoBx133/KGcQM8Job/iiDLswRvI
+	rkhaxCZVNAaepbh0PYMuXzTXNR33rAOxObsam9tn9+qwZ7dHkVqCjSM5O7uz8DzNnbm5g9WfT5R9k
+	zUMENBKivHgLtoGR/t8LHUwHQd2k/4WepUWtloL71v4+Ecc+VXNbSWG37/18QUOncL802ePQ9rIAt
+	BBdxiQ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5bG5-00000004cuC-1HRE;
-	Thu, 26 Mar 2026 03:19:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w5bML-00000004dBV-1fvO;
+	Thu, 26 Mar 2026 03:26:13 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5bG2-00000004ctj-1q38;
-	Thu, 26 Mar 2026 03:19:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56EE94095F;
-	Thu, 26 Mar 2026 03:19:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93B85C2BC9E;
-	Thu, 26 Mar 2026 03:19:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774495180;
-	bh=64GvIUh5BK+CA6321kY9KFkS39Cla/4+STtvnAwRWeg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DoNJjbvsdO9M8I355YakZTdyuT3xoRXpGtMM2wojdApb9Q7ajDoGdWHuW7T+qyJs8
-	 JLJtoasNll/fzCTKgF2pot1ARQr8/WJz18ymv6QdXj8Tag8zYprMsTUMGMVBz07VAn
-	 5/ol1dU6SqblhURvBbAUXWOT7ww/gO3Zmxb6zeoa1vKQWvC6Bi4QosLSw70nx8ljqL
-	 mxsSn9BJvJy2ba4neAZFnE1z8Z2JJhzsTZs5kI0u1/lgpSiGsj2hWBD4svpQ3mlUIl
-	 XLzSUDEneP1HMa3cDTXdRO7iUfFokDI5VOrhaCtSvbUNOFApAwpcyH/ryPfTXW5PdJ
-	 42LGsCrP7+iHQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thierry Reding <treding@nvidia.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/7] arm64: dts: Drop CPU masks from GICv3 PPI interrupts
-Date: Wed, 25 Mar 2026 22:19:21 -0500
-Message-ID: <177449516624.60308.16445349174496027428.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1772643434.git.geert+renesas@glider.be>
-References: <cover.1772643434.git.geert+renesas@glider.be>
+	id 1w5bME-00000004dAt-2MlE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Mar 2026 03:26:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1774495564;
+	bh=eB+dLsG5tXfnyNIFXfqQOMNtjQr+D5glJc3VgXXmzsk=;
+	h=Subject:From:To:Cc:Date;
+	b=EOR0wMesdSerzGer9QZ3uJSHa96ISOkKd/JLd+h6xt0wovzpoeic096Drj2uVMemy
+	 jEQjI7RRhvADgnBKnNloQuEClQpWoSksAjGnA/cQMtHh+0FydaCtHbhvsyWvg//XUq
+	 cqGyGvWV7ZOc0Z9n0pW2VBIr+ALXaOrlkLeFjuIMX49YMmIvpm0ApWprGbV0MlfMv2
+	 nGVy4g4HkiChklNJ0s5q2b3NA1ya+j/GRxoZxPVD3nzvS9pQGDwrcHwQpOG1F6Rt7C
+	 kjf2pu/yAxt89bNWLqHmHeKF1NlA86DgRZnLs/JueF5onfqBmDFz0x1WOWqj5BsBJH
+	 AUo2McuK1U74Q==
+Received: from [192.168.68.115] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 3F53A645CA;
+	Thu, 26 Mar 2026 11:26:04 +0800 (AWST)
+Message-ID: <8d8d5f9f7f8ee803ab14c4b3405d74b305a2ab81.camel@codeconstruct.com.au>
+Subject: [GIT PULL] nuvoton: first batch of arm64 devicetree changes for v7.1
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Thu, 26 Mar 2026 13:56:03 +1030
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_201942_522457_48129D7D 
-X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-CacheID: sfid-20260325_202606_790510_F3F32788 
+X-CRM114-Status: UNSURE (   4.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,27 +69,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello SoC maintainers,
 
-On Wed, 04 Mar 2026 18:10:57 +0100, Geert Uytterhoeven wrote:
-> 	Hi all,
-> 
-> Unlike older GIC variants, the GICv3 DT bindings do not support
-> specifying a CPU mask in PPI interrupt specifiers.  Hence this patch
-> series drop all such masks where they are still present.
-> 
-> This has been compile-tested only.  But note that all such masks were
-> removed before from Renesas SoCs in commit 8b6a006c914aac17 ("arm64:
-> dts: renesas: Drop specifying the GIC_CPU_MASK_SIMPLE() for GICv3
-> systems")).
-> 
-> [...]
+Just the one Nuvoton devicetree change for v7.1
 
-Applied, thanks!
+Please pull.
 
-[7/7] arm64: dts: qcom: Drop CPU masks from GICv3 PPI interrupts
-      commit: 99bb0693df91db9338fa69d496de4601c9582058
+Andrew
 
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f=
+:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/nuvoto=
+n-arm64-7.1-devicetree-0
+
+for you to fetch changes up to 6ee3f20368a4a6198988a54c1a744cbae1354359:
+
+  arm64: dts: nuvoton: drop unused syscon property from watchdog node (2026=
+-02-23 09:43:36 +1030)
+
+----------------------------------------------------------------
+nuvoton: first batch of arm64 devicetree changes for v7.1
+
+Just the one change this time, dropping syscon properties where they weren'=
+t
+defined.
+----------------------------------------------------------------
+Tomer Maimon (1):
+      arm64: dts: nuvoton: drop unused syscon property from watchdog node
+
+ arch/arm64/boot/dts/nuvoton/nuvoton-common-npcm8xx.dtsi | 3 ---
+ 1 file changed, 3 deletions(-)
+
 
