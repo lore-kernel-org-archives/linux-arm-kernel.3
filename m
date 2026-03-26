@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8612D10A3D8E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C916A10A3D81
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 12:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDfPZbLOars6V3VM6WyNpF/5C7AAMwDITeXI0ArFbKM=; b=oe2mR6DseX6lZ6OJ2/IgnKffr8
-	baC135gHuOLN7sWSf4HSO1Xe55GNErgNQ6M57Vm8gngInSYSj9Z8HPHnAnkUbbisnvvlQ9M6m15OP
-	KMqIkVDFV7A+m8srFIDJIpPwMFFZ/ykg5qUqY1R5rSh3nmfMf7vz9khJEfR3o23S/f5hU3aa+l52h
-	qLOt/gBYuOaiy6gKURYrEMsVNr1RDJMnQVYycGrue/5rWkkyf4hszQ09mD/MFw5hgQlVlELihILIK
-	C65QHWzdGl5Q4qzCK00nRtTofSagyaCE1NMrmgkkuBfAr+NvDMPpQDmdJXAA+RyqVHUDgxalDzmg4
-	u+MxTAOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=06KB53lThvomRpyYQxy3Sh2rJb39T5D6WNpA7eb1gCM=; b=EGDbGG9PdFWRBaghE6QYy2BeNs
+	Q3fl8OuTUWtEkNyu189Xs9TJDkUkesBv7Ww2Wu3VDkEWhs3EdyWF3LPPrBTKhHG0RbfToAV6T3i5M
+	T+3R7f8mCPxZLwh3/Nu2+08RbSnJUy2XXkIUvy5I5FWaiRHHr0XnjwRZIUUXR08QGwqbdg2Ns1Co5
+	n0F1lAhOzqJ50cTbcdgQm0fOExxOqMNXICGsKxOBh0MfqhTtnkrUYuhYkpDbHMJkHfZK84p42Spqz
+	NjT04kS1jbqnzQ2foco2DYjO8dGm29VcC0EAUefVn6rZq4Bdf7WjyCLE519Ap1JdVde4IyBpV/S6j
+	YPpif9fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k23-00000005Th0-2lSW;
+	id 1w5k23-00000005Tge-1RsC;
 	Thu, 26 Mar 2026 12:41:51 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5k1w-00000005SkD-0nAx
+	id 1w5k1u-00000005Ta4-0RhN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 12:41:47 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fhNVG0Z0JzmV8X;
-	Thu, 26 Mar 2026 20:33:26 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id BDB5540565;
-	Thu, 26 Mar 2026 20:39:33 +0800 (CST)
-Received: from localhost.localdomain (10.50.163.32) by
- kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 26 Mar 2026 20:39:33 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <tianyaxiong@kylinos.cn>
-CC: <linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linuxarm@huawei.com>, <zhanjie9@hisilicon.com>,
-	<jonathan.cameron@huawei.com>, <zhenglifeng1@huawei.com>,
-	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
-	<prime.zeng@hisilicon.com>
-Subject: [PATCH v1 06/10] devfreq: Add module owner to devfreq governor
-Date: Thu, 26 Mar 2026 20:34:24 +0800
-Message-ID: <20260326123428.800407-7-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260326123428.800407-1-zhanjie9@hisilicon.com>
-References: <20260326123428.800407-1-zhanjie9@hisilicon.com>
+	Thu, 26 Mar 2026 12:41:45 +0000
+Message-ID: <0ce07bc5-6365-4c54-90e2-4e56ad2b7465@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1774528885;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=06KB53lThvomRpyYQxy3Sh2rJb39T5D6WNpA7eb1gCM=;
+	b=K4yXwAFXMX0fmJ8EBL0HJNpbjd+3Q1RJx589DnC0Z6DFYmyjstFt8kC+beKS2yTg3QT2AD
+	0sT6NpNguoAvjDsNI17ZlCd877xod5JgPcDxp4aJyO9QfJCSdDQETFzDUiubr4AqzwuQ01
+	yfW+d4keIyheJf1HUII1d5s6AvtIIOc=
+Date: Thu, 26 Mar 2026 08:40:21 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+Subject: Re: [PATCH v2 2/4] mm: replace exec_folio_order() with generic
+ preferred_exec_order()
+To: Jan Kara <jack@suse.cz>, david@kernel.org, ryan.roberts@arm.com
+Cc: Andrew Morton <akpm@linux-foundation.org>, willy@infradead.org,
+ linux-mm@kvack.org, r@hev.cc, ajd@linux.ibm.com, apopple@nvidia.com,
+ baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
+ catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org,
+ kevin.brodsky@arm.com, lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, lorenzo.stoakes@oracle.com, mhocko@suse.com,
+ npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
+ rppt@kernel.org, surenb@google.com, vbabka@kernel.org,
+ Al Viro <viro@zeniv.linux.org.uk>, wilts.infradead.org@quack3,
+ ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ kernel-team@meta.com
+References: <20260320140315.979307-1-usama.arif@linux.dev>
+ <20260320140315.979307-3-usama.arif@linux.dev>
+ <k45xs6btmt62uerbglqe665jozrtkeoklu4rek6odgxjdj63ni@ftw6ef3ug33x>
+Content-Language: en-GB
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <k45xs6btmt62uerbglqe665jozrtkeoklu4rek6odgxjdj63ni@ftw6ef3ug33x>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_054145_867740_CDDA7BE3 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260326_054142_308203_34A6954B 
+X-CRM114-Status: GOOD (  24.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,148 +82,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an 'owner' member to struct devfreq_governor, such that we can find
-the module that holds the governor code when it's compiled as a kernel
-module.  This allows the devfreq core to properly manage the lifecycle
-of governors.
 
-Update devfreq_add_governor() and devm_devfreq_add_governor() to
-automatically set 'owner' to THIS_MODULE via helper macros.
 
-This is a prerequisite for implementing governor reference counting
-to prevent module unloading while a governor is in use.
+On 20/03/2026 17:42, Jan Kara wrote:
+> On Fri 20-03-26 06:58:52, Usama Arif wrote:
+>> Replace the arch-specific exec_folio_order() hook with a generic
+>> preferred_exec_order() that dynamically computes the readahead folio
+>> order for executable memory. It targets min(PMD_ORDER, 2M) as the
+>> maximum, which optimally gives the right answer for contpte (arm64),
+>> PMD mapping (x86, arm64 4K), and architectures with smaller PMDs
+>> (s390 1M). It adapts at runtime based on:
+>>
+>> - VMA size: caps the order so folios fit within the mapping
+>> - Memory pressure: steps down the order when the local node's free
+>>   memory is below the high watermark for the requested order
+>>
+>> This avoids over-allocating on memory-constrained systems while still
+>> requesting the optimal order when memory is plentiful.
+>>
+>> Since exec_folio_order() is no longer needed, remove the arm64
+>> definition and the generic default from pgtable.h.
+>>
+>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> ...
+>> +static unsigned int preferred_exec_order(struct vm_area_struct *vma)
+>> +{
+>> +	int order;
+>> +	unsigned long vma_len = vma_pages(vma);
+>> +	struct zone *zone;
+>> +	gfp_t gfp;
+>> +
+>> +	if (!IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
+>> +		return 0;
+>> +
+>> +	/* Cap at min(PMD_ORDER, 2M) */
+>> +	order = min(HPAGE_PMD_ORDER, ilog2(SZ_2M >> PAGE_SHIFT));
+>> +
+>> +	/* Don't request folios larger than the VMA */
+>> +	order = min(order, ilog2(vma_len));
+> 
 
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
- drivers/devfreq/devfreq.c        | 26 +++++++++-----------------
- include/linux/devfreq-governor.h | 26 +++++++++++++++++++++++---
- 2 files changed, 32 insertions(+), 20 deletions(-)
+Hi Jan,
 
-diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index 7e71e8c76303..9b078458d129 100644
---- a/drivers/devfreq/devfreq.c
-+++ b/drivers/devfreq/devfreq.c
-@@ -1293,11 +1293,8 @@ void devfreq_resume(void)
- 	mutex_unlock(&devfreq_list_lock);
- }
- 
--/**
-- * devfreq_add_governor() - Add devfreq governor
-- * @governor:	the devfreq governor to be added
-- */
--int devfreq_add_governor(struct devfreq_governor *governor)
-+int __devfreq_add_governor(struct devfreq_governor *governor,
-+			   struct module *mod)
- {
- 	struct devfreq_governor *g;
- 
-@@ -1313,38 +1310,33 @@ int devfreq_add_governor(struct devfreq_governor *governor)
- 		return -EINVAL;
- 	}
- 
-+	governor->owner = mod;
- 	scoped_guard(mutex, &devfreq_gov_lock)
- 		list_add(&governor->node, &devfreq_governor_list);
- 
- 	return 0;
- }
--EXPORT_SYMBOL(devfreq_add_governor);
-+EXPORT_SYMBOL(__devfreq_add_governor);
- 
- static void devm_devfreq_remove_governor(void *governor)
- {
- 	WARN_ON(devfreq_remove_governor(governor));
- }
- 
--/**
-- * devm_devfreq_add_governor() - Add devfreq governor
-- * @dev:	device which adds devfreq governor
-- * @governor:	the devfreq governor to be added
-- *
-- * This is a resource-managed variant of devfreq_add_governor().
-- */
--int devm_devfreq_add_governor(struct device *dev,
--			      struct devfreq_governor *governor)
-+int __devm_devfreq_add_governor(struct device *dev,
-+				struct devfreq_governor *governor,
-+				struct module *mod)
- {
- 	int err;
- 
--	err = devfreq_add_governor(governor);
-+	err = __devfreq_add_governor(governor, mod);
- 	if (err)
- 		return err;
- 
- 	return devm_add_action_or_reset(dev, devm_devfreq_remove_governor,
- 					governor);
- }
--EXPORT_SYMBOL(devm_devfreq_add_governor);
-+EXPORT_SYMBOL(__devm_devfreq_add_governor);
- 
- /**
-  * devfreq_remove_governor() - Remove devfreq feature from a device.
-diff --git a/include/linux/devfreq-governor.h b/include/linux/devfreq-governor.h
-index dfdd0160a29f..1c4ff57e24de 100644
---- a/include/linux/devfreq-governor.h
-+++ b/include/linux/devfreq-governor.h
-@@ -12,6 +12,7 @@
- #define __LINUX_DEVFREQ_DEVFREQ_H__
- 
- #include <linux/devfreq.h>
-+struct module;
- 
- #define DEVFREQ_NAME_LEN			16
- 
-@@ -50,6 +51,7 @@
- /**
-  * struct devfreq_governor - Devfreq policy governor
-  * @node:		list node - contains registered devfreq governors
-+ * @owner:		Module that this governor belongs to
-  * @name:		Governor's name
-  * @attrs:		Governor's sysfs attribute flags
-  * @flags:		Governor's feature flags
-@@ -67,6 +69,7 @@
- struct devfreq_governor {
- 	struct list_head node;
- 
-+	struct module *owner;
- 	const char name[DEVFREQ_NAME_LEN];
- 	const u64 attrs;
- 	const u64 flags;
-@@ -81,11 +84,28 @@ void devfreq_monitor_suspend(struct devfreq *devfreq);
- void devfreq_monitor_resume(struct devfreq *devfreq);
- void devfreq_update_interval(struct devfreq *devfreq, unsigned int *delay);
- 
--int devfreq_add_governor(struct devfreq_governor *governor);
-+/**
-+ * devfreq_add_governor() - Add devfreq governor
-+ * @governor:	The devfreq governor to be added
-+ */
-+#define devfreq_add_governor(governor) \
-+	__devfreq_add_governor((governor), THIS_MODULE)
-+int __devfreq_add_governor(struct devfreq_governor *governor,
-+			   struct module *mod);
- int devfreq_remove_governor(struct devfreq_governor *governor);
- 
--int devm_devfreq_add_governor(struct device *dev,
--			      struct devfreq_governor *governor);
-+/**
-+ * devm_devfreq_add_governor() - Add devfreq governor
-+ * @dev:	device which adds devfreq governor
-+ * @governor:	the devfreq governor to be added
-+ *
-+ * This is a resource-managed variant of devfreq_add_governor().
-+ */
-+#define devm_devfreq_add_governor(dev, governor) \
-+	__devm_devfreq_add_governor((dev), (governor), THIS_MODULE)
-+int __devm_devfreq_add_governor(struct device *dev,
-+				struct devfreq_governor *governor,
-+				struct module *mod);
- 
- int devfreq_update_status(struct devfreq *devfreq, unsigned long freq);
- int devfreq_update_target(struct devfreq *devfreq, unsigned long freq);
--- 
-2.43.0
+Thanks for the feedback and sorry for the late reply! I was travelling
+during the week.
+
+> Hum, as far as I'm checking page_cache_ra_order() used in
+> do_sync_mmap_readahead(), ra->order is the preferred order but it will be
+> trimmed down to fit both within the file and within ra->size. And ra->size
+> is set for the readahead to fit within the vma so I don't think any order
+> trimming based on vma length is needed in this place?
+
+Ack, yes makes sense.
+
+> 
+>> +	/* Step down under memory pressure */
+>> +	gfp = mapping_gfp_mask(vma->vm_file->f_mapping);
+>> +	zone = first_zones_zonelist(node_zonelist(numa_node_id(), gfp),
+>> +				    gfp_zone(gfp), NULL)->zone;
+>> +	if (zone) {
+>> +		while (order > 0 &&
+>> +		       !zone_watermark_ok(zone, order,
+>> +					  high_wmark_pages(zone), 0, 0))
+>> +			order--;
+>> +	}
+> 
+> It looks wrong for this logic to be here. Trimming order based on memory
+> pressure makes sense (and we've already got reports that on memory limited
+> devices large order folios in the page cache have too big memory overhead
+> so we'll likely need to handle that for page cache allocations in general)
+> but IMHO it belongs to page_cache_ra_order() or some other common place
+> like that.
+> 
+> 								Honza
+
+So I have been thinking about this. readahead_gfp_mask() already sets
+__GFP_NORETRY, so we wont try aggressive reclaim/compaction to satisfy
+the allocation. page_cache_ra_order() falls through to the fallback path
+faulting in order 0 page when allocation is not satsified.
+
+So the allocator already naturally steps down under memory pressure,
+the explicit zone_watermark_ok() loop might be redundant?
+
+What are your thoughts on just setting
+ra->order = min(HPAGE_PMD_ORDER, ilog2(SZ_2M >> PAGE_SHIFT))?
+We can do the higher orlder allocation with gfp &= ~__GFP_RECLAIM
+for the VM_EXEC case.
 
 
