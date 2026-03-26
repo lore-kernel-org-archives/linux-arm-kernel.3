@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E4710A1E60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B5A10A1E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 10:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iP+2SOFYuuXmKkKk4h5++E5TTs+8Dra2A/iKcsn4gWE=; b=Tz+BfO7e5D2gtgY5uJ/onefTDH
-	wsBFu60Mg5aOvOyrZ8AQeJ+xRclh885zS6xitU1GdxpTqAsj0OPjpyyudAweTCPoUDYPE2daP7Ad6
-	zgtc7hLqeXRXvojwd8+QE1iGW3U1uaHwkRuO0AyB9YUhws7hirdC3+BI9H40Fw6WPm43nnGvb+ylr
-	p0J8EeOSiNebAyGS0unv3Av+P8sdslhkqptpJ0XibhrpsiZLFtCaqmjbDWxcvK5B0cJmtM1wVqqhQ
-	dyAhRlgIZpB7yOaNcEQ6sJj7v6unzlYXmUeiHSWT1hzmSld94MBxbxaUp6m4RP7yhgh4rKjuGJt7N
-	MYmBq0jw==;
+	bh=Bo2WuRtmRS8Z86c0o/7IVvpIgFBSmwSYlo7KDlda+NI=; b=FgQiwmtM12xAByHvfSmO1Cbuxu
+	CbwBv4Z6Q17GRoA4mNM37D99XVb1/RHnZQHGQHqSKfFF2a3CcIJHwguNMTixIPk2TBFgdvcbpFFxv
+	uUke3wHV+Q2iXr+OgdLGlcuChCHl9SkpuIzWciP5qZRZ8AbvqQjc2zT9x3at47islPU1S0ubFgM/E
+	HTM97oOafKbWBeShGoOHVy1FD5H+rM3sak/hPyWLj0gxf9QM4R497PvskvvKMdTujQxVdyF1PJ73s
+	RVANWu4K5tUUWTaGI2q0qgB6CPeY/sgu1T0CuPf4Okjs9nr9KJDvXyQCyWIHw9zilcEK52RghbSOD
+	h5PKei7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5i8i-00000005HUT-2kYT;
-	Thu, 26 Mar 2026 10:40:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5i8S-00000005HTC-0IGX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 10:40:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF361175A;
-	Thu, 26 Mar 2026 03:40:12 -0700 (PDT)
-Received: from [10.57.76.165] (unknown [10.57.76.165])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DC6E3FB90;
-	Thu, 26 Mar 2026 03:40:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774521618; bh=jCgA5Qoq0F1Yxd79EMxK5dXZ+XK/jWruv7LJw+fK3S0=;
+	id 1w5iCw-00000005Hi6-1HSC;
+	Thu, 26 Mar 2026 10:44:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5iCv-00000005Hhs-0jli;
+	Thu, 26 Mar 2026 10:44:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 21E9D60103;
+	Thu, 26 Mar 2026 10:44:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE3B6C116C6;
+	Thu, 26 Mar 2026 10:44:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774521895;
+	bh=RpHr2+xHkvht2/Kh3sSH7GYvx2wP6yqls3YE2NUO0rs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K3WnHrRdamLykfPTlVFokk/Uvzgsnhp0B4vw5wO2j37T78seG4zPV/MPjo/0tN2JX
-	 TuJsRxhTv+sulyeAiSQq/dHHvQLPu0UE895yM16X98AHocoqdK9OoMwVsTw2PXhTmt
-	 7B+kEnefTxcsOOoQEgl5pJYyNitQs7yHSW7eY4HM=
-Message-ID: <45fbd3d2-4c46-49ce-9d19-38b247ad7388@arm.com>
-Date: Thu, 26 Mar 2026 10:40:15 +0000
+	b=oZaElY+xwfixyAcqHZhLjm1kzqhHtlPlUH7GKOTLKXANwHDqMaG1z6XwK+kEQeLOE
+	 SYtBHHg37QOb54eq+UD8GrKX9hQ+eyixSzkh57jRU/1t5ChhlFDoLNFrhlvAUfv7T6
+	 sZWCKLLb7jN89LctiPPnWlgN5y78Qjx+/QHgsyWC0CQN+IMFUPMFgtvHlpiyUt+V5w
+	 LeoibiKN4Zw4L9hawiOfwt1apacVFOXRxXyuXI0ZqDVTae+0tk1tn7+8FIAI0IkO+2
+	 USwrP2P6UszCTljgKzyfk42RQc6SWYWgX+jwYahwV6HqPPop4F/WNeF9Jm9BcDKhq/
+	 SWL3RmCPKNuZQ==
+Message-ID: <0b479256-1266-4c9c-a565-6e2a68573ddd@kernel.org>
+Date: Thu, 26 Mar 2026 11:44:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf/arm-cmn: Fix resource_size_t printk specifier in
- arm_cmn_init_dtc()
-To: Nathan Chancellor <nathan@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260325-perf-arm-cmn-fix-resource_size_t-format-v1-1-e84d52ee3e81@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260325-perf-arm-cmn-fix-resource_size_t-format-v1-1-e84d52ee3e81@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v4 20/21] mm: add mmap_action_map_kernel_pages[_full]()
+Content-Language: en-US
+To: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Clemens Ladisch <clemens@ladisch.de>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Bodo Stroesser <bostroesser@gmail.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ David Hildenbrand <david@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <cover.1774045440.git.ljs@kernel.org>
+ <926ac961690d856e67ec847bee2370ab3c6b9046.1774045440.git.ljs@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <926ac961690d856e67ec847bee2370ab3c6b9046.1774045440.git.ljs@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_034020_243324_54F7EBA5 
-X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +97,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-26 2:19 am, Nathan Chancellor wrote:
-> When building for 32-bit ARM, there is a warning when using the %llx
-> specifier to print a resource_size_t variable:
+On 3/20/26 23:39, Lorenzo Stoakes (Oracle) wrote:
+> A user can invoke mmap_action_map_kernel_pages() to specify that the
+> mapping should map kernel pages starting from desc->start of a specified
+> number of pages specified in an array.
 > 
->    drivers/perf/arm-cmn.c: In function 'arm_cmn_init_dtc':
->    drivers/perf/arm-cmn.c:2149:73: error: format '%llx' expects argument of type 'long long unsigned int', but argument 4 has type 'resource_size_t' {aka 'unsigned int'} [-Werror=format=]
->     2149 |                                      "Failed to request DTC region 0x%llx\n", base);
->          |                                                                      ~~~^     ~~~~
->          |                                                                         |     |
->          |                                                                         |     resource_size_t {aka unsigned int}
->          |                                                                         long long unsigned int
->          |                                                                      %x
+> In order to implement this, adjust mmap_action_prepare() to be able to
+> return an error code, as it makes sense to assert that the specified
+> parameters are valid as quickly as possible as well as updating the VMA
+> flags to include VMA_MIXEDMAP_BIT as necessary.
 > 
-> Use the %pa specifier to handle the possible sizes of phys_addr_t
-> properly. This requires passing the variable by reference.
+> This provides an mmap_prepare equivalent of vm_insert_pages().  We
+> additionally update the existing vm_insert_pages() code to use
+> range_in_vma() and add a new range_in_vma_desc() helper function for the
+> mmap_prepare case, sharing the code between the two in range_is_subset().
+> 
+> We add both mmap_action_map_kernel_pages() and
+> mmap_action_map_kernel_pages_full() to allow for both partial and full VMA
+> mappings.
+> 
+> We update the documentation to reflect the new features.
+> 
+> Finally, we update the VMA tests accordingly to reflect the changes.
+> 
+> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+> Signed-off-by: Lorenzo Stoakes (Oracle) <ljs@kernel.org>
 
-Cheers Nathan! I had seen the kbuild robot reports last night, and was 
-going to get to this today, but I'm more than happy to be beaten to it!
-
-Reviewed-by: Robin murphy <robin.murphy@arm.com>
-
-> Fixes: 5394396ff548 ("perf/arm-cmn: Stop claiming entire iomem region")
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->   drivers/perf/arm-cmn.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index 1ac91cda6780..5c727c2abaf0 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -2146,7 +2146,7 @@ static int arm_cmn_init_dtc(struct arm_cmn *cmn, struct arm_cmn_node *dn, int id
->   	size = cmn->part == PART_CMN600 ? SZ_16K : SZ_64K;
->   	if (!devm_request_mem_region(cmn->dev, base, size, dev_name(cmn->dev)))
->   		return dev_err_probe(cmn->dev, -EBUSY,
-> -				     "Failed to request DTC region 0x%llx\n", base);
-> +				     "Failed to request DTC region 0x%pa\n", &base);
->   
->   	writel_relaxed(CMN_DT_DTC_CTL_DT_EN, dtc->base + CMN_DT_DTC_CTL);
->   	writel_relaxed(CMN_DT_PMCR_PMU_EN | CMN_DT_PMCR_OVFL_INTR_EN, CMN_DT_PMCR(dtc));
-> 
-> ---
-> base-commit: 2f89b7f78c50ca973ca035ceb30426f78d9e0996
-> change-id: 20260325-perf-arm-cmn-fix-resource_size_t-format-b01795e36e60
-> 
-> Best regards,
-> --
-> Nathan Chancellor <nathan@kernel.org>
-> 
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
 
