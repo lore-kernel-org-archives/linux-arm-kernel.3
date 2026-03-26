@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4EA106F306
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BEE106F306
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=16+VF+5NHe0xa6HKIQJNpMGjFD6+6C6+LsFOsle4G8I=; b=wvHDJux9cigV2UifOT7zpuuWrI
-	s6ScoK4dBQHkROgTp7OLsPBxdnOdKP19MrRVNDRSnVnd7VceSs8Z8wAltJjBqYFCfjUbOpuQBGqCo
-	mKcjr9UkU8QSsCYTuukhq8UEwyUkSzTUBM647rnyU8UOdbX+P5dZ7JNFTHhx4rHF8eOfM9M33aEI0
-	fkx4g0HrlffK5Wm90ZEIeZvCmBmO6m2oVoWZccxJ8FmQN8rtEMWuvqVS/S/i8UJzUZABFnQ42nAK2
-	CW6AWkvfKjSJ5OqU39szokMZy5n8+u/WQ20L33F/78ZvZS0w2X2jyUNKo1lz0ny3S8wzQi5A0XPjW
-	43MZl6rA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C5amtAtRHZ72rNdHTDvarx3XPPfDXwH6R2ES1qo6940=; b=Fm4fcvViFdEvqq
+	LgfHxMUOcqnnM7Yc8uf/pUBgla8F7MindjsksLt49K8iXZ9uSFRUFL2L7ciWUyaIQtwG6vxLg/SAo
+	zt8/Cg9xCE/JvxDzi3w4Js1FW8I7aAux8lt/TWb3VJorUkbKbsVop6aO/njFUKIzZLx97p2fSENAE
+	GAMNnESefKp/DB8OVOCf8BuVzjBFDG8NV3RzQhqhJvFmN6t8ZPLvalNVhgchHVV8zVTYhifYOvTdG
+	K0eLxovGSU3zbK6eJSzty0HZe9n6ArJfxgne9RHptYvNNLn4OOSYsukLizZDzc30TaiyKt9l2WwtU
+	ageTxpGS2gg71XMEZDdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gV4-000000054oF-2B5q;
-	Thu, 26 Mar 2026 08:55:34 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1w5gWY-000000054yj-3tAe;
+	Thu, 26 Mar 2026 08:57:06 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gV1-000000054ng-3I0l
+	id 1w5gWW-000000054yC-093j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 08:55:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=16+VF+5NHe0xa6HKIQJNpMGjFD6+6C6+LsFOsle4G8I=; b=iEAGnl2VulXKw6ECzvCLf8JTFu
-	tXygYWgoPUrKW0tfgmjj4Tw+qE0vUIKYTj7zEwbGhXAPicnyPggeBdLeOXbL2hnVllkggz8WvMqNY
-	WOMACd0OLcDD8f9uIBq4/PcVKPe5xU+HH80+sUn09sBlfI9TaSpo8t5tSvBrftoq7qvE1YKu89xmG
-	oZBw2yfgr4WknsgL5VXZfcifqg1hBtnd884r4B2L9Ycm85ZKB1ADkpWA24h+fhIsIkU7YOS5I9ERh
-	bfY70C36/SRc83nVdCfPoZzSVfwHyb4shU/+k/iUhyPRuiz3eKUx4UlQYJVoOrfQ0vXevMcYmUVEY
-	tcYob3vw==;
-Received: from sslproxy01.your-server.de ([78.46.139.224])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w5gUq-000Lpa-1r;
-	Thu, 26 Mar 2026 09:55:20 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w5gUp-0005Ky-2v;
-	Thu, 26 Mar 2026 09:55:19 +0100
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- Cristian Marussi <cristian.marussi@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- sudeep.holla@arm.com, philip.radford@arm.com, james.quinlan@broadcom.com,
- f.fainelli@gmail.com, vincent.guittot@linaro.org,
- etienne.carriere@foss.st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
- dan.carpenter@linaro.org, geert+renesas@glider.be,
- kuninori.morimoto.gx@renesas.com, marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol initialization
-Date: Thu, 26 Mar 2026 09:55:18 +0100
-Message-ID: <5980695.DvuYhMxLoT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <acPUxJ3N0QptmtlJ@pluto>
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
- <9b574ac5-09fa-4e7a-b2bb-a339fbb319bc@samsung.com> <acPUxJ3N0QptmtlJ@pluto>
+	Thu, 26 Mar 2026 08:57:05 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=C5amtAtRHZ72rNdHTDvarx3XPPfDXwH6R2ES1qo6940=;
+	b=1+NDixKlNWyhkSDjpVLzGx2OWl9s3QiMsMfWGKC339eKMZvj1fguQKl06UVIEwhz2RBdM61SG
+	4zGC3tDxs5/E84P/Mj/zok9ZodMxjJjnaxRhQ3ugIq8WLwfK0YdKSUMaYj3meezS0IAOm9aWdqe
+	qSYopO0TVwgEsRMEeydUuYg=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fhHYN3rNZzmV6K;
+	Thu, 26 Mar 2026 16:50:48 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2743540562;
+	Thu, 26 Mar 2026 16:56:56 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Mar 2026 16:56:55 +0800
+Message-ID: <bd8dd8fc-d9fa-3340-f069-464adfc557f9@huawei.com>
+Date: Thu, 26 Mar 2026 16:56:50 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27952/Thu Mar 26 07:24:52 2026)
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
+ masking
+Content-Language: en-US
+To: Thomas Gleixner <tglx@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+References: <20260320113026.3219620-1-mark.rutland@arm.com>
+ <20260320113026.3219620-2-mark.rutland@arm.com> <87eclek0mb.ffs@tglx>
+ <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com> <87341ujwl4.ffs@tglx>
+ <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com> <87fr5six4d.ffs@tglx>
+ <acPAzdtjK5w-rNqC@J2N7QTR9R3> <87ecl7gbeu.ffs@tglx>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <87ecl7gbeu.ffs@tglx>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_015532_447240_8555E206 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20260326_015704_434256_8B5C4C1B 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,89 +79,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Am Mittwoch, 25. M=E4rz 2026, 13:27:48 CET schrieb Cristian Marussi:
-> On Wed, Mar 25, 2026 at 12:02:41PM +0100, Marek Szyprowski wrote:
-> > On 10.03.2026 19:40, Cristian Marussi wrote:
-> > > Add proper error handling on failure to enumerate clocks features or
-> > > rates.
-> > >
-> > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> >=20
->=20
-> Hi Marek,
->=20
-> > This patch landed yesterday in linux-next as commit 0d8b0c8068a8=20
-> > ("firmware: arm_scmi: Harden clock protocol initialization"). In my=20
-> > tests I found that it causes a regression on RK3568 Odroid-M1 board=20
-> > (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts), cpufreq and GPU=20
-> > device are not probed properly:
-> >=20
-> > # dmesg | grep scmi
-> > scmi_core: SCMI protocol bus registered
-> > arm-scmi arm-scmi.0.auto: Using scmi_smc_transport
-> > arm-scmi arm-scmi.0.auto: SCMI max-rx-timeout: 30ms / max-msg-size:=20
-> > 104bytes / max-msg: 20
-> > scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
-> > arm-scmi arm-scmi.0.auto: SCMI Notifications - Core Enabled.
-> > arm-scmi arm-scmi.0.auto: Malformed reply - real_sz:8 calc_sz:4 =20
-> > (loop_num_ret:1)
-> > arm-scmi arm-scmi.0.auto: SCMI Protocol v2.0 'rockchip:' Firmware=20
-> > version 0x0
-> > arm-scmi arm-scmi.0.auto: Enabling SCMI Quirk=20
-> > [quirk_clock_rates_triplet_out_of_spec]
-> > scmi-clocks scmi_dev.3: probe with driver scmi-clocks failed with error=
- -22
-> >=20
->=20
-> Yes there are multiple reports of issues on this hardening, the series
-> is on hold and wont go into v7.1 as of now...it needs some basic fixes
-> and various quirks probably to address non-compliant firmwares...
->=20
-> It will be pushed to next again with a few more fixes in the coming
-> days and then we'll need to figure out how many quirks will be needed on
-> top of that and if it is acceptable at all...
-
-Just for the records: imx95 (maybe imx94 as well) is also affected by this.
-My board doesn't boot at all, because all the clocks are provided by SCMI.
-
-With this diff I can see it's the 'ext' clock
-=2D->8---
-=2D-- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -1253,8 +1253,11 @@ static int scmi_clock_protocol_init(const struct scm=
-i_protocol_handle *ph)
-        for (clkid =3D 0; clkid < cinfo->num_clocks; clkid++) {
-                cinfo->clkds[clkid].id =3D clkid;
-                ret =3D scmi_clock_attributes_get(ph, clkid, cinfo);
-=2D               if (ret)
-+               if (ret) {
-+                       dev_warn(ph->dev, "scmi_clock_attributes_get failed=
- for '%s': %d\n",
-+                                cinfo->clkds->info.name, ret);
-                        return ret;
-+               }
-=20
-                ret =3D scmi_clock_describe_rates_get(ph, clkid, cinfo);
-                if (ret)
-=2D->8---
-> arm-scmi arm-scmi.0.auto: scmi_clock_attributes_get failed for 'ext': -2
-> scmi-clocks scmi_dev.6: probe with driver scmi-clocks failed with error -2
-
-What's the idea of how to proceeed as apparently several platforms are
-affected?
-
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
 
 
+On 2026/3/25 23:46, Thomas Gleixner wrote:
+> On Wed, Mar 25 2026 at 11:03, Mark Rutland wrote:
+>> On Sun, Mar 22, 2026 at 12:25:06AM +0100, Thomas Gleixner wrote:
+>>> The current sequence on entry is:
+>>>
+>>>   // interrupts are disabled by interrupt/exception entry
+>>>   enter_from_kernel_mode()
+>>>      irqentry_enter(regs);
+>>>      mte_check_tfsr_entry();
+>>>      mte_disable_tco_entry();
+>>>      daif_inherit(regs);
+>>>      // interrupts are still disabled
+>>
+>> That last comment isn't quite right: we CAN and WILL enable interrupts
+>> in local_daif_inherit(), if and only if they were enabled in the context
+>> the exception was taken from.
+> 
+> Ok.
+> 
+>> As mentioned above, when handling an interrupt (rather than a
+>> synchronous exception), we don't use local_daif_inherit(), and instead
+>> use a different DAIF function to unmask everything except interrupts.
+>>
+>>> which then becomes:
+>>>
+>>>   // interrupts are disabled by interrupt/exception entry
+>>>   irqentry_enter(regs)
+>>>      establish_state();
+>>>      // RCU is watching
+>>>      arch_irqentry_enter_rcu()
+>>>         mte_check_tfsr_entry();
+>>>         mte_disable_tco_entry();
+>>>         daif_inherit(regs);
+>>>      // interrupts are still disabled
+>>>           
+>>> Which is equivalent versus the MTE/DAIF requirements, no?
+>>
+>> As above, we can't use local_daif_inherit() here because we want
+>> different DAIF masking behavior for entry to interrupts and entry to
+>> synchronous exceptions. While we could pass some token around to
+>> determine the behaviour dynamically, that's less clear, more
+>> complicated, and results in worse code being generated for something we
+>> know at compile time.
+> 
+> I get it. Duh what a maze.
+> 
+>> If we can leave DAIF masked early on during irqentry_enter(), I don't
+>> see why we can't leave all DAIF exceptions masked until the end of
+>> irqentry_enter().
+> 
+> Yes. Entry is not an issue.
+> 
+>> I *think* what would work for us is we could split some of the exit
+>> handling (including involuntary preemption) into a "prepare" step, as we
+>> have for return to userspace. That way, arm64 could handle exiting
+>> something like:
+>>
+>> 	local_irq_disable();
+>> 	irqentry_exit_prepare(); // new, all generic logic
+>> 	local_daif_mask();
+>> 	arm64_exit_to_kernel_mode() {
+>> 		...
+>> 		irqentry_exit(); // ideally irqentry_exit_to_kernel_mode().
+>> 		...
+>> 	}
+>>
+>> ... and other architectures can use a combined exit_to_kernel_mode() (or
+>> whatever we call that), which does both, e.g.
+>>
+>> 	// either noinstr, __always_inline, or a macro
+>> 	void irqentry_prepare_and_exit(void)
+> 
+> That's a bad idea as that would require to do a full kernel rename of
+> all existing irqentry_exit() users.
+
+I see your point about the rename. However, we can avoid a tree-wide
+rename by keeping the irqentry_exit() name and interface exactly as it is.
+The idea is to perform an internal refactoring: split the existing logic
+into two helpers (e.g., irqentry_exit_prepare() and a core helper), and
+then have the original irqentry_exit() call both of them. This way,
+existing users like RISC-V remain untouched, while arm64 can choose to
+call the two sub-functions individually to insert the DAIF masking in
+between."
+
+> 
+>> 	{
+>> 		irqentry_exit_prepare();
+>> 		irqentry_exit();
+>> 	}
+> 
+> Aside of the naming that should work.
+> 
+> Thanks,
+> 
+>         tglx
+> 
+> 
+> 
+> 
+> 
 
