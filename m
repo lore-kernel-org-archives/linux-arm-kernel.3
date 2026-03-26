@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE4D810A88D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DCA10A88D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 15:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ml56bmMQs+EdQaWlI5ji6anspM9XUiYKvzv1220W3jc=; b=IDuvXWEYNEPvfbgc7MrxSlHLDS
-	zZMugyg6nodRKbHQA4geeQiWJTdC0epnQqDCu3Q9fvn2bwKx4aDKHbpXVKBaJ1I+Exkw+RWi4/zPk
-	AYTcMacQYjjxA1WwE3ecChxjErry2kYRPPErPhvJjcJRGaQ/jBM2tsqjVlbC6gcxqFJwJmsyYcSsa
-	wo5ZKkXmF6FIbn/u9iX7MzEtwdrIM2m+NSQM8c+8ztmI1H4xUub41/3p2hBvJWZeOVtb8VxDb7Goj
-	5wvascCyCAaXPA9AsEyGV+dCWaef8K8/pM5VF5xsRLrF9HZ5CIluiEPVM7qDR45lIC4+Eq9ZG7r6P
-	ya2qm0Dg==;
+	bh=gzVATzeIpqjOe+8Cx38MLFUSi1q5cYwLtg5AqfYWoD0=; b=E10cwyc7fZsG+tSeG19vaZeISo
+	TGB29tj3kVeUPYwNjfe76ev5j9/bU7cWqa3uZvSr3N6neFhzEt6sKEuHL7VgdohMvTApxwQUjyUUP
+	w32hM3ulNXDTid715sGClT2Ju2OaHFYbsz6gft6ggTrytpay7oZ5WYLvLpfK1Asg/6d2oiwu/Mtt+
+	LJMFXoNYHBPnG4FJJIyr6Q0MDCplWHMDvjjmvWrgyERCvqNNLKch2K9fftO2eVCaRNQDY0jlUwV+3
+	YxzXRF97WtbuztYUs9EurnW5BcGMxQ0Ysde+tMbAbTUKFnJ4jUvTXzsTV1wNGMiOIHyWJhGgoY4/m
+	zWtkBwvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mZn-00000005kGo-06FK;
-	Thu, 26 Mar 2026 15:24:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5mcA-00000005kVl-1F1P;
+	Thu, 26 Mar 2026 15:27:18 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5mZc-00000005kEL-42h7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 15:24:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3865443830;
-	Thu, 26 Mar 2026 15:24:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8768C19423;
-	Thu, 26 Mar 2026 15:24:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774538680;
-	bh=VC8lDUeLQaF89olSSrKq5JgPweNUCYlwAaUQYICMSVc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kaAEnN52eATLIBzXKxWYkAjEQF54lvKDkYc4MOirqFrd5bD5DAIMQRi7Z6XFDonBb
-	 WKa61FlMkBcd/iXQJ6NVvj56BLrUfSeujVI4srqkrjEo0YNkS+P6/Xr/rSzIa4TTE8
-	 2nnxiSlLoWZ9fwxqX9ylNk7h2LFe47bb/mfRrR6P0j9DmK3EzFipJ7bxp5c8xm2TuS
-	 NiMdnWVRBzuXH1POPXiMkAnG50ifQBOXsOongqLa/bTPgKB4QNBbt70yCIYs0d7SRq
-	 J1Ih9mzFlDLWUDBMRSL14ekNbotN/3lElMlAvI5lwEmHOwIOUc4QCgy+qNYqG3bT9G
-	 pKTZSBiYPPjOg==
-Date: Thu, 26 Mar 2026 10:24:36 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-cxl@vger.kernel.org, Michael.Zhao2@arm.com,
-	linux-arm-kernel@lists.infradead.org, Dmitry.Lamerov@arm.com,
-	rafael@kernel.org, conor@kernel.org, will@kernel.org, bp@alien8.de,
-	catalin.marinas@arm.com, krzk+dt@kernel.org,
-	linux-doc@vger.kernel.org, mchehab+huawei@kernel.org,
-	tony.luck@intel.com
-Subject: Re: [PATCH v3 09/10] dt-bindings: firmware: add arm,ras-cper
-Message-ID: <20260326152436.GA2484010-robh@kernel.org>
-References: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-0-48e6a1c249ef@arm.com>
- <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-9-48e6a1c249ef@arm.com>
+	id 1w5mc8-00000005kVN-1ggI;
+	Thu, 26 Mar 2026 15:27:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gzVATzeIpqjOe+8Cx38MLFUSi1q5cYwLtg5AqfYWoD0=; b=1T8b5Jwhep6s1bdWD5TFn69pLd
+	SZy76s1Snrm8+z47EkFs8pZ+0aN7O1f/CRLTzggTAK990pTxU/0jKo2cqbVyH6JLzbiRwv14myAiT
+	eTR5fybqRfzJ31fYr2YHTHbg2A68ALLDfCJbdipXFN7uhgA+1NVXH2puZFFppl3R+IsnI8D7Rd3Iy
+	yxjDkb5v6q0ydugukyqGcRF8U125/05UaD43B7lTf8nI3TnXbp/gXXQfL3QmejCzKSrIvZFu36hxC
+	Vn/nM434Xrgmgt020x4M0+hBAje0q8xBEhZ+6yB1qj2vdhNBkchMmXOEv7UmuthB5MCmMx/YrYF7Q
+	HQF3D0bA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51150)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w5mbs-000000004xT-2JKK;
+	Thu, 26 Mar 2026 15:27:00 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w5mbq-0000000078D-0OZH;
+	Thu, 26 Mar 2026 15:26:58 +0000
+Date: Thu, 26 Mar 2026 15:26:57 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>, kevin-kw.huang@airoha.com,
+	macpaul.lin@mediatek.com, matthias.bgg@gmail.com,
+	kernel@collabora.com, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 4/4] net: phy: Introduce Airoha AN8801/R
+ Gigabit Ethernet PHY driver
+Message-ID: <acVQQQiciPQBkQOG@shell.armlinux.org.uk>
+References: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
+ <20260326-add-airoha-an8801-support-v2-4-1a42d6b6050f@collabora.com>
+ <acVND6DdpM9czIwU@shell.armlinux.org.uk>
+ <044110c5-da1e-48c0-93fd-35553e86b271@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260318-topics-ahmtib01-ras_ffh_arm_internal_review-v3-9-48e6a1c249ef@arm.com>
+In-Reply-To: <044110c5-da1e-48c0-93fd-35553e86b271@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_082441_056350_895070B3 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20260326_082716_461969_4429798A 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,98 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 08:48:06PM +0000, Ahmed Tiba wrote:
-> Describe the DeviceTree node that exposes the Arm firmware-first
-> CPER provider and hook the file into MAINTAINERS so the
-> binding has an owner.
+On Thu, Mar 26, 2026 at 04:24:23PM +0100, Andrew Lunn wrote:
+> On Thu, Mar 26, 2026 at 03:13:19PM +0000, Russell King (Oracle) wrote:
+> > On Thu, Mar 26, 2026 at 01:04:15PM +0100, Louis-Alexis Eyraud wrote:
+> > > +static int an8801r_set_wol(struct phy_device *phydev,
+> > > +			   struct ethtool_wolinfo *wol)
+> > > +{
+> > > +	struct net_device *attach_dev = phydev->attached_dev;
+> > > +	const unsigned char *macaddr = attach_dev->dev_addr;
+> > 
+> > This isn't a criticism for this patch, but a discussion point for
+> > phylib itself.
+> > 
+> > It occurs to me that there's a weakness in the phylib interface for WoL,
+> > specifically when WoL is enabled at the PHY, but someone then changes
+> > the interface's MAC address - there doesn't seem to be a way for the
+> > address programmed into the PHY to be updated. Should there be?
+> > 
+> > Do we instead expect users to disable WoL before changing the MAC for
+> > a network interface?
 > 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> ---
->  .../devicetree/bindings/firmware/arm,ras-cper.yaml | 71 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 76 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> new file mode 100644
-> index 000000000000..bd93cfb8d222
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/firmware/arm,ras-cper.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm RAS CPER provider
-> +
-> +maintainers:
-> +  - Ahmed Tiba <ahmed.tiba@arm.com>
-> +
-> +description: |
-> +  Arm Reliability, Availability and Serviceability (RAS) firmware can expose
-> +  a firmware-first CPER error source directly via DeviceTree. Firmware
-> +  provides the CPER Generic Error Status block and notifies the OS through
-> +  an interrupt.
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,ras-cper
-> +
-> +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description:
-> +          CPER Generic Error Status block exposed by firmware
-> +      - description:
-> +          Optional 32- or 64-bit doorbell register used on platforms
-> +          where firmware needs an explicit "ack" handshake before overwriting
-> +          the CPER buffer. Firmware watches bit 0 and expects the OS to set it
-> +          once the current status block has been consumed.
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description:
-> +      Interrupt used to signal that a new status record is ready.
-> +
-> +  memory-region:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
+> Program the MAC address during suspend? I assume userspace is no
+> longer active at this point, so the address should be stable.
 
-memory-region already has a defined type. You just need to define how 
-many entries (maxItems: 1).
+What is the timing requirements for a system going into suspend vs a WoL
+packet being sent? Should a WoL packet abort entry into suspend? If yes,
+then we need to program the MAC before the PHY is suspended, because
+suspend could already be in progress.
 
-> +    description:
-> +      Optional phandle to the reserved-memory entry that backs the status
-> +      buffer so firmware and the OS use the same carved-out region.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    reserved-memory {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +      ras_cper_buffer: cper@fe800000 {
-> +        reg = <0x0 0xfe800000 0x0 0x1000>;
-> +        no-map;
-> +      };
-> +    };
-> +
-> +    error-handler@fe800000 {
-> +      compatible = "arm,ras-cper";
-> +      reg = <0xfe800000 0x1000>,
-
-Wait! Why is the reserved address here? There's 2 problems with that. 
-There shouldn't be same address in 2 places in the DT. The 2nd is 
-reserved memory should only be regions within DRAM (or whatever is 
-system memory).
-
-Rob
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
