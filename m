@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F59D106F303
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E072106F304
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGIQJBrR4L4A7hNhZYj5yBcsB/y/dygFw0rKvJs4Xdw=; b=kCT+I9XcEwamZqwlJ34mC0e0Ur
-	0xaW2XOTMRQ8Y9aWDl8/S8tbqjjFzEA5VFSxaxdU6wyMlUfc6e8ILy2YL2Ag9uKq0fEaEc7S30Qop
-	nvnJ2D2sT232uNSSReBsb3YZS92AEnEYkHdJlcIHwVWk4uuj6U5UPDUOmnpAVHucXRt+j08DtuwvD
-	+F2oVE7lRV+0363KT+ONStxP177WKn9y3tZtcWuTOH+/5DVGKAVSMIy0cc2ZuFvBaAwmeq1GscNPO
-	SJVy6djx2x2R220iS2B3kggNH2guVlVStOy0KborM1CnrC/zVoQIsvQazwsFm/B2+hvkXrfXFZGbc
-	VujiHn+w==;
+	bh=NPOq+t0BPIjTXIy85z0pLZNyx1Sqnvxn5kHxjGZM2Uw=; b=ASQaegfaLFN+HYu5iF4LSNsVuj
+	G0a7Z0EAnQE3IYEG+46HM056xnY12VgzOfdEI0mSVN5IJYCKyhChHSMMxemk+FYiERCy61WChsZFh
+	VJDBbJ+rBVDRZr6vEEVYodUu2U8Mj39zs6tBNldpcJRvbzaObfxRmcBGNUDPDFXNyfKMmwvvE3xg0
+	EADDWXWSDvJl+rMT9BzoV0LpQYCHpWyZtp7hFHiF5HyiDqbvRRp06X8tobZRU2kHq4hjcbNBsTAEg
+	o7JcEBymLo2rK61McehIUid5dnlvivt8CjbPP+CKIB3IU47X+T7hVvR7qFAn0Yv7TvNrGos+Is0jO
+	TspC1Aiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gTM-000000054OF-2v4q;
-	Thu, 26 Mar 2026 08:53:48 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1w5gUV-000000054fg-1geM;
+	Thu, 26 Mar 2026 08:54:59 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gTK-000000054MW-2Y1C
+	id 1w5gUT-000000054f5-14GQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 08:53:47 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-439b6d9c981so388809f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:53:46 -0700 (PDT)
+	Thu, 26 Mar 2026 08:54:58 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-487035181a7so4237435e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:54:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774515225; x=1775120025; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1774515295; x=1775120095; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hGIQJBrR4L4A7hNhZYj5yBcsB/y/dygFw0rKvJs4Xdw=;
-        b=tsYZzEYXgZgi61ST206CpJjN9aqc1Vm8hWCe7+fLk2KS3nmC6wTN6cE8O86uMYCYqf
-         mngcJ2BeRRDAEWEdXBP9miKa/U0urUmJkSc5F/HM0C3EsYeFnXqIr1+YuXF23vORMClR
-         p61Gwh0kBR1kLl6cyf5zYJ3m9HjelCShNgfzDqQRi4UYsaTcPL2Hm0sqQWCf5IUMhLXo
-         Ptv7dUz8ptTE5nyPnu9IB6BE/6dP/VRQ2th7j6Vk0NZ75STipLJF89r1wJphBt5EZ3XX
-         3sh7QOU5PiNnfVr3lZWHXziBHgMN6dx5fqujVVW7UhKxoOokdII6XPDSlNENLYmvKHYk
-         94jg==
+        bh=NPOq+t0BPIjTXIy85z0pLZNyx1Sqnvxn5kHxjGZM2Uw=;
+        b=rIZ1sjzpyf5VI9VoGMSYPI4ofxxgn/+hnOze0HOr7arzriateeiNxIQKgLIKzJZver
+         /yqRm5eRSNoN4+KW9Fs/lKrQxMH5onBJaONDEZxpdP+ImPYDrPrTOJTY3UPHzSyc62s1
+         ZSMZuhLTsKp3iy5hScXK5t335/vBJh45BG4myb66uzuTeDnAlDwDJ9Q8y5M0Kzm66TAD
+         VvHZgCk0xSGx8PsIbnBxBYIbGWpJ4HI813iTCb7UkzaT/ZhFiehjsM/PxJhSLE33frCT
+         R/rXtwkYtd0TSgpYJ0SFHUEt4rtHP/zJNj4Pp6evWp8Gl+rz3oXdBMpe1UHXMsPBJzY6
+         JlhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774515225; x=1775120025;
+        d=1e100.net; s=20251104; t=1774515295; x=1775120095;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hGIQJBrR4L4A7hNhZYj5yBcsB/y/dygFw0rKvJs4Xdw=;
-        b=p2x3Rt46XjUpkOHnPwT8LEq/lH2spXEWXMzDVKng4i5tqHyUJKggzZmG7jkS0Iy5rk
-         RLVtyPAo0gdwpusdBUjoo8mpgssQX7o7kloIOGfKdao7dmNzh4SDTZPoYdKYOMD0zlue
-         7+QoHPxgQxRSYsHkwODuPHKDxIB3+zLnL1E+srQBlvguEkxfEfXp5aWiBHNmL4NQ3zv9
-         ZpcFW6AHi1UxnDTnZmMuc707Neeu5nyJ9TmWzk7TaWsZZOnxLOjdRfAcy63EeLI5jK7O
-         PYnwVvzkRt2q2VKkZmpYUv6Lj6Bqhqpl7Nr/BKEpv9sG4ACGL5HQGe+Q19kUFZZOujBY
-         b/EA==
-X-Gm-Message-State: AOJu0YwiN4AjlvQsgvoiwVEHhzK1h4vAk0l16H5IhcxY6Nk7XuN2/VlE
-	a/rjHHQHr3MD2R/EQD0I/fP7vetJe7Awqrn/U0E/WJnjMG92rkB2DVrnyr21pnfUUOk=
-X-Gm-Gg: ATEYQzwGSmYDNcwgeKerqxAh3PH1EsCuP4NJZHvIZxebkrJ+aCFbr8fshzeKOlVCFqr
-	5SNy28ZLy9ymdVAw6db96IoJmRyfUSeYcsxo86b0oHMkAwb1zlFXbtdX5hwQYWJD/xTtfX7bB0c
-	aMDosFgw9bl2UjEc5MKqOVZYuFr/ob/aOg/HrOWePJftycde+knIS37Vm3R1NE89nrY19OB7kTq
-	OyBYenVMYpL3KzobMBXsml51+nW93PFIeJd7IaSsqxeUAXWD0qkLffe0FQz+kd9kAhi7Tra1JvX
-	w0BxYZbdXX3zIzaqeT9W72qfIHQjoZrW3kjd7Cq/VSbZjKDtveVPSEMAp588JxjvvFFEwsEKVNd
-	GOvwNiFeDWZYYJD8wgGUvzwK3bpoTttH7oapLDUkWtk6OuGeKPqdSTkCc2RtTYlRz+/trIsnBwI
-	BpJqA2pfgVFsChkfm5AUn2t+9LZxN7zfMyrxlSP6yq6FZEamU73isPjy8OjuTpGXuwEWBLl/11x
-	i9OQfQ=
-X-Received: by 2002:a05:6000:208a:b0:439:c153:ae3d with SMTP id ffacd0b85a97d-43b979fbc99mr1451530f8f.6.1774515224588;
-        Thu, 26 Mar 2026 01:53:44 -0700 (PDT)
+        bh=NPOq+t0BPIjTXIy85z0pLZNyx1Sqnvxn5kHxjGZM2Uw=;
+        b=ZMa/fmmxwA4WaZkpYwCjdeG53Ph1PuFeldBsnzvYkXEgBe9Q7iCRlPRHyQynMAi7Di
+         imj9NmiLKdNCYze1DIH/BoFoI2DiJesYBNXyVm/BLVH42sQQgd0/vDwFmI7Nn4tBtnNz
+         nLJiqXZz7pnPR49SYbdesiDb9eJVskd+jyQlUxkZFDN6wcBqLnFESadTv5P4J6fY0Glj
+         LYTU8MaX2UD10l27DjRms7dAdJkWZbiIbqLBnX6glWx+sIqCCYs//M7t9XTko+gR4Zxc
+         rhQAVplB2HUvH92N/cVbvr/kh3gtuGfQYqW2NApGFJAY/5I5EtIVfx9QEXzsStQ8Fld8
+         Mx+Q==
+X-Gm-Message-State: AOJu0Yzf9QODthUcG48HdeAAKDhDNRIC0q6w9Anbm5/gh9hGQeHCwEpY
+	NfGCvN51SWUw1KKroe07IeyI/YUXG4Fqzia+d55PoqHY5omtav0SaPGy1IwXnFAY/5s=
+X-Gm-Gg: ATEYQzzLQ5eyMSlIsGM98j641eKDL1tdIj17zOk4WQJekpxp6Nx/NFhpWA185GpAQmx
+	m2BlMxlf8UNJnZrKDwr3Smr/NiJBs3o8+ClWl6OVTKUemFZBGk6DdTwAPAYFDqATS7VVfcJGAUJ
+	a4M3BSkA675qlnWpoPaGf6PP6AVAkz5cKDgGI48auXZWN7/B+j+rgN8X8s7WP/ANbFwQ+YciO2b
+	QWvqMy9sQqRif/D9CcH/3M0RlTnI3vn4S6/FjUUZ+UtEI9KmVpL57tkGA1G9NwghsxtX5U1lN71
+	8cuWO1PRCzgF2YZrLLToL6LqOi+dDtvRZ+I3mdKenJzU+EOipVa1jL5DTLDL645UTq+Ll5K7+YH
+	NIrLS4m2uGjJyyNQQ2WBlMzzVR6+vcIwB0zgsdo18wwqgWQFRZfYBLYF9+TMA7MP1OFue3k30GO
+	zzpY5LQBkPlPP9p906pq4pFnN1FXhBPxG2IqGlR4go7cHzwUaCIE5RKpQ4WmiyHL6wk7ac8Hf+b
+	ep9dwY=
+X-Received: by 2002:a05:600c:3e1a:b0:486:af22:4a2a with SMTP id 5b1f17b1804b1-48715fbabedmr88067005e9.7.1774515295443;
+        Thu, 26 Mar 2026 01:54:55 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:8431:f88b:714d:f78d? ([2a01:e0a:106d:1080:8431:f88b:714d:f78d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b9192e35esm6035382f8f.6.2026.03.26.01.53.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48720901b90sm10376515e9.17.2026.03.26.01.54.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Mar 2026 01:53:44 -0700 (PDT)
-Message-ID: <f3bcc782-2bb7-44e6-ba40-92a36648d3f7@linaro.org>
-Date: Thu, 26 Mar 2026 09:53:43 +0100
+        Thu, 26 Mar 2026 01:54:55 -0700 (PDT)
+Message-ID: <512d95b5-5348-4c7c-961c-b6ca1431cee4@linaro.org>
+Date: Thu, 26 Mar 2026 09:54:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 7/9] arm64: dts: amlogic: t7: khadas-vim4: Add SDIO
- power sequence and WiFi clock
+Subject: Re: [PATCH v4 9/9] arm64: dts: amlogic: t7: khadas-vim4: Add MMC
+ nodes
 To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
  Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
@@ -88,7 +88,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org
 References: <20260325-add-emmc-t7-vim4-v4-0-44c7b4a5e459@aliel.fr>
- <20260325-add-emmc-t7-vim4-v4-7-44c7b4a5e459@aliel.fr>
+ <20260325-add-emmc-t7-vim4-v4-9-44c7b4a5e459@aliel.fr>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -115,12 +115,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260325-add-emmc-t7-vim4-v4-7-44c7b4a5e459@aliel.fr>
+In-Reply-To: <20260325-add-emmc-t7-vim4-v4-9-44c7b4a5e459@aliel.fr>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_015346_674313_08CD6F62 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260326_015457_323894_C6E5A307 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,55 +137,130 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/25/26 10:15, Ronald Claveau wrote:
-> Add the SDIO power sequence node using mmc-pwrseq-simple and a
-> 32.768kHz PWM-based clock required by the Wi-Fi module.
+> Enable and configure the three MMC controllers for the Khadas VIM4 board:
+> - sd_emmc_a: SDIO interface for the BCM43752 Wi-Fi module
+> - sd_emmc_b: SD card slot
+> - sd_emmc_c: eMMC storage
 > 
 > Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 > ---
->   .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 22 ++++++++++++++++++++++
->   1 file changed, 22 insertions(+)
+>   .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 90 +++++++++++++++++++++-
+>   1 file changed, 89 insertions(+), 1 deletion(-)
 > 
 > diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> index 2450084d37642..770f06b0b16c7 100644
+> index 770f06b0b16c7..5a73ae081036c 100644
 > --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
 > +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> @@ -67,6 +67,15 @@ sd_3v3: regulator-sdcard-3v3 {
->   		regulator-always-on;
+> @@ -14,7 +14,10 @@ / {
+>   	compatible = "khadas,vim4", "amlogic,a311d2", "amlogic,t7";
+>   
+>   	aliases {
+> -		serial0 = &uart_a;
+> +		serial0	= &uart_a;
+
+Spurious change
+
+> +		mmc0	= &sd_emmc_c;
+> +		mmc1	= &sd_emmc_b;
+> +		mmc2	= &sd_emmc_a;
 >   	};
 >   
-> +	sdio_pwrseq: sdio-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
-> +		post-power-on-delay-ms = <500>;
-> +		power-off-delay-us = <200000>;
-> +		clocks = <&wifi32k>;
-> +		clock-names = "ext_clock";
-> +	};
+>   	memory@0 {
+> @@ -159,6 +162,91 @@ &pwm_ab {
+>   	pinctrl-names = "default";
+>   };
+>   
+> +/* SDIO */
+> +&sd_emmc_a {
+> +	status = "okay";
+> +	pinctrl-0 = <&sdio_pins>;
+> +	pinctrl-1 = <&sdio_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
 > +
->   	vcc5v: regulator-vcc-5v {
->   		compatible = "regulator-fixed";
->   		regulator-name = "VCC5V";
-> @@ -135,6 +144,19 @@ vddio_c: regulator-gpio-c {
->   		states = <1800000 1
->   			  3300000 0>;
->   	};
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	sd-uhs-sdr12;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +	cap-sdio-irq;
+> +	max-frequency = <200000000>;
+> +	non-removable;
+> +	disable-wp;
+> +	no-mmc;
+> +	no-sd;
 > +
-> +	wifi32k: wifi32k {
-> +		compatible = "pwm-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <32768>;
-> +			pwms = <&pwm_ab 0 30518 0>;
+> +	power-domains = <&pwrc PWRC_T7_SDIO_A_ID>;
+> +
+> +	keep-power-in-suspend;
+> +
+> +	mmc-pwrseq = <&sdio_pwrseq>;
+> +
+> +	vmmc-supply = <&vddao_3v3>;
+> +	vqmmc-supply = <&vddao_1v8>;
+> +
+> +	brcmf: wifi@1 {
+> +		reg = <1>;
+> +		compatible = "brcm,bcm43752-fmac", "brcm,bcm4329-fmac";
 > +	};
 > +};
 > +
-> +&pwm_ab {
+> +/* SD card */
+> +&sd_emmc_b {
 > +	status = "okay";
-> +	pinctrl-0 = <&pwm_a_pins>;
-> +	pinctrl-names = "default";
->   };
->   
+> +	pinctrl-0 = <&sdcard_pins>;
+> +	pinctrl-1 = <&sdcard_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	sd-uhs-sdr12;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +	max-frequency = <200000000>;
+> +	disable-wp;
+> +	no-sdio;
+> +	no-mmc;
+> +
+> +	power-domains = <&pwrc PWRC_T7_SDIO_B_ID>;
+> +
+> +	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
+> +	vmmc-supply = <&sd_3v3>;
+> +	vqmmc-supply = <&vddio_c>;
+> +};
+> +
+> +/* eMMC */
+> +&sd_emmc_c {
+> +	status = "okay";
+> +	pinctrl-0 = <&emmc_ctrl_pins>, <&emmc_data_8b_pins>, <&emmc_ds_pins>;
+> +	pinctrl-1 = <&emmc_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +
+> +	bus-width = <8>;
+> +	cap-mmc-highspeed;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	max-frequency = <200000000>;
+> +	disable-wp;
+> +	non-removable;
+> +	no-sdio;
+> +	no-sd;
+> +
+> +	power-domains = <&pwrc PWRC_T7_EMMC_ID>;
+> +
+> +	vmmc-supply = <&vddio_3v3>;
+> +	vqmmc-supply = <&vddio_1v8>;
+> +};
+> +
 >   &uart_a {
+>   	status = "okay";
+>   	clocks = <&xtal>, <&xtal>, <&xtal>;
 > 
+
+With that:
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
