@@ -4,123 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE80106F303
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC8D106F303
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=smOP6x0To5MeFMWDp/WtjMB68J+cu7J59H9CXktE27U=; b=mZXjnEVQm8y7rGn4eR0JD1OK6M
-	Ov3hboS05MCSmjxU2jrJ3PQuduNSscq4lzjfm8ycmnkcaAwAL145UMhi6WXZs2iUWlokEZTDBdWt+
-	HtvSNHkDrA1f0u6+uiy4YImfoBTwBVfiCBIZH+9qdNvgkbNsNtLoDDZQUiGpYhlyqeMiDnNHVNgU9
-	7ZOck7QwsGIknwfEaijsTTQCQc7t/MArtjPMAlwtvOGGOzlGPoRUiiwuinW7sceMlsA9dsi6VZlHD
-	lb5iWPnMMZaEqhRn+NIoCk3/jklwf5G1Bk5+wvVmVB8RBx5q3mlqyrXZjaBgq/VGwkBIBS3OWMqgG
-	2mAQEfqg==;
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vIZI7rmGvzp7L9LH6n41svF3v283CebAuARoH5ZlIQE=; b=gY7hEKwAsDxXNh
+	25TIlpLeWg5lWQK5VHeUDcxmewQ/04k1IYYY5VOuMXL9Hj2egon0tfmYnYO69Tnec8z0GfGUjE6rL
+	oQIadjI1i+L4XGvHMgr4jhcldDW5s67eNCyzPmfzGLMkSEwZX/AG2JvIFuMKbJTgVZSvT7pCxN7aE
+	M+Ha0fDiZuHy0RcprtkiBtrT6I8DSVb9hTXxlk7RWwWqTphEMosGMNjEqohz4x1G31Ls3nvCcDXvV
+	Nwp7hACIiHlxR8kpZAs1lO4Mp5z+hy8YZCFy7ywnFHNf7kayp0F4oqsFcOpHxhenwFFsmz/tv7hnk
+	kxUE1TZfsZchMKr2WveQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gRl-000000053n4-0ZYk;
-	Thu, 26 Mar 2026 08:52:09 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1w5gSI-000000053sN-2zU2;
+	Thu, 26 Mar 2026 08:52:42 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gRi-000000053mF-30Oj
+	id 1w5gSC-000000053qC-2NdO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 08:52:07 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43b4f48c47cso502580f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:52:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774515125; x=1775119925; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=smOP6x0To5MeFMWDp/WtjMB68J+cu7J59H9CXktE27U=;
-        b=Rx36/ZmO4blaKYWPUNPDP2qYLHRWjt/BJtZb4T3rMwe94PzctCBMfbdTEwhPoBlI4c
-         ktdP8ddi7KvZZTkT85jsFWPZuCqJMGXvedVYSBC0ouxlY3ASl8AZLvgRlcSZJuA3L7Y3
-         pOcvFohX4CP8asyPJIeSQ25ER1JCIq78EZvqgoXkdEnujbnKnEQxeP0X+kSDuyWGmY7e
-         w2f6vP/RGxoGsNIbSETUEy0GEXuEkenR3EWuz9tM5+tOf+th23agf032OlIWtvh10YMM
-         QY/hZjmTxRTTufWsr8fHsQ73PSG/LEIiu9dA7lD6FsnKOORgt23LXX73oPch6Mi8qV4q
-         4uEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774515125; x=1775119925;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=smOP6x0To5MeFMWDp/WtjMB68J+cu7J59H9CXktE27U=;
-        b=NOL4Nzk0FxS44SBOkC8tt2gpTrlY03Bnz1ORDKE0/HlAY0VDMWS3YMdFVUWgwIdkcp
-         Z5nneWlI2iFnZsIgUxoY3sBDq7VtC+HTSqv3sGyhY0kHMU7cj/mCbipArklIe0ii6C9t
-         CtJeZG3zY17TxXTH2P4hxaPWR7tAcp0pvtlYAleG0NcDa7UNM1e9jtxF+HzrTJ1X3dpW
-         32GbW0vHtN3uq2x9UC6QDcwuawsq6fvOwWUAAnf3dIWgb99y6R7tfHxvefaLI6Ez554L
-         WCCTpiQv+Mj/zCwHNV1CCFmMh9PU6jcLjnBMde7liaUd1BxpWmcJaa5wLeQgOwxgRbde
-         0Vng==
-X-Gm-Message-State: AOJu0YxU/qEIYt7t9bhURPMFjSg1scXDMxyANV4AI4S5SxEUrUzXWLJY
-	c6iAwmMLWxQ/zeJQ/UGl5Zfc2DwR4QYX+Wb8fYocRoxpRoL4cvTOnagUx2sN1eteTfA=
-X-Gm-Gg: ATEYQzwz6VBWR59eI9duEILg3NULRAblnlUrRo22xVWJiEc8k2V9A4XenP4oBJhvpM2
-	Ow1VrG5ucIS6PWBt+rv8Tg+e01iazsIixp+nLKAFAyUVeO5ybhIJnnpa5KykRpH1/T7eQiRj0lo
-	17F2Smp/++2ZqIOftOz99poZqsGL/xqx1JlzUKArnlovS3sG+k9lty1Y/JCCrRIfnXf6h3rsI5T
-	ujFQcJxLqG0rgxO2niYXUPIv3CDqbKNGQgIOHuyXU19Tu7WQN1OQQbJ2zTdDbiF8MwolQXjMRqE
-	kw1pbtglTfbZZKUF8MgfXOUvPo2ZwICqrN9SOh/VU16Kxc7bkss3w6sFfaFNwgwXqy9lzwdUNc0
-	2+gSvtsUmqTjamyVhj4q9r4IVSa7znZfY5S6jIzi/1RRjZ+0wNWOn9SsdhNYJ9CsexwNWjm/Pob
-	yK/qi1ayC91RiJymMicH5G4wPnmiA0I5xtMFWSzHPuVWs84kUj49u22v4nFgU9c4WzGlJFOCNvR
-	aTR1qc=
-X-Received: by 2002:a05:6000:400b:b0:43b:4ef0:e13 with SMTP id ffacd0b85a97d-43b889a49eemr10222108f8f.12.1774515124429;
-        Thu, 26 Mar 2026 01:52:04 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:8431:f88b:714d:f78d? ([2a01:e0a:106d:1080:8431:f88b:714d:f78d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919cf2c8sm6326074f8f.20.2026.03.26.01.52.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Mar 2026 01:52:03 -0700 (PDT)
-Message-ID: <5298e691-99ba-48fc-874b-c9af308664ee@linaro.org>
-Date: Thu, 26 Mar 2026 09:52:03 +0100
+	Thu, 26 Mar 2026 08:52:39 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=vIZI7rmGvzp7L9LH6n41svF3v283CebAuARoH5ZlIQE=;
+	b=Uptn3B3BM/aPuEt/NyWX+HBf5RPuI7ufN/Z+n/lu9KMpPlIqca5HnwALtSmyLJ3MDlVdqsQki
+	AePXANFx131OR+2Hoh2uU0ldjPSi55fUKe1CApXsnwDRojRvl+VZM+uvLXUzE5mF/uDFsNLwcev
+	Ph51ddeBsxd+9baWYiE+wvM=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4fhHS33NW7z1prNP;
+	Thu, 26 Mar 2026 16:46:11 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 72071404AD;
+	Thu, 26 Mar 2026 16:52:20 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 26 Mar 2026 16:52:19 +0800
+Message-ID: <fa2f8e3b-14b9-c854-186c-64aaf1436892@huawei.com>
+Date: Thu, 26 Mar 2026 16:52:14 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 1/9] arm64: dts: amlogic: t7: Add eMMC, SD card and
- SDIO pinctrl nodes
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Johannes Berg <johannes@sipsolutions.net>, van Spriel <arend@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org
-References: <20260325-add-emmc-t7-vim4-v4-0-44c7b4a5e459@aliel.fr>
- <20260325-add-emmc-t7-vim4-v4-1-44c7b4a5e459@aliel.fr>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260325-add-emmc-t7-vim4-v4-1-44c7b4a5e459@aliel.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH 1/2] arm64/entry: Fix involuntary preemption exception
+ masking
+Content-Language: en-US
+To: Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@kernel.org>
+References: <20260320113026.3219620-1-mark.rutland@arm.com>
+ <20260320113026.3219620-2-mark.rutland@arm.com> <87eclek0mb.ffs@tglx>
+ <ab1prenkP-tFgUzK@J2N7QTR9R3.cambridge.arm.com> <87341ujwl4.ffs@tglx>
+ <ab2EZAXvL6bYcuKt@J2N7QTR9R3.cambridge.arm.com> <87fr5six4d.ffs@tglx>
+ <acPAzdtjK5w-rNqC@J2N7QTR9R3>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <acPAzdtjK5w-rNqC@J2N7QTR9R3>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_015206_795452_D826FE09 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260326_015237_265878_6293CF51 
+X-CRM114-Status: GOOD (  48.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,141 +79,286 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, luto@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/25/26 10:15, Ronald Claveau wrote:
-> These pinctrl nodes are required by the eMMC, SD card and SDIO drivers
-> to configure pin muxing at runtime.
+
+
+On 2026/3/25 19:03, Mark Rutland wrote:
+> On Sun, Mar 22, 2026 at 12:25:06AM +0100, Thomas Gleixner wrote:
+>> On Fri, Mar 20 2026 at 17:31, Mark Rutland wrote:
+>>> On Fri, Mar 20, 2026 at 05:26:47PM +0100, Thomas Gleixner wrote:
+>>> I *think* you're saying that because the arch code would manage DAIF
+>>> early during entry and late during exit, that would all be in one place.
+>>
+>> That was my thought, see below.
+>>
+>>> However, that doubles the number of times we have to write to DAIF: at
+>>> entry we'd have to poke it once to unmask everything except IRQs, then
+>>> again to unmask IRQs, and exit would need the inverse. We'd also have to
+>>> split the inheritance logic into inherit-everything-but-interrupt and
+>>> inherit-only-interrupt, which is doable but not ideal. With pseudo-NMI
+>>> it's even worse, but that's largely because pseudo-NMI is
+>>> over-complicated today.
+>>
+>> Interrupts are not unmasked on interrupt/exception entry ever and I
+>> don't understand your concerns at all, but as always I might be missing
+>> something.
 > 
-> - eMMC: control, 4-bit/8-bit data, data strobe and clock gate pins
-> - SD card: data, clock, command and clock gate pins
-> - SDIO: data, clock, command and clock gate pins
+> I think one problem is that we're using the same words to describe
+> distinct things, because the terminology is overloaded; I've tried to
+> clarify some of that below.
 > 
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 98 +++++++++++++++++++++++++++++
->   1 file changed, 98 insertions(+)
+> I think another is that there are a large number of interacting
+> constraints, and it's easily possible to find something that for most
+> but not all of those. I *think* there's an approach that satisfies all
+> of our requirements; see below where I say "I *think* what would work
+> for us ...".
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> index 6510068bcff92..016b5429c8d1b 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> @@ -250,6 +250,104 @@ gpio: bank@4000 {
->   					#gpio-cells = <2>;
->   					gpio-ranges = <&periphs_pinctrl 0 0 157>;
->   				};
-> +
-> +				emmc_ctrl_pins: emmc-ctrl {
-> +					mux-0 {
-> +						groups = "emmc_cmd";
-> +						function = "emmc";
-> +						bias-pull-up;
-> +					};
-> +
-> +					mux-1 {
-> +						groups = "emmc_clk";
-> +						function = "emmc";
-> +						bias-disable;
-> +					};
-> +				};
-> +
-> +				emmc_data_4b_pins: emmc-data-4b {
-> +					mux-0 {
-
-No need for "-0"
-
-> +						groups = "emmc_nand_d0",
-> +							 "emmc_nand_d1",
-> +							 "emmc_nand_d2",
-> +							 "emmc_nand_d3";
-> +						function = "emmc";
-> +						bias-pull-up;
-> +					};
-> +				};
-> +
-> +				emmc_data_8b_pins: emmc-data-8b {
-> +					mux-0 {
-
-No need for "-0"
-
-> +						groups = "emmc_nand_d0",
-> +							 "emmc_nand_d1",
-> +							 "emmc_nand_d2",
-> +							 "emmc_nand_d3",
-> +							 "emmc_nand_d4",
-> +							 "emmc_nand_d5",
-> +							 "emmc_nand_d6",
-> +							 "emmc_nand_d7";
-> +						function = "emmc";
-> +						bias-pull-up;
-> +					};
-> +				};
-> +
-> +				emmc_ds_pins: emmc-ds {
-> +					mux {
-> +						groups = "emmc_nand_ds";
-> +						function = "emmc";
-> +						bias-pull-down;
-> +					};
-> +				};
-> +
-> +				emmc_clk_gate_pins: emmc-clk-gate {
-> +					mux {
-> +						groups = "GPIOB_8";
-> +						function = "gpio_periphs";
-> +						bias-pull-down;
-> +					};
-> +				};
-> +
-> +				sdcard_pins: sdcard {
-> +					mux {
-> +						groups = "sdcard_d0",
-> +							 "sdcard_d1",
-> +							 "sdcard_d2",
-> +							 "sdcard_d3",
-> +							 "sdcard_clk",
-> +							 "sdcard_cmd";
-> +						function = "sdcard";
-> +						bias-pull-up;
-> +					};
-> +				};
-> +
-> +				sdcard_clk_gate_pins: sdcard-clk-gate {
-> +					mux {
-> +						groups = "GPIOC_4";
-> +						function = "gpio_periphs";
-> +						bias-pull-down;
-> +					};
-> +				};
-> +
-> +				sdio_pins: sdio {
-> +					mux-0 {
-
-No need for "-0"
-
-> +						groups = "sdio_d0",
-> +							 "sdio_d1",
-> +							 "sdio_d2",
-> +							 "sdio_d3",
-> +							 "sdio_clk",
-> +							 "sdio_cmd";
-> +						function = "sdio";
-> +						bias-pull-up;
-> +					};
-> +				};
-> +
-> +				sdio_clk_gate_pins: sdio-clk-gate {
-> +					mux {
-> +						groups = "GPIOX_4";
-> +						function = "gpio_periphs";
-> +						bias-pull-up;
-> +					};
-> +				};
->   			};
->   
->   			gpio_intc: interrupt-controller@4080 {
+> For context, when I said "at entry" and "at exit" I was including
+> *everything* we have to do before/after the "real" logic to handle an
+> exception, including parts that surround the generic entry code. I'm
+> happy to use a different term for those periods, but I can't immediately
+> think of something better.
 > 
+> For example, for faults handled by arm64's el1_abort(), I was
+> characterising this as:
+> 
+>     /* -------- "entry" begins here -------- */
+> 
+>     [[ entry asm ]]
+>     [[ early triage, branch to el1_abort() ]]
+> 
+>     static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr) 
+>     {
+>             unsigned long far = read_sysreg(far_el1);
+>             irqentry_state_t state;
+> 
+>             state = enter_from_kernel_mode(regs) {
+>                     ...
+> 		    irqentry_enter(regs);
+>                     ...
+> 	    }
+>             local_daif_inherit(regs); // <----------- might unmask interrupts
+>     /* -------- "entry" ends here ---------- */
+> 
+> 
+>     /* -------- "real logic" begins here --- */
+>             do_mem_abort(far, esr, regs);
+>     /* -------- "real logic" ends here ----- */
+> 
+> 
+>     /* -------- "exit" begins here --------- */
+>             local_daif_mask(); // <------------------------- masks interrupts
+>             exit_to_kernel_mode(regs, state) {
+> 	            ...
+> 		    irqentry_exit(regs);
+> 	            ...
+> 	    }
+>     }
+> 
+>     [[ return from el1_abort() ]]
+>     [[ exit asm ]]
+> 
+>     /* -------- "exit" ends here ----------- */
+> 
+> Please note, el1_abort() is indicative of what arm64 does for
+> (most) synchronous exceptions, but there are slight differences for
+> other exceptions. For anything maskable (including interupts) we DO NOT
+> use local_daif_inherit() and instead unmask specific higher-priority
+> maskable exceptions via other functions that write to DAIF, etc.
+> 
+> Interrupts are an odd middle ground where we use irqentry_{enter,exit}()
+> but do not use local_daif_inherit().
+> 
+>> The current sequence on entry is:
+>>
+>>   // interrupts are disabled by interrupt/exception entry
+>>   enter_from_kernel_mode()
+>>      irqentry_enter(regs);
+>>      mte_check_tfsr_entry();
+>>      mte_disable_tco_entry();
+>>      daif_inherit(regs);
+>>      // interrupts are still disabled
+> 
+> That last comment isn't quite right: we CAN and WILL enable interrupts
+> in local_daif_inherit(), if and only if they were enabled in the context
+> the exception was taken from.
+> 
+> As mentioned above, when handling an interrupt (rather than a
+> synchronous exception), we don't use local_daif_inherit(), and instead
+> use a different DAIF function to unmask everything except interrupts.
+> 
+>> which then becomes:
+>>
+>>   // interrupts are disabled by interrupt/exception entry
+>>   irqentry_enter(regs)
+>>      establish_state();
+>>      // RCU is watching
+>>      arch_irqentry_enter_rcu()
+>>         mte_check_tfsr_entry();
+>>         mte_disable_tco_entry();
+>>         daif_inherit(regs);
+>>      // interrupts are still disabled
+>>           
+>> Which is equivalent versus the MTE/DAIF requirements, no?
+> 
+> As above, we can't use local_daif_inherit() here because we want
+> different DAIF masking behavior for entry to interrupts and entry to
+> synchronous exceptions. While we could pass some token around to
+> determine the behaviour dynamically, that's less clear, more
+> complicated, and results in worse code being generated for something we
+> know at compile time.
+> 
+> If we can leave DAIF masked early on during irqentry_enter(), I don't
+> see why we can't leave all DAIF exceptions masked until the end of
+> irqentry_enter().
+> 
+> I *think* what would work for us is we could split some of the exit
+> handling (including involuntary preemption) into a "prepare" step, as we
+> have for return to userspace. That way, arm64 could handle exiting
+> something like:
+> 
+> 	local_irq_disable();
+> 	irqentry_exit_prepare(); // new, all generic logic
+> 	local_daif_mask();
+> 	arm64_exit_to_kernel_mode() {
+> 		...
+> 		irqentry_exit(); // ideally irqentry_exit_to_kernel_mode().
+> 		...
+> 	}
 
+I agree. Having a symmetric 'prepare' step for kernel-mode exit as we do
+for userspace would be much cleaner. It effectively addresses the DAIF
+masking constraints on arm64.
+
+  arm64_exit_to_user_mode(struct pt_regs *regs)
+        -> local_irq_disable();       // only mask irqs
+         ^^^^^^^^^^^^^^^^^^^^^^
+        -> exit_to_user_mode_prepare_legacy(regs);
+           -> schedule()             // schedule if need resched
+
+        -> local_daif_mask();        // set daif to mask all exceptions
+        ^^^^^^^^^^^^^^^^^^^^^
+        -> mte_check_tfsr_exit();
+        -> exit_to_user_mode();
+
+This approach can also align with generic implementations like RISC-V.
+We can split irqentry_exit() into two sub-functions:
+irqentry_exit_prepare() to handle scheduling-related tasks, and the
+remaining logic in a simplified irqentry_exit() (or a specific helper).
+This way, arm64 can call these two helpers with the DAIF masking
+operation inserted in between, while architectures like RISC-V can
+continue to use the full irqentry_exit() functionality as they do now.
+
+      void do_page_fault(struct pt_regs *regs)
+       -> irqentry_state_t state = irqentry_enter(regs);
+       -> handle_page_fault(regs);
+       -> local_irq_disable();
+       -> irqentry_exit(regs, state);
+
+
+
+> 
+> ... and other architectures can use a combined exit_to_kernel_mode() (or
+> whatever we call that), which does both, e.g.
+> 
+> 	// either noinstr, __always_inline, or a macro
+> 	void irqentry_prepare_and_exit(void)
+> 	{
+> 		irqentry_exit_prepare();
+> 		irqentry_exit();
+> 	}
+> 
+> That way:
+> 
+> * There's a clear separation between the "prepare" and subsequent exit
+>   steps, which minimizes the risk that a change subtly breaks arm64's
+>   exception masking.
+> 
+> * This would mirror the userspace return path, and so would be more
+>   consistent over all.
+> 
+> * All of arm64's arch-specific exception masking can live in
+>   arch/arm64/kernel/entry-common.c, explicit in the straight line code
+>   rather than partially hidden behind arch_*() callbacks.
+> 
+> * There's no unnecessary cost to other architectures.
+> 
+> * There's no/minimal maintenance cost for the generic code. There are no
+>   arch_*() callbacks, and we'd have to enforce ordering between the
+>   prepare/exit steps anyhow...
+> 
+> If you don't see an obvious problem with that, I will go and try that
+> now.
+> 
+>> The current broken sequence vs. preemption on exit is:
+>>
+>>   // interrupts are disabled
+>>   exit_to_kernel_mode
+>>      daif_mask();
+>>      mte_check_tfsr_exit();
+>>      irqentry_exit(regs, state);
+>>
+>> which then becomes:
+>>
+>>   // interrupts are disabled
+>>   irqentry_exit(regs, state)
+>>      // includes preemption
+>>      prepare_for_exit();
+>>
+>>      // RCU is still watching
+>>      arch_irqentry_ecit_rcu()
+>>         daif_mask();
+>>         mte_check_tfsr_exit();
+>>
+>>      if (state.exit_rcu)
+>>         ct_irq_exit();
+> 
+> As above, I'd strongly prefer if we could pull the "prepare" step out of
+> irqentry_exit(). Especially since for the entry path we can't push the
+> DAIF masking into irqentry_enter(), and I'd very strongly prefer that
+> the masking and unmasking occur in the same logical place, rather than
+> having one of those hidden behind an arch_() callback.
+> 
+>> Which is equivalent versus the MTE/DAIF requirements and fixes the
+>> preempt on exit issue too, no?
+>>
+>> That change would be trivial enough for backporting, right?
+>>
+>> It also prevents you from staring at the bug reports which are going to
+>> end up in your mailbox after I merged the patch which moves the
+>> misplaced rcu_irq_exit_check_preempt() check _before_ the
+>> preempt_count() check where it belongs.
+> 
+> I intend to fix that issue, so hopefully I'm not staring at those for
+> long.
+> 
+> Just to check, do you mean that you've already queued that (I didn't
+> spot it in tip), or that you intend to? I'll happily test/review/ack a
+> patch adding that, but hopefully we can fix arm64 first.
+> 
+>> I fully agree that ARM64 is special vs. CPU state handling, but it's not
+>> special enough to justify it's own semantically broken preemption logic.
+> 
+> Sure. To be clear, I'm not arguing for broken preemption logic. I'd
+> asked those initial two questions because I suspected this approach
+> wasn't quite right.
+> 
+> As above, I think we can solve this in an actually generic way by
+> splitting out a "prepare to exit" step, and still keep the bulk of the
+> logic generic.
+> 
+>> Looking at those details made me also look at this magic
+>> arch_irqentry_exit_need_resched() inline function. 
+> 
+> I see per your other reply that you figured out this part was ok:
+> 
+>   https://lore.kernel.org/linux-arm-kernel/87se9ph129.ffs@tglx/
+> 
+> ... though I agree we can clean that up further.
+> 
+> Mark.
+> 
 
