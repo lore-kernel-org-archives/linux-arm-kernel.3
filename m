@@ -4,103 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67D4109E542
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 03:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5D4109E547
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 04:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C8VNFYuzB8d0zDzFtWZhnA54IwaaeyKQrTjIqpWlorE=; b=cgTrYIPZg62Sq+BSwTXS6MGPZ0
-	nXOPOFK37pKEfCtcVXEoh0YM90Q+9MSGOEc/Nyqc6omBY/TzegcIagrSAPH3/K1dxosXzfSz6XOmH
-	xCkGAVQ7aoUpsuRYxdMTOmLcuf6DsrV+6LxmeXTa9q2pxks3fd8aaaqP9exhuLBTOnvr0QzygY2H/
-	HMbA+UbjXtN6PnD+NR0s/tfqaO+/VayoD0kUznIHQcZ41axQVIcfDv8Nkyr1Q6egL+mCPhJQGINI0
-	QfpWLYOD+ZoRhCH6bny3Oz19Hx6RPj/Xlaz4wMKTAC5iNF+GvI7XV4FgIGi+13/yhHFjFBxSTXh+w
-	xi/JgIUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=de7JHH7k1zqX8/9oU7ziLibktmb15IDmP+4qbS9sqKo=; b=hsUifEJHHEQgcSBIcUzGrDDyrJ
+	BAGJkA9tRJ9geu8o5Z+IXs8p8HeSwsIued7Vlz39gfVKqKKwmI7MbLvQC0aHxv8bWqj+Nim0zuojI
+	64rJYw+ME8GuJbvP+SNsyC5Ob744YIIU7I+13HDI5mDlqaJ4MTU25zVmKa1wMarVuqxB4vKrd0Vqy
+	9+Fc7CBZxhQKmwnGrB2gCHEfBc7QJxDpg4qTeU0DhRv0xWcw39zuNxVtNOy6wYVMwppGR1OcX8+l/
+	dj1FlZOicIiwUyURnSKVO86GcB5WpzFskyUKExDVnFOrntNnSm9THinq2zehAC+5UpqWo8ZPGSZGH
+	zslVtrpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5bZd-00000004dfN-2qmg;
-	Thu, 26 Mar 2026 03:39:57 +0000
-Received: from mail-japaneastazon11023072.outbound.protection.outlook.com ([52.101.127.72] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1w5c7N-00000004fCs-0bRK;
+	Thu, 26 Mar 2026 04:14:49 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5bZZ-00000004dex-3iSm
+	id 1w5c7K-00000004f9R-13lF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 03:39:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f5ygdFA3U5loI3+rWpf4iM+Rj+1T5wQisqz8us2WoSfyF7OBCQcIGf3jt8YFam9U6IOEf1g9NP8nNFs3z7f5zVPkD3TTUW1+qSdegAy63VvRwAx4ApiUfkZrXrq78NQfs6VpQrOxVS4Sr8psH/XX1j6Cw91S9V1iAG0AmWuqbr9k5AUeIGOat5nA3mn3i54wWYg3EYTHJQho6Xk7hSxvwXbx9AwqM2BMLhW257GwOPjZqTLtRFnULB+EAYVHtP1GzsJw/xFDsoQUUtB47x4PBU73M2J+jkhiki/wsTe3NavSBAfeuft+2SQ1afGphJAjKfavKil1pDvU7q0ZRnRTyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C8VNFYuzB8d0zDzFtWZhnA54IwaaeyKQrTjIqpWlorE=;
- b=jvPAUowTSehMlXPIWezwrvOHiRK2QhgdXb9q/6FZKvT+IA2bfFCL6Xq18H59JSqTiV2eHT/OAbyBl8lMzu6eBTuHimFVnX1sXX7A+NZDPdoQ3xbOEOOrGb14fl96UoHIGXyzsdj9DKX0x5ODlVEkIl2DZ/lUX7k+35fqGxPDOMvK/pp5iq5ivjT8xHCXZH36uPd2QK8F2XT9Sz/CGjgDdIGyjTVs8mq6pnaPJIQ4Sxj3fS7AyV/HaW7/KOziIj//038W/fMAhf5hqRIXvvqxrPCKRsGuFm7amvbpG5yPb+qRuQcJd6rl7i7927ZXWxrZGD7N7fI4+gZb+5SmxxusUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arndb.de smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR02CA0028.apcprd02.prod.outlook.com (2603:1096:4:195::8) by
- TYSPR06MB6576.apcprd06.prod.outlook.com (2603:1096:400:47b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Thu, 26 Mar
- 2026 03:39:43 +0000
-Received: from OSA0EPF000000C6.apcprd02.prod.outlook.com
- (2603:1096:4:195:cafe::dd) by SI2PR02CA0028.outlook.office365.com
- (2603:1096:4:195::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.33 via Frontend Transport; Thu,
- 26 Mar 2026 03:39:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C6.mail.protection.outlook.com (10.167.240.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.21 via Frontend Transport; Thu, 26 Mar 2026 03:39:40 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 5BBC24126F86;
-	Thu, 26 Mar 2026 11:39:39 +0800 (CST)
-From: Peter Chen <peter.chen@cixtech.com>
-To: arnd@arndb.de
-Cc: krzysztof.kozlowski@oss.qualcomm.com,
-	geert+renesas@glider.be,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Peter Chen <peter.chen@cixtech.com>,
-	Yunseong Kim <ysk@kzalloc.com>
-Subject: [PATCH 1/1] arm64: defconfig: Enable options for CIX Sky1 SoC
-Date: Thu, 26 Mar 2026 11:39:39 +0800
-Message-ID: <20260326033939.3789800-1-peter.chen@cixtech.com>
-X-Mailer: git-send-email 2.50.1
+	Thu, 26 Mar 2026 04:14:47 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5a27c329e98so718368e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 25 Mar 2026 21:14:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774498484; cv=none;
+        d=google.com; s=arc-20240605;
+        b=awnNdKrIAi00nv4oUWBuFMtBEphSlUZb40Bw9dDjsFSWrB/B8P5F8D3hLb5e8SiwTi
+         3O2bb+4oRU6bQGQHKrdHRMdq3IMy4M1ZY9YhKKAvX+bpbNf9ZkNmLZtfZBXIXVxjSYu8
+         PYl/b+PP4DaY4wm6Gn7f0lEaZe9tmdH01M8wSaLLywVTPVxpV4RvD+pgM0XhW/LqKzF4
+         EfoLD++QNYq7L2ZSHvnM8a10ug8ep/aSJ07rNBEzp/4J59wvvzpUq8xxhaovicGtLBoF
+         Ho5P9XDUSkfPPO3Tf65C+Nf6PkNK/u8ewnK/B/U0MqqDLZNeaCzyjNweFNjDidNf9vSH
+         EDTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=de7JHH7k1zqX8/9oU7ziLibktmb15IDmP+4qbS9sqKo=;
+        fh=8W09vqL5DW+ODh3JFYkNopkwt/V5pM1YeOOKhD/6M0c=;
+        b=ArktVkTcvNFhD/1ly1BEqz6V9URuPqMLusolo1zMw1VWhe0rs2MaauvvYHjsApOa2n
+         hpTj4ipDlsj+DfWv4K09GvEmKH4PsChbYgUpO2eCxxok1kv0TauDCS4NQnB/MA/vm6eD
+         KqDUk8P84tN4W9FjfIWroGWk2IPc9EMzAlKbw6nfkPQ6WH1hPg2euu1DUpw73oPWnZvm
+         OD9IdYgJ+zzIro0R0cKxhE4uU4Ra8HGnm4YMlYJOzsKmdXnEnFAoxUT/mO9HysLjr++R
+         D/M7tWTZTOJuMy9Mjcd5Grkly+E2OIDFTPXWcSAvg17Nn9dHQtxNiTY0+15hWzHZqTUl
+         wHhg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1774498484; x=1775103284; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=de7JHH7k1zqX8/9oU7ziLibktmb15IDmP+4qbS9sqKo=;
+        b=dJ/5WGwXV4lQj9ljO0ansBsAkqS3gAVGD8oN+FhVDin38U5cU8rJmT3fQCLfV/jQoz
+         tpfpNr3poDzef2TTPHYnbSkX9JsKlQikE112eS/vgocViH+Dp0ta+KNQbmSkgp9F5mu+
+         kGFxZoK9AwkSpXWWP7EUtol04shJ4wes40G6E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774498484; x=1775103284;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=de7JHH7k1zqX8/9oU7ziLibktmb15IDmP+4qbS9sqKo=;
+        b=CW2EcLo6KqGdl7WkIBWvJ8bJ6ttbEFDUFyUNsyLyvUA+0EISWx63gmiLuYcoPeOUQV
+         jNskM1azeHwTeTGphTGfGNteeyopLeZsxj6f8Re4TYlkHrp1WNrWdJN92m93ze+z+qZf
+         EaFt4NOSATQQoTfbMmP8gLV+r0AzlNaw5uT8J1wBq3/ePuyL05upHYlKpI1sP/Fgg4bt
+         J5XTDtIhjG8+37V0EqtgU+NTeFrq0y5q3xErOAuqpmtcDBfLR0kG6hFPMs1zllcsbWRJ
+         LOKqRHeIba1CfbMg1yvnT9HsLGv7tKsRioQXsOIY5tdzgmk0cafuDcsekxUUre2JzZaX
+         Pevw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/bGslhF1lMiLKOaPErDQg+hBaCloTYyeg3nd6KtaWLlXL4wK3OPx4Re5TRhTpo1ZblB8YUc4IrYO9V88ySxjY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoAnYjoLFRFJKx5p7pQtdqOmUppeCC5roKHXgP69LzlGQgCjE4
+	RvR0Svvg92RqXzlvEAWVimoBzKWDqyA0tOixQGCWmosSJojiauiD8l6t9rY6t2cxu3XLZnlETIs
+	p6yhAmyx1ULspaWPjw+4/YzbnWP7+1bRJD2cu+Xpv
+X-Gm-Gg: ATEYQzyM2tsaj8H/eqGCTgt2qGu53pQI7i2Ei5/hiaeIkgZYw7yFl5EBkOa2Y4QFOYJ
+	FkgcUL8quBds6pvivTNAuW/U7ZRzmAxjyCWP4KKmfoAkgVn1OAHN2XBKIu7jzIQQMQN6vOIK1OG
+	5iZ91BU4CFljodqrE5ZKMIoYa3ZaLfPXFksVN9sFmm1vjTn8SQLmdcP6W1AnuknhtIB5kgJP2C8
+	druzDvyGkLGxH/VGWuw6E+7cLQZCmlYIEhDS6kwuB3BYc0VCkW3J9D42TmIa/m33aWNNI0VwppB
+	aJcb6qooFGUYjM8Z8blDoFkpjIUzAk03ozp1XA==
+X-Received: by 2002:a05:6512:3ca0:b0:59e:65ff:e57e with SMTP id
+ 2adb3069b0e04-5a29b976b9fmr2386806e87.12.1774498483909; Wed, 25 Mar 2026
+ 21:14:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C6:EE_|TYSPR06MB6576:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: caf7f58b-b620-4bf8-8ca0-08de8ae95010
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: b19gpj4+NUGTihaCKDg4zz/XHYQqgIE1NiHzxzQjnYSABXa93wUy8+B0OvwdGtDfrOlhGQON5hnWgKOxGOHma2nQ9IpbXKR/EeTLVgq1LeMEFozQ1RuKdKQ80QxX4tmRdDAR/D4na3FtNR/wEMn0QBLQGbOSjZrqKRkOGX0LLBcNcYE8tJ4LgUl69TNis89OBvXCGz74G5HSBrPCRMULtHxVG+AFfEXvIgVrnV09046UXeGYlldwmuIaWBgod6xM3LltmHuefe78pzVnLEqdykzXWaXeJqnMUeHwWfc9u/rh5pEfh4cP9rxOaWvWl/172DTT0USTaPqMRMslYZH1cy9LarjAMExfb3Kp+RnKrI+KRZxZSsUUT+OjWOsO3YvGeBcYoZuaiP2hxCfkSUFCEXnMrDkcH9+eC052s+4r8MhmEZkiUhKObcVSln9RpGtEzzRhP9JwVIBu3VW8XsFYxzbyloaaT5uhi4wUda/041DFTUnqqrCG7tD52vg6dKyFp45O2ug8o0CpgMVRo8xhrKEDjAjN7AShEZ5MwR2h6buTg5wAST7Mmjf8xi3E0SFSKrE0VXHE1/mVNv2PKlJWAxQU1sBQ4hKkNAcGb0ecJW5F9teCRIraJCBOCC/nGus9g4w3dUH5V+Lph6+8bFBtyApTD8LQPrjMnKpSA5SxCPuYo54XHNDw/P8Ti9rCOtSd2LIT9wdfOSqmq6MZwY8rkV1mt1x7EnP1RU/g18pYlm9VXSpuSt0uL2uVK/eGF0yHwDwvBG1kMJ6wwaLvBkblMw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +czIHq3+BtI9K0YAbY8zHO0P93EmqSv2mw+URNizuqLsdZV228rFk19ZkreJZGSeTs/gc3ww/2JZzwZopqzIECeYlMTx2mQsJxcFCJdInPMcKugrM4iBXeD+M2i19UnefrfQCkNEcmJU2oiqdMLhM3019m4AGlpebPgbIOLh4Ee9eC2iPAiqg6O0q3YiFpwtaYctrY7cslqKkH3VgxqXKcyWw+1syPraEl+s2f1nNMP5C01+FYwnQORZT57YY50ijaSWSDIA27Onpot/0iHH7/m+96ieFtmJrRpmWfEyJptZD8KyLJGkhiq0SBkAXYil8MFXOFVg4ZMuYBFCjb42k6MFabhLUCeKAIeDiW7tkmIGIAFH95FmNDo0Xu4VudLQfHYedPcfPds8QCAvwdrYP+cqsvxMnRtvMKugpEZcIKaPmD1+GEwgq7XQ99trKSnx
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Mar 2026 03:39:40.6172
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: caf7f58b-b620-4bf8-8ca0-08de8ae95010
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C6.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6576
+References: <20260324053030.4077453-1-wenst@chromium.org> <20260324053030.4077453-2-wenst@chromium.org>
+ <20260325-uncovered-carp-of-inquire-8a7acf@quoll> <32638731-8f33-4203-9e68-1170cff99280@sirena.org.uk>
+In-Reply-To: <32638731-8f33-4203-9e68-1170cff99280@sirena.org.uk>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 26 Mar 2026 12:14:32 +0800
+X-Gm-Features: AQROBzDMA30fJWTvgwWnvWVXSov1HJF2nrcMqAj-rcI0Dx_RnI-WKxTXLlei1no
+Message-ID: <CAGXv+5Fo2GmvWQGogA-KTsFChE0-SOwWek6BQ+ZA3xaXup_z+A@mail.gmail.com>
+Subject: Re: [PATCH RESEND 1/2] regulator: dt-bindings: mt6315: Add regulator supplies
+To: Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_203953_950817_66E59220 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260325_211446_320184_6D3F7889 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,51 +118,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable pinctrl, gpio, pcie and hda audio support.
+On Thu, Mar 26, 2026 at 12:55=E2=80=AFAM Mark Brown <broonie@kernel.org> wr=
+ote:
+>
+> On Wed, Mar 25, 2026 at 09:56:00AM +0100, Krzysztof Kozlowski wrote:
+> > On Tue, Mar 24, 2026 at 01:30:28PM +0800, Chen-Yu Tsai wrote:
+>
+> > > +      pvdd4-supply:
+> > > +        description: Supply for vbuck4
+>
+> > These all look per-regulator supplies, so I think they should be in eac=
+h
+> > regulator node (see also regulator.yaml).
+>
+> > Or in top-level, but not in "regulators" node. The regulators is only
+> > wrapping node for children.
+>
+> > I wonder what should be our preference - have supplies per regulator or
+> > in top-level node. @Mark, any preference from your side?
+>
+> The top level, so people can figure out where to describe supplies
+> without having to read the bindings so much - the supplies go into the
+> chip, even if they're distributed within it.
 
-Cc: Yunseong Kim <ysk@kzalloc.com>
-Signed-off-by: Peter Chen <peter.chen@cixtech.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+OK. What about the more complicated mfd PMICs? We already added
+*-supplies for the regulator side of these PMICs in
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index b67d5b1fc45b..85151adc7d65 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -241,6 +241,7 @@ CONFIG_PCIE_XILINX_DMA_PL=y
- CONFIG_PCIE_XILINX_NWL=y
- CONFIG_PCIE_XILINX_CPM=y
- CONFIG_PCI_J721E_HOST=m
-+CONFIG_PCI_SKY1_HOST=m
- CONFIG_PCI_IMX6_HOST=y
- CONFIG_PCI_LAYERSCAPE=y
- CONFIG_PCI_HISI=y
-@@ -676,6 +677,7 @@ CONFIG_PINCTRL_SDM660=y
- CONFIG_PINCTRL_SDM670=y
- CONFIG_PINCTRL_SDM845=y
- CONFIG_PINCTRL_SDX75=y
-+CONFIG_PINCTRL_SKY1=y
- CONFIG_PINCTRL_SM4450=y
- CONFIG_PINCTRL_SM6115=y
- CONFIG_PINCTRL_SM6125=y
-@@ -701,6 +703,7 @@ CONFIG_PINCTRL_SM8550_LPASS_LPI=m
- CONFIG_PINCTRL_SM8650_LPASS_LPI=m
- CONFIG_PINCTRL_SOPHGO_SG2000=y
- CONFIG_GPIO_ALTERA=m
-+CONFIG_GPIO_CADENCE=m
- CONFIG_GPIO_DAVINCI=y
- CONFIG_GPIO_DWAPB=y
- CONFIG_GPIO_MB86S7X=y
-@@ -1060,6 +1063,7 @@ CONFIG_SOUND=m
- CONFIG_SND=m
- CONFIG_SND_ALOOP=m
- CONFIG_SND_HDA_TEGRA=m
-+CONFIG_SND_HDA_CIX_IPBLOQ=m
- CONFIG_SND_HDA_CODEC_HDMI=m
- CONFIG_SND_USB_AUDIO=m
- CONFIG_SND_USB_AUDIO_QMI=m
--- 
-2.50.1
+  - regulator/mediatek,mt6358-regulator.yaml
+  - regulator/mediatek,mt6363-regulator.yaml
 
+And my other series for the MT6359 also adds them in this manner.
+
+
+Thanks
+ChenYu
 
