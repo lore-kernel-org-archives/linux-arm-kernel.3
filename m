@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0978106F30A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D8E106F309
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 08:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ws3b7nGQYOK1DBD702AysYih0+ywSwzRoWrb12H9ynA=; b=h1jMBUf/5ni164XH5GA7ctf+uC
-	epSxyBVd2skACQn+NF7gSZ1CeRyYp2CmFq2yhUDy9ITDyg1WGVb2EmjUDexzs7nzx4Zvo0ebVu85+
-	6tQjo9zk+z15wlllL7vC4RMDuQEPZhiHGEPkI5gcC85MY4aORlaTbtWcbVuYWsrfH+bDuxiA0T1C3
-	d+GtuOz2p2kczfVA9I+dqnagoVY+9xCC/dlpSmFwjHwlzFsYT9O+dNgj9AFrLHaUr+fofPbtl3nul
-	zg0yTKtSOltU7mn+JMboAxxAcM1RFMHJKPzkdLcK4UvqrPE1/qwgtAuKbMlV/7PnQBBwdEwJlSItM
-	RYpefvNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MgYZsqPeVPVKfUUPMM70E5V+cxb3qXURl6czzM6KnCc=; b=vFAEuGe3kOycWrrS29gO0QR0BE
+	6m4EKJ5FFb47ernA/JOF38bkuoltW/ceRel8shDjR1a14e5W/QFQcmzwtjlU9BxUOmdgmrzT67Vi1
+	pD3OisciBaJMXRTa1jDiIPc96l05lau9huEyxDSaPqySvCgfnZwOnzcwT6gtmuDhgDw7CT3WTI08h
+	T51fPwqMnps4Y6OhkHJwvnbhSTu78yI/pPM9214n4Yw1Fpuu/giSihEI0Xmcx3E3dXhgLkVPis6Gx
+	N8TM4mLg4xNL6n0z8e9a+PajSaFGntnp8NdUyoUGiCaeGuwwbYtCp0oN/6A+yvwhkDJrvc9Fk8eFh
+	2sWCgspA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gXE-0000000557D-0DxV;
-	Thu, 26 Mar 2026 08:57:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5gXr-000000055IV-086F;
+	Thu, 26 Mar 2026 08:58:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5gXC-0000000555v-0xp8
+	id 1w5gXp-000000055Hj-3E1M
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 26 Mar 2026 08:58:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=MgYZsqPeVPVKfUUPMM70E5V+cxb3qXURl6czzM6KnCc=; b=h8GyL0A6ewvtMNhqxlSlTclkdL
+	Bn4VBWcFZOlfLG2iC7v+CR56MzuVkqezutBGwnrKA9wkTnG/CS2V7QelOp4QD6aBL7ZT18HCnbziL
+	SbMxmW1kT+op+7/8GbY/jBZQ6gBlUZ8Y26z3WkjIOqcfZ5gpHmMEvWLnNW3IPgR3tm/+aBvwmpW7Y
+	ieeI6we6hXKSQhOOjyxPcScIdH61lfPoDAdFrjDy5tlECGckgWgOFwImA5QoFqqMH6WHYUsDWktfh
+	gSuXQbXxeJIWGDktpvi8+7T3k8D/TEyy8BAbJLj9tSV/SrgUngHIDlguziMkRogQwUuViNgawLX99
+	2kPpGptQ==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w5gXm-00000007ocl-3jco
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 08:57:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7698742B60
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 08:57:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CC2C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 08:57:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774515465;
-	bh=Ws3b7nGQYOK1DBD702AysYih0+ywSwzRoWrb12H9ynA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hrENcQnUCVFut4H2CjFtupt/v5/t8iwY93KKgBCnC9lsEdhsTTIRx8TObUB8ZdV8+
-	 1HJDRKOgaBzERjfjUOPA2l3GFBfXVCqf0YBz0ms3FVxCTtVfXoboUk3qRPVMTURaMd
-	 2E2FksweraGMeA39MfH/i70+HXHgD3kiBcE+mRqopHmaBNfA1/ERdMNj7C2KE6Nadv
-	 /c1248MBHAn5c13p9yoIY6dCyUfLvsruQ0rqghhBpIWjydscdceAXxabAmwIAWxop1
-	 ZVWoGCS0D91Qy4cpNM4Pn1TMvNeH5VSe4+AFCX1mXVqC2OJulM6dvgbABzRMROwQ69
-	 SpiTYKDrNvbTw==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5a1443780c4so1603599e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 01:57:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUVhL6gWmuTSRDD8pkx9mAyr6rWBIwnmnhoSb1q9JoCz5+dLMH34aF/RV0BwKDwg3Fgo3RKOd8qkmlGL6kTMsET@lists.infradead.org
-X-Gm-Message-State: AOJu0YytvDjYhjRIY+7ZbfEMLDS9QRhJZTjLcoFUAhjufJVe+dDFzGZi
-	KPG6+0o2YaEZacN+xZp4atQNzy3nxKMryDwqpwgVxm30kMDKBS5Kk3ZfTKqLvM5+iHnoq8EvxUb
-	UoCsUUth6I0P4w7lLg7idwn28MLQQ27M4qoVcN1hhoQ==
-X-Received: by 2002:a05:6512:2305:b0:5a2:858a:10f1 with SMTP id
- 2adb3069b0e04-5a2a5050bf5mr375160e87.1.1774515464043; Thu, 26 Mar 2026
- 01:57:44 -0700 (PDT)
+	Thu, 26 Mar 2026 08:58:24 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CECCAF90;
+	Thu, 26 Mar 2026 09:57:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774515423;
+	bh=Q2z7nIl9Zoe/83NJvE1/x3WCuB6ACYFQkU+mBKqbubU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vkKVLOOlHLE3wSuMiYkfrrBCYD3tc+A0g2WIsGFOY7JCZMxsqpolgMrhXVdb0x4+r
+	 SMp/DGTgBsYtx9TbFzol6XviLPVgJx+w9hlBtyHCyWgHgIdplETSXdBrgXEaT3V1eD
+	 qDIEoQBl8EJrbwbPDY12yMEX8gEsuiWQQP2wBVxs=
+Date: Thu, 26 Mar 2026 10:58:20 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Gilles Talis <gilles.talis@gmail.com>,
+	Viorel Suman <viorel.suman@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Manoj Sai <abbaraju.manojsai@amarulasolutions.com>,
+	Matteo Lisi <matteo.lisi@engicam.com>,
+	Ray Chang <ray.chang@technexion.com>,
+	Richard Hu <richard.hu@technexion.com>, Heiko Schocher <hs@denx.de>,
+	Martyn Welch <martyn.welch@collabora.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Goran =?utf-8?B?UmHEkWVub3ZpxIc=?= <goran.radni@gmail.com>,
+	=?utf-8?B?QsO2cmdlIFN0csO8bXBmZWw=?= <boerge.struempfel@gmail.com>,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+	Marek Vasut <marex@denx.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel@dh-electronics.com,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 09/12] arm64: dts: imx8mp-sr-som: Correct PAD settings
+ for PMIC_nINT
+Message-ID: <20260326085820.GA2770072@killaraus.ideasonboard.com>
+References: <20260326-imx8mp-dts-fix-v2-v2-0-62c4ce727448@nxp.com>
+ <20260326-imx8mp-dts-fix-v2-v2-9-62c4ce727448@nxp.com>
 MIME-Version: 1.0
-References: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
- <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com> <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
-In-Reply-To: <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 26 Mar 2026 09:57:31 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
-X-Gm-Features: AQROBzBNLLHxtCNy9V7o0C4AT9cPhp-QyPTFtDSpHSqNAwoCTThHKHlTXbXXZok
-Message-ID: <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Hans de Goede <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Kevin Hilman <khilman@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260326-imx8mp-dts-fix-v2-v2-9-62c4ce727448@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_015746_305269_98A3D9C7 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260326_085823_243207_8030667C 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 9:50=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
->
-> On Fri, Mar 6, 2026 at 1:31=E2=80=AFAM Kevin Hilman <khilman@kernel.org> =
-wrote:
-> >
-> > Bartosz Golaszewski <brgl@kernel.org> writes:
-> >
-> > > On Thu, Feb 12, 2026 at 12:46=E2=80=AFPM Arnd Bergmann <arnd@kernel.o=
-rg> wrote:
-> > >>
-> > >> On Thu, Feb 12, 2026, at 12:25, Bartosz Golaszewski wrote:
-> > >> > Currently the board file for Nokia 770 creates dummy software node=
-s not
-> > >> > attached in any way to the actual GPIO controller devices and uses=
- the
-> > >> > fact that GPIOLIB matching swnode's name to the GPIO chip's label =
-during
-> > >> > software node lookup. This behavior is wrong and we want to remove=
- it.
-> > >> > To that end, we need to first convert all existing users to creati=
-ng
-> > >> > actual fwnode links.
-> > >> >
-> > >> > Create real software nodes for GPIO controllers on OMAP16xx and
-> > >> > reference them from the software nodes in the nokia board file.
-> > >> >
-> > >> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualco=
-mm.com>
-> > >>
-> > >> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > >
-> > > Aaro, Janusz: Can you please pick it up for v7.1?
-> >
-> > I can take this via the OMAP tree once I have confirmation from
-> > Aaro/Janusz that they've tested.
-> >
-> > Kevin
->
-> Gentle ping.
->
-> Bart
+On Thu, Mar 26, 2026 at 03:28:13PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> With commit 5d0efaf47ee90 ("regulator: pca9450: Correct interrupt type"),
+> there might be interrupt storm for this board. Need to set PAD PUE and PU
+> together to make pull up work properly.
+> 
+> Fixes: a009c0c66ecb4 ("arm64: dts: add description for solidrun imx8mp som and cubox-m")
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-sr-som.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-sr-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-sr-som.dtsi
+> index 3cdb0bc0ab721709fc892931ea00a538ec6216ff..c3f7daa773eaf335deb6cc976a5e120abdae5967 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-sr-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-sr-som.dtsi
+> @@ -174,7 +174,7 @@ pmic: pmic@25 {
+>  		pinctrl-0 = <&pmic_pins>;
+>  		pinctrl-names = "default";
+>  		interrupt-parent = <&gpio1>;
+> -		interrupts = <3 GPIO_ACTIVE_LOW>;
+> +		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
 
-Hi again! Any chance we could get this queued? Janusz, Aaro: any objections=
-?
+This is a good change, but it should be mentioned in the commit message,
+or split to a separate patch. Same for other patches in this series
+where you make the same change.
 
-Bart
+>  		nxp,i2c-lt-enable;
+>  
+>  		regulators {
+> @@ -417,7 +417,7 @@ MX8MP_IOMUXC_SAI1_RXD1__GPIO4_IO03		0x160
+>  
+>  	pmic_pins: pinctrl-pmic-grp {
+>  		fsl,pins = <
+> -			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03		0x41
+> +			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03		0x1c0
+>  		>;
+>  	};
+>  
+
+-- 
+Regards,
+
+Laurent Pinchart
 
