@@ -4,55 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33ED109E52E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Mar 2026 23:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19F9109E530
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 00:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6yzGlttx+NXjSJf4aCL4qCZ2swewO2eS0YxkN2Iuaw=; b=ttI19izqyeT1G7943EJ6l4UR2g
-	T9vpRNh4eGpRTEPSsVVgyX0dgDyzOOmm/OcyrvD7ztN22g+Lc4t3/uvcEd1Kc6fyIBRCa1nqlkIhr
-	xOB7ZqNZVru3hL7tYf5YRCJVUBNP9fJYar/dFqttWX7pX94igBpcQqqI9N168uA0r0CGkk9IMjjG5
-	d8ythwNVnqImKa+3jyGrwen2jDzDC/k026RgdFI+u7tyBFagz4gQxTq8tf+xhZOO+69a1KFpZKJfI
-	JnASS0XoVZWTpFsfv3T8A34WR0TMhTiYlwiA7WUcNcTbXezeTTohkTPRIu3awU8V2LgqZUvzoQxDX
-	d6fcuS2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:References:
+	In-Reply-To:Cc:Subject:Date:To:From:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KoGksBrhgEtRDSfM/YDFfZUq76xOqjELkeavOboi/IU=; b=Ugd7sYagNJULqunkS9O948DEDj
+	JgZ02KSKeMjJpirpQlhyMkhZgdTtlE5VM3zgm9oGFcRAbdOXAIyrvshXQZ8HBLozHV2h9TAgVYCqR
+	9HfyZOHStZPqiI0BdVVVw+Ug8ATqZdscGwdm6+EOiN1VhHmj6C/FlHhS7MHXgHkyFdRgNvkxdOImB
+	YhrVSr/t/TO8uGF+TwEf7Fi4CjicFOxpNL2cWECKbRC5KGzKFNgw9Yu5mMtS/BvEVynArT7Ahp+P+
+	TFg3/d7OdCkscvuBijXuDXqUgGXcmQtQKCjcC+hcJZP9YZMj3dKx+aItzXfdCgiIkkBpMcsfRPHIU
+	rAwCf3qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5XrH-00000004Rnv-3m9h;
-	Wed, 25 Mar 2026 23:41:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w5YUp-00000004Tgh-1YS7;
+	Thu, 26 Mar 2026 00:22:47 +0000
+Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5XrG-00000004RnS-0FUx;
-	Wed, 25 Mar 2026 23:41:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=b6yzGlttx+NXjSJf4aCL4qCZ2swewO2eS0YxkN2Iuaw=; b=M5lZcw4fBkUFqRe1eIpe6LvRwA
-	2ouXek52MBk/ibhN25yL4S394q/dCCjdw5Hs0EC13tfh7Irkc3ywd9nE4TCjFB9MYCYcEeOSDZ+qa
-	5eGiZ0Z+J3a3PSFRg24Tt98Nq7rpBx77Nu9SstJPtbAs+RDp4rsQ+Yl8qffT1Y7+CBZ9mCK0o21MR
-	4a8867X60jSEyOU5VUrxccGzTkxTQHi3StFomFYvQOVocQePOqtsCF60R2ZULlGPJSbJpkeO/6mMr
-	/5YQ4+LSO8TGOWyV+EMc9IqN2rFfN9vEbxSprZjKqyyfdeWSQlHW8O7hAyTkpbyfL1jJXrfAOMiee
-	qJVZgqlQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Pedro Alves <pta2002@pta2002.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v2] arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
-Date: Thu, 26 Mar 2026 00:41:49 +0100
-Message-ID: <23047464.EfDdHjke4D@phil>
-In-Reply-To: <1331010f-1446-4892-9d81-2f18b60f6977@pta2002.com>
-References: <20260323-radxa-r5-itx-hdmirx-v2-1-c52501909577@pta2002.com>
- <3407927.44csPzL39Z@phil> <1331010f-1446-4892-9d81-2f18b60f6977@pta2002.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1w5YUm-00000004TgJ-3TWq;
+	Thu, 26 Mar 2026 00:22:46 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailflow.phl.internal (Postfix) with ESMTP id 1EE311380743;
+	Wed, 25 Mar 2026 20:22:43 -0400 (EDT)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-02.internal (MEProxy); Wed, 25 Mar 2026 20:22:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1774484563;
+	 x=1774491763; bh=KoGksBrhgEtRDSfM/YDFfZUq76xOqjELkeavOboi/IU=; b=
+	FfGJaiGR8wwkUXmw0OxoZpapCVyITNP9jQy8V6NXs0B+Ph/EboZ2CHMbTVSeupkj
+	JBD0zhKFeLS3L8CW8USOd442u1gW4WT1y9mQbnYGuun3qhtkeSv0HTFgcexsIOgZ
+	DKM26Re1KjHSTDGIlM+h0WJlhs+6rzihgMk0Vmx/h6GyzimOsPkL2rmPlw2agXHH
+	R3M7xQBFAIHcDdxKbyLWVKOM10V7AR6FC1cS2z3WipPG7/8omenaCkD8IyqJVC8i
+	uieLb8upy0xI0GAU8XQBD2js3xklu2zPADpLfKLaFndXrs0M5tD+Xt51R/k+YLuy
+	8CHf8wsChVIfAwZPnRHNdQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774484563; x=
+	1774491763; bh=KoGksBrhgEtRDSfM/YDFfZUq76xOqjELkeavOboi/IU=; b=A
+	MCjAfotSWOW3C9NV4AeCNzy4JHkSliVuTt0hUDrEPtKEGOshqyW4BvD6IQTIXirQ
+	LTEe5edkZKe2JTOuo4MyQNiKv6ux/nahS3w0TKY6ATJzzq1eW3uNq50fUwdnEfuP
+	eKXfHbE6JAWIHVz6C1pi/yHEHfkGPbX/GhrmRaiB95nmMkf0R/DQubxxJRzXiFxS
+	66IPRzG+AX6DvMqqueeu7MbAi3repjTeColUxTWnJThzbOs4HSh1DmGPX+6FquSO
+	uIQ2mf+QD15/nqo5uKEbU4z/oBdGdJh+hXMYIwq8BYcbVJ9RcXYopdGqXymK6raM
+	OlbV4/XUk5khh1MSZc7CQ==
+X-ME-Sender: <xms:UnzEac2LXinKBmeR3d0Q11WE2DDpQWKzJXO4ycyPck9LqLIS4IyPcA>
+    <xme:UnzEaR6IZhGtIDeTOb3SAV7MGqaAp0Mo6JVoZm1d5LvTrvWBoY-60PvQzlbQWMjUa
+    nocXa8ZOJGFtWGeDcbQNICZHxVD39rHIOe6tWbSJgvBuS5gSC9nxw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdehledtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnegopf
+    hokfffucdluddtmdenucfjughrpefotggggffhvfffufevjghfsehtkedttdertdejnecu
+    hfhrohhmpeflrghvihgvrhcuvfhirgcuoehflhhoshhssehjvghtmhdrmhgvqeenucggtf
+    frrghtthgvrhhnpedtudejffejkeekteelueefvdejvdeuhfefteehkeevtddvleduteek
+    leetvdelhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
+    hmpehflhhoshhssehjvghtmhdrmhgvpdhnsggprhgtphhtthhopedvfedpmhhouggvpehs
+    mhhtphhouhhtpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrh
+    gvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopeefudelfeeifedusehg
+    mhgrihhlrdgtohhmpdhrtghpthhtoheplhhoohhnghdrtdigtddtsehgmhgrihhlrdgtoh
+    hmpdhrtghpthhtoheprghrihgvlhdrrhhoshgvnhhfvghlugdrjeehtdesghhmrghilhdr
+    tghomhdprhgtphhtthhopegthhgrphhuihhsuggrrhhiohegsehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepghhiohhsrghlledtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgr
+    thhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhgrughoihdrtg
+    hhrhhishesghhmrghilhdrtghomhdprhgtphhtthhopehsrghmuhdrthholhhjrghmohes
+    ghhmrghilhdrtghomh
+X-ME-Proxy: <xmx:UnzEab2oOstJnxD3dqX5RYKr-ESaHoxoRnNsZYzSCAV-UwH8WCVi5w>
+    <xmx:UnzEae-ZILLAGzzaLn06h_7AIjh4xtDuvtUWod50hjVv7GIuwi3ktQ>
+    <xmx:UnzEaZdVrqQuIE9xnoEK3CriglFgOK3tpmn3r3l-SFnbAstLTuVrKA>
+    <xmx:UnzEaS7r9qT97VdUBsaCuJhRdNTDekAHd0IKPihETnVnXsem2QDGag>
+    <xmx:U3zEaZShFSVc8IhrR0Le_l4CFEQpZQVkY_JEG6y5wJovFb4_lMPWUdbE>
+Feedback-ID: i9dde48b3:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 50D8B1EA006B; Wed, 25 Mar 2026 20:22:42 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+From: Javier Tia <floss@jetm.me>
+To: Sean Wang <sean.wang@kernel.org>
+Date: Wed, 25 Mar 2026 18:18:45 -0600
+Subject: Re: [PATCH v2 05/13] wifi: mt76: mt7925: advertise EHT 320MHz capabilities for 6GHz band
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Deren Wu <deren.wu@mediatek.com>, Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Marcin FM <marcin@lgic.pl>, Cristian-Florin Radoi <radoi.chris@gmail.com>, George Salukvadze <giosal90@gmail.com>, Evgeny Kapusta <3193631@gmail.com>, Samu Toljamo <samu.toljamo@gmail.com>, Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>, Chapuis Dario <chapuisdario4@gmail.com>, =?utf-8?q?Thibaut_Fran=C3=A7ois?= <tibo@humeurlibre.fr>, =?utf-8?b?5byg5pet5ra1?= <Loong.0x00@gmail.com>
+In-Reply-To: CAGp9LzoYcJEmFKTKGsF3WchxLedyo7HvGCn8Vi=WaEXS1N-VTg@mail.gmail.com
+References: 20260319-mt7927-wifi-support-v2-v2-0-d627a7fad70d@jetm.me 20260319-mt7927-wifi-support-v2-v2-5-d627a7fad70d@jetm.me CAGp9LzoYcJEmFKTKGsF3WchxLedyo7HvGCn8Vi=WaEXS1N-VTg@mail.gmail.com
+Message-Id: <20260326002242.50D8B1EA006B@mailuser.phl.internal>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260325_164154_102960_B41D98A9 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20260325_172244_943266_31D4B388 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,63 +113,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pedro,
+Hi Sean,
 
-Am Mittwoch, 25. M=C3=A4rz 2026, 15:24:45 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Pedro Alves:
-> Hi,
->=20
-> On 24/03/2026 14:18, Heiko Stuebner wrote:
-> > Am Montag, 23. M=C3=A4rz 2026, 10:25:33 Mitteleurop=C3=A4ische Normalze=
-it schrieb Pedro Alves:
-> >> +&hdmi_receiver {
-> >> +	pinctrl-0 =3D <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim=
-1_rx_sda &hdmirx_det>;
-> >> +	pinctrl-names =3D "default";
-> >> +	hpd-gpios =3D <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
-> >=20
-> > as said before, please also add a pinctrl setting for this pin.
-> >=20
-> > gpio1_c6 is not part of the main hdmirx set of pins, hence needs an
-> > additional pinctrl entry to configure it as gpio and possibly set any
-> > additional pull settings.
-> >=20
-> > And yes the pinctrl-driver does "implcitly" set the gpio-mode when
-> > a gpio is requested, but our more modern approach is to always have
-> > a real pinctrl entry even for gpios.
->=20
-> I am probably getting confused by what you are asking here, but I don't
-> understand what exactly I should add. There was already a pinctrl for
-> hdmirx_det (which is what the gpio1_c6 pin is) present in the file,
-> hence why I did not add it in this patch:
->=20
-> &pinctrl {
-> 	/* ... */
-> 	hdmirx {
-> 		hdmirx_det: hdmirx-det {
-> 			rockchip,pins =3D <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-> 		};
-> 	};
-> 	/* ... */
-> };
->=20
-> Looking at the other boards, they do the same thing, but they call it
-> hdmirx-5v-detection instead, but as discussed in v1 of this patch I
-> ended up keeping the det naming to match the schematics.
->=20
-> Sorry if I am missing something, I don't have much experience with this,
-> so I would really appreciate some extra information.
+On Mon, Mar 24, 2026 Sean Wang wrote:
+> I don't think this is correct for mt7925, and it will cause a
+> regression there. Was this tested on actual mt7925 hardware?
 
-You didn't miss anything - I did :-) .
+You are right. I do not have mt7925 hardware to verify against.
+In v3, is_320mhz_supported() now checks is_mt7927() only, so
+mt7925 behavior is unchanged.
 
-Not finding an addition to the pinctrl definitions in the patch
-I misread the &hdmirx-det reference as the one defined in the core
-rk3588-base-pinctrl, not realizing that the rock5-itx one was
-already existing in the rock5-itx dts already.
+> I don't think this should be copied from mt7996 as-is for mt7927. I'd
+> suggest dropping the eht_cap_elem->phy_cap_info[7] change and keeping
+> it conservative for now.
 
+Agreed. The phy_cap_info[7] additions (NON_OFDMA_UL_MU_MIMO_320MHZ
+and MU_BEAMFORMER_320MHZ) are dropped in v3. Only the MCS/NSS maps
+and per-BW beamformee SS/sounding dimensions for 320MHz remain.
 
-Sorry about confusing you
-Heiko
+Both changes are in v3, sent today.
 
-
+Best,
+Javier
 
