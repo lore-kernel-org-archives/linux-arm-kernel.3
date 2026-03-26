@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992AD10AB82E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 23:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DD910AB82F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 23:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/TN6HvQ+xTPSDaAAvSPHxdODsPl8D/3Jbr6LOu1F6E=; b=4DeUxOWpyY8FrinRSChFiQN2y8
-	jOPRzkMctczS5OrGxEqPgEFMAPD1sS9ZHWPQPZ8dDtlkFLP2LcbbA7QmdAzRYHMBBDqQEfQGFIEnE
-	2aXryAPocYBqg7Etq0M3qR/6qYAyN5BGe5UFp9Ozw80O4/gm9L8npdyv/EvmN3BNNIMjWIs3ymTKh
-	MV47Zr1yIHfY0jyFFweYV4YI4gUHdSOPjOGc/CnteiFuBzxaQ6jwwh0/ss/0NGPRT4jDW6NFsBe/8
-	jvxSg+iVv09JfpibArS4jgLMPtJsjDE5ln7RmV8JfKXMgcvvxen4Gzq3cT3DV1R/uxgGUcudgq04q
-	/fByiOiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KSqdSMkpITWN/xaov4vm8qh/t1hMataSipsV++1nReM=; b=TbH8URNqQjoUN5wVN7IpnkCFQD
+	VEABDHOoe2YP8HxGVMQT6UohILbI4e9g9aAFoFcSBVrc1p8VJFIvTS2meWJ5Apd1jwS0UPT8KDMgq
+	d657E9z7ddqhMxTyQlvHZLXXq6nM8AWe4JUwZ9uNBVta3namN7r4UnUHOSwYsu8fD5dXtFBKAYj9U
+	2yTkPlcEXK3/AsZSr52pyJRTgZIfg+8REOhYA2DVGKUz7ExtYKGNfX88qpGn+iSOQ0yW+PeU7s0m5
+	EgAQF/oZxqtNQyjXzTwyqQ3cwAr5rmEB0ApglxmaLnshNUQBS9AfBh5XZzDTyF9zfbDRm1MU7/PMJ
+	CnPb39tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5tjn-00000006MMa-04Xp;
-	Thu, 26 Mar 2026 23:03:39 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1w5tq0-00000006MiH-3RI0;
+	Thu, 26 Mar 2026 23:10:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5tjk-00000006MLr-07Qm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 23:03:37 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-486fc4725f0so13325045e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 16:03:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774566214; x=1775171014; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R/TN6HvQ+xTPSDaAAvSPHxdODsPl8D/3Jbr6LOu1F6E=;
-        b=BVm/R1lDGzuZBlP2u1dQ/1QOmehMu+ebpdK6y5+jbaDYCfZLAiiaAZV/juJeGQLb/i
-         xQj1ahXSDywnib10atKt2C/eUpgs6LXnWGBYcV8opcI95xaDqe5ActgOvneVw7Hr6VFT
-         52pDsfZxwd+YJO2h7ONwVzIdO8MMrz9nUD0uNIs9b5PtKbOWWIIYBir9VVPtWY2SF2cD
-         qgCtRlTPSK9UK39eUmH8ONCEBcp4EFjmb6kL/C8ckQAtS+FfAp3/wFniJJYZZyogF5Ic
-         SikDEwt+LV2a/wzAPT724kDkRtkTNAZQIc/Ye21IPlB+pY+LXJJM/at32VuZKXfKYi6S
-         bD4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774566214; x=1775171014;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R/TN6HvQ+xTPSDaAAvSPHxdODsPl8D/3Jbr6LOu1F6E=;
-        b=JrCWSz85fG7eW6vxN0/psiFDvBl/Y317NB81tfVG//BAJ1JbwmDazSH4fccxdXoo9l
-         QahLvgZhP2+W5OMSVRfj+BFlYIBjo299U4K57UE2MCmZNuZpTEOWbp80uw79tITq1kxD
-         kKGmf6+HNghCfsbG8jeToVR1jjfU2944nqhE1efHHJtMr/KwGNWOlDJktLvANEHdOpc/
-         ZQ1fA20HswVOepdKtwjGeCmdFY+b2j82PImc1DMEPYlKFLpjQsSTuqT5memxDYJ8Jz/0
-         oYuiXS6NeN2CUdbcny3V+KpCrOnaPCBAQtDG+eBsrH6oTaU86aIw9bpaahjHazBJWMMX
-         omsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/PqWpVahLwZm4dXNngqnrovAfYqvh5+TMexLtYj9S6ZpK6DZn1tSxVDeJ+a9l/FRnyfRXGTYbaj+FFWpDSEJO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzgosurec1DvNyzMEdh7SRsCgOFPiBHEQRdZiFXiyMHPOw9zNS5
-	gLcQGeLL4lUeDTy7vH4RHg0mMSSaMAKid8twoYvsmnN/2U324wblbV06
-X-Gm-Gg: ATEYQzxpYF4WHG97R4vpy36lDdloEnScU951oWo1nOKdil9hgZpK+K3RRy+tLRVNr70
-	fAtF/bt9EpvtVfcyZ8Eypnl3qXTk56XbwyhsmDdoN49x8nqDP9T96WcNh4LMaOjP0HA4mLJ8rBi
-	bXEvQG0Cbci0nxQsWC5DfU/2eBfnrvNRjX+diuX0h4jeRo5mTqxhsEmmXFmJslQ2jW1yNdPdXg9
-	zk+ZgRl9kxZu/4VEYznmiDdk09rSaY4FelPvUAT3o5OWh+ZEKve/QIsqZ16cJVOMJd9SHkIvrxu
-	/YD7mzUXiEU3oCGPst368Ak8xwUKfm+18LGdydKpyUQK+kf7363qowE+tgaEUHzE7iga8MA9OzC
-	fuGIFxot3Qz4/pZtYk7QR2hoDk3EZRGy1ZhjQI6ynidVyT5jSqQguewnCdBikzvkt1GO14m1c+M
-	vnHx+ApalphC3i574+hUk6rGW9Zw09xp3v9G5X7lpFTPPUmue7DkBZzyssacRQecsu/TKt
-X-Received: by 2002:a05:600c:45cd:b0:486:fbc4:8fe2 with SMTP id 5b1f17b1804b1-4872912dd2bmr1429515e9.15.1774566213812;
-        Thu, 26 Mar 2026 16:03:33 -0700 (PDT)
-Received: from osama ([2a02:908:1b6:8980:8cd6:6329:c43d:2fcb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48727161bb2sm3519395e9.23.2026.03.26.16.03.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Mar 2026 16:03:32 -0700 (PDT)
-Date: Fri, 27 Mar 2026 00:03:30 +0100
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Ryo Takakura <ryotkkr98@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: panic if IRQ shadow call stack allocation fails
-Message-ID: <acW7QqjoF_e0Fdxl@osama>
-References: <20260324161545.5441-1-osama.abdelkader@gmail.com>
- <acQO16dmw0v6pzu8@willie-the-truck>
+	id 1w5tpz-00000006MhZ-0tQk;
+	Thu, 26 Mar 2026 23:10:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2930860103;
+	Thu, 26 Mar 2026 23:10:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C388CC19424;
+	Thu, 26 Mar 2026 23:10:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774566601;
+	bh=O6x7E60uogGixLDyJQPgrKYnDUinoJ2tUqk42mMfEko=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=mKsB20b69PEZUZvlMKYSEd/J7jfYSFyqVWEX5EApfCK2DBHQusAnPLcBdzd3g7ZaL
+	 n+QAeQTRVOHGkSmSWGraaQwUCRBkayOQNLQxYtMoTS3TbUscoiN4H+nI+RbtKLyq1y
+	 3/Lk4jbkEiglFx9K30km6vZC83SDuDCIQ6HkOUNnTXYXmj3gfv9LSg0oJGZMRwBGWs
+	 5bIql8PwnYbWQe8a3Vn4F5A0Xd/1FXBW3/EgpBGDzedyCj38soOaADsP9GJTzAOT88
+	 6H8f6kZ/YcfKYceDbOfg7fl30JrS5X9Y2Kw05yS27CLHHP80hFR5d20mOosJWeqi5H
+	 N78+NdrIacLow==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A846910AB82E;
+	Thu, 26 Mar 2026 23:10:01 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Date: Fri, 27 Mar 2026 00:10:00 +0100
+Subject: [PATCH v4 1/2] media: dt-bindings: rockchip,rk3568-mipi-csi2: add
+ rk3588 compatible
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acQO16dmw0v6pzu8@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_160336_083930_C76C0E6B 
-X-CRM114-Status: GOOD (  22.02  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260305-rk3588-csi2rx-v4-1-81c6bcfefa63@collabora.com>
+References: <20260305-rk3588-csi2rx-v4-0-81c6bcfefa63@collabora.com>
+In-Reply-To: <20260305-rk3588-csi2rx-v4-0-81c6bcfefa63@collabora.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <Frank.li@nxp.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Collabora Kernel Team <kernel@collabora.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774566600; l=1182;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=oSB0pcf7VsFDNyisKIcEiS+NR+CwirDnVBZgZpwFUp0=;
+ b=4PvhVKCWiTn8YBw/fj9kmxZ1fmvqQSaDWZoo7ahk0Hb5esV4DhhBKqhn6ePC5EWouGNucAFwW
+ 1nj+ZEr/IYtANY1CaAEY6OGkW07Fk1FY3NQo40AE2MV/iVjCeGgQLxR
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,68 +87,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 04:35:35PM +0000, Will Deacon wrote:
-> On Tue, Mar 24, 2026 at 05:15:41PM +0100, Osama Abdelkader wrote:
-> > diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-> > index 15dedb385b9e..b32ed7ef8e00 100644
-> > --- a/arch/arm64/kernel/irq.c
-> > +++ b/arch/arm64/kernel/irq.c
-> > @@ -14,6 +14,7 @@
-> >  #include <linux/init.h>
-> >  #include <linux/irq.h>
-> >  #include <linux/irqchip.h>
-> > +#include <linux/kernel.h>
-> >  #include <linux/kprobes.h>
-> >  #include <linux/memory.h>
-> >  #include <linux/scs.h>
-> > @@ -32,23 +33,26 @@ DEFINE_PER_CPU(struct nmi_ctx, nmi_contexts);
-> >  
-> >  DEFINE_PER_CPU(unsigned long *, irq_stack_ptr);
-> >  
-> > -
-> >  DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
-> >  
-> >  #ifdef CONFIG_SHADOW_CALL_STACK
-> >  DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
-> >  #endif
-> >  
-> > -static void init_irq_scs(void)
-> > +static void __init init_irq_scs(void)
-> >  {
-> >  	int cpu;
-> > +	void *s;
-> >  
-> >  	if (!scs_is_enabled())
-> >  		return;
-> >  
-> > -	for_each_possible_cpu(cpu)
-> > -		per_cpu(irq_shadow_call_stack_ptr, cpu) =
-> > -			scs_alloc(early_cpu_to_node(cpu));
-> > +	for_each_possible_cpu(cpu) {
-> > +		s = scs_alloc(early_cpu_to_node(cpu));
-> > +		if (!s)
-> > +			panic("irq: Failed to allocate shadow call stack\n");
-> > +		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
-> > +	}
-> 
-> I don't especially see the point in these panic() messages given that
-> presumably all sorts of other things will go wrong if we fail simple
-> allocations this early during boot.
-> 
-> If you really want to check this, then we should at least do the same
-> for the IRQ stack itself, otherwise it's all a bit academic. So maybe
-> have init_irq_scs() and init_irq_stacks() return -ENOMEM so that
-> init_IRQ() can panic?
-> 
-> Will
+From: Michael Riesch <michael.riesch@collabora.com>
 
-Thanks for the review, I just did that in v2:
-[PATCH v2] arm64: panic from init_IRQ if IRQ handler stacks cannot be
- allocated
+The RK3588 MIPI CSI-2 receivers are compatible to the ones found in
+the RK3568.
+Introduce a list of compatible variants and add the RK3588 variant to
+it.
 
-Best regards,
-Osama
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ .../devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml  | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+index 4ac4a3b6f406..fbcf28e9e1da 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+@@ -16,9 +16,14 @@ description:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - fsl,imx93-mipi-csi2
+-      - rockchip,rk3568-mipi-csi2
++    oneOf:
++      - enum:
++          - fsl,imx93-mipi-csi2
++          - rockchip,rk3568-mipi-csi2
++      - items:
++          - enum:
++              - rockchip,rk3588-mipi-csi2
++          - const: rockchip,rk3568-mipi-csi2
+ 
+   reg:
+     maxItems: 1
+
+-- 
+2.39.5
+
+
 
