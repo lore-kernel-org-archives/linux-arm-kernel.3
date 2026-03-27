@@ -4,135 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F76910F2840
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0426310F2840
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ss76jAqWiuezivNC5zEZJoYkXwE9ZyVbXGzY7OaUfHw=; b=Qmi6XBK0aMPANpt36+YplWpzEP
-	LcpJFRRSiHvFFtEUGbhgZz0Hv3UcV8awYp9nptdgp/vUpSs70EPxFTTfeZT1BvV/WGfSnYrZhA/yA
-	cIuRXkXR8QI0e4YsVjWQrZETXv1LTwHCY2zI7ERseMNs23DoeZ2ZviW6jTbhfdWjAjZWyTutZ1X3o
-	B9ilVf14yjfyHJGtAGFz88bJwYbrHdYhNT9WfZ3N/ByBJobmq/swxNbu4D4qGPi6R8QbRx1emzzDf
-	SgDxS089680MB1KH2zTSfChVrixXB16ZzEeem3uEz0DnaRUISqjZTUgJGk4cafHWkHyUaoHua9xX4
-	vOWRZVMw==;
+	bh=RjKuvUBQiFpFuXYPv0VREJdyhtsXZOAchMgwkjnvo+U=; b=rLyiif/CVHG9PZKQz/b/8gGN2g
+	i/dx3kAbpXNnUo5RhKFHgXgLeLx2UconP8M34Vw+nc+upf4fjUjaMV9uJ3NDBxhw6ZD4dkeiw90OE
+	0KOlSDxGtEqJom0VSWYqwdc3Dvdowy1OKWAKRQfa2jw0G5MZdOAkn6bWmuWSCNlgQrFoFP7uX4F/u
+	OQSRcUQgwd8QJAu0iVKLlRhRKSGW68tMH0M64YgBUgusUCVezffR/Zr6yL0/dAWYBAbq8tVjWIgpe
+	vPbqIUhKnHqekBOYBIAGwIk4oexwd+uEHeTXXFNgiUfl8PhQLLsO4dPzA3gL5oqiDpftXQys9uy7L
+	qN+Nbpkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w68zE-00000007gZ3-30vL;
-	Fri, 27 Mar 2026 15:20:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w69Ca-00000007hGU-292Y;
+	Fri, 27 Mar 2026 15:34:24 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w68zC-00000007gYf-17gn
+	id 1w69CX-00000007hFm-3vPD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 15:20:35 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62RDh8Uq3747945
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 15:20:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ss76jAqWiuezivNC5zEZJoYk
-	XwE9ZyVbXGzY7OaUfHw=; b=aI1ApZLNF6MrFXweEsidasxUME6VrN4llo6ogWgN
-	FK26tugsLvNNXbScTkuQxxJ2x4CAZq4hGVyXHc0Ny7LsJNqyJ8xPfYg468Kktf7V
-	poPtCUCMXryEgglpwszTeSqDlXL861NbWRnYNHMiGlznpEXSgMY7tkrs3azJsRso
-	0HRi70nfii+izCGIY9q05lXNSco5rCg5mrvCJ6lXbc5lKRbY5R7OKFc//35xUJfi
-	mJVnF7SoOLs7tK4tz8dTjqpKut6HGHGPRAntsOlrRLGgpKuiDMWZdemY+T+2WHi/
-	NafbzFBBLmEo0jdaQXioYR0rK2HnJOSSBGhiah1xIND70g==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d5sxhgk26-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 15:20:33 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2aeb90532f6so26511555ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:20:33 -0700 (PDT)
+	Fri, 27 Mar 2026 15:34:23 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-439b611274bso1205931f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:34:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774624832; x=1775229632; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ss76jAqWiuezivNC5zEZJoYkXwE9ZyVbXGzY7OaUfHw=;
-        b=hc40x4KXvIbTKsRsZhRlPHqIKGulyvdD0icyq1ST1CFb3cEN+hXVP+6XOFOACbu/zz
-         HAjwlBOUOCV4nCSMyG8kF+eLrwm4Hp0J7Bf4//QaOM6F71gFzjt87NkDrM/Jt0vmbcjG
-         +VGPv2luvD9sd1RGTKkv17EcTmnMnZNqxsi2eosoFLUvXvi0Wi8mISkzD2cxlq/AJSew
-         SeJeemymKdmXBMIJXmfpxnJpQ8tf4ocKbJ0dk7TVR+5KzmdAoui5WHU7hCJjMdh68Meu
-         ETIznmCwOeCreYm1lPzdjGYgLFIblZWw+FFbJHHhrBKVK/DELwlrJbWTcnJ679ckfkb8
-         Q6DQ==
+        d=linaro.org; s=google; t=1774625660; x=1775230460; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RjKuvUBQiFpFuXYPv0VREJdyhtsXZOAchMgwkjnvo+U=;
+        b=uQGgpN0G3zaBD54jt+xq5vCTOQQDNtqIZXYLz+pKJ3h/5prBnNrvc/ci6l9IADFELC
+         MOxOUXMmb/bnc/8BhzDQkxMAsosDs/BKZPe27e06JQ6EEAXSr0FjhP4WRTawNXTiMfGD
+         ELm9HjulettYS+i/Wfi8+jdfuT7y4t8iVnC2CovcIdhtxeMqaB/9uk2ftKQRvTcrRVhO
+         2LjTP0cJ3kijAEbU3OsLySjCYvucpaobt792CTq9aFKmu6kmVpLGSbK4bcST4fTlLe9V
+         zIg/6JBrWCPCEX2kZ1cdjhCX7gIDBCS3ZxGRFmTlYZ77kdWdqHU9lZj3U97NTLhsn8g6
+         2Dnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774624832; x=1775229632;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20251104; t=1774625660; x=1775230460;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ss76jAqWiuezivNC5zEZJoYkXwE9ZyVbXGzY7OaUfHw=;
-        b=r0kSdQb4cPoxLRMbumJkLAhC/fA4TZ1z+Ci4wf+QUqlxgHHYAth1XsyFFZoYVkIt1L
-         VMZa8SZwF4W0jr7oYuSI0Tj5BENU6DM7ZiR4C+VWlIw6q75IvV7sWD4lP3MK/uL4jXou
-         aL6wsJFEL0B742RDwmFBvhjbQWss3R8qkihLqTiaeTs7C7n3FLJtTNyuAD8aa8K56Q+7
-         PDHlhmCRnVOyoBJuQqNO1GVOlpisGd5WINe1xtMWWTilryg1YCFSmWpAyejkkrw5BwJH
-         eOTtIiEhPJ2E5mLHgMGUdw05GREK8UXvh7ndTBOSuosU/efdA1NeBdUlodcavD4Ofpm9
-         ohAw==
-X-Forwarded-Encrypted: i=1; AJvYcCXckNtmD9cGcP/sn6lHKJK266Rvs3Tlwd8LnEzYfXMPeA5WQHK5JQ6Aa6VqkvqWaR9nBTQWdOX5BTM4RykNK8g8@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywemh1B5agUj39XREws14G0N5NrIqTXp4l1ImhXkkv055KOC7zi
-	2R/Tzo1QQi5heKsSNKHT7n0/rAUxhUeq8nWe0B2hYQ9GdW/tGkzLomWb+N4ZGVkQTEnM+03UcLX
-	lqPPYxZUh/ii6jz2U6fiwf6mk86pu69tlMz3DM+91IcT0q+TIaCGXt05j1uBeWGe/t8w66NPIlc
-	2JTWTY11SwlfNz
-X-Gm-Gg: ATEYQzz4DQCzEQo96PmmfGIW7vDUoPM1ug7NVTZZVH1xLtkMn6R+cFPagRmLOz11bw+
-	WdTRFhHHFn3ztzhEZ6jntrPQwl6wD1IeOjisoN07PxOYAj9lLqduoPQ1tGnAIgQVn74Owx1pugL
-	XNsk6FUhov0a3mYZgYBnQ8PIvpQ3Q38bT9xogzYvYEaHbOh603jhP6u/QmKT7qrHs6JXRDTdL2P
-	19fXg1e9coDTAziF69ZjROT5/uA9sDOcGj+wvQgBuEtuh5Ohbuj1C4IckjpWKSvyr5UUvL6tWvo
-	nkytWbw3WCHQuZS4o7E01bY17YQw/MpTgefO0zLoycra06gJqygjA5FB4TmOeFuSKxuo1VQ5vfS
-	ciRb9NDGuSUBGpXUndp0o1Ovbl9FxELFCWtI=
-X-Received: by 2002:a17:902:ecc4:b0:2aa:e3c7:6048 with SMTP id d9443c01a7336-2b0cdc4357dmr31891845ad.23.1774624832328;
-        Fri, 27 Mar 2026 08:20:32 -0700 (PDT)
-X-Received: by 2002:a17:902:ecc4:b0:2aa:e3c7:6048 with SMTP id d9443c01a7336-2b0cdc4357dmr31891535ad.23.1774624831727;
-        Fri, 27 Mar 2026 08:20:31 -0700 (PDT)
-Received: from oss.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc8fac97sm60839905ad.71.2026.03.27.08.20.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 08:20:31 -0700 (PDT)
-Date: Fri, 27 Mar 2026 20:50:24 +0530
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 00/15] net: stmmac: qcom-ethqos: more cleanups
-Message-ID: <acagOODP2QD2xJf6@oss.qualcomm.com>
-References: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
+        bh=RjKuvUBQiFpFuXYPv0VREJdyhtsXZOAchMgwkjnvo+U=;
+        b=MjMhwW9xZMbCQn0URx/EroW9ZObZHhfF4OVfguehQb4Sgsot/D08pWq2ztY97YuEt/
+         C7zEyM0WrJOKR9NECvRvPjf1E9+05fUutumJRmT8pbd1taffm0BIv74uPvOGycTCKMog
+         7DkYyp3HuhRif2jGi62xkP4hVUivQOKWaiyHBBG1VGepig74CySjvqHFT9r2cS0OxHRa
+         gKSF+ok2l2Z6+gm+IUBBLlsL+7BTv2JtXLv9ACB97lKmiZ1WInK0AMMI0WWUbwSA/UG6
+         GfYq6JcY3VX/1ofJJBwj8XXgbNMRfHcbeFCiOru+Fiiz/y/DzhN2K3eq5eWrzsOzWgtu
+         aXiA==
+X-Forwarded-Encrypted: i=1; AJvYcCXbVa5/w5hZUT+o4roqFet9xWE5lI5I3AWEKtSWGY2khAffovrGGkJkgtyV5NUJd5X3ZKl8S62htlYS879hiQa9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrxmVSWbWz7BICDJ5W4c2hAd/DhWN+Lm11bvyAXYHQ6ze1iXUx
+	51dFLWHJU7h75Y0xOpEqwM+USNqvZ3j597yAEaJbSJmvo6fGDY2vUI4P9kLvV0KZt4I=
+X-Gm-Gg: ATEYQzzMCEVWNLOGZmQTqJOlYnDJkH/sPlApwH7BcZunh/Dp9zY7qFIXZge9GXt7ic5
+	KA+WeQjx5a7v4CYnq5dgEgphhoRYOZO/ja2Z9ZSMbzwbRZupM4QwaeSSLRgaRUKm+vKqQvoi/VH
+	f/TQ/jE507CmD78C25mA91LU+JTHlSkfu5h2KjFnwBA2Hbn2GGSJBxJIwsZVlIyaRRYJ/D9hCUZ
+	mQlW93Yv8vqnCdYnYICcWeRzHSGK4/AcshZziZvn+eebkUZmYPM9Z05//gwkIbWboGhITSfld1N
+	KypwpSW1pW2kxLTpg+xoNOX5c8ZGHY92x/Qw2BK/wFS4uOtIWJH4jSHYxLjXtWV3ZVnZb1PVOF7
+	cSTPdWoYJhNuP2Ta5T5ZY8c6rhPGhMJ5ilcdPcNk8Li/KICxFAVeq0mSSqD0WVtJDrTZ02sl7U5
+	ygnaO1wnhHjzCjmG72NjyqCtSrlb9m661ZZh7rJs1MrIe7wWs+B/LP3bMhr53vQPirC3mmNUmWJ
+	vXMKF4=
+X-Received: by 2002:a05:6000:24ca:b0:43b:60f7:2282 with SMTP id ffacd0b85a97d-43b9ea4ae28mr5245421f8f.28.1774625659628;
+        Fri, 27 Mar 2026 08:34:19 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:39df:9101:d239:f5dc? ([2a01:e0a:106d:1080:39df:9101:d239:f5dc])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b9192e5f0sm16597152f8f.4.2026.03.27.08.34.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Mar 2026 08:34:19 -0700 (PDT)
+Message-ID: <f8c47b7d-29ae-4aa1-ae92-07dd691b3b92@linaro.org>
+Date: Fri, 27 Mar 2026 16:34:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
-X-Authority-Analysis: v=2.4 cv=QZVrf8bv c=1 sm=1 tr=0 ts=69c6a041 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=j9A04r5R_e2Fnr00k4AA:9 a=CjuIK1q_8ugA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: BwPeD1JzZKIBvv_rN6kgRc3bMJdYVzEs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDEwNiBTYWx0ZWRfX6yJkpuEUT1hd
- D6cXDO7/KZQpJOY4IY/S8/bQ+g9jxk29TWtU+xXTsOZsiwNJ54Om5DBjaOrnXAFXHjFp9E0ZlPR
- pAXGjUSmt9Q/Y6LZk2YJpZjeYobsAn1BwKjqH2jkJ3bIvUcR0ygarDYWVQuApv76TN4ror2PkFL
- QP93h4VZZ/AML3zzCP3H1VeIUiIiDiDb2B0qkNYmRYKz7CrWebvIjtxGq28ChFfINUHgpC26iH1
- yjI7UzuXicr+FZru55aIOZFVctTTt734fYXxiSYndII/hNKlqqkvZsH/eRF3PHbwvb//0sr5CtG
- RIlH8s/pQVWSR0+U91Dti83BKZUkfzNEkOR9GmMxpXS3plv97ulSnJ0sei1BIWBH5s8GtyCVleX
- wPUvaVH0aZ8gAUnEa7X23bbxE3zUwUPNUaj5U7bX0NyPWY8g7BEFR8eIC7GwT5kHsmxg0CGn+9j
- pgR0K3fcU9ctrLlyOFQ==
-X-Proofpoint-GUID: BwPeD1JzZKIBvv_rN6kgRc3bMJdYVzEs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-26_04,2026-03-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 clxscore=1015 spamscore=0 adultscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603270106
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v1 1/3] arm64: dts: amlogic: meson-s4: add VRTC node
+To: Nick Xie <nick@khadas.com>, khilman@baylibre.com,
+ martin.blumenstingl@googlemail.com, jbrunet@baylibre.com
+Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260327093016.722095-1-nick@khadas.com>
+ <20260327093016.722095-2-nick@khadas.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260327093016.722095-2-nick@khadas.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_082034_315493_14939A79 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20260327_083422_003605_D9124D4E 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,40 +128,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
-On Fri, Mar 27, 2026 at 08:42:58AM +0000, Russell King (Oracle) wrote:
-> Further cleanups to qcom-ethqos, mainly concentrating on the RGMII
-> code, making it clearer what the differences are for each speed, thus
-> making the code more readable.
+On 3/27/26 10:30, Nick Xie wrote:
+> Add the Virtual RTC (VRTC) controller node to the Meson S4 SoC dtsi.
 > 
-> I'm still not really happy with this. The speed specific configuration
-> remains split between ethqos_fix_mac_speed_rgmii() and
-> ethqos_rgmii_macro_init(), where the latter is only ever called from
-> the former. So, I think further work is needed here - maybe it needs
-> restructuring into the various componenet parts of the RGMII block?
+> Signed-off-by: Nick Xie <nick@khadas.com>
+> ---
+>   arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 5 +++++
+>   1 file changed, 5 insertions(+)
 > 
-> v2:
-> - patch 2: fix typo in commit message
-> - patch 3: fix ethqos_fix_mac_speed() comment
-> 
->  .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 220 ++++++++-------------
->  1 file changed, 87 insertions(+), 133 deletions(-)
-> 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> index 936a5c1353d15..2a6fbd5308362 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> @@ -59,6 +59,11 @@ psci {
+>   		method = "smc";
+>   	};
+>   
+> +	vrtc: rtc@fe010288 {
+> +		compatible = "amlogic,meson-vrtc";
+> +		reg = <0x0 0xfe010288 0x0 0x4>;
+> +	};
+> +
+>   	xtal: xtal-clk {
+>   		compatible = "fixed-clock";
+>   		clock-frequency = <24000000>;
 
-No issues found at 100M and 1G on the QCS615 Ride board with the KSZ9031
-RGMII PHY. As noted earlier, Ethernet support for this board is not yet
-upstream, but I have some local changes to make it work.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-10M could not be tested due to limitations of the link partner. But with
-100M working fine, I am fairly certain that this series will not
-introduce any new issues at 10M.
-
-Please feel free to add my:
-
-Tested-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-
-	Ayaan
+Thanks,
+Neil
 
