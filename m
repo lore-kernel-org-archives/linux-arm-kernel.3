@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488CF10AB83A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 01:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C53B10AB838
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 01:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8q8xnYQtfx7CHdCDIV4WeCWM58D9BXFfW6JL0Ps/Fs=; b=BkimYNaQV+QQyl5aF8MNi0F4Af
-	kHSLxr0Cr0MIQPrNwlkXF1esvGapRmybtiIxQrWdAsCNQAwmyN5hXRrF/wMzoVYXdtA+MUp4oVf6S
-	EHLPmyAXDQqND9haZ3yz/3Vvdnm9L11V1lQn3N3UEwun7nMFdGYkQU+3iXPPnkgR3ouoy60JsmYeV
-	mpwjUHBHFZW26G+FXmJ/P2lYPUKMkYphVq6PTSMO0YRt4uH50zqRJCK9hrLlLeMtCL3V2zsu7UiNM
-	fPNvOWHGD6vIWD6zGt+ZD4E6HOQkIG0gHFAfIi7Wk8srUqgavRMrKL3x6JsmFM97UQL1HgSfF60v2
-	RfimoBjw==;
+	bh=w3SMzl110oCfDPITW4AHEvNNItFKeElG3dLTy5N38z0=; b=N9uxruI3bvSsbtHXPknKr6xzh6
+	cfpXe3/Ysx5BtWr31NxeJaMHcJ1+bfdq6qupTWO79hX1PCssE6fLpcNFcYoXC2T32TkNYG35ZVVe2
+	gLID1lOoBIo6YGD1NPh9JoI7yW8uIcXPt096+EJ+G1mLqy6MhKkYgGAOdbFMHLI/N4alm1l1PmSfA
+	Da3F298kOYIGjsIVvbcBjHMTTwCHfhE+G/Jf38hc9i4BoKq1DY2mCZNgOXUVByKMoSHoZy3AT/ilc
+	Ti996EXXx2L+aGS0710zecuI9lIko6N4bBKOjKms2pfhzoYbn76NlwN8fKsxXBePxSQ/QVeWnqr5U
+	tcf16A7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5vgZ-00000006Soy-01O3;
-	Fri, 27 Mar 2026 01:08:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w5vs8-00000006TmV-1p9V;
+	Fri, 27 Mar 2026 01:20:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5vgV-00000006So1-2vK2;
-	Fri, 27 Mar 2026 01:08:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774573700;
-	bh=m2NMsfxVcSr9MtrRU9gQuBS277Ks3jmJeTd5rK2rKtI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mJcAZoZ2atTAaWiF972aIKGMTdFFe1etiP7MWYfwy5KCIC2nmatcJY0LGbkQATO19
-	 dkc2D5ikQNVLaVUbN81CRCGf3pyLwwyTJ14jlSwwXxtWQ+XZEZWiZH75K5yf7FxzEQ
-	 /PSDe2seBIpFBpUjqJZrbxYwAxHqg1NsokAMLmYy4Qq09eNDdVzfreGwwkwgTIPclu
-	 pkIcOH0G+7qPHx3h7K8ItyLfmsGj7gTJU1LIyo+n4tvsaf2X+XIznrewxfTdIVOUXX
-	 EHXf4VBc0cnlgEQ46Ffx85XL1h8dCjUku76EOIF47IkRgP3ZTtQVz0MbnVDcaQxASh
-	 vOrScso0GCK8g==
-Received: from [192.168.1.90] (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A9C917E6130;
-	Fri, 27 Mar 2026 02:08:20 +0100 (CET)
-Message-ID: <3aec8193-22c4-4c87-8068-5a70f4690047@collabora.com>
-Date: Fri, 27 Mar 2026 03:08:19 +0200
+	id 1w5vs7-00000006TmM-0WSk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 01:20:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 14FAE60121;
+	Fri, 27 Mar 2026 01:20:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B446DC116C6;
+	Fri, 27 Mar 2026 01:20:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774574421;
+	bh=+mbG3eLMPAF0Yt2+SNkDC2ssfDgwkGm8vxuXyXfcop4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=iCfhDqzkhmcNkYGWkj09iFJq6rCEDt1dbAqTatJbEGc1rBoXetzKDZOXuLpBFjiME
+	 a9P8LcR9NdgAj8rW2IuLq3wUmWDVOgSGvBI3IBLemkAhxfETD+8YAB5qMQUx0mXxQQ
+	 Z1KX0X7a0FY5C/oSovuXJUNuz+9HL9vMTvfhtdmSwUO6tI3WhvJ9uUYU1trF5TKJ1U
+	 iq0MgVZUAAMKnMtahTCAX/2yMy7tmHEqIv/Bb+X3JWttgSheCwjeNIi2kSQ0wu+ypW
+	 49ihEaPrekoIUMIhBS9G/ZYoXAGC2NF/9eFI+t9r0qQjQGVlVbbvT4QGfSW740gtBt
+	 XrNoUx3Y3OyPQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FF6E3809A07;
+	Fri, 27 Mar 2026 01:20:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/8] drm/bridge: synopsys: dw-dp: Unregister AUX
- channel on bridge detach
-To: Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
- <20260310-drm-rk-fixes-v2-7-645ecfb43f49@collabora.com>
- <2053748.usQuhbGJ8B@phil>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <2053748.usQuhbGJ8B@phil>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_180823_886336_2F6BD9C9 
-X-CRM114-Status: GOOD (  16.21  )
+Subject: Re: [PATCH net-next v15 0/3] Add support for Nuvoton MA35D1 GMAC
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177457440804.3248049.2435571505438713021.git-patchwork-notify@kernel.org>
+Date: Fri, 27 Mar 2026 01:20:08 +0000
+References: <20260323101756.81849-1-a0987203069@gmail.com>
+In-Reply-To: <20260323101756.81849-1-a0987203069@gmail.com>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
+ alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko,
+Hello:
 
-On 3/26/26 9:28 PM, Heiko Stuebner wrote:
-> Am Montag, 9. März 2026, 23:44:35 Mitteleuropäische Normalzeit schrieb Cristian Ciocaltea:
->> The DisplayPort AUX channel gets initialized and registered during
->> dw_dp_bind(), but it is never unregistered, which may lead to resource
->> leaks and/or use-after-free:
->>
->> [  224.661371] BUG: KASAN: slab-use-after-free in device_is_dependent+0xe0/0x2b0
->> [  224.662015] Read of size 8 at addr ffff00011aee8550 by task modprobe/658
->> ...
->> [  224.662796]  device_is_dependent+0xe0/0x2b0
->> [  224.662802]  device_is_dependent+0x108/0x2b0
->> [  224.662808]  device_link_add+0x1f8/0x10b0
->> [  224.662813]  devm_of_phy_get_by_index+0x120/0x200
->> [  224.662819]  dw_dp_bind+0x34c/0xb10 [dw_dp]
->> [  224.662830]  dw_dp_rockchip_bind+0x194/0x250 [rockchipdrm]
->> [  224.662864]  component_bind_all+0x3a8/0x720
->> [  224.662869]  rockchip_drm_bind+0x120/0x390 [rockchipdrm]
->> [  224.662899]  try_to_bring_up_aggregate_device+0x76c/0x838
->> [  224.662904]  component_master_add_with_match+0x1f4/0x230
->> [  224.662909]  rockchip_drm_platform_probe+0x420/0x538 [rockchipdrm]
->> [  224.662939]  platform_probe+0xe8/0x168
->> [  224.662945]  really_probe+0x340/0x828
->> [  224.662950]  __driver_probe_device+0x2e0/0x350
->> [  224.662954]  driver_probe_device+0x80/0x140
->> [  224.662959]  __driver_attach+0x398/0x460
->> [  224.662964]  bus_for_each_dev+0xe0/0x198
->> [  224.662968]  driver_attach+0x50/0x68
->> [  224.662972]  bus_add_driver+0x2a0/0x4c0
->> [  224.662977]  driver_register+0x294/0x360
->> [  224.662982]  __platform_driver_register+0x7c/0x98
->> [  224.662987]  rockchip_drm_init+0xc4/0xff8 [rockchipdrm]
->> ...
->>
->> Unregister the AUX adapter on bridge detach.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 23 Mar 2026 18:17:53 +0800 you wrote:
+> This patch series is submitted to add GMAC support for Nuvoton MA35D1
+> SoC platform. This work involves implementing a GMAC driver glue layer
+> based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+> interface capabilities.
 > 
-> that sounds sort of asymmetrical though. drm_bridge_funcs has attach and
-> detach callbacks and the component-framework also has bind and unbind
-> callbacks.
+> Overview:
+>   1. Added a GMAC driver glue layer for MA35D1 SoC, providing support for
+>   the platform's two GMAC interfaces.
+>   2. Added device tree settings, with specific configurations for our
+>   development boards:
+>     a. SOM board: Configured for two RGMII interfaces.
+>     b. IoT board: Configured with one RGMII and one RMII interface.
+>   3. Added dt-bindings for the GMAC interfaces.
 > 
-> This might cause confusion later on I guess, especially as I don't know
-> if there could be a bridge attach, after the detach that unregisters the
-> aux adapter.
-> 
-> Looking at the AnalogixDP for example, it does the the register and
-> unregister in the bind/unbind callbacks of the core driver.
-> 
-> So I guess the in my eyes cleaner way would be to introduce a
-> dw_dp_unbind() function and put the aux unregister there?
-> 
-> At least that way, everything would be at the same "level".
+> [...]
 
-You are right.  As a matter of fact exporting the *_unbind() in the library was
-my first thought, but for some reason I went with the "auto" approach.
+Here is the summary with links:
+  - [net-next,v15,1/3] dt-bindings: net: nuvoton: Add schema for Nuvoton MA35 family GMAC
+    https://git.kernel.org/netdev/net-next/c/8454478ef9ab
+  - [net-next,v15,2/3] arm64: dts: nuvoton: Add Ethernet nodes
+    (no matching commit)
+  - [net-next,v15,3/3] net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+    https://git.kernel.org/netdev/net-next/c/4d7c557f58ef
 
-I've just handled this in v3 [1].
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Thanks for reviewing and picking the rest of the patches!
-
-Regards,
-Cristian
-
-[1] https://lore.kernel.org/all/20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com/
 
 
