@@ -4,98 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F9510F2859
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 16:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D6010F284D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FwbOduKqHuTZuobgPYbtvYtPofEn/om2TCDAMSCsyo=; b=nuqozywhp/Ofx1ixmILUjCAZco
-	lyNEF+a2gUPQH7/7Luxy2ri0k+EGZFNefO6Kc/6035snuowGWPnWBp8lrN6WFd3LIfq/np64ld4+y
-	pgLAsSsyEGs9M8JgVPqhT4BHmEAvoXQOtatx5z+3ZB1Ex8B0BvZTFUoGb3DLWKbmO6OslBbgNdroT
-	R3iJdqJGPOsOTCYX0DCDAGZ2ysgAaTaCjkjXMtvJqt9378bjXmubosN+adD/nZbyZHqgC38lIgSeX
-	2X4sZpzaaETA8sXptdqD0+CSUif9/aYZTnzeAzzgkxIkDLG1UH49gkaOlSV7IV2RH8tPl0cR6AT2K
-	xHUMu4Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+M9yYezcxfIh1hPPvvgkIRJqsWvclP69Ajn/rsWdDAg=; b=Q48YlgX3c+P7zgsgKkzPg/W2Cb
+	+Dv/f0Qk1TlqeliixM9efxhXYI7jEz/anrrJTNNMfMutBGmFLVGjliW31BUc1WEctpitYqpLTFDei
+	1+TJ9EfAF+Mh1NCHqx9hxW/G8+D/N7rbESqR64h93iKQP7jglGPsdfhikADxj1kK1RIvPo7Ud+jqT
+	ycXYwBz6HxDlTCSvV5Fs7r2D2XJwIz1sRXQdL+G2YffMrtMVN8rJMBmHuzEbUlW3d98w6pDyjtwe6
+	yuVsvyZ+xEh6pyK5bv4xWDx36c7UEQkaf0ppyTCmxEhwwsWVViiVOg2fhjV4owkyOB1L0r84cCl5W
+	gMZTJoHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6AWy-00000007ouS-14JJ;
-	Fri, 27 Mar 2026 16:59:32 +0000
-Received: from lahtoruutu.iki.fi ([2a0b:5c81:1c1::37])
+	id 1w6AZx-00000007p9M-1MEE;
+	Fri, 27 Mar 2026 17:02:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6AWv-00000007ou3-1fqX
+	id 1w6AZu-00000007p8z-2UC4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 16:59:30 +0000
-Received: from darkstar.musicnaut.iki.fi (85-76-0-165-nat.elisa-mobile.fi [85.76.0.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: aaro.koskinen)
-	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fj6Lg4nJhz49PtJ;
-	Fri, 27 Mar 2026 18:59:23 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
-	t=1774630764;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8FwbOduKqHuTZuobgPYbtvYtPofEn/om2TCDAMSCsyo=;
-	b=agH7xrQdlCax6sFTlqJxqISTgvoi1K6Wdq9u+k5LgYLNGxrWfi6/ggnsirW47EQjXDqKNf
-	+O7ldzX7s5TX4WdZeE1F4+/fWuL3YkE1ZGgFIWRkkVFP7cJji732fjKc/pKi3qsnQK88PI
-	3EhpFUbVg7pYG2IZm8jQWcPDK4Bwoh89BHddbHfh5HalPyDZDkasqABSG1LaSI7qJsbnjP
-	dJDhBLL4/dJog1pdL6AzfUSUidoZmi15mzNhfXHXAIrxNjPv3FEnSJSTywQV1G/osYspMj
-	RkrWLMTVZauNma1Vo3wc6ue0EKRFiRp/QtSYuRl/tIhe4Pv8qedNkkZz7hDrww==
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1774630764;
-	b=kW9rGO0o0yWaJqq1ssGWh2sM2mmA/vU/Rcq06XQl0R01NcRJyK51qR5oQnUqs7vNIIhEY6
-	wdLCRBK71fnBgH8SOU7NuN3YToFaASobaT6cqfXQdzwAPzvit9FooqLm0AILHxyT6+gjGt
-	XDftEEmjBQ/L4vPJEZDofXmlcL8wlf9A49rausGYbn6Jwm4mFe+R2Mnxs313NLs1G2hTGD
-	EwiIXeNN2NBsEU2dK9oPIAK+ujlC5X2rUgmVcgGEjOm8CGgqS5aiv/KUIGRnf14z01ke4t
-	QhcJ+P/xldhHX0UdFAYUnfJmkA3uipfundpvAdtwVqy9tD/KTLRH48l188NjWQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=lahtoruutu; t=1774630764;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8FwbOduKqHuTZuobgPYbtvYtPofEn/om2TCDAMSCsyo=;
-	b=RqfONC0YZ+xYff7yxUh8uvLSsfxLwXwEBr+d44+8rjgKYgnaggz5KCKYzHpwA4L4cZUs3S
-	wv4iK2GMStXGRvM1+5Wz1cj1maAgfRuHc+TYv1DVM8Tcdhf0D9XJ31N2CqYF7qM7gmuezr
-	mKfvOnxdNwlrepQq95lSUHXwgumZFUzndIu5kHgJmLb1xnXuJkFXvVL/3s6Wyg1tiXcqkG
-	qlm8g3IlkrdOofpcg2etQ4BqdokQ0Nnz7+QOFlqpGmFGtDj5gvn7FQ93FKISR3f75/f8VJ
-	41fJLOcLFd7toT1gSSiAjPf1w82x7zlD1GBeID8JYnS0jg1QXPXc1WLFQXoTaw==
-Date: Fri, 27 Mar 2026 18:59:22 +0200
-From: Aaro Koskinen <aaro.koskinen@iki.fi>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kevin Hilman <khilman@kernel.org>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-Message-ID: <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi>
-References: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
- <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
- <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com>
- <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
- <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
- <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
- <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+	Fri, 27 Mar 2026 17:02:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+M9yYezcxfIh1hPPvvgkIRJqsWvclP69Ajn/rsWdDAg=; b=bHEMiXE8jlRa8mGAupx4zy/RXE
+	sRxjTjYdIcYAw1Zoom9A73EC2ndhclH8n58t9u9mfc2Nb5XAo+Y7FEIA5Wtd6/eLNEefy2pOtfOfe
+	C/0heJdKlBWVFIlAd/oifUahn/dfz34/+vJBCkUzMZZnkabQkbP8HX6XACzmHYQgv6yQA2zf+bbhr
+	OG5OhDDAC2PfGhR87gIRdXsJTBNrsv67FrKDh/cbAYEH90FF2n/XL7XUlyRv1WH6ifuQ/eZUm9cZ1
+	GeGKSKAsmSreCQrKRKpWV8osW6ZlHDFpwrkoM82afi1WXlpaazHDN6DU4RlRN0WGSUKf6d1XpjgQ2
+	6xTNbWYw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41308 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1w6AZn-000000006RA-0MTU;
+	Fri, 27 Mar 2026 17:02:27 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1w6AZm-0000000E54W-1F6E;
+	Fri, 27 Mar 2026 17:02:26 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next] net: stmmac: qcom-ethqos: set clk_csr
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1w6AZm-0000000E54W-1F6E@rmk-PC.armlinux.org.uk>
+Date: Fri, 27 Mar 2026 17:02:26 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_095929_792056_FF2F444C 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260327_100234_658475_3BDA2D92 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,201 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The clocks for qcom-ethqos return a rate of zero as firmware manages
+their rate. According to hardware documentation, the clock which is
+fed to the slave AHB interface can crange between 50 and 100MHz.
 
-On Fri, Mar 27, 2026 at 03:22:12PM +0100, Bartosz Golaszewski wrote:
-> Hmm, I'm wondering if there's a race with consumers already requesting
-> the GPIOs after the controller device is registered but before the
-> software node is added. I'll send a version with software nodes being
-> registered first, then passes as firmware nodes to the platform device
-> API before the device is registered.
+Currently, stmmac uses an undefined divisor value. Instead, use
+STMMAC_CSR_60_100M which will mean we meet IEEE 802.3 specification
+since this will generate between a 1.19MHz and 2.38MHz MDC clock for
+this range. Add a comment describing this.
 
-It crashes early, I was able to get an UART log from OSK (another
-16xx board):
+Link: https://lore.kernel.org/r/acGhQ0oui+dVRdLY@oss.qualcomm.com
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
 
-Starting kernel ...
+This likely needs the qcom-ethqos 15 patch cleanup series.
 
-[    0.000000] Booting Linux on physical CPU 0x0
-[    0.000000] Linux version 7.0.0-rc5-osk-00010-g9a0a87d27dc0 (aakoskin@lonestar) (arm-linux-gnueabi-gcc (GCC) 13.4.0, GNU ld (GNU Binutils) 2.45) #1 2026-03-26
-[    0.000000] CPU: ARM926EJ-S [41069263] revision 3 (ARMv5TEJ), cr=0005317f
-[    0.000000] CPU: VIVT data cache, VIVT instruction cache
-[    0.000000] Machine: TI-OSK
-[    0.000000] Ignoring tag cmdline (using the default kernel command line)
-[    0.000000] printk: legacy bootconsole [earlycon0] enabled
-[    0.000000] Memory policy: Data cache writeback
-[    0.000000] OMAP1611b revision 2 handled as 16xx id: 8d058f7948920905
-[    0.000000] Zone ranges:
-[    0.000000]   Normal   [mem 0x0000000010000000-0x0000000011ffffff]
-[    0.000000] Movable zone start for each node
-[    0.000000] Early memory node ranges
-[    0.000000]   node   0: [mem 0x0000000010000000-0x0000000011ffffff]
-[    0.000000] Initmem setup node 0 [mem 0x0000000010000000-0x0000000011ffffff]
-[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
-[    0.000000] pcpu-alloc: [0] 0 
-[    0.000000] Kernel command line: mem=32M console=ttyS0,115200 earlyprintk initcall_debug loglevel=9
-[    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
-[    0.000000] Dentry cache hash table entries: 4096 (order: 2, 16384 bytes, linear)
-[    0.000000] Inode-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
-[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 8192
-[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
-[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
-[    0.000000] Total of 128 interrupts in 4 interrupt banks
-[    0.000000] Clocks: ARM_SYSST: 0x1000 DPLL_CTL: 0x2833 ARM_CKCTL: 0x2000
-[    0.000000] Clocking rate (xtal/DPLL1/MPU): 12.0/96.0/96.0 MHz
-[    0.000000] clocksource: 32k_counter: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 58327039986419 ns
-[    0.000030] sched_clock: 32 bits at 33kHz, resolution 30517ns, wraps every 65535999984741ns
-[    0.008880] OMAP clocksource: 32k_counter at 32768 Hz
-[    0.015106] Calibrating delay loop... 47.51 BogoMIPS (lpj=237568)
-[    0.130798] CPU: Testing write buffer coherency: ok
-[    0.137451] pid_max: default: 32768 minimum: 301
-[    0.144683] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
-[    0.152648] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
-[    0.166381] VFS: Finished mounting rootfs on nullfs
-[    0.197753] entering initcall level: early
-[    0.202270] calling  allocate_overflow_stacks+0x0/0x50 @ 1
-[    0.209045] initcall allocate_overflow_stacks+0x0/0x50 returned 0 after 0 usecs
-[    0.217315] calling  init_static_idmap+0x0/0x118 @ 1
-[    0.223144] Setting up static identity map for 0x10008400 - 0x1000843c
-[    0.230438] initcall init_static_idmap+0x0/0x118 returned 0 after 10000 usecs
-[    0.238555] calling  spawn_ksoftirqd+0x0/0x70 @ 1
-[    0.246643] initcall spawn_ksoftirqd+0x0/0x70 returned 0 after 10000 usecs
-[    0.254516] calling  init_signal_sysctls+0x0/0x4c @ 1
-[    0.260589] initcall init_signal_sysctls+0x0/0x4c returned 0 after 0 usecs
-[    0.268432] calling  init_umh_sysctls+0x0/0x2c @ 1
-[    0.274139] initcall init_umh_sysctls+0x0/0x2c returned 0 after 10000 usecs
-[    0.281799] calling  kthreads_init+0x0/0x34 @ 1
-[    0.287139] initcall kthreads_init+0x0/0x34 returned 0 after 0 usecs
-[    0.294372] calling  migration_init+0x0/0x2c @ 1
-[    0.299560] initcall migration_init+0x0/0x2c returned 0 after 0 usecs
-[    0.306823] calling  printk_set_kthreads_ready+0x0/0x34 @ 1
-[    0.312957] initcall printk_set_kthreads_ready+0x0/0x34 returned 0 after 0 usecs
-[    0.321105] calling  irq_work_init_threads+0x0/0x8 @ 1
-[    0.326995] initcall irq_work_init_threads+0x0/0x8 returned 0 after 0 usecs
-[    0.334777] calling  init_zero_pfn+0x0/0x2c @ 1
-[    0.339813] initcall init_zero_pfn+0x0/0x2c returned 0 after 0 usecs
-[    0.346954] calling  init_fs_inode_sysctls+0x0/0x2c @ 1
-[    0.352874] initcall init_fs_inode_sysctls+0x0/0x2c returned 0 after 0 usecs
-[    0.360809] calling  init_fs_locks_sysctls+0x0/0x2c @ 1
-[    0.366943] initcall init_fs_locks_sysctls+0x0/0x2c returned 0 after 0 usecs
-[    0.374938] calling  init_fs_sysctls+0x0/0x2c @ 1
-[    0.380310] initcall init_fs_sysctls+0x0/0x2c returned 0 after 0 usecs
-[    0.389282] Memory: 24296K/32768K available (4054K kernel code, 525K rwdata, 888K rodata, 1688K init, 197K bss, 7868K reserved, 0K cma-reserved)
-[    0.408447] devtmpfs: initialized
-[    0.428741] entering initcall level: pure
-[    0.433135] calling  ipc_ns_init+0x0/0x40 @ 1
-[    0.438537] initcall ipc_ns_init+0x0/0x40 returned 0 after 0 usecs
-[    0.445617] calling  mmap_min_addr_init+0x0/0x44 @ 1
-[    0.451202] initcall mmap_min_addr_init+0x0/0x44 returned 0 after 0 usecs
-[    0.458801] calling  pci_realloc_setup_params+0x0/0x48 @ 1
-[    0.465057] initcall pci_realloc_setup_params+0x0/0x48 returned 0 after 0 usecs
-[    0.472991] calling  inet_frag_wq_init+0x0/0x4c @ 1
-[    0.480957] initcall inet_frag_wq_init+0x0/0x4c returned 0 after 0 usecs
-[    0.489318] entering initcall level: core
-[    0.493927] calling  ptrace_break_init+0x0/0x2c @ 1
-[    0.499328] initcall ptrace_break_init+0x0/0x2c returned 0 after 0 usecs
-[    0.506805] calling  omap1_pm_runtime_init+0x0/0x20 @ 1
-[    0.513122] initcall omap1_pm_runtime_init+0x0/0x20 returned 0 after 0 usecs
-[    0.521118] calling  wq_sysfs_init+0x0/0x14 @ 1
-[    0.527404] initcall wq_sysfs_init+0x0/0x14 returned 0 after 0 usecs
-[    0.534698] calling  ksysfs_init+0x0/0x9c @ 1
-[    0.540008] initcall ksysfs_init+0x0/0x9c returned 0 after 0 usecs
-[    0.547088] calling  init_jiffies_clocksource+0x0/0x14 @ 1
-[    0.553131] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
-[    0.564086] initcall init_jiffies_clocksource+0x0/0x14 returned 0 after 20000 usecs
-[    0.572387] calling  posixtimer_init+0x0/0xd4 @ 1
-[    0.578155] posixtimers hash table entries: 512 (order: 0, 2048 bytes, linear)
-[    0.586212] initcall posixtimer_init+0x0/0xd4 returned 0 after 10000 usecs
-[    0.593994] calling  futex_init+0x0/0xa0 @ 1
-[    0.598876] futex hash table entries: 256 (4096 bytes on 1 NUMA nodes, total 4 KiB, linear).
-[    0.608123] initcall futex_init+0x0/0xa0 returned 0 after 10000 usecs
-[    0.615386] calling  cgroup_wq_init+0x0/0x78 @ 1
-[    0.620819] initcall cgroup_wq_init+0x0/0x78 returned 0 after 0 usecs
-[    0.628112] calling  cgroup1_wq_init+0x0/0x38 @ 1
-[    0.633758] initcall cgroup1_wq_init+0x0/0x38 returned 0 after 0 usecs
-[    0.640899] calling  fsnotify_init+0x0/0x30 @ 1
-[    0.646606] initcall fsnotify_init+0x0/0x30 returned 0 after 0 usecs
-[    0.653961] calling  filelock_init+0x0/0xf8 @ 1
-[    0.659484] initcall filelock_init+0x0/0xf8 returned 0 after 0 usecs
-[    0.666839] calling  init_script_binfmt+0x0/0x1c @ 1
-[    0.672393] initcall init_script_binfmt+0x0/0x1c returned 0 after 0 usecs
-[    0.680114] calling  init_elf_binfmt+0x0/0x1c @ 1
-[    0.685699] initcall init_elf_binfmt+0x0/0x1c returned 0 after 0 usecs
-[    0.692901] calling  gpiolib_dev_init+0x0/0x110 @ 1
-[    0.699584] initcall gpiolib_dev_init+0x0/0x110 returned 0 after 0 usecs
-[    0.707244] calling  sock_init+0x0/0x108 @ 1
-[    0.714630] initcall sock_init+0x0/0x108 returned 0 after 10000 usecs
-[    0.721862] calling  sock_struct_check+0x0/0x8 @ 1
-[    0.727539] initcall sock_struct_check+0x0/0x8 returned 0 after 0 usecs
-[    0.735107] calling  net_inuse_init+0x0/0x24 @ 1
-[    0.740417] initcall net_inuse_init+0x0/0x24 returned 0 after 0 usecs
-[    0.747802] calling  init_default_flow_dissectors+0x0/0x4c @ 1
-[    0.754577] initcall init_default_flow_dissectors+0x0/0x4c returned 0 after 0 usecs
-[    0.763244] calling  netlink_proto_init+0x0/0xf8 @ 1
-[    0.774932] NET: Registered PF_NETLINK/PF_ROUTE protocol family
-[    0.781799] initcall netlink_proto_init+0x0/0xf8 returned 0 after 10000 usecs
-[    0.789947] calling  genl_init+0x0/0x38 @ 1
-[    0.795166] initcall genl_init+0x0/0x38 returned 0 after 0 usecs
-[    0.802490] entering initcall level: postcore
-[    0.807495] calling  atomic_pool_init+0x0/0x134 @ 1
-[    0.816711] DMA: preallocated 256 KiB pool for atomic coherent allocations
-[    0.824401] initcall atomic_pool_init+0x0/0x134 returned 0 after 10000 usecs
-[    0.832092] calling  omap16xx_gpio_init+0x0/0xe4 @ 1
-[    0.838867] 8<--- cut here ---
-[    0.842224] Unable to handle kernel NULL pointer dereference at virtual address 00000000 when read
-[    0.851989] [00000000] *pgd=00000000
-[    0.856262] Internal error: Oops: 5 [#1] ARM
-[    0.860931] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc5-osk-00010-g9a0a87d27dc0 #1 VOLUNTARY 
-[    0.871368] Hardware name: TI-OSK
-[    0.874938] PC is at software_node_to_swnode+0x10/0x48
-[    0.880554] LR is at device_add_software_node+0x20/0x80
-[    0.886230] pc : [<c0273f10>]    lr : [<c0274f20>]    psr: a0000053
-[    0.892883] sp : c2809ed0  ip : c2809d94  fp : c052e6ec
-[    0.898437] r10: 00000000  r9 : 00000014  r8 : c052bae8
-[    0.903991] r7 : 00000005  r6 : c03fe9d4  r5 : c06b3ab0  r4 : c072d000
-[    0.910919] r3 : c0759b10  r2 : 00000000  r1 : c03fe9d4  r0 : c03fe9d4
-[    0.917846] Flags: NzCv  IRQs on  FIQs off  Mode SVC_32  ISA ARM  Segment none
-[    0.925506] Control: 0005317f  Table: 10004000  DAC: 00000053
-[    0.931579] Register r0 information: non-slab/vmalloc memory
-[    0.937713] Register r1 information: non-slab/vmalloc memory
-[    0.943786] Register r2 information: NULL pointer
-[    0.948883] Register r3 information: non-slab/vmalloc memory
-[    0.954956] Register r4 information: non-slab/vmalloc memory
-[    0.961029] Register r5 information: non-slab/vmalloc memory
-[    0.967132] Register r6 information: non-slab/vmalloc memory
-[    0.973205] Register r7 information: non-paged memory
-[    0.978637] Register r8 information: non-slab/vmalloc memory
-[    0.984710] Register r9 information: non-paged memory
-[    0.990173] Register r10 information: NULL pointer
-[    0.995330] Register r11 information: non-slab/vmalloc memory
-[    1.001525] Register r12 information: 2-page vmalloc region starting at 0xc2808000 allocated at kernel_clone+0xa4/0x20c
-[    1.013092] Process swapper/0 (pid: 1, stack limit = 0x(ptrval))
-[    1.019500] Stack: (0xc2809ed0 to 0xc280a000)
-[    1.024230] 9ec0:                                     c072d000 c0529474 c06b3aa0 c050a3cc
-[    1.032958] 9ee0: c072d000 c085c000 00000002 c052582c c050a324 c072d000 00000000 c0503160
-[    1.041687] 9f00: 00002710 00000000 c04da8f8 c0060900 c2809f64 ffffffff 00010000 946f70b5
-[    1.050384] 9f20: 00000062 c0816120 00000002 c052582c c0525848 c072d000 c04da8f8 c0060a18
-[    1.059112] 9f40: c2809f64 c2809f64 00000000 946f70b5 00000062 c0816120 00000002 c052582c
-[    1.067810] 9f60: c052584c c072d000 c04da8f8 c050352c 00000002 00000002 00000000 c0502400
-[    1.076507] 9f80: c2809f7c 00000000 c03f86f4 00000000 00000000 00000000 00000000 00000000
-[    1.085205] 9fa0: 00000000 c03f8704 00000000 c000850c 00000000 00000000 00000000 00000000
-[    1.093902] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[    1.102600] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000 00000000 00000000
-[    1.111206] Call trace: 
-[    1.111328]  software_node_to_swnode from device_add_software_node+0x20/0x80
-[    1.121704]  device_add_software_node from omap16xx_gpio_init+0xa8/0xe4
-[    1.128997]  omap16xx_gpio_init from do_one_initcall+0x68/0x1f4
-[    1.135620]  do_one_initcall from kernel_init_freeable+0x1ec/0x240
-[    1.142517]  kernel_init_freeable from kernel_init+0x10/0x108
-[    1.148864]  kernel_init from ret_from_fork+0x14/0x28
-[    1.154357] Exception stack(0xc2809fb0 to 0xc2809ff8)
-[    1.159820] 9fa0:                                     00000000 00000000 00000000 00000000
-[    1.168518] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[    1.177185] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-[    1.184295] Code: e3500000 012fff1e e59f3034 e5932000 (e5923000) 
-[    1.191040] ---[ end trace 0000000000000000 ]---
-[    1.196350] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-[    1.204559] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+I think this is what's needed to fix the MDC clocking issue. Please
+review and test. Thanks.
 
-A.
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index ad3a983d2a08..ac7d6d3e205a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -764,6 +764,12 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 	qcom_ethqos_set_sgmii_loopback(ethqos, true);
+ 	ethqos_set_func_clk_en(ethqos);
+ 
++	/* The clocks are controlled by firmware, so we don't know for certain
++	 * what clock rate is being used. Hardware documentation mentions that
++	 * the AHB slave clock will be in the range of 50 to 100MHz, which
++	 * equates to a MDC between 1.19 and 2.38MHz.
++	 */
++	plat_dat->clk_csr = STMMAC_CSR_60_100M;
+ 	plat_dat->bsp_priv = ethqos;
+ 	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
+ 	plat_dat->dump_debug_regs = rgmii_dump;
+-- 
+2.47.3
+
 
