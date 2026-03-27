@@ -4,154 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E60810BA453
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68DF10BA456
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlE8K29BcOci/GJeK99hdrRjgIObqUNFNRdsO2zBvLY=; b=ELs9irL5UQhNxtHBBlPqTCBWxD
-	ebvnr65SgCUI7diDxgFQY3ordnHgZsnhMMrjyclXzc2Qp1+fhx+B/6iAmpXkJezA0uAsOvfV7p1t/
-	pH2k2Bd10bHq2EDHZ6s6QCp4sq8wb2sAB+Ra1IbPeJoJfMlONelYitSBXaT1MC95KXEqaQ53n1D5j
-	BszrAVrr30j1JVKoDuFRT/pFnR9Rg1Cd56Uq/0mlEN+/itsczXthbTREe63xDw59RWOuFw1Ph9NJC
-	VbWNkBLZ7v/4+iXYy5/oeBUsc4wm91eFgqDq8CxK8qxiZ6QnSIGFVwAlhVtb24T70Y7D9LZfM8poA
-	qT//tEeQ==;
+	bh=EcbL84R2Ic0MsfVq/sbwk6AErZQ8PN1gKoAXHtH00KM=; b=UQQ2dNy/OYs/3/ug2aYlzihUHU
+	M3pRONAmYgUuBZkOy8Z8UiXbKsmJntHvy7di6gE4iCHHjBHJDuV9QIOeemTiTkIkYNgpZek9NTGxF
+	0RK/RgZnHCoa2P9WhUy7+oNrM79fbOeo209FgKXJTy+WgP7tOL1AUJXh1OlrfXpFBiIWq5abj3Sg+
+	VU/5Q/l5T0bpgC2gAa4aJ5wyzaKRwGf9XOxKRXT4KWzmYgDvHFYIm8oxHygDOTcgyLTaAERM3To/b
+	Hl+21QpbdplnxvMfiUN5Ov9DnHGNcii22YnobPjs0z9yZH3xc8/3xAI7ngbKFpaK8IdpDCA0q96CX
+	mBYf/VRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w635d-000000071mg-2lRs;
-	Fri, 27 Mar 2026 09:02:49 +0000
+	id 1w638y-0000000722W-1irO;
+	Fri, 27 Mar 2026 09:06:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w635c-000000071mS-375K;
-	Fri, 27 Mar 2026 09:02:48 +0000
+	id 1w638w-00000007229-3H8M
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Mar 2026 09:06:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=XlE8K29BcOci/GJeK99hdrRjgIObqUNFNRdsO2zBvLY=; b=Ezsl29sITn/f6v+BkaP23xF4nn
-	I28lCXCTdUOOq9RL8tWHqNtNikpRj+CiNxVRO+TDlruBmGF5aJ2UpJkZZAW92jPtulCPGQ5HEptdb
-	IMFiSvBYOjeIvLnEPJNZ5gYTw0CwFk56Sw9/lxDhWvxI2j3loAUlJmi4kexWU6+UxUfcr80GQ2zuM
-	uHicaPgeOvj9NTRR1Mf3YRm7ARjp6TFjrLFKPAWddm3+Lr7JkNVi+BsJAjdKQX/fHIEUkFUrOgK7l
-	50jHVzK10fXhChl3azK89N48MJ84nPmzJ3ZFQybqwNfXRNzfuJ4pdwN8nvKl9PwyydikE0L5mNVwS
-	QY3ZMJoA==;
-Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
+	bh=EcbL84R2Ic0MsfVq/sbwk6AErZQ8PN1gKoAXHtH00KM=; b=GrlstscSrXkKEMdeCbWqGxrSgk
+	X/O6FEIScNNwYKCsg+NWke7cRb8l1HqtFEVYncU5HwY9Civykhzpv9xotgPpZeoLbezV0piq3jlSs
+	avGv8FWpTLijK/0OCrhAjzmcNohalmcZqUlPFAp3wwmRZsfkAbcIL9r3dbc3ityXCdC/yhsYJhmdA
+	MfO6ZsI9bb1tYVCwV1F75EC99OQbgrEtqxblIl2LYCHQGqbLRTd45Q7BjU70roETgb8bWgFrRECdJ
+	lIiz9kHPDBaSi4vfGujnEen02kJLKrOneZFZX9ic8DQrGi3FaJZ5iNGJphAb6ZfeJdxuhwcnIIb6r
+	NyGS321g==;
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w635Z-0000000A1mj-20aa;
-	Fri, 27 Mar 2026 09:02:47 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.phl.internal (Postfix) with ESMTP id 4A6471380181;
-	Fri, 27 Mar 2026 05:02:39 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 27 Mar 2026 05:02:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774602159;
-	 x=1774609359; bh=XlE8K29BcOci/GJeK99hdrRjgIObqUNFNRdsO2zBvLY=; b=
-	GVzqQY5nceojm37M1XZpOPq3WUecXUQj9WVf3CfutP3dTobqmGMQjzRLgNhoVby6
-	46aeZZINaK1f7YVuydM5TqNUI4j8vyRQzPpJA34i7ACZR1RSV4TO+hIb/Y1wlQAV
-	e4naVPRom36f6nfcFXr2OjE1mhktO/8tDetlgDKx/ERP6X26MCzVLKwpghPIlA9u
-	FgAZLJCBgZpz0FbarT4w54TicAqCn2qTr0Z2ZfdL6DznrwvGSdcVVRrirxDEue/H
-	5fVwFvlMX5ysAAT1/mtv1Dd/8FtVIaDqWDOOvUgWKJ3vwJ4vCQKKNs+/aj1E6yt+
-	+mz/Xbi/v8lcnLVbeJxZpA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774602159; x=
-	1774609359; bh=XlE8K29BcOci/GJeK99hdrRjgIObqUNFNRdsO2zBvLY=; b=i
-	Exk1Qnjsvq2JnZ1+yT0ebsDIbgY2gqeRl0z1YUchEz9YmFAT5XKQHCu5+ZzfUzMA
-	KUBEKUA267I42sL6kTGiC0o6muCrmy6qX1nLFaMFkw6x8TBMIldQ20mR85lgu/Dz
-	dB2EG1eKMb571eSkAhGeN6NfTkTpx4Lu0/tgLzlYoDT4OZDwCv6fEL37252eYC4+
-	1qR+fAEfE/kjUNCAyy4Q+SMie5NYypjDP+zkoB40j+zYPYlVZgSiYG+KFdyvrW7G
-	OWPfc7ZhuIizFLxUKMgVQKKjnJY5rCQ68EF4nMVgcJw97GM4yWWv2nTfrHXCbuKd
-	K8t0sfV8n6x5lC5qiobPQ==
-X-ME-Sender: <xms:rUfGaePC1BrMnmTf9_OY6lvLvc1mUKp6M_A0RyuXLyRS-NOn6VKFDg>
-    <xme:rUfGaXzAgfItBbTl9XynqmOmljqUaNK22QfAcW8j65Y-hka2CDyCF6HlPX-DBmYss
-    eoR8l0vie_-ZAfZlP2omID4VIFPPLAESbv9Vf23rJ3uQmLsZXfiKPw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefvdelkeejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepuefhhedvjedtudeiiefgvdeuuefhueehfefffeeutdeiudegleevleeivdefgfei
-    necuffhomhgrihhnpehgihhthhhusgdrtghomhdpghhnuhdrohhrghenucevlhhushhtvg
-    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdr
-    uggvpdhnsggprhgtphhtthhopeeguddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
-    epjhgrmhhivgdrtghunhhlihhffhgvsegrrhhmrdgtohhmpdhrtghpthhtoheptggrthgr
-    lhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuth
-    hlrghnugesrghrmhdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidr
-    ohhrghdruhhkpdhrtghpthhtoheprghnthhonhdrihhvrghnohhvsegtrghmsghrihgugh
-    gvghhrvgihshdrtghomhdprhgtphhtthhopegurghvihgusegurghvihgughhofidrnhgv
-    thdprhgtphhtthhopehgrghrhiesghgrrhihghhuohdrnhgvthdprhgtphhtthhopegsoh
-    hquhhnrdhfvghnghesghhmrghilhdrtghomhdprhgtphhtthhopegthhhrihhsihdrshgt
-    hhhrvghflhesghhmrghilhdrtghomh
-X-ME-Proxy: <xmx:rUfGaRCaBcqc7KdntZl0FsBnvOqvRVfnzmfBbmotVoydnvBrFXOcMg>
-    <xmx:rUfGaZyWyK0ItY1fAukXgGQMxYnCWlJ_ttZ9LwB67jfvcP3jcgDiJg>
-    <xmx:rUfGaeUWikKeRd3kQ5HcVz8AqFZRkLvV9rX5NscA0USMCL-N4mVGIQ>
-    <xmx:rUfGaQXDnwGyrD4fd56NTxM2Fq_dVcdlQpFE1HUUfNw_jSb36M81IQ>
-    <xmx:r0fGaasdsr7hoeyfiet3dxQz1PzdqR0Oy-FDo6Fl_eW5_GQ_HIxB6CTf>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 95B2C700069; Fri, 27 Mar 2026 05:02:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w638t-0000000A28b-2L8T
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 09:06:13 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-66abcbae8a2so2033252a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 02:06:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774602369; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S+fYSyMoM9XD8RvYUT05T4/psZuRXq7+EmjIxsuyMkNusPeo+OsIp5r0/Jye0PzS49
+         D8UZA5S+DtrI8iQOjwX6eSVYRKm4MrjaR0hDDlICJphhMyFNgY8N0ELb7LwsOETCmvNr
+         LIIBOqbRel9Kosohtk1yL8GJfFyBQxigTpKZXaPSvmA8yFoibvGg6ISVvXgG/LkbB+1v
+         vX080/9CairsCxQBuMFBJhjojyJAFAnR/Wngh/GmR1XyuMLdrEO1HScj0p6aDXQ80cpD
+         5Y+AUnJOBjVOG79GCDlU/RQZA9TT0Xb2oUYq/IDtoS39NOzNk9MvS9eI60yOVAUyknU3
+         YsyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=EcbL84R2Ic0MsfVq/sbwk6AErZQ8PN1gKoAXHtH00KM=;
+        fh=skD+yai1pMy/pJgx9M928y9eFJQo9nWrUmmKzfwl79A=;
+        b=XEdsNoVpELU7gelgleSpNK60nZvLSdYfzhb8es5PQCIoVeLzUmpMqnTCP+v4oI5fzX
+         P7v3zgRY/fFq2Z6SIAHpmHPxfS7+w0RMI+v2YhlG5s67CNPN0oKsgKgQK5tkw8xuavK5
+         D2tNuS0X9vq1qyS8mVZ2TDT3jmxEIzSmijzgavk+m0yCmeREZUNUzfzKsH/3wHm5sZLq
+         fTIW3m6Pp82p7FRVGRSiXgGPViDgDFly1S1JGa63SYVR7xymx6g6/aCd8DJhFBu/nCDe
+         YHMcnisnh4xYDK9F53MDIOwFVo6yv1dgIrBKaoEND/5uB+2jE9Mgep/Vm3XMlhtv87Mc
+         P1IQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774602369; x=1775207169; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EcbL84R2Ic0MsfVq/sbwk6AErZQ8PN1gKoAXHtH00KM=;
+        b=hLZWbSo0dLFFBOnDnYUGQHRBd594qP79tif+hnNWBsiXD/q1MGB2HOkZ5SR1+6qKnP
+         iXo2HcoY8Wu8LOKXtwgefB7SkV6cFEt64H/jTY7FQMQ37+2MdTpjemXnPhoddKdut9D7
+         +aHAlJPXrkkZdTF+Cr9aTgSz5FK144e++O0iVCXlGsNmL598mAx4zN6j62TUywx2W2PH
+         5MQ0zGX6YoHvLSO7EajYXr2oeZdNpKwuC7wNbMDWY891yAJOTUnGSKexQOgO/DzNebr0
+         mtumAvtQPnGqNcUJJl0uBE4IIzsVTn7jflq81hrTHnrzzBZl+8cENeWF74xb0ma9kTK1
+         Iw5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774602369; x=1775207169;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EcbL84R2Ic0MsfVq/sbwk6AErZQ8PN1gKoAXHtH00KM=;
+        b=nzYiQH1Udbs5UKbuLRvAtpgJ0yQw18aMMXFwuPP6JXB1qt2lpX5t4QAk70RAA6Xk9L
+         c/SZ40EMJgVlKJcmJp2g2sK6vLGv+m8OiC7QBlgBSoO7WGnpfPLAt3YdmuDSEaDU3gt0
+         bLdo5yR9trhUhc2fuNBakv+ZunmKuu18s4z3eDFOaUSFXVmkYWcFgAnacsSXTHcBy3zj
+         B0p3XTRL++sl7bIoMRwC9SJUbOAsWibRssvwQG0rkZ4okvM/7/cvcLurRCbjJxanUnPw
+         ExWwpgO63LOFpFlGCfNmALHKHWSKqYVq77evqUR8P4VIfei+/jq+0mkOhfnxF7p3Xkqb
+         ANcA==
+X-Forwarded-Encrypted: i=1; AJvYcCVTgWSFw6zEhhK8xUSaB5XtGpxrrcJlSiiRlWsZogPZO5MCNAWoA3Evm2rkAigynYAuLRZmZ55E5qXen36xcOy/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaDqec6iJsJr+x8Cqz037hOhrx+0TxFVCN22s4P98RLTjf2FUh
+	z9D6SyWcU02ypkapRgTtvUjk4Moa0O9viy+Vo8bB8uDF7m8gGdXkO9A7rFTVo9CRON6p+s53Pvv
+	jAHN1WbnoSkMaGgWAZTkHvcB/a6Go35w=
+X-Gm-Gg: ATEYQzw6zG5RHGTKYPqC3KCQ20Vd/9JV8i34KwBXO4iLQYSjJdO5buJT3rLsBPzjatG
+	hImdxB3uBDD8+la8dSAUXzWdg+glkpAbfeBNG11I0jWuQGCuULjcKr47SYFUXtLVcOL1irErj7C
+	GwDa0P0YFL+YeHIMhrxENENZdTpNj73CvbYPfgpFKzpdSIug6yKCgMXgksH00+VociyG+SQ0l3g
+	5sTyj+m+v3WC53VrwbZ94SC/4OUZz3ADYUH7va6FcFJxnthg7wqAW4HxzaTojJzS0UNJebF1QhX
+	0nkOA54=
+X-Received: by 2002:a05:6402:1d4e:b0:66a:526b:96b5 with SMTP id
+ 4fb4d7f45d1cf-66b28c5262bmr1098566a12.18.1774602369094; Fri, 27 Mar 2026
+ 02:06:09 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AUJnWW6OA6Vc
-Date: Fri, 27 Mar 2026 10:02:17 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>
-Cc: "Russell King" <linux@armlinux.org.uk>,
- "Christian Schrefl" <chrisi.schrefl@gmail.com>,
- "Miguel Ojeda" <miguel.ojeda.sandonis@gmail.com>,
- "Alice Ryhl" <aliceryhl@google.com>, "Ard Biesheuvel" <ardb@kernel.org>,
- "Jamie Cunliffe" <Jamie.Cunliffe@arm.com>,
- "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Miguel Ojeda" <ojeda@kernel.org>,
- "Andreas Hindborg" <a.hindborg@kernel.org>, acourbot@nvidia.com,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Anton Ivanov" <anton.ivanov@cambridgegreys.com>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Danilo Krummrich" <dakr@kernel.org>, "David Gow" <david@davidgow.net>,
- "Gary Guo" <gary@garyguo.net>,
- "Johannes Berg" <johannes@sipsolutions.net>,
- "Justin Stitt" <justinstitt@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-um@lists.infradead.org, llvm@lists.linux.dev,
- "Benno Lossin" <lossin@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, mmaurer@google.com,
- "Bill Wendling" <morbo@google.com>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
- "Nicolas Schier" <nicolas.schier@linux.dev>,
- "Nicolas Schier" <nsc@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Richard Weinberger" <richard@nod.at>, rust-for-linux@vger.kernel.org,
- "Trevor Gross" <tmgross@umich.edu>,
- "Uladzislau Rezki (Sony)" <urezki@gmail.com>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>
-Message-Id: <93439e91-cf81-477b-b880-a813bb01ad7c@app.fastmail.com>
-In-Reply-To: <CAMuHMdUUfVCBZFi2WoOYibJLVnyPY-joRDJDowgHwjN_DGeEzw@mail.gmail.com>
-References: <20260322192159.88138-1-ojeda@kernel.org>
- <20260323000327.111235-1-ojeda@kernel.org>
- <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
- <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
- <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
- <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
- <641592e3-2354-4238-9eb8-a1f5c2a13126@app.fastmail.com>
- <CAMuHMdUUfVCBZFi2WoOYibJLVnyPY-joRDJDowgHwjN_DGeEzw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20260320094441.128263-1-midgy971@gmail.com> <177437177535.786081.7519498810130807269.b4-ty@sntech.de>
+ <533f27c9-e970-449b-a431-4ba41a566aaf@kwiboo.xyz> <10821700.nUPlyArG6x@phil>
+In-Reply-To: <10821700.nUPlyArG6x@phil>
+From: Midgy Balon <midgy971@gmail.com>
+Date: Fri, 27 Mar 2026 10:07:43 +0100
+X-Gm-Features: AQROBzC8CnXSa0u5wehgfkvDz7gqUZpnjqEtux6oaO4slyBrfgvJQHeqANw0iXE
+Message-ID: <CA+GS1Y3kiRrTZrS7meaHoSgOaputt3RL9iuHrtKqys4qN+uYYg@mail.gmail.com>
+Subject: Re: [PATCH v5] arm64: dts: rockchip: rock-3b: Model PI6C20100 as gated-fixed-clock
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Jonas Karlman <jonas@kwiboo.xyz>, linux-rockchip@lists.infradead.org, 
+	shawn.lin@rock-chips.com, jonas@kwiboo.se, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_090245_818145_95CB4CD7 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_090611_768069_73E1C5B1 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,29 +133,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026, at 08:56, Geert Uytterhoeven wrote:
->>
->> I noticed a similar issue with m68k-linux, which has a bitfield
->> alignment different from anything else on gcc, but uses the normal
->> behavior on clang.
+Hello Heiko,
+
+I apologize for missing Jonas' comments. It will be done for the next
+version as requested.
+Indeed Claude works "well" :D . I'll be more careful next time.
+
+Thanks,
+
+Midgy
+
+Le mar. 24 mars 2026 =C3=A0 23:27, Heiko Stuebner <heiko@sntech.de> a =C3=
+=A9crit :
 >
-> Ugh, I wasn't aware of that. Adrian, did you know?
-
-To clarify, this illustrates what I mean here:
-
-echo 'struct { short a : 3; short b :15; short c :14; } x; int y = sizeof(x);' | m68k-linux-gcc -xc - -S -o-
-
-this produces '4' on m68k-linux-gcc, but '6' everywhere else. I originally
-thought this was related to this 2009 change in both compilers
-
-https://github.com/llvm/llvm-project/commit/830dfccfb2c06a1749938ce8cb78a1d6a295b942
-https://gcc.gnu.org/cgit/gcc/commit/?id=2cd36c22d3d16e24f342829a989ac35f2f442656
-
-but that only allowed bitfields to be marked as __attribute__((packed))
-in order to get tightly packed fields and return '4' on all architectures,
-while m68k-linux-gcc apparently has all bitfields implicitly packed unless they
-are explicitly marked __attribute__((aligned(x))). This behavior is
-independent of the -malign-int flag.
-
-     Arnd
+> Hi Jonas,
+>
+> Am Dienstag, 24. M=C3=A4rz 2026, 18:15:38 Mitteleurop=C3=A4ische Normalze=
+it schrieb Jonas Karlman:
+> > Hi Heiko,
+> >
+> > On 3/24/2026 6:04 PM, Heiko Stuebner wrote:
+> > >
+> > > On Fri, 20 Mar 2026 10:44:41 +0100, MidG971 wrote:
+> > >> The Radxa ROCK 3B uses a PI6C20100 PCIe reference clock buffer to
+> > >> provide a 100MHz reference clock to the PCIe 3.0 PHY and controllers=
+.
+> > >> This chip is currently modeled only as a fixed regulator
+> > >> (vcc3v3_pi6c_03), with no clock output representation.
+> > >>
+> > >> The PI6C20100 is a clock generator, not a power supply. Model it
+> > >> properly as a gated-fixed-clock, following the pattern established
+> > >> for the Rock 5 ITX and other boards with similar PCIe clock buffer
+> > >> chips.
+> > >>
+> > >> [...]
+> > >
+> > > Applied, thanks!
+> >
+> > My comments from v3 [1] was not addressed in v4 och v5. E.g.
+> > regulator-always-on/boot-on not being removed and redundant comments.
+> >
+> > [1] https://lore.kernel.org/all/fec0f25d-733a-4b6c-aef1-2ac51bd15798@kw=
+iboo.se/
+>
+> thank you so much for noticing. Looks like that AI thing is
+> working "well" ;-) .
+>
+> I've droped the patch and recreated the for-next branch now.
+>
+> @Midgy, please honor feedback in future revisions.
+>
+> Thanks
+> Heiko
+>
+>
 
