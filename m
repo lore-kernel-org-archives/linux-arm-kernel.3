@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E2710ED662
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 11:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3182810ED663
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 11:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=laaRt9PhrfB1NfUzRDdGZGVdkBtDSdTIrFNyriqwO68=; b=jp93MeFsTa+2XN2Oq18aVseE3/
-	OlMhyO/lvRCagJFFxf5xtMvO/fIXVSjVbGGUHy9IEtxon6q1tVX916rnrV3GItjGK1hGSlJ3/BKGn
-	V24ysjrGxXn9o9IjTErLW3t/slh2/6RXkqpgUDL/Uv/AWEnLLs2MtY0VWEHcOzsBcw/sEQ2j/nrAR
-	M+1KTEW53jhH+0DJe8M8z3oLlb375/qqMIUEh/AKu0eo1ynLhe3EovG6AYGnfyZpctpbI7PaYH15p
-	f3YOqRFsilHKmuv2syyfvnTlA0w4mNBbI3IFjDHKJKzGY07idi+ozwgTQ5xsfCYbxo+/umYQazbBA
-	OipxCNYg==;
+	bh=5MfeIHpZpAJ9rRDacy+nNlZvNtDMNG/sjtvRsZMUqdg=; b=m9HAlb4XTyB5o7yfXBBQ3wjulg
+	QEX6eAPsbqhF8Pj1IZRXmPDPeQ9EMzdofAV/khDJNR/HPhvKIGtQYO/Esh0oQ4Ut/wsnliC73sjRT
+	A4c9dzvHVaxo/N2fwU1ILx8DsQn0HvqpFBvMbN+9HeH295CLivTHNzemlF7R6uzAJ10CMsb9pSyf7
+	BauYXEc3KAkuC92/MFWs4okzdvzq2cCFiTgSPuDKhEQWFn1V47yIx6q1bA2MgTdYdIf6YmlLG9hvY
+	mJU3K3Omo/evbwRSIGfib40WmNZQYwZHaCfr7TRFW1AasetLevPzNt9YixkHOpGdBOhE8r3bUdaXW
+	Ab0ybd6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w65Ue-00000007FJb-27J8;
-	Fri, 27 Mar 2026 11:36:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w65Uh-00000007FQD-3RNe;
+	Fri, 27 Mar 2026 11:36:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w65UI-00000007F0p-0GxW
+	id 1w65UM-00000007F78-0ZNj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 11:36:27 +0000
+	Fri, 27 Mar 2026 11:36:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B238F4474E;
-	Fri, 27 Mar 2026 11:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7336EC19423;
-	Fri, 27 Mar 2026 11:36:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 78DA761870;
+	Fri, 27 Mar 2026 11:36:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18DDBC2BCB0;
+	Fri, 27 Mar 2026 11:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774611385;
-	bh=Tjg+Jvv6iW6EHjiAndffoIAOp2L95gUPpDv4cEd09gY=;
+	s=k20201202; t=1774611389;
+	bh=mw/ote3jncKQHaloT0cPobEmS1MkiecE/Mak5sizrCY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jUcs87HkfcseEjTDzjZMQI1mIoR4FF2m4m7bVK7GC+lKSViH6QwcgpRgOZfo7Thmt
-	 9X7e9eIPk3A7/Y2GrVGazsQqUBuWBGWuo5KXErncKu3l++/6k45ehpxYVEw+7xvUIH
-	 oCZGVlh51xJ0sxI2iNYRBA/cT/hA87oWFUX1O9zVeUV2AmruZWpEFbeTk46iL6Kx19
-	 jreeMjjRkRc+0v0m1ehyc6/614ryAKH+ckRM353rhR3u24AlpdIeO7dGHdIJ93K7Mg
-	 lBbrAt9CPYZouAmP6lnK6D2zpvT3h2fohSUVVwGKjcBDPi2LscwUvR8TYeC/Y45SwT
-	 4esQXX2g+sN2w==
+	b=ELMREghpzJwPnjJeWDcju2tK/yLMRR+/4RhMhlBC8wMCRqbr2Kpdy/C8VqQpYbirQ
+	 kAftfrq5Njx+dwTJN85kaSmS37Q33aYwJ+Va4nKp1iDkCFOiVA7uiGY7Xe95Zk8RSl
+	 0BNLa49DXw+9OGjfMLB4GLQdPTQgusTesTdfnyiozHTZe5A8r7MsQu+VtUWhT5L79y
+	 d0a/XJR6RLDvUVPhE6C9kaT7At8hfeHNw2CQFFzPKK+RcwiZzKNdomTrAB9bhX8D7b
+	 phKb+W/H7MuqMnGf6+3c6sQrtXKh80VjLU3btGPAGQP38ebt5rFmzriJnzYM/I3C5g
+	 Z2mnJn65Ch5Sw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w65UF-00000006K4a-1EHs;
-	Fri, 27 Mar 2026 11:36:23 +0000
+	id 1w65UJ-00000006K4a-0j10;
+	Fri, 27 Mar 2026 11:36:27 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Quentin Perret <qperret@google.com>
-Subject: [PATCH v2 05/30] KVM: arm64: Extract stage-2 permission logic in user_mem_abort()
-Date: Fri, 27 Mar 2026 11:35:53 +0000
-Message-ID: <20260327113618.4051534-6-maz@kernel.org>
+Subject: [PATCH v2 21/30] KVM: arm64: Kill topup_memcache from kvm_s2_fault
+Date: Fri, 27 Mar 2026 11:36:09 +0000
+Message-ID: <20260327113618.4051534-22-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260327113618.4051534-1-maz@kernel.org>
 References: <20260327113618.4051534-1-maz@kernel.org>
@@ -71,9 +71,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_043626_146122_93D43C1E 
-X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,215 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fuad Tabba <tabba@google.com>
+The topup_memcache field can be easily replaced by the equivalent
+conditions, and the resulting code is not much worse.
 
-Extract the logic that computes the stage-2 protections and checks for
-various permission faults (e.g., execution faults on non-cacheable
-memory) into a new helper function, kvm_s2_fault_compute_prot(). This
-helper also handles injecting atomic/exclusive faults back into the
-guest when necessary.
-
-This refactoring step separates the permission computation from the
-mapping logic, making the main fault handler flow clearer.
-
-Signed-off-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 163 +++++++++++++++++++++++--------------------
- 1 file changed, 87 insertions(+), 76 deletions(-)
+ arch/arm64/kvm/mmu.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 1f2c2200ccd8d..d1ffdce18631a 100644
+index e8bda71e862b2..5b05caecdbd92 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1809,6 +1809,89 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
- 	return 1;
- }
+@@ -1712,7 +1712,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
  
-+static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
-+{
-+	struct kvm *kvm = fault->vcpu->kvm;
-+
-+	/*
-+	 * Check if this is non-struct page memory PFN, and cannot support
-+	 * CMOs. It could potentially be unsafe to access as cacheable.
-+	 */
-+	if (fault->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
-+		if (fault->is_vma_cacheable) {
-+			/*
-+			 * Whilst the VMA owner expects cacheable mapping to this
-+			 * PFN, hardware also has to support the FWB and CACHE DIC
-+			 * features.
-+			 *
-+			 * ARM64 KVM relies on kernel VA mapping to the PFN to
-+			 * perform cache maintenance as the CMO instructions work on
-+			 * virtual addresses. VM_PFNMAP region are not necessarily
-+			 * mapped to a KVA and hence the presence of hardware features
-+			 * S2FWB and CACHE DIC are mandatory to avoid the need for
-+			 * cache maintenance.
-+			 */
-+			if (!kvm_supports_cacheable_pfnmap())
-+				return -EFAULT;
-+		} else {
-+			/*
-+			 * If the page was identified as device early by looking at
-+			 * the VMA flags, vma_pagesize is already representing the
-+			 * largest quantity we can map.  If instead it was mapped
-+			 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
-+			 * and must not be upgraded.
-+			 *
-+			 * In both cases, we don't let transparent_hugepage_adjust()
-+			 * change things at the last minute.
-+			 */
-+			fault->s2_force_noncacheable = true;
-+		}
-+	} else if (fault->logging_active && !fault->write_fault) {
-+		/*
-+		 * Only actually map the page as writable if this was a write
-+		 * fault.
-+		 */
-+		fault->writable = false;
-+	}
-+
-+	if (fault->exec_fault && fault->s2_force_noncacheable)
-+		return -ENOEXEC;
-+
-+	/*
-+	 * Guest performs atomic/exclusive operations on memory with unsupported
-+	 * attributes (e.g. ld64b/st64b on normal memory when no FEAT_LS64WB)
-+	 * and trigger the exception here. Since the memslot is valid, inject
-+	 * the fault back to the guest.
-+	 */
-+	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(fault->vcpu))) {
-+		kvm_inject_dabt_excl_atomic(fault->vcpu, kvm_vcpu_get_hfar(fault->vcpu));
-+		return 1;
-+	}
-+
-+	if (fault->nested)
-+		adjust_nested_fault_perms(fault->nested, &fault->prot, &fault->writable);
-+
-+	if (fault->writable)
-+		fault->prot |= KVM_PGTABLE_PROT_W;
-+
-+	if (fault->exec_fault)
-+		fault->prot |= KVM_PGTABLE_PROT_X;
-+
-+	if (fault->s2_force_noncacheable) {
-+		if (fault->vfio_allow_any_uc)
-+			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
-+		else
-+			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
-+	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
-+		fault->prot |= KVM_PGTABLE_PROT_X;
-+	}
-+
-+	if (fault->nested)
-+		adjust_nested_exec_perms(kvm, fault->nested, &fault->prot);
-+
-+	return 0;
-+}
-+
- static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			  struct kvm_s2_trans *nested,
- 			  struct kvm_memory_slot *memslot, unsigned long hva,
-@@ -1863,68 +1946,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ struct kvm_s2_fault {
+ 	bool writable;
+-	bool topup_memcache;
+ 	bool mte_allowed;
+ 	bool is_vma_cacheable;
+ 	bool s2_force_noncacheable;
+@@ -1983,9 +1982,8 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		.logging_active = logging_active,
+ 		.force_pte = logging_active,
+ 		.prot = KVM_PGTABLE_PROT_R,
+-		.topup_memcache = !perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu)),
+ 	};
+-	void *memcache;
++	void *memcache = NULL;
+ 	int ret;
  
- 	ret = 0;
- 
--	/*
--	 * Check if this is non-struct page memory PFN, and cannot support
--	 * CMOs. It could potentially be unsafe to access as cacheable.
--	 */
--	if (fault->vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
--		if (fault->is_vma_cacheable) {
--			/*
--			 * Whilst the VMA owner expects cacheable mapping to this
--			 * PFN, hardware also has to support the FWB and CACHE DIC
--			 * features.
--			 *
--			 * ARM64 KVM relies on kernel VA mapping to the PFN to
--			 * perform cache maintenance as the CMO instructions work on
--			 * virtual addresses. VM_PFNMAP region are not necessarily
--			 * mapped to a KVA and hence the presence of hardware features
--			 * S2FWB and CACHE DIC are mandatory to avoid the need for
--			 * cache maintenance.
--			 */
--			if (!kvm_supports_cacheable_pfnmap())
--				ret = -EFAULT;
--		} else {
--			/*
--			 * If the page was identified as device early by looking at
--			 * the VMA flags, fault->vma_pagesize is already representing the
--			 * largest quantity we can map.  If instead it was mapped
--			 * via __kvm_faultin_pfn(), fault->vma_pagesize is set to PAGE_SIZE
--			 * and must not be upgraded.
--			 *
--			 * In both cases, we don't let transparent_hugepage_adjust()
--			 * change things at the last minute.
--			 */
--			fault->s2_force_noncacheable = true;
--		}
--	} else if (fault->logging_active && !fault->write_fault) {
--		/*
--		 * Only actually map the page as fault->writable if this was a write
--		 * fault.
--		 */
--		fault->writable = false;
-+	ret = kvm_s2_fault_compute_prot(fault);
-+	if (ret == 1) {
-+		ret = 1; /* fault injected */
-+		goto out_put_page;
- 	}
--
--	if (fault->exec_fault && fault->s2_force_noncacheable)
--		ret = -ENOEXEC;
--
- 	if (ret)
- 		goto out_put_page;
- 
--	/*
--	 * Guest performs atomic/exclusive operations on memory with unsupported
--	 * attributes (e.g. ld64b/st64b on normal memory when no FEAT_LS64WB)
--	 * and trigger the exception here. Since the fault->memslot is valid, inject
--	 * the fault back to the guest.
--	 */
--	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(fault->vcpu))) {
--		kvm_inject_dabt_excl_atomic(fault->vcpu, kvm_vcpu_get_hfar(fault->vcpu));
--		ret = 1;
--		goto out_put_page;
--	}
--
--	if (fault->nested)
--		adjust_nested_fault_perms(fault->nested, &fault->prot, &fault->writable);
--
- 	kvm_fault_lock(kvm);
- 	pgt = fault->vcpu->arch.hw_mmu->pgt;
- 	if (mmu_invalidate_retry(kvm, fault->mmu_seq)) {
-@@ -1961,24 +1990,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		}
- 	}
- 
--	if (fault->writable)
--		fault->prot |= KVM_PGTABLE_PROT_W;
--
--	if (fault->exec_fault)
--		fault->prot |= KVM_PGTABLE_PROT_X;
--
--	if (fault->s2_force_noncacheable) {
--		if (fault->vfio_allow_any_uc)
--			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
--		else
--			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
--	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
--		fault->prot |= KVM_PGTABLE_PROT_X;
--	}
--
--	if (fault->nested)
--		adjust_nested_exec_perms(kvm, fault->nested, &fault->prot);
--
  	/*
- 	 * Under the premise of getting a FSC_PERM fault, we just need to relax
- 	 * permissions only if fault->vma_pagesize equals fault->fault_granule. Otherwise,
+@@ -1994,9 +1992,11 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	 * only exception to this is when dirty logging is enabled at runtime
+ 	 * and a write fault needs to collapse a block entry into a table.
+ 	 */
+-	ret = prepare_mmu_memcache(s2fd->vcpu, fault.topup_memcache, &memcache);
+-	if (ret)
+-		return ret;
++	if (!perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu))) {
++		ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
++		if (ret)
++			return ret;
++	}
+ 
+ 	/*
+ 	 * Let's check if we will get back a huge page backed by hugetlbfs, or
 -- 
 2.47.3
 
