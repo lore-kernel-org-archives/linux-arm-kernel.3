@@ -4,161 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B1B10BA437
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2687D10BA439
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXRhBa+yL2nbb4zxZVnZs2Rf2oQ5Z4rio4jErzgIE1o=; b=BjN2eBXN3G02GTtVEBFtL3dtPB
-	sXT9G0Sj1/vDGkdIj9AL5DWuJe/ueuDBujtA2sdPP9BZTP19BmgxGZix9fG/qPJIwhs0+hVksQ8jF
-	XJd0fSsls1Us2n4zhMQcUmJA6F2S5HleMoh6F7xmu3S9ZokKnYh5FEHkf4ImwGYSdcvjuQzcomBfF
-	YvdOd9yUsQGbMoHagvNdsSU+WGO3MCja8JU6Q/TNxYRnzs+U93FcpFVNM7hcj8Je8aLEWdsW92UQv
-	CLCRULEistdzR+tmP2Bub4eoJmraxXzu0SqSHz4HQMYGkM6O4P8yqeqmTbD4hPETnxZ0NXKEFI4CR
-	MlkK3W+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OzrpGpkHqWUx/eMcJ1jKlsZ1lwKvENOYTWoZ0OfZ1qw=; b=ELI7JFgU55Jfh2FtMOw+U6qGhU
+	XitKLegWYpAoa7yjh6zIL1Mj8GvxZrT3Zn5WcX0dD8JRzS1V57MVrX5MBqyA+5/Jh5RRtrCN80sGa
+	slcfVvrYlunzF0EhlAybARmV6FI6THNFbsMphrci243tzDZSi7Rly70R3/VbvaFuorVWkk5HJorfC
+	4SDzYfEyEkp0/ORmdB4Vi486JxNh6IzD9SxtkquJegrNGE2iKzLHSLvGN2sWVjxzJXlI6POzaszlg
+	GWy27s0E4WSGEQWsNVJtAzgfntwvFI40fPu1heckwh8Wnv+yXHl0KnmzsSz/k7A5RENMosck0xoEN
+	WfcdGjnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62J4-00000006wcV-3qle;
-	Fri, 27 Mar 2026 08:12:38 +0000
+	id 1w62NQ-00000006wzU-0nKx;
+	Fri, 27 Mar 2026 08:17:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62J3-00000006wcO-4BSE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 08:12:38 +0000
+	id 1w62NN-00000006wxN-1roI;
+	Fri, 27 Mar 2026 08:17:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MXRhBa+yL2nbb4zxZVnZs2Rf2oQ5Z4rio4jErzgIE1o=; b=BHVlNc//xCVUUsxGGeBTn39HGu
-	qsZ4l3s9WiQPXb0nyRC9rONgJjSGrmGojgkS38hohHInn+E6ouVUqC1RanK/Db9rTErijTlWO/FQz
-	9Gv04VbgXSIUIQWrHqVXYYDiBffrSGQF6BwZrlyR4tceXrN93Aq9hEh7YNKqO38go8wYpMn/YiJdI
-	vb19RejWrn7i+Qikw2VUL/YxP6cnEYXjFP9P4SS7sqjQAIOPq3MwdFhLVvtUgamiv3RVUshz27fL9
-	vtxJn23WiLucQFjOqMsyEZifOo5cpd27+GbBqH08d/l64yLqrPmiFckwnnf1sDJQe6mD8LztGq1Nc
-	f2qZlYbg==;
-Received: from mail-francecentralazon11013048.outbound.protection.outlook.com ([40.107.162.48] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+	bh=OzrpGpkHqWUx/eMcJ1jKlsZ1lwKvENOYTWoZ0OfZ1qw=; b=JryILBKDdsH5d+p6jgXrV73VMS
+	Us+KEaGCj0SntivEmtjWvodCvjsVVTdKc/JzQTH9MqFUL9qz7PpQYd/mhgp8q/ZPwt6en4nmRDBCB
+	yl1oTyH6Gl9GTca6OWgxiN2/nO3RFyYSBRGEgXPiGkI662j5HW7fXUPqD66+ZuwDoxbIxhYHYPOGA
+	xi64wBBS8w7AdL1ePJA//LwzulwQzLsQtrE9h9rLHXT/Q+lFM7KDUqxEqD+zTgUzzqSt7++BfLxJ8
+	0HZogAW9YbfwwCqECqmTlb9oEl78BpGtlVSxyvNB+1jSrKJOq4jMGOuivNGKE3LbaeS2sMGShW2i7
+	WLd0vT+A==;
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62Iz-00000009wVO-45R0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 08:12:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PlQzwCPZ8da2M80Ddmg3pYHinzs6wnTm1xJMO65UzhztNUaU/qnvxCW2QMR5fJbXN1VEYzLWsoxG3NzS/fdj9oduZbnJT7gO+MjTHPraa/ALIHeeEMHrFeyy1ojl6Evj3BrydS+nPakzDJvz+mCFhnPZymMt3iTdZ7IY+Fs2bI8G/DUJH4N+hKIbAx8JURvSAKh6CzpVHnM6Jk1mg4f5lFGKqbevK/rB4o8EUFWOLPJptWrJYbnZxH0cYUeNDGo4NeMRpzFhyvHVS+kk1SlBbwxgM4KwckazACxazBcyBqL5wlvVSjOZAEaGRJt/3zpAPlDsrv0ud2ftZDuopTbjdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MXRhBa+yL2nbb4zxZVnZs2Rf2oQ5Z4rio4jErzgIE1o=;
- b=JxLHd0/vfmq2o/a9B50CbZ5B7S82X7VZ0n6AwJy7j3KyQSbtpiNnBoW2e6mLAY5R97rDMZU5wklp8cJDI/x0Ys+Kc7qLk7WUAxgA9cgZrMlIM3HwrZMWrGDmMZhX9UxlSG/Jj1loUbtevOYonmO2pIgrxKtunnij/wAQ0HucfBEaSBFXXG6d6E02M1LgDT1qQ2q5ZBoeYuwqDB+hJikU3qaoXBfau+AHt6ceVPXtaXkzm6Oxs2xhqX0ucrQmEYoc+t3t0HWJeAJeoAAdRHGmxcKAHwRjuJOwRti3Sd5LCCGMcEsJoBZZZbvr9YibAXJKNDNQVSP9RpWLB/mzTu/YSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MXRhBa+yL2nbb4zxZVnZs2Rf2oQ5Z4rio4jErzgIE1o=;
- b=cI6FJOee4FX7FlhKz65E9JpPPCw2wBmsLEzjCrn/fYcyjSdu6l3BZWhkhMzUUOywh1BzIERXYogwn+2qHZ33Vm5XEs4A8bpD+5REsJMgOSzlmJSjgLBspS5pyM5qwjK9beQo4yAM5r27I2T6tQAKlOGQCj8+5ZlKaemP/pDW5J3+CwQYR2hP3gZdj2IdyZM4lSDyraTJ4KEWEl2Yc4zis0drS4E8pnkBCnFCJkLpyWtpoHSYe/2VduRokZK1+2f0pVPPBqOMYdjPCbCTKbPyknGOkVAOtaAYQ5N3SMSRJAZxUWBlh5a4zJGkTKYxtTDwrfgG3JpOnSzvp2d1cTpHRw==
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by AM0PR04MB12122.eurprd04.prod.outlook.com (2603:10a6:20b:747::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Fri, 27 Mar
- 2026 08:12:11 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9745.019; Fri, 27 Mar 2026
- 08:12:29 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: "l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v2] PCI: imx6: Don't remove MSI capability For
- i.MX7D/i.MX8M
-Thread-Topic: [PATCH v2] PCI: imx6: Don't remove MSI capability For
- i.MX7D/i.MX8M
-Thread-Index: AQHct4Eimn8S6FzOSEeZOEeRWCABYLW15xAAgAwsvvA=
-Date: Fri, 27 Mar 2026 08:12:29 +0000
-Message-ID: <AS8PR04MB883306406390FCB4106C3A978C57A@AS8PR04MB8833.eurprd04.prod.outlook.com>
-References: <20260319091823.446030-1-hongxing.zhu@nxp.com>
- <abwFVpxrriV7Bt2L@lizhi-Precision-Tower-5810>
-In-Reply-To: <abwFVpxrriV7Bt2L@lizhi-Precision-Tower-5810>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|AM0PR04MB12122:EE_
-x-ms-office365-filtering-correlation-id: c00cf929-41e1-425e-47b1-08de8bd896ff
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|1800799024|18002099003|56012099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: 8M9z4TmfZjvxEY960J957tY0YRTmZqB6sAUeudCo4kG3SuDgjZg4mGyB9htydTc3CDodUL6Kh4wgK0yKCb7EKBjR8fEtuM9hz4l7nujI9gXDgO4CAC4VCV5TIAu4QSNWvWPX8H/5b9VwFW3xLVMuZZ+rqSatqmYx+L62jr/gMLKgmxIJpzmiUOzfqUjingbPfFDm/+790zjafJpfkiETfHrCypPnSNOAlsPE79aV8X0Djy5dA3vpVzp1NgAJeViE5wvYZdOZ4TY0uOKvh1oPUUdnJf70baBaNy0fG2VG0PKEmwP51i9mm2EJnO3apWbH/SQYvcvc8NQIaWJpmoWSAT8Z2ohiJJqUZ0UywcywsrGWFwzxgRX0AIR50FibD38APcuavGfZGrFllUYOw2t2Hxr4/LdHMqzewnJF/c8oa4oLPT8LUkbofNsaIWzZXwdWD5cqHVJueFcWvtJ+7nZiSa0VzXs/7JOWOFNCPRf0rtaQCG96RINOvraO7NVEZZ5oUW5+++wZhbky8HUDJLgYpXHT0rXIM1z6cAOFTVHbsIPAUjoq4Tk/9FFrSvjICZaREbbJFH/mz5mspDaXNsVUEeqobBRJOM+7mOVO/cQN6SJDasAnziU/lxQl6k+szXM3ujk2YtYB+LTCKECWeTzQMjg4jw/TqEDe5RCZJccOqDulKE1S7yNKtOw415pMetJvvGaur3fRA4TF8Xq9C14+SruSAffafCnMO3CLUFsdaaqYBN5nb46r4qR4DzN6GuLSWoJ+e5Y019BPErZDW/seba56245dB9kBxcwYizcOjR0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(1800799024)(18002099003)(56012099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?VUpjTFljbTZxTFdIdGc1ZVh3N01yYmpKNVdXYnJQWjlISTBTNDZZRlI4Uzlv?=
- =?gb2312?B?K3pBUmV0QmZBdUtQdEpXVnBjcUxzenczQU5pM2JlWkcybUZnaGpHZ1lnUlVR?=
- =?gb2312?B?Sm5GcURuaFdubUxjbTgxNjBOWFIyUys0a3ZJUHlBTVJybmh2UGQ3RUtDb1hI?=
- =?gb2312?B?RW95cUZvY3FKeHU0R3JEdVRyVTRtT3BtTjhnTDFEb0J4blc0YVZoRUR5emtQ?=
- =?gb2312?B?di81Z05VWTlORitPY2pSR0ZtK3F3WS81ZmtDZHRZRHM3QnZhNUFQTXZGVGQ5?=
- =?gb2312?B?Q0lheFUrR1hhN1ZSR2NiN3NldzlkK0t5ZU5oa3hEeWsyNGVoM2RpakVpUjJq?=
- =?gb2312?B?UW9RQW9Gc0ZUSnZCOHNPQ1owQUtEWVVyaS96WVFpSllKUjEwN2xoL3FEZDZo?=
- =?gb2312?B?bWZraGFUcGFiV3ZwR0pCckZnMy9hT2F3MTBhQTZsVmJiamZZYndpaEpmanNj?=
- =?gb2312?B?c1JYNWZaMnZzTVZsRXBmb25ndUlsc3VhK2Q4SnF6VFBBa0lLcjVpUlZjSW92?=
- =?gb2312?B?MUtzczFIWVNwb2hmU25ITjY4bTdqRGI2RDBpVzlYbTNuY2E4T2xPYzFTVU9M?=
- =?gb2312?B?bWF3ZzN0YTY1akV2SmZ2REl1anBmWWpUb0Z0VmprSjNQTmpYTTBPSGp2ZEhj?=
- =?gb2312?B?RGJnN0g2TzRaM0ZKbStuVlo3bTc5Z1NkS0xJeE5LN09Qa0l4eTlxN01tVFNR?=
- =?gb2312?B?SU0zVDRPb3d5TDhyT0xkRXc3dWRaMnA0NksxUTlKOFgrQ1I4d2ZldWdKd0pC?=
- =?gb2312?B?TzMvTEJPL1NmaEZ5TVlNZ04xaTgweTlWS3Y3bUVMTm1LR2c0L3laTFJsWXJW?=
- =?gb2312?B?Q3N2Y0FZTDdjbDBBTFQ2eUxSYkxybk4xQlNuVC9HODN1QUdnMWFwUFM1QldL?=
- =?gb2312?B?OFMvb3JjNDFDNUc1V3Z5Wm5KS1JmOURxSkxxQ29BT05tRXEySll2QUNYbmJy?=
- =?gb2312?B?SHhEWEVMbGJpNVpLNGtINUx6dytSMHFiRHA4RkpnZCtJMXc5dXZ3Nys3TWhl?=
- =?gb2312?B?eUhYbjA3cnJscnQ0OFRlc2lySTN5aTNreFVyZGMzVlFPQ21TTDhOMFdsMk96?=
- =?gb2312?B?NmRud2lmcTBrQjUrNzA4V2xWUXN5STBobGpFa2NRa1ZlODY0am9ZNmxQaG5w?=
- =?gb2312?B?R1hVRmRYWEtYYjkxelU5eksrOHBCZDRlaGlCVmYvcjdXZFJYVCttRjVRdzcr?=
- =?gb2312?B?WG9MNDlYQk9jUzh1Yjh3T2Q3UHhoZG9idjE5cU1ZY1liRjBUSzRNWjNqSGx4?=
- =?gb2312?B?NnNpQXN6eFFDWENrTHR6RWdxQklVMC96eDluQlFoTjJkcnpUMXdGTFYwbTIr?=
- =?gb2312?B?akx4WHhwKzB4ZHoySVR5RzNiNEljb1hBVnJGTmc1NFlNNGtvRHgwWGdob0JY?=
- =?gb2312?B?U3Jwd2hWNHpnZEtsRDlVQUdmOFlnNlAycnhETGFlWFVVQkdFTkNSYkRST295?=
- =?gb2312?B?RDgzbE9YSXJ6TDdTRm56SS9VQXNYWkYrVkxpenNId1IyQnY1S29Ta2VKcGJ4?=
- =?gb2312?B?OXRIT1dGQWRUK1ZCQXBFUXRHQnlITWdYR1gvMGRNVFBYTW95ZldyNWovb0d3?=
- =?gb2312?B?bGYyK2lOK251WkM5OXl0R3JlMXM5VloraWpsTVlJZ3ZMS29jNW9UMUhoU3lS?=
- =?gb2312?B?OXYxSzV2ajdVMVYzUnZFU0J5SXYvNkQrTkI2SGp5T3J6c1hyeVQ4SEp0NU5M?=
- =?gb2312?B?dkJIdHpCOFFLQkJ6aXBjdEZ5MGV6YXZTRlBWU0RXSlZoM3BXU0ZRRytRZGJy?=
- =?gb2312?B?c0NjT1YvbllJdFVBdzVKSStJejFHbXJNZ0l3MDRBQlh6aE5RSE1vWWVyeFlM?=
- =?gb2312?B?N3FFY05xY1lCclpPT3lNYTlPYzhLOFJDVEQxL3VEdC9pb25nek84eWNlaU4y?=
- =?gb2312?B?OEhhR0NGdDFsMWJaaklYMW5IL0Zka0VUSEp2N3lYSkZHVitQZU9vaEZ5YU9l?=
- =?gb2312?B?UjJ6WXdsRmxjRnFhM2c2emRDdkxUU2dxT0dMYkZvR0VJLzRzL09QZ0dackw2?=
- =?gb2312?B?TXA1UGJXeU5oMm1wOTJSL3p4d1VXRUJ2UmthUDMyWXl0b1ZpeE5zRGk1Vm5h?=
- =?gb2312?B?YzhOL3pRUU5MOXIxM0NURllOQ2JWVkxidWEzeGFnYkQrRmhUZEFtVUZVamor?=
- =?gb2312?B?RDZUUUJYclhyeFllaXl0SzB3Tm11S3lLcWNyNU9pM05SdVErbTlwSzVwQm1i?=
- =?gb2312?B?RGxhSElwTk1HMVJTSUIvWkUzMzlCREpGQk1XTWU1akdMelA0M1ZiVWExeVJJ?=
- =?gb2312?B?dFRiNGZjdkplZFA5UTFXYVZsZjUzdE1qR2ozMnRwcVlEV1RvSk1DTXFmQW5m?=
- =?gb2312?Q?WfKy1RiqMqO3rbJ02v?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	id 1w62NJ-00000009wr3-2ud5;
+	Fri, 27 Mar 2026 08:17:03 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260327081656euoutp0159ffbf0a635c1b7e11620b7d0f98b0d3~gpMRSEAKq0448704487euoutp010;
+	Fri, 27 Mar 2026 08:16:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260327081656euoutp0159ffbf0a635c1b7e11620b7d0f98b0d3~gpMRSEAKq0448704487euoutp010
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1774599416;
+	bh=OzrpGpkHqWUx/eMcJ1jKlsZ1lwKvENOYTWoZ0OfZ1qw=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=hYym+IrJIbRVHQG1K2UWuA0h9Vy29fYkdvIs8yKDeB0yJ5xCqXBaCsZmHZBarhjQg
+	 OCISHCnKlHEu/bJerBpD0vdOwTGPrgXPwT20DQxx9+LqEwPiyD9mT1YPKzcY4kn8L2
+	 Iz4H4PewEUdxdr5cQTnZYxMoNHTZIAFMZduYpLGg=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260327081656eucas1p2369161b823605f46f83f110ed6d23a01~gpMRDRogp1270412704eucas1p2M;
+	Fri, 27 Mar 2026 08:16:56 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260327081653eusmtip255f1b4030f7274a851dfc4787d135774~gpMOrILMZ2779627796eusmtip2C;
+	Fri, 27 Mar 2026 08:16:53 +0000 (GMT)
+Message-ID: <9a19ccac-f7ce-4780-a251-f69a1fa45757@samsung.com>
+Date: Fri, 27 Mar 2026 09:16:52 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c00cf929-41e1-425e-47b1-08de8bd896ff
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Mar 2026 08:12:29.5414
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Vlp3QuQhswILulCrvMj6cwJthIEmVXoO60FildhTDaKLUxr54xnmLm3Et8eOgOsLqCjMMcR9zpeDKl5r/uMw+Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB12122
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+To: Arnd Bergmann <arnd@arndb.de>, Miguel Ojeda <ojeda@kernel.org>, Robin
+	Murphy <robin.murphy@arm.com>, Danilo Krummrich <dakr@kernel.org>, Abdiel
+	Janulgue <abdiel.janulgue@gmail.com>, Daniel Almeida
+	<daniel.almeida@collabora.com>, Andreas Hindborg <a.hindborg@kernel.org>,
+	Christoph Hellwig <hch@lst.de>
+Cc: iommu@lists.linux.dev, driver-core@lists.linux.dev, acourbot@nvidia.com,
+	Andrew Morton <akpm@linux-foundation.org>, Alice Ryhl
+	<aliceryhl@google.com>, Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Boqun Feng
+	<boqun.feng@gmail.com>, David Gow <david@davidgow.net>, Gary Guo
+	<gary@garyguo.net>, Johannes Berg <johannes@sipsolutions.net>, Justin Stitt
+	<justinstitt@google.com>, linux-arm-kernel@lists.infradead.org,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-um@lists.infradead.org, Russell King
+	<linux@armlinux.org.uk>, llvm@lists.linux.dev, Benno Lossin
+	<lossin@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	mmaurer@google.com, Bill Wendling <morbo@google.com>, Nathan Chancellor
+	<nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Nicolas Schier <nicolas.schier@linux.dev>, Nicolas Schier <nsc@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, Richard Weinberger <richard@nod.at>,
+	rust-for-linux@vger.kernel.org, Trevor Gross <tmgross@umich.edu>,
+	"Uladzislau Rezki (Sony)" <urezki@gmail.com>, Will Deacon <will@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <7ad8bdf9-5eff-4443-ad15-c05355d793d1@app.fastmail.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260327081656eucas1p2369161b823605f46f83f110ed6d23a01
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260326211326eucas1p28e4e09d74d0798124d3dd5943b5b4c83
+X-EPHeader: CA
+X-CMS-RootMailID: 20260326211326eucas1p28e4e09d74d0798124d3dd5943b5b4c83
+References: <20260322192159.88138-1-ojeda@kernel.org>
+	<20260322194616.89847-1-ojeda@kernel.org>
+	<CGME20260326211326eucas1p28e4e09d74d0798124d3dd5943b5b4c83@eucas1p2.samsung.com>
+	<7ad8bdf9-5eff-4443-ad15-c05355d793d1@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_081234_150083_0DE7FD1F 
-X-CRM114-Status: GOOD (  30.26  )
+X-CRM114-CacheID: sfid-20260327_081702_139337_3F6593BC 
+X-CRM114-Status: GOOD (  30.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,97 +118,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBGcmFuayBMaSA8ZnJhbmsubGlA
-bnhwLmNvbT4NCj4gU2VudDogMjAyNsTqM9TCMTnI1SAyMjoxNw0KPiBUbzogSG9uZ3hpbmcgWmh1
-IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gQ2M6IGwuc3RhY2hAcGVuZ3V0cm9uaXguZGU7IGxw
-aWVyYWxpc2lAa2VybmVsLm9yZzsga3dpbGN6eW5za2lAa2VybmVsLm9yZzsNCj4gbWFuaUBrZXJu
-ZWwub3JnOyByb2JoQGtlcm5lbC5vcmc7IGJoZWxnYWFzQGdvb2dsZS5jb207DQo+IHMuaGF1ZXJA
-cGVuZ3V0cm9uaXguZGU7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsgZmVzdGV2YW1AZ21haWwuY29t
-Ow0KPiBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmlu
-ZnJhZGVhZC5vcmc7DQo+IGlteEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWtlcm5lbEB2Z2VyLmtl
-cm5lbC5vcmc7IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2
-Ml0gUENJOiBpbXg2OiBEb24ndCByZW1vdmUgTVNJIGNhcGFiaWxpdHkgRm9yDQo+IGkuTVg3RC9p
-Lk1YOE0NCj4gDQo+IE9uIFRodSwgTWFyIDE5LCAyMDI2IGF0IDA1OjE4OjIzUE0gKzA4MDAsIFJp
-Y2hhcmQgWmh1IHdyb3RlOg0KPiA+IFRoZSBNU0kgdHJpZ2dlciBtZWNoYW5pc20gZm9yIGVuZHBv
-aW50IGRldmljZXMgY29ubmVjdGVkIHRvIGkuTVg3RCwNCj4gPiBpLk1YOE1NLCBhbmQgaS5NWDhN
-USBQQ0llIHJvb3QgY29tcGxleCBwb3J0cyBkZXBlbmRzIG9uIHRoZSBNU0kNCj4gPiBjYXBhYmls
-aXR5IHJlZ2lzdGVyIHNldHRpbmdzIGluIHRoZSByb290IGNvbXBsZXguIFJlbW92aW5nIHRoZSBN
-U0kNCj4gPiBjYXBhYmlsaXR5IGJyZWFrcyBNU0kgZnVuY3Rpb25hbGl0eSBmb3IgdGhlc2UgZW5k
-cG9pbnRzLg0KPiA+DQo+ID4gUHJlc2VydmUgdGhlIE1TSSBjYXBhYmlsaXR5IGZvciBpLk1YN0Qv
-aS5NWDhNIFBDSWUgcm9vdCBjb21wbGV4IHRvDQo+ID4gbWFpbnRhaW4gTVNJIGZ1bmN0aW9uYWxp
-dHkuDQo+ID4NCj4gPiBDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZw0KPiA+IEZpeGVzOiBmNWNk
-OGE5MjljODI1ICgiUENJOiBkd2M6IFJlbW92ZSBNU0kvTVNJWCBjYXBhYmlsaXR5IGZvciBSb290
-DQo+ID4gUG9ydCBpZiBpTVNJLVJYIGlzIHVzZWQgYXMgTVNJIGNvbnRyb2xsZXIiKQ0KPiANCj4g
-SSB0aGluayBpdCdkIGJldHRlciBhZGQgYW5vdGhlciB2YXJpYmxlIHRvIGNoZWNrIGluIGY1Y2Q4
-YTkyOWM4MjUgaWYNCj4gKHBwLT5oYXNfbXNpX2N0cmwgJiYgIXBwLT54eHhfYnJva2VuKSBvciBk
-aXJlY3QgdXNlIElQIHZlcnNpb24sIHdoaWNoDQo+IGFscmVhZHkgYXV0byBkZXRlY3RlZC4NCj4g
-DQo+IFByZXZpb3VzIHBhdGNoIGhhdmUgbm90IGNvbnNpZGVyIHRoaXMgb2xkIHZlcnNpb24gY29u
-dHJvbGxlci4NCkhpIEZyYW5rOg0KRnJvbSB3aGF0IEkndmUgb2JzZXJ2ZWQsIHRoaXMgYmVoYXZp
-b3Igc2VlbXMgdGllZCB0byB0aGUgc3BlY2lmaWMgY29udHJvbGxlcg0KZGVzaWduLiBGb3IgZXhh
-bXBsZSwgbmVpdGhlciB0aGUgaS5NWDZRIG5vciB0aGUgaS5NWDZTWCBleGhpYml0IHRoaXMgaXNz
-dWUuDQoNClRoZSBpbnRlbnRpb24gb2YgY29tbWl0IGY1Y2Q4YTkyOWM4MjUgaXMgdG8gcmVtb3Zl
-IHRoZSBNU0kgY2FwYWJpbGl0eSBmcm9tIHRoZQ0KUm9vdCBDb21wbGV4IChSQykuIEZyb20gdGhl
-IGF1dGhvcidzIHBlcnNwZWN0aXZlLCB0aGlzIGNoYW5nZSBzaG91bGQgbm90DQphZmZlY3QgdGhl
-ICBFbmRwb2ludCdzIChFUCkgTVNJIGZ1bmN0aW9uYWxpdHkuDQoNCkknbSBub3Qgc3VyZSBkbyB0
-aGlzIGNoZWNrIChwcC0+aGFzX21zaV9jdHJsICYmICFwcC0+bXNpX2Jyb2tlbikgaXMgcHJvcGVy
-IG9yIG5vdC4NCkJlc3QgUmVnYXJkcw0KUmljaGFyZCBaaHUNCj4gDQo+IEZyYW5rDQo+IA0KPiA+
-IFNpZ25lZC1vZmYtYnk6IFJpY2hhcmQgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gPiAt
-LS0NCj4gPiB2MiBjaGFuZ2VzOg0KPiA+IENDIHN0YWJsZSB0cmVlLg0KPiA+IC0tLQ0KPiA+ICBk
-cml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2ktaW14Ni5jIHwgMTUgKysrKysrKysrKysrKyst
-DQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxNCBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pDQo+
-ID4NCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYu
-Yw0KPiA+IGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYuYw0KPiA+IGluZGV4
-IDIwZGFmZDI3MTBhMy4uMGIwZDZhMjEwNDA2IDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvcGNp
-L2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4gPiArKysgYi9kcml2ZXJzL3BjaS9jb250cm9s
-bGVyL2R3Yy9wY2ktaW14Ni5jDQo+ID4gQEAgLTQxLDYgKzQxLDcgQEANCj4gPiAgI2RlZmluZSBJ
-TVg4TVFfR1BSX1BDSUVfQ0xLX1JFUV9PVkVSUklERQlCSVQoMTEpDQo+ID4gICNkZWZpbmUgSU1Y
-OE1RX0dQUl9QQ0lFX1ZSRUdfQllQQVNTCQlCSVQoMTIpDQo+ID4gICNkZWZpbmUgSU1YOE1RX0dQ
-UjEyX1BDSUUyX0NUUkxfREVWSUNFX1RZUEUJR0VOTUFTSygxMSwgOCkNCj4gPiArI2RlZmluZSBJ
-TVg4TU1fUENJRV9NU0lfQ0FQX09GRlNFVAkJMHg1MA0KPiA+DQo+ID4gICNkZWZpbmUgSU1YOTVf
-UENJRV9QSFlfR0VOX0NUUkwJCQkweDANCj4gPiAgI2RlZmluZSBJTVg5NV9QQ0lFX1JFRl9VU0Vf
-UEFECQkJQklUKDE3KQ0KPiA+IEBAIC0xMTcsNiArMTE4LDcgQEAgZW51bSBpbXhfcGNpZV92YXJp
-YW50cyB7DQo+ID4gICNkZWZpbmUgSU1YX1BDSUVfRkxBR19IQVNfTFVUCQkJQklUKDEwKQ0KPiA+
-ICAjZGVmaW5lIElNWF9QQ0lFX0ZMQUdfOEdUX0VDTl9FUlIwNTE1ODYJCUJJVCgxMSkNCj4gPiAg
-I2RlZmluZSBJTVhfUENJRV9GTEFHX1NLSVBfTDIzX1JFQURZCQlCSVQoMTIpDQo+ID4gKyNkZWZp
-bmUgSU1YX1BDSUVfRkxBR19LRUVQX01TSV9DQVAJCUJJVCgxMykNCj4gPg0KPiA+ICAjZGVmaW5l
-IGlteF9jaGVja19mbGFnKHBjaSwgdmFsKQkocGNpLT5kcnZkYXRhLT5mbGFncyAmIHZhbCkNCj4g
-Pg0KPiA+IEBAIC05NzYsMTAgKzk3OCwxNyBAQCBzdGF0aWMgaW50IGlteF9wY2llX3N0YXJ0X2xp
-bmsoc3RydWN0IGR3X3BjaWUNCj4gPiAqcGNpKSAgew0KPiA+ICAJc3RydWN0IGlteF9wY2llICpp
-bXhfcGNpZSA9IHRvX2lteF9wY2llKHBjaSk7DQo+ID4gIAlzdHJ1Y3QgZGV2aWNlICpkZXYgPSBw
-Y2ktPmRldjsNCj4gPiAtCXU4IG9mZnNldCA9IGR3X3BjaWVfZmluZF9jYXBhYmlsaXR5KHBjaSwg
-UENJX0NBUF9JRF9FWFApOw0KPiA+ICsJdTggb2Zmc2V0Ow0KPiA+ICAJdTMyIHRtcDsNCj4gPiAg
-CWludCByZXQ7DQo+ID4NCj4gPiArCWlmIChpbXhfcGNpZS0+ZHJ2ZGF0YS0+ZmxhZ3MgJiBJTVhf
-UENJRV9GTEFHX0tFRVBfTVNJX0NBUCkgew0KPiA+ICsJCW9mZnNldCA9IGR3X3BjaWVfZmluZF9j
-YXBhYmlsaXR5KHBjaSwgUENJX0NBUF9JRF9QTSk7DQo+ID4gKwkJZHdfcGNpZV9kYmlfcm9fd3Jf
-ZW4ocGNpKTsNCj4gPiArCQlkd19wY2llX3dyaXRlYl9kYmkocGNpLCBvZmZzZXQgKyAxLA0KPiBJ
-TVg4TU1fUENJRV9NU0lfQ0FQX09GRlNFVCk7DQo+ID4gKwkJZHdfcGNpZV9kYmlfcm9fd3JfZGlz
-KHBjaSk7DQo+ID4gKwl9DQo+ID4gKw0KPiA+ICAJaWYgKCEoaW14X3BjaWUtPmRydmRhdGEtPmZs
-YWdzICYNCj4gPiAgCSAgICBJTVhfUENJRV9GTEFHX1NQRUVEX0NIQU5HRV9XT1JLQVJPVU5EKSkg
-ew0KPiA+ICAJCWlteF9wY2llX2x0c3NtX2VuYWJsZShkZXYpOw0KPiA+IEBAIC05OTEsNiArMTAw
-MCw3IEBAIHN0YXRpYyBpbnQgaW14X3BjaWVfc3RhcnRfbGluayhzdHJ1Y3QgZHdfcGNpZSAqcGNp
-KQ0KPiA+ICAJICogc3RhcnRlZCBpbiBHZW4yIG1vZGUsIHRoZXJlIGlzIGEgcG9zc2liaWxpdHkg
-dGhlIGRldmljZXMgb24gdGhlDQo+ID4gIAkgKiBidXMgd2lsbCBub3QgYmUgZGV0ZWN0ZWQgYXQg
-YWxsLiAgVGhpcyBoYXBwZW5zIHdpdGggUENJZSBzd2l0Y2hlcy4NCj4gPiAgCSAqLw0KPiA+ICsJ
-b2Zmc2V0ID0gZHdfcGNpZV9maW5kX2NhcGFiaWxpdHkocGNpLCBQQ0lfQ0FQX0lEX0VYUCk7DQo+
-ID4gIAlkd19wY2llX2RiaV9yb193cl9lbihwY2kpOw0KPiA+ICAJdG1wID0gZHdfcGNpZV9yZWFk
-bF9kYmkocGNpLCBvZmZzZXQgKyBQQ0lfRVhQX0xOS0NBUCk7DQo+ID4gIAl0bXAgJj0gflBDSV9F
-WFBfTE5LQ0FQX1NMUzsNCj4gPiBAQCAtMTg5Nyw2ICsxOTA3LDcgQEAgc3RhdGljIGNvbnN0IHN0
-cnVjdCBpbXhfcGNpZV9kcnZkYXRhIGRydmRhdGFbXSA9IHsNCj4gPiAgCVtJTVg3RF0gPSB7DQo+
-ID4gIAkJLnZhcmlhbnQgPSBJTVg3RCwNCj4gPiAgCQkuZmxhZ3MgPSBJTVhfUENJRV9GTEFHX1NV
-UFBPUlRTX1NVU1BFTkQgfA0KPiA+ICsJCQkgSU1YX1BDSUVfRkxBR19LRUVQX01TSV9DQVAgfA0K
-PiA+ICAJCQkgSU1YX1BDSUVfRkxBR19IQVNfQVBQX1JFU0VUIHwNCj4gPiAgCQkJIElNWF9QQ0lF
-X0ZMQUdfU0tJUF9MMjNfUkVBRFkgfA0KPiA+ICAJCQkgSU1YX1BDSUVfRkxBR19IQVNfUEhZX1JF
-U0VULA0KPiA+IEBAIC0xOTA5LDYgKzE5MjAsNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGlteF9w
-Y2llX2RydmRhdGEgZHJ2ZGF0YVtdID0gew0KPiA+ICAJW0lNWDhNUV0gPSB7DQo+ID4gIAkJLnZh
-cmlhbnQgPSBJTVg4TVEsDQo+ID4gIAkJLmZsYWdzID0gSU1YX1BDSUVfRkxBR19IQVNfQVBQX1JF
-U0VUIHwNCj4gPiArCQkJIElNWF9QQ0lFX0ZMQUdfS0VFUF9NU0lfQ0FQIHwNCj4gPiAgCQkJIElN
-WF9QQ0lFX0ZMQUdfSEFTX1BIWV9SRVNFVCB8DQo+ID4gIAkJCSBJTVhfUENJRV9GTEFHX1NVUFBP
-UlRTX1NVU1BFTkQsDQo+ID4gIAkJLmdwciA9ICJmc2wsaW14OG1xLWlvbXV4Yy1ncHIiLA0KPiA+
-IEBAIC0xOTIzLDYgKzE5MzUsNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGlteF9wY2llX2RydmRh
-dGEgZHJ2ZGF0YVtdID0gew0KPiA+ICAJW0lNWDhNTV0gPSB7DQo+ID4gIAkJLnZhcmlhbnQgPSBJ
-TVg4TU0sDQo+ID4gIAkJLmZsYWdzID0gSU1YX1BDSUVfRkxBR19TVVBQT1JUU19TVVNQRU5EIHwN
-Cj4gPiArCQkJIElNWF9QQ0lFX0ZMQUdfS0VFUF9NU0lfQ0FQIHwNCj4gPiAgCQkJIElNWF9QQ0lF
-X0ZMQUdfSEFTX1BIWURSViB8DQo+ID4gIAkJCSBJTVhfUENJRV9GTEFHX0hBU19BUFBfUkVTRVQs
-DQo+ID4gIAkJLmdwciA9ICJmc2wsaW14OG1tLWlvbXV4Yy1ncHIiLA0KPiA+IC0tDQo+ID4gMi4z
-Ny4xDQo+ID4NCg==
+On 26.03.2026 22:12, Arnd Bergmann wrote:
+> On Sun, Mar 22, 2026, at 20:46, Miguel Ojeda wrote:
+>> On Sun, 22 Mar 2026 20:21:59 +0100 Miguel Ojeda <ojeda@kernel.org> wrote:
+>>        BINDGEN rust/bindings/bindings_generated.rs - due to target
+>> missing
+>>      In file included from rust/helpers/helpers.c:59:
+>>      rust/helpers/dma.c:17:2: warning: static function 'dma_free_attrs'
+>> is used in an inline function with external linkage [-Wstatic-in-inline]
+>>         17 |         dma_free_attrs(dev, size, cpu_addr, dma_handle,
+>> attrs);
+>>            |         ^
+>>      rust/helpers/dma.c:12:1: note: use 'static' to give inline function
+>> 'rust_helper_dma_free_attrs' internal linkage
+>>         12 | __rust_helper void rust_helper_dma_free_attrs(struct device
+>> *dev, size_t size,
+>>            | ^
+>>            | static
+>>
+>> For some reason, `dma_free_attrs` is not marked `inline` in
+>> `include/linux/dma-mapping.h` to begin with, unlike the rest.
+>>
+>> Unless I am missing something and there is a reason for that, it looks
+>> like it has just been missing since it was added in commit ed6ccf10f24b
+>> ("dma-mapping: properly stub out the DMA API for !CONFIG_HAS_DMA").
+>>
+>> Do you want a patch?
+> I have an older patch to drop CONFIG_NO_DMA entirely, which
+> may be better here, since we know that nobody cares about the
+> empty stubs.
+
+The inline fix is already merged to v7.0-rc, but I'm fine with stubs 
+removal and I can queue them to -next. Could You send a proper patch 
+separately so I can easily apply it?
+
+
+> The only targets that 'select NO_DMA' today are m68k (sun3
+> and dragonball), sh2 and um, which are some of the targets
+> that don't have any DMA masters, but there is little downside
+> of enabling the DMA mapping interfaces on those as well.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>
+> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+> index 11835eb59d94..19fb556357fc 100644
+> --- a/arch/m68k/Kconfig
+> +++ b/arch/m68k/Kconfig
+> @@ -38,7 +38,6 @@ config M68K
+>   	select MMU_GATHER_NO_RANGE if MMU
+>   	select MODULES_USE_ELF_REL
+>   	select MODULES_USE_ELF_RELA
+> -	select NO_DMA if !MMU && !COLDFIRE
+>   	select OLD_SIGACTION
+>   	select OLD_SIGSUSPEND3
+>   	select UACCESS_MEMCPY if !MMU
+> diff --git a/arch/m68k/Kconfig.cpu b/arch/m68k/Kconfig.cpu
+> index c9a7e602d8a4..adc50396b87d 100644
+> --- a/arch/m68k/Kconfig.cpu
+> +++ b/arch/m68k/Kconfig.cpu
+> @@ -38,7 +38,6 @@ config SUN3
+>   	depends on MMU
+>   	select HAVE_ARCH_PFN_VALID
+>   	select LEGACY_TIMER_TICK
+> -	select NO_DMA
+>   	select M68020
+>   	help
+>   	  This option enables support for the Sun 3 series of workstations
+> @@ -558,4 +557,4 @@ config COLDFIRE_COHERENT_DMA
+>   config M68K_NONCOHERENT_DMA
+>   	bool
+>   	default y
+> -	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA
+> +	depends on HAS_DMA && !COLDFIRE_COHERENT_DMA && !SUN3
+> diff --git a/arch/m68k/include/asm/pgtable_mm.h b/arch/m68k/include/asm/pgtable_mm.h
+> index 7501ff030c63..d095ae6c19f9 100644
+> --- a/arch/m68k/include/asm/pgtable_mm.h
+> +++ b/arch/m68k/include/asm/pgtable_mm.h
+> @@ -159,8 +159,10 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+>   	    ? (__pgprot((pgprot_val(prot) & _CACHEMASK040) | _PAGE_NOCACHE_S))	\
+>   	    : (prot)))
+>   
+> +#ifndef CONFIG_SUN3
+>   pgprot_t pgprot_dmacoherent(pgprot_t prot);
+>   #define pgprot_dmacoherent(prot)	pgprot_dmacoherent(prot)
+> +#endif
+>   
+>   #endif /* CONFIG_COLDFIRE */
+>   #endif /* !__ASSEMBLER__ */
+> diff --git a/arch/m68k/kernel/dma.c b/arch/m68k/kernel/dma.c
+> index 16063783aa80..c52584e024af 100644
+> --- a/arch/m68k/kernel/dma.c
+> +++ b/arch/m68k/kernel/dma.c
+> @@ -8,7 +8,7 @@
+>   #include <linux/kernel.h>
+>   #include <asm/cacheflush.h>
+>   
+> -#ifndef CONFIG_COLDFIRE
+> +#if !defined(CONFIG_COLDFIRE) && !defined(CONFIG_SUN3)
+>   void arch_dma_prep_coherent(struct page *page, size_t size)
+>   {
+>   	cache_push(page_to_phys(page), size);
+> diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+> index d5795067befa..e246f295ec48 100644
+> --- a/arch/sh/Kconfig
+> +++ b/arch/sh/Kconfig
+> @@ -63,7 +63,6 @@ config SUPERH
+>   	select LOCK_MM_AND_FIND_VMA
+>   	select MODULES_USE_ELF_RELA
+>   	select NEED_SG_DMA_LENGTH
+> -	select NO_DMA if !MMU && !DMA_COHERENT
+>   	select NO_GENERIC_PCI_IOPORT_MAP if PCI
+>   	select OLD_SIGACTION
+>   	select OLD_SIGSUSPEND
+> @@ -133,10 +132,10 @@ config SWAP_IO_SPACE
+>   	bool
+>   
+>   config DMA_COHERENT
+> -	bool
+> +	def_bool !MMU
+>   
+>   config DMA_NONCOHERENT
+> -	def_bool !NO_DMA && !DMA_COHERENT
+> +	def_bool !DMA_COHERENT
+>   	select ARCH_HAS_DMA_PREP_COHERENT
+>   	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+>   	select DMA_DIRECT_REMAP
+> diff --git a/arch/um/Kconfig b/arch/um/Kconfig
+> index 098cda44db22..dd3428a49614 100644
+> --- a/arch/um/Kconfig
+> +++ b/arch/um/Kconfig
+> @@ -25,7 +25,6 @@ config UML
+>   	select HAVE_DEBUG_KMEMLEAK
+>   	select HAVE_DEBUG_BUGVERBOSE
+>   	select HAVE_PAGE_SIZE_4KB
+> -	select NO_DMA if !UML_DMA_EMULATION
+>   	select OF_EARLY_FLATTREE if OF
+>   	select GENERIC_IRQ_SHOW
+>   	select GENERIC_CPU_DEVICES
+> diff --git a/include/linux/dma-mapping.h b/include/linux/dma-mapping.h
+> index 677c51ab7510..a96a22f857f1 100644
+> --- a/include/linux/dma-mapping.h
+> +++ b/include/linux/dma-mapping.h
+> @@ -138,7 +138,6 @@ static inline void debug_dma_map_single(struct device *dev, const void *addr,
+>   }
+>   #endif /* CONFIG_DMA_API_DEBUG */
+>   
+> -#ifdef CONFIG_HAS_DMA
+>   static inline int dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
+>   {
+>   	debug_dma_mapping_error(dev, dma_addr);
+> @@ -200,146 +199,6 @@ void *dma_vmap_noncontiguous(struct device *dev, size_t size,
+>   void dma_vunmap_noncontiguous(struct device *dev, void *vaddr);
+>   int dma_mmap_noncontiguous(struct device *dev, struct vm_area_struct *vma,
+>   		size_t size, struct sg_table *sgt);
+> -#else /* CONFIG_HAS_DMA */
+> -static inline dma_addr_t dma_map_page_attrs(struct device *dev,
+> -		struct page *page, size_t offset, size_t size,
+> -		enum dma_data_direction dir, unsigned long attrs)
+> -{
+> -	return DMA_MAPPING_ERROR;
+> -}
+> -static inline void dma_unmap_page_attrs(struct device *dev, dma_addr_t addr,
+> -		size_t size, enum dma_data_direction dir, unsigned long attrs)
+> -{
+> -}
+> -static inline dma_addr_t dma_map_phys(struct device *dev, phys_addr_t phys,
+> -		size_t size, enum dma_data_direction dir, unsigned long attrs)
+> -{
+> -	return DMA_MAPPING_ERROR;
+> -}
+> -static inline void dma_unmap_phys(struct device *dev, dma_addr_t addr,
+> -		size_t size, enum dma_data_direction dir, unsigned long attrs)
+> -{
+> -}
+> -static inline unsigned int dma_map_sg_attrs(struct device *dev,
+> -		struct scatterlist *sg, int nents, enum dma_data_direction dir,
+> -		unsigned long attrs)
+> -{
+> -	return 0;
+> -}
+> -static inline void dma_unmap_sg_attrs(struct device *dev,
+> -		struct scatterlist *sg, int nents, enum dma_data_direction dir,
+> -		unsigned long attrs)
+> -{
+> -}
+> -static inline int dma_map_sgtable(struct device *dev, struct sg_table *sgt,
+> -		enum dma_data_direction dir, unsigned long attrs)
+> -{
+> -	return -EOPNOTSUPP;
+> -}
+> -static inline dma_addr_t dma_map_resource(struct device *dev,
+> -		phys_addr_t phys_addr, size_t size, enum dma_data_direction dir,
+> -		unsigned long attrs)
+> -{
+> -	return DMA_MAPPING_ERROR;
+> -}
+> -static inline void dma_unmap_resource(struct device *dev, dma_addr_t addr,
+> -		size_t size, enum dma_data_direction dir, unsigned long attrs)
+> -{
+> -}
+> -static inline int dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
+> -{
+> -	return -ENOMEM;
+> -}
+> -static inline void *dma_alloc_attrs(struct device *dev, size_t size,
+> -		dma_addr_t *dma_handle, gfp_t flag, unsigned long attrs)
+> -{
+> -	return NULL;
+> -}
+> -static inline void dma_free_attrs(struct device *dev, size_t size,
+> -		void *cpu_addr, dma_addr_t dma_handle, unsigned long attrs)
+> -{
+> -}
+> -static inline void *dmam_alloc_attrs(struct device *dev, size_t size,
+> -		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
+> -{
+> -	return NULL;
+> -}
+> -static inline void dmam_free_coherent(struct device *dev, size_t size,
+> -		void *vaddr, dma_addr_t dma_handle)
+> -{
+> -}
+> -static inline int dma_get_sgtable_attrs(struct device *dev,
+> -		struct sg_table *sgt, void *cpu_addr, dma_addr_t dma_addr,
+> -		size_t size, unsigned long attrs)
+> -{
+> -	return -ENXIO;
+> -}
+> -static inline int dma_mmap_attrs(struct device *dev, struct vm_area_struct *vma,
+> -		void *cpu_addr, dma_addr_t dma_addr, size_t size,
+> -		unsigned long attrs)
+> -{
+> -	return -ENXIO;
+> -}
+> -static inline bool dma_can_mmap(struct device *dev)
+> -{
+> -	return false;
+> -}
+> -static inline bool dma_pci_p2pdma_supported(struct device *dev)
+> -{
+> -	return false;
+> -}
+> -static inline int dma_set_mask(struct device *dev, u64 mask)
+> -{
+> -	return -EIO;
+> -}
+> -static inline int dma_set_coherent_mask(struct device *dev, u64 mask)
+> -{
+> -	return -EIO;
+> -}
+> -static inline u64 dma_get_required_mask(struct device *dev)
+> -{
+> -	return 0;
+> -}
+> -static inline bool dma_addressing_limited(struct device *dev)
+> -{
+> -	return false;
+> -}
+> -static inline size_t dma_max_mapping_size(struct device *dev)
+> -{
+> -	return 0;
+> -}
+> -static inline size_t dma_opt_mapping_size(struct device *dev)
+> -{
+> -	return 0;
+> -}
+> -static inline unsigned long dma_get_merge_boundary(struct device *dev)
+> -{
+> -	return 0;
+> -}
+> -static inline struct sg_table *dma_alloc_noncontiguous(struct device *dev,
+> -		size_t size, enum dma_data_direction dir, gfp_t gfp,
+> -		unsigned long attrs)
+> -{
+> -	return NULL;
+> -}
+> -static inline void dma_free_noncontiguous(struct device *dev, size_t size,
+> -		struct sg_table *sgt, enum dma_data_direction dir)
+> -{
+> -}
+> -static inline void *dma_vmap_noncontiguous(struct device *dev, size_t size,
+> -		struct sg_table *sgt)
+> -{
+> -	return NULL;
+> -}
+> -static inline void dma_vunmap_noncontiguous(struct device *dev, void *vaddr)
+> -{
+> -}
+> -static inline int dma_mmap_noncontiguous(struct device *dev,
+> -		struct vm_area_struct *vma, size_t size, struct sg_table *sgt)
+> -{
+> -	return -EINVAL;
+> -}
+> -#endif /* CONFIG_HAS_DMA */
+>   
+>   #ifdef CONFIG_IOMMU_DMA
+>   /**
+> diff --git a/kernel/dma/Kconfig b/kernel/dma/Kconfig
+> index 0748091339f7..228a3566d344 100644
+> --- a/kernel/dma/Kconfig
+> +++ b/kernel/dma/Kconfig
+> @@ -1,12 +1,7 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   
+> -config NO_DMA
+> -	bool
+> -
+>   config HAS_DMA
+> -	bool
+> -	depends on !NO_DMA
+> -	default y
+> +	def_bool y
+>   
+>   config DMA_OPS_HELPERS
+>   	bool
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
