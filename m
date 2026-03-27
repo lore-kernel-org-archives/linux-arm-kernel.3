@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0426310F2840
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481D710F2843
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RjKuvUBQiFpFuXYPv0VREJdyhtsXZOAchMgwkjnvo+U=; b=rLyiif/CVHG9PZKQz/b/8gGN2g
-	i/dx3kAbpXNnUo5RhKFHgXgLeLx2UconP8M34Vw+nc+upf4fjUjaMV9uJ3NDBxhw6ZD4dkeiw90OE
-	0KOlSDxGtEqJom0VSWYqwdc3Dvdowy1OKWAKRQfa2jw0G5MZdOAkn6bWmuWSCNlgQrFoFP7uX4F/u
-	OQSRcUQgwd8QJAu0iVKLlRhRKSGW68tMH0M64YgBUgusUCVezffR/Zr6yL0/dAWYBAbq8tVjWIgpe
-	vPbqIUhKnHqekBOYBIAGwIk4oexwd+uEHeTXXFNgiUfl8PhQLLsO4dPzA3gL5oqiDpftXQys9uy7L
-	qN+Nbpkw==;
+	bh=1BtdFcTynAN33HZsmTUqdTq2Imp2W6r28pnCsYrsANI=; b=MavrDtot8pWkVGV76eb/eVzV2u
+	tMkykWAUZ6b8+DJnVtx8E+elJt6S+UbxGL8f7PuLYNTDLA2sU9chekAyrxkYsZHIK2b1bCNaB1ZP/
+	FzIzRdgR03L1fJGh347Ki7ZrxVX3Rjar8C1OOkeiBy64pkf4ybkBEaNt9pR29vJWM0uXeR2lA3VZE
+	fFuibDfDulf3WXXPK+t9uWx9jtdBDIZu59jbrWhuIEot4p2XCmTx9w729PG64l9WOjvN81pYdKiTg
+	d2OJLdUX+DP/uJGxG89lhO1PtTrQaxwEUbXJyRXt9lt1Cknb/Tjls720azHYhHqujGNWvphkigF1P
+	ErCktEhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69Ca-00000007hGU-292Y;
-	Fri, 27 Mar 2026 15:34:24 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1w69Cm-00000007hJ7-0JLr;
+	Fri, 27 Mar 2026 15:34:36 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69CX-00000007hFm-3vPD
+	id 1w69Ck-00000007hHq-0BQs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 15:34:23 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-439b611274bso1205931f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:34:21 -0700 (PDT)
+	Fri, 27 Mar 2026 15:34:35 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-486fd5360d4so28344315e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:34:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774625660; x=1775230460; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1774625672; x=1775230472; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RjKuvUBQiFpFuXYPv0VREJdyhtsXZOAchMgwkjnvo+U=;
-        b=uQGgpN0G3zaBD54jt+xq5vCTOQQDNtqIZXYLz+pKJ3h/5prBnNrvc/ci6l9IADFELC
-         MOxOUXMmb/bnc/8BhzDQkxMAsosDs/BKZPe27e06JQ6EEAXSr0FjhP4WRTawNXTiMfGD
-         ELm9HjulettYS+i/Wfi8+jdfuT7y4t8iVnC2CovcIdhtxeMqaB/9uk2ftKQRvTcrRVhO
-         2LjTP0cJ3kijAEbU3OsLySjCYvucpaobt792CTq9aFKmu6kmVpLGSbK4bcST4fTlLe9V
-         zIg/6JBrWCPCEX2kZ1cdjhCX7gIDBCS3ZxGRFmTlYZ77kdWdqHU9lZj3U97NTLhsn8g6
-         2Dnw==
+        bh=1BtdFcTynAN33HZsmTUqdTq2Imp2W6r28pnCsYrsANI=;
+        b=ElbC+ORF4k5ltzV8ht5dZlLpFshhY7is+qMy/7U0R4tW27IEIPOSWCugnfEJ8p1Ype
+         PPz2BvHmB9rwGgJp4eppDAfumTsptkH3EYyMKL27c23S8N4Ugx5rlkebXkHXXt8FG3Xn
+         fVuLfNCVBvSrhCXrGxzfqCaVHkemqp63OZb26vnxw9/pKM8menxkQRMi1cgiRsZByEF0
+         cO8zl3IQIxFvk9tK0B3fPfATUIdDyr6XmwRcil6VkINAJ3EsZ4vytYZFl9BdB0xToPzj
+         KKg7gzs7ZTU1tNPzI6YNueMtyOmKe1/orKM8/axPp+sJarPV+UkSxjMEZUAiqLJ0vqMr
+         uIPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774625660; x=1775230460;
+        d=1e100.net; s=20251104; t=1774625672; x=1775230472;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RjKuvUBQiFpFuXYPv0VREJdyhtsXZOAchMgwkjnvo+U=;
-        b=MjMhwW9xZMbCQn0URx/EroW9ZObZHhfF4OVfguehQb4Sgsot/D08pWq2ztY97YuEt/
-         C7zEyM0WrJOKR9NECvRvPjf1E9+05fUutumJRmT8pbd1taffm0BIv74uPvOGycTCKMog
-         7DkYyp3HuhRif2jGi62xkP4hVUivQOKWaiyHBBG1VGepig74CySjvqHFT9r2cS0OxHRa
-         gKSF+ok2l2Z6+gm+IUBBLlsL+7BTv2JtXLv9ACB97lKmiZ1WInK0AMMI0WWUbwSA/UG6
-         GfYq6JcY3VX/1ofJJBwj8XXgbNMRfHcbeFCiOru+Fiiz/y/DzhN2K3eq5eWrzsOzWgtu
-         aXiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbVa5/w5hZUT+o4roqFet9xWE5lI5I3AWEKtSWGY2khAffovrGGkJkgtyV5NUJd5X3ZKl8S62htlYS879hiQa9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrxmVSWbWz7BICDJ5W4c2hAd/DhWN+Lm11bvyAXYHQ6ze1iXUx
-	51dFLWHJU7h75Y0xOpEqwM+USNqvZ3j597yAEaJbSJmvo6fGDY2vUI4P9kLvV0KZt4I=
-X-Gm-Gg: ATEYQzzMCEVWNLOGZmQTqJOlYnDJkH/sPlApwH7BcZunh/Dp9zY7qFIXZge9GXt7ic5
-	KA+WeQjx5a7v4CYnq5dgEgphhoRYOZO/ja2Z9ZSMbzwbRZupM4QwaeSSLRgaRUKm+vKqQvoi/VH
-	f/TQ/jE507CmD78C25mA91LU+JTHlSkfu5h2KjFnwBA2Hbn2GGSJBxJIwsZVlIyaRRYJ/D9hCUZ
-	mQlW93Yv8vqnCdYnYICcWeRzHSGK4/AcshZziZvn+eebkUZmYPM9Z05//gwkIbWboGhITSfld1N
-	KypwpSW1pW2kxLTpg+xoNOX5c8ZGHY92x/Qw2BK/wFS4uOtIWJH4jSHYxLjXtWV3ZVnZb1PVOF7
-	cSTPdWoYJhNuP2Ta5T5ZY8c6rhPGhMJ5ilcdPcNk8Li/KICxFAVeq0mSSqD0WVtJDrTZ02sl7U5
-	ygnaO1wnhHjzCjmG72NjyqCtSrlb9m661ZZh7rJs1MrIe7wWs+B/LP3bMhr53vQPirC3mmNUmWJ
-	vXMKF4=
-X-Received: by 2002:a05:6000:24ca:b0:43b:60f7:2282 with SMTP id ffacd0b85a97d-43b9ea4ae28mr5245421f8f.28.1774625659628;
-        Fri, 27 Mar 2026 08:34:19 -0700 (PDT)
+        bh=1BtdFcTynAN33HZsmTUqdTq2Imp2W6r28pnCsYrsANI=;
+        b=EJ2ZVa7I+xkKWLGHxrZV/5JIxlOj6XaoshWM0KaG+KlvbZcWyyliHV9eowmB15QsVU
+         Buz3Q0Sis/SQPMAqEjx0SxqVhMgE53Yko9HfUxc6lzKwJhijJSVMLzZ5123ykHMbXq+N
+         d5c8ltGX5epK8hdqJOykw9nocui050X+Z+atGV5MliJQHm70gGpiPQ0Uv/RAPPvg26gz
+         /TKFoW7WYTx6OKrqIhieLNkZizdPIYIvkNCaipMWgm2LUHJKz2HVRdSqZIWfBzWF/7Xl
+         XpIY5eE2MWl5rPo25oREY3wNhZzEn0QrikAIuJ7AcuoMF7N/fhTNyNZE3rSerNkHhF6Q
+         VZWA==
+X-Forwarded-Encrypted: i=1; AJvYcCV662j0tVM2pGTZ1ttGkZC8bYB3BD4LZFkDqMis42kYKLqwXJFw/j6YI+K8Xl4wj4DpEIMmFC2UYsosJlEhaPGm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJjUL2KtwvgtweZWoFmRWoG11EjMluCBEI9Q4+PKdPQnxOkbW7
+	as7zkAvkmXFjRSD+3nHZlzbmaRtQTIv6fhJgC3kQzG+deezaD7n7ruT/dpOcZz8JDX4=
+X-Gm-Gg: ATEYQzz6YsWigSpYZO9u5nia+ZqZc0nMmWO09enXIjKPl6EopKhIveUGjHM1KxUaDGv
+	nsnyg3W9XLgNXcbUswG32zT/DkJY/z4flDFbdYCAncBY/X+vzrtTj1Y0Lbv15oPnYO8HoeiwuVT
+	0sQu7VtWLFp6Y0sA2W4btikAoBTvnPwwmqSL5gxr6DOnrvPka5pHZK/oRmHQ8mscD7G/bLv75G8
+	vNjK2n3xdTEOF8BUru3aquh8bRbTK9T+EDfDqmf1XaXGge/7W5sV2EUzjHnfWAdxt/PgCHRgwNu
+	Fm4OUOX6yFE8YHSw/4QFh4j5ZNsnJXslgcfo+k++HbbdXuXzN1BsAxMqtbk9lJMK4zK9U1ZiwAB
+	yorlxQm669ktYxiHtlWkmG+zAwnSKIQ+j345BvYGD8pEHXTemqleGro6A5Ud0ktMnQec2KM2MOv
+	u6PGAkMXGljf5nh6Rwywm9l8SggoklNf/qiSzl3IcZEAZAg+40EeF9lk+WsF1MCuxsljljilWLW
+	RSZyZ0=
+X-Received: by 2002:a05:600c:c109:b0:486:f9d0:aac8 with SMTP id 5b1f17b1804b1-48727ec776bmr37759315e9.18.1774625671956;
+        Fri, 27 Mar 2026 08:34:31 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:39df:9101:d239:f5dc? ([2a01:e0a:106d:1080:39df:9101:d239:f5dc])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b9192e5f0sm16597152f8f.4.2026.03.27.08.34.18
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872712acb7sm17860855e9.18.2026.03.27.08.34.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Mar 2026 08:34:19 -0700 (PDT)
-Message-ID: <f8c47b7d-29ae-4aa1-ae92-07dd691b3b92@linaro.org>
-Date: Fri, 27 Mar 2026 16:34:18 +0100
+        Fri, 27 Mar 2026 08:34:31 -0700 (PDT)
+Message-ID: <9d56c5e0-7434-4a5d-8429-f19cc5faf00d@linaro.org>
+Date: Fri, 27 Mar 2026 16:34:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v1 1/3] arm64: dts: amlogic: meson-s4: add VRTC node
+Subject: Re: [PATCH v1 2/3] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
+ enable HYM8563 RTC
 To: Nick Xie <nick@khadas.com>, khilman@baylibre.com,
  martin.blumenstingl@googlemail.com, jbrunet@baylibre.com
 Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
  linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20260327093016.722095-1-nick@khadas.com>
- <20260327093016.722095-2-nick@khadas.com>
+ <20260327093016.722095-3-nick@khadas.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -111,12 +112,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260327093016.722095-2-nick@khadas.com>
+In-Reply-To: <20260327093016.722095-3-nick@khadas.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_083422_003605_D9124D4E 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260327_083434_114438_8BAC470C 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,29 +134,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/27/26 10:30, Nick Xie wrote:
-> Add the Virtual RTC (VRTC) controller node to the Meson S4 SoC dtsi.
+> The Khadas VIM1S board has an on-board Haoyu Micro HYM8563 Real Time
+> Clock (RTC) connected to the I2C1 bus.
+> 
+> Enable the I2C1 controller and add the RTC child node to support
+> hardware clock persistence.
 > 
 > Signed-off-by: Nick Xie <nick@khadas.com>
 > ---
->   arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 5 +++++
->   1 file changed, 5 insertions(+)
+>   .../dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 15 +++++++++++++++
+>   1 file changed, 15 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> index 936a5c1353d15..2a6fbd5308362 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> @@ -59,6 +59,11 @@ psci {
->   		method = "smc";
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
+> index 792ab45c4c944..7314e0ab81da3 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
+> @@ -20,6 +20,8 @@ aliases {
+>   		mmc0 = &emmc; /* eMMC */
+>   		mmc1 = &sd; /* SD card */
+>   		mmc2 = &sdio; /* SDIO */
+> +		rtc0 = &rtc;
+> +		rtc1 = &vrtc;
+>   		serial0 = &uart_b;
 >   	};
 >   
-> +	vrtc: rtc@fe010288 {
-> +		compatible = "amlogic,meson-vrtc";
-> +		reg = <0x0 0xfe010288 0x0 0x4>;
-> +	};
+> @@ -223,6 +225,19 @@ &ethmac {
+>   	phy-mode = "rmii";
+>   };
+>   
+> +&i2c1 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c1_pins2>;
+> +	clock-frequency = <100000>;
 > +
->   	xtal: xtal-clk {
->   		compatible = "fixed-clock";
->   		clock-frequency = <24000000>;
+> +	rtc: rtc@51 {
+> +		compatible = "haoyu,hym8563";
+> +		reg = <0x51>;
+> +		#clock-cells = <0>;
+> +	};
+> +};
+> +
+>   &ir {
+>   	status = "okay";
+>   	pinctrl-0 = <&remote_pins>;
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
