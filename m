@@ -4,191 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2DB10F2865
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 20:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7D510F286B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 20:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jsyaee8V+G5HvpJN1/K1UqJ1q5mgYfzzL6VEzi8VLQE=; b=GvVq8NV16cw2/QhIKoiSc+C0sO
-	61q6YecWgJT8CzH5xJgcnNB3P1OCqGyx3i77KRKodrPpf9qeJ8v7zcYOIcA5L6Gukt8grKN6enUy3
-	kkirc8JFN3dX76aDqTIhg+Hl/lE7hZaEpo1vACk+0hPnOWcxyb0g+njFEc4Ev5OKKCcplsVOpwT/9
-	cHvD4dOn35MyDbFf/z6mONWPTsP/zVVLWR2n6GXA+lk0ejQL8m3Gqy6yfRKi7lojL2Nhmqny8/r4T
-	iP5P2eP3YLr1vZYsvQp5Ipgopq0QHAzVwi5RkSUkQ/I/N90ihJ4Kh7Gg3Lg+WVxBrWi22PndvIlWz
-	7q43mDrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r13fetV/vaHgIfifc7hlGntVBBme+u6085WHF3DN3JA=; b=X7Vz5lF2jOcYA5E/9uG9Xratcw
+	inMP8blPja4SBigmS0/KHxXlhVHjq/B5kz7pC+FIe+8KWsUaz+c29SS4upx6exBC8dYx0T2SLVzQw
+	CJ3iDCaX12t8uBBTXwWTaLPC189suvWbrXiYSQ95iNod0CRRRi/mznuRylwk7bSapDBtoLL6xrtIC
+	Ip0yFA++bPkkhrpZjGK8JSoO1bq1z2bRxYP7zDoesCoc6VswO6U5IoZ8fXmIVYQyz9nlQbTR1mwIQ
+	vDhKHqC0XyqT8c1rEl1SSPlUTWXLfuetxY6TSTJeAomqBPMhUC8VnDbqJF5rRfIGa5coODBY/sUbg
+	DtdgtClg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6DoY-00000008AOO-0oLY;
-	Fri, 27 Mar 2026 20:29:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w6Dw1-00000008B95-0iI8;
+	Fri, 27 Mar 2026 20:37:37 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6DoX-00000008AO9-0T3C;
-	Fri, 27 Mar 2026 20:29:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:Date:
-	References:Message-ID:In-Reply-To:From:Subject:Cc:To:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Jsyaee8V+G5HvpJN1/K1UqJ1q5mgYfzzL6VEzi8VLQE=; b=Zx6HyzU+xS+0xXYHU425zpSTw6
-	qeV5s+oZl1i9hxg6rod5mqdKw/dcKzKN4cuhXxUfjV9mabAoS/ygs4V43Iv3tECay1DNjCtAgWCRb
-	c5N739DPiXKxBM3oXJMiS1UId061jvefv543lL8rBTaH/L91w3Q851+3XV9Q9N+HO4NEUNn0DCHHY
-	iA1AVAYm+ZEbZnJqhJqyE15pgcvsPs2tInsY5pZFlxn8Q2ZKm3/AHOPFAfOxpRswQKh5yz58fr8X1
-	7JkKqpvxl1Rh3jfffrDAfXQMa4hIb2HqRc9sWMA6BPbPocbbpMk/AU73ZiJyzC2QJNbpiNBd4hynd
-	M39SGWAA==;
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6DoD-0000000BEiR-1t5f;
-	Fri, 27 Mar 2026 20:29:44 +0000
-Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62RGvrYT980051;
-	Fri, 27 Mar 2026 20:28:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=Jsyaee8V+G5HvpJN1/
-	K1UqJ1q5mgYfzzL6VEzi8VLQE=; b=ZhYBXuwE+/dChxMOU8Koy7MhV6Qfjo6uRo
-	8RRRV1ruidIMQ0trM+Lk4PF4FPWCx2QDJp5aoVQfwKIsOKnwqpy94tiPYlEDRsPx
-	JuRYPT6uH3SCl+RzuYthJIKWCV/kJs2eqAO+XWy+Fft5Fs1VgSxq32+tkIrCHX99
-	GdU3RbMdfU6l1JT/JkitFfUM4FL4FrGGOsvMWwzkIgnrLChbM+VVNfFeJ8Q15xA0
-	Yf3NhafW85f/ZRxNa7xoE5JdNW1plkbCDg9QUk5LGUw5obY6OgwYA+IU/eRxav1v
-	iW3miJg5WX5acBd8U9TADbbtLDR0+aAgU1M2lBoYiIZfIOtpg9Yg==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4d1kgftr82-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Mar 2026 20:28:39 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 62RJeQ2V038876;
-	Fri, 27 Mar 2026 20:28:38 GMT
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010032.outbound.protection.outlook.com [52.101.193.32])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4d1hsf1c55-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 27 Mar 2026 20:28:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oeMSP3Xdwawoh+40+wykKSLpUl2se/Sdln2PVbVWTSP3vS5JY4LQDnendpamhZos6nWxaaUgSaT5vlpfOUfsHSTxzEm14abpInh5iMrf+BKTWDh8zWe4n5dWw8hY1d8ihvEyaD94B7NzsbkOXPvuywXa+BuiDpmY3/f4UtT1vlLYS7l5QTjJxTJ/ZlXZCq2Qkou34gLOpKU66PTdPPSBQSv480CST/PcKeGrYCdq8iWjlGOvXoHZejEvsKvrWaqGh7gOxbWznkWL57yc2cQhBA6qXziPxPBEJAEz/Z45UpkC5P5NcySJUzTYv6sjIXrfLGGr7uaS1WnSygyCC00GmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jsyaee8V+G5HvpJN1/K1UqJ1q5mgYfzzL6VEzi8VLQE=;
- b=GPOnOmBlmFcIHwa8FnnZbVX6LLpue4op272uxZs4be3yZlmUMRnd7NFHULuN6hdlVy/bsly+Q4HkQCh4h57ziV5kbERrj1d93vWcBo8+TEf+FjMG+m10GHgGiK2eyq4OA2TBLHXHIe4Duezzl7lAKLmg4bO2+VQ1Ym0XUEJph+P+ONrpvxGspxZEosoo3e26ULZgKh1+WMm1j/9HouWVo/cY+KXclXWtIKFXPEeWiUNbBVTgp89KGY2Xf178NZYoGqg6SWV4hq5m+z7gjPzVbS8Of0lBPEOHvrsHkoquEO4SLgjXRzfHaOfSVKBZG5Ru25fW7gQD3foaqWUlh1RL3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	id 1w6Dvy-00000008B8K-0Hwd
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 20:37:35 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2b0b260d309so5675ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 13:37:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774643853; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Apv8j9ESazSBccI5lOVYQrB7hst1b1W1euPvlwJ519Pb23U4/GHzrKIhznP+ghy3uZ
+         yLRXCs3wgp3GUZeYduJNxcAZisBxHalW6V1GhKVSUKe5sDCm2WGcgT1h0inZr1X4SyCF
+         6ea0eKAN3PcprbceoxgI0LjXhhwbY+lyQZLOkc2sWcKn4oeAMvD0YaPamcch1gKxOuBq
+         2ClFeM7xD3CaVxuhGaiRCGkN0UJg1aa6NOPsegUATmVBmsK+3YyFo9eF3lIlHb/L5r18
+         192sGuOIGt5OPjvX/pSANRlWz6wznR7He/bPQbZW2YG67AXHvH3m8PMTlJivzRcXCcA7
+         FcnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=r13fetV/vaHgIfifc7hlGntVBBme+u6085WHF3DN3JA=;
+        fh=vnoWNX/dUkvfecIf/4+LcCSqB0uAPIFKjUNAq+tjizQ=;
+        b=XD1/UJI5FhhzmQ4hqmtq4oabIZMMJbIX/JUQiS2XcVtspg6tCuap5t38ypVX4y7uh3
+         /ilZvQ2ng6JewVesesFac3yVH5yEfJfN66+Hf5Z0Ps+jtIBivK+PlwnjWdExrIrpyQg7
+         PMqk5RlShytPNW5sVDOIkKDU78aofQ5COdVT7mrJuRriJalscokgDdNZFSd//IgycJ9c
+         CohYN7z5eGjZAQfrrDh8Y30cjvdJ6L0DR7DHIClvwVpvNKd1F/C0AFUJhs7vwMDXgXTN
+         zerTtT5m+Jf7Iat+EjT8R2ySO7ybSJJE0s9johDnvxrQuUAqlhJDUL5rslAxCVZSt56X
+         mUTQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jsyaee8V+G5HvpJN1/K1UqJ1q5mgYfzzL6VEzi8VLQE=;
- b=j5P7ZQ+3HBbQGBNHZJfrHUTuP+5xv6PzoVkKxedJKbpQmHil7r+d+c7b3Geb5ydcQrvCFt2BH+J5l19fhgvNGgMDr6+if6YAg3MhK7yi3S/1B3aPPPWXpRlfpzO0yXZlyvUVC7LMhqqWF8UtJJtEP8ws8lgnHiC3CGaReavwH0A=
-Received: from CH0PR10MB5338.namprd10.prod.outlook.com (2603:10b6:610:cb::8)
- by CH3PR10MB7414.namprd10.prod.outlook.com (2603:10b6:610:155::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.23; Fri, 27 Mar
- 2026 20:28:20 +0000
-Received: from CH0PR10MB5338.namprd10.prod.outlook.com
- ([fe80::e525:dd71:b002:6ad5]) by CH0PR10MB5338.namprd10.prod.outlook.com
- ([fe80::e525:dd71:b002:6ad5%6]) with mapi id 15.20.9745.023; Fri, 27 Mar 2026
- 20:28:20 +0000
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, linux-scsi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        "Martin
- K. Petersen" <martin.petersen@oracle.com>,
-        Heiko Stuebner
- <heiko@sntech.de>
-Subject: Re: [PATCH v1 1/1] scsi: ufs: rockchip: Drop unused include
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-In-Reply-To: <20260320215606.3236516-1-andriy.shevchenko@linux.intel.com>
-	(Andy Shevchenko's message of "Fri, 20 Mar 2026 22:56:06 +0100")
-Organization: Oracle Corporation
-Message-ID: <yq1ikah9fwg.fsf@ca-mkp.ca.oracle.com>
-References: <20260320215606.3236516-1-andriy.shevchenko@linux.intel.com>
-Date: Fri, 27 Mar 2026 16:28:18 -0400
-Content-Type: text/plain
-X-ClientProxiedBy: YQBPR0101CA0128.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:5::31) To CH0PR10MB5338.namprd10.prod.outlook.com
- (2603:10b6:610:cb::8)
+        d=google.com; s=20251104; t=1774643853; x=1775248653; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r13fetV/vaHgIfifc7hlGntVBBme+u6085WHF3DN3JA=;
+        b=X0I+79SZBzAoThCCAk/YMRoKiYhvDXqPAc+3r+0lnBvzOfxwTUhL+EXbUXCL34e7AI
+         NU9YRajNKCqmA8q5fyxbK+/LMX077BQFZJOEbWJd4Zzv++sGYHCU2D9rFsn4b/udnHTl
+         eNUAfuOkSrL34JoTOXRGmUltZpdMBPLOpkSOp/Ql25zInReRF5+4Ua96fN+gcRt/QbPp
+         4WRxBD//wBSV8vs5A1U0ncWkRAtx5dyDJH4GNup5ZdPeQheg60XqqPWfEvpLwMFFHnbB
+         XDFH+GiuP3l/kh2bIHUrVACih2hagzSZ7WS7mIqG7YPvD/Qg3SB9L5X/Bj1Nk20/bVnH
+         nYbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774643853; x=1775248653;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=r13fetV/vaHgIfifc7hlGntVBBme+u6085WHF3DN3JA=;
+        b=UNoNZ7jZbKCFcGU7u80on+WPRHFUhqauCTvUBcVBsdGQgheqDG18u62Kg6iOrL0004
+         CZ3WgLEX+1iAx/qUattxTc8zjALgzSnd7jDB93kL9v3GYazPKXsKWeAp0nSlo3zlA+v2
+         WbX4uD55MBYJy44AnB3c3iwQ+Y4HWdlMMFun+LCD+xtSPorq+6NBfwM6jrMMSiGWxIbd
+         0/VejUEoGJHw98wF7QjLf2Rp7BMjzdNGcH08dVsz67bcMiqUvYzgNyL3kNXvRrbPp78f
+         pTHQwcnZnifRgenicMMfVM/QyyDQvI6BBRuTyZklZAZ9qoqOwI4C7TR8ez3VMoMt9btR
+         RBDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUS+GNClsbPEWXPJgG/hR/GiKb93N2lY1DF6tULGvrS2L/bPPL1DZKme0pv43vV+kb9ucdOqN/pYASpEBvJHvt/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTM0P6VYrHhyV3mcKJhiWXIypiWzbVDVgJp2nQRflv8+zu/zol
+	ahdRHlC55z4REweyXhrREWkDbtkZqqmvUX8zrhVdstvd5eQ6ClQvbOjyoZQkVj7mLWOgQsmddoH
+	zAcdGnKdWA/2FwHa0EKN7peNy8dEB32Sogtjm0Nw+
+X-Gm-Gg: ATEYQzwt3ie8L9dK1erM53JEWADOHR56Z3TMCFXg7v7/NFwBKZi+A6cu+8r9gXPZx0G
+	cb/cNjvtpKndRN8ezkrLQ3CIn0/0L9kOuxgehXN09zk8U/AOVewglP4k8RuWkMPUzuTpFCKnyJr
+	6X72ud92+DbZyC46JglEvZIlGsVmqoupFBK4hSmrJ6YOL4B0dLo2KMIdh89cBoTqIcwqJCWycng
+	wf2Ii+QDFu3GjIQFqpHo0+JWepmA7FIWWCMwhIJ2aR0n59lO24yBUckZ+RM/m6ekf1anJxgyQbi
+	VsYyRUIX
+X-Received: by 2002:a17:902:ccd0:b0:2ae:45cc:aeb6 with SMTP id
+ d9443c01a7336-2b241c7f196mr850315ad.6.1774643852395; Fri, 27 Mar 2026
+ 13:37:32 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR10MB5338:EE_|CH3PR10MB7414:EE_
-X-MS-Office365-Filtering-Correlation-Id: b128d2dd-f858-401f-3bc4-08de8c3f631a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: R+2yyG1huZYZcUXj44lGxEREVF4Zq8qojHUkfnrznm36lb+AigogLnRDQKsR7z125Nys7N9ZWNMhHZuDQDxGrLMgtPD8FggfrVrIDMzTBPkVlQlvcOJTLNfvtaa5DzOjpO3uu8MaRpsC8khTAKzAo4OFsIerArScg3T8jbjqQQaoVKBGd4t2ZGCxhaD+YJlAfvj4RAP1SQrGfUt4V2shHJYLCGMxbwmPBSPr+rfAQJvCKcFNVaj0CMFhMz2OjVwy592r3/shn4Z/6CeQ1Bpnx+TXbq8B9cJmV799kYpsdoc0WC7wuLjneChx77KjjfSmESW0SSv/+31Wkq63x9fXB2rYPGBcf1FipLCZvCyWjpbW9/ggtFONlKxz3P8IMPRiao8ibriMNtAb9C/kEL05FZLKd9J19Y1BfA8Pd0Yq+/y5iWNLbXw2iGau1ZF41MmPfzNS3bLFECddiAeDbxkQwJMbr/59AwnZna+zTDO4oH0C+G2MbcSkFBAIQHNrUdd2PK9lrkuSsbF8oWfo54E4kLewpfGtJb782emc6OhcED+J/lL0ayyAkuyA7OV8Lv8SWPksDqNDR9zm1Usk0k5pFCZq+q8ZwnyB1ZbOZZ/Tw3lFfw43jMpZiatOpbMiq/u9xFH13r0+6lTkJ/MWzIv7rjzyMwGJXn/21YMFSGrWBgVXdnPW/Ig0IHV/KlR+yA4lR2Spm34SqX6/X7cXMi6RJwJsuslr22BR5M6NSia9+0Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR10MB5338.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BePcwIxO7arcgG5rUk9ztYE+N+OX6BhetzLSOTCXxPl9JWSIxNVCGdhwCXkv?=
- =?us-ascii?Q?euGQgoNucBR3HrObW1c1P5NECzAWlOiihQyrz9K/vHSZSX2F8MjMnok1SBKm?=
- =?us-ascii?Q?0x5YYx1KgNkFYGoiO2UwmHVu/SRrlMVF9tGPErbukMOs5Sbtr9SfPuKfpC2V?=
- =?us-ascii?Q?7fAChY1lKqtRMnOBXDlstNOnDXHvwHxUuhvezy7TsxbbMXxQZDHOH6zy0Svr?=
- =?us-ascii?Q?e7GNPdzSo7qpDCnneYF4Y4uupwABzpMBQEvCyhbh8mqtxgFJWWQrez2f/REp?=
- =?us-ascii?Q?UO9/AkwGKPAQGTanXmWB2AEbmNeolBAlaknLqkjNx4qeCO5t9svPMZUESiUK?=
- =?us-ascii?Q?NRg+IBRxkUvlVqI4aEftcQTuntVqhTFvtOBFWsklhWWAXABgsajO/tTSh16D?=
- =?us-ascii?Q?/LCNql/Rb+TK0avqFNa4ZR3HeAMx5+zFahhFSqg6WoKvnvogZG90agg3F1sM?=
- =?us-ascii?Q?RpMj2NTG+IrunZRwcmwJLi/TJwWE2utEQ71mGyd/AkpOmqDDRLFkxk0NVH1M?=
- =?us-ascii?Q?Vc/iS6dkJRSFJhwR6HbqtVxpOz60VCOga060uhQzbO2ThA7d79TP18nyOl5s?=
- =?us-ascii?Q?hHuZC7eZ2JZDUt0JA3lI8j8P/1DfH/Tu431d/Ts+5ZJycTALH1J0fchC/jbf?=
- =?us-ascii?Q?9aBuUCQRcGXOjki0n4RjxfjG55M+1BJSrltJecXoUVT4yuKblTA8kkoT4hj5?=
- =?us-ascii?Q?V7rE0/WLlWMQNDl0fok4NNSArbjSdxwKLeDVXtRp4itjrG1VGUDbwijUec64?=
- =?us-ascii?Q?UrjSK8EdN3q7QjToZ10KDCpo07UvdwxnojBl6Y5FUXfK43zIV9HkYVutQ0q3?=
- =?us-ascii?Q?s8hZqaZV6Lh/J2qk56+RRZsJKUJC/YUjP1umaS7qq7jj1Oi26B9FVz70DcAu?=
- =?us-ascii?Q?iKi2FdIgxP60q0Gl2OnCsU+PJbyuzNN1xqOANsMlkgjY3zoylDN1+OTBEZNs?=
- =?us-ascii?Q?yefNOj6h/R0awXVjbr204StsnC3A3LFodI7YgdsOnhnWcxV25brq63mQtHb8?=
- =?us-ascii?Q?5Tp0w+D9YEwyAqwWP5K4hGJUNcSOea5syn2UXfMjquPa3nY4vSfpJCJ6IoBu?=
- =?us-ascii?Q?1ommy09QQ0jvoKxp1Joe+D+WlpdNNVbDwi9jGx1ngsKo66ZIUxxOivhDhAHA?=
- =?us-ascii?Q?A2iKb+ncM92hHgmMG+unaBvXMlMT6qBnSI1h3Gqw0JWCUEBQUwE+zl5y3Meb?=
- =?us-ascii?Q?Og+wFTDwBDC8w4W6r4ryXijYAkl0iRFeLH2b4p0dkmbynkr3dNW0GdPWH4LB?=
- =?us-ascii?Q?fGctNPBvbYAeO5pfm/plHtb8TBdRfnLmd2X77U7hqTKvQ4vdPGcxv/7Efivc?=
- =?us-ascii?Q?m9m99Jbm2+pTY0nTotCirIrQE78X2g1sg+xyYRm8a0Y7xIuQCXdqukgi1M60?=
- =?us-ascii?Q?tXdzUFf1+vYZBFGnBTc8t0tyApuNCqUdBxc4O0gBJ6uh01a700VCcBh3A9F5?=
- =?us-ascii?Q?Asjg3MCGhzabdRy/6U5LbebecAC5wkbkgXe7Mw5AOZRzTA2uzzUSSty68o08?=
- =?us-ascii?Q?bKY1rxG1shJtxiTXXPMgvuUKjcTIhXEeJyNonCP8lVY+XV5T8v1DphJpFMN8?=
- =?us-ascii?Q?OQCkE6dFrEwLTyQZBPOvmzwn9i6AxEpJSDJT/l58ap/nXm5cv3YUZNfaq40w?=
- =?us-ascii?Q?R8OpZ+C75MDQxixw3FYMY7YjOw2j3eDZ6qA6Wo2AymywpAU5Kw3I0RKNH/uW?=
- =?us-ascii?Q?75tCdxmQzZyUIjfijTvwIExMWC/nH/3I/wfKcEa5TynTUE9vYYN/y0LXNWGW?=
- =?us-ascii?Q?VNoOs+zHqvZ/lOrXqvTmOOFrydVgl1Y=3D?=
-X-Exchange-RoutingPolicyChecked: vEM7FHfggWLtgghEh69zdmJSVVGrq+BttvTKknQJFEGhW+YrfgJ+l6O0UuuFx+3RpbIQvtVW0hqjMzxdXxJsdS7/ukx4hh4BdWRivPrtHBWCaXGGxOr9T+YplmwjUIp1KHUaPYurmwLikP5qRXGtX2rfJDLFFg8dylKJ4gZsBSoye/88FjeuiWC5XaTfki9CX9hhSd4R5vjpVussyOHI+B8kQbOcA2dMRleNgNua9YKBNWIkj6YboFeBmwJf01uVeDv8iBAH8y1TqcsSbJwPbUnXmXacMsiYEg2p2ugacbSm7YQRIqXqMiYZevUsho4WRJ4H6v6HlUgYb0oVsNyBaw==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: Gdw6+tCQoMgphrEUQzlHKN9bwO8wQI27Ktfumvvtv5P18MwOS6TSPJKVTt8spsBqyhWkdkRio6QnPOYvb/0+c7dDO44OuMxO+ZfU7vgsT6p/92LoiaBomZkA5+EQIHFY3d7OZS428jFjpXamZVpZG5Ue7wnYGEYHTHxTY7WLJ4XwbNiP1qqvKXl6nBr5f6DhAhB+Ob20VPggR6ztZV4il07XwJ/j1lH4SAtGolfDWcjey99cIqPIkXutnq+Fq6p3Ax+x/4o9N4bNQDUoNWA1IEXhToSnlrJEdUPpHqz/5wUyNFaXP7X1XHtwdOl6CO9kCVMHi9CbiROxn/8HDD3DlSJQ3iamq2KO0l7leu7cEPYBIZdudRbUiLRiNIfCDetKRPPFhSkKz8qkkLAN/oiR9XmK7A+hSBMsDFT37peEF6mEszPmrx/WgYAEs6r7n4bNn5zRQRuEpl5p2wuZhi1KHAHga6P1N9tIN9BMPZGQUvgB0KDD80aXpIgd3BUEr3x4zAuM7O22wDu5q67mc4G0PRqggkR1xjiVU91V/xwo0vbWCLui0OvWxr01wykwy7a5bmUoWe0vZ3kpHbIJswBLO8Fuw0VGF5fWlJIXEuSMb4s=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b128d2dd-f858-401f-3bc4-08de8c3f631a
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5338.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 20:28:20.7727
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qe/o3QgyRtCYOW3jMjOazVfs1zbTQuxA7DNmTjalaavuANPkZO9JOg0ElE7Moou/7RrxY+Y62HYXulmxw57W5VTAtKgs2anrP1MIbESlRXE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7414
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-27_01,2026-03-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 malwarescore=0 mlxscore=0
- adultscore=0 suspectscore=0 phishscore=0 mlxlogscore=695 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2603050001
- definitions=main-2603270143
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDE0MiBTYWx0ZWRfXwQxejmeuMHNG
- VnVZWTu0lLFvg4tqQbJgFgTrYKNqN9BIF5bvMUyVqNVPQ10D/qSmRzEhkGrhvZxi5au+CviJNIH
- Lchulqu7Nop1p+qO58lcUzY8dHYkUOcAoBYR/QKCm5bLa5Dc705hQ4fS25LLv4tpJQ40AStNb5x
- gGDs2+LgJ6JN1OnbsS6g8V7GwWIIYOB2Gmrclgi3d8UmtUtr8nlb4ueGru0w1UBNwl4VOf4LJLG
- c/CNJ2MyPNAze/y/jmSVEm0mke/MImoqACDzAB+2a01lQf9/rYnBDbJVU+r5vt7XujsQV8rTeXF
- yV1Qpov+m9ObIBavD/5XFhebsjpN3OWXkIx8f7UGeKl7WnlCiJvjLLvUqc4BieLZbrHgOSuvrKZ
- xpr59QajRhgf9XgY4RAqTZqJiNm5ipM1mPPLv0R92nweIdGdz87+qi1AX4AH+BUn8sFW+nhjn2P
- oqFufeqPVBypDedR6VkSXUr5D7a5rwXENAMGXM9s=
-X-Authority-Analysis: v=2.4 cv=aq+/yCZV c=1 sm=1 tr=0 ts=69c6e877 b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=Yq5XynenixoA:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=3I1J8UUJPc9JN9BFgKH3:22 a=-MMmf-VsBYFSy3H-XEcA:9 cc=ntf awl=host:13811
-X-Proofpoint-ORIG-GUID: kbP4WORVyifLMONJyT0l5_JEc0xEnQSt
-X-Proofpoint-GUID: kbP4WORVyifLMONJyT0l5_JEc0xEnQSt
+References: <abxs-2rozL1tBEO1@google.com> <20260321234220.848859-1-irogers@google.com>
+ <acW4Z2KJbyPZM1SG@google.com> <acbjjwc-WCk1CwtF@x1>
+In-Reply-To: <acbjjwc-WCk1CwtF@x1>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 27 Mar 2026 13:37:20 -0700
+X-Gm-Features: AQROBzDJTFOWNO9COXQqi_3nMqcHYJ2jcRoNemZtTIaoZQj3JBfEfCB9aE6Pq8Y
+Message-ID: <CAP-5=fXmBpqP86FT85sA_BZYRnzwbZ5joYLogCqON6fjXCkRHQ@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] perf build: Remove libunwind support
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>, 9erthalion6@gmail.com, adrian.hunter@intel.com, 
+	alex@ghiti.fr, alexander.shishkin@linux.intel.com, 
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, 
+	blakejones@google.com, ctshao@google.com, dapeng1.mi@linux.intel.com, 
+	howardchu95@gmail.com, james.clark@linaro.org, john.g.garry@oracle.com, 
+	jolsa@kernel.org, leo.yan@linux.dev, libunwind-devel@nongnu.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org, 
+	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com, 
+	will@kernel.org, amadio@gentoo.org, yuzhuo@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_202941_399943_71ABE2AE 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_133734_111776_C6CD51F4 
+X-CRM114-Status: GOOD (  43.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,14 +126,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 27, 2026 at 1:07=E2=80=AFPM Arnaldo Carvalho de Melo
+<acme@kernel.org> wrote:
+>
+> On Thu, Mar 26, 2026 at 03:51:19PM -0700, Namhyung Kim wrote:
+> > On Sat, Mar 21, 2026 at 04:42:18PM -0700, Ian Rogers wrote:
+> > > libunwind support exists for "--call-graph dwarf", however, libunwind
+> > > support has been opt-in rather than opt-out since Linux v6.13 as libd=
+w
+> > > is preferred - commit 13e17c9ff49119aa ("perf build: Make libunwind
+> > > opt-in rather than opt-out"). A problem with the libdw support was
+> > > that it was slow, an issue fixed in Linux v7.0 in commit 6b2658b3f36a
+> > > ("perf unwind-libdw: Don't discard loaded ELF/DWARF after every
+> > > unwind"). As such libunwind support is now unnecessary.
+> > >
+> > > The patch series:
+> > > https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.=
+com/
+> > > looked to make the libunwind support in perf similar to the libdw
+> > > support, allow cross-architecture unwinding, etc. This was motivated
+> > > by the perf regs conventions being altered by the addition of x86 APX
+> > > support:
+> > > https://lore.kernel.org/lkml/20260209072047.2180332-1-dapeng1.mi@linu=
+x.intel.com/
+> > > It is necessary to translate the library's notion of registers to the
+> > > perf register convention so that the stack unwinding state can be
+> > > initialized. On this series it was stated that removing libunwind
+> > > support from perf should be an option, rather than updating support:
+> > > https://lore.kernel.org/lkml/abxs-2rozL1tBEO1@google.com/
+> > > This was also what motivated making libunwind opt-in rather than
+> > > opt-out.
+>
+> > > Given that 7 minor releases have happened with libunwind "deprecated"
+> > > by making it opt-in, let's remove the libunwind support. There doesn'=
+t
+> > > appear to be any disagreement to this on the mailing list.
+>
+> > I'm not sure if we want to remove it now.  I think we need more time to
+> > verify libdw unwinding is stable and fast enough.  Also maybe we can
+> > add build- or run-time warning when people try to use libunwind.
+>
+> We have:
+>
+> acme@x1:~/git/perf-tools$ perf -vv | grep LIBU
+>              libunwind: [ OFF ]  # HAVE_LIBUNWIND_SUPPORT ( tip: Deprecat=
+ed, use LIBUNWIND=3D1 and install libunwind-dev[el] to build with it )
+> acme@x1:~/git/perf-tools$
+>
+> acme@x1:~/git/perf-tools$ perf check feature libunwind && echo perf built=
+ with libunwind
+>              libunwind: [ OFF ]  # HAVE_LIBUNWIND_SUPPORT ( tip: Deprecat=
+ed, use LIBUNWIND=3D1 and install libunwind-dev[el] to build with it )
+> acme@x1:~/git/perf-tools$
+>
+> Building with both, as Ian mentioned ends up with:
+>
+>   LD      /tmp/build/perf-tools/util/perf-util-in.o
+> ld: /tmp/build/perf-tools/util/unwind-libunwind.o: in function `unwind__g=
+et_entries':
+> unwind-libunwind.c:(.text+0x2a0): multiple definition of `unwind__get_ent=
+ries'; /tmp/build/perf-tools/util/unwind-libdw.o:unwind-libdw.c:(.text+0x94=
+0): first defined here
+> make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:164: /=
+tmp/build/perf-tools/util/perf-util-in.o] Error 123
+> make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:158: u=
+til] Error 2
+> make[2]: *** [Makefile.perf:797: /tmp/build/perf-tools/perf-util-in.o] Er=
+ror 2
+> make[1]: *** [Makefile.perf:289: sub-make] Error 2
+> make: *** [Makefile:119: install-bin] Error 2
+> make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+> =E2=AC=A2 [acme@toolbx perf-tools]$
+>
+> So what Namhyung is suggesting is to disable libdw when libunwind is
+> asked for?
+>
+> I.e.
+>
+> alias m=3D'rm -rf ~/libexec/perf-core/ ; make LIBUNWIND=3D1 NO_LIBDW=3D1 =
+-k O=3D/tmp/build/$(basename $PWD)/ -C tools/perf install-bin && perf test =
+"import python" && cat /tmp/build/$(basename $PWD)/feature/test-all.make.ou=
+tput' ; export PYTHONPATH=3D/tmp/build/$(basename $PWD)/python
+>
+> Which builds and ends up linking with both:
+>
+> =E2=AC=A2 [acme@toolbx perf-tools]$ ldd ~/bin/perf | egrep unwind\|dw
+>         libunwind-x86_64.so.8 =3D> /lib64/libunwind-x86_64.so.8 (0x00007f=
+bf430b6000)
+>         libunwind.so.8 =3D> /lib64/libunwind.so.8 (0x00007fbf4309b000)
+>         libdw.so.1 =3D> /lib64/libdw.so.1 (0x00007fbf38570000)
+> =E2=AC=A2 [acme@toolbx perf-tools]$
+>
+> I.e. that NO_LIBDW isn't really disabling linking with it, just some
+> features based on it, likely.
+>
+> Hum, we also have NO_LIBDW_DWARF_UNWIND, which probably is what we want
+> here... nope:
+>
+> =E2=AC=A2 [acme@toolbx perf-tools]$ alias m=3D'rm -rf ~/libexec/perf-core=
+/ ; make LIBUNWIND=3D1 NO_LIBDW_DWARF_UNWIND=3D1 -k O=3D/tmp/build/$(basena=
+me $PWD)/ -C tools/perf install-bin && perf test "import python" && cat /tm=
+p/build/$(basename $PWD)/feature/test-all.make.output' ; export PYTHONPATH=
+=3D/tmp/build/$(basename $PWD)/python
+> =E2=AC=A2 [acme@toolbx perf-tools]$ m
+> rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace=
+-Util/lib/Perf/Trace/__pycache__/Core.cpython-314.pyc': Permission denied
+> make: Entering directory '/home/acme/git/perf-tools/tools/perf'
+>   BUILD:   Doing 'make -j12' parallel build
+> Warning: Kernel ABI header differences:
+>   diff -u tools/arch/x86/include/uapi/asm/svm.h arch/x86/include/uapi/asm=
+/svm.h
+>
+> Auto-detecting system features:
+> ...                                   libdw: [ on  ]
+> ...                                   glibc: [ on  ]
+> ...                                  libelf: [ on  ]
+> ...                                 libnuma: [ on  ]
+> ...                  numa_num_possible_cpus: [ on  ]
+> ...                               libpython: [ on  ]
+> ...                             libcapstone: [ on  ]
+> ...                               llvm-perf: [ on  ]
+> ...                                    zlib: [ on  ]
+> ...                                    lzma: [ on  ]
+> ...                                     bpf: [ on  ]
+> ...                                  libaio: [ on  ]
+> ...                                 libzstd: [ on  ]
+> ...                              libopenssl: [ on  ]
+> ...                                    rust: [ on  ]
+>
+>   INSTALL libsubcmd_headers
+>   INSTALL libperf_headers
+>   INSTALL libapi_headers
+>   INSTALL libsymbol_headers
+>   INSTALL libbpf_headers
+>   LD      /tmp/build/perf-tools/util/perf-util-in.o
+> ld: /tmp/build/perf-tools/util/unwind-libunwind.o: in function `unwind__g=
+et_entries':
+> unwind-libunwind.c:(.text+0x2a0): multiple definition of `unwind__get_ent=
+ries'; /tmp/build/perf-tools/util/unwind-libdw.o:unwind-libdw.c:(.text+0x94=
+0): first defined here
+> make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:164: /=
+tmp/build/perf-tools/util/perf-util-in.o] Error 123
+> make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:158: u=
+til] Error 2
+> make[2]: *** [Makefile.perf:797: /tmp/build/perf-tools/perf-util-in.o] Er=
+ror 2
+> make[2]: *** Waiting for unfinished jobs....
+> make[1]: *** [Makefile.perf:289: sub-make] Error 2
+> make: *** [Makefile:119: install-bin] Error 2
+> make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+> =E2=AC=A2 [acme@toolbx perf-tools]$
+>
+> I expected NO_LIBDW_DWARF_UNWIND=3D1 would resolve this case, and maybe i=
+t
+> should?
+>
+> Or maybe it did it in the past as by now it is just a comment:
+>
+> =E2=AC=A2 [acme@toolbx perf-tools]$ git grep NO_LIBDW_DWARF_UNWIND
+> tools/perf/Makefile.perf:# Define NO_LIBDW_DWARF_UNWIND if you do not wan=
+t libdw support
+> =E2=AC=A2 [acme@toolbx perf-tools]$
+>
+> Its from:
+>
+> # Define NO_LIBDW_DWARF_UNWIND if you do not want libdw support
+> # for dwarf backtrace post unwind.
+>
+> As we need libdw for 'perf probe', etc, so being able to disable it just
+> for DWARF backtrace is what we need here to make them mutually
+> exclusive, i.e. the default is for building with libdw for backtraces,
+> but if the user asks for LIBUNWIND=3D1, then a warning that libdw won't b=
+e
+> used for DWARF backtraces and select NO_LIBDW_DWARF_UNWIND?
+>
+> We could then have a regression test that builds perf with one, does
+> some backtraces, then with the other, then compare? This would be
+> followup work, if somebody has the cycles, but making them mutually
+> exclusive should be doable with not that much work?
+>
+> This is an area that is tricky and since we _already_ have two
+> implementations, the good thing for regression testing would be the
+> compare their results until libunwind becomes completely rotten and
+> unusable?
 
-Andy,
+My series:
+https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
+makes libdw and libunwind supported together:
+https://lore.kernel.org/lkml/20260305221927.3237145-2-irogers@google.com/
+"""
+This commit refactors the DWARF unwind post-processing to be
+configurable at runtime via the .perfconfig file option
+'unwind.style', or using the argument '--unwind-style' in the commands
+'perf report', 'perf script' and 'perf inject', in a similar manner to
+the addr2line or the disassembler style.
+"""
+That series cleans up several other issues, which is why I think it is
+worth landing while we wait for libdw to become stable.
 
-> This driver includes the legacy header <linux/gpio.h> but does
-> not use any symbols from it. Drop the inclusion.
+Thanks,
+Ian
 
-Applied to 7.1/scsi-staging, thanks!
-
--- 
-Martin K. Petersen
+> - Arnaldo
 
