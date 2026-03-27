@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E389F10ED674
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB8210AB830
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gr4NSViTa8nYhT0ecpwsrkeNiNlBrQA4PsuFZgiUu24=; b=N+Drvk2ifkOXZZs5gYfdzDdqv4
-	wF4/epqODHjKReNrD065XsHNl3gnbL4e16+hihGWM72lEuUMh+V2YHB+eaxRJmfsPB8eKfQZmwwUQ
-	GfOSYNuCw7Lwc/bnTEbPNxjtrjd/AJYY1sT5AaQivxw7xuX1mZ06eSnmRxursTqZen1xi/lNJ3qvX
-	SDfBXDneTTCM0J/yHixHIZiptgtfGPuHcHYvtZzG5HAPTuP6/XyvxbmSm6MPTHRBPoCeOdFATUCh8
-	f1g2Y3kGVUfR8Dc74RmuZRf+hVelfnhu4nTeIqaMk8QoThYFvJofcNJ/eHj2mGgLj3UESUYZrY4HG
-	3gREmXRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rN+yRBaQKZ5TwBJHiFty1c+c93Da6IVp4Bl5bC5JE9E=; b=fqFOOHzodBjjla3irYmh9HHqGk
+	2pEV5hmCq3GqaxpxYzamFK6D/EKFmFoeVozZiRvJh/ChYBMP2sAfxrWdLJtZ2qLZBlRHuE/qfeGU3
+	coALx2xcJJR7korifyt9Hb43hakKK1NIf3m/rw7s2mcuE0EZKu9szuLidc7X/TeQBqtUCZUJMFRGJ
+	Vt9PlJuePuk0ZpShaHOsVjnHF6fYCSNPNYoH/T2vajJe9fT5xKoPaz6hIcMkuU5GMp5g8xF/eBRXZ
+	60BfGrGt1CXeg96xqO0VULfuSmr/Btx1jHPLYkgR5lmXObmAltjF6neAx4mFzT5Z/8wI19vQJlKHx
+	znu116jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67xw-00000007a7o-3UWl;
-	Fri, 27 Mar 2026 14:15:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w67y7-00000007aAf-0dwo;
+	Fri, 27 Mar 2026 14:15:23 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67xr-00000007a6J-3tIz
+	id 1w67y4-00000007a9M-0eck
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:15:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D50A60054;
-	Fri, 27 Mar 2026 14:15:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1671BC2BC87;
-	Fri, 27 Mar 2026 14:15:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774620907;
-	bh=mDiN3CwDrGxYxvIHxSISwYWQtGmSr6sfXYIrXdbxyiE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UTf8wCOK6X4yKAzSc2f24WMygbSUxlO57UzYhNphUBfRxXyppdBQZPlCUkxVBdrOH
-	 Uz7Fy6/0e/piqICij9fRz59LwPCoxO2IYxFt44MX1kOvlyXOAyWVSIgVYoaEjuqxvB
-	 YzBs49DByqBIFT7nak/Z27n61HyH242rT17TM6XQT9J9wKU4KIqZ1aTnNwf6CG0Qix
-	 pFPU+3LblCGigprhujlOD6nTqkJNOauA70GNtaJ/yMa65pqG0tlyxT0zRi7ohsCnli
-	 SIBsi0U3OQMzFx1cCKCEA6wKSgDde+8q71TS+q4Wb6NZXBw6V126ULtEalLyTs2lFc
-	 PJhb2lAF9csyQ==
-Date: Fri, 27 Mar 2026 15:15:02 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Janne Grunau <j@jannau.net>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Linus Walleij <linusw@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org
-Subject: Re: [PATCH 6/9] dt-bindings: i2c: apple,i2c: Add t8122 compatible
-Message-ID: <acaQ0tDphJH1OPH8@zenone.zhora.eu>
-References: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
- <20260320-apple-m3-initial-devicetrees-v1-6-5842e1e393a8@jannau.net>
+	Fri, 27 Mar 2026 14:15:21 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-38c01150eb2so15224161fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 07:15:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rasmusvillemoes.dk; s=google; t=1774620917; x=1775225717; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rN+yRBaQKZ5TwBJHiFty1c+c93Da6IVp4Bl5bC5JE9E=;
+        b=Mve2VjijvU9+N2I3R49o+l+T0TVdr0KQusJoHv5JUJJggJgEWWhaMGQ0k6McAfC8ry
+         JSJmxGpokMDk1T5CcqpEKfmNB82+zIfWfubR0bm6rxQ+jScEhw9Nsz/3cWAC+paS02HG
+         JuMYgElRiV+PTwZ4CLrgBWyxziO1Wt3Tcrxng=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774620917; x=1775225717;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rN+yRBaQKZ5TwBJHiFty1c+c93Da6IVp4Bl5bC5JE9E=;
+        b=q4/AwLNxVeFohjCl97g0pN3uKI7B/xqHRsqleTzV4/XHPXMrwZnMbf9oTU0aaz7EqP
+         7mbX5RcBsYHEhuOcc5QwzNeZjicEJLd2XdxWqdqwR+J0gWCcK+M7f2EPEnBWa2YJC6h4
+         7wG4tzGHGiPT63cHeuDfvPqjOHWeKc2lnQDGx80IZOMYtweROmF9EOsu9VruN5H9XNGa
+         s010PWN1T/ejasm8V0KJDsVooIWZ2dMJoj5y5UqkCNma7BvO5ivDOKOCpWJstT/SzVNO
+         Uw2/8fdIhk6RlM8ENShFFjWZXexBdjcSVdG01ugEF1lG8b77BVr1N5052042bpccjiSM
+         mRNg==
+X-Gm-Message-State: AOJu0YxIUiN5Pm5eH+4fdn5bV3wsRJ4YcMR3VIA9XpLzPG0YzcfjLy6F
+	DBdzPfvpv96SMtkZUlN+QcyQY4N7j1DRgK2s7zTWddrzXFRJgRUzRys0YT5k8ZgzlDqh//8KWUj
+	B8+lxm8U=
+X-Gm-Gg: ATEYQzzBgOyYF1sdkLBNzzsGittHNMzHcSeiqGc/nx/X8/5TtNKawxZIb0MOo1k783E
+	OmG3DfsVqiSnWqCvX4epJ50EL8dcfFB/FdIjmj7/AawlEH+j0YoCk8U3nW0V/q1tbOlXBGXSLWc
+	N1bXq1x6EhjA/XLWftU6DTEc1Rtg40Mh32OApeIAfZUL7qKpb1u2MMMxgJRcwNO/gRZKTK4Z4Yx
+	cskAzmIQvpbNI2X1V7d8f/dVFZ6EBa9q3mT+zz6LDNE2Mt+9h50PypDofuDZ/yGiJHcjsFioy4K
+	AV247McSCJ+MUl8FcSeWXOR0TW2qsa+mG6cG2kERgJWgZlcd0+B4NlfDoLX/ePIxMQlQymCTCGo
+	npw0srVCdXw35cnJyJOZhdX8hxKFnV/A1mdpXptW88kVn9Zt7qhUdDQpq2AzCQMJzRpUbOkJIpL
+	EowWMnAjx7Yf6DkFtisScT5NsJnQ==
+X-Received: by 2002:a2e:ab18:0:b0:38a:33ec:98e6 with SMTP id 38308e7fff4ca-38c7337658emr10187741fa.20.1774620917177;
+        Fri, 27 Mar 2026 07:15:17 -0700 (PDT)
+Received: from localhost ([81.216.59.226])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38c5330111asm13335441fa.33.2026.03.27.07.15.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Mar 2026 07:15:16 -0700 (PDT)
+From: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Subject: [PATCH 0/2] arm64: dts: ti: k3-pinctrl: some minor cleanup
+Date: Fri, 27 Mar 2026 15:15:11 +0100
+Message-ID: <20260327141513.1250499-1-linux@rasmusvillemoes.dk>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-6-5842e1e393a8@jannau.net>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_071520_228523_D6A27288 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +95,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Janne,
+I stumbled on a few things one might want to clean up. No functional change.
 
-On Fri, Mar 20, 2026 at 01:23:24PM +0100, Janne Grunau wrote:
-> The i2c block on the Apple silicon t8122 (M3) SoC is compatible with the
-> existing driver. Add "apple,t8122-i2c" as SoC specific compatible under
-> "apple,t8103-i2c" used by the deriver.
-> 
-> Signed-off-by: Janne Grunau <j@jannau.net>
+Rasmus Villemoes (2):
+  arm64: dts: ti: k3-pinctrl: consistently use tabs for alignment
+  arm64: dts: ti: k3-pinctrl: sort shift values numerically
 
-Acked-by: Andi Shyti <andi.shyti@kernel.org>
+ arch/arm64/boot/dts/ti/k3-pinctrl.h | 82 ++++++++++++++---------------
+ 1 file changed, 41 insertions(+), 41 deletions(-)
 
-Thanks,
-Andi
+-- 
+2.53.0
+
 
