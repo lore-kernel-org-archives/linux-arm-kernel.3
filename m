@@ -4,117 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D33110BA436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5ED110BA436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4moBxHVs6SiILsKE/Pxveo5RaXduWTr95oeVQa3H18=; b=MHh4gkTZ8VIHicbm8tddq06OPu
-	WXQEHuQ+W9wA0NisV/kexQaWTHYVntDvhi/cEcoS+R6hYApL0paBSFPSLBOWnD0QSvVmnACH52jKc
-	7QmxnlNDdMmh2sNNydQIFsn42ioEFEmpSQUTVP2crXwWr4ZeazWqF0lWu9Vnn7y57aeB0uQ6v+/+m
-	FynV+nBnjgxEDvCawZcnWoh4u9XfGJSrWXLc1C2XAOOxDcG1MW0kMPehcP/HlGy6j/fU5c8Wnq3CG
-	RfqpNwiRZQMXs+1pI1V+DPhLC1aveqkJ8NM5CTq6qXIMhaOZilywe3dnpzQvnVx0QwXxgkDHw2qa0
-	DxDBc+4w==;
+	bh=eTRkfcsT7jjQ0+9rTtyPU4l8DSKUFxIt1C7J6rqYS8w=; b=AG6rddS1PxNnwisg48Yzj7Xi3K
+	2WZI8WS5jj82b9fM8dCBjjl3/5iJ9Kpz4CjRTu1UnQWsCDDVCesnOC6SAFxeWxMZpXujtEzdCuM+N
+	c5mzhg3Zw62c6ChCyJBG4a/neUi93MIpEfMJI6HNdYHMs7p56tbzXch0dVHf3cAZIJFI7XzfUVY9n
+	doZO/NKHE8jNg8hXs8B23nQg5v9D674LcuPFmWOBlXdIjoPxn+YdMJsPjX/urHg0v1CVUu7K9lEWf
+	9OGxeaI0tgQbOaQr5cK5kWGabzqv3F27ERhYUYKVvd04ko6nA2AYz1zcoo2Z2HH84e2xskRp3ZCw3
+	BW47VlDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w628E-00000006vIg-499F;
-	Fri, 27 Mar 2026 08:01:26 +0000
+	id 1w628u-00000006vfQ-3pwA;
+	Fri, 27 Mar 2026 08:02:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627s-00000006v7k-3oRw
+	id 1w628t-00000006veQ-3xK3
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 08:01:04 +0000
+	Fri, 27 Mar 2026 08:02:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=K4moBxHVs6SiILsKE/Pxveo5RaXduWTr95oeVQa3H18=; b=jFJ3XIwBZ0eGCreYiV6mpX+gNE
-	AUu69v8Bb6X8SR9T9/7GwMEjwtqwXTyj7PadMgQFOglI8+pJxCHI1wUX3Dxy4I8pYHdsWKG/dFYqp
-	cTibmS9HKspUXCtaY5WCsqKnWcJcyT0MuL7ZtS58ns86Mw6RrtS5j99L1GI09BltwhamWc3Jv9yGK
-	fq+qjhwDC/qBqCpo7ayMRF1sPseP96UoNSj7Wb4Wkl5iJWgh+bRi4UxcqtCV8nch3ncjzMYdU7x+4
-	v1M2Eqt25Nf3lqvH2WPxzUzAaMThs+3URtrELvyRJDu6nwVpsya9uni0kazjBAI3qoCBtO2LLuC0H
-	Hhau6+pg==;
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eTRkfcsT7jjQ0+9rTtyPU4l8DSKUFxIt1C7J6rqYS8w=; b=fM+rQm5V671Ppgitp5jQJtywrX
+	5cbqrm8Locnq2Jw7Q8HsQ5qRBqc2dNm/4CdQytiCg0cvnVlJqCxVis+ez8/XCuJwrEUYy22XjoavI
+	Rv9PGi0T29ZiJFFRmZuYE5mFoLwnPCnd8NUzt7ZKu8jL8ETMIf+PmZRkdFRgNpT0J84ZP6vMuPiNZ
+	IZNevtwBwghF0AM7JCsPcQ2w49zlwQgODL0MMSz911/WEzBn1IHF9UttPV/wsU1l0q/gy6fxaR6Kc
+	q+jvgPySfpHyTKeLZCNtnCDlgotxuJRxM6AqHC+Q5rScV2vve6Fq5cYz/BtxPFSLc5wyVJ335/HFo
+	DYlQHGCQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627n-00000009vJZ-35hX
+	id 1w628p-00000009vSZ-1KhO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 08:01:03 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-486ff201041so15866665e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 01:00:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1774598458; x=1775203258; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K4moBxHVs6SiILsKE/Pxveo5RaXduWTr95oeVQa3H18=;
-        b=UMsCfGMI4WPN8h7wK1dJLOU1U3KlYcaWeN2Y+EKkwVHZ8g0CU8AWd9sHZjtSFIDPkm
-         uXa6C8QDEHj01YKZx+yOxAcPEp+Q7qPsf5EW8dvgD3RY8VRCHM7x69T9eynG4gA4e6d2
-         iytzV5ODT0WJo7xIhtqCy5NYYpXev1+M7nU53BsBjB3EKRkjwlXivjZdgc3cv7CCd6N8
-         xBCz54B9MAdb888UyvJzXhswavpMUZG5+XAatqV8NHrxlp6tJGVO+xy+dxYNo5Wysxm3
-         vLz23oikM3c+ZN+Hw8cCaj2KdQOeTgGT+/Fx2Hz4qIluX4fYr9YDW9f4xHH55vzHgNFB
-         u8yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774598458; x=1775203258;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=K4moBxHVs6SiILsKE/Pxveo5RaXduWTr95oeVQa3H18=;
-        b=EE7bHZZg5H3+jybZUkzisyRw48geZcO4mYtzaXsu9lWWyzmMnmwWJ/1w4fJngkZfc4
-         hT2JdEyOCXZQJpZW2uY/evMkXg03AyG66IktpbVcHp1WCmlaymY9IQRle4+2Rs7sYahw
-         yJnsFG4J0iBniMVnILUtrGXs/lGzU67vpYoodzr6IfHFyrUEBV/U+YitRHhfYZylFolg
-         MiZG6ReXRwZ5bU4KhY3BE8crs6hKY1aNJCENzyDVAJAyEKkq/6S2EH8q+uj2n7P8IQq2
-         kl2zqani8PxxYif/9e6zISYAg28XNP7kbrIfejoyEYMzVmG5MN22iFzAqzUoa0bGjk0Y
-         aA9g==
-X-Forwarded-Encrypted: i=1; AJvYcCXHGIgWzpP9/nmAXdDGMjUPWzUJruRnEdeJojzXgZOUh5g4Qmr7XKQ/mhY8ZTeufZAgUqam2qWF2Qc/klBJXrvd@lists.infradead.org
-X-Gm-Message-State: AOJu0YysIGtd0bQn/XrGXmfQRItLdI+HzOXau8Gen99mt9Cvv9kjqrkl
-	t1wTsqUWEOpBT6tmmLTuovVadlIRYjQPabibk2tkd2/5zo7C3ptJwSVYhdmnwUUI+KE=
-X-Gm-Gg: ATEYQzxp1Bo1xVAX3TnOctZn4ICpwQMG24ROhLVa89yqdR1AGOwQpqDBHzKdLIe2bYw
-	hbr8vMDZahm59nveTv54GmO/wxEX5MnzG4HqFjEczGKrmrc3mH8OoDP1qMszn8SyOzEb3tS6iAP
-	Vt65kgzsVNQmZlZWB0bZmo5Ph+A/zkBafyj1bxVam1RMscEGinJwypi0AxH1rjx+hTo6zm/gQ14
-	Mu5LVtiuqKOoY10b3JKjXIfFTvEVBuynu9UmmJthpE09lhkiVpAhfGQnJf4kWHOXMXdcDbmy+BN
-	mK2+GSKLL7029YqylGU89HW65zI2UldeBe8xFSLSRCfofB/6p1l3cFXf4XIwQvYp7lu56WAboSd
-	AH1/e6ZKP20IPvoz2vs3Kin13Dy6dPbG5DGtoNXGuXvTS+Y5j9sDNamQ/116fPdRuP2IIKwDPWu
-	ufQuml10gSvzwLxbQnXu994tEtpLp7cv1fddNimY8B
-X-Received: by 2002:a05:600c:19cf:b0:487:1108:48bc with SMTP id 5b1f17b1804b1-48727ec7695mr24399785e9.17.1774598458048;
-        Fri, 27 Mar 2026 01:00:58 -0700 (PDT)
-Received: from zovi.suse.cz (nat2.prg.suse.com. [195.250.132.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725fc4827sm12089735e9.11.2026.03.27.01.00.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 01:00:57 -0700 (PDT)
-From: Petr Pavlu <petr.pavlu@suse.com>
-To: Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sami Tolvanen <samitolvanen@google.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-riscv@lists.infradead.org,
-	linux-modules@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] module, m68k: force sh_addr=0 for arch-specific sections
-Date: Fri, 27 Mar 2026 08:59:02 +0100
-Message-ID: <20260327080023.861105-4-petr.pavlu@suse.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260327080023.861105-1-petr.pavlu@suse.com>
-References: <20260327080023.861105-1-petr.pavlu@suse.com>
+	Fri, 27 Mar 2026 08:02:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 254D540C21;
+	Fri, 27 Mar 2026 08:01:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8C60C19423;
+	Fri, 27 Mar 2026 08:01:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774598519;
+	bh=zL1tzQ8Jn+sA4lHQNs41A0FQn6vC45xOTefrpy+bc8o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=smsy1RdBcwzuc1O2+WRN+wfApxWKuc5ww9DJIcjS9S7y8vVNifX2GQ5Qfj5o+UvSS
+	 9eDgy8V2hz6igFh0tbnSqKq33RftgNNdS8Y2UW83y80v7rtgbiohZz0Xe/IIXm9NOK
+	 cvLQlJyX8XRt7OCwMAZAWE2ffrtk4DN8O/HWAUBDrW/h6/r48rqGiWtqchnEIJEvin
+	 ybiuIZ50YQGuSoP/nd+4vHy1ede7MHmXI7MAYU9RD1KAWlwqPXaYx6A5HsdBjv9mfo
+	 d+BuWQW95mh/tbcs6xGfIDiRpwRc5KHj0nxOorYp+ACevS+m2yj8Hr0UAqCYbFnpeE
+	 UU/gYYXuNCcZA==
+Message-ID: <31bfba49-2cc8-439c-b08c-f75b853fe993@kernel.org>
+Date: Fri, 27 Mar 2026 09:01:54 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] Qualcomm Arm64 DeviceTree fixes for v7.0
+To: Bjorn Andersson <andersson@kernel.org>, arm@kernel.org, soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Arnd Bergmann <arnd@arndb.de>, Sumit Garg <sumit.garg@oss.qualcomm.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Daniel J Blueman <daniel@quora.org>, Ravi Hothi <ravi.hothi@oss.qualcomm.com>
+References: <20260326133845.66761-1-andersson@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260326133845.66761-1-andersson@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_080059_844305_950B1981 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260327_080203_856926_D5122C4C 
+X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,32 +134,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When linking modules with 'ld.bfd -r', sections defined without an address
-inherit the location counter, resulting in non-zero sh_addr values in the
-resulting .ko files. Relocatable objects are expected to have sh_addr=0 for
-all sections. Non-zero addresses are confusing in this context, typically
-worse compressible, and may cause tools to misbehave [1].
+On 26/03/2026 14:38, Bjorn Andersson wrote:
+> 
+> ----------------------------------------------------------------
+> Daniel J Blueman (1):
+>       arm64: dts: qcom: hamoa/x1: fix idle exit latency
+> 
+> Loic Poulain (2):
+>       arm64: dts: qcom: monaco: Fix UART10 pinconf
+>       arm64: dts: qcom: monaco: Reserve full Gunyah metadata region
+> 
+> Ravi Hothi (1):
+>       arm64: dts: qcom: qcm6490-idp: Fix WCD9370 reset GPIO polarity
+> 
+> Sumit Garg (3):
+>       dt-bindings: display: msm: qcm2290-mdss: Fix iommus property
 
-Force sh_addr=0 for all m68k-specific module sections.
+This introduces a known warning, which I already reported and pinged you
+TWICE on IRC, including yesterday. I did not indicate that my fix is for
+current cycle, because I did not know that troubling commit is part of
+the fixes branch.
 
-Link: https://sourceware.org/bugzilla/show_bug.cgi?id=33958 [1]
-Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
----
- arch/m68k/include/asm/module.lds.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+No, I am not taking a known warning without fix, especially that the fix
+is right there.
 
-diff --git a/arch/m68k/include/asm/module.lds.h b/arch/m68k/include/asm/module.lds.h
-index fda94fa38243..fcd08689b282 100644
---- a/arch/m68k/include/asm/module.lds.h
-+++ b/arch/m68k/include/asm/module.lds.h
-@@ -1,5 +1,5 @@
- SECTIONS {
--	.m68k_fixup : {
-+	.m68k_fixup 0 : {
- 		__start_fixup = .;
- 		*(.m68k_fixup)
- 		__stop_fixup = .;
--- 
-2.53.0
-
+Best regards,
+Krzysztof
 
