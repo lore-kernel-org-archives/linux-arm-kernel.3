@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28FC10BA435
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B7D10BA439
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VdbZVRP/Ak929baCc2EeOgVlzDU6Wbl9p0jTnb7CIGk=; b=y8qdZhr0592kHUsTJqeu1+MAUl
-	/YHf4X+2KPZL76zRs2e1xm/a6vxSsIKW7MOqTRiv0MJMgbegmBSVyfz7sQdW6ePvOx2wOVD7y5N7i
-	20/k3E2N5AuwRYYZKr3osXvNIbH8Mzfv5KLOvcsIPDmqPIDP9jZrYqyUK6IpNkeGKw/K6mCuRlWeG
-	Rg8bfH1Sx6Ynw7Z3WC/6UO9zTymyLUZuYRKC9jZNL6BV5LFAe72bHo4H/32rV8TSsSJUkI6SjTG/8
-	WYNbbePlftIWeYumTa8rHD2fSN7ElDYBLwwsNpyJyrWkALwdIzt47VJidB6MV42No/l1tY8PSanRV
-	KwhikLzA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2HryrWoWtiuMl3LNqbcdlk98yeRL5cKfDbuBDTCXl6o=; b=H2/PINDpL5JaXAds0X4NlMmSNv
+	p5Dtr5unHlEY/1ajZYB5i+sZaTx+SsgVCDqDrEri0y29H4T7goK6iHC7hdaWK0TALOFM5llQ1Ka5b
+	Gdq4OJ9md3wovlTvCDO055JExiR7Pstie2h9r0+QWW2as52psxw9qHtALNTpnp3fIJ/42S5LY/QMj
+	0liByps0pNkCT7U8AAiVNrH5gdfC+rtTe2XAhpCCLJzQ616Kv+4xleKSDRZZ1VndRfrc+fNMbdLo7
+	PKCKyv58J5NND3QeNHvhH22Vuez43j8FFfOoI4d7RCA+5in6eEWnUuEf0a1/VprLA2hMx7sWwwFwP
+	8Qgl+lrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627q-00000006v6g-23bD;
-	Fri, 27 Mar 2026 08:01:02 +0000
+	id 1w627x-00000006v9x-1nQw;
+	Fri, 27 Mar 2026 08:01:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627p-00000006v6B-0WE3
+	id 1w627q-00000006v6Y-3jpB
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 08:01:01 +0000
+	Fri, 27 Mar 2026 08:01:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=VdbZVRP/Ak929baCc2EeOgVlzDU6Wbl9p0jTnb7CIGk=; b=ULX3uMpgsGSEUKd1dcP3OTGTZ4
-	tRVKAPT9OloUKwvyiyUN0qQ0HoCbcoCEX1zFEyKflnvjU2ly/GJknUcfk8yFtOpofp5SwGS0aYKzm
-	a1EZrLekU3Bqj+BLDpWyN7hUJUvipPCyGtlKWlgrfWaii1LUOWQSyqW4Q2h3tPTzRsgmtcXpUhKMN
-	trKjKOVbOfWXPtosC8woJlsH9UE3U5lYdhlPDAXSu2KKQoaD/F41HdCs6TIF/wufG+8j/ggMxsRUt
-	A1Ag1iQcUTItdgjuxkrhsutQ4/Mc10ZnV/4Gk+Am8oNDixU2fVM6ODEaKgAi8W4oxVGrilFW5kEkQ
-	jau9xWBQ==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=2HryrWoWtiuMl3LNqbcdlk98yeRL5cKfDbuBDTCXl6o=; b=hqagPN/m+G4++c2TkiswTd/EsU
+	WHtMPOaTf0GsaxmA9UUq3g+XWEhxgAly/z7icB/yfUaCHsMvbmO7MQ/f7n15bjHLeCluzbkr5T69t
+	nauDgkfZlcyCZnt607uoEx2Va23Q0ex4iySnFVuCyLz1PKewsw+C/tgJ2O8jlus0GhIP/E/tnFr05
+	7t7ik1cRWVp3DE+eRLIV8WnjodendNtaLUF2V4w4gYyABQGl6v79OQide0NOZSI3kkPKcQfhsM88f
+	eBCZvtACJCTTqniTK4KMziN7Goql4Grz04xbwS8qeNi4ttQ2TIAY2RthQJolsvgaY0qG3s0g2Luk4
+	R1pySTzw==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w627l-00000009vIc-2EKO
+	id 1w627l-00000009vIf-3VTC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 08:00:59 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-487012ce896so10945125e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 01:00:56 -0700 (PDT)
+	Fri, 27 Mar 2026 08:01:01 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48700b1ba53so16886285e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 01:00:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1774598455; x=1775203255; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VdbZVRP/Ak929baCc2EeOgVlzDU6Wbl9p0jTnb7CIGk=;
-        b=D5kX164KxkHR2uCYZNZeYyhuFzsd3EuL46OHkwfbU2sLyIvfIWi4up82fgXXPBykDI
-         lsx5vtMwa61Zfdy7gQsNi4MV0kCV1kMh6HcPLGlHz0Yyvd9Fy8vFHpojN1rbN9jiaFC7
-         UHgkB26Urt10I5dwi8WHpYKR4j5OveM3z7rjciYZTxluubWdphmJrcaq7uam8oHZgVhQ
-         +wkyA9frJV10NWqjMM3yzvyQpLwRfPsTPBH8u/wHsNoU3uF7111faqkSWG6kDm5hb+SL
-         4BV0QKQdtcwDFOiW6GmzH1ebygwM3JyAxBbmQsvFNP0M6JC2y6znLotFfHkNNb3XImUm
-         jTqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774598455; x=1775203255;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=suse.com; s=google; t=1774598456; x=1775203256; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VdbZVRP/Ak929baCc2EeOgVlzDU6Wbl9p0jTnb7CIGk=;
-        b=L3EQoLWAx+Zu2eADO2/fdeMAam/ZlAMjCpPWGSULCN+TQC0ZlpYcxk9/YyM1r0kxW3
-         0cKBEEpn1jtol9eiMQ7yi8QVoFdvctTJP2EwAUvwlG5FfdntKlGZu+5oInkjHWkTd1xD
-         Z/G76aren/K04Cxh8zStv2Tj3qVA/mN0pY7KUs7kVjj5vLmF0JS7hy94AtT5YfasCJJC
-         umG9RE/rw7fMkme6q3BuGF9/D4XeDYSylJ/eApNgJsU9yJSXitG5z55VdCjOUtGgFhQN
-         IaFbPVrID40GTsuntzk42VEUSXZaC8aaxySNQYpRE65h7LWaE1coOkIxucTzfUrJbMe2
-         m4ig==
-X-Forwarded-Encrypted: i=1; AJvYcCX8sUVdDJm72H8aX+WAqc0foN0dDPlo1OtKJCP6W05BCBxYFaVZB2f/60i++58O6ySQDaTTauuQw5gf4RWUhK+y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAFGLZQjkle/U5U+aAKGgTTh7mLbjIzLC3xU9TOeDBmcVKwBus
-	cKfxqwNJ9I/UqA+nQfdKsOEDl9eUe1pPbWvy2g5LVAqs0r67o2zV+k513X+9r44X244=
-X-Gm-Gg: ATEYQzzk4UiSKmPQ7To5ePIDh0jJGfUwZR2mIDsbyWIx7Arikv8RH1yD4VqeBvFytdX
-	7TClgqhmDeDKZ2SEmMNCv3B8b4wJSCg+ai6uyAjnWygmNWQD70PhyiBX695OuXqShuEAyloapFT
-	0m2uHNNWcO7rmvguTtysnbbD3dW0vC+Y/bNLa011RGRaP9g9885USAmjKAUMVu9sdshj/sfo0yi
-	H5gf1Wl+zsx2lBACZHkyGeLqMhIMuTf15qqZNSBhmDN8uHbyq2+8PGhHEt8dCIAQW1/lQAtcwG1
-	u5YDAIM03dMqcXfhGpEd9v9gIWg7wKJP1ygFOFbHuPcXqUqCwUHyqAU9JKjKrFkW+7sgNV0eLRZ
-	XfH5+EjoRTFUUVVe0GnNr+SNzEksXDvx0QZUZ+GvfsSlezbZ1pLfCME/RIHVRJdrnpZ2Tp9QZka
-	3zZtwrfEyAeNp3tbg4AY/0X4dIfMM468IqPJxzUBWiFB+emJvtp3E=
-X-Received: by 2002:a05:600c:8b6e:b0:487:716:2fa9 with SMTP id 5b1f17b1804b1-48727e883c4mr23399585e9.13.1774598455233;
-        Fri, 27 Mar 2026 01:00:55 -0700 (PDT)
+        bh=2HryrWoWtiuMl3LNqbcdlk98yeRL5cKfDbuBDTCXl6o=;
+        b=a2ObWdOBi6aiE9fHmvy1H/lv1aX2T+psk+U/0ynZCiE6dcznIa4cDiWl2ruxWdkSbp
+         MrcSZK1m5483RkuzIlj6k0cNghgBtHTCag0ForuVHLVQyaJnpoPHkBxDy1qq5fkYUyKz
+         M91bTzB6podg62L1q5xCsLYO8PMwqI3/K4WRd9qZNhGNIZj6qJz2PetZC4mT41IfyQgC
+         hsjiQGLU56Z3C1FlQu3Ms88ZtRCF7SjSc64YG7IgdODp81ztUt64wYSJ4dVJZPV9nYJ2
+         j38FOvC4o4ZofBpJbmxaP9/HHWdPFsf0PZnQPuBA5trYrT1pbJxNCzcinWoqo3HlqQzd
+         hGfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774598456; x=1775203256;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2HryrWoWtiuMl3LNqbcdlk98yeRL5cKfDbuBDTCXl6o=;
+        b=LzcCYkYzS0In2wd84HaMSDK2C243Nosw9UiphIFQBw9o6klrzA0MHxPMrchTKGD6uR
+         MX0+6zAg6KLOK2LcnmeQyyxHPBGLehW0oWTod6LOKueq4R1LkzGzc2i3iCMW5RNwA/BK
+         tbOscPButJ1ItLxPR3P8j6ZngxUCpgedvxdTGY4HazhEalQPSwb3c2nvQNB77nJhMA3U
+         SEQ87dML9yLL3Hx4aQwAeyXw4aPngpW0m6HNwGRYBRQFu1sZv+cKgSgpQ6MAoLJqCrOx
+         Y83i8N/AAYQuDyMg5zF6UVDR/b31Kpm3UxYz4adtzQayai1blBa3qPmSwtCHqg3yG1Tu
+         Fc7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUk06zLSG+Mq/SpePyeB6eI4bPVQUBnQJYM/lNIf0jVVp2wMSeKFXAo73GKnOX+b3TNJlaRa7t0g4+v8zaQvETv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZNnEedJy9lSWZUe95/j2GQRV4HcGWlUNfUTdTi53ChoTad5wm
+	HzfsJnTyCGtGnxCVcQHPE6iI9k9AUQj30MrOdA8AVw2lMt2IdJ2cLsR6n7KLK5wJIgE=
+X-Gm-Gg: ATEYQzwc6gX6Xvl2gTPFg/4VmZYQGRNTUFWIUs4c8gA9jcHq3e5wkkndfYkrMbROIVq
+	hFSEweagBl5oXYilNQxawf3UNb2tNE26/JDcSZ5YDfbOyFhPhrEiUlJEeKpC6nusWEckKuhqifV
+	QAPh+0LGOJlKX+Emk0b5gN/pJdmQI5v4kt3eOQTLKLVYqXdzLxN1X8IcwrOrb3I4T83XNy5SsLU
+	yvKJsJwccpvDGLICaGMu97/TkRhBYMdbMVCTF/Yl3FZvF/9aQdGMzhP9DfvbpfNSQDoRTr1d7m1
+	MWztUIO06qS0TTC31mldNAitpUOaIOkNwJolEr1LINX1uacKfDDROQDuwIwvMqUYnBrsj5NP5eR
+	nQwOEhglJ8NQMLMMkN3UjF//doYsuIHaRQSkA36OlxLYEgU+JPOhLm0JCnhbY/I7rk3YO8XEKNE
+	tN88J01w8JEZDtLDwE0hw8/oN3rcPBm+d8o/moUnKm
+X-Received: by 2002:a05:600c:5249:b0:487:386:3714 with SMTP id 5b1f17b1804b1-48727f7bb08mr24460995e9.17.1774598456054;
+        Fri, 27 Mar 2026 01:00:56 -0700 (PDT)
 Received: from zovi.suse.cz (nat2.prg.suse.com. [195.250.132.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725fc4827sm12089735e9.11.2026.03.27.01.00.54
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725fc4827sm12089735e9.11.2026.03.27.01.00.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 01:00:54 -0700 (PDT)
+        Fri, 27 Mar 2026 01:00:55 -0700 (PDT)
 From: Petr Pavlu <petr.pavlu@suse.com>
 To: Russell King <linux@armlinux.org.uk>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -103,15 +104,17 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
 	linux-modules@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] module: force sh_addr=0 for arch-specific sections
-Date: Fri, 27 Mar 2026 08:58:59 +0100
-Message-ID: <20260327080023.861105-1-petr.pavlu@suse.com>
+Subject: [PATCH 1/4] module, arm: force sh_addr=0 for arch-specific sections
+Date: Fri, 27 Mar 2026 08:59:00 +0100
+Message-ID: <20260327080023.861105-2-petr.pavlu@suse.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260327080023.861105-1-petr.pavlu@suse.com>
+References: <20260327080023.861105-1-petr.pavlu@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_080057_775576_602C4179 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260327_080058_009166_3A1CFA11 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,31 +135,28 @@ resulting .ko files. Relocatable objects are expected to have sh_addr=0 for
 all sections. Non-zero addresses are confusing in this context, typically
 worse compressible, and may cause tools to misbehave [1].
 
-Joe Lawrence previously addressed the same issue in the main
-scripts/module.lds.S file [2] and we discussed that the same fix should be
-also applied to architecture-specific module sections. This series
-implements these changes.
+Force sh_addr=0 for all arm-specific module sections.
 
-The series can later be merged through the modules tree, or individual
-patches can be applied through the architecture-specific trees.
+Link: https://sourceware.org/bugzilla/show_bug.cgi?id=33958 [1]
+Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
+---
+ arch/arm/include/asm/module.lds.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-[1] https://sourceware.org/bugzilla/show_bug.cgi?id=33958
-[2] https://lore.kernel.org/linux-modules/20260305015237.299727-1-joe.lawrence@redhat.com/
-
-Petr Pavlu (4):
-  module, arm: force sh_addr=0 for arch-specific sections
-  module, arm64: force sh_addr=0 for arch-specific sections
-  module, m68k: force sh_addr=0 for arch-specific sections
-  module, riscv: force sh_addr=0 for arch-specific sections
-
- arch/arm/include/asm/module.lds.h   | 4 ++--
- arch/arm64/include/asm/module.lds.h | 4 ++--
- arch/m68k/include/asm/module.lds.h  | 2 +-
- arch/riscv/include/asm/module.lds.h | 6 +++---
- 4 files changed, 8 insertions(+), 8 deletions(-)
-
-
-base-commit: c369299895a591d96745d6492d4888259b004a9e
+diff --git a/arch/arm/include/asm/module.lds.h b/arch/arm/include/asm/module.lds.h
+index 0e7cb4e314b4..f9ad774b2889 100644
+--- a/arch/arm/include/asm/module.lds.h
++++ b/arch/arm/include/asm/module.lds.h
+@@ -1,7 +1,7 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #ifdef CONFIG_ARM_MODULE_PLTS
+ SECTIONS {
+-	.plt : { BYTE(0) }
+-	.init.plt : { BYTE(0) }
++	.plt 0 : { BYTE(0) }
++	.init.plt 0 : { BYTE(0) }
+ }
+ #endif
 -- 
 2.53.0
 
