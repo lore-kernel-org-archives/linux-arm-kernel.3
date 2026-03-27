@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D6010F284D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BB910F284D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+M9yYezcxfIh1hPPvvgkIRJqsWvclP69Ajn/rsWdDAg=; b=Q48YlgX3c+P7zgsgKkzPg/W2Cb
-	+Dv/f0Qk1TlqeliixM9efxhXYI7jEz/anrrJTNNMfMutBGmFLVGjliW31BUc1WEctpitYqpLTFDei
-	1+TJ9EfAF+Mh1NCHqx9hxW/G8+D/N7rbESqR64h93iKQP7jglGPsdfhikADxj1kK1RIvPo7Ud+jqT
-	ycXYwBz6HxDlTCSvV5Fs7r2D2XJwIz1sRXQdL+G2YffMrtMVN8rJMBmHuzEbUlW3d98w6pDyjtwe6
-	yuVsvyZ+xEh6pyK5bv4xWDx36c7UEQkaf0ppyTCmxEhwwsWVViiVOg2fhjV4owkyOB1L0r84cCl5W
-	gMZTJoHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1pNHOOxkrInwAKVW1kychxWbDV24cN7qwurpLcenHAg=; b=PL/Qa3d4Kq87GyKo4ZJj9RlQFK
+	4V+EYEwzaSIBXu6c59lFm84rzM/r6w9HjCih0TBnB8cagC3oDLwpchRQda747f+Oqr40bxMB0NnMe
+	I+GHisjBBX3bgmKIcYDxgSjhuCWJpzsYJ4CU5JztjE/Ydvl701nVCJ6rA9MeevLIabzr9cOWEaKKc
+	ELay/DcHX6eDdCxNTkOnzOfDSGCc1ntdQgssEJfstlel/Sxdc2NDYJ+HExnBzjmBkZdrNWJ0Bfeia
+	bhisKcwnnen0/vKtCcYfvGl3h3Yj5+z99QhuYOBh8HxDWsgMNHP7hn5Ksu71+AFpqJEZbum5crN5V
+	1eSRwGJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6AZx-00000007p9M-1MEE;
-	Fri, 27 Mar 2026 17:02:37 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w6AbM-00000007pHx-0h4T;
+	Fri, 27 Mar 2026 17:04:04 +0000
+Received: from mx4.wp.pl ([212.77.101.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6AZu-00000007p8z-2UC4
+	id 1w6AbH-00000007pHG-1fpe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 17:02:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+M9yYezcxfIh1hPPvvgkIRJqsWvclP69Ajn/rsWdDAg=; b=bHEMiXE8jlRa8mGAupx4zy/RXE
-	sRxjTjYdIcYAw1Zoom9A73EC2ndhclH8n58t9u9mfc2Nb5XAo+Y7FEIA5Wtd6/eLNEefy2pOtfOfe
-	C/0heJdKlBWVFIlAd/oifUahn/dfz34/+vJBCkUzMZZnkabQkbP8HX6XACzmHYQgv6yQA2zf+bbhr
-	OG5OhDDAC2PfGhR87gIRdXsJTBNrsv67FrKDh/cbAYEH90FF2n/XL7XUlyRv1WH6ifuQ/eZUm9cZ1
-	GeGKSKAsmSreCQrKRKpWV8osW6ZlHDFpwrkoM82afi1WXlpaazHDN6DU4RlRN0WGSUKf6d1XpjgQ2
-	6xTNbWYw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41308 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w6AZn-000000006RA-0MTU;
-	Fri, 27 Mar 2026 17:02:27 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w6AZm-0000000E54W-1F6E;
-	Fri, 27 Mar 2026 17:02:26 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next] net: stmmac: qcom-ethqos: set clk_csr
+	Fri, 27 Mar 2026 17:04:01 +0000
+Received: (wp-smtpd smtp.wp.pl 22480 invoked from network); 27 Mar 2026 18:03:48 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1774631028; bh=1pNHOOxkrInwAKVW1kychxWbDV24cN7qwurpLcenHAg=;
+          h=Subject:To:Cc:From;
+          b=CUSlZjbCPiBqxQiLpBHw2huIXCvZEblim9cHHLDW+olL1wSW0EUM03fCaDQlC6vhk
+           seIVRHg+yHBBx2eMqOJ6c7+Pch2dzdgrBTC9ocHOIbZKhlSuPDgCnZSZL4NvF+PFi/
+           fjvpWRR2REI1HKvnOMYMINOEr+SGCX8kfdpV1qk+pdXpgjXu4Fh61Ucaiag14ywOWD
+           Brxok7210QSDFuM/h4YlftujO9V3uT+07kKpAk9bkgp2YlV/C8qMLe/djDe8NJ5r4U
+           wL0UqmcrxEIc5BXmYe/rgGZBWanSraSi+HnYQz4f+sI0rajVL1vLDEWZ19OE6UK1xx
+           XE4xilcro5gzA==
+Received: from 83.5.169.164.ipv4.supernova.orange.pl (HELO [192.168.1.21]) (olek2@wp.pl@[83.5.169.164])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <herbert@gondor.apana.org.au>; 27 Mar 2026 18:03:48 +0100
+Message-ID: <c2a3dc2e-8d4a-4a59-ac5a-ca22be705488@wp.pl>
+Date: Fri, 27 Mar 2026 18:03:48 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w6AZm-0000000E54W-1F6E@rmk-PC.armlinux.org.uk>
-Date: Fri, 27 Mar 2026 17:02:26 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] crypto: testmgr - Add test vectors for
+ authenc(hmac(md5),cbc(aes))
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: davem@davemloft.net, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, linux-crypto@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260303184916.69132-1-olek2@wp.pl>
+ <abToanZh-mkEjmJ-@gondor.apana.org.au>
+Content-Language: pl
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <abToanZh-mkEjmJ-@gondor.apana.org.au>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-WP-MailID: c35bd8ae87df3f160010f467442666b9
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [YFOn]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_100234_658475_3BDA2D92 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260327_100359_910278_89FE01FF 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +79,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clocks for qcom-ethqos return a rate of zero as firmware manages
-their rate. According to hardware documentation, the clock which is
-fed to the slave AHB interface can crange between 50 and 100MHz.
+Hi Herbert,
 
-Currently, stmmac uses an undefined divisor value. Instead, use
-STMMAC_CSR_60_100M which will mean we meet IEEE 802.3 specification
-since this will generate between a 1.19MHz and 2.38MHz MDC clock for
-this range. Add a comment describing this.
+On 14/03/2026 05:47, Herbert Xu wrote:
+> On Tue, Mar 03, 2026 at 07:48:44PM +0100, Aleksander Jan Bajkowski wrote:
+>> Test vectors were generated starting from existing CBC(AES) test vectors
+>> (RFC3602, NIST SP800-38A) and adding HMAC(MD5) computed with Python
+>> script. Then, the results were double-checked on Mediatek MT7981 (safexcel)
+>> and NXP P2020 (talitos). Both platforms pass self-tests.
+>>
+>> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+>> ---
+>> v4:
+>> - rename aes-generic -> aes-lib
+>> v3:
+>> - correct sha384 -> md5 in description
+>> v2:
+>> - rebase and resolve conflicts
+>> ---
+>>   crypto/testmgr.c |   7 ++
+>>   crypto/testmgr.h | 255 +++++++++++++++++++++++++++++++++++++++++++++++
+>>   2 files changed, 262 insertions(+)
+> The previous patch has already been applied.  Please redo this
+> as an incremental patch.
 
-Link: https://lore.kernel.org/r/acGhQ0oui+dVRdLY@oss.qualcomm.com
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
+Checked the crypto tree, and this patch still isn't applied. I've sent 
+multiple test vectors, and you're probably referring to a another patch. 
+Should I send it again, or will you accept it as is?
 
-This likely needs the qcom-ethqos 15 patch cleanup series.
+By the way, that's the last one. As of now, all my routers have the 
+missing vectors added :)
 
-I think this is what's needed to fix the MDC clocking issue. Please
-review and test. Thanks.
-
- drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index ad3a983d2a08..ac7d6d3e205a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -764,6 +764,12 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	qcom_ethqos_set_sgmii_loopback(ethqos, true);
- 	ethqos_set_func_clk_en(ethqos);
- 
-+	/* The clocks are controlled by firmware, so we don't know for certain
-+	 * what clock rate is being used. Hardware documentation mentions that
-+	 * the AHB slave clock will be in the range of 50 to 100MHz, which
-+	 * equates to a MDC between 1.19 and 2.38MHz.
-+	 */
-+	plat_dat->clk_csr = STMMAC_CSR_60_100M;
- 	plat_dat->bsp_priv = ethqos;
- 	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
- 	plat_dat->dump_debug_regs = rgmii_dump;
--- 
-2.47.3
+Regards, Aleksander
 
 
