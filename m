@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1468510F2841
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECD810F2844
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=swWxliPpq0YfMrs1W1P0OyEaW4ZjTDmJg7/U3j4iCbY=; b=wV3/arcQ5J6lU1cwt8gerKoQ52
-	gLwHrgnN3kaoqhg4/WdOrz527uTLMk75CaF7nN/fKTbaOGkw17NrmepVU8xjhZ1hfze9fVoxcHauB
-	GcE7o2qEyKkFaYIJ2WA8QtNcPNRa3jiom1DzsY98Z82fguNlVvH7Ye9nz+OyqRf2yZrjhp4L6Jz/P
-	+u2loe8r26IVKy5NhQY0P+D9jPoHcAgKT/uwAEyIA6il6DNyMRnKE3GvqC71tq7xFxjv/jsskUJxL
-	m2XUwCESzZOJBoMM33nlQCztTHi+B8i2YoLbJDfF2afZ8WTRCPY5UFdqGaAasDkpJoyPYiuRUmtL4
-	hoWVbtSA==;
+	bh=1YtuilcZx22zir8/wN54Nz/z7yrVjDNdayOTv187Ugk=; b=oy8xB5ReWXOtc9A5rP8yZ2lT5a
+	IyM+oDRuEJUvGb1S8g08oN4H5OmWuA/0uj02vLmvqV8OfpdDtZ12PIRISyptUucbEjsDQxSDhp3se
+	0NqiGwFR8ok04R0tD5M/VSRkZMzSp2EfZo+gvbu5V+hqA4//dY69nSIuNr36pdy48akYp7zs+0MNY
+	njxlKzX/Y45uFYldhpu0XaKyhe/b/a62uTe3cML+4lh4RElXmiVwwaTkX1r8lv34zYGvo76p58Dcw
+	Mi1dRcEs3OS/8pRGA6QvtoJi7lZwJ8jORBYEOLOSkS3CtdAYLm4F55ZEnvIYamT1jxcMBqqV9RY8o
+	e0M2dleQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w68v3-00000007feY-07SM;
-	Fri, 27 Mar 2026 15:16:17 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w68v4-00000007fgL-0oCE;
+	Fri, 27 Mar 2026 15:16:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w68uv-00000007fYy-07A0;
-	Fri, 27 Mar 2026 15:16:10 +0000
+	id 1w68v0-00000007fbF-1STe;
+	Fri, 27 Mar 2026 15:16:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774624566;
-	bh=93cbvhOhHO3BIlQLuu3rBBU+F598t09c4s9HxlgYH/E=;
+	s=mail; t=1774624571;
+	bh=2e+5HIylszkpISb4HQ5FX4YYF13yOSMzERDIuearLco=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YBY1xoer/CEtYGdfvDkOJnUC9SEAbOn19cLaA4YK5TmfTL8j2/MKqDSC2s1lRmLQE
-	 jOll7A7DaKycsm0VSd19fTkJuFd7toxN34H61yCao80zuEwt74i0vm1ziK/W7XF+at
-	 Gk/pnI3+5inCbtpO8397vE4RTw2U+GURK85ujwqbb5b47D044Dt1Yl4n2uSVFmOmg6
-	 tYeDNAGtLtZJ+UdKeae0I/KZLi1MGO/eU+fffnUMmzzaXi+IZ6yDx2iR8bGEir+x1P
-	 X+P2uAwC7JtG0K10cPOWfsDRAynN629FU4OQ9YFKFQ2H4ZadpIW3jtglXsjCSVRsaE
-	 mAaz8Tv8lQ7uQ==
+	b=qO6Ku1KYFI3HkhUCod5isC+44/AuyGPkTOXofJglnQswUcoE/0RVsjwqEmNa3z9uW
+	 Vac6st0+u4lOrNXA4S+JRuyLvgsBLFle3zrPM/34Od3sF9/zwOnjDbJLd5Ugyy4C3O
+	 OSfBDAFMtSMUAe12M5qhNaf5FsMbPGENcZ7Vj7g3y3P655YqOjsFImIy+NuZoFMt0E
+	 otwZkPdPzDMmADeYkuubVnuFn346iYKYH2KPbzGd74Z/SvxqZxgBF2bdbL5DSWCQIV
+	 b5kOTPFAR5PdhvltdA7DU4tdue8EkJhOTmDqgoJA6YwMJRAJPXUttVefEVADY3c4Zi
+	 wfjeIsBvoaa6g==
 Received: from [192.168.0.15] (modemcable014.2-22-96.mc.videotron.ca [96.22.2.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C84F417E5A68;
-	Fri, 27 Mar 2026 16:16:04 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A61F17E52B1;
+	Fri, 27 Mar 2026 16:16:09 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Fri, 27 Mar 2026 11:16:00 -0400
-Subject: [PATCH 1/4] media: rkvdec: Introduce a global bitwriter helper
+Date: Fri, 27 Mar 2026 11:16:02 -0400
+Subject: [PATCH 3/4] media: rkvdec: common: Drop bitfields for the
+ bitwriter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260327-rkvdec-use-bitwriter-v1-1-982cf872b590@collabora.com>
+Message-Id: <20260327-rkvdec-use-bitwriter-v1-3-982cf872b590@collabora.com>
 References: <20260327-rkvdec-use-bitwriter-v1-0-982cf872b590@collabora.com>
 In-Reply-To: <20260327-rkvdec-use-bitwriter-v1-0-982cf872b590@collabora.com>
 To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
@@ -65,8 +66,8 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_081609_213946_9043894E 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260327_081614_538742_5A0FF116 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,107 +82,354 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The use of structures with bitfields is good when the values are
-somewhat aligned.
-More mis-alignement means that compilers need to do more gymanstics
-to edit the fields values.
+Currently, the common code files for hevc and h264 use structs with
+bitfields to represent the HW RPS buffer.
 
-Some cases have been reported with CLang on specific architectures
-like armhf and hexagon, where the compiler would allocate a bigger
-local stack than needed or even completely freeze during compilation.
+Because the bitfields are mostly unaligned and numerous, it brings compiler
+issues, especially with clang.
 
-Some fixes have been provided to ease the issues, but the real fix
-here is to use a bitwriter instead of heavily unaligned bitfields.
-
-This is a preparation commit to provide a global bitwriter interface
-for the whole driver.
+To prevent that, switch to using the global bitwriter previously
+introduced instead.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/platform/rockchip/rkvdec/Makefile    |  1 +
- .../platform/rockchip/rkvdec/rkvdec-bitwriter.c    | 30 ++++++++++++++++++++++
- .../platform/rockchip/rkvdec/rkvdec-bitwriter.h    | 25 ++++++++++++++++++
- 3 files changed, 56 insertions(+)
+ .../platform/rockchip/rkvdec/rkvdec-h264-common.c  | 51 +-----------
+ .../platform/rockchip/rkvdec/rkvdec-h264-common.h  | 40 +++-------
+ .../platform/rockchip/rkvdec/rkvdec-hevc-common.c  | 92 ++++------------------
+ .../platform/rockchip/rkvdec/rkvdec-hevc-common.h  | 57 ++++----------
+ 4 files changed, 43 insertions(+), 197 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index e629d571e4d8..11e2122bcbbf 100644
---- a/drivers/media/platform/rockchip/rkvdec/Makefile
-+++ b/drivers/media/platform/rockchip/rkvdec/Makefile
-@@ -2,6 +2,7 @@ obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC) += rockchip-vdec.o
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
+index e28f06394470..54639512e456 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
+@@ -21,51 +21,6 @@
  
- rockchip-vdec-y += \
- 		   rkvdec.o \
-+		   rkvdec-bitwriter.o \
- 		   rkvdec-cabac.o \
- 		   rkvdec-h264.o \
- 		   rkvdec-h264-common.o \
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c
-new file mode 100644
-index 000000000000..673ebb89002b
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c
-@@ -0,0 +1,30 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Rockchip Video Decoder bit writer
-+ *
-+ * Copyright (C) 2026 Collabora, Ltd.
-+ *      Detlev Casanova <detlev.casanova@collabora.com>
-+ * Copyright (C) 2019 Collabora, Ltd.
-+ *	Boris Brezillon <boris.brezillon@collabora.com>
-+ */
-+
-+#include <linux/types.h>
-+#include <linux/bits.h>
-+
+ #define RKVDEC_NUM_REFLIST		3
+ 
+-static void set_dpb_info(struct rkvdec_rps_entry *entries,
+-			 u8 reflist,
+-			 u8 refnum,
+-			 u8 info,
+-			 bool bottom)
+-{
+-	struct rkvdec_rps_entry *entry = &entries[(reflist * 4) + refnum / 8];
+-	u8 idx = refnum % 8;
+-
+-	switch (idx) {
+-	case 0:
+-		entry->dpb_info0 = info;
+-		entry->bottom_flag0 = bottom;
+-		break;
+-	case 1:
+-		entry->dpb_info1 = info;
+-		entry->bottom_flag1 = bottom;
+-		break;
+-	case 2:
+-		entry->dpb_info2 = info;
+-		entry->bottom_flag2 = bottom;
+-		break;
+-	case 3:
+-		entry->dpb_info3 = info;
+-		entry->bottom_flag3 = bottom;
+-		break;
+-	case 4:
+-		entry->dpb_info4 = info;
+-		entry->bottom_flag4 = bottom;
+-		break;
+-	case 5:
+-		entry->dpb_info5 = info;
+-		entry->bottom_flag5 = bottom;
+-		break;
+-	case 6:
+-		entry->dpb_info6 = info;
+-		entry->bottom_flag6 = bottom;
+-		break;
+-	case 7:
+-		entry->dpb_info7 = info;
+-		entry->bottom_flag7 = bottom;
+-		break;
+-	}
+-}
+-
+ void lookup_ref_buf_idx(struct rkvdec_ctx *ctx,
+ 			struct rkvdec_h264_run *run)
+ {
+@@ -111,7 +66,7 @@ void assemble_hw_rps(struct v4l2_h264_reflist_builder *builder,
+ 		if (!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
+ 			continue;
+ 
+-		hw_rps->frame_num[i] = builder->refs[i].frame_num;
++		rkvdec_set_bw_field(hw_rps->info, RPS_FRAME_NUM(i), builder->refs[i].frame_num);
+ 	}
+ 
+ 	for (j = 0; j < RKVDEC_NUM_REFLIST; j++) {
+@@ -138,7 +93,9 @@ void assemble_hw_rps(struct v4l2_h264_reflist_builder *builder,
+ 			dpb_valid = !!(run->ref_buf[ref->index]);
+ 			bottom = ref->fields == V4L2_H264_BOTTOM_FIELD_REF;
+ 
+-			set_dpb_info(hw_rps->entries, j, i, ref->index | (dpb_valid << 4), bottom);
++			rkvdec_set_bw_field(hw_rps->info, RPS_ENTRY_DPB_INFO(j, i),
++					    ref->index | (dpb_valid << 4));
++			rkvdec_set_bw_field(hw_rps->info, RPS_ENTRY_BOTTOM_FLAG(j, i), bottom);
+ 		}
+ 	}
+ }
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
+index 5336370507d6..8d3255289135 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
+@@ -16,6 +16,7 @@
+ #include <media/v4l2-mem2mem.h>
+ 
+ #include "rkvdec.h"
 +#include "rkvdec-bitwriter.h"
+ 
+ struct rkvdec_h264_scaling_list {
+ 	u8 scaling_list_4x4[6][16];
+@@ -38,39 +39,16 @@ struct rkvdec_h264_run {
+ 	struct vb2_buffer *ref_buf[V4L2_H264_NUM_DPB_ENTRIES];
+ };
+ 
+-struct rkvdec_rps_entry {
+-	u32 dpb_info0:          5;
+-	u32 bottom_flag0:       1;
+-	u32 view_index_off0:    1;
+-	u32 dpb_info1:          5;
+-	u32 bottom_flag1:       1;
+-	u32 view_index_off1:    1;
+-	u32 dpb_info2:          5;
+-	u32 bottom_flag2:       1;
+-	u32 view_index_off2:    1;
+-	u32 dpb_info3:          5;
+-	u32 bottom_flag3:       1;
+-	u32 view_index_off3:    1;
+-	u32 dpb_info4:          5;
+-	u32 bottom_flag4:       1;
+-	u32 view_index_off4:    1;
+-	u32 dpb_info5:          5;
+-	u32 bottom_flag5:       1;
+-	u32 view_index_off5:    1;
+-	u32 dpb_info6:          5;
+-	u32 bottom_flag6:       1;
+-	u32 view_index_off6:    1;
+-	u32 dpb_info7:          5;
+-	u32 bottom_flag7:       1;
+-	u32 view_index_off7:    1;
+-} __packed;
++#define RPS_FRAME_NUM(i)		BW_FIELD((i) * 16, 16)
++#define RPS_ENTRY_DPB_INFO(l, e)	BW_FIELD(288 + (l) * 7 * 32 + (e) * 7, 5) //l: 0-2, e: 0-31
++#define RPS_ENTRY_BOTTOM_FLAG(l, e)	BW_FIELD(293 + (l) * 7 * 32 + (e) * 7, 1) //l: 0-2, e: 0-31
++#define RPS_ENTRY_VIEW_INDEX_OFF(l, e)	BW_FIELD(294 + (l) * 7 * 32 + (e) * 7, 1) //l: 0-2, e: 0-31
 +
-+void rkvdec_set_bw_field(u32 *buf, struct rkvdec_bw_field field, u32 value)
-+{
-+	u8 bit = field.offset % 32;
-+	u16 word = field.offset / 32;
-+	u64 mask = GENMASK_ULL(bit + field.len - 1, bit);
-+	u64 val = ((u64)value << bit) & mask;
-+
-+	buf[word] &= ~mask;
-+	buf[word] |= val;
-+	if (bit + field.len > 32) {
-+		buf[word + 1] &= ~(mask >> 32);
-+		buf[word + 1] |= val >> 32;
-+	}
-+}
-+
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h
-new file mode 100644
-index 000000000000..44154f1ebc65
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Rockchip Video Decoder bit writer
-+ *
-+ * Copyright (C) 2026 Collabora, Ltd.
-+ *      Detlev Casanova <detlev.casanova@collabora.com>
-+ * Copyright (C) 2019 Collabora, Ltd.
-+ *	Boris Brezillon <boris.brezillon@collabora.com>
-+ */
-+
-+#ifndef RKVDEC_BIT_WRITER_H_
-+#define RKVDEC_BIT_WRITER_H_
-+
-+#include <linux/types.h>
-+
-+struct rkvdec_bw_field {
-+	u16 offset;
-+	u8 len;
++#define RKVDEC_H264_RPS_SIZE		ALIGN(RPS_ENTRY_VIEW_INDEX_OFF(3, 32).offset, 128)
+ 
+ struct rkvdec_rps {
+-	u16 frame_num[16];
+-	u32 reserved0;
+-	struct rkvdec_rps_entry entries[12];
+-	u32 reserved1[66];
+-} __packed;
++	u32 info[RKVDEC_H264_RPS_SIZE / 8 / 4];
 +};
+ 
+ void lookup_ref_buf_idx(struct rkvdec_ctx *ctx, struct rkvdec_h264_run *run);
+ void assemble_hw_rps(struct v4l2_h264_reflist_builder *builder,
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+index 3119f3bc9f98..be7e86dd976b 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+@@ -74,72 +74,6 @@ void compute_tiles_non_uniform(struct rkvdec_hevc_run *run, u16 log2_min_cb_size
+ 	row_height[i] = pic_in_cts_height - sum;
+ }
+ 
+-static void set_ref_poc(struct rkvdec_rps_short_term_ref_set *set, int poc, int value, int flag)
+-{
+-	switch (poc) {
+-	case 0:
+-		set->delta_poc0 = value;
+-		set->used_flag0 = flag;
+-		break;
+-	case 1:
+-		set->delta_poc1 = value;
+-		set->used_flag1 = flag;
+-		break;
+-	case 2:
+-		set->delta_poc2 = value;
+-		set->used_flag2 = flag;
+-		break;
+-	case 3:
+-		set->delta_poc3 = value;
+-		set->used_flag3 = flag;
+-		break;
+-	case 4:
+-		set->delta_poc4 = value;
+-		set->used_flag4 = flag;
+-		break;
+-	case 5:
+-		set->delta_poc5 = value;
+-		set->used_flag5 = flag;
+-		break;
+-	case 6:
+-		set->delta_poc6 = value;
+-		set->used_flag6 = flag;
+-		break;
+-	case 7:
+-		set->delta_poc7 = value;
+-		set->used_flag7 = flag;
+-		break;
+-	case 8:
+-		set->delta_poc8 = value;
+-		set->used_flag8 = flag;
+-		break;
+-	case 9:
+-		set->delta_poc9 = value;
+-		set->used_flag9 = flag;
+-		break;
+-	case 10:
+-		set->delta_poc10 = value;
+-		set->used_flag10 = flag;
+-		break;
+-	case 11:
+-		set->delta_poc11 = value;
+-		set->used_flag11 = flag;
+-		break;
+-	case 12:
+-		set->delta_poc12 = value;
+-		set->used_flag12 = flag;
+-		break;
+-	case 13:
+-		set->delta_poc13 = value;
+-		set->used_flag13 = flag;
+-		break;
+-	case 14:
+-		set->delta_poc14 = value;
+-		set->used_flag14 = flag;
+-		break;
+-	}
+-}
+-
+ static void assemble_scalingfactor0(struct rkvdec_ctx *ctx, u8 *output,
+ 				    const struct v4l2_ctrl_hevc_scaling_matrix *input)
+ {
+@@ -218,10 +152,10 @@ static void rkvdec_hevc_assemble_hw_lt_rps(struct rkvdec_hevc_run *run, struct r
+ 		return;
+ 
+ 	for (int i = 0; i < sps->num_long_term_ref_pics_sps; i++) {
+-		rps->refs[i].lt_ref_pic_poc_lsb =
+-			run->ext_sps_lt_rps[i].lt_ref_pic_poc_lsb_sps;
+-		rps->refs[i].used_by_curr_pic_lt_flag =
+-			!!(run->ext_sps_lt_rps[i].flags & V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT);
++		rkvdec_set_bw_field(rps->info, RPS_LT_REF_PIC_POC_LSB(i),
++			run->ext_sps_lt_rps[i].lt_ref_pic_poc_lsb_sps);
++		rkvdec_set_bw_field(rps->info, RPS_LT_REF_USED_BY_CURR_PIC(i),
++			!!(run->ext_sps_lt_rps[i].flags & V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT));
+ 	}
+ }
+ 
+@@ -235,18 +169,24 @@ static void rkvdec_hevc_assemble_hw_st_rps(struct rkvdec_hevc_run *run, struct r
+ 		int j = 0;
+ 		const struct calculated_rps_st_set *set = &calculated_rps_st_sets[i];
+ 
+-		rps->short_term_ref_sets[i].num_negative = set->num_negative_pics;
+-		rps->short_term_ref_sets[i].num_positive = set->num_positive_pics;
++		rkvdec_set_bw_field(rps->info, RPS_ST_REF_SET_NUM_NEGATIVE(i),
++			set->num_negative_pics);
++		rkvdec_set_bw_field(rps->info, RPS_ST_REF_SET_NUM_POSITIVE(i),
++			set->num_positive_pics);
+ 
+ 		for (; j < set->num_negative_pics; j++) {
+-			set_ref_poc(&rps->short_term_ref_sets[i], j,
+-				    set->delta_poc_s0[j], set->used_by_curr_pic_s0[j]);
++			rkvdec_set_bw_field(rps->info, RPS_ST_REF_SET_DELTA_POC(i, j),
++					    set->delta_poc_s0[j]);
++			rkvdec_set_bw_field(rps->info, RPS_ST_REF_SET_USED(i, j),
++					    set->used_by_curr_pic_s0[j]);
+ 		}
+ 		poc = j;
+ 
+ 		for (j = 0; j < set->num_positive_pics; j++) {
+-			set_ref_poc(&rps->short_term_ref_sets[i], poc + j,
+-				    set->delta_poc_s1[j], set->used_by_curr_pic_s1[j]);
++			rkvdec_set_bw_field(rps->info, RPS_ST_REF_SET_DELTA_POC(i, poc + j),
++					    set->delta_poc_s1[j]);
++			rkvdec_set_bw_field(rps->info, RPS_ST_REF_SET_USED(i, poc + j),
++					    set->used_by_curr_pic_s1[j]);
+ 		}
+ 	}
+ }
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+index 6f4faca4c091..cd3a2eb36b58 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+@@ -19,53 +19,24 @@
+ #include <linux/types.h>
+ 
+ #include "rkvdec.h"
++#include "rkvdec-bitwriter.h"
+ 
+-struct rkvdec_rps_refs {
+-	u16 lt_ref_pic_poc_lsb;
+-	u16 used_by_curr_pic_lt_flag	: 1;
+-	u16 reserved			: 15;
+-} __packed;
++#define RPS_LT_REF_PIC_POC_LSB(i)	BW_FIELD(0 + (i) * 32, 16) // i: 0-31
++#define RPS_LT_REF_USED_BY_CURR_PIC(i)	BW_FIELD(16 + (i) * 32, 1) // i: 0-31
+ 
+-struct rkvdec_rps_short_term_ref_set {
+-	u32 num_negative	: 4;
+-	u32 num_positive	: 4;
+-	u32 delta_poc0		: 16;
+-	u32 used_flag0		: 1;
+-	u32 delta_poc1		: 16;
+-	u32 used_flag1		: 1;
+-	u32 delta_poc2		: 16;
+-	u32 used_flag2		: 1;
+-	u32 delta_poc3		: 16;
+-	u32 used_flag3		: 1;
+-	u32 delta_poc4		: 16;
+-	u32 used_flag4		: 1;
+-	u32 delta_poc5		: 16;
+-	u32 used_flag5		: 1;
+-	u32 delta_poc6		: 16;
+-	u32 used_flag6		: 1;
+-	u32 delta_poc7		: 16;
+-	u32 used_flag7		: 1;
+-	u32 delta_poc8		: 16;
+-	u32 used_flag8		: 1;
+-	u32 delta_poc9		: 16;
+-	u32 used_flag9		: 1;
+-	u32 delta_poc10		: 16;
+-	u32 used_flag10		: 1;
+-	u32 delta_poc11		: 16;
+-	u32 used_flag11		: 1;
+-	u32 delta_poc12		: 16;
+-	u32 used_flag12		: 1;
+-	u32 delta_poc13		: 16;
+-	u32 used_flag13		: 1;
+-	u32 delta_poc14		: 16;
+-	u32 used_flag14		: 1;
+-	u32 reserved_bits	: 25;
+-	u32 reserved[3];
+-} __packed;
++#define RPS_ST_REF_SET_NUM_NEGATIVE(i)	BW_FIELD(1024 + ((i) * 384), 4) // i: 0-63
++#define RPS_ST_REF_SET_NUM_POSITIVE(i)	BW_FIELD(1028 + ((i) * 384), 4) // i: 0-63
 +
-+#define BW_FIELD(_offset, _len) ((struct rkvdec_bw_field){ _offset, _len })
++// i: 0-63, j: 0-14
++#define RPS_ST_REF_SET_DELTA_POC(i, j)	BW_FIELD(1032 + ((i) * 384) + ((j) * 17), 16)
 +
-+void rkvdec_set_bw_field(u32 *buf, struct rkvdec_bw_field field, u32 value);
++// i: 0-63, j: 0-14
++#define RPS_ST_REF_SET_USED(i, j)	BW_FIELD(1048 + ((i) * 384) + ((j) * 17), 1)
 +
-+#endif /* RKVDEC_BIT_WRITER_H_ */
++#define RKVDEC_RPS_HEVC_SIZE		ALIGN(RPS_ST_REF_SET_USED(64, 15).offset, 128)
+ 
+ struct rkvdec_rps {
+-	struct rkvdec_rps_refs refs[32];
+-	struct rkvdec_rps_short_term_ref_set short_term_ref_sets[64];
++	u32 info[RKVDEC_RPS_HEVC_SIZE / 8 / 4];
+ } __packed;
+ 
+ struct rkvdec_hevc_run {
 
 -- 
 2.53.0
