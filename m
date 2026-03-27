@@ -4,61 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B9210ED679
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE2B10ED674
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCss18sy6f8aOP99Nk+4QmSSu+zP78Vtv2kjNibzlRU=; b=AsgGpmlRTveGy9KOTh5kFg+NXc
-	fjxMTLiJrCjnbSUtEJaAic1+/FkdEvv4N6styYXZpxCVR+5jxoRCm2SO+APjgMkKn1hJJcjkA/JWw
-	uIAgAgK2zUr1vmfdLOcqCYrl2kMwEevgeRxDSQ5tPTT/hCg+BJT9N9VeVNdLtyzfXoWVp79U0cRk+
-	mCxZZ/BobnCKcJ4xDpQqBMFrBq+3S36U0d4UxCy7XQ9o90NSMhrsRK9faDkZ6etMW9MNBjVxQSlNd
-	lI1EcwJXwKnpd1m8MjevHNVtzRMxYmHrl0CMvNL6NSGXr4pBFHlhQ2lYn1ospbWkwIFBw+I5rKHr3
-	jNsr1tHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kriuTgobHO4VRaxwfam5aZi68JnF/DrxIijlnglnZdk=; b=BlR90ImsvYdT0hV8v6m4xzPmli
+	AoqFXmBTB04rYOs63K3XoXEx1SdTyIXMxnZFHf2x2SEBDhTfIjs3PO1TQMNZ9SZUsI3ssTfKhNbJp
+	gVEs4R8EEvxQSMyGRAGGZgvdNz6mZttPgXepO3v9TYy9ND0FurKDYPr8/2raSGfdyntgHJvkTy97n
+	Fbxo6okUSXH7FeGXVn1DbKGzRJ0MkKLXyQSmq+fjvIZm7E3N9ffQxuX7EmgatLvITY62Qhgy03EFv
+	HRHZm3CrjbWGBzoa93X+Www+kF57aEzjs7OZjxQ9lUD4ryOFBQve/KIp60K7LnTLJmDsbeTmOlRL4
+	MlNr23+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67fh-00000007UW8-38Jk;
-	Fri, 27 Mar 2026 13:56:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67fe-00000007UUW-311C
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 13:56:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26DCE15A1;
-	Fri, 27 Mar 2026 06:56:10 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DDB63F99C;
-	Fri, 27 Mar 2026 06:56:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774619776; bh=WCss18sy6f8aOP99Nk+4QmSSu+zP78Vtv2kjNibzlRU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ch1QomEW70t+DRrnli8fMm69HGPNma+E9iROlZi7nQwaoX6dUOQ2JtWnRSIdpGqg7
-	 fZSIz7auQeuccyoYEIQo10XRwAP4aihUy6i1bGlld6hD18OxpUTK41orhRrdaSB5fV
-	 nr9RhTZJNZx6SnSUjSgZiRXnR7ex2+tuAeEXGGxQ=
-Date: Fri, 27 Mar 2026 13:56:11 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, will@kernel.org, maz@kernel.org,
-	oupton@kernel.org, miko.lenczewski@arm.com, kevin.brodsky@arm.com,
-	broonie@kernel.org, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, joey.gouly@arm.com, yuzenghui@huawei.com
-Subject: Re: (subset) [PATCH v17 0/8] support FEAT_LSUI
-Message-ID: <acaMex3Pq13njdRt@e129823.arm.com>
-References: <20260314175133.1084528-1-yeoreum.yun@arm.com>
- <177461632621.2272468.5197255307509898250.b4-ty@arm.com>
+	id 1w67gq-00000007Uqg-0ftr;
+	Fri, 27 Mar 2026 13:57:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w67gn-00000007UpH-2VZF;
+	Fri, 27 Mar 2026 13:57:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EBC8A44151;
+	Fri, 27 Mar 2026 13:57:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF398C19423;
+	Fri, 27 Mar 2026 13:57:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774619848;
+	bh=QoiKaNTYrjORWOMsbRPUw7aZWwxwHRhfcq1ApneMqF4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Oqzi4bhtXPUd+stBnasJPE6OL61Dx+nakBeYIFTp6GaBoMBjtZSl7lj2jNa6H/SUj
+	 dv0sAmuakskIVMAkTgprUHsSFiVJNqT2Ig73CnD8sEmV+e9kd5AHQx+v1AfuK4OHBG
+	 PXiRxyw/Ql/kXf7xLE9cbfFWGodb5wLNQofmstb3Yr+82X7EQvKzbCt6Rw19I0v98s
+	 RB5jfqT1Xy2jP1azLmRxRjpRIkXTQzdr9bpfFqbaDPav5bWlVevfwM2P/cnlh+AbmK
+	 hapZYwnrZ3Tj4bTQ2zV5cpQ1RasWq6UL/Ff9xARN66acZr2cafNLHdl8DQAgNFbQzr
+	 VRBjVovC6LMeg==
+Message-ID: <d5e35218-57e5-4905-96b8-618db05e4bbf@kernel.org>
+Date: Fri, 27 Mar 2026 14:57:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <177461632621.2272468.5197255307509898250.b4-ty@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] ASoC: dt-bindings: mediatek,mt8173-rt5650-rt5514:
+ convert to DT schema
+To: Khushal Chitturi <khushalchitturi@gmail.com>, lgirdwood@gmail.com,
+ broonie@kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ koro.chen@mediatek.com, linux-sound@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260327134649.31376-1-khushalchitturi@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260327134649.31376-1-khushalchitturi@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_065618_972319_1D13CE7E 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260327_065729_675609_67A960D4 
+X-CRM114-Status: UNSURE (   5.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+On 27/03/2026 14:46, Khushal Chitturi wrote:
+> Convert the Mediatek MT8173 with RT5650 and RT5514 sound card
+> bindings to DT schema.
+> 
+> Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
+> ---
 
-> On Sat, 14 Mar 2026 17:51:25 +0000, Yeoreum Yun wrote:
-> > Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-> > previleged level to access to access user memory without clearing
-> > PSTATE.PAN bit.
-> >
-> > This patchset support FEAT_LSUI and applies it mainly in
-> > futex atomic operation and others.
-> >
-> > [...]
->
-> Applied to arm64 (for-next/feat_lsui), thanks!
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks!
-
->
-> I decided to drop patch [6/8] (arm64: armv8_deprecated: disable swp
-> emulation when FEAT_LSUI present). The way FEAT_LSUI support looks now,
-> we still have uaccess_enable_privileged() working properly and we could
-> even support SWP emulation using exclusives. While it's highly unlikely
-> to see both 32-bit EL0 and FEAT_LSUI in practice,
-
-This is one of decisive reason to drop the swp emulation with LSUI
-(https://lore.kernel.org/all/aXDbBKhE1SdCW6q4@willie-the-truck/)
-
-However,
-
-> models may support the
-> combination and disabling SWP emulation feels pretty artificial.
-
-But I'm not sure this is a sufficient rationale for supporting SWP with LSUI,
-since it's highly unlikely to encounter a real CPU that supports both 32-bit EL0
-and FEAT_LSUI.
-
-Anyway, it's fair enough to drop 6/8 right now.
-But I appreciate whether it would be good to support SWP emulation with
-LSUI so that let me respin for it with the former patch.
-
-[...]
-
---
-Sincerely,
-Yeoreum Yun
+Best regards,
+Krzysztof
 
