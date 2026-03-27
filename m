@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481D710F2843
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACC410F2843
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BtdFcTynAN33HZsmTUqdTq2Imp2W6r28pnCsYrsANI=; b=MavrDtot8pWkVGV76eb/eVzV2u
-	tMkykWAUZ6b8+DJnVtx8E+elJt6S+UbxGL8f7PuLYNTDLA2sU9chekAyrxkYsZHIK2b1bCNaB1ZP/
-	FzIzRdgR03L1fJGh347Ki7ZrxVX3Rjar8C1OOkeiBy64pkf4ybkBEaNt9pR29vJWM0uXeR2lA3VZE
-	fFuibDfDulf3WXXPK+t9uWx9jtdBDIZu59jbrWhuIEot4p2XCmTx9w729PG64l9WOjvN81pYdKiTg
-	d2OJLdUX+DP/uJGxG89lhO1PtTrQaxwEUbXJyRXt9lt1Cknb/Tjls720azHYhHqujGNWvphkigF1P
-	ErCktEhQ==;
+	bh=xvkzTXidkq1oU2J3drENCTO+YWf7SQg/DYufC7x3VxY=; b=uo6t1A9DqkWj7iQaoN7DaQy9PD
+	1A/qRznDZEW5xDmwM3NmMfm8doieAjHqmKBugko2+lSxYinMAr5v87mLmDqhTurT7ntWL8HZDhia8
+	O+6A2q9UtW1UXHp0tMrJGsH+N9ApV4CQ0BZ9GF6gDABvNhA/XrWeud88gB3xHLikSkUChhVw/xi21
+	h5/idz4jBi1DEsd3Dk8eemJX/Ya21RMn30nI2UETBilyNiIGjVENLDHinNZGF568Q8go8eVigI8y5
+	Ny3kBBaUMM7lfdkWbuhNKn13470pJZRPzYEKqn/igi2qioL3TpXhhk1vVLG6LD4Lijj3yeexx0ZA2
+	Y8WSV9dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69Cm-00000007hJ7-0JLr;
-	Fri, 27 Mar 2026 15:34:36 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1w69Cs-00000007hNE-3uSq;
+	Fri, 27 Mar 2026 15:34:42 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69Ck-00000007hHq-0BQs
+	id 1w69Cr-00000007hLN-0eMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 15:34:35 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-486fd5360d4so28344315e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:34:33 -0700 (PDT)
+	Fri, 27 Mar 2026 15:34:42 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48374014a77so27389615e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:34:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774625672; x=1775230472; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1774625679; x=1775230479; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1BtdFcTynAN33HZsmTUqdTq2Imp2W6r28pnCsYrsANI=;
-        b=ElbC+ORF4k5ltzV8ht5dZlLpFshhY7is+qMy/7U0R4tW27IEIPOSWCugnfEJ8p1Ype
-         PPz2BvHmB9rwGgJp4eppDAfumTsptkH3EYyMKL27c23S8N4Ugx5rlkebXkHXXt8FG3Xn
-         fVuLfNCVBvSrhCXrGxzfqCaVHkemqp63OZb26vnxw9/pKM8menxkQRMi1cgiRsZByEF0
-         cO8zl3IQIxFvk9tK0B3fPfATUIdDyr6XmwRcil6VkINAJ3EsZ4vytYZFl9BdB0xToPzj
-         KKg7gzs7ZTU1tNPzI6YNueMtyOmKe1/orKM8/axPp+sJarPV+UkSxjMEZUAiqLJ0vqMr
-         uIPQ==
+        bh=xvkzTXidkq1oU2J3drENCTO+YWf7SQg/DYufC7x3VxY=;
+        b=YQke3wXCk6g5mibRWef6ea1xg8AxI1S7/r/02ySzVUmyPYgQYK1hxEYinhnmnLMS1r
+         zgVqsCuVe0PPaYkEMHQ9+ttdhbrBGPlJwOhGnCnnLnVHqtvjtKI3w930Ss6gV1FQ4bKx
+         p5I15hC/kq0ehHskherJtV833R1xIXlAlpxWqxyAXQQUoo+zfGZQrV/rDKM2wJR8xGAt
+         /eQEiQjzhrs4iHvShA+fnz96TwxQeAE88+mgHxrZrGbm8oCDaSrVod8ZnqvHZBPz6dOB
+         1CCJTlQA0PQEFUAfjtksRDGoWEZjh57xdFl1FEjdKE/h2byH4tdgxU/Q3HWTAjo35eL1
+         jxSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774625672; x=1775230472;
+        d=1e100.net; s=20251104; t=1774625679; x=1775230479;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1BtdFcTynAN33HZsmTUqdTq2Imp2W6r28pnCsYrsANI=;
-        b=EJ2ZVa7I+xkKWLGHxrZV/5JIxlOj6XaoshWM0KaG+KlvbZcWyyliHV9eowmB15QsVU
-         Buz3Q0Sis/SQPMAqEjx0SxqVhMgE53Yko9HfUxc6lzKwJhijJSVMLzZ5123ykHMbXq+N
-         d5c8ltGX5epK8hdqJOykw9nocui050X+Z+atGV5MliJQHm70gGpiPQ0Uv/RAPPvg26gz
-         /TKFoW7WYTx6OKrqIhieLNkZizdPIYIvkNCaipMWgm2LUHJKz2HVRdSqZIWfBzWF/7Xl
-         XpIY5eE2MWl5rPo25oREY3wNhZzEn0QrikAIuJ7AcuoMF7N/fhTNyNZE3rSerNkHhF6Q
-         VZWA==
-X-Forwarded-Encrypted: i=1; AJvYcCV662j0tVM2pGTZ1ttGkZC8bYB3BD4LZFkDqMis42kYKLqwXJFw/j6YI+K8Xl4wj4DpEIMmFC2UYsosJlEhaPGm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJjUL2KtwvgtweZWoFmRWoG11EjMluCBEI9Q4+PKdPQnxOkbW7
-	as7zkAvkmXFjRSD+3nHZlzbmaRtQTIv6fhJgC3kQzG+deezaD7n7ruT/dpOcZz8JDX4=
-X-Gm-Gg: ATEYQzz6YsWigSpYZO9u5nia+ZqZc0nMmWO09enXIjKPl6EopKhIveUGjHM1KxUaDGv
-	nsnyg3W9XLgNXcbUswG32zT/DkJY/z4flDFbdYCAncBY/X+vzrtTj1Y0Lbv15oPnYO8HoeiwuVT
-	0sQu7VtWLFp6Y0sA2W4btikAoBTvnPwwmqSL5gxr6DOnrvPka5pHZK/oRmHQ8mscD7G/bLv75G8
-	vNjK2n3xdTEOF8BUru3aquh8bRbTK9T+EDfDqmf1XaXGge/7W5sV2EUzjHnfWAdxt/PgCHRgwNu
-	Fm4OUOX6yFE8YHSw/4QFh4j5ZNsnJXslgcfo+k++HbbdXuXzN1BsAxMqtbk9lJMK4zK9U1ZiwAB
-	yorlxQm669ktYxiHtlWkmG+zAwnSKIQ+j345BvYGD8pEHXTemqleGro6A5Ud0ktMnQec2KM2MOv
-	u6PGAkMXGljf5nh6Rwywm9l8SggoklNf/qiSzl3IcZEAZAg+40EeF9lk+WsF1MCuxsljljilWLW
-	RSZyZ0=
-X-Received: by 2002:a05:600c:c109:b0:486:f9d0:aac8 with SMTP id 5b1f17b1804b1-48727ec776bmr37759315e9.18.1774625671956;
-        Fri, 27 Mar 2026 08:34:31 -0700 (PDT)
+        bh=xvkzTXidkq1oU2J3drENCTO+YWf7SQg/DYufC7x3VxY=;
+        b=isFl3q5/qvsbM3eBKO2etCtqCUzf/jBxjEgTdP2pX+19to/UP0AqMR26sxFSF4dC/Y
+         SrtSd4brD4TKAYs30IxikomOH9tChYev6dxjreCXgMN63IrcXVNstf8SyaoIvmw77rsU
+         geBM2cSIfzfzauYmBVjWjmoW4DyWyekabhuQquuIGjJSy9orCwEJ2U8NwYO7CRkbHvTA
+         EvLfSjFbQHmb/JvkkyGA20bnZhfP9pBpxYbazv+gdOndNDbifrG4tjXKerN5ZlyR5zQO
+         v0G4jFJkB+NlAhe+ThoF+suwfHGMhsiN+pe8R7KdawC943KKmJ305tEXRX5I1gzkt0DN
+         2nug==
+X-Forwarded-Encrypted: i=1; AJvYcCV9XCjvaPWG/rqhHfL0XjKLmw80KvOwsYia1vE3/VsE7BbVrBYlTmkq461uc8xKUaGbcAaLbLBBkO7dQtU+sQKE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4SMvOkEUG42mERxZghBrr3q1bz0R+xTHVGDIiHB2sq3CZJDeV
+	Cuuixr9br83vBf2tCqXGBwlavnXoXong8pRJ1kakV0RYLkhDQFVGK7fGXFIB9+x8MQk=
+X-Gm-Gg: ATEYQzwUcVnCP9NMMNJJq448owK97gZGrx0TFMw4OZsS/gzN6iklEyjpuw9BrLEPiwN
+	liVTNEE322/zjL+8+1d/el60b/KUdEt2ELDYhwEEmMGhYzpOU9TSJve2e+oV2xWulYadKVQzwoU
+	FEw9Z9+nsAsAwct8QvVSRJ4rPA4oAxXH8/drnQUEAS6MOUNxdLuOJ2ulKILgYG5p80TP/52Z7W+
+	lhXCtNO5KzpribYga5iQrtTDvI+5B1oyuH+rBzu58uhdXGCER+wrQrgZ0T3dvLCc5ZlRzdz3xVv
+	WhUNgLwO3JCynmfcHX9wFbX3dV5JGAPff75eHAVD/CMKZ/G3v+2A6DHH0EIphBco/e2jjmytNYp
+	jJWoz8PDgaduJbNq+cQkEiNLP4hMmr9JOGrpUB6+btEmwcRO75V40bB9jq8maHX5Or1vx8VRkSA
+	P/N+epVvyK1W3FwAeCtpLa0xB1nA55xQiq+3R9luYyZVhszsz/SumcoPrkb1hta0ewdd2rjZ24M
+	8T9Nv4=
+X-Received: by 2002:a05:600c:3b24:b0:485:6ec7:2df with SMTP id 5b1f17b1804b1-48727d5f7a5mr45624505e9.8.1774625679470;
+        Fri, 27 Mar 2026 08:34:39 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:39df:9101:d239:f5dc? ([2a01:e0a:106d:1080:39df:9101:d239:f5dc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4872712acb7sm17860855e9.18.2026.03.27.08.34.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c9f58fsm161290455e9.11.2026.03.27.08.34.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Mar 2026 08:34:31 -0700 (PDT)
-Message-ID: <9d56c5e0-7434-4a5d-8429-f19cc5faf00d@linaro.org>
-Date: Fri, 27 Mar 2026 16:34:30 +0100
+        Fri, 27 Mar 2026 08:34:39 -0700 (PDT)
+Message-ID: <4a6c04d4-2865-4277-8bee-abaf2710b04f@linaro.org>
+Date: Fri, 27 Mar 2026 16:34:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v1 2/3] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
- enable HYM8563 RTC
+Subject: Re: [PATCH v1 3/3] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
+ use rc-khadas keymap
 To: Nick Xie <nick@khadas.com>, khilman@baylibre.com,
  martin.blumenstingl@googlemail.com, jbrunet@baylibre.com
 Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org,
  linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20260327093016.722095-1-nick@khadas.com>
- <20260327093016.722095-3-nick@khadas.com>
+ <20260327093016.722095-4-nick@khadas.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -112,12 +112,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260327093016.722095-3-nick@khadas.com>
+In-Reply-To: <20260327093016.722095-4-nick@khadas.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_083434_114438_8BAC470C 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20260327_083441_223526_219EC3FB 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,50 +134,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/27/26 10:30, Nick Xie wrote:
-> The Khadas VIM1S board has an on-board Haoyu Micro HYM8563 Real Time
-> Clock (RTC) connected to the I2C1 bus.
-> 
-> Enable the I2C1 controller and add the RTC child node to support
-> hardware clock persistence.
+> The Khadas VIM1S board has an onboard IR receiver.
+> Configure the default keymap to "rc-khadas" to support the official
+> Khadas IR remote control.
 > 
 > Signed-off-by: Nick Xie <nick@khadas.com>
 > ---
->   .../dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts  | 15 +++++++++++++++
->   1 file changed, 15 insertions(+)
+>   arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts | 1 +
+>   1 file changed, 1 insertion(+)
 > 
 > diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-> index 792ab45c4c944..7314e0ab81da3 100644
+> index 7314e0ab81da3..99d5df71b9cd4 100644
 > --- a/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
 > +++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts
-> @@ -20,6 +20,8 @@ aliases {
->   		mmc0 = &emmc; /* eMMC */
->   		mmc1 = &sd; /* SD card */
->   		mmc2 = &sdio; /* SDIO */
-> +		rtc0 = &rtc;
-> +		rtc1 = &vrtc;
->   		serial0 = &uart_b;
->   	};
->   
-> @@ -223,6 +225,19 @@ &ethmac {
->   	phy-mode = "rmii";
->   };
->   
-> +&i2c1 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c1_pins2>;
-> +	clock-frequency = <100000>;
-> +
-> +	rtc: rtc@51 {
-> +		compatible = "haoyu,hym8563";
-> +		reg = <0x51>;
-> +		#clock-cells = <0>;
-> +	};
-> +};
-> +
->   &ir {
+> @@ -242,6 +242,7 @@ &ir {
 >   	status = "okay";
 >   	pinctrl-0 = <&remote_pins>;
+>   	pinctrl-names = "default";
+> +	linux,rc-map-name = "rc-khadas";
+>   };
+>   
+>   &pwm_ef {
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
