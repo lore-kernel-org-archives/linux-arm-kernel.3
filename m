@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74AE10BA45C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1C310A1E63
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vE7aAgOybl8kkMRNRMKH3/474cFLbolEO1kCDStPcHk=; b=XpIm0+SXnZd6rcSo4tYCaIVmeP
-	x+8DjPCtzefWivcukHhiV+BsFSGjHwwV7WsnIsHc9jw7tDJWSQSb3GcqZQm4yFCLdHFZzOnPvV+YS
-	DIMCzYMZbEVLWyZBXUSuTDD1qA66dYsJKNzF6SzHITiqqRScM3EhrHwlrR4ndbcAHzbIagkmVy8NQ
-	35pHWKM4uAqXoJgfBbZJ6IbZhTZv6P2BYG6HXFd68ihCeNA2vau8Ar1uEKI8D9fiYu45xpKeFgiAO
-	pleX0wGkti5awsg5+EXu/dRqoTlfvX+IUfDVJ3AH6HmL7p5Amykks4hmjfh2Y+uQp4hQjGfPybz+t
-	Y9zDwaNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WUPmq1A5eaO109OW3qO6eHS11Ep2OeWicoobVOUG9AI=; b=zU038fnG2OIgZKtTi/6Aa6E8Kt
+	V9Dg+iYrMxPXFq7dVfBGYqHmFvDpS4ZHNxVIxsRW7bD/PDY/D52lVp5r6gByvk8G4KFpgn9S7fhSd
+	xZrCjJLjPGXIHle4GaoucLtDGgn4PFMt8BF2NQN63ExTZRENmgHjyrRmeTr874yEeBRTzt7axtIfj
+	Un6m8lRUmrRozWkkySShrTJnOVeKxeBrbF07qSl8miqWEdAsfWJJGjV1kopNp40LRjjhiLOC0U0du
+	I3CwPonUNc+zqFJLe9uVULVN1MXkOej+gzn+VXuHHRkEDYPZ/vVFCevxRM7Av8yXsmdjJxcOuD6wq
+	FFpnK99A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63fR-000000075ks-15wY;
-	Fri, 27 Mar 2026 09:39:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w63ff-000000075pZ-0M12;
+	Fri, 27 Mar 2026 09:40:03 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63fP-000000075ke-3HGQ;
-	Fri, 27 Mar 2026 09:39:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D09746132F;
-	Fri, 27 Mar 2026 09:39:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E81AC19423;
-	Fri, 27 Mar 2026 09:39:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774604386;
-	bh=vE7aAgOybl8kkMRNRMKH3/474cFLbolEO1kCDStPcHk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aG6eFPCNSVxypTv9jEH5KH/xPEibbRyBfFUVet2kUEFX32KUxGclPCcrocoYApiZk
-	 1VSGqwxvqtzFLlMgthLlDYa8yUkL5fgDPPsLURNzErv4pmm5WzPmEdp2sZbLSlEJ4S
-	 7DBjsBL2GPDPGLeZAz9HyylFUIUaYOTluLi7RxvTecQf25aK1c0TEv1+Sq5JINuXcm
-	 lKG/P+Cdr4KwjYaA3qKHvnHb0AfXD0w4XGC9oWLklkdZhmOl1hYO7kw0uyn2+2HPuq
-	 JERvnxKGEB3U+MRMMzjLGt+6XtJGgSsTpfkA/eTOKZi3Q0iLPMQG0ArFOaRMrUl6C5
-	 qaBALaVB3IFYw==
-Date: Fri, 27 Mar 2026 09:55:35 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	id 1w63fc-000000075oP-3d4o
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 09:40:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WUPmq1A5eaO109OW3qO6eHS11Ep2OeWicoobVOUG9AI=; b=fLfbgQ2UujCA7PbAk0yuuAA5t1
+	4MTeVFDKsrj8Gcggwihm9v+awDhPb78uHdVsxMyKgunZybO9QMzqEQt3M3bQOKgHCYjAEGgbMYNQJ
+	wkHZRW7Ao8lvat74xIMHKZjhNv1WP1nSV6313Af66dsdjdkGcT/f7XbBNF94EwLDrXY2kYfqDxvIO
+	I4SEY4ybTwcm/gp0ouGt59m7uQM9xB9uoHqNrpUASlLIGgk6L5c1NUjFXZcaOmKBrh3FYmOzl3fMh
+	OADA9lfdW/Hatqz1qHSQnc+5d59ssjRWHssVbskYH8+g6K3v/YiSTUg0iAWFMIoNfB3cyLOeUUWR2
+	HC+VcwQQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34894)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w63fX-000000005xG-0JIU;
+	Fri, 27 Mar 2026 09:39:55 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w63fU-000000007wj-3Q70;
+	Fri, 27 Mar 2026 09:39:52 +0000
+Date: Fri, 27 Mar 2026 09:39:52 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Grab flow_offload_mutex running
- airoha_register_gdm_devices()
-Message-ID: <acZGBngWPvjB6ZyA@lore-rh-laptop>
-References: <20260324-airoha-regiser-race-fix-v1-1-6014df55886b@kernel.org>
- <20260326200605.39222917@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/2] net: stmmac: fix and clean up TSO/GSO support
+Message-ID: <acZQaDeCoib5S5UA@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fJ1bmY2v5shV2XLg"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260326200605.39222917@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_024000_905299_91D0E53C 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series:
 
---fJ1bmY2v5shV2XLg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+1. moves setting priv->tso from stmmac_fix_features() to
+   stmmac_set_features() as fix_features is not supposed to change
+   driver state.
 
-On Mar 26, Jakub Kicinski wrote:
-> On Tue, 24 Mar 2026 17:54:45 +0100 Lorenzo Bianconi wrote:
-> > Netfilter flowtable can theoretically try offload flower rules as soon
-> > as a net-device is registered while not all the other ones are
-> > registered/initialized, triggering a possible NULL pointer dereferencing
-> > of qdma pointer in airoha_ppe_set_cpu_port routine. In order to avoid a=
-ny
-> > possible race, grab the flow_offload_mutex running
-> > airoha_register_gdm_devices().
->=20
-> Sashiko says this causes a lock ordering issue:
-> https://sashiko.dev/#/patchset/20260324-airoha-regiser-race-fix-v1-1-6014=
-df55886b@kernel.org
+2. simplifies the TSO/GSP test in stmmac_xmit() to simply check if the
+   skbuff is a GSO buffer, and whether the gso_type is one that we
+   should handle.
 
-Ack, right. Thx for pointing this issue out. I will work on a different
-solution.
+A previous version of patch 1 was posted in February:
 
-Regards,
-Lorenzo
+https://lore.kernel.org/r/E1vuU3X-0000000Ae9G-1Er8@rmk-PC.armlinux.org.uk/
 
---fJ1bmY2v5shV2XLg
-Content-Type: application/pgp-signature; name=signature.asc
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  3 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 38 +++++++++++------------
+ 2 files changed, 21 insertions(+), 20 deletions(-)
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCacZGAgAKCRA6cBh0uS2t
-rFjSAQDQ1c+Kgc2ua9ykMwg2Ik7Y9Qnbiz1WGHZhludsXoIdewEA4EpBiexqldQr
-kxPBov/kITpBYnXQ0uVDyd5zKQouIwk=
-=E/LG
------END PGP SIGNATURE-----
-
---fJ1bmY2v5shV2XLg--
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
