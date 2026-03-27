@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1390F10ED65C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 11:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB9110ED65E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 11:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7sXBfwyQInOkkJ4D8pFFmhgMz4At6ShywffA7v3WS4=; b=AN/ZwyAX/ulKpz9xQBRoC8rS1t
-	grqGhf3gb2Cbu+xdAeQSKelTgg22+3j12I5IBT0zBtP7IerCCtMuAov0GvIOBGN19lR+MbgjQHlXv
-	etcdZF/KGbupic83kfvU582fLz74loBJTFn1KR3SPFDySdvxhD+XDOQWp5Z18LNQ84mXJyDJZRKyM
-	AyvqNZmjMYWA6is51MSBrIeNsJZSOlejzreBgt+ZJUkN3M67KxXgukiRAGfUlolCW/FCBDXytL3FM
-	MuAIllk4+1sNVoYDrzW9DUvRSffUF0lT3F+xLz9V2LyvbUF64x5MWFUuafG84IBuEy6kidLhVpDLD
-	oB3dswuA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MorT9+svurKSsp87Tda9RA/kcx4IhoAUHVy48kp3aEk=; b=OPOPrDhRHmuOdhF9lprnMHLhqy
+	WVZ3oS/P5eAg3kfrnq4+c1qtPZCAm9xN3ZsegJgpBlcPglSC8v/mqJT/FwlS3fTu1VW7O821Julsp
+	MNob8o1yQGtSFEV9HYvyFPXFCEGqhOd1zo6hiUxrPPym5ycEPOBrzLoYH1ZaG7ls9krCz7cmBFLWc
+	pNBZk7Mr3vchFWYuwj71L3Ds00jEFiiFfdMa3RNztQ3okvgRx7y7FvUtPCd0ugIjKj7GksUIxrWqe
+	VIGiTmjihlJsAnhKrxuD81cAKaw6gN9hde3dZnR/gPVmifz7BFkq6bS1eQ/IWwzxF0/bImOSTpv7U
+	988kyIXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w65Ua-00000007FFp-3pxw;
-	Fri, 27 Mar 2026 11:36:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w65Ub-00000007FG2-0noD;
+	Fri, 27 Mar 2026 11:36:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w65UI-00000007F1N-2esq
+	id 1w65UH-00000007F0X-1k53
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 27 Mar 2026 11:36:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07FBE6188A;
-	Fri, 27 Mar 2026 11:36:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E0F8C4AF09;
-	Fri, 27 Mar 2026 11:36:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD31340AF5;
+	Fri, 27 Mar 2026 11:36:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A0EC2BC9E;
+	Fri, 27 Mar 2026 11:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774611385;
-	bh=bC61XAT5f24Q6uazjH9bN98/WFRDLM2026JAuAM3igY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JtDpr2sGrjnJwuQv/ncDHqG/JmX6w6XhZD+NyTZZwPBBvNTmewkgYupcdvZWqWeeY
-	 ZqnJSPFwaG+m7h+K1k+MUIsLvaigAozHSbXSZBqOV7WpZA/zGVmkNmwrcwmcv0f1JU
-	 vwZkhvBg5QfA8UGnhTrmlFZL5iaKH5HtfWI/wWSILK+pEqKbD+2H9ElBP71lZLd0jM
-	 3bgiQEpfwpiRJlNAIGyoS8qGGc+lU9uTQbIK+G9vLzsgnwxklJfjy46xc/z5hR/y2a
-	 eXkyvq0q6gCwquU1KoJ8Gx8jTAEwoM46f1d27Y7BnxjgxxY51aMIbLECT65fh9+Fv/
-	 lM1woZE1fEZew==
+	s=k20201202; t=1774611384;
+	bh=1945uWrxwNslBzTSapDbIB81Prp34pHOmT5p20fTkGM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VFX8eX55UA1C+SFaBNAJHlbF8m2WxXRJePQ8QZDtHzyzDlk2Z67xZbsCz5HItjTIQ
+	 gxysCUXAruN4kQfkuBem1tnzNWo+1f6Gc/CJWi7znOawOh2/lwILVqzCmHDqRysz89
+	 aS2pG1Z5U4WnIh7/f8O/PI98LP4CGrsrkQJo1DjCZR9D+ZBS4aQlIxDRpGcywAgqaN
+	 OJzca0rBimBlW/PqF4JLfxErjOqdu4FM5K8w/Zh4LD+wQo+xk7yE0x/8lVPRLFKpPb
+	 CbKWsQgFVuJ4Lqbk5kdvjKnljC0rwulNN/b2D+PqEZVxr1YlZVuvYEHdwNpWYwtqZ2
+	 Jgs4fWKeSWAMQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w65UF-00000006K4a-3GCB;
-	Fri, 27 Mar 2026 11:36:23 +0000
+	id 1w65UE-00000006K4a-06SS;
+	Fri, 27 Mar 2026 11:36:22 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,18 +59,20 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Quentin Perret <qperret@google.com>
-Subject: [PATCH v2 07/30] KVM: arm64: Simplify nested VMA shift calculation
-Date: Fri, 27 Mar 2026 11:35:55 +0000
-Message-ID: <20260327113618.4051534-8-maz@kernel.org>
+Subject: [PATCH v2 00/30] KVM: arm64: Combined user_mem_abort() rework
+Date: Fri, 27 Mar 2026 11:35:48 +0000
+Message-ID: <20260327113618.4051534-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260327113618.4051534-1-maz@kernel.org>
-References: <20260327113618.4051534-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_043625_494976_F39190D9 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fuad Tabba <tabba@google.com>
+Fuad and I have been working on this "put a stick of dynamite in
+user_mem_abort() and watch the resulting firework" project, and it
+looks surprisingly OK so far. Disappointingly so, I'd even say.
 
-In the kvm_s2_resolve_vma_size() helper, the local variable vma_pagesize
-is calculated from vma_shift, only to be used to bound the vma_pagesize
-by max_map_size and subsequently convert it back to a shift via __ffs().
+This v2 is has very few changes from the original posting (cleaning up
+the comments in Fuad's series [1], and some minor restructuring in
+mine [2]), but I wanted to post the combined series for people's
+awareness and for the sake of running it through sashiko.
 
-Because vma_pagesize and max_map_size are both powers of two, we can
-simplify the logic by omitting vma_pagesize entirely and bounding the
-vma_shift directly using the shift of max_map_size. This achieves the
-same result while keeping the size-to-shift conversion out of the helper
-logic.
+If nothing catches fire, I'll may end-up taking it into 7.1.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/mmu.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+[1] https://lore.kernel.org/all/20260306140232.2193802-1-tabba@google.com
+[2] https://lore.kernel.org/all/20260316175451.1866175-1-maz@kernel.org
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 164f1160ea33d..5572b127f8663 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1646,7 +1646,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
- 				     bool *force_pte, phys_addr_t *ipa)
- {
- 	short vma_shift;
--	long vma_pagesize;
- 
- 	if (*force_pte)
- 		vma_shift = PAGE_SHIFT;
-@@ -1677,8 +1676,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
- 		WARN_ONCE(1, "Unknown vma_shift %d", vma_shift);
- 	}
- 
--	vma_pagesize = 1UL << vma_shift;
--
- 	if (nested) {
- 		unsigned long max_map_size;
- 
-@@ -1703,8 +1700,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
- 			max_map_size = PAGE_SIZE;
- 
- 		*force_pte = (max_map_size == PAGE_SIZE);
--		vma_pagesize = min_t(long, vma_pagesize, max_map_size);
--		vma_shift = __ffs(vma_pagesize);
-+		vma_shift = min_t(short, vma_shift, __ffs(max_map_size));
- 	}
- 
- 	return vma_shift;
+Fuad Tabba (13):
+  KVM: arm64: Extract VMA size resolution in user_mem_abort()
+  KVM: arm64: Introduce struct kvm_s2_fault to user_mem_abort()
+  KVM: arm64: Extract PFN resolution in user_mem_abort()
+  KVM: arm64: Isolate mmap_read_lock inside new
+    kvm_s2_fault_get_vma_info() helper
+  KVM: arm64: Extract stage-2 permission logic in user_mem_abort()
+  KVM: arm64: Extract page table mapping in user_mem_abort()
+  KVM: arm64: Simplify nested VMA shift calculation
+  KVM: arm64: Remove redundant state variables from struct kvm_s2_fault
+  KVM: arm64: Simplify return logic in user_mem_abort()
+  KVM: arm64: Initialize struct kvm_s2_fault completely at declaration
+  KVM: arm64: Optimize early exit checks in kvm_s2_fault_pin_pfn()
+  KVM: arm64: Hoist MTE validation check out of MMU lock path
+  KVM: arm64: Clean up control flow in kvm_s2_fault_map()
+
+Marc Zyngier (17):
+  KVM: arm64: Kill fault->ipa
+  KVM: arm64: Make fault_ipa immutable
+  KVM: arm64: Move fault context to const structure
+  KVM: arm64: Replace fault_is_perm with a helper
+  KVM: arm64: Constrain fault_granule to kvm_s2_fault_map()
+  KVM: arm64: Kill write_fault from kvm_s2_fault
+  KVM: arm64: Kill exec_fault from kvm_s2_fault
+  KVM: arm64: Kill topup_memcache from kvm_s2_fault
+  KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
+  KVM: arm64: Kill logging_active from kvm_s2_fault
+  KVM: arm64: Restrict the scope of the 'writable' attribute
+  KVM: arm64: Move kvm_s2_fault.{pfn,page} to kvm_s2_vma_info
+  KVM: arm64: Replace force_pte with a max_map_size attribute
+  KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
+  KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
+  KVM: arm64: Simplify integration of adjust_nested_*_perms()
+  KVM: arm64: Convert gmem_abort() to struct kvm_s2_fault_desc
+
+ arch/arm64/kvm/mmu.c | 507 +++++++++++++++++++++++++------------------
+ 1 file changed, 299 insertions(+), 208 deletions(-)
+
 -- 
 2.47.3
 
