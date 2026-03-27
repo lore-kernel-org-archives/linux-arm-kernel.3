@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7E010ED643
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704F110ED64D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tqxcv+CemeP4RpbyqkeQRYUzEChsZ1uBxAkXmmwWKA=; b=N9S0aqLuLVe9nCPskXD38J49+f
-	LZUONAk9CTpojNZmBmz9hE3JoMBMVDOA/Z5IRNMVf+8PjnLnBzzrUo3HzmTLOb6jprS2IWzy/QZCS
-	yx8R0b+xopWm6//WseH4XjBZ0ZTXjH69Gl7NXGKqxrPfXx69Dc2NdMbhc3HLpV1p/AoVngTnZ8zeZ
-	XImwE7zm+xjPMWqB7JUZ4gBQsgPTmoko7VJdYVoNVgXoH5g9DN3h8CLt6Gm/GID7SQcW5JmnBs527
-	EN+XKAXeru0X+YlDPQto6ricyc37bPOwzJccdXPLKaMrxZjJ3xbKx2T1sgf3eZilWvMY28siLoFiW
-	rEZ0/ymA==;
+	bh=SIlhM2qMFo6dSK8GC0TbpDUNloCygSkt2NM9zQRWDGY=; b=akrc0FL6+lD2yB2s9mLB7DJmN/
+	HKqXolihl8cbzuaDUGbOp+apeZBwifWoVWNrv35v6W2gQaBrmSY5rNKqQ3eK2/wia/UTZzgb3YqlS
+	WqTsq3xKq0PHtbBCQQ1H4Ky5zMc39XJWFX2mqhk8s33aiPoI5PhEP08Qm/ss83GrnioPwpB17F+nn
+	cKvkiLcmVpfwMoWuVbxNK5EQ0THD7s4Yau6gAIu6hvzUv1YxXY8/B7CiDenQWBe6ReDPaj0Bpj2M8
+	B9HhVKekbDRmhov/lVhqbp0llmrZIETOoSgLvVt0+z1wNDRNcbkM970iOtikdYTJyfgtelRPARbcQ
+	jyZIPspg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63pc-000000076yF-3O9S;
-	Fri, 27 Mar 2026 09:50:20 +0000
+	id 1w63tV-000000077Fz-1wY9;
+	Fri, 27 Mar 2026 09:54:21 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63pZ-000000076x0-2ugE
+	id 1w63tT-000000077Fd-1Xgh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 09:50:19 +0000
+	Fri, 27 Mar 2026 09:54:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E3C235A1;
-	Fri, 27 Mar 2026 02:50:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50FD835A1;
+	Fri, 27 Mar 2026 02:54:11 -0700 (PDT)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C93E63F915;
-	Fri, 27 Mar 2026 02:50:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F09043F915;
+	Fri, 27 Mar 2026 02:54:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774605014; bh=xGqDhRLT0ONetRUEOxZc/0mC+NNriKwAeI+b3xAsydc=;
+	t=1774605257; bh=5KkNXKFXPbf31+6X3nGXCwHQTOliXxDHJhxWm0sK3EE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HSPKfmR1Pfenjxu9tz32Aa30xPUnJs4sSBngvS4tlWPwJkUE3tdq/TgCaudiHSbjL
-	 qym9k6HpuKuXmjHB9B2Hz3I0lYodoXZ+2tK8oDlzDaNy0LRQlitOVqQaV3fspGl9sc
-	 b10ZoPCZH6UOsMVPXnC/8DrsePvIxQlHBn2fYv3E=
-Message-ID: <599617aa-aade-4fde-9efa-79d592f1ff3f@arm.com>
-Date: Fri, 27 Mar 2026 09:50:09 +0000
+	b=WOdpxI4NX3BG+hpX/5RtLozDV1bRMVxWnBxcLH1IQElOZvQMO+mDePmKVd6n1Fv7D
+	 5in7PsDiEjcZ5uvFnStVOJHZsud2i9al5Hi0W8xkj6g+9QXEiNENMRmQ7U4rsOj8V7
+	 WNK9pTC5PAEJycxNyAAHDQcXCcnFR1wXkftInKhw=
+Message-ID: <96b5d9fb-6e94-405d-a395-d7e441387959@arm.com>
+Date: Fri, 27 Mar 2026 09:54:12 +0000
 MIME-Version: 1.0
 User-Agent: Thunderbird Daily
-Subject: Re: [RFC PATCH v2 1/5] arm_mpam: resctrl: Pick classes for use as mbm
- counters
+Subject: Re: [RFC PATCH v2 2/5] arm_mpam: resctrl: Pre-allocate assignable
+ monitors
 To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
 Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
  "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
@@ -72,16 +72,16 @@ Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
  "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
  "zengheng4@huawei.com" <zengheng4@huawei.com>
 References: <20260319165540.381410-1-ben.horgan@arm.com>
- <20260319165540.381410-2-ben.horgan@arm.com>
- <TY4PR01MB169309AB957008DE0FCA442F18B57A@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+ <20260319165540.381410-3-ben.horgan@arm.com>
+ <TY4PR01MB16930BFFB7CE7FEB56CA693098B57A@TY4PR01MB16930.jpnprd01.prod.outlook.com>
 Content-Language: en-US
 From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <TY4PR01MB169309AB957008DE0FCA442F18B57A@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+In-Reply-To: <TY4PR01MB16930BFFB7CE7FEB56CA693098B57A@TY4PR01MB16930.jpnprd01.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_025017_783418_A8810872 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260327_025419_528879_560F7269 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +98,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Shaopeng,
 
-On 3/27/26 02:53, Shaopeng Tan (Fujitsu) wrote:
+On 3/27/26 03:00, Shaopeng Tan (Fujitsu) wrote:
 > Hello Ben,
 > 
-> 
->> resctrl has two types of counters, NUMA-local and global. MPAM can only
->> count global either using MSC at the L3 cache or in the memory controllers.
->> When global and local equate to the same thing continue just to call it
->> global.
+>> MPAM is able to emulate ABMC, i.e. mbm_event mode, by making memory
+>> bandwidth monitors assignable. Rather than supporting the 'default'
+>> mbm_assign_mode always use 'mbm_event'mode even if there are sufficient
+>> memory bandwidth monitors. The per monitor event configuration is only
+>> provided by resctrl when in 'mbm_event' mode and so only allowing
+>> 'mbm_event' mode will make it easier to support per-monitor event
+>> configuration for MPAM. For the moment, the only event supported is
+>> mbm_total_event with no bandwidth type configuration. The 'mbm_assign_mode'
+>> file will still show 'default' when there is no support for memory
+>> bandwidth monitoring.
 >>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Zeng Heng <zengheng4@huawei.com>
->> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> The monitors need to be allocated from the driver, and mapped to whichever
+>> control/monitor group resctrl wants to use them with.
+>>
+>> Add a second array to hold the monitor values indexed by resctrl's cntr_id.
+>>
+>> When CDP is in use, two monitors are needed so the available number of
+>> counters halves. Platforms with one monitor will have zero monitors when
+>> CDP is in use.
+>>
+>> Co-developed-by: James Morse <james.morse@arm.com>
 >> Signed-off-by: James Morse <james.morse@arm.com>
 >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
+>>  
+>> +/*
+>> + * This must run after all event counters have been picked so that any free
+>> + * running counters have already been allocated.
+>> + */
+>> +static int mpam_resctrl_monitor_init_abmc(struct mpam_resctrl_mon *mon)
+>> +{
+>> +       struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+>> +       struct rdt_resource *l3 = &res->resctrl_res;
+>> +       struct mpam_class *class = mon->class;
+>> +       u16 num_mbwu_mon;
+>> +       size_t num_rmid = resctrl_arch_system_num_rmid_idx();
+>> +
+>> +       if (mon->mbwu_idx_to_mon) {
+>> +               pr_debug("monitors free running\n");
+>> +               return 0;
+>> +       }
 > 
-> There are environments with multiple L3 caches within a single NUMA node.
-> In this case, mbm_total will be the sum of traffic from all caches within that NUAM node.
-> Is my understanding correct?
+> ABMC is not supported under this condition. 
+> Why does this condition conclude that there are enough monitors(monitors freee running)?
 
-No, currently you only get mbm_total if there is single L3 cache and a single corresponding NUMA node. Rather than
-adding partial support by summing across numa nodes we plan to add support for memory bandwidth monitoring with NUMA
-node scope.
+This is just a mistake. I missed removing this condition when support for using mbwu in
+"free running"/non-AMBC mode was removed.
 
 Thanks,
 
 Ben
 
 > 
-> 
 > Best regards,
 > Shaopeng TAN
-
+> 
 
