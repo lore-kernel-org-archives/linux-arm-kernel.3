@@ -4,163 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA96109E544
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE74010BA45C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=; b=3GjNcAgiZ7xeY1yVfL32TiuI92
-	mp2vnqofKxZEIhJz+9HdEPq+uf8owftSrySnuaVk2PNq7/bIEj2+uTUEj/tXJdz7WjHvjclJ2KPkx
-	3fXnShuEtK20+rcossSJUvhTuiYuecjpluXQlohGcPH/pudUueg80vwZcrdovsPBpCpku0swPfsBN
-	xuuY1WkQAXCgSalE0OjkURtvwq2mDsNK37B5SYYvSRS5vtoSnSeephS9f6xCr50m4G2p3l8DqeG3/
-	fFoyAPOPt0OeHAuo3B6pp180SRyqQXa2z6DDRv5B4TPioIU8Y/9WACA6OF50A7EHwFMsQ5sOaD+lV
-	w9fA+T7w==;
+	bh=1a0vPBy9+iA/IZEcVrDWkc2KTFbkSsKnIAGvsdKzx1I=; b=D4kjFAj6eWpdmunGM6W5PagTgn
+	Gz+Cjc0cj0faKMhojqyZr5qtIi0oX5ruK8aA2hlh5oNw93jIuuLbJ27d7Gvp652n7rJCJ85AW6BN2
+	uP53BcK7Vlvhg5izPDAVhCGdKOyv6Iw2EJqlFJYUaPAhfEvVTLojpEBpnYMnfs3BeK8lqwndPLKNV
+	rlD9T4tl2b2kn0noWkIuzrhSUrYBY6dju+sfVyeoWrC3blshrkzvorflfaYSv0YsybckrFFxQpYd9
+	8SvzhEZNlr5UeW3fGhoy+9E7wIayG3aIir+YFuwN7DNpdftTrJEdvZVz8AgsR9ZBSRqIWohKLMgRP
+	RJTKaQnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63b8-000000075Gm-1KAU;
-	Fri, 27 Mar 2026 09:35:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w63d2-000000075Qx-32fh;
+	Fri, 27 Mar 2026 09:37:20 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63b6-000000075GP-0f8V
+	id 1w63cz-000000075Q9-3LX1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 09:35:21 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62R6vhjc731300
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 09:35:19 GMT
+	Fri, 27 Mar 2026 09:37:19 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62R6vere2378956
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 09:37:16 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=; b=dfqtedcKdd+VWg1M
-	7rr8jESz/4pyob5K2fouLMEhfpda0yOt9fk6Il6m7RWjeliiACai4e+ZB2hlrx1I
-	9MgYxRv0KQ/ku0BWB2gtqXXvKiBRNyf12jRfiUQuuolYntBskTlFgAufv+olHd4U
-	9+pYzSrzGS/nBGGzKPqngAx3//YA4A3M7kaA4l965KaJ1iChtAww5Rf4BioiNEed
-	zzoIYSIj9ktfWv7IMm3l/NGkcKvqOL4pYOu59I2WfsLqBIG6r82rTb5Ka8Nq3b8H
-	ykkyk8hGHoSagfqLpuEBqOyCW+kifxN5Cw9NttYhmJ8EX02pYG8IZakCzrf4EwZ0
-	7Q/RGw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d5a9q2rym-1
+	1a0vPBy9+iA/IZEcVrDWkc2KTFbkSsKnIAGvsdKzx1I=; b=CqouCsF/BSHA/4Sp
+	I3lspYnwvcOJBCB9VvzvgzksbD7w1yjFOYl2dkSbNs5nwS2TN1Bp0nu6ey4FmXpY
+	xSdxKWRumhwj6qDR5bHBscdPJ5oyaMDs0nd5bOlOfsTdkACBbLm5XhgirQIMhBcN
+	8GqPdv3L4oY+nHQd5IlrlGYBrdCJuDiP6UQTvAa0KcBOF6K1eqKS/2JrFTT7iBYJ
+	p+x4u7giiaE3IWI97MxnXC8bTzgRdDyDgyAjUCZbSvCIbGr7cHNzICZ48ByDvyfd
+	C3M/v63aMdguvV7oWbSTugfAsL9qZU92gSxiKn+XHtmpHGiR/edslSk1jBxUYlsF
+	C0LfcA==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d5jcx18tb-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 09:35:19 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b064884a7cso63019355ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 02:35:19 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 09:37:16 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8cb456d53a5so58235185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 02:37:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774604119; x=1775208919; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1774604236; x=1775209036; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=;
-        b=LoAAVv7P6irz0ORE8+L0TXYDc3cdOFwAoCU1+KNKgLvoc4MPwZuljmpj2m3hwuCzSp
-         upmT5nVdxSobEBd+nYxtSh9ObdK7SfpOk0mOD4j7C3F/xaJHHCyi7x2xuJXlZTPV23UC
-         cQhHY2CdQWrN5RDS86+STBbIStPCcHkb1vMNDPYyOZF6yZFMHxau4dKs8jxy+57Dw6v5
-         lwi7EbIEwxInGnRNNIchDY+ITHUqgbsEh7FNXpP37mSqYeXIUnpbHOhDTDsCF2KhL29n
-         WlugyqQL18v067tDinjZ/1ek9+aHibStrmRy8wkOs0RuOpsSU7JMRejmUfgB0OwRCv1K
-         sLEg==
+        bh=1a0vPBy9+iA/IZEcVrDWkc2KTFbkSsKnIAGvsdKzx1I=;
+        b=HNmfHZ+KkKX3ZEgVX+iur0mUwYWYPMoTLMmGKVKv0w/3AB6HRRak8FkRsWoE9gSGNn
+         En+9H9TZ2zNY7T2cIJ0FZRhFYzwkTJpivf5IAT49BGYXWtKoMmuC9Dhvtrf4yqB6pDOW
+         vRVkeHgv0W58gYY4453qZx1S98tOFIy1qu9P1PPd2b3uX4a6MWzGpLaj+wP1h1TuK3S4
+         NDQdRpcPkvZBLMYXno1KXFMno5uZSZzjzC6Eh8i89xilJm2Sf1X6/9uWg3hOxIsun4Ah
+         2s1/xlJ7969h99xWdMluThlWHoCGAwNbG6hkJruPQpD+bvMg5pJI4M6dvUMxNSGc0VMD
+         OVeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774604119; x=1775208919;
+        d=1e100.net; s=20251104; t=1774604236; x=1775209036;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=;
-        b=SjSVH3t76mYsfPc/ozm3cgtVl+4kR5wMgb1WtkUbXGOhm3kr+WCnnrdv5/vqG7zZ5V
-         s/MAGT7qINAVIlQvj24QvOqf4eIPIDJnepk54AOmSwVtUqIigjPjsZoZIbZ+Hixk6/m0
-         0aK5R0qxCU139g1hc+tLSjYcE9Lwg/yICwc58IRNqMEIUWp07GPSEKPu2myfes2BEzca
-         2qNoCAm1SIvluYx7+9YliWFB4gSmO/bk8E/On3qdoWV9WY3PHSzwztUL3/t+pYBlx9Ci
-         5wEswVMXDEhr3wzw2m5IdWN/Qq/drB9eeC41seWXGZgJUjL5TOdzti+nlmI26sg726Iq
-         MB1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUI2FLgEdkMT6eMQOMMKSilW5WfyPrSGF65pos0lNM+R3ecmIEtM6SpAwvld7rUhuy3x1QxiI5k+rVBtWwESHCR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWPM1QmOd6a1Yjlb/4Ap7QKqboWOs1Zf9fvSIpxpExWiI8eMl7
-	Whep4s0sYEM5FTW1FHmSGlRyHMdIWro5tQLxG18fkhB6+k67QU8oQFOJ1bgjX3hwp2I+cLUAwn3
-	GzfQFvBnLmUbbPUAUtaANuTQsksyVCwlSxY90myF0WpcSiNyO+dO4aPxvMLTwwuYWseNqtM573r
-	iFDQ==
-X-Gm-Gg: ATEYQzy9ws7wcwzA68w+oLO93NhRbz4wM+SxhD0QM/yj5FvCxCWahS88pW1RFPfrKgO
-	iLao5kKV+PY1hmmL3Wl94tJXp5B42DZcn8hpRkBq+g0TgyhCQU108SwEEcmiJJKBUzr//AcdTrw
-	3q0RNuKFLock3zLrO3+lr6JgqGvbt3OGyVd17Yj0Mt6/MFuFaWdkqhj9GU6H4ZftAJ7ix2wWDDU
-	2bpj3zik5akA2LZArXNERq43R4kcxdMtIVRvy6giFdc4Z2W7mWSt17Zg1iLUMQ0YfAtobg5RwS0
-	5p0lmUXUJfiTGEIOAlDBN0sRqpPAJpBu3veukpByFRL0x84fOmA9OrkAuChMB9YyXvuobg1PEYs
-	07ulDAeDGHyE5e62LLr9kkfGsmU1545XHLW0/m5DWHkkaO36lj6iNpj8P
-X-Received: by 2002:a17:902:d502:b0:2b0:6d8b:6a07 with SMTP id d9443c01a7336-2b0cdcaa738mr20284175ad.25.1774604118590;
-        Fri, 27 Mar 2026 02:35:18 -0700 (PDT)
-X-Received: by 2002:a17:902:d502:b0:2b0:6d8b:6a07 with SMTP id d9443c01a7336-2b0cdcaa738mr20283585ad.25.1774604117910;
-        Fri, 27 Mar 2026 02:35:17 -0700 (PDT)
-Received: from [10.219.57.109] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc7a7e3bsm72543195ad.27.2026.03.27.02.35.07
+        bh=1a0vPBy9+iA/IZEcVrDWkc2KTFbkSsKnIAGvsdKzx1I=;
+        b=RMKoLkd0Um+KRs8zsin7kAsuUYfS82FYUe75S7oSFXSXdQjpxYsi4wK/IJcmRRjgj9
+         NV1szZIfM8IegpII1EMSKTE3EMhFuQYBbWJ6JKtAtPwkHgNuMUDSH6uzFiMTMMIqRh4S
+         DYxWLA4P1eDHlEPUTEVk2yz2MWyBTWifdlVLTNng+He1L8DvumhndspmdMwLNwlZzCJW
+         Cv5Z5tw1L6E7sWhWo79oNgUaPWzmjjRtXIUSUhpTSsM2/wKOTvs67506EK42bEeMGZUT
+         I4RefbChvauQQZx3mpC+uetRDsrs5mairPp2JeB0KGRA5csQBERz80HTe2UPBPQsEfbu
+         oc8w==
+X-Forwarded-Encrypted: i=1; AJvYcCW66KBgwKm5YJ+rk7sDMU4BxXtGn6H5xS0N7/T893I+gvxg/YCKb1vKa5ovHXK7XqBSPcfOvdmorrCBqTfGyQ4F@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCM7ABVdsuRvp7p+wjlAJ8Tz8fhCwtmw0L7hCZpcbts+PL7OsA
+	Wd5qGKbWfKDwFFzlFfTWXOK6/BK6FSyk4COOGE2Qof4QVLQiEOIBytMAejM28COdeU1vcDS75T8
+	ltR+58Qc0zkU2upCqPlP43Jkrr9+rkQht4hn6FW1SPVZSbJjIw7mOkWn0jSfiTaEho+5E0jHCrU
+	oKqg==
+X-Gm-Gg: ATEYQzwvoD3dNmZz3hlW78slqSHH6haRPo2nVm6ZDav4jLs4r5se1TTQCpggDw2PRh1
+	tIdTj8k5LpkkdDBZYrSWvUiCuT0XScTRtvVCIH5lmoVjdqHnVAawM/uMBfuzP1mr03D1tHaczoo
+	OLjcyk5qG0ynQkoiCAVxeXodii9b2ISlSvsRSxGBbZsmzXuNMcV0GpkRx18fhMVP5AF+CQ2fKcD
+	ms6t4gvPo8Om+rPe0QC1QRe1YyTqJfJM0Pj3+6Z9qEy0ljlRkOoIpIxkryd/4WizVKbMb+EYQB1
+	lWTz2EijkkWMV8CNTghsf6TVROPEoXU6mdgMpzhkQE88FH+F+gHK7JuufeRrEi/qz8ZtgLQytAU
+	1t7nqmopazca5m/EUMST5h8uwoZ9M0XEKeOobNJFBbq3U6+2g0CVCjcFw0KjOpZZXW/OTU0Uqlm
+	4fo4M=
+X-Received: by 2002:a05:620a:444a:b0:8cd:78b6:e261 with SMTP id af79cd13be357-8d01c5f28eemr140647785a.2.1774604235999;
+        Fri, 27 Mar 2026 02:37:15 -0700 (PDT)
+X-Received: by 2002:a05:620a:444a:b0:8cd:78b6:e261 with SMTP id af79cd13be357-8d01c5f28eemr140645785a.2.1774604235596;
+        Fri, 27 Mar 2026 02:37:15 -0700 (PDT)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-66ad6048508sm2026149a12.13.2026.03.27.02.37.12
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Mar 2026 02:35:17 -0700 (PDT)
-Message-ID: <2c21c307-99bd-4051-8c09-06d370ad9b24@oss.qualcomm.com>
-Date: Fri, 27 Mar 2026 15:05:02 +0530
+        Fri, 27 Mar 2026 02:37:14 -0700 (PDT)
+Message-ID: <cde5bcb8-685e-4e1d-ac61-9a216e8ab040@oss.qualcomm.com>
+Date: Fri, 27 Mar 2026 10:37:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/3] of: Factor arguments passed to of_map_id() into a
- struct
-To: Bjorn Helgaas <helgaas@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>,
-        Lucas Stach <l.stach@pengutronix.de>
-Cc: Nipun Gupta <nipun.gupta@amd.com>,
-        Nikhil Agarwal
- <nikhil.agarwal@amd.com>,
-        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>,
-        Saravana Kannan <saravanak@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Bjorn Helgaas
- <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
-        Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-pci@vger.kernel.org, imx@lists.linux.dev,
-        xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-References: <20260326161957.GA1324845@bhelgaas>
+Subject: Re: [PATCH 1/2] arm64: dts: qcom: lemans-evk: enable UART0 for robot
+ expansion board
+To: Canfeng Zhuang <canfeng.zhuang@oss.qualcomm.com>, konradybcio@kernel.org,
+        andersson@kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260327083101.1343613-1-canfeng.zhuang@oss.qualcomm.com>
+ <20260327083101.1343613-2-canfeng.zhuang@oss.qualcomm.com>
 Content-Language: en-US
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-In-Reply-To: <20260326161957.GA1324845@bhelgaas>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260327083101.1343613-2-canfeng.zhuang@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: vv9cWmZiKxKNySYma8mWpb4AjaB20IKC
-X-Proofpoint-ORIG-GUID: vv9cWmZiKxKNySYma8mWpb4AjaB20IKC
-X-Authority-Analysis: v=2.4 cv=J4GnLQnS c=1 sm=1 tr=0 ts=69c64f57 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+X-Authority-Analysis: v=2.4 cv=NfTrFmD4 c=1 sm=1 tr=0 ts=69c64fcc cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
  a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=vU6kfqNVzfA0ps7fDeEA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDA3MCBTYWx0ZWRfXx/by5RQB4r3f
- b1j4BrdCrMkeJzOFTGDFK/unqIF/jgf2qdzq9LWiuliT9qlW6TzaU8PMyeUhKXrdrah9830lzhX
- 8opk7YnKR/y9QfwhAT0YSDjBZU9bu0hJoXQ0h8ptvEh/8PZ+b55Xhcd90zbfqmEq+jmhhKyil04
- L53dD9oI3ePRQD5L+4tE0cQxaHyDz/0OOIHX+Ln1XPhlhbwRgb0F7hAOjZ1IrNwpCqvUGF623ML
- Sb3nPNsoN1qgXtzATa/4Y1Br+wvjrX4WGU+fhw/omgNa6Ttl3lZ1MAMJRBK9L6eGQwyrVTt6/VF
- EBkUJk5Q/gf+onI7fR+a8s36zYJN+E+adCNExfaFHsqM7SPok/fgp1KorkmxsN8DC6rGMUCjpdh
- CaGyZSQNGLiO1glRFLowaU2qtqKi+Fuw+wpBsCP55huIffzvF5/lPi+DwA9l/vXjEAOK4sWx1dq
- CPt3SkABrBIcSxxLsMA==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=GeFP3kUyQ-hAHLItCtwA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-GUID: UJbVaJkT30ToqoZBKwDt8gjXrNwboa3z
+X-Proofpoint-ORIG-GUID: UJbVaJkT30ToqoZBKwDt8gjXrNwboa3z
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDA3MCBTYWx0ZWRfX0MhW57q00eEG
+ HsMf9icWxpqa6AkbDH+NH9xreTA3dFuMshsk4Bm3rLpagwSoo56YObHEdWdCXojLNAoWJLOdGxP
+ lOqzk7iVMaT/nKzCgzZ9yI+3RWn4WMm3vW2tn5hpBYP5iCdimvuuwsE4pSihzwuy1i+u41z1IGu
+ im7seYpEma3cg45ke6DQvy/PUw2w7jFl0HHR/uI3slkKlYFr0IuoxoIimKc7xt8x9wUZqr8rNOV
+ BBODWLVADLmrtBDU8ccRQULbTK4UN4tC1pUc0K25OeYgRytTql8XxNe37Sog2YaSzpxPidX9Xc7
+ /c99uaN31huz/g2C+Q3qSokOfy8CV4GkCeKGy0cX0Iq3Rn2DWOEsu2fe8fHuyA8KzCOzqjiUbh0
+ mQ7L0Zgt7E8YRMFTM/5FEOOyZwUGzyGVaBWwpry97zJCyQC1HEQUyJNwBQ3idWhiPx05Dwh/K7u
+ TzDBQoaoZB01wzMr2mQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-26_04,2026-03-26_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 phishscore=0 impostorscore=0 bulkscore=0
- suspectscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603270070
+ adultscore=0 impostorscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0
+ spamscore=0 bulkscore=0 suspectscore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603270070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_023520_241086_3C115978 
-X-CRM114-Status: GOOD (  30.95  )
+X-CRM114-CacheID: sfid-20260327_023717_982511_89847B44 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,139 +150,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/26/2026 9:49 PM, Bjorn Helgaas wrote:
-> [cc->to: Richard, Lucas for pci-imx6.c question]
+On 3/27/26 9:31 AM, Canfeng Zhuang wrote:
+> The lemans-evk mezzanine connector supports a robot expansion board that
+> requires UART0, which is currently disabled. This prevents the expansion
+> board from exchanging data and control commands.
 > 
-> On Wed, Mar 25, 2026 at 04:38:23PM +0530, Vijayanand Jitta wrote:
->> From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
->>
->> Change of_map_id() to take a pointer to struct of_phandle_args
->> instead of passing target device node and translated IDs separately.
->> Update all callers accordingly.
->>
->> Add an explicit filter_np parameter to of_map_id() and of_map_msi_id()
->> to separate the filter input from the output. Previously, the target
->> parameter served dual purpose: as an input filter (if non-NULL, only
->> match entries targeting that node) and as an output (receiving the
->> matched node with a reference held). Now filter_np is the explicit
->> input filter and arg->np is the pure output.
->>
->> Previously, of_map_id() would call of_node_put() on the matched node
->> when a filter was provided, making reference ownership inconsistent.
->> Remove this internal of_node_put() call so that of_map_id() now always
->> transfers ownership of the matched node reference to the caller via
->> arg->np. Callers are now consistently responsible for releasing this
->> reference with of_node_put(arg->np) when done.
->> ...
+> Enable UART0 and assign the serial2 alias to provide stable device
+> enumeration for the expansion board.
 > 
-> Not actually part of *this* patch, and AFAICS this patch is correct
-> as-is, but is it necessary to have different logic around
-> of_node_put() for imx_pcie_add_lut_by_rid() and
-> apple_pcie_enable_device()?
-> 
+> Signed-off-by: Canfeng Zhuang <canfeng.zhuang@oss.qualcomm.com>
+> ---
 
-Thanks for the review comments. Right, there is no need to have different
-logic, I will update imx_pcie_add_lut_by_rid() in v12 so that of_node_put()
-would be called unconditionally.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
->> +++ b/drivers/pci/controller/dwc/pci-imx6.c
->> @@ -1137,6 +1137,8 @@ static void imx_pcie_remove_lut(struct imx_pcie *imx_pcie, u16 rid)
->>  
->>  static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
->>  {
->> +	struct of_phandle_args iommu_spec = {};
->> +	struct of_phandle_args msi_spec = {};
->>  	struct device *dev = imx_pcie->pci->dev;
->>  	struct device_node *target;
->>  	u32 sid_i, sid_m;
->> @@ -1144,7 +1146,12 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
->>  	u32 sid = 0;
->>  
->>  	target = NULL;
->> -	err_i = of_map_iommu_id(dev->of_node, rid, &target, &sid_i);
->> +	err_i = of_map_iommu_id(dev->of_node, rid, &iommu_spec);
->> +	if (!err_i) {
->> +		target = iommu_spec.np;
->> +		sid_i = iommu_spec.args[0];
->> +	}
->> +
->>  	if (target) {
->>  		of_node_put(target);
-> 
-> Here it's conditional on "target" even though of_node_put() checks
-> internally for non-NULL, so it would be safe without the conditional
-> here.
-> 
-
-Agreed, here of_node_put can be called unconditionally , will fix it in v12. 
-
->>  	} else {
->> @@ -1156,8 +1163,11 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
->>  		err_i = -EINVAL;
->>  	}
->>  
->> -	target = NULL;
->> -	err_m = of_map_msi_id(dev->of_node, rid, &target, &sid_m);
->> +	err_m = of_map_msi_id(dev->of_node, rid, NULL, &msi_spec);
->> +	if (!err_m) {
->> +		target = msi_spec.np;
->> +		sid_m = msi_spec.args[0];
->> +	}
->>  
->>  	/*
->>  	 *   err_m      target
-> 
-> And here (outside the diff context) we also call of_node_put()
-> conditionally:
-> 
->   ...
->   else if (target)
->     of_node_put(target);
-> 
-
-Agreed, same as above.
-
->> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
->> index a0937b7b3c4d..c2cffc0659f4 100644
->> --- a/drivers/pci/controller/pcie-apple.c
->> +++ b/drivers/pci/controller/pcie-apple.c
->> @@ -755,6 +755,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
->>  {
->>  	u32 sid, rid = pci_dev_id(pdev);
->>  	struct apple_pcie_port *port;
->> +	struct of_phandle_args iommu_spec = {};
->>  	int idx, err;
->>  
->>  	port = apple_pcie_get_port(pdev);
->> @@ -764,10 +765,12 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
->>  	dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
->>  		pci_name(pdev->bus->self), port->idx);
->>  
->> -	err = of_map_iommu_id(port->pcie->dev->of_node, rid, NULL, &sid);
->> +	err = of_map_iommu_id(port->pcie->dev->of_node, rid, &iommu_spec);
->>  	if (err)
->>  		return err;
->>  
->> +	of_node_put(iommu_spec.np);
-> 
-> Here we call of_node_put() unconditionally.
-> 
-> I think it would be much nicer if imx_pcie_add_lut_by_rid() used the
-> same style as apple_pcie_enable_device() and did the of_node_put()
-> unconditionally.  That would untangle the function a bit and make it
-> easier to analyze.
-> 
-
-Sure, as mentioned above will align imx_pcie_add_lut_by_rid() and
-apple_pcie_enable_device().
-
-Thanks,
-Vijay
->> +	sid = iommu_spec.args[0];
->>  	mutex_lock(&port->pcie->lock);
->>  
->>  	idx = bitmap_find_free_region(port->sid_map, port->sid_map_sz, 0);
-
+Konrad
 
