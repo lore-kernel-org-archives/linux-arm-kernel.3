@@ -4,63 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB9C10BA421
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 03:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318F510BA420
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 03:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FHofDrFOSqIg9lRoZJqQTBkCqrg8GuJBXjJ+jk8IyEk=; b=aDNIa2UuK91zuE9CSnFZarrM5h
-	3AYMlb+Jtjkjmil1ejVW9uDBeiosyPvZ1sZuXirgsAEHNgbarg0nrJI2IU/hs3kn5K6Tase7DJ86D
-	g4JH2ojet111eRuMB7W4cbvm5hATHQ54nUsbnH+9Vq44t7I70BpDnS26lhGd0KmvYLd7xitLSyYi2
-	jH4seT6k9FM85MYdfhXqi4MjbMcmuw6ImxsodAuwrjUePgNPiX3Qh6lAnVD7DIBSmi581D4gt/kxL
-	Zx1AGuNo06h6/SUe3V5bZ3/NVi32wmu5Uzf0dZyIuvba0tRJKnpuodI4rJoR27DUPgJOAYzWb9Bhl
-	9g3Alu8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2kU1BXCpyTAtmvupsa85VPyM3TsjQ5MqLVzCBVzazVk=; b=nhwI/UucC2NBeTTqOpVcbUy65k
+	D8ZjjNZqJVQLHKUSYDkKvs0kY9Eb3Y05MrJ4x1GU7jSMo8vVnkl1cdA0j8XYRhmUv4RjP5r5dEtcn
+	/p7xVlp3z1spyIYQgJMLvJUq3YH7Vusz1UrdgYWI8MckV4dfXYSMNOzgni/GkiWVcopLgNeIiTlTG
+	iwkSsZyUq11pyvuPYun4xW8586p0GlA1M5y2nY+kgtfrnCm1ESWtJqrq4YPM+Tkz4ODILmNwfRw27
+	k1lBQ8I4MHWifTabLyuryT/nJswskMyKE8hKILvyL6y0B0DdKKX4kxgnLPdFkilS1mST7yPgDAZdM
+	l4orE1Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5xbh-00000006bLs-3oKS;
-	Fri, 27 Mar 2026 03:11:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w5xfg-00000006c0k-3DQZ;
+	Fri, 27 Mar 2026 03:15:41 +0000
+Received: from mail-northeuropeazon11012024.outbound.protection.outlook.com ([52.101.66.24] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5xbg-00000006bLg-2RAq;
-	Fri, 27 Mar 2026 03:11:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7CED60054;
-	Fri, 27 Mar 2026 03:11:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3CDAC116C6;
-	Fri, 27 Mar 2026 03:11:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774581090;
-	bh=dB+xLM5/BZobo4u+rQqw4CvliEp3K6y7TB/YZt1YJXE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hnEOWSIjDgs8Si4ZA+9p7wvM4GqPZOP3iTc7uW8RsAl+wrqi/G1ISlNSR6zd/8r2m
-	 AMoyXNjtmJc/XfB4MD55XWgd1cjzqHMkrPysOQpyNRA9uwwO6ouydbN1/2crVs8gcX
-	 lijd8N7xRyRGaJ7CWdjPlLy4PSBvBiFkdPae0PS2L/z2VFSWfdD3RgUMej/gZCq18Q
-	 S3F2XxGb5ylKd2td+Ua2vL+2d2VkqfdQjU9jF4UuRj6aXLZthuT96AsgoHud6TMu4C
-	 STxmABtIDqoAG/duu/F+y00rQkIqq3vx8PHaiY05Youa6GMX22jWle79r0wF4VQ9gl
-	 XmU/Cm/V+nzlg==
-Date: Thu, 26 Mar 2026 20:11:27 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Siddharth Vadapalli
- <s-vadapalli@ti.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod Koul
- <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 0/7] J722S SGMII support
-Message-ID: <20260326201127.7ceb290f@kernel.org>
-In-Reply-To: <cover.1774354734.git.nora.schiffer@ew.tq-group.com>
-References: <cover.1774354734.git.nora.schiffer@ew.tq-group.com>
+	id 1w5xfe-00000006c0J-1E2J
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 03:15:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sLpR4kgT7q28rcYBwTJxGT8TzLS6bM64d0QB2aNrd1cMyKJp8K41LMp9/tmV2V3IdFYiZ5cfPhqN2UTkwROa1jsGE4u5L7v+yNpwoCXojpxP9hrQByMzHRLSqeCjIzr46DHXuYb9+OrKqhIWmIhmG08rGwNR3SR69bL5AlU3PcDxKFulNZBOfpf3HJthUv69exC/K2TGtxT8fCpaO2i3d91vG7yoC1VVFGtSdVPnCw2ucFZyhGarXFLfBnDQ4l7D3/ewGyMZFjUwhkOxqQHSbMDP3mKDbLtm+7/gkYu9YvGoZJ14qnMlYuVlRpt/GP0yT+wYbIRZaI11yyldhfhvlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2kU1BXCpyTAtmvupsa85VPyM3TsjQ5MqLVzCBVzazVk=;
+ b=LxBIpylun79PYL7YRsCM4og/iPOmLCE7Vbbf/rCjWSCKreDqRSGXXjbx9KRPlLKvWxsG3rhqGucVavteTzkykD/HUTWdFfEsWcSbyvvc6BNXmpslcf9qeuzre84tn2+taMzSbTKbR3EiODU0Elc4H1rb2cqLyCzk/GKdAT32Zb6dHuz6M8NxXzZCOaFZ+NExQfvyDkFFC5E+NTNAD+csU8zQdbQhEe1FBwRjzjZfpwXuQSCoXDZuzcVGsBSRwRZnacxHDsc6D0qQLdUk+KvOY9u7bZNMsV/KkCWVAIHx9mKE83ISR3RcywHvVo78hOGhNu6IaiqbiHkM10FCOmSfSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2kU1BXCpyTAtmvupsa85VPyM3TsjQ5MqLVzCBVzazVk=;
+ b=TrXGU9eP/NscCEAVHGyEj/N0aC3V3Ai0lj+DP2qRzxSCD93lxj/hW0B3YDPAVXSOk3MPk1rHpMjUkDrDoBDY5F/6S4DhrbWlTDU0y2nRXIp1cjurnr+0kb8xMX78EIVeRNYZfjH0iQqnS9OZIL0Xy/6BJoWGkLbQFf2qq4+WX2wzw3O+o0SW8PA4Jg8zxi/mWUctUfrEzQHISZT/5U2ohmfDmsZTaLXdsbUQwE3Pyin42Jiqusa1RASLX41o8jVI+VfdwiU9Dyt2ABxERkqXugorZpKAUSQnhpi2S4wj4q7LXFRpaow36avlRE7zaxjugsbc3fu4Ah25JXbArcKXqA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by PA1PR04MB10652.eurprd04.prod.outlook.com (2603:10a6:102:491::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Fri, 27 Mar
+ 2026 03:15:29 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9745.019; Fri, 27 Mar 2026
+ 03:15:29 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	shengjiu.wang@gmail.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
+Date: Fri, 27 Mar 2026 12:15:04 +0900
+Message-ID: <20260327031504.497650-1-chancel.liu@nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SL2P216CA0092.KORP216.PROD.OUTLOOK.COM (2603:1096:101:3::7)
+ To AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|PA1PR04MB10652:EE_
+X-MS-Office365-Filtering-Correlation-Id: e686697e-e426-43e9-84f3-08de8baf1987
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|1800799024|7416014|366016|921020|38350700014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: lfkSbJgOKfADA/rfsJkuLiQeYLskvMJVJq69+HV/XMXMSzi2C9ez0JWrIg7fXfSzDbvK7owCeInbJUujLc8SmyjMMPU1YPVZEInCT90ebe6YLFBbgf66bgF/ELAhysVY/O+NfRePK74bDISZFKElX3YRYg5I91INPzT+yR8VMIpj7Gau+lkqc6tAV+cTpgQ+2f4MLCjpnPV3nkco270VJBhL2TzJK1X8fdDLLocPPn+DOka1qZuPhiyBAuikzOkmIFz4IbVkhqs4v07oZEVPmv2kwQ48Yx/Jkquq+ZE0Pc3dbIYU0RctFvEg9AVIjnPs944q2Dm399YHwv5TyzXGtY5sqgFDs0QqW+BftJN5s78vU2gmFXMuQDgQbjCCBayiQZkkbe3N5F97VqM6/eelz976WnuluFpyVsXip1nNpzOoGWfKQcFLlVkzl55qc4MIM6ci/jvA9GdqxZ2HQNp+m4E/er3DPffj4zSp450VPg/GIXfHQVrpZ5z+c0NWFepbM9vmnBHxmQkWwcWadBUzHNtN0If2uqswIvFShOdWN4u12O5jFD3q8JQ7TPRc/PrPrQrt6AmD+9/+dfG0dqYzdGC1NNyYrKOXWClTgOs8vGyZtd3yJOW/Hv2FyGfFbYi0OxemixcEG+EbS4q5nIS4Tt3tO7GGCmwKQ+tKVATBi9/fRmkpqlrwoEA3OR/awL/gYu2Yz/xpoLI3aMIuMuoVE2qLDvCTNi+Hmf+hpmS3neIATlF6g634VIlodpq+pvklhuGI3zaPD9yCuJD4NcW/eM1s/AQrbWfJybs/NbWIVZKF5ym7OfYoLaAeIjeqFWld
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(1800799024)(7416014)(366016)(921020)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nrOHYWj19y2MaVWSDyGqd7wwrsRb5dZGEdFDembJALArWQTLhGhMenfzImfd?=
+ =?us-ascii?Q?a1KpOuVnQ/oz1KiEsLNYcMYTrkud7qLDRdJAiNvGx9vmBGSdTJXpqaG93Sos?=
+ =?us-ascii?Q?ub7dI3hVUgwiCLIsMsrRxXeo0PVWI4MJCDXGwIOMEb3fLqAPVcsSXzCFN8Mg?=
+ =?us-ascii?Q?Zii4pgHcvznDX+29X2p1+vqIPdY3ySpV+5KSJswfiKFlrHsUNVBhy4hop7I0?=
+ =?us-ascii?Q?rp8hsaz5+cDRzuDDmAdlGghIz1YukoDu8TETexmsypAxf1dTGvMQlK+XDE33?=
+ =?us-ascii?Q?2nlh+gD0vHsSq9k7QE/q7fjCLytS2+Ex6XV/HxfZBUgds1ksnpo62xZQxE7t?=
+ =?us-ascii?Q?Eo06g4CoEjLC8OZx4zKHCUZXMsSYzA6k0YCP0ODPaWKg8rIDiZxDSw+7pJQu?=
+ =?us-ascii?Q?k4PcCLckvU0Xtrn2I9xb3ET5PI4GXVvAkB78lgoINIFsZbYqAmaCa9iE0IEw?=
+ =?us-ascii?Q?kyTC7rnU3zzEQFJuJskEbgTkmVcgt5KeQaG/qcXCvzLcUHHG+dMKXkrTsPzs?=
+ =?us-ascii?Q?eJFeahnoOdJHSCRm0P4T6Qaw559ilT2/bWOwxVtNH5zGBlyNsNDKn4wJCbWS?=
+ =?us-ascii?Q?32E4dISxjoqZnCvpJDdUDhESOUSG3Ejb5InIvoKNl+5dnnxKgS6NXru3hYVG?=
+ =?us-ascii?Q?8e2DdVY+zlmyhaXwenD7pKToXKGvZKXHAmC5cwAOmB2xcVNppeyv3hieul3D?=
+ =?us-ascii?Q?UdDV/MvIWJOTVv1d8iEiWuBQk+oPBbsA+9wiYRe2ny/I9SihrEI5t1UYDxf6?=
+ =?us-ascii?Q?8Sm9VNymJN/ZUTYVD9eoKULqEqcCvpGdM3qWX8Y6MoM3z4WnuEgaP+QIYZ27?=
+ =?us-ascii?Q?AVQIaBHdebEOFn1NvfOKQ/4eY94mBOl63i6+qj+tdrIB1X1UAaMLWE2oeFVG?=
+ =?us-ascii?Q?DYpb/IMADepUbjFW0/DnDL8O8xUAebzWuHfyjwYY3SCDIoNLZasW6n3bwll+?=
+ =?us-ascii?Q?yln9SOYlWZp8HnCgTU6VZ9UCiKf9WwXCL3oDmAiJK5AzCBVwe18vkihfOmQX?=
+ =?us-ascii?Q?D0SXyKc7CBvlvYp6TwHJrzck2oTLXtHoNcubT6oNhd6S3ZfSfntQr42w815/?=
+ =?us-ascii?Q?IUCVrJEZshPe85sLQk+Wvgs4a3DuaJN1ziWP3w4Epjz35zOVnznvEa4HbsYT?=
+ =?us-ascii?Q?n0g85i4x2cmypMA6SHokKt/U2bnzFi/9onrL7tzQLtQkxkCmiMl92KDdDhP7?=
+ =?us-ascii?Q?dBdJecYUOap1vEcUQnK169QjRcHZY9+n6X4qEh5LsZj2C/hQtrM3LI2tLEX4?=
+ =?us-ascii?Q?rxEaj13rr8kT1SGEvJHPRw4UhJA/PXpQOf2aaBVFtr5LB6JpUhCaeQkQ436a?=
+ =?us-ascii?Q?/rTa2zDbRhsHcJz8a75wcgJeo4/YRO18W8Kf7qlHy3RsMjaTbgpHaj41IFoT?=
+ =?us-ascii?Q?7CIKiFG2dbZ2NFaxFe2Ilq3tBz4/3bNnXvzkfmI5QZxjE6JcPP3+7/uYVo/H?=
+ =?us-ascii?Q?RFx2Z1F4eUBsOUpTJ6dbRcG8+iXOm3eoztFhcBSdiTGCNY6osl73zl2VwFJv?=
+ =?us-ascii?Q?si8XGHIHttY5inZfGtdrrd4ugOSKqD+cQkCvc4AdwTzDx4Y2UfCCdv5R7JBW?=
+ =?us-ascii?Q?DcJbs93Qa0vxeOsRD4q6HwI0Ucf8xqM7PtRj9GNe2OLoOWucxGSFr2nVwMdy?=
+ =?us-ascii?Q?6sp8Y3gkXPCzVNlWL0unMgf7OYCDQayl74XCoS8xrbGX51gs04ektWi7bSYU?=
+ =?us-ascii?Q?y+i0Z14pbV7XpXcQgEDLqwtB3EBd79dIq3K8haRSGLZ/e6SkZbzJ0Q1FUqBk?=
+ =?us-ascii?Q?CV0Opu1MvA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e686697e-e426-43e9-84f3-08de8baf1987
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 03:15:29.8384
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CPinZoPduH8dlcXhc3uJ6Gft/aYh30/QMsdTUfTcGAeKcSlfG45cFir0fW+PKbHFZvx8TSBnu0rLmQ2wk1rk1A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10652
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260326_201538_349351_2E17CDC1 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +144,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 13:29:36 +0100 Nora Schiffer wrote:
-> The J722S CPSW and SERDES are very similar to the variants found on the
-> AM64, but they additionally support SGMII. Introduce new compatible
-> strings for the J722S to add this support to the drivers.
-> 
-> This is a prerequisite for the Single-Pair Ethernet interface of the
-> TQ-Systems MBa67xx baseboard for the TQMa67xx SoM, which will be
-> submitted separately.
+Existing i.MX audio sound card described by this binding use codecs
+that operate in i2s or dsp_b formats. The newly added CS42448 codec
+requires dsp_a for its TDM interface. To properly describe such
+hardware in DT, the binding needs to allow dsp_a DAI format.
 
-Please repost patch 3+6 as a separate series for net-next.
+Only i2s, dsp_b and dsp_a are included because these are the formats
+actually used by the hardware supported by this binding. Other formats
+such as left_j, right_j, ac97 are not used or required by the hardware
+currently covered by this binding, so they are intentionally not added.
+
+Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+---
+Changes in v3:
+- Rewrote commit message completely to describe hardware requirements.
+Explicitly documented why only dsp_a is added and why other formats
+are not included.
+- Rebased on latest code base. No functional changes.
+
+Changes in v2:
+- Updated commit message to explain current support for i2s and dsp_b
+formats and new support for dsp_a. No code changes.
+
+ Documentation/devicetree/bindings/sound/imx-audio-card.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
+index 5424d4f16f52..75757fbccd89 100644
+--- a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
++++ b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
+@@ -37,6 +37,7 @@ patternProperties:
+         items:
+           enum:
+             - i2s
++            - dsp_a
+             - dsp_b
+
+       dai-tdm-slot-num: true
+--
+2.50.1
+
 
