@@ -4,73 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDA110BA432
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 07:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD6C10BA431
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 07:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:CC:To:MIME-Version:From:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CG3vtCf5Sbk7c4icMmkdOZzkT4cdHrn6RucaZdWVV8Y=; b=Jps+8PENrCQyuJ+DV+tFtyiiGH
-	rfWLlscxFSNy+NtoZJXY3O80wkk8ckI2HVNPl2G12HHlqa2oJE+iES0/zqXOMBysnNnOxwj2vwHH8
-	I0FaLbtO9EoznxIeRgM6azLf+DEQ0cfGLhFu5aqs8XyDd4Py+uKYRQrveMOz9cFQHCqADQzQlUNpG
-	N2lvkv+Qd3fhu+qoN9yPanRLuL1j0hY/91lyVNmGn5MPJD4NTWkpfwmJqiR00Ew8sHHIyd1MVfu/f
-	f/n9DoTJYQTqczSOzoQWPrDCAWK3v5WI8Pya+E7VE9myL8cG5dKxZg6Q8bqM6NHnZX8MeCkbYtgj+
-	Z/smE8Cg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fZx2/59yZaAnf4jQa6rQIqnG6oMaI4fXGjVxcBy4D+I=; b=ikENkUvJ5y/qyWLuXIh/C5a1BD
+	27K8wf3TqJAwyzh09OyLUFRPdacrS7Yx2cLCqmL4H+8WQquoI3VBFnmFUyasKhC5xaLNF46NzV5Ts
+	ZQqXkjr0B18e8+Am/BWS5rXNBbPwAWoPmidf31a8ZEIDLkjBAJvVJqmVSTNKiImKbmKCmuV4TC6vl
+	YiORsQNBNjFTxhbkuZXdzWqjCaV6uesR9EHtM9QgfdpJzOJJOc65I3BqgJF7cMX8YtvGWx8uZYcAu
+	54CQP2B5TfuJtEAt/91OkeEn5S1o4nvpSn9w8S4mFfRfQho2uKhTByWv94xebTOC49pUufN3CpyUC
+	6J6BWUWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61Xu-00000006sea-2CXZ;
-	Fri, 27 Mar 2026 07:23:54 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1w61d1-00000006t8i-1c3K;
+	Fri, 27 Mar 2026 07:29:11 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61Xs-00000006sdW-082x
+	id 1w61cz-00000006t7b-1Bus
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 07:23:53 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CG3vtCf5Sbk7c4icMmkdOZzkT4cdHrn6RucaZdWVV8Y=;
-	b=GGiTR81Zi+gS6MxqzwsQF1PDIk+ukhK8SnbZ51KoVUae0BprhAEAHKBMUI63W5YR1WbJjUK6E
-	xFeeL108OxJRMT+euunBpUKRRLc+dSa9lSVQsjC1UKkNxW1NTXk6cEDZeejZq8oA46EcKC4T1R5
-	ii2R6ezGGyVjedfhe4PB9jE=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4fhsS56zf8z1T4M0;
-	Fri, 27 Mar 2026 15:18:13 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id BFE444056A;
-	Fri, 27 Mar 2026 15:23:47 +0800 (CST)
-Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 27 Mar 2026 15:23:47 +0800
-Received: from [10.67.113.213] (10.67.113.213) by
- kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 27 Mar 2026 15:23:46 +0800
-Message-ID: <69C63082.1000806@hisilicon.com>
-Date: Fri, 27 Mar 2026 15:23:46 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	Fri, 27 Mar 2026 07:29:10 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id F16F24D30D;
+	Fri, 27 Mar 2026 07:29:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1774596547; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fZx2/59yZaAnf4jQa6rQIqnG6oMaI4fXGjVxcBy4D+I=;
+	b=cYWva3L+e2ez2hGt8/h+9fXBxac52NiDgTQhYZDDA6FZ0H5/1VHFmV/fhHYKHMkboujK2t
+	aKRjNyX9IJHskdJ9MVMn35iKxWkwzTN30KPNB9OBQIEW2nZfNUF2sp7U2wnkP+r4eSpmRV
+	aaRWT5Ix0tRLGorI779hI+gxxTbGr78=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1774596547;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fZx2/59yZaAnf4jQa6rQIqnG6oMaI4fXGjVxcBy4D+I=;
+	b=96JpD6dO866BA7qnmcMZVKA7//WIoJmaBtwU+0kaAunqqfvCiBnUiH8PSDyZX3gSrxKVwZ
+	P8BrwHINuxsZoWBQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1774596547; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fZx2/59yZaAnf4jQa6rQIqnG6oMaI4fXGjVxcBy4D+I=;
+	b=cYWva3L+e2ez2hGt8/h+9fXBxac52NiDgTQhYZDDA6FZ0H5/1VHFmV/fhHYKHMkboujK2t
+	aKRjNyX9IJHskdJ9MVMn35iKxWkwzTN30KPNB9OBQIEW2nZfNUF2sp7U2wnkP+r4eSpmRV
+	aaRWT5Ix0tRLGorI779hI+gxxTbGr78=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1774596547;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fZx2/59yZaAnf4jQa6rQIqnG6oMaI4fXGjVxcBy4D+I=;
+	b=96JpD6dO866BA7qnmcMZVKA7//WIoJmaBtwU+0kaAunqqfvCiBnUiH8PSDyZX3gSrxKVwZ
+	P8BrwHINuxsZoWBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3CC504A0A2;
+	Fri, 27 Mar 2026 07:29:06 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id te1lDcIxxmm1IgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 27 Mar 2026 07:29:06 +0000
+Message-ID: <746c1be0-7c03-451b-a813-6c9325c39ee6@suse.de>
+Date: Fri, 27 Mar 2026 08:29:05 +0100
 MIME-Version: 1.0
-To: <soc@kernel.org>, <arm@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	<xuwei5@hisilicon.com>, <zhangyi.ac@huawei.com>, "Wuliebao (Joab, Turing
- Solution)" <wuliebao@huawei.com>, "Shenqingchun(DanielShen)"
-	<daniel.shen@huawei.com>, <huangdaode@huawei.com>, <liguozhu@hisilicon.com>,
-	"Zengtao (B)" <prime.zeng@hisilicon.com>, Jonathan Cameron
-	<Jonathan.Cameron@Huawei.com>, <shiju.jose@huawei.com>,
-	<salil.mehta@huawei.com>, Shawn Guo <shawnguo@kernel.org>
-Subject: [GIT,PULL] arm64: dts: hisilicon: fixes for v7.0
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.113.213]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemq100003.china.huawei.com (7.202.195.72)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] drm/gem-dma: Support DRM_MODE_DUMB_KERNEL_MAP flag
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: Rob Herring <robh@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Sasha Finkelstein <fnkl.kernel@gmail.com>, Janne Grunau <j@jannau.net>,
+ Liviu Dudau <liviu.dudau@arm.com>, Paul Kocialkowski <paulk@sys-base.io>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Yannick Fertre <yannick.fertre@foss.st.com>,
+ Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+ Philippe Cornu <philippe.cornu@foss.st.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+References: <20260326100248.1171828-1-wenst@chromium.org>
+ <20260326100248.1171828-4-wenst@chromium.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260326100248.1171828-4-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TAGGED_RCPT(0.00)[renesas];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[28];
+	FREEMAIL_TO(0.00)[chromium.org,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[kernel.org,lists.freedesktop.org,vger.kernel.org,lists.infradead.org,gmail.com,jannau.net,arm.com,sys-base.io,linaro.org,ideasonboard.com,bp.renesas.com,foss.st.com,raspberrypi.com,igalia.com,iscas.ac.cn];
+	R_RATELIMIT(0.00)[to_ip_from(RLe847sq1wc67kb8i1ezagym5k)];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[ideasonboard.com:email,suse.de:mid,chromium.org:email,imap1.dmz-prg2.suse.org:helo,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_002352_266149_CB6B357D 
-X-CRM114-Status: UNSURE (   6.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_002909_621730_C4FF62B1 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +182,419 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+Hi
 
-Please consider to pull the following changes.
-Thanks!
+Am 26.03.26 um 11:01 schrieb Chen-Yu Tsai:
+> From: Rob Herring <robh@kernel.org>
+>
+> Add support in DMA helpers to handle callers specifying
+> DRM_MODE_DUMB_KERNEL_MAP flag. Existing behavior is maintained with this
+> change. drm_gem_dma_dumb_create() always creates a kernel mapping as
+> before. drm_gem_dma_dumb_create_internal() lets the caller set the flags
+> as desired.
+>
+> drm_gem_dma_dumb_create_internal() users have DRM_MODE_DUMB_KERNEL_MAP
+> added to preserve existing behavior.
+>
+> A dumb buffer allocated from these devices can be shared (exported) to
+> another device. The consuming device may require the kernel mapping to
+> scan out the buffer to its own display. Such devices include DisplayLink
+> and various MIPI DBI based displays. Therefore altering the behavior
+> should be given much consideration.
 
-Best Regards,
-Wei
+NAK on this whole thing. Please do not clutter the sources with these 
+flags and tests. If drivers cannot use the gem-cma helpers, they should 
+not do so. Maybe these drivers _are_ different. Then give them different 
+interfaces or even a different memory manager, if necessary.
 
----
+>
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> [wenst@chromium.org: Rebase onto renamed GEM DMA helpers]
+> [wenst@chromium.org: show "vaddr=(no mapping)" in drm_gem_dma_print_info()]
+> [wenst@chromium.org: Add DRM_MODE_DUMB_KERNEL_MAP to new drivers]
+> [wenst@chromium.org: Add flags field to drm_gem_dma_create_with_handle()
+> 		     kerneldoc]
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v2:
+> - Added back DRM_MODE_DUMB_KERNEL_MAP flag to all drivers calling
+>    drm_gem_dma_dumb_create_internal()
+> - Expanded commit message to cover display drivers needing the kernel
+>    mapping to do scan out
+>
+> Changes since v1:
+> - Rebased onto renamed GEM DMA helpers
+> - Added check in drm_fb_dma_get_scanout_buffer() and drm_gem_dma_vmap().
+> - Made drm_gem_dma_print_info() show "vaddr=(no mapping)" for objects
+>    allocated without kernel mapping
+> - Dropped existing DRM_MODE_DUMB_KERNEL_MAP flag addition in various
+>    drivers
+> - Added DRM_MODE_DUMB_KERNEL_MAP flag to adp_drm_gem_dumb_create()
+> - Added flags field kerneldoc for drm_gem_dma_create_with_handle()
+>
+> Cc: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> Cc: Janne Grunau <j@jannau.net>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: Paul Kocialkowski <paulk@sys-base.io>
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>
+> Cc: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+> Cc: Biju Das <biju.das.jz@bp.renesas.com>
+> Cc: Yannick Fertre <yannick.fertre@foss.st.com>
+> Cc: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> Cc: Philippe Cornu <philippe.cornu@foss.st.com>
+> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Cc: "Maíra Canal" <mcanal@igalia.com>
+> Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+> Cc: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+>   drivers/gpu/drm/adp/adp_drv.c                 |  1 +
+>   .../gpu/drm/arm/display/komeda/komeda_kms.c   |  1 +
+>   drivers/gpu/drm/arm/malidp_drv.c              |  1 +
+>   drivers/gpu/drm/drm_fb_dma_helper.c           |  4 ++
+>   drivers/gpu/drm/drm_gem_dma_helper.c          | 67 ++++++++++++-------
+>   drivers/gpu/drm/logicvc/logicvc_drm.c         |  1 +
+>   drivers/gpu/drm/meson/meson_drv.c             |  1 +
+>   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c |  2 +
+>   drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c  |  1 +
+>   drivers/gpu/drm/stm/drv.c                     |  3 +-
+>   drivers/gpu/drm/sun4i/sun4i_drv.c             |  1 +
+>   drivers/gpu/drm/vc4/vc4_drv.c                 |  2 +
+>   drivers/gpu/drm/verisilicon/vs_drm.c          |  2 +
+>   drivers/gpu/drm/xlnx/zynqmp_kms.c             |  2 +
+>   14 files changed, 63 insertions(+), 26 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/adp/adp_drv.c b/drivers/gpu/drm/adp/adp_drv.c
+> index 4554cf75565e..c549b44b3814 100644
+> --- a/drivers/gpu/drm/adp/adp_drv.c
+> +++ b/drivers/gpu/drm/adp/adp_drv.c
+> @@ -95,6 +95,7 @@ static int adp_drm_gem_dumb_create(struct drm_file *file_priv,
+>   {
+>   	args->height = ALIGN(args->height, 64);
+>   	args->size = args->pitch * args->height;
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   
+>   	return drm_gem_dma_dumb_create_internal(file_priv, drm, args);
+>   }
+> diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+> index 6ed504099188..2c096ebaea33 100644
+> --- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+> +++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
+> @@ -29,6 +29,7 @@ static int komeda_gem_dma_dumb_create(struct drm_file *file,
+>   	struct komeda_dev *mdev = dev->dev_private;
+>   	u32 pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	args->pitch = ALIGN(pitch, mdev->chip.bus_width);
+>   
+>   	return drm_gem_dma_dumb_create_internal(file, dev, args);
+> diff --git a/drivers/gpu/drm/arm/malidp_drv.c b/drivers/gpu/drm/arm/malidp_drv.c
+> index b765f6c9eea4..5519f48a27c0 100644
+> --- a/drivers/gpu/drm/arm/malidp_drv.c
+> +++ b/drivers/gpu/drm/arm/malidp_drv.c
+> @@ -464,6 +464,7 @@ static int malidp_dumb_create(struct drm_file *file_priv,
+>   	/* allocate for the worst case scenario, i.e. rotated buffers */
+>   	u8 alignment = malidp_hw_get_pitch_align(malidp->dev, 1);
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	args->pitch = ALIGN(DIV_ROUND_UP(args->width * args->bpp, 8), alignment);
+>   
+>   	return drm_gem_dma_dumb_create_internal(file_priv, drm, args);
+> diff --git a/drivers/gpu/drm/drm_fb_dma_helper.c b/drivers/gpu/drm/drm_fb_dma_helper.c
+> index fd71969d2fb1..12a44accc48c 100644
+> --- a/drivers/gpu/drm/drm_fb_dma_helper.c
+> +++ b/drivers/gpu/drm/drm_fb_dma_helper.c
+> @@ -187,6 +187,10 @@ int drm_fb_dma_get_scanout_buffer(struct drm_plane *plane,
+>   	if (!dma_obj->vaddr)
+>   		return -ENODEV;
+>   
+> +	/* Buffer was allocated with NO_KERNEL_MAPPING */
+> +	if (dma_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING)
+> +		return -ENODEV;
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+This is a good example of what I'm talking about. A driver that cannot 
+provide a scanout buffer should not set the callback in the first place.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+Best regards
+Thomas
 
-are available in the Git repository at:
+> +
+>   	iosys_map_set_vaddr(&sb->map[0], dma_obj->vaddr);
+>   	sb->format = fb->format;
+>   	sb->height = fb->height;
+> diff --git a/drivers/gpu/drm/drm_gem_dma_helper.c b/drivers/gpu/drm/drm_gem_dma_helper.c
+> index 9722c9fc86f3..281fb563f061 100644
+> --- a/drivers/gpu/drm/drm_gem_dma_helper.c
+> +++ b/drivers/gpu/drm/drm_gem_dma_helper.c
+> @@ -116,26 +116,8 @@ __drm_gem_dma_create(struct drm_device *drm, size_t size, bool private)
+>   	return ERR_PTR(ret);
+>   }
+>   
+> -/**
+> - * drm_gem_dma_create - allocate an object with the given size
+> - * @drm: DRM device
+> - * @size: size of the object to allocate
+> - *
+> - * This function creates a DMA GEM object and allocates memory as backing store.
+> - * The allocated memory will occupy a contiguous chunk of bus address space.
+> - *
+> - * For devices that are directly connected to the memory bus then the allocated
+> - * memory will be physically contiguous. For devices that access through an
+> - * IOMMU, then the allocated memory is not expected to be physically contiguous
+> - * because having contiguous IOVAs is sufficient to meet a devices DMA
+> - * requirements.
+> - *
+> - * Returns:
+> - * A struct drm_gem_dma_object * on success or an ERR_PTR()-encoded negative
+> - * error code on failure.
+> - */
+> -struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
+> -					      size_t size)
+> +static struct drm_gem_dma_object *
+> +drm_gem_dma_create_flags(struct drm_device *drm, size_t size, u32 flags)
+>   {
+>   	struct drm_gem_dma_object *dma_obj;
+>   	int ret;
+> @@ -146,6 +128,9 @@ struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
+>   	if (IS_ERR(dma_obj))
+>   		return dma_obj;
+>   
+> +	if (!(flags & DRM_MODE_DUMB_KERNEL_MAP))
+> +		dma_obj->dma_attrs |= DMA_ATTR_NO_KERNEL_MAPPING;
+> +
+>   	if (dma_obj->map_noncoherent) {
+>   		dma_obj->vaddr = dma_alloc_noncoherent(drm_dev_dma_dev(drm),
+>   						       size,
+> @@ -171,6 +156,30 @@ struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
+>   	drm_gem_object_put(&dma_obj->base);
+>   	return ERR_PTR(ret);
+>   }
+> +
+> +/**
+> + * drm_gem_dma_create - allocate an object with the given size
+> + * @drm: DRM device
+> + * @size: size of the object to allocate
+> + *
+> + * This function creates a DMA GEM object and allocates memory as backing store.
+> + * The allocated memory will occupy a contiguous chunk of bus address space.
+> + *
+> + * For devices that are directly connected to the memory bus then the allocated
+> + * memory will be physically contiguous. For devices that access through an
+> + * IOMMU, then the allocated memory is not expected to be physically contiguous
+> + * because having contiguous IOVAs is sufficient to meet a devices DMA
+> + * requirements.
+> + *
+> + * Returns:
+> + * A struct drm_gem_dma_object * on success or an ERR_PTR()-encoded negative
+> + * error code on failure.
+> + */
+> +struct drm_gem_dma_object *drm_gem_dma_create(struct drm_device *drm,
+> +					      size_t size)
+> +{
+> +	return drm_gem_dma_create_flags(drm, size, DRM_MODE_DUMB_KERNEL_MAP);
+> +}
+>   EXPORT_SYMBOL_GPL(drm_gem_dma_create);
+>   
+>   /**
+> @@ -179,6 +188,7 @@ EXPORT_SYMBOL_GPL(drm_gem_dma_create);
+>    * @file_priv: DRM file-private structure to register the handle for
+>    * @drm: DRM device
+>    * @size: size of the object to allocate
+> + * @flags: DRM_MODE_DUMB_* flags if any
+>    * @handle: return location for the GEM handle
+>    *
+>    * This function creates a DMA GEM object, allocating a chunk of memory as
+> @@ -194,14 +204,14 @@ EXPORT_SYMBOL_GPL(drm_gem_dma_create);
+>    */
+>   static struct drm_gem_dma_object *
+>   drm_gem_dma_create_with_handle(struct drm_file *file_priv,
+> -			       struct drm_device *drm, size_t size,
+> +			       struct drm_device *drm, size_t size, u32 flags,
+>   			       uint32_t *handle)
+>   {
+>   	struct drm_gem_dma_object *dma_obj;
+>   	struct drm_gem_object *gem_obj;
+>   	int ret;
+>   
+> -	dma_obj = drm_gem_dma_create(drm, size);
+> +	dma_obj = drm_gem_dma_create_flags(drm, size, DRM_MODE_DUMB_KERNEL_MAP);
+>   	if (IS_ERR(dma_obj))
+>   		return dma_obj;
+>   
+> @@ -283,7 +293,7 @@ int drm_gem_dma_dumb_create_internal(struct drm_file *file_priv,
+>   		args->size = args->pitch * args->height;
+>   
+>   	dma_obj = drm_gem_dma_create_with_handle(file_priv, drm, args->size,
+> -						 &args->handle);
+> +						 args->flags, &args->handle);
+>   	return PTR_ERR_OR_ZERO(dma_obj);
+>   }
+>   EXPORT_SYMBOL_GPL(drm_gem_dma_dumb_create_internal);
+> @@ -313,12 +323,13 @@ int drm_gem_dma_dumb_create(struct drm_file *file_priv,
+>   	struct drm_gem_dma_object *dma_obj;
+>   	int ret;
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	ret = drm_mode_size_dumb(drm, args, 0, 0);
+>   	if (ret)
+>   		return ret;
+>   
+>   	dma_obj = drm_gem_dma_create_with_handle(file_priv, drm, args->size,
+> -						 &args->handle);
+> +						 args->flags, &args->handle);
+>   	return PTR_ERR_OR_ZERO(dma_obj);
+>   }
+>   EXPORT_SYMBOL_GPL(drm_gem_dma_dumb_create);
+> @@ -412,7 +423,10 @@ void drm_gem_dma_print_info(const struct drm_gem_dma_object *dma_obj,
+>   			    struct drm_printer *p, unsigned int indent)
+>   {
+>   	drm_printf_indent(p, indent, "dma_addr=%pad\n", &dma_obj->dma_addr);
+> -	drm_printf_indent(p, indent, "vaddr=%p\n", dma_obj->vaddr);
+> +	if (dma_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING)
+> +		drm_printf_indent(p, indent, "vaddr=(no mapping)\n");
+> +	else
+> +		drm_printf_indent(p, indent, "vaddr=%p\n", dma_obj->vaddr);
+>   }
+>   EXPORT_SYMBOL(drm_gem_dma_print_info);
+>   
+> @@ -511,6 +525,9 @@ EXPORT_SYMBOL_GPL(drm_gem_dma_prime_import_sg_table);
+>   int drm_gem_dma_vmap(struct drm_gem_dma_object *dma_obj,
+>   		     struct iosys_map *map)
+>   {
+> +	if (dma_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING)
+> +		return -ENOMEM;
+> +
+>   	iosys_map_set_vaddr(map, dma_obj->vaddr);
+>   
+>   	return 0;
+> diff --git a/drivers/gpu/drm/logicvc/logicvc_drm.c b/drivers/gpu/drm/logicvc/logicvc_drm.c
+> index bbebf4fc7f51..595a71163cb5 100644
+> --- a/drivers/gpu/drm/logicvc/logicvc_drm.c
+> +++ b/drivers/gpu/drm/logicvc/logicvc_drm.c
+> @@ -39,6 +39,7 @@ static int logicvc_drm_gem_dma_dumb_create(struct drm_file *file_priv,
+>   {
+>   	struct logicvc_drm *logicvc = logicvc_drm(drm_dev);
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	/* Stride is always fixed to its configuration value. */
+>   	args->pitch = logicvc->config.row_stride * DIV_ROUND_UP(args->bpp, 8);
+>   
+> diff --git a/drivers/gpu/drm/meson/meson_drv.c b/drivers/gpu/drm/meson/meson_drv.c
+> index 49ff9f1f16d3..9fa339d6e273 100644
+> --- a/drivers/gpu/drm/meson/meson_drv.c
+> +++ b/drivers/gpu/drm/meson/meson_drv.c
+> @@ -83,6 +83,7 @@ static irqreturn_t meson_irq(int irq, void *arg)
+>   static int meson_dumb_create(struct drm_file *file, struct drm_device *dev,
+>   			     struct drm_mode_create_dumb *args)
+>   {
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	/*
+>   	 * We need 64bytes aligned stride, and PAGE aligned size
+>   	 */
+> diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c b/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
+> index 60e6f43b8ab2..611fe3d4a4d8 100644
+> --- a/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
+> +++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
+> @@ -424,6 +424,8 @@ int rcar_du_dumb_create(struct drm_file *file, struct drm_device *dev,
+>   	if (ret)
+>   		return ret;
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+> +
+>   	return drm_gem_dma_dumb_create_internal(file, dev, args);
+>   }
+>   
+> diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
+> index 87f171145a23..359f85bd84eb 100644
+> --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
+> +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
+> @@ -184,6 +184,7 @@ int rzg2l_du_dumb_create(struct drm_file *file, struct drm_device *dev,
+>   	unsigned int min_pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
+>   	unsigned int align = 16 * args->bpp / 8;
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	args->pitch = roundup(min_pitch, align);
+>   
+>   	return drm_gem_dma_dumb_create_internal(file, dev, args);
+> diff --git a/drivers/gpu/drm/stm/drv.c b/drivers/gpu/drm/stm/drv.c
+> index 56d53ac3082d..a0bc2e215adb 100644
+> --- a/drivers/gpu/drm/stm/drv.c
+> +++ b/drivers/gpu/drm/stm/drv.c
+> @@ -51,8 +51,9 @@ static int stm_gem_dma_dumb_create(struct drm_file *file,
+>   	 * in order to optimize data transfer, pitch is aligned on
+>   	 * 128 bytes, height is aligned on 4 bytes
+>   	 */
+> -	args->pitch = roundup(min_pitch, 128);
+>   	args->height = roundup(args->height, 4);
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+> +	args->pitch = roundup(min_pitch, 128);
+>   
+>   	return drm_gem_dma_dumb_create_internal(file, dev, args);
+>   }
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_drv.c b/drivers/gpu/drm/sun4i/sun4i_drv.c
+> index 8a409eee1dca..d3ff53ce2450 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_drv.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_drv.c
+> @@ -36,6 +36,7 @@ static int drm_sun4i_gem_dumb_create(struct drm_file *file_priv,
+>   				     struct drm_device *drm,
+>   				     struct drm_mode_create_dumb *args)
+>   {
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+>   	/* The hardware only allows even pitches for YUV buffers. */
+>   	args->pitch = ALIGN(DIV_ROUND_UP(args->width * args->bpp, 8), 2);
+>   
+> diff --git a/drivers/gpu/drm/vc4/vc4_drv.c b/drivers/gpu/drm/vc4/vc4_drv.c
+> index a14ecb769461..7a04cf52f511 100644
+> --- a/drivers/gpu/drm/vc4/vc4_drv.c
+> +++ b/drivers/gpu/drm/vc4/vc4_drv.c
+> @@ -87,6 +87,8 @@ static int vc5_dumb_create(struct drm_file *file_priv,
+>   	if (ret)
+>   		return ret;
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+> +
+>   	return drm_gem_dma_dumb_create_internal(file_priv, dev, args);
+>   }
+>   
+> diff --git a/drivers/gpu/drm/verisilicon/vs_drm.c b/drivers/gpu/drm/verisilicon/vs_drm.c
+> index fd259d53f49f..fe3591244d02 100644
+> --- a/drivers/gpu/drm/verisilicon/vs_drm.c
+> +++ b/drivers/gpu/drm/verisilicon/vs_drm.c
+> @@ -44,6 +44,8 @@ static int vs_gem_dumb_create(struct drm_file *file_priv,
+>   	if (ret)
+>   		return ret;
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+> +
+>   	return drm_gem_dma_dumb_create_internal(file_priv, drm, args);
+>   }
+>   
+> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> index 02f3a7d78cf8..aa3822b3cb08 100644
+> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+> @@ -371,6 +371,8 @@ static int zynqmp_dpsub_dumb_create(struct drm_file *file_priv,
+>   	if (ret)
+>   		return ret;
+>   
+> +	args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+> +
+>   	return drm_gem_dma_dumb_create_internal(file_priv, drm, args);
+>   }
+>   
 
-  https://github.com/hisilicon/linux-hisi.git tags/hisi-dts-fixes-for-7.0
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
-for you to fetch changes up to 1af997cad473d505248df6d9577183bb91f69670:
 
-  arm64: dts: hisilicon: hi3798cv200: Add missing dma-ranges (2026-03-21 03:38:11 +0000)
-
-----------------------------------------------------------------
-HiSilicon dts fixes for v7.0
-
-- Correct the PCIe reset GPIO polarity for hi3798cv200-poplar
-- Add the missing dma-ranges for hi3798cv200
-
-----------------------------------------------------------------
-Shawn Guo (2):
-      arm64: dts: hisilicon: poplar: Correct PCIe reset GPIO polarity
-      arm64: dts: hisilicon: hi3798cv200: Add missing dma-ranges
-
- arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts | 2 +-
- arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi       | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
 
