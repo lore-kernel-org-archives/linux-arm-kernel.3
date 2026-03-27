@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE0310ED676
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208CA10ED677
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iIGSkcd6h14qm3k1jAAXBn59AJqB5A+nufka/tPAyHs=; b=oOlcaKOmojnbbo0fp/XsEmm76j
-	RVABKir+OllOqPIkf2SGIuhAUMXxWCbkPufyzpkZceaIUFt6TF/r5zwcekthD+Pr5XK9Rx7uFGOxf
-	AyjEeU6mYzNULrZQmB7xTCTxmjqlujV3P6B/WBhBbkVWX0m5sZ+kwnfaF1n/TiLKHwWoERoXuGGNb
-	eSDwE13Sx7L/svSOYewIjyY7sZt/pfLFJhrdK8Z5bHSQFKLBxrKBYrjpeJvpx1C6r6QYSXbN/rHyz
-	5qr8dd0MpGKlhKNULW3QGCz5UILdwThu+17lLyck1FgP7O9r0BnIbOHslADQAHalRu+QzY+SVkWao
-	sDo9p6AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aPErFERDAqYRFC0XJtXQTnsaSahEG28xJEgIuWHpxu0=; b=sGsSecm2YxIKIF11wZmXgxM70+
+	HDT4hhD1kSRROK0llVUrhKIesq9tnnpxdQ9HQsFpeFW221On9Y7WkUtuNrCvUwepb7MmZyortuQpJ
+	KZK9Xb/RcoGTO1tYQbsmiSYuqdJwXAORUCJ7+oNhXKcdT9aeGRIEeehf9bPGN7n0QrjyDaBlqBXWY
+	cj+Wcr7TGndb0DxgBHkuvQSVssLAQ0Q60gZPbbUr1fqYgToxVACDgm3UMDJQopVd5kobph+fwBYSe
+	cFNgKe35k1wPFPkwOSXlooZKgVr9OgsZPtfHoKNEFEa983nWwigX8nler7zkQwEONaYIAmE1Dzn2d
+	vZJ79xXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66oa-00000007Nwt-0u6e;
-	Fri, 27 Mar 2026 13:01:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66oR-00000007Nu7-2eBq
+	id 1w673P-00000007QtW-2yYi;
+	Fri, 27 Mar 2026 13:16:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w673N-00000007Qsg-08TI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 13:01:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4EF0A43329;
-	Fri, 27 Mar 2026 13:01:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA5B8C19423;
-	Fri, 27 Mar 2026 13:01:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774616479;
-	bh=3fwA/zq/4O8PWihX/7OYdGsB9CyT72+008pe9167Y70=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uwvzoau6R/y8tA5+SBaZN4MyQRTyNbT1T1PIUtUDlLRuz2HAn4Odm2ioJlCW3QgM8
-	 I4UugosKe7DovAwrgD8RdcJGxdvlbGCaCnSpc2KUdoAc/eKgK5dZ9m4BSnB5kJS2tt
-	 6i79pNjMbo8Cj21tTw3BGo1nkLH8hch52yAVJMa/LtexJajo2wQPH8lz+EFnGouYDW
-	 TqiDWCrCMxRF9W8lJd6eWtPFIvqB3s2+hOsgJIeGG7mYabZmTzbtZ5G06XYpZVF9Ct
-	 Rk779Tb1XXqFZtNMe+HwxZcZK/F6JvCH+oHU9Rj85CDLOAWAJiC8c8mvIzQzg5/mwN
-	 ulCbt4iqO6blQ==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Yabin Cui <yabinc@google.com>
-Subject: [PATCH v4 2/3] KVM: arm64: Disable SPE Profiling Buffer when running in guest context
-Date: Fri, 27 Mar 2026 13:00:45 +0000
-Message-ID: <20260327130047.21065-3-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260327130047.21065-1-will@kernel.org>
-References: <20260327130047.21065-1-will@kernel.org>
+	Fri, 27 Mar 2026 13:16:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86F7B35A1;
+	Fri, 27 Mar 2026 06:16:36 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F05233F915;
+	Fri, 27 Mar 2026 06:16:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774617402; bh=hCvQnYCBMadBb41sDOIC7/X2d4bp47XZvczCJW89veA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YkSN9AUQseR1kOgjTvOjuH5RoY7tsvhDl64v/ztTPODkcniNwe7c5605JdzGxvUMw
+	 UGQmokfgFrWnwVukxlHV7Xpzq1mUZT6/8aOqS54x/7KzhguAR0NmZxP98B7cdJWSaI
+	 jiTMrXgr1VBgaKt7sfDQR1ogiKHkXXJ1rWjf0DHM=
+Date: Fri, 27 Mar 2026 13:16:37 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: will@kernel.org, maz@kernel.org, oupton@kernel.org,
+	miko.lenczewski@arm.com, kevin.brodsky@arm.com, broonie@kernel.org,
+	ardb@kernel.org, suzuki.poulose@arm.com, lpieralisi@kernel.org,
+	joey.gouly@arm.com, yuzenghui@huawei.com
+Subject: Re: (subset) [PATCH v17 0/8] support FEAT_LSUI
+Message-ID: <177461632621.2272468.5197255307509898250.b4-ty@arm.com>
+References: <20260314175133.1084528-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260314175133.1084528-1-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_060122_658372_A05EB6AE 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20260327_061645_114392_EDAC7151 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,153 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nVHE world-switch code relies on zeroing PMSCR_EL1 to disable
-profiling data generation in guest context when SPE is in use by the
-host.
+On Sat, 14 Mar 2026 17:51:25 +0000, Yeoreum Yun wrote:
+> Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+> previleged level to access to access user memory without clearing
+> PSTATE.PAN bit.
+> 
+> This patchset support FEAT_LSUI and applies it mainly in
+> futex atomic operation and others.
+> 
+> [...]
 
-Unfortunately, this may leave PMBLIMITR_EL1.E set and consequently we
-can end up running in guest/hypervisor context with the Profiling Buffer
-enabled. The current "known issues" document for Rev M.a of the Arm ARM
-states that this can lead to speculative, out-of-context translations:
+Applied to arm64 (for-next/feat_lsui), thanks!
 
-  | 2.18 D23136:
-  |
-  | When the Profiling Buffer is enabled, profiling is not stopped, and
-  | Discard mode is not enabled, the Statistical Profiling Unit might
-  | cause speculative translations for the owning translation regime,
-  | including when the owning translation regime is out-of-context.
+I decided to drop patch [6/8] (arm64: armv8_deprecated: disable swp
+emulation when FEAT_LSUI present). The way FEAT_LSUI support looks now,
+we still have uaccess_enable_privileged() working properly and we could
+even support SWP emulation using exclusives. While it's highly unlikely
+to see both 32-bit EL0 and FEAT_LSUI in practice, models may support the
+combination and disabling SWP emulation feels pretty artificial.
 
-In a similar fashion to TRBE, ensure that the Profiling Buffer is
-disabled during the nVHE world switch before we start messing with the
-stage-2 MMU and trap configuration.
+[1/8] arm64: cpufeature: add FEAT_LSUI
+      https://git.kernel.org/arm64/c/7181f718cb0f
+[2/8] KVM: arm64: expose FEAT_LSUI to guest
+      https://git.kernel.org/arm64/c/f6bff18d05ed
+[3/8] KVM: arm64: kselftest: set_id_regs: add test for FEAT_LSUI
+      https://git.kernel.org/arm64/c/42550d7d8aa6
+[4/8] arm64: futex: refactor futex atomic operation
+      https://git.kernel.org/arm64/c/eaa3babcceaa
+[5/8] arm64: futex: support futex with FEAT_LSUI
+      https://git.kernel.org/arm64/c/44adf2bf40ef
+[7/8] KVM: arm64: use CAST instruction for swapping guest descriptor
+      https://git.kernel.org/arm64/c/16dbe77a5be2
+[8/8] arm64: Kconfig: add support for LSUI
+      https://git.kernel.org/arm64/c/377609ae8b6a
 
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>
-Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Tested-by: Alexandru Elisei <alexandru.elisei@arm.com>
-Tested-by: Fuad Tabba <tabba@google.com>
-Fixes: f85279b4bd48 ("arm64: KVM: Save/restore the host SPE state when entering/leaving a VM")
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/kvm_host.h  |  1 +
- arch/arm64/kvm/hyp/nvhe/debug-sr.c | 33 ++++++++++++++++++++----------
- arch/arm64/kvm/hyp/nvhe/switch.c   |  2 +-
- 3 files changed, 24 insertions(+), 12 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index b1335c55dbef..fe588760fe62 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -768,6 +768,7 @@ struct kvm_host_data {
- 		struct kvm_guest_debug_arch regs;
- 		/* Statistical profiling extension */
- 		u64 pmscr_el1;
-+		u64 pmblimitr_el1;
- 		/* Self-hosted trace */
- 		u64 trfcr_el1;
- 		u64 trblimitr_el1;
-diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-index 0955af771ad1..84bc80f4e36b 100644
---- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-+++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-@@ -14,20 +14,20 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- 
--static void __debug_save_spe(u64 *pmscr_el1)
-+static void __debug_save_spe(void)
- {
--	u64 reg;
-+	u64 *pmscr_el1, *pmblimitr_el1;
- 
--	/* Clear pmscr in case of early return */
--	*pmscr_el1 = 0;
-+	pmscr_el1 = host_data_ptr(host_debug_state.pmscr_el1);
-+	pmblimitr_el1 = host_data_ptr(host_debug_state.pmblimitr_el1);
- 
- 	/*
- 	 * At this point, we know that this CPU implements
- 	 * SPE and is available to the host.
- 	 * Check if the host is actually using it ?
- 	 */
--	reg = read_sysreg_s(SYS_PMBLIMITR_EL1);
--	if (!(reg & BIT(PMBLIMITR_EL1_E_SHIFT)))
-+	*pmblimitr_el1 = read_sysreg_s(SYS_PMBLIMITR_EL1);
-+	if (!(*pmblimitr_el1 & BIT(PMBLIMITR_EL1_E_SHIFT)))
- 		return;
- 
- 	/* Yes; save the control register and disable data generation */
-@@ -37,18 +37,29 @@ static void __debug_save_spe(u64 *pmscr_el1)
- 
- 	/* Now drain all buffered data to memory */
- 	psb_csync();
-+	dsb(nsh);
-+
-+	/* And disable the profiling buffer */
-+	write_sysreg_s(0, SYS_PMBLIMITR_EL1);
-+	isb();
- }
- 
--static void __debug_restore_spe(u64 pmscr_el1)
-+static void __debug_restore_spe(void)
- {
--	if (!pmscr_el1)
-+	u64 pmblimitr_el1 = *host_data_ptr(host_debug_state.pmblimitr_el1);
-+
-+	if (!(pmblimitr_el1 & BIT(PMBLIMITR_EL1_E_SHIFT)))
- 		return;
- 
- 	/* The host page table is installed, but not yet synchronised */
- 	isb();
- 
-+	/* Re-enable the profiling buffer. */
-+	write_sysreg_s(pmblimitr_el1, SYS_PMBLIMITR_EL1);
-+	isb();
-+
- 	/* Re-enable data generation */
--	write_sysreg_el1(pmscr_el1, SYS_PMSCR);
-+	write_sysreg_el1(*host_data_ptr(host_debug_state.pmscr_el1), SYS_PMSCR);
- }
- 
- static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
-@@ -175,7 +186,7 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
- {
- 	/* Disable and flush SPE data generation */
- 	if (host_data_test_flag(HAS_SPE))
--		__debug_save_spe(host_data_ptr(host_debug_state.pmscr_el1));
-+		__debug_save_spe();
- 
- 	/* Disable BRBE branch records */
- 	if (host_data_test_flag(HAS_BRBE))
-@@ -193,7 +204,7 @@ void __debug_switch_to_guest(struct kvm_vcpu *vcpu)
- void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
- {
- 	if (host_data_test_flag(HAS_SPE))
--		__debug_restore_spe(*host_data_ptr(host_debug_state.pmscr_el1));
-+		__debug_restore_spe();
- 	if (host_data_test_flag(HAS_BRBE))
- 		__debug_restore_brbe(*host_data_ptr(host_debug_state.brbcr_el1));
- 	if (__trace_needs_switch())
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index f00688e69d88..9b6e87dac3b9 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -278,7 +278,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	 * We're about to restore some new MMU state. Make sure
- 	 * ongoing page-table walks that have started before we
- 	 * trapped to EL2 have completed. This also synchronises the
--	 * above disabling of BRBE and SPE.
-+	 * above disabling of BRBE.
- 	 *
- 	 * See DDI0487I.a D8.1.5 "Out-of-context translation regimes",
- 	 * rule R_LFHQG and subsequent information statements.
 -- 
-2.53.0.1018.g2bb0e51243-goog
-
+Catalin
 
