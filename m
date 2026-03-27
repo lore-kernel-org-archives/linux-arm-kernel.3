@@ -4,75 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218A810BA431
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 06:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5113E10BA432
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 06:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWMNXU0YIHI4/vPE0m9avIzaTLS00PApOreWyR6uaRI=; b=GWyzrPn2LHxlv/AHnFh2ZzSIJ4
-	117iOBy6vukLrQZE4Snq28Ge5ZWYtQe9EMZ6skBamRYagn0lr8U3vCs6bwqhpPO8BZJ6pIVo9GkVJ
-	cwHzFX0Zyn6zMhkVK4s+nk4TxlO1vzCErltrlGjBRQFvMHJECONzqqPKoI5HCd5VJm3dyM4Ixycib
-	lGCLPL/7TsAhSs3QYbbZ/WYm8AuCaJPa3iJo6mFpRKGu1DrAuRKynlyrWvwaxsOQ940/h04ZX/bxz
-	T9Zu61O9iq4/3jwCDlOxklmLGkwnsIHMIJj3PgpeXLJP65DC15rsEvV2hF/mJ3O5rMQUAr3cG8q92
-	ibfqBeWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zprBvBdvMnyEGpkq6AsTVoErMVF+L9CUncmohjbyLaE=; b=Y2BPpiK8z+Oh400eLcaaun0/cc
+	wjWXn3EKu/m5EzGAXMJQjqBQBaIGSbJILHAzPLHrUdiFVYlrMunoqdk6TC3Z/t9XtIFr2myC9XbYX
+	Zgf4m+PfYwHlpfxS/ONK5o1+lEMlMkIS+WAsz8IfTBAFFzV2Kx9xwmLdhVuStlDSoB9tMl9IckniJ
+	1E3VwyqYuNiUlAafGWGwLnUSjD1G0m6iY+JOezukqVbtoyRySW2nL7DDtHUww8KYRv1TzfookeACm
+	vSEvRU5+fZ7chYNHJ7O08MccDVHspKed+5wAztyErKt+miE5+maArHUEZ5cwObOdJr2cAS3tMUC08
+	5hDDuIxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6147-00000006qLY-3HOr;
-	Fri, 27 Mar 2026 06:53:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w615L-00000006qXC-0pwy;
+	Fri, 27 Mar 2026 06:54:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6144-00000006qL4-2o0k;
-	Fri, 27 Mar 2026 06:53:05 +0000
+	id 1w615I-00000006qW2-2Twh
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 06:54:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF2E340AB1;
-	Fri, 27 Mar 2026 06:53:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5247EC19423;
-	Fri, 27 Mar 2026 06:52:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 481B24427F;
+	Fri, 27 Mar 2026 06:54:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1806BC19423;
+	Fri, 27 Mar 2026 06:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774594383;
-	bh=+6taD/KYX6s6aOGsQO53ivGa0KI2dG/K2GEdTZ29IxI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uM9tWBQSBzeOskmqaDM0QvWoV4jUNiC4DsBlIKIFg7In21qbXcrgvL+npIdvVsRu4
-	 qrE69iQ+kiDSqXlcivHy16z+fEY80xVdn90vInQTF9nPU0Nfe7+PBampXS2wO/gG+p
-	 NgAISEoCyX1+VSpZjmfa/Wk2xePLkgGitS5duT/iqLt2Xz6gmhtYoyq/3bAsUtsGq+
-	 2OtE88H/kNHCxHKSKe13LzCtkcFHYUQtieBVLEZ/RgfH2fMVrGZXCU2jVD0wDWvbDI
-	 /UHVNy1S2RfsSIT/lKpdHdy0Vk/hccjI1KCqeAffyJ+BOUCNvP4IiTCz7QCM5HVlUz
-	 YXDRsPrcv0reg==
-Date: Fri, 27 Mar 2026 12:22:46 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-can@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
-	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
-	Nitin Rawat <quic_nitirawa@quicinc.com>
-Subject: Re: [PATCH v5 phy-next 10/27] scsi: ufs: qcom: keep parallel track
- of PHY power state
-Message-ID: <gq4sswslkjaoe5hhxe2mz6z57uiumotqknkryadvfsstj4srx4@qgenqekgrqv4>
-References: <20260319223241.1351137-1-vladimir.oltean@nxp.com>
- <20260319223241.1351137-11-vladimir.oltean@nxp.com>
- <ezrcjjwtg5n76w4m65l27szu5mywx66ti3xuprkfcp3x6quvbf@2rew4zrnnbt2>
- <20260325114309.3k7xkfrffpxp5xq4@skbuf>
- <vu3cxpynr5mu2fzkrtmjcwijc5jz323wlnbc3r7lp2wxqmhydx@z5xhgf4myw2d>
- <20260325115731.genmq2yew2p4dvbs@skbuf>
- <20260326080444.gbesciaa5zwvcgoy@skbuf>
+	s=k20201202; t=1774594459;
+	bh=Zp9P6mlORyi+nKnVzRR7b34e5jTeRXbkP0MvWEwOQ+s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KJUngruTDm1ewUTEM3LMoL8kCUprlAbkWL1YHd+CDMxXrDIOZ4KrWMbtmsJhGTIQ7
+	 tC0nFrKQ3IVD4HuHIrtKYLEXKLBKeOJAGSpzNSsbEUp63ICfBC6ZRuErmQ7TeWoRit
+	 2ns8g+3RdDsh1VisurNqpmFHiHJZiP3PKwyVSKxGl21k+kUAF38KLWxKaJASrNtyNE
+	 JP4e9dOrlKNOgi8zJvNHYrd6ZtyfxWRRKFhroDqyLPugnLQhGj1oH3YDhR5hOvkvUY
+	 u+bkOfwgRChdhCWofsdZbMoXbKtmUZgF7sCTJijweBb4IRCRVsejBQphY+daRgQIg0
+	 MtICmo53ixMzA==
+Message-ID: <1f4dc04f-1fd2-4896-9491-53b96de88854@kernel.org>
+Date: Fri, 27 Mar 2026 07:54:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260326080444.gbesciaa5zwvcgoy@skbuf>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] MAINTAINERS: Add Axiado reviewer and Maintainers
+To: Karthikeyan Mitran <kmitran@axiado.com>, Arnd Bergmann <arnd@arndb.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Prasad Bolisetty
+ <pbolisetty@axiado.com>, Tzu-Hao Wei <twei@axiado.com>,
+ Axiado Reviewers <linux-maintainer@axiado.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Harshit Shah <hshah@axiado.com>
+References: <20260326-maintainers-addition-and-axiado-ax3000_dtsi-update-v5-1-648dfe9bff29@axiado.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260326-maintainers-addition-and-axiado-ax3000_dtsi-update-v5-1-648dfe9bff29@axiado.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_235304_751871_FFEDF6FD 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20260326_235420_673770_0AC9817D 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +123,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 10:04:44AM +0200, Vladimir Oltean wrote:
-> On Wed, Mar 25, 2026 at 01:57:31PM +0200, Vladimir Oltean wrote:
-> > On Wed, Mar 25, 2026 at 05:21:14PM +0530, Manivannan Sadhasivam wrote:
-> > > I believe I added the power_count check for phy_exit(). But since that got
-> > > moved, the check becomes no longer necessary.
-> > 
-> > FYI, the power_count keeps track of the balance of phy_power_on() and
-> > phy_power_off() calls, whereas it is the init_count keeps track of
-> > phy_init() and phy_exit() calls. They are only related to the extent
-> > that you must respect the phy_init() -> phy_power_on() -> phy_power_off()
-> > -> phy_exit() sequence. But in any case, both should be considered
-> > PHY-internal fields. The "Order of API calls" section from
-> > Documentation/driver-api/phy/phy.rst mentions the order that I just
-> > described above, and consumers should just ensure they follow that.
+On 26/03/2026 21:50, Karthikeyan Mitran wrote:
+> From: Prasad Bolisetty <pbolisetty@axiado.com>
 > 
-> Ok, so we can close this topic of "checking the power_count not needed"
-> by linking to the conversation which spun off here:
-> https://lore.kernel.org/lkml/20260325120122.265973-1-manivannan.sadhasivam@oss.qualcomm.com/
+> Adding 3 new maintainers Prasad,Tzu-Hao, and Karthikeyan
+> and adding a group reviewer entry for review coverage,
+> Removed previous maintainer as the previous maintainer moved from project
+
+...
+
+> ---
+>  MAINTAINERS | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 > 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 55af015174a5..49f47e8c2ec3 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2605,7 +2605,10 @@ F:	arch/arm/mach-aspeed/
+>  N:	aspeed
+>  
+>  ARM/AXIADO ARCHITECTURE
+> -M:	Harshit Shah <hshah@axiado.com>
+> +M:	Prasad Bolisetty <pbolisetty@axiado.com>
+> +M:	Tzu-Hao Wei <twei@axiado.com>
+> +M:	Karthikeyan Mitran <kmitran@axiado.com>
+> +R:	Axiado Reviewers <linux-maintainer@axiado.com>
 
-Sure.
+How many entries do you need? You already have three, so who is in
+Axiado reviewers? And what is "review coverage" you mentioned in the
+commit msg.
 
-> Mani, I spent some more time to figure out what's really going on with
-> this unexpected phy_power_off() call. Do you think you could
-> regression-test the patch attached?
-> 
+I skimmed through https://lore.kernel.org/all/?q=f%3Aaxiado.com and I do
+not see reviews from any of these addresses, so it all looks like you
+add some corporate structure, because some managers want to see what is
+posted.
 
-I tested the patch. But it fails ufs_qcom_power_up_sequence() if PHY was already
-powered on:
-
-[   31.513321] qcom-qmp-ufs-phy 1d87000.phy: phy initialization timed-out
-[   31.513335] ufshcd-qcom 1d84000.ufshc: Failed to calibrate PHY: -110
-[   31.565273] ufshcd-qcom 1d84000.ufshc: Enabling the controller failed
-
-Funny thing is, it didn't affect the functionality since the UFS core retries
-ufshcd_hba_enable() and in the error path of ufs_qcom_power_up_sequence(),
-phy_power_off() gets called and that causes the next try to succeed. So it is
-evident that, if PHY was already powered ON, it should be powered off before
-ufs_qcom_phy_power_on(). And due to the UFS driver design,
-ufs_qcom_power_up_sequence() can get called multiple times. So we cannot just
-remove phy_power_off().
-
-Below diff on top of your patch fixes the issue:
-
-```
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index ed067247d72a..2c9fe03f349e 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -567,6 +567,8 @@ static int ufs_qcom_power_up_sequence(struct ufs_hba *hba)
-        if (ret)
-                return ret;
- 
-+       ufs_qcom_phy_power_off(host);
-+
-        ret = ufs_qcom_phy_set_gear(host, mode);
-        if (ret) {
-                dev_err(hba->dev, "%s: phy_set_mode_ext() failed, ret = %d\n",
-```
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Best regards,
+Krzysztof
 
