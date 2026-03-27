@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8BC10BA430
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 07:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E5A10BA432
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 07:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m/TnutpGNNQMeOJaVLkcKsGuB+WWTz76WYqB2NYpJI0=; b=cysIyAB0gCmIduVE1cYjKle7YU
-	ikkxjatSXnN7fNH4ctVMGNpeL7M1cz86re82cnxK6XMCbiY0qFL2IWM7rIFuVjQP5Mc1C2pPURUCt
-	AAwA3mi2rt1t93VX3jy2wwBliS/R/VWGHjm6on5Qmtdqq+CqJo49XwPDg8sDttp1UajIPvwJBv8e3
-	J4YFr4BjJZoAsvbLbap6C1Yb/gkTeMsA8YMJj+1dZ99C91uuLKOwxlrRXBbX6s2z4kr0ALkOMRsR6
-	J/XO4UV+iV6BV4aDXgTdYKiAYaaAiaZuddlB2779f5+Iqe4fD7ZuR6uXOFRkqtpgBRe2icrew24Ru
-	wtHzyAhw==;
+	bh=qJSO1Jy8gXJ3q0SyUcqZkfXUbxuRHoGqVtwy0Y1kZfY=; b=YKTlojFrbxQoOZuJF18yDICNWd
+	MG4L2FAGydAU+WKOUpAQL84V4aKIVXBzAZ5BghoYsPrFpihzO4M4orVWXLkE7LUfq9xJYzuW0BhUi
+	wR+7BBe836Amg6zx2hTd6T76IDViym/raMgMsc4xWDeOuK0cJ7FlumWivq5s4XpUt2OOgtzxEUw55
+	OnkgAsaOSMQ7UTPts1c9TO7d9e+vMzRB7nOpTD/XrkqNrjVrR3yFl9d07UgZA+o/wRP/LME4V5IPS
+	LvUVeB+8N4/5lN/xdXpyooY/DZcc4zz3Z8uAe9iWFPhGPHXyh8uLWd1cN9IJJc83Fle8lSLSP5MIl
+	BvdBXnDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61oD-00000006uEi-34fS;
-	Fri, 27 Mar 2026 07:40:45 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1w623U-00000006uqq-06wv;
+	Fri, 27 Mar 2026 07:56:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w61oA-00000006uED-1jIx
+	id 1w623R-00000006uqX-3dr4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Mar 2026 07:56:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qJSO1Jy8gXJ3q0SyUcqZkfXUbxuRHoGqVtwy0Y1kZfY=; b=NpOV1aCsuCg6MU7udSWBX31LAc
+	8nxHlynO4INsO/+sv+TZNeYxtu53aIoG+ULpYlX2zGnVScn288NcSAEnjfpACnbj//aw5OnshU5Wh
+	CMkQ1rr7jHHbazKO52Hi09Q1JlOlN6TU2h92VVHEP7N+Qe7mGV4HViRpF8H10ra6O46E/SELKl5xL
+	83+daRrBi26oFGa2JpirAJm+yaoCzPfE28YUFexXSV81VFxVtJkzlUklDgeJ1iaGesU6LmOpJBJW/
+	GGaE1w6T5F+N18PmuzuzvIscTz3wY4fatha8LO6iZOWikf/rHajHaOmufTUAjmYACAaLgHko8QDpj
+	2aJE3IkQ==;
+Received: from mail-vk1-f181.google.com ([209.85.221.181])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w623O-00000009uzR-46IQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 07:40:44 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=m/TnutpGNNQMeOJaVLkcKsGuB+WWTz76WYqB2NYpJI0=;
-	b=YlJSh+sD9R73qfN4YoYK35Z5sLwd4T4rTya15zQ6nnbzaxs1AM8MqCvdiBt5Khson6g0EaUdS
-	ukF/jBaQHn3UL2erIrEMyYxbMs5l59TdRtynYSuI1mZAASkQUc+dOOZK2Kov2SPPWOnDJ91pSTC
-	+6YM29BkZYu04sndbmuTu8g=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fhsqY1NG8z12Ljr;
-	Fri, 27 Mar 2026 15:35:05 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 695A140561;
-	Fri, 27 Mar 2026 15:40:31 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 27 Mar 2026 15:40:30 +0800
-Message-ID: <6cce203f-89d9-4e9d-8b28-9629eb53b180@huawei.com>
-Date: Fri, 27 Mar 2026 15:40:30 +0800
+	Fri, 27 Mar 2026 07:56:28 +0000
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-56ce15c6898so680271e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 00:56:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774598185; x=1775202985;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qJSO1Jy8gXJ3q0SyUcqZkfXUbxuRHoGqVtwy0Y1kZfY=;
+        b=qBmjsfZ9x4qUjMnqwXh655LDQ4QZMHLQX61Wl5HMSpGbvtp+z0CLpHmsUCmlr1TRHy
+         IZwYgfoTqMHHaeP2QJtJeuwnI0p1JHQnZD1Os2QlSH7NJXW6zmOr5kCPBGUQY+2/f2j8
+         pwLacYultxtA8Z3VoW9zG8TG+mwXO1jiZJPu4DHqCqFscyudRRhqZCAuYTLjuMRHvkWa
+         mSpQZPv1Onh2+iOa8vgwu5Bnl1coj/dR4ABtaBgNOdGzzP2oSinV/E6vC/GXdIF63waa
+         uHMi/W4+MOcJAg6cPb7q+agcls3FvTqf6er1cohMaGI/vFx9cp5NjCJlgKg/hj1b/NBo
+         u2qg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwRkSjsQc368WjcmdYkOGjvfkcfsMoTtYtTgQwa9My4ZLxxZXGpDZPLbpZiB5/XY4zuvkYdTZY1Btzrfoq5/W9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQzDG0791/rfjZxwSjhvy+zItmP1xm59eoqemd8wwrBvbpiwii
+	LFbU1F+C/ngnQhdyE/ZPUHiKdzUH8kRQN+7VzlWbyBiHMKK4Z6jykLEO4U24XZsgrGU=
+X-Gm-Gg: ATEYQzz0GdGKTYRSLppaPvIkxHtyyrdNUZkT+YHQQcHLVsdMkGN5DMXNy5h8UzpSoSe
+	64mztiqKbtDuTNDv7Dtszk7BHdbwSRIKICtQbDyOner+F7X5LiZ+2a0B40zCs31d9Nuh5msEN+q
+	V/BK1Ww8Pm4Vx1DhErP5najbmdV4fZhHggJSaigIE682v5dWBQawqXkh/lEEN5ZBUMNJzhKsRxI
+	6sXVqGI6q92RbzQh04JBCMB1w0kxtSuI/TgFUzt3nY+jWblWbhlpteCXCAN2hVSVnd+dZnLRaqq
+	kwf6TLPBukesxr2HeniupuhNX8booni9SlMuHa/fCSRz2u9ZcepD8NGDLhbpflLtVW7rNJHpaAC
+	6ZvRo6HLt55qNE9+XeZMRES3ImEzS6KAGRl2xnGgUTFS3FY3ayRPuMvRn7GE9dqKmxy4eoHMNCJ
+	Wk3r6AoNcZRC7x4FD65noCnWLep5AUswcX400rz5r6QuufysOoTFUCN+IALgHoVmjk
+X-Received: by 2002:a05:6122:3a0e:b0:566:357b:ef25 with SMTP id 71dfb90a1353d-56d4a692286mr517108e0c.15.1774598185133;
+        Fri, 27 Mar 2026 00:56:25 -0700 (PDT)
+Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com. [209.85.221.181])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56d31da7eddsm8550584e0c.18.2026.03.27.00.56.23
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Mar 2026 00:56:23 -0700 (PDT)
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-56a9076813bso984830e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 00:56:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXEvKdEL/1h+zwH29nDUHVw6Co+ZthAKmHNvtBrYKedES/v0cyzxbL0Az5xPpCqI8nLDX8UVy5w5Pgvi2AyE7rZ@lists.infradead.org
+X-Received: by 2002:a05:6123:132:b0:56b:5e7e:d3fb with SMTP id
+ 71dfb90a1353d-56d4a619a98mr460290e0c.12.1774598183104; Fri, 27 Mar 2026
+ 00:56:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/kvm: Enable eager hugepage splitting if HDBSS is
- available
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<corbet@lwn.net>, <pbonzini@redhat.com>, <will@kernel.org>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>,
-	<Jonathan.Cameron@huawei.com>, <yezhenyu2@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
-	<suzuki.poulose@arm.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
- <20260225040421.2683931-5-zhengtian10@huawei.com>
- <acQj5grOdZT8LUGp@devkitleo> <acQna2hLwdr1juTN@devkitleo>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <acQna2hLwdr1juTN@devkitleo>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+References: <20260322192159.88138-1-ojeda@kernel.org> <20260323000327.111235-1-ojeda@kernel.org>
+ <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
+ <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
+ <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com> <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
+ <641592e3-2354-4238-9eb8-a1f5c2a13126@app.fastmail.com>
+In-Reply-To: <641592e3-2354-4238-9eb8-a1f5c2a13126@app.fastmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 27 Mar 2026 08:56:11 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUUfVCBZFi2WoOYibJLVnyPY-joRDJDowgHwjN_DGeEzw@mail.gmail.com>
+X-Gm-Features: AQROBzCIA8XVkhuOJBqaPSt4vzM_veS-eZVPLLLcWDFZykO6P_Bu4uSiQhzQA0w
+Message-ID: <CAMuHMdUUfVCBZFi2WoOYibJLVnyPY-joRDJDowgHwjN_DGeEzw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Russell King <linux@armlinux.org.uk>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, acourbot@nvidia.com, 
+	Andrew Morton <akpm@linux-foundation.org>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Danilo Krummrich <dakr@kernel.org>, David Gow <david@davidgow.net>, 
+	Gary Guo <gary@garyguo.net>, Johannes Berg <johannes@sipsolutions.net>, 
+	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-um@lists.infradead.org, llvm@lists.linux.dev, 
+	Benno Lossin <lossin@kernel.org>, Mark Rutland <mark.rutland@arm.com>, mmaurer@google.com, 
+	Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nicolas Schier <nsc@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Richard Weinberger <richard@nod.at>, rust-for-linux@vger.kernel.org, 
+	Trevor Gross <tmgross@umich.edu>, "Uladzislau Rezki (Sony)" <urezki@gmail.com>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_004042_816352_AAD029F0 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260327_075627_204897_6C552A4E 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +131,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Arnd,
 
-On 3/26/2026 2:20 AM, Leonardo Bras wrote:
-> FEAT_HDBSS speeds up guest memory dirty tracking by avoiding a page fault
-> and saving the entry in a tracking structure.
+On Thu, 26 Mar 2026 at 22:34, Arnd Bergmann <arnd@arndb.de> wrote:
+> On Thu, Mar 26, 2026, at 16:18, Russell King (Oracle) wrote:
+> > On Thu, Mar 26, 2026 at 03:31:26PM +0100, Christian Schrefl wrote:
+> >> On 3/26/26 2:47 PM, Miguel Ojeda wrote:
+> >> > On Thu, Mar 26, 2026 at 11:10=E2=80=AFAM Alice Ryhl <aliceryhl@googl=
+e.com> wrote:
+> >
+> > I'm not sure if this is still true, but I believe it used to be the cas=
+e
+> > that the -linux-gnueabi target has one behaviour for enums (fixed size)
+> > whereas -none-eabi, the size of the type depends on the range of values
+> > included in the enum.
 >
-> That may be a problem when we have guest memory backed by hugepages or
-> transparent huge pages, as it's not possible to do on-demand hugepage
-> splitting, relying only on eager hugepage splitting.
+> I checked Debian's arm-none-eabi-gcc, which indeed still has this behavio=
+r:
 >
-> So, at stage2 initialization, enable eager hugepage splitting with
-> chunk = PAGE_SIZE if the system supports HDBSS.
+> $ echo 'enum { A, B } x =3D sizeof(x);' | arm-none-eabi-gcc -xc - -O2 -o-=
+ -S | grep -A1 x:
+> x:
+>         .byte   1
 >
-> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> ---
->   arch/arm64/kvm/mmu.c | 8 ++++++--
->   1 file changed, 6 insertions(+), 2 deletions(-)
+> and I see the same thing for the hexagon target in clang, but none
+> of the other targets that Linux runs on. In particular, clang always
+> behaves like linux-gnueabi even when targeting plain eabi.
 >
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 070a01e53fcb..bdfa72b7c073 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -993,22 +993,26 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->   
->   	mmu->last_vcpu_ran = alloc_percpu(typeof(*mmu->last_vcpu_ran));
->   	if (!mmu->last_vcpu_ran) {
->   		err = -ENOMEM;
->   		goto out_destroy_pgtable;
->   	}
->   
->   	for_each_possible_cpu(cpu)
->   		*per_cpu_ptr(mmu->last_vcpu_ran, cpu) = -1;
->   
-> -	 /* The eager page splitting is disabled by default */
-> -	mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-> +	 /* The eager page splitting is disabled by default if system has no HDBSS */
-> +	if (system_supports_hacdbs())
-> +		mmu->split_page_chunk_size = PAGE_SIZE;
-> +	else
-> +		mmu->split_page_chunk_size = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
-> +
->   	mmu->split_page_cache.gfp_zero = __GFP_ZERO;
->   
->   	mmu->pgd_phys = __pa(pgt->pgd);
->   
->   	if (kvm_is_nested_s2_mmu(kvm, mmu))
->   		kvm_init_nested_s2_mmu(mmu);
->   
->   	return 0;
->   
->   out_destroy_pgtable:
+> $ echo 'enum { A, B } x =3D sizeof(x);' | clang --target=3Darm-none-eabi =
+-xc - -O2 -o- -S | grep -A1 x:
+> x:
+>         .long   4
+>
+> I noticed a similar issue with m68k-linux, which has a bitfield
+> alignment different from anything else on gcc, but uses the normal
+> behavior on clang.
 
+Ugh, I wasn't aware of that. Adrian, did you know?
 
-Thanks again for sending this patch. I'll integrate it into the next 
-version and run some tests.
+Gr{oetje,eeting}s,
 
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
