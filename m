@@ -4,107 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A6210BA42F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 06:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8E810BA433
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 06:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
+	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZor0r7uOoAf8oDJrrV5/yzEdBboUWXz0lgUtCeRdok=; b=ou+7RF4CeG1tdR4hqNOWQ9kVYE
-	ZxtMmbSuacZYrSwiw0sa9uoKguVsDbwQFKd4ymhG2wfZJt3nItm2aWz9Y7+8UaOuIUbYEs9x1HmUg
-	3zFLTDVAxJUzOgjgKCxji6L+YSfrsG4AMO8n9sSda7UuqNJTufmVLLbNskOtukq0NdlYFxnJbBWK1
-	3gdkro5exZN00WabXEm/Y7/u5FnWRmIY02ltmYjjNVJBek2d8aAHuc9h6fL2K9UpMC0+mKmpnVYc4
-	yP77w/yNCod4lFc4FcOH0OYRJ0yW24SaxgvVCVwd+D9V2qY1jToDSD7ngMWsxWAK5A24EgH1aKfir
-	oqlbp4JA==;
+	bh=XnJA/5zwAPxZ6vMIZJbzIFubHwh+nIkMH+ZqspPFCx0=; b=iBi9q2BVOlEeX4Ulopo3qghxG1
+	XIRTlTF7iu7RpsiwGL7mWq7CPm03pZw891YragN3tCFUhswqypyF4VDmMJC0w4YK2+KhFnSCgp6VI
+	O79BeGtAdT3gJZO5EWsjmU5FcUTQnM6gcOwuQM6m+Y5KVlyFQwbMHB9f4dO1NfiiyxHSDI4GWk/S6
+	/66WCrZgf+sWnsmOf2qafLsVy/Jc9AvPzSlomK3NMn0IEo/lcsk3u4CALBfBO4c1eHe4Z5oY2IA3l
+	wibwOEdPyKzWOE5Vk0tcH9OAoW2Qqol/YK4bBUqQt7pJMrSFhMkk4y+tDIZXmQnH2Yn18Ho4rWDRx
+	U24JBFrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60LQ-00000006jp7-0o2i;
-	Fri, 27 Mar 2026 06:06:56 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1w60Y7-00000006lqi-3A91;
+	Fri, 27 Mar 2026 06:20:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60LO-00000006jom-0N2d
+	id 1w60Y5-00000006lo3-0ova
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 27 Mar 2026 06:20:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From:Sender:
+	Reply-To:Subject:Mime-Version:Content-ID:Content-Description;
+	bh=XnJA/5zwAPxZ6vMIZJbzIFubHwh+nIkMH+ZqspPFCx0=; b=f7zDVLCoc8m45URLWrOLfUOVLu
+	4MM8A6aKydcOgve6yHZBYbngLLDWeMf+4gINlAdqwawA6Irx9t68sAEdwB04b//RBgjJmCKDM7hec
+	iQcHJFdZ+OlVSqvNXotlEFA0//w029fFQNNBgF3mBrrC58GIRNiWSWfoXBDGtSPtiwUpiXl2GO4vH
+	Lrx9tUttEpU6HGUkOnqGv09JQRk+FGmj+baRTYgrhyXH5wHc/LFSEDPApnT6l68SrGjsVmOKo/ItU
+	oGxmw+ly2HK6PDqRcjNgaQtxGBU2DkVB2wcBvo/j4gCjdX9h0vSO0iGHZeWx3ScyYa5MQ9XgaEcRq
+	07mUGmJw==;
+Received: from mailout3.samsung.com ([203.254.224.33])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w60Xy-00000009kq1-3757
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 06:06:55 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-354a18c48b5so1700551a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 23:06:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774591613; cv=none;
-        d=google.com; s=arc-20240605;
-        b=VLEpA5JOuZn4O7FyK3KYZoQ+x0o4Snl7OJipU0+9QB5exexJKCL/ZxFqKiHexFjBxn
-         IcMOdctMgM3CLOxNYqRSnVC/H1zv5k6X8oS7UdL3lr0PUl2LFhGqjBjHxWpVf0CFIruW
-         r+px+Ud+PQvA77whrs09QPyhqQn5xNhnPAQnmQ3Px5RxI8K+eaj8JBe2OwE7QB4IqDLK
-         0Id6LSGfjDmpcY/BR2sELpdn2UVyVSJVtHnB/w0D6s4mqNi8u8/y8JxX+jYfy7opeDCc
-         rj/Wfvh9vMhP5sJgNlt1v/FCSJSHbKUssQC/o264uht7N7asR8SjxwjfXGgw9nAs9V0V
-         5kGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bZor0r7uOoAf8oDJrrV5/yzEdBboUWXz0lgUtCeRdok=;
-        fh=nUX2UgFbsKYZB96O5bQAIoujehS7NxUcE0mtdFkXfRk=;
-        b=dSegzZMe6xAg0q41hMxBluIy34a7vXtSUsFCSiuPAZyJ5zgL962p4pbbixAvmLFX5d
-         nXIgic7ri8bepdf5kDT83kWxXlLe7vC6zwdEmaaUU2J6+IxKGsGbEGPGws0BCA7msuLj
-         ciU6H5EOMD6G6U7rHB8cF604L8wbkmyPpNrJjwTSf5tu9C8N30E12fYD07blqxOZshi8
-         +qUfWuKApqQTY1BPZxSDsMGXknnO7uqARLUVaodYaPg5pMtMwOpvqSiD4nQqNZ5pHTsm
-         I5duaFyK47DAgwx+qxJ46PqL/ZwX9wI+EgTAt63iqBQJhZWu6XoPmTbXjz5msVTIaU6s
-         /bDQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774591613; x=1775196413; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bZor0r7uOoAf8oDJrrV5/yzEdBboUWXz0lgUtCeRdok=;
-        b=jTq5omuVA3i/8U1zG3Ug4mn/eSbwy6r1ZbZ0egUfXhyJ9oe7Wh4+yEYMMNa8h/Nqrz
-         T0P5JPUtVT5AvLt2t7fFDdjTGplP3ullJVf3S954SmCoB7/ANwovBagZeygW9DPOmlgF
-         6+kmPY/JHNidDnCKy9d1plIXS++8QECSm7mCoGus+tuwspEL2gJKLuezaCM/Zm4H5hfb
-         1ffUSCvAZvnL3shQVMd5C2VehdQwH9/7rJhCfa6ggav9G/39uXycvzQnsW0Q52H0VUAg
-         Vz0HqD7FD32uY2U6/qs/DxcUw53P6DTI693ZlyjxREddwojk364wI4AVfb7d2uXuZ38o
-         F4zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774591613; x=1775196413;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=bZor0r7uOoAf8oDJrrV5/yzEdBboUWXz0lgUtCeRdok=;
-        b=Mb4Zj66sIbC+VBtZc5SJ5KJRatg2ZmF1wyC694W/esJpDn7khQny7+IK0P7iXLteaC
-         BQXpb/hjLP2JBblVqojI2pvFVbDR8mIw5NMn+9hkNiLljCjIyJ+1pVpfUazP3BklL/bD
-         8rugc7zAuyQQ0U4AjGfgvjF+3fKWmk47zX3KM2F1S2s4gR18U0xzIDR83+5Nb/yJDIYr
-         fdE/sHlWEjlCQwIkGLM+tghzwWEndtupYBoe/+D/Kd8ysOaxKQUMGkerNybpiPvS0Kez
-         rvQ3x9wTU/o7K/DcOboq4dN64GpFQ/dlAt16uBlU5k2P//UmV4XosfKsnLbwJDziX8Yg
-         9wHg==
-X-Forwarded-Encrypted: i=1; AJvYcCUwAFNbpMgy+YIU+LVlDHGGF4d7cvbjR8Xp+xOAyYTXDVcsAVOQR/23phrRfq1TrtputyQkR8uLJIDCHaC87T+2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv5LF640m/SanQq/6Ui9opE42JeNzGCuj76fXpmoBDIqpsoBFh
-	eUR5Il1DhiqcnPQkuT76ePcCUUgTnnOEH8ADIZ4ArlfHcZkb1nqRs3c4ajE4t4S3lcnB7UcMw+I
-	sDkUDCAakUMsgK3hjWSlS9qm5AHHjL0Q=
-X-Gm-Gg: ATEYQzx3gKdK/3nH0hLwE4nMxMwIsQcruMz1h+zPVAnUeeAiXQS8QgYSl1c84CB02bi
-	LfqQwfzkNNNVyhEOhzSQP3nFDtWAYNF9ml84e9gPrUkWnybGtWPbM8LU4uyxexdVE/nQkHhsIxl
-	+rl2i+uOWGfKqcKL9sY74qTWANFoevGy+kc23u4OazG0U2kSAJgCrt6m1WWjC6Czf3UFhepuTds
-	EYDcbh0FgFd/8DbauEoZPu7dU7BWP+njwXLfRUvPDEBQ7rJPnPXXU4jGaDw4DT3xTZbcWqTTMdA
-	rjzoMGE=
-X-Received: by 2002:a17:90a:e7ca:b0:35c:f82:fef2 with SMTP id
- 98e67ed59e1d1-35c3002fc51mr1380306a91.14.1774591612670; Thu, 26 Mar 2026
- 23:06:52 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260327031504.497650-1-chancel.liu@nxp.com>
-In-Reply-To: <20260327031504.497650-1-chancel.liu@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 27 Mar 2026 14:06:25 +0800
-X-Gm-Features: AQROBzCzbEGPPttZKspsGG1E13nIFzodJ2Pa5Qt8YvIkcRF-KWLW83wNwQFeTOI
-Message-ID: <CAA+D8ANNmKX1oULZH=N8YE0hp24pP1JSvS9srugq+XMo+sQFnA@mail.gmail.com>
-Subject: Re: [PATCH v3] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 27 Mar 2026 06:19:58 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260327061942epoutp0391fef27a3615aba8d5f555c7f7538550~gnl6ZrsIf1758817588epoutp03b
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 06:19:42 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260327061942epoutp0391fef27a3615aba8d5f555c7f7538550~gnl6ZrsIf1758817588epoutp03b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1774592382;
+	bh=XnJA/5zwAPxZ6vMIZJbzIFubHwh+nIkMH+ZqspPFCx0=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=rUoMx9hoGfks4r+dxmr5olSm/bblUxZcyt4PWgT7YJaBNdPalrNlN0cMvjQol1iJz
+	 spAJj3ov5ZFNwm/P1ZcffyGowvWtNOfXs/ZS3bb1XA58vrY5YlcN7fyKFO2w2AyW8V
+	 dhigBaDblg2q8IbpIaE8/WEF2q1syAyqZsN+lIxc=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260327061941epcas2p17e4702f290bbe98e79942dda2d496d8c~gnl557Uoj3148231482epcas2p1K;
+	Fri, 27 Mar 2026 06:19:41 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.38.208]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4fhr8Y3HDzz6B9m4; Fri, 27 Mar
+	2026 06:19:41 +0000 (GMT)
+Mime-Version: 1.0
+Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
+From: =?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+To: Keith Busch <kbusch@kernel.org>, "hch@lst.de" <hch@lst.de>
+CC: Justin Tee <justintee8345@gmail.com>, "axboe@kernel.dk"
+	<axboe@kernel.dk>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
+	<j@jannau.net>, "neal@gompa.dev" <neal@gompa.dev>, "sagi@grimberg.me"
+	<sagi@grimberg.me>, "justin.tee@broadcom.com" <justin.tee@broadcom.com>,
+	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
+	"paul.ely@broadcom.com" <paul.ely@broadcom.com>, James Smart
+	<james.smart@broadcom.com>, "kch@nvidia.com" <kch@nvidia.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
+	<linux-nvme@lists.infradead.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, =?UTF-8?B?7J207J2A7IiY?=
+	<euns212.lee@samsung.com>, =?UTF-8?B?7Lm47LCs?= <joshi.k@samsung.com>,
+	=?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <acVGECskf5pg3_MY@kbusch-mbp>
+X-CPGS-Detection: blocking_info_exchange
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20260327061940epcms2p576446826c1c5336a57ec19f433122386@epcms2p5>
+Date: Fri, 27 Mar 2026 15:19:40 +0900
+X-CMS-MailID: 20260327061940epcms2p576446826c1c5336a57ec19f433122386
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-223,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
+References: <acVGECskf5pg3_MY@kbusch-mbp> <acQxjZMOqj74yIJf@kbusch-mbp>
+	<20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
+	<945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com>
+	<20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6>
+	<CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com>
+	<20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1>
+	<20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
+	<acVCnozG1WKPkq1L@kbusch-mbp> <20260326143124.GA17507@lst.de>
+	<CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_230654_132137_2C5D6DFB 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260327_061956_149627_F0B146BE 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,62 +119,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: hmi.jeon@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 11:15=E2=80=AFAM Chancel Liu <chancel.liu@nxp.com> =
-wrote:
->
-> Existing i.MX audio sound card described by this binding use codecs
-> that operate in i2s or dsp_b formats. The newly added CS42448 codec
-> requires dsp_a for its TDM interface. To properly describe such
-> hardware in DT, the binding needs to allow dsp_a DAI format.
->
-> Only i2s, dsp_b and dsp_a are included because these are the formats
-> actually used by the hardware supported by this binding. Other formats
-> such as left_j, right_j, ac97 are not used or required by the hardware
-
-"pdm", "left_j", "right_j" are supported by SAI, so I think they should be =
-added
-from the hardware point of view.
-
-Best regards
-Shengjiu Wang
+On Thu, Mar 26, 2026 at 03:43PM +0100, hch@lst.de wrote:
+> Yeah, the spec is not very clear on their use. It just defines the codes
+> and a one sentence description, and then never mentioned again. I think
+> it allows the possibility for the controller to internally complete a
+> command with such status from some undefined OOB mechanism. I'm not sure
+> why the host needs to have their own self-generated status codes anyway
+> since it can already attach whatever arbitrary flags it wants to its
+> private data, like how we use NVME_REQ_CANCELLED.
+> 
+> Anyway if a controller did return it for whatever reason, even if it is
+> a bug, we'd want to see it in the trace.
 
 
-Shengjiu Wang
+I've confirmed what you discussed, and it seems like the approach you
+proposed is a better one.
+Can I send patch v7 as above?
 
-> currently covered by this binding, so they are intentionally not added.
->
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
-> ---
-> Changes in v3:
-> - Rewrote commit message completely to describe hardware requirements.
-> Explicitly documented why only dsp_a is added and why other formats
-> are not included.
-> - Rebased on latest code base. No functional changes.
->
-> Changes in v2:
-> - Updated commit message to explain current support for i2s and dsp_b
-> formats and new support for dsp_a. No code changes.
->
->  Documentation/devicetree/bindings/sound/imx-audio-card.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml =
-b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> index 5424d4f16f52..75757fbccd89 100644
-> --- a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> +++ b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> @@ -37,6 +37,7 @@ patternProperties:
->          items:
->            enum:
->              - i2s
-> +            - dsp_a
->              - dsp_b
->
->        dai-tdm-slot-num: true
-> --
-> 2.50.1
->
+Regrad,
+Minsik Jeon
 
