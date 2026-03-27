@@ -4,162 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CD810F286A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 19:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE3510F286A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 20:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teVHKGkb5tER6UyOM8vX2vU3CT20tkmDTGularD2JzA=; b=u2kUGEtSku4HigPHXIQ+D27ZKv
-	JaTN1ywLj/FE9FlHROPyLsncjakX/QmbemTVJ1cpf59X+ubYQx6RnOycK1R+zW1w3EY1O0VHkTMfV
-	YHMcl1Hc1gC39r2bRHhbXRISkWFesBS1mHPyoj/sBulZID+XvcFvxmhXTGNYWjK/a2QLoxGW/iQpZ
-	T03nEQzHTFB4Pv5la/iOZgVCLR3Qi6nAfdFS1NQwv7YpvcW6ArJnLjuveq8kQsl+AVz8Kt6vSoal0
-	cjLMTsFn0vNG3NY40VlDDeS5xcrxlOWPMZP/1YB/uuf9C0jZNeVVSomhFk6RKVX9xSs6Bx+SOPd1Q
-	z0R2tXvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T2vqbRr8SqPZfYjWbgRRazMb+0cCewbQ3ECrXWlmf3M=; b=3DqGSJw+4aShDKxmw498gQbp9z
+	2Mv5HFFT69wOrPZxVUh815ubcv9ueCST7DZqT0fryQIvXgz0E1IXEHTVl6TTxIrk0/7QE7GMEEvIe
+	B3K3sFX+vv+hktH7Au6pmXpRHxlqfI5fetazPdGw/CIil4bL2CMTeyQ89MTXq1X8lBRkn+O7tr8Lp
+	ws/MsrC7z2PV+ulwS1dxr45++IuRZrl/Iauq4OJ6NUkQ8KlkrYqn8fhNSUPFYohfixHvfqca2Csp0
+	bNp+FiluzS059UAUOzicoIpwe5NVkcKDFIGaGPQKbhUzeKxW4yTmdNY5QG/7gaTP4cUlN/qWYcFnj
+	hfJnLfEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6D9t-000000087hW-2IQw;
-	Fri, 27 Mar 2026 19:47:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w6DTC-000000088T9-2fqA;
+	Fri, 27 Mar 2026 20:07:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6D9r-000000087hF-0mmp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 19:47:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=teVHKGkb5tER6UyOM8vX2vU3CT20tkmDTGularD2JzA=; b=dDaslA/h3Afj9hDuKKm7dKDhPB
-	q3L+W877BRDtNU9rU7/9inDNpwL2xukuJ+gp4r7cfwXr7sGbu1cCIdcS6o1wbw9c/QXgiJSf0Ur8Q
-	0W3k8NWrveh4HJVOq/8wpI7mJEWn2uL+NgNpNreyl8S3M7P4ZsbUtGAmpY+AnCadNDySsmo8/wdTt
-	Qr4NW0DKOXvJOmdT9EY9R1bBtjiJSbqvNmlPed2TSSLBuif2Y4caUUttg9NcgZZIZj2Yy2tswkG7L
-	iGHf6+REwO2N02gnXLwbNlnPgIEgzx7v3FZxcXYpn6keLcRhB26fUrHBpdpUUXRinABkoQhdWVJwW
-	nWGx/WvA==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6D9n-0000000BAE2-31l0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 19:47:49 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62RI2bFS3137108
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 19:47:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	teVHKGkb5tER6UyOM8vX2vU3CT20tkmDTGularD2JzA=; b=SLJ1XQ9AUQtF+mV1
-	C+LyFCxHX37K4YVqKudiM9weqXdcz1X9S5iKJr6SpWiGbun4XhyzS1YpPrnMZcPc
-	a4uvhMKKdJYq4LEluqfWrHoUEtUxNpFJnd9GPsdrdxEv0965ePL1/raXo2hGrgnY
-	ICI/Rtp41aHnuLZI7WfCTj4I5pKTE+WO+WJwBEZG22YNYS8BGGm57AW6iolHJGKC
-	iDUMl5QGggfhTNu5VQTXwSxMj5t+pIgrh+mI4hyXHQlxDbhqIPFmQ6m2HKWDQiK8
-	jj1jJHWn1VlxRSHnBDICXGuwp31kefUJZxqCevOKVy9bMaTxahZN8bMSoo9hglCw
-	A7tvZw==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d59r1d02b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 19:47:43 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50937cf66b5so118690471cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 12:47:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774640863; x=1775245663; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=teVHKGkb5tER6UyOM8vX2vU3CT20tkmDTGularD2JzA=;
-        b=Mq8ZAdZKA8Ni0UHC6IDP7/rzUa/8ov2X3JDIvrSh8xYrQBviL6tJUNNnnKkq1/hzko
-         rJuczsOwdO4KkBZ6Uzz1h55Y4slzHKmD46ZlmDGLc9Kj5yFnj5rZE+5iVB9MalttkkQ8
-         /tuqUOFqV3VDbRJH/JgcY4UXTP6b42nMrwgvH7l6U+5i7B3o8PKkftswZjYFqXBerMU9
-         b/ZC+uACAUTShbPBtzdiR/RgKEhJOvrM6XeRXAe9LlYXPskP0RC4FKSLlWyZf78gEku7
-         j/ZXYp0YaKu0HV3XX3K8aC7u+g0KovY4w++TlDSY7v2berkV77d7UE7dfyzhFrLiJ5Jg
-         ge1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774640863; x=1775245663;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=teVHKGkb5tER6UyOM8vX2vU3CT20tkmDTGularD2JzA=;
-        b=olOTqzOCNC4K3qbjAcxPpJRCxyzz6xJOPspmqK9whdijwv6JSVCC1O8q7AxfCZ9qtS
-         xrv/YD7iLbztOdp+j+UZl9EdbxJss/dmIznFqFdUiKPrDWSaU5DZ9/KOrnXMpa1DOGCP
-         S/XeXxkvHaI2L/taVGwrAwL0jX5jlah5Jwhj1/cOS6n+lJV3fz5gJS3pgilRxDrpchA3
-         DUqrAypZQqUm5o0gbSgHoGjblof24i/DXd/oQwyMp2khxZolc04Fos2Q09BAqzIgq71U
-         8EdqBgJcd6AkPSMWUM2wcacJ6KG563g22p/wGEFpdhO0XLl1XpZj2n/NvU0rqr0GYHJr
-         yVIw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLqcU2n4TiO27IFn7cF71loXGctRw2CRtMjTbENsA1P3gi/dMb4RiIMDhv1GHLuM5WzAdTkKxD3laOLtLdBil4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/rz/L3c+NUDsZwCmbfkVWyb4SWJNyNkP3odYnzpoAQVIvOcEg
-	Oo1chvUHt21MHKp7k8NAD3FwzlCn4o9GSpmCocrXHEDMO56kuRV5HPgOYil13lftEa/OCdnZV0t
-	00L6+QaDS5/41iRJoIusgWEmscG2I864+4Z9aLmcWTSc3xtJtzBeXwfKn3D2oKtJp5vD2lqVl3g
-	UMMw==
-X-Gm-Gg: ATEYQzwloN+AN1AeUTwDoxrvVbNBftqKI4+84bAW/VT4Ka9EaPWNSnE1RYDbZu3OxL1
-	PYE+p66PUzinPAXyauL+0mKXLV5evUKXSPLkVcIl+YY5Yw2XRquoN2lqfqpiRFfwzV5XJwREsV+
-	MBt1UWyd9qyrwiupp7Y3lU82SPRlvW3oAVVJvJEatwDPo0zQqn5+balh0S/6diuKMmnZzUSktDM
-	TfdZbVkKfbtIilh8X48AaZsv5rE156PZSaKfjTp4KKykIONDh1OxfTywZVPnrBQ9zV7p/TQmFHy
-	DhLc11R+p1bR2q4MnO7TWajC/hOx9HWT5E38c2tvCiz9aRgXpxZ/fIebMiZIZ1Ke1b3v5gEH1sg
-	yP1PYmQeVjDpKYawBPLCjhie6EyMyx5klrMWehrI642SYbW1c7VeTt0X2RfiikpZjqf8uejNBvf
-	UGXgz4SuZReOL2IXPu94xYNJFk8j0dOWlO
-X-Received: by 2002:a05:622a:4188:b0:509:238f:ad8f with SMTP id d75a77b69052e-50ba37d196emr56634371cf.5.1774640862823;
-        Fri, 27 Mar 2026 12:47:42 -0700 (PDT)
-X-Received: by 2002:a05:622a:4188:b0:509:238f:ad8f with SMTP id d75a77b69052e-50ba37d196emr56634101cf.5.1774640862390;
-        Fri, 27 Mar 2026 12:47:42 -0700 (PDT)
-Received: from umbar.. (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38c837130basm275211fa.12.2026.03.27.12.47.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 12:47:40 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Jeffrey Hugo <jeffrey.l.hugo@gmail.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Alexander Koskovich <akoskovich@pm.me>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v5 0/5] drm/msm: add RGB101010 pixel format
-Date: Fri, 27 Mar 2026 21:47:37 +0200
-Message-ID: <177463970769.3488980.9125473167622953389.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260324-dsi-rgb101010-support-v5-0-ff6afc904115@pm.me>
-References: <20260324-dsi-rgb101010-support-v5-0-ff6afc904115@pm.me>
+	id 1w6DTB-000000088Sz-0P4q;
+	Fri, 27 Mar 2026 20:07:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9D5960054;
+	Fri, 27 Mar 2026 20:07:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEF0DC19423;
+	Fri, 27 Mar 2026 20:07:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774642067;
+	bh=xHRwHRWX7sDO8EBJS6B5aXfJHu0i4XN8dvpcSTbfIRc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dHjUd3ZF79LzrbAsi+TKEK/Ox3bmzPuIrfMVXalW4YK/WE4eklng4Df+wSLXUgWxX
+	 lKaRwK1I0DNDfmr/scNd5pCVoZDofC3GXlVmUgZ8/OqIBX5MzrcGLP7BzUeqgecyy/
+	 fYrvqyq4LOy3tCyTMc2aXe5GP79hIW8ZJguFwPB4isv94O+qxI8j1TPWne/0DvX8iw
+	 J2gbjMSc8XXnUnLOffcSDKNThi9RN2DzhBovrz5EChYLDv8pHc16S+dq8eDka59cc+
+	 DrvbMPLlVDZ8ohXwe+J/hmsHr7V9SMRi38wiuqWCwQddWgeu/TJpnsT/lDGoguLhd0
+	 aGa3mpY8dB5iw==
+Date: Fri, 27 Mar 2026 17:07:43 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, 9erthalion6@gmail.com,
+	adrian.hunter@intel.com, alex@ghiti.fr,
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
+	blakejones@google.com, ctshao@google.com,
+	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
+	leo.yan@linux.dev, libunwind-devel@nongnu.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org,
+	pjw@kernel.org, shimin.guo@skydio.com, tglozar@redhat.com,
+	tmricht@linux.ibm.com, will@kernel.org, amadio@gentoo.org,
+	yuzhuo@google.com
+Subject: Re: [PATCH v1 0/2] perf build: Remove libunwind support
+Message-ID: <acbjjwc-WCk1CwtF@x1>
+References: <abxs-2rozL1tBEO1@google.com>
+ <20260321234220.848859-1-irogers@google.com>
+ <acW4Z2KJbyPZM1SG@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDEzOCBTYWx0ZWRfX3TQ5toK4v+Rv
- ku/qycYjZVwNywDBM50V2IXlo854Kgnvi1d66egwloYatEp8zAReYFJDqGNThf5ry+huiIJ77tP
- w4CVjqPbFS7E6i7yPK4wdTAdcWUAc+ZU3TLSjWmkOzDiyyw/UqZv3w8FndFy6OyTYecuYkHEd8z
- mprIG08hMXSjdefZ06gd74IppDnooHyXPkC8ULXUUWAarTe0n6TQs/ckRWXFYRPVWLLJnG0wgYF
- PVPOBTlqN/uyB2hX1na/CUfLEWdDnIx4BK4inSj2w2VbsHqYlrlFK3MM4w4mmuy21UceKto/Z/m
- /iU4UJz2D7BQCzflL+05QHMA4JzEeTI9F4KjBKQlqsRQUThEwszAfradlWPUWYXOkFiUMDes2wo
- Cbnw8XeIdZspbpXFGZ77EB6d3m6MeptBH7YD1BarBSSjPjmtiUj/J1U559E10FNxyqF7tprXb34
- MUviSa26pXzMqmrQhcw==
-X-Proofpoint-GUID: FXZyqoQVDhjfEbjFEszg6G5EvvrzpWmM
-X-Proofpoint-ORIG-GUID: FXZyqoQVDhjfEbjFEszg6G5EvvrzpWmM
-X-Authority-Analysis: v=2.4 cv=JaCxbEKV c=1 sm=1 tr=0 ts=69c6dedf cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=e5mUnYsNAAAA:8
- a=Q2NTn6QYng6VSU78D54A:9 a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
- a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-27_01,2026-03-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 phishscore=0 bulkscore=0 malwarescore=0
- lowpriorityscore=0 spamscore=0 impostorscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603270138
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_194748_070163_491F5F19 
-X-CRM114-Status: GOOD (  12.79  )
+In-Reply-To: <acW4Z2KJbyPZM1SG@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,29 +82,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 11:47:56 +0000, Alexander Koskovich wrote:
-> This series adds support for the RGB101010 (30bpp) pixel format used by some
-> newer panels.
-> 
-> Tested on the BOE BF068MWM-TD0 panel (10 bit DSC) on the Nothing Phone (3a).
+On Thu, Mar 26, 2026 at 03:51:19PM -0700, Namhyung Kim wrote:
+> On Sat, Mar 21, 2026 at 04:42:18PM -0700, Ian Rogers wrote:
+> > libunwind support exists for "--call-graph dwarf", however, libunwind
+> > support has been opt-in rather than opt-out since Linux v6.13 as libdw
+> > is preferred - commit 13e17c9ff49119aa ("perf build: Make libunwind
+> > opt-in rather than opt-out"). A problem with the libdw support was
+> > that it was slow, an issue fixed in Linux v7.0 in commit 6b2658b3f36a
+> > ("perf unwind-libdw: Don't discard loaded ELF/DWARF after every
+> > unwind"). As such libunwind support is now unnecessary.
+> > 
+> > The patch series:
+> > https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
+> > looked to make the libunwind support in perf similar to the libdw
+> > support, allow cross-architecture unwinding, etc. This was motivated
+> > by the perf regs conventions being altered by the addition of x86 APX
+> > support:
+> > https://lore.kernel.org/lkml/20260209072047.2180332-1-dapeng1.mi@linux.intel.com/
+> > It is necessary to translate the library's notion of registers to the
+> > perf register convention so that the stack unwinding state can be
+> > initialized. On this series it was stated that removing libunwind
+> > support from perf should be an option, rather than updating support:
+> > https://lore.kernel.org/lkml/abxs-2rozL1tBEO1@google.com/
+> > This was also what motivated making libunwind opt-in rather than
+> > opt-out.
 
-Applied to msm-next, thanks!
+> > Given that 7 minor releases have happened with libunwind "deprecated"
+> > by making it opt-in, let's remove the libunwind support. There doesn't
+> > appear to be any disagreement to this on the mailing list.
+ 
+> I'm not sure if we want to remove it now.  I think we need more time to
+> verify libdw unwinding is stable and fast enough.  Also maybe we can
+> add build- or run-time warning when people try to use libunwind.
 
-[1/5] drm/mipi-dsi: add RGB101010 pixel format
-      https://gitlab.freedesktop.org/lumag/msm/-/commit/b50dc1e54750
-[2/5] drm/meson: use default case for unsupported DSI pixel formats
-      https://gitlab.freedesktop.org/lumag/msm/-/commit/a780b7f6c8e5
-[3/5] drm/msm/dsi: rename MSM8998 DSI version from V2_2_0 to V2_0_0
-      https://gitlab.freedesktop.org/lumag/msm/-/commit/913a709dea0e
-[4/5] drm/msm/dsi: add DSI version >= comparison helper
-      https://gitlab.freedesktop.org/lumag/msm/-/commit/a65c4d30988e
-[5/5] drm/msm/dsi: Add support for RGB101010 pixel format
-      https://gitlab.freedesktop.org/lumag/msm/-/commit/cebf747abeeb
+We have:
 
-Best regards,
--- 
-With best wishes
-Dmitry
+acme@x1:~/git/perf-tools$ perf -vv | grep LIBU
+             libunwind: [ OFF ]  # HAVE_LIBUNWIND_SUPPORT ( tip: Deprecated, use LIBUNWIND=1 and install libunwind-dev[el] to build with it )
+acme@x1:~/git/perf-tools$
 
+acme@x1:~/git/perf-tools$ perf check feature libunwind && echo perf built with libunwind
+             libunwind: [ OFF ]  # HAVE_LIBUNWIND_SUPPORT ( tip: Deprecated, use LIBUNWIND=1 and install libunwind-dev[el] to build with it )
+acme@x1:~/git/perf-tools$
 
+Building with both, as Ian mentioned ends up with:
+
+  LD      /tmp/build/perf-tools/util/perf-util-in.o
+ld: /tmp/build/perf-tools/util/unwind-libunwind.o: in function `unwind__get_entries':
+unwind-libunwind.c:(.text+0x2a0): multiple definition of `unwind__get_entries'; /tmp/build/perf-tools/util/unwind-libdw.o:unwind-libdw.c:(.text+0x940): first defined here
+make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:164: /tmp/build/perf-tools/util/perf-util-in.o] Error 123
+make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:158: util] Error 2
+make[2]: *** [Makefile.perf:797: /tmp/build/perf-tools/perf-util-in.o] Error 2
+make[1]: *** [Makefile.perf:289: sub-make] Error 2
+make: *** [Makefile:119: install-bin] Error 2
+make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+⬢ [acme@toolbx perf-tools]$
+
+So what Namhyung is suggesting is to disable libdw when libunwind is
+asked for?
+
+I.e.
+
+alias m='rm -rf ~/libexec/perf-core/ ; make LIBUNWIND=1 NO_LIBDW=1 -k O=/tmp/build/$(basename $PWD)/ -C tools/perf install-bin && perf test "import python" && cat /tmp/build/$(basename $PWD)/feature/test-all.make.output' ; export PYTHONPATH=/tmp/build/$(basename $PWD)/python
+
+Which builds and ends up linking with both:
+
+⬢ [acme@toolbx perf-tools]$ ldd ~/bin/perf | egrep unwind\|dw
+	libunwind-x86_64.so.8 => /lib64/libunwind-x86_64.so.8 (0x00007fbf430b6000)
+	libunwind.so.8 => /lib64/libunwind.so.8 (0x00007fbf4309b000)
+	libdw.so.1 => /lib64/libdw.so.1 (0x00007fbf38570000)
+⬢ [acme@toolbx perf-tools]$
+
+I.e. that NO_LIBDW isn't really disabling linking with it, just some
+features based on it, likely.
+
+Hum, we also have NO_LIBDW_DWARF_UNWIND, which probably is what we want
+here... nope:
+
+⬢ [acme@toolbx perf-tools]$ alias m='rm -rf ~/libexec/perf-core/ ; make LIBUNWIND=1 NO_LIBDW_DWARF_UNWIND=1 -k O=/tmp/build/$(basename $PWD)/ -C tools/perf install-bin && perf test "import python" && cat /tmp/build/$(basename $PWD)/feature/test-all.make.output' ; export PYTHONPATH=/tmp/build/$(basename $PWD)/python
+⬢ [acme@toolbx perf-tools]$ m
+rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace-Util/lib/Perf/Trace/__pycache__/Core.cpython-314.pyc': Permission denied
+make: Entering directory '/home/acme/git/perf-tools/tools/perf'
+  BUILD:   Doing 'make -j12' parallel build
+Warning: Kernel ABI header differences:
+  diff -u tools/arch/x86/include/uapi/asm/svm.h arch/x86/include/uapi/asm/svm.h
+
+Auto-detecting system features:
+...                                   libdw: [ on  ]
+...                                   glibc: [ on  ]
+...                                  libelf: [ on  ]
+...                                 libnuma: [ on  ]
+...                  numa_num_possible_cpus: [ on  ]
+...                               libpython: [ on  ]
+...                             libcapstone: [ on  ]
+...                               llvm-perf: [ on  ]
+...                                    zlib: [ on  ]
+...                                    lzma: [ on  ]
+...                                     bpf: [ on  ]
+...                                  libaio: [ on  ]
+...                                 libzstd: [ on  ]
+...                              libopenssl: [ on  ]
+...                                    rust: [ on  ]
+
+  INSTALL libsubcmd_headers
+  INSTALL libperf_headers
+  INSTALL libapi_headers
+  INSTALL libsymbol_headers
+  INSTALL libbpf_headers
+  LD      /tmp/build/perf-tools/util/perf-util-in.o
+ld: /tmp/build/perf-tools/util/unwind-libunwind.o: in function `unwind__get_entries':
+unwind-libunwind.c:(.text+0x2a0): multiple definition of `unwind__get_entries'; /tmp/build/perf-tools/util/unwind-libdw.o:unwind-libdw.c:(.text+0x940): first defined here
+make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:164: /tmp/build/perf-tools/util/perf-util-in.o] Error 123
+make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:158: util] Error 2
+make[2]: *** [Makefile.perf:797: /tmp/build/perf-tools/perf-util-in.o] Error 2
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [Makefile.perf:289: sub-make] Error 2
+make: *** [Makefile:119: install-bin] Error 2
+make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+⬢ [acme@toolbx perf-tools]$
+
+I expected NO_LIBDW_DWARF_UNWIND=1 would resolve this case, and maybe it
+should?
+
+Or maybe it did it in the past as by now it is just a comment:
+
+⬢ [acme@toolbx perf-tools]$ git grep NO_LIBDW_DWARF_UNWIND
+tools/perf/Makefile.perf:# Define NO_LIBDW_DWARF_UNWIND if you do not want libdw support
+⬢ [acme@toolbx perf-tools]$
+
+Its from:
+
+# Define NO_LIBDW_DWARF_UNWIND if you do not want libdw support
+# for dwarf backtrace post unwind.
+
+As we need libdw for 'perf probe', etc, so being able to disable it just
+for DWARF backtrace is what we need here to make them mutually
+exclusive, i.e. the default is for building with libdw for backtraces,
+but if the user asks for LIBUNWIND=1, then a warning that libdw won't be
+used for DWARF backtraces and select NO_LIBDW_DWARF_UNWIND?
+
+We could then have a regression test that builds perf with one, does
+some backtraces, then with the other, then compare? This would be
+followup work, if somebody has the cycles, but making them mutually
+exclusive should be doable with not that much work?
+
+This is an area that is tricky and since we _already_ have two
+implementations, the good thing for regression testing would be the
+compare their results until libunwind becomes completely rotten and
+unusable?
+
+- Arnaldo
 
