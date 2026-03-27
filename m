@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B8D10F285F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A80010F285E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RHZHdVnR0zTaqYIhv9So/eydh5PbYVOHPjWh8NR18EY=; b=qBix2++p5wcv19VqeeA9OgyFAr
-	Zjb6nE8atb+VNRl6EjDjS49zG2vK4CrnseqyBM+BOJFpWYPhA6cb/jJWvFg3IwKu/9I9sTao6GUH8
-	IgzNdjGgIDemc2yX8+xac+Zj1xJogOfHnUU5ZogeUFzbBoqfloFk8KobBXoEFAMsV2h7KnOLC9JTd
-	p5lTpBssKp9dI8OfcCFyPR1hdJcp9Lnhpql0W6BMys2IOQwCaIPUWL8udMdD13IeEO8kcUZJDXOpe
-	VVaPb+UKmrMOODuMOrlobOXw+gShPDrVqGCb4pmzCXS1pn29iaLDzXfvatARQqR+qDqdKOKvZxTF4
-	SfV13sxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4058XtpebnJNJ0w+uHtlDdeXOwVoOI6qmJqEKpILNDQ=; b=mtzg7/d1QiiFuPDEmVipN9LTZd
+	KAvAHwwDNHqY0Bgakp7n35N/ovu0hQTcYpYZ8pa8wIf96ulmsRlgcKUQmxPMf1aOnRvl+YYViMq81
+	zon7aPibAtXVdgOy+ensY4RqlpFFgW+13pmNgBjkqbC9tkzVjV/eRv0MyV0Zwt9M0/r42SR6gRiW/
+	9e46CJeaysiCI/Q8Qvpgaxd9bm3x7d2MIiSp2QxNmsSeplgPs2gKVJ98fUhXaulxxOJtQcwH8fdID
+	NYF8JXpj4jZY+iQObkCvOaTWmQb0YIrb4+I2RuLZKOtstz2oP8ysMbhk/dAVTHzgc370MUVbJmeWm
+	j8msppuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Alo-00000007q0k-2aXs;
-	Fri, 27 Mar 2026 17:14:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w6AmK-00000007qBI-3yGs;
+	Fri, 27 Mar 2026 17:15:24 +0000
+Received: from lahtoruutu.iki.fi ([185.185.170.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Aln-00000007q0a-0AZN
+	id 1w6AmI-00000007qAm-09cD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 17:14:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7984D60054;
-	Fri, 27 Mar 2026 17:14:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39C6CC19423;
-	Fri, 27 Mar 2026 17:14:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774631690;
-	bh=K/gLTO9BZCY9CeZMqLSveaXc5Cq+EEiHtsmhIau0ADg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rCuOyAx6bXbHXajLcXofBRMQm35IYQDU9GeYsBogWpYwfCnUYTJGXt6+v35nSrrFU
-	 HDjf1ex5dYyzsq2AwhQ/rczEJKB1+MiuHBuuwFyobz+Qrigx5CBetrKN5GmM+8cK80
-	 AMAxXa5dOY9UyC+k5KAyq51evGL4yEBKw18x4jizpmhP+HVUAucCbE+gmlR22q3Bg5
-	 B3/p5bZ5Iuevgf14+hn3YzMtB/AHWZ3kjQ36VzlujXJ1GI8kATRd5+qFqAAj9w2dmE
-	 7Z4fXodO3VRjXOm37LKcvTfCqx2wVeuLpDgNjb9FqNDFln/3CV+uJJPC6wWhPwT8iT
-	 6cbQo9gfPsAww==
-Date: Fri, 27 Mar 2026 17:14:44 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Haibo Chen <haibo.chen@nxp.com>
-Subject: Re: [PATCH v4 3/7] pinctrl: extract pinctrl_generic_to_map() from
- pinctrl_generic_pins_function_dt_node_to_map()
-Message-ID: <20260327-cymbal-reliant-30f1e7e0cfcb@spud>
-References: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
- <20260325-pinctrl-mux-v4-3-043c2c82e623@nxp.com>
- <20260327-overdrawn-stretch-2311ec39aa58@spud>
- <aca2UquiW9lFikhR@lizhi-Precision-Tower-5810>
+	Fri, 27 Mar 2026 17:15:23 +0000
+Received: from darkstar.musicnaut.iki.fi (85-76-0-165-nat.elisa-mobile.fi [85.76.0.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: aaro.koskinen)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fj6hw1m7bz49PtJ;
+	Fri, 27 Mar 2026 19:15:12 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1774631714;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=4058XtpebnJNJ0w+uHtlDdeXOwVoOI6qmJqEKpILNDQ=;
+	b=iuN8x1bX1Q1wJC+L0CibPUxnWESiQo8/OmyERfTJhNwLWT0Y7dWmnIXuV5oQ55oiVYTimF
+	MUbrL0XqkVhtXBXhImO/FO2Elltiu+vt7yngEiqQNgwSbKCSfeIE6X65AMhx/YGS7sdLFb
+	3AC4Pv/VVcpkrx/T5blr9zG8BOTW25ucj9wpr+Uk/4KWqAEgoeT4xflc4ln+Fx7JIgjz1u
+	HTa6j+FdAbbYF9eLSNQhMY13EqNalGPRgPlf3jSbvciCHFEinaOp4Ch6J8CybxpVIQHp6n
+	Ameh8ARzo/3inpHbeqiKb0rAg0m2/Hh7IvqyKikKWaSWqhi0hvmN6+LDCznIPw==
+ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1774631714;
+	b=VxBVYRVt4+sEM886Qmcvr1G3qr4SHSzFr4AITzSPUjLe/9Vgv1DuI/L2kBkdbAaIgCVvI4
+	ylIZ2XrZY/5iTc5verBSLUsvmRW04pQRkY2+uXUfoUkkA9AaL8soy9W+OfIrhtYXVK3dJO
+	c6vjNu20Kdv9P6gJAKFzvh9UqLo+0zVlh3yiny5HPoEiFz0UZb1XsUPw2QcFvw42VeXGKr
+	HAER14RySdHODFY0CI123P6H+euop6Sbnu/PAvy53K1179lBbmResepQ6PKIoxWQXcmz8N
+	yxWcpEHDng9vNO9Y97uwkCGaQHAxf5WVKsCKEAla4FmKQHUpnc6I0POwYUOLUA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1774631714;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=4058XtpebnJNJ0w+uHtlDdeXOwVoOI6qmJqEKpILNDQ=;
+	b=mOZGtSakUSgKFtinYZvLYm9BqJ/Qo+UkG1UV7M+rJqW8qL+PNGiev53EWJCvTgiBBEtVfd
+	2FPAzo5p0TQlWuthUoTfaohd0QmZqjd2rEd3jk0djSNXBH/OZh7mec+Dx9EJKXDpA8GGcH
+	500+JOTTGRQF3NOgheVI+So97BMqwV8G7qr/ME6tBS+sTOYOhu1ydfaIanYO3r27zqBbHq
+	wiiieMGer5xRVY/2MREeuBZ5qUdims9z9raqFQPjjCFlkEpOLtyqHIbEkfAg08sLW8YKu7
+	6zChMbrBDfraTRo4M7LtI/Qgu0nVi9bysT0fGcGMxuPVGLmPvfKq2lfPT3owAw==
+Date: Fri, 27 Mar 2026 19:15:10 +0200
+From: Aaro Koskinen <aaro.koskinen@iki.fi>
+To: Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: OMAP1: Fix DEBUG_LL and earlyprintk on OMAP16XX
+Message-ID: <aca7HnXZ-aCSJPW7@darkstar.musicnaut.iki.fi>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pAa+sME3mtw+rhIt"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aca2UquiW9lFikhR@lizhi-Precision-Tower-5810>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_101522_234983_B0107CC6 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,133 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On OMAP16XX, the UART enable bit shifts are written instead of the actual
+bits. This breaks the boot when DEBUG_LL and earlyprintk is enabled;
+the UART gets disabled and some random bits get enabled. Fix that.
 
---pAa+sME3mtw+rhIt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes: 34c86239b184 ("ARM: OMAP1: clock: Fix early UART rate issues")
+Signed-off-by: Aaro Koskinen <aaro.koskinen@iki.fi>
+---
+ arch/arm/mach-omap1/clock_data.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On Fri, Mar 27, 2026 at 12:54:42PM -0400, Frank Li wrote:
-> On Fri, Mar 27, 2026 at 12:09:32AM +0000, Conor Dooley wrote:
-> > On Wed, Mar 25, 2026 at 07:04:12PM -0400, Frank Li wrote:
-> > > Refactor pinctrl_generic_pins_function_dt_subnode_to_map() by separat=
-ing DT
-> > > parsing logic from map creation. Introduce a new helper
-> > > pinctrl_generic_to_map() to handle mapping to kernel data structures,=
- while
-> > > keeping DT property parsing in the subnode function.
-> > >
-> > > Improve code structure and enables easier reuse for platforms using
-> > > different DT properties (e.g. pinmux) without modifying the
-> > > dt_node_to_map-style callback API. Avoid unnecessary coupling to
-> > > pinctrl_generic_pins_function_dt_node_to_map(), which provides
-> > > functionality not needed when the phandle target is unambiguous.
-> > >
-> > > Maximize code reuse and provide a cleaner extension point for future
-> > > pinctrl drivers.
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > > change in v4
-> > > - new patch
-> > > ---
-> > >  drivers/pinctrl/pinconf.h         | 18 ++++++++
-> > >  drivers/pinctrl/pinctrl-generic.c | 91 ++++++++++++++++++++++++-----=
-----------
-> > >  2 files changed, 74 insertions(+), 35 deletions(-)
-> > >
-> > > diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
-> > > index 2880adef476e68950ffdd540ea42cdee6a16ec27..ffdabddb9660324ed8886=
-a2e8dcacff7e1c6c529 100644
-> > > --- a/drivers/pinctrl/pinconf.h
-> > > +++ b/drivers/pinctrl/pinconf.h
-> > > @@ -166,6 +166,13 @@ int pinctrl_generic_pins_function_dt_node_to_map=
-(struct pinctrl_dev *pctldev,
-> > >  						 struct device_node *np,
-> > >  						 struct pinctrl_map **maps,
-> > >  						 unsigned int *num_maps);
-> > > +
-> > > +int
-> > > +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_no=
-de *parent,
-> > > +		       struct device_node *np, struct pinctrl_map **maps,
-> > > +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
-> > > +		       const char **group_name, unsigned int ngroups,
-> > > +		       const char **functions, unsigned int *pins);
-> > >  #else
-> > >  static inline int
-> > >  pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pct=
-ldev,
-> > > @@ -175,4 +182,15 @@ pinctrl_generic_pins_function_dt_node_to_map(str=
-uct pinctrl_dev *pctldev,
-> > >  {
-> > >  	return -ENOTSUPP;
-> > >  }
-> > > +
-> > > +static inline int
-> > > +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_no=
-de *parent,
-> > > +		       struct device_node *np, struct pinctrl_map **maps,
-> > > +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
-> > > +		       const char **group_name, unsigned int ngroups,
-> > > +		       const char **functions, unsigned int *pins,
-> > > +		       void *function_data)
-> > > +{
-> > > +	return -ENOTSUPP;
-> > > +}
-> > >  #endif
-> > > diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinc=
-trl-generic.c
-> > > index efb39c6a670331775855efdc8566102b5c6202ef..20a216ae63e91b69985ea=
-4cfcd0b57103c6ca950 100644
-> > > --- a/drivers/pinctrl/pinctrl-generic.c
-> > > +++ b/drivers/pinctrl/pinctrl-generic.c
-> > > @@ -17,29 +17,18 @@
-> > >  #include "pinctrl-utils.h"
-> > >  #include "pinmux.h"
-> > >
-> > > -static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pi=
-nctrl_dev *pctldev,
-> > > -							   struct device_node *parent,
-> > > -							   struct device_node *np,
-> > > -							   struct pinctrl_map **maps,
-> > > -							   unsigned int *num_maps,
-> > > -							   unsigned int *num_reserved_maps,
-> > > -							   const char **group_names,
-> > > -							   unsigned int ngroups)
-> > > +int
-> > > +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_no=
-de *parent,
-> > > +		       struct device_node *np, struct pinctrl_map **maps,
-> > > +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
-> > > +		       const char **group_names, unsigned int ngroups,
-> > > +		       const char **functions, unsigned int *pins)
-> >
-> > npins needs to be an argument to this function also, otherwise
-> > pinctrl_generic_add_group() uses it uninitialised...
->=20
-> Is this one the root cause of then broken?
+diff --git a/arch/arm/mach-omap1/clock_data.c b/arch/arm/mach-omap1/clock_data.c
+index c58d200e4816..5203b047deac 100644
+--- a/arch/arm/mach-omap1/clock_data.c
++++ b/arch/arm/mach-omap1/clock_data.c
+@@ -700,8 +700,8 @@ int __init omap1_clk_init(void)
+ 	/* Make sure UART clocks are enabled early */
+ 	if (cpu_is_omap16xx())
+ 		omap_writel(omap_readl(MOD_CONF_CTRL_0) |
+-			    CONF_MOD_UART1_CLK_MODE_R |
+-			    CONF_MOD_UART3_CLK_MODE_R, MOD_CONF_CTRL_0);
++			    (1 << CONF_MOD_UART1_CLK_MODE_R) |
++			    (1 << CONF_MOD_UART3_CLK_MODE_R), MOD_CONF_CTRL_0);
+ #endif
+ 
+ 	/* USB_REQ_EN will be disabled later if necessary (usb_dc_ck) */
+-- 
+2.39.2
 
-No, this is not the cause of the breakage. I can't believe I still have
-to say that. Go read the code and you'll see why that allocation thing
-is problematic.
-
-> I am not sure why compiler have not report waring for it.
-
-It did, that's how I found it. Used uninitialised warnings are normally
-=66rom clang, so your toolchain might not have seen it. clangd integration
-with my editor is how I saw it.
-
---pAa+sME3mtw+rhIt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaca7AQAKCRB4tDGHoIJi
-0tJOAP47mkwupF69iSRR/PJaWWFW6GDxmNFaLiYahpyjU+NVeQEAnZdw+Qj9g9Ik
-qNJvKTLF5rcBtj5CBnTu6h/gxd9oXQk=
-=B990
------END PGP SIGNATURE-----
-
---pAa+sME3mtw+rhIt--
 
