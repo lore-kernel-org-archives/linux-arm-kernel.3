@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B0010F2848
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B0D10F284D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 16:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Z8Qe26KQx9x2Tka4TfS8zhPGh0H+CNCLVz/DV6cT7w=; b=VQON8KYoDqZShkNL/H2QlsZ0hB
-	zw4voK2PDLxKPGMLLw8YhQ7W7WqELCMlNmqOGkHgx6JGHjkaL1F0LhiXkNH9UYOwehZ6ynIgI/ZTG
-	pRELONLzTC89rcfFqeZHm3qVzD2nNbW2emWkwJOC/yMIcM40GPgKTgKNrkN9utdLpzXAshPuGA47U
-	Rw5O8ERNRJhjo4R6R+efeviejaQkt88SniWjccRuiIE+ogdmxWo0+iuyy0rYlLmOj5peUbvLhQTqo
-	9fblC096cTbSS2QlnKqPLPGSNpVK5YCE6IqG9GMCMqrhm5GYgzTk5YRDrQ1XJBJlI3OYv/7RrV+nm
-	QbMg2P4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c2KhTUAjw0jRKl8iCMNRp2pUaoEv3AvLCHL0xg/y+1U=; b=M0ESRWcqWLuzA/a4AevhS+KsKx
+	q9gG4k+EpL3vUoQ0IhoDo+M9Bd5xwmqrwqIdbaEzGoo/gX4Gx9epRR3Fls1t5DTmWcuMxwu397cBz
+	J6qRfP6t/oGicepRknw8eRAcrLmZce0fxwKYmrqmvzwmWvwmv+nEPnv68oe1XD/tfZRwBtk0o2EYG
+	jCECV0dfXC9KPmIZWq2zWIVOEi7af/u6N/D5jteWSsOGhPLkSv4qZ2/h87HQpti/WdwAZyc4yyxyh
+	ffAKe88+nVZfjpqSsvoaWOhLLiz0mMoPCfzEeYebEQHz7pj5W2CPpwGD0qrfDCBndrf4nRXYD1Fyr
+	XfgUdDBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69Q9-00000007ikT-3AEf;
-	Fri, 27 Mar 2026 15:48:25 +0000
+	id 1w69ho-00000007jpg-1j3o;
+	Fri, 27 Mar 2026 16:06:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69Q6-00000007ijc-1dH4
+	id 1w69hl-00000007jp6-4Bbs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 15:48:24 +0000
+	Fri, 27 Mar 2026 16:06:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCFBC35CF;
-	Fri, 27 Mar 2026 08:48:14 -0700 (PDT)
-Received: from [10.1.196.96] (eglon.cambridge.arm.com [10.1.196.96])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E83D23FBF8;
-	Fri, 27 Mar 2026 08:48:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0380635DA;
+	Fri, 27 Mar 2026 09:06:29 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 501B53F905;
+	Fri, 27 Mar 2026 09:06:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774626500; bh=Mz0of4dB4grzS8/sla4sFrQXaHoAg9COSMULoORc3kw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RzN0SxWsNzrcmP4pXR5jI7uKag835WGhWZuJJyQPo1rBbmVBUKlWR4WGL1bWOx4YY
-	 hA3ek6ETjh8Dq810bqwT4xU1sBPhwj/yhwkA2/z3/Nc6j3T4aLGDvYqNrpqn8jNHTf
-	 fj0EFKu7pb6lxrKbfGn5uFkfgQ1sGCqe8CGgzcVY=
-Message-ID: <50f7e984-0418-4538-b735-48047e5ccc8a@arm.com>
-Date: Fri, 27 Mar 2026 15:48:11 +0000
+	t=1774627594; bh=rP5Us1gXdwPg7GyTIgDBgSFYYiyK72XcZqUZNsRJd7o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=euB7uvj6sPvllCzscsJiWjfu2yQKubt0UwiyzR70XCV7OQY28kY7MGRijQb7Rj/ww
+	 g5Jnk+yKB7WIdQKX0sZMjkOG8Lh6yX18HV9LbxuG0Qx9gTebYXJ4nvfTqJnMBxiUjW
+	 Tep1yK+UIiWrTDxl7aHcASnUCM2R72F1NxjKzw+g=
+Date: Fri, 27 Mar 2026 16:06:27 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Andrei Vagin <avagin@google.com>
+Cc: Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Cyrill Gorcunov <gorcunov@gmail.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org, criu@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Chen Ridong <chenridong@huawei.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Michal Koutny <mkoutny@suse.com>,
+	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
+Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
+Message-ID: <acarA3sGKY4Acozw@J2N7QTR9R3.cambridge.arm.com>
+References: <20260323175340.3361311-1-avagin@google.com>
+ <20260323175340.3361311-2-avagin@google.com>
+ <acGEonF9I6sPA42B@J2N7QTR9R3.cambridge.arm.com>
+ <acJnOB-rlyt-3jU4@willie-the-truck>
+ <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 36/40] arm_mpam: Add workaround for T241-MPAM-1
-To: Gavin Shan <gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, peternewman@google.com,
- punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
- reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- zengheng4@huawei.com, linux-doc@vger.kernel.org,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-37-ben.horgan@arm.com>
- <7b73d10e-4bfd-434f-b05f-25c4859a7abd@redhat.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <7b73d10e-4bfd-434f-b05f-25c4859a7abd@redhat.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_084822_529183_3059BFBE 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20260327_090638_208706_31931887 
+X-CRM114-Status: GOOD (  53.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,110 +88,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
-
-On 24/03/2026 04:16, Gavin Shan wrote:
-> On 3/14/26 12:46 AM, Ben Horgan wrote:
->> From: Shanker Donthineni <sdonthineni@nvidia.com>
->>
->> The MPAM bandwidth partitioning controls will not be correctly configured,
->> and hardware will retain default configuration register values, meaning
->> generally that bandwidth will remain unprovisioned.
->>
->> To address the issue, follow the below steps after updating the MBW_MIN
->> and/or MBW_MAX registers.
->>
->>   - Perform 64b reads from all 12 bridge MPAM shadow registers at offsets
->>     (0x360048 + slice*0x10000 + partid*8). These registers are read-only.
->>   - Continue iterating until all 12 shadow register values match in a loop.
->>     pr_warn_once if the values fail to match within the loop count 1000.
->>   - Perform 64b writes with the value 0x0 to the two spare registers at
->>     offsets 0x1b0000 and 0x1c0000.
->>
->> In the hardware, writes to the MPAMCFG_MBW_MAX MPAMCFG_MBW_MIN registers
->> are transformed into broadcast writes to the 12 shadow registers. The
->> final two writes to the spare registers cause a final rank of downstream
->> micro-architectural MPAM registers to be updated from the shadow copies.
->> The intervening loop to read the 12 shadow registers helps avoid a race
->> condition where writes to the spare registers occur before all shadow
->> registers have been updated.
-
-> One question below.
+On Tue, Mar 24, 2026 at 03:19:49PM -0700, Andrei Vagin wrote:
+> Hi Mark and Will,
 > 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index e66631f3f732..b1753498f07f 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -630,7 +640,45 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc
->> *msc,
->>       return ERR_PTR(-ENOENT);
->>   }
->>   +static int mpam_enable_quirk_nvidia_t241_1(struct mpam_msc *msc,
->> +                       const struct mpam_quirk *quirk)
->> +{
->> +    s32 soc_id = arm_smccc_get_soc_id_version();
->> +    struct resource *r;
->> +    phys_addr_t phys;
->> +
->> +    /*
->> +     * A mapping to a device other than the MSC is needed, check
->> +     * SOC_ID is  NVIDIA T241 chip (036b:0241)
->> +     */
->> +    if (soc_id < 0 || soc_id != SMCCC_SOC_ID_T241)
->> +        return -EINVAL;
->> +
->> +    r = platform_get_resource(msc->pdev, IORESOURCE_MEM, 0);
->> +    if (!r)
->> +        return -EINVAL;
->> +
->> +    /* Find the internal registers base addr from the CHIP ID */
->> +    msc->t241_id = T241_CHIP_ID(r->start);
->> +    phys = FIELD_PREP(GENMASK_ULL(45, 44), msc->t241_id) | 0x19000000ULL;
->> +
->> +    t241_scratch_regs[msc->t241_id] = ioremap(phys, SZ_8M);
->> +    if (WARN_ON_ONCE(!t241_scratch_regs[msc->t241_id]))
->> +        return -EINVAL;
+> Thanks for the feedback. Please read the inline comments.
 > 
-> Those IO regions aren't unmapped when the MSCs are removed. I guess it would be
-> something to be improved? :-)
-
-It's just leaking some VA space in the unlikely event the error interrupt goes off.
-That is never expected to happen - all the errors indicate a software bug, so its
-not a case of being unlucky. (This assumes T241 supports the error interrupt!).
-
-Adding some teardown would just be for this erratum, I expect it to be the only one
-that needs to map some other device to poke at. I'm not sure its worth it.
-
-I'm also very nervous changing this quirk as its difficult for me to test!
-
-
->> +
->> +    pr_info_once("Enabled workaround for NVIDIA T241 erratum T241-MPAM-1\n");
->> +
->> +    return 0;
->> +}
->> +
->>   static const struct mpam_quirk mpam_quirks[] = {
->> +    {
->> +    /* NVIDIA t241 erratum T241-MPAM-1 */
->> +    .init       = mpam_enable_quirk_nvidia_t241_1,
->> +    .iidr       = MPAM_IIDR_NVIDIA_T241,
->> +    .iidr_mask  = MPAM_IIDR_MATCH_ONE,
->> +    .workaround = T241_SCRUB_SHADOW_REGS,
+> On Tue, Mar 24, 2026 at 3:28 AM Will Deacon <will@kernel.org> wrote:
+> >
+> > On Mon, Mar 23, 2026 at 06:21:22PM +0000, Mark Rutland wrote:
+> > > On Mon, Mar 23, 2026 at 05:53:37PM +0000, Andrei Vagin wrote:
+> > > > Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
+> > > > AT_HWCAP2, etc.) from a parent process when they have been modified via
+> > > > prctl.
+> > > >
+> > > > To support C/R operations (snapshots, live migration) in heterogeneous
+> > > > clusters, we must ensure that processes utilize CPU features available
+> > > > on all potential target nodes. To solve this, we need to advertise a
+> > > > common feature set across the cluster.
+> > > >
+> > > > This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
+> > > > auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV).  When
+> > > > execve() is called, if the current process has MMF_USER_HWCAP set, the
+> > > > HWCAP values are extracted from the current auxiliary vector and stored
+> > > > in the linux_binprm structure. These values are then used to populate
+> > > > the auxiliary vector of the new process, effectively inheriting the
+> > > > hardware capabilities.
+> > > >
+> > > > The inherited HWCAPs are masked with the hardware capabilities supported
+> > > > by the current kernel to ensure that we don't report more features than
+> > > > actually supported. This is important to avoid unexpected behavior,
+> > > > especially for processes with additional privileges.
+> > >
+> > > At a high level, I don't think that's going to be sufficient:
+> > >
+> > > * On an architecture with other userspace accessible feature
+> > >   identification mechanism registers (e.g. ID registers), userspace
+> > >   might read those. So you might need to hide stuff there too, and
+> > >   that's going to require architecture-specific interfaces to manage.
+> > >
+> > >   It's possible that some code checks HWCAPs and others check ID
+> > >   registers, and mismatch between the two could be problematic.
+> > >
+> > > * If the HWCAPs can be inherited by a more privileged task, then a
+> > >   malicious user could use this to hide security features (e.g. shadow
+> > >   stack or pointer authentication on arm64), and make it easier to
+> > >   attack that task. While not a direct attack, it would undermine those
+> > >   features.
 > 
-> Perhaps we need a more leading space for every line in the above block.
+> I agree with Mark that only a privileged process have to be able to mask
+> certain hardware features. Currently, PR_SET_MM_AUXV is guarded by
+> CAP_SYS_RESOURCE, but PR_SET_MM_MAP allows changing the auxiliary vector
+> without specific capabilities. This is definitely the issue. To address
+> this, I think we can consider to introduce a new prctl command to enable
+> HWCAP inheritance explicitly.
+> 
+> > Yeah, this looks like a non-starter to me on arm64. Even if it was
+> > extended to apply the same treatment to the idregs, many of the hwcap
+> > features can't actually be disabled by the kernel and so you still run
+> > the risk of a task that probes for the presence of a feature using
+> > something like a SIGILL handler or, perhaps more likely, assumes that
+> > the presence of one hwcap implies the presence of another. And then
+> > there are the applications that just base everything off the MIDR...
+> 
+> The goal of this mechanism is not to provide strict architectural
+> enforcement or to trap the use of hardware features; rather, it is to
+> provide a consistent discovery interface for applications. I chose the
+> HWCAP vector because it mirrors the existing behavior of running an
+> older kernel on newer hardware: while ID registers might report a
+> feature as physically present, the HWCAPs will omit it if the kernel
+> lacks support. 
 
-Sure, done locally.
+On arm64, the view of the ID registers that userspace gets *only*
+exposes features that the kernel knows about, as userspace reads of
+those registers are trapped+emulated by the kernel. On arm64 it's 
+not true to say that something appears in those but not the HWCAPs.
 
+I understand that might be different on other architectures, and so
+maybe this approach is sufficient on other architectures, but it is not
+sufficient on arm64.
 
->> +    },
->>       { NULL } /* Sentinel */
->>   };
+> Applications are generally expected to treat HWCAPs as
+> the source of truth for which features are safe to use, even if the
+> underlying hardware is technically capable of more.
+
+I'm fairly certain that there are arm64 applications (and libraries)
+which check only the ID register values, and not the HWCAPs.
+
+Architecturally, there are features which are detected via other
+mechanisms (e.g. CHKFEAT), for which HWCAPs are also irrelevant. Even if
+that happens to be ok today, there are almost certainly future uses that
+will not be compatible with the scheme you propose.
+
+I don't think we can say "applications must check the HWCAPs", when we
+know that applications and libraries legitimately don't always do that.
+
+> Another significant advantage of using HWCAPs is that many
+> applications already rely on them for feature detection. This interface
+> allows these applications to work correctly "out-of-the-box" in a
+> migrated environment without requiring any userspace modifications.  I
+> understand that some apps may use other detection methods; however, there
+> it no gurantee that these applications will work correctly after
+> migration to another machine.
+
+I think the existince of applications that detect features by other
+(legitimate!) means implies that there's no guarantee that this feature
+is useful and will remain useful going forwards.
+
+For example, what do you plan to do if an application or library starts
+doing something legitimate that causes it to become incompatible with
+this scheme?
+
+I don't want to be in a position where userspace is asked to steer clear
+of legitimate mechanisms, or where architecture code suddently has to
+pick up a lot of complexity to make this work.
+
+> > There's also kvm, which provides a roundabout way to query some features
+> > of the underlying hardware.
+> >
+> > You're probably better off using/extending the idreg overrides we have
+> > in arch/arm64/kernel/pi/idreg-override.c so that you can make your
+> > cluster of heterogeneous machines look alike.
+> 
+> IIRC, idreg-override/cpuid-masking usually works for an entire machine.
+> We actually need to have a mechanism that will work on a per-container
+> basis. Workloads inside one cluster can have different
+> migration/snapshot requirements. Some are pinned to a specific node,
+> others are never migrated, while others need to be migratable across a
+> cluster or even between clusters. We need a mechanism that can be
+> tunable on a per-container/per-process basis.
+
+I think that's theoretically possible, BUT it will require substantially
+more complexity, to address the issues that Will and I have mentioned. I
+don't think people are very happy to pick up that complexity.
+
+There are many other aspects that are going to be problematic for
+heterogeneous migration. Even if you hide the HWCAP for a stateful
+feature (e.g. SME), it might appear in one machine's signal frames (and
+be mandatory there), but might not appear in anothers, and so migration
+might not work either way. Likewise, that state can appear via ptrace.
 
 Thanks,
-
-James
+Mark.
 
