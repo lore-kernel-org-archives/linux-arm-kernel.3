@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D75E10ED64A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 11:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7000510ED65C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 11:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHCWZwzs9paKBTwVocNY1Bav5dyWetLR7DtSeiePs98=; b=gyrh8zQ99O9llnNtnGbc4ua5O7
-	fFD2aFB4aJxnQoF6yIu+6ObCpY5Q+XQ8dHlitBq2dRmJsnwzXWFWgOHaKWfjC4Nh8v2iGXE41tSHf
-	naydzPgCGXpxRb5jd/ssc8tdszm/uCXlnBLgrpdSLrYGKLEsPtEVDxpQe0tU1hiEHS+06EvzfE+Ip
-	ktckCz/BWG/aDIB7mmSL0JAkyZ0BIVUWys3eF/QxdKlN6WYYJ16Yhs49gmvlG/zhbQFyZVRmULxGi
-	20WItS/A0aw31NblnOF36MgGA1DFyAd+yyoxxJLN1SwCAEZbAGR8Ec/o6tylth6dpn/QHsrXLjoG6
-	AJInl/yw==;
+	bh=DYgRiTpgVxM1HUd8k6yAnxBm1+eeXn001TUDzFfO7D4=; b=mhU4Z63MQITAWPrO895IGZ1i+z
+	GFjAsMjb5TypTEC3l0sEZkmdwhPrloKIo86pBI+PfucoiYiWn2TAN9GGno+g6xuAcGylJK7ZLjGg/
+	vM3RbCQPTwNz4EOoFMWJCMgdoBubF7IY3vdOtKvImxyyrtxEYK2vn9DAjvIAWvR/UpSEDbrXigC+q
+	ST4zwBwrWL13Bka1pC7UPvpSguYov2addHi8Evhl19W1uB/nSpz/TeY2J2ACZoRmUgryHntlpBHEK
+	aeOsabPEICJoknscQqUWmqcDzfjlFnwHIJdmgQku9dOAi9HPp6VnDTyvLtr/3eATfOSWG2yty63Ql
+	j74r+DaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w65bW-00000007IDk-2DeC;
+	id 1w65bV-00000007ID9-0Ht5;
 	Fri, 27 Mar 2026 11:43:54 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w65bS-00000007IBz-33Vj
-	for linux-arm-kernel@lists.infradead.org;
+	id 1w65bT-00000007ICV-3aXE
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 27 Mar 2026 11:43:51 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-486507134e4so23549775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 04:43:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=DYgRiTpgVxM1HUd8k6yAnxBm1+eeXn001TUDzFfO7D4=; b=byF7XZ9SSBtH27Qgsp8NhrdzMh
+	CVpNnbM5w1W8j3XAbWF9FRCUDhZ1/fMIAsYW5PFfK/D5J8eVfVQzQT8AZ9CEOahRerrFD73gJAhRm
+	iIIkrOUrNTM8VZIUEss5bkGmTqQUfpLTh9z7ajG6L9Y/QWI4spATbyF6FgNrjGESNhhgMFz/I6ha/
+	Al+pB1ggeuRXuTnYMv0lkTZGHaLU5qb7IaIccGmglhJNqX3B1UYLvfxPBpKD+uI5QGFmP5Y7q9wGh
+	WtlP4t05/MfeMASk2KlihB1TI28B5mM2uws7PePYh2jLua3hhbDDc1+3qbSpcObUSnNJAz8AMx9SB
+	kC1exJdg==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w65bQ-0000000AK1K-3eNU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 11:43:50 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-487012ce896so12433355e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 04:43:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774611828; x=1775216628; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774611827; x=1775216627; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fHCWZwzs9paKBTwVocNY1Bav5dyWetLR7DtSeiePs98=;
-        b=OzkfPaT3Y4awxJpp4SuadRB7VslnKx+A1CwnR3OBa0kYUztyHuBcDCddwR4f/2cmeV
-         kEbNLcmShwqocwA+Z9gTNvyYjOKLFGra/XWG4nLges+TzQKr/4908kfMl4YqMOaOzvE1
-         OibR77WShqPYBaz60VOVm2uccc1lp/W+Wm9LA9psH1WvqMynF5tlqvSUhf9UzX65KspI
-         A742nUn0VsxFzfowLurWFz/WgGZl7/0vky6rCFBHZll/13IlixAqclG1GLNfvGUgFJfd
-         Bgw3dIjby7cVCxHXAXt6x1V/ENWJitBmOf3nNVWJjzfUOMLu0sk5cKhzgXHjlXjsCcvY
-         gBBQ==
+        bh=DYgRiTpgVxM1HUd8k6yAnxBm1+eeXn001TUDzFfO7D4=;
+        b=nUap3tS1MaflU32uKv3opwTcH5X3RHHJXAV7VIfdYBNeAd/O3OS6TmUd/n5Hc6ZHVn
+         CsQi81y/qhXt1p8Hi7CqYCkrSCsiv/2niFGk08kiYeN1W1Copb+vVPh6RP1L7DyE5K5l
+         wwF/jtj9sBSLL+PgJrZkfWNQ0DnAZUve93z4oZmsHT7dgXslrmzpmJUP6zQ71otmYoKw
+         uQtHPQzi9nr/MTg9t4ir71fYpl+R8/JepbUn526tZ7PvU3b7RnQ9IdSCw8FE4vYoGyeD
+         cwBnJISkIC2HcngkLQvj4D2OIydG3NcxBBmVz3TfcfX8QpCsmlKCu+W2d1apr5IRVoPM
+         Aw8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774611828; x=1775216628;
+        d=1e100.net; s=20251104; t=1774611827; x=1775216627;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=fHCWZwzs9paKBTwVocNY1Bav5dyWetLR7DtSeiePs98=;
-        b=gLO0+F5mQPd2xDMo1fn5ZK5VSY4YIZlzuNVoyHK9fueQLaJwX7DPiS9NxsiT6BiDwp
-         E8cKEKcgGxVu2/Oe2CzlsVDW9eWklSRfwty9GApRArb4njqHRdqlTsu0h6jRfNQnXFOY
-         E5fX/Nc1Xk8CgAbI3JA35jSYJHtmRAOWkZ0B8PWtAZJKT+PQN7PAEE0bqk/0tBZEZLMS
-         zKrx71yugjLwrGqISLz6YjL+ujgjGOLtRd/nQnYOnqk54EEyinNb060w8FyqdOib3wvf
-         X5EKx1agTvR+y7fw80dUCK/rZIgkv+Zhm6bw/B8QftmmUraLanns9qo9FsDI9C574XFV
-         qE+A==
-X-Forwarded-Encrypted: i=1; AJvYcCX/RO61SPuQNdZnC6HWUnElBfUEmmCeugi4oR4VXaELxp9raLIqF6dtrK2+ktasnaQxvpF+8KwmsvC23CHoBOWY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwKh6iB9iB8qsfDtwODTs37x0fPQoBB6p9ptpEUACWJLb+B2bT
-	pD8ahoAqUOf0XZBgNbMbQ2hBRUknl16ZM1ZYxCBLl56fN3+jQBGqFZ7h
-X-Gm-Gg: ATEYQzxn6I/pe3MTyxEcOLsH1XqFd9NZDs9VivabxLcI1InhOG66dgPQr1+yKgb1aUt
-	RV7wMlafcuHIU01pSg/9qkZmYfoTbgmDvdXtVoEI29sgL7HCVnXgtPmt0ksfrU+MKVvSt2ouisI
-	ot+IOzZ99AbGY3aWSfEzt0z5AJlcvsg37dJJukuh3jD4zXBhykLVKePomSwqG/mzD1475Z5BJDd
-	0AnnpATaEC1R2cepnbmy8Sz4m7Jtb6hQq7GuCVturyiHd30gBb3vvPuzGbhRRBUy3OGnepzfCDl
-	kHi7A4eduomXZ6lhOuKDYpWdYUCY1jJ89GRfdfBfQWAOWG5zpQhGogR2SjNEfcDCP0XhwhEZsHk
-	dtOUyawt5TQuGkW2aelEDx5DWjRxZ0JZl/Ojfr75SPMoK5BZJhFEtQ5/QXqu53yjCuzxTG+iucq
-	ctA4ExeNWDYBTMMhq3cDYVwVH9oontMvCT2r1LdFHb3T6rDrmZFS6yw7ddBdSgyXW2YHdskmOX8
-	G3cwAllmJa0PtFLoA==
-X-Received: by 2002:a05:600c:810b:b0:487:219e:41c with SMTP id 5b1f17b1804b1-48727f36da5mr33865035e9.28.1774611828249;
-        Fri, 27 Mar 2026 04:43:48 -0700 (PDT)
+        bh=DYgRiTpgVxM1HUd8k6yAnxBm1+eeXn001TUDzFfO7D4=;
+        b=p7QvNEyozcUD2psu3vViUuRBogevmHqe3OP7MszBFTJqNAk8R4/8VT/q9pkH1GsjQm
+         uq8cz2iB+9HRG6SpmqKZixpunOHImCbysTCDey96G/yHHY61knOC1gRnAbhhNp7bZWGI
+         wJbeN5xlgFjDSU1n20sssO4mQVxFUn9yFi92/UwqvWlQqP611UPXhVxHYAxwUhHf7jvU
+         iflod7pryS1EdsmFz4SOI1OBtlExIelxAgHjahhluGp1vdgzoeb9DHY3qedoQT/NrWDk
+         uyZvroY54nf7eQFtKr7MgfJGAzshuwngDcewInboj4rmo9e19tt8AuQ2I+8ZH9oh5NVZ
+         K2Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCUUbnhb6lYz5TjpwPMTcjVKGYs6lV9f5slJBYbINIQLSlffYDG9P02Xvki/SNtR9cqTmF3u/yjr3f0KxjVodRcI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcjQeLOQGX3+qbjWUC8Q/+G2JumlAanjwb6Swwl/XGEelJnPU0
+	hdWkCPrZtB8hXgKsvx7i+bfa/UrzL0ClNDI5wItBvWx9GtIpJ3J6xE23
+X-Gm-Gg: ATEYQzw33rrBEJhPld3qR3a09VFnya3misXk/KU+TlxMoQQNWeJil6Caml3o1fiOWPI
+	I/4irJ1QSdkNnqnMP5boM1Cju/dHsSh+5NZBbSwpdybFaEz3dKwhppIKSBFFu4pyDWyA8tvuzSM
+	yzhpITjjkvQbfJ6Ut+KckPJxw2QdgmPwNsDhggpSw7gUyLwkl30jchQjCcLBfOlTRO3VbA3AA7N
+	bGoegezSo9ScxOggwOggVBt40IhZWpPteYExEO/kDoi3oy6zJcrEgBjIA6AeBikEtSEBb2nLABY
+	tIrRxSUVfSL4uJRq87VQL8k/DSQSjan8I+4xIFmhhf0Fmb+5+jsr6zufUk3roYNJlVYwDGeSBu/
+	vMl+cxgBixsxrZU0FibOyIf+EcWpIZ5/ja3JJXaxQuwvQqZfUikzBYKw6/iKsyXweRrgYGPapIH
+	DicKDEW0FJ3m9bAdadsD+fvtrPM5s3Sp5SoKwmAB4PdjfqD8UQPmaaeyNHfKsD3Bag0rS7XxnVI
+	I9dcBlq5BhBKP6V0w==
+X-Received: by 2002:a05:600c:8b6e:b0:487:716:2fa9 with SMTP id 5b1f17b1804b1-48727e883c4mr35679575e9.13.1774611826618;
+        Fri, 27 Mar 2026 04:43:46 -0700 (PDT)
 Received: from jernej-laptop.localnet (118.red-213-98-130.staticip.rima-tde.net. [213.98.130.118])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c6b495sm184799345e9.2.2026.03.27.04.43.47
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43b919e265csm15142518f8f.32.2026.03.27.04.43.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 04:43:47 -0700 (PDT)
+        Fri, 27 Mar 2026 04:43:46 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
@@ -77,19 +92,18 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: pinctrl: sun55i-a523: increase IRQ banks
- number
-Date: Fri, 27 Mar 2026 12:41:04 +0100
-Message-ID: <5976712.DvuYhMxLoT@jernej-laptop>
-In-Reply-To: <20260327113006.3135663-3-andre.przywara@arm.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: a523: Add missing GPIO interrupt
+Date: Fri, 27 Mar 2026 12:42:18 +0100
+Message-ID: <5086436.31r3eYUQgx@jernej-laptop>
+In-Reply-To: <20260327113006.3135663-4-andre.przywara@arm.com>
 References: <20260327113006.3135663-1-andre.przywara@arm.com>
- <20260327113006.3135663-3-andre.przywara@arm.com>
+ <20260327113006.3135663-4-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_044350_782694_CC2465ED 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20260327_114349_075640_3984A4C7 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,20 +118,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 27. marec 2026 ob 12:30:05 Srednjeevropski standardni =C4=8Das j=
+Dne petek, 27. marec 2026 ob 12:30:06 Srednjeevropski standardni =C4=8Das j=
 e Andre Przywara napisal(a):
-> The Allwinner A523 SoC implements 10 GPIO banks in the first pinctrl
-> instance, but it skips the first bank (PortA), so their index goes from
-> 1 to 10. The same is actually true for the IRQ banks: there are registers
-> for 11 banks, though the first bank is not implemented (RAZ/WI).
-> In contrast to previous SoCs, the count of the IRQ banks starts with this
-> first unimplemented bank, so we need to provide an interrupt for it.
-> And indeed the A523 user manual lists an interrupt number for PortA, so we
-> need to increase the maximum number of interrupts per pin controller to 1=
-1,
-> to be able to assign the correct interrupt number for each bank.
+> Even though the Allwinner A523 SoC implements 10 GPIO banks, it has
+> actually registers for 11 IRQ banks, and even an interrupt assigned to
+> the first, non-implemented IRQ bank.
+> Add that first interrupt to the list of GPIO interrupts, to correct the
+> association between IRQs and GPIO banks.
+>=20
+> This fixes GPIO IRQ operation on boards with A523 SoCs, as seen by
+> broken SD card detect functionality, for instance.
 >=20
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Fixes: 35ac96f79664 ("arm64: dts: allwinner: Add Allwinner A523 .dtsi fil=
+e")
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 
 Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
