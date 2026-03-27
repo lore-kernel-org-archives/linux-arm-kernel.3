@@ -4,110 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8E810BA433
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 06:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F0510BA426
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 06:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
-	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnJA/5zwAPxZ6vMIZJbzIFubHwh+nIkMH+ZqspPFCx0=; b=iBi9q2BVOlEeX4Ulopo3qghxG1
-	XIRTlTF7iu7RpsiwGL7mWq7CPm03pZw891YragN3tCFUhswqypyF4VDmMJC0w4YK2+KhFnSCgp6VI
-	O79BeGtAdT3gJZO5EWsjmU5FcUTQnM6gcOwuQM6m+Y5KVlyFQwbMHB9f4dO1NfiiyxHSDI4GWk/S6
-	/66WCrZgf+sWnsmOf2qafLsVy/Jc9AvPzSlomK3NMn0IEo/lcsk3u4CALBfBO4c1eHe4Z5oY2IA3l
-	wibwOEdPyKzWOE5Vk0tcH9OAoW2Qqol/YK4bBUqQt7pJMrSFhMkk4y+tDIZXmQnH2Yn18Ho4rWDRx
-	U24JBFrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4WmFLueZYS0a3wB4nczo3aWMb2IWa+xZtBDLx0JA+O4=; b=lWqjO/wjcORc1pS8OAnIP6w6Sl
+	HpnW87L698ICHeckGvwst/qufhqy2VoQOvgif4s6zc83cIbInmuICfxT8uD2v8mrQz4B3sYf15BoT
+	XB/JyfjJ2Nox4bsT0uAzaN7iIJQ/lBt4LSNrta/Cg5nmwlUyMN9Rn1RwzjlqxXQtDL52LsZOzmv17
+	22KIdNvbtiwYgL7NRX2YapS3RGZ3J9eJ5boYVTPJ0eOkZd7liGDGWwT+yTGx0n4eOBOGTqR6uCwGQ
+	lf8GqtlmACFUoQ9XceA2zi8kF+GAYA103VzEAr5re5Qen5k//JNbDKt0pJHnsEolOZyIz+kLAnbjJ
+	+X9QV+/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60Y7-00000006lqi-3A91;
-	Fri, 27 Mar 2026 06:20:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w60ce-00000006ouH-3odw;
+	Fri, 27 Mar 2026 06:24:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60Y5-00000006lo3-0ova
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 06:20:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From:Sender:
-	Reply-To:Subject:Mime-Version:Content-ID:Content-Description;
-	bh=XnJA/5zwAPxZ6vMIZJbzIFubHwh+nIkMH+ZqspPFCx0=; b=f7zDVLCoc8m45URLWrOLfUOVLu
-	4MM8A6aKydcOgve6yHZBYbngLLDWeMf+4gINlAdqwawA6Irx9t68sAEdwB04b//RBgjJmCKDM7hec
-	iQcHJFdZ+OlVSqvNXotlEFA0//w029fFQNNBgF3mBrrC58GIRNiWSWfoXBDGtSPtiwUpiXl2GO4vH
-	Lrx9tUttEpU6HGUkOnqGv09JQRk+FGmj+baRTYgrhyXH5wHc/LFSEDPApnT6l68SrGjsVmOKo/ItU
-	oGxmw+ly2HK6PDqRcjNgaQtxGBU2DkVB2wcBvo/j4gCjdX9h0vSO0iGHZeWx3ScyYa5MQ9XgaEcRq
-	07mUGmJw==;
-Received: from mailout3.samsung.com ([203.254.224.33])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w60Xy-00000009kq1-3757
+	id 1w60cb-00000006otO-3ksb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 06:19:58 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260327061942epoutp0391fef27a3615aba8d5f555c7f7538550~gnl6ZrsIf1758817588epoutp03b
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 06:19:42 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260327061942epoutp0391fef27a3615aba8d5f555c7f7538550~gnl6ZrsIf1758817588epoutp03b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774592382;
-	bh=XnJA/5zwAPxZ6vMIZJbzIFubHwh+nIkMH+ZqspPFCx0=;
-	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
-	b=rUoMx9hoGfks4r+dxmr5olSm/bblUxZcyt4PWgT7YJaBNdPalrNlN0cMvjQol1iJz
-	 spAJj3ov5ZFNwm/P1ZcffyGowvWtNOfXs/ZS3bb1XA58vrY5YlcN7fyKFO2w2AyW8V
-	 dhigBaDblg2q8IbpIaE8/WEF2q1syAyqZsN+lIxc=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20260327061941epcas2p17e4702f290bbe98e79942dda2d496d8c~gnl557Uoj3148231482epcas2p1K;
-	Fri, 27 Mar 2026 06:19:41 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.38.208]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4fhr8Y3HDzz6B9m4; Fri, 27 Mar
-	2026 06:19:41 +0000 (GMT)
-Mime-Version: 1.0
-Subject: Re: [PATCH v5] nvme: Skip trace complete_rq on host path error
-From: =?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
-To: Keith Busch <kbusch@kernel.org>, "hch@lst.de" <hch@lst.de>
-CC: Justin Tee <justintee8345@gmail.com>, "axboe@kernel.dk"
-	<axboe@kernel.dk>, "sven@kernel.org" <sven@kernel.org>, "j@jannau.net"
-	<j@jannau.net>, "neal@gompa.dev" <neal@gompa.dev>, "sagi@grimberg.me"
-	<sagi@grimberg.me>, "justin.tee@broadcom.com" <justin.tee@broadcom.com>,
-	"nareshgottumukkala83@gmail.com" <nareshgottumukkala83@gmail.com>,
-	"paul.ely@broadcom.com" <paul.ely@broadcom.com>, James Smart
-	<james.smart@broadcom.com>, "kch@nvidia.com" <kch@nvidia.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
-	<linux-nvme@lists.infradead.org>, "asahi@lists.linux.dev"
-	<asahi@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, =?UTF-8?B?7J207J2A7IiY?=
-	<euns212.lee@samsung.com>, =?UTF-8?B?7Lm47LCs?= <joshi.k@samsung.com>,
-	=?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
-X-Priority: 3
-X-Content-Kind-Code: NORMAL
-In-Reply-To: <acVGECskf5pg3_MY@kbusch-mbp>
-X-CPGS-Detection: blocking_info_exchange
-X-Drm-Type: N,general
-X-Msg-Generator: Mail
-X-Msg-Type: PERSONAL
-X-Reply-Demand: N
-Message-ID: <20260327061940epcms2p576446826c1c5336a57ec19f433122386@epcms2p5>
-Date: Fri, 27 Mar 2026 15:19:40 +0900
-X-CMS-MailID: 20260327061940epcms2p576446826c1c5336a57ec19f433122386
-Content-Transfer-Encoding: 7bit
+	Fri, 27 Mar 2026 06:24:43 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62R2egD33142288
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 06:24:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=4WmFLueZYS0a3wB4nczo3a
+	WMb2IWa+xZtBDLx0JA+O4=; b=oGXPYfRWHq4MZiFOg8ODVArFxSTAlV7B+UcoCJ
+	6JxkPo6AecwumTkMgYYRL7tgJeBL2Y6+ICxz5qUKGzg3GuCUDk+dtl29HPxh9+3m
+	011tzU1cBCUSXLoUixSbSaKWw6sMrlp8cW3r3VxBYvwjI9+03lpsozGcZsnYewnf
+	1Kg4wdXKXY2+E6w2cbNfRwpRi5flOlUdGFxvQSlv3AxL++zmNqziVEvEFyWN/tP3
+	J7ajc83FR/91qon6YQWVWRTvxL+v3mP2xZpfSuPzYvs0XHvBABWgrqYbZbkkPALN
+	GWR9mpvDx2RRF382hnsiKaN6vZ+AplPaNSKynPzZTFVHFY2w==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d5haprr5v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 06:24:41 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-358f058973fso2523463a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 23:24:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774592681; x=1775197481; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4WmFLueZYS0a3wB4nczo3aWMb2IWa+xZtBDLx0JA+O4=;
+        b=i9hvLR2u/rrVgb5PUFSPZB9WVDqiyBO6k0NTh8gp/KsUrsiJPddW6Lp4TlN4r1r4HU
+         YVHi8v4nozdo7axGPzHTNNnikGVTNJzZQg0jhcTM4R8vbq6dT30OESYjNSZKmfpP1U0b
+         p6KnP/ZEZvmlVDoiLfw1QWjjp/5vkzwgcI9ohXl+KwFTKWQSgG4ZYYNPrxMl5+KTtFlV
+         7BJNx4cnalJnNfqn5gsgKvkvor4WcTqiykJvHBvht5+C3uF5BlKzBrabDQmhCtC3293A
+         MgG+IAx8VhLZ3ILIPoFj0VpDX8CZT/KN7fOraX/uf/uapsnxxuF7Wd7YL6mBvZ+w4XuU
+         eVhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774592681; x=1775197481;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4WmFLueZYS0a3wB4nczo3aWMb2IWa+xZtBDLx0JA+O4=;
+        b=C61uM22MMtOCgDLry6p2tNDomBXWG4fuqj9Nx0u/jx+/s7hNZJUtvXQX8xAOyjQY50
+         Hk6vf6t7pLg+UvI4TRabuQIb3Gg0Ud3BXubCzEktKyUPWYQgFjbOi/EXfqsdPREox0Qx
+         qgR4UeVyDPigiax0Pfq/lw4cTFoMPL0HHV8DYz9UU9/MLwlBlvCipKBatT/v139neizY
+         upkzUI75g67jPN1TlepNoIrZ709Q0KU4siErW77dzFbCDCn4LpFnw5BI+zt8TUvjWu9q
+         2YzVabfLugByOZQN/A8CRqBBXi8+0vcRknppDrymLZiBIEEbW1QghS/vGY/B9Z71x0q8
+         jCAw==
+X-Forwarded-Encrypted: i=1; AJvYcCUlJ1+JFVh4ll1quHv0D3b15EJFByK8yTdl11SPYFJsnXiZ+7Zb6nE9bMxjxuK4nXLC7xDrfRpdDxGKbba0bmJM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW/ECt0TZiWe5S0z8y/Q+yds323kuCu+FKyQUon69M0wq9Ya/E
+	aPvw4Ao5gPW6wNHwn/MEM8Gh9s7RhKMiCjuWRK8YbSKirAfdOJdf0lEhZqGU5ApsGwhVAT/Pxs0
+	o5Gketcv0eZMW9TBl6tHcRuoMNR0mcD2Vx+4jjsIsyLXp38pwAmEF/FBfiwKjrfH2j4C/3nW0ka
+	AoLg==
+X-Gm-Gg: ATEYQzxTZkyaYz3B2UvDAfswk8VkIKw7woxPkp7d6PU6BDE6DH6UkuLrXgU/nMM0GG1
+	PHQjMpmk9fRsQx8+wiAEu9nGRe+WF2HW/nZ1KfWHN33ZwKdLTGKws1krd2xfIZZMfKfEpUCuQjU
+	xI1z3119WTZqGacIB9kdZ4+oMyFBaDfahwqK2JngFxUifFnUSo5IWXOntTaVJBJMJyzUqHUOkXq
+	JZ+BsnJa/bn8dH5JGLY//SsF+iWuCqYQbN/0K6j5pA/eBx1Q9JHRIQ1heLs8SCfoP0KNPwadtZx
+	Qf+bxlXrF5LgMAzKcm4BO5DbWcioYqxwterkPiLtM5gUD8qe/wXb+z215AFbY2eHamu5CAaZiFA
+	Y12Tk3q0V0oQlHiZyS2WUKJSraV6scqu6WSWFDC7DENXljSIaQptMmLXYgntqIAAjnQYS86K60E
+	6UqYa71+76
+X-Received: by 2002:a17:90b:3dcf:b0:359:1821:b4d5 with SMTP id 98e67ed59e1d1-35c2ffafff3mr1434436a91.5.1774592680661;
+        Thu, 26 Mar 2026 23:24:40 -0700 (PDT)
+X-Received: by 2002:a17:90b:3dcf:b0:359:1821:b4d5 with SMTP id 98e67ed59e1d1-35c2ffafff3mr1434380a91.5.1774592679698;
+        Thu, 26 Mar 2026 23:24:39 -0700 (PDT)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c22a81744sm3722286a91.5.2026.03.26.23.24.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Mar 2026 23:24:39 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Date: Fri, 27 Mar 2026 14:24:14 +0800
+Subject: [PATCH] coresight: cti: fix the check condition in inout_sel_store
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-223,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6
-References: <acVGECskf5pg3_MY@kbusch-mbp> <acQxjZMOqj74yIJf@kbusch-mbp>
-	<20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p4>
-	<945a3e98-ee75-453c-ae80-f3c9e3e57e58@gmail.com>
-	<20260325063333epcms2p60954532c1b65a1665bad6dcdcfd7d62c@epcms2p6>
-	<CABPRKS8-x6Tfr90inpz1fR0=8a5HD=mkujtfLJ1h9ikEUjTvxg@mail.gmail.com>
-	<20260326014429epcms2p135ffd3c2b2fface6423d045e9614c262@epcms2p1>
-	<20260326065152epcms2p51a18d3bbecb6eb6dc2ddba09651e5152@epcms2p5>
-	<acVCnozG1WKPkq1L@kbusch-mbp> <20260326143124.GA17507@lst.de>
-	<CGME20260320052101epcms2p42ae135da60b36685e9b7fca6849b57a6@epcms2p5>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260327-fix-cti-issue-v1-1-2c8921e21fc8@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAI4ixmkC/x2MQQqAIBAAvyJ7bsG0FPpKdJDcai8WbkUQ/j3pO
+ DAzLwhlJoFBvZDpZuE9VWgbBfMW0krIsTIYbZy2xuPCD84nI4tchDbG0FPnrFs81ObIVIX/N06
+ lfA9OaO1fAAAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774592676; l=1343;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=PHLgFLCWkaQZgK2oamDHEceLvZuYDINcKa5e6t1/okI=;
+ b=RfkCfonJCGjf541GPmnu3znQaLRzKPdcsp1Q8oKE7wGMlvLKWPqembbAfpTme3oZFPi9aSJKG
+ Pljv/N5YcciAdW9o1ANQvNnBriac0NyZTcXSnMsV50dZoebBwDGRend
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Authority-Analysis: v=2.4 cv=TqnrRTXh c=1 sm=1 tr=0 ts=69c622a9 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=Wt3R2UjphL3Wk0r5Cq0A:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDA0NiBTYWx0ZWRfX9Zx9woMMjpJo
+ nNEjCR1MHzqeHCus2XtLsiXdTczKxz0URs8VbElshJgE9iNsI9N/40NMbW3QKm53F3Y3wowVcjb
+ h2lWEn+AnEIWuHyXPQcKmUzD4L8cCmJNziSrvR/qNJj2InSudJepCCRqMaw1dD4+hM93EfBMaoA
+ 6xui79KzqtL3ribciGrRRFMtV2nXQVbSF0z+zBNaniFNmygqjXje9cUdPI5At9YREIE58xj/asF
+ RcdsMEt1cl87/g770nz792XxDN8lSLs3/ovh18dj0P1P5lmQgLRRZkpCPizl0vbBkWSEULUP6wc
+ qlg/VTB8W1ANCmWdt7L6sTkN9mTrUgksgHaafmIbgJjE6rTVh2dzG08crpP/qn7YbUC7LEbOEQH
+ cQPee0+2i2vigME5zc/9sE3mHvqgZOmi98PPC3k0bgGQF9UpHiUnrmqZOniXTmki7pfilvQKt3n
+ 2Hg+JFeO1nViyjhngGQ==
+X-Proofpoint-GUID: ACspJ7NAjJm-ZGv_cOLwGEY4Iu3d2rEV
+X-Proofpoint-ORIG-GUID: ACspJ7NAjJm-ZGv_cOLwGEY4Iu3d2rEV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-26_04,2026-03-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ malwarescore=0 suspectscore=0 adultscore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603270046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_061956_149627_F0B146BE 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260326_232442_000899_44A9AEFD 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,27 +152,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: hmi.jeon@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 03:43PM +0100, hch@lst.de wrote:
-> Yeah, the spec is not very clear on their use. It just defines the codes
-> and a one sentence description, and then never mentioned again. I think
-> it allows the possibility for the controller to internally complete a
-> command with such status from some undefined OOB mechanism. I'm not sure
-> why the host needs to have their own self-generated status codes anyway
-> since it can already attach whatever arbitrary flags it wants to its
-> private data, like how we use NVME_REQ_CANCELLED.
-> 
-> Anyway if a controller did return it for whatever reason, even if it is
-> a bug, we'd want to see it in the trace.
+Correct the upper bound from CTIINOUTEN_MAX to config->nr_trig_max,
+since nr_trig_max varies across CTI devices. An out-of-bounds issue
+occurs when a value greater than config->nr_trig_max is provided,
+leading to unexpected errors.
 
+Fixes: b5213376c240 ("coresight: cti: Add sysfs access to program function registers")
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-I've confirmed what you discussed, and it seems like the approach you
-proposed is a better one.
-Can I send patch v7 as above?
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index 4c0a60840efb..bf3c73607c1c 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -337,10 +337,11 @@ static ssize_t inout_sel_store(struct device *dev,
+ {
+ 	unsigned long val;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct cti_config *config = &drvdata->config;
+ 
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+-	if (val > (CTIINOUTEN_MAX - 1))
++	if (val >= config->nr_trig_max)
+ 		return -EINVAL;
+ 
+ 	guard(raw_spinlock_irqsave)(&drvdata->spinlock);
 
-Regrad,
-Minsik Jeon
+---
+base-commit: e77a5a5cfe43b4c25bd44a3818e487033287517f
+change-id: 20260327-fix-cti-issue-3dda5e4636f7
+
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
+
 
