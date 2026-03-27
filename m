@@ -4,62 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC6F710BA421
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 03:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C32B10BA421
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 03:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSPHdHyg+uH9B41/pLMTI1+glPJGMLW1zAyv4w3Z/U0=; b=Q2N5JGXb6gohfDjyLE5Qbi5ji9
-	CCim9CkoOcosOxvEZKAUmv/Ix9QKHBYLOHfQbCxMWQnHiTMxbjdYszlBxSaqPNRt86j1/CI3cUKre
-	cWl5gFvNoF+f4r1mfZ/wx2r43AXxcs4qjOiv3wM9h3YprWrpg++IApE2jT7zD8j6Kgm0TeqM29srz
-	59+iweuV12YrzZEmQTXNJZ5JEYRYz9kYgVpOD+KcNI+tq7Od9YhLMy8NPIovPZ9FCBlMMaAjc4jD2
-	UOZgWGfMY0fhFeKD11BBocGSo33J/RqMPKjG6sNz4l85+dESDKq2KYhgxv/sdpczR1bA3QZ+a4270
-	LnaCGOKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wP22zalGveD8D+QLzfkBajycGfyS5M0r3Vss1T1w+r0=; b=rPBd6BwHl01fi0HLooD1no9dIt
+	tRxsRSUbSNf3OUhC27JFur4LsWgvIhKxPN7s4ywh8AwPXwZ+UMNRAbPJxNBQLTZpZs5A4b3OjZJEn
+	m2nO7C6+DlnbK1z3IZS4vpdXtHNXfxRwbeSTmPXEEkyRSX0cxA0SUvLyDCHiZG/0NIVOs+G5EWzBb
+	Y+j0cRva3wH/pUP1qu+2npyt+EJh57URXHaJh8koXVydXxfKasbz9j+uJ1dnU+Lim4O1cU3BCqrey
+	+X0zOqkmauwhFj4pQ0Np644b1de5t2oQdMlB9CN2XKSjENUR+oT1d2UwQ0Jg5RSU06Dy19WjQ+b6t
+	32OmdU5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5xWV-00000006awo-0PY0;
-	Fri, 27 Mar 2026 03:06:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5xXb-00000006b5z-0pvE;
+	Fri, 27 Mar 2026 03:07:19 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5xWR-00000006awE-3v0r;
-	Fri, 27 Mar 2026 03:06:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E95343A89;
-	Fri, 27 Mar 2026 03:06:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8165C116C6;
-	Fri, 27 Mar 2026 03:06:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774580767;
-	bh=GSPHdHyg+uH9B41/pLMTI1+glPJGMLW1zAyv4w3Z/U0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=i7umSLLH7F7pSYDbl4NzXHQ0/+ryzvhUGshvZhEfrM99aWA9u3sA9d4wdqIVFSM7n
-	 1r0versrA4SxwpmwSIvQu6GFPgRSW1s3qR1Yja//u/HolhHcA114r9vbzeL0agNdYC
-	 1M/qlqZln64ybSpKJCPEGJcV+TkhOX3PalmnFChaGm32cff6v96BtAi8rnld987iHt
-	 9K172xEzUVi6FrdqckncHtXDfDb4vh5M6/3fGpnoXLVo+z+Ct3WwYKbls4BSYZjpoR
-	 1v0Lp77mlev+cA7uCm9RomtNklZrjNhwh2a7MbBSEtQGTYZtJ4bv1oMmy9unj44mjN
-	 UVLdXPrCKJD9Q==
-Date: Thu, 26 Mar 2026 20:06:05 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Grab flow_offload_mutex running
- airoha_register_gdm_devices()
-Message-ID: <20260326200605.39222917@kernel.org>
-In-Reply-To: <20260324-airoha-regiser-race-fix-v1-1-6014df55886b@kernel.org>
-References: <20260324-airoha-regiser-race-fix-v1-1-6014df55886b@kernel.org>
+	id 1w5xXY-00000006b5S-3TYY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 03:07:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iyRDP5HmvHX+ebt8hcYj+55u6tQgloe6kZzcAHd+mWvrRnsxvDjN2uzvSxksgj5aWIBA7oXtZNbWWrY5d+Gq39cqGTG/BqXu1leiVJ6/dZBo08vRMPSrJW4ZbWKwae0Uc8KPzeqH6rDOog1tOooDHwHs4o5IxZnCEgDVdvLgdNHAu6DJITDm2o1uHWE17rJwIfkrQvI/KyZWOlveiWt4kwFHfAun6i3uSyEZTeGPaOqhdTaV71QH+VjwtK5mYRrPbTIp2OOne6N7w6LA+wVy3YoXEAaXBG/hOSNhf23hGAzo9E9jk8yw3q+DiEi+uCVNmuPBp6Old6ynXYYOSxXnzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wP22zalGveD8D+QLzfkBajycGfyS5M0r3Vss1T1w+r0=;
+ b=g2TxQt5K4uzVsuIQn+FLYASM0ycILaGi9M3dcolcI3rGnahUPDaDE6tpIWLGcVFjxlf0n48KER3524K/pIbch8gwVZPke7YfWj2Ae3TgaGWMJw31WYgrvzmWZ4PL87zrpWZUsW/7NAsiw0HvJsRMdsSBdIcXmHklpJ5l2mb1uR45HMr8zfULbh8S99V8lTKTxwammkteDWUu0JnWO6JVcdAQjVJkISCTHBq+ItjT18wwZFnVZ2+2GEWwTs/EAc1S03yBaMMo3h/DBb+Y6Zniy21KKrjW94huCutzHmSZwwB/1xRg4l4WkS/5AWXeP9VwQ8pAppwpm1K7ura7gyUP0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wP22zalGveD8D+QLzfkBajycGfyS5M0r3Vss1T1w+r0=;
+ b=eE+SWqEzNG2ZXyPTA62NsriwaaqOVB891rbvX+lUDFjKcsXCzOeZF0nm4QKZYinfPgPMgNVuKruFRn9fD9sn4/iuEeFGrjVGwolI4sMZNxWz2vhMfThbtj+eyrMx+QKXmzPdzPool3jbDYfQmxVRkVHGjkmAjbAOsU5sd9ohdRjNx7EDPatvPURnvhYCFb87VLhlH/VOyF5YaCbVUb5o1ngswGaV0p0I7SBbjpPC3CMzCZT4lUYrc47bgHb9UlfuJ2SEWsRw9E9R7QuOS1ClHQcMJR2d4WafkZoMrPxV7GpFSHuK+7Jd1QXmok2DsBJ64vxp7+0jz8mAtpWtNcdzWg==
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by DU4PR04MB10983.eurprd04.prod.outlook.com (2603:10a6:10:58c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.31; Fri, 27 Mar
+ 2026 03:07:06 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9745.022; Fri, 27 Mar 2026
+ 03:07:05 +0000
+From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+To: Frank Li <frank.li@nxp.com>, Rui Miguel Silva <rmfrfs@gmail.com>, Laurent
+ Pinchart <laurent.pinchart@ideasonboard.com>, Martin Kepplinger
+	<martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, Mauro Carvalho
+ Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, "G.N. Zhou (OSS)"
+	<guoniu.zhou@oss.nxp.com>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: RE: (subset) [PATCH v10 0/5] Add MIPI CSI-2 support for i.MX8ULP
+Thread-Topic: (subset) [PATCH v10 0/5] Add MIPI CSI-2 support for i.MX8ULP
+Thread-Index: AQHcZcaHNbokVTIHB0mQTLv9vjDhgbXBnLkAgAAKXICAALmLAA==
+Date: Fri, 27 Mar 2026 03:07:05 +0000
+Message-ID: <AS8PR04MB908006F414F7D360B5F553C5FA57A@AS8PR04MB9080.eurprd04.prod.outlook.com>
+References: <20251205-csi2_imx8ulp-v10-0-190cdadb20a3@nxp.com>
+ <177453839102.4969.6512848643800500076.b4-ty@nxp.com>
+ <acVXhxohG8RS67_U@lizhi-Precision-Tower-5810>
+In-Reply-To: <acVXhxohG8RS67_U@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|DU4PR04MB10983:EE_
+x-ms-office365-filtering-correlation-id: ca9491d5-f783-4037-411c-08de8baded1f
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|19092799006|1800799024|921020|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: JfE9Vgy59iJ5Ic1HOfD2eeGjJo6s1fCXnE8OEM7QnPOyWe66Jz2FBDe+C5crky9iU6u6txNQRFph4FRjYc6WjhdSIswg5LEBilshFtAXg5jKfXp8MvfPyXW/f2u/aNYuFxvS+82+HfGKEC0ljGRXYrKoD9PxGKwaNt7LP8OX1dcbatwf/qSFWCZxSh1g+v20uigwgIhrvxLc8ie3bTAezZsehwcjRgP1lQLV75BRLoc517w6mCEcOvIs3Ogh1n1iXmoL5x6HOEkZMt0nAOk+3EwwJepGNE7IcIYe8On4hRRe024VobVkMgXe24aZfq7eMt1Cc3tSlVln9z+NOo/m9/jEC75jl8hFVWp0EqA3vDX0gIXzUchzD4JzG904xt1zumRgqT4JCxVBTRSPB8NYnaL5B3BZ4Xh2uoIdzj38RqhAYEd82xXlGVAk51Poh1rhU6nvdoKa70OCSepBBwd8TICU4QJDn7IPC+OuN55Yx2JqN+94xA1u0DCd+oYM/LgCb1PIqJo96+YEr43quiA6dgkB8Y6sLFOKS32okN87lbsOYNERpd9WeFacpwc6J7naqSHzErgcwLJPwYJVhq+AisjISk+W04NW2eAq7JgSC5PYoqkI8p1q1Evy+zI4kc89meY9yuHuFEIa6ZaZ2WfVmrLxIdO4VqQc+n+v5n7RO0Pl1dfwnD0hZJy3Nv/S5IGUsEK/HJ+8M5oINyHfB9iCArkyzOosK00++MbSMyeqqrGd1AZNqf++C1MuVv0pVnA4Pkz3dk1fP2Yml1Nue0C3O2A0G4w1QeBGzXkPcoZCZA4j5oRFZxrXtzxXGd+MQext
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(19092799006)(1800799024)(921020)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ABXLLnZgKQyL5/26PKGRsqMyhwwglRjlAqgrxg5DILTI3fvmqVn/nTuhPOwq?=
+ =?us-ascii?Q?i1xVzFSV/l3a0l0fObPPyzWcNqJ2G6BmM25BY7sw5D0ThD5vQkecFwjv9b/4?=
+ =?us-ascii?Q?EN1KzsYoLFWfQ+8mBrs53VWL1uidqCSUT0/JQAoscPy8lhPQ79TYFy1Wtloc?=
+ =?us-ascii?Q?UhZFSnOkxF7sIHH3iQTWDEK171vzwFzdyYQWiOdnqa/Qgeb/RMuYQOkb+mRH?=
+ =?us-ascii?Q?t9/p+X+ZUBFijxJBIWeDrSz9Pl6hFVbp0AnFhOSHg+R82+BNvfin4jLqeeVW?=
+ =?us-ascii?Q?dSg9D+iaEXu+rti1g+1qfBo0Yg6m4zNzwNXRvsUa/uFOm3N5GARh5ZQFVAJZ?=
+ =?us-ascii?Q?TBLHoqdEC9cgCzudSBObVkgE4EEi+SVSIx8qVogQGfNjRMxlr7k+H68/1zS9?=
+ =?us-ascii?Q?GR9/Xs8MJU8z3t9ZJVxGnQeC2/NGIKbFzvLCgWDcqyjH/kfvDuXG1v6EotFP?=
+ =?us-ascii?Q?BmG8uFS97+PPtEUmUUlckSr82iKqg5Jbqc6pwpgTNrgi14/u5Yv/qzcla0Q6?=
+ =?us-ascii?Q?h4zvDqpNm5UxK2/baOsfUx/jJc4dWeETGSK99LaspF92uXb0brrKjILp8ToH?=
+ =?us-ascii?Q?CaGXYoGedyFqAw+JfGn1JE3PTKPGp29YBYcZ+aDhyK6HY2mig9YyFPh+Mtnv?=
+ =?us-ascii?Q?o0nWSYFTfR/xgIP50LesysKclj92zsr+BlBYGmR3+qPJx1bN7MRe3jcqtPFl?=
+ =?us-ascii?Q?jh317ygsckLjGd6TL7WMHBbXUw5PGS4ZZc3r+th+eOsiEt4v+7edMNN1nQmo?=
+ =?us-ascii?Q?LWzwltR/448+gaceL6JPywzXW7Gpf6l2MJr0KDfzrDoLOvvF7BlxjUIrERfo?=
+ =?us-ascii?Q?H65RjzdgQAgFBK9SA+3GycvBQXCaYO5Lhh1YM/lE98thUySYEAX+pcVpxwGI?=
+ =?us-ascii?Q?mB+Dh+HhXG0QirGFAJL+vSxHMRWi0BT3bEltMxlOBX58xaVQIZLW7S0BLfCQ?=
+ =?us-ascii?Q?bOwswF/w/ZSdO5dPAjpv/r3qu1yTX4HcnNFPbaqicRhjf9h4wPVqChc+4381?=
+ =?us-ascii?Q?F1mE8Mvy7yzRA13a0ygsOPkpeagMD+jHkxFwZvWOFu6NTmr4FYQuzSGlarl3?=
+ =?us-ascii?Q?tL5Z14VNvO0iJfRfvaAj7n1M2xEuiiY95XFksqKVcHrz9OMOtRjObuhBUatY?=
+ =?us-ascii?Q?a1Cv5n6Zy6lpbfGhCQ2DmYWqIlOk1MNrthHeynozAeEKzEjKMRVGq+N19Kl4?=
+ =?us-ascii?Q?Vh6F3dzvdMkO4B89EJuYAkkvVNol8WokbxKmh0Q8tHtpvXRkywIcmNCf7C8D?=
+ =?us-ascii?Q?5aSSqCdJ4Kzf2pf0mwyeXzugzvY1W7AQJTkCQb73L2OI0hRNdbaGICTjjnjF?=
+ =?us-ascii?Q?/Y/usdJoI+XMNs5v89wCXjpSmZ2IAv+R6NrOYtT2uxbIxuZVkM++LBZ88fGD?=
+ =?us-ascii?Q?AG+bx7ktadoQ8Lr9YiJqcXNYuCokzJHC2Sx9zLzlUMMSq9Xs2x8JChG04Kpw?=
+ =?us-ascii?Q?UwegteogsjjkgHCkrS7IapaNJId0ps+aZoYicUdyXkjtI1jzX1ROe/Z4ZwH4?=
+ =?us-ascii?Q?16r9y8aGIdKuC77zk2vHxNqCgnkAwJbE3dahGX1SduLxfrFSjpxqolo8nZGN?=
+ =?us-ascii?Q?JAkT0xgnMeQPPXGwrbD6g+AsVj5xpTdZRJk7/VCXy1lmlGXrttQJmco4/ul5?=
+ =?us-ascii?Q?HUOhGjhAAoocdSqJgsujnJIyHA3KlyEmw7kH1y8mgQBPF6tOzoSo5b/1+az9?=
+ =?us-ascii?Q?jDldIZl89vwGm+RNw8T/KjQMVQCY2QPiDtAfBFLlvXf56Yh4?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca9491d5-f783-4037-411c-08de8baded1f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Mar 2026 03:07:05.6674
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sE6Ji6IFXW+UKB1LdG2KnyIrML9D3UoiEhlTXo5eVkSkXfRfi6clozsumQGuBlSyT6SwQne4d72cKk+a4X01+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10983
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_200608_678589_1282BB93 
-X-CRM114-Status: UNSURE (   6.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260326_200716_866101_51BF2A0B 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,14 +154,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 24 Mar 2026 17:54:45 +0100 Lorenzo Bianconi wrote:
-> Netfilter flowtable can theoretically try offload flower rules as soon
-> as a net-device is registered while not all the other ones are
-> registered/initialized, triggering a possible NULL pointer dereferencing
-> of qdma pointer in airoha_ppe_set_cpu_port routine. In order to avoid any
-> possible race, grab the flow_offload_mutex running
-> airoha_register_gdm_devices().
+Hi Frank,
 
-Sashiko says this causes a lock ordering issue:
-https://sashiko.dev/#/patchset/20260324-airoha-regiser-race-fix-v1-1-6014df55886b@kernel.org
+> -----Original Message-----
+> From: Frank Li <frank.li@nxp.com>
+> Sent: Thursday, March 26, 2026 11:58 PM
+> To: Rui Miguel Silva <rmfrfs@gmail.com>; Laurent Pinchart
+> <laurent.pinchart@ideasonboard.com>; Martin Kepplinger
+> <martink@posteo.de>; Purism Kernel Team <kernel@puri.sm>; Mauro
+> Carvalho Chehab <mchehab@kernel.org>; Rob Herring <robh@kernel.org>;
+> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+> <s.hauer@pengutronix.de>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Philipp
+> Zabel <p.zabel@pengutronix.de>; G.N. Zhou (OSS)
+> <guoniu.zhou@oss.nxp.com>
+> Cc: linux-media@vger.kernel.org; devicetree@vger.kernel.org;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org; Conor Dooley <conor.dooley@microchip.com>
+> Subject: Re: (subset) [PATCH v10 0/5] Add MIPI CSI-2 support for i.MX8ULP
+>=20
+> On Thu, Mar 26, 2026 at 11:20:54AM -0400, Frank Li wrote:
+> >
+> > On Fri, 05 Dec 2025 17:07:42 +0800, Guoniu Zhou wrote:
+> > > The serial adds MIPI CSI-2 support for i.MX8ULP.
+> > >
+> > >
+> >
+> > Applied, thanks!
+> >
+> > [5/5] arm64: dts: imx8ulp: Add CSI and ISI Nodes
+> >       commit: 73f3ca0f85285b2fc4ea05affb9a44bf899cd595
+> >
+> > Add extra empty line between reg and child node.
+>=20
+> Guoniu Zhou:
+>=20
+> I have to drop this one because miss <dt-bindings/reset/imx8ulp-pcc-reset=
+.h>
+>=20
+> Do you miss some dependence?
+
+Thanks for reporting this issue. You're right that this patch was based on =
+a=20
+tree that still contained include/dt-bindings/reset/imx8ulp-pcc-reset.h.
+
+However, Rob's recent series [1] removed this header file as part of the=20
+dt-bindings cleanup work. I'll send a new version that addresses this chang=
+e.
+
+[1] https://lore.kernel.org/all/20251212231203.727227-1-robh@kernel.org/
+
+>=20
+> Frank
+> >
+> > Best regards,
+> > --
+> > Frank Li <Frank.Li@nxp.com>
 
