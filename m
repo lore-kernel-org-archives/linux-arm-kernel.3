@@ -4,127 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4BB109E52B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA96109E544
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 09:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxg+n3+SEeSGuIV0fwOG1+XLqlkgb9wMmeYUHxSspTA=; b=DqJVhlli5DT/7jHdZsw7MhoMNO
-	5P0em1+iRi2tuTWztemttt2Y9XUKr+fhw6xobJT2CYqK2mdlLVcmTBesLuxYgLudMTPBkPHK0Bb8f
-	v7EAqZ0zoLQwuYlcpBRmkJV1u066MxYnNhbFCnwEB9GtF+QEd3NmXQAEDEKYOlKZ0+3gsJm9yaJOx
-	6XepIDQI+Oif9veaKteDcWhTjjkeJXnThElCRwtCWognwedQyL5hHmloIeRoWFhTfuT5acL/JOiRq
-	2PjicSCx2mr6SZa1mjdc6g9KoH9P5KWYJq31iyTnPaLH4Hrtf2nHEG4e+DEqRcLettl85x3JN00Aa
-	BWG3spnQ==;
+	bh=iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=; b=3GjNcAgiZ7xeY1yVfL32TiuI92
+	mp2vnqofKxZEIhJz+9HdEPq+uf8owftSrySnuaVk2PNq7/bIEj2+uTUEj/tXJdz7WjHvjclJ2KPkx
+	3fXnShuEtK20+rcossSJUvhTuiYuecjpluXQlohGcPH/pudUueg80vwZcrdovsPBpCpku0swPfsBN
+	xuuY1WkQAXCgSalE0OjkURtvwq2mDsNK37B5SYYvSRS5vtoSnSeephS9f6xCr50m4G2p3l8DqeG3/
+	fFoyAPOPt0OeHAuo3B6pp180SRyqQXa2z6DDRv5B4TPioIU8Y/9WACA6OF50A7EHwFMsQ5sOaD+lV
+	w9fA+T7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63Wk-000000074hs-1Kwf;
-	Fri, 27 Mar 2026 09:30:50 +0000
-Received: from mail-japaneastazon11023129.outbound.protection.outlook.com ([52.101.127.129] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1w63b8-000000075Gm-1KAU;
+	Fri, 27 Mar 2026 09:35:22 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w63Wb-000000074dZ-23yp;
-	Fri, 27 Mar 2026 09:30:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jm0qawkx/pWyZOcsPADhBwaD07epW2IqQkgUGpIwv9YI5zZpeJ1WrwDtSJeygeKCOf99iUzwnzu2UHtS8gOVQJmZU8DJqMmRn/9wRziQBxGxeZzyQI8G9DMzdGIHkKSo190r5kCk8j/X4dssYUhcbPZz34TiMjZ4UOYY+SlbClkv+lbr0VsNRWgNjqMWEgyS7uBDhcHXMyNtL0q/Ji4NgCGEMNC2GDcOGBQ1EnYlsWuPttrGNYMyB6P8mupbvOnYIORzSdeW614RRco+uHYJZhK0ZML7IAsvd+cWTZyyJYcJ7xtLFywQi15g+tZg+F8R8ShIFMfQQ+j3J0okRS8khg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gxg+n3+SEeSGuIV0fwOG1+XLqlkgb9wMmeYUHxSspTA=;
- b=EoMWBBRziX5CYj4MZwUbY5wGcLIz9A8diHQQQyO9Self7sbsaq53cS0aF5DUe2M/n0g86aMoo69U/A59Wd58ay5WgG+jmWTXBWG1zMlRAsml63U8UqsKdhVyg2VEgXlxC7RKHHQBfwKdiuzt5Z37XIWm8oxuXqumyQhzLm7FY9uHigb23hqsVUmeAbjyyBZjKUGJhwqcf0jWdspBA1+1x7v3EbAMSH2BktqGpKzeRy8Zr8VdhYutYp8cXwglGY2KklX3htsJgEyPYHI+bmXi8eJ0m1//r5la5HEF0tnyfIJMvmPDiaFnAZTJQTZ2jdHYzk3PpCs8HmKugagZ1bTvKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=khadas.com; dmarc=pass action=none header.from=khadas.com;
- dkim=pass header.d=khadas.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=khadas.com;
-Received: from PS1PPF62EEA9B1D.apcprd03.prod.outlook.com (2603:1096:308::2da)
- by SE1PPFE32D229A3.apcprd03.prod.outlook.com (2603:1096:108:1::86d) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Fri, 27 Mar
- 2026 09:30:31 +0000
-Received: from PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
- ([fe80::20a2:a696:ac88:2549]) by PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
- ([fe80::20a2:a696:ac88:2549%4]) with mapi id 15.20.9745.019; Fri, 27 Mar 2026
- 09:30:31 +0000
-From: Nick Xie <nick@khadas.com>
-To: neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	jbrunet@baylibre.com
-Cc: krzk+dt@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Nick Xie <nick@khadas.com>
-Subject: [PATCH v1 1/3] arm64: dts: amlogic: meson-s4: add VRTC node
-Date: Fri, 27 Mar 2026 17:30:14 +0800
-Message-Id: <20260327093016.722095-2-nick@khadas.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260327093016.722095-1-nick@khadas.com>
-References: <20260327093016.722095-1-nick@khadas.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TYCP286CA0214.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:3c5::10) To PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
- (2603:1096:308::2da)
+	id 1w63b6-000000075GP-0f8V
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 09:35:21 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62R6vhjc731300
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 09:35:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=; b=dfqtedcKdd+VWg1M
+	7rr8jESz/4pyob5K2fouLMEhfpda0yOt9fk6Il6m7RWjeliiACai4e+ZB2hlrx1I
+	9MgYxRv0KQ/ku0BWB2gtqXXvKiBRNyf12jRfiUQuuolYntBskTlFgAufv+olHd4U
+	9+pYzSrzGS/nBGGzKPqngAx3//YA4A3M7kaA4l965KaJ1iChtAww5Rf4BioiNEed
+	zzoIYSIj9ktfWv7IMm3l/NGkcKvqOL4pYOu59I2WfsLqBIG6r82rTb5Ka8Nq3b8H
+	ykkyk8hGHoSagfqLpuEBqOyCW+kifxN5Cw9NttYhmJ8EX02pYG8IZakCzrf4EwZ0
+	7Q/RGw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d5a9q2rym-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 09:35:19 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2b064884a7cso63019355ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 02:35:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774604119; x=1775208919; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=;
+        b=LoAAVv7P6irz0ORE8+L0TXYDc3cdOFwAoCU1+KNKgLvoc4MPwZuljmpj2m3hwuCzSp
+         upmT5nVdxSobEBd+nYxtSh9ObdK7SfpOk0mOD4j7C3F/xaJHHCyi7x2xuJXlZTPV23UC
+         cQhHY2CdQWrN5RDS86+STBbIStPCcHkb1vMNDPYyOZF6yZFMHxau4dKs8jxy+57Dw6v5
+         lwi7EbIEwxInGnRNNIchDY+ITHUqgbsEh7FNXpP37mSqYeXIUnpbHOhDTDsCF2KhL29n
+         WlugyqQL18v067tDinjZ/1ek9+aHibStrmRy8wkOs0RuOpsSU7JMRejmUfgB0OwRCv1K
+         sLEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774604119; x=1775208919;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iimVuL7Si0EC2QW/qRbXnzLK0ktDtNjpoesWqPPB7kk=;
+        b=SjSVH3t76mYsfPc/ozm3cgtVl+4kR5wMgb1WtkUbXGOhm3kr+WCnnrdv5/vqG7zZ5V
+         s/MAGT7qINAVIlQvj24QvOqf4eIPIDJnepk54AOmSwVtUqIigjPjsZoZIbZ+Hixk6/m0
+         0aK5R0qxCU139g1hc+tLSjYcE9Lwg/yICwc58IRNqMEIUWp07GPSEKPu2myfes2BEzca
+         2qNoCAm1SIvluYx7+9YliWFB4gSmO/bk8E/On3qdoWV9WY3PHSzwztUL3/t+pYBlx9Ci
+         5wEswVMXDEhr3wzw2m5IdWN/Qq/drB9eeC41seWXGZgJUjL5TOdzti+nlmI26sg726Iq
+         MB1g==
+X-Forwarded-Encrypted: i=1; AJvYcCUI2FLgEdkMT6eMQOMMKSilW5WfyPrSGF65pos0lNM+R3ecmIEtM6SpAwvld7rUhuy3x1QxiI5k+rVBtWwESHCR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWPM1QmOd6a1Yjlb/4Ap7QKqboWOs1Zf9fvSIpxpExWiI8eMl7
+	Whep4s0sYEM5FTW1FHmSGlRyHMdIWro5tQLxG18fkhB6+k67QU8oQFOJ1bgjX3hwp2I+cLUAwn3
+	GzfQFvBnLmUbbPUAUtaANuTQsksyVCwlSxY90myF0WpcSiNyO+dO4aPxvMLTwwuYWseNqtM573r
+	iFDQ==
+X-Gm-Gg: ATEYQzy9ws7wcwzA68w+oLO93NhRbz4wM+SxhD0QM/yj5FvCxCWahS88pW1RFPfrKgO
+	iLao5kKV+PY1hmmL3Wl94tJXp5B42DZcn8hpRkBq+g0TgyhCQU108SwEEcmiJJKBUzr//AcdTrw
+	3q0RNuKFLock3zLrO3+lr6JgqGvbt3OGyVd17Yj0Mt6/MFuFaWdkqhj9GU6H4ZftAJ7ix2wWDDU
+	2bpj3zik5akA2LZArXNERq43R4kcxdMtIVRvy6giFdc4Z2W7mWSt17Zg1iLUMQ0YfAtobg5RwS0
+	5p0lmUXUJfiTGEIOAlDBN0sRqpPAJpBu3veukpByFRL0x84fOmA9OrkAuChMB9YyXvuobg1PEYs
+	07ulDAeDGHyE5e62LLr9kkfGsmU1545XHLW0/m5DWHkkaO36lj6iNpj8P
+X-Received: by 2002:a17:902:d502:b0:2b0:6d8b:6a07 with SMTP id d9443c01a7336-2b0cdcaa738mr20284175ad.25.1774604118590;
+        Fri, 27 Mar 2026 02:35:18 -0700 (PDT)
+X-Received: by 2002:a17:902:d502:b0:2b0:6d8b:6a07 with SMTP id d9443c01a7336-2b0cdcaa738mr20283585ad.25.1774604117910;
+        Fri, 27 Mar 2026 02:35:17 -0700 (PDT)
+Received: from [10.219.57.109] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc7a7e3bsm72543195ad.27.2026.03.27.02.35.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Mar 2026 02:35:17 -0700 (PDT)
+Message-ID: <2c21c307-99bd-4051-8c09-06d370ad9b24@oss.qualcomm.com>
+Date: Fri, 27 Mar 2026 15:05:02 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PS1PPF62EEA9B1D:EE_|SE1PPFE32D229A3:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06f610b6-2427-4e74-42d5-08de8be37d9d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|18002099003|38350700014|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: a42PFSpxFrc9Snxx5NkKLtLDnSb+FVcB66KMlUQXrbubWfE8U8P3z1keMXq4xxeyBqWrgBo3nyLcP972oq2fN1BEI2JI8zvG+TlJpfUAeQG5mOLcj8WSvAynae8J6SDCMR984pdSLpyIkTG3kHDfOoFeIrvXKnSilv/bWE8JnX0TfsAw7wwATVAKO0UO2QtacLWLy/1vVrjNQmDwfwdC/NV2uGuxQKtpkBXyDRexiS2lSnQXppX6u+MLwjIU9jxqJysJRmGMZr0r0EEpHU4rMcx3Vbi9s53DDjFaWavqDr4h3/4btNN3/wKSsBeJnV6iuY1gBuhfeH44RjVbIr/nx1v/V1HuSNjx2HlzFJlvkukWpj+8M8F2ZafGvSD5Ec1TxUZZSm4uuqzcd+IesoR6q6EU1Km2Yvb5dpVpI9DqVYErAk/xC3WutYzVw61eoarfmhpJWBRdBzTttITu37R9/EYFp8swDJ3EF6wojQ1pZriutkVJPhBinTKz/MgWqUpOtC4zBqtAKg4KWoafOgLdNW8tQOH6GEMmD9MFIobPpHCg4ZbhUQSbH4YxRk8KHlxA42FZHWCG/UF9E0kkh8JSqrsIGlBPuLI0DrbXixCCozdDYU/MHQSVYK+/m7EcUonhqV4ForA51g0j0cmgsCgi4y9R+zegyFIdVrm//+Y6Arh48mBiMljTmHu7BZaKhHWUZ99bD3pkuNzTXVhZIwCVjkXyK6MeJhlsc/fuOocym2JAUfk63OuEOKMS2UGVNvHJVu8xm+06W15B4eWxQFv63Le8xaJvYNbNjzYxCKSbN9Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS1PPF62EEA9B1D.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(18002099003)(38350700014)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DWwyeu6xLcRW2ouQRhrLmPQRFPjC4qu8m03wNxBuB+LWr5AfzyqggIAmSo3Q?=
- =?us-ascii?Q?Cub4PqrYZ/UmPfgtimVjRWh/r9Fnanr1REAvQUtWpUmKLelsScqJ2maOwOev?=
- =?us-ascii?Q?vqt7s2WmKYA5TKES0QkT4DZxoCbPk87EFaPm5kXDZclfuoBq+LIWnkhghXGn?=
- =?us-ascii?Q?X9MQa8bfckZD3bDtI82E1BUs6j8urN4KRyY4eQJxue07+FteEBaroRvCRS6S?=
- =?us-ascii?Q?vX9JMi7LAV3QMDvSAjY8G4OO7rkMWgYN7kmkVdBORM/qmHwTH6PnTeJcxp1x?=
- =?us-ascii?Q?jGvd0ig634qPRhetAInM/JrF6FrbXbDcQlVzvlzt5DikIBKsxQdxQ1xRtycP?=
- =?us-ascii?Q?zMA5Xbx335jyG2ix7nv9YOh7AiHeJiWt3+02ybrVIb1msbie3hKRwLEcGjGc?=
- =?us-ascii?Q?wCBYdRa+rQEGYlRF/bLWULgGYGD1IvQxKaXjmIocTpJ3HCh9RrJiAMvKJaRR?=
- =?us-ascii?Q?D2KSL8fZ7G7Pek8dT/fi4AHkqca3r3Jof+8btFZu8cDchumdab4P/sTywyKA?=
- =?us-ascii?Q?b+yY6kJpB/fIf5BO1h8Yfad5l6EiNjMCCvHcIs40fKE/dLmAo40H8Su5N7BI?=
- =?us-ascii?Q?f1NsFlrQ94usyMPQ79iCEi+YGWzdlQqooxahl+zlYm5R4O2oqiXiziHkGk/6?=
- =?us-ascii?Q?8wIS6+nbEgGqncK9PVUxcNReHxVZj1o+K9h8GK2A1ZUJ7UaEiCZUDLprJkeU?=
- =?us-ascii?Q?DF1zzyKuxBUgZRpDTZhp7nQ2kItBy9LnEB381oKst4VQoyVYOM1TT6B6QVNN?=
- =?us-ascii?Q?Jp70adgKwoqYm9s1/ebHZ+tmCY5p+n78gQsN5XbB/HT03OMZwP/vhoTVISkO?=
- =?us-ascii?Q?f+sOgy99vMTu1hLnxjcZYPkWr6j/xSW0A63UiwJh3z00FhdLJBpZqpxiqFYR?=
- =?us-ascii?Q?iDE2wS2lZw6+mtGM/4xVS2VOZuhKSW/mtJZP8UuQIBMh304EHWsMbVwfw+wd?=
- =?us-ascii?Q?yzChHGUqSoPzFqIMWc73GPA7jb1N0c6w4Kj5iahsQlTszX4+aSdaioD8QC58?=
- =?us-ascii?Q?GbW+MJBAxhdpdOw6nI+1R1SI2hPZdUSwW6YGnQLGsENs74MWVOlmm4r+D5vh?=
- =?us-ascii?Q?6SiofBsGwbVKUtku3gktoOZ9la2VxmzxlzjeLHZGyiPoGcMK/fVtX/HFKwXJ?=
- =?us-ascii?Q?0LpoLkxP5eVjQNJSVQl8ogwQ28zB+GjOcfYK7aMQgMPcfGyI7aUo0vL+tTmm?=
- =?us-ascii?Q?uhjkcSAX8z7BgcVjnZgFuROe3aWdzOBvRLP4h3r9lidr5ZUHd+VuTZNibSaP?=
- =?us-ascii?Q?0M3UfSWkuGqPoicE7eHRzqpMA4x+tEvSMcDCYJOFKdh96KbQcibkDJCBKzZK?=
- =?us-ascii?Q?zu1A+GjcF28NCgZaoZD+gTx50gIv6ViLxwiP1PF+IYrGBBLohfe6abWh2EA8?=
- =?us-ascii?Q?YuGijle07gt11639YGmDpxRL3pfXWouTkfQkhnwRjXfmy+0cb6hAE3c+eRVf?=
- =?us-ascii?Q?pLeN5nZml9a0oMhg7U4tkEFbedB3DOHMsoc23E7J1eAkzxa2waZyLmFdPIYU?=
- =?us-ascii?Q?KECukbxbynAKXrudD8NOyDtYx21YIHrUPqWz1doq7b27z4UHN3EDwGCJm2mL?=
- =?us-ascii?Q?7p7WdbqqtfH47mZH/9avKGxdVUIFKsDrA7ANPdXd70wH4h3DTaaGMJ+Gk9Du?=
- =?us-ascii?Q?CZZIVYvdxiUwu1e0yiX6+jK5V63gQrN31GtHSdJh/9IXMhkzMoAGhlAfO4r/?=
- =?us-ascii?Q?zNer/ozOU4AtPlFD3H+YvXZgIPKlGzDeH2ZjEOAbv01HlgBk?=
-X-OriginatorOrg: khadas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06f610b6-2427-4e74-42d5-08de8be37d9d
-X-MS-Exchange-CrossTenant-AuthSource: PS1PPF62EEA9B1D.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 09:30:31.7382
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 2dc3bd76-7ac2-4780-a5b7-6c6cc6b5af9b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QlUxgMR3GV+hK5GCz0s0xbK/K74mq3FajJdU+7VNYa3hvA30NCO0/6TPcDu+75uT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPFE32D229A3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 2/3] of: Factor arguments passed to of_map_id() into a
+ struct
+To: Bjorn Helgaas <helgaas@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>,
+        Lucas Stach <l.stach@pengutronix.de>
+Cc: Nipun Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal
+ <nikhil.agarwal@amd.com>,
+        Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Thomas Gleixner <tglx@kernel.org>,
+        Saravana Kannan <saravanak@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Bjorn Helgaas
+ <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
+        Stefano Stabellini <sstabellini@kernel.org>,
+        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
+        Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-pci@vger.kernel.org, imx@lists.linux.dev,
+        xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
+        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+References: <20260326161957.GA1324845@bhelgaas>
+Content-Language: en-US
+From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+In-Reply-To: <20260326161957.GA1324845@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: vv9cWmZiKxKNySYma8mWpb4AjaB20IKC
+X-Proofpoint-ORIG-GUID: vv9cWmZiKxKNySYma8mWpb4AjaB20IKC
+X-Authority-Analysis: v=2.4 cv=J4GnLQnS c=1 sm=1 tr=0 ts=69c64f57 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=vU6kfqNVzfA0ps7fDeEA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDA3MCBTYWx0ZWRfXx/by5RQB4r3f
+ b1j4BrdCrMkeJzOFTGDFK/unqIF/jgf2qdzq9LWiuliT9qlW6TzaU8PMyeUhKXrdrah9830lzhX
+ 8opk7YnKR/y9QfwhAT0YSDjBZU9bu0hJoXQ0h8ptvEh/8PZ+b55Xhcd90zbfqmEq+jmhhKyil04
+ L53dD9oI3ePRQD5L+4tE0cQxaHyDz/0OOIHX+Ln1XPhlhbwRgb0F7hAOjZ1IrNwpCqvUGF623ML
+ Sb3nPNsoN1qgXtzATa/4Y1Br+wvjrX4WGU+fhw/omgNa6Ttl3lZ1MAMJRBK9L6eGQwyrVTt6/VF
+ EBkUJk5Q/gf+onI7fR+a8s36zYJN+E+adCNExfaFHsqM7SPok/fgp1KorkmxsN8DC6rGMUCjpdh
+ CaGyZSQNGLiO1glRFLowaU2qtqKi+Fuw+wpBsCP55huIffzvF5/lPi+DwA9l/vXjEAOK4sWx1dq
+ CPt3SkABrBIcSxxLsMA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-26_04,2026-03-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1015 phishscore=0 impostorscore=0 bulkscore=0
+ suspectscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603270070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_023041_528457_2479D862 
-X-CRM114-Status: UNSURE (   7.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_023520_241086_3C115978 
+X-CRM114-Status: GOOD (  30.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,30 +175,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Virtual RTC (VRTC) controller node to the Meson S4 SoC dtsi.
 
-Signed-off-by: Nick Xie <nick@khadas.com>
----
- arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-index 936a5c1353d15..2a6fbd5308362 100644
---- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-@@ -59,6 +59,11 @@ psci {
- 		method = "smc";
- 	};
- 
-+	vrtc: rtc@fe010288 {
-+		compatible = "amlogic,meson-vrtc";
-+		reg = <0x0 0xfe010288 0x0 0x4>;
-+	};
-+
- 	xtal: xtal-clk {
- 		compatible = "fixed-clock";
- 		clock-frequency = <24000000>;
--- 
-2.34.1
+On 3/26/2026 9:49 PM, Bjorn Helgaas wrote:
+> [cc->to: Richard, Lucas for pci-imx6.c question]
+> 
+> On Wed, Mar 25, 2026 at 04:38:23PM +0530, Vijayanand Jitta wrote:
+>> From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+>>
+>> Change of_map_id() to take a pointer to struct of_phandle_args
+>> instead of passing target device node and translated IDs separately.
+>> Update all callers accordingly.
+>>
+>> Add an explicit filter_np parameter to of_map_id() and of_map_msi_id()
+>> to separate the filter input from the output. Previously, the target
+>> parameter served dual purpose: as an input filter (if non-NULL, only
+>> match entries targeting that node) and as an output (receiving the
+>> matched node with a reference held). Now filter_np is the explicit
+>> input filter and arg->np is the pure output.
+>>
+>> Previously, of_map_id() would call of_node_put() on the matched node
+>> when a filter was provided, making reference ownership inconsistent.
+>> Remove this internal of_node_put() call so that of_map_id() now always
+>> transfers ownership of the matched node reference to the caller via
+>> arg->np. Callers are now consistently responsible for releasing this
+>> reference with of_node_put(arg->np) when done.
+>> ...
+> 
+> Not actually part of *this* patch, and AFAICS this patch is correct
+> as-is, but is it necessary to have different logic around
+> of_node_put() for imx_pcie_add_lut_by_rid() and
+> apple_pcie_enable_device()?
+> 
+
+Thanks for the review comments. Right, there is no need to have different
+logic, I will update imx_pcie_add_lut_by_rid() in v12 so that of_node_put()
+would be called unconditionally.
+
+>> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+>> @@ -1137,6 +1137,8 @@ static void imx_pcie_remove_lut(struct imx_pcie *imx_pcie, u16 rid)
+>>  
+>>  static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
+>>  {
+>> +	struct of_phandle_args iommu_spec = {};
+>> +	struct of_phandle_args msi_spec = {};
+>>  	struct device *dev = imx_pcie->pci->dev;
+>>  	struct device_node *target;
+>>  	u32 sid_i, sid_m;
+>> @@ -1144,7 +1146,12 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
+>>  	u32 sid = 0;
+>>  
+>>  	target = NULL;
+>> -	err_i = of_map_iommu_id(dev->of_node, rid, &target, &sid_i);
+>> +	err_i = of_map_iommu_id(dev->of_node, rid, &iommu_spec);
+>> +	if (!err_i) {
+>> +		target = iommu_spec.np;
+>> +		sid_i = iommu_spec.args[0];
+>> +	}
+>> +
+>>  	if (target) {
+>>  		of_node_put(target);
+> 
+> Here it's conditional on "target" even though of_node_put() checks
+> internally for non-NULL, so it would be safe without the conditional
+> here.
+> 
+
+Agreed, here of_node_put can be called unconditionally , will fix it in v12. 
+
+>>  	} else {
+>> @@ -1156,8 +1163,11 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
+>>  		err_i = -EINVAL;
+>>  	}
+>>  
+>> -	target = NULL;
+>> -	err_m = of_map_msi_id(dev->of_node, rid, &target, &sid_m);
+>> +	err_m = of_map_msi_id(dev->of_node, rid, NULL, &msi_spec);
+>> +	if (!err_m) {
+>> +		target = msi_spec.np;
+>> +		sid_m = msi_spec.args[0];
+>> +	}
+>>  
+>>  	/*
+>>  	 *   err_m      target
+> 
+> And here (outside the diff context) we also call of_node_put()
+> conditionally:
+> 
+>   ...
+>   else if (target)
+>     of_node_put(target);
+> 
+
+Agreed, same as above.
+
+>> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+>> index a0937b7b3c4d..c2cffc0659f4 100644
+>> --- a/drivers/pci/controller/pcie-apple.c
+>> +++ b/drivers/pci/controller/pcie-apple.c
+>> @@ -755,6 +755,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
+>>  {
+>>  	u32 sid, rid = pci_dev_id(pdev);
+>>  	struct apple_pcie_port *port;
+>> +	struct of_phandle_args iommu_spec = {};
+>>  	int idx, err;
+>>  
+>>  	port = apple_pcie_get_port(pdev);
+>> @@ -764,10 +765,12 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
+>>  	dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
+>>  		pci_name(pdev->bus->self), port->idx);
+>>  
+>> -	err = of_map_iommu_id(port->pcie->dev->of_node, rid, NULL, &sid);
+>> +	err = of_map_iommu_id(port->pcie->dev->of_node, rid, &iommu_spec);
+>>  	if (err)
+>>  		return err;
+>>  
+>> +	of_node_put(iommu_spec.np);
+> 
+> Here we call of_node_put() unconditionally.
+> 
+> I think it would be much nicer if imx_pcie_add_lut_by_rid() used the
+> same style as apple_pcie_enable_device() and did the of_node_put()
+> unconditionally.  That would untangle the function a bit and make it
+> easier to analyze.
+> 
+
+Sure, as mentioned above will align imx_pcie_add_lut_by_rid() and
+apple_pcie_enable_device().
+
+Thanks,
+Vijay
+>> +	sid = iommu_spec.args[0];
+>>  	mutex_lock(&port->pcie->lock);
+>>  
+>>  	idx = bitmap_find_free_region(port->sid_map, port->sid_map_sz, 0);
 
 
