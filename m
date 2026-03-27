@@ -4,144 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D93E10BA440
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34B110BA44F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DhKgSU/RvXUTJBFyFAlD5w+pe27yOPu/2DZEaL1jy1k=; b=HylkOdDJiL1z1RFP1OOJaqpk7r
-	KObvOWAqKjsXCfQv6CIcpwZH3YUKiA/8F+0gT2OKCZFB4F42YW4mYBA2aZKS3M//IGBEJOWi6Bfn7
-	dIqdB+BW4fQOxAnLlY3DXPyTn857hKihXjfz665ffKHOiR/16h8Wo6WmdLYXHJIKQ1qF14eICgfS9
-	1ZKoTDaXG4/YBSuU1RAiNS362mKOiKL/YC5pp8Pp9o0iCqHj1UeLCJB8tfp3UB014uMTyzHZC90y8
-	RmFf4tk928rmUOqcCBacqDW0AOsPH1bO/9D7qRu7Qf/y6iG2Z7AoEKVMwdGf4etVrFIuEBbqJjtea
-	u8APexog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bs5JFlI0fqgJR6o0K6Prq9ED/CcnFGO8oBoULAy4wJM=; b=nmLdsE2rHuTdjVmZRroA+EIFv5
+	MjRB5xHHUgmaI47arGiJwzLZiFoMgBeuDm3uzTQ4FWp5OO40Ycd54sTnCbfA1lY1phtKIsJd7Mif3
+	BgVcjj043qKzgKc9jSogZR9FvK1iMjKtxFnRnOwm/A1hQwHvxP4zBhfyUnx+wapr2rS9e5nJEwcdx
+	TxZKdiZX/jyNxvbu2gc/sMIduoBfJ7nNmZ4ZPXR+fHIe+8IPjBbzSRMUjXOFdAOE0PsXIHgZyxnsv
+	cJ0z9gZKpC58jsUgH9X+/twwoqW5yLdkd1VtQ67hnGr+ZZDM+5sVBYUKDZokVEmzgcqyMgP2hUNdZ
+	PE4e/utQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62bI-00000006yOY-0TVM;
-	Fri, 27 Mar 2026 08:31:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w62mf-00000006zS8-3obT;
+	Fri, 27 Mar 2026 08:43:13 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62bC-00000006yMg-3D18
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 08:31:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=DhKgSU/RvXUTJBFyFAlD5w+pe27yOPu/2DZEaL1jy1k=; b=b6bHIp2bXOwUMGrF+W4qk9GLuV
-	6pBvKhe1vTD3Bg2UmwGgwJitNl9dHBYyZeTRyHBLAO6zJvNuIX9vG0VIilfXfqBLET/d0v7ExHBuX
-	J+ZwGIF0sUaDu2CS08gRYmoGOl1i3JqroJUNROAEfxgbr/Fz01Ykpl/uML8w8EB+JUmXf8FG8hoBB
-	Ru8/clzSL4IzSDHHjsEf1zLQiPN/Nh9/FVOCVz5vZAvFp/MEl2w6L7fjHA1zoC24N3UzOLQA75Vdd
-	vo3zbc9aQZFkBV1MeTWm1PUaY4SrFjuagPtdc1PgTv+ao4w7Z6elL2SdsbpCE3eGGEV1WfHiHtsIZ
-	ix4HrOVg==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62b9-00000009yI8-1kgK
+	id 1w62ma-00000006zRN-2QvD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 08:31:21 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62R6vnnd3715894
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:31:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=DhKgSU/RvXU
-	TJBFyFAlD5w+pe27yOPu/2DZEaL1jy1k=; b=WWF6ooDFq3S9VAXyGOMnGd/svZ0
-	JqMR4SwUtcZiCITnZ+dJ7uOZjQ+sgkhvVCzaEFtvrL4C2wuMLD6wrchmvea2nGEt
-	8r2Y5P5Oj30OsmsY9byHFbhVhZsvje6J2LFeRzkFFywnVE6xWBQwxDO2nLxlEdfs
-	haBsFqAZMIJnWMAvB9or2qQ1l3nUvdAn3d0KvttRjjh29G1Iv4hA9avQTTICMRod
-	mMIFnZO7c+ayE5p2YN3sEPHMmizsDlUbYDzW2oini4dvgtW9KBgfjrjeaD8FiIgd
-	Kbizd6C+Jfok2tAeIaBdnyOHIOTPtJoE7EWBo7U2lTlotXPB5Fo67qjp9Vw==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d5dd6hw44-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:31:15 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-35bea322389so2458968a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 01:31:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774600274; x=1775205074; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DhKgSU/RvXUTJBFyFAlD5w+pe27yOPu/2DZEaL1jy1k=;
-        b=gShmYiVSLSQjZDXCYziC7F/PHf89GXYgQ0qAeqnBKeoIgEKyZOHICNSUeMr6Q8p4B1
-         AFDqno26H3gj2ff1yTyKowOY8294eW9QrO3lj2tYeeJKQeehFppNVyTM1ytIcvFgdgvL
-         0OoN/uZtrryi2uGTsWi/MSDMzWT+BN3xs03UkvNS0bKOFL0fCmIGSrkDbwZK0X1kkm+1
-         +/6lYwiVcu4lWFBTiJy+4/btXMfavKyAjCk7BiZZDDNWznX69d3IUp/hq5w4v3H9PUvi
-         D7krG1fOhYYvi70RwVgVuybVqH5rlkTZToAIurICThpaMHzMnG6EhLPMRsRRUh9yQZ1c
-         vDmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774600274; x=1775205074;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DhKgSU/RvXUTJBFyFAlD5w+pe27yOPu/2DZEaL1jy1k=;
-        b=Q1xPiwy0uhD28ZSlnTZWbcNNxfdPqaq8rtCzgMEVH1ewhdU/WH6wQsfwpWcn7NSxiA
-         1NMXKJ0/ZJ6kZvV4JApRU2oG/eS+QR3dmFGyk7Z084S+J8PpEnhf5Avucif2NWJKtJH1
-         /rI8zRVNP3ASyV1Y6MNckDdjomwQUZABXwjNKwa3AS7f71dJQCaNhsXgN+l4JhFTzXr6
-         gZb+CDgjhbVp15SfNDOIalu5rZe+vCZQt9y6SXCBzpKHfDPrS4w3ZKE1Mwarj2UB1VXo
-         V3zYCxIRNWMLWxLpy1++IkIEtDaeY6sr48ZOoTErXN97FTkzdktPhsgx7DhRLY4krhhm
-         YP0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWeQdqRjq2DI/Ys5bRjVidi22+sgU6sTtMnqAd6McL9wA9GlPAp8Tk82TS7HcrQEycFisRC3+kqEEnGWR5IMGez@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtBYHdk4bwSir9hHS8QCZnbq/u2gDTpsdhuxVEQCxDjAySEPkG
-	8fDW31iVoD1yClQoQWKSfrWjo13Q+YqJ2sfcesVGwZPLU+g1eyZ9ZXVY2b58iDE4eGcheBrGkY4
-	kqkWKH9H5Q6pvNpeA2Rz03i1+N8UePqWpiH8TW/ZlOJ4iNTR7E2PYxrbpR6IsflYOr9k1KJrmP2
-	dXuQ==
-X-Gm-Gg: ATEYQzzQa8QJBApz7ZYWPH40MsNtHcVeKw1Bysxxep8qkfoLaqwQ0OS8CpdJqJIg1wv
-	DurDlLJHGc3gV0C0m8aylHj64nN77Kq6h3kD4PyP+kQrF77ygfJS7WC3WBcO7TPDgCq9V2nTYKO
-	xGL2Y4AkQjyu9ZC4r9JPyt4kMCx/zq0HNJlVEsIkG5hqI/dvRsi2Clj1AG3SXFmCL1DAHjlPcND
-	AUPSq0SsEOuXWoh+QT5xfTG0I6fYLaEtMjNbFEC6xMHoUIoTF9fuAEutaBReqcnfuGcDvTa7bmU
-	J/hPEGj5rXqwaxlKA59O7ccM4uzxCH0tAOsdRuVofONhcrZIPXI2iS2YyOLRHo+vm4tViyRkN1W
-	jvTiq1ouaBu9ErF3wLZD37n8oyUigIJ5/jq2U+Ael4q8gFy34C/FXe1jjIts=
-X-Received: by 2002:a17:90b:3fcb:b0:35b:9958:4edd with SMTP id 98e67ed59e1d1-35c300bd7f6mr1792666a91.30.1774600274357;
-        Fri, 27 Mar 2026 01:31:14 -0700 (PDT)
-X-Received: by 2002:a17:90b:3fcb:b0:35b:9958:4edd with SMTP id 98e67ed59e1d1-35c300bd7f6mr1792635a91.30.1774600273898;
-        Fri, 27 Mar 2026 01:31:13 -0700 (PDT)
-Received: from robotics-lnxbld008.qualcomm.com ([114.94.8.21])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b0bc68914bsm56234905ad.0.2026.03.27.01.31.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 01:31:13 -0700 (PDT)
-From: Canfeng Zhuang <canfeng.zhuang@oss.qualcomm.com>
-To: konradybcio@kernel.org, andersson@kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/2] arm64: dts: qcom: lemans-evk: enable UART0 for robot expansion board
-Date: Fri, 27 Mar 2026 16:31:00 +0800
-Message-Id: <20260327083101.1343613-2-canfeng.zhuang@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260327083101.1343613-1-canfeng.zhuang@oss.qualcomm.com>
-References: <20260327083101.1343613-1-canfeng.zhuang@oss.qualcomm.com>
+	Fri, 27 Mar 2026 08:43:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bs5JFlI0fqgJR6o0K6Prq9ED/CcnFGO8oBoULAy4wJM=; b=CqIo8RuGIP+k5XqO3bGvU9yQrk
+	LNaluosJn0UhU0kRJP3NvqxWMcK7RllkIT8LVRIRR5lTiKwKLpYmWm/jf7OIGox62mPibeoaQ74CP
+	h/9iIudbeTytF4KlhsUUQGpM/eF9zZa3ENxIt/rGrAJ5DOjTofbwVtWXgSoiYtzSuV7Z7X9A/hL30
+	AniE2poGYTRgvFKR+mkl2dUfs9/aL2f83hRzlfaf3j+nKiClfQqZ/27mK57AvxDm30e94V5Tqs0fu
+	53b5YmcdNk9VWCnYrwOTmCy25B0iH6/e68SX8ZWrsPbGTO/IWN9gPjb0+ZU5ac+7MIr7kmv7unRIe
+	HuLO+s8A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45852)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w62mT-000000005o4-2GVA;
+	Fri, 27 Mar 2026 08:43:01 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w62mQ-000000007uQ-12rM;
+	Fri, 27 Mar 2026 08:42:58 +0000
+Date: Fri, 27 Mar 2026 08:42:58 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v2 00/15] net: stmmac: qcom-ethqos: more cleanups
+Message-ID: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=NenrFmD4 c=1 sm=1 tr=0 ts=69c64053 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
- a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=o9fUvUwYGSpSYbbeJqQA:9 a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-GUID: hMwiFG19twVq4A7N4bipyYLHKXrVJxvf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDA2MiBTYWx0ZWRfXwDF4PkRyktWO
- Ewy/cbGET3JS6NCLAvsFAeB/N2VECLKfzpmoLF6v2qQ6HrTtsGMJZSM0EAMBssfA+hmnws7t2v/
- M36snQcya4PwBsPhrtOHnHKzc8+ME27Szc7iQCzbHOB3sVzVEsHhBbB2DH2+iPlNqfg5xc29ZwQ
- 4EE96OknYoQst6IBhChNfXDqvqOGCNjaE2FctuslcaoYRQqoHQHTnKomghYsGzcb38m+ATj1NcC
- cZxMv8bIJMiRYu9A5URU8OM8su0V7jUt+9OGcbasGBHt51RAEkcNj3WIFt1EW8CaJjWqPM+eb0g
- ANdMO+jyYx+QkcJtLqtu5fa28BzeZULIVJPKdeOGjhbhPmQDrwOtGx09/8cxV/nFRVgS5fdcBuk
- /ts6Ed5MXP4VHi+MVqEQ9SMKwa8lVEbx5jHqViG7lzWxepT2swR40RxcAX8KH03LggGllBYY4gO
- Jp51SptAn4l8jo1uRog==
-X-Proofpoint-ORIG-GUID: hMwiFG19twVq4A7N4bipyYLHKXrVJxvf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-26_04,2026-03-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 spamscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0
- clxscore=1011 suspectscore=0 adultscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603270062
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_083119_905392_E8B803F6 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260327_014309_277633_184FD33E 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,42 +84,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The lemans-evk mezzanine connector supports a robot expansion board that
-requires UART0, which is currently disabled. This prevents the expansion
-board from exchanging data and control commands.
+Further cleanups to qcom-ethqos, mainly concentrating on the RGMII
+code, making it clearer what the differences are for each speed, thus
+making the code more readable.
 
-Enable UART0 and assign the serial2 alias to provide stable device
-enumeration for the expansion board.
+I'm still not really happy with this. The speed specific configuration
+remains split between ethqos_fix_mac_speed_rgmii() and
+ethqos_rgmii_macro_init(), where the latter is only ever called from
+the former. So, I think further work is needed here - maybe it needs
+restructuring into the various componenet parts of the RGMII block?
 
-Signed-off-by: Canfeng Zhuang <canfeng.zhuang@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/lemans-evk.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+v2:
+- patch 2: fix typo in commit message
+- patch 3: fix ethqos_fix_mac_speed() comment
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans-evk.dts b/arch/arm64/boot/dts/qcom/lemans-evk.dts
-index 90fce947ca7e..1e9386677bf5 100644
---- a/arch/arm64/boot/dts/qcom/lemans-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/lemans-evk.dts
-@@ -21,6 +21,7 @@ aliases {
- 		ethernet0 = &ethernet0;
- 		mmc1 = &sdhc;
- 		serial0 = &uart10;
-+		serial2 = &uart0;
- 	};
- 
- 	dmic: audio-codec-0 {
-@@ -870,6 +871,10 @@ usb_id: usb-id-state {
- 	};
- };
- 
-+&uart0 {
-+	status = "okay";
-+};
-+
- &uart10 {
- 	compatible = "qcom,geni-debug-uart";
- 	pinctrl-0 = <&qup_uart10_default>;
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 220 ++++++++-------------
+ 1 file changed, 87 insertions(+), 133 deletions(-)
+
 -- 
-2.34.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
