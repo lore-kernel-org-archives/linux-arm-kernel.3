@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DA610ED679
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E7B310ED67E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CgJ7zzrUW2V45knd7wTngmEu7ELXc1m/JD3T7B10AxM=; b=yGg7cmG+0HtDLyzG8fxy6r8Ksr
-	nWu50Vtu2cW6uyx4Gh9mI16waW1CmXOXrwiZJ+gFKYnQ9wkW0nSRqHS1SjlbpPbDFaH7ss/2ciSgl
-	kdyw2iKNvpjgRnUqpK6T/t0eFYvJ5IY3Bxfd0FYPMTQCx6oo8E/vhKYypT7dRXs9fhev+bkExniYv
-	ws9A82cHLpoMzuu04CKg89QLH2jXQ57I9hfmtWQk79qGBDKH9USnyoTybCQSndFIuJKfIijMNr/3H
-	iCde4twpaThmwg8EqL2bJmgNBxaQ7ahNboevTjN1lBkTrclJE/Qjp3nkp+B7XE93Qdtn/pQC/jrca
-	+yKO7ovw==;
+	bh=LgrjD5noHmDJANSVbPGgjcYS5PeEbzeo0KHKVLAtL38=; b=R8+qG/1AKqYMBMlN+HHQMLtcHN
+	tiwabGotHTarOCR/CqjKXj4DmqAVlkqMKa0Jm2KOzgaPLRqYcGhwkYJtyZl6FLMkQefHra/bRW19I
+	5/YJR/LvV8H1nXgppNyVPNdk96IsOHtZXfk8PW126y5YOaY6ekjTLuAUutiJcuJuBauRHI1w8X2CU
+	ZfP3CXUovpxFYKKYtds/PFIZFuzxbwNwOzzC1iVZq5OPLy+4uIE9ezwIW5RM2/lGjCYT28Nsk8vDo
+	GxFqQR8B2dPQvJbAzwENxYyszYF3RICHb44SLhBsjIkKpsety/SC+EAoC5ZsPivo+0rZkKX5uEUFY
+	xZ+MYhhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67kT-00000007VaX-3iaV;
+	id 1w67kT-00000007VZo-04dZ;
 	Fri, 27 Mar 2026 14:01:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67kN-00000007VXh-1H6u
+	id 1w67kH-00000007VUV-0gtA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:01:12 +0000
+	Fri, 27 Mar 2026 14:01:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 010674332E;
-	Fri, 27 Mar 2026 14:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC2AC19423;
-	Fri, 27 Mar 2026 14:01:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 974A960132;
+	Fri, 27 Mar 2026 14:01:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F04C19423;
+	Fri, 27 Mar 2026 14:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774620070;
-	bh=ow7XJsMmy3N9br36ooPJfkzHGKyMX+Ym+pCiAfKaBdg=;
+	s=k20201202; t=1774620064;
+	bh=03J6umtHfd+8x3jSWjUFyG+CUtvyPNtbJU/vryIouac=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fpdPJ9rE4C5ofwCxzMs7Rwxv0FmPNhAVVzrGNogUIMJsH8eZA+AFXT2Avk+4I4e7y
-	 HP5ppWyaymTseJfGmYRfK7XqfmogtEJb2VKCQCOvu6s5X19/kJ2WiXy+YEiYIYNp3q
-	 WXKv1yS1Oar9YDC9Q+3pQG8EAZDdArY+smPLKW/v/NRtQCHNQk3qJ8M0gLLEatx/3M
-	 2HHxoLFde0BzYGEI5q0YEvNcTQ47CN4AirPAXRA39FXahTCcdcwirM+OJPsp6svLwb
-	 RCRyRCpjUCFXw+Cfn+Gp5h329VelFFptXbmiPOSS+PoitdrijKdwlrpt1fqsnnwbdz
-	 3c2f1mdmFvMaw==
+	b=VTbJGcYpBT76rucUq4rz0ma98df9MXZlXSVNzmIKliPFjo7EspcQUkzLNYlwQY6i1
+	 u4S9+dhvlSGOOWwzmStdCpdTRI8vC2kAC4PNwjJLS0e1zDpVqYVpw1hbsiWH/SwKlZ
+	 /T98aFeSpCRBGkm8KtL1hZnYZqIMyzc0wDEEsiIcJCnDDukjfbYza7jy2qezkgbSRn
+	 40HklWcfN0ANG4lc3BDHagVLzK0hJwfdxYRdljpEcbHlmpGY8H/oH+qd/naRnFdXRg
+	 4lNE2QqmHagXu/dd0PwUbaLN/Q/hOE+wtmmH44es1OnJfsm734E4zIbAhA+21Fz/W8
+	 782OfjPs+f85g==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,18 +57,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 06/38] KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected guests
-Date: Fri, 27 Mar 2026 14:00:05 +0000
-Message-ID: <20260327140039.21228-7-will@kernel.org>
+Subject: [PATCH v4 04/38] KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+Date: Fri, 27 Mar 2026 14:00:03 +0000
+Message-ID: <20260327140039.21228-5-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260327140039.21228-1-will@kernel.org>
 References: <20260327140039.21228-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_070111_367397_8B581654 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fuad Tabba <tabba@google.com>
+In preparation for adding support for protected VMs, where pages are
+donated rather than shared, rename __pkvm_pgtable_stage2_unmap() to
+__pkvm_pgtable_stage2_unshare() to make it clearer about what is going
+on.
 
-Debug and trace are not currently supported for protected guests, so
-trap accesses to the related registers and emulate them as RAZ/WI for
-now. Although this isn't strictly compatible with the architecture, it's
-sufficient for Linux guests and means that debug support can be added
-later on.
-
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/kvm/pkvm.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 06d28621722e..0a84140afa28 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -392,6 +392,14 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 	/* Cache maintenance by set/way operations are restricted. */
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 7797813f4dbe..42f6e50825ac 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -322,7 +322,7 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 	return 0;
+ }
  
- 	/* Debug and Trace Registers are restricted. */
-+	RAZ_WI(SYS_DBGBVRn_EL1(0)),
-+	RAZ_WI(SYS_DBGBCRn_EL1(0)),
-+	RAZ_WI(SYS_DBGWVRn_EL1(0)),
-+	RAZ_WI(SYS_DBGWCRn_EL1(0)),
-+	RAZ_WI(SYS_MDSCR_EL1),
-+	RAZ_WI(SYS_OSLAR_EL1),
-+	RAZ_WI(SYS_OSLSR_EL1),
-+	RAZ_WI(SYS_OSDLR_EL1),
+-static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 end)
++static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64 end)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+ 	pkvm_handle_t handle = kvm->arch.pkvm.handle;
+@@ -350,7 +350,7 @@ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+ 	if (!handle)
+ 		return;
  
- 	/* Group 1 ID registers */
- 	HOST_HANDLED(SYS_REVIDR_EL1),
+-	__pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
++	__pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ }
+ 
+ void pkvm_pgtable_stage2_destroy_pgd(struct kvm_pgtable *pgt)
+@@ -386,7 +386,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 			return -EAGAIN;
+ 
+ 		/* Remove _any_ pkvm_mapping overlapping with the range, bigger or smaller. */
+-		ret = __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
++		ret = __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ 		if (ret)
+ 			return ret;
+ 		mapping = NULL;
+@@ -409,7 +409,7 @@ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(pgt->mmu)->mmu_lock);
+ 
+-	return __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
++	return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ }
+ 
+ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
