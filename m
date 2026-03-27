@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A80010F285E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BFD10F285E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4058XtpebnJNJ0w+uHtlDdeXOwVoOI6qmJqEKpILNDQ=; b=mtzg7/d1QiiFuPDEmVipN9LTZd
-	KAvAHwwDNHqY0Bgakp7n35N/ovu0hQTcYpYZ8pa8wIf96ulmsRlgcKUQmxPMf1aOnRvl+YYViMq81
-	zon7aPibAtXVdgOy+ensY4RqlpFFgW+13pmNgBjkqbC9tkzVjV/eRv0MyV0Zwt9M0/r42SR6gRiW/
-	9e46CJeaysiCI/Q8Qvpgaxd9bm3x7d2MIiSp2QxNmsSeplgPs2gKVJ98fUhXaulxxOJtQcwH8fdID
-	NYF8JXpj4jZY+iQObkCvOaTWmQb0YIrb4+I2RuLZKOtstz2oP8ysMbhk/dAVTHzgc370MUVbJmeWm
-	j8msppuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vV6E9yjY+PcJxkfGX/VZyyMBIRVFPjQlBGDGet9H4gE=; b=oiJrr3OU2XrBz2fa3s7SQRJ5Lu
+	PDn4PpURk23m1jYZw66SG7u/oJIGbwMmJMd+EchNcwhm2UJSZyYBPouVtjCnR6I2/tYzP0yaMDKbb
+	QFr036TTnT+apSXLmtagQgKcQYHEDvzrx5uiqyQTXSbuz1G4DOhUVOOrSgn9LJKFBq7aeSvXa/FRk
+	7BvCcujYOuRHImj76eg4C7NaevCZNHqiD4yWZh82b73nuus5EDN/eGkOpLQ4lchHWOG0vpPRFQYJn
+	XHwNBD4Vb8vt/USCMDce4Lwo/D+iGEzRWmxNznFG26LuCMc5miJkLDgMSt7GKnrOWY1MUBHoAm/bG
+	+l8xQF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6AmK-00000007qBI-3yGs;
-	Fri, 27 Mar 2026 17:15:24 +0000
-Received: from lahtoruutu.iki.fi ([185.185.170.37])
+	id 1w6Ana-00000007qet-3Pqu;
+	Fri, 27 Mar 2026 17:16:42 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6AmI-00000007qAm-09cD
+	id 1w6AnY-00000007qe2-0yuO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 17:15:23 +0000
-Received: from darkstar.musicnaut.iki.fi (85-76-0-165-nat.elisa-mobile.fi [85.76.0.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: aaro.koskinen)
-	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fj6hw1m7bz49PtJ;
-	Fri, 27 Mar 2026 19:15:12 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
-	t=1774631714;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=4058XtpebnJNJ0w+uHtlDdeXOwVoOI6qmJqEKpILNDQ=;
-	b=iuN8x1bX1Q1wJC+L0CibPUxnWESiQo8/OmyERfTJhNwLWT0Y7dWmnIXuV5oQ55oiVYTimF
-	MUbrL0XqkVhtXBXhImO/FO2Elltiu+vt7yngEiqQNgwSbKCSfeIE6X65AMhx/YGS7sdLFb
-	3AC4Pv/VVcpkrx/T5blr9zG8BOTW25ucj9wpr+Uk/4KWqAEgoeT4xflc4ln+Fx7JIgjz1u
-	HTa6j+FdAbbYF9eLSNQhMY13EqNalGPRgPlf3jSbvciCHFEinaOp4Ch6J8CybxpVIQHp6n
-	Ameh8ARzo/3inpHbeqiKb0rAg0m2/Hh7IvqyKikKWaSWqhi0hvmN6+LDCznIPw==
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1774631714;
-	b=VxBVYRVt4+sEM886Qmcvr1G3qr4SHSzFr4AITzSPUjLe/9Vgv1DuI/L2kBkdbAaIgCVvI4
-	ylIZ2XrZY/5iTc5verBSLUsvmRW04pQRkY2+uXUfoUkkA9AaL8soy9W+OfIrhtYXVK3dJO
-	c6vjNu20Kdv9P6gJAKFzvh9UqLo+0zVlh3yiny5HPoEiFz0UZb1XsUPw2QcFvw42VeXGKr
-	HAER14RySdHODFY0CI123P6H+euop6Sbnu/PAvy53K1179lBbmResepQ6PKIoxWQXcmz8N
-	yxWcpEHDng9vNO9Y97uwkCGaQHAxf5WVKsCKEAla4FmKQHUpnc6I0POwYUOLUA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=lahtoruutu; t=1774631714;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=4058XtpebnJNJ0w+uHtlDdeXOwVoOI6qmJqEKpILNDQ=;
-	b=mOZGtSakUSgKFtinYZvLYm9BqJ/Qo+UkG1UV7M+rJqW8qL+PNGiev53EWJCvTgiBBEtVfd
-	2FPAzo5p0TQlWuthUoTfaohd0QmZqjd2rEd3jk0djSNXBH/OZh7mec+Dx9EJKXDpA8GGcH
-	500+JOTTGRQF3NOgheVI+So97BMqwV8G7qr/ME6tBS+sTOYOhu1ydfaIanYO3r27zqBbHq
-	wiiieMGer5xRVY/2MREeuBZ5qUdims9z9raqFQPjjCFlkEpOLtyqHIbEkfAg08sLW8YKu7
-	6zChMbrBDfraTRo4M7LtI/Qgu0nVi9bysT0fGcGMxuPVGLmPvfKq2lfPT3owAw==
-Date: Fri, 27 Mar 2026 19:15:10 +0200
-From: Aaro Koskinen <aaro.koskinen@iki.fi>
-To: Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: OMAP1: Fix DEBUG_LL and earlyprintk on OMAP16XX
-Message-ID: <aca7HnXZ-aCSJPW7@darkstar.musicnaut.iki.fi>
+	Fri, 27 Mar 2026 17:16:41 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-486ff3a0fc1so23033955e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 10:16:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774631798; x=1775236598; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vV6E9yjY+PcJxkfGX/VZyyMBIRVFPjQlBGDGet9H4gE=;
+        b=sV5+6Miz2phnrpsiR+ZY6Ym7PtGBzPgLIlIAG9P+ai8QoueYkji8grzMMyX+aXkscQ
+         0T3OUNuHeA+X4nKmRi2JlhSEzC/P9uBonokGyvdE+NwMllfPDRxUSrjmMZiB8cnnm8Gr
+         rt5NJNTP/GKmaOcNBzDJklTMvYK4HyjrRHbZYA9a3JL5lCytBxz7litd+nlEjLO4LvM3
+         r7uS+SCOnrzD9V0Q8HiGLtfzU8dwXXPgzXr3WpMRU164H2Gg7U9BqOh9p7rvM1zIbbn5
+         YBNjffdqFZp8C2KTdT4LhrSOpb4+cK0b/plM7b1J343kDR1FIPHV7w5zQq4rws+EeS4A
+         u/IA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774631798; x=1775236598;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vV6E9yjY+PcJxkfGX/VZyyMBIRVFPjQlBGDGet9H4gE=;
+        b=OKeLi/P/BqDETxcGYDY/0xBgef/PGWfq80HOLzSa9Odib6HzJkSa0CNYz2MmzZR1z3
+         +7BMcNmtfkaJe4dLlL3HtUUN0HqXGVmI+Dsaz2jsqjRqVxgwRQk6HMO8NmiKjXQduXLs
+         75O5gz+HkMcn5jE+sIdaImA66+Zj2wO1LwXYi9wwvNhcnGDhhd33UR5lYXJk9YA/DWq0
+         /dHgt9yXfRkKJ9R06qDORCqhENOxC44Bt2wtSv+5oPLJRQvePgoJzHi8RaB75yj+kpC6
+         FCz25NQXF3Zu0nLi4VtVW751Z1gbbaXntCcmeCLEFZXIBOTEK00+7gmDRZx8Q86siKTq
+         NGnw==
+X-Forwarded-Encrypted: i=1; AJvYcCW1U/Ig8doLTy8uVIohfH/cgkfAkyraoUotO+zKTnOXg0xAn8abckyMz8ruLrB6es/eu9IMK8OTTfmrs4KcmFsE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw50h8CPV4S/XgKtQjAl/HDGpeIjexXWWR1k2An+DoOYVxKvjE8
+	plRtDjpQhIzpUKcrSnK2g3uiGVlrAMOX8R9eAlYzYsviQGcxBIMM4i9T
+X-Gm-Gg: ATEYQzxB/5oxKGP7hRWMuqMpTOwxTICmJlfdNbJPgBVjPB0SXwF8tUJB9s/Ts84eya1
+	NxIscZvNaQUOaKyuR2i1LmJHMDRTOYUVQg8jArkYltMYTlZtQKBPpdoh268eBThbhfAUGtpO+qi
+	d2EL804ZKllieJQxF018fXPwsW7jRb3hWgWtcn8axmauilWGGNWPgMbDQ2PE0TnPyOyNoK4HbtO
+	xhOkLT7FddAFbOlEdT431vNHXfN18ojRshQl4bcnej87Bh8wXo0RCa0SyXox5AWT9JhRJ71WiBt
+	o/DMe0tgUevDun/L7CpnrfA6R4okbf43RndZX+FH6VVugyHswwW7TxJhXB4iorkzWK8cibvv0Sb
+	vv2BuFGDtCbz/lBOW+ixp5yd4T2T0WcPhzrzOVUveINvDMbNXwsyEC1xeC3x9kAQgevZIKpCPU8
+	V5bmvlqT7N/NMNzQsa1McwYHbKImwkpe+JksyLoX3uC/C3O5qE6zsdDOuVNEKibv/7GoCUfSMES
+	TNymeG33yFqrTTQMBYANIhCyOhBn6HTztPtZF73HF8=
+X-Received: by 2002:a05:600d:1c:b0:485:3f17:425 with SMTP id 5b1f17b1804b1-48727ec7681mr45535245e9.21.1774631798048;
+        Fri, 27 Mar 2026 10:16:38 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-20-233.cust.dsl.teletu.it. [93.144.20.233])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725d9e85fsm34322455e9.1.2026.03.27.10.16.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Mar 2026 10:16:36 -0700 (PDT)
+Date: Fri, 27 Mar 2026 18:16:34 +0100
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v1 1/1] arm64: dts: imx91-var-dart-sonata: add RGB select
+ supply for PCA6408
+Message-ID: <aca7ckVY9ure8Cwe@Lord-Beerus.station>
+References: <20260327163243.17334-1-stefano.r@variscite.com>
+ <aca1jdx0DjmmHqFk@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <aca1jdx0DjmmHqFk@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_101522_234983_B0107CC6 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260327_101640_295048_597D9C1F 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On OMAP16XX, the UART enable bit shifts are written instead of the actual
-bits. This breaks the boot when DEBUG_LL and earlyprintk is enabled;
-the UART gets disabled and some random bits get enabled. Fix that.
+Hi Frank,
 
-Fixes: 34c86239b184 ("ARM: OMAP1: clock: Fix early UART rate issues")
-Signed-off-by: Aaro Koskinen <aaro.koskinen@iki.fi>
----
- arch/arm/mach-omap1/clock_data.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Fri, Mar 27, 2026 at 12:51:25PM -0400, Frank Li wrote:
+> On Fri, Mar 27, 2026 at 05:32:43PM +0100, Stefano Radaelli wrote:
+> > From: Stefano Radaelli <stefano.r@variscite.com>
+> >
+> > RGB_SEL controls the routing of some carrier board lines on the Sonata
+> > board. The two PCA6408 GPIO expanders depend on that path being enabled,
+> > so describe the selector as a fixed regulator and use it as their
+> > vcc-supply.
+> 
+> Does below resolve your problem?
+>  https://lore.kernel.org/imx/20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com/
+> 
+> So needn't hack select as regualtor
+> 
 
-diff --git a/arch/arm/mach-omap1/clock_data.c b/arch/arm/mach-omap1/clock_data.c
-index c58d200e4816..5203b047deac 100644
---- a/arch/arm/mach-omap1/clock_data.c
-+++ b/arch/arm/mach-omap1/clock_data.c
-@@ -700,8 +700,8 @@ int __init omap1_clk_init(void)
- 	/* Make sure UART clocks are enabled early */
- 	if (cpu_is_omap16xx())
- 		omap_writel(omap_readl(MOD_CONF_CTRL_0) |
--			    CONF_MOD_UART1_CLK_MODE_R |
--			    CONF_MOD_UART3_CLK_MODE_R, MOD_CONF_CTRL_0);
-+			    (1 << CONF_MOD_UART1_CLK_MODE_R) |
-+			    (1 << CONF_MOD_UART3_CLK_MODE_R), MOD_CONF_CTRL_0);
- #endif
- 
- 	/* USB_REQ_EN will be disabled later if necessary (usb_dc_ck) */
--- 
-2.39.2
+Thanks for pointing me your patch, interesting improvement!
 
+Actually, in this case RGB_SEL is not meant to model a selectable mux
+on the Sonata carrier.
+On this board it must stay asserted permanently, otherwise the
+downstream path to the two PCA6408 expanders is not accessible.
+
+Modeling it as a mux might be confusing for users of the DART-MX91, as
+as it would suggest that the routing is configurable, while on this
+board it is actually fixed.
+
+Best Regards,
+Stefano
 
