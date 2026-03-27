@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E9A10F2863
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCFC10F2865
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3Z1bpysXFgVp4e9xw/b5VJWuv2b/g8k2qTBBT/7+ro=; b=eidtkCmHJfNp5YmC5eMY07VJig
-	VKJ+EkU/u2huALX63g7D3CQ0LJV572a/3sTTr/Xu0AFrYgoYOAlwTALd93/ATaj9PWBYn8leBo3MY
-	l1stPiOkdSo31qciEnffEWF2Uh9abwoCHDQ9nZipCmF5nRxtCBFNgAaL++I7CuoCFeNf2+9KN365a
-	1LbLtlNe6fJ0dEvGz9LFfxscq/CyuwWinJ2pI79+ckl04sc6xUVAjXNCj9taX3auzVs9XOqJIkMd8
-	/Fnww8/rLk7il36pe7oXZY/pC4AdZ4xiOTVUAvWiVOj1w0oiqbncDW8fRZRkQpfqjJ0cdZDrzE2Z2
-	8Q9WYDXw==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oTutpgL5+JjzAC1HGqC5YVfYkXZsuSA3ElC+JIK+L+A=; b=zy6jIYdUrMtQo13Q+znnWXH5FZ
+	OTlVkexPehnqhVHbFzw3fi+QI19B6Yv8XwpaoIKU1YBt9swhUjzN/+DdMFOddOpa3WNgvmrNYdLV0
+	CAlYNh17QZzxAeb7ak4mAeAliTX5AP91IQ4mYmqOHqDKsjyZvWFeRCe5OafZ7/ewohnjRh2GerD2E
+	7AWvpagk6T7H+uoBIrzzREZHrwi7gj8VHmmgVoyukbFJSlJxM+hYYe80bvr6cQBz+XreFW3hrUvKa
+	dH5SwfQJCiRGubTNtf/7pbhIV43UQyHz88kTYDBvWcfwodQMpnsWWbUYLjxOwHeZidxUVl+7VotWi
+	wtQUczOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BZp-00000007ukp-3DqH;
-	Fri, 27 Mar 2026 18:06:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w6BfO-00000007vF5-3i7e;
+	Fri, 27 Mar 2026 18:12:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BZf-00000007ufV-46o6;
-	Fri, 27 Mar 2026 18:06:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6745760054;
-	Fri, 27 Mar 2026 18:06:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A763C19424;
-	Fri, 27 Mar 2026 18:06:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774634783;
-	bh=SQ5nAKYuYrS/ghYaKZeLV4R3AbXgYqFqYO/0dF0j/aU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=J62FzuDyQjAfe2CmByAg/9OicqC2Qhlin0Mt4N0DNcl+PmdXmHgqQx44jcszbDvCj
-	 jceQqQMCDX25i6FZgPh+SrGMaqOQqPRgrPhh1+L66qoPe5FiCHF32GZH82wZ4WRo7W
-	 gM7OSb3VonUawBh+29f4TWYawkkjGx8RErbrVg9CFPAO9ol794Yxs7BenPI6eaJ7Fa
-	 U6gsXTpKIoohcmIOlKtpbozydS7QZZ3JVplEvu/xfmlQO/mA1p50ZXG2NY1Jv0Ai5g
-	 Ca342+DpnJSnEDawEFITMl3C94xsRMInfCF3I2tOYS21BEIdudgBHkw4uxYOtneP6j
-	 AL22MLxGmQXWw==
-From: Daniel Lezcano <daniel.lezcano@kernel.org>
-To: daniel.lezcano@kernel.org,
-	tglx@kernel.org,
-	zhipeng.wang_1@nxp.com
-Cc: shawnguo@kernel.org,
-	jstultz@google.com,
-	linux-kernel@vger.kernel.org,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH resend v1 7/7] clocksource/drivers/mediatek: Convert to module support
-Date: Fri, 27 Mar 2026 19:05:59 +0100
-Message-ID: <20260327180600.8150-8-daniel.lezcano@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260327180600.8150-1-daniel.lezcano@kernel.org>
-References: <20260327180600.8150-1-daniel.lezcano@kernel.org>
+	id 1w6BfL-00000007vE3-0rbT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 18:12:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1774635132;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=oTutpgL5+JjzAC1HGqC5YVfYkXZsuSA3ElC+JIK+L+A=;
+	b=VddJPpxcvLsU9IehkRZVhA7A2ahnUztr7YsQRil9/0ZGIv6uXHUdTZAV5YXjrrXUFQo5cb
+	fYFsShyEWmOardtZY/hjSGezXWNpxUMakEdiN0L+K9MiibqqirGYnfZDbAeliCM3tuwpF5
+	+kaD+4mopBcGBQQkYt7X/XG9t12FlAM=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-269-TEBAzazQP2enOJL28pun3g-1; Fri,
+ 27 Mar 2026 14:12:08 -0400
+X-MC-Unique: TEBAzazQP2enOJL28pun3g-1
+X-Mimecast-MFC-AGG-ID: TEBAzazQP2enOJL28pun3g_1774635127
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6D39C195607B;
+	Fri, 27 Mar 2026 18:12:07 +0000 (UTC)
+Received: from [172.20.201.103] (unknown [10.30.44.137])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 45C1C30001A1;
+	Fri, 27 Mar 2026 18:12:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc5,
+ upstream-arm-next, 2b285798)
+Date: Fri, 27 Mar 2026 18:12:06 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <79334.126032714120801463@us-mta-269.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: pp2bBwqmK-Kpx5m85awi3WUxb07fVzh9B5jjAnWiV8Q_1774635127
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_111215_321993_7C6B941C 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,74 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now the TIMER_PDEV_DECLARE() allows the driver to be compiled as a
-module. Add the MODULE_DESCRIPTION and the MODULE_LICENSE left for the
-one converting the driver as a module.
+Hi, we tested your kernel and here are the results:
 
-Signed-off-by: Daniel Lezcano <daniel.lezcano@kernel.org>
----
- drivers/clocksource/timer-mediatek.c | 29 ++++++++++++++++++++++------
- 1 file changed, 23 insertions(+), 6 deletions(-)
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-index 7bcb4a3f26fb..f5de5f397730 100644
---- a/drivers/clocksource/timer-mediatek.c
-+++ b/drivers/clocksource/timer-mediatek.c
-@@ -215,8 +215,7 @@ static irqreturn_t mtk_gpt_interrupt(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
- 
--static void
--__init mtk_gpt_setup(struct timer_of *to, u8 timer, u8 option)
-+static void mtk_gpt_setup(struct timer_of *to, u8 timer, u8 option)
- {
- 	writel(GPT_CTRL_CLEAR | GPT_CTRL_DISABLE,
- 	       timer_of_base(to) + GPT_CTRL_REG(timer));
-@@ -281,7 +280,7 @@ static struct timer_of to = {
- 	},
- };
- 
--static int __init mtk_syst_init(struct device_node *node)
-+static int mtk_syst_init(struct device_node *node)
- {
- 	int ret;
- 
-@@ -302,7 +301,7 @@ static int __init mtk_syst_init(struct device_node *node)
- 	return 0;
- }
- 
--static int __init mtk_gpt_init(struct device_node *node)
-+static int mtk_gpt_init(struct device_node *node)
- {
- 	int ret;
- 
-@@ -337,5 +336,23 @@ static int __init mtk_gpt_init(struct device_node *node)
- 
- 	return 0;
- }
--TIMER_OF_DECLARE(mtk_mt6577, "mediatek,mt6577-timer", mtk_gpt_init);
--TIMER_OF_DECLARE(mtk_mt6765, "mediatek,mt6765-timer", mtk_syst_init);
-+
-+static int mtk_timer_probe(struct platform_device *pdev)
-+{
-+	struct device_node *np = pdev->dev.of_node;
-+	int (*probe_func)(struct device_node *node);
-+
-+	probe_func = of_device_get_match_data(&pdev->dev);
-+
-+	return probe_func(np);
-+}
-+
-+static const struct of_device_id mtk_timer_match_table[] = {
-+	{ .compatible =  "mediatek,mt6577-timer", .data = mtk_gpt_init },
-+	{ .compatible =  "mediatek,mt6765-timer", .data = mtk_syst_init },
-+	{ /* sentinel */ }
-+};
-+
-+TIMER_PDEV_DECLARE(mtk_timer, mtk_timer_probe, NULL, mtk_timer_match_table);
-+MODULE_DESCRIPTION("Mediatek timer driver");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2413719816
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
