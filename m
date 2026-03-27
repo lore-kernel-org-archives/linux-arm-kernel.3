@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E6B10ED665
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 12:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6258710ED65C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 12:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1rdzzunSchyQ3T4E1DcyZcD1R+I0Ejy9cW//FTvuag=; b=Y6CPbFTn9HrY616YHQ51cx7G2b
-	GRv95/SeWAWFVe0N1M+R2PoJ2vAtmcAwa6us9F4+yV5AQrAnFml2hR2Fjy8C16tW2lVUKRkqiQKQF
-	DQLQNuNoJS/+Rfl6ZSjMGnKwEtM1p/hZVgp5EdPYWr4zgI2mSduToxzmKdlSjSGTm3QCWIE/vCXQR
-	E6Nvefdf7IJkTJ8NI7QuUCILn4jVVf1fckfBpSyG6CaoghSQjx/TyCrSYVW527yCPtWqGajZhWkzN
-	NnXPirVLUzTaCr5LtwNpsZDewLDWBnvUwG0o39vTSWltAxwCWrQ+yE+uLBYsl3XMOCdySJN4WMCIQ
-	gUQTOrjA==;
+	bh=YBsax8nGU7llN4Jh0OptfmRNsfhKlIWfNl3VBT7S9ac=; b=3iSTIzEFVINU2oXjpBNrU8S32E
+	pbLOZvClqn4KMlRQeUAOUhNJDJ/gGpU4gN+YGOljdboalKcnDHM08IR6rr1Rgl47CAKqzhHQh6vX0
+	2ZP39F3bE5yOJwXxnnX7ptoUUkfsPMrziCgB0i0vKJymSM1/YZYsfhOMMCaDExTncedbGWgxT7MhP
+	QzyQJRyurELgWJYEmTGvdZTRJB509iRFvRy73R0SOLpuq/qzsqzgYwT+He15F0+UGkVdY1B1IaUYU
+	dM879eBAMnsg77SZ8THgCetVtB4O6xoONUCWSWJWYq0CdnJ02hg9IfykvSPDaAaD6yBNEGVqErNeA
+	YPv0OQ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66Dh-00000007Luu-3zSx;
-	Fri, 27 Mar 2026 12:23:21 +0000
+	id 1w66Ey-00000007M3G-1OwN;
+	Fri, 27 Mar 2026 12:24:40 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66Dd-00000007Ltr-0fco
+	id 1w66Ew-00000007M2t-2yuP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 12:23:20 +0000
+	Fri, 27 Mar 2026 12:24:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=w1rdzzunSchyQ3T4E1DcyZcD1R+I0Ejy9cW//FTvuag=; b=Bu8wuiHGz+wXebcfkw0D4AyHSm
-	5MpNsVItDtU8PvajKceX4scCsH0RX7JPSv6dZ7vXu5Nh2tl0NMcL4QodLfNkLIKZYMfNblzGv6grR
-	J6gK46u6PPLOVI6Aa0eNk/GmKEsGqwAl5A3g6D1Nqb+VEuOLaU6QzR2LS/xXK6tG6uxU=;
+	bh=YBsax8nGU7llN4Jh0OptfmRNsfhKlIWfNl3VBT7S9ac=; b=QkH+s3Mg5nHaHO5ytrpYnfNEqT
+	pSS7IO4qPn2kLaYbNxIdYn0sRu9H2b6w++cleyNzuewwei+ZWrc3sAiQQFzvvI77LBhTwNBbdPN9N
+	+4BOjsprnmxS5eqKBfjhVKGP/faZkGh/+0waovhTC00xO5f4ixqTYbbmlmzJnm9x2DpQ=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1w66DR-00DecS-5X; Fri, 27 Mar 2026 13:23:05 +0100
-Date: Fri, 27 Mar 2026 13:23:05 +0100
+	id 1w66Eu-00Dedw-NU; Fri, 27 Mar 2026 13:24:36 +0100
+Date: Fri, 27 Mar 2026 13:24:36 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: Padmashree S S <padmashreess2006@gmail.com>
 Cc: gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
@@ -47,15 +47,15 @@ Cc: gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v2] dt-bindings: arm: marvell: Convert
  armada-380-mpcore-soc-ctrl to DT Schema
-Message-ID: <cfe455ed-990b-4097-a53c-641282071480@lunn.ch>
+Message-ID: <3c995404-1b58-48bb-8606-bf7e60a494bf@lunn.ch>
 References: <20260327114653.593582-1-padmashreess2006@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20260327114653.593582-1-padmashreess2006@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_052317_217826_381F67B9 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20260327_052438_745400_9CE78BE2 
+X-CRM114-Status: UNSURE (   5.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,20 +71,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 05:16:53PM +0530, Padmashree S S wrote:
-> Convert armada-380-mpcore-soc-ctrl to DT schema
+> +maintainers:
+> +  - Andrew Lunn <andrew@lunn.ch>
+> +  - Gregory Clement <gregory.clement@bootlin.com>
+> +  - Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
 
-You have already been asked once to slow down. Please don't ignore
-Reviewers/Maintainer comments.
+Please drop Sebastian. He has not been active for many years.
 
-Please don't post new versions of a patch within 24 hours. And 24
-hours can be too fast, particularly at the weekend.
-
-> Signed-off-by: Padmashree S S <padmashreess2006@gmail.com>
-> ---
-
-Here, under the --- you should indicate what changed since the last
-version of the patch.
-
-	Andrew
+       Andrew
 
