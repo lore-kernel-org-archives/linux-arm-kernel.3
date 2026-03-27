@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20C610AB838
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 00:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488CF10AB83A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 01:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPfMqqC+s+eAMTLQHrA5ZugPrmQH7MF1HpyFSrn8rAs=; b=Lp4CTy/sAkIQ5qS1aNDz+8XfMM
-	JIRgb/4D/DjGMaGXgppXu6L3r1LDHizInRpdk6REIUg+hIT7Y/1BlR8nMmkR04zbIaaLwHM251B4o
-	DzA32uXp8Sz1q3pfieJzQgnB+rhuN/CTORAsMO7DbT4C0X0pibElVdj0yxUA6JMLCUKaEhMRN3/I+
-	oqZNaX89ce7ZpqgNU77wdWUAjf95empsDt+Qh8ATKcwYuoHljFPSS9rtzJ8OtTzRtBxSjHpjbfz2V
-	nRO+6np3v2u+98AeVfFI3UQvE5tDEufxT5CLBh/wEihl5iJe+GIzN8TLOS+LCPzaYx/JsYvx7UrHr
-	+rRaOI7A==;
+	bh=d8q8xnYQtfx7CHdCDIV4WeCWM58D9BXFfW6JL0Ps/Fs=; b=BkimYNaQV+QQyl5aF8MNi0F4Af
+	kHSLxr0Cr0MIQPrNwlkXF1esvGapRmybtiIxQrWdAsCNQAwmyN5hXRrF/wMzoVYXdtA+MUp4oVf6S
+	EHLPmyAXDQqND9haZ3yz/3Vvdnm9L11V1lQn3N3UEwun7nMFdGYkQU+3iXPPnkgR3ouoy60JsmYeV
+	mpwjUHBHFZW26G+FXmJ/P2lYPUKMkYphVq6PTSMO0YRt4uH50zqRJCK9hrLlLeMtCL3V2zsu7UiNM
+	fPNvOWHGD6vIWD6zGt+ZD4E6HOQkIG0gHFAfIi7Wk8srUqgavRMrKL3x6JsmFM97UQL1HgSfF60v2
+	RfimoBjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5vUC-00000006S2r-2a29;
-	Fri, 27 Mar 2026 00:55:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1w5vgZ-00000006Soy-01O3;
+	Fri, 27 Mar 2026 01:08:27 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5vU9-00000006S1n-1UsJ;
-	Fri, 27 Mar 2026 00:55:38 +0000
+	id 1w5vgV-00000006So1-2vK2;
+	Fri, 27 Mar 2026 01:08:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774572933;
-	bh=V8lVwih9AzBJwR4ANDMYIaupy1aCX2o2M8JPQlL0kck=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IrIqb/7GAIVHD1guC5m94AkcXTs3mqc4CtY9+J/qK/KXKq8Qxy4SbbNfudUXL78px
-	 Eh55aVvqNAWTtfqRTWTm0vO4/4Li30CogCg8tNoCpSPWyxEgO/vagQVw2U5G7oW4+s
-	 6M7i8ezglpfGmaHsosAyC+54eZlnX2Psa1A6MZHPx+zL8Q/ALQYKez7HRpEoywU7pT
-	 ZNNRJjkQjUAW4TpQCV1ZTs+UFfq0BbdIWNYC8qIkGoAqrFmEoo8bo7pbdEajg/z1gT
-	 PqW+W83gyJuFdWFrR9bV92PRZTmKXemWs3rK74Jp4AlgbSaSuhRjITOZ3tzogkjHHD
-	 ktetw3MEYQ5wg==
-Received: from localhost (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	s=mail; t=1774573700;
+	bh=m2NMsfxVcSr9MtrRU9gQuBS277Ks3jmJeTd5rK2rKtI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mJcAZoZ2atTAaWiF972aIKGMTdFFe1etiP7MWYfwy5KCIC2nmatcJY0LGbkQATO19
+	 dkc2D5ikQNVLaVUbN81CRCGf3pyLwwyTJ14jlSwwXxtWQ+XZEZWiZH75K5yf7FxzEQ
+	 /PSDe2seBIpFBpUjqJZrbxYwAxHqg1NsokAMLmYy4Qq09eNDdVzfreGwwkwgTIPclu
+	 pkIcOH0G+7qPHx3h7K8ItyLfmsGj7gTJU1LIyo+n4tvsaf2X+XIznrewxfTdIVOUXX
+	 EHXf4VBc0cnlgEQ46Ffx85XL1h8dCjUku76EOIF47IkRgP3ZTtQVz0MbnVDcaQxASh
+	 vOrScso0GCK8g==
+Received: from [192.168.1.90] (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1380117E6255;
-	Fri, 27 Mar 2026 01:55:33 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 27 Mar 2026 02:55:07 +0200
-Subject: [PATCH v3 1/2] drm/bridge: synopsys: dw-dp: Support unregistering
- the AUX channel
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A9C917E6130;
+	Fri, 27 Mar 2026 02:08:20 +0100 (CET)
+Message-ID: <3aec8193-22c4-4c87-8068-5a70f4690047@collabora.com>
+Date: Fri, 27 Mar 2026 03:08:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260327-drm-rk-fixes-v3-1-fd2e6900c08c@collabora.com>
-References: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
-In-Reply-To: <20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/8] drm/bridge: synopsys: dw-dp: Unregister AUX
+ channel on bridge detach
+To: Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
  Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
+References: <20260310-drm-rk-fixes-v2-0-645ecfb43f49@collabora.com>
+ <20260310-drm-rk-fixes-v2-7-645ecfb43f49@collabora.com>
+ <2053748.usQuhbGJ8B@phil>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <2053748.usQuhbGJ8B@phil>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_175537_542954_8FFA11E7 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260326_180823_886336_2F6BD9C9 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DisplayPort AUX channel gets initialized and registered during
-dw_dp_bind(), but it is never unregistered, which may lead to resource
-leaks and/or use-after-free.
+Hello Heiko,
 
-Add the missing dw_dp_unbind() function to allow the users of the
-library to handle the required cleanup, i.e. unregister the AUX adapter.
+On 3/26/26 9:28 PM, Heiko Stuebner wrote:
+> Am Montag, 9. März 2026, 23:44:35 Mitteleuropäische Normalzeit schrieb Cristian Ciocaltea:
+>> The DisplayPort AUX channel gets initialized and registered during
+>> dw_dp_bind(), but it is never unregistered, which may lead to resource
+>> leaks and/or use-after-free:
+>>
+>> [  224.661371] BUG: KASAN: slab-use-after-free in device_is_dependent+0xe0/0x2b0
+>> [  224.662015] Read of size 8 at addr ffff00011aee8550 by task modprobe/658
+>> ...
+>> [  224.662796]  device_is_dependent+0xe0/0x2b0
+>> [  224.662802]  device_is_dependent+0x108/0x2b0
+>> [  224.662808]  device_link_add+0x1f8/0x10b0
+>> [  224.662813]  devm_of_phy_get_by_index+0x120/0x200
+>> [  224.662819]  dw_dp_bind+0x34c/0xb10 [dw_dp]
+>> [  224.662830]  dw_dp_rockchip_bind+0x194/0x250 [rockchipdrm]
+>> [  224.662864]  component_bind_all+0x3a8/0x720
+>> [  224.662869]  rockchip_drm_bind+0x120/0x390 [rockchipdrm]
+>> [  224.662899]  try_to_bring_up_aggregate_device+0x76c/0x838
+>> [  224.662904]  component_master_add_with_match+0x1f4/0x230
+>> [  224.662909]  rockchip_drm_platform_probe+0x420/0x538 [rockchipdrm]
+>> [  224.662939]  platform_probe+0xe8/0x168
+>> [  224.662945]  really_probe+0x340/0x828
+>> [  224.662950]  __driver_probe_device+0x2e0/0x350
+>> [  224.662954]  driver_probe_device+0x80/0x140
+>> [  224.662959]  __driver_attach+0x398/0x460
+>> [  224.662964]  bus_for_each_dev+0xe0/0x198
+>> [  224.662968]  driver_attach+0x50/0x68
+>> [  224.662972]  bus_add_driver+0x2a0/0x4c0
+>> [  224.662977]  driver_register+0x294/0x360
+>> [  224.662982]  __platform_driver_register+0x7c/0x98
+>> [  224.662987]  rockchip_drm_init+0xc4/0xff8 [rockchipdrm]
+>> ...
+>>
+>> Unregister the AUX adapter on bridge detach.
+> 
+> that sounds sort of asymmetrical though. drm_bridge_funcs has attach and
+> detach callbacks and the component-framework also has bind and unbind
+> callbacks.
+> 
+> This might cause confusion later on I guess, especially as I don't know
+> if there could be a bridge attach, after the detach that unregisters the
+> aux adapter.
+> 
+> Looking at the AnalogixDP for example, it does the the register and
+> unregister in the bind/unbind callbacks of the core driver.
+> 
+> So I guess the in my eyes cleaner way would be to introduce a
+> dw_dp_unbind() function and put the aux unregister there?
+> 
+> At least that way, everything would be at the same "level".
 
-Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 6 ++++++
- include/drm/bridge/dw_dp.h              | 1 +
- 2 files changed, 7 insertions(+)
+You are right.  As a matter of fact exporting the *_unbind() in the library was
+my first thought, but for some reason I went with the "auto" approach.
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 3f4530c117c7..6211ba6ba7bd 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -2093,6 +2093,12 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
- }
- EXPORT_SYMBOL_GPL(dw_dp_bind);
- 
-+void dw_dp_unbind(struct dw_dp *dp)
-+{
-+	drm_dp_aux_unregister(&dp->aux);
-+}
-+EXPORT_SYMBOL_GPL(dw_dp_unbind);
-+
- MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
- MODULE_DESCRIPTION("DW DP Core Library");
- MODULE_LICENSE("GPL");
-diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index 25363541e69d..22105c3e8e4d 100644
---- a/include/drm/bridge/dw_dp.h
-+++ b/include/drm/bridge/dw_dp.h
-@@ -24,4 +24,5 @@ struct dw_dp_plat_data {
- 
- struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
- 			 const struct dw_dp_plat_data *plat_data);
-+void dw_dp_unbind(struct dw_dp *dp);
- #endif /* __DW_DP__ */
+I've just handled this in v3 [1].
 
--- 
-2.52.0
+Thanks for reviewing and picking the rest of the patches!
+
+Regards,
+Cristian
+
+[1] https://lore.kernel.org/all/20260327-drm-rk-fixes-v3-0-fd2e6900c08c@collabora.com/
 
 
