@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7BD10F285F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFDA10F285F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUPhlG5WLxFbzjvveOF2VL5ehhZk03mq0giP2wpTXAk=; b=t5yyCbyzd/GO9vK/YlRsQvbySc
-	eJOEEN+A/fvXvn4z5QUoTHYMt9r/LJKpn3yh3mB7x61BBquzYnhRGAv8bfoPNbouTETv0IXh+sQ6G
-	Xv1vO/U6NC6kOFY7+GPcrl45kLEOamNMRosLkuX9ZMfD9rKOc5G5QykOaA3aParfb5hLTcZbgJi3s
-	DWMdlo7LW/p0+7Zh+aPgTt95QhahWlWjOjW6XPP0lYVz65XOwP4MCp4rM2Sc0IYSqAi6kNb1KMDhg
-	tpu/63uia2Su5s+9qVawywU+ejx0IWXod6BqOgbLx4ixDjSJc/Hr6Qmnbm4Kwb5StPw+x8tDnUsJb
-	+5S+7r2g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QmopYxJuCQEZ8zllUw4s6HsivJfzbT5IkcJ5NS0N8js=; b=CvSodKgO/rR1YAAgzdBtiwf21d
+	Vtv624nasTgYB95qSMa3MuTq74ZPcVPoSRoM14MbwX0SHl5uQXm3F4ORTZbt5C68onsmxbzjTiaNJ
+	hHJjakLNb+At9Jt/q4zH6aUhBntsEbMhSM75I7tVK0IFVF/2Dj6BJFFrztzThZy6AS0EjH6Khded7
+	KDaQDJDP0KojmrUi1zNBev8cASMtKmKyVdsornWpG5SWg0jVxS3AbdolaQVlKkj89creZKFz86hff
+	zpK5Aw82jnJVLwLPIDeVi+8r+NFf48JgIWs9ZjMWzwjOis3Z4QFfnBV6fyk/pCQA7DS/LylRhixiz
+	WDjCfITg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Axl-00000007rWT-2rgV;
-	Fri, 27 Mar 2026 17:27:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w6BF8-00000007sGB-405g;
+	Fri, 27 Mar 2026 17:45:10 +0000
+Received: from mx0a-002e3701.pphosted.com ([148.163.147.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Axj-00000007rVu-2pCy
+	id 1w6BF3-00000007sEH-2P3f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 17:27:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B181B417FB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 17:27:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 927ABC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 17:27:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774632430;
-	bh=eMKH+40dSjMtLqvxvxWCSOCjTU/WAJA2oHSZ/A5hsR4=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=OwG84AtSevxyWcXb19eDI0S13Ii5zGBbneQiq879ObtbloAQtse7BEBse354N4CPM
-	 bkltfXHFFY2t9Ep+s3962tdsnXNhnjV43TX92R5OhG855/qCPFH17rugWJbanI9V8V
-	 +l7sCqi7Wm4ilipTY1Tmw4F3uVNwC0uLHj9Nr6LQSSycyQSKQXYKjxeIHvng37h/p6
-	 AzerbAyUdFmJ4xq1eRLF/lboC52vxhWotjqekSUhxDlMAvuSSbbnVv/peLjrhXxRag
-	 tb5/IUC3TQD4wFHramW1Xziklm5SMHs4Hj9SUFHo827UuH1Uq3j7K+BziyH/T+ATFw
-	 kZot6kJGohnNQ==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-59dea72099eso2966167e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 10:27:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXWGkZxaEax7Lk9gQ4DAk8IyuSYCrQyX2pGNRi7QsnEy/S8RrW7B1DAypAfZY5D2jLD/DpL41q2a/eWC4Xf4GRu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcEiGcNk+0VbtkEdrZL8xK4eaz9l8OLeFKCu0PapSSCnXcvpSA
-	6F7FunMtFxQsL4Mg5dqh6SryNn5MR+Lp3wztCjwVfjHtwgKODlO2WUnHK4KIkygqjpkv1dX5RAy
-	1KCtkUSPigD/RJ3Bzp4gRYiAsUUmy9RH2eezQWG3kMQ==
-X-Received: by 2002:a05:6512:1288:b0:5a1:18e9:a361 with SMTP id
- 2adb3069b0e04-5a2ab927a32mr1601271e87.32.1774632429204; Fri, 27 Mar 2026
- 10:27:09 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 27 Mar 2026 10:27:07 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 27 Mar 2026 10:27:07 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
+	Fri, 27 Mar 2026 17:45:09 +0000
+Received: from pps.filterd (m0134420.ppops.net [127.0.0.1])
+	by mx0b-002e3701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62RCeMJJ1436948;
+	Fri, 27 Mar 2026 17:44:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hpe.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pps0720; bh=QmopYxJuCQEZ8
+	zllUw4s6HsivJfzbT5IkcJ5NS0N8js=; b=ieja83Wt3E8FODs/sPSms5XvUBiZL
+	aKkr6shxcGp9wXclu3Y9tzLtq09aIZIQIOZozCLWEO3YypSKBhhTYUiWO6WH0QG7
+	BDBf/QNb6zWenFxdOSl4O6V/GgAHbA7b5kR8SPL7nCAzWXMq/8+ngqn8hbOK/dtE
+	sk7L7PBXLYjXz5bAAqKgp5rNUHlRrEmXhUWCIOE8C/Vm/79zMM9QPe8uMan5sX7h
+	v7nS/YOg2cwMp/cwDhVqSH7vu/W6BZN9usxnZ/u/+K7ItP5bXdMQRX1irirDTgYy
+	94kZdUuSV+xtNluHogDU8cNAJm9fw0ROOIdiX6f3j3yh/BRK7o2yiJJ+w==
+Received: from p1lg14880.it.hpe.com (p1lg14880.it.hpe.com [16.230.97.201])
+	by mx0b-002e3701.pphosted.com (PPS) with ESMTPS id 4d5t3fkhhc-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 27 Mar 2026 17:44:51 +0000 (GMT)
+Received: from p1lg14886.dc01.its.hpecorp.net (unknown [10.119.18.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by p1lg14880.it.hpe.com (Postfix) with ESMTPS id 5C7B881B5B0;
+	Fri, 27 Mar 2026 17:44:51 +0000 (UTC)
+Received: from hpe.com (unknown [16.231.227.36])
+	by p1lg14886.dc01.its.hpecorp.net (Postfix) with ESMTP id AA5E7810ADF;
+	Fri, 27 Mar 2026 17:44:50 +0000 (UTC)
+From: nick.hawkins@hpe.com
+To: catalin.marinas@arm.com, will@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: nick.hawkins@hpe.com, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 2/3] arm64: Kconfig: Add ARCH_HPE platform
+Date: Fri, 27 Mar 2026 12:44:44 -0500
+Message-Id: <20260327174445.3275835-3-nick.hawkins@hpe.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260327174445.3275835-1-nick.hawkins@hpe.com>
+References: <20260327174445.3275835-1-nick.hawkins@hpe.com>
 MIME-Version: 1.0
-References: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
- <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com> <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
- <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
- <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi> <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
- <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi> <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
-Date: Fri, 27 Mar 2026 10:27:07 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MeUEApQuw8prxr6ku674fqORCy2=givJxLe+cUCC0PGww@mail.gmail.com>
-X-Gm-Features: AQROBzBFL3k-pSjLqyL79AX9w3CeRs-LC8fKlF3aOyiPrJn21a8pJs-NXP_lBBo
-Message-ID: <CAMRc=MeUEApQuw8prxr6ku674fqORCy2=givJxLe+cUCC0PGww@mail.gmail.com>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Hans de Goede <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Kevin Hilman <khilman@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: k5T4Sv0AGOoivFrw5RtAxpwDNDYxFuF2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI3MDEyMyBTYWx0ZWRfXxMyu+iM8RSem
+ 1I1DvlttUCTqRFD9vW+mgTOZ2XG34lydxjpTG6fSK+zIJKV6xl8+++gsK0tuGQyy7LrCBVqv7GU
+ CT+YEhpWA14PM2gPoNZNg37UCVzitR0X0zBdUeuN2JGU6vuqhLBg19aya/hlUErlxCbwfRavnzY
+ 5mgPSw6buOX0+TaBac0cGhzV/rVPN3/SzS/uYzbWpx0qa8Uvg3FM7ErphHCAqznOYUZQNAJdWOL
+ LVKb0gmkn+eRqV8NMvb/zxibQSbhGlEdxAOLSTri6vg7zRMu0DPiKa+ZN977l9c4zZxn3A0iteq
+ jwaGXjYsYctA6Qe/AYfKAo2hfQaxODcOrRUMfjCo7i2VCqyZq+7Yd+m4JQlrulkrKfo8iA/aRrF
+ IX6GgaxA3DMtucCfp2OtYDiiPZFlkuGb0PM8MIk67Kqoy7c3wdu8JiSYdViB/wShoha3AtiRwk3
+ 1agq4I1swZ4FTeq8uQg==
+X-Authority-Analysis: v=2.4 cv=YPySCBGx c=1 sm=1 tr=0 ts=69c6c213 cx=c_pps
+ a=A+SOMQ4XYIH4HgQ50p3F5Q==:117 a=A+SOMQ4XYIH4HgQ50p3F5Q==:17
+ a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=gQcMVamqm3wCPoSYhaRC:22
+ a=RtSn8ETxjE2H05FtM2s8:22 a=MvuuwTCpAAAA:8 a=XVOEL-q19URcyAXAXPUA:9
+X-Proofpoint-GUID: k5T4Sv0AGOoivFrw5RtAxpwDNDYxFuF2
+X-HPE-SCL: -1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-27_01,2026-03-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 phishscore=0 priorityscore=1501 clxscore=1015 impostorscore=0
+ malwarescore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603270123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_102711_756441_9B676A29 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20260327_104508_634522_94BA2E28 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,100 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 18:23:29 +0100, Bartosz Golaszewski <brgl@kernel.org> s=
-aid:
-> On Fri, Mar 27, 2026 at 5:59=E2=80=AFPM Aaro Koskinen <aaro.koskinen@iki.=
-fi> wrote:
->>
->> Hi,
->>
->> On Fri, Mar 27, 2026 at 03:22:12PM +0100, Bartosz Golaszewski wrote:
->> > Hmm, I'm wondering if there's a race with consumers already requesting
->> > the GPIOs after the controller device is registered but before the
->> > software node is added. I'll send a version with software nodes being
->> > registered first, then passes as firmware nodes to the platform device
->> > API before the device is registered.
->>
->> It crashes early, I was able to get an UART log from OSK (another
->> 16xx board):
->>
->> [    1.001525] Register r12 information: 2-page vmalloc region starting =
-at 0xc2808000 allocated at kernel_clone+0xa4/0x20c
->> [    1.013092] Process swapper/0 (pid: 1, stack limit =3D 0x(ptrval))
->> [    1.019500] Stack: (0xc2809ed0 to 0xc280a000)
->> [    1.024230] 9ec0:                                     c072d000 c05294=
-74 c06b3aa0 c050a3cc
->> [    1.032958] 9ee0: c072d000 c085c000 00000002 c052582c c050a324 c072d0=
-00 00000000 c0503160
->> [    1.041687] 9f00: 00002710 00000000 c04da8f8 c0060900 c2809f64 ffffff=
-ff 00010000 946f70b5
->> [    1.050384] 9f20: 00000062 c0816120 00000002 c052582c c0525848 c072d0=
-00 c04da8f8 c0060a18
->> [    1.059112] 9f40: c2809f64 c2809f64 00000000 946f70b5 00000062 c08161=
-20 00000002 c052582c
->> [    1.067810] 9f60: c052584c c072d000 c04da8f8 c050352c 00000002 000000=
-02 00000000 c0502400
->> [    1.076507] 9f80: c2809f7c 00000000 c03f86f4 00000000 00000000 000000=
-00 00000000 00000000
->> [    1.085205] 9fa0: 00000000 c03f8704 00000000 c000850c 00000000 000000=
-00 00000000 00000000
->> [    1.093902] 9fc0: 00000000 00000000 00000000 00000000 00000000 000000=
-00 00000000 00000000
->> [    1.102600] 9fe0: 00000000 00000000 00000000 00000000 00000013 000000=
-00 00000000 00000000
->> [    1.111206] Call trace:
->> [    1.111328]  software_node_to_swnode from device_add_software_node+0x=
-20/0x80
->> [    1.121704]  device_add_software_node from omap16xx_gpio_init+0xa8/0x=
-e4
->> [    1.128997]  omap16xx_gpio_init from do_one_initcall+0x68/0x1f4
->> [    1.135620]  do_one_initcall from kernel_init_freeable+0x1ec/0x240
->> [    1.142517]  kernel_init_freeable from kernel_init+0x10/0x108
->> [    1.148864]  kernel_init from ret_from_fork+0x14/0x28
->> [    1.154357] Exception stack(0xc2809fb0 to 0xc2809ff8)
->> [    1.159820] 9fa0:                                     00000000 000000=
-00 00000000 00000000
->> [    1.168518] 9fc0: 00000000 00000000 00000000 00000000 00000000 000000=
-00 00000000 00000000
->> [    1.177185] 9fe0: 00000000 00000000 00000000 00000000 00000013 000000=
-00
->> [    1.184295] Code: e3500000 012fff1e e59f3034 e5932000 (e5923000)
->> [    1.191040] ---[ end trace 0000000000000000 ]---
->> [    1.196350] Kernel panic - not syncing: Attempted to kill init! exitc=
-ode=3D0x0000000b
->> [    1.204559] ---[ end Kernel panic - not syncing: Attempted to kill in=
-it! exitcode=3D0x0000000b ]---
->>
->
-> Thanks. This makes sense. Both omap16xx_gpio_init() and
-> software_node_init() run as postcore_initcall() so if the order is not
-> right, it will fail.
->
-> Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
-> reason to run software_node_init() as a postcore initcall? It only
-> allocates the kset, can we move it to core_initcall() by any chance?
->
-> Bart
->
+From: Nick Hawkins <nick.hawkins@hpe.com>
 
-In any case, Aaro: the following should theoretically fix it:
+Add the ARCH_HPE config for HPE ARM64 BMC SoCs to Kconfig.platforms.
 
-diff --git a/drivers/base/swnode.c b/drivers/base/swnode.c
-index 51320837f3a9..5ba904f8a08a 100644
---- a/drivers/base/swnode.c
-+++ b/drivers/base/swnode.c
-@@ -1134,7 +1134,7 @@ static int __init software_node_init(void)
- 		return -ENOMEM;
- 	return 0;
- }
--postcore_initcall(software_node_init);
-+core_initcall(software_node_init);
+Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
+---
+ arch/arm64/Kconfig.platforms | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
- static void __exit software_node_exit(void)
- {
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 54eb1d7fd419..b4217809c774 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -168,6 +168,17 @@ config ARCH_HISI
+ 	help
+ 	  This enables support for Hisilicon ARMv8 SoC family
+ 
++config ARCH_HPE
++	bool "HPE SoC Support"
++	select PINCTRL
++	select GENERIC_IRQ_CHIP
++	select CLKSRC_MMIO
++	help
++	  This enables support for HPE ARM-based SoC chips used
++	  on HPE servers. HPE SoCs serve as the Baseboard
++	  Management Controller (BMC) providing out-of-band server
++	  management.
++
+ config ARCH_KEEMBAY
+ 	bool "Keem Bay SoC"
+ 	help
+-- 
+2.34.1
 
-If you could give it a spin and let me know if it does, it would be awesome=
-.
-
-Bart
 
