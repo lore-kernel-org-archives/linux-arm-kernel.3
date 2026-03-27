@@ -4,83 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918EC10F2865
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0854510F2865
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aqD8xxG4ZdJ46Ds13gn5sz2nG9VRhx8eC3o8yZoP2kA=; b=CLhVUJLUi8R8sZo4TgI7Q4O5NM
-	b2HIDazl5vrDrCDKEQTQxCm0b9nGUXW/EniP7YsAsmjcsDwTgbqKz+2DYy1QRmbGuC8RZXAsqcyXQ
-	SoELQoGatmeBGxEmHiddKiMj/78XDna6daw9fHQkr2aRwoJeQTsPC8Eepmp3XNPoa8FEVid/+NRVR
-	FEkfP95Lho5qZzh4I/dnSRkVKckb0UqPbcnNsca/jMJhI68LiB4qpcbeCfmuPBnzQIEzExGOqGHCx
-	EO+YAZRj3vet/xTfZajMfSuclz3hVUWCamqvGDXK9E3TPvsemSkKmbZszC9uH+HtQDrJyQvFqJWvq
-	UI4mEHJQ==;
+	bh=s1T1zJ8Auf6HI4efPz3P+QpxWS/ASDrD/9H2ruaknc4=; b=nT8Y1OJ/eV+IEc2wMsPPE3mChs
+	FJNRfMCzdM/xiOuPv8anNlzkUuaiqGLaJtiUqFR1Xy5p6eNLZP7RYqXq5YBjr1qmaFmANrb58kUm+
+	Ene3KYhhR73Z9cTCY1c25wdgq1QbZ8pxFI/zLyysU06GI/qhlzYs6sQRxbE4wKyy7sD9l+qUN6gLF
+	RUzC7JsbTcVwXH326ZUBtiMPUBnpt6QN3loDJk+vGfj9BCzn5ukDJCJ9O6/ebo30skQg5CecpJTWu
+	Evh5g0g8KZFfuhwBZCQeOMhuuC7YnsJ778LUIrgZSBr+t6Toi42bXGLW2XoyQ5/vSSsBDplpsYphr
+	Xky0lWqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Bsm-00000007wg2-35bX;
-	Fri, 27 Mar 2026 18:26:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w6C7k-00000007xQf-42RB;
+	Fri, 27 Mar 2026 18:41:36 +0000
+Received: from mail-westeuropeazon11013013.outbound.protection.outlook.com ([52.101.72.13] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Bsk-00000007wft-1zhB
+	id 1w6C7i-00000007xQE-2bnE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 18:26:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5867C6013F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 18:26:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05815C2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 18:26:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774635965;
-	bh=HDE773oD9WhrhUQdek8MlyVxt7CVMOrinmsr0pm8nF8=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=TyFxZmNPWrxOFwIoAKqmtlIJQYkfVf1WTWGlalRc0Id0h7hSeIQEDH69EWrq5WEIg
-	 OVgOeSKhF86CwcTSLIOnb3puhPUmw8TdqWLLBaZDDuUiXsaf7+ynNhfTNvHFFNLz8Q
-	 MTU/KhdDD6GH6sfgxnVFXgC6G94s0K6GJfhitBo0d27C30eLl0hPh/rYdVLypED47B
-	 WZRUyJ/NUdiSDQq1812Jwlh1khzAWusvKG0TqI0gWkoQFVbyro9L/ncHTvnK495YSs
-	 s5+1xusHLHT+wxKn8E/scV+vNATkw26XgeeNS3pQmh6MgMQNOTUHixOTsEtuiArU/V
-	 l+VVKJD9WkUcQ==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38a723b2b29so21227191fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 11:26:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXMxXRSUPzN+//sUZXCTyC/3200vHBAYpAYwqPbJf6EwJmERfKC4U+WbfR52+WbaPvkYT/cWJY7sUgKpAp+hYX5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNK4D7v+1vLmONxhhC0byYcxryjatkobtbwgjQUsz5KTtBQgSE
-	5Jkone2UrN6vk3Awe77m6NWN84BSOo66YNTQHxbYG8YhSvJobyiLM6qiJF7eA9hlGW6/FO7QtaH
-	YU4puNIQ7+ck/UjE0b0vc4Rtrg8TJDa5wNvjZASLbCg==
-X-Received: by 2002:a2e:a9a3:0:b0:38a:a7b4:15e8 with SMTP id
- 38308e7fff4ca-38c73130537mr13693991fa.12.1774635963592; Fri, 27 Mar 2026
- 11:26:03 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 27 Mar 2026 11:26:02 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 27 Mar 2026 11:26:02 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <acbI0NnMvmSiobLz@google.com>
+	Fri, 27 Mar 2026 18:41:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rkZT9ycA9Z3KtuO6EvKeMvsDAAsneuz6jGN0NZ8E7hUpwAGzItKRm5JXL6sb9OIiHpQzxGRHTs47rpj9OhySCiT1wM0WvHZTgXn7Y0QZQ6jC5lPgbrLzE96XAW5ijoqwNSUn/rbK6x5zPdCqzYXQrVHmT1gaju8tSNwpfRIJYi/HSW3uFM2lMDztKTXVtddCe/23HsALNL/iBhmxaOTfXssyx8ZVr9a7TSWtGAkIjGFcN3M+D3Gs7oYyjjFyYuuacUY+2ZqjnBgDW7XETwv2nmxUEXXLM5q9hz9McFEH9YHUaV0cGYESJchWU0ksKdpYyolqd7EGN4lW9h6z2vdUyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s1T1zJ8Auf6HI4efPz3P+QpxWS/ASDrD/9H2ruaknc4=;
+ b=udWoeXpOnrRfknz6YG1T4luUXXwjlPtoGGqfz1E9PPZ/xfAWB5Pm769fLr2X9ga6KdZufA9tkX5ul2VN5mYLzPlpS+ynF76LFMcv5QaJj+b72eJ+nVI3BYfrvKXCpQw9kf+uVJt/nYcYEbaHJpTz1Dhnhd1FVcSkQClB7Dz4KTQofzPn4BhNQmm9WWC7Nf6v1gqb+nYNe9AKiimf1MRzcr13QvSB4SSzEYUPpQHpWBLWqhQ5nnC41YushW63kbfh2HndMce4VMENDeh9lB890kHX/ljswigSrPZANZX6ss9fp5LUnn+AbB335XRA7XynpFnl/yVjSa54Obr/ox8fdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s1T1zJ8Auf6HI4efPz3P+QpxWS/ASDrD/9H2ruaknc4=;
+ b=nGHGebjy9FYq0o/1TG6GriiK1bS1JEBQXhSmonKf1O8gurIS499pA1A6f1BHCQeN4UWPH0ZPCVww90Td5Coj5Bfk4FUQjf58OOp2lK0KQZ1cYJrfzatxYstO88nQ13P58c6q4hqRINyK7mgR/sPRL7oeqkFb0X1mMKcjJ/7sHI0k0+mC1MW0CEHDmEUv4KnqrDYpqTtFvhQmj775uZhFn+YhVf3rcIFDy4axbxgq+9bZbhnNixM8u61PQK072RqkZh3voTb5n4X+VrvV0tpmf6wBqHe7gcNxmRphZTwbz4glgbxFsxD+4ZfMA3GsX+6O0z8OZC28otgaVzZcKwJYbg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU2PR04MB8760.eurprd04.prod.outlook.com (2603:10a6:10:2e3::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.23; Fri, 27 Mar
+ 2026 18:41:30 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.023; Fri, 27 Mar 2026
+ 18:41:30 +0000
+Date: Fri, 27 Mar 2026 14:41:21 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v1 1/1] arm64: dts: imx91-var-dart-sonata: add RGB select
+ supply for PCA6408
+Message-ID: <acbPUTPpGIJoqTn3@lizhi-Precision-Tower-5810>
+References: <20260327163243.17334-1-stefano.r@variscite.com>
+ <aca1jdx0DjmmHqFk@lizhi-Precision-Tower-5810>
+ <aca7ckVY9ure8Cwe@Lord-Beerus.station>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aca7ckVY9ure8Cwe@Lord-Beerus.station>
+X-ClientProxiedBy: SJ0PR13CA0130.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c6::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
- <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
- <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
- <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi> <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
- <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi> <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
- <CAMRc=MeUEApQuw8prxr6ku674fqORCy2=givJxLe+cUCC0PGww@mail.gmail.com> <acbI0NnMvmSiobLz@google.com>
-Date: Fri, 27 Mar 2026 11:26:02 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mc6JwG2uMr-T0owu_reDgO5WwmzYknEKRdfQRwzuV=XHg@mail.gmail.com>
-X-Gm-Features: AQROBzAMGqEEBz3VL5zOD-Izkvy7HlXo3Ok39-WVKvtwlTb9hMKkcv50nbr2CA0
-Message-ID: <CAMRc=Mc6JwG2uMr-T0owu_reDgO5WwmzYknEKRdfQRwzuV=XHg@mail.gmail.com>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Hans de Goede <hansg@kernel.org>, 
-	Linux-OMAP <linux-omap@vger.kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Kevin Hilman <khilman@kernel.org>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB8760:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78ee64aa-43e5-4c3e-de1b-08de8c307606
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|38350700014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: cCWZ9ZabwLDq38a7xobLXF/IXDTCkLAySDrxUq9psZWZ0M3sizRYatiGeiALx63GC7Z0B+xe6CFxEXvQepvjUc83looD6O9+NZ3gas74rfSH9lZIGTPUTjODeJ08aXnEcY7pziimT0BLDx8479+8o7AfiCrHszBIdMH9mjmE/XHT4ZhO5H55E3Pj7TGGyXjfjs7Kz6JOlY/svJizTHCzHpJCylGuAVu30YaxtBJjIWWrimEOkTsUdIjmAoNAniQIlsWt7GRsUS+rfJ73Qp+jsn+2Gm5f+GgLAfIf4JAaW187FwCIEY+HFBGIuioGStA5QFJOWK2N7ySCrgyPDypkQ5egkZT/vbvurecnMBEPs1S1YwwpfE85GZFUyd0jkRJhNyTLP0gPnL9FWXu4luVX+yGsAhf+mimiEckxuRrxn159NLE33k4CvQhl/hgv2xczCgKt5XpEGNQY/mS+liA71Cl8fMbhS9b1jKCub2h4QEc6d6gXrPofYR5NJXt1NIxPLa2Vdcwj/JHbOv9tcmQl2+TEOeqfgmPe8IhqXAePdw1iBWGOcD6AVriKJMt7+hmfA8BHdhRaaGUj5dQhtsclbyG07njt2bWHlskVXwnUCXjIPgA4RzEZMaBLgj330fm0dCc4uGN2ZZ1h8PT18R1ap5CsSLeGqhNc9YOEJvZSF9QfVpvC8JfKhBicfAW4dPRZ7hf8S7HgehdlPhbZKdclolVypHf5ohXJd15/h1OUKeYvx8N+NFKBGIXoIqwxdD5a3mVp6SPDjE8cxJltkzgHsgsNpQcXw4XVxI0EyXUM4l4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?elEY5d/Eaky11QKLszEq+67tYLQTLvcgjIwN8Q9JYbIRDLS3liXBAWXgyOwo?=
+ =?us-ascii?Q?Ii0WsSyyQJ05FSZHIsYPcsICHiFuoJWF7q+PRU2pMEGZGK96i3sR0R+MZJm0?=
+ =?us-ascii?Q?IVZk5t/stbH4FWoFIynNgZupxX14So3JeyVQdRkkF9RuZK2zcyfPjGi3tWZV?=
+ =?us-ascii?Q?UI8U7/lto6lkNq/5LnK7WUqaW+B1VmpiENLhZtL3zJQoDNiO/MXeL50DQ+o5?=
+ =?us-ascii?Q?RMq8deVVq/o3NRz+k2TRikUds966d1Wo9h35OacpJ9iAfzBpAxmztyT9ILuh?=
+ =?us-ascii?Q?6Rx/AsSRsmfAhLt/CgMyJC6RtZlN8RDI9PT2TuTrGHhmHmWfOP98VY5HQfOx?=
+ =?us-ascii?Q?HiK1Igbbbu09KWXVMYfvR7Bsc7qH+jVA8tXioJdbAQCxhiz0yeF2gnFDKy4l?=
+ =?us-ascii?Q?Ec0+4M26X7ivg32PAo5OhVWmvR3L4XLzsfFvoEOtqUmUH6oVStOtrbnwkWV2?=
+ =?us-ascii?Q?e2Hzh8OocwfCGg2fUrMsfmvw46+EpF3AGmBR9ZZbAKfp/dFrNFQlxTg3y2g/?=
+ =?us-ascii?Q?fk6t5hFrgv67d1vum23YbvCn7P40SgzyrUVtDi7qQxhWMM4bzTjh2HuWd2D2?=
+ =?us-ascii?Q?xoOi7edgCLJOfzDRgRfkn9vOTmjd6XnKIxZ4xMZFk8zRjvs2PtuS/yo+IXdi?=
+ =?us-ascii?Q?3TFFbdOzH9+wMueDkEN7yV3xpJvHc1MuSNCVGqgDe89muUNQClkoxw2MzXiR?=
+ =?us-ascii?Q?RBJyQQEMGix82sY+IPb2lrIv4HvKTZlc2fjgrmXXEgpHCgV7im0gcy2V3EZ3?=
+ =?us-ascii?Q?ZnDN+kM7jAZOt5+Sc/pVdofGYDxFrsq8qzcGYPedc0L96acKReqSEJXSua83?=
+ =?us-ascii?Q?L7pC8MhRktnQkXiVI+9psVBajH3mtCCC1wMc77nSDcfq+sArGz9QAC/3+Jgw?=
+ =?us-ascii?Q?ocyrj0aANt3R7lNgUbu+pWcutHG1aMb1dZ2wZqIVF1aXnhnbEzEcl7PLlgfM?=
+ =?us-ascii?Q?7yftfsdWg7lGNpYlIptw/EyTjC8vU0nRmPkrVEyY46W1mmyCzzc/aru3EuWL?=
+ =?us-ascii?Q?x8MSVCY8LhPho6scIAw8RNqJQqxvsCWzB3vgEGSpp3pmL/ZX+9cFPXelKxTj?=
+ =?us-ascii?Q?r1LdddkxHYl6aiU0CiqeNDA5R6BUaSxAfuZf8kjiOSf6xH+TwVHa9pMSY4lt?=
+ =?us-ascii?Q?qxwARFeZqnHsZ/gS7q0Qdj/ug2d3odQ8dhLx4IaOhXLDTGzdkguzKdDfBl4j?=
+ =?us-ascii?Q?v8mldwLXm5t7AwEeyg3aGQ4UgrgFyAmB8q9ELi8eb31YoT2YFdkdpW8oOk0n?=
+ =?us-ascii?Q?sgMlroIJthaJL4KuLYzeT3fkc3P2lepbDnVutqJ7pzta1Tj5tCykDQj2h6Xp?=
+ =?us-ascii?Q?OyfLJ1Jp4qQJE9BqPKtuhsDVnElLESf57BxqU6YFvixZYHb0ku46NIcsmP/b?=
+ =?us-ascii?Q?6FTTkbOs8/Ua5UhXZ1vZAGWcZ/BFacz48y1nkWIeSHSpGKU1u+je8qzLZxTr?=
+ =?us-ascii?Q?5MOxDy3/Rt4sc7upoOCt4itA6hgMluCQCHq+4OnQSQP7khNTuESU6cL1D/Xo?=
+ =?us-ascii?Q?njv/SiZ+P7OePVUPI5RTRk/284Ghzzin3BCetCVBC/USuIbLScfoB/mUnzE1?=
+ =?us-ascii?Q?YGpbCGkUtpjp1caa5Ur9bSAbsGDC79Jy79Dy0b87QhGU+tpTc5JT1k/ZKibR?=
+ =?us-ascii?Q?RZ/FiVQ9eZpzyGsO2XMwjdKlQNfr/AJ9oclIGGtwTusrVfMhkze3NueeXY1C?=
+ =?us-ascii?Q?d5lsiTJpKxZRhjt4LgF7xjECcRE4dfcSXAvEoM02D3YbNJpW?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78ee64aa-43e5-4c3e-de1b-08de8c307606
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 18:41:30.1382
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kIaQPKVBAjmHQ3+1xWWoMUMMhEH9MA7QdVgRETDEkxsvibCqCN6xjcky3V+BmlbZBMy2xYUzhUXUkRyfsGpqYg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8760
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_114134_764420_FCA8BCE1 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,129 +145,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 19:16:41 +0100, Dmitry Torokhov
-<dmitry.torokhov@gmail.com> said:
-> On Fri, Mar 27, 2026 at 10:27:07AM -0700, Bartosz Golaszewski wrote:
->> On Fri, 27 Mar 2026 18:23:29 +0100, Bartosz Golaszewski <brgl@kernel.org=
-> said:
->> > On Fri, Mar 27, 2026 at 5:59=E2=80=AFPM Aaro Koskinen <aaro.koskinen@i=
-ki.fi> wrote:
->> >>
->> >> Hi,
->> >>
->> >> On Fri, Mar 27, 2026 at 03:22:12PM +0100, Bartosz Golaszewski wrote:
->> >> > Hmm, I'm wondering if there's a race with consumers already request=
-ing
->> >> > the GPIOs after the controller device is registered but before the
->> >> > software node is added. I'll send a version with software nodes bei=
-ng
->> >> > registered first, then passes as firmware nodes to the platform dev=
-ice
->> >> > API before the device is registered.
->> >>
->> >> It crashes early, I was able to get an UART log from OSK (another
->> >> 16xx board):
->> >>
->> >> [    1.001525] Register r12 information: 2-page vmalloc region starti=
-ng at 0xc2808000 allocated at kernel_clone+0xa4/0x20c
->> >> [    1.013092] Process swapper/0 (pid: 1, stack limit =3D 0x(ptrval))
->> >> [    1.019500] Stack: (0xc2809ed0 to 0xc280a000)
->> >> [    1.024230] 9ec0:                                     c072d000 c05=
-29474 c06b3aa0 c050a3cc
->> >> [    1.032958] 9ee0: c072d000 c085c000 00000002 c052582c c050a324 c07=
-2d000 00000000 c0503160
->> >> [    1.041687] 9f00: 00002710 00000000 c04da8f8 c0060900 c2809f64 fff=
-fffff 00010000 946f70b5
->> >> [    1.050384] 9f20: 00000062 c0816120 00000002 c052582c c0525848 c07=
-2d000 c04da8f8 c0060a18
->> >> [    1.059112] 9f40: c2809f64 c2809f64 00000000 946f70b5 00000062 c08=
-16120 00000002 c052582c
->> >> [    1.067810] 9f60: c052584c c072d000 c04da8f8 c050352c 00000002 000=
-00002 00000000 c0502400
->> >> [    1.076507] 9f80: c2809f7c 00000000 c03f86f4 00000000 00000000 000=
-00000 00000000 00000000
->> >> [    1.085205] 9fa0: 00000000 c03f8704 00000000 c000850c 00000000 000=
-00000 00000000 00000000
->> >> [    1.093902] 9fc0: 00000000 00000000 00000000 00000000 00000000 000=
-00000 00000000 00000000
->> >> [    1.102600] 9fe0: 00000000 00000000 00000000 00000000 00000013 000=
-00000 00000000 00000000
->> >> [    1.111206] Call trace:
->> >> [    1.111328]  software_node_to_swnode from device_add_software_node=
-+0x20/0x80
->> >> [    1.121704]  device_add_software_node from omap16xx_gpio_init+0xa8=
-/0xe4
->> >> [    1.128997]  omap16xx_gpio_init from do_one_initcall+0x68/0x1f4
->> >> [    1.135620]  do_one_initcall from kernel_init_freeable+0x1ec/0x240
->> >> [    1.142517]  kernel_init_freeable from kernel_init+0x10/0x108
->> >> [    1.148864]  kernel_init from ret_from_fork+0x14/0x28
->> >> [    1.154357] Exception stack(0xc2809fb0 to 0xc2809ff8)
->> >> [    1.159820] 9fa0:                                     00000000 000=
-00000 00000000 00000000
->> >> [    1.168518] 9fc0: 00000000 00000000 00000000 00000000 00000000 000=
-00000 00000000 00000000
->> >> [    1.177185] 9fe0: 00000000 00000000 00000000 00000000 00000013 000=
-00000
->> >> [    1.184295] Code: e3500000 012fff1e e59f3034 e5932000 (e5923000)
->> >> [    1.191040] ---[ end trace 0000000000000000 ]---
->> >> [    1.196350] Kernel panic - not syncing: Attempted to kill init! ex=
-itcode=3D0x0000000b
->> >> [    1.204559] ---[ end Kernel panic - not syncing: Attempted to kill=
- init! exitcode=3D0x0000000b ]---
->> >>
->> >
->> > Thanks. This makes sense. Both omap16xx_gpio_init() and
->> > software_node_init() run as postcore_initcall() so if the order is not
->> > right, it will fail.
->> >
->> > Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
->> > reason to run software_node_init() as a postcore initcall? It only
->> > allocates the kset, can we move it to core_initcall() by any chance?
->> >
->> > Bart
->> >
->>
->> In any case, Aaro: the following should theoretically fix it:
->>
->> diff --git a/drivers/base/swnode.c b/drivers/base/swnode.c
->> index 51320837f3a9..5ba904f8a08a 100644
->> --- a/drivers/base/swnode.c
->> +++ b/drivers/base/swnode.c
->> @@ -1134,7 +1134,7 @@ static int __init software_node_init(void)
->>  		return -ENOMEM;
->>  	return 0;
->>  }
->> -postcore_initcall(software_node_init);
->> +core_initcall(software_node_init);
+On Fri, Mar 27, 2026 at 06:16:34PM +0100, Stefano Radaelli wrote:
+> Hi Frank,
 >
-> This is wrong direction IMO. The matching by label is working now, so
-> there is no reason to rush this change into the kernel, it is simply a
-> cleanup.
+> On Fri, Mar 27, 2026 at 12:51:25PM -0400, Frank Li wrote:
+> > On Fri, Mar 27, 2026 at 05:32:43PM +0100, Stefano Radaelli wrote:
+> > > From: Stefano Radaelli <stefano.r@variscite.com>
+> > >
+> > > RGB_SEL controls the routing of some carrier board lines on the Sonata
+> > > board. The two PCA6408 GPIO expanders depend on that path being enabled,
+> > > so describe the selector as a fixed regulator and use it as their
+> > > vcc-supply.
+> >
+> > Does below resolve your problem?
+> >  https://lore.kernel.org/imx/20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com/
+> >
+> > So needn't hack select as regualtor
+> >
 >
-> Wait until the resolution of my pact allowing using node names, or your
-> proposal that installs and attaches nodes dynamically based on bus
-> notifiers (or both) and then make the conversion. Then you will not need
-> to move init order around, add new dependencies between drivers, and so
-> on.
+> Thanks for pointing me your patch, interesting improvement!
 >
+> Actually, in this case RGB_SEL is not meant to model a selectable mux
+> on the Sonata carrier.
+> On this board it must stay asserted permanently, otherwise the
+> downstream path to the two PCA6408 expanders is not accessible.
 
-Hi Dmitry,
+Accroding to signal name, it is MUX chip select signal. Of couse it may
+connect to a buffer's EN pin. I have not checked your schematic.
 
-I'm not rushing anything. It's fine to delay this for now. But the new solu=
-tion
-you're mentioning (whatever it will end up to be) is something we should us=
-e
-when there's only a lose link between the supplier and consumer. Here both =
-the
-GPIO controller and the consumer are instantiated from a board file and are
-built-in so there's no link-order problem and we can directly reference one
-software node from another. It's a different kind of problem.
+If it connect to MUX chip or some select signal, it should use above method,
+even though it is permanently asserted when access PCA6408.
 
-I'd like to figure out whether software nodes are not made available too la=
-te
-into the boot process for no reason and if maybe it makes sense to initiali=
-ze
-them earlier.
+If it connect to EN pin of buffer, regualtor should be good.
 
-Bart
+Frank
+
+>
+> Modeling it as a mux might be confusing for users of the DART-MX91, as
+> as it would suggest that the routing is configurable, while on this
+> board it is actually fixed.
+
+
+
+>
+> Best Regards,
+> Stefano
 
