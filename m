@@ -4,126 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0160910AB830
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CB710AB830
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W02U2fHEa7XzPOK5MVECzCG7MIfi3riob6H30UnePHc=; b=BkBEpQM3uPRrfRuVh1/50gXVjh
-	hSIDgXH0i8oPD6tfX8d7TssFHDcyJXKO2I1+uPsZ3l3co4fImGB9kdxmrLIXGlH89fumW9xQGIqbf
-	JfRTr/wyhlKutDXeR0DEiYse7AL+rqvTLRjDCqJr1ob3/raPXyr5CWVJQjmwhVXMbTeIa0U+lJDqg
-	u6vSywEO7HFiLaWcP36K7bKJ15CPV5J8ryBnchml/nH5yCMJO9xo2KjYs/FNIiQqr0Fg1qcXuHSLi
-	xe04L9n5MSsf0bV0OleKCc7fLD2i9cnzLJrGRlJGISZirbra5y9CWI+Bo66cuzh1ovdYRUQr+mYNC
-	/cuHpNuA==;
+	bh=2rnMwgQO4R/3vr4dsXn1qdBtSH9uq6/lEmthcxDJm2Y=; b=XIdZ81edkcYJfCJAevnOcQKXia
+	myIBXPJ4hDXLV6t0GEWj9H5UEosrST3/Qm3nRXuBDR6RmzmciG0pJ7UzWN4a+bJaX9AbqDZWz7BRv
+	UYCNEHdTKwIC7lConA0iyZFnTD6zxGa0VfECiT0wBv7drYBhiaK6wlkvwRi7uzkLWU48Pn+ziRIIy
+	vp7FHDajfXq1sta406vSUa1aP7LLBQxtsxqfS0eDSxsoSwbON8XuPKUcabjUjPpbckaIRBh/MIyVB
+	VYr+KhKdqmrP5kEsYT9fVnB2pFSj+d8ocn91fxoYAnlEXsRTzpSL7uTCW9wz82hvlKATPi80De7bz
+	4w3rpFYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w68TZ-00000007dS9-2Yh1;
-	Fri, 27 Mar 2026 14:47:53 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w68Uu-00000007dbQ-2hXB;
+	Fri, 27 Mar 2026 14:49:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w68TX-00000007dRo-2LBP
+	id 1w68Ut-00000007dbI-3YbQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:47:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cW5+BNvInfy1xFortdge2vzfAvMUl9sGkZMWvoBJsoiPGl0Fn3rtxf7y5shTdhuak23eTE8PC7XnNUETOyekB6TMWoD6osjatr+8vDPO/+4pezQJetN5gIDJll/4R6yaVbI2dSABWHOUgSlSv0VVjfnUsniCHaKZigqBm240N5e8q7Umc9tEaWUdXbY5QFXwn/qZn75Y9+tq3qk3lmcPhvIk0yGjviINQ4VacAV/v8+iblzbBqbMTRDdl1ihH5AlqpBTXVz+EQ6DlFypgaqD7RsAvlJKGdYbYFfAi6HuQkiF1T59Ih17odxefPTdYKC142ZpWFWQwqptlxV7JJXyEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W02U2fHEa7XzPOK5MVECzCG7MIfi3riob6H30UnePHc=;
- b=psUQtAba6It7+9DjoZMd5kP+achzI8nQy8qrGwEJ8cYqVQ7FuGhRkvKsikdXAt3k/VcFBKPCwob1F17P+Iw/TlTmG8ihOrXX3RLKDh0XPwE58t7Qa/AWQjfYw53eOJOakTpCW/3qZC2F3p6rb2MSATf/oSHEH15aZw/qRAceUnKYzukeQgeEaWfQBH1to8mMqE7Kau3ak7B7Ee2hz6wGQ/j1rjy5Z5gfFLO00Buhc8Xibz26A087iICwEUb7hXeg7y9X7J1PqVf4/paBm86e420aKtCtvJ3anKxbQ8xhyiuyrvCUWXL9DIk5qyDBQqE5vHm4PrEDL9wob8PBczgE/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W02U2fHEa7XzPOK5MVECzCG7MIfi3riob6H30UnePHc=;
- b=Rl+Z+IuA0YUxYA+825b/nstfwJfNqgVyJoByWmn9Y5ai5Yxb1OzMkVVXQPCNn1jzvjEi7wE890xMyQpYZpHD8uJPdmuBEQFUfegIyX0Mei8cfH17CSkqEubsFmXeb/5uIk6JC9PD6+KO+u+TropRcmX/ykk/D6qWBRJBdqZtXMyLNsFyS5RwH7XFgUZkJHnyaIQV9uyqaBQlOIknY/tEPR5EvpedrDzxxiEqj5ZsoP797SsotcuPCgqoOGxrly3D/L6rLA/e7vu/jpTwsVAKiueX0b9bOzIh+7+9M1nqyffacjMMrUwPb/j7vY53ShL3W/XcTnE4Qr3ccF4yxkpBcg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8705.eurprd04.prod.outlook.com (2603:10a6:20b:428::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.23; Fri, 27 Mar
- 2026 14:47:46 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.023; Fri, 27 Mar 2026
- 14:47:46 +0000
-Date: Fri, 27 Mar 2026 10:47:37 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: vivek yadav <y9.vivek@gmail.com>
-Cc: slongerbeam@gmail.com, p.zabel@pengutronix.de, mchehab@kernel.org,
-	gregkh@linuxfoundation.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] staging: media: imx: fix style issues
-Message-ID: <acaYiWOKW9uye_gB@lizhi-Precision-Tower-5810>
-References: <20251202161413.92230-1-y9.vivek@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251202161413.92230-1-y9.vivek@gmail.com>
-X-ClientProxiedBy: SN1PR12CA0071.namprd12.prod.outlook.com
- (2603:10b6:802:20::42) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8705:EE_
-X-MS-Office365-Filtering-Correlation-Id: c63f7706-4587-4de8-1a1e-08de8c0fcf0b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|19092799006|18002099003|22082099003|56012099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 7oak2ar6i3dW8bLGefNG/Sns5aqkS9qEg0rF+JM2t2Lc0EYMoRnhJfesgq7ayBrSZfgTx//alxY8AQ3464ywsb/Tj/0S1nK3IMosCmlMEBTz24SErpH85TVl0J3QKI7Fmc/BDa1vi2wqqkMN9pYvq7UF+XFZRZDGQNmSAHu7hqczC0jZk6QKNtUKpx8wScB6Tf3QolaDnMZURMANjeKcyi2HfRCawH6AYfGVSL9IHXEm3AZ55OG24RLyTrq5epA8tYMW9Xfekt7zvUMX4cxzNlEvUvMDs3g2Ec/16L5A5mIHZqClVLknBFyKcwpZK4xt6RMo+YXaySCBcpyMJLlzw2sZ59zrsqoRa1YnKpIPk/EjMh2FB4FhLl722cqjfLvybE8APFpOjQ71Usoe9mgOgfLu/4r7Qz74RHMiSUjkj9ln3ePfY7XCgcTU32LpSWf0q04YvoKMHP6JhsEQqerQnBR0Ae+9HToeBoTCMsOGsIGKuX3D09wv+ffp/PuuF8IZNeFkWodKaNlv0W9VTTf/ZF5LhawhgyFjPd7v/xOIR4AynOTTUtAF+/9S4T3stB0WvIwpuI35xcDW9tKFHnDf5+y+3x1piVPtFMdZla4kEo2NhlmKw66D7f10HNFFLsD+6A1RsLbx5VRkys5PZcQcHfNFVaByL7Bd4vQR29OTm/IecY3TkUgq6xV4cdUGXku/qpYfFMhY9EBFkaNJRCYDBYILebjGHHrR3cedtRGCg7fGI3NGYiwCwBAReH1RHdaHH0252LQ8zX8bgHiMMZ6ZYyzWmlJDL99V8b6DlnlEnSM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(19092799006)(18002099003)(22082099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FtKD9/zLyLAf2O+e5uPVLIG/yICArO0PD3crO25rCW6LZwsNNJAmF7c38a6x?=
- =?us-ascii?Q?ZdM8OQ7onVUOWPaP97D4d6J71hWNpl/lGcXD/koaPERP1XcktBM0Pzt52242?=
- =?us-ascii?Q?ctzh//3Wl3o7bslV5t4l8Lcxjtf4apIjmwDZgSAOzUOlMvaF/yyabxO0222n?=
- =?us-ascii?Q?92ZW7+/mQD9cqgtQ2tBvZwzRjTa2IITlYTgGIXNtQLvpTGRxipoAwzDDBG6Q?=
- =?us-ascii?Q?RYU2Y6Al8JVXCwI7jygTnK4XXtzyIvmvrpqEZnKxeFRoxfd/vHpN9erYLewY?=
- =?us-ascii?Q?M0WzUHBDrIzlAO112TV9QGR5JEs3f3ofeagE5UI0YUoDGaUOb0xavP92fAes?=
- =?us-ascii?Q?LjMdYEc0wEWruyB3ySLqIcG4Y2uJpiw4ibQfIF6plqfFNqNzAoj9rMNhPnYp?=
- =?us-ascii?Q?HlmywdnS55MIDtTpEyysfJewgnU498DDc0kxqFMu8Iu/CTGPNRwsBbMmWdAB?=
- =?us-ascii?Q?rrtJyKGq+tr96jICXKbpufHrA1NbFGmxGz7Y41+HLn5KfpHBoGz0DOIRbhM/?=
- =?us-ascii?Q?JQBsExy9dgc8sEfomyiwiOjyvMdWhBSnVSjaFWrreyXh+95WEedw5ZtRHlOU?=
- =?us-ascii?Q?ajoVKUey2bpGlCKN/Emur/sTmNcTha8BfpBRLrtLC+EWe5OdHgOhp4M+dHX9?=
- =?us-ascii?Q?PbEEM9dqpkUebFu3xQxij7PKD5uvYqfTIvlvXWn3fpj38IBpAKtlO0cvko0c?=
- =?us-ascii?Q?xLpc02KWieJFRzG8ZAq5469mF0woUazLKSXdfqWKWEdzWn5aT4htWUeTF+pN?=
- =?us-ascii?Q?C5+w9CvAehDYqWN0ZLW0QIPjCs98kHUHQSRbD7qp9Qbzlkqh21TmdtfDrcQR?=
- =?us-ascii?Q?xoWP/7TK1z/Wb984KKLIb5OY2d+cKaw6QImc9DJFrmde498FPSYgJ79ID9Yh?=
- =?us-ascii?Q?lnUtm8SE43CX0R8LJJMb1nevyIfJForW+RBZaa3aJDBqVuhVUAklXagACF1d?=
- =?us-ascii?Q?iIqFJhrHEAPNXXadVEYSpkLMym5SgHWGL5LxfqhVdtfLS6lSm9+5bk0l7FzI?=
- =?us-ascii?Q?hfP0Vv04BzFDU4tdmHOBvTFhylsmNm6mUUq3ORSNE1Wu9s1V7+RC7AXWvCyZ?=
- =?us-ascii?Q?bxlu9aUGbOetj10bZ7VSIBIjtgrVsMo+Y3TMBYQIVnpqOgB/clxTgXuksbnX?=
- =?us-ascii?Q?0QqcEirmAKho9NSsfuNN5QjQ/1/1ds+uVPuBPb0RhL7EfkMaDUb0VLIVSjFd?=
- =?us-ascii?Q?jRqYdC/K1JMtf6Hb4ij/zTraMfpgyodx3YK9Df3TgWKpCERg8LP0NRssB2QI?=
- =?us-ascii?Q?RhKkWf5XMoPpw9IkF7JHb9/shMyXeq8kQIW/+j2Now73i4PG5pnJje6eXivj?=
- =?us-ascii?Q?4QDMFqy3w0U6aLQX8WqJIpQ2SRTkRXw+8ieDQ8fJaZQHpjyj40gUkVGSBf41?=
- =?us-ascii?Q?RCeQdkAFUW8IsWAdi7i1oNZ7MG9xhYAsZGgkle0aXNHzpxaiU/0lQW8LUl2F?=
- =?us-ascii?Q?EcQ63CEbxa7rADvYUytastechp1a/nxvvWCe/HKvREjGSJA+prYdP4x5bydl?=
- =?us-ascii?Q?UGqz20pia6ZgVmm062ywO5zMJkpdzaSWEIDL/RVPkJjnKezZlGAIJFQyzXII?=
- =?us-ascii?Q?8Bjle2lSrzRHduExyjsa5oJOBmeyYwmmSTzUNbntiMgwWVJHlPQRcgiO23AV?=
- =?us-ascii?Q?pUhImNIdSYizSOT4h6U4O8UShLOPQwEWDLMVfPtgekqt7NpSTrZypDj/pLba?=
- =?us-ascii?Q?UkkJTUd/rMwyECOSYTkWVitbnkBn3zc86X/LnrRjxpiY83tT?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c63f7706-4587-4de8-1a1e-08de8c0fcf0b
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 14:47:46.0443
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: W8dR4/8gHdRfWd0neXG82IA8sZlBiqKU47CILjWynOJPMFj76NmJAxe0P0yg77lmqvG8Oy9arcBfj1dwFd1RRw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8705
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_074751_620073_029CAAD0 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+	Fri, 27 Mar 2026 14:49:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC970600AC;
+	Fri, 27 Mar 2026 14:49:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BFC4C19423;
+	Fri, 27 Mar 2026 14:49:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774622954;
+	bh=bGI/cAugrNnig4KQOyBbkhQzweiFkpeRdiDXpd6DHe8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=C/jm2dmRjOh6fraMMQ4iojohVQmL/HM+bEnLFDCyIdSen6wG4z7QHm+U8z32tHi4k
+	 uC/DCDo9SJ6w0SJO0jjwSVJxpnbSX9Liw3QWjyMkKXpVpBDd4Ny9ZlTxs47xQP3F8F
+	 CiIGMA2I7wRfeh0QlMQPliOsWuKqjqFM8HYtwKyh6mQkr6gEROCPSvESPs5D3AslTZ
+	 CiiIMHUvftAXSSkLFt07sHBOHnto1QFryRr8+XIfoVUjGwlfwz6JsjjU9HMEUjHGGA
+	 6WWmn81OJQetqULZ0KPFgXf6IU+KXaYgY8Ub6CN81OrfKf8gkjYR4BUL8zA7G+AIst
+	 nOKf8YcPuc0ZA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w68Uq-00000006OdQ-0zc8;
+	Fri, 27 Mar 2026 14:49:12 +0000
+Date: Fri, 27 Mar 2026 14:49:11 +0000
+Message-ID: <86ecl549aw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH v2 21/30] KVM: arm64: Kill topup_memcache from kvm_s2_fault
+In-Reply-To: <20260327113618.4051534-22-maz@kernel.org>
+References: <20260327113618.4051534-1-maz@kernel.org>
+	<20260327113618.4051534-22-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,20 +88,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 09:44:13PM +0530, vivek yadav wrote:
-> Applied checkpatch.pl recommendations:
-> - corrected whitespace
-> - fixed line length
-> - adjusted indentation
->
-> Signed-off-by: vivek yadav <y9.vivek@gmail.com>
+On Fri, 27 Mar 2026 11:36:09 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> The topup_memcache field can be easily replaced by the equivalent
+> conditions, and the resulting code is not much worse.
+> 
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
+>  arch/arm64/kvm/mmu.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index e8bda71e862b2..5b05caecdbd92 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1712,7 +1712,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+>  
+>  struct kvm_s2_fault {
+>  	bool writable;
+> -	bool topup_memcache;
+>  	bool mte_allowed;
+>  	bool is_vma_cacheable;
+>  	bool s2_force_noncacheable;
+> @@ -1983,9 +1982,8 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  		.logging_active = logging_active,
+>  		.force_pte = logging_active,
+>  		.prot = KVM_PGTABLE_PROT_R,
+> -		.topup_memcache = !perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu)),
+>  	};
+> -	void *memcache;
+> +	void *memcache = NULL;
+>  	int ret;
+>  
+>  	/*
+> @@ -1994,9 +1992,11 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  	 * only exception to this is when dirty logging is enabled at runtime
+>  	 * and a write fault needs to collapse a block entry into a table.
+>  	 */
+> -	ret = prepare_mmu_memcache(s2fd->vcpu, fault.topup_memcache, &memcache);
+> -	if (ret)
+> -		return ret;
+> +	if (!perm_fault || (logging_active && kvm_is_write_fault(s2fd->vcpu))) {
+> +		ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	/*
+>  	 * Let's check if we will get back a huge page backed by hugetlbfs, or
 
-Applied, thanks! It should be in media-committers/next.
+Sashiko has spotted [1] an interesting corner case here, which is that the
+original code always initialises memcache to its correct value, while
+we now only do it in a limited number of cases.
 
-Frank
+I'm proposing to restore the original behaviour by folding the
+following change into this patch, splitting the retrieval of the
+memcache pointer from the top-up and avoiding the ugly pointer
+indirection:
 
-> --
-> 2.43.0
->
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 1fe7182be45ac..03e1f389339c7 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1513,25 +1513,22 @@ static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
+ 	}
+ }
+ 
+-static int prepare_mmu_memcache(struct kvm_vcpu *vcpu, bool topup_memcache,
+-				void **memcache)
++static void *get_mmu_memcache(struct kvm_vcpu *vcpu)
+ {
+-	int min_pages;
+-
+ 	if (!is_protected_kvm_enabled())
+-		*memcache = &vcpu->arch.mmu_page_cache;
++		return &vcpu->arch.mmu_page_cache;
+ 	else
+-		*memcache = &vcpu->arch.pkvm_memcache;
+-
+-	if (!topup_memcache)
+-		return 0;
++		return &vcpu->arch.pkvm_memcache;
++}
+ 
+-	min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
++static int topup_mmu_memcache(struct kvm_vcpu *vcpu, void *memcache)
++{
++	int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
+ 
+ 	if (!is_protected_kvm_enabled())
+-		return kvm_mmu_topup_memory_cache(*memcache, min_pages);
++		return kvm_mmu_topup_memory_cache(memcache, min_pages);
+ 
+-	return topup_hyp_memcache(*memcache, min_pages);
++	return topup_hyp_memcache(memcache, min_pages);
+ }
+ 
+ /*
+@@ -1589,7 +1586,8 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	gfn_t gfn;
+ 	int ret;
+ 
+-	ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
++	memcache = get_mmu_memcache(s2fd->vcpu);
++	ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1993,7 +1991,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+ 	struct kvm_s2_fault_vma_info s2vi = {};
+ 	enum kvm_pgtable_prot prot;
+-	void *memcache = NULL;
++	void *memcache;
+ 	int ret;
+ 
+ 	/*
+@@ -2002,9 +2000,10 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	 * only exception to this is when dirty logging is enabled at runtime
+ 	 * and a write fault needs to collapse a block entry into a table.
+ 	 */
++	memcache = get_mmu_memcache(s2fd->vcpu);
+ 	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
+ 			    kvm_is_write_fault(s2fd->vcpu))) {
+-		ret = prepare_mmu_memcache(s2fd->vcpu, true, &memcache);
++		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+ 		if (ret)
+ 			return ret;
+ 	}
+
+The bot has also pointed out a couple of cases where memcache and
+permission faults interact badly. I'll look into them separately, as
+they predate this rework.
+
+Thanks,
+
+	M.
+
+[1] https://sashiko.dev/#/patchset/20260327113618.4051534-1-maz%40kernel.org?patch=12134
+
+-- 
+Without deviation from the norm, progress is not possible.
 
