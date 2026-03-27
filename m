@@ -4,95 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6489110F2867
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB7710F2862
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nd4uDnLevu0tSEkSmPLwVZpLlNwGK5ZHbNTrNexbWPI=; b=EDw9wYHZnYBNJDo66kFN7LQzK9
-	5ImorRQ1687MVcJqGVJU+9eRHrmZ2GALaLZh1t2dtoR6XmEINtO3MFslFME8XKn6cJ4f6euA5aqFA
-	rVtoonr2NCANZmH0ePowGrPsrO3Jksv2bHH6yvHrjy7CrLclpcMZuTjCHi1jDDGwdSXhOj6jb+SZ/
-	b0vQVgPqUZuDp/CsF53+wogy62oEHPmw3DeFqPWtXbGLdfWAxFLJaBWwGpmpHPE98V7AcX2CupPlC
-	vwuIginIxUZewO93VnKzy8jUgA9IbnqGqHLpD50fAfNx16S6Ou3Fpc7dlQWCUknZv5ZZRMX8/l73f
-	BYDyJ7Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ogJaDcCH4q7Fssvt91vOpovPL6sWI0u1UMZ/IVso944=; b=RxkCk4aL+IGUrjc98EYO7PX7JQ
+	/cpkDpg/bCCBbCFobCyxQMW7u8CBjAvNqdi9vwr2hONbDFTUjPF3iQTynkjCJ6N5jBozn2aY757fU
+	2FWoykmLgTgY6ikbNlp/dUQNU6RoLDOxRMgCgQfMU1KTm3PFIuJrCdCeE9hU9816coamztWikAlZm
+	8l93h68Z1w1TLiOms170XM9SdM0BONpI/Eet/H9kEIWZCrix0KQecFjGL/pDKorpfLpiJ8I2Ointn
+	vOpWG03cz3DnI4Tt8IXtdtaAS9vNYaU/5mkepEv0ZqEWI9QezHTIhWp8U0UPbxfmWLT3Mv6Gju82Y
+	j0pZ77yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6C84-00000007xTY-1G1z;
-	Fri, 27 Mar 2026 18:41:56 +0000
-Received: from meesny.iki.fi ([195.140.195.201])
+	id 1w6CEe-00000007xtL-22Dk;
+	Fri, 27 Mar 2026 18:48:44 +0000
+Received: from mail-westeuropeazon11010029.outbound.protection.outlook.com ([52.101.69.29] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6C81-00000007xSi-0cbV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 18:41:54 +0000
-Received: from darkstar.musicnaut.iki.fi (85-76-0-165-nat.elisa-mobile.fi [85.76.0.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: aaro.koskinen)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4fj8cp0W99zyWr;
-	Fri, 27 Mar 2026 20:41:46 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1774636909;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Nd4uDnLevu0tSEkSmPLwVZpLlNwGK5ZHbNTrNexbWPI=;
-	b=y+R8JQPx1CZdyXpc/Pg1KSZghb0AScXqB8cUDX0LFrgdmol7eT1O39u5F50t/7fTz1iaVj
-	65HMTuFDzg8zjtqiRrGTIGy0Br5DOsyTWa4/M4oUJiI/6xelzTO13pE7lvMbK5xo1myE5J
-	7HdGS1GKMzoajzFFD4v7CohixFGSVkI=
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=meesny; cv=none; t=1774636909;
-	b=WxuI5szQ8sU0yI1aV+gZrUYh+Dpd29NAqtLJPxivWjLmw8bkx1y37p0Ic6WUK0068sWxzS
-	PbzMQQb3lRCHttJL2YHJ8RtVQvv5gIPnoz4bkBb5pYSoqaqvQKqBYKJ/gcYOvdfL/VHguW
-	ug9hzVYiWutRBnXLgcj66Fyug8QD0Ds=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1774636909;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Nd4uDnLevu0tSEkSmPLwVZpLlNwGK5ZHbNTrNexbWPI=;
-	b=FXkMIcPmx3d4tetmZV8ueEij7WaPT5f7A8rcTtbEHDZ0NINRYAKTKDR3d9PCtBnVWt9pkP
-	zrGxhwRJu8OBgJ7MuD31wpiOZ0zlXPNbQuCKVmIb6pfqH8fQ4xJnSNXS+UkNHz1WoNRSOZ
-	NvrWJfUHmEZEcnHw3fUqH1soK9ucuAc=
-Date: Fri, 27 Mar 2026 20:41:44 +0200
-From: Aaro Koskinen <aaro.koskinen@iki.fi>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kevin Hilman <khilman@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-Message-ID: <acbPaKSLVXjiIbfU@darkstar.musicnaut.iki.fi>
-References: <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
- <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com>
- <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
- <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
- <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
- <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
- <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi>
- <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
- <CAMRc=MeUEApQuw8prxr6ku674fqORCy2=givJxLe+cUCC0PGww@mail.gmail.com>
+	id 1w6CEZ-00000007xrb-47ud;
+	Fri, 27 Mar 2026 18:48:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U5PoWEX6EfPvL3U6+7Ensc60XX58LqXrkiElkT7wBy/7Qi1IqjT/XMz5dAqNd3K0CLeQxKmXZ6yyPdesjitGBbO2Im2B88td6VGqcQ8/DqhFvrS23q813tQqdU3KE3ShHuJjrr+AgriFlwPYd1gGhmc47CJ44bORwGbHBjW1rA6AgM1rJ/mleFUekr/RJafqdJEMAHU2Ri93M/LjFpzsVcwTu/Iw3qwM+qR+DCydx6Kv+62anCtTaXO36IsGQ3kgJsmShLw5Xew9vpO4dcQEgBkru04mZpRZeiw3e9JxKMFK/1S6ZY856tghC6Syi3F2Wm1wYG3mqcvF5imrPOrzoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ogJaDcCH4q7Fssvt91vOpovPL6sWI0u1UMZ/IVso944=;
+ b=O7PBjkOAIV3MigLLi4Ry9x4mRCIQqVqPgELw/KQDNF7bwvn5s+RYvHG6rM85SaZpVj0go78B3AiHpr7coLlJOXIUPmwiqQ6KTeGhoak35AjPxnMFcBe05bOVEEczPv/FIGVJBXcEQG7BX+sbdD8yTrjQU+5d2ebzlnm7oVH4GcA5p8dFJVV58lAi5YnVp64ZRSqi1ou6pVz8fMLHzTPG0mMm4Un3LO71XccGdX98uYF8YNmW9zgHNzSiVgrG3HKrGMf+6O2ySAhzJh9SoG8hquCSKp528+gNJ2AwLUBhVNgDisbN9SznaklxLGNyTnREatp+kVKcNnvtJKitsk64oA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ogJaDcCH4q7Fssvt91vOpovPL6sWI0u1UMZ/IVso944=;
+ b=n7914TgKtpGaorbp4GA6Ad+VBEUrk5FSxeJ9DbnRI4s2in/tnr2S218L95bShMTd2C4h7UN+StEaSlp4TpFloIK1WeRJDS3vf2w9puJ9xTN7tk7g6Pj2kM+vkA80kqtigENLNHaQZYsyRO5hWlBKlvGU/GzS83t2WeBIIoqY5rRkl6WsZFDTNy1thabE3yWrQdrjB4djCwb8WgkEDettVlzjJ088tPlrLwUkfm8ECVVtIX35TEco3eVsM+nbOCGzyj+5BjSrcED+dW59yBMu7kgI1CazgeNYDmRtI3/KwIHqfY2Skhc0t6PundUjWZn6eU4DseXuK+XKRs5lsjkOmA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8584.eurprd04.prod.outlook.com (2603:10a6:10:2db::24)
+ by MRWPR04MB11287.eurprd04.prod.outlook.com (2603:10a6:501:79::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Fri, 27 Mar
+ 2026 18:48:34 +0000
+Received: from DU2PR04MB8584.eurprd04.prod.outlook.com
+ ([fe80::3f9d:4a01:f53c:952d]) by DU2PR04MB8584.eurprd04.prod.outlook.com
+ ([fe80::3f9d:4a01:f53c:952d%5]) with mapi id 15.20.9745.019; Fri, 27 Mar 2026
+ 18:48:34 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: linux-phy@lists.infradead.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	UNGLinuxDriver@microchip.com,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>
+Subject: [PATCH v6 phy-next 01/28] ata: add <linux/pm_runtime.h> where missing
+Date: Fri, 27 Mar 2026 20:46:39 +0200
+Message-ID: <20260327184706.1600329-2-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260327184706.1600329-1-vladimir.oltean@nxp.com>
+References: <20260327184706.1600329-1-vladimir.oltean@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: VI1P195CA0072.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:802:59::25) To DU2PR04MB8584.eurprd04.prod.outlook.com
+ (2603:10a6:10:2db::24)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=MeUEApQuw8prxr6ku674fqORCy2=givJxLe+cUCC0PGww@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8584:EE_|MRWPR04MB11287:EE_
+X-MS-Office365-Filtering-Correlation-Id: c3aa62fd-d0a8-45be-543f-08de8c31730e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|10070799003|19092799006|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: rOSNIO+PXtAU2KSXs5Vl/TB/4l4VBc0m6r/C692mE4qBXcQy3S2YAJdkMnGvezUGZ7ETzYuD1qq853BTDnYd0lIr/iQViru+tJCc09LkvWs2HKP+4ru9FCKY3QMT99s74s0e3niYR7H38WcHPVZVfpfMp+bwmC1r1CWe6YyTZ0/Lx4tgYd4NzLDFBuXA+b3/1zkbBTYSq2RgGyN7cPw2tH9Ly+HEuxPi88WtziFghNSzjhE5fALaM6suWjfMTh7B0pTJhnpBmx3ks4FRKZYT1L8nYUjNtJ39VAVKBkyO0B93UrLQd61sBOC7R9PqRp6K4amSlDHtbBWVF2kAKcYwgYvhoyx61o6WTcNMY4Qw5VU5JVadGsITlpWjq18MYOHpOOtatGb7JbO6sMokpYy6wuhYxLR4Lbu+uvczPtBLMhitr1GvRL6WYrM7TItm5yNTN5Uw/m/8xI2IJRwl7IX6y4UuXBPsywvSbZVM8AMxC/irvnPJoMixW+b6xnrtrSAf1dG7ht8WK2eSksBPGQ8D2obhW4r+VvWhMFYdVnPzBMjwrorxSi/lgBssEoqwBkg9p6phyCS4XtNuoklBXtnICzj6cVzGFN1fZ6sdB3IgyqutsFRYEXw83wWl/jepzutOuiiqldsM/oenHEKwVehMTftqs16+F6rGtyXmvzTkriJgh9/sLTeHOUUji+zWDGVb0DX/v9dWIOJK0UDls7cjw5/e3Q97zZzHAbS6OSVtAik=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8584.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(10070799003)(19092799006)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uQCZwwDasW9WMFiQ35NZfFJbZ2nc//OJr3TIigu+izvG2n1in4ePR8qorW26?=
+ =?us-ascii?Q?72VPWHkLcOuceJbrNrlGB1J6aqXacy/VCe0dvrkc7JO8PU/QEmNYP82llSfQ?=
+ =?us-ascii?Q?EZABspUZgTOok+8JtVygsYiwllDZesopw9z14xBOHwTKxm5Hv8+S8aIlW/HY?=
+ =?us-ascii?Q?DZ6fp6hGpoFdW/n2/vlvOeJHflZDhqufpJN0me3YmsCpg3/TSp/XKl2sunNn?=
+ =?us-ascii?Q?+rOng1/TguNR71DchxFYCkLRfQ3KAxY6u6dHeQnKj5ttW/1WNt5nxwhIoV2Y?=
+ =?us-ascii?Q?vhLnjtcS4cSE/a0CgEYd7fC0GhcUAF4k2jCkbH0PAqoRXZ4CIyNPx5kZ4bmf?=
+ =?us-ascii?Q?7SBMOyn1gsDIq6VPEh5SCzhEtyWz/VZ6a/aC+r6+BBr5+uYaOouGrDoUtJ03?=
+ =?us-ascii?Q?QVR9RLajcV1LmbVERBkIqNPFaMFxQdIObmAcyuNJI/5twXKcvUc7OSLDR308?=
+ =?us-ascii?Q?cHJQpklI+rtyBWFPVKsH+LOF4yscJw+n2d3bAVgbQ7Fw64oSAzQQwL1qhWgl?=
+ =?us-ascii?Q?Zq395r/yQaxom0dhXbn5W0UE++FvzUR0oMLuPFoi0GlXkeqv+LCPFVuPK+oo?=
+ =?us-ascii?Q?3Vwd5TwufDYKN8EXkYo/7l92I81MbxajWq63q5vdmqnEfsmGnq7VD4lh95Yl?=
+ =?us-ascii?Q?6R/OwL49/kdXM5CpAjAG26yXPaiSnz+ICwNS9994tUaaORCs9tzlCY0gHhJ5?=
+ =?us-ascii?Q?j9yl9+OR6lr6rNyUL9/LP84tTyx5zcOoewSOMW5M+BpJ9Xig4DC84ix8jkZc?=
+ =?us-ascii?Q?bogWi/cG96cs25niB1ISWqsuNnRp165e1f0BTiKCI2L5AcxMWCTNBhFSF+BW?=
+ =?us-ascii?Q?3PnYwj2WxJJwpwRrU5hg8r1ak5vp50KriIeF6No/y380ywJEbr90M0fgvv+b?=
+ =?us-ascii?Q?DGMLwnKbGGS1lT08DuXl1uo06WhZ23j/u4X1LR9BqPx1AY1L58oRhq7DgcpE?=
+ =?us-ascii?Q?x5au/hwjGTDWQjmrhog+VLkhbgTOeEQiBjbw4Cs+kqdm92AjxunbobiqC9e2?=
+ =?us-ascii?Q?j3+IWVV8XKr9a4pAQ6q2oSuwncPl9y94CUJrQ9ZtbJU5XxQTOSTKmlM+0wne?=
+ =?us-ascii?Q?0kK8TZcc64B7JC63fjX7qUEsI70SQis0D2kToVSgAM//BVmB0Q1NBira0Dxp?=
+ =?us-ascii?Q?cfgzWaHwXcJX8uCAvAK0swc4BbgJwpGUbuCZxqP+cWEZIk3xuXEEXYg8DYoG?=
+ =?us-ascii?Q?pB36eR9P7+TnbjzF0yjVmZd5qOa2S42TCUT7jHFkBXxu9xPZL5JaIWV07ZS0?=
+ =?us-ascii?Q?RGjV94g9eMUYjrhNFrYr+0AU/Yj5+CtKYzmpKc6OoEzfnj8p4o9v0dafCgs1?=
+ =?us-ascii?Q?d8YwyA+OC7bwEm1ParUWaaxGTpT7fsFXvDBK1jLiiytBU8gL97aTMuhoJ4GL?=
+ =?us-ascii?Q?2/gVWnwKRkTpw8w5t5GlcxLBggTT+BgeaoW6/2UJIoNhwnDUpD1qqiV12vUe?=
+ =?us-ascii?Q?+BeskeBzs0k66MVTbVHgdBUy185uo9g8gVNEk+kxTLnav7cKBEbnXecZmqxZ?=
+ =?us-ascii?Q?CtU41CW2ATy5+2m8ILq4IrJFndipIArPe7ICzkumagd4mZL7gejFesUmfY39?=
+ =?us-ascii?Q?4kgX1SnpGcIYBuLoeYpTKqoDe8Wrfj4+C9ThO86IsYd8g826tythbTQyxfeJ?=
+ =?us-ascii?Q?PEfdhGxXBUe8V16lNFlG6zUmefG0iEfWBFkSi6NQQdLOjIpECiJb5tOl6jYb?=
+ =?us-ascii?Q?+vh5wk/brj+SVG/xe+3WkzpGqpHSdPz2nwevlSvXSC184ikJQxYcRr1HhVk1?=
+ =?us-ascii?Q?UuyvfGJFNSqUOcg7tuk8yFPFGqoEVOt/gQgArp6L1IS+NCXSvWeJjti5iYPp?=
+X-MS-Exchange-AntiSpam-MessageData-1: BXtcoemr+mpo7x4YljW4ddDyD1q1iAUgEY4=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3aa62fd-d0a8-45be-543f-08de8c31730e
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8584.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 18:48:34.6137
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dluCQHfJp/7DVOstV/PSRxCm7fftNX/7nvkD+rjw6VGMG2sz9vQKqA3lO14VO9DvSMRUymdNnsBzV8l7WYIhiA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB11287
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_114153_362681_71B85111 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260327_114840_049191_C8F6CF41 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,36 +159,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+It appears that libahci.c, ahci.c as well as the ahci_brcm, ahci_ceva
+and ahci_qoriq drivers are using runtime PM operations without including
+<linux/pm_runtime.h>. This header is somehow being indirectly provided
+by <linux/phy/phy.h>, which would like to drop it (none of the functions
+it exports need it).
 
-On Fri, Mar 27, 2026 at 10:27:07AM -0700, Bartosz Golaszewski wrote:
-> > Thanks. This makes sense. Both omap16xx_gpio_init() and
-> > software_node_init() run as postcore_initcall() so if the order is not
-> > right, it will fail.
-> >
-> > Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
-> > reason to run software_node_init() as a postcore initcall? It only
-> > allocates the kset, can we move it to core_initcall() by any chance?
-> 
-> In any case, Aaro: the following should theoretically fix it:
-> 
-> diff --git a/drivers/base/swnode.c b/drivers/base/swnode.c
-> index 51320837f3a9..5ba904f8a08a 100644
-> --- a/drivers/base/swnode.c
-> +++ b/drivers/base/swnode.c
-> @@ -1134,7 +1134,7 @@ static int __init software_node_init(void)
->  		return -ENOMEM;
->  	return 0;
->  }
-> -postcore_initcall(software_node_init);
-> +core_initcall(software_node_init);
-> 
->  static void __exit software_node_exit(void)
->  {
-> 
-> If you could give it a spin and let me know if it does, it would be awesome.
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Acked-by: Damien Le Moal <dlemoal@kernel.org>
+---
+Cc: Damien Le Moal <dlemoal@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>
 
-Yeah it helps. With that change, both OSK and 770 work with your patch.
+v2->v6: none
+v1->v2: collect tag
+---
+ drivers/ata/ahci.c       | 1 +
+ drivers/ata/ahci_brcm.c  | 1 +
+ drivers/ata/ahci_ceva.c  | 1 +
+ drivers/ata/ahci_qoriq.c | 1 +
+ drivers/ata/libahci.c    | 1 +
+ 5 files changed, 5 insertions(+)
 
-A.
+diff --git a/drivers/ata/ahci.c b/drivers/ata/ahci.c
+index 931d0081169b..aa3c4949c4ab 100644
+--- a/drivers/ata/ahci.c
++++ b/drivers/ata/ahci.c
+@@ -26,6 +26,7 @@
+ #include <linux/device.h>
+ #include <linux/dmi.h>
+ #include <linux/gfp.h>
++#include <linux/pm_runtime.h>
+ #include <scsi/scsi_host.h>
+ #include <scsi/scsi_cmnd.h>
+ #include <linux/libata.h>
+diff --git a/drivers/ata/ahci_brcm.c b/drivers/ata/ahci_brcm.c
+index 29be74fedcf0..48460e515722 100644
+--- a/drivers/ata/ahci_brcm.c
++++ b/drivers/ata/ahci_brcm.c
+@@ -16,6 +16,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/reset.h>
+ #include <linux/string.h>
+ 
+diff --git a/drivers/ata/ahci_ceva.c b/drivers/ata/ahci_ceva.c
+index 2d6a08c23d6a..3938bf378341 100644
+--- a/drivers/ata/ahci_ceva.c
++++ b/drivers/ata/ahci_ceva.c
+@@ -12,6 +12,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/reset.h>
+ #include "ahci.h"
+ 
+diff --git a/drivers/ata/ahci_qoriq.c b/drivers/ata/ahci_qoriq.c
+index 0dec1a17e5b1..409152bfefb6 100644
+--- a/drivers/ata/ahci_qoriq.c
++++ b/drivers/ata/ahci_qoriq.c
+@@ -14,6 +14,7 @@
+ #include <linux/device.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/libata.h>
+ #include "ahci.h"
+ 
+diff --git a/drivers/ata/libahci.c b/drivers/ata/libahci.c
+index c79abdfcd7a9..e0de4703a4f2 100644
+--- a/drivers/ata/libahci.c
++++ b/drivers/ata/libahci.c
+@@ -30,6 +30,7 @@
+ #include <scsi/scsi_cmnd.h>
+ #include <linux/libata.h>
+ #include <linux/pci.h>
++#include <linux/pm_runtime.h>
+ #include "ahci.h"
+ #include "libata.h"
+ 
+-- 
+2.43.0
+
 
