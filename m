@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CF210F2865
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 22:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFCA10F2865
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 22:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5pe4fNuksLvBr6m40iWLP0RWVZihoYn68/6iv6BlIG4=; b=FsWdIxUb1dPkv4PLXPwID+BPBz
-	qWgb/hFY7WFKZZBJ2OsfyLYpmAyjsFS5HTzaEnAIn8eCYLqG21cJ1tb4UPIUxZA1k9/ALCsl5a1sS
-	fDGfqNM+/oRcNnTG3WvdbnTEG+2hRBRDclhWshO8VO1ZuBOoiCHAL6eIKwUdvCFKjMniYpyxWpw0E
-	bmfV3HwOh4QGAfvHRJVZXBQOBDPnaGA6BP7eJBkvwDtydx7EhM2RvJ8saKMBzwTO9eCqcnaYQKafy
-	Gpqmv7KQPEfVqB+x+LXLtv/g6xmQ1zAzLRgsbHlfKcqyZmk2naF22NFQNWdut1pPxKq4Y/Jk8Fboa
-	ZUsC200Q==;
+	bh=F49vcSE/rqoVB2cNUPw8hx4gbICx0wrJC2VwflfBWVE=; b=SKhP9SMpFTGDaFrhDz2Gjc1+RX
+	FRhwsEQN1rLcTFRGaGrQ40dhyr/sdcVEroyBghZ0+AlyDN+Vjg94xB9Q5BNOd4ziDvdE4E/08EnlD
+	O+GAo+kjkg3NXeQv+ted2iaokItDm+gNaaJcJslHm5Lr1BxdoV0Gw+fKfVuRFvAPAzrsUg6q7R7fD
+	yECY3mDiqC4eEz2ZyGdnDlRn2BxVkyPEad3xugZMgUZ6AHe+pjB8m92gCdJFuXoaf5v7fj+wYpz9F
+	pdm+mlEuP8OYiSwXGtIgwiEykGB39WoUEucmMO8CZsBcQnyEHRLRwpvvWBiD3vQon2P/mtasZFc3/
+	0NC/Y55g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6FEb-00000008GFj-162m;
-	Fri, 27 Mar 2026 22:00:53 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1w6FM3-00000008GX7-0udG;
+	Fri, 27 Mar 2026 22:08:35 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6FEV-00000008GFA-0fgj
+	id 1w6FM0-00000008GWl-2fC1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 22:00:52 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8c6f21c2d81so244631985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 15:00:46 -0700 (PDT)
+	Fri, 27 Mar 2026 22:08:34 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-439b9cf8cb5so2488360f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 15:08:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774648845; x=1775253645; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774649310; x=1775254110; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5pe4fNuksLvBr6m40iWLP0RWVZihoYn68/6iv6BlIG4=;
-        b=HutLb63X0B6tf9TPsIGcXmSvNPnfI1Qc+XB3idU6m4ShW9hFzrbqRgQGIwL4fOWIUv
-         CdGdEsV6ErCDqRJ6GkdhKDApQJHQOBPyYVVQEV9I3WIAl8C0KANHW9o1V+ODdV+zlb3S
-         Jw4tp8qtdjDqdY5Hx9I6jF/bBaXrarkInCvFX6NbM033YOdWaMYCCmFLcRKWJYfHzSmM
-         0YHwlSAMZYKB4hdCAxU1QJqPIEMMUbghO7Ek9tHj+UEN+koK5Ol5MbCumxOxvgnl7IhR
-         L6EWVKjYwL/eN2AUXrgYjq9asDd4IzAfnw+1zDaaIq2ilP4PW3+2k4U4BSfTs8Cd38XJ
-         j3ww==
+        bh=F49vcSE/rqoVB2cNUPw8hx4gbICx0wrJC2VwflfBWVE=;
+        b=sT2PgnNom9fbMOVnJMoDRFNgd5Pq2dl60MK9I5r+/Iq3jmQIt3euo9jAqxHIWhCLFX
+         xhi4Fs2K1t9ERDPGHJkS2M22PDCC91bhOnKwFIWHMTJZp0mN1/8PocHcl7DAU+GgNUpv
+         T+ztnyPe8mXiFTYtmScc4aVZ0XdMbSuNdk7n2g3WBG3DOgnuKtaYs/zNlzLNeYMpBT3o
+         q9RLUq6GbpzIB4QZ9gQhHpf8JCCCS87dL2fb8malrZM5Ndp2LElTsto9ffuX7cOb7lHc
+         iXLSsQBn9d35CxiO1tA+GATlNUXVT6+vLVAv43vyxfvo8wnTcs1VRVetvmbpycxPC202
+         UsCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774648845; x=1775253645;
+        d=1e100.net; s=20251104; t=1774649310; x=1775254110;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5pe4fNuksLvBr6m40iWLP0RWVZihoYn68/6iv6BlIG4=;
-        b=CU1bNFvcd4LeQWkw5E6N6VVBFYCV8Qmq0NIAlJkfFWwSq1wMU6HSTbAuphzfbPTDYf
-         JSw54yhb8re1bkEPYT0xDu7B6BWWXhJlMa+nlNaPhiG3dYkoQOnu/k9KZvLxgPKyw4bd
-         o/6K7KOoQF/zP9UWLj6pKT9dljvqgAhTCEsuBcc22zzYMIvFbnEJTgenMGaownFE/uAD
-         6t1Q+HuAbL2UIPdF+A2Jfmzg/q6ixXQTTRCLarb8znHFKhrrHQgVRV126FSZKIGFfiED
-         Nbh5rxrBmur++TPUnECJ/PuZsFgbfhbuUn5TQ0C4jNm1+1yrT7L1npcscU0l30HM6g0e
-         LhXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXfG6vg1HM0DyBTEsUclBVxu5cjL8Bj4f0c3HG6E9ueGKN7ZlzdP6JPj3BFHvGwMzOGZKcC4mR6b4R/4zt3ZZ/h@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK17bzPlAbnynyCzBk26+N04n+4a8cMSkbiZMS8fdzsBIHcES3
-	IYBa22ZTECtJKEzA+NRrMCBc8wn2EIDsLmcnJ4fqDNGiE1XLkXgzJOoR
-X-Gm-Gg: ATEYQzwkpDxlNNACssxkBubfm2sOzxObGrQQOVb7y49/F5l2fzhsx3t+faaS36YfY4K
-	XJRQfyXxUAu6nqNdrBZILm/hIpNou1MKLKMVMqZmCIjkc25g54rdpL57lOdFfnlEsYrQ7m+z9qy
-	Cll6Q2e3LAEsZdDrwEeSD0Sruu8XMeer9eEHIjRvBBh9K/irmWJKhoPC3deuW3akUkJZGXmTQzy
-	eDdgFrPy78ynqeeEDz5Us7X96/MdFAm9/Tv+XmoHuMsi5wMzPq+bNJQqg27tcW8+a3N1UiL4EZG
-	5uFDRFxiZ/i239sFe16CAl/be/idGXkrA3aQBkBWiyUTUcSWD13xIDrz9xXFNGlL79aciYAZI4r
-	lSx8vxLYCsBYFHyRSoaWSZ8Mxh+zo63ukm2UIYF5fdt/pqi8Z1aAgDBFpMS7+a37VEv9A89Hqgg
-	cj7zAoy15a5rZtRYo7cRExa3H/1mX31tp+W5J68qdYsXh8ulbLHNkwJ7vJn+Hd63dChxm5nhl8h
-	NmSVuHljSm6hA==
-X-Received: by 2002:a05:620a:29c7:b0:8cf:de1c:edea with SMTP id af79cd13be357-8d01c595cb2mr593582585a.13.1774648845186;
-        Fri, 27 Mar 2026 15:00:45 -0700 (PDT)
-Received: from Desktop-PC.. (wnpgmb0311w-ds01-161-217-39.dynamic.bellmts.net. [142.161.217.39])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89ecf867c24sm3011196d6.36.2026.03.27.15.00.43
+        bh=F49vcSE/rqoVB2cNUPw8hx4gbICx0wrJC2VwflfBWVE=;
+        b=ceJ6h3vyFwTKyUcuQ8s4QVUUC9jOEdX9vq08zkNjZ/gVgrXeJ0mnKBoAOmoTz4yma6
+         FKTxomeIheTqeXb0F5q2s1GRHL/pwKQp9gjF+FCOAvqrI6KH0uJxqPbqfO+XF8Yv1Fd8
+         ygiiaGjMDX3jmIlbwJ78ndLd8EE4sJV+mndyXDKfEK4DgSnGZzStsrsLxDDuqjpdbUMW
+         QCkF7INf8wFrq8IWVVxcTd5OBDGgTl7guyatFu3jqpELOhQO2d2vZv1M8yzmWAXe7ca5
+         yBmONZUk1v7g2aOKaZv0oVaSoSRelUkBLJ576TP6sT7prn2HzysJRVHjccC6M9X2M4ID
+         u53Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXHQWH8y42tlqX4ytm9mTf2wZGaRPJHkWJOk6VWkeC2IjJ0aVaz+hf6BxcYoZjjud66zVAuE8fPaH2pmc5aHygu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh0AERxeJDnbtz+XWhbOL37KPWCR1X9aH6JcI8SL+h1bJvXKGa
+	At8urXObKQ93nJRGBZmA1cu5qsOSAVMvwv6irYPTiZ2FYFlemTv7U0VN
+X-Gm-Gg: ATEYQzyUyd7136JSm+p4SP7voeLjO1tVC6q8v17E78RzOE5t+RYUoGXPkBCaoBTuhWz
+	Dd6dN7Wil5KwoEwhw9A7kyEbPsNyyIakeVHjUQenfVNdxsWtVJO+Z3pNsLsc747i/i2TVUI4seg
+	irI10g748hWFjQsU8sqBVW5smBJ+gW47kseerk6DCtuFtsZB7GzSWMOvBtGX/Q1LCitO63Vr5zs
+	54B2zzOhT8LR2lBs0dqnBaMxMRoRH72JgK95e01+Vs9dqITvsg7UeNQDECSmUMJLDEdo+jONGl3
+	T0ymi6v9+cf5w5LjG/Vxxky8ArESnvL9FrQVPEmUctRNDN/dOEPt6r1zlKEMmmCGXSaFk+dhkBc
+	huoDCdIbyFi+5/X1TLsJJrP/ii3e8nLIt5/mnWgFWuPFTUjRo3fbQd8YOn5TJRAxILBeuE7MItx
+	T5tzAmWRUEZNL6cYhyZRnqv/TcMpVxrUy4dvMXH3LBr4FLdx8XMgCVDYwFefefFyE/zv1O6idDP
+	H6AOKoldLRk
+X-Received: by 2002:adf:f14a:0:b0:43c:f257:c6fc with SMTP id ffacd0b85a97d-43cf257c851mr576318f8f.10.1774649310249;
+        Fri, 27 Mar 2026 15:08:30 -0700 (PDT)
+Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf245e4b9sm898900f8f.20.2026.03.27.15.08.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 15:00:44 -0700 (PDT)
-From: jassisinghbrar@gmail.com
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: dianders@chromium.org,
-	shawn.guo@linaro.org,
-	maz@kernel.org,
-	andersson@kernel.org,
-	tglx@kernel.org,
-	joonwonkang@google.com,
-	Jassi Brar <jassisinghbrar@gmail.com>
-Subject: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
-Date: Fri, 27 Mar 2026 17:00:40 -0500
-Message-ID: <20260327220040.53326-1-jassisinghbrar@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Fri, 27 Mar 2026 15:08:29 -0700 (PDT)
+From: David Carlier <devnexen@gmail.com>
+To: eajames@linux.ibm.com,
+	mchehab@kernel.org
+Cc: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	hverkuil@kernel.org,
+	linux-media@vger.kernel.org,
+	openbmc@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	David Carlier <devnexen@gmail.com>
+Subject: [PATCH] media: aspeed: fix missing of_reserved_mem_device_release() on probe failure
+Date: Fri, 27 Mar 2026 22:08:27 +0000
+Message-ID: <20260327220827.266556-1-devnexen@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_150047_237618_D08384C1 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20260327_150833_452673_86AF90B2 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,164 +104,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jassi Brar <jassisinghbrar@gmail.com>
+aspeed_video_init() calls of_reserved_mem_device_init() to associate
+reserved memory regions with the device. When aspeed_video_setup_video()
+subsequently fails in aspeed_video_probe(), the error path frees the
+JPEG buffer and unprepares the clocks but does not release the reserved
+memory association, leaking the rmem_assigned_device entry on the global
+list.
 
-The active_req field serves double duty as both the "is a TX in
-flight" flag (NULL means idle) and the storage for the in-flight
-message pointer. When a client sends NULL via mbox_send_message(),
-active_req is set to NULL, which the framework misinterprets as
-"no active request". This breaks the TX state machine by:
+The normal remove path already calls of_reserved_mem_device_release()
+correctly; only the probe error path was missing it.
 
- - tx_tick() short-circuits on (!mssg), skipping the tx_done
-   callback and the tx_complete completion
- - txdone_hrtimer() skips the channel entirely since active_req
-   is NULL, so poll-based TX-done detection never fires.
+Add the missing of_reserved_mem_device_release() call to the
+aspeed_video_setup_video() failure cleanup.
 
-Fix this by introducing a MBOX_NO_MSG sentinel value that means
-"no active request," freeing NULL to be valid message data. The
-sentinel is defined in the subsystem-internal mailbox.h so that
-controller drivers within drivers/mailbox/ can reference it, but
-it is not exposed to clients outside the subsystem.
-
-Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
-Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
-audited for regression:
-
- - Most already work around the bug via knows_txdone=true with a
-   manual mbox_client_txdone() call, making the framework's
-   tracking irrelevant. These are unaffected.
-
- - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
-   the poll timer now correctly detects NULL-active channels
-   instead of silently skipping them.
-
- - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
-   caller that omitted the knows_txdone + mbox_client_txdone()
-   pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
-   missing mailbox TX done acknowledgment").
-
- - No caller sets both a tx_done callback and sends NULL, nor
-   combines tx_block=true with NULL sends, so the newly reachable
-   callback/completion paths are never exercised.
-
-Also update tegra-hsp's flush callback, which directly inspects
-active_req to wait for the channel to drain: the old "!= NULL"
-check becomes "!= MBOX_NO_MSG", otherwise flush spins until
-timeout since the sentinel is non-NULL.
-
-The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
-by clients.
-
-Reported-by: Joonwon Kang <joonwonkang@google.com>
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
-Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
+Fixes: d2b4387f3bdf ("media: aspeed: Add Aspeed Video Engine driver")
+Signed-off-by: David Carlier <devnexen@gmail.com>
 ---
- drivers/mailbox/mailbox.c   | 15 ++++++++-------
- drivers/mailbox/mailbox.h   |  3 +++
- drivers/mailbox/tegra-hsp.c |  2 +-
- 3 files changed, 12 insertions(+), 8 deletions(-)
+ drivers/media/platform/aspeed/aspeed-video.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index 617ba505691d..9622369cab66 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -52,7 +52,7 @@ static void msg_submit(struct mbox_chan *chan)
- 	int err = -EBUSY;
- 
- 	scoped_guard(spinlock_irqsave, &chan->lock) {
--		if (!chan->msg_count || chan->active_req)
-+		if (!chan->msg_count || chan->active_req != MBOX_NO_MSG)
- 			break;
- 
- 		count = chan->msg_count;
-@@ -87,13 +87,13 @@ static void tx_tick(struct mbox_chan *chan, int r)
- 
- 	scoped_guard(spinlock_irqsave, &chan->lock) {
- 		mssg = chan->active_req;
--		chan->active_req = NULL;
-+		chan->active_req = MBOX_NO_MSG;
- 	}
- 
- 	/* Submit next message */
- 	msg_submit(chan);
- 
--	if (!mssg)
-+	if (mssg == MBOX_NO_MSG)
- 		return;
- 
- 	/* Notify the client */
-@@ -114,7 +114,7 @@ static enum hrtimer_restart txdone_hrtimer(struct hrtimer *hrtimer)
- 	for (i = 0; i < mbox->num_chans; i++) {
- 		struct mbox_chan *chan = &mbox->chans[i];
- 
--		if (chan->active_req && chan->cl) {
-+		if (chan->active_req != MBOX_NO_MSG && chan->cl) {
- 			txdone = chan->mbox->ops->last_tx_done(chan);
- 			if (txdone)
- 				tx_tick(chan, 0);
-@@ -246,7 +246,7 @@ int mbox_send_message(struct mbox_chan *chan, void *mssg)
- {
- 	int t;
- 
--	if (!chan || !chan->cl)
-+	if (!chan || !chan->cl || mssg == MBOX_NO_MSG)
- 		return -EINVAL;
- 
- 	t = add_to_rbuf(chan, mssg);
-@@ -319,7 +319,7 @@ static int __mbox_bind_client(struct mbox_chan *chan, struct mbox_client *cl)
- 	scoped_guard(spinlock_irqsave, &chan->lock) {
- 		chan->msg_free = 0;
- 		chan->msg_count = 0;
--		chan->active_req = NULL;
-+		chan->active_req = MBOX_NO_MSG;
- 		chan->cl = cl;
- 		init_completion(&chan->tx_complete);
- 
-@@ -477,7 +477,7 @@ void mbox_free_channel(struct mbox_chan *chan)
- 	/* The queued TX requests are simply aborted, no callbacks are made */
- 	scoped_guard(spinlock_irqsave, &chan->lock) {
- 		chan->cl = NULL;
--		chan->active_req = NULL;
-+		chan->active_req = MBOX_NO_MSG;
- 		if (chan->txdone_method == TXDONE_BY_ACK)
- 			chan->txdone_method = TXDONE_BY_POLL;
- 	}
-@@ -532,6 +532,7 @@ int mbox_controller_register(struct mbox_controller *mbox)
- 
- 		chan->cl = NULL;
- 		chan->mbox = mbox;
-+		chan->active_req = MBOX_NO_MSG;
- 		chan->txdone_method = txdone;
- 		spin_lock_init(&chan->lock);
- 	}
-diff --git a/drivers/mailbox/mailbox.h b/drivers/mailbox/mailbox.h
-index e1ec4efab693..c77dd6fc5b8a 100644
---- a/drivers/mailbox/mailbox.h
-+++ b/drivers/mailbox/mailbox.h
-@@ -5,6 +5,9 @@
- 
- #include <linux/bits.h>
- 
-+/* Sentinel value distinguishing "no active request" from "NULL message data" */
-+#define MBOX_NO_MSG	((void *)-1)
-+
- #define TXDONE_BY_IRQ	BIT(0) /* controller has remote RTR irq */
- #define TXDONE_BY_POLL	BIT(1) /* controller can read status of last TX */
- #define TXDONE_BY_ACK	BIT(2) /* S/W ACK received by Client ticks the TX */
-diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
-index ed9a0bb2bcd8..7991e8dba579 100644
---- a/drivers/mailbox/tegra-hsp.c
-+++ b/drivers/mailbox/tegra-hsp.c
-@@ -497,7 +497,7 @@ static int tegra_hsp_mailbox_flush(struct mbox_chan *chan,
- 			mbox_chan_txdone(chan, 0);
- 
- 			/* Wait until channel is empty */
--			if (chan->active_req != NULL)
-+			if (chan->active_req != MBOX_NO_MSG)
- 				continue;
- 
- 			return 0;
+diff --git a/drivers/media/platform/aspeed/aspeed-video.c b/drivers/media/platform/aspeed/aspeed-video.c
+index 41cb96f60110..a292275f6b7b 100644
+--- a/drivers/media/platform/aspeed/aspeed-video.c
++++ b/drivers/media/platform/aspeed/aspeed-video.c
+@@ -2343,6 +2343,7 @@ static int aspeed_video_probe(struct platform_device *pdev)
+ 	rc = aspeed_video_setup_video(video);
+ 	if (rc) {
+ 		aspeed_video_free_buf(video, &video->jpeg);
++		of_reserved_mem_device_release(&pdev->dev);
+ 		clk_unprepare(video->vclk);
+ 		clk_unprepare(video->eclk);
+ 		return rc;
 -- 
-2.52.0
+2.53.0
 
 
