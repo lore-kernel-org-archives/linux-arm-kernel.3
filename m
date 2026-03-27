@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B0D10F284D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 16:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B858E10F284B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 16:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c2KhTUAjw0jRKl8iCMNRp2pUaoEv3AvLCHL0xg/y+1U=; b=M0ESRWcqWLuzA/a4AevhS+KsKx
-	q9gG4k+EpL3vUoQ0IhoDo+M9Bd5xwmqrwqIdbaEzGoo/gX4Gx9epRR3Fls1t5DTmWcuMxwu397cBz
-	J6qRfP6t/oGicepRknw8eRAcrLmZce0fxwKYmrqmvzwmWvwmv+nEPnv68oe1XD/tfZRwBtk0o2EYG
-	jCECV0dfXC9KPmIZWq2zWIVOEi7af/u6N/D5jteWSsOGhPLkSv4qZ2/h87HQpti/WdwAZyc4yyxyh
-	ffAKe88+nVZfjpqSsvoaWOhLLiz0mMoPCfzEeYebEQHz7pj5W2CPpwGD0qrfDCBndrf4nRXYD1Fyr
-	XfgUdDBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DW6kU5Q1Kd8Tnemq+hPJGFs03PNoawWT1ne9strSvoc=; b=jty7F6NiEkUM4LAjEnT0dibAi7
+	Z+vtMpFoPEWdpYP5XP24p6K6bqqZly9OKC1gQrS+f8qs+71szx0S4fVVdcZasAkpC5llxtXKowGa8
+	Sh8iOIDmCOaYHI+DoOQWa5ayOViwTwhiUV9Fl00AusAs7NXMMKdzvrNZjGePuYRtYeakJ/wFvnmf7
+	l8lTBM57N6rFHnCIpgK2C8XE1J0iHSum9sH4smihOAdViPcRVUUN5t3iCcHLSqig4CL8bi1VmdcWM
+	B4+GEoPTGKxXoVgv4ZHYVipkfmWXK4PGGMQDMpfE/W4QAyVZaJ+XiBdwPOm8a28ljpDMl5d8yC0mE
+	1+5K8klA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69ho-00000007jpg-1j3o;
-	Fri, 27 Mar 2026 16:06:40 +0000
+	id 1w69ui-00000007l6s-3rie;
+	Fri, 27 Mar 2026 16:20:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69hl-00000007jp6-4Bbs
+	id 1w69ug-00000007l5x-0ijS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 16:06:39 +0000
+	Fri, 27 Mar 2026 16:19:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0380635DA;
-	Fri, 27 Mar 2026 09:06:29 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 501B53F905;
-	Fri, 27 Mar 2026 09:06:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A595535DA;
+	Fri, 27 Mar 2026 09:19:49 -0700 (PDT)
+Received: from [10.1.196.96] (eglon.cambridge.arm.com [10.1.196.96])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 56A883F905;
+	Fri, 27 Mar 2026 09:19:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774627594; bh=rP5Us1gXdwPg7GyTIgDBgSFYYiyK72XcZqUZNsRJd7o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=euB7uvj6sPvllCzscsJiWjfu2yQKubt0UwiyzR70XCV7OQY28kY7MGRijQb7Rj/ww
-	 g5Jnk+yKB7WIdQKX0sZMjkOG8Lh6yX18HV9LbxuG0Qx9gTebYXJ4nvfTqJnMBxiUjW
-	 Tep1yK+UIiWrTDxl7aHcASnUCM2R72F1NxjKzw+g=
-Date: Fri, 27 Mar 2026 16:06:27 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Andrei Vagin <avagin@google.com>
-Cc: Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Cyrill Gorcunov <gorcunov@gmail.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, criu@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Chen Ridong <chenridong@huawei.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Michal Koutny <mkoutny@suse.com>,
-	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
-Message-ID: <acarA3sGKY4Acozw@J2N7QTR9R3.cambridge.arm.com>
-References: <20260323175340.3361311-1-avagin@google.com>
- <20260323175340.3361311-2-avagin@google.com>
- <acGEonF9I6sPA42B@J2N7QTR9R3.cambridge.arm.com>
- <acJnOB-rlyt-3jU4@willie-the-truck>
- <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
+	t=1774628395; bh=BT3A61wt+jo+f4hOBQHHbFUeQdz4NLa1VgiQZ5AES1w=;
+	h=Date:To:Cc:From:Subject:From;
+	b=GMB6pfjPIvxkbIFs2tPcZ2ibyJbPvuUvcK26Tc/VVChaK9nd+jIirCeqFUFAiCiDw
+	 rzOn6qL0umL2eLvPs4faR+AS+hZc+M1cTqHt2T4Onz6nRKmfQZbziStfDliZaZ7BBy
+	 74sL8g2Vf7g4DKIu2jGM3v/X7zlFewg/asjACNEg=
+Message-ID: <01f76011-f3c2-4dcb-b3bc-37c7d4de342e@arm.com>
+Date: Fri, 27 Mar 2026 16:19:26 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>
+Cc: Ben Horgan <ben.horgan@arm.com>, Marc Zyngier <marc.zyngier@arm.com>,
+ Oliver Upton <oupton@google.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Dave P Martin <Dave.Martin@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng <zengheng4@huawei.com>
+From: James Morse <james.morse@arm.com>
+Subject: [GIT PULL] arm_mpam: Add KVM/arm64 and resctrl glue code
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_090638_208706_31931887 
-X-CRM114-Status: GOOD (  53.48  )
+X-CRM114-CacheID: sfid-20260327_091958_319044_7A79E8CF 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,145 +72,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 03:19:49PM -0700, Andrei Vagin wrote:
-> Hi Mark and Will,
-> 
-> Thanks for the feedback. Please read the inline comments.
-> 
-> On Tue, Mar 24, 2026 at 3:28 AM Will Deacon <will@kernel.org> wrote:
-> >
-> > On Mon, Mar 23, 2026 at 06:21:22PM +0000, Mark Rutland wrote:
-> > > On Mon, Mar 23, 2026 at 05:53:37PM +0000, Andrei Vagin wrote:
-> > > > Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
-> > > > AT_HWCAP2, etc.) from a parent process when they have been modified via
-> > > > prctl.
-> > > >
-> > > > To support C/R operations (snapshots, live migration) in heterogeneous
-> > > > clusters, we must ensure that processes utilize CPU features available
-> > > > on all potential target nodes. To solve this, we need to advertise a
-> > > > common feature set across the cluster.
-> > > >
-> > > > This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
-> > > > auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV).  When
-> > > > execve() is called, if the current process has MMF_USER_HWCAP set, the
-> > > > HWCAP values are extracted from the current auxiliary vector and stored
-> > > > in the linux_binprm structure. These values are then used to populate
-> > > > the auxiliary vector of the new process, effectively inheriting the
-> > > > hardware capabilities.
-> > > >
-> > > > The inherited HWCAPs are masked with the hardware capabilities supported
-> > > > by the current kernel to ensure that we don't report more features than
-> > > > actually supported. This is important to avoid unexpected behavior,
-> > > > especially for processes with additional privileges.
-> > >
-> > > At a high level, I don't think that's going to be sufficient:
-> > >
-> > > * On an architecture with other userspace accessible feature
-> > >   identification mechanism registers (e.g. ID registers), userspace
-> > >   might read those. So you might need to hide stuff there too, and
-> > >   that's going to require architecture-specific interfaces to manage.
-> > >
-> > >   It's possible that some code checks HWCAPs and others check ID
-> > >   registers, and mismatch between the two could be problematic.
-> > >
-> > > * If the HWCAPs can be inherited by a more privileged task, then a
-> > >   malicious user could use this to hide security features (e.g. shadow
-> > >   stack or pointer authentication on arm64), and make it easier to
-> > >   attack that task. While not a direct attack, it would undermine those
-> > >   features.
-> 
-> I agree with Mark that only a privileged process have to be able to mask
-> certain hardware features. Currently, PR_SET_MM_AUXV is guarded by
-> CAP_SYS_RESOURCE, but PR_SET_MM_MAP allows changing the auxiliary vector
-> without specific capabilities. This is definitely the issue. To address
-> this, I think we can consider to introduce a new prctl command to enable
-> HWCAP inheritance explicitly.
-> 
-> > Yeah, this looks like a non-starter to me on arm64. Even if it was
-> > extended to apply the same treatment to the idregs, many of the hwcap
-> > features can't actually be disabled by the kernel and so you still run
-> > the risk of a task that probes for the presence of a feature using
-> > something like a SIGILL handler or, perhaps more likely, assumes that
-> > the presence of one hwcap implies the presence of another. And then
-> > there are the applications that just base everything off the MIDR...
-> 
-> The goal of this mechanism is not to provide strict architectural
-> enforcement or to trap the use of hardware features; rather, it is to
-> provide a consistent discovery interface for applications. I chose the
-> HWCAP vector because it mirrors the existing behavior of running an
-> older kernel on newer hardware: while ID registers might report a
-> feature as physically present, the HWCAPs will omit it if the kernel
-> lacks support. 
+Hi Catalin, Will,
 
-On arm64, the view of the ID registers that userspace gets *only*
-exposes features that the kernel knows about, as userspace reads of
-those registers are trapped+emulated by the kernel. On arm64 it's 
-not true to say that something appears in those but not the HWCAPs.
+Below is the MPAM series that plumbs all this stuff out to user-space via resctrl.
 
-I understand that might be different on other architectures, and so
-maybe this approach is sufficient on other architectures, but it is not
-sufficient on arm64.
+3 patches against KVM Acked by Marc Z, 9 patches against arm64 Acked or Reviewed by
+Catalin. One patch "arm_mpam: resctrl: Add CDP emulation" adds an include to the
+asm/mpam.h header. I'm assuming that doesn't need an ack.
 
-> Applications are generally expected to treat HWCAPs as
-> the source of truth for which features are safe to use, even if the
-> underlying hardware is technically capable of more.
+Thanks to Ben for fixing all my bugs!
 
-I'm fairly certain that there are arm64 applications (and libraries)
-which check only the ID register values, and not the HWCAPs.
+James
 
-Architecturally, there are features which are detected via other
-mechanisms (e.g. CHKFEAT), for which HWCAPs are also irrelevant. Even if
-that happens to be ok today, there are almost certainly future uses that
-will not be compatible with the scheme you propose.
+----------------------------------------------------------------
+The following changes since commit 1f318b96cc84d7c2ab792fcc0bfd42a7ca890681:
 
-I don't think we can say "applications must check the HWCAPs", when we
-know that applications and libraries legitimately don't always do that.
+  Linux 7.0-rc3 (2026-03-08 16:56:54 -0700)
 
-> Another significant advantage of using HWCAPs is that many
-> applications already rely on them for feature detection. This interface
-> allows these applications to work correctly "out-of-the-box" in a
-> migrated environment without requiring any userspace modifications.  I
-> understand that some apps may use other detection methods; however, there
-> it no gurantee that these applications will work correctly after
-> migration to another machine.
+are available in the Git repository at:
 
-I think the existince of applications that detect features by other
-(legitimate!) means implies that there's no guarantee that this feature
-is useful and will remain useful going forwards.
+  git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/glue/v7.0-rc3
 
-For example, what do you plan to do if an application or library starts
-doing something legitimate that causes it to become incompatible with
-this scheme?
+for you to fetch changes up to 4ce0a2ccc0358f3f746fa50815a599f861fd5d68:
 
-I don't want to be in a position where userspace is asked to steer clear
-of legitimate mechanisms, or where architecture code suddently has to
-pick up a lot of complexity to make this work.
+  arm64: mpam: Add initial MPAM documentation (2026-03-27 15:32:52 +0000)
 
-> > There's also kvm, which provides a roundabout way to query some features
-> > of the underlying hardware.
-> >
-> > You're probably better off using/extending the idreg overrides we have
-> > in arch/arm64/kernel/pi/idreg-override.c so that you can make your
-> > cluster of heterogeneous machines look alike.
-> 
-> IIRC, idreg-override/cpuid-masking usually works for an entire machine.
-> We actually need to have a mechanism that will work on a per-container
-> basis. Workloads inside one cluster can have different
-> migration/snapshot requirements. Some are pinned to a specific node,
-> others are never migrated, while others need to be migratable across a
-> cluster or even between clusters. We need a mechanism that can be
-> tunable on a per-container/per-process basis.
+----------------------------------------------------------------
+Expose MPAM to user-space via resctrl based on v7.0-rc3
 
-I think that's theoretically possible, BUT it will require substantially
-more complexity, to address the issues that Will and I have mentioned. I
-don't think people are very happy to pick up that complexity.
+ - Add architecture context-switch and hiding of the feature from KVM.
+ - Add interface to allow MPAM to be exposed to user-space using resctrl.
+ - Add errata workaoround for some existing platforms.
+ - Add documentation for using MPAM and what shape of platforms can use resctrl
 
-There are many other aspects that are going to be problematic for
-heterogeneous migration. Even if you hide the HWCAP for a stateful
-feature (e.g. SME), it might appear in one machine's signal frames (and
-be mandatory there), but might not appear in anothers, and so migration
-might not work either way. Likewise, that state can appear via ptrace.
+----------------------------------------------------------------
+Ben Horgan (11):
+      arm_mpam: Reset when feature configuration bit unset
+      arm64/sysreg: Add MPAMSM_EL1 register
+      KVM: arm64: Preserve host MPAM configuration when changing traps
+      KVM: arm64: Make MPAMSM_EL1 accesses UNDEF
+      arm64: mpam: Drop the CONFIG_EXPERT restriction
+      arm64: mpam: Initialise and context switch the MPAMSM_EL1 register
+      arm_mpam: resctrl: Hide CDP emulation behind CONFIG_EXPERT
+      arm_mpam: resctrl: Add rmid index helpers
+      arm_mpam: resctrl: Wait for cacheinfo to be ready
+      arm_mpam: resctrl: Add monitor initialisation and domain boilerplate
+      arm64: mpam: Add initial MPAM documentation
 
-Thanks,
-Mark.
+Dave Martin (2):
+      arm_mpam: resctrl: Convert to/from MPAMs fixed-point formats
+      arm_mpam: resctrl: Add kunit test for control format conversions
+
+James Morse (22):
+      arm64: mpam: Context switch the MPAM registers
+      arm64: mpam: Re-initialise MPAM regs when CPU comes online
+      arm64: mpam: Advertise the CPUs MPAM limits to the driver
+      arm64: mpam: Add cpu_pm notifier to restore MPAM sysregs
+      arm64: mpam: Add helpers to change a task or cpu's MPAM PARTID/PMG values
+      KVM: arm64: Force guest EL1 to use user-space's partid configuration
+      arm_mpam: resctrl: Add boilerplate cpuhp and domain allocation
+      arm_mpam: resctrl: Pick the caches we will use as resctrl resources
+      arm_mpam: resctrl: Implement resctrl_arch_reset_all_ctrls()
+      arm_mpam: resctrl: Add resctrl_arch_get_config()
+      arm_mpam: resctrl: Implement helpers to update configuration
+      arm_mpam: resctrl: Add plumbing against arm64 task and cpu hooks
+      arm_mpam: resctrl: Add CDP emulation
+      arm_mpam: resctrl: Add support for 'MB' resource
+      arm_mpam: resctrl: Add support for csu counters
+      arm_mpam: resctrl: Allow resctrl to allocate monitors
+      arm_mpam: resctrl: Add resctrl_arch_rmid_read()
+      arm_mpam: resctrl: Update the rmid reallocation limit
+      arm_mpam: resctrl: Add empty definitions for assorted resctrl functions
+      arm64: mpam: Select ARCH_HAS_CPU_RESCTRL
+      arm_mpam: resctrl: Call resctrl_init() on platforms that can support resctrl
+      arm_mpam: Quirk CMN-650's CSU NRDY behaviour
+
+Shanker Donthineni (4):
+      arm_mpam: Add quirk framework
+      arm_mpam: Add workaround for T241-MPAM-1
+      arm_mpam: Add workaround for T241-MPAM-4
+      arm_mpam: Add workaround for T241-MPAM-6
+
+Zeng Heng (1):
+      arm_mpam: Ensure in_reset_state is false after applying configuration
+
+ Documentation/arch/arm64/index.rst          |    1 +
+ Documentation/arch/arm64/mpam.rst           |   72 ++
+ Documentation/arch/arm64/silicon-errata.rst |    9 +
+ arch/arm64/Kconfig                          |    6 +-
+ arch/arm64/include/asm/el2_setup.h          |    3 +-
+ arch/arm64/include/asm/mpam.h               |   96 ++
+ arch/arm64/include/asm/resctrl.h            |    2 +
+ arch/arm64/include/asm/thread_info.h        |    3 +
+ arch/arm64/kernel/Makefile                  |    1 +
+ arch/arm64/kernel/cpufeature.c              |   21 +-
+ arch/arm64/kernel/mpam.c                    |   62 +
+ arch/arm64/kernel/process.c                 |    7 +
+ arch/arm64/kvm/hyp/include/hyp/switch.h     |   12 +-
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c          |   16 +
+ arch/arm64/kvm/sys_regs.c                   |    2 +
+ arch/arm64/tools/sysreg                     |    8 +
+ drivers/resctrl/Kconfig                     |    9 +-
+ drivers/resctrl/Makefile                    |    1 +
+ drivers/resctrl/mpam_devices.c              |  305 ++++-
+ drivers/resctrl/mpam_internal.h             |  108 +-
+ drivers/resctrl/mpam_resctrl.c              | 1704 +++++++++++++++++++++++++++
+ drivers/resctrl/test_mpam_resctrl.c         |  315 +++++
+ include/linux/arm_mpam.h                    |   32 +
+ 23 files changed, 2735 insertions(+), 60 deletions(-)
+ create mode 100644 Documentation/arch/arm64/mpam.rst
+ create mode 100644 arch/arm64/include/asm/mpam.h
+ create mode 100644 arch/arm64/include/asm/resctrl.h
+ create mode 100644 arch/arm64/kernel/mpam.c
+ create mode 100644 drivers/resctrl/mpam_resctrl.c
+ create mode 100644 drivers/resctrl/test_mpam_resctrl.c
 
