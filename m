@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C11410AB832
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 00:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDDB10AB832
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 00:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+aU2FbqGuThpJ6rrxXisrQZ8poKWSBzLLT9BNtj96Ug=; b=FyE3lpJul71Ihuhx+ccj2jqeUn
-	8Yr8jwicym84nKxGqtejAj3QeRazfe2nzXYsSU7fPqfURarFha22ggCGjRnUXJPu1S0e0j+1d2VD9
-	SlrO0Hat44DJmJsluywvWnH4pF04/zUD+V3X7N+Y45L/KbiJD1M7xFZ79Xeh7XRJcZ+wutmREHD7C
-	iDUvh+SLfZskX9xxdjAeraj1uQBsrnzPiUc1RD/vSkyMe6p9Z8W93i/SLRTbvtnXsZQijpTypgLCh
-	e2ORtyEZ4h1SFUdyJ7twHhqwoBv/ko9Wn1B3Rv2WIDxF5BEwUXF0OanBw0KdbH4Tl4fTi9pZz1Fxg
-	+FK4/B4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jF3VGWtFl5+5o0uq4BkVs4561ebEJfqMmvq/lQMWgIo=; b=DY4HwAJLX06XjckDO44tBSXs9l
+	nV8TkcbBXvIEHYOJU2+23nk3BCwvZuEkbkgf5r1R1VyRagKZQKu4R02eXBZ0SXuq5+9qIe4YEq0+z
+	qBKhDyBsjc66xbG/3kJQ7oeArs6rDlo5KRPQLK7YvFpgVU1M9xOjc42bLva/7+18JCuo5Ji9iBiJO
+	w0MaYF13QFgN0Xcg40ZTpHAwRrivfd7p2sa7T11CWRyRdFAvdqZbfej4RIrSRS6uKe9Ddt69ArZU1
+	s1ihpRik/WXjPpn0sM+c2ylNOO3SOheq/6C/dwpzkJKhUbdmO35vV9++2zWFUl21fULcgP3Jvmi2i
+	ILFYphDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ulh-00000006QCR-3KOQ;
-	Fri, 27 Mar 2026 00:09:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w5uob-00000006QLn-1s6A;
+	Fri, 27 Mar 2026 00:12:41 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5ulf-00000006QC7-1F9b
+	id 1w5uoY-00000006QLR-2uso
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 00:09:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3015D43731;
-	Fri, 27 Mar 2026 00:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18F9FC116C6;
-	Fri, 27 Mar 2026 00:09:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774570178;
-	bh=NtVvB17prGq/rDzcOx50gb9pEOvnlt8/PkVt1l9JhhA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KeraVxzARUz+LslbYVVEWwNtQ8kjtC/ec4C5IcS1qFz6zNZVNuJ8FGsP/3DAccWAH
-	 K8sC+4TETsPBWwjvjwWKAhi3N/VS9lMlhbmYViw9ITmWqkA4BrJz2MqOhWOs0xyiYm
-	 BqNtMJ+t5kN52OxIKUj+4bX8lrZAdpJORWzgKMOsXnWLqwmy3FBTPG3TgH6zvdbd0D
-	 jq9gx2jHQpAelGKveSrbpRtceuy5XdmjkiRGXPR0dX1nqM9u9hABoOdueZE3Ftn6Gc
-	 35qXuepsprdiFFr1CA2NZOJFZ6Gdp8HbWF2Vdh9QU+p3vl7Q3maJFfOqGDRaT+GSjt
-	 jG++FCABYBaHw==
-Date: Fri, 27 Mar 2026 00:09:32 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Haibo Chen <haibo.chen@nxp.com>
-Subject: Re: [PATCH v4 3/7] pinctrl: extract pinctrl_generic_to_map() from
- pinctrl_generic_pins_function_dt_node_to_map()
-Message-ID: <20260327-overdrawn-stretch-2311ec39aa58@spud>
-References: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
- <20260325-pinctrl-mux-v4-3-043c2c82e623@nxp.com>
+	Fri, 27 Mar 2026 00:12:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1774570351; bh=jF3VGWtFl5+5o0uq4BkVs4561ebEJfqMmvq/lQMWgIo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mL0VJltyFIuTAuDiXbq0SFZZtwXZHycgE0zQd8Pdni5gtRYlgRrFs9iSWsjYNIDLU
+	 ZahxIJ3swxFCe87FTCNeYIsqADKSVTn6R0wWFabTzgvXmuuIbclLK8pWh1Fj/ub4vr
+	 F8P0rOdwNduvAkO37xvewIeztKUaL2YOLszylhWM=
+Received: from June.localdomain ([123.121.145.35])
+	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
+	id 31B3D40A; Fri, 27 Mar 2026 08:12:27 +0800
+X-QQ-mid: xmsmtpt1774570347t0b1u0f4c
+Message-ID: <tencent_FED49CF5331CC0C7910618883332A08E2606@qq.com>
+X-QQ-XMAILINFO: NOcEdvLhLw8TC3ZRP/Ms0StBJXSMyXt0mU2UswUKCWUlYxFjktxm4PCFaA1xS/
+	 EyzMCbbnf0yAdffRpg0L3tinYG7P33cxMV7HET/P46r2gumZSJli6l+weTKjXu4Xz05bnuUZjiq0
+	 pmeNp96t6ySl+iel6n/kLFUQ4jB/oHXJUdtkfa/4GsK1oSi3mE9NcU0/7Sm8GouX218nqxeCKNAe
+	 LwiiNRm1iCtCBsLAz/96ynLKP6QvZ52ne2DDmdgcYgi9GkisNL5EWjuxwkA4c5TsawyE1bNa3DO7
+	 BF7XbJPNNVsa06JylxRz4kLskpVXqmPs09Vwxn6iaK3eANR3IN5vmGDXzw2dA/9nx4UVIfov0F9+
+	 3FD3ZLQom/kbFJOxCJfcD4ehTLaPG8nbmWOf982IWvOn24PKa5+3owmU1y4w3Pp5eVulVOIKMu+6
+	 zVwphqDXppwIFAD9JKisnxWxKJ4+5Uq23hUJ2U3ZkSX05uxIxwqgEf87bC+SEHkaomIac4p9/3Lg
+	 Jdd6Z5lXAueJyRSQIdrsOYeGy8aTMf61MnSrNMD1y8QJKlKOblGFejXIGN8oaRqLMgvCqOFYr2F6
+	 bGmGgmB6z92I/MWqt+cdi5K0oJl00zBWs2XD1kucFkDnSUD6P2iwgpjMd2Wym5mMlLu1yXkHXK1t
+	 AjaDRV3xkdT+duBWUk6CYiEZTHnHqh4Rox1fC6OWWh7gxV5vGXGKfK+ygKFdaGL7bQHhpo8OsNrh
+	 ILo4L/k6l6CuNO/Un5shA//IrgSSL9zzT+RnjY+ZSWgfEnKoae1MaeBHmgzDi/x9BfGneqNimrwb
+	 OhMBwcNZZ0TX5XskB89pFRAXzg0hm643TXzLnfu02X7O/reQluAWrKdhpBh6A+Nadf0L9IbxRBSi
+	 WZDXm7B5wMHfT0pyXkm8jnvYn4f/aCcEkXwplDrHpumfbOjAd0WoOsHzgZqu6YwwTJpSIRSHlZ+y
+	 bn/YtDozYt7Ua0ncRNxltyxIGiWiRxbsBIdkxiv/qeGhyD8dTE6x+RpXiFCF1H85SAkSvMx6+pkh
+	 MbR+YM2tq39v/Tkg0aQM7b1OV2cDEx3JJo5eTeKpOo2liS2EZfZt4Db4lsRjzANEK2TNxpbQ==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+From: Wang Jun <1742789905@qq.com>
+To: Qiang Zhao <qiang.zhao@nxp.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	gszhai@bjtu.edu.cn,
+	25125332@bjtu.edu.cn,
+	25125283@bjtu.edu.cn,
+	23120469@bjtu.edu.cn,
+	Wang Jun <1742789905@qq.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] soc: fsl: qe: panic on ioremap() failure in qe_reset()
+Date: Fri, 27 Mar 2026 08:12:25 +0800
+X-OQ-MSGID: <20260327001225.23192-1-1742789905@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <780c1ba3-6639-478e-896f-e35ec059b58c@kernel.org>
+References: <780c1ba3-6639-478e-896f-e35ec059b58c@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="o+mudXqwbMVi6APo"
-Content-Disposition: inline
-In-Reply-To: <20260325-pinctrl-mux-v4-3-043c2c82e623@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_170939_397327_59881886 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20260326_171239_062291_E5EED054 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,235 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When ioremap() fails in qe_reset(), the global pointer qe_immr remains
+NULL, leading to a subsequent NULL pointer dereference when the pointer
+is accessed. Since this happens early in the boot process, a failure to
+map a few bytes of I/O memory indicates a fatal error from which the
+system cannot recover.
 
---o+mudXqwbMVi6APo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Follow the same pattern as qe_sdma_init() and panic immediately when
+ioremap() fails. This avoids a silent NULL pointer dereference later
+and makes the error explicit.
 
-On Wed, Mar 25, 2026 at 07:04:12PM -0400, Frank Li wrote:
-> Refactor pinctrl_generic_pins_function_dt_subnode_to_map() by separating =
-DT
-> parsing logic from map creation. Introduce a new helper
-> pinctrl_generic_to_map() to handle mapping to kernel data structures, whi=
-le
-> keeping DT property parsing in the subnode function.
->=20
-> Improve code structure and enables easier reuse for platforms using
-> different DT properties (e.g. pinmux) without modifying the
-> dt_node_to_map-style callback API. Avoid unnecessary coupling to
-> pinctrl_generic_pins_function_dt_node_to_map(), which provides
-> functionality not needed when the phandle target is unambiguous.
->=20
-> Maximize code reuse and provide a cleaner extension point for future
-> pinctrl drivers.
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change in v4
-> - new patch
-> ---
->  drivers/pinctrl/pinconf.h         | 18 ++++++++
->  drivers/pinctrl/pinctrl-generic.c | 91 ++++++++++++++++++++++++---------=
-------
->  2 files changed, 74 insertions(+), 35 deletions(-)
->=20
-> diff --git a/drivers/pinctrl/pinconf.h b/drivers/pinctrl/pinconf.h
-> index 2880adef476e68950ffdd540ea42cdee6a16ec27..ffdabddb9660324ed8886a2e8=
-dcacff7e1c6c529 100644
-> --- a/drivers/pinctrl/pinconf.h
-> +++ b/drivers/pinctrl/pinconf.h
-> @@ -166,6 +166,13 @@ int pinctrl_generic_pins_function_dt_node_to_map(str=
-uct pinctrl_dev *pctldev,
->  						 struct device_node *np,
->  						 struct pinctrl_map **maps,
->  						 unsigned int *num_maps);
-> +
-> +int
-> +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *=
-parent,
-> +		       struct device_node *np, struct pinctrl_map **maps,
-> +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
-> +		       const char **group_name, unsigned int ngroups,
-> +		       const char **functions, unsigned int *pins);
->  #else
->  static inline int
->  pinctrl_generic_pins_function_dt_node_to_map(struct pinctrl_dev *pctldev,
-> @@ -175,4 +182,15 @@ pinctrl_generic_pins_function_dt_node_to_map(struct =
-pinctrl_dev *pctldev,
->  {
->  	return -ENOTSUPP;
->  }
-> +
-> +static inline int
-> +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *=
-parent,
-> +		       struct device_node *np, struct pinctrl_map **maps,
-> +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
-> +		       const char **group_name, unsigned int ngroups,
-> +		       const char **functions, unsigned int *pins,
-> +		       void *function_data)
-> +{
-> +	return -ENOTSUPP;
-> +}
->  #endif
-> diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pinctrl-=
-generic.c
-> index efb39c6a670331775855efdc8566102b5c6202ef..20a216ae63e91b69985ea4cfc=
-d0b57103c6ca950 100644
-> --- a/drivers/pinctrl/pinctrl-generic.c
-> +++ b/drivers/pinctrl/pinctrl-generic.c
-> @@ -17,29 +17,18 @@
->  #include "pinctrl-utils.h"
->  #include "pinmux.h"
-> =20
-> -static int pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctr=
-l_dev *pctldev,
-> -							   struct device_node *parent,
-> -							   struct device_node *np,
-> -							   struct pinctrl_map **maps,
-> -							   unsigned int *num_maps,
-> -							   unsigned int *num_reserved_maps,
-> -							   const char **group_names,
-> -							   unsigned int ngroups)
-> +int
-> +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_node *=
-parent,
-> +		       struct device_node *np, struct pinctrl_map **maps,
-> +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
-> +		       const char **group_names, unsigned int ngroups,
-> +		       const char **functions, unsigned int *pins)
+Fixes: 986585385131 ("[POWERPC] Add QUICC Engine (QE) infrastructure")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wang Jun <1742789905@qq.com>
+---
+ drivers/soc/fsl/qe/qe.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-npins needs to be an argument to this function also, otherwise
-pinctrl_generic_add_group() uses it uninitialised...
+diff --git a/drivers/soc/fsl/qe/qe.c b/drivers/soc/fsl/qe/qe.c
+index 70b6eddb867b..9f6223043ee3 100644
+--- a/drivers/soc/fsl/qe/qe.c
++++ b/drivers/soc/fsl/qe/qe.c
+@@ -86,8 +86,12 @@ static phys_addr_t get_qe_base(void)
+ 
+ void qe_reset(void)
+ {
+-	if (qe_immr == NULL)
++	if (qe_immr == NULL) {
+ 		qe_immr = ioremap(get_qe_base(), QE_IMMAP_SIZE);
++		if (qe_immr == NULL) {
++			panic("QE:ioremap failed!");
++		}
++	}
+ 
+ 	qe_snums_init();
+ 
+-- 
+2.43.0
 
->  {
->  	struct device *dev =3D pctldev->dev;
-> -	const char **functions;
-> +	int npins, ret, reserve =3D 1;
-
-=2E..because you're declaring it here when it's something set by the dt
-parsing code in pinctrl_generic_pins_function_dt_subnode_to_map()...
-
-> +	unsigned int num_configs;
->  	const char *group_name;
->  	unsigned long *configs;
-> -	unsigned int num_configs, pin, *pins;
-> -	int npins, ret, reserve =3D 1;
-> -
-> -	npins =3D of_property_count_u32_elems(np, "pins");
-> -
-> -	if (npins < 1) {
-> -		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
-> -			parent, np, npins);
-> -		return npins;
-> -	}
-> =20
->  	group_name =3D devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", parent, n=
-p);
->  	if (!group_name)
-> @@ -51,22 +40,6 @@ static int pinctrl_generic_pins_function_dt_subnode_to=
-_map(struct pinctrl_dev *p
->  	if (!pins)
->  		return -ENOMEM;
-> =20
-> -	functions =3D devm_kcalloc(dev, npins, sizeof(*functions), GFP_KERNEL);
-> -	if (!functions)
-> -		return -ENOMEM;
-> -
-> -	for (int i =3D 0; i < npins; i++) {
-> -		ret =3D of_property_read_u32_index(np, "pins", i, &pin);
-> -		if (ret)
-> -			return ret;
-> -
-> -		pins[i] =3D pin;
-> -
-> -		ret =3D of_property_read_string(np, "function", &functions[i]);
-> -		if (ret)
-> -			return ret;
-> -	}
-> -
->  	ret =3D pinctrl_utils_reserve_map(pctldev, maps, num_reserved_maps, num=
-_maps, reserve);
->  	if (ret)
->  		return ret;
-> @@ -103,6 +76,54 @@ static int pinctrl_generic_pins_function_dt_subnode_t=
-o_map(struct pinctrl_dev *p
->  	return 0;
->  };
-> =20
-> +static int
-> +pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev *pctl=
-dev,
-> +						struct device_node *parent,
-> +						struct device_node *np,
-> +						struct pinctrl_map **maps,
-> +						unsigned int *num_maps,
-> +						unsigned int *num_reserved_maps,
-> +						const char **group_names,
-> +						unsigned int ngroups)
-> +{
-> +	struct device *dev =3D pctldev->dev;
-> +	unsigned int pin, *pins;
-> +	const char **functions;
-> +	int npins, ret;
-> +
-> +	npins =3D of_property_count_u32_elems(np, "pins");
-
-=2E..down here.
-
-> +
-> +	if (npins < 1) {
-> +		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
-> +			parent, np, npins);
-> +		return npins;
-> +	}
-> +
-> +	pins =3D devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
-> +	if (!pins)
-> +		return -ENOMEM;
-> +
-> +	functions =3D devm_kcalloc(dev, npins, sizeof(*functions), GFP_KERNEL);
-> +	if (!functions)
-> +		return -ENOMEM;
-> +
-> +	for (int i =3D 0; i < npins; i++) {
-> +		ret =3D of_property_read_u32_index(np, "pins", i, &pin);
-> +		if (ret)
-> +			return ret;
-> +
-> +		pins[i] =3D pin;
-> +
-> +		ret =3D of_property_read_string(np, "function", &functions[i]);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return pinctrl_generic_to_map(pctldev, parent, np, maps, num_maps,
-> +				      num_reserved_maps, group_names, ngroups,
-> +				      functions, pins);
-> +}
-> +
->  /*
->   * For platforms that do not define groups or functions in the driver, b=
-ut
->   * instead use the devicetree to describe them. This function will, unli=
-ke
->=20
-> --=20
-> 2.43.0
->=20
-
---o+mudXqwbMVi6APo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacXKvAAKCRB4tDGHoIJi
-0thbAQDbxNyZa3GlTnX7r+sEYyk1llSXOcQQeaeFVeqx24IPsAD/XOAxZiDAnZEX
-HkHTxIYqbuTa1cJPPkfDdnwGzmk12AI=
-=vM4Z
------END PGP SIGNATURE-----
-
---o+mudXqwbMVi6APo--
 
