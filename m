@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E51110ED664
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C301E10ED664
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mixD/He9qmmJr+yOxb0v5dS8BcaS/ciPSUCsiG9+Jg=; b=P/2K5i4YYw3gMDV0l+IQYlaz0c
-	J40VZItH7LBhwIyiMAxwieSvCL1hbIWTA8H5jteX/mFB9gPg3vyB4j0ffWJR/AauBZsS30cWQYWab
-	ItXPMz6F8M4XNsenoyjDmidr6T2MVcQ5tFHlTsnwNK/lfYCisLBxPRQfyHaxe9QhowQ20q6JJLCeY
-	esC8tMOBRzvyUb9wdbCP70JwI5tXWKUG0vxG+GRttsbAFSfEoO7aN7r6T2RqSCl6lpd4uFdWnXpdH
-	DvjX7V17pspKAj5unN5wj85uaIf7Uy2t4794uv19NczEXT3P8gNxclgjKOFsEu+RWLFmcKDEflz7k
-	yrm3dLMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cmKEJw/Cj9xm1e8qrjGHcR9wgMrGReZF95ggP692XqY=; b=Di+aHqkPUHuUJrvRoYmzhFi2Cr
+	thZxyBJfaa8wE8XOCzKBnwLZ3m/OGPRdwVfaQDqCkHjfnFalcpNUkNE3Z0oyGOdn71Mgd96rke1yn
+	hNAxkNqly8bMociv9Qg5l2i77cmWyXjqwcf1rhX7ZaWI8H5gZnwZ60nyHu4fxkLcmcJ/uGHwQ7uHG
+	qRZtC0UZxH3fmILUViT0KFigKcF8OQsr4Cz9Hk2H6uGxI5VzWFVqraFxQKjx73WyLfe31Hwko+kvl
+	5dUQHO9EuCo/fMGHmUtcJIe4X+kqLrQm0yx8gpx4OXimwOmZrOTqPiC9sW/kZD4oLnGTCJktWpjNd
+	JbJLSHXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66nq-00000007Nmp-3DbU;
-	Fri, 27 Mar 2026 13:00:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66np-00000007NmS-18s9
+	id 1w66oO-00000007NtP-2YtV;
+	Fri, 27 Mar 2026 13:01:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w66oM-00000007Nsx-1Ym8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 13:00:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D41A635A1;
-	Fri, 27 Mar 2026 06:00:33 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC02B3F905;
-	Fri, 27 Mar 2026 06:00:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774616439; bh=NRpLU3VWNM4bFKxiVpEMaLJQ3c2gSocDeM31nmwqK/E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ayg3wAwUNXPLxFqAh/uWuZwPccKhFmk7ZLTKxpy1ttsWaS8BxS8dNbQ/tLk9NREUe
-	 tvjH1iqKRZVHjILG15WYSvazb3ayt3XldhFT2gER3haS5T08HXsiX6ksk3F3wU+aZ1
-	 Cq+mxEJ8s6mcYChMj/EZnX10T5VNkjlMO7yOpOVo=
-Date: Fri, 27 Mar 2026 13:00:35 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: will@kernel.org, shuah@kernel.org, broonie@kernel.org,
-	yeoreum.yun@arm.com, jonathan.cameron@huawei.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linuxarm@huawei.com,
-	Yifan Wu <wuyifan50@huawei.com>
-Cc: xiaqinxin@huawei.com, prime.zeng@hisilicon.com, wangyushan12@huawei.com,
-	xuwei5@huawei.com, fanghao11@huawei.com, wangzhou1@hisilicon.com
-Subject: Re: (subset) [PATCH v2 0/2] selftests/arm64: Fix sve2p1_sigill() and
- add cmpbr_sigill() for hwcap test
-Message-ID: <acZ_cxnUjoFiAuJp@arm.com>
-References: <20260305013638.992301-1-wuyifan50@huawei.com>
- <177461612664.2271410.12022212735709481989.b4-ty@arm.com>
+	Fri, 27 Mar 2026 13:01:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 86EBB6132B;
+	Fri, 27 Mar 2026 13:01:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD901C19423;
+	Fri, 27 Mar 2026 13:01:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774616473;
+	bh=clZGoSYnunaz353uIOTaKe0JjLBlcI1p6Gjqr/3pQlY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PwixPOwjLr7IToaBIVQvvm8EabafJiiQs273lGLio3ZnZ8LquoyM5RStVq6Qk3YWr
+	 30tO7KfGGpZ1oNVvK6uagOMCmIYGrWTpQ94VQXQpWgPm4NFzOeGe7QRY0EtloRCMFK
+	 m4qsJlfszlS+hAs6Zo942V0Bkt3efxd/4e8G5R+ShjiyVsUJAUrG8QFFI6nK2T7A1n
+	 uHPfneNduK9KhIrEipXQwXPZ43AHYCQjv4DtY3SeaDDQN49omOBhg2GcIUKv0gcNgo
+	 TQ8JinVdHIm2XoWjIBXJNJDj87EQ555xSPCQSvhj69fbGS8crz5jTPSNSHGQ3QkC6R
+	 EFjv/ZmAfr0qA==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Yabin Cui <yabinc@google.com>
+Subject: [PATCH v4 0/3] KVM: arm64: Fix SPE and TRBE nVHE world switch
+Date: Fri, 27 Mar 2026 13:00:43 +0000
+Message-ID: <20260327130047.21065-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <177461612664.2271410.12022212735709481989.b4-ty@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_060041_352785_EF3C1A08 
-X-CRM114-Status: GOOD (  12.44  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +75,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 12:58:11PM +0000, Catalin Marinas wrote:
-> On Thu, 05 Mar 2026 09:36:36 +0800, Yifan Wu wrote:
-> > This patch series fixes and adds two selftests in the arm64 hwcap
-> > test suite.
-> > 
-> > Patch 1/2 fixes the sve2p1_sigill() test to correctly detect the
-> > FEAT_SVE2p1 feature. Previously, the test incorrectly assumed that
-> > the presence of FEAT_SVE2.1 implied support for the BFADD
-> > instruction, which actually depends on the FEAT_SVE_B16B16 feature.
-> > The test is updated to use the LD1Q instruction, which is
-> > unambiguously implied by FEAT_SVE2p1.
-> > 
-> > [...]
-> 
-> Applied to arm64 (for-kernelci), thanks!
+Hi all,
 
-Wrong branch, it's for-next/kselftest (script got confused).
+I got the Sashiko treatment on v3, so here's a quick respin to address
+the BRBE thinko it found in the last patch.
+
+Previous versions of the series are available at:
+
+  v1: https://lore.kernel.org/r/20260216130959.19317-1-will@kernel.org
+  v2: https://lore.kernel.org/r/20260227212136.7660-1-will@kernel.org
+  v3: https://lore.kernel.org/r/20260326141214.18990-1-will@kernel.org
+
+Changes since v3 include:
+
+  * Retain zeroing of *brbcr_el1 when saving BRBE state
+  * Dropped R-b / T-b tags on the BRBE patch
+
+Cheers,
+
+Will
+
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: Yabin Cui <yabinc@google.com>
+
+--->8
+
+Will Deacon (3):
+  KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest
+    context
+  KVM: arm64: Disable SPE Profiling Buffer when running in guest context
+  KVM: arm64: Don't pass host_debug_state to BRBE world-switch routines
+
+ arch/arm64/include/asm/kvm_host.h  |   2 +
+ arch/arm64/kvm/hyp/nvhe/debug-sr.c | 116 +++++++++++++++++++++++------
+ arch/arm64/kvm/hyp/nvhe/switch.c   |   2 +-
+ 3 files changed, 95 insertions(+), 25 deletions(-)
+
+-- 
+2.53.0.1018.g2bb0e51243-goog
+
 
