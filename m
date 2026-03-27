@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D794210ED674
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F7B10ED664
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MqkYSH4rSsGJtV3dvyH8zl2XZYSZ3SwJvsT6SkmY2sA=; b=VR5RmziTno6m7+FxMJKbZxX8S3
-	oi9Os53lDBTtSbsiOOldSNxIybjXUVAbgSOB3SIIu86jMC/k4e80XkrVQYv5jiOue2WDh0eK0vXiy
-	Yq27nSRCCXQ63UIUnds8nnWWbvigC0Btb75ec49Io8Nm9JnZMtuaza3soq5+rFF8kp18LSGoxtOeL
-	F7DClNj08o9QipCLx+BO190+U5TAsvFgw455i3wcY/p+2DL8OxgTBC1glQlX4NtzWwk5IEVWhhVyY
-	AnSDOzHZ+qJmHqhIvJA8ybKL9RsOKb0WYtUF1kudelz5+YQH4CKR7KugNOD1KpeRttun2A9QVxOtM
-	4aKwTRnA==;
+	bh=wnGJQEK5OVdQxwZnjCmN3P6+8CcdtDMTzj9JP7NjP8c=; b=eGQu3kcujqn7rKUWBxKHk2M56A
+	EOE0y6kn7pqfkwfRnfbIcLgQ9AcUFde3dCtYkVof64E/k1gDO2TujNHS4MVj0ujCA+6W6+ESPBL3R
+	2sNKMSgkWXfioJwubaYg5OVCghdoO24DuVgwFRDka8BT+MRo/qySL2LO+gnkwqTBv+0aPMZHhkZMm
+	AqP0GGfzCXTspNOMdEgMLHAd04xmmGtYriQouUGYjgGOrua+aMpQ1pO3qS7V2Jx2c55UZrK/pY/D5
+	68dZoOJmBJqlLkKY2W46++oE3czxOXBmRqmoTS9cg/gxN1U4SuD5uplMTMm6i3nt9tHhEWIbXJ7hV
+	IeOOz7iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66oZ-00000007Nwa-3pjj;
-	Fri, 27 Mar 2026 13:01:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w66oa-00000007Nx9-25Kh;
+	Fri, 27 Mar 2026 13:01:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66oR-00000007NtO-2e39
+	id 1w66oU-00000007NuD-3txz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 13:01:23 +0000
+	Fri, 27 Mar 2026 13:01:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BE2840577;
-	Fri, 27 Mar 2026 13:01:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D58F5C19423;
-	Fri, 27 Mar 2026 13:01:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E7EA44557;
+	Fri, 27 Mar 2026 13:01:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7C2AC2BC86;
+	Fri, 27 Mar 2026 13:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774616476;
-	bh=mRkhsVcdgzhGj3A3dYs+jhPT8Fkxy5scOpJSWYyFDEc=;
+	s=k20201202; t=1774616482;
+	bh=PwnNb0pQjR9jZ3vJL0puyCjiPOXJLaR8FU0epCCREF4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VugK9l/aiGWeYGXcCreji7kmurPWg5SklpZBa6Fxcane139urOyWejiQ7TAi3Uy12
-	 0/yvvXnP2L1jtxZ+2nmRoxPoPzdXc2bwqxI54oALRrgBQllF2zS26QQcP6cqqcDAjS
-	 ZHOcFW2oMMxxrFPvqP1et8ZpKJfDSI5nLJigR4wEN/41MRMwkTZjKzWqt+HAC5xiln
-	 3X5cZTaRuAJqTM4OClCGF3KxhTx5poccwXW1FrYDSOYbtwdCBE4GcCaDllJQF+7+HP
-	 HZA1I7SC+2LmdzdTFrwsNc9oOc+7m4fkMKDs/jL4o7SGqOGq5NmmoNy+stIHFtlLlj
-	 oBetz+8aMXscw==
+	b=LB4opcidM9ORtf9hp20k4phhg43fiOTM4TvjsQ3MpAkiNLPnQo9emYUrj70moZHhW
+	 COaT7D04kPH3sX8TO89iTmQzGS9rBtfDW2xE+5KfR5KxmrbYG/XAzZOm5PB6ZsgbAZ
+	 9KNAD8NOKP2TfjytorS8169plGRLgXWXE0K5k1c7kbBD4FSqCp4opGwj5acgvrK6+h
+	 Uua3sEbzMMO7SsnrDr3oSGcDbYxVYlcxk5hnXsE2njGsojiAhJpV3jFcQzlTIvej/i
+	 ECuYQZhBgPcnW4LXQXO1CTMieaHBIPHWAxUWfzbDKaA1rlDDsxf+gg7goLFL8bKxZL
+	 wrDUdK2PoYs8g==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: mark.rutland@arm.com,
@@ -55,17 +55,17 @@ Cc: mark.rutland@arm.com,
 	Fuad Tabba <tabba@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Yabin Cui <yabinc@google.com>
-Subject: [PATCH v4 1/3] KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest context
-Date: Fri, 27 Mar 2026 13:00:44 +0000
-Message-ID: <20260327130047.21065-2-will@kernel.org>
+Subject: [PATCH v4 3/3] KVM: arm64: Don't pass host_debug_state to BRBE world-switch routines
+Date: Fri, 27 Mar 2026 13:00:46 +0000
+Message-ID: <20260327130047.21065-4-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260327130047.21065-1-will@kernel.org>
 References: <20260327130047.21065-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_060122_662929_047EECFE 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20260327_060122_994627_F0C27FA2 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,27 +80,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nVHE world-switch code relies on zeroing TRFCR_EL1 to disable trace
-generation in guest context when self-hosted TRBE is in use by the host.
+Now that the SPE and BRBE nVHE world-switch routines operate on the
+host_debug_state directly, tweak the BRBE code to do the same for
+consistency.
 
-Per D3.2.1 ("Controls to prohibit trace at Exception levels"), clearing
-TRFCR_EL1 means that trace generation is prohibited at EL1 and EL0 but
-per R_YCHKJ the Trace Buffer Unit will still be enabled if
-TRBLIMITR_EL1.E is set. R_SJFRQ goes on to state that, when enabled, the
-Trace Buffer Unit can perform address translation for the "owning
-exception level" even when it is out of context.
-
-Consequently, we can end up in a state where TRBE performs speculative
-page-table walks for a host VA/IPA in guest/hypervisor context depending
-on the value of MDCR_EL2.E2TB, which changes over world-switch. The
-potential result appears to be a heady mixture of SErrors, data
-corruption and hardware lockups.
-
-Extend the TRBE world-switch code to clear TRBLIMITR_EL1.E after
-draining the buffer, restoring the register on return to the host. This
-unfortunately means we need to tackle CPU errata #2064142 and #2038923
-which add additional synchronisation requirements around manipulations
-of the limit register. Hopefully this doesn't need to be fast.
+This is purely cosmetic.
 
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oupton@kernel.org>
@@ -109,138 +93,57 @@ Cc: Leo Yan <leo.yan@arm.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: Fuad Tabba <tabba@google.com>
 Cc: Alexandru Elisei <alexandru.elisei@arm.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Tested-by: Fuad Tabba <tabba@google.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Fixes: a1319260bf62 ("arm64: KVM: Enable access to TRBE support for host")
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h  |  1 +
- arch/arm64/kvm/hyp/nvhe/debug-sr.c | 71 ++++++++++++++++++++++++++----
- arch/arm64/kvm/hyp/nvhe/switch.c   |  2 +-
- 3 files changed, 64 insertions(+), 10 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/debug-sr.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 70cb9cfd760a..b1335c55dbef 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -770,6 +770,7 @@ struct kvm_host_data {
- 		u64 pmscr_el1;
- 		/* Self-hosted trace */
- 		u64 trfcr_el1;
-+		u64 trblimitr_el1;
- 		/* Values of trap registers for the host before guest entry. */
- 		u64 mdcr_el2;
- 		u64 brbcr_el1;
 diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-index 2a1c0f49792b..0955af771ad1 100644
+index 84bc80f4e36b..f8904391c125 100644
 --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
 +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-@@ -57,12 +57,54 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
- 	write_sysreg_el1(new_trfcr, SYS_TRFCR);
- }
- 
--static bool __trace_needs_drain(void)
-+static void __trace_drain_and_disable(void)
- {
--	if (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRBE))
--		return read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E;
-+	u64 *trblimitr_el1 = host_data_ptr(host_debug_state.trblimitr_el1);
-+	bool needs_drain = is_protected_kvm_enabled() ?
-+			   host_data_test_flag(HAS_TRBE) :
-+			   host_data_test_flag(TRBE_ENABLED);
- 
--	return host_data_test_flag(TRBE_ENABLED);
-+	if (!needs_drain) {
-+		*trblimitr_el1 = 0;
-+		return;
-+	}
-+
-+	*trblimitr_el1 = read_sysreg_s(SYS_TRBLIMITR_EL1);
-+	if (*trblimitr_el1 & TRBLIMITR_EL1_E) {
-+		/*
-+		 * The host has enabled the Trace Buffer Unit so we have
-+		 * to beat the CPU with a stick until it stops accessing
-+		 * memory.
-+		 */
-+
-+		/* First, ensure that our prior write to TRFCR has stuck. */
-+		isb();
-+
-+		/* Now synchronise with the trace and drain the buffer. */
-+		tsb_csync();
-+		dsb(nsh);
-+
-+		/*
-+		 * With no more trace being generated, we can disable the
-+		 * Trace Buffer Unit.
-+		 */
-+		write_sysreg_s(0, SYS_TRBLIMITR_EL1);
-+		if (cpus_have_final_cap(ARM64_WORKAROUND_2064142)) {
-+			/*
-+			 * Some CPUs are so good, we have to drain 'em
-+			 * twice.
-+			 */
-+			tsb_csync();
-+			dsb(nsh);
-+		}
-+
-+		/*
-+		 * Ensure that the Trace Buffer Unit is disabled before
-+		 * we start mucking with the stage-2 and trap
-+		 * configuration.
-+		 */
-+		isb();
-+	}
- }
- 
- static bool __trace_needs_switch(void)
-@@ -79,15 +121,26 @@ static void __trace_switch_to_guest(void)
- 
- 	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
- 			  *host_data_ptr(trfcr_while_in_guest));
--
--	if (__trace_needs_drain()) {
--		isb();
--		tsb_csync();
--	}
-+	__trace_drain_and_disable();
- }
- 
- static void __trace_switch_to_host(void)
- {
-+	u64 trblimitr_el1 = *host_data_ptr(host_debug_state.trblimitr_el1);
-+
-+	if (trblimitr_el1 & TRBLIMITR_EL1_E) {
-+		/* Re-enable the Trace Buffer Unit for the host. */
-+		write_sysreg_s(trblimitr_el1, SYS_TRBLIMITR_EL1);
-+		isb();
-+		if (cpus_have_final_cap(ARM64_WORKAROUND_2038923)) {
-+			/*
-+			 * Make sure the unit is re-enabled before we
-+			 * poke TRFCR.
-+			 */
-+			isb();
-+		}
-+	}
-+
- 	__trace_do_switch(host_data_ptr(trfcr_while_in_guest),
+@@ -156,8 +156,10 @@ static void __trace_switch_to_host(void)
  			  *host_data_ptr(host_debug_state.trfcr_el1));
  }
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 779089e42681..f00688e69d88 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -278,7 +278,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	 * We're about to restore some new MMU state. Make sure
- 	 * ongoing page-table walks that have started before we
- 	 * trapped to EL2 have completed. This also synchronises the
--	 * above disabling of BRBE, SPE and TRBE.
-+	 * above disabling of BRBE and SPE.
- 	 *
- 	 * See DDI0487I.a D8.1.5 "Out-of-context translation regimes",
- 	 * rule R_LFHQG and subsequent information statements.
+ 
+-static void __debug_save_brbe(u64 *brbcr_el1)
++static void __debug_save_brbe(void)
+ {
++	u64 *brbcr_el1 = host_data_ptr(host_debug_state.brbcr_el1);
++
+ 	*brbcr_el1 = 0;
+ 
+ 	/* Check if the BRBE is enabled */
+@@ -173,8 +175,10 @@ static void __debug_save_brbe(u64 *brbcr_el1)
+ 	write_sysreg_el1(0, SYS_BRBCR);
+ }
+ 
+-static void __debug_restore_brbe(u64 brbcr_el1)
++static void __debug_restore_brbe(void)
+ {
++	u64 brbcr_el1 = *host_data_ptr(host_debug_state.brbcr_el1);
++
+ 	if (!brbcr_el1)
+ 		return;
+ 
+@@ -190,7 +194,7 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ 
+ 	/* Disable BRBE branch records */
+ 	if (host_data_test_flag(HAS_BRBE))
+-		__debug_save_brbe(host_data_ptr(host_debug_state.brbcr_el1));
++		__debug_save_brbe();
+ 
+ 	if (__trace_needs_switch())
+ 		__trace_switch_to_guest();
+@@ -206,7 +210,7 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+ 	if (host_data_test_flag(HAS_SPE))
+ 		__debug_restore_spe();
+ 	if (host_data_test_flag(HAS_BRBE))
+-		__debug_restore_brbe(*host_data_ptr(host_debug_state.brbcr_el1));
++		__debug_restore_brbe();
+ 	if (__trace_needs_switch())
+ 		__trace_switch_to_host();
+ }
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
