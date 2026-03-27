@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA46810AB83C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 01:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE2F10A3D96
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 02:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QyLoJUmAgNCnAFnoeNpvktSfvyFwusmaX6JdA7PKVoQ=; b=T4UJHktpILHvFmPvwSnUQ46PCZ
-	CoDiKCz3GgU4KlUwLZPzAhdX3NXfy2DNCVfmgMBudEnWA9JdWQLbVS8n4XtHQdCG68gcSPAEqwoXs
-	BUWPLW49oT+1TzIZRViFMiwThd63OfB2ZLm3IPT0GqhDq9mOBM5WH9SUKRyoBq4HIEkzNMZu1s55o
-	m0w7vUytbXBzOvD0N/Lxbs/jQNlrjQozkEL5gMmYPhk0SgP5spZE7StP6A9BlywLcvGnJgcchpMR8
-	iJdCXv12ZXO+Zze0RZctJz9Xk9fXB7JLru8bqFWMmE7+IqOiQZ8Ixumt6VyplB5/3BgM0EpqutAUf
-	iVdnLDdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tJ93pPazuX4K94FSaZiqGhQnP0ManGRA5C1/7WXfWII=; b=Q4Rpd1CFod2FirXy703l2yyRiz
+	mnW9U+O1HPuPRFLa092PnGXOghoRhby7pXYItSrlP/R2qnse/A9EN2/RcgIe0qXW1fo7kholcTON6
+	r0mUYTbiGVGou1EPkJvzTPQ8EXW+wKiczJCvpjZzPq4Baph3rkjX+vLxafBknispNAs+Uc5kuh1Ij
+	lkiTjuszVvQ9oo06EOIeXcYkPNWKnpNH83O/E5iF1U8YrRP3TqcsVbxr6V9+9abmxmmra3irm0XSD
+	MzWgwt5xrfFDidPB8w6nLPHAH5sJyzLBp1IzLfU52KIuUc3nJhBoybsIfMyWq5N6K5hslSeh9B8vC
+	3by3eJCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5wSs-00000006Vw3-24mv;
-	Fri, 27 Mar 2026 01:58:22 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1w5wai-00000006WKd-3MT0;
+	Fri, 27 Mar 2026 02:06:28 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5wSp-00000006VvV-0oiR
+	id 1w5waf-00000006WJ5-3bD7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 01:58:20 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 27 Mar
- 2026 09:58:11 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 27 Mar 2026 09:58:11 +0800
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-Date: Fri, 27 Mar 2026 09:58:05 +0800
-Subject: [PATCH] ARM: dts: aspeed: g6: Add missing uart nodes
+	Fri, 27 Mar 2026 02:06:28 +0000
+X-UUID: 88cfe52e298111f1a21c59e7364eecb8-20260327
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:47f67297-d4c4-4a22-95d6-f026f0d123cf,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:6e92079a5dc80ba334bbc31596d1fe50,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
+	52,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 88cfe52e298111f1a21c59e7364eecb8-20260327
+X-User: tianyaxiong@kylinos.cn
+Received: from [10.42.13.21] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <tianyaxiong@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 1468667143; Fri, 27 Mar 2026 10:06:14 +0800
+Message-ID: <2f9ab345-5940-4298-87a5-bf9121fe219e@kylinos.cn>
+Date: Fri, 27 Mar 2026 10:06:12 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260327-upstream_g6_dts_uart-v1-1-26e72b47bc97@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIACzkxWkC/x3MSwqAMAwA0atI1ha0RSteRaRUjZqFH5JWBPHuF
- pdvMfOAIBMKtNkDjBcJHXtCmWcwrn5fUNGUDLrQdWG0VfGUwOg3t9RuCuKi56Bs46sRzaAbayC
- lJ+NM97/t+vf9AKJ8+8RmAAAA
-X-Change-ID: 20260327-upstream_g6_dts_uart-78a5ce3b2873
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Jammy Huang
-	<jammy_huang@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774576691; l=2359;
- i=jammy_huang@aspeedtech.com; s=20251124; h=from:subject:message-id;
- bh=zjsrYiyS5R3u3HNSn/zBZPIrCD0+6PLtVmbqWN2NWeQ=;
- b=7sG1WokGh6V3U460lJfPkX2JUl/SXsBpfuofApq8t65i0n+ASmk6qw5GnKxScpETF95CXWtN5
- R2AMlKXJAuiC7O7Am6yHahgpW3cCRyPCJYmMhrObBVCZ463dA3ngdvt
-X-Developer-Key: i=jammy_huang@aspeedtech.com; a=ed25519;
- pk=E5YwijeJZZcuDR6srvwNlXrNHvLxwipUg3Mb/xxUF9o=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 00/10] devfreq: Fix NULL pointer dereference when a
+ governor module is unloaded
+To: Jie Zhan <zhanjie9@hisilicon.com>, cw00.choi@samsung.com,
+ myungjoo.ham@samsung.com, kyungmin.park@samsung.com
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxarm@huawei.com, jonathan.cameron@huawei.com, zhenglifeng1@huawei.com,
+ zhangpengjie2@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com
+References: <20260326123428.800407-1-zhanjie9@hisilicon.com>
+ <1774576755240654.100.seg@mailgw.kylinos.cn>
+Content-Language: en-US
+From: Yaxiong Tian <tianyaxiong@kylinos.cn>
+In-Reply-To: <1774576755240654.100.seg@mailgw.kylinos.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_185819_238982_98A52B68 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260326_190626_213359_08564729 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,87 +81,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add nodes for uart10/11/12/13.
 
-Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
----
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 56 +++++++++++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+在 2026/3/26 21:14, Jie Zhan 写道:
+>
+> On 3/26/2026 8:34 PM, Jie Zhan wrote:
+>> When compiled as a kernel module, the governor module can be dynamically
+>> inserted or removed.  'devfreq->governor' would become NULL if the governor
+>> module is removed when it's in use, and NULL pointer dereference would be
+>> triggered.  A similar issue was also reported in [1].
+>>
+>> To address this issue:
+>>
+>> Patch 1-5 rework mutex, factor out a common governor setting function, and
+>> clean up some unreachable code.
+>>
+>> Patch 6-8 prevent a governor module in use from being removed (except for
+>> force unload) by getting/putting a refcount of the governor's module when
+>> switching governors.
+>>
+>> Patch 9-10 allow 'governor' and 'available_governors' to work normally even
+>> when a governor module in use is force unloaded.
+>>
+>> Note that this series is based on [1] or devfreq-next, otherwise code
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 189bc3bbb47..0ffe386fa9d 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -835,6 +835,62 @@ uart9: serial@1e790300 {
- 				status = "disabled";
- 			};
- 
-+			uart10: serial@1e790400 {
-+				compatible = "ns16550a";
-+				reg = <0x1e790400 0x20>;
-+				reg-shift = <2>;
-+				reg-io-width = <4>;
-+				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&syscon ASPEED_CLK_GATE_UART10CLK>;
-+				no-loopback-test;
-+				pinctrl-names = "default";
-+				pinctrl-0 = <&pinctrl_uart10_default>;
-+
-+				status = "disabled";
-+			};
-+
-+			uart11: serial@1e790500 {
-+				compatible = "ns16550a";
-+				reg = <0x1e790500 0x20>;
-+				reg-shift = <2>;
-+				reg-io-width = <4>;
-+				interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&syscon ASPEED_CLK_GATE_UART11CLK>;
-+				no-loopback-test;
-+				pinctrl-names = "default";
-+				pinctrl-0 = <&pinctrl_uart11_default>;
-+
-+				status = "disabled";
-+			};
-+
-+			uart12: serial@1e790600 {
-+				compatible = "ns16550a";
-+				reg = <0x1e790600 0x20>;
-+				reg-shift = <2>;
-+				reg-io-width = <4>;
-+				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&syscon ASPEED_CLK_GATE_UART12CLK>;
-+				no-loopback-test;
-+				pinctrl-names = "default";
-+				pinctrl-0 = <&pinctrl_uart12g1_default>;
-+
-+				status = "disabled";
-+			};
-+
-+			uart13: serial@1e790700 {
-+				compatible = "ns16550a";
-+				reg = <0x1e790700 0x20>;
-+				reg-shift = <2>;
-+				reg-io-width = <4>;
-+				interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&syscon ASPEED_CLK_GATE_UART13CLK>;
-+				no-loopback-test;
-+				pinctrl-names = "default";
-+				pinctrl-0 = <&pinctrl_uart13g1_default>;
-+
-+				status = "disabled";
-+			};
-+
- 			i2c: bus@1e78a000 {
- 				compatible = "simple-bus";
- 				#address-cells = <1>;
+Sorry, please ignore the "remember to CC me on the patches." in my 
+previous email.
 
----
-base-commit: 5ee8dbf54602dc340d6235b1d6aa17c0f283f48c
-change-id: 20260327-upstream_g6_dts_uart-78a5ce3b2873
+  In my opinion, it would be better to prioritize the FIX first before 
+proceeding with the lock mechanism optimizations and other work. This 
+would make it easier to backport the patches to lower-version kernels. I 
+noticed the patch is already in the devfreq-testing branch. I hope the 
+FIX work can be moved forward smoothly to resolve the null pointer and 
+other bugs. Thank you!
 
-Best regards,
--- 
-Jammy Huang <jammy_huang@aspeedtech.com>
 
+
+> sorry, based on [2] or devfreq-next
+>> would conflict.
+>>
+>> [1] https://lore.kernel.org/all/20260319091409.998397-1-tianyaxiong@kylinos.cn/
+>> [2] https://lore.kernel.org/all/20251216031153.2242306-1-zhangpengjie2@huawei.com/
 
