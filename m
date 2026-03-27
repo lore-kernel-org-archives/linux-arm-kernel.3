@@ -4,124 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219D510BA436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2276D10BA435
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ep9g2m9wnZ/qw5uP60q9XJwKT04QFSPHpz8SR3TFGU=; b=D2IHoYD/3dUbT85xlfzWFPvtlE
-	vw2l1CjvrlUGPuVO3/U+HPYB9aC3/IukDWHP3Wqz+6OyYVGzh1DbJ3cifMHMCg9q+M59nl/XXgbQQ
-	ssGExXulPV8fWp6XJvhXvmFs4fMXO/ws/1ne3RJndFmG1uphg5FjJvOjOydrd85Jh/jRYijdRGk7U
-	E4cygSklI1a3c+KTCeDswC1M1H3yrgXokA7lBAYZjTVoZNj0iHWGPYfQG6cbCt7t1I/s5CRismJfJ
-	zpFTvsNDqMxWonbZMWTFTKtKlPKugIEj75DWrTClFZzaO8SwLxdWCiFBkPhPwZxvT0ALTPyEA2GM0
-	6DP2fD/g==;
+	bh=AHS6Nhb7D0v7Tdv4VKh0lAiaFI0Kwd3xEVlJh4W0MK8=; b=4onsdtlK9oDZz6rsi5DnczEIt5
+	n54oEIujP7vyiZI4+B0N4nZcumajUSWOy1NSytAbtl/FqO6ruALAMzjYp5IPYY2yzDUYxw0mdndsS
+	iVOORIm5yBbKmllhWIEC6WNg8nguZGlqjoOYhlOV56yo7+1apWdE0kkb0Mysqn3REZ0drQs70dIuP
+	HwdhmZ0NQzrJrRYYj7p22542ncZ+8kZ8Qgb9sTSoEBV7hQ+9j1QC2VFhkQROHPDJ4uJZ4J0QBG4Gt
+	Z7ZKr2CRG0u8ynbP22L21BsPatQqItvjGeossG7zsNZ6BLxWx45X3h8MpibczZ74gLxTm4IYe5fHl
+	3W1RDgLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6296-00000006vmX-0z7K;
-	Fri, 27 Mar 2026 08:02:20 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1w62D1-00000006wGa-1jX5;
+	Fri, 27 Mar 2026 08:06:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6294-00000006vl4-0S5x
+	id 1w62D0-00000006wGU-1xbw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 08:02:19 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-12711867ca1so128399c88.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 01:02:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774598537; cv=none;
-        d=google.com; s=arc-20240605;
-        b=B7aftAgp0uITgpZJ70D3etKc6Qd1nUikAhxWPk/gFWr8xnr6JKaR6m8dkPm9dXv5Lp
-         HLupHHYva9ZJYpZWT9JQT2+8PW7HaUwWFkh/waroDttFct7t2MDECud2tY0meM2407N4
-         hVS6/VRwhiKBOOOo0/LcLyV1q5nFdfbLHjCvV+/3E9FuZp6XlrKuOlXy3sJiy3sv6n+I
-         zjE6Qh3vG1rXkg9b/TzUsYXlGgfE/kcsmeDMugR8zPj2T+khC5h3y+bY1Yk9ncxhn8ES
-         TAeIz8ovWX/7gSRaMX5iCBCQLofr+4nOCfDs8aCF1i+jZRLMzVRmCKvX+YhWnn61v2mL
-         DCaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=5ep9g2m9wnZ/qw5uP60q9XJwKT04QFSPHpz8SR3TFGU=;
-        fh=FwQXC6PWGmAOXzC4y+KdKt5rJ0Zms8skw14Qf50nucY=;
-        b=FVwHGxk8Y59G9vTtDytJcRwgYrtFjxAvlZZRnY9z3+sil2g+J+0uNcHOaFleRih2XV
-         5rkdopCQhjOyaNOtz86YwhnRRs5KUh2HBiYbHEy6O4VsRa7PHRi80Wdd6Y5StQde89iR
-         csMhUGP15rQtzcEQJ5kZOEttBal/8CPxKda+oo/6+RjHWihEYan+WB2Rluu1i+fE5XYl
-         cl2rceyhg4fvtC1pt0Hxuaou5nls7NiorpZ6I7YexgSDW7iiCkTmwenhwZ4Z+WehAub8
-         gglIWa9FgD/8onXSeqcbJ3qgPNtZDCHXNh9UnN23taCf8+StyKndaLW5QsqDE/ROlP2j
-         2DkA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774598537; x=1775203337; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5ep9g2m9wnZ/qw5uP60q9XJwKT04QFSPHpz8SR3TFGU=;
-        b=ouhKD8WIUezfHoEpyasPFTUZwHo5eEFGgCOFAxenrCCRU84lRKprD/pd3/UJeL9z5P
-         uM8PvKTepz3A8r9ZlmgWwpjULg5k4P9H6B248lPzKHRfZZrOx5WTaUgTtfmH9/c0Wg3Y
-         mdYMBEylzCx3Zfg0qGcNNtcVYE8klNX4+zusnAP9B2hwqeVhbzvJE9C91ma1YD7ta3/5
-         983i66wogS3kLcSFAD/IcXFOW0qwnuR0ZhUiJV9Oy5N/YQRHWYCxhQpPWbq5AKwtq3/X
-         DJteRhU98VM9j8F0mbtAD/oNCdvXW98+dmnru3awV/gwrA0d3pryFBIx+NuGKzUTo8E+
-         iDsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774598537; x=1775203337;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=5ep9g2m9wnZ/qw5uP60q9XJwKT04QFSPHpz8SR3TFGU=;
-        b=LMfH+no9rwgaQbVdV2dnblMoytJiAda76MNcETCOQS9O6SHSR4neYEJIobqmfKN75/
-         zSNE1ZDTib+jC2EwwFv4eM5jJWdJJsea2CrnHBZw3Q5MyQ3i7Pjszppxr0AsjkmzP640
-         0l2TZxGslvu/C1CZ48jjNy8VKi49rmR7i9Ixnzkaor0jqBxYuYpYAmLivndcTj2blYxK
-         2j93CeUlEimkFOsUJtxrqqwU0D9UhyP7R6wd1T9GMRUmZNZbiEEBTg8WN89MIb81GVF0
-         vvGFwGIgedN2cp46Xc1noVEBExfhn/P4aXLskFnXzIzBoCewqaF0gq5RCE66YSqMGBAT
-         yezA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaMSkCkGdUJizjUpf1nI/W/X5Pz9eHIPfEcfo4BoRj6Z+zP8lXcmxWO1CywEBt2ME8nII8PMlFhKaky+HOC+B1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yydw7s7dfL9V4VNk02mFX7nHKAlhb34ilUnrqIsKiDZHp2kOs6x
-	l2HTVIviEbBKdlR228Y8NgVxpUN2r1FBry61UTffXjIYWoKJMxRLkbauhA1F8Ai0A6dsovU3Nnl
-	UlcMcAUIzO8XJ+FpB3G0C5vWk7ziMC3Y=
-X-Gm-Gg: ATEYQzzUDD0vHnkqeWBRUJg7d0uma8xLLSwM5z8QaWMSnWUvxjonughzrHnbW4Y7JgX
-	ZuYYeFqXHVyyiWP/VOgLkd+GOL9tITeLKaf1uAemtkIXOhRBIadzBaXWLiqUT/UDI9J8/Ox2Ttj
-	6RMOMgz8Gr4UlJftcp8UbMkm9P9JcyDSPxaK7Z0QY8iPpQ+XEwlyvEtwwo0yT0fQmuBo4xaVloz
-	hMcVetx1nctENcMQHwWfX/OgyQIaX/HweYncB+dXneHtZTt/wnGI9hfohk1zT8Zq7Jtlm1dm8gK
-	v51z/kkzxosQ1F7yz16M6llI1NAstT049akymeMmu+FAJbxsSPBxjdeM275jfvmARrFFSjd0b3D
-	dm3obZXW6QF0OmwF/6h/Q69A=
-X-Received: by 2002:a05:7022:618a:b0:12a:6cde:fd0c with SMTP id
- a92af1059eb24-12ab2906c98mr371178c88.7.1774598537022; Fri, 27 Mar 2026
- 01:02:17 -0700 (PDT)
+	Fri, 27 Mar 2026 08:06:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 987BA60133;
+	Fri, 27 Mar 2026 08:06:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA64EC19423;
+	Fri, 27 Mar 2026 08:06:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774598781;
+	bh=njKLNuR8F4kyTMpII2tsNrl/hXxecE2PvnaTzQJZtic=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=WCqkCgid/OOnGXWRG/cvpWIxhajPVZ6HPwC4aSApD5qCrFgsG5HBrVarjxaXbJKpG
+	 nxxH1MqFKvsA5kE1kcf12H+1DfJ7lqjwJmlX3CmPnPmxxKyXjSOBWhqUF1mphw6YmN
+	 Ho/E9gEejG1eNl5TpHobhDhfhehT5ovp7tC+9zkS/eQKscz6MKFv6C+wHN75b42B+B
+	 88PmA+lzCqi+/7jpfVf9V84MiVwBjNbJEfnv8UlbCxchJ2GFF64C2mClpCfcRqndPe
+	 JTkgDtxGviYWAc3n1INlAH1Pu8pVU62PEjdUa4mN2UYz3/XZ1fai3Y36XKNvUrrCFr
+	 eC894nM/NXDZw==
+Message-ID: <85b9e8d1-c970-4032-a331-76323e368a92@kernel.org>
+Date: Fri, 27 Mar 2026 09:06:15 +0100
 MIME-Version: 1.0
-References: <20260322192159.88138-1-ojeda@kernel.org> <20260322194616.89847-1-ojeda@kernel.org>
- <7ad8bdf9-5eff-4443-ad15-c05355d793d1@app.fastmail.com>
-In-Reply-To: <7ad8bdf9-5eff-4443-ad15-c05355d793d1@app.fastmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 27 Mar 2026 09:02:04 +0100
-X-Gm-Features: AQROBzCrGdIlIe2CkDWKMkYFmP8XiqVc047zlhYRt_gjOqAGZtEWFJuOGnDO47I
-Message-ID: <CANiq72nz6zB0jGahw4Eh-i-Rew1kQ0g_qcZ68Whw==MyjhYaJw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Abdiel Janulgue <abdiel.janulgue@gmail.com>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Christoph Hellwig <hch@lst.de>, iommu@lists.linux.dev, 
-	driver-core@lists.linux.dev, acourbot@nvidia.com, 
-	Andrew Morton <akpm@linux-foundation.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, David Gow <david@davidgow.net>, Gary Guo <gary@garyguo.net>, 
-	Johannes Berg <johannes@sipsolutions.net>, Justin Stitt <justinstitt@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-um@lists.infradead.org, Russell King <linux@armlinux.org.uk>, llvm@lists.linux.dev, 
-	Benno Lossin <lossin@kernel.org>, Mark Rutland <mark.rutland@arm.com>, mmaurer@google.com, 
-	Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nicolas Schier <nicolas.schier@linux.dev>, 
-	Nicolas Schier <nsc@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Richard Weinberger <richard@nod.at>, rust-for-linux@vger.kernel.org, 
-	Trevor Gross <tmgross@umich.edu>, "Uladzislau Rezki (Sony)" <urezki@gmail.com>, Will Deacon <will@kernel.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_010218_151508_0D0486C2 
-X-CRM114-Status: GOOD (  11.39  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: thermal: st,thermal-spear1340: convert
+ to dtschema
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Gopi Krishna Menon <krishnagopi487@gmail.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com,
+ lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ vireshk@kernel.org, conor+dt@kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com
+References: <20260323133814.14152-1-krishnagopi487@gmail.com>
+ <20260323133814.14152-2-krishnagopi487@gmail.com>
+ <20260324-belligerent-armadillo-of-camouflage-e52f7b@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20260324-belligerent-armadillo-of-camouflage-e52f7b@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,17 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 10:13=E2=80=AFPM Arnd Bergmann <arnd@arndb.de> wrot=
-e:
->
-> I have an older patch to drop CONFIG_NO_DMA entirely, which
-> may be better here, since we know that nobody cares about the
-> empty stubs.
+On 24/03/2026 10:30, Krzysztof Kozlowski wrote:
+> On Mon, Mar 23, 2026 at 07:08:08PM +0530, Gopi Krishna Menon wrote:
+>> +properties:
+>> +  compatible:
+>> +    const: st,thermal-spear1340
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  st,thermal-flags:
+>> +    description: flags used to enable thermal sensor
+>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - st,thermal-flags
+>> +
+>> +unevaluatedProperties: false
+> 
+> additionalProperties: true
 
-In case it helps / for future reference: the patch I sent to Marek is
-already in mainline: commit 2cdaff22ed26 ("dma-mapping: add missing
-`inline` for `dma_free_attrs`").
+Thanks for pinging me on IRC about this - it should be:
 
-Cheers,
-Miguel
+additionalProperties: false
+
+Best regards,
+Krzysztof
 
