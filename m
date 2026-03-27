@@ -4,69 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE2F10A3D96
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 02:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1881B10A3D96
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 02:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tJ93pPazuX4K94FSaZiqGhQnP0ManGRA5C1/7WXfWII=; b=Q4Rpd1CFod2FirXy703l2yyRiz
-	mnW9U+O1HPuPRFLa092PnGXOghoRhby7pXYItSrlP/R2qnse/A9EN2/RcgIe0qXW1fo7kholcTON6
-	r0mUYTbiGVGou1EPkJvzTPQ8EXW+wKiczJCvpjZzPq4Baph3rkjX+vLxafBknispNAs+Uc5kuh1Ij
-	lkiTjuszVvQ9oo06EOIeXcYkPNWKnpNH83O/E5iF1U8YrRP3TqcsVbxr6V9+9abmxmmra3irm0XSD
-	MzWgwt5xrfFDidPB8w6nLPHAH5sJyzLBp1IzLfU52KIuUc3nJhBoybsIfMyWq5N6K5hslSeh9B8vC
-	3by3eJCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kmgNoMsBFB0Av275v1YiL0J71l8nAs5LT4Ra84zm3vg=; b=qX/2mQw2NOAl2PwyoVsGcsxc9K
+	HFuOb1vDykd9oVnJvFWePji1nIf+Ev9MXXPBHNjphO9HVLblMhl5UGDAQB5hUNtq51yMSG2ZFA0ju
+	GTxwtaxI067zTQbALk6fWZUeTuzl6hdk4uEN7jLh3U1zTUhk7MHSlr5ig4QFSmdwuCv1aLnhC2xHQ
+	HSclMT5UfkTHQXb6nGgbfLtVbZUAbjUfhNc4sZEgj7gWxI6xAmoxnzhPtNf51sNGvC9VKYZAFxBxR
+	ohLuJrNZIYcJE1seM1QfxVedMCJiHzm9WdCSyffL04lRAWwL9VZ48VglRGTnMiwmO92xze0khLrEe
+	MRLk3VDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5wai-00000006WKd-3MT0;
-	Fri, 27 Mar 2026 02:06:28 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1w5wdi-00000006WXt-3k1O;
+	Fri, 27 Mar 2026 02:09:34 +0000
+Received: from mail-westeuropeazon11013008.outbound.protection.outlook.com ([52.101.72.8] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5waf-00000006WJ5-3bD7
+	id 1w5wdf-00000006WXV-3Rdk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 02:06:28 +0000
-X-UUID: 88cfe52e298111f1a21c59e7364eecb8-20260327
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:47f67297-d4c4-4a22-95d6-f026f0d123cf,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:6e92079a5dc80ba334bbc31596d1fe50,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	52,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 88cfe52e298111f1a21c59e7364eecb8-20260327
-X-User: tianyaxiong@kylinos.cn
-Received: from [10.42.13.21] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <tianyaxiong@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1468667143; Fri, 27 Mar 2026 10:06:14 +0800
-Message-ID: <2f9ab345-5940-4298-87a5-bf9121fe219e@kylinos.cn>
-Date: Fri, 27 Mar 2026 10:06:12 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/10] devfreq: Fix NULL pointer dereference when a
- governor module is unloaded
-To: Jie Zhan <zhanjie9@hisilicon.com>, cw00.choi@samsung.com,
- myungjoo.ham@samsung.com, kyungmin.park@samsung.com
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxarm@huawei.com, jonathan.cameron@huawei.com, zhenglifeng1@huawei.com,
- zhangpengjie2@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com
-References: <20260326123428.800407-1-zhanjie9@hisilicon.com>
- <1774576755240654.100.seg@mailgw.kylinos.cn>
+	Fri, 27 Mar 2026 02:09:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mmDtMJbZf2v8jpixnAmkQx+JVN9zy9dK1Xx09MXQExkOUeB+qb/4fL7oDZ3NIChv3OAjFRbr2z2H++VzBtH3t564dRdAyRNzHKUHxeRX/WlWw4sYi9hKEuS+kcAieSs0MMzJPZ7854Ma4jchVBWyULRzgedXNanq2tTsiaseLWu+4eVrPRKYUixLwt4GdEh9Veb+C7RDYZUxuJikoke8q3vma6/6FIW73ihHjYl97faNHaPS2wnfFUoh6N0oEyOVA7ODYvw8DklxdHRPVwbP0oZNHM5ox69Q2n25NQ2a4/tSB0xJuA+PpVR29CZ01XMzOJCHICHgQ08ziuMOLaqOOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kmgNoMsBFB0Av275v1YiL0J71l8nAs5LT4Ra84zm3vg=;
+ b=yp4hIEYe/vk+z7/leo9/eRqCT/uOutQePSQz45T3BxfI7yd3vJuYFNKaVqrkIKomNW57BMoIfaLKJZ2DPurdf889CAYmm4eCmEmEOH5OBKGdUspKRbgl8Wvh+BBwZ/wO6/pZGdXjQVWPWxqng+cAh8ncQsqpquabYKGKHzd9254lzCd8ezWWKnt7YVZqk6uatHG9fxfBh379GlY6kFZnZwMwfmUfomFFbIeZsGEQeX5JGcXIKsYik/IVSfXwDZGKJDn3vjbfnvyIoR7VTOazXr7co6To6FEZiVHWqUhK8p43U0LZd/6Oy4vX7857IcnS6iuhqJshw8oCWLmc1I+qEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kmgNoMsBFB0Av275v1YiL0J71l8nAs5LT4Ra84zm3vg=;
+ b=dfVO1F0/u3L6NH+Qf4Ks2AoxKSQYav1RopvnfD7VKMMXv09fH9t3DfBHNHe4OecAqq3WEVf4oWgiUAhgtFIdy3K9NgtyyOEjLwPk4lHRKrYwyfR+B1AnB+A+m7zhewriUGS5Bv7Eepz0s/csk8ahFVe8ikg+6WnLBOxs5V80nYPsBDg7+vJ4jknyslr+GX07MQWFGT6pVrgLxw2oe/ypRRZ4FzD0+T2sUWcCaCOiUJz2CL5005uZ8KPw12q+vkkuDwLE6IJUdXEokGQ8ymMQz73Y4cSi2UcCNQ9PLe73RB9y4Ay3kcF/D48eOVSr6VBUcpW1ehC3q2VpTpomT24b7Q==
+Received: from AM9PR04MB8505.eurprd04.prod.outlook.com (2603:10a6:20b:40a::14)
+ by DBBPR04MB7946.eurprd04.prod.outlook.com (2603:10a6:10:1ec::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Fri, 27 Mar
+ 2026 02:09:26 +0000
+Received: from AM9PR04MB8505.eurprd04.prod.outlook.com
+ ([fe80::dc5a:b0aa:4a1b:c55e]) by AM9PR04MB8505.eurprd04.prod.outlook.com
+ ([fe80::dc5a:b0aa:4a1b:c55e%6]) with mapi id 15.20.9745.023; Fri, 27 Mar 2026
+ 02:09:25 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, "chleroy@kernel.org"
+	<chleroy@kernel.org>, "horms@kernel.org" <horms@kernel.org>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "andrew@lunn.ch"
+	<andrew@lunn.ch>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH v3 net-next 02/14] dt-bindings: net: dsa: add NETC switch
+Thread-Topic: [PATCH v3 net-next 02/14] dt-bindings: net: dsa: add NETC switch
+Thread-Index: AQHcvOmiCqGqD8E13EaBFJCRDGW3MrXBPkuAgABjMsA=
+Date: Fri, 27 Mar 2026 02:09:25 +0000
+Message-ID: <AM9PR04MB8505D880CDAD79A8AF107E248857A@AM9PR04MB8505.eurprd04.prod.outlook.com>
+References: <20260326062917.3552334-1-wei.fang@nxp.com>
+ <20260326062917.3552334-3-wei.fang@nxp.com>
+ <acWR0QwRSnupmCvI@lizhi-Precision-Tower-5810>
+In-Reply-To: <acWR0QwRSnupmCvI@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
 Content-Language: en-US
-From: Yaxiong Tian <tianyaxiong@kylinos.cn>
-In-Reply-To: <1774576755240654.100.seg@mailgw.kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8505:EE_|DBBPR04MB7946:EE_
+x-ms-office365-filtering-correlation-id: 8cd3a518-c330-42b8-153e-08de8ba5dee2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|56012099003|38070700021|22082099003|18002099003;
+x-microsoft-antispam-message-info: GlJBBQeoUmtD3w8t8FPNdYxdxRHzO33cf1lOVuVKL/Ky6LuJ/QKvvJSNpNzHKCXICm6ygrlVoaJzDijek/knGqkjHg96wuIWwpUsa9dKWKVyJW2r0ro8xaYC2FsaxST3qcoDkN05y9PNfvYxokyzWNGY6eUw1e+nPDs8m5M6Rlr4Fda/4JBwK+tSaFMidW4VBFyfF/jMGdK1pWuS8DHJzw67KFcPMWihIFtkm5hqzSCx53y44LwGikkCl7Ybk7Y/TJ0uEf9d6dDE/99/AqDBMx6nZi34YJrVP1UtGBxhpmG0NwmhpoQBMnq/vZEciU3iz5ssf23gfVKeVlUl7OzeEhAmhbQZMch5rtVo+daOpaw1DaTda3XIc2oEXIaPv/lYh34dh/P4in9cq2dOyrtkczGaLSHUk4T4O+MF2yrJPsyBtdvaGdocJCpmULcfsc2nN2Lsi4SF8NcJVaYnN68eVMr8JBetSGQO2CRdO1BtVV49amVVJyWA29C982NEK65fwXqH0YeDFIlV/J1tLctjSTzSVvSA9y9p31AbQ3p9areiTot/frik6GGU9EizQQZ4KQq4JOoWdNYggThxnFxaCb8nzpwwI3yXp4C86US1vyEUQzY92AYNX5wQlyDvYOkzWw0q77KylmyXfzs3IbgynObqDhEw8NLs9/XTS1+lH1txP3wbHGtVtbvspU+beVsZTf4z+8PbJE3/tRKUmP5uOZEQqNzoAz6T28KRI1Eg2wA6ET3+W6qx8bPS3e+OMDuV
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8505.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(56012099003)(38070700021)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?krxOn/Mesc/dxqFU1WqDUiYhwN8rdbRDK7UbVjHNXOMpiKdbN0LOSVTW7FTs?=
+ =?us-ascii?Q?7JP7iPGHgcz9b0yNbMGiE3SIAP0Vu7BzLt67k8FcBCzdeWwgBPZtmsWy32OD?=
+ =?us-ascii?Q?Wf1DvtNft+FEBhe66U6oxTi+NwEWUVl52t+gtD7hS+DRaGaO5FkSyrufBIQv?=
+ =?us-ascii?Q?aXd43R6Te++5H79jEXPnYN11WUkrLz+a9X5rDtOW4CwvvoYxir3oVCxPa+Lk?=
+ =?us-ascii?Q?R0tipuXHzqknD5VWZlBWKODBLWBc8j0+icxneNvcBYIfUwRWzbneeWjTuDvL?=
+ =?us-ascii?Q?6wU6VwtTWvkpIpNUk2FYsufsWBqzC/nDMqRJQ23L3V86d/t80Xf7WWsZK2Tz?=
+ =?us-ascii?Q?93QOY9xMkxCg9EbtDsT7j8ThBeWtFUf5zS45suoXg1wDabV5N5q+20JFVT5t?=
+ =?us-ascii?Q?JObCPliavBJrpWh3GYosErD7lcgEbaUw8sVkZivDvxx6yflONMFyqdQea5wh?=
+ =?us-ascii?Q?Yw/LqEWrLaBIZ1qUjZLCLhBsAuYD5rHEs7p29BpjfiymbFj4lq0QWTLc80uq?=
+ =?us-ascii?Q?1/YLI8EAtYTLFL4gR5dPrVCmmuPrAm5QKs2ypPGjiflZMEZT52Y97EmLH6Hg?=
+ =?us-ascii?Q?fcp5MVspxk8c550VKp7U9qxstCWSM7kNQLTQJ6ZGsEMA1oIThTN5zsA+5Ex4?=
+ =?us-ascii?Q?1TKMgTS6KqqELOX/snVO8blejytfhwAUqyIaxG/7TL8QgFbfHn36np/hMj7Q?=
+ =?us-ascii?Q?96kyBTGi9HdfZ5UJxrK48v2jVl21ZqU8HiGMR6u7AytSIXxsMcRZqilR8R1z?=
+ =?us-ascii?Q?yG6GUKQ86hWR7xsjf2fC8wSOgMOhWer4v9KawAH50XorfNlEhgxWnThPE8MG?=
+ =?us-ascii?Q?eQX+l8I0fs7YsN19ctQNdTMk+giXPNWeTqs8+DE8zvCW1EibMX3d93i4j5n3?=
+ =?us-ascii?Q?TVG7mUco6nbu6Wckh2cmplKQMmfK1B+cwjDBGDSbitfK2t/glzsqibRVOFkf?=
+ =?us-ascii?Q?rE/lQAka5ruH0eJIkSRSOM1izYt3+pUi9v0JNTKIf0c3pH9VrND7W7NiVQMm?=
+ =?us-ascii?Q?5LxriPPDQSJH22wu5hv2GrEk9ienAa1EarG9OXNZ6dbRKrh058jyCdEEkuIp?=
+ =?us-ascii?Q?REwK+TL6mDRxwBaOlJiCkQwTbcXEnEI4znzutgIRxVTjKolwNFj3I2eHu8c1?=
+ =?us-ascii?Q?q4x3GFtcacjYboqiQNW09HHfZay3RMYfIWE4NkQQ45FGFRXMThCXbnTTldZC?=
+ =?us-ascii?Q?rM6W+MKRKtgaSqBCYaQMTtlrQQaym33ktqu49zrPMyhKTs2YD0Nr1a0HPnUT?=
+ =?us-ascii?Q?/kRpORWvaz9R1h3NKXMWNUFYp8k0ZAAIf7M0Do6GfVT42ka1S+kpCoFmlo88?=
+ =?us-ascii?Q?bQX3n5xVQ5TJocmH2mamtmUYMos3Yf3Ezc0tV7yX1lRjzk27VgIssualegjO?=
+ =?us-ascii?Q?YcWle0fu4IsIk9J9yjKDl6k1oqjGqEzQHCpaeSvqgV+YsatkSItylWhkndNg?=
+ =?us-ascii?Q?ZfALv+Y3ajq+owkior/OGh7sOUgDCZWAFnpIJYFh/eaqVj11MZcJ1HF1OWW8?=
+ =?us-ascii?Q?vC4kpeEHdy4P14JBj3mtxhsSlp/uMd4e1GD4rhcig26tWxfHmfIq8Rb9J0p7?=
+ =?us-ascii?Q?MmDBUX+XJdlX1AXWDPfV0dBeBlsEfNtO0pEdzAOgCFWCTDFlPCBtbOHMEKlC?=
+ =?us-ascii?Q?39a2e07VNYVvJIUwjdxuXfEk/3kDbb+OKcecMbMWwDDJhLO2ir4EBBY9hiqX?=
+ =?us-ascii?Q?/DA+eAiR4e3peVjqcc2zJe/gNvVAP2yf9iCyDO52UGvf3Jri?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8505.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8cd3a518-c330-42b8-153e-08de8ba5dee2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Mar 2026 02:09:25.7979
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Fd2iwcNwsBQWxeEkfoCmfgw2ly/s5fjwgW3m7bG4QSqKG4fhLjxjuuJ381wbVwxEcy+04oZBi98gaAMcg9DaEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7946
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_190626_213359_08564729 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260326_190932_043638_516461DC 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,44 +153,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> On Thu, Mar 26, 2026 at 02:29:05PM +0800, Wei Fang wrote:
+> > Add bindings for NETC switch. This switch is a PCIe function of NETC
+> > IP, it supports advanced QoS with 8 traffic classes and 4 drop
+> > resilience levels, and a full range of  TSN standards capabilities.
+> > The switch CPU
+>=20
+> Nit: double space before TSN.
 
-在 2026/3/26 21:14, Jie Zhan 写道:
->
-> On 3/26/2026 8:34 PM, Jie Zhan wrote:
->> When compiled as a kernel module, the governor module can be dynamically
->> inserted or removed.  'devfreq->governor' would become NULL if the governor
->> module is removed when it's in use, and NULL pointer dereference would be
->> triggered.  A similar issue was also reported in [1].
->>
->> To address this issue:
->>
->> Patch 1-5 rework mutex, factor out a common governor setting function, and
->> clean up some unreachable code.
->>
->> Patch 6-8 prevent a governor module in use from being removed (except for
->> force unload) by getting/putting a refcount of the governor's module when
->> switching governors.
->>
->> Patch 9-10 allow 'governor' and 'available_governors' to work normally even
->> when a governor module in use is force unloaded.
->>
->> Note that this series is based on [1] or devfreq-next, otherwise code
+Thanks for catching this, I will fix it.
 
-Sorry, please ignore the "remember to CC me on the patches." in my 
-previous email.
+>=20
+> > port connects to an internal ENETC port, which is also a PCIe function
+> > of NETC IP. So these two ports use a light-weight "pseudo MAC" instead
+> > of a back-to-back MAC, because the "pseudo MAC" provides the
+> > delineation between switch and ENETC, this translates to lower power
+> > (less logic and
+>=20
+> what's means "this translates", do you means "this help reduce power and
+> latency."
 
-  In my opinion, it would be better to prioritize the FIX first before 
-proceeding with the lock mechanism optimizations and other work. This 
-would make it easier to backport the patches to lower-version kernels. I 
-noticed the patch is already in the devfreq-testing branch. I hope the 
-FIX work can be moved forward smoothly to resolve the null pointer and 
-other bugs. Thank you!
+This sentence is excerpted from the NETC Block Guide. It is equivalent to
+"it means".
 
+>=20
+> > memory) and lower delay (as there is no serialization delay across
+> > this link).
+> >
+> > Signed-off-by: Wei Fang <wei.fang@nxp.com>
+> > ---
+> >  .../bindings/net/dsa/nxp,netc-switch.yaml     | 130 ++++++++++++++++++
+> >  1 file changed, 130 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/net/dsa/nxp,netc-switch.yaml
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/net/dsa/nxp,netc-switch.yaml
+> > b/Documentation/devicetree/bindings/net/dsa/nxp,netc-switch.yaml
+> > new file mode 100644
+> > index 000000000000..e34a4e3504c3
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/net/dsa/nxp,netc-switch.yaml
+> > @@ -0,0 +1,130 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/dsa/nxp,netc-switch.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NETC Switch family
+> > +
+> > +description:
+>=20
+> Nit use ">" for multi paragraph.
 
+Okay, I suppose I also need to add '>' to the below description of
+"dsa,member" property.
 
-> sorry, based on [2] or devfreq-next
->> would conflict.
->>
->> [1] https://lore.kernel.org/all/20260319091409.998397-1-tianyaxiong@kylinos.cn/
->> [2] https://lore.kernel.org/all/20251216031153.2242306-1-zhangpengjie2@huawei.com/
+>=20
+> others look good
+>=20
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>=20
+> > +  The NETC presents itself as a multi-function PCIe Root Complex
+> > + Integrated  Endpoint (RCiEP) and provides full 802.1Q Ethernet
+> > + switch functionality,  advanced QoS with 8 traffic classes and 4
+> > + drop resilience levels, and a  full range of TSN standards capabiliti=
+es.
+> > +
+> > +  The CPU port of the switch connects to an internal ENETC. The
+> > + switch and  the internal ENETC are fully integrated into the NETC
+> > + IP, a back-to-back  MAC is not required. Instead, a light-weight
+> > + "pseudo MAC" provides the  delineation between the switch and ENETC.
+> > + This translates to lower power  (less logic and memory) and lower
+> > + delay (as there is no serialization  delay across this link).
+> > +
+> > +maintainers:
+> > +  - Wei Fang <wei.fang@nxp.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - pci1131,eef2
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  dsa,member:
+> > +    description:
+> > +      The property indicates DSA cluster and switch index. For NETC sw=
+itch,
+> > +      the valid range of the switch index is 1 ~ 7, the index is refle=
+cted
+> > +      in the switch tag as an indication of the switch ID where the fr=
+ame
+> > +      originated. The value 0 is reserved for ENETC VEPA switch, whose=
+ ID
+> > +      is hardwired to zero.
+> > +
+> > +$ref: dsa.yaml#
+> > +
+> > +patternProperties:
+> > +  "^(ethernet-)?ports$":
+> > +    type: object
+> > +    additionalProperties: true
+> > +    patternProperties:
+> > +      "^(ethernet-)?port@[0-9a-f]$":
+> > +        type: object
+> > +
+> > +        $ref: dsa-port.yaml#
+> > +
+> > +        properties:
+> > +          clocks:
+> > +            items:
+> > +              - description: MAC transmit/receive reference clock.
+> > +
+> > +          clock-names:
+> > +            items:
+> > +              - const: ref
+> > +
+> > +          mdio:
+> > +            $ref: /schemas/net/mdio.yaml#
+> > +            unevaluatedProperties: false
+> > +            description:
+> > +              Optional child node for switch port, otherwise use NETC
+> EMDIO.
+> > +
+> > +        unevaluatedProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - dsa,member
+> > +
+> > +allOf:
+> > +  - $ref: /schemas/pci/pci-device.yaml
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    pcie {
+> > +        #address-cells =3D <3>;
+> > +        #size-cells =3D <2>;
+> > +
+> > +        ethernet-switch@0,2 {
+> > +            compatible =3D "pci1131,eef2";
+> > +            reg =3D <0x200 0 0 0 0>;
+> > +            dsa,member =3D <0 1>;
+> > +            pinctrl-names =3D "default";
+> > +            pinctrl-0 =3D <&pinctrl_switch>;
+> > +
+> > +            ports {
+> > +                #address-cells =3D <1>;
+> > +                #size-cells =3D <0>;
+> > +
+> > +                port@0 {
+> > +                    reg =3D <0>;
+> > +                    phy-handle =3D <&ethphy0>;
+> > +                    phy-mode =3D "mii";
+> > +                };
+> > +
+> > +                port@1 {
+> > +                    reg =3D <1>;
+> > +                    phy-handle =3D <&ethphy1>;
+> > +                    phy-mode =3D "mii";
+> > +                };
+> > +
+> > +                port@2 {
+> > +                    reg =3D <2>;
+> > +                    clocks =3D <&scmi_clk 103>;
+> > +                    clock-names =3D "ref";
+> > +                    phy-handle =3D <&ethphy2>;
+> > +                    phy-mode =3D "rgmii-id";
+> > +                };
+> > +
+> > +                port@3 {
+> > +                    reg =3D <3>;
+> > +                    ethernet =3D <&enetc3>;
+> > +                    phy-mode =3D "internal";
+> > +
+> > +                    fixed-link {
+> > +                        speed =3D <2500>;
+> > +                        full-duplex;
+> > +                        pause;
+> > +                    };
+> > +                };
+> > +            };
+> > +        };
+> > +    };
+> > --
+> > 2.34.1
+> >
 
