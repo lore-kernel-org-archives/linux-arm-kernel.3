@@ -4,113 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F071810F2848
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8263810F2847
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 15:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owpdxFF3v/KlPV1csbkJ90RTaf+LQvkCMaflebyBvGw=; b=4MP8xQGO5AbJBR1xw20EXxG/n6
-	/hmEEnI/tEs1N73JWCK9K41Qt5FYP7jxN5uq0lX5YPw1Tq8uqA/OU0smDD4Ov7RvJ1tnLQBx0B5j+
-	nZ1pXPPlyoTuFeJu9rZ1UQru5SMuiUNO4PAZ6nZUAkM4B8TyimZ5T0QdtzmFjQO3V3OxDrYD06VEn
-	tL/uy5xbbidqSt7Ig/eTa9o3yYFAX2zk0NrVe72K1WaGqu/7dDyd7KO44gcaHhqaumh/KzJQ7SAZ1
-	op9/ApdPbVtg3+Wz+DdXuDx3D2LTQ8H16GRVqgqQHJzGLtCRNl0NOyKVLoyvY1Q9u3RT5Dof4zhQ6
-	2AaS7UPA==;
+	bh=uLwZxg+OX1A3lxVf5y7n4bPyXEh1Tpg8FCtox+FDlqs=; b=tQPlyQtjjHpaxAGa7o+nHCCgxl
+	gH4sxCmsQqpK6wUtx+soTEOpjtFClPwrGSzEXhelSqSp8VT0baN3pbvhtpDl/QYI9lRN55mlwyO86
+	R7zXAppSljtn9hcd6MrxHsnwT9wAV99MyuqlW/pVeTROx7BRi29pr06PzmqaEV1qgL53tndFtWDOy
+	7OAL9DRfig19TU4668vsv+B0pPOJkcD2x/qWtg4ofuuvPfW1B9IXtxA6FFLti8JOVMDQMI/oSVT11
+	nG3vS4y1bFRL/vsKfIkp+XGOZGB9I/p41lszKZrWf3NL4eaWPY87yypW695hMpDAZtvX7eSS2bZ1Q
+	jS5ZjC/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69OH-00000007iQZ-3yER;
-	Fri, 27 Mar 2026 15:46:29 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w69OF-00000007iQ1-3i9H
+	id 1w69P2-00000007iWI-1Awq;
+	Fri, 27 Mar 2026 15:47:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w69Oz-00000007iVo-3WB1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 15:46:29 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-5091ed02c54so498591cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 08:46:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774626385; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Z4eLXv0dkTvucIJlWgkSCgvUUOHy8WARtteUnyOLW6++FW52sr7KiBF250h0xVMstW
-         rPP0UZSUNxNHFct6bGlkBdg5fWaMR8p3xporb5PNEyzrk8qn2bZElUMl3r+pceh0Qq2x
-         br/AiwsTdH4hyQ3ECPym7Jf9Fu2QYHTGTUmVVGCH5PkQQNh4picB/KvZg3jx+IzwC9gl
-         YuA5qhzDyUqAVYSb2sPjkg92CDVoFAGIgipacF/29+MyY8Vvr6hpargDeDmJhvNLumrV
-         DEYIILz+jdBxFkH+SDwS+y5r7C8nNHavwXnOwS10MGPNECgsxxz30w9/ia6SR+8+D3M4
-         KgXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=owpdxFF3v/KlPV1csbkJ90RTaf+LQvkCMaflebyBvGw=;
-        fh=JeDXBbFAg5+9NM+JZLc5JNrG335Ho8xtRW1zZTQ0PGA=;
-        b=i/0zm4jDRSFFJXPcpPJxSJOwTF+hfH+zZFERI2NG0x5r2oIaSGZHkkgWjuBSobraHU
-         9TXGkSGdvmNndQEvm4lEHRCJusgAI/IW12t20+pkeqzU9il4W3B9Eoyb2NwjAqAgQGNU
-         GCvT0IjocrITKrMUY0S8bum58sHy5NaZm1SwqMOZPFZldpPUxnQilncs72ikQ0q90kSU
-         QH+TtyQvszCNJsimk5xEGf1xIAtlzZMrTGq1pMgPExWWirokWm+kvp12g98QItnfMfOc
-         xtZ4kxQP2IGeQ33GIaPyj+oPqBY6TmZbTh8ImfqPZ+3TVOtSKackwIsjlL3Ov7JEGTTn
-         RyRg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774626385; x=1775231185; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=owpdxFF3v/KlPV1csbkJ90RTaf+LQvkCMaflebyBvGw=;
-        b=aUVIxFSfadeWkT4q/Oz6zc+gz4CchtXQoscoa0HS3vsn6WoIrRoZIIt26vXkVltVAl
-         zlVImPUUIxWks22o+uvo/2vVCZ+xcq+w1O3MEsQnrcmCBzfUD6C94n8IkU+Q0r68pgj9
-         gD5CkIkOmG/A2jDrpNDiWGQoO4CpyX1KZQ9fsUX8aAB/OlcDQYlnKSDa8KuDM7M07gLT
-         DiCne5YoUa93HorrJ7rtw+LKt8r7/9y4avJrHsqCvDBKyMZl1xIsay9rbgwLgPOhPms2
-         Dy4zU+Ivc6cPOcZ+jzFKFyQozPRsZ7jb1LY5U+RWu1bT7O3kphLuGYYXbRA5Dn9JBMdH
-         pVFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774626385; x=1775231185;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=owpdxFF3v/KlPV1csbkJ90RTaf+LQvkCMaflebyBvGw=;
-        b=GOwPynpVHIy1xoAgxXhmo6wqmeQfMo3c+Qr9tkoj2gSwIPQTVcxpO6akZWBMlilbIL
-         409ayhaYxEZfPb1DoMEU5Cy8X9bldt8+t5Qa+AeuxgftZ0YqwYz9fC3Wx4Z/w9Af4GXu
-         e4MSY6Ym6LyVDi0naA2vaJjFm3iqVji9Z1uRJnFWfJ4xIKef0VxDVTlkpzI2cyptzooX
-         CeJD7K/+kez7WtXzeSejogfRiMos0ZGipLMb9JQNCYcvJAQs0eSha8Bo3u8ECcPyfRVH
-         hie8LawokrmOC96rd/3cHmvHYAS8PvJgJO5rNNkS43rFZORwqe7Dm52Qdx+0nBBwj37Y
-         7KFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWWiIMrWPKxpWwVNTFCH2wrM4we35+5rfw+s5PJN7yrWKdZMIEtISM/KvqhGi3ejPxaiEjtERxwuwpCLurv5o2N@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPIMwoKCPYDpBNU+6/kqHG6u0XgieU3u39j2yLKZ7Ep6zM5MSP
-	CTJm5lK27htjYfF47mVwe3dzFBERazPlhtbryMeIfEI8z7gQcPD4sldCNzd/OKPwO9fQPdTBXD2
-	l0mFJ4Q+fS1ixXJNlBzIiVBdOmMWOk+fCwZXAg/7y
-X-Gm-Gg: ATEYQzyw7vsKjjr41xJyVtzNIHWuypVLE82A5XLtdk5xaf7h27HghTxuoMZ7MU0+xgf
-	sBlpaH+XD3VvMx8XU7Jsn7qYGpGSS9t3HfyPlHRDOCRiGKKhYmy/ltwOPsrAFkm01b5VL31K+dK
-	Zcax9IU0QF9CBA3NGspmdRPZOGzsAF5MOnI+DtJv9q9pYfU945pN5CtmavS/Xbd8e5KmrOKqZ2e
-	csE7PBUsn/3BzXmpWzYhDwN7ZwqhDa4u84ugs0o7USJcsSoAFffB2pbUjl3X91HERz6+RIgrgS3
-	bUpdNkc=
-X-Received: by 2002:a05:622a:4c86:b0:509:72a:ae59 with SMTP id
- d75a77b69052e-50ba1cbeb9amr15605551cf.10.1774626384838; Fri, 27 Mar 2026
- 08:46:24 -0700 (PDT)
+	Fri, 27 Mar 2026 15:47:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6C9D35E4;
+	Fri, 27 Mar 2026 08:47:06 -0700 (PDT)
+Received: from [10.1.196.96] (eglon.cambridge.arm.com [10.1.196.96])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD5713FBF8;
+	Fri, 27 Mar 2026 08:47:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774626432; bh=FwlH74TR5RapPRWbQ8EZJzyzw7m7rDT/kv8QOqeRWLk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Pn20w3r64JfebMfmtSSXpMWLvZj0MW+93FnR/sIQAHXY3Yh+woGkOkAEN7/vouEe8
+	 rMQt2APDwyIa+dvsmtRvzT2LBNxcN/Hp+0fUyqh8m4c5rC16B34QqkzETJw1qYEnxz
+	 ns9SzT3OlvGzT4iOmXuuQP6ir2beZrTs4/b/DXvQ=
+Message-ID: <85c10fab-9b4e-4a57-9b4e-42adcd069a5e@arm.com>
+Date: Fri, 27 Mar 2026 15:47:02 +0000
 MIME-Version: 1.0
-References: <20260323175340.3361311-1-avagin@google.com> <20260323175340.3361311-2-avagin@google.com>
- <acGEonF9I6sPA42B@J2N7QTR9R3.cambridge.arm.com> <acJnOB-rlyt-3jU4@willie-the-truck>
- <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
-In-Reply-To: <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
-From: Andrei Vagin <avagin@google.com>
-Date: Fri, 27 Mar 2026 08:46:13 -0700
-X-Gm-Features: AQROBzCbFCKKF5EGKvRVWmaQmxOKGk-clLCYQmcai8kbKMF-pnr8L4F1E1mL0vY
-Message-ID: <CAEWA0a629qGEHvHpczGrZ+UBnzO75KgLsU7RoeR0cekmvaxLQQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: Kees Cook <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Cyrill Gorcunov <gorcunov@gmail.com>, 
-	Mike Rapoport <rppt@kernel.org>, Alexander Mikhalitsyn <alexander@mihalicyn.com>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, criu@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	Chen Ridong <chenridong@huawei.com>, Christian Brauner <brauner@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, Eric Biederman <ebiederm@xmission.com>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Michal Koutny <mkoutny@suse.com>, 
-	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 22/40] arm_mpam: resctrl: Convert to/from MPAMs
+ fixed-point formats
+To: Gavin Shan <gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, peternewman@google.com,
+ punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
+ reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
+ will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ zengheng4@huawei.com, linux-doc@vger.kernel.org,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20260313144617.3420416-1-ben.horgan@arm.com>
+ <20260313144617.3420416-23-ben.horgan@arm.com>
+ <bd450f1f-05a3-44d6-9bbc-1c48d967baa4@redhat.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <bd450f1f-05a3-44d6-9bbc-1c48d967baa4@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_084627_962821_3CEDA140 
-X-CRM114-Status: GOOD (  46.96  )
+X-CRM114-CacheID: sfid-20260327_084713_912092_4C2A4887 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,140 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 3:19=E2=80=AFPM Andrei Vagin <avagin@google.com> wr=
-ote:
->
-> Hi Mark and Will,
->
-> Thanks for the feedback. Please read the inline comments.
+Hi Gavin,
 
-Mark, Will, just checking in to see if my explanation makes sense to you.
-Let me know if you have any further feedback or questions.
+On 23/03/2026 22:49, Gavin Shan wrote:
+> On 3/14/26 12:45 AM, Ben Horgan wrote:
+>> From: Dave Martin <Dave.Martin@arm.com>
+>>
+>> MPAM uses a fixed-point formats for some hardware controls.  Resctrl
+>> provides the bandwidth controls as a percentage. Add helpers to convert
+>> between these.
+>>
+>> Ensure bwa_wd is at most 16 to make it clear higher values have no meaning.
+
+> One nitpick below, but this looks good to me in either way.
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+
+Thanks!
+
+
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 0e5e24ef60fe..0c97f7708722 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -713,6 +713,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>               mpam_set_feature(mpam_feat_mbw_part, props);
+>>             props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
+>> +
+>> +        /*
+>> +         * The BWA_WD field can represent 0-63, but the control fields it
+>> +         * describes have a maximum of 16 bits.
+>> +         */
+>> +        props->bwa_wd = min(props->bwa_wd, 16);
+>> +
+> 
+> 16 may deserve a definition for it since it's a constant value and referred
+> for multiple times in this patch, if we need to give this series another
+> respin :-)
+
+Hmmm.,. I've left this, I'm not sure what you'd call it. U16_BITS? That sort of thing
+might be needed for long/int etc. Here there is either a comment, or its
+accepting/returning a u16. I think its fairly obvious where the number 16 is coming from.
+
+
 
 Thanks,
-Andrei
 
->
-> On Tue, Mar 24, 2026 at 3:28=E2=80=AFAM Will Deacon <will@kernel.org> wro=
-te:
-> >
-> > On Mon, Mar 23, 2026 at 06:21:22PM +0000, Mark Rutland wrote:
-> > > On Mon, Mar 23, 2026 at 05:53:37PM +0000, Andrei Vagin wrote:
-> > > > Introduces a mechanism to inherit hardware capabilities (AT_HWCAP,
-> > > > AT_HWCAP2, etc.) from a parent process when they have been modified=
- via
-> > > > prctl.
-> > > >
-> > > > To support C/R operations (snapshots, live migration) in heterogene=
-ous
-> > > > clusters, we must ensure that processes utilize CPU features availa=
-ble
-> > > > on all potential target nodes. To solve this, we need to advertise =
-a
-> > > > common feature set across the cluster.
-> > > >
-> > > > This patch adds a new mm flag MMF_USER_HWCAP, which is set when the
-> > > > auxiliary vector is modified via prctl(PR_SET_MM, PR_SET_MM_AUXV). =
- When
-> > > > execve() is called, if the current process has MMF_USER_HWCAP set, =
-the
-> > > > HWCAP values are extracted from the current auxiliary vector and st=
-ored
-> > > > in the linux_binprm structure. These values are then used to popula=
-te
-> > > > the auxiliary vector of the new process, effectively inheriting the
-> > > > hardware capabilities.
-> > > >
-> > > > The inherited HWCAPs are masked with the hardware capabilities supp=
-orted
-> > > > by the current kernel to ensure that we don't report more features =
-than
-> > > > actually supported. This is important to avoid unexpected behavior,
-> > > > especially for processes with additional privileges.
-> > >
-> > > At a high level, I don't think that's going to be sufficient:
-> > >
-> > > * On an architecture with other userspace accessible feature
-> > >   identification mechanism registers (e.g. ID registers), userspace
-> > >   might read those. So you might need to hide stuff there too, and
-> > >   that's going to require architecture-specific interfaces to manage.
-> > >
-> > >   It's possible that some code checks HWCAPs and others check ID
-> > >   registers, and mismatch between the two could be problematic.
-> > >
-> > > * If the HWCAPs can be inherited by a more privileged task, then a
-> > >   malicious user could use this to hide security features (e.g. shado=
-w
-> > >   stack or pointer authentication on arm64), and make it easier to
-> > >   attack that task. While not a direct attack, it would undermine tho=
-se
-> > >   features.
->
-> I agree with Mark that only a privileged process have to be able to mask
-> certain hardware features. Currently, PR_SET_MM_AUXV is guarded by
-> CAP_SYS_RESOURCE, but PR_SET_MM_MAP allows changing the auxiliary vector
-> without specific capabilities. This is definitely the issue. To address
-> this, I think we can consider to introduce a new prctl command to enable
-> HWCAP inheritance explicitly.
->
-> >
-> > Yeah, this looks like a non-starter to me on arm64. Even if it was
-> > extended to apply the same treatment to the idregs, many of the hwcap
-> > features can't actually be disabled by the kernel and so you still run
-> > the risk of a task that probes for the presence of a feature using
-> > something like a SIGILL handler or, perhaps more likely, assumes that
-> > the presence of one hwcap implies the presence of another. And then
-> > there are the applications that just base everything off the MIDR...
->
-> The goal of this mechanism is not to provide strict architectural
-> enforcement or to trap the use of hardware features; rather, it is to
-> provide a consistent discovery interface for applications. I chose the
-> HWCAP vector because it mirrors the existing behavior of running an
-> older kernel on newer hardware: while ID registers might report a
-> feature as physically present, the HWCAPs will omit it if the kernel
-> lacks support. Applications are generally expected to treat HWCAPs as
-> the source of truth for which features are safe to use, even if the
-> underlying hardware is technically capable of more.
->
-> Another significant advantage of using HWCAPs is that many
-> applications already rely on them for feature detection. This interface
-> allows these applications to work correctly "out-of-the-box" in a
-> migrated environment without requiring any userspace modifications.  I
-> understand that some apps may use other detection methods; however, there
-> it no gurantee that these applications will work correctly after
-> migration to another machine.
->
-> >
-> > There's also kvm, which provides a roundabout way to query some feature=
-s
-> > of the underlying hardware.
-> >
-> > You're probably better off using/extending the idreg overrides we have
-> > in arch/arm64/kernel/pi/idreg-override.c so that you can make your
-> > cluster of heterogeneous machines look alike.
->
-> IIRC, idreg-override/cpuid-masking usually works for an entire machine.
-> We actually need to have a mechanism that will work on a per-container
-> basis. Workloads inside one cluster can have different
-> migration/snapshot requirements. Some are pinned to a specific node,
-> others are never migrated, while others need to be migratable across a
-> cluster or even between clusters. We need a mechanism that can be
-> tunable on a per-container/per-process basis.
->
-> >
-> > On the other hand, if munging the hwcaps happens to be sufficient for
-> > this particular use-case, can't it be handled entirely in userspace (e.=
-g.
-> > by hacking libc?)
->
-> CRIU often handles workloads with a mix of runtimes: some linked against
-> glibc, some against musl, and others like Go that bypass libc entirely.
-> CRIU is mostly used to handle containers that can run multiple processes
-> possible based on different runtimes. It means available cpu features
-> should not be only specified for one runtime, they have to be passed
-> across different runtimes. I think the pure userspace solution is near
-> infeasible in this case.
->
-> Thanks,
-> Andrei
+James
 
