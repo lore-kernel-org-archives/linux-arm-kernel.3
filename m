@@ -4,131 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3178010ED679
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699B710ED67C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TnwOxiQgTrY2GQTcPVQdPC36P8UQNWjAuceWpM/pOE8=; b=Cwn85FTsXzVkCrCTOfzEFM6R7F
-	7Yqm/5vLUBCqHSxQnMq6QOrm/WQLMbMVSnjAP1FUHXDIX+lGZsw+Xn3EIXhx9Tv+Jt159q1fVqzuT
-	dCO3EDgAmRN2tsHFVoAh9aUFf84EnR7yuH8g5os5obFn+OCRnMlXliToC2hYuOckpTMFFzardIBYj
-	XI0QUF6cIkj55NJ1//N4LBSPJ/6dh+n3cMh6dAuGIJhFabtfUEZqFkr8jxprQxOHaOw5HLs4gufrq
-	I1M4+VWCwlfkSWW5La74JcuouT/3AmBp+ddrli1r6pI/HJUBsUA3JFujupyWUQf4Pm0N2ikrqfOpg
-	3lt4+mMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xtu2xKU24myRwQOk9cD2GRQKYnMGvF6fQQgu2QdaIVo=; b=IVS0Elmogr7ISE4UQ8fjtIG5bo
+	fSSyViGkbLt7+l1jKLD4moZpGAj+rhzkjtGYq6S07nle6UkdBsg6+uqnBDK6rMER02AUajWdQUQpx
+	hCikcGiT00LO5WPbm8GU5UbbBjcnZgX0oi+johgKck9QuhCHAP709AP4CgTzybs0VQPAM5BRSZkzH
+	m6WXqkcESs2g8v2ZJRgm8+ABgjBCBQetTGFG0UolYOPUkN64/SekgbvdUeL+jWxQPs5VTWPmTXGGW
+	kfVh3zLYSbAKzWQ0Vra2eIpQfrJ8q6P6dESmnyqjQtf64bPOW8ve6VybjIijjd9nWMMFhKzJEVmur
+	Z4i2lJ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67nx-00000007YVE-0iJN;
-	Fri, 27 Mar 2026 14:04:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w67oS-00000007YsC-3yZz;
+	Fri, 27 Mar 2026 14:05:24 +0000
+Received: from lahtoruutu.iki.fi ([185.185.170.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67nu-00000007YSw-3lWf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 14:04:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=TnwOxiQgTrY2GQTcPVQdPC36P8UQNWjAuceWpM/pOE8=; b=o747e1jU02T13LHV/l2k6B5ogx
-	XbxpBxFbNkWm3f1fMtpp/lO2lpUZkFjSjE3SN3CrtKZm65kzxw61hZhS1UhvGFX7Fh9SGoBzoc/yz
-	7FcSrbPUbgk2jjnmTavlP6PfB4pnWUvCccsuvJ8AKT3QXSdJ1V163hvHlnLyTXI/rBgw8KIL6aKph
-	ARonPoNSGqjpKiM5htJxTEYN85GT1Tpv1H07/xe7a/mzpt2dlK2IQxThldrKx09HTVQyRgOtMbC3e
-	HBmPQcBFGmgon98iupl5eegK/NynFXwvvG4CXcjLmOafxtWIsYqNABn31KxdAFrZMrcnKOoUMQgTA
-	QYqjdDjA==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67nq-0000000AZ3K-11VG
+	id 1w67oN-00000007Yna-1n8L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:04:49 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48702d51cd0so24776195e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 07:04:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774620283; x=1775225083; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TnwOxiQgTrY2GQTcPVQdPC36P8UQNWjAuceWpM/pOE8=;
-        b=SnddVSAthzKBcRP4sfbiS8NjWtyZeZ+sdZpkjBj4Y+9tcaFnZiNlcONmGu0l70WzNp
-         MIkRcJE3QIcSs25VveyCJT9SMmthsmpWcWfJvQXY3PpujEwp6pH6F1F0VFCD5DNR3o5q
-         CdRLPT2sSiYAUZjjCEZzu0EeP8q3UHeTh0f2pYXavIvYNDlxbwytoVded/5HrwqkVv7z
-         gRJM8rWvmXgIlKwrbj6+kyrcoIHBI9kcwyXs0X1r9dq40eWvo/1USafycEcrM3goi6Su
-         A12hczV1GfFzySAJ19aSyvI9vJ30NYYj8b/e0Z2f58S6dBKDwd8x0brvHrVtDQ0AiOyk
-         bNXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774620283; x=1775225083;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TnwOxiQgTrY2GQTcPVQdPC36P8UQNWjAuceWpM/pOE8=;
-        b=Mrl3CUTWecAswt4TqR0NTBlQjiNB7nUYemfppeg7oUcjImve5mNrQqsE0Nf85UrwLZ
-         5dtU2z4fuDdbXnJWkXs6wZlgOIvNLMijtNUCPRbRYmJSY1L41hJF9Z71U2mFe7ayQQ7U
-         owYDR4lPiQIumbFY01ZYtiUIZqg75DxX7tQtYr52s8i4sluZ3+3G7OFlifBitQ9N0STv
-         fauy3NJOKysn13lzgY2i9YLmboAIpSsUOagNE719HVEOstlHiQv0TJzSjFJOLfgP2OWa
-         wPlzJ7TG1RrGLCGkf97m6KCfXfkdvR5YOEb72dMRtjvks27zcNryDhIBChg4FL7ElXvC
-         xf2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVpKKUQoZgSoWVypJRmyQ68F1am3OVpvxRtXf7a3do4cilrfOz/tu7VrJF/jNF0yR7MWG+3sHDcpPhusIwvMuME@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfT9K8hlUCEmNsZf90b6EKsW3jOBFqespSrtY4aKzhs9yB9FXM
-	OqUw0S4hytAPqIiUnxHEqsVNDE0bWhv2ZgfngNJ/IQIpJivZWokbcL5w7EgxrGsWkqY=
-X-Gm-Gg: ATEYQzzyoojZxJzSlV6tS5mYZSlVnBazLY3NznqkFMJJv7IdtrMBiP+r4vHe/4uHkWU
-	Isn6Oh/34hFAtIr/NMVkmAUWkl/sswG8JMBdikKP3+vayxmnqyleDr83/U2w47o7JlL2cCWTuyi
-	30yoQsJEAm3y8w12Qlde9NdDvgHgtUuhYYmrut+VO8jJ2zCzDWgOwOvljA1150GKp2kYrbemEXe
-	lVnt7GYRcKzPBUJYZ01Lvcb721TtPY/R+6S7ufBUjgjVmnyULMnjtw/UDt8TH8GlYvMbBCUs9vJ
-	f+uQ3fx3pDi0yuNJvcwHnIo/xK82uxqZHGJRbCYomahfs8hJxiHFrVTb/mLG9nwYqmV015FjufL
-	BoxwNHkZQ5tiCj4pOEyW38pWS505asPrWmPweZ7UCAqWFG1NGFWslzpdqAWW93lbmxy/TJwiuUI
-	YhZR5JMBG5E9pyVgLO9w3+JDqXqGfOUovVWLbBCJE9EypbWg8q0R3zdGPaohnMaiTTezp/1Hdlq
-	2P7yB+3y/21O6LLV/xlR64=
-X-Received: by 2002:a05:600c:3f16:b0:486:fdba:f5db with SMTP id 5b1f17b1804b1-48727c86862mr44979375e9.0.1774620283136;
-        Fri, 27 Mar 2026 07:04:43 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:81c2:60b3:ff00:9a5e? ([2a01:e0a:106d:1080:81c2:60b3:ff00:9a5e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725eb5417sm27114795e9.3.2026.03.27.07.04.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Mar 2026 07:04:42 -0700 (PDT)
-Message-ID: <7d9675e6-3f02-49e8-b65a-9785d5b6a7c7@linaro.org>
-Date: Fri, 27 Mar 2026 15:04:39 +0100
+	Fri, 27 Mar 2026 14:05:22 +0000
+Received: from darkstar.musicnaut.iki.fi (85-76-0-165-nat.elisa-mobile.fi [85.76.0.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: aaro.koskinen)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fj2Tf2bXjz49PtJ;
+	Fri, 27 Mar 2026 16:05:10 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1774620311;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Xtu2xKU24myRwQOk9cD2GRQKYnMGvF6fQQgu2QdaIVo=;
+	b=mza3c35Kmh+arZTcuM8M7dyjpYU+J4QtKVF7egPoeX584oYLBmaVOmJdh9mF7aO76FO522
+	DoWBboy3qVOuO8u+vVnt1fgOtZXOizqeJKKxWdUq8b0U1TsGqC7XlinELtBNOraSxk7/kw
+	/MNmwdNY6kZpfn64bbVMvS56foElvusEtf5QO7DEpFFM3lgoiyxHOk67ThXGORpJPuY3vR
+	HQeYvhGpL+0yIp7h9qcRsGkhON81Zb/E2vdlRE1nOrLCgkB7s7jx+4IvfkhzLPfFhuTCJs
+	yihinluu5OSsQk63s9tTEQ6sG7xlePx3hABKOR6hvKB0eg+N6KMo97vs5NGIOg==
+ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1774620311;
+	b=YM9iDk2dbFZCuGBcj10XBwYndUhXYqthGRKA1GZDwgbh7Mij3gYseCYAiwCOV8iWAaL6bd
+	CpS77D2MIW0pA4iDtxTtm/C0io0Fy3tKySDftyV2ELZR2hKnpbzN45RBPOM6E0d3jHy1uh
+	iGl0eqaVqoNeyS1eMFo+X9tC+NrbvZoRlt4Ik47aG4CKmgZ2VeO4lCOTitGTbx2QeEyUGw
+	lKC5z2/1FrP3PuapT5KtVprfW0gB4Z9t2wSgJzg2L7n8f38836XAaLTWVQ2DyJEaeYjLqO
+	a5FNafQPCNT+FB2Wgq+CyGBOcP1JnyI8MLEKtICSYglSWOQTtZLIRFAxf+y5Rg==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1774620311;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Xtu2xKU24myRwQOk9cD2GRQKYnMGvF6fQQgu2QdaIVo=;
+	b=IyWlVDjPWa1NvUpyWqmDQMeZy1hyYx0X8VEU2DGo/x/rdEfM8oyjQgLqlx62LrLnI8gB8t
+	dCAIkh0G5B3/JufzHK4G3J6ngmtgNVw95p/gnjI11sMzHbNGtvVVCQUn2OQej5Fax/aW26
+	92dHDzMI5w66A0cf7+9QhCcbcdJvOCAUQCxomR4HZVKT/n/bTDTAdSRdMthDoe/atoYSzY
+	WMCtzpwyEdOLCi4d/MshN4kEuzDkB10PdM9BBf3ce8UgtGcj/c4Fw6C97vgJ0F5h2kUlP0
+	scQSWBDV9aBtd0v08WPJhUjK898QgoxHgJQSW/SmsBbrTX3CVDoz94wiKzuaqg==
+Date: Fri, 27 Mar 2026 16:05:08 +0200
+From: Aaro Koskinen <aaro.koskinen@iki.fi>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Linux-OMAP <linux-omap@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Kevin Hilman <khilman@kernel.org>
+Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+Message-ID: <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
+References: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
+ <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
+ <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
+ <7h1phxpzml.fsf@baylibre.com>
+ <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
+ <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] PCI: dwc: Add multi-port controller support
-To: Sumit Kumar <sumit.kumar@oss.qualcomm.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Richard Zhu <hongxing.zhu@nxp.com>,
- Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@Amlogic.com>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Chuanhua Lei <lchuanhua@maxlinear.com>,
- Marek Vasut <marek.vasut+renesas@gmail.com>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Pratyush Anand <pratyush.anand@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- imx@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20260305-dt-parser-v2-0-85836db8dc06@oss.qualcomm.com>
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Content-Language: en-GB
-In-Reply-To: <20260305-dt-parser-v2-0-85836db8dc06@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_140446_623126_15B839DB 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20260327_070519_687623_92674C56 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,60 +111,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 05/03/2026 à 07:20, Sumit Kumar a écrit :
-> This series adds support for multi-port PCIe controllers in the DesignWare
-> driver. Currently, the driver only supports a single Root Port with
-> controller-level properties, which doesn't work for multi-port controllers
-> where each port may have different configurations.
-> 
-> This series introduces a per-port structure and parsing API that allows
-> each Root Port to be configured independently via pcie@N child nodes in
-> device tree, while maintaining backward compatibility with existing
-> single-port bindings.
-> 
-> Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
-> ---
-> Changes in v2:
-> - Fix error code preservation in dw_pcie_resume_noirq() to return actual
->    error from dw_pcie_wait_for_link() instead of hardcoded -ETIMEDOUT (Mani).
-> - Initialize ret variable to -ENOENT in dw_pcie_parse_root_ports() (Mani).
-> - dw_pcie_host_init(): Remove -ENOENT error skipping to make parsing
->    failures fatal for now, add TODO comment about making properties
->    optional later (Mani).
-> - Link to v1: https://lore.kernel.org/r/20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com
-> 
-> ---
-> Sumit Kumar (2):
->        PCI: API changes for multi-port controller support
->        PCI: dwc: Add multi-port controller support
-> 
->   drivers/pci/controller/dwc/pci-exynos.c           |   4 +-
->   drivers/pci/controller/dwc/pci-imx6.c             |  15 +-
->   drivers/pci/controller/dwc/pci-meson.c            |   1 -
->   drivers/pci/controller/dwc/pcie-designware-host.c | 175 ++++++++++++++++++----
->   drivers/pci/controller/dwc/pcie-designware.c      |  32 ++--
->   drivers/pci/controller/dwc/pcie-designware.h      |  17 ++-
->   drivers/pci/controller/dwc/pcie-fu740.c           |   6 +-
->   drivers/pci/controller/dwc/pcie-intel-gw.c        |  13 +-
->   drivers/pci/controller/dwc/pcie-qcom-common.c     |   5 +-
->   drivers/pci/controller/dwc/pcie-qcom-ep.c         |   4 +-
->   drivers/pci/controller/dwc/pcie-qcom.c            |   4 +-
->   drivers/pci/controller/dwc/pcie-rcar-gen4.c       |  13 +-
->   drivers/pci/controller/dwc/pcie-spear13xx.c       |   5 +-
->   drivers/pci/controller/dwc/pcie-tegra194.c        |   4 +-
->   drivers/pci/of.c                                  |   6 +-
->   drivers/pci/pci.h                                 |   2 +
->   16 files changed, 232 insertions(+), 74 deletions(-)
-> ---
-> base-commit: 097a6c336d0080725c626fda118ecfec448acd0f
-> change-id: 20251010-dt-parser-98b50ce18fc1
-> 
-> Best regards,
+Hi,
 
-Tested on meson-pci (boot log https://gitlab.com/amlogic-foss/abcd-linux-test/-/jobs/13677061036)
+On Thu, Mar 26, 2026 at 09:57:31AM +0100, Bartosz Golaszewski wrote:
+> On Mon, Mar 16, 2026 at 9:50 AM Bartosz Golaszewski <brgl@kernel.org> wrote:
+> > On Fri, Mar 6, 2026 at 1:31 AM Kevin Hilman <khilman@kernel.org> wrote:
+> > > Bartosz Golaszewski <brgl@kernel.org> writes:
+> > > > On Thu, Feb 12, 2026 at 12:46 PM Arnd Bergmann <arnd@kernel.org> wrote:
+> > > >> On Thu, Feb 12, 2026, at 12:25, Bartosz Golaszewski wrote:
+> > > >> > Currently the board file for Nokia 770 creates dummy software nodes not
+> > > >> > attached in any way to the actual GPIO controller devices and uses the
+> > > >> > fact that GPIOLIB matching swnode's name to the GPIO chip's label during
+> > > >> > software node lookup. This behavior is wrong and we want to remove it.
+> > > >> > To that end, we need to first convert all existing users to creating
+> > > >> > actual fwnode links.
+> > > >> >
+> > > >> > Create real software nodes for GPIO controllers on OMAP16xx and
+> > > >> > reference them from the software nodes in the nokia board file.
+> > > >> >
+> > > >> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> > > >>
+> > > >> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> > > >
+> > > > Aaro, Janusz: Can you please pick it up for v7.1?
+> > >
+> > > I can take this via the OMAP tree once I have confirmation from
+> > > Aaro/Janusz that they've tested.
+> 
+> Hi again! Any chance we could get this queued? Janusz, Aaro: any objections?
 
-Tested-by: Neil Armstrong <neil.armstrong@linaro.org> # On Bananapi M2S
+Unfortunately the patch doesn't work - 770 just dies silently. This
+means that e.g. CBUS GPIOs are not working as those are needed to keep
+the device powered. I'll try to figure out how to debug this...
 
-Thanks,
-Neil
+A.
 
