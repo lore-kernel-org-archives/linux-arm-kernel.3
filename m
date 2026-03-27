@@ -4,99 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699B710ED67C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C575910ED67F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xtu2xKU24myRwQOk9cD2GRQKYnMGvF6fQQgu2QdaIVo=; b=IVS0Elmogr7ISE4UQ8fjtIG5bo
-	fSSyViGkbLt7+l1jKLD4moZpGAj+rhzkjtGYq6S07nle6UkdBsg6+uqnBDK6rMER02AUajWdQUQpx
-	hCikcGiT00LO5WPbm8GU5UbbBjcnZgX0oi+johgKck9QuhCHAP709AP4CgTzybs0VQPAM5BRSZkzH
-	m6WXqkcESs2g8v2ZJRgm8+ABgjBCBQetTGFG0UolYOPUkN64/SekgbvdUeL+jWxQPs5VTWPmTXGGW
-	kfVh3zLYSbAKzWQ0Vra2eIpQfrJ8q6P6dESmnyqjQtf64bPOW8ve6VybjIijjd9nWMMFhKzJEVmur
-	Z4i2lJ4A==;
+	bh=Okt6gynmcfjuoSLhi4+XGGFaAwkQAIfnVHJrROXskik=; b=3XU9ufVvSe43lzedIieB7HL6EN
+	1tvMRBi0FSVpwjxDerdbHh+WcYNWNGcxk/r5BSvxapz5UBC9zZVmGnJxYsq3Kbo7lLSSt/orQtOru
+	WwLEmXrp7Tvc3ejX3NMffN9Hn8cIcwhUK4YQNrHQxQO+iAHv5bxTkYb5DQryHHx/yFTMcFgBWEClZ
+	HBxeTqvwSLEGfsDC7/aT5Aqd+tlXiecRiJ69ZRsCKob1LE571x/Awl1dGaPv7k781cG76rYEzqmLr
+	5bhL8YgwCc8PoJ/03C+uxWZJOHeTeOpafEJ4KtojmGmeYO2wEQavqpf9FFmoKx1yaivDIOOQDK6N2
+	RwgUNOEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67oS-00000007YsC-3yZz;
-	Fri, 27 Mar 2026 14:05:24 +0000
-Received: from lahtoruutu.iki.fi ([185.185.170.37])
+	id 1w67qG-00000007ZG2-3AZk;
+	Fri, 27 Mar 2026 14:07:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67oN-00000007Yna-1n8L
+	id 1w67qE-00000007ZFY-1i6z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:05:22 +0000
-Received: from darkstar.musicnaut.iki.fi (85-76-0-165-nat.elisa-mobile.fi [85.76.0.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: aaro.koskinen)
-	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4fj2Tf2bXjz49PtJ;
-	Fri, 27 Mar 2026 16:05:10 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
-	t=1774620311;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Xtu2xKU24myRwQOk9cD2GRQKYnMGvF6fQQgu2QdaIVo=;
-	b=mza3c35Kmh+arZTcuM8M7dyjpYU+J4QtKVF7egPoeX584oYLBmaVOmJdh9mF7aO76FO522
-	DoWBboy3qVOuO8u+vVnt1fgOtZXOizqeJKKxWdUq8b0U1TsGqC7XlinELtBNOraSxk7/kw
-	/MNmwdNY6kZpfn64bbVMvS56foElvusEtf5QO7DEpFFM3lgoiyxHOk67ThXGORpJPuY3vR
-	HQeYvhGpL+0yIp7h9qcRsGkhON81Zb/E2vdlRE1nOrLCgkB7s7jx+4IvfkhzLPfFhuTCJs
-	yihinluu5OSsQk63s9tTEQ6sG7xlePx3hABKOR6hvKB0eg+N6KMo97vs5NGIOg==
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1774620311;
-	b=YM9iDk2dbFZCuGBcj10XBwYndUhXYqthGRKA1GZDwgbh7Mij3gYseCYAiwCOV8iWAaL6bd
-	CpS77D2MIW0pA4iDtxTtm/C0io0Fy3tKySDftyV2ELZR2hKnpbzN45RBPOM6E0d3jHy1uh
-	iGl0eqaVqoNeyS1eMFo+X9tC+NrbvZoRlt4Ik47aG4CKmgZ2VeO4lCOTitGTbx2QeEyUGw
-	lKC5z2/1FrP3PuapT5KtVprfW0gB4Z9t2wSgJzg2L7n8f38836XAaLTWVQ2DyJEaeYjLqO
-	a5FNafQPCNT+FB2Wgq+CyGBOcP1JnyI8MLEKtICSYglSWOQTtZLIRFAxf+y5Rg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=lahtoruutu; t=1774620311;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Xtu2xKU24myRwQOk9cD2GRQKYnMGvF6fQQgu2QdaIVo=;
-	b=IyWlVDjPWa1NvUpyWqmDQMeZy1hyYx0X8VEU2DGo/x/rdEfM8oyjQgLqlx62LrLnI8gB8t
-	dCAIkh0G5B3/JufzHK4G3J6ngmtgNVw95p/gnjI11sMzHbNGtvVVCQUn2OQej5Fax/aW26
-	92dHDzMI5w66A0cf7+9QhCcbcdJvOCAUQCxomR4HZVKT/n/bTDTAdSRdMthDoe/atoYSzY
-	WMCtzpwyEdOLCi4d/MshN4kEuzDkB10PdM9BBf3ce8UgtGcj/c4Fw6C97vgJ0F5h2kUlP0
-	scQSWBDV9aBtd0v08WPJhUjK898QgoxHgJQSW/SmsBbrTX3CVDoz94wiKzuaqg==
-Date: Fri, 27 Mar 2026 16:05:08 +0200
-From: Aaro Koskinen <aaro.koskinen@iki.fi>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kevin Hilman <khilman@kernel.org>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-Message-ID: <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
-References: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
- <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
- <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com>
- <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
- <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
+	Fri, 27 Mar 2026 14:07:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6297C43A40;
+	Fri, 27 Mar 2026 14:07:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 846BAC19423;
+	Fri, 27 Mar 2026 14:07:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774620433;
+	bh=hWJlZNKlAaItYJvhnDmGAEIGtys9dKI210vA5dw6Gqw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gN1C4vUYUXB+7UEawc1PcM+V8n2yDJnE8RUs/p6dPiHH0hrRvfvdNZ6V+WGrqVpiE
+	 WjvpKR3uJl98bo9JYdDDaAmciiqnUpbLX8HKPq/ggFpHJYh80gfJbNyZV/1KebQjRK
+	 +NgkrXqvhN+gD2loKoMpnVFDOOlDpxi/X/qUK4zWDNvk5idq5pbHo/orDJGyySwOQL
+	 pJjn22TiFoR/rnyF+ZVJUBXDbgfmPb2K2C3YHqHsjqteRsXMDwXX6CWMhyVRQcoNKQ
+	 OLPZzK6vboSLI4XKmuFeWJdI+QTkto4qUzB7O2JVXrj+dnxsUTCfPXXzJnza1N84Dl
+	 1AQd9BRpLhScA==
+Date: Fri, 27 Mar 2026 15:07:04 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v20 04/10] firmware: psci: Introduce command-based reset
+ in psci_sys_reset
+Message-ID: <acaPCJnX6lb9lxPy@lpieralisi>
+References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
+ <20260304-arm-psci-system_reset2-vendor-reboots-v20-4-cf7d346b8372@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
+In-Reply-To: <20260304-arm-psci-system_reset2-vendor-reboots-v20-4-cf7d346b8372@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_070519_687623_92674C56 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260327_070714_484040_3C87F821 
+X-CRM114-Status: GOOD (  34.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +93,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thu, Mar 26, 2026 at 09:57:31AM +0100, Bartosz Golaszewski wrote:
-> On Mon, Mar 16, 2026 at 9:50 AM Bartosz Golaszewski <brgl@kernel.org> wrote:
-> > On Fri, Mar 6, 2026 at 1:31 AM Kevin Hilman <khilman@kernel.org> wrote:
-> > > Bartosz Golaszewski <brgl@kernel.org> writes:
-> > > > On Thu, Feb 12, 2026 at 12:46 PM Arnd Bergmann <arnd@kernel.org> wrote:
-> > > >> On Thu, Feb 12, 2026, at 12:25, Bartosz Golaszewski wrote:
-> > > >> > Currently the board file for Nokia 770 creates dummy software nodes not
-> > > >> > attached in any way to the actual GPIO controller devices and uses the
-> > > >> > fact that GPIOLIB matching swnode's name to the GPIO chip's label during
-> > > >> > software node lookup. This behavior is wrong and we want to remove it.
-> > > >> > To that end, we need to first convert all existing users to creating
-> > > >> > actual fwnode links.
-> > > >> >
-> > > >> > Create real software nodes for GPIO controllers on OMAP16xx and
-> > > >> > reference them from the software nodes in the nokia board file.
-> > > >> >
-> > > >> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> > > >>
-> > > >> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > > >
-> > > > Aaro, Janusz: Can you please pick it up for v7.1?
-> > >
-> > > I can take this via the OMAP tree once I have confirmation from
-> > > Aaro/Janusz that they've tested.
+On Wed, Mar 04, 2026 at 11:33:04PM +0530, Shivendra Pratap wrote:
+> PSCI currently supports only COLD reset and ARCH WARM reset based on the
+> Linux reboot_mode variable. The PSCI specification now includes
+> SYSTEM_RESET2 for vendor-specific resets, but there's no mechanism to
+> issue these through psci_sys_reset.
 > 
-> Hi again! Any chance we could get this queued? Janusz, Aaro: any objections?
+> Add a command-based reset mechanism that allows external drivers to set
+> the psci reset command via a new psci_set_reset_cmd() function.
+> 
+> The psci command-based reset is disabled by default and the
+> psci_sys_reset follows its original flow until a psci_reset command is
+> set. In kernel panic path, psci_reset command is ignored.
 
-Unfortunately the patch doesn't work - 770 just dies silently. This
-means that e.g. CBUS GPIOs are not working as those are needed to keep
-the device powered. I'll try to figure out how to debug this...
+If it is function calls you should add parenthesis (eg psci_sys_reset ->
+psci_sys_reset()).
 
-A.
+You must explain why the kernel panic path requires separate handling
+here AND in the code - think about looking at this years down the line
+and figure out why kernel panics are special here.
+
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  drivers/firmware/psci/psci.c | 45 ++++++++++++++++++++++++++++++++++++++++++--
+>  include/linux/psci.h         |  2 ++
+>  2 files changed, 45 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index 38ca190d4a22d6e7e0f06420e8478a2b0ec2fe6f..ae6f7a0aead913d740070080d4b2a3da15b29485 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -51,6 +51,15 @@ static int resident_cpu = -1;
+>  struct psci_operations psci_ops;
+>  static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
+>  
+> +struct psci_sys_reset_params {
+> +	u32 system_reset;
+> +	u32 reset_type;
+> +	u32 cookie;
+> +	bool cmd;
+> +};
+> +
+> +static struct psci_sys_reset_params psci_reset;
+> +
+>  bool psci_tos_resident_on(int cpu)
+>  {
+>  	return cpu == resident_cpu;
+> @@ -80,6 +89,28 @@ static u32 psci_cpu_suspend_feature;
+>  static bool psci_system_reset2_supported;
+>  static bool psci_system_off2_hibernate_supported;
+>  
+> +/**
+> + * psci_set_reset_cmd - Sets the psci_reset_cmd for command-based
+> + * reset which will be used in psci_sys_reset call.
+> + *
+> + * @cmd_sys_rst2: Set to true for SYSTEM_RESET2 based resets.
+> + * @cmd_reset_type: Set the reset_type argument for psci_sys_reset.
+> + * @cmd_cookie: Set the cookie argument for psci_sys_reset.
+> + */
+> +void psci_set_reset_cmd(bool cmd_sys_rst2, u32 cmd_reset_type, u32 cmd_cookie)
+> +{
+
+I don't think cmd_sys_rst2 is needed, as a replied in a different thread.
+
+> +	if (cmd_sys_rst2 && psci_system_reset2_supported) {
+> +		psci_reset.system_reset = PSCI_FN_NATIVE(1_1, SYSTEM_RESET2);
+> +		psci_reset.reset_type = cmd_reset_type;
+> +		psci_reset.cookie = cmd_cookie;
+> +	} else {
+> +		psci_reset.system_reset = PSCI_0_2_FN_SYSTEM_RESET;
+> +		psci_reset.reset_type = 0;
+> +		psci_reset.cookie = 0;
+> +	}
+> +	psci_reset.cmd = true;
+> +}
+> +
+>  static inline bool psci_has_ext_power_state(void)
+>  {
+>  	return psci_cpu_suspend_feature &
+> @@ -309,14 +340,24 @@ static int get_set_conduit_method(const struct device_node *np)
+>  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>  			  void *data)
+>  {
+> -	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+> -	    psci_system_reset2_supported) {
+> +	if (((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+> +	     psci_system_reset2_supported) && (panic_in_progress() || !psci_reset.cmd)) {
+>  		/*
+>  		 * reset_type[31] = 0 (architectural)
+>  		 * reset_type[30:0] = 0 (SYSTEM_WARM_RESET)
+>  		 * cookie = 0 (ignored by the implementation)
+>  		 */
+>  		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), 0, 0, 0);
+> +	} else if (!panic_in_progress() && psci_reset.cmd) {
+> +		/*
+> +		 * Commands are being set in psci_set_reset_cmd
+> +		 * This issues, SYSTEM_RESET2 arch warm reset or
+> +		 * SYSTEM_RESET2 vendor-specific reset or
+> +		 * a SYSTEM_RESET cold reset in accordance with
+> +		 * the reboot-mode command.
+> +		 */
+> +		invoke_psci_fn(psci_reset.system_reset, psci_reset.reset_type,
+> +			       psci_reset.cookie, 0);
+>  	} else {
+>  		invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
+
+This is very hard to parse. IMO, what you should do is:
+
+- Split this into two different paths: reboot_mode vs psci_reset.cmd == true.
+- Document very clearly why a panic needs separate handling.
+
+Something like:
+
+if (psci_reset.cmd)
+	handle_reset_cmd();
+else
+	handle_reboot_mode();
+
+I don't think we are far from converging but I want to be able to maintain
+this code going forward.
+
+Thanks,
+Lorenzo
+
+>  	}
+> diff --git a/include/linux/psci.h b/include/linux/psci.h
+> index 4ca0060a3fc42ba1ca751c7862fb4ad8dda35a4c..d13ceca88eab8932894051e7c86e806c2ad8a73a 100644
+> --- a/include/linux/psci.h
+> +++ b/include/linux/psci.h
+> @@ -45,8 +45,10 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void);
+>  
+>  #if defined(CONFIG_ARM_PSCI_FW)
+>  int __init psci_dt_init(void);
+> +void psci_set_reset_cmd(bool cmd_sys_rst2, u32 cmd_reset_type, u32 cmd_cookie);
+>  #else
+>  static inline int psci_dt_init(void) { return 0; }
+> +static inline void psci_set_reset_cmd(bool cmd_sys_rst2, u32 cmd_reset_type, u32 cmd_cookie) { }
+>  #endif
+>  
+>  #if defined(CONFIG_ARM_PSCI_FW) && defined(CONFIG_ACPI)
+> 
+> -- 
+> 2.34.1
+> 
 
