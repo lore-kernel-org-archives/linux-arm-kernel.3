@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D81610F2865
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 20:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B05010F286F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 21:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DwAKLwoYIfJJCtkX3cFuEqma6KKhnGBwbiyeffmGJmE=; b=Y3NJxdkRXFBdzycLsiZYgHgXAa
-	zSfM548LP7kwgd0fxfcYI1nR3oqp3OSVEl0mKHFQHsvmBbQe8d8dD54KyovtSlodGH6FIuF8qwPXS
-	IQrDjIff7OFtVAPp7HhnVoT2beaXYoCDxzGFdgNyDUjyCLr7nYOJMXQWZKVRsXbgqiwOldqNGynMF
-	P3R1cpn9YGYWx64Yv4zaZXvS8KzticBzo/QZReUj5OI0T7lFMjVwJtbgulvr2C6HkSyJQnx3shy70
-	FwrGSSCZaIT1Z0Rqa8czxKDcE7DS2gQWEI2TwCEpK+Gna/7x/INjtS+c+zcbtheipzoml3QZhQ6kp
-	kRMd/iLA==;
+	bh=ixgY7P/P6rPzRVtvvSvG+3dN+EGdQX/9LCYVr1D0ZL4=; b=VmTjBwNV7IoiJD9UCON6QD8Frm
+	8rKjinQ7VBRKYJTGe4OzR6Xl7F+goiqryVX7PkMlG7RApcV795poBMNa1roVNSaD+QMGls0FUU5df
+	4qEFo9yFIg6B7/EoCGX11rSyxOYbGAgP2T6Huoio6Q+54Cvut1oCCmSA0TtIVo4TUghrvkqID1H+w
+	oSRAnmEFfEJ6cRg4Qu3WwBCdMdNCB23/9/F81XNFOIH+XejUDfX8vmN0TJOz1V2pFGWNQV9Aml0Bt
+	XdiDtuWvGk2xjua3BVn1B0Njxcls6FUf0ifFRxxh3BrXJzgRdJsr+xzF3WxRJjPn7OzYve1X7Z5dI
+	AVy8OYxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6EGD-00000008CmI-0Rz9;
-	Fri, 27 Mar 2026 20:58:29 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1w6EPz-00000008DHa-1wY2;
+	Fri, 27 Mar 2026 21:08:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6EGA-00000008Clu-2NnJ;
-	Fri, 27 Mar 2026 20:58:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774645106; x=1806181106;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SQR0YyvvNKZ19ivSH0b+y9Tjg/QCeOc1Y/8TMEN1CZY=;
-  b=lD6nwNrxz5fEkD/rjuOV/yxrAuQSTOwl4XbcnbF5GgdjSX38135XdgRt
-   1jGaLB4w635yI3iSNpzbtuAf9BHn4pNucgulT8ZeDCbCJwDsQDQ8IG7mT
-   egbC3bJcXw8F07ZXa5HNnwdJwTwy6JD6WPi8Y8GkPWQPUZGvJbGD7hd+J
-   uPVZcBUMrb1YhQsX25g166hzCC1jHQCesDbv8nmHbpDehobPlHjAJVKYz
-   GRoSZe8bH0je5cRr3EYc3UWJEWFXRbSDKAH7g/uucXr6DEKt9SetUFMs7
-   U87VseAAnxkEcYgAVNkHHEbaaHlFXpYugF+IMjL/1gmNw+Yz0BDn2gyyw
-   w==;
-X-CSE-ConnectionGUID: ueADmfm/QhSKh2E3AG6VfA==
-X-CSE-MsgGUID: DeegcGaCQpavz+6wngkC4g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="75439709"
-X-IronPort-AV: E=Sophos;i="6.23,144,1770624000"; 
-   d="scan'208";a="75439709"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Mar 2026 13:58:25 -0700
-X-CSE-ConnectionGUID: UYhKLyDwTgG2QT2x7s+T8g==
-X-CSE-MsgGUID: hT6cdgmqQ9CvuiYlrtr0LA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,144,1770624000"; 
-   d="scan'208";a="221023310"
-Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 27 Mar 2026 13:58:21 -0700
-Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w6EG2-00000000Ak1-2ELz;
-	Fri, 27 Mar 2026 20:58:18 +0000
-Date: Sat, 28 Mar 2026 04:58:07 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	Ryan Chen <ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v3 3/4] irqchip/ast2700-intc: Add KUnit tests for route
- resolution
-Message-ID: <202603280415.xv0eHt8u-lkp@intel.com>
-References: <20260326-irqchip-v3-3-366739f57acf@aspeedtech.com>
+	id 1w6EPw-00000008DH9-3OaK;
+	Fri, 27 Mar 2026 21:08:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F12C4072D;
+	Fri, 27 Mar 2026 21:08:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF0FBC19423;
+	Fri, 27 Mar 2026 21:08:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774645710;
+	bh=41bvbqtQ5rHa85PxOAK8Zh1fd0/U1TvED/9pl87ZXhI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n/LEVa4B4xIMYsACSUCFQQ76Dc09qbTsdPH8bk0rdggph1FzAdccw1UUtX1vwW/qU
+	 daEzajDR4V7mDusKMKCKhCXGkdhM0nbCCwxtCguXtXE3ZbK8uZO83+T0v9rJomMmQQ
+	 DwK/W6ijoyi8AJG3HbmgJJwv+GaO7MDcWbbZdiEXs7gCQ0K34YXBvyJFfqd4XwupB4
+	 z2iPeteWP3LG6D0Op/W9VbnvJNoPndJWC92ziMVf9vbaD9EtcxbGZbHKHT6av3TG3d
+	 cQWjvhEcd9gecqtVz+35dd671f/Ndt6ZXTILHmfr6dTrlaFlN6dT2ydlanDP/MxIu9
+	 qSMYodpa0DzNg==
+Date: Fri, 27 Mar 2026 18:08:27 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Namhyung Kim <namhyung@kernel.org>, 9erthalion6@gmail.com,
+	adrian.hunter@intel.com, alex@ghiti.fr,
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
+	blakejones@google.com, ctshao@google.com,
+	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
+	leo.yan@linux.dev, libunwind-devel@nongnu.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org,
+	pjw@kernel.org, shimin.guo@skydio.com, tglozar@redhat.com,
+	tmricht@linux.ibm.com, will@kernel.org, amadio@gentoo.org,
+	yuzhuo@google.com
+Subject: Re: [PATCH v1 0/2] perf build: Remove libunwind support
+Message-ID: <acbxyzN4XKczgpLg@x1>
+References: <abxs-2rozL1tBEO1@google.com>
+ <20260321234220.848859-1-irogers@google.com>
+ <acW4Z2KJbyPZM1SG@google.com>
+ <acbjjwc-WCk1CwtF@x1>
+ <CAP-5=fXmBpqP86FT85sA_BZYRnzwbZ5joYLogCqON6fjXCkRHQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260326-irqchip-v3-3-366739f57acf@aspeedtech.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAP-5=fXmBpqP86FT85sA_BZYRnzwbZ5joYLogCqON6fjXCkRHQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_135826_674304_EAC3B22C 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260327_140832_902480_C40EB249 
+X-CRM114-Status: GOOD (  45.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,101 +87,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On Fri, Mar 27, 2026 at 01:37:20PM -0700, Ian Rogers wrote:
+> On Fri, Mar 27, 2026 at 1:07 PM Arnaldo Carvalho de Melo
+> <acme@kernel.org> wrote:
+> >
+> > On Thu, Mar 26, 2026 at 03:51:19PM -0700, Namhyung Kim wrote:
+> > > On Sat, Mar 21, 2026 at 04:42:18PM -0700, Ian Rogers wrote:
+> > > > libunwind support exists for "--call-graph dwarf", however, libunwind
+> > > > support has been opt-in rather than opt-out since Linux v6.13 as libdw
+> > > > is preferred - commit 13e17c9ff49119aa ("perf build: Make libunwind
+> > > > opt-in rather than opt-out"). A problem with the libdw support was
+> > > > that it was slow, an issue fixed in Linux v7.0 in commit 6b2658b3f36a
+> > > > ("perf unwind-libdw: Don't discard loaded ELF/DWARF after every
+> > > > unwind"). As such libunwind support is now unnecessary.
+> > > >
+> > > > The patch series:
+> > > > https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
+> > > > looked to make the libunwind support in perf similar to the libdw
+> > > > support, allow cross-architecture unwinding, etc. This was motivated
+> > > > by the perf regs conventions being altered by the addition of x86 APX
+> > > > support:
+> > > > https://lore.kernel.org/lkml/20260209072047.2180332-1-dapeng1.mi@linux.intel.com/
+> > > > It is necessary to translate the library's notion of registers to the
+> > > > perf register convention so that the stack unwinding state can be
+> > > > initialized. On this series it was stated that removing libunwind
+> > > > support from perf should be an option, rather than updating support:
+> > > > https://lore.kernel.org/lkml/abxs-2rozL1tBEO1@google.com/
+> > > > This was also what motivated making libunwind opt-in rather than
+> > > > opt-out.
+> >
+> > > > Given that 7 minor releases have happened with libunwind "deprecated"
+> > > > by making it opt-in, let's remove the libunwind support. There doesn't
+> > > > appear to be any disagreement to this on the mailing list.
+> >
+> > > I'm not sure if we want to remove it now.  I think we need more time to
+> > > verify libdw unwinding is stable and fast enough.  Also maybe we can
+> > > add build- or run-time warning when people try to use libunwind.
+> >
+> > We have:
+> >
+> > acme@x1:~/git/perf-tools$ perf -vv | grep LIBU
+> >              libunwind: [ OFF ]  # HAVE_LIBUNWIND_SUPPORT ( tip: Deprecated, use LIBUNWIND=1 and install libunwind-dev[el] to build with it )
+> > acme@x1:~/git/perf-tools$
+> >
+> > acme@x1:~/git/perf-tools$ perf check feature libunwind && echo perf built with libunwind
+> >              libunwind: [ OFF ]  # HAVE_LIBUNWIND_SUPPORT ( tip: Deprecated, use LIBUNWIND=1 and install libunwind-dev[el] to build with it )
+> > acme@x1:~/git/perf-tools$
+> >
+> > Building with both, as Ian mentioned ends up with:
+> >
+> >   LD      /tmp/build/perf-tools/util/perf-util-in.o
+> > ld: /tmp/build/perf-tools/util/unwind-libunwind.o: in function `unwind__get_entries':
+> > unwind-libunwind.c:(.text+0x2a0): multiple definition of `unwind__get_entries'; /tmp/build/perf-tools/util/unwind-libdw.o:unwind-libdw.c:(.text+0x940): first defined here
+> > make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:164: /tmp/build/perf-tools/util/perf-util-in.o] Error 123
+> > make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:158: util] Error 2
+> > make[2]: *** [Makefile.perf:797: /tmp/build/perf-tools/perf-util-in.o] Error 2
+> > make[1]: *** [Makefile.perf:289: sub-make] Error 2
+> > make: *** [Makefile:119: install-bin] Error 2
+> > make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+> > ⬢ [acme@toolbx perf-tools]$
+> >
+> > So what Namhyung is suggesting is to disable libdw when libunwind is
+> > asked for?
+> >
+> > I.e.
+> >
+> > alias m='rm -rf ~/libexec/perf-core/ ; make LIBUNWIND=1 NO_LIBDW=1 -k O=/tmp/build/$(basename $PWD)/ -C tools/perf install-bin && perf test "import python" && cat /tmp/build/$(basename $PWD)/feature/test-all.make.output' ; export PYTHONPATH=/tmp/build/$(basename $PWD)/python
+> >
+> > Which builds and ends up linking with both:
+> >
+> > ⬢ [acme@toolbx perf-tools]$ ldd ~/bin/perf | egrep unwind\|dw
+> >         libunwind-x86_64.so.8 => /lib64/libunwind-x86_64.so.8 (0x00007fbf430b6000)
+> >         libunwind.so.8 => /lib64/libunwind.so.8 (0x00007fbf4309b000)
+> >         libdw.so.1 => /lib64/libdw.so.1 (0x00007fbf38570000)
+> > ⬢ [acme@toolbx perf-tools]$
+> >
+> > I.e. that NO_LIBDW isn't really disabling linking with it, just some
+> > features based on it, likely.
+> >
+> > Hum, we also have NO_LIBDW_DWARF_UNWIND, which probably is what we want
+> > here... nope:
+> >
+> > ⬢ [acme@toolbx perf-tools]$ alias m='rm -rf ~/libexec/perf-core/ ; make LIBUNWIND=1 NO_LIBDW_DWARF_UNWIND=1 -k O=/tmp/build/$(basename $PWD)/ -C tools/perf install-bin && perf test "import python" && cat /tmp/build/$(basename $PWD)/feature/test-all.make.output' ; export PYTHONPATH=/tmp/build/$(basename $PWD)/python
+> > ⬢ [acme@toolbx perf-tools]$ m
+> > rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace-Util/lib/Perf/Trace/__pycache__/Core.cpython-314.pyc': Permission denied
+> > make: Entering directory '/home/acme/git/perf-tools/tools/perf'
+> >   BUILD:   Doing 'make -j12' parallel build
+> > Warning: Kernel ABI header differences:
+> >   diff -u tools/arch/x86/include/uapi/asm/svm.h arch/x86/include/uapi/asm/svm.h
+> >
+> > Auto-detecting system features:
+> > ...                                   libdw: [ on  ]
+> > ...                                   glibc: [ on  ]
+> > ...                                  libelf: [ on  ]
+> > ...                                 libnuma: [ on  ]
+> > ...                  numa_num_possible_cpus: [ on  ]
+> > ...                               libpython: [ on  ]
+> > ...                             libcapstone: [ on  ]
+> > ...                               llvm-perf: [ on  ]
+> > ...                                    zlib: [ on  ]
+> > ...                                    lzma: [ on  ]
+> > ...                                     bpf: [ on  ]
+> > ...                                  libaio: [ on  ]
+> > ...                                 libzstd: [ on  ]
+> > ...                              libopenssl: [ on  ]
+> > ...                                    rust: [ on  ]
+> >
+> >   INSTALL libsubcmd_headers
+> >   INSTALL libperf_headers
+> >   INSTALL libapi_headers
+> >   INSTALL libsymbol_headers
+> >   INSTALL libbpf_headers
+> >   LD      /tmp/build/perf-tools/util/perf-util-in.o
+> > ld: /tmp/build/perf-tools/util/unwind-libunwind.o: in function `unwind__get_entries':
+> > unwind-libunwind.c:(.text+0x2a0): multiple definition of `unwind__get_entries'; /tmp/build/perf-tools/util/unwind-libdw.o:unwind-libdw.c:(.text+0x940): first defined here
+> > make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:164: /tmp/build/perf-tools/util/perf-util-in.o] Error 123
+> > make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:158: util] Error 2
+> > make[2]: *** [Makefile.perf:797: /tmp/build/perf-tools/perf-util-in.o] Error 2
+> > make[2]: *** Waiting for unfinished jobs....
+> > make[1]: *** [Makefile.perf:289: sub-make] Error 2
+> > make: *** [Makefile:119: install-bin] Error 2
+> > make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+> > ⬢ [acme@toolbx perf-tools]$
+> >
+> > I expected NO_LIBDW_DWARF_UNWIND=1 would resolve this case, and maybe it
+> > should?
+> >
+> > Or maybe it did it in the past as by now it is just a comment:
+> >
+> > ⬢ [acme@toolbx perf-tools]$ git grep NO_LIBDW_DWARF_UNWIND
+> > tools/perf/Makefile.perf:# Define NO_LIBDW_DWARF_UNWIND if you do not want libdw support
+> > ⬢ [acme@toolbx perf-tools]$
+> >
+> > Its from:
+> >
+> > # Define NO_LIBDW_DWARF_UNWIND if you do not want libdw support
+> > # for dwarf backtrace post unwind.
+> >
+> > As we need libdw for 'perf probe', etc, so being able to disable it just
+> > for DWARF backtrace is what we need here to make them mutually
+> > exclusive, i.e. the default is for building with libdw for backtraces,
+> > but if the user asks for LIBUNWIND=1, then a warning that libdw won't be
+> > used for DWARF backtraces and select NO_LIBDW_DWARF_UNWIND?
+> >
+> > We could then have a regression test that builds perf with one, does
+> > some backtraces, then with the other, then compare? This would be
+> > followup work, if somebody has the cycles, but making them mutually
+> > exclusive should be doable with not that much work?
+> >
+> > This is an area that is tricky and since we _already_ have two
+> > implementations, the good thing for regression testing would be the
+> > compare their results until libunwind becomes completely rotten and
+> > unusable?
+> 
+> My series:
+> https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
+> makes libdw and libunwind supported together:
+> https://lore.kernel.org/lkml/20260305221927.3237145-2-irogers@google.com/
+> """
+> This commit refactors the DWARF unwind post-processing to be
+> configurable at runtime via the .perfconfig file option
+> 'unwind.style', or using the argument '--unwind-style' in the commands
+> 'perf report', 'perf script' and 'perf inject', in a similar manner to
+> the addr2line or the disassembler style.
+> """
+> That series cleans up several other issues, which is why I think it is
+> worth landing while we wait for libdw to become stable.
 
-kernel test robot noticed the following build warnings:
+Cool, I'll try and review/test it this weekend.
 
-[auto build test WARNING on 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f]
+Thanks for pointint it out!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Chen/dt-bindings-interrupt-controller-Describe-AST2700-A2-hardware-instead-of-A0/20260327-190127
-base:   6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
-patch link:    https://lore.kernel.org/r/20260326-irqchip-v3-3-366739f57acf%40aspeedtech.com
-patch subject: [PATCH v3 3/4] irqchip/ast2700-intc: Add KUnit tests for route resolution
-config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260328/202603280415.xv0eHt8u-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260328/202603280415.xv0eHt8u-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603280415.xv0eHt8u-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/irqchip/irq-ast2700-intc0-test.c: In function 'aspeed_intc0_resolve_route_c1i1o1mc0i2o1':
->> drivers/irqchip/irq-ast2700-intc0-test.c:351:1: warning: the frame size of 1296 bytes is larger than 1280 bytes [-Wframe-larger-than=]
-     351 | }
-         | ^
-   drivers/irqchip/irq-ast2700-intc0-test.c: In function 'aspeed_intc0_resolve_route_c1i2o2mc0i1o1':
-   drivers/irqchip/irq-ast2700-intc0-test.c:292:1: warning: the frame size of 1296 bytes is larger than 1280 bytes [-Wframe-larger-than=]
-     292 | }
-         | ^
-
-
-vim +351 drivers/irqchip/irq-ast2700-intc0-test.c
-
-   293	
-   294	static void aspeed_intc0_resolve_route_c1i1o1mc0i2o1(struct kunit *test)
-   295	{
-   296		struct device_node intc0_node = {
-   297			.fwnode = { .ops = &intc0_fwnode_ops },
-   298		};
-   299		struct aspeed_intc_interrupt_range c1ranges[] = {
-   300			{
-   301				.start = 0,
-   302				.count = 1,
-   303				.upstream = {
-   304					.fwnode = &intc0_node.fwnode,
-   305					.param_count = 1,
-   306					.param = { 510 }
-   307				}
-   308			},
-   309		};
-   310		static const u32 c1outs[] = { 0 };
-   311		struct aspeed_intc_interrupt_range resolved;
-   312		struct aspeed_intc_interrupt_range intc0_ranges[] = {
-   313			{
-   314				.start = 192,
-   315				.count = 1,
-   316				.upstream = {
-   317					.fwnode = NULL,
-   318					.param_count = 0,
-   319					.param = {0},
-   320				}
-   321			},
-   322			{
-   323				.start = 208,
-   324				.count = 1,
-   325				.upstream = {
-   326					.fwnode = NULL,
-   327					.param_count = 0,
-   328					.param = {0},
-   329				}
-   330			}
-   331		};
-   332		struct aspeed_intc0 intc0 = {
-   333			.ranges = {
-   334				.ranges = intc0_ranges,
-   335				.nranges = ARRAY_SIZE(intc0_ranges),
-   336			}
-   337		};
-   338		const struct irq_domain c0domain = {
-   339			.host_data = &intc0,
-   340			.fwnode = &intc0_node.fwnode
-   341		};
-   342		int rc;
-   343	
-   344		rc = aspeed_intc0_resolve_route(&c0domain, ARRAY_SIZE(c1outs), c1outs,
-   345						ARRAY_SIZE(c1ranges), c1ranges,
-   346						&resolved);
-   347		KUNIT_EXPECT_EQ(test, rc, 0);
-   348		KUNIT_EXPECT_EQ(test, resolved.start, 0);
-   349		KUNIT_EXPECT_EQ(test, resolved.count, 1);
-   350		KUNIT_EXPECT_EQ(test, resolved.upstream.param[0], 510);
- > 351	}
-   352	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+- Arnaldo
 
