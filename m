@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C9B10ED67C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F73F10ED67C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7S/JdnU/dGCZ5ndvfhZZdwAqxwTJujt9XEkHBO47ssU=; b=GD1VRFxQMtaPRbMqRcILK6b+tb
-	UUk9qY2KadUHbYo9ax9zn87U7Txe8fr4QHnTbsl7SOEAHhBwYoHAnX5K1bDhxTgmbOuhysVAMdKnb
-	PYhELSoK3zXb28CyT7tbQg3zm/VZzpPYpDK/6a0Y5pLk8mun/LQzSX+VfCHecPTZBi9io03cGVRJj
-	pk3rTdmPgNNkWefqc8x/3MlYWhfVrxjd3nD1MFb1fVhloYDDstixtZYy3EYFruifFYiAQxb51i3Xg
-	ush5rLZBEpDTjPqFXrooBgQQ3wqVkUpn62HBrMczB9DBIaCo4LW5VjDD03igaRe59xD01KAVpDI6L
-	c7eOfwGw==;
+	bh=sxAP/zL/Gmw4rWAryRo5mpqyHvx0qbu13LJM8UMPQNU=; b=mGF1NEEl4JETzrIzm1Fib9pYM6
+	K8EK8yi8odnUfIeZz2EOcoNHPeVSaVpjuV71oK78a+A+vXFTOrsrqq7OxaqpVTeeTG7wqsGlpfOTo
+	jrTYZ46tcpUHnKMZ4HQa+kXLj5QNuaPDf0ARO84XScrAvF7YZGfp3KbZalT6uyuoOhEEVRnUiTR4l
+	pa4UbmnFWVZcujw3VCNhrWmvCQ2+VFpizD75eGpXHIFlAUuipx+FrkGkam3VcPvyEicvIdufDD1MI
+	gY/Og/XAQHUK+N9mgP+TcrlsY7QVuEnq3Z36Bun8Oq0kce9scuk6H3T4vE+KosPwj8pRyX67KoTeb
+	6EIqBw0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67lf-00000007WeU-2vJB;
-	Fri, 27 Mar 2026 14:02:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67lS-00000007WR0-0X6j
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 14:02:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=7S/JdnU/dGCZ5ndvfhZZdwAqxwTJujt9XEkHBO47ssU=; b=PpsMKBJS4i9typyHrHWj1Xlut9
-	jCYp4YHMP1WW1C9bmWi/aIAKA3lLpIsoUzcihf8MiijiFNmAOyuhGyT91Y5NorWmwjrMfeAoTCf4g
-	bxNRbZO7YQMGvs/FfaTq6ZzzNtrEBbNzOX6Txg66TShIwkERbEnu/Ilv/cqOI+0ronmIxjZzlS80w
-	HIWuRvR79sihQC5lV30IuFcmhjKNpDRvMIv6jvEM7UEcuu9mmuWR0JmR7b3TXoqr/kt+acXOw8SQz
-	N4XSr37fM/0JyNEnYO7f4v6Kaz5f131+ehAxeav7DPwqwHMW5DoLLwnencwLj2mGO9a0SO2kTEyWq
-	CsWXeatA==;
+	id 1w67lg-00000007Wfr-2xO3;
+	Fri, 27 Mar 2026 14:02:32 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67lO-0000000AYk8-0Vxp
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w67lR-00000007WQX-02OC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:02:16 +0000
+	Fri, 27 Mar 2026 14:02:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D10844019;
-	Fri, 27 Mar 2026 14:02:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4367BC19423;
-	Fri, 27 Mar 2026 14:02:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A987C44316;
+	Fri, 27 Mar 2026 14:02:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF8D2C2BCB0;
+	Fri, 27 Mar 2026 14:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774620130;
-	bh=pFJJO55Bup4H+ayanSXWyht2AlYF5v4+8PnrdfjS8Vo=;
+	s=k20201202; t=1774620136;
+	bh=Lt6Ij4N9NIyr3zwdKWSv/N6Y0JRGpCERsD0X84SLPgY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kL8rAeoOR22fNkhNSVpYVC/7j+bl1tx4D3lGYhJtmFLuH7loUgS+N25rmdpvlm+FJ
-	 dUnYhogVAh6Kn1deiMjOYH4NWYwXJ8tdUoHGSjj8Cu80YTsmqlldOESLIL+TTO34uB
-	 abXLpCqEUBEdsThTHmaUwgucwKpJiTsEgbPYjhTk2hX6EQ5Vc0FF26AiocgJHCvQer
-	 xFEHRsZC32nXEi8IcXAL/JBr1dhkj5pR0kozsNTAzC/6Ea5X3YLwq0m7L/iSnOw1Bf
-	 K8OxIPf+xnUZLHadYeO5bS3G5YHILCoCdDFdO4WwDzk+pZofVbGLQX6zQglL6EIH4S
-	 fTgk7PZdhyHaQ==
+	b=MHPtdx1MUSa+v9C5ge825Erzo5IVnwL/CwKflAVXZYyibW6ZMVcHfWLGhVxJVl5sj
+	 9VZGypE2mjLfCgPFkfPDS6IR7WSZsxcV1cFTRX490Z3ouuYUtpL2h32jGQEQnVugRG
+	 X4kLPtEsz2qrE9EFzaWRL4ax9116UqgMnyRsfBtQ826JOUUOJ1nJCp0ESKuWLAlg2t
+	 Riza5NNUZWRuwmWpzLagq5HhtM5rm6nXB2ZXoAQ6nb1WOLgTKunwxvMWtLnbw/6QBd
+	 xfctOPK/UrT1C58PK0Km602TsS48JRvfziyz3GktbjQtIz78W7CG8gwyhXCRyw0jbr
+	 vLeae59W55hWQ==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -72,17 +57,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 24/38] KVM: arm64: Annotate guest donations with handle and gfn in host stage-2
-Date: Fri, 27 Mar 2026 14:00:23 +0000
-Message-ID: <20260327140039.21228-25-will@kernel.org>
+Subject: [PATCH v4 26/38] KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+Date: Fri, 27 Mar 2026 14:00:25 +0000
+Message-ID: <20260327140039.21228-27-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260327140039.21228-1-will@kernel.org>
 References: <20260327140039.21228-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_140214_575554_711D21F3 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260327_070217_110958_49DA8E01 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,73 +82,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Handling host kernel faults arising from accesses to donated guest
-memory will require an rmap-like mechanism to identify the guest mapping
-of the faulting page.
+Host kernel accesses to pages that are inaccessible at stage-2 result in
+the injection of a translation fault, which is fatal unless an exception
+table fixup is registered for the faulting PC (e.g. for user access
+routines). This is undesirable, since a get_user_pages() call could be
+used to obtain a reference to a donated page and then a subsequent
+access via a kernel mapping would lead to a panic().
 
-Extend the page donation logic to encode the guest handle and gfn
-alongside the owner information in the host stage-2 pte.
+Rework the spurious fault handler so that stage-2 faults injected back
+into the host result in the target page being forcefully reclaimed when
+no exception table fixup handler is registered.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/virt.h |  9 +++++++++
+ arch/arm64/kvm/pkvm.c         | 12 ++++++++++++
+ arch/arm64/mm/fault.c         | 17 +++++++++++------
+ 3 files changed, 32 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 90003cbf5603..51cb5c89fd20 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -593,7 +593,6 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
- 		if (!ret)
- 			__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
- 		break;
--	case PKVM_ID_GUEST:
- 	case PKVM_ID_HYP:
- 		ret = host_stage2_set_owner_metadata_locked(addr, size,
- 							    owner_id, 0);
-@@ -603,6 +602,20 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
- 	return ret;
+diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+index b51ab6840f9c..b546703c3ab9 100644
+--- a/arch/arm64/include/asm/virt.h
++++ b/arch/arm64/include/asm/virt.h
+@@ -94,6 +94,15 @@ static inline bool is_pkvm_initialized(void)
+ 	       static_branch_likely(&kvm_protected_mode_initialized);
  }
  
-+#define KVM_HOST_PTE_OWNER_GUEST_HANDLE_MASK	GENMASK(15, 0)
-+/* We need 40 bits for the GFN to cover a 52-bit IPA with 4k pages and LPA2 */
-+#define KVM_HOST_PTE_OWNER_GUEST_GFN_MASK	GENMASK(55, 16)
-+static u64 host_stage2_encode_gfn_meta(struct pkvm_hyp_vm *vm, u64 gfn)
++#ifdef CONFIG_KVM
++bool pkvm_force_reclaim_guest_page(phys_addr_t phys);
++#else
++static inline bool pkvm_force_reclaim_guest_page(phys_addr_t phys)
 +{
-+	pkvm_handle_t handle = vm->kvm.arch.pkvm.handle;
-+
-+	BUILD_BUG_ON((pkvm_handle_t)-1 > KVM_HOST_PTE_OWNER_GUEST_HANDLE_MASK);
-+	WARN_ON(!FIELD_FIT(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, gfn));
-+
-+	return FIELD_PREP(KVM_HOST_PTE_OWNER_GUEST_HANDLE_MASK, handle) |
-+	       FIELD_PREP(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, gfn);
++	return false;
 +}
++#endif
 +
- static bool host_stage2_force_pte_cb(u64 addr, u64 end, enum kvm_pgtable_prot prot)
+ /* Reports the availability of HYP mode */
+ static inline bool is_hyp_mode_available(void)
  {
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 8be91051699e..32294bd21dde 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -563,3 +563,15 @@ int pkvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	WARN_ON_ONCE(1);
+ 	return -EINVAL;
+ }
++
++/*
++ * Forcefully reclaim a page from the guest, zeroing its contents and
++ * poisoning the stage-2 pte so that pages can no longer be mapped at
++ * the same IPA. The page remains pinned until the guest is destroyed.
++ */
++bool pkvm_force_reclaim_guest_page(phys_addr_t phys)
++{
++	int ret = kvm_call_hyp_nvhe(__pkvm_force_reclaim_guest_page, phys);
++
++	return !ret || ret == -EAGAIN;
++}
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 3abfc7272d63..7eacc7b45c1f 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -289,9 +289,6 @@ static bool __kprobes is_spurious_el1_translation_fault(unsigned long addr,
+ 	if (!is_el1_data_abort(esr) || !esr_fsc_is_translation_fault(esr))
+ 		return false;
+ 
+-	if (is_pkvm_stage2_abort(esr))
+-		return false;
+-
+ 	local_irq_save(flags);
+ 	asm volatile("at s1e1r, %0" :: "r" (addr));
+ 	isb();
+@@ -302,8 +299,14 @@ static bool __kprobes is_spurious_el1_translation_fault(unsigned long addr,
+ 	 * If we now have a valid translation, treat the translation fault as
+ 	 * spurious.
+ 	 */
+-	if (!(par & SYS_PAR_EL1_F))
++	if (!(par & SYS_PAR_EL1_F)) {
++		if (is_pkvm_stage2_abort(esr)) {
++			par &= SYS_PAR_EL1_PA;
++			return pkvm_force_reclaim_guest_page(par);
++		}
++
+ 		return true;
++	}
+ 
  	/*
-@@ -1125,6 +1138,7 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
- 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
- 	u64 phys = hyp_pfn_to_phys(pfn);
- 	u64 ipa = hyp_pfn_to_phys(gfn);
-+	u64 meta;
- 	int ret;
+ 	 * If we got a different type of fault from the AT instruction,
+@@ -389,9 +392,11 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
+ 	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
+ 		return;
  
- 	host_lock_component();
-@@ -1138,7 +1152,9 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
- 	if (ret)
- 		goto unlock;
+-	if (WARN_RATELIMIT(is_spurious_el1_translation_fault(addr, esr, regs),
+-	    "Ignoring spurious kernel translation fault at virtual address %016lx\n", addr))
++	if (is_spurious_el1_translation_fault(addr, esr, regs)) {
++		WARN_RATELIMIT(!is_pkvm_stage2_abort(esr),
++			"Ignoring spurious kernel translation fault at virtual address %016lx\n", addr);
+ 		return;
++	}
  
--	WARN_ON(host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_GUEST));
-+	meta = host_stage2_encode_gfn_meta(vm, gfn);
-+	WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
-+						      PKVM_ID_GUEST, meta));
- 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
- 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
- 				       &vcpu->vcpu.arch.pkvm_memcache, 0));
+ 	if (is_el1_mte_sync_tag_check_fault(esr)) {
+ 		do_tag_recovery(addr, esr, regs);
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
