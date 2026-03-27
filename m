@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C703610AB830
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4CC10AB830
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/u4Ijto1v1x/yyoo52v522lmtI2oQ1tM97X3NpqH2yc=; b=s0s53CnRenHbeg9VwXUoGUS7l0
-	GhHKezNIebGLLR/Xy9mvjW3ySjskCujlbdpBr8MpdosjA+pNKJPATZMfItCIuZvvLf72exM6WUCCB
-	+R1GG6OI8uEJXlkGS0/YOJtrS7m2s6ed9KqdYnXDFkihbAoJlXBp5/hZMO+F3YK69XSh5r2bzSAXZ
-	kRwIhmEHVY1ath/Ndhk6zPkpUTMt6KKI1AoXzG8Ge4aDehNtgaCkS0PhqruqBQX3hdtd7OPgOiABe
-	XfKwP9Uxwv8zedjpNXQF5dEGkA6VaEvfWdRf9MQsjbHu7rh4edHhFKjZwSnKq1+m9fP/D10u6FW+o
-	ku6Bi+iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4uP+LWbVeH5sme8wy63yLjMro2rk/77AqVdeM7AIlcY=; b=1iVf2uzVWBYf6Cx8/ousFI1RW9
+	ER7NxTvaS/HyoasBuCQ22PAnpJ4IKE+CSSny1WXMK2XQs39/lxiKTPYqi1y7GGlTxIeIX0DgKLVvy
+	mURnVSxhHefuJJnfoqWoNy5MjKXM60uet47wI8ZSfUH0ACYCQkguxmaeCPy9Z0Om2Fkctqa0/E3Nw
+	DV9DV9HpJ0cLWQ/Ayg+CjMHft+w5ywSAwi1ouG1MtV65csQAyJroFOPAjqGgD806589zIPIt0Sq2S
+	qZvxcXd9YSJ3hyVTFSTcuU7duLq6mVa85AFbpdI3eH2mTpv2TCD7iLrS7t7q9EkZQcbAJCVNVPvos
+	24N8R9nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w683p-00000007b96-38YE;
-	Fri, 27 Mar 2026 14:21:17 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w684y-00000007bO2-01Ae;
+	Fri, 27 Mar 2026 14:22:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w683m-00000007b7c-1T2J;
-	Fri, 27 Mar 2026 14:21:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774621270;
-	bh=DurxzAWMVmUfvm6R3SbJKFIGxokQNpjEf3KA/bMfMiw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ZEawk3NHlwo3wKnP6M+wy3Ui9SRkzYldPxhOqXwGRILCWD4Hosph0aYHTz2AalXyS
-	 y9XVyuS6KLVCOk1GjL9xDPBE6HRqLkXc2Fw5pyTeSyEfcnUo+qY+0MUmfMbMofIzaC
-	 0POwii+8yFQgtdD4ypweBgUtTQIgx+O25zwRwQ7AukTiDIm5w7kLUEu8jMyGdQbMXv
-	 yEwC2wIhCje6MbPSVJTHvI1EQxmrKgLrbcGHiTAALQBjF91tt7UQo2N2t+ovtwkaTO
-	 Jb3VSIbIGz3QjZiY+9As4UJW5LY0HFAhnZEUwXeSwntML7gTVtvbb1FUWVWjO10ICT
-	 YCCpebG/dXuSg==
-Received: from jupiter.universe (dyndsl-091-248-085-253.ewe-ip-backbone.de [91.248.85.253])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 459AE17E46AB;
-	Fri, 27 Mar 2026 15:21:10 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id EB4D048002A; Fri, 27 Mar 2026 15:21:09 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 27 Mar 2026 15:21:06 +0100
-Subject: [PATCH] MAINTAINERS: Add Rockchip keyword matching
+	id 1w684x-00000007bNe-1ncG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 14:22:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62CBE6012B
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 14:22:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 043E2C2BCB5
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 14:22:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774621346;
+	bh=4uP+LWbVeH5sme8wy63yLjMro2rk/77AqVdeM7AIlcY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=MrZoXwfufASZTHClrPyvMAHg+SuRPbLNL5vTEshX0xlxE7T/Ic4So4RfBYK/aSzEb
+	 I3NmZEdYeCmX0QzVrFfKKAHLnu4BJ/R5IN213WdpQcxT2ERkAyLB0EJJRziGMQ0bZK
+	 lue+A4GwvM+KUdvllO7mdy/eBHK84TzeWm287Zm2E71rvhZzWfK7gTwwzZ9fbiubqo
+	 pQLk+Fd1pz49D488kEG8zITMpvUKJ5cI/mQFYici1QgpKoKIbcU8xAcSwG+3leCVVH
+	 ZpPIWaNwXD6QwIJi3sTwX/F3tEOYOA31SVaYaoJU+JZIEhHPVhxcrGCFNHYFPojSsu
+	 SjK8a5w89vFBQ==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-38be66a9fc0so22773401fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 07:22:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXuf1EHmox1wB4qnL40U0Nv1SvoVMEWoiDHMXfZxriXbYCR9g2+nsVar+s62R52nHdfaDTLCkWFVmEClwx3QNLs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIuvtexLvWgA2ZlkWPjiq8mQQ/vsnNzEZVuf4s7JSsxMfxmhf2
+	8Nkr2ksfngn3SdnUQyvweSA17nbODh0rXu8nHIGRTTrPHx+F0MfaxqKwwoGH++2Tx71kC7XwPID
+	laKVrmugWX/hBp+Yuc+HHPPOWkACRBfuwjhPKKpEmmQ==
+X-Received: by 2002:a2e:a9a3:0:b0:38b:fd3e:c445 with SMTP id
+ 38308e7fff4ca-38c73065b9fmr9547931fa.3.1774621344588; Fri, 27 Mar 2026
+ 07:22:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260327-maintainers-rockchip-keyword-v1-1-7f4634f761a6@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAFGSxmkC/x3MPQqEMBBA4avI1A7EZP3Bq4hFiKMOYiITcVeCd
- zds8YqveQkiCVOEvkggdHHk4DOqsgC3Wr8Q8pQNWulGGd3ibtmfOZKIEtzmVj5wo/sbZELbqdp
- VtTbzx0BeHEIz//77YXyeF4SBtYVuAAAA
-X-Change-ID: 20260327-maintainers-rockchip-keyword-a805c1523f43
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1387;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=DurxzAWMVmUfvm6R3SbJKFIGxokQNpjEf3KA/bMfMiw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGnGklVwa7R0qjXnc9g7Yo0b5P3ZBNyqNXvTC
- C3XoFxYoP3XCIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpxpJVAAoJENju1/PI
- O/qaGVUP/3QPlZJpFPHgPrB8a2IXh17ZrFEor+4kn0UN1XSyAXs/qkCtU4TZ+jaCndEIxH3scs+
- BBpEaRzBV2BJYBHcQF5Dw/crJ4lwXo9etFRzyYMuALMilx5Z0cm7KyEv7xiLfWLEJJqgqkuvCjV
- 29NmGv+yZw3PbD3g1wB1JJ3ew21NiuLbK5R+W/JzGiiG7Tj55s+n+nBB9zwXeN1FdyfP1iisJbs
- zvI1jIg3aLxfVD/Ofsmv0cSUP1ui53N/DPypnztH01aasODjgs+vz/a2TrHUgdwYPI/GSKqgYjP
- 1j0SR5obmzZoVUFezrRMN6kudVB22ufIkDMGEsOl/YpPS+R/Rz7VUeMm8j4tnj2H81BTsM6Bz/i
- ssjuKTXE3hrEtzcbNUW+tGwqN+yzG/2BxUuJcq5YV5FckoSCjFNR84lfamVTjOROhk1PvDM5mTt
- 8Y1PWetEAjwq8NQnl67+hlwklgt9L/sZ4ZgLvREgUJdzN7Gtc57QWRKukoyEF+Huzf0B7K+CJXu
- QyaJ4WSgpvaII2tRijs8d30BE/Y8zg+PTRyNJFbd9fUnf64YreNvK5GXhP+7n4aun4jXoU65FUf
- 7IVk7i30rCQm2MOaFzozxWGzecJ89I3P6Y/rsFBoEzlRGj/eX/ZA4ONexHsijtI42zUl7Ba8kUy
- RHArAGLRzJeC5l22M5Xs1vw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_072114_567058_56A915E6 
-X-CRM114-Status: GOOD (  11.98  )
+References: <20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com>
+ <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com> <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
+ <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
+ <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com> <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
+In-Reply-To: <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Fri, 27 Mar 2026 15:22:12 +0100
+X-Gmail-Original-Message-ID: <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+X-Gm-Features: AQROBzAei1HZMdE0m_cEQL4UZSB3RN84tkUjwRNw5_LUz-GA34rIY7vYZzOkmeY
+Message-ID: <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+To: Aaro Koskinen <aaro.koskinen@iki.fi>
+Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Hans de Goede <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Kevin Hilman <khilman@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +87,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add keyword based matching for 'ARM/Rockchip SoC support'. This will
-match rockchip, Rockchip, RockChip and ROCKCHIP separated by any
-whitespace character or underscores.
+On Fri, Mar 27, 2026 at 3:05=E2=80=AFPM Aaro Koskinen <aaro.koskinen@iki.fi=
+> wrote:
+>
+> Hi,
+>
+> On Thu, Mar 26, 2026 at 09:57:31AM +0100, Bartosz Golaszewski wrote:
+> > On Mon, Mar 16, 2026 at 9:50=E2=80=AFAM Bartosz Golaszewski <brgl@kerne=
+l.org> wrote:
+> > > On Fri, Mar 6, 2026 at 1:31=E2=80=AFAM Kevin Hilman <khilman@kernel.o=
+rg> wrote:
+> > > > Bartosz Golaszewski <brgl@kernel.org> writes:
+> > > > > On Thu, Feb 12, 2026 at 12:46=E2=80=AFPM Arnd Bergmann <arnd@kern=
+el.org> wrote:
+> > > > >> On Thu, Feb 12, 2026, at 12:25, Bartosz Golaszewski wrote:
+> > > > >> > Currently the board file for Nokia 770 creates dummy software =
+nodes not
+> > > > >> > attached in any way to the actual GPIO controller devices and =
+uses the
+> > > > >> > fact that GPIOLIB matching swnode's name to the GPIO chip's la=
+bel during
+> > > > >> > software node lookup. This behavior is wrong and we want to re=
+move it.
+> > > > >> > To that end, we need to first convert all existing users to cr=
+eating
+> > > > >> > actual fwnode links.
+> > > > >> >
+> > > > >> > Create real software nodes for GPIO controllers on OMAP16xx an=
+d
+> > > > >> > reference them from the software nodes in the nokia board file=
+.
+> > > > >> >
+> > > > >> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qu=
+alcomm.com>
+> > > > >>
+> > > > >> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> > > > >
+> > > > > Aaro, Janusz: Can you please pick it up for v7.1?
+> > > >
+> > > > I can take this via the OMAP tree once I have confirmation from
+> > > > Aaro/Janusz that they've tested.
+> >
+> > Hi again! Any chance we could get this queued? Janusz, Aaro: any object=
+ions?
+>
+> Unfortunately the patch doesn't work - 770 just dies silently. This
+> means that e.g. CBUS GPIOs are not working as those are needed to keep
+> the device powered. I'll try to figure out how to debug this...
+>
+> A.
 
-The goal is to match arm64 defconfig patches, which should go through
-the Rockchip tree as they right now only match the LKML and thus are
-easily lost. The keyword matching is quite good for this, since it
-also applies to the commit message and the config options itself might
-not give any hint about being relevant for Rockchip.
+Hmm, I'm wondering if there's a race with consumers already requesting
+the GPIOs after the controller device is registered but before the
+software node is added. I'll send a version with software nodes being
+registered first, then passes as firmware nodes to the platform device
+API before the device is registered.
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-This is not perfect (people need to write good commit messages), but
-should improve the current situation quite a bit.
----
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 55af015174a5..9f036f812823 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3416,6 +3416,8 @@ F:	drivers/i2c/busses/i2c-rk3x.c
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
- F:	sound/soc/rockchip/
- N:	rockchip
-+K:	\b[Rr]ock[Cc]hip\b
-+K:	(?:\b|_)ROCKCHIP(?:\b|_)
- 
- ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES
- M:	Krzysztof Kozlowski <krzk@kernel.org>
-
----
-base-commit: 2e930174c99bf75c71f898779f3ce777d7db6fd1
-change-id: 20260327-maintainers-rockchip-keyword-a805c1523f43
-
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+Bart
 
