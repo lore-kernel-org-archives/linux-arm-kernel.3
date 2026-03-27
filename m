@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B7810ED674
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C703610AB830
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6lPcbVZmNujHQL5UUK06jTEaRvN8op1BFC0EEEqHKk=; b=euC6Q6RjqJqelNlCOLXMdjpCdt
-	tMuuu0HO5SAVFAgVYMnXGcuxIexN8OI7ZfcT9YnntBf9EX8iSd5Tcix7ryhZIKrfBCyIdqk8FO5Nl
-	hE7GrxwfA89WNnRPLeQwPtn0B+VXRMrZJo0GvV7APwaJZXy9qJfUGT0lA6DpAkbhrM2bU56Tmya9/
-	D2ffR4lf5MVcJPCo7h1Qxnw63KH00puBBzGaKpzQMejNoC3J2b/xHAXS6Qgb/vGA2CXSF45KEn3mN
-	2Qr64HMiwvIyZQnKbF8NHoSYb0fhhkpkSncbYF8lRO4Ww3PEO6yTYG0rHtpXvqpyfq8OKYlFpkmoj
-	ISafVqCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/u4Ijto1v1x/yyoo52v522lmtI2oQ1tM97X3NpqH2yc=; b=s0s53CnRenHbeg9VwXUoGUS7l0
+	GhHKezNIebGLLR/Xy9mvjW3ySjskCujlbdpBr8MpdosjA+pNKJPATZMfItCIuZvvLf72exM6WUCCB
+	+R1GG6OI8uEJXlkGS0/YOJtrS7m2s6ed9KqdYnXDFkihbAoJlXBp5/hZMO+F3YK69XSh5r2bzSAXZ
+	kRwIhmEHVY1ath/Ndhk6zPkpUTMt6KKI1AoXzG8Ge4aDehNtgaCkS0PhqruqBQX3hdtd7OPgOiABe
+	XfKwP9Uxwv8zedjpNXQF5dEGkA6VaEvfWdRf9MQsjbHu7rh4edHhFKjZwSnKq1+m9fP/D10u6FW+o
+	ku6Bi+iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67yJ-00000007aHh-1dwk;
-	Fri, 27 Mar 2026 14:15:35 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1w683p-00000007b96-38YE;
+	Fri, 27 Mar 2026 14:21:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67y7-00000007aAO-1lkP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:15:24 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-38ad12fb595so29378931fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 07:15:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rasmusvillemoes.dk; s=google; t=1774620921; x=1775225721; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A6lPcbVZmNujHQL5UUK06jTEaRvN8op1BFC0EEEqHKk=;
-        b=SYn5ar1L+T5Afz2KTSBux2Eecf5NHg7UpWrSwDY+lt/NTkDFftHoODb9hCEmGRWWuX
-         B/lI8YmaQDLV9uOD9CWG4F0UqNSlKgDDXRT2FDTMLUzQXllBMRVMvJpp2UJFVg90vOTn
-         ekCVkl1YIBnH0W2y/YxwBqVsCtcQhsKi5EVrI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774620921; x=1775225721;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=A6lPcbVZmNujHQL5UUK06jTEaRvN8op1BFC0EEEqHKk=;
-        b=A5892jt8QwAiaAcat9szFhuuFNUxrTTML8PqGvGal0QLTDvObUNGLNFbugc5M0WHgB
-         jUs1C/pVAb3PJz2XjQMzqwm0TCRzBoJLSt3WGfsFBtqhmXwX0KT0mxEjjS9+kdtRYEva
-         eYw1AbkiScC5b2O6Im9dLhId9c0hyYCmS/0oLmkR7AYIVfIc8yh8+e/JAtmhSLVv/ovV
-         a6d8PlB7RDWkeSWXGvscQn4KwD3O62XpQZ+keIOEKMFd6wGqWQwb67Xl2b+2vimAs/mn
-         AwBh8ovVPwFi6o8oQeHOHW+v/N5R+09ZD9KF43D4/lycG6W5ymPHx/6Bt9iZPZaEFSZ1
-         XI/Q==
-X-Gm-Message-State: AOJu0YzSN0Z4w0qbe+m3Z7fyLU4t5uF/ALaw4vbqho2vFeZVpH23hgwo
-	oqBz5p3eTKq7IMdpri5lmtl44znQmu9SMTGOj52ebouOqJrTGRk4RtFvzUPiFGktIh4=
-X-Gm-Gg: ATEYQzx0okYCs8Ltt6hdRlHr1vsDQYsSEBHo53Ct+MJ8wGd/FUlE5em8By+Dgm6Wa7C
-	8LRdW8/M6roDmakLv23d+ZrJWP3lUlGO9oaY4/23Dqr4ipYdGA0+eUFpUusOnf7kPCwO5rQ9Wxd
-	h/bFQ3xAAP/jc0mulqRBm9jhRLh27k2XAWYDw0KsBi5PxqEPXScjuvfey1Qh8C6hvyKFiBHRRvA
-	lZuB7JAVTZcs+lAA7ACKsPgmkzqwnP0BDBjwl+8IdchGfrYCLuhObzYxVlVChJqOH8EQOdQsCjj
-	XD/QRak7FCVEGi4Z9/y58BYM6ZDDEHpkS2eMVfGJrl/i1qlBVqCNlnJpbFeJ30SQZDcseHG1/OA
-	7bX871QCiHfx/BE9VeBQsSyEb1sItazjjYn6/m1Xj9W2s5Ph5H13LAmmFF7MekI2Ut6AA0myYjT
-	YZJYxpIpAB1M1iknyUxNSr/JngOYHQPX5VARht
-X-Received: by 2002:a05:651c:19ab:b0:38a:4923:e01d with SMTP id 38308e7fff4ca-38c756ff12amr9980241fa.7.1774620921108;
-        Fri, 27 Mar 2026 07:15:21 -0700 (PDT)
-Received: from localhost ([81.216.59.226])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38c6a848cddsm8219761fa.13.2026.03.27.07.15.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Mar 2026 07:15:20 -0700 (PDT)
-From: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-pinctrl: sort shift values numerically
-Date: Fri, 27 Mar 2026 15:15:13 +0100
-Message-ID: <20260327141513.1250499-3-linux@rasmusvillemoes.dk>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260327141513.1250499-1-linux@rasmusvillemoes.dk>
-References: <20260327141513.1250499-1-linux@rasmusvillemoes.dk>
+	id 1w683m-00000007b7c-1T2J;
+	Fri, 27 Mar 2026 14:21:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774621270;
+	bh=DurxzAWMVmUfvm6R3SbJKFIGxokQNpjEf3KA/bMfMiw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ZEawk3NHlwo3wKnP6M+wy3Ui9SRkzYldPxhOqXwGRILCWD4Hosph0aYHTz2AalXyS
+	 y9XVyuS6KLVCOk1GjL9xDPBE6HRqLkXc2Fw5pyTeSyEfcnUo+qY+0MUmfMbMofIzaC
+	 0POwii+8yFQgtdD4ypweBgUtTQIgx+O25zwRwQ7AukTiDIm5w7kLUEu8jMyGdQbMXv
+	 yEwC2wIhCje6MbPSVJTHvI1EQxmrKgLrbcGHiTAALQBjF91tt7UQo2N2t+ovtwkaTO
+	 Jb3VSIbIGz3QjZiY+9As4UJW5LY0HFAhnZEUwXeSwntML7gTVtvbb1FUWVWjO10ICT
+	 YCCpebG/dXuSg==
+Received: from jupiter.universe (dyndsl-091-248-085-253.ewe-ip-backbone.de [91.248.85.253])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 459AE17E46AB;
+	Fri, 27 Mar 2026 15:21:10 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id EB4D048002A; Fri, 27 Mar 2026 15:21:09 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 27 Mar 2026 15:21:06 +0100
+Subject: [PATCH] MAINTAINERS: Add Rockchip keyword matching
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260327-maintainers-rockchip-keyword-v1-1-7f4634f761a6@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAFGSxmkC/x3MPQqEMBBA4avI1A7EZP3Bq4hFiKMOYiITcVeCd
+ zds8YqveQkiCVOEvkggdHHk4DOqsgC3Wr8Q8pQNWulGGd3ibtmfOZKIEtzmVj5wo/sbZELbqdp
+ VtTbzx0BeHEIz//77YXyeF4SBtYVuAAAA
+X-Change-ID: 20260327-maintainers-rockchip-keyword-a805c1523f43
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1387;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=DurxzAWMVmUfvm6R3SbJKFIGxokQNpjEf3KA/bMfMiw=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGnGklVwa7R0qjXnc9g7Yo0b5P3ZBNyqNXvTC
+ C3XoFxYoP3XCIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpxpJVAAoJENju1/PI
+ O/qaGVUP/3QPlZJpFPHgPrB8a2IXh17ZrFEor+4kn0UN1XSyAXs/qkCtU4TZ+jaCndEIxH3scs+
+ BBpEaRzBV2BJYBHcQF5Dw/crJ4lwXo9etFRzyYMuALMilx5Z0cm7KyEv7xiLfWLEJJqgqkuvCjV
+ 29NmGv+yZw3PbD3g1wB1JJ3ew21NiuLbK5R+W/JzGiiG7Tj55s+n+nBB9zwXeN1FdyfP1iisJbs
+ zvI1jIg3aLxfVD/Ofsmv0cSUP1ui53N/DPypnztH01aasODjgs+vz/a2TrHUgdwYPI/GSKqgYjP
+ 1j0SR5obmzZoVUFezrRMN6kudVB22ufIkDMGEsOl/YpPS+R/Rz7VUeMm8j4tnj2H81BTsM6Bz/i
+ ssjuKTXE3hrEtzcbNUW+tGwqN+yzG/2BxUuJcq5YV5FckoSCjFNR84lfamVTjOROhk1PvDM5mTt
+ 8Y1PWetEAjwq8NQnl67+hlwklgt9L/sZ4ZgLvREgUJdzN7Gtc57QWRKukoyEF+Huzf0B7K+CJXu
+ QyaJ4WSgpvaII2tRijs8d30BE/Y8zg+PTRyNJFbd9fUnf64YreNvK5GXhP+7n4aun4jXoU65FUf
+ 7IVk7i30rCQm2MOaFzozxWGzecJ89I3P6Y/rsFBoEzlRGj/eX/ZA4ONexHsijtI42zUl7Ba8kUy
+ RHArAGLRzJeC5l22M5Xs1vw==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_071523_488098_F4824780 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260327_072114_567058_56A915E6 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +95,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The macros are easier to read when the values are sorted numerically.
+Add keyword based matching for 'ARM/Rockchip SoC support'. This will
+match rockchip, Rockchip, RockChip and ROCKCHIP separated by any
+whitespace character or underscores.
 
-Signed-off-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+The goal is to match arm64 defconfig patches, which should go through
+the Rockchip tree as they right now only match the LKML and thus are
+easily lost. The keyword matching is quite good for this, since it
+also applies to the commit message and the config options itself might
+not give any hint about being relevant for Rockchip.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- arch/arm64/boot/dts/ti/k3-pinctrl.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This is not perfect (people need to write good commit messages), but
+should improve the current situation quite a bit.
+---
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-index bdccb153e089..4491898d8294 100644
---- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-+++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-@@ -10,15 +10,15 @@
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 55af015174a5..9f036f812823 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3416,6 +3416,8 @@ F:	drivers/i2c/busses/i2c-rk3x.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+ F:	sound/soc/rockchip/
+ N:	rockchip
++K:	\b[Rr]ock[Cc]hip\b
++K:	(?:\b|_)ROCKCHIP(?:\b|_)
  
- #define WKUP_LVL_EN_SHIFT	(7)
- #define WKUP_LVL_POL_SHIFT	(8)
-+#define DEBOUNCE_SHIFT		(11)
- #define ST_EN_SHIFT		(14)
-+#define FORCE_DS_EN_SHIFT	(15)
- #define PULLUDEN_SHIFT		(16)
- #define PULLTYPESEL_SHIFT	(17)
- #define RXACTIVE_SHIFT		(18)
- #define DRV_STR_SHIFT		(19)
- #define ISO_OVERRIDE_EN_SHIFT	(22)
- #define ISO_BYPASS_EN_SHIFT	(23)
--#define DEBOUNCE_SHIFT		(11)
--#define FORCE_DS_EN_SHIFT	(15)
- #define DS_EN_SHIFT		(24)
- #define DS_OUT_DIS_SHIFT	(25)
- #define DS_OUT_VAL_SHIFT	(26)
+ ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES
+ M:	Krzysztof Kozlowski <krzk@kernel.org>
+
+---
+base-commit: 2e930174c99bf75c71f898779f3ce777d7db6fd1
+change-id: 20260327-maintainers-rockchip-keyword-a805c1523f43
+
+Best regards,
 -- 
-2.53.0
+Sebastian Reichel <sebastian.reichel@collabora.com>
 
 
