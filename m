@@ -4,106 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 727EA10ED678
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9EB910ED678
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bY74UhjM4gzlwNhf6XzZKBW5M6iBaLhGIe7w2cyyBQ=; b=YHfIhGTkuPA+h2ljjA4kf5Ru00
-	3C5RC0coacl67LUsRyo7dwdNIMxHNkaDTkf+91PfbUFtTDARTfZLoJkwNVgF5FYb0VVH9gF/5cddp
-	nTKgwuC4xoH9kV/nWHsNmle39UNdYj3wQqhXGVDzCzZ9F7zlj+ptTQzB/ZXcqQp3r6Y0JhsPTGCfX
-	ddyv0zx/UgAQ+7eBGftI7VkXTiZaiZGEhyTExAYGOvibDR6soQaiPuiIeEVVMItgzRkVwSK55/Lt+
-	X7pImIsPTTmTA4qqj13Er4HQJIKxv/RlW5qPwPSfrxR+Moiab9jc0g8fZw/UgUJ2liwEhd+WFnOPl
-	4Ye4MioA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9E2RIt8Jwl2ayOiSZdyQkptXGhUYEZZl1BldzCpWPog=; b=ckTet4H66Des6wpnWCCFTxFjY+
+	TyiWcurA2byildGM6hBdIo2aHIY/UK6Asdt0D9vBdUYGcOAtmElFJ6hkiNV7FhBok9YUpHm5FT7+Q
+	LMKrNWslQgnxNybyykDTdhpq+FH9qmvppyCUmzgNBBELwjlSO1S1gT1kcGRaTs/UlS7wBalfhXGus
+	xfXFio4o5Et89718EiTSM4EjSoR3tLdCHf1vwx15blEOo6NSqfa5SYtoIe6jWqLg8ysf7eX3aRXq1
+	wkp813NNNw6dICHgOpSOFMoqfGD/tCy3tbEYcgNvwBd7I9ad2Ohomd9+jnlp7yatM09Mxjfwhka2Q
+	fnapoVpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67Ac-00000007RGd-2ffe;
-	Fri, 27 Mar 2026 13:24:14 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1w67EU-00000007RUw-1Cge;
+	Fri, 27 Mar 2026 13:28:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67AZ-00000007RGI-3Vtu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 13:24:12 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-509062d829dso476931cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 06:24:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774617849; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NrEKhwcuTjV6cBlopIY8pxD/UyjNY8Ox8ixYId+2clJcIT16FTzWOBuW2RcVyqMyLs
-         Znm7J7bNijSCkeyat5iaOJgVwhzTy9oDpwiy+XkFHMSTcx0zTUwNAxs/gJ8wUXYvDSkS
-         Xjsb3mG3WcvTrBM1Sab//7xPPeLhFEd48VNXSiIdx9fhs2HiMZwfKxWgLQJgbmF+N07m
-         DNdy0xeZ3r2tu6GomOM+soAlKx65ZqG9rty1RKgYfJmHEON/upiiemdI07kGfHSxGbam
-         w4NcpCDNtDukdVgSWhHRmUwZtckOtVYwd3Ggj3/D8RJV1yyRkYFJse7lc9EWTIGjvAjt
-         McUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=5bY74UhjM4gzlwNhf6XzZKBW5M6iBaLhGIe7w2cyyBQ=;
-        fh=HlIVCWPS5kz9aP7i9p4mqmPdceFSeAP3wBzGlUWFhgA=;
-        b=GKxS9qdAw9N44eHNw3n9xjemNKzF3+u9zYb7WIzLjJ+iyfvg8FOoF163pJ98oIL1ie
-         A65LmiJ3C+PMDY1KIXTq4iBZpUVB16Po9ZKyazasY03gSSbtt80wWthZwkGhvSU+IzEL
-         XiBGgNkhPrLyFsZ1HrALj7H7xNCjWTEv/WrjzHesbUf+sOBZ9jKYZUFQEtSl4pL/oJKt
-         eim90zQfl2PdRqjoyGBuw7JUhMYYmAnyLgI5/w0ngKj0kQVFtuZ1SDWEPuVm8VGZpHd/
-         zKSF6zD5mabaLwJYLF5gP9xMs70MzOCU8jvbLvpQr89qKCDELCZzdVsFyzbIxQGHGQrW
-         b9Xg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774617849; x=1775222649; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=5bY74UhjM4gzlwNhf6XzZKBW5M6iBaLhGIe7w2cyyBQ=;
-        b=KtCzB8Vhno3ayRq0Q8sYDxNjrvkXJM2ZD4OxxQrxwWlhIYY1vonolxlRJ2M643QRDG
-         IY46vFxpUiI03D/sGCO2Uqasv3Ka8fn3MlmXlmyMIv+k6jpdk+kG0hFcQiQsgka5/dvU
-         on0WL2ijRauengP5Q+roS6+L9Dt8cS59bcsQ+BsJl3ujdQ76rAnM/LDeEbghUBzdh6bA
-         2j37nlhfFEFASAg9aE/ltgQgcqg67NhJ8KcbHyVpWj47CFoYGS0V462UzplDE2m5PjIW
-         nKWGFdmQFhADxRbdTWwzJxvwMpdyZvhTo3qVHhDSlZXLjPEhYQnswNwiLEBgWwrN53os
-         wZ0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774617849; x=1775222649;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5bY74UhjM4gzlwNhf6XzZKBW5M6iBaLhGIe7w2cyyBQ=;
-        b=MLhGcJz3ZEB/sTgMCvcfybAvJc6aQ6HunOSHYfX+f5Dxp6MckNDY9dzEaPNKLx2u4Q
-         9hEs0ni4nv5J+6nTh+vHDIjJ3pdpNgHB09Bau+L3oSFbNPgGrwvnYkn+VrlgjD2IOqli
-         5g214+mpV0dmGm5yWJSWFcWlilHxEseB1DLHZdE640EwipSU3CZkFwcbr6TOs1V6St9U
-         Qk8x7btgj1M5VNBCVgxCwstA6Zehn/oMHnpjUjNPRcFbjU3TTfr7S3DC/mQMPCYl++X0
-         UnPZT1kwTn1zfuvmnSZv7lFKp2JODRHgCIHkgc1vcdWDiUdpcMon9vzgs0Pm2Xlm71Uq
-         REeA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/e53BFaYlvCOc35e/19x1qUf/q5/UUVtxUuFi2AYVf6/tgrwvfAiCzQIPyc5VIHybhxeF1vH8vRms4gx7wiVk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrCi6urZvaEqeGF3O/FfiOOVzIHyHxIEGBEUYjObo1PUao1DK/
-	6e5ygl/wj5b4Cu3HUbeNyeigAqLAybQVMFirnEtzsJ7fBsfIZsQsNfgBR6rBdZhZBrfwC0o3Bo6
-	duUm0WIAoNEeICBbCYJvYC4hU7trc+gaQl8rcQ8LN
-X-Gm-Gg: ATEYQzysDrSWAu+qfwU6/2Eih3ifMJe7ll1LqFCPLbjNM5hWM9PcPTodZeoT6ArxzYO
-	kUEif4V4l0Z5BlvoC8/JfpdrS5/tXzK9O7aA/wGrfflVzyF18+k5msttZhZdqQFsL4lGW855aI3
-	L9dKxqLIZdAA2+pqzZ13xRyLeO6/MiBu00shJQyu5Zfs1lDWkoVqg5+dleBmdKBGa/xFE5WwuVu
-	n7BcdcCcwdrv/LnfuejYXvXftJlT5P78NWn9AbgiDPB2L0pe88OM9Xcm2Ye9yk19MZ+sHGIZG2T
-	TNeKhbgG
-X-Received: by 2002:a05:622a:d1b:b0:4ff:cb72:7c03 with SMTP id
- d75a77b69052e-50ba318eb6fmr13176191cf.3.1774617848903; Fri, 27 Mar 2026
- 06:24:08 -0700 (PDT)
+	id 1w67ET-00000007RUc-1Ekr;
+	Fri, 27 Mar 2026 13:28:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3ED7E60132;
+	Fri, 27 Mar 2026 13:28:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE8BC2BCB1;
+	Fri, 27 Mar 2026 13:28:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774618091;
+	bh=r/tUcr+DkmKRuSoOmSbqzMlOOVTDeN+O6HtHU+Chplw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tgrKpze0AXBEQbD7udKzYR1/j6AEhWlQrKBma1DiYfButx4464/hyCJcpP+ANo9Ap
+	 by/AS0qYxcLqBUSypREH+SHXOKATURaX0us8v4dfKQqXxPoButyOG+KhsuWNRvIeUu
+	 OT9CiE1BJhUnl6+SEPyLb7rKdCHDRBxPXMjA0DrJamezzubk415mrPedbFHfjZqGzC
+	 WAikLjxtn6QB+XzNf1gAfc3zcEHDvFYphLENXO0NWxG/whC/a3SsCFy4iU7xdizwV+
+	 Fd9Nkb17vBj+XSEUZMAIgu5KYakuf0xy9AC3zv8wEWxsEuZC8T/dDcIgvobE8Ac+JG
+	 PHIaX9JpLlSeA==
+Message-ID: <2266e9af-ce5b-401a-8364-0fe2fc3d68a6@kernel.org>
+Date: Fri, 27 Mar 2026 14:28:06 +0100
 MIME-Version: 1.0
-References: <20260327130047.21065-1-will@kernel.org> <20260327130047.21065-4-will@kernel.org>
-In-Reply-To: <20260327130047.21065-4-will@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 27 Mar 2026 13:23:31 +0000
-X-Gm-Features: AQROBzCC10PnLcTP381DSEChdZl5cJJMbR_OpsHzbEE59JG3IBeGP0k-sEwEXIY
-Message-ID: <CA+EHjTxNTiMpM7c-YwvZpW-n+2s0sNrFa7qMCeepf6v1LJBeFg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] KVM: arm64: Don't pass host_debug_state to BRBE
- world-switch routines
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Yabin Cui <yabinc@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_062411_887678_1AD24398 
-X-CRM114-Status: GOOD (  19.52  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/6] change young flag check functions to return bool
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org
+Cc: ljs@kernel.org, Liam.Howlett@oracle.com, vbabka@kernel.org,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+References: <cover.1774075004.git.baolin.wang@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <cover.1774075004.git.baolin.wang@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,81 +117,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 at 13:01, Will Deacon <will@kernel.org> wrote:
->
-> Now that the SPE and BRBE nVHE world-switch routines operate on the
-> host_debug_state directly, tweak the BRBE code to do the same for
-> consistency.
->
-> This is purely cosmetic.
+On 3/21/26 07:42, Baolin Wang wrote:
+> This is a cleanup patchset to change all young flag check functions to
+> return bool, as discussed with David in the previous thread[1]. Since
+> callers only care about whether the young flag was set, returning bool
+> makes the intention clearer. No functional changes intended.
+> 
+> Ran mm selftests on Arm64 and x86 machines, and no issues were found.
 
-It is indeed... until sashiko proves me wrong again :)
+Thanks!
 
-Tested-by: Fuad Tabba <tabba@google.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
+For the whole series:
 
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
 Cheers,
-/fuad
->
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: James Clark <james.clark@linaro.org>
-> Cc: Leo Yan <leo.yan@arm.com>
-> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Cc: Fuad Tabba <tabba@google.com>
-> Cc: Alexandru Elisei <alexandru.elisei@arm.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kvm/hyp/nvhe/debug-sr.c | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> index 84bc80f4e36b..f8904391c125 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
-> @@ -156,8 +156,10 @@ static void __trace_switch_to_host(void)
->                           *host_data_ptr(host_debug_state.trfcr_el1));
->  }
->
-> -static void __debug_save_brbe(u64 *brbcr_el1)
-> +static void __debug_save_brbe(void)
->  {
-> +       u64 *brbcr_el1 = host_data_ptr(host_debug_state.brbcr_el1);
-> +
->         *brbcr_el1 = 0;
->
->         /* Check if the BRBE is enabled */
-> @@ -173,8 +175,10 @@ static void __debug_save_brbe(u64 *brbcr_el1)
->         write_sysreg_el1(0, SYS_BRBCR);
->  }
->
-> -static void __debug_restore_brbe(u64 brbcr_el1)
-> +static void __debug_restore_brbe(void)
->  {
-> +       u64 brbcr_el1 = *host_data_ptr(host_debug_state.brbcr_el1);
-> +
->         if (!brbcr_el1)
->                 return;
->
-> @@ -190,7 +194,7 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
->
->         /* Disable BRBE branch records */
->         if (host_data_test_flag(HAS_BRBE))
-> -               __debug_save_brbe(host_data_ptr(host_debug_state.brbcr_el1));
-> +               __debug_save_brbe();
->
->         if (__trace_needs_switch())
->                 __trace_switch_to_guest();
-> @@ -206,7 +210,7 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
->         if (host_data_test_flag(HAS_SPE))
->                 __debug_restore_spe();
->         if (host_data_test_flag(HAS_BRBE))
-> -               __debug_restore_brbe(*host_data_ptr(host_debug_state.brbcr_el1));
-> +               __debug_restore_brbe();
->         if (__trace_needs_switch())
->                 __trace_switch_to_host();
->  }
-> --
-> 2.53.0.1018.g2bb0e51243-goog
->
+
+David
 
