@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1A710BA44F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6BB10BA44F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 08:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Vvgj2pPT8XKTkkvlCbrP20rwaNhlKqdZd5dSa/DWEA=; b=hAUZCtgWxmHwMlXmGCo1RFRaI5
-	oCk70WEGhNPuLKWZnOBtmetmwKGJkVM3vp2Wp+CqD7cIn9ZhpcpDCenN/384cLEMGzl0lw+SghJqi
-	Y/pRcdT5oqeqoHNgXSYbpMIU2Fbcr0jT4iFgGP1bgBltJSl7tO2V2M6QP+qlsNwlfcjxOrjRShg5p
-	DrnTjZR7AIOr5tXPO1kGAeFq7tNXJ4OOCGM+JJ/LBg5zu4jGpoNCHkTZJfLne5msgkkpIB/OSXyNc
-	49+N89w68JhAlHBf11QWMCbjFC8nF4qAsNiq1Pd8W9wZzjNrjlTGezie/nO/1BpuEf0gjFxmwmTnl
-	HlsZKsOQ==;
+	bh=Y+QwO7U0FtX/kHNAKLW/1mrbuXdiLJEA4Ql/DjltfJI=; b=phBT5gCet//0Rn8lZNYsKTup4y
+	iChHJKXb38o1t7gS7oj/gyvnjnDe4uUX1y4/RhtwPv2eHxad8bb6kSe5OUg6pw5PWPKjQoei626j/
+	Ty6+FjhXd0m9EHl6WNu4HqJFt7saYUXAl+BmPZEAJbtduRR+KkQGg+i+KINwL0ai9VgvPDij84hwS
+	lOkNlo7m+n+62QHFs24xvUzBSeEZFFq2bSUXh9RE4WlGJbyu8OQ8rHaANNF9eJKMpFNfCdg4dmhPq
+	0RcHQutvvZBe+XYJ2/TknnPO03HE5IadGBLPfanQ7RV5F0nAbEGYh95ySNpjCyJQyQGpbat4VAiGr
+	izLENjZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62na-00000006zjs-2lAE;
-	Fri, 27 Mar 2026 08:44:11 +0000
+	id 1w62nf-00000006znl-4ArN;
+	Fri, 27 Mar 2026 08:44:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62nU-00000006zfR-1mk4
+	id 1w62nd-00000006zl4-0Hcr
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 08:44:04 +0000
+	Fri, 27 Mar 2026 08:44:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=7Vvgj2pPT8XKTkkvlCbrP20rwaNhlKqdZd5dSa/DWEA=; b=itW+EKWqbhPhlpEU0r2jr0XPW/
-	Z9Cosd+R23TX2w/bl/a+Ed8jZAz2BKRLKygHx5vztpO9iFlWh5BThgrNwTlhps2tRJ+gCAjfzr8jX
-	xhuKt68tyE7hHTZv3tzMFzQoKUcgnk7DM/9oo2gHtnkpRa2K8/7SsNa4XUOaLxAx1qS+6WfGLhR5y
-	lYkW6+vEMUbP6G33oPyE8Zy8eUXXGjyoeM81qi+527DYZgrcJksY295MSGmA7hDT2LZaPWswDtxNh
-	k3thFUUO8HM8hETuAV/kAg+7vFh8j98dFBdE1yjAhucQs6JwAgZI+LXxR8DsX0Ql+fREkXdYUUW8A
-	9nmkjSvQ==;
+	bh=Y+QwO7U0FtX/kHNAKLW/1mrbuXdiLJEA4Ql/DjltfJI=; b=YM5daB0F1LbOyw/72dRIbwyAar
+	38p9gtkRoWnFgsiva7htrPh4b3/J8l64S5YRJke2bmH4D3lCwlZmbPxqujWvDyQrWSTpwf8w6yodp
+	G/LwImTJw3hwexQY6MF07epyuLbbq+wkAcIwXgP9mO/o7cVO6gEltgu2WKC0nZYLMnaI7KQeHYiBl
+	Y2SEbzNGar4nrfVFsJMLKE/5Cpo72MPfg18alKzx97aB6ksUSxjvVsgzOG7exqH4h+Zn9WNG4Jvwr
+	iXvJp0kjBeDy6plTdOc+NoTfU5CEZyeib5R5VB2YeoT9sOTcbfsg+/TpbdH5buHivg1BhVhzOs++t
+	qkoWxKZw==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w62nR-00000009zp8-2qkK
+	id 1w62na-00000009zqa-0LuO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 08:44:03 +0000
+	Fri, 27 Mar 2026 08:44:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7Vvgj2pPT8XKTkkvlCbrP20rwaNhlKqdZd5dSa/DWEA=; b=iSy+NvnBIhBSrnaVMD6B0mD8pL
-	N8P61rdQGkFyueNLmSyQGeqwuiHwoEZTr7PkC9n7NQ6G5slJDj9QhvWL2SJ+8ryS3cbbVO7bI2+vO
-	83QjKXT7Ec1SUDniCbr5Wgp3xJmRrYz/lVf1GNB2DQuy5KUkK49oDnnDGrfmeuwjl0+YEFRHQt4Ls
-	Wowaeg1rruVZQi22icZKQ7550UguffvUcRr5B3JMLkeFmJ5vbokaCh2ZjqmNPRf7v19BREVa7iB4d
-	6WLUOU8mdO0g3uOkdDbbk3EIofUOCoCeRWfvDXP2R/EROKh+cqXp3wtVkct7V5YO6aDc+3wk44nI5
-	xiO7SqHw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53138 helo=rmk-PC.armlinux.org.uk)
+	bh=Y+QwO7U0FtX/kHNAKLW/1mrbuXdiLJEA4Ql/DjltfJI=; b=LutfkeXINnPefEmjRme6clGasl
+	dHmoctI4P7lnfNBz6DzU6xdywee9GLnlsS5Dp6uok4MUtMn6Prce4vi7UQ4JGOSqD4MI25VozbbFL
+	dvg2nPRyiPA2Cftz1UuiNorTLvCd1Sey7kPSDLpaJG1POpLeUJFylUqgRATAyf1zcZ0eAydGR2mai
+	zXg0YLP5TQEi/cf4c7HYKMdLX4tQhoHRKJqoKbFzN4Ic2J0vuVQPdfQvalplhSie92wSfR8hN6ZGt
+	yky94NAxaoOJ7Oe/Fpnw0HncIUiGIPB6CbCl21S0F4FxyNhoRj9PnIw7+f5Np1AOwv9fO8LG6ZvsI
+	v+Pzkktg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53554 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w62nL-000000005pp-1O76;
-	Fri, 27 Mar 2026 08:43:55 +0000
+	id 1w62nR-000000005q9-0qHq;
+	Fri, 27 Mar 2026 08:44:01 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w62nJ-0000000E3CL-3YSr;
-	Fri, 27 Mar 2026 08:43:53 +0000
+	id 1w62nO-0000000E3CR-445p;
+	Fri, 27 Mar 2026 08:43:59 +0000
 In-Reply-To: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
 References: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -79,17 +79,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 06/15] net: stmmac: qcom-ethqos: move 1G vs
- 100M/10M RGMII settings
+Subject: [PATCH net-next v2 07/15] net: stmmac: qcom-ethqos: move two more
+ RGMII_IO_MACRO_CONFIG2 out
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w62nJ-0000000E3CL-3YSr@rmk-PC.armlinux.org.uk>
-Date: Fri, 27 Mar 2026 08:43:53 +0000
+Message-Id: <E1w62nO-0000000E3CR-445p@rmk-PC.armlinux.org.uk>
+Date: Fri, 27 Mar 2026 08:43:58 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_084401_819285_4C5EF772 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20260327_084410_339666_2EB93DAE 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,73 +105,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move RGMII_CONFIG_BYPASS_TX_ID_EN, RGMII_CONFIG_POS_NEG_DATA_SEL and
-RGMII_CONFIG_PROG_SWAP. There are two states for these: one group for
-1G, and the logical inversion for 100M and 10M. Move this out of the
-switch into an if-else clause.
+RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL is always cleared, and
+RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN is always updated with the phase
+shift in each path through the switch, so these are independent of
+the speed. Move them out.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 26 +++++++++----------
- 1 file changed, 12 insertions(+), 14 deletions(-)
+ .../stmicro/stmmac/dwmac-qcom-ethqos.c         | 18 +++++-------------
+ 1 file changed, 5 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index 34d9a6b2d023..e9d8c8a7146a 100644
+index e9d8c8a7146a..ab6554f58214 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -404,14 +404,24 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+@@ -420,13 +420,13 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 			      RGMII_IO_MACRO_CONFIG);
+ 	}
  
- 	rgmii_setmask(ethqos, RGMII_CONFIG_DDR_MODE, RGMII_IO_MACRO_CONFIG);
- 
--	switch (speed) {
--	case SPEED_1000:
-+	if (speed == SPEED_1000) {
- 		rgmii_clrmask(ethqos, RGMII_CONFIG_BYPASS_TX_ID_EN,
- 			      RGMII_IO_MACRO_CONFIG);
- 		rgmii_setmask(ethqos, RGMII_CONFIG_POS_NEG_DATA_SEL,
- 			      RGMII_IO_MACRO_CONFIG);
- 		rgmii_setmask(ethqos, RGMII_CONFIG_PROG_SWAP,
- 			      RGMII_IO_MACRO_CONFIG);
-+	} else {
-+		rgmii_setmask(ethqos, RGMII_CONFIG_BYPASS_TX_ID_EN,
-+			      RGMII_IO_MACRO_CONFIG);
-+		rgmii_clrmask(ethqos, RGMII_CONFIG_POS_NEG_DATA_SEL,
-+			      RGMII_IO_MACRO_CONFIG);
-+		rgmii_clrmask(ethqos, RGMII_CONFIG_PROG_SWAP,
-+			      RGMII_IO_MACRO_CONFIG);
-+	}
++	rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
++		      RGMII_IO_MACRO_CONFIG2);
++	rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN, phase_shift,
++		      RGMII_IO_MACRO_CONFIG2);
 +
-+	switch (speed) {
-+	case SPEED_1000:
- 		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
+ 	switch (speed) {
+ 	case SPEED_1000:
+-		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
+-			      RGMII_IO_MACRO_CONFIG2);
+-
+-		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
+-			      phase_shift, RGMII_IO_MACRO_CONFIG2);
+ 		rgmii_clrmask(ethqos, RGMII_CONFIG2_RSVD_CONFIG15,
  			      RGMII_IO_MACRO_CONFIG2);
- 
-@@ -443,12 +453,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 		rgmii_setmask(ethqos, RGMII_CONFIG2_RX_PROG_SWAP,
+@@ -453,10 +453,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
  		break;
  
  	case SPEED_100:
--		rgmii_setmask(ethqos, RGMII_CONFIG_BYPASS_TX_ID_EN,
--			      RGMII_IO_MACRO_CONFIG);
--		rgmii_clrmask(ethqos, RGMII_CONFIG_POS_NEG_DATA_SEL,
--			      RGMII_IO_MACRO_CONFIG);
--		rgmii_clrmask(ethqos, RGMII_CONFIG_PROG_SWAP,
--			      RGMII_IO_MACRO_CONFIG);
- 		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
- 			      RGMII_IO_MACRO_CONFIG2);
- 		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
-@@ -479,12 +483,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+-		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
+-			      RGMII_IO_MACRO_CONFIG2);
+-		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
+-			      phase_shift, RGMII_IO_MACRO_CONFIG2);
+ 		rgmii_updatel(ethqos, RGMII_CONFIG_MAX_SPD_PRG_2,
+ 			      FIELD_PREP(RGMII_CONFIG_MAX_SPD_PRG_2, 1),
+ 			      RGMII_IO_MACRO_CONFIG);
+@@ -483,10 +479,6 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
  		break;
  
  	case SPEED_10:
--		rgmii_setmask(ethqos, RGMII_CONFIG_BYPASS_TX_ID_EN,
--			      RGMII_IO_MACRO_CONFIG);
--		rgmii_clrmask(ethqos, RGMII_CONFIG_POS_NEG_DATA_SEL,
--			      RGMII_IO_MACRO_CONFIG);
--		rgmii_clrmask(ethqos, RGMII_CONFIG_PROG_SWAP,
--			      RGMII_IO_MACRO_CONFIG);
- 		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
- 			      RGMII_IO_MACRO_CONFIG2);
- 		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
+-		rgmii_clrmask(ethqos, RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL,
+-			      RGMII_IO_MACRO_CONFIG2);
+-		rgmii_updatel(ethqos, RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN,
+-			      phase_shift, RGMII_IO_MACRO_CONFIG2);
+ 		rgmii_updatel(ethqos, RGMII_CONFIG_MAX_SPD_PRG_9,
+ 			      FIELD_PREP(RGMII_CONFIG_MAX_SPD_PRG_9, 19),
+ 			      RGMII_IO_MACRO_CONFIG);
 -- 
 2.47.3
 
