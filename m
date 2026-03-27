@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCFC10F2865
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B86A10F2867
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 18:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oTutpgL5+JjzAC1HGqC5YVfYkXZsuSA3ElC+JIK+L+A=; b=zy6jIYdUrMtQo13Q+znnWXH5FZ
-	OTlVkexPehnqhVHbFzw3fi+QI19B6Yv8XwpaoIKU1YBt9swhUjzN/+DdMFOddOpa3WNgvmrNYdLV0
-	CAlYNh17QZzxAeb7ak4mAeAliTX5AP91IQ4mYmqOHqDKsjyZvWFeRCe5OafZ7/ewohnjRh2GerD2E
-	7AWvpagk6T7H+uoBIrzzREZHrwi7gj8VHmmgVoyukbFJSlJxM+hYYe80bvr6cQBz+XreFW3hrUvKa
-	dH5SwfQJCiRGubTNtf/7pbhIV43UQyHz88kTYDBvWcfwodQMpnsWWbUYLjxOwHeZidxUVl+7VotWi
-	wtQUczOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=368mPLXc9JyM0HjsQfm0Fgy565wxp0dKv4mk+E8MWN4=; b=FdfGiolrkAgeYqW0grL9HA0T5Y
+	Bal+Ewn/MINiBBWwOG5VZysH/BnddyMbbHcPAY5DLXdVkY3xGepYQBkGnEYDGlLI73a0LtIjG+7rm
+	VEtsKPLQ8Pp0quTbUeCjLJLprEbaiFRXdnRQ6EBLfTxMFltz1oSTZeYsB7g1q8fm5468WOCd0ATlE
+	ojuVGEez1bHj78E1ojbGkm5Z2Six8an+wv58JPUFMJI4oZIv3bdCYjyi5jTW3lelBxaSpCw45BzuP
+	Mag4w9fYWK6zkeyo0pfzW8lTE6pB0ax3KWencRvsZy/KiDD8T+Y3nuzEl4WGDHjysFVzQ5DBsvgpm
+	MCRK9AcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BfO-00000007vF5-3i7e;
-	Fri, 27 Mar 2026 18:12:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w6Bgn-00000007vN1-19AZ;
+	Fri, 27 Mar 2026 18:13:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BfL-00000007vE3-0rbT
+	id 1w6Bgl-00000007vMb-1vT0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 18:12:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774635132;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=oTutpgL5+JjzAC1HGqC5YVfYkXZsuSA3ElC+JIK+L+A=;
-	b=VddJPpxcvLsU9IehkRZVhA7A2ahnUztr7YsQRil9/0ZGIv6uXHUdTZAV5YXjrrXUFQo5cb
-	fYFsShyEWmOardtZY/hjSGezXWNpxUMakEdiN0L+K9MiibqqirGYnfZDbAeliCM3tuwpF5
-	+kaD+4mopBcGBQQkYt7X/XG9t12FlAM=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-269-TEBAzazQP2enOJL28pun3g-1; Fri,
- 27 Mar 2026 14:12:08 -0400
-X-MC-Unique: TEBAzazQP2enOJL28pun3g-1
-X-Mimecast-MFC-AGG-ID: TEBAzazQP2enOJL28pun3g_1774635127
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6D39C195607B;
-	Fri, 27 Mar 2026 18:12:07 +0000 (UTC)
-Received: from [172.20.201.103] (unknown [10.30.44.137])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 45C1C30001A1;
-	Fri, 27 Mar 2026 18:12:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc5,
- upstream-arm-next, 2b285798)
-Date: Fri, 27 Mar 2026 18:12:06 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	Fri, 27 Mar 2026 18:13:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB8BE40886;
+	Fri, 27 Mar 2026 18:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01347C19423;
+	Fri, 27 Mar 2026 18:13:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774635222;
+	bh=368mPLXc9JyM0HjsQfm0Fgy565wxp0dKv4mk+E8MWN4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GaOY2uaQ0Uyjv+zfwm7wl7Al5M46tHMtJ/uzYECADjqpSw/x0y4rYlx6Xu3l1y8Uh
+	 UsOtzpSg75YFz+yCjaaXlpVge7C7hc2Z7EcamBgcD8QyWCoVHoOHwo5+axfiLEAIpD
+	 ENL5lA24cgY4bYHA5AciicMtv58Dc26G/DzcgyXto33OrV/MNudgxMgXA+S/72+sRE
+	 DAKniMdUe/SN6Q73+S+Kgoc0xE+SCvLBnhrK1qO9hbqQSdcxDHM82jbUv45La4OhcU
+	 LsN/iFRTS2nlJjJ/3OTssSfwR7oyk274buFNbKrC/vQKL6q/wx76yabCPzuFZ5yfIN
+	 yGj1apjzgqsxA==
+Date: Fri, 27 Mar 2026 18:13:36 +0000
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v4 00/38] KVM: arm64: Add support for protected guest
+ memory with pKVM
+Message-ID: <acbI0KbctmKQR17F@willie-the-truck>
+References: <20260327140039.21228-1-will@kernel.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <79334.126032714120801463@us-mta-269.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: pp2bBwqmK-Kpx5m85awi3WUxb07fVzh9B5jjAnWiV8Q_1774635127
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260327140039.21228-1-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_111215_321993_7C6B941C 
-X-CRM114-Status: UNSURE (   6.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_111343_540478_7E4D3E52 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Mar 27, 2026 at 01:59:59PM +0000, Will Deacon wrote:
+> I fully expect to send a v5, as this is the first time Sashiko has had
+> a chance to chew on this and I'm expecting a roasting.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+After going through it, the report isn't as bad as it looks and some of
+the comments are actively wrong, which I suppose is inevitable.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+That being said, I've got a handful of fixes to fold in now and it's
+pointed out some unrelated life-cycle issues that we want want to fix
+separately.
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2413719816
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Will
 
