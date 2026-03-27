@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E18E10ED67C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DA610ED679
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=suqUmV3t0TCfxqOUJuk6ssfZFyY8qGljIeleXvxkicA=; b=4DEnBwZl9FLOZmJAd6C/vOz+ox
-	KeTEFZ23qoYf2425c6M5TSKinCA8kuM37Kz3BQpOVFmfgooh0cT2IoCBK4A97ceywh3jgo0A/njZu
-	C3uxScReroKFs92VgA6O58Rp2dd6b62taDLCE9x1jZ4wTj2vptkYLAUrZ5gRRSgI8NY+HWSvn1LQG
-	ok3U6D31VRHW5nC4D/ALajmaDhkN6anSFZ1aoFS09NEefCbJZQpfEojhb7Rncmz57oz2si4LO7dun
-	x+89RamsyRqTJ7FKBXxh9s1PuRCP6F66wNcbEtVQU1dRXzrBwbww1jNUlHGauHX0DeF1I//8biwr+
-	2mqrQuCw==;
+	bh=CgJ7zzrUW2V45knd7wTngmEu7ELXc1m/JD3T7B10AxM=; b=yGg7cmG+0HtDLyzG8fxy6r8Ksr
+	nWu50Vtu2cW6uyx4Gh9mI16waW1CmXOXrwiZJ+gFKYnQ9wkW0nSRqHS1SjlbpPbDFaH7ss/2ciSgl
+	kdyw2iKNvpjgRnUqpK6T/t0eFYvJ5IY3Bxfd0FYPMTQCx6oo8E/vhKYypT7dRXs9fhev+bkExniYv
+	ws9A82cHLpoMzuu04CKg89QLH2jXQ57I9hfmtWQk79qGBDKH9USnyoTybCQSndFIuJKfIijMNr/3H
+	iCde4twpaThmwg8EqL2bJmgNBxaQ7ahNboevTjN1lBkTrclJE/Qjp3nkp+B7XE93Qdtn/pQC/jrca
+	+yKO7ovw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67kT-00000007VaB-2O3p;
+	id 1w67kT-00000007VaX-3iaV;
 	Fri, 27 Mar 2026 14:01:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67kK-00000007VWW-1x8R
+	id 1w67kN-00000007VXh-1H6u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 14:01:08 +0000
+	Fri, 27 Mar 2026 14:01:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB46F6132B;
-	Fri, 27 Mar 2026 14:01:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BAFC2BCB0;
-	Fri, 27 Mar 2026 14:01:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 010674332E;
+	Fri, 27 Mar 2026 14:01:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC2AC19423;
+	Fri, 27 Mar 2026 14:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774620067;
-	bh=GEg9qAdks1S+YwQJuBag8f327Zhp7USRaMcrpEgiyho=;
+	s=k20201202; t=1774620070;
+	bh=ow7XJsMmy3N9br36ooPJfkzHGKyMX+Ym+pCiAfKaBdg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uOJCN+24HF1P8N3vOszHXVONmUqmtK0wysGXnU7XB/VHEaVFn7OGnOF++R5KlAye/
-	 C7lssuZ3cUnsCRks66Dd8Nh+jwsgrV5qZPG9l8/DV/hepmlKM4xGQlSIUSt40UH+ws
-	 ctD88G+YdjlyRwmKCEz8xIwSgVzKuzhPruC8oHxAP5XzpyWLfC2cl3X2X4EN4VyCVA
-	 NcHPjz+nBqQRhv3K8AvYr7YOK00DFxe1tdhhqjr7EiyINpdTyX9iMB1wDmd0gCsAPP
-	 0TJ1/Sn6vg2ZloSau50Hc1QG23ZLzCLolBBNAYI0TLYcP6sIJpTbAzhMSQSRA4nxyD
-	 5iAYYhQXwUvhA==
+	b=fpdPJ9rE4C5ofwCxzMs7Rwxv0FmPNhAVVzrGNogUIMJsH8eZA+AFXT2Avk+4I4e7y
+	 HP5ppWyaymTseJfGmYRfK7XqfmogtEJb2VKCQCOvu6s5X19/kJ2WiXy+YEiYIYNp3q
+	 WXKv1yS1Oar9YDC9Q+3pQG8EAZDdArY+smPLKW/v/NRtQCHNQk3qJ8M0gLLEatx/3M
+	 2HHxoLFde0BzYGEI5q0YEvNcTQ47CN4AirPAXRA39FXahTCcdcwirM+OJPsp6svLwb
+	 RCRyRCpjUCFXw+Cfn+Gp5h329VelFFptXbmiPOSS+PoitdrijKdwlrpt1fqsnnwbdz
+	 3c2f1mdmFvMaw==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,14 +57,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 05/38] KVM: arm64: Don't advertise unsupported features for protected guests
-Date: Fri, 27 Mar 2026 14:00:04 +0000
-Message-ID: <20260327140039.21228-6-will@kernel.org>
+Subject: [PATCH v4 06/38] KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected guests
+Date: Fri, 27 Mar 2026 14:00:05 +0000
+Message-ID: <20260327140039.21228-7-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260327140039.21228-1-will@kernel.org>
 References: <20260327140039.21228-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_070111_367397_8B581654 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both SVE and PMUv3 are treated as "restricted" features for protected
-guests and attempts to access their corresponding architectural state
-from a protected guest result in an undefined exception being injected
-by the hypervisor.
+From: Fuad Tabba <tabba@google.com>
 
-Since these exceptions are unexpected and typically fatal for the guest,
-don't advertise these features for protected guests.
+Debug and trace are not currently supported for protected guests, so
+trap accesses to the related registers and emulate them as RAZ/WI for
+now. Although this isn't strictly compatible with the architecture, it's
+sufficient for Linux guests and means that debug support can be added
+later on.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 757076ad4ec9..7041e398fb4c 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -40,8 +40,6 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- 	case KVM_CAP_MAX_VCPU_ID:
- 	case KVM_CAP_MSI_DEVID:
- 	case KVM_CAP_ARM_VM_IPA_SIZE:
--	case KVM_CAP_ARM_PMU_V3:
--	case KVM_CAP_ARM_SVE:
- 	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
- 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
- 		return true;
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 06d28621722e..0a84140afa28 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -392,6 +392,14 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+ 	/* Cache maintenance by set/way operations are restricted. */
+ 
+ 	/* Debug and Trace Registers are restricted. */
++	RAZ_WI(SYS_DBGBVRn_EL1(0)),
++	RAZ_WI(SYS_DBGBCRn_EL1(0)),
++	RAZ_WI(SYS_DBGWVRn_EL1(0)),
++	RAZ_WI(SYS_DBGWCRn_EL1(0)),
++	RAZ_WI(SYS_MDSCR_EL1),
++	RAZ_WI(SYS_OSLAR_EL1),
++	RAZ_WI(SYS_OSLSR_EL1),
++	RAZ_WI(SYS_OSDLR_EL1),
+ 
+ 	/* Group 1 ID registers */
+ 	HOST_HANDLED(SYS_REVIDR_EL1),
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
