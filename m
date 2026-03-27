@@ -4,114 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7004410AB82D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Mar 2026 23:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D653610AB82D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 00:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2YD6pwogaEbBAngQ7jzL1Df9t10z5n8+TMyot+6ut0=; b=2N9UVSrQ42A4n7jDlOd6nmlO6g
-	varQr+VDwFLlQTb25xWiKdIyOQVfi3gSql5kZolekNkU4encKuULPS4IzsN+RjP+1oeioqdoWTJdT
-	kzzuc+cqsEl7unrZI/8Yxv8wLJQUWcPXJCMyp0Lik0RZHXrxN8Y6wc9eqsuggX9uoraxlHAsh5hP8
-	A+/W7wFBTyCRF8uZ05MoTuCTz/grAN5sd7qbJicfAxAnLJgzIJpUphXXk+ncV+kY1F2KadaqOzq4y
-	GNNQGIiNeXUPOytcPhzhWIBk9PqDSX7WOhb4w7rmfOB4S0cnrbiEPnDTEC8IvLIph3TVwTfiQjYms
-	pAeRHJxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dhe/phj6nhYAGVqEl8iisg1Q2ajIFeMxbzoVVk57pNA=; b=wDMcC5qO7A87spMLC/XhbSIai9
+	pN+cRiebKhgEKt6FySSoCZUxpk7WZpc/T0/Qk7MY2M6czmwreZr1ohCnGp1fu//NT39liCcx8V0PI
+	ZvzEIGpRBwyne/7bucZLTBD4AjFTbGd93Bpd3W1Z3m4hFDhPymVGQe+aldU76KBasLnPmiMIfD/Dg
+	pAM7vpa0PXxkM9jpnwZk/h3qidi2QQQcsA+xfi/zG4DzbFSI4lF+pytrQTVOVxEJz4DIMUZXl3dYE
+	WQ+3ZCNnBFuBBCtYKuQQAGBHmqlxWM0VSvtd+fq0kT7a9o/pWtX4SPx+bBFpvG8pC6h4hDEX17VzT
+	7DTBfiXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5tuw-00000006NG9-1ZXK;
-	Thu, 26 Mar 2026 23:15:10 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1w5uj2-00000006Q2a-0zlV;
+	Fri, 27 Mar 2026 00:06:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5tut-00000006NEz-1TRy
+	id 1w5uj0-00000006Q2S-2Syi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Mar 2026 23:15:08 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2b052562254so39905ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Mar 2026 16:15:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774566906; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bgO017QICBWckQpS48znH5CwjUrgV79izYDi5Ju3ODZctBj1A05ICXpXnn20uimbmz
-         GfOi5WfmCg1/qSRjovTTBRViZ23rG8AuLKOfxDd14cqH9q/mW4D9rhg3Wq0RFXFEh8Ff
-         13xDOVIpiGcPwJnPBEnQlf03vCZnyumaFftLRPVTjhEbU9GbxLpChcEEWGePXWfooD1V
-         3lRPMq0yDqgWy54qM0MJ7Pmjez32zgN+pS0NS/TFFztdWr8VhhwF1VLbLucqdT9BwyyG
-         2efuiMq5Arz2qMRY8/QDGSq8/I5Q1AYr7ZEZjGsAqX2H1HrkqBNqsd4TWwaxWSqczlB+
-         sMSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=T2YD6pwogaEbBAngQ7jzL1Df9t10z5n8+TMyot+6ut0=;
-        fh=RVXsjcLLHwh0ceC6QRkfmT9rxlDlcSXGUO9zD/6Z4vM=;
-        b=NOrHSX0GiUmjpsh0V3K/AfBxFuaPpyH/AmsYMt1HjfEy65LNWKfWppLpPTPpbmi0yC
-         44SvBobw8M96h1cPOtS7UfDVKF0N5sS09jAnCkv3K5obahMol+GOXQDOBocBB62rJuPu
-         KxsMfV7lliMM/Osr+wpzYyZ/Mhm26+YlNtIX28e8YJvtbPWs/bMM0oQ5+Wju1oQkOwQh
-         T1OKSd1BquFv8WOQ6nZz21JfMHNzaDLdsrTGvkmn8RpAfPmKA0T/j9n6R2XjJoApjBRV
-         mBVG2lAzCPObUZyUE2BF0Qnl44mJEIEXFI7qu7SqRSo8Hv1/L0F96uN3umCFjF+W4Nx0
-         Haeg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774566906; x=1775171706; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T2YD6pwogaEbBAngQ7jzL1Df9t10z5n8+TMyot+6ut0=;
-        b=Q5byEToFW33y3G6LkZ8zaiTI9gbY6xdj0AVtG0Ul+siTO3iVbDnrrlbx1jY46Onu2K
-         I/VSltMui89tWahQBDBYk7Vl5WgQfMQInk6m8MtvijmK+X5R7eqex33HXHvd6iB4XMTo
-         Rr9bQaUqDHuSeBNDWr3RUl16HCTT3oXue2wwQV6aaHZ3iHUSV2aVxPuNpXcL2S8irGuw
-         X4Fvisa+jKgjPrNJzhx4qG1YFMkpxGSkPOAJB3+7b2vM2sbVGkYsGq6N06HtNIX7HO0L
-         MP1MWfj4DHjkwUCQi5PWNEzaVn61rPkQhwFHwaT3IjqF1PRk7t2NKgh0LRpdNYzCgs43
-         7GEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774566906; x=1775171706;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=T2YD6pwogaEbBAngQ7jzL1Df9t10z5n8+TMyot+6ut0=;
-        b=P7ec0eKE02W0etD1sEJNzt9ZVMU/Z/7szQAiDN926ZcUfAHggSK/pkt1kORtoKC2pb
-         rllvFXy9VgAnKbfwkWSRMsfMIKPBw+tTkgIqW8ncmkEkFniV4bHEQ1NHskABM/x3+qGv
-         a0yxg4UJDaz1fZoLgxFxBPc0rckdmagdqSojir8KKUT9acevJfe2d7U0J2Hcl/YNR8bp
-         58TgHNLCVrtBVB7xXXq+8AMOlKNx+KzeChAfyFs1LrP08PO9TPCzR6+Ie6CR/BrEZ5Te
-         U7Szo3ZezR2G75bGFqaUnQW+mFQjIa+iqVck8YEXqQpyFg9H95cmGvxjCPoh/AVMiJQs
-         ksTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXjugZxRtVYHo7aqehJxqUQ6o3ui+iETe57ztsbxGVm8a+DpvvqdMg+aXl9vdrgNKKNAftM0HsicDFDLNzzaaDo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXWDexQhfwYBjETyj9+w6MC5PI6ckm//kd1TLdqVFsLMYZBlNP
-	8tLpIyxkAtjclnOE71J0A34uyhixkwmrNCgKIFpzCSQUnpJSykL/Tvtsb/NmxWewoum0c8bVvS9
-	peXwwh7ea+jyNFa3AsgFIlK2aXiahjW6MHxXG2baV
-X-Gm-Gg: ATEYQzz9MAKw6HGaC6YF2kiJhRXtanzyhUwWXqnkUkK6Ei3H0RmsE1tnnDvzQIbmgsX
-	DprPxNyox1JOL4jmNOh9afyER5suBmBATT/zdShusOyMrQaIhua9ZrwmN3B4UmmA88lbXXCWQpT
-	jMVDK88awjQi/AF76u0dTLK6qpuB1ObjfwLaWo2zQogBeXCeu/yec/ikUid4GJUhdTergX/0HBw
-	RV2lGklXVtS1MtQImccIWW3d2Ix8RW/O02xHeR6sFtNS3WEWWuI+LUNYLSGIDgltWRQUREkI6Po
-	ImGszG4=
-X-Received: by 2002:a17:902:ef46:b0:2b0:5193:1212 with SMTP id
- d9443c01a7336-2b0cc23f103mr1451505ad.4.1774566905014; Thu, 26 Mar 2026
- 16:15:05 -0700 (PDT)
+	Fri, 27 Mar 2026 00:06:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8556160097;
+	Fri, 27 Mar 2026 00:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43046C116C6;
+	Fri, 27 Mar 2026 00:06:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774570012;
+	bh=ImIPmx6AnEDb6/60dXKqr0SMF6qzc2/4ui0g+5wcem4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mLPv43BOud1czIw27DXQ3ERM9udF260XoPVxHF9ZsVaSyLYWOvzSbREpF1lS+rVKv
+	 Z5ZeX6NUFu5okvgMOKRebWjk4TY8r3FcT51nyN7Zy1rWz4xt55JbnkP2E5K+izHTCJ
+	 rgqqfxZCuxGS3BEGQ+mKWgzDX32VVoW/caqNfbvWDbtZRiaSmlVX3Ap1e/Eo0oXhX2
+	 e2Pni65CdQ7bvJZYSBMzsUO1t0cEUu2Sc2veQwAu094GbUjrbx48AYJOgS7r2m1FTx
+	 SSrH+trAwyFpNVRriXx8X2R42k5JJy6PqMkx90q2Bsp1UhOqyOX+z0bN1bP7XHlGrO
+	 EReHcA13XWoqQ==
+Date: Fri, 27 Mar 2026 00:06:47 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH v4 3/7] pinctrl: extract pinctrl_generic_to_map() from
+ pinctrl_generic_pins_function_dt_node_to_map()
+Message-ID: <20260327-caucus-lunchtime-9b732c1e74d1@spud>
+References: <20260325-pinctrl-mux-v4-0-043c2c82e623@nxp.com>
+ <20260325-pinctrl-mux-v4-3-043c2c82e623@nxp.com>
+ <20260326-concur-eel-3e0b3d91e00a@spud>
+ <20260326-poncho-expanse-d30a9eded8e2@spud>
+ <acWNOhnBvA5l9NW3@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-References: <abxs-2rozL1tBEO1@google.com> <20260321234220.848859-1-irogers@google.com>
- <acW4Z2KJbyPZM1SG@google.com>
-In-Reply-To: <acW4Z2KJbyPZM1SG@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Thu, 26 Mar 2026 16:14:52 -0700
-X-Gm-Features: AQROBzAygKd6oTfrEHZEo1yOPUniUJvjrCTN9i1V25cS3M3lNv5jNRoxNUpz8Kw
-Message-ID: <CAP-5=fV54H9o4FjALZU3wzEjBjNgGBb6zhaRmrjhseT_noggZA@mail.gmail.com>
-Subject: Re: [PATCH v1 0/2] perf build: Remove libunwind support
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: 9erthalion6@gmail.com, acme@kernel.org, adrian.hunter@intel.com, 
-	alex@ghiti.fr, alexander.shishkin@linux.intel.com, 
-	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, 
-	blakejones@google.com, ctshao@google.com, dapeng1.mi@linux.intel.com, 
-	howardchu95@gmail.com, james.clark@linaro.org, john.g.garry@oracle.com, 
-	jolsa@kernel.org, leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org, 
-	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com, 
-	will@kernel.org, amadio@gentoo.org, yuzhuo@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_161507_388739_F9373F2E 
-X-CRM114-Status: GOOD (  30.30  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jz0AcoB0Nxtd0vkz"
+Content-Disposition: inline
+In-Reply-To: <acWNOhnBvA5l9NW3@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,124 +83,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 3:51=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
-wrote:
->
-> On Sat, Mar 21, 2026 at 04:42:18PM -0700, Ian Rogers wrote:
-> > libunwind support exists for "--call-graph dwarf", however, libunwind
-> > support has been opt-in rather than opt-out since Linux v6.13 as libdw
-> > is preferred - commit 13e17c9ff49119aa ("perf build: Make libunwind
-> > opt-in rather than opt-out"). A problem with the libdw support was
-> > that it was slow, an issue fixed in Linux v7.0 in commit 6b2658b3f36a
-> > ("perf unwind-libdw: Don't discard loaded ELF/DWARF after every
-> > unwind"). As such libunwind support is now unnecessary.
-> >
-> > The patch series:
-> > https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.co=
-m/
-> > looked to make the libunwind support in perf similar to the libdw
-> > support, allow cross-architecture unwinding, etc. This was motivated
-> > by the perf regs conventions being altered by the addition of x86 APX
-> > support:
-> > https://lore.kernel.org/lkml/20260209072047.2180332-1-dapeng1.mi@linux.=
-intel.com/
-> > It is necessary to translate the library's notion of registers to the
-> > perf register convention so that the stack unwinding state can be
-> > initialized. On this series it was stated that removing libunwind
-> > support from perf should be an option, rather than updating support:
-> > https://lore.kernel.org/lkml/abxs-2rozL1tBEO1@google.com/
-> > This was also what motivated making libunwind opt-in rather than
-> > opt-out.
-> >
-> > Given that 7 minor releases have happened with libunwind "deprecated"
-> > by making it opt-in, let's remove the libunwind support. There doesn't
-> > appear to be any disagreement to this on the mailing list.
->
-> I'm not sure if we want to remove it now.  I think we need more time to
-> verify libdw unwinding is stable and fast enough.  Also maybe we can
-> add build- or run-time warning when people try to use libunwind.
 
-I've had issues with old versions of libdw, but presumably the
-distributions won't update perf without libdw. Given we're waiting
-should we land the cleanup in:
-https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
-We have test coverage.
+--jz0AcoB0Nxtd0vkz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Ian
+On Thu, Mar 26, 2026 at 03:47:06PM -0400, Frank Li wrote:
+> On Thu, Mar 26, 2026 at 06:55:01PM +0000, Conor Dooley wrote:
+> > On Thu, Mar 26, 2026 at 06:52:12PM +0000, Conor Dooley wrote:
+> > > On Wed, Mar 25, 2026 at 07:04:12PM -0400, Frank Li wrote:
+> > >
+> > > > diff --git a/drivers/pinctrl/pinctrl-generic.c b/drivers/pinctrl/pi=
+nctrl-generic.c
+> > > > index efb39c6a670331775855efdc8566102b5c6202ef..20a216ae63e91b69985=
+ea4cfcd0b57103c6ca950 100644
+> > > > --- a/drivers/pinctrl/pinctrl-generic.c
+> > > > +++ b/drivers/pinctrl/pinctrl-generic.c
+> > > > @@ -17,29 +17,18 @@
+> > > >  #include "pinctrl-utils.h"
+> > > >  #include "pinmux.h"
+> > > >
+> > > > -static int pinctrl_generic_pins_function_dt_subnode_to_map(struct =
+pinctrl_dev *pctldev,
+> > >
+> > > > +int
+> > > > +pinctrl_generic_to_map(struct pinctrl_dev *pctldev, struct device_=
+node *parent,
+> > >
+> > > Can you drop this stylistic change please? The
+> >
+> > Whoops, cut myself off. To be clear, what I am asking for is to keep the
+> > "int" etc on the same line as the function name. This function is new,
+> > but you did it for the existing function too and the comparison is here.
+> >
+> > >
+> > > > +		       struct device_node *np, struct pinctrl_map **maps,
+> > > > +		       unsigned int *num_maps, unsigned int *num_reserved_maps,
+> > > > +		       const char **group_names, unsigned int ngroups,
+> > > > +		       const char **functions, unsigned int *pins)
+> > > >  {
+> > > >  	struct device *dev =3D pctldev->dev;
+> > > > -	const char **functions;
+> > > > +	int npins, ret, reserve =3D 1;
+> > > > +	unsigned int num_configs;
+> > > >  	const char *group_name;
+> > > >  	unsigned long *configs;
+> > > > -	unsigned int num_configs, pin, *pins;
+> > > > -	int npins, ret, reserve =3D 1;
+> > > > -
+> > > > -	npins =3D of_property_count_u32_elems(np, "pins");
+> > > > -
+> > > > -	if (npins < 1) {
+> > > > -		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
+> > > > -			parent, np, npins);
+> > > > -		return npins;
+> > > > -	}
+> > > >
+> > > >  	group_name =3D devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn", par=
+ent, np);
+> > > >  	if (!group_name)
+> > > > @@ -51,22 +40,6 @@ static int pinctrl_generic_pins_function_dt_subn=
+ode_to_map(struct pinctrl_dev *p
+> > > >  	if (!pins)
+> > > >  		return -ENOMEM;
+> > >
+> > > This looks suspect. You've left the pins allocation behind:
+> > > 	pins =3D devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+> > > 	if (!pins)
+> > > 		return -ENOMEM;
+> > > but pinctrl_generic_pins_function_dt_subnode_to_map() has already
+> > > populated this array before calling the function.
+>=20
+> what's means?
 
-> Thanks,
-> Namhyung
->
+It means you broke my driver by not removing this allocation from
+pinctrl_generic_to_map().
+
+>=20
+> pinctrl_generic_pins_function_dt_subnode_to_map()
+> {
+> 	pins =3D devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+> 	...
+> 	pinctrl_generic_to_map();
+> }
+>=20
+> pinctrl_generic_pins_function_dt_subnode_to_map() have not use this array.
+
+I have no idea what this statement means.
+
+>=20
+> Frank
+> > >
+> > > Also, this should probably be
+> > > Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+> > >
+> > > Cheers,
+> > > Conor.
+> > >
+> > > >
+> > > > -	functions =3D devm_kcalloc(dev, npins, sizeof(*functions), GFP_KE=
+RNEL);
+> > > > -	if (!functions)
+> > > > -		return -ENOMEM;
+> > > > -
+> > > > -	for (int i =3D 0; i < npins; i++) {
+> > > > -		ret =3D of_property_read_u32_index(np, "pins", i, &pin);
+> > > > -		if (ret)
+> > > > -			return ret;
+> > > > -
+> > > > -		pins[i] =3D pin;
+> > > > -
+> > > > -		ret =3D of_property_read_string(np, "function", &functions[i]);
+> > > > -		if (ret)
+> > > > -			return ret;
+> > > > -	}
+> > > > -
+> > > >  	ret =3D pinctrl_utils_reserve_map(pctldev, maps, num_reserved_map=
+s, num_maps, reserve);
+> > > >  	if (ret)
+> > > >  		return ret;
+> > > > @@ -103,6 +76,54 @@ static int pinctrl_generic_pins_function_dt_sub=
+node_to_map(struct pinctrl_dev *p
+> > > >  	return 0;
+> > > >  };
+> > > >
+> > > > +static int
+> > > > +pinctrl_generic_pins_function_dt_subnode_to_map(struct pinctrl_dev=
+ *pctldev,
+> > > > +						struct device_node *parent,
+> > > > +						struct device_node *np,
+> > > > +						struct pinctrl_map **maps,
+> > > > +						unsigned int *num_maps,
+> > > > +						unsigned int *num_reserved_maps,
+> > > > +						const char **group_names,
+> > > > +						unsigned int ngroups)
+> > > > +{
+> > > > +	struct device *dev =3D pctldev->dev;
+> > > > +	unsigned int pin, *pins;
+> > > > +	const char **functions;
+> > > > +	int npins, ret;
+> > > > +
+> > > > +	npins =3D of_property_count_u32_elems(np, "pins");
+> > > > +
+> > > > +	if (npins < 1) {
+> > > > +		dev_err(dev, "invalid pinctrl group %pOFn.%pOFn %d\n",
+> > > > +			parent, np, npins);
+> > > > +		return npins;
+> > > > +	}
+> > > > +
+> > > > +	pins =3D devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+> > > > +	if (!pins)
+> > > > +		return -ENOMEM;
+> > > > +
+> > > > +	functions =3D devm_kcalloc(dev, npins, sizeof(*functions), GFP_KE=
+RNEL);
+> > > > +	if (!functions)
+> > > > +		return -ENOMEM;
+> > > > +
+> > > > +	for (int i =3D 0; i < npins; i++) {
+> > > > +		ret =3D of_property_read_u32_index(np, "pins", i, &pin);
+> > > > +		if (ret)
+> > > > +			return ret;
+> > > > +
+> > > > +		pins[i] =3D pin;
+> > > > +
+> > > > +		ret =3D of_property_read_string(np, "function", &functions[i]);
+> > > > +		if (ret)
+> > > > +			return ret;
+> > > > +	}
+> > > > +
+> > > > +	return pinctrl_generic_to_map(pctldev, parent, np, maps, num_maps,
+> > > > +				      num_reserved_maps, group_names, ngroups,
+> > > > +				      functions, pins);
+> > > > +}
+> > > > +
+> > > >  /*
+> > > >   * For platforms that do not define groups or functions in the dri=
+ver, but
+> > > >   * instead use the devicetree to describe them. This function will=
+, unlike
+> > > >
+> > > > --
+> > > > 2.43.0
+> > > >
 > >
-> > Ian Rogers (2):
-> >   perf build: Remove libunwind support
-> >   tools build: Remove libunwind feature tests
 > >
-> >  tools/build/feature/Makefile                  |  31 -
-> >  tools/build/feature/test-libunwind-aarch64.c  |  27 -
-> >  tools/build/feature/test-libunwind-arm.c      |  28 -
-> >  .../test-libunwind-debug-frame-aarch64.c      |  17 -
-> >  .../feature/test-libunwind-debug-frame-arm.c  |  17 -
-> >  .../feature/test-libunwind-debug-frame.c      |  17 -
-> >  tools/build/feature/test-libunwind-x86.c      |  28 -
-> >  tools/build/feature/test-libunwind-x86_64.c   |  28 -
-> >  tools/build/feature/test-libunwind.c          |  28 -
-> >  tools/perf/Documentation/perf-check.txt       |   1 -
-> >  tools/perf/Documentation/perf-config.txt      |   4 +-
-> >  tools/perf/Documentation/perf-record.txt      |   2 +-
-> >  tools/perf/Makefile.config                    | 163 +---
-> >  tools/perf/Makefile.perf                      |   3 -
-> >  tools/perf/arch/arm/util/Build                |   1 -
-> >  tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
-> >  tools/perf/arch/arm64/util/Build              |   1 -
-> >  tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
-> >  tools/perf/arch/loongarch/util/Build          |   1 -
-> >  .../arch/loongarch/util/unwind-libunwind.c    |  82 --
-> >  tools/perf/arch/mips/util/Build               |   1 -
-> >  tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
-> >  tools/perf/arch/powerpc/util/Build            |   1 -
-> >  .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
-> >  tools/perf/arch/x86/util/Build                |   1 -
-> >  tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
-> >  tools/perf/builtin-check.c                    |   1 -
-> >  tools/perf/builtin-report.c                   |   4 +-
-> >  tools/perf/tests/make                         |   2 -
-> >  tools/perf/util/Build                         |   5 -
-> >  tools/perf/util/callchain.c                   |   2 +-
-> >  tools/perf/util/dso.h                         |   6 -
-> >  tools/perf/util/libunwind/arm64.c             |  40 -
-> >  tools/perf/util/libunwind/x86_32.c            |  41 -
-> >  tools/perf/util/maps.c                        |  47 +-
-> >  tools/perf/util/maps.h                        |   6 -
-> >  tools/perf/util/thread.c                      |  40 +-
-> >  tools/perf/util/thread.h                      |   1 -
-> >  tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
-> >  tools/perf/util/unwind-libunwind.c            |  92 --
-> >  tools/perf/util/unwind.h                      |  41 +-
-> >  41 files changed, 19 insertions(+), 1919 deletions(-)
-> >  delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
-> >  delete mode 100644 tools/build/feature/test-libunwind-arm.c
-> >  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarc=
-h64.c
-> >  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.=
-c
-> >  delete mode 100644 tools/build/feature/test-libunwind-debug-frame.c
-> >  delete mode 100644 tools/build/feature/test-libunwind-x86.c
-> >  delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
-> >  delete mode 100644 tools/build/feature/test-libunwind.c
-> >  delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
-> >  delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
-> >  delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
-> >  delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
-> >  delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
-> >  delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
-> >  delete mode 100644 tools/perf/util/libunwind/arm64.c
-> >  delete mode 100644 tools/perf/util/libunwind/x86_32.c
-> >  delete mode 100644 tools/perf/util/unwind-libunwind-local.c
-> >  delete mode 100644 tools/perf/util/unwind-libunwind.c
-> >
-> > --
-> > 2.53.0.959.g497ff81fa9-goog
-> >
+>=20
+>=20
+
+--jz0AcoB0Nxtd0vkz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacXKFgAKCRB4tDGHoIJi
+0mQlAQCCrpynWKye+JnQ3d79G381Pt3Rtj9h7zOyzY0DrZV22gD/f58jVm9SlzrG
+YHkt07haqbZTweNomXGNWGl+D+tiNQw=
+=EOzH
+-----END PGP SIGNATURE-----
+
+--jz0AcoB0Nxtd0vkz--
 
