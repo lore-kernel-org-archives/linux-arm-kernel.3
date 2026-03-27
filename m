@@ -4,132 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318F510BA420
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 03:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEEF10BA420
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 03:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2kU1BXCpyTAtmvupsa85VPyM3TsjQ5MqLVzCBVzazVk=; b=nhwI/UucC2NBeTTqOpVcbUy65k
-	D8ZjjNZqJVQLHKUSYDkKvs0kY9Eb3Y05MrJ4x1GU7jSMo8vVnkl1cdA0j8XYRhmUv4RjP5r5dEtcn
-	/p7xVlp3z1spyIYQgJMLvJUq3YH7Vusz1UrdgYWI8MckV4dfXYSMNOzgni/GkiWVcopLgNeIiTlTG
-	iwkSsZyUq11pyvuPYun4xW8586p0GlA1M5y2nY+kgtfrnCm1ESWtJqrq4YPM+Tkz4ODILmNwfRw27
-	k1lBQ8I4MHWifTabLyuryT/nJswskMyKE8hKILvyL6y0B0DdKKX4kxgnLPdFkilS1mST7yPgDAZdM
-	l4orE1Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bogOd9buL/nOSqjiNdBPU1xXG+E672rNynZjpaRst/c=; b=xqtCp6O6T3h3FujfocHWE1YwOK
+	Xv0yaA4bIRhU3tK0mXM871iUPtVq673DwBlBthX59lfh/IV0BHkTHAoIwbYkFYhhFhkzOKaqgFW8O
+	JYDQf3pLb4ZH+xtkDE0HF1ClK5KWOvUwIUUF8KWKp5rmO3T4OSynLSvL7m/89f+5PNRyiXJopJIiD
+	2vF7luFNctYlhPNhuDv1wKJg7gpJYd3wt5zg95ZM6lhgbM5yuPjUJ01t8ecFKDAftkIW4lX9Atn+b
+	upa2oP3ryLBdoi+nUccIQQGda3vSI2BlZDpPLjsrXYtcSxHk4Kb1nBi82DfZiXgXy30obfthafnvp
+	qGzmh9Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5xfg-00000006c0k-3DQZ;
-	Fri, 27 Mar 2026 03:15:41 +0000
-Received: from mail-northeuropeazon11012024.outbound.protection.outlook.com ([52.101.66.24] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w5yDR-00000006dKT-0Smv;
+	Fri, 27 Mar 2026 03:50:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w5xfe-00000006c0J-1E2J
+	id 1w5yDO-00000006dK5-1KY4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 03:15:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sLpR4kgT7q28rcYBwTJxGT8TzLS6bM64d0QB2aNrd1cMyKJp8K41LMp9/tmV2V3IdFYiZ5cfPhqN2UTkwROa1jsGE4u5L7v+yNpwoCXojpxP9hrQByMzHRLSqeCjIzr46DHXuYb9+OrKqhIWmIhmG08rGwNR3SR69bL5AlU3PcDxKFulNZBOfpf3HJthUv69exC/K2TGtxT8fCpaO2i3d91vG7yoC1VVFGtSdVPnCw2ucFZyhGarXFLfBnDQ4l7D3/ewGyMZFjUwhkOxqQHSbMDP3mKDbLtm+7/gkYu9YvGoZJ14qnMlYuVlRpt/GP0yT+wYbIRZaI11yyldhfhvlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2kU1BXCpyTAtmvupsa85VPyM3TsjQ5MqLVzCBVzazVk=;
- b=LxBIpylun79PYL7YRsCM4og/iPOmLCE7Vbbf/rCjWSCKreDqRSGXXjbx9KRPlLKvWxsG3rhqGucVavteTzkykD/HUTWdFfEsWcSbyvvc6BNXmpslcf9qeuzre84tn2+taMzSbTKbR3EiODU0Elc4H1rb2cqLyCzk/GKdAT32Zb6dHuz6M8NxXzZCOaFZ+NExQfvyDkFFC5E+NTNAD+csU8zQdbQhEe1FBwRjzjZfpwXuQSCoXDZuzcVGsBSRwRZnacxHDsc6D0qQLdUk+KvOY9u7bZNMsV/KkCWVAIHx9mKE83ISR3RcywHvVo78hOGhNu6IaiqbiHkM10FCOmSfSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2kU1BXCpyTAtmvupsa85VPyM3TsjQ5MqLVzCBVzazVk=;
- b=TrXGU9eP/NscCEAVHGyEj/N0aC3V3Ai0lj+DP2qRzxSCD93lxj/hW0B3YDPAVXSOk3MPk1rHpMjUkDrDoBDY5F/6S4DhrbWlTDU0y2nRXIp1cjurnr+0kb8xMX78EIVeRNYZfjH0iQqnS9OZIL0Xy/6BJoWGkLbQFf2qq4+WX2wzw3O+o0SW8PA4Jg8zxi/mWUctUfrEzQHISZT/5U2ohmfDmsZTaLXdsbUQwE3Pyin42Jiqusa1RASLX41o8jVI+VfdwiU9Dyt2ABxERkqXugorZpKAUSQnhpi2S4wj4q7LXFRpaow36avlRE7zaxjugsbc3fu4Ah25JXbArcKXqA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
- by PA1PR04MB10652.eurprd04.prod.outlook.com (2603:10a6:102:491::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.22; Fri, 27 Mar
- 2026 03:15:29 +0000
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9745.019; Fri, 27 Mar 2026
- 03:15:29 +0000
-From: Chancel Liu <chancel.liu@nxp.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	shengjiu.wang@gmail.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] ASoC: dt-bindings: imx-card: Add dsp_a DAI format
-Date: Fri, 27 Mar 2026 12:15:04 +0900
-Message-ID: <20260327031504.497650-1-chancel.liu@nxp.com>
-X-Mailer: git-send-email 2.50.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SL2P216CA0092.KORP216.PROD.OUTLOOK.COM (2603:1096:101:3::7)
- To AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+	Fri, 27 Mar 2026 03:50:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7419944554;
+	Fri, 27 Mar 2026 03:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C90CC19423;
+	Fri, 27 Mar 2026 03:50:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774583429;
+	bh=PnEHeWbFVlolLNabOX9dBgcUyPXB6gpXLSwyCTFGe4Y=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=G5kYy8aQQzggA9TNGClm5ujA2vbnRCuj0qx580ZtaGSlsk5qVJ/c+GaN5wYxI/XCY
+	 VIwIvgTlCplzz/n/KrT6PNe3UidStrRt6KIUZgu11TAhjXlu4JlJqWRu8WtI2kqoCK
+	 KzsRFg5faQXxpUz8WxSLNIzztQBiQeTUszi+FA5RjD8tIS62JcsUN0Kdswe8Qfa0fb
+	 qwxa6aDV3+fHYMiAQverComMOpfYugqH4jMK3+e/7ge3h/Ky3R6zB09PKeJ6DVyV2x
+	 YTvm7i80xbUSYUS+Xpf3Ti9V0k1E8ZsICskeg//L3C9Oy3tOSKgJeJmpg68n19tp67
+	 fzUeZAM6hSdtQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9FED3809A0B;
+	Fri, 27 Mar 2026 03:50:16 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|PA1PR04MB10652:EE_
-X-MS-Office365-Filtering-Correlation-Id: e686697e-e426-43e9-84f3-08de8baf1987
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|1800799024|7416014|366016|921020|38350700014|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: lfkSbJgOKfADA/rfsJkuLiQeYLskvMJVJq69+HV/XMXMSzi2C9ez0JWrIg7fXfSzDbvK7owCeInbJUujLc8SmyjMMPU1YPVZEInCT90ebe6YLFBbgf66bgF/ELAhysVY/O+NfRePK74bDISZFKElX3YRYg5I91INPzT+yR8VMIpj7Gau+lkqc6tAV+cTpgQ+2f4MLCjpnPV3nkco270VJBhL2TzJK1X8fdDLLocPPn+DOka1qZuPhiyBAuikzOkmIFz4IbVkhqs4v07oZEVPmv2kwQ48Yx/Jkquq+ZE0Pc3dbIYU0RctFvEg9AVIjnPs944q2Dm399YHwv5TyzXGtY5sqgFDs0QqW+BftJN5s78vU2gmFXMuQDgQbjCCBayiQZkkbe3N5F97VqM6/eelz976WnuluFpyVsXip1nNpzOoGWfKQcFLlVkzl55qc4MIM6ci/jvA9GdqxZ2HQNp+m4E/er3DPffj4zSp450VPg/GIXfHQVrpZ5z+c0NWFepbM9vmnBHxmQkWwcWadBUzHNtN0If2uqswIvFShOdWN4u12O5jFD3q8JQ7TPRc/PrPrQrt6AmD+9/+dfG0dqYzdGC1NNyYrKOXWClTgOs8vGyZtd3yJOW/Hv2FyGfFbYi0OxemixcEG+EbS4q5nIS4Tt3tO7GGCmwKQ+tKVATBi9/fRmkpqlrwoEA3OR/awL/gYu2Yz/xpoLI3aMIuMuoVE2qLDvCTNi+Hmf+hpmS3neIATlF6g634VIlodpq+pvklhuGI3zaPD9yCuJD4NcW/eM1s/AQrbWfJybs/NbWIVZKF5ym7OfYoLaAeIjeqFWld
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(1800799024)(7416014)(366016)(921020)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nrOHYWj19y2MaVWSDyGqd7wwrsRb5dZGEdFDembJALArWQTLhGhMenfzImfd?=
- =?us-ascii?Q?a1KpOuVnQ/oz1KiEsLNYcMYTrkud7qLDRdJAiNvGx9vmBGSdTJXpqaG93Sos?=
- =?us-ascii?Q?ub7dI3hVUgwiCLIsMsrRxXeo0PVWI4MJCDXGwIOMEb3fLqAPVcsSXzCFN8Mg?=
- =?us-ascii?Q?Zii4pgHcvznDX+29X2p1+vqIPdY3ySpV+5KSJswfiKFlrHsUNVBhy4hop7I0?=
- =?us-ascii?Q?rp8hsaz5+cDRzuDDmAdlGghIz1YukoDu8TETexmsypAxf1dTGvMQlK+XDE33?=
- =?us-ascii?Q?2nlh+gD0vHsSq9k7QE/q7fjCLytS2+Ex6XV/HxfZBUgds1ksnpo62xZQxE7t?=
- =?us-ascii?Q?Eo06g4CoEjLC8OZx4zKHCUZXMsSYzA6k0YCP0ODPaWKg8rIDiZxDSw+7pJQu?=
- =?us-ascii?Q?k4PcCLckvU0Xtrn2I9xb3ET5PI4GXVvAkB78lgoINIFsZbYqAmaCa9iE0IEw?=
- =?us-ascii?Q?kyTC7rnU3zzEQFJuJskEbgTkmVcgt5KeQaG/qcXCvzLcUHHG+dMKXkrTsPzs?=
- =?us-ascii?Q?eJFeahnoOdJHSCRm0P4T6Qaw559ilT2/bWOwxVtNH5zGBlyNsNDKn4wJCbWS?=
- =?us-ascii?Q?32E4dISxjoqZnCvpJDdUDhESOUSG3Ejb5InIvoKNl+5dnnxKgS6NXru3hYVG?=
- =?us-ascii?Q?8e2DdVY+zlmyhaXwenD7pKToXKGvZKXHAmC5cwAOmB2xcVNppeyv3hieul3D?=
- =?us-ascii?Q?UdDV/MvIWJOTVv1d8iEiWuBQk+oPBbsA+9wiYRe2ny/I9SihrEI5t1UYDxf6?=
- =?us-ascii?Q?8Sm9VNymJN/ZUTYVD9eoKULqEqcCvpGdM3qWX8Y6MoM3z4WnuEgaP+QIYZ27?=
- =?us-ascii?Q?AVQIaBHdebEOFn1NvfOKQ/4eY94mBOl63i6+qj+tdrIB1X1UAaMLWE2oeFVG?=
- =?us-ascii?Q?DYpb/IMADepUbjFW0/DnDL8O8xUAebzWuHfyjwYY3SCDIoNLZasW6n3bwll+?=
- =?us-ascii?Q?yln9SOYlWZp8HnCgTU6VZ9UCiKf9WwXCL3oDmAiJK5AzCBVwe18vkihfOmQX?=
- =?us-ascii?Q?D0SXyKc7CBvlvYp6TwHJrzck2oTLXtHoNcubT6oNhd6S3ZfSfntQr42w815/?=
- =?us-ascii?Q?IUCVrJEZshPe85sLQk+Wvgs4a3DuaJN1ziWP3w4Epjz35zOVnznvEa4HbsYT?=
- =?us-ascii?Q?n0g85i4x2cmypMA6SHokKt/U2bnzFi/9onrL7tzQLtQkxkCmiMl92KDdDhP7?=
- =?us-ascii?Q?dBdJecYUOap1vEcUQnK169QjRcHZY9+n6X4qEh5LsZj2C/hQtrM3LI2tLEX4?=
- =?us-ascii?Q?rxEaj13rr8kT1SGEvJHPRw4UhJA/PXpQOf2aaBVFtr5LB6JpUhCaeQkQ436a?=
- =?us-ascii?Q?/rTa2zDbRhsHcJz8a75wcgJeo4/YRO18W8Kf7qlHy3RsMjaTbgpHaj41IFoT?=
- =?us-ascii?Q?7CIKiFG2dbZ2NFaxFe2Ilq3tBz4/3bNnXvzkfmI5QZxjE6JcPP3+7/uYVo/H?=
- =?us-ascii?Q?RFx2Z1F4eUBsOUpTJ6dbRcG8+iXOm3eoztFhcBSdiTGCNY6osl73zl2VwFJv?=
- =?us-ascii?Q?si8XGHIHttY5inZfGtdrrd4ugOSKqD+cQkCvc4AdwTzDx4Y2UfCCdv5R7JBW?=
- =?us-ascii?Q?DcJbs93Qa0vxeOsRD4q6HwI0Ucf8xqM7PtRj9GNe2OLoOWucxGSFr2nVwMdy?=
- =?us-ascii?Q?6sp8Y3gkXPCzVNlWL0unMgf7OYCDQayl74XCoS8xrbGX51gs04ektWi7bSYU?=
- =?us-ascii?Q?y+i0Z14pbV7XpXcQgEDLqwtB3EBd79dIq3K8haRSGLZ/e6SkZbzJ0Q1FUqBk?=
- =?us-ascii?Q?CV0Opu1MvA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e686697e-e426-43e9-84f3-08de8baf1987
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 03:15:29.8384
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CPinZoPduH8dlcXhc3uJ6Gft/aYh30/QMsdTUfTcGAeKcSlfG45cFir0fW+PKbHFZvx8TSBnu0rLmQ2wk1rk1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10652
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/2] net: stmmac: remove unused and unimplemented
+ AXI properties
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177458341528.3291104.15630228927960975815.git-patchwork-notify@kernel.org>
+Date: Fri, 27 Mar 2026 03:50:15 +0000
+References: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
+In-Reply-To: <acJh4z3pRKkeaFbR@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
+ conor+dt@kernel.org, davem@davemloft.net, devicetree@vger.kernel.org,
+ edumazet@google.com, peppe.cavallaro@st.com, kuba@kernel.org,
+ joabreu@synopsys.com, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ pabeni@redhat.com, robh@kernel.org, me@ziyao.cc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260326_201538_349351_2E17CDC1 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260326_205030_385512_EAEA04F2 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,44 +81,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Existing i.MX audio sound card described by this binding use codecs
-that operate in i2s or dsp_b formats. The newly added CS42448 codec
-requires dsp_a for its TDM interface. To properly describe such
-hardware in DT, the binding needs to allow dsp_a DAI format.
+Hello:
 
-Only i2s, dsp_b and dsp_a are included because these are the formats
-actually used by the hardware supported by this binding. Other formats
-such as left_j, right_j, ac97 are not used or required by the hardware
-currently covered by this binding, so they are intentionally not added.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
----
-Changes in v3:
-- Rewrote commit message completely to describe hardware requirements.
-Explicitly documented why only dsp_a is added and why other formats
-are not included.
-- Rebased on latest code base. No functional changes.
+On Tue, 24 Mar 2026 10:05:23 +0000 you wrote:
+> commit afea03656add ("stmmac: rework DMA bus setting and introduce new
+> platform AXI structure") added support for parsing all the stmmac AXI
+> attributes, and added code to set most of the appropriate register bits
+> with three exceptions:
+> 
+> 	snps,kbbe
+> 	snps,mb
+> 	snps,rb
+> 
+> [...]
 
-Changes in v2:
-- Updated commit message to explain current support for i2s and dsp_b
-formats and new support for dsp_a. No code changes.
+Here is the summary with links:
+  - [net-next,1/2] net: stmmac: remove axi_kbbe, axi_mb and axi_rb members
+    https://git.kernel.org/netdev/net-next/c/a800398e746f
+  - [net-next,2/2] dt-bindings: remove unimplemented AXI snps,kbbe snps,mb and snps,rb
+    https://git.kernel.org/netdev/net-next/c/af0331e1ac51
 
- Documentation/devicetree/bindings/sound/imx-audio-card.yaml | 1 +
- 1 file changed, 1 insertion(+)
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-diff --git a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-index 5424d4f16f52..75757fbccd89 100644
---- a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-+++ b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-@@ -37,6 +37,7 @@ patternProperties:
-         items:
-           enum:
-             - i2s
-+            - dsp_a
-             - dsp_b
-
-       dai-tdm-slot-num: true
---
-2.50.1
 
 
