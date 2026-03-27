@@ -4,163 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB81010F2871
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 21:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CF210F2865
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 22:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yj9e6SKLGiBn4BvTY+vV7gAKxTFz16kmEmbNs2EUfZg=; b=pwhX0TOGjdcMys64mI/8Nr891A
-	S4p0frtG9sbxawf2gi4VSWid2F1atgcx5IaapIQ+5+afTceHXhwMROvihdMzbawGTl2yIvGKHnLx1
-	5yDcEIK4yPJ97z0qeOzXJWY0z0S+sTpqn82+e8ybTAP5krPOyp1X/98Q9Yb/nbwTsdseI77T7yRx7
-	wdqBHOeHQFT52Xu6aTKsgYSNZ6T0X5YEYqOvSnrZppE01z1DbydJ3tMuJ4TAXb1PNNSC8WsbPspbh
-	Lv3BxutQP+SdOnYeYjFXnhoIn43RLqCyew5Ny88HP/84xhfoEydbKpdnFRtH0RQT0qWLsyVf975Ma
-	Qz3623aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5pe4fNuksLvBr6m40iWLP0RWVZihoYn68/6iv6BlIG4=; b=FsWdIxUb1dPkv4PLXPwID+BPBz
+	qWgb/hFY7WFKZZBJ2OsfyLYpmAyjsFS5HTzaEnAIn8eCYLqG21cJ1tb4UPIUxZA1k9/ALCsl5a1sS
+	fDGfqNM+/oRcNnTG3WvdbnTEG+2hRBRDclhWshO8VO1ZuBOoiCHAL6eIKwUdvCFKjMniYpyxWpw0E
+	bmfV3HwOh4QGAfvHRJVZXBQOBDPnaGA6BP7eJBkvwDtydx7EhM2RvJ8saKMBzwTO9eCqcnaYQKafy
+	Gpqmv7KQPEfVqB+x+LXLtv/g6xmQ1zAzLRgsbHlfKcqyZmk2naF22NFQNWdut1pPxKq4Y/Jk8Fboa
+	ZUsC200Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6EpS-00000008FBu-1TZ5;
-	Fri, 27 Mar 2026 21:34:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w6FEb-00000008GFj-162m;
+	Fri, 27 Mar 2026 22:00:53 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6EpE-00000008F38-28GN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 27 Mar 2026 21:34:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=yj9e6SKLGiBn4BvTY+vV7gAKxTFz16kmEmbNs2EUfZg=; b=ldEZNWzvPggReBJkHy7/iM6sDZ
-	OWFZebc6PTq6jop/jUpq5x8BYiYNkE5cFnVDoQ8rjcJpCnS9BnRJtC9VNs6uwwZYqTXEbKmJWYcXw
-	kSPFV8krYi5haDTQR/6Y4fw12Hwul8u4RaYlN/MwP9SPyACYOCZjpks6tfb5jcB44W54PGxw5ria8
-	IkSbUGXv8r8hrjDJr+uV7IpyITA9U4hjBv9NLIOh3V+DWr2gvmgP7HwVFgei6srwskHvotEkimTRK
-	LeoBCBR37oJNSkAcDtvollLfkWUIENH6L4QLhQEfjc/gbZSfGEghgV7HHEdMAsZIsFPxIln7243Rn
-	lZeNRkPA==;
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6EpB-0000000BLE6-1hhF
+	id 1w6FEV-00000008GFA-0fgj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 21:34:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kwb6EamUKAZw8I1Y/tEzVO7nWYRZw1Isfcoig8L2q2Bu+whFa7r+kJCeK3O3P1k6AK+N7+Soxks9eW94iozz7unY6ira4vGkCWK13GFqev0HGgbApDW/CLYhzYGQaMUMvpuMP7e7vJ8AvavdpWOi7Z7BmciryaOYmOP+/9a7hJJTvwFoI8dtuMFky078TLu+egtAfzfDQ2hyWHUXjgVrJsBStdXtOKSC5N4InHEkNgRd9RnE6ED2PYoeRf4R4GX6Vh7o9VrYjCDtckeitSdbui0KT/up2zh/qa9ZBENI5DZmocP7H2hZoKSX81Me8CSFv6QiUEnGf36QKX6dWjKu7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yj9e6SKLGiBn4BvTY+vV7gAKxTFz16kmEmbNs2EUfZg=;
- b=WhHfdeV7GtNbLratDPMPyGg9JPFd3WI/WU1uFP//0gF1d3ckf0firZOGSyJFusuGo4fMeVs1GhtyD4XmkW0QDZHDBFGfr9F9VMhoY401U41wNi42p4sb2YrW/ZQJJHUrZskIV5596aqDzG+3ofSxJAfmN1czmNsHnCge8V+qeBdcDedpW2/S+RdocUTS2DbjVjytjn/KuBn8jyWobaZ1TJEYjK4ET6G8YgYUY98oOHXljld7ySZPJ+XbBKiVhu/TPLMHX+tpq8Z6QeglBefc+aztTq+tk32n/7bpr7qR1HShYlBqR7bPDDC+grrkaCmy+ZyET+sNbjXVUczJUKUOZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yj9e6SKLGiBn4BvTY+vV7gAKxTFz16kmEmbNs2EUfZg=;
- b=ibnfU2yjoMpgD6W87viydzvcux6r+t8x04b07u2CzwIPK1q0O0ybXuvgdnQW8N6sY4zo+/IaDGWHkCbP6t3VdIznQPs7vPOO0u+w97TqjswTr0S20coIivQ/uRqUUlcWAJHvC6u9I+0sQLJjNlabWVr/t5dtBJjjcoXY3jmHkeNS7dwSGcK6pTSSRJSn0uoLsnPw4uhB7Jwa535zp5rSS9hR2qKaz4cMHR7xGQgDAVFpXuc2Kwhbw8ZaE9YHUh93q0rzzUTkz61j+2CkMAhGWjOJIICadcy/pVmN5RFuNxKxlMdy7knGnr7ud1J/H+tz+CHvsghGb3Y47ur/rwyR+g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM9PR04MB8668.eurprd04.prod.outlook.com (2603:10a6:20b:43f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Fri, 27 Mar
- 2026 21:34:33 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.024; Fri, 27 Mar 2026
- 21:34:33 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 27 Mar 2026 17:34:03 -0400
-Subject: [PATCH v5 6/7] arm64: dts: imx8mp-evk: add board-level mux for
- CAN2 and MICFIL
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260327-pinctrl-mux-v5-6-d4aec9d62c62@nxp.com>
-References: <20260327-pinctrl-mux-v5-0-d4aec9d62c62@nxp.com>
-In-Reply-To: <20260327-pinctrl-mux-v5-0-d4aec9d62c62@nxp.com>
-To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
- Frank Li <Frank.Li@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774647254; l=2170;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=1UX6p1C0kT4kF5hCfTKLF4LKgaOM5Xl6++ZwO5kKYIM=;
- b=Pq4zSNms13/vDNrJ+W3moLCnthDdrdgh1Jb2WWOYEXvl0HppzT075A9zIXBN7GtJzWvdjokyk
- JGEGRHDRp7CAYZpMErjAC9kIGrNjJaBL/ehzOL9vjAuK+mwvKhSqGln
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SA1P222CA0182.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c4::20) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 27 Mar 2026 22:00:52 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8c6f21c2d81so244631985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 15:00:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774648845; x=1775253645; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5pe4fNuksLvBr6m40iWLP0RWVZihoYn68/6iv6BlIG4=;
+        b=HutLb63X0B6tf9TPsIGcXmSvNPnfI1Qc+XB3idU6m4ShW9hFzrbqRgQGIwL4fOWIUv
+         CdGdEsV6ErCDqRJ6GkdhKDApQJHQOBPyYVVQEV9I3WIAl8C0KANHW9o1V+ODdV+zlb3S
+         Jw4tp8qtdjDqdY5Hx9I6jF/bBaXrarkInCvFX6NbM033YOdWaMYCCmFLcRKWJYfHzSmM
+         0YHwlSAMZYKB4hdCAxU1QJqPIEMMUbghO7Ek9tHj+UEN+koK5Ol5MbCumxOxvgnl7IhR
+         L6EWVKjYwL/eN2AUXrgYjq9asDd4IzAfnw+1zDaaIq2ilP4PW3+2k4U4BSfTs8Cd38XJ
+         j3ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774648845; x=1775253645;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5pe4fNuksLvBr6m40iWLP0RWVZihoYn68/6iv6BlIG4=;
+        b=CU1bNFvcd4LeQWkw5E6N6VVBFYCV8Qmq0NIAlJkfFWwSq1wMU6HSTbAuphzfbPTDYf
+         JSw54yhb8re1bkEPYT0xDu7B6BWWXhJlMa+nlNaPhiG3dYkoQOnu/k9KZvLxgPKyw4bd
+         o/6K7KOoQF/zP9UWLj6pKT9dljvqgAhTCEsuBcc22zzYMIvFbnEJTgenMGaownFE/uAD
+         6t1Q+HuAbL2UIPdF+A2Jfmzg/q6ixXQTTRCLarb8znHFKhrrHQgVRV126FSZKIGFfiED
+         Nbh5rxrBmur++TPUnECJ/PuZsFgbfhbuUn5TQ0C4jNm1+1yrT7L1npcscU0l30HM6g0e
+         LhXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfG6vg1HM0DyBTEsUclBVxu5cjL8Bj4f0c3HG6E9ueGKN7ZlzdP6JPj3BFHvGwMzOGZKcC4mR6b4R/4zt3ZZ/h@lists.infradead.org
+X-Gm-Message-State: AOJu0YyK17bzPlAbnynyCzBk26+N04n+4a8cMSkbiZMS8fdzsBIHcES3
+	IYBa22ZTECtJKEzA+NRrMCBc8wn2EIDsLmcnJ4fqDNGiE1XLkXgzJOoR
+X-Gm-Gg: ATEYQzwkpDxlNNACssxkBubfm2sOzxObGrQQOVb7y49/F5l2fzhsx3t+faaS36YfY4K
+	XJRQfyXxUAu6nqNdrBZILm/hIpNou1MKLKMVMqZmCIjkc25g54rdpL57lOdFfnlEsYrQ7m+z9qy
+	Cll6Q2e3LAEsZdDrwEeSD0Sruu8XMeer9eEHIjRvBBh9K/irmWJKhoPC3deuW3akUkJZGXmTQzy
+	eDdgFrPy78ynqeeEDz5Us7X96/MdFAm9/Tv+XmoHuMsi5wMzPq+bNJQqg27tcW8+a3N1UiL4EZG
+	5uFDRFxiZ/i239sFe16CAl/be/idGXkrA3aQBkBWiyUTUcSWD13xIDrz9xXFNGlL79aciYAZI4r
+	lSx8vxLYCsBYFHyRSoaWSZ8Mxh+zo63ukm2UIYF5fdt/pqi8Z1aAgDBFpMS7+a37VEv9A89Hqgg
+	cj7zAoy15a5rZtRYo7cRExa3H/1mX31tp+W5J68qdYsXh8ulbLHNkwJ7vJn+Hd63dChxm5nhl8h
+	NmSVuHljSm6hA==
+X-Received: by 2002:a05:620a:29c7:b0:8cf:de1c:edea with SMTP id af79cd13be357-8d01c595cb2mr593582585a.13.1774648845186;
+        Fri, 27 Mar 2026 15:00:45 -0700 (PDT)
+Received: from Desktop-PC.. (wnpgmb0311w-ds01-161-217-39.dynamic.bellmts.net. [142.161.217.39])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89ecf867c24sm3011196d6.36.2026.03.27.15.00.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Mar 2026 15:00:44 -0700 (PDT)
+From: jassisinghbrar@gmail.com
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: dianders@chromium.org,
+	shawn.guo@linaro.org,
+	maz@kernel.org,
+	andersson@kernel.org,
+	tglx@kernel.org,
+	joonwonkang@google.com,
+	Jassi Brar <jassisinghbrar@gmail.com>
+Subject: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
+Date: Fri, 27 Mar 2026 17:00:40 -0500
+Message-ID: <20260327220040.53326-1-jassisinghbrar@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB8668:EE_
-X-MS-Office365-Filtering-Correlation-Id: 84431c5d-bedd-4990-fcc0-08de8c48a33c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|7416014|376014|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 3cNN7jsa+pAo8RPKiR/H8TxfmEznWiOiTREExvy+HNdmM54aVX0tNqJWQ6yWJSg9tex6MFhJrxS8TGyZdur3jdmfa1w7xFkhCAQkyYlnyhn0/N8K4uNlPEyqFNQhvVFPlCOU0OHYvHmQbJx1QeSURH+T5PRuBGnpykeE724rMiw5NBmbYOrBp+jGxrHuYIK6+0oj6g9LscHo6Rl7Va1jUW0com3TOBbUsdrJtQTj9vgdvCRtRCos+6vNkwQ5HwtYYngAl1qJmv4lw9zwh1xGAYcq1sAf5I/Mr94Gn7rPtRx2JsjFfzjcT6QFMpAI7iwRGtn6aDLpX8+UEkhw6AOJ5U3ElLXCPYXljnHDV4veG2myjZDIWDDICUDXfPPe0Y9HGKQXcSnHYKQhK6Fcgv75s4PZG2jVeA2DlDZQvnnLrUgYSZw8X73xc/2v7yaAvFNy5iGkHk1D0Hp7Xq5KNvv9+gKfLj3mA7grt5pYugj7UUBePnLPfThr8Hvrj7lXA0vCg6pzI4prmuiMrwrxV214s0Ac1e8Bzp4YI8I4nbljTubPbKSs7/xGlu0kJLupFqaQmrm0OIiGYJzHd2Le+NJA7RWwHy5GWyhzopazX+vCvfsplkkw8PqIEgr2rq9n0C81wsVBQuswW7WnHP8z+Da2/WSzpe/L2YWI608SyDGpbwS4D8PTApbVd4x5vVm+ChnnM64pTPCHdps16eOrqFxhmqvxZHouaBeizr68fzpwySU3Ys8mJR9OhuHoDnCqjlFH10i55KwhX1nK+tQxfXTzqH2dvP6NDm30mfj+5JvNgDo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(7416014)(376014)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YWZUOFBKeE5QWTlHMUVIcHd2bzJMSmxaWjNYczZaMnlub2NCMDhUcThTQVh4?=
- =?utf-8?B?UU83OEJzWWFUaU1LTTRzT0Q1UDAxVjV5S1ltcUJRTVVnbGJadnZnTTEzb3JN?=
- =?utf-8?B?MGNmbHp5aWVZRjBOYTZnYzhBdHBRNDQ5dHlPd0ZDRVY4RTJwM0pGY1ZsUFlV?=
- =?utf-8?B?bUVYT0hXR2ozdHNVbjIrektucG0zRUMvNklJSmpUTjAzWkQ5eXpKdTdyRkZy?=
- =?utf-8?B?cVRWdlcybnVmQ1lzU0h6Z3FCaUs0cjFmRlc4ZUVQeXJPbU5seVU1MTRCVURV?=
- =?utf-8?B?QUE5TEloaFBpNnFVZ1BEOVRUaU10aitycUs3QVZMT1ZINEtUTXZDdWtBLzVw?=
- =?utf-8?B?SVdQU3VlUDNEOEY3RDVKYnBWeGpOUERLR2dNV3JtR3VONnIrQzZSLzJEOXA5?=
- =?utf-8?B?RENYa2JYaWhYR1NmdHdxQzVKN0JIN2Nid1E4Si9aK3ZzQS9FUFBGYVZwWVkr?=
- =?utf-8?B?VEhCZXhrNU5qUnU4NDNuTXZPZGRqTVBHKzJka1N5TDJvb0EwRjVMLzZubG9G?=
- =?utf-8?B?cndIYjRhNUlpUWwxdVlmZUxxSmt3ZVptdWxpTmZIUys0R2VhWDh2RkJTSGR0?=
- =?utf-8?B?T3IwbmE0aUhOOVJXUm5aL04vOWVTZjhFWlhESGN4djVCelhxSkFZT1JDMFFj?=
- =?utf-8?B?R0xXN0htb2pUSlNNamFkbnpCeXk1RDc5a1BwSjdUUVRJWS9wQWM5UEl1d1Zo?=
- =?utf-8?B?akpmYXQzamNzNUVLbWl1Zyt2OXZmTDN6UXJxa1lQS29YcFRaV2RhVk1uYjd4?=
- =?utf-8?B?SWp6ZmpQeVRodDdTUS9mR3RxSWpKc3FCSjhlRGl1WUhoOFhTWUNvNUNRRVpD?=
- =?utf-8?B?eWd6Ky9IemVGNDMrdm94VUJxbXpUaW02M2d5S2JQYjFhVUhIdkxvc00xWEg0?=
- =?utf-8?B?NTdPNnZrUGVjTFF1OWxTTGJCa0xjQ3NsRnBpNVhLMVJjR3NqZmNvYjRyMnFi?=
- =?utf-8?B?WlpueXZ0Q2J3bFhneUMzRkRqU2d1Z3cyL2YxbDA1bFdxcFVDcGhsVmNMbkxN?=
- =?utf-8?B?VGZsTzV4UFdsdU5seGdqNUs1UTNYQ216MzdFV0VKNzNLem9pZ0pMMUJyZnc1?=
- =?utf-8?B?NlQ0TXRzbmt6ZTdMaEMvdjhGQ3JJamJUNm9TcWFvZS85MVF6eTV4VTlGWUEx?=
- =?utf-8?B?SGZmU3Y3NmxDN0lxUjhXSFMxOTB3Z2dEc2tNYzFNZWk4WkZtREpXV1ltbU1w?=
- =?utf-8?B?V2JYWVFiYzRKSXg5bFE5RE1uUTRWZzZkZVRTUlRzR3hGRmp5a21Zb2M3UW91?=
- =?utf-8?B?T2M2ZHc1T0NZMWpHU1YvbTFIUm5BMENPZU1jQVovMDB2QmpIc2lld3RXd3dt?=
- =?utf-8?B?bUVzY2tFLzhOSkR6SmNzd09zOVhlUFpFOExzcGJ2Umo0bG9KQmVseTBRVVp1?=
- =?utf-8?B?R2E3QUZKVHpqSmV5eVlBYW1nOGRNMHIxcHUzRFJvc2pSYlYwUjNYS0FQd3ZJ?=
- =?utf-8?B?MVQ1SlRuM05wM1dmLzZmblliZXBIM0Rva29UY2doWWkwcnNLUGhsUGZOSmRG?=
- =?utf-8?B?bVg3ekNCT2ZnWW90eGtXZGdzVzRudWdhNytoNTZjVjVPRG9jM2FMVjVKWDlZ?=
- =?utf-8?B?SitMTmQzRWtjU3NLRFJOY3U4Ly85Nk83NGtjMHgvMC80TjlCdWZTdnFldmRu?=
- =?utf-8?B?dlhpdXJPdGZsbmkrMUUzNGpod2pWNzFFZUZlUmxXQ2YvMUExQTFwUGg2SjU4?=
- =?utf-8?B?U2dFZEc2RW1JdXp3SEJCTmZ2WFo0NFNaWnJacTlnOUtERytURG1CdkpNVS9P?=
- =?utf-8?B?YzUvSDN5OTRqem9VMmtES0xnalBLWC9FbW1kS0JFdzljUy9rSmdjQ002MEpu?=
- =?utf-8?B?bG04MkFVK0lDdlA0VXJGczFQWks1UDZ6Z1cvT0djdDl5SWQrWHJxVndsYTBY?=
- =?utf-8?B?UlhER2ZaVUJMRXkzc09ibGxaL3ROWnpKL3AyNzFpWjhzeE1zTm90Z0oraXBk?=
- =?utf-8?B?ODRDbjR1YmJkZEtIVm9jRldXTS9zdndTa0g5dTA4VDYvSTVSejdxZWF6Z0Nr?=
- =?utf-8?B?aVdpRDc5TUpvdXVBTmdQMXY3WWhrQytLMlp2RVd5SnZsQjU0QjFhVFR4ZEkw?=
- =?utf-8?B?SXBEcFp5M3RZWHh3a2FoK2RWS1ZIMTNxUG1RRVROaFJnNG8xN2JOdVNOdFYx?=
- =?utf-8?B?SzV1aVlLSmszWjloWWdHaFpQMkwwTFlMU0V4eVNvOVRkUk12NDlqenBwRVho?=
- =?utf-8?B?ZDg2Q1lYSUFoamppSGRudXkrWFZDeHliTzg5ejRnMVovY1hQY3lXUjh6eWhu?=
- =?utf-8?B?TmJOSG5NU0dVU0U3Z3U2V0ZZbjUrTG5yUVlQMUJGejQ5WDlZa1llblVRdVp6?=
- =?utf-8?Q?wDVwPjB7kNqDb+XE5S?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 84431c5d-bedd-4990-fcc0-08de8c48a33c
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Mar 2026 21:34:33.8593
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8BPQYVyrgZ+AiRrkYLUZqtBH1rsNi2xBW+ths59cmpzzglEhk8IEYJtZ4dNGdUr8tWiUjIut8qaEfWnSU0Momg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8668
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_213437_736919_FFD3A527 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260327_150047_237618_D08384C1 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,77 +102,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board integrates an on-board mux to route shared signals to either
-CAN2 or PDM (MICFIL). The mux is controlled by a GPIO.
+From: Jassi Brar <jassisinghbrar@gmail.com>
 
-Add a pinctrl-based multiplexer node to describe this routing and ensure
-proper probe ordering of the dependent devices.
+The active_req field serves double duty as both the "is a TX in
+flight" flag (NULL means idle) and the storage for the in-flight
+message pointer. When a client sends NULL via mbox_send_message(),
+active_req is set to NULL, which the framework misinterprets as
+"no active request". This breaks the TX state machine by:
 
-Previously, MICFIL operation implicitly depended on the default level of
-PCA6416 GPIO3. After adding the pinctrl-multiplexer, make the dependency
-explicit.
+ - tx_tick() short-circuits on (!mssg), skipping the tx_done
+   callback and the tx_complete completion
+ - txdone_hrtimer() skips the channel entirely since active_req
+   is NULL, so poll-based TX-done detection never fires.
 
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Fix this by introducing a MBOX_NO_MSG sentinel value that means
+"no active request," freeing NULL to be valid message data. The
+sentinel is defined in the subsystem-internal mailbox.h so that
+controller drivers within drivers/mailbox/ can reference it, but
+it is not exposed to clients outside the subsystem.
+
+Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
+Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
+audited for regression:
+
+ - Most already work around the bug via knows_txdone=true with a
+   manual mbox_client_txdone() call, making the framework's
+   tracking irrelevant. These are unaffected.
+
+ - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
+   the poll timer now correctly detects NULL-active channels
+   instead of silently skipping them.
+
+ - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
+   caller that omitted the knows_txdone + mbox_client_txdone()
+   pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
+   missing mailbox TX done acknowledgment").
+
+ - No caller sets both a tx_done callback and sends NULL, nor
+   combines tx_block=true with NULL sends, so the newly reachable
+   callback/completion paths are never exercised.
+
+Also update tegra-hsp's flush callback, which directly inspects
+active_req to wait for the channel to drain: the old "!= NULL"
+check becomes "!= MBOX_NO_MSG", otherwise flush spins until
+timeout since the sentinel is non-NULL.
+
+The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
+by clients.
+
+Reported-by: Joonwon Kang <joonwonkang@google.com>
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
+Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
 ---
-change in v3 - v4
-- none
-change in v2
-- update commit message to show why need update PDM MICIFL.
----
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 23 +++++++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
+ drivers/mailbox/mailbox.c   | 15 ++++++++-------
+ drivers/mailbox/mailbox.h   |  3 +++
+ drivers/mailbox/tegra-hsp.c |  2 +-
+ 3 files changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index b256be710ea1281465f5cecc7a3b979f2c068e43..1341ee27239fd41a26117adc9023524ce50420a7 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -50,6 +50,25 @@ status {
- 		};
- 	};
+diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
+index 617ba505691d..9622369cab66 100644
+--- a/drivers/mailbox/mailbox.c
++++ b/drivers/mailbox/mailbox.c
+@@ -52,7 +52,7 @@ static void msg_submit(struct mbox_chan *chan)
+ 	int err = -EBUSY;
  
-+	can_mux: mux-controller-0 {
-+		compatible = "gpio-mux";
-+		#mux-control-cells = <0>;
-+		#mux-state-cells = <1>;
-+		mux-gpios = <&pca6416 3 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	can_mux_pinctrl: pinctrl-gpiomux {
-+		compatible = "pinctrl-multiplexer";
-+
-+		can_fun: can-grp {
-+			mux-states = <&can_mux 1>;
-+		};
-+
-+		pdm_fun: pdm-grp {
-+			mux-states = <&can_mux 0>;
-+		};
-+	};
-+
- 	memory@40000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x40000000 0 0xc0000000>,
-@@ -446,7 +465,7 @@ &flexcan1 {
+ 	scoped_guard(spinlock_irqsave, &chan->lock) {
+-		if (!chan->msg_count || chan->active_req)
++		if (!chan->msg_count || chan->active_req != MBOX_NO_MSG)
+ 			break;
  
- &flexcan2 {
- 	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_flexcan2>;
-+	pinctrl-0 = <&pinctrl_flexcan2>, <&can_fun>;
- 	phys = <&flexcan_phy 1>;
- 	status = "disabled";/* can2 pin conflict with pdm */
- };
-@@ -712,7 +731,7 @@ &lcdif3 {
- &micfil {
- 	#sound-dai-cells = <0>;
- 	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_pdm>;
-+	pinctrl-0 = <&pinctrl_pdm>, <&pdm_fun>;
- 	assigned-clocks = <&clk IMX8MP_CLK_PDM>;
- 	assigned-clock-parents = <&clk IMX8MP_AUDIO_PLL1_OUT>;
- 	assigned-clock-rates = <196608000>;
-
+ 		count = chan->msg_count;
+@@ -87,13 +87,13 @@ static void tx_tick(struct mbox_chan *chan, int r)
+ 
+ 	scoped_guard(spinlock_irqsave, &chan->lock) {
+ 		mssg = chan->active_req;
+-		chan->active_req = NULL;
++		chan->active_req = MBOX_NO_MSG;
+ 	}
+ 
+ 	/* Submit next message */
+ 	msg_submit(chan);
+ 
+-	if (!mssg)
++	if (mssg == MBOX_NO_MSG)
+ 		return;
+ 
+ 	/* Notify the client */
+@@ -114,7 +114,7 @@ static enum hrtimer_restart txdone_hrtimer(struct hrtimer *hrtimer)
+ 	for (i = 0; i < mbox->num_chans; i++) {
+ 		struct mbox_chan *chan = &mbox->chans[i];
+ 
+-		if (chan->active_req && chan->cl) {
++		if (chan->active_req != MBOX_NO_MSG && chan->cl) {
+ 			txdone = chan->mbox->ops->last_tx_done(chan);
+ 			if (txdone)
+ 				tx_tick(chan, 0);
+@@ -246,7 +246,7 @@ int mbox_send_message(struct mbox_chan *chan, void *mssg)
+ {
+ 	int t;
+ 
+-	if (!chan || !chan->cl)
++	if (!chan || !chan->cl || mssg == MBOX_NO_MSG)
+ 		return -EINVAL;
+ 
+ 	t = add_to_rbuf(chan, mssg);
+@@ -319,7 +319,7 @@ static int __mbox_bind_client(struct mbox_chan *chan, struct mbox_client *cl)
+ 	scoped_guard(spinlock_irqsave, &chan->lock) {
+ 		chan->msg_free = 0;
+ 		chan->msg_count = 0;
+-		chan->active_req = NULL;
++		chan->active_req = MBOX_NO_MSG;
+ 		chan->cl = cl;
+ 		init_completion(&chan->tx_complete);
+ 
+@@ -477,7 +477,7 @@ void mbox_free_channel(struct mbox_chan *chan)
+ 	/* The queued TX requests are simply aborted, no callbacks are made */
+ 	scoped_guard(spinlock_irqsave, &chan->lock) {
+ 		chan->cl = NULL;
+-		chan->active_req = NULL;
++		chan->active_req = MBOX_NO_MSG;
+ 		if (chan->txdone_method == TXDONE_BY_ACK)
+ 			chan->txdone_method = TXDONE_BY_POLL;
+ 	}
+@@ -532,6 +532,7 @@ int mbox_controller_register(struct mbox_controller *mbox)
+ 
+ 		chan->cl = NULL;
+ 		chan->mbox = mbox;
++		chan->active_req = MBOX_NO_MSG;
+ 		chan->txdone_method = txdone;
+ 		spin_lock_init(&chan->lock);
+ 	}
+diff --git a/drivers/mailbox/mailbox.h b/drivers/mailbox/mailbox.h
+index e1ec4efab693..c77dd6fc5b8a 100644
+--- a/drivers/mailbox/mailbox.h
++++ b/drivers/mailbox/mailbox.h
+@@ -5,6 +5,9 @@
+ 
+ #include <linux/bits.h>
+ 
++/* Sentinel value distinguishing "no active request" from "NULL message data" */
++#define MBOX_NO_MSG	((void *)-1)
++
+ #define TXDONE_BY_IRQ	BIT(0) /* controller has remote RTR irq */
+ #define TXDONE_BY_POLL	BIT(1) /* controller can read status of last TX */
+ #define TXDONE_BY_ACK	BIT(2) /* S/W ACK received by Client ticks the TX */
+diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
+index ed9a0bb2bcd8..7991e8dba579 100644
+--- a/drivers/mailbox/tegra-hsp.c
++++ b/drivers/mailbox/tegra-hsp.c
+@@ -497,7 +497,7 @@ static int tegra_hsp_mailbox_flush(struct mbox_chan *chan,
+ 			mbox_chan_txdone(chan, 0);
+ 
+ 			/* Wait until channel is empty */
+-			if (chan->active_req != NULL)
++			if (chan->active_req != MBOX_NO_MSG)
+ 				continue;
+ 
+ 			return 0;
 -- 
-2.43.0
+2.52.0
 
 
