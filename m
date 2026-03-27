@@ -4,66 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DC110F2871
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 22:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78FB10F2865
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 22:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8VJCRTG8WD3XC0KXW/cifyktDXB0cqBeZOPOfzSOUKs=; b=UwL5MW7LXlWPvUwKgaL4cUb4qT
-	2RIy40sZKfr1Lt1j2m8kDi1npUQItl/HvkV8FXEjANm2XyDR3QBlb2yyWp1QFZqMYM2IPvdn5Ln5G
-	ACNTZEHa3mjgRCYxkPkelhxwDcoZILCPK28E2vas614gI13StaNSI+wcjhFiReRvbsFtnx6P1cGV0
-	3OoQ7sw51ptjcsBQpcnL7OKeNIPcuw0VvnpVGFc4NDvPwHq80nMBldP06wYRDtd/qTzdWRjwwUpg5
-	nb34T0NMQyD3TGbdxwtvxN7h2XN41EhKK1PAqzs/cAGIi9LHGvMGWDo/E5dxtZeb1418P3t3XXx33
-	Idkry6xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kb6DDrTZkLFlPcOcfSK1Dh+lEI2bDad+XQjBQaC29nA=; b=nAr7Bk4UsdhHQ01ifQ8n6KJ4e7
+	l+iEw8iE9PhUL9gp/Mfwpb4f5lbO0VgpFJlm+7zsAFPWOpTYeAPGTcNAHhtkrZOoPdJhB7sJxvoiC
+	8C0bKN6BILskJCyoQUSuIdtY1TCE9TSfDTRMSe6fq6XkuA0exVwom4c+aLH2ztw2CbNL3U5fVyCZS
+	g8z+mjltPmd54SpHd/Vde8luW2GbcSMpayskRVC371OlxKS2uBfNMzcL+rqCc9RU2pq4wxVJC4NPR
+	1m76hlcacuJfDK0dGVIoAsSVkLTtO1GVmi94rrs2vh1v2eEY+5/DWQ2gtkk/RXlLVrY7UAhclapz+
+	KNAC+Ncg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6FOa-00000008GhU-16E1;
-	Fri, 27 Mar 2026 22:11:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6FOY-00000008GhL-2a2P;
-	Fri, 27 Mar 2026 22:11:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE7F660054;
-	Fri, 27 Mar 2026 22:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70823C19423;
-	Fri, 27 Mar 2026 22:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774649468;
-	bh=8VJCRTG8WD3XC0KXW/cifyktDXB0cqBeZOPOfzSOUKs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hjE1lfkvrpWReQ0hAgpvoXUF2Zlu63xFrxXDZB83gcyWJL6gGM1MpplSdDZmGygUA
-	 40yF0tziQsqDYqqdGKbVK+b8bpoLe2o/mhzN/X8JaOcAPpLT1Ti7z3LcdSx+TOrBmA
-	 cQ+VvBm1k1TNIUu8W9bWzuLn41a9Uxoq00bRVy9gWF23wRiqMVdyiyPO8cTNkSmN95
-	 QlkkQUi0MBe1vvHe91NY6Z8zKDljktggjCsniNgwl7TxcYg/1wAXEnm/hTkX/MKVLn
-	 rtPhJY2YjJcPoExrucdCUOipDzVhqaDjNvalaWVY0TgeayzcYAO8puvbI3ITiOZzmB
-	 CVxmt3Fi0bcuw==
-Date: Fri, 27 Mar 2026 23:11:02 +0100
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Brian Cain <bcain@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH] media: rockchip: Disable VIDEO_ROCKCHIP_VDEC when
- compile testing for Hexagon
-Message-ID: <20260327221102.GA3621310@ax162>
-References: <20260213-media-disable-rockchip-vdec-hexagon-v1-1-3f903398cc83@kernel.org>
- <90e62bf797b0532e5556adaf9e15cc7b73e18411.camel@ndufresne.ca>
- <1a618af9b6c311e8fe5db64ff6fb7c1872c7b2b6.camel@ndufresne.ca>
+	id 1w6FZD-00000008HXx-3yzX;
+	Fri, 27 Mar 2026 22:22:11 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w6FZB-00000008HXc-1aw2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 22:22:10 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1223)
+	id BD5CB20B6F01; Fri, 27 Mar 2026 15:22:07 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BD5CB20B6F01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1774650127;
+	bh=kb6DDrTZkLFlPcOcfSK1Dh+lEI2bDad+XQjBQaC29nA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Si6FK0B7qG7DbagYwne5jGHL0/9sC5uOYcShPMW0MIoUjcFzG6s83M9TllyFAEsyy
+	 RhRrXQSzS9imLLYrb5oPRW0TqneBv3307IuW5bYwfQU4MyWGDzetOMyIhPIbrqeWwc
+	 ieO1rpfywn8ml2lARdMmXJBPlm8qjzA0N/oPJl+M=
+From: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+To: rjui@broadcom.com
+Cc: sbranden@broadcom.com,
+	linux-arm-kernel@lists.infradead.org,
+	meaganlloyd@linux.microsoft.com,
+	tgopinath@linux.microsoft.com,
+	adrian.hunter@intel.com,
+	linux-mmc@vger.kernel.org
+Subject: [RFC PATCH] mmc: host: sdhci-iproc: implement the .hw_reset callback
+Date: Fri, 27 Mar 2026 15:21:49 -0700
+Message-ID: <20260327222150.2108111-1-meaganlloyd@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1a618af9b6c311e8fe5db64ff6fb7c1872c7b2b6.camel@ndufresne.ca>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260327_152209_471243_B122E43E 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +69,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 04:08:29PM -0400, Nicolas Dufresne wrote:
-> I haven't heard back about the port to plain bitwriter. I guess I have to pick
-> this patch, but I really don't want to have to maintain too many of these hacks.
-> Anyone else with an opinion on the topic ? Or a better idea how this can be
-> workaround differently ?
+Implement the .hw_reset callback so that the eMMC can be reset as needed
+given cap-mmc-hw-reset is set in the devicetree and the functionality is
+enabled on the eMMC.
 
-I ended up retesting this recently after I saw Denis posted a bitwriter
-series and it turns out that Arnd's commit 446c6a25a449 ("media: rkvdec:
-reduce excessive stack usage in assemble_hw_pps()") is enough to avoid
-this issue, so you can disregard this change.
+Signed-off-by: Meagan Lloyd <meaganlloyd@linux.microsoft.com>
+---
 
-Cheers,
-Nathan
+SDHCI_POWER_CONTROL[4] (SD Host Controller Standard) has been repurposed
+on my Broadcomm processor to be eMMC hardware reset
+(SDIO*_eMMCSDXC_CTRL[12], HRESET).
+
+Can you confirm this repurposed bit is consistent across the Broadcomm
+iProc processors and thus the .hw_reset callback can be uniformly
+applied in this driver?
+
+---
+ drivers/mmc/host/sdhci-iproc.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/drivers/mmc/host/sdhci-iproc.c b/drivers/mmc/host/sdhci-iproc.c
+index 35ef5c5f51467..9018ed7fe2e66 100644
+--- a/drivers/mmc/host/sdhci-iproc.c
++++ b/drivers/mmc/host/sdhci-iproc.c
+@@ -181,12 +181,26 @@ static unsigned int sdhci_iproc_bcm2711_get_min_clock(struct sdhci_host *host)
+ 	return 200000;
+ }
+ 
++static void sdhci_iproc_hw_reset(struct sdhci_host *host)
++{
++	u8 val = sdhci_readb(host, SDHCI_POWER_CONTROL);
++
++	/* Trigger reset and hold for at least 1us (eMMC spec requirement) */
++	sdhci_writeb(host, val | BIT(4), SDHCI_POWER_CONTROL);
++	usleep_range(2, 10);
++
++	/* Release from reset and wait for at least 200us (eMMC spec requirement) */
++	sdhci_writeb(host, val & ~BIT(4), SDHCI_POWER_CONTROL);
++	usleep_range(250, 300);
++}
++
+ static const struct sdhci_ops sdhci_iproc_ops = {
+ 	.set_clock = sdhci_set_clock,
+ 	.get_max_clock = sdhci_iproc_get_max_clock,
+ 	.set_bus_width = sdhci_set_bus_width,
+ 	.reset = sdhci_reset,
+ 	.set_uhs_signaling = sdhci_set_uhs_signaling,
++	.hw_reset = sdhci_iproc_hw_reset,
+ };
+ 
+ static const struct sdhci_ops sdhci_iproc_32only_ops = {
+@@ -201,6 +215,7 @@ static const struct sdhci_ops sdhci_iproc_32only_ops = {
+ 	.set_bus_width = sdhci_set_bus_width,
+ 	.reset = sdhci_reset,
+ 	.set_uhs_signaling = sdhci_set_uhs_signaling,
++	.hw_reset = sdhci_iproc_hw_reset,
+ };
+ 
+ static const struct sdhci_pltfm_data sdhci_iproc_cygnus_pltfm_data = {
+@@ -283,6 +298,7 @@ static const struct sdhci_ops sdhci_iproc_bcm2711_ops = {
+ 	.set_bus_width = sdhci_set_bus_width,
+ 	.reset = sdhci_reset,
+ 	.set_uhs_signaling = sdhci_set_uhs_signaling,
++	.hw_reset = sdhci_iproc_hw_reset,
+ };
+ 
+ static const struct sdhci_pltfm_data sdhci_bcm2711_pltfm_data = {
+-- 
+2.49.0
+
 
