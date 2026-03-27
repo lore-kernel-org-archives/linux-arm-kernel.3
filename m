@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D4810ED674
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 13:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B88310ED679
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 14:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uxHajuKfUQES0XX2o1zU8mCoEkLzDO2fAuUTm7Lo5Bw=; b=wYWoQhxfiuaCXBufUlsu0yukLx
-	E405rLv8q4p1kMRhC6vZMma8KLx6JJUvrxY/5l3uWRsLTjdUeqAux4HyDwrdAuGXeu1mS953G7VKJ
-	Mc3PWKalyKKEFW7nGPuNeEfHMFK4zM5mVg/UjLjCzpqPckNj1OTs1bQJLCwq0XCoMTbwgZaiD0OP4
-	E0bbStZM2c8UDESweZum9rc5HPb2a5iapV5xHL4E1ED/lH8BtGgpsegP2qJg+/YGNXI4Pnl4Pqdqx
-	SwKiPj5gMpT9MJ6F/YQZHZ22cbayVSLBqQtFH1oe2mivE3SR20yeGwWdAFP49/hAmlniVpfT0qLj0
-	mAhyvRYw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BPJF77Bgk51PrkZSz0o7lZ/APNS4BWufk2WXoo4gPi4=; b=YNfy6H0UQWx87pBZ+ZRTC7ToRs
+	9SS3IkHLclXgt03wqdBxUTqxqpIuaj0aYympHBPl2TtbQD6bbpUqcS59gMEjKPiEyNu95K4CFUYja
+	4ToX54axtQfuFbAht7NpRPFUjsGsirgnRWGvYASQdb21EerU6vJF2uau7JRgtrP9pmjaWGK0fr7m5
+	qsM25wks96OmU7C7aU5uy+QZ6+jFQEXRtENQHB9Yb/tH1+yPXIwRVBUthnI6E6CKJkDnJP2bdzEe2
+	9Ro1WazKyc5XFKlE7o2ahwsie3KLxb4mF0IZ2+auaruP9m17vnX5sHI8iuFwZMQVmHq+i4EZIBu4E
+	RVchg4vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67ic-00000007V9k-0Ef2;
-	Fri, 27 Mar 2026 13:59:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w67k5-00000007VQZ-3Guf;
+	Fri, 27 Mar 2026 14:00:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w67ib-00000007V9W-16qK
+	id 1w67k4-00000007VQD-1CAO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Mar 2026 13:59:21 +0000
+	Fri, 27 Mar 2026 14:00:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6AC960132
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 13:59:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B3D9C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 13:59:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 62C9060132;
+	Fri, 27 Mar 2026 14:00:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5745FC19423;
+	Fri, 27 Mar 2026 14:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774619960;
-	bh=8xzdYoi3gi518bjSufdEEG4WtJrX0WYlJOv7k2yVMAI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NZKNTyI/kBAnIR0HZvkBqOTDvrCbjhLEUS/OH0E+5lR+Fw4M4UKzhS87SAxD944QF
-	 Zls3jH8x6EPxptfI+8vWACCOiBccBJbkMTp7utd0irXgITCxyauMELtC+u1H2XVFzx
-	 wB1SdRI0gvIsrprLra9WIPbabuHAuDsAGz0VmyOtipr7WtCysuTeWO/O13xKx77Lf7
-	 W5FFA6bjO5D3X2oC9Kzmd8pnb1lYs8uGFOjfOYD3lsSAF92ep+YKUVfBNF77w544Te
-	 cPtUZfoUuH3xkUKxCp5/RJQE43CzZXibvnaISxkT6ZxSe8HU6EOAfAiaRe3mOGMLjl
-	 42Tu60owotsGQ==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5a2ad56dbb2so464561e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Mar 2026 06:59:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVea1B8EbG3TQIRVpoLeRkAbUYcAPJYypZajx1k7smqdt8Xt4OhQgBVQCAZbOKZbeTqGgMxsmiOWKrXHxj1/Hey@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+QzdU1Ydks31w8CDFHUwYpv1ktW6THgcwDSebEMQnWsi4V2zg
-	V9pi9OAKNuWwU65S9VALqCOBbjgtpXZWrPv0XZr2a7ZyVAzltVcA2+mHP4cCBdVzVf3YqSwFhai
-	CRY9zeRgPQ924fatpLPdhrJxqQ6E8GH3lB6P/+dQyUQ==
-X-Received: by 2002:a05:6512:318f:b0:5a2:8450:edad with SMTP id
- 2adb3069b0e04-5a2ab93f8b8mr904034e87.45.1774619958969; Fri, 27 Mar 2026
- 06:59:18 -0700 (PDT)
+	s=k20201202; t=1774620051;
+	bh=WJqQ6Hp9KT0S4VoqMoBe+8IACBv7zyhfQsqMY1Rywe8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aGetUFSQJePsOgz3Fiw3EVnaSyITy7ZU+pfSCvghGCJEUdIDpcj0nBRWIR6FuyV+x
+	 fKx+sLJh152XL/so++RvGQmrMblQmBbl/FO4fZ4GUbDcsMgvkGDNl4VHTHoGuzn71I
+	 shJW7ETohH6qoRAICiZV5HHoiqWEfaBoSbwvdkaAoJChzUt0l7uMpxmz5ygcwse3nA
+	 RAxLt6n3QaNt/VUCdj/7DPPH+/POTgDNoJhPcYbcDozb+D44IdoVUXPWNxOpxbpDz/
+	 +4yP2/JTYnnFzmFWIwNkK1d6Qqqrmhe/cUxnE96zjKYxKDl78iWK6VohOYGwi0oEra
+	 7SfD002AxidxQ==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: [PATCH v4 00/38] KVM: arm64: Add support for protected guest memory with pKVM
+Date: Fri, 27 Mar 2026 13:59:59 +0000
+Message-ID: <20260327140039.21228-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
- <20260304-arm-psci-system_reset2-vendor-reboots-v20-6-cf7d346b8372@oss.qualcomm.com>
- <acaMPgRALnoUIHMC@lpieralisi>
-In-Reply-To: <acaMPgRALnoUIHMC@lpieralisi>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Fri, 27 Mar 2026 14:59:06 +0100
-X-Gmail-Original-Message-ID: <CAMRc=MfRWDava8jyT90ah1LBK3udAgcTCc7q-S_Kb4U3CR5smg@mail.gmail.com>
-X-Gm-Features: AQROBzAnj1Wvu_HThCZA2lw78sbVKD9HXLQMgd3NlSn5WjYR9EmBsH-p5sQhJxg
-Message-ID: <CAMRc=MfRWDava8jyT90ah1LBK3udAgcTCc7q-S_Kb4U3CR5smg@mail.gmail.com>
-Subject: Re: [PATCH v20 06/10] power: reset: Add psci-reboot-mode driver
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, John Stultz <john.stultz@linaro.org>, 
-	Moritz Fischer <moritz.fischer@ettus.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	Srinivas Kandagatla <srini@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +77,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 2:55=E2=80=AFPM Lorenzo Pieralisi <lpieralisi@kerne=
-l.org> wrote:
->
-> > +
-> > +static int __init psci_reboot_mode_init(void)
-> > +{
-> > +     struct device_node *psci_np;
-> > +     struct faux_device *fdev;
-> > +     struct device_node *np;
-> > +     int ret;
-> > +
-> > +     psci_np =3D of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
-> > +     if (!psci_np)
-> > +             return -ENODEV;
-> > +     /*
-> > +      * Look for reboot-mode in the psci node. Even if the reboot-mode
-> > +      * node is not defined in psci, continue to register with the
-> > +      * reboot-mode driver and let the dev.ofnode be set as NULL.
-> > +      */
-> > +     np =3D of_find_node_by_name(psci_np, "reboot-mode");
-> > +
-> > +     fdev =3D faux_device_create("psci-reboot-mode", NULL, NULL);
->
-> Same comment as Bartosz (have you picked up his work and working towards
-> a solution) ?
->
+Hi again, folks,
 
-Hi Lorenzo!
+Here's v4 of the pKVM protected memory patches previously posted here:
 
-Yes, I suggested creating an MFD driver binding to the "arm,psci-1.0"
-compatible node which will have two cells: one for the existing
-cpuidle-domain functionality and a second for the new reboot-mode
-driver. This way we'll simply add a platform device as Greg suggested.
+  v1: https://lore.kernel.org/kvmarm/20260105154939.11041-1-will@kernel.org/
+  v2: https://lore.kernel.org/kvmarm/20260119124629.2563-1-will@kernel.org/
+  v3: https://lore.kernel.org/r/20260305144351.17071-1-will@kernel.org
 
-Bart
+Changes since v3 include:
+
+  * Rebased onto v7.0-rc4
+  * Remove unused PKVM_ID_FFA
+  * Make ARM_PKVM_GUEST depend on DMA_RESTRICTED_POOL
+  * Use FAR_TO_FIPA_OFFSET() instead of open-coding it
+  * Remove PROTECTED_VM_UAPI config option and update documentation
+
+As before, I've pushed an updated branch with this series:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=kvm/protected-memory
+
+and the kvmtool patches are available at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/log/?h=pkvm
+
+I fully expect to send a v5, as this is the first time Sashiko has had
+a chance to chew on this and I'm expecting a roasting.
+
+Cheers,
+
+Will
+
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Zenghui Yu <yuzenghui@huawei.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>
+Cc: Mostafa Saleh <smostafa@google.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+
+--->8
+
+Fuad Tabba (1):
+  KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected
+    guests
+
+Quentin Perret (1):
+  KVM: arm64: Inject SIGSEGV on illegal accesses
+
+Will Deacon (36):
+  KVM: arm64: Remove unused PKVM_ID_FFA definition
+  KVM: arm64: Don't leak stage-2 page-table if VM fails to init under
+    pKVM
+  KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
+  KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+  KVM: arm64: Don't advertise unsupported features for protected guests
+  KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
+  KVM: arm64: Ignore MMU notifier callbacks for protected VMs
+  KVM: arm64: Prevent unsupported memslot operations on protected VMs
+  KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
+  KVM: arm64: Split teardown hypercall into two phases
+  KVM: arm64: Introduce __pkvm_host_donate_guest()
+  KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
+  KVM: arm64: Handle aborts from protected VMs
+  KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
+  KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
+  KVM: arm64: Factor out pKVM host exception injection logic
+  KVM: arm64: Support translation faults in inject_host_exception()
+  KVM: arm64: Avoid pointless annotation when mapping host-owned pages
+  KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
+  KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
+  KVM: arm64: Change 'pkvm_handle_t' to u16
+  KVM: arm64: Annotate guest donations with handle and gfn in host
+    stage-2
+  KVM: arm64: Introduce hypercall to force reclaim of a protected page
+  KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+  KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
+  KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
+  KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
+  KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
+  KVM: arm64: Allow userspace to create protected VMs when pKVM is
+    enabled
+  KVM: arm64: Add some initial documentation for pKVM
+  KVM: arm64: Extend pKVM page ownership selftests to cover guest
+    donation
+  KVM: arm64: Register 'selftest_vm' in the VM table
+  KVM: arm64: Extend pKVM page ownership selftests to cover forced
+    reclaim
+  KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
+  KVM: arm64: Rename PKVM_PAGE_STATE_MASK
+  drivers/virt: pkvm: Add Kconfig dependency on DMA_RESTRICTED_POOL
+
+ .../admin-guide/kernel-parameters.txt         |   4 +-
+ Documentation/virt/kvm/arm/index.rst          |   1 +
+ Documentation/virt/kvm/arm/pkvm.rst           | 106 ++++
+ arch/arm64/include/asm/kvm_asm.h              |  31 +-
+ arch/arm64/include/asm/kvm_host.h             |   9 +-
+ arch/arm64/include/asm/kvm_pgtable.h          |  45 +-
+ arch/arm64/include/asm/kvm_pkvm.h             |   4 +-
+ arch/arm64/include/asm/virt.h                 |   9 +
+ arch/arm64/kvm/arm.c                          |  12 +-
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  10 +-
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      |  12 +-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   7 +-
+ .../arm64/kvm/hyp/include/nvhe/trap_handler.h |   2 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 184 +++---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 585 ++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 224 ++++++-
+ arch/arm64/kvm/hyp/nvhe/switch.c              |   1 +
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   8 +
+ arch/arm64/kvm/hyp/pgtable.c                  |  33 +-
+ arch/arm64/kvm/mmu.c                          | 114 +++-
+ arch/arm64/kvm/pkvm.c                         | 151 ++++-
+ arch/arm64/mm/fault.c                         |  33 +-
+ drivers/virt/coco/pkvm-guest/Kconfig          |   2 +-
+ include/uapi/linux/kvm.h                      |   5 +
+ 24 files changed, 1365 insertions(+), 227 deletions(-)
+ create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
+
+-- 
+2.53.0.1018.g2bb0e51243-goog
+
 
