@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D93410F2863
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB1D10F2863
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 17:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Di7Oss6zSH+MMaH/WRcMIOKUVmgkEiby1l3H+4Kv4QY=; b=W0dcKPhrfOmgxRGx8aLrzVgxwZ
-	fnetkJUVtR7hk0NAeStwo5/4ZOwQMkkFw5/3CIiIyx8vvRHR8uBoxLLaZu774HlRYs6JnGB6NxgtH
-	3ke0IY/P4peg9TtYegxIJXboeNk8d50q/TNCEf7xKx3SuVyU5z6xGb7F6fiG2P2G2JGChpUQ7ANOf
-	lUURgZfdADNJvcu6WdcmZ0pm6Cc6FJM9jNt/0Jctv1KbUadRJWmV5DCv7mW2jXgWD76PZwGoqlFiO
-	o5y3boMGJlldI25kwxLlAQodXbty+ZTvWiYjEJHeoDBPZRUapelOR1Ay+jUwMcgRt7E52sJ3owCkz
-	y3rHsrNg==;
+	bh=k/FKMnOkOa1GQUBREmNXvdUXgOUxFMnV9Ru4pRJJQME=; b=zxGxrx2tkFiCqZl+bEe06Vo39l
+	9YPh0glW84y4CX/YEek5kLngV67fp6017CtrriIZH9DcF4oNr6x/Ql/qHqwGexr/+hd51Y8a0W035
+	aeBbYD8v+WRa+Bv/srQFfGXGqrfyG9SYQQ52duZy/GvSE3Sxr2iEiaR9weES/1isMecXJi+mGQ8Dy
+	/LXnFJgM5HL0rBpsnCDS46m8NJ/Jb0Jc0t5r4Syv8UL0k/odVuWwf4J3HH++MErrN6MJQhLgNENhO
+	y5Y35K2mzFxlgJ/KpP5TuEvrzUGyTR1QI7Kmy1eQrVuT0XzJFqTswv7PdTH6NP4+FMB7kMYjjJBTv
+	DYnLkNcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BPe-00000007tOu-35ei;
-	Fri, 27 Mar 2026 17:56:02 +0000
+	id 1w6BPo-00000007tSr-1G3B;
+	Fri, 27 Mar 2026 17:56:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6BPc-00000007tNv-0UZ9;
-	Fri, 27 Mar 2026 17:56:01 +0000
+	id 1w6BPm-00000007tRy-1ItY;
+	Fri, 27 Mar 2026 17:56:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF39B43C98;
-	Fri, 27 Mar 2026 17:55:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D23A8C2BCB0;
-	Fri, 27 Mar 2026 17:55:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7716A4338F;
+	Fri, 27 Mar 2026 17:56:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93FA0C19424;
+	Fri, 27 Mar 2026 17:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774634159;
-	bh=6VMELURq/QqF9iasRhmGpYOPp+WVfGDU26yJiywk46s=;
+	s=k20201202; t=1774634169;
+	bh=NF+8zTAwUcyuWSbqAv5EfRD6h1aQWSDUVa0i+26A4WM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Tr2HvdgehY6UchLQvk6Ht1ZRogPcs72Ccf4wbrBTHSSinZLqUSfmfyGIT0IS0vuWU
-	 +YAX1wLPU8KjCr2tETzLrPQoVg/FicumRZH3baXgxIUnCiQc1hG5L3w1dfdHMZXkYt
-	 6XtoWhjlXUuNaPMobUcoNJX9IJuB8crWZECPbTC0qU/jWHB3mOky3CnmP+yTF2rAJM
-	 J8aWgmea8/w3ci9QMD1twupHqhddkGBld8ndGS2VcPTU13TRjeV9lcrkenobEhq5MU
-	 2VNJfIiUESy/F4ndwe7rFhqYFL0cyyvXseqZqYc1I7IzMygAkAG2Y0aSPCMcbTEs+w
-	 gya1LT+tdJLFw==
+	b=EMU/UO7yah7g58RdvelfWdTFJBeJqtlzqv45Uj99/U3yCbHikW6Vv5l7/fGocFQDi
+	 UR4GnW8KnjtDfdxl5BuXD0Ya3XLMB6ULG88BI6dCK57wZ99SVgOzQC2x41Ie1T8D+m
+	 njGPSiFyjZuDovWB99aKusvSiE8HEDLkb3dfNJRjTnOyVE9U3t6o/TC1KIu6P2R/Iy
+	 kmP7KS6/ZAFwuNpdzaPk/xgWvIi4M2h1nJCa0/U7Q9j+5UEIA2m6TVShlHIy5txF5V
+	 /fIgLaW3QpmY8jqWPnDOY4pYqvKecD+HewBpObjbS/n7Yv2LmNHFSiReTRQDAqMnFw
+	 fWsDNJwttLFbw==
 From: Daniel Lezcano <daniel.lezcano@kernel.org>
 To: daniel.lezcano@kernel.org,
 	tglx@kernel.org,
@@ -51,17 +51,17 @@ Cc: shawnguo@kernel.org,
 	Heiko Stuebner <heiko@sntech.de>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
 	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support)
-Subject: [PATCH v1 2/7] drivers/clocksource/rockchip: Use the TIMER_PDEV_DECLARE() macro
-Date: Fri, 27 Mar 2026 18:55:24 +0100
-Message-ID: <20260327175533.3044-4-daniel.lezcano@kernel.org>
+Subject: [PATCH v1 5/7] clocksource/drivers/rockchip: Use the TIMER_PDEV_DECLARE() macro
+Date: Fri, 27 Mar 2026 18:55:29 +0100
+Message-ID: <20260327175533.3044-9-daniel.lezcano@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260327175533.3044-1-daniel.lezcano@kernel.org>
 References: <20260327175533.3044-1-daniel.lezcano@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_105600_197867_9B2606DD 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20260327_105610_390189_036339B0 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,7 +76,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous change introduce the TIMER_PDEV_DECLARE() marco which
+The previous changes introduced the TIMER_PDEV_DECLARE() macro which
 allows to use the platform driver to initialize a timer driver with
 the benefit of having the devres to rollback automatically in case of
 error.
