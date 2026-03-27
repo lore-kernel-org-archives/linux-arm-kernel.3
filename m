@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D28210ED66E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 12:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 080E710ED66E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Mar 2026 12:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pd3XpOGpsUr4IAEh5acArmMZ3OWlOZdC/75L5xOD3gw=; b=c2H5zkC2oz74JqBzfscnoWcWis
-	jSWbtOcl4Ivyp8z5+p6+3P8gXlhk1cPJxmC2d7d3Ipshsd7lUDX00+6XT2PGOszcbnEcT86OkKSnO
-	hsWK2aLMCdPaRzq7/oDbPDbwllY7AoqUiFeGV6t54J3EJm+zryo3ZYn+Xq2ELIEuNnfWrpOyntX44
-	4gVTwsqeR0YSaypkLF1NEqgdFn8DcsxI3DIfbK58Q1+2JSUHjaOg6JXKcqEoMH8JCyiNVIdHVvx7w
-	rzHggvPidNsVolsQXG9xowaiSoE22lFgAWZwrtrpRFwPiz1gf/qbyMzdLuC+E/vkyH0AKSpcIMpck
-	shSq8LDA==;
+	bh=erbc+7wqiHQWqC6LCA4hldZjC/aLPIKKlaItjZs75Co=; b=od48ftD9H1v4WDrcU66QUsgt2o
+	+FMEQS8UYyQaILPAWABKUleyggjTpXc5VpP55s9BObD6jdStfke29eOdBZn4IQjWwkwYFKibMO0k4
+	nnJGXZm5Ocs669e4cq2CPYNLCDZLoxu3JIViAwNpWlvc/nX17ZA0A+1yjBxB8a7AecTAPTQ5SNMrq
+	OCsAROE4FAJ0jhc3zacZ3p5hVhanmUD96ODXdL5dXBoU6P94aRfUeYhjJXkw9A6tGhcu/94Umhtbq
+	5Cvshfe9yBvqoe6f8XZzjhkxN6RRX7UPKySdK6FrYm+6AUr6P5u4Za1+mWChGi1J0Avo+S20nmRku
+	PVEYeiDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66fH-00000007N0U-1ruE;
-	Fri, 27 Mar 2026 12:51:51 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w66fE-00000007MzW-303h;
-	Fri, 27 Mar 2026 12:51:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774615904;
-	bh=+CLD7N/xs5jrp+gBJvL7KeuM5R0Wm9A5tOiDhEWnQiQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GrVG6KQ3t5hCut9XXlE4yEKNlD9EE7f2zXD8SXKt5k1CyGL4BKYGEftfjbOXj2Pqf
-	 etbaQ07g2cCAjT7HqbxY+GBTx+16RHZQwQWH99vA8e0TE9HgT7PGi1mYI/1HI1EeO8
-	 9k6jfrkwEopTQMUa4rRszityVb+SpSXJfXDKyDLcYfThtc6D8kCC2rF9eOweFXKWj7
-	 n7xJIUAowB1mVJ8Nz14xx0T2UPyyEMGv7rrjJ5+NktKraudt+ll0LX3yO5UDFsZyp3
-	 9pE7Ija3/997BqehoBNexfTvyXyUZEEVBO9RX6ZHkm1EOPak/Ca6+34ohCx3syNiID
-	 40u7HH5rG8lig==
-Received: from [192.168.1.90] (unknown [86.123.23.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9C4F17E5A72;
-	Fri, 27 Mar 2026 13:51:43 +0100 (CET)
-Message-ID: <87f08459-740e-4fbf-b933-110182bc8918@collabora.com>
-Date: Fri, 27 Mar 2026 14:51:43 +0200
+	id 1w66hp-00000007NFG-0yI9;
+	Fri, 27 Mar 2026 12:54:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w66hm-00000007NEr-0s5x
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Mar 2026 12:54:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 196C93598;
+	Fri, 27 Mar 2026 05:54:18 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B37123F905;
+	Fri, 27 Mar 2026 05:54:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774616064; bh=4wFV09HCGNJDcNbBfqcQt9+lev0SQ766LP+kRXTAfSg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CPDOjJqsqV4dCTj/BcsPtKxOdW6swwadwUugaYxjsINWwlq/qGIUJvpnq7PrK5AkQ
+	 EDSYX84WmmgoTWLXwsVN4HcnBwO9bdkpBTU6P8Z8PZ7P/dPbPjf2DPrip1jdmy+zJX
+	 6LvBxgxrKzIvsNKCh/vIG48Z32CAvzqenEy2hnd4=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>
+Subject: Re: [PATCH v1] arm64: mm: __ptep_set_access_flags must hint correct TTL
+Date: Fri, 27 Mar 2026 12:54:11 +0000
+Message-ID: <177461605188.2270962.16280793835697429472.b4-ty@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260323163918.2028109-1-ryan.roberts@arm.com>
+References: <20260323163918.2028109-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/4] arm64: dts: rockchip: Fix vdec register blocks
- order on RK3576/RK3588
-To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Detlev Casanova <detlev.casanova@collabora.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- linux-media@vger.kernel.org, Conor Dooley <conor@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260304-vdec-reg-order-rk3576-v5-0-7006fad42c3a@collabora.com>
- <4358847.1IzOArtZ34@phil>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <4358847.1IzOArtZ34@phil>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_055148_921074_14BFFF74 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_055426_378305_3703161B 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +73,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/10/26 10:44 AM, Heiko Stuebner wrote:
-> Am Mittwoch, 4. März 2026, 22:00:39 Mitteleuropäische Normalzeit schrieb Cristian Ciocaltea:
->> When building device trees for the RK3576 based boards, DTC shows the
->> following complaint:
->>
->>   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
+On Mon, 23 Mar 2026 16:39:16 +0000, Ryan Roberts wrote:
+> It has been reported that since commit 752a0d1d483e9 ("arm64: mm:
+> Provide level hint for flush_tlb_page()"), the arm64
+> check_hugetlb_options selftest has been locking up while running "Check
+> child hugetlb memory with private mapping, sync error mode and mmap
+> memory".
+> 
+> This is due to hugetlb (and THP) helpers casting their PMD/PUD entries
+> to PTE and calling __ptep_set_access_flags(), which issues a
+> __flush_tlb_page(). Now that this is hinted for level 3, in this case,
+> the TLB entry does not get evicted and we end up in a spurious fault
+> loop.
 > 
 > [...]
-> 
->> Cristian Ciocaltea (4):
->>       media: dt-bindings: rockchip,vdec: Mark reg-names required for RK35{76,88}
->>       media: dt-bindings: rockchip,vdec: Add alternative reg-names order for RK35{76,88}
-> 
-> due to media "applied" messages most of the time not reaching all Cc'ed
-> recipients, please tell me once the binding patches landed somewhere.
 
-Yeah, sadly I also haven't received any notification so far, but just noticed
-the binding patches are now in next-20260326, as a result of merging branch
-'next' of https://git.linuxtv.org/media-ci/media-pending.git:
+Applied to arm64 (for-next/tlbflush), thanks!
 
-a11db8d8b403 ("media: dt-bindings: rockchip,vdec: Mark reg-names required for RK35{76,88}")
-35c8178ed2bd ("media: dt-bindings: rockchip,vdec: Add alternative reg-names order for RK35{76,88}")
-
-Thanks,
-Cristian
+[1/1] arm64: mm: __ptep_set_access_flags must hint correct TTL
+      https://git.kernel.org/arm64/c/b7d9d2e3a8ab
 
