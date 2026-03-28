@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2053610F3DE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 15:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E5110F3DE9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 15:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qzaDKuwHw3PYOE6zBDO670fqRMPN4PumO3aWNNOTFgw=; b=D5nDX0sTtUqMp2
-	G5zHPf3C9zpM0CO0JCZHStpTyrN+hy7d/stkT4WK+Bcf6PS+fAv0BOOQGG6nk6I2FYXQrwjuLxmcq
-	SvQw+fYFufFFkLwWueCaQzJE7OyjxkLezTgnhqVCQ7oobMj7pu1+FZwWI3Zk3E1/zslJ/xHwQQYAA
-	T4lQyJw5Hwhxp6paj0cUtPVRm3Zzqm+iRs7ej/qri8s8j78sijJo1I3u7rCw+VDES0TAb0dbFS8QF
-	gaXvw1dadGz5av0KDMCGrjzgaxEh5RvOVRrZNw1YCEteoZZIJzcbV47qyUkYQjqGxjxHY3njtEcYy
-	XrDN7XjbFziwdPO9b7EQ==;
+	List-Owner; bh=8DQZ2bL5acF5SP04nBfqwQ02XvmmlMibNG1GQ+PID8A=; b=eXk7JHx7UL3XG4
+	3xoVOfoNHsZGA4lZ1AGymsgHKlH6I2ODon+9MTxpUwwXAqmnoaRfXgBw7HA4I1Re5Ny2AFraYq750
+	AxIR5CJ9taO/t+okwYwW8xTJ6+fcl8mqDKOzyoa5IqNVFq81E8q8Fl52uRE/4oQKeIpfvCOz9vlfV
+	ZffiMnYSUM80wbbJFQY09D+YWjYKu89QxzZMBvFSclRp/BVQdpH2UCQRWGiEwlw5yyNi5FztF3KU1
+	fNVbRWZffZOupNIcGLarDjqodCd9qJlAgMNJ1zuTJQw0Jo941Ex/VOZTVGA+anNPjF1fucvxqeZkk
+	O4WQlV5yXp/6qnQ+wGWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6VQf-000000094Lz-1rcS;
-	Sat, 28 Mar 2026 15:18:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w6VZM-000000094eL-21cs;
+	Sat, 28 Mar 2026 15:27:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6VQc-000000094LZ-2Bve
+	id 1w6VZK-000000094e0-2szN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 15:18:23 +0000
+	Sat, 28 Mar 2026 15:27:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 233C8419F0
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 15:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0227C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 15:18:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA48B42B68
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 15:27:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA44DC4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 15:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774711102;
-	bh=KKQVwFdQjyUaujdMXD5QVwTfES9/1zQUSB0BxSq0yV8=;
+	s=k20201202; t=1774711641;
+	bh=J97nhqd19Owfth49YYD2VgMcKu6wbx/SAYjRjMlEcXA=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=D3swJya+dAnaRkVVRYBnoUc6MtW+k9LsJ/m2lhQQMVrXuTXTIu+hE53nTNuCNJemt
-	 PHMbkoSl5myU8fcRWVA10S0B0yW+vPUkFQsH0z5XWL1nuxo2RKhaDCuTvHRWjHZ/gv
-	 SdoE3CjVOTW7jX9SGsgohT+2B9e3BThcLqSsImfrglS3zhe5c1rtCC+ZD0WeuZ9aSf
-	 QpGBpPHLzg/+9rF2Hl2sdyE2p+wfTNNqwdc/EUtG+Sx4+TnpkKG716KLIMMq/mYpEj
-	 8ZAdeTU6pQnQym8ecQqQY4Tx4oeGNRAn/boJYnOEsjG0hWJhVT7Y1o1wxrCi51fayO
-	 OKVNaSYy+QPFw==
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-b982b0889d8so373966266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 08:18:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUjPuTbqmMNJ7fkbS8W/UlJegM2+Gq9VhTO2pMlJadsE8bDLFQDG6Kub8kdlYGv/hOeyuVvdaQTDHcATzas+TxX@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywz8XJpHxC76rMTTksost+Qsvjv7avO9j9m7sV/UwEFKUIkKA40
-	0ClAmOa5P8jxskhDt32g/AsgoIxRYSf89GELqan1zPBu3qxlNoVSoYBSI7Bgx1n1bmpqPQsp3Z3
-	BxqA0wZ7WmsF4PeLVUiDwXi2oG7VsxWg=
-X-Received: by 2002:a05:651c:198d:b0:38a:212d:2bc2 with SMTP id
- 38308e7fff4ca-38c74049edemr21842881fa.30.1774708892384; Sat, 28 Mar 2026
- 07:41:32 -0700 (PDT)
+	b=pnHh0nkCVPcpbfiNfnvMoco9eDS98jX96HarYWrCF2/AJOT7b+Ed9gRKDkawik6qT
+	 5LuC9Mbn4/Tk7ka4Y4/jjhGE1LwHv0uYyhd0uQ6MTgU3a12kBAK7F747x2EiTzgO9p
+	 aiIyNEvjnH1KyiDcGUdDj8eQlfchLir+t2PGI4xLb/TxyrcwIfPDQaXxnH+vw5jXD6
+	 OsLCN1A9NrRNxMdErpcb73Uy57yYo8TdSQRZWPmbl4OrMw01kP0pMDUCsQnAp5CQ+W
+	 7nSuzotUTedBJb6LmQIRcAME9zvmiHjOx1pguMoE7AOlkA8ivcmaWXQZZMnrgJaHXv
+	 Ad7MdKL/HpgGw==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-386b553c70eso24613331fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 08:27:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXmC7PS1ABScpq1CsfiKO3K4oNcoVU3+73o9AYzZHSEwCcd840BqgIo0XMC0AE+e6UtLJxGV6bUTk+ydGD3HFob@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyblh7kYo2/MbAZC2MEF7Ad/Jt5Je0s2eYKFCqVGk5QUGAR3CEx
+	C2OkixiDwuzQjMviCoeHRZC/CcCDiOZA7k2Hn/s6F63bD4vm+RqyMSGG7HeLf5e4L/bmdBugQsv
+	NUSN0m0GBHQoBgf1vfM25nTDi/MGUlE4=
+X-Received: by 2002:ac2:482b:0:b0:5a2:a1aa:2b8a with SMTP id
+ 2adb3069b0e04-5a2ab92b48dmr1928277e87.31.1774701460967; Sat, 28 Mar 2026
+ 05:37:40 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech> <20260121-a733-rtc-v1-7-d359437f23a7@pigmoral.tech>
-In-Reply-To: <20260121-a733-rtc-v1-7-d359437f23a7@pigmoral.tech>
+References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech> <20260121-a733-rtc-v1-1-d359437f23a7@pigmoral.tech>
+In-Reply-To: <20260121-a733-rtc-v1-1-d359437f23a7@pigmoral.tech>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sat, 28 Mar 2026 22:41:20 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64euL+QNXiJdTn0JygYLXg0WoguPSprKT4sKGZGVZbwug@mail.gmail.com>
-X-Gm-Features: AQROBzBLEeTThL1bImGqhfJySnF1gONkJ6dZaJRRh6NTzlpZImaR-U-U0weYl5s
-Message-ID: <CAGb2v64euL+QNXiJdTn0JygYLXg0WoguPSprKT4sKGZGVZbwug@mail.gmail.com>
-Subject: Re: [PATCH 7/7] clk: sunxi-ng: Add Allwinner A733 RTC CCU support
+Date: Sat, 28 Mar 2026 20:37:26 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67844OPwE6VJ0PAs5LsmCa2h0FvXOBUomZ50dM5tZ0Zow@mail.gmail.com>
+X-Gm-Features: AQROBzAjNUlKB5AcxIrVhPiEv-8viiXBsmIlq5_4UPHivayPQSg3rbcnxOKBQII
+Message-ID: <CAGb2v67844OPwE6VJ0PAs5LsmCa2h0FvXOBUomZ50dM5tZ0Zow@mail.gmail.com>
+Subject: Re: [PATCH 1/7] dt-bindings: rtc: sun6i: Add Allwinner A733 support
 To: Junhui Liu <junhui.liu@pigmoral.tech>
 Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
@@ -68,12 +68,12 @@ Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
 	Maxime Ripard <mripard@kernel.org>, linux-clk@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Przywara?= <andre.przywara@arm.com>
+	devicetree@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_081822_607002_08498804 
-X-CRM114-Status: GOOD (  36.75  )
+X-CRM114-CacheID: sfid-20260328_082722_770290_2531C421 
+X-CRM114-Status: GOOD (  31.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,389 +89,163 @@ Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 7:04=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
+On Wed, Jan 21, 2026 at 7:03=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
 h> wrote:
 >
-> Add support for the internal CCU found in the RTC module of the Allwinner
-> A733 SoC. While the basic 16MHz (IOSC) and 32kHz logic remains compatible
-> with older SoCs like the sun6i, the A733 introduces several new features.
+> The RTC module in the Allwinner A733 SoC is functionally compatible with
+> the sun6i RTC, but its internal Clock Control Unit (CCU) has significant
+> changes.
 >
-> The A733 RTC CCU supports choosing one of three external crystal
-> frequencies: 19.2MHz, 24MHz, and 26MHz. It features hardware detection
-> logic to automatically identify the frequency used on the board and
-> exports this DCXO signal as the "hosc" clock.
->
-> Furthermore, the driver implements logic to derive a 32kHz reference
-> from the HOSC. This is achieved through a muxed clock path using fixed
-> pre-dividers to normalize the different crystal frequencies to ~32kHz.
+> The A733 supports selecting the oscillator between three frequencies:
+> 19.2MHz, 24MHz, and 26MHz. The RTC CCU relies on hardware to detect
+> which frequency is actually used on the board. By defining all three
+> frequencies as fixed-clocks in the device tree, the driver can identify
+> the hardware-detected frequency and expose it to the rest of the system.
 
-Have you tested whether the actually normalizes the frequency, i.e.
-selects a different divider based on the DCXO frequency? Otherwise
-we're just lying about the frequency.
+No. The board device tree shall have the exact and correct frequency
+defined in the external crystal device node. The operating system can
+use the hardware-detected frequency to "fix" the in-system representation
+if it is off.
 
-> This path reuses the same hardware mux registers as the HOSC clock.
->
-> Additionally, this CCU provides several gate clocks for specific
-> peripherals, including SerDes, HDMI, and UFS. The driver is implemented
-> as an auxiliary driver to be bound to the sun6i-rtc driver.
+> Additionally, the A733 RTC CCU provides several new DCXO gate clocks for
+> specific modules, including SerDes, HDMI, and UFS.
 >
 > Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 > ---
->  drivers/clk/sunxi-ng/Kconfig               |   5 +
->  drivers/clk/sunxi-ng/Makefile              |   2 +
->  drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c | 204 +++++++++++++++++++++++=
-++++++
->  drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h |  18 +++
->  drivers/clk/sunxi-ng/ccu_rtc.h             |   7 +
->  5 files changed, 236 insertions(+)
+>  .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml      | 38 ++++++++++++++++=
+++++--
+>  include/dt-bindings/clock/sun60i-a733-rtc.h        | 16 +++++++++
+>  2 files changed, 52 insertions(+), 2 deletions(-)
 >
-> diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
-> index 6af2d020e03e..16afbf249f26 100644
-> --- a/drivers/clk/sunxi-ng/Kconfig
-> +++ b/drivers/clk/sunxi-ng/Kconfig
-> @@ -67,6 +67,11 @@ config SUN55I_A523_R_CCU
->         default ARCH_SUNXI
->         depends on ARM64 || COMPILE_TEST
+> diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rt=
+c.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+> index 9df5cdb6f63f..b18431955783 100644
+> --- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+> +++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+> @@ -26,6 +26,7 @@ properties:
+>            - allwinner,sun50i-h6-rtc
+>            - allwinner,sun50i-h616-rtc
+>            - allwinner,sun50i-r329-rtc
+> +          - allwinner,sun60i-a733-rtc
+>        - items:
+>            - const: allwinner,sun50i-a64-rtc
+>            - const: allwinner,sun8i-h3-rtc
+> @@ -46,11 +47,11 @@ properties:
 >
-> +config SUN60I_A733_RTC_CCU
-> +       tristate "Support for the Allwinner A733 RTC CCU"
-> +       default ARCH_SUNXI
-> +       depends on ARM64 || COMPILE_TEST
+>    clocks:
+>      minItems: 1
+> -    maxItems: 4
+> +    maxItems: 6
+>
+>    clock-names:
+>      minItems: 1
+> -    maxItems: 4
+> +    maxItems: 6
+>
+>    clock-output-names:
+>      minItems: 1
+> @@ -156,6 +157,38 @@ allOf:
+>          - clocks
+>          - clock-names
+>
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: allwinner,sun60i-a733-rtc
 > +
->  config SUN4I_A10_CCU
->         tristate "Support for the Allwinner A10/A20 CCU"
->         default ARCH_SUNXI
-> diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefil=
-e
-> index c3f810a025a8..b0d823440c33 100644
-> --- a/drivers/clk/sunxi-ng/Makefile
-> +++ b/drivers/clk/sunxi-ng/Makefile
-> @@ -39,6 +39,7 @@ obj-$(CONFIG_SUN50I_H616_CCU) +=3D sun50i-h616-ccu.o
->  obj-$(CONFIG_SUN55I_A523_CCU)  +=3D sun55i-a523-ccu.o
->  obj-$(CONFIG_SUN55I_A523_MCU_CCU)      +=3D sun55i-a523-mcu-ccu.o
->  obj-$(CONFIG_SUN55I_A523_R_CCU)        +=3D sun55i-a523-r-ccu.o
-> +obj-$(CONFIG_SUN60I_A733_RTC_CCU)      +=3D sun60i-a733-rtc-ccu.o
->  obj-$(CONFIG_SUN4I_A10_CCU)    +=3D sun4i-a10-ccu.o
->  obj-$(CONFIG_SUN5I_CCU)                +=3D sun5i-ccu.o
->  obj-$(CONFIG_SUN6I_A31_CCU)    +=3D sun6i-a31-ccu.o
-> @@ -67,6 +68,7 @@ sun50i-h616-ccu-y             +=3D ccu-sun50i-h616.o
->  sun55i-a523-ccu-y              +=3D ccu-sun55i-a523.o
->  sun55i-a523-mcu-ccu-y          +=3D ccu-sun55i-a523-mcu.o
->  sun55i-a523-r-ccu-y            +=3D ccu-sun55i-a523-r.o
-> +sun60i-a733-rtc-ccu-y          +=3D ccu-sun60i-a733-rtc.o
->  sun4i-a10-ccu-y                        +=3D ccu-sun4i-a10.o
->  sun5i-ccu-y                    +=3D ccu-sun5i.o
->  sun6i-a31-ccu-y                        +=3D ccu-sun6i-a31.o
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c b/drivers/clk/sun=
-xi-ng/ccu-sun60i-a733-rtc.c
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 5
+> +          items:
+> +            - description: Bus clock for register access
+
+> +            - description: 19.2 MHz oscillator
+> +            - description: 24 MHz oscillator
+> +            - description: 26 MHz oscillator
+
+No. There is only one input. As in there is only one set of pins for the
+DCXO. The inputs are the same as on R329 / A523. Just use that list.
+
+> +            - description: AHB parent for internal SPI clock
+> +            - description: External 32768 Hz oscillator
+> +
+> +        clock-names:
+> +          minItems: 5
+> +          items:
+> +            - const: bus
+> +            - const: osc19M
+> +            - const: osc24M
+> +            - const: osc26M
+> +            - const: ahb
+> +            - const: ext-osc32k
+> +
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +
+>    - if:
+>        properties:
+>          compatible:
+> @@ -164,6 +197,7 @@ allOf:
+>                - allwinner,sun8i-r40-rtc
+>                - allwinner,sun50i-h616-rtc
+>                - allwinner,sun50i-r329-rtc
+> +              - allwinner,sun60i-a733-rtc
+>
+>      then:
+>        properties:
+> diff --git a/include/dt-bindings/clock/sun60i-a733-rtc.h b/include/dt-bin=
+dings/clock/sun60i-a733-rtc.h
 > new file mode 100644
-> index 000000000000..d17aceffa16e
+> index 000000000000..8a2b5facad73
 > --- /dev/null
-> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c
-> @@ -0,0 +1,204 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-> + */
+> +++ b/include/dt-bindings/clock/sun60i-a733-rtc.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
 > +
-> +#include <linux/array_size.h>
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/device.h>
-> +#include <linux/module.h>
+> +#ifndef _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
+> +#define _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
 > +
-> +#include "ccu_common.h"
-> +
-> +#include "ccu_gate.h"
-> +#include "ccu_mux.h"
-> +#include "ccu_rtc.h"
-> +
-> +#include "ccu-sun60i-a733-rtc.h"
-> +
-> +static struct ccu_common iosc_clk =3D {
-> +       .reg            =3D DCXO_CTRL_REG,
-> +       .features       =3D CCU_FEATURE_IOSC_CALIBRATION,
-> +       .hw.init        =3D CLK_HW_INIT_NO_PARENT("iosc", &ccu_iosc_ops,
-> +                                               CLK_GET_RATE_NOCACHE),
-> +};
-> +
-> +static struct ccu_common iosc_32k_clk =3D {
-> +       .features       =3D CCU_FEATURE_IOSC_CALIBRATION,
-> +       .hw.init        =3D CLK_HW_INIT_HW("iosc-32k", &iosc_clk.hw,
-> +                                        &ccu_iosc_32k_ops,
-> +                                        CLK_GET_RATE_NOCACHE),
-> +};
-> +
-> +static SUNXI_CCU_GATE_FW(ext_osc32k_gate_clk, "ext-osc32k-gate",
-> +                        "ext-osc32k", 0x0, BIT(4), 0);
-> +
-> +static const struct clk_hw *osc32k_parents[] =3D {
-> +       &iosc_32k_clk.hw,
-> +       &ext_osc32k_gate_clk.common.hw,
-> +};
-> +
-> +static struct ccu_mux osc32k_clk =3D {
-> +       .mux    =3D _SUNXI_CCU_MUX(0, 1),
-> +       .common =3D {
-> +               .reg            =3D LOSC_CTRL_REG,
-> +               .features       =3D CCU_FEATURE_KEY_FIELD,
-> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("osc32k",
-> +                                                        osc32k_parents,
-> +                                                        &ccu_mux_ops,
-> +                                                        0),
-> +       },
-> +};
-> +
-> +static const struct clk_parent_data hosc_parents[] =3D {
-> +       { .fw_name =3D "osc24M" },
-> +       { .fw_name =3D "osc19M" },
-> +       { .fw_name =3D "osc26M" },
-> +       { .fw_name =3D "osc24M" },
-> +};
+> +#define CLK_IOSC               0
+> +#define CLK_OSC32K             1
+> +#define CLK_HOSC               2
 
-As mentioned in my reply to the binding, this is wrong. There is only
-one input.
+The DCXO enable control has been present since at least the H6. We just
+never added it, as we would never disable it anyway.
 
-The most you can do is check the rate of the parent clock against the
-detected one, and _scream_ that the DT is wrong. And maybe override
-the reported frequency.
+If you compare the RTC clock trees of the A733 and A523, the only addition
+besides the new gates seems to be the LOSC auto selection. But even that
+is just an illusion, as the A523 has the same registers for that.
 
-If you want to do the latter, you could add a new fixed rate gated
-clock type to our library. You would fill in the rate before the
-clocks get registered. I probably wouldn't go that far. We want people
-to have correct hardware descriptions.
+One could say the A733 RTC is almost backward compatible to the A523, if
+not for the two fastboot registers the A523 has at 0x120 and 0x124.
 
-Funnily enough Allwinner's BSP actually implements a fixed rate gate
-for the next 24M-to-32k divider clock.
+So I ask that you try to integrate the differences into the existing
+driver and bindings. You can tweak and export internal clks if you
+need.
 
-> +
-> +struct ccu_mux hosc_clk =3D {
-> +       .enable =3D DCXO_CTRL_DCXO_EN,
-> +       .mux    =3D _SUNXI_CCU_MUX(14, 2),
-> +       .common =3D {
-> +               .reg            =3D DCXO_CTRL_REG,
-> +               .hw.init        =3D CLK_HW_INIT_PARENTS_DATA("hosc",
-> +                                                          hosc_parents,
-> +                                                          &ccu_mux_ro_op=
-s,
-> +                                                          0),
-> +       },
-> +};
+> +#define CLK_RTC_32K            3
 
-So this is wrong.
-
-> +
-> +static const struct ccu_mux_fixed_prediv hosc_32k_predivs[] =3D {
-> +       { .index =3D 0, .div =3D 732 },
-
-Why is it 732 instead of 750?
-
-> +       { .index =3D 1, .div =3D 586 },
-> +       { .index =3D 2, .div =3D 793 },
-> +       { .index =3D 3, .div =3D 732 },
-> +};
-> +
-> +static struct ccu_mux hosc_32k_mux_clk =3D {
-> +       .enable         =3D DCXO_CTRL_DCXO_EN,
-
-No. The parent "hosc" clock owns this.  The enable bit for this clock
-is actually bit 16 of LOSC_OUT_GATING_REG, which you model below as
-a separate gate.
-
-> +       .mux            =3D {
-> +               .shift          =3D 14,
-> +               .width          =3D 2,
-> +               .fixed_predivs  =3D hosc_32k_predivs,
-> +               .n_predivs      =3D ARRAY_SIZE(hosc_32k_predivs),
-> +       },
-> +       .common         =3D {
-> +               .reg            =3D DCXO_CTRL_REG,
-> +               .features       =3D CCU_FEATURE_FIXED_PREDIV,
-> +               .hw.init        =3D CLK_HW_INIT_PARENTS_DATA("hosc-32k-mu=
-x",
-> +                                                          hosc_parents,
-> +                                                          &ccu_mux_ro_op=
-s,
-
-Again, this is just not the way to do it.
-
-> +                                                          0),
-> +       },
-> +};
-
-I would test that it actually does switch dividers, Or at the very least,
-it has a larger divider for 26M.
-
-Maybe Andre can help? At least on this SoC the fanout pins are much more
-accessible.
-
-> +
-> +static SUNXI_CCU_GATE_HW(hosc_32k_clk, "hosc-32k", &hosc_32k_mux_clk.com=
-mon.hw,
-> +                        LOSC_OUT_GATING_REG, BIT(16), 0);
-> +
-> +static const struct clk_hw *rtc_32k_parents[] =3D {
-> +       &osc32k_clk.common.hw,
-> +       &hosc_32k_clk.common.hw,
-> +};
-> +
-> +static struct ccu_mux rtc_32k_clk =3D {
-> +       .mux    =3D _SUNXI_CCU_MUX(1, 1),
-> +       .common =3D {
-> +               .reg            =3D LOSC_CTRL_REG,
-> +               .features       =3D CCU_FEATURE_KEY_FIELD,
-> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("rtc-32k",
-> +                                                        rtc_32k_parents,
-> +                                                        &ccu_mux_ops,
-> +                                                        0),
-> +       },
-> +};
-> +
-> +static const struct clk_parent_data osc32k_fanout_parents[] =3D {
-> +       { .hw =3D &osc32k_clk.common.hw },
-> +       { .hw =3D &ext_osc32k_gate_clk.common.hw },
-> +       { .hw =3D &hosc_32k_clk.common.hw },
-> +};
-> +
-> +static SUNXI_CCU_MUX_DATA_WITH_GATE(osc32k_fanout_clk, "osc32k-fanout", =
-osc32k_fanout_parents,
-> +                                   LOSC_OUT_GATING_REG,
-> +                                   1, 2,       /* mux */
-> +                                   BIT(0),     /* gate */
-> +                                   0);
-> +
-> +static SUNXI_CCU_GATE_HW(hosc_serdes1_clk, "hosc-serdes1", &hosc_clk.com=
-mon.hw,
-> +                        DCXO_GATING_REG, DCXO_SERDES1_GATING, 0);
-
-                                            ^
-Just use the BIT() expression here. Adding these macros doesn't really help=
-.
-
-> +static SUNXI_CCU_GATE_HW(hosc_serdes0_clk, "hosc-serdes0", &hosc_clk.com=
-mon.hw,
-> +                        DCXO_GATING_REG, DCXO_SERDES0_GATING, 0);
-> +static SUNXI_CCU_GATE_HW(hosc_hdmi_clk, "hosc-hdmi", &hosc_clk.common.hw=
-,
-> +                        DCXO_GATING_REG, DCXO_HDMI_GATING, 0);
-> +static SUNXI_CCU_GATE_HW(hosc_ufs_clk, "hosc-ufs", &hosc_clk.common.hw,
-> +                        DCXO_GATING_REG, DCXO_UFS_GATING, 0);
-> +
-> +static struct ccu_common *sun60i_rtc_ccu_clks[] =3D {
-> +       &iosc_clk,
-> +       &iosc_32k_clk,
-> +       &ext_osc32k_gate_clk.common,
-> +       &osc32k_clk.common,
-> +       &hosc_clk.common,
-> +       &hosc_32k_mux_clk.common,
-> +       &hosc_32k_clk.common,
-> +       &rtc_32k_clk.common,
-> +       &osc32k_fanout_clk.common,
-> +       &hosc_serdes1_clk.common,
-> +       &hosc_serdes0_clk.common,
-> +       &hosc_hdmi_clk.common,
-> +       &hosc_ufs_clk.common,
-> +};
-> +
-> +static struct clk_hw_onecell_data sun60i_rtc_ccu_hw_clks =3D {
-> +       .num =3D CLK_NUMBER,
-> +       .hws =3D {
-> +               [CLK_IOSC]              =3D &iosc_clk.hw,
-> +               [CLK_OSC32K]            =3D &osc32k_clk.common.hw,
-> +               [CLK_HOSC]              =3D &hosc_clk.common.hw,
-> +               [CLK_RTC_32K]           =3D &rtc_32k_clk.common.hw,
-> +               [CLK_OSC32K_FANOUT]     =3D &osc32k_fanout_clk.common.hw,
-> +               [CLK_HOSC_SERDES1]      =3D &hosc_serdes1_clk.common.hw,
-> +               [CLK_HOSC_SERDES0]      =3D &hosc_serdes0_clk.common.hw,
-> +               [CLK_HOSC_HDMI]         =3D &hosc_hdmi_clk.common.hw,
-> +               [CLK_HOSC_UFS]          =3D &hosc_ufs_clk.common.hw,
-> +               [CLK_IOSC_32K]          =3D &iosc_32k_clk.hw,
-> +               [CLK_EXT_OSC32K_GATE]   =3D &ext_osc32k_gate_clk.common.h=
-w,
-> +               [CLK_HOSC_32K_MUX]      =3D &hosc_32k_mux_clk.common.hw,
-> +               [CLK_HOSC_32K]          =3D &hosc_32k_clk.common.hw,
-> +       },
-> +};
-> +
-> +static const struct sunxi_ccu_desc sun60i_rtc_ccu_desc =3D {
-> +       .ccu_clks       =3D sun60i_rtc_ccu_clks,
-> +       .num_ccu_clks   =3D ARRAY_SIZE(sun60i_rtc_ccu_clks),
-> +
-> +       .hw_clks        =3D &sun60i_rtc_ccu_hw_clks,
-> +};
-> +
-> +static int sun60i_rtc_ccu_probe(struct auxiliary_device *adev,
-> +                               const struct auxiliary_device_id *id)
-> +{
-> +       struct device *dev =3D &adev->dev;
-> +       void __iomem *reg =3D dev->platform_data;
-> +
-> +       return devm_sunxi_ccu_probe(dev, reg, &sun60i_rtc_ccu_desc);
-> +}
-> +
-> +static const struct auxiliary_device_id sun60i_ccu_rtc_ids[] =3D {
-> +       { .name =3D SUN6I_RTC_AUX_ID(sun60i) },
-> +       { /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, sun60i_ccu_rtc_ids);
-> +
-> +static struct auxiliary_driver sun60i_ccu_rtc_driver =3D {
-> +       .probe =3D sun60i_rtc_ccu_probe,
-> +       .id_table =3D sun60i_ccu_rtc_ids,
-> +};
-> +module_auxiliary_driver(sun60i_ccu_rtc_driver);
-> +
-> +MODULE_IMPORT_NS("SUNXI_CCU");
-> +MODULE_DESCRIPTION("Support for the Allwinner A733 RTC CCU");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h b/drivers/clk/sun=
-xi-ng/ccu-sun60i-a733-rtc.h
-> new file mode 100644
-> index 000000000000..41ec6195b5e7
-> --- /dev/null
-> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h
-> @@ -0,0 +1,18 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-> + */
-> +
-> +#ifndef _CCU_SUN60I_A733_RTC_H_
-> +#define _CCU_SUN60I_A733_RTC_H_
-> +
-> +#include <dt-bindings/clock/sun60i-a733-rtc.h>
-> +
-> +#define CLK_IOSC_32K           9
-> +#define CLK_EXT_OSC32K_GATE    10
-> +#define CLK_HOSC_32K_MUX       11
-> +#define CLK_HOSC_32K           12
-> +
-> +#define CLK_NUMBER             (CLK_HOSC_32K + 1)
-> +
-> +#endif /* _CCU_SUN60I_A733_RTC_H_ */
-> diff --git a/drivers/clk/sunxi-ng/ccu_rtc.h b/drivers/clk/sunxi-ng/ccu_rt=
-c.h
-> index 1c44c2206a25..665162723796 100644
-> --- a/drivers/clk/sunxi-ng/ccu_rtc.h
-> +++ b/drivers/clk/sunxi-ng/ccu_rtc.h
-> @@ -27,8 +27,15 @@
->  #define LOSC_OUT_GATING_REG            0x60
->
->  #define DCXO_CTRL_REG                  0x160
-> +#define DCXO_CTRL_DCXO_EN              BIT(1)
->  #define DCXO_CTRL_CLK16M_RC_EN         BIT(0)
->
-> +#define DCXO_GATING_REG                        0x16c
+AFAICT besides being an internal clock, this is also fed to GPIO for
+debounce? We probably need to expose this on the A523 as well.
 
 
-> +#define DCXO_SERDES1_GATING            BIT(5)
-> +#define DCXO_SERDES0_GATING            BIT(4)
-> +#define DCXO_HDMI_GATING               BIT(1)
-> +#define DCXO_UFS_GATING                        BIT(0)
-
-Adding them to the header is probably even less useful, as the output
-could change in future chips.
-
-
+Thanks
 ChenYu
+
+
+> +#define CLK_OSC32K_FANOUT      4
+> +#define CLK_HOSC_SERDES1       5
+> +#define CLK_HOSC_SERDES0       6
+> +#define CLK_HOSC_HDMI          7
+> +#define CLK_HOSC_UFS           8
+> +
+> +#endif /* _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_ */
+>
+> --
+> 2.52.0
+>
+>
 
