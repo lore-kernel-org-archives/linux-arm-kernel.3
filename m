@@ -4,81 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A6810F3DE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 15:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC58310F3DEA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 16:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rbWPLsM1ituzjmpUCVBL5pZ5M3+Fi+tgQWGnnJzOaRs=; b=uIsDnsA5V2c0GuZD7k7Fa1J1Wt
-	qP+NydcX+L62aYYYVRpm/IijB8NTXeLg384pfkp9tSJX6E4It1Ey/huH+QuFqlStfHGaMZk3wxUBZ
-	v/7BGM/3B8ivc6u29WONWi7/5jN3ngIYqTLFLzmoGHqxOnKbwzwo24J8dbHkb5sV8N6HF5VxPTr+q
-	hXjfQRxs/OdyQdcRIEX4tSZewCJHUrAebZoEFIU2n0CHbQnHTMbLMLLrdL3h6aOBCaFDxApCIuql5
-	j8qtJZd+R7NiJmioj+UN+YkA+zbwVlG6Doxj1HMEyXoifpAznXvaV9IBht/J37XUFuEXY/UZhOnvL
-	d0otaGMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mh8F9k4/dinkDW3+fSJ68XGmJrivibpzhc6HbsO47Hg=; b=UEZ35DxRBVMC9A
+	kiZn11KezIFposu1iL/gHo87UtZvcflJgrGIE0NcTR2tnbfDCZQGIakmed+FNlK7dFqZEFmhCFAyk
+	yR+nunD+64wDPVLNQBIve6wVZ0/Wr26fE2QKjq/1X3JlX9D1FHYhdbBWcm5h2a+riUcTnH7PvAH8I
+	z0mEJlDXQztKL7dXvj0d8KnfLE2YOudoX862cPi3flLW4XHC5oEgKUfsbl4yqyQUHffARiRUd2Tox
+	7miqenXfFIrkwk1WlOjcNCfWXbD7i2iq7B7wg6flSZvy/ygbiu5580EJ1ij28ScuMmNxwpPlkrpKw
+	P7aRqWx67z+cNfpk0Mqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6W0r-000000095TA-0sVZ;
-	Sat, 28 Mar 2026 15:55:49 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1w6WBu-000000095zB-1uFn;
+	Sat, 28 Mar 2026 16:07:14 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6W0n-000000095Sn-1iMs
+	id 1w6WBs-000000095yq-04HG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 15:55:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774713345; x=1806249345;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Po+QDyvBG3842NWgLuInLllWr4xq3NsyBBiWVwU0+ok=;
-  b=cfn0/7LctnfCnOUHHgYD3gZhCDRCSk5vz+GVkglrYwOf+8s/sbijVJ0D
-   EnVNxnJ7MagNDPoNllWBFdi4wj9Q7dSQRtY+Iwb3hTzkFUtM0hc0tyzI/
-   t0w5iJCMpw+sSQDTfUWXg40eBuaS2G6dC6mYstU+9tru9umtQ1yaAcXR7
-   KF4/v78toXxrgYxvVIDqgs2BWJmoK2tovYNAZLi8hQOaqvqqpH+HrjRLK
-   TMoCrSNvH2+j5CvbO58gsgCS+YwJhqlnJkI4fHOOeSqxz4xJmuiUjO7hD
-   l1CZ0dpxax9P4t+gC3BisFFc1cWLB+4cjqtsfFwYt1pGf6An580JmRzh0
-   A==;
-X-CSE-ConnectionGUID: 68uogJxtRoC+2iwkGlA2QA==
-X-CSE-MsgGUID: zmlqnkaOQvOnfKFHD1zg1Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="86382477"
-X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
-   d="scan'208";a="86382477"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 08:55:42 -0700
-X-CSE-ConnectionGUID: has1g+NZSPGdP7WtM7Tecg==
-X-CSE-MsgGUID: Mw2wMriZR6+qwIF/ReE0fA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
-   d="scan'208";a="225492423"
-Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 28 Mar 2026 08:55:40 -0700
-Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w6W0e-00000000BXl-3hxY;
-	Sat, 28 Mar 2026 15:55:36 +0000
-Date: Sat, 28 Mar 2026 23:54:54 +0800
-From: kernel test robot <lkp@intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: oe-kbuild-all@lists.linux.dev, Rob Herring <robh@kernel.org>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Chen-Yu Tsai <wenst@chromium.org>
-Subject: Re: [PATCH v3 2/3] drm/gem-dma: Use the dma_*_attr API variant
-Message-ID: <202603282331.VKpi5ANh-lkp@intel.com>
-References: <20260326100248.1171828-3-wenst@chromium.org>
+	Sat, 28 Mar 2026 16:07:13 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-35c124d2613so2104350a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 09:07:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774714030; x=1775318830; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mh8F9k4/dinkDW3+fSJ68XGmJrivibpzhc6HbsO47Hg=;
+        b=UKTlqYVCoYc3nmX6aPU67GIBkvTvgVg2WLpoZYWvotpkUMAIuDOyHkuX39fB+pkLML
+         OLWldbhFC3xehaNFj94571qZy1UW9IWAX1c2+jL1dg2NKWn5DOQPIxaZz++IKVvUDa6k
+         9LaZBaemj+4+Bl7yRLutQDXs7chN/xlHZ9G/MLJy5+r6xMZ4HnizLC2/fNPtL+3MA7EO
+         gbF1rPh7g19UdMUiiW9vB1YIevPb+liP4Ykhz2BdhP0xfK0OIsP92mW/zKXsr/0rZSnm
+         zZPxligOpke77sApuHI1/VeltYoa7+zNIAyGZufhorKfYcKKNpTmKh/DdHnLO0mPBi9u
+         f9Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774714030; x=1775318830;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mh8F9k4/dinkDW3+fSJ68XGmJrivibpzhc6HbsO47Hg=;
+        b=dfi22pGlXFJvftPKBxOWvv01ftu1ysmbyGE9FLxsvKkuuL9LtrEJQJ/SuS1ce+WK7a
+         HPtKfamyR/hZTFdrMdFkR2T+9CxvsvspIakPWqArsF0KbA6R2KMOu4jV6ivUuLaBciQr
+         gFXncWeT09oaUoqUvESeq1YO+URFWLHozRcy4JC6t5A4/+p7wAlPa4UL81m8Ep+ADCoj
+         flDZRPzsu40kmuoDpHHzVdEFwHtrjuX8SucupABgS0cjGIxvLKJAMN/AEtsjfLs1Oouy
+         dM02l3pZUYuS6QWZtscU2iHQmTguSjuBGsevtNm8uf58Oa3V/yv9XhHpmNykiqwGi5hO
+         fYvw==
+X-Forwarded-Encrypted: i=1; AJvYcCUg9yHcMvejwvgC7JfzFLSmKTiTk4FsJK5ioj249CHkjPFsnEr62T0MA1meuPQoha0d6UhotkfpFAt9c2I01FRn@lists.infradead.org
+X-Gm-Message-State: AOJu0YztREHm5rN6RW5/ADnSXi+1TLhcxWJ8Dsh+oTztXq73Z71tgCre
+	5YuFbiv0ATm9lOWojf+v/jVfqA7Lo6ZxoXGqZSXbmmz2em/KoZXjhaGC
+X-Gm-Gg: ATEYQzySOxx/MorwTPtnrtJWH+WahnujycTBuVzOQuh+mkfI2MVgwRx7O7OxtSDiY2g
+	KIJX4DgZm/D1ZNCUamUTmVoiPkygPCAIR2w7HYNS1R/dhurWG1H5tFMKXUX+FijNojj42kMguKR
+	KFnMOIyTOs/FQU4lnH9D8z7eg+XLwe6mvpJibsjrgVDLnrlV+51X72sOsSt2Gl3i7HL/WOzCOAt
+	zQDfp0nkM1kL19k7XgHp1I/mJbSB3CV9KyVOn0DJCVCMYy6UJRpX7JV0osLQpkg9/0ijY8QPULs
+	wb4HZz8qEGGMm4DNKAVd3GVANcCeP8+8DYehTxV41V4ErgVEBOBlDWBgnjGXYYWz+938XeRQ3cr
+	Hw330UosYKmpl+O95j6nwC0aTafHMcqK+7aAZ25eTa3w9G1lJepaosKx4iE80w1KyAYntKYWVwP
+	Z/7x87RnUUinAQ/K2llB936lQeVGBwml3dCg/Y
+X-Received: by 2002:a17:90b:4b4c:b0:35b:e591:99d1 with SMTP id 98e67ed59e1d1-35c30115bf8mr5974559a91.29.1774714030368;
+        Sat, 28 Mar 2026 09:07:10 -0700 (PDT)
+Received: from junjungu-PC.localdomain ([223.167.147.240])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c2ec27da0sm1988140a91.8.2026.03.28.09.07.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Mar 2026 09:07:09 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Subject: [PATCH 0/2] spi: stm32-ospi: two fixes
+Date: Sun, 29 Mar 2026 00:07:05 +0800
+Message-Id: <20260329-stm32-ospi-v1-0-142122466412@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260326100248.1171828-3-wenst@chromium.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKn8x2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDYyML3eKSXGMj3fzigkxdsxSj5EQDC2Pj1CQzJaCGgqLUtMwKsGHRsbW
+ 1AKuhUnpcAAAA
+X-Change-ID: 20260328-stm32-ospi-6d2ca0833eb6
+To: Mark Brown <broonie@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774714028; l=458;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=Bp6FqcuqvbNaOb4ln+t0fQhjjxmyiJc3wIxmGVnK+W0=;
+ b=6Gs+lZTSrrDeaFeCljm1jglrdrUxEIJ+DaahhE1qGO2T/H/LZu0YUfCncOMvDLG4FCni1kwVH
+ aHSXyDFyhHnD9e87xgGgrciIUZGsIMgG6dWSAeKw6Bxt4Dm5lQY06am
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_085545_518105_06E5D59B 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20260328_090712_061062_4B25AE1B 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,122 +113,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+Felix Gu (2):
+      spi: stm32-ospi: Fix reset control leak on probe error
+      spi: stm32-ospi: Fix DMA channel leak on stm32_ospi_dma_setup() failure
 
-kernel test robot noticed the following build errors:
+ drivers/spi/spi-stm32-ospi.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+---
+base-commit: 3b058d1aeeeff27a7289529c4944291613b364e9
+change-id: 20260328-stm32-ospi-6d2ca0833eb6
 
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on next-20260327]
-[cannot apply to sunxi/sunxi/for-next linus/master v7.0-rc5]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Yu-Tsai/drm-Introduce-DRM_MODE_DUMB_KERNEL_MAP-flag/20260328-141115
-base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
-patch link:    https://lore.kernel.org/r/20260326100248.1171828-3-wenst%40chromium.org
-patch subject: [PATCH v3 2/3] drm/gem-dma: Use the dma_*_attr API variant
-config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260328/202603282331.VKpi5ANh-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260328/202603282331.VKpi5ANh-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603282331.VKpi5ANh-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c: In function 'rcar_du_vsp_map_fb':
->> drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:296:82: error: expected ')' before 'gem'
-     296 |                                                     gem->dma_addr, gem->base.size
-         |                                                                                  ^
-         |                                                                                  )
-     297 |                                                     gem->dma_attrs);
-         |                                                     ~~~                           
-   drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:295:52: note: to match this '('
-     295 |                         ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
-         |                                                    ^
->> drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:295:31: error: too few arguments to function 'dma_get_sgtable_attrs'; expected 6, have 5
-     295 |                         ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
-         |                               ^~~~~~~~~~~~~~~~~~~~~
-   In file included from include/linux/dma-buf.h:21,
-                    from include/drm/drm_gem.h:38,
-                    from include/drm/drm_gem_dma_helper.h:7,
-                    from drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:18:
-   include/linux/dma-mapping.h:172:5: note: declared here
-     172 | int dma_get_sgtable_attrs(struct device *dev, struct sg_table *sgt,
-         |     ^~~~~~~~~~~~~~~~~~~~~
-
-
-vim +296 drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
-
-   258	
-   259	int rcar_du_vsp_map_fb(struct rcar_du_vsp *vsp, struct drm_framebuffer *fb,
-   260			       struct sg_table sg_tables[3])
-   261	{
-   262		struct rcar_du_device *rcdu = vsp->dev;
-   263		unsigned int i, j;
-   264		int ret;
-   265	
-   266		for (i = 0; i < fb->format->num_planes; ++i) {
-   267			struct drm_gem_dma_object *gem = drm_fb_dma_get_gem_obj(fb, i);
-   268			struct sg_table *sgt = &sg_tables[i];
-   269	
-   270			if (gem->sgt) {
-   271				struct scatterlist *src;
-   272				struct scatterlist *dst;
-   273	
-   274				/*
-   275				 * If the GEM buffer has a scatter gather table, it has
-   276				 * been imported from a dma-buf and has no physical
-   277				 * address as it might not be physically contiguous.
-   278				 * Copy the original scatter gather table to map it to
-   279				 * the VSP.
-   280				 */
-   281				ret = sg_alloc_table(sgt, gem->sgt->orig_nents,
-   282						     GFP_KERNEL);
-   283				if (ret)
-   284					goto fail;
-   285	
-   286				src = gem->sgt->sgl;
-   287				dst = sgt->sgl;
-   288				for (j = 0; j < gem->sgt->orig_nents; ++j) {
-   289					sg_set_page(dst, sg_page(src), src->length,
-   290						    src->offset);
-   291					src = sg_next(src);
-   292					dst = sg_next(dst);
-   293				}
-   294			} else {
- > 295				ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
- > 296							    gem->dma_addr, gem->base.size
-   297							    gem->dma_attrs);
-   298				if (ret)
-   299					goto fail;
-   300			}
-   301	
-   302			ret = vsp1_du_map_sg(vsp->vsp, sgt);
-   303			if (ret) {
-   304				sg_free_table(sgt);
-   305				goto fail;
-   306			}
-   307		}
-   308	
-   309		return 0;
-   310	
-   311	fail:
-   312		while (i--) {
-   313			struct sg_table *sgt = &sg_tables[i];
-   314	
-   315			vsp1_du_unmap_sg(vsp->vsp, sgt);
-   316			sg_free_table(sgt);
-   317		}
-   318	
-   319		return ret;
-   320	}
-   321	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Felix Gu <ustc.gu@gmail.com>
+
 
