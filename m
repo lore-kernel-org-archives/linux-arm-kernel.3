@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D321910F3DF3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 18:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFD610BA423
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 18:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vSiofseJQritJoo/kYMQf2WWbljZf1+ansnduhvt6I=; b=J01aPvtVSjXVuDBY02UVUaBvXD
-	SM6CnMfd1I0MMg2f3lvizuuJbIBg3tYW8y45DQBjLTaK8whXaOGNT9IUBYksoQgvLz8lDkmdZHPyC
-	87K63oQyDa36J7S2yMPfpVtLmYwAf7fIhjRM+d64wDUcnKX0SzwzhgywILh0nVg2l2qdzuM/aK4cX
-	eX3h3H82rihxwPkSVcPt6VIlB2P+gwEfT1Nq2iKMLG/+qwUL4mkb2asd1xDOJH4JdCFgxYk6byn8A
-	AaDSO6CAMo1vzVZHF2ed93w45ZKaDAzq7I9HjrzQvG4x5MJuiEanEmWRkwsfvS40G27zrRXCH4BL3
-	8f1m/Jdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QmNbU8w/wXLROhB5GpLCWw/c0/7pPxZBQCA+U72RmSs=; b=YLMXVEIbxsiBOlz0a8FwEl0aze
+	/4YbU2rGoyjo3Enjm2TaqLwALzsECSM74+0eB2p7pXXhzsd9h9oIx2H9phcWeODB7t1SnKTgCiGwh
+	Djhyb3qtXJTLhvaoXR7jMeI+J0iRrOjc3U7zTeCPMWXZeLZH03lq4trH6p0lTlJ/qIBRWe7a/36iw
+	qx23fBxn2ZcroHHpchVKdYH0Zfz385FmxPtJzr38U5zLHYeyEts5Wq8YMG+5m0+Tu6KfJxfXlqtb6
+	UVhVfR3ik6qLOaMvH0UYCsFWfOfuuIjIU96UfmDvKZLE1xlebpUQZCi4POdiXglKqLNT3lZs34Gr2
+	hKIM9wyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Yn5-00000009DCB-1CJV;
-	Sat, 28 Mar 2026 18:53:47 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1w6YpF-00000009DYa-2Xx4;
+	Sat, 28 Mar 2026 18:56:01 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Ymm-00000009D6k-2xML;
-	Sat, 28 Mar 2026 18:53:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2vSiofseJQritJoo/kYMQf2WWbljZf1+ansnduhvt6I=; b=BgHq0ekCWARS4UWqbmyuIW+pXQ
-	gVokiZNjgow+2iBxu8slg/MSQdWPS3HvFRTiwm7iP4BhVKhpKHaT24xOkIgGjJbE4xOYOLpIRKY7v
-	BYm3IiWsOqcEcKRvK/QzIwyRVAkjei/uwtsTdEASKdoul+Y5AyANihYQSbKsayoZdsWa75X3lPU6J
-	sRG05kw9/XOPFj8TodccRVbeCZmdXV1CxGeXMq6Xwt+vydOwagGtOdqNX+Z6qDW3tWzuJ+KKeJxNx
-	UbHbwAFzaCcpSAEu3F1JVHbyE0EjHrBC1TtdDV1sz0Uyc4fyIlzALlZdUn/ADz4L991426rDI/x4u
-	HJSWmTpw==;
-Received: from [189.7.87.169] (helo=[10.0.0.1])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1w6Yma-007f3o-IG; Sat, 28 Mar 2026 19:53:16 +0100
-From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Date: Sat, 28 Mar 2026 15:52:48 -0300
-Subject: [PATCH v8 2/3] drm/v3d: Allocate all resources before enabling the
- clock
+	id 1w6YpC-00000009DY0-2eAX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Mar 2026 18:56:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=QmNbU8w/wXLROhB5GpLCWw/c0/7pPxZBQCA+U72RmSs=; b=wcxrXdOx2x0CM5UOU1Z5djDfMk
+	rTynwB4SMJh1bQYz6s1K8OGwkSf9Z2R5QW6YYW6dmLFgqicCknErDcotW7UQDLYVmHEPvwc2vIQDv
+	p68AhgdpoKq9QuvHMzCk1WpDWfRmIPnz7Gi8T+qTLkH3xuZ/kf68SKpt5NqX229KmFpwfKpqefphe
+	BDLhqcsXL6KnbjrAa1Pk725z2G0xyDO2w0GdzU/8573wMiMGWuNXWlHu7vUfZYOdOVnly1zMxPZ/c
+	1uWa7TVDqaTJOKd4Gb5ZoVPaxx6yJu41siZjVmq+SDYGPDP5EsuUie6PXw8LthWeffXT+cZKk7emi
+	xL1zmoow==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47004)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w6Yp4-000000007M3-3wn7;
+	Sat, 28 Mar 2026 18:55:51 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w6Yp1-000000000sd-3WOM;
+	Sat, 28 Mar 2026 18:55:47 +0000
+Date: Sat, 28 Mar 2026 18:55:47 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Ong Boon Leong <boon.leong.ong@intel.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: simplify GSO/TSO test in
+ stmmac_xmit()
+Message-ID: <acgkM2FGS2h-fPVN@shell.armlinux.org.uk>
+References: <acZQaDeCoib5S5UA@shell.armlinux.org.uk>
+ <E1w63fl-0000000E3Vb-3JkY@rmk-PC.armlinux.org.uk>
+ <aceQRSc5o4D-HHmq@shell.armlinux.org.uk>
+ <acegAqUb-Dzy87d8@shell.armlinux.org.uk>
+ <acgPJgW9r0l952qu@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260328-v3d-power-management-v8-2-94336830df5f@igalia.com>
-References: <20260328-v3d-power-management-v8-0-94336830df5f@igalia.com>
-In-Reply-To: <20260328-v3d-power-management-v8-0-94336830df5f@igalia.com>
-To: Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>, 
- Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7563; i=mcanal@igalia.com;
- h=from:subject:message-id; bh=+zjomnaO0OzS3lQEQceIVi2rjWwjOF5edG9LH0KBlvI=;
- b=owEBbQGS/pANAwAKAT/zDop2iPqqAcsmYgBpyCORZO1yuw4U5BwNrVMy1Cb/uFjHrOp7RoIq7
- /wtAVfJwouJATMEAAEKAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCacgjkQAKCRA/8w6Kdoj6
- qondB/4qSE07S1f82TMMDCVt0BxMJQRPRNr/xOQc4A2PGOSr/2PB/h003ON3OZZ4zYAxbpIoVZp
- cEX8xPuHaFWJSbO/WhmpP2oeWm8fNB5PK4b3959hMycp0DSfzEr51r+416S5e+NijrT4mGQu0lD
- Iodc3+wbNb0wjmEe7u3BXUrB9JeKIL8BBO5PGHM6HcNCU434YyoxIZNqMiCHmFKtA2ob1t17W1w
- 4ULYLLYMEt7IX/1FAzOCiWQbNhTVrBDWsKJ2couUNu9JJS2hkGy6c/hEbgVllME4SHA5FShGwxt
- XH/zCUW5iRtfeUol0W6hJOyPrKZJ2MBf3TytEAn0h6TiIRkW
-X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
- fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <acgPJgW9r0l952qu@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_115329_074502_B767D8CA 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20260328_115558_849276_A217A381 
+X-CRM114-Status: GOOD (  60.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,262 +89,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move all resource allocation operations before actually enabling the
-clock, as those operations don't require the GPU to be powered on.
+On Sat, Mar 28, 2026 at 05:25:58PM +0000, Russell King (Oracle) wrote:
+> On Sat, Mar 28, 2026 at 09:31:46AM +0000, Russell King (Oracle) wrote:
+> > On Sat, Mar 28, 2026 at 08:24:37AM +0000, Russell King (Oracle) wrote:
+> > > On Fri, Mar 27, 2026 at 09:40:09AM +0000, Russell King (Oracle) wrote:
+> > > > The test in stmmac_xmit() to see whether we should pass the skbuff to
+> > > > stmmac_tso_xmit() is more complex than it needs to be. This test can
+> > > > be simplified by storing the mask of GSO types that we will pass, and
+> > > > setting it according to the enabled features.
+> > > > 
+> > > > Note that "tso" is a mis-nomer since commit b776620651a1 ("net:
+> > > > stmmac: Implement UDP Segmentation Offload"). Also note that this
+> > > > commit controls both via the TSO feature. We preserve this behaviour
+> > > > in this commit.
+> > > > 
+> > > > Also, this commit unconditionally accessed skb_shinfo(skb)->gso_type
+> > > > for all frames, even when skb_is_gso() was false. This access is
+> > > > eliminated.
+> > > > 
+> > > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > 
+> > > AI review of this patch regurgitates Jakub's point that was discussed.
+> > > 
+> > > > @@ -3700,7 +3700,7 @@ static int stmmac_hw_setup(struct net_device *dev)
+> > > >  	stmmac_set_rings_length(priv);
+> > > >  
+> > > >  	/* Enable TSO */
+> > > > -	if (priv->tso) {
+> > > > +	if (priv->gso_enabled_types) {
+> > > >  		for (chan = 0; chan < tx_cnt; chan++) {
+> > > >  			struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[chan];
+> > > >  
+> > > 
+> > > ...
+> > > 
+> > > > @@ -7828,7 +7834,7 @@ static int __stmmac_dvr_probe(struct device *device,
+> > > >  		ndev->hw_features |= NETIF_F_TSO | NETIF_F_TSO6;
+> > > >  		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+> > > >  			ndev->hw_features |= NETIF_F_GSO_UDP_L4;
+> > > > -		priv->tso = true;
+> > > > +		stmmac_set_gso_types(priv, true);
+> > > 
+> > > Clearly, the issue it is regurgitating has been there for a long time
+> > > and isn't a new issue introduced by this patch.
+> > > 
+> > > AI needs to stop doing this, because it is encouraging multiple changes
+> > > in a single patch, which is against the normal kernel process.
+> > > 
+> > > As already pointed out, there are multiple issues with stmmac TSO
+> > > support, particularly with glue drivers that enable TSO on some
+> > > queues/channels and not others, since netdev core TSO support is
+> > > global across all channels.
+> > > 
+> > > So, won't the AI response in this patch - it's just another pre-
+> > > existing issue that needs fixing in a separate patch.
+> > 
+> > Looking at the TSO vs TBS issue (which precludes the use of TSO on a
+> > channel in stmmac) I can't find an obvious reason for this in the
+> > available documentation. However, unfortunately, iMX8MP doesn't support
+> > TSO, so the TSO bits are elided there, but does support TBS (needing
+> > enhanced descriptors to be enabled). STM32MP151 on the other hand
+> > supports TSO but not TBS, and thus fails to mention anything about
+> > enhanced descriptors or TBS.
+> > 
+> > When stmmac_enable_tbs() enables TBS, it isn't actually enabling a
+> > feature specific bit, but switching the channel to use enhanced
+> > descriptor format. This format extends the basic descriptors by
+> > placing four extra 32-bit words before the basic descriptor.
+> > 
+> > Looking at the enhanced normal descriptor format for TDES3, it
+> > indicates that the format includes bit 18 in the control field, which
+> > is the TSE bit (TCP segmentation enable for this packet.) So, it seems
+> > it's not a limitation of the descriptor format.
+> > 
+> > So, either "TSO and TBS cannot co-exist" is incorrect, or there is a
+> > hardware limitation that isn't documented between these two manuals.
+> > 
+> > One other interesting point is that stmmac_tso_xmit() seems to
+> > handle the case where TSO and TBS are enabled on the channel:
+> > 
+> >                 if (tx_q->tbs & STMMAC_TBS_AVAIL)
+> >                         mss_desc = &tx_q->dma_entx[tx_q->cur_tx].basic;
+> >                 else
+> >                         mss_desc = &tx_q->dma_tx[tx_q->cur_tx];
+> > 
+> >                 stmmac_set_mss(priv, mss_desc, mss);
+> > ...
+> >         if (tx_q->tbs & STMMAC_TBS_AVAIL)
+> >                 desc = &tx_q->dma_entx[first_entry].basic;
+> >         else
+> >                 desc = &tx_q->dma_tx[first_entry];
+> >         first = desc;
+> > 
+> > etc.
+> > 
+> > Avoiding enabling TSO for a TBS channel was added by this commit:
+> > 
+> > commit 5e6038b88a5718910dd74b949946d9d9cee9a041
+> > Author: Ong Boon Leong <boon.leong.ong@intel.com>
+> > Date:   Wed Apr 21 17:11:49 2021 +0800
+> > 
+> >     net: stmmac: fix TSO and TBS feature enabling during driver open
+> > 
+> >     TSO and TBS cannot co-exist and current implementation requires two
+> >     fixes:
+> > 
+> >      1) stmmac_open() does not need to call stmmac_enable_tbs() because
+> >         the MAC is reset in stmmac_init_dma_engine() anyway.
+> >      2) Inside stmmac_hw_setup(), we should call stmmac_enable_tso() for
+> >         TX Q that is _not_ configured for TBS.
+> > 
+> >     Fixes: 579a25a854d4 ("net: stmmac: Initial support for TBS")
+> >     Signed-off-by: Ong Boon Leong <boon.leong.ong@intel.com>
+> >     Signed-off-by: David S. Miller <davem@davemloft.net>
+> > 
+> > which doesn't really explain the background, and leaves all the TBS
+> > cruft in the TSO transmit path (nothing like properly updating the
+> > driver, eh? No wonder stmmac is such a mess!)
+> 
+> The more I look at this, the more I'm convinced this commit is
+> incorrect, even if it is the case that the hardware doesn't support
+> TSO and TBS together.
+> 
+> When TSO is enabled (NETIF_F_TSO set in the netif's features) then
+> the core net layer can submit skbuffs that need to be processed using
+> TSO.
+> 
+> If such a skbuff hits a channel that has TSO disabled (because the
+> above commit caused:
+> 
+> 	stmmac_enable_tso(priv, priv->ioaddr, 1, chan);
+> 
+> not to be called) then the TSE bit in the transmit control register
+> will not be set, thereby disabling TSO on this particular channel.
+> 
+> However, stmmac_xmit() will still call through to stmmac_tso_xmit()
+> which will dutifully populate the transmit ring with descriptors that
+> assume TSE has been set in the transmit control register.
+> 
+> It seems to me _that_ is even more broken than "the hardware doesn't
+> support TSO and TBS together" - I have no idea what the stmmac hardware
+> does if it encounters descriptors with TSE set but TSE is disabled in
+> the transmit control register. My guess would be it would ignore the
+> TSE bit in the descriptor and assume that it's one very large packet
+> to be sent - and either error out because it's longer than the
+> maximum the hardware can support or it will just try to transmit it
+> anyway.
 
-This is a preparation for runtime PM support. The next commit will
-move all code related to powering on and initiating the GPU into the
-runtime PM resume callback and all resource allocation will happen
-before resume().
+Okay, I've found a statement in the stm32mp25xx documentation which
+backs up Intel's commit, but that commit is still wrong because it
+only half does the job.
 
-Reviewed-by: Melissa Wen <mwen@igalia.com>
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
----
- drivers/gpu/drm/v3d/v3d_drv.c | 93 ++++++++++++++++++++++---------------------
- drivers/gpu/drm/v3d/v3d_drv.h |  1 +
- drivers/gpu/drm/v3d/v3d_gem.c | 18 ++++-----
- drivers/gpu/drm/v3d/v3d_irq.c | 15 +++----
- 4 files changed, 62 insertions(+), 65 deletions(-)
+However, I think I now have a solution - implementing
+.ndo_features_check() which will mask out the NETIF_F_GSO_MASK
+features if either the header length is greater than 1023 (the
+hardware maximum) or the queue (as returned by
+skb_get_queue_mapping(skb)) is for a queue which has TBS available,
+and thus has TSO disabled.
 
-diff --git a/drivers/gpu/drm/v3d/v3d_drv.c b/drivers/gpu/drm/v3d/v3d_drv.c
-index c5e7c778ec7a1a39d81155f7ed2a7ba811b5e3aa..e57b36f4d81a59d15a223afdc4078ae6456de9a9 100644
---- a/drivers/gpu/drm/v3d/v3d_drv.c
-+++ b/drivers/gpu/drm/v3d/v3d_drv.c
-@@ -363,14 +363,50 @@ static int v3d_platform_drm_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
-+	if (v3d->ver < V3D_GEN_41) {
-+		ret = map_regs(v3d, &v3d->gca_regs, "gca");
-+		if (ret)
-+			return ret;
-+	}
-+
-+	v3d->reset = devm_reset_control_get_optional_exclusive(dev, NULL);
-+	if (IS_ERR(v3d->reset))
-+		return dev_err_probe(dev, PTR_ERR(v3d->reset),
-+				     "Failed to get reset control\n");
-+
-+	if (!v3d->reset) {
-+		ret = map_regs(v3d, &v3d->bridge_regs, "bridge");
-+		if (ret) {
-+			dev_err(dev, "Failed to get bridge registers\n");
-+			return ret;
-+		}
-+	}
-+
- 	v3d->clk = devm_clk_get_optional(dev, NULL);
- 	if (IS_ERR(v3d->clk))
- 		return dev_err_probe(dev, PTR_ERR(v3d->clk), "Failed to get V3D clock\n");
- 
-+	ret = v3d_irq_init(v3d);
-+	if (ret)
-+		return ret;
-+
-+	v3d_perfmon_init(v3d);
-+
-+	v3d->mmu_scratch = dma_alloc_wc(dev, 4096, &v3d->mmu_scratch_paddr,
-+					GFP_KERNEL | __GFP_NOWARN | __GFP_ZERO);
-+	if (!v3d->mmu_scratch) {
-+		dev_err(dev, "Failed to allocate MMU scratch page\n");
-+		return -ENOMEM;
-+	}
-+
-+	ret = v3d_gem_init(drm);
-+	if (ret)
-+		goto dma_free;
-+
- 	ret = clk_prepare_enable(v3d->clk);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Couldn't enable the V3D clock\n");
--		return ret;
-+		goto gem_destroy;
- 	}
- 
- 	v3d_idle_sms(v3d);
-@@ -399,44 +435,9 @@ static int v3d_platform_drm_probe(struct platform_device *pdev)
- 	ident3 = V3D_READ(V3D_HUB_IDENT3);
- 	v3d->rev = V3D_GET_FIELD(ident3, V3D_HUB_IDENT3_IPREV);
- 
--	v3d_perfmon_init(v3d);
--
--	v3d->reset = devm_reset_control_get_optional_exclusive(dev, NULL);
--	if (IS_ERR(v3d->reset)) {
--		ret = dev_err_probe(dev, PTR_ERR(v3d->reset),
--				    "Failed to get reset control\n");
--		goto clk_disable;
--	}
--
--	if (!v3d->reset) {
--		ret = map_regs(v3d, &v3d->bridge_regs, "bridge");
--		if (ret) {
--			dev_err(dev, "Failed to get bridge registers\n");
--			goto clk_disable;
--		}
--	}
--
--	if (v3d->ver < V3D_GEN_41) {
--		ret = map_regs(v3d, &v3d->gca_regs, "gca");
--		if (ret)
--			goto clk_disable;
--	}
--
--	v3d->mmu_scratch = dma_alloc_wc(dev, 4096, &v3d->mmu_scratch_paddr,
--					GFP_KERNEL | __GFP_NOWARN | __GFP_ZERO);
--	if (!v3d->mmu_scratch) {
--		dev_err(dev, "Failed to allocate MMU scratch page\n");
--		ret = -ENOMEM;
--		goto clk_disable;
--	}
--
--	ret = v3d_gem_init(drm);
--	if (ret)
--		goto dma_free;
--
--	ret = v3d_irq_init(v3d);
--	if (ret)
--		goto gem_destroy;
-+	v3d_init_hw_state(v3d);
-+	v3d_mmu_set_page_table(v3d);
-+	v3d_irq_enable(v3d);
- 
- 	ret = drm_dev_register(drm, 0);
- 	if (ret)
-@@ -452,12 +453,13 @@ static int v3d_platform_drm_probe(struct platform_device *pdev)
- 	drm_dev_unregister(drm);
- irq_disable:
- 	v3d_irq_disable(v3d);
-+clk_disable:
-+	v3d_power_off_sms(v3d);
-+	clk_disable_unprepare(v3d->clk);
- gem_destroy:
- 	v3d_gem_destroy(drm);
- dma_free:
- 	dma_free_wc(dev, 4096, v3d->mmu_scratch, v3d->mmu_scratch_paddr);
--clk_disable:
--	clk_disable_unprepare(v3d->clk);
- 	return ret;
- }
- 
-@@ -471,14 +473,13 @@ static void v3d_platform_drm_remove(struct platform_device *pdev)
- 
- 	drm_dev_unregister(drm);
- 
--	v3d_gem_destroy(drm);
--
--	dma_free_wc(v3d->drm.dev, 4096, v3d->mmu_scratch,
--		    v3d->mmu_scratch_paddr);
--
- 	v3d_power_off_sms(v3d);
- 
- 	clk_disable_unprepare(v3d->clk);
-+
-+	v3d_gem_destroy(drm);
-+
-+	dma_free_wc(dev, 4096, v3d->mmu_scratch, v3d->mmu_scratch_paddr);
- }
- 
- static struct platform_driver v3d_platform_driver = {
-diff --git a/drivers/gpu/drm/v3d/v3d_drv.h b/drivers/gpu/drm/v3d/v3d_drv.h
-index 6a3cad933439812d78da5797749c020a9bf46402..ebf406b615bb52de9cb98ea8efe941a5787fb4bd 100644
---- a/drivers/gpu/drm/v3d/v3d_drv.h
-+++ b/drivers/gpu/drm/v3d/v3d_drv.h
-@@ -565,6 +565,7 @@ struct dma_fence *v3d_fence_create(struct v3d_dev *v3d, enum v3d_queue q);
- 
- /* v3d_gem.c */
- extern bool super_pages;
-+void v3d_init_hw_state(struct v3d_dev *v3d);
- int v3d_gem_init(struct drm_device *dev);
- void v3d_gem_destroy(struct drm_device *dev);
- void v3d_reset_sms(struct v3d_dev *v3d);
-diff --git a/drivers/gpu/drm/v3d/v3d_gem.c b/drivers/gpu/drm/v3d/v3d_gem.c
-index 75d9eccd796664e67277c1f83ad59063f164d1da..def6a9612b857a241f6b2e1f601509928e3f9f8b 100644
---- a/drivers/gpu/drm/v3d/v3d_gem.c
-+++ b/drivers/gpu/drm/v3d/v3d_gem.c
-@@ -36,13 +36,6 @@ v3d_init_core(struct v3d_dev *v3d, int core)
- 	V3D_CORE_WRITE(core, V3D_CTL_L2TFLEND, ~0);
- }
- 
--/* Sets invariant state for the HW. */
--static void
--v3d_init_hw_state(struct v3d_dev *v3d)
--{
--	v3d_init_core(v3d, 0);
--}
--
- static void
- v3d_idle_axi(struct v3d_dev *v3d, int core)
- {
-@@ -259,6 +252,14 @@ v3d_invalidate_caches(struct v3d_dev *v3d)
- 	v3d_invalidate_slices(v3d, 0);
- }
- 
-+/* Sets invariant state for the HW. */
-+void
-+v3d_init_hw_state(struct v3d_dev *v3d)
-+{
-+	v3d_init_core(v3d, 0);
-+}
-+
-+
- static void
- v3d_huge_mnt_init(struct v3d_dev *v3d)
- {
-@@ -328,9 +329,6 @@ v3d_gem_init(struct drm_device *dev)
- 		goto err_dma_alloc;
- 	}
- 
--	v3d_init_hw_state(v3d);
--	v3d_mmu_set_page_table(v3d);
--
- 	v3d_huge_mnt_init(v3d);
- 
- 	ret = v3d_sched_init(v3d);
-diff --git a/drivers/gpu/drm/v3d/v3d_irq.c b/drivers/gpu/drm/v3d/v3d_irq.c
-index c28e74ab5442857031b48bcbd4e43eb48c1e0f07..86efaef2722c3602346b037ba536228b2f368a81 100644
---- a/drivers/gpu/drm/v3d/v3d_irq.c
-+++ b/drivers/gpu/drm/v3d/v3d_irq.c
-@@ -248,17 +248,10 @@ v3d_hub_irq(int irq, void *arg)
- int
- v3d_irq_init(struct v3d_dev *v3d)
- {
--	int irq, ret, core;
-+	int irq, ret;
- 
- 	INIT_WORK(&v3d->overflow_mem_work, v3d_overflow_mem_work);
- 
--	/* Clear any pending interrupts someone might have left around
--	 * for us.
--	 */
--	for (core = 0; core < v3d->cores; core++)
--		V3D_CORE_WRITE(core, V3D_CTL_INT_CLR, V3D_CORE_IRQS(v3d->ver));
--	V3D_WRITE(V3D_HUB_INT_CLR, V3D_HUB_IRQS(v3d->ver));
--
- 	irq = platform_get_irq_optional(v3d_to_pdev(v3d), 1);
- 	if (irq == -EPROBE_DEFER)
- 		return irq;
-@@ -296,7 +289,6 @@ v3d_irq_init(struct v3d_dev *v3d)
- 			goto fail;
- 	}
- 
--	v3d_irq_enable(v3d);
- 	return 0;
- 
- fail:
-@@ -310,6 +302,11 @@ v3d_irq_enable(struct v3d_dev *v3d)
- {
- 	int core;
- 
-+	/* Clear any pending interrupts someone might have left around for us. */
-+	for (core = 0; core < v3d->cores; core++)
-+		V3D_CORE_WRITE(core, V3D_CTL_INT_CLR, V3D_CORE_IRQS(v3d->ver));
-+	V3D_WRITE(V3D_HUB_INT_CLR, V3D_HUB_IRQS(v3d->ver));
-+
- 	/* Enable our set of interrupts, masking out any others. */
- 	for (core = 0; core < v3d->cores; core++) {
- 		V3D_CORE_WRITE(core, V3D_CTL_INT_MSK_SET, ~V3D_CORE_IRQS(v3d->ver));
+I'm surprised we haven't had reports of brokenness in this area.
+
+I think it's time to re-shuffle these patches (plus I think there's
+a bit more scope to clean up some of the TSO code which would mean
+placing stmmac_set_gso_types() in a different location to keep
+all the TSO-related code together. I'll mark this series as
+superseded once I have its replacement ready.
 
 -- 
-2.53.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
