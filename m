@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BED210BA421
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 08:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7183A10ED67F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 09:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W9D8vCzCrRJ5LPPbiAlFNwBx1RgUj04xH732MSvsX1E=; b=R/ttxR04kYXsVQBravl9+qatrb
-	m676/pDQn9bNwn3Eof7ySY8g1Lkt1+iZr7iTZDdQDqGUSKxhGtRY0Fcesf1PLW3Ox8r9l6KPSwTzl
-	G7DpQEBjeaPkmkLUc1iFUcUwrKxb6MCSzTUTG4p0oTwxnJhFvN9V8FuruJ2TbOPx3ruHnN4CzqTfU
-	SekqrI7sxXtJTLbX5/MZUNHLWEz2i/Lvn+Mre/NNNaQEa1ZHYjHqYsvmPuJkrX/HvOlyYaA5Cb4hb
-	+cWK7w4/jYWkKV+Zq6WytC3QBDoeQcCUF99ctGrIzXlVwc43BzuclSyjc8Z7hWNTFLFu8zt6M5nvV
-	pVba7R2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xqFakPzox2Tt3Kr/+AFr8gsg35djsA6QelXBB7J+GoA=; b=1tKJlfgBBrUsJkg/8zHNlqi/5K
+	mRQDFxD4P710pqDUjWY769K9/OdqD4Wfzk756YqABieVFGM/At9F8EZkDNL2wdDUcLgw6Gkw4mAII
+	VTgdgCmjnCiX1FMwm+Wiaj+jct3xMezLd0bEtXSTngFxVPUw3L0nSNRtVL9EZiZWF37YYFn95xPr3
+	PF7cRSc/wF/QtEzQCi41XhOacoxr514gvSf9Ed/ZWNEhDB0G4znV/nSDNTKVXbh3Ei5VrV0o6G5YC
+	X1oiUQ4McOwU3aNacyA+ii3Mr3nsuc54UYhmPiPj65wiUszVOyfqXu8HB2vecKQNhYOjp9Ji7tqxE
+	/JZcyXmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6PSe-00000008lKd-0HMw;
-	Sat, 28 Mar 2026 08:56:04 +0000
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	id 1w6Q1R-00000008mhc-3uY5;
+	Sat, 28 Mar 2026 09:32:01 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6PSZ-00000008lKA-2S5Y
+	id 1w6Q1O-00000008mhG-3BVe
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 08:56:02 +0000
+	Sat, 28 Mar 2026 09:32:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=W9D8vCzCrRJ5LPPbiAlFNwBx1RgUj04xH732MSvsX1E=; b=cw/PSUbNcg/qV3aSySproi+46b
-	W4YCBnfrBl1BwW4KsBBH2MU+F7BBr+tZt9Y2yRpuGWgva3tHHyVfLXwyh5aquGvXq1VwiafVvt6hi
-	aiT66Pq0eHtSdMZz1fm+MgNFToKjNZkrgnQosP+xCFgbp/qOEwxkSeh63mSsUmpUNnXF5sye27KaR
-	CBpKQSo80mC7QpIm15t913/z4BipHh/rzUdNYV0rERciL6UCmefkJQkdrXJAlaGWktL3IpOtOU+fz
-	lWRHOV1woaQ2E9zC5FO++SeCUVB8o68Ott/DIUMu2dC+fyjRs/7QjsIPuH0sVYdRnppWDwqsrVkK/
-	OwMxtMnA==;
-Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xqFakPzox2Tt3Kr/+AFr8gsg35djsA6QelXBB7J+GoA=; b=jygvWVodbHt83RJwV62jJhRo/5
+	z0VCH6g9pH/qCd3XqiFSUCqYvbNZGNDnQxlqVkRcIhfqAZ8TDBFqILRXfzR/pNP9Ch0G+/Z1orBU6
+	fJ2MiswMm/tP5kIRquSvC5KVFimg0r42SIZ3PYowf3dex2gkvXIOl7JeCuAlcucbDw0SSWyd3580u
+	l8vcMcusWPjsnu+s2wI86C1j8TUX0LND+Rs0wzWiQc20L68cF2fUHl5g2CQe4w0wFdITgbKK16j4L
+	2FlwYN9SY+Qc2SY+gQ1xh52qlNwOtXKMeAUwwoFcduc0ESp54q7uCy+2E/2JYjrZHIG5LX0sM3odO
+	8kPsb3cg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33302)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1w6PSU-00000002znC-02RV;
-	Sat, 28 Mar 2026 09:55:54 +0100
-From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Sat, 28 Mar 2026 09:55:51 +0100
-Subject: [PATCH v4] net: stmmac: skip VLAN restore when VLAN hash ops are
- missing
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w6Q1G-0000000075R-4B5u;
+	Sat, 28 Mar 2026 09:31:51 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w6Q1D-000000000Yj-0ZQ5;
+	Sat, 28 Mar 2026 09:31:47 +0000
+Date: Sat, 28 Mar 2026 09:31:46 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Ong Boon Leong <boon.leong.ong@intel.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: simplify GSO/TSO test in
+ stmmac_xmit()
+Message-ID: <acegAqUb-Dzy87d8@shell.armlinux.org.uk>
+References: <acZQaDeCoib5S5UA@shell.armlinux.org.uk>
+ <E1w63fl-0000000E3Vb-3JkY@rmk-PC.armlinux.org.uk>
+ <aceQRSc5o4D-HHmq@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260328-vlan-restore-error-v4-1-f88624c530dc@mmpsystems.pl>
-X-B4-Tracking: v=1; b=H4sIAJaXx2kC/33NSwrCMBCA4atI1kaaZ6sr7yEuYjpjA32RlGApv
- btJV0WKy3+Y+WYhAbyDQG6nhXiILrihTyHPJ2Ib07+Bujo14QXXhWCSxtb01EOYBg8UvB88xeo
- lDLMlqsKQdDh6QPfZ0MczdePy9rz9iCxP/3KRUUYlWm0FcMYU3rtuDHOYoAuXsSWZjHzHcHbI8
- Mwoi0obxbmojxixZ6pDRiSmRlmaQlytRv3LrOv6BRYVpxFGAQAA
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Michal Piekos <michal.piekos@mmpsystems.pl>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774688151; l=3201;
- i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=lmB9RkAsJOKKgD5XsOpXtoTGuYHWZeBiE4dI8gGBpmE=;
- b=k0d4LG2qW5S5JB0Fw6C5IlvnEM6iE36A+wAxwIDuP+cwTUSfPySgFjTY8DhZb7fP9denByW3G
- X1IW0pnaROsDzVv+iTBKmYEfIuVIHP+iXVC3oPv1jrAgIM5eUD2bwuS
-X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
- pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aceQRSc5o4D-HHmq@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_015559_961924_0788320B 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20260328_023158_976265_88B6E80A 
+X-CRM114-Status: GOOD (  38.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,86 +87,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
-NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
-->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
--EINVAL via stmmac_do_void_callback(), resulting in a spurious
-"Failed to restore VLANs" error even when no VLAN filtering is in use.
+On Sat, Mar 28, 2026 at 08:24:37AM +0000, Russell King (Oracle) wrote:
+> On Fri, Mar 27, 2026 at 09:40:09AM +0000, Russell King (Oracle) wrote:
+> > The test in stmmac_xmit() to see whether we should pass the skbuff to
+> > stmmac_tso_xmit() is more complex than it needs to be. This test can
+> > be simplified by storing the mask of GSO types that we will pass, and
+> > setting it according to the enabled features.
+> > 
+> > Note that "tso" is a mis-nomer since commit b776620651a1 ("net:
+> > stmmac: Implement UDP Segmentation Offload"). Also note that this
+> > commit controls both via the TSO feature. We preserve this behaviour
+> > in this commit.
+> > 
+> > Also, this commit unconditionally accessed skb_shinfo(skb)->gso_type
+> > for all frames, even when skb_is_gso() was false. This access is
+> > eliminated.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> 
+> AI review of this patch regurgitates Jakub's point that was discussed.
+> 
+> > @@ -3700,7 +3700,7 @@ static int stmmac_hw_setup(struct net_device *dev)
+> >  	stmmac_set_rings_length(priv);
+> >  
+> >  	/* Enable TSO */
+> > -	if (priv->tso) {
+> > +	if (priv->gso_enabled_types) {
+> >  		for (chan = 0; chan < tx_cnt; chan++) {
+> >  			struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[chan];
+> >  
+> 
+> ...
+> 
+> > @@ -7828,7 +7834,7 @@ static int __stmmac_dvr_probe(struct device *device,
+> >  		ndev->hw_features |= NETIF_F_TSO | NETIF_F_TSO6;
+> >  		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+> >  			ndev->hw_features |= NETIF_F_GSO_UDP_L4;
+> > -		priv->tso = true;
+> > +		stmmac_set_gso_types(priv, true);
+> 
+> Clearly, the issue it is regurgitating has been there for a long time
+> and isn't a new issue introduced by this patch.
+> 
+> AI needs to stop doing this, because it is encouraging multiple changes
+> in a single patch, which is against the normal kernel process.
+> 
+> As already pointed out, there are multiple issues with stmmac TSO
+> support, particularly with glue drivers that enable TSO on some
+> queues/channels and not others, since netdev core TSO support is
+> global across all channels.
+> 
+> So, won't the AI response in this patch - it's just another pre-
+> existing issue that needs fixing in a separate patch.
 
-Remove not needed comment.
-Remove not used return value from stmmac_vlan_restore().
+Looking at the TSO vs TBS issue (which precludes the use of TSO on a
+channel in stmmac) I can't find an obvious reason for this in the
+available documentation. However, unfortunately, iMX8MP doesn't support
+TSO, so the TSO bits are elided there, but does support TBS (needing
+enhanced descriptors to be enabled). STM32MP151 on the other hand
+supports TSO but not TBS, and thus fails to mention anything about
+enhanced descriptors or TBS.
 
-Tested on Orange Pi Zero 3.
+When stmmac_enable_tbs() enables TBS, it isn't actually enabling a
+feature specific bit, but switching the channel to use enhanced
+descriptor format. This format extends the basic descriptors by
+placing four extra 32-bit words before the basic descriptor.
 
-Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
-Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
----
-This patch fixes a noisy "Failed to restore VLANs" message on platforms
-where stmmac VLAN hash ops are not implemented.
-stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
-VLAN hash ops presence which results in -EINVAL. 
----
-Changes in v4:
-- Remove not used return value of stmmac_vlan_restore()
-- Link to v3: https://lore.kernel.org/r/20260328-vlan-restore-error-v3-1-df47a039c6f6@mmpsystems.pl
+Looking at the enhanced normal descriptor format for TDES3, it
+indicates that the format includes bit 18 in the control field, which
+is the TSE bit (TCP segmentation enable for this packet.) So, it seems
+it's not a limitation of the descriptor format.
 
-Changes in v3:
-- Remove the offending comment
-- Restore the original check for NETIF_F_VLAN_FEATURES
-- Link to v2: https://lore.kernel.org/r/20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl
+So, either "TSO and TBS cannot co-exist" is incorrect, or there is a
+hardware limitation that isn't documented between these two manuals.
 
-Changes in v2:
-- Replace check for hash ops with check for HW FILTER flags
-- Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 ++++----------
- 1 file changed, 4 insertions(+), 10 deletions(-)
+One other interesting point is that stmmac_tso_xmit() seems to
+handle the case where TSO and TBS are enabled on the channel:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 6827c99bde8c..13d3cac056be 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -156,7 +156,7 @@ static void stmmac_tx_timer_arm(struct stmmac_priv *priv, u32 queue);
- static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue);
- static void stmmac_set_dma_operation_mode(struct stmmac_priv *priv, u32 txmode,
- 					  u32 rxmode, u32 chan);
--static int stmmac_vlan_restore(struct stmmac_priv *priv);
-+static void stmmac_vlan_restore(struct stmmac_priv *priv);
- 
- #ifdef CONFIG_DEBUG_FS
- static const struct net_device_ops stmmac_netdev_ops;
-@@ -6859,21 +6859,15 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
- 	return ret;
- }
- 
--static int stmmac_vlan_restore(struct stmmac_priv *priv)
-+static void stmmac_vlan_restore(struct stmmac_priv *priv)
- {
--	int ret;
--
- 	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
--		return 0;
-+		return;
- 
- 	if (priv->hw->num_vlan)
- 		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
- 
--	ret = stmmac_vlan_update(priv, priv->num_double_vlans);
--	if (ret)
--		netdev_err(priv->dev, "Failed to restore VLANs\n");
--
--	return ret;
-+	stmmac_vlan_update(priv, priv->num_double_vlans);
- }
- 
- static int stmmac_bpf(struct net_device *dev, struct netdev_bpf *bpf)
+                if (tx_q->tbs & STMMAC_TBS_AVAIL)
+                        mss_desc = &tx_q->dma_entx[tx_q->cur_tx].basic;
+                else
+                        mss_desc = &tx_q->dma_tx[tx_q->cur_tx];
 
----
-base-commit: be762d8b6dd7efacb61937d20f8475db8f207655
-change-id: 20260314-vlan-restore-error-f8b3a1c7f50a
+                stmmac_set_mss(priv, mss_desc, mss);
+...
+        if (tx_q->tbs & STMMAC_TBS_AVAIL)
+                desc = &tx_q->dma_entx[first_entry].basic;
+        else
+                desc = &tx_q->dma_tx[first_entry];
+        first = desc;
 
-Best regards,
+etc.
+
+Avoiding enabling TSO for a TBS channel was added by this commit:
+
+commit 5e6038b88a5718910dd74b949946d9d9cee9a041
+Author: Ong Boon Leong <boon.leong.ong@intel.com>
+Date:   Wed Apr 21 17:11:49 2021 +0800
+
+    net: stmmac: fix TSO and TBS feature enabling during driver open
+
+    TSO and TBS cannot co-exist and current implementation requires two
+    fixes:
+
+     1) stmmac_open() does not need to call stmmac_enable_tbs() because
+        the MAC is reset in stmmac_init_dma_engine() anyway.
+     2) Inside stmmac_hw_setup(), we should call stmmac_enable_tso() for
+        TX Q that is _not_ configured for TBS.
+
+    Fixes: 579a25a854d4 ("net: stmmac: Initial support for TBS")
+    Signed-off-by: Ong Boon Leong <boon.leong.ong@intel.com>
+    Signed-off-by: David S. Miller <davem@davemloft.net>
+
+which doesn't really explain the background, and leaves all the TBS
+cruft in the TSO transmit path (nothing like properly updating the
+driver, eh? No wonder stmmac is such a mess!)
+
+Maybe Ong Boon Leong can indicate where this restriction comes from?
+Note: as mentioned previously, disabling TSO only on some channels is
+actually wrong - the netdev core doesn't know which channels support
+TSO and which don't, so the driver is likely to still get TSO skbuffs
+for channels that the above commit has disabled TSO support. So, if
+TBS is enabled and it is incompatible with TSO, then either we need
+to use software TSO support _or_ disable TSO for the entire interface.
+
+Incidentally, while looking at this, I found a few more pre-conditions
+for TSO:
+
+- TxPBL must be >= 4
+- MSS[13:0] must be more than the configured data width in bytes, up to
+  a maximum of 1023 bytes.
+
+I'm fairly certain that the driver does nothing to ensure that this
+in the case for either of these two points.
+
 -- 
-Michal Piekos <michal.piekos@mmpsystems.pl>
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
