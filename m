@@ -4,62 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21FA10F3DCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 14:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3959510F3DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 14:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yY5dYo2jKiOB9YseIxr9xpLDejiQQKTxyOOnSQ1Iles=; b=l31krZNFYIdoP5nSUVANJ6iUhb
-	ohUq2wmoUpO96SzOmHydh+mBjfEQsEkdt33RX9T1oOhyEvQl/fLv+kC3tefRfF7zhxBVpO6Gh57n9
-	Arsm5S4twFdLKyyDbr3N+o5LFgzYkRZqDyilDPAut9tDhKjxY7qIRO95IJwduOIENhVQrLyz20Eyk
-	rReqVIUdmYEgnZQLUjkbcuT/OygcF8TbhI3qi2MEgGrt1E1fuOIwa2bCNYK6ic25Df6RHPKVyLDt4
-	yfkDoHPeh+n9CBmk4y8IOhN3Xb2tJbXWIreTpoMl4FgT4011m3fi4/lmAoT2NFajwfzlqmM53qL/b
-	3Zjona0g==;
+	bh=Z0apNsNBiflHd8/adQv0SYBWXyAFm3kLnADmQ9DC9Tc=; b=CtxcrlPDO2bNcEaQtyj0zuCIAv
+	h73LB8RzLT9mYO8c0GfK76/mg0oDS9wLv9UG8AU7pgNZscQf0AJ/x+mPorUjVtZaIgtL6kbeMWtX9
+	/QLb398HiEh3URg+24W4ssSLnNTYMJNWNd4cBIxK+SqHZYeNOwJYVRvePqQpGFvN3FrPV59JpPgMB
+	8AyxYl4IBmDdJCx1PQGwEsBE+QvS9SO1R5dftwLR75pYdCqY2mLxDAqPKCVrdPd++YZsmPH+DZRbK
+	MnpcTEROwK7PP3wyhOER02QBtrM3Lp9BoISdiu4tyRFZ+KuraupTFyJCv1Hg3aQp4K0+NhY5ACKXf
+	5MDUmiMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6UGQ-000000090Qf-135t;
-	Sat, 28 Mar 2026 14:03:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w6V1t-000000092Bp-39kX;
+	Sat, 28 Mar 2026 14:52:49 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6UGN-000000090QL-3jGH
+	id 1w6V1q-000000092BQ-1wxm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 14:03:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B315C40471;
-	Sat, 28 Mar 2026 14:03:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DD1CC4CEF7;
-	Sat, 28 Mar 2026 14:03:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774706622;
-	bh=LP2OMDqjdBj9ybs8hsbQu15Xbc2oFeNlIx4PTLnzC/w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cYI0PYmyurfc1IJg+PeyuF772oAYK0fPF0HmzDyDN4ccKpQfdc/jaJsiGLRWZVvwp
-	 3EFf5kasIic9ndyGhY4NkNuyM0/XC3QxgMO9BxSugLSndUeUVIeDZeqP+flBqp8hh5
-	 SiG7fYol9UXCF//oZwuK00xIA/nuTDJl/SMFqhR3o2vAQurUcagZ1ZNNC6KmKyvBxM
-	 xI6cUzbaKs5zhKtOAFbpkAz0I8DfeTMOmpVgt/uLn2KjwQ9TntUDlkDFF/XbBRsNT0
-	 XfIUlYrWBVSzFvVMgXIf6LnQrueurRVMOtChXezhUzSFDYrUThWrRlAk6mKvLWTVNy
-	 RrrCGv8jVrtYA==
-Date: Sat, 28 Mar 2026 15:03:40 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: nick.hawkins@hpe.com
-Cc: catalin.marinas@arm.com, will@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: hpe: Add HPE GSC SoC and DL340 Gen12
- board DTS
-Message-ID: <20260328-translucent-scarlet-skunk-0e09cb@quoll>
-References: <20260327174445.3275835-1-nick.hawkins@hpe.com>
- <20260327174445.3275835-4-nick.hawkins@hpe.com>
+	Sat, 28 Mar 2026 14:52:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774709566; x=1806245566;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Di17zwN0Sm7uYjGVksCdE9bLHhI6vS1pfX/DA+RrmbU=;
+  b=K6M8gO8LEQ2MJgrEO+uK65xlbB+CyIU8oCpaEMWeNf+iq6QZi5DtzkUw
+   WTxQNdc8SmZuWquFBfXlp9W2UHpMmDmezy34Xb0CkzcvKVw0h+CgzFSQp
+   KyBq6KsTtJgjFzk76DTWUXV+dqqbnJXSX+Fs9g+Cn0VNIbCLpFK3H+G/X
+   YNDj5YVHMbjA0wwxHcdpZ3G8aewYCxiwzFey38Kw4IqAwqST8/lHpgPPh
+   Gync+z38iv1QeGL0fEQoVh6DQPKthD0OsLUqWlL9owoV5hwXAJty30zFJ
+   n7Po+TUtnhZcpdoHUVAtMn90pcDcDAJaO8HJMJF5lH6mrlBnsj2hqid5j
+   Q==;
+X-CSE-ConnectionGUID: Hf2i4oyOTA6Rw4C4xIQBdQ==
+X-CSE-MsgGUID: pEEQl9ZpQ767yjLZdMpKFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="86453617"
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="86453617"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 07:52:43 -0700
+X-CSE-ConnectionGUID: /v9fj2iUR06nl6/nyFoVtQ==
+X-CSE-MsgGUID: F2NZwqAiSkCH73MKxMdGJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="225589029"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 28 Mar 2026 07:52:37 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w6V1d-00000000BVB-0Wia;
+	Sat, 28 Mar 2026 14:52:33 +0000
+Date: Sat, 28 Mar 2026 22:52:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: oe-kbuild-all@lists.linux.dev, Rob Herring <robh@kernel.org>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Sasha Finkelstein <fnkl.kernel@gmail.com>,
+	Janne Grunau <j@jannau.net>, Liviu Dudau <liviu.dudau@arm.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Yannick Fertre <yannick.fertre@foss.st.com>,
+	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+	Philippe Cornu <philippe.cornu@foss.st.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v3 3/3] drm/gem-dma: Support DRM_MODE_DUMB_KERNEL_MAP flag
+Message-ID: <202603282230.Yz4kBrTt-lkp@intel.com>
+References: <20260326100248.1171828-4-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260327174445.3275835-4-nick.hawkins@hpe.com>
+In-Reply-To: <20260326100248.1171828-4-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_070343_966081_05CF1D39 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260328_075246_544865_2B0FC2CF 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,115 +109,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 12:44:45PM -0500, nick.hawkins@hpe.com wrote:
-> From: Nick Hawkins <nick.hawkins@hpe.com>
-> 
-> Add SoC-level DTSI for the HPE GSC ARM64 BMC SoC, covering the CPU
-> cluster, GIC v3 interrupt controller, ARM64 generic timer, and console
-> UART.
-> 
-> Add the board-level DTS for the HPE DL340 Gen12, which includes
-> gsc.dtsi and adds memory and chosen nodes.
-> 
-> Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
-> ---
+Hi Chen-Yu,
 
-You miss fourth commit adding it to defconfig.
+kernel test robot noticed the following build errors:
 
->  arch/arm64/boot/dts/hpe/Makefile           |   2 +
->  arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts |  18 ++++
->  arch/arm64/boot/dts/hpe/gsc.dtsi           | 104 +++++++++++++++++++++
->  3 files changed, 124 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/hpe/Makefile
->  create mode 100644 arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts
->  create mode 100644 arch/arm64/boot/dts/hpe/gsc.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/hpe/Makefile b/arch/arm64/boot/dts/hpe/Makefile
-> new file mode 100644
-> index 000000000000..6b547b8a8154
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/hpe/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +dtb-$(CONFIG_ARCH_HPE) += gsc-dl340gen12.dtb
-> diff --git a/arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts b/arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts
-> new file mode 100644
-> index 000000000000..42cfeac99029
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/hpe/gsc-dl340gen12.dts
-> @@ -0,0 +1,18 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on next-20260327]
+[cannot apply to sunxi/sunxi/for-next linus/master v7.0-rc5]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Keep consistent SPDX, so I guess "GPL-2.0" here.
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Yu-Tsai/drm-Introduce-DRM_MODE_DUMB_KERNEL_MAP-flag/20260328-141115
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20260326100248.1171828-4-wenst%40chromium.org
+patch subject: [PATCH v3 3/3] drm/gem-dma: Support DRM_MODE_DUMB_KERNEL_MAP flag
+config: arm-randconfig-001-20260328 (https://download.01.org/0day-ci/archive/20260328/202603282230.Yz4kBrTt-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 12.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260328/202603282230.Yz4kBrTt-lkp@intel.com/reproduce)
 
-> +/dts-v1/;
-> +
-> +#include "gsc.dtsi"
-> +
-> +/ {
-> +	compatible = "hpe,gsc-dl340gen12", "hpe,gsc";
-> +	model = "HPE ProLiant DL340 Gen12";
-> +
-> +	chosen {
-> +		stdout-path = &uartc;
-> +	};
-> +
-> +	memory@0 {
-> +		device_type = "memory";
-> +		reg = <0x00000000 0x40000000>;
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/hpe/gsc.dtsi b/arch/arm64/boot/dts/hpe/gsc.dtsi
-> new file mode 100644
-> index 000000000000..087688b089e9
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/hpe/gsc.dtsi
-> @@ -0,0 +1,104 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Device Tree file for HPE GSC
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	#address-cells = <1>;
-> +	#size-cells = <1>;
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		cpu@0 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0 0xa0008048>;
-> +		};
-> +
-> +		cpu@1 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <1>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0 0xa0008048>;
-> +		};
-> +	};
-> +
-> +	osc: clock-33333333 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-output-names = "osc";
-> +		clock-frequency = <33333333>;
-> +	};
-> +
-> +	timer {
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603282230.Yz4kBrTt-lkp@intel.com/
 
-Same comment as last time. I see you ignored few more comments and never
-responded to them, so I finish the review here.
+All errors (new ones prefixed by >>):
 
-Best regards,
-Krzysztof
+   drivers/gpu/drm/stm/drv.c: In function 'stm_gem_dma_dumb_create':
+>> drivers/gpu/drm/stm/drv.c:55:23: error: 'DRM_MODE_DUMB_KERNEL_MAP' undeclared (first use in this function)
+      55 |         args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+         |                       ^~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/stm/drv.c:55:23: note: each undeclared identifier is reported only once for each function it appears in
+--
+   drivers/gpu/drm/arm/malidp_drv.c: In function 'malidp_dumb_create':
+>> drivers/gpu/drm/arm/malidp_drv.c:467:23: error: 'DRM_MODE_DUMB_KERNEL_MAP' undeclared (first use in this function)
+     467 |         args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+         |                       ^~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/arm/malidp_drv.c:467:23: note: each undeclared identifier is reported only once for each function it appears in
+--
+   drivers/gpu/drm/arm/display/komeda/komeda_kms.c: In function 'komeda_gem_dma_dumb_create':
+>> drivers/gpu/drm/arm/display/komeda/komeda_kms.c:32:23: error: 'DRM_MODE_DUMB_KERNEL_MAP' undeclared (first use in this function)
+      32 |         args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+         |                       ^~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/arm/display/komeda/komeda_kms.c:32:23: note: each undeclared identifier is reported only once for each function it appears in
 
+
+vim +/DRM_MODE_DUMB_KERNEL_MAP +55 drivers/gpu/drm/stm/drv.c
+
+    43	
+    44	static int stm_gem_dma_dumb_create(struct drm_file *file,
+    45					   struct drm_device *dev,
+    46					   struct drm_mode_create_dumb *args)
+    47	{
+    48		unsigned int min_pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
+    49	
+    50		/*
+    51		 * in order to optimize data transfer, pitch is aligned on
+    52		 * 128 bytes, height is aligned on 4 bytes
+    53		 */
+    54		args->height = roundup(args->height, 4);
+  > 55		args->flags = DRM_MODE_DUMB_KERNEL_MAP;
+    56		args->pitch = roundup(min_pitch, 128);
+    57	
+    58		return drm_gem_dma_dumb_create_internal(file, dev, args);
+    59	}
+    60	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
