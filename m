@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36D210F3DD2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 05:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E186310F3DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 05:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8DpaSc1WPAjTrsmRWTAxjOgRGI49+21nGlzJkD+N60=; b=z6NDlE+v0YrXxcMZKoK26LkyBl
-	58tNOr19J7HpnFva97AUSZqaKPdKWXtk8gAy6IS/OcA6XV0fkQgi6h3XchFGqofoPV9jPje9NtxKx
-	3DOiHu3SMmz1QpBLLDtinUSbAYq2htZOP7ytZ9ni2IiDeq4En7Z7IdL0I+nrkVECDv1zqssizj8pD
-	qAwbH1a7U0dx34615chCdSbRnL47EEvDCHrhvprUpY2NXEktl3IXnpQ+5cCbZcBuT7DbOxhZI1aT/
-	8aWF+roMEW/WVvgoLPS6gCJbkX5VapxWeDVbNTW8flgExhSNKDFRNTYMAuHk5U0GHeAwTsv2a1hzF
-	bNdlpY/Q==;
+	bh=RrmJUp2FeJ5yuP4dVxhzLWIBjkJPDyvnMvQ9bGnGcoI=; b=mX0JNvQCrWRs9C6LEtzQHe27LQ
+	2gORHeFBuwA46+9AZ4VxPMLlbGBxPU7l6dnHGGu++VpYZP1MnugMBJXwgjWPgbYKrqR1rp7HuBfmV
+	PYAmxE3tW0kn2C1phEHGLBUMToDvu6Y0WHm8AP9DsVTvHhY33bB5mCaE9pe9jqLwCTWLuG5kMtgRQ
+	6S5Lymjzn1IK/4SqCtRAUcPQ6cRtdWWMsNDCx0xp0LLd0oKhVuH57p/1jPtZlxNBCbvVEFE7w9wfE
+	ZQph8c/1tGS1biEgx6TPrxIQB0QtQFc/F8/BQR7UvpWN+4xGEbzesf+74mJ9Av2PVm4Df0Mx6DO2h
+	A3Xc9Kzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6M36-00000008ZPj-16n6;
-	Sat, 28 Mar 2026 05:17:28 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w6M37-00000008ZRR-0Drj;
+	Sat, 28 Mar 2026 05:17:29 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6M2X-00000008YwN-1Dw1;
+	id 1w6M2X-00000008Ywl-3NfX;
 	Sat, 28 Mar 2026 05:16:54 +0000
-X-UUID: 516bdd062a6511f1a6de359d7043e138-20260327
+X-UUID: 52c7bb3e2a6511f19e7563141e833ce8-20260327
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Y8DpaSc1WPAjTrsmRWTAxjOgRGI49+21nGlzJkD+N60=;
-	b=AQIS3HGWjSj7E6g1p3IAfVNpip9NXLVUHDUmHFOmxA6RCm/qNvoU+4GZ4+/5aNVfIdp8ojznlmSno1cmNhnWYr/7gPnXmaTixKr5m3uaIiFQK6TCDEZ4toyEopFekPAxMoqZ3cerLxrRCeD1Lt/qkZ3MLbJB2egeNkTosD83L74=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=RrmJUp2FeJ5yuP4dVxhzLWIBjkJPDyvnMvQ9bGnGcoI=;
+	b=SbeXghEnDRwNgkzPdTVr4Mwbo6sqkjm5aBVHq6JsMulNKYXJBsw0KBdFsOof13Tj6LD8GJ+kBlpUNZGYpMuXo09ri1VdatjFV5mCOnQrBVJLmG3US6X5vtDfPBEAve2fUvN3x2Ob/9jdXXOyKhARx85NPL9s1Ajqj2V7KeQGJ0Q=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:67699862-8b6d-44da-9ea0-5d707cd12814,IP:0,U
+X-CID-O-INFO: VERSION:1.3.12,REQID:5a32b011-1e2f-4c04-b8a6-d99c7c3bac71,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:f0254d94-f8ef-4ca8-bea0-143568f9ca1d,B
+X-CID-META: VersionHash:e7bac3a,CLOUDID:1def3e3f-41ee-42eb-90dd-1068410e1f48,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
 	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 516bdd062a6511f1a6de359d7043e138-20260327
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+X-UUID: 52c7bb3e2a6511f19e7563141e833ce8-20260327
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
 	(envelope-from <yunfei.dong@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 720415321; Fri, 27 Mar 2026 22:16:47 -0700
+	with ESMTP id 546539427; Fri, 27 Mar 2026 22:16:49 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Sat, 28 Mar 2026 13:16:44 +0800
+ 15.2.2562.29; Sat, 28 Mar 2026 13:16:46 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Sat, 28 Mar 2026 13:16:43 +0800
+ 15.2.2562.29 via Frontend Transport; Sat, 28 Mar 2026 13:16:45 +0800
 From: Yunfei Dong <yunfei.dong@mediatek.com>
 To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
 	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
@@ -68,9 +68,9 @@ CC: Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v4 10/14] media: mediatek: vcodec: send share memory address to vcp
-Date: Sat, 28 Mar 2026 13:16:20 +0800
-Message-ID: <20260328051630.7937-11-yunfei.dong@mediatek.com>
+Subject: [PATCH v4 12/14] media: mediatek: vcodec: add decoder compatible to support mt8196
+Date: Sat, 28 Mar 2026 13:16:22 +0800
+Message-ID: <20260328051630.7937-13-yunfei.dong@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260328051630.7937-1-yunfei.dong@mediatek.com>
 References: <20260328051630.7937-1-yunfei.dong@mediatek.com>
@@ -79,9 +79,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_221653_335546_0FD37D8A 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260327_221653_853874_D4155725 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The share memory is allocated in kernel for vcp architecture, it's different
-with vpu which share memors is reserved in vpu micro processor. Need to send
-share memory address to vcp.
+MT8196 is lat single core architecture. Support its compatible and
+use `mtk_lat_sig_core_pdata` to initialize platform data.
 
 Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
 ---
- drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h | 2 ++
- drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c  | 2 ++
- 2 files changed, 4 insertions(+)
+ .../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c   | 6 ++++++
+ .../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h   | 1 +
+ 2 files changed, 7 insertions(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h b/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h
-index 47070be2a991..097561a1efdc 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h
-@@ -67,11 +67,13 @@ struct vdec_vpu_ipi_ack {
-  * @msg_id	: AP_IPIMSG_DEC_INIT
-  * @codec_type	: codec fourcc
-  * @ap_inst_addr	: AP video decoder instance address
-+ * @shared_iova	: reserved share memory address
-  */
- struct vdec_ap_ipi_init {
- 	uint32_t msg_id;
- 	u32 codec_type;
- 	uint64_t ap_inst_addr;
-+	u64 shared_iova;
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+index 5a748a60b453..e7c140b26955 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+@@ -347,6 +347,8 @@ static void mtk_vcodec_dec_get_chip_name(struct mtk_vcodec_dec_dev *vdec_dev)
+ 		vdec_dev->chip_name = MTK_VDEC_MT8186;
+ 	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-dec"))
+ 		vdec_dev->chip_name = MTK_VDEC_MT8188;
++	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8196-vcodec-dec"))
++		vdec_dev->chip_name = MTK_VDEC_MT8196;
+ 	else
+ 		vdec_dev->chip_name = MTK_VDEC_INVAL;
+ }
+@@ -570,6 +572,10 @@ static const struct of_device_id mtk_vcodec_match[] = {
+ 		.compatible = "mediatek,mt8188-vcodec-dec",
+ 		.data = &mtk_lat_sig_core_pdata,
+ 	},
++	{
++		.compatible = "mediatek,mt8196-vcodec-dec",
++		.data = &mtk_lat_sig_core_pdata,
++	},
+ 	{},
  };
  
- /**
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-index cdb673e6b477..3a10b32be094 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-@@ -236,6 +236,8 @@ int vpu_dec_init(struct vdec_vpu_inst *vpu)
- 	msg.msg_id = AP_IPIMSG_DEC_INIT;
- 	msg.ap_inst_addr = (unsigned long)vpu;
- 	msg.codec_type = vpu->codec_type;
-+	if (mtk_vcodec_fw_get_type(vpu->ctx->dev->fw_handler) == VCP)
-+		msg.shared_iova = vpu->ctx->dev->fw_handler->vcp->iova_addr;
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+index c9d27534c63e..f06dfc1a3455 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+@@ -29,6 +29,7 @@ enum mtk_vcodec_dec_chip_name {
+ 	MTK_VDEC_MT8188 = 8188,
+ 	MTK_VDEC_MT8192 = 8192,
+ 	MTK_VDEC_MT8195 = 8195,
++	MTK_VDEC_MT8196 = 8196,
+ };
  
- 	mtk_vdec_debug(vpu->ctx, "vdec_inst=%p", vpu);
- 
+ /*
 -- 
 2.45.2
 
