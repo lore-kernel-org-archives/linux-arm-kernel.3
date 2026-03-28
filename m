@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61B010F3DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 10:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA42C10F3DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 10:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35Vdxw+bGikUGARyshD29d8hmxPEOshopH4zQVVJEkw=; b=2GGhC1MuMHK5ynI67t1mkV+BoK
-	ErFctroiUZnq+hRvc7EjMJ+l5l8tuKLm1VJjf9RpQugDBiwp4HOBuU47iPTRQRv/2cUxzShNSnNFT
-	bCmm0Lpcpqs7+1u2SkP9WUWxER7l2ZOKw0Mx8KQF7jsp//vgwB8C74xDQev7l8E9T/nM1NUjK+TLQ
-	zX1LnhkyPVpm1v420t5EXYovVq82TpM8kh0qt8OJtr6zHik+ACXwD2i50NuD8guCziToP/bF9+SU5
-	9+XeA0Dpfm973Iu71TIiJWC27YqXwRRnjzz/YI8iymUaj9qmFqu/fJc/emRe1sS4jkM0g78EFImmD
-	LUvyGyBQ==;
+	bh=zEfQ2xHD20u2SNJPKNUNUUMLTWyeWszA9wRDOE62vLc=; b=girFZRXsNpBkNgCPLg0/mgDyet
+	hqn9cbhiS2/J/r8h0tG/VoOpfvfCa6a03dVm7MSg0y2QWG+ROJdoPd9szAUuQyzjvVOGmHoiE1KlS
+	8LHZ7E/FXTryFw4zmWa4irAfECYU3aQaQyQsIOWUvGUG02IJ0TJJNE03p/HJfLIrP6xQHEpsjuing
+	0zm6xHuN4JOq5xSrCFLqOr4+/+mmIMN+TfeDbLmvBxPylKkP2EU7sYLOjUVe7uu0oPMVLg+lG5lDf
+	bdnddz8RTvK4gExYUiK7uTwYdAjm5g0g0r5eKzZhI4SjKw+ABEpMGe14eQ4ZT7RUy1E6eklfo2opz
+	zPxqF0Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6QjD-00000008pVk-06nC;
-	Sat, 28 Mar 2026 10:17:15 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1w6QjP-00000008paM-0KBK;
+	Sat, 28 Mar 2026 10:17:27 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6QjA-00000008pV2-2GX8
+	id 1w6QjE-00000008pVZ-1QoF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 10:17:13 +0000
+	Sat, 28 Mar 2026 10:17:17 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=35Vdxw+bGikUGARyshD29d8hmxPEOshopH4zQVVJEkw=;
-	b=s49vGdAHRwvtDhPiphC6xoXo/WG2C5Df4WFVvligxTKt1X6zBh5vr+jG+n7Z+guWwk/9RoNel
-	MvljwNHxvht3ChIOXlBNkn+m6mr44/MOYkxxABpG2vxTAsLpxite/xkdksIG2DoMnSMBhG1xLJB
-	uApiIXqzmtFkytkRb2rItXc=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fjYF10YtlzKm5B;
-	Sat, 28 Mar 2026 18:11:01 +0800 (CST)
+	bh=zEfQ2xHD20u2SNJPKNUNUUMLTWyeWszA9wRDOE62vLc=;
+	b=cWsDiIDox67v1VfnLwL3COzpfWl/zHQy+xzjtvGgkgF5nnzZ69dsU/MT5LgpVfsBbXbqEogm1
+	yi+rkN5uJADT2kmyr5E3gdeQitAdEpzq/yul6Z0nefWUnNcLGzKaS+WKXKMof2ZS9LH0tZY1Bef
+	liOWaPfDh1Tqhwehso/utHE=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fjYFr1Qwgz12LJ1;
+	Sat, 28 Mar 2026 18:11:44 +0800 (CST)
 Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5132940562;
-	Sat, 28 Mar 2026 18:17:10 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C2B2D40538;
+	Sat, 28 Mar 2026 18:17:09 +0800 (CST)
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
@@ -51,9 +51,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<xiaqinxin@huawei.com>, <wangzhou1@hisilicon.com>,
 	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
 	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>
-Subject: [RFC PATCH v2 5/5] iommu/arm-smmu-v3: Add Context Descriptor display to debugfs
-Date: Sat, 28 Mar 2026 18:17:06 +0800
-Message-ID: <20260328101706.3448655-6-xiaqinxin@huawei.com>
+Subject: [RFC PATCH v2 4/5] iommu/arm-smmu-v3: Add device symlink in stream table debugfs
+Date: Sat, 28 Mar 2026 18:17:05 +0800
+Message-ID: <20260328101706.3448655-5-xiaqinxin@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260328101706.3448655-1-xiaqinxin@huawei.com>
 References: <20260328101706.3448655-1-xiaqinxin@huawei.com>
@@ -64,8 +64,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_031712_949996_8A84CD5F 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260328_031716_723492_7CB45F30 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,146 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Context Descriptor (CD) display functionality to debugfs.
-This allow inspecting CD contents for all Substream IDs including:
-- CD validity and translation parameters
-- TTBR0 and TCR configurations
-- Raw CD data
+Add a symlink named  under each stream table entry directory pointing to
+the sysfs directory of the actual device. This aids debugging
+by providing direct access to device attributes.
 
 /sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
 └── <sid>/
     ├─── ste
-    ├─── cd
     └─── <dev_name>
 
 Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 94 +++++++++++++++++++
- 1 file changed, 94 insertions(+)
+ .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-index dbcc8fce6d8e..501437432809 100644
+index 70623b480d64..dbcc8fce6d8e 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-@@ -10,6 +10,7 @@
+@@ -8,8 +8,9 @@
+  *     ├── capabilities    # SMMU feature capabilities and configuration
+  *     ├── registers	   # SMMU Key registers
   *     └── stream_table
-  *	   └─── <sid>/                                # Stream ID
-  *	       ├─── ste                               # Stream Table Entry
-+ *	       ├── cd                                 # Context Descriptor
-  *	       └── <dev_name>                         # Symlink to device sysfs directory
+- *	   └─── <sid>/                                # Stream ID 0
+- *	       └── ste                                # Stream Table Entry
++ *	   └─── <sid>/                                # Stream ID
++ *	       ├─── ste                               # Stream Table Entry
++ *	       └── <dev_name>                         # Symlink to device sysfs directory
   *
   * The capabilities file provides detailed information about:
-@@ -26,6 +27,12 @@
-  * - Stage 1 and Stage 2 context pointers
-  * - Raw STE data
-  *
-+ * CD Information Displayed:
-+ * - T0SZ: Input address space size configuration
-+ * - EPD0/EPD1: Stage 1 translation enable flags
-+ * - TTBR0: Stage 1 translation table base address
-+ * - Raw Data: Complete CD structure in hexadecimal format
-+
-  * Copyright (C) 2026 HiSilicon Limited.
-  * Author: Qinxin Xia <xiaqinxin@huawei.com>
-  */
-@@ -284,6 +291,91 @@ static const struct file_operations smmu_debugfs_ste_fops = {
- 	.release = smmu_debugfs_ste_release,
- };
+  * - translation stage support (Stage1/Stage2)
+@@ -31,6 +32,7 @@
  
-+/**
-+ * smmu_debug_dump_cd() - Dump a single Context Descriptor
-+ * @seq: seq_file to write to
-+ * @cd: pointer to the Context Descriptor to dump
-+ */
-+static void smmu_debug_dump_cd(struct seq_file *seq, struct arm_smmu_cd *cd)
-+{
-+	u64 data;
-+	int i;
+ #include <linux/cleanup.h>
+ #include <linux/debugfs.h>
++#include <linux/kobject.h>
+ #include <linux/slab.h>
+ #include "arm-smmu-v3.h"
+ 
+@@ -295,6 +297,7 @@ int arm_smmu_debugfs_create_stream_table(struct device *dev,
+ 	struct dentry *stream_dir, *dev_dir;
+ 	struct arm_smmu_master *master;
+ 	struct ste_context *ctx;
++	char *path, *full_path;
+ 	char name[64];
+ 	u32 sid;
+ 	int i;
+@@ -333,6 +336,18 @@ int arm_smmu_debugfs_create_stream_table(struct device *dev,
+ 		debugfs_create_file("ste", 0444, dev_dir, ctx,
+ 				    &smmu_debugfs_ste_fops);
+ 
++		/* Create a symlink to the device's sysfs directory */
++		path = kobject_get_path(&dev->kobj, GFP_KERNEL);
++		if (!path)
++			continue;
 +
-+	/* CD 0 */
-+	data = le64_to_cpu(cd->data[0]);
-+	seq_printf(seq, "  T0SZ: 0x%llx\n", data & CTXDESC_CD_0_TCR_T0SZ);
-+	seq_printf(seq, "  EPD0: %s\n", data & CTXDESC_CD_0_TCR_EPD0 ? "Yes" : "No");
-+	seq_printf(seq, "  EPD1: %s\n", data & CTXDESC_CD_0_TCR_EPD1 ? "Yes" : "No");
-+
-+	/* CD 1 */
-+	data = le64_to_cpu(cd->data[1]);
-+	seq_printf(seq, "  TTBR0: 0x%016llx\n", data & CTXDESC_CD_1_TTB0_MASK);
-+
-+	/* Display raw CD data */
-+	seq_puts(seq, "  Raw Data:\n");
-+	for (i = 0; i < CTXDESC_CD_DWORDS; i++)
-+		seq_printf(seq, "    CD[%d]: 0x%016llx\n", i,
-+			   le64_to_cpu(cd->data[i]));
-+}
-+
-+static int smmu_debugfs_cd_show(struct seq_file *seq, void *unused)
-+{
-+	struct device *dev = seq->private;
-+	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+	u32 max_ssids, ssid;
-+
-+	if (!master) {
-+		seq_puts(seq, "No master data\n");
-+		return 0;
-+	}
-+
-+	mutex_lock(&arm_smmu_asid_lock);
-+	max_ssids = 1 << master->ssid_bits;
-+	seq_printf(seq, "Context Descriptors for device (max SSIDs: %u):\n",
-+		   max_ssids);
-+
-+	for (ssid = 0; ssid < max_ssids; ssid++) {
-+		struct arm_smmu_cd *cd = arm_smmu_get_cd_ptr(master, ssid);
-+
-+		if (cd && (le64_to_cpu(cd->data[0]) & CTXDESC_CD_0_V)) {
-+			seq_printf(seq, "\n--- SSID %u ---\n", ssid);
-+			smmu_debug_dump_cd(seq, cd);
++		full_path = kasprintf(GFP_KERNEL, "/sys%s", path);
++		if (full_path) {
++			debugfs_create_symlink(dev_name(dev), dev_dir, full_path);
++			kfree(full_path);
 +		}
-+	}
 +
-+	mutex_unlock(&arm_smmu_asid_lock);
-+	return 0;
-+}
-+
-+static int smmu_debugfs_cd_open(struct inode *inode, struct file *file)
-+{
-+	struct device *dev = inode->i_private;
-+
-+	if (!dev || !get_device(dev))
-+		return -ENODEV;
-+
-+	return single_open(file, smmu_debugfs_cd_show, dev);
-+}
-+
-+static int smmu_debugfs_cd_release(struct inode *inode, struct file *file)
-+{
-+	struct seq_file *seq = file->private_data;
-+	struct device *dev = seq->private;
-+
-+	single_release(inode, file);
-+	if (dev)
-+		put_device(dev);
-+	return 0;
-+}
-+
-+static const struct file_operations smmu_debugfs_cd_fops = {
-+	.owner   = THIS_MODULE,
-+	.open    = smmu_debugfs_cd_open,
-+	.read    = seq_read,
-+	.llseek  = seq_lseek,
-+	.release = smmu_debugfs_cd_release,
-+};
-+
- /**
-  * arm_smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
-  * @dev: device to create entries for
-@@ -348,6 +440,8 @@ int arm_smmu_debugfs_create_stream_table(struct device *dev,
- 		}
- 
- 		kfree(path);
-+		/* Create CD file to dump all valid Context Descriptors */
-+		debugfs_create_file("cd", 0444, dev_dir, dev, &smmu_debugfs_cd_fops);
++		kfree(path);
  	}
  
  	return 0;
