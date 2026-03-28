@@ -4,148 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6987410ED67D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 08:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BED210BA421
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 08:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+cNd1zjbqfXQPVcuJDWIh4a5RZFpw+GYf3QtvMfaxs=; b=1QsiSmbnfNmyPvgpLAuxOWz/88
-	SHTV4AxByDw8snhP3Y0eB0zr2NFL17kXSIASwgZMNxYC+LbHpsA231zz/ezGonoGLUqDkYWFjr2fY
-	UA6kKC+pUg+aZ+G/G5kEGwQQnfqyfwAFgc9VR6nTXvQ6JIjMsRpZnDsPwdA+OBTjbuLAJIpT9K1Iu
-	W4rFTP1LltSphI/JsVwmGz5RBFUxWYVBtCFkx7X+9tzfcbTvFAbh6MLdChSHdGcccMbQdVk7DeZSs
-	HJb5vuomIHa1ww4WMbc1LUL6kyW3ZWGg3CNF/FmIyUZ6b0v0ZBjNiKLxKeB1+aayxfHNoKcfwaz0N
-	JX3l6nSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W9D8vCzCrRJ5LPPbiAlFNwBx1RgUj04xH732MSvsX1E=; b=R/ttxR04kYXsVQBravl9+qatrb
+	m676/pDQn9bNwn3Eof7ySY8g1Lkt1+iZr7iTZDdQDqGUSKxhGtRY0Fcesf1PLW3Ox8r9l6KPSwTzl
+	G7DpQEBjeaPkmkLUc1iFUcUwrKxb6MCSzTUTG4p0oTwxnJhFvN9V8FuruJ2TbOPx3ruHnN4CzqTfU
+	SekqrI7sxXtJTLbX5/MZUNHLWEz2i/Lvn+Mre/NNNaQEa1ZHYjHqYsvmPuJkrX/HvOlyYaA5Cb4hb
+	+cWK7w4/jYWkKV+Zq6WytC3QBDoeQcCUF99ctGrIzXlVwc43BzuclSyjc8Z7hWNTFLFu8zt6M5nvV
+	pVba7R2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6P0K-00000008k8m-2iuT;
-	Sat, 28 Mar 2026 08:26:51 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w6PSe-00000008lKd-0HMw;
+	Sat, 28 Mar 2026 08:56:04 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6P0I-00000008k6x-2X8S
+	id 1w6PSZ-00000008lKA-2S5Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 08:26:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HXzEsfBnezCWF8fAnOFvVXUZHxvT4OjM9A+m83NlJCT7CxIWaIRMcMwQV8BVSfIFXIX+pf6CfdVsq/GkAqViyCG9AtQ7VbuxQFgqprTH10WiOhnZkprb1RvQcQu/9cvZ27fEVLywyahJlUDkPNxmXsbHCKrqAthec2nIZMm9rh5HZ5U0dnpOwHrH+s0B2XGsh65+ySjuzm1uOZfZ68UlNZyGZ2pm4OU3B3Am5bQfjMj4sRUyT+egjdeXg7Qwo8cnjnmA1kyHBMMeVmW4VA3dfnYLHkKJnCWInWilQLncK1In/2XNorEJsNvwwjHpOM+vc6eroCnlptmyCStYv9dhjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r+cNd1zjbqfXQPVcuJDWIh4a5RZFpw+GYf3QtvMfaxs=;
- b=yrpmAhCIiUQWMK+QV+bgR1QeYfBurZdxo1a+4EfCYo3Y7MT8/tqpfFsPXwHrCZqYe9o4hR/3vRjBFbjH6HC/s8mLKvBoWiyikJ4wdwNtdhY1JytNqfj3hOUwXvlg+AkJ/3y3HOAutp0Ft1pzPTNT6f0Se3LjT+JroGXEYu5WVM6b09zrHifeGh+FTXPjPrQCN4F3HAKtU2cU/WQPD+dFGxmEvl0Bh4gKpjrTQN4i7boT/EH1Pe/6SoRguXfyew+9aVcvZGR4/yegR/41DArb7IysVSlVVvGF4XWJDp1hp0Gmm+vjHS3ZZslvM+nA6SIL6P8vrFB+HrolPd8ijv55EA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r+cNd1zjbqfXQPVcuJDWIh4a5RZFpw+GYf3QtvMfaxs=;
- b=tn0GT3WG0K8TEwuKsrDLHy8ELVUhUiS1ESFS/3bbA5ceFa7DKyziXeFxpCRb5bggqPlpaeg3KSyqNDr2HfwWS7WBaw1v6wXKXh0Y5ScHBOEoF0Do51UkpAONUngUf5vnjSC3CyGqL04bQezbvOGKpGGrKAqMCMoNAREtMtCVh1jPdDogtdJtH46ccjSEc+r6oiZbRQ+UgQAD9EqaCRzu7BT5Iaf59rmlTLo/1EioZD+z+EhqAZIcYFu63IN4CydRkxGyn/qvSpNlABq/QsttI2rh/C9OcgCvUOxpA4yXfl8x4DwBbA7j+dsaAMlF0h7eYUtbP1DbLqNYqhO3smcAsQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by VI2PR04MB10569.eurprd04.prod.outlook.com (2603:10a6:800:273::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Sat, 28 Mar
- 2026 08:26:42 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9745.024; Sat, 28 Mar 2026
- 08:26:42 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Sat, 28 Mar 2026 16:28:32 +0800
-Subject: [PATCH v3 2/2] media: nxp: imx8-isi: Implement get_frame_desc for
- crossbar subdev
+	Sat, 28 Mar 2026 08:56:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=W9D8vCzCrRJ5LPPbiAlFNwBx1RgUj04xH732MSvsX1E=; b=cw/PSUbNcg/qV3aSySproi+46b
+	W4YCBnfrBl1BwW4KsBBH2MU+F7BBr+tZt9Y2yRpuGWgva3tHHyVfLXwyh5aquGvXq1VwiafVvt6hi
+	aiT66Pq0eHtSdMZz1fm+MgNFToKjNZkrgnQosP+xCFgbp/qOEwxkSeh63mSsUmpUNnXF5sye27KaR
+	CBpKQSo80mC7QpIm15t913/z4BipHh/rzUdNYV0rERciL6UCmefkJQkdrXJAlaGWktL3IpOtOU+fz
+	lWRHOV1woaQ2E9zC5FO++SeCUVB8o68Ott/DIUMu2dC+fyjRs/7QjsIPuH0sVYdRnppWDwqsrVkK/
+	OwMxtMnA==;
+Received: from user-5-173-16-20.play-internet.pl ([5.173.16.20] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1w6PSU-00000002znC-02RV;
+	Sat, 28 Mar 2026 09:55:54 +0100
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Sat, 28 Mar 2026 09:55:51 +0100
+Subject: [PATCH v4] net: stmmac: skip VLAN restore when VLAN hash ops are
+ missing
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260328-isi_vc-v3-2-a03b9a6fe117@oss.nxp.com>
-References: <20260328-isi_vc-v3-0-a03b9a6fe117@oss.nxp.com>
-In-Reply-To: <20260328-isi_vc-v3-0-a03b9a6fe117@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774686533; l=4533;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=w7S1A8iPdc97eTpGmkhOdDTok5hCAvrqm502P4xAX80=;
- b=qwJEuDfWvEh3lQe814hPgnqwgU4bGbfZ40Cd7f4lfuZ/z8/ZwUwES+tNoGCMfrMhgF8kRAUee
- R5V6dSehuu1AqEWL0KxxH/UqEXGjI9mn27BsduvX6EHG4L+vFbo0eP7
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SG2P153CA0019.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::6)
- To DU2PR04MB9081.eurprd04.prod.outlook.com (2603:10a6:10:2f0::13)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|VI2PR04MB10569:EE_
-X-MS-Office365-Filtering-Correlation-Id: c17a948b-adf8-43d9-c251-08de8ca3bd69
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|1800799024|366016|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Sr2U2l3pW9a2pZ/R4D0pA1M3e1+rC16boQb3IWVtLcfLrHXprc1ATjrIdaB6Pnb/vH4UYTCrNk24fY308/fVxCFhWwCXYizkqPVrxLISZjQPY2XUzEaU6sQtxRSB+gttf/ordyeo633zfYGmwABXPspVTgyh1pSxefgZ3US+F/fxve0KOGyGaZ0T/bmbJLuDwwv/yB9c7cEOhwde2mHPzLisy8kPRz6N3qHrbcFHJT8hfLnAvuwnSx2gVy2pfJVL8gqCBBVoUi9qBMub7S3DVUYR+zJXjsF7QugLbVJCnqy89gAzw8ZInZkge6FvQkvF6JUD3xP0u+aJqDvDWo5CNXCKKJl8vPeOlKLNXson15HeF7AyF+vTGMR6i+4WMYqS/kOlMSbZwxrVJM3I9bO2dQd2ImRwjetfRjFdEx+IAQz/ukJAdw0WH86n/kfGO/VMsoW0bXdZGaz9JxmYenTbuozfC+vTieQ8pxhruk2O8xkHoZuELNgEuQ6/xyNQHTtt8tvlidH+uuoQty5VyCFjGgXg9vMGPJmuE5qUvtvPd6KqXKrOqm3jnADql/KOou9tRMu2yrIgYlFz5eiKw/6XpW+UPfALchGoYtShE+sgIrOHo5qRwNlx5aDsxVUNM7xZeW4pMbregODEQoZV8QULY1XSHh8E2sx/rxfrfp4GCYYI5b3gGKjFqXLEGxvFrH92CDIiRJ05EWWK0n2QFpNXjgVxRqKYStv4WKTeIua8LR1r7RjUCf8KBd3bbiC6TQF3kMhWHCXrHNwwJyq60p7/vrQf1LugGXxRh1suXP3NbS0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(1800799024)(366016)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?alBXc0YxOU56dHpQTERsTmVYbFUyU2NtbEk5MHVBb0tNQkw2aUg2bnpLZmJN?=
- =?utf-8?B?MmZiSUpQdWlDUVNuR3NQanNIRFErWUxERVZ5M3I2Z3ZoK3dUT3JWbmltZEhK?=
- =?utf-8?B?eUhQSThqN214VkxmdFRYNGp6UFJWRmlZMHZKamczaE1jTmJ4cDlBQk1GZm03?=
- =?utf-8?B?dTNTWk9NT0VNTHRYd0N1NHZQSGVkbVl4ZEJJVDNNUmZCZW9ZaW9abWFybUxp?=
- =?utf-8?B?YWNMK2J4ZkY1amlsTHl5aU40NTJzMFN2K0xZYUtIWmNyaXBGeTRFYW91dlJM?=
- =?utf-8?B?aWxGNjVhV2VRMG1pQXZONldNNEtCTDVVbUx0empwSGsvQTkxUStvbklicUdq?=
- =?utf-8?B?UnZNRURjZ0I5elNoTmY1V0t2Q283SFBYRkkySm55QnhhTTVzMWhKTFBndFNT?=
- =?utf-8?B?UlpUcmV0QXZRQ1dZSFFSdnlwOURDcThsMy9iaXBCcThueTR3SWNpUm1zTUJa?=
- =?utf-8?B?K3VVaWdnZlo3NDA0bHZPeEl2U1V0M1lxNytaQjFrS3FlNzQxeUlldXpMN0U0?=
- =?utf-8?B?eEJETEtjUis4WU9xSmpiN3VLTjdCYk0vWExyMG93WUFwSnE1aHNHajI5ZSth?=
- =?utf-8?B?STZra1BOVHR0TFMrR0xwRVlYaUlXbzZHNlFlVnRTZVNjOVZhQjhlUzJhQ1N2?=
- =?utf-8?B?enRHcGtrUlNXRWJXbCtUbXdwREkzNlBDVXFjajFnTXlseWkzMFVOa3FRai9j?=
- =?utf-8?B?SDVzK0JvbkZwTUNCSVdNbVlDajVJZVdPR1FqMTIzZjVPU2ZsdFJIdWxKUEdG?=
- =?utf-8?B?Z3Y0ZXZuZ1M4MzZJVDNPeTdDdXY3eHhrQnBoV1hrbm5OUHhNYVBDVllLTCtP?=
- =?utf-8?B?UkVFaUJQSkgzMWJkWlJEdUN5ZnFleTFPQVdQRVNjOFdnaDBwSVV4clpneFZK?=
- =?utf-8?B?SzJlUTVtOXpJZ2FpSkF0S3VzZGtrMU9OSXlMckRnK2UzNmVuanVIeGtndkFY?=
- =?utf-8?B?dElQM0lQdDdpMjRpcTl0TnZTekVzOU1NUUxPT0w5WEJUWEtHNFJrcytSRUpJ?=
- =?utf-8?B?d1VRM1BPc1BVakpLQWVRVU9zOFYxNElNSkQyUERVSkg0b0xwZTR6ODREOXNT?=
- =?utf-8?B?UkVST3ZacVRZc2VmSVVCU0d2SFlza1RiK0ZTWlR1QlFiR0J5WndUR1pNZlY0?=
- =?utf-8?B?eFAxbzF4OUlhczVmZ2Fhand5MjFSRHBQR0syTGpaMWJ6dy9jZU1USklYVDVz?=
- =?utf-8?B?ZmRwUWVETTUyMWd4UTJ5c3JBME5LODJUT0w3MXAwNnJ0ZDV2ZmdVb2pLT1Mx?=
- =?utf-8?B?RUM0YXlpMjkzODRVRm5BOTVEeVNEWC9tVTJoVTVuM0xUSFFSV1Iwc2k3dzZv?=
- =?utf-8?B?YkoyOG9kNkVGZ0FTZXlsWHZ4OEJoeVBicXN4MFZQamlSdWlWaXhETDY5UkRS?=
- =?utf-8?B?UGd3OUNHSEV1TkgwejYrcXBVOFpJaXFQYTNUcmxDZ1VidmwyalJCa3d2c015?=
- =?utf-8?B?OWorV093VWNsclJKeU9iVjFadFQrcGNKVFIrWHlTTjM4U29nbW14MDlZNWFq?=
- =?utf-8?B?eTRmUldWWnVKVm4reDFCQ1p6aC9PSWFEcm5vSVBJSkpnRHFJdjZuYXVBTks2?=
- =?utf-8?B?WmoxdEczMnd5M0NBcHJZOTNFMkhob2JOTVo5cFAwZk9zMnZZRDVDRWV5UHdY?=
- =?utf-8?B?NHZxd09pL3BBcmNFaTVDaXhsc1pGb0tnb2FiVExlZkc1N0Nqd2ZGejI1WU1P?=
- =?utf-8?B?aWlGSjQyV01rWHQyZWhFRmJLU1A1ajJLQWJjeWoxMzB2ODhOcnRhWHRYWFB4?=
- =?utf-8?B?NnVVOTh2eGpmQXg0dGZHM1dSZ2w2SGlEMDBMZlkwSExIRXViMmxCYWhXYlVp?=
- =?utf-8?B?NlBTZ0xPK3crbVdCK2ViRVRXUEtOc1U3U3RnS0xlYy9NN0VsK0hJQW1Kc3py?=
- =?utf-8?B?NkhOeldiUSsvUzlMYzFtNnN5L1Uzak5JclliS1RlN0ZHMVNzblZGcEtCU28w?=
- =?utf-8?B?NHVoazR5UUNzV3gwdCtDQW11am1YeXdaRWswTGwrOXd1NGxPOStQQVpXOFlt?=
- =?utf-8?B?L0V6dEhVSDVFbUxTUTNnOVFRQ3h6elQzdUxpOHZUL0pmd2QrQ29xQkVtYktu?=
- =?utf-8?B?TzI2ZEJHUXhuNUREajlmWGxPMUJkM2R1bG5EOUpQOEllRTdSbmhLSW95cndW?=
- =?utf-8?B?QlgzaWw2OFA0azJEcmJ3Yis3d0JBYzltclIvcDZMT0JzWXVLQlczSXBsQmZ6?=
- =?utf-8?B?VE5CQnQyTU5uY3lvTmtGM0liNHpZaVBJWEVjeWRGVHV3WCthLysvdXZjczly?=
- =?utf-8?B?WEF0bHBBS0RRaWNLeDhEcndOWjNkdkNlRkFNS2V0dUgvK1pDK1BmU0lqdDh5?=
- =?utf-8?B?d3NoZVZDSW55dm9IMEJZRnFpTTdDLzlhTXJnUVJtWGgyRHE4bE0xZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c17a948b-adf8-43d9-c251-08de8ca3bd69
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB9081.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Mar 2026 08:26:42.1456
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: u8YAXpKZ1qtk2i7JC6iGXuK+Cf5SeVNthwGOzlB6F3XXdtqJLIuypncsr5bobrhA/A9JeVI1POKqbDIsfvNckQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10569
+Message-Id: <20260328-vlan-restore-error-v4-1-f88624c530dc@mmpsystems.pl>
+X-B4-Tracking: v=1; b=H4sIAJaXx2kC/33NSwrCMBCA4atI1kaaZ6sr7yEuYjpjA32RlGApv
+ btJV0WKy3+Y+WYhAbyDQG6nhXiILrihTyHPJ2Ib07+Bujo14QXXhWCSxtb01EOYBg8UvB88xeo
+ lDLMlqsKQdDh6QPfZ0MczdePy9rz9iCxP/3KRUUYlWm0FcMYU3rtuDHOYoAuXsSWZjHzHcHbI8
+ Mwoi0obxbmojxixZ6pDRiSmRlmaQlytRv3LrOv6BRYVpxFGAQAA
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774688151; l=3201;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=lmB9RkAsJOKKgD5XsOpXtoTGuYHWZeBiE4dI8gGBpmE=;
+ b=k0d4LG2qW5S5JB0Fw6C5IlvnEM6iE36A+wAxwIDuP+cwTUSfPySgFjTY8DhZb7fP9denByW3G
+ X1IW0pnaROsDzVv+iTBKmYEfIuVIHP+iXVC3oPv1jrAgIM5eUD2bwuS
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_012646_655016_B55D8376 
-X-CRM114-Status: GOOD (  21.58  )
+X-CRM114-CacheID: sfid-20260328_015559_961924_0788320B 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,141 +92,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
+stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
+NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
+->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
+-EINVAL via stmmac_do_void_callback(), resulting in a spurious
+"Failed to restore VLANs" error even when no VLAN filtering is in use.
 
-Implement the get_frame_desc pad operation for the crossbar subdevice
-to propagate frame descriptor information from the source subdevice to
-downstream ISI channels.
+Remove not needed comment.
+Remove not used return value from stmmac_vlan_restore().
 
-This allows the ISI driver to retrieve virtual channel information and
-other stream parameters from the connected upstream, which is required
-for proper virtual channel routing on platforms supporting multiple VCs.
+Tested on Orange Pi Zero 3.
 
-Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
+Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
+This patch fixes a noisy "Failed to restore VLANs" message on platforms
+where stmmac VLAN hash ops are not implemented.
+stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
+VLAN hash ops presence which results in -EINVAL. 
+---
+Changes in v4:
+- Remove not used return value of stmmac_vlan_restore()
+- Link to v3: https://lore.kernel.org/r/20260328-vlan-restore-error-v3-1-df47a039c6f6@mmpsystems.pl
+
 Changes in v3:
-- New patch added based on feedback from Laurent Pinchart
----
- .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 97 ++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
+- Remove the offending comment
+- Restore the original check for NETIF_F_VLAN_FEATURES
+- Link to v2: https://lore.kernel.org/r/20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-index 605a45124103..2e98fedbabc2 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-@@ -306,6 +306,102 @@ static int mxc_isi_crossbar_set_fmt(struct v4l2_subdev *sd,
- 	return 0;
+Changes in v2:
+- Replace check for hash ops with check for HW FILTER flags
+- Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 6827c99bde8c..13d3cac056be 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -156,7 +156,7 @@ static void stmmac_tx_timer_arm(struct stmmac_priv *priv, u32 queue);
+ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue);
+ static void stmmac_set_dma_operation_mode(struct stmmac_priv *priv, u32 txmode,
+ 					  u32 rxmode, u32 chan);
+-static int stmmac_vlan_restore(struct stmmac_priv *priv);
++static void stmmac_vlan_restore(struct stmmac_priv *priv);
+ 
+ #ifdef CONFIG_DEBUG_FS
+ static const struct net_device_ops stmmac_netdev_ops;
+@@ -6859,21 +6859,15 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
+ 	return ret;
  }
  
-+static int mxc_isi_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
-+				  struct v4l2_mbus_frame_desc *fd)
-+{
-+	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
-+	struct device *dev = xbar->isi->dev;
-+	struct v4l2_subdev_route *route;
-+	struct v4l2_subdev_state *state;
-+	int ret = 0;
-+
-+	if (pad < xbar->num_sinks)
-+		return -EINVAL;
-+
-+	memset(fd, 0, sizeof(*fd));
-+
-+	state = v4l2_subdev_lock_and_get_active_state(sd);
-+
-+	/*
-+	 * Iterate over all active routes. For each route going through the
-+	 * requested source pad, get the frame descriptor from the connected
-+	 * source subdev, find the corresponding stream entry, and add it to
-+	 * the output frame descriptor with the routed stream ID.
-+	 */
-+	for_each_active_route(&state->routing, route) {
-+		struct v4l2_mbus_frame_desc source_fd;
-+		struct v4l2_subdev *remote_sd;
-+		struct media_pad *remote_pad;
-+		unsigned int i;
-+
-+		if (route->source_pad != pad)
-+			continue;
-+
-+		/* Find the remote subdev connected to this sink pad */
-+		remote_pad = media_pad_remote_pad_first(&xbar->pads[route->sink_pad]);
-+		if (!remote_pad) {
-+			dev_dbg(dev, "no remote pad connected to crossbar input %u\n",
-+				route->sink_pad);
-+			continue;
-+		}
-+
-+		remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+		if (!remote_sd) {
-+			dev_err(dev, "no subdev connected to crossbar input %u\n",
-+				route->sink_pad);
-+			ret = -EPIPE;
-+			goto out_unlock;
-+		}
-+
-+		/* Get frame descriptor from the remote subdev */
-+		ret = v4l2_subdev_call(remote_sd, pad, get_frame_desc,
-+				       remote_pad->index, &source_fd);
-+		if (ret == -ENOIOCTLCMD) {
-+			dev_dbg(dev, "%s:%u does not support frame descriptors\n",
-+				remote_sd->entity.name, remote_pad->index);
-+			continue;
-+		}
-+		if (ret < 0) {
-+			dev_err(dev, "failed to get frame desc from %s:%u: %u\n",
-+				remote_sd->entity.name, remote_pad->index, ret);
-+			goto out_unlock;
-+		}
-+
-+		if (fd->num_entries == 0)
-+			fd->type = source_fd.type;
-+
-+		/* Find the source frame descriptor entry matching the sink stream */
-+		for (i = 0; i < source_fd.num_entries; i++) {
-+			if (source_fd.entry[i].stream == route->sink_stream)
-+				break;
-+		}
-+
-+		if (i == source_fd.num_entries) {
-+			dev_err(dev, "stream %u not found in frame desc from %s:%u\n",
-+				route->sink_stream, remote_sd->entity.name,
-+				remote_pad->index);
-+			ret = -EPIPE;
-+			goto out_unlock;
-+		}
-+
-+		if (fd->num_entries >= ARRAY_SIZE(fd->entry)) {
-+			dev_err(dev, "frame descriptor is full\n");
-+			ret = -ENOSPC;
-+			goto out_unlock;
-+		}
-+
-+		/* Copy the entry and update the stream ID */
-+		fd->entry[fd->num_entries] = source_fd.entry[i];
-+		fd->entry[fd->num_entries].stream = route->source_stream;
-+		fd->num_entries++;
-+	}
-+
-+out_unlock:
-+	v4l2_subdev_unlock_state(state);
-+
-+	return ret;
-+}
-+
- static int mxc_isi_crossbar_set_routing(struct v4l2_subdev *sd,
- 					struct v4l2_subdev_state *state,
- 					enum v4l2_subdev_format_whence which,
-@@ -404,6 +500,7 @@ static const struct v4l2_subdev_pad_ops mxc_isi_crossbar_subdev_pad_ops = {
- 	.enum_mbus_code = mxc_isi_crossbar_enum_mbus_code,
- 	.get_fmt = v4l2_subdev_get_fmt,
- 	.set_fmt = mxc_isi_crossbar_set_fmt,
-+	.get_frame_desc = mxc_isi_get_frame_desc,
- 	.set_routing = mxc_isi_crossbar_set_routing,
- 	.enable_streams = mxc_isi_crossbar_enable_streams,
- 	.disable_streams = mxc_isi_crossbar_disable_streams,
+-static int stmmac_vlan_restore(struct stmmac_priv *priv)
++static void stmmac_vlan_restore(struct stmmac_priv *priv)
+ {
+-	int ret;
+-
+ 	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
+-		return 0;
++		return;
+ 
+ 	if (priv->hw->num_vlan)
+ 		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
+ 
+-	ret = stmmac_vlan_update(priv, priv->num_double_vlans);
+-	if (ret)
+-		netdev_err(priv->dev, "Failed to restore VLANs\n");
+-
+-	return ret;
++	stmmac_vlan_update(priv, priv->num_double_vlans);
+ }
+ 
+ static int stmmac_bpf(struct net_device *dev, struct netdev_bpf *bpf)
 
+---
+base-commit: be762d8b6dd7efacb61937d20f8475db8f207655
+change-id: 20260314-vlan-restore-error-f8b3a1c7f50a
+
+Best regards,
 -- 
-2.34.1
+Michal Piekos <michal.piekos@mmpsystems.pl>
 
 
