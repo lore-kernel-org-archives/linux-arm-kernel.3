@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31BC10D1485
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 21:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AE710D1489
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 22:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFWV/OP3CV7mhIExOnG5mhiTc2BNckmEP5LXFWoKl48=; b=H2Z13WbgcRchWjPvVIDTcNidJZ
-	51V2D/GRmXRa1kZBoiiGf7bRLJjds1ORQ2iDJfjLU+Bbe/TltHQQbFwEV5ubCsqz54UMLgqluKWft
-	/2Cq+YUnYhx9837J7t2dTf+4bYyk5ICajZv8F0Ceea98aoRxWS/O9+e+wImNI4bcwwYe1sluiP55M
-	D5bvF2VHwn8nn2mF7E16sKptQtKJ9Awif8jQ0/XZeDhXUtpq+ia3N1EvWQ6JgEpvWACpmTElUzBdk
-	xZ+A0zqWhI2YtDE4+1NIX3J818DZaWzYGmv9ZZBMvfFsSQU5Xst/PlRB5/bmGH3IuIJpUtqvzUjr2
-	v49A41DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RdF0uSE9siyI2yUyaNO0zl9mPSm6rqUcMJHnrPqaje8=; b=vSnut1ZoXiJhYNsSyknry+17DJ
+	4vEnoT145DH9QES6Uyj1xA5jmOkZJmdw0YwbEhexOYWEU+ySjs/NB3zRiHZlw1hwrnbxVqKuTkvU7
+	vtSGL/rgnpKKMNFOGTRlUmiu7t7s5EacJN95Ay1wkaH/2Me4t/xz+88upiKK/YhJ3tOXcODQTMn/G
+	P46uaOFjmQrDI0Qr4RIGaCkAbitJKBI0ZOTbYmKMUMvSfi3P09Om5/Tm8Xsd0G7MVbKAbgBwfrwk0
+	wsO8mMtcXIGZFrClwG5SCFgp9Q7uPcba0ODsybSzYlXG80tz2YTJLt9oNwpMV94NeLuKIdzNnf/AI
+	9YK3cbuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6bLs-00000009KCW-3UZv;
-	Sat, 28 Mar 2026 21:37:52 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w6bnL-00000009LCr-2SA4;
+	Sat, 28 Mar 2026 22:06:15 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6bLe-00000009K0Y-001a
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 21:37:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bFWV/OP3CV7mhIExOnG5mhiTc2BNckmEP5LXFWoKl48=; b=PDVIduwgls+N+1oCrWYwkkvUkU
-	47/q9pobho0+pe8hxAQfDF4azieMPn6AYBig88q0wUym3Lcy2DSltnRXD65fx9iZ3s19EWB+Jcxd5
-	AzKkdhbJxz65EOAXFIg4O179BSNq9Z8k99kLT1cgbMdJcLQ51ACa46ywJ931JnC/GInTYnLYpGsLL
-	jgpVZzw9rPyK8tBHXv7mgNxI3wOKoej+rXJIpacvjvqoErrTdUbYzlo/Wk39medSKqc1O3oGii7ZW
-	GGm0uA+jrx82jxOz40ECj29xO4YVe2V1cJgX/dTbkwnHZlhcL9YJWr2ri7wiLLHwR+0WtsLohEV+9
-	jtgCl2wQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:56404 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w6bLW-000000007UO-38ot;
-	Sat, 28 Mar 2026 21:37:30 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w6bLT-0000000ELuX-3iNP;
-	Sat, 28 Mar 2026 21:37:27 +0000
-In-Reply-To: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
-References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	id 1w6bnI-00000009LCP-2LCT;
+	Sat, 28 Mar 2026 22:06:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774735573; x=1806271573;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pzc/tpsXptWa/yPOeB/pL7zDiAuIXRW8wVhhv3EJYGc=;
+  b=aEJ2zVdpkm1yUO3UzW6e1mzSGKI/dApfSNGwHLUd5mivscANyIajQ/rO
+   /9J1Y+mQp6TDL9b72dyzhijyHFr58oqzC83GT1GRxiTWSSgvLvi629mSd
+   BLwxBKya05VADBeb1wirUjqhDs1duC1EYbmZ9lT+AMtgv5OXugHZqPKWr
+   VmrLAoGhnxd5kUNflJn2WLEERT6N9tEjP8wRwUAQjR80vMpfPSnk3jHDT
+   2ibEjCgjTb2MXpjonNYJAqFq/BM128qrN7B81c1Fv35sZq7vF94zuieEA
+   is9zGjQ4Sui8uIzco0YTCZeID7qJVVZbL04MbSWzsVsIsWrDcEy8FKT1K
+   w==;
+X-CSE-ConnectionGUID: jIQzeBD6Rie6Nt65oh3xoA==
+X-CSE-MsgGUID: vvcE0G3/TR+5h6pny9/tdQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="75793930"
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="75793930"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 15:06:09 -0700
+X-CSE-ConnectionGUID: w8xu/IBFTLKr5v3SzSh+tA==
+X-CSE-MsgGUID: +GVCDlQhQuiRiai87czLpA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="225545327"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 28 Mar 2026 15:06:04 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w6bn6-00000000BoL-0LI1;
+	Sat, 28 Mar 2026 22:06:00 +0000
+Date: Sun, 29 Mar 2026 06:05:27 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jay Liu <jay.liu@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 10/10] net: stmmac: move "TSO supported" message to
- stmmac_set_gso_features()
+	Jay Liu <jay.liu@mediatek.com>
+Subject: Re: [PATCH v4 5/6] drm/mediatek: Support multiple CCORR component
+Message-ID: <202603290611.fr83Gu7M-lkp@intel.com>
+References: <20260324125315.4715-6-jay.liu@mediatek.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w6bLT-0000000ELuX-3iNP@rmk-PC.armlinux.org.uk>
-Date: Sat, 28 Mar 2026 21:37:27 +0000
+In-Reply-To: <20260324125315.4715-6-jay.liu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_143738_061744_2F9B9640 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260328_150612_693841_67EE5DC5 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +99,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the "TSO supported" message to stmmac_set_gso_features() so that
-we group all probe-time TSO stuff in one place.
+Hi Jay,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index c61ce1282368..d281793cd0f9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4385,6 +4385,9 @@ static void stmmac_set_gso_features(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 
-+	if (priv->dma_cap.tsoen)
-+		dev_info(priv->device, "TSO supported\n");
-+
- 	if (!(priv->plat->flags & STMMAC_FLAG_TSO_EN))
- 		return;
- 
-@@ -7432,9 +7435,6 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
- 		devm_pm_set_wake_irq(priv->device, priv->wol_irq);
- 	}
- 
--	if (priv->dma_cap.tsoen)
--		dev_info(priv->device, "TSO supported\n");
--
- 	if (priv->dma_cap.number_rx_queues &&
- 	    priv->plat->rx_queues_to_use > priv->dma_cap.number_rx_queues) {
- 		dev_warn(priv->device,
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on drm/drm-next pza/reset/next linus/master v7.0-rc5 next-20260327]
+[cannot apply to pza/imx-drm/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jay-Liu/dt-bindings-display-mediatek-gamma-Add-support-for-MT8196/20260328-083359
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20260324125315.4715-6-jay.liu%40mediatek.com
+patch subject: [PATCH v4 5/6] drm/mediatek: Support multiple CCORR component
+config: sparc64-allmodconfig (https://download.01.org/0day-ci/archive/20260329/202603290611.fr83Gu7M-lkp@intel.com/config)
+compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 054e11d1a17e5ba88bb1a8ef32fad3346e80b186)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260329/202603290611.fr83Gu7M-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603290611.fr83Gu7M-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/mediatek/mtk_ddp_comp.c:461:3: error: use of undeclared identifier 'DDP_COMPONENT_CCORR0'; did you mean 'DDP_COMPONENT_CCORR'?
+     461 |         [DDP_COMPONENT_CCORR0]          = { MTK_DISP_CCORR,             0, &ddp_ccorr },
+         |          ^~~~~~~~~~~~~~~~~~~~
+         |          DDP_COMPONENT_CCORR
+   include/linux/soc/mediatek/mtk-mmsys.h:27:2: note: 'DDP_COMPONENT_CCORR' declared here
+      27 |         DDP_COMPONENT_CCORR,
+         |         ^
+>> drivers/gpu/drm/mediatek/mtk_ddp_comp.c:462:3: error: use of undeclared identifier 'DDP_COMPONENT_CCORR1'; did you mean 'DDP_COMPONENT_CCORR'?
+     462 |         [DDP_COMPONENT_CCORR1]          = { MTK_DISP_CCORR,             1, &ddp_ccorr },
+         |          ^~~~~~~~~~~~~~~~~~~~
+         |          DDP_COMPONENT_CCORR
+   include/linux/soc/mediatek/mtk-mmsys.h:27:2: note: 'DDP_COMPONENT_CCORR' declared here
+      27 |         DDP_COMPONENT_CCORR,
+         |         ^
+   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:462:28: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+     462 |         [DDP_COMPONENT_CCORR1]          = { MTK_DISP_CCORR,             1, &ddp_ccorr },
+         |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:461:28: note: previous initialization is here
+     461 |         [DDP_COMPONENT_CCORR0]          = { MTK_DISP_CCORR,             0, &ddp_ccorr },
+         |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning and 2 errors generated.
+
+
+vim +461 drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+
+   456	
+   457	static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX] = {
+   458		[DDP_COMPONENT_AAL0]		= { MTK_DISP_AAL,		0, &ddp_aal },
+   459		[DDP_COMPONENT_AAL1]		= { MTK_DISP_AAL,		1, &ddp_aal },
+   460		[DDP_COMPONENT_BLS]		= { MTK_DISP_BLS,		0, NULL },
+ > 461		[DDP_COMPONENT_CCORR0]		= { MTK_DISP_CCORR,		0, &ddp_ccorr },
+ > 462		[DDP_COMPONENT_CCORR1]		= { MTK_DISP_CCORR,		1, &ddp_ccorr },
+   463		[DDP_COMPONENT_COLOR0]		= { MTK_DISP_COLOR,		0, &ddp_color },
+   464		[DDP_COMPONENT_COLOR1]		= { MTK_DISP_COLOR,		1, &ddp_color },
+   465		[DDP_COMPONENT_DITHER0]		= { MTK_DISP_DITHER,		0, &ddp_dither },
+   466		[DDP_COMPONENT_DP_INTF0]	= { MTK_DP_INTF,		0, &ddp_dpi },
+   467		[DDP_COMPONENT_DP_INTF1]	= { MTK_DP_INTF,		1, &ddp_dpi },
+   468		[DDP_COMPONENT_DPI0]		= { MTK_DPI,			0, &ddp_dpi },
+   469		[DDP_COMPONENT_DPI1]		= { MTK_DPI,			1, &ddp_dpi },
+   470		[DDP_COMPONENT_DRM_OVL_ADAPTOR]	= { MTK_DISP_OVL_ADAPTOR,	0, &ddp_ovl_adaptor },
+   471		[DDP_COMPONENT_DSC0]		= { MTK_DISP_DSC,		0, &ddp_dsc },
+   472		[DDP_COMPONENT_DSC1]		= { MTK_DISP_DSC,		1, &ddp_dsc },
+   473		[DDP_COMPONENT_DSI0]		= { MTK_DSI,			0, &ddp_dsi },
+   474		[DDP_COMPONENT_DSI1]		= { MTK_DSI,			1, &ddp_dsi },
+   475		[DDP_COMPONENT_DSI2]		= { MTK_DSI,			2, &ddp_dsi },
+   476		[DDP_COMPONENT_DSI3]		= { MTK_DSI,			3, &ddp_dsi },
+   477		[DDP_COMPONENT_GAMMA]		= { MTK_DISP_GAMMA,		0, &ddp_gamma },
+   478		[DDP_COMPONENT_MERGE0]		= { MTK_DISP_MERGE,		0, &ddp_merge },
+   479		[DDP_COMPONENT_MERGE1]		= { MTK_DISP_MERGE,		1, &ddp_merge },
+   480		[DDP_COMPONENT_MERGE2]		= { MTK_DISP_MERGE,		2, &ddp_merge },
+   481		[DDP_COMPONENT_MERGE3]		= { MTK_DISP_MERGE,		3, &ddp_merge },
+   482		[DDP_COMPONENT_MERGE4]		= { MTK_DISP_MERGE,		4, &ddp_merge },
+   483		[DDP_COMPONENT_MERGE5]		= { MTK_DISP_MERGE,		5, &ddp_merge },
+   484		[DDP_COMPONENT_OD0]		= { MTK_DISP_OD,		0, &ddp_od },
+   485		[DDP_COMPONENT_OD1]		= { MTK_DISP_OD,		1, &ddp_od },
+   486		[DDP_COMPONENT_OVL0]		= { MTK_DISP_OVL,		0, &ddp_ovl },
+   487		[DDP_COMPONENT_OVL1]		= { MTK_DISP_OVL,		1, &ddp_ovl },
+   488		[DDP_COMPONENT_OVL_2L0]		= { MTK_DISP_OVL_2L,		0, &ddp_ovl },
+   489		[DDP_COMPONENT_OVL_2L1]		= { MTK_DISP_OVL_2L,		1, &ddp_ovl },
+   490		[DDP_COMPONENT_OVL_2L2]		= { MTK_DISP_OVL_2L,		2, &ddp_ovl },
+   491		[DDP_COMPONENT_POSTMASK0]	= { MTK_DISP_POSTMASK,		0, &ddp_postmask },
+   492		[DDP_COMPONENT_PWM0]		= { MTK_DISP_PWM,		0, NULL },
+   493		[DDP_COMPONENT_PWM1]		= { MTK_DISP_PWM,		1, NULL },
+   494		[DDP_COMPONENT_PWM2]		= { MTK_DISP_PWM,		2, NULL },
+   495		[DDP_COMPONENT_RDMA0]		= { MTK_DISP_RDMA,		0, &ddp_rdma },
+   496		[DDP_COMPONENT_RDMA1]		= { MTK_DISP_RDMA,		1, &ddp_rdma },
+   497		[DDP_COMPONENT_RDMA2]		= { MTK_DISP_RDMA,		2, &ddp_rdma },
+   498		[DDP_COMPONENT_RDMA4]		= { MTK_DISP_RDMA,		4, &ddp_rdma },
+   499		[DDP_COMPONENT_UFOE]		= { MTK_DISP_UFOE,		0, &ddp_ufoe },
+   500		[DDP_COMPONENT_WDMA0]		= { MTK_DISP_WDMA,		0, NULL },
+   501		[DDP_COMPONENT_WDMA1]		= { MTK_DISP_WDMA,		1, NULL },
+   502	};
+   503	
+
 -- 
-2.47.3
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
