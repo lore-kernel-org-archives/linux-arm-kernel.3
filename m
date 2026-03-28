@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6031210BA421
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 07:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7B410BA421
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 07:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qffE4ngKnE7+x15PBa7Kg41iA26sp4AMM1m6jQDP1cs=; b=RDgKhqbyE32qXBLJGhkny3z4Qj
-	kTgPgZTIsOPrRdKwkLCOyS65pyZsykLOWXzMqIakBAyoORI3T0WoTJ9Rk6xYt3eqz6/xzpngolI4l
-	zjhSZuE3/ZKvm8GnEYK0jxNW589khpDayEi18FP2p+n+HXRFP8C9SIzP+XqUualNWX/ney3tG5Ibe
-	DMWFikLSzf7+7cOVgoXwTKaFQ0/EpfxBh7+bWX6junmINgFQC66RK0M+8fRggnHyrjeiNOw+0yuYH
-	htcpZAX9RZOEQBWBGX1civ4XtK+FZssDkmcuijTOgL5XznjWH9mkbiQaTyqnieLqSNIBaar+X87Rm
-	OLOjEEAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kcCUMbnn2xhlLhVQAjJxMMLH4aljs8rQ9ZN4v5JicAQ=; b=moKtI4mZLEsMqHA+U08jw1uUml
+	VvA3SwebdDxzTk0blSv8khDKpip3dqfZMWAyEx6rjBlo07x5w+VwY9/DT/O5TERleVqa/bDgoj++5
+	2QbtAR7Qv/ylZMyONAqzL6ZbXYZcTWlxi7aq6/0ujt8Lu3ycYoixI+DSyMNF85Ln5aRefpnU5bgtj
+	iCKZp3SZo/Z/7YYTZV3/4d5ovkiKiDKCQF0cy6BCk/miIt9YidpUrPvHqK582uCttKUaVN5eOYbBc
+	6guEqM5T6fxrxBx5dJI9C3k24JpcM8rr44a6caVGIe5GuYOKvMruSl60uRGcw70Ddeh2FnzHlkKQI
+	wVRoyFZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6ONp-00000008i3B-0pN3;
-	Sat, 28 Mar 2026 07:47:01 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1w6OSN-00000008iIY-1LsN;
+	Sat, 28 Mar 2026 07:51:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6ONm-00000008i2n-43ub
+	id 1w6OSK-00000008iHm-2ZiE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 07:47:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774684019; x=1806220019;
-  h=date:from:to:cc:subject:message-id;
-  bh=x5FzlWLZu3c5pqo6oJdlE0WLSvQUHhbV1QceSwh5xXM=;
-  b=UdeOUu3bXdKPkklXjYrLE1zjlllo1q2tZuxXVLnxpfJV1cYLxv4D/Teg
-   SkB9vssJNnO3RIzYhLtE5+E360tZl2MuNjcctH08pwx/C7WUJ0fOIDoUF
-   yRXAQDKWVnD+9/veZel8EJB2H5pO/BArOuCXbN7VIJ9GGJg0psXlT9TtJ
-   Tznab+3+u68V8xbqRrPGwZw4UJX4d8o3n8R8pyFhCmK5g9CFMWvRaWev5
-   UI1efW3tWztoBi+XPZjhC7J0JfWDdgKPbP/HmyRIJG63mJupDWQj0phxw
-   hlZSl1B4N7Oyks4TqN61MWZvMne9guKS+BZkI5T2XiuyNPSoS38PjdVu0
-   A==;
-X-CSE-ConnectionGUID: ah6GQjv2R9KHZYAJzpH0Gg==
-X-CSE-MsgGUID: Tm5b7qsMTHWnxzT6ovlsOg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="79358045"
-X-IronPort-AV: E=Sophos;i="6.23,145,1770624000"; 
-   d="scan'208";a="79358045"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 00:46:59 -0700
-X-CSE-ConnectionGUID: WHn94WL8QiG4cSJqueIwog==
-X-CSE-MsgGUID: nRXz4B1QRImXkvKPoN3WBg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,145,1770624000"; 
-   d="scan'208";a="248770877"
-Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 28 Mar 2026 00:46:57 -0700
-Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w6ONi-00000000BCE-39jJ;
-	Sat, 28 Mar 2026 07:46:54 +0000
-Date: Sat, 28 Mar 2026 15:46:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- dadfceb3bcc7a3a3f7ebe23ff4fe05af030a4ef8
-Message-ID: <202603281521.a38ckuI8-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Sat, 28 Mar 2026 07:51:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=kcCUMbnn2xhlLhVQAjJxMMLH4aljs8rQ9ZN4v5JicAQ=; b=wbdEyCKWA3AD4xgAzskxbTq9XA
+	MZZGTI34OwbhP/yFwga1b1nvz8daEXs+weOWQF+kDDRVWGsjteKf7PZALfs2F1ZNkBhn3OuEELNqt
+	ukUAaaRSKU3O9kbjwZq/aU07jjhIWMoxBmIrkDPBW4IbU6cRglYIyINcoZgp9BmEKuxvTHmKSVeJl
+	BosF2l3ogZCOjycMFu0LtbogLYXQN+2yOtx4Jyu+KZyGd8t2/l12vUnSJPtc9+y1gQshMUbuAkeW4
+	iJqHs3hlgivtZEa4ohnzQGh5zfvWfmfqqckn7cc0PaeirfoxnOspgdeNR1h79rMVYVM4I2XJXJs5Z
+	yd20lg0A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59968)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w6OS5-0000000071k-1KrD;
+	Sat, 28 Mar 2026 07:51:25 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w6OS0-000000000Un-1IID;
+	Sat, 28 Mar 2026 07:51:20 +0000
+Date: Sat, 28 Mar 2026 07:51:20 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] net: stmmac: skip VLAN restore when VLAN hash ops are
+ missing
+Message-ID: <aceIeFWGAZwr1njk@shell.armlinux.org.uk>
+References: <20260328-vlan-restore-error-v3-1-df47a039c6f6@mmpsystems.pl>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260328-vlan-restore-error-v3-1-df47a039c6f6@mmpsystems.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_004659_076904_C7B26072 
-X-CRM114-Status: UNSURE (   4.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260328_005140_652294_B3B604F5 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,193 +86,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: dadfceb3bcc7a3a3f7ebe23ff4fe05af030a4ef8  Merge tag 'juno-updates-7.1' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into soc/dt
+On Sat, Mar 28, 2026 at 07:51:53AM +0100, Michal Piekos wrote:
+> stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
+> NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
+> ->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
+> -EINVAL via stmmac_do_void_callback(), resulting in a spurious
+> "Failed to restore VLANs" error even when no VLAN filtering is in use.
+> 
+> Remove the unneeded comment.
+> 
+> Tested on Orange Pi Zero 3.
+> 
+> Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+> This patch fixes a noisy "Failed to restore VLANs" message on platforms
+> where stmmac VLAN hash ops are not implemented.
+> stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
+> VLAN hash ops presence which results in -EINVAL. 
+> ---
+> Changes in v3:
+> - Remove the offending comment
+> - Restore the original check for NETIF_F_VLAN_FEATURES
+> - Link to v2: https://lore.kernel.org/r/20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl
+> 
+> Changes in v2:
+> - Replace check for hash ops with check for HW FILTER flags
+> - Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 6827c99bde8c..0f3e5ac05faa 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6861,19 +6861,13 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
+>  
+>  static int stmmac_vlan_restore(struct stmmac_priv *priv)
+>  {
+> -	int ret;
+> -
+>  	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
+>  		return 0;
+>  
+>  	if (priv->hw->num_vlan)
+>  		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
+>  
+> -	ret = stmmac_vlan_update(priv, priv->num_double_vlans);
+> -	if (ret)
+> -		netdev_err(priv->dev, "Failed to restore VLANs\n");
+> -
+> -	return ret;
+> +	return stmmac_vlan_update(priv, priv->num_double_vlans);
+>  }
 
-elapsed time: 748m
+Yes, but as both Andrew and myself have pointed out, no one checks
+the return value of stmmac_vlan_restore(), so why does it return
+int?
 
-configs tested: 173
-configs skipped: 2
-
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-15.2.0
-arc                              allmodconfig    clang-16
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    clang-23
-arc                                 defconfig    gcc-15.2.0
-arc                   randconfig-001-20260328    gcc-15.2.0
-arc                   randconfig-002-20260328    gcc-15.2.0
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-16
-arm                                 defconfig    gcc-15.2.0
-arm                   randconfig-001-20260328    gcc-15.2.0
-arm                   randconfig-002-20260328    gcc-15.2.0
-arm                   randconfig-003-20260328    gcc-15.2.0
-arm                   randconfig-004-20260328    gcc-15.2.0
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-15.2.0
-arm64                 randconfig-001-20260328    gcc-14.3.0
-arm64                 randconfig-002-20260328    gcc-14.3.0
-arm64                 randconfig-003-20260328    gcc-14.3.0
-arm64                 randconfig-004-20260328    gcc-14.3.0
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-15.2.0
-csky                  randconfig-001-20260328    gcc-14.3.0
-csky                  randconfig-002-20260328    gcc-14.3.0
-hexagon                          allmodconfig    gcc-15.2.0
-hexagon                           allnoconfig    gcc-15.2.0
-hexagon                             defconfig    gcc-15.2.0
-hexagon               randconfig-001-20260328    gcc-11.5.0
-hexagon               randconfig-002-20260328    gcc-11.5.0
-i386                             allmodconfig    clang-20
-i386                              allnoconfig    gcc-15.2.0
-i386                             allyesconfig    clang-20
-i386        buildonly-randconfig-001-20260328    clang-20
-i386        buildonly-randconfig-002-20260328    clang-20
-i386        buildonly-randconfig-003-20260328    clang-20
-i386        buildonly-randconfig-004-20260328    clang-20
-i386        buildonly-randconfig-005-20260328    clang-20
-i386        buildonly-randconfig-006-20260328    clang-20
-i386                                defconfig    gcc-15.2.0
-i386                  randconfig-001-20260328    clang-20
-i386                  randconfig-002-20260328    clang-20
-i386                  randconfig-003-20260328    clang-20
-i386                  randconfig-004-20260328    clang-20
-i386                  randconfig-005-20260328    clang-20
-i386                  randconfig-006-20260328    clang-20
-i386                  randconfig-007-20260328    clang-20
-i386                  randconfig-011-20260328    gcc-13
-i386                  randconfig-012-20260328    gcc-13
-i386                  randconfig-013-20260328    gcc-13
-i386                  randconfig-014-20260328    gcc-13
-i386                  randconfig-015-20260328    gcc-13
-i386                  randconfig-016-20260328    gcc-13
-i386                  randconfig-017-20260328    gcc-13
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20260328    gcc-11.5.0
-loongarch             randconfig-002-20260328    gcc-11.5.0
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-16
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-19
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-mips                     cu1000-neo_defconfig    gcc-15.2.0
-mips                           ip27_defconfig    gcc-15.2.0
-nios2                            allmodconfig    clang-23
-nios2                             allnoconfig    clang-23
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20260328    gcc-11.5.0
-nios2                 randconfig-002-20260328    gcc-11.5.0
-openrisc                         allmodconfig    clang-23
-openrisc                          allnoconfig    clang-23
-openrisc                            defconfig    gcc-15.2.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-23
-parisc                           allyesconfig    clang-19
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260328    gcc-10.5.0
-parisc                randconfig-002-20260328    gcc-10.5.0
-parisc64                            defconfig    clang-19
-powerpc                     akebono_defconfig    clang-23
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-23
-powerpc               randconfig-001-20260328    gcc-10.5.0
-powerpc               randconfig-002-20260328    gcc-10.5.0
-powerpc64             randconfig-001-20260328    gcc-10.5.0
-powerpc64             randconfig-002-20260328    gcc-10.5.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-15.2.0
-riscv                 randconfig-001-20260328    clang-23
-riscv                 randconfig-002-20260328    clang-23
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    gcc-15.2.0
-s390                  randconfig-001-20260328    clang-23
-s390                  randconfig-002-20260328    clang-23
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    clang-23
-sh                               allyesconfig    clang-19
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20260328    clang-23
-sh                    randconfig-002-20260328    clang-23
-sh                           se7705_defconfig    gcc-15.2.0
-sparc                             allnoconfig    clang-23
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260328    gcc-14
-sparc                 randconfig-002-20260328    gcc-14
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260328    gcc-14
-sparc64               randconfig-002-20260328    gcc-14
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-15.2.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260328    gcc-14
-um                    randconfig-002-20260328    gcc-14
-um                           x86_64_defconfig    clang-23
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-20
-x86_64                            allnoconfig    clang-23
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20260328    clang-20
-x86_64      buildonly-randconfig-002-20260328    clang-20
-x86_64      buildonly-randconfig-003-20260328    clang-20
-x86_64      buildonly-randconfig-004-20260328    clang-20
-x86_64      buildonly-randconfig-005-20260328    clang-20
-x86_64      buildonly-randconfig-006-20260328    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20260328    gcc-14
-x86_64                randconfig-002-20260328    gcc-14
-x86_64                randconfig-003-20260328    gcc-14
-x86_64                randconfig-004-20260328    gcc-14
-x86_64                randconfig-005-20260328    gcc-14
-x86_64                randconfig-006-20260328    gcc-14
-x86_64                randconfig-011-20260328    clang-20
-x86_64                randconfig-012-20260328    clang-20
-x86_64                randconfig-013-20260328    clang-20
-x86_64                randconfig-014-20260328    clang-20
-x86_64                randconfig-015-20260328    clang-20
-x86_64                randconfig-016-20260328    clang-20
-x86_64                randconfig-071-20260328    gcc-12
-x86_64                randconfig-072-20260328    gcc-12
-x86_64                randconfig-073-20260328    gcc-12
-x86_64                randconfig-074-20260328    gcc-12
-x86_64                randconfig-075-20260328    gcc-12
-x86_64                randconfig-076-20260328    gcc-12
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    clang-23
-xtensa                           allyesconfig    clang-23
-xtensa                randconfig-001-20260328    gcc-14
-xtensa                randconfig-002-20260328    gcc-14
-xtensa                    smp_lx200_defconfig    gcc-15.2.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
