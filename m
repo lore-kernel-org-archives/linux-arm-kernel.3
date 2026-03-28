@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E95E10F3DCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 05:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FB210F3DD1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 05:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78fbBhDrOW72I+jyhh7OTMRTGpn7td+jtYvHHYYbfHw=; b=f2wHWCtCwyqJpr6ywjRqSqa7Ym
-	LUB0Lz3t2MGQyHju1koe9Tpewpzlxlc3yfaiOii+hCjQYzvlArmCsyiNa0NN7WvCIdeMD88Gg25Zu
-	K8sdvygOFvoWu8NNz6kkS+n68wFbea4F0WOsGrvEAm501vaMrwb+SEGeqjXeuZcSiuQkEaEJueO2+
-	lJw/uQPuFTPRzVyBEThAPTVszJO5FkPeyI0wSbd0mdU+ZlxCTrAfYZ7RmPB232ILIr0Wjw8LRmGZA
-	OOSXsOcTO3dcxhjBX5jyLvlxszzlpT+OEWF7L0fo/mD8KJ50ZgD+hpZjYAVaBpHNQjiRI/FVcrHeD
-	sFCblQmw==;
+	bh=WOsm93dC1ZdTq3wpgyLk0vcjKRPu4R7eUMfAYzPQW8A=; b=nfejLKGlzP2IF4CYG5m+ngmUQz
+	F5BL/e/Bwgwz7LmagSOVUG0x4UlKwPal0iB3yDnubNTOGTI0H9hK1v0fh4j5lJaFputOivhVdKCCN
+	josy75zhg+j94ilQtgLTc2VrJ0xrM6DjeRf3w8RSVjq1Al1aa1Rp4mKo+ED/ZMAtk9c0Ewq3082Cq
+	/VvyuXXZxmi3R5D7VTXkmtIXWUc2i22+vLBeVhj4pBxrzsB0lK7pnoEJP57UolGlpOpXFWFCqkEUN
+	zqPgi+zvcWhIB56r5brkHs/JsUpi3ChEeVNODO9f4UHsbjAfSb9i0ZWJe2DMa6rEAS5SAH/MwpAY3
+	33YUZO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6M32-00000008ZJN-2Pqn;
-	Sat, 28 Mar 2026 05:17:24 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1w6M34-00000008ZMk-33cx;
+	Sat, 28 Mar 2026 05:17:26 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6M2S-00000008Ysz-3I9i;
-	Sat, 28 Mar 2026 05:16:51 +0000
-X-UUID: 50ba0e0a2a6511f19e7563141e833ce8-20260327
+	id 1w6M2W-00000008YtS-2aUk;
+	Sat, 28 Mar 2026 05:16:53 +0000
+X-UUID: 52224f962a6511f1a6de359d7043e138-20260327
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=78fbBhDrOW72I+jyhh7OTMRTGpn7td+jtYvHHYYbfHw=;
-	b=knHc35oYByhNZFmby0aqwJVuHMOXZmhy3LuPw6FMciriir4S7vXC8uSGwq0CGa8llvnh5XqxU2Do7jW7RRicem7vm5KEfu05E5FPj77GacbFXikmTpRlPDU4u1Zivdd2r+YS1XnDstjzgFsmyMeWerIue8C1ApjBh1EnjniC+/w=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=WOsm93dC1ZdTq3wpgyLk0vcjKRPu4R7eUMfAYzPQW8A=;
+	b=RDZWnI7iMGj6b5akPNLSFsAH7E4q0iwIlenabIn1t1bQWnPWh7xC6eUiPATep4bkUHmGKpbBJQDnOiDgeS5A2Aa6F4em6OE+VKPKcqEZedxAEIkYEP2IHd7CoKcndJUQVweiAvIat4ZQZS6TKVRUfmXajSZhABgK8CHfsumGWqM=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:187dc243-665d-4c00-b735-da652fd28a33,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:d9c039d5-060f-4ecc-9ee0-121eeeb4a682,B
+X-CID-O-INFO: VERSION:1.3.12,REQID:ef326ad4-c9ed-47dc-8d9d-59c7773bef4a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:f1254d94-f8ef-4ca8-bea0-143568f9ca1d,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
 	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 50ba0e0a2a6511f19e7563141e833ce8-20260327
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+X-UUID: 52224f962a6511f1a6de359d7043e138-20260327
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
 	(envelope-from <yunfei.dong@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1878864016; Fri, 27 Mar 2026 22:16:45 -0700
+	with ESMTP id 112302581; Fri, 27 Mar 2026 22:16:48 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Sat, 28 Mar 2026 13:16:43 +0800
+ 15.2.2562.29; Sat, 28 Mar 2026 13:16:45 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Sat, 28 Mar 2026 13:16:42 +0800
+ 15.2.2562.29 via Frontend Transport; Sat, 28 Mar 2026 13:16:44 +0800
 From: Yunfei Dong <yunfei.dong@mediatek.com>
 To: =?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
 	<nfraprado@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>,
@@ -68,9 +68,9 @@ CC: Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v4 09/14] media: mediatek: vcodec: add debug information
-Date: Sat, 28 Mar 2026 13:16:19 +0800
-Message-ID: <20260328051630.7937-10-yunfei.dong@mediatek.com>
+Subject: [PATCH v4 11/14] dt-bindings: media: mediatek: vcodec: add decoder dt-bindings for mt8196
+Date: Sat, 28 Mar 2026 13:16:21 +0800
+Message-ID: <20260328051630.7937-12-yunfei.dong@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20260328051630.7937-1-yunfei.dong@mediatek.com>
 References: <20260328051630.7937-1-yunfei.dong@mediatek.com>
@@ -79,8 +79,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260327_221650_344139_4A23C3E3 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20260327_221652_672879_5609F402 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,62 +96,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Print hevc/av1 output format and 10bit capture format
-information to debug.
+Add decoder document in dt-bindings yaml file for mt8196 platform.
 
 Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- .../mediatek/vcodec/common/mtk_vcodec_dbgfs.c | 21 +++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+ .../bindings/media/mediatek,vcodec-subdev-decoder.yaml           | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
-index 2da11521fc7b..b3c69c46240c 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
-@@ -29,6 +29,14 @@ static void mtk_vdec_dbgfs_get_format_type(struct mtk_vcodec_dec_ctx *ctx, char
- 		curr_len = snprintf(buf + *used, total - *used,
- 				    "\toutput format: vp9 slice\n");
- 		break;
-+	case V4L2_PIX_FMT_HEVC_SLICE:
-+		curr_len = snprintf(buf + *used, total - *used,
-+				    "\toutput format: hevc slice\n");
-+		break;
-+	case V4L2_PIX_FMT_AV1_FRAME:
-+		curr_len = snprintf(buf + *used, total - *used,
-+				    "\toutput format: av1 slice\n");
-+		break;
- 	default:
- 		curr_len = snprintf(buf + *used, total - *used,
- 				    "\tunsupported output format: 0x%x\n",
-@@ -45,6 +53,14 @@ static void mtk_vdec_dbgfs_get_format_type(struct mtk_vcodec_dec_ctx *ctx, char
- 		curr_len = snprintf(buf + *used, total - *used,
- 				    "\tcapture format: MT21C\n");
- 		break;
-+	case V4L2_PIX_FMT_MT2110T:
-+		curr_len = snprintf(buf + *used, total - *used,
-+				    "\tcapture format: MT2110T (10bit tile mode)\n");
-+		break;
-+	case V4L2_PIX_FMT_MT2110R:
-+		curr_len = snprintf(buf + *used, total - *used,
-+				    "\tcapture format: MT2110T (10bit raster mode)\n");
-+		break;
- 	default:
- 		curr_len = snprintf(buf + *used, total - *used,
- 				    "\tunsupported capture format: 0x%x\n",
-@@ -122,9 +138,10 @@ static ssize_t mtk_vdec_dbgfs_read(struct file *filp, char __user *ubuf,
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+index bf8082d87ac0..74e1d88d3056 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+@@ -76,6 +76,7 @@ properties:
+       - mediatek,mt8186-vcodec-dec
+       - mediatek,mt8188-vcodec-dec
+       - mediatek,mt8195-vcodec-dec
++      - mediatek,mt8196-vcodec-dec
  
- 		if (dbgfs_index[MTK_VDEC_DBGFS_PICINFO]) {
- 			curr_len = snprintf(buf + used_len, total_len - used_len,
--					    "\treal(%dx%d)=>align(%dx%d)\n",
-+					    "\treal(%dx%d)=>align(%dx%d) 10bit(%d)\n",
- 					    ctx->picinfo.pic_w, ctx->picinfo.pic_h,
--					    ctx->picinfo.buf_w, ctx->picinfo.buf_h);
-+					    ctx->picinfo.buf_w, ctx->picinfo.buf_h,
-+					    ctx->is_10bit_bitstream);
- 			used_len += curr_len;
- 		}
- 
+   reg:
+     minItems: 1
 -- 
 2.45.2
 
