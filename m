@@ -4,104 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96AD10F3DF2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 19:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E2E10BA423
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 19:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nV0vTDjXno/BRjs9UsVyAooL1Z9SQRTeEW/NqAyKUfY=; b=XOKDsXimUIt+kWhSMoGR8ZwYp8
-	J9oJ3RCcD31tBpXodGiqsrA6LDfafxOQGBE25F4HNz97yHsNVHXvkuPwBUsn6zBRvrwI0GoBVSC0Z
-	n71DCzBpgHMOfefxJGBuI9nyiUp2muyxhA/Afl1ioAnU444ItphcpHy7n+4/HT1C7/C4ExegCE3xG
-	uxfznMMZdv0lPh0Le8wHrXy6xUTscqmnClytu+blcKzFi082zlBZJJDWlNPaTg3gDURDt+gOv7hi9
-	zQ/enewBpUdjzggBe4uKc0QWg22Kdvv7xwRI5XscVyN1H+p9H+s5F3LSG4Xs3oswGEv3bGUTgZyEc
-	1C/ZeKDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BDUcLkygtKGNXgr3CKq8mbHTIn8MuEVwtgpFqPhiBWU=; b=x8JrwmLAQLmiyGb0D0JzdWunAN
+	I/0+4gjhyEliMM+A6I9ybnmPXHFSM1iXjNOmS35jCbqA3oSHYJ1nSoiV2Hnlvz0+b3b2VJsu7jLAJ
+	8ckhDwGjHcWksbvh47zKxWpdicFeg/1RS/FjXt6oY51yxWFyxS8cS44/7AFbzISn8U+z3XXNCgva3
+	xPU/5C3OCu4ngZpWYjkEbG9kxWc29DxAMhaVcS5BeTcwMbxzXjCial9s5yFqQ++kphvq3gxRjw0Qh
+	41Lf/azrWOXIfNbrdMw1/fkQzEs3w6jEV3DXebcwgFDpALng2QWdoBPsc6F+8orXelkLzAo0GaIXZ
+	oyaMTPwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Z5m-00000009EJS-1tTB;
-	Sat, 28 Mar 2026 19:13:06 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
+	id 1w6Z9Z-00000009EwE-27Vz;
+	Sat, 28 Mar 2026 19:17:01 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Z5j-00000009EIb-2D2K
+	id 1w6Z9X-00000009Evr-1PE4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 19:13:04 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-12732e6a123so562304c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 12:13:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774725183; x=1775329983; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nV0vTDjXno/BRjs9UsVyAooL1Z9SQRTeEW/NqAyKUfY=;
-        b=kB96VTLLQFlcTXccoAyHvXlT9oNubTsUNNzIr+k5WF0BuowUsmUquRnr2aicPr6z2i
-         vqwzI2l7BpW94UPGnq1DW5BHB3HN+pFu/TCoFfiHZ3EpW9u8PQrtRZNKPQqALozLMNfT
-         uvv+V+gI3VNNJFOa8/DpynLI9NfWFxjSRu+vXdQMR3tLe0538Ue8bpLfOMV8Ke9n+eqc
-         QSP+3+Oe6r0AM/PkKlgM155sAOpx1VF5wOFMNA6XZtplJ16GO1RdF7Ne1AA/LcIOZfWc
-         tPmRcfLBp6Zuk1OPlzcn7ExX38BfBgIlysoso7NakkQcElHOWIkVlbe1i9oQQSOcW0KL
-         +dPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774725183; x=1775329983;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nV0vTDjXno/BRjs9UsVyAooL1Z9SQRTeEW/NqAyKUfY=;
-        b=YVlr45s/YFpL1lDJqei1KHMxvM481gm2LMAK1rPSZ9gW+OhSDIWNwSpWv2hM9pKE0c
-         65za9Oht6MO3It+VuIKE2VRisv/522N1Do107U2cNY03U2ws4QmnBeI6Kiiqv7ZHjeIx
-         0jGbbbbvrIU7d/N/iF0K86PN44pstbrBZwwu71qBubu2XQPokA/ipz7jFpRaUlhphYqt
-         iUWqIcY2+HPlKCZHbalp/y3hQ3BeD4yFj2vajmnaYywcKdfIiCK8VqMlyzg8/nhHOae6
-         78UnDGtxvuxKEhla/wRp7n+fVW0FSC40xlsjDpbbYqNN0w7pJkd48y9wtyBRwbgVhMun
-         OvUg==
-X-Forwarded-Encrypted: i=1; AJvYcCXe5WfpAewK4e1VG9GRzDdYV0US7DQ+B8p/djpAQ+WVgTQpmQY26EpEEtZJvzfl6SY2JGzSWFLL37jg9iHRnD1Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBUqfgws4dsKWvX5ffl6W5GCrjoiclUv1C+BcA1GYFLL8EFP5/
-	hbz2li4t6xtT8LrV3G7/99UCiCd0xZDRi2uq6iWlqLMTFP3gQcwv1jBU
-X-Gm-Gg: ATEYQzxbbq1506LowX+7cIdoZ2fcV3uFQyVUhWLRribfn2CjRw7X/j5jmqjYLCb+dCW
-	WoeRbs5IZjqbh/RQoHH2fpPAU396/duhqSe9XpE4Ryo98rxqML11v5DaW5FoC8C0op4ppSWj6V3
-	D3tgvtc72+ARyENiW2g+u8wwnFQsuRuYfvdIEzNcxDK61KJYfLoFx+J79fPezDupzaPt1ShMddf
-	wXaXtlBM9sB1SR7b4SXjHIvuIPxp0sJZPMrzea9x4hfqB0DjXPeP5iKtPFlJqYJbpS7TDJKE3Pc
-	Qmq1dYiHJvJUZ61GrqbW9thyR+QjxkhJoMQC3WU6zLlYSAUOA/7HhIc0kd9VICD/Pde55fzoYwz
-	SWLKVrVRzCYWEfWhn22tpsjNXZDG7S4GLM2paz4qpZc9MvInAJposqDeXjQKH8GYsMoy6221vIO
-	Q0jmQ0xy9RqmA4r6j/K/TqjCRcDTwa4tCwO0mm9kppmqLB/8GRbmsMHFzh
-X-Received: by 2002:a05:7022:f102:b0:11d:fd26:234e with SMTP id a92af1059eb24-12ab28cdebbmr4140608c88.16.1774725182824;
-        Sat, 28 Mar 2026 12:13:02 -0700 (PDT)
-Received: from localhost (static-23-234-93-211.cust.tzulo.com. [23.234.93.211])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-12abbe21787sm2071517c88.11.2026.03.28.12.13.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Mar 2026 12:13:02 -0700 (PDT)
-From: Sam Edwards <cfsworks@gmail.com>
-X-Google-Original-From: Sam Edwards <CFSworks@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 2/2] net: stmmac: Prevent indefinite RX stall on buffer exhaustion
-Date: Sat, 28 Mar 2026 12:12:33 -0700
-Message-ID: <20260328191233.519950-3-CFSworks@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260328191233.519950-1-CFSworks@gmail.com>
-References: <20260328191233.519950-1-CFSworks@gmail.com>
+	Sat, 28 Mar 2026 19:17:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774725419; x=1806261419;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Xi4KHjD3HwXhk0uReoN+g21GwT4k86mOjEuUDpZkY6I=;
+  b=N+4QVC9T0wlvHrp5oIBmlgqMVll9CH9Z3nLz7SgzqTlQskny1XmZlDlz
+   8e6tMjpllOn0nmclhCYidiDGzWIUfykV+AvTCDE3PZHJ+bW9NdAefmUHU
+   HlxsSJpi6hfGEc3Xie4Mi4KfWreZxwuvsmQ+J4B0GB1gquGYmGa4zHXwE
+   3Y4sb7B+2aoWrXICsSHAFFifAvpAsyz7goiEXdaBwOqmHOaP7RGsoEgpD
+   nJucDBT91mVMuqCnhurxyxl4ZIhbKprkJBEBIUZiYFqrcpt+Jzshwh/sH
+   qSyxlvlDPPkGtX9JNzWUPMyPNItfDZdSj9F9XcbVn7wOUPGfADG7TIB54
+   w==;
+X-CSE-ConnectionGUID: p9cRTg9rSvqRL/eGiNLF1g==
+X-CSE-MsgGUID: 5gAPdRO/RlC9iQ+Cba3LKg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="74951694"
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="74951694"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 12:16:55 -0700
+X-CSE-ConnectionGUID: Bi6e9WZjTFGfUJ6pscOXrQ==
+X-CSE-MsgGUID: q0TWhhlOSjmSh9srGREixg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="230399835"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 28 Mar 2026 12:16:52 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w6Z9N-00000000Bi1-1tAL;
+	Sat, 28 Mar 2026 19:16:49 +0000
+Date: Sun, 29 Mar 2026 03:16:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Rob Herring <robh@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Chen-Yu Tsai <wenst@chromium.org>
+Subject: Re: [PATCH v3 2/3] drm/gem-dma: Use the dma_*_attr API variant
+Message-ID: <202603290350.pIgD9ufQ-lkp@intel.com>
+References: <20260326100248.1171828-3-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260326100248.1171828-3-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_121303_567712_F05D48A0 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20260328_121659_417517_2DD31850 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,70 +93,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stmmac driver handles interrupts in the usual NAPI way: an interrupt
-arrives, the NAPI instance is scheduled and interrupts are masked, and
-the actual work occurs in the NAPI polling function. Once no further
-work remains, interrupts are unmasked and the NAPI instance is put to
-sleep to await a future interrupt. In the receive case, the MAC only
-sends the interrupt when a DMA operation completes; thus the driver must
-make sure a usable RX DMA descriptor exists before expecting a future
-interrupt.
+Hi Chen-Yu,
 
-The main receive loop in stmmac_rx() exits under one of 3 conditions:
-1) It encounters a DMA descriptor with OWN=1, indicating that no further
-   pending data exists. The MAC will use this descriptor for the next
-   RX DMA operation, so the driver can expect a future interrupt.
-2) It exhausts the NAPI budget. In this case, the driver doesn't know
-   whether the MAC has any usable DMA descriptors. But when the driver
-   consumes its full budget, that signals NAPI to keep polling, so the
-   question is moot.
-3) It runs out of (non-dirty) descriptors in the RX ring. In this case,
-   the MAC will only have a usable descriptor if stmmac_rx_refill()
-   succeeds (at least partially).
+kernel test robot noticed the following build errors:
 
-Currently, stmmac_rx() lacks any check against scenario #3 and
-stmmac_rx_refill() failing: it will stop NAPI polling and unmask
-interrupts to await an interrupt that will never arrive, stalling the
-receive pipeline indefinitely.
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on next-20260327]
+[cannot apply to sunxi/sunxi/for-next linus/master v7.0-rc5]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Fix this by checking stmmac_rx_dirty(): it will return 0 if
-stmmac_rx_refill() fully succeeded and we can safely await an interrupt.
-Any nonzero value means some allocations failed, in which case we risk
-dropping frames if a large traffic burst exhausts the surviving
-non-dirties. Therefore, simply return the full budget (to keep polling)
-until all allocations succeed.
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Yu-Tsai/drm-Introduce-DRM_MODE_DUMB_KERNEL_MAP-flag/20260328-141115
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20260326100248.1171828-3-wenst%40chromium.org
+patch subject: [PATCH v3 2/3] drm/gem-dma: Use the dma_*_attr API variant
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260329/202603290350.pIgD9ufQ-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260329/202603290350.pIgD9ufQ-lkp@intel.com/reproduce)
 
-Fixes: 47dd7a540b8a ("net: add support for STMicroelectronics Ethernet controllers.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sam Edwards <CFSworks@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
- 1 file changed, 5 insertions(+)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603290350.pIgD9ufQ-lkp@intel.com/
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f98b070073c0..81f764352f3d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5604,6 +5604,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 	unsigned int desc_size;
- 	struct sk_buff *skb = NULL;
- 	struct stmmac_xdp_buff ctx;
-+	int budget = limit;
- 	int xdp_status = 0;
- 	int bufsz;
- 
-@@ -5870,6 +5871,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 	priv->xstats.rx_dropped += rx_dropped;
- 	priv->xstats.rx_errors += rx_errors;
- 
-+	/* If stmmac_rx_refill() failed, keep trying until it doesn't. */
-+	if (unlikely(stmmac_rx_dirty(priv, queue) > 0))
-+		return budget;
-+
- 	return count;
- }
- 
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:297:11: error: expected ')'
+     297 |                                                     gem->dma_attrs);
+         |                                                     ^
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:295:31: note: to match this '('
+     295 |                         ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
+         |                                                    ^
+   1 error generated.
+
+
+vim +297 drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
+
+   258	
+   259	int rcar_du_vsp_map_fb(struct rcar_du_vsp *vsp, struct drm_framebuffer *fb,
+   260			       struct sg_table sg_tables[3])
+   261	{
+   262		struct rcar_du_device *rcdu = vsp->dev;
+   263		unsigned int i, j;
+   264		int ret;
+   265	
+   266		for (i = 0; i < fb->format->num_planes; ++i) {
+   267			struct drm_gem_dma_object *gem = drm_fb_dma_get_gem_obj(fb, i);
+   268			struct sg_table *sgt = &sg_tables[i];
+   269	
+   270			if (gem->sgt) {
+   271				struct scatterlist *src;
+   272				struct scatterlist *dst;
+   273	
+   274				/*
+   275				 * If the GEM buffer has a scatter gather table, it has
+   276				 * been imported from a dma-buf and has no physical
+   277				 * address as it might not be physically contiguous.
+   278				 * Copy the original scatter gather table to map it to
+   279				 * the VSP.
+   280				 */
+   281				ret = sg_alloc_table(sgt, gem->sgt->orig_nents,
+   282						     GFP_KERNEL);
+   283				if (ret)
+   284					goto fail;
+   285	
+   286				src = gem->sgt->sgl;
+   287				dst = sgt->sgl;
+   288				for (j = 0; j < gem->sgt->orig_nents; ++j) {
+   289					sg_set_page(dst, sg_page(src), src->length,
+   290						    src->offset);
+   291					src = sg_next(src);
+   292					dst = sg_next(dst);
+   293				}
+   294			} else {
+   295				ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
+   296							    gem->dma_addr, gem->base.size
+ > 297							    gem->dma_attrs);
+   298				if (ret)
+   299					goto fail;
+   300			}
+   301	
+   302			ret = vsp1_du_map_sg(vsp->vsp, sgt);
+   303			if (ret) {
+   304				sg_free_table(sgt);
+   305				goto fail;
+   306			}
+   307		}
+   308	
+   309		return 0;
+   310	
+   311	fail:
+   312		while (i--) {
+   313			struct sg_table *sgt = &sg_tables[i];
+   314	
+   315			vsp1_du_unmap_sg(vsp->vsp, sgt);
+   316			sg_free_table(sgt);
+   317		}
+   318	
+   319		return ret;
+   320	}
+   321	
+
 -- 
-2.52.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
