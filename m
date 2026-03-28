@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF2810F3DE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 13:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DD610F3DE9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 13:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rFLCYdDTvsSc8eyn9nD3Tqfl6DUP1pTYa4FCzNUr3pk=; b=aTUhKAVhQ5VdZBSI3eqfGJYxHK
-	uXiqMuJEomeP4uRLKajU/Gfl30L9GOKtbVR6xZDJtUC/SdlYpCgzfB1PdOjCaydHJQU4IqTar8IQr
-	e/183kd+ycqP6WaMolx4u04N393SAdLd4R01ERcF4RV5n+62ON9hzHtRurbHMtXOEjpC3FnfhJ+Ef
-	fg2coa+cusm63CWIham5tbGLKokSE5k3AP3WZevrN4d50YeIHMZHARLPaMTbuzkOPw2zX9bjIaXsI
-	MXAC+9wxDwHjvRwZXJ8gpwQcWKLglWJDrn+3oYsTCHEk0cLi7v6qhCj88iyXLtZq/f9AaF4PMs1Wg
-	l4bjdgVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8AoEYqOyCwLKuC0V9Q3PeCvNLzvN5dlLpjvo9mjcs6I=; b=DyXSUPbsf4C7TrwSZ4IeLOR+Ov
+	YsAxOUX3nIr451eaF6LVWjGcLyAxDJP7iXDN3PerttVgIFPnd7/u3PFQOGIFs6RQZxUvYhjxTxeCp
+	F6Mv5C8RGRslC3MYMAAdXFzi53ZkVRDNbG5hhLwRpUuq7yPToh0iOlZWvV6+XgZATENv125EV7iLk
+	4ODCy1mzLsmW7mQ/jNMW1zdgQ8alGd+J17QxefH6uKt4Dsvodq6XbvZ7ug/BXYXHpNg3TXeR0tdVu
+	M3dOX278Z1o2KUVIWCXW4KxndHHGVMetPjOVPydjZaFoFUHccWWhgcYbgjDLJ6L7FYWii3NlnJwxk
+	gseoFjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6TxS-00000008zBe-0M0h;
-	Sat, 28 Mar 2026 13:44:10 +0000
-Received: from out203-205-221-191.mail.qq.com ([203.205.221.191])
+	id 1w6U85-00000008zfu-1otn;
+	Sat, 28 Mar 2026 13:55:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6TxP-00000008zAt-3MvQ
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 13:44:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1774705444; bh=rFLCYdDTvsSc8eyn9nD3Tqfl6DUP1pTYa4FCzNUr3pk=;
-	h=From:To:Cc:Subject:Date;
-	b=KOMCcVlLrSMQeaHojSqK/zeAnVGbtcJlrLcB+MIJE7r4kLuWoYA3Uio9bd7lLw1PD
-	 ZSRpJapMBdfvWl6d+RLqyAbqbF63QTA/+ZfB4wZpguMkkBiiHJlBlyHVH9cFCsDS7C
-	 i4M3Lv0WVleKTatcpwmGoxHUA4ZAi5bRPmh7xbgI=
-Received: from mail.red54.com ([103.253.24.18])
-	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
-	id AEC8E62D; Sat, 28 Mar 2026 21:43:44 +0800
-X-QQ-mid: xmsmtpt1774705424t775usdsw
-Message-ID: <tencent_833D2AD6577F21CF38ED1C3FE8814EB4B308@qq.com>
-X-QQ-XMAILINFO: NC4p7XQIBeahgv7/OMCpr9OjGJVJ35WpFVBu5hY3UbIKjaD8n0VNPx0ORi4DKu
-	 xxvo2ulNpGH1tHptD/O0r4fn/N3oU+DBXq5Wvrksv8aJhedYI73PyPknhlyBoV4dkxU2r83r7NgI
-	 NzwrZaQUBAv0z+0eZHNJpA1h98SMzsHksMuIhCNX+247Vu03Y6WYaaWg4KT4LQMkYan6BDNpOWPQ
-	 3Q1EFiAJ8/xgssRkADtBVYhWiFJgMWDI5UcX08lZdUV7J0fltBxXlgX1O1FfSE3yu4vutBdiz8in
-	 0/2assn8KjpWDrDI8szZiOrrhqXTV6Onvo4Ed/hJKWbAJjkiunnyj+XianaHH5GpuJjtKwRG21qa
-	 fvKrrpFp/tuz993awFMvuSycJMs08dv5P0bqhAuC9oqCMSSECytdbpIAguHoY33CM7/p96qL+fdA
-	 QSySXUGJETn+osENjS6n6i4rFd49XETgr/fDDmXES9/ZeS5wEHThWysFZVr1R0vXu1nLo4eS5zqV
-	 uhSdn+8+EU17y4F9m1TsRe6I16vlRL3ZEbBmdaFT51n/myvF/rZU1tiP4FdGNCqyIAFSrMZYxhcb
-	 5toweIp9YUzq5vL1aTc9KDVR/kAg+2as78wu9tq78FcBdbvTD3jvLT/wYPooz7bgjNPmEYzXbxPG
-	 KsD5BfY5fcUZvgoiW7TS2zuFHkdCiVAFkLjevFe8hcj5UzBEOx6K9vAZ6Pf9JHOpKWaAqZUc+vUZ
-	 aB7bWPbtnxcBGwWG0pNIv4p169Iy3LzBtwEsdPVk7Q6UUU/V4hM3ma7nzkB5+G5ziifQFteY8gCf
-	 DNfmWwccx5xbt9L7epqJN2vRpADeHUGoAByEKcZoMIq5FotygvnsmQ0HWDrtHcOca+oX6D8x1zzE
-	 jc1JhA9nzlIeGj+ErnSbK8NRYtOAWPZ3e6eJFlD02uyAbZPjb3Z2HLTIkrG54v4bvN5C+MOx9kWK
-	 DMAVGvbGKMW37w+w3ZcKjYZ7mwrFOLrjm5R3uC3dWn2d0EawK+UXZJXC36iw9Z7yboR7YuPC5xP8
-	 T0yvBw0DByvqqwUxMLpi2J03/iQR3kiDjE5fjiPxaLXLcAj2/q
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>
-To: linux-rockchip@lists.infradead.org
-Cc: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: dwmac-rk: Fix typo in comment
-Date: Sat, 28 Mar 2026 13:43:31 +0000
-X-OQ-MSGID: <20260328134331.26627-1-Yeking@Red54.com>
-X-Mailer: git-send-email 2.43.0
+	id 1w6U83-00000008zeY-0NL9;
+	Sat, 28 Mar 2026 13:55:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774706103;
+	bh=Oi0gOGx8Pbzn8cxnk+KDcQyKry6zs4biJs1RjCjCeuk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fn7azBtRcEOYwiB0nutp/7LpIJDr0JqrM8q2r3j5Im8qnbsr6BT1vWgA1mY3ikyP3
+	 vFpmgVhJ3k0G091xxWBErvDCVI1olapDgF2dXlLSLxaJAp6MIDaaLYALojWuSJ3RlS
+	 BmO4C0ct7CWsotykEhr1f0Nkoy/W6COsOx4o5uwYkqcpmstznrUxlONC0KRoGWHfOw
+	 LCwXXioKwH6idA0BM/axBLINxqdm3jS62P3Yzo6cGyVUQ+GczpXP8j4ZVNM5HwoJnJ
+	 TQW2cE3RGOw3zcOCsrq4pDtAX+ivUCJ5RovjtUO1SaI0mZ3vuQxrwl9esD0TBDL5cc
+	 W0ylA6oB4pGbg==
+Received: from localhost (unknown [86.123.23.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 494AA17E5F39;
+	Sat, 28 Mar 2026 14:55:03 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Sat, 28 Mar 2026 15:54:54 +0200
+Subject: [PATCH 1/2] phy: hdmi: Add optional FRL TxFFE config options
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260328-hdptx-ffe-v1-1-53ebd5dea20a@collabora.com>
+References: <20260328-hdptx-ffe-v1-0-53ebd5dea20a@collabora.com>
+In-Reply-To: <20260328-hdptx-ffe-v1-0-53ebd5dea20a@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_064408_138386_D91D48D6 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260328_065507_278236_63E27E42 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +76,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the typo "rk3520" to "rk3528" in comment.
+During HDMI 2.1 FRL link training, the source and sink can negotiate a
+Transmitter Feed Forward Equalizer (TxFFE) level to compensate for
+signal quality degradation.  Starting from zero, the source may
+increment the TxFFE level up to a maximum agreed during the LTS3 stage
+if the sink keeps reporting FLT failures.
 
-Signed-off-by: 谢致邦 (XIE Zhibang) <Yeking@Red54.com>
+It's worth noting TxFFE adjustment is optional and only attempted when
+both the source and the connected sink support it.
+
+Since the existing HDMI PHY configuration API covers the FRL rate/lane
+selection only, provide the following fields to the frl sub-struct of
+phy_configure_opts_hdmi:
+
+* ffe_level: the TxFFE level to apply, only meaningful when
+  set_ffe_level is set.
+
+* set_ffe_level: a 1-bit flag that changes the semantics of the
+  phy_configure() call, i.e. when set, the PHY driver must apply the new
+  ffe_level and ignore the other frl related fields.
+
+The flag-based approach reflects an important invariant in the link
+training process: whenever the FRL rate or lane count changes, the TxFFE
+level must be reset to zero.  A separate phy_configure() call with
+set_ffe_level can only follow after the rate has been established,
+making the two operations deliberately distinct.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/phy/phy-hdmi.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index b0441a368cb1..8d7042e68926 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -214,7 +214,7 @@ static int rk_configure_io_clksel(struct rk_priv_data *bsp_priv)
- 	cru = !io;
- 
- 	/* The io_clksel configuration can be either:
--	 *  0=CRU, 1=IO (rk3506, rk3520, rk3576) or
-+	 *  0=CRU, 1=IO (rk3506, rk3528, rk3576) or
- 	 *  0=IO, 1=CRU (rk3588)
- 	 * where CRU means the transmit clock comes from the CRU and IO
- 	 * means the transmit clock comes from IO.
+diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
+index d4cf4430ee8f..1d4b62475079 100644
+--- a/include/linux/phy/phy-hdmi.h
++++ b/include/linux/phy/phy-hdmi.h
+@@ -19,6 +19,10 @@ enum phy_hdmi_mode {
+  * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
+  * @frl.rate_per_lane: HDMI FRL Rate per Lane in Gbps.
+  * @frl.lanes: HDMI FRL lanes count.
++ * @frl.ffe_level: Transmitter Feed Forward Equalizer Level.
++ *	Optional, only meaningful when set_ffe_level flag is on.
++ * @frl.set_ffe_level: Flag indicating whether or not to reconfigure ffe_level.
++ *	All the other struct fields must be ignored when this is used.
+  *
+  * This structure is used to represent the configuration state of a HDMI phy.
+  */
+@@ -29,6 +33,8 @@ struct phy_configure_opts_hdmi {
+ 		struct {
+ 			u8 rate_per_lane;
+ 			u8 lanes;
++			u8 ffe_level;
++			u8 set_ffe_level : 1;
+ 		} frl;
+ 	};
+ };
+
 -- 
-2.43.0
+2.52.0
 
 
