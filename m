@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7B410BA421
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 07:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1A510BA424
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 07:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kcCUMbnn2xhlLhVQAjJxMMLH4aljs8rQ9ZN4v5JicAQ=; b=moKtI4mZLEsMqHA+U08jw1uUml
-	VvA3SwebdDxzTk0blSv8khDKpip3dqfZMWAyEx6rjBlo07x5w+VwY9/DT/O5TERleVqa/bDgoj++5
-	2QbtAR7Qv/ylZMyONAqzL6ZbXYZcTWlxi7aq6/0ujt8Lu3ycYoixI+DSyMNF85Ln5aRefpnU5bgtj
-	iCKZp3SZo/Z/7YYTZV3/4d5ovkiKiDKCQF0cy6BCk/miIt9YidpUrPvHqK582uCttKUaVN5eOYbBc
-	6guEqM5T6fxrxBx5dJI9C3k24JpcM8rr44a6caVGIe5GuYOKvMruSl60uRGcw70Ddeh2FnzHlkKQI
-	wVRoyFZA==;
+	bh=+LoOZn3v94QiOgVjPkKxzDKU/RFUoSB5XRbx6p7b+DQ=; b=AaCofJZbkhWCW2wiIsvRxAC7uW
+	qoIM5ByM+kpLau/4E3yQdE4DkYKnC4SSftNrCALTQcwRsaDoGwOxJYhkDMWpNCqAht5O1baPWgizj
+	lsHqvceZZWXFDcjQpx8Onxx5mjgJ3xl1B2ORNPx1YuFclYxnw2qrTGzXtWeehXmZS+IWnRe9RJIvZ
+	wZ0ifwvF9HOp1MpSfs3m16wMX8jIK4HfIyQ9gvGzjuVLbzYKh8pNcviCl1zfIo2rhsjRnHGdupdtl
+	10okNEVNKAUy3LpWIp2g4op82FyML6EpOr1RxUEbTVa9BSUu8fLqMii/ErpKfcLpWwwGp0iEkJhpQ
+	vPdn9UnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6OSN-00000008iIY-1LsN;
-	Sat, 28 Mar 2026 07:51:43 +0000
+	id 1w6OXr-00000008iVk-0QRU;
+	Sat, 28 Mar 2026 07:57:23 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6OSK-00000008iHm-2ZiE
+	id 1w6OXo-00000008iUw-2gex
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 07:51:42 +0000
+	Sat, 28 Mar 2026 07:57:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kcCUMbnn2xhlLhVQAjJxMMLH4aljs8rQ9ZN4v5JicAQ=; b=wbdEyCKWA3AD4xgAzskxbTq9XA
-	MZZGTI34OwbhP/yFwga1b1nvz8daEXs+weOWQF+kDDRVWGsjteKf7PZALfs2F1ZNkBhn3OuEELNqt
-	ukUAaaRSKU3O9kbjwZq/aU07jjhIWMoxBmIrkDPBW4IbU6cRglYIyINcoZgp9BmEKuxvTHmKSVeJl
-	BosF2l3ogZCOjycMFu0LtbogLYXQN+2yOtx4Jyu+KZyGd8t2/l12vUnSJPtc9+y1gQshMUbuAkeW4
-	iJqHs3hlgivtZEa4ohnzQGh5zfvWfmfqqckn7cc0PaeirfoxnOspgdeNR1h79rMVYVM4I2XJXJs5Z
-	yd20lg0A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59968)
+	bh=+LoOZn3v94QiOgVjPkKxzDKU/RFUoSB5XRbx6p7b+DQ=; b=r644oDVyLnyUEceUBloN04Wi1i
+	HG5BS8wP0wuCbnrBumQgdGPInRO1wusoI+THwSJvbiL/8B+X7SQyb9h3kVY/Fmee67VwJmvguxLNb
+	w5ki4vAtVY1x2nBiZrzJIE6X3yUEWjMAXX/Vw0IC/bp+T6Zrj70S+ojLcgcNHzhkesMhmU568udaJ
+	PqFIeHFUiqMVYZnbxGVWgJVjFLgfrm73T/1RY88KkX9F5SBZncWAoOdgX+3MBXYx+gFm+udexfpGp
+	JdUjZLngZvHiQOr7ojLrpKeBF2KyLXTnbrGEGJEtBxJ/iM/pGPoydZX1E0MYPmzf/0cxQqBrXrzpH
+	lpEvAaBg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49052)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1w6OS5-0000000071k-1KrD;
-	Sat, 28 Mar 2026 07:51:25 +0000
+	id 1w6OXj-0000000072B-1RuQ;
+	Sat, 28 Mar 2026 07:57:15 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w6OS0-000000000Un-1IID;
-	Sat, 28 Mar 2026 07:51:20 +0000
-Date: Sat, 28 Mar 2026 07:51:20 +0000
+	id 1w6OXg-000000000Ux-0mXz;
+	Sat, 28 Mar 2026 07:57:12 +0000
+Date: Sat, 28 Mar 2026 07:57:11 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] net: stmmac: skip VLAN restore when VLAN hash ops are
- missing
-Message-ID: <aceIeFWGAZwr1njk@shell.armlinux.org.uk>
-References: <20260328-vlan-restore-error-v3-1-df47a039c6f6@mmpsystems.pl>
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 03/15] net: stmmac: qcom-ethqos: eliminate
+ configure_func
+Message-ID: <aceJ18UxKMM_PxHk@shell.armlinux.org.uk>
+References: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
+ <E1w62n4-0000000E3C3-251S@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260328-vlan-restore-error-v3-1-df47a039c6f6@mmpsystems.pl>
+In-Reply-To: <E1w62n4-0000000E3C3-251S@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_005140_652294_B3B604F5 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20260328_005720_680763_53ADD3CC 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +87,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 28, 2026 at 07:51:53AM +0100, Michal Piekos wrote:
-> stmmac_vlan_restore() unconditionally calls stmmac_vlan_update() when
-> NETIF_F_VLAN_FEATURES is set. On platforms where priv->hw->vlan (or
-> ->update_vlan_hash) is not provided, stmmac_update_vlan_hash() returns
-> -EINVAL via stmmac_do_void_callback(), resulting in a spurious
-> "Failed to restore VLANs" error even when no VLAN filtering is in use.
-> 
-> Remove the unneeded comment.
-> 
-> Tested on Orange Pi Zero 3.
-> 
-> Fixes: bd7ad51253a7 ("net: stmmac: Fix VLAN HW state restore")
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
-> This patch fixes a noisy "Failed to restore VLANs" message on platforms
-> where stmmac VLAN hash ops are not implemented.
-> stmmac_vlan_restore() calls stmmac_vlan_update() without checking for
-> VLAN hash ops presence which results in -EINVAL. 
-> ---
-> Changes in v3:
-> - Remove the offending comment
-> - Restore the original check for NETIF_F_VLAN_FEATURES
-> - Link to v2: https://lore.kernel.org/r/20260321-vlan-restore-error-v2-1-45cf56a5223d@mmpsystems.pl
-> 
-> Changes in v2:
-> - Replace check for hash ops with check for HW FILTER flags
-> - Link to v1: https://lore.kernel.org/r/20260314-vlan-restore-error-v1-1-4fc6c3e2115f@mmpsystems.pl
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +-------
->  1 file changed, 1 insertion(+), 7 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 6827c99bde8c..0f3e5ac05faa 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6861,19 +6861,13 @@ static int stmmac_vlan_rx_kill_vid(struct net_device *ndev, __be16 proto, u16 vi
->  
->  static int stmmac_vlan_restore(struct stmmac_priv *priv)
->  {
-> -	int ret;
-> -
->  	if (!(priv->dev->features & NETIF_F_VLAN_FEATURES))
->  		return 0;
->  
->  	if (priv->hw->num_vlan)
->  		stmmac_restore_hw_vlan_rx_fltr(priv, priv->dev, priv->hw);
->  
-> -	ret = stmmac_vlan_update(priv, priv->num_double_vlans);
-> -	if (ret)
-> -		netdev_err(priv->dev, "Failed to restore VLANs\n");
-> -
-> -	return ret;
-> +	return stmmac_vlan_update(priv, priv->num_double_vlans);
->  }
+On Fri, Mar 27, 2026 at 08:43:38AM +0000, Russell King (Oracle) wrote:
+> @@ -687,7 +683,7 @@ static int ethqos_clks_config(void *priv, bool enabled)
+>  		/* Enable functional clock to prevent DMA reset to timeout due
+>  		 * to lacking PHY clock after the hardware block has been power
+>  		 * cycled. The actual configuration will be adjusted once
+> -		 * ethqos_fix_mac_speed() is invoked.
+> +		 * ethqos' fix_mac_speed() method is invoked.
 
-Yes, but as both Andrew and myself have pointed out, no one checks
-the return value of stmmac_vlan_restore(), so why does it return
-int?
+...
+
+> -		ethqos->configure_func = ethqos_configure_rgmii;
+> +		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_rgmii;
+...
+
+> -		ethqos->configure_func = ethqos_configure_sgmii;
+> +		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_sgmii;
+
+AI review of this patch is still complaining about the comment above:
+
+  The comment still references 'fix_mac_speed() method' but the function
+  ethqos_fix_mac_speed() was removed in this patch. Should this comment be
+  updated to reference either ethqos_fix_mac_speed_rgmii() or
+  ethqos_fix_mac_speed_sgmii(), or perhaps just 'the fix_mac_speed callback'
+  to remain implementation-agnostic?
+
+Artifical Stupidity at its best! :/
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
