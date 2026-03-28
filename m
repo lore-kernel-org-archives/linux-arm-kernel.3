@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E5110F3DE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 15:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A6810F3DE9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 15:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8DQZ2bL5acF5SP04nBfqwQ02XvmmlMibNG1GQ+PID8A=; b=eXk7JHx7UL3XG4
-	3xoVOfoNHsZGA4lZ1AGymsgHKlH6I2ODon+9MTxpUwwXAqmnoaRfXgBw7HA4I1Re5Ny2AFraYq750
-	AxIR5CJ9taO/t+okwYwW8xTJ6+fcl8mqDKOzyoa5IqNVFq81E8q8Fl52uRE/4oQKeIpfvCOz9vlfV
-	ZffiMnYSUM80wbbJFQY09D+YWjYKu89QxzZMBvFSclRp/BVQdpH2UCQRWGiEwlw5yyNi5FztF3KU1
-	fNVbRWZffZOupNIcGLarDjqodCd9qJlAgMNJ1zuTJQw0Jo941Ex/VOZTVGA+anNPjF1fucvxqeZkk
-	O4WQlV5yXp/6qnQ+wGWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbWPLsM1ituzjmpUCVBL5pZ5M3+Fi+tgQWGnnJzOaRs=; b=uIsDnsA5V2c0GuZD7k7Fa1J1Wt
+	qP+NydcX+L62aYYYVRpm/IijB8NTXeLg384pfkp9tSJX6E4It1Ey/huH+QuFqlStfHGaMZk3wxUBZ
+	v/7BGM/3B8ivc6u29WONWi7/5jN3ngIYqTLFLzmoGHqxOnKbwzwo24J8dbHkb5sV8N6HF5VxPTr+q
+	hXjfQRxs/OdyQdcRIEX4tSZewCJHUrAebZoEFIU2n0CHbQnHTMbLMLLrdL3h6aOBCaFDxApCIuql5
+	j8qtJZd+R7NiJmioj+UN+YkA+zbwVlG6Doxj1HMEyXoifpAznXvaV9IBht/J37XUFuEXY/UZhOnvL
+	d0otaGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6VZM-000000094eL-21cs;
-	Sat, 28 Mar 2026 15:27:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w6W0r-000000095TA-0sVZ;
+	Sat, 28 Mar 2026 15:55:49 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6VZK-000000094e0-2szN
+	id 1w6W0n-000000095Sn-1iMs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 15:27:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA48B42B68
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 15:27:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA44DC4CEF7
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 15:27:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774711641;
-	bh=J97nhqd19Owfth49YYD2VgMcKu6wbx/SAYjRjMlEcXA=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=pnHh0nkCVPcpbfiNfnvMoco9eDS98jX96HarYWrCF2/AJOT7b+Ed9gRKDkawik6qT
-	 5LuC9Mbn4/Tk7ka4Y4/jjhGE1LwHv0uYyhd0uQ6MTgU3a12kBAK7F747x2EiTzgO9p
-	 aiIyNEvjnH1KyiDcGUdDj8eQlfchLir+t2PGI4xLb/TxyrcwIfPDQaXxnH+vw5jXD6
-	 OsLCN1A9NrRNxMdErpcb73Uy57yYo8TdSQRZWPmbl4OrMw01kP0pMDUCsQnAp5CQ+W
-	 7nSuzotUTedBJb6LmQIRcAME9zvmiHjOx1pguMoE7AOlkA8ivcmaWXQZZMnrgJaHXv
-	 Ad7MdKL/HpgGw==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-386b553c70eso24613331fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 08:27:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXmC7PS1ABScpq1CsfiKO3K4oNcoVU3+73o9AYzZHSEwCcd840BqgIo0XMC0AE+e6UtLJxGV6bUTk+ydGD3HFob@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyblh7kYo2/MbAZC2MEF7Ad/Jt5Je0s2eYKFCqVGk5QUGAR3CEx
-	C2OkixiDwuzQjMviCoeHRZC/CcCDiOZA7k2Hn/s6F63bD4vm+RqyMSGG7HeLf5e4L/bmdBugQsv
-	NUSN0m0GBHQoBgf1vfM25nTDi/MGUlE4=
-X-Received: by 2002:ac2:482b:0:b0:5a2:a1aa:2b8a with SMTP id
- 2adb3069b0e04-5a2ab92b48dmr1928277e87.31.1774701460967; Sat, 28 Mar 2026
- 05:37:40 -0700 (PDT)
+	Sat, 28 Mar 2026 15:55:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774713345; x=1806249345;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Po+QDyvBG3842NWgLuInLllWr4xq3NsyBBiWVwU0+ok=;
+  b=cfn0/7LctnfCnOUHHgYD3gZhCDRCSk5vz+GVkglrYwOf+8s/sbijVJ0D
+   EnVNxnJ7MagNDPoNllWBFdi4wj9Q7dSQRtY+Iwb3hTzkFUtM0hc0tyzI/
+   t0w5iJCMpw+sSQDTfUWXg40eBuaS2G6dC6mYstU+9tru9umtQ1yaAcXR7
+   KF4/v78toXxrgYxvVIDqgs2BWJmoK2tovYNAZLi8hQOaqvqqpH+HrjRLK
+   TMoCrSNvH2+j5CvbO58gsgCS+YwJhqlnJkI4fHOOeSqxz4xJmuiUjO7hD
+   l1CZ0dpxax9P4t+gC3BisFFc1cWLB+4cjqtsfFwYt1pGf6An580JmRzh0
+   A==;
+X-CSE-ConnectionGUID: 68uogJxtRoC+2iwkGlA2QA==
+X-CSE-MsgGUID: zmlqnkaOQvOnfKFHD1zg1Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="86382477"
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="86382477"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 08:55:42 -0700
+X-CSE-ConnectionGUID: has1g+NZSPGdP7WtM7Tecg==
+X-CSE-MsgGUID: Mw2wMriZR6+qwIF/ReE0fA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
+   d="scan'208";a="225492423"
+Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 28 Mar 2026 08:55:40 -0700
+Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w6W0e-00000000BXl-3hxY;
+	Sat, 28 Mar 2026 15:55:36 +0000
+Date: Sat, 28 Mar 2026 23:54:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: oe-kbuild-all@lists.linux.dev, Rob Herring <robh@kernel.org>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Chen-Yu Tsai <wenst@chromium.org>
+Subject: Re: [PATCH v3 2/3] drm/gem-dma: Use the dma_*_attr API variant
+Message-ID: <202603282331.VKpi5ANh-lkp@intel.com>
+References: <20260326100248.1171828-3-wenst@chromium.org>
 MIME-Version: 1.0
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech> <20260121-a733-rtc-v1-1-d359437f23a7@pigmoral.tech>
-In-Reply-To: <20260121-a733-rtc-v1-1-d359437f23a7@pigmoral.tech>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sat, 28 Mar 2026 20:37:26 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67844OPwE6VJ0PAs5LsmCa2h0FvXOBUomZ50dM5tZ0Zow@mail.gmail.com>
-X-Gm-Features: AQROBzAjNUlKB5AcxIrVhPiEv-8viiXBsmIlq5_4UPHivayPQSg3rbcnxOKBQII
-Message-ID: <CAGb2v67844OPwE6VJ0PAs5LsmCa2h0FvXOBUomZ50dM5tZ0Zow@mail.gmail.com>
-Subject: Re: [PATCH 1/7] dt-bindings: rtc: sun6i: Add Allwinner A733 support
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260326100248.1171828-3-wenst@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_082722_770290_2531C421 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20260328_085545_518105_06E5D59B 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,167 +90,125 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 7:03=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
-h> wrote:
->
-> The RTC module in the Allwinner A733 SoC is functionally compatible with
-> the sun6i RTC, but its internal Clock Control Unit (CCU) has significant
-> changes.
->
-> The A733 supports selecting the oscillator between three frequencies:
-> 19.2MHz, 24MHz, and 26MHz. The RTC CCU relies on hardware to detect
-> which frequency is actually used on the board. By defining all three
-> frequencies as fixed-clocks in the device tree, the driver can identify
-> the hardware-detected frequency and expose it to the rest of the system.
+Hi Chen-Yu,
 
-No. The board device tree shall have the exact and correct frequency
-defined in the external crystal device node. The operating system can
-use the hardware-detected frequency to "fix" the in-system representation
-if it is off.
+kernel test robot noticed the following build errors:
 
-> Additionally, the A733 RTC CCU provides several new DCXO gate clocks for
-> specific modules, including SerDes, HDMI, and UFS.
->
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml      | 38 ++++++++++++++++=
-++++--
->  include/dt-bindings/clock/sun60i-a733-rtc.h        | 16 +++++++++
->  2 files changed, 52 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rt=
-c.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-> index 9df5cdb6f63f..b18431955783 100644
-> --- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-> +++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-> @@ -26,6 +26,7 @@ properties:
->            - allwinner,sun50i-h6-rtc
->            - allwinner,sun50i-h616-rtc
->            - allwinner,sun50i-r329-rtc
-> +          - allwinner,sun60i-a733-rtc
->        - items:
->            - const: allwinner,sun50i-a64-rtc
->            - const: allwinner,sun8i-h3-rtc
-> @@ -46,11 +47,11 @@ properties:
->
->    clocks:
->      minItems: 1
-> -    maxItems: 4
-> +    maxItems: 6
->
->    clock-names:
->      minItems: 1
-> -    maxItems: 4
-> +    maxItems: 6
->
->    clock-output-names:
->      minItems: 1
-> @@ -156,6 +157,38 @@ allOf:
->          - clocks
->          - clock-names
->
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: allwinner,sun60i-a733-rtc
-> +
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 5
-> +          items:
-> +            - description: Bus clock for register access
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on next-20260327]
+[cannot apply to sunxi/sunxi/for-next linus/master v7.0-rc5]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> +            - description: 19.2 MHz oscillator
-> +            - description: 24 MHz oscillator
-> +            - description: 26 MHz oscillator
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Yu-Tsai/drm-Introduce-DRM_MODE_DUMB_KERNEL_MAP-flag/20260328-141115
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20260326100248.1171828-3-wenst%40chromium.org
+patch subject: [PATCH v3 2/3] drm/gem-dma: Use the dma_*_attr API variant
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260328/202603282331.VKpi5ANh-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260328/202603282331.VKpi5ANh-lkp@intel.com/reproduce)
 
-No. There is only one input. As in there is only one set of pins for the
-DCXO. The inputs are the same as on R329 / A523. Just use that list.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202603282331.VKpi5ANh-lkp@intel.com/
 
-> +            - description: AHB parent for internal SPI clock
-> +            - description: External 32768 Hz oscillator
-> +
-> +        clock-names:
-> +          minItems: 5
-> +          items:
-> +            - const: bus
-> +            - const: osc19M
-> +            - const: osc24M
-> +            - const: osc26M
-> +            - const: ahb
-> +            - const: ext-osc32k
-> +
-> +      required:
-> +        - clocks
-> +        - clock-names
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -164,6 +197,7 @@ allOf:
->                - allwinner,sun8i-r40-rtc
->                - allwinner,sun50i-h616-rtc
->                - allwinner,sun50i-r329-rtc
-> +              - allwinner,sun60i-a733-rtc
->
->      then:
->        properties:
-> diff --git a/include/dt-bindings/clock/sun60i-a733-rtc.h b/include/dt-bin=
-dings/clock/sun60i-a733-rtc.h
-> new file mode 100644
-> index 000000000000..8a2b5facad73
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun60i-a733-rtc.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
-> +
-> +#ifndef _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
-> +#define _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
-> +
-> +#define CLK_IOSC               0
-> +#define CLK_OSC32K             1
-> +#define CLK_HOSC               2
+All errors (new ones prefixed by >>):
 
-The DCXO enable control has been present since at least the H6. We just
-never added it, as we would never disable it anyway.
-
-If you compare the RTC clock trees of the A733 and A523, the only addition
-besides the new gates seems to be the LOSC auto selection. But even that
-is just an illusion, as the A523 has the same registers for that.
-
-One could say the A733 RTC is almost backward compatible to the A523, if
-not for the two fastboot registers the A523 has at 0x120 and 0x124.
-
-So I ask that you try to integrate the differences into the existing
-driver and bindings. You can tweak and export internal clks if you
-need.
-
-> +#define CLK_RTC_32K            3
-
-AFAICT besides being an internal clock, this is also fed to GPIO for
-debounce? We probably need to expose this on the A523 as well.
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c: In function 'rcar_du_vsp_map_fb':
+>> drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:296:82: error: expected ')' before 'gem'
+     296 |                                                     gem->dma_addr, gem->base.size
+         |                                                                                  ^
+         |                                                                                  )
+     297 |                                                     gem->dma_attrs);
+         |                                                     ~~~                           
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:295:52: note: to match this '('
+     295 |                         ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
+         |                                                    ^
+>> drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:295:31: error: too few arguments to function 'dma_get_sgtable_attrs'; expected 6, have 5
+     295 |                         ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
+         |                               ^~~~~~~~~~~~~~~~~~~~~
+   In file included from include/linux/dma-buf.h:21,
+                    from include/drm/drm_gem.h:38,
+                    from include/drm/drm_gem_dma_helper.h:7,
+                    from drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c:18:
+   include/linux/dma-mapping.h:172:5: note: declared here
+     172 | int dma_get_sgtable_attrs(struct device *dev, struct sg_table *sgt,
+         |     ^~~~~~~~~~~~~~~~~~~~~
 
 
-Thanks
-ChenYu
+vim +296 drivers/gpu/drm/renesas/rcar-du/rcar_du_vsp.c
 
+   258	
+   259	int rcar_du_vsp_map_fb(struct rcar_du_vsp *vsp, struct drm_framebuffer *fb,
+   260			       struct sg_table sg_tables[3])
+   261	{
+   262		struct rcar_du_device *rcdu = vsp->dev;
+   263		unsigned int i, j;
+   264		int ret;
+   265	
+   266		for (i = 0; i < fb->format->num_planes; ++i) {
+   267			struct drm_gem_dma_object *gem = drm_fb_dma_get_gem_obj(fb, i);
+   268			struct sg_table *sgt = &sg_tables[i];
+   269	
+   270			if (gem->sgt) {
+   271				struct scatterlist *src;
+   272				struct scatterlist *dst;
+   273	
+   274				/*
+   275				 * If the GEM buffer has a scatter gather table, it has
+   276				 * been imported from a dma-buf and has no physical
+   277				 * address as it might not be physically contiguous.
+   278				 * Copy the original scatter gather table to map it to
+   279				 * the VSP.
+   280				 */
+   281				ret = sg_alloc_table(sgt, gem->sgt->orig_nents,
+   282						     GFP_KERNEL);
+   283				if (ret)
+   284					goto fail;
+   285	
+   286				src = gem->sgt->sgl;
+   287				dst = sgt->sgl;
+   288				for (j = 0; j < gem->sgt->orig_nents; ++j) {
+   289					sg_set_page(dst, sg_page(src), src->length,
+   290						    src->offset);
+   291					src = sg_next(src);
+   292					dst = sg_next(dst);
+   293				}
+   294			} else {
+ > 295				ret = dma_get_sgtable_attrs(rcdu->dev, sgt, gem->vaddr,
+ > 296							    gem->dma_addr, gem->base.size
+   297							    gem->dma_attrs);
+   298				if (ret)
+   299					goto fail;
+   300			}
+   301	
+   302			ret = vsp1_du_map_sg(vsp->vsp, sgt);
+   303			if (ret) {
+   304				sg_free_table(sgt);
+   305				goto fail;
+   306			}
+   307		}
+   308	
+   309		return 0;
+   310	
+   311	fail:
+   312		while (i--) {
+   313			struct sg_table *sgt = &sg_tables[i];
+   314	
+   315			vsp1_du_unmap_sg(vsp->vsp, sgt);
+   316			sg_free_table(sgt);
+   317		}
+   318	
+   319		return ret;
+   320	}
+   321	
 
-> +#define CLK_OSC32K_FANOUT      4
-> +#define CLK_HOSC_SERDES1       5
-> +#define CLK_HOSC_SERDES0       6
-> +#define CLK_HOSC_HDMI          7
-> +#define CLK_HOSC_UFS           8
-> +
-> +#endif /* _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_ */
->
-> --
-> 2.52.0
->
->
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
