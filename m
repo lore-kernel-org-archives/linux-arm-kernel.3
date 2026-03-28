@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3700610F3DDF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 10:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF3810F3DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 10:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5w1Y1b3TwAv79lqz5JishdxGsbpyNm4BW0hPIUDQcY=; b=EH+EnB4AnlD1C6gsooLsMFrVRk
-	9wKCgonpYJ6//CQkIYOiTwBiEtkLaWXTo7MER3sbxdZfkdFt15n7UcFDDz8yRoVbclWxJLD6Jl7wx
-	K4FrvuCcBmAus1A7mOLq532rZMT9UxuIOgm5n2AWClWpkFQis8GwZkGkcbe5A2rD2igCfDz9dwzpS
-	0dxzuMk3mcxcPu/O8fI2Q9e6cURZwrCBPIU6xoz0iWWN8VYSTcmZ44hapi2tcypcse7L8T4FWOsqR
-	idCuBQZRFbHy91RpymownKjbfseLVxWdrthch5WqeirGZWiOSnhWoulFeg1tkcjuQorltFYBg25bp
-	kutT2WPg==;
+	bh=zEfQ2xHD20u2SNJPKNUNUUMLTWyeWszA9wRDOE62vLc=; b=ZBh5WgIBDRTH1zmIbrLuLoJdvU
+	AFkdRzOI5KyGZc4e3zGgeVNrwQdGuU4MY68GQK83qGkAzN5rfHtcLDhwClOJI1HpvLB97G1iEhMWf
+	o5oEiC4G2dPYW8eEnbwHJ3jnbVt08IJS78QLkU/0hwasY33xboPc2ozpWZGVZ6u6KonBETPevi9lA
+	poVFUzxci6Tdy2paBSKU68npykqdntqBnVMZkWXBbcj+VPT/AgtExNYxzSkWkQ4HDjLuUF/8dojrz
+	B7KOybkZwIz01MMT7yL05PDrDd+IOtVAIBpEvNs5udeqH8CgiGGdIn7pCbedCTxkM7TLP53aQHxeF
+	gfAg7Krg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6QSo-00000008nni-20qC;
-	Sat, 28 Mar 2026 10:00:18 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1w6QcJ-00000008oPX-2hIT;
+	Sat, 28 Mar 2026 10:10:08 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6QSm-00000008nnL-1gjc
+	id 1w6QcG-00000008oNN-0VYx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 10:00:17 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4870206f73bso17061535e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 03:00:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774692014; x=1775296814; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K5w1Y1b3TwAv79lqz5JishdxGsbpyNm4BW0hPIUDQcY=;
-        b=iAWxsG/Rbsatjr9AErEhnT/9TtMzOlHPEf+FXSWz+E7lN0GEXBao8unZF7zHNi71Nn
-         bZc0kpEiImipVYlJfi9lnsf5eputLcNnRFC2mSTAyzRd5F4jkF6wCuYKbL8iLxtrYFjB
-         GFn/QTBwKYdCpFY/ONyT3Psf6pFxR7BED4kuPGMGMBiaVvGVkW/zxyZDd5ltY6aCJ5MS
-         On1/nJC2cqdsXg4PoX4De1fpC1FNNM6+GSfiLit7YtwvftDZSeY3i97qvsNML6xmVbGs
-         HcXOQSu89Gq//3aCKdq+q4Zfi5kQ6a5kn30fYxYWmQMNnHQosUj0/dEYjM++tXUku18M
-         JhMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774692014; x=1775296814;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=K5w1Y1b3TwAv79lqz5JishdxGsbpyNm4BW0hPIUDQcY=;
-        b=mJdYHo0oM8Aa63LiqfcAieZTIM6uxx0jFqSL0lr8h2b6eZAJZWq6GRldCwAUhcAkU8
-         Zt4bG/KhyI6h/1w02IATBCfCR0uskCpWcAaBjfIisRU9ENvGFSBwhOsRiZePcTkP+de4
-         f78yIp/kDFLamHzYgt+h6W7RE731hIG8g8RGUR0vHsUk1TPC2xSoyPdBfYOKF/0aIs+s
-         Dy+XUzo4OajNB0VwBUIQfTUIoPVlYJfvGemlQD3wVFnMp0l2neEySj9jGovBbV+E8HEG
-         L034Jxgzd4z/lFBFpQ4SiHCTyW6aUePxD0xxu42sDRTF3ycbr/cIuo37imAoGJN6lyFz
-         FIuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVR+xUl3LlhKwj+FDS8Y6CvEiuGxxS83qCQI8cBm/XwQGe7cW4N/F45hAoGevEKv4brhJ98XMXOaPwU2UKrBqUW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFCwIv2EU5dVzAMnJD4qhq7t+EvhVeC+b9zwvCXf1zgNfCqQdJ
-	YkkbBLH7B0AB8uudr55Moqby7JL9ZIBPs0oBm+l8cXx4DXHsgJHAZMwQ
-X-Gm-Gg: ATEYQzyvn+mrYE93sKfwyFKbwEtufEcbiICdUvwWrtROqPt6b0C+ssGzNGrz0ukl5DP
-	/pQYR4ZPtO7Bz8d4zGlcdcxL9lXN4fjiC4xQuJtF563YKytEFYChODrIZsUS1O5S3ND1imRupGD
-	nMxGw/+0BOh0RGW0w0mD4gzABHXdviYQpI+Ydmm03PAKDDzuHXElUAevoOxoknxA7xoqN3/IUTv
-	yKZ5TEZp67bDT+HKCtvI+jTp6Kd9SIC4my4/4Mi6fD7YvX6GGUjCzgRYVH6OtNgbmcpoAL3u87S
-	p7bAha5e3foJs0qtFzHcWhKfhwsLB8NI3jSyTM47isWQbesfUc5n8i9OqFV4isGFIaWiJROxX+r
-	8hDfi3UKfyxJMCY5F9VtpbxRZUHc3vcAVyjM9Yb5mrgT91HYOoSfliSZW/M3Axjkq+2ozm+Ctc3
-	V2l0R2v8QmQthaFkY6Us0+sGm4qlCNhk5PBef8gzyJg/heNN8u76tTQrgmetIeNGfif397dRP2H
-	pj07PTzCA7yLqpklN/bnYo=
-X-Received: by 2002:a05:600c:6814:b0:486:fbe1:2499 with SMTP id 5b1f17b1804b1-48727f7be29mr91414145e9.22.1774692014189;
-        Sat, 28 Mar 2026 03:00:14 -0700 (PDT)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722d4d884sm198418535e9.15.2026.03.28.03.00.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Mar 2026 03:00:13 -0700 (PDT)
-From: David Carlier <devnexen@gmail.com>
-To: laurent.pinchart@ideasonboard.com,
-	mchehab@kernel.org
-Cc: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	jacopo@jmondi.org,
-	aisheng.dong@nxp.com,
-	guoniu.zhou@nxp.com,
-	linux-media@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	David Carlier <devnexen@gmail.com>
-Subject: [PATCH v2] media: nxp: imx8-isi: fix memory leaks in probe error paths and remove
-Date: Sat, 28 Mar 2026 10:00:10 +0000
-Message-ID: <20260328100010.41236-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260327222711.268132-1-devnexen@gmail.com>
-References: <20260327222711.268132-1-devnexen@gmail.com>
+	Sat, 28 Mar 2026 10:10:06 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=zEfQ2xHD20u2SNJPKNUNUUMLTWyeWszA9wRDOE62vLc=;
+	b=cWsDiIDox67v1VfnLwL3COzpfWl/zHQy+xzjtvGgkgF5nnzZ69dsU/MT5LgpVfsBbXbqEogm1
+	yi+rkN5uJADT2kmyr5E3gdeQitAdEpzq/yul6Z0nefWUnNcLGzKaS+WKXKMof2ZS9LH0tZY1Bef
+	liOWaPfDh1Tqhwehso/utHE=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fjY4j3Kx0zRhQc;
+	Sat, 28 Mar 2026 18:03:49 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2F04C4056A;
+	Sat, 28 Mar 2026 18:09:56 +0800 (CST)
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 28 Mar 2026 18:09:55 +0800
+From: Qinxin Xia <xiaqinxin@huawei.com>
+To: <robin.murphy@arm.com>, <nicolinc@nvidia.com>, <will@kernel.org>,
+	<jpb@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<xiaqinxin@huawei.com>, <wangzhou1@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
+	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>
+Subject: [RFC PATCH v2 4/5] iommu/arm-smmu-v3: Add device symlink in stream table debugfs
+Date: Sat, 28 Mar 2026 18:09:52 +0800
+Message-ID: <20260328100953.3441915-5-xiaqinxin@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260328100953.3441915-1-xiaqinxin@huawei.com>
+References: <20260328100953.3441915-1-xiaqinxin@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_030016_459617_81590E92 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260328_031004_814989_83D14281 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,97 +80,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mxc_isi_probe() allocates isi->pipes with kzalloc_objs() but never
-frees it on any probe failure path or in mxc_isi_remove(), leaking the
-allocation on every failed probe and every normal unbind.
+Add a symlink named  under each stream table entry directory pointing to
+the sysfs directory of the actual device. This aids debugging
+by providing direct access to device attributes.
 
-Additionally, when mxc_isi_pipe_init() fails partway through the
-channel loop or when mxc_isi_v4l2_init() fails, the already initialized
-pipes are not cleaned up — their media entities and mutexes are leaked.
+/sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
+└── <sid>/
+    ├─── ste
+    └─── <dev_name>
 
-Fix both by adding kfree(isi->pipes) to all probe error paths and to
-mxc_isi_remove(), and cleaning up already-initialized pipes in the
-err_xbar error path.
-
-Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-Signed-off-by: David Carlier <devnexen@gmail.com>
+Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
 ---
- .../platform/nxp/imx8-isi/imx8-isi-core.c     | 24 +++++++++++++++----
- 1 file changed, 19 insertions(+), 5 deletions(-)
+ .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-index 4bf8570e1b9e..ab32c5b6ac9c 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-@@ -490,33 +490,43 @@ static int mxc_isi_probe(struct platform_device *pdev)
- 		return -ENOMEM;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+index 70623b480d64..dbcc8fce6d8e 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+@@ -8,8 +8,9 @@
+  *     ├── capabilities    # SMMU feature capabilities and configuration
+  *     ├── registers	   # SMMU Key registers
+  *     └── stream_table
+- *	   └─── <sid>/                                # Stream ID 0
+- *	       └── ste                                # Stream Table Entry
++ *	   └─── <sid>/                                # Stream ID
++ *	       ├─── ste                               # Stream Table Entry
++ *	       └── <dev_name>                         # Symlink to device sysfs directory
+  *
+  * The capabilities file provides detailed information about:
+  * - translation stage support (Stage1/Stage2)
+@@ -31,6 +32,7 @@
  
- 	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
--	if (isi->num_clks < 0)
-+	if (isi->num_clks < 0) {
-+		kfree(isi->pipes);
- 		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
-+	}
+ #include <linux/cleanup.h>
+ #include <linux/debugfs.h>
++#include <linux/kobject.h>
+ #include <linux/slab.h>
+ #include "arm-smmu-v3.h"
  
- 	isi->regs = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(isi->regs))
-+	if (IS_ERR(isi->regs)) {
-+		kfree(isi->pipes);
- 		return dev_err_probe(dev, PTR_ERR(isi->regs),
- 				     "Failed to get ISI register map\n");
-+	}
+@@ -295,6 +297,7 @@ int arm_smmu_debugfs_create_stream_table(struct device *dev,
+ 	struct dentry *stream_dir, *dev_dir;
+ 	struct arm_smmu_master *master;
+ 	struct ste_context *ctx;
++	char *path, *full_path;
+ 	char name[64];
+ 	u32 sid;
+ 	int i;
+@@ -333,6 +336,18 @@ int arm_smmu_debugfs_create_stream_table(struct device *dev,
+ 		debugfs_create_file("ste", 0444, dev_dir, ctx,
+ 				    &smmu_debugfs_ste_fops);
  
- 	if (isi->pdata->gasket_ops) {
- 		isi->gasket = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							      "fsl,blk-ctrl");
--		if (IS_ERR(isi->gasket))
-+		if (IS_ERR(isi->gasket)) {
-+			kfree(isi->pipes);
- 			return dev_err_probe(dev, PTR_ERR(isi->gasket),
- 					     "failed to get gasket\n");
++		/* Create a symlink to the device's sysfs directory */
++		path = kobject_get_path(&dev->kobj, GFP_KERNEL);
++		if (!path)
++			continue;
++
++		full_path = kasprintf(GFP_KERNEL, "/sys%s", path);
++		if (full_path) {
++			debugfs_create_symlink(dev_name(dev), dev_dir, full_path);
++			kfree(full_path);
 +		}
++
++		kfree(path);
  	}
  
- 	dma_size = isi->pdata->has_36bit_dma ? 36 : 32;
- 	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(dma_size));
- 
- 	ret = devm_pm_runtime_enable(dev);
--	if (ret)
-+	if (ret) {
-+		kfree(isi->pipes);
- 		return ret;
-+	}
- 
- 	ret = mxc_isi_crossbar_init(isi);
--	if (ret)
-+	if (ret) {
-+		kfree(isi->pipes);
- 		return dev_err_probe(dev, ret,
- 				     "Failed to initialize crossbar\n");
-+	}
- 
- 	for (i = 0; i < isi->pdata->num_channels; ++i) {
- 		ret = mxc_isi_pipe_init(isi, i);
-@@ -538,7 +548,10 @@ static int mxc_isi_probe(struct platform_device *pdev)
  	return 0;
- 
- err_xbar:
-+	while (i--)
-+		mxc_isi_pipe_cleanup(&isi->pipes[i]);
- 	mxc_isi_crossbar_cleanup(&isi->crossbar);
-+	kfree(isi->pipes);
- 
- 	return ret;
- }
-@@ -556,6 +569,7 @@ static void mxc_isi_remove(struct platform_device *pdev)
- 		mxc_isi_pipe_cleanup(pipe);
- 	}
- 
-+	kfree(isi->pipes);
- 	mxc_isi_crossbar_cleanup(&isi->crossbar);
- 	mxc_isi_v4l2_cleanup(isi);
- }
 -- 
-2.53.0
+2.33.0
 
 
