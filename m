@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 728F210F3DF8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 20:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E4810D1489
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 21:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0vIzPozWuKqgk5Q0YXjxa8ioZbwwnBE2mLS9ua08YB4=; b=Ocusvw0OmdMMsz6vTMnbwYPXo5
-	ohdXOg01IFyV4gM7dOaTsLZcqyz2a4L8xx/nCDxtL7eHr0dxNWxS2enHo6IY+P48mEy1NrpLJ3Nen
-	tog8DSaxLhrL7+/zJsvASJEo1BC87bKEtOAbXvA40PSwTtXQfdETR56qahZw79l6Y6/1lkUS0SAy4
-	OYwrCXGXXCmNAYl+XthPNKms5whxm9bMTdcD8bqd4xZ/LXAFCiJS8pMf46O7uA4DDpQIIK0yxKtcu
-	vvwhKfbQPAPOu5KE5fD87w+puwXgU/p3nGkTejoIi+Zdia7NBRcadGcQFfzzzgmmOMaeYcC6O5bFp
-	HQ7JSddA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d4q09W+eD8Stqj42zbiz4smzDCvADGAs3rAaGG5Y1sM=; b=HRvfNyfv6PcjDh595T+030hPIe
+	O8hKC+maFiKFFO0RPqLqxmp15ge0bebtQL8xzJoOjXjlyh7/POAv5sbjXysNurzVJDP1PBKfVVHTq
+	4RvdovzYu13+Tswtb+5e1cqWaqh7ZCMojRMFoUTkKXInn1XgmzarXlv77oWXF+UhkLCCLrxvA/TNn
+	f2Cmbp0If6r7ztG17OAjZdX75rOAX/x4UW/2fdH6M9Na7GhS3e6fRkUKTrC4GeIEs0HrnkgZ6ESjy
+	7JMZquTb6Jzmv689ZmvwRW+ZRxna/L5gf8HDI7Nj/ooxanz9Adz+QImVDq+GSwrhA/u9RCgIFYpnQ
+	RqGWo5zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Zxz-00000009Gx6-3X6X;
-	Sat, 28 Mar 2026 20:09:07 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1w6bKd-00000009JbV-1Kv3;
+	Sat, 28 Mar 2026 21:36:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6Zxw-00000009Gwe-0aXI;
-	Sat, 28 Mar 2026 20:09:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774728544; x=1806264544;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Zp9Dxd4PmK1+0RXuo19KeVYFCQr5tYZE8oQlIlccaGA=;
-  b=GmogaRV/2fEgPBnAv42v4o7veNZ1SHX/1aZ5VJWcxZQgi8cnbxWzlCz7
-   WR+ozxf14g8l+6M69E7p/s8IZ1nGYOuhqOixe9FnMcT6kP2VVw59x4MdL
-   GSZbbbdqUUtyPcFBYRO/V5wiBF+Ax6CxUmFvEqpt7sH/uyVEkIiBNNd/P
-   iOXLyT5FSaG1cvz4dDXC/gOaKHOW4PHvbzXWd6P34rx3A5Iss8//E7Gcc
-   6IwjAeyYEadBTdaCIHgIBiTiW5DnQRdDfZIu/qmStNa7iVfILSqIoqQu9
-   5C9MKEw71TxfkGfDs7DJkpf8TS2FNksgf/qlbLzSVOmP9vEK5ENr9DK7J
-   A==;
-X-CSE-ConnectionGUID: DOLeD/L7TbCBsbUDJaAXYA==
-X-CSE-MsgGUID: s3sXJXk6QLen8oXJ8jk5xg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11742"; a="87158760"
-X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
-   d="scan'208";a="87158760"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Mar 2026 13:09:00 -0700
-X-CSE-ConnectionGUID: 2P3+ksYtQx+PJgUnMnMsKg==
-X-CSE-MsgGUID: 8sC0RSNVRjaHZpdvDnQjIQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,146,1770624000"; 
-   d="scan'208";a="225883955"
-Received: from lkp-server01.sh.intel.com (HELO 3905d212be1b) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 28 Mar 2026 13:08:55 -0700
-Received: from kbuild by 3905d212be1b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w6Zxk-00000000Bjd-1D26;
-	Sat, 28 Mar 2026 20:08:52 +0000
-Date: Sun, 29 Mar 2026 04:08:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jay Liu <jay.liu@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jay Liu <jay.liu@mediatek.com>, CK Hu <ck.hu@mediatek.com>
-Subject: Re: [PATCH v4 6/6] drm/mediatek: Add TDSHP component support for
- MT8196
-Message-ID: <202603290406.4CTuDfmw-lkp@intel.com>
-References: <20260324125315.4715-7-jay.liu@mediatek.com>
+	id 1w6bKa-00000009Jb8-1KvA
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Mar 2026 21:36:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=d4q09W+eD8Stqj42zbiz4smzDCvADGAs3rAaGG5Y1sM=; b=c76FFFg4SPPzxGrdE9k3KDYBbf
+	7LiMnn3gM32EcuvjgEcVqHX2wWFyXkK4CtbCJFeZDgBRAZz1bf+Xa8BsBFvgOci99LVIEFsXVuAeo
+	0IYP+d+cWqRsVs6n+6AKbnW3wrPtizSR7rNZjOXJBdrEST6BXu5YI9M1IJ0MSQRvVGB6LF1aSAd/G
+	NIehs9P2f1lf32ICYauQW289EMGoxwvkRBg6L3nrzN+2r/JE2jm3mlYyosUpxkDgP4BRliPGm1HM1
+	cYfdk8hNG/jh1f8rlnqwd8S4NOVla7vjWEs6nOcildmY97BalsXYZX4fviNY8vf1D9jI16O0wiu4+
+	cj9p+Y7Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40630)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w6bKT-000000007RJ-0s5p;
+	Sat, 28 Mar 2026 21:36:25 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w6bKP-0000000010D-1PC3;
+	Sat, 28 Mar 2026 21:36:21 +0000
+Date: Sat, 28 Mar 2026 21:36:21 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 00/10] net: stmmac: TSO fixes/cleanups
+Message-ID: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260324125315.4715-7-jay.liu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_130904_218282_DFD9ADAA 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260328_143632_360380_30885914 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,113 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jay,
+Hot off the press from reading various sources of dwmac information,
+this series attempts to fix the buggy hacks that were previously
+merged, and clean up the code handling this.
 
-kernel test robot noticed the following build errors:
+I'm not sure whether "TSO" or "GSO" should be used to describe this
+feature - although it primarily handles TCP, dwmac4 appears to also
+be able to handle UDP.
 
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on drm/drm-next pza/reset/next linus/master v7.0-rc5 next-20260327]
-[cannot apply to pza/imx-drm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+In essence, this series adds a .ndo_features_check() method to handle
+whether TSO/GSO can be used for a particular skbuff - checking which
+queue the skbuff is destined for and whether that has TBS available
+which precludes TSO being enabled on that channel.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jay-Liu/dt-bindings-display-mediatek-gamma-Add-support-for-MT8196/20260328-083359
-base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
-patch link:    https://lore.kernel.org/r/20260324125315.4715-7-jay.liu%40mediatek.com
-patch subject: [PATCH v4 6/6] drm/mediatek: Add TDSHP component support for MT8196
-config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260329/202603290406.4CTuDfmw-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260329/202603290406.4CTuDfmw-lkp@intel.com/reproduce)
+I'm also adding a check that the header is smaller than 1024 bytes,
+as documented in those sources which have TSO support - this is due
+to the hardware buffering the header in "TSO memory" which I guess
+is limited to 1KiB. I expect this test never to trigger, but if
+the headers ever exceed that size, the hardware will likely fail.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603290406.4CTuDfmw-lkp@intel.com/
+I'm also moving the VLAN insertion for TSO packets into core code -
+with the addition of .do_Features_check(), this can be done and
+unnecessary code removed from the stmmac driver.
 
-All errors (new ones prefixed by >>):
+I've changed the hardware initialisation to always enable TSO support
+on the channels even if the user requests TSO/GSO to be disabled -
+this fixes another issue as pointed out by Jakub in a previous review
+of the two patches (now patches 5 and 6.)
 
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:509:10: error: 'DDP_COMPONENT_CCORR0' undeclared here (not in a function); did you mean 'DDP_COMPONENT_CCORR'?
-     509 |         [DDP_COMPONENT_CCORR0]          = { MTK_DISP_CCORR,             0, &ddp_ccorr },
-         |          ^~~~~~~~~~~~~~~~~~~~
-         |          DDP_COMPONENT_CCORR
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:509:10: error: array index in initializer not of integer type
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:509:10: note: (near initialization for 'mtk_ddp_matches')
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:510:10: error: 'DDP_COMPONENT_CCORR1' undeclared here (not in a function); did you mean 'DDP_COMPONENT_CCORR'?
-     510 |         [DDP_COMPONENT_CCORR1]          = { MTK_DISP_CCORR,             1, &ddp_ccorr },
-         |          ^~~~~~~~~~~~~~~~~~~~
-         |          DDP_COMPONENT_CCORR
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:510:10: error: array index in initializer not of integer type
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:510:10: note: (near initialization for 'mtk_ddp_matches')
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:511:43: warning: initialized field overwritten [-Woverride-init]
-     511 |         [DDP_COMPONENT_COLOR0]          = { MTK_DISP_COLOR,             0, &ddp_color },
-         |                                           ^
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:511:43: note: (near initialization for 'mtk_ddp_matches[4]')
->> drivers/gpu/drm/mediatek/mtk_ddp_comp.c:547:10: error: 'DDP_COMPONENT_TDSHP0' undeclared here (not in a function); did you mean 'DDP_COMPONENT_DSI0'?
-     547 |         [DDP_COMPONENT_TDSHP0]          = { MTK_DISP_TDSHP,             0, &ddp_tdshp },
-         |          ^~~~~~~~~~~~~~~~~~~~
-         |          DDP_COMPONENT_DSI0
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:547:10: error: array index in initializer not of integer type
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:547:10: note: (near initialization for 'mtk_ddp_matches')
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:548:43: warning: initialized field overwritten [-Woverride-init]
-     548 |         [DDP_COMPONENT_UFOE]            = { MTK_DISP_UFOE,              0, &ddp_ufoe },
-         |                                           ^
-   drivers/gpu/drm/mediatek/mtk_ddp_comp.c:548:43: note: (near initialization for 'mtk_ddp_matches[57]')
+I'm moving the setup of the GSO features, cleaning those up, and
+adding a warning if platform glue requests this to be enabled but the
+hardware has no support. Hopefully this will never trigger if everyone
+got the STMMAC_FLAG_TSO_EN flag correct.
 
+Also move the "TSO supported" message to the new
+stmmac_set_gso_features() function so keep all this TSO stuff together.
 
-vim +547 drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-
-   504	
-   505	static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX] = {
-   506		[DDP_COMPONENT_AAL0]		= { MTK_DISP_AAL,		0, &ddp_aal },
-   507		[DDP_COMPONENT_AAL1]		= { MTK_DISP_AAL,		1, &ddp_aal },
-   508		[DDP_COMPONENT_BLS]		= { MTK_DISP_BLS,		0, NULL },
-   509		[DDP_COMPONENT_CCORR0]		= { MTK_DISP_CCORR,		0, &ddp_ccorr },
- > 510		[DDP_COMPONENT_CCORR1]		= { MTK_DISP_CCORR,		1, &ddp_ccorr },
-   511		[DDP_COMPONENT_COLOR0]		= { MTK_DISP_COLOR,		0, &ddp_color },
-   512		[DDP_COMPONENT_COLOR1]		= { MTK_DISP_COLOR,		1, &ddp_color },
-   513		[DDP_COMPONENT_DITHER0]		= { MTK_DISP_DITHER,		0, &ddp_dither },
-   514		[DDP_COMPONENT_DP_INTF0]	= { MTK_DP_INTF,		0, &ddp_dpi },
-   515		[DDP_COMPONENT_DP_INTF1]	= { MTK_DP_INTF,		1, &ddp_dpi },
-   516		[DDP_COMPONENT_DPI0]		= { MTK_DPI,			0, &ddp_dpi },
-   517		[DDP_COMPONENT_DPI1]		= { MTK_DPI,			1, &ddp_dpi },
-   518		[DDP_COMPONENT_DRM_OVL_ADAPTOR]	= { MTK_DISP_OVL_ADAPTOR,	0, &ddp_ovl_adaptor },
-   519		[DDP_COMPONENT_DSC0]		= { MTK_DISP_DSC,		0, &ddp_dsc },
-   520		[DDP_COMPONENT_DSC1]		= { MTK_DISP_DSC,		1, &ddp_dsc },
-   521		[DDP_COMPONENT_DSI0]		= { MTK_DSI,			0, &ddp_dsi },
-   522		[DDP_COMPONENT_DSI1]		= { MTK_DSI,			1, &ddp_dsi },
-   523		[DDP_COMPONENT_DSI2]		= { MTK_DSI,			2, &ddp_dsi },
-   524		[DDP_COMPONENT_DSI3]		= { MTK_DSI,			3, &ddp_dsi },
-   525		[DDP_COMPONENT_GAMMA]		= { MTK_DISP_GAMMA,		0, &ddp_gamma },
-   526		[DDP_COMPONENT_MERGE0]		= { MTK_DISP_MERGE,		0, &ddp_merge },
-   527		[DDP_COMPONENT_MERGE1]		= { MTK_DISP_MERGE,		1, &ddp_merge },
-   528		[DDP_COMPONENT_MERGE2]		= { MTK_DISP_MERGE,		2, &ddp_merge },
-   529		[DDP_COMPONENT_MERGE3]		= { MTK_DISP_MERGE,		3, &ddp_merge },
-   530		[DDP_COMPONENT_MERGE4]		= { MTK_DISP_MERGE,		4, &ddp_merge },
-   531		[DDP_COMPONENT_MERGE5]		= { MTK_DISP_MERGE,		5, &ddp_merge },
-   532		[DDP_COMPONENT_OD0]		= { MTK_DISP_OD,		0, &ddp_od },
-   533		[DDP_COMPONENT_OD1]		= { MTK_DISP_OD,		1, &ddp_od },
-   534		[DDP_COMPONENT_OVL0]		= { MTK_DISP_OVL,		0, &ddp_ovl },
-   535		[DDP_COMPONENT_OVL1]		= { MTK_DISP_OVL,		1, &ddp_ovl },
-   536		[DDP_COMPONENT_OVL_2L0]		= { MTK_DISP_OVL_2L,		0, &ddp_ovl },
-   537		[DDP_COMPONENT_OVL_2L1]		= { MTK_DISP_OVL_2L,		1, &ddp_ovl },
-   538		[DDP_COMPONENT_OVL_2L2]		= { MTK_DISP_OVL_2L,		2, &ddp_ovl },
-   539		[DDP_COMPONENT_POSTMASK0]	= { MTK_DISP_POSTMASK,		0, &ddp_postmask },
-   540		[DDP_COMPONENT_PWM0]		= { MTK_DISP_PWM,		0, NULL },
-   541		[DDP_COMPONENT_PWM1]		= { MTK_DISP_PWM,		1, NULL },
-   542		[DDP_COMPONENT_PWM2]		= { MTK_DISP_PWM,		2, NULL },
-   543		[DDP_COMPONENT_RDMA0]		= { MTK_DISP_RDMA,		0, &ddp_rdma },
-   544		[DDP_COMPONENT_RDMA1]		= { MTK_DISP_RDMA,		1, &ddp_rdma },
-   545		[DDP_COMPONENT_RDMA2]		= { MTK_DISP_RDMA,		2, &ddp_rdma },
-   546		[DDP_COMPONENT_RDMA4]		= { MTK_DISP_RDMA,		4, &ddp_rdma },
- > 547		[DDP_COMPONENT_TDSHP0]		= { MTK_DISP_TDSHP,		0, &ddp_tdshp },
-   548		[DDP_COMPONENT_UFOE]		= { MTK_DISP_UFOE,		0, &ddp_ufoe },
-   549		[DDP_COMPONENT_WDMA0]		= { MTK_DISP_WDMA,		0, NULL },
-   550		[DDP_COMPONENT_WDMA1]		= { MTK_DISP_WDMA,		1, NULL },
-   551	};
-   552	
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 135 ++++++++++++++--------
+ 2 files changed, 92 insertions(+), 46 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
