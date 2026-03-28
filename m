@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD0D10F3DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 12:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EF510F3DCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Mar 2026 12:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/gB2i70YY7tA8bB0dumzedAxykUOjDm3U5xR1oNIAtA=; b=ktKUvUabzwfvgP6xpld2GWuGxf
-	lZarNtpQswc7EmRU0+Z+G76CCbESer2Jqfx45Wu5eY2cod6hB8kBYRaCcpysIxxTUwHcfGcopmgZS
-	J+dM+sxvKo1vl4j3wwazaprC+U4x35dKWp9gPlRrXXtx+5cZQBHAJbgDcxFEvdfFfXxh8i7jSc1I5
-	27Ok6mVKvvHOh8rRcrTmMwZzq4/VLIzE9O/X15Sy19RBuCdEj2kjRBPTDAKsFlAss8pvVNrBNrd5A
-	gQW8TpgBkAOsZ/08wEwy7Xj1f6Vm+vw/kPSNi/tJjOLgr+3a3P7HZ9W3pMJYQin1Cu04f3xl7mnm9
-	u9Mi7jPg==;
+	bh=yOTv8yveft0wjUfc7GYjesXl6P8SwNDlwaPGgO2+5Kc=; b=Ggl7QpTYD47ASAoKSV9c6sxmeF
+	D9rnva9tjrxUL2JxeNceuEzq24wZa6iaSZpWAIyXxetNzUKyNQvh5m9hQl+3VwzgZ1l0rXE109IEm
+	paQDTNH/8rnZH4zbl3mqEv0BQMwebPkb3xztI4EZgVz+hMtgT8bIBG3YZc8BMyhC69P7WEJvIjEHk
+	d+GkmN2LcM5wLF0o+tZKcGhdqoI49i8C1nboaXzS/UOrtn4A48s99GjLWJKquWokde4riL7pSlgDQ
+	uqKJw4cbQBI2IXy2KtdgOIUOXnogVkfzF9cy8wX8qFmtA7tgGLpIh+SICPwdg25VIyWrWsD91kPT8
+	9EJsaEgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6SU0-00000008uKS-1oZz;
-	Sat, 28 Mar 2026 12:09:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w6SV3-00000008uR6-3Ne4;
+	Sat, 28 Mar 2026 12:10:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6STz-00000008uKL-1K0k
+	id 1w6SV0-00000008uQM-1dSn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Mar 2026 12:09:39 +0000
+	Sat, 28 Mar 2026 12:10:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F3F360008;
-	Sat, 28 Mar 2026 12:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 100CAC4CEF7;
-	Sat, 28 Mar 2026 12:09:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 52B8543FD2;
+	Sat, 28 Mar 2026 12:10:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24AC2C4CEF7;
+	Sat, 28 Mar 2026 12:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774699777;
-	bh=aj2WoZSD4Ghz0WN0CvxQLhesl3mrrJl9JZMEkXD6iJs=;
+	s=k20201202; t=1774699839;
+	bh=NTFcZ7aSZIsyP3qPdyEPoyvUbM7dBDc1cogifZf44fs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k/r4m/ueX4BHo3KpJu/EnzGu9hUWVECJ9zT43JbN/vOCG9z6Gnjl/MCj9KDym5wY7
-	 neYO7SvL/1stOEBVXgVmmwlml7aAlX2WSW/IAPRNjXJPUFxhfnwk5xCehkqjQf7RDS
-	 K1vNH4lR04IJWfDU+t/Betv8YLU8kJ4jUAQrTVP6vEZmNvQr1NHeH+vG6x99PokfiG
-	 1P/ZhIc23nYpHyF33u6y5nhbBXp/hDkea3hwiGNz4EtbkgdjJOXtmm7ZgiNrmc7HuO
-	 XWEtUeMRudf3FCXBvPIWjBPud2IEgBzp7fV6VgRWxoGkVbS8wy3w1q5ACAfXM9RS+Q
-	 8HWkcVP97AgeQ==
-Message-ID: <7d1b7aa6-aaa8-4116-abc2-382511823a9c@kernel.org>
-Date: Sat, 28 Mar 2026 13:09:32 +0100
+	b=LQI2u2FJrZdfURKcCR9tStL7U7j9JDQoiHCmq72vccMs+ZUBhp+9/TKvL161WNaYt
+	 HB6Cn/KW4bpF4LE8szU/Ttp0n1iAeBjvFxI338mQ+OH5v7/aZmAQ9mRmTZhzpLHT8Q
+	 2ij/qw3sRiilAWVo3GAkTfwxr5AaAfiGpMiRoVeACXWF2FpqJdBr1mqCSFspFTpRGG
+	 IWAWGn1ScwG3hTcEoF9XWrUzsMNbRCB9m36GDK5FSVbYng9NVfLXXuJIcV7JatH039
+	 EqdHKj9j/+OVngUAIX3Bg6ahCKh6k16Ub4DhdqyNRlVlqKadrI7x9Bvws94pvNi0EJ
+	 U/HidD7p2Gw6Q==
+Message-ID: <4c5e9bad-82f0-4714-99c2-8ccd79a45043@kernel.org>
+Date: Sat, 28 Mar 2026 13:10:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] soc: fsl: qe: panic on ioremap() failure in qe_reset()
-To: Wang Jun <1742789905@qq.com>, Qiang Zhao <qiang.zhao@nxp.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, gszhai@bjtu.edu.cn, 25125332@bjtu.edu.cn,
- 25125283@bjtu.edu.cn, 23120469@bjtu.edu.cn, stable@vger.kernel.org
-References: <780c1ba3-6639-478e-896f-e35ec059b58c@kernel.org>
- <tencent_FED49CF5331CC0C7910618883332A08E2606@qq.com>
+Subject: Re: [PATCH 02/12] bus: fsl-mc: use generic driver_override
+ infrastructure
+To: Ioana Ciornei <ioana.ciornei@nxp.com>, Danilo Krummrich <dakr@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Nipun Gupta <nipun.gupta@amd.com>,
+ Nikhil Agarwal <nikhil.agarwal@amd.com>, "K. Y. Srinivasan"
+ <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+ Long Li <longli@microsoft.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Armin Wolf <W_Armin@gmx.de>, Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Vineeth Vijayan <vneethv@linux.ibm.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Harald Freudenberger <freude@linux.ibm.com>,
+ Holger Dengler <dengler@linux.ibm.com>, Mark Brown <broonie@kernel.org>,
+ "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C4=82=C2=A9rez?=
+ <eperezma@redhat.com>, Alex Williamson <alex@shazbot.org>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini
+ <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-hyperv@vger.kernel.org,
+ linux-pci@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-spi@vger.kernel.org,
+ virtualization@lists.linux.dev, kvm@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org,
+ Gui-Dong Han <hanguidong02@gmail.com>
+References: <20260324005919.2408620-1-dakr@kernel.org>
+ <20260324005919.2408620-3-dakr@kernel.org>
+ <cvcetxkxjq2tz6n2vsofhyzove3qdi2e4r6rq6yxou3joejk2h@rmt5ygav7ssu>
 Content-Language: fr-FR
 From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <tencent_FED49CF5331CC0C7910618883332A08E2606@qq.com>
+In-Reply-To: <cvcetxkxjq2tz6n2vsofhyzove3qdi2e4r6rq6yxou3joejk2h@rmt5ygav7ssu>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260328_051042_463240_FF783CEE 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +108,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-Le 27/03/2026 à 01:12, Wang Jun a écrit :
-> [Vous ne recevez pas souvent de courriers de 1742789905@qq.com. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
+Le 25/03/2026 à 13:01, Ioana Ciornei a écrit :
+> On Tue, Mar 24, 2026 at 01:59:06AM +0100, Danilo Krummrich wrote:
+>> When a driver is probed through __driver_attach(), the bus' match()
+>> callback is called without the device lock held, thus accessing the
+>> driver_override field without a lock, which can cause a UAF.
+>>
+>> Fix this by using the driver-core driver_override infrastructure taking
+>> care of proper locking internally.
+>>
+>> Note that calling match() from __driver_attach() without the device lock
+>> held is intentional. [1]
+>>
+>> Link: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore.kernel.org%2Fdriver-core%2FDGRGTIRHA62X.3RY09D9SOK77P%40kernel.org%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4b9262ddecdd4ce29f9808de8a66485e%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639100369055903282%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=%2BRfjlUkq7oWV%2F0v2S2B%2BEuxCY%2FLRQv6qHiEWiupd6kc%3D&reserved=0 [1]
+>> Reported-by: Gui-Dong Han <hanguidong02@gmail.com>
+>> Closes: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbugzilla.kernel.org%2Fshow_bug.cgi%3Fid%3D220789&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4b9262ddecdd4ce29f9808de8a66485e%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639100369055936232%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=XL1K1ICiygOZnlvDUbQFe192KnLsBQms0HFNGCuyz%2Fw%3D&reserved=0
+>> Fixes: 1f86a00c1159 ("bus/fsl-mc: add support for 'driver_override' in the mc-bus")
+>> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 > 
-> When ioremap() fails in qe_reset(), the global pointer qe_immr remains
-> NULL, leading to a subsequent NULL pointer dereference when the pointer
-> is accessed. Since this happens early in the boot process, a failure to
-> map a few bytes of I/O memory indicates a fatal error from which the
-> system cannot recover.
-> 
-> Follow the same pattern as qe_sdma_init() and panic immediately when
-> ioremap() fails. This avoids a silent NULL pointer dereference later
-> and makes the error explicit.
-> 
-> Fixes: 986585385131 ("[POWERPC] Add QUICC Engine (QE) infrastructure")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wang Jun <1742789905@qq.com>
-> ---
->   drivers/soc/fsl/qe/qe.c | 6 +++++-
->   1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/fsl/qe/qe.c b/drivers/soc/fsl/qe/qe.c
-> index 70b6eddb867b..9f6223043ee3 100644
-> --- a/drivers/soc/fsl/qe/qe.c
-> +++ b/drivers/soc/fsl/qe/qe.c
-> @@ -86,8 +86,12 @@ static phys_addr_t get_qe_base(void)
-> 
->   void qe_reset(void)
->   {
-> -       if (qe_immr == NULL)
-> +       if (qe_immr == NULL) {
->                  qe_immr = ioremap(get_qe_base(), QE_IMMAP_SIZE);
-> +               if (qe_immr == NULL) {
-> +                       panic("QE:ioremap failed!");
-> +               }
-> +       }
-> 
->          qe_snums_init();
+> Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
 > 
 
-Applied, thanks.
+
+Applied, thanks
 
