@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E7FF3D5FB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC19F3D610
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 15:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGcUzpB0Rn5uqHI0lZyRSpMC3dR8cgSa9RnzaAiXmFc=; b=blVwyTBiAofqB3bllrKHtbehYJ
-	IwcsGInDfittrTG/Dhl1iqJrVHXfLfGjpssp6VNdwTl+T25G0WwIxzX4czmM8ZyC3Jk0uve6SP+ip
-	4JPzQXNfjySSnHYRsU74JJ5dm4CL6L71gGuvjano7wh1KCG/qdfxDSG3miBdbjfMIkkzK8X04FTM5
-	zr21os7rxID5SO3RGpGYszW8Q89Sr0xTkUuFGC9yL5ozCmvoaqs64gLgG1ekYxZtrCDghthyvCEgS
-	1y5yabvG94wFyEQHqdLpgKHTejgVTNp/zxE/JnBNlLkgwYIJwsrjLcLPP9c4v16y+u/uCveCP/JV0
-	uvOVNmbA==;
+	bh=DqzjPqhoGKjpu+dPVydjeYXcVIUYUCEUdVobIcE3DOI=; b=yLeWeIeBn8R2N8cPKNEHULXLfJ
+	zZiM2NW7kePNvDIZVozD8+L+mCDoI69xmO5wuYjw2A6xxII8vlCdf5FhnZd30n7Pw+wLYiE4lHAJO
+	X9TTC3zC5hNq9V1rOBozeJ/kDpFX3gAh2zs5OQ0/OCMvpoQx/6MmLJlS0Go3APPvhrSNyHUkHYt4n
+	aRGgifPSw6QIE46jN2gugS6I2PjO4J7gQdoeNJSLjUTLbCSLDBHVpq3vWQv+di5+BAhka0399FhXm
+	LkjK/+vLVgX5oV2XotjwqQlWFPZBSBqZqgdfV+KDGSF3i4JxQTER90d5yER9przCdSz9sPNcYuu4G
+	nx7UOnlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rnF-0000000A33p-3hCJ;
-	Sun, 29 Mar 2026 15:11:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w6rnG-0000000A34s-1yOm;
+	Sun, 29 Mar 2026 15:11:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rn3-0000000A30Z-2gaV
+	id 1w6rn9-0000000A32W-2SJM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 15:11:02 +0000
+	Sun, 29 Mar 2026 15:11:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56BD640AE4;
-	Sun, 29 Mar 2026 15:11:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0DBFC116C6;
-	Sun, 29 Mar 2026 15:11:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0902E60054;
+	Sun, 29 Mar 2026 15:11:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58812C116C6;
+	Sun, 29 Mar 2026 15:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774797061;
-	bh=1V/ZmE92fpR02Fi0xVWMi+6+p0QBtEM2/+YEMgeWtQE=;
+	s=k20201202; t=1774797066;
+	bh=uLUM4o+KLJe4YQmeHIHCsOs0ynRLdm3hUXmN7rvPPFI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QXVJmdvRc4VDmPDKXgJhIms9hL6UNTQnVa44SQacZPTnvMB53IY1x7suwXpA7TDTn
-	 f/jBZ7b6t2BcoPALEmuE8+vLTb+CknqR1s7VaLLF/wdrwBUaxZL5mj2vpEUSZhyl2o
-	 L0eHbv5IvER9f16erJz4ZsS9CuxtQobUVucJ9b140dVBcnDoMy9VUTo0wAYpMNVyiv
-	 7g09OXp3q4jS5Y84y2ejLk9kuvyH1ojwMsvGZiC7D9F5UwVmWtqv7dexqIGWOFSNnb
-	 LYuvbKrPC1aWnLiMGeDSpj1ixMf838sOIkLt4R/7i/Dmb9ROs0z43pka46TYcGMv8U
-	 iLJj6YYTSgUfQ==
+	b=KpHv66hLSfg9e8z12WOw30PjF1clNYOndpyZVfBQ7NcAgwDuAHJ1cZywIEFtq2Nap
+	 CdiOQ+J3tIPUJP9SyQdeY8IlxfDuvnEzbY2H5I/7NMsf39BGfMaWODgAR1+bLtq/nm
+	 6K9C/SgiZ+ZyunoZdytc2IXgkJvNQxjl+QqWxtwtB1GEfYPHcMp6rI2eV8Jsm5E1nz
+	 3NSMcLICzlX7C4IT88GqxbnT6geVA03u2fi0N21szbL4Ii3KKeuAnlsj5ezeJFVL8H
+	 2/Hgj+GRttUNJx7PxR2/8y+LylFNPaeyFrUVlyHDDiV78FpC8mIDbWD5GuIbIZ9rR+
+	 OcdtAVImgjSSg==
 From: Thierry Reding <thierry.reding@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
@@ -49,19 +49,15 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 4/7] ARM: tegra: Device tree changes for v7.1-rc1
-Date: Sun, 29 Mar 2026 17:10:41 +0200
-Message-ID: <20260329151045.1443133-4-thierry.reding@kernel.org>
+Subject: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
+Date: Sun, 29 Mar 2026 17:10:43 +0200
+Message-ID: <20260329151045.1443133-6-thierry.reding@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260329151045.1443133-1-thierry.reding@kernel.org>
 References: <20260329151045.1443133-1-thierry.reding@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_081101_722557_C4870658 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +82,52 @@ The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-arm-dt
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-arm64-dt
 
-for you to fetch changes up to ce74a6c6d88ba9ee29a6b99ac97ffcded577c85d:
+for you to fetch changes up to c70e6bc11d2008fbb19695394b69fd941ab39030:
 
-  ARM: tegra: paz00: Configure WiFi rfkill switch through device tree (2026-03-28 00:56:36 +0100)
+  arm64: tegra: Add Tegra264 GPIO controllers (2026-03-28 01:36:46 +0100)
 
 Thanks,
 Thierry
 
 ----------------------------------------------------------------
-ARM: tegra: Device tree changes for v7.1-rc1
+arm64: tegra: Device tree changes for v7.1-rc1
 
-Various improvements for Tegra114 boards, as well as some legacy cleanup
-for PAZ00 and Transformers devices.
+Various fixes and new additions across a number of devices. GPIO and PCI
+are enabled on Tegra264 and the Jetson AGX Thor Developer Kit, allowing
+it to boot via network and mass storage.
 
 ----------------------------------------------------------------
-Dmitry Torokhov (1):
-      ARM: tegra: paz00: Configure WiFi rfkill switch through device tree
+Diogo Ivo (1):
+      arm64: tegra: smaug: Enable SPI-NOR flash
 
-Svyatoslav Ryhel (8):
-      ARM: tegra: Add SOCTHERM support on Tegra114
-      ARM: tn7: Adjust panel node
-      ARM: tegra: lg-x3: Add panel and bridge nodes
-      ARM: tegra: lg-x3: Add USB and power related nodes
-      ARM: tegra: lg-x3: Add node for capacitive buttons
-      ARM: tegra: Add ACTMON node to Tegra114 device tree
-      ARM: tegra: Add External Memory Controller node on Tegra114
-      ARM: tegra: transformers: Add connector node
+Jon Hunter (1):
+      arm64: tegra: Fix RTC aliases
 
- arch/arm/boot/dts/nvidia/tegra114-tn7.dts        |  13 +-
- arch/arm/boot/dts/nvidia/tegra114.dtsi           | 221 +++++++++++++++++++++++
- arch/arm/boot/dts/nvidia/tegra20-paz00.dts       |   8 +
- arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts |  21 ++-
- arch/arm/boot/dts/nvidia/tegra30-lg-p880.dts     |  23 +++
- arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts     |  33 ++++
- arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi      | 174 +++++++++++++++++-
- arch/arm/mach-tegra/Makefile                     |   2 -
- arch/arm/mach-tegra/board-paz00.c                |  56 ------
- arch/arm/mach-tegra/board.h                      |   2 -
- arch/arm/mach-tegra/tegra.c                      |   4 -
- 11 files changed, 482 insertions(+), 75 deletions(-)
- delete mode 100644 arch/arm/mach-tegra/board-paz00.c
+Prathamesh Shete (1):
+      arm64: tegra: Add Tegra264 GPIO controllers
+
+Thierry Reding (6):
+      dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
+      Merge branch for-7.1/dt-bindings into for-7.1/pci
+      arm64: tegra: Fix snps,blen properties
+      arm64: tegra: Drop redundant clock and reset names for TSEC
+      arm64: tegra: Add PCI controllers on Tegra264
+      arm64: tegra: Add Jetson AGX Thor Developer Kit support
+
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         | 149 +++++++++
+ arch/arm64/boot/dts/nvidia/Makefile                |   2 +
+ arch/arm64/boot/dts/nvidia/tegra210-smaug.dts      |  12 +
+ arch/arm64/boot/dts/nvidia/tegra210.dtsi           |   2 -
+ arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi     |   1 +
+ arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi     |   1 +
+ arch/arm64/boot/dts/nvidia/tegra234.dtsi           |   6 +-
+ .../dts/nvidia/tegra264-p4071-0000+p3834-0008.dts  |  11 +
+ .../boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi |  12 +
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 336 +++++++++++++++++++--
+ 10 files changed, 500 insertions(+), 32 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834-0008.dts
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi
 
