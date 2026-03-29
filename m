@@ -4,98 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BF4FC97EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 20:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722B5FC97EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 20:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9wEL7YhtGTlkZIbfzXrBHx4q/WG4oQ21I3JWs74ZMg=; b=aq5U2Cye4ab8mAOeYOSo+D0r9B
-	dzMXIUZ8x/pwLTF30RNZ2z3mDlDFrQBiAWK7kT71/waWKHlQMeJmS++8p5zfixDn5VdxVSxCmlfMO
-	ZrB7J7g/wHTbGX6P5bGbUJVE+M8wo+nHmzJrJzed36gtJFB8w5pyuia8PtLlE+LC+aT22tHi+A9W1
-	Z9nt5ipokfGAgT3vr5Y+fwvJNoHWsy1cPnB1HnpERymBNDy7RAgS4u+zYC1BAVcHozNCPltHsJdRr
-	3QRfXTJTKNBzmBgEYI+RMI33tMhyHcx1O+GsCwvUJ5rYNoj3DF46j8yTocQcopmvoo2ltQCIASzyu
-	g8pxfWwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qXAROxKREcBa1g6JdEUgIJSPmTK4GN4PSywsZ7HTgFo=; b=C6/e7sDoIefmc2KKfzuyn4T9WV
+	jW94El59o3DpW97oA34JhYSJdB3E2CFM+S/+s1TJiL7EZKM0zWiUqcA+V2mNk4qhhBvsAFPfjhk8V
+	I+sn0Nr1uMy91oMXQP8TUYjxtuhgZP7AcZsjo3yd42pcwUXas9XlBXiP37J6C5oijm68vsKQQOWlu
+	tUTNF0snqnp02ieufwlMzxsHPcUu9bmUnLiTLUfra1tBbhUustAVPF2mCW3Ap0I154hSP9d3TWAtB
+	rjshYCq8liHXYnfFZowUT6+diFCJDeKoYF44+dcjP+C+CBV8sWIejljllnFzrGALirCVhNPLN4Rtb
+	F1Yd4jUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6wKD-0000000AIAz-05C4;
-	Sun, 29 Mar 2026 20:01:33 +0000
-Received: from mout.kundenserver.de ([212.227.17.13])
+	id 1w6wu3-0000000AJcK-0jOY;
+	Sun, 29 Mar 2026 20:38:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6wK2-0000000AIAC-382V
+	id 1w6wu0-0000000AJbz-3JrS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 20:01:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nebelreich.de;
-	s=s1-ionos; t=1774814469; x=1775419269; i=eitschman@nebelreich.de;
-	bh=G9wEL7YhtGTlkZIbfzXrBHx4q/WG4oQ21I3JWs74ZMg=;
-	h=X-UI-Sender-Class:From:To:Cc:References:In-Reply-To:Subject:Date:
-	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=2kPmEplM60DiYbYfogrA9DY6To9JttQrx0lWm4e6jS8IFjv2wzqfLy/uG5Ya7ZJN
-	 NClAx4ys7V8lnE/08AwNBl6cfehsah8FeTmfkD4A94sf4JJhc008z1nHwtv2V9tZa
-	 ymCl9e5iOKquwtmlp6/I3E+9V94PzPng+MRS+xwxlaAXfS/nUNXwkLor8Erop/POL
-	 XgZ/fCf6wnnIF7XX2m6v18+lnK8hNX8QNUlvTX0+jIsvVH6gMc1ReKq66FdnBK2O8
-	 0p91/PUzaurstiDn5Fa3V1rQZCWafMpk+XDB44rt9g6nNW3CIcK2lIWHdFTjPkemX
-	 NXBQo3nXghF2TORhQQ==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue106
- [212.227.15.183]) with ESMTPSA (Nemesis) id 1MV5G4-1vztKd0zA6-00XNt9; Sun, 29
- Mar 2026 22:01:09 +0200
-From: "Andreas Haarmann-Thiemann" <eitschman@nebelreich.de>
-To: "'Linus Walleij'" <linusw@kernel.org>
-Cc: <ulli.kroll@googlemail.com>,
-	<netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <006201dcbf63$84593aa0$8d0bafe0$@nebelreich.de> <CAD++jLmVPCL6p3jcdg1y_w=Zij6oVdWTvSmQFjWLn4yRJL4g=w@mail.gmail.com>
-In-Reply-To: <CAD++jLmVPCL6p3jcdg1y_w=Zij6oVdWTvSmQFjWLn4yRJL4g=w@mail.gmail.com>
-Subject: AW: [BUG] net: ethernet: cortina: gemini: skb leak in gmac_rx() causes kernel lockup under sustained RX load
-Date: Sun, 29 Mar 2026 22:01:08 +0200
-Message-ID: <000c01dcbfb6$c8fa6b40$5aef41c0$@nebelreich.de>
+	Sun, 29 Mar 2026 20:38:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 817F4401C3;
+	Sun, 29 Mar 2026 20:38:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31E00C116C6;
+	Sun, 29 Mar 2026 20:38:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774816711;
+	bh=yYaQyjAQ+oTlcnhhYfdkv5KRzeJYgZ4/wQYablCPVRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XGq9cyzkihOvqpYwGMfsey8DxUJr4Z433YDhfv2hD0kW3+dYM8hW+dz8+3CIOEDPc
+	 24sR2qhfx1p4ACjwTPWlwAFbPt/upIUvegheuBd4DBwyOnRzRXkisBunjttTpeq+m6
+	 RBMWb6RA8znTgKcYcxxiwxW78V53CpBr8wiZqEJ7SX+f39G4GM81Jk/7T+shNaDTyE
+	 JtfcVppFIfPKe054mpLMrqtQtbKvu3/JnJnd1nFpqN11h20ffXLF3leNtRQAIrcbI9
+	 VWxIWeKZryV3B60yuk7mvEk+0Y1cXyOh/wTjyE2Bwb9I1GrNg/cwtLTT3//KpzKXJy
+	 35YJ7vhf2ZUdQ==
+Date: Sun, 29 Mar 2026 13:38:29 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Demian Shulhan <demyansh@gmail.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ardb@kernel.org
+Subject: Re: [PATCH v3] lib/crc: arm64: add NEON accelerated CRC64-NVMe
+ implementation
+Message-ID: <20260329203829.GA2746@quark>
+References: <20260317065425.2684093-1-demyansh@gmail.com>
+ <20260329074338.1053550-1-demyansh@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQLUme4N3xNJ0EwL8UVC5C2k8HMTYAH+30GOs8ZCkwA=
-Content-Language: de
-X-Provags-ID: V03:K1:9ezzx3KcIaT9BtlchuUc8xv0bbAlDqMAb5FzatEXOkeq3X3bYAX
- MmdUe8KpGFfCjTvxnZbMRkWY7sjTt5Sgg3F2wsOO8S7hg1t8B09CoMcVMD/ieytViedKwkm
- yPUs03mnxrAgqqPPeCOZOB0R5BH5ozWbw/mYTgKtWcUG/Iv5cAFV57eDH7pZ1KdexBh4nOt
- HdzIpLJetkl5m4WliUTPA==
-UI-OutboundReport: notjunk:1;M01:P0:/4WUwhPeKpA=;/jUDE8d2G5IwM4zZ7dkWi9y9kT4
- YKVWObAX0owkLL4ksUe2HcvqRPeCcstcNoLsT0V8JuxnUoD7O8Zce705LfYG7rmOmNbr7HJRQ
- OPtGYmOhQChGbBZwsNcljzNEre8nnUELI2ZzCmTTvl6rYY2THlpyrMGJhXtXRT9vossmQpNd2
- /2rTmQYBC/3PHsec13YYHmziccGX2Ukjz/t2hFnwOI3sGdvzApJmmf3iNtstDZOTWWLoWmGBV
- vF9r7Z2+23iw+dT8QKYob+RX06fPSNzoPGyrBfzn8w8rfb5zVr1KabtsL5B1NTLyqnnpkZau8
- jr+z2pbL+hu+pqVJmBLz0BV+ORmq3S7H22Cmyja4NGfVqCP2I5dNnnYUeUvuzN4cEPRD8Jnzy
- v5sF8JXFpW4De2tpA6rLuQGwVfUhg5+1uWAAI1BWtjswbCqoNlpCzeZOpFssrySAmxZ7ilpYa
- FXP++dEEnhckzgBBhU9SJUFTw5Vt2ft1gMKkgRvilE/0Xv6PkKeiw2jvhkqfhXQnUSo+L2bVB
- a5om2t7fA8sJWS03klXDU33alv0uT9RVjUncs9GyZg+pZXWNsHlQ2Y5kUV6TT/skrdHJvqKcR
- PUkzsjyvJTs3M+n+diemq3cHYh9GAJmGt3jb3pIgqOBTlYHZ5mAvGpGwaD1H5gf74NvqIbjwQ
- HlBw77eDRxN6WejYiNVoLnhl6mmeuY8nQG5J1XbXmJMLgQ04IHjC2gLycewAYD69t6LFzjrq0
- YS/3p4/7zgDrB22fU+zsR92HXJUjFFM7FB4BW81FqHfL12uyfdA6n7Al3fIOleQtnAm4ZnylT
- sQMl+MVKl05ny8yN91OqLXpI5MeQHnzEWE4AVWnEeZIy+1btcjPRQ4Rb46hr1sETjXPJ443tc
- bf0X+yd330t9Rz94re44Mx+DnUZtOavUyW4AVqMi8+L3TAT4pFn4tEwbHb5jXqzp1iiFSsHT+
- PZgswT9vj9FIl49hCFr8xzIxWXNHeQWXbPR9UezXc3qha9lBUCe5tkMnJJX+Yb7Jc4R8faOpS
- YfLmk7W1Hn9QkvwetbwXvjP3/kBob7wkS/IkHmsPQr6J6kOnYC/GdYJp1RVNczrRM/lHDAmCZ
- nADD7i5N5dQiA69QMLhmtbX3K4NQJUjidMEkjccXVB0/3t4EsTsZHkIQgyry9ocmS1A6sqZw4
- wCaNzBZRNKiQta064pmmITnu/d+JR9zgIQP/TeGDKh8TH72UPdEh0Q+10fQ8WthsvF1N1MS1U
- tSg3l9J/JegM1+UY3LaPXt17FbU+JoxaWWPK3/kE93zU0CnWfJLCG95XveI7rRi6Sk9WsxIkd
- Z5ISJLWsrG3dk1v7Fhd33THJIUSKuW4Pvu7sXCwmrkNeO2MTsG+FHgfz/eVKQwLyFDaFuRMk7
- mKdrTC0LoFzKcqWD1ONv3+Hcu1RcRfPWiHSdkPegC1nPYE2IUYr7Ua/nZPaHeN1os3A5wnFbZ
- 7vI+u8dMv/EQkMWitkBbC0bDinpotBJ8fr6fRjRGWseWMXQvNcNtUd4Ncjy3tzNoXuKVilHAj
- guma4RQoJhVKqCHW+v7HfEEtVmvdHAscurKjsoWa0okOporbxkMKKz+RNXaYoDKXY3+CHiE1A
- xRSWrnnQ+GDZ/A+lrPfBKoVPkE7IsvSm6qtC8enRf45mEPzdmrAEj/ep9eNUXs2iEnPq1wSJr
- aMeDPNV9M5CrWQ8VXc7yT+UdtCDijWU1LF2dQ62mCUeqCdRHQnJ894VwcDIyHDXcvKTOt9pXq
- sX4AxdFwhOIp4qLHaetK7Z4sBJGvijIElIw9vHjcxFxshmNpKN7IKU9xWTSqmqB34pMSS3kvX
- m8trUG1utrLuQQyi3uWElMRyIBZsYVWv/12Np+OKaiV9n1UOhWc+o9H9sljhLlGg3LuiUuY8A
- FefhKe5KCkytoUeZCU69hrjmxoQ1mzV0FcyWTA=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260329074338.1053550-1-demyansh@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_130125_787086_DB1B029A 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260329_133832_850444_B4C85E9C 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +73,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Linus,
+On Sun, Mar 29, 2026 at 07:43:38AM +0000, Demian Shulhan wrote:
+> Implement an optimized CRC64 (NVMe) algorithm for ARM64 using NEON
+> Polynomial Multiply Long (PMULL) instructions. The generic shift-and-XOR
+> software implementation is slow, which creates a bottleneck in NVMe and
+> other storage subsystems.
+> 
+> The acceleration is implemented using C intrinsics (<arm_neon.h>) rather
+> than raw assembly for better readability and maintainability.
+> 
+> Key highlights of this implementation:
+> - Uses 4KB chunking inside scoped_ksimd() to avoid preemption latency
+>   spikes on large buffers.
+> - Pre-calculates and loads fold constants via vld1q_u64() to minimize
+>   register spilling.
+> - Benchmarks show the break-even point against the generic implementation
+>   is around 128 bytes. The PMULL path is enabled only for len >= 128.
+> 
+> Performance results (kunit crc_benchmark on Cortex-A72):
+> - Generic (len=4096): ~268 MB/s
+> - PMULL (len=4096): ~1556 MB/s (nearly 6x improvement)
+> 
+> Signed-off-by: Demian Shulhan <demyansh@gmail.com>
 
-thank you for the confirmation!
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
 
-Here is my Signed-off-by:
+Thanks!
 
-Signed-off-by: Andreas Haarmann-Thiemann <eitschman@nebelreich.de>
-
-Please feel free to create the patch from the inline code.
-
-Best regards,
-Andreas Haarmann-Thiemann
-
------Urspr=C3=BCngliche Nachricht-----
-Von: Linus Walleij <linusw@kernel.org>=20
-Gesendet: Sonntag, 29. M=C3=A4rz 2026 20:54
-An: Andreas Haarmann-Thiemann <eitschman@nebelreich.de>
-Cc: ulli.kroll@googlemail.com; netdev@vger.kernel.org; =
-linux-arm-kernel@lists.infradead.org
-Betreff: Re: [BUG] net: ethernet: cortina: gemini: skb leak in gmac_rx() =
-causes kernel lockup under sustained RX load
-
-Hi Andreas,
-
-thanks for digging into this, I have wondered why this happens for a =
-long time but I'm not the best net developer myself.
-
-On Sun, Mar 29, 2026 at 12:05=E2=80=AFPM Andreas Haarmann-Thiemann =
-<eitschman@nebelreich.de> wrote:
-
-> diff --git a/drivers/net/ethernet/cortina/gemini.c=20
-> b/drivers/net/ethernet/cortina/gemini.c
-> --- a/drivers/net/ethernet/cortina/gemini.c
-> +++ b/drivers/net/ethernet/cortina/gemini.c
->
-> @@ -1491,6 +1491,10 @@ static int gmac_rx(struct napi_struct *napi, =
-int budget)
->                               gpage =3D gmac_get_queue_page(geth, =
-port, mapping + PAGE_SIZE);
->                               if (!gpage) {
->                                               dev_err(geth->dev,=20
-> "could not find mapping\n");
-> +                                             if (skb) {
-> +                                                            =
-napi_free_frags(&port->napi);
-> +                                                            skb =3D =
-NULL;
-> +                                             }
->                                               =
-port->stats.rx_dropped++;
->                                               continue;
->                               }
-
-This looks right to me, can you send a proper patch, or provide your =
-Signed-off-by in this thread so I can create a patch from this inline =
-code?
-
-The kernel process requires a "certificate of origin" i.e. =
-Signed-off-by, described a bit down in this document:
-https://docs.kernel.org/process/submitting-patches.html
-
-Yours,
-Linus Walleij
-
+- Eric
 
