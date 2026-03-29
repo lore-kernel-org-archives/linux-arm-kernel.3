@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE62FC97EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 20:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A360FC97F2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 21:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRcoZ1iR+Zft8TDDmCol/NQjdrUX/469MdzYJEtnt0k=; b=LrgKSatoKrLhMnwcb07EDPvp0G
-	w6Csbj610kUAstXUawLqt/4GCQjyFo1qRQJ4SbGBcsLFs/R43+p7E99Yomp1555nyllZB4fZJlMxH
-	oZ2v1VtuJEw0Qp5q5sKtUUOJDLaEWTTl8IHyyCBr51qCXEvobYMlCYXXD30I2zdGEU2//uCm5rHd2
-	tgLMf1h6mu1MHDRNJr8Hnu0czCLtPyYJjRIeKkBvfhmwcSK/UlQyTJDRimwJHBOq5OcduHrEqBG4O
-	+cCZUq8hBn/9vtUkVNeT3MihPWSDDIOoQrtWTdvWffQFyKenl5H0yZl39qne21/EZCBURIsxw2grO
-	3/1RJVfA==;
+	bh=/PPpHwpK+XhWFnGV+Za6xJpLzu8J3tufoqK8mJt5f1M=; b=pYxXgJAmIwaWXZYleoPVy0MDM9
+	XVneuXTDCfpOfej9++0ecVwuaRQQXGVyG0ATF/sVq5JSXWIfEWy3hclsKRazsx9Slslp/HLWkk+vz
+	b8fLmNCsCTZBwWx0nZQjqcNW6G2yTD/hlK3EAlInUuyzMMmQzUx2eYMMUyn6s9r7cYmCo/p5av5Ax
+	9wIx4slf2CrNXS+9T7QQrdHx7bTkwgNMdM/NfgTPL7fMQjTlSGRsJ5xU+H2qlKQ4ZpGgyqUvuuSt6
+	65WIjhKa2qxtazh7G9dpI2ZnfiDS1pRmp3ZvyNuUvTUfPGm/72pdoDZAaYJHH/6JAgmCNNNh+WpaN
+	8mcwpXFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6x7Y-0000000AK8g-3btr;
-	Sun, 29 Mar 2026 20:52:32 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1w6y86-0000000AMVV-4BR1;
+	Sun, 29 Mar 2026 21:57:11 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6x7W-0000000AK7u-3fJp
+	id 1w6y84-0000000AMV4-1iTQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 20:52:32 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-35c124d2613so2482196a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 13:52:30 -0700 (PDT)
+	Sun, 29 Mar 2026 21:57:09 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-43cf73bbfbdso526636f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 14:57:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774817550; x=1775422350; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774821426; x=1775426226; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jRcoZ1iR+Zft8TDDmCol/NQjdrUX/469MdzYJEtnt0k=;
-        b=q6w79SABvpwKeoi0GZpZY1iPEdeyU+hKVuMUNSWH/5w/hJ9zsY9q81shf5qODNCIjV
-         Q2KR+e0H6d0k+1iZc64OVtrx3QFro0iwwtIvIrtifMvH7ymwJ91ijwLLKh1r3ii3J6Oq
-         EayNrAlNPDaN5vEtrCgw7hnsrAH6t8/h0BT+EldIOo4MykrZR1SwcrlvaZC9e7N1KBsh
-         3mnqfOMPSMagyR0o/FFxLUCxkr4dqZEfP0hqAb/elOURDpl/aARL+JEK65bs/ypMKJ0O
-         R3gE57pUbdM5hHi7unVMWkGLwgMHfNpuPFRyhwFYjsVj7QWRNoqWd4QehK5CLJRgWCEe
-         YrMg==
+        bh=/PPpHwpK+XhWFnGV+Za6xJpLzu8J3tufoqK8mJt5f1M=;
+        b=VODJuzzGl7H+032K1DlvckgoqGOiX5+c4grJWTWasCRRFpWHjMySVzjkjwm8Q80/86
+         OmpNqNhi4JGW8OyKWIc3uNg+3kkiMgaNskM06uMvZaCsecfrIIi4odwDKLhlLwfPWUo5
+         oWAlqhZORqi589jiFBYH1otkyVP1zrRAxJWB4mhTZ6+mTO0G1S2YpN6L0371joG+JRjO
+         RGV9jS++0VCdCxAHk6cpC1QWFSqPGwz46F2Ot6m2x36eqWPKV0G5q15lVaXoVpghDQVP
+         rhSKhnfkY188BB9JYeVafG4DuJfPNmP29RPIgfL5A3KGQsqhr57cw9mcsWSWTRSaVDzs
+         gs2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774817550; x=1775422350;
+        d=1e100.net; s=20251104; t=1774821426; x=1775426226;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=jRcoZ1iR+Zft8TDDmCol/NQjdrUX/469MdzYJEtnt0k=;
-        b=jb8ECM9fNFhwj+LtFgNxxFe1lY7+u2E9SDxkqY7QY4etjHjgJhOutwcfyJ+O9Cr+i7
-         SHM+MRCXHO38z+H9x5/uj0WLO05HET+r87ji8QNOMTtUdkuxVNsQ3bc8m9TVLrViYbWT
-         KXM9BBxg5QlA+jMrw0l8sxvE4xmFttaZDvtbnJ4CLN2JXZ2OgXTLghfCPSUSW3nD0FQ4
-         lUFfCGSgS7onZOHsRcamVXEB+nXJ/VERR22LfKlrONsVhmue6JXLujZ8fAhQtd+nCeSc
-         fKa6CDDaW4lQj/viEczrdR6HhzbjtX42cbHti7j580Jj6DkK1lRPse9ONLGm3GF6xqwp
-         Ig5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVPXnffgEblqVH6yNmXkaGNl5N8cTt8IGpT1TvabYF0Rz3eWtvb9nOHL5kAgadot+qQfqPXv4FFD767VaNw6rEt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn0wGSk5jVHzflUyXjDt/za+ZNKOuS7bTCZatQV6WcANeDV7EV
-	yG1iKvrwAikKG+pPTFikpIZenWJBbZRqK9JDCWipNoiP6f4piLpTVNUw
-X-Gm-Gg: ATEYQzy3YwuXDtfBkBct6zErzzNxeV5qBneadCEUPwHrxU+x/7hQnqI3uFAUesCj2Wv
-	qud7rqyWIuCGCnV869UVZ+pkBIGIFDTTbP/o8zKArruF6FR1mhx2L75Sm3WrPSv8THThzM3KorS
-	8b+upUZ5HmVpZRsmbZt9JdXixldQzWfQyUaIhxa1KVUYuKaJqNxRNIQyLQyXTGyUMzw1NclqjgW
-	TDtI3nzsPyT8weP/XY4Z0pVvgAQWcbs53RiM8813tEPsydMbK4+GpH1sDWLQ/+fZgU0bXhAtOha
-	uxi51U5B28PVpSQSXne4JRFSPm5F4lzL68IAazvrY61DVZre73Xykc/wzz3H/X1jEgDyOd2bjXg
-	T0EKYhcVAfV+LZ8MJRZk3J6SuCRwo4Wabjtxo/d9/cFETZ7iERJGV99tTa0aSSmxEqtv0cPR2u0
-	2aVKLFgEVnrp6qTydfGVdse+onH4vr
-X-Received: by 2002:a17:90a:158f:b0:35c:30a8:327 with SMTP id 98e67ed59e1d1-35c30a809demr6408184a91.0.1774817549987;
-        Sun, 29 Mar 2026 13:52:29 -0700 (PDT)
-Received: from snowman ([2401:4900:646d:9af6:7748:701:6c70:4173])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c22d8c500sm10423412a91.10.2026.03.29.13.52.22
+        bh=/PPpHwpK+XhWFnGV+Za6xJpLzu8J3tufoqK8mJt5f1M=;
+        b=lFT4XJ/QSIJc/PKa7NeLX3vvZV1HudVpL0Lqs5jDVhPtXLh0tg4FxXpLot0WuJtve+
+         R3M5acT2cEOV+zYX7dt394WNn5W15PildatKRqFnHLfWYAe3/Aei97BbiFyordiD8bpQ
+         o/pBfYFcmCzazenB1+Q6jaAZM3S8eDjEOlK9A6g/A+ASHcrMXLUxtrOBo14QdD5E+PO9
+         JvbgHaH/Q1+0IFmG1zlaaihcc0tr+C4mn5QpTZ87yFJPcQDXtQgby+k8x5Z/aw6CyqEr
+         F103C7hG2iLaHPMey0H4i6wfo7lxubrCU1PcdWWys5gcTalrlMtKT26gsgktCEtdfR92
+         7VWw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMZBhttuow7a8ytTSGkWTpRBzUy7jWZMCppzahtWPZHjDWiFi4OKpHD+SU3HRyVIsIw08M2lE5rBenO+FZA3rp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSukKVyp7gwdby5mDwMbv7Gk3nCuqOv+zC/fnXvAGBkxpI2+8z
+	k8c52bQ61hpdjW9NTAFoMxx/IIel1Q2Cslu8z0iVeJkbQ30L/64U+uRIMq9WDIU6
+X-Gm-Gg: ATEYQzzcJS01S40bwk+TRC0BdBS2p7FigVZaEQy2GmF4kIGCBX2xZCG+H9Zue40SbNA
+	Zj4ks0Z4y8yiPOcHvXpeN4KCh5OMulhh4QuNfF+x3U1oLdiyr2vGi6imblG+QLiavD4afMgKzzd
+	z4y2iNWmSy5NgGcMPGQiiBTCHZHJggHoGfbvzffOzVwuCREKPEorOB/2s1AjC+X3SVGVPwrE9T6
+	V+eEDosnQTtwfqLjEWAHHUmsDmZX3/C9Q0Bklsh15b2vVshPgd336tOT5eBR/vaa/jGDhk+zXNH
+	PTs88w8f5EeCca9asvWQDPDHjofStOE5vxorzXuzfa8c7IINoYgDZYYUrEeR9q4eDn44dw123J3
+	85AUBXQvTM3hln2MK4QR/XYB8mVPBvcVn9K4OH/scJvS4Liu+pDDC/rK1D2KBEwRxZ/4LEtIaNV
+	A82EheDgm/6wH3hKMcqpnN4IdP9Ce1MPU4wDkMeJIk2IqYDEwEKvaHzCa8uApIFWVW
+X-Received: by 2002:a05:6000:400f:b0:43c:fdd9:188f with SMTP id ffacd0b85a97d-43cfdd919d1mr3533554f8f.23.1774821425608;
+        Sun, 29 Mar 2026 14:57:05 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf21e3602sm14596947f8f.4.2026.03.29.14.57.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Mar 2026 13:52:29 -0700 (PDT)
-From: Khushal Chitturi <khushalchitturi@gmail.com>
-To: sre@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ulli.kroll@googlemail.com,
-	linusw@kernel.org
-Cc: daniel.baluta@nxp.com,
-	simona.toaca@nxp.com,
-	d-gole@ti.com,
-	m-chawdhry@ti.com,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Khushal Chitturi <khushalchitturi@gmail.com>
-Subject: [PATCH v2 2/2] ARM: dts: gemini: Rename power controller node to gemini-poweroff
-Date: Mon, 30 Mar 2026 02:21:51 +0530
-Message-ID: <20260329205151.15161-3-khushalchitturi@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260329205151.15161-1-khushalchitturi@gmail.com>
-References: <20260329205151.15161-1-khushalchitturi@gmail.com>
+        Sun, 29 Mar 2026 14:57:05 -0700 (PDT)
+Date: Sun, 29 Mar 2026 22:57:04 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Demian Shulhan <demyansh@gmail.com>, linux-crypto@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ ardb@kernel.org
+Subject: Re: [PATCH v3] lib/crc: arm64: add NEON accelerated CRC64-NVMe
+ implementation
+Message-ID: <20260329225704.0eb82966@pumpkin>
+In-Reply-To: <20260329203829.GA2746@quark>
+References: <20260317065425.2684093-1-demyansh@gmail.com>
+	<20260329074338.1053550-1-demyansh@gmail.com>
+	<20260329203829.GA2746@quark>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_135230_918466_CED289D0 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260329_145708_501547_743D14D0 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the node name for the Cortina Gemini power controller from
-power-controller to gemini-poweroff since node "power controller" is
-reserved for power domain controller.
+On Sun, 29 Mar 2026 13:38:29 -0700
+Eric Biggers <ebiggers@kernel.org> wrote:
 
-Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
----
- arch/arm/boot/dts/gemini/gemini.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> On Sun, Mar 29, 2026 at 07:43:38AM +0000, Demian Shulhan wrote:
+> > Implement an optimized CRC64 (NVMe) algorithm for ARM64 using NEON
+> > Polynomial Multiply Long (PMULL) instructions. The generic shift-and-XOR
+> > software implementation is slow, which creates a bottleneck in NVMe and
+> > other storage subsystems.
+> > 
+> > The acceleration is implemented using C intrinsics (<arm_neon.h>) rather
+> > than raw assembly for better readability and maintainability.
+> > 
+> > Key highlights of this implementation:
+> > - Uses 4KB chunking inside scoped_ksimd() to avoid preemption latency
+> >   spikes on large buffers.
+> > - Pre-calculates and loads fold constants via vld1q_u64() to minimize
+> >   register spilling.
+> > - Benchmarks show the break-even point against the generic implementation
+> >   is around 128 bytes. The PMULL path is enabled only for len >= 128.
 
-diff --git a/arch/arm/boot/dts/gemini/gemini.dtsi b/arch/arm/boot/dts/gemini/gemini.dtsi
-index befe322bd7de..c524adadcf81 100644
---- a/arch/arm/boot/dts/gemini/gemini.dtsi
-+++ b/arch/arm/boot/dts/gemini/gemini.dtsi
-@@ -228,7 +228,7 @@ intcon: interrupt-controller@48000000 {
- 			#interrupt-cells = <2>;
- 		};
- 
--		power-controller@4b000000 {
-+		gemini-poweroff@4b000000 {
- 			compatible = "cortina,gemini-power-controller";
- 			reg = <0x4b000000 0x100>;
- 			interrupts = <26 IRQ_TYPE_EDGE_RISING>;
--- 
-2.53.0
+Final thought:
+Is that allowing for the cost of kernel_fpu_begin()? - which I think only
+affects the first call.
+And the cost of the data-cache misses for the lookup table reads? - again
+worse for the first call.
+
+	David
+
+> > 
+> > Performance results (kunit crc_benchmark on Cortex-A72):
+> > - Generic (len=4096): ~268 MB/s
+> > - PMULL (len=4096): ~1556 MB/s (nearly 6x improvement)
+> > 
+> > Signed-off-by: Demian Shulhan <demyansh@gmail.com>  
+> 
+> Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
+> 
+> Thanks!
+> 
+> - Eric
+> 
 
 
