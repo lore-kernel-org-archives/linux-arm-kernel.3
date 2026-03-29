@@ -4,74 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DBDF3D5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 07:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04EAF3D5FA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 08:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u3cbcIFZMYgE89H/uUPKWjpme8VFMbnng9DP6GD/0Z4=; b=ugZvatWpDkndWL
-	hPrfOBe2ZbJH6hRJ8b0Pe9KvfjOmIp8z1jc3S04w2Nyuwfw3zhW1qlNAwH/K/27ZwbfXr1Vm/vVV+
-	Sv5HLXPzdIPSjH9TF0EiJ8hkqPD9J2hrEx4Znhv6a4HGCUTeGpziKP2U0rvljj2npOueT+SwzHA8P
-	zahplkMTTULBMTsOOcPCIfENoyP36vgqd8+ZsSy3WuXESSXnVXjTTK1FvGrc+XAcZX58l0AkDIQeL
-	2mZ+uOlz6BF1Umnl8lgtPr9CN2eUIMRVdch07lWuy6EFTYAYIS7sVmxoTItkQIlG6J8nIWLS1haej
-	0scaQrossc6108ZvYeVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=56CjK8Dlmjlu61WmN68lHw5bOAP1Bw9JF0FQpg+rfOw=; b=taPSG9+D6eYwzcJnU6us4/WnnQ
+	q15kQoQ3pRI5Hwu/MI6KZ/I2/wq4/Ylz81j0jrX7G9VdhhtXsGx8zz3cPr7jLIDBYl6v3pEeKU6gR
+	RXMCOpzerWFTedCgTjySDzqBVEGm67vAhBrdH5eCdf45TObV0VWToVfIifjU3OxVHFLH42DdM5+Eo
+	HC9RFPTWUgTxO9RU/rC/C1MjlaiD4bVJGDi8GWN8dXD/kicJYBSQov7lL4nX2Iwh1t1wdnGI1gqzD
+	OWggEf3xk6CjF+XcmqxQG9kwjs1BTfgzl4OjRg02TgZD1myxQeyfpw4T098fYai0O9W4x4+oN6nkM
+	zxBHLhEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6l0W-00000009ij6-4949;
-	Sun, 29 Mar 2026 07:56:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w6luM-00000009lPy-1Yah;
+	Sun, 29 Mar 2026 08:54:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6l0W-00000009iiX-0VF1
+	id 1w6luK-00000009lPE-0Ktx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 07:56:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 186EE60054
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 07:56:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB4A2C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 07:56:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774770986;
-	bh=NXkO1BKIOyiirGfmId7kEdTa6tS6egLCtvOXPPxBnMY=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=R2HhQq+016fcpCRIW8zdQ0HauTKnwjFOWDOpiPxZ0WXQBBbyfTQW3FUPqpXXI9Oy5
-	 VtAO2d83xAkqNt7Ee5gX3q985bACYSFYYxw84stvuDp6WhAYUx+iSArS8HMN6z2x8y
-	 nr6aBjnxht82iQk2c4eXgOadJndzq6HElWcvooZ32IciqLT1rsDb4NGgCkGHFs3gcK
-	 sIZDZAbYI+cKTSR/LnYMFyxba+OPKsbo1ESN+fDpKklulAvrPB43b3jB0D+GNC6fr2
-	 FF/jikh8Za867TrBvmLdneQ1Zt6jL07GMPj9xNXYTgSmCzAHaX6zEovkwTkcIWnFR3
-	 g71no7e2M6Y9w==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-38bd3c6c502so28877431fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 00:56:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUGnucRqKG/nMQImE0pdVi1ZG+U8kxxckOm341pqLL4YO9Ywy8Aa5JsML3I7Z8vsitnCG5tw4qlSOPlrPPQNkqh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKoQyrR5Qk+3kDqOJrziEA8gucXdtls3ITQa0RLLXrULHeVN4Z
-	kcfm3B1MlOovK42FivcXn/fh8LGCxfxDkeGGkKiXm+KV6PIrZu10zgW4mghtwEizi9xYDnmJgGE
-	HJlA1IrSRnQLuJC6y/2IQRke7PKSBbhU=
-X-Received: by 2002:a2e:bea8:0:b0:38b:d89b:e285 with SMTP id
- 38308e7fff4ca-38c731b8b78mr24317401fa.4.1774770985099; Sun, 29 Mar 2026
- 00:56:25 -0700 (PDT)
+	Sun, 29 Mar 2026 08:54:09 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62T7SvXH1226669
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 08:54:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=56CjK8Dlmjlu61WmN68lHw5bOAP1Bw9JF0F
+	Qpg+rfOw=; b=lwekuy3YcGrbipODntW9V0V3ZbtCSFrBwpaIIz2T8HXUDcZ2sbH
+	DfHpsYKzNL62XfZBIu6NZ8XGv07Rrx3IrkUNiVUu4qz+l3KzDYG7VPs/A39h7PUX
+	o2ofJShQCEQgb6ya8FlQ5pSgWlXqFxzzaRLMdHWaiFC6OaDPnQdCIpjNXvVDxmqK
+	aVGuY69K1B19cAX5xPAp2o9TRgpZoIWgsQ4UTviSVPohr9vSHYP4UsXWrFCkmiFp
+	Dq9rot0txpGs+P22/VSjzYEDIKh8iVMMiLHFZ4OblR62AzHS4rUoieDmgK9DmDiv
+	KcduodorRYh0JlxewEKCtzGvFscpd2SbO9g==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d672uafcq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 08:54:04 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50b3544bc7bso48146321cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 01:54:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774774444; x=1775379244; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=56CjK8Dlmjlu61WmN68lHw5bOAP1Bw9JF0FQpg+rfOw=;
+        b=RbSlNTktqBbHDJD3xGi7UPgo/XHTparkzGVRl7+kNAAfUUaeF2jRoHuP8/VEDaTdMy
+         3mNy8gGSxsDqij4N7nYe5pZHvpFw8YxKXZgnrPAuH3kEvwTQhDKuadgYGLIQYUjNOq7C
+         CmjO5TLzZNCyaE8hNMlU8b2zewEylhptT1kdFClUmye2WaEmLx68X36xFZp0EFKLqjsW
+         YK489Fsbg1rKi2rQCHiwMdNxQ6IhTMYCOJHLxDYXfgw242bzA2BWPgjw6EnhaAMoeg+A
+         YXo0qBfgCvd5evU62W6of383spflobVHKj2LkBZd0TY0fRDXtgXePE5wTQTKs1Kfgv1F
+         CzJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774774444; x=1775379244;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=56CjK8Dlmjlu61WmN68lHw5bOAP1Bw9JF0FQpg+rfOw=;
+        b=Eq7ECfH+DBCGXiHx6eGN+/kLLiQzZG7z8cD3JpInNs84CXrhxVW9jl/YWgX0uylpC7
+         r+ijPljj2Qo34WMVicEjpm8zbDYRtwfdpZoN9mJ+ZE5MAIFFJE2uMPbOI2xQ2bLqOSSM
+         b4hgeXGJzwCcFRv3sZ/T6eOfHFPQvJXUqzc0ZK8TohKOs0OYaUmAlqBoMKELrNz1YaAa
+         ryGf4npigYIu0pqP+kaNqlbtXmRX29jjF4Er9bE/VqtHXOd5qgRP0TDuDF80wT9Y4fy3
+         gLqKo5DkfNcHiNWNKxFPPAE51/9VvUgT+SiQrZ0IRbQYpPiCvnNYu3yHSUhfkDOzY9mZ
+         MG0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWOqeHR52+RSveUzohqEen1SdaTf2Nv0pKOmsbz6lgZG690DojcJcTWeD5gRaHZxTXW0wRZSs0vy3WGCDuLw/Oy@lists.infradead.org
+X-Gm-Message-State: AOJu0YydGdVQEVnd9AEM+GCB6RbXGVIq0DLwRqxKc10vX+peDrpQR7Fw
+	f8Oc1FbOEjcrvFIWRYrVI8UzSxs3mMSAfk5Zu3bNWYJ58mk+ghdU4pjAyE9hROK0QVgyPwrX95D
+	F6zuCIqp+zN4uG1wvhCjSiLJxNxyXEK9AEowtiOjAm37EdyWjEWg7WWoGPWedRgbJRLV/z90qGs
+	eOIQ==
+X-Gm-Gg: ATEYQzxF/w3Fq1FgCGe+HzTVLYes2nIG7EHNY1JZG9P/8IOqmGgYtOhffYmgyuRhHdS
+	TZF2tpaZdXhcHUswXAup1Z8dyUwIJzF7FedfwAzS4CAYfnF4cD4XQ//JZA6j28Btmw1YJ2jw3QD
+	4v+o+oFqQYR/cx45sotdCo6Cw3cw2hJrZgCq6sHNLbIoV5V09eYaFYniNo5C5V/WIonApeEqEbC
+	9c6MotkY6XkceeyCo3xNl0RS3PryArli8moNoLVCAMDiJ2PjTRr/I4ziw++yBOuF7LX/GwMeE+z
+	jncpeQNvzmZvvn7YmW2JMNg7ouJfmxIGMxu97/cqgfpnCyhWU5k+8rQMOuZeqfDh4l1oYRdqrBL
+	M8YkmhoSUVfUPk1prw+UhupgNL5v4KD2t2Wbi
+X-Received: by 2002:ac8:7fc9:0:b0:50b:47b0:8138 with SMTP id d75a77b69052e-50ba3808ce1mr122433071cf.3.1774774444139;
+        Sun, 29 Mar 2026 01:54:04 -0700 (PDT)
+X-Received: by 2002:ac8:7fc9:0:b0:50b:47b0:8138 with SMTP id d75a77b69052e-50ba3808ce1mr122432981cf.3.1774774443736;
+        Sun, 29 Mar 2026 01:54:03 -0700 (PDT)
+Received: from quoll ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48725fc4827sm52017705e9.11.2026.03.29.01.54.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Mar 2026 01:54:02 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v2] arm: mediatek: MAINTAINERS: Include SoC bindings
+Date: Sun, 29 Mar 2026 10:53:54 +0200
+Message-ID: <20260329085353.8649-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech> <20260310-a733-clk-v1-2-36b4e9b24457@pigmoral.tech>
-In-Reply-To: <20260310-a733-clk-v1-2-36b4e9b24457@pigmoral.tech>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sun, 29 Mar 2026 15:56:12 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65ycixbX7YS_rC6pyh-zMP6QvHqc6qdXjH4e0xpaqX=CQ@mail.gmail.com>
-X-Gm-Features: AQROBzBv23a5U8YFwC6JrpXv9HxCxK3WuA_W9E6K5Up_sT7yzO6F5aKFcWx7Jy8
-Message-ID: <CAGb2v65ycixbX7YS_rC6pyh-zMP6QvHqc6qdXjH4e0xpaqX=CQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 2/8] clk: sunxi-ng: sdm: Add dual patterns support
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Developer-Signature: v=1; a=openpgp-sha256; l=917; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=uTvVCFYn6ggVdhBFdj3biKma/pt3C7DlTk7Izwkt6jQ=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpyOiiIrBvn87zGeI4ZNk6E/RKCc7XfMwgS9vAn
+ jMMfkmWs3CJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCacjoogAKCRDBN2bmhouD
+ 12qYD/4pqcCBzo+fjkGl5/LWnfHTPg4q/79c0QsaeUJzoRNQYizleMmonoS9GrRgtV19ABV83aR
+ MsiqCL4pZ/zzPKlIhSHGjpMw/Tze5MME3adwsMEBapto7LMeoTxRdweAn1eb/Yg1moXTMc5xUyA
+ vTkST+Pjj5UP22LJtbMgC/i1VwsZzpCI2DdMaW9PWOGv4AXpsO5cBCscq3beTi7fX17WomIp3+0
+ 6YbNOVPLtqKCmfeTVMIUl2qopnHgOa09WmVRX2pjiH9vEj8ZZLunKB9hXb23npK1Or3rqG3+Pqg
+ ZY7aNmP3knlkA9+65qSkdIie9a9EFE8IrfGTOr1/7hQQdiiJqlV0qyltEv9knJHs2/wI5Sy21I5
+ 6HyCIpZbb2Zs3ewbdQ+eb0xp/Jlaz0pkrfzmj1TASOyfEXZiZHiNYMRZmaAGpYbyUfSDnptshMh
+ d/NHsiqHmVZdU+98GCZ9RiX5C7D5Rq+p9uETOvEy7AbS+wAcwWTsoWuaahZgmx3I5t5k0jk8Mwf
+ z1vda4tycQSFYIunt+/ba2fMzyGh1yccWcwGqY3zOSFvwqvPRmihQWd/b85cRgWcuYsLJSdBVP0
+ Fe3ViNYcd18QwvMcmrgB+5g9+UcJL+ZV3u6feL7q5gTS0NUR9pZboYPdENKbGcC+qD5pdEwgQQl lOnDvUSv1k3Z8RQ==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: WQugBxsP0BtTvll8HFs1V8ViKEsaxwgD
+X-Proofpoint-ORIG-GUID: WQugBxsP0BtTvll8HFs1V8ViKEsaxwgD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI5MDA2NyBTYWx0ZWRfXxAGflZWl2RXJ
+ 1BLcMgIoLPN9ZwmH3SprunA6OWAkHiAA9x84wC6kNv5KXHp7LxFqDcOHv5i8iHvbwtX2k0bcpYJ
+ qy1QJ32nQh9JBvogmFNfBKmRzHmCzMk/t1R++pCvTbDMtLazHN95WKD+wULw2wvyQlhmTdswS14
+ /gzqmhb5wozs/nBN5+mRxY4pIScO4jVSGnSh+ctX/bd3m4fVEugTx5ByzZ39aOD0MZ3GnCLVuoy
+ HmeGhnIQ+ikomflhjqTeEMD2ZSSyI4miW2jqSXNF9AipxvTMZS/8LXwcWSIULugciSiKViAGRUn
+ aGfISDP5Xw79SZ3a9d9tvDm6TDpNfdDDBcCKX1+4E6fnF9rBw7491rxHGSerfNEVNCItBe5vOmo
+ /G9yBlYWp7oy+Tnsvg1eGI+/4EprJEn9iFYHKQGlR5IiLpCe16FmgbdK4eJBYBkTFp0c6OCgW8d
+ iUFIkHSYjSaet0t9cZg==
+X-Authority-Analysis: v=2.4 cv=Ae683nXG c=1 sm=1 tr=0 ts=69c8e8ac cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=JfrnYn6hAAAA:8 a=7Ge9OOpH_7tX5qf7V1AA:9
+ a=kacYvNCVWA4VmyqE58fU:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-29_02,2026-03-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 lowpriorityscore=0 suspectscore=0 phishscore=0
+ priorityscore=1501 spamscore=0 adultscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603290067
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260329_015408_232689_C0607A4F 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,204 +151,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 10, 2026 at 4:42=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
-h> wrote:
->
-> On newer Allwinner platforms like the A733, the Sigma-Delta Modulation
-> (SDM) control logic is more complex. The SDM enable bit, which was
-> previously located in the PLL register, is now moved to a second
-> pattern register (PATTERN1).
->
-> To support this, rename the existing "tuning" members to "pattern0" to
-> align with the datasheet, and introduce the _SUNXI_CCU_SDM_DUAL_PAT
-> macro to provide pattern1 register support. Related operations are also
-> updated.
->
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  drivers/clk/sunxi-ng/ccu_sdm.c | 51 +++++++++++++++++++++++++++++-------=
-------
->  drivers/clk/sunxi-ng/ccu_sdm.h | 32 +++++++++++++++++---------
->  2 files changed, 57 insertions(+), 26 deletions(-)
->
-> diff --git a/drivers/clk/sunxi-ng/ccu_sdm.c b/drivers/clk/sunxi-ng/ccu_sd=
-m.c
-> index c564e5f9e610..204e25feaa36 100644
-> --- a/drivers/clk/sunxi-ng/ccu_sdm.c
-> +++ b/drivers/clk/sunxi-ng/ccu_sdm.c
-> @@ -18,7 +18,10 @@ bool ccu_sdm_helper_is_enabled(struct ccu_common *comm=
-on,
->         if (sdm->enable && !(readl(common->base + common->reg) & sdm->ena=
-ble))
->                 return false;
->
-> -       return !!(readl(common->base + sdm->tuning_reg) & sdm->tuning_ena=
-ble);
-> +       if (sdm->pat1_enable && !(readl(common->base + sdm->pat1_reg) & s=
-dm->pat1_enable))
-> +               return false;
-> +
-> +       return !!(readl(common->base + sdm->pat0_reg) & sdm->pat0_enable)=
-;
->  }
->  EXPORT_SYMBOL_NS_GPL(ccu_sdm_helper_is_enabled, "SUNXI_CCU");
->
-> @@ -37,18 +40,27 @@ void ccu_sdm_helper_enable(struct ccu_common *common,
->         for (i =3D 0; i < sdm->table_size; i++)
->                 if (sdm->table[i].rate =3D=3D rate)
->                         writel(sdm->table[i].pattern,
-> -                              common->base + sdm->tuning_reg);
-> +                              common->base + sdm->pat0_reg);
->
->         /* Make sure SDM is enabled */
->         spin_lock_irqsave(common->lock, flags);
-> -       reg =3D readl(common->base + sdm->tuning_reg);
-> -       writel(reg | sdm->tuning_enable, common->base + sdm->tuning_reg);
-> +       reg =3D readl(common->base + sdm->pat0_reg);
-> +       writel(reg | sdm->pat0_enable, common->base + sdm->pat0_reg);
->         spin_unlock_irqrestore(common->lock, flags);
->
-> -       spin_lock_irqsave(common->lock, flags);
-> -       reg =3D readl(common->base + common->reg);
-> -       writel(reg | sdm->enable, common->base + common->reg);
-> -       spin_unlock_irqrestore(common->lock, flags);
-> +       if (sdm->enable) {
-> +               spin_lock_irqsave(common->lock, flags);
-> +               reg =3D readl(common->base + common->reg);
-> +               writel(reg | sdm->enable, common->base + common->reg);
-> +               spin_unlock_irqrestore(common->lock, flags);
-> +       }
-> +
-> +       if (sdm->pat1_enable) {
-> +               spin_lock_irqsave(common->lock, flags);
-> +               reg =3D readl(common->base + sdm->pat1_reg);
-> +               writel(reg | sdm->pat1_enable, common->base + sdm->pat1_r=
-eg);
-> +               spin_unlock_irqrestore(common->lock, flags);
-> +       }
->  }
->  EXPORT_SYMBOL_NS_GPL(ccu_sdm_helper_enable, "SUNXI_CCU");
->
-> @@ -61,14 +73,23 @@ void ccu_sdm_helper_disable(struct ccu_common *common=
-,
->         if (!(common->features & CCU_FEATURE_SIGMA_DELTA_MOD))
->                 return;
->
-> -       spin_lock_irqsave(common->lock, flags);
-> -       reg =3D readl(common->base + common->reg);
-> -       writel(reg & ~sdm->enable, common->base + common->reg);
-> -       spin_unlock_irqrestore(common->lock, flags);
-> +       if (sdm->enable) {
-> +               spin_lock_irqsave(common->lock, flags);
-> +               reg =3D readl(common->base + common->reg);
-> +               writel(reg & ~sdm->enable, common->base + common->reg);
-> +               spin_unlock_irqrestore(common->lock, flags);
-> +       }
-> +
-> +       if (sdm->pat1_enable) {
-> +               spin_lock_irqsave(common->lock, flags);
-> +               reg =3D readl(common->base + sdm->pat1_reg);
-> +               writel(reg & ~sdm->pat1_enable, common->base + sdm->pat1_=
-reg);
-> +               spin_unlock_irqrestore(common->lock, flags);
-> +       }
->
->         spin_lock_irqsave(common->lock, flags);
-> -       reg =3D readl(common->base + sdm->tuning_reg);
-> -       writel(reg & ~sdm->tuning_enable, common->base + sdm->tuning_reg)=
-;
-> +       reg =3D readl(common->base + sdm->pat0_reg);
-> +       writel(reg & ~sdm->pat0_enable, common->base + sdm->pat0_reg);
->         spin_unlock_irqrestore(common->lock, flags);
->  }
->  EXPORT_SYMBOL_NS_GPL(ccu_sdm_helper_disable, "SUNXI_CCU");
-> @@ -123,7 +144,7 @@ unsigned long ccu_sdm_helper_read_rate(struct ccu_com=
-mon *common,
->         pr_debug("%s: clock is sigma-delta modulated\n",
->                  clk_hw_get_name(&common->hw));
->
-> -       reg =3D readl(common->base + sdm->tuning_reg);
-> +       reg =3D readl(common->base + sdm->pat0_reg);
->
->         pr_debug("%s: pattern reg is 0x%x",
->                  clk_hw_get_name(&common->hw), reg);
-> diff --git a/drivers/clk/sunxi-ng/ccu_sdm.h b/drivers/clk/sunxi-ng/ccu_sd=
-m.h
-> index c1a7159b89c3..c289be28e1b4 100644
-> --- a/drivers/clk/sunxi-ng/ccu_sdm.h
-> +++ b/drivers/clk/sunxi-ng/ccu_sdm.h
-> @@ -33,21 +33,31 @@ struct ccu_sdm_internal {
->         u32             table_size;
->         /* early SoCs don't have the SDM enable bit in the PLL register *=
-/
->         u32             enable;
-> -       /* second enable bit in tuning register */
-> -       u32             tuning_enable;
-> -       u16             tuning_reg;
-> +       /* second enable bit in pattern0 register */
-> +       u32             pat0_enable;
-> +       u16             pat0_reg;
-> +       /* on some platforms, the sdm enable bit in pattern1 register */
-> +       u32             pat1_enable;
-> +       u16             pat1_reg;
->  };
->
-> -#define _SUNXI_CCU_SDM(_table, _enable,                        \
-> -                      _reg, _reg_enable)               \
-> -       {                                               \
-> -               .table          =3D _table,               \
-> -               .table_size     =3D ARRAY_SIZE(_table),   \
-> -               .enable         =3D _enable,              \
-> -               .tuning_enable  =3D _reg_enable,          \
-> -               .tuning_reg     =3D _reg,                 \
-> +#define __SUNXI_CCU_SDM(_table, _enable, _pat0, _pat0_enable, _pat1, _pa=
-t1_enable)     \
-> +       {                                                               \
-> +               .table                  =3D _table,                      =
- \
-> +               .table_size             =3D ARRAY_SIZE(_table),          =
- \
-> +               .enable                 =3D _enable,                     =
- \
-> +               .pat0_enable            =3D _pat0_enable,                =
- \
-> +               .pat0_reg               =3D _pat0,                       =
- \
-> +               .pat1_enable            =3D _pat1_enable,                =
- \
-> +               .pat1_reg               =3D _pat1,                       =
- \
->         }
->
-> +#define _SUNXI_CCU_SDM(_table, _enable, _pat0, _pat0_enable)   \
-> +       __SUNXI_CCU_SDM(_table, _enable, _pat0, _pat0_enable, 0, 0)
-> +
-> +#define _SUNXI_CCU_SDM_DUAL_PAT(_table, _pat0, _pat0_enable, _pat1, _pat=
-1_enable)      \
-> +       __SUNXI_CCU_SDM(_table, 0, _pat0, _pat0_enable, _pat1, _pat1_enab=
-le)
-> +
+The ARM/ARM64 Mediatek SoC maintainer entry misses bindings directory
+for SoC devices.
 
-Don't introduce an intermediate macro that looks _almost_ the same as the
-macro the driver is actually supposed to use.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Just declare _SUNXI_CCU_SDM_DUAL_PAT() to expand to the full entry, and
-_SUNXI_CCU_SDM() to _SUNXI_CCU_SDM_DUAL_PAT() with the last two parameters
-as zero. That takes less lines.
+---
 
+FYI, there are already patches on the list which used get_maintainers.pl
+script and did not CC Mediatek maintainers, so they might get
+forgotten/missed.
 
-ChenYu
+Changes in v2:
+1. Correct f:->F:
+2. Cc maintainers...
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
->  bool ccu_sdm_helper_is_enabled(struct ccu_common *common,
->                                struct ccu_sdm_internal *sdm);
->  void ccu_sdm_helper_enable(struct ccu_common *common,
->
-> --
-> 2.52.0
->
->
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 80b9074e96ae..8474210a93b9 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3061,6 +3061,7 @@ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ W:	https://mtk.wiki.kernel.org/
+ C:	irc://irc.libera.chat/linux-mediatek
++F:	Documentation/devicetree/bindings/soc/mediatek/
+ F:	arch/arm/boot/dts/mediatek/
+ F:	arch/arm/mach-mediatek/
+ F:	arch/arm64/boot/dts/mediatek/
+-- 
+2.51.0
+
 
