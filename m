@@ -4,88 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4EDF3D605
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 15:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D60F3D60A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9xd7vMLFeG3N3Dmk/LIu/Jxg/dW3RJ5aKkQFlvfWY4=; b=0f7gJtEJAYHbA9268HCEc4qVEe
-	3vI586z7pKuKJZoxzBlh6CsBbDkuORXzigV0YnKmOQxunuq8UyhlpcAfMVmsBBtdKMrRUzhd8D7Vs
-	iHY/7gWQCRvU0HT3ZAcu3Q+ddiGc5gz+qjcSVLgyC7xQg7WFGEfDcDyWDKtaFfJ4Y1qcpiwDvaZyB
-	TXH3I95cISMUr2YrX5BEPbBBnELcoQQtX27Bpj6eQFdYrYfCYxTfb+ZFpGsnTkCnJqJzDPHu+iztD
-	o+sYLF8ocJ24rHvIT1CDTWoY4ro463oDkN12OXL+9F7GNe0vB57Y5/lejnZ+c55fXmT6CYN2yx46+
-	ZiSfQyOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=; b=3MC6gUQFUS3ftZUJ9BlJ2jvFNQ
+	NWCNmtr5LDMpbp28GFpe0G40Nayc/uqj86Ro/dnPko37dyKfcfBm9HAL1brLDGzWhRUdO6GIgQZR5
+	5W9gR6qoQ67F6BVIQ+jQXMg6AlhyVhJVQsRTqGwKgPYQrKFIZ4mnLZSjqjsApulWJBkqJOm5pVGkF
+	5Q2Us632XAh2K4s7pv7JOh4NeVYPFVGU+Mzpz4g9iry6xzpLnHWBSdF7HVGONnR01ePvX/OR6x7IS
+	eIMIApFREb18STD5ryeLKyHh7wXbi+D6d5dbLtn30bU/CHBt7IJGQl/SV32KAz+Ng9D2D5Y/sLAbZ
+	FUAg7tWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6s0f-0000000A4NW-2GWG;
-	Sun, 29 Mar 2026 15:25:05 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
+	id 1w6scC-0000000A5aI-3SHA;
+	Sun, 29 Mar 2026 16:03:53 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6s0b-0000000A4MR-1jEI
+	id 1w6sc9-0000000A5ZI-0B97
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 15:25:02 +0000
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62TFL6b41371814;
-	Sun, 29 Mar 2026 08:24:48 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=L9xd7vMLFeG3N3Dmk/LIu/Jxg
-	/dW3RJ5aKkQFlvfWY4=; b=HDkYtfLVfpoxhauUNHTNmd5h6Yegi/88K9HWU22Pf
-	BI58htQzvpm8fIYs/WVqAgMu0XqT8eojWTms/t7yjcK0nNjAxENExrrtbpBcC9RA
-	VRZqpjlpKYX2mwQXNZegEGYZl85Cl7RIv7LqSIrNpY+surUPdd9VpDTH6Bd++rOb
-	ipYIwod2mcKz5y2eqa08WMkxBROCAsil7H/zf6+VpSkytWQXLHvLZUcMNSfoEl8N
-	qXlMhjgsyMj/D++c+K2wdeh3FwuULQJQ1sK/vmyvH1jYBMOdFWr5PRarXHMiY3RR
-	gpdyRL6sG7YviqmBDN8LWvU8ZSwhisdFBJDS2YeqbanFQ==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4d73870841-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 29 Mar 2026 08:24:48 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Sun, 29 Mar 2026 08:24:47 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Sun, 29 Mar 2026 08:24:47 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id AA4F43F70A3;
-	Sun, 29 Mar 2026 08:24:45 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
-Subject: [PATCH v2 2/2] perf: marvell: Add CN20K DDR PMU support
-Date: Sun, 29 Mar 2026 20:54:39 +0530
-Message-ID: <20260329152439.10573-3-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260329152439.10573-1-gakula@marvell.com>
-References: <20260329152439.10573-1-gakula@marvell.com>
+	Sun, 29 Mar 2026 16:03:50 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7d7447778b9so1905035a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:03:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774800227; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JM7dF3uXFmi78UYtNKu4+6g3McJfZikXm481Si5L3kdscYLYIVhFwkxoNPg4Ob/qec
+         wYPgv4fBBIUWD5blel4l4YA89IWnDW4quhCOopOkMXbGaeCOiG0WWlPlp3Kd6GjgW0KL
+         4w1Vp2riWCmGN5l81kICRgl61mB/UnTK9NsrL9WLS1WpmGsgzZZXxUKCquzj1B2Park7
+         V9KN1fFJHuptPbaqIZ7Pv0K50UgRAgqJZS+3Ld34aq/elyiKYIH7b2o4kz5vmFj8FX3Y
+         /dhFFt9phmqgksOQLKH4OtgrOK1gGzDZl1PTj2qhRM6Wc+2a87SL5QkPQWQordPZFwRq
+         UJ7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=;
+        fh=M2d/hbSd9CcrL6dvoZfjUYtz/3Eww/5o8ip6E4u10GU=;
+        b=hrxTZ5vkgMLy5P9YUL74arfwcllv/wQZLFFEthA033bx+QAHV/2VGus+thUAbMB9R+
+         msOpK6DaeB9IaWT3SFwqpLgYLOn94MK/rsDmlyZpCiQBYOQwMGq6mmVKP8KkmTZvPYSf
+         X5w1+8NOxkrdIsIof/yKMtzCnxi07/+p4GkX8nzmveQ8qzRj/MjemxG2RNk9ImqD8WvG
+         EagqLe4rEZv5jhYUVvC75Qv4PhESirqd3jQuVDrME9fA632ovIGasNSbBQFwfMTsT32l
+         D06oRNKKx6dddzES6ZL8708vOsH+ZcCFpjUZvODISpwGSHqZVBeTXsUe2bEOsX41m3om
+         f/kg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774800227; x=1775405027; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=;
+        b=hmuuR7TiJdGZqATGtQRKQMKBgg7OkaveSd8HWVs9wLmQZLPRuSlWhwzsySJzGE4QQv
+         p8HpP0E5YltjiegxH5EI64lBJXnU7rFmJNvUfK7JHl0Qa1QdMeWLEL3ajZC00Mmm36hW
+         mA4hNcHh8+vLn0CkNn5WstYgMfUK9z9R7qwHBI23J6cUnijT8oacSUqLv1NGW1nziaRM
+         FhkGHAWXndoriJqjQmcSH6ImyXjiO/5ivZ93fo5rY9L2uqLKiS7tus6HVPYgxaCAgQmG
+         /GB3Sh/ZvFtpOFjeg6128JG7ykWcL42iyqwMpKC8TDc/R51TykQEZM3aHcMPvas1dsIk
+         umDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774800227; x=1775405027;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=;
+        b=mX4DrpkUXOQIgg1FtMd9636edQQW2FIJVyKMzFMuAsaVVazCxXZ76TO0Ns4ltn91MS
+         D8wMIKFzKzm+aXG2OI2Ji7F6U47tWDTrctdBAU23uqeiwqQYZxk1fWp4E0NoIOpjjoln
+         JipN6lwiknCvEIuY5yZdodOvMSkbfyukYXNNJRsZhPvsPFEs8mhlW7ejpJIOquQkp9K/
+         DzO3sVBQSGrAUwL2Og6AxAj24FfznW5tl7dGys6MyoA2nTTRMjdzuC3l60U29veAexJb
+         vg6ZKukcgS5Q8nVh3M7ZHGOILgUegMd7HPJJSWYgQ+KMJJHp/b70V8qv3HUzWiQ+lCJo
+         KF0g==
+X-Forwarded-Encrypted: i=1; AJvYcCUmFqOBHBrtltDec0T3RbV1yz+hkaCoh9g0ekqrBqUzx/GNxhvADKG+f4hL13btWRxTOtHB1Lw6zl4o3mzBFJk7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/V5OCxtedmQPJqT8pOLoAXFtMLQglxFLM+uyWT/+d7LlqtVnO
+	LwzUVD8xXz6Hp7VhUX3y516VOWVJOXQAQJpjZYY0cOmqC47OkFXt82jf7iNVAfDXu84fqIJZhq4
+	3HUGpt3s4/ayz7ncaEkLCVqW/1JjgNJg=
+X-Gm-Gg: ATEYQzxGRmH/hnJog7L7rF5lR9H0veNDjIjOyboCbcOC+WYNf9FqulNK72V94/NrU9c
+	AowEl02TmOT/XHrJTcXjBOGyhTJcyt6LFUnuJyL5Np492cuue3gz7uopfWH8y9oWa/XXx1E9AFI
+	bmqhyN1AvyI/AIlOD2MaVMZYzYX9XMzOsnfwCLcPeKzBy9NPkZ9Hb1alxgTzSIyeZ5tqrf6RcWM
+	Db/4diB2YxIuXLK4aOUMLwi0/K2NFN9WhxvBsr+8EGNwtKHhnxeW5jQQ/AnlQMWSVJMjMxDPqLo
+	TysfmUGz
+X-Received: by 2002:a05:6808:1a1c:b0:466:ff3a:c745 with SMTP id
+ 5614622812f47-46a8a3eb1b4mr4305468b6e.21.1774800227277; Sun, 29 Mar 2026
+ 09:03:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI5MDExOSBTYWx0ZWRfXw9gI1RjTu6WO
- vp7biRa2px+rjSRAgu2sLgTGHEBq3hBAaB5A9Mnf9t2YaIK9K1uG47G8TBuceWrjZamOalM7P2N
- B/19qmohEwVpYKZPWrGQ82llyDo/2h5uyDCNj7OdrXW47nB1gEkloX87w4E2cfM3GwvlE1MO2Xb
- 5uFetzT7Xj8NqRG6yn8dClARBg/F/wE4bfsVONQZXg7ocCrkwms91/YftzNgyi0qrUfKhwh7+VO
- Sv08gwu6iYRfBBqVgyW1PEJioorcFLnwioCw0gtebIGPjuLcm+xh6Z5tb4P+mQyWiu1jF6Ifl4m
- 8ZCQTVNDCeuyTSuIgPr+gwOU7b2RFLAtjhnmFzG5YiQRHiUw3bth/Gh5nkn7/ENCztwGXwf7esA
- 5Il725AwrUbBvEZ2D/E1tenHTq5Yxv4lIrCLNv0uZkm01hSLWLvFSOnz7uxWWNAhgi6JFgCIRcQ
- dliJnhXiZ85YLhfuW+A==
-X-Proofpoint-GUID: 55MiH9Me88W7AY5A23X6q6daP0JLvuIc
-X-Authority-Analysis: v=2.4 cv=DMCCIiNb c=1 sm=1 tr=0 ts=69c94440 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=M5GUcnROAAAA:8 a=WnYttJQ71G5mWjJxUIAA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-ORIG-GUID: 55MiH9Me88W7AY5A23X6q6daP0JLvuIc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-29_04,2026-03-28_01,2025-10-01_01
+References: <20260325040457.2113120-1-jason-jh.lin@mediatek.com> <20260325040457.2113120-4-jason-jh.lin@mediatek.com>
+In-Reply-To: <20260325040457.2113120-4-jason-jh.lin@mediatek.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 29 Mar 2026 11:03:36 -0500
+X-Gm-Features: AQROBzDYnGEvrmF9Nv8aKI46KCu4qNGcGl029nctsf-3ar7uJysAlIX7PTC3c6A
+Message-ID: <CABb+yY2cjMskJeXsn8+hZj2DcFs05yabHbSaGT5XSi0fn45zCQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] mailbox: mtk-cmdq: Remove unsued cmdq_get_shift_pa()
+To: Jason-JH Lin <jason-jh.lin@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Nicolas Dufresne <nicolas@ndufresne.ca>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Nancy Lin <nancy.lin@mediatek.com>, 
+	Singo Chang <singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>, 
+	Moudy Ho <moudy.ho@mediatek.com>, Xiandong Wang <xiandong.wang@mediatek.com>, 
+	Sirius Wang <sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, 
+	Chen-yu Tsai <wenst@chromium.org>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-media@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_082501_463461_084D1F80 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20260329_090349_102816_0E1E5D15 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,376 +125,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CN20K DRAM Subsystem exposes eight programmable
-performance counters and two fixed counters for DDR
-read and write traffic.  Software selects events for
-the programmable counters from traffic at the DDR PHY
-interface, the CHI interconnect, or inside the DDR controller.
+On Tue, Mar 24, 2026 at 11:05=E2=80=AFPM Jason-JH Lin <jason-jh.lin@mediate=
+k.com> wrote:
+>
+> Since the mailbox driver data can be obtained using cmdq_get_mbox_priv()
+> and all CMDQ users have transitioned to cmdq_get_mbox_priv(),
+> cmdq_get_shift_pa() can be removed.
+>
+> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> ---
+>  drivers/mailbox/mtk-cmdq-mailbox.c       |  8 --------
+>  include/linux/mailbox/mtk-cmdq-mailbox.h | 12 ------------
+>  2 files changed, 20 deletions(-)
+>
+> diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmd=
+q-mailbox.c
+> index d7c6b38888a3..f463f443e834 100644
+> --- a/drivers/mailbox/mtk-cmdq-mailbox.c
+> +++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+> @@ -123,14 +123,6 @@ void cmdq_get_mbox_priv(struct mbox_chan *chan, stru=
+ct cmdq_mbox_priv *priv)
+>  }
+>  EXPORT_SYMBOL(cmdq_get_mbox_priv);
+>
+> -u8 cmdq_get_shift_pa(struct mbox_chan *chan)
+> -{
+> -       struct cmdq *cmdq =3D container_of(chan->mbox, struct cmdq, mbox)=
+;
+> -
+> -       return cmdq->pdata->shift;
+> -}
+> -EXPORT_SYMBOL(cmdq_get_shift_pa);
+> -
+>  static void cmdq_vm_init(struct cmdq *cmdq)
+>  {
+>         int i;
+> diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mai=
+lbox/mtk-cmdq-mailbox.h
+> index 07c1bfbdb8c4..a42b44d5fd49 100644
+> --- a/include/linux/mailbox/mtk-cmdq-mailbox.h
+> +++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
+> @@ -96,16 +96,4 @@ struct cmdq_pkt {
+>   */
+>  void cmdq_get_mbox_priv(struct mbox_chan *chan, struct cmdq_mbox_priv *p=
+riv);
+>
+> -/**
+> - * cmdq_get_shift_pa() - get the shift bits of physical address
+> - * @chan: mailbox channel
+> - *
+> - * GCE can only fetch the command buffer address from a 32-bit register.
+> - * Some SOCs support more than 32-bit command buffer address for GCE, wh=
+ich
+> - * requires some shift bits to make the address fit into the 32-bit regi=
+ster.
+> - *
+> - * Return: the shift bits of physical address
+> - */
+> -u8 cmdq_get_shift_pa(struct mbox_chan *chan);
+> -
+>  #endif /* __MTK_CMDQ_MAILBOX_H__ */
 
-Add CN20K register offsets, event maps, and sysfs attributes;
-match the device via OF (marvell,cn20k-ddr-pmu) and ACPI (MRVL000B).
-Represent the SoC variant in platform data with bit flags so
-CN20K can reuse the Odyssey PMU code path where appropriate.
-
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
----
- drivers/perf/marvell_cn10k_ddr_pmu.c | 187 ++++++++++++++++++++++++---
- 1 file changed, 171 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
-index 72ac17efd846..7e2e1823b009 100644
---- a/drivers/perf/marvell_cn10k_ddr_pmu.c
-+++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
-@@ -13,31 +13,43 @@
- #include <linux/hrtimer.h>
- #include <linux/acpi.h>
- #include <linux/platform_device.h>
-+#include <linux/bits.h>
-+
-+/* SoC variant flags for struct ddr_pmu_platform_data (mutually exclusive in pdata) */
-+#define IS_CN10K	BIT(0)
-+#define IS_ODY		BIT(1)
-+#define IS_CN20K	BIT(2)
- 
- /* Performance Counters Operating Mode Control Registers */
- #define CN10K_DDRC_PERF_CNT_OP_MODE_CTRL	0x8020
- #define ODY_DDRC_PERF_CNT_OP_MODE_CTRL		0x20020
-+#define CN20K_DDRC_PERF_CNT_OP_MODE_CTRL	0x20000
- #define OP_MODE_CTRL_VAL_MANUAL	0x1
- 
- /* Performance Counters Start Operation Control Registers */
- #define CN10K_DDRC_PERF_CNT_START_OP_CTRL	0x8028
- #define ODY_DDRC_PERF_CNT_START_OP_CTRL		0x200A0
-+#define CN20K_DDRC_PERF_CNT_START_OP_CTRL	0x20080
- #define START_OP_CTRL_VAL_START		0x1ULL
- #define START_OP_CTRL_VAL_ACTIVE	0x2
- 
- /* Performance Counters End Operation Control Registers */
- #define CN10K_DDRC_PERF_CNT_END_OP_CTRL	0x8030
- #define ODY_DDRC_PERF_CNT_END_OP_CTRL	0x200E0
-+#define CN20K_DDRC_PERF_CNT_END_OP_CTRL	0x200C0
- #define END_OP_CTRL_VAL_END		0x1ULL
- 
- /* Performance Counters End Status Registers */
- #define CN10K_DDRC_PERF_CNT_END_STATUS		0x8038
- #define ODY_DDRC_PERF_CNT_END_STATUS		0x20120
-+#define CN20K_DDRC_PERF_CNT_END_STATUS		0x20100
- #define END_STATUS_VAL_END_TIMER_MODE_END	0x1
- 
- /* Performance Counters Configuration Registers */
- #define CN10K_DDRC_PERF_CFG_BASE		0x8040
- #define ODY_DDRC_PERF_CFG_BASE			0x20160
-+#define CN20K_DDRC_PERF_CFG_BASE		0x20140
-+#define CN20K_DDRC_PERF_CFG1_BASE		0x20180
- 
- /* 8 Generic event counter + 2 fixed event counters */
- #define DDRC_PERF_NUM_GEN_COUNTERS	8
-@@ -61,6 +73,23 @@
-  * DO NOT change these event-id numbers, they are used to
-  * program event bitmap in h/w.
-  */
-+
-+/* CN20K specific events */
-+#define EVENT_PERF_OP_IS_RD16			61
-+#define EVENT_PERF_OP_IS_RD32			60
-+#define EVENT_PERF_OP_IS_WR16			59
-+#define EVENT_PERF_OP_IS_WR32			58
-+#define EVENT_OP_IS_ENTER_DSM			44
-+#define EVENT_OP_IS_RFM				43
-+
-+#define EVENT_CN20K_OP_IS_TCR_MRR			50
-+#define EVENT_CN20K_OP_IS_DQSOSC_MRR			49
-+#define EVENT_CN20K_OP_IS_DQSOSC_MPC			48
-+#define EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_WR	47
-+#define EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_RD	46
-+#define EVENT_CN20K_OP_IS_ZQLATCH			21
-+#define EVENT_CN20K_OP_IS_ZQSTART			22
-+
- #define EVENT_DFI_CMD_IS_RETRY			61
- #define EVENT_RD_UC_ECC_ERROR			60
- #define EVENT_RD_CRC_ERROR			59
-@@ -87,6 +116,9 @@
- #define EVENT_OP_IS_SPEC_REF			41
- #define EVENT_OP_IS_CRIT_REF			40
- #define EVENT_OP_IS_REFRESH			39
-+#define EVENT_OP_IS_CAS_WCK_SUS			38
-+#define EVENT_OP_IS_CAS_WS_OFF			37
-+#define EVENT_OP_IS_CAS_WS			36
- #define EVENT_OP_IS_ENTER_MPSM			35
- #define EVENT_OP_IS_ENTER_POWERDOWN		31
- #define EVENT_OP_IS_ENTER_SELFREF		27
-@@ -183,8 +215,8 @@ struct ddr_pmu_platform_data {
- 	u64 cnt_freerun_clr;
- 	u64 cnt_value_wr_op;
- 	u64 cnt_value_rd_op;
--	bool is_cn10k;
--	bool is_ody;
-+	u64 cfg1_base;
-+	unsigned int silicon_flags; /* IS_CN10K, IS_ODY, or IS_CN20K */
- };
- 
- static ssize_t cn10k_ddr_pmu_event_show(struct device *dev,
-@@ -336,6 +368,80 @@ static struct attribute *odyssey_ddr_perf_events_attrs[] = {
- 	NULL
- };
- 
-+static struct attribute *cn20k_ddr_perf_events_attrs[] = {
-+	/* Programmable */
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_rd_or_wr_access, EVENT_HIF_RD_OR_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_wr_access, EVENT_HIF_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_rd_access, EVENT_HIF_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_rmw_access, EVENT_HIF_RMW),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hif_pri_rdaccess, EVENT_HIF_HI_PRI_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_rd_bypass_access, EVENT_READ_BYPASS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_act_bypass_access, EVENT_ACT_BYPASS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dfi_wr_data_access,
-+				 EVENT_DFI_WR_DATA_CYCLES),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dfi_rd_data_access,
-+				 EVENT_DFI_RD_DATA_CYCLES),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_hpri_sched_rd_crit_access,
-+				 EVENT_HPR_XACT_WHEN_CRITICAL),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_lpri_sched_rd_crit_access,
-+				 EVENT_LPR_XACT_WHEN_CRITICAL),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_wr_trxn_crit_access,
-+				 EVENT_WR_XACT_WHEN_CRITICAL),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_active_access, EVENT_OP_IS_ACTIVATE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_rd_or_wr_access,
-+				 EVENT_OP_IS_RD_OR_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_rd_active_access,
-+				 EVENT_OP_IS_RD_ACTIVATE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_read, EVENT_OP_IS_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_write, EVENT_OP_IS_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cam_mwr, EVENT_OP_IS_MWR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_precharge, EVENT_OP_IS_PRECHARGE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_precharge_for_rdwr,
-+				 EVENT_PRECHARGE_FOR_RDWR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_precharge_for_other,
-+				 EVENT_PRECHARGE_FOR_OTHER),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_rdwr_transitions, EVENT_RDWR_TRANSITIONS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_write_combine, EVENT_WRITE_COMBINE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_war_hazard, EVENT_WAR_HAZARD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_raw_hazard, EVENT_RAW_HAZARD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_waw_hazard, EVENT_WAW_HAZARD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_enter_selfref, EVENT_OP_IS_ENTER_SELFREF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_enter_powerdown,
-+				 EVENT_OP_IS_ENTER_POWERDOWN),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cas_ws, EVENT_OP_IS_CAS_WS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cas_ws_off, EVENT_OP_IS_CAS_WS_OFF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_cas_wck_sus, EVENT_OP_IS_CAS_WCK_SUS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_refresh, EVENT_OP_IS_REFRESH),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_crit_ref, EVENT_OP_IS_CRIT_REF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_spec_ref, EVENT_OP_IS_SPEC_REF),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_load_mode, EVENT_OP_IS_LOAD_MODE),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_rfm, EVENT_OP_IS_RFM),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_enter_dsm, EVENT_OP_IS_ENTER_DSM),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dfi_cycles, EVENT_DFI_CYCLES),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_win_limit_reached_rd,
-+				 EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_RD),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_win_limit_reached_wr,
-+				 EVENT_CN20K_VISIBLE_WIN_LIMIT_REACHED_WR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dqsosc_mpc, EVENT_CN20K_OP_IS_DQSOSC_MPC),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_dqsosc_mrr, EVENT_CN20K_OP_IS_DQSOSC_MRR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_tcr_mrr, EVENT_CN20K_OP_IS_TCR_MRR),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_zqstart, EVENT_CN20K_OP_IS_ZQSTART),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_zqlatch, EVENT_CN20K_OP_IS_ZQLATCH),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_read16, EVENT_PERF_OP_IS_RD16),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_read32, EVENT_PERF_OP_IS_RD32),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_write16, EVENT_PERF_OP_IS_WR16),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_write32, EVENT_PERF_OP_IS_WR32),
-+	/* Free run event counters */
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_ddr_reads, EVENT_DDR_READS),
-+	CN10K_DDR_PMU_EVENT_ATTR(ddr_ddr_writes, EVENT_DDR_WRITES),
-+	NULL
-+};
-+
-+static struct attribute_group cn20k_ddr_perf_events_attr_group = {
-+	.name = "events",
-+	.attrs = cn20k_ddr_perf_events_attrs,
-+};
-+
- static struct attribute_group odyssey_ddr_perf_events_attr_group = {
- 	.name = "events",
- 	.attrs = odyssey_ddr_perf_events_attrs,
-@@ -393,6 +499,13 @@ static const struct attribute_group *odyssey_attr_groups[] = {
- 	NULL
- };
- 
-+static const struct attribute_group *cn20k_attr_groups[] = {
-+	&cn20k_ddr_perf_events_attr_group,
-+	&cn10k_ddr_perf_format_attr_group,
-+	&cn10k_ddr_perf_cpumask_attr_group,
-+	NULL
-+};
-+
- /* Default poll timeout is 100 sec, which is very sufficient for
-  * 48 bit counter incremented max at 5.6 GT/s, which may take many
-  * hours to overflow.
-@@ -412,7 +525,7 @@ static int ddr_perf_get_event_bitmap(int eventid, u64 *event_bitmap,
- 
- 	switch (eventid) {
- 	case EVENT_DFI_PARITY_POISON ...EVENT_DFI_CMD_IS_RETRY:
--		if (!ddr_pmu->p_data->is_ody) {
-+		if (!(ddr_pmu->p_data->silicon_flags & IS_ODY)) {
- 			err = -EINVAL;
- 			break;
- 		}
-@@ -524,9 +637,9 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 					  int counter, bool enable)
- {
- 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
-+	unsigned int silicon_flags = pmu->p_data->silicon_flags;
- 	u64 ctrl_reg = pmu->p_data->cnt_op_mode_ctrl;
- 	const struct ddr_pmu_ops *ops = pmu->ops;
--	bool is_ody = pmu->p_data->is_ody;
- 	u32 reg;
- 	u64 val;
- 
-@@ -546,7 +659,7 @@ static void cn10k_ddr_perf_counter_enable(struct cn10k_ddr_pmu *pmu,
- 
- 		writeq_relaxed(val, pmu->base + reg);
- 
--		if (is_ody) {
-+		if (silicon_flags & IS_ODY) {
- 			if (enable) {
- 				/*
- 				 * Setup the PMU counter to work in
-@@ -621,6 +734,7 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- {
- 	struct cn10k_ddr_pmu *pmu = to_cn10k_ddr_pmu(event->pmu);
- 	const struct ddr_pmu_platform_data *p_data = pmu->p_data;
-+	unsigned int silicon_flags = pmu->p_data->silicon_flags;
- 	const struct ddr_pmu_ops *ops = pmu->ops;
- 	struct hw_perf_event *hwc = &event->hw;
- 	u8 config = event->attr.config;
-@@ -642,10 +756,17 @@ static int cn10k_ddr_perf_event_add(struct perf_event *event, int flags)
- 	if (counter < DDRC_PERF_NUM_GEN_COUNTERS) {
- 		/* Generic counters, configure event id */
- 		reg_offset = DDRC_PERF_CFG(p_data->cfg_base, counter);
--		ret = ddr_perf_get_event_bitmap(config, &val, pmu);
--		if (ret)
--			return ret;
- 
-+		if (silicon_flags & IS_CN20K) {
-+			val =  (1ULL << (config - 1));
-+			if (config == EVENT_CN20K_OP_IS_ZQSTART ||
-+			    config == EVENT_CN20K_OP_IS_ZQLATCH)
-+				reg_offset = DDRC_PERF_CFG(p_data->cfg1_base, counter);
-+		} else {
-+			ret = ddr_perf_get_event_bitmap(config, &val, pmu);
-+			if (ret)
-+				return ret;
-+		}
- 		writeq_relaxed(val, pmu->base + reg_offset);
- 	} else {
- 		/* fixed event counter, clear counter value */
-@@ -952,7 +1073,25 @@ static const struct ddr_pmu_platform_data cn10k_ddr_pmu_pdata = {
- 	.cnt_freerun_clr = 0,
- 	.cnt_value_wr_op = CN10K_DDRC_PERF_CNT_VALUE_WR_OP,
- 	.cnt_value_rd_op = CN10K_DDRC_PERF_CNT_VALUE_RD_OP,
--	.is_cn10k = TRUE,
-+	.silicon_flags = IS_CN10K,
-+};
-+
-+static const struct ddr_pmu_platform_data cn20k_ddr_pmu_pdata = {
-+	.counter_overflow_val = 0,
-+	.counter_max_val = GENMASK_ULL(63, 0),
-+	.cnt_base = ODY_DDRC_PERF_CNT_VALUE_BASE,
-+	.cfg_base = CN20K_DDRC_PERF_CFG_BASE,
-+	.cfg1_base = CN20K_DDRC_PERF_CFG1_BASE,
-+	.cnt_op_mode_ctrl = CN20K_DDRC_PERF_CNT_OP_MODE_CTRL,
-+	.cnt_start_op_ctrl = CN20K_DDRC_PERF_CNT_START_OP_CTRL,
-+	.cnt_end_op_ctrl = CN20K_DDRC_PERF_CNT_END_OP_CTRL,
-+	.cnt_end_status = CN20K_DDRC_PERF_CNT_END_STATUS,
-+	.cnt_freerun_en = 0,
-+	.cnt_freerun_ctrl = ODY_DDRC_PERF_CNT_FREERUN_CTRL,
-+	.cnt_freerun_clr = ODY_DDRC_PERF_CNT_FREERUN_CLR,
-+	.cnt_value_wr_op = ODY_DDRC_PERF_CNT_VALUE_WR_OP,
-+	.cnt_value_rd_op = ODY_DDRC_PERF_CNT_VALUE_RD_OP,
-+	.silicon_flags = IS_CN20K,
- };
- #endif
- 
-@@ -979,7 +1118,7 @@ static const struct ddr_pmu_platform_data odyssey_ddr_pmu_pdata = {
- 	.cnt_freerun_clr = ODY_DDRC_PERF_CNT_FREERUN_CLR,
- 	.cnt_value_wr_op = ODY_DDRC_PERF_CNT_VALUE_WR_OP,
- 	.cnt_value_rd_op = ODY_DDRC_PERF_CNT_VALUE_RD_OP,
--	.is_ody = TRUE,
-+	.silicon_flags = IS_ODY,
- };
- #endif
- 
-@@ -989,8 +1128,7 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 	struct cn10k_ddr_pmu *ddr_pmu;
- 	struct resource *res;
- 	void __iomem *base;
--	bool is_cn10k;
--	bool is_ody;
-+	unsigned int silicon_flags;
- 	char *name;
- 	int ret;
- 
-@@ -1014,10 +1152,9 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 	ddr_pmu->base = base;
- 
- 	ddr_pmu->p_data = dev_data;
--	is_cn10k = ddr_pmu->p_data->is_cn10k;
--	is_ody = ddr_pmu->p_data->is_ody;
-+	silicon_flags = ddr_pmu->p_data->silicon_flags;
- 
--	if (is_cn10k) {
-+	if (silicon_flags & IS_CN10K) {
- 		ddr_pmu->ops = &ddr_pmu_ops;
- 		/* Setup the PMU counter to work in manual mode */
- 		writeq_relaxed(OP_MODE_CTRL_VAL_MANUAL, ddr_pmu->base +
-@@ -1039,7 +1176,7 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 		};
- 	}
- 
--	if (is_ody) {
-+	if (silicon_flags & IS_ODY) {
- 		ddr_pmu->ops = &ddr_pmu_ody_ops;
- 
- 		ddr_pmu->pmu = (struct pmu) {
-@@ -1056,6 +1193,22 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 		};
- 	}
- 
-+	if (silicon_flags & IS_CN20K) {
-+		ddr_pmu->ops = &ddr_pmu_ody_ops;
-+
-+		ddr_pmu->pmu = (struct pmu) {
-+			.module       = THIS_MODULE,
-+			.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
-+			.task_ctx_nr = perf_invalid_context,
-+			.attr_groups = cn20k_attr_groups,
-+			.event_init  = cn10k_ddr_perf_event_init,
-+			.add         = cn10k_ddr_perf_event_add,
-+			.del         = cn10k_ddr_perf_event_del,
-+			.start       = cn10k_ddr_perf_event_start,
-+			.stop        = cn10k_ddr_perf_event_stop,
-+			.read        = cn10k_ddr_perf_event_update,
-+		};
-+	}
- 	/* Choose this cpu to collect perf data */
- 	ddr_pmu->cpu = raw_smp_processor_id();
- 
-@@ -1098,6 +1251,7 @@ static void cn10k_ddr_perf_remove(struct platform_device *pdev)
- #ifdef CONFIG_OF
- static const struct of_device_id cn10k_ddr_pmu_of_match[] = {
- 	{ .compatible = "marvell,cn10k-ddr-pmu", .data = &cn10k_ddr_pmu_pdata },
-+	{ .compatible = "marvell,cn20k-ddr-pmu", .data = &cn20k_ddr_pmu_pdata },
- 	{ },
- };
- MODULE_DEVICE_TABLE(of, cn10k_ddr_pmu_of_match);
-@@ -1107,6 +1261,7 @@ MODULE_DEVICE_TABLE(of, cn10k_ddr_pmu_of_match);
- static const struct acpi_device_id cn10k_ddr_pmu_acpi_match[] = {
- 	{"MRVL000A", (kernel_ulong_t)&cn10k_ddr_pmu_pdata },
- 	{"MRVL000C", (kernel_ulong_t)&odyssey_ddr_pmu_pdata},
-+	{"MRVL000B", (kernel_ulong_t)&cn20k_ddr_pmu_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(acpi, cn10k_ddr_pmu_acpi_match);
--- 
-2.25.1
-
+I think the simplest would be to take this with the other two
+predecessor patches.
+Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
 
