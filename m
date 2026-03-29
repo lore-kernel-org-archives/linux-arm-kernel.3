@@ -4,105 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA7FF3D60A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433F8F3D605
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=; b=byYR0Jq7x2doRTQrOvBDmTnZJU
-	JIp40P8fWqnS2L5o3jhb6a4lTA2mOpy8JKDFGg7j7hqlKTC/oseoRqwr550pJNvZG5S79FZslsxuu
-	i8XdWcqFYASRRECzlO2Yg8R5eQdya9QZAWsNYFy2ouugQLJP7Lou9qBqFGLSvk1etcJQ1E4s5lqv2
-	u6Q+Qg7TdSer/kP5QFlz18gk2uCAF+bN/7VWlQ1DOl11RnmIudLCr0xIadf8mc4Um5gRfgY1rBSd+
-	iL+tQ9SL2KVlKxNxbn7JxzO2+5urlTkBcpnHYdmYwLCG6p3jCZQEU7fxQyXDqwxBefxsP1O9C1D2b
-	nOzo7Sng==;
+	bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=; b=Bg/53flSGyxstHbZtNX1qXzmN4
+	Jvqfg1L4Zqp3qt/zhhxzKMpv6mLa8/i0cax+fg2ETZzQdTlJhrR2hft1GeFXHRtJHd2VSuYLr42Ax
+	jeC5EnoupXRQcv1ygYFZzyaA5QkhkkyYZNu7+A/Q4bgKtmRZ7JlztDu/kPnxFHWpE7YT0oiFuxMuK
+	acZun9RI4EmIASxnKMKZJc/vJjqxWBdCX0OqQ7VUtK4gDd5JM67otZRDcw7axHqdiAKwu1vM3WmPe
+	0su0HCWsU0GI72rRpzBxjzaKibInc4B1D/BA0bLgQg4+dtqsj7pOdFXU08Tu20XBtnOQrxUobii+0
+	gUQa+q+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6t4K-0000000A7cH-3vgi;
-	Sun, 29 Mar 2026 16:32:56 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1w6t55-0000000A7hY-19RO;
+	Sun, 29 Mar 2026 16:33:43 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6t4I-0000000A7bl-47d4
+	id 1w6t52-0000000A7gL-2KaA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 16:32:56 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-46a9ae3f857so444232b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:32:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774801974; cv=none;
+	Sun, 29 Mar 2026 16:33:41 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7d7eb85fb81so3726373a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:33:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774802019; cv=none;
         d=google.com; s=arc-20240605;
-        b=dFr86454AcdCWh0nrr5ppflrIaji7IX9NxhnlLLJSTGjzXFjqEnbUcT4Wcm8TrpUoK
-         MDDw1OTenklCL2A8y4//yZUrzX2MwEK49zjAekahzvjx7YaV+sy8Q0PW+dobHFNz24xp
-         zQGuIr1n9uLRvbxThlDHKEJNNnZOXgDjml7W2oW/3HRjUmaroVy/Eg/7dZCWzCX4thtm
-         dwXueQ+FjCecPMWRgpVp0aG09xxdtrH/NTpnsmFYmXyMV9kC20qRNOHnem5wcajbmzcs
-         ybG98OWEVx9VJGYXxclTFIzo+GdE0wNRAG/+mF4PVzrzAtTCk9kYrd8ZmXcFtMh3X6vC
-         EaAg==
+        b=a+q3HwHqNr5jI5c+367YyibPliP+0wDahX15Vx4JDd8YltCPrKI1kwnLhOrZpm5Blf
+         njA9kSrb1/ntgLi7ogLeEswtMOuILWn7SBBTv7PABH5YOrBjqXHQ7l26q6I9i/FteDCs
+         NyS59rsRjzJ1EUKSfu2yq4ZopJ2x4PJT7D0mc7V5isAeEXHGeQr22QpTqxQ9/iYhvz6Q
+         Gsl536fSfDptSv/alJtllo1M4LBJcL2dhcCipOlHrB5JuzE/ufoefmF3fsXAY0X0wdEw
+         Zo+2NtzsMotJ+owiFJSH3ulhD1GsaU+zl7ycH4kVtZK4OiIX0wEs5eKfx811Ezss1o9R
+         L2+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=;
-        fh=+iQfgsi2Zea4rzLVMI1qW+pTaPqxZ7mAMjdIYPq98d8=;
-        b=GkBA8n2+CFNaypWhi6cpgV969y/TDNiIvnksOKTWbmK5jR7pFOYzDnh0gdxE+Jtum7
-         1PwPqyD90fz+B1V5qEkOf8lf48RaxVPuu272nAuBZUHGqnlPaVIGTSQT7k/kYpXe/Usj
-         9xwieUvJylLmGLMe/dJUNnN795dH/eAuirPO26aikWS5cZa+PzF4RjFOXtzaEBUj/qOk
-         qH+MndH6Kb70pIjOPRGb0N4Rcbfe551H9rcK9J0eqTYf930DbeTH659mEZZH3rxTA3T/
-         1df8PcXTsRhGJjfdo/E9IpGa2AYABzVX13uNDNcRKy6WRfMvwSGdP5UlnEbxPJ1MZdvR
-         5xTQ==;
+        bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=;
+        fh=O3jZJrwTysSrCpnrZjYtbnk33GrqHZgT54H6fn8w32Y=;
+        b=FoKdKaV58PKE8oJc/SRwtU8EVSvGTlDWcGrLOj27r81x5KgidCrYtCk/aD5Mh7fW6w
+         U59GWe8o78i/rzvoES/ZxboiCkjWrbMtPPlKHvOIQ39+HdbPSdNUzAeF22XJ3YIaliWD
+         M9c/71CeFE0hrDNQVJdVOzSWIlZG7JyljNp4w5/co9dccvKJtUnq4FPIWhAoVC1igLYi
+         52bxjQwNpgSIxy+Jwx/IJeAZNZSr2ss0tEzCCeuOlmWFNOCHlJoLxIQPUTxHhLUlyuS1
+         WF6X1KlsJpGijjEX57xttvWkoA2WT25SWoKgpWzEoCDWZ6w7ofrCfchqh17RcMKEFh26
+         fHJg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774801974; x=1775406774; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774802019; x=1775406819; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=;
-        b=Xal94Sckl3/sAKqSEmr8fhCcPoVH7oxIuYKWzmRwIv8yP+YKhY17/EmBYzz0FX7ADI
-         jKBx2k6EzrgRoK05O4x+pr1gch5zniGwU9Okg7E/zqWd7mdHUI4e9MMdCHTpAfexK46L
-         kUQdhkNA7U4TiucO/cEA/PYdjDvEZ51YAF8yU2UqbnfsCMK0kjYPZWOBuWQPG0NU1yck
-         GMg1GwyRzcizBSxRhcqBpqFgZ4ejSWZGINEookMpRqthf1eQuxtJvcQ8xgmNevTpJNPA
-         xOFxleLteL0X4KV5ugvvQimspd22KpCaVukRq3cbemc9tQH8DRvE/it39yax/lrBdJym
-         GdLg==
+        bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=;
+        b=mEv62bCeQOiKsMP5+msbvKY4+SZNlzLKN/vDUn9ZT4QiZqXr23LM1DKmw6slAhLWLR
+         v9a0rrAdlmqn3Nmj3QoyOafXTcf+0wXF6WrVvKZsGFbMnpt/rmJ8Jq7pcibyLRxYLBQb
+         ScGCjbBhfz8afYTdMdx6kV/4NIJTJY2r1s3eIyls1NCApC31hw3UUtTWy5PoOWOHYNmv
+         pIYAy/pCuxtmxlBW2uKfqV+wri8wv02LHZ4n1VjTor9zNMPysqd73/8fZOzU6w0vS0tD
+         51jNwNu70KveEscg56z5YG8JoX1TKBIdxFZIkkOwQVrVZMi9KwTD/wxnR4l55X3M/nEL
+         ESVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774801974; x=1775406774;
+        d=1e100.net; s=20251104; t=1774802019; x=1775406819;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=;
-        b=dcazE44mcmff9rk7a2nVA8bRpjilF6VcPR63Z8WCSQZ/f/TNZ8xw4ZemSF9ipZ18nK
-         s4kVI+C830OzDEkz2WtJoyE86+uIZfurcQIqLKhQeiL52gcm1MHMjWmra7U1bQVwNVq0
-         PPdQaoT6Q4ZWM5YF72E90X591HV66ZgVSLduu5Etni8XUnrVoSgNAxx6/lAfh7Q7nxLJ
-         Bd5wVDkoee3WBfGLiULXVpIcnvyRaoZwBF6JeinsiP/A592csNU8rGul2iOBbejk5qMR
-         NfJvkEQRkEeaytLZoPDlfonNAswIL33YVrevvjEgz3FS2DMUQLON9Wl6nnshunvuCOWN
-         FjKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3BPzxNtcmtsk2I6KRSgbL3MFBrmUXUGSajZ/tb+AsZV4IQ++4GP8XoN9VDqplP+jl5U8iAG0QmWRZUrrVCBz5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5q5lILHFPZw+vc/VyuUe0+rphQ7Q8UV0V2OtDqgNEprr2E0sn
-	SLwj5VcW/2kePpy3eucFypbs7mW7JsVShgSZxAfQSKZQJIIyCXYOsBXkT7lWr2AUuJHaEex2DaW
-	NsykNFg/HpogG0QD07tYEMbO/6oMqtdg=
-X-Gm-Gg: ATEYQzzney1MRywfRBBuUng81Uc8WTPvzELvKykekLam/qI+7XwTT0kFSc98x5gd+BY
-	t5H+eVuSm85CcCft8HLqSXT3OYN4HHXhPSZMDpfHOgyKyr08R2JrOGk+8XEg8je4Z7DQtsaSbqL
-	/3WyVv/IIKT7EIh5ecxChVDZwAp1GSBtujx2beLLp+wGc4NRw4YYKIJHzqIXoXC37mGpazVtYX+
-	NQd+ami4qicZ+OizlfXGs2V04Hi8EjCAlJjRs+kQhwowl6weMgiZnkCXlDiiRAF8XOhr2E6aUrW
-	2YIQXWsB
-X-Received: by 2002:a05:6808:1987:b0:466:f57b:2aca with SMTP id
- 5614622812f47-46a8a5fa334mr4267891b6e.50.1774801973796; Sun, 29 Mar 2026
- 09:32:53 -0700 (PDT)
+        bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=;
+        b=sMrV89h8dF4OsEBlkUGTGSpv94SctXEweVNW/ZSweOhKNYjxIwcjs06mf7eWml7JTo
+         5pEP+nz+PJpasV27u9DW1IV99lYE1d2b4Nva2YG/fUSorxtkLSR12+P+dH9Mner87nL9
+         lknpUCd2ngRvJHvcC7ognAtixE+eCV38hIafBBbZ7Dda/E9Ttz1O9ulFlKXeRtnNmapu
+         4M1fWU8DHHh+oHr1lZsO9eEzxdaz0H78NrOBwKqu7suNtk3froyZk+ISUKJgubHi3hAP
+         JpKKcFV+m2jZ6BtfCukBMF+epfmazZyEElcz283ExlJvyuKVbDR41j7KTPZMy4X2X8n/
+         68gg==
+X-Forwarded-Encrypted: i=1; AJvYcCUCN1SoDvpW0QjoYD33rfHL4rcTf9h+uIPLgWylG+gKZ4vdUXozxiBwohaoHXfayGnxPmjErZd4Hy/AL586hlpx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6dOCIzaP2oAbeBzGY5QkQ7nlyU3Dk8J0+U7mcYiwAVq1ClWtl
+	DoMAniEZgE3+C+yxLIGmG5YvQ4bnxePTUA/zHo3sZcmdqeJVdfycSZSirGqqXwVp5TTTPsSF7dg
+	+TyP38cp+YAkxZZaEVd++ErS0trwcCoc=
+X-Gm-Gg: ATEYQzzVWkwqu0GyCfOLn1DDtH28eddP4bOwrW586PP/KllijOGLXQ8Ou4EILtqEEHh
+	4ZB5ruwKbqWuJrYCApkutxBhGoR/x50BPN91fkH0F+f0550238LXRhoUUeqiNTyDTElNDVv00xM
+	/p39vQOmn5WtuOY7B4eYNy0YvZORM5494pnJA2uBjcpza3uNBc9qqG4m7Jco7ZGIlOixzLPNueA
+	LrJna3fQFLHyXdaC6MFfAFpwx9PzBWSn+GCoDeVuhhbNXH4jG/YVyXW2fsUeDUTyl57djpSLB+L
+	+gL5Z9bQ
+X-Received: by 2002:a05:6820:2005:b0:67e:33a0:3dcc with SMTP id
+ 006d021491bc7-67e33a046d9mr37979eaf.22.1774802019433; Sun, 29 Mar 2026
+ 09:33:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260209083452.154983-1-fredwudi0305@gmail.com>
-In-Reply-To: <20260209083452.154983-1-fredwudi0305@gmail.com>
+References: <20260327220040.53326-1-jassisinghbrar@gmail.com>
+In-Reply-To: <20260327220040.53326-1-jassisinghbrar@gmail.com>
 From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 29 Mar 2026 11:32:42 -0500
-X-Gm-Features: AQROBzD_uLE7qGskovC2U1QTIDQsdBFywmlZ-V1Va3ppdPPRPwcou_hGA1RSB2o
-Message-ID: <CABb+yY3a=0a=Ku5kjUBAfpZ7ckR03JTmq5y52W6ASBKvbakruA@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: cix: Add IRQF_NO_SUSPEND to mailbox interrupt
-To: Dylan Wu <fredwudi0305@gmail.com>
-Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>, 
-	cix-kernel-upstream@cixtech.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Date: Sun, 29 Mar 2026 11:33:27 -0500
+X-Gm-Features: AQROBzCJaBkenSWLbaMyUjoFd9_w00TbalFjVQHSf34AKH29U6wEB1C9m4WLVwM
+Message-ID: <CABb+yY3KC5UqDTBxetQK44+GXsRE2bg6tdCtmbe0_v=c=x_Emw@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: dianders@chromium.org, shawn.guo@linaro.org, maz@kernel.org, 
+	andersson@kernel.org, tglx@kernel.org, joonwonkang@google.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_093255_076769_0E5C5D2A 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20260329_093340_605394_3C1FB27B 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,47 +116,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 9, 2026 at 2:34=E2=80=AFAM Dylan Wu <fredwudi0305@gmail.com> wr=
-ote:
+On Fri, Mar 27, 2026 at 5:00=E2=80=AFPM <jassisinghbrar@gmail.com> wrote:
 >
-> During the system suspend process, device interrupts are masked in the
-> noirq phase. However, SCMI often needs to exchange final messages with th=
-e
-> firmware to complete the power-down transition. Without the IRQF_NO_SUSPE=
-ND
-> flag, the mailbox ISR cannot run during this late stage, leading to SCMI
-> communication timeouts and error messages like "SCMI protocol wait for
-> resp timeout" during suspend.
+> From: Jassi Brar <jassisinghbrar@gmail.com>
 >
-> Add the IRQF_NO_SUSPEND flag to the interrupt request to ensure the mailb=
-ox
-> can continue to handle responses during the noirq stages of suspend and
-> resume, thereby ensuring a reliable power state transition.
+> The active_req field serves double duty as both the "is a TX in
+> flight" flag (NULL means idle) and the storage for the in-flight
+> message pointer. When a client sends NULL via mbox_send_message(),
+> active_req is set to NULL, which the framework misinterprets as
+> "no active request". This breaks the TX state machine by:
 >
-> Signed-off-by: Dylan Wu <fredwudi0305@gmail.com>
+>  - tx_tick() short-circuits on (!mssg), skipping the tx_done
+>    callback and the tx_complete completion
+>  - txdone_hrtimer() skips the channel entirely since active_req
+>    is NULL, so poll-based TX-done detection never fires.
+>
+> Fix this by introducing a MBOX_NO_MSG sentinel value that means
+> "no active request," freeing NULL to be valid message data. The
+> sentinel is defined in the subsystem-internal mailbox.h so that
+> controller drivers within drivers/mailbox/ can reference it, but
+> it is not exposed to clients outside the subsystem.
+>
+> Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
+> Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
+> audited for regression:
+>
+>  - Most already work around the bug via knows_txdone=3Dtrue with a
+>    manual mbox_client_txdone() call, making the framework's
+>    tracking irrelevant. These are unaffected.
+>
+>  - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
+>    the poll timer now correctly detects NULL-active channels
+>    instead of silently skipping them.
+>
+>  - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
+>    caller that omitted the knows_txdone + mbox_client_txdone()
+>    pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
+>    missing mailbox TX done acknowledgment").
+>
+>  - No caller sets both a tx_done callback and sends NULL, nor
+>    combines tx_block=3Dtrue with NULL sends, so the newly reachable
+>    callback/completion paths are never exercised.
+>
+> Also update tegra-hsp's flush callback, which directly inspects
+> active_req to wait for the channel to drain: the old "!=3D NULL"
+> check becomes "!=3D MBOX_NO_MSG", otherwise flush spins until
+> timeout since the sentinel is non-NULL.
+>
+> The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
+> by clients.
+>
+> Reported-by: Joonwon Kang <joonwonkang@google.com>
+> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+> Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
 > ---
->  drivers/mailbox/cix-mailbox.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/mailbox/mailbox.c   | 15 ++++++++-------
+>  drivers/mailbox/mailbox.h   |  3 +++
+>  drivers/mailbox/tegra-hsp.c |  2 +-
+>  3 files changed, 12 insertions(+), 8 deletions(-)
 >
-> diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.=
-c
-> index 5bb1416c26a5..5e27c2bf3492 100644
-> --- a/drivers/mailbox/cix-mailbox.c
-> +++ b/drivers/mailbox/cix-mailbox.c
-> @@ -405,7 +405,7 @@ static int cix_mbox_startup(struct mbox_chan *chan)
->         int index =3D cp->index, ret;
->         u32 val;
+> diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
+> index 617ba505691d..9622369cab66 100644
+> --- a/drivers/mailbox/mailbox.c
+> +++ b/drivers/mailbox/mailbox.c
+> @@ -52,7 +52,7 @@ static void msg_submit(struct mbox_chan *chan)
+>         int err =3D -EBUSY;
 >
-> -       ret =3D request_irq(priv->irq, cix_mbox_isr, 0,
-> +       ret =3D request_irq(priv->irq, cix_mbox_isr, IRQF_NO_SUSPEND,
->                           dev_name(priv->dev), chan);
->         if (ret) {
->                 dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->ir=
-q);
+>         scoped_guard(spinlock_irqsave, &chan->lock) {
+> -               if (!chan->msg_count || chan->active_req)
+> +               if (!chan->msg_count || chan->active_req !=3D MBOX_NO_MSG=
+)
+>                         break;
+>
+>                 count =3D chan->msg_count;
+> @@ -87,13 +87,13 @@ static void tx_tick(struct mbox_chan *chan, int r)
+>
+>         scoped_guard(spinlock_irqsave, &chan->lock) {
+>                 mssg =3D chan->active_req;
+> -               chan->active_req =3D NULL;
+> +               chan->active_req =3D MBOX_NO_MSG;
+>         }
+>
+>         /* Submit next message */
+>         msg_submit(chan);
+>
+> -       if (!mssg)
+> +       if (mssg =3D=3D MBOX_NO_MSG)
+>                 return;
+>
+>         /* Notify the client */
+> @@ -114,7 +114,7 @@ static enum hrtimer_restart txdone_hrtimer(struct hrt=
+imer *hrtimer)
+>         for (i =3D 0; i < mbox->num_chans; i++) {
+>                 struct mbox_chan *chan =3D &mbox->chans[i];
+>
+> -               if (chan->active_req && chan->cl) {
+> +               if (chan->active_req !=3D MBOX_NO_MSG && chan->cl) {
+>                         txdone =3D chan->mbox->ops->last_tx_done(chan);
+>                         if (txdone)
+>                                 tx_tick(chan, 0);
+> @@ -246,7 +246,7 @@ int mbox_send_message(struct mbox_chan *chan, void *m=
+ssg)
+>  {
+>         int t;
+>
+> -       if (!chan || !chan->cl)
+> +       if (!chan || !chan->cl || mssg =3D=3D MBOX_NO_MSG)
+>                 return -EINVAL;
+>
+>         t =3D add_to_rbuf(chan, mssg);
+> @@ -319,7 +319,7 @@ static int __mbox_bind_client(struct mbox_chan *chan,=
+ struct mbox_client *cl)
+>         scoped_guard(spinlock_irqsave, &chan->lock) {
+>                 chan->msg_free =3D 0;
+>                 chan->msg_count =3D 0;
+> -               chan->active_req =3D NULL;
+> +               chan->active_req =3D MBOX_NO_MSG;
+>                 chan->cl =3D cl;
+>                 init_completion(&chan->tx_complete);
+>
+> @@ -477,7 +477,7 @@ void mbox_free_channel(struct mbox_chan *chan)
+>         /* The queued TX requests are simply aborted, no callbacks are ma=
+de */
+>         scoped_guard(spinlock_irqsave, &chan->lock) {
+>                 chan->cl =3D NULL;
+> -               chan->active_req =3D NULL;
+> +               chan->active_req =3D MBOX_NO_MSG;
+>                 if (chan->txdone_method =3D=3D TXDONE_BY_ACK)
+>                         chan->txdone_method =3D TXDONE_BY_POLL;
+>         }
+> @@ -532,6 +532,7 @@ int mbox_controller_register(struct mbox_controller *=
+mbox)
+>
+>                 chan->cl =3D NULL;
+>                 chan->mbox =3D mbox;
+> +               chan->active_req =3D MBOX_NO_MSG;
+>                 chan->txdone_method =3D txdone;
+>                 spin_lock_init(&chan->lock);
+>         }
+> diff --git a/drivers/mailbox/mailbox.h b/drivers/mailbox/mailbox.h
+> index e1ec4efab693..c77dd6fc5b8a 100644
+> --- a/drivers/mailbox/mailbox.h
+> +++ b/drivers/mailbox/mailbox.h
+> @@ -5,6 +5,9 @@
+>
+>  #include <linux/bits.h>
+>
+> +/* Sentinel value distinguishing "no active request" from "NULL message =
+data" */
+> +#define MBOX_NO_MSG    ((void *)-1)
+> +
+>  #define TXDONE_BY_IRQ  BIT(0) /* controller has remote RTR irq */
+>  #define TXDONE_BY_POLL BIT(1) /* controller can read status of last TX *=
+/
+>  #define TXDONE_BY_ACK  BIT(2) /* S/W ACK received by Client ticks the TX=
+ */
+> diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
+> index ed9a0bb2bcd8..7991e8dba579 100644
+> --- a/drivers/mailbox/tegra-hsp.c
+> +++ b/drivers/mailbox/tegra-hsp.c
+> @@ -497,7 +497,7 @@ static int tegra_hsp_mailbox_flush(struct mbox_chan *=
+chan,
+>                         mbox_chan_txdone(chan, 0);
+>
+>                         /* Wait until channel is empty */
+> -                       if (chan->active_req !=3D NULL)
+> +                       if (chan->active_req !=3D MBOX_NO_MSG)
+>                                 continue;
+>
+>                         return 0;
 > --
 > 2.52.0
 >
 Applied to mailbox/for-next
-Thanks
-Jassi
 
