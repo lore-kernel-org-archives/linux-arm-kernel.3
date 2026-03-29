@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E042F3D5FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 09:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E578F3D5FA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 09:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TB/QPugCcb4AdM0Fj/XxB/blX3PBNtkMN7SH+oDhiFA=; b=NmbmCKIK2iC7Z9banPUvP5iPBJ
-	WYbC3OJuEzuyZiyiTJbjos/M8NCkKyRGXgfWCQfzqg9iuw/kDy8uXP0dF2K8KmGDrHLCZ2+VLhGuC
-	eNfsiGTfe7ulqjfeuJu5yMPNgIpS0gZ2Zpa3p4QS/zAPIqUHZ+xlttPFcPUXgj3Z1a6cl5lTvEGx/
-	h6Gf/wD5KUn0i0sLidyAq2mtQxvjwHHszAAFoTUkzL2b5ovnDQfAywG87lafDVSFZ4h5b2Rqqtz62
-	8KuYHxrFWojQjZqUC1njftlCr+7L6EE66J+4ZsmBKF+k2DhSgCLDhxu/IX0Mlq8jFc6RjnrvVklkP
-	+WnN+lnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9I9pWg1qiYfKGe+2u/Y2VqDef17Cucv2X9t5EHG/VHY=; b=ObtYcXg05fueh+U1wGct8AHuQG
+	K/ADGSwdtMZYzyaJpzHLvW8teCbZLs2oEbUPa3YBh/SuCv/y7imX2MJWzFZhcVE5gyWsjT8c0EI9E
+	oRMPHJNGfvxdf8kSjuzIe9rszGPj3Pz7i/Wz5Uka12koijftrpdbVGGXifUZY87z+CHX2NKLq75kE
+	V2qCBZlWiCLXODNwY61Ex3FLa9GnPjYqJFqinpXHFAQhRydt8WwPK5gfzDI7dEBvd4sTu5645HHBc
+	uBYglD3I/moHRLD+TlGP6b11+IucYul5DlEyNXjKkokkjePVLu8VOV1cjbBD93QHhF+JOto388Pnp
+	kfNgXMjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6mCL-00000009m3x-09oi;
-	Sun, 29 Mar 2026 09:12:45 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1w6mHG-00000009meW-08GN;
+	Sun, 29 Mar 2026 09:17:50 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6mCI-00000009m3J-3nHq
+	id 1w6mHC-00000009me7-3J9g
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 09:12:44 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-43b8e8e7432so2949740f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 02:12:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774775560; x=1775380360; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TB/QPugCcb4AdM0Fj/XxB/blX3PBNtkMN7SH+oDhiFA=;
-        b=c3KZYfnkjVAhcs1j+5vPk+NF/VTH12UfaL75UKux0nbpQl4pNe3yrOx17UGXx1qyNc
-         qs6m85mrmERpw2Ru3xLmQ2ayVhBU0aDjB8wl5uzKBcvzC1YvRIBzm3nXL9PoJRO6fbxB
-         KlHpvM4fGI3KRDIZ0Y8AG32Sayvu19BdHJPm4k9DnI3323VxJUetoMEBhFsLcwLLlxWK
-         EwH7gM2/dpeT+cJJZSBcz82rP50Nulhhq8guCZmGXAILyJ23t8fb7P5LXS5SvDkgiKA7
-         5KeUhxosZR+9KTGl9uf1HeTirKKG9GFhGDclUiA2eNlJTqv5dpzo5SW3j6TanwxgAWcM
-         Rdag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774775560; x=1775380360;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TB/QPugCcb4AdM0Fj/XxB/blX3PBNtkMN7SH+oDhiFA=;
-        b=PM3+0Nv4iJwujJpUsPSbQQd+SqfeMvIUfshVjnJIAYhcLXMAIWEp9v24LpNg+WOuwR
-         I6bklSiP2u+EHlVTCEsm7UzHZuKQVpL5qmCqOwbR4pDjoHtvq77g86+z0HDTnJSe7YB5
-         YwIK9RkSEJQKV2O6glssQOuCbWDpm81Z9aGQwXA726byLjOnpw1SQ6rTXTOMTAFu1atU
-         bAvoCgKwlhBS34mb9h/R/pUDZGzF8g3+HN6Wq7EOG3BkHTqdfnGi1BpALstECFPHWBLJ
-         A97Nlvb0sJ6fm+nH/4jur7l39LHfGN/c6NbgkOabCRS+tKOLXdiFQUoEXgsX1XXQTAUQ
-         bOEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV0oqLJVJSyQlpuwLuqhHGQM44G+37DspQUkvd3vIeu6n1OSwoCl9ItP7FE/0Tp9dIZQIKSAG3nHh6HOQ+UYZ+z@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywy2qENeF8l49In239ujAG82RhiSOr5a0O0JBg1rCYmShKX1n9Y
-	xYNeuG7JLwsRU7CSP3yRcdNhaYWca58Bt5yc2WDaVY2b/cKFw3ybptxC
-X-Gm-Gg: ATEYQzze+rYXqraivMmDaskpikcS1DC09bfL/O6p8biVoUgJRaExP0AssGStP3ViXb+
-	YaT7ticf/RU4XjxeiXBBnx8N6VRIcTHpfanjBfuKco+wixxcYYb6VMmUl1j4Oor8EO1yyYWRJ7P
-	nGmh9zxsHFpMzONBJ3hPd+ipDuyipj97Yl4ZbHJNCLdy8BDLN+Jp3a2pBewZ00IN04gFbzgGDZZ
-	gqSFnsfOHAN3kx9RmMoYAuBJZqqSQP816+nKf4mFTSsY9jqUZxvVxbCilZ5pbkyJ5E6YYRLSEgk
-	rllwBGUHiTiuowKdVs11D7u2vrnLAdo/tsJX39MMbcLfaBRmRZNYWYvbfnz2m/vyGumCqvlOoxj
-	sAIo6eHZhatt053MGL4a6yGDgZETMFHspKbQozgmlZk7zn4vWPDDC7IKJfKew67KpuJnVr5nrfQ
-	ZWVKbf4H/TCpR3fBERlFY=
-X-Received: by 2002:a05:6000:428a:b0:43b:5b25:67ff with SMTP id ffacd0b85a97d-43b9e9a97e9mr14703306f8f.24.1774775560242;
-        Sun, 29 Mar 2026 02:12:40 -0700 (PDT)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf90424fcsm4625813f8f.32.2026.03.29.02.12.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Mar 2026 02:12:39 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Fabien Parent <fparent@baylibre.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 RESEND] soc: mediatek: mtk-mmsys: Restore MT8167 routing masks lost during merge
-Date: Sun, 29 Mar 2026 10:12:20 +0100
-Message-ID: <20260329091225.4530-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sun, 29 Mar 2026 09:17:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=9I9pWg1qiYfKGe+2u/Y2VqDef17Cucv2X9t5EHG/VHY=; b=KJhk2qyRb7hH9av5+qNwazNMTy
+	/H/qCrwEypVy856dDzpTdNFAtkcNVVQQWMdtn7PtGZYzaC2M+en5DweQT9uriJql4SxDEPNXy1afc
+	IytMSDELrmpfTx2w5SOY1FyFkgEOP36SNOVZ+6c0NPtSLbySQp4X2sqBWSsMYUKwnQVgm82tUpQBs
+	Z+0NndiXiAcvInuKxbhUyAWkOxf184wn1GmoKnXd10wwoCrlsZWXbr1XnugFhNp2iWsmMocE8eNzN
+	kFprirWTNz3gnTt0Cvn5AwxRcd+cgozm5qwxDdjJe5iYKCGu3FsQuQjxBm9jJrhicQAP0J6w3YjyF
+	4QLWLwLQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47022)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w6mH7-000000007oq-2vj2;
+	Sun, 29 Mar 2026 10:17:42 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w6mH6-000000001bg-0198;
+	Sun, 29 Mar 2026 10:17:40 +0100
+Date: Sun, 29 Mar 2026 10:17:39 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 06/10] net: stmmac: simplify GSO/TSO test in
+ stmmac_xmit()
+Message-ID: <acjuM_ryTVHU9Ib_@shell.armlinux.org.uk>
+References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
+ <E1w6bL9-0000000ELu9-1quN@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1w6bL9-0000000ELu9-1quN@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_021242_959632_05E46E1B 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260329_021746_830719_EF792F49 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,55 +87,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The original patch that was sent to the mailing lists included the values
-for the route masks, but they got lost during merge: add back the full
-register masks where missing.
+On Sat, Mar 28, 2026 at 09:37:07PM +0000, Russell King (Oracle) wrote:
+> +static void stmmac_set_gso_types(struct stmmac_priv *priv, bool tso)
+> +{
+> +	if (!tso) {
+> +		priv->gso_enabled_types = 0;
+> +	} else {
+> +		/* Manage oversized TCP frames for GMAC4 device */
+> +		priv->gso_enabled_types = SKB_GSO_TCPV4 | SKB_GSO_TCPV6;
+> +		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+> +			priv->gso_enabled_types |= SKB_GSO_UDP_L4;
 
-Fixes: 060f7875bd23 ("soc: mediatek: mmsys: Add support for MT8167 SoC")
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/soc/mediatek/mt8167-mmsys.h | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+I've been wondering whether keying all three of these off NETIF_F_TSO
+is correct. Shouldn't SKB_GSP_UDP_L4 be dependent on NETIF_F_GSO_UDP_L4?
 
-diff --git a/drivers/soc/mediatek/mt8167-mmsys.h b/drivers/soc/mediatek/mt8167-mmsys.h
-index c468926561b4..eef14083c47b 100644
---- a/drivers/soc/mediatek/mt8167-mmsys.h
-+++ b/drivers/soc/mediatek/mt8167-mmsys.h
-@@ -10,24 +10,29 @@
- #define MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN	0x06c
- 
- #define MT8167_DITHER_MOUT_EN_RDMA0			0x1
-+#define MT8167_DITHER_MOUT_EN_MASK			0x7
-+
- #define MT8167_RDMA0_SOUT_DSI0				0x2
-+#define MT8167_RDMA0_SOUT_MASK				0x3
-+
- #define MT8167_DSI0_SEL_IN_RDMA0			0x1
-+#define MT8167_DSI0_SEL_IN_MASK				0x3
- 
- static const struct mtk_mmsys_routes mt8167_mmsys_routing_table[] = {
- 	MMSYS_ROUTE(OVL0, COLOR0,
- 		    MT8167_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
- 		    OVL0_MOUT_EN_COLOR0),
- 	MMSYS_ROUTE(DITHER0, RDMA0,
--		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_RDMA0,
-+		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_MASK,
- 		    MT8167_DITHER_MOUT_EN_RDMA0),
- 	MMSYS_ROUTE(OVL0, COLOR0,
- 		    MT8167_DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
- 		    COLOR0_SEL_IN_OVL0),
- 	MMSYS_ROUTE(RDMA0, DSI0,
--		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_RDMA0,
-+		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_MASK,
- 		    MT8167_DSI0_SEL_IN_RDMA0),
- 	MMSYS_ROUTE(RDMA0, DSI0,
--		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_DSI0,
-+		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_MASK,
- 		    MT8167_RDMA0_SOUT_DSI0),
- };
- 
+(The above code doesn't change the current driver behaviour, so this
+would be a separate fix.)
+
+> +	}
+> +}
+> +
+>  /**
+>   *  stmmac_tso_xmit - Tx entry point of the driver for oversized frames (TSO)
+>   *  @skb : the socket buffer
+> @@ -4671,7 +4683,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	u32 queue = skb_get_queue_mapping(skb);
+>  	int nfrags = skb_shinfo(skb)->nr_frags;
+>  	unsigned int first_entry, tx_packets;
+> -	int gso = skb_shinfo(skb)->gso_type;
+>  	struct stmmac_txq_stats *txq_stats;
+>  	struct dma_desc *desc, *first_desc;
+>  	struct stmmac_tx_queue *tx_q;
+> @@ -4683,14 +4694,9 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+>  	if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
+>  		stmmac_stop_sw_lpi(priv);
+>  
+> -	/* Manage oversized TCP frames for GMAC4 device */
+> -	if (skb_is_gso(skb) && priv->tso) {
+> -		if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6))
+> -			return stmmac_tso_xmit(skb, dev);
+> -		if (priv->plat->core_type == DWMAC_CORE_GMAC4 &&
+> -		    (gso & SKB_GSO_UDP_L4))
+> -			return stmmac_tso_xmit(skb, dev);
+> -	}
+> +	if (skb_is_gso(skb) &&
+> +	    skb_shinfo(skb)->gso_type & priv->gso_enabled_types)
+> +		return stmmac_tso_xmit(skb, dev);
+
+I'm also wondering whether we should check gso_type in our
+.ndo_features_check() method rather than here - if we get a GSO skb at
+this point for a type that we don't recognise, surely it is wrong to
+pass it via the normal skb transmission flow.
+
+Yet more worms in the stmmac can... :/
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
