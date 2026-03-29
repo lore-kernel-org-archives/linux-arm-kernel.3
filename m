@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D7EF3D5E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 06:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACD8F3D5ED
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 06:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3f6eUM79ksch5To8yF3aZNTvb+jZ0PY04rz5fX+u7k=; b=rELp4GPBZ4VXm52Oa6VbQn8ysR
-	jNDFsBGZEdRmal4beklZOf1oAG+pKgmPBJvGTtCoR5kNrBr3/5zGIFwrVG+aYXbjSKz5ixpgHFKEU
-	UBjRNi+sTpm4R0dXQJg6zrhvxB/Sv8XQ4Alrmzz2224odchSFzfCCpbfheZVxvfG3uUBrRrr584wh
-	wBRIfIsK7dSxKvLWhpu80BWJz9okB3E2rukNJerKxxcdb7P0S9PvNXeGzOUQVryILxJUOOArwXYF3
-	eSXyEhMerqtSxu+yqbQXj8JSwEK7o/f1gg+FXmUOXHIZ6pjN/mJOVt/is8Sorluc1Xb+ByT1sX2fN
-	cnNxKf1g==;
+	bh=JjxqXxyKEmiZIG77mggO3OoX/XZCUgPWLAbtN+CQczY=; b=uAo3AP55905VEe/mtwS8Il2SlB
+	WAEKp9i/S2tB1QaSFIFsF7SJ/5wpN7z0MxzZ97JilV00t8oGxuU7bqnenXW/si1rzNl3iBUCTiQY7
+	pYsNyiB2tZAxsAc1P0Pk8mcftNhByDow4Wa7W140a4y2UAnxviWbdl+xByIgj2yufmjeBst19dSub
+	IXcxZZFYCwykOV5FTKrDb10z4mJ7y4pmfUG4fveREMIcBley3KbL4vnUaJPWYiVL8uIZ/f4wcDIGs
+	d6two9+vK9M7O0m+0HJQ17vrFJe0V2DJNuWWF6caJK+05hF09jS4rw+Rkcj7AyfQivTm81kAw+MVG
+	uj1qZ3DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6jY8-00000009dnI-1eKS;
-	Sun, 29 Mar 2026 06:23:04 +0000
-Received: from mail-ua1-x92d.google.com ([2607:f8b0:4864:20::92d])
+	id 1w6jYF-00000009dqu-0b41;
+	Sun, 29 Mar 2026 06:23:11 +0000
+Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6jXy-00000009dUD-0gld
+	id 1w6jY2-00000009dWV-2WpD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 06:22:55 +0000
-Received: by mail-ua1-x92d.google.com with SMTP id a1e0cc1a2514c-951a4e8d1b5so997007241.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 23:22:53 -0700 (PDT)
+	Sun, 29 Mar 2026 06:22:59 +0000
+Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-951a4e8d1b5so997013241.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Mar 2026 23:22:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774765373; x=1775370173; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774765377; x=1775370177; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=q3f6eUM79ksch5To8yF3aZNTvb+jZ0PY04rz5fX+u7k=;
-        b=nU2mXcdBX6FjK5LH3Ss0GFX5ozMGDIb3Lw1+1MEb0NbosKo/pANYCFBGQP8dva6F9H
-         d8eHTmsyQHhGZMPjtSBe7lOh6Iei2f7dKe1ykCTc2aSxoycm+G8PR7TOOCUZ0RxG+6H7
-         rJblFstNyatVotq7kzC2JlksGui/wMDrmhpFYWhfpHWEXoG+jLkTa444vjOg2rrsTRxj
-         VztAk3ZkBWdNQM0Tv0UySaSmyKxhEWAMy8E+cEO1M4F2xAhIgJlr9LQzhvWcabTNuyfq
-         6vQifCCocW4rbG/ejZFBeSUi5vt22nP7f0xbp/Hx1XPNrr+fHQYJBQIt1fzRNgsm/4/j
-         zyPQ==
+        bh=JjxqXxyKEmiZIG77mggO3OoX/XZCUgPWLAbtN+CQczY=;
+        b=Eq4EqYbHD4FilvADIjXoQeZH7M9V6uStZOcCcV/Co6+vyJxopw7TL7S5WVvC+Ll4HK
+         xpWFjApZrfoyPd7MfyC0suF5FNIRMmYmvMDxccjveQXp9LtrR+8OSXOQxg174weV8jXe
+         MTVv6uECWqu+QH2pq/LKGzYtgA0dIrje7wX2pIJSv5pCuoS/+YnpyV1Z15w0XfwBWJGN
+         m4aYSgFBPIvWm8W1AUy3vcxFUkc4UNHh2+sb1Oy9IhYlj0OZwVfEzs3khl5js/yYsXs3
+         mdfqN/hZee5GAKxjdYzPX2DJkDDjjN32RK7EvWrxpIFVHq2MeGxtePbqHUhC7M+qTYn1
+         K9Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774765373; x=1775370173;
+        d=1e100.net; s=20251104; t=1774765377; x=1775370177;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=q3f6eUM79ksch5To8yF3aZNTvb+jZ0PY04rz5fX+u7k=;
-        b=kRViwtf1Til57pKhyO23AsgjX7iD2hXD0i33paQ6iU4JU1z4Eqbp9F44bKV4bLZvJF
-         WMJCArJGkReYZ2tzwMKA5uyHLuM5e8kFGNI88W5I/qok1h7R+T1KpNUNOmHmyyhWXTgC
-         GPJLEDVtYO6jJ0veR+odvq4SyZLlul0921Ayjvaj/Pubk/wsk25/Fp4DUw8VGd7XSpQF
-         TvKc93anh/v6wn1zXu/JfnrizEhmmzxJf8dUbT/lxUHJupHghB1FKGz6S6WHcKVbIouy
-         bKGjaKsFJfKi2DXchl1S1NhpQzqTalcMp8Idsq859nyKGhL9AXaQZBKKu+T0/0GVfq5k
-         SpKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWLer37rIa4fGqRg3CjN6KoNvFN13f1fWz0SAvaaJsSqhtAbb/gO2GVW8LnlMWpsIvt+oT6HhG8BG/2Bju8rTcw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzckE/Muo10kt/7Lj/Z2YeJcgU5x6Fjy8DQquGM07PAlbeDXcUe
-	APOxtaMOthJJ9ulTYn7N16hEvzc1fltWhATQ7SMWvRjLlriutqsNR1oJ
-X-Gm-Gg: ATEYQzxR9mOEbwDW3PQC2AQ32NtulMEUJvKkl2yfZGX8Jfd0bRogZ9+YCl6mrXyGuLX
-	mm/qnCLqSbJK+mkXL6zfmqZL29hzQ0XCskME3g2MpsUAM3peaXXHLuU0UrNB9MtkyR3oIlYYg98
-	vCPsxYNTJrZm8+D9a+/RdjTW2sg+6z1qxV1DVINvB76UMPAYTLCO5y4oAOPjqLBy+d+HfIs89Ml
-	90y6RWb4aFchuP4exId8btOt6caM0aTpM7vo7VrpULIS8Pio6gjM+pCWuMU7KxVioNsPpQOhhO8
-	Awyd/GmAwkMvULdxqoHX12p+4/n1eS5YWlPkb81Vy2cqLkAYHkUIQ8gF59qV58OBTJJwTCi4DyG
-	0Rv1bHQJm2XFnybsA3I2GbeDcQ6xU4xvjbt56UnXwOwN4nUEE6rJJtVfglwCp2sSKGp+T0CBmAx
-	u52RQtOS2se7ZNxEjYqXmlDGpl
-X-Received: by 2002:a05:6102:6a93:b0:5ff:f446:c010 with SMTP id ada2fe7eead31-604f90587f2mr2976603137.7.1774765372862;
-        Sat, 28 Mar 2026 23:22:52 -0700 (PDT)
+        bh=JjxqXxyKEmiZIG77mggO3OoX/XZCUgPWLAbtN+CQczY=;
+        b=DjYqXkFOE8QW0EdEkbciAdObP9+n3o6/ABpxRcvVkFP911Fxmgk3ugUyPg8o5M88pK
+         QayH509rd8uUCoRRX8VP7S8kxZ2gWUOH3bvTM0ENJdBepck+++ZDaWjkUjsgy5AcF5TP
+         umMgQyI8OiYq/7DFPN8ZQNHPHt0ja/H9GersTd487PrR6ea9jv33YY6pc+qD3Sjf/l3f
+         7Mc8JSn249ETkPogvFGbcAU9FPLfFLD8+KB44jlcMOvIA/CT+D98lN1GorSK5GnC7PYx
+         eg8g1jQIe9m2B6jrzPyFTV3hv5AksSknTNlwBJxCVc3yfrnsybxvLO4FBTMwkmxGt4MO
+         7SBw==
+X-Forwarded-Encrypted: i=1; AJvYcCUl0L2rvq0C5ghTKPOkZotR64EM415106IxoQAB690KvovMn78tOHx2wW3ObZK4AmjaOxgDw5WiaG6/IDo53h8c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE+LlL62Ia84ZV4MgU2U74s+hRH+a+YQxN0DdZAzMHNtNkT39v
+	JSeiibPz7R/DYPKh2Emj6J3LZhzCJXWxGTSrYSfTuXc2aduqUrLJKGug
+X-Gm-Gg: ATEYQzxLv4VKkTRp0jkemz/DqpwC4JqWvb0lvJPavf1TvX0VrqXZvIw6ROw3T3cSOav
+	0y5lVYfjHSDc5wwbhmzCpxS2JVuaDutngJldZaoriuO1E4mC+lJhDAg3MjpeFyEAnAZC9X0mHx5
+	VPBPilTfKh28FWsHFOlr2aDhsCG/p6GnYK7KS9OGQWGF3oVS0iLdKPrgAQYQmFHO7t4xKUHPCDB
+	gW/yhyLhmK/B8CcRh1Xyb5tS0n0j2Bk5YxkLDmexp5VTPWSh1Laje0l71LETkBPi0+Bn4pmEwYE
+	as9IeKPfMhefbl9r0zcaa8WJxNQRh8gkx4pPcy4UgEXE2YXUOszWv5rSppnA5f15P+5JV1I+btV
+	JZgVHodLLaWaiSKae331GImGddN+nndLIEfJic87hRk8RAyrR3g7L5gkNlCdD3NaZfJ0bJBR4b3
+	SdMp+U3NUDSQa3Xla4mUfS/X4H
+X-Received: by 2002:a05:6102:160c:b0:602:86a6:986a with SMTP id ada2fe7eead31-604f92f1d79mr2960909137.27.1774765377217;
+        Sat, 28 Mar 2026 23:22:57 -0700 (PDT)
 Received: from localhost.localdomain ([2a09:bac6:d6db:aa::11:19a])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-60512d3a037sm4475072137.9.2026.03.28.23.22.50
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-60512d3a037sm4475072137.9.2026.03.28.23.22.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Mar 2026 23:22:52 -0700 (PDT)
+        Sat, 28 Mar 2026 23:22:56 -0700 (PDT)
 From: Sebastian Josue Alba Vives <sebasjosue84@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>
@@ -80,9 +80,9 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	kernel-list@raspberrypi.com,
 	=?UTF-8?q?Sebasti=C3=A1n=20Alba=20Vives?= <sebasjosue84@gmail.com>
-Subject: [PATCH 3/4] staging: vc04_services: vchiq-mmal: prevent stack overflow in port_parameter_set()
-Date: Sun, 29 Mar 2026 00:21:13 -0600
-Message-ID: <20260329062229.493430-4-sebasjosue84@gmail.com>
+Subject: [PATCH 4/4] staging: vc04_services: vchiq-mmal: fix integer underflow in port_parameter_get()
+Date: Sun, 29 Mar 2026 00:21:14 -0600
+Message-ID: <20260329062229.493430-5-sebasjosue84@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260329062229.493430-1-sebasjosue84@gmail.com>
 References: <20260329062229.493430-1-sebasjosue84@gmail.com>
@@ -90,8 +90,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_232254_211790_17F89A8D 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260328_232258_646928_FC6209DE 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +108,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sebastián Alba Vives <sebasjosue84@gmail.com>
 
-port_parameter_set() copies value_size bytes from the caller-supplied
-value buffer into the stack-allocated struct mmal_msg's
-port_parameter_set.value field, which is u32[96] (384 bytes). There is
-no bounds check on value_size before the memcpy.
+port_parameter_get() subtracts 2 * sizeof(u32) from the GPU firmware's
+reply size field to compute the parameter value size. The reply size is
+a u32 provided by the VideoCore firmware. If the firmware returns a
+size smaller than 8, the subtraction wraps around to a large value due
+to unsigned integer underflow.
 
-While current in-tree callers pass small fixed-size structures, the
-function is exported via EXPORT_SYMBOL_GPL and accessible to any GPL
-kernel module. A caller passing value_size > 384 would overflow the
-stack-allocated mmal_msg structure, potentially leading to stack
-corruption and code execution.
+The underflowed size is then:
+1) Used in a comparison that selects the wrong copy path
+2) Stored back to the caller via *value_size, propagating a bogus
+   size (up to ~4GB) to subsequent operations
 
-Add a bounds check rejecting value_size larger than the value field.
+Add a minimum size check before the subtraction and return -EPROTO if
+the reply is malformed.
 
 Fixes: b18ee53ad297 ("staging: bcm2835: Break MMAL support out from camera")
 Signed-off-by: Sebastián Alba Vives <sebasjosue84@gmail.com>
 ---
- drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-index e18471930..11af71309 100644
+index 11af71309..914ab9215 100644
 --- a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
 +++ b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-@@ -1361,6 +1361,14 @@ static int port_parameter_set(struct vchiq_mmal_instance *instance,
- 	struct mmal_msg *rmsg;
- 	struct vchiq_header *rmsg_handle;
- 
-+	if (value_size >
-+	    sizeof(m.u.port_parameter_set.value)) {
-+		pr_err("port_parameter_set: value_size %u exceeds max %zu\n",
-+		       value_size,
-+		       sizeof(m.u.port_parameter_set.value));
-+		return -EINVAL;
+@@ -1436,6 +1436,10 @@ static int port_parameter_get(struct vchiq_mmal_instance *instance,
+ 	/* port_parameter_get_reply.size includes the header,
+ 	 * whilst *value_size doesn't.
+ 	 */
++	if (rmsg->u.port_parameter_get_reply.size < (2 * sizeof(u32))) {
++		ret = -EPROTO;
++		goto release_msg;
 +	}
-+
- 	m.h.type = MMAL_MSG_TYPE_PORT_PARAMETER_SET;
+ 	rmsg->u.port_parameter_get_reply.size -= (2 * sizeof(u32));
  
- 	m.u.port_parameter_set.component_handle = port->component->handle;
+ 	if (ret || rmsg->u.port_parameter_get_reply.size > *value_size) {
 -- 
 2.43.0
 
