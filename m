@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AE2F3D5FC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 09:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721DEF3D5FF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 10:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VedDf6KjO7+dUX4YVKgtrHVL8jRFgWiX8TrdhyAcPls=; b=Sqdfk6oiI2jaQlJuZ16U10GjNH
-	DM0epxj69l+2mXc7jhh/F5fIIEmUIk6qDtSJnZJR5zQWq1zFlmt2tSNx0Bwml/FoxTunA0NLExGnK
-	WAFrfmDQ1d2/vAVZm5A+/YOZ3XfccdmxuTMYOF2eIeVT9nZ7z/DUgl1DQ/tE7DGBtZqA89VQug5fo
-	3FQbUo3NWR1ngU/DOOlScrqEJ7T+W5PtKq3XY0xY7NUZgQy9RE62rj/IcMRJ9tY0mA+RB/Od8Rm2X
-	u4j5IMmMnKvgUaZ6SV+svK7CYsIyV1dZ8kuxctu15zmiu/EAthOxfBLLO0/fZMAlRKgohs0R+4io2
-	f7N86OLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jt2uIeRPuBlDYj3MvR7QxlrUUASUFPPj19tl4ayc20Q=; b=qDJ58hVRai8RuSIW6R1ZzUKrX4
+	dpDr3UkBqc5jKFdCrtcZrIm0FTo47LlbT5v359ldSDOwrd6LD8gd+Sm6kQTL6ettd6vHza3/sljqI
+	81qCxAXuhGVRsagCis2sbChFNWumn1Mgm9lVa7k/lzQT8S/XxgxJcMgTASAFUUHyJAOxEcN9H0Bee
+	St0p0pPn84w9b/3MpGbCjJq7ZKH0sbDlDMYg6XhP8Mv50UsLd1RznaRw3WM9B7ZfY6GVQ+d295aXZ
+	bcgnFsaHtmTw6X7qo87KjPXobJYNNpO0UCpUyBFpG75gyDc6nV2mgPbJ7GWuk3GtO42Z2r01n0Bfr
+	+KWfGw5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6mdb-00000009njV-0psk;
-	Sun, 29 Mar 2026 09:40:55 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w6n7c-00000009oy8-3E4C;
+	Sun, 29 Mar 2026 10:11:56 +0000
+Received: from mout.kundenserver.de ([212.227.126.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6mdZ-00000009njB-1Cm8
+	id 1w6n7a-00000009oxl-06zT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 09:40:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VedDf6KjO7+dUX4YVKgtrHVL8jRFgWiX8TrdhyAcPls=; b=Jc2Py1MS/550Vpu9IWtlooDX44
-	a0y5FYBt2WATmyZfNO92STW5xUTWe20esS0KQaitLEMVxE5zzvgpVCe+rGXRGf0nKgcKhnzpfVP/8
-	HB0uIISrxjcnHVgMQgzk35Xa5LhZ7AVOgkHHiXLWa6PR3MI3d8M60nBpUUUnsM1nLJVlSxTcunyaC
-	UvIW3GzBYgDtz87l1RA6s7K/U0JZjT/3yGHKm8hfd8cfCFOEyeZgAMmq8O+zKeDpSXU87fZR3V4IF
-	33/hmTlexM7N21VguQNH6cZXzpB+RcuGNjg8QNUS86npk/fjLmlUkbf0Nd77xQKRd1QkY0BOI2BdZ
-	//cPxMQg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49578)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w6mdT-000000007qA-0Mle;
-	Sun, 29 Mar 2026 10:40:47 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w6mdP-000000001cj-2hQZ;
-	Sun, 29 Mar 2026 10:40:43 +0100
-Date: Sun, 29 Mar 2026 10:40:43 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 01/10] net: stmmac: fix TSO support when some
- channels have TBS available
-Message-ID: <acjzmxY9xmBInSwm@shell.armlinux.org.uk>
-References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
- <E1w6bKj-0000000ELtf-3md9@rmk-PC.armlinux.org.uk>
+	Sun, 29 Mar 2026 10:11:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nebelreich.de;
+	s=s1-ionos; t=1774779108; x=1775383908; i=eitschman@nebelreich.de;
+	bh=jt2uIeRPuBlDYj3MvR7QxlrUUASUFPPj19tl4ayc20Q=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=lWKNhs4Hx65B6bWHRvRQYau0ZJN3hAA8Fl8of33fZgsByMVBGmsQM0iOlKxaZa//
+	 RaJFWLIG2WgaiUI+VhGEbvv28zckuaMtkjtCwkwqltkypHxjsM8HFynWbH+QEgJX1
+	 /2f3s8g9pqAB6CXOyNbIHNfAk2eFt+ojgGrOFCeZNQRt74tgOdbEooMc2hdHjdiUl
+	 jvd9NI2Ht8+kVJiCQzKsrwArAfRahrT7ziqI5wNl7mxD6eqyOcpX2z0op8+fKbRfg
+	 dNfPrDB8rPHNw9JHtx0k46/5C/4jqXwyXWwHATQnJFkaMGfsJx+Hrv8FmuRMR7QiZ
+	 sGY49t/iJvtMnU4QNQ==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue012
+ [212.227.15.167]) with ESMTPSA (Nemesis) id 1MlsWZ-1vh2ou2SY7-00kpub; Sun, 29
+ Mar 2026 12:11:48 +0200
+From: "Andreas Haarmann-Thiemann" <eitschman@nebelreich.de>
+To: <linusw@kernel.org>
+Cc: <ulli.kroll@googlemail.com>,
+	<netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [BUG] net: ethernet: cortina: gemini: skb leak in gmac_rx() causes kernel lockup under sustained RX load
+Date: Sun, 29 Mar 2026 12:11:11 +0200
+Message-ID: <000001dcbf64$725ec300$571c4900$@nebelreich.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1w6bKj-0000000ELtf-3md9@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: Ady/ZEVLqiX7zl0vRlmrxMWD5MwYIg==
+Content-Language: de
+X-Provags-ID: V03:K1:B9FfPFYeT5xhJ5DXzXuBy/iUUe772T1XyNmMt/CLvGBuv47Udr7
+ QjGwq5SWhrzJJZbie/Ti135I5bse+kaekARFnGX8qbcMXnSyIZdYQ7zLn2BPHaT8/VMrGe0
+ oXNkrrd8J0nJI6KAocMkcpdV4rcgKeghT8ekK/Zj25cer2zYaIv5NvqBVrjYaiKkt+Cipej
+ aPQ2c+INT9JNdXQjjQUAw==
+UI-OutboundReport: notjunk:1;M01:P0:TQONWpgu8ys=;UorpyPnCJUFiuYLCBpsWVTO2JwC
+ CJ5XxXEF8jF7D5TAH17SdTdZKwND61nFYLeVTVXg4cb3/12Lk9vytP/wW7tid4NiRapWd2e7s
+ 4EM+y/vytYdRfHO6sNWdX5jcn2jqGEAUTAyFgsqIiwC/2hmgSrM0ALSO/p0o4dijiBCoI0MR6
+ QzNlbw5ROkGuYV4kjemceq4cjSeG0mwi95BGlCnHMVeN2SEHMYcGnGrG3xjmNGXCuZKtjC5sj
+ NkvF9/yEO2kZJYFKRkjKdb5ob4XFyOfrb/bToa6w7D78/b3A01pizLlY+XhfP7uc6TLin7VrI
+ JdWQZ8OVNLP/yCuyMHso6oldtmKAaN/c1/4KdAo2mgASafGAyiwdWoFnnEIKh/dysE6DaZmyH
+ on3FgAxrlEIvV1H1k22ftZvTqVhM3tC0Hi0I4K4aw+JtWc1nu8+ZJLfbDOJMYwFq3osKdFx/3
+ bJbvH0U/F7B0cw1BNhgUGLU7MEr8J4cgXoyvGV0b40H/c1yWpts8oJUq/wRxwELgnooqli1kb
+ HxSZi3volQI2SGZw50fkF5ejmZtgTdEorld79Jsuo1MBdPYksyTmkR129XZm5DUiodBV5mx9r
+ 9czi8LlVDMMsZAFMUQNNLbXht7n+ilN+0zQlpXeZnMgqEI3lmmxAXNSwxJlX7OIvZYOB0tWfb
+ oaDiHm0qKSUUnjv5C6rPKnmPX1r9gFfN/5YO0qVrfpC7e2TI551eIPlL+sUghizq67JWNq96a
+ fsBxcKftkaobE3CSnMiDYzHRAah7GnaqjdGPlTs3abnEngvdS3/LI57vyfEt0Ic5wowHJ6h8R
+ eAApW9M37+lA6ipUo2cpZljcqPsk1vlxqriLd5Vuk/XtgErF4yIHnq8O6cxSy4PwieC/oP9Wz
+ br7/1wJwqaPju6O0nfrvJad84MqLhq+2aJZGlBkeGOI+BIyH4q5ABCA97igFuprai4p8MCUQd
+ HNXwashxgIEWIMdb57s400VpMqiQii2Ow2JTQtrmz41XLcMUcRywJbWsHfZfL7T12qbed2syH
+ xzIbZXvSJntVUNcgCpaD4tMA0K0MpfNXKv1t3s0xabFYN3T+N66iHtWZD5S1nEQncvC9vkKdF
+ VR4PT0o8gaGkJhZEME2pK+631Zirq1wX0HpbWDPVZ8VCE1a4hQlCbEM5S8/4KK1gB9KmJ0CoS
+ 23ZvGamGUMgrkSD8hSuMXK7xQ6IeUc1nMt+6rNOeljr8Vhb+2DIOBEoBeWWj6ISnEzZrEO+q1
+ GKtNJoSjjjPKi8eBSjkEvpNjqSlY9QhVNStft67osBbwt8i8yzpGrDOyJaJGc0SXwUh+aslq+
+ Y6fQ3DTnzo1e1YtQX1/H9PJKDn8s6IUr3uA+iSiDoDDZk8Ub1fL1+ljGCKZISYDM6iRulSrNJ
+ 5eOxfsCtOEmzLiTPNT27190nupzgKu9Rq208+CwyBO1HPNIAuNIHRKTAJz1V9CiP8VIChrUWl
+ wYyn5SYE0p5AVXpHzCeNkasV45XZV2TRwe5jsNt15x1jZOGjkslPhU3CiX2AEX0uWEldsrAl8
+ ExJJ+qcNPhDqmjAu+faa1RsJLArryeDBspqZQcI43uRfXHH6CRtLtOwsOVVygJfw6L2YJrgV9
+ wcs/Y/uRWThVzWneypTruJaFhbOPW7wy3P7N9J+pIXSXqnmF7Ye36Ese0neexW66wyoZoHIjw
+ FwGhK1t7kX3gbdyfAnDjZdasp6zvKWRks5v+SZzrM7IbuoRcm3pghH7XWX4uRcIAaeScpSDXI
+ nkeVpRFsAxMo2gygbYwvnI/d7d9Mcf/iRbJaQsUEEixAiR3eGjV8Slj1+F69AR7IVWK3EeZaX
+ t74Yq8lKbGi7Q5t+ca1Ou1iXocNdp7wpc5SBm88agXNCB+ZSCiQQu7tnWHe1Npv7KF+5QTSnV
+ 0uCAVAM3FmiziTI7g==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_024053_324733_2EE1E30A 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20260329_031154_374995_3CA645D5 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +108,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 28, 2026 at 09:36:41PM +0000, Russell King (Oracle) wrote:
-> According to the STM32MP25xx manual, which is dwmac v5.3, TBS (time
-> based scheduling) is not permitted for channels which have hardware
-> TSO enabled. Intel's commit 5e6038b88a57 ("net: stmmac: fix TSO and
-> TBS feature enabling during driver open") concurs with this, but it
-> is incomplete.
-> 
-> This commit avoids enabling TSO support on the channels which have
-> TBS available, which, as far as the hardware is concerned, means we
-> do not set the TSE bit in the DMA channel's transmit control register.
-> 
-> However, the net device's features apply to all queues(channels), which
-> means these channels may still be handed TSO skbs to transmit, and the
-> driver will pass them to stmmac_tso_xmit(). This will generate the
-> descriptors for TSO, even though the channel has the TSE bit clear.
-> 
-> Fix this by checking whether the queue(channel) has TBS available,
-> and if it does, fall back to software GSO support.
+Hello,
 
-This is sufficient for the immediate issue of fixing the patch below,
-but I think there's another issue that also needs fixing here.
+I am writing to report an SKB memory leak in the Cortina Gemini Ethernet
+driver (drivers/net/ethernet/cortina/gemini.c) that causes the device to
+lock up under sustained receive load.
 
-TSO requires the hardware to support checksum offload, and there is
-a comment in the driver:
+Hardware affected: Raidsonic IB-NAS4220-B (Storlink/Cortina Gemini SL3516,
+ARM FA526), running OpenWrt 6.12.67.
 
-        /* DWMAC IPs can be synthesized to support tx coe only for a few tx
-         * queues. In that case, checksum offloading for those queues that don't
-         * support tx coe needs to fallback to software checksum calculation.
-         *
-         * Packets that won't trigger the COE e.g. most DSA-tagged packets will
-         * also have to be checksummed in software.
-         */
+--- Observed Behaviour ---
 
-So, it seems at the very least we need to add a check (in a subsequent
-patch) for priv->plat->tx_queues_cfg[queue].coe_unsupported to
-stmmac_channel_tso_permitted().
+Under sustained RX load (e.g. large file transfers over the network), the
+device freezes completely and requires a hard power cycle. No kernel panic
+or oops is produced; the system simply stops responding.
 
-I'm also wondering about the stmmac_has_ip_ethertype() thing, which
-checks whether the skb can be checksummed by the hardware, and how that
-interacts with TSO, and whether that's yet another hole that needs
-plugging.
+--- Root Cause Analysis ---
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+In gmac_rx() (drivers/net/ethernet/cortina/gemini.c), when
+gmac_get_queue_page() returns NULL for the second page of a multi-page
+fragment, the driver logs an error and continues - but does not free the
+in-progress skb that was already being assembled via napi_build_skb() /
+napi_get_frags():
+
+    gpage = gmac_get_queue_page(geth, port, mapping + PAGE_SIZE);
+    if (!gpage) {
+        dev_err(geth->dev, "could not find mapping\n");
+        /* BUG: skb leaked here */
+        port->stats.rx_dropped++;
+        continue;
+    }
+
+This path is distinct from the similar block in gmac_cleanup_rxq(), which
+correctly only logs "could not find page" without an skb in flight.
+
+Each occurrence of this error path leaks one skb. Under sustained traffic
+the leak exhausts kernel memory, causing the observed lockup.
+
+Note: this analysis is based on code review only. The fix below has not
+yet been verified on hardware due to the driver being compiled into the
+kernel (CONFIG_GEMINI_ETHERNET=y) on the affected device, which prevents
+loading a patched module at runtime.
+
+--- Proposed Fix ---
+
+Free the in-progress skb via napi_free_frags() before continuing, matching
+the pattern already used elsewhere in the driver:
+
+diff --git a/drivers/net/ethernet/cortina/gemini.c
+b/drivers/net/ethernet/cortina/gemini.c
+--- a/drivers/net/ethernet/cortina/gemini.c
++++ b/drivers/net/ethernet/cortina/gemini.c
+@@ -1491,6 +1491,10 @@ static int gmac_rx(struct napi_struct *napi, int
+budget)
+ 		gpage = gmac_get_queue_page(geth, port, mapping +
+PAGE_SIZE);
+ 		if (!gpage) {
+ 			dev_err(geth->dev, "could not find mapping\n");
++			if (skb) {
++				napi_free_frags(&port->napi);
++				skb = NULL;
++			}
+ 			port->stats.rx_dropped++;
+ 			continue;
+ 		}
+
+--- Additional Notes ---
+
+A similar "could not find page" error path exists in gmac_cleanup_rxq().
+That path does not have an skb in flight at that point and does not require
+the same fix.
+
+I would be happy to submit this as a formal patch if the analysis looks
+correct to you.
+
+Thank you for your time.
+
+Best regards,
+Andreas Haarmann-Thiemann
+eitschman@nebelreich.de
+
 
