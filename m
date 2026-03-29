@@ -4,113 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D60F3D60A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2904BF3D605
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=; b=3MC6gUQFUS3ftZUJ9BlJ2jvFNQ
-	NWCNmtr5LDMpbp28GFpe0G40Nayc/uqj86Ro/dnPko37dyKfcfBm9HAL1brLDGzWhRUdO6GIgQZR5
-	5W9gR6qoQ67F6BVIQ+jQXMg6AlhyVhJVQsRTqGwKgPYQrKFIZ4mnLZSjqjsApulWJBkqJOm5pVGkF
-	5Q2Us632XAh2K4s7pv7JOh4NeVYPFVGU+Mzpz4g9iry6xzpLnHWBSdF7HVGONnR01ePvX/OR6x7IS
-	eIMIApFREb18STD5ryeLKyHh7wXbi+D6d5dbLtn30bU/CHBt7IJGQl/SV32KAz+Ng9D2D5Y/sLAbZ
-	FUAg7tWw==;
+	bh=ln0AFKtiiOyd1awiSLR+/ZLVgvpXDVIqEDEAuJIpGl4=; b=ED+sEMPACRiVVK2eL0RaiE/xCU
+	QiaRiVj7T52ekUpne/Mdq2QsOjXrmjjNvz+w9ZM73noaB/QhdO2DtMzTWpPx9SQ1f4KcyvDlcSY6H
+	ybCH5gY/DyTA4hJ7xeTwupd3Hg/yCVZse4kW+z2rA0BxcslMhYFLzdX95MkTRttFsyT4Zh+RwR2Hh
+	6VjZsqpvgRBj5u59BXlDjDcJgeyq3/EfJm/RGAm4jHTXxaNbUw6F+7JYyk0sYMiZXZ0jtdmIg4uOz
+	gEvGk044vD/4t6CmzKa2ndmIPaS6QLslROe6fmaSnRbgtYCiVDYadnn0XrD1ud2ibUJhp1zIT+/4v
+	0KYjqsyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6scC-0000000A5aI-3SHA;
-	Sun, 29 Mar 2026 16:03:53 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1w6sqB-0000000A6P5-2k3m;
+	Sun, 29 Mar 2026 16:18:19 +0000
+Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6sc9-0000000A5ZI-0B97
+	id 1w6sq8-0000000A6OH-3zWa
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 16:03:50 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7d7447778b9so1905035a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:03:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774800227; cv=none;
+	Sun, 29 Mar 2026 16:18:18 +0000
+Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-662efd1bdd4so2119730eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:18:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774801096; cv=none;
         d=google.com; s=arc-20240605;
-        b=JM7dF3uXFmi78UYtNKu4+6g3McJfZikXm481Si5L3kdscYLYIVhFwkxoNPg4Ob/qec
-         wYPgv4fBBIUWD5blel4l4YA89IWnDW4quhCOopOkMXbGaeCOiG0WWlPlp3Kd6GjgW0KL
-         4w1Vp2riWCmGN5l81kICRgl61mB/UnTK9NsrL9WLS1WpmGsgzZZXxUKCquzj1B2Park7
-         V9KN1fFJHuptPbaqIZ7Pv0K50UgRAgqJZS+3Ld34aq/elyiKYIH7b2o4kz5vmFj8FX3Y
-         /dhFFt9phmqgksOQLKH4OtgrOK1gGzDZl1PTj2qhRM6Wc+2a87SL5QkPQWQordPZFwRq
-         UJ7Q==
+        b=EJbCilZgoTcm1x3b51G/dNpqe3l6sL1iLwIL9+kV6D6LBrgIpGfLW3de0VMk1WsWdr
+         NX/Rz199osGqETZB6Lbcb85cT6jR7Z55yABqNJzy0dpZVxAygHLdra4ae+tajI/xQnsX
+         UjRl44dW73xJr27LaZbE/EvjZaEqQuO9+ZTCaKCh7gFq79OZbqiZktn6d4rHmQCjlWzt
+         bA/WkRg8zq8HOnFirZ6sSRsPcwBK8P9F6MkBttJ6C+XcxakOzKcc93nXgJkbjTslT0Wu
+         1IyLzJR72rpBa3U+JBuwNFEVX3LqiDquH0j/Io+SgC48sj1zeImC7mE4rr7RFvlqk//K
+         rwTw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=;
-        fh=M2d/hbSd9CcrL6dvoZfjUYtz/3Eww/5o8ip6E4u10GU=;
-        b=hrxTZ5vkgMLy5P9YUL74arfwcllv/wQZLFFEthA033bx+QAHV/2VGus+thUAbMB9R+
-         msOpK6DaeB9IaWT3SFwqpLgYLOn94MK/rsDmlyZpCiQBYOQwMGq6mmVKP8KkmTZvPYSf
-         X5w1+8NOxkrdIsIof/yKMtzCnxi07/+p4GkX8nzmveQ8qzRj/MjemxG2RNk9ImqD8WvG
-         EagqLe4rEZv5jhYUVvC75Qv4PhESirqd3jQuVDrME9fA632ovIGasNSbBQFwfMTsT32l
-         D06oRNKKx6dddzES6ZL8708vOsH+ZcCFpjUZvODISpwGSHqZVBeTXsUe2bEOsX41m3om
-         f/kg==;
+        bh=ln0AFKtiiOyd1awiSLR+/ZLVgvpXDVIqEDEAuJIpGl4=;
+        fh=bGsnkbinpNeR/3NFumpmd6n1XX9gQMI1vZQONeh1MYk=;
+        b=Y03e5YipzhPE8EdhuVicSkHcFT2Qm+7FHT63bqvZq9TQarX6x/Cu7Su9dPD7aBj06/
+         oB2ha4RUP1oWqMPbVOEJ81OrtY0+xDHiang8pe0gPbJjGQWDMzN1v1xl2kC8iRPP/SqN
+         DnprgT65Tbs1s9JP9WvlZlA17WlqsQzVUz8SEFk6ASiIqmw2IsJT/KOMb6IdJ8Ip5/bB
+         RNkqrYqrb18AGcmtwIAXT8ob8sIyWURx1XP32agHVDbXsLZPdzgPvyBB3QlbKoU4JxtD
+         K2RclYaid5vn/t3nmciv7UXu18tp6LdKjd9Fb59P8sF7Jky19BTq5Gfc/kX/MVFp8mr+
+         Rtkw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774800227; x=1775405027; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774801096; x=1775405896; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=;
-        b=hmuuR7TiJdGZqATGtQRKQMKBgg7OkaveSd8HWVs9wLmQZLPRuSlWhwzsySJzGE4QQv
-         p8HpP0E5YltjiegxH5EI64lBJXnU7rFmJNvUfK7JHl0Qa1QdMeWLEL3ajZC00Mmm36hW
-         mA4hNcHh8+vLn0CkNn5WstYgMfUK9z9R7qwHBI23J6cUnijT8oacSUqLv1NGW1nziaRM
-         FhkGHAWXndoriJqjQmcSH6ImyXjiO/5ivZ93fo5rY9L2uqLKiS7tus6HVPYgxaCAgQmG
-         /GB3Sh/ZvFtpOFjeg6128JG7ykWcL42iyqwMpKC8TDc/R51TykQEZM3aHcMPvas1dsIk
-         umDQ==
+        bh=ln0AFKtiiOyd1awiSLR+/ZLVgvpXDVIqEDEAuJIpGl4=;
+        b=koUn99yYkIUNeUxQ8/RyJcupeoa69pZhQjmYSS+rk4E6Qzg1/thtZGY2LP6FRMTY6L
+         RJL0gFdUvGH6x0W2+jyWlMfwxFfXp+vvFA50lqG0yjy+iNPSk1uqyA1Ckck9vY2d/iLk
+         ucYb3eZrqHg/2QRQ21GjOBu2kXQmNbMGJ6N5sAGZyoldWjvmBXIB+e9UYbL1g0hNtuam
+         OGEhb5nLBTY6S5mmJuxNZ24ldlX45i9HCTQSEnRri2DlWHjgz8L64gmz2pG/jRFfs37O
+         6/5pU8CHpArZabcOLjcDeu5aLYuX+//r1GYT5zXU38fTL+YUofNe0rhPBBrwTw4+KHpt
+         KCWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774800227; x=1775405027;
+        d=1e100.net; s=20251104; t=1774801096; x=1775405896;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=iuRiB7kx80/hvjqFvrfisUx6wOU49zwzAkhJWuxRZrs=;
-        b=mX4DrpkUXOQIgg1FtMd9636edQQW2FIJVyKMzFMuAsaVVazCxXZ76TO0Ns4ltn91MS
-         D8wMIKFzKzm+aXG2OI2Ji7F6U47tWDTrctdBAU23uqeiwqQYZxk1fWp4E0NoIOpjjoln
-         JipN6lwiknCvEIuY5yZdodOvMSkbfyukYXNNJRsZhPvsPFEs8mhlW7ejpJIOquQkp9K/
-         DzO3sVBQSGrAUwL2Og6AxAj24FfznW5tl7dGys6MyoA2nTTRMjdzuC3l60U29veAexJb
-         vg6ZKukcgS5Q8nVh3M7ZHGOILgUegMd7HPJJSWYgQ+KMJJHp/b70V8qv3HUzWiQ+lCJo
-         KF0g==
-X-Forwarded-Encrypted: i=1; AJvYcCUmFqOBHBrtltDec0T3RbV1yz+hkaCoh9g0ekqrBqUzx/GNxhvADKG+f4hL13btWRxTOtHB1Lw6zl4o3mzBFJk7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/V5OCxtedmQPJqT8pOLoAXFtMLQglxFLM+uyWT/+d7LlqtVnO
-	LwzUVD8xXz6Hp7VhUX3y516VOWVJOXQAQJpjZYY0cOmqC47OkFXt82jf7iNVAfDXu84fqIJZhq4
-	3HUGpt3s4/ayz7ncaEkLCVqW/1JjgNJg=
-X-Gm-Gg: ATEYQzxGRmH/hnJog7L7rF5lR9H0veNDjIjOyboCbcOC+WYNf9FqulNK72V94/NrU9c
-	AowEl02TmOT/XHrJTcXjBOGyhTJcyt6LFUnuJyL5Np492cuue3gz7uopfWH8y9oWa/XXx1E9AFI
-	bmqhyN1AvyI/AIlOD2MaVMZYzYX9XMzOsnfwCLcPeKzBy9NPkZ9Hb1alxgTzSIyeZ5tqrf6RcWM
-	Db/4diB2YxIuXLK4aOUMLwi0/K2NFN9WhxvBsr+8EGNwtKHhnxeW5jQQ/AnlQMWSVJMjMxDPqLo
-	TysfmUGz
-X-Received: by 2002:a05:6808:1a1c:b0:466:ff3a:c745 with SMTP id
- 5614622812f47-46a8a3eb1b4mr4305468b6e.21.1774800227277; Sun, 29 Mar 2026
- 09:03:47 -0700 (PDT)
+        bh=ln0AFKtiiOyd1awiSLR+/ZLVgvpXDVIqEDEAuJIpGl4=;
+        b=rz27L7j1rKzsSiObAukxEToFN2Tv9dqBhlfkdS8YYOCIfF1itQi6s5Emo4i+Aa72ZX
+         i582WOM0wXfw7ZcPJowzuwE6hCY0uTMfH3SPrs1HwLQ0Eb9dpXEz5eGhdK+GZxEWxZk4
+         wjLArHkcTMV1MNs/x5EAFr4+TgHGO9YTjKzFFq+c4ZfA02RH8aNRyWcEivF2vQXDnt6V
+         Bs9xgY1H/2rHVaYk2pXMvwZuvkBNixGGN7biLOy3PC1ejgWHCN/ZNWt3Hjy1su+60h7o
+         n4UkAfCim6a8iAEwmVGgzERdLxi2VKsVIhGwX6VZMiVrlax1nbs4vq4Di/fpwQufV0ry
+         ZUmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVCKqIX01xNwJqSrV1YnVeBhIDE/qrIi8YdKTFFvkKgrLF1YZxQJx9856IMg7MSTIULsxgkc9DVOSbLA50Z+ODS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyzm9bZMz4vlnLvhgZ4+/FbkBO0/Cebcfc03U13wxnuXcjxsZjK
+	yi1lVYr8KQpkw0e21xmMqldyHuimi8DorescofhNqjx8XjGFw6302K0ZBEWwo6Nw13vhC1NI+MU
+	IhnjumhmCxSKyWs1uiuDXGxLmSzZAbwQ=
+X-Gm-Gg: ATEYQzzeRTe5g/N41/QfPR+cZYCWP49XQGpNfLiCAeAELjBADmc6T9gcgno9M+paWqX
+	UmczGJ/GlGtd2zn6AcF/jDuz/4avN0qTfFB1v2UYgFEmD7kBA/0XhNp+A51LHpuQy+R5xYDXWVH
+	4bwovf89sak4Dvj0xKRkbQTrdYuZCgv6g4psd5z+USotbQxyW/4TUwbpxVF8qE2KK7wHRzMWF/x
+	OtvRJhERQ5fR7EOCG4ZryhdmNeh3eQALQntaGHqRwl8SR/TCosWsss5PIKCIKPS82HNlJhW46t9
+	RHd0FISz
+X-Received: by 2002:a05:6820:992:b0:67b:a85e:6ca5 with SMTP id
+ 006d021491bc7-67e195bd41fmr4231270eaf.18.1774801095746; Sun, 29 Mar 2026
+ 09:18:15 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260325040457.2113120-1-jason-jh.lin@mediatek.com> <20260325040457.2113120-4-jason-jh.lin@mediatek.com>
-In-Reply-To: <20260325040457.2113120-4-jason-jh.lin@mediatek.com>
+References: <20260327151332.5425-2-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20260327151332.5425-2-wsa+renesas@sang-engineering.com>
 From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 29 Mar 2026 11:03:36 -0500
-X-Gm-Features: AQROBzDYnGEvrmF9Nv8aKI46KCu4qNGcGl029nctsf-3ar7uJysAlIX7PTC3c6A
-Message-ID: <CABb+yY2cjMskJeXsn8+hZj2DcFs05yabHbSaGT5XSi0fn45zCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] mailbox: mtk-cmdq: Remove unsued cmdq_get_shift_pa()
-To: Jason-JH Lin <jason-jh.lin@mediatek.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Nicolas Dufresne <nicolas@ndufresne.ca>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Nancy Lin <nancy.lin@mediatek.com>, 
-	Singo Chang <singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>, 
-	Moudy Ho <moudy.ho@mediatek.com>, Xiandong Wang <xiandong.wang@mediatek.com>, 
-	Sirius Wang <sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, 
-	Chen-yu Tsai <wenst@chromium.org>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-media@vger.kernel.org
+Date: Sun, 29 Mar 2026 11:18:04 -0500
+X-Gm-Features: AQROBzCYhRSHffyuIz40Wf6kh2CMkJkh3NmTLvlG_EffDBSm87x8_smNNQuGVlo
+Message-ID: <CABb+yY0KOk4ASTwomuiJC_XBGvpoAXEV3GhHYpWAbgQiOXZTLQ@mail.gmail.com>
+Subject: Re: [PATCH v2] mailbox: exynos: drop superfluous mbox setting per channel
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_090349_102816_0E1E5D15 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20260329_091816_998779_4E016E93 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,70 +118,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 11:05=E2=80=AFPM Jason-JH Lin <jason-jh.lin@mediate=
-k.com> wrote:
+On Fri, Mar 27, 2026 at 10:13=E2=80=AFAM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
 >
-> Since the mailbox driver data can be obtained using cmdq_get_mbox_priv()
-> and all CMDQ users have transitioned to cmdq_get_mbox_priv(),
-> cmdq_get_shift_pa() can be removed.
+> The core initializes the 'mbox' field exactly like this, so don't
+> duplicate it in the driver.
 >
-> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Tested-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
->  drivers/mailbox/mtk-cmdq-mailbox.c       |  8 --------
->  include/linux/mailbox/mtk-cmdq-mailbox.h | 12 ------------
->  2 files changed, 20 deletions(-)
+> Changes since v1:
+> * rebased to 7.0-rc5
+> * add tags (Thanks, Tudor!) and dropped RFT
 >
-> diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmd=
-q-mailbox.c
-> index d7c6b38888a3..f463f443e834 100644
-> --- a/drivers/mailbox/mtk-cmdq-mailbox.c
-> +++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-> @@ -123,14 +123,6 @@ void cmdq_get_mbox_priv(struct mbox_chan *chan, stru=
-ct cmdq_mbox_priv *priv)
->  }
->  EXPORT_SYMBOL(cmdq_get_mbox_priv);
+>  drivers/mailbox/exynos-mailbox.c | 4 ----
+>  1 file changed, 4 deletions(-)
 >
-> -u8 cmdq_get_shift_pa(struct mbox_chan *chan)
-> -{
-> -       struct cmdq *cmdq =3D container_of(chan->mbox, struct cmdq, mbox)=
-;
-> -
-> -       return cmdq->pdata->shift;
-> -}
-> -EXPORT_SYMBOL(cmdq_get_shift_pa);
-> -
->  static void cmdq_vm_init(struct cmdq *cmdq)
->  {
->         int i;
-> diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mai=
-lbox/mtk-cmdq-mailbox.h
-> index 07c1bfbdb8c4..a42b44d5fd49 100644
-> --- a/include/linux/mailbox/mtk-cmdq-mailbox.h
-> +++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
-> @@ -96,16 +96,4 @@ struct cmdq_pkt {
->   */
->  void cmdq_get_mbox_priv(struct mbox_chan *chan, struct cmdq_mbox_priv *p=
-riv);
+> diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-ma=
+ilbox.c
+> index 5f2d3b81c1db..d2355b128ba4 100644
+> --- a/drivers/mailbox/exynos-mailbox.c
+> +++ b/drivers/mailbox/exynos-mailbox.c
+> @@ -99,7 +99,6 @@ static int exynos_mbox_probe(struct platform_device *pd=
+ev)
+>         struct mbox_controller *mbox;
+>         struct mbox_chan *chans;
+>         struct clk *pclk;
+> -       int i;
 >
-> -/**
-> - * cmdq_get_shift_pa() - get the shift bits of physical address
-> - * @chan: mailbox channel
-> - *
-> - * GCE can only fetch the command buffer address from a 32-bit register.
-> - * Some SOCs support more than 32-bit command buffer address for GCE, wh=
-ich
-> - * requires some shift bits to make the address fit into the 32-bit regi=
-ster.
-> - *
-> - * Return: the shift bits of physical address
-> - */
-> -u8 cmdq_get_shift_pa(struct mbox_chan *chan);
+>         exynos_mbox =3D devm_kzalloc(dev, sizeof(*exynos_mbox), GFP_KERNE=
+L);
+>         if (!exynos_mbox)
+> @@ -129,9 +128,6 @@ static int exynos_mbox_probe(struct platform_device *=
+pdev)
+>         mbox->ops =3D &exynos_mbox_chan_ops;
+>         mbox->of_xlate =3D exynos_mbox_of_xlate;
+>
+> -       for (i =3D 0; i < EXYNOS_MBOX_CHAN_COUNT; i++)
+> -               chans[i].mbox =3D mbox;
 > -
->  #endif /* __MTK_CMDQ_MAILBOX_H__ */
-
-I think the simplest would be to take this with the other two
-predecessor patches.
-Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
+>         exynos_mbox->mbox =3D mbox;
+>
+>         platform_set_drvdata(pdev, exynos_mbox);
+> --
+> 2.51.0
+>
+Applied to mailbox/for-next
+Thanks
+Jassi
 
