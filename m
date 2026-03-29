@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1879F3D616
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 17:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FCAF3D61D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 18:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ciwR+Yq7ju75Bn/QB75/ch5qLZQgENkzyPM8tTaImt0=; b=hhuPpOwvpKbSupE5a8bTQrcpE8
-	gLkmVo2dqdfiEbALQaXZrK5nrh/rZyR5PFQGiOwRcCDVaPXQWBYEcECqPlZdra+M9msADRdH9NVhO
-	YuVkv9AF2kpL1S5h9UawM58fg0hPeP6T8VmuTKudayJ+dStwAjy2i5BbNV+SnCxqqg4TxD0dM3HFt
-	DHCFPJuVAsQxn8Yftsod/5B7vmmAbpHL38FklPilr5HagIUL8tIaJfbahZ+yXEGzCN1TrWB/dL0lN
-	fuBxACHMW6s7htzegaGNlcCrxL+CvWrAOtnQSxNLT9OQZO2A3GbTyEgIV9xzKHCRgxSynMcOWCkgB
-	vI1iHaJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Njz7AHRDbaSqIUIxMUDLk2rTZS4/tpP/qxaKpZyrLqM=; b=z01Qwa4La+OT8Fws5NscWAUPLu
+	LQi9KdAqtqPR2Xju6TAalYvpiBf3l+/Gbxxg05LRnzCB5Qj7j0lp2n38yT42ba/+5Z0M/HDLhVvSi
+	tWVASmtqBFoLrcwENW/rqJaF/LS7IRdWg3D2zrvmeWthyGXwTfHNpquSMcIik6EWjF/RkAvxV7Tz2
+	sf5mpw0hb7Ld/d1eeyauiqhhMQrwGn9v0ASHmHJ9qYbiIWNCqF61PIwQE9buxqacl53aaXdHVxVy1
+	bS8xJWyBv3hx0R/tHKswXjUoE6LV7yfi9Lqe5uu9jwZr5pTRH/mNe2nQGuXULpu1tr9MSfTx7eFWY
+	uagxT+vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6u9b-0000000AD6q-2V64;
-	Sun, 29 Mar 2026 17:42:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6u9a-0000000AD6j-3bWw
+	id 1w6uRi-0000000ADd2-1D1D;
+	Sun, 29 Mar 2026 18:01:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w6uRe-0000000ADcd-3WsZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 17:42:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D683660054;
-	Sun, 29 Mar 2026 17:42:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD8E1C116C6;
-	Sun, 29 Mar 2026 17:42:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774806145;
-	bh=Dgjm5JDJVPVi105xPjT0M4xjKqbcapeMVq6MJrJMHiM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=K1jBwiTRDPR5JvC58W6u26L8/DtzjfHPUvIDFhoueqTs8Yyh8imbx+gyg0AEbJ/C0
-	 E/P0YqYGro7/VjB/9vvmPxzj73HJ4eBS1VwSEaZhQms+WwMizCdiV66lfek0iR+XlR
-	 5NYPjEn7exjhGjtri4rs0Qw5sqU9W1VtBOsvxmJGAlzVMVcHt/vdg3iMHgMk/Mu7i0
-	 JQlYlUt+FkmspPZR98PWwk1stUEgEOpZBI8PMzOWegLeUSUp8hly7TiljKmUZE3ftQ
-	 QXAio38VTVRmvs8A4BEgGzp86HFnRZCx//Kcbr6dkoDVJ3E+xD5Vhk3Y+qWRz05zRX
-	 wZwT7h1mgwS0Q==
-Date: Sun, 29 Mar 2026 10:42:23 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org, Ong Boon
- Leong <boon.leong.ong@intel.com>, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 01/10] net: stmmac: fix TSO support when some
- channels have TBS available
-Message-ID: <20260329104223.358351ee@kernel.org>
-In-Reply-To: <acjzmxY9xmBInSwm@shell.armlinux.org.uk>
-References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
-	<E1w6bKj-0000000ELtf-3md9@rmk-PC.armlinux.org.uk>
-	<acjzmxY9xmBInSwm@shell.armlinux.org.uk>
+	Sun, 29 Mar 2026 18:01:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1379A1595;
+	Sun, 29 Mar 2026 11:00:59 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A8BA3F7D8;
+	Sun, 29 Mar 2026 11:01:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774807264; bh=HKatBNWBO7yrOGYf1pOvBsP48x6K9AIg6H3XVc/TJbI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YCwOPgcZIVYs3aDQ0ppSMQfkYBYlGucjp7xkJ5OFSjnc9K/ooxAme9pTzGioZXxsv
+	 4y2ctyjetjwvKVc+2YlDF1AEb+p7VdsB7ICiSxpHIZiADz1MhL8stn2jTBscXBKW9i
+	 v84HJwGTet3zeESOelw+I13CF6GhWbUH8++3TEB4=
+Date: Sun, 29 Mar 2026 19:00:54 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, etienne.carriere@st.com,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, d-gole@ti.com,
+	linux-fsdevel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	linux-doc@vger.kernel.org, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, philip.radford@arm.com,
+	souvik.chakravarty@arm.com, peng.fan@oss.nxp.com,
+	dan.carpenter@linaro.org, lukasz.luba@arm.com,
+	arm-scmi@vger.kernel.org, sudeep.holla@kernel.org,
+	michal.simek@amd.com, linux-kernel@vger.kernel.org,
+	jonathan.cameron@huawei.com, elif.topuz@arm.com,
+	linux-arm-kernel@lists.infradead.org, james.quinlan@broadcom.com,
+	devicetree@vger.kernel.org, brauner@kernel.org
+Subject: Re: [PATCH v3 06/24] dt-bindings: firmware: arm,scmi: Add support
+ for telemetry protocol
+Message-ID: <aclo1laTrsQFSan6@pluto>
+References: <20260329163337.637393-1-cristian.marussi@arm.com>
+ <20260329163337.637393-7-cristian.marussi@arm.com>
+ <177480549380.3925363.5137815678176793743.robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <177480549380.3925363.5137815678176793743.robh@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260329_110106_948220_DE57CB65 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,49 +81,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Mar 2026 10:40:43 +0100 Russell King (Oracle) wrote:
-> On Sat, Mar 28, 2026 at 09:36:41PM +0000, Russell King (Oracle) wrote:
-> > According to the STM32MP25xx manual, which is dwmac v5.3, TBS (time
-> > based scheduling) is not permitted for channels which have hardware
-> > TSO enabled. Intel's commit 5e6038b88a57 ("net: stmmac: fix TSO and
-> > TBS feature enabling during driver open") concurs with this, but it
-> > is incomplete.
+On Sun, Mar 29, 2026 at 12:31:33PM -0500, Rob Herring (Arm) wrote:
+> 
+> On Sun, 29 Mar 2026 17:33:17 +0100, Cristian Marussi wrote:
+> > Add new SCMI v4.0 Telemetry protocol bindings definitions.
 > > 
-> > This commit avoids enabling TSO support on the channels which have
-> > TBS available, which, as far as the hardware is concerned, means we
-> > do not set the TSE bit in the DMA channel's transmit control register.
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > Cc: Conor Dooley <conor+dt@kernel.org>
+> > Cc: devicetree@vger.kernel.org
+> > ---
+> >  Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
 > > 
-> > However, the net device's features apply to all queues(channels), which
-> > means these channels may still be handed TSO skbs to transmit, and the
-> > driver will pass them to stmmac_tso_xmit(). This will generate the
-> > descriptors for TSO, even though the channel has the TSE bit clear.
-> > 
-> > Fix this by checking whether the queue(channel) has TBS available,
-> > and if it does, fall back to software GSO support.  
 > 
-> This is sufficient for the immediate issue of fixing the patch below,
-> but I think there's another issue that also needs fixing here.
+> My bot found errors running 'make dt_binding_check' on your patch:
 > 
-> TSO requires the hardware to support checksum offload, and there is
-> a comment in the driver:
+> yamllint warnings/errors:
 > 
->         /* DWMAC IPs can be synthesized to support tx coe only for a few tx
->          * queues. In that case, checksum offloading for those queues that don't
->          * support tx coe needs to fallback to software checksum calculation.
->          *
->          * Packets that won't trigger the COE e.g. most DSA-tagged packets will
->          * also have to be checksummed in software.
->          */
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/firmware/arm,scmi.example.dtb: scmi (arm,scmi): protocol@19: Unevaluated properties are not allowed ('i2c2-pins', 'keys-pins', 'mdio-pins' were unexpected)
+> 	from schema $id: http://devicetree.org/schemas/firmware/arm,scmi.yaml
 > 
-> So, it seems at the very least we need to add a check (in a subsequent
-> patch) for priv->plat->tx_queues_cfg[queue].coe_unsupported to
-> stmmac_channel_tso_permitted().
+> doc reference errors (make refcheckdocs):
 > 
-> I'm also wondering about the stmmac_has_ip_ethertype() thing, which
-> checks whether the skb can be checksummed by the hardware, and how that
-> interacts with TSO, and whether that's yet another hole that needs
-> plugging.
+> See https://patchwork.kernel.org/project/devicetree/patch/20260329163337.637393-7-cristian.marussi@arm.com
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
 
-If the driver "un-advertises" checksum offload accordingly the core
-should automatically clear TSO feature.
+Yes...the new protocol block definition ended up intermixed with the
+previous protocol block...totally wrong.
+
+My bad.
+
+I will fix in V4.
+
+Thanks,
+Cristian
 
