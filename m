@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42D6F3D611
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 15:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150FBF3D60A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 15:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjPII5oaybYBvNCtsKjekCyFTanNB2CiKXbRUcpt/W8=; b=GUn4S6xGPWKa5CfhniWtYH8i2i
-	SEdgvBAfKWcQu5seqFUwf1IHOlXsuSW/6fc/SgCTw4enUJOGIFWlz+yXlLv3EnAw954Ztjdzg73XS
-	8lieQxnfpCzcS5BNsBiq1fMAx4XiilnxtyvkRk+3CpBpDBnZm1n9iJmTZWaUY5je2yqQKU30/36gA
-	E6E7rBsPq+IPiJOMSPdb+zEq2X1m6iqWl1nOP5oPnK+ii7IAL2j/PYSwNYvyBktGB8r3c981Ybkxh
-	KvY9elQ+hd26UDumv6R+DmSFxv9m/vGFGhiLIe/rVc4cTglnnlqZgtM8Hptdm9BY7+U8I5oCOk33E
-	vzyJrVGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dSTWTisZC7qHFtnvjGqfuBKqkwNcsHPHtyRlsXTafDg=; b=L1UZZGcXSxxq/nXlgvsn9JeIwY
+	/SSwCVusFtELGeXro9c2ASaK4/Z0d4UqbZB6a8UnZT4GatJqUwloJmPZZ3s4OA3FBPLcI2Vic8hW0
+	+vYzgxuLR/q+MGwDZ+HGIckDrPvVucqHKHP1F1QCwIEowzcj4ndX1Y5F/vu05WnxZtDDxxnXDk0WB
+	qd9qa7L+Z5HqDWnjiAAZ5el4HMYs2z+0vm5tbM7HA+M4iSvbAI/mg9rToMTu0zg7OOUbMvXG8PtxU
+	MRUzwsPizegcHfeHaAcepsHGEH2QvWAam+w0FfMGmyvPdyFGlncl7QyxsvqXtQgma7eaDXMgrVd8i
+	SKgQQI2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rnF-0000000A33Y-2Tx1;
-	Sun, 29 Mar 2026 15:11:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w6s0a-0000000A4Ls-0x5Y;
+	Sun, 29 Mar 2026 15:25:00 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rn3-0000000A2zZ-1XUB
+	id 1w6s0X-0000000A4LU-022n
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 15:11:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 519B9444E2;
-	Sun, 29 Mar 2026 15:10:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF744C2BC9E;
-	Sun, 29 Mar 2026 15:10:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774797055;
-	bh=ohMCJ+s4bInP/pmkvfOwZWL0zoadxQwlt8rMN1PDwgU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KBn0vyJOCg5l6xh4DCcDUaDzdNNjf6kNMXZLCTWlekLnSuINkPqGHqnUylK12Vw87
-	 fHb/vVnkedCLBOmtr/6Nzzo9O2xXCT64UnN9EWEFD8FWIU6avwSfTmZI4BTmqe4Zvg
-	 N69owR+OMNHK8n++DeK6a1C0n6tUsxIpQa3fBRqgAULzS23h+v/6K8AiXNYSz00hi0
-	 Bo6LlE+nHRHnF61wRb9zutgEd4ThpAvwNRF8DDl8QydcE58U/jhh0n0YZkxyvM0j8x
-	 Rd7TQTyHSBEKXJcbw9e0fkOD8jPzhIvYUs5CQBLBuedpALACzDOy7YPUeUJbs2+Wkv
-	 +8yXZZuYlCl2A==
-From: Thierry Reding <thierry.reding@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 2/7] soc/tegra: Changes for v7.1-rc1
-Date: Sun, 29 Mar 2026 17:10:39 +0200
-Message-ID: <20260329151045.1443133-2-thierry.reding@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260329151045.1443133-1-thierry.reding@kernel.org>
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	Sun, 29 Mar 2026 15:24:58 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62TAvNFh3148474;
+	Sun, 29 Mar 2026 08:24:43 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:message-id:mime-version:subject:to; s=
+	pfpt0220; bh=dSTWTisZC7qHFtnvjGqfuBKqkwNcsHPHtyRlsXTafDg=; b=ZM3
+	6BFl4xA+2IqF4kDw8ZeWGuCpVVLzXdzbKYMa51xlOc7BVXR+aKgOn3RcY2QuG1N1
+	Shlpm+SNxeZEpR4dPHwTEvlf+2U9mldiH2kchfr8A17Wqsi8hi4PJ0Uvg52hajSm
+	TSh9SSKbmtaC0PqySFx1KuZrDMjlQ4+Vyktz64Ibyf+4l8jv9o6oIg1qJ7VRavsP
+	Q/Lmoiz17SB7i8FRZJfQrhuSaiXtDmyvEj2+weeDOKSlmfjtYXLdmtPloDoIEFhQ
+	wzeObDVKsTcaCrPUFCpgSP2rLMagnwdXLMa1gjSSk6JpJSA44uxyXp4biljHmI1N
+	c9KtnY7vWiOlg/LzxXQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4d6cbjsx39-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 29 Mar 2026 08:24:43 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Sun, 29 Mar 2026 08:24:42 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Sun, 29 Mar 2026 08:24:42 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id 501723F70A3;
+	Sun, 29 Mar 2026 08:24:40 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>
+Subject: [PATCH v2 0/2] perf: marvell: Add CN20K DDR PMU support
+Date: Sun, 29 Mar 2026 20:54:37 +0530
+Message-ID: <20260329152439.10573-1-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzI5MDExOSBTYWx0ZWRfX82PwbOSGQcTk
+ abLIH1ry8qwVG7mTofV3IJgkM63PVX1trEmaAJh1DuFj3AIagPdgvvqk8pcv5gDvs3LC5KXTlmS
+ Pb8UqDq6/B6mz5jc78g/uH1WCwhAvlwQmlNWHpio80mdGBFSJCyTmGKiUJRO1Z4SzkDi7EdZxF/
+ FSigI1MvPeY//k8fG0j+6J3y363xmk6YwVJTVLpYjfkMQfCZA0L24Ekvfo5CEesehYCDWHEn7Kr
+ 75Lq2fIh04T+BjZ6xmZM8zVcEXfVWr4tpjz/QaZgO4GT9bHLqUe/HLcWhON0m9lH28GFUbGdIYF
+ ojMs9Gxr6A5o/eSe3NACkTRuH+9umNh4lyLml09b/Gr+Op6O4fPb3Ne6DYyVNhoqKG9VYTIXnY4
+ GGCg9gRLLXn9OckH573QZzmbYQD8E21YjYqcG9zzp4M85BC0t7cAe/AujiDmss9plsFJW00Enw7
+ 6+aRaYvEP6JG34cRwsg==
+X-Proofpoint-GUID: LYaSR4RAhHpENY-j6uPpg1-_o8eqnexB
+X-Authority-Analysis: v=2.4 cv=Pf3yRyhd c=1 sm=1 tr=0 ts=69c9443b cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=Yq5XynenixoA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=EAYMVhzMl8SCOHhVQcBL:22 a=M5GUcnROAAAA:8 a=g9OxYFsRBXyit7-cW8EA:9
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-ORIG-GUID: LYaSR4RAhHpENY-j6uPpg1-_o8eqnexB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-29_04,2026-03-28_01,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_081101_445859_62C3DA42 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260329_082457_054867_B76E7B3F 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +98,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <thierry.reding@gmail.com>
+This series adds support for the Marvell CN20K DRAM Subsystem (DSS)
+performance monitor in the existing marvell_cn10k_ddr_pmu driver, and
+documents the device tree binding for the new compatible string.
 
-Hi ARM SoC maintainers,
+The CN20K PMU provides eight programmable counters and two fixed
+counters (DDR reads and writes).  Patch 1 adds the devicetree schema for
+"marvell,cn20k-ddr-pmu".  Patch 2 wires OF and ACPI (MRVL000B) match
+entries, adds CN20K register offsets and event maps, and refactors
+platform data to use silicon variant flags.
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+Changes in v1:
+- Added a description field to the binding.
+- Simplified the compatible property using 'const' instead of 'items/enum'.
+- Updated the example node name to include a unit-address matching the reg base.
 
-are available in the Git repository at:
+Geetha sowjanya (2):
+  dt-bindings: perf: marvell: Document CN20K DDR PMU
+  perf: marvell: Add CN20K DDR PMU support
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-soc
+ .../bindings/perf/marvell-cn20k-ddr.yaml      |  37 ++++
+ drivers/perf/marvell_cn10k_ddr_pmu.c          | 186 ++++++++++++++++--
+ 2 files changed, 207 insertions(+), 16 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml
 
-for you to fetch changes up to 4b23febb6b11cd06183bed3d21b87ba7d6a8a1e0:
+-- 
+2.25.1
 
-  MAINTAINERS: Change email address for Thierry Reding (2026-03-28 01:41:07 +0100)
-
-Thanks,
-Thierry
-
-----------------------------------------------------------------
-soc/tegra: Changes for v7.1-rc1
-
-A number of fixes went into this for the PMC and CBB drivers. The PMC
-driver also gains support for Tegra264 and a Kconfig symbol for the
-upcoming Tegra238 is added. The various per-generation Kconfig symbols
-are now also enabled by default for ARCH_TEGRA in order to reduce the
-number of configuration options that need to be explicitly enabled.
-
-----------------------------------------------------------------
-Jon Hunter (10):
-      soc/tegra: pmc: Add kerneldoc for reboot notifier
-      soc/tegra: pmc: Correct function names in kerneldoc
-      soc/tegra: pmc: Add kerneldoc for wake-up variables
-      soc/tegra: pmc: Remove unused AOWAKE definitions
-      soc/tegra: pmc: Add support for SoC specific AOWAKE offsets
-      soc/tegra: pmc: Add AOWAKE regs for Tegra264
-      soc/tegra: pmc: Add Tegra264 wake events
-      soc/tegra: pmc: Refactor IO pad voltage control
-      soc/tegra: pmc: Rename has_impl_33v_pwr flag
-      soc/tegra: pmc: Add IO pads for Tegra264
-
-Krzysztof Kozlowski (1):
-      soc/tegra: Make ARCH_TEGRA_SOC_FOO defaults for NVIDIA Tegra
-
-Sumit Gupta (4):
-      soc/tegra: cbb: Add support for CBB fabrics in Tegra238
-      soc/tegra: cbb: Set ERD on resume for err interrupt
-      soc/tegra: cbb: Fix incorrect ARRAY_SIZE in fabric lookup tables
-      soc/tegra: cbb: Fix cross-fabric target timeout lookup
-
-Svyatoslav Ryhel (2):
-      soc/tegra: pmc: Enable core domain support for Tegra114
-      soc/tegra: common: Add Tegra114 support to devm_tegra_core_dev_init_opp_table
-
-Thierry Reding (2):
-      soc/tegra: Add Tegra238 Kconfig symbol
-      MAINTAINERS: Change email address for Thierry Reding
-
- MAINTAINERS                          |  14 +-
- drivers/soc/tegra/Kconfig            |  20 ++
- drivers/soc/tegra/cbb/tegra234-cbb.c | 169 ++++++++-
- drivers/soc/tegra/common.c           |   5 +-
- drivers/soc/tegra/pmc.c              | 662 ++++++++++++++++++++++-------------
- 5 files changed, 611 insertions(+), 259 deletions(-)
 
