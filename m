@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26BA10D148A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 00:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B2C10D148A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 00:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcjE38flg+beXCyYhvfc5FSyv3vszAeQaaEqYfMJIcQ=; b=4NrcjHAPKh1wrTxN49MoQpDtWL
-	fhqJh5KuJIxHnY3ulw6t6pH2kuTU3rofYM2tNXGJqFqkH/H/NpcFFSjln5xK6AZ5di8oVTj5s4FtB
-	Rby0ZtBgA3vQqdAhPdLvirzOM5YTOx9NRV2rbDJpWgnrBEYXMs5BH+//tsVFVLrDIx6nxpLsH+Mny
-	ZEAcNzyuSYqZeC/up8shaibc/H6UhQvmc7VoEUerBzCzpJAQunLCCdxHM3VmjmjkdvJuYpGu35O+y
-	7pOpn1s1Xrf2eiZVPz15CT3m2GC0sha9LXIrR5wwA97e6kJe3eTjGprGD3kmYDbs3mHIz3v7QzYx/
-	g14QohkA==;
+	bh=k1x7gH1eTuySIxAjJtVXx70vFzTUtBL9VqU5Cc+Qdgk=; b=oGWJ4FgWdcG2ipdEGK3EjCANow
+	pngduVW6Ng39g6lh9O8GdSbTNbTY1gXiz92JtuNsQcXE20BMGllm+216QcoA52tuviQFB0WYERJfT
+	rlPma4EszAjT5J/rqCSjOPkrhUn0Kr8pbH13s3Jw20Xlgr6QwNOBrcyYgtwH8DQ8SY2QZ9j4jD9d7
+	gol2x5295hmwdPrDUMocEGiCMdWTDoTKTYkqpY/8OLZrcA8A8gtWdSym57JlFSoGEtm3K3in7esu6
+	c1Z35DNJPvG7v8tGVCM57d8EF6ml5XMGiuYp6hGwDieToa9CDyW3af+FHDDlWNDmIg/8fee7pKgxR
+	VaMG/jSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6df3-00000009P9N-340n;
-	Sun, 29 Mar 2026 00:05:49 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w6dje-00000009PMb-1ctI;
+	Sun, 29 Mar 2026 00:10:34 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6df1-00000009P8y-0QBy
+	id 1w6djb-00000009PM8-3hze
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 00:05:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xcjE38flg+beXCyYhvfc5FSyv3vszAeQaaEqYfMJIcQ=; b=lxv/6hvbzGP/4c4zEr2Q8luyNd
-	xhBfyzkSNK3UwaeDM0XQhZTPo6PSZvgstOY2FjpTSHPPr7pD+ZtpA2U5i1pBHMyLUgxy0g+r4k3R3
-	AdHyEp6Ln/1O9K7lvIRr0aUCkGuFvkJE7m7Jz1grPsHZVkEhCns1Gu2Zgw7Rx9ENC+Tw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w6dek-00DqEm-Fj; Sun, 29 Mar 2026 01:05:30 +0100
-Date: Sun, 29 Mar 2026 01:05:30 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Anirudh Srinivasan <anirudhsriniv@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: aspeed: Enable networking for Asus Kommando
- IPMI Card
-Message-ID: <ed3d39df-0a0e-427b-86cf-b9b2d2094b51@lunn.ch>
-References: <20260328-asus-kommando-networking-v1-1-66d308b88536@gmail.com>
+	Sun, 29 Mar 2026 00:10:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=k1x7gH1eTuySIxAjJtVXx70vFzTUtBL9VqU5Cc+Qdgk=; b=ahnmyFwF1QL366ZcprC61eQJyg
+	G1UgkJQqLB7dkm9aPLyzxuqR9EPgWfgvH95nfE3+iMnt1YVqf0TIsY403UOvbjXc8HXrks13us6C5
+	33TPAzBn/lOaJHYJuJD/yoXvUqJwxBZueDLEtcBzoRQTX9MR735dIXF69OPIZoSRFtkn/fL27AY/s
+	AuWMr2rwju1O08KKs6jK6f6FzM16Frky+JLims+uknyez9OB5gJzSuQIFScm3kxptfzHrHoGbo/C6
+	2TSAIJaxVrKD6C5iqFk5YutkWnhEAjopQggF0El4ogOkcAmMW6nj/VqVcFjEaeXvzW8f9FbKoCgAM
+	WFtdTKqQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53134)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w6djU-000000007Yi-3RjU;
+	Sun, 29 Mar 2026 00:10:24 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w6djR-0000000018F-0z79;
+	Sun, 29 Mar 2026 00:10:21 +0000
+Date: Sun, 29 Mar 2026 00:10:21 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 00/10] net: stmmac: TSO fixes/cleanups
+Message-ID: <acht7WzzX2BlITQy@shell.armlinux.org.uk>
+References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260328-asus-kommando-networking-v1-1-66d308b88536@gmail.com>
+In-Reply-To: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_170547_140926_F1AE3730 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20260328_171031_928166_574968AC 
+X-CRM114-Status: GOOD (  35.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,34 +85,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 28, 2026 at 06:39:59PM -0500, Anirudh Srinivasan wrote:
-> Adds the DT nodes needed for ethernet support for Asus Kommando, with
-> phy mode set to rgmii-id.
+On Sat, Mar 28, 2026 at 09:36:21PM +0000, Russell King (Oracle) wrote:
+> Hot off the press from reading various sources of dwmac information,
+> this series attempts to fix the buggy hacks that were previously
+> merged, and clean up the code handling this.
 > 
-> When this DT was originally added, the phy mode was set to rgmii (which
-> was incorrect). It was suggested to remove networking support from the
-> DT till the Aspeed networking driver was patched so that the correct phy
-> mode could be used.
+> I'm not sure whether "TSO" or "GSO" should be used to describe this
+> feature - although it primarily handles TCP, dwmac4 appears to also
+> be able to handle UDP.
 > 
-> The discussion in [1] mentions that u-boot was inserting clk delays that
-> weren't needed, which resulted in needing to set the phy mode in linux
-> to rgmii incorrectly. The solution suggested there was to patch u-boot to
-> no longer insert these clk delays and use rgmii-id as the phy mode for
-> any future DTs added to linux.
+> In essence, this series adds a .ndo_features_check() method to handle
+> whether TSO/GSO can be used for a particular skbuff - checking which
+> queue the skbuff is destined for and whether that has TBS available
+> which precludes TSO being enabled on that channel.
 > 
-> This DT was tested with a u-boot DT modified to insert clk delays of 0
-> (instead of patching u-boot itself). [2] adds a u-boot DT for this
-> device (without networking) and describes how to patch it to add
-> networking support. If this patched DT is used, then networking works
-> with rgmii-id phy mode in both u-boot and linux.
+> I'm also adding a check that the header is smaller than 1024 bytes,
+> as documented in those sources which have TSO support - this is due
+> to the hardware buffering the header in "TSO memory" which I guess
+> is limited to 1KiB. I expect this test never to trigger, but if
+> the headers ever exceed that size, the hardware will likely fail.
+> 
+> I'm also moving the VLAN insertion for TSO packets into core code -
+> with the addition of .do_Features_check(), this can be done and
+> unnecessary code removed from the stmmac driver.
+> 
+> I've changed the hardware initialisation to always enable TSO support
+> on the channels even if the user requests TSO/GSO to be disabled -
+> this fixes another issue as pointed out by Jakub in a previous review
+> of the two patches (now patches 5 and 6.)
+> 
+> I'm moving the setup of the GSO features, cleaning those up, and
+> adding a warning if platform glue requests this to be enabled but the
+> hardware has no support. Hopefully this will never trigger if everyone
+> got the STMMAC_FLAG_TSO_EN flag correct.
+> 
+> Also move the "TSO supported" message to the new
+> stmmac_set_gso_features() function so keep all this TSO stuff together.
 
-I've been looking at
+There are a few more issues that I would like to fix in this driver
+in respect of the TSO support.
 
-https://elixir.bootlin.com/u-boot/v2026.04-rc5/source/drivers/clk/aspeed/clk_ast2600.c
+STM32MP151 and STM32MP25xx both state that when the TSE bit is set
+in the channel Tx control register, TxPBL must be >= 4. We don't
+check that is the case. Sadly, the documentation doesn't say whether
+it's the TxPBL field value or the burst limit itself (there's the PBLx8
+bit which multiplies the values in the field by 8.) Given the unknowns
+here, I don't have a solution for this yet.
 
-And i don't see where mac2-clk-delay is implemented. Could you point
-out the code?
+The other restriction is that the MSS[13:0] value must be greater than
+the dwmac core's configured data width in bytes, with a recommendation
+that it is 64 bytes or more. MSS[13:0] comes from
+skb_shinfo(skb)->gso_size. However, the header plus the MSS size must
+not exceed 16383 bytes. I think this can be catered for by adding
+another test in the new stmmac_features_check() function:
 
-Thanks
-	Andrew
+	if (skb_is_gso(skb)) {
+		headlen = skb_headlen(skb);
+		gso_size = skb_shinfo(skb)->gso_size;
+...
+		if (headlen > 1023 || gso_size < 64 ||
+		    gso_size + headlen > 16383)
+			features &= ~NETIF_F_GSO_MASK;
+
+What I haven't worked out yet is whether any of these conditions
+just "can't happen" with our networking layers - I suspect the
+gso_size < 64 would be one such case.
+
+Next, the hardware has a maximum size for segmentation, which is 256KiB.
+I think that needs netif_set_tso_max_size(dev, 256KiB). We're currently
+safe, because the default is 64KiB, and I'd worry about whether we'd
+overflow the space in the TX descriptor ring.
+
+If anyone has any comments on the above, that would be good. Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
