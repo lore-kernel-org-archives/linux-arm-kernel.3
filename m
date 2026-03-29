@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64368F3D613
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 15:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42D6F3D611
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 15:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fQXhZSAk7VD3L86H0ZvFKEEDgOqNqiXabjrsBnHmfo8=; b=15CrCPFkbg0ZCRur9fcc7tkHAr
-	zpOkCFqhuUqOor2BRbVJCWOTW2O2oNnNGU042ta0t6fN9M/je0geqzQcz5YuZe+xA0fkURKH1hV+Y
-	6aS5b5XyrRUcHOwXFSq4C7oINL2Q56tYwvPAsQ/2IAxKOtxQtaC7HYp0dE1Md1HSu9fnkYGpNtiW4
-	LODJdbiRsP1rLpaKMmy4FE7POu725z/Arc7EW1VB8JuPexczBf8uSLqQeK00i1Z483vP9w8BEfaWg
-	3dLD5tioCf0mwEdgGK29diFkk1ppci8/n1o4sPNHYwA1Rm+sbLJu16WB8Eo2YOwUR0I4kle0yOfyO
-	703DdITA==;
+	bh=sjPII5oaybYBvNCtsKjekCyFTanNB2CiKXbRUcpt/W8=; b=GUn4S6xGPWKa5CfhniWtYH8i2i
+	SEdgvBAfKWcQu5seqFUwf1IHOlXsuSW/6fc/SgCTw4enUJOGIFWlz+yXlLv3EnAw954Ztjdzg73XS
+	8lieQxnfpCzcS5BNsBiq1fMAx4XiilnxtyvkRk+3CpBpDBnZm1n9iJmTZWaUY5je2yqQKU30/36gA
+	E6E7rBsPq+IPiJOMSPdb+zEq2X1m6iqWl1nOP5oPnK+ii7IAL2j/PYSwNYvyBktGB8r3c981Ybkxh
+	KvY9elQ+hd26UDumv6R+DmSFxv9m/vGFGhiLIe/rVc4cTglnnlqZgtM8Hptdm9BY7+U8I5oCOk33E
+	vzyJrVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rnG-0000000A35Q-3FMW;
-	Sun, 29 Mar 2026 15:11:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w6rnF-0000000A33Y-2Tx1;
+	Sun, 29 Mar 2026 15:11:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rnC-0000000A32w-1Fss
+	id 1w6rn3-0000000A2zZ-1XUB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 15:11:10 +0000
+	Sun, 29 Mar 2026 15:11:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9FDA600AC;
-	Sun, 29 Mar 2026 15:11:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14A32C116C6;
-	Sun, 29 Mar 2026 15:11:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 519B9444E2;
+	Sun, 29 Mar 2026 15:10:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF744C2BC9E;
+	Sun, 29 Mar 2026 15:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774797069;
-	bh=48O06jw41mdFWfzz7EZIRuUwiyu34of3gLO+Z+5DX9U=;
+	s=k20201202; t=1774797055;
+	bh=ohMCJ+s4bInP/pmkvfOwZWL0zoadxQwlt8rMN1PDwgU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DAAt5zP9x1B1zJc01c09CLZyU02+98UDTZrLobQfzigELVdHNbs/kS3BMZCLBU9Rw
-	 5JVqbjlZJ5XCENTd8T0cgZUu5Qlf6x49StTWQq4gDgTMtjIFnM1uYJag6gTxnNNmdV
-	 QXD35rZf9DOL0pMU0ZlwXDXGCiH8YfeNGaTEtubvxlsY89PMnTvYmjQDUJAZGgR5An
-	 yBYBzNoUd3TCGTuXPTJ+sp8upKPoTzxY4jh6faRuKN5SWJDFqsyqgWYXzi5+8NAaLU
-	 yAUq63ZdNNXZu9Jg4O1Uip8GkZUxOoMWSWXCVPsh83qCP6FtnEp/0+Zl9mgizOIaG4
-	 25KmnYrBjRpfQ==
+	b=KBn0vyJOCg5l6xh4DCcDUaDzdNNjf6kNMXZLCTWlekLnSuINkPqGHqnUylK12Vw87
+	 fHb/vVnkedCLBOmtr/6Nzzo9O2xXCT64UnN9EWEFD8FWIU6avwSfTmZI4BTmqe4Zvg
+	 N69owR+OMNHK8n++DeK6a1C0n6tUsxIpQa3fBRqgAULzS23h+v/6K8AiXNYSz00hi0
+	 Bo6LlE+nHRHnF61wRb9zutgEd4ThpAvwNRF8DDl8QydcE58U/jhh0n0YZkxyvM0j8x
+	 Rd7TQTyHSBEKXJcbw9e0fkOD8jPzhIvYUs5CQBLBuedpALACzDOy7YPUeUJbs2+Wkv
+	 +8yXZZuYlCl2A==
 From: Thierry Reding <thierry.reding@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
@@ -49,15 +49,19 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 7/7] arm64: tegra: Default configuration changes for v7.1-rc1
-Date: Sun, 29 Mar 2026 17:10:44 +0200
-Message-ID: <20260329151045.1443133-7-thierry.reding@kernel.org>
+Subject: [GIT PULL 2/7] soc/tegra: Changes for v7.1-rc1
+Date: Sun, 29 Mar 2026 17:10:39 +0200
+Message-ID: <20260329151045.1443133-2-thierry.reding@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260329151045.1443133-1-thierry.reding@kernel.org>
 References: <20260329151045.1443133-1-thierry.reding@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260329_081101_445859_62C3DA42 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +86,58 @@ The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-arm64-defconfig
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-soc
 
-for you to fetch changes up to c655a14958363aea8a1d0bbf3358fcee7f89a210:
+for you to fetch changes up to 4b23febb6b11cd06183bed3d21b87ba7d6a8a1e0:
 
-  arm64: tegra: defconfig: Drop redundant ARCH_TEGRA_foo_SOC (2026-03-25 10:49:46 +0100)
+  MAINTAINERS: Change email address for Thierry Reding (2026-03-28 01:41:07 +0100)
 
 Thanks,
 Thierry
 
 ----------------------------------------------------------------
-arm64: tegra: Default configuration changes for v7.1-rc1
+soc/tegra: Changes for v7.1-rc1
 
-Drop the various ARCH_TEGRA_*_SOC options from the default configurations
-since they are now enabled by default for ARCH_TEGRA.
+A number of fixes went into this for the PMC and CBB drivers. The PMC
+driver also gains support for Tegra264 and a Kconfig symbol for the
+upcoming Tegra238 is added. The various per-generation Kconfig symbols
+are now also enabled by default for ARCH_TEGRA in order to reduce the
+number of configuration options that need to be explicitly enabled.
 
 ----------------------------------------------------------------
-Krzysztof Kozlowski (2):
+Jon Hunter (10):
+      soc/tegra: pmc: Add kerneldoc for reboot notifier
+      soc/tegra: pmc: Correct function names in kerneldoc
+      soc/tegra: pmc: Add kerneldoc for wake-up variables
+      soc/tegra: pmc: Remove unused AOWAKE definitions
+      soc/tegra: pmc: Add support for SoC specific AOWAKE offsets
+      soc/tegra: pmc: Add AOWAKE regs for Tegra264
+      soc/tegra: pmc: Add Tegra264 wake events
+      soc/tegra: pmc: Refactor IO pad voltage control
+      soc/tegra: pmc: Rename has_impl_33v_pwr flag
+      soc/tegra: pmc: Add IO pads for Tegra264
+
+Krzysztof Kozlowski (1):
       soc/tegra: Make ARCH_TEGRA_SOC_FOO defaults for NVIDIA Tegra
-      arm64: tegra: defconfig: Drop redundant ARCH_TEGRA_foo_SOC
 
-Thierry Reding (1):
-      Merge branch 'for-7.1/soc' into for-7.1/arm64/defconfig
+Sumit Gupta (4):
+      soc/tegra: cbb: Add support for CBB fabrics in Tegra238
+      soc/tegra: cbb: Set ERD on resume for err interrupt
+      soc/tegra: cbb: Fix incorrect ARRAY_SIZE in fabric lookup tables
+      soc/tegra: cbb: Fix cross-fabric target timeout lookup
 
- arch/arm64/configs/defconfig |  7 -------
- drivers/soc/tegra/Kconfig    | 11 +++++++++++
- 2 files changed, 11 insertions(+), 7 deletions(-)
+Svyatoslav Ryhel (2):
+      soc/tegra: pmc: Enable core domain support for Tegra114
+      soc/tegra: common: Add Tegra114 support to devm_tegra_core_dev_init_opp_table
+
+Thierry Reding (2):
+      soc/tegra: Add Tegra238 Kconfig symbol
+      MAINTAINERS: Change email address for Thierry Reding
+
+ MAINTAINERS                          |  14 +-
+ drivers/soc/tegra/Kconfig            |  20 ++
+ drivers/soc/tegra/cbb/tegra234-cbb.c | 169 ++++++++-
+ drivers/soc/tegra/common.c           |   5 +-
+ drivers/soc/tegra/pmc.c              | 662 ++++++++++++++++++++++-------------
+ 5 files changed, 611 insertions(+), 259 deletions(-)
 
