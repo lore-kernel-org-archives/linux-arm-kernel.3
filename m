@@ -4,103 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285C7F3D5FF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 12:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CD9F3D5FF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 12:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tLsn8hpa4BdCwst8VwbSLWHz/M72CzfhEMC9Z3GeEs=; b=qQgawEU5iYa8+aqBLXCkwfMJ+w
-	0eXhIlNDXOOnXqa+SlL2QiXsstrHb3DiwmjL2bUi4wh2E0P1KzIPG/1nZoOkJVRDUgcqWBrSE7QYv
-	Pf8qy6N6ChRCRzZY/ejOO5RaC34jogFbbCjX0/cBQLFFQ5GRo/Tm0oxOSPkEJSCfeg0cUfssCOYfg
-	2w5QRBaDOE6f/8orAp6rXPWL46SQ4Qsf5fKxX/xuaMhiCVrM0g7i//OfIhdGiee2Tg4JkRFGYPC2g
-	meL3dEl8jR2VFfgMwsSIvRGZyPmPobRw+ifMT1+nY6jgtk+Is3ebJDfBfJG7QYlUC8LxhA2dTfOb3
-	RN72eA9w==;
+	bh=nDn3DrkMDCpaWDQpNGLLxPCXteWRJp5QwTlOtMUyyhM=; b=dhB2m/hAiu3gXiBB77M8ouFzrf
+	I7gwi7r0ceJwOiazFW6n+i+4RtrLcUhYAd5l3R+vLKWZRAJTpoH6s7MirAXD5h3Q2+prnwPyPzgtq
+	063R1h7/WCWsb1zK+ahKMq5m5PNacKl1J7jVnIeDf2JIRoOqa+jICnwCHNf9dNYnvKhsSsCIgdrdW
+	WaX3b7G1bQQ9QV8inANYT+PAL0DRMgJLnx07wsho3aAGkn5h7jtm8WC4pT0nJ7p+rS8S69aCwdTu8
+	AvOoJrY429ZYflUjheDB79ckUpnDDi4OZosUGhXcJ+LvvKTyllKXVL6XomnJesOmuOsIzrwX5OVgM
+	O2EBB1pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6pMJ-00000009uyr-0bpd;
-	Sun, 29 Mar 2026 12:35:15 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1w6pMP-00000009v0g-3DDa;
+	Sun, 29 Mar 2026 12:35:21 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6pMG-00000009uyP-2b9O
+	id 1w6pMN-00000009uzI-0h4P
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 12:35:13 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c6e2355739dso1463057a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 05:35:12 -0700 (PDT)
+	Sun, 29 Mar 2026 12:35:20 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-66a851e62c6so3735675a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 05:35:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774787717; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S9BoZCyPTllGbZbyDlaAds7rIGKLllnlyW82hIk6xZm3iz/RubMe7pxTamAo9QhIYf
+         KnRmLybapcZxcmT4Vg9HcyeuCtXsqBcGxw9y3RBoFpo5m9A0SrmEfJwblyRxExhDz+Of
+         XS6hrD3F8iFm8SVUMC+ihwWY93Gs79R4hXAJCbNcjQwfzsG23mg75VaqIjQ3m1GNk9Y/
+         7P4IDzG3Av+KwLcu0Z6HOvZmM65AAkIDB5bAg3GiJUaQllWdrUmBAd2Ttk9g3VDDXxwF
+         P5+c9XR/+K+uIMjTdXBVK2PIRlezSmmnYzAvaEZWxFj8/AEVCRFDw63iJwWcBvIcnoQ1
+         Q/aQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nDn3DrkMDCpaWDQpNGLLxPCXteWRJp5QwTlOtMUyyhM=;
+        fh=3AQiOC9kiZOION5xtGbpD0MLnrMu5wSMZicyPd8DzBs=;
+        b=SKj7MYlvgp2+Iq+InsN7vFgN7qFK1bF/Jf0CznAGsvX6U/Tr+YP6S6heC3BI0xWjFV
+         oDRmWYiJokTAUhofLhPHgU7pYugxyn+0gQhgtdstjGW4Lic0wr1u4FRQCCYcDkKs4kqZ
+         eqJVNDdaFIlWajVpr8qqXxHJkXxgV2QH6R2R+lLiZ0vSBv731fWxQEDvYUm04KB1P2To
+         jtvfvIFECajUNB8/+rQ7VyqtpHk0yoY2Dn0FCgzYjDKeUeK+92e0o0Z30QmbhgPCJ+0c
+         ylhfxXUtIa/0utsxbqNlTmboZsTbOHwnEAQECCVlS/nUtknHMe91+jXsbrWhJR/RUmAW
+         1GnQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774787711; x=1775392511; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1774787717; x=1775392517; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7tLsn8hpa4BdCwst8VwbSLWHz/M72CzfhEMC9Z3GeEs=;
-        b=RH2K+ppwgh4ag/fN26/wMeueb0D2uDOlL5QYXewTSYBK59TesUFLdr12GPb2ekaGwx
-         r8cROyl59c5qhYtSUaLNu0ORfi0XXFu0VbT2VXIhjLAeszUcecJgeYHbiI4kfQ8r7E0x
-         5wUotoIqi3QI/gTu5nRbXtdHEsNiCrR5tnMS12goaN3uLl32rs2kaUXXkw1ABLmCYz6a
-         5jCt9RSPrK/aHdnHxV9ZCmvDPdtfXlnPc9Sbe4MBAJJSXrJtepEZ2E3LGe8NCawb8QiQ
-         7FeAJQoG1bRPRvyK9amgMwtvuUkl+XiB4iHE3xqlIFSLH0TOqFAiHbxNrjugAuZjIvsx
-         ++LA==
+        bh=nDn3DrkMDCpaWDQpNGLLxPCXteWRJp5QwTlOtMUyyhM=;
+        b=grJ4tC4aSbYnmoS/N/N3VBMeGnm5c+dZjyTDs4vxeykkdRmURVA6MCSGop48LyhSc/
+         4W5Tkag9RTOj6FvW0XZRuzpDAU1Wy437HF6Brr8V75cPeXvIcMVhLya07EgNHFUmQdGZ
+         BPR/vW7T+upq1fjmnMEaCuS4CEJejWyi8Pt31LmpV9wzhgOUFHLfAKjnbFa1yjskcEfq
+         WsepaVqGT89bgv3OvdeQm2ufm+nKSO5LYu+8pKGC1DYP15zPu5476qBLnYKSpN13UkR5
+         OL4A34paBpPqGRyWPt9Ipkc44K4VHiUDXD+hcxvEiINuzEkzCfN5OABc8ZPKFi0W0Vjt
+         zDkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774787711; x=1775392511;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1774787717; x=1775392517;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=7tLsn8hpa4BdCwst8VwbSLWHz/M72CzfhEMC9Z3GeEs=;
-        b=j2HdgOQkENupkTh+3nyqBZlMcZd60HRj4+ugP4u5JE846Q9nLSdfyZ23GLRbrVohS0
-         fz8uxmvKpXl2YFTYxKWRMYx+VrJTjU5A3Qrt49ybzD7pszluryrc1q0SxJfvUhAvKujj
-         pKiFMcXmsEn0em55rYprraKtu8q3WDC+DV4G7RfNp/KFl2eOYsDqOQueAA30BsO1agtk
-         ZcbtmqrNHiVJU/ZnbFAWKT29HGGQVjQx/6tVz1fNtKuh2Xlq9VzmUFFyH+XvMznZ5L6G
-         Z1JnMMH6IydgZUcJ6mt0l+RdWvv3qSWKIQA2EQtUTKs9zirsy/mzKUfbMwlF6X8jU5Ld
-         8CvA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZDU7ImVTk+SjJaIBL/OC1xDF3vbB55nOd5SSa2/tLf9i8v3jCNxR1EplOUTUoL7+U63cvT4ApGjuGVMnkmGMs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1ETUH/xEVFWh38wejbAUq1VQo7WipKnooOOLGWH/v6auRG5JT
-	ToQOiTjqPlVyUjazWxlFJiWnmzXY0DxwQdiDsWX1JkIsAvhSY5lZg96z
-X-Gm-Gg: ATEYQzx4uRHtRWHm1kZct6jleUNTibEaIOzpky/VVAfX/maU3ppafz+PnFEgBz/kQcs
-	k+KaiLAXXvE/ltUKd2A9+Q6Ydjcb4pHoG4s0dp3N3nP2cqxwPA4a4BdaUmK/MNtTvDsqec5Dq3Z
-	mloqO2Tcp0P2BXQ3yBoMOsBmlUUslTGBNSA4i3ib/FGHRBX49b9SzcOjflYgMay0gUf+H929xxv
-	qPCU/Wj1AlHGf7mmuGyt1Jpxt+G+eXYKQUD6nfZu2mJOIpIgD89+mrDaKN/Zc4wvROvFGotNxU3
-	JnBGlkpIflPwtvQ9p+wbPoRW/oxav9ibtOLf7iVaU5YCviNYf9p/CCpzmcN/m9peb5sT7Oo5hWm
-	Ov+Zn7FagGqNxR06XACHFfQRsSuc2g1iWNB6d6fJsBOBvIWvCHyBc6dn2M5Jpg7ijgc38cGAkkQ
-	aFcDC1JAH3wlL1dQSsWpZhYNzCR1E8f57GHEf4IVoCbsoIokhPd9XnXcc44Kdf0Ha1BcScSSrhX
-	54=
-X-Received: by 2002:a17:902:d588:b0:2b0:6e60:9582 with SMTP id d9443c01a7336-2b0cdc48fbfmr101671395ad.18.1774787711463;
-        Sun, 29 Mar 2026 05:35:11 -0700 (PDT)
-Received: from toolbx.gk.pfsense.com ([103.70.166.143])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2427afbe0sm58709665ad.72.2026.03.29.05.35.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Mar 2026 05:35:10 -0700 (PDT)
-From: Gopi Krishna Menon <krishnagopi487@gmail.com>
-To: rafael@kernel.org,
-	daniel.lezcano@kernel.org,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	vireshk@kernel.org,
-	conor+dt@kernel.org
-Cc: Gopi Krishna Menon <krishnagopi487@gmail.com>,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev,
-	daniel.baluta@nxp.com,
-	simona.toaca@nxp.com,
-	d-gole@ti.com,
-	m-chawdhry@ti.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v3 1/2] dt-bindings: thermal: st,thermal-spear1340: convert to dtschema
-Date: Sun, 29 Mar 2026 18:04:43 +0530
-Message-ID: <20260329123449.309814-2-krishnagopi487@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260329123449.309814-1-krishnagopi487@gmail.com>
-References: <20260329123449.309814-1-krishnagopi487@gmail.com>
+        bh=nDn3DrkMDCpaWDQpNGLLxPCXteWRJp5QwTlOtMUyyhM=;
+        b=Rao9BIMNYzizbqXTO8N5UkTdD7gQsfu8KlEgC2Y5P94wgFSjdpWmHGiKN5rBiZUuYv
+         gwzoogcvw3ybBRZCd1o4OhYL9PWOPRUTMxFEQe2OACQRFl7/qS+qMuuypksa+mKFWtHE
+         ZECHj8ZR41bjhxcQ1ulzM4/DJgCEq6XvQ/wAvdD7EBQM2aihYndpX8fJRX/M+AK2VOpJ
+         fB20ewf/Mkbr3YR1GuAn8dJu2GFuuAdUVhhHGogdCrOncwWII+atPLkdtjnN4lu5rswt
+         f7ExL8MGiSWQNgoLKB5DkqD3oEpFhwqjntEYAJW6WpLRucBwc7CSrLc2yU0/PoPR/G/v
+         SCCA==
+X-Forwarded-Encrypted: i=1; AJvYcCVV4wgpb7J8OGzgEskV7Ll4WXHdm90E9V0o+dRPphtSVSSFVjg/QvZxaEX1kTHbD9mcrZ7nsbfmZYlcNdS8XA3u@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU6KWR5y96Vmq09j8xySkndmXmZHe6E7B9YrlEK7oQ8BihS3Fm
+	aN8zrsUcIRJBJ5AF0cjF8UxTEi+oJgs/FukeHXmmMdh+KqpR+DsuPs7JTtU4plqNAYSZXL6H/aH
+	ZwflFjjv61xTcC5VjpKKxrBw/wFU47fs=
+X-Gm-Gg: ATEYQzzPpIiOwTEGJhL98zDz2aUy41rDKT5rhBdH1bz/5ojhTSIHoq+r5P5W+7O4H1R
+	0XTg/KzgHAuVvWcecPh0qyDG3zPkl3lO+QTT4J01g1GfFwwpeeKEzd+7T265rpFUprBet58HOjK
+	1CsnEmpWyVMSbGaVNPm+7ykLTS9FLegTEIuL8dpdCc4HZ9tKSwGCh0dd3x2i1s0G3xgSUqvLVrB
+	0n7248aXtBP7vQ7rstEFQF/7ZMrCgZu/aXEJCOBbJRJ7cdtCEscEO/U9JxPEoA4TjpQ2V1I0olC
+	q3ki5gDM
+X-Received: by 2002:a05:6402:5386:b0:66a:27ae:114f with SMTP id
+ 4fb4d7f45d1cf-66b28266438mr4329883a12.6.1774787716954; Sun, 29 Mar 2026
+ 05:35:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260329062004.492812-1-sebasjosue84@gmail.com>
+ <20260329062004.492812-2-sebasjosue84@gmail.com> <2026032956-railroad-renewable-3328@gregkh>
+ <CAJD=UNdEqLW_CGpq0=p+DwJraiHTus+t-bPRW9wi2wh8B8C-rw@mail.gmail.com> <CAMEGJJ0zgab3WN=rb2o+UgEq_coX5LnkyPj3UNrBSMQbTGU7Zw@mail.gmail.com>
+In-Reply-To: <CAMEGJJ0zgab3WN=rb2o+UgEq_coX5LnkyPj3UNrBSMQbTGU7Zw@mail.gmail.com>
+From: =?UTF-8?Q?Sebasti=C3=A1n_Alba?= <sebasjosue84@gmail.com>
+Date: Sun, 29 Mar 2026 06:35:04 -0600
+X-Gm-Features: AQROBzAKKVwQdtdUih-AH2iidcNJRTvmk1rpyf99lT2fFxFMoEb2HB3wguQOMzU
+Message-ID: <CAJD=UNdoyWg62YwA+m3Ku2OVQ9JMLdVbiBuJ5vu7-ahQ-0+DkQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] staging: vc04_services: vc-sm-cma: fix integer
+ overflow in vc_sm_cma_clean_invalid2()
+To: Phil Elwell <phil@raspberrypi.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>, linux-staging@lists.linux.dev, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_053512_663312_D5706024 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260329_053519_231863_A80E67C5 
+X-CRM114-Status: GOOD (  26.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,90 +124,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the SPEAr Thermal Sensor bindings to DT schema.
+Hi Phil,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Gopi Krishna Menon <krishnagopi487@gmail.com>
----
-Changes since v2:
-- No changes
-Changes since v1:
-- Changed unevaluatedProperties to additionalProperties in the binding
-- Reword the commit message and subject in the second patch
+Thanks for the pointer. I've opened PR #7294 against rpi-6.6.y:
+https://github.com/raspberrypi/linux/pull/7294
 
-Note:
-* This patch is part of the GSoC2026 application process for device tree bindings conversions
-* https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
+Sebasti=C3=A1n
 
- .../bindings/thermal/spear-thermal.txt        | 14 --------
- .../thermal/st,thermal-spear1340.yaml         | 36 +++++++++++++++++++
- 2 files changed, 36 insertions(+), 14 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/thermal/spear-thermal.txt
- create mode 100644 Documentation/devicetree/bindings/thermal/st,thermal-spear1340.yaml
+El dom, 29 mar 2026 a las 2:51, Phil Elwell (<phil@raspberrypi.com>) escrib=
+i=C3=B3:
+>
+>
+>
+> On Sun, 29 Mar 2026, 08:05 Sebasti=C3=A1n Alba, <sebasjosue84@gmail.com> =
+wrote:
+>>
+>> Hi Greg, Thanks for the quick review.
+>>
+>> Regarding kmalloc_array(): the patch does replace kmalloc() with
+>> kmalloc_array() - perhaps the question is about the remaining
+>> ioparam.op_count * sizeof(*block) in the copy_from_user() call below?
+>> That multiplication is now safe because kmalloc_array() already
+>> verified that op_count * sizeof(*block) does not overflow(if it did,
+>> kmalloc_array would have returned NULL and we'd have exited). Happy to
+>> add a comment clarifying this if you prefer.
+>>
+>> Regarding the Fixes tag: the commit dfdc7a773374 is from the
+>> raspberrypi/linux tree (branch rpi-6.6.y). This driver (vc-sm-cma)
+>> appears to only exist in the Raspberry Pi kernel fork and has not been
+>> merged into mainline staging.
+>>
+>> I apologize for sending this to the wrong tree. Should these patches
+>> go directly to the Raspberry Pi kernel maintainers
+>> (kernel-list@raspberrypi.com) instead?
+>
+>
+> Open a Pull Request at our Linux repo:
+>
+> https://github com/raspberrypi/linux/
+>
+> Phil
+>
+>> El dom, 29 mar 2026 a las 0:33, Greg Kroah-Hartman
+>> (<gregkh@linuxfoundation.org>) escribi=C3=B3:
+>> >
+>> > On Sun, Mar 29, 2026 at 12:18:45AM -0600, Sebastian Josue Alba Vives w=
+rote:
+>> > > From: Sebasti=C3=A1n Alba Vives <sebasjosue84@gmail.com>
+>> > >
+>> > > vc_sm_cma_clean_invalid2() uses 'ioparam.op_count * sizeof(*block)' =
+to
+>> > > compute the allocation size passed to kmalloc(). Since ioparam.op_co=
+unt
+>> > > is a __u32 supplied directly by userspace via ioctl, an attacker can
+>> > > choose a value that causes the multiplication to overflow on 32-bit
+>> > > platforms, resulting in a small allocation followed by a large
+>> > > copy_from_user() and out-of-bounds heap reads in the subsequent loop=
+.
+>> > >
+>> > > Replace kmalloc() with kmalloc_array(), which returns NULL on overfl=
+ow.
+>> > > Also add an early return for op_count =3D=3D 0 to avoid a zero-size
+>> > > allocation, and return -ENOMEM (not -EFAULT) on allocation failure t=
+o
+>> > > correctly indicate out of memory.
+>> >
+>> > Why not use kmalloc_array() instead?
+>> >
+>> > >
+>> > > The /dev/vc-sm-cma device is world-accessible (mode 0666), so this i=
+s
+>> > > reachable by any unprivileged local user.
+>> > >
+>> > > Fixes: dfdc7a773374 ("staging: vc04_services: Add new vc-sm-cma driv=
+er")
+>> >
+>> > I do not see that git id anywhere, what tree is it in?
+>> >
+>> > thanks,
+>> >
+>> > greg k-h
+>>
+>>
+>>
+>> --
+>> Sebasti=C3=A1n Alba
 
-diff --git a/Documentation/devicetree/bindings/thermal/spear-thermal.txt b/Documentation/devicetree/bindings/thermal/spear-thermal.txt
-deleted file mode 100644
-index 93e3b67c102d..000000000000
---- a/Documentation/devicetree/bindings/thermal/spear-thermal.txt
-+++ /dev/null
-@@ -1,14 +0,0 @@
--* SPEAr Thermal
--
--Required properties:
--- compatible : "st,thermal-spear1340"
--- reg : Address range of the thermal registers
--- st,thermal-flags: flags used to enable thermal sensor
--
--Example:
--
--	thermal@fc000000 {
--		compatible = "st,thermal-spear1340";
--		reg = <0xfc000000 0x1000>;
--		st,thermal-flags = <0x7000>;
--	};
-diff --git a/Documentation/devicetree/bindings/thermal/st,thermal-spear1340.yaml b/Documentation/devicetree/bindings/thermal/st,thermal-spear1340.yaml
-new file mode 100644
-index 000000000000..e3462a974691
---- /dev/null
-+++ b/Documentation/devicetree/bindings/thermal/st,thermal-spear1340.yaml
-@@ -0,0 +1,36 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/thermal/st,thermal-spear1340.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SPEAr Thermal Sensor
-+
-+maintainers:
-+  - Viresh Kumar <vireshk@kernel.org>
-+
-+properties:
-+  compatible:
-+    const: st,thermal-spear1340
-+
-+  reg:
-+    maxItems: 1
-+
-+  st,thermal-flags:
-+    description: flags used to enable thermal sensor
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+required:
-+  - compatible
-+  - reg
-+  - st,thermal-flags
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    thermal@fc000000 {
-+      compatible = "st,thermal-spear1340";
-+      reg = <0xfc000000 0x1000>;
-+      st,thermal-flags = <0x7000>;
-+    };
--- 
-2.52.0
 
+
+--=20
+Sebasti=C3=A1n Alba
 
