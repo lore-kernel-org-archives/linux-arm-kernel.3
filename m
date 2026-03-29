@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D87CF3D5F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 07:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DBDF3D5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 07:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mR7zW5huiWH1x5CVyoEzlAdCsPYlEqDzaC0AadT8DWY=; b=aK2VV2dgxXD8KR0kjJtNGr7JN1
-	y2XGsbAtZj32jsm4smCw06UbpAhNoMidCCjuCK2iqLxmQR8ReaOLSD41PrjG56wlZBk7KDcsHIxep
-	Fkp8a1FQJNIITWwLeoUiMrIpkg6fPAp7/EoUe+8GyhPecYconx0/CgRHt2czl+0Ym4eCo8h3dVKlK
-	5/INpcdOIPHCSaDccJEBh/wS+hZ/1k1wVamDEiECw/DDcOhbz3YgKOO9Us9kXNYURzu5++cXtV9Ik
-	hdFMTCR8pu5QhYpFsqEWiINt2EzBsGKGSvROfPhX9byMTrRrymFVE0+KgzoMHnFHyi++LUE2nciyq
-	CDD4dLqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u3cbcIFZMYgE89H/uUPKWjpme8VFMbnng9DP6GD/0Z4=; b=ugZvatWpDkndWL
+	hPrfOBe2ZbJH6hRJ8b0Pe9KvfjOmIp8z1jc3S04w2Nyuwfw3zhW1qlNAwH/K/27ZwbfXr1Vm/vVV+
+	Sv5HLXPzdIPSjH9TF0EiJ8hkqPD9J2hrEx4Znhv6a4HGCUTeGpziKP2U0rvljj2npOueT+SwzHA8P
+	zahplkMTTULBMTsOOcPCIfENoyP36vgqd8+ZsSy3WuXESSXnVXjTTK1FvGrc+XAcZX58l0AkDIQeL
+	2mZ+uOlz6BF1Umnl8lgtPr9CN2eUIMRVdch07lWuy6EFTYAYIS7sVmxoTItkQIlG6J8nIWLS1haej
+	0scaQrossc6108ZvYeVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6koF-00000009iIg-3D0E;
-	Sun, 29 Mar 2026 07:43:47 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1w6l0W-00000009ij6-4949;
+	Sun, 29 Mar 2026 07:56:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6koC-00000009iIH-2TeN
+	id 1w6l0W-00000009iiX-0VF1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 07:43:45 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-486fd5360d4so45747395e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 00:43:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774770222; x=1775375022; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mR7zW5huiWH1x5CVyoEzlAdCsPYlEqDzaC0AadT8DWY=;
-        b=aA/2y3Komurqa2T7jHKbO8uj2xj1Fw34L2pQQVQvE2hc6Vnpd1TxVza06yquSXZAKq
-         tEKp7qM+ieDv2iq/iudzC2IUtzDsXSGJkq4pZlMuCO88iv27xyGUmoGYqExdaAigt12X
-         Zf7qWw1nBsvfpTFpG0lnS99dyb5WUzcoc4GpxjRc2McRc3T0wZL0R31d5QdTTz8Lt7Wt
-         tpH/wo3k+4B76chKfSffOQQjuNYBXwiNW1VL2BXmhhBbuBRV5LBjDOQXqNzzYOR0Sm5e
-         vWX7q/JCa5LVf/n3tN/ufStzDqiXV0FvUFy5csusG5/Bu+YuZxjdxaiVow/xMgYje4NI
-         iPPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774770222; x=1775375022;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mR7zW5huiWH1x5CVyoEzlAdCsPYlEqDzaC0AadT8DWY=;
-        b=byV/BQgDnemoY4+OOEeanv6mhRjKVwmEwczi6JDqC5OHijVCe/o3fXnixAAhuMadxP
-         xXY9jjFD7/evm703hcwsNV08iiaDHyRltD8nztbBeOjIxyoel5favhzg6awMcbIEL9BB
-         3FlaZZvSFG0vF2wv096EsUywepjqHQ5jxmbq6Kwnn1gCoYSxu+VUVIrLO2dI8gqGLep8
-         UNyrgMdHvaT1o9CrI1QzVmD61OyOsZgv/kwz+wMqyDjDoDairU8/cfUcLs+FpcubiqUY
-         MbV1xvfm+owjl9dUSw5Lgocx5r5SS/KzqIRzB1racXl4BK0aI3KfS97x3TZk94EVXTy4
-         9Wwg==
-X-Forwarded-Encrypted: i=1; AJvYcCVLgo+cTZIlUTYbipkTprfOBUWPkOWmV8eFmRaR+oVW+7ESbmecoNuFsu8fz95jtCGfeVXFMMylqjnsLfWxqR2L@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTKdh9YSdkObDz7HtcZbgXR0TXL8WPorhT7Web6LM4Ucma6E7l
-	eLDCHqgvq7qe0wuwnTlUSu81bnDSDjh7EbWwGlVTh4JWA7wFIUj8w//C
-X-Gm-Gg: ATEYQzwKKg3ujvXNRvHrcJ+TsJhMjZs49mzfoKfMctmkfRE7dDYdkSePKHoN8vVb7vR
-	X+Mo6H8tjHBda+W24n6pCd3o7iq1COYnYHaC5gFGnRviYvObe5HlAYlRtM5Etp1OAhpYlwxsaqs
-	kid8IbSAuuFiAShM9mA48/GfUENqmug+jLdNB2UiWtGem36HXL+N3/IASKatxtn/d+zHWP4kbKj
-	Br1IDIeYHnMq4yE3tIZnAv4Tw4gQYA3GpWX95NQ6rKGToRrmLAkxF2+M7wVYQPHT/zZ9juxAPl6
-	MPn94hR5e+ofKx2C5sf2fcCx6+fIB+6BHNbRA2bC7/KJkXHJ6WYMye1FzPD5/MZR7wYSv4TuM1e
-	KS1FFdt5TTfytYfKdwGtZhUTRHbLqFwl/RSKIVIPYUxz5yKIbE5WCnFadGhDGWm9VUuWA2upQ85
-	oimnVAKef1N/5wEiAumAvtCR16ffUnsmRu
-X-Received: by 2002:a05:600c:8b31:b0:485:30f7:6e88 with SMTP id 5b1f17b1804b1-48727efabdemr165719785e9.31.1774770221785;
-        Sun, 29 Mar 2026 00:43:41 -0700 (PDT)
-Received: from lima-dev.. ([45.89.90.224])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722d38a5fsm193112255e9.12.2026.03.29.00.43.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Mar 2026 00:43:41 -0700 (PDT)
-From: Demian Shulhan <demyansh@gmail.com>
-To: linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: ebiggers@kernel.org,
-	ardb@kernel.org,
-	Demian Shulhan <demyansh@gmail.com>
-Subject: [PATCH v3] lib/crc: arm64: add NEON accelerated CRC64-NVMe implementation
-Date: Sun, 29 Mar 2026 07:43:38 +0000
-Message-ID: <20260329074338.1053550-1-demyansh@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260317065425.2684093-1-demyansh@gmail.com>
-References: <20260317065425.2684093-1-demyansh@gmail.com>
+	Sun, 29 Mar 2026 07:56:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 186EE60054
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 07:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB4A2C2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 07:56:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774770986;
+	bh=NXkO1BKIOyiirGfmId7kEdTa6tS6egLCtvOXPPxBnMY=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=R2HhQq+016fcpCRIW8zdQ0HauTKnwjFOWDOpiPxZ0WXQBBbyfTQW3FUPqpXXI9Oy5
+	 VtAO2d83xAkqNt7Ee5gX3q985bACYSFYYxw84stvuDp6WhAYUx+iSArS8HMN6z2x8y
+	 nr6aBjnxht82iQk2c4eXgOadJndzq6HElWcvooZ32IciqLT1rsDb4NGgCkGHFs3gcK
+	 sIZDZAbYI+cKTSR/LnYMFyxba+OPKsbo1ESN+fDpKklulAvrPB43b3jB0D+GNC6fr2
+	 FF/jikh8Za867TrBvmLdneQ1Zt6jL07GMPj9xNXYTgSmCzAHaX6zEovkwTkcIWnFR3
+	 g71no7e2M6Y9w==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-38bd3c6c502so28877431fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 00:56:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUGnucRqKG/nMQImE0pdVi1ZG+U8kxxckOm341pqLL4YO9Ywy8Aa5JsML3I7Z8vsitnCG5tw4qlSOPlrPPQNkqh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKoQyrR5Qk+3kDqOJrziEA8gucXdtls3ITQa0RLLXrULHeVN4Z
+	kcfm3B1MlOovK42FivcXn/fh8LGCxfxDkeGGkKiXm+KV6PIrZu10zgW4mghtwEizi9xYDnmJgGE
+	HJlA1IrSRnQLuJC6y/2IQRke7PKSBbhU=
+X-Received: by 2002:a2e:bea8:0:b0:38b:d89b:e285 with SMTP id
+ 38308e7fff4ca-38c731b8b78mr24317401fa.4.1774770985099; Sun, 29 Mar 2026
+ 00:56:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_004344_670973_16E4A317 
-X-CRM114-Status: GOOD (  19.70  )
+References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech> <20260310-a733-clk-v1-2-36b4e9b24457@pigmoral.tech>
+In-Reply-To: <20260310-a733-clk-v1-2-36b4e9b24457@pigmoral.tech>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 29 Mar 2026 15:56:12 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65ycixbX7YS_rC6pyh-zMP6QvHqc6qdXjH4e0xpaqX=CQ@mail.gmail.com>
+X-Gm-Features: AQROBzBv23a5U8YFwC6JrpXv9HxCxK3WuA_W9E6K5Up_sT7yzO6F5aKFcWx7Jy8
+Message-ID: <CAGb2v65ycixbX7YS_rC6pyh-zMP6QvHqc6qdXjH4e0xpaqX=CQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 2/8] clk: sunxi-ng: sdm: Add dual patterns support
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,204 +83,204 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement an optimized CRC64 (NVMe) algorithm for ARM64 using NEON
-Polynomial Multiply Long (PMULL) instructions. The generic shift-and-XOR
-software implementation is slow, which creates a bottleneck in NVMe and
-other storage subsystems.
+On Tue, Mar 10, 2026 at 4:42=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
+h> wrote:
+>
+> On newer Allwinner platforms like the A733, the Sigma-Delta Modulation
+> (SDM) control logic is more complex. The SDM enable bit, which was
+> previously located in the PLL register, is now moved to a second
+> pattern register (PATTERN1).
+>
+> To support this, rename the existing "tuning" members to "pattern0" to
+> align with the datasheet, and introduce the _SUNXI_CCU_SDM_DUAL_PAT
+> macro to provide pattern1 register support. Related operations are also
+> updated.
+>
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> ---
+>  drivers/clk/sunxi-ng/ccu_sdm.c | 51 +++++++++++++++++++++++++++++-------=
+------
+>  drivers/clk/sunxi-ng/ccu_sdm.h | 32 +++++++++++++++++---------
+>  2 files changed, 57 insertions(+), 26 deletions(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu_sdm.c b/drivers/clk/sunxi-ng/ccu_sd=
+m.c
+> index c564e5f9e610..204e25feaa36 100644
+> --- a/drivers/clk/sunxi-ng/ccu_sdm.c
+> +++ b/drivers/clk/sunxi-ng/ccu_sdm.c
+> @@ -18,7 +18,10 @@ bool ccu_sdm_helper_is_enabled(struct ccu_common *comm=
+on,
+>         if (sdm->enable && !(readl(common->base + common->reg) & sdm->ena=
+ble))
+>                 return false;
+>
+> -       return !!(readl(common->base + sdm->tuning_reg) & sdm->tuning_ena=
+ble);
+> +       if (sdm->pat1_enable && !(readl(common->base + sdm->pat1_reg) & s=
+dm->pat1_enable))
+> +               return false;
+> +
+> +       return !!(readl(common->base + sdm->pat0_reg) & sdm->pat0_enable)=
+;
+>  }
+>  EXPORT_SYMBOL_NS_GPL(ccu_sdm_helper_is_enabled, "SUNXI_CCU");
+>
+> @@ -37,18 +40,27 @@ void ccu_sdm_helper_enable(struct ccu_common *common,
+>         for (i =3D 0; i < sdm->table_size; i++)
+>                 if (sdm->table[i].rate =3D=3D rate)
+>                         writel(sdm->table[i].pattern,
+> -                              common->base + sdm->tuning_reg);
+> +                              common->base + sdm->pat0_reg);
+>
+>         /* Make sure SDM is enabled */
+>         spin_lock_irqsave(common->lock, flags);
+> -       reg =3D readl(common->base + sdm->tuning_reg);
+> -       writel(reg | sdm->tuning_enable, common->base + sdm->tuning_reg);
+> +       reg =3D readl(common->base + sdm->pat0_reg);
+> +       writel(reg | sdm->pat0_enable, common->base + sdm->pat0_reg);
+>         spin_unlock_irqrestore(common->lock, flags);
+>
+> -       spin_lock_irqsave(common->lock, flags);
+> -       reg =3D readl(common->base + common->reg);
+> -       writel(reg | sdm->enable, common->base + common->reg);
+> -       spin_unlock_irqrestore(common->lock, flags);
+> +       if (sdm->enable) {
+> +               spin_lock_irqsave(common->lock, flags);
+> +               reg =3D readl(common->base + common->reg);
+> +               writel(reg | sdm->enable, common->base + common->reg);
+> +               spin_unlock_irqrestore(common->lock, flags);
+> +       }
+> +
+> +       if (sdm->pat1_enable) {
+> +               spin_lock_irqsave(common->lock, flags);
+> +               reg =3D readl(common->base + sdm->pat1_reg);
+> +               writel(reg | sdm->pat1_enable, common->base + sdm->pat1_r=
+eg);
+> +               spin_unlock_irqrestore(common->lock, flags);
+> +       }
+>  }
+>  EXPORT_SYMBOL_NS_GPL(ccu_sdm_helper_enable, "SUNXI_CCU");
+>
+> @@ -61,14 +73,23 @@ void ccu_sdm_helper_disable(struct ccu_common *common=
+,
+>         if (!(common->features & CCU_FEATURE_SIGMA_DELTA_MOD))
+>                 return;
+>
+> -       spin_lock_irqsave(common->lock, flags);
+> -       reg =3D readl(common->base + common->reg);
+> -       writel(reg & ~sdm->enable, common->base + common->reg);
+> -       spin_unlock_irqrestore(common->lock, flags);
+> +       if (sdm->enable) {
+> +               spin_lock_irqsave(common->lock, flags);
+> +               reg =3D readl(common->base + common->reg);
+> +               writel(reg & ~sdm->enable, common->base + common->reg);
+> +               spin_unlock_irqrestore(common->lock, flags);
+> +       }
+> +
+> +       if (sdm->pat1_enable) {
+> +               spin_lock_irqsave(common->lock, flags);
+> +               reg =3D readl(common->base + sdm->pat1_reg);
+> +               writel(reg & ~sdm->pat1_enable, common->base + sdm->pat1_=
+reg);
+> +               spin_unlock_irqrestore(common->lock, flags);
+> +       }
+>
+>         spin_lock_irqsave(common->lock, flags);
+> -       reg =3D readl(common->base + sdm->tuning_reg);
+> -       writel(reg & ~sdm->tuning_enable, common->base + sdm->tuning_reg)=
+;
+> +       reg =3D readl(common->base + sdm->pat0_reg);
+> +       writel(reg & ~sdm->pat0_enable, common->base + sdm->pat0_reg);
+>         spin_unlock_irqrestore(common->lock, flags);
+>  }
+>  EXPORT_SYMBOL_NS_GPL(ccu_sdm_helper_disable, "SUNXI_CCU");
+> @@ -123,7 +144,7 @@ unsigned long ccu_sdm_helper_read_rate(struct ccu_com=
+mon *common,
+>         pr_debug("%s: clock is sigma-delta modulated\n",
+>                  clk_hw_get_name(&common->hw));
+>
+> -       reg =3D readl(common->base + sdm->tuning_reg);
+> +       reg =3D readl(common->base + sdm->pat0_reg);
+>
+>         pr_debug("%s: pattern reg is 0x%x",
+>                  clk_hw_get_name(&common->hw), reg);
+> diff --git a/drivers/clk/sunxi-ng/ccu_sdm.h b/drivers/clk/sunxi-ng/ccu_sd=
+m.h
+> index c1a7159b89c3..c289be28e1b4 100644
+> --- a/drivers/clk/sunxi-ng/ccu_sdm.h
+> +++ b/drivers/clk/sunxi-ng/ccu_sdm.h
+> @@ -33,21 +33,31 @@ struct ccu_sdm_internal {
+>         u32             table_size;
+>         /* early SoCs don't have the SDM enable bit in the PLL register *=
+/
+>         u32             enable;
+> -       /* second enable bit in tuning register */
+> -       u32             tuning_enable;
+> -       u16             tuning_reg;
+> +       /* second enable bit in pattern0 register */
+> +       u32             pat0_enable;
+> +       u16             pat0_reg;
+> +       /* on some platforms, the sdm enable bit in pattern1 register */
+> +       u32             pat1_enable;
+> +       u16             pat1_reg;
+>  };
+>
+> -#define _SUNXI_CCU_SDM(_table, _enable,                        \
+> -                      _reg, _reg_enable)               \
+> -       {                                               \
+> -               .table          =3D _table,               \
+> -               .table_size     =3D ARRAY_SIZE(_table),   \
+> -               .enable         =3D _enable,              \
+> -               .tuning_enable  =3D _reg_enable,          \
+> -               .tuning_reg     =3D _reg,                 \
+> +#define __SUNXI_CCU_SDM(_table, _enable, _pat0, _pat0_enable, _pat1, _pa=
+t1_enable)     \
+> +       {                                                               \
+> +               .table                  =3D _table,                      =
+ \
+> +               .table_size             =3D ARRAY_SIZE(_table),          =
+ \
+> +               .enable                 =3D _enable,                     =
+ \
+> +               .pat0_enable            =3D _pat0_enable,                =
+ \
+> +               .pat0_reg               =3D _pat0,                       =
+ \
+> +               .pat1_enable            =3D _pat1_enable,                =
+ \
+> +               .pat1_reg               =3D _pat1,                       =
+ \
+>         }
+>
+> +#define _SUNXI_CCU_SDM(_table, _enable, _pat0, _pat0_enable)   \
+> +       __SUNXI_CCU_SDM(_table, _enable, _pat0, _pat0_enable, 0, 0)
+> +
+> +#define _SUNXI_CCU_SDM_DUAL_PAT(_table, _pat0, _pat0_enable, _pat1, _pat=
+1_enable)      \
+> +       __SUNXI_CCU_SDM(_table, 0, _pat0, _pat0_enable, _pat1, _pat1_enab=
+le)
+> +
 
-The acceleration is implemented using C intrinsics (<arm_neon.h>) rather
-than raw assembly for better readability and maintainability.
+Don't introduce an intermediate macro that looks _almost_ the same as the
+macro the driver is actually supposed to use.
 
-Key highlights of this implementation:
-- Uses 4KB chunking inside scoped_ksimd() to avoid preemption latency
-  spikes on large buffers.
-- Pre-calculates and loads fold constants via vld1q_u64() to minimize
-  register spilling.
-- Benchmarks show the break-even point against the generic implementation
-  is around 128 bytes. The PMULL path is enabled only for len >= 128.
+Just declare _SUNXI_CCU_SDM_DUAL_PAT() to expand to the full entry, and
+_SUNXI_CCU_SDM() to _SUNXI_CCU_SDM_DUAL_PAT() with the last two parameters
+as zero. That takes less lines.
 
-Performance results (kunit crc_benchmark on Cortex-A72):
-- Generic (len=4096): ~268 MB/s
-- PMULL (len=4096): ~1556 MB/s (nearly 6x improvement)
 
-Signed-off-by: Demian Shulhan <demyansh@gmail.com>
----
-v2: - Removed KERNEL_MODE_NEON check from Kconfig as it's redundant on arm64.
-  - Added missing prototype for crc64_nvme_arm64_c to fix sparse/W=1 warning.
-  - Improved readability in Makefile with extra newlines and comments.
-  - Removed redundant include guards in crc64.h.
-  - Switched to do-while loops for better optimization in hot paths.
-  - Added comments explaining the magic constants (fold/Barrett).
----
-v3: - Removed big-endian fallback from the commit message.
-  - Rewrote the comment explaining the final Barrett reduction step.
-  - Adjusted the formatting of the scoped_ksimd() call.
----
- lib/crc/Kconfig                  |  1 +
- lib/crc/Makefile                 |  8 +++-
- lib/crc/arm64/crc64-neon-inner.c | 78 ++++++++++++++++++++++++++++++++
- lib/crc/arm64/crc64.h            | 30 ++++++++++++
- 4 files changed, 116 insertions(+), 1 deletion(-)
- create mode 100644 lib/crc/arm64/crc64-neon-inner.c
- create mode 100644 lib/crc/arm64/crc64.h
+ChenYu
 
-diff --git a/lib/crc/Kconfig b/lib/crc/Kconfig
-index 70e7a6016de3..16cb42d5e306 100644
---- a/lib/crc/Kconfig
-+++ b/lib/crc/Kconfig
-@@ -82,6 +82,7 @@ config CRC64
- config CRC64_ARCH
- 	bool
- 	depends on CRC64 && CRC_OPTIMIZATIONS
-+	default y if ARM64
- 	default y if RISCV && RISCV_ISA_ZBC && 64BIT
- 	default y if X86_64
- 
-diff --git a/lib/crc/Makefile b/lib/crc/Makefile
-index 7543ad295ab6..c9c35419b39c 100644
---- a/lib/crc/Makefile
-+++ b/lib/crc/Makefile
-@@ -38,9 +38,15 @@ obj-$(CONFIG_CRC64) += crc64.o
- crc64-y := crc64-main.o
- ifeq ($(CONFIG_CRC64_ARCH),y)
- CFLAGS_crc64-main.o += -I$(src)/$(SRCARCH)
-+
-+CFLAGS_REMOVE_arm64/crc64-neon-inner.o += -mgeneral-regs-only
-+CFLAGS_arm64/crc64-neon-inner.o += -ffreestanding -march=armv8-a+crypto
-+CFLAGS_arm64/crc64-neon-inner.o += -isystem $(shell $(CC) -print-file-name=include)
-+crc64-$(CONFIG_ARM64) += arm64/crc64-neon-inner.o
-+
- crc64-$(CONFIG_RISCV) += riscv/crc64_lsb.o riscv/crc64_msb.o
- crc64-$(CONFIG_X86) += x86/crc64-pclmul.o
--endif
-+endif # CONFIG_CRC64_ARCH
- 
- obj-y += tests/
- 
-diff --git a/lib/crc/arm64/crc64-neon-inner.c b/lib/crc/arm64/crc64-neon-inner.c
-new file mode 100644
-index 000000000000..881cdafadb37
---- /dev/null
-+++ b/lib/crc/arm64/crc64-neon-inner.c
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Accelerated CRC64 (NVMe) using ARM NEON C intrinsics
-+ */
-+
-+#include <linux/types.h>
-+#include <asm/neon-intrinsics.h>
-+
-+u64 crc64_nvme_arm64_c(u64 crc, const u8 *p, size_t len);
-+
-+#define GET_P64_0(v) ((poly64_t)vgetq_lane_u64(vreinterpretq_u64_p64(v), 0))
-+#define GET_P64_1(v) ((poly64_t)vgetq_lane_u64(vreinterpretq_u64_p64(v), 1))
-+
-+/* x^191 mod G, x^127 mod G */
-+static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
-+					0x21e9761e252621acULL };
-+/* floor(x^127 / G), (G - x^64) / x */
-+static const u64 bconsts_val[2] = { 0x27ecfa329aef9f77ULL,
-+				    0x34d926535897936aULL };
-+
-+u64 crc64_nvme_arm64_c(u64 crc, const u8 *p, size_t len)
-+{
-+	uint64x2_t v0_u64 = { crc, 0 };
-+	poly64x2_t v0 = vreinterpretq_p64_u64(v0_u64);
-+	poly64x2_t fold_consts =
-+		vreinterpretq_p64_u64(vld1q_u64(fold_consts_val));
-+	poly64x2_t v1 = vreinterpretq_p64_u8(vld1q_u8(p));
-+
-+	v0 = vreinterpretq_p64_u8(veorq_u8(vreinterpretq_u8_p64(v0),
-+					   vreinterpretq_u8_p64(v1)));
-+	p += 16;
-+	len -= 16;
-+
-+	do {
-+		v1 = vreinterpretq_p64_u8(vld1q_u8(p));
-+
-+		poly128_t v2 = vmull_high_p64(fold_consts, v0);
-+		poly128_t v0_128 =
-+			vmull_p64(GET_P64_0(fold_consts), GET_P64_0(v0));
-+
-+		uint8x16_t x0 = veorq_u8(vreinterpretq_u8_p128(v0_128),
-+					 vreinterpretq_u8_p128(v2));
-+
-+		x0 = veorq_u8(x0, vreinterpretq_u8_p64(v1));
-+		v0 = vreinterpretq_p64_u8(x0);
-+
-+		p += 16;
-+		len -= 16;
-+	} while (len >= 16);
-+
-+	/* Multiply the 128-bit value by x^64 and reduce it back to 128 bits. */
-+	poly64x2_t v7 = vreinterpretq_p64_u64((uint64x2_t){ 0, 0 });
-+	poly128_t v1_128 = vmull_p64(GET_P64_1(fold_consts), GET_P64_0(v0));
-+
-+	uint8x16_t ext_v0 =
-+		vextq_u8(vreinterpretq_u8_p64(v0), vreinterpretq_u8_p64(v7), 8);
-+	uint8x16_t x0 = veorq_u8(ext_v0, vreinterpretq_u8_p128(v1_128));
-+
-+	v0 = vreinterpretq_p64_u8(x0);
-+
-+	/* Final Barrett reduction */
-+	poly64x2_t bconsts = vreinterpretq_p64_u64(vld1q_u64(bconsts_val));
-+
-+	v1_128 = vmull_p64(GET_P64_0(bconsts), GET_P64_0(v0));
-+
-+	poly64x2_t v1_64 = vreinterpretq_p64_u8(vreinterpretq_u8_p128(v1_128));
-+	poly128_t v3_128 = vmull_p64(GET_P64_1(bconsts), GET_P64_0(v1_64));
-+
-+	x0 = veorq_u8(vreinterpretq_u8_p64(v0), vreinterpretq_u8_p128(v3_128));
-+
-+	uint8x16_t ext_v2 = vextq_u8(vreinterpretq_u8_p64(v7),
-+				     vreinterpretq_u8_p128(v1_128), 8);
-+
-+	x0 = veorq_u8(x0, ext_v2);
-+
-+	v0 = vreinterpretq_p64_u8(x0);
-+	return vgetq_lane_u64(vreinterpretq_u64_p64(v0), 1);
-+}
-diff --git a/lib/crc/arm64/crc64.h b/lib/crc/arm64/crc64.h
-new file mode 100644
-index 000000000000..cc65abeee24c
---- /dev/null
-+++ b/lib/crc/arm64/crc64.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * CRC64 using ARM64 PMULL instructions
-+ */
-+
-+#include <linux/cpufeature.h>
-+#include <asm/simd.h>
-+#include <linux/minmax.h>
-+#include <linux/sizes.h>
-+
-+u64 crc64_nvme_arm64_c(u64 crc, const u8 *p, size_t len);
-+
-+#define crc64_be_arch crc64_be_generic
-+
-+static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
-+{
-+	if (len >= 128 && cpu_have_named_feature(PMULL) &&
-+	    likely(may_use_simd())) {
-+		do {
-+			size_t chunk = min_t(size_t, len & ~15, SZ_4K);
-+
-+			scoped_ksimd()
-+				crc = crc64_nvme_arm64_c(crc, p, chunk);
-+
-+			p += chunk;
-+			len -= chunk;
-+		} while (len >= 128);
-+	}
-+	return crc64_nvme_generic(crc, p, len);
-+}
--- 
-2.43.0
-
+>  bool ccu_sdm_helper_is_enabled(struct ccu_common *common,
+>                                struct ccu_sdm_internal *sdm);
+>  void ccu_sdm_helper_enable(struct ccu_common *common,
+>
+> --
+> 2.52.0
+>
+>
 
