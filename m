@@ -4,69 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D832BF3D605
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 14:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F26BF3D5FB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 14:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-ID:Subject:References:In-Reply-To:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6D55HdNBFgogkbxZ9B6R/xFqNQaywSSEdDJEMT48Flw=; b=nfe4+hhtU2KiM1L+l+6Oo2ohr3
-	uiXVbxDP5yQlW0Z9iftl1vnmQqi+DHhg4tF/MBEsxOCUoa9yb21F+8YMdOwECdmylxiEi4ZYOAwQq
-	WWvWhcUJcvfrQZtoyWWUbUYLvQ9NmQS5A5nDvcT2kqWn88ZeT8bsui8t20PG159gBRLMMPx6HWfxe
-	Me0PG9+cABpwfM8mNoQIxx5lHGAKiVIe/ubrD0va+kqakB22Ctl5cdpydsc2Rk9OsJhjLmTuuHs0Z
-	MujDvxvyPf4vZ/hIxvWP4ECYVUqD9aVt30uYJbMSsoWrOcEmDW1E9gkCLVf7fhuLgvf5vrVcXADwp
-	lv4D4Atg==;
+	bh=PuJXO71fNumNJ8Vb5VvXekITqgQ85yEBTZ0rMblhv3w=; b=iTCh5Xy60v69JDTWrOFnRtEarT
+	EYbxkqUUuhBsQOEDTYXF8bWpBi15Ba2Q0U9SvdQKx2kZxmh0RB3V1itcIPb0V//Z1TWNrndJAj9L2
+	z41LspNWU8/ImcRGkFMOv6PTGt+GluVNPrIgQrm4roxvDxlsoaSc+81tytRTngFYRYphyG8aNN4qp
+	oqzFwWDxHV+AukzKdXXnqbVVOFRh4GOL46DE8aOFZrEJW1qzJvpDgoqBh8gal5ie/JQsZqjFrUU5Y
+	SujWNEXs1SJ4oyMia8pdsygVkVXATWBaToajajTLJmfv3ho6bd7dysXUNBkzw3K8yxJ1tQrqluDA8
+	e3nqCdrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rRg-0000000A1yu-02Ol;
-	Sun, 29 Mar 2026 14:48:56 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1w6rT5-0000000A28s-2LHW;
+	Sun, 29 Mar 2026 14:50:23 +0000
+Received: from mail-westcentralusazon11010008.outbound.protection.outlook.com ([40.93.198.8] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6rRO-0000000A1v3-27HP;
-	Sun, 29 Mar 2026 14:48:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=6D55HdNBFgogkbxZ9B6R/xFqNQaywSSEdDJEMT48Flw=;
-	b=F7yvNXzLWcYYggmho/921Cdsj6BQqjQJgBSJHBEj4Vw9puKVQlnetagQ5l37K3
-	8ux/HqhEJB2aARWpwEBywajYM6gLq9/+4k1oxuO6opefsdSeHpQCrA3AzY1QeNfG
-	Klrgdk9QPyY/3nPqdQs2t6q70aBKgd0j18K2DHtpBNzRQ=
-Received: from [192.168.50.71] (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wCnr9J+O8lpUdKTCA--.51946S2;
-	Sun, 29 Mar 2026 22:47:27 +0800 (CST)
-Message-ID: <fbff8f2a-f4a9-4e06-b5ae-cfb554e73664@163.com>
-Date: Sun, 29 Mar 2026 22:47:26 +0800
+	id 1w6rT3-0000000A28X-1yBS
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Mar 2026 14:50:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BA6yGTE9nxK4o/ndq4AQ3vf5AftLYvBi8bKr//VIEvkjRKcE1fw5hbcPzMukUeCTPqt+d3FtdXLs/JlmOv9Cu2JQhaevbx3YG/xR5uAOSf9jYQQZZeGTOZlXbzAegZ7DSvuFFZ3hRcvZNsvMSQ+0jvJAmjxBT1qJsCAs4QJUWJfCf8cbbPatGkwyMjCEzysDmWM8r8L15INddKeK9kziAiIF5OojyPYBocdxPKxED6oTQfdeuXaGKV4t826Gkcf04eh4BtGZQbPcAxuMIWMxRmOpmhStZxla5HUV071Ow64aujASuoq4fRhxAVZswHzta4Q1flpvraEa9xe+CuWpuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PuJXO71fNumNJ8Vb5VvXekITqgQ85yEBTZ0rMblhv3w=;
+ b=mNAJl+gjOFAJJdS+VvoVBZX5ulEzoDTZCHYQbzJCGHbiiAztzisFXIPY4JkpZhiIMNgGq4U4OpJdNflb6n/7Pya6udJX7fBRfAAePXPE9cxmT31QNPmDbEDoCrtAaTOAHPaHDEN103otTiv1NhkLw/h81ZemTfwGk9/A32hKW2ckAjsDbpJAtTsfFlMnvJ496c4ZLiwTZxLiRReT/tm8uCCc9d7Fyr49I5OtlE8gir9Fz1l6Tf5SPmO/PmNEkSUbJaIZHgeq7C3QVqjyv+rR0ineN66kgeSMdoOn07LkxQY8u6BB5Av/laFcAJ5XO9NWYBARHwcjBcA8vdps6rLiug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PuJXO71fNumNJ8Vb5VvXekITqgQ85yEBTZ0rMblhv3w=;
+ b=hIfOyBdZHRiiliBZNUQSnBeFUFFeJoRM6C9HtaeUuTPWJ9zG+JP/OvdLaTPBKgmPijds36l48Er57ShUcl0Qx4Iwf3L+himK98AgcHfwZl+mpACEyOVyC99XqEy3IJCD1+QVxJ59tOe1Nc3ep0VvVeCno9YV3KS+TX33jHm1zgI=
+Received: from BL1PR13CA0013.namprd13.prod.outlook.com (2603:10b6:208:256::18)
+ by MW4PR10MB6346.namprd10.prod.outlook.com (2603:10b6:303:1ec::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.23; Sun, 29 Mar
+ 2026 14:50:13 +0000
+Received: from BL02EPF0001A100.namprd03.prod.outlook.com
+ (2603:10b6:208:256:cafe::d6) by BL1PR13CA0013.outlook.office365.com
+ (2603:10b6:208:256::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.25 via Frontend Transport; Sun,
+ 29 Mar 2026 14:50:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BL02EPF0001A100.mail.protection.outlook.com (10.167.242.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Sun, 29 Mar 2026 14:50:12 +0000
+Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 29 Mar
+ 2026 09:50:11 -0500
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 29 Mar
+ 2026 09:50:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Sun, 29 Mar 2026 09:50:11 -0500
+Received: from [127.0.1.1] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62TEo7DO2794910;
+	Sun, 29 Mar 2026 09:50:08 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Meghana Malladi <m-malladi@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
+	<danishanwar@ti.com>
+In-Reply-To: <20260323090358.632329-1-m-malladi@ti.com>
+References: <20260323090358.632329-1-m-malladi@ti.com>
+Subject: Re: (subset) [PATCH net-next v4 0/2] Add ICSSG0 dual EMAC support
+ for AM642 EVM
+Message-ID: <177479577753.2178400.13868702439057938066.b4-ty@b4>
+Date: Sun, 29 Mar 2026 20:19:37 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 0/5] PCI: of: Remove max-link-speed generation
- validation
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: lpieralisi@kernel.org, jingoohan1@gmail.com, mani@kernel.org,
- kwilczynski@kernel.org, bhelgaas@google.com, florian.fainelli@broadcom.com,
- jim2101024@gmail.com, robh@kernel.org, ilpo.jarvinen@linux.intel.com,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, claudiu.beznea.uj@bp.renesas.com,
- linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-omap@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- shawn.lin@rock-chips.com
-References: <20260327164250.GA1513325@bhelgaas>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20260327164250.GA1513325@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wCnr9J+O8lpUdKTCA--.51946S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJFyDCr18WF1UtFyfJr4rGrg_yoW5WrWDpa
-	y2kF40vry0qr43Xr4DX3W5Z3WYq3ZxurWjyryFg3s7Z3ZxCrsxXFyIvayFqF9Ikrsxury2
-	qF12qF4akFW7AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U7fHbUUUUU=
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7AC7X2nJO4BGqwAA3+
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1548; i=vigneshr@ti.com;
+ h=from:subject:message-id; bh=acC8T1Mc3Iq9HQ61FgIM4/BgF3wzYBPaXIxtAd/FzNI=;
+ b=owGbwMvMwCHG7GTPG/5e9jrjabUkhsyTNvI1wrI2P9On3X3Ys6bIT+YpD/cWh1TV8vP2Guwrl
+ 2mGT3nTUcrCIMbBICumyBLAtmuWVYrF44iKxK0wc1iZQIYwcHEKwEQiFzIyHJSbdHhPUI/jc847
+ s/OmTsnS/vEkYOft2488Zs3j2NMe58PI8LC9IpLrcMkEnqpGwS37yh7GHJT5MH3mpAbfiW8Udkk
+ bcwIA
+X-Developer-Key: i=vigneshr@ti.com; a=openpgp;
+ fpr=4A5A711E8E7E44F9F12F2CFAF903332F551A78E9
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A100:EE_|MW4PR10MB6346:EE_
+X-MS-Office365-Filtering-Correlation-Id: bac34c5a-88d4-4947-c52a-08de8da27b31
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: ERZZgAUdGngc5/FLJM1E9JPU7KV0xAwGIBm4ipSrqodXFPwPcrdRfp0czvC2Mch0xOukWy5qGTjaE1/XfU3mXVD+8H7030A6CBiufATavE5WfBmDmE0/T86WT7P9+MTYWsmq/ZoQyfDf+rdO2L/Ht11cpQwmFpEtSSVp18upK+hyzrO5+UBrZtau3wsmVtVF4tYr+xkSct+lIVSjcWMw/zJfuQT1EQsBB2Cvoik7GC+mlk/NJMNzOmSNY3NvbK1TfHWQYu2kC2uN0RZoI/c2NuaQTd1f2sywSvPY+aEhbTQoUzBrp7hdB4vzXr69J45heX1tFl0Xl1AZ3KCjgwtb5bAex5tYUGja+n6f5sgr+0DV9k8YaqwG3YvXz19uXr9VJ9gHoFn/CCae2H4MXLfuTi3/bu8O9G83TtB3oWCJeOBjJIcPAKFsTo/Ja993WqkD44aYXjG3W9MUDkt/0qsuv75QvSWckHaF44+mGqN7m+gpyGeuhxJjlpFsqjfBbJdAmXD/SHKGn3cUWmMmrt6RbilU+qV2hm8KC2/XgLkIM81TmjlJhzYT3AtnMLZd5OedV91Ryd1wT2gYWaOgNNF7WAOG3oPopXy79leIXnsjY4xJQkRcPnR0slM+jQZgFsiBZvA2+Cx1W2/yTiAHXEh6PC/KWbP+3o2kz0EDOvF23vaUTemfEpenLxbB+bUkeVxg0kGmbkmDMP7muxlNAbeGF6KF/VpWAs7qSIMzginNwqAaKImXydPQxgaMpNU0SPdu2Z8zVdY+xnXdl3RkrgggqQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 2JRyTCIwupXQZkLPpsUoP22tHwI/1IWjgvLd1ngwmMS6VbAf6mKSfhRCSZ1iyq5kKk5tWGNv/U+5/A1aldfsBjyntqpdSwhVqTLTkGvuNVBj6kEYr1XzM/nFlRTRWNmotaCSTuFJk+Ek4USG3XPelGiBtHbtXYicOuPle7G34JuWceqJLr3kid2wVVqQj7ZUEaUUK0IjujmDrOkkYeG9W41KS6aeVQ+VAuBIYKCYiAfOn3Yx+RKndXfmOIccisVGYfN9Vz9/75gg5aUmriNNKzn9hNYcvX2Bkogr+0VwBi/LNGzQESrfKOs43t1GpK3jJsZ9VGDYDlAG7DiGVpBDikuMFJzlDvwgL8d7iMzuNeDiuWhSjwytnwlmiCCuWzbayjR5Wwzr53AybFkfwyyYwugJjj9qi0MunOo32gnrFlaMQW8mfk+JGaJfd5I6Oamm
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Mar 2026 14:50:12.3042
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bac34c5a-88d4-4947-c52a-08de8da27b31
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A100.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6346
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_074839_025244_31CFDCFF 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260329_075021_593377_63CD3476 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +141,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Meghana Malladi,
 
-
-On 3/28/26 00:42, Bjorn Helgaas wrote:
-> On Sat, Mar 14, 2026 at 12:55:17AM +0800, Hans Zhang wrote:
->> Hi,
->>
->> This series moves the validation from the common OF function to the
->> individual PCIe controller drivers.  To protect against out-of-bounds
->> accesses to the pcie_link_speed[] array, we first introduce a helper
->> function pcie_get_link_speed() that safely returns the speed value
->> (or PCI_SPEED_UNKNOWN) for a given generation number.
->>
->> Then all direct uses of pcie_link_speed[] as an array are converted to
->> use the new helper, ensuring that even if an invalid generation number
->> reaches those code paths, no out-of-bounds access occurs.
->>
->> For several drivers that read the "max-link-speed" property
->> (pci-j721e, brcmstb, mediatek-gen3, rzg3s-host), we add an explicit
->> validation step: if the value is missing, out of range, or unsupported
->> by the hardware, a safe default is used (usually Gen2). Other drivers
->> (mainly DesignWare glue drivers) rely on the helper to safely handle
->> invalid values, but do not yet include fallback logic or warnings.
->>
->> Finally, the range check is removed from of_pci_get_max_link_speed(),
->> so that future PCIe generations can be supported without modifying
->> drivers/pci/of.c.
+On Mon, 23 Mar 2026 14:33:56 +0530, Meghana Malladi wrote:
+> Add ICSSG0 dual EMAC support for AM642 EVM
 > 
-> Thanks for this series.
+> This series adds device tree overlay support for enabling ICSSG0 dual EMAC
+> on the AM642 EVM, along with the necessary PHY driver configuration.
 > 
-> We still have a couple references to pcie_link_speed[] that bypass
-> pcie_get_link_speed().  These are safe because PCI_EXP_LNKSTA_CLS is
-> 0xf and pcie_link_speed[] is size 16, but I'm not sure the direct
-> reference is necessary.
+> The overlay enables both ICSSG0 Ethernet interfaces (port0 and port1) in
+> dual EMAC mode and can be combined with the existing ICSSG1 overlay to
+> enable all four ICSSG interfaces if needed.
 > 
-> The array itself is exported, which I suppose we needed for modular
-> PCI controller drivers, but we probably don't need it now that
-> pcie_get_link_speed() is exported?
-> 
->    $ git grep "\<pcie_link_speed\>"
->    drivers/pci/pci-sysfs.c:        speed = pcie_link_speed[linkstat & PCI_EXP_LNKSTA_CLS];
->    drivers/pci/pci.c:      return pcie_link_speed[FIELD_GET(PCI_EXP_LNKSTA_CLS, lnksta)];
->    drivers/pci/pci.h:extern const unsigned char pcie_link_speed[];
->    drivers/pci/pci.h:      bus->cur_bus_speed = pcie_link_speed[linksta & PCI_EXP_LNKSTA_CLS];
->    drivers/pci/probe.c:const unsigned char pcie_link_speed[] = {
->    drivers/pci/probe.c:EXPORT_SYMBOL_GPL(pcie_link_speed);
->    drivers/pci/probe.c:    if (speed >= ARRAY_SIZE(pcie_link_speed))
->    drivers/pci/probe.c:    return pcie_link_speed[speed];
->    drivers/pci/probe.c:            bus->max_bus_speed = pcie_link_speed[linkcap & PCI_EXP_LNKCAP_SLS];
+> [...]
 
-Hi Bjorn,
+I have applied the following to branch ti-k3-config-next on [1].
+Thank you!
 
-Yes, I also realized that this array is directly used in other places. 
-So I submitted this series and I would appreciate it if you could review 
-it to ensure its correctness.
+[2/2] arm64: defconfig: Enable DP83TG720 PHY driver
+      commit: 192c7f34d2f63552211ef4cb8bbd2933f95106e2
 
-See also this series:
-https://patchwork.kernel.org/project/linux-pci/patch/20260315160057.127639-1-18255117159@163.com/
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Best regards,
-Hans
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
+
 
 
