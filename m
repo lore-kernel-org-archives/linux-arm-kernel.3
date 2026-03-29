@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E195F3D610
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 17:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AA1F3D616
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 17:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdBBo47+/mBAsd9iPiJAysoTiErRL2J2XY5aq4i0hpY=; b=V6qq4bvLmPuIIG5abfMXvUcnmd
-	sgacDxZVvsVJR6Qro6a6UHQtoU892xxZ9Jv6iWLXvXfR3Li2dkq4E3LLgSbdCORaruV2t5QkvoICM
-	piG8oWUbanQpbdLhjBeyIJsitDQ8WmYyn3biZyEaOKNulP2YVsKWxFOmtKkFovA22p1HuJ7OXE5Ad
-	OMM3ggo5QuggiAihHPohpOpfSZtC8BVREc9fk8avIS90woE34xEow6Npl+J0XNCdtedqDm/EgsHxa
-	NcCaqQtcJNZz6C63atT5NZ4s1aVnnYJDB0tXNP63QGfwG4Fywk3h2BKD4fI13o5RgB9du59tW6VTo
-	jH/9QO4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jjPaDJM5soQyQnFNjlcrQxI055bwpSyYILGkgzen/M=; b=yjRSF0c7FCfXre5zeD3Zmj8hyd
+	pdqgDaCUkNSHJ0lbGmz/FpRnkgcCxwWio2ulhPtTxqHApHi2sZklGd094t85Te3kcOthMGVpIM0K+
+	aeNs68TJfEiSN/Qqusv96uxNci3WoJ3fWEc0Q3hDoOvDMfbYH+UAcDkbcxLTtzUzaXhzjyhYHoPgH
+	kSKWbapEWXQg1w08/Gj3WpvuNRHMYYQVgXwOcB4Pj9CK2N1zmc1sZrSstqk7XFOjpylhPLADCg84P
+	+lNbxzyRupRD4yLdb4ltl+yfa8xH7xCSf8oD8TfXojF3TTMyxMDsTrvX/4TgYvIMht7uoVcFJDmt9
+	nTGzvYlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6tW8-0000000AAjk-04OA;
-	Sun, 29 Mar 2026 17:01:40 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1w6tzB-0000000ACct-2L4F;
+	Sun, 29 Mar 2026 17:31:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6tW2-0000000AAjB-3wm7;
-	Sun, 29 Mar 2026 17:01:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1774803681; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=TcyHnaylvk07QRKxitF9wqW7gG6NVSPQX3bnLz2/hjopfBjKnoAPBFoua96wX7uE/F7lF8qg8Vc1PZMb72wjSI6C0L3c+yMWSE30ag9uvco28XpVexNQGZAYah2Ncy8VmtZh1yDWQhsmVI+ivpLCunmnZdXMRzHSAideamxtA3A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1774803681; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=kdBBo47+/mBAsd9iPiJAysoTiErRL2J2XY5aq4i0hpY=; 
-	b=naNTCj/ftIouV+CVDFatmiyxxPolprzt7NXwS5wKsqsEFDnx7hssS/DKUVJ9yWSU4UlCrQfT0b9p7zv8xQJpHKq1LLruNeMYKFnijMENE01iz7f4k/xmq0dsfcDFaUtff8SVOQiTRGY/DCwqzy9TBtXcZtcXdPOipMOsUGNJf4c=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1774803681;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=kdBBo47+/mBAsd9iPiJAysoTiErRL2J2XY5aq4i0hpY=;
-	b=KW6WRE8GxxSw8Xo7Ye4ksZVnyqkFUgx/uA9awoCfs0j3qt0IFJEZRHZOm6rAj9dw
-	Hh6OV7LdtYk/dL+mA20+zMkvabuQxSZ2dbWSOuHWnInkY3cQmTYNG3aO4mc5d7Wu910
-	LtfcyS8bYAeJ+Uc7F19BdKS1k6lsN30uvGqdBvug=
-Received: by mx.zohomail.com with SMTPS id 177480368036818.123364854552847;
-	Sun, 29 Mar 2026 10:01:20 -0700 (PDT)
-Message-ID: <cfec65cb-398f-4f14-8587-2e2911372cda@collabora.com>
-Date: Sun, 29 Mar 2026 19:01:15 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/6] iommu: Add verisilicon IOMMU driver
-To: Will Deacon <will@kernel.org>
-Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org
-References: <20260216095144.107356-1-benjamin.gaignard@collabora.com>
- <20260216095144.107356-4-benjamin.gaignard@collabora.com>
- <acKxzGk1Z541yoZ4@willie-the-truck>
- <e083e933-2746-4b26-ac33-3b32d362b28e@collabora.com>
- <acQPEEd0hQrghGbw@willie-the-truck>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <acQPEEd0hQrghGbw@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1w6tz9-0000000ACcl-1iTT
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Mar 2026 17:31:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 54124600AE;
+	Sun, 29 Mar 2026 17:31:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAB1C116C6;
+	Sun, 29 Mar 2026 17:31:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774805497;
+	bh=0spV8j4F14bXIHH7uNOOGSi0WTG/8MloA5eb3snxq8A=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=AMIqyvEAaaYvnkgKoFjiuyxVirybKSG326qn++OCzA+RUMaHqHilt+VnDUOKzvWa/
+	 1kqJnzd5LAJv4wjVP0a4NLPfEtGXUF70DmiDnUZkogjQs4BBTk5/CzAd7zCMgtZAhd
+	 n6I+dDw3sev2swgL4zXrTcj+akxz1OgwC9HVn3YJAo6gyiofEpRQt5udGsGLw3DMuB
+	 q5fjVi0eF6cHylcnewzu6rNOTG5z9/WvKtuIK+WTf8dieQ9IUuOdluYTplZR7pswM1
+	 yYmGcpHNdDauU+y8C2rocCbmAUjK8Ld8d0tVQYF/foD5iFqAYahDID+FuREAXKcJ2+
+	 0WnRyw0fAXjjA==
+Date: Sun, 29 Mar 2026 12:31:33 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_100137_513841_CFBB1BB6 
-X-CRM114-Status: GOOD (  27.54  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: etienne.carriere@st.com, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ d-gole@ti.com, linux-fsdevel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-doc@vger.kernel.org, 
+ f.fainelli@gmail.com, vincent.guittot@linaro.org, philip.radford@arm.com, 
+ souvik.chakravarty@arm.com, peng.fan@oss.nxp.com, dan.carpenter@linaro.org, 
+ lukasz.luba@arm.com, arm-scmi@vger.kernel.org, sudeep.holla@kernel.org, 
+ michal.simek@amd.com, linux-kernel@vger.kernel.org, 
+ jonathan.cameron@huawei.com, elif.topuz@arm.com, 
+ linux-arm-kernel@lists.infradead.org, james.quinlan@broadcom.com, 
+ devicetree@vger.kernel.org, brauner@kernel.org
+To: Cristian Marussi <cristian.marussi@arm.com>
+In-Reply-To: <20260329163337.637393-7-cristian.marussi@arm.com>
+References: <20260329163337.637393-1-cristian.marussi@arm.com>
+ <20260329163337.637393-7-cristian.marussi@arm.com>
+Message-Id: <177480549380.3925363.5137815678176793743.robh@kernel.org>
+Subject: Re: [PATCH v3 06/24] dt-bindings: firmware: arm,scmi: Add support
+ for telemetry protocol
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,107 +79,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Le 25/03/2026 à 17:36, Will Deacon a écrit :
-> On Tue, Mar 24, 2026 at 05:28:44PM +0100, Benjamin Gaignard wrote:
->> Le 24/03/2026 à 16:46, Will Deacon a écrit :
->>> On Mon, Feb 16, 2026 at 10:51:35AM +0100, Benjamin Gaignard wrote:
->>>> The Verisilicon IOMMU hardware block can be found in combination
->>>> with Verisilicon hardware video codecs (encoders or decoders) on
->>>> different SoCs.
->>>> Enable it will allow us to use non contiguous memory allocators
->>>> for Verisilicon video codecs.
->>>> If both decoder and this iommu driver are compiled has modules
->>>> there is undefined symboles issues so this iommu driver could
->>>> only be compiled has built-in.
->>>>
->>>> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
->>>> ---
->>>>    MAINTAINERS               |   8 +
->>>>    drivers/iommu/Kconfig     |  11 +
->>>>    drivers/iommu/Makefile    |   1 +
->>>>    drivers/iommu/vsi-iommu.c | 794 ++++++++++++++++++++++++++++++++++++++
->>>>    include/linux/vsi-iommu.h |  21 +
->>>>    5 files changed, 835 insertions(+)
->>>>    create mode 100644 drivers/iommu/vsi-iommu.c
->>>>    create mode 100644 include/linux/vsi-iommu.h
->>> [...]
->>>
->>>> +static size_t vsi_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
->>>> +			      size_t size, size_t count, struct iommu_iotlb_gather *gather)
->>>> +{
->>>> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
->>>> +	dma_addr_t pte_dma, iova = (dma_addr_t)_iova;
->>>> +	unsigned long flags;
->>>> +	phys_addr_t pt_phys;
->>>> +	u32 dte;
->>>> +	u32 *pte_addr;
->>>> +	size_t unmap_size = 0;
->>>> +
->>>> +	spin_lock_irqsave(&vsi_domain->lock, flags);
->>>> +
->>>> +	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
->>>> +	/* Just return 0 if iova is unmapped */
->>>> +	if (!vsi_dte_is_pt_valid(dte))
->>>> +		goto unlock;
->>>> +
->>>> +	pt_phys = vsi_dte_pt_address(dte);
->>>> +	pte_addr = (u32 *)phys_to_virt(pt_phys) + vsi_iova_pte_index(iova);
->>>> +	pte_dma = pt_phys + vsi_iova_pte_index(iova) * sizeof(u32);
->>>> +	unmap_size = vsi_iommu_unmap_iova(vsi_domain, pte_addr, pte_dma, size);
->>>> +
->>>> +unlock:
->>>> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
->>>> +
->>>> +	return unmap_size;
->>>> +}
->>> I still think you need TLB invalidation here.
->>>
->>> I looked at the downstream code that you linked to and it litters the
->>> invalidation in the callers via mpp_iommu_flush_tlb(), which tend to
->>> invalidate _before_ starting an operation. That's very likely buggy and
->>> certainly not something we want upstream.
->>>
->>> The unmap routine should do the invalidation so that, when it returns,
->>> the pages really are unmapped from the device (assuming strict mode).
->>>
->>> I know you said that you tried to add invalidation here and it "didn't
->>> work", but that's not something I can really help you with.
->> I know you expect the hardware to work like that but that isn't not the
->> case.
-> The hardware appears to have a register to invalidate the entire TLB.
-> We can use that if there's nothing else.
+On Sun, 29 Mar 2026 17:33:17 +0100, Cristian Marussi wrote:
+> Add new SCMI v4.0 Telemetry protocol bindings definitions.
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> ---
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> ---
+>  Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
 
-VSI_MMU_BIT_FLUSH ? it discards everything.
-Is there an api to call it when all buffers have been unmapped ?
+My bot found errors running 'make dt_binding_check' on your patch:
 
->
->> I spend quite long to try to found hidden bit(s) or an other way to do like
->> you want but I can't find any solution.
-> Then we can invalidate the entire TLB.
->
->> As you mention the downstream code suggest that the iommu can't invalidate
->> TLB in unmap routine so I don't see how to progress.
-> The downstream code is a tangled mess; I don't think it suggests anything
-> about what the IOMMU hardware is capable of.
+yamllint warnings/errors:
 
-If you have an other source to tell the hardware capabilities, I will be
-more than happy to read it and fix the driver.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/firmware/arm,scmi.example.dtb: scmi (arm,scmi): protocol@19: Unevaluated properties are not allowed ('i2c2-pins', 'keys-pins', 'mdio-pins' were unexpected)
+	from schema $id: http://devicetree.org/schemas/firmware/arm,scmi.yaml
 
-Benjamin
+doc reference errors (make refcheckdocs):
 
->
->> Maybe we should just admit that is how the hardware work.
-> No.
->
-> The upstream kernel isn't a dumping ground for vendor crap. The hardware
-> has TLB invalidation functionality and so we should use it. If we don't,
-> then we're not giving the IOMMU API what it expects and any callers
-> outside of the video codecs will be landed with problems when unmap
-> doesn't work as expected.
->
->> This v13 has fixed the documentation so I don't plan to spend more time on this driver.
-> That's a shame, I'm really not asking for much.
->
-> Will
->
+See https://patchwork.kernel.org/project/devicetree/patch/20260329163337.637393-7-cristian.marussi@arm.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
