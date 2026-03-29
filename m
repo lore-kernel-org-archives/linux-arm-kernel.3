@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F75F3D5F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 07:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13911F3D5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 07:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=veDKQhNg9NBvP46wNZP/JDlqedS7FBlQQuLF0X7HADw=; b=hIE6VGYFpLhl8xsmwTg5mN+LzU
-	mYGrxHp93AuQ6oN1FTpIHzie5M6f2oz3u05FGewGLkpO+j8GzZsjT7g9E5nZFobtTfuJQ0jlOZSNs
-	h/rI1Isz0Iw1mR3+tQ3d+SZ6fkT085T6NQ/InLoHSD418la1OYZAjKVwHFCSLE64Dpg8FzSwmDPXD
-	RPmdZ5OkjUEcuv64ClCiJgpOHS/aaLQLCkjsJAgfe8aPX8e5CcfUKeDF1KD2EKw/dQc6Mx2YGERZN
-	lphezj7gXge7LQAg4/Fa1oRwLAmzAFmb26R/R93Y7ZoQUHL6uf4xXd+C8rxFCTAqJJHSo1AjWXa1d
-	B2RW1Bug==;
+	bh=nSlLWkq4h8uaqpliAQo5iTD2HSvpKos26zajciLvI7A=; b=kNpCdHemEGncQUztTAK4YvHgd0
+	ZVfQkgff3Q6/k0tcMYStq3TMqbSeMoZRIvp7a4dSt5xXAwOZQAAngAfFogab1dcs/m4390e53KKyn
+	8XM6BfPF0rLbD1TX99IOArEpM4jKUZTvMXFxWFOLukjxJT+Mv7oQ7WpQhoTAdhS6BcLMJkIeLaRyO
+	BYWrDZU5e3e3b/kGAD+4vr2X74K1tJTyYn1TlKU21kD9Oq/9UZ9ZpBKLq7Re8XFTwPthMmhSLBEBc
+	IG74GHL4pkMEb9OjgPGLnW8yCLU5JUwix7qW/zdvm+liSzpvLfVRqMxDxuy8+/1mfpBKqk9j33o31
+	PRnLCvvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6kO2-00000009gjI-2bhx;
-	Sun, 29 Mar 2026 07:16:42 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1w6kO1-00000009giM-1vAe;
+	Sun, 29 Mar 2026 07:16:41 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6kNy-00000009gh6-1Iy1
+	id 1w6kNt-00000009gei-31X3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 07:16:39 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-56a8e0ea02aso3915530e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 00:16:38 -0700 (PDT)
+	Sun, 29 Mar 2026 07:16:35 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-605159dd396so250761137.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 00:16:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774768597; x=1775373397; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1774768592; x=1775373392; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=veDKQhNg9NBvP46wNZP/JDlqedS7FBlQQuLF0X7HADw=;
-        b=dHnMpHsQvWkD/Zq6IDcIwj0RtTa92/7eFQ5lDnqtVR0LcyUeAxF+OkqEfAh2QXs/ok
-         Yu0Sglp6paWZ13uY0vqw9k4od1cTmjU0HgRCX2VUbHSt1gjimg6fy6DeFL9SPAT8qgGn
-         xyXd9NP4bJEDPx7FtXI8xzr2K0/od4tvt/W2o6s+v4sBf6gtVOPmFZmnJo2U9+5R8Nh1
-         kGl91qLZ3PmV7CthV3VFtpVU+DgHC2hEPz3qy1Ztq/dyYBZLw4uRoJuEWVlx0q3NDXIw
-         VpuJ4YIREFYOKW1HiNMKqN38l75myqRRJSySjHObZ+qg/HF35BVxYO2YXt/CSCTD9aZe
-         Aceg==
+        bh=nSlLWkq4h8uaqpliAQo5iTD2HSvpKos26zajciLvI7A=;
+        b=W1e7t1nsKa1onleo4dIq8TppZNB0sAVXi7Q4VWu0pkyrxCsYRR+RpRKmJAsF80CAUx
+         4y7R6xIL/3A9xg6/WXyulAfPV6tZTfnXGYvbTXPBE5cQiX3QwK8m5PNFILBrooo0Y6rM
+         wvIv+x9HSq6JnzTIHP+4EwfnF7LDrakySpBSEx2A060Qplz0vSy8EMSmtDpQ8HfH5bPn
+         eXKQNxE7rc9bZYO1dWKkOYJ8ZPDqwKlEe/LnGk+yB77Iy976GiuKVMnQ1psA86+FeBN0
+         ZowFUjOmzTIoQuQEEYq+VqJ4kCQv6vlSp0QxOrn1Zs8SVf8SpaPDBRBZiUB2NejQ8X79
+         thlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774768597; x=1775373397;
+        d=1e100.net; s=20251104; t=1774768592; x=1775373392;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=veDKQhNg9NBvP46wNZP/JDlqedS7FBlQQuLF0X7HADw=;
-        b=Tvt8QLqnn0RafeaNVKa1AKyDA0py3qetZcr2fjTk/CmjR5A1DfqqZ2qm54KixA+eKu
-         msKNpnHaa3SJ83pbPKFZ1XsZrEeBgmJWJ/6bgth5Qtqqug/2lIIE5SqT8XjRn9c4bjff
-         aqWiXGnHQzmYqic54xjYscq9ihrShx86tVsd+9K+b2/pCijNYMUEx4WA2Q5CHGQtxV9N
-         bJ5YNejdZM2Bg1tVzXIASmdy1Wm/4qlp5TEm0Mqg08AzzzamvhLPTZg84rmDxjgVlcHJ
-         Cwbbrm7evhOpuYQw2AnFG3tdGIv8Sggt6RMzguPBgeyEcgE2R+Ru/yQYAMWHLvIaT6+n
-         BW5A==
-X-Forwarded-Encrypted: i=1; AJvYcCWgWjr1BYOnMwyYul72eeIUa2CXeQloUAbCJI8QQvBu7T2DV+oPmtN/AyqdoYBL++uqCao5X92Hsu/fObAfN77x@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYMcEDmh8dlEzbhEc/A2/vqu37BkAA85rumT33mT5MJMfrsCpj
-	DLtmr5nvJCZGYrrPvLElhZeYbn4ycBWvM0HhtB8uggzl5Tgc02LDR1mh
-X-Gm-Gg: ATEYQzwPVxHCvnxNL6r71aBAXAfxCxn3yUL9CW0uMBrTg2Gq4vuc7cmxj57RPuFOUgq
-	HBIeFae3pTfQBz7BrAASij2wXS2nVIV75NB+Zn4kO9VHih+dQw0yfqbMsx79iDXL0ASggQknibd
-	GVMJDDrdFWQZsMdkQtivZFdtyrs2EF4tHUj1H8R6rRuiGBa6IpYLRMoLFpfOSdjvQpARONYVKoY
-	DfqxthXqbG8ucVHmK4WW73Rk27I5YBt4ldmnSR9sLaGzi7igFFBcp5a/bg1sZe7PpOexq6U4H8U
-	u4KvWN0vkZ0GWsGN7oi9v/XA3LYhA4bpVF/M8+zB4926mFB8p/ONUj23FgZuTFeBLhMuH7YQJxw
-	e4ydkX//YcvFQAfx2MX+sjNHOstRSmLrJICeyz3puHB2QrGA3s83p0juteSd7mKoBM4DNlLYRsj
-	cgJ+0D3oBoAkkVryyaZIgNNcs4kw4uIjBdVWk=
-X-Received: by 2002:a05:6102:6cb:b0:602:9977:a4f5 with SMTP id ada2fe7eead31-604f926f2d3mr3395247137.27.1774768597337;
-        Sun, 29 Mar 2026 00:16:37 -0700 (PDT)
+        bh=nSlLWkq4h8uaqpliAQo5iTD2HSvpKos26zajciLvI7A=;
+        b=oBOmsYuVuU3kluwjh/fVdYHmzTd/V0yUyhK3ZRrWKxpR6uhVNjCLf+a2OraXP/7aa7
+         yHYprCmIol0vFSsF9ZY6NEFPCtKqNK81VJRxlInKeNZxZ+eUNTL1PMAkItN5PJzmX7aH
+         gdJU3Opw53Gl5PVb56ohivYxqI5bMi+jzZhiiq6ynWIZoBwSi6n7D6N2w3ecsbSEZMNZ
+         aPCpK9XlF5sMHx61tKMZwSaflBQVOeCNPCbFOn/Hwt3C8hqpJ/uQOa5vVJahUXe0+vqz
+         pvFkgA3BVJjhKIbisFo2aNvBkkukLdJxahLDcQn1ShElSy7fYgsv4e3j2NAJNReiZnAr
+         V2hA==
+X-Forwarded-Encrypted: i=1; AJvYcCUN7AQnh5zd/HMDzONTM6hPNpCclTVrEET+ipAyf19bDhW0dgX1xZbuVPwsrH9aHCF+sgeznc1TwehTyQXo4TuY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpbFo3s2rlVt/tTe76Yy5qgne2tlCFAxD3dSbSQ5EkA4i/Y/MN
+	NeSANHt5i+ubZxSJW93NSmG0i0AaawD+wPzCr1MvnYTc97yUFqesLpuX
+X-Gm-Gg: ATEYQzytOUCu6bNDdqabT1PDEPs1+2WkW+MakoWj1V85ri8u3eVv92v4H0TT2zwmR0q
+	HkYUwvRV3vWNcseayp4ePS3Dsxx8p5eFCHTUBGSYHIQe8/oM050VhsdtQLlt1MAcstWx1sXpefx
+	OmyI8nOC7855uUcix9Wc+/7fJbYJlk/uFxmNRTMARHqWaqDtG32Erbhg2FBYwiWVYKjRAfAhOWX
+	JGwdJQY7L+OZU5LIRsHxJytzGKcMUTN+i7+FV8TsNS2gvH1GSgQFCG5A9G8sOh9Ail8gk5N9gyq
+	yhngma2d3ICqRNu7fJ9V4Nze3Sa7ZP2Gp9tcOMx/T3ZacNXWIteykUi38C4HVcO5mBzX3vfy7eg
+	dtoQ4sIZ0KWfGKEEKFvkf5YtK2ryWGvgdO42LXwih9r8NjibegUv8KvEziLRSe56z9LRnQCxKCT
+	Y64AfTGAQNtjeu/BTeAjVt8kUx
+X-Received: by 2002:a05:6102:4421:b0:5ff:219b:497a with SMTP id ada2fe7eead31-604f8ff5ff7mr3225622137.3.1774768592246;
+        Sun, 29 Mar 2026 00:16:32 -0700 (PDT)
 Received: from localhost.localdomain ([2a09:bac6:d6df:aa::11:19a])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-60512a5afa9sm4390638137.6.2026.03.29.00.16.34
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-60512a5afa9sm4390638137.6.2026.03.29.00.16.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Mar 2026 00:16:36 -0700 (PDT)
+        Sun, 29 Mar 2026 00:16:31 -0700 (PDT)
 From: Sebastian Josue Alba Vives <sebasjosue84@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>
@@ -81,9 +81,9 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	kernel-list@raspberrypi.com,
 	=?UTF-8?q?Sebasti=C3=A1n=20Alba=20Vives?= <sebasjosue84@gmail.com>,
 	stable@vger.kernel.org
-Subject: [PATCH v2 3/4] staging: vc04_services: vchiq-mmal: prevent stack overflow in port_parameter_set()
-Date: Sun, 29 Mar 2026 01:15:41 -0600
-Message-ID: <20260329071616.507876-4-sebasjosue84@gmail.com>
+Subject: [PATCH v2 1/4] staging: vc04_services: vchiq-mmal: validate component index in event_to_host_cb()
+Date: Sun, 29 Mar 2026 01:15:39 -0600
+Message-ID: <20260329071616.507876-2-sebasjosue84@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260329071616.507876-1-sebasjosue84@gmail.com>
 References: <20260329062229.493430-1-sebasjosue84@gmail.com>
@@ -92,8 +92,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_001638_365078_50D0B386 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260329_001633_851747_982E98F3 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +110,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sebastián Alba Vives <sebasjosue84@gmail.com>
 
-port_parameter_set() copies value_size bytes from the caller-supplied
-value buffer into the stack-allocated struct mmal_msg's
-port_parameter_set.value field, which is u32[96] (384 bytes). There is
-no bounds check on value_size before the memcpy.
+event_to_host_cb() uses msg->u.event_to_host.client_component as an
+index into the instance->component[] array (size VCHIQ_MMAL_MAX_COMPONENTS
+= 64) without bounds validation. While the kernel generally trusts the
+hardware it is bound to, a bounds check here hardens the driver against
+potential firmware bugs that could otherwise cause an uncontrolled
+out-of-bounds array access and kernel crash.
 
-While current in-tree callers pass small fixed-size structures, the
-function is exported via EXPORT_SYMBOL_GPL and accessible to any GPL
-kernel module. A caller passing value_size > 384 would overflow the
-stack-allocated mmal_msg structure.
-
-Add a bounds check rejecting value_size larger than the value field.
+Add a bounds check on comp_idx before using it as an array index and
+move the component pointer assignment after the validation. Use
+pr_err_ratelimited() to avoid log flooding. Note: this file does not
+currently have access to a struct device, so dev_err() is not available.
 
 Cc: stable@vger.kernel.org
 Fixes: b18ee53ad297 ("staging: bcm2835: Break MMAL support out from camera")
 Signed-off-by: Sebastián Alba Vives <sebasjosue84@gmail.com>
 ---
- drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-index 44e5246f1..18e805b92 100644
+index d36ad71cc..9c6533f82 100644
 --- a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
 +++ b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-@@ -1361,6 +1361,14 @@ static int port_parameter_set(struct vchiq_mmal_instance *instance,
- 	struct mmal_msg *rmsg;
- 	struct vchiq_header *rmsg_handle;
+@@ -477,12 +477,19 @@ static void event_to_host_cb(struct vchiq_mmal_instance *instance,
+ 			     struct mmal_msg *msg, u32 msg_len)
+ {
+ 	int comp_idx = msg->u.event_to_host.client_component;
+-	struct vchiq_mmal_component *component =
+-					&instance->component[comp_idx];
++	struct vchiq_mmal_component *component;
+ 	struct vchiq_mmal_port *port = NULL;
+ 	struct mmal_msg_context *msg_context;
+ 	u32 port_num = msg->u.event_to_host.port_num;
  
-+	if (value_size >
-+	    sizeof(m.u.port_parameter_set.value)) {
-+		pr_err_ratelimited("port_parameter_set: value_size %u exceeds max %zu\n",
-+				   value_size,
-+				   sizeof(m.u.port_parameter_set.value));
-+		return -EINVAL;
++	if (comp_idx < 0 || comp_idx >= VCHIQ_MMAL_MAX_COMPONENTS) {
++		pr_err_ratelimited("%s: component index %d out of range\n",
++				   __func__, comp_idx);
++		return;
 +	}
 +
- 	m.h.type = MMAL_MSG_TYPE_PORT_PARAMETER_SET;
- 
- 	m.u.port_parameter_set.component_handle = port->component->handle;
++	component = &instance->component[comp_idx];
++
+ 	if (msg->u.buffer_from_host.drvbuf.magic == MMAL_MAGIC) {
+ 		pr_err("%s: MMAL_MSG_TYPE_BUFFER_TO_HOST with bad magic\n",
+ 		       __func__);
 -- 
 2.43.0
 
