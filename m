@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A0BFC97F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 22:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1418FC97FE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 22:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dUdOr+EVEBlpgTcz0k0y+EyAFhkceT4EL0v0ts4IUYs=; b=bxLlJwygmfm4eWtdmft1GGMa1A
-	rdmQ7wfiroV7kFHsfc2eodap/qpqI+SmgIwL8dFvvljE1pwAuz44TvBh1yf4QAKYboiVlICxgEKNy
-	L1bzKKhNCNKnA/nY53nzIp8e6tHtemp9N2LL3pLB6dK2uYHQLhZfKqIKPXRpww8QKZZkPmX24idb4
-	M/NvHujKYqsT5nU6cz8Mgf10NVDxfuz1XlUwbm9WlLypFPNmxw28h7BWx3O2Cas48vNviJ0oQ+uRH
-	c7GSrS4/ltpsEE0qzc5n4FoPdEwdoQIswiEZD0G4ioJme5clZ+IiMhKOdtWpDIM6Pu6r66jwTT42J
-	f6ktZZJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ou3VCAgv12mLm7V7gRrwNZ9br3OzB9kGXeuastWEcqE=; b=eOO6kYZmd8ojHpo3EeLXeNVEPY
+	Cof2lRtBdTKMWrtHsr54/TUx/bZtyun0/5t1dT5sb6rTTbrgpto7P8ICh5bhABQyWHpxo6V5P7wcw
+	WopBqTz6YrJroNsPBtfmzFm4+XqeKEexookimua84TpR6aF5WHoKWtteEQ9T/IMSCNjUJOTUN5h2B
+	fne643+QXnt4+6nYLQU7mZwXx34bBMg1SxA6uQaYe9cruaqvsTWW4MNLjJLyAlDgCdHX4yGIxRHsx
+	KLK3u5a8/mXLDVTz4etxVxg4FZwus+Kq++3VXcSlvag0ACaUOUWccn7n+LHyjTdMDPJZRJamC99cz
+	Y4F7sk4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6yEj-0000000AMlU-3mHq;
-	Sun, 29 Mar 2026 22:04:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w6ySg-0000000ANPY-0TTv;
+	Sun, 29 Mar 2026 22:18:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6yEh-0000000AMl5-1zzw;
-	Sun, 29 Mar 2026 22:04:00 +0000
+	id 1w6ySe-0000000ANPR-3Uf2
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Mar 2026 22:18:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC21D44438;
-	Sun, 29 Mar 2026 22:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39119C116C6;
-	Sun, 29 Mar 2026 22:03:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E4DD1600AC;
+	Sun, 29 Mar 2026 22:18:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E03CC116C6;
+	Sun, 29 Mar 2026 22:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774821838;
-	bh=6yn7EwahshMP7t8gqyl8uwicrBe/9zbJ4Uog9xwOHv0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ZAfRSMz0wkc+I1P/TrrvJfqM2Aq9vVJMq62NhtG6qrQkyvL4HCmwEhUVoKFd4lI5h
-	 4GpnaiCeG0k8vEEUsxIwlbGcG5hyylgYGnt25APxWcuNFL+eqn+sOTIrXsqXaoZQPQ
-	 ftrR0nITFRxSUx6C3YjIinCn2R0klplk16HU37jieJnotbKuOh3VeDyKUEO3S6tU14
-	 CNtN4q7iKFjYiPNd6Iy/qjkBtnc85evSC6Xjhxud7m8wRlQsz5x16bVfi6bQoYe+jd
-	 6Nbb8I/SnUEaw9ZXXb6NJQnZFWyqgUdWlPsWTkds/2aw+FYhjxU6suBjY5DVqgJBEX
-	 qgp0PteYCkiMQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 30 Mar 2026 00:03:49 +0200
-Subject: [PATCH net-next] net: airoha: Fix typo in airoha_set_gdm2_loopback
- routine name
+	s=k20201202; t=1774822703;
+	bh=t8bKj8rddtYM3Jbs12wLmW5gizkNWgk7J2FrmPL7YAM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vMZKB+pvpu5fxqqVroKT+MU6KLyohNGrpVaztPDLXbFpKCvOM5Zm2dEQt82yPTdh+
+	 OlkrFCmrtpYCSiTF8jdczbInElDu9ZG45m8RcDpSRAQKBi9rHSZmiGyvN7j+DQ3rqg
+	 whMuSjL3LNvLQAti8FELLvrAcXMeA04u6n6ZF2n6r6C1XLe9FJtBTBKcCVRu3QbL83
+	 l9Gq0y9BpmnjDQbNo3NHgoHbbv7qyJOprVkbV+sasK5QzQX6PfHcFYQaTkkNYXQzlX
+	 iH/hYTkTz9IcJqP5pl4eNlYD+gaWb2NY9DPIrrqbFF+/kwKVgFI3EYKqH1NdFy59yQ
+	 wwbjOr19Vshkw==
+Date: Sun, 29 Mar 2026 15:18:21 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Demian Shulhan <demyansh@gmail.com>, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	ardb@kernel.org
+Subject: Re: [PATCH v3] lib/crc: arm64: add NEON accelerated CRC64-NVMe
+ implementation
+Message-ID: <20260329221821.GC2106@quark>
+References: <20260317065425.2684093-1-demyansh@gmail.com>
+ <20260329074338.1053550-1-demyansh@gmail.com>
+ <20260329203829.GA2746@quark>
+ <20260329225704.0eb82966@pumpkin>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260330-airoha_set_gdm2_loopback-fix-typo-v1-1-a1320ff6b6cc@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NQQrDIBAAvxL23AU1NdB+pRSxZpMsbV1RKSkhf
- 4/kOAzMbFAoMxW4dxtk+nFhiQ30pYOw+DgT8tgYjDKD6s0NPWdZvCtU3Tx+jfuIpJcPb5x4xfp
- PgoGs7rWy18kO0DopU3Pn4wGRKkZaKzz3/QCPiBUufQAAAA==
-X-Change-ID: 20260329-airoha_set_gdm2_loopback-fix-typo-ce5131054f56
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_150359_546446_5F1E4EBD 
-X-CRM114-Status: GOOD (  10.17  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260329225704.0eb82966@pumpkin>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +73,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename airhoha_set_gdm2_loopback() in airoha_set_gdm2_loopback()
+On Sun, Mar 29, 2026 at 10:57:04PM +0100, David Laight wrote:
+> Final thought:
+> Is that allowing for the cost of kernel_fpu_begin()? - which I think only
+> affects the first call.
+> And the cost of the data-cache misses for the lookup table reads? - again
+> worse for the first call.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I assume you mean kernel_neon_begin().  This is an arm64 patch.  (I
+encourage you to actually read the code.  You seem to send a lot of
+speculation-heavy comments without actually reading the code.)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 82e53c60f561f6314fbf201ba8bc8711e40edc68..2beba017e791d20f142e754edafcd402d8cc496f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1709,7 +1709,7 @@ static int airoha_dev_set_macaddr(struct net_device *dev, void *p)
- 	return 0;
- }
- 
--static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
-+static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- {
- 	struct airoha_eth *eth = port->qdma->eth;
- 	u32 val, pse_port, chan, nbq;
-@@ -1785,7 +1785,7 @@ static int airoha_dev_init(struct net_device *dev)
- 		if (!eth->ports[1]) {
- 			int err;
- 
--			err = airhoha_set_gdm2_loopback(port);
-+			err = airoha_set_gdm2_loopback(port);
- 			if (err)
- 				return err;
- 		}
+Currently, the benchmark in crc_kunit just measures the throughput in a
+loop (as has been discussed before).  So no, it doesn't currently
+capture the overhead of pulling code and data into cache.  For NEON
+register use it captures only the amortized overhead.
 
----
-base-commit: cf0d9080c6f795bc6be08babbffa29b62c06e9b0
-change-id: 20260329-airoha_set_gdm2_loopback-fix-typo-ce5131054f56
+Note that using PMULL saves having to pull the table into memory, while
+using the table is a bit less code and saves having to use kernel-mode
+NEON.  So both have their advantages and disadvantages.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+This patch does fall back to the table for the last 'len & ~15' bytes,
+which means the table may be needed anyway.  That is not the optimal way
+to do it, and it's something to address later when this is replaced with
+something similar to x86's crc-pclmul-template.S.
 
+- Eric
 
