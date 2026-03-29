@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E578F3D5FA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 09:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A5DBF3D5FE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 09:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9I9pWg1qiYfKGe+2u/Y2VqDef17Cucv2X9t5EHG/VHY=; b=ObtYcXg05fueh+U1wGct8AHuQG
-	K/ADGSwdtMZYzyaJpzHLvW8teCbZLs2oEbUPa3YBh/SuCv/y7imX2MJWzFZhcVE5gyWsjT8c0EI9E
-	oRMPHJNGfvxdf8kSjuzIe9rszGPj3Pz7i/Wz5Uka12koijftrpdbVGGXifUZY87z+CHX2NKLq75kE
-	V2qCBZlWiCLXODNwY61Ex3FLa9GnPjYqJFqinpXHFAQhRydt8WwPK5gfzDI7dEBvd4sTu5645HHBc
-	uBYglD3I/moHRLD+TlGP6b11+IucYul5DlEyNXjKkokkjePVLu8VOV1cjbBD93QHhF+JOto388Pnp
-	kfNgXMjg==;
+	bh=sGDCJ4nnZOaX7PqUwJz5bYB/Xwisxt5pEqmuR77rK0M=; b=lmSZ7m1S/QKUPxA+igR6pC/iRI
+	GRkr4qFcU3xYRbBAPluPw6T1BNnEzQ/Esmg4h1re7UAXXsPN5BG5JcW/U3zZQqODHJaRYhaanKuKs
+	DKt3AS7TVMU3B0QJOMlwChuhnH5g/4wOQmoHvVeakcfdfwDiTUZw7yVKwQK2OoPtPG0oYfgKC89kw
+	AUqFo8cjGj7Lqh8YNesKJS2zC1NMSdAivqVcmuX4TKC90ky14Ti5+JOUJWJlq5ue4poGgXtV6Iq09
+	McNRRRTYQAkHuBQHM7iTCrljRfhr56wuYVcxykCWF/FVhLxazw6kRiku5RwFvOWlfTOOVK5YjkZWU
+	hN1qUyjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6mHG-00000009meW-08GN;
-	Sun, 29 Mar 2026 09:17:50 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w6mLI-00000009mwM-2SWA;
+	Sun, 29 Mar 2026 09:22:00 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6mHC-00000009me7-3J9g
+	id 1w6mLG-00000009mvv-1Ri4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 09:17:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9I9pWg1qiYfKGe+2u/Y2VqDef17Cucv2X9t5EHG/VHY=; b=KJhk2qyRb7hH9av5+qNwazNMTy
-	/H/qCrwEypVy856dDzpTdNFAtkcNVVQQWMdtn7PtGZYzaC2M+en5DweQT9uriJql4SxDEPNXy1afc
-	IytMSDELrmpfTx2w5SOY1FyFkgEOP36SNOVZ+6c0NPtSLbySQp4X2sqBWSsMYUKwnQVgm82tUpQBs
-	Z+0NndiXiAcvInuKxbhUyAWkOxf184wn1GmoKnXd10wwoCrlsZWXbr1XnugFhNp2iWsmMocE8eNzN
-	kFprirWTNz3gnTt0Cvn5AwxRcd+cgozm5qwxDdjJe5iYKCGu3FsQuQjxBm9jJrhicQAP0J6w3YjyF
-	4QLWLwLQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47022)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w6mH7-000000007oq-2vj2;
-	Sun, 29 Mar 2026 10:17:42 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w6mH6-000000001bg-0198;
-	Sun, 29 Mar 2026 10:17:40 +0100
-Date: Sun, 29 Mar 2026 10:17:39 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 06/10] net: stmmac: simplify GSO/TSO test in
- stmmac_xmit()
-Message-ID: <acjuM_ryTVHU9Ib_@shell.armlinux.org.uk>
-References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
- <E1w6bL9-0000000ELu9-1quN@rmk-PC.armlinux.org.uk>
+	Sun, 29 Mar 2026 09:21:59 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43cfd96354aso61583f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 02:21:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774776116; x=1775380916; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sGDCJ4nnZOaX7PqUwJz5bYB/Xwisxt5pEqmuR77rK0M=;
+        b=DkCHG6561APyAk6v2qCOPOoQDhKaSkaEiebMxdn3+LTD2+EfvQgnIaw8yFSbiTDg8X
+         tlmZLEtJyxcIuA1v+XhcBUHK++fKVUMD+hbLIRExxfzzcxmbmbq+98kd1WHeRYwG2Xg3
+         DUBYKH2Ti4e2xWqbJgerxbvHsKg3+3b5fxQzeDSTFrXIiNus7ZUlElHr0YWVAMmsqgBf
+         2vi7ZEr82UP+4gdTy7t5Gbb6FGqeQDBX96goRr5b7mAZsrMvAfXUZx3Q2hCvgNWi/K7t
+         N7WM4vXuV6oPpxQGVzXX3DQDlZxDB5kuwHDG7w6+ehcUMYws8i3ueFBNmsLJSXs69UwM
+         Pp9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774776116; x=1775380916;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=sGDCJ4nnZOaX7PqUwJz5bYB/Xwisxt5pEqmuR77rK0M=;
+        b=O4+9QgZq86+zpK6x8R99JtAdeVU5NbZFAD1t9xpL8xK0maVrxwpUxtETUbBZkfDR1y
+         0OuftkAPB1YTSKdCxl/7LDIrlm5PLfA6rtrZ3wl6V/3mo1AVqJi6p8BeD9701JltrboD
+         FKQIgzjNUxHKVdKAZeS1Md7xgm0rcA5eCyu1JWC3+/IkUhZ8cpDYQqIYUplaFVMeP871
+         Zq5Yzz0DSNQnyc7dcG5LGxsbKLIW5QlJ/Smwef0HRGWE6yLfs1sSVWSRPMQlWPCwpjUd
+         7sFnQ0wSepiswXLud7W7aPgJ6Y+YQJiS49KLDJvAi9onkfwV++O6bH5OyKEF4FWPGkBu
+         +iOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUNib9cqTsm9DNI9WNLy4zqYpfc08aYObZzYik1vTNtg16X5DaNyrrmGOdatoUtp+7nfyFLHojZE+Hhb2+vYCru@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHGQu/KsxpITbMTnLpfc8MoUf69Ap+g83X2cxBdFmEjiFjgL21
+	dprPHhrxMgQgzHYqQiMAinv8LpGOpmEs6/B/J6XmggoUUp31ctISgkLyFxG5KpMe
+X-Gm-Gg: ATEYQzxjUmNivN4QzFgkx9CU5dHxUDAcabxwvRBoNJk7OxGh0le4hILWuPJLbFpG6Yh
+	/2nA7h66XPcoCgqQJD6JbjtkAUIl9WwyqHyzbhXJPGXvSCbY5JX2LvEEZg94VPok3/tAfbLzzKX
+	tiWMH9jjOXEQ6mLUo4kUQht4HHdegwx1YhuVRz+xUl9h4Zu5OEBa3uQ35VJ6Wgc2HHv4XpVLB5L
+	Lu/qvgfTQq8/4q10v0SFwqCouXM9TD65jWT580ZoXKt1ksRsmZqNEdF71HepBUc4oZO1MwN13eh
+	HiebNZDiVD4T60UTqQbNYqCPkvYdIcpa/iKZI3vYQ3LUsEuT/73Q0UmFVlmZxyo1vrZCQidyPBm
+	/NGlWfEA9jBUiwdyWeLW9s16t3HLJnSftQDBdZh2Nl9vhjvFVO2Z/uLryHNBTezXrJQwbbd7uSu
+	EA3w68kB41CUpDZBIFXsFbwp45U5IpzawU5+DumzQTe9yU9+3xI74xyQgSBpDY8tK15+Cf8x2t4
+	iOekVpaq5gzClgq9w==
+X-Received: by 2002:a05:6000:24ca:b0:43b:60f7:2282 with SMTP id ffacd0b85a97d-43b9ea4ae28mr14838629f8f.28.1774776115668;
+        Sun, 29 Mar 2026 02:21:55 -0700 (PDT)
+Received: from jernej-laptop.localnet (118.red-213-98-130.staticip.rima-tde.net. [213.98.130.118])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf21e9e18sm9945848f8f.9.2026.03.29.02.21.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Mar 2026 02:21:55 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: mripard@kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: paulk@sys-base.io, mchehab@kernel.org, gregkh@linuxfoundation.org,
+ wens@kernel.org, samuel@sholland.org, nicolas.dufresne@collabora.com,
+ linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, pengpeng@iscas.ac.cn
+Subject: Re: [PATCH] media: cedrus: skip invalid H.264 reference list entries
+Date: Sun, 29 Mar 2026 11:21:53 +0200
+Message-ID: <2823210.mvXUDI8C0e@jernej-laptop>
+In-Reply-To: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
+References: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1w6bL9-0000000ELu9-1quN@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_021746_830719_EF792F49 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20260329_022158_400217_81BDFDBF 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +103,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 28, 2026 at 09:37:07PM +0000, Russell King (Oracle) wrote:
-> +static void stmmac_set_gso_types(struct stmmac_priv *priv, bool tso)
-> +{
-> +	if (!tso) {
-> +		priv->gso_enabled_types = 0;
-> +	} else {
-> +		/* Manage oversized TCP frames for GMAC4 device */
-> +		priv->gso_enabled_types = SKB_GSO_TCPV4 | SKB_GSO_TCPV6;
-> +		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
-> +			priv->gso_enabled_types |= SKB_GSO_UDP_L4;
+Dne torek, 24. marec 2026 ob 09:08:56 Srednjeevropski poletni =C4=8Das je P=
+engpeng Hou napisal(a):
+> Cedrus consumes H.264 ref_pic_list0/ref_pic_list1 entries from the
+> stateless slice control and later uses their indices to look up
+> decode->dpb[] in _cedrus_write_ref_list().
+>=20
+> Rejecting such controls in cedrus_try_ctrl() would break existing
+> userspace, since stateless H.264 reference lists may legitimately carry
+> out-of-range indices for missing references. Instead, guard the actual
+> DPB lookup in Cedrus and skip entries whose indices do not fit the fixed
+> V4L2_H264_NUM_DPB_ENTRIES array.
+>=20
+> This keeps the fix local to the driver use site and avoids out-of-bounds
+> reads from malformed or unsupported reference list entries.
+>=20
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-I've been wondering whether keying all three of these off NETIF_F_TSO
-is correct. Shouldn't SKB_GSP_UDP_L4 be dependent on NETIF_F_GSO_UDP_L4?
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-(The above code doesn't change the current driver behaviour, so this
-would be a separate fix.)
+Best regards,
+Jernej
 
-> +	}
-> +}
-> +
->  /**
->   *  stmmac_tso_xmit - Tx entry point of the driver for oversized frames (TSO)
->   *  @skb : the socket buffer
-> @@ -4671,7 +4683,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
->  	u32 queue = skb_get_queue_mapping(skb);
->  	int nfrags = skb_shinfo(skb)->nr_frags;
->  	unsigned int first_entry, tx_packets;
-> -	int gso = skb_shinfo(skb)->gso_type;
->  	struct stmmac_txq_stats *txq_stats;
->  	struct dma_desc *desc, *first_desc;
->  	struct stmmac_tx_queue *tx_q;
-> @@ -4683,14 +4694,9 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
->  	if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
->  		stmmac_stop_sw_lpi(priv);
->  
-> -	/* Manage oversized TCP frames for GMAC4 device */
-> -	if (skb_is_gso(skb) && priv->tso) {
-> -		if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6))
-> -			return stmmac_tso_xmit(skb, dev);
-> -		if (priv->plat->core_type == DWMAC_CORE_GMAC4 &&
-> -		    (gso & SKB_GSO_UDP_L4))
-> -			return stmmac_tso_xmit(skb, dev);
-> -	}
-> +	if (skb_is_gso(skb) &&
-> +	    skb_shinfo(skb)->gso_type & priv->gso_enabled_types)
-> +		return stmmac_tso_xmit(skb, dev);
 
-I'm also wondering whether we should check gso_type in our
-.ndo_features_check() method rather than here - if we get a GSO skb at
-this point for a type that we don't recognise, surely it is wrong to
-pass it via the normal skb transmission flow.
-
-Yet more worms in the stmmac can... :/
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
