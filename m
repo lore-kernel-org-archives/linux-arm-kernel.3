@@ -4,59 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4266F3D60A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA7FF3D60A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHJsj3i2UGu41XggzEkokpN3NfvKwTCjQxHQUroZ1No=; b=mUf6oyDNbHBAYWbQsURumFYzMP
-	8k+R6zlC+S7JA1Gk9qUiAVU3rcT93QVpbVDrVxs0ZvLTL5tMknEaPYXYsN0dWiLQq/TidzfM7CnLz
-	mBSShnr7xxLJjn3fSWlXfS62E4qqZ6p6E+DbxxJdP9hJixoplmVeGR0HZU5wHqnpb2QkwtjKXX2b2
-	oH5th6FIS67apr1MCMagRmh8idXKwgUCYyXeGUb5X4aJ7F9s0QhvvLBYQa5bZv0SJI3gwkfCfr9Qj
-	1D/X1wgu7ML+JvNCTVKpJSgBhHi/yI0QT54xsP79Yf0qD73M77CeRIEgkBrgW+yacdYsQyFsEKjVY
-	OCEjlh7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=; b=byYR0Jq7x2doRTQrOvBDmTnZJU
+	JIp40P8fWqnS2L5o3jhb6a4lTA2mOpy8JKDFGg7j7hqlKTC/oseoRqwr550pJNvZG5S79FZslsxuu
+	i8XdWcqFYASRRECzlO2Yg8R5eQdya9QZAWsNYFy2ouugQLJP7Lou9qBqFGLSvk1etcJQ1E4s5lqv2
+	u6Q+Qg7TdSer/kP5QFlz18gk2uCAF+bN/7VWlQ1DOl11RnmIudLCr0xIadf8mc4Um5gRfgY1rBSd+
+	iL+tQ9SL2KVlKxNxbn7JxzO2+5urlTkBcpnHYdmYwLCG6p3jCZQEU7fxQyXDqwxBefxsP1O9C1D2b
+	nOzo7Sng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6t2q-0000000A7SP-3jJW;
-	Sun, 29 Mar 2026 16:31:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w6t4K-0000000A7cH-3vgi;
+	Sun, 29 Mar 2026 16:32:56 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6t2q-0000000A7SD-0dAr
+	id 1w6t4I-0000000A7bl-47d4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 16:31:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F46360054;
-	Sun, 29 Mar 2026 16:31:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC8D3C116C6;
-	Sun, 29 Mar 2026 16:31:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774801882;
-	bh=ZAA7JFyEPX8fZJyDBVdvdGi1nyK6h+0PqK1+/WxNirc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=dOHjTPogepQX2xPxX0hSmlgs6yFDTWb04IexwKUJOV5zZC/AjlyyJpiKWhFAhchK5
-	 4Tfw/5C4kMe88U8TQf0nU2m7IlO67ALyzPF8vBKIHZ2Xf8T2VEVkIwDKITFrvI18mr
-	 VNksCc7KkQBtOhWwarHBXBYwwZr/cYKN4YwS1w5DGIOemZEoBmuUtXRxxCutqdWtcm
-	 4XR0DIpHYtovyNLpCKcY2UdmZQfe8vVLfaBBnR0gz8AC/xpK1a1N3nF1dA8Uvw3RHT
-	 Z29uR4gBQWrEVvZIaWfoYcU/1Kd/lG+XQbS7ncECd9s1iJfkPbrGMlnWA5TkE2AjGB
-	 94lANoVkB8kUw==
-Date: Sun, 29 Mar 2026 11:31:18 -0500
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	Sun, 29 Mar 2026 16:32:56 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-46a9ae3f857so444232b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:32:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774801974; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dFr86454AcdCWh0nrr5ppflrIaji7IX9NxhnlLLJSTGjzXFjqEnbUcT4Wcm8TrpUoK
+         MDDw1OTenklCL2A8y4//yZUrzX2MwEK49zjAekahzvjx7YaV+sy8Q0PW+dobHFNz24xp
+         zQGuIr1n9uLRvbxThlDHKEJNNnZOXgDjml7W2oW/3HRjUmaroVy/Eg/7dZCWzCX4thtm
+         dwXueQ+FjCecPMWRgpVp0aG09xxdtrH/NTpnsmFYmXyMV9kC20qRNOHnem5wcajbmzcs
+         ybG98OWEVx9VJGYXxclTFIzo+GdE0wNRAG/+mF4PVzrzAtTCk9kYrd8ZmXcFtMh3X6vC
+         EaAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=;
+        fh=+iQfgsi2Zea4rzLVMI1qW+pTaPqxZ7mAMjdIYPq98d8=;
+        b=GkBA8n2+CFNaypWhi6cpgV969y/TDNiIvnksOKTWbmK5jR7pFOYzDnh0gdxE+Jtum7
+         1PwPqyD90fz+B1V5qEkOf8lf48RaxVPuu272nAuBZUHGqnlPaVIGTSQT7k/kYpXe/Usj
+         9xwieUvJylLmGLMe/dJUNnN795dH/eAuirPO26aikWS5cZa+PzF4RjFOXtzaEBUj/qOk
+         qH+MndH6Kb70pIjOPRGb0N4Rcbfe551H9rcK9J0eqTYf930DbeTH659mEZZH3rxTA3T/
+         1df8PcXTsRhGJjfdo/E9IpGa2AYABzVX13uNDNcRKy6WRfMvwSGdP5UlnEbxPJ1MZdvR
+         5xTQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774801974; x=1775406774; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=;
+        b=Xal94Sckl3/sAKqSEmr8fhCcPoVH7oxIuYKWzmRwIv8yP+YKhY17/EmBYzz0FX7ADI
+         jKBx2k6EzrgRoK05O4x+pr1gch5zniGwU9Okg7E/zqWd7mdHUI4e9MMdCHTpAfexK46L
+         kUQdhkNA7U4TiucO/cEA/PYdjDvEZ51YAF8yU2UqbnfsCMK0kjYPZWOBuWQPG0NU1yck
+         GMg1GwyRzcizBSxRhcqBpqFgZ4ejSWZGINEookMpRqthf1eQuxtJvcQ8xgmNevTpJNPA
+         xOFxleLteL0X4KV5ugvvQimspd22KpCaVukRq3cbemc9tQH8DRvE/it39yax/lrBdJym
+         GdLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774801974; x=1775406774;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZS+Ol8+yEchdiVkskKjDZZmXtLA1m1nNb9M6NkVQzPw=;
+        b=dcazE44mcmff9rk7a2nVA8bRpjilF6VcPR63Z8WCSQZ/f/TNZ8xw4ZemSF9ipZ18nK
+         s4kVI+C830OzDEkz2WtJoyE86+uIZfurcQIqLKhQeiL52gcm1MHMjWmra7U1bQVwNVq0
+         PPdQaoT6Q4ZWM5YF72E90X591HV66ZgVSLduu5Etni8XUnrVoSgNAxx6/lAfh7Q7nxLJ
+         Bd5wVDkoee3WBfGLiULXVpIcnvyRaoZwBF6JeinsiP/A592csNU8rGul2iOBbejk5qMR
+         NfJvkEQRkEeaytLZoPDlfonNAswIL33YVrevvjEgz3FS2DMUQLON9Wl6nnshunvuCOWN
+         FjKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV3BPzxNtcmtsk2I6KRSgbL3MFBrmUXUGSajZ/tb+AsZV4IQ++4GP8XoN9VDqplP+jl5U8iAG0QmWRZUrrVCBz5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5q5lILHFPZw+vc/VyuUe0+rphQ7Q8UV0V2OtDqgNEprr2E0sn
+	SLwj5VcW/2kePpy3eucFypbs7mW7JsVShgSZxAfQSKZQJIIyCXYOsBXkT7lWr2AUuJHaEex2DaW
+	NsykNFg/HpogG0QD07tYEMbO/6oMqtdg=
+X-Gm-Gg: ATEYQzzney1MRywfRBBuUng81Uc8WTPvzELvKykekLam/qI+7XwTT0kFSc98x5gd+BY
+	t5H+eVuSm85CcCft8HLqSXT3OYN4HHXhPSZMDpfHOgyKyr08R2JrOGk+8XEg8je4Z7DQtsaSbqL
+	/3WyVv/IIKT7EIh5ecxChVDZwAp1GSBtujx2beLLp+wGc4NRw4YYKIJHzqIXoXC37mGpazVtYX+
+	NQd+ami4qicZ+OizlfXGs2V04Hi8EjCAlJjRs+kQhwowl6weMgiZnkCXlDiiRAF8XOhr2E6aUrW
+	2YIQXWsB
+X-Received: by 2002:a05:6808:1987:b0:466:f57b:2aca with SMTP id
+ 5614622812f47-46a8a5fa334mr4267891b6e.50.1774801973796; Sun, 29 Mar 2026
+ 09:32:53 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, mark.rutland@arm.com, linux-kernel@vger.kernel.org, 
- will@kernel.org, linux-perf-users@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-To: Geetha sowjanya <gakula@marvell.com>
-In-Reply-To: <20260329152439.10573-2-gakula@marvell.com>
-References: <20260329152439.10573-1-gakula@marvell.com>
- <20260329152439.10573-2-gakula@marvell.com>
-Message-Id: <177480187879.3821545.1418210029302677428.robh@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: perf: marvell: Document CN20K DDR
- PMU
+References: <20260209083452.154983-1-fredwudi0305@gmail.com>
+In-Reply-To: <20260209083452.154983-1-fredwudi0305@gmail.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 29 Mar 2026 11:32:42 -0500
+X-Gm-Features: AQROBzD_uLE7qGskovC2U1QTIDQsdBFywmlZ-V1Va3ppdPPRPwcou_hGA1RSB2o
+Message-ID: <CABb+yY3a=0a=Ku5kjUBAfpZ7ckR03JTmq5y52W6ASBKvbakruA@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: cix: Add IRQF_NO_SUSPEND to mailbox interrupt
+To: Dylan Wu <fredwudi0305@gmail.com>
+Cc: Peter Chen <peter.chen@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>, 
+	cix-kernel-upstream@cixtech.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260329_093255_076769_0E5C5D2A 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +117,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 29 Mar 2026 20:54:38 +0530, Geetha sowjanya wrote:
-> Add a devicetree binding for the Marvell CN20K DDR performance
-> monitor block, including the marvell,cn20k-ddr-pmu compatible
-> string and the required MMIO reg region.
-> 
-> Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+On Mon, Feb 9, 2026 at 2:34=E2=80=AFAM Dylan Wu <fredwudi0305@gmail.com> wr=
+ote:
+>
+> During the system suspend process, device interrupts are masked in the
+> noirq phase. However, SCMI often needs to exchange final messages with th=
+e
+> firmware to complete the power-down transition. Without the IRQF_NO_SUSPE=
+ND
+> flag, the mailbox ISR cannot run during this late stage, leading to SCMI
+> communication timeouts and error messages like "SCMI protocol wait for
+> resp timeout" during suspend.
+>
+> Add the IRQF_NO_SUSPEND flag to the interrupt request to ensure the mailb=
+ox
+> can continue to handle responses during the noirq stages of suspend and
+> resume, thereby ensuring a reliable power state transition.
+>
+> Signed-off-by: Dylan Wu <fredwudi0305@gmail.com>
 > ---
-> 
-> Changes in v1:
-> - Added a description field to the binding.
-> - Simplified the compatible property using 'const' instead of 'items/enum'.
-> - Updated the example node name to include a unit-address matching the reg base.
-> 
->  .../bindings/perf/marvell-cn20k-ddr.yaml      | 39 +++++++++++++++++++
->  1 file changed, 39 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml:35:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml: ignoring, error parsing file
-./Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml:35:1: found character '\t' that cannot start any token
-make[2]: *** Deleting file 'Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.example.dts'
-Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.yaml:35:1: found character '\t' that cannot start any token
-make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/perf/marvell-cn20k-ddr.example.dts] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1614: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260329152439.10573-2-gakula@marvell.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>  drivers/mailbox/cix-mailbox.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.=
+c
+> index 5bb1416c26a5..5e27c2bf3492 100644
+> --- a/drivers/mailbox/cix-mailbox.c
+> +++ b/drivers/mailbox/cix-mailbox.c
+> @@ -405,7 +405,7 @@ static int cix_mbox_startup(struct mbox_chan *chan)
+>         int index =3D cp->index, ret;
+>         u32 val;
+>
+> -       ret =3D request_irq(priv->irq, cix_mbox_isr, 0,
+> +       ret =3D request_irq(priv->irq, cix_mbox_isr, IRQF_NO_SUSPEND,
+>                           dev_name(priv->dev), chan);
+>         if (ret) {
+>                 dev_err(priv->dev, "Unable to acquire IRQ %d\n", priv->ir=
+q);
+> --
+> 2.52.0
+>
+Applied to mailbox/for-next
+Thanks
+Jassi
 
