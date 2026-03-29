@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE09610D148A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 03:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88ED10D1495
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 03:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q9pf6rDD3Pf4B9hD1p/Du2NAfmBkH3pJ3Ae9Sl7/2GY=; b=V5JG4E2Sok3WEuO2efi4ZtMU7Y
-	odPkEoHOvu6TQvFPpHsXBeIIUdFPfha2AaaDoSf0F015aWX3zZMQYSdBkgT5TQPXe6d8vHVBqVH9j
-	c7OuW3yGP1lqNfd4wv1Vo/T1EZnKS3qjZXjPcCqZI5SYlOzUKiAKP828JVbCw1yaHApQLqYqdWvhz
-	cicAttvs6gpusi3mJBAqqO6YivoQXF0UzPkG1pEM/LWuGxmg1JyA1uCebxBU/pV8unRabPTR/+vP6
-	6Q+5pDd5K3kj+gbAiLVGNucxwP8yQDZzWof8zH4l3llgLpopP5Ri+gilUxK0OgjBDkKEYIFuv9TYU
-	JeBtofSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gUuZHrDWxaaWF4+/n4z56tn8qK+LyT2Zab514kfOXec=; b=ffaBNTQdn+tCqJAEKYjrqgMl5g
+	I8tH7QNBwssJBO0xvmKdV6GfO/jdMGdB5Pli6bm32wtSpKHIASRIcx4ukv7Y4H7N1OzS943SiRVDo
+	eL+Uo8PqtzCyW3mdsaeCCGcrRdGtOyKO5ZGtmxx2waiXaYusA6AgIOLkUZB2Ykcomqb2BIwPb5vr0
+	PhB5cuHztiTuH9lqKBtKX4ImDDgJdikGfTkKF28WzcCzIArgCrZufpgpHg9mGDwpu9U/2mfYMijuN
+	qh1He2HtDT+rPsJzTPUMs9WqqzbcUEFCyz9y4Z0AizgNti84q0pXMZ5OfWKFF6Gl54rMZrdSkFxNE
+	Bx+nv1rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6gXF-00000009Vfl-1tSQ;
-	Sun, 29 Mar 2026 03:09:57 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w6ghm-00000009Wa0-2n4u;
+	Sun, 29 Mar 2026 03:20:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6gXB-00000009Ved-2lk6
+	id 1w6ghk-00000009WZd-42Bp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 03:09:56 +0000
-Received: from localhost.localdomain (unknown [111.196.245.197])
-	by APP-01 (Coremail) with SMTP id qwCowABXAW36l8hpmOd8Cw--.810S2;
-	Sun, 29 Mar 2026 11:09:46 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: linux@armlinux.org.uk
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	pengpeng@iscas.ac.cn
-Subject: [PATCH] ARM: rpc: ecard: bound variable-length chunk reads
-Date: Sun, 29 Mar 2026 11:09:46 +0800
-Message-ID: <20260329030946.32386-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Sun, 29 Mar 2026 03:20:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=gUuZHrDWxaaWF4+/n4z56tn8qK+LyT2Zab514kfOXec=; b=1R
+	wsmr+7CebtxmeC7zSCRBXBzSP8TtlMe1LeiLLkDCkbO6f1YWfIH9XlyyRJk9qfQmjPkiqnYrcJbYX
+	fMvITKt05bjHr+c22rl8xd158RD+PJo097oMNQod4FzDa4iVhmf15I0Syp5CHamydP7ETNHRJKNb2
+	A4sxszRKx5ltQz4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w6ghV-00Dr5E-2n; Sun, 29 Mar 2026 05:20:33 +0200
+Date: Sun, 29 Mar 2026 05:20:33 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Anirudh Srinivasan <anirudhsriniv@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: aspeed: Enable networking for Asus Kommando
+ IPMI Card
+Message-ID: <b8e4da26-ae8e-4b2d-b259-c13e3a4d0aa0@lunn.ch>
+References: <20260328-asus-kommando-networking-v1-1-66d308b88536@gmail.com>
+ <ed3d39df-0a0e-427b-86cf-b9b2d2094b51@lunn.ch>
+ <CAJ13v3S7ucjd-ifmKFBDGtsg32MbOar2OBeiGMVEJBsH8+JP7Q@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowABXAW36l8hpmOd8Cw--.810S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZry7Aw48Ww48AFWDKF4xCrg_yoWDurb_Ar
-	92y3WDW340yFnFvw1YkrWrKryjgw18GF1DWrW7Aw15Ka98XryxZa93trnIy34UJrW09F43
-	ta1fJayYyw13CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbwAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
-	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCF04k20xvY0x0EwIxG
-	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
-	vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IY
-	x2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26c
-	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
-	wI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUkKsUUUUUU=
-X-Originating-IP: [111.196.245.197]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+In-Reply-To: <CAJ13v3S7ucjd-ifmKFBDGtsg32MbOar2OBeiGMVEJBsH8+JP7Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260328_200954_086641_40DBEE15 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260328_202049_009292_D178F7AE 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ecard_readchunk() reads variable-length string chunk payloads into a fixed 256-byte local buffer without checking whether the encoded chunk length actually fits.
+On Sat, Mar 28, 2026 at 07:14:04PM -0500, Anirudh Srinivasan wrote:
+> Hi Andrew
+> 
+> On Sat, Mar 28, 2026 at 7:05 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > On Sat, Mar 28, 2026 at 06:39:59PM -0500, Anirudh Srinivasan wrote:
+> > > Adds the DT nodes needed for ethernet support for Asus Kommando, with
+> > > phy mode set to rgmii-id.
+> > >
+> > > When this DT was originally added, the phy mode was set to rgmii (which
+> > > was incorrect). It was suggested to remove networking support from the
+> > > DT till the Aspeed networking driver was patched so that the correct phy
+> > > mode could be used.
+> > >
+> > > The discussion in [1] mentions that u-boot was inserting clk delays that
+> > > weren't needed, which resulted in needing to set the phy mode in linux
+> > > to rgmii incorrectly. The solution suggested there was to patch u-boot to
+> > > no longer insert these clk delays and use rgmii-id as the phy mode for
+> > > any future DTs added to linux.
+> > >
+> > > This DT was tested with a u-boot DT modified to insert clk delays of 0
+> > > (instead of patching u-boot itself). [2] adds a u-boot DT for this
+> > > device (without networking) and describes how to patch it to add
+> > > networking support. If this patched DT is used, then networking works
+> > > with rgmii-id phy mode in both u-boot and linux.
+> >
+> > I've been looking at
+> >
+> > https://elixir.bootlin.com/u-boot/v2026.04-rc5/source/drivers/clk/aspeed/clk_ast2600.c
+> >
+> > And i don't see where mac2-clk-delay is implemented. Could you point
+> > out the code?
+> 
+> I'm testing against the u-boot version that openbmc uses for its
+> builds. I don't think upstream u-boot is used by openbmc.
+> 
+> https://github.com/openbmc/u-boot/blob/v2019.04-aspeed-openbmc/drivers/clk/aspeed/clk_ast2600.c#L999
 
-Treat overlong string chunks as invalid and terminate accepted ones before copying them into the exported chunk directory buffer.
+Please include in the commit message that you need to use a fork of
+u-boot.
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- arch/arm/mach-rpc/ecard.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm/mach-rpc/ecard.c b/arch/arm/mach-rpc/ecard.c
-index 972465840548..1340ef0364f8 100644
---- a/arch/arm/mach-rpc/ecard.c
-+++ b/arch/arm/mach-rpc/ecard.c
-@@ -367,9 +367,12 @@ int ecard_readchunk(struct in_chunk_dir *cd, ecard_t *ec, int id, int num)
- 	if (c_id(&excd) & 0x80) {
- 		switch (c_id(&excd) & 0x70) {
- 		case 0x70:
-+			if (c_len(&excd) >= sizeof(excd.d.string))
-+				return 0;
- 			ecard_readbytes((unsigned char *)excd.d.string, ec,
- 					(int)c_start(&excd), c_len(&excd),
- 					useld);
-+			excd.d.string[c_len(&excd)] = '\0';
- 			break;
- 		case 0x00:
- 			break;
--- 
-2.50.1 (Apple Git-155)
-
+	Andrew
 
