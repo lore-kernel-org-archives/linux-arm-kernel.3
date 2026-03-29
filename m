@@ -4,104 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433F8F3D605
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA623F3D605
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Mar 2026 16:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=; b=Bg/53flSGyxstHbZtNX1qXzmN4
-	Jvqfg1L4Zqp3qt/zhhxzKMpv6mLa8/i0cax+fg2ETZzQdTlJhrR2hft1GeFXHRtJHd2VSuYLr42Ax
-	jeC5EnoupXRQcv1ygYFZzyaA5QkhkkyYZNu7+A/Q4bgKtmRZ7JlztDu/kPnxFHWpE7YT0oiFuxMuK
-	acZun9RI4EmIASxnKMKZJc/vJjqxWBdCX0OqQ7VUtK4gDd5JM67otZRDcw7axHqdiAKwu1vM3WmPe
-	0su0HCWsU0GI72rRpzBxjzaKibInc4B1D/BA0bLgQg4+dtqsj7pOdFXU08Tu20XBtnOQrxUobii+0
-	gUQa+q+A==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qMt7V1fWilajF1D/YAPIV1B6CNR/0ynoUwXY190/Y2k=; b=aN+tmdaL6Z2haDEwAGeqgwUwps
+	+PyErNnLxIJQQCrsGLomO35KaOCjd1PNN7zsvWWOQZnb/5FO7TXd38Vd0OhhxC8/oYn9WW/2jw9XQ
+	n7Rjly7XmgnPP6E+UMeyag6iE6i3l7pSGYQJ1F/c3MeZc2Qnq+SMKbsxhNHS6u0mvErrvIWamMftg
+	XTeDN8Zs41Az4IMtYX3U8vCUOnOHQHSE/f/agdJVRpyLx1Hpgh9wNCPmF3O5nvlPXNUeaEkLs77t8
+	1aSiy1yFI3rqC7SVmSAdk4Uo0W7xtsT8MOnB4eTCUnMryvULRM3+puRIICyvtlr+sh4zbV/e3r4hI
+	u31b3cOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6t55-0000000A7hY-19RO;
-	Sun, 29 Mar 2026 16:33:43 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w6t52-0000000A7gL-2KaA
+	id 1w6t5h-0000000A7nd-2hvF;
+	Sun, 29 Mar 2026 16:34:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w6t5e-0000000A7lv-0uB4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Mar 2026 16:33:41 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7d7eb85fb81so3726373a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Mar 2026 09:33:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774802019; cv=none;
-        d=google.com; s=arc-20240605;
-        b=a+q3HwHqNr5jI5c+367YyibPliP+0wDahX15Vx4JDd8YltCPrKI1kwnLhOrZpm5Blf
-         njA9kSrb1/ntgLi7ogLeEswtMOuILWn7SBBTv7PABH5YOrBjqXHQ7l26q6I9i/FteDCs
-         NyS59rsRjzJ1EUKSfu2yq4ZopJ2x4PJT7D0mc7V5isAeEXHGeQr22QpTqxQ9/iYhvz6Q
-         Gsl536fSfDptSv/alJtllo1M4LBJcL2dhcCipOlHrB5JuzE/ufoefmF3fsXAY0X0wdEw
-         Zo+2NtzsMotJ+owiFJSH3ulhD1GsaU+zl7ycH4kVtZK4OiIX0wEs5eKfx811Ezss1o9R
-         L2+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=;
-        fh=O3jZJrwTysSrCpnrZjYtbnk33GrqHZgT54H6fn8w32Y=;
-        b=FoKdKaV58PKE8oJc/SRwtU8EVSvGTlDWcGrLOj27r81x5KgidCrYtCk/aD5Mh7fW6w
-         U59GWe8o78i/rzvoES/ZxboiCkjWrbMtPPlKHvOIQ39+HdbPSdNUzAeF22XJ3YIaliWD
-         M9c/71CeFE0hrDNQVJdVOzSWIlZG7JyljNp4w5/co9dccvKJtUnq4FPIWhAoVC1igLYi
-         52bxjQwNpgSIxy+Jwx/IJeAZNZSr2ss0tEzCCeuOlmWFNOCHlJoLxIQPUTxHhLUlyuS1
-         WF6X1KlsJpGijjEX57xttvWkoA2WT25SWoKgpWzEoCDWZ6w7ofrCfchqh17RcMKEFh26
-         fHJg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774802019; x=1775406819; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=;
-        b=mEv62bCeQOiKsMP5+msbvKY4+SZNlzLKN/vDUn9ZT4QiZqXr23LM1DKmw6slAhLWLR
-         v9a0rrAdlmqn3Nmj3QoyOafXTcf+0wXF6WrVvKZsGFbMnpt/rmJ8Jq7pcibyLRxYLBQb
-         ScGCjbBhfz8afYTdMdx6kV/4NIJTJY2r1s3eIyls1NCApC31hw3UUtTWy5PoOWOHYNmv
-         pIYAy/pCuxtmxlBW2uKfqV+wri8wv02LHZ4n1VjTor9zNMPysqd73/8fZOzU6w0vS0tD
-         51jNwNu70KveEscg56z5YG8JoX1TKBIdxFZIkkOwQVrVZMi9KwTD/wxnR4l55X3M/nEL
-         ESVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774802019; x=1775406819;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2D8AAIpYTEqtmnoIx+/keabARVU/LrRLPgvcgxmZAZ8=;
-        b=sMrV89h8dF4OsEBlkUGTGSpv94SctXEweVNW/ZSweOhKNYjxIwcjs06mf7eWml7JTo
-         5pEP+nz+PJpasV27u9DW1IV99lYE1d2b4Nva2YG/fUSorxtkLSR12+P+dH9Mner87nL9
-         lknpUCd2ngRvJHvcC7ognAtixE+eCV38hIafBBbZ7Dda/E9Ttz1O9ulFlKXeRtnNmapu
-         4M1fWU8DHHh+oHr1lZsO9eEzxdaz0H78NrOBwKqu7suNtk3froyZk+ISUKJgubHi3hAP
-         JpKKcFV+m2jZ6BtfCukBMF+epfmazZyEElcz283ExlJvyuKVbDR41j7KTPZMy4X2X8n/
-         68gg==
-X-Forwarded-Encrypted: i=1; AJvYcCUCN1SoDvpW0QjoYD33rfHL4rcTf9h+uIPLgWylG+gKZ4vdUXozxiBwohaoHXfayGnxPmjErZd4Hy/AL586hlpx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6dOCIzaP2oAbeBzGY5QkQ7nlyU3Dk8J0+U7mcYiwAVq1ClWtl
-	DoMAniEZgE3+C+yxLIGmG5YvQ4bnxePTUA/zHo3sZcmdqeJVdfycSZSirGqqXwVp5TTTPsSF7dg
-	+TyP38cp+YAkxZZaEVd++ErS0trwcCoc=
-X-Gm-Gg: ATEYQzzVWkwqu0GyCfOLn1DDtH28eddP4bOwrW586PP/KllijOGLXQ8Ou4EILtqEEHh
-	4ZB5ruwKbqWuJrYCApkutxBhGoR/x50BPN91fkH0F+f0550238LXRhoUUeqiNTyDTElNDVv00xM
-	/p39vQOmn5WtuOY7B4eYNy0YvZORM5494pnJA2uBjcpza3uNBc9qqG4m7Jco7ZGIlOixzLPNueA
-	LrJna3fQFLHyXdaC6MFfAFpwx9PzBWSn+GCoDeVuhhbNXH4jG/YVyXW2fsUeDUTyl57djpSLB+L
-	+gL5Z9bQ
-X-Received: by 2002:a05:6820:2005:b0:67e:33a0:3dcc with SMTP id
- 006d021491bc7-67e33a046d9mr37979eaf.22.1774802019433; Sun, 29 Mar 2026
- 09:33:39 -0700 (PDT)
+	Sun, 29 Mar 2026 16:34:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65A8D2A31;
+	Sun, 29 Mar 2026 09:34:07 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E5CC3F915;
+	Sun, 29 Mar 2026 09:34:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774802053; bh=0Tvx1sqGU+yQpf8/WSXZowW4Fb/Z88pUxDNQVwa4DIE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OcmtMv3Pk1kIeVvG5/q7BXWcAAbppNOH779+1+6vMA6DhscdOjxPfF57pzW2e+jA4
+	 0mdYJMpd5HEJ8xX+Kpu1ZwTPfGFobbqNVMVRlwkICztGA40ZpBLsXWPHcnMAuDlZof
+	 k6V+r6MiB/7bON3TnMEJynadzcfeg/G766m/JXzw=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	dan.carpenter@linaro.org,
+	d-gole@ti.com,
+	jonathan.cameron@huawei.com,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	brauner@kernel.org,
+	souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v3 00/24] Introduce SCMI Telemetry FS support
+Date: Sun, 29 Mar 2026 17:33:11 +0100
+Message-ID: <20260329163337.637393-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260327220040.53326-1-jassisinghbrar@gmail.com>
-In-Reply-To: <20260327220040.53326-1-jassisinghbrar@gmail.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sun, 29 Mar 2026 11:33:27 -0500
-X-Gm-Features: AQROBzCJaBkenSWLbaMyUjoFd9_w00TbalFjVQHSf34AKH29U6wEB1C9m4WLVwM
-Message-ID: <CABb+yY3KC5UqDTBxetQK44+GXsRE2bg6tdCtmbe0_v=c=x_Emw@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: dianders@chromium.org, shawn.guo@linaro.org, maz@kernel.org, 
-	andersson@kernel.org, tglx@kernel.org, joonwonkang@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_093340_605394_3C1FB27B 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20260329_093418_472851_103E1408 
+X-CRM114-Status: GOOD (  28.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,177 +85,519 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 5:00=E2=80=AFPM <jassisinghbrar@gmail.com> wrote:
->
-> From: Jassi Brar <jassisinghbrar@gmail.com>
->
-> The active_req field serves double duty as both the "is a TX in
-> flight" flag (NULL means idle) and the storage for the in-flight
-> message pointer. When a client sends NULL via mbox_send_message(),
-> active_req is set to NULL, which the framework misinterprets as
-> "no active request". This breaks the TX state machine by:
->
->  - tx_tick() short-circuits on (!mssg), skipping the tx_done
->    callback and the tx_complete completion
->  - txdone_hrtimer() skips the channel entirely since active_req
->    is NULL, so poll-based TX-done detection never fires.
->
-> Fix this by introducing a MBOX_NO_MSG sentinel value that means
-> "no active request," freeing NULL to be valid message data. The
-> sentinel is defined in the subsystem-internal mailbox.h so that
-> controller drivers within drivers/mailbox/ can reference it, but
-> it is not exposed to clients outside the subsystem.
->
-> Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
-> Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
-> audited for regression:
->
->  - Most already work around the bug via knows_txdone=3Dtrue with a
->    manual mbox_client_txdone() call, making the framework's
->    tracking irrelevant. These are unaffected.
->
->  - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
->    the poll timer now correctly detects NULL-active channels
->    instead of silently skipping them.
->
->  - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
->    caller that omitted the knows_txdone + mbox_client_txdone()
->    pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
->    missing mailbox TX done acknowledgment").
->
->  - No caller sets both a tx_done callback and sends NULL, nor
->    combines tx_block=3Dtrue with NULL sends, so the newly reachable
->    callback/completion paths are never exercised.
->
-> Also update tegra-hsp's flush callback, which directly inspects
-> active_req to wait for the channel to drain: the old "!=3D NULL"
-> check becomes "!=3D MBOX_NO_MSG", otherwise flush spins until
-> timeout since the sentinel is non-NULL.
->
-> The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
-> by clients.
->
-> Reported-by: Joonwon Kang <joonwonkang@google.com>
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
-> Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
-> ---
->  drivers/mailbox/mailbox.c   | 15 ++++++++-------
->  drivers/mailbox/mailbox.h   |  3 +++
->  drivers/mailbox/tegra-hsp.c |  2 +-
->  3 files changed, 12 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-> index 617ba505691d..9622369cab66 100644
-> --- a/drivers/mailbox/mailbox.c
-> +++ b/drivers/mailbox/mailbox.c
-> @@ -52,7 +52,7 @@ static void msg_submit(struct mbox_chan *chan)
->         int err =3D -EBUSY;
->
->         scoped_guard(spinlock_irqsave, &chan->lock) {
-> -               if (!chan->msg_count || chan->active_req)
-> +               if (!chan->msg_count || chan->active_req !=3D MBOX_NO_MSG=
-)
->                         break;
->
->                 count =3D chan->msg_count;
-> @@ -87,13 +87,13 @@ static void tx_tick(struct mbox_chan *chan, int r)
->
->         scoped_guard(spinlock_irqsave, &chan->lock) {
->                 mssg =3D chan->active_req;
-> -               chan->active_req =3D NULL;
-> +               chan->active_req =3D MBOX_NO_MSG;
->         }
->
->         /* Submit next message */
->         msg_submit(chan);
->
-> -       if (!mssg)
-> +       if (mssg =3D=3D MBOX_NO_MSG)
->                 return;
->
->         /* Notify the client */
-> @@ -114,7 +114,7 @@ static enum hrtimer_restart txdone_hrtimer(struct hrt=
-imer *hrtimer)
->         for (i =3D 0; i < mbox->num_chans; i++) {
->                 struct mbox_chan *chan =3D &mbox->chans[i];
->
-> -               if (chan->active_req && chan->cl) {
-> +               if (chan->active_req !=3D MBOX_NO_MSG && chan->cl) {
->                         txdone =3D chan->mbox->ops->last_tx_done(chan);
->                         if (txdone)
->                                 tx_tick(chan, 0);
-> @@ -246,7 +246,7 @@ int mbox_send_message(struct mbox_chan *chan, void *m=
-ssg)
->  {
->         int t;
->
-> -       if (!chan || !chan->cl)
-> +       if (!chan || !chan->cl || mssg =3D=3D MBOX_NO_MSG)
->                 return -EINVAL;
->
->         t =3D add_to_rbuf(chan, mssg);
-> @@ -319,7 +319,7 @@ static int __mbox_bind_client(struct mbox_chan *chan,=
- struct mbox_client *cl)
->         scoped_guard(spinlock_irqsave, &chan->lock) {
->                 chan->msg_free =3D 0;
->                 chan->msg_count =3D 0;
-> -               chan->active_req =3D NULL;
-> +               chan->active_req =3D MBOX_NO_MSG;
->                 chan->cl =3D cl;
->                 init_completion(&chan->tx_complete);
->
-> @@ -477,7 +477,7 @@ void mbox_free_channel(struct mbox_chan *chan)
->         /* The queued TX requests are simply aborted, no callbacks are ma=
-de */
->         scoped_guard(spinlock_irqsave, &chan->lock) {
->                 chan->cl =3D NULL;
-> -               chan->active_req =3D NULL;
-> +               chan->active_req =3D MBOX_NO_MSG;
->                 if (chan->txdone_method =3D=3D TXDONE_BY_ACK)
->                         chan->txdone_method =3D TXDONE_BY_POLL;
->         }
-> @@ -532,6 +532,7 @@ int mbox_controller_register(struct mbox_controller *=
-mbox)
->
->                 chan->cl =3D NULL;
->                 chan->mbox =3D mbox;
-> +               chan->active_req =3D MBOX_NO_MSG;
->                 chan->txdone_method =3D txdone;
->                 spin_lock_init(&chan->lock);
->         }
-> diff --git a/drivers/mailbox/mailbox.h b/drivers/mailbox/mailbox.h
-> index e1ec4efab693..c77dd6fc5b8a 100644
-> --- a/drivers/mailbox/mailbox.h
-> +++ b/drivers/mailbox/mailbox.h
-> @@ -5,6 +5,9 @@
->
->  #include <linux/bits.h>
->
-> +/* Sentinel value distinguishing "no active request" from "NULL message =
-data" */
-> +#define MBOX_NO_MSG    ((void *)-1)
-> +
->  #define TXDONE_BY_IRQ  BIT(0) /* controller has remote RTR irq */
->  #define TXDONE_BY_POLL BIT(1) /* controller can read status of last TX *=
-/
->  #define TXDONE_BY_ACK  BIT(2) /* S/W ACK received by Client ticks the TX=
- */
-> diff --git a/drivers/mailbox/tegra-hsp.c b/drivers/mailbox/tegra-hsp.c
-> index ed9a0bb2bcd8..7991e8dba579 100644
-> --- a/drivers/mailbox/tegra-hsp.c
-> +++ b/drivers/mailbox/tegra-hsp.c
-> @@ -497,7 +497,7 @@ static int tegra_hsp_mailbox_flush(struct mbox_chan *=
-chan,
->                         mbox_chan_txdone(chan, 0);
->
->                         /* Wait until channel is empty */
-> -                       if (chan->active_req !=3D NULL)
-> +                       if (chan->active_req !=3D MBOX_NO_MSG)
->                                 continue;
->
->                         return 0;
-> --
-> 2.52.0
->
-Applied to mailbox/for-next
+Hi all,
+
+the upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
+dedicated to System Telemetry.
+
+In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
+runtime the set of Telemetry Data Events (DEs) available on a specific
+platform and provides the means to configure the set of DEs that a user is
+interested into, while reading them back using the collection method that
+is deeemed more suitable for the usecase at hand. (...amongst the various
+possible collection methods allowed by SCMI specification)
+
+Without delving into the gory details of the whole SCMI Telemetry protocol
+let's just say that the SCMI platform/server firmware advertises a number
+of Telemetry Data Events, each one identified by a 32bit unique ID, and an
+SCMI agent/client, like Linux, can discover them and read back at will the
+associated data value in a number of ways.
+Data collection is mainly intended to happen on demand via shared memory
+areas exposed by the platform firmware, discovered dynamically via SCMI
+Telemetry and accessed by Linux on-demand, but some DE can also be reported
+via SCMI Notifications asynchronous messages or via direct dedicated
+FastChannels (another kind of SCMI memory based access): all of this
+underlying mechanism is anyway hidden to the user since it is mediated by
+the kernel driver which will return the proper data value when queried.
+
+Anyway, the set of well-known architected DE IDs defined by the spec is
+limited to a dozen IDs, which means that the vast majority of DE IDs are
+customizable per-platform: as a consequence, though, the same ID, say
+'0x1234', could represent completely different things on different systems.
+
+Precise definitions and semantic of such custom Data Event IDs are out of
+the scope of the SCMI Telemetry specification and of this implementation:
+they are supposed to be provided using some kind of JSON-like description
+file that will have to be consumed by a userspace tool which would be
+finally in charge of making sense of the set of available DEs.
+
+IOW, in turn, this means that even though the DEs enumerated via SCMI come
+with some sort of topological and qualitative description provided by the
+protocol (like unit of measurements, name, topology info etc), kernel-wise
+we CANNOT be completely sure of "what is what" without being fed-back some
+sort of information about the DEs by the afore mentioned userspace tool.
+
+For these reasons, currently this series does NOT attempt to register any
+of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
+PERF etc), simply because we cannot be sure which DE is suitable, or even
+desirable, for a given subsystem. This also means there are NO in-kernel
+users of these Telemetry data events as of now.
+
+So, while we do not exclude, for the future, to feed/register some of the
+discovered DEs to/with some of the above mentioned Kernel subsystems, as
+of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
+available to userspace tools.
+
+In deciding which kind of interface to expose SCMI Telemetry data to a
+user, this new SCMI Telemetry driver aims at satisfying 2 main reqs:
+
+ - exposing an FS-based human-readable interface that can be used to
+   discover, configure and access our Telemetry data directly also from
+   the shell without special tools
+
+ - exposing alternative machine-friendly, more-performant, binary
+   interfaces that can be used to avoid the overhead of multiple accesses
+   to the VFS and that can be more suitable to access with custom tools
+
+In the initial RFC posted a few months ago [1], the above was achieved
+with a combination of a SysFS interface, for the human-readable side of
+the story, and a classic chardev/ioctl for the plain binary access.
+
+Since V1, instead, we moved away from this combined approach, especially
+away from SysFS, for the following reason:
+
+ 1. "Abusing SysFS": SysFS is a handy way to expose device related
+      properties in a common way, using a few common helpers built on
+      kernfs; this means, though, that unfortunately in our scenario I had
+      to generate a dummy simple device for EACH SCMI Telemetry DataEvent
+      that I got to discover at runtime and attach to them, all of the
+      properties I need.
+      This by itself seemed to me abusing the SysFS framework, but, even
+      ignoring this, the impact on the system when we have to deal with
+      hundreds or tens of thousands of DEs is sensible.
+      In some test scenario I ended with 50k DE devices and half-a-millon
+      related property files ... O_o
+
+ 2. "SysFS constraints": SysFS usage itself has its well-known constraints
+      and best practices, like the one-file/one-value rule, and due to the
+      fact that any virtual file with a complex structure or handling logic
+      is frowned upon, you can forget about IOCTLs and mmap'ing to provide
+      a more performant interface within SysFs, which is the reason why,
+      in the previous RFC, there was an additional alternative chardev
+      interface.
+      These latter limitations around the implementation of files with a
+      more complex semantic (i.e. with a broader set of file_operations)
+      derive from the underlying KernFS support, so KernFS is equally not
+      suitable as a building block for our implementation.
+
+ 2. "Chardev limitations": Given the nature of the protocol, the hybrid
+      approach employing character devices was itself problematic: first
+      of all because there is an upper limit on the number of chardev we
+      can create, dictated by the range of available minor numbers, and
+      then because the fact itself to have to maintain 2 completely
+      different interfaces (FS + chardev) is painful.
+
+As a final remark, please NOTE THAT all of this is supposed to be available
+in production systems across a number of heterogeneous platforms: for these
+reasons the easy choice, debugFS, is NOT an option here.
+
+Due to the above reasoning, since V1 we opted for a new approach with the
+proposed interfaces now based on a full fledged, unified, virtual pseudo
+filesystem implemented from scratch, so that we can:
+
+ - expose all the DEs property we like as before with SysFS, but without
+   any of the constraint imposed by the usage of SysFs or kernfs.
+
+ - easily expose additional alternative views of the same set of DEs
+   using symlinking capabilities (e.g. alternative topological view)
+
+ - additionally expose a few alternative and more performant interfaces
+   by embedding in that same FS, a few special virtual files:
+
+   + 'control': to issue IOCTLs for quicker discovery and on-demand access
+   		to data
+   + 'pipe' [TBD]: to provide a stream of events using a virtual
+   		   infinite-style file
+   + 'raw_<N>' [TBD]: to provide direct memory mapped access to the raw
+   		      SCMI Telemetry data from userspace
+
+ - use a mount option to enable a lazy enumeration operation mode to delay
+   SCMI related background discovery activities to the effective point in
+   time when the user needs it (if ever) so as to mitigate the effect at
+   boot-time of the initial SCMI full discovery process
+
+
+INTERFACES
+===========
+
+We propose a couple of interfaces, both rooted in the same unified
+SCMI Telemetry Filesystem STLMFS, which can be mounted with:
+
+	mount -t stlmfs none /sys/fs/arm_telemetry/
+
+The new pseudo FS rationale, design and related ABI interface is documented
+in detail at:
+
+ - Documentation/filesystems/stlmfs.rst
+ - Documentation/ABI/testing/stlmfs
+
+...anyway, roughly, STLMFS exposes the following interfaces, rooted at
+different points in the FS:
+
+ 1. a FS based human-readable API tree
+
+   This API present the discovered DEs and DEs-groups rooted under a
+   structrure like this:
+
+	/sys/fs/arm_telemetry/tlm_0/
+	|-- all_des_enable
+	|-- all_des_tstamp_enable
+	|-- available_update_intervals_ms
+	|-- current_update_interval_ms
+	|-- de_implementation_version
+	|-- des
+	|   |-- 0x00000000/
+	|   |-- 0x00000016/
+	|   |-- 0x00001010/
+	|   |-- 0x0000A000/
+	|   |-- 0x0000A001/
+	|   |-- 0x0000A002/
+	|   |-- 0x0000A005/
+	|   |-- 0x0000A007/
+	|   |-- 0x0000A008/
+	|   |-- 0x0000A00A/
+	|   |-- 0x0000A00B/
+	|   |-- 0x0000A00C/
+	|   `-- 0x0000A010/
+	|-- des_bulk_read
+	|-- des_single_sample_read
+	|-- groups
+	|   |-- 0/
+	|   `-- 1/
+	|-- intervals_discrete
+	|-- reset
+	|-- tlm_enable
+	`-- version
+
+	At the top level we have general configuration knobs to:
+
+	- enable/disable all DEs with or without tstamp
+	- configure the update interval that the platform will use
+	- enable Telemetry as a whole
+	- read all the enabled DEs in a buffer one-per-line
+		<DE_ID> <TIMESTAMP> <DATA_VALUE>
+	- des_single_sample_read to request an immediate updated read of
+	  all the enabled DEs in a single buffer one-per-line:
+		<DE_ID> <TIMESTAMP> <DATA_VALUE>
+        
+	where each DE in turn is represented by a flat subtree like:
+
+	tlm_0/des/0x0000A001/
+	|-- compo_instance_id
+	|-- compo_type
+	|-- enable
+	|-- instance_id
+	|-- name
+	|-- persistent
+	|-- tstamp_enable
+	|-- tstamp_exp
+	|-- type
+	|-- unit
+	|-- unit_exp
+	`-- value
+
+	where, beside a bunch of description items, you can:
+
+	- enable/disable a single DE
+	- read back its tstamp and data from 'value' as in:
+		<TIMESTAMP>: <DATA_VALUE>
+
+	then for each (optionally) discovered group of DEs:
+
+	scmi_tlm_0/groups/0/
+	|-- available_update_intervals_ms
+	|-- composing_des
+	|-- current_update_interval_ms
+	|-- des_bulk_read
+	|-- des_single_sample_read
+	|-- enable
+	|-- intervals_discrete
+	`-- tstamp_enable
+
+	you can find the knobs to:
+	
+	- enable/disable the group as a whole
+	- lookup group composition
+	- set a per-group update interval (if supported)
+	- des_bulk_read to read all the enabled DEs for this group in a
+	  single buffer one-per-line:
+		<DE_ID> <TIMESTAMP> <DATA_VALUE>
+	- des_single_sample_read to request an immediate updated read of
+	  all the enabled DEs for this group in a single buffer
+	  one-per-line:
+		<DE_ID> <TIMESTAMP> <DATA_VALUE>
+
+ 2. Leveraging the capabilities offered by the full-fledged filesystem
+    implementation and the topological information provided by SCMI
+    Telemetry we expose also and alternative view of the above tree, by
+    symlinking a few of the same entries above under another, topologically
+    sorted, subtree:
+
+
+        by_components/                                                           
+        ├── cpu                                                                  
+        │   ├── 0                                                                
+        │   │   ├── celsius                                                      
+        │   │   │   └── 0                                                        
+        │   │   │       └── 0x00000001[pe_0] -> ../../../../../des/0x00000001    
+        │   │   └── cycles                                                       
+        │   │       ├── 0                                                        
+        │   │       │   └── 0x00001010[] -> ../../../../../des/0x00001010        
+        │   │       └── 1                                                        
+        │   │           └── 0x00002020[] -> ../../../../../des/0x00002020        
+        │   ├── 1                                                                
+        │   │   └── celsius                                                      
+        │   │       └── 0                                                        
+        │   │           └── 0x00000002[pe_1] -> ../../../../../des/0x00000002    
+        │   └── 2                                                                
+        │       └── celsius                                                      
+        │           └── 0                                                        
+        │               └── 0x00000003[pe_2] -> ../../../../../des/0x00000003    
+        ├── interconnnect                                                        
+        │   └── 0                                                                
+        │       └── hertz                                                        
+        │           └── 0                                                        
+        │               ├── 0x0000A008[A008_de] -> ../../../../../des/0x0000A008 
+        │               └── 0x0000A00B[] -> ../../../../../des/0x0000A00B        
+        ├── mem_cntrl                                                            
+        │   └── 0                                                                
+        │       ├── bps                                                          
+        │       │   └── 0                                                        
+        │       │       └── 0x0000A00A[] -> ../../../../../des/0x0000A00A        
+        │       ├── celsius                                                      
+        │       │   └── 0                                                        
+        │       │       └── 0x0000A007[DRAM_temp] -> ../../../../../des/0x0000A007
+        │       └── joules                                                       
+        │           └── 0                                                        
+        │               └── 0x0000A002[DRAM_energy] -> ../../../../../des/0x0000A002
+        ├── periph                                                               
+        │   ├── 0                                                                
+        │   │   └── messages                                                     
+        │   │       └── 0                                                        
+        │   │           └── 0x00000016[device_16] -> ../../../../../des/0x00000016
+        │   ├── 1                                                                
+        │   │   └── messages                                                     
+        │   │       └── 0                                                        
+        │   │           └── 0x00000017[device_17] -> ../../../../../des/0x00000017
+        │   └── 2                                                                
+        │       └── messages                                                     
+        │           └── 0                                                        
+        │               └── 0x00000018[device_18] -> ../../../../../des/0x00000018
+        └── unspec                                                               
+                └── 0                                                            
+                    ├── celsius                                                  
+                    │   └── 0                                                    
+                    │       └── 0x0000A005[] -> ../../../../../des/0x0000A005    
+                    ├── counts                                                   
+                    │   └── 0                                                    
+                    │       └── 0x0000A00C[] -> ../../../../../des/0x0000A00C    
+                    ├── joules                                                   
+                    │   └── 0                                                    
+                    │       ├── 0x0000A000[SOC_Energy] -> ../../../../../des/0x0000A000
+                    │       └── 0x0000A001[] -> ../../../../../des/0x0000A001    
+                    └── state                                                    
+                        └── 0                                                    
+                            └── 0x0000A010[] -> ../../../../../des/0x0000A010    
+                                                                                 
+  ...so as to provide the human user with a more understandable topological
+  layout of the madness...
+
+All of this is nice and fancy human-readable, easily scriptable, but
+certainly not the fastest possible to access especially on huge trees...
+
+ ... so for the afore-mentioned reasons we alternatively expose
+
+ 3. a more performant API based on IOCTLs as described fully in:
+
+	include/uapi/linux/scmi.h
+
+   As described succinctly in the above UAPI header too, this API is meant
+   to be called on a few special files named 'control' that are populated
+   into the tree:
+
+   .
+   |-- all_des_enable
+   .....
+   |-- components
+   |   |-- cpu
+   |   |-- interconnnect
+   |   |-- mem_cntrl
+   |   |-- periph
+   |   `-- unspec
+   |-- control
+   .....................
+
+   |-- groups
+   |   |-- 0
+   |   |   |-- available_update_intervals_ms
+   |   |   |-- composing_des
+   |   |   |-- control
+   .....................
+   |   |-- 1
+   |   |   |-- available_update_intervals_ms
+   |   |   |-- composing_des
+   |   |   |-- control
+   .....................
+   |   `-- 2
+   |       |-- available_update_intervals_ms
+   |       |-- composing_des
+   |       |-- control
+   .....................
+
+  This allows a tool to:
+
+   - use some IOCTLs to configure a set of properties equivalent to the
+     ones above in FS
+   - use some other IOCTLs for direct access to data in binary format
+     for a single DEs or all of them
+
+ 4. [FUTURE/NOT IN THIS V3]
+    Add another alternative and completely binary direct raw access
+    interface via a new set of memory mappable special files so as to allow
+    userspace tools to access SCMI Telemetry data directly in binary form
+    without any kernel mediation.
+
+NOTE THAT this series, at the firmware interface level NOW supports ONLY
+the latest SCMI v4.0 BETA specification [0].
+
+Missing feats & next steps
+--------------------------
+ - add direct access interface via mmap-able 'raw' files
+ - add streaming mode interface via 'pipe' file (tentative)
+ - evolve/enhance app in tools/testing/scmi/stlm to be interactive
+
+
+KNOWN ISSUES
+------------
+ - STLMFS code layout and location...nothing lives in fs/ and no distinct
+   FS Kconfig...but the SCMI Telemetry driver itself has no point in existing
+   without the FS that exposes...so should I split the pure FS part into fs/
+   anyway or not ?
+ - residual sparse/smatch static analyzers errors
+ - stlm tool utility is minimal for testing or development
+
+Based on V7.0-rc5, tested on an emulated setup.
+
+This series is available also at [2].
+
+If you still reading...any feedback welcome :P
+
+Thanks,
+Cristian
+
+----
+V2 --> V3
+ - rebased on v7.0-rc5
+ - ported the firmware interface to SCMI v4.0 BETA
+ - split the SCMI protocol layer in a lot of small patches
+ - completd filesystem and ABI documentation
+ - renamed components subtree to by_components
+ - fixed uninitialized var in scmi_telemetry_de_subdir_symlink
+ - renamd tstamp_exp to tstamp_rate
+ - swap logic in scmi_telemetry_initial_state_lookup
+ - use memcpy_from_le32 where required
+ - changed a dfew dev_err into Telemetry traces
+ - define and use new helper scmi_telemetry_de_unlink
+ - simplify a few assignments with ternary ops
+ - added a missing __mmust_check on the internal SCMI API
+ - reworked and clarified de_data_read returned errno:
+ 	ENODATA vs EINVAL vs ENODEV/ENOENT
+ - removed some risky/unneeded devres allocations
+ - various checkpatch fixes
+ - reworked and clarified usage of traces in Telemetry
+ - added the missing DT binding for protocol 0x1B
+ - split out unrelated change around notification from patch
+   adding support for protocol internal notifier
+ - more comments
+
+V1 --> V2
+ - rebased on v6.19-rc3
+ - harden TDCF shared memory areas accesses by using proper accessors
+ - reworked protocol resources lifecycle to allow lazy enumeration
+ - using NEW FS mount API
+ - reworked FS inode allocation to use a std kmem_cache
+ - fixed a few IOCTLs support routine to support lazy enumeration
+ - added (RFC) a new FS lazy mount option to support lazily population of
+   some subtrees of the FS (des/ groups/ components/)
+ - reworked implementation of components/ alternative FS view to use
+   symlinks instead of hardlinks
+ - added a basic simple (RFC) testing tool to exercise UAPI ioctls interface
+ - hardened Telmetry protocol and driver to support partial out-of-spec FW
+   lacking some cmds (best effort)
+ - reworked probing races handling
+ - reviewed behaviour on unmount/unload
+ - added support for Boot_ON Telemetry by supporting SCMI Telemetry cmds:
+   + DE_ENABLED_LIST
+   + CONFIG_GET
+ - added FS and ABI docs
+
+RFC --> V1
+---
+ - moved from SysFS/chardev to a full fledged FS
+ - added support for SCMI Telemetry BLK timestamps
+
+
+Thanks,
+Cristian
+
+[0]: https://developer.arm.com/documentation/den0056/fb/?lang=en
+[1]: https://lore.kernel.org/arm-scmi/20250620192813.2463367-1-cristian.marussi@arm.com/
+[2]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/log/?h=scmi/scmi_telemetry_unified_fs_V3
+
+Cristian Marussi (24):
+  firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+  firmware: arm_scmi: Reduce the scope of protocols mutex
+  firmware: arm_scmi: Allow registration of unknown-size events/reports
+  firmware: arm_scmi: Allow protocols to register for notifications
+  uapi: Add ARM SCMI definitions
+  dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+  include: trace: Add Telemetry trace events
+  firmware: arm_scmi: Add basic Telemetry support
+  firmware: arm_scmi: Add support to parse SHMTIs areas
+  firmware: arm_scmi: Add Telemetry configuration operations
+  firmware: arm_scmi: Add Telemetry DataEvent read capabilities
+  firmware: arm_scmi: Add support for Telemetry reset
+  firmware: arm_scmi: Add Telemetry notification support
+  firmware: arm_scmi: Add support for boot-on Telemetry
+  firmware: arm_scmi: Add System Telemetry filesystem driver
+  fs/stlmfs: Document ARM SCMI Telemetry filesystem
+  firmware: arm_scmi: Add System Telemetry ioctls support
+  fs/stlmfs: Document alternative ioctl based binary interface
+  firmware: arm_scmi: Add Telemetry components view
+  fs/stlmfs: Document alternative topological view
+  [RFC] docs: stlmfs: Document ARM SCMI Telemetry FS ABI
+  firmware: arm_scmi: Add lazy population support to Telemetry FS
+  fs/stlmfs: Document lazy mode and related mount option
+  [RFC] tools/scmi: Add SCMI Telemetry testing tool
+
+ Documentation/ABI/testing/stlmfs              |  297 ++
+ .../bindings/firmware/arm,scmi.yaml           |    8 +
+ Documentation/filesystems/stlmfs.rst          |  312 ++
+ MAINTAINERS                                   |    1 +
+ drivers/firmware/arm_scmi/Kconfig             |   10 +
+ drivers/firmware/arm_scmi/Makefile            |    3 +-
+ drivers/firmware/arm_scmi/common.h            |   10 +
+ drivers/firmware/arm_scmi/driver.c            |   64 +-
+ drivers/firmware/arm_scmi/notify.c            |   30 +-
+ drivers/firmware/arm_scmi/notify.h            |    8 +-
+ drivers/firmware/arm_scmi/protocols.h         |    7 +
+ .../firmware/arm_scmi/scmi_system_telemetry.c | 2946 ++++++++++++++++
+ drivers/firmware/arm_scmi/telemetry.c         | 3081 +++++++++++++++++
+ include/linux/scmi_protocol.h                 |  185 +-
+ include/trace/events/scmi.h                   |   48 +-
+ include/uapi/linux/scmi.h                     |  289 ++
+ tools/testing/scmi/Makefile                   |   25 +
+ tools/testing/scmi/stlm.c                     |  385 ++
+ 18 files changed, 7670 insertions(+), 39 deletions(-)
+ create mode 100644 Documentation/ABI/testing/stlmfs
+ create mode 100644 Documentation/filesystems/stlmfs.rst
+ create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
+ create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+ create mode 100644 include/uapi/linux/scmi.h
+ create mode 100644 tools/testing/scmi/Makefile
+ create mode 100644 tools/testing/scmi/stlm.c
+
+-- 
+2.53.0
+
 
