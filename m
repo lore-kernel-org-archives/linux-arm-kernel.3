@@ -4,58 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED151061B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:29:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEDA1061B0A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CMJz60T0d0Y1JC6B8GbMNeMQfr3VQWy8oZWRqInjHj8=; b=ORpHhSIEfeXfYQW3o7rS12EKM2
-	Gkz6ODC9jv07pVvTENIfRdL7otZ0vna4gY6BEFhSWX20Q+R27TPZpADq5Zx9vHxHJgZnabO+DSgg4
-	RjjEYeoxCvXleZsJhZOroCKm8KsCiX1qy5GfS1ijt3eBOiMOdHZaNaOKWz11Ag/XM54rJYlk9pl7r
-	N/VWLNzrNkQMmQJ8bctYj1C2ohkOt5lWwyKpry2AHx5JyY05+l8+rSzQA4395dvvwdMgSMIk9Cvea
-	iZr64VmvC2ZjwfGuEeXBya3iWxCDW9RqGt091BBR0GaZppQJ54GTGoSaGX8vgZUAabr2dHnlbUTak
-	xJjY4Kzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fMKWVcjf7DPRIhb4QuK3bKUPyuc60L/E8BOU/g6IMVg=; b=OeZErVUvc3cU6L5VHB57T53RrB
+	HCvP78urIdfOYyLwwXK/xz4J0e9mG8rlU37LZAxjB3xvaX6pKyECcTZWrhs7rctz6DPEQckJvP+E+
+	f/w/izbsD7W27P80DkYKU5HzE2LxGpyJ4/IE1xj/QLyHbK0sCI6BfgfV8PKkiW7BM8dZkfREBC2vl
+	u4QSbz0qovv43W4Dvg7rg8/g8kHJVX8e/woc9NkFaHfKY7Dez/4ZbZjHb/k76KbgZldx6v0lKihGO
+	GbA1g9gKEGuDFFu/quXDvxj1It8mFGvl7wKhztoKNfOvCVqNuWwvuanbHM1SEYatvHLvCG9jHgmQC
+	Hw+XJrdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7EYk-0000000BZk0-2Ocf;
-	Mon, 30 Mar 2026 15:29:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7Ecv-0000000Ba69-0wRC;
+	Mon, 30 Mar 2026 15:34:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7EYj-0000000BZjT-2RoA
+	id 1w7Ect-0000000Ba5m-1u4L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 15:29:45 +0000
+	Mon, 30 Mar 2026 15:34:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADC8E60054;
-	Mon, 30 Mar 2026 15:29:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEDA7C19423;
-	Mon, 30 Mar 2026 15:29:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF13A42DD4;
+	Mon, 30 Mar 2026 15:34:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FEDEC4CEF7;
+	Mon, 30 Mar 2026 15:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774884584;
-	bh=hhtJIBLdvdm+AIwtgCrXvY3R3zCBsqQURKRNTRro06o=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hAo8uZSCVoeQLGlJrSBUGct8Wnpan13+1XCHRRzaL3ROguFpCbRA9BEdHWYvYTmtX
-	 YFQMaxWhdXiM7L4XWrcG+1NwRNrK3Gwl5AFEMrZo+Iofonz0isGjFFbuM5oQUK/4Dw
-	 lKhA+zWoJKOA/P2QPFKU0rIBUfgUpzB5SrXXASbOWUpJos9nT+6/yJG6rEQlD+bdU/
-	 CV6NVXtJwJv+Md+dU8TqmxPTImdC0WUnB1gRsSAvx+Gpsg+9sCxRBE0NJ6tK+vLr2H
-	 mB1iJp7qGzGZ3ST+JEz8mzycby4NuGRnSK2E3qOpd0Wh1KqeFbHWlSE9ucfRjjKUt6
-	 AS3IK13/5E1oQ==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH] KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
-Date: Mon, 30 Mar 2026 16:29:26 +0100
-Message-ID: <20260330152927.26300-1-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1774884842;
+	bh=fMKWVcjf7DPRIhb4QuK3bKUPyuc60L/E8BOU/g6IMVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RhCkjfAq5yXthqKi9kX7nLJvODO5tt+7KLocrI0ReXpdAiGkYYo0/wRR0dFDgxdEu
+	 YAWhjSar4kqDcgvlMPURtC3H3CBO0kZr2zRx+33FFmGAISW8JHX+PcdfAuO8R0KNjf
+	 M6C4oefDCTf4PZFSs7kC53gJdcYLGuS+kUkJWRt2F5FQcPfsrZVxtLG3U2MKtH3/WL
+	 SBdxXKo2pf5SsOm/pJD+/leo7Jq+y6H8ECs+kGV8GAClITL/S6buUShkxW+X4b29bU
+	 ay/5yFyF3PLI48ChYS4lRYsrfGCPGUK8u5PcM5jFyN7p+XekcuDvfh7iQgjD8vh7V2
+	 WQwK9+bzBF0tQ==
+Date: Mon, 30 Mar 2026 16:33:57 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 3/7] pinctrl: extract pinctrl_generic_to_map() from
+ pinctrl_generic_pins_function_dt_node_to_map()
+Message-ID: <20260330-manger-coming-943dc94f382b@spud>
+References: <20260327-pinctrl-mux-v5-0-d4aec9d62c62@nxp.com>
+ <20260327-pinctrl-mux-v5-3-d4aec9d62c62@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ffZCCc6Cf9/3pOLx"
+Content-Disposition: inline
+In-Reply-To: <20260327-pinctrl-mux-v5-3-d4aec9d62c62@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_083403_514529_FF50D0B2 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +84,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running with VHE, TPIDR_EL2 is only used for the percpu offset once
-the ARM64_HAS_VIRT_HOST_EXTN capability has been detected, at which
-point cpu_copy_el2regs() will populate its contents from TPIDR_EL1.
 
-Remove the redundant initialisation of TPIDR_EL2 from finalise_el2().
+--ffZCCc6Cf9/3pOLx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
----
+On Fri, Mar 27, 2026 at 05:34:00PM -0400, Frank Li wrote:
+> Refactor pinctrl_generic_pins_function_dt_subnode_to_map() by separating =
+DT
+> parsing logic from map creation. Introduce a new helper
+> pinctrl_generic_to_map() to handle mapping to kernel data structures, whi=
+le
+> keeping DT property parsing in the subnode function.
+>=20
+> Improve code structure and enables easier reuse for platforms using
+> different DT properties (e.g. pinmux) without modifying the
+> dt_node_to_map-style callback API. Avoid unnecessary coupling to
+> pinctrl_generic_pins_function_dt_node_to_map(), which provides
+> functionality not needed when the phandle target is unambiguous.
+>=20
+> Maximize code reuse and provide a cleaner extension point for future
+> pinctrl drivers.
+>=20
+> Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-I spotted this by inspection as part of an ill-fated (abandoned) attempt
-at repurposing tpidr_elx for something else.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
- arch/arm64/kernel/hyp-stub.S | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+--ffZCCc6Cf9/3pOLx
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-index 085bc9972f6b..8b8614c0b9a5 100644
---- a/arch/arm64/kernel/hyp-stub.S
-+++ b/arch/arm64/kernel/hyp-stub.S
-@@ -105,11 +105,9 @@ SYM_CODE_START_LOCAL(__finalise_el2)
- 	msr_hcr_el2 x0
- 	isb
- 
--	// Use the EL1 allocated stack, per-cpu offset
-+	// Use the EL1 allocated stack
- 	mrs	x0, sp_el1
- 	mov	sp, x0
--	mrs	x0, tpidr_el1
--	msr	tpidr_el2, x0
- 
- 	// FP configuration, vectors
- 	mrs_s	x0, SYS_CPACR_EL12
--- 
-2.53.0.1018.g2bb0e51243-goog
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCacqX5QAKCRB4tDGHoIJi
+0lKoAP9WusXVu3aAXNexzW+SejVhFKuHFElS/N0lptk8Ssyk2QD+JBxJ7gC7ZE1E
+N/YaqZWz4FQ1xMrmZzhshVGfOWDHqgg=
+=uzyT
+-----END PGP SIGNATURE-----
+
+--ffZCCc6Cf9/3pOLx--
 
