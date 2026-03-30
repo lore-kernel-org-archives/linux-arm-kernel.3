@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261E210F3DCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4842B10F3DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wN+nIHbhPNmjFHpBqYd3YAUW7yFmR/J6cPpK3jEio+M=; b=hljz6S2EZ0zigujJrea0BBf+ZU
-	MiTvHMtTf4sCPxNOwPF16V9kWU0ATt7aUftPu3S3ibEXplz4mqfXoWN1H/P7AUyLYL0kSgEgkdQYE
-	YiN6abawOAzhHRKy33DTHNnxJAPhkxAwaznoiJETSrH6dHHjNnlSkquDDudTg8O/fnLXLnurKXuko
-	/4n1a7vx2rB2F6Y4ug3d7mvtq+CQi1f4t1nCzBr/Vh3+5KC/wmV6N5zvWqP5rqwdORTXJhNM37oCq
-	hpEwmnR+OnALjxB/42oMF+d7sPqLIkes78zH9crkQVOmO8IROCevSn32DEh4J294fhXRu+OGG32Cz
-	44KRfDDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SSbGB/eDWH+4zMIXetev5vgwGRXfeqVkDaG1KtmfhAo=; b=LdMO1JBAgAs5+7ML0BQlnk8ZZi
+	4n9uyruU27TyUi8xk1pG2ppKGeRyUpj2qjQk/SypOaE3piMSO0aTpsb4uid8DKLbaBKjKfnaRtBKi
+	0dzs2tKQkLWiJ+HtkiJ3kUM4lFxgkrj1B1SGSsUAhBjb8JqTD0AjQamizuF1jhjERiLiLXY9xlryl
+	gZsHX9OFSYG4409kplbQbdf6g8/OGR9x8yVext4BRSCPAHyCbQ/bsCjbi4Fd4getv9d9MGlDt2N5t
+	O/6V9soZFYdcPLe12oAc6TlbtXXGC0QlcMXq/ppMZxcUk2DUY/DGFt/UbyItgjwN4z56eH+GYmDyg
+	SvUhzsmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DQv-0000000BP7a-0kSc;
-	Mon, 30 Mar 2026 14:17:37 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w7DSg-0000000BPHZ-0Wyd;
+	Mon, 30 Mar 2026 14:19:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DQt-0000000BP7C-1tn8;
-	Mon, 30 Mar 2026 14:17:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774880251;
-	bh=YXD0cPHX7FzEdOQwXJrWO33JjySneVnOOD3EPxs1EoY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=fK97Qm2wvpdCOdiM3bHzyQ6O171iALrqVd43ZjNhW1jyvVmbT5I2RTOj0tnLJagSV
-	 4MkeRWKdMR+dW9/OKSUj14m+CWW+PV365Lw1Gg/Zq6HZEWavUKd7olgJ9PjjBMWzQG
-	 dO0iRxrgC1xuq1+ocvuqQXe8sQ+K7UH00ZJWvakonhpJY0IwXQ/lNHFW1LKz+URXLR
-	 qzOW5CSpjvfQNTxT4y46Np1DpriMNxgdwWjjUZhLsH23HZE4Glv9bXGby8SwFCmvJA
-	 X8lRcLyGeL4IMgwPJItaqhdTgVH4W0RAVR3ny+Z0CYMm57iv+yqRfj/jl0Z2GsmMUU
-	 DBHrpsOJkhzAg==
-Received: from [IPv6:2606:6d00:15:e06b::c41] (unknown [IPv6:2606:6d00:15:e06b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1671317E4686;
-	Mon, 30 Mar 2026 16:17:28 +0200 (CEST)
-Message-ID: <c177cd8ffb59ea63a26906577ba737677551cd0d.camel@collabora.com>
-Subject: Re: [PATCH 1/4] media: rkvdec: Introduce a global bitwriter helper
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Heiko Stuebner	 <heiko@sntech.de>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers	 <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Jonas Karlman <jonas@kwiboo.se>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	llvm@lists.linux.dev, kernel@collabora.com
-Date: Mon, 30 Mar 2026 10:17:26 -0400
-In-Reply-To: <20260327-rkvdec-use-bitwriter-v1-1-982cf872b590@collabora.com>
-References: <20260327-rkvdec-use-bitwriter-v1-0-982cf872b590@collabora.com>
-	 <20260327-rkvdec-use-bitwriter-v1-1-982cf872b590@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-yBgy0sQvaoJVzhLo4NBc"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1w7DSd-0000000BPHO-3kHX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Mar 2026 14:19:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 04E3460054
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:19:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF5E2C2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:19:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774880362;
+	bh=jKPl7vLvqPt4L8fZQsfb39R9t7tBQznk82n5HFjIulw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=BL25BcqCDMG25fw/wVsiojhvGXgPIqTZWewqcjhAAxT3uAzbAkj7BZBpbIdLjl4sR
+	 rCPNnZDrLQqnjaLrfZVVQlBLzW/VimcouO8ihTGQrD3NIfEX83Nw/Cya1TO7XgnxIz
+	 Q6FQ00ZD9Fu/sK2YoNhgTInSQgBsXuFdYC5OWTAOsCw1nkTq0nX65W2gDY/fiPgPTR
+	 ogUNAlH86GJd0zm7kTkvf20W0yHCCPlwDUj/0ZmdhZCM3WjZSC2NZu9ZiSwH7V9D0A
+	 8i84wUpKG7pbL0IcouaHmXJwa33t2NX208fzkdmaspWP48Lj7jI9uc3FS08O05QM5w
+	 9hk2SJWlpiisA==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-38a42a0d7f7so44510381fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 07:19:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUV8WaivqyEYg5Hl9hs4quX6QdZAlWfafYXyToDLzuVm8KOhaua2g9PGLwMrcqgtijPNLQCQ3cnMzmosZk+/JCD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAP1/2ciQDXyTYOmSIHeXgkuRFCEjvsdCopNJKKyhntMBxHRPx
+	hLaGOx3G9ViMo3a8DQBO0qq3UH5mWtmUBAxT8VNg9STgaiy1CKeILKJQRDYmQwbemgouSEB+TY0
+	kckXfDBb7onIQlB9Hd87ZXsAOSpGpfR1ofJMcy1vy6w==
+X-Received: by 2002:a05:651c:1b12:b0:38b:f0f0:e39b with SMTP id
+ 38308e7fff4ca-38c75c5ef7emr42861941fa.10.1774880361407; Mon, 30 Mar 2026
+ 07:19:21 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_071735_668544_1FA1E646 
-X-CRM114-Status: GOOD (  21.89  )
+References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
+ <20260330-nokia770-gpio-swnodes-v4-1-b68592e977d0@oss.qualcomm.com> <DHG5WQI26R5U.WTZW61VKJHF5@kernel.org>
+In-Reply-To: <DHG5WQI26R5U.WTZW61VKJHF5@kernel.org>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 30 Mar 2026 16:19:08 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Mf3oWtrcdR+g69b8y4K-gwfMe+3LNMYQ6c6M-hw3Nh+Hw@mail.gmail.com>
+X-Gm-Features: AQROBzCFGjEJDyJGQ7QpuD7sAKfwUgETi1l52lFJ9qTeAWzKycqIShS33NqMS2A
+Message-ID: <CAMRc=Mf3oWtrcdR+g69b8y4K-gwfMe+3LNMYQ6c6M-hw3Nh+Hw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] kernel: ksysfs: initialize kernel_kobj earlier
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,143 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 30, 2026 at 3:47=E2=80=AFPM Danilo Krummrich <dakr@kernel.org> =
+wrote:
+>
+> On Mon Mar 30, 2026 at 2:40 PM CEST, Bartosz Golaszewski wrote:
+> > diff --git a/include/linux/kobject.h b/include/linux/kobject.h
+> > index c8219505a79f98bc370e52997efc8af51833cfda..71b9086621c35b7e4ef99b9=
+d3b6707db23faf58c 100644
+> > --- a/include/linux/kobject.h
+> > +++ b/include/linux/kobject.h
+> > @@ -219,4 +219,6 @@ int kobject_synth_uevent(struct kobject *kobj, cons=
+t char *buf, size_t count);
+> >  __printf(2, 3)
+> >  int add_uevent_var(struct kobj_uevent_env *env, const char *format, ..=
+.);
+> >
+> > +void ksysfs_init(void);
+>
+> NIT: I'm aware there's also all the core kobjects in include/linux/kobjec=
+t.h,
+> but maybe a separate header would be a better fit.
 
---=-yBgy0sQvaoJVzhLo4NBc
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Do you mean moving all the top-level kobject declarations
+(kernel_kobj, firmware_kobj, etc.) out of kobject.h into this new
+header (ksysfs.h?) along with their init functions?
 
-Le vendredi 27 mars 2026 =C3=A0 11:16 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> The use of structures with bitfields is good when the values are
-> somewhat aligned.
-> More mis-alignement means that compilers need to do more gymanstics
-> to edit the fields values.
->=20
-> Some cases have been reported with CLang on specific architectures
-> like armhf and hexagon, where the compiler would allocate a bigger
-> local stack than needed or even completely freeze during compilation.
->=20
-> Some fixes have been provided to ease the issues, but the real fix
-> here is to use a bitwriter instead of heavily unaligned bitfields.
->=20
-> This is a preparation commit to provide a global bitwriter interface
-> for the whole driver.
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
-> =C2=A0drivers/media/platform/rockchip/rkvdec/Makefile=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 1 +
-> =C2=A0.../platform/rockchip/rkvdec/rkvdec-bitwriter.c=C2=A0=C2=A0=C2=A0 |=
- 30 ++++++++++++++++++++++
-> =C2=A0.../platform/rockchip/rkvdec/rkvdec-bitwriter.h=C2=A0=C2=A0=C2=A0 |=
- 25 ++++++++++++++++++
-> =C2=A03 files changed, 56 insertions(+)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/me=
-dia/platform/rockchip/rkvdec/Makefile
-> index e629d571e4d8..11e2122bcbbf 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/Makefile
-> +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
-> @@ -2,6 +2,7 @@ obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC) +=3D rockchip-vdec.o
-> =C2=A0
-> =C2=A0rockchip-vdec-y +=3D \
-> =C2=A0		=C2=A0=C2=A0 rkvdec.o \
-> +		=C2=A0=C2=A0 rkvdec-bitwriter.o \
-
-Its just one function, with 10 lines of code, can we inline it in the heade=
-r and
-drop the object ?
-
-> =C2=A0		=C2=A0=C2=A0 rkvdec-cabac.o \
-> =C2=A0		=C2=A0=C2=A0 rkvdec-h264.o \
-> =C2=A0		=C2=A0=C2=A0 rkvdec-h264-common.o \
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c b/=
-drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c
-> new file mode 100644
-> index 000000000000..673ebb89002b
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Rockchip Video Decoder bit writer
-> + *
-> + * Copyright (C) 2026 Collabora, Ltd.
-> + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Detlev Casanova <detlev.casanova@collab=
-ora.com>
-> + * Copyright (C) 2019 Collabora, Ltd.
-> + *	Boris Brezillon <boris.brezillon@collabora.com>
-> + */
-> +
-> +#include <linux/types.h>
-> +#include <linux/bits.h>
-> +
-> +#include "rkvdec-bitwriter.h"
-> +
-> +void rkvdec_set_bw_field(u32 *buf, struct rkvdec_bw_field field, u32 val=
-ue)
-> +{
-> +	u8 bit =3D field.offset % 32;
-> +	u16 word =3D field.offset / 32;
-> +	u64 mask =3D GENMASK_ULL(bit + field.len - 1, bit);
-> +	u64 val =3D ((u64)value << bit) & mask;
-> +
-> +	buf[word] &=3D ~mask;
-> +	buf[word] |=3D val;
-> +	if (bit + field.len > 32) {
-> +		buf[word + 1] &=3D ~(mask >> 32);
-> +		buf[word + 1] |=3D val >> 32;
-> +	}
-> +}
-> +
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h b/=
-drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h
-> new file mode 100644
-> index 000000000000..44154f1ebc65
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h
-> @@ -0,0 +1,25 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Rockchip Video Decoder bit writer
-> + *
-> + * Copyright (C) 2026 Collabora, Ltd.
-> + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Detlev Casanova <detlev.casanova@collab=
-ora.com>
-> + * Copyright (C) 2019 Collabora, Ltd.
-> + *	Boris Brezillon <boris.brezillon@collabora.com>
-> + */
-> +
-> +#ifndef RKVDEC_BIT_WRITER_H_
-> +#define RKVDEC_BIT_WRITER_H_
-> +
-> +#include <linux/types.h>
-> +
-> +struct rkvdec_bw_field {
-> +	u16 offset;
-> +	u8 len;
-> +};
-> +
-> +#define BW_FIELD(_offset, _len) ((struct rkvdec_bw_field){ _offset, _len=
- })
-> +
-> +void rkvdec_set_bw_field(u32 *buf, struct rkvdec_bw_field field, u32 val=
-ue);
-> +
-> +#endif /* RKVDEC_BIT_WRITER_H_ */
-
---=-yBgy0sQvaoJVzhLo4NBc
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCacqF9gAKCRDZQZRRKWBy
-9NNPAP9m/C7TMvFwXyQT8rK+UCGFvzuLY32by5+QAQwsH+fP4wEAoC19z0cPX+2k
-voSc2sk6B5FI6fzPOJXJX9z9XlPO0go=
-=/Y4+
------END PGP SIGNATURE-----
-
---=-yBgy0sQvaoJVzhLo4NBc--
+Bart
 
