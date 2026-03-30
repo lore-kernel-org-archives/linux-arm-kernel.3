@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B56CFC97E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D55AFC981D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TsdIBfh4hI63Pc2A6wBj5FxTO/SltP24J0yQ7a51oSo=; b=uFvEt+PCjjnQDEIk7a0IAok8wE
-	lBGsPzEklNTz1RwnZUey5wSbwCikCRdZ7lIMODJYEP2Zmjh29QFDlXge/cO87Dxl6p31hxWP52c+b
-	y17Xu0NPzWJHG/DyGWR40xw1LSO19NWu9TAN4wDluNEioeaaqAQ5dwdrGtJmdeTJggS/77nuWghC6
-	UCg0NgTJPLEOiCxdG3Q1lw7OdqkZIYMkolNM/K1MvOJdhueMKBi3GabwP7djODh1KgClPbX+cgY8P
-	EOXiOEZ9yVjJ8oTCztH9dHocdDg2ZwUU3zFI3jM3qPciHWnDxexcBlckEdE3S7ubmteVWDG1q4Pvl
-	DcsDdw4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tf5ULwJrTl2cI7z19tJ0FBIFsHUeLlxW6VqIecnfacY=; b=U1EEnQaOxcu2rKuV1/7YywgUyc
+	cTV3rL8ybAm0KZiIrMy65fe4Ex4P+TLGD9ZpH86si2nCjabty1f5LBhJeT8PzlUaosWk3T8cVVX78
+	vFH02oOqgmo2n9UpFPCa9G3nqi0wI1BVnypDUNcSoFj9J4uFxQpdoi8LgVyxfEsnztIZwqjGZKqb6
+	GAURIAk6RqQV00oKiJJM9m6KzLNDLSlZhAI0DfYUipK8luTis2GJvha5F6XoH14FH2Kn7+S/mxQSi
+	X7qXVM3lycdqbVRlaTcY5J+K5ZzDWjuaQvRn3mGwl84RyCKX1wTt10YUWStVQNoskHlBh4Um06Av8
+	juZbZRwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78JZ-0000000Augo-2RgK;
-	Mon, 30 Mar 2026 08:49:41 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w78KP-0000000Aumh-3pk6;
+	Mon, 30 Mar 2026 08:50:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78JX-0000000AugG-0j6R
+	id 1w78KP-0000000AumT-0Jeu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 08:49:40 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1w78JH-0004gY-Gk; Mon, 30 Mar 2026 10:49:23 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1w78JG-002qYs-30;
-	Mon, 30 Mar 2026 10:49:22 +0200
-Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1w78JG-0000000EP8J-3QNg;
-	Mon, 30 Mar 2026 10:49:22 +0200
-Date: Mon, 30 Mar 2026 10:49:22 +0200
-From: Michael Tretter <m.tretter@pengutronix.de>
-To: Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH v2 0/3] media: imx-csi: cleanup media pipeline start
-Message-ID: <aco5Ei1B4vJWKMMj@pengutronix.de>
-Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-staging@lists.linux.dev
-References: <20251218-media-imx-cleanup-v2-0-9e3e3c269f7f@pengutronix.de>
- <aXOoc0lvAtPt0fAL@pengutronix.de>
+	Mon, 30 Mar 2026 08:50:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 131C260123
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 08:50:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD31DC2BCB3
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 08:50:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774860631;
+	bh=tf5ULwJrTl2cI7z19tJ0FBIFsHUeLlxW6VqIecnfacY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Xf92L5XvfS6DOe68A+aTIVoyPlxdhPE3UBegn5Kf6obJ/Wf7BzMALvcuIeBMoLGaz
+	 d4giXxl1iaJYrSAJwJw2SE22at6710VnXhIlhRzG6MKp9msdUKsmHvhiBQ8GUSMijn
+	 EL2pfdKbZ9LZgbz9Dd19d2NVzMSynP13HCUpOlWBwRxCQ29+1Q5sL56WYwwoFhZK4/
+	 VCXxHqZL82p6W75XyD7El0+gm2WPUrE3V1Fz7Q19U+UqUirwHgGt6x3SN9Nm2ipY4P
+	 mDyonlqLpQPjNf+h54ixGxFw33harvnWSUcL+8kVmLscG7ZW2FY3M9X8q4mbqfOeHY
+	 kvBSTVvPncWyA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5a2b5ea59a1so755918e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 01:50:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVHgdAtupDeDWUqi2DiwhyMa9eAMr9DAUzW2vdJSDI3SPbZst10wiDla3FoKXHj75QB/nBux/XkglMUnR97QmIF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywc9/8urJBlNjpHDCHz0ZNsGxmG0yzskIbzdwN9bnwAlEH3rF7F
+	EpiNQKUa5VPQpI3mjYwe2At6kQi4Sg4vKqwFDYXQXwbI+E4uuLcnBLttpu9Mmrll4JfEx712VaQ
+	DBr4msaSsVxNTJJtbB6r5+x3UhT+Yi0n7RavSrvr8/w==
+X-Received: by 2002:a05:6512:3b0b:b0:5a1:1885:69d7 with SMTP id
+ 2adb3069b0e04-5a2ab5fa3e9mr3943952e87.4.1774860630515; Mon, 30 Mar 2026
+ 01:50:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aXOoc0lvAtPt0fAL@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_014939_211587_C54F3343 
-X-CRM114-Status: GOOD (  21.42  )
+References: <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
+ <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
+ <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
+ <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
+ <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi> <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+ <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi> <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
+ <ackRzly0mXHReI7V@ashevche-desk.local> <aco3YBCQsT2BN2_N@kuha>
+In-Reply-To: <aco3YBCQsT2BN2_N@kuha>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 30 Mar 2026 10:50:16 +0200
+X-Gmail-Original-Message-ID: <CAMRc=MdEL-_od0wJbwA1Q=GDFjm94Ca47FfNR-koDpjumQrMdA@mail.gmail.com>
+X-Gm-Features: AQROBzAwfgAKKxJI4l4teSRtVg5dwLEFgmM7zFWj_0HkeLpVMZ1ljd0TW90H9VA
+Message-ID: <CAMRc=MdEL-_od0wJbwA1Q=GDFjm94Ca47FfNR-koDpjumQrMdA@mail.gmail.com>
+Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Hans de Goede <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Kevin Hilman <khilman@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hans,
+On Mon, Mar 30, 2026 at 10:43=E2=80=AFAM Heikki Krogerus
+<heikki.krogerus@linux.intel.com> wrote:
+>
+> > > Thanks. This makes sense. Both omap16xx_gpio_init() and
+> > > software_node_init() run as postcore_initcall() so if the order is no=
+t
+> > > right, it will fail.
+> > >
+> > > Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
+> > > reason to run software_node_init() as a postcore initcall? It only
+> > > allocates the kset, can we move it to core_initcall() by any chance?
+> >
+> > Good question. I don't know why it's chosen like this.
+> > Let ask Heikki, who is the author of the code.
+>
+> I don't remember why it was it made a postcore initcall (I only
+> remember that there was some reason at the time). It's probable
+> fine to just make it a core initcall.
+>
 
-On Fri, 23 Jan 2026 17:57:23 +0100, Michael Tretter wrote:
-> On Thu, 18 Dec 2025 10:23:48 +0100, Michael Tretter wrote:
-> > The imx media device currently assumes that there is only a single media
-> > pipeline. However, the media graph has multiple imx capture devices.
-> > These may be started separately on media pipelines if they don't cause
-> > conflicts in the media graph.
-> > 
-> > Move the media pipeline from the media device to the capture devices to
-> > properly track and handle multiple media pipelines for the imx-csi.
-> > Refactor the code to start the media pipeline from the driver to help
-> > the reader.
-> 
+Thanks, I think I'll do as Dmitry suggested and make the exact moment
+software nodes are initialized deterministic by moving it into the
+driver core initialization.
 
-Could you take a look and apply this series for the imx-media driver,
-too? The patches are already reviewed by Frank Li and Philipp Zabel.
-
-Michael
-
-> 
-> > 
-> > Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
-> > ---
-> > Changes in v2:
-> > - Improve code readability in Patch 2
-> > - Update commit message of Patch 3 as suggested by Frank Li
-> > - Link to v1: https://patch.msgid.link/20251107-media-imx-cleanup-v1-0-f82a693c28f4@pengutronix.de
-> > 
-> > ---
-> > Michael Tretter (3):
-> >       media: imx-csi: move media_pipeline to video device
-> >       media: imx-csi: explicitly start media pipeline on pad 0
-> >       media: imx-csi: use media_pad_is_streaming helper
-> > 
-> >  drivers/staging/media/imx/imx-media-capture.c |  8 ++++----
-> >  drivers/staging/media/imx/imx-media-utils.c   | 12 ++++++++----
-> >  drivers/staging/media/imx/imx-media.h         |  7 ++++---
-> >  3 files changed, 16 insertions(+), 11 deletions(-)
-> > ---
-> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > change-id: 20251107-media-imx-cleanup-9022d941ae44
+Bart
 
