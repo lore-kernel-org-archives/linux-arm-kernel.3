@@ -4,72 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48CFFF494F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBADFF494F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9GVPd5o+Y5eRKnGMX1+dIaRIfJ1S5+23ZmAtc+5KwU=; b=VIffVv7UlQFNxCfGT0dZewa/Fn
-	bsB3txTxCRax2LVXf9CMPY30aIje8W/gs5/5MXf0pRXibEnuuEh2ZP1/znpEr+hWg1ATXKB4ErJie
-	dRQ3YsvWf/tneQBc9xDGcUgWuUQpz6KbONzuhSKIXEagyBANryrWj10WfqCS1vLhd0dfVu+fIpUC0
-	bsKLBR3WfT7PSQg1uAI4ZYvmRWOEyfHBb1Qb8Lg1CVGMCf1y6XyER/qVH3nDeGlwHxY7VWcKMy/wC
-	yMtdPFZT644ro6BoolarRpWEuZLg6rdnbiWW4/mV97teMSbfy4IVJfcv+KnmkNinz9gowXm9tmKQz
-	YyXkIT7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=m1ZC22yEKqv0I/CPaWdZHNu0Gid8fUMzBO/v5Cza4Sg=; b=XD32aZNNc3CRzx
+	kuzrHVr3HDrO0NXp/ckBULIGIKblefKlDOELJ2Y4xtFPNiJXUtORchMyZ6DILBp2lLXZG5umF4lS5
+	MQ6RjRvv1XnnSn7BJn8g18rvD/oap0OoGDScv2abuIaWHhx8CTMrCVbSSXeQL/eH0RrmkhTtod0np
+	efITLu3o4e9mIp3+jUIYGGPKQdxe5kqMCD54LWKBjpWN0pUg711pQvTmMvEVw5NdgvLD0YFfw40QL
+	u0f0gZP4gtouCYwEYk5ZohCcV9bTzVPlPmjX6hCBh4YGnJqXDW75+wPrdYHpm85tdi+EmehEnzW0z
+	f6k/iR6g071rlSX0JCKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Bth-0000000BGtg-2lds;
-	Mon, 30 Mar 2026 12:39:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7BvU-0000000BH5Y-2j3Q;
+	Mon, 30 Mar 2026 12:41:04 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Bte-0000000BGt3-300w;
-	Mon, 30 Mar 2026 12:39:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 234C84459E;
-	Mon, 30 Mar 2026 12:39:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58E9C2BCB3;
-	Mon, 30 Mar 2026 12:39:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774874346;
-	bh=tYLoT/g8g+dfmbwXtdG4UEMxcZCoHibY3HsepB2r7ao=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U1C1whvWscUqwdUkp8dn8nX5SSgHCB3WnUbS365myRExoALjniyy61zIL44hP87J4
-	 WaHvp7hfWBy06Mn8m6J6Udv2th+6bLVPJ+VQYwaslNIfKtbNLqOVFpueCzB/dgAs79
-	 d88EHwljLTefh9ilCdJnKvXldllaim+8BEAr06UzKwQeye1Uj6m/AFbNrN4gW1t775
-	 FAPB0u1QwrvZsIBVQPTooMsmNYgavu4k5d+G44oNo2ucGfPG9O4lg5W8q3pfm7/gJ8
-	 UmD4BOeSyb36gbN+iA4MX91ctywJGA9RltPLMP8O9BRZmaStDz6P6Mjpl3lRTnVnhS
-	 OTrBMbSdwnhrQ==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	detlev.casanova@collabora.com,
-	ezequiel@vanguardiasur.com.ar,
-	mchehab@kernel.org,
-	heiko@sntech.de,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.19-6.1] media: rkvdec: reduce stack usage in rkvdec_init_v4l2_vp9_count_tbl()
-Date: Mon, 30 Mar 2026 08:38:29 -0400
-Message-ID: <20260330123842.756154-16-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260330123842.756154-1-sashal@kernel.org>
-References: <20260330123842.756154-1-sashal@kernel.org>
+	id 1w7BvR-0000000BH52-3VV5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Mar 2026 12:41:03 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62UCcVv73195173
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:41:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=m1ZC22yEKqv0I/CPaWdZHN
+	u0Gid8fUMzBO/v5Cza4Sg=; b=Opung/CBz/HA4ZQjM+P2dBde1ixiEOI+r+me5E
+	Hy/q9anjFRYMLlBqwA5yumdAL2X1hfnAv5nk7j5jTRqm1cZjhNrFvXvOfRq3iLaZ
+	F0F2NEEq2sHgVFoxHjy3sUVSFi7fYzlHFXJwmpFvZVpn7mLHG48YDOuUIdNlt+4V
+	j8eZeId7VspsS33LfIfwMn/O48kGvKq+c5SnxwGY1yi5bmfS9xt4XmLvZFjdIdhK
+	6ZepZTY3k91HdXQgOLahDJGoxhA2tWmL4ih07lE/F7taPjWmUgnWD7e7jYhmhmy7
+	fxrqDWRhu6eJzJXu3AxZiYceQQva4IJkzKI5cbxBlcs698Rw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d7sbwg066-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:41:00 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50b6f869676so87895731cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:41:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1774874460; x=1775479260; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=m1ZC22yEKqv0I/CPaWdZHNu0Gid8fUMzBO/v5Cza4Sg=;
+        b=QLls29vmmdAW8AIaErjgvDQ3GsfQf3+7h+ZKz21B0LtXVwpXF2n9FvTXcxW//CFtAe
+         yQV+gALCH12bSY4OiwMoinbUSP7kZu/F8YLwn8VPTllGgOCFdo+8+3SVeWmXFkyWo8kq
+         VuHQY4h4u+ohaNWKpONU9zdykHnur2ynZFS2uZ0XRgMOaV/JcE/niugiP3qKUTKOjOjh
+         a5+xY+vctG2IKzXjpMbnuhn8OPQGCMXu5zqROyKAEmep8++TWg5bvcu0Y0Aob90GQFvm
+         ntyL2PLNgAlX8TwwiSFQBEi1EI1JrFjjSlCaO73mFUrrP5IAIYI8gGkJPvm/RUO1bvAY
+         CyIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774874460; x=1775479260;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m1ZC22yEKqv0I/CPaWdZHNu0Gid8fUMzBO/v5Cza4Sg=;
+        b=YVzEdqFWkmBgN9BQ1gh7hPbkAaxV/Y5uXGKR616HnFceznQ+U2mi882ksEpRm9e56Q
+         FgIhBHjqD8+oFf1yPYiV1qMlKSIG4FWPAUpo34rs/eK8tGWx0xSxUqaUpibD5H31nLyZ
+         1msY3MADGshR2Vy19+Y0X7XV3jQLouwOQhpaYond2HGzMI3AfQVGPpZu+Hr3k5Lv1fLM
+         TvBG9EwzrCB46mvgw2MZUorEeXenEAja1QNbpVpv5COuufqNnFxWgOrDNorphkXT2tYP
+         5AvlkmIYHAhC54gt73anXFEbFhTSD3CjhQxs3Hr1ca8tGv5az8OgSomCfnzAYIEd6VDl
+         qIIg==
+X-Forwarded-Encrypted: i=1; AJvYcCVU3KodXW1+HdYzb7mwgEIOkRkpfkflrgtRgG24l2XjDI9woKNf6GPwVYXrgIlATZRedcxLCChO5FgWYRSO4o4g@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYmqKLaUWecERahky95fW7DHIRmsHtdq+WXx+fDn0qUahB/pqb
+	/vU33FGA425nArToqca/y2IwI5s/t7Ib9TTS8Ad6QsP47uH3nHx6xwaK2TMZ1tENT7SR0Y/dj1Y
+	8p9ID/maE7nSTyEcg/6IdmJ/R2Rh8+PGSycupGV29QfyzC4iU1g6pp0ndcVowzzb1fgDHgS3UcI
+	+g3Q==
+X-Gm-Gg: ATEYQzyhmYAmMHBFMe1CvUYrYfA1tqYHVUDvT+mFVlxAdSk1PWffbcREKzFEjtFsDVI
+	6jPbJrxwxEPB63pwoOrVJJxuPdd2e8OgNXkbKPdVKeBDimPhrzXQQExi4sxBjvT77Y2hVsClXTC
+	VXbhEkfwR4lwMK8VAPTNSXmBN9tsXBEv2bP93qSE1AAnjKvXdVhDFZ47LTUt4m2/kIffPsDckUA
+	PC3hxkzfTcj9AQlMpjaohYVODm+0oi+DzT+wdf3xx364eOoByqPnDKqlkTnygiDVhfIZkAtptBQ
+	Ktk2xnZjOq5PcU2ODHF9Jr0QNP/4zSWK3t75njTzCi1C2DBCmd3Jz/wuROos5xhqfT4ztKF5ykz
+	BqGgCKw1ZB5oMjEVojDJoSZ3Gd1rSqStqQHfRtGFDheEddqeuXCcd
+X-Received: by 2002:a05:622a:229d:b0:509:1d4b:f860 with SMTP id d75a77b69052e-50ba397bc8emr179975241cf.58.1774874459621;
+        Mon, 30 Mar 2026 05:40:59 -0700 (PDT)
+X-Received: by 2002:a05:622a:229d:b0:509:1d4b:f860 with SMTP id d75a77b69052e-50ba397bc8emr179974841cf.58.1774874459199;
+        Mon, 30 Mar 2026 05:40:59 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:e931:8d81:9955:76ef])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf24739easm19576153f8f.30.2026.03.30.05.40.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 05:40:58 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v4 0/3] ARM: omap1: use real firmware node lookup for GPIOs
+ on Nokia 770
+Date: Mon, 30 Mar 2026 14:40:45 +0200
+Message-Id: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.19.10
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE1vymkC/x3MTQqAIBBA4avErBuQLPu5SrSwnGoINByoQLp70
+ vJbvJdAKDIJDEWCSBcLB59RlwUsu/UbIbtsqFRllNYKfTjYtq3C7eSAcvvgSLBxtputbvraEOT
+ 2jLTy83/H6X0/ncJbKGcAAAA=
+X-Change-ID: 20260330-nokia770-gpio-swnodes-5da8ba35946e
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        Daniel Scally <djrscally@gmail.com>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Aaro Koskinen <aaro.koskinen@iki.fi>,
+        Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+        Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
+        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+        Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: brgl@kernel.org, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+        linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-omap@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2086;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=ebXxP6oyGThso9D20ueCVw32ARrB2td9WDVDT4mVQlQ=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpym9QIpjWDEaGIC85qzZdl9V6Rcvu5F+r9iru9
+ WKPqG41tIGJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCacpvUAAKCRAFnS7L/zaE
+ w2kzD/9NUZiXDzZZSpnZvE7U0Y+j2FXJqL4tLwdObSeStH4IM9mpXwCRyn/c6oGyMD/91QDjPrv
+ 3DXHCm+kM5GEO5tKMe8LEuZjFE/6n/CuEagUvVTETyucDzV8y9mn6hNvCaLFKCwVWvoTGZR3s2U
+ MxEFzkV6egJoA9Zd7G5plqtw1QJHQiAVnmjRj9X8JBwzwJJfrgoJwpxppBG7a/K1l1km1peQRZq
+ 7RyrC4AS2Cy8uYOOXoqVxD8VfwNE9UC5+ucjUO8sC9Pg/Htq62nkxrtNM31umoP15ttqXLLZqH6
+ wxQf8yJpXDhfej5z9KIq/GA38t4XK3lYfga5Cpba6MhKUmPKyebmrL+J7IMuHZwwyXoqmmqEq4z
+ iQDw/kik4wEW5u7QOSPYMsN+QMoDLimboGo/esNyyGuikM8eIAmOcSDqOmwfT0+YES8cWzAqyLC
+ Ib2ejc/sqHiHKibK/QryIgqjglKpyQ97ashiz6vhHzB4yybu0d+L8IElKavAqTDymIYSvxlJnM+
+ iXTd7S24TG/CcztQqKIWbtkbzcRIhiourzV4XFw350GW9vuoqyk64oC37G3/ke+o10XDFxePCdJ
+ Z53nn7cIso/rW/Co9BqjlmdawBZ5GFo8Z4zveeJqZYEWgj4bBNvMMZn5KpgWfW3Jxu9JaTmrqt9
+ 0fLcx3SsNRH9aJA==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-ORIG-GUID: MLoUsXZCj2cN5C7LjLtAy3V5HlWfQa_G
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMwMDA5OCBTYWx0ZWRfXzefHDu+OyizC
+ /hz81zqfRKfN5J/7ljtQsDumsGMWiIAcmpM6KeV2qZm3de+CS5dvWchWZqa0lbyh+33MKK/KCTh
+ OlIsaDy/A8fnxDa23wckJHl1vZyo+MFDv0ZHkgNSE5uZ7WD79+WzF+KguRHPWmzIYX0Q+niRDaf
+ lo/Y9GylE+RP0/K7ShUe8mmhi/hGApeHO/DZhTwiCVlJkA9wcg2Ow/+IwMRWosPJyD//sQ56Kfq
+ VeotCxlHKk35XD3VNa+Tth9hnMPw7KCJiBQXY7y/ImB4GFEy8PwFWAGbsIN/eFji9yMXPIBWE3W
+ zTGDipk5GbNtSxoXNhJT0+SKnYCWix/19RP8V4PtpbC3B+ZMGMwqGrIoqLWDkqdMS3mp1+Fg0C6
+ p1PUO/ixD05ROpkieajFCtocOgtF1B8XT0DZ7SL0qZMCxsWbWdH/VPg3E/HEZnti7rS+HDfD5Cy
+ 7avqiXm97A+wGWLwTiw==
+X-Proofpoint-GUID: MLoUsXZCj2cN5C7LjLtAy3V5HlWfQa_G
+X-Authority-Analysis: v=2.4 cv=TIpIilla c=1 sm=1 tr=0 ts=69ca6f5c cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=WeWpliTHXVVyQaQyHOwA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-29_05,2026-03-28_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 spamscore=0 impostorscore=0 adultscore=0
+ phishscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603300098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_053910_820987_86FFDB06 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20260330_054101_882496_E6126687 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,342 +174,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+This converts Nokia 770 to using real firmware node lookup for GPIOs by
+attaching the software nodes describing GPIO controllers to their target
+devices.
 
-[ Upstream commit c03b7dec3c4ddc97872fa12bfca75bae9cb46510 ]
+As determined by Aaro's testing, both omap16xx_gpio_init() and
+software_node_init() run in postcore_initcall() so we need to make
+software nodes available earlier hence the new patches in v4.
 
-The deeply nested loop in rkvdec_init_v4l2_vp9_count_tbl() needs a lot
-of registers, so when the clang register allocator runs out, it ends up
-spilling countless temporaries to the stack:
+Please note that while the goal of this series is to allow Nokia 770 to
+use software nodes earlier, we're not modifying core kernel code just to
+accomodate an old ARM platform - more such conversions are coming up so
+the change will be useful to more consumers of the software node API.
 
-drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c:966:12: error: stack frame size (1472) exceeds limit (1280) in 'rkvdec_vp9_start' [-Werror,-Wframe-larger-than]
-
-Marking this function as noinline_for_stack keeps it out of
-rkvdec_vp9_start(), giving the compiler more room for optimization.
-
-The resulting code is good enough that both the total stack usage
-and the loop get enough better to stay under the warning limit,
-though it's still slow, and would need a larger rework if this
-function ends up being called in a fast path.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
+Changes in v4:
+- Add patches making software nodes available earlier
+- Remove stray newline
+- Link to v3: https://lore.kernel.org/all/20260212112508.73500-1-bartosz.golaszewski@oss.qualcomm.com/
 
-LLM Generated explanations, may be completely bogus:
+Changes in v3:
+- fix references to the MPU node
 
-No existing stack fix in stable 6.6.y for this file. All the
-investigation is complete. Let me now compile the full analysis.
+Changes in v2:
+- fix build with CONFIG_I2C_CBUS_GPIO
+- only export the two symbols that are actually required by the nokia
+  board file
 
 ---
+Bartosz Golaszewski (3):
+      kernel: ksysfs: initialize kernel_kobj earlier
+      driver core: make software nodes available earlier
+      ARM: omap1: enable real software node lookup of GPIOs on Nokia 770
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+ arch/arm/mach-omap1/board-nokia770.c | 30 +++++-------------------------
+ arch/arm/mach-omap1/common.h         |  3 +++
+ arch/arm/mach-omap1/gpio16xx.c       | 28 +++++++++++++++++++++++++++-
+ drivers/base/base.h                  |  1 +
+ drivers/base/init.c                  |  1 +
+ drivers/base/swnode.c                | 13 ++-----------
+ include/linux/kobject.h              |  2 ++
+ init/main.c                          |  1 +
+ kernel/ksysfs.c                      |  8 +++-----
+ 9 files changed, 45 insertions(+), 42 deletions(-)
+---
+base-commit: e80f5dcc54bf5d494b725e2932571488daac33b8
+change-id: 20260330-nokia770-gpio-swnodes-5da8ba35946e
 
-**Step 1.1: Subject Line**
-Record: [media: rkvdec:] [reduce] [reduce stack usage in
-rkvdec_init_v4l2_vp9_count_tbl() to fix Clang build failure with
--Wframe-larger-than]
-
-**Step 1.2: Tags**
-Record:
-- Signed-off-by: Arnd Bergmann (author, well-known kernel build-fix
-  expert)
-- Reviewed-by: Nicolas Dufresne (Collabora, rkvdec contributor)
-- Signed-off-by: Nicolas Dufresne (subsystem co-maintainer)
-- Signed-off-by: Mauro Carvalho Chehab (media subsystem top-level
-  maintainer)
-- No Fixes:, Reported-by:, Tested-by:, Acked-by:, Link:, or Cc: stable
-  (absence expected for this pipeline)
-
-**Step 1.3: Commit Body**
-Record: Bug: The deeply nested 5-level loop in
-`rkvdec_init_v4l2_vp9_count_tbl()` uses many registers. When Clang
-inlines it into `rkvdec_vp9_start()`, the combined stack frame reaches
-1472 bytes, exceeding the 1280-byte `-Wframe-larger-than` limit.
-Symptom: Build failure with `-Werror,-Wframe-larger-than`. Fix: Mark the
-function `noinline_for_stack` to prevent inlining. Author notes the
-resulting code is "good enough" and the function is not on a fast path.
-
-**Step 1.4: Hidden Bug Fix Detection**
-Record: This is an explicit build fix, not a disguised runtime fix. The
-commit message is transparent about the problem and solution.
-
-## PHASE 2: DIFF ANALYSIS
-
-**Step 2.1: Inventory**
-Record: 1 file changed (`drivers/media/platform/rockchip/rkvdec/rkvdec-
-vp9.c`), ~2 lines modified (function signature only: `static void` ->
-`static noinline_for_stack void` split across 2 lines). Function
-modified: `rkvdec_init_v4l2_vp9_count_tbl()`. Scope: single-file,
-absolutely surgical.
-
-**Step 2.2: Code Flow Change**
-Record: Before: `rkvdec_init_v4l2_vp9_count_tbl()` was a plain `static
-void` function eligible for inlining into `rkvdec_vp9_start()`. After:
-The `noinline_for_stack` attribute prevents inlining, so the function
-gets its own stack frame. No logic, data flow, or error path changes
-whatsoever.
-
-**Step 2.3: Bug Mechanism**
-Record: Category: build fix / compiler stack-usage mitigation. The
-deeply nested loop (5 levels: `i`, `j`, `k`, `l`, `m`) with 6 pointer
-dereference assignments per iteration exhausts Clang's register
-allocator when inlined, causing heavy stack spilling that pushes the
-caller's frame past the warning limit.
-
-**Step 2.4: Fix Quality**
-Record: Obviously correct. `noinline_for_stack` is a well-established,
-documented kernel pattern (`include/linux/compiler_types.h` line
-276-278: `#define noinline_for_stack noinline`). Zero regression risk --
-the only effect is preventing inlining of a function called once during
-VP9 decoder initialization, which is not a hot path. No API or
-behavioral changes.
-
-## PHASE 3: GIT HISTORY INVESTIGATION
-
-**Step 3.1: Blame**
-Record: `git blame` shows the entire function body traces to commit
-`f25709c4ff151f` ("media: rkvdec: Add the VP9 backend") by Andrzej
-Pietrasiewicz, dated 2021-11-17. This was included in
-`v5.17-rc1~171^2~201`, so the code has been present since v5.17. The
-same deeply nested loop and all 5 loop variables have been there since
-introduction.
-
-**Step 3.2: Fixes Tag**
-Record: No Fixes: tag present (expected for commits under manual
-review).
-
-**Step 3.3: File History**
-Record: On current tree, only 2 mainline commits modified `rkvdec-vp9.c`
-in the non-staging path: the unstaging move (`d968e50b5c266`) and a QoS
-disable (`664b42898db79`). The staging path has a few more minor
-changes. No existing stack-usage or noinline fix for this file anywhere
-in the history. The candidate is standalone.
-
-**Step 3.4: Author Context**
-Record: Arnd Bergmann is a prolific kernel contributor especially well-
-known for build fixes, cross-compilation, architecture portability, and
-stack-usage reduction patches. His media subsystem commits include
-multiple similar `noinline_for_stack` fixes (e.g., `5954ad7d1af92` for
-st-delta, `8b55f8818900c` for mediatek VP9). This is his core expertise.
-
-**Step 3.5: Dependencies**
-Record: No dependencies. `noinline_for_stack` is defined as `#define
-noinline_for_stack noinline` in `include/linux/compiler_types.h` and has
-existed since at least v4.x. The function signature is identical in all
-stable trees (6.1.y, 6.6.y, 6.12.y) -- verified via `git show` on each
-stable branch.
-
-## PHASE 4: MAILING LIST RESEARCH
-
-Record: Direct WebFetch to lore.kernel.org was blocked by Anubis proof-
-of-work. However, the commit has proper review/signoff chain (Reviewed-
-by from Nicolas Dufresne, Signed-off-by from both Nicolas Dufresne and
-Mauro Carvalho Chehab), confirming it went through standard review.
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-**Step 5.1: Functions**
-Record: Only `rkvdec_init_v4l2_vp9_count_tbl()` modified (signature
-only).
-
-**Step 5.2: Callers**
-Record: Called exactly once from `rkvdec_vp9_start()` at line 1034.
-Verified in all stable trees (6.1.y line 1031, 6.6.y/6.12.y line 1030).
-
-**Step 5.3: Callees**
-Record: The function sets up pointer tables and runs a 5-level nested
-loop (`INNERMOST_LOOP` macro) performing array pointer assignments. No
-dynamic allocations, no locks, no side effects beyond pointer setup.
-
-**Step 5.4: Call Chain**
-Record: `rkvdec_vp9_fmt_ops.start` -> `rkvdec_vp9_start()` ->
-`rkvdec_init_v4l2_vp9_count_tbl()`. Called during VP9 streaming setup,
-not per-frame. The author explicitly notes it is not a fast path.
-
-**Step 5.5: Similar Patterns**
-Record: `noinline_for_stack` is used in 7+ files under `drivers/media/`
-for the same class of issue. The nearly identical mediatek VP9 commit
-(`8b55f8818900c`) by the same author is the closest precedent.
-
-## PHASE 6: STABLE TREE ANALYSIS
-
-**Step 6.1: Code Existence**
-Record: The file exists in all active stable trees:
-- 6.1.y: `drivers/staging/media/rkvdec/rkvdec-vp9.c` (verified, function
-  at line 927)
-- 6.6.y: `drivers/staging/media/rkvdec/rkvdec-vp9.c` (verified, function
-  at line 926)
-- 6.12.y: `drivers/staging/media/rkvdec/rkvdec-vp9.c` (verified,
-  function at line 926)
-The function signature and the deeply nested loop are identical in all
-branches.
-
-**Step 6.2: Backport Complications**
-Record: The file path differs in stable trees (staging vs non-staging),
-requiring a trivial path adjustment. The actual code is functionally
-identical -- the patch applies cleanly with a path change.
-
-**Step 6.3: Precedent -- Critical Finding**
-Record: The nearly identical mediatek VP9 `noinline_for_stack` commit by
-the same author (`8b55f8818900c`) **was backported to all three stable
-trees**:
-- 6.1.y: `89e1132bbf713`
-- 6.6.y: `fa43166f2e8ba`
-- 6.12.y: `f87626a55c215`
-
-This is extremely strong precedent. The rkvdec fix is the same type of
-change (same author, same compiler issue, same annotation, same VP9
-decoder context).
-
-## PHASE 7: SUBSYSTEM CONTEXT
-
-**Step 7.1: Subsystem**
-Record: `drivers/media/platform/rockchip/rkvdec/` -- Video decoder
-driver for Rockchip SoCs. Criticality: PERIPHERAL (hardware-specific),
-but Rockchip platforms are widely deployed in Chromebooks, single-board
-computers, and embedded systems.
-
-**Step 7.2: Activity**
-Record: Low-moderate activity. The driver is mature. Recent changes are
-minor (QoS fix, unstaging move).
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-**Step 8.1: Who is Affected**
-Record: Anyone building the kernel with Clang (especially with KASAN
-enabled, based on the mediatek precedent) who enables
-`CONFIG_VIDEO_ROCKCHIP_VDEC` or `COMPILE_TEST`. This includes CI
-systems, distribution kernel builds, and embedded/Chromebook builders.
-
-**Step 8.2: Trigger Conditions**
-Record: Triggered at compile time with Clang + `-Wframe-larger-than` +
-`-Werror`. Deterministic build failure. The specific Clang version and
-configuration matter (KASAN amplifies the issue per the mediatek
-precedent), but the fix is purely defensive and safe regardless.
-
-**Step 8.3: Failure Mode**
-Record: Build failure -- kernel cannot be compiled. For anyone who needs
-this driver, it is a hard blocker. Severity: MEDIUM-HIGH (build failure,
-not runtime crash, but prevents compilation entirely).
-
-**Step 8.4: Risk-Benefit Ratio**
-Record: BENEFIT: Fixes a real build failure for Clang users with common
-warning configurations. The identical class of fix was already deemed
-worthy of backport for the mediatek VP9 driver. RISK: Essentially zero.
-Adding `noinline_for_stack` has no behavioral effect; it only affects
-compiler inlining decisions. The function is called exactly once during
-initialization. Ratio: Very favorable.
-
-## PHASE 9: FINAL SYNTHESIS
-
-**Step 9.1: Evidence**
-
-FOR backporting:
-- Fixes a documented Clang `-Werror,-Wframe-larger-than` build failure
-- Build fixes are an explicit exception category for stable backporting
-- Extremely minimal change: single attribute annotation, no logic change
-- Zero runtime regression risk
-- Well-established kernel pattern (`noinline_for_stack`)
-- Author is the recognized expert for this type of fix (Arnd Bergmann)
-- Reviewed by subsystem co-maintainer, signed off by media subsystem
-  top-level maintainer
-- **Strong precedent**: nearly identical fix by same author for mediatek
-  VP9 was backported to 6.1.y, 6.6.y, and 6.12.y
-- Code exists in all active stable trees with identical function
-  signature
-- `noinline_for_stack` macro exists in all stable trees
-
-AGAINST backporting:
-- File path differs in stable (staging vs non-staging) -- requires
-  trivial path adjustment
-- Only affects Clang builds with specific configurations (not all build
-  environments)
-- The exact compiler version/config triggering the issue may vary
-
-**Step 9.2: Stable Rules Checklist**
-1. Obviously correct and tested? **YES** -- trivially correct, reviewed
-   by maintainers
-2. Fixes a real bug? **YES** -- build failure with Clang
-3. Important issue? **YES** -- build failure prevents compilation
-4. Small and contained? **YES** -- 2-line signature change
-5. No new features or APIs? **YES** -- no new features
-6. Can apply to stable? **YES** -- with path adjustment for staging
-   directory
-
-**Step 9.3: Exception Category**
-Record: **BUILD FIX** -- explicitly listed as a valid stable exception
-in the rules.
-
-**Step 9.4: Decision**
-This is a clear YES. It is a minimal, obviously correct build fix that
-follows a well-established kernel pattern, was created by the foremost
-expert in this area, and has direct precedent: the nearly identical
-mediatek VP9 `noinline_for_stack` fix by the same author was already
-backported to all active stable trees.
-
-## Verification
-
-- [Phase 1] Parsed subject: "media: rkvdec: reduce stack usage" -- build
-  fix for Clang -Wframe-larger-than
-- [Phase 1] Parsed tags: Reviewed-by Nicolas Dufresne, SOBs from
-  subsystem and top-level maintainers, no Fixes/Reported-by (expected)
-- [Phase 2] Diff analysis: 2-line change adding `noinline_for_stack` to
-  `rkvdec_init_v4l2_vp9_count_tbl()` signature; no logic change
-- [Phase 3] git blame: function introduced by `f25709c4ff151f` ("media:
-  rkvdec: Add the VP9 backend", 2021-11-17), included since v5.17-rc1
-- [Phase 3] git describe --contains f25709c4ff151f: confirmed
-  `v5.17-rc1~171^2~201`
-- [Phase 3] Verified `noinline_for_stack` defined in
-  `include/linux/compiler_types.h` line 278 as `#define
-  noinline_for_stack noinline`
-- [Phase 3] Author check: Arnd Bergmann has multiple similar
-  `noinline_for_stack` commits in drivers/media/
-- [Phase 5] grep: `rkvdec_init_v4l2_vp9_count_tbl` called from exactly 1
-  place: `rkvdec_vp9_start()` at line 1034
-- [Phase 5] Read: confirmed 5-level nested loop (lines 973-997) with
-  INNERMOST_LOOP macro causing heavy register pressure
-- [Phase 6] git cat-file -e: verified file exists in 6.1.y, 6.6.y,
-  6.12.y at staging path
-- [Phase 6] git show on stable branches: verified function signature
-  `static void rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)`
-  is identical in 6.1.y (line 927), 6.6.y (line 926), 6.12.y (line 926)
-  -- no `noinline_for_stack` present
-- [Phase 6] Verified call site in 6.6.y stable at line 1030
-- [Phase 6] **Critical precedent**: mediatek VP9 `noinline_for_stack`
-  commit `8b55f8818900c` by same author backported to 6.1.y
-  (`89e1132bbf713`), 6.6.y (`fa43166f2e8ba`), 6.12.y (`f87626a55c215`)
-- [Phase 6] No existing stack-usage fix for rkvdec-vp9.c in any stable
-  branch (verified via git log --grep="stack" on 6.6.y)
-- [Phase 4] lore.kernel.org inaccessible (Anubis protection); review
-  chain verified from commit tags
-- UNVERIFIED: Mailing list discussion details beyond the commit tags
-- UNVERIFIED: Exact Clang version/config that triggers the failure;
-  however, the fix is defensive and safe regardless
-
-**YES**
-
- drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-index b4bf01e839eff..8fb6a1624a14f 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-@@ -927,7 +927,8 @@ static void rkvdec_vp9_done(struct rkvdec_ctx *ctx,
- 	update_ctx_last_info(vp9_ctx);
- }
- 
--static void rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
-+static noinline_for_stack void
-+rkvdec_init_v4l2_vp9_count_tbl(struct rkvdec_ctx *ctx)
- {
- 	struct rkvdec_vp9_ctx *vp9_ctx = ctx->priv;
- 	struct rkvdec_vp9_intra_frame_symbol_counts *intra_cnts = vp9_ctx->count_tbl.cpu;
+Best regards,
 -- 
-2.53.0
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
 
