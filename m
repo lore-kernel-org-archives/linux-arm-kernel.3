@@ -4,63 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C491061B02
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26061061B06
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ORbqFVK8wYozjYAPN2oqGAM9Yuoesz/1xvpKsdIPNcI=; b=oOiNDuoEsuVNek1Cdadf9IkR+n
-	L3tXpell9mN5ddVBKUqeaKw5eDXCqyjg3PeogZCGSbkMpItElASY21+TkiDu4SrADiy73GLsvPnT9
-	qfBZlv/TPKIr0hOHHb5y3I37CD/nc42Uo9V3SKwaF9hAqjmL1ADJN+fox4jouduxAEBlDvqQK3M/Y
-	WDlGNCLrrPRcDGb0e+W7mzmN3B7a9XV8tFBINQR92BIIWPHy355aWuVK6BDni+bxa/aRFx7B+3es+
-	yJQXKV60DJvwkdfMFY7//qbmNKkWmFG8kkCa5P0+uFo/PLGj4Jg32io0HerXTvVwaoWUEE+eg6G/q
-	sQkVKEEA==;
+	bh=dIHkGQ7ITN+jsskUNKQDbR5xcBYylEpy8Ig4gLBAZhw=; b=Dbemwybv8D5ReBeUV4qnmljSS9
+	jZRgMZ4hU2m2EaWyzejhARSRuxak+KkK8i2sKB91ckZ4W2jpvNoWxuY3KImJCo3HYfQEXZypDmB2Q
+	Ufw9j8Voa/mujhoEQvKIqpfTML10hbrXdLTruYA/PQmB+UbHt0EllkMeXLIjqEwGO7hWzgShGbAIK
+	jTDRmhhRmPJeEhMkTRTNGhWyxmcLVlt2fFJuZ0+TLeml56SCCtx6gqgWKgzHQ6y8pEdr/ohKHU+B6
+	v3WeciGQm98nVEYzDtzYqHT7p2tH2Riwmvxu077xlkXzV/gWUUuW9ivaXE6LFgEhk0/7xxlJROFyp
+	DIYRvJyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DtN-0000000BSBP-3sd3;
-	Mon, 30 Mar 2026 14:47:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7DtO-0000000BSCK-2Swx;
+	Mon, 30 Mar 2026 14:47:02 +0000
+Received: from mail-westeuropeazon11013017.outbound.protection.outlook.com ([52.101.72.17] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DtB-0000000BS6P-28UG
+	id 1w7DtI-0000000BS8t-2AX6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:46:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3AF5043CAE;
-	Mon, 30 Mar 2026 14:46:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F961C4CEF7;
-	Mon, 30 Mar 2026 14:46:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882009;
-	bh=a2bRJJV06pDUfar9AVIXf8mKBfCBb7ekOHr20b95eZc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=inwoVNV9Q1GkftBVGCxjJs9iVmztdDuqEN/OmLXP02ajSRTDySrGMzsugVDetN7Gg
-	 PMcf/+bGoPaxOd7saE+Nyamb1qLgXaaJ/qyjPocT2OJmtraI15yt9eBwY8o1cwNKMc
-	 zf0SH444+N0C93Cx+ZGh+g+TrfEp8qmG+emX+c1BStrPycYMy/c/E63dHYz+Eruwin
-	 FQ6CVmpI4S84buVbQ7CEyhyHeP8EmuQ6O8McfAtqnfGOVQdNdNq3vS5voqByEE1Kd6
-	 VAUH9Vj1Ic2jMfbaYBG6WDFNF4rQhG4juCzDFezB0ZtVZJ6kLwH8/Mc0WTcAFV+q2S
-	 F9/0aC2cPIXoQ==
-From: Ard Biesheuvel <ardb@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Demian Shulhan <demyansh@gmail.com>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 4/5] lib/crc: arm64: Simplify intrinsics implementation
-Date: Mon, 30 Mar 2026 16:46:35 +0200
-Message-ID: <20260330144630.33026-11-ardb@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260330144630.33026-7-ardb@kernel.org>
-References: <20260330144630.33026-7-ardb@kernel.org>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4877; i=ardb@kernel.org; h=from:subject; bh=a2bRJJV06pDUfar9AVIXf8mKBfCBb7ekOHr20b95eZc=; b=owGbwMvMwCn83sBh/rljoYmMp9WSGDJP9Zw4dP5E6R6nqSm+OyeVHrz113L1o00vZp/dEKzMt 5it/shf/o6pLAzCnAyyYoosO5Vzul+7iL7TV6jMgZnDygQyhIGLUwAmwnGfsc5eQuUS884F3jrn psacCss40Vjr5Glt1MikIjr7rQFvqHbL71bJd+2cV7Mzuq7WzZj5mbFhfk1wYD5btNmsqSXavbN W3e6aFxecO6ew94bGoq7+rc9Xt7os0eO53bZKtt1A0XHd3ZsA
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+	Mon, 30 Mar 2026 14:46:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J7D2Ths+ayeV8d3/OXKAYkbefbP5ZtwJAuTTRwgZWjn8GCMQG0yN4ErkUo7nrkgNb6xXsyUkBvOtpdcOtPHfPJWgU3SbV/KiqAT1ZkQf4AHLcm1X2odPr0I8Njb4Olx4Fv1uvDBDes2Os81Fm9Tw3DTeHX75D9epajZSK3ix1NUyRN88JixiBQNoLHU1n8ikZ4Zkq8gKwfxqOQm0A1fHQVQvMX+cduKBNcQI//gg3zYLPc/XYyoRioztMAWYzvy9a9ReSRaGEsKZrs0IZV2MGAjRu2i8j8i7U63HozKCgbzlB9paNV4jyTlwI4rl7SFEj1J0S5puf0dttuWPsjhnmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dIHkGQ7ITN+jsskUNKQDbR5xcBYylEpy8Ig4gLBAZhw=;
+ b=pqvcKawMyO7qbECZC6RccjEbefyce2xTScPETjWCH+Xg8hBMYRHoOLzkOBrV5UGZy5Zk0XBrzE2LtyrPScBU8TMUHP2DV8PYHeF4aLmOmGbZISJz1l4ZrD8V5K/vRUVxThWzdGZp6i8QN0oVek5Z55jmgQGsHhNlYUF+tNmbUr8gsggYkvjkz3kh1FnXMxTGeD+9YPdodv0f+Udm87bkHj/MP+IC9veJPGMcoORiABwJXyE52hblhYB+HVIVw2mRK10PDp42vRAYL48gxdqT0/OZDsg8RqKA4Y6zZSmXKVMN4gik/QhQlYhpG8n0jpwqzKqzf0IP3xcsR366NmSElA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dIHkGQ7ITN+jsskUNKQDbR5xcBYylEpy8Ig4gLBAZhw=;
+ b=I20j79HHqQPmNBS78DfvyyjCHNGEksPJUZLGFr9i3u5P/epgnmqFUrlPKzARdabWOPWCJ8gh9C/BmHtHFr1TgZjC/7b3DtqG23YiA46VcLy00jan+2DaQsze0QlzTXodAdhEz3aaNuuJmmGEY0djXxoswZeZXPkX7OoOtQ+meQ6QHa1GNqXfTzfgOz81HGU8JUmiXImZFjLw7OvTrRl8QdS+O1kuyWeLcE/Yi8WoP/3QJtQ0PTSATQa0SvR7ksonrluEb2vqEIrrQ8XB2nW1C6wmrYz+FhIetMM5MSYxifNhs05SwR6QzCPW20CZvEZMgKILEjIJQeNLxG2WkVNnxw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GVXPR04MB9928.eurprd04.prod.outlook.com (2603:10a6:150:117::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
+ 2026 14:46:52 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
+ 14:46:51 +0000
+Date: Mon, 30 Mar 2026 10:46:43 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: David Carlier <devnexen@gmail.com>
+Cc: laurent.pinchart@ideasonboard.com, mchehab@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com, jacopo@jmondi.org,
+	aisheng.dong@nxp.com, guoniu.zhou@nxp.com,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: nxp: imx8-isi: fix memory leaks in probe error
+ paths and remove
+Message-ID: <acqM06YySijL1VpU@lizhi-Precision-Tower-5810>
+References: <20260327222711.268132-1-devnexen@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260327222711.268132-1-devnexen@gmail.com>
+X-ClientProxiedBy: SJ0PR05CA0037.namprd05.prod.outlook.com
+ (2603:10b6:a03:33f::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB9928:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8698152e-4603-4bbe-f561-08de8e6b2df1
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|52116014|38350700014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Tnu8fQFHKgg2UH/RKwOGvUDAk5832t184ACX5TJpVK8NkV67FB/3+9t2+DQXJ51CpR/SdzsJYifynk7sdEJKY8IJmoCg+9dtU46yGci+a11v1AnKaSL+tNkeqnBpvOO1hs6yhtOuE70+wPY4TGe+P48F1CwKM7jnRYZoiPcF1b7P/lOWiGs1Y64f43BjltqucomjEUdaz/swUGmtDOXA3x367DkNzxUDJxFetQoWajQUHlmFGo7CVwWVVndPHqC3yoYZgrikbGbFQgMSXfTXMCmCIM3Qj5k+MpzYnuYYF37Peee0TrJUZSf9dTmRP1THxk3Gf5I+8L3DIWi0ORuZ1YlxXsTSQF/CIN+67E2zqWHaL7Yf/h5HiMoqddtGnKSs+0T+GBw5/PkRTekuNbUc4MaRGZB9Qo3jP5kkYLgWhUjcLX91jU0+s0/TJhBFUtoiIUMkuoFQPWslLjCtMIF/KL/b/OqumvlUf2IHcNjKpJXBTu6+MB9Rt/E022v6RS6uvvA5KpopHjNqp3vEmy0uLWqXVw/LvoJx49warFLjO8praFWxhXza4/XH5BEdDYFffNNLu2dIYOngOitN/SPkmirIXoizR4uCBYfWtzhPfsXZSrWU485gWq7qVuu3GOg1tyNrqFKf5SOkKPUUuZHwY80CGSmHlnzuetjPfkEbS7C4ptcPI7nZ+fkiSJLaaJvIb1kM7p3qnaLSo8EYxN6EsMLQD4yv9BT7rUl7VFOkeY1d9Ep4nJ7VSRaW0Py5toVn+Z/9EsroJ9gZhUe+XNGkSsl5/x5EsVBbpfdHwdoCIVM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(52116014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?KzRLYU9NbFhCMmdDL1laendlVE9kSHUrdHFXUjFtMC9YT05aVUZFQmRveVg5?=
+ =?utf-8?B?Nm5WV2FjVE1KQlM1WlJLM2w5OTA3VVZnOUtTcHIwM2k4RUtZR1pTd1VXbnVl?=
+ =?utf-8?B?SmpxSlh5NkJEbUVoMGEwRFR6VVA4TFh6c3NyRjdJcGNoVTViS05oR1dLanNO?=
+ =?utf-8?B?NXlGZmpyN0JGaU5xUmpNaVZkZ0ozbTdBN25kSFBZU0d3S1JRaGFUMmUzVEZU?=
+ =?utf-8?B?Y1B3cnZRdjRlaXJLdWJmU212V2w2dktvWWdiQUFDSUlUYkFMMEFQb2RtZTR1?=
+ =?utf-8?B?Y3lmNVNWMWFPZlk3K1RWWjFZZUZ4b3E4YmN4eXlkdHk3RGZ1K0hMQk9ZQzZ3?=
+ =?utf-8?B?UnJWazROelpPUnd4SCtkZ3JnczVWVTk4WW96RkJXdVBKS1pzdUJJdzJDWHZI?=
+ =?utf-8?B?T3JkNVYwT1p1QzhCeENJeTd2cEhPTkE4NFBmeWVaOGhGUVg2L2RhVFpXUnVq?=
+ =?utf-8?B?MmJSNldXVXQ1SnMwTTgya2ZmYzhVK3pCd0pkZzJhTm54U3U2VlRrUEVFNnE1?=
+ =?utf-8?B?ZnVYd0ZmazZBWlpXRXVNbUdNcUtyWDNobDFTalBvUHpGa1RSNDlaRTRMaVZY?=
+ =?utf-8?B?bjQrSk1vSnNPZzI4M0U3a1VVNFFySHAvaW1aR25LVjB0ZldCOFh3bUNSdDhX?=
+ =?utf-8?B?SkdTMlc3VGJWN2xTT3k4bkxnSnBiM1RzMEFZdEVsN3NSNDhYdVpBVDQ4SzZE?=
+ =?utf-8?B?TVUwU3RlRFpHTFkrcFdZTVc3VXJaVjVja2xHamJsTGdOYk0xVkE3LzF1b0V2?=
+ =?utf-8?B?UFZQdUFtK1hzNng5U3hQKytzY0d6aXc2alZaODRtRFBOVFdqclhZMWFhQXJu?=
+ =?utf-8?B?TGNPRyt3OUlhWFhrZ1J6TExuTXVLTDBRZmd3S0wwVzZHMjhpQjZKaFpuQWJQ?=
+ =?utf-8?B?T3lsUjUwdWhSdGEwazY5R2lCZi9wUWwvb1hLbkpoNVFvbU1ESzhlZ0F1T0Jm?=
+ =?utf-8?B?Z0J5QlJXUkdxR3U4VjhVU1RJUDlIc3gzSmhZV2JPYURZeHNpVTd2aThiMHlr?=
+ =?utf-8?B?U1IvbWduUnY2SnY0aGtVaWtWUllsWCtmdGFoOFNjRmR0dVphMElhSmJRbk5T?=
+ =?utf-8?B?YTBGNm9JdjVMcFo2OTlDM3Y3V3pMa2hxYmdtQlVOT2c4WVVTY3JWVFN2ZXV5?=
+ =?utf-8?B?UHloZkRUdVZTOTZGTitOZXNObDV0S0dVMHhxZXMwdm4zQ3FXNTd0bzFOT1FH?=
+ =?utf-8?B?TitKWlpCVHkxN2hCVFE1K0dYelNwZ2dsMVZNSDRJOFpTL1FpWEdRT3k0K3JK?=
+ =?utf-8?B?WUdLOHpQWUdObVhPYmE3QkNoYURhQjZZNXRrK0RXRWFvOGxjRG1JckJCbG9U?=
+ =?utf-8?B?dGQwbGFIRGZJcHRLRjFrMDczYmduSVJxaUQzRjVCcm1XUkU1SXpXckxMcHdl?=
+ =?utf-8?B?ZTlwT1VaaDhHTEI1aG1RQWt1ejN5VWJEc0JncGtmR1dqQVUwNGQ1c1lEeEFr?=
+ =?utf-8?B?VENuNmFJM3VEMmFpc3ltOVV6NnBGeFB0UnlCd0pVRDdGUXhPaWFTTUJRN0pM?=
+ =?utf-8?B?ZzE0UGRjckhPOEhzS0ZieVBma0gxRldoS2Rmc2Q2OTFOYkpmbHJjTlZTcjFW?=
+ =?utf-8?B?RE1PRkNIejFiQjU1RVQ3M004cVlhMERqZ2ExemNnYUZ0WncwaHB5aFdJdC9X?=
+ =?utf-8?B?Qlh2T1dCUzdpQXNnR2dkcU9LYWxhdWNva1RhMWhDdEQweHQyelM4NXg5UXht?=
+ =?utf-8?B?Yk5KMHArRWYyUlJjVGNQZEVpZjVHUFVYRUJxUlpBVWo2VXU1R3F6Zm15SG1W?=
+ =?utf-8?B?b0Y3RUJ6bjBnUG9GS09ScFpod1puZE9jQk1JSk9yalZEWFJVakxtRG1raDVp?=
+ =?utf-8?B?KzErODNhc2NKZDJTUVJaOGp5Y1Eyd0RVZy9xM2FiZm95NitURFF1SmdwSHIy?=
+ =?utf-8?B?emJmS0RZb21pN2FsYTJLZlpJaXczWEhuLzFBeE9sR1E4K213Zms1eXk4ekRq?=
+ =?utf-8?B?cDhrc3pUdHhKaDduUDhCZHNvNHlERmYvNzVFRW5NU2UzQnJOVUdYRCtjTGpp?=
+ =?utf-8?B?bUJyRWdPOVlMVDdCOGpVd2RNazRhYk1WZ1RVUXJ5RHVtdXRGc2tIbmhnWkZM?=
+ =?utf-8?B?YytRcU9OVGhlQm9aS0tYZ21wZmJUaVVkMGVZYmdFZVdJV1dWZmwyb05ZZ2tu?=
+ =?utf-8?B?cmJOQnZXQTQvSnppdjd2ZGZ4YTY5dWlwL2lZWnZBcWttS3AvZkUxSkJKY3hy?=
+ =?utf-8?B?blBzanZZUFRVVDNCT3ZIQ1hPM3lDREp4VEptWStrQitmb2xnVUxYN00wbEZQ?=
+ =?utf-8?B?NnN2WU1jdjZ0K0dTRFpmMTFWU3B4OTlwSEUrQWRwd3dPa2pMcHhIcldzYUk2?=
+ =?utf-8?Q?kQMvlDR7fWPHeHEicg?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8698152e-4603-4bbe-f561-08de8e6b2df1
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 14:46:51.8593
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8HlluLgRDI3PQZU5hVvjAVMNjKBz1hvBUsStBJkOk9D62hRoviSPrJi/g1ceTacbXYiQTsbVibYYC/YRmCngRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_074649_590327_D14FF848 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260330_074656_560480_BD8A489B 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +149,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NEON intrinsics are useful because they remove the need for manual
-register allocation, and the resulting code can be re-compiled and
-optimized for different micro-architectures, and shared between arm64
-and 32-bit ARM.
+On Fri, Mar 27, 2026 at 10:27:11PM +0000, David Carlier wrote:
+> mxc_isi_probe() allocates isi->pipes with kzalloc_objs() but never
+> frees it on any probe failure path or in mxc_isi_remove(), leaking the
+> allocation on every failed probe and every normal unbind.
+>
+> Additionally, when mxc_isi_pipe_init() fails partway through the
+> channel loop or when mxc_isi_v4l2_init() fails, the already initialized
+> pipes are not cleaned up — their media entities and mutexes are leaked.
+>
+> Fix both by adding kfree(isi->pipes) to all probe error paths and to
+> mxc_isi_remove(), and cleaning up already-initialized pipes in the
+> err_xbar error path.
+>
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISP Channel driver")
+> Signed-off-by: David Carlier <devnexen@gmail.com>
+> ---
 
-However, the strong typing of the vector variables can lead to
-incomprehensible gibberish, as is the case with the new CRC64
-implementation. To address this, let's repaint all variables as
-uint64x2_t to minimize the number of vreinterpretq_xxx() calls, and to
-be able to rely on the ^ operator for exclusive OR operations. This
-makes the code much more concise and readable.
+I think provide a helper function, devm_kzalloc_objs(), or using old
+devm_kzalloc is better fix method.
 
-While at it, wrap the calls to vmull_p64() et al in order to have a more
-consistent calling convention, and encapsulate any remaining
-vreinterpret() calls that are still needed.
+Frank
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- lib/crc/arm64/crc64-neon-inner.c | 77 ++++++++------------
- 1 file changed, 32 insertions(+), 45 deletions(-)
-
-diff --git a/lib/crc/arm64/crc64-neon-inner.c b/lib/crc/arm64/crc64-neon-inner.c
-index 881cdafadb37..28527e544ff6 100644
---- a/lib/crc/arm64/crc64-neon-inner.c
-+++ b/lib/crc/arm64/crc64-neon-inner.c
-@@ -8,9 +8,6 @@
- 
- u64 crc64_nvme_arm64_c(u64 crc, const u8 *p, size_t len);
- 
--#define GET_P64_0(v) ((poly64_t)vgetq_lane_u64(vreinterpretq_u64_p64(v), 0))
--#define GET_P64_1(v) ((poly64_t)vgetq_lane_u64(vreinterpretq_u64_p64(v), 1))
--
- /* x^191 mod G, x^127 mod G */
- static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
- 					0x21e9761e252621acULL };
-@@ -18,61 +15,51 @@ static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
- static const u64 bconsts_val[2] = { 0x27ecfa329aef9f77ULL,
- 				    0x34d926535897936aULL };
- 
--u64 crc64_nvme_arm64_c(u64 crc, const u8 *p, size_t len)
-+static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
- {
--	uint64x2_t v0_u64 = { crc, 0 };
--	poly64x2_t v0 = vreinterpretq_p64_u64(v0_u64);
--	poly64x2_t fold_consts =
--		vreinterpretq_p64_u64(vld1q_u64(fold_consts_val));
--	poly64x2_t v1 = vreinterpretq_p64_u8(vld1q_u8(p));
-+	return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 0),
-+						vgetq_lane_u64(b, 0)));
-+}
- 
--	v0 = vreinterpretq_p64_u8(veorq_u8(vreinterpretq_u8_p64(v0),
--					   vreinterpretq_u8_p64(v1)));
--	p += 16;
--	len -= 16;
-+static inline uint64x2_t pmull64_high(uint64x2_t a, uint64x2_t b)
-+{
-+	poly64x2_t l = vreinterpretq_p64_u64(a);
-+	poly64x2_t m = vreinterpretq_p64_u64(b);
- 
--	do {
--		v1 = vreinterpretq_p64_u8(vld1q_u8(p));
-+	return vreinterpretq_u64_p128(vmull_high_p64(l, m));
-+}
- 
--		poly128_t v2 = vmull_high_p64(fold_consts, v0);
--		poly128_t v0_128 =
--			vmull_p64(GET_P64_0(fold_consts), GET_P64_0(v0));
-+static inline uint64x2_t pmull64_hi_lo(uint64x2_t a, uint64x2_t b)
-+{
-+	return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 1),
-+						vgetq_lane_u64(b, 0)));
-+}
- 
--		uint8x16_t x0 = veorq_u8(vreinterpretq_u8_p128(v0_128),
--					 vreinterpretq_u8_p128(v2));
-+u64 crc64_nvme_arm64_c(u64 crc, const u8 *p, size_t len)
-+{
-+	uint64x2_t fold_consts = vld1q_u64(fold_consts_val);
-+	uint64x2_t v0 = { crc, 0 };
-+	uint64x2_t zero = { };
- 
--		x0 = veorq_u8(x0, vreinterpretq_u8_p64(v1));
--		v0 = vreinterpretq_p64_u8(x0);
-+	for (;;) {
-+		v0 ^= vreinterpretq_u64_u8(vld1q_u8(p));
- 
- 		p += 16;
- 		len -= 16;
--	} while (len >= 16);
--
--	/* Multiply the 128-bit value by x^64 and reduce it back to 128 bits. */
--	poly64x2_t v7 = vreinterpretq_p64_u64((uint64x2_t){ 0, 0 });
--	poly128_t v1_128 = vmull_p64(GET_P64_1(fold_consts), GET_P64_0(v0));
-+		if (len < 16)
-+			break;
- 
--	uint8x16_t ext_v0 =
--		vextq_u8(vreinterpretq_u8_p64(v0), vreinterpretq_u8_p64(v7), 8);
--	uint8x16_t x0 = veorq_u8(ext_v0, vreinterpretq_u8_p128(v1_128));
-+		v0 = pmull64(fold_consts, v0) ^ pmull64_high(fold_consts, v0);
-+	}
- 
--	v0 = vreinterpretq_p64_u8(x0);
-+	/* Multiply the 128-bit value by x^64 and reduce it back to 128 bits. */
-+	v0 = vextq_u64(v0, zero, 1) ^ pmull64_hi_lo(fold_consts, v0);
- 
- 	/* Final Barrett reduction */
--	poly64x2_t bconsts = vreinterpretq_p64_u64(vld1q_u64(bconsts_val));
--
--	v1_128 = vmull_p64(GET_P64_0(bconsts), GET_P64_0(v0));
--
--	poly64x2_t v1_64 = vreinterpretq_p64_u8(vreinterpretq_u8_p128(v1_128));
--	poly128_t v3_128 = vmull_p64(GET_P64_1(bconsts), GET_P64_0(v1_64));
--
--	x0 = veorq_u8(vreinterpretq_u8_p64(v0), vreinterpretq_u8_p128(v3_128));
--
--	uint8x16_t ext_v2 = vextq_u8(vreinterpretq_u8_p64(v7),
--				     vreinterpretq_u8_p128(v1_128), 8);
-+	uint64x2_t bconsts = vld1q_u64(bconsts_val);
-+	uint64x2_t final = pmull64(bconsts, v0);
- 
--	x0 = veorq_u8(x0, ext_v2);
-+	v0 ^= vextq_u64(zero, final, 1) ^ pmull64_hi_lo(bconsts, final);
- 
--	v0 = vreinterpretq_p64_u8(x0);
--	return vgetq_lane_u64(vreinterpretq_u64_p64(v0), 1);
-+	return vgetq_lane_u64(v0, 1);
- }
--- 
-2.53.0.1018.g2bb0e51243-goog
-
+>  .../platform/nxp/imx8-isi/imx8-isi-core.c     | 24 +++++++++++++++----
+>  1 file changed, 19 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 4bf8570e1b9e..ab32c5b6ac9c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -490,33 +490,43 @@ static int mxc_isi_probe(struct platform_device *pdev)
+>  		return -ENOMEM;
+>
+>  	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
+> -	if (isi->num_clks < 0)
+> +	if (isi->num_clks < 0) {
+> +		kfree(isi->pipes);
+>  		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
+> +	}
+>
+>
 
