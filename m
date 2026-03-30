@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FEC10D14AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A870810D14AD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aB0/++ZXrD10YfLA7Ezy1zhTYnTocem3cy4Pgj+rsN4=; b=hf+S1F8gIXN1lepOMw7QnCehPb
-	soBdZDHKIGd1GzgV9/ijYNjYykrV6Z1PaN/Ng9gQbe+uz83U/3fpAaDecrUnvTaJ4C0etP8rIlpL0
-	sOHtTzpw7Ja9fkUzBMW6uYwRmsB/qJGsEISxGnxM0US+2sbiHVCf6JELQyntobi2eC87mgNS6pnBn
-	myOGfLoaZc7tGKh/0y3qdUz8v+it91Trgw6/oQDyOmBwQ8BqTDY5SFcFOyYEFJAApwa8l7TvWSadd
-	wYpEyU+1LLSSea//6AjbjVcs7gVL7pmZer9Dt1sxS+RD8W+FKZ3Ee4gGuLWF+v3hILqLpBZ3CkssQ
-	xRMvROvA==;
+	bh=6ABb3mCmxINvfC74mwIx/aFMr/5W/YrJg7LRCk/iB4A=; b=gdcsKkdmkdDsXg78FDKD6Jmolc
+	Y1sl2tH3yKmPRGbS58IfQF2/AygHIzVBSW6B+atxmlsi3qQQArM997uq/H72diHkqiVJf2RViyl9S
+	l+9Kc3MCcFZ8rOG2GIOMOyq6vf9EqsLFS7fHfIk0YN49srM5C2CJBtdjbJyIIZFi1VFmkl1S0v4Ky
+	TRdpyETfX68Ps+Qs8bLlS4SByMjNN2KDySwVHTg2pKXeS429xf7IQ+aoKju/6ZHmCy0t1XlTSQUre
+	yFcGcNcfamWomyohSbi9GTjvCeiYQrT047LZtQ212SJBGf7UImLe44Cx46rlTE27m57klqhJQOktP
+	41+Updew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7C95-0000000BIQi-45F4;
-	Mon, 30 Mar 2026 12:55:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7CAE-0000000BIZM-1lV7;
+	Mon, 30 Mar 2026 12:56:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7C94-0000000BIQO-0V16
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:55:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B57D241A0C;
-	Mon, 30 Mar 2026 12:55:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FDD4C4CEF7;
-	Mon, 30 Mar 2026 12:54:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774875305;
-	bh=R3YvVBoJbN9lPtFjocI0Duh7724R1ylPOyLBNcDb1zc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WfkRN5aCWVLbI0R2daRo0rZ+06XRIjrYv7LxhrUjOHEvJuy9DY71yL4PDIn1ltHYn
-	 oA7TQYJZMTUjC5r30E1AXuCHMB2kT5pTvdPo8jR693BYbH0XMYjKXjGnmAEs+Od1sI
-	 8ELrYYr7F9Y9nVsQky8x1V0ESQ/fheGt25dOdPyKmI6V4vgkzZaOALyKx+FSRZF9TI
-	 hcz8JWD03FFU5v072uUigXc+fxpgPGrFRjEjB1ig6jLllJ1O7sxLrMk2C9obw97cGL
-	 kIMspojUjJAupYkVX7h0yQtCFXDYnz1D1dtXu9Ay1NAEe3s05m4f9n+GB+O+PzkjwN
-	 8Bs+mc/9afXVA==
-Date: Mon, 30 Mar 2026 18:24:50 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v14 05/12] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <ho3e26nrbz6ppxvs6cq2q76i2h6zpbbrssyekvuzc6e3koupvs@fpajvjgb2qjq>
-References: <20260323-qcom-qce-cmd-descr-v14-0-f323af411274@oss.qualcomm.com>
- <20260323-qcom-qce-cmd-descr-v14-5-f323af411274@oss.qualcomm.com>
+	id 1w7CAD-0000000BIYp-07Q4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 30 Mar 2026 12:56:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6ABb3mCmxINvfC74mwIx/aFMr/5W/YrJg7LRCk/iB4A=; b=HIqM33CROqAhISIXKTEGIZr+1O
+	bfqwa7rBYHRXXoGMNNncKV7ZqE/BQVqqNEY1+Vb4vLrFrpdabkJVms6fUnwJr5c1yMrzTIJgWV0ZK
+	DVffrdyimh2J265xgwjnUlEkVa9ZyAomWfYJ8bsS3b097CgBA8e568vhSyMBl2xIvtO8GHH8XQJuF
+	7v6bhdX97EaFCxpQ/pFgL14hRrYowpHKUF4Vi0v2DaDbugPZsiwh7a3MNLMG9ODGO9r6TOjOPdn4c
+	MOiUJ8nhTS2w3wDLH0/nHuIO5uPc1MYZHLHeyFhK5ECQN/DF0+yLRGlim+PAOoYcVwpAXSARgi+X+
+	/r/DNaEA==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7CA4-00000006gVN-2Qj0;
+	Mon, 30 Mar 2026 12:56:08 +0000
+Date: Mon, 30 Mar 2026 13:56:08 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: WANG Rui <r@hev.cc>
+Cc: usama.arif@linux.dev, Liam.Howlett@oracle.com, ajd@linux.ibm.com,
+	akpm@linux-foundation.org, apopple@nvidia.com, baohua@kernel.org,
+	baolin.wang@linux.alibaba.com, brauner@kernel.org,
+	catalin.marinas@arm.com, david@kernel.org, dev.jain@arm.com,
+	jack@suse.cz, kees@kernel.org, kevin.brodsky@arm.com,
+	lance.yang@linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, lorenzo.stoakes@oracle.com, mhocko@suse.com,
+	npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
+	rppt@kernel.org, ryan.roberts@arm.com, surenb@google.com,
+	vbabka@kernel.org, viro@zeniv.linux.org.uk
+Subject: Re: [PATCH v2 3/4] elf: align ET_DYN base to max folio size for PTE
+ coalescing
+Message-ID: <acpy6DLjPVXXzwJX@casper.infradead.org>
+References: <0725ce97-b8a3-47c9-952f-7b512873cc35@linux.dev>
+ <20260329043700.19355-1-r@hev.cc>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260323-qcom-qce-cmd-descr-v14-5-f323af411274@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_055506_239820_B184C56A 
-X-CRM114-Status: GOOD (  35.23  )
+In-Reply-To: <20260329043700.19355-1-r@hev.cc>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,308 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 04:17:11PM +0100, Bartosz Golaszewski wrote:
-> Add support for BAM pipe locking. To that end: when starting DMA on an RX
-> channel - prepend the existing queue of issued descriptors with an
-> additional "dummy" command descriptor with the LOCK bit set. Once the
-> transaction is done (no more issued descriptors), issue one more dummy
-> descriptor with the UNLOCK bit.
+On Sun, Mar 29, 2026 at 12:37:00PM +0800, WANG Rui wrote:
+> > mapping_max_folio_size() reflects what the page cache will actually
+> > allocate for a given filesystem, since readahead caps folio allocation
+> > at mapping_max_folio_order() (in page_cache_ra_order()). If btrfs
+> > reports PAGE_SIZE, readahead won't allocate large folios for it, so
+> > there are no large folios to coalesce PTEs for, aligning the binary
+> > beyond that would only reduce ASLR entropy for no benefit.
+> > 
+> > I don't think we should over-align binaries on filesystems that can't
+> > take advantage of it.
 > 
-> We *must* wait until the transaction is signalled as done because we
-> must not perform any writes into config registers while the engine is
-> busy.
+> Ah, it looks like this might be overlooking another path that can create
+> huge page mappings for read-only code segments: even when the filesystem
+> (e.g. btrfs without experimental) didn't support large folios,
+> READ_ONLY_THP_FOR_FS still allowed read-only file-backed code segments
+> to be collapsed into huge page mappings via khugepaged.
 > 
-> The dummy writes must be issued into a scratchpad register of the client
-> so provide a mechanism to communicate the right address via descriptor
-> metadata.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> As Wilcox pointed out, it may take quite some time for many filesystems
+> to gain full large folio support? So what I'm trying to clarify is that
+> using mapping_max_folio_size() on this path is not favorable for
+> khugepaged-based optimizations.
 
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-
-- Mani
-
-> ---
->  drivers/dma/qcom/bam_dma.c       | 165 ++++++++++++++++++++++++++++++++++++++-
->  include/linux/dma/qcom_bam_dma.h |  10 +++
->  2 files changed, 171 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> index 83491e7c2f17d8c9d12a1a055baea7e3a0a75a53..309681e798d2e44992e3d20679c3a7564ad8f29e 100644
-> --- a/drivers/dma/qcom/bam_dma.c
-> +++ b/drivers/dma/qcom/bam_dma.c
-> @@ -28,11 +28,13 @@
->  #include <linux/clk.h>
->  #include <linux/device.h>
->  #include <linux/dma-mapping.h>
-> +#include <linux/dma/qcom_bam_dma.h>
->  #include <linux/dmaengine.h>
->  #include <linux/init.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
->  #include <linux/kernel.h>
-> +#include <linux/lockdep.h>
->  #include <linux/module.h>
->  #include <linux/of_address.h>
->  #include <linux/of_dma.h>
-> @@ -60,6 +62,8 @@ struct bam_desc_hw {
->  #define DESC_FLAG_EOB BIT(13)
->  #define DESC_FLAG_NWD BIT(12)
->  #define DESC_FLAG_CMD BIT(11)
-> +#define DESC_FLAG_LOCK BIT(10)
-> +#define DESC_FLAG_UNLOCK BIT(9)
->  
->  struct bam_async_desc {
->  	struct virt_dma_desc vd;
-> @@ -391,6 +395,13 @@ struct bam_chan {
->  	struct list_head desc_list;
->  
->  	struct list_head node;
-> +
-> +	/* BAM locking infrastructure */
-> +	phys_addr_t scratchpad_addr;
-> +	struct scatterlist lock_sg;
-> +	struct scatterlist unlock_sg;
-> +	struct bam_cmd_element lock_ce;
-> +	struct bam_cmd_element unlock_ce;
->  };
->  
->  static inline struct bam_chan *to_bam_chan(struct dma_chan *common)
-> @@ -652,6 +663,32 @@ static int bam_slave_config(struct dma_chan *chan,
->  	return 0;
->  }
->  
-> +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
-> +{
-> +	struct bam_chan *bchan = to_bam_chan(desc->chan);
-> +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
-> +	struct bam_desc_metadata *metadata = data;
-> +
-> +	if (!data)
-> +		return -EINVAL;
-> +
-> +	if (!bdata->pipe_lock_supported)
-> +		/*
-> +		 * The client wants to use locking but this BAM version doesn't
-> +		 * support it. Don't return an error here as this will stop the
-> +		 * client from using DMA at all for no reason.
-> +		 */
-> +		return 0;
-> +
-> +	bchan->scratchpad_addr = metadata->scratchpad_addr;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct dma_descriptor_metadata_ops bam_metadata_ops = {
-> +	.attach = bam_metadata_attach,
-> +};
-> +
->  /**
->   * bam_prep_slave_sg - Prep slave sg transaction
->   *
-> @@ -668,6 +705,7 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
->  	void *context)
->  {
->  	struct bam_chan *bchan = to_bam_chan(chan);
-> +	struct dma_async_tx_descriptor *tx_desc;
->  	struct bam_device *bdev = bchan->bdev;
->  	struct bam_async_desc *async_desc;
->  	struct scatterlist *sg;
-> @@ -723,7 +761,12 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
->  		} while (remainder > 0);
->  	}
->  
-> -	return vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
-> +	tx_desc = vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
-> +	if (!tx_desc)
-> +		return NULL;
-> +
-> +	tx_desc->metadata_ops = &bam_metadata_ops;
-> +	return tx_desc;
->  }
->  
->  /**
-> @@ -1012,13 +1055,116 @@ static void bam_apply_new_config(struct bam_chan *bchan,
->  	bchan->reconfigure = 0;
->  }
->  
-> +static struct bam_async_desc *
-> +bam_make_lock_desc(struct bam_chan *bchan, struct scatterlist *sg,
-> +		   struct bam_cmd_element *ce, unsigned long flag)
-> +{
-> +	struct dma_chan *chan = &bchan->vc.chan;
-> +	struct bam_async_desc *async_desc;
-> +	struct bam_desc_hw *desc;
-> +	struct virt_dma_desc *vd;
-> +	struct virt_dma_chan *vc;
-> +	unsigned int mapped;
-> +	dma_cookie_t cookie;
-> +	int ret;
-> +
-> +	sg_init_table(sg, 1);
-> +
-> +	async_desc = kzalloc_flex(*async_desc, desc, 1, GFP_NOWAIT);
-> +	if (!async_desc) {
-> +		dev_err(bchan->bdev->dev, "failed to allocate the BAM lock descriptor\n");
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	async_desc->num_desc = 1;
-> +	async_desc->curr_desc = async_desc->desc;
-> +	async_desc->dir = DMA_MEM_TO_DEV;
-> +
-> +	desc = async_desc->desc;
-> +
-> +	bam_prep_ce_le32(ce, bchan->scratchpad_addr, BAM_WRITE_COMMAND, 0);
-> +	sg_set_buf(sg, ce, sizeof(*ce));
-> +
-> +	mapped = dma_map_sg_attrs(chan->slave, sg, 1, DMA_TO_DEVICE, DMA_PREP_CMD);
-> +	if (!mapped) {
-> +		kfree(async_desc);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	desc->flags |= cpu_to_le16(DESC_FLAG_CMD | flag);
-> +	desc->addr = sg_dma_address(sg);
-> +	desc->size = sizeof(struct bam_cmd_element);
-> +
-> +	vc = &bchan->vc;
-> +	vd = &async_desc->vd;
-> +
-> +	dma_async_tx_descriptor_init(&vd->tx, &vc->chan);
-> +	vd->tx.flags = DMA_PREP_CMD;
-> +	vd->tx.desc_free = vchan_tx_desc_free;
-> +	vd->tx_result.result = DMA_TRANS_NOERROR;
-> +	vd->tx_result.residue = 0;
-> +
-> +	cookie = dma_cookie_assign(&vd->tx);
-> +	ret = dma_submit_error(cookie);
-> +	if (ret) {
-> +		dma_unmap_sg(chan->slave, sg, 1, DMA_TO_DEVICE);
-> +		kfree(async_desc);
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	return async_desc;
-> +}
-> +
-> +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
-> +{
-> +	struct bam_device *bdev = bchan->bdev;
-> +	const struct bam_device_data *bdata = bdev->dev_data;
-> +	struct bam_async_desc *lock_desc;
-> +	struct bam_cmd_element *ce;
-> +	struct scatterlist *sgl;
-> +	unsigned long flag;
-> +
-> +	lockdep_assert_held(&bchan->vc.lock);
-> +
-> +	if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
-> +	    bchan->slave.direction != DMA_MEM_TO_DEV)
-> +		return 0;
-> +
-> +	if (lock) {
-> +		sgl = &bchan->lock_sg;
-> +		ce = &bchan->lock_ce;
-> +		flag = DESC_FLAG_LOCK;
-> +	} else {
-> +		sgl = &bchan->unlock_sg;
-> +		ce = &bchan->unlock_ce;
-> +		flag = DESC_FLAG_UNLOCK;
-> +	}
-> +
-> +	lock_desc = bam_make_lock_desc(bchan, sgl, ce, flag);
-> +	if (IS_ERR(lock_desc))
-> +		return PTR_ERR(lock_desc);
-> +
-> +	if (lock)
-> +		list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> +	else
-> +		list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued);
-> +
-> +	return 0;
-> +}
-> +
-> +static void bam_setup_pipe_lock(struct bam_chan *bchan)
-> +{
-> +	if (bam_do_setup_pipe_lock(bchan, true) || bam_do_setup_pipe_lock(bchan, false))
-> +		dev_err(bchan->vc.chan.slave, "Failed to setup BAM pipe lock descriptors");
-> +}
-> +
->  /**
->   * bam_start_dma - start next transaction
->   * @bchan: bam dma channel
->   */
->  static void bam_start_dma(struct bam_chan *bchan)
->  {
-> -	struct virt_dma_desc *vd = vchan_next_desc(&bchan->vc);
-> +	struct virt_dma_desc *vd;
->  	struct bam_device *bdev = bchan->bdev;
->  	struct bam_async_desc *async_desc = NULL;
->  	struct bam_desc_hw *desc;
-> @@ -1030,6 +1176,9 @@ static void bam_start_dma(struct bam_chan *bchan)
->  
->  	lockdep_assert_held(&bchan->vc.lock);
->  
-> +	bam_setup_pipe_lock(bchan);
-> +
-> +	vd = vchan_next_desc(&bchan->vc);
->  	if (!vd)
->  		return;
->  
-> @@ -1157,8 +1306,15 @@ static void bam_issue_pending(struct dma_chan *chan)
->   */
->  static void bam_dma_free_desc(struct virt_dma_desc *vd)
->  {
-> -	struct bam_async_desc *async_desc = container_of(vd,
-> -			struct bam_async_desc, vd);
-> +	struct bam_async_desc *async_desc = container_of(vd, struct bam_async_desc, vd);
-> +	struct bam_desc_hw *desc = async_desc->desc;
-> +	struct dma_chan *chan = vd->tx.chan;
-> +	struct bam_chan *bchan = to_bam_chan(chan);
-> +
-> +	if (le16_to_cpu(desc->flags) & DESC_FLAG_LOCK)
-> +		dma_unmap_sg(chan->slave, &bchan->lock_sg, 1, DMA_TO_DEVICE);
-> +	else if (le16_to_cpu(desc->flags) & DESC_FLAG_UNLOCK)
-> +		dma_unmap_sg(chan->slave, &bchan->unlock_sg, 1, DMA_TO_DEVICE);
->  
->  	kfree(async_desc);
->  }
-> @@ -1350,6 +1506,7 @@ static int bam_dma_probe(struct platform_device *pdev)
->  	bdev->common.device_terminate_all = bam_dma_terminate_all;
->  	bdev->common.device_issue_pending = bam_issue_pending;
->  	bdev->common.device_tx_status = bam_tx_status;
-> +	bdev->common.desc_metadata_modes = DESC_METADATA_CLIENT;
->  	bdev->common.dev = bdev->dev;
->  
->  	ret = dma_async_device_register(&bdev->common);
-> diff --git a/include/linux/dma/qcom_bam_dma.h b/include/linux/dma/qcom_bam_dma.h
-> index 68fc0e643b1b97fe4520d5878daa322b81f4f559..5f0d2a27face8223ecb77da33d9e050c1ff2622f 100644
-> --- a/include/linux/dma/qcom_bam_dma.h
-> +++ b/include/linux/dma/qcom_bam_dma.h
-> @@ -34,6 +34,16 @@ enum bam_command_type {
->  	BAM_READ_COMMAND,
->  };
->  
-> +/**
-> + * struct bam_desc_metadata - DMA descriptor metadata specific to the BAM driver.
-> + *
-> + * @scratchpad_addr: Physical address to use for dummy write operations when
-> + *                   queuing command descriptors with LOCK/UNLOCK bits set.
-> + */
-> +struct bam_desc_metadata {
-> +	phys_addr_t scratchpad_addr;
-> +};
-> +
->  /*
->   * prep_bam_ce_le32 - Wrapper function to prepare a single BAM command
->   * element with the data already in le32 format.
-> 
-> -- 
-> 2.47.3
-> 
-
--- 
-மணிவண்ணன் சதாசிவம்
+Nono, that's not what I'm pointing out!  btrfs is simply not putting
+in the effort to support large folios, and that needs to change.
+READ_ONLY_THP_FOR_FS unnecessaily burdens the rest of the kernel.
+It was a great hack for its time and paved the path for a lot of what
+we have today, but it's time to remove it.
 
