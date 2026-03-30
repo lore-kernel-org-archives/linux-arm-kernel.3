@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6491061B20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84C21061B20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y/4gRi5RHE4lEQNk8r3GZP5jsAjQXbbb0ZHPhMUySrM=; b=ViKNSbkiH+gCde1YdmvgbQDIS0
-	z6O0H/PkP1YVmPr2fI1XtvbuiewOfVxwSUoLlfHdhKHDAkGyGNrAjPmPFl1yy+q1PNZGxB5cq13U7
-	gO5ehnO/gpCn3j7naPA0O4WGvv4W+zeSk/69+dx2le/MoTj5TdOzqvqAWeIi1GhCSATESlj3LaY0x
-	OaveaTH39YcPmefFiQlUYGeqXEszJoqFe+0jyiU7zs+jkR2nIBqIOUgZK8KnldMd0Vt/k3oMXF1On
-	cOOs0FicDleXeYwqZbJHOWlCSFb3UInvJ75T0wjrNJHubQ9uwIXvbisktUn2ZpcWhjvUIp5k1fBrD
-	Rrgi38gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+hYVKSg9ytw6axWoUvWj7c3Njt/BrwbV7Jo1jvjAhhs=; b=i7ZGgp2IuB9edFRgJC8oR6uTjC
+	6WRryNJBr/Dc8jVHs/T9Oevc4rocNImf3hKY3gEVsNy5CDrVoUKecsdz6GNa0Hg3r5QnXH7oEgGlN
+	zg1PFcP/j+fkm9D0CeCdMd8q24HYEpu193I5LwOmTLdfotzGEBBq8FTWBK//iZPFnA5wJqUqvgVRi
+	t464QhcN5HNBHrMzS7hEP2kN8MAZsSWUWDrWUynBOHTEAsRgBLbN3of+GbIZX6mEWfXBmWeoTK9uZ
+	f/Yhrzu0XY802SRC5dFvJLqaYADBe4fLTXcPquTr6J/ADvdC7Cq/wts0dGWxp/QpS/0CZh4KMqlwH
+	1T8oU0TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7KRh-0000000BvSt-0hXn;
-	Mon, 30 Mar 2026 21:46:53 +0000
-Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
+	id 1w7KSe-0000000BvZa-2Zhs;
+	Mon, 30 Mar 2026 21:47:52 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7KRf-0000000BvSZ-16z9
+	id 1w7KSb-0000000BvYe-1MtN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 21:46:52 +0000
-Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2c6f5574d3cso519144eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:46:50 -0700 (PDT)
+	Mon, 30 Mar 2026 21:47:50 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c76682834a3so1935011a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:47:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774907268; cv=none;
+        d=google.com; s=arc-20240605;
+        b=heR+vVqQal9q4NuwegwKTOu4c8B6hale5fMvUbkOc5q79fHkVaRb96pznZYnxuVwBM
+         RAHewaY0GTtBIGdu17GQ8w4i2IphtD7hYTiahcudGadUkNYLHHsxeVc8SAUerlZKPNQu
+         zWylNaN2Y2Y589P1MYtBJj3iGKzLfasJWaVtZ09tIhmi7iOnnQ0S9mgHDabtzxHVEyWm
+         XMoT1c4XakcsnF/Zw/eOxcnb596bguQO2dbTSWfSc4mElkB3eujGfZ8+WGCBwGM80KPw
+         S7jGLOHe6DrEBd41T4LbaZria0c3Zb5VUy6D3oRjKi8l7UM5yJ37MYCOgkW/7oiq46NI
+         NiVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+hYVKSg9ytw6axWoUvWj7c3Njt/BrwbV7Jo1jvjAhhs=;
+        fh=d5B3Q9qoFpkar424bWO3fxvVID4h/HlG+enUnELQgqE=;
+        b=e+m0HKYdYuXA0wwHQqr9+f4tppJqldKTdHc6ZhiCupfajOD5CLrtmPZrlyQ3b37zy8
+         0lJMoi3inlmjTYb93hECsNtQMvtKsBx1aV7u7B3cUqF5+jCijGdwKYsIY+Cr8pP09+1F
+         nqUBCa3Npd99FQnpVg91TE86Eou6x3yiXpZQ3CTQxQdjnVxPn2fNTmZQQaE2Inm7J3Hi
+         98IkVwLb8bxuOtny5xf7KVRZIF9qIO8ze5qVsz3kQfkekiQR/q+lTdu91r1sFCHPBKoQ
+         DKyt8MtaM32fQ/yv7EnhpnTXPVXfOpHZQ6HW76/tpAiiSbKlgEaUQa8Hi8UXAJsGwxKI
+         qw8w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774907210; x=1775512010; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=y/4gRi5RHE4lEQNk8r3GZP5jsAjQXbbb0ZHPhMUySrM=;
-        b=V/HZTzYhJL/9IARSBkyGfZI1xdZeTE3dQSbvhQ/cI57JBzY9w0G+DPoRvLlYLMMJo0
-         qwx9Bn7MHN4JujmkhqGZIBXmLKQ2Ockr/vrDewz2hAdVNhTsBVUXRtTBV6jvmOuFUhy3
-         WKtbIBcPGNTEDCXgPu1n97KyUT7yRWaxygSI0/tlJS9gDKuX6usZ7E4VbCgvrG4B4vuc
-         0RXxghjZGGrBLbSy+/6s1kOCEvlgv4GU21UvJMjCnguOcteDTGlyHc53B8oLANW+ByD9
-         cfL9KrGPX8OOieGZjksFCB+DuebJ0t5r1St2P2SjC2uFgGRdeSG3ohBNY1HM0770Bdry
-         Y8bQ==
+        d=googlemail.com; s=20251104; t=1774907268; x=1775512068; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+hYVKSg9ytw6axWoUvWj7c3Njt/BrwbV7Jo1jvjAhhs=;
+        b=lzMQmYU7Spcj19ZAUjUmurLh5S3ojLpPTG5C/5O6zErUCE5FvdjmwmAAeuz2+2Hlp5
+         wl+/vfyjzyLV4guH/5qM5lueoCZWiq51AZHpq1kVM7ZvPmLkrMgjBIetE9a/ZDAMefwH
+         9F2+gbVXF4b5obukt4jKTTIU+Z9rwmA7s54ec/0CusFyJ6VIlbUcsJH5xe5ceTUJdNoD
+         4M6geoPOVeTGLkFBBEb15g+nHM7YbxrvaUzOnPMQceaRXFRP2F8sbThFfRi8W7uC6Suy
+         Mky2ypbEv15f9TuQO9qBrNZPeS5kpy5LzI5FPgvg+NLr4M8jwnAjt98NRlmK66STv+bc
+         HlLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774907210; x=1775512010;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=y/4gRi5RHE4lEQNk8r3GZP5jsAjQXbbb0ZHPhMUySrM=;
-        b=AOJ8+rBmgRnbN4nt1LLZoYcNx/2tLQFRwZqQEC5SU9StPrLmEpGxGuoie8p367jihs
-         blXZtNaMZXnFply+lbuFyDDOiPmq+Mdcb59sC/A4V9LKOcf3rAgyoQvcJP48YalIEQ4Z
-         8iOYz3/OxZ4v81CfmRSAyme74wnI1SFsCVs85Ko7SoRGNd0mIe/z5wNgUBkdQrEdDiPX
-         xWq3B/Vp1xKbuhRIZIsZaDam4q57KZzcxkMV2zpK9DY5NFY+YdqgOZ7xcKLC4dkeu5tJ
-         3PA24dY1xmBYzBTfhDbIIkfUMCtZa2yIZilJsbGAjOVkZaQXFs/DLrmUxQtrLnGWQAvx
-         eDJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtBvAB065ahsOqk+hD3xWchhRGHQtcmG857sE+ULQf+7lglFUMC3ovV2aiS9fJ0Q41mVeMvkiLGoFxHh2KDeqj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+87DboNXT4numzWZwYUmlnASW4UzTwqRNbP2eWXJYfzwFK4ZX
-	zpN4sSi6Lj4mFVa7lirnUm5ZO0GccaUPsurY6L+Yzfd39XmW1I1h2cK0
-X-Gm-Gg: ATEYQzwXTp7E5N/hRw2i9coAQH9TK4EQAXMJn1euO942MCCTEV34j3JY6LPP+i2lSKa
-	omFUXbe23tznD5SHmrl3aPWYGFCuV1rTYSZMjMr8MwPi06KHl6ok4tQ5C0NGPNqb4urcuRhDTLQ
-	VdRfdQ+uf6bB30GydikOC4niwwKt4B4aq1cic7SUC/EbkKMrmktfI5tcfamEnk1cSya4zp7xKys
-	gjUqO0jzzU41c8yGUri11F6ESzOL13g9wzklhXRXAZhx2AORfTcST8Nw2j9Yrv/mC1ZuDxnoVTg
-	KQV03TWApjDWkhdOhrbbCNHVEOuBvAz04Z8xjY0YwraygHDOSOGlwtv9blEF/XxLgGAbJOAi0rv
-	dgpEYnkjEieJvvhclX5BDDXfmVCBb0JGX/OFh5TcqOJb0m2uouvSPx3/ivGvQ+VrXxC8nSOE+xy
-	m2J0i+MBG+WHfeODXd2EhLz58piKGwubrT1rKhrhCvFgn15B2biLRDji0yXTaqxdFk
-X-Received: by 2002:a05:7301:1f17:b0:2c5:d833:a507 with SMTP id 5a478bee46e88-2c7bc35b062mr700637eec.12.1774907210198;
-        Mon, 30 Mar 2026 14:46:50 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:7f4e:2749:b37a:e9d5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2c3c68b2721sm7751610eec.14.2026.03.30.14.46.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 14:46:49 -0700 (PDT)
-Date: Mon, 30 Mar 2026 14:46:45 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
-	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, brgl@kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
-Message-ID: <acruxMNdnUlyRHiy@google.com>
-References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
- <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
- <acrcDTPpXZ_5A4D8@ashevche-desk.local>
+        d=1e100.net; s=20251104; t=1774907268; x=1775512068;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+hYVKSg9ytw6axWoUvWj7c3Njt/BrwbV7Jo1jvjAhhs=;
+        b=QacSjCIB8q6cmY1cNK4dFmL/xhsA48uuksA8Dsd6dQUf0Ly5UPuzGhV9LEgOJxeg0c
+         DNf2fCQTPPahHGLe54aRoc+sQRV0k22T+aKZPdgPRxXN2FH9TZo5/KOjmlTfSKA+CMRY
+         skKn8mq0HNSksKZK7ZAUCisNSzv1mk5kDh6aPTOD83uvv5eGtK6bZb1CU0j28bj7kBXh
+         G78IsXdw9P7NMd67BM8AiYJMejoxyWhr3TQsxXLDL39MkAa5vcdc0xFKy3/QattDSkrw
+         yor4aKqP4uxzJzKmepzRvNqPS0Eh/bqtYgF01KPdRDsSMru7AzWD4M8nkhfeNRj81/lH
+         PR9w==
+X-Forwarded-Encrypted: i=1; AJvYcCWg+5pSdEIjcOoJZp/YmIGIk7PaWlRPhzo3+2VGdem5x4SiSEkPyg9uJsH+t61y3WgUbrhjfe8ab3L6My1VAEgp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyebUQzuetXz3P6ahBFIyn0x1yxeDpvh61qseiaPQ8tJdVdk8WN
+	lV6f/im3iVnzes4PrQyu98EmUzpiOiZQZ4NWb5D9V7QuEGTxh5yIEC7S4ieorBxxyWCrUmvQtRt
+	AIXERQjLHaKmTJVhyfdCnT4Ktqe6v0Og=
+X-Gm-Gg: ATEYQzw/YCFA4pGkVXCZAWBOY6O94qFf9af0bzEs5VsOSEuiqkjSTLBDX3lydds11Ct
+	oBR8bhghSev09EC00dJcQbHLJsfv0WD3C6Et+BCNeOzP/aEbNGkkDod7fRYvTrNOoukfmiHtkPN
+	TYgQNpAfuwGrFKYBI/PC645RDEFsk/ZKEET9E0cvueoxDoqdXg2Zsg1yuSLc/KTPZ8FT1t5/ic3
+	xJxI0jNnQL1z83bs+jG5S9VHlKMnkUTm5DfQ+HZzzPE640+NrX+PrtimBLUFBeBmDKmMdkInv/N
+	7iYyU4urYmjmbcPqYxbxyCNLzHpLP8n8w2plCnUM
+X-Received: by 2002:a17:902:ea05:b0:2ae:c816:ec5d with SMTP id
+ d9443c01a7336-2b0cdcb047amr144282745ad.32.1774907268370; Mon, 30 Mar 2026
+ 14:47:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acrcDTPpXZ_5A4D8@ashevche-desk.local>
+References: <20260330-fix-invalid-property-v2-1-228c51c8de93@aliel.fr>
+In-Reply-To: <20260330-fix-invalid-property-v2-1-228c51c8de93@aliel.fr>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Mon, 30 Mar 2026 23:47:37 +0200
+X-Gm-Features: AQROBzBvnmRKRGAIvSjOHMEU9BCTQO4Sy6Oph-BgTLAMA4eX_eDJ84xw0oCF39g
+Message-ID: <CAFBinCAxT3Nz4VfJZWdvE0jPN0J0Ux8Q6NQrD-uCv1ouhmMuKw@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: amlogic: t7: khadas-vim4: Remove invalid property
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kernel test robot <lkp@intel.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_144651_305173_560846CA 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260330_144749_367016_7A8D30C5 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +121,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 11:24:45PM +0300, Andy Shevchenko wrote:
-> On Mon, Mar 30, 2026 at 02:40:47PM +0200, Bartosz Golaszewski wrote:
-> > Software nodes are currently initialized in a function registered as
-> > a postcore_initcall(). However, some devices may want to register
-> > software nodes earlier than that (or also in a postcore_initcall() where
-> > they're at the merci of the link order). Move the initialization to
-> > driver_init() making swnode available much earlier as well as making
-> > their initialization time deterministic.
-> 
-> ...
-> 
-> > -static void __exit software_node_exit(void)
-> > -{
-> > -	ida_destroy(&swnode_root_ids);
-> > -	kset_unregister(swnode_kset);
-> >  }
-> > -__exitcall(software_node_exit);
-> 
-> 
-> Why? What's wrong with the __exitcall?
-> 
-
-It's dead code. Always was, always will be.
-
-Maybe split in a separate patch, but I sometimes feel the idea of "one
-change" is taken to extreme and adds to both developer's and maintainers
-burden by needing to keep track of extra patches.
-
-Thanks.
-
--- 
-Dmitry
+On Mon, Mar 30, 2026 at 2:15=E2=80=AFPM Ronald Claveau
+<linux-kernel-dev@aliel.fr> wrote:
+>
+> Fix introduced invalid property for Khadas VIM4 sdcard regulator.
+>
+> arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dtb: regulator-=
+sdcard-3v3 (regulator-fixed): Unevaluated properties are not allowed ('enab=
+le-active-low' was unexpected)
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202603290828.5gt393t6-lkp@i=
+ntel.com/
+> Fixes: 60eff75ac67b ("arm64: dts: amlogic: t7: khadas-vim4: Add power reg=
+ulators")
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
