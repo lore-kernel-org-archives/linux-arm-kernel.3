@@ -4,116 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4801210D14A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BAA110D14A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ieZ2jagNaYAme/EpulPy142XkTi+yqC0SGeYXTCQHIo=; b=YiP45Ue5TFoDyYerjyB+zgaMiK
-	OfzpBhkeu8N88EkVs3plahCFrLkserwtQiQDQOqvgeW45Z3ar1XQ5JEDkfuMqvWw6yWaPzvz+aZv/
-	FeY91tMcuRyioAjWSLQpC0Eg8c6UZW7Hg0Pkb6MlDUqPz1eMUCW8PIEqR7oxxLnGcFC1zSftQojhR
-	F6KPJ723ep2Bw1iLNkL2HAScDwJsYgM5VxrTOY20ivtLGU95v2zwer1dlGn5QbcsYp9idZCC5xCnt
-	xnhbMtHPR0YchQjqG6Oje5HoHWXQ/XY+w5XESHDo10xRZ7PqcclPb03o8USL9a2gaXmQ+ytmwV8zD
-	xPGgPJGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k7JyzGDh2V9hD5ppCKHdE8lqc25UY6zaRA17P+pQPiE=; b=UCJxvSkeWnOwXPmOaCTBq+WOur
+	WZ0W55Oee+62gRPg3iWKyYja2nc2tczrZoFBN2MeX7Ro058Eb4zbO2WXdzMrb2S8ci/VZi5p/Bs2s
+	jy4bP4qpxK+aTU6/40fexo5/8UfTB+8UD0r/JFYn2UTp/zjm8bIkk6z79HdoosMPrd+OHB7M+3hR+
+	Y8XPz9iFTOnO4cgKC3fO84frqtK1dnAZLfBYXhhCLCpMgeX+ATVi12k5FiKlyfbkYVF9bqfQl0cJ+
+	Zy9xwubvxCaSR4+pWepOoyUJSuxu3Qwrw2xBLYxkSUfjwzOF1PPz6kwl3E0UO3WN+/JmexBzJ5h7u
+	FXC235xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BSU-0000000BDTm-00UE;
-	Mon, 30 Mar 2026 12:11:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7BTA-0000000BDae-0Ay0;
+	Mon, 30 Mar 2026 12:11:48 +0000
+Received: from mail-pf1-f170.google.com ([209.85.210.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BSR-0000000BDT9-2VhH
+	id 1w7BT7-0000000BDZr-1RJm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:11:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDBD6438AA;
-	Mon, 30 Mar 2026 12:11:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 203A7C4CEF7;
-	Mon, 30 Mar 2026 12:10:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774872662;
-	bh=oSiB8RNT+7isf+oXi8Bf5+znknpRzVVDDxgVPd7BW9M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q/LD12i1HhJLs+ZYbZsDAvmhc2YEv9+IsXGmNXIkL5QFj0kYe11W/2eRCYHmSnbT2
-	 ODucYvBFuJyRCIoxewmVI/MVeoJ9D2152O74pTDCKul+aUOICxxOqXtv1nyTaNbZME
-	 Zic5d2nL9Zl8cFNVcirjhaod5ZXqEuwBEFYVBFCwlLVQ8H6zbJ33Vv2hzkrabO5Ij/
-	 cjHH87ao1UcdQKmxnOvTODqfiyZttQKEqbIkwEb72XCfXNxbsJFalICeqw/D9xHno/
-	 kTq4/BP/xQOXOvwBMCG2lnB8guRS5BkQLe/Qh+1i5IHgvcvEz0zHXPoBGKWbw8GI+t
-	 tBFmV1YltXVbQ==
-Message-ID: <bc0f6fe7-c3bd-4c75-8829-11123a7649a0@kernel.org>
-Date: Mon, 30 Mar 2026 14:10:57 +0200
+	Mon, 30 Mar 2026 12:11:46 +0000
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-827270d50d4so3990625b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:11:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774872704; x=1775477504;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k7JyzGDh2V9hD5ppCKHdE8lqc25UY6zaRA17P+pQPiE=;
+        b=F9FFt8mbdMzUQNuHaks9vL2p4tkT0z47m+VzbcTKUK+hMauPlnf33qguC7JX5FcX3J
+         YNonwfvqZxdsKXo/BAn/uhlXzWEiZYK8cdUboGmhj7b4uaIOrsd5qXLrZGJvyE2BgV7O
+         K/qK4aRvcj267CjYsLruEkiKd+cAOSCzB+L7NX7dC3EH2YfmElntAZoJK7J2+xteEmAS
+         KtoxP5eolh/URtTjPEgRgm1n3yxFbWEzdl5oBxmPF4qHxLrGwwkNOXs3THSGFvYigiZq
+         FF8/YOOH5+2p6KirnFPxNcsc5wXp/pmf5cgLsi59+/dJxmKQ3161uONJI/t/icVJojM4
+         yuWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQ0IDEwAvriDRbRrbdbyO5ixWu0y7AJx993bd/Yj305KLkulNBw79mhY35FT+6PT9E2AWWcqKDOo+syqYISc6S@lists.infradead.org
+X-Gm-Message-State: AOJu0YwseaKmQUbEtRBJhoQ/0LuwU8gfMW9CVgjHXR1F5y+J+j4qJtOq
+	Kv2IEp4t9UTpoK+NqemuHhTySUNXVSjc9rxy/sB2cJANP3NXNBG8qiLZsytOIqzk
+X-Gm-Gg: ATEYQzwrTNia7wtNYT/dt9sEwVNw3fo3gn6NQjuRZVqhMlPMxl3YRDV4XLrMYe/Ne1N
+	pmkY7AmEZvKLRDfY2hUPLNy1FxX8/BRrMMRqAYUE/GVOSIzqfgUpcwHOjS98vnIADn/a32IjCLS
+	NupJ4H/2CKs4K05N7lHLvREBCvb98wA1g3BvwRwXaLfmVQjLTo3b5IxSIMdn4qplymoAYOMFB7C
+	TCY/SngWSVE/aJyi4WNvHJLQIEhx/Bfsh85Boyj6gWYUBVkje4IBkPKOp6zxuJoQCRsPpnge129
+	+sqGO9vh5M6IrB/BQajiN4lhozjGlXT3ye8EAdENzG1jF/VRLGfWK3Or0Jx8SvMyvKDfZvSyKE8
+	W6+pEQIDKMwa0kWr0iA3grdvbcvUMXBnRnBKMM/Y8jd7erYjNedZG6ljo5/1ukYTNC9E5OLGjnl
+	bF8tHRFa40m4oImlXzlytvRZ3Kr/7XNh+bQechfUArL3B6N1AbNbCWDHmSDu8=
+X-Received: by 2002:aa7:914c:0:b0:829:924c:3482 with SMTP id d2e1a72fcca58-82c960044d7mr10172677b3a.53.1774872704225;
+        Mon, 30 Mar 2026 05:11:44 -0700 (PDT)
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com. [74.125.82.46])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82ca85d0252sm6767125b3a.35.2026.03.30.05.11.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Mar 2026 05:11:43 -0700 (PDT)
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-12a695044a4so7030020c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:11:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXdrQI6AgNJKl6F90Ib0fy831eH+v/lfxKsC6O7LkefSiJTczTY8jYm0u9ZOZmbW3qG13854VMF06KIqexAkURe@lists.infradead.org
+X-Received: by 2002:a05:6122:1824:b0:56a:e46f:2cfa with SMTP id
+ 71dfb90a1353d-56d4a5f2e5cmr4217124e0c.12.1774872216490; Mon, 30 Mar 2026
+ 05:03:36 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/10] dt-bindings: soc: google: gs101-pmu: allow power
- domains as children
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Juan Yescas <jyescas@google.com>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20260318-gs101-pd-v8-0-241523460b10@linaro.org>
- <20260318-gs101-pd-v8-4-241523460b10@linaro.org>
- <355b2f8f-0a3e-4209-8b1e-10600c2b3df9@kernel.org>
- <dcf2c447d9bbe16e800a4dd7e74ecc26d3ade3db.camel@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <dcf2c447d9bbe16e800a4dd7e74ecc26d3ade3db.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260322192159.88138-1-ojeda@kernel.org> <20260323000327.111235-1-ojeda@kernel.org>
+ <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
+ <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
+ <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com> <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
+ <641592e3-2354-4238-9eb8-a1f5c2a13126@app.fastmail.com> <CAMuHMdUUfVCBZFi2WoOYibJLVnyPY-joRDJDowgHwjN_DGeEzw@mail.gmail.com>
+ <93439e91-cf81-477b-b880-a813bb01ad7c@app.fastmail.com>
+In-Reply-To: <93439e91-cf81-477b-b880-a813bb01ad7c@app.fastmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 30 Mar 2026 14:03:24 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU-+dm83TVttfarT7QxE5ySpQ2LJ_k6oFKMWRcbaWcCdA@mail.gmail.com>
+X-Gm-Features: AQROBzBixIQPiuCOL0pIFbgyC_M26WMZwTpKOw623Sg5KUyDyMzQqEZKs9RSoco
+Message-ID: <CAMuHMdU-+dm83TVttfarT7QxE5ySpQ2LJ_k6oFKMWRcbaWcCdA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Russell King <linux@armlinux.org.uk>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, acourbot@nvidia.com, 
+	Andrew Morton <akpm@linux-foundation.org>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Danilo Krummrich <dakr@kernel.org>, David Gow <david@davidgow.net>, 
+	Gary Guo <gary@garyguo.net>, Johannes Berg <johannes@sipsolutions.net>, 
+	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-um@lists.infradead.org, llvm@lists.linux.dev, 
+	Benno Lossin <lossin@kernel.org>, Mark Rutland <mark.rutland@arm.com>, mmaurer@google.com, 
+	Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nicolas Schier <nsc@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Richard Weinberger <richard@nod.at>, rust-for-linux@vger.kernel.org, 
+	Trevor Gross <tmgross@umich.edu>, "Uladzislau Rezki (Sony)" <urezki@gmail.com>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_051103_678882_C154C391 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20260330_051145_383418_1ADB6FD9 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,60 +116,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2026 14:00, André Draszik wrote:
-> On Sat, 2026-03-21 at 20:14 +0100, Krzysztof Kozlowski wrote:
->>
->> This causes warnings, so I dropped the patches.
-> 
-> I assume warnings are because I didn't make it clear enough that patch
-> 2 is actually required?
+Hi Arnd,
 
-No, these are obvious errors coming from bindings. You can try yourself
-instead of asking maintainer to run the commands for you...
+On Fri, 27 Mar 2026 at 10:02, Arnd Bergmann <arnd@arndb.de> wrote:
+> On Fri, Mar 27, 2026, at 08:56, Geert Uytterhoeven wrote:
+> >> I noticed a similar issue with m68k-linux, which has a bitfield
+> >> alignment different from anything else on gcc, but uses the normal
+> >> behavior on clang.
+> >
+> > Ugh, I wasn't aware of that. Adrian, did you know?
+>
+> To clarify, this illustrates what I mean here:
+>
+> echo 'struct { short a : 3; short b :15; short c :14; } x; int y = sizeof(x);' | m68k-linux-gcc -xc - -S -o-
+>
+> this produces '4' on m68k-linux-gcc, but '6' everywhere else. I originally
+> thought this was related to this 2009 change in both compilers
 
-> 
->> I really do not
->> understand how this is organized. This is not a dependency for pm
->> domains driver but it is included here.
-> 
-> The binding is being updated, and the driver follows suit. 
-> I particular, the driver needs to be aware that pd is (can be) a child
-> of pmu.
-> 
-> Yes, the driver does not depend on this binding update, but it shows what
-> the driver must support. I believe this is what we have done in the past:
-> binding and driver updates in same series.
+Oh, now I remember.  AFAIK (holding wood and a rabbit leg) we don't
+have any bitfield members spanning multiple base type instances in
+the kernel.
 
-Yes, foo-binding goes with foo-driver to foo-subsystem. It does not mean
-you put here completely different bindings. Why? Because just like foo
-goes to foo-subsystem, then bar-binding goes with bar-driver to
-bar-subsystem.
+Gr{oetje,eeting}s,
 
-> 
-> I could move patches 3 and 4 from this series together with a DTS
-> update patch into a separate series, if that would be deemed a better
-> approach?
+                        Geert
 
-I asked you what are the dependencies and you answer there are some but
-you can move it outside of patchset. So are there or are there not
-dependencies? If there are, then you cannot move out. But then I ask
-what are the dependencies.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-It feels like question to trick the maintainer. Maintainer complained,
-so you propose whatever he objected to without understanding whether
-this is correct or not correct approach.
-
-> 
->> It is a soft dependency for DTS,
->> but that is nowhere to be found.
-> 
-> I was waiting for review of all binding changes before posting DTS.
-
-That would be fine explanation, if you also read maintainer soc profile
-for Samsung and try what is written there. You would see that you
-introduced new warnings without any fix possible as far as next is
-concerned.
-
-Best regards,
-Krzysztof
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
