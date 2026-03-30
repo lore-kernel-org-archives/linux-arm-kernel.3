@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FC81061B24
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 22:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A6F1061B18
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 22:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HBemShgenNPf2nbIqOmplXaLtQuslFo4GEAdQWi6YVA=; b=3itDSFUFjMg+YTePj3LcsdDOF5
-	s7WLVDhMf2Imq5PkOvZl3aQJXHVq5lnbc5Jj53woe/bdc20G1zTZa88x/e56w3JixvdFBpxr/wMdc
-	bzglHtYG76r3boJAi5WfiC2PTdniVQa+r1HShFh5pDkEBMGM+R/Zpb3a0tDOGpDYBIM8m4GSbkp7J
-	qV23udjexmUZCAUIKBC+prtBsTYa5/N/E/S6IbnXh/0F5JL2pimOdgCwxDfTXJHf47wNGJGWugXyH
-	986hEesuCPxiJmGfedwRCfv+KUddEIMVk5DPUvrDGK4zCP4Q/UXrVoJNnxQjWerG6oRazmwqX/9fa
-	V7IiA0Tw==;
+	bh=ndHT4poHKZYtUxLQmarvMbYFXw/ugVgemiecWc7CkAI=; b=awVCSv2+giMMvKvQWJKg8M6KnU
+	X1rllXzFC2FlOcUrxWx0wj5mUliEHanrYEDg/eJVyHwbzabY3J59Gr4JeDxiZ8qHhmjNDDl4Bcwrw
+	dr+/7BCdoWLE5qCWSqySMUHfJ0SZyyJLsdFR8mSymcduMEN3fH6ogh/DVOjCzEuKbccTWokmWhAbn
+	DQDOKrzvnmw+0RTJwm1nugIsz/MQJRRu3dWs8CE1l59HnnChGpkn+qXQywVl4fGcYzfNjGpS7YV/1
+	r+mFqJuS1PVVdS598GMl8ZL+0zI8HG13alMSgJC+FyUKYWte95AJNEq3zqkpqa+ZjBSBza1o+XD+a
+	wJ5jn/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7LQN-0000000Bzqq-39tz;
-	Mon, 30 Mar 2026 22:49:35 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1w7LXE-0000000C0Ex-02t7;
+	Mon, 30 Mar 2026 22:56:40 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7LQL-0000000Bzpz-1NWL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 22:49:34 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 2C3EF1F8004D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 22:49:31 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id A7D8CB2EBC6; Mon, 30 Mar 2026 22:49:30 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.65])
-	by laika.paulk.fr (Postfix) with ESMTP id 71E4FB2EBC5;
-	Mon, 30 Mar 2026 22:46:32 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	=?UTF-8?q?Krzysztof=20Ha=C5=82asa?= <khalasa@piap.pl>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Liu Ying <victor.liu@nxp.com>,
-	Paul Kocialkowski <paulk@sys-base.io>
-Subject: [PATCH 3/3] drm: lcdif: Wait for vblank before disabling DMA
-Date: Tue, 31 Mar 2026 00:46:19 +0200
-Message-ID: <20260330224619.2620782-4-paulk@sys-base.io>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260330224619.2620782-1-paulk@sys-base.io>
-References: <20260330224619.2620782-1-paulk@sys-base.io>
+	id 1w7LXB-0000000C0EU-1VT7;
+	Mon, 30 Mar 2026 22:56:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774911393;
+	bh=iMI9J6wlQN678sFaWi+2un61tjW/vjxUuuKzfWAUal8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cpZq751Y3ckqzSYnL3Vvkr4ADYrvwghibjE1ZhibpowINr2988K0r+woqtp6iD/+h
+	 S/5rlRhNyBEVTwAgvvW3GoN37oY0wcD9YnjK99bOORSLBB/5vj1gb5mmjQHTTmXb0J
+	 0u2yLsZrnVxrbkIjRqOd+N5PkyrSYzYmEQMX+Ld4VwU03sqtOkOENW4CU2QXiLsCix
+	 2Vivr7y1rPL11yDRsZgKqECFx0JDMvkNup7SiTED3bXmXQeBBOxXnltjrgjmcATy3C
+	 4RqVTuWMX8F65nREkvVfGeNdl+t1yb87YBRihrBi6BKcczi7M6jcy7Dw+Cf1nYdeMB
+	 Mo/rplpIvG3fw==
+Received: from [192.168.1.57] (host-79-18-8-236.retail.telecomitalia.it [79.18.8.236])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 20CF217E517F;
+	Tue, 31 Mar 2026 00:56:33 +0200 (CEST)
+Message-ID: <f2827d9f-ddba-4fbd-8d1f-a1a2d1b94708@collabora.com>
+Date: Tue, 31 Mar 2026 01:56:32 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] phy: hdmi: Add FRL TxFFE level control
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
+ kernel@collabora.com, linux-phy@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260328-hdptx-ffe-v1-0-53ebd5dea20a@collabora.com>
+ <20260330085723.4rewkbs76lz3scum@skbuf>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260330085723.4rewkbs76lz3scum@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_154933_531672_C3B01E2C 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260330_155637_630747_285B84DD 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is necessary to wait for the full frame to finish streaming
-through the DMA engine before we can safely disable it by removing
-the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-hardware confused and unable to resume streaming for the next frame.
+On 3/30/26 11:57 AM, Vladimir Oltean wrote:
+> On Sat, Mar 28, 2026 at 03:54:53PM +0200, Cristian Ciocaltea wrote:
+>> During HDMI 2.1 Fixed Rate Link training, the source and sink may
+>> negotiate a Transmitter Feed Forward Equalizer (TxFFE) level to
+>> compensate for signal quality degradation on the physical channel.  The
+>> source starts at level 0 and may increment it up to a maximum agreed
+>> upon during LTS3 in response to persistent link failures reported by the
+>> sink.  TxFFE adjustment is optional and entirely independent of the FRL
+>> rate and lane count selection.
+>>
+>> Patch 1 extends the HDMI PHY configuration API with two new fields in
+>> the frl sub-struct: ffe_level to carry the requested level, and a
+>> set_ffe_level flag that switches the semantics of a phy_configure() call
+>> to a pure equalizer update, leaving all other fields ignored.
+>>
+>> Patch 2 implements the new interface in the Rockchip Samsung HDPTX PHY
+>> driver.
+>>
+>> The series depends on the "[PATCH 0/6] phy: rockchip: samsung-hdptx:
+>> Clock fixes and API transition cleanups" patchset:
+>>
+>> https://lore.kernel.org/all/20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com/
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>> Cristian Ciocaltea (2):
+>>       phy: hdmi: Add optional FRL TxFFE config options
+>>       phy: rockchip: samsung-hdptx: Add support for FRL TxFFE level control
+>>
+>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 74 +++++++++++++++++++++--
+>>  include/linux/phy/phy-hdmi.h                      |  6 ++
+>>  2 files changed, 75 insertions(+), 5 deletions(-)
+>> ---
+>> base-commit: f7b64ed948718290209074a50bb0df17e5944873
+>> change-id: 20260328-hdptx-ffe-a89c51e66904
+>> prerequisite-change-id: 20260227-hdptx-clk-fixes-47426632f862:v1
+>> prerequisite-patch-id: 5c1d442fae39103bb758f54738aff33d2491401d
+>> prerequisite-patch-id: b86f30292308345387d2a6b50949ad040b931592
+>> prerequisite-patch-id: b1335105db9177cb10c64ed1bf0867832e6aac2f
+>> prerequisite-patch-id: 83db6603d13e19f239e89fde2b26366eb0106b7e
+>> prerequisite-patch-id: b534395ad315811861f11859a3946f65c90c631a
+>> prerequisite-patch-id: f9637e57c902f35218cda658397416f84f7285cb
+> 
+> Sorry for my ignorance; who is supposed to act upon this git-format-patch
+> base tree information and in what way?
+> 
+> As things stand today, the build infrastructure we have in place will
+> not be able to apply and test your series unless it applies directly
+> onto the linux-phy/next branch.
 
-This causes the FIFO underrun and empty status bits to be set and
-a single solid color to be shown on the display, coming from one of
-the pixels of the previous frame. The issue occurs sporadically when
-a new mode is set, which triggers the crtc disable and enable paths.
-
-Setting the shadow load bit and waiting for it to be cleared by the
-DMA engine allows waiting for completion.
-
-The NXP BSP driver addresses this issue with a hardcoded 25 ms sleep.
-
-Fixes: 9db35bb349a0 ("drm: lcdif: Add support for i.MX8MP LCDIF variant")
-Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-Co-developed-by: Lucas Stach <l.stach@pengutronix.de>
----
- drivers/gpu/drm/mxsfb/lcdif_kms.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-index 1aac354041c7..7dce7f48d938 100644
---- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-@@ -393,6 +393,22 @@ static void lcdif_disable_controller(struct lcdif_drm_private *lcdif)
- 	if (ret)
- 		drm_err(lcdif->drm, "Failed to disable controller!\n");
- 
-+	/*
-+	 * It is necessary to wait for the full frame to finish streaming
-+	 * through the DMA engine before we can safely disable it by removing
-+	 * the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-+	 * hardware confused and unable to resume streaming for the next frame.
-+	 */
-+	reg = readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
-+	reg |= CTRLDESCL0_5_SHADOW_LOAD_EN;
-+	writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
-+
-+	ret = readl_poll_timeout(lcdif->base + LCDC_V8_CTRLDESCL0_5,
-+				 reg, !(reg & CTRLDESCL0_5_SHADOW_LOAD_EN),
-+				 0, 36000);	/* Wait ~2 frame times max */
-+	if (ret)
-+		drm_err(lcdif->drm, "Failed to disable controller!\n");
-+
- 	reg = readl(lcdif->base + LCDC_V8_DISP_PARA);
- 	reg &= ~DISP_PARA_DISP_ON;
- 	writel(reg, lcdif->base + LCDC_V8_DISP_PARA);
--- 
-2.53.0
-
+Oh, I assumed that since b4 makes managing series dependencies straightforward
+on the preparation/submission side, there would be similar tooling support on
+the build/integration side as well.
 
