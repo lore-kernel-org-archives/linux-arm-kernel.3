@@ -4,97 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4D11061B14
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CD61061B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EMohgIf2kDkk6Cae0YiULQonmSDmJhFZPXEiKdJxSFI=; b=IKE/uqXlP8+JL47vqdHWZ4vkat
-	XgzttxJmLXvq3VwZHds9AqAQDtGKOm/8Ki8Q0pR0Cqvc4DqWZMJ6GTeJzUkgeeKgMQEdtuA6CYPe9
-	nBWn3qhVh3M0Ly51yNW9mYDST0iqNE9Nzzij0XDHJSJb9xwXYEvM31ThTPXwpZ5ZveNHr+lUHWM7e
-	tSqm1UzEiTs6DPYM12gUVkTVMXX9tuwzPZ/EQ0pAnIKs+8GbxndD8bIUTeijJteN8HeBUkKHs8T7s
-	o3uPf+uffPmsdkDpwQKja8yOMGpVZ31SCbxzPeVoLi/oCBcyumgtUwvA2xl4pYN/v+5+XR49EJwEZ
-	CH0oaYeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vXfwJ5L/YpwyrS1HsDEcAEfcKjD/ArKHEtQcHSkJiYo=; b=yJ7JQDZJwg9Pyy2ylTi1jsQ86a
+	kdwxVaXf5kAWikLyPHWkEU9+4kKWyE8kGaqYqraOYbBbOpxi8PPgTqQ+hHfjz48Dojsr/JLVh9WDW
+	Hw/6KhhD850qtocxAE8vv/7iMZg37GbdWkzkYf4RG6+VP+9h39dR/zbmZEzmwfxu1ykHvy1exGR+/
+	YeXFynq5j4P+KAxkPThKgX0wLjkusKpz66RnF/J/zoJyt8CL2r8DbhYTaQ+tOZs2ddVGX85+Fb86/
+	oOHsEcK1GaNScZ5zSqckVl6HIMRhPpn4rquoxl+Q9z8a6kU2T+Dt6MhpkSwKhzDR0RmNXye/df5SB
+	/NzvMQ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FNz-0000000Be2X-0Fxs;
-	Mon, 30 Mar 2026 16:22:43 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1w7Ffn-0000000Belu-2LgT;
+	Mon, 30 Mar 2026 16:41:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FNw-0000000Be1O-2dLU
+	id 1w7Ffm-0000000Belj-0qPs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 16:22:41 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-35da1af3e10so1432058a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 09:22:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774887759; x=1775492559; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=EMohgIf2kDkk6Cae0YiULQonmSDmJhFZPXEiKdJxSFI=;
-        b=ZD9pvmHVMOJIqDWb5KWE69kuht1oErhPMfotoTfx6d5M9Vrz/HM6JtTchmr38mk3Rr
-         QoGv9neiGLKGDIhGbizaSXrxqY92HsuzjFTPfXVG5ZXWe33UKyScBWTR73v0V85NdkjB
-         tV4SyFTgOXTRpLjzsJFSNLJ/vrORmd724UKF1EEzgKsyxVvHgU5vb54nTHA8LzjJ7Ojs
-         wVpVQLv5zd/4hRCepUndMgmPZrD/MyxjCXxBJ4c+1dLgW14C/e6T1zIVTZxE8gtCS5ae
-         oH0HOtUIvXkOyfR4Wrdt3S0kD1GSCgfYEfJD/o5R2bhtSZPzsT5eEqJ8TAj2sPW1nckb
-         9/Sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774887759; x=1775492559;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EMohgIf2kDkk6Cae0YiULQonmSDmJhFZPXEiKdJxSFI=;
-        b=NLY0KO1ViBE6ekx61qV8oXqBT9AlAgqmalYOrgrEmNwrl8dRsT0DipHwgn6oudrikD
-         x4OL6ykShh91jIA6NZwjVcu5FF8kqcazAeoGbYIO0KjIvEkleAywbP0yxjgpRmRLsH3U
-         XyXMvS/MiRoI0IZUYskSoIUgNZQzeF0Rr9kY6MyzDOhger29BcGqFReDuYFKbu3hF0f2
-         CkL68Wmva8+6A2IqIHtWrdf1yLyQL3db/GZOQU6gMIaRTc24T0fHqK6EFwYmFaZdVyH0
-         S/wrb9wU+mm3i38efInf2Rp1JqaVrSnMTufg3L0R4zAY7VGZHhzcsl2T6BX9D+TCrXMA
-         QSjw==
-X-Forwarded-Encrypted: i=1; AJvYcCVNy6W3ZxXvws+Cz/hEl3mZiym8arD6/mNgps215jTmOogXCce98Nl3sEetrxe8qTo7oi11snxkW8nbLpNrUZcd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM243ySiXugaNdQ7OcV7Mv7+KtkR2BusNvNwVfhfoC59+JPqeV
-	UyycWFkoYrq3jtmSFtzNP1MqRYwYnb3wS6f1qBBmyqplZeJmCWQp1ec3bkO3pPAUyt8=
-X-Gm-Gg: ATEYQzyKahOaRBhoFTgIB/jAKeKzsx+mLcyi5Ii311dfXX4R77z+smOr0y/e+YNZNxm
-	2K8sZ4iem/fuUBgR7L16lJ7ekzsIldOl41eUBsIjqv8QkF64ERQHKjfnCqp38j2BKagNqOZb7w3
-	5I5O+XPRRHdtAmMB/nsKKsc2RuLpgsi14JP/PiBCxNKWBAj2hFWXkK653WdYS+MsrWtNc8kzQ54
-	nV0HIBBHLsfS7265KPh+jPocvvzxM5l6GuuDajy0CQhu6jMc+K0sSVx+q8DsNY4HAXcjBSNXl78
-	Bd3OsaX1ODkx3FXUVXBY8a70Pf/vSw5M4xW4tDzMzz322N+5UuNVmytqi0MifabsCBSAPIWKxI+
-	kyUw0t9FxqdiARGHCSy1N4EJUy8t46+6rlDzMF79Eaak4iUqM9Bju+T/jXAoXpgjqhH/N2Sif0c
-	mROUpHMZIGj7xpvz9+9JX4yIw6Jm8=
-X-Received: by 2002:a17:902:e843:b0:2b2:5428:ead8 with SMTP id d9443c01a7336-2b2542902d6mr38590925ad.0.1774887759333;
-        Mon, 30 Mar 2026 09:22:39 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:e8c9:5e1e:f42a:2b73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b24268aa4fsm83826645ad.36.2026.03.30.09.22.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 09:22:38 -0700 (PDT)
-Date: Mon, 30 Mar 2026 10:22:35 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM
- CPU/LMM reset vector
-Message-ID: <acqjS440STRl2sK2@p14s>
-References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
- <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com>
+	Mon, 30 Mar 2026 16:41:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26751600CB;
+	Mon, 30 Mar 2026 16:41:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CB38C4CEF7;
+	Mon, 30 Mar 2026 16:41:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774888864;
+	bh=dgqJmbMdDTsNPZEZ+a2xdA+lqEFJgMxpY5Wb+INrTAI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=ez/Yu5QIYVdsQJ7Eo0jvpDxiuSNQ7HIenljrii5lGQoKwp7ToOqXTirFUNR3xT1Rp
+	 WEAsdDezSV+XpAQ6xxBGVYLrO4nbMhWdZ1uEkpPNd90SuqwGyTCeeM4HZ9iq4DEx7j
+	 xfcH2hpnTjl/p9rcoY5iGSVgkv4P2oNGArIGT5U0HOUbBfjtDYG/NjJKTxLFKeFz4o
+	 0xgQNu5MxFTJ3q2LtOIoYKTPHmUrovJYS+VQOx9h9oo4spoWOo0Xlm4iS9ocKzufMo
+	 XypBva+agJJYk21iKkq84oaJmQsZKtdUYur8HXeM7IajpNRvzTNxebFIbhzfmhB98P
+	 2+mxZ0FuWS/hA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 546B5F40084;
+	Mon, 30 Mar 2026 12:41:03 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Mon, 30 Mar 2026 12:41:03 -0400
+X-ME-Sender: <xms:n6fKad-kO--PvPfJxyC57tyvKJQyLOstTTqghxtmXDw6Nvasrpq_mw>
+    <xme:n6fKachgqK1d46BUc47jqdVTDvQ9K2TKhKtrU2FmuZMmEj_jMZadwwvLg4Ka376J1
+    Ofc5hl2Kd5fmg7bccxwdFbWxXFz7A_-TAJ6XAJNfzWXw1RSCYxldivE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeffeelgeekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpeeuteeiudeigeekjedvheduieehteetgfdtuefghfejgffhfedtleehvdeh
+    fffhvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
+    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
+    gurdgtohhmpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhope
+    hmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehrohgsihhnrdhm
+    uhhrphhhhiesrghrmhdrtghomhdprhgtphhtthhopeihuhhkuhgrihesfhhnnhgrshdrtg
+    homhdprhgtphhtthhopeguvghmhigrnhhshhesghhmrghilhdrtghomhdprhgtphhtthho
+    pehlihhnrghnuddvvdeshhhurgifvghirdgtohhmpdhrtghpthhtohepsghrohhonhhivg
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdp
+    rhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:n6fKaXM5GGKRJbs1w30rTYE1sggut0f6P6i5JFKSLhlNt2c3OOvSGw>
+    <xmx:n6fKaVq7t9V7Mp7UxZWdpUzCFPsONcn7E6LJ_Fxb--74mghvVqpAUQ>
+    <xmx:n6fKae7u_JvCE4Y5EwwCbvh-wsT2LM-AAR46GEihrF_tmebPNyxqbw>
+    <xmx:n6fKadHWQ4HmrUvkty2odTEvoLyDimzJOK3dbCkIjJ3k8_wge-mZnw>
+    <xmx:n6fKaQ3F-GJDV7fYU425Par-sXjRUqizEHrPrS4FZqVoD8EPtuSUQDbs>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 0C925700065; Mon, 30 Mar 2026 12:41:02 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: AB98H5nyYqoB
+Date: Mon, 30 Mar 2026 18:39:49 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Demian Shulhan" <demyansh@gmail.com>,
+ "Mark Rutland" <mark.rutland@arm.com>
+Cc: "Christoph Hellwig" <hch@lst.de>, "Song Liu" <song@kernel.org>,
+ "Yu Kuai" <yukuai@fnnas.com>, "Will Deacon" <will@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Brown" <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ robin.murphy@arm.com, "Li Nan" <linan122@huawei.com>,
+ linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
+In-Reply-To: <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
+References: <20260318150245.3080719-1-demyansh@gmail.com>
+ <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
+ <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
+ <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
+Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for syndrome
+ generation
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_092240_713207_AFD76DFB 
-X-CRM114-Status: GOOD (  31.79  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,132 +112,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 10:42:03AM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Cortex-M[7,33] processors use a fixed reset vector table format:
-> 
->   0x00  Initial SP value
->   0x04  Reset vector
->   0x08  NMI
->   0x0C  ...
->   ...
->   IRQ[n]
-> 
-> In ELF images, the corresponding layout is:
-> 
-> reset_vectors:  --> hardware reset address
->         .word __stack_end__
->         .word Reset_Handler
->         .word NMI_Handler
->         .word HardFault_Handler
->         ...
->         .word UART_IRQHandler
->         .word SPI_IRQHandler
->         ...
-> 
-> Reset_Handler:  --> ELF entry point address
->         ...
-> 
-> The hardware fetches the first two words from reset_vectors and populates
-> SP with __stack_end__ and PC with Reset_Handler. Execution proceeds from
-> Reset_Handler.
-> 
-> However, the ELF entry point does not always match the hardware reset
-> address. For example, on i.MX94 CM33S:
-> 
->   ELF entry point:     0x0ffc211d
->   hardware reset base: 0x0ffc0000 (default reset value, sw programmable)
+Hi Demian,
+
+On Sun, 29 Mar 2026, at 15:01, Demian Shulhan wrote:
+> I want to address the comment about the marginal 0.3% speedup on the
+> 8-disk benchmark. While the pure memory bandwidth on a small array is
+> indeed bottlenecked, it doesn't reveal the whole picture. I extracted
+> the SVE and NEON implementations into a user-space benchmark to
+> measure the actual hardware efficiency using perf stat, running on the
+> same AWS Graviton3 (Neoverse-V1) instance.The results show a massive
+> difference in CPU efficiency. For the same 8-disk workload, the svex4
+> implementation requires about 35% fewer instructions and 46% fewer CPU
+> cycles compared to neonx4 (7.58 billion instructions vs 11.62
+> billion). This translates directly into significant energy savings and
+> reduced pressure on the CPU frontend, which would leave more compute
+> resources available for network and NVMe queues during an array
+> rebuild.
 >
 
-But why?  Why can't the ELF image be set to the right reset base?
- 
-> To derive the correct hardware reset address, the unused lower bits must
-> be masked off. The boot code should apply a SoC-specific mask before
-> programming the reset address registers, e.g.:
-> 
->   reset_address = entry & reset_vector_mask
-> 
-> Current driver always programs the reset vector as 0. But i.MX94 CM33S's
-> default reset base is 0x0ffc0000, so the correct reset vector must be
-> passed to the SM API; otherwise the M33 Sync core cannot boot successfully.
-> 
-> rproc_elf_get_boot_addr() returns the ELF entry point, which is not the
-> hardware reset vector address. To derive the proper reset vector, this
-> patch introduces imx_rproc_get_boot_addr(), which masks the ELF entry
-> point using the SoC‑specific 'reset_vector_mask'. The resulting reset
-> vector address is then passed to the SM CPU/LMM reset vector API calls.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/remoteproc/imx_rproc.c | 17 ++++++++++++++---
->  drivers/remoteproc/imx_rproc.h |  2 ++
->  2 files changed, 16 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 0dd80e688b0ea3df4c66e5726884dc86c8a5a881..d8ead42640881bd523d605fa7002935ef6e98077 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -345,7 +345,7 @@ static int imx_rproc_sm_cpu_start(struct rproc *rproc)
->  	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
->  	int ret;
->  
-> -	ret = scmi_imx_cpu_reset_vector_set(dcfg->cpuid, 0, true, false, false);
-> +	ret = scmi_imx_cpu_reset_vector_set(dcfg->cpuid, rproc->bootaddr, true, false, false);
->  	if (ret) {
->  		dev_err(priv->dev, "Failed to set reset vector cpuid(%u): %d\n", dcfg->cpuid, ret);
->  		return ret;
-> @@ -365,7 +365,7 @@ static int imx_rproc_sm_lmm_start(struct rproc *rproc)
->  	 * If the remoteproc core can't start the M7, it will already be
->  	 * handled in imx_rproc_sm_lmm_prepare().
->  	 */
-> -	ret = scmi_imx_lmm_reset_vector_set(dcfg->lmid, dcfg->cpuid, 0, 0);
-> +	ret = scmi_imx_lmm_reset_vector_set(dcfg->lmid, dcfg->cpuid, 0, rproc->bootaddr);
->  	if (ret) {
->  		dev_err(dev, "Failed to set reset vector lmid(%u), cpuid(%u): %d\n",
->  			dcfg->lmid, dcfg->cpuid, ret);
-> @@ -739,6 +739,17 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
->  	return rproc_elf_find_loaded_rsc_table(rproc, fw);
->  }
->  
-> +static u64 imx_rproc_get_boot_addr(struct rproc *rproc, const struct firmware *fw)
-> +{
-> +	struct imx_rproc *priv = rproc->priv;
-> +	u32 reset_vector_mask = GENMASK_U32(31, 0);
-> +
-> +	if (priv->dcfg->reset_vector_mask)
-> +		reset_vector_mask = priv->dcfg->reset_vector_mask;
-> +
-> +	return rproc_elf_get_boot_addr(rproc, fw) & reset_vector_mask;
-> +}
-> +
->  static const struct rproc_ops imx_rproc_ops = {
->  	.prepare	= imx_rproc_prepare,
->  	.attach		= imx_rproc_attach,
-> @@ -752,7 +763,7 @@ static const struct rproc_ops imx_rproc_ops = {
->  	.find_loaded_rsc_table = imx_rproc_elf_find_loaded_rsc_table,
->  	.get_loaded_rsc_table = imx_rproc_get_loaded_rsc_table,
->  	.sanity_check	= rproc_elf_sanity_check,
-> -	.get_boot_addr	= rproc_elf_get_boot_addr,
-> +	.get_boot_addr	= imx_rproc_get_boot_addr,
->  };
->  
->  static int imx_rproc_addr_init(struct imx_rproc *priv,
-> diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-> index d37e6f90548cec727b4aeb874680b42af85bdbb4..0d7d48352a1091ad24e8e083172ce6da6d26ae10 100644
-> --- a/drivers/remoteproc/imx_rproc.h
-> +++ b/drivers/remoteproc/imx_rproc.h
-> @@ -41,6 +41,8 @@ struct imx_rproc_dcfg {
->  	/* For System Manager(SM) based SoCs */
->  	u32				cpuid; /* ID of the remote core */
->  	u32				lmid;  /* ID of the Logcial Machine */
-> +	/* reset_vector = elf_entry_addr & reset_vector_mask */
-> +	u32				reset_vector_mask;
->  };
->  
->  #endif /* _IMX_RPROC_H */
-> 
-> -- 
-> 2.37.1
-> 
+I think the results are impressive, but I'd like to better understand
+its implications on a real-world scenario. Is this code only a
+bottleneck when rebuilding an array? Is it really that much more power
+efficient, given that the registers (and ALU paths) are twice the size?
+And given the I/O load of rebuilding a 24+ disk array, how much CPU
+throughput can we make use of meaningfully in such a scenario?
+
+Supporting SVE in the kernel primarily impacts the size of the per-task
+buffers that we need to preserve/restore the context. Fortunately,
+these are no longer allocated for the lifetime of the task, but
+dynamically (by scoped_ksimd()), and so the main impediment has been
+recently removed. But as Mark pointed out, there are other things to
+take into account. Nonetheless, our position has always been that a
+compelling use case could convince us that the additional complexity
+of in-kernel SVE is justified.
+
+> Furthermore, as Christoph suggested, I tested scalability on wider
+> arrays since the default kernel benchmark is hardcoded to 8 disks,
+> which doesn't give the unrolled SVE loop enough data to shine. On a
+> 16-disk array, svex4 hits 15.1 GB/s compared to 8.0 GB/s for neonx4.
+> On a 24-disk array, while neonx4 chokes and drops to 7.8 GB/s, svex4
+> maintains a stable 15.0 GB/s =E2=80=94 effectively doubling the throug=
+hput.
+
+Does this mean the kernel benchmark is no longer fit for purpose? If
+it cannot distinguish between implementations that differ in performance
+by a factor of 2, I don't think we can rely on it to pick the optimal on=
+e.
+
+> I agree this patch should be put on hold for now. My intention is to
+> leave these numbers here as evidence that implementing SVE context
+> preservation in the kernel (the "good use case") is highly justifiable
+> from both a power-efficiency and a wide-array throughput perspective
+> for modern ARM64 hardware.
+>
+
+Could you please summarize the results? The output below seems to have
+become mangled a bit. Please also include the command line, a link to
+the test source, and the vector length of the implementation.
+
+
+
+> Thanks again for your time and time and review!
+>
+> ---------------------------------------------------
+> User space test results:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D
+>     RAID6 SVE Benchmark Results (AWS Graviton3)
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D
+> Instance Details:
+> Linux ip-172-31-87-234 6.8.0-1047-aws #50~22.04.1-Ubuntu SMP Thu Feb
+> 19 20:49:25 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+> --------------------------------------------------
+>
+> [Test 1: Energy Efficiency / Instruction Count (8 disks)]
+> Running baseline (neonx4)...
+> algo=3Dneonx4 ndisks=3D8 iterations=3D1000000 time=3D2.681s MB/s=3D874=
+1.36
+>
+> Running SVE (svex1)...
+>
+>  Performance counter stats for './raid6_bench neonx4 8 1000000':
+>
+>        11626717224      instructions                     #    1.67
+> insn per cycle
+>         6946699489      cycles
+>          257013219      L1-dcache-load-misses
+>
+>        2.681213149 seconds time elapsed
+>
+>        2.676771000 seconds user
+>        0.002000000 seconds sys
+>
+>
+> algo=3Dsvex1 ndisks=3D8 iterations=3D1000000 time=3D1.688s MB/s=3D1388=
+5.23
+>
+>  Performance counter stats for './raid6_bench svex1 8 1000000':
+>
+>        10527277490
+> Running SVE unrolled x4 (svex4)...
+>      instructions                     #    2.40  insn per cycle
+>         4379539835      cycles
+>          175695656      L1-dcache-load-misses
+>
+>        1.688852006 seconds time elapsed
+>
+>        1.687298000 seconds user
+>        0.000999000 seconds sys
+>
+>
+> algo=3Dsvex4 ndisks=3D8 iterations=3D1000000 time=3D1.445s MB/s=3D1621=
+5.04
+>
+>  Performance counter stats for './raid6_bench svex4 8 1000000':
+>
+>         7587813392      instructions
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D
+> [Test 2: Scalability on Wide RAID Arrays (MB/s)]
+> --- 16 Disks ---
+>  #    2.02  insn per cycle
+>         3748486131      cycles
+>          213816184      L1-dcache-load-misses
+>
+>        1.446032415 seconds time elapsed
+>
+>        1.442412000 seconds user
+>        0.002996000 seconds sys
+>
+>
+> algo=3Dneonx4 ndisks=3D16 iterations=3D1000000 time=3D6.783s MB/s=3D80=
+62.33
+> algo=3Dsvex1 ndisks=3D16 iterations=3D1000000 time=3D4.912s MB/s=3D111=
+32.90
+> algo=3Dsvex4 ndisks=3D16 iterations=3D1000000 time=3D3.601s MB/s=3D151=
+88.85
+>
+> --- 24 Disks ---
+> algo=3Dneonx4 ndisks=3D24 iterations=3D1000000 time=3D11.011s MB/s=3D7=
+805.02
+> algo=3Dsvex1 ndisks=3D24 iterations=3D1000000 time=3D8.843s MB/s=3D971=
+8.26
+> algo=3Dsvex4 ndisks=3D24 iterations=3D1000000 time=3D5.719s MB/s=3D150=
+26.92
+>
+> Extra tests:
+> --- 48 Disks ---
+> algo=3Dneonx4 ndisks=3D48 iterations=3D500000 time=3D11.826s MB/s=3D75=
+97.25
+> algo=3Dsvex4 ndisks=3D48 iterations=3D500000 time=3D5.808s MB/s=3D1546=
+8.10
+> --- 96 Disks ---
+> algo=3Dneonx4 ndisks=3D96 iterations=3D200000 time=3D9.783s MB/s=3D750=
+7.01
+> algo=3Dsvex4 ndisks=3D96 iterations=3D200000 time=3D4.701s MB/s=3D1562=
+1.17
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D
+>
+
 
