@@ -4,105 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0AF10D14AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09CCA10D14A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=woUempTeRL+MJtlKxpfNaT94H+rNPuTZjIMDTveSMCs=; b=urPgG2qmjqOgHsADyROJzebz8p
-	M3oE2Lc7QZKDkQv+rVOtCUNckv8ksM1PvndgLvrMpGofiJBYERFwejEA+hvzN7gRwjKZRFqg3QnQu
-	UpjFfjnZA7lnxGe12PF0HxIJJXPWzMU/jB/iJf3bLnngP+3bxlvz6Rz2CXRI/f54KnHkAJZUp/uAN
-	06DQEKJQ9CC1X55ZvN3k+TU64juV6tWRTiGVgUTkMb6ICiB6Q7oeqfoz6GbhyJTs77N17fE925uZS
-	VWWN9gg97gu7sZlZSlcsYiZJBRZFf5ITvADj76FFB4K6PdnzM7GaOX+ZU1WXkFz/qBBUXmET12StB
-	G+iuOQnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AHtCIKj55eWGE7GRtpfrjZZg4gF/iBOryNVSD/NH+Mo=; b=kA1scSd6y/Iqy9mYmEx1x+7Oxb
+	lEPquI+NeuxJ/URuekP3fH7lMUPujewtbyRo8fHozjftpsQ+yWG/W5CShkiddLC0UABCaxEDUm9ye
+	YZjaNledsC6HP5BsokCUIQ0dlWTup/WO0v7atBIDWD3g6lsm0qqYTPS30VyD5X0/M38xCERB30tI4
+	kncQef16jfV2E2bPv2VZt/Uw8ExWDCPw7ZV66vJC0ZadEIfZadbZ5QSzMgdMOMhr8Szouhfw5mInE
+	gEyYHNUNLUuG5C6jnUTVwkwXq8lSd4a+7/QOiXS3DKeRvLeHtdaOXW5lYJ/bmtCNNYotjupX9jm81
+	kgYoT6gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Bf6-0000000BFMN-39iV;
-	Mon, 30 Mar 2026 12:24:08 +0000
-Received: from mail-ot1-f45.google.com ([209.85.210.45])
+	id 1w7Bhk-0000000BFsg-2cr9;
+	Mon, 30 Mar 2026 12:26:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Bf3-0000000BFLr-3S5w
+	id 1w7Bhh-0000000BFqv-423C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:24:06 +0000
-Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-7d9b21d1461so3852266a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:24:05 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774873444; x=1775478244;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=woUempTeRL+MJtlKxpfNaT94H+rNPuTZjIMDTveSMCs=;
-        b=qiXywHfK7GpZeyv3UC56/3jQ86suCzQB1ZydE/OfRJ+W7Zqd/muPJDQh7KAe2c1V5S
-         jrlaVS+0pL1OyLwk7xlMnJB9f3wuw2xlI9EIjvf+l/g9n3ViYX+87U1qLZeeKtwX+d8v
-         ijLbugiJWRsq9+1M6hpdYW02+X2GFAucehlB2Nu5TsrxnJt3yMxIqVxF+Isll+uc7vad
-         y6HWorZxXmNORBpblCqyx3dU9ZWjX2ol8qV+A1UtBVAvZ/+eUvD3w6bG13rOmPNvOqtj
-         Rca7Or5PoQxqqn01hcVhMDeLaX7vfJLu9CYXpus5U+FT+bCmcenoUn7WCJO1m+TSm+Wx
-         3a4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWS8ggMY1RHtLtWZqZvRW2j0wyKoIWmvnRbB+HPjKQZ9vnlr2aixaRUYLKNdC2uP2z0vJFA5OUBVu67Vnwi8l6h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOdKiAEkRqgz4mVCDxsdkFqUmn0l/wA7sQHZh4JWj2Y3fTIaN0
-	JaUkMbIOeqwhPcpTBz/Tguxkgcfjqb6csF7a92DC6r5+3Ssdi63lkjykDrmKhZpp
-X-Gm-Gg: ATEYQzxVi/FRqToqoBr9k7KXUOoBz11CWMNfn4ykDS6c0VK7zgtQUEP5XaVFzia2oti
-	AHZtFCMYkXN/pa2Nf3KQLfgnJcCsvcz8jT9A45Vo9GkAgnX3W3m6Pm6EQCeJ9fal8Q1iB7uWDMj
-	EwclB0ztqkNbgaZ+dNdW8S8s/LaEkRg78kDCeNBIQb79Tr43/uWOcve3t4GELmysR0+0uvTafZd
-	F1JFCAkw0MEGuzZ6uBmqQcOHInKe3e9ihgJCFXxvIKkqrGQ0kslp9XcXuiRKyv1PWaIBbt42VRL
-	N1L8Qic8LORvJUetenVxcyEMD1Q3zWMdOrQPG6aBaKAk16rFYbUcqK9sGRGc1RN9GbCDDS8U+yn
-	l89wnjO2pJ7cqYun/7q0+qaSmMheeRn1bXiQbjjcaSkJEkB8Y1AbNWuRxWl/t7yPtDRlrUErXr2
-	vVMwQum2kxR1fcddXMLnwBVHpMMEGIGafVbFo/+4ifcGZV6udj5PCXLn+IR+7yLD/T+ZRDMKk=
-X-Received: by 2002:a05:6830:4d8f:10b0:7d7:e662:ad29 with SMTP id 46e09a7af769-7d9ee113363mr5436028a34.4.1774873444316;
-        Mon, 30 Mar 2026 05:24:04 -0700 (PDT)
-Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com. [209.85.210.51])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7da0a3b03fbsm5613661a34.9.2026.03.30.05.24.03
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2026 05:24:04 -0700 (PDT)
-Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-7d7439f8837so2971601a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:24:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWWvt/GIZiBh3vpAIC0Ip5rp9ZilziKFQfZWY1Yq6bsC3cFtT6zafi/cz6tH/t5HGRyDYtIp/82ukS3HOwjMlzQ@lists.infradead.org
-X-Received: by 2002:a05:6102:4498:b0:602:896a:84ba with SMTP id
- ada2fe7eead31-604e4df3704mr5271926137.17.1774873037674; Mon, 30 Mar 2026
- 05:17:17 -0700 (PDT)
+	Mon, 30 Mar 2026 12:26:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C29F4456A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:26:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71654C2BCB3
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:26:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774873609;
+	bh=AHtCIKj55eWGE7GRtpfrjZZg4gF/iBOryNVSD/NH+Mo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Cewle8kPhz/ya3s+FO5WMYymxCjawPAP+TTgf+1eMEvF3NPyddME9vK5ylZL/pKd7
+	 tQeb8LjGVvbSO/yUaYq5aVRkG7zJzxl5dVxcYOvmy0/o3l0aUyOp2HlJhU9Hxdybbx
+	 lvTGq9AeVEmGIij76A8LMpR+UWqBzzrxkjafi7fytYKkwuHmcWtm1HjueFDjPpZ8CG
+	 3DtRR7IfPdzsQMSWue+bzSsLi8UCt25ulv3cnqheF6fPfQb6VXt2nfwY6SDfFFnvfF
+	 Qqkl6HXoSAYMlv+IrsOxzZHCmyKf1R/GOAqYkXqFUj2vAzHbK+TY/nf81mpdF60V0d
+	 JfSuW2STfuGtA==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a126c8aab9so5265008e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:26:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVGWwLhAfBvtcpQegWwTzMyqI9nAoMfFfRZzyld/u1XAa1DZ2X/GDr1SrJLOfROb2KeVIOu2sc78kZzo7M8JKhc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw58ykQG2btIWpQNhigCLN4lm8soditNe3Tve78Y8aL8bWHIp1S
+	95/v65FaTJTZbbAuKn71EroTk7ltvhk0oKmx/TVO+fH69EkiL+WPbZw7Diwqz24w8AxtaXtItKN
+	9EQ2RIFtASHJnLZuM3tkLolnnnFAFmNIuTnFU0jF0mQ==
+X-Received: by 2002:a05:6512:2302:b0:5a1:4017:18d1 with SMTP id
+ 2adb3069b0e04-5a2ab935ac2mr3963243e87.37.1774873607983; Mon, 30 Mar 2026
+ 05:26:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260322192159.88138-1-ojeda@kernel.org> <20260323000327.111235-1-ojeda@kernel.org>
- <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
- <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
- <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com> <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
- <641592e3-2354-4238-9eb8-a1f5c2a13126@app.fastmail.com> <CAMuHMdUUfVCBZFi2WoOYibJLVnyPY-joRDJDowgHwjN_DGeEzw@mail.gmail.com>
- <93439e91-cf81-477b-b880-a813bb01ad7c@app.fastmail.com> <CAMuHMdU-+dm83TVttfarT7QxE5ySpQ2LJ_k6oFKMWRcbaWcCdA@mail.gmail.com>
- <26d690ab-d68f-401f-ae2d-7aa4de081bce@app.fastmail.com>
-In-Reply-To: <26d690ab-d68f-401f-ae2d-7aa4de081bce@app.fastmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 30 Mar 2026 14:17:06 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWDy9mNuzDaYfE6r+P8MSTBEGsyRzisLF_d_FWX+6qCVQ@mail.gmail.com>
-X-Gm-Features: AQROBzD1En3iKQ5LsAPqOXpbj6O32MjUPo3QPwr0lgIQkMqaR2Lx1_ZSwol-K3A
-Message-ID: <CAMuHMdWDy9mNuzDaYfE6r+P8MSTBEGsyRzisLF_d_FWX+6qCVQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Russell King <linux@armlinux.org.uk>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Alice Ryhl <aliceryhl@google.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, acourbot@nvidia.com, 
-	Andrew Morton <akpm@linux-foundation.org>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Danilo Krummrich <dakr@kernel.org>, David Gow <david@davidgow.net>, 
-	Gary Guo <gary@garyguo.net>, Johannes Berg <johannes@sipsolutions.net>, 
-	Justin Stitt <justinstitt@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-um@lists.infradead.org, llvm@lists.linux.dev, 
-	Benno Lossin <lossin@kernel.org>, Mark Rutland <mark.rutland@arm.com>, mmaurer@google.com, 
-	Bill Wendling <morbo@google.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nicolas Schier <nicolas.schier@linux.dev>, 
-	Nicolas Schier <nsc@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Richard Weinberger <richard@nod.at>, rust-for-linux@vger.kernel.org, 
-	Trevor Gross <tmgross@umich.edu>, "Uladzislau Rezki (Sony)" <urezki@gmail.com>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+References: <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
+ <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
+ <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
+ <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
+ <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi> <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+ <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi> <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
+ <ackRzly0mXHReI7V@ashevche-desk.local> <aco3YBCQsT2BN2_N@kuha>
+In-Reply-To: <aco3YBCQsT2BN2_N@kuha>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 30 Mar 2026 14:26:36 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Mf8+CPU+azcZ-Q=RiAQs8rh40Ex3kE7xhUWAWNDnR8KKQ@mail.gmail.com>
+X-Gm-Features: AQROBzBzoMQj_yi1O7GWL1v5KyhSCqt-LPe-BXFuLUoNwr5idSYsB_NYvCAw6-c
+Message-ID: <CAMRc=Mf8+CPU+azcZ-Q=RiAQs8rh40Ex3kE7xhUWAWNDnR8KKQ@mail.gmail.com>
+Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Hans de Goede <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Kevin Hilman <khilman@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_052405_929344_3D0D2F26 
-X-CRM114-Status: GOOD (  27.10  )
+X-CRM114-CacheID: sfid-20260330_052650_094105_89F122FA 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,63 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
-
-On Mon, 30 Mar 2026 at 14:14, Arnd Bergmann <arnd@arndb.de> wrote:
-> On Mon, Mar 30, 2026, at 14:03, Geert Uytterhoeven wrote:
-> > On Fri, 27 Mar 2026 at 10:02, Arnd Bergmann <arnd@arndb.de> wrote:
-> >>
-> >> echo 'struct { short a : 3; short b :15; short c :14; } x; int y = sizeof(x);' | m68k-linux-gcc -xc - -S -o-
-> >>
-> >> this produces '4' on m68k-linux-gcc, but '6' everywhere else. I originally
-> >> thought this was related to this 2009 change in both compilers
+On Mon, Mar 30, 2026 at 10:43=E2=80=AFAM Heikki Krogerus
+<heikki.krogerus@linux.intel.com> wrote:
+>
+> > > Thanks. This makes sense. Both omap16xx_gpio_init() and
+> > > software_node_init() run as postcore_initcall() so if the order is no=
+t
+> > > right, it will fail.
+> > >
+> > > Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
+> > > reason to run software_node_init() as a postcore initcall? It only
+> > > allocates the kset, can we move it to core_initcall() by any chance?
 > >
-> > Oh, now I remember.  AFAIK (holding wood and a rabbit leg) we don't
-> > have any bitfield members spanning multiple base type instances in
-> > the kernel.
+> > Good question. I don't know why it's chosen like this.
+> > Let ask Heikki, who is the author of the code.
 >
-> There are certainly very few of those, but two example I found in
-> UAPI are
+> I don't remember why it was it made a postcore initcall (I only
+> remember that there was some reason at the time). It's probable
+> fine to just make it a core initcall.
 >
-> struct dvd_layer {
->         __u8 book_version       : 4;
->         __u8 book_type          : 4;
->
->         __u8 min_rate           : 4;
->         __u8 disc_size          : 4;
->
->         __u8 layer_type         : 4;
->         __u8 track_path         : 1;
->         __u8 nlayers            : 2;
->
->         __u8 track_density      : 4; // crosses u8 boundary
->         __u8 linear_density     : 4;
->         __u8 bca                : 1;
->         __u32 start_sector;
->         __u32 end_sector;
->         __u32 end_sector_l0;
-> };
->
-> struct usb_raw_ep_caps {
->         __u32   type_control    : 1;
->         __u32   type_iso        : 1;
->         __u32   type_bulk       : 1;
->         __u32   type_int        : 1;
->         __u32   dir_in          : 1;
->         __u32   dir_out         : 1;
->        // 2 bit padding on m68k, 26 bits elsewhere
-> };
 
-So we just need to make padding explicit? Sounds familiar ;-)
+We can't really make it a core_initcall() either - kernel_kobj on
+which software nodes depend is currently initialized in a
+core_initcall() which could have been the reason for putting
+software_node_init() in a postcore_initcall(). I think both
+kernel_kobj and software nodes should be made available earlier.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Bart
 
