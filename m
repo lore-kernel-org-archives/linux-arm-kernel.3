@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CD61061B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4461061B16
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vXfwJ5L/YpwyrS1HsDEcAEfcKjD/ArKHEtQcHSkJiYo=; b=yJ7JQDZJwg9Pyy2ylTi1jsQ86a
-	kdwxVaXf5kAWikLyPHWkEU9+4kKWyE8kGaqYqraOYbBbOpxi8PPgTqQ+hHfjz48Dojsr/JLVh9WDW
-	Hw/6KhhD850qtocxAE8vv/7iMZg37GbdWkzkYf4RG6+VP+9h39dR/zbmZEzmwfxu1ykHvy1exGR+/
-	YeXFynq5j4P+KAxkPThKgX0wLjkusKpz66RnF/J/zoJyt8CL2r8DbhYTaQ+tOZs2ddVGX85+Fb86/
-	oOHsEcK1GaNScZ5zSqckVl6HIMRhPpn4rquoxl+Q9z8a6kU2T+Dt6MhpkSwKhzDR0RmNXye/df5SB
-	/NzvMQ8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LyrL60ey8eS6gEWd30fnPmjm9d6S/QljeFofuGU8Zz0=; b=vExAJvViAc2QntnWFpqh5qJu0r
+	jhucVXrEnErsCkGR02/2MEq2XUBi6iAG2jh5W5xOPjbxFpdU6A/6IWFw+sM6gtvRrVkT91sfzWm8i
+	MSK7aCn8mr9qDqr90GOfX/50hoQA6doVyi1FFInK2dhhp5CiOh4369HEZJzlDbAOrd1NEMdBAVP8I
+	r1AuU9KRPWf6Wkh4ZIwcMMKD3YFRTRw8NWVkeSDUjOwoJMsMGQDIPR8eEjF3/tL/eEuoAAw1wKbRQ
+	CooSX8O0kccgyE7tTvd8lYkSPGD1dXwgdm0ckPXTQAnNlcztY7XsqBbmGKsePhcrGFpHWI3xZ3+xl
+	D7WBifrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Ffn-0000000Belu-2LgT;
-	Mon, 30 Mar 2026 16:41:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7FjK-0000000Beyp-0ohp;
+	Mon, 30 Mar 2026 16:44:46 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Ffm-0000000Belj-0qPs
+	id 1w7FjH-0000000BeyR-2Ebt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 16:41:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26751600CB;
-	Mon, 30 Mar 2026 16:41:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CB38C4CEF7;
-	Mon, 30 Mar 2026 16:41:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774888864;
-	bh=dgqJmbMdDTsNPZEZ+a2xdA+lqEFJgMxpY5Wb+INrTAI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=ez/Yu5QIYVdsQJ7Eo0jvpDxiuSNQ7HIenljrii5lGQoKwp7ToOqXTirFUNR3xT1Rp
-	 WEAsdDezSV+XpAQ6xxBGVYLrO4nbMhWdZ1uEkpPNd90SuqwGyTCeeM4HZ9iq4DEx7j
-	 xfcH2hpnTjl/p9rcoY5iGSVgkv4P2oNGArIGT5U0HOUbBfjtDYG/NjJKTxLFKeFz4o
-	 0xgQNu5MxFTJ3q2LtOIoYKTPHmUrovJYS+VQOx9h9oo4spoWOo0Xlm4iS9ocKzufMo
-	 XypBva+agJJYk21iKkq84oaJmQsZKtdUYur8HXeM7IajpNRvzTNxebFIbhzfmhB98P
-	 2+mxZ0FuWS/hA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 546B5F40084;
-	Mon, 30 Mar 2026 12:41:03 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Mon, 30 Mar 2026 12:41:03 -0400
-X-ME-Sender: <xms:n6fKad-kO--PvPfJxyC57tyvKJQyLOstTTqghxtmXDw6Nvasrpq_mw>
-    <xme:n6fKachgqK1d46BUc47jqdVTDvQ9K2TKhKtrU2FmuZMmEj_jMZadwwvLg4Ka376J1
-    Ofc5hl2Kd5fmg7bccxwdFbWxXFz7A_-TAJ6XAJNfzWXw1RSCYxldivE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeffeelgeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeeuteeiudeigeekjedvheduieehteetgfdtuefghfejgffhfedtleehvdeh
-    fffhvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
-    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
-    gurdgtohhmpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghp
-    thhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhope
-    hmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehrohgsihhnrdhm
-    uhhrphhhhiesrghrmhdrtghomhdprhgtphhtthhopeihuhhkuhgrihesfhhnnhgrshdrtg
-    homhdprhgtphhtthhopeguvghmhigrnhhshhesghhmrghilhdrtghomhdprhgtphhtthho
-    pehlihhnrghnuddvvdeshhhurgifvghirdgtohhmpdhrtghpthhtohepsghrohhonhhivg
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdp
-    rhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:n6fKaXM5GGKRJbs1w30rTYE1sggut0f6P6i5JFKSLhlNt2c3OOvSGw>
-    <xmx:n6fKaVq7t9V7Mp7UxZWdpUzCFPsONcn7E6LJ_Fxb--74mghvVqpAUQ>
-    <xmx:n6fKae7u_JvCE4Y5EwwCbvh-wsT2LM-AAR46GEihrF_tmebPNyxqbw>
-    <xmx:n6fKadHWQ4HmrUvkty2odTEvoLyDimzJOK3dbCkIjJ3k8_wge-mZnw>
-    <xmx:n6fKaQ3F-GJDV7fYU425Par-sXjRUqizEHrPrS4FZqVoD8EPtuSUQDbs>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0C925700065; Mon, 30 Mar 2026 12:41:02 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AB98H5nyYqoB
-Date: Mon, 30 Mar 2026 18:39:49 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Demian Shulhan" <demyansh@gmail.com>,
- "Mark Rutland" <mark.rutland@arm.com>
-Cc: "Christoph Hellwig" <hch@lst.de>, "Song Liu" <song@kernel.org>,
- "Yu Kuai" <yukuai@fnnas.com>, "Will Deacon" <will@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Brown" <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
- robin.murphy@arm.com, "Li Nan" <linan122@huawei.com>,
- linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <9a12e043-8200-4650-bfe2-cbece57a4f87@app.fastmail.com>
-In-Reply-To: <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
-References: <20260318150245.3080719-1-demyansh@gmail.com>
- <f9bc0534-4b7a-4b14-974b-4d7811ccd899@app.fastmail.com>
- <acJhCCPfVxjFUZ5R@J2N7QTR9R3>
- <CAOLeWCsxhzdxQviizJ4X4VOp_28LCtO-RjWoCcZG29rQw86NVg@mail.gmail.com>
-Subject: Re: [PATCH v2] raid6: arm64: add SVE optimized implementation for syndrome
- generation
-Content-Type: text/plain; charset=utf-8
+	Mon, 30 Mar 2026 16:44:45 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1w7Fiu-0002FJ-Fk; Mon, 30 Mar 2026 18:44:20 +0200
+Message-ID: <0e8863b39cc9cab3ef16aedde480c70a158c4cbe.camel@pengutronix.de>
+Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
+From: Lucas Stach <l.stach@pengutronix.de>
+To: Paul Kocialkowski <paulk@sys-base.io>, Krzysztof =?UTF-8?Q?Ha=C5=82asa?=
+	 <khalasa@piap.pl>
+Cc: Liu Ying <victor.liu@nxp.com>, Maxime Ripard <mripard@kernel.org>, Marco
+ Felsch <m.felsch@pengutronix.de>, Marek Vasut <marex@nabladev.com>, Stefan
+ Agner <stefan@agner.ch>,  Simona Vetter <simona@ffwll.ch>,
+ imx@lists.linux.dev, Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel
+ Team <kernel@pengutronix.de>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>,  Sascha Hauer
+ <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+ linux-kernel@vger.kernel.org,  dri-devel@lists.freedesktop.org, Thomas
+ Zimmermann <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+Date: Mon, 30 Mar 2026 18:44:17 +0200
+In-Reply-To: <acqgO5b8_1fL9t_U@shepard>
+References: <m3ms04caaj.fsf@t19.piap.pl>
+	 <32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
+	 <m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
+	 <20260320-amiable-hairy-bullfinch-28bfda@houat>
+	 <m3a4w2d4ds.fsf@t19.piap.pl> <ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com>
+	 <m3se9onkv0.fsf@t19.piap.pl> <acqgO5b8_1fL9t_U@shepard>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_094443_599536_EF951A85 
+X-CRM114-Status: GOOD (  37.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,169 +80,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Demian,
+Hi Paul,
 
-On Sun, 29 Mar 2026, at 15:01, Demian Shulhan wrote:
-> I want to address the comment about the marginal 0.3% speedup on the
-> 8-disk benchmark. While the pure memory bandwidth on a small array is
-> indeed bottlenecked, it doesn't reveal the whole picture. I extracted
-> the SVE and NEON implementations into a user-space benchmark to
-> measure the actual hardware efficiency using perf stat, running on the
-> same AWS Graviton3 (Neoverse-V1) instance.The results show a massive
-> difference in CPU efficiency. For the same 8-disk workload, the svex4
-> implementation requires about 35% fewer instructions and 46% fewer CPU
-> cycles compared to neonx4 (7.58 billion instructions vs 11.62
-> billion). This translates directly into significant energy savings and
-> reduced pressure on the CPU frontend, which would leave more compute
-> resources available for network and NVMe queues during an array
-> rebuild.
->
+Am Montag, dem 30.03.2026 um 18:09 +0200 schrieb Paul Kocialkowski:
+> Hi folks,
+>=20
+> On Wed 25 Mar 26, 13:40, Krzysztof Ha=C5=82asa wrote:
+> > Why did the first (boot) sequence result in success and this second one
+> > in failure? This is somehow reproducible.
+>=20
+> I've been seeing the same issue that is described in this thread when dri=
+ving
+> a regular 1080p@60 monitor, which shows a solid color background with a p=
+ixel
+> from the previous frame when reconfiguring the mode from time to time.
+>=20
+> When that happens, I see the lcdif fifo underrun/empty status until a new=
+ mode
+> is applied, which often resolves the situation. This situation never happ=
+ens
+> with the downstream nxp bsp driver.
+>=20
+> After weeks of investigation I finally narrowed it down to a part of the =
+nxp
+> original code that is missing in the upstream driver:
+> https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy/drivers=
+/gpu/imx/lcdifv3/lcdifv3-common.c#L492
+>=20
+Thanks for tracking this down! It was also on my list of things to look
+at.
 
-I think the results are impressive, but I'd like to better understand
-its implications on a real-world scenario. Is this code only a
-bottleneck when rebuilding an array? Is it really that much more power
-efficient, given that the registers (and ALU paths) are twice the size?
-And given the I/O load of rebuilding a 24+ disk array, how much CPU
-throughput can we make use of meaningfully in such a scenario?
+> A big old sleep that waits for the DMA engine to finish handling the curr=
+ent
+> frame before it is disabled. When this delay is not respected, there seem=
+s to
+> be "unlucky" times when disabling the DMA engine too early will confuse t=
+he
+> unit and make it unable to resume proper operation later.
+>=20
+I think we can be a bit more clever than a indiscriminate sleep. If we
+set the shadow load enable bit in the disable sequence, we should be
+able to wait for this bit to be cleared by the hardware. All the DMA
+parameters (presumably including the enable state) should be applied by
+the hardware when this bit is cleared.
 
-Supporting SVE in the kernel primarily impacts the size of the per-task
-buffers that we need to preserve/restore the context. Fortunately,
-these are no longer allocated for the lifetime of the task, but
-dynamically (by scoped_ksimd()), and so the main impediment has been
-recently removed. But as Mark pointed out, there are other things to
-take into account. Nonetheless, our position has always been that a
-compelling use case could convince us that the additional complexity
-of in-kernel SVE is justified.
+I guess the read_poll_timeout in lcdif_disable_controller() was
+supposed to do exactly that wait, but as it was actually copied from
+the mxsfb driver, it's not working as intended. It's my understanding
+that the old lcdif HW only cleared the enable bit once it is actually
+done, but on the lcdifv3 on i.MX8MP those states are double buffered,
+so the bit in the register would be cleared instantaneously, rendering
+the wait in the current code a no-op. The only reliable indicator to
+see if the HW has updated it's internal state is to set the shadow load
+enable bit and wait for it to be cleared.
 
-> Furthermore, as Christoph suggested, I tested scalability on wider
-> arrays since the default kernel benchmark is hardcoded to 8 disks,
-> which doesn't give the unrolled SVE loop enough data to shine. On a
-> 16-disk array, svex4 hits 15.1 GB/s compared to 8.0 GB/s for neonx4.
-> On a 24-disk array, while neonx4 chokes and drops to 7.8 GB/s, svex4
-> maintains a stable 15.0 GB/s =E2=80=94 effectively doubling the throug=
-hput.
+> It is a bit surprising that the issue is not actually related to configur=
+ing
+> the display engine but to disabling it. This is why the first mode set al=
+ways
+> works but subsequentil ones might fail. The crtc is essentially disabled =
+and
+> re-enabled each time a new mode is applied.
+>=20
+> Adding the sleep solves the issue on my side and all mode sets now work
+> reliably. It does add a delay before returning to userspace when configur=
+ing
+> a new mode, but it seems legitimate to me if the underlying hardware is s=
+till
+> in-flight. I'm also unsure if it would apply to an async atomic commit.
+>=20
+This hardware doesn't support async commits. All DMA state changes are
+applied during vblank when the shadow load enable bit is set.
 
-Does this mean the kernel benchmark is no longer fit for purpose? If
-it cannot distinguish between implementations that differ in performance
-by a factor of 2, I don't think we can rely on it to pick the optimal on=
-e.
+Regards,
+Lucas
 
-> I agree this patch should be put on hold for now. My intention is to
-> leave these numbers here as evidence that implementing SVE context
-> preservation in the kernel (the "good use case") is highly justifiable
-> from both a power-efficiency and a wide-array throughput perspective
-> for modern ARM64 hardware.
->
-
-Could you please summarize the results? The output below seems to have
-become mangled a bit. Please also include the command line, a link to
-the test source, and the vector length of the implementation.
-
-
-
-> Thanks again for your time and time and review!
->
-> ---------------------------------------------------
-> User space test results:
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
->     RAID6 SVE Benchmark Results (AWS Graviton3)
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
-> Instance Details:
-> Linux ip-172-31-87-234 6.8.0-1047-aws #50~22.04.1-Ubuntu SMP Thu Feb
-> 19 20:49:25 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
-> --------------------------------------------------
->
-> [Test 1: Energy Efficiency / Instruction Count (8 disks)]
-> Running baseline (neonx4)...
-> algo=3Dneonx4 ndisks=3D8 iterations=3D1000000 time=3D2.681s MB/s=3D874=
-1.36
->
-> Running SVE (svex1)...
->
->  Performance counter stats for './raid6_bench neonx4 8 1000000':
->
->        11626717224      instructions                     #    1.67
-> insn per cycle
->         6946699489      cycles
->          257013219      L1-dcache-load-misses
->
->        2.681213149 seconds time elapsed
->
->        2.676771000 seconds user
->        0.002000000 seconds sys
->
->
-> algo=3Dsvex1 ndisks=3D8 iterations=3D1000000 time=3D1.688s MB/s=3D1388=
-5.23
->
->  Performance counter stats for './raid6_bench svex1 8 1000000':
->
->        10527277490
-> Running SVE unrolled x4 (svex4)...
->      instructions                     #    2.40  insn per cycle
->         4379539835      cycles
->          175695656      L1-dcache-load-misses
->
->        1.688852006 seconds time elapsed
->
->        1.687298000 seconds user
->        0.000999000 seconds sys
->
->
-> algo=3Dsvex4 ndisks=3D8 iterations=3D1000000 time=3D1.445s MB/s=3D1621=
-5.04
->
->  Performance counter stats for './raid6_bench svex4 8 1000000':
->
->         7587813392      instructions
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
-> [Test 2: Scalability on Wide RAID Arrays (MB/s)]
-> --- 16 Disks ---
->  #    2.02  insn per cycle
->         3748486131      cycles
->          213816184      L1-dcache-load-misses
->
->        1.446032415 seconds time elapsed
->
->        1.442412000 seconds user
->        0.002996000 seconds sys
->
->
-> algo=3Dneonx4 ndisks=3D16 iterations=3D1000000 time=3D6.783s MB/s=3D80=
-62.33
-> algo=3Dsvex1 ndisks=3D16 iterations=3D1000000 time=3D4.912s MB/s=3D111=
-32.90
-> algo=3Dsvex4 ndisks=3D16 iterations=3D1000000 time=3D3.601s MB/s=3D151=
-88.85
->
-> --- 24 Disks ---
-> algo=3Dneonx4 ndisks=3D24 iterations=3D1000000 time=3D11.011s MB/s=3D7=
-805.02
-> algo=3Dsvex1 ndisks=3D24 iterations=3D1000000 time=3D8.843s MB/s=3D971=
-8.26
-> algo=3Dsvex4 ndisks=3D24 iterations=3D1000000 time=3D5.719s MB/s=3D150=
-26.92
->
-> Extra tests:
-> --- 48 Disks ---
-> algo=3Dneonx4 ndisks=3D48 iterations=3D500000 time=3D11.826s MB/s=3D75=
-97.25
-> algo=3Dsvex4 ndisks=3D48 iterations=3D500000 time=3D5.808s MB/s=3D1546=
-8.10
-> --- 96 Disks ---
-> algo=3Dneonx4 ndisks=3D96 iterations=3D200000 time=3D9.783s MB/s=3D750=
-7.01
-> algo=3Dsvex4 ndisks=3D96 iterations=3D200000 time=3D4.701s MB/s=3D1562=
-1.17
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
->
+> I will send a patch adding the delay and the undocumented fifo clear
+> bit that was discovered in this thread too.
+>=20
+> All the best,
+>=20
+> Paul
+>=20
+> Perhaps there is a more elegant way to handle this=20
+>=20
+>=20
+> > Interestingly, Weston usually starts fine in subsequent launches.
+> >=20
+> > How is this first (actually second - after the first VSYNC) frame
+> > different from all the others? Maybe we're programming UPDATE_SHADOW
+> > after the actual start of blanking period, but before DE, so it has no
+> > chance to reload registers, yet the DMA is somehow not ready?
+> >=20
+> > The manual (LCDIF display control Register (CTRL)) suggests that the DM=
+A
+> > (with present settings) starts to fetch FB data at the end of the
+> > previous active video pixel time (DE and pixel data going inactive):
+> > fetch_start_option (bits 9-8): Indicates when to start fetching for new
+> > frame. This signals also decide the shadow load, fifo clear time
+> > 00b - fetch start as soon as FPV begins(as the end of the data_enable).
+> >=20
+> > This should leave a lot of time to fill the FIFO (before the next DE),
+> > shouldn't it?
+> >=20
+> > 297 MHz pixclk, 3840x2160, 30 Hz, H back porch 296 pixclks, Vfp 176,
+> > V back porch 72 lines, Hfp 8 lines, VSYNC 10 lines, HSYNC 88 pixclks.
+> > HTotal =3D 4400 pixels which makes Vactive time =3D 4400 * 2160/297e6 =
+=3D
+> > 32 ms, with the remaining 1.3333 ms for all the V sync stuff.
+> > --=20
+> > Krzysztof "Chris" Ha=C5=82asa
+> >=20
+> > Sie=C4=87 Badawcza =C5=81ukasiewicz
+> > Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+> > Al. Jerozolimskie 202, 02-486 Warszawa
+>=20
 
 
