@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350F71061B07
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C35A1061B02
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKJTfEX4B7Hg+rdi4k1t3EvxhelrJZkbvbtraurZB7Q=; b=MqOyAAo1cww24cLMJWZ3MrEn2n
-	SE+trKlUcmVhZDPceE288FbzwR6Q2BTzxrbBmkOWgWnvrwoHWKJnUyGp3ZqamqD+XyJwb8mjI/481
-	QzgoevYWkeqi3u4TIa6qB1kbiza+IXJKO5nIweEulyjGFDMSZsJ6fNOCBPlKFTyqQkfFaa4QRzXOv
-	z11xfi6QnqP4K3MXmDkCKSGY5/5ZSS56ZyceXHCZn0bFfgL1uNzrhkuhVd3JKvH1Gp2mhvZRU9u8K
-	K8E93dNiDqvdADsXeFiuhdT3idticdVTQa3UpaSwgj/LE/4gctnV6nhyYjsMtdNBbTocPxCeI6o8j
-	ObkoUvRw==;
+	bh=9Fn2NEjvawBlRIKfBEVXah1iSzoDiHKjeQQtcsilZ40=; b=AwarKfz1vON55CzhMog9UKLohC
+	WUxTk8HPq4D5c7FGh040+EWcTJ/frK8nKzJzjwFbCYyKzShvXGI7+3UJ2pIwPeMlCbbgqp7e6BEtD
+	FuvQ8S77NTJM4UkIHDvVRbwD/7o8DrFSOrlpCgeslzwbmn8PcABX6P6ey1xZQJCZZdyT1FTpBeVL8
+	+ZowxoN/AH37sVMnmUdD3561St7wlKRrtA12iCW3tuKpsaIV6kNe2dEVZiURecUlmfAAeRQm6ZzDw
+	NzgONEzGfDrJZzoBAVt/bwYcmHbq19Z+OcUbgEzsE96nYPqkUmAT/PjseeEmqnZSu4GUGW7RP40hh
+	we0yj4BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dxb-0000000BUj8-1y42;
-	Mon, 30 Mar 2026 14:51:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7DxZ-0000000BUhR-3bWv;
+	Mon, 30 Mar 2026 14:51:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dwl-0000000BU68-1kD4
+	id 1w7Dwe-0000000BTxO-2I76
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 30 Mar 2026 14:50:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=9Fn2NEjvawBlRIKfBEVXah1iSzoDiHKjeQQtcsilZ40=; b=Qxl52B42AH4VuRBgZlwGbDTuJh
+	HYyhHxXqTSda/wrPd7PaX+w4vgOunhDUGgQAwz4WzmmV7wzj3shs/vOkqIWNwqa6pd2fdVSmWiQzx
+	GKaUIwP3iFYl2uAIeKaUMMslElkX0WACqp4Ha65IgmgVD+3NATMQ5yDBdAbM7BL+CENHSDsWKijE8
+	VgcoYi//CY5tdt/z8M9QUsJlM5dmReFbT1dNX/PkUCkt52nouJFDLyf6GmoDZpz/wNILUN3s7GowR
+	RO53RqjRDbvsibiROgu3SXmqfJ6k4WWN/jqCnUYjZTP/eR7nostWr78OrWBgWmUvtCrMLqNal3mew
+	p8ba0Ybg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7DwY-0000000E7RR-2Q8b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:50:38 +0000
+	Mon, 30 Mar 2026 14:50:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD2D543855;
-	Mon, 30 Mar 2026 14:50:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C415C4CEF7;
-	Mon, 30 Mar 2026 14:50:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 30EBA43C26;
+	Mon, 30 Mar 2026 14:50:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3034FC4CEF7;
+	Mon, 30 Mar 2026 14:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882230;
-	bh=Io/2GW07d16dQb4kNij/ut+lcD5DGfiYV5cI4psBQsQ=;
+	s=k20201202; t=1774882214;
+	bh=GDwEfTvNkZhgOHWes5eZv5FZzdqaqoeMzX5NRJZfgGY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TYGpgOfgEiwsFmuIsnFjbhdhRL5jUV8IeMowFNXZok6SBIuw9dWGV4eQlDcSEuZ0u
-	 /5bPhSCIIfPf78Zhqh/T5GlwisbRgBSqMrzQd8ckKnfc0y6y8MYo7ORXF1AAlTKRED
-	 nBFsNCAC/hSpxD0mlpSWwPWYAlqU4rDl1yF+Udy5+DU8wVWbNeujku498d0drpHXa3
-	 0OM8YRSboJo/Uha/5egqiTQUV8agNzDtvYeGauOHu3zB/w1lTE7/LoMJ0pUZbZ8Pi0
-	 cXVl0kjwfHGv4Z34KnQcFT9MGGe6PpOCu6T6FJll0YDfOji2+9Vg7EzuN5VJVyNxzq
-	 e7Xn7PwkJaBcA==
+	b=TQXsMt/uyptnPcF6vrQgQaSTNHd381hroCbuhtgKKiKYVIw4OhHmLWeJNmND3xtCn
+	 pIebEBuc99tu56ZhYTg7fxWFNXSKb+rMHw+1tYa/z3vsdx/CEw97Lp0KRHj0DUL7dA
+	 QWY+L3+2zsv0+yFX3cSk2QLqdP4fYT3TDRECJQ1m+0wuKdETEqz/5QYz4NRhnqbJSF
+	 WoWskBqpJCz/dT9AxIGs8FRi0ts4VxCCc2rTns2++jAhKzNyLZh7l5iyvNOZNDlAoz
+	 tZADg0E7G4Q1q4YwQij6cEsETgbEcmfsKo5r26nq38aN36EQe6FnG9Rb9T3S7NCLz8
+	 c03kkyOCsXPpw==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,17 +72,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 30/38] KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
-Date: Mon, 30 Mar 2026 15:48:31 +0100
-Message-ID: <20260330144841.26181-31-will@kernel.org>
+Subject: [PATCH v5 25/38] KVM: arm64: Introduce hypercall to force reclaim of a protected page
+Date: Mon, 30 Mar 2026 15:48:26 +0100
+Message-ID: <20260330144841.26181-26-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260330144841.26181-1-will@kernel.org>
 References: <20260330144841.26181-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_075031_545223_17FF3DE2 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260330_155019_096165_21CE70D9 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,124 +97,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the ARM_SMCCC_KVM_FUNC_MEM_UNSHARE hypercall to allow
-protected VMs to unshare memory that was previously shared with the host
-using the ARM_SMCCC_KVM_FUNC_MEM_SHARE hypercall.
+Introduce a new hypercall, __pkvm_force_reclaim_guest_page(), to allow
+the host to forcefully reclaim a physical page that was previous donated
+to a protected guest. This results in the page being zeroed and the
+previous guest mapping being poisoned so that new pages cannot be
+subsequently donated at the same IPA.
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 34 +++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/pkvm.c                | 22 ++++++++++++
- 3 files changed, 57 insertions(+)
+ arch/arm64/include/asm/kvm_asm.h              |   1 +
+ arch/arm64/include/asm/kvm_pgtable.h          |   6 +
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   1 +
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      |   6 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   1 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   8 ++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 129 +++++++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |   4 +-
+ 8 files changed, 154 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index b6df8f64d573..04a230e906a7 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -90,6 +90,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_init_vm,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_init_vcpu,
++	__KVM_HOST_SMCCC_FUNC___pkvm_force_reclaim_guest_page,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_reclaim_dying_guest_page,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_start_teardown_vm,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 2df22640833c..41a8687938eb 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -116,6 +116,12 @@ enum kvm_invalid_pte_type {
+ 	 * ownership.
+ 	 */
+ 	KVM_HOST_INVALID_PTE_TYPE_DONATION,
++
++	/*
++	 * The page has been forcefully reclaimed from the guest by the
++	 * host.
++	 */
++	KVM_GUEST_INVALID_PTE_TYPE_POISONED,
+ };
+ 
+ static inline bool kvm_pte_valid(kvm_pte_t pte)
 diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index fea8aecae5ef..99d8398afe20 100644
+index 29f81a1d9e1f..acc031103600 100644
 --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
 +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -35,6 +35,7 @@ extern unsigned long hyp_nr_cpus;
- int __pkvm_prot_finalize(void);
- int __pkvm_host_share_hyp(u64 pfn);
- int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
-+int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
- int __pkvm_host_unshare_hyp(u64 pfn);
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 593eca37f863..db94323b430c 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -991,6 +991,40 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
- 	return ret;
+@@ -40,6 +40,7 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu);
++int __pkvm_host_force_reclaim_page_guest(phys_addr_t phys);
+ int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm);
+ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu *vcpu,
+ 			    enum kvm_pgtable_prot prot);
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+index dee1a406b0c2..4cedb720c75d 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+@@ -30,6 +30,12 @@ enum pkvm_page_state {
+ 	 * struct hyp_page.
+ 	 */
+ 	PKVM_NOPAGE			= BIT(0) | BIT(1),
++
++	/*
++	 * 'Meta-states' which aren't encoded directly in the PTE's SW bits (or
++	 * the hyp_vmemmap entry for the host)
++	 */
++	PKVM_POISON			= BIT(2),
+ };
+ #define PKVM_PAGE_STATE_MASK		(BIT(0) | BIT(1))
+ 
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 506831804f64..a5a7bb453f3e 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -78,6 +78,7 @@ int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn);
+ int __pkvm_start_teardown_vm(pkvm_handle_t handle);
+ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle);
+ 
++struct pkvm_hyp_vm *get_vm_by_handle(pkvm_handle_t handle);
+ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
+ 					 unsigned int vcpu_idx);
+ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu);
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 6db5aebd92dc..456c83207717 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -573,6 +573,13 @@ static void handle___pkvm_init_vcpu(struct kvm_cpu_context *host_ctxt)
+ 	cpu_reg(host_ctxt, 1) = __pkvm_init_vcpu(handle, host_vcpu, vcpu_hva);
  }
  
-+int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
++static void handle___pkvm_force_reclaim_guest_page(struct kvm_cpu_context *host_ctxt)
 +{
-+	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
-+	u64 meta, phys, ipa = hyp_pfn_to_phys(gfn);
++	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
++
++	cpu_reg(host_ctxt, 1) = __pkvm_host_force_reclaim_page_guest(phys);
++}
++
+ static void handle___pkvm_reclaim_dying_guest_page(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+@@ -634,6 +641,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__pkvm_unreserve_vm),
+ 	HANDLE_FUNC(__pkvm_init_vm),
+ 	HANDLE_FUNC(__pkvm_init_vcpu),
++	HANDLE_FUNC(__pkvm_force_reclaim_guest_page),
+ 	HANDLE_FUNC(__pkvm_reclaim_dying_guest_page),
+ 	HANDLE_FUNC(__pkvm_start_teardown_vm),
+ 	HANDLE_FUNC(__pkvm_finalize_teardown_vm),
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 51cb5c89fd20..73bdbd4a508e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -616,6 +616,35 @@ static u64 host_stage2_encode_gfn_meta(struct pkvm_hyp_vm *vm, u64 gfn)
+ 	       FIELD_PREP(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, gfn);
+ }
+ 
++static int host_stage2_decode_gfn_meta(kvm_pte_t pte, struct pkvm_hyp_vm **vm,
++				       u64 *gfn)
++{
++	pkvm_handle_t handle;
++	u64 meta;
++
++	if (WARN_ON(kvm_pte_valid(pte)))
++		return -EINVAL;
++
++	if (FIELD_GET(KVM_INVALID_PTE_TYPE_MASK, pte) !=
++	    KVM_HOST_INVALID_PTE_TYPE_DONATION) {
++		return -EINVAL;
++	}
++
++	if (FIELD_GET(KVM_HOST_DONATION_PTE_OWNER_MASK, pte) != PKVM_ID_GUEST)
++		return -EPERM;
++
++	meta = FIELD_GET(KVM_HOST_DONATION_PTE_EXTRA_MASK, pte);
++	handle = FIELD_GET(KVM_HOST_PTE_OWNER_GUEST_HANDLE_MASK, meta);
++	*vm = get_vm_by_handle(handle);
++	if (!*vm) {
++		/* We probably raced with teardown; try again */
++		return -EAGAIN;
++	}
++
++	*gfn = FIELD_GET(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, meta);
++	return 0;
++}
++
+ static bool host_stage2_force_pte_cb(u64 addr, u64 end, enum kvm_pgtable_prot prot)
+ {
+ 	/*
+@@ -801,8 +830,20 @@ static int __hyp_check_page_state_range(phys_addr_t phys, u64 size, enum pkvm_pa
+ 	return 0;
+ }
+ 
++static bool guest_pte_is_poisoned(kvm_pte_t pte)
++{
++	if (kvm_pte_valid(pte))
++		return false;
++
++	return FIELD_GET(KVM_INVALID_PTE_TYPE_MASK, pte) ==
++	       KVM_GUEST_INVALID_PTE_TYPE_POISONED;
++}
++
+ static enum pkvm_page_state guest_get_page_state(kvm_pte_t pte, u64 addr)
+ {
++	if (guest_pte_is_poisoned(pte))
++		return PKVM_POISON;
++
+ 	if (!kvm_pte_valid(pte))
+ 		return PKVM_NOPAGE;
+ 
+@@ -831,6 +872,8 @@ static int get_valid_guest_pte(struct pkvm_hyp_vm *vm, u64 ipa, kvm_pte_t *ptep,
+ 	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
+ 	if (ret)
+ 		return ret;
++	if (guest_pte_is_poisoned(pte))
++		return -EHWPOISON;
+ 	if (!kvm_pte_valid(pte))
+ 		return -ENOENT;
+ 	if (level != KVM_PGTABLE_LAST_LEVEL)
+@@ -1096,6 +1139,86 @@ static void hyp_poison_page(phys_addr_t phys)
+ 	hyp_fixmap_unmap();
+ }
+ 
++static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
++				      u64 *gfn)
++{
++	enum pkvm_page_state state;
++	kvm_pte_t pte;
++	s8 level;
++	int ret;
++
++	if (!addr_is_memory(phys))
++		return -EFAULT;
++
++	state = get_host_state(hyp_phys_to_page(phys));
++	switch (state) {
++	case PKVM_PAGE_OWNED:
++	case PKVM_PAGE_SHARED_OWNED:
++	case PKVM_PAGE_SHARED_BORROWED:
++		/* The access should no longer fault; try again. */
++		return -EAGAIN;
++	case PKVM_NOPAGE:
++		break;
++	default:
++		return -EPERM;
++	}
++
++	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, &level);
++	if (ret)
++		return ret;
++
++	if (WARN_ON(level != KVM_PGTABLE_LAST_LEVEL))
++		return -EINVAL;
++
++	return host_stage2_decode_gfn_meta(pte, vm, gfn);
++}
++
++int __pkvm_host_force_reclaim_page_guest(phys_addr_t phys)
++{
++	struct pkvm_hyp_vm *vm;
++	u64 gfn, ipa, pa;
 +	kvm_pte_t pte;
 +	int ret;
 +
++	phys &= PAGE_MASK;
++
++	hyp_spin_lock(&vm_table_lock);
 +	host_lock_component();
-+	guest_lock_component(vm);
 +
-+	ret = get_valid_guest_pte(vm, ipa, &pte, &phys);
++	ret = host_stage2_get_guest_info(phys, &vm, &gfn);
 +	if (ret)
-+		goto unlock;
++		goto unlock_host;
 +
-+	ret = -EPERM;
-+	if (pkvm_getstate(kvm_pgtable_stage2_pte_prot(pte)) != PKVM_PAGE_SHARED_OWNED)
-+		goto unlock;
-+	if (__host_check_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED))
-+		goto unlock;
++	ipa = hyp_pfn_to_phys(gfn);
++	guest_lock_component(vm);
++	ret = get_valid_guest_pte(vm, ipa, &pte, &pa);
++	if (ret)
++		goto unlock_guest;
 +
-+	ret = 0;
-+	meta = host_stage2_encode_gfn_meta(vm, gfn);
-+	WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
-+						      PKVM_ID_GUEST, meta));
-+	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-+				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
-+				       &vcpu->vcpu.arch.pkvm_memcache, 0));
-+unlock:
++	WARN_ON(pa != phys);
++	if (guest_get_page_state(pte, ipa) != PKVM_PAGE_OWNED) {
++		ret = -EPERM;
++		goto unlock_guest;
++	}
++
++	/* We really shouldn't be allocating, so don't pass a memcache */
++	ret = kvm_pgtable_stage2_annotate(&vm->pgt, ipa, PAGE_SIZE, NULL,
++					  KVM_GUEST_INVALID_PTE_TYPE_POISONED,
++					  0);
++	if (ret)
++		goto unlock_guest;
++
++	hyp_poison_page(phys);
++	WARN_ON(host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HOST));
++unlock_guest:
 +	guest_unlock_component(vm);
++unlock_host:
 +	host_unlock_component();
++	hyp_spin_unlock(&vm_table_lock);
 +
 +	return ret;
 +}
 +
- int __pkvm_host_unshare_hyp(u64 pfn)
+ int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm)
  {
- 	u64 phys = hyp_pfn_to_phys(pfn);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 408307603863..6f3b94a37fe3 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -1025,6 +1025,19 @@ static bool pkvm_memshare_call(u64 *ret, struct kvm_vcpu *vcpu, u64 *exit_code)
- 	return false;
+ 	u64 ipa = hyp_pfn_to_phys(gfn);
+@@ -1130,7 +1253,11 @@ int __pkvm_host_reclaim_page_guest(u64 gfn, struct pkvm_hyp_vm *vm)
+ 	guest_unlock_component(vm);
+ 	host_unlock_component();
+ 
+-	return ret;
++	/*
++	 * -EHWPOISON implies that the page was forcefully reclaimed already
++	 * so return success for the GUP pin to be dropped.
++	 */
++	return ret && ret != -EHWPOISON ? ret : 0;
  }
  
-+static void pkvm_memunshare_call(u64 *ret, struct kvm_vcpu *vcpu)
-+{
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+	u64 ipa = smccc_get_arg1(vcpu);
-+
-+	if (!PAGE_ALIGNED(ipa))
-+		return;
-+
-+	hyp_vcpu = container_of(vcpu, struct pkvm_hyp_vcpu, vcpu);
-+	if (!__pkvm_guest_unshare_host(hyp_vcpu, hyp_phys_to_pfn(ipa)))
-+		ret[0] = SMCCC_RET_SUCCESS;
-+}
-+
+ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 0ba6423cd0d5..cdeefe3d74ff 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -230,10 +230,12 @@ void pkvm_hyp_vm_table_init(void *tbl)
  /*
-  * Handler for protected VM HVC calls.
-  *
-@@ -1042,6 +1055,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
- 		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
- 		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
- 		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_MEM_SHARE);
-+		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_MEM_UNSHARE);
- 		break;
- 	case ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID:
- 		if (smccc_get_arg1(vcpu) ||
-@@ -1060,6 +1074,14 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
+  * Return the hyp vm structure corresponding to the handle.
+  */
+-static struct pkvm_hyp_vm *get_vm_by_handle(pkvm_handle_t handle)
++struct pkvm_hyp_vm *get_vm_by_handle(pkvm_handle_t handle)
+ {
+ 	unsigned int idx = vm_handle_to_idx(handle);
  
- 		handled = pkvm_memshare_call(val, vcpu, exit_code);
- 		break;
-+	case ARM_SMCCC_VENDOR_HYP_KVM_MEM_UNSHARE_FUNC_ID:
-+		if (smccc_get_arg2(vcpu) ||
-+		    smccc_get_arg3(vcpu)) {
-+			break;
-+		}
++	hyp_assert_lock_held(&vm_table_lock);
 +
-+		pkvm_memunshare_call(val, vcpu);
-+		break;
- 	default:
- 		/* Punt everything else back to the host, for now. */
- 		handled = false;
+ 	if (unlikely(idx >= KVM_MAX_PVMS))
+ 		return NULL;
+ 
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
