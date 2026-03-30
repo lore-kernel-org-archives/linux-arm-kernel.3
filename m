@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56164FB3CF8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 10:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94601FB3CFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 10:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLiOWnYaPYbiC5qhToElubMd1pxnYhRSz+sJXtjkf9k=; b=bZ/74BSh8tR5IgJnr1EizW7kU/
-	JMgAqDv4wtadaMK4qAzwImiAkwUYBgj9YbpbnAU9A+SsH3TglSP5DqpppQi1oPZVBURsKzdpRnaA/
-	DL0oWq3ZbQ7qWjOaN0MCYG9UQEcAXYpVm5JBNsiSKOIPGSrLLGZKz1y/8JEplSKk60Z4lL0xWBqey
-	PUPP8uJgoWP60B97aNbq1f8yV+4uTwIU/bPJt+G2tZh4uwcbob91lKfp82KTQazx47rMUf/XCPZ16
-	E08kbWaXHs3wvMQvEi0rJe000Mi+Vtn+PPpngt5KK0PJISp684/fp0c++fDaXoj9x2D4EXYcDH0W6
-	UmqEckNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z6Lgou7qZaBGO/4jcfhaIsnEqBsZ3VUgcjbKKiHQFUs=; b=AjkeJs8RKV7NmL8l+jHAGOlnE+
+	hcLiYs2RZepDTtTc07IwVFvzr9YTLzeVGSHdpn2DdmPjIoY+NrcRIHU3F15oLkBBZzjX90DI/Ur7L
+	Wym82Xv8a0mJG0WAHWD4Mc43stu1I8TNlKgwizP+mqH7GUrQ2fs6l5/wr4VPnC4zZmSmEofArdk4g
+	XYlWUfYgJBafQNtQK9Hn9guYvOAHkdH+TzszjNcfa48UY1RaCgWvXm1YZil3JQkdGszPENdFYn5ZG
+	Ur04g6fPchtM45GSJOvdnml3Nn3eTBeL4Ug/Lpprv36kbZLVmZdEzPcVxW+ZqahroKGDbZ8DQZqbu
+	uGFwjM6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79i2-0000000B2nx-2VO7;
-	Mon, 30 Mar 2026 10:19:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w79lU-0000000B36F-2uVV;
+	Mon, 30 Mar 2026 10:22:36 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79i1-0000000B2np-1j7j
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 10:19:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 622B560054;
-	Mon, 30 Mar 2026 10:19:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D7C5C4CEF7;
-	Mon, 30 Mar 2026 10:18:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774865940;
-	bh=zkPIFYlcvlNBwRpjkVxQHKinU444u5TIQ3o5lO3cjw4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mUFoVZC8BT1abPQSVnwCo6KS/5EN1PEfjba+c1Plp7X8QHOibbkg4xN9DTDdknSPj
-	 TPpYZ+91NJut/Gv5uOiDwUSvKqC27NJdvQhVewydS3Y2FM9s8xlLFVd5UFAjJZdL+6
-	 BYgrQpculCEb85wKPXecIjQvOieHuFBruJz8jyRbW+sUrlbMqwhAwXqKvn3RlXT62S
-	 5l78j+fxjTqNRDLlFsa5GzNaCobxmacRLJ8HuScxl1OsVBE2G0cw7wYt3hBr8CMoA6
-	 TYqUq8KJagKnoL/Q5W05nSgNtBj7ogoC1TJ6AdVvJ/HYdaUsLHUcYg+8jrNpsthpEz
-	 /Gm+wjW1iKHCw==
-Date: Mon, 30 Mar 2026 15:48:51 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, 
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "stable@vger.kernel.org" <stable@vger.kernel.org>, 
-	Qiang Yu <qiang.yu@oss.qualcomm.com>
-Subject: Re: [PATCH v2] PCI: imx6: Don't remove MSI capability For
- i.MX7D/i.MX8M
-Message-ID: <5nom7wnhrr57jvb6komumg3fjkbavsq5ecz2pd43rc5tsmnqev@ag6ld453s2lu>
-References: <20260319091823.446030-1-hongxing.zhu@nxp.com>
- <kqv3x4qocp7rkas5oedlpzd43h3ez7dg26hqnfgubbjdhhxlwe@rfnsicbv7qba>
- <AS8PR04MB8833AE3B8D106CE446EF89E58C52A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+	id 1w79lR-0000000B358-1ZAr;
+	Mon, 30 Mar 2026 10:22:34 +0000
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1774866149;
+	bh=cHxCL+kgZEYYDlNTSJUvvX2k7Txna5iYqayS3SfoOig=;
+	h=From:Date:Subject:To:Cc;
+	b=UAkIxsmHBUhDJTThHvm72YM6MyKL+0rWwYa/mOBka0JeZFkLXdFbC4QfxW3PFBfbx
+	 aAFRXkhJ+JSEnkFwMMF8x9fA4OQSOFw542w+j18ZUySXzMt3np5b0jmmCETAwOMFCB
+	 K+G7hu1skHHZaH24EZvNAoUyA6VYrtjWOVWAsTFs=
+Date: Mon, 30 Mar 2026 12:21:38 +0200
+Subject: [PATCH] arm64: dts: amlogic: t7: khadas-vim4: Remove invalid
+ property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AS8PR04MB8833AE3B8D106CE446EF89E58C52A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260330-fix-invalid-property-v1-1-e829c4d806cb@aliel.fr>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSQqAMAwAv1JyNlBbF/Qr4kFt1IDUkooo4t8tH
+ gdm5oFIwhShVQ8InRx59wnyTMG0Dn4hZJcYjDaVtlbjzBeyP4eNHQbZA8lx4zhSWbjG2rnOIaV
+ BKHn/tuvf9wMinlkYZgAAAA==
+X-Change-ID: 20260330-fix-invalid-property-bbe54d933f71
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel test robot <lkp@intel.com>, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openssh-sha256; t=1774866148; l=1261;
+ i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
+ bh=cHxCL+kgZEYYDlNTSJUvvX2k7Txna5iYqayS3SfoOig=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
+ BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QIq3EbCbzSFk16GagS7tZiZDzrUW8C9xkwkL4RQRuXb+XUI1pPI4dT8GmIlRE9C2b717YFqr5VQ
+ Nc/hZ8T2OUwc=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
+ fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_032233_737891_05499C65 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 09:02:57AM +0000, Hongxing Zhu wrote:
-> > -----Original Message-----
-> > From: Manivannan Sadhasivam <mani@kernel.org>
-> > Sent: 2026年3月30日 15:23
-> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kernel.org;
-> > kwilczynski@kernel.org; robh@kernel.org; bhelgaas@google.com;
-> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
-> > linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > imx@lists.linux.dev; linux-kernel@vger.kernel.org; stable@vger.kernel.org;
-> > Qiang Yu <qiang.yu@oss.qualcomm.com>
-> > Subject: Re: [PATCH v2] PCI: imx6: Don't remove MSI capability For
-> > i.MX7D/i.MX8M
-> > 
-> > + Qiang
-> > 
-> > On Thu, Mar 19, 2026 at 05:18:23PM +0800, Richard Zhu wrote:
-> > > The MSI trigger mechanism for endpoint devices connected to i.MX7D,
-> > > i.MX8MM, and i.MX8MQ PCIe root complex ports depends on the MSI
-> > > capability register settings in the root complex. Removing the MSI
-> > > capability breaks MSI functionality for these endpoints.
-> > >
-> > 
-> > What is the relation between Root Port MSI and endpoint MSI? Endpoint MSIs
-> > should be routed to the platform MSI controller (DWC i.MSI-RX or External like
-> > GIC-ITS) independent of the Root Port MSI state.
-> Hi Mani:
-> Thank for your kindly concern.
-> The MSI controller (DWC i.MSI-RX) on i.MX7D, i.MX8MM, and i.MX8MQ platforms
-> requires the RC's MSI capability to remain enabled. Removing it breaks MSI
-> routing from endpoints to the platform MSI controller.
-> 
+Fix introduced invalid property for Khadas VIM4 sdcard regulator.
 
-I understand that MSI is broken on your hardware, but I was trying to understand
-'why' specifically. Because, Root Port MSI capability doesn't have anything to
-do with the endpoint MSIs. And since you mentioned that this issue happens only
-on one platform, could be that the hardware designers have mistakenly wired the
-Root Port's 'MSI Enable' to iMSI-RX's enable signal or something similar?
+arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dtb: regulator-sdcard-3v3 (regulator-fixed): Unevaluated properties are not allowed ('enable-active-low' was unexpected)
 
-If so, we can introduce a flag 'dw_pcie_rp::keep_rp_msi_en' or something
-similar, set it for affected SoCs and skip the capability removal in
-pcie-designware-host.c
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202603290828.5gt393t6-lkp@intel.com/
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 1 -
+ 1 file changed, 1 deletion(-)
 
-- Mani
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+index 11bfbc99191b6..003b3bcdaf2bc 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+@@ -65,7 +65,6 @@ sd_3v3: regulator-sdcard-3v3 {
+ 		vin-supply = <&vddao_3v3>;
+ 		gpio = <&gpio GPIOD_11 GPIO_ACTIVE_LOW>;
+ 		regulator-boot-on;
+-		enable-active-low;
+ 		regulator-always-on;
+ 	};
+ 
 
+---
+base-commit: 3b058d1aeeeff27a7289529c4944291613b364e9
+change-id: 20260330-fix-invalid-property-bbe54d933f71
+
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Ronald Claveau <linux-kernel-dev@aliel.fr>
+
 
