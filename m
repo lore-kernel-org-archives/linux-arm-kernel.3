@@ -4,71 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B1FFB3D19
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 10:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484B3FB3D19
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 10:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULFIaSHr+U1hs7BguxDFrpMkjq8/YKam+FczzkYyfWY=; b=urzG/28AunggYzLuVVVpeykqf3
-	InvXrjQezlwtuEwCtW8Iql4/9hdCy4/xQgS/QlS9txc3zSx7Ns2eX2hWu3jvX5r48zV9cD0Usucpr
-	/zm20LP+p1BGybZvlZ/e08mO/9jsuoYt6u2Op7ng2S2rjAo1tyV9cJK1RcTbIQrUDJS+izguw6NZ6
-	+YIjxQRQHxprDOFxADeUARRGIjYdsVDxUxM4++MmLoJklLh0qcqPkdyTT/VbBA71vUlmVJD7vUDMT
-	Z074Fqw/O+z0hgm4WGZ1uHA3p5Es8EJP55Ir0zWYxXrHXPtVkZ9v9Z6HKo/K5Df8wyrsRVXR9urzj
-	U9keZ7Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/TXj5dE4mqvc1ssxoqFjKHWoirafJM76VbqarPKJr48=; b=iTtGHf5/rQnDE5NxV3/kOFDuhj
+	hpcmTOyhFMpibKXqJJ1E2LY4pm2ED12TdI5kj7HnZv3mF8u8MwYBfadhGAcdRzN6N4plwBzwfGukq
+	dZnGah0xBkbD6Nipg7ezGcTL5y8y7LnXTXnoYNbHJKv1qNXwbKvDqIhM2u6ej857xwcqwmM3L6PqH
+	v+reJCCnAOrY40dT4ZCCt+37m4zWs5YQlwKJhUkKi+Dueinlzoj0jm6X4X2CDfrmzVoFuTKfoGAm1
+	KeMeL674yypnvtpdYuRcfm8B05MhrxuEQGtVwDNKxS5bhDSMLsYkyecq9E/709WCQjOSwSwudzPGo
+	bKMx6N/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7AJv-0000000B7Q9-3pmS;
-	Mon, 30 Mar 2026 10:58:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7AJt-0000000B7Pm-2xbm
+	id 1w7AL2-0000000B7Wu-1Dp4;
+	Mon, 30 Mar 2026 10:59:20 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7AKz-0000000B7WL-1x2t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 10:58:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B3351C01;
-	Mon, 30 Mar 2026 03:58:02 -0700 (PDT)
-Received: from [10.57.13.56] (unknown [10.57.13.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D4A13F915;
-	Mon, 30 Mar 2026 03:58:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774868288; bh=mONBCtbmbPff0A3dabS2nwwbs9ct9e5u1BA9P4VrR5c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O7cDYZFHXEzuxS8cQTR9gIEc1iShETlDG4sQ/XazlOkV5Mry75J+eICB0NiKv1k8b
-	 vleJTNMbKT4ovAUQsnrDoU09OL258RoFomntVNwjHtTcFp2F0bgoQYw7qTcvmA15iV
-	 0fBuYUY/dJ4ycbTn4G3WwWoi/4cWPdqxRX0+03BQ=
-Message-ID: <053a048d-bcb7-46ef-a4c2-c5d0c84a3177@arm.com>
-Date: Mon, 30 Mar 2026 11:58:03 +0100
+	Mon, 30 Mar 2026 10:59:18 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43cfb723698so761937f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 03:59:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774868355; x=1775473155; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/TXj5dE4mqvc1ssxoqFjKHWoirafJM76VbqarPKJr48=;
+        b=YWIQd6kcfEX3/T9R+V1ouT0KPqR5dEr57xv+6LJQuxNTsgyhNCmWoud9+MvQkMOhLb
+         my6s5ox2atPGY7hkjPh7Yqr8/LqFXD+12fPlCzUhZUagA1p6g3CDl0w+ymyivdl/sDWd
+         p2nS679g0XoW+x0b5iUkgAVviGhWaY3U7TlOmbnPqwjspGYQYQVy18ZPrFXV8FlwiRGM
+         wDzQ8o2+qgeAZqcFctEZ2n352/YVjfxgbt8fK6KW4tOO+2s0XZ1JTDqobX+UJsQCk1F1
+         PiBvAPx4E2oggIhAChAOkAxZRzeimeKHGnfXstC0sx+ozvepRbatepEenFXnPCxabFV1
+         D8Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774868355; x=1775473155;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/TXj5dE4mqvc1ssxoqFjKHWoirafJM76VbqarPKJr48=;
+        b=muFhqi8RPQAUKPZ8rZfv+cfzy1nueljgk4NLVpjOm1YZnrFyC9v0uC1lzg8VrtkVDc
+         7nyhTLlzhiViXVSRFXvJR/eT31aW6eutc1p8zl5nKYjgP1pBLKgNCL08UheNDIgeLwvg
+         BYzQ5d0VOm6K3O/kljgeDh+viWcwAIappOxlHJa5Ycn10Ype8P00yFssLt92gszgNNnX
+         LsdZadbVeZqIHjJGY4mXBnnT3ki2ABUCUczZppgF6tVOhcuOhuh6w91YdWNokU/i2Ifw
+         f5j7QklmnVAI9TAzczHQN//LoLvKNnvuY8orbFYOnIRp0NtkqUAGNBBy8fqSqo0xFVex
+         bXpw==
+X-Forwarded-Encrypted: i=1; AJvYcCVnNt98yTOiBJh7g0Qlhx/ZeALIzF6c9TgIPeSziRtaPEOldCrQKYMB813JQJrYHUt5Kp+VxSTs6EKpXDm1fFJA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxawkfUitR/3RjF1HbmHlTYm+IO/CB0nnEBDGb+RQeC4SrF1wiu
+	HaeBJkNbYVrROSpWTSOzYvx+OfCb3rpl99aoVzPkDwE2b/Tbw94DUs1iisxZ+iLpL08=
+X-Gm-Gg: ATEYQzwuGiA3CrRAUzTmcUIAdsJC0P3CGKZr685RdKhFZ6KgO9XLj7uMRLg+nnEULAb
+	oza60IWRvcfY1VK9/MbkqHsQMw/FwsrOYhTxVrikU1uKYe3boILqkSCdHS32kQ75Um9D+k+HocM
+	8kOvBr4DfAAnniOMBpccOQEEnBowjS+dLqhkACsZAvO2T88XcYYjzWMS1Gyit/CvyRfCn3cdt75
+	eBf7GGJObcdRB1cd9SdfDAgWhKMubAXU+2xAaDmp2MOjJFnVQ84Hp8zoRcz7F4iN7TSb1aHv6MM
+	ePBvEY7O2xPxiHywsV0wqfkRPeQGa73wAXdfuKqnkZqQj0ckzHzhYvDjxSB3TqGe/g2nffgnwyp
+	RkLFQ/JLF0z3TFpcyQytL76/7zjSvLJoxlsA1wUJrZeKVIlfgYkHRKvSrG+23Au0i19vxcYk+fd
+	VjSEG58TZPRJDEckW8LWPmebEI2ruD
+X-Received: by 2002:a05:6000:4010:b0:43c:fe7a:4917 with SMTP id ffacd0b85a97d-43cfe7a4bf8mr5625551f8f.2.1774868355539;
+        Mon, 30 Mar 2026 03:59:15 -0700 (PDT)
+Received: from draszik.lan ([212.129.78.46])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf24739easm18943009f8f.30.2026.03.30.03.59.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 03:59:15 -0700 (PDT)
+Message-ID: <abeff7983dc08c3aeee8b504f34b71b1a2fcdb78.camel@linaro.org>
+Subject: Re: [PATCH v8 02/10] dt-bindings: power: samsung: add
+ google,gs101-pd
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Ulf Hansson	 <ulf.hansson@linaro.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown	 <broonie@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Juan
+ Yescas <jyescas@google.com>, Will McVicker	 <willmcvicker@google.com>,
+ kernel-team@android.com, 	linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-pm@vger.kernel.org
+Date: Mon, 30 Mar 2026 11:59:14 +0100
+In-Reply-To: <b66d7230-a495-40a4-ac75-378d0727afed@kernel.org>
+References: <20260318-gs101-pd-v8-0-241523460b10@linaro.org>
+	 <20260318-gs101-pd-v8-2-241523460b10@linaro.org>
+	 <177409897339.266364.69715997034739052.b4-review@b4>
+	 <6f0be0a71c74e7a7959e9ad02e93aff1cb8ef712.camel@linaro.org>
+	 <b66d7230-a495-40a4-ac75-378d0727afed@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-8+build1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 34/48] arm64: RMI: support RSI_HOST_CALL
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-35-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260318155413.793430-35-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_035809_900866_68A0E5F2 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20260330_035917_508381_077D1433 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +111,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 15:53, Steven Price wrote:
-> From: Joey Gouly <joey.gouly@arm.com>
-> 
-> Forward RSI_HOST_CALLS to KVM's HVC handler.
+On Mon, 2026-03-30 at 12:55 +0200, Krzysztof Kozlowski wrote:
+> On 30/03/2026 12:52, Andr=C3=A9 Draszik wrote:
+> > > Your patchset is organized in odd way - first patch for me, then not =
+for
+> > > me, then again two patches for me. Please keep it consistent. Or bett=
+er,
+> > > decouple since there are no dependencies according to cover letter.
+> >=20
+> > I'll update the cover letter to describe the dependencies. 4 depends on=
+ 2,
+>=20
+>=20
+> How 4 (soc) patch depends on 2 (pm domains)? What is exactly the dependen=
+cy?
 
-Minor nit: Please could we add a line or two, explaining what 
-RSI_HOST_CALL is ? e.g.:
+4 updates the soc-level pmu binding of gs101 to have gs101-power-domain
+child-nodes, which are introduced in 2
 
-Realm's can talk to the hypervisor using the RSI_HOST_CALL, which
-the RMM forwards to the KVM. Handle them as regular hypercalls.
-
-Suzuki
-
-> 
-> Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v7:
->   * Avoid turning a negative return from kvm_smccc_call_handler() into a
->     error response to the guest. Instead propogate the error back to user
->     space.
-> Changes since v4:
->   * Setting GPRS is now done by kvm_rec_enter() rather than
->     rec_exit_host_call() (see previous patch - arm64: RME: Handle realm
->     enter/exit). This fixes a bug where the registers set by user space
->     were being ignored.
-> ---
->   arch/arm64/kvm/rmi-exit.c | 15 +++++++++++++++
->   1 file changed, 15 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/rmi-exit.c b/arch/arm64/kvm/rmi-exit.c
-> index b4843f094615..7eff6967530c 100644
-> --- a/arch/arm64/kvm/rmi-exit.c
-> +++ b/arch/arm64/kvm/rmi-exit.c
-> @@ -116,6 +116,19 @@ static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
->   	return -EFAULT;
->   }
->   
-> +static int rec_exit_host_call(struct kvm_vcpu *vcpu)
-> +{
-> +	int i;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +
-> +	vcpu->stat.hvc_exit_stat++;
-> +
-> +	for (i = 0; i < REC_RUN_GPRS; i++)
-> +		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
-> +
-> +	return kvm_smccc_call_handler(vcpu);
-> +}
-> +
->   static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
->   {
->   	struct realm_rec *rec = &vcpu->arch.rec;
-> @@ -183,6 +196,8 @@ int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
->   		return rec_exit_psci(vcpu);
->   	case RMI_EXIT_RIPAS_CHANGE:
->   		return rec_exit_ripas_change(vcpu);
-> +	case RMI_EXIT_HOST_CALL:
-> +		return rec_exit_host_call(vcpu);
->   	}
-
-Probably we should move the RMI_EXIT_HOST_CALL case addition in 
-kvm_rec_pre_enter() to this hunk to keep all in one place ?
-
-Otherwise, looks good to me.
-
-Suzuki
-
-
->   
->   	kvm_pr_unimpl("Unsupported exit reason: %u\n",
-
+A.
 
