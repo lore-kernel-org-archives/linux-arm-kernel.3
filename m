@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CDE1061B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 23:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BE51061B29
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 23:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t45tnYDWZsG1khbHgAc45VhFz8HmN2CnAvvZjkYxjlk=; b=Nl5hIuFnVuX4tkSJ8RBN0Y+e8y
-	J9Kn8zQ/wy0USrdSxkuedI9yaZIlYhF2XmrMaE1m6tfaNevY7lOth/9x3gndC5GRLQOIdMLEf02tr
-	YjdfBclqDHKRWfxOv+1WD4i2+GbrMiXQRYIqEWVS9eAhrJdGJt6MTL1ISCuceHAUFZH/UsSx5OM0i
-	wjoBRxmiBSutP7vDSEYcfTIWoHT9jlxkm8szs0dZr/RAG7u86w0L62AZQq2J/zWtwoXJae7v7CAY7
-	lHVloVTEfGI+/7lBZXi3CZ7cYQdasMMkGgKWusAFBaxJMlAfrNFtVDvyXxv9gKjIQ4DZpfBNN+KYh
-	m59wsjyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cj8UaTPnOI0lnTiXzdnpSsQENoEE5MW8Y6u1QgbWP2g=; b=4CUbLIJyZRHNoLJ/z///zbM/IS
+	35JMZ99bhBA76yYnkQCoSb7YBsYKK8knSxyyCEHm6XcsalF0xMblPG54Q0TWJGW+FWUorKTblVUqH
+	xL7TpXSbVx0NxDEQczE0y6nqJLweK61Wu7gUqvMlSa2w1Qhw4x0rnO4esQQUHcO6SbYjnESSYGblI
+	HWkGyp9htSqMqWn8TErEpog2h0DNFyhnKLKcw/xfxHJyZMMhDN58dm/pW6B9CiEYsEtfOPCPuszr3
+	fxxCv4xAYv6KaHMzhGNMpPo8TXyzFBkiDonLxPzEFZ1Nq8fJERUWixDu2U4Pip9M6xpGcJduScO7x
+	N+uM1ysg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7M90-0000000C1vF-18hN;
-	Mon, 30 Mar 2026 23:35:42 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1w7MFX-0000000C2EO-18KL;
+	Mon, 30 Mar 2026 23:42:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7M8x-0000000C1u4-0wST
+	id 1w7MFW-0000000C2EI-2QIk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 23:35:40 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43d0245e24cso84572f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 16:35:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774913737; x=1775518537; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=t45tnYDWZsG1khbHgAc45VhFz8HmN2CnAvvZjkYxjlk=;
-        b=f6wv3PKQWEuY/FCjs5JXvzInz50u2tCzp7LcpK/lorLk7dV3PRxVsJ6/3uu97utixT
-         ySIUoScSvKIgrC0dnj9cge/bGOhqJohQbWe2hrSRvCgaI+mXs5LOXKj3lUAI104DGU6x
-         mEpDYIDhDdnGSLgAsn5QPRUaIB2pVEvpISj7gT+X0H+fLmAJ0xq8wXCdaNZdcokiMXOm
-         FSzk8mJFwRAfvmaNojkbcaPN18NhtCnh3kWrGiAK5Hkc7N10vm/N8P0m4P/tf9VKpMdX
-         MuxxzlV7Xf10RdJru8kPTE5jylTfoC8tXEeHRicjZeMoAAse83eSCx03cq48eLPq3P8J
-         tWIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774913737; x=1775518537;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=t45tnYDWZsG1khbHgAc45VhFz8HmN2CnAvvZjkYxjlk=;
-        b=Pydb1DvkEhHBbSbLAAe8/YhRJoGErE7t+mHdRBVVWwGcZnb4SUPmfnSD/quPGfw4V5
-         jkVldDChvQgJHIuNZKohBxXitgb+++UJllUDCCFbIdxGVs9Nsge8JUmCzRuo8mFOl0/z
-         XWkwPHKce7cTI4nv6hyZ6/C/TVnRE/76ER7+vKzIZkfpFTcqHBqLOY1A/yfa4+4i5lUq
-         BrU3tx9KLoBVuLTSaTjruGbz0+bmbCbRTzjN61boPqb0EJZ7UI33OAFedCiCLcb7KWf9
-         AvJOSG2tHoDUPcPonwVmWsagUPAu6SztBmoWNgCtie5Mbur8BurcegWdna1OU0NSAEvT
-         Jlzg==
-X-Forwarded-Encrypted: i=1; AJvYcCXMR2uvdriqHQlQjwufzHLYSp19gf3nSO3nKxw1gssfq+WVwAGwjvEWF0yrA3UD+KPp4ZF9G2+XrZhp4EX9rghi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPmxcJ1caTdsCIAOEvP2t5KBXymzTeeRhi1VPGtuXJ2scv325w
-	rlPfdwZN1NgXBm9T/tFPaL/06fvJJ+MfMXMIMeVEsaOWYHJ5AHFGFwHa
-X-Gm-Gg: ATEYQzywFQLFj8IkjlW4gTL6Ipm/bkyMpgwdPNV6qbS+X5moaPtiibQQXMuMcXBAKT1
-	amOMKQmcA+17T1BvcdaYINs/nei7f/S32Ov03w9G+BCZDAg1QQPX5oG/ePzadEdxIgDi1WtN1yO
-	9DNlncs+RXSydtb/FCzKDwgNtG/7/m02zzyE16C3Y6GqFPEQNzczs0hFljQ2KAzhdy6o8zvMcYI
-	sO807d0FKdDxR/mQMyF1GwCLloVkl72C63Mn/hd6CVK5ngaKfIQ+eKPENntpHh3zqtMQYi1Q1Tc
-	8iGfU6gyb+igG8UuX3TBDryKxT4sU7nEiyp/BJl6oVKAWe8qIuBbwecI8DCyK1iCwUdrzze/01+
-	8lJ1djheOO6xkQ7jd7dP/ycF6m2iX0dBloh/exmM2S8XuXiIEbYTds/2yrbwuEiW+rs/LjGgMf4
-	W5uV8tzmNp6Yecb3CzfIZxBL2FvQ==
-X-Received: by 2002:a05:6000:70d:b0:43b:45d1:f42d with SMTP id ffacd0b85a97d-43b9ea2bd01mr10281733f8f.4.1774913736851;
-        Mon, 30 Mar 2026 16:35:36 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d50a:b400:fc92:d05b:3301:b722])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf247102dsm27956754f8f.27.2026.03.30.16.35.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 16:35:35 -0700 (PDT)
-Date: Tue, 31 Mar 2026 02:35:32 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, kernel@collabora.com,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 0/2] phy: hdmi: Add FRL TxFFE level control
-Message-ID: <20260330233532.ulnqiqrogezswht2@skbuf>
-References: <20260328-hdptx-ffe-v1-0-53ebd5dea20a@collabora.com>
- <20260330085723.4rewkbs76lz3scum@skbuf>
- <f2827d9f-ddba-4fbd-8d1f-a1a2d1b94708@collabora.com>
+	Mon, 30 Mar 2026 23:42:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A9B716001A;
+	Mon, 30 Mar 2026 23:42:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0A5C4CEF7;
+	Mon, 30 Mar 2026 23:42:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774914145;
+	bh=aHrIbDCRF2C63qxAWklCYHcqyfF0RZoSgHISzrHOz9s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=q1VSOtlxR4oiyc2fLxazcaNC8M5IhUGTkgAvRrzVAWCqhFe4l8xQDBgzerxWvD0KA
+	 yWFBZmBbHzI/fd2pbIxl+bGHyTikCvjZHZl/nhqo+sGe8MHIPYc8TeJuxZncvbUi0a
+	 htsWUlWRkufWs4hN76gc2I3zO+jpCDDc6+FMCQZfDXX/tFu+rnlL5DoIEBT5OzYfSv
+	 m4zXgSftUzB24MCIvy6YBxjiiFWih0qFSd2xUGU0/tt0ItYtavVyNGIH1kbtXsT3Rz
+	 RsDSZ7wtmzNqH3qpLb2GhuYJ1XdMZZl0I02CawjX5SopRiB7etyHl9+kaTKSDv8g+o
+	 0ffNP2TE7Zh/w==
+Date: Mon, 30 Mar 2026 16:42:24 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org, Ong Boon
+ Leong <boon.leong.ong@intel.com>, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 00/10] net: stmmac: TSO fixes/cleanups
+Message-ID: <20260330164224.0b75f251@kernel.org>
+In-Reply-To: <acl0pTqJ97o0PRxY@shell.armlinux.org.uk>
+References: <achJ1dfeT6Q8rBuX@shell.armlinux.org.uk>
+	<20260329111123.740bada9@kernel.org>
+	<acl0pTqJ97o0PRxY@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f2827d9f-ddba-4fbd-8d1f-a1a2d1b94708@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_163539_284454_E416E809 
-X-CRM114-Status: GOOD (  19.02  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +74,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 01:56:32AM +0300, Cristian Ciocaltea wrote:
-> On 3/30/26 11:57 AM, Vladimir Oltean wrote:
-> > On Sat, Mar 28, 2026 at 03:54:53PM +0200, Cristian Ciocaltea wrote:
-> >> ---
-> >> base-commit: f7b64ed948718290209074a50bb0df17e5944873
-> >> change-id: 20260328-hdptx-ffe-a89c51e66904
-> >> prerequisite-change-id: 20260227-hdptx-clk-fixes-47426632f862:v1
-> >> prerequisite-patch-id: 5c1d442fae39103bb758f54738aff33d2491401d
-> >> prerequisite-patch-id: b86f30292308345387d2a6b50949ad040b931592
-> >> prerequisite-patch-id: b1335105db9177cb10c64ed1bf0867832e6aac2f
-> >> prerequisite-patch-id: 83db6603d13e19f239e89fde2b26366eb0106b7e
-> >> prerequisite-patch-id: b534395ad315811861f11859a3946f65c90c631a
-> >> prerequisite-patch-id: f9637e57c902f35218cda658397416f84f7285cb
-> > 
-> > Sorry for my ignorance; who is supposed to act upon this git-format-patch
-> > base tree information and in what way?
-> > 
-> > As things stand today, the build infrastructure we have in place will
-> > not be able to apply and test your series unless it applies directly
-> > onto the linux-phy/next branch.
+On Sun, 29 Mar 2026 19:51:17 +0100 Russell King (Oracle) wrote:
+> > While I have you - you have a significantly negative "reviewer score".
+> > You post much more than you review. Which should earn you extra 24h
+> > of delay in our system. I've been trying to ignore that and prioritize
+> > applying your patches but it'd be great if you could review a bit more.  
 > 
-> Oh, I assumed that since b4 makes managing series dependencies straightforward
-> on the preparation/submission side, there would be similar tooling support on
-> the build/integration side as well.
+> Sorry, but given the effort that stmmac is taking, I don't have much
+> capacity to extend mental cycles elsewhere.
+> 
+> This two patch series wouldn't have exploded into ten (or maybe even
+> more) patches had someone not pointed out the problem with
+> suspend/resume interacting with disabling TSO... which prompted me to
+> look deeper and discover a multitude of other problems. Should I
+> instead ignore these bugs and not bother trying to fix this stuff?
+> 
+> Honestly, I'm getting tired of stmmac with it sucking lots of my time,
+> and I suspect you're getting tired of the constant stream of patches
+> for it - but the reason there's a constant stream is because there's
+> so much that's wrong or broken in this driver.
+> 
+> So either we let the driver rot, or... what?
 
-Sorry to disappoint - linux-phy doesn't use b4 to build-test patches. It
-gets them from Patchwork directly (as you'd get by clicking the 'diff' button),
-then figures out whether to apply to the next or to the fixes branch
-using the git-format-patch --subject-prefix string ('phy-next' or 'phy-fixes'),
-then posts the checks back to Patchwork.
-
-I can somehow imagine why no one rushed to improve this. While sometimes
-somewhat useful, I can see the risk of such feature getting abused to
-create a giant cobweb of dependencies that is suddenly no longer the
-developer's problem, but passed on to somebody else.
-
-In the future, please submit as RFC the patch sets that you know don't
-directly apply, and mention that you're only posting them for early
-feedback.
+I was hoping to nudge you towards reviewing more rather than have you
+slow down TBH :) Your patches are generally excellent so not a burden
+for my PoV. And stmmac is a toilet, a very popular one at that, so
+efforts to clean it up are most appreciated. If you could review a
+couple of series every time you post - the balance should be restored
+to our tooling universe.
 
