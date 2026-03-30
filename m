@@ -4,111 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B801061B07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D03FC97F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BcLJ6LvVaTwVBfUtUDYn16SpDu8RATu7+jQcBPfvy3A=; b=eA3hOzxL1gpu9TQd9tTf/W8STK
-	TNGnDiziqrjZYpbAydnvH1G69SqfsfPCuakcI2u6rO5ZMj444cBgJFIgDw+D+0vgQOGbVsOaT0n3J
-	wAncfuoCxDz/GQ8gimNheFtYn8unC6tJDPjrJwuM1HTli2unuiZ6buF8bV2+Dr+hIlqwLTutkfPbY
-	Hx/Y9nNUvf23bItl3bQe+XtWoKMGrP2/rV7p5blFMqoaamACKuESLhCRH8QfsFMf8hRiyb655ksrC
-	2IjjKnSP5C7jP5mlEGCuVSlVCL1nmicx82uAuVlfQAkjnYIWe60XnuHX3e4+fn1J0iHCWhUPwDAzm
-	zrboF4/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IefxdwdaNENTe3ijrHdpPLezHBD/mzIOjWzh1r0qkT8=; b=qBupxPGCxUfTWoOg5ViE9hUAXV
+	P+cqwI7pJmIDuKQvSDuDRpO2mEOBj+pF1ywWQzPq9KXqwVU2VSj06EtLAWpzHZUaK+v0EZ/9Mp3iL
+	vojdU2nPO8dk4pFxo4hATJIQjAVva8oufkK9DjOEAfzOyO3P/EX/SCw02xFP/BB739lxMhwcbbX6E
+	cVJIN1wse+qXrZKX7tv0fgg69XYcH5K24sYlhnX+CSgLZis+AtfXM+fr7IGl5yysJEsvloO2Y1mpF
+	/t40CAhXwtKcciKtcDWQZGz9ZWlfezx8J3L5FHYzEmsgaWqgk1Ap/gFW2uGdBRfpbVmdXD9MQyGAT
+	k1ErU5dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7E3o-0000000BWqb-325B;
-	Mon, 30 Mar 2026 14:57:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7E8p-0000000BXTD-3p9C;
+	Mon, 30 Mar 2026 15:02:59 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7E3n-0000000BWqS-32f1
+	id 1w7E8n-0000000BXSi-2Y1J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:57:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7518600AE;
-	Mon, 30 Mar 2026 14:57:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6689FC4CEF7;
-	Mon, 30 Mar 2026 14:57:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882666;
-	bh=Q2Hr+64nfwabuubNoJofnM6anpOvBYwWKFrDN1Xn75Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vCLCre4glN6/9bCO5naJn3+DITMtVO1G3x9GthcVlGGMHbfxJsH4nfRo/d2YPpUIx
-	 3eK10kmIlBCYR7tZCH09wU80HITmeMtlirw0ak+N8x+SV0YxKRBdPUAltY8K+Av9Pr
-	 vuCtNGGbcXhQgO34QoLaAJMKGsdbJ27SpKrLVdX1zkHV4e0Aofw4wkBhwMKl1gQ7g/
-	 DaFzEicSedBZ3BxoZDQyCH3sTefEiSO2Ekbj1X98I9gwVUg06GOq4kxdYsBFIWDu8q
-	 vYWGZqL2dLgEZig0xe/7vsrSahTB38yX7xUoP4Hrdms91KwTkMAP4wA/wlJki/4K3o
-	 3RWFzbsDJWvvQ==
-Message-ID: <7dd70ef5-f8d2-444c-9e42-2c6d8d976e90@kernel.org>
-Date: Mon, 30 Mar 2026 16:57:42 +0200
+	Mon, 30 Mar 2026 15:02:58 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-486fda2a389so37364315e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 08:02:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774882975; x=1775487775; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IefxdwdaNENTe3ijrHdpPLezHBD/mzIOjWzh1r0qkT8=;
+        b=YN2oVzWZcXUcvisYDtiKhqNpI1arBBAxoRrsm7Qom1RxBwLo7t0F1h7Fvfr4o28jvh
+         UWdWj7tp5B+Q13VIDKA/WJDfy5arisCircNrppX8tQ5WDoL2quN1oCKO3EN/Y+fXalMI
+         rVmYjxE6JelJQgdNHWXDS/dpbX/yqntyG+bqSRZtm73FBTrnGCrOMR8rzTRKt/oGQHIG
+         3by2mLrieJKHl+JJqr8Mu+XK9yytz+h4e0hVddGWglGw+xug0BIwYa/rzwQM6KPfZvlL
+         NeDZzG/oZ82i/KMzurV58CgsY1X0H9HY0BWpOtzSooCimZZfLcSSVMEIjhOBrFXtD1kF
+         XpZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774882975; x=1775487775;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IefxdwdaNENTe3ijrHdpPLezHBD/mzIOjWzh1r0qkT8=;
+        b=GrgMdPkWv9JDrdn0oSKe/Cb7J0dMHHCKAnMCfgeKrN7R2jeE2TQ0gh/lrhZUB4mH17
+         HBahEBgIo9MfGU5f4B9MV9POWRkH5rFOGXk3YQv/EMUS4qIUSvzYYv14BEQ7e1Wo3gJ+
+         U83ALzP+pzXgmRRREPxnm6LOgmQ/FphSVXog0aJHbZlruwbGpRg6eRwlmsHGzFPbKBaF
+         2WU4WhCnAeAVJMOf3vOhkSRGAhBovNIogCsyV6bNXV7nNO7bN/maXZoZuAvpzUD5WUhA
+         3WLygTrECEkbPcQJMDmSjouc07enNsL+95+5RUpjnX5jwV1FJqiKKxNjByZuBDoeCd+F
+         +8gg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSIKcM3YKEpL4AR8lYRRJjEWYwnsJA/0RUXkW7/jvg8LYqFCBOXZKbVDw1/Fy7D2+af2u94XSlDrL5ZChrZLF7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuTN18lGB2fzT55ORGJW50GI69F6b0cOL8C3TU4F2dWk5luVBq
+	n9Za7A34Na1pKkmzJeR6dlVy/5PpLIZXSvvmUg/Iop139cZZj9vJpKMr
+X-Gm-Gg: ATEYQzy6uidXgTdWaqxpL5kvSLoAwkDToZl+lJKha2rlVMzbqgNclvnvnNgzzhV30BV
+	lOWwmlFtPDLY3Wdpz1YklN2+gENmiprTO4v/0McVkxX7nnxBui2kH+V1Flv2H6yO2RrlkshruQ/
+	Nj3jwpNhTNxKPi8EtjhERVASzf6wvKEV251JhT00ZIlCd7/Ik8+lVhjimM8Cre/lpZ54Rs+dffp
+	l9RRVBhqruq5LYWF3vb/OMfio0WqIua1YH5oiKHS7tBbCtBvzWByOgseCWQGBoEhlBmdGowf3LE
+	CpwfbkURQoiSG8tPLfzBZPlmxb7kn/ysHjE0ZGO/ko59dibwRPZjXLHUWFnyIsvRpelqkls4Vya
+	arHC9iqrzU6mu3iNCzUiKdDvjw5tT2tf+WBzwGbYlJVUMI8SoBWzDmAh31WjK81rX7BJIWj6WOc
+	8axE6B/ArT3zjiF3zWfZZZmazWSdmlhczsw8OS1oPXGSkbjfF3Hmlt
+X-Received: by 2002:a05:600c:4e15:b0:485:2ce2:4c8a with SMTP id 5b1f17b1804b1-48727d67a21mr205698365e9.1.1774882974762;
+        Mon, 30 Mar 2026 08:02:54 -0700 (PDT)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-43cf2471ee2sm18711796f8f.29.2026.03.30.08.02.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 08:02:53 -0700 (PDT)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Date: Mon, 30 Mar 2026 17:02:42 +0200
+Subject: [PATCH] usb: core: avoid double use of 'usb3-phy'
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: arm: hpe,gxp: Add HPE GSC platform
- compatible
-To: "Hawkins, Nick" <nick.hawkins@hpe.com>
-Cc: "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260327174445.3275835-1-nick.hawkins@hpe.com>
- <20260327174445.3275835-2-nick.hawkins@hpe.com>
- <20260328-chirpy-sturdy-emu-9eb0cb@quoll>
- <DM4PR84MB192724F4949F614E3965E60A8852A@DM4PR84MB1927.NAMPRD84.PROD.OUTLOOK.COM>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <DM4PR84MB192724F4949F614E3965E60A8852A@DM4PR84MB1927.NAMPRD84.PROD.OUTLOOK.COM>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260330-usb-avoid-usb3-phy-double-use-v1-1-d2113aecb535@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ5AMBBA0avIrE1SHVFcRSzQwSSi0oYQcXdl9
+ 9/m3xDYCweokxs8HxLErRFZmsAwd+vEKDYatNKFIl3hHnrsDif2K8JtvtC6vV84mtFwXpVkSBk
+ aID42z6Oc/79pn+cFd3WL428AAAA=
+X-Change-ID: 20260329-usb-avoid-usb3-phy-double-use-7e498373073c
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Stanley Chang <stanley_chang@realtek.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, 
+ Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, linux-usb@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Gabor Juhos <j4g8y7@gmail.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_080257_758017_7BF725A7 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,56 +105,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2026 16:53, Hawkins, Nick wrote:
-> Hi Krzysztof Kozlowski,
-> 
->>>  maintainers:
->>>    - Nick Hawkins <nick.hawkins@hpe.com>
->>> @@ -18,6 +18,11 @@ properties:
->>>            - enum:
->>>                - hpe,gxp-dl360gen10
->>>            - const: hpe,gxp
->>> +      - description: GSC Based Boards
->>> +        items:
->>> +          - enum:
->>> +              - hpe,gsc-dl340gen12
->>> +          - const: hpe,gsc
-> 
->> What sort of ordering are you going to use in this file? Usual choice is
->> the fallback compatible, but I see you have chosen something else. That
->> is fine, just keep that else sorting in the future instead of adding to
->> the end.
-> 
-> Thank you for the feedback, just to confirm are you looking for me
-> to do something like this?:
-> 
-> - description: GSC Based Boards
->         items:
->           - enum:
->               - hpe,gsc-dl340gen12
->           - const: hpe,gsc
-> - description: GXP Based Boards
->         items:
->           - enum:
->               - hpe,gxp-dl360gen10
->           - const: hpe,gxp
+Commit 53a2d95df836 ("usb: core: add phy notify connect and disconnect")
+causes double use of the 'usb3-phy' in certain cases.
 
-Yes, that's the typical/usual way.
+Since that commit, if a generic PHY named 'usb3-phy' is specified in
+the device tree, that is getting added to the 'phy_roothub' list of the
+secondary HCD by the usb_phy_roothub_alloc_usb3_phy() function. However,
+that PHY is getting added also to the primary HCD's 'phy_roothub' list
+by usb_phy_roothub_alloc() if there is no generic PHY specified with
+'usb2-phy' name.
 
-> 
-> That way we have the newest first and going forward if there is
+This causes that the usb_add_hcd() function executes each phy operations
+twice on the 'usb3-phy'. Once when the primary HCD is added, then once
+again when the secondary HCD is added.
 
-Usual order is the alphanumerical.
+The issue affects the Marvell Armada 3700 platform at least, where a
+custom name is used for the USB2 PHY:
 
-> something newer we add it to the top of the list rather than
-> the bottom?
+  $ git grep 'phy-names.*usb3' arch/arm64/boot/dts/marvell/armada-37xx.dtsi | tr '\t' ' '
+  arch/arm64/boot/dts/marvell/armada-37xx.dtsi:    phy-names = "usb3-phy", "usb2-utmi-otg-phy";
 
-If you want to order by date of release of the SoC, that's fine. I think
-Allwinner does it. It's pretty non obvious because the chips are
-upstreamed different time than released, so it is difficult for people
-knot knowing the release dates. Just don't use the rule of "add at the
-beginning" or "at the end".
+Extend the usb_phy_roothub_alloc_usb3_phy() function to skip adding the
+'usb3-phy' to the 'phy_roothub' list of the secondary HCD when 'usb2-phy'
+is not specified in the device tree to avoid the double use.
+
+Fixes: 53a2d95df836 ("usb: core: add phy notify connect and disconnect")
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+---
+ drivers/usb/core/phy.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/core/phy.c b/drivers/usb/core/phy.c
+index 4bba1c2757406a35bf19eb7984a2807212374d18..4d966cc9cdc9510147041df7875ad9e48a9ea3af 100644
+--- a/drivers/usb/core/phy.c
++++ b/drivers/usb/core/phy.c
+@@ -114,7 +114,7 @@ EXPORT_SYMBOL_GPL(usb_phy_roothub_alloc);
+ struct usb_phy_roothub *usb_phy_roothub_alloc_usb3_phy(struct device *dev)
+ {
+ 	struct usb_phy_roothub *phy_roothub;
+-	int num_phys;
++	int num_phys, usb2_phy_index;
+ 
+ 	if (!IS_ENABLED(CONFIG_GENERIC_PHY))
+ 		return NULL;
+@@ -124,6 +124,16 @@ struct usb_phy_roothub *usb_phy_roothub_alloc_usb3_phy(struct device *dev)
+ 	if (num_phys <= 0)
+ 		return NULL;
+ 
++	/*
++	 * If 'usb2-phy' is not present, usb_phy_roothub_alloc() added
++	 * all PHYs to the primary HCD's phy_roothub already, so skip
++	 * adding 'usb3-phy' here to avoid double use of that.
++	 */
++	usb2_phy_index = of_property_match_string(dev->of_node, "phy-names",
++						  "usb2-phy");
++	if (usb2_phy_index < 0)
++		return NULL;
++
+ 	phy_roothub = devm_kzalloc(dev, sizeof(*phy_roothub), GFP_KERNEL);
+ 	if (!phy_roothub)
+ 		return ERR_PTR(-ENOMEM);
+
+---
+base-commit: f50200dd44125e445a6164e88c217472fa79cdbc
+change-id: 20260329-usb-avoid-usb3-phy-double-use-7e498373073c
 
 Best regards,
-Krzysztof
+-- 
+Gabor Juhos <j4g8y7@gmail.com>
+
 
