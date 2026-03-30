@@ -4,121 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFA61061B1F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F0621061B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQFTEDrfiAcnWN3PPrmbTznv/cFOH1dKZ+goNeN26I4=; b=pOtncG6NneFnHjJT9MopAAhewC
-	8+EbE2uumFMSkcyTNMu2Clof1DzuAOQqf/BNCsMhsbHVD0AGSOveaxCaVl4AtuHM6BoTOJxje0c09
-	dUqT82Cee1V3GWdewZHSwLMJzqByMKc6DicTShlFGRYj2VO9M4glJtpjNxQoVT9rOHdTZHEN4OdsC
-	Ifhzh5Suj+qrH18kk5u2mpp9rzD3xVIUWeTXjtSIcUYy+kgzWWB0qb+UdfRaWkUiX0MWxOd0hWhcA
-	YG6SiduKjkxFt3L+PjQibdIPvxDHZuJHdLAMKWBALAhZ1oz3/dsiYDpDWPsgCTMi2/pTH4YbpZRRa
-	cMtFCTwg==;
+	bh=2qHp84u4lfDr+6YeO86QEXq5X1hXYtGUt81s2Al/O8Q=; b=vIdg+VxDI0fYrFnQJnCs2LG2vZ
+	mb3KPTr9IPgOnIWTpf7lkWbwne/NTZf/o3YNgdRvnAXoDdnTDD01yY9oY/uPQ4GznxV6ULJqOvNDM
+	5YzGfdWjsq1bb37J14XI5G5j5+MH+dCDFCCn5g0bSQAhAHKofHdsfCHKuNM4e+AQD4VdkZnsVj4e7
+	WmcvYthmq++2dO0OmwI0im2QGTSgNZ9BVqh1cNUahiPT+Z8ZJ9fek26Oai9oQYHGX9CAaLLrXfHtQ
+	Q/VQifK/aJNgJS6xbu/fihyaHdqlyPUXzIj7O4u7u8BW9qTf5pHsubLsngmBIgBwK+t6k5OjSbssu
+	1j43csmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7JOo-0000000BqYs-14zc;
-	Mon, 30 Mar 2026 20:39:50 +0000
+	id 1w7JOv-0000000Bqdf-063K;
+	Mon, 30 Mar 2026 20:39:57 +0000
 Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7JOU-0000000BqHu-3qZ1;
-	Mon, 30 Mar 2026 20:39:32 +0000
+	id 1w7JOW-0000000BqJc-13h3;
+	Mon, 30 Mar 2026 20:39:33 +0000
 Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8ECB1EC026B;
-	Mon, 30 Mar 2026 16:39:29 -0400 (EDT)
+	by mailfout.phl.internal (Postfix) with ESMTP id 7F473EC0268;
+	Mon, 30 Mar 2026 16:39:31 -0400 (EDT)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Mon, 30 Mar 2026 16:39:29 -0400
+  by phl-compute-02.internal (MEProxy); Mon, 30 Mar 2026 16:39:31 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
 	:content-transfer-encoding:content-type:content-type:date:date
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774903169;
-	 x=1774989569; bh=JQFTEDrfiAcnWN3PPrmbTznv/cFOH1dKZ+goNeN26I4=; b=
-	RGC9roMb53Y8xjPGxZAnZnQj9HcXaHCLS7tnenXBU2YjEKO8Qcx8VcTvSaWa/UtW
-	k5alB3m3/rKCBHD6bI+2t65XmjU/ULdSlSYuHxdSHyHYC4o+ud6jhc5CfaPwjLOX
-	PubJp/BEhCnq3mqPNcqpt7E2714tKuCRH+jCYeelMep2SzQ5zMVL9IFdx1WoNyr1
-	B71wHyOisLqk9k7P2mNSMqjrqfQyeytjINwixHP/wmfCxd/+2S2bObqnhjqf0oMO
-	Oy04vhIc63LiAP/eF1/OU/osz1OG9UYnUkRakiqSeUP/Cc0TGbl4jDXNy+D8DncX
-	Vt6GEWN7szjv1r5n0oUVZw==
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1774903171;
+	 x=1774989571; bh=2qHp84u4lfDr+6YeO86QEXq5X1hXYtGUt81s2Al/O8Q=; b=
+	qzBWrBXdqobl7OWEFOHW5Ie/iW6C1XGik5e0CCJp6Zr+LJkp407jf6UAAGtNrAte
+	hCcV49HDPvfTvqW23e46638OyCeOZrCoqeGZLY6o0E51KuB7cpvVNDgNe20UY+m+
+	RfNk67I0ho6vCT6Ox2Cmt/HDIvRECa2EZ3RV0dnPeN8m2XVOcsql/vUgcHWMuUfD
+	kSFe14Nv+1NFQIopKJ09EqhuEdAvmLRXfniy2jY79K+Jt0Sbl15iAAVZgFM818rf
+	b6QQiQaItrx/wZVWvPF20vS6xBJa5wF3y9RFYXQJ48PDpTYK8ugAsOP1dOF4tVgD
+	lmQASQYURKXR/Ivgf8i0uw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774903169; x=
-	1774989569; bh=JQFTEDrfiAcnWN3PPrmbTznv/cFOH1dKZ+goNeN26I4=; b=F
-	dVHAcgvb8gVxbmu30RJ9qjXAhuUxojA2b4moNdERvrC42w3BytaoUopLZSl874eX
-	+eKCvdl23vzfbSWD0/kXNLXPQUcOGrJRiMJeYUlNtU1gezbbV3x9vvaEkoWXkQWG
-	NA9y3nGZ7s6nJn8oElKVAJdGJ1vmjKEaYt4MUeyuaySKm7vR6Ezqq8ZDyZGQ0p48
-	QwvPbd7puWNJUtYg2Q2htoDvrbWva2J9oZbtnSZYVw53tRCQ0SHqfYKO47YZPa9n
-	iqIrge2IfZZjxFCYWJ3qFbJn0D55L2P13pKw66l6uko7XTEga0kG+5jvXtHQ5oAc
-	8g6BcuKs1u+n67MJCdLgw==
-X-ME-Sender: <xms:gd_KaSQ68BrWZjBxZ04wGYm2AwC15bw29ErQgqMGNbwlvwRUIvhPlg>
-    <xme:gd_KaSntQ_lNLFv2APAlVMvm0DCoa8PyTVN-jCtW6eADAtQqF1prMSQaFqKz2QCw9
-    HcA2-GDTB92mQKS3ljwGvZmw_sdvUOcucsdXq3hZNhSjfhC56RNBAY>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774903171; x=
+	1774989571; bh=2qHp84u4lfDr+6YeO86QEXq5X1hXYtGUt81s2Al/O8Q=; b=H
+	3gkvqX0LporRzlC3FcAo5nJpZl6RPYtsC+3ztrS8yx+V9SmH0m2Ilg23JHIB0v0Z
+	eYi3o1Ujsxm9aa04Ou3HODaZpTVYXjh00vUenEr4D+V1/qEJSxmnKaQ1CBmYWEAI
+	oHzY7+rl1sWWFuiWEq2ar/Bnc3N4S/Nty+mZbWd2jG0LZnXnoi/nUrf7Utcmtn1d
+	0PPLsuHIGqui6ac9aeYsBvHh9eWCnIiBXTi6W8R8EV4+v9waVCSWs2AAKhe3Irrj
+	V1NgaHDoK6YsgwRQarZLpor+xm7m5ERrXFPWvu/yt6Bw0T6L+KDKfanI+86000H/
+	AEtINlQ+gg0QL0YluSUHQ==
+X-ME-Sender: <xms:g9_KaSAQdl5sHgSdhiaXIwVoFehOAwaYsEpHapvDmxzjlNjNIRgLTQ>
+    <xme:g9_KaXVx0MMXhl1FFX5MynmEsPCa567iXztTqP8X4kc9trjLPZyGFkDSymdmedw2k
+    y1l69gUpJJp1iULk8Ily4Y2BFaR9U6e-kGM-u9BmjM7SSi44JN-b7I>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeffeelleeiucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhepoffhfffugggtgffkvfevofgjfhesthejredtredtjeenucfhrhhomheplfgrvhhi
     vghrucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnheptd
-    fghefflefhieffveevtedttdejudefueetvdevvdfffeegffeludevgeehteetnecuffho
-    mhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehflhhoshhssehjvghtmhdrmhgvpdhnsggprhgtphhtthho
-    peelpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhhgvghlohhgihhorggttg
-    hhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohep
-    lhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrthhthhhirg
-    hsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtohepgigvlhhnrghgrgesghhmrghi
-    lhdrtghomhdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtg
-    hpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggv
-    rggurdhorhhgpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrd
-    hinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqsghluhgvthhoohht
-    hhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnh
-    gvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:gd_Kadwh5xW49P5NRt7KL3ftZpOTtjPfThDS5F1n_6JWjBrhRR9aAg>
-    <xmx:gd_KaQUUGisqcz8scXOFYMFtbBpZuq2o9h0zz-8sM6uP9wxF_erwfw>
-    <xmx:gd_KaR_c0O4buppEHuSMz32bdzocVorLB1Zxgy45zb4szozvbG2nTw>
-    <xmx:gd_KabsKSPzWgqvesh_mCh967iGWwjGySh6hyD_ejpJTZ_Mao-A8xw>
-    <xmx:gd_KaasNzrwlAIcDiG6ubxbBnpmpjen4ku2K3qaKT_dcYQ4O1GrNPHwU>
+    efvdefkedutdejfffhheehfffgfedthfeuieeiteetgedttdfhveefledvkeejnecuffho
+    mhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsthgvrh
+    fuihiivgepudenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjhgvthhmrdhm
+    vgdpnhgspghrtghpthhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprg
+    hnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdr
+    tghomhdprhgtphhtthhopehluhhiiidruggvnhhtiiesghhmrghilhdrtghomhdprhgtph
+    htthhopehmrghtthhhihgrshdrsghgghesghhmrghilhdrtghomhdprhgtphhtthhopehm
+    rghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
+    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
+    lhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
+    hrtghpthhtohepjhhnvghtthhosehmihhnvghirhhordhiohdprhgtphhtthhopehlihhn
+    uhigqdgslhhuvghtohhothhhsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    eplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:g9_KadhTOWDxGt_f4uxxRq1VoCd6d-Fp84rRGK3Cp311MYCXVDzlvg>
+    <xmx:g9_KaVHEUUVwiY-af3d11gTknLVdVQ9CFbXUVrQLtzxqhs1FIhkGxw>
+    <xmx:g9_KaXs0-46dD_NR3WY8XKIV3tPTaJt9NrjmlTwvF7YYJAVrk_B6Kw>
+    <xmx:g9_KaedRgnZsTZ0IacTgEOOK2vq4L-_bL2QaTwSsLjXoaG3K3YuddQ>
+    <xmx:g9_KaUNwJWpAyBkeOG6DXHL9wB1AAmQEupii_pPaFJ41Bjxss2LFtV4w>
 Feedback-ID: i9dde48b3:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 6C1951EA006B; Mon, 30 Mar 2026 16:39:29 -0400 (EDT)
+	id 59B4B1EA006B; Mon, 30 Mar 2026 16:39:31 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 From: Javier Tia <floss@jetm.me>
-Date: Mon, 30 Mar 2026 14:39:24 -0600
-Subject: [PATCH v4 2/8] Bluetooth: btmtk: fix ISO interface setup for
- single alt setting
+Date: Mon, 30 Mar 2026 14:39:25 -0600
+Subject: [PATCH v4 3/8] Bluetooth: btusb: Add MT7927 ID for ASUS ROG
+ Crosshair X870E Hero
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260330-mt7927-bt-support-v4-2-cecc025e7062@jetm.me>
+Message-Id: <20260330-mt7927-bt-support-v4-3-cecc025e7062@jetm.me>
 To: Marcel Holtmann <marcel@holtmann.org>,
  Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Ryan Gilbert <xelnaga@gmail.com>
+ Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1386; i=floss@jetm.me;
- h=from:subject:message-id; bh=BeW2hWsgHTDse1WiYc/ZGW8ev0c1HREFra5Yo0QtNu0=;
- b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpyt96xQLJ1xKInvOGY+L6/3C/N96NX9Sl453n9
- 7Hr8Stf68qJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacrfegAKCRC17sMLqGd3
- H9HXC/0RTzkQgqOzxN7Hd+6yML4k0nhRPO1lySrwjRVrtobdHKih5L+DG9DYUYFm7eGDbPVwlpf
- BwtsVW15midbi073Np0k3I/wSAP8MThWbBjkyQvc2eULC5Q6z52Pz5qjFOk+bCrkKf14VjlcJQ3
- EbgYWIkDDiOnr2moHM9fIRm9g00dRe53wVjmJsUPq/oNVJAGhdlwZd4mJ34zxcDufKdZTDNvYQm
- bZFQprR/RdRhzmaqoNgWH10VDj0rz0cgt+0aXzIhTWvJVoa6dIIx3/OAF4VxVcF/t35IfdN1aYG
- gAW6YbS2EfZe1BeDQsalp1pBH0aU4kODXY8r7YR+ge3Mud1WwUb2/J2BVaRHtzYx5jMcf1BLy0n
- CuWWxno3YvDfPmA2gFiNNY5Wlk1ZjI9TV49qnQEUYNZWeZNRftfJHFWvluRZfAWyhEUNSdyQuHb
- qx4Vl4rB7n7Nsi7hYk4tY+/GePkiqb7DL7XfHWkGL3pKEiKa9zc2zxFvdVIoqhxrO0+lA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2196; i=floss@jetm.me;
+ h=from:subject:message-id; bh=M/B2rUsIc9XPtt7O3AdFVlNy7Muc9x3nvF7epwhHRKU=;
+ b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpyt96d/Lwrb45tMsu5QXFTXkhaUZ1jxz9JCX0g
+ v2Apf8Hrp+JAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacrfegAKCRC17sMLqGd3
+ H8xoDACgoAfk/xcP5GhtLL92sxEhxGC2tIz7x+oG7YFL0Bu+73fSWu20nFFG4ky6ejnroO18cvE
+ uLGda8Sk2Ilu5lU/WeWmlz5F624a/MVkGE/mzSKwLLddKLRr/ATF+cenaJ5UMfnvmW3vVjUguam
+ w6uZF8kXYnR4akam+Mz3RDxT8MdVRMvj2jGVa1INafJja3Wt2Q2em5OpZjhEoplz1KS9RS5MEJh
+ fDDhanRtkxQjbQjU/od1TO6K9la3NdVjH2KPQ2g6rW0r1NuCE/PKFJblLGt1GnFyWL5j7esJdON
+ tSzgmnyAJHYXJVAVVMYmq8Q4hbb1YmhXzIqlaC87X9sl24t/2/0pGTcfJ5UvSxK5XdyXINLwY2E
+ ubIdIrwh9ZndvD9pOoyYO3HC/Ss5Mlm0KRdEczVjjbw/gDQWoRahNXZsDLbONZMmqGcaQDM6q9E
+ c/aRjRz6tyEDouqADEwig/n6IvxiqycbfCd+YeXDU/xsgKZnaIjWrarnqP7qIT4lPGU9o=
 X-Developer-Key: i=floss@jetm.me; a=openpgp;
  fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
 In-Reply-To: <20260330-mt7927-bt-support-v4-0-cecc025e7062@jetm.me>
 References: <20260330-mt7927-bt-support-v4-0-cecc025e7062@jetm.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_133931_025120_B920D4FB 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260330_133932_384143_B1CC1B48 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,38 +133,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some MT6639 Bluetooth USB interfaces (e.g. IMC Networks 13d3:3588 on
-ASUS ROG STRIX X870E-E and ProArt X870E-Creator boards) expose only a
-single alternate setting (alt 0) on the ISO interface. The driver
-unconditionally requests alt setting 1, which fails with EINVAL on
-these devices, causing a ~20 second initialization delay and no LE
-audio support.
+Add USB device ID 0489:e13a (Foxconn/Hon Hai) for the MediaTek MT7927
+(Filogic 380) Bluetooth interface found on the ASUS ROG Crosshair X870E
+Hero WiFi motherboard.
 
-Check the number of available alternate settings before selecting one.
-If only alt 0 exists, use it; otherwise request alt 1 as before.
+The information in /sys/kernel/debug/usb/devices about the Bluetooth
+device is listed as the below.
 
-Closes: https://github.com/jetm/mediatek-mt7927-dkms/pull/39
+T:  Bus=01 Lev=01 Prnt=01 Port=05 Cnt=04 Dev#=  5 Spd=480  MxCh= 0
+D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
+P:  Vendor=0489 ProdID=e13a Rev= 1.00
+S:  Manufacturer=MediaTek Inc.
+S:  Product=Wireless_Device
+S:  SerialNumber=000000000
+C:* #Ifs= 3 Cfg#= 1 Atr=e0 MxPwr=100mA
+A:  FirstIf#= 0 IfCount= 3 Cls=e0(wlcon) Sub=01 Prot=01
+I:* If#= 0 Alt= 0 #EPs= 3 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=81(I) Atr=03(Int.) MxPS=  16 Ivl=125us
+E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+I:* If#= 1 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=83(I) Atr=01(Isoc) MxPS=   0 Ivl=1ms
+E:  Ad=03(O) Atr=01(Isoc) MxPS=   0 Ivl=1ms
+I:  If#= 1 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+...
+I:* If#= 2 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
+E:  Ad=8a(I) Atr=03(Int.) MxPS= 512 Ivl=125us
+E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
+
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=221096
+Link: https://github.com/openwrt/mt76/issues/927
 Signed-off-by: Javier Tia <floss@jetm.me>
-Reported-by: Ryan Gilbert <xelnaga@gmail.com>
-Tested-by: Ryan Gilbert <xelnaga@gmail.com>
+Tested-by: Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>
 ---
- drivers/bluetooth/btmtk.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/bluetooth/btusb.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index 4af19b86c551..f8cff895f14c 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -1029,7 +1029,8 @@ static int __set_mtk_intr_interface(struct hci_dev *hdev)
- 	if (!btmtk_data->isopkt_intf)
- 		return -ENODEV;
- 
--	err = usb_set_interface(btmtk_data->udev, MTK_ISO_IFNUM, 1);
-+	err = usb_set_interface(btmtk_data->udev, MTK_ISO_IFNUM,
-+			       (intf->num_altsetting > 1) ? 1 : 0);
- 	if (err < 0) {
- 		bt_dev_err(hdev, "setting interface failed (%d)", -err);
- 		return err;
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index a5e44887a5b5..58309af0f7a2 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -751,6 +751,8 @@ static const struct usb_device_id quirks_table[] = {
+ 						     BTUSB_WIDEBAND_SPEECH },
+ 	{ USB_DEVICE(0x0489, 0xe139), .driver_info = BTUSB_MEDIATEK |
+ 						     BTUSB_WIDEBAND_SPEECH },
++	{ USB_DEVICE(0x0489, 0xe13a), .driver_info = BTUSB_MEDIATEK |
++						     BTUSB_WIDEBAND_SPEECH },
+ 	{ USB_DEVICE(0x0489, 0xe14e), .driver_info = BTUSB_MEDIATEK |
+ 						     BTUSB_WIDEBAND_SPEECH },
+ 	{ USB_DEVICE(0x0489, 0xe14f), .driver_info = BTUSB_MEDIATEK |
 
 -- 
 2.53.0
