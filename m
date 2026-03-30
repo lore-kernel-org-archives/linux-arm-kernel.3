@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F52110D14AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 483C510D14AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=opfaxOPhT6iAK402N9SQHjFMmnwGP8bV8DD5Qr7SvFM=; b=wE/Xw5wMJ7CnkY1PAVOnYNhQ42
-	DRKrUKF13t/ufqwZSN/15ZXDmF8/KXU0wf+v4wBYxE90U+O1FvevaVJLnTJILM3FAph5dQLRxXVKW
-	J0lf1OyzfEA0f0JX3UrAC38x9JGytlIHT4ds8Gdn/VBzltcWJ0TDVWRcSKm6/fDJSGkjSk5ZxDd4U
-	/Y1hINguAnIPkp4LyZ8ywL3sYvmf7J4FDn01VaDvjX7lDM5oVoVIC9C6IPIkSdyuj77VmvLD5Ahfg
-	ZhFp18FryvDYVBtqk5LSC/BHOh6eUT2WeDEbvnJZEpmUL6d2pa0EuhagS7ysGmqSTZ+k20mj5uMnb
-	hiPeAkHw==;
+	bh=ko1IaIbS30UK07529xORwTESC79YHbPzcSNYySWBN3s=; b=Ojtm3okQEo/cW8S6qeNOFzSuKI
+	VXcJ1VbzQZ9/PrmEgD9OffLFj51JfPf9Z/VS2FWfU23HmyAGHIKtjVmjqr8PeAGqFzXBz6MrXz7OK
+	Q6adui5ZUVrHSOYrLEegYIMlBv6Yk6WrbyL/61P87GLTlVOkJoDmWkMceatRI1FA88ZUumFl+cbXC
+	Y/vm3S5N0MSa/UluPjz/RtE8J12JG/DCgs4TxkiHKvtb2yAaOZQzSi4ITFSeX2/+qyL+VU/DLfdlz
+	CK260DnZuvbBnsSM9XZMiOihSJFy14RP0auzRhnoOfLwTFyQpa0yl5kbC6tnveHButMM5J5TZg/Q/
+	ySkWUPnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Bvc-0000000BH7U-0MkJ;
+	id 1w7Bvc-0000000BH81-2Oul;
 	Mon, 30 Mar 2026 12:41:12 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BvW-0000000BH5z-3Nvv
+	id 1w7BvZ-0000000BH6m-0Ng2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:41:07 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62UBZbGh4013544
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:41:06 GMT
+	Mon, 30 Mar 2026 12:41:10 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62U9nAAj3721893
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:41:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	opfaxOPhT6iAK402N9SQHjFMmnwGP8bV8DD5Qr7SvFM=; b=TaGPeOVrGR9zBgAD
-	nstkMpeQuy/3ZwmqZiD2EHTWs+/Ub6gGDHdwcs+Lz4sEaMZhbabQ3yBVe106p2zy
-	vZ//VJlc9jU/nwKsZIOWeRLatPCZTBj5j7N20ICgVYFS8OYDiG4113C86OUMKWwJ
-	ufogVcYrLECvo/CzTye+eemjNJTGXvkMmijtHarHcCWzP6yfPCzv/ofCa+U+o79i
-	v/oFgEojvMnckzxT9PEMEJd6ScET9hS42yVJeH/rirA+8BFu1PEqhXDvVhkzqJE6
-	vWFYyUnvuLm5Z54L24XDEYdHqE0hA1o/BQNShWUB2C2+vB2CnzioKpxhxI5zG2ax
-	pbyLOg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d7regr8pf-1
+	ko1IaIbS30UK07529xORwTESC79YHbPzcSNYySWBN3s=; b=jmrmusQOEXUlkMAU
+	RFn5qgz0heXaQtsy/G/nHKb6zRqKcKUC3ZQSJxeoDhcDzPKpywJcINRj4EVbc+JO
+	JdQMjPmLG0qakAUl2oIC/+QzUuocxqOryXMUucfUlF+zgQcyOcqAq9PoQ6cXydR6
+	1hsce97+sPOMfBC0eeLr1pBnZJ9BxqZ/7ZcPSITCi0uLNMT6hbIxw4LGshTSnVBc
+	hKVfpf/GoHFt4ssLIIT4D9JGinD+9VnjBiEsmbuFkruWuNU1hCegiwx6v+Kxw98R
+	O/lVdHquwLk5dyl7xungLevWAn2MCVmE/obm7qywmyKdw0JWZqCJ6s/dWzBQl5e7
+	6qQYzA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d7pvmrnkc-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:41:06 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50b52a2d70cso131502281cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:41:06 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 12:41:07 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cd781c0d90so1343815185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 05:41:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774874465; x=1775479265; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1774874467; x=1775479267; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=opfaxOPhT6iAK402N9SQHjFMmnwGP8bV8DD5Qr7SvFM=;
-        b=METKwtChVZ5X7fN90ZZi613QzgC8Iglkj8kI5ghfAGZ0OWNWhPQ0ndmrQHS+IFYq8t
-         2kwLILd6BKDUS5Sfx1tkjrLQYsFvm2mWrsS0Gfvb73r/+qPFfF+DzTQXtni0X9+qOAA/
-         DwoRztQxeH8e7NgWsxqKQUOqI3w52zGzu5TR2MlnI21ERfUm4hS/c1dq6PPhoQ+BKv2+
-         5tonmhnXadQv7DVOzazP/Ab25c9J+Ncyv+C/5HqKVU8mlQU2/rlDE+DGV5RTuuQ3XVSq
-         QsToGa0INvfFWOwH5sRW9eBIu0oc761Kb0EzcYA5JipvTT8D0BZQSHVbKwoE0BXI3NaD
-         JnFQ==
+        bh=ko1IaIbS30UK07529xORwTESC79YHbPzcSNYySWBN3s=;
+        b=fWCf+715kD9gmDF9iz2Mizj5v8yGYdkr+RU1ftzfiaOvQIW3TaTRFN84eNz0tD8OHq
+         zTF+IWAzRrVp9+C56/Pv4YllpUkITZ6oXr5sXgKKneMg67l8lF/x7/Td+z6gDVyf7Xso
+         HRjTfyxVqu34UnCOtbaxdFbkltLQKMwciaOBhFizOgne95MigqS9RmATP8jHq3dKQXbZ
+         D/cjdOWHUGpZ6X1fHcQ3nTB03jfNGRBqfrGSsI+kgm8qSPxuLaFn+ZnhvR4ZYUtVaz6c
+         vng0rbC5GZkfnBQJy20+qKoQagzKhZl6eBHamgP/N4UWruPdQkEjb+IjZMS91DMIFr4+
+         3BKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774874465; x=1775479265;
+        d=1e100.net; s=20251104; t=1774874467; x=1775479267;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=opfaxOPhT6iAK402N9SQHjFMmnwGP8bV8DD5Qr7SvFM=;
-        b=n7R9RSnyXYpOuE3B4qVtld7UJFEwC+e3WVvaWujWPVYejwo4jwwzh62aeTx3mSPz8Y
-         X+uwPZyKtqdBGoiRm0ztoNYKUFfgGovNGCxENgTHBqX6EosyyFyQIvmS+UGG1aAeWLpp
-         ZrCwifWva+a+Kniziy/sxTTmImNPJb0KUkYTS9nq1TITFYUtxjHLP1Ql1KHGD0CX0AP9
-         w/hu+bVY6n4SOgQoZBcHgg5FZRAKUChciRNtBanPoImC9Re2VEZkHqc/PfIj6buXghbX
-         HXIU+TiaZcjum693Z6Rkrq9lTs+yRtBo9pVDz3BGz2PbekIfL70KJSjQqEc6i2WKIzlk
-         xWKA==
-X-Forwarded-Encrypted: i=1; AJvYcCXpZ5m3IrnCb71uaD+aOoKIGfM5z3bmGuhHpgjnbs5Z4v4gtBgO6U33h44922GaXYZq2oh2ZY+XdxTws/i9ShaW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7A/6XZQ+mFRMPXYiI/CJEkP25OkZv5YYmb4+bRKh8YzXaMtFa
-	FdhaWSwovZl0h9F/7FWwfqZgJ06R+zltsFpYkdWNwV1QoWA567zxu6HrdcjRHIjxhukhZGXKv24
-	gBuSkTaDiFFIORA1+sQtLFNRYOjxbmTPNfg+q94fMhTvNytQyvpuR6ho04wGiW3vMAtIyzZqK41
-	NYAw==
-X-Gm-Gg: ATEYQzwKCmDGNofYSV9cmycQmWisQmj3tv0ArH4doFieKw7XhRIzfAkcl8W3bpYUpNI
-	nrc4Qhw4UQvVWMTpwZFFYi3AKkgG5Tj2VGqigJKdYOQ0yu6BW08S14vhaqHL3FD8mHeaHr3Len9
-	iSP8cG0gBNr2aoSey4p5pzoIyAaTfnIzZSdyoMgwiVcZ5G4+AAc/JF3ACEZ7w9aPCa0Hzq9iCch
-	3DhC+2wC2pVoc8be/Q3NUYaMtDtMOn8T/zU/g1SfIJQ/vhM8c+tpZBifwbSSZR6/JMWKNaQn6E3
-	peCcZSzIS0zsFlhswaZKa2moS/QZerbTGfpUYm5mOwk8uR0WiXosb2nSupBhn0K1vyY0tkNtvv6
-	zf6Q60gPFu5WZSxEsnKmBDYUbDtdjZEJF7gNCmd3i2z2OaxATIntd
-X-Received: by 2002:a05:622a:4807:b0:50b:3a6d:db5f with SMTP id d75a77b69052e-50ba39bae92mr157209341cf.64.1774874465193;
-        Mon, 30 Mar 2026 05:41:05 -0700 (PDT)
-X-Received: by 2002:a05:622a:4807:b0:50b:3a6d:db5f with SMTP id d75a77b69052e-50ba39bae92mr157208621cf.64.1774874464360;
-        Mon, 30 Mar 2026 05:41:04 -0700 (PDT)
+        bh=ko1IaIbS30UK07529xORwTESC79YHbPzcSNYySWBN3s=;
+        b=qnypSLSudmxCALe19WTQiasRV7SXTUdEm843MMwAWgsE17eouTEn1652zoGoNOUDDz
+         jC8QCiG6b/PPak7FWtj79IYwKF60DzQGjrbp3pNzrJLJB84QkMidkSd3wuQaGRrcg5qk
+         C2dalrkZ80A5HO3rBIg/RL+9ZCbKa3fyL2S44M+iCiqcPjdEZQBXAfskxr5S3sZoCxue
+         6T95Yf/6yWIyN1CHI0rNwgH4AteDHUbcaUm0ZQgNux2xk2sZzwdTTjzIbggg0nSkLiz1
+         eOG3JIQaaQyCWNiGtzOV3jzk6Af4VZfRi53Fv4w+bWbz8YrGppNN/nWE+YvFY7o4tBQ3
+         esxw==
+X-Forwarded-Encrypted: i=1; AJvYcCUpbl4Zg6T2yt2q4LqiZVkS3FNX8J7B2+b/ZeL4UTJ93+BU48kazXDMYM/7hY5QDZyS6Qg/m7k7ezKqscMd8237@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1lu2XWhKxH8y0Qhq83Q3TSMF1B/zIEJpzHjbp5eLFsgl+Qpvc
+	8wlsqxpDle75+a9hghACb2Eim3W0IESknid0qgmKnJp2F1wYp7FH0ezXtnnBL/q0vB/g4XIoyNb
+	CsE/IlRbHX0rdVpu1EZT96qVegNf91TzJjJXiJv8zELF6OanqsO3UqehPZ5h6mWSAEd0c1rnOUr
+	jsmA==
+X-Gm-Gg: ATEYQzwdFc4GOqUZTGBUwAZSZi+2DavLkKwmpmImresHbcXw7aTE7ivOXzBZ3fKxz7k
+	BIYmMn/WczsfOYOqf4bLyENuaFlxW+P3E18m4qfL4ZCdN3eDSrZe96GNLMZmFSScnL+qBr1+Yev
+	YJ+S/s28kbJKEICesD6OFkSqZ294WXhf2J0lO9z4ftEaNfxkWLFcqnhp3JhRV9jHx09aetXPYDH
+	0dP/fXwknNQGddEM+yXmsbWMX+V0C2G5Gq1JNLSKG6gfDIGDjDVSRdN/OB2Yp3F0iQJrhEtr57r
+	VoJoMrMq3uBg8XGyw3OYxnVy2/erS1IM7pR3QEezSC7nSqtAZJ0j5PrfyKfXGKFt7YgIQFU8E8J
+	rtroeiB4KnCRg+REQA2rC2gbwQTaic7LBcg0CF+x2xwam2+ZC1HQM
+X-Received: by 2002:ac8:5a89:0:b0:509:1b5c:fe25 with SMTP id d75a77b69052e-50b994a2ef2mr179889281cf.23.1774874467149;
+        Mon, 30 Mar 2026 05:41:07 -0700 (PDT)
+X-Received: by 2002:ac8:5a89:0:b0:509:1b5c:fe25 with SMTP id d75a77b69052e-50b994a2ef2mr179889051cf.23.1774874466642;
+        Mon, 30 Mar 2026 05:41:06 -0700 (PDT)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:e931:8d81:9955:76ef])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf24739easm19576153f8f.30.2026.03.30.05.41.02
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf24739easm19576153f8f.30.2026.03.30.05.41.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 05:41:03 -0700 (PDT)
+        Mon, 30 Mar 2026 05:41:05 -0700 (PDT)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Mon, 30 Mar 2026 14:40:47 +0200
-Subject: [PATCH v4 2/3] driver core: make software nodes available earlier
+Date: Mon, 30 Mar 2026 14:40:48 +0200
+Subject: [PATCH v4 3/3] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
+Message-Id: <20260330-nokia770-gpio-swnodes-v4-3-b68592e977d0@oss.qualcomm.com>
 References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
 In-Reply-To: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -115,50 +116,51 @@ Cc: brgl@kernel.org, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
         linux-omap@vger.kernel.org,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2409;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7115;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=gJwyjiXRCnugGv/qc4veSv3kjlfeyPx7bWEjN+IOvTI=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpym9XXiSQyC7OynNfgLxf03QB4HoghAslTf5Kn
- jeVOS7U8YOJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCacpvVwAKCRAFnS7L/zaE
- w6QpD/9XIROG3IAgmmHH1FUKBarIpLInEIqyvgVn4+D5u9EYIZqOmm8qK28LuCy2r+XGYofsJmr
- HBMDO98ZjZHo8YCEoD61fK+414ewpgTeAIn8pEsxv/zTAHrbFRiAuizAdCtTDBUnDpRXZGtHdYi
- N354SgY3nGnp1nVldydHpYHbsoGi8gDzOhedaKxKM+S0sYpGaTFaEQdpFlkRIKgRY+vShICU/gz
- ANsxjc85EB5iYpuQail204re8lL67/AmfUOOwVxyeZeTuMXqY+w8qcfjj9IT7FFDSogeeqnKdR3
- dX8WHQDSAOZPFgoUFVVndqOy251BMcBHpMdGlszmE/2IM+dBo/5cPm2OdQYvuVeGVKdJYFzlo6O
- +AFEYhpFuIPn5UIDvoaHr2dXxVgx3WQHRo/LXScWe7n9qokYokPHxWJ+bVp358tqhekgpeRJVIo
- qsg6D7m9aDt9PmPsYy5vuAdaa4NKH8oJimvi68NcJCg3P7xvk5alF94cWBc9rGNyv6CxXLVo3zW
- duLeuK2AZgBWp3CUpkNKBcr90rswv70jRDFpI9kcQweSe/wLdlwXCkrosciwDkGLAbeufagU6q+
- h7G57YM53sWxGuXvtwSkiobFnUQAnLyvQMowiIKJg8PSWgbqZ5CBebTrT+zwfiy0dpsU7p8chvf
- L/eWTFVN7jTl1WQ==
+ bh=84lA+sQad0KFCHbORyyoFKtDWqR/112mWPWVfk7uVlo=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpym9YJCTjMaPTcRorvdqssCYI1k2/E5GJ4jytw
+ ZR57hP5o8uJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCacpvWAAKCRAFnS7L/zaE
+ w0NyEACit79oWBubTSXRaaJq6YU0cV2jClRR5Pm/4h8x5xRF2z/gLJIJSF+x1qXg0yuxJKR2haF
+ 3Z0d+rFQ60Gl3L1OtJnvwMgRypx6zY0Q6MG7Mmy9ECWLZ+NXChFBipM4KtpNPz5dF+q+SieEr0w
+ 64TQJX1O33B2L6MHdyDfT+QDp41ssoIhcVGDGAkzPeNIu+smVIm5BDURH5vyp05vGhHG+6VW9nH
+ 8mfUAAwT6x1XYVl4uiRlKA0i4BVia0WY9+Ex+lMkSulG22R9hbs/iGoCKJEh2i9RJ0XR4KPP21A
+ /40PNmYgZaVxkQHNFFaiDAVO+BbqHxxrFR47tqi/P8PvjiB/yvASU7SeF2s/8cjSD6YRmP7MEMO
+ 6uc39r0lndgV5mL/Uvnv8Z7HCpixxbYh08vw1DgAusvSS6omRm6NGjmQyvvB+8OMynTzNC/P5W3
+ 0npezTcalpAcC5Bhzn9gKkAXDB4abPIm/lsjFRTplB92tVP9ZLpukZ0poUDMekuKEPCtKYhECOa
+ W5whKrHSRxv84A2oE07uonp3s08xZTguhMjkk2MSyTBSLLIdLFV8isuwT9xjQR18W2lH6rZwbhI
+ NG4Qay4HfA4cXVkfjnX7pCsZAkexdAjVBYrKJdsHIYASkj89OmNZetU65DXT9JNARw0ZIFKC6LM
+ tWqkSTVLaXfQ/Lw==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Authority-Analysis: v=2.4 cv=G6wR0tk5 c=1 sm=1 tr=0 ts=69ca6f62 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Proofpoint-GUID: sZtz0hcC0le9jbp7GQy7CfVaNz8JsD67
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMwMDA5OSBTYWx0ZWRfX/Cq6PFRnMGa9
+ bb2NvxZX6BZ4ilsW5DvL3NENKKRMXIl4E6tR4+DlSHEuUf0amo4HhBHt7vzMNxAkqwsJQjBk5qE
+ D7Niqddav1D6+NyLq4kTR9lje9pG/4kimO0gTQgPeCxw4KQSQla7KqR6FpQkW/cENZ2WSy8i0vj
+ jNQLcMLBpqvhDpkUirf7KFxSPL2dwwrw6gdTLG4BcBtFHjSgXMUCibo+Z9kqZtrdThjVp3Dw8Ty
+ m3ed0Id8xVNCqWlHqPtth7c3aYseNWTwoeyhMmlfjtC/+f/OnHUpqrfzszQJvSt8KbpLUj5b4ex
+ GUOvtB+ZkqUwXtWRKNQdCJ33uGl4yx+Qoh7NTA6+E7GZ0A454pK9PTxY8xKRq55vXDOfyDUgRD8
+ kscU0xIJbvuS0Ih7P7L6denQCug6SMgntdZQDkFLpa42v385TKxxgxDNNGc8L6vRe9rhRlkS8q5
+ NPe0t8EwLLu70rCQj3A==
+X-Proofpoint-ORIG-GUID: sZtz0hcC0le9jbp7GQy7CfVaNz8JsD67
+X-Authority-Analysis: v=2.4 cv=S9rUAYsP c=1 sm=1 tr=0 ts=69ca6f63 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=pGLkceISAAAA:8
- a=EUspDBNiAAAA:8 a=XRX4SzNu4mOsujJFFI4A:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMwMDA5OSBTYWx0ZWRfX/5Ksdk/G/ggV
- cYE9rHCiHUCJGwYBhqZUGasdr7VGzVM88rcJLOQF603m8JpNontw98gTP3tAfUvdaWAYfz+palO
- 5Nchz7/5k9Vpkfw6FMl/MA0k8AlJpu/GDRIsKSDMyUOxkmg3UIjWxZgLJ8GrZ7kAia0yYmvzpjV
- Q6EkFTIYa6I3hBZoEGfNVYDan3kiFTz9H5IagkXJGy0ZXeqw7BOsUgqJ4CsNsTyXTHScMQfgSAv
- c1iT2V5DdRQ6t6H8SUt7CFul+XVR8uxIrOOKS/RiiaHYAOVdG38oPIs+llg5kizrxJaxIUI/ve5
- T8X7gGyqbDLUQqf9VyoKg6jdlYaZH3ur8tbRW8pdMv0CPqCmZthPS4jC/OgOJI7yXmoz/V1ZqJS
- Al2cmJoZuI7Hss48gRZJARSqbp0kuGi4Fvkmik0vvSxYvBRJ3AAw8N4H6RUq+vbUn+ultu+F2Qs
- BRzA61cAWr0MbL7+JdA==
-X-Proofpoint-ORIG-GUID: xtlS9El8sYR7uKMiwP6Fnn44MAlReuB8
-X-Proofpoint-GUID: xtlS9El8sYR7uKMiwP6Fnn44MAlReuB8
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=pGLkceISAAAA:8
+ a=EUspDBNiAAAA:8 a=mL5-Ybe71cLVbzrCEFIA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-29_05,2026-03-28_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 clxscore=1015 suspectscore=0 bulkscore=0
- malwarescore=0 adultscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603300099
+ malwarescore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
+ suspectscore=0 lowpriorityscore=0 phishscore=0 priorityscore=1501
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2603300099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_054106_857706_4A23FD59 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260330_054109_706371_9D121849 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,70 +175,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Software nodes are currently initialized in a function registered as
-a postcore_initcall(). However, some devices may want to register
-software nodes earlier than that (or also in a postcore_initcall() where
-they're at the merci of the link order). Move the initialization to
-driver_init() making swnode available much earlier as well as making
-their initialization time deterministic.
+Currently the board file for Nokia 770 creates dummy software nodes not
+attached in any way to the actual GPIO controller devices and uses the
+fact that GPIOLIB matching swnode's name to the GPIO chip's label during
+software node lookup. This behavior is wrong and we want to remove it.
+To that end, we need to first convert all existing users to creating
+actual fwnode links.
 
-Suggested-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Create real software nodes for GPIO controllers on OMAP16xx and
+reference them from the software nodes in the nokia board file.
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Janusz Krzysztofik <jmkrzyszt@gmail.com>
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/base/base.h   |  1 +
- drivers/base/init.c   |  1 +
- drivers/base/swnode.c | 13 ++-----------
- 3 files changed, 4 insertions(+), 11 deletions(-)
+ arch/arm/mach-omap1/board-nokia770.c | 30 +++++-------------------------
+ arch/arm/mach-omap1/common.h         |  3 +++
+ arch/arm/mach-omap1/gpio16xx.c       | 28 +++++++++++++++++++++++++++-
+ 3 files changed, 35 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/base/base.h b/drivers/base/base.h
-index afeda89fd4710c4c5492b5f19134e2aa8e1e581e..30b416588617bbc3fb433654c999c9b533d73752 100644
---- a/drivers/base/base.h
-+++ b/drivers/base/base.h
-@@ -312,6 +312,7 @@ static inline int devtmpfs_create_node(struct device *dev) { return 0; }
- static inline int devtmpfs_delete_node(struct device *dev) { return 0; }
- #endif
+diff --git a/arch/arm/mach-omap1/board-nokia770.c b/arch/arm/mach-omap1/board-nokia770.c
+index a5bf5554800fe17b430e84ae421ffa8da2bb11a0..46f817f6316b70ff37bb9dfde86c675fd692999b 100644
+--- a/arch/arm/mach-omap1/board-nokia770.c
++++ b/arch/arm/mach-omap1/board-nokia770.c
+@@ -36,25 +36,6 @@
+ #include "clock.h"
+ #include "mmc.h"
  
-+void software_node_init(void);
- void software_node_notify(struct device *dev);
- void software_node_notify_remove(struct device *dev);
- 
-diff --git a/drivers/base/init.c b/drivers/base/init.c
-index 9d2b06d65dfc6bf8759f6c232e2d3f753da139ac..af8014416c2460fac91b08ce919c082bf961fcce 100644
---- a/drivers/base/init.c
-+++ b/drivers/base/init.c
-@@ -34,6 +34,7 @@ void __init driver_init(void)
- 	 */
- 	faux_bus_init();
- 	of_core_init();
-+	software_node_init();
- 	platform_bus_init();
- 	auxiliary_bus_init();
- 	memory_dev_init();
-diff --git a/drivers/base/swnode.c b/drivers/base/swnode.c
-index 51320837f3a9f1bf4f65aa161d9b941affc74936..a80575bf598b509eb1469cae8a09c601726ce0c8 100644
---- a/drivers/base/swnode.c
-+++ b/drivers/base/swnode.c
-@@ -1127,18 +1127,9 @@ void software_node_notify_remove(struct device *dev)
- 	}
- }
- 
--static int __init software_node_init(void)
-+void __init software_node_init(void)
- {
- 	swnode_kset = kset_create_and_add("software_nodes", NULL, kernel_kobj);
- 	if (!swnode_kset)
--		return -ENOMEM;
--	return 0;
--}
--postcore_initcall(software_node_init);
+-static const struct software_node nokia770_mpuio_gpiochip_node = {
+-	.name = "mpuio",
+-};
 -
--static void __exit software_node_exit(void)
--{
--	ida_destroy(&swnode_root_ids);
--	kset_unregister(swnode_kset);
-+		pr_err("failed to register software nodes\n");
- }
--__exitcall(software_node_exit);
+-static const struct software_node nokia770_gpiochip1_node = {
+-	.name = "gpio-0-15",
+-};
+-
+-static const struct software_node nokia770_gpiochip2_node = {
+-	.name = "gpio-16-31",
+-};
+-
+-static const struct software_node *nokia770_gpiochip_nodes[] = {
+-	&nokia770_mpuio_gpiochip_node,
+-	&nokia770_gpiochip1_node,
+-	&nokia770_gpiochip2_node,
+-	NULL
+-};
+-
+ #define ADS7846_PENDOWN_GPIO	15
+ 
+ static const unsigned int nokia770_keymap[] = {
+@@ -112,7 +93,7 @@ static const struct omap_lcd_config nokia770_lcd_config __initconst = {
+ };
+ 
+ static const struct property_entry nokia770_mipid_props[] = {
+-	PROPERTY_ENTRY_GPIO("reset-gpios", &nokia770_gpiochip1_node,
++	PROPERTY_ENTRY_GPIO("reset-gpios", &omap16xx_gpio1_swnode,
+ 			    13, GPIO_ACTIVE_LOW),
+ 	{ }
+ };
+@@ -138,7 +119,7 @@ static const struct property_entry nokia770_ads7846_props[] = {
+ 	PROPERTY_ENTRY_U16("ti,x-plate-ohms", 180),
+ 	PROPERTY_ENTRY_U16("ti,debounce-tol", 3),
+ 	PROPERTY_ENTRY_U16("ti,debounce-rep", 1),
+-	PROPERTY_ENTRY_GPIO("pendown-gpios", &nokia770_gpiochip1_node,
++	PROPERTY_ENTRY_GPIO("pendown-gpios", &omap16xx_gpio1_swnode,
+ 			    ADS7846_PENDOWN_GPIO, GPIO_ACTIVE_LOW),
+ 	{ }
+ };
+@@ -225,9 +206,9 @@ static inline void nokia770_mmc_init(void)
+ #if IS_ENABLED(CONFIG_I2C_CBUS_GPIO)
+ 
+ static const struct software_node_ref_args nokia770_cbus_gpio_refs[] = {
+-	SOFTWARE_NODE_REFERENCE(&nokia770_mpuio_gpiochip_node, 9, 0),
+-	SOFTWARE_NODE_REFERENCE(&nokia770_mpuio_gpiochip_node, 10, 0),
+-	SOFTWARE_NODE_REFERENCE(&nokia770_mpuio_gpiochip_node, 11, 0),
++	SOFTWARE_NODE_REFERENCE(&omap16xx_mpu_gpio_swnode, 9, 0),
++	SOFTWARE_NODE_REFERENCE(&omap16xx_mpu_gpio_swnode, 10, 0),
++	SOFTWARE_NODE_REFERENCE(&omap16xx_mpu_gpio_swnode, 11, 0),
+ };
+ 
+ static const struct property_entry nokia770_cbus_props[] = {
+@@ -318,7 +299,6 @@ static void __init omap_nokia770_init(void)
+ 	/* Unmask SleepX signal */
+ 	omap_writew((omap_readw(0xfffb5004) & ~2), 0xfffb5004);
+ 
+-	software_node_register_node_group(nokia770_gpiochip_nodes);
+ 	platform_add_devices(nokia770_devices, ARRAY_SIZE(nokia770_devices));
+ 
+ 	gpiod_add_lookup_table(&nokia770_irq_gpio_table);
+diff --git a/arch/arm/mach-omap1/common.h b/arch/arm/mach-omap1/common.h
+index 7a7c3d9eb84a06c18fbc70e7c94a161b487cd002..c0f6e231fdb4422c5d2c1aa3e33dd6dd99d2710e 100644
+--- a/arch/arm/mach-omap1/common.h
++++ b/arch/arm/mach-omap1/common.h
+@@ -35,6 +35,9 @@
+ #include "soc.h"
+ #include "i2c.h"
+ 
++extern const struct software_node omap16xx_mpu_gpio_swnode;
++extern const struct software_node omap16xx_gpio1_swnode;
++
+ #ifdef CONFIG_OMAP_SERIAL_WAKE
+ int omap_serial_wakeup_init(void);
+ #else
+diff --git a/arch/arm/mach-omap1/gpio16xx.c b/arch/arm/mach-omap1/gpio16xx.c
+index 55acec22fef4e73f20935473602ef6cb2f4f379c..e371183e0213912ebfa7edd34ca7e7683869ab12 100644
+--- a/arch/arm/mach-omap1/gpio16xx.c
++++ b/arch/arm/mach-omap1/gpio16xx.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #include <linux/platform_data/gpio-omap.h>
++#include <linux/property.h>
+ #include <linux/soc/ti/omap1-io.h>
+ 
+ #include "hardware.h"
+@@ -55,6 +56,8 @@ static struct omap_gpio_platform_data omap16xx_mpu_gpio_config = {
+ 	.regs                   = &omap16xx_mpuio_regs,
+ };
+ 
++const struct software_node omap16xx_mpu_gpio_swnode = { };
++
+ static struct platform_device omap16xx_mpu_gpio = {
+ 	.name           = "omap_gpio",
+ 	.id             = 0,
+@@ -99,6 +102,8 @@ static struct omap_gpio_platform_data omap16xx_gpio1_config = {
+ 	.regs                   = &omap16xx_gpio_regs,
+ };
+ 
++const struct software_node omap16xx_gpio1_swnode = { };
++
+ static struct platform_device omap16xx_gpio1 = {
+ 	.name           = "omap_gpio",
+ 	.id             = 1,
+@@ -122,6 +127,8 @@ static struct resource omap16xx_gpio2_resources[] = {
+ 	},
+ };
+ 
++static const struct software_node omap16xx_gpio2_swnode = { };
++
+ static struct omap_gpio_platform_data omap16xx_gpio2_config = {
+ 	.bank_width		= 16,
+ 	.regs                   = &omap16xx_gpio_regs,
+@@ -155,6 +162,8 @@ static struct omap_gpio_platform_data omap16xx_gpio3_config = {
+ 	.regs                   = &omap16xx_gpio_regs,
+ };
+ 
++static const struct software_node omap16xx_gpio3_swnode = { };
++
+ static struct platform_device omap16xx_gpio3 = {
+ 	.name           = "omap_gpio",
+ 	.id             = 3,
+@@ -183,6 +192,8 @@ static struct omap_gpio_platform_data omap16xx_gpio4_config = {
+ 	.regs                   = &omap16xx_gpio_regs,
+ };
+ 
++static const struct software_node omap16xx_gpio4_swnode = { };
++
+ static struct platform_device omap16xx_gpio4 = {
+ 	.name           = "omap_gpio",
+ 	.id             = 4,
+@@ -201,6 +212,14 @@ static struct platform_device *omap16xx_gpio_dev[] __initdata = {
+ 	&omap16xx_gpio4,
+ };
+ 
++static const struct software_node *omap16xx_gpio_swnodes[] __initconst = {
++	&omap16xx_mpu_gpio_swnode,
++	&omap16xx_gpio1_swnode,
++	&omap16xx_gpio2_swnode,
++	&omap16xx_gpio3_swnode,
++	&omap16xx_gpio4_swnode,
++};
++
+ /*
+  * omap16xx_gpio_init needs to be done before
+  * machine_init functions access gpio APIs.
+@@ -208,7 +227,7 @@ static struct platform_device *omap16xx_gpio_dev[] __initdata = {
+  */
+ static int __init omap16xx_gpio_init(void)
+ {
+-	int i;
++	int i, ret;
+ 	void __iomem *base;
+ 	struct resource *res;
+ 	struct platform_device *pdev;
+@@ -244,6 +263,13 @@ static int __init omap16xx_gpio_init(void)
+ 		iounmap(base);
+ 
+ 		platform_device_register(omap16xx_gpio_dev[i]);
++
++		ret = device_add_software_node(&omap16xx_gpio_dev[i]->dev,
++					       omap16xx_gpio_swnodes[i]);
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to add software node.\n");
++			return ret;
++		}
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.47.3
