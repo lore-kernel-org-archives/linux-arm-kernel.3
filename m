@@ -4,77 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30A810D14AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD8110D14B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=neu4ARCwcfoinhz170R6LNmDJUciz9Vr0r4/+mMh+SI=; b=Adx68S5qDGp0/u4ko63beeH7xW
-	udCzxFFlU9qf4cJcJwe/slRp1NyIqYyIu6ek97XYrk69iYsASKMnCYmtO3GafV1SQo+YChNwRXnSg
-	ysZ8AcYSlfYk12QLehqEhmCBwjqppiEd2z0ngjy+Mar5WcKxMpleilI0tfQRUhCVH7jyPQS4eJt94
-	z//lJ0FvmGNRAt0XPPpoblMAK/ZJXPL7H0IuQbZcBV1WSsYQ00YiXEgb50vKJu8hDrIAe01OYBlLB
-	9hX5LrFpE7l2u+QBoWC3GVI2U6GTrFgcQr4fl0yV8RKFaFg9OXLzecFbxXuuOD1Cfr5o6HSbIxVR3
-	ASoLVTOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ONavb0+pZudF0+m2/apqyNvxX0FpaAFEIbQ4JQ1lUgA=; b=5F+ndqolc/CWKLfxUNOVb+rCZM
+	DSDXN9UjrKowIWGbXQyMeIAL+aXzq5r6RPmmYAqDnLL07hPK55gP9+FXGmiNZfLbgWbJT8CiHPDLs
+	IIPghRnkPqm8M3Im0wQ+bJopT+z6SfuopUBjKd3FLZ1BmqA7a2hg0UAsWNdytTB3R9l+SWBCjCALt
+	Fp4NrZ+jyWcOC82yw1Bxma7kh+YELhikzk/tSujMQ442KEpOXANLfJSj3LKxc0ztHvx4jsaeSmy0z
+	WpkD+NYtsAaX/ui13SZA9oA0M1nqSJobV6oIPwEps/Rtps8n0TgpnfklkVxSp4DAmCIj2wFb17cLe
+	GcdwAlkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CZK-0000000BLV8-2QEN;
-	Mon, 30 Mar 2026 13:22:14 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w7CZe-0000000BLaJ-41ve;
+	Mon, 30 Mar 2026 13:22:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CZH-0000000BLUB-1GKC
+	id 1w7CZd-0000000BLZb-2c4R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 13:22:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=neu4ARCwcfoinhz170R6LNmDJUciz9Vr0r4/+mMh+SI=; b=0gEg9KebiJm2KpoeNAh/J7egLy
-	BASIfKM3/qG1q4MpPqWRIHSzKy9xyMNPDWm78WnSMZQHQ5amOmm4E7FCwK1OH2RhKPSFIGrCJDegJ
-	VNQvnlysdvTZ7Zij3PesRxgZ9MNE+EsosQ0lwiSbLPbwzzZVYXsH8+Ld9WIyGpyQkMshGlkwiJDso
-	sE/9KiMQ3U7uxLxH9wU/2uVOz3NHe1g/62zeUA+mWGV3o2CrrBV1maSW9o3nhJ+9BnT0K9KkNPcx8
-	RyxMeayliIB1F8xfFm8dxKdM+fY0s4ZMADAOoODFmPJjP9o5dwb9D8VSNBT48GQSUdUTEsjNXEQqM
-	zNjCqXyQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35698)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w7CZ8-000000000X1-3ZfD;
-	Mon, 30 Mar 2026 14:22:02 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w7CZ5-000000002hc-2jMj;
-	Mon, 30 Mar 2026 14:21:59 +0100
-Date: Mon, 30 Mar 2026 14:21:59 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next] net: stmmac: qcom-ethqos: set clk_csr
-Message-ID: <acp490PTrVCWjiqT@shell.armlinux.org.uk>
-References: <E1w6AZm-0000000E54W-1F6E@rmk-PC.armlinux.org.uk>
- <9d0a529a-d065-4f46-a93b-23195a4f9727@oss.qualcomm.com>
- <acpqgpCsbo3lJs3l@shell.armlinux.org.uk>
- <0d650de4-eb45-481b-8c39-1bf455b948c9@lunn.ch>
+	Mon, 30 Mar 2026 13:22:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 404CF4413C;
+	Mon, 30 Mar 2026 13:22:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69063C4CEF7;
+	Mon, 30 Mar 2026 13:22:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774876953;
+	bh=nLOPrs7U75JidMBlqOihmcogpSv3DBnnNFkK3D0ESns=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=avMIa3I06doTRPc49LWb5xR5CP5Fk/Z6hmky22y17O1n9l/d7lEGmD+GG2m+ZZ9eA
+	 mgtl5lHpfSMR5y3ncdjODvwTJPY+Rvm0mU+0PrOWWcvq9nJaYnyd3q47bHWQ5ntK55
+	 nYdBXE/oT4q4k+tPiQQRf34ljWW10FxDEVFyj6ou5KTQrjmnShQ17SP/Mrfu5JlbUb
+	 WWrgAFVon+nWBJwuNBps+Usrcpt2zTAJMgmhzw3isFfsLd9Kb/xpG5XW8OS/KcZhDO
+	 rOWbvWGlR+4CHlccHOpuTULY9N+zyNvoOf/rFVhQe23JofAk2vqCP0sI97FvHqWzSa
+	 Sm1+G1F3ut09Q==
+Message-ID: <da225ab1-d659-455d-b3c9-e7ff4864119e@kernel.org>
+Date: Mon, 30 Mar 2026 15:22:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0d650de4-eb45-481b-8c39-1bf455b948c9@lunn.ch>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] cpufreq: ti: Add device link to k3-socinfo
+To: Akashdeep Kaur <a-kaur@ti.com>, praneeth@ti.com, nm@ti.com,
+ vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, d-gole@ti.com
+Cc: vishalm@ti.com, sebin.francis@ti.com, k-willis@ti.com
+References: <20260330120105.2985200-1-a-kaur@ti.com>
+ <20260330120105.2985200-6-a-kaur@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260330120105.2985200-6-a-kaur@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_062211_355621_39BFC3E9 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260330_062233_706924_FD2F2D95 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +121,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 02:35:39PM +0200, Andrew Lunn wrote:
-> On Mon, Mar 30, 2026 at 01:20:18PM +0100, Russell King (Oracle) wrote:
-> > On Mon, Mar 30, 2026 at 01:18:56PM +0200, Konrad Dybcio wrote:
-> > > On 3/27/26 6:02 PM, Russell King (Oracle) wrote:
-> > > > The clocks for qcom-ethqos return a rate of zero as firmware manages
-> > > > their rate. According to hardware documentation, the clock which is
-> > > > fed to the slave AHB interface can crange between 50 and 100MHz.
-> > > 
-> > > FWIW this __may__ possibly differ between platforms, but I'm not sure
-> > > to what degree. Will there be visible impact if we e.g. have a 200 or
-> > > 300 MHz clock somewhere?
-> > 
-> > When you add other platforms, you're going to have to deal with their
-> > differences.
-> > 
-> > IEEE 802.3 states that the maximum clock rate for the MDIO bus is
-> > 2.5MHz. You need to ensure that is the case.
-> > 
-> > Current qcom-ethqos code doesn't set clk_csr, and returns zero for
-> > clk_get_rate() on the stmmac clocks because they are managed entirely
-> > in firmware.
-> 
-> Could a fixed clock be used in DT to represent clk_csr? Different
-> platforms then set it to different frequencies, to represent whatever
-> the firmware is doing.
+On 30/03/2026 14:01, Akashdeep Kaur wrote:
+>  	opp_data->cpu_dev = get_cpu_device(0);
+>  	if (!opp_data->cpu_dev) {
+> @@ -560,6 +563,42 @@ static int ti_cpufreq_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto fail_put_node;
+>  
+> +	/* Create device link to k3-socinfo if specified in DT */
+> +	if (opp_data->soc_data == &am625_soc_data ||
+> +	    opp_data->soc_data == &am62a7_soc_data ||
+> +	    opp_data->soc_data == &am62l3_soc_data ||
+> +	    opp_data->soc_data == &am62p5_soc_data) {
+> +		struct device_node *socinfo_np;
+> +
+> +		socinfo_np = of_parse_phandle(opp_data->opp_node, "ti,soc-info", 0);
 
-Unfortunately, at hardware level, clk_csr isn't a separate clock input
-as such. It can be one of many, depending on the synthesis options
-chosen by the designer. It may be hclk (AHB clock), aclk (AXI clock)
-clk_app (application clock) or a specific clk_csr input.
+Undocumented ABI.
 
-Nothing is simple with dwmac. :/
-
-The problem with adding a ficticious clock to solve this is that it
-adds to implementers confusion for what is already a very complicated
-problem.
-
-We've already seen that the stmmac clocks are a total trainwreck
-because no one seems to really understnad what is what, and that goes
-back to the days when that "apb" clock was added - and that made the
-situation worse not better.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards,
+Krzysztof
 
