@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A970FF495E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16683FF495E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaGpJgvU7fzaZHNV9egMJ09PF1OrT8PBmReLhVLOy8s=; b=zFVDRbQIXSloZldbpJNHEHnmHa
-	foQHaaCx0KvFgXHf/UpOMG9K9TwKxn0IVOv5G+PkTKcUr+jZW6ieiKdAFTgvHcHRhYSB0cw6GE/2i
-	DFkVMc93JeOvRSlcC6JJdrZ8A+b4ZkXjGUZUqNaKxm7Hs/+zqdoa26+oTIupxRuS7rYCCfMig7TaJ
-	9VoobGYoGfv1oPj05ciY0ddnFdfcScFNN5VtINjX710bTl8SCp5u84yXbfjZiX9IkE7788TCXOWOP
-	dyt/MYujzbC5NzbLK5W4qg8rPXAp9OBO43NF4J+8YpTQogPMjZCVAGhTmB3elsbiJQbHOqfYARXGM
-	wDmwRPcg==;
+	bh=2mIIEb1EA+uewi2wstHd8yBhZNS073zT/E0vuu7ZcMk=; b=K8lGzAosdxSd070Eh2/9wVzIfh
+	WScgr10gGbms3qXFtlaP+13bGdpGInVK32lkK3SMmHpedbfZImxhJAePQcBuJ145STE4oM0y81oB/
+	/wBQgrlT93b+e8E7fMztzo6olFOR6S/SfDaE7SmDeao6uLUKSEWb8hUkxf0gvzYzzRMR8LKE7FlQw
+	L9vfLNeBeQBs4Gta0B+ph45SJJYsHBp9aZ14AoHrHG+bm8mdLNYt/W/FdITanNNIRaCHBv9uibFaV
+	MrrHwd30qGw/tJm//Uc+NH9vMR3mYNsCTAhM1P8GWnYaAyfz2wn//E7GhWA3z0TebtD5/22/kufT5
+	PV9WLfaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DAv-0000000BNvF-1OiF;
-	Mon, 30 Mar 2026 14:01:05 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
+	id 1w7DIT-0000000BOFi-0ujk;
+	Mon, 30 Mar 2026 14:08:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DAs-0000000BNtm-2SeX
+	id 1w7DIQ-0000000BOFH-104F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:01:04 +0000
-Message-ID: <e3876d3f-0e86-4542-861d-2de3d0cbf66e@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774879244;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CaGpJgvU7fzaZHNV9egMJ09PF1OrT8PBmReLhVLOy8s=;
-	b=lS9w9BPlpn3w7Y6et2LBOIXHgvvaMn9p28qX39J+x4F8xAvdXoNIWXQtnIFst7cGSn4B8i
-	lEUcuiFbizFcrIFZoDdU/tj2oIyK1tlAj28oBGq0wenPC6w5RPlSLYdxJN2bXYd0fqqi/3
-	hAOTBN1N5ysSW5IbJMAZcoTn0ZQ4JsI=
-Date: Mon, 30 Mar 2026 15:00:40 +0100
+	Mon, 30 Mar 2026 14:08:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A0EBF44579
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:08:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CA3C2BCB5
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:08:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774879729;
+	bh=UBMvKa6530vLa0XbCReC9z5oa2AyiAgd7zjDJyxTv74=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=uuP7Z1KsMgAA6tSsPe2Z5q0aw+WmtfZ+YM3g7RqLtOGZbCjBUCFDGPXKx1sZgMUTW
+	 5Bv24X1+9iOsLr8H5S0AxGPl5YVOjUUerA2gE4NkPS6v+P8//CqoiKR3akGiuY/9nn
+	 lfPWH9fALC2uJtMI7+dGs+kcW4lLy1bGguXutCbJffPStgYy71J8RZrhVBGFGPQ/D5
+	 F22RwOEq+Vly6dJixo51icP4mdgf9gnXn3g/rAQ04jobWUTbFQ8h/DfIOkctYqrTt/
+	 clayt7zBzx5tFb6Osuqcdlzia+Eccuc4WB2rwJE9J9TxMCXDdnVPdarIcRLwkCgrRr
+	 pd1UrbPCRMpEw==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38b13652c87so38265591fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 07:08:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWFcFSdy8Og8KW6KCJfI34sIjDdbtWyBQOThw8krC82kGCijGG1R9LVbDgWuQFT2+PJsdXe1soUqoci48S/BzpB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBWEZtiomNOuobWw25UZ4LE/BIacgBP+uiRzA5ake7dAbgjiJt
+	YQGDinhsX/9mh+IQTyToxAquKnLhME9fBYmPDiSCaT5v/2b9DoARrrOr7/V+GMo2B1hz5TINr40
+	wC0eES7gdu6Ku6aNMJlA4mhWGZy0LdxaMFYDh48sR7w==
+X-Received: by 2002:a2e:a548:0:b0:38a:43eb:239e with SMTP id
+ 38308e7fff4ca-38c73192b65mr45193471fa.13.1774879728025; Mon, 30 Mar 2026
+ 07:08:48 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 3/4] elf: align ET_DYN base to max folio size for PTE
- coalescing
-Content-Language: en-GB
-To: Matthew Wilcox <willy@infradead.org>, WANG Rui <r@hev.cc>
-Cc: Liam.Howlett@oracle.com, ajd@linux.ibm.com, akpm@linux-foundation.org,
- apopple@nvidia.com, baohua@kernel.org, baolin.wang@linux.alibaba.com,
- brauner@kernel.org, catalin.marinas@arm.com, david@kernel.org,
- dev.jain@arm.com, jack@suse.cz, kees@kernel.org, kevin.brodsky@arm.com,
- lance.yang@linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, lorenzo.stoakes@oracle.com, mhocko@suse.com,
- npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
- rppt@kernel.org, ryan.roberts@arm.com, surenb@google.com, vbabka@kernel.org,
- viro@zeniv.linux.org.uk
-References: <0725ce97-b8a3-47c9-952f-7b512873cc35@linux.dev>
- <20260329043700.19355-1-r@hev.cc> <acpy6DLjPVXXzwJX@casper.infradead.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <acpy6DLjPVXXzwJX@casper.infradead.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
+ <DHG5OX85I4LL.39U0RRBS0JXFP@kernel.org> <CAMRc=MfG1ZF=4T2WAw71Zb+4BFD2_4VSNRQZQsoGLE8gZxWcHg@mail.gmail.com>
+In-Reply-To: <CAMRc=MfG1ZF=4T2WAw71Zb+4BFD2_4VSNRQZQsoGLE8gZxWcHg@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 30 Mar 2026 16:08:35 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Md4gD+9Rkg9MSe0OiYw-bS53nMAarFq_MZZHEq=yxYwVQ@mail.gmail.com>
+X-Gm-Features: AQROBzCZ3sn6YhqN7BcNEXBcWbVXRGN722aFgaQTZcIuW6VGsXjtEbj0I4HGOcQ
+Message-ID: <CAMRc=Md4gD+9Rkg9MSe0OiYw-bS53nMAarFq_MZZHEq=yxYwVQ@mail.gmail.com>
+Subject: Re: [PATCH v4 0/3] ARM: omap1: use real firmware node lookup for
+ GPIOs on Nokia 770
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_070102_802962_A1E7F508 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20260330_070850_468971_0AE4CD8D 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 30, 2026 at 3:52=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
+>
+> On Mon, Mar 30, 2026 at 3:37=E2=80=AFPM Danilo Krummrich <dakr@kernel.org=
+> wrote:
+> >
+> > On Mon Mar 30, 2026 at 2:40 PM CEST, Bartosz Golaszewski wrote:
+> > > Bartosz Golaszewski (3):
+> > >       kernel: ksysfs: initialize kernel_kobj earlier
+> > >       driver core: make software nodes available earlier
+> > >       ARM: omap1: enable real software node lookup of GPIOs on Nokia =
+770
+> >
+> > Looks good to me overall (one minor nit in the first patch); which tree=
+ should
+> > this go through?
+>
+> If the first two patches can make v7.1 then I'm fine with postponing
+> patch 3 until v7.2. Maybe Dmitry's changes allowing passing
+> unregistered software nodes to new platform devices (where are we with
+> this?) would also make it in and patch 3/3 could be smaller as a
+> result.
+>
 
+In other words: patches 1 and 2 can go though the driver core tree
+into v7.1 and patch 3/3 will be respun next cycle.
 
-On 30/03/2026 15:56, Matthew Wilcox wrote:
-> On Sun, Mar 29, 2026 at 12:37:00PM +0800, WANG Rui wrote:
->>> mapping_max_folio_size() reflects what the page cache will actually
->>> allocate for a given filesystem, since readahead caps folio allocation
->>> at mapping_max_folio_order() (in page_cache_ra_order()). If btrfs
->>> reports PAGE_SIZE, readahead won't allocate large folios for it, so
->>> there are no large folios to coalesce PTEs for, aligning the binary
->>> beyond that would only reduce ASLR entropy for no benefit.
->>>
->>> I don't think we should over-align binaries on filesystems that can't
->>> take advantage of it.
->>
->> Ah, it looks like this might be overlooking another path that can create
->> huge page mappings for read-only code segments: even when the filesystem
->> (e.g. btrfs without experimental) didn't support large folios,
->> READ_ONLY_THP_FOR_FS still allowed read-only file-backed code segments
->> to be collapsed into huge page mappings via khugepaged.
-
-ah yes, Thank you for pointing this out!
-
-Maybe we should rename mapping_max_folio_size() to mapping_fault_max_folio_size().
-
->>
->> As Wilcox pointed out, it may take quite some time for many filesystems
->> to gain full large folio support? So what I'm trying to clarify is that
->> using mapping_max_folio_size() on this path is not favorable for
->> khugepaged-based optimizations.
-
-ack
-
-I am worried that 32M is too large and we lose out on a lot of ASLR bits.
-Instead of PMD_ORDER, should we do max(SZ_2M, PMD_ORDER)?
-
-> Nono, that's not what I'm pointing out!  btrfs is simply not putting
-> in the effort to support large folios, and that needs to change.
-> READ_ONLY_THP_FOR_FS unnecessaily burdens the rest of the kernel.
-> It was a great hack for its time and paved the path for a lot of what
-> we have today, but it's time to remove it.
-
+Bart
 
