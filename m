@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 453DAFF4956
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 07:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AF0FF4956
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 07:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xw+dDc76MO/W6Zu1Yd9OI9SCCjLPLtfQ9bJrtIRoe5g=; b=tD7gJN5wpwiudh9CJvpPIoU2yP
-	9P3AdeKZThry+7KPjL1ZPzELHoZv+/7YTopOTPIri4wzhDUKSKHuOSK+uLOVGmAz3gnQLvdZZljsN
-	jyLYpYX7ceetRVp2JJHKA95h4EqBqO4ZdkwPPF99ui0ONlK+Ds4RwIAdss+bSccjvgiKIq2AkE4it
-	UhSjFITCOEq5pWRPW5LqPQE8v6sDumQvN83O1bBBalDaawjBDGTqmSiCyPbki42DNWh6gJ4JJolzc
-	L8En4hzZqb0ORRzatKK2WfyDwN4YdscgZjX+rlyKcp473NSeJZemgUJn3A/veuy6VnW92G3p5cn9m
-	lFo46d3g==;
+	bh=cvRc8/vQsRdHMmvU9XneXShCil42foLEEHlhCzha6vE=; b=sQYkfZ714ZMnZ2ad1CPKQCXkDg
+	QNju+leSZlTDvW2ZqW99tX79fxsjtuC1wcISd+4St3rgSsNWRtLg/3CM5mrFTRrkWVgIHOBS6ypVs
+	UKJFRbpkWK70bt4DpnEAcBTVg+sZaAXvvnm6UyTGKOjalQutfTIRHoV7i8Xvfh3iaunScDYRFPSUb
+	lKY/xqewOxsQVRsH4Y4Y5EsekEyT8ZPKagiCnbrGiCgvuYtCIO1aF64deQfY0sG26xhJ3+I5q/Par
+	65OWR6Jk0Ymwl0S+jTuAX4A+H+5Pe8skcP5EhMXDFsfdssxAjAEOgXUwICFTb7GuqvJyBGw01mRiu
+	idV60fCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w76wJ-0000000Akva-0tS3;
-	Mon, 30 Mar 2026 07:21:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w76wv-0000000Akzu-2FNm;
+	Mon, 30 Mar 2026 07:22:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w76wH-0000000AkvU-31d1
+	id 1w76ws-0000000AkzT-1VAT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 07:21:33 +0000
+	Mon, 30 Mar 2026 07:22:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD273600AC;
-	Mon, 30 Mar 2026 07:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F26A8C4CEF7;
-	Mon, 30 Mar 2026 07:21:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B2C044099;
+	Mon, 30 Mar 2026 07:22:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44BFC4CEF7;
+	Mon, 30 Mar 2026 07:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774855292;
-	bh=o3Et1NtRWZGCHJSScVwUEUiAkoBRhbPjg9+RqO4e9+E=;
+	s=k20201202; t=1774855329;
+	bh=y9mD+65Lfnb411B/kfQPwX/qSL7/8ZFUg+bOT7K+rGQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DkVLn3lF1YQszaC8FfEJhY0ghQja6SEHTjE/W2px2PnKaRX0LJv7TUW2n82nUA9E+
-	 BGpKs+0qf/IeFHb2arM+7tEBLL2QRpvd+HfPXiRHUXD3nDEVU+rjyLrsagNzixYY9L
-	 lqBJUP7I3gmIcBjNO8cjHXQbBVP658zFeufe/uWUWweYASqj0q4aLUcSlHGHaGIM2C
-	 D9FX80lmBQjLBcJ+7TXlimEteOuPF9+jTmsQU0Hze0sqiDeR+dWdVa8cIzV6VAft4V
-	 0nF7aE2xQR8UNhDj8QvyWIKMl5aWpK6TtW34gMguWm9CjGk45wBXdC7c3sxula1ksC
-	 29LElVNPan7tQ==
-Date: Mon, 30 Mar 2026 09:21:29 +0200
+	b=Oaw7gFD1elda2OVOh5Mf2F+21lWFSJ6PFcjYNXBpLh7kYUqXGWm91AkDoESlBm7Pn
+	 uxPYKRpAkL+oYRIVQmIHr98FHYjQ10R0wM1v4tVmyWnri2w3N0Vd4mtQCPq0HjiZlf
+	 iLmU29HaIMaTpc70mpC4Gh26jLbB6+1q2zQoD6PEvNcNrvtpqEpXWEnuEE2AdgYLdL
+	 zpPR1h6pELEN2H0aR5XXYG20V/L/F76hlGNsJa1R5iYUJ0Lt5yydyACY0u6qhaDP9x
+	 4uSuRO7od9Miwn9qpJtEzSmo6h10BBQinoPdGqTC23vrORJUzCPkoXofndbE6C3TK1
+	 BXbJ0u0opLehg==
+Date: Mon, 30 Mar 2026 09:22:06 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Khushal Chitturi <khushalchitturi@gmail.com>
 Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
@@ -50,15 +50,18 @@ Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
 	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com, 
 	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: power: reset:
- cortina,gemini-power-controller: convert to DT schema
-Message-ID: <20260330-premium-pastoral-labrador-58f0a2@quoll>
+Subject: Re: [PATCH v2 2/2] ARM: dts: gemini: Rename power controller node to
+ gemini-poweroff
+Message-ID: <20260330-rough-military-saluki-e2dd8f@quoll>
 References: <20260329205151.15161-1-khushalchitturi@gmail.com>
- <20260329205151.15161-2-khushalchitturi@gmail.com>
+ <20260329205151.15161-3-khushalchitturi@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260329205151.15161-2-khushalchitturi@gmail.com>
+In-Reply-To: <20260329205151.15161-3-khushalchitturi@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_002210_439564_014984E2 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 02:21:50AM +0530, Khushal Chitturi wrote:
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    gemini-poweroff@4b000000 {
+On Mon, Mar 30, 2026 at 02:21:51AM +0530, Khushal Chitturi wrote:
+> Update the node name for the Cortina Gemini power controller from
+> power-controller to gemini-poweroff since node "power controller" is
+> reserved for power domain controller.
+> 
+> Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
+> ---
+>  arch/arm/boot/dts/gemini/gemini.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/boot/dts/gemini/gemini.dtsi b/arch/arm/boot/dts/gemini/gemini.dtsi
+> index befe322bd7de..c524adadcf81 100644
+> --- a/arch/arm/boot/dts/gemini/gemini.dtsi
+> +++ b/arch/arm/boot/dts/gemini/gemini.dtsi
+> @@ -228,7 +228,7 @@ intcon: interrupt-controller@48000000 {
+>  			#interrupt-cells = <2>;
+>  		};
+>  
+> -		power-controller@4b000000 {
+> +		gemini-poweroff@4b000000 {
 
-I gave a list of possible names, yet you chosen different one. No, it
-does not work like that.
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
 
-Please read the feedback and choose one of the names mentioned there.
-
-And next time please read DT maintainer review feedback more carefully.
+Why gemini is added here? It's not generic.
 
 Best regards,
 Krzysztof
