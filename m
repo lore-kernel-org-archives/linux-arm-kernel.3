@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E351061B06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885121061B07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5fcfTP991lgjzl2mPxsyTDxXG5FM5ONdYN/Q1hcVho=; b=ijYeTwJueCH/bfrMmqRNEwiGvk
-	xcpU6+RZP0C65Rl3HW04XH+WZ/6vHRF/XrbO4MG8XQq/gxMu25QTYbvHZmCuL1CIl+JpLYhK94uZc
-	XwMYzgCskDDM2edsv78CVAPKhRwKtRwHzXgu2SbJ9E2U1Or1NXMEil8VnmDz2mbSgiJ3Mi3QZ0nfu
-	iRygo0RqSWi5irb5bFZA3YGXRztXUsY+hToIJqx0C61FRvJ3eXynNy05BoXgBo4SJANzO3S5SUhXY
-	2Eufx78u2nMbBbNnG4sShk0wnhxkhtGYK4ksvHU8WvsPlEeEtjKoFWXung9RJlCHpWZeVvv8U0P1s
-	7lAawyEQ==;
+	bh=W/7WPBVnn+wY3RGRDYoHmhcG//9P0CSZDRZXPby3zwo=; b=j51V+xAEUkNVHfd0urmKRyOWIM
+	ub7OEAgXtzXwzf5PtXlcJXKUn85ewJbNukGK95G4oMU6iScGv+osoKut0/f7R/zSEUa8qC/otW8xn
+	vZ6pFxaqNQagpRo6eMUw44fZ9itMDZpqQrN2KlEwXRUZIv1hDDIaSmXCn9nMr8APqH0EiDlL2N6pS
+	GSzB41Vb4zht5X2983MRC28aqJvglemzAV+o+oDozSiGpLVSJ95dvrdUIwJM2pN6SHfAz7vHQpORP
+	KBqdpQsyS4k9lI6HkuXQzbKaCmK0aXVGsJV2wDYApIZg1UI+qYCLR3RSL6Bydqef+zyiGXOxemmbf
+	FLX0nH1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DwQ-0000000BThu-2DVo;
-	Mon, 30 Mar 2026 14:50:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7DwR-0000000BTjf-2tEm;
+	Mon, 30 Mar 2026 14:50:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dw1-0000000BTLx-0Qoy
+	id 1w7Dw7-0000000BTSR-2nlR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:49:45 +0000
+	Mon, 30 Mar 2026 14:49:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76A9760127;
-	Mon, 30 Mar 2026 14:49:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70320C2BCB1;
-	Mon, 30 Mar 2026 14:49:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 166A260127;
+	Mon, 30 Mar 2026 14:49:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F5F9C4CEF7;
+	Mon, 30 Mar 2026 14:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882184;
-	bh=6nkcrkCRHUqqlyZysnmg8tV49OWHt4pl882aBUvDfo4=;
+	s=k20201202; t=1774882190;
+	bh=ogU9AKOUaT35sbK8mPxNvogWxla2rweipWB00VFORvc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A0EAgj4E/0a0Ogua6aDe6AVN5nEabWoT35fQuFc5Z1qEmOjLNKpJRLWeOgFxf+r0r
-	 qDQBWsSefe1cccRElJTqYqpAFyLZaHP5jMixtGljyO4YDp10By69rVaVmQVI0NWbEe
-	 sIUzoY3aa7va/0epgq0tyed0jh8XBOitTJkAlM6JyyHyDVIh9OzsAOcNoLD8bwQ9bu
-	 JM30Wkmn8MYNT02JQ81FyuMkU9A3io8jurZBWkPKgV+C8qM/ZK5D+6H/0dgIckRqga
-	 hm++YqoAKzVBO9yP8l17PFDQjW2tSJ3MpAutxXRJlEIFAsf8EnNgmB09MWFjCv1NTo
-	 IKVUk+sCOPCsQ==
+	b=NMnNL2WMe7uDe3uyNNKfnO/XpOcf0kPrt79ADkN5IDlQa6wWQUQF9RqZmcdffxIul
+	 RyAKZWTuiCXPSrn1SXkekHEB9gMtK+lDJaaaa/0/BSvaYkL8jZRVaFmdJVrphYjrlr
+	 6P2Xpi7UInitIaR7gB3gK/BH/79/thTyN4bW32/DohKGrWonmR3mp/qCi0h7uTThnL
+	 kIhoX2qJqw03dSyGb6gkNpYMuTCWGVuDE6CRoO3k9PVCktqGwbAUD9UF3CibvtDtUb
+	 uuZzGJXhmDh98tlEaRo3Nht1XkXpcstRTU1mTuVD5+upShfHP6giDgfX5/2AoSOrgP
+	 kjJBlVsbTliLw==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 16/38] KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
-Date: Mon, 30 Mar 2026 15:48:17 +0100
-Message-ID: <20260330144841.26181-17-will@kernel.org>
+Subject: [PATCH v5 18/38] KVM: arm64: Support translation faults in inject_host_exception()
+Date: Mon, 30 Mar 2026 15:48:19 +0100
+Message-ID: <20260330144841.26181-19-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260330144841.26181-1-will@kernel.org>
 References: <20260330144841.26181-1-will@kernel.org>
@@ -79,70 +79,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During teardown of a protected guest, its memory pages must be reclaimed
-from the hypervisor by issuing the '__pkvm_reclaim_dying_guest_page'
-hypercall.
+Extend inject_host_exception() to support the injection of translation
+faults on both the data and instruction side to 32-bit and 64-bit EL0
+as well as 64-bit EL1. This will be used in a subsequent patch when
+resolving an unhandled host stage-2 abort.
 
-Add a new helper, __pkvm_pgtable_stage2_reclaim(), which is called
-during the VM teardown operation to reclaim pages from the hypervisor
-and drop the GUP pin on the host.
-
+Cc: Fuad Tabba <tabba@google.com>
+Reviewed-by: Fuad Tabba <tabba@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/pkvm.c | 31 ++++++++++++++++++++++++++++++-
- 1 file changed, 30 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/include/nvhe/trap_handler.h |  2 ++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c             | 18 +++++++++++++++---
+ 2 files changed, 17 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 7d0fe36fd8dc..3cf23496f225 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -328,6 +328,32 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
- 	return 0;
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+index ba5382c12787..32d7b7746e8e 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
+@@ -16,4 +16,6 @@
+ 				__always_unused int ___check_reg_ ## reg;	\
+ 				type name = (type)cpu_reg(ctxt, (reg))
+ 
++void inject_host_exception(u64 esr);
++
+ #endif /* __ARM64_KVM_NVHE_TRAP_HANDLER_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index adfc0bc15398..6db5aebd92dc 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -705,15 +705,24 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+ 	kvm_skip_host_instr();
  }
  
-+static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64 end)
-+{
-+	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-+	pkvm_handle_t handle = kvm->arch.pkvm.handle;
-+	struct pkvm_mapping *mapping;
-+	int ret;
-+
-+	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
-+		struct page *page;
-+
-+		ret = kvm_call_hyp_nvhe(__pkvm_reclaim_dying_guest_page,
-+					handle, mapping->gfn);
-+		if (WARN_ON(ret))
-+			continue;
-+
-+		page = pfn_to_page(mapping->pfn);
-+		WARN_ON_ONCE(mapping->nr_pages != 1);
-+		unpin_user_pages_dirty_lock(&page, 1, true);
-+		account_locked_vm(current->mm, 1, false);
-+		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-+		kfree(mapping);
+-static void inject_host_exception(u64 esr)
++void inject_host_exception(u64 esr)
+ {
+ 	u64 sctlr, spsr_el1, spsr_el2, exc_offset = except_type_sync;
+ 	const u64 spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT |
+ 			      PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
+ 
+-	exc_offset += CURRENT_EL_SP_ELx_VECTOR;
+-
+ 	spsr_el1 = spsr_el2 = read_sysreg_el2(SYS_SPSR);
++	switch (spsr_el1 & (PSR_MODE_MASK | PSR_MODE32_BIT)) {
++	case PSR_MODE_EL0t:
++		exc_offset += LOWER_EL_AArch64_VECTOR;
++		break;
++	case PSR_MODE_EL0t | PSR_MODE32_BIT:
++		exc_offset += LOWER_EL_AArch32_VECTOR;
++		break;
++	default:
++		exc_offset += CURRENT_EL_SP_ELx_VECTOR;
 +	}
 +
-+	return 0;
-+}
+ 	spsr_el2 &= spsr_mask;
+ 	spsr_el2 |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+ 		    PSR_MODE_EL1h;
+@@ -728,6 +737,9 @@ static void inject_host_exception(u64 esr)
+ 	if (system_supports_mte())
+ 		spsr_el2 |= PSR_TCO_BIT;
+ 
++	if (esr_fsc_is_translation_fault(esr))
++		write_sysreg_el1(read_sysreg_el2(SYS_FAR), SYS_FAR);
 +
- static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64 end)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-@@ -361,7 +387,10 @@ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
- 		kvm->arch.pkvm.is_dying = true;
- 	}
- 
--	__pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
-+	if (kvm_vm_is_protected(kvm))
-+		__pkvm_pgtable_stage2_reclaim(pgt, addr, addr + size);
-+	else
-+		__pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
- }
- 
- void pkvm_pgtable_stage2_destroy_pgd(struct kvm_pgtable *pgt)
+ 	write_sysreg_el1(esr, SYS_ESR);
+ 	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
+ 	write_sysreg_el1(spsr_el1, SYS_SPSR);
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
