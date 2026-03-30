@@ -4,110 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95145F3D61F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E07FC97E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXtK/Bb6scSWKAWFi8Dh0zrFz4wUjG5d2vtkn8qVfbU=; b=yDOKKArvS86Ra34bVxH8UJZRzo
-	yTYhgsUcxN/Emode0M+6M493hUu+iyH/70d+JxlPGj9wr7DK26bZm42nBDjbDPiBTOalwyfjZhIi+
-	vP9yNlN5BfezcPloScM4COjS6FZjdV0T18w315fPl3MGxRrQqSqfkapTY6VrNHYw+rduBvKQ1z4pc
-	+i5v7nwbpprZGOuD2uShE58GFfoAZ1t1zGiSSBV0xEshYBhk4brGAN1PE3mCg63igeE40gh1n5+kB
-	bixU67MCJRpGwtrQlh26PTLoPdUsoe0Fj9iSROsno4P/FssGb+I4tlKKPfpO66MicsJHZ8OKbX4zf
-	jAq+jcTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0ivZ2O70O4T+32qkZNJULjgO0M7a9nMVQ7ecV+OceaI=; b=3uu2oZABQ7xd0MeV6hVbt9xkYV
+	mxlhYTHeWE39n4zNhHnJpyGtI+db4GlWrMbOM+dh3eZQvP+rkVPNw2olSW8/gd/7mXddgvt10F/Fo
+	E+5zm3JFMhM4xaRL8asJ81RpDNEadaw0jR6N4YXUl3Uq3kRyulBpwiK2tcCqARkXr8gYI7rQ6fLQ4
+	b5qc2BFhER7ueWmF0/KMNnJgy8c5ZZP7NtqrYruXTVDtosTT5sYYneolZNyRjEzXSF2k1QMIp1pmZ
+	YtITb0k5kfLWyB6cUi1yikzXMT9T2kcp38D9Z2DTyibWVhsdec69UdLoSLsYQBWKKcNDNCSoDzbkp
+	Pnxtl4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w786v-0000000AsWo-3jco;
-	Mon, 30 Mar 2026 08:36:37 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1w78DD-0000000Atwa-1ZLh;
+	Mon, 30 Mar 2026 08:43:07 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w786u-0000000AsUm-022y
+	id 1w78DA-0000000Atw0-1mxU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 08:36:37 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4852a9c6309so34787705e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 01:36:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774859794; x=1775464594; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pXtK/Bb6scSWKAWFi8Dh0zrFz4wUjG5d2vtkn8qVfbU=;
-        b=rG/fmF0DZZPMRd0JIxykF7R2pwvLDSn2AEAgyKWN5xFQIsNyOKiAIO8S8VOEb25a1i
-         tsshLEiXo85QVGS6X1dAJbi1QhW2KODN7FicT47n2EFyqIv6RsxwlTELNGiSf3qzYOIR
-         L+3kjNVzSML3/2jdhFbyEzL2MxPxuVS0FPf+wTVygCBs/REyKms2NsfTDxpNyEZU3I8p
-         iTkE64gPJGPkHSnUcSgSq/dBxYBMM8eCxmfeCZA8A1P6QjdXaCaYIkPY+34EE9cyC1Hd
-         a0VVmJLRRKdEqGzVLJRMgmATjj60r0+lM4/3Z1uRVOtJhOSANXwjXl6jLYH+y7z3wk8/
-         v31g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774859794; x=1775464594;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pXtK/Bb6scSWKAWFi8Dh0zrFz4wUjG5d2vtkn8qVfbU=;
-        b=sVCzWLJuQIBcgGXL5MuoCc/t1PXoQpyvWLxzm6gI/jKmsWhEnrK6e3zsIJyAI15e4e
-         1jW3kUkIzDNz4rGouEtZQp/QS+z17nTMjfS7tJs/jtM6I/GbYo4fuv2x7sdcfmA95afH
-         NUcVJG2PjFQMUAEJaEwByCrd8lywvrkxK8rRar5N3AexP3pu2n3NGPMtsvmyoTOeFnE6
-         dhcz4rnPSrZrV4O9pdnQpzwd4xe/OoRu98eIJUzdeUGdnioVSWY3hISrHEgvjewz1lQN
-         3eGoyL4Eox7sqsHH38d8joxaml56tPDHGRA5bsH6qNXATn+JbjjmDn9m7wSGVYBLLWDm
-         JWng==
-X-Forwarded-Encrypted: i=1; AJvYcCW39amx+rodGBUEYMhOR0vHlto4q+NFURz8ZVLv7UE7xcBGTo67FFgXgnAMAur4doAMEjyk+Xl/F8MF/uL7fewS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc6Q8nY6rLGuMr5q51OxsJIWJPISDIOERQ7alBOIhCDs5m3I7A
-	6FWzHWyypNKqa8vXUWlJ6/lgVxOU3yc6oeebTAxjw2qebB55VWxhwpTD
-X-Gm-Gg: ATEYQzxUAtklKPPUKjbH+ha2vhtdmUJxwhFcznCf1PXMu1kolnUvoUVMTIq4ar8a+aO
-	r5MkEW1XaTz5Sx8uexZ9b/+FKMSkvm4yaeyhjWeVr9uevPHDKiO10wmOcucyQTaP4t39MJZy9w2
-	vOP5DHaYfyxcTIQVt/pz103HYImi1ZH8DtHhQQAD1RrXvp8pPDunHtUA+V4P9G4RCbiCWbkqFBD
-	+yY4395VHJAaZrDIJ/3kutMYWu5OgI6e6DNvwNN8u9p4/14fPfgAdm0GTBXOFpX4Ba+1rguKc2Z
-	nJt1slKQu0drZqtfk3X4JGD+rTARFmCn7zmEeKMvdiM1cebQJsVO8PTssECUja/UCGjM1sLU2M1
-	hwZKXGLySSVzqQtQ+ZViO81yjViLuiutmRVrcaLsRDOhgWeXBzDTbCgjfP8++O+maFH4ucNlsgl
-	bwmpwSO7anVWEayXJnnOrsXljQJc6+ag==
-X-Received: by 2002:a05:600c:6386:b0:485:3ff1:d5ed with SMTP id 5b1f17b1804b1-48727ee5720mr183078015e9.1.1774859794164;
-        Mon, 30 Mar 2026 01:36:34 -0700 (PDT)
-Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48722c6b495sm508329995e9.2.2026.03.30.01.36.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 01:36:33 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Val Packett <val@packett.cool>,
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Mon, 30 Mar 2026 08:43:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774860184; x=1806396184;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=x+luIYl184hnu2wsYl6KHzVpPW719gOm551v3luzkNs=;
+  b=DHuC38jkizmQf2Jfz48O1PGPp3UK4GQXTxl4Ll4ssDzub27Qj9oFX5ZV
+   Hn2uF9hz8Z+/AOSGVg7+SZaxstFzI/AhZwddh/2QOifrhGASHjMKzgzCN
+   zQDH8oPxzpuwDcFjLA3KEjZiXtiPmc+dS2dR1PzmYHcRF4R7h9bqazaaO
+   fHK8AIELREKZ8+HN1TOq5lReRGUOOTJPTEqeNq3teunIpvFfdgiFmCLp+
+   SXWTVaRajBhVoh+ZC8bWvvwNrTPpTnHxZLF3EeJJxWafLP4uF5JwIIKaB
+   NB2yuLeTOzE65gKWoQnh+2XRPvlDTcl6y/yp3oZwB9tiTKIyyy/I0XNo0
+   w==;
+X-CSE-ConnectionGUID: +PXCU7QSTJWNUFJ5Fdc3wg==
+X-CSE-MsgGUID: 6HeTNHOzQSypHiX2noBCog==
+X-IronPort-AV: E=McAfee;i="6800,10657,11743"; a="63398924"
+X-IronPort-AV: E=Sophos;i="6.23,149,1770624000"; 
+   d="scan'208";a="63398924"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2026 01:43:03 -0700
+X-CSE-ConnectionGUID: WPfsgOUKRzKMOV9q/wI69w==
+X-CSE-MsgGUID: EksjGDglS/Cmn5IHSbbIlg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,149,1770624000"; 
+   d="scan'208";a="230904375"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa005.jf.intel.com with ESMTP; 30 Mar 2026 01:43:00 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id 6BD0A98; Mon, 30 Mar 2026 10:42:58 +0200 (CEST)
+Date: Mon, 30 Mar 2026 11:42:08 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Lee Jones <lee@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Gary Bisson <bisson.gary@gmail.com>,
-	Fabien Parent <parent.f@gmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>,
-	linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH v4 9/9] arm64: dts: mediatek: Add MediaTek MT6392 PMIC dtsi
-Date: Mon, 30 Mar 2026 09:29:43 +0100
-Message-ID: <20260330083429.359819-10-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260330083429.359819-1-l.scorcia@gmail.com>
-References: <20260330083429.359819-1-l.scorcia@gmail.com>
+	Hans de Goede <hansg@kernel.org>,
+	Linux-OMAP <linux-omap@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Kevin Hilman <khilman@kernel.org>
+Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+Message-ID: <aco3YBCQsT2BN2_N@kuha>
+References: <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
+ <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
+ <7h1phxpzml.fsf@baylibre.com>
+ <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
+ <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
+ <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi>
+ <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
+ <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi>
+ <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
+ <ackRzly0mXHReI7V@ashevche-desk.local>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <ackRzly0mXHReI7V@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_013636_093990_61770E5C 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260330_014304_525967_BA10DF1B 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,97 +106,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Val Packett <val@packett.cool>
+On Sun, Mar 29, 2026 at 02:49:59PM +0300, Andy Shevchenko wrote:
+> +Cc: Heikki, the author of the code in question.
+> 
+> On Fri, Mar 27, 2026 at 06:23:29PM +0100, Bartosz Golaszewski wrote:
+> > On Fri, Mar 27, 2026 at 5:59 PM Aaro Koskinen <aaro.koskinen@iki.fi> wrote:
+> > > On Fri, Mar 27, 2026 at 03:22:12PM +0100, Bartosz Golaszewski wrote:
+> > > > Hmm, I'm wondering if there's a race with consumers already requesting
+> > > > the GPIOs after the controller device is registered but before the
+> > > > software node is added. I'll send a version with software nodes being
+> > > > registered first, then passes as firmware nodes to the platform device
+> > > > API before the device is registered.
+> > >
+> > > It crashes early, I was able to get an UART log from OSK (another
+> > > 16xx board):
+> > >
+> > > [    1.001525] Register r12 information: 2-page vmalloc region starting at 0xc2808000 allocated at kernel_clone+0xa4/0x20c
+> > > [    1.013092] Process swapper/0 (pid: 1, stack limit = 0x(ptrval))
+> > > [    1.019500] Stack: (0xc2809ed0 to 0xc280a000)
+> > > [    1.024230] 9ec0:                                     c072d000 c0529474 c06b3aa0 c050a3cc
+> > > [    1.032958] 9ee0: c072d000 c085c000 00000002 c052582c c050a324 c072d000 00000000 c0503160
+> > > [    1.041687] 9f00: 00002710 00000000 c04da8f8 c0060900 c2809f64 ffffffff 00010000 946f70b5
+> > > [    1.050384] 9f20: 00000062 c0816120 00000002 c052582c c0525848 c072d000 c04da8f8 c0060a18
+> > > [    1.059112] 9f40: c2809f64 c2809f64 00000000 946f70b5 00000062 c0816120 00000002 c052582c
+> > > [    1.067810] 9f60: c052584c c072d000 c04da8f8 c050352c 00000002 00000002 00000000 c0502400
+> > > [    1.076507] 9f80: c2809f7c 00000000 c03f86f4 00000000 00000000 00000000 00000000 00000000
+> > > [    1.085205] 9fa0: 00000000 c03f8704 00000000 c000850c 00000000 00000000 00000000 00000000
+> > > [    1.093902] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+> > > [    1.102600] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000 00000000 00000000
+> > > [    1.111206] Call trace:
+> > > [    1.111328]  software_node_to_swnode from device_add_software_node+0x20/0x80
+> > > [    1.121704]  device_add_software_node from omap16xx_gpio_init+0xa8/0xe4
+> > > [    1.128997]  omap16xx_gpio_init from do_one_initcall+0x68/0x1f4
+> > > [    1.135620]  do_one_initcall from kernel_init_freeable+0x1ec/0x240
+> > > [    1.142517]  kernel_init_freeable from kernel_init+0x10/0x108
+> > > [    1.148864]  kernel_init from ret_from_fork+0x14/0x28
+> > > [    1.154357] Exception stack(0xc2809fb0 to 0xc2809ff8)
+> > > [    1.159820] 9fa0:                                     00000000 00000000 00000000 00000000
+> > > [    1.168518] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+> > > [    1.177185] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+> > > [    1.184295] Code: e3500000 012fff1e e59f3034 e5932000 (e5923000)
+> > > [    1.191040] ---[ end trace 0000000000000000 ]---
+> > > [    1.196350] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> > > [    1.204559] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+> > 
+> > Thanks. This makes sense. Both omap16xx_gpio_init() and
+> > software_node_init() run as postcore_initcall() so if the order is not
+> > right, it will fail.
+> > 
+> > Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
+> > reason to run software_node_init() as a postcore initcall? It only
+> > allocates the kset, can we move it to core_initcall() by any chance?
+> 
+> Good question. I don't know why it's chosen like this.
+> Let ask Heikki, who is the author of the code.
 
-Add the dts to be included by all boards using the MT6392 PMIC.
+I don't remember why it was it made a postcore initcall (I only
+remember that there was some reason at the time). It's probable
+fine to just make it a core initcall.
 
-Signed-off-by: Val Packett <val@packett.cool>
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
----
- arch/arm64/boot/dts/mediatek/mt6392.dtsi | 73 ++++++++++++++++++++++++
- 1 file changed, 73 insertions(+)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
+thanks,
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6392.dtsi b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
-new file mode 100644
-index 000000000000..750ee9b2856f
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2019 MediaTek Inc.
-+ * Copyright (c) 2024 Val Packett <val@packett.cool>
-+ */
-+
-+#include <dt-bindings/input/input.h>
-+
-+&pwrap {
-+	pmic: pmic {
-+		compatible = "mediatek,mt6392", "mediatek,mt6323";
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+
-+		keys {
-+			compatible = "mediatek,mt6392-keys";
-+
-+			key-power {
-+				linux,keycodes = <KEY_POWER>;
-+				wakeup-source;
-+			};
-+
-+			key-home {
-+				linux,keycodes = <KEY_HOME>;
-+				wakeup-source;
-+			};
-+		};
-+
-+		pio6392: pinctrl {
-+			compatible = "mediatek,mt6392-pinctrl";
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+
-+		rtc {
-+			compatible = "mediatek,mt6392-rtc",
-+				"mediatek,mt6323-rtc";
-+		};
-+
-+		mt6392regulators: regulators {
-+			/* Fixed supply defined in the data sheet */
-+			avddldo-supply = <&mt6392_vsys_reg>;
-+
-+			mt6392_vcore_reg: vcore { };
-+			mt6392_vproc_reg: vproc { };
-+			mt6392_vsys_reg: vsys { };
-+			mt6392_vaud28_reg: vaud28 { };
-+			mt6392_vxo22_reg: vxo22 { };
-+			mt6392_vaud22_reg: vaud22 { };
-+			mt6392_vadc18_reg: vadc18 { };
-+			mt6392_vcama_reg: vcama { };
-+			mt6392_vcn35_reg: vcn35 { };
-+			mt6392_vio28_reg: vio28 { };
-+			mt6392_vusb_reg: vusb { };
-+			mt6392_vmc_reg: vmc { };
-+			mt6392_vmch_reg: vmch { };
-+			mt6392_vemc3v3_reg: vemc3v3 { };
-+			mt6392_vcamaf_reg: vcamaf { };
-+			mt6392_vgp1_reg: vgp1 { };
-+			mt6392_vgp2_reg: vgp2 { };
-+			mt6392_vefuse_reg: vefuse { };
-+			mt6392_vm25_reg: vm25 { };
-+			mt6392_vdig18_reg: vdig18 { };
-+			mt6392_vm_reg: vm { };
-+			mt6392_vio18_reg: vio18 { };
-+			mt6392_vcn18_reg: vcn18 { };
-+			mt6392_vcamd_reg: vcamd { };
-+			mt6392_vcamio_reg: vcamio { };
-+			mt6392_vrtc_reg: vrtc {	};
-+		};
-+	};
-+};
 -- 
-2.43.0
-
+heikki
 
